@@ -2,7 +2,9 @@
 I am still in the process of moving FreeTube over to GitHub, once documentation and other preparations have been finished, the code will be pushed into this repository.  Thank you for your patience.
 
 # FreeTube
-An Open Source Desktop YouTube player built with privacy in mind.  Watch your favorite YouTube videos ad free as well as prevent Google from tracking what you watch.  Available for Windows / Mac / Linux
+
+<img src="https://freetubeapp.github.io/images/icon.svg" width=50 >
+FreeTube is an Open Source Desktop YouTube player built with privacy in mind.  Watch your favorite YouTube videos ad free as well as prevent Google from tracking what you watch.  Available for Windows / Mac / Linux
 
 ## Screenshots
 <img src="https://freetubeapp.github.io/images/FreeTube1.png" width=200 >
@@ -27,7 +29,7 @@ FreeTube uses the YouTube API to search for videos.  It then uses the HookTube A
 While I believe that FreeTube should work well for most users, there will probably be some bugs or features missing.  Because of this, FreeTube is currently in beta and will be considered "stable" when these have been addressed.
 
 # I'd like to help!
-If you have an idea or if you found a bug, please create an issue so that we can track.  Please check the current issues and make sure that someone else hasn't mentioned it already before submitting an issue.
+If you have an idea or if you found a bug, please create an issue so that we can track it.  Please check the current issues and make sure that someone else hasn't mentioned it already before submitting an issue.
 
 If you like to get your hands dirty and want to contribute, we would love to have your help.  Send a pull request and someone will review your code. Proper contribution guidelines will be included soon, but in the meantime here's how to get start:
 
