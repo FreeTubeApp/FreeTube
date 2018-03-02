@@ -1,0 +1,21 @@
+<img class='channelViewBanner' src='{{channelBanner}}' />
+<br />
+<div class='channelViewTitle'>
+  <img class='channelViewImage' src='{{channelImage}}' />
+  <span class='channelViewName'>{{channelName}}</span>
+  <br />
+  <span class='channelViewSubs'>{{subCount}} Subscribers</span>
+  <div id='subscribeButton' class='channelSubButton' onclick='toggleSubscription("{{channelId}}");'>
+    {{isSubscribed}}
+  </div>
+</div>
+<br />
+<hr />
+<div class='channelViewDescription'>
+  {{{channelDescription}}}
+</div>
+<br />
+<hr />
+<div id='videoListContainer'>
+  <h2>Latest Uploads</h2>
+</div>

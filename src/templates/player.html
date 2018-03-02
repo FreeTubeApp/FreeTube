@@ -1,0 +1,55 @@
+{{{videoHtml}}}
+<div class='statistics'>
+  <div class='smallButton' onclick="openMiniPlayer('{{videoThumbnail}}')">
+    MINI PLAYER  <i class="fas fa-external-link-alt"></i>
+  </div>
+  <div class='smallButton videoQuality'>
+    <span id='currentQuality'>{{videoQuality}}</span> <i class="fas fa-angle-down"></i>
+    <div class='qualityTypes'>
+      <ul>
+        <li id='quality480p' onclick='changeQuality("{{video480p}}", "480p")'>480p</li>
+        <li id='quality720p' onclick='changeQuality("{{video720p}}", "720p")'>720p</li>
+        <li id='qualityEmbed' onclick='changeQuality("{{embedPlayer}}", "EMBED", true)'>EMBED</li>
+      </ul>
+    </div>
+  </div>
+  <div onclick='toggleSavedVideo("{{videoId}}")' class='smallButton'>
+    <i id='saveIcon' style='color: {{savedIconColor}};' class="{{savedIconClass}} fa-star"></i> <span id='savedText'>{{savedText}}</span>
+  </div>
+  <div class='smallButton' onclick='copyLink("youtube", "{{videoId}}")'>
+    COPY YOUTUBE LINK
+  </div>
+  <div class='smallButton' onclick='copyLink("hooktube", "{{videoId}}")'>
+    COPY HOOKTUBE LINK
+  </div>
+  <br />
+  <p class='title'>{{videoTitle}}</p>
+  <p class='views'>{{videoViews}} views</p>
+  <div class='likeContainer'>
+    <div class='dislikeBar'>
+      <div class='likeBar' style='width: {{likePercentage}}%;'>
+      </div>
+    </div>
+    <span class='likes'><i class="fas fa-thumbs-up"></i> {{videoLikes}}</span><span class='dislikes'><i class="fas fa-thumbs-down"></i> {{videoDislikes}}</span>
+  </div>
+</div>
+<div class="details">
+  <img id='channelIcon' onclick='goToChannel("{{channelId}}")' src="{{channelIcon}}" />
+  <p id='channelName' onclick='goToChannel("{{channelId}}")'>{{channelName}}</p>
+  <p id='publishDate'>Published on {{publishedDate}}</p>
+  <div id='subscribeButton' class='playerSubButton' onclick='toggleSubscription("{{channelId}}")'>{{isSubscribed}}</div>
+  <br /><br />
+  <div id='description'>
+    {{{description}}}
+  </div>
+</div>
+<div id='showComments'>
+  Show Comments <i class="far fa-comments"></i> (Max of 100)
+</div>
+
+<div id='comments' data-video-id="{{videoId}}">
+</div>
+
+<div id='recommendations'>
+  <strong>Recommendations</strong>
+</div>

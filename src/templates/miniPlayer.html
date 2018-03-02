@@ -1,0 +1,30 @@
+<title>Freetube Mini-Player</title>
+<style>
+body{
+  background-color: #424242;
+}
+.videoPlayer{
+  width: 100%;
+}
+iframe{
+  width: 100%;
+  height: 54.9vw;
+}
+</style>
+<script src="../js/events.js"></script>
+<script>
+window.$ = window.jQuery = require('jquery');
+let startTime = '{{startTime}}';
+
+$('.videoPlayer').ready(() => {
+  $('.videoPlayer').get(0).currentTime = startTime;
+});
+
+let playPauseVideo = function(event) {
+  let el = event.currentTarget;
+  el.paused ? el.play() : el.pause();
+}
+
+$(document).on('click', '.videoPlayer', playPauseVideo);
+</script>
+{{{videoHtml}}}

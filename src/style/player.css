@@ -1,0 +1,218 @@
+iframe{
+  width: 100%;
+  height: 41.25vw;
+}
+
+#main{
+    margin-top: 80px;
+    margin-left: 250px;
+}
+
+.video{
+  width: 95%;
+  max-width: 1000px;
+  height: 145px;
+  padding: 15px;
+  overflow: hidden;
+}
+
+.videoThumbnail{
+  width: 275px;
+  float: left;
+  cursor: pointer;
+}
+
+.videoTitle{
+  font-weight: bold;
+  margin-left: 285px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.channelName{
+  margin-left: 285px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.videoDescription{
+  margin-left: 285px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.videoPlayer{width: 100%;}
+
+.statistics{
+ padding: 20px;
+ padding-bottom: 45px;
+}
+
+.title{
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.views{
+  margin-top: -10px;
+  float: left;
+}
+
+.details{
+  padding: 15px;
+}
+
+.likeContainer{
+  width: 300px;
+  float: right;
+}
+
+.likes{
+  float: left;
+  font-size: 12px;
+}
+
+.dislikes{
+  float: right;
+  font-size: 12px;
+}
+
+.dislikeBar{
+  background-color: #9E9E9E;
+  width: 300px;
+  height: 5px;
+  margin-bottom: 5px;
+  border-radius: 200px 200px 200px 200px;
+  -webkit-border-radius: 200px 200px 200px 200px;
+}
+
+.likeBar{
+  height: 5px;
+  background-color: #2196F3;
+  border-radius: 200px 200px 200px 200px;
+  -webkit-border-radius: 200px 200px 200px 200px;
+}
+
+#channelIcon{
+  float: left;
+  width: 80px;
+  border-radius: 200px 200px 200px 200px;
+  -webkit-border-radius: 200px 200px 200px 200px;
+  cursor: pointer;
+}
+
+#comments .line {
+  clear: both;
+  height: 1px;
+  background: #d8d8d8;
+}
+
+.userIcon {
+  float: left;
+  width: 48px;
+  border-radius: 200px 200px 200px 200px;
+  -webkit-border-radius: 200px 200px 200px 200px;
+  cursor: pointer;
+}
+
+#channelName{
+  font-weight: bold;
+  margin-left: 95px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#publishDate{
+  margin-left: 95px;
+  font-size: 13px;
+  margin-top: -10px;
+}
+
+#description{
+  white-space: pre-line;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.playerSubButton{
+  float: right;
+  width: 125px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  margin-top: -65px;
+  cursor: pointer;
+}
+
+.smallButton{
+  float: right;
+  height: 30px;
+  font-size: 10px;
+  line-height: 30px;
+  text-align: center;
+  margin-right: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  cursor: pointer;
+}
+
+.videoQuality{
+  width: 42px;
+}
+
+.videoQuality:hover .qualityTypes{
+  visibility: visible;
+}
+
+.qualityTypes{
+  visibility: hidden;
+  width: 72px;
+  position: relative;
+  bottom: 10px;
+  right: 15px;
+}
+
+.qualityTypes ul{
+  list-style-type: none;
+  position: relative;
+  right: 24px;
+}
+
+#showComments{
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#recommendations{
+  width: 100%;
+}
+
+.recommendVideo{
+  cursor: pointer;
+  height: 150px;
+}
+
+.recommendThumbnail{
+  width: 250px;
+  float: left;
+}
+
+.recommendTitle{
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 260px;
+}
+
+.recommendChannel{
+  margin-left: 260px;
+  font-size: 14px;
+  margin-top: -10px;
+}
+
+.recommendDate{
+  margin-left: 260px;
+  font-size: 11px;
+}

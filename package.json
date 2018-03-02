@@ -1,0 +1,69 @@
+{
+  "name": "FreeTube",
+  "productName": "FreeTube",
+  "version": "0.1.0",
+  "description": "An Open Source YouTube app for privacy.",
+  "main": "src/js/init.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "make:darwin": "electron-forge make --platform=darwin",
+    "make:linux": "electron-forge make --platform=linux",
+    "make:win32": "electron-forge make --platform=win32"
+  },
+  "keywords": [],
+  "author": {
+    "name": "PrestonN",
+    "email": "FreeTubeApp@protonmail.com",
+    "url": "https://github.com/FreeTubeApp/FreeTube"
+  },
+  "license": "GPL-3.0",
+  "config": {
+    "forge": {
+      "make_targets": {
+        "win32": [
+          "squirrel"
+        ],
+        "darwin": [
+          "zip"
+        ],
+        "linux": [
+          "deb",
+          "rpm"
+        ]
+      },
+      "electronPackagerConfig": {
+        "packageManager": "yarn",
+        "icon": "./src/icon.icns"
+      },
+      "electronWinstallerConfig": {
+        "name": "freetube",
+        "iconUrl": "https://raw.githubusercontent.com/FreeTubeApp/FreeTubeApp.github.io/master/images/icon.ico",
+        "setupIcon": "./src/icon.ico"
+      },
+      "electronInstallerDebian": {
+        "icon": "src/icon.svg"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/FreeTubeApp/FreeTube"
+      }
+    }
+  },
+  "devDependencies": {
+    "electron-forge": "^5.1.1",
+    "electron-prebuilt-compile": "1.8.2",
+    "electron-winstaller": "^2.6.4"
+  },
+  "dependencies": {
+    "autolinker": "^1.6.2",
+    "dateformat": "^3.0.3",
+    "electron-compile": "^6.4.2",
+    "jquery": "^3.3.1",
+    "mustache": "^2.3.0",
+    "nedb": "^1.8.0",
+    "node-async-loop": "^1.2.2"
+  }
+}
