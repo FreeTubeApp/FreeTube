@@ -1,6 +1,3 @@
-# NOTE
-I am still in the process of moving FreeTube over to GitHub, once documentation and other preparations have been finished, the code will be pushed into this repository.  Thank you for your patience.
-
 # FreeTube
 FreeTube is an Open Source Desktop YouTube player built with privacy in mind.  Watch your favorite YouTube videos ad free as well as prevent Google from tracking what you watch.  Available for Windows / Mac / Linux
 
