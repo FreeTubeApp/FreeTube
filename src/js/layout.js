@@ -38,6 +38,7 @@ const asyncLoop = require('node-async-loop');
 const shell = electron.shell; // Used to open external links into the user's native browser.
 const localDataStorage = electron.remote.app.getPath('userData'); // Grabs the userdata directory based on the user's OS
 const clipboard = electron.clipboard;
+const getOpml = require('opml-to-json'); // Gets the file type for imported files.
 const fs = require('fs'); // Used to read files. Specifically in the settings page.
 let currentTheme = '';
 let apiKey;

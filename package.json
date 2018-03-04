@@ -64,6 +64,7 @@
     "jquery": "^3.3.1",
     "mustache": "^2.3.0",
     "nedb": "^1.8.0",
-    "node-async-loop": "^1.2.2"
+    "node-async-loop": "^1.2.2",
+    "opml-to-json": "0.0.3"
   }
 }

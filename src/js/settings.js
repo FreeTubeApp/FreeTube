@@ -210,6 +210,29 @@ function setTheme(option){
 }
 
 /**
+* Import Subscriptions from an OPML file.
+*
+* @param {string} subFile - The file location of the OPML file.
+*
+* @return {Void}
+*/
+function importOpmlSubs(json){
+  if(json[0]['folder'] !== 'YouTube Subscriptions'){
+    showToast('Invalid OPML File.  Import is unsuccessful.');
+    return;
+  }
+
+  json.forEach((channel) => {
+    let channelId = channel['xmlurl'].replace('https://www.youtube.com/feeds/videos.xml?channel_id=', '');
+
+    addSubscription(channelId, false);
+  });
+  window.setTimeout(displaySubs, 1000);
+  showToast('Subscriptions have been imported!');
+  return;
+}
+
+/**
 * Import a subscriptions file that the user provides.
 *
 * @return {Void}
@@ -221,22 +244,45 @@ function importSubscriptions(){
   dialog.showOpenDialog({
     properties: ['openFile'],
     filters: [
-      {name: 'Database File', extensions: ['db']},
+      {name: 'Database File', extensions: ['*']},
     ]
   }, function(fileLocation){
     if(typeof(fileLocation) === 'undefined'){
       console.log('Import Aborted');
       return;
     }
-    if(typeof(fileLocation) !== 'object'){
-      showToast('Incorrect filetype. Import Aborted.');
+    console.log(fileLocation);
+    let i = fileLocation[0].lastIndexOf('.');
+    let fileType = (i < 0) ? '' : fileLocation[0].substr(i);
+    console.log(fileType);
+
+    /*if (fileType !== '.db'){
+      showToast('Incorrect filetype.  Import was unsuccessful.');
       return;
-    }
+    }*/
+
     fs.readFile(fileLocation[0], function(readErr, data){
       if(readErr){
         showToast('Unable to read file.  File may be corrupt or have invalid permissions.');
         throw readErr;
       }
+
+      if (data.includes("<opml")){
+        getOpml(data, function (error, json){
+          if (!error){
+            clearFile('subscriptions', false);
+            importOpmlSubs(json['children'][0]['children']);
+          }
+        });
+        return;
+      }
+      else if (fileType !== '.db'){
+        showToast('Incorrect file type.  Import unsuccessful.');
+        return;
+      }
+
+      clearFile('subscriptions', false);
+
       fs.writeFile(appDatabaseFile, data, function(writeErr){
         if(writeErr){
           showToast('Unable to create file.  Please check your permissions and try again.');
@@ -286,7 +332,7 @@ function exportSubscriptions(){
 *
 * @param {string} type - The type of file to be cleared.
 */
-function clearFile(type){
+function clearFile(type, showMessage = true){
   console.log(type);
   let dataBaseFile;
 
@@ -310,6 +356,9 @@ function clearFile(type){
     if(err){
       throw err;
     }
-    showToast('File has been cleared. Restart FreeTube to see the changes');
+
+    if (showMessage){
+      showToast('File has been cleared. Restart FreeTube to see the changes');
+    }
   })
 }
