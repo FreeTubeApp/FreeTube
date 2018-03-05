@@ -28,7 +28,7 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 *
 * @return {Void}
 */
-function addSubscription(channelId) {
+function addSubscription(channelId, useToast = true) {
   console.log(channelId);
   // Request YouTube API
   let request = gapi.client.youtube.channels.list({
@@ -50,10 +50,11 @@ function addSubscription(channelId) {
 
     // Refresh the list of subscriptions on the side navigation bar.
     subDb.insert(data, (err, newDoc) => {
-      displaySubs();
+      if (useToast){
+        showToast('Added ' + channelName + ' to subscriptions.');
+        displaySubs();
+      }
     });
-
-    showToast('Added ' + channelName + ' to subscriptions.');
   });
 }
 
