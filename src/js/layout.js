@@ -44,6 +44,7 @@ let currentTheme = '';
 let apiKey;
 let dialog = require('electron').remote.dialog; // Used for opening file browser to export / import subscriptions.
 let toastTimeout; // Timeout for toast notifications.
+let mouseTimeout; // Timeout for hiding the mouse cursor on video playback
 
 // Subscriptions database file
 const subDb = new Datastore({
@@ -292,4 +293,28 @@ function confirmFunction(message, performFunction, parameters){
 function hideConfirmFunction(){
   let confirmContainer = document.getElementById('confirmFunction');
   confirmContainer.style.visibility = 'hidden';
+}
+
+/**
+* Hide the mouse cursor after ~3 seconds.  Used to hide the video when the user
+* hovers the mouse over the video player.
+*
+* @return {Void}
+*/
+function hideMouseTimeout(){
+  $('.videoPlayer')[0].style.cursor = 'default';
+  clearTimeout(mouseTimeout);
+  mouseTimeout = window.setTimeout(function(){
+    $('.videoPlayer')[0].style.cursor = 'none';
+  }, 3150);
+}
+
+/**
+* Remove the timeout for the mouse cursor as a fallback.
+*
+* @return {Void}
+*/
+function removeMouseTimeout(){
+  $('.videoPlayer')[0].style.cursor = 'default';
+  clearTimeout(mouseTimeout);
 }

@@ -1,7 +1,7 @@
 {
   "name": "FreeTube",
   "productName": "FreeTube",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "An Open Source YouTube app for privacy.",
   "main": "src/js/init.js",
   "scripts": {
@@ -61,6 +61,7 @@
     "autolinker": "^1.6.2",
     "dateformat": "^3.0.3",
     "electron-compile": "^6.4.2",
+    "electron-squirrel-startup": "^1.0.0",
     "jquery": "^3.3.1",
     "mustache": "^2.3.0",
     "nedb": "^1.8.0",

@@ -232,11 +232,11 @@ function playVideo(videoId) {
       showToast('Unable to get video file.  Reverting to embeded player.');
     } else if (typeof(video720p) === 'undefined' && typeof(video480p) !== 'undefined') {
       // Default to the 480p video if the 720p URL cannot be found.
-      videoHtml = '<video class="videoPlayer" controls="" src="' + video480p + '" poster="' + videoThumbnail + '" autoplay></video>';
+      videoHtml = '<video class="videoPlayer" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" src="' + video480p + '" poster="' + videoThumbnail + '" autoplay></video>';
       defaultQuality = '480p';
     } else {
       // Default to the 720p video.
-      videoHtml = '<video class="videoPlayer" controls="" src="' + video720p + '" poster="' + videoThumbnail + '" autoplay></video>';
+      videoHtml = '<video class="videoPlayer" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" src="' + video720p + '" poster="' + videoThumbnail + '" autoplay></video>';
       defaultQuality = '720p';
       // Force the embeded player if needed.
       //videoHtml = embedPlayer;

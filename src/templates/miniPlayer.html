@@ -15,10 +15,35 @@ iframe{
 <script>
 window.$ = window.jQuery = require('jquery');
 let startTime = '{{startTime}}';
+let mouseTimeout;
 
 $('.videoPlayer').ready(() => {
   $('.videoPlayer').get(0).currentTime = startTime;
 });
+
+/**
+* Hide the mouse cursor after ~3 seconds.  Used to hide the video when the user
+* hovers the mouse over the video player.
+*
+* @return {Void}
+*/
+function hideMouseTimeout(){
+  $('.videoPlayer')[0].style.cursor = 'default';
+  clearTimeout(mouseTimeout);
+  mouseTimeout = window.setTimeout(function(){
+    $('.videoPlayer')[0].style.cursor = 'none';
+  }, 3150);
+}
+
+/**
+* Remove the timeout for the mouse cursor as a fallback.
+*
+* @return {Void}
+*/
+function removeMouseTimeout(){
+  $('.videoPlayer')[0].style.cursor = 'default';
+  clearTimeout(mouseTimeout);
+}
 
 let playPauseVideo = function(event) {
   let el = event.currentTarget;
@@ -26,5 +51,7 @@ let playPauseVideo = function(event) {
 }
 
 $(document).on('click', '.videoPlayer', playPauseVideo);
+$(document).on('mouseover', '.videoPlayer', hideMouseTimeout);
+$(document).on('mouseleave', '.videoPlayer', removeMouseTimeout);
 </script>
 {{{videoHtml}}}

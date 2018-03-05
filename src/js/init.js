@@ -25,6 +25,8 @@ const path = require('path');
 const url = require('url');
 let win;
 
+if(require('electron-squirrel-startup')) app.quit();
+
 /**
  * initialize the electron application
  * 1. create the browser window
