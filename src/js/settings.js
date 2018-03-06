@@ -18,36 +18,38 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /*
-* A file for functions used for settings.
-*/
+ * A file for functions used for settings.
+ */
 
 /**
-* Display the settings screen to the user.
-*
-* @return {Void}
-*/
-function showSettings(){
+ * Display the settings screen to the user.
+ *
+ * @return {Void}
+ */
+function showSettings() {
   clearMainContainer();
   toggleLoading();
 
   let isChecked = '';
   let key = '';
 
+  // To any third party devs that fork the project, please be ethical and change the API keys.
+  const apiKeyBank = ['AIzaSyDjszXMCw44W_k-pdNoOxUHFyKGtU_ejwE', 'AIzaSyA0CkT2lS1q9HHaFYGNGM4Ycjl1kmRy22s', 'AIzaSyAiKgR75e3XAznCcb1cj4NUJ5rR_y3uB8E', 'AIzaSyDPy5jq2l1Bgv3-MbpGdZd3W3ik1BMZeDc', 'AIzaSyBeQ-Jd0lyMmul-K1QMZ2S4GSlnGFdCd3M'];
+
   /*
-  * Check the settings database for the user's current settings.  This is so the
-  * settings page has the correct toggles related when it is rendered.
-  */
+   * Check the settings database for the user's current settings.  This is so the
+   * settings page has the correct toggles related when it is rendered.
+   */
   settingsDb.find({}, (err, docs) => {
     docs.forEach((setting) => {
       switch (setting['_id']) {
         case 'apiKey':
-          // If a third party forks the application, please be ethical and change the API key.
-          if(setting['value'] !== 'AIzaSyDjszXMCw44W_k-pdNoOxUHFyKGtU_ejwE'){
+          if (apiKeyBank.indexOf(setting['value']) < -1) {
             key = setting['value'];
           }
           break;
         case 'theme':
-          if (currentTheme == ''){
+          if (currentTheme == '') {
             currentTheme = setting['value'];
           }
       }
@@ -65,10 +67,9 @@ function showSettings(){
       toggleLoading();
 
       // Check / uncheck the switch depending on the user's settings.
-      if (currentTheme === 'light'){
+      if (currentTheme === 'light') {
         document.getElementById('themeSwitch').checked = false;
-      }
-      else{
+      } else {
         document.getElementById('themeSwitch').checked = true;
       }
     });
@@ -76,14 +77,21 @@ function showSettings(){
 }
 
 /**
-* Check the user's default settings.  Set the the default settings if none are found.
-*
-* @return {Void}
-*/
-function checkDefaultSettings(){
+ * Check the user's default settings.  Set the the default settings if none are found.
+ *
+ * @return {Void}
+ */
+function checkDefaultSettings() {
+  // To any third party devs that fork the project, please be ethical and change the API keys.
+  const apiKeyBank = ['AIzaSyDjszXMCw44W_k-pdNoOxUHFyKGtU_ejwE', 'AIzaSyA0CkT2lS1q9HHaFYGNGM4Ycjl1kmRy22s', 'AIzaSyAiKgR75e3XAznCcb1cj4NUJ5rR_y3uB8E', 'AIzaSyDPy5jq2l1Bgv3-MbpGdZd3W3ik1BMZeDc', 'AIzaSyBeQ-Jd0lyMmul-K1QMZ2S4GSlnGFdCd3M'];
+
+  // Grab a random API Key.
+  apiKey = apiKeyBank[Math.floor(Math.random() * apiKeyBank.length)];
+
   // Check settings database
   settingsDb.find({}, (err, docs) => {
     if (jQuery.isEmptyObject(docs)) {
+
       // Set User Defaults
       let themeDefault = {
         _id: 'theme',
@@ -92,12 +100,10 @@ function checkDefaultSettings(){
 
       let apiDefault = {
         _id: 'apiKey',
-        // To any third party devs that fork the project, please be ethical and change the API key.
-        value: 'AIzaSyDjszXMCw44W_k-pdNoOxUHFyKGtU_ejwE',
+        value: apiKey,
       };
 
-      // Set API Key and default theme
-      let apiKey = apiDefault.value;
+      // Set default theme
       setTheme('light');
 
       // Inset default settings into the settings database.
@@ -111,77 +117,90 @@ function checkDefaultSettings(){
             setTheme(setting['value']);
             break;
           case 'apiKey':
-            apiKey = setting['value'];
+            if (apiKeyBank.indexOf(setting['value']) < -1) {
+              apiKey = setting['value'];
+            }
             break;
           default:
             break;
         }
       });
     }
+
+    console.log("Using API key: " + apiKey);
     // Loads the JavaScript client library and invokes `start` afterwards.
     gapi.load('client', start);
   });
 }
 
 /**
-* Updates the settings based on what the user has changed.
-*
-* @return {Void}
-*/
-function updateSettings(){
+ * Updates the settings based on what the user has changed.
+ *
+ * @return {Void}
+ */
+function updateSettings() {
   var themeSwitch = document.getElementById('themeSwitch').checked;
   var key = document.getElementById('api-key').value;
 
-  if (themeSwitch == true){
+  if (themeSwitch == true) {
     var theme = 'dark';
-  }
-  else{
+  } else {
     var theme = 'light';
   }
 
   // Update default theme
-  settingsDb.update({_id: 'theme'},{value: theme}, {}, function(err, numReplaced){
+  settingsDb.update({
+    _id: 'theme'
+  }, {
+    value: theme
+  }, {}, function(err, numReplaced) {
     console.log(err);
     console.log(numReplaced);
   });
 
-  if(key != ''){
-    settingsDb.update({_id: 'apiKey'},{value: key}, {});
-  }
-  else{
+  if (key != '') {
+    settingsDb.update({
+      _id: 'apiKey'
+    }, {
+      value: key
+    }, {});
+  } else {
     // To any third party devs that fork the project, please be ethical and change the API key.
-    settingsDb.update({_id: 'apiKey'},{value: 'AIzaSyDjszXMCw44W_k-pdNoOxUHFyKGtU_ejwE'}, {});
+    settingsDb.update({
+      _id: 'apiKey'
+    }, {
+      value: 'AIzaSyDjszXMCw44W_k-pdNoOxUHFyKGtU_ejwE'
+    }, {});
   }
 
   showToast('Settings have been saved.');
 }
 
 /**
-* Toggle back and forth with the current theme
-*
-* @param {boolean} themeValue - The value of the switch based on if it was turned on or not.
-*
-* @return {Void}
-*/
-function toggleTheme(themeValue){
-  if(themeValue.checked === true){
+ * Toggle back and forth with the current theme
+ *
+ * @param {boolean} themeValue - The value of the switch based on if it was turned on or not.
+ *
+ * @return {Void}
+ */
+function toggleTheme(themeValue) {
+  if (themeValue.checked === true) {
     setTheme('dark');
     currentTheme = 'dark';
-  }
-  else{
+  } else {
     setTheme('light');
     currentTheme = 'light';
   }
 }
 
 /**
-* Set the theme of the application
-*
-* @param {string} option - The theme to be changed to.
-*
-* @return {Void}
-*/
-function setTheme(option){
+ * Set the theme of the application
+ *
+ * @param {string} option - The theme to be changed to.
+ *
+ * @return {Void}
+ */
+function setTheme(option) {
   let cssFile;
   const currentTheme = document.getElementsByTagName("link").item(1);
 
@@ -295,30 +314,31 @@ function importSubscriptions(){
 }
 
 /**
-* Export the susbcriptions database to a file.
-*
-* @return {Void}
-*/
-function exportSubscriptions(){
+ * Export the susbcriptions database to a file.
+ *
+ * @return {Void}
+ */
+function exportSubscriptions() {
   const appDatabaseFile = localDataStorage + '/subscriptions.db';
 
   // Open user file browser. User gives location of file to be created.
   dialog.showSaveDialog({
-    filters: [
-      {name: 'Database File', extensions: ['db']},
-    ]
-  }, function(fileLocation){
+    filters: [{
+      name: 'Database File',
+      extensions: ['db']
+    }, ]
+  }, function(fileLocation) {
     console.log(fileLocation);
-    if(typeof(fileLocation) === 'undefined'){
+    if (typeof(fileLocation) === 'undefined') {
       console.log('Export Aborted');
       return;
     }
-    fs.readFile(appDatabaseFile, function(readErr, data){
-      if(readErr){
+    fs.readFile(appDatabaseFile, function(readErr, data) {
+      if (readErr) {
         throw readErr;
       }
-      fs.writeFile(fileLocation, data, function(writeErr){
-        if(writeErr){
+      fs.writeFile(fileLocation, data, function(writeErr) {
+        if (writeErr) {
           throw writeErr;
         }
         showToast('Susbcriptions have been successfully exported');
@@ -352,8 +372,8 @@ function clearFile(type, showMessage = true){
   }
 
   // Replace data with an empty string.
-  fs.writeFile(dataBaseFile, '', function(err){
-    if(err){
+  fs.writeFile(dataBaseFile, '', function(err) {
+    if (err) {
       throw err;
     }
 
