@@ -116,23 +116,6 @@ $(document).ready(() => {
 });
 
 /**
-* Start the YouTube API.
-*
-* @return {Void}
-*/
-function start() {
-  // Initializes the client with the API key and the Translate API.
-  gapi.client.init({
-    'apiKey': apiKey,
-  })
-
-  gapi.client.load('youtube', 'v3', () => {
-    let isLoad = true;
-  });
-}
-
-
-/**
 * Toggle the ability to view the side navigation bar.
 *
 * @return {Void}
@@ -161,28 +144,27 @@ function clearMainContainer() {
   hideConfirmFunction();
 }
 
-/**
-* Show the loading animation before / after a function runs.  Also disables / enables input
-*
-* @return {Void}
-*/
-function toggleLoading() {
+function startLoadingAnimation() {
   const loading = document.getElementById('loading');
   const sideNavDisabled = document.getElementById('sideNavDisabled');
   const searchBar = document.getElementById('search');
   const goToVideoInput = document.getElementById('jumpToInput');
 
-  if (loading.style.display === 'none' || loading.style.display === '') {
     loading.style.display = 'inherit';
     sideNavDisabled.style.display = 'inherit';
     searchBar.disabled = true;
     goToVideoInput.disabled = true;
-  } else {
+}
+function stopLoadingAnimation() {
+  const loading = document.getElementById('loading');
+  const sideNavDisabled = document.getElementById('sideNavDisabled');
+  const searchBar = document.getElementById('search');
+  const goToVideoInput = document.getElementById('jumpToInput');
+
     loading.style.display = 'none';
     sideNavDisabled.style.display = 'none';
     searchBar.disabled = false;
     goToVideoInput.disabled = false;
-  }
 }
 
 /**
@@ -214,7 +196,7 @@ function createVideoListContainer(headerLabel = '') {
 function showAbout(){
   // Remove current information and display loading animation
   clearMainContainer();
-  toggleLoading();
+  startLoadingAnimation();
 
   // Grab about.html to be used as a template
   $.get('templates/about.html', (template) => {
@@ -224,7 +206,7 @@ function showAbout(){
     });
     // Render to #main and remove loading animation
     $('#main').html(rendered);
-    toggleLoading();
+    stopLoadingAnimation();
   });
 }
 

@@ -21,6 +21,10 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
  * A file for functions used for settings.
  */
 
+// To any third party devs that fork the project, please be ethical and change the API keys.
+const apiKeyBank = ['AIzaSyDjszXMCw44W_k-pdNoOxUHFyKGtU_ejwE', 'AIzaSyA0CkT2lS1q9HHaFYGNGM4Ycjl1kmRy22s', 'AIzaSyAiKgR75e3XAznCcb1cj4NUJ5rR_y3uB8E', 'AIzaSyDPy5jq2l1Bgv3-MbpGdZd3W3ik1BMZeDc', 'AIzaSyBeQ-Jd0lyMmul-K1QMZ2S4GSlnGFdCd3M'];
+
+
 /**
  * Display the settings screen to the user.
  *
@@ -28,13 +32,10 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
  */
 function showSettings() {
   clearMainContainer();
-  toggleLoading();
+  startLoadingAnimation();
 
   let isChecked = '';
   let key = '';
-
-  // To any third party devs that fork the project, please be ethical and change the API keys.
-  const apiKeyBank = ['AIzaSyDjszXMCw44W_k-pdNoOxUHFyKGtU_ejwE', 'AIzaSyA0CkT2lS1q9HHaFYGNGM4Ycjl1kmRy22s', 'AIzaSyAiKgR75e3XAznCcb1cj4NUJ5rR_y3uB8E', 'AIzaSyDPy5jq2l1Bgv3-MbpGdZd3W3ik1BMZeDc', 'AIzaSyBeQ-Jd0lyMmul-K1QMZ2S4GSlnGFdCd3M'];
 
   /*
    * Check the settings database for the user's current settings.  This is so the
@@ -64,7 +65,7 @@ function showSettings() {
       });
       // Render template to application
       $('#main').html(rendered);
-      toggleLoading();
+      stopLoadingAnimation();
 
       // Check / uncheck the switch depending on the user's settings.
       if (currentTheme === 'light') {
@@ -82,9 +83,6 @@ function showSettings() {
  * @return {Void}
  */
 function checkDefaultSettings() {
-  // To any third party devs that fork the project, please be ethical and change the API keys.
-  const apiKeyBank = ['AIzaSyDjszXMCw44W_k-pdNoOxUHFyKGtU_ejwE', 'AIzaSyA0CkT2lS1q9HHaFYGNGM4Ycjl1kmRy22s', 'AIzaSyAiKgR75e3XAznCcb1cj4NUJ5rR_y3uB8E', 'AIzaSyDPy5jq2l1Bgv3-MbpGdZd3W3ik1BMZeDc', 'AIzaSyBeQ-Jd0lyMmul-K1QMZ2S4GSlnGFdCd3M'];
-
   // Grab a random API Key.
   apiKey = apiKeyBank[Math.floor(Math.random() * apiKeyBank.length)];
 
@@ -129,7 +127,6 @@ function checkDefaultSettings() {
 
     console.log("Using API key: " + apiKey);
     // Loads the JavaScript client library and invokes `start` afterwards.
-    gapi.load('client', start);
   });
 }
 

@@ -24,14 +24,11 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 /*function getChannelThumbnail(channelId, callback) {
   let url = '';
 
-  let request = gapi.client.youtube.channels.list({
+  youtubeAPI('channels', {
     'id': channelId,
     'part': 'snippet',
-  });
-
-  request.execute((response) => {
-    url = response['items'][0]['snippet']['thumbnails']['high']['url'];
-    callback(url);
+  }, function (data){
+    callback(data.items[0].snippet.thumbnails.high.url);
   });
 }*/
 
@@ -45,7 +42,7 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 function goToChannel(channelId) {
   event.stopPropagation();
   clearMainContainer();
-  toggleLoading();
+  startLoadingAnimation();
 
 
   // Check if the user is subscribed to the channel.  Display different text based on the information
@@ -62,17 +59,14 @@ function goToChannel(channelId) {
   });
 
   // Call YouTube API to grab channel information
-  let request = gapi.client.youtube.channels.list({
+  youtubeAPI('channels', {
     part: 'snippet, brandingSettings, statistics',
     id: channelId,
-  });
-
-  // Perform API Execution
-  request.execute((response) => {
+  }, function (data){
     // Set variables of extracted information
-    const brandingSettings = response['items'][0]['brandingSettings'];
-    const statistics = response['items'][0]['statistics'];
-    const snippet = response['items'][0]['snippet'];
+    const brandingSettings = data['items'][0]['brandingSettings'];
+    const statistics = data['items'][0]['statistics'];
+    const snippet = data['items'][0]['snippet'];
     const channelName = brandingSettings['channel']['title'];
     const channelBanner = brandingSettings['image']['bannerImageUrl'];
     const channelImage = snippet['thumbnails']['high']['url'];
@@ -97,22 +91,19 @@ function goToChannel(channelId) {
       });
       // Render the template on to #main
       $('#main').html(rendered);
-      toggleLoading();
+      stopLoadingAnimation();
     });
 
     // Grab the channel's latest upload.  API forces a max of 50.
-    let request = gapi.client.youtube.search.list({
+	youtubeAPI('search', {
       part: 'snippet',
       channelId: channelId,
       type: 'video',
       maxResults: 50,
       order: 'date',
-    });
-
-    // Execute API request
-    request.execute((response) => {
+    }, function (data) {
       // Display recent uploads to #main
-      response['items'].forEach((video) => {
+      data['items'].forEach((video) => {
         displayVideos(video);
       });
     });

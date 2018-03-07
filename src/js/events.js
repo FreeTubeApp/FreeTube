@@ -35,13 +35,11 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
       let commentsTemplate = $.get('templates/comments.html');
 
       commentsTemplate.done((template) => {
-        let request = gapi.client.youtube.commentThreads.list({
+        youtubeAPI('commentThreads', {
           'videoId': $('#comments').attr('data-video-id'),
           'part': 'snippet,replies',
           'maxResults': 100,
-        });
-
-        request.execute((data) => {
+        }, function (data){
           let comments = [];
           let items = data.items;
 

@@ -55,7 +55,7 @@ function removeFromHistory(videoId){
 */
 function showHistory(){
   clearMainContainer();
-  toggleLoading();
+  startLoadingAnimation();
   console.log('checking history');
 
   let videoList = '';
@@ -75,18 +75,16 @@ function showHistory(){
       });
     }
 
-    let request = gapi.client.youtube.videos.list({
+    youtubeAPI('videos', {
       part: 'snippet',
       id: videoList,
       maxResults: 50,
-    });
-
-    request.execute((response) => {
+    }, function (data) {
       createVideoListContainer('Watch History:');
-      response['items'].forEach((video) => {
+      data['items'].forEach((video) => {
         displayVideos(video, 'history');
       });
-      toggleLoading();
+      stopLoadingAnimation()
     });
   });
 }

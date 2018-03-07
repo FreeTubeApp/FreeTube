@@ -20,7 +20,7 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 /*
 * File used to initializing the application
 */
-const {app, BrowserWindow} = require('electron');
+const {app, BrowserWindow, dialog} = require('electron');
 const path = require('path');
 const url = require('url');
 let win;

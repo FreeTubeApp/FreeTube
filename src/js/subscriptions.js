@@ -31,25 +31,22 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 function addSubscription(channelId, useToast = true) {
   console.log(channelId);
   // Request YouTube API
-  let request = gapi.client.youtube.channels.list({
+  youtubeAPI('channels', {
     part: 'snippet',
     id: channelId,
-  });
-
-  // Execute API request
-  request.execute((response) => {
-    const channelInfo = response['items'][0]['snippet'];
+  }, function (data){
+    const channelInfo = data['items'][0]['snippet'];
     const channelName = channelInfo['title'];
     const thumbnail = channelInfo['thumbnails']['high']['url'];
 
-    const data = {
+    const channel = {
       channelId: channelId,
       channelName: channelName,
       channelThumbnail: thumbnail,
     };
 
     // Refresh the list of subscriptions on the side navigation bar.
-    subDb.insert(data, (err, newDoc) => {
+    subDb.insert(channel, (err, newDoc) => {
       if (useToast){
         showToast('Added ' + channelName + ' to subscriptions.');
         displaySubs();
@@ -84,13 +81,7 @@ function loadSubscriptions() {
   clearMainContainer();
   const loading = document.getElementById('loading');
 
-  /*
-  * It is possible for the function to be called several times. This prevents the loading
-  * from being turned off when the situation occurs.
-  */
-  if (loading.style.display !== 'inherit'){
-    toggleLoading();
-  }
+  startLoadingAnimation()
 
   let videoList = [];
 
@@ -118,16 +109,14 @@ function loadSubscriptions() {
         * This number can be changed if we feel necessary.
         */
         try {
-          let request = gapi.client.youtube.search.list({
+          youtubeAPI('search', {
             part: 'snippet',
             channelId: channelId,
             type: 'video',
             maxResults: 15,
             order: 'date',
-          });
-
-          request.execute((response) => {
-            videoList = videoList.concat(response['items']);
+          }, function (error, response, data){
+            videoList = videoList.concat(data['items']);
             // Iterate through the next object in the loop.
             next();
           });
@@ -165,12 +154,12 @@ function loadSubscriptions() {
             displayVideos(videoList[i]);
           }
         }
-        toggleLoading();
+        stopLoadingAnimation()
       });
     } else {
       // User has no subscriptions. Display message.
       const container = document.getElementById('main');
-      toggleLoading();
+      stopLoadingAnimation()
 
       container.innerHTML = `<h2 class="message">Your Subscription list is currently empty.  Start adding subscriptions
                              to see them here.<br /><br /><i class="far fa-frown" style="font-size: 200px"></i></h2>`;
