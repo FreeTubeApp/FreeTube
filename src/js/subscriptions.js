@@ -115,7 +115,7 @@ function loadSubscriptions() {
             type: 'video',
             maxResults: 15,
             order: 'date',
-          }, function (error, response, data){
+          }, function (data){
             videoList = videoList.concat(data['items']);
             // Iterate through the next object in the loop.
             next();

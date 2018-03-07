@@ -24,7 +24,6 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 // To any third party devs that fork the project, please be ethical and change the API keys.
 const apiKeyBank = ['AIzaSyDjszXMCw44W_k-pdNoOxUHFyKGtU_ejwE', 'AIzaSyA0CkT2lS1q9HHaFYGNGM4Ycjl1kmRy22s', 'AIzaSyAiKgR75e3XAznCcb1cj4NUJ5rR_y3uB8E', 'AIzaSyDPy5jq2l1Bgv3-MbpGdZd3W3ik1BMZeDc', 'AIzaSyBeQ-Jd0lyMmul-K1QMZ2S4GSlnGFdCd3M'];
 
-
 /**
  * Display the settings screen to the user.
  *
@@ -126,7 +125,6 @@ function checkDefaultSettings() {
     }
 
     console.log("Using API key: " + apiKey);
-    // Loads the JavaScript client library and invokes `start` afterwards.
   });
 }
 
