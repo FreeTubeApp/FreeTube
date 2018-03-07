@@ -584,6 +584,17 @@ function changeQuality(videoHtml, qualityType, isEmbed = false) {
 }
 
 /**
+* Change the playpack speed of the video.
+*
+* @param {double} speed - The playback speed of the video.
+*
+* @return {Void}
+*/
+function changeVideoSpeed(speed){
+  $('.videoPlayer').get(0).playbackRate = speed;
+}
+
+/**
 * Check to see if the video URLs are valid. Change the video quality if one is not.
 * The API will grab video URLs, but they will sometimes return a 404.  This
 * is why this check is needed.  The video URL will typically be resolved over time.

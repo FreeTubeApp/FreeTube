@@ -178,6 +178,40 @@ iframe{
   right: 24px;
 }
 
+.qualityTypes ul li{
+  width: 72px;
+  position: relative;
+  right: 15px;
+}
+
+.videoSpeed{
+  width: 42px;
+}
+
+.videoSpeed:hover .speedTypes{
+  visibility: visible;
+}
+
+.speedTypes{
+  visibility: hidden;
+  width: 72px;
+  position: relative;
+  bottom: 10px;
+  right: 15px;
+}
+
+.speedTypes ul{
+  list-style-type: none;
+  position: relative;
+  right: 24px;
+}
+
+.speedTypes ul li{
+  width: 72px;
+  position: relative;
+  right: 15px;
+}
+
 #showComments{
   text-align: center;
   height: 40px;

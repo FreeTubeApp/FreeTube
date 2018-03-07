@@ -13,6 +13,21 @@
       </ul>
     </div>
   </div>
+  <div class='smallButton videoSpeed'>
+    <span id='currentSpeed'>1x</span> <i class="fas fa-angle-down"></i>
+    <div class='speedTypes'>
+      <ul>
+        <li onclick='changeVideoSpeed(0.25)'>0.25x</li>
+        <li onclick='changeVideoSpeed(0.5)'>0.5x</li>
+        <li onclick='changeVideoSpeed(0.75)'>0.75x</li>
+        <li onclick='changeVideoSpeed(1)'>1x</li>
+        <li onclick='changeVideoSpeed(1.25)'>1.25x</li>
+        <li onclick='changeVideoSpeed(1.5)'>1.5x</li>
+        <li onclick='changeVideoSpeed(1.75)'>1.75x</li>
+        <li onclick='changeVideoSpeed(2)'>2x</li>
+      </ul>
+    </div>
+  </div>
   <div onclick='toggleSavedVideo("{{videoId}}")' class='smallButton'>
     <i id='saveIcon' style='color: {{savedIconColor}};' class="{{savedIconClass}} fa-star"></i> <span id='savedText'>{{savedText}}</span>
   </div>
