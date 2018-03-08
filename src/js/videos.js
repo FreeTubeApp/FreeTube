@@ -216,7 +216,7 @@ function playVideo(videoId) {
     dateString = [dateString.slice(0, 7), '-', dateString.slice(7)].join('');
     console.log(dateString);
     const publishedDate = dateFormat(dateString, "mmm dS, yyyy");
-    
+
     // Figure out the width for the like/dislike bar.
     const videoLikes = info['like_count'];
     const videoDislikes = info['dislike_count'];
@@ -594,6 +594,7 @@ function changeQuality(videoHtml, qualityType, isEmbed = false) {
 * @return {Void}
 */
 function changeVideoSpeed(speed){
+  $('#currentSpeed').html(speed);
   $('.videoPlayer').get(0).playbackRate = speed;
 }
 
