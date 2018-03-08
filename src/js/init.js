@@ -34,7 +34,7 @@ if(require('electron-squirrel-startup')) app.quit();
  */
 let init = function() {
   const Menu = require('electron').Menu;
-  win = new BrowserWindow({width: 1200, height: 800});
+  win = new BrowserWindow({width: 1200, height: 800, autoHideMenuBar: true});
 
   win.loadURL(url.format({
     pathname: path.join(__dirname, '../index.html'),

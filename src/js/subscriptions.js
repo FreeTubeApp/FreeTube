@@ -119,7 +119,7 @@ function loadSubscriptions() {
         */
         try {
           let request = gapi.client.youtube.search.list({
-            part: 'snippet',
+            part: 'snippet', // Try getting content details for video duration in the near future.
             channelId: channelId,
             type: 'video',
             maxResults: 15,
