@@ -172,6 +172,7 @@ function playVideo(videoId) {
   let video720p;
   let defaultUrl;
   let defaultQuality;
+  let channelId;
   let videoHtml;
   let videoThumbnail;
   let videoType = 'video';
@@ -179,11 +180,14 @@ function playVideo(videoId) {
   let validUrl;
 
   // Grab the embeded player. Used as fallback if the video URL cannot be found.
+  // Also grab the channel ID.
   try {
-    let getEmbedFunction = getEmbedPlayer(videoId);
+    let getInfoFunction = getChannelAndPlayer(videoId);
 
-    getEmbedFunction.then((url) => {
-      embedPlayer = url;
+    getInfoFunction.then((data) => {
+      console.log(data);
+      embedPlayer = data[0];
+      channelId = data[1];
     });
   } catch (ex) {
     showToast('Video not found. ID may be invalid.');
@@ -192,64 +196,35 @@ function playVideo(videoId) {
   }
 
   /*
-  * FreeTube calls the HookTube API so that it can get the direct video URL instead of the embeded player.
-  * If anyone knows how to grab these files without relying on their API it would be very welcome.
-  * It helps that HookTube returns mostly the same information as a YouTube API call so performance
-  * shouldn't be hindered by this.
+  * FreeTube calls an instance of a youtube-dl server to grab the direct video URL.  Please do not use this API in third party projects.
   */
-  const url = 'https://hooktube.com/api?mode=video&id=' + videoId;
+  const url = 'https://stormy-inlet-41826.herokuapp.com/api/info?url=https://www.youtube.com/watch?v=' + videoId + 'flatten=True';
   $.getJSON(url, (response) => {
     console.log(response);
 
-    const videoSummary = response['json_1'];
-    const videoSnippet = response['json_2']['items'][0]['snippet'];
-    const videoStatistics = response['json_2']['items'][0]['statistics'];
+    const info = response['info'];
 
-    // Sometimes the max resolution URL isn't found.  Grab the default one as a fallback.
-    try {
-      videoThumbnail = videoSnippet['thumbnails']['maxres']['url'];
-    } catch (e) {
-      videoThumbnail = videoSnippet['thumbnails']['default']['url'];
-    }
-
-    // Search through the returned object to get the 480p and 720p video URLs (If available)
-    Object.keys(videoSummary['link']).forEach((key) => {
-      console.log(key);
-      switch (videoSummary['link'][key][2]) {
-        case 'medium':
-          video480p = videoSummary['link'][key][0];
-          break;
-        case 'hd720':
-          video720p = videoSummary['link'][key][0];
-          break;
-      }
-    });
-
-    // Default to the embeded player if the URLs cannot be found.
-    if (typeof(video720p) === 'undefined' && typeof(video480p) === 'undefined') {
-      defaultQuality = 'EMBED';
-      videoHtml = embedPlayer.replace(/\&quot\;/g, '"');
-      showToast('Unable to get video file.  Reverting to embeded player.');
-    } else if (typeof(video720p) === 'undefined' && typeof(video480p) !== 'undefined') {
-      // Default to the 480p video if the 720p URL cannot be found.
-      videoHtml = '<video class="videoPlayer" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" src="' + video480p + '" poster="' + videoThumbnail + '" autoplay></video>';
-      defaultQuality = '480p';
-    } else {
-      // Default to the 720p video.
-      videoHtml = '<video class="videoPlayer" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" src="' + video720p + '" poster="' + videoThumbnail + '" autoplay></video>';
-      defaultQuality = '720p';
-      // Force the embeded player if needed.
-      //videoHtml = embedPlayer;
-    }
+    videoThumbnail = info['thumbnail'];
+    let videoUrls = info['formats'];
 
     // Add commas to the video view count.
-    const videoViews = videoSummary['view_count'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const videoViews = info['view_count'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
     // Format the date to a more readable format.
-    const dateString = videoSnippet['publishedAt'];
+    let dateString = info['upload_date'];
+    dateString = [dateString.slice(0, 4), '-', dateString.slice(4)].join('');
+    dateString = [dateString.slice(0, 7), '-', dateString.slice(7)].join('');
+    console.log(dateString);
     const publishedDate = dateFormat(dateString, "mmm dS, yyyy");
-    const channelId = videoSnippet['channelId'];
-    let description = videoSnippet['description'];
+    // Figure out the width for the like/dislike bar.
+    const videoLikes = info['like_count'];
+    const videoDislikes = info['dislike_count'];
+    const totalLikes = videoLikes + videoDislikes;
+    const likePercentage = parseInt((videoLikes / totalLikes) * 100);
+
+    let description = info['description'];
+    // Adds clickable links to the description.
+    description = autolinker.link(description);
 
     const checkSubscription = isSubscribed(channelId);
 
@@ -275,19 +250,40 @@ function playVideo(videoId) {
       }
     });
 
-    // Figure out the width for the like/dislike bar.
-    const videoLikes = parseInt(videoStatistics['likeCount']);
-    const videoDislikes = parseInt(videoStatistics['dislikeCount']);
-    const totalLikes = videoLikes + videoDislikes;
-    const likePercentage = parseInt((videoLikes / totalLikes) * 100);
+    // Search through the returned object to get the 480p and 720p video URLs (If available)
+    Object.keys(videoUrls).forEach((key) => {
+      console.log(key);
+      switch (videoUrls[key]['format_note']) {
+        case 'medium':
+          video480p = videoUrls[key]['url'];
+          break;
+        case 'hd720':
+          video720p = videoUrls[key]['url'];
+          break;
+      }
+    });
 
-    // Adds clickable links to the description.
-    description = autolinker.link(description);
+    // Default to the embeded player if the URLs cannot be found.
+    if (typeof(video720p) === 'undefined' && typeof(video480p) === 'undefined') {
+      defaultQuality = 'EMBED';
+      videoHtml = embedPlayer.replace(/\&quot\;/g, '"');
+      showToast('Unable to get video file.  Reverting to embeded player.');
+    } else if (typeof(video720p) === 'undefined' && typeof(video480p) !== 'undefined') {
+      // Default to the 480p video if the 720p URL cannot be found.
+      videoHtml = '<video class="videoPlayer" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" src="' + video480p + '" poster="' + videoThumbnail + '" autoplay></video>';
+      defaultQuality = '480p';
+    } else {
+      // Default to the 720p video.
+      videoHtml = '<video class="videoPlayer" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" src="' + video720p + '" poster="' + videoThumbnail + '" autoplay></video>';
+      defaultQuality = '720p';
+      // Force the embeded player if needed.
+      //videoHtml = embedPlayer;
+    }
 
     // API Request
     let request = gapi.client.youtube.channels.list({
       'id': channelId,
-      'part': 'snippet,contentDetails,statistics'
+      'part': 'snippet'
     });
 
     // Execute request
@@ -300,10 +296,10 @@ function playVideo(videoId) {
         const rendered = mustache.render(template, {
           videoHtml: videoHtml,
           videoQuality: defaultQuality,
-          videoTitle: videoSummary['title'],
+          videoTitle: info['title'],
           videoViews: videoViews,
           videoThumbnail: videoThumbnail,
-          channelName: videoSummary['author'],
+          channelName: info['uploader'],
           videoLikes: videoLikes,
           videoDislikes: videoDislikes,
           likePercentage: likePercentage,
@@ -497,17 +493,19 @@ function copyLink(website, videoId) {
 }
 
 /**
-* Get the YouTube embeded player of a video.
+* Get the YouTube embeded player of a video as well as channel information..
 *
 * @param {string} videoId - The video ID of the video to get.
 *
 * @return {promise} - The HTML of the embeded player
 */
-function getEmbedPlayer(videoId) {
+function getChannelAndPlayer(videoId) {
   console.log(videoId);
   return new Promise((resolve, reject) => {
+    let data = [];
+
     let request = gapi.client.youtube.videos.list({
-      part: 'player',
+      part: 'snippet, player',
       id: videoId,
     });
 
@@ -518,7 +516,11 @@ function getEmbedPlayer(videoId) {
       embedHtml = embedHtml.replace('width="480px"', '');
       embedHtml = embedHtml.replace('height="270px"', '');
       embedHtml = embedHtml.replace(/\"/g, '&quot;');
-      resolve(embedHtml);
+      data[0] = embedHtml;
+      data[1] = response['items'][0]['snippet']['channelId'];
+
+
+      resolve(data);
     });
   });
 

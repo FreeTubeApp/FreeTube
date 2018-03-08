@@ -34,7 +34,7 @@ function showSettings() {
   let key = '';
 
   // To any third party devs that fork the project, please be ethical and change the API keys.
-  const apiKeyBank = ['AIzaSyDjszXMCw44W_k-pdNoOxUHFyKGtU_ejwE', 'AIzaSyA0CkT2lS1q9HHaFYGNGM4Ycjl1kmRy22s', 'AIzaSyAiKgR75e3XAznCcb1cj4NUJ5rR_y3uB8E', 'AIzaSyDPy5jq2l1Bgv3-MbpGdZd3W3ik1BMZeDc', 'AIzaSyBeQ-Jd0lyMmul-K1QMZ2S4GSlnGFdCd3M'];
+  const apiKeyBank = ['AIzaSyC9E579nh_qqxg6BH4xIce3k_7a9mT4uQc', 'AIzaSyCKplYT6hZIlm2O9FbWTi1G7rkpsLNTq78', 'AIzaSyAE5xzh5GcA_tEDhXmMFd1pEzrL-W7z51E', 'AIzaSyDoFzqwuO9l386eF6BmNkVapjiTJ93CBy4', 'AIzaSyBljfZFPioB0TRJAj-0LS4tlIKl2iucyY4'];
 
   /*
    * Check the settings database for the user's current settings.  This is so the
@@ -44,7 +44,7 @@ function showSettings() {
     docs.forEach((setting) => {
       switch (setting['_id']) {
         case 'apiKey':
-          if (apiKeyBank.indexOf(setting['value']) < -1) {
+          if (apiKeyBank.indexOf(setting['value']) == -1) {
             key = setting['value'];
           }
           break;
@@ -83,7 +83,7 @@ function showSettings() {
  */
 function checkDefaultSettings() {
   // To any third party devs that fork the project, please be ethical and change the API keys.
-  const apiKeyBank = ['AIzaSyDjszXMCw44W_k-pdNoOxUHFyKGtU_ejwE', 'AIzaSyA0CkT2lS1q9HHaFYGNGM4Ycjl1kmRy22s', 'AIzaSyAiKgR75e3XAznCcb1cj4NUJ5rR_y3uB8E', 'AIzaSyDPy5jq2l1Bgv3-MbpGdZd3W3ik1BMZeDc', 'AIzaSyBeQ-Jd0lyMmul-K1QMZ2S4GSlnGFdCd3M'];
+  const apiKeyBank = ['AIzaSyC9E579nh_qqxg6BH4xIce3k_7a9mT4uQc', 'AIzaSyCKplYT6hZIlm2O9FbWTi1G7rkpsLNTq78', 'AIzaSyAE5xzh5GcA_tEDhXmMFd1pEzrL-W7z51E', 'AIzaSyDoFzqwuO9l386eF6BmNkVapjiTJ93CBy4', 'AIzaSyBljfZFPioB0TRJAj-0LS4tlIKl2iucyY4'];
 
   // Grab a random API Key.
   apiKey = apiKeyBank[Math.floor(Math.random() * apiKeyBank.length)];
@@ -117,7 +117,7 @@ function checkDefaultSettings() {
             setTheme(setting['value']);
             break;
           case 'apiKey':
-            if (apiKeyBank.indexOf(setting['value']) < -1) {
+            if (apiKeyBank.indexOf(setting['value']) == -1) {
               apiKey = setting['value'];
             }
             break;
@@ -127,7 +127,6 @@ function checkDefaultSettings() {
       });
     }
 
-    console.log("Using API key: " + apiKey);
     // Loads the JavaScript client library and invokes `start` afterwards.
     gapi.load('client', start);
   });
@@ -141,6 +140,11 @@ function checkDefaultSettings() {
 function updateSettings() {
   var themeSwitch = document.getElementById('themeSwitch').checked;
   var key = document.getElementById('api-key').value;
+
+  // To any third party devs that fork the project, please be ethical and change the API keys.
+  const apiKeyBank = ['AIzaSyC9E579nh_qqxg6BH4xIce3k_7a9mT4uQc', 'AIzaSyCKplYT6hZIlm2O9FbWTi1G7rkpsLNTq78', 'AIzaSyAE5xzh5GcA_tEDhXmMFd1pEzrL-W7z51E', 'AIzaSyDoFzqwuO9l386eF6BmNkVapjiTJ93CBy4', 'AIzaSyBljfZFPioB0TRJAj-0LS4tlIKl2iucyY4'];
+
+  apiKey = apiKeyBank[Math.floor(Math.random() * apiKeyBank.length)];
 
   if (themeSwitch == true) {
     var theme = 'dark';
@@ -169,7 +173,7 @@ function updateSettings() {
     settingsDb.update({
       _id: 'apiKey'
     }, {
-      value: 'AIzaSyDjszXMCw44W_k-pdNoOxUHFyKGtU_ejwE'
+      value: apiKey
     }, {});
   }
 
