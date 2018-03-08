@@ -1,7 +1,7 @@
 var request = require("request");
 function youtubeAPI (path, qs, callback) {
     qs.key = apiKey;
-    request({'url': "https://www.googleapis.com/youtube/v3/"+path, 'qs': qs, 'json': true},
+    request({'url': "https://www.googleapis.com/youtube/v3/"+path, 'qs': qs, 'json': true, 'forever': true},
 	function (error, response, body){
 		console.log([error, response, body]);
 		if (error){
