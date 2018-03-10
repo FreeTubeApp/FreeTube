@@ -1,17 +1,22 @@
-var request = require("request");
-function youtubeAPI (path, qs, callback) {
-  qs.key = apiKey;
-  request({'url': "https://www.googleapis.com/youtube/v3/"+path, 'qs': qs, 'json': true, 'forever': true},
-  function (error, response, body){
-    console.log([error, response, body]);
-    if (error){
-      dialog.showErrorBox('YouTube API HTTP error', JSON.stringify(error))
-      stopLoadingAnimation()
-    } else if (response.statusCode != 200){
-      dialog.showErrorBox('YouTube API error', JSON.stringify(body))
-      stopLoadingAnimation()
-    } else {
-      callback(body);
-    }
+/**
+* List a YouTube HTTP API resource.
+*
+* @param {string} resource - The path of the resource.
+* @param {object} params - The API parameters.
+* @param {function} success - The function to be called on success.
+*
+* @return {Void}
+*/
+function youtubeAPI(resource, params, success) {
+  params.key = apiKey;
+  console.log(resource, params, success)
+  $.getJSON(
+    'https://www.googleapis.com/youtube/v3/' + resource,
+    params,
+    success
+  ).fail((xhr, textStatus, error) => {
+    showToast('There was an error calling the YouTube API.');
+    console.log(error);
+    stopLoadingAnimation();
   });
 }
