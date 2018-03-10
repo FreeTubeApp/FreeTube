@@ -18,4 +18,40 @@ Please follow these guidlines before sending your pull request and making contri
 * If using a new Node Module, please include the `require` statement in `layout.js` to keep them together.
 * Please try to stay involved with the community and maintain your code.  I am only one person and I work on FreeTube only in my spare time.  I do not have time to work on everything and it would be nice if you can maintain your code when necessary.
 
+# Setting up Your Environment
+
+Here's how to get your environment setup.  You will need Git and NPM installed on your system.
+
+Clone down the repositoy:
+```
+git clone https://github.com/FreeTubeApp/FreeTube.git
+```
+
+Install Dependencies:
+```
+npm install
+```
+
+Run the application:
+```
+npm start
+```
+
+Make / Package application:
+
+Windows (Requires Wine on Linux):
+```
+npm run make:win32
+```
+
+Mac:
+```
+npm run make:darwin
+```
+
+Linux (Requires deb and rpm to be installed):
+```
+npm run make:linux
+```
+
 I will update this document when necessary.  Anyone who has questions or suggestions on this document are welcome to create an issue or pull request.
