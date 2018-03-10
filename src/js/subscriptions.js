@@ -187,17 +187,16 @@ function displaySubs() {
   }).exec((err, subs) => {
     subs.forEach((channel) => {
       // Grab subscriptions.html to be used as a template.
-      $.get('templates/subscriptions.html', (template) => {
-        mustache.parse(template);
-        const rendered = mustache.render(template, {
-          channelIcon: channel['channelThumbnail'],
-          channelName: channel['channelName'],
-          channelId: channel['channelId'],
-        });
-        // Render template to page.
-        const subscriptionsHtml = $('#subscriptions').html();
-        $('#subscriptions').html(subscriptionsHtml + rendered);
+      const subsTemplate = require('./templates/subscriptions.html')
+      mustache.parse(subsTemplate);
+      const rendered = mustache.render(subsTemplate, {
+        channelIcon: channel['channelThumbnail'],
+        channelName: channel['channelName'],
+        channelId: channel['channelId'],
       });
+      // Render template to page.
+      const subscriptionsHtml = $('#subscriptions').html();
+      $('#subscriptions').html(subscriptionsHtml + rendered);
     });
   });
 

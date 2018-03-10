@@ -56,23 +56,22 @@ function showSettings() {
     });
 
     // Grab the settings.html template to prepare for rendering
-    $.get('templates/settings.html', (template) => {
-      mustache.parse(template);
-      const rendered = mustache.render(template, {
-        isChecked: isChecked,
-        key: key,
-      });
-      // Render template to application
-      $('#main').html(rendered);
-      stopLoadingAnimation();
-
-      // Check / uncheck the switch depending on the user's settings.
-      if (currentTheme === 'light') {
-        document.getElementById('themeSwitch').checked = false;
-      } else {
-        document.getElementById('themeSwitch').checked = true;
-      }
+    const settingsTemplate = require('./templates/settings.html')
+    mustache.parse(settingsTemplate);
+    const rendered = mustache.render(settingsTemplate, {
+      isChecked: isChecked,
+      key: key,
     });
+    // Render template to application
+    $('#main').html(rendered);
+    stopLoadingAnimation();
+
+    // Check / uncheck the switch depending on the user's settings.
+    if (currentTheme === 'light') {
+      document.getElementById('themeSwitch').checked = false;
+    } else {
+      document.getElementById('themeSwitch').checked = true;
+    }
   });
 }
 

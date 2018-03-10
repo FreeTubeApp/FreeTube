@@ -72,55 +72,56 @@ function search(nextPageToken = '') {
 * @return {Void}
 */
 function displayVideos(video, listType = null) {
+
+  const videoSnippet = video['snippet'];
+
+  // Grab the published date for the video and convert to a user readable state.
+  const dateString = new Date(videoSnippet['publishedAt']);
+  const publishedDate = dateFormat(dateString, "mmm dS, yyyy");
+  let deleteHtml = '';
+  let liveText = '';
+  let videoId = video['id']['videoId'];
+
+  const searchMenu = $('#videoListContainer').html();
+
+  // Include a remove icon in the list if the application is displaying the history list or saved videos.
+  if (listType === 'saved') {
+    videoId = video['id'];
+    deleteHtml = '<i onclick="removeSavedVideo(\'' + videoId + '\'); showSavedVideos();" class="videoDelete fas fa-times"></i>';
+  } else if (listType === 'history') {
+    videoId = video['id'];
+    deleteHtml = '<i onclick="removeFromHistory(\'' + videoId + '\'); showHistory()" class="videoDelete fas fa-times"></i>';
+  }
+
+  // Includes text if the video is live.
+  if (videoSnippet['liveBroadcastContent'] === 'live') {
+    liveText = 'LIVE NOW';
+  }
+
   // Grab the search template for the video.
-  $.get('templates/videoList.html', (template) => {
+  const videoListTemplate = require('./templates/videoList.html')
 
-    const videoSnippet = video['snippet']
-
-    // Grab the published date for the video and convert to a user readable state.
-    const dateString = new Date(videoSnippet['publishedAt']);
-    const publishedDate = dateFormat(dateString, "mmm dS, yyyy");
-    let deleteHtml = '';
-    let liveText = '';
-    let videoId = video['id']['videoId'];
-
-    const searchMenu = $('#videoListContainer').html();
-
-    // Include a remove icon in the list if the application is displaying the history list or saved videos.
-    if (listType === 'saved') {
-      videoId = video['id'];
-      deleteHtml = '<i onclick="removeSavedVideo(\'' + videoId + '\'); showSavedVideos();" class="videoDelete fas fa-times"></i>';
-    } else if (listType === 'history') {
-      videoId = video['id'];
-      deleteHtml = '<i onclick="removeFromHistory(\'' + videoId + '\'); showHistory()" class="videoDelete fas fa-times"></i>';
-    }
-
-    // Includes text if the video is live.
-    if (videoSnippet['liveBroadcastContent'] === 'live') {
-      liveText = 'LIVE NOW';
-    }
-
-    // Render / Manipulate the template.  Replace variables with data from the video.
-    mustache.parse(template);
-    const rendered = mustache.render(template, {
-      videoThumbnail: videoSnippet['thumbnails']['medium']['url'],
-      videoTitle: videoSnippet['title'],
-      channelName: videoSnippet['channelTitle'],
-      videoDescription: videoSnippet['description'],
-      publishedDate: publishedDate,
-      liveText: liveText,
-      videoId: videoId,
-      channelId: videoSnippet['channelId'],
-      deleteHtml: deleteHtml,
-    });
-    // Apply the render to the page
-    let nextButton = document.getElementById('getNextPage');
-    if (nextButton === null) {
-      $('#videoListContainer').append(rendered);
-    } else {
-      $(rendered).insertBefore('#getNextPage');
-    }
+  // Render / Manipulate the template.  Replace variables with data from the video.
+  mustache.parse(videoListTemplate);
+  const rendered = mustache.render(videoListTemplate, {
+    videoThumbnail: videoSnippet['thumbnails']['medium']['url'],
+    videoTitle: videoSnippet['title'],
+    channelName: videoSnippet['channelTitle'],
+    videoDescription: videoSnippet['description'],
+    publishedDate: publishedDate,
+    liveText: liveText,
+    videoId: videoId,
+    channelId: videoSnippet['channelId'],
+    deleteHtml: deleteHtml,
   });
+  // Apply the render to the page
+  let nextButton = document.getElementById('getNextPage');
+  if (nextButton === null) {
+    $('#videoListContainer').append(rendered);
+  } else {
+    $(rendered).insertBefore('#getNextPage');
+  }
+  ;
 }
 
 /**
@@ -284,36 +285,36 @@ function playVideo(videoId) {
     }, function (data){
       const channelThumbnail = data['items'][0]['snippet']['thumbnails']['high']['url'];
 
-      $.get('templates/player.html', (template) => {
-        mustache.parse(template);
-        const rendered = mustache.render(template, {
-          videoHtml: videoHtml,
-          videoQuality: defaultQuality,
-          videoTitle: info['title'],
-          videoViews: videoViews,
-          videoThumbnail: videoThumbnail,
-          channelName: info['uploader'],
-          videoLikes: videoLikes,
-          videoDislikes: videoDislikes,
-          likePercentage: likePercentage,
-          videoId: videoId,
-          channelId: channelId,
-          channelIcon: channelThumbnail,
-          publishedDate: publishedDate,
-          description: description,
-          isSubscribed: subscribeText,
-          savedText: savedText,
-          savedIconClass: savedIconClass,
-          savedIconColor: savedIconColor,
-          video480p: video480p,
-          video720p: video720p,
-          embedPlayer: embedPlayer,
-        });
-        $('#main').html(rendered);
-        stopLoadingAnimation();
-        showVideoRecommendations(videoId);
-        console.log('done');
+      const playerTemplate = require('./templates/player.html')
+      mustache.parse(playerTemplate);
+      const rendered = mustache.render(playerTemplate, {
+        videoHtml: videoHtml,
+        videoQuality: defaultQuality,
+        videoTitle: info['title'],
+        videoViews: videoViews,
+        videoThumbnail: videoThumbnail,
+        channelName: info['uploader'],
+        videoLikes: videoLikes,
+        videoDislikes: videoDislikes,
+        likePercentage: likePercentage,
+        videoId: videoId,
+        channelId: channelId,
+        channelIcon: channelThumbnail,
+        publishedDate: publishedDate,
+        description: description,
+        isSubscribed: subscribeText,
+        savedText: savedText,
+        savedIconClass: savedIconClass,
+        savedIconColor: savedIconColor,
+        video480p: video480p,
+        video720p: video720p,
+        embedPlayer: embedPlayer,
       });
+      $('#main').html(rendered);
+      stopLoadingAnimation();
+      showVideoRecommendations(videoId);
+      console.log('done');
+      ;
     });
     // Sometimes a video URL is found, but the video will not play.  I believe the issue is
     // that the video has yet to render for that quality, as the video will be available at a later time.
@@ -348,18 +349,17 @@ function showVideoRecommendations(videoId) {
       const dateString = snippet['publishedAt'];
       const publishedDate = dateFormat(dateString, "mmm dS, yyyy");
 
-      $.get('templates/recommendations.html', (template) => {
-        mustache.parse(template);
-        const rendered = mustache.render(template, {
-          videoId: videoId,
-          videoTitle: videoTitle,
-          channelName: channelName,
-          videoThumbnail: videoThumbnail,
-          publishedDate: publishedDate,
-        });
-        const recommendationHtml = $('#recommendations').html();
-        $('#recommendations').html(recommendationHtml + rendered);
+      const recommTemplate = require('./templates/recommendations.html')
+      mustache.parse(recommTemplate);
+      const rendered = mustache.render(recommTemplate, {
+        videoId: videoId,
+        videoTitle: videoTitle,
+        channelName: channelName,
+        videoThumbnail: videoThumbnail,
+        publishedDate: publishedDate,
       });
+      const recommendationHtml = $('#recommendations').html();
+      $('#recommendations').html(recommendationHtml + rendered);
     });
   });
 }
@@ -394,16 +394,15 @@ function openMiniPlayer(videoThumbnail) {
   });
 
   // Use the miniPlayer.html template.
-  $.get('templates/miniPlayer.html', (template) => {
-    mustache.parse(template);
-    const rendered = mustache.render(template, {
-      videoHtml: videoHtml,
-      videoThumbnail: videoThumbnail,
-      startTime: lastTime,
-    });
-    // Render the template to the new browser window.
-    miniPlayer.loadURL("data:text/html;charset=utf-8," + encodeURI(rendered));
+  const miniPlayerTemplate = require('./templates/miniPlayer.html')
+  mustache.parse(miniPlayerTemplate);
+  const rendered = mustache.render(template, {
+    videoHtml: videoHtml,
+    videoThumbnail: videoThumbnail,
+    startTime: lastTime,
   });
+  // Render the template to the new browser window.
+  miniPlayer.loadURL("data:text/html;charset=utf-8," + encodeURI(rendered));
 }
 
 /**

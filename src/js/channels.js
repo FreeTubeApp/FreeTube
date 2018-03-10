@@ -78,21 +78,20 @@ function goToChannel(channelId) {
     let subCount = statistics['subscriberCount'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
     // Grab the channelView.html template and fill it in with the above variables.
-    $.get('templates/channelView.html', (template) => {
-      mustache.parse(template);
-      const rendered = mustache.render(template, {
-        channelName: channelName,
-        channelImage: channelImage,
-        channelBanner: channelBanner,
-        channelId: channelId,
-        subCount: subCount,
-        channelDescription: channelDescription,
-        isSubscribed: subscribeText,
-      });
-      // Render the template on to #main
-      $('#main').html(rendered);
-      stopLoadingAnimation();
+    const channelViewTemplate = require('./templates/channelView.html');
+    mustache.parse(channelViewTemplate);
+    const rendered = mustache.render(channelViewTemplate, {
+      channelName: channelName,
+      channelImage: channelImage,
+      channelBanner: channelBanner,
+      channelId: channelId,
+      subCount: subCount,
+      channelDescription: channelDescription,
+      isSubscribed: subscribeText,
     });
+    // Render the template on to #main
+    $('#main').html(rendered);
+    stopLoadingAnimation();
 
     // Grab the channel's latest upload.  API forces a max of 50.
     youtubeAPI('search', {

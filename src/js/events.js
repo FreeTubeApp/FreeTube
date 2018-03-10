@@ -32,7 +32,7 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
     if (comments.css('display') === 'none') {
       comments.attr('loaded', 'true');
 
-      let commentsTemplate = $.get('templates/comments.html');
+      const commentsTemplate = require('./templates/comments.html');
 
       commentsTemplate.done((template) => {
         youtubeAPI('commentThreads', {
