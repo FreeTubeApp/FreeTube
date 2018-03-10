@@ -19,7 +19,6 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 
 /*
 * File for functions related to videos.
-* TODO: Split some of these functions into their own file.
 */
 
 /**
@@ -39,31 +38,27 @@ function search(nextPageToken = '') {
 
   if (nextPageToken === '') {
     clearMainContainer();
-    toggleLoading();
+    startLoadingAnimation();
   } else {
     console.log(nextPageToken);
     showToast('Fetching results.  Please wait...');
   }
 
   // Start API request
-  let request = gapi.client.youtube.search.list({
+  youtubeAPI('search', {
     q: query,
     part: 'id, snippet',
     type: 'video',
     pageToken: nextPageToken,
     maxResults: 25,
-  });
-
-  // Execute API Request
-  request.execute((response) => {
-    console.log(response);
+  }, function (data){
     if (nextPageToken === '') {
       createVideoListContainer('Search Results:');
-      toggleLoading();
+      stopLoadingAnimation();
     }
-    response['items'].forEach(displayVideos);
-    addNextPage(response['result']['nextPageToken']);
-  });
+    data.items.forEach(displayVideos);
+    addNextPage(data.result.nextPageToken);
+  })
 }
 
 /**
@@ -162,7 +157,7 @@ function addNextPage(nextPageToken) {
 */
 function playVideo(videoId) {
   clearMainContainer();
-  toggleLoading();
+  startLoadingAnimation();
 
   let subscribeText = '';
   let savedText = '';
@@ -191,7 +186,7 @@ function playVideo(videoId) {
     });
   } catch (ex) {
     showToast('Video not found. ID may be invalid.');
-    toggleLoading();
+    stopLoadingAnimation();
     return;
   }
 
@@ -282,15 +277,11 @@ function playVideo(videoId) {
     }
 
     // API Request
-    let request = gapi.client.youtube.channels.list({
+    youtubeAPI('channels', {
       'id': channelId,
       'part': 'snippet'
-    });
-
-    // Execute request
-    request.execute((response) => {
-      console.log(response);
-      const channelThumbnail = response['items'][0]['snippet']['thumbnails']['high']['url'];
+    }, function (data){
+      const channelThumbnail = data['items'][0]['snippet']['thumbnails']['high']['url'];
 
       $.get('templates/player.html', (template) => {
         mustache.parse(template);
@@ -318,7 +309,7 @@ function playVideo(videoId) {
           embedPlayer: embedPlayer,
         });
         $('#main').html(rendered);
-        toggleLoading();
+        stopLoadingAnimation();
         showVideoRecommendations(videoId);
         console.log('done');
       });
@@ -340,15 +331,13 @@ function playVideo(videoId) {
 * @param {string} videoId - The video ID of the video to get recommendations from.
 */
 function showVideoRecommendations(videoId) {
-  let request = gapi.client.youtube.search.list({
+  youtubeAPI('search', {
     part: 'snippet',
     type: 'video',
     relatedToVideoId: videoId,
     maxResults: 15,
-  });
-
-  request.execute((response) => {
-    const recommendations = response['items'];
+  }, function (data){
+    const recommendations = data.items;
     recommendations.forEach((data) => {
       const snippet = data['snippet'];
       const videoId = data['id']['videoId'];
@@ -371,48 +360,6 @@ function showVideoRecommendations(videoId) {
         $('#recommendations').html(recommendationHtml + rendered);
       });
     });
-  });
-}
-
-/**
-* Open up the mini player to watch the video outside of the main application.
-*
-* @param {string} videoThumbnail - The URL of the video thumbnail.  Used to prevent another API call.
-*
-* @return {Void}
-*/
-function openMiniPlayer(videoThumbnail) {
-  let lastTime;
-  let videoHtml;
-
-  // Grabs whatever the HTML is for the current video player.  Done this way to grab
-  // the HTML5 player (with varying qualities) as well as the YouTube embeded player.
-  if ($('.videoPlayer').length > 0) {
-    $('.videoPlayer').get(0).pause();
-    lastTime = $('.videoPlayer').get(0).currentTime;
-    videoHtml = $('.videoPlayer').get(0).outerHTML;
-  } else {
-    videoHtml = $('iframe').get(0).outerHTML;
-  }
-
-  // Create a new browser window.
-  const BrowserWindow = electron.remote.BrowserWindow;
-
-  let miniPlayer = new BrowserWindow({
-    width: 1200,
-    height: 700
-  });
-
-  // Use the miniPlayer.html template.
-  $.get('templates/miniPlayer.html', (template) => {
-    mustache.parse(template);
-    const rendered = mustache.render(template, {
-      videoHtml: videoHtml,
-      videoThumbnail: videoThumbnail,
-      startTime: lastTime,
-    });
-    // Render the template to the new browser window.
-    miniPlayer.loadURL("data:text/html;charset=utf-8," + encodeURI(rendered));
   });
 }
 
@@ -451,7 +398,7 @@ function parseVideoLink() {
 */
 function showMostPopular() {
   clearMainContainer();
-  toggleLoading();
+  startLoadingAnimation();
 
   // Get the date of 2 days ago.
   var d = new Date();
@@ -462,19 +409,16 @@ function showMostPopular() {
   // These are the videos that are considered as 'most popular' and is how similar
   // Applications grab these.  Videos in the 'Trending' tab on YouTube will be different.
   // And there is no way to grab those videos.
-  let request = gapi.client.youtube.search.list({
+  youtubeAPI('search', {
     part: 'snippet',
     order: 'viewCount',
     type: 'video',
     publishedAfter: d.toISOString(),
     maxResults: 50,
-  });
-
-  request.execute((response) => {
-    console.log(response);
+  }, function (data){
     createVideoListContainer('Most Popular:');
-    toggleLoading();
-    response['items'].forEach(displayVideos);
+    stopLoadingAnimation();
+    data['items'].forEach(displayVideos);
   });
 }
 
@@ -503,99 +447,19 @@ function copyLink(website, videoId) {
 function getChannelAndPlayer(videoId) {
   console.log(videoId);
   return new Promise((resolve, reject) => {
-    let data = [];
-
-    let request = gapi.client.youtube.videos.list({
-      part: 'snippet, player',
+    youtubeAPI('videos', {
+      part: 'snippet,player',
       id: videoId,
-    });
-
-    request.execute((response) => {
-      console.log(response);
-      let embedHtml = response['items'][0]['player']['embedHtml'];
+    }, function (data){
+      let embedHtml = data.items[0].player.embedHtml;
       embedHtml = embedHtml.replace('src="', 'src="https:');
       embedHtml = embedHtml.replace('width="480px"', '');
       embedHtml = embedHtml.replace('height="270px"', '');
       embedHtml = embedHtml.replace(/\"/g, '&quot;');
-      data[0] = embedHtml;
-      data[1] = response['items'][0]['snippet']['channelId'];
-
-
-      resolve(data);
+      resolve([embedHtml, data.items[0].snippet.channelId]);
     });
   });
 
-}
-
-/**
-* Change the quality of the current video.
-*
-* @param {string} videoHtml - The HTML of the video player to be set.
-* @param {string} qualityType - The Quality Type of the video. Ex: 720p, 480p
-* @param {boolean} isEmbed - Optional: Value on if the videoHtml is the embeded player.
-*
-* @return {Void}
-*/
-function changeQuality(videoHtml, qualityType, isEmbed = false) {
-  if (videoHtml == '') {
-    showToast('Video quality type is not available.  Unable to change quality.')
-    return;
-  }
-
-  videoHtml = videoHtml.replace(/\&quot\;/g, '"');
-
-  console.log(videoHtml);
-  console.log(isEmbed);
-
-  // The YouTube API creates 2 more iFrames.  This is why a boolean value is sent
-  // with the function.
-  const embedPlayer = document.getElementsByTagName('IFRAME')[0];
-
-  const html5Player = document.getElementsByClassName('videoPlayer');
-
-  console.log(embedPlayer);
-  console.log(html5Player);
-
-  if (isEmbed && html5Player.length == 0) {
-    // The embeded player is already playing.  Return.
-    showToast('You are already using the embeded player.')
-    return;
-  } else if (isEmbed) {
-    // Switch from HTML 5 player to embeded Player
-    html5Player[0].remove();
-    const mainHtml = $('#main').html();
-    $('#main').html(videoHtml + mainHtml);
-    $('#currentQuality').html(qualityType);
-  } else if (html5Player.length == 0) {
-    // Switch from embeded player to HTML 5 player
-    embedPlayer.remove();
-    let videoPlayer = document.createElement('video');
-    videoPlayer.className = 'videoPlayer';
-    videoPlayer.src = videoHtml;
-    videoPlayer.controls = true;
-    videoPlayer.autoplay = true;
-    $('#main').prepend(videoPlayer);
-    $('#currentQuality').html(qualityType);
-  } else {
-    // Switch src on HTML 5 player
-    const currentPlayBackTime = $('.videoPlayer').get(0).currentTime;
-    html5Player[0].src = videoHtml;
-    html5Player[0].load();
-    $('.videoPlayer').get(0).currentTime = currentPlayBackTime;
-    $('#currentQuality').html(qualityType);
-  }
-}
-
-/**
-* Change the playpack speed of the video.
-*
-* @param {double} speed - The playback speed of the video.
-*
-* @return {Void}
-*/
-function changeVideoSpeed(speed){
-  $('#currentSpeed').html(speed);
-  $('.videoPlayer').get(0).playbackRate = speed;
 }
 
 /**

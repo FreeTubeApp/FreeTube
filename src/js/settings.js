@@ -21,6 +21,9 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
  * A file for functions used for settings.
  */
 
+// To any third party devs that fork the project, please be ethical and change the API keys.
+const apiKeyBank = ['AIzaSyC9E579nh_qqxg6BH4xIce3k_7a9mT4uQc', 'AIzaSyCKplYT6hZIlm2O9FbWTi1G7rkpsLNTq78', 'AIzaSyAE5xzh5GcA_tEDhXmMFd1pEzrL-W7z51E', 'AIzaSyDoFzqwuO9l386eF6BmNkVapjiTJ93CBy4', 'AIzaSyBljfZFPioB0TRJAj-0LS4tlIKl2iucyY4'];
+
 /**
  * Display the settings screen to the user.
  *
@@ -28,13 +31,10 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
  */
 function showSettings() {
   clearMainContainer();
-  toggleLoading();
+  startLoadingAnimation();
 
   let isChecked = '';
   let key = '';
-
-  // To any third party devs that fork the project, please be ethical and change the API keys.
-  const apiKeyBank = ['AIzaSyC9E579nh_qqxg6BH4xIce3k_7a9mT4uQc', 'AIzaSyCKplYT6hZIlm2O9FbWTi1G7rkpsLNTq78', 'AIzaSyAE5xzh5GcA_tEDhXmMFd1pEzrL-W7z51E', 'AIzaSyDoFzqwuO9l386eF6BmNkVapjiTJ93CBy4', 'AIzaSyBljfZFPioB0TRJAj-0LS4tlIKl2iucyY4'];
 
   /*
    * Check the settings database for the user's current settings.  This is so the
@@ -64,7 +64,7 @@ function showSettings() {
       });
       // Render template to application
       $('#main').html(rendered);
-      toggleLoading();
+      stopLoadingAnimation();
 
       // Check / uncheck the switch depending on the user's settings.
       if (currentTheme === 'light') {
@@ -82,8 +82,6 @@ function showSettings() {
  * @return {Void}
  */
 function checkDefaultSettings() {
-  // To any third party devs that fork the project, please be ethical and change the API keys.
-  const apiKeyBank = ['AIzaSyC9E579nh_qqxg6BH4xIce3k_7a9mT4uQc', 'AIzaSyCKplYT6hZIlm2O9FbWTi1G7rkpsLNTq78', 'AIzaSyAE5xzh5GcA_tEDhXmMFd1pEzrL-W7z51E', 'AIzaSyDoFzqwuO9l386eF6BmNkVapjiTJ93CBy4', 'AIzaSyBljfZFPioB0TRJAj-0LS4tlIKl2iucyY4'];
 
   // Grab a random API Key.
   apiKey = apiKeyBank[Math.floor(Math.random() * apiKeyBank.length)];
@@ -126,9 +124,6 @@ function checkDefaultSettings() {
         }
       });
     }
-
-    // Loads the JavaScript client library and invokes `start` afterwards.
-    gapi.load('client', start);
   });
 }
 

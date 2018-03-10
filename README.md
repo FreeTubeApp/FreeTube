@@ -1,7 +1,7 @@
 # FreeTube
 FreeTube is an Open Source Desktop YouTube player built with privacy in mind.  Watch your favorite YouTube videos ad free as well as prevent Google from tracking what you watch.  Available for Windows / Mac / Linux
 
-Please note that FreeTube is currently in Beta and using the proprietary and obfuscated [Google API script](https://apis.google.com/js/api.js) (bundled as `src/js/googleApi.js`), which is planned to be ditched in the future. Video URLs are resolved using the [youtube-dl](https://github.com/jaimeMF/youtube-dl-api-server) HTTP API.
+Please note that FreeTube is currently in Beta and uses the proprietary [YouTube HTTP API](https://developers.google.com/youtube/v3/). Video URLs are resolved using a [youtube-dl-api-server](https://github.com/jaimeMF/youtube-dl-api-server).
 
 <a href='https://github.com/FreeTubeApp/FreeTube/releases' >Download</a>
 
@@ -30,38 +30,7 @@ While I believe that FreeTube should work well for most users, there will probab
 # I'd like to help!
 If you have an idea or if you found a bug, please create an issue so that we can track it.  Please check the current issues and make sure that someone else hasn't mentioned it already before submitting an issue.
 
-If you like to get your hands dirty and want to contribute, we would love to have your help.  Send a pull request and someone will review your code. Proper contribution guidelines will be included soon, but in the meantime here's how to get start:
-
-After you pull down the code:
-
-Install Dependencies:
-```
-npm install
-```
-
-Run the application:
-```
-npm start
-```
-
-Make / Package application:
-
-Windows (Requires Wine on Linux):
-```
-npm run make:win32
-```
-
-Mac:
-```
-npm run make:darwin
-```
-
-Linux (Requires deb and rpm):
-```
-npm run make:linux
-```
-
-The bundled application will then be located in the "/out" folder in your project directory.
+If you like to get your hands dirty and want to contribute, we would love to have your help.  Send a pull request and someone will review your code. Please follow the [Contribution Guidelines](https://github.com/FreeTubeApp/FreeTube/blob/master/CONTRIBUTING.md) before sending your pull request.
 
 # License
 [![GNU GPLv3 Image](https://www.gnu.org/graphics/gplv3-127x51.png)](http://www.gnu.org/licenses/gpl-3.0.en.html)  

@@ -113,7 +113,7 @@ function videoIsSaved(videoId) {
 */
 function showSavedVideos(){
   clearMainContainer();
-  toggleLoading();
+  startLoadingAnimation();
   console.log('checking saved videos');
 
   let videoList = '';
@@ -136,20 +136,17 @@ function showSavedVideos(){
     }
 
     // Call the YouTube API
-    let request = gapi.client.youtube.videos.list({
+    youtubeAPI('videos', {
       part: 'snippet',
       id: videoList,
       maxResults: 50,
-    });
-
-    // Execute the API request
-    request.execute((response) => {
+    }, function (data) {
       // Render the videos to the screen
       createVideoListContainer('Saved Videos:');
-      response['items'].forEach((video) => {
+      data['items'].forEach((video) => {
         displayVideos(video, 'history');
       });
-      toggleLoading();
+      stopLoadingAnimation();
     });
   });
 }
