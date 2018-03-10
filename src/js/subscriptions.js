@@ -108,26 +108,17 @@ function loadSubscriptions() {
         * Grab the channels 15 most recent uploads.  Typically this should be enough.
         * This number can be changed if we feel necessary.
         */
-        try {
-          youtubeAPI('search', {
-            part: 'snippet', // Try getting content details for video duration in the near future.
-            channelId: channelId,
-            type: 'video',
-            maxResults: 15,
-            order: 'date',
-          }, function (data){
-            videoList = videoList.concat(data['items']);
-            // Iterate through the next object in the loop.
-            next();
-          });
-        } catch (err) {
-          /*
-          * The above API requests sometimes forces an error for some reason. Restart
-          * the function to prevent this.  This should be changed if possible.
-          */
-          loadSubscriptions();
-          return;
-        }
+        youtubeAPI('search', {
+          part: 'snippet', // Try getting content details for video duration in the near future.
+          channelId: channelId,
+          type: 'video',
+          maxResults: 15,
+          order: 'date',
+        }, function (data){
+          videoList = videoList.concat(data['items']);
+          // Iterate through the next object in the loop.
+          next();
+        });
       }, (err) => {
         // Sort the videos by date
         videoList.sort((a, b) => {
