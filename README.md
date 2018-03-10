@@ -1,7 +1,7 @@
 # FreeTube
 FreeTube is an Open Source Desktop YouTube player built with privacy in mind.  Watch your favorite YouTube videos ad free as well as prevent Google from tracking what you watch.  Available for Windows / Mac / Linux
 
-Please note that FreeTube is currently in Beta and using the proprietary and obfuscated [Google API script](https://apis.google.com/js/api.js) (bundled as `src/js/googleApi.js`), which is planned to be ditched in the future. Video URLs are resolved using the [youtube-dl](https://github.com/jaimeMF/youtube-dl-api-server) HTTP API.
+Please note that FreeTube is currently in Beta and uses the proprietary [YouTube HTTP API](https://developers.google.com/youtube/v3/). Video URLs are resolved using a [youtube-dl-api-server](https://github.com/jaimeMF/youtube-dl-api-server).
 
 <a href='https://github.com/FreeTubeApp/FreeTube/releases' >Download</a>
 

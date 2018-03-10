@@ -39,31 +39,27 @@ function search(nextPageToken = '') {
 
   if (nextPageToken === '') {
     clearMainContainer();
-    toggleLoading();
+    startLoadingAnimation();
   } else {
     console.log(nextPageToken);
     showToast('Fetching results.  Please wait...');
   }
 
   // Start API request
-  let request = gapi.client.youtube.search.list({
+  youtubeAPI('search', {
     q: query,
     part: 'id, snippet',
     type: 'video',
     pageToken: nextPageToken,
     maxResults: 25,
-  });
-
-  // Execute API Request
-  request.execute((response) => {
-    console.log(response);
+  }, function (data){
     if (nextPageToken === '') {
       createVideoListContainer('Search Results:');
-      toggleLoading();
+      stopLoadingAnimation();
     }
-    response['items'].forEach(displayVideos);
-    addNextPage(response['result']['nextPageToken']);
-  });
+    data.items.forEach(displayVideos);
+    addNextPage(data.result.nextPageToken);
+  })
 }
 
 /**
@@ -162,7 +158,7 @@ function addNextPage(nextPageToken) {
 */
 function playVideo(videoId) {
   clearMainContainer();
-  toggleLoading();
+  startLoadingAnimation();
 
   let subscribeText = '';
   let savedText = '';
@@ -191,7 +187,7 @@ function playVideo(videoId) {
     });
   } catch (ex) {
     showToast('Video not found. ID may be invalid.');
-    toggleLoading();
+    stopLoadingAnimation();
     return;
   }
 
@@ -282,15 +278,11 @@ function playVideo(videoId) {
     }
 
     // API Request
-    let request = gapi.client.youtube.channels.list({
+    youtubeAPI('channels', {
       'id': channelId,
       'part': 'snippet'
-    });
-
-    // Execute request
-    request.execute((response) => {
-      console.log(response);
-      const channelThumbnail = response['items'][0]['snippet']['thumbnails']['high']['url'];
+    }, function (data){
+      const channelThumbnail = data['items'][0]['snippet']['thumbnails']['high']['url'];
 
       $.get('templates/player.html', (template) => {
         mustache.parse(template);
@@ -318,7 +310,7 @@ function playVideo(videoId) {
           embedPlayer: embedPlayer,
         });
         $('#main').html(rendered);
-        toggleLoading();
+        stopLoadingAnimation();
         showVideoRecommendations(videoId);
         console.log('done');
       });
@@ -340,15 +332,13 @@ function playVideo(videoId) {
 * @param {string} videoId - The video ID of the video to get recommendations from.
 */
 function showVideoRecommendations(videoId) {
-  let request = gapi.client.youtube.search.list({
+  youtubeAPI('search', {
     part: 'snippet',
     type: 'video',
     relatedToVideoId: videoId,
     maxResults: 15,
-  });
-
-  request.execute((response) => {
-    const recommendations = response['items'];
+  }, function (data){
+    const recommendations = data.items;
     recommendations.forEach((data) => {
       const snippet = data['snippet'];
       const videoId = data['id']['videoId'];
@@ -451,7 +441,7 @@ function parseVideoLink() {
 */
 function showMostPopular() {
   clearMainContainer();
-  toggleLoading();
+  startLoadingAnimation();
 
   // Get the date of 2 days ago.
   var d = new Date();
@@ -462,19 +452,16 @@ function showMostPopular() {
   // These are the videos that are considered as 'most popular' and is how similar
   // Applications grab these.  Videos in the 'Trending' tab on YouTube will be different.
   // And there is no way to grab those videos.
-  let request = gapi.client.youtube.search.list({
+  youtubeAPI('search', {
     part: 'snippet',
     order: 'viewCount',
     type: 'video',
     publishedAfter: d.toISOString(),
     maxResults: 50,
-  });
-
-  request.execute((response) => {
-    console.log(response);
+  }, function (data){
     createVideoListContainer('Most Popular:');
-    toggleLoading();
-    response['items'].forEach(displayVideos);
+    stopLoadingAnimation();
+    data['items'].forEach(displayVideos);
   });
 }
 
@@ -503,25 +490,16 @@ function copyLink(website, videoId) {
 function getChannelAndPlayer(videoId) {
   console.log(videoId);
   return new Promise((resolve, reject) => {
-    let data = [];
-
-    let request = gapi.client.youtube.videos.list({
-      part: 'snippet, player',
+    youtubeAPI('videos', {
+      part: 'snippet,player',
       id: videoId,
-    });
-
-    request.execute((response) => {
-      console.log(response);
-      let embedHtml = response['items'][0]['player']['embedHtml'];
+    }, function (data){
+      let embedHtml = data.items[0].player.embedHtml;
       embedHtml = embedHtml.replace('src="', 'src="https:');
       embedHtml = embedHtml.replace('width="480px"', '');
       embedHtml = embedHtml.replace('height="270px"', '');
       embedHtml = embedHtml.replace(/\"/g, '&quot;');
-      data[0] = embedHtml;
-      data[1] = response['items'][0]['snippet']['channelId'];
-
-
-      resolve(data);
+      resolve([embedHtml, data.items[0].snippet.channelId]);
     });
   });
 
