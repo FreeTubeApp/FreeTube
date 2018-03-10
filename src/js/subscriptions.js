@@ -110,7 +110,7 @@ function loadSubscriptions() {
         */
         try {
           youtubeAPI('search', {
-            part: 'snippet',
+            part: 'snippet', // Try getting content details for video duration in the near future.
             channelId: channelId,
             type: 'video',
             maxResults: 15,
