@@ -313,6 +313,13 @@ function changeVideoSpeed(speed){
   $('.videoPlayer').get(0).playbackRate = speed;
 }
 
+/**
+* Change the volume of the video player
+*
+* @param {double} amount - The volume to increase or descrease the volume by. Will be any double between 0 and 1.
+*
+* @return {Void}
+*/
 function changeVolume(amount){
   const videoPlayer = $('.videoPlayer').get(0);
   let volume = videoPlayer.volume;
@@ -328,11 +335,25 @@ function changeVolume(amount){
   }
 }
 
+/**
+* Change the duration of the current time of a video by a few seconds.
+*
+* @param {integer} seconds - The amount of seconds to change the video by.  Integer may be positive or negative.
+*
+* @return {Void}
+*/
 function changeDurationBySeconds(seconds){
   const videoPlayer = $('.videoPlayer').get(0);
   videoPlayer.currentTime = videoPlayer.currentTime + seconds;
 }
 
+/**
+* Change the duration of a video by a percentage of the duration.
+*
+* @param {double} percentage - The percentage to hop to of the video.  Will be any double between 0 and 1.
+*
+* @return {Void}
+*/
 function changeDurationByPercentage(percentage){
   const videoPlayer = $('.videoPlayer').get(0);
   videoPlayer.currentTime = videoPlayer.duration * percentage;
