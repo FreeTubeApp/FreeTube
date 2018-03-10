@@ -19,7 +19,6 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 
 /*
 * File for functions related to videos.
-* TODO: Split some of these functions into their own file.
 */
 
 /**
@@ -365,48 +364,6 @@ function showVideoRecommendations(videoId) {
 }
 
 /**
-* Open up the mini player to watch the video outside of the main application.
-*
-* @param {string} videoThumbnail - The URL of the video thumbnail.  Used to prevent another API call.
-*
-* @return {Void}
-*/
-function openMiniPlayer(videoThumbnail) {
-  let lastTime;
-  let videoHtml;
-
-  // Grabs whatever the HTML is for the current video player.  Done this way to grab
-  // the HTML5 player (with varying qualities) as well as the YouTube embeded player.
-  if ($('.videoPlayer').length > 0) {
-    $('.videoPlayer').get(0).pause();
-    lastTime = $('.videoPlayer').get(0).currentTime;
-    videoHtml = $('.videoPlayer').get(0).outerHTML;
-  } else {
-    videoHtml = $('iframe').get(0).outerHTML;
-  }
-
-  // Create a new browser window.
-  const BrowserWindow = electron.remote.BrowserWindow;
-
-  let miniPlayer = new BrowserWindow({
-    width: 1200,
-    height: 700
-  });
-
-  // Use the miniPlayer.html template.
-  $.get('templates/miniPlayer.html', (template) => {
-    mustache.parse(template);
-    const rendered = mustache.render(template, {
-      videoHtml: videoHtml,
-      videoThumbnail: videoThumbnail,
-      startTime: lastTime,
-    });
-    // Render the template to the new browser window.
-    miniPlayer.loadURL("data:text/html;charset=utf-8," + encodeURI(rendered));
-  });
-}
-
-/**
 * Check if a link is a valid YouTube/HookTube link and play that video. Gets input
 * from the #jumpToInput element.
 *
@@ -503,77 +460,6 @@ function getChannelAndPlayer(videoId) {
     });
   });
 
-}
-
-/**
-* Change the quality of the current video.
-*
-* @param {string} videoHtml - The HTML of the video player to be set.
-* @param {string} qualityType - The Quality Type of the video. Ex: 720p, 480p
-* @param {boolean} isEmbed - Optional: Value on if the videoHtml is the embeded player.
-*
-* @return {Void}
-*/
-function changeQuality(videoHtml, qualityType, isEmbed = false) {
-  if (videoHtml == '') {
-    showToast('Video quality type is not available.  Unable to change quality.')
-    return;
-  }
-
-  videoHtml = videoHtml.replace(/\&quot\;/g, '"');
-
-  console.log(videoHtml);
-  console.log(isEmbed);
-
-  // The YouTube API creates 2 more iFrames.  This is why a boolean value is sent
-  // with the function.
-  const embedPlayer = document.getElementsByTagName('IFRAME')[0];
-
-  const html5Player = document.getElementsByClassName('videoPlayer');
-
-  console.log(embedPlayer);
-  console.log(html5Player);
-
-  if (isEmbed && html5Player.length == 0) {
-    // The embeded player is already playing.  Return.
-    showToast('You are already using the embeded player.')
-    return;
-  } else if (isEmbed) {
-    // Switch from HTML 5 player to embeded Player
-    html5Player[0].remove();
-    const mainHtml = $('#main').html();
-    $('#main').html(videoHtml + mainHtml);
-    $('#currentQuality').html(qualityType);
-  } else if (html5Player.length == 0) {
-    // Switch from embeded player to HTML 5 player
-    embedPlayer.remove();
-    let videoPlayer = document.createElement('video');
-    videoPlayer.className = 'videoPlayer';
-    videoPlayer.src = videoHtml;
-    videoPlayer.controls = true;
-    videoPlayer.autoplay = true;
-    $('#main').prepend(videoPlayer);
-    $('#currentQuality').html(qualityType);
-  } else {
-    // Switch src on HTML 5 player
-    const currentPlayBackTime = $('.videoPlayer').get(0).currentTime;
-    html5Player[0].src = videoHtml;
-    html5Player[0].load();
-    $('.videoPlayer').get(0).currentTime = currentPlayBackTime;
-    $('#currentQuality').html(qualityType);
-  }
-}
-
-/**
-* Change the playpack speed of the video.
-*
-* @param {double} speed - The playback speed of the video.
-*
-* @return {Void}
-*/
-function changeVideoSpeed(speed){
-  $('#currentSpeed').html(speed);
-  $('.videoPlayer').get(0).playbackRate = speed;
 }
 
 /**
