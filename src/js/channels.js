@@ -95,7 +95,7 @@ function goToChannel(channelId) {
     });
 
     // Grab the channel's latest upload.  API forces a max of 50.
-	youtubeAPI('search', {
+    youtubeAPI('search', {
       part: 'snippet',
       channelId: channelId,
       type: 'video',
