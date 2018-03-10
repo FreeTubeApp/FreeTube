@@ -121,7 +121,6 @@ function displayVideos(video, listType = null) {
   } else {
     $(rendered).insertBefore('#getNextPage');
   }
-  ;
 }
 
 /**
@@ -314,7 +313,6 @@ function playVideo(videoId) {
       stopLoadingAnimation();
       showVideoRecommendations(videoId);
       console.log('done');
-      ;
     });
     // Sometimes a video URL is found, but the video will not play.  I believe the issue is
     // that the video has yet to render for that quality, as the video will be available at a later time.
