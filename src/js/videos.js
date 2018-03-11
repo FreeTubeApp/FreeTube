@@ -71,55 +71,55 @@ function search(nextPageToken = '') {
 * @return {Void}
 */
 function displayVideos(video, listType = null) {
+
+  const videoSnippet = video['snippet'];
+
+  // Grab the published date for the video and convert to a user readable state.
+  const dateString = new Date(videoSnippet['publishedAt']);
+  const publishedDate = dateFormat(dateString, "mmm dS, yyyy");
+  let deleteHtml = '';
+  let liveText = '';
+  let videoId = video['id']['videoId'];
+
+  const searchMenu = $('#videoListContainer').html();
+
+  // Include a remove icon in the list if the application is displaying the history list or saved videos.
+  if (listType === 'saved') {
+    videoId = video['id'];
+    deleteHtml = '<i onclick="removeSavedVideo(\'' + videoId + '\'); showSavedVideos();" class="videoDelete fas fa-times"></i>';
+  } else if (listType === 'history') {
+    videoId = video['id'];
+    deleteHtml = '<i onclick="removeFromHistory(\'' + videoId + '\'); showHistory()" class="videoDelete fas fa-times"></i>';
+  }
+
+  // Includes text if the video is live.
+  if (videoSnippet['liveBroadcastContent'] === 'live') {
+    liveText = 'LIVE NOW';
+  }
+
   // Grab the search template for the video.
-  $.get('templates/videoList.html', (template) => {
+  const videoListTemplate = require('./templates/videoList.html')
 
-    const videoSnippet = video['snippet']
-
-    // Grab the published date for the video and convert to a user readable state.
-    const dateString = new Date(videoSnippet['publishedAt']);
-    const publishedDate = dateFormat(dateString, "mmm dS, yyyy");
-    let deleteHtml = '';
-    let liveText = '';
-    let videoId = video['id']['videoId'];
-
-    const searchMenu = $('#videoListContainer').html();
-
-    // Include a remove icon in the list if the application is displaying the history list or saved videos.
-    if (listType === 'saved') {
-      videoId = video['id'];
-      deleteHtml = '<i onclick="removeSavedVideo(\'' + videoId + '\'); showSavedVideos();" class="videoDelete fas fa-times"></i>';
-    } else if (listType === 'history') {
-      videoId = video['id'];
-      deleteHtml = '<i onclick="removeFromHistory(\'' + videoId + '\'); showHistory()" class="videoDelete fas fa-times"></i>';
-    }
-
-    // Includes text if the video is live.
-    if (videoSnippet['liveBroadcastContent'] === 'live') {
-      liveText = 'LIVE NOW';
-    }
-
-    // Render / Manipulate the template.  Replace variables with data from the video.
-    mustache.parse(template);
-    const rendered = mustache.render(template, {
-      videoThumbnail: videoSnippet['thumbnails']['medium']['url'],
-      videoTitle: videoSnippet['title'],
-      channelName: videoSnippet['channelTitle'],
-      videoDescription: videoSnippet['description'],
-      publishedDate: publishedDate,
-      liveText: liveText,
-      videoId: videoId,
-      channelId: videoSnippet['channelId'],
-      deleteHtml: deleteHtml,
-    });
-    // Apply the render to the page
-    let nextButton = document.getElementById('getNextPage');
-    if (nextButton === null) {
-      $('#videoListContainer').append(rendered);
-    } else {
-      $(rendered).insertBefore('#getNextPage');
-    }
+  // Render / Manipulate the template.  Replace variables with data from the video.
+  mustache.parse(videoListTemplate);
+  const rendered = mustache.render(videoListTemplate, {
+    videoThumbnail: videoSnippet['thumbnails']['medium']['url'],
+    videoTitle: videoSnippet['title'],
+    channelName: videoSnippet['channelTitle'],
+    videoDescription: videoSnippet['description'],
+    publishedDate: publishedDate,
+    liveText: liveText,
+    videoId: videoId,
+    channelId: videoSnippet['channelId'],
+    deleteHtml: deleteHtml,
   });
+  // Apply the render to the page
+  let nextButton = document.getElementById('getNextPage');
+  if (nextButton === null) {
+    $('#videoListContainer').append(rendered);
+  } else {
+    $(rendered).insertBefore('#getNextPage');
+  }
 }
 
 /**
@@ -172,18 +172,17 @@ function showVideoRecommendations(videoId) {
       const dateString = snippet['publishedAt'];
       const publishedDate = dateFormat(dateString, "mmm dS, yyyy");
 
-      $.get('templates/recommendations.html', (template) => {
-        mustache.parse(template);
-        const rendered = mustache.render(template, {
-          videoId: videoId,
-          videoTitle: videoTitle,
-          channelName: channelName,
-          videoThumbnail: videoThumbnail,
-          publishedDate: publishedDate,
-        });
-        const recommendationHtml = $('#recommendations').html();
-        $('#recommendations').html(recommendationHtml + rendered);
+      const recommTemplate = require('./templates/recommendations.html')
+      mustache.parse(recommTemplate);
+      const rendered = mustache.render(recommTemplate, {
+        videoId: videoId,
+        videoTitle: videoTitle,
+        channelName: channelName,
+        videoThumbnail: videoThumbnail,
+        publishedDate: publishedDate,
       });
+      const recommendationHtml = $('#recommendations').html();
+      $('#recommendations').html(recommendationHtml + rendered);
     });
   });
 }

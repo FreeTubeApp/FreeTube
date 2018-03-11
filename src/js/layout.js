@@ -46,6 +46,10 @@ let dialog = require('electron').remote.dialog; // Used for opening file browser
 let toastTimeout; // Timeout for toast notifications.
 let mouseTimeout; // Timeout for hiding the mouse cursor on video playback
 
+require.extensions['.html'] = function (module, filename) {
+    module.exports = fs.readFileSync(filename, 'utf8');
+};
+
 // Subscriptions database file
 const subDb = new Datastore({
   filename: localDataStorage + '/subscriptions.db',
@@ -199,15 +203,14 @@ function showAbout(){
   startLoadingAnimation();
 
   // Grab about.html to be used as a template
-  $.get('templates/about.html', (template) => {
-    mustache.parse(template);
-    const rendered = mustache.render(template, {
+  const aboutTemplate = require('./templates/about.html')
+  mustache.parse(aboutTemplate);
+  $('#main').html(
+    mustache.render(aboutTemplate, {
       versionNumber: require('electron').remote.app.getVersion(),
-    });
-    // Render to #main and remove loading animation
-    $('#main').html(rendered);
-    stopLoadingAnimation();
-  });
+    })
+  );
+  stopLoadingAnimation();
 }
 
 /**
