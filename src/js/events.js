@@ -80,7 +80,7 @@ $('.videoPlayer').keypress((event) => {
 let videoShortcutHandler = function(event) {
   console.log(event.which);
   let videoPlayer = $('.videoPlayer').get(0);
-  if (typeof(videoPlayer) !== 'undefined'){
+  if (typeof(videoPlayer) !== 'undefined' && !$('#jumpToInput').is(':focus') && !$('#search').is(':focus')){
     switch (event.which) {
       case 32:
         // Space Bar
@@ -117,6 +117,17 @@ let videoShortcutHandler = function(event) {
         }
         else{
           changeVolume(1);
+        }
+        break;
+      case 67:
+        // F Key
+        event.preventDefault();
+        let subtitleMode = $('.videoPlayer').get(0).textTracks[0].mode;
+        if (subtitleMode === 'hidden'){
+          $('.videoPlayer').get(0).textTracks[0].mode = 'showing'
+        }
+        else{
+          $('.videoPlayer').get(0).textTracks[0].mode = 'hidden'
         }
         break;
       case 38:

@@ -30,7 +30,7 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 */
 function playVideo(videoId) {
   clearMainContainer();
-  toggleLoading();
+  startLoadingAnimation();
 
   let subscribeText = '';
   let savedText = '';
@@ -38,6 +38,7 @@ function playVideo(videoId) {
   let savedIconColor = '';
   let video480p;
   let video720p;
+  let videoSubtitles = '';
   let defaultUrl;
   let defaultQuality;
   let channelId;
@@ -59,15 +60,15 @@ function playVideo(videoId) {
     });
   } catch (ex) {
     showToast('Video not found. ID may be invalid.');
-    toggleLoading();
+    stopLoadingAnimation();
     return;
   }
 
   /*
   * FreeTube calls an instance of a youtube-dl server to grab the direct video URL.  Please do not use this API in third party projects.
   */
-  const url = 'https://stormy-inlet-41826.herokuapp.com/api/info?url=https://www.youtube.com/watch?v=' + videoId + 'flatten=True';
-  $.getJSON(url, (response) => {
+  const url = 'https://stormy-inlet-41826.herokuapp.com/api/info?url=https://www.youtube.com/watch?v=' + videoId + 'flatten=True&writesubtitles=true';
+  $.getJSON(url, (response) => {//https://stormy-inlet-41826.herokuapp.com/api/info?url=https://www.youtube.com/watch?v=bT1BSfP-NTcflatten=True&writesubtitles=True
     console.log(response);
 
     const info = response['info'];
@@ -94,6 +95,10 @@ function playVideo(videoId) {
     let description = info['description'];
     // Adds clickable links to the description.
     description = autolinker.link(description);
+
+    if (typeof(info['subtitles']['en']) !== 'undefined'){
+      videoSubtitles = info['subtitles']['en'][1]['url'];
+    }
 
     const checkSubscription = isSubscribed(channelId);
 
@@ -122,11 +127,11 @@ function playVideo(videoId) {
     // Search through the returned object to get the 480p and 720p video URLs (If available)
     Object.keys(videoUrls).forEach((key) => {
       console.log(key);
-      switch (videoUrls[key]['format_note']) {
-        case 'medium':
+      switch (videoUrls[key]['format_id']) {
+        case '18':
           video480p = videoUrls[key]['url'];
           break;
-        case 'hd720':
+        case '22':
           video720p = videoUrls[key]['url'];
           break;
       }
@@ -143,22 +148,18 @@ function playVideo(videoId) {
       defaultQuality = '480p';
     } else {
       // Default to the 720p video.
-      videoHtml = '<video class="videoPlayer" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" src="' + video720p + '" poster="' + videoThumbnail + '" autoplay></video>';
+      videoHtml = '<video class="videoPlayer" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" src="' + video720p + '" poster="' + videoThumbnail + '" autoplay><track label="English" kind="subtitles" srclang="en" src="' + videoSubtitles + '" default></video>';
       defaultQuality = '720p';
       // Force the embeded player if needed.
       //videoHtml = embedPlayer;
     }
 
     // API Request
-    let request = gapi.client.youtube.channels.list({
+    youtubeAPI('channels', {
       'id': channelId,
       'part': 'snippet'
-    });
-
-    // Execute request
-    request.execute((response) => {
-      console.log(response);
-      const channelThumbnail = response['items'][0]['snippet']['thumbnails']['high']['url'];
+    }, function (data){
+      const channelThumbnail = data['items'][0]['snippet']['thumbnails']['high']['url'];
 
       $.get('templates/player.html', (template) => {
         mustache.parse(template);
@@ -186,7 +187,8 @@ function playVideo(videoId) {
           embedPlayer: embedPlayer,
         });
         $('#main').html(rendered);
-        toggleLoading();
+        $('.videoPlayer').get(0).textTracks[0].mode = 'hidden';
+        stopLoadingAnimation();
         showVideoRecommendations(videoId);
         console.log('done');
       });
