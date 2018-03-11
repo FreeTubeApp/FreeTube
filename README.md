@@ -1,38 +1,48 @@
 # FreeTube
-FreeTube is an Open Source Desktop YouTube player built with privacy in mind.  Watch your favorite YouTube videos ad free as well as prevent Google from tracking what you watch.  Available for Windows / Mac / Linux
+FreeTube is an open source desktop YouTube player built with privacy in mind.
+Use YouTube without advertisments and Google tracking you using cookies and JavaScript.
+Available for Windows, Mac & Linux thanks to Electron.
 
-Please note that FreeTube is currently in Beta and uses the proprietary [YouTube HTTP API](https://developers.google.com/youtube/v3/). Video URLs are resolved using a [youtube-dl-api-server](https://github.com/jaimeMF/youtube-dl-api-server).
+Please note that FreeTube is currently in Beta. While it should work well for
+most users, there are still bugs and missing features that need to be
+addressed.
 
-<a href='https://github.com/FreeTubeApp/FreeTube/releases' >Download</a>
+[Download](https://github.com/FreeTubeApp/FreeTube/releases)
+
+## How does it work?
+FreeTube uses the proprietary [YouTube HTTP
+API](https://developers.google.com/youtube/v3/getting-started) with a set of
+hard coded API keys.  Videos are resolved using a
+[youtube-dl-api-server](https://github.com/jaimeMF/youtube-dl-api-server)
+(stormy-inlet-41826.herokuapp.com) and played using the stock HTML5 video
+player.  While YouTube can still see your API and video requests it can no
+longer track you using cookies or JavaScript. Your subscriptions, history, and
+saved videos are stored locally on your computer and never sent out.
 
 ## Screenshots
-<img src="https://freetubeapp.github.io/images/FreeTube1.png" width=200 >
-<img src="https://freetubeapp.github.io/images/FreeTube2.png" width=200 >
-<img src="https://freetubeapp.github.io/images/FreeTube3.png" width=200 >
-<img src="https://freetubeapp.github.io/images/FreeTube4.png" width=200 >
-<img src="https://freetubeapp.github.io/images/FreeTube5.png" width=200 >
-
-# How Does It Work?
-FreeTube uses the YouTube API to search for videos.  It then uses the youtube-dl API to grab the raw video files and play them in a basic HTML5 video player, preventing YouTube from tracking you using cookies or JavaScript.  Subscriptions, history, and saved videos are stored locally on the user's computer and is never sent out to Google or anyone else.  You own your data.
+<img src="https://freetubeapp.github.io/images/FreeTube1.png" width=200> <img src="https://freetubeapp.github.io/images/FreeTube2.png" width=200> <img src="https://freetubeapp.github.io/images/FreeTube3.png" width=200> <img src="https://freetubeapp.github.io/images/FreeTube5.png" width=200>
 
 ## Features
-* Watch videos free of ads
-* Prevent Google from tracking what you watch using cookies or JavaScript
+* Watch videos without ads
+* Use YouTube without Google tracking you using cookies and JavaScript
 * Subscribe to channels without an account
-* Store subscriptions, history, and saved videos locally
-* Import / Backup subscriptions
+* Local subscriptions, history, and saved videos
+* Export & import subscriptions
 * Mini Player
-* Light / Dark Theme
+* Light / dark theme
 
-# FreeTube is Currently in Beta
-While I believe that FreeTube should work well for most users, there will probably be some bugs or features missing.  Because of this, FreeTube is currently in beta and will be considered "stable" when these have been addressed.
+## Contributing
+If you have an idea or if you found a bug, please submit a GitHub issue so that
+we can track it.  Please search the existing issues before submitting to
+prevent duplicates.
 
-# I'd like to help!
-If you have an idea or if you found a bug, please create an issue so that we can track it.  Please check the current issues and make sure that someone else hasn't mentioned it already before submitting an issue.
+If you like to get your hands dirty and want to contribute, we would love to
+have your help.  Send a pull request and someone will review your code. Please
+follow the [Contribution
+Guidelines](https://github.com/FreeTubeApp/FreeTube/blob/master/CONTRIBUTING.md)
+before sending your pull request.
 
-If you like to get your hands dirty and want to contribute, we would love to have your help.  Send a pull request and someone will review your code. Please follow the [Contribution Guidelines](https://github.com/FreeTubeApp/FreeTube/blob/master/CONTRIBUTING.md) before sending your pull request.
-
-# License
+## License
 [![GNU GPLv3 Image](https://www.gnu.org/graphics/gplv3-127x51.png)](http://www.gnu.org/licenses/gpl-3.0.en.html)  
 
 FreeTube is Free Software: You can use, study share and improve it at your
