@@ -57,7 +57,7 @@ function search(nextPageToken = '') {
       createVideoListContainer('Search Results:');
       stopLoadingAnimation();
     }
-    data.items.forEach(displayVideos);
+    data.items.forEach(displayVideo);
     addNextPage(data.nextPageToken);
   })
 }
@@ -71,47 +71,45 @@ function search(nextPageToken = '') {
 *
 * @return {Void}
 */
-function displayVideos(video, listType = null) {
+function displayVideo(video, listType = null) {
 
-  const videoSnippet = video['snippet'];
+  const videoSnippet = video.snippet;
 
   // Grab the published date for the video and convert to a user readable state.
-  const dateString = new Date(videoSnippet['publishedAt']);
+  const dateString = new Date(videoSnippet.publishedAt);
   const publishedDate = dateFormat(dateString, "mmm dS, yyyy");
   let deleteHtml = '';
-  let liveText = '';
-  let videoId = video['id']['videoId'];
+  let videoId = video.id.videoId;
 
   const searchMenu = $('#videoListContainer').html();
 
   // Include a remove icon in the list if the application is displaying the history list or saved videos.
   if (listType === 'saved') {
-    videoId = video['id'];
+    videoId = video.id;
     deleteHtml = '<i onclick="removeSavedVideo(\'' + videoId + '\'); showSavedVideos();" class="videoDelete fas fa-times"></i>';
   } else if (listType === 'history') {
-    videoId = video['id'];
+    videoId = video.id;
     deleteHtml = '<i onclick="removeFromHistory(\'' + videoId + '\'); showHistory()" class="videoDelete fas fa-times"></i>';
   }
 
+  let liveText = '';
   // Includes text if the video is live.
-  if (videoSnippet['liveBroadcastContent'] === 'live') {
+  if (videoSnippet.liveBroadcastContent === 'live') {
     liveText = 'LIVE NOW';
   }
 
-  // Grab the search template for the video.
   const videoListTemplate = require('./templates/videoList.html');
 
-  // Render / Manipulate the template.  Replace variables with data from the video.
   mustache.parse(videoListTemplate);
   const rendered = mustache.render(videoListTemplate, {
-    videoThumbnail: videoSnippet['thumbnails']['medium']['url'],
-    videoTitle: videoSnippet['title'],
-    channelName: videoSnippet['channelTitle'],
-    videoDescription: videoSnippet['description'],
+    videoId: videoId,
+    videoThumbnail:   videoSnippet.thumbnails.medium.url,
+    videoTitle:       videoSnippet.title,
+    channelName:      videoSnippet.channelTitle,
+    videoDescription: videoSnippet.description,
+    channelId:        videoSnippet.channelId,
     publishedDate: publishedDate,
     liveText: liveText,
-    videoId: videoId,
-    channelId: videoSnippet['channelId'],
     deleteHtml: deleteHtml,
   });
   // Apply the render to the page
@@ -165,22 +163,16 @@ function showVideoRecommendations(videoId) {
   }, function (data){
     const recommendations = data.items;
     recommendations.forEach((data) => {
-      const snippet = data['snippet'];
-      const videoId = data['id']['videoId'];
-      const videoTitle = snippet['title'];
-      const channelName = snippet['channelTitle'];
-      const videoThumbnail = snippet['thumbnails']['medium']['url'];
-      const dateString = snippet['publishedAt'];
-      const publishedDate = dateFormat(dateString, "mmm dS, yyyy");
+      const snippet = data.snippet;
 
       const recommTemplate = require('./templates/recommendations.html')
       mustache.parse(recommTemplate);
       const rendered = mustache.render(recommTemplate, {
-        videoId: videoId,
-        videoTitle: videoTitle,
-        channelName: channelName,
-        videoThumbnail: videoThumbnail,
-        publishedDate: publishedDate,
+        videoId: data.id.videoId,
+        videoTitle:     snippet.title,
+        channelName:    snippet.channelTitle,
+        videoThumbnail: snippet.thumbnails.medium.url,
+        publishedDate: dateFormat(snippet.publishedAt, "mmm dS, yyyy")
       });
       const recommendationHtml = $('#recommendations').html();
       $('#recommendations').html(recommendationHtml + rendered);
@@ -228,7 +220,6 @@ function showMostPopular() {
   // Get the date of 2 days ago.
   var d = new Date();
   d.setDate(d.getDate() - 2);
-  console.log(d.toString());
 
   // Grab all videos published 2 days ago and after and order them by view count.
   // These are the videos that are considered as 'most popular' and is how similar
@@ -243,7 +234,7 @@ function showMostPopular() {
   }, function (data){
     createVideoListContainer('Most Popular:');
     stopLoadingAnimation();
-    data['items'].forEach(displayVideos);
+    data.items.forEach(displayVideo);
   });
 }
 
@@ -284,7 +275,6 @@ function getChannelAndPlayer(videoId) {
       resolve([embedHtml, data.items[0].snippet.channelId]);
     });
   });
-
 }
 
 /**

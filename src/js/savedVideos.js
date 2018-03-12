@@ -144,7 +144,7 @@ function showSavedVideos(){
       // Render the videos to the screen
       createVideoListContainer('Saved Videos:');
       data.items.forEach((video) => {
-        displayVideos(video, 'history');
+        displayVideo(video, 'history');
       });
       stopLoadingAnimation();
     });

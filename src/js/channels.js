@@ -81,7 +81,7 @@ function goToChannel(channelId) {
     }, function (data) {
       // Display recent uploads to #main
       data['items'].forEach((video) => {
-        displayVideos(video);
+        displayVideo(video);
       });
     });
   });
