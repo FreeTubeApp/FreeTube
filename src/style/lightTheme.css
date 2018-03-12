@@ -39,6 +39,7 @@ body{background-color: #e0e0e0;}
 .qualityTypes{background-color: #eeeeee;}
 .speedTypes{background-color: #eeeeee;}
 .unsaved{color: #616161;}
+.double-bounce1, .double-bounce2 {background-color: #f44336;}
 
 #subscriptions img{border: 0px solid #000000;}
 #sideNav{background-color: white; -webkit-box-shadow: 4px -2px 51px -6px rgba(0,0,0,0.75);}
