@@ -126,12 +126,12 @@ function showSavedVideos(){
     // TODO: Allow the app to show more than 50 saved videos.
     if(docs.length > 49){
       for (let i = 0; i < 49; i++) {
-        videoList = videoList + ',' + docs[i]['videoId'];
+        videoList = videoList + ',' + docs[i].videoId;
       }
     }
     else{
       docs.forEach((video) => {
-        videoList = videoList + ',' + video['videoId'];
+        videoList = videoList + ',' + video.videoId;
       });
     }
 
@@ -143,8 +143,8 @@ function showSavedVideos(){
     }, function (data) {
       // Render the videos to the screen
       createVideoListContainer('Saved Videos:');
-      data['items'].forEach((video) => {
-        displayVideos(video, 'history');
+      data.items.forEach((video) => {
+        displayVideo(video, 'history');
       });
       stopLoadingAnimation();
     });

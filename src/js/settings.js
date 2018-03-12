@@ -135,9 +135,6 @@ function updateSettings() {
   var themeSwitch = document.getElementById('themeSwitch').checked;
   var key = document.getElementById('api-key').value;
 
-  // To any third party devs that fork the project, please be ethical and change the API keys.
-  const apiKeyBank = ['AIzaSyC9E579nh_qqxg6BH4xIce3k_7a9mT4uQc', 'AIzaSyCKplYT6hZIlm2O9FbWTi1G7rkpsLNTq78', 'AIzaSyAE5xzh5GcA_tEDhXmMFd1pEzrL-W7z51E', 'AIzaSyDoFzqwuO9l386eF6BmNkVapjiTJ93CBy4', 'AIzaSyBljfZFPioB0TRJAj-0LS4tlIKl2iucyY4'];
-
   apiKey = apiKeyBank[Math.floor(Math.random() * apiKeyBank.length)];
 
   if (themeSwitch == true) {

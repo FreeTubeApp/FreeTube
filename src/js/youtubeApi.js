@@ -22,10 +22,10 @@ function youtubeAPI(resource, params, success) {
 }
 
 /**
-* Use youtube-dl to get the info for a video.
+* Use youtube-dl to resolve a video.
 *
 * @param {string} videoId - The video Id to get info from.
-* @param {function} callback - The callback function when the call is finished.
+* @param {function} callback - The function called on success with the info.
 *
 * @return {Void}
 */

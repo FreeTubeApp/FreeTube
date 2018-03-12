@@ -82,7 +82,7 @@ function showHistory(){
     }, function (data) {
       createVideoListContainer('Watch History:');
       data['items'].forEach((video) => {
-        displayVideos(video, 'history');
+        displayVideo(video, 'history');
       });
       stopLoadingAnimation()
     });

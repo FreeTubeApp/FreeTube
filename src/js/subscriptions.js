@@ -136,13 +136,13 @@ function loadSubscriptions() {
         if(videoList.length < 100){
           videoList.forEach((video) => {
             console.log('Getting all videos');
-            displayVideos(video);
+            displayVideo(video);
           });
         }
         else{
           console.log('Getting top 100 videos');
           for(let i = 0; i < 100; i++){
-            displayVideos(videoList[i]);
+            displayVideo(videoList[i]);
           }
         }
         stopLoadingAnimation()

@@ -32,31 +32,26 @@ let showComments = function(event) {
   if (comments.css('display') === 'none') {
     comments.attr('loaded', 'true');
 
-    const commentsTemplate = require('./templates/comments.html');
+    youtubeAPI('commentThreads', {
+      'videoId': $('#comments').attr('data-video-id'),
+      'part': 'snippet,replies',
+      'maxResults': 100,
+    }, function (data){
+      let comments = [];
+      let items = data.items;
 
-      commentsTemplate.done((template) => {
-        youtubeAPI('commentThreads', {
-          'videoId': $('#comments').attr('data-video-id'),
-          'part': 'snippet,replies',
-          'maxResults': 100,
-        }, function (data){
-          let comments = [];
-          let items = data.items;
+      items.forEach((object) => {
+        let snippet = object.snippet.topLevelComment.snippet;
 
-        items.forEach((object) => {
-          let snippet = object['snippet']['topLevelComment']['snippet'];
-          let dateString = new Date(snippet.publishedAt);
-          let publishedDate = dateFormat(dateString, "mmm dS, yyyy");
+        snippet.publishedAt = dateFormat(new Date(snippet.publishedAt), "mmm dS, yyyy");
 
-          snippet.publishedAt = publishedDate;
-
-          comments.push(snippet);
-        })
-        const html = mustache.render(template, {
-          comments: comments,
-        });
-        $('#comments').html(html);
+        comments.push(snippet);
+      })
+      const commentsTemplate = require('./templates/comments.html');
+      const html = mustache.render(commentsTemplate, {
+        comments: comments,
       });
+      $('#comments').html(html);
     });
 
     comments.show();
