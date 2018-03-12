@@ -17,10 +17,6 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 
 
 
-/*
-* File for functions related to videos.
-*/
-
 /**
 * Perform a search using the YouTube API. The search query is grabbed from the #search element.
 *
@@ -32,7 +28,6 @@ function search(nextPageToken = '') {
   const query = document.getElementById('search').value;
 
   if (query === '') {
-    showToast('Search Field empty.  Please input a search term.');
     return;
   }
 
@@ -44,7 +39,6 @@ function search(nextPageToken = '') {
     showToast('Fetching results.  Please wait...');
   }
 
-  // Start API request
   youtubeAPI('search', {
     q: query,
     part: 'id, snippet',
@@ -52,9 +46,8 @@ function search(nextPageToken = '') {
     pageToken: nextPageToken,
     maxResults: 25,
   }, function (data){
-    console.log(data);
     if (nextPageToken === '') {
-      createVideoListContainer('Search Results:');
+      createVideoListContainer('Search results:');
       stopLoadingAnimation();
     }
     data.items.forEach(displayVideo);
