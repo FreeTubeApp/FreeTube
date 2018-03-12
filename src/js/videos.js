@@ -52,12 +52,13 @@ function search(nextPageToken = '') {
     pageToken: nextPageToken,
     maxResults: 25,
   }, function (data){
+    console.log(data);
     if (nextPageToken === '') {
       createVideoListContainer('Search Results:');
       stopLoadingAnimation();
     }
     data.items.forEach(displayVideos);
-    addNextPage(data.result.nextPageToken);
+    addNextPage(data.nextPageToken);
   })
 }
 
