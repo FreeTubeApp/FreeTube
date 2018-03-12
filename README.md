@@ -12,9 +12,9 @@ addressed.
 ## How does it work?
 FreeTube uses the proprietary [YouTube HTTP
 API](https://developers.google.com/youtube/v3/getting-started) with a set of
-hard coded API keys.  Videos are resolved using a
-[youtube-dl-api-server](https://github.com/jaimeMF/youtube-dl-api-server)
-(stormy-inlet-41826.herokuapp.com) and played using the stock HTML5 video
+hard coded API keys.  Videos are resolved using
+[youtube-dl](https://rg3.github.io/youtube-dl/)
+ and played using the stock HTML5 video
 player.  While YouTube can still see your API and video requests it can no
 longer track you using cookies or JavaScript. Your subscriptions, history, and
 saved videos are stored locally on your computer and never sent out.
