@@ -33,11 +33,12 @@ function youtubedlGetInfo(videoId, callback) {
   let url = 'https://youtube.com/watch?v=' + videoId;
   let options = ['--all-subs', '--geo-bypass'];
 
-  youtubedl.getInfo(url, options, function(err, info) {
+  youtubedl.getInfo(url, options, {maxBuffer: Infinity}, function(err, info) {
     if (err){
       showToast('There was an issue calling youtube-dl.');
       stopLoadingAnimation();
       console.log(err);
+      return;
     }
 
     console.log('Success');

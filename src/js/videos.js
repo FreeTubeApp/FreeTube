@@ -99,7 +99,7 @@ function displayVideos(video, listType = null) {
   }
 
   // Grab the search template for the video.
-  const videoListTemplate = require('./templates/videoList.html')
+  const videoListTemplate = require('./templates/videoList.html');
 
   // Render / Manipulate the template.  Replace variables with data from the video.
   mustache.parse(videoListTemplate);
