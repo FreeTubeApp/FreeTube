@@ -35,6 +35,7 @@ const electron = require('electron');
 // Used for getting the user's subscriptions.  Can probably remove this when that function
 // is rewritten.
 const asyncLoop = require('node-async-loop');
+const youtubedl = require('youtube-dl');
 const shell = electron.shell; // Used to open external links into the user's native browser.
 const localDataStorage = electron.remote.app.getPath('userData'); // Grabs the userdata directory based on the user's OS
 const clipboard = electron.clipboard;

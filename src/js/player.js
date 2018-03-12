@@ -67,11 +67,8 @@ function playVideo(videoId) {
   /*
   * FreeTube calls an instance of a youtube-dl server to grab the direct video URL.  Please do not use this API in third party projects.
   */
-  const url = 'https://stormy-inlet-41826.herokuapp.com/api/info?url=https://www.youtube.com/watch?v=' + videoId + 'flatten=True&writesubtitles=true';
-  $.getJSON(url, (response) => {//https://stormy-inlet-41826.herokuapp.com/api/info?url=https://www.youtube.com/watch?v=bT1BSfP-NTcflatten=True&writesubtitles=True
-    console.log(response);
-
-    const info = response['info'];
+  youtubedlGetInfo(videoId, (info) => {
+    console.log(info);
 
     videoThumbnail = info['thumbnail'];
     let videoUrls = info['formats'];
