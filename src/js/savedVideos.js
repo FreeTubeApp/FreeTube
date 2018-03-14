@@ -46,7 +46,7 @@ function addSavedVideo(videoId){
 *
 * @return {Void}
 */
-function removeSavedVideo(videoId){
+function removeSavedVideo(videoId: string){
   savedVidsDb.remove({
     videoId: videoId
   }, {}, (err, numRemoved) => {
@@ -140,11 +140,11 @@ function showSavedVideos(){
       part: 'snippet',
       id: videoList,
       maxResults: 50,
-    }, function (data) {
+    }, (data) => {
       // Render the videos to the screen
       createVideoListContainer('Saved Videos:');
       data.items.forEach((video) => {
-        displayVideo(video, 'history');
+        displayVideo(video, 'saved');
       });
       stopLoadingAnimation();
     });
