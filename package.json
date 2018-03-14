@@ -10,8 +10,16 @@
     "make": "electron-forge make",
     "publish": "electron-forge publish",
     "make:darwin": "electron-forge make --platform=darwin",
-    "make:linux": "electron-forge make --platform=linux",
-    "make:win32": "electron-forge make --platform=win32"
+    "make:linux": "electron-packager . freetube --platform linux --out out/",
+    "make:win32": "electron-forge make --platform=win32",
+    "package:deb-x86-32": "electron-installer-debian --src out/freetube-linux-ia32/ --dest out/packages/ --arch i386",
+    "package:deb-x86-64": "electron-installer-debian --src out/freetube-linux-x64/ --dest out/packages/ --arch amd64",
+    "package:deb-arm-32": "electron-installer-debian --src out/freetube-linux-armv7l/ --dest out/packages/ --arch armhf",
+    "package:deb-arm-64": "electron-installer-debian --src out/freetube-linux-arm64/ --dest out/packages/ --arch arm64",
+    "package:rpm-x86-32": "electron-installer-redhat --src out/freetube-linux-ia32/ --dest out/packages/ --arch i386",
+    "package:rpm-x86-64": "electron-installer-redhat --src out/freetube-linux-x64/ --dest out/packages/ --arch x86_64",
+    "package:rpm-arm-32": "electron-installer-redhat --src out/freetube-linux-armv7l/ --dest out/packages/ --arch armhfp",
+    "package:rpm-arm-64": "electron-installer-redhat --src out/freetube-linux-arm64/ --dest out/packages/ --arch aarch64"
   },
   "keywords": [],
   "author": {
@@ -55,7 +63,10 @@
   "devDependencies": {
     "electron-forge": "^5.1.1",
     "electron-prebuilt-compile": "1.8.2",
-    "electron-winstaller": "^2.6.4"
+    "electron-winstaller": "^2.6.4",
+    "electron-installer-debian": "^0.8.1",
+    "electron-installer-redhat": "^0.5.0",
+    "electron-packager": "^11.1.0"
   },
   "dependencies": {
     "autolinker": "^1.6.2",
