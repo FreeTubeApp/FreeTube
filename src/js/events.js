@@ -199,6 +199,10 @@ let videoShortcutHandler = function(event) {
   }
 };
 
+let fullscreenVideo = function(event){
+  $('.videoPlayer').get(0).webkitRequestFullscreen()
+}
+
 /**
  * ---------------------------
  * Bind click events
@@ -207,6 +211,8 @@ let videoShortcutHandler = function(event) {
 $(document).on('click', '#showComments', showComments);
 
 $(document).on('click', '.videoPlayer', playPauseVideo);
+
+$(document).on('dblclick', '.videoPlayer', fullscreenVideo);
 
 $(document).on('keydown', videoShortcutHandler);
 

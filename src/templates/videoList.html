@@ -1,6 +1,9 @@
 <div class='video'>
   {{{deleteHtml}}}
-  <img onclick='playVideo("{{videoId}}")' src={{videoThumbnail}} class='videoThumbnail' />
+  <div class='videoThumbnail'>
+    <img onclick='playVideo("{{videoId}}")' src={{videoThumbnail}} />
+    <p onclick='playVideo("{{videoId}}")' class='videoDuration'>{{videoDuration}}</p>
+  </div>
   <p onclick='playVideo("{{videoId}}")' class='videoTitle'>{{videoTitle}}</p>
   <p onclick='goToChannel("{{channelId}}")' class='channelName'>{{channelName}} - {{publishedDate}}</p>
   <p onclick='playVideo("{{videoId}}")' class='videoDescription'>{{videoDescription}}</p>

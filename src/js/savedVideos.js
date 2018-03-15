@@ -143,8 +143,11 @@ function showSavedVideos(){
     }, (data) => {
       // Render the videos to the screen
       createVideoListContainer('Saved Videos:');
-      data.items.forEach((video) => {
-        displayVideo(video, 'saved');
+      let grabDuration = getDuration(data.items);
+      grabDuration.then((videoList) => {
+        videoList.items.forEach((video) => {
+          displayVideo(video, 'saved');
+        });
       });
       stopLoadingAnimation();
     });

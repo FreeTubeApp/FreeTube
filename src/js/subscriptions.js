@@ -18,23 +18,23 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /*
-* File for all functions related to subscriptions.
-*/
+ * File for all functions related to subscriptions.
+ */
 
 /**
-* Add a channel to the user's subscription database.
-*
-* @param {string} channelId - The channel ID to add to the subscriptions database.
-*
-* @return {Void}
-*/
+ * Add a channel to the user's subscription database.
+ *
+ * @param {string} channelId - The channel ID to add to the subscriptions database.
+ *
+ * @return {Void}
+ */
 function addSubscription(channelId, useToast = true) {
   console.log(channelId);
   // Request YouTube API
   youtubeAPI('channels', {
     part: 'snippet',
     id: channelId,
-  }, function (data){
+  }, function(data) {
     const channelInfo = data['items'][0]['snippet'];
     const channelName = channelInfo['title'];
     const thumbnail = channelInfo['thumbnails']['high']['url'];
@@ -47,7 +47,7 @@ function addSubscription(channelId, useToast = true) {
 
     // Refresh the list of subscriptions on the side navigation bar.
     subDb.insert(channel, (err, newDoc) => {
-      if (useToast){
+      if (useToast) {
         showToast('Added ' + channelName + ' to subscriptions.');
         displaySubs();
       }
@@ -56,12 +56,12 @@ function addSubscription(channelId, useToast = true) {
 }
 
 /**
-* Remove a channel from the subscriptions database.
-*
-* @param {string} channelId - The channel ID to be removed.
-*
-* @return {Void}
-*/
+ * Remove a channel from the subscriptions database.
+ *
+ * @param {string} channelId - The channel ID to be removed.
+ *
+ * @return {Void}
+ */
 function removeSubscription(channelId) {
   subDb.remove({
     channelId: channelId
@@ -73,10 +73,10 @@ function removeSubscription(channelId) {
 }
 
 /**
-* Load the recent uploads of the user's subscriptions.
-*
-* @return {Void}
-*/
+ * Load the recent uploads of the user's subscriptions.
+ *
+ * @return {Void}
+ */
 function loadSubscriptions() {
   clearMainContainer();
   const loading = document.getElementById('loading');
@@ -89,8 +89,82 @@ function loadSubscriptions() {
 
   // Welcome to callback hell, we hope you enjoy your stay.
   subscriptions.then((results) => {
+      let channelId = '';
+      let videoList = [];
+
+      if (results.length > 0) {
+        let counter = 0;
+
+        for (let i = 0; i < results.length; i++) {
+          channelId = results[i]['channelId'];
+
+          youtubeAPI('search', {
+              part: 'snippet',
+              channelId: channelId,
+              type: 'video',
+              maxResults: 15,
+              order: 'date',
+            }, (data) => {
+              console.log(data);
+              videoList = videoList.concat(data.items);
+              counter++;
+              if (counter === results.length) {
+                videoList.sort((a, b) => {
+                  const date1 = Date.parse(a.snippet.publishedAt);
+                  const date2 = Date.parse(b.snippet.publishedAt);
+
+                  return date2.valueOf() - date1.valueOf();
+                });
+
+                // Render the videos to the application.
+                createVideoListContainer('Latest Subscriptions:');
+
+                // The YouTube website limits the subscriptions to 100 before grabbing more so we only show 100
+                // to keep the app running at a good speed.
+                if (videoList.length < 50) {
+                  let grabDuration = getDuration(videoList.slice(0, 49));
+
+                  grabDuration.then((list) => {
+                    list.items.forEach((video) => {
+                      displayVideo(video);
+                    });
+                  });
+                } else {
+                  console.log(videoList);
+                  let finishedList = [];
+                  let firstBatchDuration = getDuration(videoList.slice(0, 49));
+
+                  firstBatchDuration.then((list1) => {
+                    finishedList = finishedList.concat(list1.items);
+                    let secondBatchDuration = getDuration(videoList.slice(50, 99));
+
+                    secondBatchDuration.then((list2) => {
+                      finishedList = finishedList.concat(list2.items);
+                      finishedList.forEach((video) => {
+                        displayVideo(video);
+                      });
+                      stopLoadingAnimation();
+                    });
+                  });
+                }
+              }
+            }
+          );
+      }
+
+
+    } else {
+      // User has no subscriptions. Display message.
+      const container = document.getElementById('main');
+      stopLoadingAnimation();
+
+      container.innerHTML = `<h2 class="message">Your Subscription list is currently empty.  Start adding subscriptions
+                             to see them here.<br /><br /><i class="far fa-frown" style="font-size: 200px"></i></h2>`;
+    }
+
 
     // Yes, This function is the thing that needs to most improvment
+    /*
     if (results.length > 0) {
       showToast('Getting Subscriptions.  This may take a while...');
 
@@ -101,68 +175,84 @@ function loadSubscriptions() {
       * while then sorting them afterwards, this was my best solution at the time.  I'm sure someone more
       * experienced in Node can help out with this.
       */
-      asyncLoop(results, (sub, next) => {
-        const channelId = sub['channelId'];
+/*
+          asyncLoop(results, (sub, next) => {
+            const channelId = sub['channelId'];
 
-        /*
-        * Grab the channels 15 most recent uploads.  Typically this should be enough.
-        * This number can be changed if we feel necessary.
-        */
-        youtubeAPI('search', {
-          part: 'snippet', // Try getting content details for video duration in the near future.
-          channelId: channelId,
-          type: 'video',
-          maxResults: 15,
-          order: 'date',
-        }, function (data){
-          videoList = videoList.concat(data['items']);
-          // Iterate through the next object in the loop.
-          next();
-        });
-      }, (err) => {
-        // Sort the videos by date
-        videoList.sort((a, b) => {
-          const date1 = Date.parse(a.snippet.publishedAt);
-          const date2 = Date.parse(b.snippet.publishedAt);
+            /*
+            * Grab the channels 15 most recent uploads.  Typically this should be enough.
+            * This number can be changed if we feel necessary.
+            */
+/*
+            youtubeAPI('search', {
+              part: 'snippet',
+              channelId: channelId,
+              type: 'video',
+              maxResults: 15,
+              order: 'date',
+            }, (data) => {
+              videoList = videoList.concat(data.items);
 
-          return date2.valueOf() - date1.valueOf();
-        });
+              next();
+            });
+          }, (err) => {
+            // Sort the videos by date
+            videoList.sort((a, b) => {
+              const date1 = Date.parse(a.snippet.publishedAt);
+              const date2 = Date.parse(b.snippet.publishedAt);
 
-        // Render the videos to the application.
-        createVideoListContainer('Latest Subscriptions:');
+              return date2.valueOf() - date1.valueOf();
+            });
 
-        // The YouTube website limits the subscriptions to 100 before grabbing more so we only show 100
-        // to keep the app running at a good speed.
-        if(videoList.length < 100){
-          videoList.forEach((video) => {
-            console.log('Getting all videos');
-            displayVideo(video);
+            // Render the videos to the application.
+            createVideoListContainer('Latest Subscriptions:');
+
+            // The YouTube website limits the subscriptions to 100 before grabbing more so we only show 100
+            // to keep the app running at a good speed.
+            if(videoList.length < 50){
+              let grabDuration = getDuration(videoList.slice(0,49));
+
+              grabDuration.then((list) => {
+                list.items.forEach((video) => {
+                  displayVideo(video);
+                });
+              });
+            }
+            else{
+                let finishedList = []
+                let firstBatchDuration = getDuration(videoList.slice(0, 49));
+
+                firstBatchDuration.then((list1) => {
+                  finishedList = finishedList.concat(list1.items);
+                  let secondBatchDuration = getDuration(videoList.slice(50, 99));
+
+                  secondBatchDuration.then((list2) => {
+                    finishedList = finishedList.concat(list2.items);
+                    finishedList.forEach((video) => {
+                      displayVideo(video);
+                    });
+                  });
+                });
+            }
+            stopLoadingAnimation()
           });
-        }
-        else{
-          console.log('Getting top 100 videos');
-          for(let i = 0; i < 100; i++){
-            displayVideo(videoList[i]);
-          }
-        }
-        stopLoadingAnimation()
-      });
-    } else {
-      // User has no subscriptions. Display message.
-      const container = document.getElementById('main');
-      stopLoadingAnimation()
+        } else {
+          // User has no subscriptions. Display message.
+          const container = document.getElementById('main');
+          stopLoadingAnimation()
 
-      container.innerHTML = `<h2 class="message">Your Subscription list is currently empty.  Start adding subscriptions
-                             to see them here.<br /><br /><i class="far fa-frown" style="font-size: 200px"></i></h2>`;
-    }
+          container.innerHTML = `<h2 class="message">Your Subscription list is currently empty.  Start adding subscriptions
+                                 to see them here.<br /><br /><i class="far fa-frown" style="font-size: 200px"></i></h2>`;
+        }
+      });*/
   });
 }
 
 /**
-* Get the list of subscriptions from the user's subscription database.
-*
-* @return {promise} The list of subscriptions.
-*/
+ * Get the list of subscriptions from the user's subscription database.
+ *
+ * @return {promise} The list of subscriptions.
+ */
 function returnSubscriptions() {
   return new Promise((resolve, reject) => {
     subDb.find({}, (err, subs) => {
@@ -172,10 +262,10 @@ function returnSubscriptions() {
 }
 
 /**
-* Display the list of subscriptions on the side navigation bar.
-*
-* @return {Void}
-*/
+ * Display the list of subscriptions on the side navigation bar.
+ *
+ * @return {Void}
+ */
 function displaySubs() {
   const subList = document.getElementById('subscriptions');
 
@@ -205,11 +295,11 @@ function displaySubs() {
 }
 
 /**
-* Adds / Removes a subscription based on if the channel is in the database or not.
-* @param {string} channelId - The channel ID to check
-*
-* @return {Void}
-*/
+ * Adds / Removes a subscription based on if the channel is in the database or not.
+ * @param {string} channelId - The channel ID to check
+ *
+ * @return {Void}
+ */
 function toggleSubscription(channelId) {
   event.stopPropagation();
 
@@ -219,12 +309,12 @@ function toggleSubscription(channelId) {
   checkIfSubscribed.then((results) => {
 
     if (results === false) {
-      if(subscribeButton != null){
+      if (subscribeButton != null) {
         subscribeButton.innerHTML = 'UNSUBSCRIBE';
       }
       addSubscription(channelId);
     } else {
-      if(subscribeButton != null){
+      if (subscribeButton != null) {
         subscribeButton.innerHTML = 'SUBSCRIBE';
       }
       removeSubscription(channelId);
@@ -233,15 +323,17 @@ function toggleSubscription(channelId) {
 }
 
 /**
-* Check if the user is subscribed to a channel or not.
-*
-* @param {string} channelId - The channel ID to check
-*
-* @return {promise} - A boolean value if the channel is currently subscribed or not.
-*/
+ * Check if the user is subscribed to a channel or not.
+ *
+ * @param {string} channelId - The channel ID to check
+ *
+ * @return {promise} - A boolean value if the channel is currently subscribed or not.
+ */
 function isSubscribed(channelId) {
   return new Promise((resolve, reject) => {
-    subDb.find({channelId: channelId}, (err, docs) => {
+    subDb.find({
+      channelId: channelId
+    }, (err, docs) => {
       if (jQuery.isEmptyObject(docs)) {
         resolve(false);
       } else {

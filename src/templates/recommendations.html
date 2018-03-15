@@ -1,5 +1,8 @@
 <div class='recommendVideo' onclick='playVideo("{{videoId}}")'>
-  <image class='recommendThumbnail' src='{{videoThumbnail}}'></image>
+  <div class='recommendThumbnail'>
+    <img src='{{videoThumbnail}}'></img>
+    <p onclick='playVideo("{{videoId}}")' class='videoDuration'>{{videoDuration}}</p>
+  </div>
   <p class='recommendTitle'>{{videoTitle}}</p>
   <p class='recommendChannel'>{{channelName}}</p>
   <p class='recommendDate'>{{publishedDate}}</p>

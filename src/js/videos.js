@@ -41,18 +41,62 @@ function search(nextPageToken = '') {
 
   youtubeAPI('search', {
     q: query,
-    part: 'id, snippet',
+    part: 'id',
     type: 'video',
     pageToken: nextPageToken,
     maxResults: 25,
   }, function (data){
+    let grabDuration = getDuration(data.items);
+
+    grabDuration.then((videoList) => {
+      videoList.items.forEach(displayVideo);
+    });
+
     if (nextPageToken === '') {
       createVideoListContainer('Search results:');
       stopLoadingAnimation();
     }
-    data.items.forEach(displayVideo);
     addNextPage(data.nextPageToken);
   })
+}
+
+/**
+* Grab the duration of the videos
+*
+* @param {array} data - An array of videos to get the duration from
+*
+* @return {promise} - The list of videos with the duration included.
+*/
+function getDuration(data){
+  return new Promise((resolve, reject) => {
+    let videoIdList = '';
+
+    for(let i = 0; i < data.length; i++){
+      if (videoIdList === ''){
+        if(typeof(data[i]['id']) === 'string'){
+          videoIdList = data[i]['id'];
+        }
+        else{
+          videoIdList = data[i]['id']['videoId'];
+        }
+      }
+      else{
+        if(typeof(data[i]['id']) === 'string'){
+          videoIdList = videoIdList + ', ' + data[i]['id'];
+        }
+        else{
+          videoIdList = videoIdList + ', ' + data[i]['id']['videoId'];
+        }
+      }
+    }
+
+    youtubeAPI('videos', {
+      part: 'snippet, contentDetails',
+      id: videoIdList
+    }, (data) => {
+      resolve(data);
+    });
+  });
 }
 
 /**
@@ -66,9 +110,14 @@ function search(nextPageToken = '') {
 */
 function displayVideo(video, listType = '') {
   const videoSnippet = video.snippet;
+
+  const videoDuration = parseVideoDuration(video.contentDetails.duration);
+  //const videoDuration = '00:00';
+
   // Grab the published date for the video and convert to a user readable state.
   const dateString = new Date(videoSnippet.publishedAt);
   const publishedDate = dateFormat(dateString, "mmm dS, yyyy");
+
   const searchMenu = $('#videoListContainer').html();
   const videoId = video.id;
 
@@ -94,6 +143,7 @@ function displayVideo(video, listType = '') {
     channelName:      videoSnippet.channelTitle,
     videoDescription: videoSnippet.description,
     channelId:        videoSnippet.channelId,
+    videoDuration:    videoDuration,
     publishedDate: publishedDate,
     liveText: liveText,
     deleteHtml: deleteHtml,
@@ -143,26 +193,30 @@ function addNextPage(nextPageToken) {
 */
 function showVideoRecommendations(videoId) {
   youtubeAPI('search', {
-    part: 'snippet',
+    part: 'id',
     type: 'video',
     relatedToVideoId: videoId,
     maxResults: 15,
   }, function (data){
-    const recommendations = data.items;
-    recommendations.forEach((data) => {
-      const snippet = data.snippet;
+    let grabDuration = getDuration(data.items);
+    grabDuration.then((videoList) => {
+      videoList.items.forEach((video) => {
+        const snippet = video.snippet;
+        const videoDuration = parseVideoDuration(video.contentDetails.duration);
 
-      const recommTemplate = require('./templates/recommendations.html')
-      mustache.parse(recommTemplate);
-      const rendered = mustache.render(recommTemplate, {
-        videoId: data.id.videoId,
-        videoTitle:     snippet.title,
-        channelName:    snippet.channelTitle,
-        videoThumbnail: snippet.thumbnails.medium.url,
-        publishedDate: dateFormat(snippet.publishedAt, "mmm dS, yyyy")
+        const recommTemplate = require('./templates/recommendations.html')
+        mustache.parse(recommTemplate);
+        const rendered = mustache.render(recommTemplate, {
+          videoId: video.id,
+          videoTitle:     snippet.title,
+          channelName:    snippet.channelTitle,
+          videoThumbnail: snippet.thumbnails.medium.url,
+          videoDuration:  videoDuration,
+          publishedDate: dateFormat(snippet.publishedAt, "mmm dS, yyyy")
+        });
+        const recommendationHtml = $('#recommendations').html();
+        $('#recommendations').html(recommendationHtml + rendered);
       });
-      const recommendationHtml = $('#recommendations').html();
-      $('#recommendations').html(recommendationHtml + rendered);
     });
   });
 }
@@ -196,6 +250,57 @@ function parseVideoLink() {
 }
 
 /**
+* Convert duration into a more readable format
+*
+* @param {string} durationString - The string containing the video duration.  Formated as 'PT12H34M56S'
+*
+* @return {string} - The formated string. Ex: 12:34:56
+*/
+function parseVideoDuration(durationString){
+  let match = durationString.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
+  let duration = '';
+
+  match = match.slice(1).map(function(x) {
+    if (x != null) {
+        return x.replace(/\D/, '');
+    }
+  });
+
+  let hours = (parseInt(match[0]) || 0);
+  let minutes = (parseInt(match[1]) || 0);
+  let seconds = (parseInt(match[2]) || 0);
+
+  if (hours != 0){
+    duration = hours + ':';
+  }
+  else{
+    duration = minutes + ':';
+  }
+
+  if (hours != 0 && minutes < 10){
+    duration = duration + '0' + minutes + ':';
+  }
+  else if (hours != 0 && minutes > 10){
+    duration = duration + minutes + ':';
+  }
+  else if (hours != 0 && minutes == 0){
+    duration = duration + '00:';
+  }
+
+  if (seconds == 0){
+    duration = duration + '00';
+  }
+  else if (seconds < 10){
+    duration = duration + '0' + seconds;
+  }
+  else{
+    duration = duration + seconds;
+  }
+
+  return duration;
+}
+
+/**
 * Grab the most popular videos over the last couple of days and display them.
 *
 * @return {Void}
@@ -213,15 +318,21 @@ function showMostPopular() {
   // Applications grab these.  Videos in the 'Trending' tab on YouTube will be different.
   // And there is no way to grab those videos.
   youtubeAPI('search', {
-    part: 'snippet',
+    part: 'id',
     order: 'viewCount',
     type: 'video',
     publishedAfter: d.toISOString(),
     maxResults: 50,
   }, function (data){
     createVideoListContainer('Most Popular:');
+    console.log(data);
+    let grabDuration = getDuration(data.items);
+
+    grabDuration.then((videoList) => {
+      console.log(videoList);
+      videoList.items.forEach(displayVideo);
+    });
     stopLoadingAnimation();
-    data.items.forEach(displayVideo);
   });
 }
 

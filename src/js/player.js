@@ -69,17 +69,6 @@ function playVideo(videoId) {
     return;
   }
 
-  const checkSubscription = isSubscribed(channelId);
-
-  // Change the subscribe button text depending on if the user has subscribed to the channel or not.
-  checkSubscription.then((results) => {
-    if (results === false) {
-      subscribeText = 'SUBSCRIBE';
-    } else {
-      subscribeText = 'UNSUBSCRIBE';
-    }
-  });
-
   const checkSavedVideo = videoIsSaved(videoId);
 
   // Change the save button icon and text depending on if the user has saved the video or not.
@@ -94,7 +83,7 @@ function playVideo(videoId) {
   });
 
   /*
-   * FreeTube calls youtube-dl server to grab the direct video URL.
+   * FreeTube calls youtube-dl to grab the direct video URL.
    */
   youtubedlGetInfo(videoId, (info) => {
     console.log(info);
@@ -109,7 +98,6 @@ function playVideo(videoId) {
     let dateString = info['upload_date'];
     dateString = [dateString.slice(0, 4), '-', dateString.slice(4)].join('');
     dateString = [dateString.slice(0, 7), '-', dateString.slice(7)].join('');
-    console.log(dateString);
     const publishedDate = dateFormat(dateString, "mmm dS, yyyy");
 
     // Figure out the width for the like/dislike bar.
@@ -127,7 +115,6 @@ function playVideo(videoId) {
 
       // Grab all subtitles
       Object.keys(videoSubtitles).forEach((subtitle) => {
-        console.log(subtitle);
 
         subtitleLabel = subtitle.toUpperCase();
         subtitleUrl = videoSubtitles[subtitle]['url'];
@@ -142,7 +129,6 @@ function playVideo(videoId) {
 
     // Search through the returned object to get the 480p and 720p video URLs (If available)
     Object.keys(videoUrls).forEach((key) => {
-      console.log(key);
       switch (videoUrls[key]['format_id']) {
         case '18':
           video480p = videoUrls[key]['url'];
@@ -173,11 +159,18 @@ function playVideo(videoId) {
 
     if (!useEmbedPlayer) {
       videoHtml = '<video class="videoPlayer" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" src="' + defaultUrl + '" poster="' + videoThumbnail + '" autoplay>' + subtitleHtml + '</video>';
-
-      console.log(videoHtml);
     }
 
-    console.log(defaultUrl);
+    const checkSubscription = isSubscribed(channelId);
+
+    // Change the subscribe button text depending on if the user has subscribed to the channel or not.
+    checkSubscription.then((results) => {
+      if (results === false) {
+        subscribeText = 'SUBSCRIBE';
+      } else {
+        subscribeText = 'UNSUBSCRIBE';
+      }
+    });
 
     // API Request
     youtubeAPI('channels', {

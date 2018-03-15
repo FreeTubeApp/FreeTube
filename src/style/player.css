@@ -1,14 +1,14 @@
-iframe{
+iframe {
   width: 100%;
   height: 41.25vw;
 }
 
-#main{
-    margin-top: 80px;
-    margin-left: 250px;
+#main {
+  margin-top: 80px;
+  margin-left: 250px;
 }
 
-.video{
+.video {
   width: 95%;
   max-width: 1000px;
   height: 145px;
@@ -16,68 +16,90 @@ iframe{
   overflow: hidden;
 }
 
-.videoThumbnail{
+.videoThumbnail {
   width: 275px;
+  height: 160px;
   float: left;
   cursor: pointer;
 }
 
-.videoTitle{
+.videoThumbnail img{
+  width: 100%;
+}
+
+.videoTitle {
   font-weight: bold;
   margin-left: 285px;
   margin-top: 5px;
   cursor: pointer;
 }
 
-.channelName{
+.channelName {
   margin-left: 285px;
   font-size: 14px;
   cursor: pointer;
 }
 
-.videoDescription{
+.videoDescription {
   margin-left: 285px;
   font-size: 13px;
   cursor: pointer;
+  height: 45px;
+  overflow: hidden;
 }
 
-.videoPlayer{width: 100%;}
-
-.statistics{
- padding: 20px;
- padding-bottom: 45px;
+.videoDuration {
+  display: inline-block;
+  float: right;
+  position: relative;
+  bottom: 36px;
+  color: white;
+  background-color: black;
+  opacity: 0.7;
+  padding: 2px;
+  font-size: 13px;
+  text-align: right;
 }
 
-.title{
+.videoPlayer {
+  width: 100%;
+}
+
+.statistics {
+  padding: 20px;
+  padding-bottom: 45px;
+}
+
+.title {
   font-weight: bold;
   font-size: 25px;
 }
 
-.views{
+.views {
   margin-top: -10px;
   float: left;
 }
 
-.details{
+.details {
   padding: 15px;
 }
 
-.likeContainer{
+.likeContainer {
   width: 300px;
   float: right;
 }
 
-.likes{
+.likes {
   float: left;
   font-size: 12px;
 }
 
-.dislikes{
+.dislikes {
   float: right;
   font-size: 12px;
 }
 
-.dislikeBar{
+.dislikeBar {
   background-color: #9E9E9E;
   width: 300px;
   height: 5px;
@@ -86,14 +108,14 @@ iframe{
   -webkit-border-radius: 200px 200px 200px 200px;
 }
 
-.likeBar{
+.likeBar {
   height: 5px;
   background-color: #2196F3;
   border-radius: 200px 200px 200px 200px;
   -webkit-border-radius: 200px 200px 200px 200px;
 }
 
-#channelIcon{
+#channelIcon {
   float: left;
   width: 80px;
   border-radius: 200px 200px 200px 200px;
@@ -115,26 +137,26 @@ iframe{
   cursor: pointer;
 }
 
-#channelName{
+#channelName {
   font-weight: bold;
   margin-left: 95px;
   font-size: 16px;
   cursor: pointer;
 }
 
-#publishDate{
+#publishDate {
   margin-left: 95px;
   font-size: 13px;
   margin-top: -10px;
 }
 
-#description{
+#description {
   white-space: pre-line;
   max-height: 200px;
   overflow-y: auto;
 }
 
-.playerSubButton{
+.playerSubButton {
   float: right;
   width: 125px;
   height: 50px;
@@ -144,7 +166,7 @@ iframe{
   cursor: pointer;
 }
 
-.smallButton{
+.smallButton {
   float: right;
   height: 30px;
   font-size: 10px;
@@ -156,15 +178,15 @@ iframe{
   cursor: pointer;
 }
 
-.videoQuality{
+.videoQuality {
   width: 42px;
 }
 
-.videoQuality:hover .qualityTypes{
+.videoQuality:hover .qualityTypes {
   visibility: visible;
 }
 
-.qualityTypes{
+.qualityTypes {
   visibility: hidden;
   width: 72px;
   position: relative;
@@ -172,27 +194,27 @@ iframe{
   right: 15px;
 }
 
-.qualityTypes ul{
+.qualityTypes ul {
   list-style-type: none;
   position: relative;
   right: 24px;
 }
 
-.qualityTypes ul li{
+.qualityTypes ul li {
   width: 72px;
   position: relative;
   right: 15px;
 }
 
-.videoSpeed{
+.videoSpeed {
   width: 42px;
 }
 
-.videoSpeed:hover .speedTypes{
+.videoSpeed:hover .speedTypes {
   visibility: visible;
 }
 
-.speedTypes{
+.speedTypes {
   visibility: hidden;
   width: 72px;
   position: relative;
@@ -200,19 +222,19 @@ iframe{
   right: 15px;
 }
 
-.speedTypes ul{
+.speedTypes ul {
   list-style-type: none;
   position: relative;
   right: 24px;
 }
 
-.speedTypes ul li{
+.speedTypes ul li {
   width: 72px;
   position: relative;
   right: 15px;
 }
 
-#showComments{
+#showComments {
   text-align: center;
   height: 40px;
   line-height: 40px;
@@ -220,33 +242,38 @@ iframe{
   margin-bottom: 15px;
 }
 
-#recommendations{
+#recommendations {
   width: 100%;
 }
 
-.recommendVideo{
+.recommendVideo {
   cursor: pointer;
   height: 150px;
 }
 
-.recommendThumbnail{
+.recommendThumbnail {
   width: 250px;
+  height: 145px;
   float: left;
 }
 
-.recommendTitle{
+.recommendThumbnail img{
+  width: 100%;
+}
+
+.recommendTitle {
   font-size: 16px;
   font-weight: bold;
   margin-left: 260px;
 }
 
-.recommendChannel{
+.recommendChannel {
   margin-left: 260px;
   font-size: 14px;
   margin-top: -10px;
 }
 
-.recommendDate{
+.recommendDate {
   margin-left: 260px;
   font-size: 11px;
 }

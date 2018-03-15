@@ -80,8 +80,12 @@ function goToChannel(channelId) {
       order: 'date',
     }, function (data) {
       // Display recent uploads to #main
-      data['items'].forEach((video) => {
-        displayVideo(video);
+      let grabDuration = getDuration(data.items);
+
+      grabDuration.then((videoList) => {
+        videoList.items.forEach((video) => {
+          displayVideo(video, 'history');
+        });
       });
     });
   });
