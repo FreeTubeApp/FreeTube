@@ -58,39 +58,32 @@ function search(nextPageToken = '') {
 /**
 * Display a video on the page.  Function is typically contained in a loop.
 *
-* @param {string} video - The video ID of the video to be displayed.
+* @param {video} video - The video ID of the video to be displayed.
 * @param {string} listType - Optional: Specifies the list type of the video
 *                            Used for displaying the remove icon for history and saved videos.
 *
 * @return {Void}
 */
-function displayVideo(video, listType = null) {
-
+function displayVideo(video, listType = '') {
   const videoSnippet = video.snippet;
-
   // Grab the published date for the video and convert to a user readable state.
   const dateString = new Date(videoSnippet.publishedAt);
   const publishedDate = dateFormat(dateString, "mmm dS, yyyy");
-  let deleteHtml = '';
-  let videoId = video.id.videoId;
-
   const searchMenu = $('#videoListContainer').html();
+  const videoId = video.id;
 
   // Include a remove icon in the list if the application is displaying the history list or saved videos.
-  if (listType === 'saved') {
-    videoId = video.id;
-    deleteHtml = '<i onclick="removeSavedVideo(\'' + videoId + '\'); showSavedVideos();" class="videoDelete fas fa-times"></i>';
-  } else if (listType === 'history') {
-    videoId = video.id;
-    deleteHtml = '<i onclick="removeFromHistory(\'' + videoId + '\'); showHistory()" class="videoDelete fas fa-times"></i>';
-  }
+  const deleteHtml = () => {
+    switch (listType) {
+      case 'saved':
+        return `<i onclick="removeSavedVideo('${videoId}'); showSavedVideos();" class="videoDelete fas fa-times"/>`;
+      case 'history':
+        return `<i onclick="removeFromHistory('${videoId}'); showHistory();" class="videoDelete fas fa-times"/>`;
+    }
+  };
 
-  let liveText = '';
   // Includes text if the video is live.
-  if (videoSnippet.liveBroadcastContent === 'live') {
-    liveText = 'LIVE NOW';
-  }
-
+  const liveText = (videoSnippet.liveBroadcastContent === 'live')? 'LIVE NOW' : '';
   const videoListTemplate = require('./templates/videoList.html');
 
   mustache.parse(videoListTemplate);
@@ -105,8 +98,9 @@ function displayVideo(video, listType = null) {
     liveText: liveText,
     deleteHtml: deleteHtml,
   });
+
   // Apply the render to the page
-  let nextButton = document.getElementById('getNextPage');
+  const nextButton = document.getElementById('getNextPage');
   if (nextButton === null) {
     $('#videoListContainer').append(rendered);
   } else {
