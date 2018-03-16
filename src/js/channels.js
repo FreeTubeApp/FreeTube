@@ -84,7 +84,7 @@ function goToChannel(channelId) {
 
       grabDuration.then((videoList) => {
         videoList.items.forEach((video) => {
-          displayVideo(video, 'history');
+          displayVideo(video);
         });
       });
     });

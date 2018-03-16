@@ -1,5 +1,13 @@
 <div class='video'>
   {{{deleteHtml}}}
+  <div class='videoOptions'>
+    <i class="fas fa-ellipsis-v" onclick='showVideoOptions(this)'></i>
+    <ul>
+      <li>Open in YouTube</li>
+      <li>Open in HookTube</li>
+      <li>Save Video</li>
+    </ul>
+  </div>
   <div class='videoThumbnail'>
     <img onclick='playVideo("{{videoId}}")' src={{videoThumbnail}} />
     <p onclick='playVideo("{{videoId}}")' class='videoDuration'>{{videoDuration}}</p>

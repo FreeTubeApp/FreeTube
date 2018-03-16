@@ -27,6 +27,35 @@ iframe {
   width: 100%;
 }
 
+.videoOptions {
+  float: right;
+  width: 50px;
+}
+
+.videoOptions i {
+  text-align: right;
+  width: 50px;
+  cursor: pointer;
+}
+
+.videoOptions ul {
+  width: 75px;
+  font-size: 12px;
+  position: relative;
+  right: 75px;
+  bottom: 10px;
+  background-color: #f5f5f5;
+  list-style-type: none;
+  display: none;
+}
+
+.videoOptions li {
+  width: 125px;
+  position: relative;
+  right: 40px;
+  padding: 10px;
+}
+
 .videoTitle {
   font-weight: bold;
   margin-left: 285px;

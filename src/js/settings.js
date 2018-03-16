@@ -231,7 +231,7 @@ function setTheme(option) {
 * @return {Void}
 */
 function importOpmlSubs(json){
-  if(json[0]['folder'] !== 'YouTube Subscriptions'){
+  if(!json[0]['folder'].includes('YouTube')){
     showToast('Invalid OPML File.  Import is unsuccessful.');
     return;
   }

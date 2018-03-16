@@ -200,7 +200,7 @@ let videoShortcutHandler = function(event) {
 };
 
 let fullscreenVideo = function(event){
-  $('.videoPlayer').get(0).webkitRequestFullscreen()
+  $('.videoPlayer').get(0).webkitRequestFullscreen();
 }
 
 /**
