@@ -125,9 +125,9 @@ function displayVideo(video, listType = '') {
   const deleteHtml = () => {
     switch (listType) {
       case 'saved':
-        return `<i onclick="removeSavedVideo('${videoId}'); showSavedVideos();" class="videoDelete fas fa-times"/>`;
+        return `<li onclick="removeSavedVideo('${videoId}'); showSavedVideos();">Remove Saved Video</li>`;
       case 'history':
-        return `<i onclick="removeFromHistory('${videoId}'); showHistory();" class="videoDelete fas fa-times"/>`;
+        return `<li onclick="removeFromHistory('${videoId}'); showHistory();">Remove From History</li>`;
     }
   };
 

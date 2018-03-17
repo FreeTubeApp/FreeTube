@@ -29,13 +29,22 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 * @return {Void}
 */
 function addSavedVideo(videoId){
-  let data = {
-    videoId: videoId,
-    timeSaved: new Date().getTime(),
-  };
+  let checkIfSaved = videoIsSaved(videoId);
 
-  savedVidsDb.insert(data, (err, newDoc) => {
-    showToast('Video has been saved!');
+  checkIfSaved.then((saved) => {
+    if (saved === false){
+      let data = {
+        videoId: videoId,
+        timeSaved: new Date().getTime(),
+      };
+
+      savedVidsDb.insert(data, (err, newDoc) => {
+        showToast('Video has been saved!');
+      });
+    }
+    else{
+      showToast('Video already exists in saved file.')
+    }
   });
 }
 

@@ -302,7 +302,6 @@ function removeMouseTimeout(){
 }
 
 function showVideoOptions(element){
-    console.log(element.nextElementSibling.style.display);
     if (element.nextElementSibling.style.display == 'none' || element.nextElementSibling.style.display == ''){
       element.nextElementSibling.style.display = 'inline-block'
     }
