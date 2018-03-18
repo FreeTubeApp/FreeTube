@@ -41,10 +41,10 @@
       "electronWinstallerConfig": {
         "name": "freetube",
         "iconUrl": "https://raw.githubusercontent.com/FreeTubeApp/FreeTubeApp.github.io/master/images/icon.ico",
-        "setupIcon": "./src/icon.ico"
+        "setupIcon": "./src/icons/icon.ico"
       },
       "electronInstallerDebian": {
-        "icon": "src/icon.svg"
+        "icon": "src/icons/icon.svg"
       },
       "repository": {
         "type": "git",
