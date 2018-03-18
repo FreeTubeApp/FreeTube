@@ -29,13 +29,22 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 * @return {Void}
 */
 function addSavedVideo(videoId){
-  let data = {
-    videoId: videoId,
-    timeSaved: new Date().getTime(),
-  };
+  let checkIfSaved = videoIsSaved(videoId);
 
-  savedVidsDb.insert(data, (err, newDoc) => {
-    showToast('Video has been saved!');
+  checkIfSaved.then((saved) => {
+    if (saved === false){
+      let data = {
+        videoId: videoId,
+        timeSaved: new Date().getTime(),
+      };
+
+      savedVidsDb.insert(data, (err, newDoc) => {
+        showToast('Video has been saved!');
+      });
+    }
+    else{
+      showToast('Video already exists in saved file.')
+    }
   });
 }
 
@@ -46,7 +55,7 @@ function addSavedVideo(videoId){
 *
 * @return {Void}
 */
-function removeSavedVideo(videoId){
+function removeSavedVideo(videoId: string){
   savedVidsDb.remove({
     videoId: videoId
   }, {}, (err, numRemoved) => {
@@ -126,12 +135,12 @@ function showSavedVideos(){
     // TODO: Allow the app to show more than 50 saved videos.
     if(docs.length > 49){
       for (let i = 0; i < 49; i++) {
-        videoList = videoList + ',' + docs[i]['videoId'];
+        videoList = videoList + ',' + docs[i].videoId;
       }
     }
     else{
       docs.forEach((video) => {
-        videoList = videoList + ',' + video['videoId'];
+        videoList = videoList + ',' + video.videoId;
       });
     }
 
@@ -140,11 +149,14 @@ function showSavedVideos(){
       part: 'snippet',
       id: videoList,
       maxResults: 50,
-    }, function (data) {
+    }, (data) => {
       // Render the videos to the screen
       createVideoListContainer('Saved Videos:');
-      data['items'].forEach((video) => {
-        displayVideos(video, 'history');
+      let grabDuration = getDuration(data.items);
+      grabDuration.then((videoList) => {
+        videoList.items.forEach((video) => {
+          displayVideo(video, 'saved');
+        });
       });
       stopLoadingAnimation();
     });

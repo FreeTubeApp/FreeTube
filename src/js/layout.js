@@ -23,10 +23,10 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 // Add general variables.  Please put all require statements here.
-const Datastore = require('nedb'); // Database logic
+const Datastore = require('nedb'); // database logic
 window.$ = window.jQuery = require('jquery');
-const mustache = require('mustache'); // Templating
-const dateFormat = require('dateformat'); // Formating Dates
+const mustache = require('mustache'); // templating
+const dateFormat = require('dateformat'); // formatting dates
 
 // Used for finding links within text and making them clickable.  Used mostly for video descriptions.
 const autolinker = require('autolinker');
@@ -35,36 +35,38 @@ const electron = require('electron');
 // Used for getting the user's subscriptions.  Can probably remove this when that function
 // is rewritten.
 const asyncLoop = require('node-async-loop');
+const youtubedl = require('youtube-dl');
 const shell = electron.shell; // Used to open external links into the user's native browser.
 const localDataStorage = electron.remote.app.getPath('userData'); // Grabs the userdata directory based on the user's OS
 const clipboard = electron.clipboard;
 const getOpml = require('opml-to-json'); // Gets the file type for imported files.
 const fs = require('fs'); // Used to read files. Specifically in the settings page.
+
 let currentTheme = '';
 let apiKey;
 let dialog = require('electron').remote.dialog; // Used for opening file browser to export / import subscriptions.
 let toastTimeout; // Timeout for toast notifications.
 let mouseTimeout; // Timeout for hiding the mouse cursor on video playback
 
-// Subscriptions database file
+require.extensions['.html'] = function (module, filename) {
+    module.exports = fs.readFileSync(filename, 'utf8');
+};
+
 const subDb = new Datastore({
   filename: localDataStorage + '/subscriptions.db',
   autoload: true
 });
 
-// History database file
 const historyDb = new Datastore({
   filename: localDataStorage + '/videohistory.db',
   autoload: true
 });
 
-// Saved videos database file
 const savedVidsDb = new Datastore({
   filename: localDataStorage + '/savedvideos.db',
   autoload: true
 });
 
-// Settings database file.
 const settingsDb = new Datastore({
   filename: localDataStorage + 'settings.db',
   autoload: true
@@ -150,10 +152,10 @@ function startLoadingAnimation() {
   const searchBar = document.getElementById('search');
   const goToVideoInput = document.getElementById('jumpToInput');
 
-    loading.style.display = 'inherit';
-    sideNavDisabled.style.display = 'inherit';
-    searchBar.disabled = true;
-    goToVideoInput.disabled = true;
+  loading.style.display = 'inherit';
+  sideNavDisabled.style.display = 'inherit';
+  searchBar.disabled = true;
+  goToVideoInput.disabled = true;
 }
 function stopLoadingAnimation() {
   const loading = document.getElementById('loading');
@@ -161,10 +163,10 @@ function stopLoadingAnimation() {
   const searchBar = document.getElementById('search');
   const goToVideoInput = document.getElementById('jumpToInput');
 
-    loading.style.display = 'none';
-    sideNavDisabled.style.display = 'none';
-    searchBar.disabled = false;
-    goToVideoInput.disabled = false;
+  loading.style.display = 'none';
+  sideNavDisabled.style.display = 'none';
+  searchBar.disabled = false;
+  goToVideoInput.disabled = false;
 }
 
 /**
@@ -198,23 +200,21 @@ function showAbout(){
   clearMainContainer();
   startLoadingAnimation();
 
-  // Grab about.html to be used as a template
-  $.get('templates/about.html', (template) => {
-    mustache.parse(template);
-    const rendered = mustache.render(template, {
+  const aboutTemplate = require('./templates/about.html')
+  mustache.parse(aboutTemplate);
+  $('#main').html(
+    mustache.render(aboutTemplate, {
       versionNumber: require('electron').remote.app.getVersion(),
-    });
-    // Render to #main and remove loading animation
-    $('#main').html(rendered);
-    stopLoadingAnimation();
-  });
+    })
+  );
+  stopLoadingAnimation();
 }
 
 /**
-* Display a toast message in the bottom right corner of the page.  Toast will
-* automatically disappear after 5 seconds.
+* Display a toast message in the bottom right corner of the page.
+* The toast automatically disappears after a timeout.
 *
-* @param {string} message - The message to be displayed in the toast.
+* @param {string} message - The toast message.
 *
 * @return {Void}
 */
@@ -230,7 +230,7 @@ function showToast(message){
   toast.style.opacity = 0.9;
 
   // Set the timer for the toast to be removed.
-  toastTimeout = window.setTimeout(hideToast, 5000); // 5 seconds
+  toastTimeout = window.setTimeout(hideToast, 5000);
 }
 
 /**
@@ -299,4 +299,13 @@ function hideMouseTimeout(){
 function removeMouseTimeout(){
   $('.videoPlayer')[0].style.cursor = 'default';
   clearTimeout(mouseTimeout);
+}
+
+function showVideoOptions(element){
+    if (element.nextElementSibling.style.display == 'none' || element.nextElementSibling.style.display == ''){
+      element.nextElementSibling.style.display = 'inline-block'
+    }
+    else{
+      element.nextElementSibling.style.display = 'none'
+    }
 }

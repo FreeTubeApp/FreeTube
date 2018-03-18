@@ -1,6 +1,17 @@
 <div class='video'>
-  {{{deleteHtml}}}
-  <img onclick='playVideo("{{videoId}}")' src={{videoThumbnail}} class='videoThumbnail' />
+  <div class='videoOptions'>
+    <i class="fas fa-ellipsis-v" onclick='showVideoOptions(this)'></i>
+    <ul>
+      <a href='https://youtube.com/watch?v={{videoId}}' ><li>Open in YouTube</li></a>
+      <a href='https://hooktube.com/watch?v={{videoId}}' ><li>Open in HookTube</li></a>
+      <li onclick='addSavedVideo("{{videoId}}")'>Save Video</li>
+      {{{deleteHtml}}}
+    </ul>
+  </div>
+  <div class='videoThumbnail'>
+    <img onclick='playVideo("{{videoId}}")' src={{videoThumbnail}} />
+    <p onclick='playVideo("{{videoId}}")' class='videoDuration'>{{videoDuration}}</p>
+  </div>
   <p onclick='playVideo("{{videoId}}")' class='videoTitle'>{{videoTitle}}</p>
   <p onclick='goToChannel("{{channelId}}")' class='channelName'>{{channelName}} - {{publishedDate}}</p>
   <p onclick='playVideo("{{videoId}}")' class='videoDescription'>{{videoDescription}}</p>

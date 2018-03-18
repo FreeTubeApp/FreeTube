@@ -17,10 +17,6 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 
 
 
-/*
-* File for functions related to videos.
-*/
-
 /**
 * Perform a search using the YouTube API. The search query is grabbed from the #search element.
 *
@@ -32,7 +28,6 @@ function search(nextPageToken = '') {
   const query = document.getElementById('search').value;
 
   if (query === '') {
-    showToast('Search Field empty.  Please input a search term.');
     return;
   }
 
@@ -44,82 +39,123 @@ function search(nextPageToken = '') {
     showToast('Fetching results.  Please wait...');
   }
 
-  // Start API request
   youtubeAPI('search', {
     q: query,
-    part: 'id, snippet',
+    part: 'id',
     type: 'video',
     pageToken: nextPageToken,
     maxResults: 25,
   }, function (data){
+    let grabDuration = getDuration(data.items);
+
+    grabDuration.then((videoList) => {
+      videoList.items.forEach(displayVideo);
+    });
+
     if (nextPageToken === '') {
-      createVideoListContainer('Search Results:');
+      createVideoListContainer('Search results:');
       stopLoadingAnimation();
     }
-    data.items.forEach(displayVideos);
-    addNextPage(data.result.nextPageToken);
+    addNextPage(data.nextPageToken);
   })
+}
+
+/**
+* Grab the duration of the videos
+*
+* @param {array} data - An array of videos to get the duration from
+*
+* @return {promise} - The list of videos with the duration included.
+*/
+function getDuration(data){
+  return new Promise((resolve, reject) => {
+    let videoIdList = '';
+
+    for(let i = 0; i < data.length; i++){
+      if (videoIdList === ''){
+        if(typeof(data[i]['id']) === 'string'){
+          videoIdList = data[i]['id'];
+        }
+        else{
+          videoIdList = data[i]['id']['videoId'];
+        }
+      }
+      else{
+        if(typeof(data[i]['id']) === 'string'){
+          videoIdList = videoIdList + ', ' + data[i]['id'];
+        }
+        else{
+          videoIdList = videoIdList + ', ' + data[i]['id']['videoId'];
+        }
+      }
+    }
+
+    youtubeAPI('videos', {
+      part: 'snippet, contentDetails',
+      id: videoIdList
+    }, (data) => {
+      resolve(data);
+    });
+  });
 }
 
 /**
 * Display a video on the page.  Function is typically contained in a loop.
 *
-* @param {string} video - The video ID of the video to be displayed.
+* @param {video} video - The video ID of the video to be displayed.
 * @param {string} listType - Optional: Specifies the list type of the video
 *                            Used for displaying the remove icon for history and saved videos.
 *
 * @return {Void}
 */
-function displayVideos(video, listType = null) {
-  // Grab the search template for the video.
-  $.get('templates/videoList.html', (template) => {
+function displayVideo(video, listType = '') {
+  const videoSnippet = video.snippet;
 
-    const videoSnippet = video['snippet']
+  const videoDuration = parseVideoDuration(video.contentDetails.duration);
+  //const videoDuration = '00:00';
 
-    // Grab the published date for the video and convert to a user readable state.
-    const dateString = new Date(videoSnippet['publishedAt']);
-    const publishedDate = dateFormat(dateString, "mmm dS, yyyy");
-    let deleteHtml = '';
-    let liveText = '';
-    let videoId = video['id']['videoId'];
+  // Grab the published date for the video and convert to a user readable state.
+  const dateString = new Date(videoSnippet.publishedAt);
+  const publishedDate = dateFormat(dateString, "mmm dS, yyyy");
 
-    const searchMenu = $('#videoListContainer').html();
+  const searchMenu = $('#videoListContainer').html();
+  const videoId = video.id;
 
-    // Include a remove icon in the list if the application is displaying the history list or saved videos.
-    if (listType === 'saved') {
-      videoId = video['id'];
-      deleteHtml = '<i onclick="removeSavedVideo(\'' + videoId + '\'); showSavedVideos();" class="videoDelete fas fa-times"></i>';
-    } else if (listType === 'history') {
-      videoId = video['id'];
-      deleteHtml = '<i onclick="removeFromHistory(\'' + videoId + '\'); showHistory()" class="videoDelete fas fa-times"></i>';
+  // Include a remove icon in the list if the application is displaying the history list or saved videos.
+  const deleteHtml = () => {
+    switch (listType) {
+      case 'saved':
+        return `<li onclick="removeSavedVideo('${videoId}'); showSavedVideos();">Remove Saved Video</li>`;
+      case 'history':
+        return `<li onclick="removeFromHistory('${videoId}'); showHistory();">Remove From History</li>`;
     }
+  };
 
-    // Includes text if the video is live.
-    if (videoSnippet['liveBroadcastContent'] === 'live') {
-      liveText = 'LIVE NOW';
-    }
+  // Includes text if the video is live.
+  const liveText = (videoSnippet.liveBroadcastContent === 'live')? 'LIVE NOW' : '';
+  const videoListTemplate = require('./templates/videoList.html');
 
-    // Render / Manipulate the template.  Replace variables with data from the video.
-    mustache.parse(template);
-    const rendered = mustache.render(template, {
-      videoThumbnail: videoSnippet['thumbnails']['medium']['url'],
-      videoTitle: videoSnippet['title'],
-      channelName: videoSnippet['channelTitle'],
-      videoDescription: videoSnippet['description'],
-      publishedDate: publishedDate,
-      liveText: liveText,
-      videoId: videoId,
-      channelId: videoSnippet['channelId'],
-      deleteHtml: deleteHtml,
-    });
-    // Apply the render to the page
-    let nextButton = document.getElementById('getNextPage');
-    if (nextButton === null) {
-      $('#videoListContainer').append(rendered);
-    } else {
-      $(rendered).insertBefore('#getNextPage');
-    }
+  mustache.parse(videoListTemplate);
+  const rendered = mustache.render(videoListTemplate, {
+    videoId: videoId,
+    videoThumbnail:   videoSnippet.thumbnails.medium.url,
+    videoTitle:       videoSnippet.title,
+    channelName:      videoSnippet.channelTitle,
+    videoDescription: videoSnippet.description,
+    channelId:        videoSnippet.channelId,
+    videoDuration:    videoDuration,
+    publishedDate: publishedDate,
+    liveText: liveText,
+    deleteHtml: deleteHtml,
   });
+
+  // Apply the render to the page
+  const nextButton = document.getElementById('getNextPage');
+  if (nextButton === null) {
+    $('#videoListContainer').append(rendered);
+  } else {
+    $(rendered).insertBefore('#getNextPage');
+  }
 }
 
 /**
@@ -149,181 +185,6 @@ function addNextPage(nextPageToken) {
 }
 
 /**
-* Display the video player and play a video
-*
-* @param {string} videoId - The video ID of the video to be played.
-*
-* @return {Void}
-*/
-function playVideo(videoId) {
-  clearMainContainer();
-  startLoadingAnimation();
-
-  let subscribeText = '';
-  let savedText = '';
-  let savedIconClass = '';
-  let savedIconColor = '';
-  let video480p;
-  let video720p;
-  let defaultUrl;
-  let defaultQuality;
-  let channelId;
-  let videoHtml;
-  let videoThumbnail;
-  let videoType = 'video';
-  let embedPlayer;
-  let validUrl;
-
-  // Grab the embeded player. Used as fallback if the video URL cannot be found.
-  // Also grab the channel ID.
-  try {
-    let getInfoFunction = getChannelAndPlayer(videoId);
-
-    getInfoFunction.then((data) => {
-      console.log(data);
-      embedPlayer = data[0];
-      channelId = data[1];
-    });
-  } catch (ex) {
-    showToast('Video not found. ID may be invalid.');
-    stopLoadingAnimation();
-    return;
-  }
-
-  /*
-  * FreeTube calls an instance of a youtube-dl server to grab the direct video URL.  Please do not use this API in third party projects.
-  */
-  const url = 'https://stormy-inlet-41826.herokuapp.com/api/info?url=https://www.youtube.com/watch?v=' + videoId + 'flatten=True';
-  $.getJSON(url, (response) => {
-    console.log(response);
-
-    const info = response['info'];
-
-    videoThumbnail = info['thumbnail'];
-    let videoUrls = info['formats'];
-
-    // Add commas to the video view count.
-    const videoViews = info['view_count'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
-    // Format the date to a more readable format.
-    let dateString = info['upload_date'];
-    dateString = [dateString.slice(0, 4), '-', dateString.slice(4)].join('');
-    dateString = [dateString.slice(0, 7), '-', dateString.slice(7)].join('');
-    console.log(dateString);
-    const publishedDate = dateFormat(dateString, "mmm dS, yyyy");
-
-    // Figure out the width for the like/dislike bar.
-    const videoLikes = info['like_count'];
-    const videoDislikes = info['dislike_count'];
-    const totalLikes = videoLikes + videoDislikes;
-    const likePercentage = parseInt((videoLikes / totalLikes) * 100);
-
-    let description = info['description'];
-    // Adds clickable links to the description.
-    description = autolinker.link(description);
-
-    const checkSubscription = isSubscribed(channelId);
-
-    // Change the subscribe button text depending on if the user has subscribed to the channel or not.
-    checkSubscription.then((results) => {
-      if (results === false) {
-        subscribeText = 'SUBSCRIBE';
-      } else {
-        subscribeText = 'UNSUBSCRIBE';
-      }
-    });
-
-    const checkSavedVideo = videoIsSaved(videoId);
-
-    // Change the save button icon and text depending on if the user has saved the video or not.
-    checkSavedVideo.then((results) => {
-      if (results === false) {
-        savedText = 'SAVE';
-        savedIconClass = 'far unsaved';
-      } else {
-        savedText = 'SAVED';
-        savedIconClass = 'fas saved';
-      }
-    });
-
-    // Search through the returned object to get the 480p and 720p video URLs (If available)
-    Object.keys(videoUrls).forEach((key) => {
-      console.log(key);
-      switch (videoUrls[key]['format_note']) {
-        case 'medium':
-          video480p = videoUrls[key]['url'];
-          break;
-        case 'hd720':
-          video720p = videoUrls[key]['url'];
-          break;
-      }
-    });
-
-    // Default to the embeded player if the URLs cannot be found.
-    if (typeof(video720p) === 'undefined' && typeof(video480p) === 'undefined') {
-      defaultQuality = 'EMBED';
-      videoHtml = embedPlayer.replace(/\&quot\;/g, '"');
-      showToast('Unable to get video file.  Reverting to embeded player.');
-    } else if (typeof(video720p) === 'undefined' && typeof(video480p) !== 'undefined') {
-      // Default to the 480p video if the 720p URL cannot be found.
-      videoHtml = '<video class="videoPlayer" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" src="' + video480p + '" poster="' + videoThumbnail + '" autoplay></video>';
-      defaultQuality = '480p';
-    } else {
-      // Default to the 720p video.
-      videoHtml = '<video class="videoPlayer" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" src="' + video720p + '" poster="' + videoThumbnail + '" autoplay></video>';
-      defaultQuality = '720p';
-      // Force the embeded player if needed.
-      //videoHtml = embedPlayer;
-    }
-
-    // API Request
-    youtubeAPI('channels', {
-      'id': channelId,
-      'part': 'snippet'
-    }, function (data){
-      const channelThumbnail = data['items'][0]['snippet']['thumbnails']['high']['url'];
-
-      $.get('templates/player.html', (template) => {
-        mustache.parse(template);
-        const rendered = mustache.render(template, {
-          videoHtml: videoHtml,
-          videoQuality: defaultQuality,
-          videoTitle: info['title'],
-          videoViews: videoViews,
-          videoThumbnail: videoThumbnail,
-          channelName: info['uploader'],
-          videoLikes: videoLikes,
-          videoDislikes: videoDislikes,
-          likePercentage: likePercentage,
-          videoId: videoId,
-          channelId: channelId,
-          channelIcon: channelThumbnail,
-          publishedDate: publishedDate,
-          description: description,
-          isSubscribed: subscribeText,
-          savedText: savedText,
-          savedIconClass: savedIconClass,
-          savedIconColor: savedIconColor,
-          video480p: video480p,
-          video720p: video720p,
-          embedPlayer: embedPlayer,
-        });
-        $('#main').html(rendered);
-        stopLoadingAnimation();
-        showVideoRecommendations(videoId);
-        console.log('done');
-      });
-    });
-    // Sometimes a video URL is found, but the video will not play.  I believe the issue is
-    // that the video has yet to render for that quality, as the video will be available at a later time.
-    // This will check the URLs and switch video sources if there is an error.
-    checkVideoUrls(video480p, video720p);
-    // Add the video to the user's history
-    addToHistory(videoId);
-  });
-}
-
-/**
 * Grab the video recommendations for a video.  This does not get recommendations based on what you watch,
 * as that would defeat the main purpose of using FreeTube.  At any time you can check the video on HookTube
 * and compare the recommendations there.  They should be nearly identical.
@@ -332,29 +193,26 @@ function playVideo(videoId) {
 */
 function showVideoRecommendations(videoId) {
   youtubeAPI('search', {
-    part: 'snippet',
+    part: 'id',
     type: 'video',
     relatedToVideoId: videoId,
     maxResults: 15,
   }, function (data){
-    const recommendations = data.items;
-    recommendations.forEach((data) => {
-      const snippet = data['snippet'];
-      const videoId = data['id']['videoId'];
-      const videoTitle = snippet['title'];
-      const channelName = snippet['channelTitle'];
-      const videoThumbnail = snippet['thumbnails']['medium']['url'];
-      const dateString = snippet['publishedAt'];
-      const publishedDate = dateFormat(dateString, "mmm dS, yyyy");
+    let grabDuration = getDuration(data.items);
+    grabDuration.then((videoList) => {
+      videoList.items.forEach((video) => {
+        const snippet = video.snippet;
+        const videoDuration = parseVideoDuration(video.contentDetails.duration);
 
-      $.get('templates/recommendations.html', (template) => {
-        mustache.parse(template);
-        const rendered = mustache.render(template, {
-          videoId: videoId,
-          videoTitle: videoTitle,
-          channelName: channelName,
-          videoThumbnail: videoThumbnail,
-          publishedDate: publishedDate,
+        const recommTemplate = require('./templates/recommendations.html')
+        mustache.parse(recommTemplate);
+        const rendered = mustache.render(recommTemplate, {
+          videoId: video.id,
+          videoTitle:     snippet.title,
+          channelName:    snippet.channelTitle,
+          videoThumbnail: snippet.thumbnails.medium.url,
+          videoDuration:  videoDuration,
+          publishedDate: dateFormat(snippet.publishedAt, "mmm dS, yyyy")
         });
         const recommendationHtml = $('#recommendations').html();
         $('#recommendations').html(recommendationHtml + rendered);
@@ -392,6 +250,57 @@ function parseVideoLink() {
 }
 
 /**
+* Convert duration into a more readable format
+*
+* @param {string} durationString - The string containing the video duration.  Formated as 'PT12H34M56S'
+*
+* @return {string} - The formated string. Ex: 12:34:56
+*/
+function parseVideoDuration(durationString){
+  let match = durationString.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
+  let duration = '';
+
+  match = match.slice(1).map(function(x) {
+    if (x != null) {
+        return x.replace(/\D/, '');
+    }
+  });
+
+  let hours = (parseInt(match[0]) || 0);
+  let minutes = (parseInt(match[1]) || 0);
+  let seconds = (parseInt(match[2]) || 0);
+
+  if (hours != 0){
+    duration = hours + ':';
+  }
+  else{
+    duration = minutes + ':';
+  }
+
+  if (hours != 0 && minutes < 10){
+    duration = duration + '0' + minutes + ':';
+  }
+  else if (hours != 0 && minutes > 10){
+    duration = duration + minutes + ':';
+  }
+  else if (hours != 0 && minutes == 0){
+    duration = duration + '00:';
+  }
+
+  if (seconds == 0){
+    duration = duration + '00';
+  }
+  else if (seconds < 10){
+    duration = duration + '0' + seconds;
+  }
+  else{
+    duration = duration + seconds;
+  }
+
+  return duration;
+}
+
+/**
 * Grab the most popular videos over the last couple of days and display them.
 *
 * @return {Void}
@@ -403,22 +312,27 @@ function showMostPopular() {
   // Get the date of 2 days ago.
   var d = new Date();
   d.setDate(d.getDate() - 2);
-  console.log(d.toString());
 
   // Grab all videos published 2 days ago and after and order them by view count.
   // These are the videos that are considered as 'most popular' and is how similar
   // Applications grab these.  Videos in the 'Trending' tab on YouTube will be different.
   // And there is no way to grab those videos.
   youtubeAPI('search', {
-    part: 'snippet',
+    part: 'id',
     order: 'viewCount',
     type: 'video',
     publishedAfter: d.toISOString(),
     maxResults: 50,
   }, function (data){
     createVideoListContainer('Most Popular:');
+    console.log(data);
+    let grabDuration = getDuration(data.items);
+
+    grabDuration.then((videoList) => {
+      console.log(videoList);
+      videoList.items.forEach(displayVideo);
+    });
     stopLoadingAnimation();
-    data['items'].forEach(displayVideos);
   });
 }
 
@@ -459,7 +373,6 @@ function getChannelAndPlayer(videoId) {
       resolve([embedHtml, data.items[0].snippet.channelId]);
     });
   });
-
 }
 
 /**

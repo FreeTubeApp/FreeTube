@@ -56,23 +56,22 @@ function showSettings() {
     });
 
     // Grab the settings.html template to prepare for rendering
-    $.get('templates/settings.html', (template) => {
-      mustache.parse(template);
-      const rendered = mustache.render(template, {
-        isChecked: isChecked,
-        key: key,
-      });
-      // Render template to application
-      $('#main').html(rendered);
-      stopLoadingAnimation();
-
-      // Check / uncheck the switch depending on the user's settings.
-      if (currentTheme === 'light') {
-        document.getElementById('themeSwitch').checked = false;
-      } else {
-        document.getElementById('themeSwitch').checked = true;
-      }
+    const settingsTemplate = require('./templates/settings.html')
+    mustache.parse(settingsTemplate);
+    const rendered = mustache.render(settingsTemplate, {
+      isChecked: isChecked,
+      key: key,
     });
+    // Render template to application
+    $('#main').html(rendered);
+    stopLoadingAnimation();
+
+    // Check / uncheck the switch depending on the user's settings.
+    if (currentTheme === 'light') {
+      document.getElementById('themeSwitch').checked = false;
+    } else {
+      document.getElementById('themeSwitch').checked = true;
+    }
   });
 }
 
@@ -135,9 +134,6 @@ function checkDefaultSettings() {
 function updateSettings() {
   var themeSwitch = document.getElementById('themeSwitch').checked;
   var key = document.getElementById('api-key').value;
-
-  // To any third party devs that fork the project, please be ethical and change the API keys.
-  const apiKeyBank = ['AIzaSyC9E579nh_qqxg6BH4xIce3k_7a9mT4uQc', 'AIzaSyCKplYT6hZIlm2O9FbWTi1G7rkpsLNTq78', 'AIzaSyAE5xzh5GcA_tEDhXmMFd1pEzrL-W7z51E', 'AIzaSyDoFzqwuO9l386eF6BmNkVapjiTJ93CBy4', 'AIzaSyBljfZFPioB0TRJAj-0LS4tlIKl2iucyY4'];
 
   apiKey = apiKeyBank[Math.floor(Math.random() * apiKeyBank.length)];
 
@@ -235,7 +231,7 @@ function setTheme(option) {
 * @return {Void}
 */
 function importOpmlSubs(json){
-  if(json[0]['folder'] !== 'YouTube Subscriptions'){
+  if(!json[0]['folder'].includes('YouTube')){
     showToast('Invalid OPML File.  Import is unsuccessful.');
     return;
   }

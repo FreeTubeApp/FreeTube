@@ -43,6 +43,10 @@ input[type=text] {color: #EEEEEE;}
 .qualityTypes{color: #E0E0E0; background-color: #757575;}
 .speedTypes{color: #E0E0E0; background-color: #757575;}
 .unsaved{color: #E0E0E0;}
+.double-bounce1, .double-bounce2 {background-color: #f44336;}
+.videoOptions ul {background-color: #262626; color: white;}
+.videoOptions li:hover {background-color: #262626;}
+.videoOptions a {color: white;}
 
 #main{color: #EEEEEE;}
 #main hr{border-bottom: 1px solid #212121;}

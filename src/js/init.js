@@ -28,7 +28,7 @@ let win;
 if(require('electron-squirrel-startup')) app.quit();
 
 /**
- * initialize the electron application
+ * Initialize the Electron application
  * 1. create the browser window
  * 2. load the index.html
  */
@@ -93,14 +93,14 @@ let init = function() {
 };
 
 /**
- * quit the application
+ * Quit the application
  */
 let allWindowsClosed = function() {
   app.quit();
 };
 
 /**
- * on mac, when dock icon is clicked,
+ * On Mac, when dock icon is clicked,
  * create a new window and launch the editor
  */
 let active = function() {

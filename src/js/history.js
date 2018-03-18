@@ -81,8 +81,12 @@ function showHistory(){
       maxResults: 50,
     }, function (data) {
       createVideoListContainer('Watch History:');
-      data['items'].forEach((video) => {
-        displayVideos(video, 'history');
+      let grabDuration = getDuration(data.items);
+
+      grabDuration.then((videoList) => {
+        videoList.items.forEach((video) => {
+          displayVideo(video, 'history');
+        });
       });
       stopLoadingAnimation()
     });

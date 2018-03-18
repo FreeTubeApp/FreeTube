@@ -32,31 +32,26 @@ let showComments = function(event) {
   if (comments.css('display') === 'none') {
     comments.attr('loaded', 'true');
 
-    let commentsTemplate = $.get('templates/comments.html');
+    youtubeAPI('commentThreads', {
+      'videoId': $('#comments').attr('data-video-id'),
+      'part': 'snippet,replies',
+      'maxResults': 100,
+    }, function (data){
+      let comments = [];
+      let items = data.items;
 
-      commentsTemplate.done((template) => {
-        youtubeAPI('commentThreads', {
-          'videoId': $('#comments').attr('data-video-id'),
-          'part': 'snippet,replies',
-          'maxResults': 100,
-        }, function (data){
-          let comments = [];
-          let items = data.items;
+      items.forEach((object) => {
+        let snippet = object.snippet.topLevelComment.snippet;
 
-        items.forEach((object) => {
-          let snippet = object['snippet']['topLevelComment']['snippet'];
-          let dateString = new Date(snippet.publishedAt);
-          let publishedDate = dateFormat(dateString, "mmm dS, yyyy");
+        snippet.publishedAt = dateFormat(new Date(snippet.publishedAt), "mmm dS, yyyy");
 
-          snippet.publishedAt = publishedDate;
-
-          comments.push(snippet);
-        })
-        const html = mustache.render(template, {
-          comments: comments,
-        });
-        $('#comments').html(html);
+        comments.push(snippet);
+      })
+      const commentsTemplate = require('./templates/comments.html');
+      const html = mustache.render(commentsTemplate, {
+        comments: comments,
       });
+      $('#comments').html(html);
     });
 
     comments.show();
@@ -80,7 +75,7 @@ $('.videoPlayer').keypress((event) => {
 let videoShortcutHandler = function(event) {
   console.log(event.which);
   let videoPlayer = $('.videoPlayer').get(0);
-  if (typeof(videoPlayer) !== 'undefined'){
+  if (typeof(videoPlayer) !== 'undefined' && !$('#jumpToInput').is(':focus') && !$('#search').is(':focus')){
     switch (event.which) {
       case 32:
         // Space Bar
@@ -117,6 +112,17 @@ let videoShortcutHandler = function(event) {
         }
         else{
           changeVolume(1);
+        }
+        break;
+      case 67:
+        // F Key
+        event.preventDefault();
+        let subtitleMode = $('.videoPlayer').get(0).textTracks[0].mode;
+        if (subtitleMode === 'hidden'){
+          $('.videoPlayer').get(0).textTracks[0].mode = 'showing'
+        }
+        else{
+          $('.videoPlayer').get(0).textTracks[0].mode = 'hidden'
         }
         break;
       case 38:
@@ -193,6 +199,10 @@ let videoShortcutHandler = function(event) {
   }
 };
 
+let fullscreenVideo = function(event){
+  $('.videoPlayer').get(0).webkitRequestFullscreen();
+}
+
 /**
  * ---------------------------
  * Bind click events
@@ -201,6 +211,8 @@ let videoShortcutHandler = function(event) {
 $(document).on('click', '#showComments', showComments);
 
 $(document).on('click', '.videoPlayer', playPauseVideo);
+
+$(document).on('dblclick', '.videoPlayer', fullscreenVideo);
 
 $(document).on('keydown', videoShortcutHandler);
 
