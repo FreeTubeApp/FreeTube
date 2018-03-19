@@ -9,7 +9,6 @@
  */
 function youtubeAPI(resource, params, success) {
   params.key = apiKey;
-  console.log(resource, params, success)
   $.getJSON(
     'https://www.googleapis.com/youtube/v3/' + resource,
     params,
@@ -17,6 +16,8 @@ function youtubeAPI(resource, params, success) {
   ).fail((xhr, textStatus, error) => {
     showToast('There was an error calling the YouTube API.');
     console.log(error);
+    console.log(xhr);
+    console.log(textStatus);
     stopLoadingAnimation();
   });
 }
@@ -30,10 +31,16 @@ function youtubeAPI(resource, params, success) {
 * @return {Void}
 */
 function youtubedlGetInfo(videoId, callback) {
-  let url = 'https://youtube.com/watch?v=' + videoId;
-  let options = ['--all-subs', '--geo-bypass'];
+  let url = 'https://stormy-inlet-41826.herokuapp.com/api/info?url=https://www.youtube.com/watch?v=' + videoId + 'flatten=True&writesubtitles=True&geo_bypass=True';
+  $.getJSON(url, (response) => {
+    callback(response.info);
+  });
 
-  youtubedl.getInfo(url, options, {maxBuffer: Infinity}, function(err, info) {
+
+  /*let url = 'https://youtube.com/watch?v=' + videoId;
+  let options = ['--all-subs'];
+
+  youtubedl.getInfo(url, options, function(err, info) {
     if (err){
       showToast('There was an issue calling youtube-dl.');
       stopLoadingAnimation();
@@ -43,5 +50,5 @@ function youtubedlGetInfo(videoId, callback) {
 
     console.log('Success');
     callback(info);
-  });
+  });*/
 }
