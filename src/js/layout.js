@@ -36,6 +36,7 @@ const electron = require('electron');
 // is rewritten.
 //const asyncLoop = require('node-async-loop');
 //const youtubedl = require('youtube-dl');
+const ytdl = require('ytdl-core');
 const shell = electron.shell; // Used to open external links into the user's native browser.
 const localDataStorage = electron.remote.app.getPath('userData'); // Grabs the userdata directory based on the user's OS
 const clipboard = electron.clipboard;

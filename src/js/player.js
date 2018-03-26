@@ -28,7 +28,7 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
  *
  * @return {Void}
  */
-function playVideo(videoId) {
+function playVideo(videoId, videoThumbnail = '') {
   clearMainContainer();
   startLoadingAnimation();
 
@@ -42,32 +42,20 @@ function playVideo(videoId) {
   let subtitleHtml = '';
   let subtitleLabel;
   let subtitleLanguage;
+  let subtitleCode;
   let subtitleUrl;
   let defaultUrl;
   let defaultQuality;
   let channelId;
   let videoHtml;
-  let videoThumbnail;
   let videoType = 'video';
-  let embedPlayer;
+  let embedPlayer = "<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/" + videoId + "?rel=0' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>";
   let useEmbedPlayer = false;
   let validUrl;
-
-  // Grab the embeded player. Used as fallback if the video URL cannot be found.
-  // Also grab the channel ID.
-  try {
-    let getInfoFunction = getChannelAndPlayer(videoId);
-
-    getInfoFunction.then((data) => {
-      console.log(data);
-      embedPlayer = data[0];
-      channelId = data[1];
-    });
-  } catch (ex) {
-    showToast('Video not found. ID may be invalid.');
-    stopLoadingAnimation();
-    return;
-  }
+  let videoLikes;
+  let videoDislikes;
+  let totalLikes;
+  let likePercentage;
 
   const checkSavedVideo = videoIsSaved(videoId);
 
@@ -82,59 +70,85 @@ function playVideo(videoId) {
     }
   });
 
+  youtubeAPI('videos', {
+    part: 'statistics',
+    id: videoId,
+  }, function(data) {
+    console.log(data);
+
+    // Figure out the width for the like/dislike bar.
+    videoLikes = data['items'][0]['statistics']['likeCount'];
+    videoDislikes = data['items'][0]['statistics']['dislikeCount'];
+    totalLikes = parseInt(videoLikes) + parseInt(videoDislikes);
+    likePercentage = parseInt((videoLikes / totalLikes) * 100);
+  });
+
+  var getYoutubeSubtitles = require('@joegesualdo/get-youtube-subtitles-node');
+
+getYoutubeSubtitles(videoId, {type: 'auto'})
+.then(subtitles => {
+  console.log(subtitles)
+})
+.catch(err => {
+  console.log(err)
+});
+
   /*
    * FreeTube calls youtube-dl to grab the direct video URL.
    */
   youtubedlGetInfo(videoId, (info) => {
     console.log(info);
 
-    videoThumbnail = info['thumbnail'];
+    console.log(videoLikes);
+
+    channelId = info['author']['id'];
+    let channelThumbnail = info['author']['avatar'];
+
     let videoUrls = info['formats'];
 
     // Add commas to the video view count.
     const videoViews = info['view_count'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
     // Format the date to a more readable format.
-    let dateString = info['upload_date'];
-    dateString = [dateString.slice(0, 4), '-', dateString.slice(4)].join('');
-    dateString = [dateString.slice(0, 7), '-', dateString.slice(7)].join('');
+    let dateString = new Date(info['published']);
+    dateString.setDate(dateString.getDate() + 1);
     const publishedDate = dateFormat(dateString, "mmm dS, yyyy");
-
-    // Figure out the width for the like/dislike bar.
-    const videoLikes = info['like_count'];
-    const videoDislikes = info['dislike_count'];
-    const totalLikes = videoLikes + videoDislikes;
-    const likePercentage = parseInt((videoLikes / totalLikes) * 100);
 
     let description = info['description'];
     // Adds clickable links to the description.
     description = autolinker.link(description);
-
-    if (info['requested_subtitles'] !== null) {
-      videoSubtitles = info['requested_subtitles'];
+    /*if (typeof(info['player_response']['captions']['playerCaptionsTracklistRenderer']['captionTracks'] !== 'undefined')) {
+      videoSubtitles = info['player_response']['captions']['playerCaptionsTracklistRenderer']['captionTracks'];
+      console.log(videoSubtitles);
 
       // Grab all subtitles
       Object.keys(videoSubtitles).forEach((subtitle) => {
+        //"https://www.youtube.com/api/timedtext?expire=1522055009&v=tdeueWbTr3s&sparams=asr_langs%2Ccaps%2Cv%2Cexpire&signature=2C258351C4497D0A82DDB3C1E61AFD2F153FF94B.BE777570340A6B725647DD00373A58D5126CFC46&asr_langs=de%2Cko%2Cja%2Cfr%2Cen%2Ces%2Cru%2Cnl%2Cit%2Cpt&key=yttt1&hl=en_US&caps=asr&lang=ar"
+        //https://www.youtube.com/api/timedtext?expire=1522055009&v=tdeueWbTr3s&sparams=asr_langs%2Ccaps%2Cv%2Cexpire&signature=2C258351C4497D0A82DDB3C1E61AFD2F153FF94B.BE777570340A6B725647DD00373A58D5126CFC46&asr_langs=de%2Cko%2Cja%2Cfr%2Cen%2Ces%2Cru%2Cnl%2Cit%2Cpt&key=yttt1&hl=en_US&caps=asr&lang=ar
 
-        subtitleLabel = subtitle.toUpperCase();
-        subtitleUrl = videoSubtitles[subtitle]['url'];
+        subtitleLabel = videoSubtitles[subtitle]['name']['simpleText'];
+        subtitleCode = videoSubtitles[subtitle]['languageCode'];
+        subtitleUrl = videoSubtitles[subtitle]['baseUrl'];
+        console.log(subtitleUrl);
 
         if (subtitle === 'en') {
-          subtitleHtml = subtitleHtml + '<track label="' + subtitleLabel + '" kind="subtitles" srclang="' + subtitle + '" src="' + subtitleUrl + '" default>';
+          subtitleHtml = subtitleHtml + '<track label="' + subtitleLabel + '" kind="captions" srclang="' + subtitleCode + '" src="' + subtitleUrl + '" default>';
         } else {
-          subtitleHtml = subtitleHtml + '<track label="' + subtitleLabel + '" kind="subtitles" srclang="' + subtitle + '" src="' + subtitleUrl + '">';
+          subtitleHtml = subtitleHtml + '<track label="' + subtitleLabel + '" kind="captions" srclang="' + subtitleCode + '" src="' + subtitleUrl + '">';
         }
       });
-    }
+    }*/
 
     // Search through the returned object to get the 480p and 720p video URLs (If available)
     Object.keys(videoUrls).forEach((key) => {
-      switch (videoUrls[key]['format_id']) {
+      switch (videoUrls[key]['itag']) {
         case '18':
           video480p = videoUrls[key]['url'];
+          console.log(video480p);
           break;
         case '22':
           video720p = videoUrls[key]['url'];
+          console.log(video720p);
           break;
       }
     });
@@ -158,62 +172,62 @@ function playVideo(videoId) {
     }
 
     if (!useEmbedPlayer) {
-      videoHtml = '<video class="videoPlayer" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" src="' + defaultUrl + '" poster="' + videoThumbnail + '" autoplay>' + subtitleHtml + '</video>';
+      videoHtml = '<video data-dashjs-player class="videoPlayer" type="application/x-mpegURL" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" src="' + defaultUrl + '" poster="' + videoThumbnail + '" autoplay>' + subtitleHtml + '</video>';
     }
 
     const checkSubscription = isSubscribed(channelId);
 
     // Change the subscribe button text depending on if the user has subscribed to the channel or not.
+
     checkSubscription.then((results) => {
+      const subscribeButton = document.getElementById('subscribeButton');
+
       if (results === false) {
-        subscribeText = 'SUBSCRIBE';
+        if (subscribeButton != null) {
+          subscribeButton.innerHTML = 'SUBSCRIBE';
+        }
       } else {
-        subscribeText = 'UNSUBSCRIBE';
+        if (subscribeButton != null) {
+          subscribeButton.innerHTML = 'UNSUBSCRIBE';
+        }
       }
     });
 
-    // API Request
-    youtubeAPI('channels', {
-      'id': channelId,
-      'part': 'snippet'
-    }, function(data) {
-      const channelThumbnail = data['items'][0]['snippet']['thumbnails']['high']['url'];
-
-      const playerTemplate = require('./templates/player.html')
-      mustache.parse(playerTemplate);
-      const rendered = mustache.render(playerTemplate, {
-        videoHtml: videoHtml,
-        videoQuality: defaultQuality,
-        videoTitle: info['title'],
-        videoViews: videoViews,
-        videoThumbnail: videoThumbnail,
-        channelName: info['uploader'],
-        videoLikes: videoLikes,
-        videoDislikes: videoDislikes,
-        likePercentage: likePercentage,
-        videoId: videoId,
-        channelId: channelId,
-        channelIcon: channelThumbnail,
-        publishedDate: publishedDate,
-        description: description,
-        isSubscribed: subscribeText,
-        savedText: savedText,
-        savedIconClass: savedIconClass,
-        savedIconColor: savedIconColor,
-        video480p: video480p,
-        video720p: video720p,
-        embedPlayer: embedPlayer,
-      });
-      $('#main').html(rendered);
-      stopLoadingAnimation();
-
-      if (info['requested_subtitles'] !== null) {
-        $('.videoPlayer').get(0).textTracks[0].mode = 'hidden';
-      }
-
-      showVideoRecommendations(videoId);
-      console.log('done');
+    const playerTemplate = require('./templates/player.html')
+    mustache.parse(playerTemplate);
+    const rendered = mustache.render(playerTemplate, {
+      videoHtml: videoHtml,
+      videoQuality: defaultQuality,
+      videoTitle: info['title'],
+      videoViews: videoViews,
+      videoThumbnail: videoThumbnail,
+      channelName: info['author']['name'],
+      videoLikes: videoLikes,
+      videoDislikes: videoDislikes,
+      likePercentage: likePercentage,
+      videoId: videoId,
+      channelId: channelId,
+      channelIcon: channelThumbnail,
+      publishedDate: publishedDate,
+      description: description,
+      isSubscribed: subscribeText,
+      savedText: savedText,
+      savedIconClass: savedIconClass,
+      savedIconColor: savedIconColor,
+      video480p: video480p,
+      video720p: video720p,
+      embedPlayer: embedPlayer,
     });
+    $('#main').html(rendered);
+    stopLoadingAnimation();
+
+    /*if (info['requested_subtitles'] !== null) {
+      $('.videoPlayer').get(0).textTracks[0].mode = 'hidden';
+    }*/
+
+    showVideoRecommendations(videoId);
+    console.log('done');
+
     // Sometimes a video URL is found, but the video will not play.  I believe the issue is
     // that the video has yet to render for that quality, as the video will be available at a later time.
     // This will check the URLs and switch video sources if there is an error.

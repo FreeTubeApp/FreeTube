@@ -79,6 +79,7 @@ function removeSubscription(channelId) {
  */
 function loadSubscriptions() {
   clearMainContainer();
+  showToast('Getting Subscriptions.  This may take a while...');
   const loading = document.getElementById('loading');
 
   startLoadingAnimation()
@@ -128,6 +129,7 @@ function loadSubscriptions() {
                     list.items.forEach((video) => {
                       displayVideo(video);
                     });
+                    stopLoadingAnimation();
                   });
                 } else {
                   console.log(videoList);
