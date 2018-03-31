@@ -83,16 +83,6 @@ function playVideo(videoId, videoThumbnail = '') {
     likePercentage = parseInt((videoLikes / totalLikes) * 100);
   });
 
-  var getYoutubeSubtitles = require('@joegesualdo/get-youtube-subtitles-node');
-
-getYoutubeSubtitles(videoId, {type: 'auto'})
-.then(subtitles => {
-  console.log(subtitles)
-})
-.catch(err => {
-  console.log(err)
-});
-
   /*
    * FreeTube calls youtube-dl to grab the direct video URL.
    */
@@ -109,6 +99,8 @@ getYoutubeSubtitles(videoId, {type: 'auto'})
     // Add commas to the video view count.
     const videoViews = info['view_count'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
+    videoThumbnail = info['player_response']['videoDetails']['thumbnail']['thumbnails'][3]['url'];
+
     // Format the date to a more readable format.
     let dateString = new Date(info['published']);
     dateString.setDate(dateString.getDate() + 1);
@@ -117,27 +109,6 @@ getYoutubeSubtitles(videoId, {type: 'auto'})
     let description = info['description'];
     // Adds clickable links to the description.
     description = autolinker.link(description);
-    /*if (typeof(info['player_response']['captions']['playerCaptionsTracklistRenderer']['captionTracks'] !== 'undefined')) {
-      videoSubtitles = info['player_response']['captions']['playerCaptionsTracklistRenderer']['captionTracks'];
-      console.log(videoSubtitles);
-
-      // Grab all subtitles
-      Object.keys(videoSubtitles).forEach((subtitle) => {
-        //"https://www.youtube.com/api/timedtext?expire=1522055009&v=tdeueWbTr3s&sparams=asr_langs%2Ccaps%2Cv%2Cexpire&signature=2C258351C4497D0A82DDB3C1E61AFD2F153FF94B.BE777570340A6B725647DD00373A58D5126CFC46&asr_langs=de%2Cko%2Cja%2Cfr%2Cen%2Ces%2Cru%2Cnl%2Cit%2Cpt&key=yttt1&hl=en_US&caps=asr&lang=ar"
-        //https://www.youtube.com/api/timedtext?expire=1522055009&v=tdeueWbTr3s&sparams=asr_langs%2Ccaps%2Cv%2Cexpire&signature=2C258351C4497D0A82DDB3C1E61AFD2F153FF94B.BE777570340A6B725647DD00373A58D5126CFC46&asr_langs=de%2Cko%2Cja%2Cfr%2Cen%2Ces%2Cru%2Cnl%2Cit%2Cpt&key=yttt1&hl=en_US&caps=asr&lang=ar
-
-        subtitleLabel = videoSubtitles[subtitle]['name']['simpleText'];
-        subtitleCode = videoSubtitles[subtitle]['languageCode'];
-        subtitleUrl = videoSubtitles[subtitle]['baseUrl'];
-        console.log(subtitleUrl);
-
-        if (subtitle === 'en') {
-          subtitleHtml = subtitleHtml + '<track label="' + subtitleLabel + '" kind="captions" srclang="' + subtitleCode + '" src="' + subtitleUrl + '" default>';
-        } else {
-          subtitleHtml = subtitleHtml + '<track label="' + subtitleLabel + '" kind="captions" srclang="' + subtitleCode + '" src="' + subtitleUrl + '">';
-        }
-      });
-    }*/
 
     // Search through the returned object to get the 480p and 720p video URLs (If available)
     Object.keys(videoUrls).forEach((key) => {
@@ -172,7 +143,27 @@ getYoutubeSubtitles(videoId, {type: 'auto'})
     }
 
     if (!useEmbedPlayer) {
-      videoHtml = '<video data-dashjs-player class="videoPlayer" type="application/x-mpegURL" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" src="' + defaultUrl + '" poster="' + videoThumbnail + '" autoplay>' + subtitleHtml + '</video>';
+      videoHtml = '<video data-dashjs-player class="videoPlayer" type="application/x-mpegURL" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" src="' + defaultUrl + '" poster="' + videoThumbnail + '" autoplay>';
+
+
+      if(typeof(info.player_response.captions) === 'object'){
+        if(typeof(info.player_response.captions.playerCaptionsTracklistRenderer.captionTracks) === 'object'){
+          const videoSubtitles = info.player_response.captions.playerCaptionsTracklistRenderer.captionTracks;
+
+          videoSubtitles.forEach((subtitle) => {
+            let subtitleUrl = 'https://www.youtube.com/api/timedtext?lang=' + subtitle.languageCode + '&fmt=vtt&name=&v=' + videoId;
+
+            if(subtitle.kind == 'asr'){
+              //subtitleUrl = subtitle.baseUrl;
+              return;
+            }
+
+            videoHtml = videoHtml + '<track kind="subtitles" src="' + subtitleUrl + '" srclang="' + subtitle.languageCode + '" label="' + subtitle.name.simpleText + '">';
+          });
+        }
+      }
+
+      videoHtml = videoHtml + '</video>';
     }
 
     const checkSubscription = isSubscribed(channelId);

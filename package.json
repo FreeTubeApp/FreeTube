@@ -58,7 +58,6 @@
     "electron-winstaller": "^2.6.4"
   },
   "dependencies": {
-    "@joegesualdo/get-youtube-subtitles-node": "^0.1.0",
     "autolinker": "^1.6.2",
     "dashjs": "^2.6.7",
     "dateformat": "^3.0.3",
