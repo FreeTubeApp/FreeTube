@@ -206,8 +206,11 @@ function playVideo(videoId) {
       $('#main').html(rendered);
       stopLoadingAnimation();
 
-      if (info['subtitles'] !== null) {
-        $('.videoPlayer').get(0).textTracks[0].mode = 'hidden';
+      if (Object.keys(info['subtitles']).length > 0) {
+        let textTracks = $('.videoPlayer').get(0).textTracks;
+        Object.keys(textTracks).forEach((track) => {
+          textTracks[track].mode = 'hidden';
+        });
       }
 
       showVideoRecommendations(videoId);

@@ -1,7 +1,7 @@
 {{{videoHtml}}}
 <div class='statistics'>
   <div class='smallButton' onclick="openMiniPlayer('{{videoThumbnail}}')">
-    MINI PLAYER  <i class="fas fa-external-link-alt"></i>
+    MINI PLAYER <i class="fas fa-external-link-alt"></i>
   </div>
   <div class='smallButton videoQuality'>
     <span id='currentQuality'>{{videoQuality}}</span> <i class="fas fa-angle-down"></i>
@@ -34,9 +34,19 @@
   <div class='smallButton' onclick='copyLink("youtube", "{{videoId}}")'>
     COPY YOUTUBE LINK
   </div>
+  <a href='https://youtube.com/watch?v={{videoId}}'>
+    <div class='smallButton'>
+      OPEN IN YOUTUBE
+    </div>
+  </a>
   <div class='smallButton' onclick='copyLink("hooktube", "{{videoId}}")'>
     COPY HOOKTUBE LINK
   </div>
+  <a href='https://hooktube.com/watch?v={{videoId}}'>
+    <div class='smallButton' onclick='copyLink("hooktube", "{{videoId}}")'>
+      OPEN IN HOOKTUBE
+    </div>
+  </a>
   <br />
   <p class='title'>{{videoTitle}}</p>
   <p class='views'>{{videoViews}} views</p>
