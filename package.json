@@ -59,7 +59,6 @@
   },
   "dependencies": {
     "autolinker": "^1.6.2",
-    "dashjs": "^2.6.7",
     "dateformat": "^3.0.3",
     "electron-compile": "^6.4.2",
     "electron-squirrel-startup": "^1.0.0",

@@ -143,7 +143,7 @@ function playVideo(videoId, videoThumbnail = '') {
     }
 
     if (!useEmbedPlayer) {
-      videoHtml = '<video data-dashjs-player class="videoPlayer" type="application/x-mpegURL" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" src="' + defaultUrl + '" poster="' + videoThumbnail + '" autoplay>';
+      videoHtml = '<video class="videoPlayer" type="application/x-mpegURL" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" src="' + defaultUrl + '" poster="' + videoThumbnail + '" autoplay>';
 
 
       if(typeof(info.player_response.captions) === 'object'){

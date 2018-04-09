@@ -18,12 +18,12 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /**
-* Perform a search using the YouTube API. The search query is grabbed from the #search element.
-*
-* @param {string} nextPageToken - Optional: The page token to be inlcuded in the search.
-*
-* @return {Void}
-*/
+ * Perform a search using the YouTube API. The search query is grabbed from the #search element.
+ *
+ * @param {string} nextPageToken - Optional: The page token to be inlcuded in the search.
+ *
+ * @return {Void}
+ */
 function search(nextPageToken = '') {
   const query = document.getElementById('search').value;
 
@@ -42,13 +42,45 @@ function search(nextPageToken = '') {
   youtubeAPI('search', {
     q: query,
     part: 'id',
-    type: 'video',
     pageToken: nextPageToken,
     maxResults: 25,
-  }, function (data){
-    let grabDuration = getDuration(data.items);
+  }, function(data) {
+    console.log(data);
+
+    let channels = data.items.filter((item) => {
+      if (item.id.kind === 'youtube#channel') {
+        return true;
+      }
+    });
+
+    let playlists = data.items.filter((item) => {
+      if (item.id.kind === 'youtube#playlist') {
+        return true;
+      }
+    });
+
+    let videos = data.items.filter((item) => {
+      if (item.id.kind === 'youtube#video') {
+        return true;
+      }
+    });
+
+    console.log(channels);
+    console.log(typeof(channels));
+    console.log(playlists);
+
+    if(playlists.length > 0){
+      displayPlaylists(playlists);
+    }
+
+    if(channels.length > 0){
+      displayChannels(channels);
+    }
+
+    let grabDuration = getDuration(videos);
 
     grabDuration.then((videoList) => {
+      console.log(videoList);
       videoList.items.forEach(displayVideo);
     });
 
@@ -61,30 +93,27 @@ function search(nextPageToken = '') {
 }
 
 /**
-* Grab the duration of the videos
-*
-* @param {array} data - An array of videos to get the duration from
-*
-* @return {promise} - The list of videos with the duration included.
-*/
-function getDuration(data){
+ * Grab the duration of the videos
+ *
+ * @param {array} data - An array of videos to get the duration from
+ *
+ * @return {promise} - The list of videos with the duration included.
+ */
+function getDuration(data) {
   return new Promise((resolve, reject) => {
     let videoIdList = '';
 
-    for(let i = 0; i < data.length; i++){
-      if (videoIdList === ''){
-        if(typeof(data[i]['id']) === 'string'){
+    for (let i = 0; i < data.length; i++) {
+      if (videoIdList === '') {
+        if (typeof(data[i]['id']) === 'string') {
           videoIdList = data[i]['id'];
-        }
-        else{
+        } else {
           videoIdList = data[i]['id']['videoId'];
         }
-      }
-      else{
-        if(typeof(data[i]['id']) === 'string'){
+      } else {
+        if (typeof(data[i]['id']) === 'string') {
           videoIdList = videoIdList + ', ' + data[i]['id'];
-        }
-        else{
+        } else {
           videoIdList = videoIdList + ', ' + data[i]['id']['videoId'];
         }
       }
@@ -100,14 +129,14 @@ function getDuration(data){
 }
 
 /**
-* Display a video on the page.  Function is typically contained in a loop.
-*
-* @param {video} video - The video ID of the video to be displayed.
-* @param {string} listType - Optional: Specifies the list type of the video
-*                            Used for displaying the remove icon for history and saved videos.
-*
-* @return {Void}
-*/
+ * Display a video on the page.  Function is typically contained in a loop.
+ *
+ * @param {video} video - The video ID of the video to be displayed.
+ * @param {string} listType - Optional: Specifies the list type of the video
+ *                            Used for displaying the remove icon for history and saved videos.
+ *
+ * @return {Void}
+ */
 function displayVideo(video, listType = '') {
   const videoSnippet = video.snippet;
 
@@ -132,18 +161,18 @@ function displayVideo(video, listType = '') {
   };
 
   // Includes text if the video is live.
-  const liveText = (videoSnippet.liveBroadcastContent === 'live')? 'LIVE NOW' : '';
+  const liveText = (videoSnippet.liveBroadcastContent === 'live') ? 'LIVE NOW' : '';
   const videoListTemplate = require('./templates/videoList.html');
 
   mustache.parse(videoListTemplate);
   const rendered = mustache.render(videoListTemplate, {
     videoId: videoId,
-    videoThumbnail:   videoSnippet.thumbnails.medium.url,
-    videoTitle:       videoSnippet.title,
-    channelName:      videoSnippet.channelTitle,
+    videoThumbnail: videoSnippet.thumbnails.medium.url,
+    videoTitle: videoSnippet.title,
+    channelName: videoSnippet.channelTitle,
     videoDescription: videoSnippet.description,
-    channelId:        videoSnippet.channelId,
-    videoDuration:    videoDuration,
+    channelId: videoSnippet.channelId,
+    videoDuration: videoDuration,
     publishedDate: publishedDate,
     liveText: liveText,
     deleteHtml: deleteHtml,
@@ -158,13 +187,95 @@ function displayVideo(video, listType = '') {
   }
 }
 
+function displayChannels(channels) {
+  let channelIds;
+
+  channels.forEach((channel) => {
+    if (typeof(channelIds) === 'undefined') {
+      channelIds = channel.id.channelId;
+    } else {
+      channelIds = channelIds + ',' + channel.id.channelId;
+    }
+  });
+
+  console.log(channelIds);
+
+  youtubeAPI('channels', {
+    part: 'snippet,statistics',
+    id: channelIds,
+  }, function(data) {
+    console.log(data);
+    let items = data['items'].reverse();
+    const videoListTemplate = require('./templates/channelList.html');
+
+    console.log(items);
+
+    items.forEach((item) => {
+      mustache.parse(videoListTemplate);
+      let rendered = mustache.render(videoListTemplate, {
+        channelId: item.id,
+        channelThumbnail: item.snippet.thumbnails.medium.url,
+        channelName: item.snippet.title,
+        channelDescription: item.snippet.description,
+        subscriberCount: item.statistics.subscriberCount,
+        videoCount: item.statistics.videoCount,
+      });
+
+      $(rendered).insertBefore('#getNextPage');
+    });
+  });
+}
+
+function displayPlaylists(playlists) {
+  let playlistIds;
+
+  playlists.forEach((playlist) => {
+    if (typeof(playlistIds) === 'undefined') {
+      playlistIds = playlist.id.playlistId;
+    } else {
+      playlistIds = playlistIds + ',' + playlist.id.playlistId;
+    }
+  });
+
+  console.log(playlistIds);
+
+  youtubeAPI('playlists', {
+    part: 'snippet,contentDetails',
+    id: playlistIds,
+  }, function(data) {
+    console.log(data);
+    let items = data['items'].reverse();
+    const playlistListTemplate = require('./templates/playlistList.html');
+
+    console.log(items);
+
+    items.forEach((item) => {
+      let dateString = new Date(item.snippet.publishedAt);
+      let publishedDate = dateFormat(dateString, "mmm dS, yyyy");
+
+      mustache.parse(playlistListTemplate);
+      let rendered = mustache.render(playlistListTemplate, {
+        channelId: item.snippet.channelId,
+        channelName: item.snippet.channelTitle,
+        playlistThumbnail: item.snippet.thumbnails.medium.url,
+        playlistTitle: item.snippet.title,
+        playlistDescription: item.snippet.description,
+        videoCount: item.contentDetails.itemCount,
+        publishedDate: publishedDate,
+      });
+
+      $(rendered).insertBefore('#getNextPage');
+    });
+  });
+}
+
 /**
-* Changes the page token to the next page button during a video search.
-*
-* @param {string} nextPageToken - The page token to replace the button function.
-*
-* @return {Void}
-*/
+ * Changes the page token to the next page button during a video search.
+ *
+ * @param {string} nextPageToken - The page token to replace the button function.
+ *
+ * @return {Void}
+ */
 function addNextPage(nextPageToken) {
   let oldFetchButton = document.getElementById('getNextPage');
 
@@ -185,19 +296,19 @@ function addNextPage(nextPageToken) {
 }
 
 /**
-* Grab the video recommendations for a video.  This does not get recommendations based on what you watch,
-* as that would defeat the main purpose of using FreeTube.  At any time you can check the video on HookTube
-* and compare the recommendations there.  They should be nearly identical.
-*
-* @param {string} videoId - The video ID of the video to get recommendations from.
-*/
+ * Grab the video recommendations for a video.  This does not get recommendations based on what you watch,
+ * as that would defeat the main purpose of using FreeTube.  At any time you can check the video on HookTube
+ * and compare the recommendations there.  They should be nearly identical.
+ *
+ * @param {string} videoId - The video ID of the video to get recommendations from.
+ */
 function showVideoRecommendations(videoId) {
   youtubeAPI('search', {
     part: 'id',
     type: 'video',
     relatedToVideoId: videoId,
     maxResults: 15,
-  }, function (data){
+  }, function(data) {
     let grabDuration = getDuration(data.items);
     grabDuration.then((videoList) => {
       videoList.items.forEach((video) => {
@@ -208,10 +319,10 @@ function showVideoRecommendations(videoId) {
         mustache.parse(recommTemplate);
         const rendered = mustache.render(recommTemplate, {
           videoId: video.id,
-          videoTitle:     snippet.title,
-          channelName:    snippet.channelTitle,
+          videoTitle: snippet.title,
+          channelName: snippet.channelTitle,
           videoThumbnail: snippet.thumbnails.medium.url,
-          videoDuration:  videoDuration,
+          videoDuration: videoDuration,
           publishedDate: dateFormat(snippet.publishedAt, "mmm dS, yyyy")
         });
         const recommendationHtml = $('#recommendations').html();
@@ -222,11 +333,11 @@ function showVideoRecommendations(videoId) {
 }
 
 /**
-* Check if a link is a valid YouTube/HookTube link and play that video. Gets input
-* from the #jumpToInput element.
-*
-* @return {Void}
-*/
+ * Check if a link is a valid YouTube/HookTube link and play that video. Gets input
+ * from the #jumpToInput element.
+ *
+ * @return {Void}
+ */
 function parseVideoLink() {
   let input = document.getElementById('jumpToInput').value;
 
@@ -250,19 +361,19 @@ function parseVideoLink() {
 }
 
 /**
-* Convert duration into a more readable format
-*
-* @param {string} durationString - The string containing the video duration.  Formated as 'PT12H34M56S'
-*
-* @return {string} - The formated string. Ex: 12:34:56
-*/
-function parseVideoDuration(durationString){
+ * Convert duration into a more readable format
+ *
+ * @param {string} durationString - The string containing the video duration.  Formated as 'PT12H34M56S'
+ *
+ * @return {string} - The formated string. Ex: 12:34:56
+ */
+function parseVideoDuration(durationString) {
   let match = durationString.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
   let duration = '';
 
   match = match.slice(1).map(function(x) {
     if (x != null) {
-        return x.replace(/\D/, '');
+      return x.replace(/\D/, '');
     }
   });
 
@@ -270,30 +381,25 @@ function parseVideoDuration(durationString){
   let minutes = (parseInt(match[1]) || 0);
   let seconds = (parseInt(match[2]) || 0);
 
-  if (hours != 0){
+  if (hours != 0) {
     duration = hours + ':';
-  }
-  else{
+  } else {
     duration = minutes + ':';
   }
 
-  if (hours != 0 && minutes < 10){
+  if (hours != 0 && minutes < 10) {
     duration = duration + '0' + minutes + ':';
-  }
-  else if (hours != 0 && minutes > 10){
+  } else if (hours != 0 && minutes > 10) {
     duration = duration + minutes + ':';
-  }
-  else if (hours != 0 && minutes == 0){
+  } else if (hours != 0 && minutes == 0) {
     duration = duration + '00:';
   }
 
-  if (seconds == 0){
+  if (seconds == 0) {
     duration = duration + '00';
-  }
-  else if (seconds < 10){
+  } else if (seconds < 10) {
     duration = duration + '0' + seconds;
-  }
-  else{
+  } else {
     duration = duration + seconds;
   }
 
@@ -301,10 +407,10 @@ function parseVideoDuration(durationString){
 }
 
 /**
-* Grab the most popular videos over the last couple of days and display them.
-*
-* @return {Void}
-*/
+ * Grab the most popular videos over the last couple of days and display them.
+ *
+ * @return {Void}
+ */
 function showMostPopular() {
   clearMainContainer();
   startLoadingAnimation();
@@ -323,7 +429,7 @@ function showMostPopular() {
     type: 'video',
     publishedAfter: d.toISOString(),
     maxResults: 50,
-  }, function (data){
+  }, function(data) {
     createVideoListContainer('Most Popular:');
     console.log(data);
     let grabDuration = getDuration(data.items);
@@ -337,13 +443,13 @@ function showMostPopular() {
 }
 
 /**
-* Create a link of the video to HookTube or YouTube and copy it to the user's clipboard.
-*
-* @param {string} website - The website to watch the video on.
-* @param {string} videoId - The video ID of the video to add to the URL
-*
-* @return {Void}
-*/
+ * Create a link of the video to HookTube or YouTube and copy it to the user's clipboard.
+ *
+ * @param {string} website - The website to watch the video on.
+ * @param {string} videoId - The video ID of the video to add to the URL
+ *
+ * @return {Void}
+ */
 function copyLink(website, videoId) {
   // Create the URL and copy to the clipboard.
   const url = 'https://' + website + '.com/watch?v=' + videoId;
@@ -352,19 +458,19 @@ function copyLink(website, videoId) {
 }
 
 /**
-* Get the YouTube embeded player of a video as well as channel information..
-*
-* @param {string} videoId - The video ID of the video to get.
-*
-* @return {promise} - The HTML of the embeded player
-*/
+ * Get the YouTube embeded player of a video as well as channel information..
+ *
+ * @param {string} videoId - The video ID of the video to get.
+ *
+ * @return {promise} - The HTML of the embeded player
+ */
 function getChannelAndPlayer(videoId) {
   console.log(videoId);
   return new Promise((resolve, reject) => {
     youtubeAPI('videos', {
       part: 'snippet,player',
       id: videoId,
-    }, function (data){
+    }, function(data) {
       let embedHtml = data.items[0].player.embedHtml;
       embedHtml = embedHtml.replace('src="', 'src="https:');
       embedHtml = embedHtml.replace('width="480px"', '');
@@ -376,20 +482,20 @@ function getChannelAndPlayer(videoId) {
 }
 
 /**
-* Check to see if the video URLs are valid. Change the video quality if one is not.
-* The API will grab video URLs, but they will sometimes return a 404.  This
-* is why this check is needed.  The video URL will typically be resolved over time.
-*
-* @param {string} video480p - The URL to the 480p video.
-* @param {string} video720p - The URL to the 720p video.
-*/
+ * Check to see if the video URLs are valid. Change the video quality if one is not.
+ * The API will grab video URLs, but they will sometimes return a 404.  This
+ * is why this check is needed.  The video URL will typically be resolved over time.
+ *
+ * @param {string} video480p - The URL to the 480p video.
+ * @param {string} video720p - The URL to the 720p video.
+ */
 function checkVideoUrls(video480p, video720p) {
   const currentQuality = $('#currentQuality').html();
   let buttonEmbed = document.getElementById('qualityEmbed');
 
   let valid480 = false;
 
-  if (typeof(video480p) !== 'undefined'){
+  if (typeof(video480p) !== 'undefined') {
     let get480pUrl = fetch(video480p);
     get480pUrl.then((status) => {
       switch (status.status) {
@@ -412,7 +518,7 @@ function checkVideoUrls(video480p, video720p) {
           break;
         default:
           console.log('480p is valid');
-          if (currentQuality === '720p' && typeof(video720p) === 'undefined'){
+          if (currentQuality === '720p' && typeof(video720p) === 'undefined') {
             changeQuality(video480p);
           }
           break;
@@ -420,7 +526,7 @@ function checkVideoUrls(video480p, video720p) {
     });
   }
 
-  if (typeof(video720p) !== 'undefined'){
+  if (typeof(video720p) !== 'undefined') {
     let get720pUrl = fetch(video720p);
     get720pUrl.then((status) => {
       switch (status.status) {
@@ -430,7 +536,7 @@ function checkVideoUrls(video480p, video720p) {
           $(document).on('click', '#quality720p', (event) => {
             changeQuality('');
           });
-          if (typeof(valid480) !== 'undefined'){
+          if (typeof(valid480) !== 'undefined') {
             changeQuality(video480p, '480p');
           }
           break;
@@ -444,7 +550,7 @@ function checkVideoUrls(video480p, video720p) {
           break;
         default:
           console.log('720p is valid');
-          if (currentQuality === '720p'){
+          if (currentQuality === '720p') {
             return;
           }
           break;

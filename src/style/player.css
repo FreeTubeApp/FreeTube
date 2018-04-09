@@ -27,6 +27,21 @@ iframe {
   width: 100%;
 }
 
+.channelThumbnail {
+  width: 140px;
+  height: 140px;
+  float: left;
+  cursor: pointer;
+  position: relative;
+  left: 60px;
+}
+
+.channelThumbnail img{
+  width: 100%;
+  border-radius: 200px 200px 200px 200px;
+  -webkit-border-radius: 200px 200px 200px 200px;
+}
+
 .videoOptions {
   float: right;
   width: 50px;

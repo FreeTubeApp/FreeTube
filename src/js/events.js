@@ -1,4 +1,4 @@
-/*
+ /*
 This file is part of FreeTube.
 
 FreeTube is free software: you can redistribute it and/or modify
@@ -200,7 +200,12 @@ let videoShortcutHandler = function(event) {
 };
 
 let fullscreenVideo = function(event){
-  $('.videoPlayer').get(0).webkitRequestFullscreen();
+  if (document.webkitFullscreenElement !== null){
+    document.webkitExitFullscreen();
+  }
+  else{
+    $('.videoPlayer').get(0).webkitRequestFullscreen();
+  }
 }
 
 /**
