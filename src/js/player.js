@@ -110,14 +110,13 @@ function playVideo(videoId) {
     // Adds clickable links to the description.
     description = autolinker.link(description);
 
-    if (info['requested_subtitles'] !== null) {
-      videoSubtitles = info['requested_subtitles'];
+    if (info['subtitles'] !== null) {
+      videoSubtitles = info['subtitles'];
 
       // Grab all subtitles
       Object.keys(videoSubtitles).forEach((subtitle) => {
-
         subtitleLabel = subtitle.toUpperCase();
-        subtitleUrl = videoSubtitles[subtitle]['url'];
+        subtitleUrl = videoSubtitles[subtitle][1]['url'];
 
         if (subtitle === 'en') {
           subtitleHtml = subtitleHtml + '<track label="' + subtitleLabel + '" kind="subtitles" srclang="' + subtitle + '" src="' + subtitleUrl + '" default>';
@@ -207,7 +206,7 @@ function playVideo(videoId) {
       $('#main').html(rendered);
       stopLoadingAnimation();
 
-      if (info['requested_subtitles'] !== null) {
+      if (info['subtitles'] !== null) {
         $('.videoPlayer').get(0).textTracks[0].mode = 'hidden';
       }
 

@@ -128,6 +128,7 @@ function loadSubscriptions() {
                     list.items.forEach((video) => {
                       displayVideo(video);
                     });
+                    stopLoadingAnimation();
                   });
                 } else {
                   console.log(videoList);
