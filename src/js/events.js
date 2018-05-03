@@ -1,4 +1,4 @@
-/*
+ /*
 This file is part of FreeTube.
 
 FreeTube is free software: you can redistribute it and/or modify
@@ -115,7 +115,7 @@ let videoShortcutHandler = function(event) {
         }
         break;
       case 67:
-        // F Key
+        // C Key
         event.preventDefault();
         let subtitleMode = $('.videoPlayer').get(0).textTracks[0].mode;
         if (subtitleMode === 'hidden'){
@@ -205,7 +205,7 @@ let fullscreenVideo = function(event){
   }
   else{
     $('.videoPlayer').get(0).webkitRequestFullscreen();
-  } 
+  }
 }
 
 /**

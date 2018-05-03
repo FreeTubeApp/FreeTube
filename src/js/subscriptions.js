@@ -79,6 +79,7 @@ function removeSubscription(channelId) {
  */
 function loadSubscriptions() {
   clearMainContainer();
+  showToast('Getting Subscriptions.  Please wait...');
   const loading = document.getElementById('loading');
 
   startLoadingAnimation()

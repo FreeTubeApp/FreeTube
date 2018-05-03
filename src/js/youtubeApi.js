@@ -31,16 +31,23 @@ function youtubeAPI(resource, params, success) {
 * @return {Void}
 */
 function youtubedlGetInfo(videoId, callback) {
-  let url = 'https://stormy-inlet-41826.herokuapp.com/api/info?url=https://www.youtube.com/watch?v=' + videoId + 'flatten=True&writesubtitles=True&geo_bypass=True';
+  /*let url = 'https://stormy-inlet-41826.herokuapp.com/api/info?url=https://www.youtube.com/watch?v=' + videoId + 'flatten=True&writesubtitles=True&geo_bypass=true';
   $.getJSON(url, (response) => {
     callback(response.info);
   });
+  //https://stormy-inlet-41826.herokuapp.com/api/info?url=https://youtube.com/watch?v=fc6ODCqepb8flatten=True&writesubtitles=True&geo_bypass=True&write_auto_sub=true&sub_lang=zh-TW
+  //https://www.youtube.com/watch?v=8YoUxe5ncPo
+  //https://youtube.com/watch?v=fc6ODCqepb8*/
+  
+  let url = 'https://youtube.com/watch?v=' + videoId;
+  let options = ['--all-subs', '--write-subs'];
 
+  /*var dashjs = require('dashjs');
+  var url = "http://dash.edgesuite.net/envivio/EnvivioDash3/manifest.mpd";
+  var player = dashjs.MediaPlayer().create();
+  player.initialize(document.querySelector("#videoPlayer"), url, true);*/
 
-  /*let url = 'https://youtube.com/watch?v=' + videoId;
-  let options = ['--all-subs'];
-
-  youtubedl.getInfo(url, options, function(err, info) {
+  ytdl.getInfo(url, options, function(err, info) {
     if (err){
       showToast('There was an issue calling youtube-dl.');
       stopLoadingAnimation();
@@ -50,5 +57,5 @@ function youtubedlGetInfo(videoId, callback) {
 
     console.log('Success');
     callback(info);
-  });*/
+  });
 }

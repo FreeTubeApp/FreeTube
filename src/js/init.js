@@ -20,10 +20,28 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 /*
 * File used to initializing the application
 */
-const {app, BrowserWindow, dialog} = require('electron');
+const {app, BrowserWindow, dialog, protocol} = require('electron');
 const path = require('path');
 const url = require('url');
 let win;
+
+protocol.registerStandardSchemes(['freetube'])
+
+app.setAsDefaultProtocolClient('freetube');
+
+const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
+  // Someone tried to run a second instance, we should focus our window.
+  if (win) {
+    if (win.isMinimized()) win.restore()
+    win.focus()
+
+    win.webContents.send( 'ping', commandLine)
+  }
+})
+
+if (isSecondInstance) {
+  app.quit()
+}
 
 if(require('electron-squirrel-startup')) app.quit();
 
@@ -34,6 +52,7 @@ if(require('electron-squirrel-startup')) app.quit();
  */
 let init = function() {
   const Menu = require('electron').Menu;
+
   win = new BrowserWindow({width: 1200, height: 800, autoHideMenuBar: true});
 
   win.loadURL(url.format({
@@ -43,7 +62,7 @@ let init = function() {
   }));
 
   if (process.env = 'development') {
-    //win.webContents.openDevTools();
+    //win.webContents.openDevTools();ff
   }
 
   win.on('closed', () => {
@@ -52,14 +71,17 @@ let init = function() {
 
   const template = [
     {
+      label: 'File',
+      submenu: [
+        {role: 'quit'}
+      ]
+    },
+    {
       label: 'Edit',
       submenu: [
-        {role: 'undo'},
-        {role: 'redo'},
-        {type: 'separator'},
         {role: 'cut'},
-        {role: 'copy'},
-        {role: 'paste'},
+        {role: 'copy', accelerator: "CmdOrCtrl+C", selector: "copy:" },
+        {role: 'paste', accelerator: "CmdOrCtrl+V", selector: "paste:" },
         {role: 'pasteandmatchstyle'},
         {role: 'delete'},
         {role: 'selectall'}

@@ -18,9 +18,9 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /*
-* File for main layout manipulation and general variable configuration.
-* There are some functions from other files that will probably need to be moved to here.
-*/
+ * File for main layout manipulation and general variable configuration.
+ * There are some functions from other files that will probably need to be moved to here.
+ */
 
 // Add general variables.  Please put all require statements here.
 const Datastore = require('nedb'); // database logic
@@ -28,14 +28,18 @@ window.$ = window.jQuery = require('jquery');
 const mustache = require('mustache'); // templating
 const dateFormat = require('dateformat'); // formatting dates
 
+//const RxPlayer = require('rx-player'); // formatting dates
+
 // Used for finding links within text and making them clickable.  Used mostly for video descriptions.
 const autolinker = require('autolinker');
 const electron = require('electron');
+const protocol = electron.remote.protocol;
 
 // Used for getting the user's subscriptions.  Can probably remove this when that function
 // is rewritten.
 //const asyncLoop = require('node-async-loop');
 //const youtubedl = require('youtube-dl');
+const ytdl = require('ytdl-core');
 const shell = electron.shell; // Used to open external links into the user's native browser.
 const localDataStorage = electron.remote.app.getPath('userData'); // Grabs the userdata directory based on the user's OS
 const clipboard = electron.clipboard;
@@ -44,12 +48,12 @@ const fs = require('fs'); // Used to read files. Specifically in the settings pa
 
 let currentTheme = '';
 let apiKey;
-let dialog = require('electron').remote.dialog; // Used for opening file browser to export / import subscriptions.
+let dialog = electron.remote.dialog; // Used for opening file browser to export / import subscriptions.
 let toastTimeout; // Timeout for toast notifications.
 let mouseTimeout; // Timeout for hiding the mouse cursor on video playback
 
-require.extensions['.html'] = function (module, filename) {
-    module.exports = fs.readFileSync(filename, 'utf8');
+require.extensions['.html'] = function(module, filename) {
+  module.exports = fs.readFileSync(filename, 'utf8');
 };
 
 const subDb = new Datastore({
@@ -76,15 +80,21 @@ const settingsDb = new Datastore({
 // none are found.
 checkDefaultSettings();
 
-// Ppen links externally by default
-$(document).on('click', 'a[href^="http"]', (event) =>{
+require('electron').ipcRenderer.on('ping', function(event, message) {
+    let url = message[1].replace('freetube://', '');
+    parseSearchText(url);
+    console.log(message);  // Prints "whoooooooh!"
+});
+
+// Open links externally by default
+$(document).on('click', 'a[href^="http"]', (event) => {
   let el = event.currentTarget;
   event.preventDefault();
   shell.openExternal(el.href);
 });
 
 // Open links externally on middle click.
-$(document).on('auxclick', 'a[href^="http"]', (event) =>{
+$(document).on('auxclick', 'a[href^="http"]', (event) => {
   let el = event.currentTarget;
   event.preventDefault();
   shell.openExternal(el.href);
@@ -101,14 +111,7 @@ $(document).ready(() => {
   // Allow user to use the 'enter' key to search for a video.
   searchBar.onkeypress = (e) => {
     if (e.keyCode === 13) {
-      search();
-    }
-  };
-
-  // Allow user to use the 'enter' key to open a video link.
-  jumpToInput.onkeypress = (e) => {
-    if (e.keyCode === 13) {
-      parseVideoLink();
+      parseSearchText();
     }
   };
 
@@ -118,10 +121,10 @@ $(document).ready(() => {
 });
 
 /**
-* Toggle the ability to view the side navigation bar.
-*
-* @return {Void}
-*/
+ * Toggle the ability to view the side navigation bar.
+ *
+ * @return {Void}
+ */
 function toggleSideNavigation() {
   const sideNav = document.getElementById('sideNav');
   const mainContainer = document.getElementById('main');
@@ -136,10 +139,10 @@ function toggleSideNavigation() {
 }
 
 /**
-* Clears out the #main container to allow other information to be shown.
-*
-* @return {Void}
-*/
+ * Clears out the #main container to allow other information to be shown.
+ *
+ * @return {Void}
+ */
 function clearMainContainer() {
   const container = document.getElementById('main');
   container.innerHTML = '';
@@ -150,32 +153,29 @@ function startLoadingAnimation() {
   const loading = document.getElementById('loading');
   const sideNavDisabled = document.getElementById('sideNavDisabled');
   const searchBar = document.getElementById('search');
-  const goToVideoInput = document.getElementById('jumpToInput');
 
   loading.style.display = 'inherit';
   sideNavDisabled.style.display = 'inherit';
   searchBar.disabled = true;
-  goToVideoInput.disabled = true;
 }
+
 function stopLoadingAnimation() {
   const loading = document.getElementById('loading');
   const sideNavDisabled = document.getElementById('sideNavDisabled');
   const searchBar = document.getElementById('search');
-  const goToVideoInput = document.getElementById('jumpToInput');
 
   loading.style.display = 'none';
   sideNavDisabled.style.display = 'none';
   searchBar.disabled = false;
-  goToVideoInput.disabled = false;
 }
 
 /**
-* Creates a div container in #main meant to be a container for video lists.
-*
-* @param {string} headerLabel - The header of the container.  Not used for showing video recommendations.
-*
-* @return {Void}
-*/
+ * Creates a div container in #main meant to be a container for video lists.
+ *
+ * @param {string} headerLabel - The header of the container.  Not used for showing video recommendations.
+ *
+ * @return {Void}
+ */
 function createVideoListContainer(headerLabel = '') {
   const videoListContainer = document.createElement("div");
   videoListContainer.id = 'videoListContainer';
@@ -191,11 +191,11 @@ function createVideoListContainer(headerLabel = '') {
 }
 
 /**
-* Displays the about page to #main
-*
-* @return {Void}
-*/
-function showAbout(){
+ * Displays the about page to #main
+ *
+ * @return {Void}
+ */
+function showAbout() {
   // Remove current information and display loading animation
   clearMainContainer();
   startLoadingAnimation();
@@ -211,14 +211,14 @@ function showAbout(){
 }
 
 /**
-* Display a toast message in the bottom right corner of the page.
-* The toast automatically disappears after a timeout.
-*
-* @param {string} message - The toast message.
-*
-* @return {Void}
-*/
-function showToast(message){
+ * Display a toast message in the bottom right corner of the page.
+ * The toast automatically disappears after a timeout.
+ *
+ * @param {string} message - The toast message.
+ *
+ * @return {Void}
+ */
+function showToast(message) {
   let toast = document.getElementById('toast');
   let toastMessage = document.getElementById('toastMessage');
 
@@ -234,27 +234,27 @@ function showToast(message){
 }
 
 /**
-* Hide the toast notification from the page.
-*
-* @return {Void}
-*/
-function hideToast(){
+ * Hide the toast notification from the page.
+ *
+ * @return {Void}
+ */
+function hideToast() {
   let toast = document.getElementById('toast');
   toast.style.opacity = 0;
   toast.style.visibility = 'hidden';
 }
 
 /**
-* Displays a confirmation box before performing an action.  The action will be performed
-* if the user clicks 'yes'.
-*
-* @param {string} message - The message to be displayed in the confirmation box
-* @param {function} performFunction - The function to be performed upon confirmation
-* @param {*} parameters - The parameters that will be sent to performFunction
-*
-* @return {Void}
-*/
-function confirmFunction(message, performFunction, parameters){
+ * Displays a confirmation box before performing an action.  The action will be performed
+ * if the user clicks 'yes'.
+ *
+ * @param {string} message - The message to be displayed in the confirmation box
+ * @param {function} performFunction - The function to be performed upon confirmation
+ * @param {*} parameters - The parameters that will be sent to performFunction
+ *
+ * @return {Void}
+ */
+function confirmFunction(message, performFunction, parameters) {
   let confirmContainer = document.getElementById('confirmFunction');
   let confirmMessage = document.getElementById('confirmMessage');
 
@@ -268,44 +268,43 @@ function confirmFunction(message, performFunction, parameters){
 }
 
 /**
-* Hides the confirmation box.  Happens when the user clicks on 'no'.
-*
-* @return {Void}
-*/
-function hideConfirmFunction(){
+ * Hides the confirmation box.  Happens when the user clicks on 'no'.
+ *
+ * @return {Void}
+ */
+function hideConfirmFunction() {
   let confirmContainer = document.getElementById('confirmFunction');
   confirmContainer.style.visibility = 'hidden';
 }
 
 /**
-* Hide the mouse cursor after ~3 seconds.  Used to hide the video when the user
-* hovers the mouse over the video player.
-*
-* @return {Void}
-*/
-function hideMouseTimeout(){
+ * Hide the mouse cursor after ~3 seconds.  Used to hide the video when the user
+ * hovers the mouse over the video player.
+ *
+ * @return {Void}
+ */
+function hideMouseTimeout() {
   $('.videoPlayer')[0].style.cursor = 'default';
   clearTimeout(mouseTimeout);
-  mouseTimeout = window.setTimeout(function(){
+  mouseTimeout = window.setTimeout(function() {
     $('.videoPlayer')[0].style.cursor = 'none';
   }, 3150);
 }
 
 /**
-* Remove the timeout for the mouse cursor as a fallback.
-*
-* @return {Void}
-*/
-function removeMouseTimeout(){
+ * Remove the timeout for the mouse cursor as a fallback.
+ *
+ * @return {Void}
+ */
+function removeMouseTimeout() {
   $('.videoPlayer')[0].style.cursor = 'default';
   clearTimeout(mouseTimeout);
 }
 
-function showVideoOptions(element){
-    if (element.nextElementSibling.style.display == 'none' || element.nextElementSibling.style.display == ''){
-      element.nextElementSibling.style.display = 'inline-block'
-    }
-    else{
-      element.nextElementSibling.style.display = 'none'
-    }
+function showVideoOptions(element) {
+  if (element.nextElementSibling.style.display == 'none' || element.nextElementSibling.style.display == '') {
+    element.nextElementSibling.style.display = 'inline-block'
+  } else {
+    element.nextElementSibling.style.display = 'none'
+  }
 }
