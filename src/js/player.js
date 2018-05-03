@@ -146,14 +146,14 @@ function playVideo(videoId, videoThumbnail = '') {
       videoHtml = '<video class="videoPlayer" type="application/x-mpegURL" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" src="' + defaultUrl + '" poster="' + videoThumbnail + '" autoplay>';
 
 
-      if(typeof(info.player_response.captions) === 'object'){
-        if(typeof(info.player_response.captions.playerCaptionsTracklistRenderer.captionTracks) === 'object'){
+      if (typeof(info.player_response.captions) === 'object') {
+        if (typeof(info.player_response.captions.playerCaptionsTracklistRenderer.captionTracks) === 'object') {
           const videoSubtitles = info.player_response.captions.playerCaptionsTracklistRenderer.captionTracks;
 
           videoSubtitles.forEach((subtitle) => {
             let subtitleUrl = 'https://www.youtube.com/api/timedtext?lang=' + subtitle.languageCode + '&fmt=vtt&name=&v=' + videoId;
 
-            if(subtitle.kind == 'asr'){
+            if (subtitle.kind == 'asr') {
               //subtitleUrl = subtitle.baseUrl;
               return;
             }
@@ -217,7 +217,13 @@ function playVideo(videoId, videoThumbnail = '') {
     }*/
 
     showVideoRecommendations(videoId);
-    console.log('done');
+
+    if (Object.keys(info['subtitles']).length > 0) {
+      let textTracks = $('.videoPlayer').get(0).textTracks;
+      Object.keys(textTracks).forEach((track) => {
+        textTracks[track].mode = 'hidden';
+      });
+    }
 
     // Sometimes a video URL is found, but the video will not play.  I believe the issue is
     // that the video has yet to render for that quality, as the video will be available at a later time.

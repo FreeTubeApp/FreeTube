@@ -28,11 +28,12 @@ window.$ = window.jQuery = require('jquery');
 const mustache = require('mustache'); // templating
 const dateFormat = require('dateformat'); // formatting dates
 
-const RxPlayer = require('rx-player'); // formatting dates
+//const RxPlayer = require('rx-player'); // formatting dates
 
 // Used for finding links within text and making them clickable.  Used mostly for video descriptions.
 const autolinker = require('autolinker');
 const electron = require('electron');
+const protocol = electron.remote.protocol;
 
 // Used for getting the user's subscriptions.  Can probably remove this when that function
 // is rewritten.
@@ -47,7 +48,7 @@ const fs = require('fs'); // Used to read files. Specifically in the settings pa
 
 let currentTheme = '';
 let apiKey;
-let dialog = require('electron').remote.dialog; // Used for opening file browser to export / import subscriptions.
+let dialog = electron.remote.dialog; // Used for opening file browser to export / import subscriptions.
 let toastTimeout; // Timeout for toast notifications.
 let mouseTimeout; // Timeout for hiding the mouse cursor on video playback
 
@@ -79,7 +80,13 @@ const settingsDb = new Datastore({
 // none are found.
 checkDefaultSettings();
 
-// Ppen links externally by default
+require('electron').ipcRenderer.on('ping', function(event, message) {
+    let url = message[1].replace('freetube://', '');
+    parseSearchText(url);
+    console.log(message);  // Prints "whoooooooh!"
+});
+
+// Open links externally by default
 $(document).on('click', 'a[href^="http"]', (event) => {
   let el = event.currentTarget;
   event.preventDefault();
@@ -104,14 +111,7 @@ $(document).ready(() => {
   // Allow user to use the 'enter' key to search for a video.
   searchBar.onkeypress = (e) => {
     if (e.keyCode === 13) {
-      search();
-    }
-  };
-
-  // Allow user to use the 'enter' key to open a video link.
-  jumpToInput.onkeypress = (e) => {
-    if (e.keyCode === 13) {
-      parseVideoLink();
+      parseSearchText();
     }
   };
 
@@ -153,24 +153,20 @@ function startLoadingAnimation() {
   const loading = document.getElementById('loading');
   const sideNavDisabled = document.getElementById('sideNavDisabled');
   const searchBar = document.getElementById('search');
-  const goToVideoInput = document.getElementById('jumpToInput');
 
   loading.style.display = 'inherit';
   sideNavDisabled.style.display = 'inherit';
   searchBar.disabled = true;
-  goToVideoInput.disabled = true;
 }
 
 function stopLoadingAnimation() {
   const loading = document.getElementById('loading');
   const sideNavDisabled = document.getElementById('sideNavDisabled');
   const searchBar = document.getElementById('search');
-  const goToVideoInput = document.getElementById('jumpToInput');
 
   loading.style.display = 'none';
   sideNavDisabled.style.display = 'none';
   searchBar.disabled = false;
-  goToVideoInput.disabled = false;
 }
 
 /**

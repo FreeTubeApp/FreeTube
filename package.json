@@ -1,7 +1,7 @@
 {
   "name": "FreeTube",
   "productName": "FreeTube",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "An Open Source YouTube app for privacy.",
   "main": "src/js/init.js",
   "scripts": {
@@ -34,6 +34,11 @@
           "rpm"
         ]
       },
+      "protocols": [{
+        "name": "freetube",
+        "role": "Viewer",
+        "schemes": ["freetube"]
+      }],
       "electronPackagerConfig": {
         "packageManager": "yarn",
         "icon": "./src/icons/icon.icns"

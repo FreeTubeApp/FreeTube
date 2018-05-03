@@ -338,8 +338,15 @@ function showVideoRecommendations(videoId) {
  *
  * @return {Void}
  */
-function parseVideoLink() {
-  let input = document.getElementById('jumpToInput').value;
+function parseSearchText(url = '') {
+  let input;
+
+  if (url === ''){
+    input = document.getElementById('search').value;
+  }
+  else{
+    input = url;
+  }
 
   if (input === '') {
     return;
@@ -354,9 +361,11 @@ function parseVideoLink() {
 
   // Play video if a match is found.
   try {
+    console.log('Match Found');
     playVideo(match[2]);
   } catch (err) {
-    showToast('Video Not Found');
+    console.log('Video not found');
+    search();
   }
 }
 

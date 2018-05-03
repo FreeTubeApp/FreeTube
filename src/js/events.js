@@ -115,7 +115,7 @@ let videoShortcutHandler = function(event) {
         }
         break;
       case 67:
-        // F Key
+        // C Key
         event.preventDefault();
         let subtitleMode = $('.videoPlayer').get(0).textTracks[0].mode;
         if (subtitleMode === 'hidden'){

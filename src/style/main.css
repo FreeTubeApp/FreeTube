@@ -64,15 +64,11 @@ a {
 }
 
 .searchBar input {
-  width: 40%;
+  width: 90%;
 }
 
 .searchButton {
   text-decoration: none;
-}
-
-.jumpToInput {
-  width: 80%;
 }
 
 #sideNav {

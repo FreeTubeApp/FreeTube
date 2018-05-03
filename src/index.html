@@ -43,9 +43,8 @@
   <div class="topNav">
     <span class="logo"><i onclick='toggleSideNavigation()' class="menuButton fas fa-bars"></i>&nbsp;&nbsp;FreeTube <i class="far fa-play-circle"></i></span>
     <div class="searchBar">
-      <input id='jumpToInput' class='jumpToInput' type='text' placeholder="Jump to Video Link / Id" /><i onclick='parseVideoLink()' class="fas fa-search searchButton" style='margin-right: 50px; cursor: pointer;'></i>
-      <input id='search' class="search" type="text" placeholder="Search">
-      <i onclick='search()' class="fas fa-search searchButton" style='margin-right: -10px; cursor: pointer'></i>
+      <input id='search' class="search" type="text" placeholder="Search / Go to URL">
+      <i onclick='parseSearchText()' class="fas fa-search searchButton" style='margin-right: -10px; cursor: pointer'></i>
     </div>
   </div>
   <div id='sideNavDisabled'></div>
