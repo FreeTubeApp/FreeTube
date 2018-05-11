@@ -206,7 +206,37 @@ let fullscreenVideo = function(event){
     $('.videoPlayer').get(0).webkitRequestFullscreen();
   }
 }
+/**
+ * ---------------------------
+ * Enable Copy/Paste
+ * --------------------------
+ */ 
+var $elem;
 
+$elem.on( 'keydown', function( evt ) {
+
+	 // Log the keys being pressed (looking specifically for CTRL/CMD + V)
+	if ( ( 17 === evt.keyCode || 91 === evt.keyCode ) || 86 === evt.keyCode ) {
+
+		// We only add the keycode if it doesn't already exist in the keymap
+		if ( -1 === $.inArray( evt.keyCode, keymap ) ) {
+			keymap.push( evt.keyCode );
+		}
+
+	}
+
+}).on( 'keyup', function() {
+
+	// Check to see if the key combination exists in the keymap
+	if ( user_has_pasted_content( keymap ) ) {
+
+		// Do your work here
+		// Reset the keymap for the next operation
+		keymap = [];
+
+	}
+
+});
 /**
  * ---------------------------
  * Bind click events
