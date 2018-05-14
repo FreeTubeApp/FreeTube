@@ -58,7 +58,7 @@
     }
   },
   "devDependencies": {
-    "electron-forge": "^5.1.1",
+    "electron-forge": "^5.2.2",
     "electron-prebuilt-compile": "1.8.2",
     "electron-winstaller": "^2.6.4"
   },
@@ -71,6 +71,6 @@
     "mustache": "^2.3.0",
     "nedb": "^1.8.0",
     "opml-to-json": "0.0.3",
-    "ytdl-core": "^0.20.2"
+    "ytdl-core": "^0.20.4"
   }
 }

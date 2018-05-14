@@ -218,19 +218,20 @@ function playVideo(videoId, videoThumbnail = '') {
 
     showVideoRecommendations(videoId);
 
-    if (Object.keys(info['subtitles']).length > 0) {
-      let textTracks = $('.videoPlayer').get(0).textTracks;
-      Object.keys(textTracks).forEach((track) => {
-        textTracks[track].mode = 'hidden';
-      });
-    }
-
     // Sometimes a video URL is found, but the video will not play.  I believe the issue is
     // that the video has yet to render for that quality, as the video will be available at a later time.
     // This will check the URLs and switch video sources if there is an error.
     checkVideoUrls(video480p, video720p);
     // Add the video to the user's history
     addToHistory(videoId);
+
+    // Hide subtitles by default
+    if (Object.keys(info['subtitles']).length > 0) {
+      let textTracks = $('.videoPlayer').get(0).textTracks;
+      Object.keys(textTracks).forEach((track) => {
+        textTracks[track].mode = 'hidden';
+      });
+    }
   });
 }
 
