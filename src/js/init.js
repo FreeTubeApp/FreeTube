@@ -37,13 +37,9 @@ const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) 
 
     win.webContents.send( 'ping', commandLine)
   }
-})
+});
 
-if (isSecondInstance) {
-  app.quit()
-}
-
-if(require('electron-squirrel-startup')) app.quit();
+if(require('electron-squirrel-startup') || isSecondInstance) app.quit();
 
 /**
  * Initialize the Electron application

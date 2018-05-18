@@ -48,19 +48,34 @@ a {
 
 .menuButton {
   cursor: pointer;
-}
-
-.logo {
   font-weight: bold;
   font-size: 20px;
   margin-left: 20px;
+  position: relative;
+  top: 3px;
+}
+
+#menuIcon {
+  width: 25px;
+  position: relative;
+  top: 15px;
+  right: 120px;
+  float: right;
+}
+
+#menuText {
+  width: 100px;
+  position: relative;
+  top: 5px;
+  left: 5px;
+  float: right;
 }
 
 .searchBar {
   position: absolute;
-  right: 0px;
+  right: 135px;
   top: 0;
-  width: 60%;
+  width: 50%;
 }
 
 .searchBar input {
