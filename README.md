@@ -1,5 +1,9 @@
-![alt text](https://raw.githubusercontent.com/jbeguna04/FreeTube/master/LogoDesigns/logotype.png)
-# FreeTube
+<p align="center">
+ <img src="https://raw.githubusercontent.com/jbeguna04/FreeTube/master/LogoDesigns/logotype.png" width=500 align="center">
+</p>
+
+---
+
 FreeTube is an open source desktop YouTube player built with privacy in mind.
 Use YouTube without advertisments and Google tracking you using cookies and JavaScript.
 Available for Windows, Mac & Linux thanks to Electron.
