@@ -1,3 +1,4 @@
+![alt text](https://raw.githubusercontent.com/jbeguna04/FreeTube/master/LogoDesigns/logotype.png)
 # FreeTube
 FreeTube is an open source desktop YouTube player built with privacy in mind.
 Use YouTube without advertisments and Google tracking you using cookies and JavaScript.
