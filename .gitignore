@@ -7,3 +7,5 @@ subscriptions\.db
 *.db
 
 electron-packager/win32-x64/FreeTube-win32-x64/
+
+dist/
