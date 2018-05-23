@@ -9,7 +9,8 @@
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "make:darwin": "build --mac dmg zip",
+    "make:mac:zip": "build --mac zip",
+    "make:mac:dmg": "build --mac dmg",
     "make:deb": "build --linux deb",
     "make:rpm": "build --linux rpm",
     "make:appimage": "build --linux appimage",
@@ -27,7 +28,12 @@
   "build": {
     "appId": "freetube",
     "asar": true,
+    "mac": {
+      "category": "public.app-category.video",
+      "icon": "src/icons/iconColor.icns"
+    },
     "linux": {
+      "icon": "src/icons/iconColor.png",
       "target": [
         "AppImage",
         "deb",
@@ -37,7 +43,7 @@
     },
     "win": {
       "target": "NSIS",
-      "icon": "build/icon.ico"
+      "icon": "src/icons/iconColor.ico"
     }
   },
   "devDependencies": {
