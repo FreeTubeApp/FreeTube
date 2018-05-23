@@ -24,16 +24,30 @@
     "email": "FreeTubeApp@protonmail.com",
     "url": "https://github.com/FreeTubeApp/FreeTube"
   },
-  "license": "GPL-3.0",
+  "license": "GPL-3.0-or-later",
   "build": {
-    "appId": "freetube",
+    "appId": "FreeTube",
     "asar": true,
+    "protocols": [
+      {
+        "name": "FreeTube",
+        "schemes": [
+          "freetube"
+        ]
+      }
+    ],
     "mac": {
       "category": "public.app-category.video",
       "icon": "src/icons/iconColor.icns"
     },
     "linux": {
-      "icon": "src/icons/iconColor.png",
+      "protocols": {
+        "name": "FreeTube",
+        "schemes": [
+          "freetube"
+        ]
+      },
+      "icon": "build/icons/256x256.png",
       "target": [
         "AppImage",
         "deb",
@@ -47,18 +61,16 @@
     }
   },
   "devDependencies": {
+    "electron": "^2.0.2",
     "electron-builder": "^20.13.4",
-    "electron-forge": "^5.2.2",
-    "electron-forge-maker-appimage": "^20.14.0",
+    "electron-compile": "^6.4.2",
     "electron-installer-appimage": "^1.0.1",
     "electron-packager": "^12.0.2",
-    "electron-prebuilt-compile": "1.8.2",
     "electron-winstaller": "^2.6.4"
   },
   "dependencies": {
     "autolinker": "^1.6.2",
     "dateformat": "^3.0.3",
-    "electron-compile": "^6.4.2",
     "electron-squirrel-startup": "^1.0.0",
     "jquery": "^3.3.1",
     "mustache": "^2.3.0",
