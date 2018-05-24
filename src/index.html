@@ -41,11 +41,14 @@
     <i onclick='hideToast()' class="closeToast fas fa-times"></i>
   </div>
   <div class="topNav">
-    <span class="logo"><i onclick='toggleSideNavigation()' class="menuButton fas fa-bars"></i>&nbsp;&nbsp;FreeTube <i class="far fa-play-circle"></i></span>
+    <i onclick='toggleSideNavigation()' class="menuButton fas fa-bars"></i>
     <div class="searchBar">
       <input id='search' class="search" type="text" placeholder="Search / Go to URL">
       <i onclick='parseSearchText()' class="fas fa-search searchButton" style='margin-right: -10px; cursor: pointer'></i>
     </div>
+    <img src='icons/iconBlack.png' id='menuIcon'/>
+    &nbsp;
+    <img src='icons/textBlack.png' id='menuText'/>
   </div>
   <div id='sideNavDisabled'></div>
   <div id="sideNav">
@@ -54,7 +57,6 @@
         <li onclick='loadSubscriptions()'><i class="fas fa-rss"></i>&nbsp;&nbsp;Subscriptions</li>
         <li onclick='showMostPopular()'><i class="fas fa-users"></i>&nbsp;&nbsp;Most Popular</li>
         <li onclick='showSavedVideos()'><i class="fas fa-star"></i>&nbsp;&nbsp;Saved</li>
-        <li onclick='showSavedVideos()'><i class="fas fa-list-ul"></i>&nbsp;&nbsp;Playlists</li>
         <li onclick='showHistory()'><i class="fas fa-history"></i>&nbsp;&nbsp;History</li>
       </ul>
       <hr />

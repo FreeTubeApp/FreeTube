@@ -25,7 +25,7 @@ const path = require('path');
 const url = require('url');
 let win;
 
-protocol.registerStandardSchemes(['freetube'])
+protocol.registerStandardSchemes(['freetube']);
 
 app.setAsDefaultProtocolClient('freetube');
 
@@ -35,15 +35,11 @@ const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) 
     if (win.isMinimized()) win.restore()
     win.focus()
 
-    win.webContents.send( 'ping', commandLine)
+    win.webContents.send('ping', commandLine)
   }
-})
+});
 
-if (isSecondInstance) {
-  app.quit()
-}
-
-if(require('electron-squirrel-startup')) app.quit();
+if(require('electron-squirrel-startup') || isSecondInstance) app.quit();
 
 /**
  * Initialize the Electron application

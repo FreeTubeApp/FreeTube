@@ -51,11 +51,11 @@ function addSavedVideo(videoId){
 /**
 * Removes a video from the user's saved video database.
 *
-* @param {string} {videoId} - The video ID of the video that will be removed.
+* @param {string} videoId - The video ID of the video that will be removed.
 *
 * @return {Void}
 */
-function removeSavedVideo(videoId: string){
+function removeSavedVideo(videoId, string){
   savedVidsDb.remove({
     videoId: videoId
   }, {}, (err, numRemoved) => {
