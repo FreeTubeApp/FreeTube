@@ -2,10 +2,10 @@
   "name": "FreeTube",
   "productName": "FreeTube",
   "version": "0.2.1",
-  "description": "An Open Source YouTube app focused on privacy.",
+  "description": "An Open Source YouTube app for privacy.",
   "main": "src/js/init.js",
   "scripts": {
-    "start": "electron .",
+    "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
@@ -38,18 +38,6 @@
           "rpm",
           "snap",
           "electron-forge-maker-appimage"
-        ]
-      }
-    ],
-    "mac": {
-      "category": "public.app-category.video",
-      "icon": "src/icons/iconColor.icns"
-    },
-    "linux": {
-      "protocols": {
-        "name": "FreeTube",
-        "schemes": [
-          "freetube"
         ]
       },
       "protocols": [
