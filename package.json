@@ -51,15 +51,15 @@
       ],
       "electronPackagerConfig": {
         "packageManager": "yarn",
-        "icon": "./src/icons/icon.icns"
+        "icon": "./src/icons/iconColor.icns"
       },
       "electronWinstallerConfig": {
         "name": "freetube",
         "iconUrl": "https://raw.githubusercontent.com/FreeTubeApp/FreeTubeApp.github.io/master/images/icon.ico",
-        "setupIcon": "./src/icons/icon.ico"
+        "setupIcon": "./src/icons/iconColor.ico"
       },
       "electronInstallerDebian": {
-        "icon": "src/icons/icon.svg"
+        "icon": "src/icons/iconColor.png"
       },
       "repository": {
         "type": "git",
