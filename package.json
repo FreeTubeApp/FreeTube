@@ -9,9 +9,13 @@
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "make:darwin": "electron-forge make --platform=darwin",
+    "make:mac": "electron-forge make --platform=darwin",
     "make:linux": "electron-forge make --platform=linux",
-    "make:win32": "electron-forge make --platform=win32"
+    "make:deb": "electron-forge make --platform=linux --targets=deb",
+    "make:rpm": "electron-forge make --platform=linux --targets=rpm",
+    "make:snap": "electron-forge make --platform=linux --targets=snap",
+    "make:appimage": "electron-forge make --platform=linux --targets=electron-forge-maker-appimage",
+    "make:win": "electron-forge make --platform=win32"
   },
   "keywords": [],
   "author": {
@@ -31,14 +35,20 @@
         ],
         "linux": [
           "deb",
-          "rpm"
+          "rpm",
+          "snap",
+          "electron-forge-maker-appimage"
         ]
       },
-      "protocols": [{
-        "name": "freetube",
-        "role": "Viewer",
-        "schemes": ["freetube"]
-      }],
+      "protocols": [
+        {
+          "name": "freetube",
+          "role": "Viewer",
+          "schemes": [
+            "freetube"
+          ]
+        }
+      ],
       "electronPackagerConfig": {
         "packageManager": "yarn",
         "icon": "./src/icons/icon.icns"
@@ -58,14 +68,15 @@
     }
   },
   "devDependencies": {
+    "electron-compile": "^6.4.2",
     "electron-forge": "^5.2.2",
-    "electron-prebuilt-compile": "1.8.2",
+    "electron-forge-maker-appimage": "^20.14.4",
+    "electron-prebuilt-compile": "2.0.0",
     "electron-winstaller": "^2.6.4"
   },
   "dependencies": {
     "autolinker": "^1.6.2",
     "dateformat": "^3.0.3",
-    "electron-compile": "^6.4.2",
     "electron-squirrel-startup": "^1.0.0",
     "jquery": "^3.3.1",
     "mustache": "^2.3.0",
