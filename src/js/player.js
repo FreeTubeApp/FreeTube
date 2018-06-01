@@ -227,20 +227,14 @@ function playVideo(videoId, videoThumbnail = '', useWindowPlayer = false) {
         height: 700
       });
 
-      let playerWindowHeader = require('./templates/playerWindowHeader.html');
-      let playerWindowFooter = require('./templates/playerWindowFooter.html');
+      let playerWindowHeader = require('./templates/playerWindow.html');
 
       mustache.parse(playerWindowHeader);
       const playerHeaderRender = mustache.render(playerWindowHeader, {
         videoId: videoId,
         channelId: channelId
       });
-
-      mustache.parse(playerWindowFooter);
-      const playerFooterRender = mustache.render(playerWindowFooter);
-
-      console.log(rendered);
-
+      
       newWindow.loadURL('data:text/html;charset=UTF-8,' + encodeURIComponent(playerHeaderRender + rendered), {
 	       baseURLForDataURL: `file://${__dirname}/src`
        });
