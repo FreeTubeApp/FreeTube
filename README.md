@@ -1,5 +1,5 @@
 <p align="center">
- <img src="https://raw.githubusercontent.com/jbeguna04/FreeTube/master/LogoDesigns/logotype.png" width=500 align="center">
+ <img src="https://freetubeapp.github.io/images/logoColor.png" width=500 align="center">
 </p>
 
 FreeTube is an open source desktop YouTube player built with privacy in mind.

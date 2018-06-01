@@ -114,6 +114,8 @@ let init = function() {
  * Quit the application
  */
 let allWindowsClosed = function() {
+  win.webContents.session.clearStorageData([], (data) => {});
+  win.webContents.session.clearCache((data) => {});
   app.quit();
 };
 

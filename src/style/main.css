@@ -46,7 +46,7 @@ a {
   line-height: normal;
 }
 
-.menuButton {
+#menuButton {
   cursor: pointer;
   font-weight: bold;
   font-size: 20px;
@@ -67,7 +67,7 @@ a {
   width: 100px;
   position: relative;
   top: 5px;
-  left: 5px;
+  left: 10px;
   float: right;
 }
 
@@ -257,6 +257,7 @@ a {
   font-weight: bold;
   line-height: 65px;
   visibility: hidden;
+  z-index: 1;
   -webkit-box-shadow: 5px 5px 15px -5px rgba(0,0,0,0.75);
   -moz-box-shadow: 5px 5px 15px -5px rgba(0,0,0,0.75);
   box-shadow: 5px 5px 15px -5px rgba(0,0,0,0.75);

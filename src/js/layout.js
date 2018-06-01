@@ -45,9 +45,11 @@ const localDataStorage = electron.remote.app.getPath('userData'); // Grabs the u
 const clipboard = electron.clipboard;
 const getOpml = require('opml-to-json'); // Gets the file type for imported files.
 const fs = require('fs'); // Used to read files. Specifically in the settings page.
+const tor = require('tor-request');
 
 let currentTheme = '';
 let apiKey;
+let useTor = false;
 let dialog = electron.remote.dialog; // Used for opening file browser to export / import subscriptions.
 let toastTimeout; // Timeout for toast notifications.
 let mouseTimeout; // Timeout for hiding the mouse cursor on video playback
@@ -72,7 +74,7 @@ const savedVidsDb = new Datastore({
 });
 
 const settingsDb = new Datastore({
-  filename: localDataStorage + 'settings.db',
+  filename: localDataStorage + '/settings.db',
   autoload: true
 });
 
@@ -154,8 +156,13 @@ function startLoadingAnimation() {
   const sideNavDisabled = document.getElementById('sideNavDisabled');
   const searchBar = document.getElementById('search');
 
+  console.log(sideNavDisabled);
+
   loading.style.display = 'inherit';
-  sideNavDisabled.style.display = 'inherit';
+  if(sideNavDisabled !== null){
+    sideNavDisabled.style.display = 'inherit';
+  }
+
   searchBar.disabled = true;
 }
 
@@ -165,7 +172,10 @@ function stopLoadingAnimation() {
   const searchBar = document.getElementById('search');
 
   loading.style.display = 'none';
-  sideNavDisabled.style.display = 'none';
+  if(sideNavDisabled !== null){
+    sideNavDisabled.style.display = 'none';
+  }
+
   searchBar.disabled = false;
 }
 
@@ -254,7 +264,7 @@ function hideToast() {
  *
  * @return {Void}
  */
-function confirmFunction(message, performFunction, parameters) {
+function confirmFunction(message, performFunction, parameters = '') {
   let confirmContainer = document.getElementById('confirmFunction');
   let confirmMessage = document.getElementById('confirmMessage');
 
@@ -262,7 +272,12 @@ function confirmFunction(message, performFunction, parameters) {
   confirmContainer.style.visibility = 'visible';
 
   $(document).on('click', '#confirmYes', (event) => {
-    performFunction(parameters);
+    if(parameters != ''){
+      performFunction(parameters);
+    }
+    else{
+      performFunction();
+    }
     hideConfirmFunction();
   });
 }

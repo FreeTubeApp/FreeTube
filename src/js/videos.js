@@ -70,7 +70,7 @@ function search(nextPageToken = '') {
     console.log(playlists);
 
     if(playlists.length > 0){
-      displayPlaylists(playlists);
+      //displayPlaylists(playlists);
     }
 
     if(channels.length > 0){

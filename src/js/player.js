@@ -28,9 +28,14 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
  *
  * @return {Void}
  */
-function playVideo(videoId, videoThumbnail = '') {
-  clearMainContainer();
-  startLoadingAnimation();
+function playVideo(videoId, videoThumbnail = '', useWindowPlayer = false) {
+  if (useWindowPlayer === false){
+    clearMainContainer();
+    startLoadingAnimation();
+  }
+  else{
+    showToast('Getting video information.  Please wait...')
+  }
 
   let subscribeText = '';
   let savedText = '';
@@ -209,29 +214,59 @@ function playVideo(videoId, videoThumbnail = '') {
       video720p: video720p,
       embedPlayer: embedPlayer,
     });
-    $('#main').html(rendered);
-    stopLoadingAnimation();
 
-    /*if (info['requested_subtitles'] !== null) {
-      $('.videoPlayer').get(0).textTracks[0].mode = 'hidden';
-    }*/
-
-    showVideoRecommendations(videoId);
-
-    // Sometimes a video URL is found, but the video will not play.  I believe the issue is
-    // that the video has yet to render for that quality, as the video will be available at a later time.
-    // This will check the URLs and switch video sources if there is an error.
-    checkVideoUrls(video480p, video720p);
     // Add the video to the user's history
     addToHistory(videoId);
 
-    // Hide subtitles by default
-    if (Object.keys(info['subtitles']).length > 0) {
-      let textTracks = $('.videoPlayer').get(0).textTracks;
-      Object.keys(textTracks).forEach((track) => {
-        textTracks[track].mode = 'hidden';
+    if (useWindowPlayer){
+      // Create a new browser window.
+      const BrowserWindow = electron.remote.BrowserWindow;
+
+      let newWindow = new BrowserWindow({
+        width: 1200,
+        height: 700
       });
+
+      let playerWindowHeader = require('./templates/playerWindowHeader.html');
+      let playerWindowFooter = require('./templates/playerWindowFooter.html');
+
+      mustache.parse(playerWindowHeader);
+      const playerHeaderRender = mustache.render(playerWindowHeader, {
+        videoId: videoId,
+        channelId: channelId
+      });
+
+      mustache.parse(playerWindowFooter);
+      const playerFooterRender = mustache.render(playerWindowFooter);
+
+      console.log(rendered);
+
+      newWindow.loadURL('data:text/html;charset=UTF-8,' + encodeURIComponent(playerHeaderRender + rendered), {
+	       baseURLForDataURL: `file://${__dirname}/src`
+       });
     }
+    else{
+      $('#main').html(rendered);
+      stopLoadingAnimation();
+
+      showVideoRecommendations(videoId);
+
+      // Sometimes a video URL is found, but the video will not play.  I believe the issue is
+      // that the video has yet to render for that quality, as the video will be available at a later time.
+      // This will check the URLs and switch video sources if there is an error.
+      checkVideoUrls(video480p, video720p);
+
+      // Hide subtitles by default
+      if (typeof(info['subtitles']) !== 'undefined' && Object.keys(info['subtitles']).length > 0) {
+        let textTracks = $('.videoPlayer').get(0).textTracks;
+        Object.keys(textTracks).forEach((track) => {
+          textTracks[track].mode = 'hidden';
+        });
+      }
+    }
+
+
+
   });
 }
 
