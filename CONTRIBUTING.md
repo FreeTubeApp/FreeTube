@@ -15,7 +15,6 @@ Please follow these guidlines before sending your pull request and making contri
 * Comment your code when necessary.  Follow the [JavaScript Documentation and Comments Standard](https://www.drupal.org/docs/develop/standards/javascript/javascript-api-documentation-and-comment-standards) for functions.
 * Please test your code.  Make sure new features work as well as core features such as watching videos or loading subscriptions.
 * Please limit the amount of Node Modules that you introduce into the project.  Only include them when absolutely necessary for your code to work (Ex: Using nedb for databases) or if a module provides similar functionality to what you are trying to achieve (Ex: Using autolinker to create links to outside URLs instead of writing the functionality myself).
-* If using a new Node Module, please include the `require` statement in `layout.js` to keep them together.
 * Please try to stay involved with the community and maintain your code.  I am only one person and I work on FreeTube only in my spare time.  I do not have time to work on everything and it would be nice if you can maintain your code when necessary.
 
 # Setting up Your Environment
