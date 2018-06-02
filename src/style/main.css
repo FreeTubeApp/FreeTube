@@ -46,33 +46,44 @@ a {
   line-height: normal;
 }
 
-.menuButton {
+#menuButton {
   cursor: pointer;
-}
-
-.logo {
   font-weight: bold;
   font-size: 20px;
   margin-left: 20px;
+  position: relative;
+  top: 3px;
+}
+
+#menuIcon {
+  width: 25px;
+  position: relative;
+  top: 15px;
+  right: 120px;
+  float: right;
+}
+
+#menuText {
+  width: 100px;
+  position: relative;
+  top: 5px;
+  left: 10px;
+  float: right;
 }
 
 .searchBar {
   position: absolute;
-  right: 0px;
+  right: 135px;
   top: 0;
-  width: 60%;
+  width: 50%;
 }
 
 .searchBar input {
-  width: 40%;
+  width: 90%;
 }
 
 .searchButton {
   text-decoration: none;
-}
-
-.jumpToInput {
-  width: 80%;
 }
 
 #sideNav {
@@ -246,6 +257,7 @@ a {
   font-weight: bold;
   line-height: 65px;
   visibility: hidden;
+  z-index: 1;
   -webkit-box-shadow: 5px 5px 15px -5px rgba(0,0,0,0.75);
   -moz-box-shadow: 5px 5px 15px -5px rgba(0,0,0,0.75);
   box-shadow: 5px 5px 15px -5px rgba(0,0,0,0.75);

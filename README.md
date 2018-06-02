@@ -1,9 +1,9 @@
 <p align="center">
- <img src="https://raw.githubusercontent.com/jbeguna04/FreeTube/master/LogoDesigns/logotype.png" width=500 align="center">
+ <img src="https://freetubeapp.github.io/images/logoColor.png" width=500 align="center">
 </p>
 
 FreeTube is an open source desktop YouTube player built with privacy in mind.
-Use YouTube without advertisments and Google tracking you using cookies and JavaScript.
+Use YouTube without advertisments and prevent Google tracking from you with their cookies and JavaScript.
 Available for Windows, Mac & Linux thanks to Electron.
 
 Please note that FreeTube is currently in Beta. While it should work well for
@@ -20,7 +20,8 @@ hard coded API keys.  Videos are resolved using
  and played using the stock HTML5 video
 player.  While YouTube can still see your API and video requests it can no
 longer track you using cookies or JavaScript. Your subscriptions, history, and
-saved videos are stored locally on your computer and never sent out.
+saved videos are stored locally on your computer and never sent out.  Using a VPN or Tor is recommended
+to hide your IP while using FreeTube.
 
 ## Screenshots
 <img src="https://freetubeapp.github.io/images/FreeTube1.png" width=200> <img src="https://freetubeapp.github.io/images/FreeTube2.png" width=200> <img src="https://freetubeapp.github.io/images/FreeTube3.png" width=200> <img src="https://freetubeapp.github.io/images/FreeTube5.png" width=200>
@@ -28,6 +29,7 @@ saved videos are stored locally on your computer and never sent out.
 ## Features
 * Watch videos without ads
 * Use YouTube without Google tracking you using cookies and JavaScript
+* Make API calls through the Tor network
 * Subscribe to channels without an account
 * Local subscriptions, history, and saved videos
 * Export & import subscriptions
@@ -44,6 +46,8 @@ have your help.  Send a pull request and someone will review your code. Please
 follow the [Contribution
 Guidelines](https://github.com/FreeTubeApp/FreeTube/blob/master/CONTRIBUTING.md)
 before sending your pull request.
+
+Thank you very much to the [People and Projects](https://github.com/FreeTubeApp/FreeTube/wiki/Credits) that make FreeTube possible!
 
 ## License
 [![GNU GPLv3 Image](https://www.gnu.org/graphics/gplv3-127x51.png)](http://www.gnu.org/licenses/gpl-3.0.en.html)  

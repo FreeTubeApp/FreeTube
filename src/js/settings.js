@@ -72,6 +72,12 @@ function showSettings() {
     } else {
       document.getElementById('themeSwitch').checked = true;
     }
+
+    if (useTor) {
+      document.getElementById('torSwitch').checked = true;
+    } else {
+      document.getElementById('torSwitch').checked = false;
+    }
   });
 }
 
@@ -84,46 +90,49 @@ function checkDefaultSettings() {
 
   // Grab a random API Key.
   apiKey = apiKeyBank[Math.floor(Math.random() * apiKeyBank.length)];
+  let newSetting;
 
-  // Check settings database
-  settingsDb.find({}, (err, docs) => {
-    if (jQuery.isEmptyObject(docs)) {
+  let settingDefaults = {
+    'theme': 'light',
+    'apiKey': apiKey,
+    'useTor': false
+  };
 
-      // Set User Defaults
-      let themeDefault = {
-        _id: 'theme',
-        value: 'light',
-      };
+  console.log(settingDefaults);
 
-      let apiDefault = {
-        _id: 'apiKey',
-        value: apiKey,
-      };
+  for (let key in settingDefaults){
+    settingsDb.find({_id: key}, (err, docs) => {
+      if (jQuery.isEmptyObject(docs)) {
+        newSetting = {
+          _id: key,
+          value: settingDefaults[key]
+        };
 
-      // Set default theme
-      setTheme('light');
+        settingsDb.insert(newSetting);
 
-      // Inset default settings into the settings database.
-      settingsDb.insert(themeDefault);
-      settingsDb.insert(apiDefault);
-    } else {
-      // Use user current defaults
-      docs.forEach((setting) => {
-        switch (setting['_id']) {
+        if (key == 'theme'){
+          setTheme('light');
+        }
+      }
+      else{
+        switch (docs[0]['_id']) {
           case 'theme':
-            setTheme(setting['value']);
+            setTheme(docs[0]['value']);
             break;
           case 'apiKey':
-            if (apiKeyBank.indexOf(setting['value']) == -1) {
-              apiKey = setting['value'];
+            if (apiKeyBank.indexOf(docs[0]['value']) == -1) {
+              apiKey = docs[0]['value'];
             }
+            break;
+          case 'useTor':
+            useTor = docs[0]['value'];
             break;
           default:
             break;
         }
-      });
-    }
-  });
+      }
+    });
+  }
 }
 
 /**
@@ -132,16 +141,20 @@ function checkDefaultSettings() {
  * @return {Void}
  */
 function updateSettings() {
-  var themeSwitch = document.getElementById('themeSwitch').checked;
-  var key = document.getElementById('api-key').value;
+  let themeSwitch = document.getElementById('themeSwitch').checked;
+  let torSwitch = document.getElementById('torSwitch').checked;
+  let key = document.getElementById('api-key').value;
+  let theme = 'light';
 
   apiKey = apiKeyBank[Math.floor(Math.random() * apiKeyBank.length)];
 
-  if (themeSwitch == true) {
-    var theme = 'dark';
-  } else {
-    var theme = 'light';
+  console.log(themeSwitch);
+
+  if (themeSwitch === true) {
+    theme = 'dark';
   }
+
+  console.log(theme);
 
   // Update default theme
   settingsDb.update({
@@ -151,6 +164,17 @@ function updateSettings() {
   }, {}, function(err, numReplaced) {
     console.log(err);
     console.log(numReplaced);
+  });
+
+  // Update tor usage.
+  settingsDb.update({
+    _id: 'useTor'
+  }, {
+    value: torSwitch
+  }, {}, function(err, numReplaced) {
+    console.log(err);
+    console.log(numReplaced);
+    useTor = torSwitch;
   });
 
   if (key != '') {
@@ -207,14 +231,20 @@ function setTheme(option) {
   // Grab the css file to be used.
   switch (option) {
     case 'light':
-      cssFile = 'style/lightTheme.css';
+      cssFile = './style/lightTheme.css';
+      document.getElementById('menuText').src = 'icons/textBlack.png';
+      document.getElementById('menuIcon').src = 'icons/iconBlack.png';
+      document.getElementById('menuButton').style.color = 'black';
       break;
     case 'dark':
-      cssFile = 'style/darkTheme.css';
+      cssFile = './style/darkTheme.css';
+      document.getElementById('menuText').src = 'icons/textColor.png';
+      document.getElementById('menuIcon').src = 'icons/iconColor.png';
+      document.getElementById('menuButton').style.color = 'white';
       break;
     default:
       // Default to the light theme
-      cssFile = 'style/lightTheme.css';
+      cssFile = './style/lightTheme.css';
       break;
   }
   newTheme.setAttribute("href", cssFile);

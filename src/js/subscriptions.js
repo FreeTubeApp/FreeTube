@@ -79,6 +79,7 @@ function removeSubscription(channelId) {
  */
 function loadSubscriptions() {
   clearMainContainer();
+  showToast('Getting Subscriptions.  Please wait...');
   const loading = document.getElementById('loading');
 
   startLoadingAnimation()
@@ -162,90 +163,6 @@ function loadSubscriptions() {
       container.innerHTML = `<h2 class="message">Your Subscription list is currently empty.  Start adding subscriptions
                              to see them here.<br /><br /><i class="far fa-frown" style="font-size: 200px"></i></h2>`;
     }
-
-
-    // Yes, This function is the thing that needs to most improvment
-    /*
-    if (results.length > 0) {
-      showToast('Getting Subscriptions.  This may take a while...');
-
-      /*
-      * If this loop gets rewritten, we can remove the asyncLoop dependency from the project.
-      *
-      * I wasn't able to figure out a way to loop through the list of channels and grab the recent uploads
-      * while then sorting them afterwards, this was my best solution at the time.  I'm sure someone more
-      * experienced in Node can help out with this.
-      */
-/*
-          asyncLoop(results, (sub, next) => {
-            const channelId = sub['channelId'];
-
-            /*
-            * Grab the channels 15 most recent uploads.  Typically this should be enough.
-            * This number can be changed if we feel necessary.
-            */
-/*
-            youtubeAPI('search', {
-              part: 'snippet',
-              channelId: channelId,
-              type: 'video',
-              maxResults: 15,
-              order: 'date',
-            }, (data) => {
-              videoList = videoList.concat(data.items);
-
-              next();
-            });
-          }, (err) => {
-            // Sort the videos by date
-            videoList.sort((a, b) => {
-              const date1 = Date.parse(a.snippet.publishedAt);
-              const date2 = Date.parse(b.snippet.publishedAt);
-
-              return date2.valueOf() - date1.valueOf();
-            });
-
-            // Render the videos to the application.
-            createVideoListContainer('Latest Subscriptions:');
-
-            // The YouTube website limits the subscriptions to 100 before grabbing more so we only show 100
-            // to keep the app running at a good speed.
-            if(videoList.length < 50){
-              let grabDuration = getDuration(videoList.slice(0,49));
-
-              grabDuration.then((list) => {
-                list.items.forEach((video) => {
-                  displayVideo(video);
-                });
-              });
-            }
-            else{
-                let finishedList = []
-                let firstBatchDuration = getDuration(videoList.slice(0, 49));
-
-                firstBatchDuration.then((list1) => {
-                  finishedList = finishedList.concat(list1.items);
-                  let secondBatchDuration = getDuration(videoList.slice(50, 99));
-
-                  secondBatchDuration.then((list2) => {
-                    finishedList = finishedList.concat(list2.items);
-                    finishedList.forEach((video) => {
-                      displayVideo(video);
-                    });
-                  });
-                });
-            }
-            stopLoadingAnimation()
-          });
-        } else {
-          // User has no subscriptions. Display message.
-          const container = document.getElementById('main');
-          stopLoadingAnimation()
-
-          container.innerHTML = `<h2 class="message">Your Subscription list is currently empty.  Start adding subscriptions
-                                 to see them here.<br /><br /><i class="far fa-frown" style="font-size: 200px"></i></h2>`;
-        }
-      });*/
   });
 }
 

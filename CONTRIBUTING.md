@@ -15,7 +15,6 @@ Please follow these guidlines before sending your pull request and making contri
 * Comment your code when necessary.  Follow the [JavaScript Documentation and Comments Standard](https://www.drupal.org/docs/develop/standards/javascript/javascript-api-documentation-and-comment-standards) for functions.
 * Please test your code.  Make sure new features work as well as core features such as watching videos or loading subscriptions.
 * Please limit the amount of Node Modules that you introduce into the project.  Only include them when absolutely necessary for your code to work (Ex: Using nedb for databases) or if a module provides similar functionality to what you are trying to achieve (Ex: Using autolinker to create links to outside URLs instead of writing the functionality myself).
-* If using a new Node Module, please include the `require` statement in `layout.js` to keep them together.
 * Please try to stay involved with the community and maintain your code.  I am only one person and I work on FreeTube only in my spare time.  I do not have time to work on everything and it would be nice if you can maintain your code when necessary.
 
 # Setting up Your Environment
@@ -32,6 +31,11 @@ Install Dependencies:
 npm install
 ```
 
+Install Dev Dependencies:
+```
+npm install --only=dev
+```
+
 Run the application:
 ```
 npm start
@@ -41,17 +45,19 @@ Make / Package application:
 
 Windows (Requires Wine on Linux):
 ```
-npm run make:win32
+npm run make:win
 ```
 
 Mac:
 ```
-npm run make:darwin
+npm run make:mac
 ```
 
 Linux (Requires deb and rpm to be installed):
 ```
 npm run make:linux
 ```
+
+Other commands are available in the `package.json` file for making specific packages.  Refer to `package.json` for instructions.
 
 I will update this document when necessary.  Anyone who has questions or suggestions on this document are welcome to create an issue or pull request.
