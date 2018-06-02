@@ -31,6 +31,11 @@ Install Dependencies:
 npm install
 ```
 
+Install Dev Dependencies:
+```
+npm install --only=dev
+```
+
 Run the application:
 ```
 npm start
@@ -40,17 +45,19 @@ Make / Package application:
 
 Windows (Requires Wine on Linux):
 ```
-npm run make:win32
+npm run make:win
 ```
 
 Mac:
 ```
-npm run make:darwin
+npm run make:mac
 ```
 
 Linux (Requires deb and rpm to be installed):
 ```
 npm run make:linux
 ```
+
+Other commands are available in the `package.json` file for making specific packages.  Refer to `package.json` for instructions.
 
 I will update this document when necessary.  Anyone who has questions or suggestions on this document are welcome to create an issue or pull request.
