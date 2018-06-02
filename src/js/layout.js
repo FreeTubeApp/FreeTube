@@ -156,8 +156,6 @@ function startLoadingAnimation() {
   const sideNavDisabled = document.getElementById('sideNavDisabled');
   const searchBar = document.getElementById('search');
 
-  console.log(sideNavDisabled);
-
   loading.style.display = 'inherit';
   if(sideNavDisabled !== null){
     sideNavDisabled.style.display = 'inherit';
