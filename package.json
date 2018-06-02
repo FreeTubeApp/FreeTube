@@ -11,12 +11,14 @@
     "publish": "electron-forge publish",
     "make:mac": "electron-forge make --platform=darwin",
     "make:linux": "electron-forge make --platform=linux",
+    "make:linux:zip": "electron-forge make --platform=linux --targets=zip",
     "make:deb": "electron-forge make --platform=linux --targets=deb",
     "make:rpm": "electron-forge make --platform=linux --targets=rpm",
     "make:snap": "electron-forge package && electron-installer-snap --src=out/FreeTube-linux-x64",
     "make:flatpak": "electron-installer-flatpak --src out/FreeTube-linux-x64/ --dest out/make --arch x64",
     "make:appimage": "electron-forge make --platform=linux --targets=electron-forge-maker-appimage",
-    "make:win": "electron-forge make --platform=win32"
+    "make:win": "electron-forge make --platform=win32",
+    "make:win:zip": "electron-forge make --platform=win32 --targets=zip"
   },
   "keywords": [],
   "author": {

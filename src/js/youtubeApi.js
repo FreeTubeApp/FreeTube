@@ -16,10 +16,8 @@ function youtubeAPI(resource, params, success) {
       if (!err && res.statusCode == 200) {
         success(JSON.parse(body));
       } else {
-        if (err.message.includes('ECONNREFUSED')){
-          showToast('Unable to connect to TOR network.  Is it installed?')
-        }
-        console.log(err.message.includes('ECONNREFUSED'));
+        showToast('Unable to connect to the Tor network. Check the help page if you\'re having trouble setting up your node.');
+        console.log(err);
         console.log(res);
         console.log(body);
         stopLoadingAnimation();
