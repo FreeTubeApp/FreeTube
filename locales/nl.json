@@ -1,6 +1,6 @@
 {
 	"File": "Bestand",
-	"Quit": "Afluiten",
+	"Quit": "Afsluiten",
 	"Edit": "Bewerken",
 	"Undo": "Ongedaan maken",
 	"Redo": "Opnieuw",
@@ -12,7 +12,7 @@
 	"View": "Weergave",
 	"Reload": "Herladen",
 	"Force Reload": "Herladen forceren",
-	"Toggle Developer Tools": "Hulpprogramma's voor ontwikkelaars",
+	"Toggle Developer Tools": "Hulpprogramma voor ontwikkelaars",
 	"Actual size": "Daadwerkelijke grootte",
 	"Zoom in": "Zoom in",
 	"Zoom out": "Zoom uit",
