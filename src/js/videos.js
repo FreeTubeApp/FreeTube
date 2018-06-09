@@ -559,9 +559,6 @@ function checkVideoUrls(video480p, video720p) {
           break;
         default:
           console.log('720p is valid');
-          if (currentQuality === '720p') {
-            return;
-          }
           break;
       }
     });
