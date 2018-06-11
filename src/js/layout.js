@@ -83,9 +83,10 @@ const settingsDb = new Datastore({
 checkDefaultSettings();
 
 require('electron').ipcRenderer.on('ping', function(event, message) {
+    console.log(message);
     let url = message[1].replace('freetube://', '');
     parseSearchText(url);
-    console.log(message);  // Prints "whoooooooh!"
+    console.log(message);
 });
 
 // Open links externally by default
