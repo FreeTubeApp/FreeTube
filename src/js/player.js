@@ -119,11 +119,11 @@ function playVideo(videoId, videoThumbnail = '', useWindowPlayer = false) {
     Object.keys(videoUrls).forEach((key) => {
       switch (videoUrls[key]['itag']) {
         case '18':
-          video480p = videoUrls[key]['url'];
+          video480p = decodeURIComponent(videoUrls[key]['url']);
           console.log(video480p);
           break;
         case '22':
-          video720p = videoUrls[key]['url'];
+          video720p = decodeURIComponent(videoUrls[key]['url']);
           console.log(video720p);
           break;
       }
@@ -148,7 +148,7 @@ function playVideo(videoId, videoThumbnail = '', useWindowPlayer = false) {
     }
 
     if (!useEmbedPlayer) {
-      videoHtml = '<video class="videoPlayer" type="application/x-mpegURL" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" src="' + defaultUrl + '" poster="' + videoThumbnail + '" autoplay>';
+      //videoHtml = '<video class="videoPlayer" type="application/x-mpegURL" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" src="' + defaultUrl + '" poster="' + videoThumbnail + '" autoplay>';
 
 
       if (typeof(info.player_response.captions) === 'object') {
@@ -168,7 +168,7 @@ function playVideo(videoId, videoThumbnail = '', useWindowPlayer = false) {
         }
       }
 
-      videoHtml = videoHtml + '</video>';
+      //videoHtml = videoHtml + '</video>';
     }
 
     const checkSubscription = isSubscribed(channelId);
@@ -192,8 +192,9 @@ function playVideo(videoId, videoThumbnail = '', useWindowPlayer = false) {
     const playerTemplate = require('./templates/player.html')
     mustache.parse(playerTemplate);
     const rendered = mustache.render(playerTemplate, {
-      videoHtml: videoHtml,
       videoQuality: defaultQuality,
+      subtitleHtml: videoHtml,
+      defaultUrl: defaultUrl,
       videoTitle: info['title'],
       videoViews: videoViews,
       videoThumbnail: videoThumbnail,
@@ -234,7 +235,7 @@ function playVideo(videoId, videoThumbnail = '', useWindowPlayer = false) {
         videoId: videoId,
         channelId: channelId
       });
-      
+
       newWindow.loadURL('data:text/html;charset=UTF-8,' + encodeURIComponent(playerHeaderRender + rendered), {
 	       baseURLForDataURL: `file://${__dirname}/src`
        });
@@ -245,11 +246,6 @@ function playVideo(videoId, videoThumbnail = '', useWindowPlayer = false) {
 
       showVideoRecommendations(videoId);
 
-      // Sometimes a video URL is found, but the video will not play.  I believe the issue is
-      // that the video has yet to render for that quality, as the video will be available at a later time.
-      // This will check the URLs and switch video sources if there is an error.
-      checkVideoUrls(video480p, video720p);
-
       // Hide subtitles by default
       if (typeof(info['subtitles']) !== 'undefined' && Object.keys(info['subtitles']).length > 0) {
         let textTracks = $('.videoPlayer').get(0).textTracks;
@@ -259,7 +255,12 @@ function playVideo(videoId, videoThumbnail = '', useWindowPlayer = false) {
       }
     }
 
+    // Sometimes a video URL is found, but the video will not play.  I believe the issue is
+    // that the video has yet to render for that quality, as the video will be available at a later time.
+    // This will check the URLs and switch video sources if there is an error.
+    //checkVideoUrls(video480p, video720p);
 
+    window.setTimeout(checkVideoUrls, 5000, video480p, video720p);
 
   });
 }
