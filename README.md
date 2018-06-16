@@ -58,6 +58,10 @@ before sending your pull request.
 
 Thank you very much to the [People and Projects](https://github.com/FreeTubeApp/FreeTube/wiki/Credits) that make FreeTube possible!
 
+## Contact
+
+If you ever have any questions, feel free to make an issue here on GitHub.  Alternatively, you can email me at FreeTubeApp@protonmail.com or you can join our [Matrix Server](https://riot.im/app/#/room/#freetube:matrix.org).  Don't forget to check out the [rules](https://github.com/FreeTubeApp/FreeTube/wiki/Matrix-Server-Info-&-Rules) before joining.
+
 ## License
 [![GNU GPLv3 Image](https://www.gnu.org/graphics/gplv3-127x51.png)](http://www.gnu.org/licenses/gpl-3.0.en.html)  
 
