@@ -346,8 +346,25 @@ function importSubscriptions(){
 function exportSubscriptions() {
   const appDatabaseFile = localDataStorage + '/subscriptions.db';
 
+  const date = new Date();
+  let dateMonth = date.getMonth() + 1;
+
+  if (dateMonth < 10){
+    dateMonth = '0' + dateMonth;
+  }
+
+  let dateDay = date.getDate();
+
+  if (dateDay < 10){
+    dateDay = '0' + dateDay;
+  }
+
+  const dateYear = date.getFullYear();
+  const dateString = 'freetube-subscriptions-' + dateYear + '-' + dateMonth + '-' + dateDay;
+
   // Open user file browser. User gives location of file to be created.
   dialog.showSaveDialog({
+    defaultPath: dateString,
     filters: [{
       name: 'Database File',
       extensions: ['db']
