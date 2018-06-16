@@ -10,7 +10,15 @@ Please note that FreeTube is currently in Beta. While it should work well for
 most users, there are still bugs and missing features that need to be
 addressed.
 
-[Download](https://github.com/FreeTubeApp/FreeTube/releases)
+[Download FreeTube](https://github.com/FreeTubeApp/FreeTube/releases)
+
+### Browser Extension
+
+Download our browser extension so that you can click on videos in your browser and have them automatically open up in FreeTube.
+
+[Download for Firefox](https://addons.mozilla.org/en-US/firefox/addon/freetube-redirect/)
+
+[Instructrions for Google Chrome](https://github.com/FreeTubeApp/FreeTube/wiki/Browser-Extension)
 
 ## How does it work?
 FreeTube uses the proprietary [YouTube HTTP
@@ -33,6 +41,7 @@ to hide your IP while using FreeTube.
 * Subscribe to channels without an account
 * Local subscriptions, history, and saved videos
 * Export & import subscriptions
+* Open videos from your browser directly into FreeTube (with extension)
 * Mini Player
 * Light / dark theme
 
