@@ -291,7 +291,7 @@ function openMiniPlayer(videoThumbnail) {
 
   let miniPlayer = new BrowserWindow({
     width: 1200,
-    height: 700
+    height: 710
   });
 
   // Use the miniPlayer.html template.

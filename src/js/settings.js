@@ -361,7 +361,6 @@ function exportSubscriptions() {
 
   const dateYear = date.getFullYear();
   const dateString = 'freetube-subscriptions-' + dateYear + '-' + dateMonth + '-' + dateDay;
-  console.log(dateString);
 
   // Open user file browser. User gives location of file to be created.
   dialog.showSaveDialog({
