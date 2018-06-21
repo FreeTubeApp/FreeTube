@@ -32,8 +32,13 @@ function search(nextPageToken = '') {
   }
 
   if (nextPageToken === '') {
-    clearMainContainer();
-    startLoadingAnimation();
+    //clearMainContainer();
+    //startLoadingAnimation();
+    hideViews();
+    headerView.seen = true;
+    headerView.title = 'Search Results';
+    searchView.videoList = [];
+    searchView.seen = true;
   } else {
     console.log(nextPageToken);
     showToast('Fetching results.  Please wait...');
@@ -81,14 +86,18 @@ function search(nextPageToken = '') {
 
     grabDuration.then((videoList) => {
       console.log(videoList);
-      videoList.items.forEach(displayVideo);
+      videoList.items.forEach((video) => {
+        displayVideo(video, 'search');
+      });
     });
 
     if (nextPageToken === '') {
-      createVideoListContainer('Search results:');
-      stopLoadingAnimation();
+      //createVideoListContainer('Search results:');
+      //stopLoadingAnimation();
     }
-    addNextPage(data.nextPageToken);
+
+    searchView.nextPageToken = data.nextPageToken;
+    //addNextPage(data.nextPageToken);
   })
 }
 
@@ -137,21 +146,21 @@ function getDuration(data) {
  *
  * @return {Void}
  */
-function displayVideo(video, listType = '') {
-  const videoSnippet = video.snippet;
+function displayVideo(videoData, listType = '') {
+  let video = {};
 
-  const videoDuration = parseVideoDuration(video.contentDetails.duration);
-  //const videoDuration = '00:00';
+  const videoSnippet = videoData.snippet;
+
+  video.duration = parseVideoDuration(videoData.contentDetails.duration);
 
   // Grab the published date for the video and convert to a user readable state.
   const dateString = new Date(videoSnippet.publishedAt);
-  const publishedDate = dateFormat(dateString, "mmm dS, yyyy");
+  video.publishedDate = dateFormat(dateString, "mmm dS, yyyy");
 
   const searchMenu = $('#videoListContainer').html();
-  const videoId = video.id;
 
   // Include a remove icon in the list if the application is displaying the history list or saved videos.
-  const deleteHtml = () => {
+  video.deleteHtml = () => {
     switch (listType) {
       case 'saved':
         return `<li onclick="removeSavedVideo('${videoId}'); showSavedVideos();">Remove Saved Video</li>`;
@@ -160,9 +169,29 @@ function displayVideo(video, listType = '') {
     }
   };
 
+  video.id = videoData.id;
+  video.youtubeUrl = 'https://youtube.com/watch?v=' + video.id;
+  video.hooktubeUrl = 'https://hooktube.com/watch?v=' + video.id;
   // Includes text if the video is live.
-  const liveText = (videoSnippet.liveBroadcastContent === 'live') ? 'LIVE NOW' : '';
-  const videoListTemplate = require('./templates/videoList.html');
+  video.liveText = (videoSnippet.liveBroadcastContent === 'live') ? 'LIVE NOW' : '';
+  video.thumbnail = videoSnippet.thumbnails.medium.url;
+  video.title = videoSnippet.title;
+  video.channelName = videoSnippet.channelTitle;
+  video.channelId = videoSnippet.channelId;
+  video.description = videoSnippet.description;
+  video.isVideo = true;
+
+  switch (listType) {
+    case 'subscriptions':
+      subscriptionView.videoList = subscriptionView.videoList.concat(video);
+      break;
+    case 'search':
+      searchView.videoList = searchView.videoList.concat(video);
+      break;
+  }
+
+
+  /*const videoListTemplate = require('./templates/videoList.html');
 
   mustache.parse(videoListTemplate);
   const rendered = mustache.render(videoListTemplate, {
@@ -184,7 +213,7 @@ function displayVideo(video, listType = '') {
     $('#videoListContainer').append(rendered);
   } else {
     $(rendered).insertBefore('#getNextPage');
-  }
+  }*/
 }
 
 function displayChannels(channels) {
@@ -211,7 +240,22 @@ function displayChannels(channels) {
     console.log(items);
 
     items.forEach((item) => {
-      mustache.parse(videoListTemplate);
+      let channelData = {};
+
+      channelData.channelId = item.id;
+      channelData.thumbnail = item.snippet.thumbnails.medium.url;
+      channelData.channelName = item.snippet.title;
+      channelData.description = item.snippet.description;
+      channelData.subscriberCount = item.statistics.subscriberCount;
+      channelData.videoCount = item.statistics.videoCount;
+      channelData.isVideo = false;
+
+      console.log(searchView.videoList);
+      console.log(channelData);
+
+      searchView.videoList = searchView.videoList.concat(channelData);
+
+      /*mustache.parse(videoListTemplate);
       let rendered = mustache.render(videoListTemplate, {
         channelId: item.id,
         channelThumbnail: item.snippet.thumbnails.medium.url,
@@ -221,7 +265,7 @@ function displayChannels(channels) {
         videoCount: item.statistics.videoCount,
       });
 
-      $(rendered).insertBefore('#getNextPage');
+      $(rendered).insertBefore('#getNextPage');*/
     });
   });
 }
