@@ -54,7 +54,7 @@ function goToChannel(channelId) {
   youtubeAPI('channels', {
     part: 'snippet,brandingSettings,statistics',
     id: channelId,
-  }, function (data){
+  }, (data) => {
     const channelData = data.items[0];
 
     const channelViewTemplate = require('./templates/channelView.html');

@@ -11,17 +11,6 @@
   <link rel="stylesheet" href="style/loading.css">
   <link rel="stylesheet" href="style/fa-solid.min.css">
   <link rel="stylesheet" href="style/fontawesome-all.min.css">
-  <script src="js/youtubeApi.js"></script>
-  <script src="js/settings.js"></script>
-  <script src="js/updates.js"></script>
-  <script src="js/layout.js"></script>
-  <script src="js/videos.js"></script>
-  <script src="js/player.js"></script>
-  <script src="js/subscriptions.js"></script>
-  <script src="js/channels.js"></script>
-  <script src="js/savedVideos.js"></script>
-  <script src="js/history.js"></script>
-  <script src="js/events.js"></script>
   <title>Freetube Player</title>
 </head>
 
@@ -47,15 +36,14 @@
       <input id='search' class="search" type="text" placeholder="Search / Go to URL">
       <i onclick='parseSearchText()' class="fas fa-search searchButton" style='margin-right: -10px; cursor: pointer'></i>
     </div>
-    <img src='icons/iconBlack.png' id='menuIcon'/>
-    &nbsp;
-    <img src='icons/textBlack.png' id='menuText'/>
+    <img src='icons/iconBlack.png' id='menuIcon' /> &nbsp;
+    <img src='icons/textBlack.png' id='menuText' />
   </div>
   <div id='sideNavDisabled'></div>
   <div id="sideNav">
     <div class="sideNavContainer">
       <ul>
-        <li onclick='loadSubscriptions()'><i class="fas fa-rss"></i>&nbsp;&nbsp;Subscriptions</li>
+        <li v-on:click='subscriptions'><i class="fas fa-rss"></i>&nbsp;&nbsp;Subscriptions</li>
         <li onclick='showMostPopular()'><i class="fas fa-users"></i>&nbsp;&nbsp;Most Popular</li>
         <li onclick='showSavedVideos()'><i class="fas fa-star"></i>&nbsp;&nbsp;Saved</li>
         <li onclick='showHistory()'><i class="fas fa-history"></i>&nbsp;&nbsp;History</li>
@@ -63,7 +51,7 @@
       <hr />
       <ul>
         <li onclick='showSettings()'><i class="fas fa-sliders-h"></i>&nbsp;&nbsp;Settings</li>
-        <li onclick='showAbout()'><i class="fas fa-info-circle"></i>&nbsp;&nbsp;About</li>
+        <li v-on:click='about' ><i class="fas fa-info-circle"></i>&nbsp;&nbsp;About</li>
       </ul>
       <hr />
       <ul id='subscriptions'>
@@ -71,7 +59,24 @@
     </div>
   </div>
   <div id="main">
+    <div id='mainHeaderView'></div>
+    <div id='aboutView'></div>
+    <div id='subscriptionView'></div>
+    <div id='searchView'></div>
   </div>
 </body>
+<script src="js/youtubeApi.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/updates.js"></script>
+<script src="js/db.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/templates.js"></script>
+<script src="js/videos.js"></script>
+<script src="js/player.js"></script>
+<script src="js/subscriptions.js"></script>
+<script src="js/channels.js"></script>
+<script src="js/savedVideos.js"></script>
+<script src="js/history.js"></script>
+<script src="js/events.js"></script>
 
 </html>

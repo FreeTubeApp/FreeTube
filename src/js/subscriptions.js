@@ -78,11 +78,10 @@ function removeSubscription(channelId) {
  * @return {Void}
  */
 function loadSubscriptions() {
-  clearMainContainer();
   showToast('Getting Subscriptions.  Please wait...');
   const loading = document.getElementById('loading');
 
-  startLoadingAnimation()
+  //startLoadingAnimation()
 
   let videoList = [];
 
@@ -118,7 +117,7 @@ function loadSubscriptions() {
                 });
 
                 // Render the videos to the application.
-                createVideoListContainer('Latest Subscriptions:');
+                //createVideoListContainer('Latest Subscriptions:');
 
                 // The YouTube website limits the subscriptions to 100 before grabbing more so we only show 100
                 // to keep the app running at a good speed.
@@ -126,8 +125,9 @@ function loadSubscriptions() {
                   let grabDuration = getDuration(videoList.slice(0, 49));
 
                   grabDuration.then((list) => {
+                    subscriptionView.videoList = [];
                     list.items.forEach((video) => {
-                      displayVideo(video);
+                      displayVideo(video, 'subscriptions');
                     });
                     stopLoadingAnimation();
                   });
@@ -142,8 +142,10 @@ function loadSubscriptions() {
 
                     secondBatchDuration.then((list2) => {
                       finishedList = finishedList.concat(list2.items);
+                      console.log(finishedList);
+                      subscriptionView.videoList = [];
                       finishedList.forEach((video) => {
-                        displayVideo(video);
+                        displayVideo(video, 'subscriptions');
                       });
                       stopLoadingAnimation();
                     });
