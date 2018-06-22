@@ -358,15 +358,33 @@ function parseSearchText(url = '') {
   let match = input.match(rx);
 
   console.log(match);
-
-  // Play video if a match is found.
-  try {
-    console.log('Match Found');
-    playVideo(match[2]);
-  } catch (err) {
-    console.log('Video not found');
-    search();
+  let urlSplit = input.split('/');
+  if(match){
+      console.log('Video found');
+      playVideo(match[2]);
   }
+  else if (urlSplit[3] == 'channel'){
+      console.log('channel found');
+      goToChannel(urlSplit[4]);
+  }
+  else if (urlSplit[3] == 'user'){
+      console.log('user found');
+      // call api to get the ID and then call goToChannel(id)
+      youtubeAPI('channels', {
+          part: 'id',
+          forUsername: urlSplit[4]
+      }, (data) => {
+          console.log(data.items[0].id);
+          let channelID = data.items[0].id;
+          goToChannel(channelID);
+      });
+  }
+  else {
+      console.log('Video not found');
+      search();
+  }
+
+
 }
 
 /**
