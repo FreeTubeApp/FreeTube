@@ -19,22 +19,88 @@ import Vue from './js/vue.js';
 
 const mainHeaderTemplate = require('./templates/mainHeader.html');
 const aboutTemplate = require('./templates/about.html');
+const settingsTemplate = require('./templates/settings.html');
 const videoListTemplate = require('./templates/videoTemplate.html');
 const nextPageTemplate = require('./templates/searchNextPage.html');
+const playerTemplate = require('./templates/player.html');
+const channelTemplate = require('./templates/channelView.html');
+const progressViewTemplate = require('./templates/progressView.html');
+
+/*
+* Progress view
+*
+* Shows progress bar on bottom of application.
+*
+* seen: Toggles visibility of view
+* progressWidth: sets width of the progress bar
+*/
+let progressView = new Vue({
+  el: '#progressView',
+  data: {
+    seen: true,
+    progressWidth: 0
+  },
+  template: progressViewTemplate
+});
+
+let loadingView = new Vue({
+  el: '#loading',
+  data: {
+    seen: false
+  }
+});
 
 let sideNavBar = new Vue({
   el: '#sideNav',
   methods: {
-    about: (event) => {
-      hideViews();
-      aboutView.seen = true;
-    },
     subscriptions: (event) => {
       hideViews();
+      if(subscriptionView.videoList.length === 0){
+        loadingView.seen = true;
+      }
       headerView.seen = true;
       headerView.title = 'Latest Subscriptions';
       subscriptionView.seen = true;
       loadSubscriptions();
+    },
+    popular: (event) => {
+      hideViews();
+      if(popularView.videoList.length === 0){
+        loadingView.seen = true;
+      }
+      headerView.seen = true;
+      headerView.title = 'Most Popular';
+      popularView.seen = true;
+      showMostPopular();
+    },
+    saved: (event) => {
+      hideViews();
+      if(savedView.videoList.length === 0){
+        loadingView.seen = true;
+      }
+      headerView.seen = true;
+      headerView.title = 'Saved Videos';
+      savedView.seen = true;
+      showSavedVideos();
+    },
+    history: (event) => {
+      hideViews();
+      if(historyView.videoList.length === 0){
+        loadingView.seen = true;
+      }
+      headerView.seen = true;
+      headerView.title = 'Video History';
+      historyView.seen = true;
+      showHistory();
+    },
+    settings: (event) => {
+      hideViews();
+      settingsView.seen = true;
+      updateSettingsView();
+    },
+    about: (event) => {
+      hideViews();
+      aboutView.seen = true;
     }
   }
 });
@@ -57,33 +123,68 @@ let subscriptionView = new Vue({
   },
   methods: {
     play: (videoId) => {
+      loadingView.seen = true;
       playVideo(videoId);
     },
     channel: (channelId) => {
-      goToChannel(channelId)
+      goToChannel(channelId);
     }
   },
   template: videoListTemplate
 });
 
-let searchView = new Vue({
-  el: '#searchView',
+let popularView = new Vue({
+  el: '#popularView',
   data: {
     seen: false,
-    isSearch: true,
-    nextPageToken: '',
+    isSearch: false,
     videoList: []
   },
   methods: {
     play: (videoId) => {
+      loadingView.seen = true;
       playVideo(videoId);
     },
     channel: (channelId) => {
-      goToChannel(channelId)
+      goToChannel(channelId);
+    }
+  },
+  template: videoListTemplate
+});
+
+let savedView = new Vue({
+  el: '#savedView',
+  data: {
+    seen: false,
+    isSearch: false,
+    videoList: []
+  },
+  methods: {
+    play: (videoId) => {
+      loadingView.seen = true;
+      playVideo(videoId);
     },
-    nextPage: (nextPageToken) => {
-      console.log(searchView.nextPageToken);
-      search(searchView.nextPageToken);
+    channel: (channelId) => {
+      goToChannel(channelId);
+    }
+  },
+  template: videoListTemplate
+});
+
+let historyView = new Vue({
+  el: '#historyView',
+  data: {
+    seen: false,
+    isSearch: false,
+    videoList: []
+  },
+  methods: {
+    play: (videoId) => {
+      loadingView.seen = true;
+      playVideo(videoId);
+    },
+    channel: (channelId) => {
+      goToChannel(channelId);
     }
   },
   template: videoListTemplate
@@ -98,9 +199,145 @@ let aboutView = new Vue({
   template: aboutTemplate
 });
 
+let settingsView = new Vue({
+  el: '#settingsView',
+  data: {
+    seen: false,
+    useTheme: false,
+    useTor: false,
+    apiKey: ''
+  },
+  template: settingsTemplate
+});
+
+let searchView = new Vue({
+  el: '#searchView',
+  data: {
+    seen: false,
+    isSearch: true,
+    nextPageToken: '',
+    videoList: []
+  },
+  methods: {
+    play: (videoId) => {
+      loadingView.seen = true;
+      playVideo(videoId);
+    },
+    channel: (channelId) => {
+      goToChannel(channelId);
+    },
+    nextPage: (nextPageToken) => {
+      console.log(searchView.nextPageToken);
+      search(searchView.nextPageToken);
+    }
+  },
+  template: videoListTemplate
+});
+
+let channelView = new Vue({
+  el: '#channelView',
+  data: {
+    seen: false,
+    id: '',
+    name: '',
+    icon: '',
+    baner: '',
+    subCount: '',
+    subButtonText: '',
+    description: ''
+  },
+  methods: {
+    subscription: (channelId) => {
+      toggleSubscription(channelId);
+    }
+  },
+  template: channelTemplate
+});
+
+let channelVideosView = new Vue({
+  el: '#channelVideosView',
+  data: {
+    seen: false,
+    isSearch: false,
+    videoList: []
+  },
+  method: {
+    play: (videoId) => {
+      loadingView.seen = true;
+      playVideo(videoId);
+    },
+    channel: (channelId) => {
+      goToChannel(channelId);
+    }
+  },
+  template: videoListTemplate
+});
+
+let playerView = new Vue({
+  el: '#playerView',
+  data: {
+    seen: false,
+    publishedDate: '',
+    videoUrl: '',
+    videoId: '',
+    channelId: '',
+    channelIcon: '',
+    channelName: '',
+    subscribedText: '',
+    savedText: '',
+    savedIconType: 'far',
+    description: '',
+    videoThumbnail: '',
+    subtitleHtml: '',
+    currentQuality: '',
+    video480p: '',
+    video720p: '',
+    embededHtml: '',
+    currentSpeed: 1,
+    videoTitle: '',
+    videoViews: '',
+    likePercentage: 0,
+    videoLikes: 0,
+    videoDislikes: 0,
+    recommendedVideoList: []
+  },
+  methods: {
+    channel: (channelId) => {
+      goToChannel(channelId);
+    },
+    subscription: (videoId) => {
+      toggleSubscription(videoId);
+    },
+    quality: (url, qualityText) => {
+      console.log(url);
+      console.log(qualityText);
+    },
+    copy: (site, videoId) => {
+      const url = 'https://' + site + '.com/watch?v=' + videoId;
+      clipboard.writeText(url);
+      showToast('URL has been copied to the clipboard');
+    },
+    save: (videoId) => {
+      toggleSavedVideo(videoId);
+    },
+    play: (videoId) => {
+      loadingView.seen = true;
+      playVideo(videoId);
+    }
+  },
+  template: playerTemplate
+});
+
 function hideViews(){
   subscriptionView.seen = false;
   aboutView.seen = false;
   headerView.seen = false;
   searchView.seen = false;
+  settingsView.seen = false;
+  popularView.seen = false;
+  savedView.seen = false;
+  historyView.seen = false;
+  playerView.seen = false;
+  channelView.seen = false;
+  channelVideosView.seen = false;
 }

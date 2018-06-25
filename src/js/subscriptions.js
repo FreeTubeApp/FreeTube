@@ -21,6 +21,9 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
  * File for all functions related to subscriptions.
  */
 
+ let subscriptionTimer;
+ let checkSubscriptions = true;
+
 /**
  * Add a channel to the user's subscription database.
  *
@@ -78,8 +81,16 @@ function removeSubscription(channelId) {
  * @return {Void}
  */
 function loadSubscriptions() {
-  showToast('Getting Subscriptions.  Please wait...');
-  const loading = document.getElementById('loading');
+  if (checkSubscriptions === false){
+    console.log('Will not load subscriptions. Timer still on.');
+    return;
+  }
+  else{
+    showToast('Refreshing Subscription List.  Please wait...');
+    checkSubscriptions = false;
+  }
+
+  //const loading = document.getElementById('loading');
 
   //startLoadingAnimation()
 
@@ -87,7 +98,6 @@ function loadSubscriptions() {
 
   const subscriptions = returnSubscriptions();
 
-  // Welcome to callback hell, we hope you enjoy your stay.
   subscriptions.then((results) => {
       let channelId = '';
       let videoList = [];
@@ -108,6 +118,7 @@ function loadSubscriptions() {
               console.log(data);
               videoList = videoList.concat(data.items);
               counter++;
+              progressView.progressWidth = (counter / results.length) * 100;
               if (counter === results.length) {
                 videoList.sort((a, b) => {
                   const date1 = Date.parse(a.snippet.publishedAt);
@@ -129,7 +140,9 @@ function loadSubscriptions() {
                     list.items.forEach((video) => {
                       displayVideo(video, 'subscriptions');
                     });
-                    stopLoadingAnimation();
+                    loadingView.seen = false;
+                    progressView.seen = false;
+                    progressView.progressWidth = 0;
                   });
                 } else {
                   console.log(videoList);
@@ -147,7 +160,12 @@ function loadSubscriptions() {
                       finishedList.forEach((video) => {
                         displayVideo(video, 'subscriptions');
                       });
-                      stopLoadingAnimation();
+                      loadingView.seen = false;
+                      progressView.seen = false;
+                      progressView.progressWidth = 0;
+                      subscriptionTimer = window.setTimeout(() => {
+                        checkSubscriptions = true;
+                      }, 60000);
                     });
                   });
                 }
@@ -160,7 +178,7 @@ function loadSubscriptions() {
     } else {
       // User has no subscriptions. Display message.
       const container = document.getElementById('main');
-      stopLoadingAnimation();
+      //stopLoadingAnimation();
 
       container.innerHTML = `<h2 class="message">Your Subscription list is currently empty.  Start adding subscriptions
                              to see them here.<br /><br /><i class="far fa-frown" style="font-size: 200px"></i></h2>`;

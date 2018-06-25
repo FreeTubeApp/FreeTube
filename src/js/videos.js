@@ -188,6 +188,18 @@ function displayVideo(videoData, listType = '') {
     case 'search':
       searchView.videoList = searchView.videoList.concat(video);
       break;
+    case 'popular':
+      popularView.videoList = popularView.videoList.concat(video);
+      break;
+    case 'saved':
+      savedView.videoList = savedView.videoList.concat(video);
+      break;
+    case 'history':
+      historyView.videoList = historyView.videoList.concat(video);
+      break;
+    case 'channel':
+      channelVideosView.videoList = channelVideosView.videoList.concat(video);
+      break;
   }
 
 
@@ -347,6 +359,8 @@ function addNextPage(nextPageToken) {
  * @param {string} videoId - The video ID of the video to get recommendations from.
  */
 function showVideoRecommendations(videoId) {
+  playerView.recommendedVideoList = [];
+
   youtubeAPI('search', {
     part: 'id',
     type: 'video',
@@ -356,10 +370,18 @@ function showVideoRecommendations(videoId) {
     let grabDuration = getDuration(data.items);
     grabDuration.then((videoList) => {
       videoList.items.forEach((video) => {
+        let data = {}
         const snippet = video.snippet;
-        const videoDuration = parseVideoDuration(video.contentDetails.duration);
 
-        const recommTemplate = require('./templates/recommendations.html')
+        data.duration = parseVideoDuration(video.contentDetails.duration);
+        data.id = video.id;
+        data.title = snippet.title;
+        data.channelName = snippet.channelTitle;
+        data.thumbnail = snippet.thumbnails.medium.url;
+        data.publishedDate = dateFormat(snippet.publishedAt, "mmm dS, yyyy");
+
+        playerView.recommendedVideoList = playerView.recommendedVideoList.concat(data);
+        /*const recommTemplate = require('./templates/recommendations.html')
         mustache.parse(recommTemplate);
         const rendered = mustache.render(recommTemplate, {
           videoId: video.id,
@@ -370,7 +392,7 @@ function showVideoRecommendations(videoId) {
           publishedDate: dateFormat(snippet.publishedAt, "mmm dS, yyyy")
         });
         const recommendationHtml = $('#recommendations').html();
-        $('#recommendations').html(recommendationHtml + rendered);
+        $('#recommendations').html(recommendationHtml + rendered);*/
       });
     });
   });
@@ -465,8 +487,8 @@ function parseVideoDuration(durationString) {
  * @return {Void}
  */
 function showMostPopular() {
-  clearMainContainer();
-  startLoadingAnimation();
+  //clearMainContainer();
+  //startLoadingAnimation();
 
   // Get the date of 2 days ago.
   var d = new Date();
@@ -483,15 +505,19 @@ function showMostPopular() {
     publishedAfter: d.toISOString(),
     maxResults: 50,
   }, function(data) {
-    createVideoListContainer('Most Popular:');
+    //createVideoListContainer('Most Popular:');
     console.log(data);
     let grabDuration = getDuration(data.items);
 
     grabDuration.then((videoList) => {
       console.log(videoList);
-      videoList.items.forEach(displayVideo);
+      popularView.videoList = [];
+      loadingView.seen = false;
+      videoList.items.forEach((video) => {
+        displayVideo(video, 'popular');
+      });
     });
-    stopLoadingAnimation();
+    //stopLoadingAnimation();
   });
 }
 

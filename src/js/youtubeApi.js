@@ -9,7 +9,7 @@
  */
 
 function youtubeAPI(resource, params, success) {
-  params.key = apiKey;
+  params.key = settingsView.apiKey;
 
   if (useTor) {
     tor.request('https://www.googleapis.com/youtube/v3/' + resource + '?' + $.param(params), function(err, res, body) {
