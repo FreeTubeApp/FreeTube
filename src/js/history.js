@@ -54,8 +54,8 @@ function removeFromHistory(videoId){
 * @return {Void}
 */
 function showHistory(){
-  clearMainContainer();
-  startLoadingAnimation();
+  //clearMainContainer();
+  //startLoadingAnimation();
   console.log('checking history');
 
   let videoList = '';
@@ -80,15 +80,17 @@ function showHistory(){
       id: videoList,
       maxResults: 50,
     }, function (data) {
-      createVideoListContainer('Watch History:');
+      //createVideoListContainer('Watch History:');
       let grabDuration = getDuration(data.items);
 
       grabDuration.then((videoList) => {
+        historyView.videoList = [];
+        loadingView.seen = false;
         videoList.items.forEach((video) => {
           displayVideo(video, 'history');
         });
       });
-      stopLoadingAnimation()
+      //stopLoadingAnimation()
     });
   });
 }

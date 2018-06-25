@@ -30,14 +30,18 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
  */
 function playVideo(videoId, videoThumbnail = '', useWindowPlayer = false) {
   if (useWindowPlayer === false){
-    clearMainContainer();
-    startLoadingAnimation();
+    //clearMainContainer();
+    //startLoadingAnimation();
   }
   else{
     showToast('Getting video information.  Please wait...')
   }
 
-  let subscribeText = '';
+  hideViews();
+  playerView.videoId = videoId;
+  playerView.embededHtml = "<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/" + videoId + "?rel=0' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>";
+
+  /*let subscribeText = '';
   let savedText = '';
   let savedIconClass = '';
   let savedIconColor = '';
@@ -60,18 +64,18 @@ function playVideo(videoId, videoThumbnail = '', useWindowPlayer = false) {
   let videoLikes;
   let videoDislikes;
   let totalLikes;
-  let likePercentage;
+  let likePercentage;*/
 
   const checkSavedVideo = videoIsSaved(videoId);
 
   // Change the save button icon and text depending on if the user has saved the video or not.
   checkSavedVideo.then((results) => {
     if (results === false) {
-      savedText = 'SAVE';
-      savedIconClass = 'far unsaved';
+      playerView.savedText = 'SAVE';
+      playerView.savedIconType = 'far unsaved';
     } else {
-      savedText = 'SAVED';
-      savedIconClass = 'fas saved';
+      playerView.savedText = 'SAVED';
+      playerView.savedIconType = 'fas saved';
     }
   });
 
@@ -82,10 +86,10 @@ function playVideo(videoId, videoThumbnail = '', useWindowPlayer = false) {
     console.log(data);
 
     // Figure out the width for the like/dislike bar.
-    videoLikes = data['items'][0]['statistics']['likeCount'];
-    videoDislikes = data['items'][0]['statistics']['dislikeCount'];
-    totalLikes = parseInt(videoLikes) + parseInt(videoDislikes);
-    likePercentage = parseInt((videoLikes / totalLikes) * 100);
+    playerView.videoLikes = data['items'][0]['statistics']['likeCount'];
+    playerView.videoDislikes = data['items'][0]['statistics']['dislikeCount'];
+    let totalLikes = parseInt(playerView.videoLikes) + parseInt(playerView.videoDislikes);
+    playerView.likePercentage = parseInt((playerView.videoLikes / totalLikes) * 100);
   });
 
   /*
@@ -94,62 +98,66 @@ function playVideo(videoId, videoThumbnail = '', useWindowPlayer = false) {
   youtubedlGetInfo(videoId, (info) => {
     console.log(info);
 
-    console.log(videoLikes);
+    //console.log(videoLikes);
 
-    channelId = info['author']['id'];
-    let channelThumbnail = info['author']['avatar'];
+    playerView.videoTitle = info['title'];
+    playerView.channelName = info['author']['name'];
+    playerView.channelId = info['author']['id'];
+    playerView.channelIcon = info['author']['avatar'];
 
     let videoUrls = info['formats'];
 
     // Add commas to the video view count.
-    const videoViews = info['view_count'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    playerView.videoViews = info['view_count'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-    videoThumbnail = info['player_response']['videoDetails']['thumbnail']['thumbnails'][3]['url'];
+    playerView.videoThumbnail = info['player_response']['videoDetails']['thumbnail']['thumbnails'][3]['url'];
 
     // Format the date to a more readable format.
     let dateString = new Date(info['published']);
     dateString.setDate(dateString.getDate() + 1);
-    const publishedDate = dateFormat(dateString, "mmm dS, yyyy");
+    playerView.publishedDate = dateFormat(dateString, "mmm dS, yyyy");
 
     let description = info['description'];
     // Adds clickable links to the description.
-    description = autolinker.link(description);
+    playerView.description = autolinker.link(description);
 
     // Search through the returned object to get the 480p and 720p video URLs (If available)
     Object.keys(videoUrls).forEach((key) => {
       switch (videoUrls[key]['itag']) {
         case '18':
-          video480p = decodeURIComponent(videoUrls[key]['url']);
-          console.log(video480p);
+          playerView.video480p = decodeURIComponent(videoUrls[key]['url']);
+          //console.log(video480p);
           break;
         case '22':
-          video720p = decodeURIComponent(videoUrls[key]['url']);
-          console.log(video720p);
+          playerView.video720p = decodeURIComponent(videoUrls[key]['url']);
+          //console.log(video720p);
           break;
       }
     });
 
     // Default to the embeded player if the URLs cannot be found.
-    if (typeof(video720p) === 'undefined' && typeof(video480p) === 'undefined') {
-      useEmbedPlayer = true;
-      defaultQuality = 'EMBED';
-      videoHtml = embedPlayer.replace(/\&quot\;/g, '"');
+    if (typeof(playerView.video720p) === 'undefined' && typeof(playerView.video480p) === 'undefined') {
+      //useEmbedPlayer = true;
+      playerView.currentQuality = 'EMBED';
+      playerView.videoUrl = embedPlayer.replace(/\&quot\;/g, '"');
       showToast('Unable to get video file.  Reverting to embeded player.');
     } else if (typeof(video720p) === 'undefined' && typeof(video480p) !== 'undefined') {
       // Default to the 480p video if the 720p URL cannot be found.
-      defaultUrl = video480p;
-      defaultQuality = '480p';
+      playerView.videoUrl = playerView.video480p;
+      playerView.currentQuality = '480p';
     } else {
       // Default to the 720p video.
-      defaultUrl = video720p;
-      defaultQuality = '720p';
+      playerView.videoUrl = playerView.video720p;
+      playerView.currentQuality = '720p';
       // Force the embeded player if needed.
       //videoHtml = embedPlayer;
     }
 
+    let useEmbedPlayer = false;
+
     if (!useEmbedPlayer) {
       //videoHtml = '<video class="videoPlayer" type="application/x-mpegURL" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" src="' + defaultUrl + '" poster="' + videoThumbnail + '" autoplay>';
-
+      let videoHtml = '';
 
       if (typeof(info.player_response.captions) === 'object') {
         if (typeof(info.player_response.captions.playerCaptionsTracklistRenderer.captionTracks) === 'object') {
@@ -168,28 +176,33 @@ function playVideo(videoId, videoThumbnail = '', useWindowPlayer = false) {
         }
       }
 
-      //videoHtml = videoHtml + '</video>';
+      playerView.subtitleHtml = videoHtml;
     }
 
-    const checkSubscription = isSubscribed(channelId);
+    const checkSubscription = isSubscribed(playerView.channelId);
 
     // Change the subscribe button text depending on if the user has subscribed to the channel or not.
 
     checkSubscription.then((results) => {
-      const subscribeButton = document.getElementById('subscribeButton');
-
       if (results === false) {
         if (subscribeButton != null) {
-          subscribeButton.innerHTML = 'SUBSCRIBE';
+          playerView.subscribedText = 'SUBSCRIBE';
         }
       } else {
         if (subscribeButton != null) {
-          subscribeButton.innerHTML = 'UNSUBSCRIBE';
+          playerView.subscribedText = 'UNSUBSCRIBE';
         }
       }
     });
 
-    const playerTemplate = require('./templates/player.html')
+    showVideoRecommendations(videoId);
+
+    loadingView.seen = false;
+    playerView.seen = true;
+
+    addToHistory(videoId);
+
+    /*const playerTemplate = require('./templates/player.html')
     mustache.parse(playerTemplate);
     const rendered = mustache.render(playerTemplate, {
       videoQuality: defaultQuality,
@@ -253,14 +266,14 @@ function playVideo(videoId, videoThumbnail = '', useWindowPlayer = false) {
           textTracks[track].mode = 'hidden';
         });
       }
-    }
+    }*/
 
     // Sometimes a video URL is found, but the video will not play.  I believe the issue is
     // that the video has yet to render for that quality, as the video will be available at a later time.
     // This will check the URLs and switch video sources if there is an error.
     //checkVideoUrls(video480p, video720p);
 
-    window.setTimeout(checkVideoUrls, 5000, video480p, video720p);
+    //window.setTimeout(checkVideoUrls, 5000, video480p, video720p);
 
   });
 }
@@ -272,7 +285,7 @@ function playVideo(videoId, videoThumbnail = '', useWindowPlayer = false) {
  *
  * @return {Void}
  */
-function openMiniPlayer(videoThumbnail) {
+function openMiniPlayer() {
   let lastTime;
   let videoHtml;
 
@@ -299,7 +312,7 @@ function openMiniPlayer(videoThumbnail) {
     mustache.parse(template);
     const rendered = mustache.render(template, {
       videoHtml: videoHtml,
-      videoThumbnail: videoThumbnail,
+      videoThumbnail: playerView.thumbnail,
       startTime: lastTime,
     });
     // Render the template to the new browser window.

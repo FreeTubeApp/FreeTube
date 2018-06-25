@@ -29,12 +29,12 @@ const apiKeyBank = ['AIzaSyC9E579nh_qqxg6BH4xIce3k_7a9mT4uQc', 'AIzaSyCKplYT6hZI
  *
  * @return {Void}
  */
-function showSettings() {
-  clearMainContainer();
-  startLoadingAnimation();
+function updateSettingsView() {
+  //clearMainContainer();
+  //startLoadingAnimation();
 
-  let isChecked = '';
-  let key = '';
+  //let isChecked = '';
+  //let key = '';
 
   /*
    * Check the settings database for the user's current settings.  This is so the
@@ -45,7 +45,7 @@ function showSettings() {
       switch (setting['_id']) {
         case 'apiKey':
           if (apiKeyBank.indexOf(setting['value']) == -1) {
-            key = setting['value'];
+            settingsView.apiKey = setting['value'];
           }
           break;
         case 'theme':
@@ -56,7 +56,7 @@ function showSettings() {
     });
 
     // Grab the settings.html template to prepare for rendering
-    const settingsTemplate = require('./templates/settings.html')
+    /*const settingsTemplate = require('./templates/settings.html')
     mustache.parse(settingsTemplate);
     const rendered = mustache.render(settingsTemplate, {
       isChecked: isChecked,
@@ -64,19 +64,19 @@ function showSettings() {
     });
     // Render template to application
     $('#main').html(rendered);
-    stopLoadingAnimation();
+    stopLoadingAnimation();*/
 
     // Check / uncheck the switch depending on the user's settings.
     if (currentTheme === 'light') {
-      document.getElementById('themeSwitch').checked = false;
+      settingsView.useTheme = false;
     } else {
-      document.getElementById('themeSwitch').checked = true;
+      settingsView.useTheme = true;
     }
 
     if (useTor) {
-      document.getElementById('torSwitch').checked = true;
+      settingsView.useTor = true;
     } else {
-      document.getElementById('torSwitch').checked = false;
+      settingsView.useTor = false;
     }
   });
 }
@@ -89,12 +89,12 @@ function showSettings() {
 function checkDefaultSettings() {
 
   // Grab a random API Key.
-  apiKey = apiKeyBank[Math.floor(Math.random() * apiKeyBank.length)];
+  settingsView.apiKey = apiKeyBank[Math.floor(Math.random() * apiKeyBank.length)];
   let newSetting;
 
   let settingDefaults = {
     'theme': 'light',
-    'apiKey': apiKey,
+    'apiKey': settingsView.apiKey,
     'useTor': false
   };
 
@@ -121,7 +121,7 @@ function checkDefaultSettings() {
             break;
           case 'apiKey':
             if (apiKeyBank.indexOf(docs[0]['value']) == -1) {
-              apiKey = docs[0]['value'];
+              settingsView.apiKey = docs[0]['value'];
             }
             break;
           case 'useTor':
@@ -146,7 +146,7 @@ function updateSettings() {
   let key = document.getElementById('api-key').value;
   let theme = 'light';
 
-  apiKey = apiKeyBank[Math.floor(Math.random() * apiKeyBank.length)];
+  settingsView.apiKey = apiKeyBank[Math.floor(Math.random() * apiKeyBank.length)];
 
   console.log(themeSwitch);
 
@@ -188,7 +188,7 @@ function updateSettings() {
     settingsDb.update({
       _id: 'apiKey'
     }, {
-      value: apiKey
+      value: settingsView.apiKey
     }, {});
   }
 
@@ -424,3 +424,5 @@ function clearFile(type, showMessage = true){
     }
   })
 }
+
+checkDefaultSettings();

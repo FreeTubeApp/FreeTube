@@ -74,23 +74,15 @@ function toggleSavedVideo(videoId) {
   event.stopPropagation();
 
   const checkIfSaved = videoIsSaved(videoId);
-  const saveIcon = document.getElementById('saveIcon');
-  const savedText = document.getElementById('savedText');
 
   checkIfSaved.then((results) => {
     if (results === false) {
-      savedText.innerHTML = 'SAVED';
-      saveIcon.classList.remove('far');
-      saveIcon.classList.remove('unsaved');
-      saveIcon.classList.add('fas');
-      saveIcon.classList.add('saved');
+      playerView.savedText = 'SAVED';
+      playerView.savedIconType = 'fas saved';
       addSavedVideo(videoId);
     } else {
-      savedText.innerHTML = 'SAVE';
-      saveIcon.classList.remove('fas');
-      saveIcon.classList.remove('saved');
-      saveIcon.classList.add('far');
-      saveIcon.classList.add('unsaved');
+      playerView.savedText = 'SAVE';
+      playerView.savedIconType = 'far unsaved';
       removeSavedVideo(videoId);
     }
   });
@@ -121,8 +113,8 @@ function videoIsSaved(videoId) {
 * @return {Void}
 */
 function showSavedVideos(){
-  clearMainContainer();
-  startLoadingAnimation();
+  //clearMainContainer();
+  //startLoadingAnimation();
   console.log('checking saved videos');
 
   let videoList = '';
@@ -151,14 +143,16 @@ function showSavedVideos(){
       maxResults: 50,
     }, (data) => {
       // Render the videos to the screen
-      createVideoListContainer('Saved Videos:');
+      //createVideoListContainer('Saved Videos:');
       let grabDuration = getDuration(data.items);
       grabDuration.then((videoList) => {
+        savedView.videoList = [];
+        loadingView.seen = false;
         videoList.items.forEach((video) => {
           displayVideo(video, 'saved');
         });
       });
-      stopLoadingAnimation();
+      //stopLoadingAnimation();
     });
   });
 }
