@@ -1,21 +1,20 @@
-<img class='channelViewBanner' src='{{channelBanner}}' />
-<br />
-<div class='channelViewTitle'>
-  <img class='channelViewImage' src='{{channelImage}}' />
-  <span class='channelViewName'>{{channelName}}</span>
+<div v-if='seen'>
+  <img class='channelViewBanner' :src='banner' />
   <br />
-  <span class='channelViewSubs'>{{subCount}} Subscribers</span>
-  <div id='subscribeButton' class='channelSubButton' onclick='toggleSubscription("{{channelId}}");'>
-    {{subButtonText}}
+  <div class='channelViewTitle'>
+    <img class='channelViewImage' :src='icon' />
+    <span class='channelViewName'>{{name}}</span>
+    <br />
+    <span class='channelViewSubs'>{{subCount}} Subscribers</span>
+    <div id='subscribeButton' class='channelSubButton' v-on:click='subscription(channelId);'>
+      {{subButtonText}}
+    </div>
   </div>
-</div>
-<br />
-<hr />
-<div class='channelViewDescription'>
-  {{{channelDescription}}}
-</div>
-<br />
-<hr />
-<div id='videoListContainer'>
-  <h2>Latest Uploads</h2>
+  <br />
+  <hr />
+  <div class='channelViewDescription'>
+    <span v-html='description'></span>
+  </div>
+  <br />
+  <hr />
 </div>

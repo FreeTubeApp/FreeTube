@@ -45,7 +45,6 @@ const fs = require('fs'); // Used to read files. Specifically in the settings pa
 const tor = require('tor-request');
 
 let currentTheme = '';
-let apiKey;
 let useTor = false;
 let dialog = electron.remote.dialog; // Used for opening file browser to export / import subscriptions.
 let toastTimeout; // Timeout for toast notifications.
@@ -57,7 +56,7 @@ require.extensions['.html'] = function(module, filename) {
 
 // Grabs the default settings from the settings database file.  Makes defaults if
 // none are found.
-checkDefaultSettings();
+//checkDefaultSettings();
 
 electron.ipcRenderer.on('ping', function(event, message) {
     console.log(message);

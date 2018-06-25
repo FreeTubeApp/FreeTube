@@ -25,6 +25,16 @@ a {
   color: #2196F3;
 }
 
+#progressBar{
+  height: 3px;
+  background-color: #f44336;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
 .center {
   text-align: center;
   margin: 0 auto;
@@ -176,7 +186,6 @@ a {
   left: 5;
   bottom: 0;
   right: 0;
-  display: none;
 }
 
 .settingsInput {
