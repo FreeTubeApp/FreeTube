@@ -110,7 +110,6 @@ iframe {
 }
 
 .videoDuration {
-  display: inline-block;
   float: right;
   position: relative;
   bottom: 36px;
