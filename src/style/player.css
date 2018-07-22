@@ -11,7 +11,7 @@ iframe {
 .video {
   width: 95%;
   max-width: 1000px;
-  height: 145px;
+  height: auto;
   padding: 15px;
   overflow: hidden;
 }
@@ -54,6 +54,7 @@ iframe {
 }
 
 .videoOptions ul {
+  
   width: 90px;
   font-size: 12px;
   position: relative;
@@ -63,6 +64,7 @@ iframe {
   display: none;
   -webkit-box-shadow: 4px 4px 33px -7px rgba(0,0,0,0.75);
   cursor: pointer;
+  z-index: 10;
 }
 
 .videoOptions li {
