@@ -18,9 +18,14 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /*
-* File used to initializing the application
-*/
-const {app, BrowserWindow, dialog, protocol} = require('electron');
+ * File used to initializing the application
+ */
+const {
+    app,
+    BrowserWindow,
+    dialog,
+    protocol
+} = require('electron');
 const path = require('path');
 const url = require('url');
 let win;
@@ -30,103 +35,141 @@ protocol.registerStandardSchemes(['freetube']);
 app.setAsDefaultProtocolClient('freetube');
 
 const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
-  // Someone tried to run a second instance, we should focus our window.
-  if (win) {
-    if (win.isMinimized()) win.restore()
-    win.focus()
+    // Someone tried to run a second instance, we should focus our window.
+    if (win) {
+        if (win.isMinimized()) win.restore()
+        win.focus()
 
-    win.webContents.send('ping', commandLine)
-  }
+        win.webContents.send('ping', commandLine)
+    }
 });
 
-if(require('electron-squirrel-startup') || isSecondInstance) app.quit();
+if (require('electron-squirrel-startup') || isSecondInstance) app.quit();
 
 /**
  * Initialize the Electron application
  * 1. create the browser window
  * 2. load the index.html
  */
-let init = function() {
-  const Menu = require('electron').Menu;
+let init = function () {
+    const Menu = require('electron').Menu;
 
-  win = new BrowserWindow({width: 1200, height: 800, autoHideMenuBar: true});
+    win = new BrowserWindow({
+        width: 1200,
+        height: 800,
+        autoHideMenuBar: true
+    });
 
-  win.loadURL(url.format({
-    pathname: path.join(__dirname, '../index.html'),
-    protocol: 'file:',
-    slashes: true,
-  }));
+    win.loadURL(url.format({
+        pathname: path.join(__dirname, '../index.html'),
+        protocol: 'file:',
+        slashes: true,
+    }));
 
-  if (process.env = 'development') {
-    //win.webContents.openDevTools();ff
-  }
-
-  win.on('closed', () => {
-    win = null;
-  });
-
-  const template = [
-    {
-      label: 'File',
-      submenu: [
-        {role: 'quit'}
-      ]
-    },
-    {
-      label: 'Edit',
-      submenu: [
-        {role: 'cut'},
-        {role: 'copy', accelerator: "CmdOrCtrl+C", selector: "copy:" },
-        {role: 'paste', accelerator: "CmdOrCtrl+V", selector: "paste:" },
-        {role: 'pasteandmatchstyle'},
-        {role: 'delete'},
-        {role: 'selectall'}
-      ]
-    },
-    {
-      label: 'View',
-      submenu: [
-        {role: 'reload'},
-        {role: 'forcereload'},
-        {role: 'toggledevtools'},
-        {type: 'separator'},
-        {role: 'resetzoom'},
-        {role: 'zoomin'},
-        {role: 'zoomout'},
-        {type: 'separator'},
-        {role: 'togglefullscreen'}
-      ]
-    },
-    {
-      role: 'window',
-      submenu: [
-        {role: 'minimize'},
-        {role: 'close'}
-      ]
+    if (process.env = 'development') {
+        //win.webContents.openDevTools();ff
     }
-  ];
 
-  const menu = Menu.buildFromTemplate(template);
-  Menu.setApplicationMenu(menu);
+    win.on('closed', () => {
+        win = null;
+    });
+
+    const template = [{
+            label: 'File',
+            submenu: [{
+                role: 'quit'
+            }]
+        },
+        {
+            label: 'Edit',
+            submenu: [{
+                    role: 'cut'
+                },
+                {
+                    role: 'copy',
+                    accelerator: "CmdOrCtrl+C",
+                    selector: "copy:"
+                },
+                {
+                    role: 'paste',
+                    accelerator: "CmdOrCtrl+V",
+                    selector: "paste:"
+                },
+                {
+                    role: 'pasteandmatchstyle'
+                },
+                {
+                    role: 'delete'
+                },
+                {
+                    role: 'selectall'
+                }
+            ]
+        },
+        {
+            label: 'View',
+            submenu: [{
+                    role: 'reload'
+                },
+                {
+                    role: 'forcereload'
+                },
+                {
+                    role: 'toggledevtools'
+                },
+                {
+                    type: 'separator'
+                },
+                {
+                    role: 'resetzoom'
+                },
+                {
+                    role: 'zoomin'
+                },
+                {
+                    role: 'zoomout'
+                },
+                {
+                    type: 'separator'
+                },
+                {
+                    role: 'togglefullscreen'
+                }
+            ]
+        },
+        {
+            role: 'window',
+            submenu: [{
+                    role: 'minimize'
+                },
+                {
+                    role: 'close'
+                }
+            ]
+        }
+    ];
+
+    const menu = Menu.buildFromTemplate(template);
+    Menu.setApplicationMenu(menu);
 };
 
 /**
  * Quit the application
  */
-let allWindowsClosed = function() {
-  win.webContents.session.clearStorageData([], (data) => {});
-  win.webContents.session.clearCache((data) => {});
-  app.quit();
+let allWindowsClosed = function () {
+    win.webContents.session.clearStorageData([], (data) => {});
+    win.webContents.session.clearCache((data) => {});
+    app.quit();
 };
 
 /**
  * On Mac, when dock icon is clicked,
  * create a new window and launch the editor
  */
-let active = function() {
-  if (win === null) {
-    init();
-  }
+let active = function () {
+    if (win === null) {
+        init();
+    }
 };
 
 /**

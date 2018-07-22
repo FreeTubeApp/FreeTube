@@ -1,35 +1,37 @@
 <h1 class="center">Settings</h1>
 <div class='center'>
-  <input type='text' name='api-key' id='api-key' class='settingsInput' value='{{key}}' placeholder='API Key' />
-  <br />
-  <label for='api-key'>Set API Key: Leave blank to use default</label>
-  <br />
-  <input type="checkbox" id="themeSwitch" name="set-name" class="switch-input" onchange='toggleTheme(this)' {{isChecked}}>
-  <label for="themeSwitch" class="switch-label">Use Dark Theme</label>
-  <input type="checkbox" id="torSwitch" name="set-name" class="switch-input" {{isChecked}}>
-  <label for="torSwitch" class="switch-label">Use Tor for API calls</label>
+    <input type='text' name='api-key' id='api-key' class='settingsInput' value='{{key}}' placeholder='API Key' />
+    <br />
+    <label for='api-key'>Set API Key: Leave blank to use default</label>
+    <br />
+    <input type="checkbox" id="themeSwitch" name="set-name" class="switch-input" onchange='toggleTheme(this)' {{isChecked}}>
+    <label for="themeSwitch" class="switch-label">Use Dark Theme</label>
+    <input type="checkbox" id="torSwitch" name="set-name" class="switch-input" {{isChecked}}>
+    <label for="torSwitch" class="switch-label">Use Tor for API calls</label>
 </div>
 <div class='center'>
-  <div onclick='importSubscriptions()' class='settingsButton'>
-    IMPORT SUBSCRIPTIONS
-  </div>
-  <div onclick='exportSubscriptions();' class='settingsButton'>
-    EXPORT SUBSCRIPTIONS
-  </div>
+    <div onclick='importSubscriptions()' class='settingsButton'>
+        IMPORT SUBSCRIPTIONS
+    </div>
+    <div onclick='exportSubscriptions();' class='settingsButton'>
+        EXPORT SUBSCRIPTIONS
+    </div>
 </div>
-<br /><br />
+<br />
+<br />
 <div class='center'>
-  <div onclick='confirmFunction("Are you sure you want to delete your history?", clearFile, "history")' class='settingsButton'>
-    CLEAR HISTORY
-  </div>
-  <div onclick='confirmFunction("Are you sure you want to remove all saved videos?", clearFile, "saved")' class='settingsButton'>
-    CLEAR SAVED VIDEOS
-  </div>
-  <div onclick='confirmFunction("Are you sure you want to remove all subscriptions?", clearFile, "subscriptions")' class='settingsButton'>
-    CLEAR SUBSCRIPTIONS
-  </div>
+    <div onclick='confirmFunction("Are you sure you want to delete your history?", clearFile, "history")' class='settingsButton'>
+        CLEAR HISTORY
+    </div>
+    <div onclick='confirmFunction("Are you sure you want to remove all saved videos?", clearFile, "saved")' class='settingsButton'>
+        CLEAR SAVED VIDEOS
+    </div>
+    <div onclick='confirmFunction("Are you sure you want to remove all subscriptions?", clearFile, "subscriptions")' class='settingsButton'>
+        CLEAR SUBSCRIPTIONS
+    </div>
 </div>
-<br /><br />
+<br />
+<br />
 <div onclick='updateSettings()' class='center settingsSubmit'>
-  SAVE SETTINGS
+    SAVE SETTINGS
 </div>

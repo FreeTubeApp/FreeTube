@@ -1,14 +1,14 @@
 {{#comments}}
-  <div class="user-comment">
-    <div onclick='goToChannel("{{authorChannelId.value}}")' style="float:left;margin-right: 1em; width:48px">
-      <img class="userIcon" src="{{authorProfileImageUrl}}" alt="" class="user-icon" />
+    <div class="user-comment">
+        <div onclick='goToChannel("{{authorChannelId.value}}")' style="float:left;margin-right: 1em; width:48px">
+            <img class="userIcon" src="{{authorProfileImageUrl}}" alt="" class="user-icon" />
+        </div>
+        <div class="comment-data">
+            <p onclick='goToChannel("{{authorChannelId.value}}")' style='cursor: pointer; margin-left: 65px; font-weight: bold;'>{{authorDisplayName}}</p>
+            <p style="margin-bottom: 0; margin-left: 65px; word-break: break-word;">{{textOriginal}}</p>
+            <p style="font-size:80%; padding: 0; margin-left: 65px;">{{publishedAt}}</p>
+        </div>
     </div>
-    <div class="comment-data">
-      <p onclick='goToChannel("{{authorChannelId.value}}")' style='cursor: pointer; margin-left: 65px; font-weight: bold;'>{{authorDisplayName}}</p>
-      <p style="margin-bottom: 0; margin-left: 65px; word-break: break-word;">{{textOriginal}}</p>
-      <p style="font-size:80%; padding: 0; margin-left: 65px;">{{publishedAt}}</p>
-    </div>
-  </div>
-  <br/>
-  <div class="line"></div>
+    <br/>
+    <div class="line"></div>
 {{/comments}}

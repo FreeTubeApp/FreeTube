@@ -9,33 +9,33 @@
  */
 
 function youtubeAPI(resource, params, success) {
-  params.key = apiKey;
+    params.key = apiKey;
 
-  if (useTor) {
-    tor.request('https://www.googleapis.com/youtube/v3/' + resource + '?' + $.param(params), function(err, res, body) {
-      if (!err && res.statusCode == 200) {
-        success(JSON.parse(body));
-      } else {
-        showToast('Unable to connect to the Tor network. Check the help page if you\'re having trouble setting up your node.');
-        console.log(err);
-        console.log(res);
-        console.log(body);
-        stopLoadingAnimation();
-      }
-    });
-  } else {
-    $.getJSON(
-      'https://www.googleapis.com/youtube/v3/' + resource,
-      params,
-      success
-    ).fail((xhr, textStatus, error) => {
-      showToast('There was an error calling the YouTube API.');
-      console.log(error);
-      console.log(xhr);
-      console.log(textStatus);
-      stopLoadingAnimation();
-    });
-  }
+    if (useTor) {
+        tor.request('https://www.googleapis.com/youtube/v3/' + resource + '?' + $.param(params), function (err, res, body) {
+            if (!err && res.statusCode == 200) {
+                success(JSON.parse(body));
+            } else {
+                showToast('Unable to connect to the Tor network. Check the help page if you\'resss having trouble setting up your node.');
+                console.log(err);
+                console.log(res);
+                console.log(body);
+                stopLoadingAnimation();
+            }
+        });
+    } else {
+        $.getJSON(
+            'https://www.googleapis.com/youtube/v3/' + resource,
+            params,
+            success
+        ).fail((xhr, textStatus, error) => {
+            showToast('There was an error calling the YouTube API.');
+            console.log(error);
+            console.log(xhr);
+            console.log(textStatus);
+            stopLoadingAnimation();
+        });
+    }
 
 
 }
@@ -50,19 +50,19 @@ function youtubeAPI(resource, params, success) {
  */
 function youtubedlGetInfo(videoId, callback) {
 
-  let url = 'https://youtube.com/watch?v=' + videoId;
-  let options = ['--all-subs', '--write-subs'];
+    let url = 'https://youtube.com/watch?v=' + videoId;
+    let options = ['--all-subs', '--write-subs'];
 
-  ytdl.getInfo(url, options, function(err, info) {
-    if (err) {
-      showToast(err.message);
-      stopLoadingAnimation();
-      console.log(err);
-      console.log(info);
-      return;
-    }
+    ytdl.getInfo(url, options, function (err, info) {
+        if (err) {
+            showToast(err.message);
+            stopLoadingAnimation();
+            console.log(err);
+            console.log(info);
+            return;
+        }
 
-    console.log('Success');
-    callback(info);
-  });
+        console.log('Success');
+        callback(info);
+    });
 }

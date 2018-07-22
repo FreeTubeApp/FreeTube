@@ -18,77 +18,78 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /*
-* File used for functions related to video history.
-*/
+ * File used for functions related to video history.
+ */
 
 /**
-* Add a video to the history database file
-*
-* @param {string} videoId - The video ID of the video to be saved.
-*
-* @return {Void}
-*/
-function addToHistory(videoId){
-  const data = {
-    videoId: videoId,
-    timeWatched: new Date().getTime(),
-  };
-  historyDb.insert(data, (err, newDoc) => {});
+ * Add a video to the history database file
+ *
+ * @param {string} videoId - The video ID of the video to be saved.
+ *
+ * @return {Void}
+ */
+function addToHistory(videoId) {
+    const data = {
+        videoId: videoId,
+        timeWatched: new Date().getTime(),
+    };
+    historyDb.insert(data, (err, newDoc) => {});
 }
 
 /**
-* Remove a video from the history database file
-*
-* @param {string} videoId - The video ID of the video to be removed.
-*
-* @return {Void}
-*/
-function removeFromHistory(videoId){
-  const data = {videoId: videoId};
-  historyDb.remove(data, {}, (err, numRemoved) => {});
+ * Remove a video from the history database file
+ *
+ * @param {string} videoId - The video ID of the video to be removed.
+ *
+ * @return {Void}
+ */
+function removeFromHistory(videoId) {
+    const data = {
+        videoId: videoId
+    };
+    historyDb.remove(data, {}, (err, numRemoved) => {});
 }
 
 /**
-* Show the videos within the history database.
-*
-* @return {Void}
-*/
-function showHistory(){
-  clearMainContainer();
-  startLoadingAnimation();
-  console.log('checking history');
+ * Show the videos within the history database.
+ *
+ * @return {Void}
+ */
+function showHistory() {
+    clearMainContainer();
+    startLoadingAnimation();
+    console.log('checking history');
 
-  let videoList = '';
+    let videoList = '';
 
-  historyDb.find({}).sort({
-    timeWatched: -1
-  }).exec((err, docs) => {
-    if(docs.length > 49){
-      // The YouTube API limits the search to 50 videos, so grab 50 most recent.
-      for (let i = 0; i < 49; i++) {
-        videoList = videoList + ',' + docs[i]['videoId'];
-      }
-    }
-    else{
-      docs.forEach((video) => {
-        videoList = videoList + ',' + video['videoId'];
-      });
-    }
+    historyDb.find({}).sort({
+        timeWatched: -1
+    }).exec((err, docs) => {
+        if (docs.length > 49) {
+            // The YouTube API limits the search to 50 videos, so grab 50 most recent.
+            for (let i = 0; i < 49; i++) {
+                videoList = videoList + ',' + docs[i]['videoId'];
+            }
+        } else {
+            docs.forEach((video) => {
+                videoList = videoList + ',' + video['videoId'];
+            });
+        }
 
-    youtubeAPI('videos', {
-      part: 'snippet',
-      id: videoList,
-      maxResults: 50,
-    }, function (data) {
-      createVideoListContainer('Watch History:');
-      let grabDuration = getDuration(data.items);
+        youtubeAPI('videos', {
+            part: 'snippet',
+            id: videoList,
+            maxResults: 50,
+        }, function (data) {
+            createVideoListContainer('Watch History:');
+            let grabDuration = getDuration(data.items);
 
-      grabDuration.then((videoList) => {
-        videoList.items.forEach((video) => {
-          displayVideo(video, 'history');
+            grabDuration.then((videoList) => {
+                videoList.items.forEach((video) => {
+                    displayVideo(video, 'history');
+                });
+            });
+            stopLoadingAnimation()
         });
-      });
-      stopLoadingAnimation()
     });
-  });
 }

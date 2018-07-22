@@ -14,54 +14,218 @@
     background: #262626;
 }
 
-body{background-color: #212121;}
-input[type=text] {color: #EEEEEE;}
-.sk-cube-grid .sk-cube {background-color: #f44336;}
-.searchBar ::-webkit-input-placeholder {color: #E0E0E0;}
-.topNav{background-color: #262626; -webkit-box-shadow: 0px -4px 20px 0px rgba(0,0,0,0.75);}
-.logo{color: #f44336;}
-.searchBar input{border-bottom: 1px solid #ddd;}
-.searchButton{color: #E0E0E0;}
-.jumpToInput{border-bottom: 1px solid #E0E0E0;}
-.message{color: #757575;}
-.videoDelete{color: white;}
-.channelViewImage{border: 0px solid white;}
-.channelViewName{color: #EEEEEE;}
-.channelViewSubs{color: #BDBDBD;}
-.channelViewDescription{color: #E0E0E0;}
-.channelSubButton{color: #E0E0E0; background-color: #f44336;}
-.videoTitle{color: #EEEEEE;}
-.channelName{color: #E0E0E0;}
-.videoDescription{color: #E0E0E0;}
-.statistics{background-color: #424242; color: #EEEEEE;}
-.views{color: #E0E0E0;}
-.details{background-color: #424242; color: #EEEEEE;}
-.playerSubButton{color: #E0E0E0; background-color: #f44336;}
-.smallButton{color: #E0E0E0; background-color: #757575;}
-.recommendDate{color: #E0E0E0;}
-.settingsButton {color: #BDBDBD; background-color: #424242;}
-.qualityTypes{color: #E0E0E0; background-color: #757575;}
-.speedTypes{color: #E0E0E0; background-color: #757575;}
-.unsaved{color: #E0E0E0;}
-.double-bounce1, .double-bounce2 {background-color: #f44336;}
-.videoOptions ul {background-color: #262626; color: white;}
-.videoOptions li:hover {background-color: #262626;}
-.videoOptions a {color: white;}
+body {
+    background-color: #212121;
+}
 
-#main{color: #EEEEEE;}
-#main hr{border-bottom: 1px solid #212121;}
-#subscriptions img{border: 0px solid white;}
-#sideNav{background-color: #262626; color: #E0E0E0; -webkit-box-shadow: 4px -2px 51px -6px rgba(0,0,0,0.75);}
-#sideNav hr{background-color: #f44336;}
-#sideNav li:hover{background-color: #212121;}
-#channelIcon{border: 0px solid white;}
-#channelName{color: #E0E0E0;}
-#publishDate{color: #E0E0E0;}
-#description{color: #E0E0E0;}
-#showComments{background-color: #757575; color: #E0E0E0;}
-#recommendations{color: #EEEEEE;}
-#videoListContainer{color: #EEEEEE;}
-#toast{background-color: #616161; color: white;}
-#confirmFunction{background-color: #616161; color: white;}
-#getNextPage{background-color: #616161}
-#comments{background-color: #424242;}
+input[type=text] {
+    color: #EEEEEE;
+}
+
+.sk-cube-grid .sk-cube {
+    background-color: #f44336;
+}
+
+.searchBar ::-webkit-input-placeholder {
+    color: #E0E0E0;
+}
+
+.topNav {
+    background-color: #262626;
+    -webkit-box-shadow: 0px -4px 20px 0px rgba(0, 0, 0, 0.75);
+}
+
+.logo {
+    color: #f44336;
+}
+
+.searchBar input {
+    border-bottom: 1px solid #ddd;
+}
+
+.searchButton {
+    color: #E0E0E0;
+}
+
+.jumpToInput {
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.message {
+    color: #757575;
+}
+
+.videoDelete {
+    color: white;
+}
+
+.channelViewImage {
+    border: 0px solid white;
+}
+
+.channelViewName {
+    color: #EEEEEE;
+}
+
+.channelViewSubs {
+    color: #BDBDBD;
+}
+
+.channelViewDescription {
+    color: #E0E0E0;
+}
+
+.channelSubButton {
+    color: #E0E0E0;
+    background-color: #f44336;
+}
+
+.videoTitle {
+    color: #EEEEEE;
+}
+
+.channelName {
+    color: #E0E0E0;
+}
+
+.videoDescription {
+    color: #E0E0E0;
+}
+
+.statistics {
+    background-color: #424242;
+    color: #EEEEEE;
+}
+
+.views {
+    color: #E0E0E0;
+}
+
+.details {
+    background-color: #424242;
+    color: #EEEEEE;
+}
+
+.playerSubButton {
+    color: #E0E0E0;
+    background-color: #f44336;
+}
+
+.smallButton {
+    color: #E0E0E0;
+    background-color: #757575;
+}
+
+.recommendDate {
+    color: #E0E0E0;
+}
+
+.settingsButton {
+    color: #BDBDBD;
+    background-color: #424242;
+}
+
+.qualityTypes {
+    color: #E0E0E0;
+    background-color: #757575;
+}
+
+.speedTypes {
+    color: #E0E0E0;
+    background-color: #757575;
+}
+
+.unsaved {
+    color: #E0E0E0;
+}
+
+.double-bounce1,
+.double-bounce2 {
+    background-color: #f44336;
+}
+
+.videoOptions ul {
+    background-color: #262626;
+    color: white;
+}
+
+.videoOptions li:hover {
+    background-color: #262626;
+}
+
+.videoOptions a {
+    color: white;
+}
+
+#main {
+    color: #EEEEEE;
+}
+
+#main hr {
+    border-bottom: 1px solid #212121;
+}
+
+#subscriptions img {
+    border: 0px solid white;
+}
+
+#sideNav {
+    background-color: #262626;
+    color: #E0E0E0;
+    -webkit-box-shadow: 4px -2px 51px -6px rgba(0, 0, 0, 0.75);
+}
+
+#sideNav hr {
+    background-color: #f44336;
+}
+
+#sideNav li:hover {
+    background-color: #212121;
+}
+
+#channelIcon {
+    border: 0px solid white;
+}
+
+#channelName {
+    color: #E0E0E0;
+}
+
+#publishDate {
+    color: #E0E0E0;
+}
+
+#description {
+    color: #E0E0E0;
+}
+
+#showComments {
+    background-color: #757575;
+    color: #E0E0E0;
+}
+
+#recommendations {
+    color: #EEEEEE;
+}
+
+#videoListContainer {
+    color: #EEEEEE;
+}
+
+#toast {
+    background-color: #616161;
+    color: white;
+}
+
+#confirmFunction {
+    background-color: #616161;
+    color: white;
+}
+
+#getNextPage {
+    background-color: #616161
+}
+
+#comments {
+    background-color: #424242;
+}
