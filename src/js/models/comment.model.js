@@ -21,9 +21,9 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
  * Video Comment Model
  */
 export class comment {
-    authorDisplayName: string;
-    authorProfileImageUrl: string;
-    authorChannelId: string;
-    textDisplay: string;
-    publishedAt: string;
+    authorDisplayName;
+    authorProfileImageUrl;
+    authorChannelId;
+    textDisplay;
+    publishedAt;
 }

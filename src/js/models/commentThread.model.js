@@ -17,17 +17,19 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 
 
 
-import {comment} from "./comment.model";
+import {
+    comment
+} from "./comment.model";
 
 /**
  * Entire Comment Threads for a Video
  */
 export class commentThread {
-    videoId: ?string;
-    nextPageToken: ?string;
-    pageInfo: {
-        totalResults: number,
-        resultsPerPage: number
+    videoId;
+    nextPageToken;
+    pageInfo = {
+        totalResults,
+        resultsPerPage
     };
-    items: comment[];
+    items;
 }
