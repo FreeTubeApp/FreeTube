@@ -1,4 +1,4 @@
-<!--
+/*
     This file is part of FreeTube.
 
     FreeTube is free software: you can redistribute it and/or modify
@@ -13,8 +13,28 @@
 
     You should have received a copy of the GNU General Public License
     along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
--->
-<li onclick='goToChannel("{{channelId}}")'>
-    <img src='{{channelIcon}}' /> {{channelName}}
-    <i class='fas fa-times' onclick='toggleSubscription("{{channelId}}")'></i>
-</li>
+*/
+
+let ft = {};
+
+/**
+ * 
+ * Use this function instead of console.log.
+ * This function logs the date, time and presents the
+ * information in a readable format
+ * 
+ * @param {*} data 
+ * 
+ * @returns {Void}
+ */
+ft.log = function (...data) {
+    let currentTime = new Date();
+    let time = currentTime.getDate() + "/" +
+        (currentTime.getMonth() + 1) + "/" +
+        currentTime.getFullYear() + "@" +
+        currentTime.getHours() + ":" +
+        currentTime.getMinutes() + ":" +
+        currentTime.getSeconds();
+
+    console.log('[' + time + '] ' + '[FREETUBE] ' + data);
+}

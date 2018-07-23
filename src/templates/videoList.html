@@ -20,7 +20,7 @@
         <i class="fas fa-ellipsis-v" onclick='showVideoOptions(this)'></i>
         <ul>
             <li onclick='playVideo("{{videoId}}", "", true); showVideoOptions(this.parentNode.previousSibling);'>Open (New Window)</li>
-            <li onclick='addSavedVideo("{{videoId}}"); showVideoOptions(this.parentNode.previousSibling);'>Save Video</li>
+            <li onclick='addSavedVideo("{{videoId}}"); showVideoOptions(this.parentNode.previousSibling);'>Favorite Video</li>
             <a href='https://youtube.com/watch?v={{videoId}}' onclick='showVideoOptions(this.parentNode.previousSibling);'>
                 <li>Open in YouTube</li>
             </a>

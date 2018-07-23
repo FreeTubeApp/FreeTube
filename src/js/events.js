@@ -15,28 +15,10 @@
     along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
-
 /*
  * File for events within application.  Work needs to be done throughout the application
  * to use this style more.  Please use this style going forward if possible.
  */
-
-/**
- * 
- * @param {*} data 
- */
-let freeTubeLog = function (...data) {
-    let currentTime = new Date();
-    let time = currentTime.getDate() + "/" +
-        (currentTime.getMonth() + 1) + "/" +
-        currentTime.getFullYear() + "@" +
-        currentTime.getHours() + ":" +
-        currentTime.getMinutes() + ":" +
-        currentTime.getSeconds();
-
-    console.log('[' + time + '] ' + '[FREETUBE] ' + data);
-}
 
 /**
  * Event when user clicks comment box,
@@ -84,12 +66,9 @@ let playPauseVideo = function (event) {
     el.paused ? el.play() : el.pause();
 };
 
-$('.videoPlayer').keypress((event) => {
-    console.log(event.which);
-});
 
 let videoShortcutHandler = function (event) {
-    console.log(event.which);
+
     let videoPlayer = $('.videoPlayer').get(0);
     if (typeof (videoPlayer) !== 'undefined' && !$('#jumpToInput').is(':focus') && !$('#search').is(':focus')) {
         switch (event.which) {
@@ -122,7 +101,7 @@ let videoShortcutHandler = function (event) {
             // M Key
             event.preventDefault();
             let volume = videoPlayer.volume;
-            console.log(volume);
+
             if (volume > 0) {
                 changeVolume(-1);
             } else {
@@ -225,6 +204,7 @@ let fullscreenVideo = function (event) {
  * Bind click events
  * --------------------------
  */
+
 $(document).on('click', '#showComments', showComments);
 
 $(document).on('click', '.videoPlayer', playPauseVideo);

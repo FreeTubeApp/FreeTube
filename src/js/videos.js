@@ -35,7 +35,7 @@ function search(nextPageToken = '') {
         clearMainContainer();
         startLoadingAnimation();
     } else {
-        console.log(nextPageToken);
+        ft.log('Next page token: ' + nextPageToken);
         showToast('Fetching results.  Please wait...');
     }
 
@@ -45,7 +45,7 @@ function search(nextPageToken = '') {
         pageToken: nextPageToken,
         maxResults: 25,
     }, function (data) {
-        console.log(data);
+        ft.log('Search Data: ' + data);
 
         let channels = data.items.filter((item) => {
             if (item.id.kind === 'youtube#channel') {
@@ -65,9 +65,9 @@ function search(nextPageToken = '') {
             }
         });
 
-        console.log(channels);
-        console.log(typeof (channels));
-        console.log(playlists);
+        ft.log('Channels: ' + channels);
+        ft.log('Typeof object above (channels) ^^' + typeof (channels));
+        ft.log('Playlists' + playlists);
 
         if (playlists.length > 0) {
             //displayPlaylists(playlists);
@@ -80,7 +80,7 @@ function search(nextPageToken = '') {
         let grabDuration = getDuration(videos);
 
         grabDuration.then((videoList) => {
-            console.log(videoList);
+            ft.log('Video Lists: ' + videoList);
             videoList.items.forEach(displayVideo);
         });
 
@@ -154,7 +154,7 @@ function displayVideo(video, listType = '') {
     const deleteHtml = () => {
         switch (listType) {
         case 'saved':
-            return `<li onclick="removeSavedVideo('${videoId}'); showSavedVideos();">Remove Saved Video</li>`;
+            return `<li onclick="removeSavedVideo('${videoId}'); showSavedVideos();">Remove From Favorites</li>`;
         case 'history':
             return `<li onclick="removeFromHistory('${videoId}'); showHistory();">Remove From History</li>`;
         }
@@ -198,17 +198,17 @@ function displayChannels(channels) {
         }
     });
 
-    console.log(channelIds);
+    ft.log('Channel IDs: ' + channelIds);
 
     youtubeAPI('channels', {
         part: 'snippet,statistics',
         id: channelIds,
     }, function (data) {
-        console.log(data);
+        ft.log('Channel Data: ' + data);
         let items = data['items'].reverse();
         const videoListTemplate = require('./templates/channelList.html');
 
-        console.log(items);
+        ft.log('Channel Items: ' + items);
 
         items.forEach((item) => {
             mustache.parse(videoListTemplate);
@@ -237,17 +237,17 @@ function displayPlaylists(playlists) {
         }
     });
 
-    console.log(playlistIds);
+    ft.log('Playlist IDs: ' + playlistIds);
 
     youtubeAPI('playlists', {
         part: 'snippet,contentDetails',
         id: playlistIds,
     }, function (data) {
-        console.log(data);
+        ft.log('Playlist Data: ' + data);
         let items = data['items'].reverse();
         const playlistListTemplate = require('./templates/playlistList.html');
 
-        console.log(items);
+        ft.log('Playlist Items: ' + items);
 
         items.forEach((item) => {
             let dateString = new Date(item.snippet.publishedAt);
@@ -356,27 +356,27 @@ function parseSearchText(url = '') {
 
     let match = input.match(rx);
 
-    console.log(match);
+    ft.log('Video ID: ' + match);
     let urlSplit = input.split('/');
     if (match) {
-        console.log('Video found');
+        ft.log('Video found');
         playVideo(match[2]);
     } else if (urlSplit[3] == 'channel') {
-        console.log('channel found');
+        ft.log('channel found');
         goToChannel(urlSplit[4]);
     } else if (urlSplit[3] == 'user') {
-        console.log('user found');
+        ft.log('user found');
         // call api to get the ID and then call goToChannel(id)
         youtubeAPI('channels', {
             part: 'id',
             forUsername: urlSplit[4]
         }, (data) => {
-            console.log(data.items[0].id);
+            ft.log('Channel Data: ' + data.items[0].id);
             let channelID = data.items[0].id;
             goToChannel(channelID);
         });
     } else {
-        console.log('Video not found');
+        ft.log('Video not found');
         search();
     }
 
@@ -454,11 +454,11 @@ function showMostPopular() {
         maxResults: 50,
     }, function (data) {
         createVideoListContainer('Most Popular:');
-        console.log(data);
+        ft.log('Most Popular: ' + data);
         let grabDuration = getDuration(data.items);
 
         grabDuration.then((videoList) => {
-            console.log(videoList);
+            ft.log('Video List: ' + videoList);
             videoList.items.forEach(displayVideo);
         });
         stopLoadingAnimation();
@@ -488,7 +488,7 @@ function copyLink(website, videoId) {
  * @return {promise} - The HTML of the embeded player
  */
 function getChannelAndPlayer(videoId) {
-    console.log(videoId);
+    ft.log('Video ID: ' + videoId);
     return new Promise((resolve, reject) => {
         youtubeAPI('videos', {
             part: 'snippet,player',
@@ -540,7 +540,7 @@ function checkVideoUrls(video480p, video720p) {
                 return;
                 break;
             default:
-                console.log('480p is valid');
+                ft.log('480p is valid');
                 if (currentQuality === '720p' && typeof (video720p) === 'undefined') {
                     changeQuality(video480p);
                 }
@@ -572,7 +572,7 @@ function checkVideoUrls(video480p, video720p) {
                 return;
                 break;
             default:
-                console.log('720p is valid');
+                ft.log('720p is valid');
                 break;
             }
         });

@@ -12,7 +12,7 @@
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
+    along with FreeTube.  If nsot, see <http://www.gnu.org/licenses/>.
 */
 
 
@@ -83,10 +83,10 @@ const settingsDb = new Datastore({
 checkDefaultSettings();
 
 require('electron').ipcRenderer.on('ping', function (event, message) {
-    console.log(message);
+    ft.log(message);
     let url = message[1].replace('freetube://', '');
     parseSearchText(url);
-    console.log(message);
+    ft.log(message);
 });
 
 // Open links externally by default

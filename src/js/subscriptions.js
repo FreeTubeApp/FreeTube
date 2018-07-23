@@ -29,12 +29,12 @@
  * @return {Void}
  */
 function addSubscription(channelId, useToast = true) {
-    console.log(channelId);
+    ft.log('Channel ID: ' + channelId);
     // Request YouTube API
     youtubeAPI('channels', {
         part: 'snippet',
         id: channelId,
-    }, function (data) {
+    }, (data) => {
         const channelInfo = data['items'][0]['snippet'];
         const channelName = channelInfo['title'];
         const thumbnail = channelInfo['thumbnails']['high']['url'];
@@ -82,7 +82,7 @@ function loadSubscriptions() {
     showToast('Getting Subscriptions.  Please wait...');
     const loading = document.getElementById('loading');
 
-    startLoadingAnimation()
+    startLoadingAnimation();
 
     let videoList = [];
 
@@ -95,7 +95,7 @@ function loadSubscriptions() {
 
         if (results.length > 0) {
             let counter = 0;
-
+           
             for (let i = 0; i < results.length; i++) {
                 channelId = results[i]['channelId'];
 
@@ -106,7 +106,7 @@ function loadSubscriptions() {
                     maxResults: 15,
                     order: 'date',
                 }, (data) => {
-                    console.log(data);
+
                     videoList = videoList.concat(data.items);
                     counter++;
                     if (counter === results.length) {
@@ -122,6 +122,7 @@ function loadSubscriptions() {
 
                         // The YouTube website limits the subscriptions to 100 before grabbing more so we only show 100
                         // to keep the app running at a good speed.
+
                         if (videoList.length < 50) {
                             let grabDuration = getDuration(videoList.slice(0, 49));
 
@@ -132,7 +133,7 @@ function loadSubscriptions() {
                                 stopLoadingAnimation();
                             });
                         } else {
-                            console.log(videoList);
+
                             let finishedList = [];
                             let firstBatchDuration = getDuration(videoList.slice(0, 49));
 

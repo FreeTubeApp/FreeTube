@@ -39,10 +39,10 @@ function addSavedVideo(videoId) {
             };
 
             savedVidsDb.insert(data, (err, newDoc) => {
-                showToast('Video has been saved!');
+                showToast('The video has been favorited!');
             });
         } else {
-            showToast('Video already exists in saved file.')
+            showToast('The video has already been favorited!')
         }
     });
 }
@@ -58,7 +58,7 @@ function removeSavedVideo(videoId, string) {
     savedVidsDb.remove({
         videoId: videoId
     }, {}, (err, numRemoved) => {
-        showToast('Video has been removed from saved list.');
+        showToast('Video has been removed from the favorites list.');
     });
 }
 
@@ -78,14 +78,14 @@ function toggleSavedVideo(videoId) {
 
     checkIfSaved.then((results) => {
         if (results === false) {
-            savedText.innerHTML = 'SAVED';
+            savedText.innerHTML = 'UNFAVORITE';
             saveIcon.classList.remove('far');
             saveIcon.classList.remove('unsaved');
             saveIcon.classList.add('fas');
             saveIcon.classList.add('saved');
             addSavedVideo(videoId);
         } else {
-            savedText.innerHTML = 'SAVE';
+            savedText.innerHTML = 'FAVORITE';
             saveIcon.classList.remove('fas');
             saveIcon.classList.remove('saved');
             saveIcon.classList.add('far');
@@ -124,7 +124,7 @@ function videoIsSaved(videoId) {
 function showSavedVideos() {
     clearMainContainer();
     startLoadingAnimation();
-    console.log('checking saved videos');
+    ft.log('Checking favorited videos');
 
     let videoList = '';
 
@@ -151,7 +151,7 @@ function showSavedVideos() {
             maxResults: 50,
         }, (data) => {
             // Render the videos to the screen
-            createVideoListContainer('Saved Videos:');
+            createVideoListContainer('Favorited Videos:');
             let grabDuration = getDuration(data.items);
             grabDuration.then((videoList) => {
                 videoList.items.forEach((video) => {

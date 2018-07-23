@@ -15,6 +15,8 @@
     along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+
+
 /**
  * List a YouTube HTTP API resource.
  *
@@ -34,9 +36,9 @@ function youtubeAPI(resource, params, success) {
                 success(JSON.parse(body));
             } else {
                 showToast('Unable to connect to the Tor network. Check the help page if you\'resss having trouble setting up your node.');
-                console.log(err);
-                console.log(res);
-                console.log(body);
+                ft.log('Tor Error: ' + err);
+                ft.log('Tor Error (Result): ' + res);
+                ft.log('Tor Error (body): ' + body);
                 stopLoadingAnimation();
             }
         });
@@ -47,9 +49,9 @@ function youtubeAPI(resource, params, success) {
             success
         ).fail((xhr, textStatus, error) => {
             showToast('There was an error calling the YouTube API.');
-            console.log(error);
-            console.log(xhr);
-            console.log(textStatus);
+            ft.log('YT API Error: ' + error);
+            ft.log('YT API Error - XHR: ' + xhr);
+            ft.log('YT API Error - Text Status: ' + textStatus);
             stopLoadingAnimation();
         });
     }
@@ -74,12 +76,12 @@ function youtubedlGetInfo(videoId, callback) {
         if (err) {
             showToast(err.message);
             stopLoadingAnimation();
-            console.log(err);
-            console.log(info);
+            ft.log('Error getting video download info: ' + err.message);
+            ft.log('Error getting video download info: ' + info);
             return;
         }
 
-        console.log('Success');
+        ft.log('Success');
         callback(info);
     });
 }

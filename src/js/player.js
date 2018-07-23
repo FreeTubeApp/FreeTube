@@ -66,10 +66,10 @@ function playVideo(videoId, videoThumbnail = '', useWindowPlayer = false) {
     // Change the save button icon and text depending on if the user has saved the video or not.
     checkSavedVideo.then((results) => {
         if (results === false) {
-            savedText = 'SAVE';
+            savedText = 'FAVORITE';
             savedIconClass = 'far unsaved';
         } else {
-            savedText = 'SAVED';
+            savedText = 'UNFAVORITE';
             savedIconClass = 'fas saved';
         }
     });
@@ -78,7 +78,6 @@ function playVideo(videoId, videoThumbnail = '', useWindowPlayer = false) {
         part: 'statistics',
         id: videoId,
     }, function (data) {
-        console.log(data);
 
         // Figure out the width for the like/dislike bar.
         videoLikes = data['items'][0]['statistics']['likeCount'];
@@ -91,9 +90,6 @@ function playVideo(videoId, videoThumbnail = '', useWindowPlayer = false) {
      * FreeTube calls youtube-dl to grab the direct video URL.
      */
     youtubedlGetInfo(videoId, (info) => {
-        console.log(info);
-
-        console.log(videoLikes);
 
         channelId = info['author']['id'];
         let channelThumbnail = info['author']['avatar'];
@@ -119,11 +115,11 @@ function playVideo(videoId, videoThumbnail = '', useWindowPlayer = false) {
             switch (videoUrls[key]['itag']) {
             case '18':
                 video480p = decodeURIComponent(videoUrls[key]['url']);
-                console.log(video480p);
+                ft.log('480p Video: ' + video480p);
                 break;
             case '22':
                 video720p = decodeURIComponent(videoUrls[key]['url']);
-                console.log(video720p);
+                ft.log('720p Video: ' + video720p);
                 break;
             }
         });
@@ -322,8 +318,8 @@ function changeQuality(videoHtml, qualityType, isEmbed = false) {
 
     videoHtml = videoHtml.replace(/\&quot\;/g, '"');
 
-    console.log(videoHtml);
-    console.log(isEmbed);
+    ft.log('HTML Video: ' + videoHtml);
+    ft.log('(Is the video embeded?) isEmbed: ' + isEmbed);
 
     // The YouTube API creates 2 more iFrames.  This is why a boolean value is sent
     // with the function.
@@ -331,8 +327,8 @@ function changeQuality(videoHtml, qualityType, isEmbed = false) {
 
     const html5Player = document.getElementsByClassName('videoPlayer');
 
-    console.log(embedPlayer);
-    console.log(html5Player);
+    ft.log('Embeded Player Element: ' + embedPlayer);
+    ft.log('HTML5 Player Element: ' + html5Player);
 
     if (isEmbed && html5Player.length == 0) {
         // The embeded player is already playing.  Return.

@@ -22,7 +22,7 @@
  */
 
 // To any third party devs that fork the project, please be ethical and change the API keys.
-const apiKeyBank = ['AIzaSyC9E579nh_qqxg6BH4xIce3k_7a9mT4uQc', 'AIzaSyCKplYT6hZIlm2O9FbWTi1G7rkpsLNTq78', 'AIzaSyAE5xzh5GcA_tEDhXmMFd1pEzrL-W7z51E', 'AIzaSyDoFzqwuO9l386eF6BmNkVapjiTJ93CBy4', 'AIzaSyBljfZFPioB0TRJAj-0LS4tlIKl2iucyY4'];
+const apiKeyBank = ['AIzaSyBSlQFtEDeJ7Jmxx-CDWdsYf8IA5Jsi3J4'];
 
 /**
  * Display the settings screen to the user.
@@ -98,7 +98,7 @@ function checkDefaultSettings() {
         'useTor': false
     };
 
-    console.log(settingDefaults);
+    ft.log('Default Settings: ' + settingDefaults);
 
     for (let key in settingDefaults) {
         settingsDb.find({
@@ -149,13 +149,13 @@ function updateSettings() {
 
     apiKey = apiKeyBank[Math.floor(Math.random() * apiKeyBank.length)];
 
-    console.log(themeSwitch);
+    ft.log('(Is the theme switch checked) themeSwitch: ' + themeSwitch);
 
     if (themeSwitch === true) {
         theme = 'dark';
     }
 
-    console.log(theme);
+    ft.log('Theme: ' + theme);
 
     // Update default theme
     settingsDb.update({
@@ -163,8 +163,8 @@ function updateSettings() {
     }, {
         value: theme
     }, {}, function (err, numReplaced) {
-        console.log(err);
-        console.log(numReplaced);
+        ft.log('Error while updating theme: ' + err);
+        ft.log('Number replaced: ' + numReplaced);
     });
 
     // Update tor usage.
@@ -173,8 +173,8 @@ function updateSettings() {
     }, {
         value: torSwitch
     }, {}, function (err, numReplaced) {
-        console.log(err);
-        console.log(numReplaced);
+        ft.log('Error while connecting to tor: ' + err);
+        ft.log('Number replaced: ' + numReplaced);
         useTor = torSwitch;
     });
 
@@ -294,13 +294,13 @@ function importSubscriptions() {
         }, ]
     }, function (fileLocation) {
         if (typeof (fileLocation) === 'undefined') {
-            console.log('Import Aborted');
+            ft.log('Import Aborted');
             return;
         }
-        console.log(fileLocation);
+        ft.log('File Location: ' + fileLocation);
         let i = fileLocation[0].lastIndexOf('.');
         let fileType = (i < 0) ? '' : fileLocation[0].substr(i);
-        console.log(fileType);
+        ft.log('File Type: ' + fileType);
 
         /*if (fileType !== '.db'){
           showToast('Incorrect filetype.  Import was unsuccessful.');
@@ -371,9 +371,9 @@ function exportSubscriptions() {
             extensions: ['db']
         }, ]
     }, function (fileLocation) {
-        console.log(fileLocation);
+        ft.log('File Location: ' + fileLocation);
         if (typeof (fileLocation) === 'undefined') {
-            console.log('Export Aborted');
+            ft.log('Export Aborted');
             return;
         }
         fs.readFile(appDatabaseFile, function (readErr, data) {
@@ -396,7 +396,7 @@ function exportSubscriptions() {
  * @param {string} type - The type of file to be cleared.
  */
 function clearFile(type, showMessage = true) {
-    console.log(type);
+    ft.log('File Type: ' + type);
     let dataBaseFile;
 
     switch (type) {

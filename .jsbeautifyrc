@@ -30,7 +30,7 @@
         "break_chained_methods": false,
         "e4x": false,
         "end_with_newline": false,
-        "indent_char": "",
+        "indent_char": " ",
         "indent_level": 0,
         "indent_size": 4,
         "indent_with_tabs": false,

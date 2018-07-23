@@ -58,7 +58,6 @@ function removeFromHistory(videoId) {
 function showHistory() {
     clearMainContainer();
     startLoadingAnimation();
-    console.log('checking history');
 
     let videoList = '';
 

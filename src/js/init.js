@@ -28,6 +28,7 @@ const {
 } = require('electron');
 const path = require('path');
 const url = require('url');
+
 let win;
 
 protocol.registerStandardSchemes(['freetube']);

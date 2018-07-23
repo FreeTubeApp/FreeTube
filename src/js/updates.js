@@ -15,7 +15,7 @@
     along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
+// import {freeTubeLog} from './events.js';
 
 /*
  * A file for checking / managing updates
@@ -39,7 +39,7 @@ const openReleasePage = function () {
   updateChecker(options, function(error, update) { // callback function
     if (error){
       showToast('There was a problem with checking for updates');
-      console.log(error);
+      freeTubeLog(error);
     }
     if (update) { // print some update info if an update is available
       confirmFunction(update.name + ' is now available! Would you like to download the update?', openReleasePage);
