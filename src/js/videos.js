@@ -466,7 +466,7 @@ function showMostPopular() {
 }
 
 /**
- * Create a link of the video to HookTube or YouTube and copy it to the user's clipboard.
+ * Create a link of the video to Invidious or YouTube and copy it to the user's clipboard.
  *
  * @param {string} website - The website to watch the video on.
  * @param {string} videoId - The video ID of the video to add to the URL
@@ -475,9 +475,20 @@ function showMostPopular() {
  */
 function copyLink(website, videoId) {
     // Create the URL and copy to the clipboard.
-    const url = 'https://' + website + '.com/watch?v=' + videoId;
-    clipboard.writeText(url);
-    showToast('URL has been copied to the clipboard');
+    if (website == "youtube") {
+        const url = 'https://' + website + '.com/watch?v=' + videoId;
+        clipboard.writeText(url);
+        showToast('URL has been copied to the clipboard');
+    }
+
+    if (website == "invidious") {
+        website = "invidio";
+        const url = "https://" + website + ".us/watch?v=" + videoId;
+        clipboard.writeText(url);
+        showToast('URL has been copied to the clipboard');
+    }
+
+
 }
 
 /**
