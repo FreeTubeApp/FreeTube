@@ -22,7 +22,7 @@
  */
 
 // To any third party devs that fork the project, please be ethical and change the API keys.
-const apiKeyBank = ['AIzaSyBSlQFtEDeJ7Jmxx-CDWdsYf8IA5Jsi3J4'];
+const apiKeyBank = ['AIzaSyC9E579nh_qqxg6BH4xIce3k_7a9mT4uQc', 'AIzaSyCKplYT6hZIlm2O9FbWTi1G7rkpsLNTq78', 'AIzaSyAE5xzh5GcA_tEDhXmMFd1pEzrL-W7z51E', 'AIzaSyDoFzqwuO9l386eF6BmNkVapjiTJ93CBy4', 'AIzaSyBljfZFPioB0TRJAj-0LS4tlIKl2iucyY4'];
 
 /**
  * Display the settings screen to the user.
