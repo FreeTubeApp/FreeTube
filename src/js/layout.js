@@ -81,7 +81,8 @@ $(document).ready(() => {
 
   // Display subscriptions upon the app opening up.  May allow user to specify.
   // Home page in the future.
-  //loadSubscriptions();
+  loadingView.seen = true;
+  loadSubscriptions();
 });
 
 /**

@@ -249,7 +249,7 @@ let channelView = new Vue({
   methods: {
     subscription: (channelId) => {
       toggleSubscription(channelId);
-    }
+    },
   },
   template: channelTemplate
 });
@@ -261,7 +261,7 @@ let channelVideosView = new Vue({
     isSearch: false,
     videoList: []
   },
-  method: {
+  methods: {
     play: (videoId) => {
       loadingView.seen = true;
       playVideo(videoId);
@@ -299,6 +299,7 @@ let playerView = new Vue({
     likePercentage: 0,
     videoLikes: 0,
     videoDislikes: 0,
+    playerSeen: true,
     recommendedVideoList: []
   },
   methods: {
@@ -311,6 +312,23 @@ let playerView = new Vue({
     quality: (url, qualityText) => {
       console.log(url);
       console.log(qualityText);
+      if(playerView.playerSeen === true){
+        // Update time to new url
+        const currentPlayBackTime = $('.videoPlayer').get(0).currentTime;
+        console.log(currentPlayBackTime);
+        playerView.videoUrl = url;
+        playerView.currentQuality = qualityText;
+        setTimeout(() => {$('.videoPlayer').get(0).currentTime = currentPlayBackTime;}, 100);
+      }
+      else{
+        playerView.playerSeen = true;
+        playerView.videoUrl = url;
+        playerView.currentQuality = qualityText;
+      }
+    },
+    embededPlayer: () => {
+      playerView.playerSeen = false;
+      playerView.currentQuality = 'EMBED';
     },
     copy: (site, videoId) => {
       const url = 'https://' + site + '.com/watch?v=' + videoId;

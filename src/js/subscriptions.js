@@ -81,7 +81,7 @@ function removeSubscription(channelId) {
  * @return {Void}
  */
 function loadSubscriptions() {
-  if (checkSubscriptions === false){
+  if (checkSubscriptions === false && subscriptionView.videoList.length > 0){
     console.log('Will not load subscriptions. Timer still on.');
     return;
   }

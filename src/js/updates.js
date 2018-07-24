@@ -24,7 +24,7 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
  const updateChecker = require('github-version-checker');
 
  const options = {
-   token: 'USERACCESSTOKEN', // personal access token.  Github will not allow commiting the access token, which is why this is blank.
+   token: '001eebf296fd55691260473057aabc159a51bdfc', // personal access token.  Github will not allow commiting the access token, which is why this is blank.
    repo: 'freetube', // repository name
    owner: 'freetubeapp', // repository owner
    currentVersion: require('electron').remote.app.getVersion(), // your app's current version

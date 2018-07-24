@@ -1,6 +1,11 @@
 <div v-if='seen'>
-  <video class="videoPlayer" type="application/x-mpegURL" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" :src='videoUrl' :poster="videoThumbnail" v-html="subtitleHtml" autoplay>
-  </video>
+  <div v-if='playerSeen'>
+    <video class="videoPlayer" type="application/x-mpegURL" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" :src='videoUrl' :poster="videoThumbnail" v-html="subtitleHtml" autoplay>
+    </video>
+  </div>
+  <div v-else>
+    <span v-html="embededHtml"></span>
+  </div>
   <div class='statistics'>
     <div onclick='openMiniPlayer()' class='smallButton' >
       MINI PLAYER <i class="fas fa-external-link-alt"></i>
@@ -11,7 +16,7 @@
         <ul>
           <li id='quality480p' v-on:click='quality(video480p, "480p")'>480p</li>
           <li id='quality720p' v-on:click='quality(video720p, "720p")'>720p</li>
-          <li id='qualityEmbed' v-on:click='quality(embededPlayer, "EMBED")'>EMBED</li>
+          <li id='qualityEmbed' v-on:click='embededPlayer()'>EMBED</li>
         </ul>
       </div>
     </div>
