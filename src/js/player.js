@@ -329,7 +329,7 @@ function openMiniPlayer() {
  *
  * @return {Void}
  */
-function changeQuality(videoHtml, qualityType, isEmbed = false) {
+function changeQuality(url, qualityText, isEmbed = false) {
   if (videoHtml == '') {
     showToast('Video quality type is not available.  Unable to change quality.')
     return;

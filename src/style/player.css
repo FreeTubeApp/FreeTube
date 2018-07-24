@@ -23,8 +23,19 @@ iframe {
   cursor: pointer;
 }
 
-.videoThumbnail img{
+.videoThumbnail img {
   width: 100%;
+}
+
+.videoThumbnail i {
+  float: right;
+  color: white;
+  background-color: black;
+  padding: 6px;
+  opacity: 0.7;
+  position: relative;
+  bottom: 159px;
+  left: 36px;
 }
 
 .channelThumbnail {
@@ -48,8 +59,6 @@ iframe {
 }
 
 .videoOptions i {
-  text-align: right;
-  width: 50px;
   cursor: pointer;
 }
 

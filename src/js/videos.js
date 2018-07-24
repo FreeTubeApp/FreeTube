@@ -184,21 +184,27 @@ function displayVideo(videoData, listType = '') {
   switch (listType) {
     case 'subscriptions':
       subscriptionView.videoList = subscriptionView.videoList.concat(video);
+      video.removeFromSave = true;
       break;
     case 'search':
       searchView.videoList = searchView.videoList.concat(video);
+      video.removeFromSave = false;
       break;
     case 'popular':
       popularView.videoList = popularView.videoList.concat(video);
+      video.removeFromSave = false;
       break;
     case 'saved':
       savedView.videoList = savedView.videoList.concat(video);
+      video.removeFromSave = false;
       break;
     case 'history':
       historyView.videoList = historyView.videoList.concat(video);
+      video.removeFromSave = false;
       break;
     case 'channel':
       channelVideosView.videoList = channelVideosView.videoList.concat(video);
+      video.removeFromSave = false;
       break;
   }
 

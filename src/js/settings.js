@@ -57,7 +57,7 @@ function updateSettingsView() {
 
     // Grab the settings.html template to prepare for rendering
     /*const settingsTemplate = require('./templates/settings.html')
-    mustache.parse(settingsTemplate);
+    mustache.parse(settingsTemplate
     const rendered = mustache.render(settingsTemplate, {
       isChecked: isChecked,
       key: key,
@@ -123,6 +123,9 @@ function checkDefaultSettings() {
             if (apiKeyBank.indexOf(docs[0]['value']) == -1) {
               settingsView.apiKey = docs[0]['value'];
             }
+            else{
+              settingsView.apiKey = settingDefaults.apiKey;
+            }
             break;
           case 'useTor':
             useTor = docs[0]['value'];
@@ -177,7 +180,7 @@ function updateSettings() {
     useTor = torSwitch;
   });
 
-  if (key != '') {
+  if (key !== '') {
     settingsDb.update({
       _id: 'apiKey'
     }, {
