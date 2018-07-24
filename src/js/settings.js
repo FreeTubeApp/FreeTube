@@ -98,7 +98,7 @@ function checkDefaultSettings() {
         'useTor': false
     };
 
-    ft.log('Default Settings: ' + settingDefaults);
+    ft.log('Default Settings: ', settingDefaults);
 
     for (let key in settingDefaults) {
         settingsDb.find({
@@ -149,13 +149,13 @@ function updateSettings() {
 
     apiKey = apiKeyBank[Math.floor(Math.random() * apiKeyBank.length)];
 
-    ft.log('(Is the theme switch checked) themeSwitch: ' + themeSwitch);
+    ft.log('(Is the theme switch checked) themeSwitch: ', themeSwitch);
 
     if (themeSwitch === true) {
         theme = 'dark';
     }
 
-    ft.log('Theme: ' + theme);
+    ft.log('Theme: ', theme);
 
     // Update default theme
     settingsDb.update({
@@ -163,8 +163,8 @@ function updateSettings() {
     }, {
         value: theme
     }, {}, function (err, numReplaced) {
-        ft.log('Error while updating theme: ' + err);
-        ft.log('Number replaced: ' + numReplaced);
+        ft.log('Error while updating theme: ', err);
+        ft.log('Number replaced: ', numReplaced);
     });
 
     // Update tor usage.
@@ -173,8 +173,8 @@ function updateSettings() {
     }, {
         value: torSwitch
     }, {}, function (err, numReplaced) {
-        ft.log('Error while connecting to tor: ' + err);
-        ft.log('Number replaced: ' + numReplaced);
+        ft.log('Error while connecting to tor: ', err);
+        ft.log('Number replaced: ', numReplaced);
         useTor = torSwitch;
     });
 
@@ -297,10 +297,10 @@ function importSubscriptions() {
             ft.log('Import Aborted');
             return;
         }
-        ft.log('File Location: ' + fileLocation);
+        ft.log('File Location: ', fileLocation);
         let i = fileLocation[0].lastIndexOf('.');
         let fileType = (i < 0) ? '' : fileLocation[0].substr(i);
-        ft.log('File Type: ' + fileType);
+        ft.log('File Type: ', fileType);
 
         /*if (fileType !== '.db'){
           showToast('Incorrect filetype.  Import was unsuccessful.');
@@ -371,7 +371,7 @@ function exportSubscriptions() {
             extensions: ['db']
         }, ]
     }, function (fileLocation) {
-        ft.log('File Location: ' + fileLocation);
+        ft.log('File Location: ', fileLocation);
         if (typeof (fileLocation) === 'undefined') {
             ft.log('Export Aborted');
             return;
@@ -396,7 +396,7 @@ function exportSubscriptions() {
  * @param {string} type - The type of file to be cleared.
  */
 function clearFile(type, showMessage = true) {
-    ft.log('File Type: ' + type);
+    ft.log('File Type: ', type);
     let dataBaseFile;
 
     switch (type) {

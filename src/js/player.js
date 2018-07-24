@@ -115,11 +115,11 @@ function playVideo(videoId, videoThumbnail = '', useWindowPlayer = false) {
             switch (videoUrls[key]['itag']) {
             case '18':
                 video480p = decodeURIComponent(videoUrls[key]['url']);
-                ft.log('480p Video: ' + video480p);
+                ft.log('480p Video: ', video480p);
                 break;
             case '22':
                 video720p = decodeURIComponent(videoUrls[key]['url']);
-                ft.log('720p Video: ' + video720p);
+                ft.log('720p Video: ', video720p);
                 break;
             }
         });
@@ -318,8 +318,8 @@ function changeQuality(videoHtml, qualityType, isEmbed = false) {
 
     videoHtml = videoHtml.replace(/\&quot\;/g, '"');
 
-    ft.log('HTML Video: ' + videoHtml);
-    ft.log('(Is the video embeded?) isEmbed: ' + isEmbed);
+    ft.log('HTML Video: ', videoHtml);
+    ft.log('(Is the video embeded?) isEmbed: ', isEmbed);
 
     // The YouTube API creates 2 more iFrames.  This is why a boolean value is sent
     // with the function.
@@ -327,8 +327,8 @@ function changeQuality(videoHtml, qualityType, isEmbed = false) {
 
     const html5Player = document.getElementsByClassName('videoPlayer');
 
-    ft.log('Embeded Player Element: ' + embedPlayer);
-    ft.log('HTML5 Player Element: ' + html5Player);
+    ft.log('Embeded Player Element: ', embedPlayer);
+    ft.log('HTML5 Player Element: ', html5Player);
 
     if (isEmbed && html5Player.length == 0) {
         // The embeded player is already playing.  Return.

@@ -29,7 +29,7 @@
  * @return {Void}
  */
 function addSubscription(channelId, useToast = true) {
-    ft.log('Channel ID: ' + channelId);
+    ft.log('Channel ID: ', channelId);
     // Request YouTube API
     youtubeAPI('channels', {
         part: 'snippet',

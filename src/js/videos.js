@@ -35,7 +35,7 @@ function search(nextPageToken = '') {
         clearMainContainer();
         startLoadingAnimation();
     } else {
-        ft.log('Next page token: ' + nextPageToken);
+        ft.log('Next page token: ', nextPageToken);
         showToast('Fetching results.  Please wait...');
     }
 
@@ -45,7 +45,7 @@ function search(nextPageToken = '') {
         pageToken: nextPageToken,
         maxResults: 25,
     }, function (data) {
-        ft.log('Search Data: ' + data);
+        ft.log('Search Data: ', data);
 
         let channels = data.items.filter((item) => {
             if (item.id.kind === 'youtube#channel') {
@@ -65,9 +65,9 @@ function search(nextPageToken = '') {
             }
         });
 
-        ft.log('Channels: ' + channels);
-        ft.log('Typeof object above (channels) ^^' + typeof (channels));
-        ft.log('Playlists' + playlists);
+        ft.log('Channels: ', channels);
+        ft.log('Typeof object above (channels) ^^', typeof (channels));
+        ft.log('Playlists', playlists);
 
         if (playlists.length > 0) {
             //displayPlaylists(playlists);
@@ -80,7 +80,7 @@ function search(nextPageToken = '') {
         let grabDuration = getDuration(videos);
 
         grabDuration.then((videoList) => {
-            ft.log('Video Lists: ' + videoList);
+            ft.log('Video Lists: ', videoList);
             videoList.items.forEach(displayVideo);
         });
 
@@ -198,17 +198,17 @@ function displayChannels(channels) {
         }
     });
 
-    ft.log('Channel IDs: ' + channelIds);
+    ft.log('Channel IDs: ', channelIds);
 
     youtubeAPI('channels', {
         part: 'snippet,statistics',
         id: channelIds,
     }, function (data) {
-        ft.log('Channel Data: ' + data);
+        ft.log('Channel Data: ', data);
         let items = data['items'].reverse();
         const videoListTemplate = require('./templates/channelList.html');
 
-        ft.log('Channel Items: ' + items);
+        ft.log('Channel Items: ', items);
 
         items.forEach((item) => {
             mustache.parse(videoListTemplate);
@@ -237,17 +237,17 @@ function displayPlaylists(playlists) {
         }
     });
 
-    ft.log('Playlist IDs: ' + playlistIds);
+    ft.log('Playlist IDs: ', playlistIds);
 
     youtubeAPI('playlists', {
         part: 'snippet,contentDetails',
         id: playlistIds,
     }, function (data) {
-        ft.log('Playlist Data: ' + data);
+        ft.log('Playlist Data: ', data);
         let items = data['items'].reverse();
         const playlistListTemplate = require('./templates/playlistList.html');
 
-        ft.log('Playlist Items: ' + items);
+        ft.log('Playlist Items: ', items);
 
         items.forEach((item) => {
             let dateString = new Date(item.snippet.publishedAt);
@@ -356,7 +356,7 @@ function parseSearchText(url = '') {
 
     let match = input.match(rx);
 
-    ft.log('Video ID: ' + match);
+    ft.log('Video ID: ', match);
     let urlSplit = input.split('/');
     if (match) {
         ft.log('Video found');
@@ -371,7 +371,7 @@ function parseSearchText(url = '') {
             part: 'id',
             forUsername: urlSplit[4]
         }, (data) => {
-            ft.log('Channel Data: ' + data.items[0].id);
+            ft.log('Channel Data: ', data.items[0].id);
             let channelID = data.items[0].id;
             goToChannel(channelID);
         });
@@ -454,11 +454,11 @@ function showMostPopular() {
         maxResults: 50,
     }, function (data) {
         createVideoListContainer('Most Popular:');
-        ft.log('Most Popular: ' + data);
+        ft.log('Most Popular: ', data);
         let grabDuration = getDuration(data.items);
 
         grabDuration.then((videoList) => {
-            ft.log('Video List: ' + videoList);
+            ft.log('Video List: ', videoList);
             videoList.items.forEach(displayVideo);
         });
         stopLoadingAnimation();
@@ -499,7 +499,7 @@ function copyLink(website, videoId) {
  * @return {promise} - The HTML of the embeded player
  */
 function getChannelAndPlayer(videoId) {
-    ft.log('Video ID: ' + videoId);
+    ft.log('Video ID: ', videoId);
     return new Promise((resolve, reject) => {
         youtubeAPI('videos', {
             part: 'snippet,player',

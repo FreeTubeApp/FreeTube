@@ -20,8 +20,7 @@ let ft = {};
 /**
  * 
  * Use this function instead of console.log.
- * This function logs the date, time and presents the
- * information in a readable format
+ * This function logs the date, time and presents the information in a readable format
  * 
  * @param {*} data 
  * 
@@ -36,5 +35,5 @@ ft.log = function (...data) {
         currentTime.getMinutes() + ":" +
         currentTime.getSeconds();
 
-    console.log('[' + time + '] ' + '[FREETUBE] ' + data);
+    console.log('[' + time + '] ' + '[FREETUBE]', data);
 }
