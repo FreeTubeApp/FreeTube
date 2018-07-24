@@ -1,18 +1,18 @@
 /*
-This file is part of FreeTube.
+    This file is part of FreeTube.
 
-FreeTube is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+    FreeTube is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
 
-FreeTube is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+    FreeTube is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License
-along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
+    You should have received a copy of the GNU General Public License
+    along with FreeTube.  If nsot, see <http://www.gnu.org/licenses/>.
 */
 
 
@@ -54,73 +54,73 @@ let dialog = electron.remote.dialog; // Used for opening file browser to export 
 let toastTimeout; // Timeout for toast notifications.
 let mouseTimeout; // Timeout for hiding the mouse cursor on video playback
 
-require.extensions['.html'] = function(module, filename) {
-  module.exports = fs.readFileSync(filename, 'utf8');
+require.extensions['.html'] = function (module, filename) {
+    module.exports = fs.readFileSync(filename, 'utf8');
 };
 
 const subDb = new Datastore({
-  filename: localDataStorage + '/subscriptions.db',
-  autoload: true
+    filename: localDataStorage + '/subscriptions.db',
+    autoload: true
 });
 
 const historyDb = new Datastore({
-  filename: localDataStorage + '/videohistory.db',
-  autoload: true
+    filename: localDataStorage + '/videohistory.db',
+    autoload: true
 });
 
 const savedVidsDb = new Datastore({
-  filename: localDataStorage + '/savedvideos.db',
-  autoload: true
+    filename: localDataStorage + '/savedvideos.db',
+    autoload: true
 });
 
 const settingsDb = new Datastore({
-  filename: localDataStorage + '/settings.db',
-  autoload: true
+    filename: localDataStorage + '/settings.db',
+    autoload: true
 });
 
 // Grabs the default settings from the settings database file.  Makes defaults if
 // none are found.
 checkDefaultSettings();
 
-require('electron').ipcRenderer.on('ping', function(event, message) {
-    console.log(message);
+require('electron').ipcRenderer.on('ping', function (event, message) {
+    ft.log(message);
     let url = message[1].replace('freetube://', '');
     parseSearchText(url);
-    console.log(message);
+    ft.log(message);
 });
 
 // Open links externally by default
 $(document).on('click', 'a[href^="http"]', (event) => {
-  let el = event.currentTarget;
-  event.preventDefault();
-  shell.openExternal(el.href);
+    let el = event.currentTarget;
+    event.preventDefault();
+    shell.openExternal(el.href);
 });
 
 // Open links externally on middle click.
 $(document).on('auxclick', 'a[href^="http"]', (event) => {
-  let el = event.currentTarget;
-  event.preventDefault();
-  shell.openExternal(el.href);
+    let el = event.currentTarget;
+    event.preventDefault();
+    shell.openExternal(el.href);
 });
 
 
 $(document).ready(() => {
-  const searchBar = document.getElementById('search');
-  const jumpToInput = document.getElementById('jumpToInput');
+    const searchBar = document.getElementById('search');
+    const jumpToInput = document.getElementById('jumpToInput');
 
-  // Displays the list of subscriptions in the side bar.
-  displaySubs();
+    // Displays the list of subscriptions in the side bar.
+    displaySubs();
 
-  // Allow user to use the 'enter' key to search for a video.
-  searchBar.onkeypress = (e) => {
-    if (e.keyCode === 13) {
-      parseSearchText();
-    }
-  };
+    // Allow user to use the 'enter' key to search for a video.
+    searchBar.onkeypress = (e) => {
+        if (e.keyCode === 13) {
+            parseSearchText();
+        }
+    };
 
-  // Display subscriptions upon the app opening up.  May allow user to specify.
-  // Home page in the future.
-  loadSubscriptions();
+    // Display subscriptions upon the app opening up.  May allow user to specify.
+    // Home page in the future.
+    loadSubscriptions();
 });
 
 /**
@@ -129,16 +129,16 @@ $(document).ready(() => {
  * @return {Void}
  */
 function toggleSideNavigation() {
-  const sideNav = document.getElementById('sideNav');
-  const mainContainer = document.getElementById('main');
+    const sideNav = document.getElementById('sideNav');
+    const mainContainer = document.getElementById('main');
 
-  if (sideNav.style.display === 'none') {
-    sideNav.style.display = 'inline';
-    mainContainer.style.marginLeft = '250px';
-  } else {
-    sideNav.style.display = 'none';
-    mainContainer.style.marginLeft = '0px';
-  }
+    if (sideNav.style.display === 'none') {
+        sideNav.style.display = 'inline';
+        mainContainer.style.marginLeft = '250px';
+    } else {
+        sideNav.style.display = 'none';
+        mainContainer.style.marginLeft = '0px';
+    }
 }
 
 /**
@@ -147,35 +147,35 @@ function toggleSideNavigation() {
  * @return {Void}
  */
 function clearMainContainer() {
-  const container = document.getElementById('main');
-  container.innerHTML = '';
-  hideConfirmFunction();
+    const container = document.getElementById('main');
+    container.innerHTML = '';
+    hideConfirmFunction();
 }
 
 function startLoadingAnimation() {
-  const loading = document.getElementById('loading');
-  const sideNavDisabled = document.getElementById('sideNavDisabled');
-  const searchBar = document.getElementById('search');
+    const loading = document.getElementById('loading');
+    const sideNavDisabled = document.getElementById('sideNavDisabled');
+    const searchBar = document.getElementById('search');
 
-  loading.style.display = 'inherit';
-  if(sideNavDisabled !== null){
-    sideNavDisabled.style.display = 'inherit';
-  }
+    loading.style.display = 'inherit';
+    if (sideNavDisabled !== null) {
+        sideNavDisabled.style.display = 'inherit';
+    }
 
-  searchBar.disabled = true;
+    searchBar.disabled = true;
 }
 
 function stopLoadingAnimation() {
-  const loading = document.getElementById('loading');
-  const sideNavDisabled = document.getElementById('sideNavDisabled');
-  const searchBar = document.getElementById('search');
+    const loading = document.getElementById('loading');
+    const sideNavDisabled = document.getElementById('sideNavDisabled');
+    const searchBar = document.getElementById('search');
 
-  loading.style.display = 'none';
-  if(sideNavDisabled !== null){
-    sideNavDisabled.style.display = 'none';
-  }
+    loading.style.display = 'none';
+    if (sideNavDisabled !== null) {
+        sideNavDisabled.style.display = 'none';
+    }
 
-  searchBar.disabled = false;
+    searchBar.disabled = false;
 }
 
 /**
@@ -186,17 +186,17 @@ function stopLoadingAnimation() {
  * @return {Void}
  */
 function createVideoListContainer(headerLabel = '') {
-  const videoListContainer = document.createElement("div");
-  videoListContainer.id = 'videoListContainer';
-  let headerSpacer;
-  if (headerLabel != '') {
-    const headerElement = document.createElement("h2");
-    headerElement.innerHTML = headerLabel;
-    headerElement.style.marginLeft = '15px';
-    headerElement.appendChild(document.createElement("hr"));
-    videoListContainer.appendChild(headerElement);
-  }
-  document.getElementById("main").appendChild(videoListContainer);
+    const videoListContainer = document.createElement("div");
+    videoListContainer.id = 'videoListContainer';
+    let headerSpacer;
+    if (headerLabel != '') {
+        const headerElement = document.createElement("h2");
+        headerElement.innerHTML = headerLabel;
+        headerElement.style.marginLeft = '15px';
+        headerElement.appendChild(document.createElement("hr"));
+        videoListContainer.appendChild(headerElement);
+    }
+    document.getElementById("main").appendChild(videoListContainer);
 }
 
 /**
@@ -205,18 +205,18 @@ function createVideoListContainer(headerLabel = '') {
  * @return {Void}
  */
 function showAbout() {
-  // Remove current information and display loading animation
-  clearMainContainer();
-  startLoadingAnimation();
+    // Remove current information and display loading animation
+    clearMainContainer();
+    startLoadingAnimation();
 
-  const aboutTemplate = require('./templates/about.html')
-  mustache.parse(aboutTemplate);
-  $('#main').html(
-    mustache.render(aboutTemplate, {
-      versionNumber: require('electron').remote.app.getVersion(),
-    })
-  );
-  stopLoadingAnimation();
+    const aboutTemplate = require('./templates/about.html')
+    mustache.parse(aboutTemplate);
+    $('#main').html(
+        mustache.render(aboutTemplate, {
+            versionNumber: require('electron').remote.app.getVersion(),
+        })
+    );
+    stopLoadingAnimation();
 }
 
 /**
@@ -228,18 +228,18 @@ function showAbout() {
  * @return {Void}
  */
 function showToast(message) {
-  let toast = document.getElementById('toast');
-  let toastMessage = document.getElementById('toastMessage');
+    let toast = document.getElementById('toast');
+    let toastMessage = document.getElementById('toastMessage');
 
-  // If a toast message is already being displayed, this will remove the previous timer that was set.
-  clearTimeout(toastTimeout);
+    // If a toast message is already being displayed, this will remove the previous timer that was set.
+    clearTimeout(toastTimeout);
 
-  toastMessage.innerHTML = message;
-  toast.style.visibility = 'visible';
-  toast.style.opacity = 0.9;
+    toastMessage.innerHTML = message;
+    toast.style.visibility = 'visible';
+    toast.style.opacity = 0.9;
 
-  // Set the timer for the toast to be removed.
-  toastTimeout = window.setTimeout(hideToast, 5000);
+    // Set the timer for the toast to be removed.
+    toastTimeout = window.setTimeout(hideToast, 5000);
 }
 
 /**
@@ -248,9 +248,9 @@ function showToast(message) {
  * @return {Void}
  */
 function hideToast() {
-  let toast = document.getElementById('toast');
-  toast.style.opacity = 0;
-  toast.style.visibility = 'hidden';
+    let toast = document.getElementById('toast');
+    toast.style.opacity = 0;
+    toast.style.visibility = 'hidden';
 }
 
 /**
@@ -264,21 +264,20 @@ function hideToast() {
  * @return {Void}
  */
 function confirmFunction(message, performFunction, parameters = '') {
-  let confirmContainer = document.getElementById('confirmFunction');
-  let confirmMessage = document.getElementById('confirmMessage');
+    let confirmContainer = document.getElementById('confirmFunction');
+    let confirmMessage = document.getElementById('confirmMessage');
 
-  confirmMessage.innerHTML = message;
-  confirmContainer.style.visibility = 'visible';
+    confirmMessage.innerHTML = message;
+    confirmContainer.style.visibility = 'visible';
 
-  $(document).on('click', '#confirmYes', (event) => {
-    if(parameters != ''){
-      performFunction(parameters);
-    }
-    else{
-      performFunction();
-    }
-    hideConfirmFunction();
-  });
+    $(document).on('click', '#confirmYes', (event) => {
+        if (parameters != '') {
+            performFunction(parameters);
+        } else {
+            performFunction();
+        }
+        hideConfirmFunction();
+    });
 }
 
 /**
@@ -287,8 +286,8 @@ function confirmFunction(message, performFunction, parameters = '') {
  * @return {Void}
  */
 function hideConfirmFunction() {
-  let confirmContainer = document.getElementById('confirmFunction');
-  confirmContainer.style.visibility = 'hidden';
+    let confirmContainer = document.getElementById('confirmFunction');
+    confirmContainer.style.visibility = 'hidden';
 }
 
 /**
@@ -298,11 +297,11 @@ function hideConfirmFunction() {
  * @return {Void}
  */
 function hideMouseTimeout() {
-  $('.videoPlayer')[0].style.cursor = 'default';
-  clearTimeout(mouseTimeout);
-  mouseTimeout = window.setTimeout(function() {
-    $('.videoPlayer')[0].style.cursor = 'none';
-  }, 3150);
+    $('.videoPlayer')[0].style.cursor = 'default';
+    clearTimeout(mouseTimeout);
+    mouseTimeout = window.setTimeout(function () {
+        $('.videoPlayer')[0].style.cursor = 'none';
+    }, 3150);
 }
 
 /**
@@ -311,14 +310,14 @@ function hideMouseTimeout() {
  * @return {Void}
  */
 function removeMouseTimeout() {
-  $('.videoPlayer')[0].style.cursor = 'default';
-  clearTimeout(mouseTimeout);
+    $('.videoPlayer')[0].style.cursor = 'default';
+    clearTimeout(mouseTimeout);
 }
 
 function showVideoOptions(element) {
-  if (element.nextElementSibling.style.display == 'none' || element.nextElementSibling.style.display == '') {
-    element.nextElementSibling.style.display = 'inline-block'
-  } else {
-    element.nextElementSibling.style.display = 'none'
-  }
+    if (element.nextElementSibling.style.display == 'none' || element.nextElementSibling.style.display == '') {
+        element.nextElementSibling.style.display = 'inline-block'
+    } else {
+        element.nextElementSibling.style.display = 'none'
+    }
 }
