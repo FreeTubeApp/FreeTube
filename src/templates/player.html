@@ -1,82 +1,100 @@
+<!--
+    This file is part of FreeTube.
+
+    FreeTube is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    FreeTube is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
 <video class="videoPlayer" type="application/x-mpegURL" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" src="{{defaultUrl}}" poster="{{videoThumbnail}}" autoplay>
-{{{subtitleHtml}}}
+    {{{subtitleHtml}}}
 </video>
 <div class='statistics'>
-  <div class='smallButton' onclick="openMiniPlayer('{{videoThumbnail}}')">
-    MINI PLAYER <i class="fas fa-external-link-alt"></i>
-  </div>
-  <div class='smallButton videoQuality'>
-    <span id='currentQuality'>{{videoQuality}}</span> <i class="fas fa-angle-down"></i>
-    <div class='qualityTypes'>
-      <ul>
-        <li id='quality480p' onclick='changeQuality("{{video480p}}", "480p")'>480p</li>
-        <li id='quality720p' onclick='changeQuality("{{video720p}}", "720p")'>720p</li>
-        <li id='qualityEmbed' onclick='changeQuality("{{embedPlayer}}", "EMBED", true)'>EMBED</li>
-      </ul>
+    <div class='smallButton' onclick="openMiniPlayer('{{videoThumbnail}}')">
+        MINI PLAYER <i class="fas fa-external-link-alt"></i>
     </div>
-  </div>
-  <div class='smallButton videoSpeed'>
-    <span id='currentSpeed'>1</span>x <i class="fas fa-angle-down"></i>
-    <div class='speedTypes'>
-      <ul>
-        <li onclick='changeVideoSpeed(0.25)'>0.25x</li>
-        <li onclick='changeVideoSpeed(0.5)'>0.5x</li>
-        <li onclick='changeVideoSpeed(0.75)'>0.75x</li>
-        <li onclick='changeVideoSpeed(1)'>1x</li>
-        <li onclick='changeVideoSpeed(1.25)'>1.25x</li>
-        <li onclick='changeVideoSpeed(1.5)'>1.5x</li>
-        <li onclick='changeVideoSpeed(1.75)'>1.75x</li>
-        <li onclick='changeVideoSpeed(2)'>2x</li>
-      </ul>
+    <div class='smallButton videoQuality'>
+        <span id='currentQuality'>{{videoQuality}}</span> <i class="fas fa-angle-down"></i>
+        <div class='qualityTypes'>
+            <ul>
+                <li id='quality480p' onclick='changeQuality("{{video480p}}", "480p")'>480p</li>
+                <li id='quality720p' onclick='changeQuality("{{video720p}}", "720p")'>720p</li>
+                <li id='qualityEmbed' onclick='changeQuality("{{embedPlayer}}", "EMBED", true)'>EMBED</li>
+            </ul>
+        </div>
     </div>
-  </div>
-  <div onclick='toggleSavedVideo("{{videoId}}")' class='smallButton'>
-    <i id='saveIcon' style='color: {{savedIconColor}};' class="{{savedIconClass}} fa-star"></i> <span id='savedText'>{{savedText}}</span>
-  </div>
-  <div class='smallButton' onclick='copyLink("youtube", "{{videoId}}")'>
-    COPY YOUTUBE LINK
-  </div>
-  <a href='https://youtube.com/watch?v={{videoId}}'>
-    <div class='smallButton'>
-      OPEN IN YOUTUBE
+    <div class='smallButton videoSpeed'>
+        <span id='currentSpeed'>1</span>x <i class="fas fa-angle-down"></i>
+        <div class='speedTypes'>
+            <ul>
+                <li onclick='changeVideoSpeed(0.25)'>0.25x</li>
+                <li onclick='changeVideoSpeed(0.5)'>0.5x</li>
+                <li onclick='changeVideoSpeed(0.75)'>0.75x</li>
+                <li onclick='changeVideoSpeed(1)'>1x</li>
+                <li onclick='changeVideoSpeed(1.25)'>1.25x</li>
+                <li onclick='changeVideoSpeed(1.5)'>1.5x</li>
+                <li onclick='changeVideoSpeed(1.75)'>1.75x</li>
+                <li onclick='changeVideoSpeed(2)'>2x</li>
+            </ul>
+        </div>
     </div>
-  </a>
-  <div class='smallButton' onclick='copyLink("hooktube", "{{videoId}}")'>
-    COPY HOOKTUBE LINK
-  </div>
-  <a href='https://hooktube.com/watch?v={{videoId}}'>
-    <div class='smallButton'>
-      OPEN IN HOOKTUBE
+    <div onclick='toggleSavedVideo("{{videoId}}")' class='smallButton'>
+        <i id='saveIcon' style='color: {{savedIconColor}};' class="{{savedIconClass}} fa-star"></i> <span id='savedText'>{{savedText}}</span>
     </div>
-  </a>
-  <br />
-  <p class='title'>{{videoTitle}}</p>
-  <p class='views'>{{videoViews}} views</p>
-  <div class='likeContainer'>
-    <div class='dislikeBar'>
-      <div class='likeBar' style='width: {{likePercentage}}%;'>
-      </div>
+    <div class='smallButton' onclick='copyLink("youtube", "{{videoId}}")'>
+        COPY YOUTUBE LINK
     </div>
-    <span class='likes'><i class="fas fa-thumbs-up"></i> {{videoLikes}}</span><span class='dislikes'><i class="fas fa-thumbs-down"></i> {{videoDislikes}}</span>
-  </div>
+    <a href='https://youtube.com/watch?v={{videoId}}'>
+        <div class='smallButton'>
+            OPEN IN YOUTUBE
+        </div>
+    </a>
+    <div class='smallButton' onclick='copyLink("invidious", "{{videoId}}")'>
+        COPY INVIDIOUS LINK
+    </div>
+    <a href='https://invidio.us/watch?v={{videoId}}'>
+        <div class='smallButton'>
+            OPEN IN INVIDIOUS
+        </div>
+    </a>
+    <br />
+    <p class='title'>{{videoTitle}}</p>
+    <p class='views'>{{videoViews}} views</p>
+    <div class='likeContainer'>
+        <div class='dislikeBar'>
+            <div class='likeBar' style='width: {{likePercentage}}%;'>
+            </div>
+        </div>
+        <span class='likes'><i class="fas fa-thumbs-up"></i> {{videoLikes}}</span><span class='dislikes'><i class="fas fa-thumbs-down"></i> {{videoDislikes}}</span>
+    </div>
 </div>
 <div class="details">
-  <img id='channelIcon' onclick='goToChannel("{{channelId}}")' src="{{channelIcon}}" />
-  <p id='channelName' onclick='goToChannel("{{channelId}}")'>{{channelName}}</p>
-  <p id='publishDate'>Published on {{publishedDate}}</p>
-  <div id='subscribeButton' class='playerSubButton' onclick='toggleSubscription("{{channelId}}")'>{{isSubscribed}}</div>
-  <br /><br />
-  <div id='description'>
-    {{{description}}}
-  </div>
+    <img id='channelIcon' onclick='goToChannel("{{channelId}}")' src="{{channelIcon}}" />
+    <p id='channelName' onclick='goToChannel("{{channelId}}")'>{{channelName}}</p>
+    <p id='publishDate'>Published on {{publishedDate}}</p>
+    <div id='subscribeButton' class='playerSubButton' onclick='toggleSubscription("{{channelId}}")'>{{isSubscribed}}</div>
+    <br />
+    <br />
+    <div id='description'>
+        {{{description}}}
+    </div>
 </div>
 <div id='showComments'>
-  Show Comments <i class="far fa-comments"></i> (Max of 100)
+    Show Comments <i class="far fa-comments"></i> (Max of 100)
 </div>
 
 <div id='comments' data-video-id="{{videoId}}">
 </div>
 
 <div id='recommendations'>
-  <strong>Recommendations</strong>
+    <strong>Recommendations</strong>
 </div>

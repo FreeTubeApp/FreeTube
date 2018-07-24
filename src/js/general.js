@@ -1,4 +1,4 @@
-<!--
+/*
     This file is part of FreeTube.
 
     FreeTube is free software: you can redistribute it and/or modify
@@ -13,15 +13,27 @@
 
     You should have received a copy of the GNU General Public License
     along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
--->
+*/
 
-<div class='video'>
-    <div class='videoThumbnail'>
-        <img onclick='console.log("Not Implemented")' src= {{playlistThumbnail}} />
-    </div>
-    <p onclick='goToChannel("{{channelId}}")' class='videoTitle'>{{playlistTitle}}</p>
-    <p onclick='goToChannel("{{channelId}}")' class='channelName'>{{channelName}} - {{publishedDate}}</p>
-    <p onclick='goToChannel("{{channelId}}")' class='videoDescription'>{{playlistDescription}}</p>
-    <p>VIEW FULL PLAYLIST ({{videoCount}} videos)</p>
-</div>
-<hr />
+let ft = {};
+
+/**
+ * 
+ * Use this function instead of console.log.
+ * This function logs the date, time and presents the information in a readable format
+ * 
+ * @param {*} data 
+ * 
+ * @returns {Void}
+ */
+ft.log = function (...data) {
+    let currentTime = new Date();
+    let time = currentTime.getDate() + "/" +
+        (currentTime.getMonth() + 1) + "/" +
+        currentTime.getFullYear() + "@" +
+        currentTime.getHours() + ":" +
+        currentTime.getMinutes() + ":" +
+        currentTime.getSeconds();
+
+    console.log('[' + time + '] ' + '[FREETUBE]', data);
+}

@@ -1,100 +1,102 @@
 {
-  "name": "FreeTube",
-  "productName": "FreeTube",
-  "version": "0.3.1",
-  "description": "An Open Source YouTube app for privacy.",
-  "main": "src/js/init.js",
-  "scripts": {
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "publish": "electron-forge publish",
-    "make:all": "npm run make:mac && npm run make:linux:x86 && npm run make:linux:arm && npm run make:win",
-    "make:mac": "electron-forge make --platform=darwin",
-    "make:win": "electron-forge make --platform=win32",
-    "make:win:zip": "electron-forge make --platform=win32 --targets=zip",
-    "make:linux:x86": "electron-forge make --platform=linux --arch x64",
-    "make:linux:x86:zip": "electron-forge make --platform=linux --targets=zip --arch x64",
-    "make:linux:x86:deb": "electron-forge make --platform=linux --targets=deb --arch x64",
-    "make:linux:x86:rpm": "electron-forge make --platform=linux --targets=rpm --arch x64",
-    "make:linux:x86:snap": "electron-forge package && electron-installer-snap --src=out/FreeTube-linux-x64 --arch x64",
-    "make:linux:x86:flatpak": "electron-installer-flatpak --src out/FreeTube-linux-x64/ --dest out/make --arch x64",
-    "make:linux:x86:appimage": "electron-forge make --platform=linux --targets=electron-forge-maker-appimage --arch x64",
-    "make:linux:arm": "electron-forge make --platform=linux --arch arm64",
-    "make:linux:arm:zip": "electron-forge make --platform=linux --targets=zip --arch arm64",
-    "make:linux:arm:deb": "electron-forge make --platform=linux --targets=deb --arch arm64",
-    "make:linux:arm:rpm": "electron-forge make --platform=linux --targets=rpm --arch arm64",
-    "make:linux:arm:appimage": "electron-forge make --platform=linux --targets=electron-forge-maker-appimage --arch arm64"
-  },
-  "keywords": [],
-  "author": {
-    "name": "PrestonN",
-    "email": "FreeTubeApp@protonmail.com",
-    "url": "https://github.com/FreeTubeApp/FreeTube"
-  },
-  "license": "GPL-3.0-or-later",
-  "config": {
-    "forge": {
-      "make_targets": {
-        "win32": [
-          "squirrel"
-        ],
-        "darwin": [
-          "zip"
-        ],
-        "linux": [
-          "deb",
-          "rpm",
-          "electron-forge-maker-appimage",
-          "zip"
-        ]
-      },
-      "protocols": [
-        {
-          "name": "freetube",
-          "role": "Viewer",
-          "schemes": [
-            "freetube"
-          ]
-        }
-      ],
-      "electronPackagerConfig": {
-        "packageManager": "yarn",
-        "icon": "./src/icons/iconColor.icns"
-      },
-      "electronWinstallerConfig": {
-        "name": "freetube",
-        "iconUrl": "https://raw.githubusercontent.com/FreeTubeApp/FreeTubeApp.github.io/master/images/iconColor.ico",
-        "setupIcon": "./src/icons/iconColor.ico"
-      },
-      "electronInstallerDebian": {
-        "icon": "src/icons/iconColor.png"
-      },
-      "repository": {
-        "type": "git",
+    "name": "FreeTube",
+    "productName": "FreeTube",
+    "version": "0.3.1",
+    "description": "An Open Source YouTube app for privacy.",
+    "main": "src/js/init.js",
+    "scripts": {
+        "start": "electron-forge start",
+        "package": "electron-forge package",
+        "make": "electron-forge make",
+        "publish": "electron-forge publish",
+        "make:all": "npm run make:mac && npm run make:linux:x86 && npm run make:linux:arm && npm run make:win",
+        "make:mac": "electron-forge make --platform=darwin",
+        "make:win": "electron-forge make --platform=win32",
+        "make:win:zip": "electron-forge make --platform=win32 --targets=zip",
+        "make:linux:x86": "electron-forge make --platform=linux --arch x64",
+        "make:linux:x86:zip": "electron-forge make --platform=linux --targets=zip --arch x64",
+        "make:linux:x86:deb": "electron-forge make --platform=linux --targets=deb --arch x64",
+        "make:linux:x86:rpm": "electron-forge make --platform=linux --targets=rpm --arch x64",
+        "make:linux:x86:snap": "electron-forge package && electron-installer-snap --src=out/FreeTube-linux-x64 --arch x64",
+        "make:linux:x86:flatpak": "electron-installer-flatpak --src out/FreeTube-linux-x64/ --dest out/make --arch x64",
+        "make:linux:x86:appimage": "electron-forge make --platform=linux --targets=electron-forge-maker-appimage --arch x64",
+        "make:linux:arm": "electron-forge make --platform=linux --arch arm64",
+        "make:linux:arm:zip": "electron-forge make --platform=linux --targets=zip --arch arm64",
+        "make:linux:arm:deb": "electron-forge make --platform=linux --targets=deb --arch arm64",
+        "make:linux:arm:rpm": "electron-forge make --platform=linux --targets=rpm --arch arm64",
+        "make:linux:arm:appimage": "electron-forge make --platform=linux --targets=electron-forge-maker-appimage --arch arm64"
+    },
+    "keywords": [],
+    "author": {
+        "name": "PrestonN",
+        "email": "FreeTubeApp@protonmail.com",
         "url": "https://github.com/FreeTubeApp/FreeTube"
-      }
+    },
+    "license": "GPL-3.0-or-later",
+    "config": {
+        "forge": {
+            "make_targets": {
+                "win32": [
+                    "squirrel"
+                ],
+                "darwin": [
+                    "zip"
+                ],
+                "linux": [
+                    "deb",
+                    "rpm",
+                    "electron-forge-maker-appimage",
+                    "zip"
+                ]
+            },
+            "protocols": [
+                {
+                    "name": "freetube",
+                    "role": "Viewer",
+                    "schemes": [
+                        "freetube"
+                    ]
+                }
+            ],
+            "electronPackagerConfig": {
+                "packageManager": "yarn",
+                "icon": "./src/icons/iconColor.icns"
+            },
+            "electronWinstallerConfig": {
+                "name": "freetube",
+                "iconUrl": "https://raw.githubusercontent.com/FreeTubeApp/FreeTubeApp.github.io/master/images/iconColor.ico",
+                "setupIcon": "./src/icons/iconColor.ico"
+            },
+            "electronInstallerDebian": {
+                "icon": "src/icons/iconColor.png"
+            },
+            "repository": {
+                "type": "git",
+                "url": "https://github.com/FreeTubeApp/FreeTube"
+            }
+        }
+    },
+    "devDependencies": {
+        "electron-forge": "^5.2.2",
+        "electron-forge-maker-appimage": "^20.14.4",
+        "electron-installer-flatpak": "^0.8.0",
+        "electron-installer-snap": "^2.0.1",
+        "electron-prebuilt-compile": "2.0.2",
+        "electron-winstaller": "^2.6.4"
+    },
+    "dependencies": {
+        "autolinker": "^1.6.2",
+        "commonjs": "0.0.1",
+        "dateformat": "^3.0.3",
+        "electron-compile": "6.4.2",
+        "electron-squirrel-startup": "^1.0.0",
+        "github-version-checker": "^2.0.1",
+        "jquery": "^3.3.1",
+        "jsdom": "^11.11.0",
+        "mustache": "^2.3.0",
+        "nedb": "^1.8.0",
+        "opml-to-json": "0.0.3",
+        "tor-request": "^2.1.2",
+        "ytdl-core": "^0.20.4"
     }
-  },
-  "devDependencies": {
-    "electron-forge": "^5.2.2",
-    "electron-forge-maker-appimage": "^20.14.4",
-    "electron-installer-flatpak": "^0.8.0",
-    "electron-installer-snap": "^2.0.1",
-    "electron-prebuilt-compile": "2.0.2",
-    "electron-winstaller": "^2.6.4"
-  },
-  "dependencies": {
-    "autolinker": "^1.6.2",
-    "dateformat": "^3.0.3",
-    "electron-compile": "6.4.2",
-    "electron-squirrel-startup": "^1.0.0",
-    "github-version-checker": "^2.0.1",
-    "jquery": "^3.3.1",
-    "mustache": "^2.3.0",
-    "nedb": "^1.8.0",
-    "opml-to-json": "0.0.3",
-    "tor-request": "^2.1.2",
-    "ytdl-core": "^0.20.4"
-  }
 }
