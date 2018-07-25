@@ -1,7 +1,7 @@
 {
   "name": "FreeTube",
   "productName": "FreeTube",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "An Open Source YouTube app for privacy.",
   "main": "src/js/init.js",
   "scripts": {
