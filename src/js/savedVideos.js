@@ -143,7 +143,6 @@ function showSavedVideos(){
       maxResults: 50,
     }, (data) => {
       // Render the videos to the screen
-      //createVideoListContainer('Saved Videos:');
       let grabDuration = getDuration(data.items);
       grabDuration.then((videoList) => {
         savedView.videoList = [];
@@ -152,7 +151,6 @@ function showSavedVideos(){
           displayVideo(video, 'saved');
         });
       });
-      //stopLoadingAnimation();
     });
   });
 }
