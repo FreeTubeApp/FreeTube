@@ -21,17 +21,6 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 * File for all functions related specifically for channels.
 */
 
-/*function getChannelThumbnail(channelId, callback) {
-  let url = '';
-
-  youtubeAPI('channels', {
-    'id': channelId,
-    'part': 'snippet',
-  }, function (data){
-    callback(data.items[0].snippet.thumbnails.high.url);
-  });
-}*/
-
 /**
 * Display a channel page, showing latest uploads.
 *
@@ -40,15 +29,11 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 * @return {Void}
 */
 function goToChannel(channelId) {
-  //event.stopPropagation();
-  //clearMainContainer();
-  //startLoadingAnimation();
 
   headerView.title = 'Latest Uploads';
   hideViews();
   loadingView.seen = true;
 
-  //let subButtonText;
   // Setting subButtonText here as Mustache templates are logic-less.
   isSubscribed(channelId).then((subscribed) => {
     channelView.subButtonText = (subscribed ? "UNSUBSCRIBE" : "SUBSCRIBE");
@@ -68,19 +53,6 @@ function goToChannel(channelId) {
     channelView.subCount = channelData.statistics.subscriberCount.toLocaleString(); //toLocaleString adds commas as thousands separators
     channelView.description = autolinker.link(channelData.brandingSettings.channel.description); //autolinker makes URLs clickable
 
-    /*const channelViewTemplate = require('./templates/channelView.html');
-    mustache.parse(channelViewTemplate);
-    const rendered = mustache.render(channelViewTemplate, {
-      channelId: channelId,
-      channelName:   channelData.brandingSettings.channel.title,
-      channelBanner: channelData.brandingSettings.image.bannerImageUrl,
-      channelImage:  channelData.snippet.thumbnails.high.url,
-      subCount: channelData.statistics.subscriberCount.toLocaleString(), //toLocaleString adds commas as thousands separators
-      channelDescription: autolinker.link(channelData.brandingSettings.channel.description), //autolinker makes URLs clickable
-      subButtonText: subButtonText,
-    });
-    $('#main').html(rendered);
-    stopLoadingAnimation();*/
 
     // Grab the channel's latest uploads. API forces a max of 50.
     youtubeAPI('search', {

@@ -20,7 +20,7 @@ function youtubeAPI(resource, params, success) {
         console.log(err);
         console.log(res);
         console.log(body);
-        stopLoadingAnimation();
+        loadingView.seen = false;
       }
     });
   } else {
@@ -33,7 +33,7 @@ function youtubeAPI(resource, params, success) {
       console.log(error);
       console.log(xhr);
       console.log(textStatus);
-      stopLoadingAnimation();
+      loadingView.seen = false;
     });
   }
 
@@ -56,7 +56,7 @@ function youtubedlGetInfo(videoId, callback) {
   ytdl.getInfo(url, options, function(err, info) {
     if (err) {
       showToast(err.message);
-      stopLoadingAnimation();
+      loadingView.seen = false;
       console.log(err);
       console.log(info);
       return;

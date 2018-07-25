@@ -28,14 +28,13 @@ iframe {
 }
 
 .videoThumbnail i {
-  float: right;
   color: white;
   background-color: black;
   padding: 6px;
   opacity: 0.7;
   position: relative;
   bottom: 159px;
-  left: 36px;
+  left: 247px;
 }
 
 .channelThumbnail {

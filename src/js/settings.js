@@ -30,12 +30,6 @@ const apiKeyBank = ['AIzaSyC9E579nh_qqxg6BH4xIce3k_7a9mT4uQc', 'AIzaSyCKplYT6hZI
  * @return {Void}
  */
 function updateSettingsView() {
-  //clearMainContainer();
-  //startLoadingAnimation();
-
-  //let isChecked = '';
-  //let key = '';
-
   /*
    * Check the settings database for the user's current settings.  This is so the
    * settings page has the correct toggles related when it is rendered.
@@ -54,17 +48,6 @@ function updateSettingsView() {
           }
       }
     });
-
-    // Grab the settings.html template to prepare for rendering
-    /*const settingsTemplate = require('./templates/settings.html')
-    mustache.parse(settingsTemplate
-    const rendered = mustache.render(settingsTemplate, {
-      isChecked: isChecked,
-      key: key,
-    });
-    // Render template to application
-    $('#main').html(rendered);
-    stopLoadingAnimation();*/
 
     // Check / uncheck the switch depending on the user's settings.
     if (currentTheme === 'light') {
@@ -302,11 +285,6 @@ function importSubscriptions(){
     let i = fileLocation[0].lastIndexOf('.');
     let fileType = (i < 0) ? '' : fileLocation[0].substr(i);
     console.log(fileType);
-
-    /*if (fileType !== '.db'){
-      showToast('Incorrect filetype.  Import was unsuccessful.');
-      return;
-    }*/
 
     fs.readFile(fileLocation[0], function(readErr, data){
       if(readErr){

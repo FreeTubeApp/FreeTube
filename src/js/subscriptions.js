@@ -83,16 +83,13 @@ function removeSubscription(channelId) {
 function loadSubscriptions() {
   if (checkSubscriptions === false && subscriptionView.videoList.length > 0){
     console.log('Will not load subscriptions. Timer still on.');
+    loadingView.seen = false;
     return;
   }
   else{
     showToast('Refreshing Subscription List.  Please wait...');
     checkSubscriptions = false;
   }
-
-  //const loading = document.getElementById('loading');
-
-  //startLoadingAnimation()
 
   let videoList = [];
 
@@ -126,9 +123,6 @@ function loadSubscriptions() {
 
                   return date2.valueOf() - date1.valueOf();
                 });
-
-                // Render the videos to the application.
-                //createVideoListContainer('Latest Subscriptions:');
 
                 // The YouTube website limits the subscriptions to 100 before grabbing more so we only show 100
                 // to keep the app running at a good speed.
@@ -178,7 +172,7 @@ function loadSubscriptions() {
     } else {
       // User has no subscriptions. Display message.
       const container = document.getElementById('main');
-      //stopLoadingAnimation();
+      progressView.seen = false;
 
       container.innerHTML = `<h2 class="message">Your Subscription list is currently empty.  Start adding subscriptions
                              to see them here.<br /><br /><i class="far fa-frown" style="font-size: 200px"></i></h2>`;

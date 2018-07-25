@@ -32,8 +32,6 @@ function search(nextPageToken = '') {
   }
 
   if (nextPageToken === '') {
-    //clearMainContainer();
-    //startLoadingAnimation();
     hideViews();
     headerView.seen = true;
     headerView.title = 'Search Results';
@@ -91,13 +89,7 @@ function search(nextPageToken = '') {
       });
     });
 
-    if (nextPageToken === '') {
-      //createVideoListContainer('Search results:');
-      //stopLoadingAnimation();
-    }
-
     searchView.nextPageToken = data.nextPageToken;
-    //addNextPage(data.nextPageToken);
   })
 }
 
@@ -171,7 +163,7 @@ function displayVideo(videoData, listType = '') {
 
   video.id = videoData.id;
   video.youtubeUrl = 'https://youtube.com/watch?v=' + video.id;
-  video.hooktubeUrl = 'https://hooktube.com/watch?v=' + video.id;
+  video.invidiousUrl = 'https://invidio.us/watch?v=' + video.id;
   // Includes text if the video is live.
   video.liveText = (videoSnippet.liveBroadcastContent === 'live') ? 'LIVE NOW' : '';
   video.thumbnail = videoSnippet.thumbnails.medium.url;
@@ -207,31 +199,6 @@ function displayVideo(videoData, listType = '') {
       video.removeFromSave = false;
       break;
   }
-
-
-  /*const videoListTemplate = require('./templates/videoList.html');
-
-  mustache.parse(videoListTemplate);
-  const rendered = mustache.render(videoListTemplate, {
-    videoId: videoId,
-    videoThumbnail: videoSnippet.thumbnails.medium.url,
-    videoTitle: videoSnippet.title,
-    channelName: videoSnippet.channelTitle,
-    videoDescription: videoSnippet.description,
-    channelId: videoSnippet.channelId,
-    videoDuration: videoDuration,
-    publishedDate: publishedDate,
-    liveText: liveText,
-    deleteHtml: deleteHtml,
-  });
-
-  // Apply the render to the page
-  const nextButton = document.getElementById('getNextPage');
-  if (nextButton === null) {
-    $('#videoListContainer').append(rendered);
-  } else {
-    $(rendered).insertBefore('#getNextPage');
-  }*/
 }
 
 function displayChannels(channels) {
@@ -272,18 +239,6 @@ function displayChannels(channels) {
       console.log(channelData);
 
       searchView.videoList = searchView.videoList.concat(channelData);
-
-      /*mustache.parse(videoListTemplate);
-      let rendered = mustache.render(videoListTemplate, {
-        channelId: item.id,
-        channelThumbnail: item.snippet.thumbnails.medium.url,
-        channelName: item.snippet.title,
-        channelDescription: item.snippet.description,
-        subscriberCount: item.statistics.subscriberCount,
-        videoCount: item.statistics.videoCount,
-      });
-
-      $(rendered).insertBefore('#getNextPage');*/
     });
   });
 }
@@ -387,18 +342,6 @@ function showVideoRecommendations(videoId) {
         data.publishedDate = dateFormat(snippet.publishedAt, "mmm dS, yyyy");
 
         playerView.recommendedVideoList = playerView.recommendedVideoList.concat(data);
-        /*const recommTemplate = require('./templates/recommendations.html')
-        mustache.parse(recommTemplate);
-        const rendered = mustache.render(recommTemplate, {
-          videoId: video.id,
-          videoTitle: snippet.title,
-          channelName: snippet.channelTitle,
-          videoThumbnail: snippet.thumbnails.medium.url,
-          videoDuration: videoDuration,
-          publishedDate: dateFormat(snippet.publishedAt, "mmm dS, yyyy")
-        });
-        const recommendationHtml = $('#recommendations').html();
-        $('#recommendations').html(recommendationHtml + rendered);*/
       });
     });
   });
@@ -493,8 +436,6 @@ function parseVideoDuration(durationString) {
  * @return {Void}
  */
 function showMostPopular() {
-  //clearMainContainer();
-  //startLoadingAnimation();
 
   // Get the date of 2 days ago.
   var d = new Date();
@@ -523,7 +464,6 @@ function showMostPopular() {
         displayVideo(video, 'popular');
       });
     });
-    //stopLoadingAnimation();
   });
 }
 

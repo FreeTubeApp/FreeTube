@@ -65,6 +65,9 @@ let sideNavBar = new Vue({
     },
     popular: (event) => {
       hideViews();
+      if (loadingView.seen !== false){
+        loadingView.seen === false;
+      }
       if(popularView.videoList.length === 0){
         loadingView.seen = true;
       }
@@ -75,6 +78,9 @@ let sideNavBar = new Vue({
     },
     saved: (event) => {
       hideViews();
+      if (loadingView.seen !== false){
+        loadingView.seen === false;
+      }
       if(savedView.videoList.length === 0){
         loadingView.seen = true;
       }
@@ -85,6 +91,9 @@ let sideNavBar = new Vue({
     },
     history: (event) => {
       hideViews();
+      if (loadingView.seen !== false){
+        loadingView.seen === false;
+      }
       if(historyView.videoList.length === 0){
         loadingView.seen = true;
       }
@@ -95,11 +104,17 @@ let sideNavBar = new Vue({
     },
     settings: (event) => {
       hideViews();
+      if (loadingView.seen !== false){
+        loadingView.seen === false;
+      }
       settingsView.seen = true;
       updateSettingsView();
     },
     about: (event) => {
       hideViews();
+      if (loadingView.seen !== false){
+        loadingView.seen === false;
+      }
       aboutView.seen = true;
     }
   }
@@ -128,6 +143,14 @@ let subscriptionView = new Vue({
     },
     channel: (channelId) => {
       goToChannel(channelId);
+    },
+    toggleSave: (videoId) => {
+      addSavedVideo(videoId);
+    },
+    copy: (site, videoId) => {
+      const url = 'https://' + site + '/watch?v=' + videoId;
+      clipboard.writeText(url);
+      showToast('URL has been copied to the clipboard');
     }
   },
   template: videoListTemplate
@@ -147,6 +170,9 @@ let popularView = new Vue({
     },
     channel: (channelId) => {
       goToChannel(channelId);
+    },
+    toggleSave: (videoId) => {
+      addSavedVideo(videoId);
     }
   },
   template: videoListTemplate
@@ -166,6 +192,14 @@ let savedView = new Vue({
     },
     channel: (channelId) => {
       goToChannel(channelId);
+    },
+    toggleSave: (videoId) => {
+      addSavedVideo(videoId);
+    },
+    copy: (site, videoId) => {
+      const url = 'https://' + site + '/watch?v=' + videoId;
+      clipboard.writeText(url);
+      showToast('URL has been copied to the clipboard');
     }
   },
   template: videoListTemplate
@@ -185,6 +219,14 @@ let historyView = new Vue({
     },
     channel: (channelId) => {
       goToChannel(channelId);
+    },
+    toggleSave: (videoId) => {
+      addSavedVideo(videoId);
+    },
+    copy: (site, videoId) => {
+      const url = 'https://' + site + '/watch?v=' + videoId;
+      clipboard.writeText(url);
+      showToast('URL has been copied to the clipboard');
     }
   },
   template: videoListTemplate
@@ -225,6 +267,14 @@ let searchView = new Vue({
     },
     channel: (channelId) => {
       goToChannel(channelId);
+    },
+    toggleSave: (videoId) => {
+      addSavedVideo(videoId);
+    },
+    copy: (site, videoId) => {
+      const url = 'https://' + site + '/watch?v=' + videoId;
+      clipboard.writeText(url);
+      showToast('URL has been copied to the clipboard');
     },
     nextPage: (nextPageToken) => {
       console.log(searchView.nextPageToken);
@@ -268,7 +318,15 @@ let channelVideosView = new Vue({
     },
     channel: (channelId) => {
       goToChannel(channelId);
-    }
+    },
+    toggleSave: (videoId) => {
+      addSavedVideo(videoId);
+    },
+    copy: (site, videoId) => {
+      const url = 'https://' + site + '/watch?v=' + videoId;
+      clipboard.writeText(url);
+      showToast('URL has been copied to the clipboard');
+    },
   },
   template: videoListTemplate
 });
@@ -331,7 +389,7 @@ let playerView = new Vue({
       playerView.currentQuality = 'EMBED';
     },
     copy: (site, videoId) => {
-      const url = 'https://' + site + '.com/watch?v=' + videoId;
+      const url = 'https://' + site + '/watch?v=' + videoId;
       clipboard.writeText(url);
       showToast('URL has been copied to the clipboard');
     },
