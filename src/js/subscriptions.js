@@ -171,11 +171,9 @@ function loadSubscriptions() {
 
     } else {
       // User has no subscriptions. Display message.
-      const container = document.getElementById('main');
-      progressView.seen = false;
-
-      container.innerHTML = `<h2 class="message">Your Subscription list is currently empty.  Start adding subscriptions
-                             to see them here.<br /><br /><i class="far fa-frown" style="font-size: 200px"></i></h2>`;
+      loadingView.seen = false;
+      headerView.seen = false;
+      noSubscriptions.seen = true;
     }
   });
 }

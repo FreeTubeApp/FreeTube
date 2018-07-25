@@ -50,6 +50,13 @@ let loadingView = new Vue({
   }
 });
 
+let noSubscriptions = new Vue({
+  el: '#noSubscriptions',
+  data: {
+    seen: false
+  }
+});
+
 let sideNavBar = new Vue({
   el: '#sideNav',
   methods: {
@@ -406,6 +413,7 @@ let playerView = new Vue({
 
 function hideViews(){
   subscriptionView.seen = false;
+  noSubscriptions.seen = false;
   aboutView.seen = false;
   headerView.seen = false;
   searchView.seen = false;
