@@ -38,7 +38,7 @@
     <div class='smallButton' v-on:click='save(videoId)'>
       <i id='saveIcon' :class='savedIconType' class="fa-star"></i> <span id='savedText'>{{savedText}}</span>
     </div>
-    <div class='smallButton' v-on:click='copy("youtube", videoId)'>
+    <div class='smallButton' v-on:click='copy("youtube.com", videoId)'>
       COPY YOUTUBE LINK
     </div>
     <a :href='"https://youtube.com/watch?v=" + videoId'>
@@ -46,12 +46,12 @@
         OPEN IN YOUTUBE
       </div>
     </a>
-    <div class='smallButton' v-on:click='copy("hooktube", videoId)'>
-      COPY HOOKTUBE LINK
+    <div class='smallButton' v-on:click='copy("invidio.us", videoId)'>
+      COPY INVIDIOUS LINK
     </div>
-    <a :href='"https://hooktube.com/watch?v=" + videoId'>
+    <a :href='"https://invidio.us/watch?v=" + videoId'>
       <div class='smallButton'>
-        OPEN IN HOOKTUBE
+        OPEN IN INVIDIOUS
       </div>
     </a>
     <br />

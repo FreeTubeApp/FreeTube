@@ -4,28 +4,22 @@
       <div v-if='video.isVideo'>
         <div class='video'>
           <div class='videoOptions'>
-            <i class="fas fa-external-link-alt" onclick='showVideoOptions(this)'></i>
-            &nbsp;&nbsp;
             <i class="fas fa-ellipsis-v" onclick='showVideoOptions(this)'></i>
             <ul>
               <a :href='video.youtubeUrl' onclick='showVideoOptions(this.parentNode.previousSibling);'>
                 <li>Open in YouTube</li>
               </a>
-              <a :href='video.youtubeUrl' onclick='showVideoOptions(this.parentNode.previousSibling);'>
-                <li>Copy YouTube Link</li>
-              </a>
+              <li v-on:click='copy("youtube.com", video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>Copy YouTube Link</li>
               <a :href='video.invidiousUrl' onclick='showVideoOptions(this.parentNode.previousSibling);'>
                 <li>Open in Invidious</li>
               </a>
-              <a :href='video.invidiousUrl' onclick='showVideoOptions(this.parentNode.previousSibling);'>
-                <li>Copy Invidious Link</li>
-              </a>
+              <li v-on:click='copy("invidio.us", video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>Copy Invidious Link</li>
             </ul>
           </div>
           <div class='videoThumbnail'>
             <img v-on:click='play(video.id)' :src='video.thumbnail' />
             <p v-on:click='play(video.id)' class='videoDuration'>{{video.duration}}</p>
-            <i class="fas fa-history" onclick='showVideoOptions(this)'></i>
+            <i class="fas fa-history" v-on:click='toggleSave(video.id)'></i>
           </div>
           <p v-on:click='play(video.id)' class='videoTitle'>{{video.title}}</p>
           <p v-on:click='channel(video.channelId)' class='channelName'>{{video.channelName}} - {{video.publishedDate}}</p>

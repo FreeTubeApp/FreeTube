@@ -80,7 +80,6 @@ function showHistory(){
       id: videoList,
       maxResults: 50,
     }, function (data) {
-      //createVideoListContainer('Watch History:');
       let grabDuration = getDuration(data.items);
 
       grabDuration.then((videoList) => {
@@ -90,7 +89,6 @@ function showHistory(){
           displayVideo(video, 'history');
         });
       });
-      //stopLoadingAnimation()
     });
   });
 }

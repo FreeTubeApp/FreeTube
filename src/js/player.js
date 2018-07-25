@@ -28,43 +28,11 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
  *
  * @return {Void}
  */
-function playVideo(videoId, videoThumbnail = '', useWindowPlayer = false) {
-  if (useWindowPlayer === false){
-    //clearMainContainer();
-    //startLoadingAnimation();
-  }
-  else{
-    showToast('Getting video information.  Please wait...')
-  }
-
+function playVideo(videoId) {
   hideViews();
+
   playerView.videoId = videoId;
   playerView.embededHtml = "<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/" + videoId + "?rel=0' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>";
-
-  /*let subscribeText = '';
-  let savedText = '';
-  let savedIconClass = '';
-  let savedIconColor = '';
-  let video480p;
-  let video720p;
-  let videoSubtitles = '';
-  let subtitleHtml = '';
-  let subtitleLabel;
-  let subtitleLanguage;
-  let subtitleCode;
-  let subtitleUrl;
-  let defaultUrl;
-  let defaultQuality;
-  let channelId;
-  let videoHtml;
-  let videoType = 'video';
-  let embedPlayer = "<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/" + videoId + "?rel=0' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>";
-  let useEmbedPlayer = false;
-  let validUrl;
-  let videoLikes;
-  let videoDislikes;
-  let totalLikes;
-  let likePercentage;*/
 
   const checkSavedVideo = videoIsSaved(videoId);
 
@@ -97,8 +65,6 @@ function playVideo(videoId, videoThumbnail = '', useWindowPlayer = false) {
    */
   youtubedlGetInfo(videoId, (info) => {
     console.log(info);
-
-    //console.log(videoLikes);
 
     playerView.videoTitle = info['title'];
     playerView.channelName = info['author']['name'];
@@ -135,11 +101,14 @@ function playVideo(videoId, videoThumbnail = '', useWindowPlayer = false) {
       }
     });
 
+    let useEmbedPlayer = false;
+
     // Default to the embeded player if the URLs cannot be found.
     if (typeof(playerView.video720p) === 'undefined' && typeof(playerView.video480p) === 'undefined') {
       //useEmbedPlayer = true;
       playerView.currentQuality = 'EMBED';
-      playerView.videoUrl = embedPlayer.replace(/\&quot\;/g, '"');
+      playerView.playerSeen = false;
+      useEmbedPlayer = true;
       showToast('Unable to get video file.  Reverting to embeded player.');
     } else if (typeof(video720p) === 'undefined' && typeof(video480p) !== 'undefined') {
       // Default to the 480p video if the 720p URL cannot be found.
@@ -149,14 +118,9 @@ function playVideo(videoId, videoThumbnail = '', useWindowPlayer = false) {
       // Default to the 720p video.
       playerView.videoUrl = playerView.video720p;
       playerView.currentQuality = '720p';
-      // Force the embeded player if needed.
-      //videoHtml = embedPlayer;
     }
 
-    let useEmbedPlayer = false;
-
     if (!useEmbedPlayer) {
-      //videoHtml = '<video class="videoPlayer" type="application/x-mpegURL" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" src="' + defaultUrl + '" poster="' + videoThumbnail + '" autoplay>';
       let videoHtml = '';
 
       if (typeof(info.player_response.captions) === 'object') {
@@ -198,82 +162,30 @@ function playVideo(videoId, videoThumbnail = '', useWindowPlayer = false) {
     showVideoRecommendations(videoId);
 
     loadingView.seen = false;
-    playerView.seen = true;
 
-    addToHistory(videoId);
-
-    /*const playerTemplate = require('./templates/player.html')
-    mustache.parse(playerTemplate);
-    const rendered = mustache.render(playerTemplate, {
-      videoQuality: defaultQuality,
-      subtitleHtml: videoHtml,
-      defaultUrl: defaultUrl,
-      videoTitle: info['title'],
-      videoViews: videoViews,
-      videoThumbnail: videoThumbnail,
-      channelName: info['author']['name'],
-      videoLikes: videoLikes,
-      videoDislikes: videoDislikes,
-      likePercentage: likePercentage,
-      videoId: videoId,
-      channelId: channelId,
-      channelIcon: channelThumbnail,
-      publishedDate: publishedDate,
-      description: description,
-      isSubscribed: subscribeText,
-      savedText: savedText,
-      savedIconClass: savedIconClass,
-      savedIconColor: savedIconColor,
-      video480p: video480p,
-      video720p: video720p,
-      embedPlayer: embedPlayer,
-    });
-
-    // Add the video to the user's history
-    addToHistory(videoId);
-
-    if (useWindowPlayer){
-      // Create a new browser window.
-      const BrowserWindow = electron.remote.BrowserWindow;
-
-      let newWindow = new BrowserWindow({
-        width: 1200,
-        height: 700
-      });
-
-      let playerWindowHeader = require('./templates/playerWindow.html');
-
-      mustache.parse(playerWindowHeader);
-      const playerHeaderRender = mustache.render(playerWindowHeader, {
-        videoId: videoId,
-        channelId: channelId
-      });
-
-      newWindow.loadURL('data:text/html;charset=UTF-8,' + encodeURIComponent(playerHeaderRender + rendered), {
-	       baseURLForDataURL: `file://${__dirname}/src`
-       });
+    if (subscriptionView.seen === false && aboutView.seen === false && headerView.seen === false && searchView.seen === false && settingsView.seen === false && popularView.seen === false && savedView.seen === false && historyView.seen === false &&  channelView.seen === false && channelVideosView.seen === false) {
+      playerView.seen = true;
     }
     else{
-      $('#main').html(rendered);
-      stopLoadingAnimation();
+      return;
+    }
 
-      showVideoRecommendations(videoId);
+    addToHistory(videoId);
 
-      // Hide subtitles by default
-      if (typeof(info['subtitles']) !== 'undefined' && Object.keys(info['subtitles']).length > 0) {
-        let textTracks = $('.videoPlayer').get(0).textTracks;
-        Object.keys(textTracks).forEach((track) => {
-          textTracks[track].mode = 'hidden';
-        });
-      }
-    }*/
+    // Hide subtitles by default
+    if (typeof(info['subtitles']) !== 'undefined' && Object.keys(info['subtitles']).length > 0) {
+      let textTracks = $('.videoPlayer').get(0).textTracks;
+      Object.keys(textTracks).forEach((track) => {
+        textTracks[track].mode = 'hidden';
+      });
+    }
 
     // Sometimes a video URL is found, but the video will not play.  I believe the issue is
     // that the video has yet to render for that quality, as the video will be available at a later time.
     // This will check the URLs and switch video sources if there is an error.
     //checkVideoUrls(video480p, video720p);
 
-    //window.setTimeout(checkVideoUrls, 5000, video480p, video720p);
+    window.setTimeout(checkVideoUrls, 5000, playerView.video480p, playerView.video720p);
 
   });
 }

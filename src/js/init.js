@@ -69,6 +69,10 @@ let init = function() {
     {
       label: 'File',
       submenu: [
+        {
+          label: 'Open New Window',
+          click () { init() }
+        },
         {role: 'quit'}
       ]
     },
