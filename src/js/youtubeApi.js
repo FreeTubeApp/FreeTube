@@ -11,8 +11,10 @@
 function youtubeAPI(resource, params, success) {
   params.key = settingsView.apiKey;
 
+  let requestUrl = 'https://www.googleapis.com/youtube/v3/' + resource + '?' + $.param(params);
+
   if (useTor) {
-    tor.request('https://www.googleapis.com/youtube/v3/' + resource + '?' + $.param(params), function(err, res, body) {
+    tor.request(requestUrl, (err, res, body) => {
       if (!err && res.statusCode == 200) {
         success(JSON.parse(body));
       } else {
@@ -25,8 +27,7 @@ function youtubeAPI(resource, params, success) {
     });
   } else {
     $.getJSON(
-      'https://www.googleapis.com/youtube/v3/' + resource,
-      params,
+      requestUrl,
       success
     ).fail((xhr, textStatus, error) => {
       showToast('There was an error calling the YouTube API.');
