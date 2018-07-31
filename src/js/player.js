@@ -32,6 +32,8 @@ function playVideo(videoId) {
   hideViews();
 
   playerView.videoId = videoId;
+  playerView.video480p = undefined;
+  playerView.video720p = undefined;
   playerView.embededHtml = "<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/" + videoId + "?rel=0' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>";
 
   const checkSavedVideo = videoIsSaved(videoId);
