@@ -11,90 +11,107 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
     along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
+    You should have received a copy of the GNU General Public License
 -->
 
-<video class="videoPlayer" type="application/x-mpegURL" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" src="{{defaultUrl}}" poster="{{videoThumbnail}}" autoplay>
-    {{{subtitleHtml}}}
-</video>
-<div class='statistics'>
-    <div class='smallButton' onclick="openMiniPlayer('{{videoThumbnail}}')">
-        MINI PLAYER <i class="fas fa-external-link-alt"></i>
+<div v-if='seen'>
+  <div v-if='playerSeen'>
+    <video class="videoPlayer" type="application/x-mpegURL" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" :src='videoUrl' :poster="videoThumbnail" v-html="subtitleHtml" autoplay>
+    </video>
+  </div>
+  <div v-else>
+    <span v-html="embededHtml"></span>
+  </div>
+  <div class='statistics'>
+    <div onclick='openMiniPlayer()' class='smallButton' >
+      MINI PLAYER <i class="fas fa-external-link-alt"></i>
     </div>
     <div class='smallButton videoQuality'>
-        <span id='currentQuality'>{{videoQuality}}</span> <i class="fas fa-angle-down"></i>
-        <div class='qualityTypes'>
-            <ul>
-                <li id='quality480p' onclick='changeQuality("{{video480p}}", "480p")'>480p</li>
-                <li id='quality720p' onclick='changeQuality("{{video720p}}", "720p")'>720p</li>
-                <li id='qualityEmbed' onclick='changeQuality("{{embedPlayer}}", "EMBED", true)'>EMBED</li>
-            </ul>
-        </div>
+      <span id='currentQuality'>{{currentQuality}}</span> <i class="fas fa-angle-down"></i>
+      <div class='qualityTypes'>
+        <ul>
+          <li id='quality480p' v-on:click='quality(video480p, "480p")'>480p</li>
+          <li id='quality720p' v-on:click='quality(video720p, "720p")'>720p</li>
+          <li id='qualityEmbed' v-on:click='embededPlayer()'>EMBED</li>
+        </ul>
+      </div>
     </div>
     <div class='smallButton videoSpeed'>
-        <span id='currentSpeed'>1</span>x <i class="fas fa-angle-down"></i>
-        <div class='speedTypes'>
-            <ul>
-                <li onclick='changeVideoSpeed(0.25)'>0.25x</li>
-                <li onclick='changeVideoSpeed(0.5)'>0.5x</li>
-                <li onclick='changeVideoSpeed(0.75)'>0.75x</li>
-                <li onclick='changeVideoSpeed(1)'>1x</li>
-                <li onclick='changeVideoSpeed(1.25)'>1.25x</li>
-                <li onclick='changeVideoSpeed(1.5)'>1.5x</li>
-                <li onclick='changeVideoSpeed(1.75)'>1.75x</li>
-                <li onclick='changeVideoSpeed(2)'>2x</li>
-            </ul>
-        </div>
+      <span id='currentSpeed'>{{currentSpeed}}</span>x <i class="fas fa-angle-down"></i>
+      <div class='speedTypes'>
+        <ul>
+          <li onclick='changeVideoSpeed(0.25)'>0.25x</li>
+          <li onclick='changeVideoSpeed(0.5)'>0.5x</li>
+          <li onclick='changeVideoSpeed(0.75)'>0.75x</li>
+          <li onclick='changeVideoSpeed(1)'>1x</li>
+          <li onclick='changeVideoSpeed(1.25)'>1.25x</li>
+          <li onclick='changeVideoSpeed(1.5)'>1.5x</li>
+          <li onclick='changeVideoSpeed(1.75)'>1.75x</li>
+          <li onclick='changeVideoSpeed(2)'>2x</li>
+        </ul>
+      </div>
     </div>
-    <div onclick='toggleSavedVideo("{{videoId}}")' class='smallButton'>
-        <i id='saveIcon' style='color: {{savedIconColor}};' class="{{savedIconClass}} fa-star"></i> <span id='savedText'>{{savedText}}</span>
+    <div class='smallButton' v-on:click='save(videoId)'>
+      <i id='saveIcon' :class='savedIconType' class="fa-star"></i> <span id='savedText'>{{savedText}}</span>
     </div>
-    <div class='smallButton' onclick='copyLink("youtube", "{{videoId}}")'>
-        COPY YOUTUBE LINK
+    <div class='smallButton' v-on:click='copy("youtube.com", videoId)'>
+      COPY YOUTUBE LINK
     </div>
-    <a href='https://youtube.com/watch?v={{videoId}}'>
-        <div class='smallButton'>
-            OPEN IN YOUTUBE
-        </div>
+    <a :href='"https://youtube.com/watch?v=" + videoId'>
+      <div class='smallButton'>
+        OPEN IN YOUTUBE
+      </div>
     </a>
-    <div class='smallButton' onclick='copyLink("invidious", "{{videoId}}")'>
-        COPY INVIDIOUS LINK
+    <div class='smallButton' v-on:click='copy("invidio.us", videoId)'>
+      COPY INVIDIOUS LINK
     </div>
-    <a href='https://invidio.us/watch?v={{videoId}}'>
-        <div class='smallButton'>
-            OPEN IN INVIDIOUS
-        </div>
+    <a :href='"https://invidio.us/watch?v=" + videoId'>
+      <div class='smallButton'>
+        OPEN IN INVIDIOUS
+      </div>
     </a>
     <br />
     <p class='title'>{{videoTitle}}</p>
     <p class='views'>{{videoViews}} views</p>
     <div class='likeContainer'>
-        <div class='dislikeBar'>
-            <div class='likeBar' style='width: {{likePercentage}}%;'>
-            </div>
+      <div class='dislikeBar'>
+        <div class='likeBar' :style='{width: likePercentage + "%"}'>
         </div>
-        <span class='likes'><i class="fas fa-thumbs-up"></i> {{videoLikes}}</span><span class='dislikes'><i class="fas fa-thumbs-down"></i> {{videoDislikes}}</span>
+      </div>
+      <span class='likes'><i class="fas fa-thumbs-up"></i> {{videoLikes}}</span><span class='dislikes'><i class="fas fa-thumbs-down"></i> {{videoDislikes}}</span>
     </div>
-</div>
-<div class="details">
-    <img id='channelIcon' onclick='goToChannel("{{channelId}}")' src="{{channelIcon}}" />
-    <p id='channelName' onclick='goToChannel("{{channelId}}")'>{{channelName}}</p>
+  </div>
+  <div class="details">
+    <img id='channelIcon' v-on:click='channel(channelId)' :src="channelIcon" />
+    <p id='channelName' v-on:click='channel(channelId)'>{{channelName}}</p>
     <p id='publishDate'>Published on {{publishedDate}}</p>
-    <div id='subscribeButton' class='playerSubButton' onclick='toggleSubscription("{{channelId}}")'>{{isSubscribed}}</div>
-    <br />
-    <br />
+    <div id='subscribeButton' class='playerSubButton' v-on:click='subscription(channelId)'>{{subscribedText}}</div>
+    <br /><br />
     <div id='description'>
-        {{{description}}}
+      <span v-html="description"></span>
     </div>
-</div>
-<div id='showComments'>
+  </div>
+  <div id='showComments'>
     Show Comments <i class="far fa-comments"></i> (Max of 100)
-</div>
+  </div>
 
-<div id='comments' data-video-id="{{videoId}}">
-</div>
+  <div id='comments' :data-video-id="videoId">
+  </div>
 
-<div id='recommendations'>
+  <div id='recommendations'>
     <strong>Recommendations</strong>
+    <div v-for='video in recommendedVideoList'>
+      <div class='recommendVideo' v-on:click='play(video.id)'>
+        <div class='recommendThumbnail'>
+          <img :src='video.thumbnail'></img>
+          <p v-on:click='play(video.id)' class='videoDuration'>{{video.duration}}</p>
+        </div>
+        <p class='recommendTitle'>{{video.title}}</p>
+        <p class='recommendChannel'>{{video.channelName}}</p>
+        <p class='recommendDate'>{{video.publishedDate}}</p>
+      </div>
+      <hr />
+    </div>
+  </div>
 </div>

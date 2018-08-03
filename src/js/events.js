@@ -214,3 +214,17 @@ $(document).on('dblclick', '.videoPlayer', fullscreenVideo);
 $(document).on('keydown', videoShortcutHandler);
 
 $(document).on('click', '#confirmNo', hideConfirmFunction);
+
+// Open links externally by default
+$(document).on('click', 'a[href^="http"]', (event) => {
+  let el = event.currentTarget;
+  event.preventDefault();
+  shell.openExternal(el.href);
+});
+
+// Open links externally on middle click.
+$(document).on('auxclick', 'a[href^="http"]', (event) => {
+  let el = event.currentTarget;
+  event.preventDefault();
+  shell.openExternal(el.href);
+});

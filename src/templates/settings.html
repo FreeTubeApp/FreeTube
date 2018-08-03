@@ -5,8 +5,8 @@
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
-
     FreeTube is distributed in the hope that it will be useful,
+
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
@@ -15,40 +15,40 @@
     along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 -->
 
-<h1 class="center">Settings</h1>
-<div class='center'>
-    <input type='text' name='api-key' id='api-key' class='settingsInput' value='{{key}}' placeholder='API Key' />
+<div v-if="seen">
+  <h1 class="center">Settings</h1>
+  <div class='center'>
+    <input type='text' name='api-key' id='api-key' class='settingsInput' :value='apiKey' placeholder='API Key' />
     <br />
     <label for='api-key'>Set API Key: Leave blank to use default</label>
     <br />
-    <input type="checkbox" id="themeSwitch" name="set-name" class="switch-input" onchange='toggleTheme(this)' {{isChecked}}>
+    <input type="checkbox" id="themeSwitch" name="set-name" class="switch-input" onchange='toggleTheme(this)' :checked='useTheme'>
     <label for="themeSwitch" class="switch-label">Use Dark Theme</label>
-    <input type="checkbox" id="torSwitch" name="set-name" class="switch-input" {{isChecked}}>
+    <input type="checkbox" id="torSwitch" name="set-name" class="switch-input" :checked='useTor'>
     <label for="torSwitch" class="switch-label">Use Tor for API calls</label>
-</div>
-<div class='center'>
+  </div>
+  <div class='center'>
     <div onclick='importSubscriptions()' class='settingsButton'>
-        IMPORT SUBSCRIPTIONS
+      IMPORT SUBSCRIPTIONS
     </div>
     <div onclick='exportSubscriptions();' class='settingsButton'>
-        EXPORT SUBSCRIPTIONS
+      EXPORT SUBSCRIPTIONS
     </div>
-</div>
-<br />
-<br />
-<div class='center'>
+  </div>
+  <br /><br />
+  <div class='center'>
     <div onclick='confirmFunction("Are you sure you want to delete your history?", clearFile, "history")' class='settingsButton'>
-        CLEAR HISTORY
+      CLEAR HISTORY
     </div>
     <div onclick='confirmFunction("Are you sure you want to remove all saved videos?", clearFile, "saved")' class='settingsButton'>
-        CLEAR SAVED VIDEOS
+      CLEAR SAVED VIDEOS
     </div>
     <div onclick='confirmFunction("Are you sure you want to remove all subscriptions?", clearFile, "subscriptions")' class='settingsButton'>
-        CLEAR SUBSCRIPTIONS
+      CLEAR SUBSCRIPTIONS
     </div>
-</div>
-<br />
-<br />
-<div onclick='updateSettings()' class='center settingsSubmit'>
+  </div>
+  <br /><br />
+  <div onclick='updateSettings()' class='center settingsSubmit'>
     SAVE SETTINGS
+  </div>
 </div>

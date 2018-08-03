@@ -51,13 +51,14 @@ function removeFromHistory(videoId) {
 }
 
 /**
- * Show the videos within the history database.
- *
- * @return {Void}
- */
-function showHistory() {
-    clearMainContainer();
-    startLoadingAnimation();
+* Show the videos within the history database.
+*
+* @return {Void}
+*/
+function showHistory(){
+  //clearMainContainer();
+  //startLoadingAnimation();
+  console.log('checking history');
 
     let videoList = '';
 
@@ -88,7 +89,8 @@ function showHistory() {
                     displayVideo(video, 'history');
                 });
             });
-            stopLoadingAnimation()
+        loadingView.seen = false;
         });
+      });
     });
 }

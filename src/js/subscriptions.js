@@ -21,6 +21,9 @@
  * File for all functions related to subscriptions.
  */
 
+ let subscriptionTimer;
+ let checkSubscriptions = true;
+
 /**
  * Add a channel to the user's subscription database.
  *
@@ -78,20 +81,23 @@ function removeSubscription(channelId) {
  * @return {Void}
  */
 function loadSubscriptions() {
-    clearMainContainer();
-    showToast('Getting Subscriptions.  Please wait...');
-    const loading = document.getElementById('loading');
+  if (checkSubscriptions === false && subscriptionView.videoList.length > 0){
+    console.log('Will not load subscriptions. Timer still on.');
+    loadingView.seen = false;
+    return;
+  }
+  else{
+    showToast('Refreshing Subscription List.  Please wait...');
+    checkSubscriptions = false;
+  }
 
-    startLoadingAnimation();
-
-    let videoList = [];
+  let videoList = [];
 
     const subscriptions = returnSubscriptions();
 
-    // Welcome to callback hell, we hope you enjoy your stay.
-    subscriptions.then((results) => {
-        let channelId = '';
-        let videoList = [];
+  subscriptions.then((results) => {
+      let channelId = '';
+      let videoList = [];
 
         if (results.length > 0) {
             let counter = 0;
@@ -107,24 +113,43 @@ function loadSubscriptions() {
                     order: 'date',
                 }, (data) => {
 
-                    videoList = videoList.concat(data.items);
-                    counter++;
-                    if (counter === results.length) {
-                        videoList.sort((a, b) => {
-                            const date1 = Date.parse(a.snippet.publishedAt);
-                            const date2 = Date.parse(b.snippet.publishedAt);
+          youtubeAPI('search', {
+              part: 'snippet',
+              channelId: channelId,
+              type: 'video',
+              maxResults: 15,
+              order: 'date',
+            }, (data) => {
+              console.log(data);
+              videoList = videoList.concat(data.items);
+              counter++;
+              progressView.progressWidth = (counter / results.length) * 100;
+              if (counter === results.length) {
+                videoList.sort((a, b) => {
+                  const date1 = Date.parse(a.snippet.publishedAt);
+                  const date2 = Date.parse(b.snippet.publishedAt);
 
                             return date2.valueOf() - date1.valueOf();
                         });
 
-                        // Render the videos to the application.
-                        createVideoListContainer('Latest Subscriptions:');
+                // The YouTube website limits the subscriptions to 100 before grabbing more so we only show 100
+                // to keep the app running at a good speed.
+                if (videoList.length < 50) {
+                  let grabDuration = getDuration(videoList.slice(0, 49));
 
-                        // The YouTube website limits the subscriptions to 100 before grabbing more so we only show 100
-                        // to keep the app running at a good speed.
-
-                        if (videoList.length < 50) {
-                            let grabDuration = getDuration(videoList.slice(0, 49));
+                  grabDuration.then((list) => {
+                    subscriptionView.videoList = [];
+                    list.items.forEach((video) => {
+                      displayVideo(video, 'subscriptions');
+                    });
+                    loadingView.seen = false;
+                    progressView.seen = false;
+                    progressView.progressWidth = 0;
+                  });
+                } else {
+                  console.log(videoList);
+                  let finishedList = [];
+                  let firstBatchDuration = getDuration(videoList.slice(0, 49));
 
                             grabDuration.then((list) => {
                                 list.items.forEach((video) => {
@@ -134,36 +159,33 @@ function loadSubscriptions() {
                             });
                         } else {
 
-                            let finishedList = [];
-                            let firstBatchDuration = getDuration(videoList.slice(0, 49));
-
-                            firstBatchDuration.then((list1) => {
-                                finishedList = finishedList.concat(list1.items);
-                                let secondBatchDuration = getDuration(videoList.slice(50, 99));
-
-                                secondBatchDuration.then((list2) => {
-                                    finishedList = finishedList.concat(list2.items);
-                                    finishedList.forEach((video) => {
-                                        displayVideo(video);
-                                    });
-                                    stopLoadingAnimation();
-                                });
-                            });
-                        }
-                    }
-                });
+                    secondBatchDuration.then((list2) => {
+                      finishedList = finishedList.concat(list2.items);
+                      console.log(finishedList);
+                      subscriptionView.videoList = [];
+                      finishedList.forEach((video) => {
+                        displayVideo(video, 'subscriptions');
+                      });
+                      loadingView.seen = false;
+                      progressView.seen = false;
+                      progressView.progressWidth = 0;
+                      subscriptionTimer = window.setTimeout(() => {
+                        checkSubscriptions = true;
+                      }, 60000);
+                    });
+                  });
+                }
+              }
             }
 
 
-        } else {
-            // User has no subscriptions. Display message.
-            const container = document.getElementById('main');
-            stopLoadingAnimation();
-
-            container.innerHTML = `<h2 class="message">Your Subscription list is currently empty.  Start adding subscriptions
-                             to see them here.<br /><br /><i class="far fa-frown" style="font-size: 200px"></i></h2>`;
-        }
-    });
+    } else {
+      // User has no subscriptions. Display message.
+      loadingView.seen = false;
+      headerView.seen = false;
+      noSubscriptions.seen = true;
+    }
+  });
 }
 
 /**

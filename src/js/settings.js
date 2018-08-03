@@ -29,56 +29,39 @@ const apiKeyBank = ['AIzaSyC9E579nh_qqxg6BH4xIce3k_7a9mT4uQc', 'AIzaSyCKplYT6hZI
  *
  * @return {Void}
  */
-function showSettings() {
-    clearMainContainer();
-    startLoadingAnimation();
-
-    let isChecked = '';
-    let key = '';
-
-    /*
-     * Check the settings database for the user's current settings.  This is so the
-     * settings page has the correct toggles related when it is rendered.
-     */
-    settingsDb.find({}, (err, docs) => {
-        docs.forEach((setting) => {
-            switch (setting['_id']) {
-            case 'apiKey':
-                if (apiKeyBank.indexOf(setting['value']) == -1) {
-                    key = setting['value'];
-                }
-                break;
-            case 'theme':
-                if (currentTheme == '') {
-                    currentTheme = setting['value'];
-                }
-            }
-        });
-
-        // Grab the settings.html template to prepare for rendering
-        const settingsTemplate = require('./templates/settings.html')
-        mustache.parse(settingsTemplate);
-        const rendered = mustache.render(settingsTemplate, {
-            isChecked: isChecked,
-            key: key,
-        });
-        // Render template to application
-        $('#main').html(rendered);
-        stopLoadingAnimation();
-
-        // Check / uncheck the switch depending on the user's settings.
-        if (currentTheme === 'light') {
-            document.getElementById('themeSwitch').checked = false;
-        } else {
-            document.getElementById('themeSwitch').checked = true;
-        }
-
-        if (useTor) {
-            document.getElementById('torSwitch').checked = true;
-        } else {
-            document.getElementById('torSwitch').checked = false;
-        }
+function updateSettingsView() {
+  /*
+   * Check the settings database for the user's current settings.  This is so the
+   * settings page has the correct toggles related when it is rendered.
+   */
+  settingsDb.find({}, (err, docs) => {
+    docs.forEach((setting) => {
+      switch (setting['_id']) {
+        case 'apiKey':
+          if (apiKeyBank.indexOf(setting['value']) == -1) {
+            settingsView.apiKey = setting['value'];
+          }
+          break;
+        case 'theme':
+          if (currentTheme == '') {
+            currentTheme = setting['value'];
+          }
+      }
     });
+
+    // Check / uncheck the switch depending on the user's settings.
+    if (currentTheme === 'light') {
+      settingsView.useTheme = false;
+    } else {
+      settingsView.useTheme = true;
+    }
+
+    if (useTor) {
+      settingsView.useTor = true;
+    } else {
+      settingsView.useTor = false;
+    }
+  });
 }
 
 /**
@@ -88,15 +71,15 @@ function showSettings() {
  */
 function checkDefaultSettings() {
 
-    // Grab a random API Key.
-    apiKey = apiKeyBank[Math.floor(Math.random() * apiKeyBank.length)];
-    let newSetting;
+  // Grab a random API Key.
+  settingsView.apiKey = apiKeyBank[Math.floor(Math.random() * apiKeyBank.length)];
+  let newSetting;
 
-    let settingDefaults = {
-        'theme': 'light',
-        'apiKey': apiKey,
-        'useTor': false
-    };
+  let settingDefaults = {
+    'theme': 'light',
+    'apiKey': settingsView.apiKey,
+    'useTor': false
+  };
 
     ft.log('Default Settings: ', settingDefaults);
 
@@ -112,28 +95,32 @@ function checkDefaultSettings() {
 
                 settingsDb.insert(newSetting);
 
-                if (key == 'theme') {
-                    setTheme('light');
-                }
-            } else {
-                switch (docs[0]['_id']) {
-                case 'theme':
-                    setTheme(docs[0]['value']);
-                    break;
-                case 'apiKey':
-                    if (apiKeyBank.indexOf(docs[0]['value']) == -1) {
-                        apiKey = docs[0]['value'];
-                    }
-                    break;
-                case 'useTor':
-                    useTor = docs[0]['value'];
-                    break;
-                default:
-                    break;
-                }
+        if (key == 'theme'){
+          setTheme('light');
+        }
+      }
+      else{
+        switch (docs[0]['_id']) {
+          case 'theme':
+            setTheme(docs[0]['value']);
+            break;
+          case 'apiKey':
+            if (apiKeyBank.indexOf(docs[0]['value']) == -1) {
+              settingsView.apiKey = docs[0]['value'];
             }
-        });
-    }
+            else{
+              settingsView.apiKey = settingDefaults.apiKey;
+            }
+            break;
+          case 'useTor':
+            useTor = docs[0]['value'];
+            break;
+          default:
+            break;
+        }
+      }
+    });
+  }
 }
 
 /**
@@ -147,7 +134,7 @@ function updateSettings() {
     let key = document.getElementById('api-key').value;
     let theme = 'light';
 
-    apiKey = apiKeyBank[Math.floor(Math.random() * apiKeyBank.length)];
+  settingsView.apiKey = apiKeyBank[Math.floor(Math.random() * apiKeyBank.length)];
 
     ft.log('(Is the theme switch checked) themeSwitch: ', themeSwitch);
 
@@ -157,7 +144,28 @@ function updateSettings() {
 
     ft.log('Theme: ', theme);
 
-    // Update default theme
+  // Update default theme
+  settingsDb.update({
+    _id: 'theme'
+  }, {
+    value: theme
+  }, {}, function(err, numReplaced) {
+    console.log(err);
+    console.log(numReplaced);
+  });
+
+  // Update tor usage.
+  settingsDb.update({
+    _id: 'useTor'
+  }, {
+    value: torSwitch
+  }, {}, function(err, numReplaced) {
+    console.log(err);
+    console.log(numReplaced);
+    useTor = torSwitch;
+  });
+
+  if (key !== '') {
     settingsDb.update({
         _id: 'theme'
     }, {
@@ -171,12 +179,9 @@ function updateSettings() {
     settingsDb.update({
         _id: 'useTor'
     }, {
-        value: torSwitch
-    }, {}, function (err, numReplaced) {
-        ft.log('Error while connecting to tor: ', err);
-        ft.log('Number replaced: ', numReplaced);
-        useTor = torSwitch;
-    });
+      value: settingsView.apiKey
+    }, {});
+  }
 
     if (key != '') {
         settingsDb.update({
@@ -302,16 +307,11 @@ function importSubscriptions() {
         let fileType = (i < 0) ? '' : fileLocation[0].substr(i);
         ft.log('File Type: ', fileType);
 
-        /*if (fileType !== '.db'){
-          showToast('Incorrect filetype.  Import was unsuccessful.');
-          return;
-        }*/
-
-        fs.readFile(fileLocation[0], function (readErr, data) {
-            if (readErr) {
-                showToast('Unable to read file.  File may be corrupt or have invalid permissions.');
-                throw readErr;
-            }
+    fs.readFile(fileLocation[0], function(readErr, data){
+      if(readErr){
+        showToast('Unable to read file.  File may be corrupt or have invalid permissions.');
+        throw readErr;
+      }
 
             if (data.includes("<opml")) {
                 getOpml(data, function (error, json) {
@@ -420,8 +420,4 @@ function clearFile(type, showMessage = true) {
             throw err;
         }
 
-        if (showMessage) {
-            showToast('File has been cleared. Restart FreeTube to see the changes');
-        }
-    })
-}
+checkDefaultSettings();

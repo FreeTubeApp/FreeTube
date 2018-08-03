@@ -31,13 +31,16 @@ function search(nextPageToken = '') {
         return;
     }
 
-    if (nextPageToken === '') {
-        clearMainContainer();
-        startLoadingAnimation();
-    } else {
-        ft.log('Next page token: ', nextPageToken);
-        showToast('Fetching results.  Please wait...');
-    }
+  if (nextPageToken === '') {
+    hideViews();
+    headerView.seen = true;
+    headerView.title = 'Search Results';
+    searchView.videoList = [];
+    searchView.seen = true;
+  } else {
+    console.log(nextPageToken);
+    showToast('Fetching results.  Please wait...');
+  }
 
     youtubeAPI('search', {
         q: query,
@@ -79,17 +82,15 @@ function search(nextPageToken = '') {
 
         let grabDuration = getDuration(videos);
 
-        grabDuration.then((videoList) => {
-            ft.log('Video Lists: ', videoList);
-            videoList.items.forEach(displayVideo);
-        });
+    grabDuration.then((videoList) => {
+      console.log(videoList);
+      videoList.items.forEach((video) => {
+        displayVideo(video, 'search');
+      });
+    });
 
-        if (nextPageToken === '') {
-            createVideoListContainer('Search results:');
-            stopLoadingAnimation();
-        }
-        addNextPage(data.nextPageToken);
-    })
+    searchView.nextPageToken = data.nextPageToken;
+  })
 }
 
 /**
@@ -137,54 +138,67 @@ function getDuration(data) {
  *
  * @return {Void}
  */
-function displayVideo(video, listType = '') {
-    const videoSnippet = video.snippet;
+function displayVideo(videoData, listType = '') {
+  let video = {};
 
-    const videoDuration = parseVideoDuration(video.contentDetails.duration);
-    //const videoDuration = '00:00';
+  const videoSnippet = videoData.snippet;
 
-    // Grab the published date for the video and convert to a user readable state.
-    const dateString = new Date(videoSnippet.publishedAt);
-    const publishedDate = dateFormat(dateString, "mmm dS, yyyy");
+  video.duration = parseVideoDuration(videoData.contentDetails.duration);
 
-    const searchMenu = $('#videoListContainer').html();
-    const videoId = video.id;
+  // Grab the published date for the video and convert to a user readable state.
+  const dateString = new Date(videoSnippet.publishedAt);
+  video.publishedDate = dateFormat(dateString, "mmm dS, yyyy");
 
-    // Include a remove icon in the list if the application is displaying the history list or saved videos.
-    const deleteHtml = () => {
-        switch (listType) {
-        case 'saved':
-            return `<li onclick="removeSavedVideo('${videoId}'); showSavedVideos();">Remove From Favorites</li>`;
-        case 'history':
-            return `<li onclick="removeFromHistory('${videoId}'); showHistory();">Remove From History</li>`;
-        }
-    };
+  const searchMenu = $('#videoListContainer').html();
 
-    // Includes text if the video is live.
-    const liveText = (videoSnippet.liveBroadcastContent === 'live') ? 'LIVE NOW' : '';
-    const videoListTemplate = require('./templates/videoList.html');
-
-    mustache.parse(videoListTemplate);
-    const rendered = mustache.render(videoListTemplate, {
-        videoId: videoId,
-        videoThumbnail: videoSnippet.thumbnails.medium.url,
-        videoTitle: videoSnippet.title,
-        channelName: videoSnippet.channelTitle,
-        videoDescription: videoSnippet.description,
-        channelId: videoSnippet.channelId,
-        videoDuration: videoDuration,
-        publishedDate: publishedDate,
-        liveText: liveText,
-        deleteHtml: deleteHtml,
-    });
-
-    // Apply the render to the page
-    const nextButton = document.getElementById('getNextPage');
-    if (nextButton === null) {
-        $('#videoListContainer').append(rendered);
-    } else {
-        $(rendered).insertBefore('#getNextPage');
+  // Include a remove icon in the list if the application is displaying the history list or saved videos.
+  video.deleteHtml = () => {
+    switch (listType) {
+      case 'saved':
+        return `<li onclick="removeSavedVideo('${videoId}'); showSavedVideos();">Remove Saved Video</li>`;
+      case 'history':
+        return `<li onclick="removeFromHistory('${videoId}'); showHistory();">Remove From History</li>`;
     }
+  };
+
+  video.id = videoData.id;
+  video.youtubeUrl = 'https://youtube.com/watch?v=' + video.id;
+  video.invidiousUrl = 'https://invidio.us/watch?v=' + video.id;
+  // Includes text if the video is live.
+  video.liveText = (videoSnippet.liveBroadcastContent === 'live') ? 'LIVE NOW' : '';
+  video.thumbnail = videoSnippet.thumbnails.medium.url;
+  video.title = videoSnippet.title;
+  video.channelName = videoSnippet.channelTitle;
+  video.channelId = videoSnippet.channelId;
+  video.description = videoSnippet.description;
+  video.isVideo = true;
+
+  switch (listType) {
+    case 'subscriptions':
+      subscriptionView.videoList = subscriptionView.videoList.concat(video);
+      video.removeFromSave = true;
+      break;
+    case 'search':
+      searchView.videoList = searchView.videoList.concat(video);
+      video.removeFromSave = false;
+      break;
+    case 'popular':
+      popularView.videoList = popularView.videoList.concat(video);
+      video.removeFromSave = false;
+      break;
+    case 'saved':
+      savedView.videoList = savedView.videoList.concat(video);
+      video.removeFromSave = false;
+      break;
+    case 'history':
+      historyView.videoList = historyView.videoList.concat(video);
+      video.removeFromSave = false;
+      break;
+    case 'channel':
+      channelVideosView.videoList = channelVideosView.videoList.concat(video);
+      video.removeFromSave = false;
+      break;
+  }
 }
 
 function displayChannels(channels) {
@@ -210,19 +224,21 @@ function displayChannels(channels) {
 
         ft.log('Channel Items: ', items);
 
-        items.forEach((item) => {
-            mustache.parse(videoListTemplate);
-            let rendered = mustache.render(videoListTemplate, {
-                channelId: item.id,
-                channelThumbnail: item.snippet.thumbnails.medium.url,
-                channelName: item.snippet.title,
-                channelDescription: item.snippet.description,
-                subscriberCount: item.statistics.subscriberCount,
-                videoCount: item.statistics.videoCount,
-            });
+    items.forEach((item) => {
+      let channelData = {};
 
-            $(rendered).insertBefore('#getNextPage');
-        });
+      channelData.channelId = item.id;
+      channelData.thumbnail = item.snippet.thumbnails.medium.url;
+      channelData.channelName = item.snippet.title;
+      channelData.description = item.snippet.description;
+      channelData.subscriberCount = item.statistics.subscriberCount;
+      channelData.videoCount = item.statistics.videoCount;
+      channelData.isVideo = false;
+
+      console.log(searchView.videoList);
+      console.log(channelData);
+
+      searchView.videoList = searchView.videoList.concat(channelData);
     });
 }
 
@@ -303,32 +319,29 @@ function addNextPage(nextPageToken) {
  * @param {string} videoId - The video ID of the video to get recommendations from.
  */
 function showVideoRecommendations(videoId) {
-    youtubeAPI('search', {
-        part: 'id',
-        type: 'video',
-        relatedToVideoId: videoId,
-        maxResults: 15,
-    }, function (data) {
-        let grabDuration = getDuration(data.items);
-        grabDuration.then((videoList) => {
-            videoList.items.forEach((video) => {
-                const snippet = video.snippet;
-                const videoDuration = parseVideoDuration(video.contentDetails.duration);
+  playerView.recommendedVideoList = [];
 
-                const recommTemplate = require('./templates/recommendations.html')
-                mustache.parse(recommTemplate);
-                const rendered = mustache.render(recommTemplate, {
-                    videoId: video.id,
-                    videoTitle: snippet.title,
-                    channelName: snippet.channelTitle,
-                    videoThumbnail: snippet.thumbnails.medium.url,
-                    videoDuration: videoDuration,
-                    publishedDate: dateFormat(snippet.publishedAt, "mmm dS, yyyy")
-                });
-                const recommendationHtml = $('#recommendations').html();
-                $('#recommendations').html(recommendationHtml + rendered);
-            });
-        });
+  youtubeAPI('search', {
+    part: 'id',
+    type: 'video',
+    relatedToVideoId: videoId,
+    maxResults: 15,
+  }, function(data) {
+    let grabDuration = getDuration(data.items);
+    grabDuration.then((videoList) => {
+      videoList.items.forEach((video) => {
+        let data = {}
+        const snippet = video.snippet;
+
+        data.duration = parseVideoDuration(video.contentDetails.duration);
+        data.id = video.id;
+        data.title = snippet.title;
+        data.channelName = snippet.channelTitle;
+        data.thumbnail = snippet.thumbnails.medium.url;
+        data.publishedDate = dateFormat(snippet.publishedAt, "mmm dS, yyyy");
+
+        playerView.recommendedVideoList = playerView.recommendedVideoList.concat(data);
+      });
     });
 }
 
@@ -435,34 +448,35 @@ function parseVideoDuration(durationString) {
  * @return {Void}
  */
 function showMostPopular() {
-    clearMainContainer();
-    startLoadingAnimation();
 
     // Get the date of 2 days ago.
     var d = new Date();
     d.setDate(d.getDate() - 2);
 
-    // Grab all videos published 2 days ago and after and order them by view count.
-    // These are the videos that are considered as 'most popular' and is how similar
-    // Applications grab these.  Videos in the 'Trending' tab on YouTube will be different.
-    // And there is no way to grab those videos.
-    youtubeAPI('search', {
-        part: 'id',
-        order: 'viewCount',
-        type: 'video',
-        publishedAfter: d.toISOString(),
-        maxResults: 50,
-    }, function (data) {
-        createVideoListContainer('Most Popular:');
-        ft.log('Most Popular: ', data);
-        let grabDuration = getDuration(data.items);
+  // Grab all videos published 2 days ago and after and order them by view count.
+  // These are the videos that are considered as 'most popular' and is how similar
+  // Applications grab these.  Videos in the 'Trending' tab on YouTube will be different.
+  // And there is no way to grab those videos.
+  youtubeAPI('search', {
+    part: 'id',
+    order: 'viewCount',
+    type: 'video',
+    publishedAfter: d.toISOString(),
+    maxResults: 50,
+  }, function(data) {
+    //createVideoListContainer('Most Popular:');
+    console.log(data);
+    let grabDuration = getDuration(data.items);
 
-        grabDuration.then((videoList) => {
-            ft.log('Video List: ', videoList);
-            videoList.items.forEach(displayVideo);
-        });
-        stopLoadingAnimation();
+    grabDuration.then((videoList) => {
+      console.log(videoList);
+      popularView.videoList = [];
+      loadingView.seen = false;
+      videoList.items.forEach((video) => {
+        displayVideo(video, 'popular');
+      });
     });
+  });
 }
 
 /**
