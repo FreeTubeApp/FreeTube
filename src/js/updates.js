@@ -23,13 +23,13 @@
 
 const updateChecker = require('github-version-checker');
 
-const options = {
-    token: 'USERACCESSTOKEN', // personal access token.  Github will not allow commiting the access token, which is why this is blank.
-    repo: 'freetube', // repository name
-    owner: 'freetubeapp', // repository owner
-    currentVersion: require('electron').remote.app.getVersion(), // your app's current version
-    fetchTags: false // whether to fetch releases or tags
-};
+ const options = {
+   token: 'PUTUSERTOKENHERE', // personal access token.  Github will not allow commiting the access token, which is why this is blank.
+   repo: 'freetube', // repository name
+   owner: 'freetubeapp', // repository owner
+   currentVersion: require('electron').remote.app.getVersion(), // your app's current version
+   fetchTags: false // whether to fetch releases or tags
+ };
 
 const openReleasePage = function () {
     shell.openExternal('https://github.com/FreeTubeApp/FreeTube/releases');

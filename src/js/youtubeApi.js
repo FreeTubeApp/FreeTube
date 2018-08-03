@@ -28,33 +28,34 @@
  */
 
 function youtubeAPI(resource, params, success) {
-    params.key = apiKey;
+  params.key = settingsView.apiKey;
 
-    if (useTor) {
-        tor.request('https://www.googleapis.com/youtube/v3/' + resource + '?' + $.param(params), function (err, res, body) {
-            if (!err && res.statusCode == 200) {
-                success(JSON.parse(body));
-            } else {
-                showToast('Unable to connect to the Tor network. Check the help page if you\'resss having trouble setting up your node.');
-                ft.log('Tor Error: ', err);
-                ft.log('Tor Error (Result): ', res);
-                ft.log('Tor Error (body): ', body);
-                stopLoadingAnimation();
-            }
-        });
-    } else {
-        $.getJSON(
-            'https://www.googleapis.com/youtube/v3/' + resource,
-            params,
-            success
-        ).fail((xhr, textStatus, error) => {
-            showToast('There was an error calling the YouTube API.');
-            ft.log('YT API Error: ', error);
-            ft.log('YT API Error - XHR: ', xhr);
-            ft.log('YT API Error - Text Status: ', textStatus);
-            stopLoadingAnimation();
-        });
-    }
+  let requestUrl = 'https://www.googleapis.com/youtube/v3/' + resource + '?' + $.param(params);
+
+  if (useTor) {
+    tor.request(requestUrl, (err, res, body) => {
+      if (!err && res.statusCode == 200) {
+        success(JSON.parse(body));
+      } else {
+        showToast('Unable to connect to the Tor network. Check the help page if you\'re having trouble setting up your node.');
+        console.log(err);
+        console.log(res);
+        console.log(body);
+        loadingView.seen = false;
+      }
+    });
+  } else {
+    $.getJSON(
+      requestUrl,
+      success
+    ).fail((xhr, textStatus, error) => {
+      showToast('There was an error calling the YouTube API.');
+      console.log(error);
+      console.log(xhr);
+      console.log(textStatus);
+      loadingView.seen = false;
+    });
+  }
 
 
 }
@@ -72,14 +73,14 @@ function youtubedlGetInfo(videoId, callback) {
     let url = 'https://youtube.com/watch?v=' + videoId;
     let options = ['--all-subs', '--write-subs'];
 
-    ytdl.getInfo(url, options, function (err, info) {
-        if (err) {
-            showToast(err.message);
-            stopLoadingAnimation();
-            ft.log('Error getting video download info: ', err.message);
-            ft.log('Error getting video download info: ', info);
-            return;
-        }
+  ytdl.getInfo(url, options, function(err, info) {
+    if (err) {
+      showToast(err.message);
+      loadingView.seen = false;
+      console.log(err);
+      console.log(info);
+      return;
+    }
 
         ft.log('Success');
         callback(info);
