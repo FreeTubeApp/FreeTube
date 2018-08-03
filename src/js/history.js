@@ -51,13 +51,14 @@ function removeFromHistory(videoId) {
 }
 
 /**
- * Show the videos within the history database.
- *
- * @return {Void}
- */
-function showHistory() {
-    clearMainContainer();
-    startLoadingAnimation();
+* Show the videos within the history database.
+*
+* @return {Void}
+*/
+function showHistory(){
+  //clearMainContainer();
+  //startLoadingAnimation();
+  console.log('checking history');
 
     let videoList = '';
 
@@ -75,20 +76,19 @@ function showHistory() {
             });
         }
 
-        youtubeAPI('videos', {
-            part: 'snippet',
-            id: videoList,
-            maxResults: 50,
-        }, function (data) {
-            createVideoListContainer('Watch History:');
-            let grabDuration = getDuration(data.items);
+    youtubeAPI('videos', {
+      part: 'snippet',
+      id: videoList,
+      maxResults: 50,
+    }, function (data) {
+      let grabDuration = getDuration(data.items);
 
-            grabDuration.then((videoList) => {
-                videoList.items.forEach((video) => {
-                    displayVideo(video, 'history');
-                });
-            });
-            stopLoadingAnimation()
+      grabDuration.then((videoList) => {
+        historyView.videoList = [];
+        loadingView.seen = false;
+        videoList.items.forEach((video) => {
+          displayVideo(video, 'history');
         });
+      });
     });
 }

@@ -23,32 +23,24 @@
  */
 
 // Add general variables.  Please put all require statements here.
-const Datastore = require('nedb'); // database logic
 window.$ = window.jQuery = require('jquery');
 const mustache = require('mustache'); // templating
 const dateFormat = require('dateformat'); // formatting dates
 
-//const RxPlayer = require('rx-player'); // formatting dates
-
 // Used for finding links within text and making them clickable.  Used mostly for video descriptions.
 const autolinker = require('autolinker');
-const electron = require('electron');
 const protocol = electron.remote.protocol;
 
 // Used for getting the user's subscriptions.  Can probably remove this when that function
 // is rewritten.
-//const asyncLoop = require('node-async-loop');
-//const youtubedl = require('youtube-dl');
 const ytdl = require('ytdl-core');
 const shell = electron.shell; // Used to open external links into the user's native browser.
-const localDataStorage = electron.remote.app.getPath('userData'); // Grabs the userdata directory based on the user's OS
 const clipboard = electron.clipboard;
 const getOpml = require('opml-to-json'); // Gets the file type for imported files.
 const fs = require('fs'); // Used to read files. Specifically in the settings page.
 const tor = require('tor-request');
 
 let currentTheme = '';
-let apiKey;
 let useTor = false;
 let dialog = electron.remote.dialog; // Used for opening file browser to export / import subscriptions.
 let toastTimeout; // Timeout for toast notifications.
@@ -58,51 +50,15 @@ require.extensions['.html'] = function (module, filename) {
     module.exports = fs.readFileSync(filename, 'utf8');
 };
 
-const subDb = new Datastore({
-    filename: localDataStorage + '/subscriptions.db',
-    autoload: true
-});
-
-const historyDb = new Datastore({
-    filename: localDataStorage + '/videohistory.db',
-    autoload: true
-});
-
-const savedVidsDb = new Datastore({
-    filename: localDataStorage + '/savedvideos.db',
-    autoload: true
-});
-
-const settingsDb = new Datastore({
-    filename: localDataStorage + '/settings.db',
-    autoload: true
-});
-
 // Grabs the default settings from the settings database file.  Makes defaults if
 // none are found.
-checkDefaultSettings();
 
-require('electron').ipcRenderer.on('ping', function (event, message) {
-    ft.log(message);
+electron.ipcRenderer.on('ping', function(event, message) {
+    console.log(message);
     let url = message[1].replace('freetube://', '');
     parseSearchText(url);
     ft.log(message);
 });
-
-// Open links externally by default
-$(document).on('click', 'a[href^="http"]', (event) => {
-    let el = event.currentTarget;
-    event.preventDefault();
-    shell.openExternal(el.href);
-});
-
-// Open links externally on middle click.
-$(document).on('auxclick', 'a[href^="http"]', (event) => {
-    let el = event.currentTarget;
-    event.preventDefault();
-    shell.openExternal(el.href);
-});
-
 
 $(document).ready(() => {
     const searchBar = document.getElementById('search');
@@ -118,9 +74,10 @@ $(document).ready(() => {
         }
     };
 
-    // Display subscriptions upon the app opening up.  May allow user to specify.
-    // Home page in the future.
-    loadSubscriptions();
+  // Display subscriptions upon the app opening up.  May allow user to specify.
+  // Home page in the future.
+  loadingView.seen = true;
+  loadSubscriptions();
 });
 
 /**
@@ -139,84 +96,6 @@ function toggleSideNavigation() {
         sideNav.style.display = 'none';
         mainContainer.style.marginLeft = '0px';
     }
-}
-
-/**
- * Clears out the #main container to allow other information to be shown.
- *
- * @return {Void}
- */
-function clearMainContainer() {
-    const container = document.getElementById('main');
-    container.innerHTML = '';
-    hideConfirmFunction();
-}
-
-function startLoadingAnimation() {
-    const loading = document.getElementById('loading');
-    const sideNavDisabled = document.getElementById('sideNavDisabled');
-    const searchBar = document.getElementById('search');
-
-    loading.style.display = 'inherit';
-    if (sideNavDisabled !== null) {
-        sideNavDisabled.style.display = 'inherit';
-    }
-
-    searchBar.disabled = true;
-}
-
-function stopLoadingAnimation() {
-    const loading = document.getElementById('loading');
-    const sideNavDisabled = document.getElementById('sideNavDisabled');
-    const searchBar = document.getElementById('search');
-
-    loading.style.display = 'none';
-    if (sideNavDisabled !== null) {
-        sideNavDisabled.style.display = 'none';
-    }
-
-    searchBar.disabled = false;
-}
-
-/**
- * Creates a div container in #main meant to be a container for video lists.
- *
- * @param {string} headerLabel - The header of the container.  Not used for showing video recommendations.
- *
- * @return {Void}
- */
-function createVideoListContainer(headerLabel = '') {
-    const videoListContainer = document.createElement("div");
-    videoListContainer.id = 'videoListContainer';
-    let headerSpacer;
-    if (headerLabel != '') {
-        const headerElement = document.createElement("h2");
-        headerElement.innerHTML = headerLabel;
-        headerElement.style.marginLeft = '15px';
-        headerElement.appendChild(document.createElement("hr"));
-        videoListContainer.appendChild(headerElement);
-    }
-    document.getElementById("main").appendChild(videoListContainer);
-}
-
-/**
- * Displays the about page to #main
- *
- * @return {Void}
- */
-function showAbout() {
-    // Remove current information and display loading animation
-    clearMainContainer();
-    startLoadingAnimation();
-
-    const aboutTemplate = require('./templates/about.html')
-    mustache.parse(aboutTemplate);
-    $('#main').html(
-        mustache.render(aboutTemplate, {
-            versionNumber: require('electron').remote.app.getVersion(),
-        })
-    );
-    stopLoadingAnimation();
 }
 
 /**

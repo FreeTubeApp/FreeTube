@@ -72,27 +72,19 @@ function removeSavedVideo(videoId, string) {
 function toggleSavedVideo(videoId) {
     event.stopPropagation();
 
-    const checkIfSaved = videoIsSaved(videoId);
-    const saveIcon = document.getElementById('saveIcon');
-    const savedText = document.getElementById('savedText');
+  const checkIfSaved = videoIsSaved(videoId);
 
-    checkIfSaved.then((results) => {
-        if (results === false) {
-            savedText.innerHTML = 'UNFAVORITE';
-            saveIcon.classList.remove('far');
-            saveIcon.classList.remove('unsaved');
-            saveIcon.classList.add('fas');
-            saveIcon.classList.add('saved');
-            addSavedVideo(videoId);
-        } else {
-            savedText.innerHTML = 'FAVORITE';
-            saveIcon.classList.remove('fas');
-            saveIcon.classList.remove('saved');
-            saveIcon.classList.add('far');
-            saveIcon.classList.add('unsaved');
-            removeSavedVideo(videoId);
-        }
-    });
+  checkIfSaved.then((results) => {
+    if (results === false) {
+      playerView.savedText = 'SAVED';
+      playerView.savedIconType = 'fas saved';
+      addSavedVideo(videoId);
+    } else {
+      playerView.savedText = 'SAVE';
+      playerView.savedIconType = 'far unsaved';
+      removeSavedVideo(videoId);
+    }
+  });
 }
 
 /**
@@ -117,14 +109,14 @@ function videoIsSaved(videoId) {
 }
 
 /**
- * Displays a list of the user's saved videos.
- *
- * @return {Void}
- */
-function showSavedVideos() {
-    clearMainContainer();
-    startLoadingAnimation();
-    ft.log('Checking favorited videos');
+* Displays a list of the user's saved videos.
+*
+* @return {Void}
+*/
+function showSavedVideos(){
+  //clearMainContainer();
+  //startLoadingAnimation();
+  console.log('checking saved videos');
 
     let videoList = '';
 
@@ -144,21 +136,20 @@ function showSavedVideos() {
             });
         }
 
-        // Call the YouTube API
-        youtubeAPI('videos', {
-            part: 'snippet',
-            id: videoList,
-            maxResults: 50,
-        }, (data) => {
-            // Render the videos to the screen
-            createVideoListContainer('Favorited Videos:');
-            let grabDuration = getDuration(data.items);
-            grabDuration.then((videoList) => {
-                videoList.items.forEach((video) => {
-                    displayVideo(video, 'saved');
-                });
-            });
-            stopLoadingAnimation();
+    // Call the YouTube API
+    youtubeAPI('videos', {
+      part: 'snippet',
+      id: videoList,
+      maxResults: 50,
+    }, (data) => {
+      // Render the videos to the screen
+      let grabDuration = getDuration(data.items);
+      grabDuration.then((videoList) => {
+        savedView.videoList = [];
+        loadingView.seen = false;
+        videoList.items.forEach((video) => {
+          displayVideo(video, 'saved');
         });
+      });
     });
 }
