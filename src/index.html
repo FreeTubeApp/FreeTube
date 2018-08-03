@@ -20,10 +20,21 @@
       <div class="double-bounce1"></div>
       <div class="double-bounce2"></div>
     </div>
-    <div id='confirmFunction'>
-        <span id='confirmMessage'>Would you like to perform the function?</span>
-        <div class='confirmButton' id='confirmYes'>Yes</div>
-        <div class='confirmButton' id='confirmNo'>No</div>
+  </div>
+  <div id='confirmFunction'>
+    <span id='confirmMessage'>Would you like to perform the function?</span>
+    <div class='confirmButton' id='confirmYes'>Yes</div>
+    <div class='confirmButton' id='confirmNo'>No</div>
+  </div>
+  <div id='toast'>
+    <span id='toastMessage'></span>
+    <i onclick='hideToast()' class="closeToast fas fa-times"></i>
+  </div>
+  <div class="topNav">
+    <i onclick='toggleSideNavigation()' class="fas fa-bars" id='menuButton'></i>
+    <div class="searchBar">
+      <input id='search' class="search" type="text" placeholder="Search / Go to URL">
+      <i onclick='parseSearchText()' class="fas fa-search searchButton" style='margin-right: -10px; cursor: pointer'></i>
     </div>
     <img src='icons/iconBlack.png' id='menuIcon' /> &nbsp;
     <img src='icons/textBlack.png' id='menuText' />
@@ -70,6 +81,7 @@
   </div>
   <div id='progressView'></div>
 </body>
+<script src="js/general.js"></script>
 <script src="js/youtubeApi.js"></script>
 <script src="js/updates.js"></script>
 <script src="js/db.js"></script>

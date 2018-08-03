@@ -180,6 +180,11 @@ let popularView = new Vue({
     },
     toggleSave: (videoId) => {
       addSavedVideo(videoId);
+    },
+    copy: (site, videoId) => {
+      const url = 'https://' + site + '/watch?v=' + videoId;
+      clipboard.writeText(url);
+      showToast('URL has been copied to the clipboard');
     }
   },
   template: videoListTemplate
