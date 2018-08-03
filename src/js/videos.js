@@ -220,7 +220,6 @@ function displayChannels(channels) {
     }, function (data) {
         ft.log('Channel Data: ', data);
         let items = data['items'].reverse();
-        const videoListTemplate = require('./templates/channelList.html');
 
         ft.log('Channel Items: ', items);
 
@@ -240,6 +239,7 @@ function displayChannels(channels) {
 
       searchView.videoList = searchView.videoList.concat(channelData);
     });
+  });
 }
 
 function displayPlaylists(playlists) {
@@ -343,6 +343,7 @@ function showVideoRecommendations(videoId) {
         playerView.recommendedVideoList = playerView.recommendedVideoList.concat(data);
       });
     });
+  });
 }
 
 /**
@@ -404,7 +405,7 @@ function parseSearchText(url = '') {
  * @return {string} - The formated string. Ex: 12:34:56
  */
 function parseVideoDuration(durationString) {
-    let match = durationString.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
+    let match = durationString.match(/P.*T(\d+H)?(\d+M)?(\d+S)?/);
     let duration = '';
 
     match = match.slice(1).map(function (x) {

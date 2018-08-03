@@ -62,7 +62,7 @@ function goToChannel(channelId) {
       maxResults: 50,
       order: 'date',
     }, function (data) {
-        const channelData = data.items[0];
+      let grabDuration = getDuration(data.items);
 
       grabDuration.then((videoList) => {
         channelView.seen = true;
@@ -72,8 +72,6 @@ function goToChannel(channelId) {
         videoList.items.forEach((video) => {
           displayVideo(video, 'channel');
         });
-        $('#main').html(rendered);
-        stopLoadingAnimation();
 
         // Grab the channel's latest uploads. API forces a max of 50.
         youtubeAPI('search', {
@@ -92,5 +90,7 @@ function goToChannel(channelId) {
                 });
             });
         });
+      });
     });
+  });
 }

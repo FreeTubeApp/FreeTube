@@ -17,19 +17,17 @@
 
 
 
-import {
-    comment
-} from "./comment.model";
+import {comment} from "./comment.model";
 
 /**
  * Entire Comment Threads for a Video
  */
 export class commentThread {
-    videoId;
-    nextPageToken;
-    pageInfo = {
-        totalResults,
-        resultsPerPage
+    videoId: ?string;
+    nextPageToken: ?string;
+    pageInfo: {
+        totalResults: number,
+        resultsPerPage: number
     };
-    items;
+    items: comment[];
 }
