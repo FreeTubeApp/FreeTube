@@ -152,4 +152,5 @@ function showSavedVideos(){
         });
       });
     });
+  });
 }

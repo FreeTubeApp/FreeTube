@@ -127,26 +127,24 @@ function playVideo(videoId) {
         if (typeof(info.player_response.captions.playerCaptionsTracklistRenderer.captionTracks) === 'object') {
           const videoSubtitles = info.player_response.captions.playerCaptionsTracklistRenderer.captionTracks;
 
-                        if (subtitle.kind == 'asr') {
-                            //subtitleUrl = subtitle.baseUrl;
-                            return;
-                        }
+          videoSubtitles.forEach((subtitle) => {
+            let subtitleUrl = 'https://www.youtube.com/api/timedtext?lang=' + subtitle.languageCode + '&fmt=vtt&name=&v=' + videoId;
 
-                        videoHtml = videoHtml + '<track kind="subtitles" src="' + subtitleUrl + '" srclang="' + subtitle.languageCode + '" label="' + subtitle.name.simpleText + '">';
-                    });
-                }
+            if (subtitle.kind == 'asr') {
+              //subtitleUrl = subtitle.baseUrl;
+              return;
             }
 
-            //videoHtml = videoHtml + '</video>';
+            videoHtml = videoHtml + '<track kind="subtitles" src="' + subtitleUrl + '" srclang="' + subtitle.languageCode + '" label="' + subtitle.name.simpleText + '">';
+          });
         }
+      }
 
       playerView.subtitleHtml = videoHtml;
-    }
+}
+
 
     const checkSubscription = isSubscribed(playerView.channelId);
-
-        checkSubscription.then((results) => {
-            const subscribeButton = document.getElementById('subscribeButton');
 
     checkSubscription.then((results) => {
       if (results === false) {
@@ -181,10 +179,7 @@ function playVideo(videoId) {
       });
     }
 
-        window.setTimeout(checkVideoUrls, 5000, video480p, video720p);
-
     window.setTimeout(checkVideoUrls, 5000, playerView.video480p, playerView.video720p);
-
   });
 }
 
@@ -225,6 +220,7 @@ function openMiniPlayer() {
       videoThumbnail: playerView.thumbnail,
       startTime: lastTime,
     });
+  });
 }
 
 /**
