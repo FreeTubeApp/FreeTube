@@ -78,9 +78,12 @@ let init = function () {
     const template = [{
             label: 'File',
             submenu: [{
-                role: 'quit'
-            }]
-        },
+                    label: 'Open New Window',
+                    click () { init() }
+            },
+              {role: 'quit'}
+            ]
+          },
         {
             label: 'Edit',
             submenu: [{

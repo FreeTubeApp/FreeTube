@@ -41,10 +41,10 @@ function playVideo(videoId) {
   // Change the save button icon and text depending on if the user has saved the video or not.
   checkSavedVideo.then((results) => {
     if (results === false) {
-      playerView.savedText = 'SAVE';
+      playerView.savedText = 'FAVORITE';
       playerView.savedIconType = 'far unsaved';
     } else {
-      playerView.savedText = 'SAVED';
+      playerView.savedText = 'FAVORITED';
       playerView.savedIconType = 'fas saved';
     }
   });
@@ -190,38 +190,40 @@ function playVideo(videoId) {
  *
  * @return {Void}
  */
-function openMiniPlayer() {
-  let lastTime;
-  let videoHtml;
+ function openMiniPlayer() {
+   let lastTime;
+   let videoHtml;
 
-    // Grabs whatever the HTML is for the current video player.  Done this way to grab
-    // the HTML5 player (with varying qualities) as well as the YouTube embeded player.
-    if ($('.videoPlayer').length > 0) {
-        $('.videoPlayer').get(0).pause();
-        lastTime = $('.videoPlayer').get(0).currentTime;
-        videoHtml = $('.videoPlayer').get(0).outerHTML;
-    } else {
-        videoHtml = $('iframe').get(0).outerHTML;
-    }
+   // Grabs whatever the HTML is for the current video player.  Done this way to grab
+   // the HTML5 player (with varying qualities) as well as the YouTube embeded player.
+   if ($('.videoPlayer').length > 0) {
+     $('.videoPlayer').get(0).pause();
+     lastTime = $('.videoPlayer').get(0).currentTime;
+     videoHtml = $('.videoPlayer').get(0).outerHTML;
+   } else {
+     videoHtml = $('iframe').get(0).outerHTML;
+   }
 
-    // Create a new browser window.
-    const BrowserWindow = electron.remote.BrowserWindow;
+   // Create a new browser window.
+   const BrowserWindow = electron.remote.BrowserWindow;
 
-    let miniPlayer = new BrowserWindow({
-        width: 1200,
-        height: 710
-    });
+   let miniPlayer = new BrowserWindow({
+     width: 1200,
+     height: 710
+   });
 
-  // Use the miniPlayer.html template.
-  $.get('templates/miniPlayer.html', (template) => {
-    mustache.parse(template);
-    const rendered = mustache.render(template, {
-      videoHtml: videoHtml,
-      videoThumbnail: playerView.thumbnail,
-      startTime: lastTime,
-    });
-  });
-}
+   // Use the miniPlayer.html template.
+   $.get('templates/miniPlayer.html', (template) => {
+     mustache.parse(template);
+     const rendered = mustache.render(template, {
+       videoHtml: videoHtml,
+       videoThumbnail: playerView.thumbnail,
+       startTime: lastTime,
+     });
+     // Render the template to the new browser window.
+     miniPlayer.loadURL("data:text/html;charset=utf-8," + encodeURI(rendered));
+   });
+ }
 
 /**
  * Change the quality of the current video.

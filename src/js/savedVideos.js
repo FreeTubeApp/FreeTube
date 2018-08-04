@@ -76,11 +76,11 @@ function toggleSavedVideo(videoId) {
 
   checkIfSaved.then((results) => {
     if (results === false) {
-      playerView.savedText = 'SAVED';
+      playerView.savedText = 'FAVORITED';
       playerView.savedIconType = 'fas saved';
       addSavedVideo(videoId);
     } else {
-      playerView.savedText = 'SAVE';
+      playerView.savedText = 'FAVORITE';
       playerView.savedIconType = 'far unsaved';
       removeSavedVideo(videoId);
     }
