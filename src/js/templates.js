@@ -73,7 +73,7 @@ let sideNavBar = new Vue({
     popular: (event) => {
       hideViews();
       if (loadingView.seen !== false){
-        loadingView.seen === false;
+        loadingView.seen = false;
       }
       if(popularView.videoList.length === 0){
         loadingView.seen = true;
@@ -86,20 +86,20 @@ let sideNavBar = new Vue({
     saved: (event) => {
       hideViews();
       if (loadingView.seen !== false){
-        loadingView.seen === false;
+        loadingView.seen = false;
       }
       if(savedView.videoList.length === 0){
         loadingView.seen = true;
       }
       headerView.seen = true;
-      headerView.title = 'Saved Videos';
+      headerView.title = 'Favorited Videos';
       savedView.seen = true;
       showSavedVideos();
     },
     history: (event) => {
       hideViews();
       if (loadingView.seen !== false){
-        loadingView.seen === false;
+        loadingView.seen = false;
       }
       if(historyView.videoList.length === 0){
         loadingView.seen = true;
@@ -112,7 +112,7 @@ let sideNavBar = new Vue({
     settings: (event) => {
       hideViews();
       if (loadingView.seen !== false){
-        loadingView.seen === false;
+        loadingView.seen = false;
       }
       settingsView.seen = true;
       updateSettingsView();
@@ -120,7 +120,7 @@ let sideNavBar = new Vue({
     about: (event) => {
       hideViews();
       if (loadingView.seen !== false){
-        loadingView.seen === false;
+        loadingView.seen = false;
       }
       aboutView.seen = true;
     }
@@ -152,7 +152,7 @@ let subscriptionView = new Vue({
       goToChannel(channelId);
     },
     toggleSave: (videoId) => {
-      addSavedVideo(videoId);
+      toggleSavedVideo(videoId);
     },
     copy: (site, videoId) => {
       const url = 'https://' + site + '/watch?v=' + videoId;
