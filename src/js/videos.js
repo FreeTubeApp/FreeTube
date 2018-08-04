@@ -90,6 +90,7 @@ function search(nextPageToken = '') {
     });
 
     searchView.nextPageToken = data.nextPageToken;
+    loadingView.seen = false;
   })
 }
 
@@ -374,9 +375,11 @@ function parseSearchText(url = '') {
     let urlSplit = input.split('/');
     if (match) {
         ft.log('Video found');
+        loadingView.seen = true;
         playVideo(match[2]);
     } else if (urlSplit[3] == 'channel') {
         ft.log('channel found');
+        loadingView.seen = true;
         goToChannel(urlSplit[4]);
     } else if (urlSplit[3] == 'user') {
         ft.log('user found');
@@ -387,10 +390,12 @@ function parseSearchText(url = '') {
         }, (data) => {
             ft.log('Channel Data: ', data.items[0].id);
             let channelID = data.items[0].id;
+            loadingView.seen = true;
             goToChannel(channelID);
         });
     } else {
         ft.log('Video not found');
+        loadingView.seen = true;
         search();
     }
 

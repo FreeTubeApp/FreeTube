@@ -75,10 +75,15 @@ let init = function () {
         win = null;
     });
 
-  const template = [
-    {
-      label: 'File',
-      submenu: [
+    const template = [{
+            label: 'File',
+            submenu: [{
+                    label: 'Open New Window',
+                    click () { init() }
+            },
+              {role: 'quit'}
+            ]
+          },
         {
           label: 'Open New Window',
           click () { init() }
