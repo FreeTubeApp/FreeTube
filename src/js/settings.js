@@ -19,7 +19,7 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 // To any third party devs that fork the project, please be ethical and change the API keys.
-const apiKeyBank = ['AIzaSyC9E579nh_qqxg6BH4xIce3k_7a9mT4uQc', 'AIzaSyCKplYT6hZIlm2O9FbWTi1G7rkpsLNTq78', 'AIzaSyAE5xzh5GcA_tEDhXmMFd1pEzrL-W7z51E', 'AIzaSyDoFzqwuO9l386eF6BmNkVapjiTJ93CBy4', 'AIzaSyBljfZFPioB0TRJAj-0LS4tlIKl2iucyY4'];
+const apiKeyBank = ['AIzaSyC9E579nh_qqxg6BH4xIce3k_7a9mT4uQc', 'AIzaSyCKplYT6hZIlm2O9FbWTi1G7rkpsLNTq78', 'AIzaSyAE5xzh5GcA_tEDhXmMFd1pEzrL-W7z51E', 'AIzaSyDoFzqwuO9l386eF6BmNkVapjiTJ93CBy4', 'AIzaSyBljfZFPioB0TRJAj-0LS4tlIKl2iucyY4', 'AIzaSyAiKgR75e3XAznCcb1cj4NUJ5rR_y3uB8E', 'AIzaSyBZL2Ie1masjwbIa74bR2GONF3p518npVU', 'AIzaSyA0CkT2lS1q9HHaFYGNGM4Ycjl1kmRy22s', 'AIzaSyDPy5jq2l1Bgv3-MbpGdZd3W3ik1BMZeDc'];
 
 /**
  * Display the settings screen to the user.
@@ -171,7 +171,7 @@ function updateSettings() {
   }, {
     value: settingsView.apiKey
   }, {});
-  
+
   showToast('Settings have been saved.');
 }
 
