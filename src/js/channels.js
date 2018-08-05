@@ -65,9 +65,16 @@ function goToChannel(channelId) {
       let grabDuration = getDuration(data.items);
 
       grabDuration.then((videoList) => {
-        channelView.seen = true;
         channelVideosView.videoList = [];
-        channelVideosView.seen = true;
+
+        if (subscriptionView.seen === false && aboutView.seen === false && headerView.seen === false && searchView.seen === false && settingsView.seen === false && popularView.seen === false && savedView.seen === false && historyView.seen === false) {
+          channelVideosView.seen = true;
+          channelView.seen = true;
+        }
+        else{
+          return;
+        }
+
         loadingView.seen = false;
         videoList.items.forEach((video) => {
           displayVideo(video, 'channel');

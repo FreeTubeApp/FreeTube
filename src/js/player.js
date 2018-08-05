@@ -31,6 +31,7 @@
 function playVideo(videoId) {
   hideViews();
 
+  playerView.playerSeen = true;
   playerView.videoId = videoId;
   playerView.video480p = undefined;
   playerView.video720p = undefined;
