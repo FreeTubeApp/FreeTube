@@ -1,170 +1,197 @@
+/*
+    This file is part of FreeTube.
+
+    FreeTube is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    FreeTube is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 @font-face {
     font-family: Roboto;
     src: url(Roboto-Regular.ttf);
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 input {
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  outline: none;
-  width: 100%;
-  padding: 7px;
-  border: none;
-  background: transparent;
-  margin-bottom: 10px;
-  font: 16px;
-  height: 45px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px;
+    height: 45px;
 }
 
 a {
-  color: #2196F3;
+    color: #2196F3;
+}
+
+#progressBar{
+  height: 3px;
+  background-color: #f44336;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
 }
 
 .center {
-  text-align: center;
-  margin: 0 auto;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .topNav {
-  width: 100%;
-  height: 60px;
-  line-height: 60px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
 
 .topNav span {
-  display: inline-block;
-  vertical-align: middle;
-  line-height: normal;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
 }
 
 #menuButton {
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 20px;
-  margin-left: 20px;
-  position: relative;
-  top: 3px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 20px;
+    position: relative;
+    top: 3px;
 }
 
 #menuIcon {
-  width: 25px;
-  position: relative;
-  top: 15px;
-  right: 120px;
-  float: right;
+    width: 25px;
+    position: relative;
+    top: 15px;
+    right: 120px;
+    float: right;
 }
 
 #menuText {
-  width: 100px;
-  position: relative;
-  top: 5px;
-  left: 10px;
-  float: right;
+    width: 100px;
+    position: relative;
+    top: 5px;
+    left: 10px;
+    float: right;
 }
 
 .searchBar {
-  position: absolute;
-  right: 135px;
-  top: 0;
-  width: 50%;
+    position: absolute;
+    right: 135px;
+    top: 0;
+    width: 50%;
 }
 
 .searchBar input {
-  width: 90%;
+    width: 90%;
 }
 
 .searchButton {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 #sideNav {
-  height: 100vh;
-  width: 250px;
-  overflow-y: auto;
-  position: fixed;
-  left: 0;
-  top: 0px;
-  -webkit-box-shadow: 4px -2px 51px -6px rgba(0, 0, 0, 0.75);
+    height: 100vh;
+    width: 250px;
+    overflow-y: auto;
+    position: fixed;
+    left: 0;
+    top: 0px;
+    -webkit-box-shadow: 4px -2px 51px -6px rgba(0, 0, 0, 0.75);
 }
 
 #sideNav hr {
-  width: 95%;
-  height: 1px;
-  border: 0;
+    width: 95%;
+    height: 1px;
+    border: 0;
 }
 
 #sideNav ul {
-  list-style-type: none;
+    list-style-type: none;
 }
 
 #sideNav li {
-  padding: 20px;
-  width: 205px;
-  position: relative;
-  right: 50px;
-  cursor: pointer;
-  -webkit-transition: background 0.2s ease-out;
-  -moz-transition: background 0.2s ease-out;
-  -o-transition: background 0.2s ease-out;
-  transition: background 0.2s ease-out;
+    padding: 20px;
+    width: 205px;
+    position: relative;
+    right: 50px;
+    cursor: pointer;
+    -webkit-transition: background 0.2s ease-out;
+    -moz-transition: background 0.2s ease-out;
+    -o-transition: background 0.2s ease-out;
+    transition: background 0.2s ease-out;
 }
 
 #sideNav li:hover {
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
-  transition: background 0.2s ease-in;
+    -moz-transition: background 0.2s ease-in;
+    -o-transition: background 0.2s ease-in;
+    transition: background 0.2s ease-in;
 }
 
 #sideNavDisabled {
-  height: 100vh;
-  width: 250px;
-  position: fixed;
-  left: 0;
-  top: 0px;
-  z-index: 1;
-  margin-top: 85px;
-  display: none;
+    height: 100vh;
+    width: 250px;
+    position: fixed;
+    left: 0;
+    top: 0px;
+    z-index: 1;
+    margin-top: 85px;
+    display: none;
 }
 
 .sideNavContainer {
-  margin-top: 85px;
+    margin-top: 85px;
 }
 
 #subscriptions img {
-  float: left;
-  width: 40px;
-  border-radius: 200px 200px 200px 200px;
-  -webkit-border-radius: 200px 200px 200px 200px;
-  position: relative;
-  top: -12px;
-  margin-right: 5px;
+    float: left;
+    width: 40px;
+    border-radius: 200px 200px 200px 200px;
+    -webkit-border-radius: 200px 200px 200px 200px;
+    position: relative;
+    top: -12px;
+    margin-right: 5px;
 }
 
 #subscriptions .fa-times {
-  float: right;
-  margin-right: 5px;
+    float: right;
+    margin-right: 5px;
 }
 
 #subscriptions li {
-  font-size: 11px;
+    font-size: 11px;
 }
 
 .message {
-  text-align: center;
+    text-align: center;
 }
 
 .videoDelete {
-  float: right;
-  cursor: pointer;
+    float: right;
+    cursor: pointer;
 }
 
 #loading {
@@ -176,198 +203,200 @@ a {
   left: 5;
   bottom: 0;
   right: 0;
-  display: none;
 }
 
 .settingsInput {
-  width: 50%;
-  border-bottom: 1px solid #616161;
+    width: 50%;
+    border-bottom: 1px solid #616161;
 }
 
 .settingsButton {
-  padding: 10px;
-  display: inline-block;
-  cursor: pointer;
-  margin: 5px;
-  -webkit-box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
+    padding: 10px;
+    display: inline-block;
+    cursor: pointer;
+    margin: 5px;
+    -webkit-box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
 }
 
 .settingsSubmit {
-  padding: 15px;
-  color: #212121;
-  background-color: #f44336;
-  cursor: pointer;
-  width: 150px;
-  -webkit-box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
+    padding: 15px;
+    color: #212121;
+    background-color: #f44336;
+    cursor: pointer;
+    width: 150px;
+    -webkit-box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
 }
 
 .help {
-  margin: 30px;
+    margin: 30px;
 }
 
 .live {
-  font-size: 12px;
-  height: 20px;
-  text-align: center;
-  width: 57px;
-  position: relative;
-  left: 284px;
-  color: #f44336;
-  bottom: 15px;
-  line-height: 10px;
+    font-size: 12px;
+    height: 20px;
+    text-align: center;
+    width: 57px;
+    position: relative;
+    left: 284px;
+    color: #f44336;
+    bottom: 15px;
+    line-height: 10px;
 }
 
-#toast{
-  min-width: 400px;
-  height: 50px;
-  position:  fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 10px;
-  text-align: center;
-  font-size: 17px;
-  line-height: 50px;
-  opacity: 0;
-  z-index: 1;
-  visibility: hidden;
-  -webkit-transition: opacity 0.5s ease-in-out;
-  -moz-transition: opacity 0.5s ease-in-out;
-  -ms-transition: opacity 0.5s ease-in-out;
-  -o-transition: opacity 0.5s ease-in-out;
+#toast {
+    min-width: 400px;
+    height: 50px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    text-align: center;
+    font-size: 17px;
+    line-height: 50px;
+    opacity: 0;
+    z-index: 1;
+    visibility: hidden;
+    -webkit-transition: opacity 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+    -ms-transition: opacity 0.5s ease-in-out;
+    -o-transition: opacity 0.5s ease-in-out;
 }
 
-.closeToast{
-  font-size: 15px;
-  position: absolute;
-  top: 5px;
-  right: 10px;
-  cursor: pointer;
+.closeToast {
+    font-size: 15px;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
 }
 
-#confirmFunction{
-  position: fixed;
-  top: 50%;
-  left: 30%;
-  width: 800px;
-  height: 65px;
-  font-weight: bold;
-  line-height: 65px;
-  visibility: hidden;
-  z-index: 1;
-  -webkit-box-shadow: 5px 5px 15px -5px rgba(0,0,0,0.75);
-  -moz-box-shadow: 5px 5px 15px -5px rgba(0,0,0,0.75);
-  box-shadow: 5px 5px 15px -5px rgba(0,0,0,0.75);
+#confirmFunction {
+    position: fixed;
+    top: 50%;
+    left: 30%;
+    width: 800px;
+    height: 65px;
+    font-weight: bold;
+    line-height: 65px;
+    visibility: hidden;
+    z-index: 1;
+    -webkit-box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.75);
+    box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.75);
 }
 
-#confirmMessage{
-  margin-left: 15px;
+#confirmMessage {
+    margin-left: 15px;
 }
 
-.confirmButton{
-  position: absolute;
-  top: 0px;
-  cursor: pointer;
+.confirmButton {
+    position: absolute;
+    top: 0px;
+    cursor: pointer;
 }
 
-#confirmYes{
-  right: 90px;
-  color: #2196f3;
+#confirmYes {
+    right: 90px;
+    color: #2196f3;
 }
 
-#confirmNo{
-  right: 20px;
+#confirmNo {
+    right: 20px;
 }
 
-#getNextPage{
-  width: 100%;
-  height: 45px;
-  line-height: 45px;
-  text-align: center;
-  cursor: pointer;
+#getNextPage {
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    cursor: pointer;
 }
 
-#comments{
-  display:none;
-  padding:1em;
-  margin-bottom: 1em;
+#comments {
+    display: none;
+    padding: 1em;
+    margin-bottom: 1em;
 }
 
-.saved{color: #FFEB3B;}
+.saved {
+    color: #FFEB3B;
+}
 
 /* Thanks to Guus Lieben for the Material Design Switch */
 
 .switch-input {
-  display: none;
+    display: none;
 }
 
 .switch-label {
-  position: relative;
-  display: inline-block;
-  min-width: 112px;
-  cursor: pointer;
-  font-weight: 500;
-  text-align: left;
-  margin: 16px;
-  padding: 16px 0 16px 44px;
+    position: relative;
+    display: inline-block;
+    min-width: 112px;
+    cursor: pointer;
+    font-weight: 500;
+    text-align: left;
+    margin: 16px;
+    padding: 16px 0 16px 44px;
 }
 
-.switch-label:before, .switch-label:after {
-  content: "";
-  position: absolute;
-  margin: 0;
-  outline: 0;
-  top: 50%;
-  -ms-transform: translate(0, -50%);
-  -webkit-transform: translate(0, -50%);
-  transform: translate(0, -50%);
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+.switch-label:before,
+.switch-label:after {
+    content: "";
+    position: absolute;
+    margin: 0;
+    outline: 0;
+    top: 50%;
+    -ms-transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .switch-label:before {
-  left: 1px;
-  width: 34px;
-  height: 14px;
-  background-color: #9E9E9E;
-  border-radius: 8px;
+    left: 1px;
+    width: 34px;
+    height: 14px;
+    background-color: #9E9E9E;
+    border-radius: 8px;
 }
 
 .switch-label:after {
-  left: 0;
-  width: 20px;
-  height: 20px;
-  background-color: #FAFAFA;
-  border-radius: 50%;
-  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.084);
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background-color: #FAFAFA;
+    border-radius: 50%;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.084);
 }
 
 .switch-label .toggle--on {
-  display: none;
+    display: none;
 }
 
 .switch-label .toggle--off {
-  display: inline-block;
+    display: inline-block;
 }
 
 .switch-input:checked+.switch-label:before {
-  background-color: #90CAF9;
+    background-color: #90CAF9;
 }
 
 .switch-input:checked+.switch-label:after {
-  background-color: #2196F3;
-  -ms-transform: translate(80%, -50%);
-  -webkit-transform: translate(80%, -50%);
-  transform: translate(80%, -50%);
+    background-color: #2196F3;
+    -ms-transform: translate(80%, -50%);
+    -webkit-transform: translate(80%, -50%);
+    transform: translate(80%, -50%);
 }
 
 .switch-input:checked+.switch-label .toggle--on {
-  display: inline-block;
+    display: inline-block;
 }
 
 .switch-input:checked+.switch-label .toggle--off {
-  display: none;
+    display: none;
 }

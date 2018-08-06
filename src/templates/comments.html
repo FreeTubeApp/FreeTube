@@ -1,14 +1,31 @@
+<!--
+    This file is part of FreeTube.
+
+    FreeTube is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    FreeTube is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
 {{#comments}}
-  <div class="user-comment">
-    <div onclick='goToChannel("{{authorChannelId.value}}")' style="float:left;margin-right: 1em; width:48px">
-      <img class="userIcon" src="{{authorProfileImageUrl}}" alt="" class="user-icon" />
+    <div class="user-comment">
+        <div onclick='goToChannel("{{authorChannelId.value}}")' style="float:left;margin-right: 1em; width:48px">
+            <img class="userIcon" src="{{authorProfileImageUrl}}" alt="" class="user-icon" />
+        </div>
+        <div class="comment-data">
+            <p onclick='goToChannel("{{authorChannelId.value}}")' style='cursor: pointer; margin-left: 65px; font-weight: bold;'>{{authorDisplayName}}</p>
+            <p style="margin-bottom: 0; margin-left: 65px; word-break: break-word;">{{textOriginal}}</p>
+            <p style="font-size:80%; padding: 0; margin-left: 65px;">{{publishedAt}}</p>
+        </div>
     </div>
-    <div class="comment-data">
-      <p onclick='goToChannel("{{authorChannelId.value}}")' style='cursor: pointer; margin-left: 65px; font-weight: bold;'>{{authorDisplayName}}</p>
-      <p style="margin-bottom: 0; margin-left: 65px; word-break: break-word;">{{textOriginal}}</p>
-      <p style="font-size:80%; padding: 0; margin-left: 65px;">{{publishedAt}}</p>
-    </div>
-  </div>
-  <br/>
-  <div class="line"></div>
+    <br/>
+    <div class="line"></div>
 {{/comments}}

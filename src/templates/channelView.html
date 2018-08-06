@@ -1,21 +1,37 @@
-<img class='channelViewBanner' src='{{channelBanner}}' />
-<br />
-<div class='channelViewTitle'>
-  <img class='channelViewImage' src='{{channelImage}}' />
-  <span class='channelViewName'>{{channelName}}</span>
+<!--
+
+    This file is part of FreeTube.
+    FreeTube is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    (at your option) any later version.
+    the Free Software Foundation, either version 3 of the License, or
+
+    FreeTube is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    GNU General Public License for more details.
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+
+    You should have received a copy of the GNU General Public License
+    along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<div v-if='seen'>
+  <img class='channelViewBanner' :src='banner' />
   <br />
-  <span class='channelViewSubs'>{{subCount}} Subscribers</span>
-  <div id='subscribeButton' class='channelSubButton' onclick='toggleSubscription("{{channelId}}");'>
-    {{subButtonText}}
+  <div class='channelViewTitle'>
+    <img class='channelViewImage' :src='icon' />
+    <span class='channelViewName'>{{name}}</span>
+    <br />
+    <span class='channelViewSubs'>{{subCount}} Subscribers</span>
+    <div id='subscribeButton' class='channelSubButton' v-on:click='subscription(id);'>
+      {{subButtonText}}
+    </div>
   </div>
-</div>
-<br />
-<hr />
-<div class='channelViewDescription'>
-  {{{channelDescription}}}
-</div>
-<br />
-<hr />
-<div id='videoListContainer'>
-  <h2>Latest Uploads</h2>
+  <br />
+  <hr />
+  <div class='channelViewDescription'>
+    <span v-html='description'></span>
+  </div>
+  <br />
+  <hr />
 </div>

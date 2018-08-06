@@ -11,22 +11,11 @@
   <link rel="stylesheet" href="style/loading.css">
   <link rel="stylesheet" href="style/fa-solid.min.css">
   <link rel="stylesheet" href="style/fontawesome-all.min.css">
-  <script src="js/youtubeApi.js"></script>
-  <script src="js/settings.js"></script>
-  <script src="js/updates.js"></script>
-  <script src="js/layout.js"></script>
-  <script src="js/videos.js"></script>
-  <script src="js/player.js"></script>
-  <script src="js/subscriptions.js"></script>
-  <script src="js/channels.js"></script>
-  <script src="js/savedVideos.js"></script>
-  <script src="js/history.js"></script>
-  <script src="js/events.js"></script>
   <title>Freetube Player</title>
 </head>
 
 <body>
-  <div id='loading'>
+  <div v-if='seen' id='loading'>
     <div class="spinner">
       <div class="double-bounce1"></div>
       <div class="double-bounce2"></div>
@@ -47,23 +36,22 @@
       <input id='search' class="search" type="text" placeholder="Search / Go to URL">
       <i onclick='parseSearchText()' class="fas fa-search searchButton" style='margin-right: -10px; cursor: pointer'></i>
     </div>
-    <img src='icons/iconBlack.png' id='menuIcon'/>
-    &nbsp;
-    <img src='icons/textBlack.png' id='menuText'/>
+    <img src='icons/iconBlack.png' id='menuIcon' /> &nbsp;
+    <img src='icons/textBlack.png' id='menuText' />
   </div>
   <div id='sideNavDisabled'></div>
   <div id="sideNav">
     <div class="sideNavContainer">
       <ul>
-        <li onclick='loadSubscriptions()'><i class="fas fa-rss"></i>&nbsp;&nbsp;Subscriptions</li>
-        <li onclick='showMostPopular()'><i class="fas fa-users"></i>&nbsp;&nbsp;Most Popular</li>
-        <li onclick='showSavedVideos()'><i class="fas fa-star"></i>&nbsp;&nbsp;Saved</li>
-        <li onclick='showHistory()'><i class="fas fa-history"></i>&nbsp;&nbsp;History</li>
+        <li v-on:click='subscriptions'><i class="fas fa-rss"></i>&nbsp;&nbsp;Subscriptions</li>
+        <li v-on:click='popular'><i class="fas fa-users"></i>&nbsp;&nbsp;Most Popular</li>
+        <li v-on:click='saved'><i class="fas fa-star"></i>&nbsp;&nbsp;Favorites</li>
+        <li v-on:click='history'><i class="fas fa-history"></i>&nbsp;&nbsp;History</li>
       </ul>
       <hr />
       <ul>
-        <li onclick='showSettings()'><i class="fas fa-sliders-h"></i>&nbsp;&nbsp;Settings</li>
-        <li onclick='showAbout()'><i class="fas fa-info-circle"></i>&nbsp;&nbsp;About</li>
+        <li v-on:click='settings'><i class="fas fa-sliders-h"></i>&nbsp;&nbsp;Settings</li>
+        <li v-on:click='about'><i class="fas fa-info-circle"></i>&nbsp;&nbsp;About</li>
       </ul>
       <hr />
       <ul id='subscriptions'>
@@ -71,7 +59,41 @@
     </div>
   </div>
   <div id="main">
+    <div id='noSubscriptions' v-if='seen'>
+      <h2 class="message">
+        Your Subscription list is currently empty.  Start adding subscriptions
+        to see them here.
+        <br /><br />
+        <i class="far fa-frown" style="font-size: 200px"></i>
+      </h2>
+    </div>
+    <div id='channelView'></div>
+    <div id='mainHeaderView'></div>
+    <div id='channelVideosView'></div>
+    <div id='searchView'></div>
+    <div id='subscriptionView'></div>
+    <div id='popularView'></div>
+    <div id='savedView'></div>
+    <div id='historyView'></div>
+    <div id='aboutView'></div>
+    <div id='settingsView'></div>
+    <div id='playerView'></div>
   </div>
+  <div id='progressView'></div>
 </body>
+<script src="js/general.js"></script>
+<script src="js/youtubeApi.js"></script>
+<script src="js/updates.js"></script>
+<script src="js/db.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/templates.js"></script>
+<script src="js/videos.js"></script>
+<script src="js/player.js"></script>
+<script src="js/subscriptions.js"></script>
+<script src="js/channels.js"></script>
+<script src="js/savedVideos.js"></script>
+<script src="js/history.js"></script>
+<script src="js/events.js"></script>
 
 </html>

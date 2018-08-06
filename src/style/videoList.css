@@ -1,6 +1,8 @@
-.videoListContainer{width: 100%;}
+.videoListContainer {
+    width: 100%;
+}
 
-.videoListContainer hr{
+.videoListContainer hr {
     width: 95%;
     height: 1px;
     border: 0;

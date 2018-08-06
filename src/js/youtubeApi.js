@@ -1,3 +1,22 @@
+/*
+    This file is part of FreeTube.
+
+    FreeTube is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    FreeTube is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+
+
 /**
  * List a YouTube HTTP API resource.
  *
@@ -9,10 +28,12 @@
  */
 
 function youtubeAPI(resource, params, success) {
-  params.key = apiKey;
+  params.key = settingsView.apiKey;
+
+  let requestUrl = 'https://www.googleapis.com/youtube/v3/' + resource + '?' + $.param(params);
 
   if (useTor) {
-    tor.request('https://www.googleapis.com/youtube/v3/' + resource + '?' + $.param(params), function(err, res, body) {
+    tor.request(requestUrl, (err, res, body) => {
       if (!err && res.statusCode == 200) {
         success(JSON.parse(body));
       } else {
@@ -20,20 +41,19 @@ function youtubeAPI(resource, params, success) {
         console.log(err);
         console.log(res);
         console.log(body);
-        stopLoadingAnimation();
+        loadingView.seen = false;
       }
     });
   } else {
     $.getJSON(
-      'https://www.googleapis.com/youtube/v3/' + resource,
-      params,
+      requestUrl,
       success
     ).fail((xhr, textStatus, error) => {
       showToast('There was an error calling the YouTube API.');
       console.log(error);
       console.log(xhr);
       console.log(textStatus);
-      stopLoadingAnimation();
+      loadingView.seen = false;
     });
   }
 
@@ -50,19 +70,19 @@ function youtubeAPI(resource, params, success) {
  */
 function youtubedlGetInfo(videoId, callback) {
 
-  let url = 'https://youtube.com/watch?v=' + videoId;
-  let options = ['--all-subs', '--write-subs'];
+    let url = 'https://youtube.com/watch?v=' + videoId;
+    let options = ['--all-subs', '--write-subs'];
 
   ytdl.getInfo(url, options, function(err, info) {
     if (err) {
       showToast(err.message);
-      stopLoadingAnimation();
+      loadingView.seen = false;
       console.log(err);
       console.log(info);
       return;
     }
 
-    console.log('Success');
-    callback(info);
-  });
+        ft.log('Success');
+        callback(info);
+    });
 }

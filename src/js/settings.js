@@ -1,16 +1,13 @@
 /*
 This file is part of FreeTube.
-
 FreeTube is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
-
 FreeTube is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
-
 You should have received a copy of the GNU General Public License
 along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 */
@@ -22,20 +19,14 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 // To any third party devs that fork the project, please be ethical and change the API keys.
-const apiKeyBank = ['AIzaSyC9E579nh_qqxg6BH4xIce3k_7a9mT4uQc', 'AIzaSyCKplYT6hZIlm2O9FbWTi1G7rkpsLNTq78', 'AIzaSyAE5xzh5GcA_tEDhXmMFd1pEzrL-W7z51E', 'AIzaSyDoFzqwuO9l386eF6BmNkVapjiTJ93CBy4', 'AIzaSyBljfZFPioB0TRJAj-0LS4tlIKl2iucyY4'];
+const apiKeyBank = ['AIzaSyC9E579nh_qqxg6BH4xIce3k_7a9mT4uQc', 'AIzaSyCKplYT6hZIlm2O9FbWTi1G7rkpsLNTq78', 'AIzaSyAE5xzh5GcA_tEDhXmMFd1pEzrL-W7z51E', 'AIzaSyDoFzqwuO9l386eF6BmNkVapjiTJ93CBy4', 'AIzaSyBljfZFPioB0TRJAj-0LS4tlIKl2iucyY4', 'AIzaSyAiKgR75e3XAznCcb1cj4NUJ5rR_y3uB8E', 'AIzaSyBZL2Ie1masjwbIa74bR2GONF3p518npVU', 'AIzaSyA0CkT2lS1q9HHaFYGNGM4Ycjl1kmRy22s', 'AIzaSyDPy5jq2l1Bgv3-MbpGdZd3W3ik1BMZeDc'];
 
 /**
  * Display the settings screen to the user.
  *
  * @return {Void}
  */
-function showSettings() {
-  clearMainContainer();
-  startLoadingAnimation();
-
-  let isChecked = '';
-  let key = '';
-
+function updateSettingsView() {
   /*
    * Check the settings database for the user's current settings.  This is so the
    * settings page has the correct toggles related when it is rendered.
@@ -45,7 +36,7 @@ function showSettings() {
       switch (setting['_id']) {
         case 'apiKey':
           if (apiKeyBank.indexOf(setting['value']) == -1) {
-            key = setting['value'];
+            settingsView.apiKey = setting['value'];
           }
           break;
         case 'theme':
@@ -55,28 +46,17 @@ function showSettings() {
       }
     });
 
-    // Grab the settings.html template to prepare for rendering
-    const settingsTemplate = require('./templates/settings.html')
-    mustache.parse(settingsTemplate);
-    const rendered = mustache.render(settingsTemplate, {
-      isChecked: isChecked,
-      key: key,
-    });
-    // Render template to application
-    $('#main').html(rendered);
-    stopLoadingAnimation();
-
     // Check / uncheck the switch depending on the user's settings.
     if (currentTheme === 'light') {
-      document.getElementById('themeSwitch').checked = false;
+      settingsView.useTheme = false;
     } else {
-      document.getElementById('themeSwitch').checked = true;
+      settingsView.useTheme = true;
     }
 
     if (useTor) {
-      document.getElementById('torSwitch').checked = true;
+      settingsView.useTor = true;
     } else {
-      document.getElementById('torSwitch').checked = false;
+      settingsView.useTor = false;
     }
   });
 }
@@ -89,12 +69,12 @@ function showSettings() {
 function checkDefaultSettings() {
 
   // Grab a random API Key.
-  apiKey = apiKeyBank[Math.floor(Math.random() * apiKeyBank.length)];
+  settingsView.apiKey = apiKeyBank[Math.floor(Math.random() * apiKeyBank.length)];
   let newSetting;
 
   let settingDefaults = {
     'theme': 'light',
-    'apiKey': apiKey,
+    'apiKey': settingsView.apiKey,
     'useTor': false
   };
 
@@ -121,7 +101,10 @@ function checkDefaultSettings() {
             break;
           case 'apiKey':
             if (apiKeyBank.indexOf(docs[0]['value']) == -1) {
-              apiKey = docs[0]['value'];
+              settingsView.apiKey = docs[0]['value'];
+            }
+            else{
+              settingsView.apiKey = settingDefaults.apiKey;
             }
             break;
           case 'useTor':
@@ -146,7 +129,12 @@ function updateSettings() {
   let key = document.getElementById('api-key').value;
   let theme = 'light';
 
-  apiKey = apiKeyBank[Math.floor(Math.random() * apiKeyBank.length)];
+  if (apiKeyBank.indexOf(key) == -1 && key !== '') {
+    settingsView.apiKey = key;
+  }
+  else{
+    settingsView.apiKey = apiKeyBank[Math.floor(Math.random() * apiKeyBank.length)];
+  }
 
   console.log(themeSwitch);
 
@@ -177,20 +165,12 @@ function updateSettings() {
     useTor = torSwitch;
   });
 
-  if (key != '') {
-    settingsDb.update({
-      _id: 'apiKey'
-    }, {
-      value: key
-    }, {});
-  } else {
-    // To any third party devs that fork the project, please be ethical and change the API key.
-    settingsDb.update({
-      _id: 'apiKey'
-    }, {
-      value: apiKey
-    }, {});
-  }
+  // To any third party devs that fork the project, please be ethical and change the API key.
+  settingsDb.update({
+    _id: 'apiKey'
+  }, {
+    value: settingsView.apiKey
+  }, {});
 
   showToast('Settings have been saved.');
 }
@@ -299,11 +279,6 @@ function importSubscriptions(){
     let i = fileLocation[0].lastIndexOf('.');
     let fileType = (i < 0) ? '' : fileLocation[0].substr(i);
     console.log(fileType);
-
-    /*if (fileType !== '.db'){
-      showToast('Incorrect filetype.  Import was unsuccessful.');
-      return;
-    }*/
 
     fs.readFile(fileLocation[0], function(readErr, data){
       if(readErr){
@@ -424,3 +399,5 @@ function clearFile(type, showMessage = true){
     }
   })
 }
+
+checkDefaultSettings();

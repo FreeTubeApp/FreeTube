@@ -1,338 +1,365 @@
+/*
+    This file is part of FreeTube.
+
+    FreeTube is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    FreeTube is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 iframe {
-  width: 100%;
-  height: 41.25vw;
+    width: 100%;
+    height: 41.25vw;
 }
 
 #main {
-  margin-top: 80px;
-  margin-left: 250px;
+    margin-top: 80px;
+    margin-left: 250px;
 }
 
 .video {
-  width: 95%;
-  max-width: 1000px;
-  height: 145px;
-  padding: 15px;
-  overflow: hidden;
+    width: 95%;
+    max-width: 1000px;
+    height: auto;
+    padding: 15px;
+    overflow: hidden;
 }
 
 .videoThumbnail {
-  width: 275px;
-  height: 160px;
-  float: left;
-  cursor: pointer;
+    width: 275px;
+    height: 160px;
+    float: left;
+    cursor: pointer;
 }
 
-.videoThumbnail img{
-  width: 100%;
+.videoThumbnail img {
+    width: 100%;
+}
+
+.videoThumbnail i {
+  color: white;
+  background-color: black;
+  padding: 6px;
+  opacity: 0.7;
+  position: relative;
+  bottom: 159px;
+  left: 247px;
 }
 
 .channelThumbnail {
-  width: 140px;
-  height: 140px;
-  float: left;
-  cursor: pointer;
-  position: relative;
-  left: 60px;
+    width: 140px;
+    height: 140px;
+    float: left;
+    cursor: pointer;
+    position: relative;
+    left: 60px;
 }
 
-.channelThumbnail img{
-  width: 100%;
-  border-radius: 200px 200px 200px 200px;
-  -webkit-border-radius: 200px 200px 200px 200px;
+.channelThumbnail img {
+    width: 100%;
+    border-radius: 200px 200px 200px 200px;
+    -webkit-border-radius: 200px 200px 200px 200px;
 }
 
 .videoOptions {
-  float: right;
-  width: 50px;
+    float: right;
+    width: 50px;
 }
 
 .videoOptions i {
-  text-align: right;
-  width: 50px;
   cursor: pointer;
 }
 
 .videoOptions ul {
-  width: 90px;
-  font-size: 12px;
-  position: relative;
-  right: 90px;
-  bottom: 10px;
-  list-style-type: none;
-  display: none;
-  -webkit-box-shadow: 4px 4px 33px -7px rgba(0,0,0,0.75);
-  cursor: pointer;
+
+    width: 90px;
+    font-size: 12px;
+    position: relative;
+    right: 90px;
+    bottom: 10px;
+    list-style-type: none;
+    display: none;
+    -webkit-box-shadow: 4px 4px 33px -7px rgba(0, 0, 0, 0.75);
+    cursor: pointer;
+    z-index: 10;
 }
 
 .videoOptions li {
-  width: 110px;
-  position: relative;
-  right: 40px;
-  padding: 10px;
-  -webkit-transition: background 0.2s ease-out;
-  -moz-transition: background 0.2s ease-out;
-  -o-transition: background 0.2s ease-out;
-  transition: background 0.2s ease-out;
+    width: 110px;
+    position: relative;
+    right: 40px;
+    padding: 10px;
+    -webkit-transition: background 0.2s ease-out;
+    -moz-transition: background 0.2s ease-out;
+    -o-transition: background 0.2s ease-out;
+    transition: background 0.2s ease-out;
 }
 
 .videoOptions li:hover {
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
-  transition: background 0.2s ease-in;
+    -moz-transition: background 0.2s ease-in;
+    -o-transition: background 0.2s ease-in;
+    transition: background 0.2s ease-in;
 }
 
 .videoOptions a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .videoTitle {
-  font-weight: bold;
-  margin-left: 285px;
-  margin-top: 5px;
-  cursor: pointer;
+    font-weight: bold;
+    margin-left: 285px;
+    margin-top: 5px;
+    cursor: pointer;
 }
 
 .channelName {
-  margin-left: 285px;
-  font-size: 14px;
-  cursor: pointer;
+    margin-left: 285px;
+    font-size: 14px;
+    cursor: pointer;
 }
 
 .videoDescription {
-  margin-left: 285px;
-  font-size: 13px;
-  cursor: pointer;
-  height: 45px;
-  overflow: hidden;
+    margin-left: 285px;
+    font-size: 13px;
+    cursor: pointer;
+    height: 45px;
+    overflow: hidden;
 }
 
 .videoDuration {
-  display: inline-block;
-  float: right;
-  position: relative;
-  bottom: 36px;
-  color: white;
-  background-color: black;
-  opacity: 0.7;
-  padding: 2px;
-  font-size: 13px;
-  text-align: right;
+    float: right;
+    position: relative;
+    bottom: 36px;
+    color: white;
+    background-color: black;
+    opacity: 0.7;
+    padding: 2px;
+    font-size: 13px;
+    text-align: right;
 }
 
 .videoPlayer {
-  width: 100%;
+    width: 100%;
+    max-height: 1100px;
 }
 
 .statistics {
-  padding: 20px;
-  padding-bottom: 45px;
+    padding: 20px;
+    padding-bottom: 45px;
 }
 
 .title {
-  font-weight: bold;
-  font-size: 25px;
+    font-weight: bold;
+    font-size: 25px;
 }
 
 .views {
-  margin-top: -10px;
-  float: left;
+    margin-top: -10px;
+    float: left;
 }
 
 .details {
-  padding: 15px;
+    padding: 15px;
 }
 
 .likeContainer {
-  width: 300px;
-  float: right;
+    width: 300px;
+    float: right;
 }
 
 .likes {
-  float: left;
-  font-size: 12px;
+    float: left;
+    font-size: 12px;
 }
 
 .dislikes {
-  float: right;
-  font-size: 12px;
+    float: right;
+    font-size: 12px;
 }
 
 .dislikeBar {
-  background-color: #9E9E9E;
-  width: 300px;
-  height: 5px;
-  margin-bottom: 5px;
-  border-radius: 200px 200px 200px 200px;
-  -webkit-border-radius: 200px 200px 200px 200px;
+    background-color: #9E9E9E;
+    width: 300px;
+    height: 5px;
+    margin-bottom: 5px;
+    border-radius: 200px 200px 200px 200px;
+    -webkit-border-radius: 200px 200px 200px 200px;
 }
 
 .likeBar {
-  height: 5px;
-  background-color: #2196F3;
-  border-radius: 200px 200px 200px 200px;
-  -webkit-border-radius: 200px 200px 200px 200px;
+    height: 5px;
+    background-color: #2196F3;
+    border-radius: 200px 200px 200px 200px;
+    -webkit-border-radius: 200px 200px 200px 200px;
 }
 
 #channelIcon {
-  float: left;
-  width: 80px;
-  border-radius: 200px 200px 200px 200px;
-  -webkit-border-radius: 200px 200px 200px 200px;
-  cursor: pointer;
+    float: left;
+    width: 80px;
+    border-radius: 200px 200px 200px 200px;
+    -webkit-border-radius: 200px 200px 200px 200px;
+    cursor: pointer;
 }
 
 #comments .line {
-  clear: both;
-  height: 1px;
-  background: #d8d8d8;
+    clear: both;
+    height: 1px;
+    background: #d8d8d8;
 }
 
 .userIcon {
-  float: left;
-  width: 48px;
-  border-radius: 200px 200px 200px 200px;
-  -webkit-border-radius: 200px 200px 200px 200px;
-  cursor: pointer;
+    float: left;
+    width: 48px;
+    border-radius: 200px 200px 200px 200px;
+    -webkit-border-radius: 200px 200px 200px 200px;
+    cursor: pointer;
 }
 
 #channelName {
-  font-weight: bold;
-  margin-left: 95px;
-  font-size: 16px;
-  cursor: pointer;
+    font-weight: bold;
+    margin-left: 95px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 #publishDate {
-  margin-left: 95px;
-  font-size: 13px;
-  margin-top: -10px;
+    margin-left: 95px;
+    font-size: 13px;
+    margin-top: -10px;
 }
 
 #description {
-  white-space: pre-line;
-  max-height: 200px;
-  overflow-y: auto;
+    white-space: pre-line;
+    max-height: 200px;
+    overflow-y: auto;
 }
 
 .playerSubButton {
-  float: right;
-  width: 125px;
-  height: 50px;
-  line-height: 50px;
-  text-align: center;
-  margin-top: -65px;
-  cursor: pointer;
+    float: right;
+    width: 125px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    margin-top: -65px;
+    cursor: pointer;
 }
 
 .smallButton {
-  float: right;
-  height: 30px;
-  font-size: 10px;
-  line-height: 30px;
-  text-align: center;
-  margin-right: 5px;
-  padding-left: 15px;
-  padding-right: 15px;
-  cursor: pointer;
+    float: right;
+    height: 30px;
+    font-size: 10px;
+    line-height: 30px;
+    text-align: center;
+    margin-right: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    cursor: pointer;
 }
 
 .videoQuality {
-  width: 42px;
+    width: 42px;
 }
 
 .videoQuality:hover .qualityTypes {
-  visibility: visible;
+    visibility: visible;
 }
 
 .qualityTypes {
-  visibility: hidden;
-  width: 72px;
-  position: relative;
-  bottom: 10px;
-  right: 15px;
+    visibility: hidden;
+    width: 72px;
+    position: relative;
+    bottom: 10px;
+    right: 15px;
 }
 
 .qualityTypes ul {
-  list-style-type: none;
-  position: relative;
-  right: 24px;
+    list-style-type: none;
+    position: relative;
+    right: 24px;
 }
 
 .qualityTypes ul li {
-  width: 72px;
-  position: relative;
-  right: 15px;
+    width: 72px;
+    position: relative;
+    right: 15px;
 }
 
 .videoSpeed {
-  width: 42px;
+    width: 42px;
 }
 
 .videoSpeed:hover .speedTypes {
-  visibility: visible;
+    visibility: visible;
 }
 
 .speedTypes {
-  visibility: hidden;
-  width: 72px;
-  position: relative;
-  bottom: 10px;
-  right: 15px;
+    visibility: hidden;
+    width: 72px;
+    position: relative;
+    bottom: 10px;
+    right: 15px;
 }
 
 .speedTypes ul {
-  list-style-type: none;
-  position: relative;
-  right: 24px;
+    list-style-type: none;
+    position: relative;
+    right: 24px;
 }
 
 .speedTypes ul li {
-  width: 72px;
-  position: relative;
-  right: 15px;
+    width: 72px;
+    position: relative;
+    right: 15px;
 }
 
 #showComments {
-  text-align: center;
-  height: 40px;
-  line-height: 40px;
-  margin-top: 15px;
-  margin-bottom: 15px;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 #recommendations {
-  width: 100%;
+    width: 100%;
 }
 
 .recommendVideo {
-  cursor: pointer;
-  height: 150px;
+    cursor: pointer;
+    height: 150px;
 }
 
 .recommendThumbnail {
-  width: 250px;
-  height: 145px;
-  float: left;
+    width: 250px;
+    height: 145px;
+    float: left;
 }
 
-.recommendThumbnail img{
-  width: 100%;
+.recommendThumbnail img {
+    width: 100%;
 }
 
 .recommendTitle {
-  font-size: 16px;
-  font-weight: bold;
-  margin-left: 260px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 260px;
 }
 
 .recommendChannel {
-  margin-left: 260px;
-  font-size: 14px;
-  margin-top: -10px;
+    margin-left: 260px;
+    font-size: 14px;
+    margin-top: -10px;
 }
 
 .recommendDate {
-  margin-left: 260px;
-  font-size: 11px;
+    margin-left: 260px;
+    font-size: 11px;
 }
