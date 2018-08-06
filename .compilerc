@@ -3,7 +3,7 @@
     "development": {
       "application/javascript": {
         "presets": [
-          ["env", { "targets": { "electron": "1.4" } }],
+          ["env", { "targets": { "electron-renderer": "1.4" } }],
           "react"
         ],
         "plugins": ["transform-async-to-generator"],
@@ -13,7 +13,7 @@
     "production": {
       "application/javascript": {
         "presets": [
-          ["env", { "targets": { "electron": "1.4" } }],
+          ["env", { "targets": { "electron-renderer": "1.4" } }],
           "react"
         ],
         "plugins": ["transform-async-to-generator"],
