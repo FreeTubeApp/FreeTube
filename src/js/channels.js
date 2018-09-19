@@ -39,65 +39,29 @@ function goToChannel(channelId) {
     channelView.subButtonText = (subscribed ? "UNSUBSCRIBE" : "SUBSCRIBE");
   });
 
-  // Grab general channel information
-  youtubeAPI('channels', {
-    part: 'snippet,brandingSettings,statistics',
-    id: channelId,
-  }, (data) => {
-    const channelData = data.items[0];
+  invidiousAPI('channels', channelId, {}, (data) => {
+    console.log(data);
 
     channelView.id = channelId;
-    channelView.name = channelData.brandingSettings.channel.title;
-    channelView.banner = channelData.brandingSettings.image.bannerImageUrl;
-    channelView.icon = channelData.snippet.thumbnails.high.url;
-    channelView.subCount = channelData.statistics.subscriberCount.toLocaleString(); //toLocaleString adds commas as thousands separators
-    channelView.description = autolinker.link(channelData.brandingSettings.channel.description); //autolinker makes URLs clickable
+    channelView.name = data.author;
+    channelView.banner = data.authorBanners[0].url;
+    channelView.icon = data.authorThumbnails[3].url
+    channelView.subCount = data.subCount.toLocaleString(); //toLocaleString adds commas as thousands separators
+    channelView.description = autolinker.link(data.description); //autolinker makes URLs clickable
 
+    channelVideosView.videoList = [];
 
-    // Grab the channel's latest uploads. API forces a max of 50.
-    youtubeAPI('search', {
-      part: 'snippet',
-      channelId: channelId,
-      type: 'video',
-      maxResults: 50,
-      order: 'date',
-    }, function (data) {
-      let grabDuration = getDuration(data.items);
+    if (subscriptionView.seen === false && aboutView.seen === false && headerView.seen === false && searchView.seen === false && settingsView.seen === false && popularView.seen === false && savedView.seen === false && historyView.seen === false) {
+      channelVideosView.seen = true;
+      channelView.seen = true;
+    }
+    else{
+      return;
+    }
 
-      grabDuration.then((videoList) => {
-        channelVideosView.videoList = [];
-
-        if (subscriptionView.seen === false && aboutView.seen === false && headerView.seen === false && searchView.seen === false && settingsView.seen === false && popularView.seen === false && savedView.seen === false && historyView.seen === false) {
-          channelVideosView.seen = true;
-          channelView.seen = true;
-        }
-        else{
-          return;
-        }
-
-        loadingView.seen = false;
-        videoList.items.forEach((video) => {
-          displayVideo(video, 'channel');
-        });
-
-        // Grab the channel's latest uploads. API forces a max of 50.
-        youtubeAPI('search', {
-            part: 'snippet',
-            channelId: channelId,
-            type: 'video',
-            maxResults: 50,
-            order: 'date',
-        }, function (data) {
-            // Display recent uploads to #main
-            let grabDuration = getDuration(data.items);
-
-            grabDuration.then((videoList) => {
-                videoList.items.forEach((video) => {
-                    displayVideo(video);
-                });
-            });
-        });
-      });
+    loadingView.seen = false;
+    data.latestVideos.forEach((video) => {
+      displayVideo(video, 'channel');
     });
   });
 }

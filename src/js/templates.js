@@ -21,7 +21,6 @@ const mainHeaderTemplate = require('./templates/mainHeader.html');
 const aboutTemplate = require('./templates/about.html');
 const settingsTemplate = require('./templates/settings.html');
 const videoListTemplate = require('./templates/videoTemplate.html');
-const nextPageTemplate = require('./templates/searchNextPage.html');
 const playerTemplate = require('./templates/player.html');
 const channelTemplate = require('./templates/channelView.html');
 const progressViewTemplate = require('./templates/progressView.html');
@@ -269,7 +268,7 @@ let searchView = new Vue({
   data: {
     seen: false,
     isSearch: true,
-    nextPageToken: '',
+    page: 1,
     videoList: []
   },
   methods: {
@@ -288,9 +287,9 @@ let searchView = new Vue({
       clipboard.writeText(url);
       showToast('URL has been copied to the clipboard');
     },
-    nextPage: (nextPageToken) => {
-      console.log(searchView.nextPageToken);
-      search(searchView.nextPageToken);
+    nextPage: (page) => {
+      console.log(searchView.page);
+      search(searchView.page);
     }
   },
   template: videoListTemplate

@@ -18,12 +18,12 @@
 let ft = {};
 
 /**
- * 
+ *
  * Use this function instead of console.log.
  * This function logs the date, time and presents the information in a readable format
- * 
- * @param {*} data 
- * 
+ *
+ * @param {*} data
+ *
  * @returns {Void}
  */
 ft.log = function (...data) {

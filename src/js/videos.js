@@ -15,42 +15,38 @@
     along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
-
 /**
  * Perform a search using the YouTube API. The search query is grabbed from the #search element.
  *
- * @param {string} nextPageToken - Optional: The page token to be inlcuded in the search.
+ * @param {string} page - Optional: The page token to be inlcuded in the search.
  *
  * @return {Void}
  */
-function search(nextPageToken = '') {
+function search(page = 1) {
     const query = document.getElementById('search').value;
 
     if (query === '') {
         return;
     }
 
-  if (nextPageToken === '') {
-    hideViews();
-    headerView.seen = true;
-    headerView.title = 'Search Results';
-    searchView.videoList = [];
-    searchView.seen = true;
-  } else {
-    console.log(nextPageToken);
-    showToast('Fetching results.  Please wait...');
-  }
+    if (page === 1) {
+        hideViews();
+        headerView.seen = true;
+        headerView.title = 'Search Results';
+        searchView.videoList = [];
+        searchView.seen = true;
+    } else {
+        console.log(page);
+        showToast('Fetching results.  Please wait...');
+    }
 
-    youtubeAPI('search', {
+    invidiousAPI('search', '', {
         q: query,
-        part: 'id',
-        pageToken: nextPageToken,
-        maxResults: 25,
+        page: page,
     }, function (data) {
-        ft.log('Search Data: ', data);
+        console.log(data);
 
-        let channels = data.items.filter((item) => {
+        /*let channels = data.items.filter((item) => {
             if (item.id.kind === 'youtube#channel') {
                 return true;
             }
@@ -77,57 +73,26 @@ function search(nextPageToken = '') {
         }
 
         if (channels.length > 0) {
-            displayChannels(channels);
+            //displayChannels(channels);
         }
 
-        let grabDuration = getDuration(videos);
+        let grabDuration = getDuration(data);
 
     grabDuration.then((videoList) => {
       console.log(videoList);
       videoList.items.forEach((video) => {
         displayVideo(video, 'search');
       });
-    });
+    });*/
 
-    searchView.nextPageToken = data.nextPageToken;
-    loadingView.seen = false;
-  })
-}
-
-/**
- * Grab the duration of the videos
- *
- * @param {array} data - An array of videos to get the duration from
- *
- * @return {promise} - The list of videos with the duration included.
- */
-function getDuration(data) {
-    return new Promise((resolve, reject) => {
-        let videoIdList = '';
-
-        for (let i = 0; i < data.length; i++) {
-            if (videoIdList === '') {
-                if (typeof (data[i]['id']) === 'string') {
-                    videoIdList = data[i]['id'];
-                } else {
-                    videoIdList = data[i]['id']['videoId'];
-                }
-            } else {
-                if (typeof (data[i]['id']) === 'string') {
-                    videoIdList = videoIdList + ', ' + data[i]['id'];
-                } else {
-                    videoIdList = videoIdList + ', ' + data[i]['id']['videoId'];
-                }
-            }
-        }
-
-        youtubeAPI('videos', {
-            part: 'snippet, contentDetails',
-            id: videoIdList
-        }, (data) => {
-            resolve(data);
+        data.forEach((video) => {
+            displayVideo(video, 'search');
         });
-    });
+
+        //searchView.nextPageToken = data.nextPageToken;
+        searchView.page = searchView.page + 1;
+        loadingView.seen = false;
+    })
 }
 
 /**
@@ -140,66 +105,86 @@ function getDuration(data) {
  * @return {Void}
  */
 function displayVideo(videoData, listType = '') {
-  let video = {};
+    let video = {};
+    video.id = videoData.videoId;
 
-  const videoSnippet = videoData.snippet;
+    let time = videoData.lengthSeconds;
+    let hours = 0;
 
-  video.duration = parseVideoDuration(videoData.contentDetails.duration);
-
-  // Grab the published date for the video and convert to a user readable state.
-  const dateString = new Date(videoSnippet.publishedAt);
-  video.publishedDate = dateFormat(dateString, "mmm dS, yyyy");
-
-  const searchMenu = $('#videoListContainer').html();
-
-  // Include a remove icon in the list if the application is displaying the history list or saved videos.
-  video.deleteHtml = () => {
-    switch (listType) {
-      case 'saved':
-        return `<li onclick="removeSavedVideo('${videoId}'); showSavedVideos();">Remove Saved Video</li>`;
-      case 'history':
-        return `<li onclick="removeFromHistory('${videoId}'); showHistory();">Remove From History</li>`;
+    if (time >= 3600) {
+        hours = Math.floor(time / 3600);
+        time = time - hours * 3600;
     }
-  };
 
-  video.id = videoData.id;
-  video.youtubeUrl = 'https://youtube.com/watch?v=' + video.id;
-  video.invidiousUrl = 'https://invidio.us/watch?v=' + video.id;
-  // Includes text if the video is live.
-  video.liveText = (videoSnippet.liveBroadcastContent === 'live') ? 'LIVE NOW' : '';
-  video.thumbnail = videoSnippet.thumbnails.medium.url;
-  video.title = videoSnippet.title;
-  video.channelName = videoSnippet.channelTitle;
-  video.channelId = videoSnippet.channelId;
-  video.description = videoSnippet.description;
-  video.isVideo = true;
+    let minutes = Math.floor(time / 60);
+    let seconds = time - minutes * 60;
 
-  switch (listType) {
+    if (seconds < 10) {
+        seconds = '0' + seconds;
+    }
+
+    if (hours > 0) {
+        video.duration = hours + ":" + minutes + ":" + seconds;
+    } else {
+        video.duration = minutes + ":" + seconds;
+    }
+
+    // Grab the published date for the video and convert to a user readable state.
+    //const dateString = new Date(videoSnippet.publishedAt);
+    //video.publishedDate = dateFormat(dateString, "mmm dS, yyyy");
+    video.publishedDate = videoData.publishedText;
+
+    //const searchMenu = $('#videoListContainer').html();
+
+    // Include a remove icon in the list if the application is displaying the history list or saved videos.
+    video.deleteHtml = () => {
+        switch (listType) {
+        case 'saved':
+            return `<li onclick="removeSavedVideo('${video.id}'); showSavedVideos();">Remove Saved Video</li>`;
+        case 'history':
+            return `<li onclick="removeFromHistory('${video.id}'); showHistory();">Remove From History</li>`;
+        }
+    };
+
+    video.youtubeUrl = 'https://youtube.com/watch?v=' + video.id;
+    video.invidiousUrl = 'https://invidio.us/watch?v=' + video.id;
+    // Includes text if the video is live.
+    //video.liveText = (videoSnippet.liveBroadcastContent === 'live') ? 'LIVE NOW' : '';
+    video.liveText = '';
+    video.thumbnail = videoData.videoThumbnails[3].url;
+    video.title = videoData.title;
+    video.channelName = videoData.author;
+    video.channelId = videoData.authorId;
+    video.views = videoData.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
+    video.description = videoData.description;
+    video.isVideo = true;
+
+    switch (listType) {
     case 'subscriptions':
-      subscriptionView.videoList = subscriptionView.videoList.concat(video);
-      video.removeFromSave = true;
-      break;
+        subscriptionView.videoList = subscriptionView.videoList.concat(video);
+        video.removeFromSave = true;
+        break;
     case 'search':
-      searchView.videoList = searchView.videoList.concat(video);
-      video.removeFromSave = false;
-      break;
+        searchView.videoList = searchView.videoList.concat(video);
+        video.removeFromSave = false;
+        break;
     case 'popular':
-      popularView.videoList = popularView.videoList.concat(video);
-      video.removeFromSave = false;
-      break;
+        popularView.videoList = popularView.videoList.concat(video);
+        video.removeFromSave = false;
+        break;
     case 'saved':
-      savedView.videoList = savedView.videoList.concat(video);
-      video.removeFromSave = false;
-      break;
+        savedView.videoList = savedView.videoList.concat(video);
+        video.removeFromSave = false;
+        break;
     case 'history':
-      historyView.videoList = historyView.videoList.concat(video);
-      video.removeFromSave = false;
-      break;
+        historyView.videoList = historyView.videoList.concat(video);
+        video.removeFromSave = false;
+        break;
     case 'channel':
-      channelVideosView.videoList = channelVideosView.videoList.concat(video);
-      video.removeFromSave = false;
-      break;
-  }
+        channelVideosView.videoList = channelVideosView.videoList.concat(video);
+        video.removeFromSave = false;
+        break;
+    }
 }
 
 function displayChannels(channels) {
@@ -224,23 +209,23 @@ function displayChannels(channels) {
 
         ft.log('Channel Items: ', items);
 
-    items.forEach((item) => {
-      let channelData = {};
+        items.forEach((item) => {
+            let channelData = {};
 
-      channelData.channelId = item.id;
-      channelData.thumbnail = item.snippet.thumbnails.medium.url;
-      channelData.channelName = item.snippet.title;
-      channelData.description = item.snippet.description;
-      channelData.subscriberCount = item.statistics.subscriberCount;
-      channelData.videoCount = item.statistics.videoCount;
-      channelData.isVideo = false;
+            channelData.channelId = item.id;
+            channelData.thumbnail = item.snippet.thumbnails.medium.url;
+            channelData.channelName = item.snippet.title;
+            channelData.description = item.snippet.description;
+            channelData.subscriberCount = item.statistics.subscriberCount;
+            channelData.videoCount = item.statistics.videoCount;
+            channelData.isVideo = false;
 
-      console.log(searchView.videoList);
-      console.log(channelData);
+            console.log(searchView.videoList);
+            console.log(channelData);
 
-      searchView.videoList = searchView.videoList.concat(channelData);
+            searchView.videoList = searchView.videoList.concat(channelData);
+        });
     });
-  });
 }
 
 function displayPlaylists(playlists) {
@@ -287,67 +272,6 @@ function displayPlaylists(playlists) {
 }
 
 /**
- * Changes the page token to the next page button during a video search.
- *
- * @param {string} nextPageToken - The page token to replace the button function.
- *
- * @return {Void}
- */
-function addNextPage(nextPageToken) {
-    let oldFetchButton = document.getElementById('getNextPage');
-
-    // Creates the element if it doesn't exist.
-    if (oldFetchButton === null) {
-        let fetchButton = document.createElement('div');
-        fetchButton.id = 'getNextPage';
-        fetchButton.innerHTML = '<i class="fas fa-search"></i> Fetch more results...';
-
-        $('#videoListContainer').append(fetchButton);
-    }
-
-    // Update the on click method of the button.
-    $(document).off('click', '#getNextPage');
-    $(document).on('click', '#getNextPage', (event) => {
-        search(nextPageToken);
-    });
-}
-
-/**
- * Grab the video recommendations for a video.  This does not get recommendations based on what you watch,
- * as that would defeat the main purpose of using FreeTube.  At any time you can check the video on HookTube
- * and compare the recommendations there.  They should be nearly identical.
- *
- * @param {string} videoId - The video ID of the video to get recommendations from.
- */
-function showVideoRecommendations(videoId) {
-  playerView.recommendedVideoList = [];
-
-  youtubeAPI('search', {
-    part: 'id',
-    type: 'video',
-    relatedToVideoId: videoId,
-    maxResults: 15,
-  }, function(data) {
-    let grabDuration = getDuration(data.items);
-    grabDuration.then((videoList) => {
-      videoList.items.forEach((video) => {
-        let data = {}
-        const snippet = video.snippet;
-
-        data.duration = parseVideoDuration(video.contentDetails.duration);
-        data.id = video.id;
-        data.title = snippet.title;
-        data.channelName = snippet.channelTitle;
-        data.thumbnail = snippet.thumbnails.medium.url;
-        data.publishedDate = dateFormat(snippet.publishedAt, "mmm dS, yyyy");
-
-        playerView.recommendedVideoList = playerView.recommendedVideoList.concat(data);
-      });
-    });
-  });
-}
-
-/**
  * Check if a link is a valid YouTube/HookTube link and play that video. Gets input
  * from the #jumpToInput element.
  *
@@ -383,16 +307,9 @@ function parseSearchText(url = '') {
         goToChannel(urlSplit[4]);
     } else if (urlSplit[3] == 'user') {
         ft.log('user found');
-        // call api to get the ID and then call goToChannel(id)
-        youtubeAPI('channels', {
-            part: 'id',
-            forUsername: urlSplit[4]
-        }, (data) => {
-            ft.log('Channel Data: ', data.items[0].id);
-            let channelID = data.items[0].id;
-            loadingView.seen = true;
-            goToChannel(channelID);
-        });
+
+        loadingView.seen = true;
+        goToChannel(urlSplit[4]);
     } else {
         ft.log('Video not found');
         loadingView.seen = true;
@@ -403,86 +320,21 @@ function parseSearchText(url = '') {
 }
 
 /**
- * Convert duration into a more readable format
- *
- * @param {string} durationString - The string containing the video duration.  Formated as 'PT12H34M56S'
- *
- * @return {string} - The formated string. Ex: 12:34:56
- */
-function parseVideoDuration(durationString) {
-    let match = durationString.match(/P.*T(\d+H)?(\d+M)?(\d+S)?/);
-    let duration = '';
-
-    match = match.slice(1).map(function (x) {
-        if (x != null) {
-            return x.replace(/\D/, '');
-        }
-    });
-
-    let hours = (parseInt(match[0]) || 0);
-    let minutes = (parseInt(match[1]) || 0);
-    let seconds = (parseInt(match[2]) || 0);
-
-    if (hours != 0) {
-        duration = hours + ':';
-    } else {
-        duration = minutes + ':';
-    }
-
-    if (hours != 0 && minutes < 10) {
-        duration = duration + '0' + minutes + ':';
-    } else if (hours != 0 && minutes > 10) {
-        duration = duration + minutes + ':';
-    } else if (hours != 0 && minutes == 0) {
-        duration = duration + '00:';
-    }
-
-    if (seconds == 0) {
-        duration = duration + '00';
-    } else if (seconds < 10) {
-        duration = duration + '0' + seconds;
-    } else {
-        duration = duration + seconds;
-    }
-
-    return duration;
-}
-
-/**
  * Grab the most popular videos over the last couple of days and display them.
  *
  * @return {Void}
  */
 function showMostPopular() {
-
-    // Get the date of 2 days ago.
-    var d = new Date();
-    d.setDate(d.getDate() - 2);
-
-  // Grab all videos published 2 days ago and after and order them by view count.
-  // These are the videos that are considered as 'most popular' and is how similar
-  // Applications grab these.  Videos in the 'Trending' tab on YouTube will be different.
-  // And there is no way to grab those videos.
-  youtubeAPI('search', {
-    part: 'id',
-    order: 'viewCount',
-    type: 'video',
-    publishedAfter: d.toISOString(),
-    maxResults: 50,
-  }, function(data) {
-    //createVideoListContainer('Most Popular:');
-    console.log(data);
-    let grabDuration = getDuration(data.items);
-
-    grabDuration.then((videoList) => {
-      console.log(videoList);
+    invidiousAPI('top', '', {}, function (data) {
+      console.log(data);
       popularView.videoList = [];
-      loadingView.seen = false;
-      videoList.items.forEach((video) => {
-        displayVideo(video, 'popular');
+
+      data.forEach((video) => {
+          loadingView.seen = false;
+          console.log(video);
+          displayVideo(video, 'popular');
       });
     });
-  });
 }
 
 /**
@@ -509,30 +361,6 @@ function copyLink(website, videoId) {
     }
 
 
-}
-
-/**
- * Get the YouTube embeded player of a video as well as channel information..
- *
- * @param {string} videoId - The video ID of the video to get.
- *
- * @return {promise} - The HTML of the embeded player
- */
-function getChannelAndPlayer(videoId) {
-    ft.log('Video ID: ', videoId);
-    return new Promise((resolve, reject) => {
-        youtubeAPI('videos', {
-            part: 'snippet,player',
-            id: videoId,
-        }, function (data) {
-            let embedHtml = data.items[0].player.embedHtml;
-            embedHtml = embedHtml.replace('src="', 'src="https:');
-            embedHtml = embedHtml.replace('width="480px"', '');
-            embedHtml = embedHtml.replace('height="270px"', '');
-            embedHtml = embedHtml.replace(/\"/g, '&quot;');
-            resolve([embedHtml, data.items[0].snippet.channelId]);
-        });
-    });
 }
 
 /**

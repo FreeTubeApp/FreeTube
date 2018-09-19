@@ -29,159 +29,177 @@
  * @return {Void}
  */
 function playVideo(videoId) {
-  hideViews();
+    hideViews();
 
-  playerView.playerSeen = true;
-  playerView.videoId = videoId;
-  playerView.video480p = undefined;
-  playerView.video720p = undefined;
-  playerView.embededHtml = "<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/" + videoId + "?rel=0' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>";
+    playerView.playerSeen = true;
+    playerView.videoId = videoId;
+    playerView.video480p = undefined;
+    playerView.video720p = undefined;
+    playerView.embededHtml = "<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/" + videoId + "?rel=0' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>";
+
+    let videoHtml = '';
 
     const checkSavedVideo = videoIsSaved(videoId);
 
-  // Change the save button icon and text depending on if the user has saved the video or not.
-  checkSavedVideo.then((results) => {
-    if (results === false) {
-      playerView.savedText = 'FAVORITE';
-      playerView.savedIconType = 'far unsaved';
-    } else {
-      playerView.savedText = 'FAVORITED';
-      playerView.savedIconType = 'fas saved';
-    }
-  });
-
-    youtubeAPI('videos', {
-        part: 'statistics',
-        id: videoId,
-    }, function (data) {
-
-    // Figure out the width for the like/dislike bar.
-    playerView.videoLikes = data['items'][0]['statistics']['likeCount'];
-    playerView.videoDislikes = data['items'][0]['statistics']['dislikeCount'];
-    let totalLikes = parseInt(playerView.videoLikes) + parseInt(playerView.videoDislikes);
-    playerView.likePercentage = parseInt((playerView.videoLikes / totalLikes) * 100);
-  });
-
-    /*
-     * FreeTube calls youtube-dl to grab the direct video URL.
-     */
-    youtubedlGetInfo(videoId, (info) => {
-
-    playerView.videoTitle = info['title'];
-    playerView.channelName = info['author']['name'];
-    playerView.channelId = info['author']['id'];
-    playerView.channelIcon = info['author']['avatar'];
-
-    let videoUrls = info['formats'];
-
-    // Add commas to the video view count.
-    playerView.videoViews = info['view_count'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
-    playerView.videoThumbnail = info['player_response']['videoDetails']['thumbnail']['thumbnails'][3]['url'];
-
-    // Format the date to a more readable format.
-    let dateString = new Date(info['published']);
-    dateString.setDate(dateString.getDate() + 1);
-    playerView.publishedDate = dateFormat(dateString, "mmm dS, yyyy");
-
-    let description = info['description'];
-    // Adds clickable links to the description.
-    playerView.description = autolinker.link(description);
-
-    // Search through the returned object to get the 480p and 720p video URLs (If available)
-    Object.keys(videoUrls).forEach((key) => {
-      switch (videoUrls[key]['itag']) {
-        case '18':
-          playerView.video480p = decodeURIComponent(videoUrls[key]['url']);
-          //console.log(video480p);
-          break;
-        case '22':
-          playerView.video720p = decodeURIComponent(videoUrls[key]['url']);
-          //console.log(video720p);
-          break;
-      }
+    // Change the save button icon and text depending on if the user has saved the video or not.
+    checkSavedVideo.then((results) => {
+        if (results === false) {
+            playerView.savedText = 'FAVORITE';
+            playerView.savedIconType = 'far unsaved';
+        } else {
+            playerView.savedText = 'FAVORITED';
+            playerView.savedIconType = 'fas saved';
+        }
     });
+    //"kpkXPy_jXmU"
+    invidiousAPI('videos', videoId, {}, function (data) {
 
-    let useEmbedPlayer = false;
+        // Figure out the width for the like/dislike bar.
+        playerView.videoLikes = data.likeCount;
+        playerView.videoDislikes = data.dislikeCount;
+        let totalLikes = parseInt(playerView.videoLikes) + parseInt(playerView.videoDislikes);
+        playerView.likePercentage = parseInt((playerView.videoLikes / totalLikes) * 100);
 
-    // Default to the embeded player if the URLs cannot be found.
-    if (typeof(playerView.video720p) === 'undefined' && typeof(playerView.video480p) === 'undefined') {
-      //useEmbedPlayer = true;
-      playerView.currentQuality = 'EMBED';
-      playerView.playerSeen = false;
-      useEmbedPlayer = true;
-      showToast('Unable to get video file.  Reverting to embeded player.');
-    } else if (typeof(video720p) === 'undefined' && typeof(video480p) !== 'undefined') {
-      // Default to the 480p video if the 720p URL cannot be found.
-      playerView.videoUrl = playerView.video480p;
-      playerView.currentQuality = '480p';
-    } else {
-      // Default to the 720p video.
-      playerView.videoUrl = playerView.video720p;
-      playerView.currentQuality = '720p';
-    }
+        /*invidiousAPI('videos', "9Ww-TQUeA3E", {}, function (data) {
+          console.log(data);
+        });*/
 
-    if (!useEmbedPlayer) {
-      let videoHtml = '';
+        playerView.videoTitle = data.title;
+        playerView.channelName = data.author;
+        playerView.channelId = data.authorId;
+        //playerView.channelIcon = data['author']['avatar'];
 
-      if (typeof(info.player_response.captions) === 'object') {
-        if (typeof(info.player_response.captions.playerCaptionsTracklistRenderer.captionTracks) === 'object') {
-          const videoSubtitles = info.player_response.captions.playerCaptionsTracklistRenderer.captionTracks;
+        let videoUrls = data.formatStreams;
 
-          videoSubtitles.forEach((subtitle) => {
-            let subtitleUrl = 'https://www.youtube.com/api/timedtext?lang=' + subtitle.languageCode + '&fmt=vtt&name=&v=' + videoId;
+        // Add commas to the video view count.
+        playerView.videoViews = data.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-            if (subtitle.kind == 'asr') {
-              //subtitleUrl = subtitle.baseUrl;
-              return;
+        playerView.videoThumbnail = data.videoThumbnails[0].url;
+
+        // Format the date to a more readable format.
+        let dateString = new Date(data.published);
+        dateString.setDate(dateString.getDate() + 1);
+        playerView.publishedDate = dateFormat(dateString, "mmm dS, yyyy");
+
+        let description = data.description;
+        // Adds clickable links to the description.
+        playerView.description = autolinker.link(description);
+
+        // Search through the returned object to get the 480p and 720p video URLs (If available)
+        Object.keys(videoUrls).forEach((key) => {
+            switch (videoUrls[key]['itag']) {
+            case '18':
+                playerView.video480p = decodeURIComponent(videoUrls[key]['url']);
+                //console.log(video480p);
+                break;
+            case '22':
+                playerView.video720p = decodeURIComponent(videoUrls[key]['url']);
+                //console.log(video720p);
+                break;
+            }
+        });
+
+        let useEmbedPlayer = false;
+
+        // Default to the embeded player if the URLs cannot be found.
+        if (typeof (playerView.video720p) === 'undefined' && typeof (playerView.video480p) === 'undefined') {
+            //useEmbedPlayer = true;
+            playerView.currentQuality = 'EMBED';
+            //playerView.playerSeen = false;
+            //useEmbedPlayer = true;
+            showToast('Unable to get video file.  Reverting to embeded player.');
+        } else if (typeof (playerView.video720p) === 'undefined' && typeof (playerView.video480p) !== 'undefined') {
+            // Default to the 480p video if the 720p URL cannot be found.
+            console.log('Found');
+            playerView.videoUrl = playerView.video480p;
+            playerView.currentQuality = '480p';
+        } else {
+            // Default to the 720p video.
+            playerView.videoUrl = playerView.video720p;
+            playerView.currentQuality = '720p';
+            //playerView.videoUrl = playerView.liveManifest;
+        }
+
+        if (!useEmbedPlayer) {
+            data.captions.forEach((caption) => {
+                let subtitleUrl = 'https://www.youtube.com/api/timedtext?lang=' + caption.languageCode + '&fmt=vtt&name=&v=' + videoId;
+
+                videoHtml = videoHtml + '<track kind="subtitles" src="' + subtitleUrl + '" srclang="' + caption.languageCode + '" label="' + caption.label + '">';
+            });
+
+            playerView.subtitleHtml = videoHtml;
+        }
+
+        const checkSubscription = isSubscribed(playerView.channelId);
+
+        checkSubscription.then((results) => {
+            if (results === false) {
+                if (subscribeButton != null) {
+                    playerView.subscribedText = 'SUBSCRIBE';
+                }
+            } else {
+                if (subscribeButton != null) {
+                    playerView.subscribedText = 'UNSUBSCRIBE';
+                }
+            }
+        });
+
+        playerView.recommendedVideoList = [];
+
+        data.recommendedVideos.forEach((video) => {
+            let data = {};
+
+            let time = video.lengthSeconds;
+            let hours = 0;
+
+            if (time >= 3600) {
+                hours = Math.floor(time / 3600);
+                time = time - hours * 3600;
             }
 
-            videoHtml = videoHtml + '<track kind="subtitles" src="' + subtitleUrl + '" srclang="' + subtitle.languageCode + '" label="' + subtitle.name.simpleText + '">';
-          });
+            let minutes = Math.floor(time / 60);
+            let seconds = time - minutes * 60;
+
+            if (seconds < 10) {
+                seconds = '0' + seconds;
+            }
+
+            if (hours > 0) {
+                data.duration = hours + ":" + minutes + ":" + seconds;
+            } else {
+                data.duration = minutes + ":" + seconds;
+            }
+
+            data.id = video.id;
+            data.title = video.title;
+            data.channelName = video.author;
+            data.thumbnail = video.videoThumbnails[3].url;
+            //data.publishedDate = dateFormat(snippet.publishedAt, "mmm dS, yyyy");
+            data.viewCount = video.viewCountText;
+
+            playerView.recommendedVideoList = playerView.recommendedVideoList.concat(data);
+        });
+
+        loadingView.seen = false;
+
+        if (subscriptionView.seen === false && aboutView.seen === false && headerView.seen === false && searchView.seen === false && settingsView.seen === false && popularView.seen === false && savedView.seen === false && historyView.seen === false && channelView.seen === false && channelVideosView.seen === false) {
+            playerView.seen = true;
+        } else {
+            return;
         }
-      }
 
-      playerView.subtitleHtml = videoHtml;
-}
+        addToHistory(videoId);
 
+        // Hide subtitles by default
+        /*if (typeof (info['subtitles']) !== 'undefined' && Object.keys(info['subtitles']).length > 0) {
+            let textTracks = $('.videoPlayer').get(0).textTracks;
+            Object.keys(textTracks).forEach((track) => {
+                textTracks[track].mode = 'hidden';
+            });
+        }*/
 
-    const checkSubscription = isSubscribed(playerView.channelId);
-
-    checkSubscription.then((results) => {
-      if (results === false) {
-        if (subscribeButton != null) {
-          playerView.subscribedText = 'SUBSCRIBE';
-        }
-      } else {
-        if (subscribeButton != null) {
-          playerView.subscribedText = 'UNSUBSCRIBE';
-        }
-      }
+        window.setTimeout(checkVideoUrls, 5000, playerView.video480p, playerView.video720p);
     });
-
-    showVideoRecommendations(videoId);
-
-    loadingView.seen = false;
-
-    if (subscriptionView.seen === false && aboutView.seen === false && headerView.seen === false && searchView.seen === false && settingsView.seen === false && popularView.seen === false && savedView.seen === false && historyView.seen === false &&  channelView.seen === false && channelVideosView.seen === false) {
-      playerView.seen = true;
-    }
-    else{
-      return;
-    }
-
-    addToHistory(videoId);
-
-    // Hide subtitles by default
-    if (typeof(info['subtitles']) !== 'undefined' && Object.keys(info['subtitles']).length > 0) {
-      let textTracks = $('.videoPlayer').get(0).textTracks;
-      Object.keys(textTracks).forEach((track) => {
-        textTracks[track].mode = 'hidden';
-      });
-    }
-
-    window.setTimeout(checkVideoUrls, 5000, playerView.video480p, playerView.video720p);
-  });
 }
 
 /**
@@ -191,40 +209,40 @@ function playVideo(videoId) {
  *
  * @return {Void}
  */
- function openMiniPlayer() {
-   let lastTime;
-   let videoHtml;
+function openMiniPlayer() {
+    let lastTime;
+    let videoHtml;
 
-   // Grabs whatever the HTML is for the current video player.  Done this way to grab
-   // the HTML5 player (with varying qualities) as well as the YouTube embeded player.
-   if ($('.videoPlayer').length > 0) {
-     $('.videoPlayer').get(0).pause();
-     lastTime = $('.videoPlayer').get(0).currentTime;
-     videoHtml = $('.videoPlayer').get(0).outerHTML;
-   } else {
-     videoHtml = $('iframe').get(0).outerHTML;
-   }
+    // Grabs whatever the HTML is for the current video player.  Done this way to grab
+    // the HTML5 player (with varying qualities) as well as the YouTube embeded player.
+    if ($('.videoPlayer').length > 0) {
+        $('.videoPlayer').get(0).pause();
+        lastTime = $('.videoPlayer').get(0).currentTime;
+        videoHtml = $('.videoPlayer').get(0).outerHTML;
+    } else {
+        videoHtml = $('iframe').get(0).outerHTML;
+    }
 
-   // Create a new browser window.
-   const BrowserWindow = electron.remote.BrowserWindow;
+    // Create a new browser window.
+    const BrowserWindow = electron.remote.BrowserWindow;
 
-   let miniPlayer = new BrowserWindow({
-     width: 1200,
-     height: 710
-   });
+    let miniPlayer = new BrowserWindow({
+        width: 1200,
+        height: 710
+    });
 
-   // Use the miniPlayer.html template.
-   $.get('templates/miniPlayer.html', (template) => {
-     mustache.parse(template);
-     const rendered = mustache.render(template, {
-       videoHtml: videoHtml,
-       videoThumbnail: playerView.thumbnail,
-       startTime: lastTime,
-     });
-     // Render the template to the new browser window.
-     miniPlayer.loadURL("data:text/html;charset=utf-8," + encodeURI(rendered));
-   });
- }
+    // Use the miniPlayer.html template.
+    $.get('templates/miniPlayer.html', (template) => {
+        mustache.parse(template);
+        const rendered = mustache.render(template, {
+            videoHtml: videoHtml,
+            videoThumbnail: playerView.thumbnail,
+            startTime: lastTime,
+        });
+        // Render the template to the new browser window.
+        miniPlayer.loadURL("data:text/html;charset=utf-8," + encodeURI(rendered));
+    });
+}
 
 /**
  * Change the quality of the current video.
@@ -236,10 +254,10 @@ function playVideo(videoId) {
  * @return {Void}
  */
 function changeQuality(url, qualityText, isEmbed = false) {
-  if (videoHtml == '') {
-    showToast('Video quality type is not available.  Unable to change quality.')
-    return;
-  }
+    if (videoHtml == '') {
+        showToast('Video quality type is not available.  Unable to change quality.')
+        return;
+    }
 
     videoHtml = videoHtml.replace(/\&quot\;/g, '"');
 

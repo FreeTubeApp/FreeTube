@@ -29,7 +29,7 @@ iframe {
     width: 95%;
     max-width: 1000px;
     height: auto;
-    padding: 15px;
+    padding: 10px;
     overflow: hidden;
 }
 
@@ -117,6 +117,7 @@ iframe {
     font-weight: bold;
     margin-left: 285px;
     margin-top: 5px;
+    margin-bottom: -10px;
     cursor: pointer;
 }
 
@@ -126,11 +127,18 @@ iframe {
     cursor: pointer;
 }
 
+.videoViews {
+    margin-left: 285px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
 .videoDescription {
     margin-left: 285px;
     font-size: 13px;
     cursor: pointer;
-    height: 45px;
+    margin-bottom: -60px;
+    height: 60px;
     overflow: hidden;
 }
 

@@ -30,26 +30,28 @@ let showComments = function (event) {
     if (comments.css('display') === 'none') {
         comments.attr('loaded', 'true');
 
-        youtubeAPI('commentThreads', {
-            'videoId': $('#comments').attr('data-video-id'),
-            'part': 'snippet,replies',
-            'maxResults': 100,
-        }, function (data) {
-            let comments = [];
-            let items = data.items;
+        invidiousAPI('comments', $('#comments').attr('data-video-id'), {}, (data) => {
+          console.log(data);
 
-            items.forEach((object) => {
-                let snippet = object.snippet.topLevelComment.snippet;
+          let comments = [];
 
-                snippet.publishedAt = dateFormat(new Date(snippet.publishedAt), "mmm dS, yyyy");
+          data.comments.forEach((object) => {
 
-                comments.push(snippet);
-            })
-            const commentsTemplate = require('./templates/comments.html');
-            const html = mustache.render(commentsTemplate, {
-                comments: comments,
-            });
-            $('#comments').html(html);
+              let snippet = {
+                author: object.author,
+                authorId: object.authorId,
+                authorThumbnail: object.authorThumbnails[0].url,
+                published: object.publishedText,
+                authorComment: object.content,
+              }
+
+              comments.push(snippet);
+          })
+          const commentsTemplate = require('./templates/comments.html');
+          const html = mustache.render(commentsTemplate, {
+              comments: comments,
+          });
+          $('#comments').html(html);
         });
 
         comments.show();
