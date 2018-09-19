@@ -18,7 +18,7 @@
         "make:linux:x86:deb": "electron-forge make --platform=linux --targets=deb --arch x64",
         "make:linux:x86:rpm": "electron-forge make --platform=linux --targets=rpm --arch x64",
         "make:linux:x86:snap": "electron-forge package && electron-installer-snap --src=out/FreeTube-linux-x64 --arch x64",
-        "make:linux:x86:flatpak": "electron-installer-flatpak --src out/FreeTube-linux-x64/ --dest out/make --arch x64",
+        "make:linux:x86:flatpak": "electron-installer-flatpak --src out/FreeTube-linux-x64/ --dest out/make --arch x64 --id org.freetube.FreeTube --productName FreeTube  --runtime org.freedesktop.Platform//1.6 --runtimeVersion 1.6 --sdk org.freedesktop.Sdk//1.6 --base io.atom.electron.BaseApp --baseVersion stable",
         "make:linux:x86:appimage": "electron-forge make --platform=linux --targets=electron-forge-maker-appimage --arch x64",
         "make:linux:arm": "electron-forge make --platform=linux --arch arm64",
         "make:linux:arm:zip": "electron-forge make --platform=linux --targets=zip --arch arm64",
