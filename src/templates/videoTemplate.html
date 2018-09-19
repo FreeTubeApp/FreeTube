@@ -20,6 +20,9 @@
             <img v-on:click='play(video.id)' :src='video.thumbnail' />
             <p v-on:click='play(video.id)' class='videoDuration'>{{video.duration}}</p>
             <i class="fas fa-history" v-on:click='toggleSave(video.id)'></i>
+            <div v-if='video.watched' class='videoWatched'>
+              WATCHED
+            </div>
           </div>
           <p v-on:click='play(video.id)' class='videoTitle'>{{video.title}}</p>
           <p v-on:click='channel(video.channelId)' class='channelName'>{{video.channelName}}</p>

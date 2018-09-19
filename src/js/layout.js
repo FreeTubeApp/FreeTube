@@ -42,6 +42,7 @@ const tor = require('tor-request');
 
 let currentTheme = '';
 let useTor = false;
+let rememberHistory = true;
 let dialog = electron.remote.dialog; // Used for opening file browser to export / import subscriptions.
 let toastTimeout; // Timeout for toast notifications.
 let mouseTimeout; // Timeout for hiding the mouse cursor on video playback

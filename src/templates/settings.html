@@ -9,6 +9,8 @@
     <label for="themeSwitch" class="switch-label">Use Dark Theme</label>
     <input type="checkbox" id="torSwitch" name="set-name" class="switch-input" :checked='useTor'>
     <label for="torSwitch" class="switch-label">Use Tor for API calls</label>
+    <input type="checkbox" id="historySwitch" name="set-name" class="switch-input" :checked='history'>
+    <label for="historySwitch" class="switch-label">Remember History</label>
   </div>
   <div class='center'>
     <div onclick='importSubscriptions()' class='settingsButton'>

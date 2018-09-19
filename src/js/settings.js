@@ -58,6 +58,12 @@ function updateSettingsView() {
     } else {
       settingsView.useTor = false;
     }
+
+    if (rememberHistory) {
+      settingsView.history = true;
+    } else {
+      settingsView.history = false;
+    }
   });
 }
 
@@ -75,7 +81,9 @@ function checkDefaultSettings() {
   let settingDefaults = {
     'theme': 'light',
     'apiKey': settingsView.apiKey,
-    'useTor': false
+    'useTor': false,
+    'history': true,
+    'quality': '720'
   };
 
   console.log(settingDefaults);
@@ -110,6 +118,9 @@ function checkDefaultSettings() {
           case 'useTor':
             useTor = docs[0]['value'];
             break;
+          case 'history':
+            rememberHistory = docs[0]['value'];
+            break;
           default:
             break;
         }
@@ -126,8 +137,15 @@ function checkDefaultSettings() {
 function updateSettings() {
   let themeSwitch = document.getElementById('themeSwitch').checked;
   let torSwitch = document.getElementById('torSwitch').checked;
+  let historySwitch = document.getElementById('historySwitch').checked;
   let key = document.getElementById('api-key').value;
   let theme = 'light';
+
+  settingsView.useTor = torSwitch;
+  settingsView.history = historySwitch;
+  rememberHistory = historySwitch;
+
+  console.log(historySwitch);
 
   if (apiKeyBank.indexOf(key) == -1 && key !== '') {
     settingsView.apiKey = key;
@@ -157,6 +175,17 @@ function updateSettings() {
   // Update tor usage.
   settingsDb.update({
     _id: 'useTor'
+  }, {
+    value: torSwitch
+  }, {}, function(err, numReplaced) {
+    console.log(err);
+    console.log(numReplaced);
+    useTor = torSwitch;
+  });
+
+  // Update tor usage.
+  settingsDb.update({
+    _id: 'history'
   }, {
     value: torSwitch
   }, {}, function(err, numReplaced) {

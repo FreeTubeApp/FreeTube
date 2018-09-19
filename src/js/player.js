@@ -188,7 +188,9 @@ function playVideo(videoId) {
             return;
         }
 
-        addToHistory(videoId);
+        if (rememberHistory === true){
+          addToHistory(videoId);
+        }
 
         // Hide subtitles by default
         /*if (typeof (info['subtitles']) !== 'undefined' && Object.keys(info['subtitles']).length > 0) {

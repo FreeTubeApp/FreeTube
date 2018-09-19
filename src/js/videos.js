@@ -108,6 +108,16 @@ function displayVideo(videoData, listType = '') {
     let video = {};
     video.id = videoData.videoId;
 
+    historyDb.find({
+        videoId: video.id
+    }, (err, docs) => {
+        if (jQuery.isEmptyObject(docs)) {
+            // Do nothing
+        } else {
+            video.watched = true;
+        }
+    });
+
     let time = videoData.lengthSeconds;
     let hours = 0;
 

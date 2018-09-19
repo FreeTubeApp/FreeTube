@@ -258,7 +258,8 @@ let settingsView = new Vue({
     seen: false,
     useTheme: false,
     useTor: false,
-    apiKey: ''
+    apiKey: '',
+    history: true,
   },
   template: settingsTemplate
 });
