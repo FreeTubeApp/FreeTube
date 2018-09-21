@@ -1,6 +1,6 @@
 <div v-if='seen'>
   <div v-if='playerSeen'>
-    <video class="videoPlayer" id='videoPlayer' type="application/x-mpegURL" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" onloadstart='checkVideoSettings()' onvolumechange='updateVolume()' controls="" :src='videoUrl' :poster="videoThumbnail" v-html="subtitleHtml">
+    <video class="videoPlayer" id='videoPlayer' type="application/x-mpegURL" object-fit='cover' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" onloadstart='checkVideoSettings()' onvolumechange='updateVolume()' controls="" :src='videoUrl' :poster="videoThumbnail" v-html="subtitleHtml">
     </video>
   </div>
   <div v-else>
@@ -14,8 +14,8 @@
       <span id='currentQuality'>{{currentQuality}}</span> <i class="fas fa-angle-down"></i>
       <div class='qualityTypes'>
         <ul>
-          <li id='quality480p' v-on:click='quality(video480p, "480p")'>480p</li>
-          <li id='quality720p' v-on:click='quality(video720p, "720p")'>720p</li>
+          <li v-if='valid480p' id='quality480p' v-on:click='quality(video480p, "480p")'>480p</li>
+          <li v-if='valid720p' id='quality720p' v-on:click='quality(video720p, "720p")'>720p</li>
           <li id='qualityEmbed' v-on:click='embededPlayer()'>EMBED</li>
         </ul>
       </div>

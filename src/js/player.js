@@ -34,7 +34,9 @@ function playVideo(videoId) {
     playerView.playerSeen = true;
     playerView.videoId = videoId;
     playerView.video480p = undefined;
+    playerView.valid480p = true;
     playerView.video720p = undefined;
+    playerView.valid720p = true;
     playerView.embededHtml = "<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/" + videoId + "?rel=0' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>";
 
     let videoHtml = '';
@@ -79,7 +81,7 @@ function playVideo(videoId) {
         playerView.videoThumbnail = data.videoThumbnails[0].url;
 
         // Format the date to a more readable format.
-        let dateString = new Date(data.published);
+        let dateString = new Date(data.published * 1000);
         dateString.setDate(dateString.getDate() + 1);
         playerView.publishedDate = dateFormat(dateString, "mmm dS, yyyy");
 

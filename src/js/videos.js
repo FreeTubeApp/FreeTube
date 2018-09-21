@@ -459,15 +459,13 @@ function checkVideoUrls(video480p, video720p) {
             switch (status.status) {
             case 404:
                 showToast('Found valid URL for 480p, but returned a 404. Video type might be available in the future.');
-                $(document).off('click', '#quality480p');
-                $(document).on('click', '#quality480p', (event) => {
-                    changeQuality('');
-                });
+                playerView.valid480p = false;
                 buttonEmbed.click();
                 return;
                 break;
             case 403:
                 showToast('This video is unavailable in your country.');
+                playerView.valid480p = false;
                 $(document).off('click', '#quality480p');
                 $(document).on('click', '#quality480p', (event) => {
                     changeQuality('');
@@ -483,6 +481,9 @@ function checkVideoUrls(video480p, video720p) {
             }
         });
     }
+    else{
+      playerView.valid480p = false;
+    }
 
     if (typeof (video720p) !== 'undefined') {
         let get720pUrl = fetch(video720p);
@@ -490,20 +491,14 @@ function checkVideoUrls(video480p, video720p) {
             switch (status.status) {
             case 404:
                 showToast('Found valid URL for 720p, but returned a 404. Video type might be available in the future.');
-                $(document).off('click', '#quality720p');
-                $(document).on('click', '#quality720p', (event) => {
-                    changeQuality('');
-                });
+                playerView.valid720p = false;
                 if (typeof (valid480) !== 'undefined') {
                     changeQuality(video480p, '480p');
                 }
                 break;
             case 403:
                 showToast('This video is unavailable in your country.');
-                $(document).off('click', '#quality720p');
-                $(document).on('click', '#quality720p', (event) => {
-                    changeQuality('');
-                });
+                playerView.valid720p = false;
                 return;
                 break;
             default:
@@ -511,5 +506,8 @@ function checkVideoUrls(video480p, video720p) {
                 break;
             }
         });
+    }
+    else{
+      playerView.valid720p = false;
     }
 }

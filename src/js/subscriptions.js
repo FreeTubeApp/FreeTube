@@ -84,6 +84,7 @@ function loadSubscriptions() {
     } else {
         showToast('Refreshing Subscription List.  Please wait...');
         checkSubscriptions = false;
+        progressView.seen = true;
     }
 
     let videoList = [];
