@@ -64,6 +64,24 @@ function updateSettingsView() {
     } else {
       settingsView.history = false;
     }
+
+    if (autoplay) {
+      settingsView.autoplay = true;
+    } else {
+      settingsView.autoplay = false;
+    }
+
+    /*if (subtitles) {
+      settingsView.subtitles = true;
+    } else {
+      settingsView.subtitles = false;
+    }*/
+
+    if (checkForUpdates) {
+      settingsView.updates = true;
+    } else {
+      settingsView.updates = false;
+    }
   });
 }
 
@@ -83,7 +101,9 @@ function checkDefaultSettings() {
     'apiKey': settingsView.apiKey,
     'useTor': false,
     'history': true,
-    'quality': '720'
+    'autoplay': true,
+    'subtitles': false,
+    'updates': true,
   };
 
   console.log(settingDefaults);
@@ -121,6 +141,24 @@ function checkDefaultSettings() {
           case 'history':
             rememberHistory = docs[0]['value'];
             break;
+          case 'autoplay':
+            autoplay = docs[0]['value'];
+            break;
+          case 'subtitles':
+            enableSubtitles = docs[0]['value'];
+            break;
+          case 'updates':
+            checkForUpdates = docs[0]['value'];
+
+            if (checkForUpdates) {
+              updateChecker(options, function (error, update) { // callback function
+                  if (error) throw error;
+                  if (update) { // print some update info if an update is available
+                      confirmFunction(update.name + ' is now available! Would you like to download the update?', openReleasePage);
+                  }
+              });
+            }
+            break;
           default:
             break;
         }
@@ -138,11 +176,17 @@ function updateSettings() {
   let themeSwitch = document.getElementById('themeSwitch').checked;
   let torSwitch = document.getElementById('torSwitch').checked;
   let historySwitch = document.getElementById('historySwitch').checked;
+  let autoplaySwitch = document.getElementById('autoplaySwitch').checked;
+  let subtitlesSwitch = document.getElementById('subtitlesSwitch').checked;
+  let updatesSwitch = document.getElementById('updatesSwitch').checked;
   let key = document.getElementById('api-key').value;
   let theme = 'light';
 
   settingsView.useTor = torSwitch;
   settingsView.history = historySwitch;
+  settingsView.autoplay = autoplaySwitch;
+  settingsView.subtitles = subtitlesSwitch;
+  settingsView.updates = updatesSwitch;
   rememberHistory = historySwitch;
 
   console.log(historySwitch);
@@ -183,15 +227,48 @@ function updateSettings() {
     useTor = torSwitch;
   });
 
-  // Update tor usage.
+  // Update history
   settingsDb.update({
     _id: 'history'
   }, {
-    value: torSwitch
+    value: historySwitch
   }, {}, function(err, numReplaced) {
     console.log(err);
     console.log(numReplaced);
-    useTor = torSwitch;
+    rememberHistory = historySwitch;
+  });
+
+  // Update autoplay.
+  settingsDb.update({
+    _id: 'autoplay'
+  }, {
+    value: autoplaySwitch
+  }, {}, function(err, numReplaced) {
+    console.log(err);
+    console.log(numReplaced);
+    autoplay = autoplaySwitch;
+  });
+
+  // Update subtitles.
+  settingsDb.update({
+    _id: 'subtitles'
+  }, {
+    value: subtitlesSwitch
+  }, {}, function(err, numReplaced) {
+    console.log(err);
+    console.log(numReplaced);
+    enableSubtitles = subtitlesSwitch;
+  });
+
+  // Update checkForUpdates.
+  settingsDb.update({
+    _id: 'updates'
+  }, {
+    value: updatesSwitch
+  }, {}, function(err, numReplaced) {
+    console.log(err);
+    console.log(numReplaced);
+    checkForUpdates = updatesSwitch;
   });
 
   // To any third party devs that fork the project, please be ethical and change the API key.

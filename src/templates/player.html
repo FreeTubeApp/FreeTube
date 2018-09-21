@@ -1,6 +1,6 @@
 <div v-if='seen'>
   <div v-if='playerSeen'>
-    <video class="videoPlayer" type="application/x-mpegURL" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" :src='videoUrl' :poster="videoThumbnail" v-html="subtitleHtml" autoplay>
+    <video class="videoPlayer" id='videoPlayer' type="application/x-mpegURL" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" onloadstart='checkVideoSettings()' onvolumechange='updateVolume()' controls="" :src='videoUrl' :poster="videoThumbnail" v-html="subtitleHtml">
     </video>
   </div>
   <div v-else>
@@ -34,6 +34,9 @@
           <li onclick='changeVideoSpeed(2)'>2x</li>
         </ul>
       </div>
+    </div>
+    <div class='smallButton' v-on:click='loop'>
+      <i id='loopIcon' :class='savedIconType' class="fas fa-sync-alt"></i> LOOP
     </div>
     <div class='smallButton' v-on:click='save(videoId)'>
       <i id='saveIcon' :class='savedIconType' class="fa-star"></i> <span id='savedText'>{{savedText}}</span>

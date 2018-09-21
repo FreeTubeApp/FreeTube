@@ -15,6 +15,11 @@
     along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+let popularTimer;
+let checkPopular = true;
+let trendingTimer;
+let checkTrending = true;
+
 /**
  * Perform a search using the YouTube API. The search query is grabbed from the #search element.
  *
@@ -116,85 +121,104 @@ function displayVideo(videoData, listType = '') {
         } else {
             video.watched = true;
         }
-    });
 
-    let time = videoData.lengthSeconds;
-    let hours = 0;
+        video.views = videoData.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-    if (time >= 3600) {
-        hours = Math.floor(time / 3600);
-        time = time - hours * 3600;
-    }
-
-    let minutes = Math.floor(time / 60);
-    let seconds = time - minutes * 60;
-
-    if (seconds < 10) {
-        seconds = '0' + seconds;
-    }
-
-    if (hours > 0) {
-        video.duration = hours + ":" + minutes + ":" + seconds;
-    } else {
-        video.duration = minutes + ":" + seconds;
-    }
-
-    // Grab the published date for the video and convert to a user readable state.
-    //const dateString = new Date(videoSnippet.publishedAt);
-    //video.publishedDate = dateFormat(dateString, "mmm dS, yyyy");
-    video.publishedDate = videoData.publishedText;
-
-    //const searchMenu = $('#videoListContainer').html();
-
-    // Include a remove icon in the list if the application is displaying the history list or saved videos.
-    video.deleteHtml = () => {
-        switch (listType) {
-        case 'saved':
-            return `<li onclick="removeSavedVideo('${video.id}'); showSavedVideos();">Remove Saved Video</li>`;
-        case 'history':
-            return `<li onclick="removeFromHistory('${video.id}'); showHistory();">Remove From History</li>`;
+        if (videoData.liveNow === true){
+          video.liveText = (videoData.liveNow === true) ? 'LIVE NOW' : '';
+          video.duration = '';
+          video.publishedDate = '';
+          video.viewText = 'watching';
         }
-    };
+        else{
+          video.liveText = '';
 
-    video.youtubeUrl = 'https://youtube.com/watch?v=' + video.id;
-    video.invidiousUrl = 'https://invidio.us/watch?v=' + video.id;
-    // Includes text if the video is live.
-    //video.liveText = (videoSnippet.liveBroadcastContent === 'live') ? 'LIVE NOW' : '';
-    video.liveText = '';
-    video.thumbnail = videoData.videoThumbnails[3].url;
-    video.title = videoData.title;
-    video.channelName = videoData.author;
-    video.channelId = videoData.authorId;
-    video.views = videoData.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
-    video.description = videoData.description;
-    video.isVideo = true;
+          if (video.views <= 1) {
+            video.viewText = 'view';
+          }
+          else{
+            video.viewText = 'views';
+          }
 
-    switch (listType) {
-    case 'subscriptions':
-        subscriptionView.videoList = subscriptionView.videoList.concat(video);
-        video.removeFromSave = true;
-        break;
-    case 'search':
-        searchView.videoList = searchView.videoList.concat(video);
-        video.removeFromSave = false;
-        break;
-    case 'popular':
-        popularView.videoList = popularView.videoList.concat(video);
-        video.removeFromSave = false;
-        break;
-    case 'saved':
-        savedView.videoList = savedView.videoList.concat(video);
-        video.removeFromSave = false;
-        break;
-    case 'history':
-        historyView.videoList = historyView.videoList.concat(video);
-        video.removeFromSave = false;
-        break;
-    case 'channel':
-        channelVideosView.videoList = channelVideosView.videoList.concat(video);
-        video.removeFromSave = false;
-        break;
-    }
+          let time = videoData.lengthSeconds;
+          let hours = 0;
+
+          if (time >= 3600) {
+              hours = Math.floor(time / 3600);
+              time = time - hours * 3600;
+          }
+
+          let minutes = Math.floor(time / 60);
+          let seconds = time - minutes * 60;
+
+          if (seconds < 10) {
+              seconds = '0' + seconds;
+          }
+
+          if (hours > 0) {
+              video.duration = hours + ":" + minutes + ":" + seconds;
+          } else {
+              video.duration = minutes + ":" + seconds;
+          }
+
+          // Grab the published date for the video and convert to a user readable state.
+          //const dateString = new Date(videoSnippet.publishedAt);
+          //video.publishedDate = dateFormat(dateString, "mmm dS, yyyy");
+          video.publishedDate = videoData.publishedText;
+        }
+
+        //const searchMenu = $('#videoListContainer').html();
+
+        // Include a remove icon in the list if the application is displaying the history list or saved videos.
+        video.deleteHtml = () => {
+            switch (listType) {
+            case 'saved':
+                return `<li onclick="removeSavedVideo('${video.id}'); showSavedVideos();">Remove Saved Video</li>`;
+            case 'history':
+                return `<li onclick="removeFromHistory('${video.id}'); showHistory();">Remove From History</li>`;
+            }
+        };
+
+        video.youtubeUrl = 'https://youtube.com/watch?v=' + video.id;
+        video.invidiousUrl = 'https://invidio.us/watch?v=' + video.id;
+        video.thumbnail = videoData.videoThumbnails[4].url;
+        video.title = videoData.title;
+        video.channelName = videoData.author;
+        video.channelId = videoData.authorId;
+        video.description = videoData.description;
+        video.isVideo = true;
+
+        switch (listType) {
+        case 'subscriptions':
+            subscriptionView.videoList = subscriptionView.videoList.concat(video);
+            video.removeFromSave = true;
+            break;
+        case 'search':
+            searchView.videoList = searchView.videoList.concat(video);
+            video.removeFromSave = false;
+            break;
+        case 'popular':
+            popularView.videoList = popularView.videoList.concat(video);
+            video.removeFromSave = false;
+            break;
+        case 'trending':
+            trendingView.videoList = trendingView.videoList.concat(video);
+            video.removeFromSave = false
+            break;
+        case 'saved':
+            savedView.videoList = savedView.videoList.concat(video);
+            video.removeFromSave = false;
+            break;
+        case 'history':
+            historyView.videoList = historyView.videoList.concat(video);
+            video.removeFromSave = false;
+            break;
+        case 'channel':
+            channelVideosView.videoList = channelVideosView.videoList.concat(video);
+            video.removeFromSave = false;
+            break;
+        }
+    });
 }
 
 function displayChannels(channels) {
@@ -335,16 +359,58 @@ function parseSearchText(url = '') {
  * @return {Void}
  */
 function showMostPopular() {
-    invidiousAPI('top', '', {}, function (data) {
-      console.log(data);
-      popularView.videoList = [];
+  if (checkPopular === false && popularView.videoList.length > 0) {
+      console.log('Will not load popular. Timer still on.');
+      loadingView.seen = false;
+      return;
+  } else {
+      checkPopular = false;
+  }
 
-      data.forEach((video) => {
-          loadingView.seen = false;
-          console.log(video);
-          displayVideo(video, 'popular');
-      });
+    invidiousAPI('top', '', {}, function (data) {
+        console.log(data);
+        popularView.videoList = [];
+
+        data.forEach((video) => {
+            loadingView.seen = false;
+            console.log(video);
+            displayVideo(video, 'popular');
+        });
     });
+
+    popularTimer = window.setTimeout(() => {
+        checkPopular = true;
+    }, 60000);
+}
+
+/**
+ * Grab trending videos over the last couple of days and display them.
+ *
+ * @return {Void}
+ */
+function showTrending() {
+    if (checkTrending === false && trendingView.videoList.length > 0) {
+        console.log('Will not load trending. Timer still on.');
+        loadingView.seen = false;
+        return;
+    } else {
+        checkTrending = false;
+    }
+
+    invidiousAPI('trending', '', {}, function (data) {
+        console.log(data);
+        popularView.videoList = [];
+
+        data.forEach((video) => {
+            loadingView.seen = false;
+            console.log(video);
+            displayVideo(video, 'trending');
+        });
+    });
+
+    trendingTimer = window.setTimeout(() => {
+        checkTrending = true;
+    }, 60000);
 }
 
 /**

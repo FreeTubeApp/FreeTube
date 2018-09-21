@@ -54,6 +54,8 @@ function playVideo(videoId) {
     //"kpkXPy_jXmU"
     invidiousAPI('videos', videoId, {}, function (data) {
 
+      console.log(data);
+
         // Figure out the width for the like/dislike bar.
         playerView.videoLikes = data.likeCount;
         playerView.videoDislikes = data.dislikeCount;
@@ -122,7 +124,7 @@ function playVideo(videoId) {
 
         if (!useEmbedPlayer) {
             data.captions.forEach((caption) => {
-                let subtitleUrl = 'https://www.youtube.com/api/timedtext?lang=' + caption.languageCode + '&fmt=vtt&name=&v=' + videoId;
+                let subtitleUrl = 'https://www.invidio.us/api/v1/captions/' + videoId  + '?label=' + caption.label;
 
                 videoHtml = videoHtml + '<track kind="subtitles" src="' + subtitleUrl + '" srclang="' + caption.languageCode + '" label="' + caption.label + '">';
             });
@@ -173,7 +175,7 @@ function playVideo(videoId) {
             data.id = video.id;
             data.title = video.title;
             data.channelName = video.author;
-            data.thumbnail = video.videoThumbnails[3].url;
+            data.thumbnail = video.videoThumbnails[4].url;
             //data.publishedDate = dateFormat(snippet.publishedAt, "mmm dS, yyyy");
             data.viewCount = video.viewCountText;
 
@@ -201,6 +203,7 @@ function playVideo(videoId) {
         }*/
 
         window.setTimeout(checkVideoUrls, 5000, playerView.video480p, playerView.video720p);
+
     });
 }
 
@@ -244,6 +247,17 @@ function openMiniPlayer() {
         // Render the template to the new browser window.
         miniPlayer.loadURL("data:text/html;charset=utf-8," + encodeURI(rendered));
     });
+}
+
+function checkVideoSettings() {
+  let player = document.getElementById('videoPlayer');
+
+  if (autoplay) {
+    console.log(player);
+    player.play();
+  }
+
+  player.volume = currentVolume;
 }
 
 /**
@@ -359,4 +373,9 @@ function changeDurationBySeconds(seconds) {
 function changeDurationByPercentage(percentage) {
     const videoPlayer = $('.videoPlayer').get(0);
     videoPlayer.currentTime = videoPlayer.duration * percentage;
+}
+
+function updateVolume(){
+  let player = document.getElementById('videoPlayer');
+  currentVolume = player.volume
 }

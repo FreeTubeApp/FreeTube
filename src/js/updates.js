@@ -34,25 +34,3 @@ const updateChecker = require('github-version-checker');
 const openReleasePage = function () {
     shell.openExternal('https://github.com/FreeTubeApp/FreeTube/releases');
 }
-
-/*function checkForUpdates() {
-  updateChecker(options, function(error, update) { // callback function
-    if (error){
-      showToast('There was a problem with checking for updates');
-      freeTubeLog(error);
-    }
-    if (update) { // print some update info if an update is available
-      confirmFunction(update.name + ' is now available! Would you like to download the update?', openReleasePage);
-    }
-    else{
-      showToast('No update is currently available.');
-    }
-  });
-}*/
-
-updateChecker(options, function (error, update) { // callback function
-    if (error) throw error;
-    if (update) { // print some update info if an update is available
-        confirmFunction(update.name + ' is now available! Would you like to download the update?', openReleasePage);
-    }
-});

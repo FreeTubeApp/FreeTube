@@ -79,51 +79,83 @@ let init = function () {
             label: 'File',
             submenu: [{
                     label: 'Open New Window',
-                    click () { init() }
-            },
-              {role: 'quit'}
+                    click() {
+                        init()
+                    }
+                },
+                {
+                    role: 'quit'
+                }
             ]
-          },
-        {
-          label: 'Open New Window',
-          click () { init() }
         },
-        {role: 'quit'}
-      ]
-    },
-    {
-      label: 'Edit',
-      submenu: [
-        {role: 'cut'},
-        {role: 'copy', accelerator: "CmdOrCtrl+C", selector: "copy:" },
-        {role: 'paste', accelerator: "CmdOrCtrl+V", selector: "paste:" },
-        {role: 'pasteandmatchstyle'},
-        {role: 'delete'},
-        {role: 'selectall'}
-      ]
-    },
-    {
-      label: 'View',
-      submenu: [
-        {role: 'reload'},
-        {role: 'forcereload'},
-        {role: 'toggledevtools'},
-        {type: 'separator'},
-        {role: 'resetzoom'},
-        {role: 'zoomin'},
-        {role: 'zoomout'},
-        {type: 'separator'},
-        {role: 'togglefullscreen'}
-      ]
-    },
-    {
-      role: 'window',
-      submenu: [
-        {role: 'minimize'},
-        {role: 'close'}
-      ]
-    }
-  ];
+        {
+            label: 'Edit',
+            submenu: [{
+                    role: 'cut'
+                },
+                {
+                    role: 'copy',
+                    accelerator: "CmdOrCtrl+C",
+                    selector: "copy:"
+                },
+                {
+                    role: 'paste',
+                    accelerator: "CmdOrCtrl+V",
+                    selector: "paste:"
+                },
+                {
+                    role: 'pasteandmatchstyle'
+                },
+                {
+                    role: 'delete'
+                },
+                {
+                    role: 'selectall'
+                }
+            ]
+        },
+        {
+            label: 'View',
+            submenu: [{
+                    role: 'reload'
+                },
+                {
+                    role: 'forcereload'
+                },
+                {
+                    role: 'toggledevtools'
+                },
+                {
+                    type: 'separator'
+                },
+                {
+                    role: 'resetzoom'
+                },
+                {
+                    role: 'zoomin'
+                },
+                {
+                    role: 'zoomout'
+                },
+                {
+                    type: 'separator'
+                },
+                {
+                    role: 'togglefullscreen'
+                }
+            ]
+        },
+        {
+            role: 'window',
+            submenu: [{
+                    role: 'minimize'
+                },
+                {
+                    role: 'close'
+                }
+            ]
+        }
+    ];
 
     const menu = Menu.buildFromTemplate(template);
     Menu.setApplicationMenu(menu);

@@ -82,6 +82,19 @@ let sideNavBar = new Vue({
       popularView.seen = true;
       showMostPopular();
     },
+    trending: (event) => {
+      hideViews();
+      if (loadingView.seen !== false){
+        loadingView.seen = false;
+      }
+      if(trendingView.videoList.length === 0){
+        loadingView.seen = true;
+      }
+      headerView.seen = true;
+      headerView.title = 'Trending';
+      trendingView.seen = true;
+      showTrending();
+    },
     saved: (event) => {
       hideViews();
       if (loadingView.seen !== false){
@@ -189,6 +202,33 @@ let popularView = new Vue({
   template: videoListTemplate
 });
 
+let trendingView = new Vue({
+  el: '#trendingView',
+  data: {
+    seen: false,
+    isSearch: false,
+    videoList: []
+  },
+  methods: {
+    play: (videoId) => {
+      loadingView.seen = true;
+      playVideo(videoId);
+    },
+    channel: (channelId) => {
+      goToChannel(channelId);
+    },
+    toggleSave: (videoId) => {
+      addSavedVideo(videoId);
+    },
+    copy: (site, videoId) => {
+      const url = 'https://' + site + '/watch?v=' + videoId;
+      clipboard.writeText(url);
+      showToast('URL has been copied to the clipboard');
+    }
+  },
+  template: videoListTemplate
+});
+
 let savedView = new Vue({
   el: '#savedView',
   data: {
@@ -260,6 +300,9 @@ let settingsView = new Vue({
     useTor: false,
     apiKey: '',
     history: true,
+    autoplay: true,
+    subtitles: false,
+    updates: true,
   },
   template: settingsTemplate
 });
@@ -288,7 +331,7 @@ let searchView = new Vue({
       clipboard.writeText(url);
       showToast('URL has been copied to the clipboard');
     },
-    nextPage: (page) => {
+    nextPage: () => {
       console.log(searchView.page);
       search(searchView.page);
     }
@@ -320,7 +363,9 @@ let channelVideosView = new Vue({
   el: '#channelVideosView',
   data: {
     seen: false,
-    isSearch: false,
+    channelId: '',
+    isSearch: true,
+    page: 2,
     videoList: []
   },
   methods: {
@@ -333,6 +378,9 @@ let channelVideosView = new Vue({
     },
     toggleSave: (videoId) => {
       addSavedVideo(videoId);
+    },
+    nextPage: () => {
+      channelNextPage();
     },
     copy: (site, videoId) => {
       const url = 'https://' + site + '/watch?v=' + videoId;
@@ -411,6 +459,18 @@ let playerView = new Vue({
     play: (videoId) => {
       loadingView.seen = true;
       playVideo(videoId);
+    },
+    loop: () => {
+      let player = document.getElementById('videoPlayer');
+
+      if (player.loop === false) {
+        player.loop = true;
+        showToast('Video loop has been turned on.');
+      }
+      else{
+        player.loop = false;
+        showToast('Video loop has been turned off.')
+      }
     }
   },
   template: playerTemplate
@@ -424,6 +484,7 @@ function hideViews(){
   searchView.seen = false;
   settingsView.seen = false;
   popularView.seen = false;
+  trendingView.seen = false;
   savedView.seen = false;
   historyView.seen = false;
   playerView.seen = false;

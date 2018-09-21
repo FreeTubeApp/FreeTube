@@ -30,6 +30,9 @@
  */
 function goToChannel(channelId) {
 
+  channelView.channelId = channelId;
+  channelView.page = 2;
+
   headerView.title = 'Latest Uploads';
   hideViews();
   loadingView.seen = true;
@@ -64,4 +67,18 @@ function goToChannel(channelId) {
       displayVideo(video, 'channel');
     });
   });
+}
+
+function channelNextPage() {
+  showToast('Fetching results, please wait...');
+  console.log(channelView.page);
+
+  invidiousAPI('channels/videos', channelView.channelId, {'page': channelView.page}, (data) => {
+    console.log(data);
+    data.forEach((video) => {
+      displayVideo(video, 'channel');
+    });
+  });
+
+  channelView.page = channelView.page + 1;
 }
