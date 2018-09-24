@@ -16,6 +16,7 @@
         <ul>
           <li v-if='valid480p' id='quality480p' v-on:click='quality(video480p, "480p")'>480p</li>
           <li v-if='valid720p' id='quality720p' v-on:click='quality(video720p, "720p")'>720p</li>
+          <li v-if='validAudio' id='qualityAudio' v-on:click='quality(videoAudio, "AUDIO")'>AUDIO</li>
           <li id='qualityEmbed' v-on:click='embededPlayer()'>EMBED</li>
         </ul>
       </div>

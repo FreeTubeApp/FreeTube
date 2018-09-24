@@ -48,6 +48,8 @@ let autoplay = true;
 let enableSubtitles = false;
 let checkForUpdates = true;
 let currentVolume = 1;
+let defaultQuality = 720;
+let defaultPlaybackRate = '1';
 
 let dialog = electron.remote.dialog; // Used for opening file browser to export / import subscriptions.
 let toastTimeout; // Timeout for toast notifications.

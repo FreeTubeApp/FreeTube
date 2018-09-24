@@ -433,11 +433,33 @@ function copyLink(website, videoId) {
  * @param {string} video480p - The URL to the 480p video.
  * @param {string} video720p - The URL to the 720p video.
  */
-function checkVideoUrls(video480p, video720p) {
+function checkVideoUrls(video480p, video720p, videoAudio) {
     const currentQuality = $('#currentQuality').html();
     let buttonEmbed = document.getElementById('qualityEmbed');
 
     let valid480 = false;
+
+    if (typeof (videoAudio) !== 'undefined') {
+        let getAudioUrl = fetch(videoAudio);
+        getAudioUrl.then((status) => {
+            switch (status.status) {
+            case 404:
+                playerView.validAudio = false;
+                break;
+            case 403:
+                showToast('This video is unavailable in your country.');
+                playerView.validAudio = false;
+                return;
+                break;
+            default:
+                ft.log('Audio is valid');
+                break;
+            }
+        });
+    }
+    else{
+      playerView.validAudio = false;
+    }
 
     if (typeof (video480p) !== 'undefined') {
         let get480pUrl = fetch(video480p);
@@ -452,10 +474,6 @@ function checkVideoUrls(video480p, video720p) {
             case 403:
                 showToast('This video is unavailable in your country.');
                 playerView.valid480p = false;
-                $(document).off('click', '#quality480p');
-                $(document).on('click', '#quality480p', (event) => {
-                    changeQuality('');
-                });
                 return;
                 break;
             default:

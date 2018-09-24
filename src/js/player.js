@@ -32,7 +32,10 @@ function playVideo(videoId) {
     hideViews();
 
     playerView.playerSeen = true;
+    playerView.firstLoad = true;
     playerView.videoId = videoId;
+    playerView.videoAudio = undefined;
+    playerView.validAudio = true;
     playerView.video480p = undefined;
     playerView.valid480p = true;
     playerView.video720p = undefined;
@@ -100,8 +103,16 @@ function playVideo(videoId) {
                 playerView.video720p = decodeURIComponent(videoUrls[key]['url']);
                 //console.log(video720p);
                 break;
+            case '36':
+                playerView.videoAudio = decodeURIComponent(videoUrls[key]['url']);
+                //console.log(video720p);
+                break;
             }
         });
+
+        if (typeof(playerView.videoAudio) === 'undefined') {
+          playerView.validAudio = false;
+        }
 
         let useEmbedPlayer = false;
 
@@ -112,7 +123,8 @@ function playVideo(videoId) {
             //playerView.playerSeen = false;
             //useEmbedPlayer = true;
             showToast('Unable to get video file.  Reverting to embeded player.');
-        } else if (typeof (playerView.video720p) === 'undefined' && typeof (playerView.video480p) !== 'undefined') {
+        }
+        else if (typeof (playerView.video720p) === 'undefined' && typeof (playerView.video480p) !== 'undefined') {
             // Default to the 480p video if the 720p URL cannot be found.
             console.log('Found');
             playerView.videoUrl = playerView.video480p;
@@ -174,7 +186,7 @@ function playVideo(videoId) {
                 data.duration = minutes + ":" + seconds;
             }
 
-            data.id = video.id;
+            data.id = video.videoId;
             data.title = video.title;
             data.channelName = video.author;
             data.thumbnail = video.videoThumbnails[4].url;
@@ -196,15 +208,7 @@ function playVideo(videoId) {
           addToHistory(videoId);
         }
 
-        // Hide subtitles by default
-        /*if (typeof (info['subtitles']) !== 'undefined' && Object.keys(info['subtitles']).length > 0) {
-            let textTracks = $('.videoPlayer').get(0).textTracks;
-            Object.keys(textTracks).forEach((track) => {
-                textTracks[track].mode = 'hidden';
-            });
-        }*/
-
-        window.setTimeout(checkVideoUrls, 5000, playerView.video480p, playerView.video720p);
+        window.setTimeout(checkVideoUrls, 5000, playerView.video480p, playerView.video720p, playerView.videoAudio);
 
     });
 }
@@ -257,6 +261,32 @@ function checkVideoSettings() {
   if (autoplay) {
     console.log(player);
     player.play();
+  }
+
+  if (enableSubtitles) {
+    player.textTracks[0].mode = 'showing';
+  }
+
+  if (playerView.firstLoad) {
+    playerView.firstLoad = false;
+
+    switch (defaultQuality) {
+      case '480':
+        playerView.videoUrl = playerView.video480p;
+        playerView.currentQuality = '480p';
+        break;
+      case '720':
+        playerView.videoUrl = playerView.video720p;
+        playerView.currentQuality = '720p';
+        break;
+      default:
+        playerView.videoUrl = playerView.video720p;
+        playerView.currentQuality = '720p';
+        break;
+    }
+
+    player.playbackRate = parseFloat(defaultPlaybackRate);
+    $('#currentSpeed').html(defaultPlaybackRate);
   }
 
   player.volume = currentVolume;

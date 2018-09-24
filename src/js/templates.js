@@ -395,6 +395,7 @@ let playerView = new Vue({
   el: '#playerView',
   data: {
     seen: false,
+    firstLoad: true,
     publishedDate: '',
     videoUrl: '',
     videoId: '',
@@ -408,6 +409,8 @@ let playerView = new Vue({
     videoThumbnail: '',
     subtitleHtml: '',
     currentQuality: '',
+    videoAudio: '',
+    validAudio: false,
     video480p: '',
     valid480p: false,
     video720p: '',

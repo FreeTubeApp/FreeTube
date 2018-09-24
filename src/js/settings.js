@@ -71,17 +71,20 @@ function updateSettingsView() {
       settingsView.autoplay = false;
     }
 
-    /*if (subtitles) {
+    if (enableSubtitles) {
       settingsView.subtitles = true;
     } else {
       settingsView.subtitles = false;
-    }*/
+    }
 
     if (checkForUpdates) {
       settingsView.updates = true;
     } else {
       settingsView.updates = false;
     }
+
+    document.getElementById('qualitySelect').value = defaultQuality;
+    document.getElementById('rateSelect').value = defaultPlaybackRate;
   });
 }
 
@@ -104,6 +107,8 @@ function checkDefaultSettings() {
     'autoplay': true,
     'subtitles': false,
     'updates': true,
+    'quality': '720',
+    'rate': '1',
   };
 
   console.log(settingDefaults);
@@ -159,6 +164,12 @@ function checkDefaultSettings() {
               });
             }
             break;
+          case 'quality':
+            defaultQuality = docs[0]['value'];
+            break;
+          case 'rate':
+            defaultPlaybackRate = docs[0]['value'];
+            break;
           default:
             break;
         }
@@ -179,6 +190,8 @@ function updateSettings() {
   let autoplaySwitch = document.getElementById('autoplaySwitch').checked;
   let subtitlesSwitch = document.getElementById('subtitlesSwitch').checked;
   let updatesSwitch = document.getElementById('updatesSwitch').checked;
+  let qualitySelect = document.getElementById('qualitySelect').value;
+  let rateSelect = document.getElementById('rateSelect').value;
   let key = document.getElementById('api-key').value;
   let theme = 'light';
 
@@ -188,6 +201,8 @@ function updateSettings() {
   settingsView.subtitles = subtitlesSwitch;
   settingsView.updates = updatesSwitch;
   rememberHistory = historySwitch;
+  defaultQuality = qualitySelect;
+  defaultPlaybackRate = rateSelect;
 
   console.log(historySwitch);
 
@@ -269,6 +284,28 @@ function updateSettings() {
     console.log(err);
     console.log(numReplaced);
     checkForUpdates = updatesSwitch;
+  });
+
+  // Update default quality.
+  settingsDb.update({
+    _id: 'quality'
+  }, {
+    value: qualitySelect
+  }, {}, function(err, numReplaced) {
+    console.log(err);
+    console.log(numReplaced);
+    defaultQuality = qualitySelect;
+  });
+
+  // Update default playback rate.
+  settingsDb.update({
+    _id: 'rate'
+  }, {
+    value: rateSelect
+  }, {}, function(err, numReplaced) {
+    console.log(err);
+    console.log(numReplaced);
+    defaultPlaybackRate = rateSelect;
   });
 
   // To any third party devs that fork the project, please be ethical and change the API key.

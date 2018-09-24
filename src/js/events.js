@@ -71,8 +71,13 @@ let playPauseVideo = function (event) {
 
 let videoShortcutHandler = function (event) {
 
+    if (event.which == 68 && event.altKey === true) {
+      $('#search').focus();
+    }
+
     let videoPlayer = $('.videoPlayer').get(0);
     if (typeof (videoPlayer) !== 'undefined' && !$('#jumpToInput').is(':focus') && !$('#search').is(':focus')) {
+      console.log(event.which);
         switch (event.which) {
         case 32:
             // Space Bar
@@ -94,10 +99,34 @@ let videoShortcutHandler = function (event) {
             event.preventDefault();
             changeDurationBySeconds(10);
             break;
+        case 79:
+            // O Key
+            event.preventDefault();
+            if (videoPlayer.playbackRate > 0.25){
+              let rate = videoPlayer.playbackRate - 0.25;
+              videoPlayer.playbackRate = rate;
+              $('#currentSpeed').html(rate);
+            }
+            break;
+        case 80:
+            // P Key
+            event.preventDefault();
+            if (videoPlayer.playbackRate < 2){
+              let rate = videoPlayer.playbackRate + 0.25;
+              videoPlayer.playbackRate = rate;
+              $('#currentSpeed').html(rate);
+            }
+            break;
         case 70:
             // F Key
             event.preventDefault();
-            videoPlayer.webkitRequestFullscreen();
+
+            if (videoPlayer.webkitDisplayingFullscreen) {
+              videoPlayer.webkitExitFullscreen
+            }
+            else{
+              videoPlayer.webkitRequestFullscreen();
+            }
             break;
         case 77:
             // M Key
