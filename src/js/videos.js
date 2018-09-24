@@ -48,6 +48,7 @@ function search(page = 1) {
     invidiousAPI('search', '', {
         q: query,
         page: page,
+        type: 'all',
     }, function (data) {
         console.log(data);
 
@@ -91,7 +92,15 @@ function search(page = 1) {
     });*/
 
         data.forEach((video) => {
-            displayVideo(video, 'search');
+          switch (video.type) {
+            case 'video':
+              displayVideo(video, 'search');
+              break;
+            case 'channel':
+              displayChannel(video);
+              break;
+            default:
+          }
         });
 
         //searchView.nextPageToken = data.nextPageToken;
@@ -153,6 +162,10 @@ function displayVideo(videoData, listType = '') {
 
           if (seconds < 10) {
               seconds = '0' + seconds;
+          }
+
+          if (minutes < 10 && hours > 0) {
+            minutes = '0' + minutes;
           }
 
           if (hours > 0) {
@@ -221,45 +234,18 @@ function displayVideo(videoData, listType = '') {
     });
 }
 
-function displayChannels(channels) {
-    let channelIds;
+function displayChannel(channel) {
+    let channelData = {};
 
-    channels.forEach((channel) => {
-        if (typeof (channelIds) === 'undefined') {
-            channelIds = channel.id.channelId;
-        } else {
-            channelIds = channelIds + ',' + channel.id.channelId;
-        }
-    });
+    channelData.channelId = channel.authorId;
+    channelData.thumbnail = channel.authorThumbnails[4].url;
+    channelData.channelName = channel.author;
+    channelData.description = channel.description;
+    channelData.subscriberCount = channel.subCount;
+    channelData.videoCount = channel.videoCount;
+    channelData.isVideo = false;
 
-    ft.log('Channel IDs: ', channelIds);
-
-    youtubeAPI('channels', {
-        part: 'snippet,statistics',
-        id: channelIds,
-    }, function (data) {
-        ft.log('Channel Data: ', data);
-        let items = data['items'].reverse();
-
-        ft.log('Channel Items: ', items);
-
-        items.forEach((item) => {
-            let channelData = {};
-
-            channelData.channelId = item.id;
-            channelData.thumbnail = item.snippet.thumbnails.medium.url;
-            channelData.channelName = item.snippet.title;
-            channelData.description = item.snippet.description;
-            channelData.subscriberCount = item.statistics.subscriberCount;
-            channelData.videoCount = item.statistics.videoCount;
-            channelData.isVideo = false;
-
-            console.log(searchView.videoList);
-            console.log(channelData);
-
-            searchView.videoList = searchView.videoList.concat(channelData);
-        });
-    });
+    searchView.videoList = searchView.videoList.concat(channelData);
 }
 
 function displayPlaylists(playlists) {
