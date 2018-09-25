@@ -1,0 +1,65 @@
+<!--
+    This file is part of FreeTube.
+
+    FreeTube is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    FreeTube is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<div>
+    <div v-if='seen'>
+        <div class='playlistSideView'>
+            <div class='playlistThumbnail'>
+                <img :src='thumbnail' />
+            </div>
+            <h2>{{title}}</h2>
+            <p>{{videoCount}} videos - {{viewCount}} views - Last updated on {{lastUpdated}}</p>
+            <p v-html='description'></p>
+            <br />
+            <div class='playlistChannel'>
+                <img :src='channelThumbnail' />
+                <h3>{{channelName}}</h3>
+            </div>
+        </div>
+        <div class='playlistVideoView'>
+            <div v-for="video in videoList">
+                <div class='playlistVideo'>
+                    <div class='videoOptions'>
+                        <i class="fas fa-ellipsis-v" onclick='showVideoOptions(this)'></i>
+                        <ul>
+                            <a :href='video.youtubeUrl' onclick='showVideoOptions(this.parentNode.previousSibling);'>
+                                <li>Open in YouTube</li>
+                            </a>
+                            <li v-on:click='copy("youtube.com", video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>Copy YouTube Link</li>
+                            <a :href='video.invidiousUrl' onclick='showVideoOptions(this.parentNode.previousSibling);'>
+                                <li>Open in Invidious</li>
+                            </a>
+                            <li v-on:click='copy("invidio.us", video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>Copy Invidious Link</li>
+                        </ul>
+                    </div>
+                    <div class='playlistVideoThumbnail'>
+                        <img v-on:click='play(video.id)' :src='video.thumbnail' />
+                        <p v-on:click='play(video.id)' class='videoDuration'>{{video.duration}}</p>
+                        <i class="fas fa-history playlistVideoSave" v-on:click='toggleSave(video.id)'></i>
+                        <div v-if='video.watched' class='videoWatched'>
+                            WATCHED
+                        </div>
+                    </div>
+                    <p v-on:click='play(video.id)' class='playlistVideoTitle'>{{video.title}}</p>
+                    <p v-on:click='channel(video.channelId)' class='playlistChannelName'>{{video.channelName}}</p>
+                    <p v-on:click='play(video.id)' class='live'>{{video.liveText}}</p>
+                </div>
+                <hr />
+            </div>
+        </div>
+    </div>
+</div>

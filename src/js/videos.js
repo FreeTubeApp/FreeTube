@@ -99,6 +99,9 @@ function search(page = 1) {
             case 'channel':
               displayChannel(video);
               break;
+            case 'playlist':
+              displayPlaylist(video);
+              break;
             default:
           }
         });
@@ -121,6 +124,10 @@ function search(page = 1) {
 function displayVideo(videoData, listType = '') {
     let video = {};
     video.id = videoData.videoId;
+
+    if (videoData.type == 'playlist') {
+      video.isPlaylist = true;
+    }
 
     historyDb.find({
         videoId: video.id
@@ -248,47 +255,20 @@ function displayChannel(channel) {
     searchView.videoList = searchView.videoList.concat(channelData);
 }
 
-function displayPlaylists(playlists) {
-    let playlistIds;
+function displayPlaylist(playlist) {
+    let playListData = {};
 
-    playlists.forEach((playlist) => {
-        if (typeof (playlistIds) === 'undefined') {
-            playlistIds = playlist.id.playlistId;
-        } else {
-            playlistIds = playlistIds + ',' + playlist.id.playlistId;
-        }
-    });
+    playListData.isPlaylist = true;
+    playListData.isVideo = false;
+    playListData.thumbnail = playlist.videos[0].videoThumbnails[4].url;
+    playListData.channelName = playlist.author;
+    playListData.channelId = playlist.authorId;
+    playListData.id = playlist.playlistId;
+    playListData.description = playlist.videos[0].title + "\r\n" + playlist.videos[1].title;
+    playListData.title = playlist.title;
+    playListData.videoCount = playlist.videoCount;
 
-    ft.log('Playlist IDs: ', playlistIds);
-
-    youtubeAPI('playlists', {
-        part: 'snippet,contentDetails',
-        id: playlistIds,
-    }, function (data) {
-        ft.log('Playlist Data: ', data);
-        let items = data['items'].reverse();
-        const playlistListTemplate = require('./templates/playlistList.html');
-
-        ft.log('Playlist Items: ', items);
-
-        items.forEach((item) => {
-            let dateString = new Date(item.snippet.publishedAt);
-            let publishedDate = dateFormat(dateString, "mmm dS, yyyy");
-
-            mustache.parse(playlistListTemplate);
-            let rendered = mustache.render(playlistListTemplate, {
-                channelId: item.snippet.channelId,
-                channelName: item.snippet.channelTitle,
-                playlistThumbnail: item.snippet.thumbnails.medium.url,
-                playlistTitle: item.snippet.title,
-                playlistDescription: item.snippet.description,
-                videoCount: item.contentDetails.itemCount,
-                publishedDate: publishedDate,
-            });
-
-            $(rendered).insertBefore('#getNextPage');
-        });
-    });
+    searchView.videoList = searchView.videoList.concat(playListData);
 }
 
 /**

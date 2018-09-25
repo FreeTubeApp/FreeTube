@@ -24,6 +24,7 @@ const videoListTemplate = require('./templates/videoTemplate.html');
 const playerTemplate = require('./templates/player.html');
 const channelTemplate = require('./templates/channelView.html');
 const progressViewTemplate = require('./templates/progressView.html');
+const playlistViewTemplate = require('./templates/playlistView.html');
 
 /*
 * Progress view
@@ -283,6 +284,40 @@ let historyView = new Vue({
   template: videoListTemplate
 });
 
+let playlistView = new Vue({
+  el: '#playlistView',
+  data: {
+    seen: false,
+    channelName: '',
+    channelId: '',
+    thumbnail: '',
+    title: '',
+    videoCount: '',
+    viewCount: '',
+    description: '',
+    lastUpdated: '',
+    videoList: []
+  },
+  methods: {
+    play: (videoId) => {
+      loadingView.seen = true;
+      playVideo(videoId);
+    },
+    channel: (channelId) => {
+      goToChannel(channelId);
+    },
+    toggleSave: (videoId) => {
+      addSavedVideo(videoId);
+    },
+    copy: (site, videoId) => {
+      const url = 'https://' + site + '/watch?v=' + videoId;
+      clipboard.writeText(url);
+      showToast('URL has been copied to the clipboard');
+    }
+  },
+  template: playlistViewTemplate
+});
+
 let aboutView = new Vue({
   el: '#aboutView',
   data: {
@@ -334,7 +369,10 @@ let searchView = new Vue({
     nextPage: () => {
       console.log(searchView.page);
       search(searchView.page);
-    }
+    },
+    playlist: (playlistId) => {
+      showPlaylist(playlistId);
+    },
   },
   template: videoListTemplate
 });
@@ -423,7 +461,8 @@ let playerView = new Vue({
     videoLikes: 0,
     videoDislikes: 0,
     playerSeen: true,
-    recommendedVideoList: []
+    recommendedVideoList: [],
+    playlistVideoList: [],
   },
   methods: {
     channel: (channelId) => {
@@ -476,7 +515,10 @@ let playerView = new Vue({
         player.loop = false;
         showToast('Video loop has been turned off.')
       }
-    }
+    },
+    playlist: (playlistId) => {
+      showPlaylist(playlistId);
+    },
   },
   template: playerTemplate
 });
@@ -492,6 +534,7 @@ function hideViews(){
   trendingView.seen = false;
   savedView.seen = false;
   historyView.seen = false;
+  playlistView.seen = false;
   playerView.seen = false;
   channelView.seen = false;
   channelVideosView.seen = false;

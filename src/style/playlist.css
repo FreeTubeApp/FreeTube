@@ -1,0 +1,73 @@
+.playlistSideView {
+  float: left;
+  position: fixed;
+  width: 30%;
+}
+
+.playlistSideView img {
+  width: 100%;
+}
+
+.playlistVideo {
+  height: 115px;
+  overflow: hidden;
+}
+
+.playlistVideoView {
+  float: right;
+  width: 60%;
+}
+
+.playlistVideoThumbnail {
+  width: 200px;
+  cursor: pointer;
+}
+
+.playlistVideoThumbnail img {
+  width: 100%;
+  cursor: pointer;
+}
+
+.playlistChannel img {
+    width: 70px;
+    float: left;
+    cursor: pointer;
+    border-radius: 200px 200px 200px 200px;
+    -webkit-border-radius: 200px 200px 200px 200px;
+}
+
+.playlistChannel h3 {
+  float: left;
+  position: relative;
+  cursor: pointer;
+  margin-left: 10px;
+  top: 5px;
+}
+
+.playlistVideoSave {
+  background-color: black;
+  color: white;
+  opacity: 0.7;
+  padding: 4px;
+  position: relative;
+  left: 176px;
+  bottom: 117px;
+  cursor: pointer;
+}
+
+.playlistVideoTitle {
+  position: relative;
+  bottom: 160px;
+  margin-left: 210px;
+  font-weight: bold;
+  width: 50%;
+  cursor: pointer;
+}
+
+.playlistChannelName {
+  position: relative;
+  bottom: 160px;
+  margin-left: 210px;
+  font-size: 12px;
+  cursor: pointer;
+}
