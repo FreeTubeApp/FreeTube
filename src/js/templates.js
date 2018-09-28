@@ -288,6 +288,7 @@ let playlistView = new Vue({
   el: '#playlistView',
   data: {
     seen: false,
+    playlistId: '',
     channelName: '',
     channelId: '',
     thumbnail: '',
@@ -301,7 +302,7 @@ let playlistView = new Vue({
   methods: {
     play: (videoId) => {
       loadingView.seen = true;
-      playVideo(videoId);
+      playVideo(videoId, playlistView.playlistId);
     },
     channel: (channelId) => {
       goToChannel(channelId);
@@ -433,6 +434,7 @@ let playerView = new Vue({
   el: '#playerView',
   data: {
     seen: false,
+    playlistSeen: false,
     firstLoad: true,
     publishedDate: '',
     videoUrl: '',
@@ -461,6 +463,13 @@ let playerView = new Vue({
     videoLikes: 0,
     videoDislikes: 0,
     playerSeen: true,
+    playlistTitle: '',
+    playlistChannelName: '',
+    playlistIndex: 1,
+    playlistTotal: 1,
+    playlistLoop: false,
+    playlistShuffle: false,
+    playlistShowList: true,
     recommendedVideoList: [],
     playlistVideoList: [],
   },
@@ -500,9 +509,9 @@ let playerView = new Vue({
     save: (videoId) => {
       toggleSavedVideo(videoId);
     },
-    play: (videoId) => {
+    play: (videoId, playlistId = '') => {
       loadingView.seen = true;
-      playVideo(videoId);
+      playVideo(videoId, playlistId);
     },
     loop: () => {
       let player = document.getElementById('videoPlayer');
@@ -518,6 +527,26 @@ let playerView = new Vue({
     },
     playlist: (playlistId) => {
       showPlaylist(playlistId);
+    },
+    playlistLoopToggle: () => {
+      if (playerView.playlistLoop !== false) {
+        showToast('Playlist will no longer loop');
+        playerView.playlistLoop = false;
+      }
+      else {
+        showToast('Playlist will now loop');
+        playerView.playlistLoop = true;
+      }
+    },
+    playlistShuffleToggle: () => {
+      if (playerView.playlistShuffle !== false) {
+        showToast('Playlist will no longer shuffle');
+        playerView.playlistShuffle = false;
+      }
+      else{
+        showToast('Playlist will now shuffle');
+        playerView.playlistShuffle = true;
+      }
     },
   },
   template: playerTemplate

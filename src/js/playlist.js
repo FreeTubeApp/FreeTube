@@ -19,9 +19,12 @@ function showPlaylist(playlistId) {
   hideViews();
   loadingView.seen = true;
 
+  playlistView.videoList = [];
+
   invidiousAPI('playlists', playlistId, {}, (data) => {
     console.log(data);
 
+    playlistView.playlistId = playlistId;
     playlistView.channelName = data.author;
     playlistView.channelId = data.authorId;
     playlistView.channelThumbnail = data.authorThumbnails[3].url;
@@ -34,43 +37,66 @@ function showPlaylist(playlistId) {
     dateString.setDate(dateString.getDate() + 1);
     playlistView.lastUpdated = dateFormat(dateString, "mmm dS, yyyy");
 
-    data.videos.forEach((video) => {
-      let videoData = {};
+    let amountOfPages = Math.ceil(data.videoCount / 100);
 
-      let time = video.lengthSeconds;
-      let hours = 0;
+    console.log(amountOfPages);
 
-      if (time >= 3600) {
-          hours = Math.floor(time / 3600);
-          time = time - hours * 3600;
-      }
+    for (let i = 1; i <= amountOfPages; i++) {
+      invidiousAPI('playlists', playlistId, {page: i}, (data) => {
+        console.log(data);
+        data.videos.forEach((video) => {
+          let videoData = {};
 
-      let minutes = Math.floor(time / 60);
-      let seconds = time - minutes * 60;
+          let time = video.lengthSeconds;
+          let hours = 0;
 
-      if (seconds < 10) {
-          seconds = '0' + seconds;
-      }
+          if (time >= 3600) {
+              hours = Math.floor(time / 3600);
+              time = time - hours * 3600;
+          }
 
-      if (minutes < 10 && hours > 0) {
-        minutes = '0' + minutes;
-      }
+          let minutes = Math.floor(time / 60);
+          let seconds = time - minutes * 60;
 
-      if (hours > 0) {
-          videoData.duration = hours + ":" + minutes + ":" + seconds;
-      } else {
-          videoData.duration = minutes + ":" + seconds;
-      }
+          if (seconds < 10) {
+              seconds = '0' + seconds;
+          }
 
-      videoData.id = video.videoId;
-      videoData.title = video.title;
-      videoData.channelName = video.author;
-      videoData.channelId = video.authorId;
-      videoData.thumbnail = video.videoThumbnails[4].url;
+          if (minutes < 10 && hours > 0) {
+            minutes = '0' + minutes;
+          }
 
-      playlistView.videoList[video.index] = videoData;
-    });
-    loadingView.seen = false;
-    playlistView.seen = true;
+          if (hours > 0) {
+              videoData.duration = hours + ":" + minutes + ":" + seconds;
+          } else {
+              videoData.duration = minutes + ":" + seconds;
+          }
+
+          videoData.id = video.videoId;
+          videoData.title = video.title;
+          videoData.channelName = video.author;
+          videoData.channelId = video.authorId;
+          videoData.thumbnail = video.videoThumbnails[4].url;
+
+          playlistView.videoList[video.index] = videoData;
+        });
+        if (playlistView.seen !== false) {
+          playlistView.seen = false;
+          playlistView.seen = true;
+        }
+      });
+
+      loadingView.seen = false;
+      playlistView.seen = true;
+    }
   });
+}
+
+function togglePlaylist() {
+  if (playerView.playlistShowList !== false) {
+    playerView.playlistShowList = false;
+  }
+  else{
+    playerView.playlistShowList = true;
+  }
 }

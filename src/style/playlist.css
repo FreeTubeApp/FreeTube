@@ -71,3 +71,78 @@
   font-size: 12px;
   cursor: pointer;
 }
+
+#miniPL {
+  width: 100%;
+}
+
+.miniPLVideo {
+  width: 100%;
+  cursor: pointer;
+  height: 70px;
+}
+
+.miniPLThumbnail {
+  width: 120px;
+  height: 80px;
+  margin-right: 5px;
+  float: left;
+}
+
+.miniPLIndex {
+  float: left;
+  position: relative;
+  width: 15px;
+  top: 30px;
+  margin-right: 35px;
+}
+
+.miniPLVideoTitle {
+  font-weight: bold;
+}
+
+.miniPLVideoChannelName {
+  font-size: 12px;
+  position: relative;
+  bottom: 10px;
+}
+
+#miniPLTitle {
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 20px;
+  padding-top: 25px;
+  cursor: pointer;
+}
+
+#miniPLChannelName {
+  font-size: 15px;
+  font-weight: normal;
+}
+
+#miniPLVideoList {
+  padding: 10px;
+  overflow: scroll;
+  height: 375px;
+}
+
+#miniPLLoop {
+  margin-left: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#miniPLShuffle {
+  margin-left: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#miniPLDropdown {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
+  position: relative;
+  top: 20px;
+  right: 15px;
+}

@@ -25,7 +25,7 @@
             <p>{{videoCount}} videos - {{viewCount}} views - Last updated on {{lastUpdated}}</p>
             <p v-html='description'></p>
             <br />
-            <div class='playlistChannel'>
+            <div v-on:click='channel(channelId)' class='playlistChannel'>
                 <img :src='channelThumbnail' />
                 <h3>{{channelName}}</h3>
             </div>

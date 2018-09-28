@@ -36,7 +36,7 @@
                 <div class='video'>
                     <div class='videoThumbnail'>
                         <img v-on:click='playlist(video.id)' :src='video.thumbnail' />
-                        <div class='videoPlaylist'>
+                        <div class='videoPlaylist' v-on:click='playlist(video.id)'>
                             <span class='videoPlaylistTotals'>{{video.videoCount}}</span>
                             <i class='fas fa-list-ol videoPlaylistIcon'></i>
                         </div>

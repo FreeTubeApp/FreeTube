@@ -46,7 +46,7 @@ a {
   height: 3px;
   background-color: #f44336;
   display: block;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   z-index: 1;

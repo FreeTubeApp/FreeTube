@@ -459,7 +459,7 @@ function checkVideoUrls(video480p, video720p, videoAudio) {
             default:
                 ft.log('480p is valid');
                 if (currentQuality === '720p' && typeof (video720p) === 'undefined') {
-                    changeQuality(video480p);
+                  playerView.currentQuality = '480p';
                 }
                 break;
             }
@@ -477,7 +477,7 @@ function checkVideoUrls(video480p, video720p, videoAudio) {
                 showToast('Found valid URL for 720p, but returned a 404. Video type might be available in the future.');
                 playerView.valid720p = false;
                 if (typeof (valid480) !== 'undefined') {
-                    changeQuality(video480p, '480p');
+                  playerView.currentQuality = '480p';
                 }
                 break;
             case 403:

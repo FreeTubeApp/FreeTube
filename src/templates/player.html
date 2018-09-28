@@ -1,6 +1,6 @@
 <div v-if='seen'>
   <div v-if='playerSeen'>
-    <video class="videoPlayer" id='videoPlayer' type="application/x-mpegURL" object-fit='cover' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" onloadstart='checkVideoSettings()' onvolumechange='updateVolume()' controls="" :src='videoUrl' :poster="videoThumbnail" v-html="subtitleHtml">
+    <video class="videoPlayer" id='videoPlayer' type="application/x-mpegURL" object-fit='cover' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" onloadstart='checkVideoSettings()' onvolumechange='updateVolume()' controls="" onended='playNextVideo()' :src='videoUrl' :poster="videoThumbnail" v-html="subtitleHtml">
     </video>
   </div>
   <div v-else>
@@ -77,6 +77,23 @@
     <br /><br />
     <div id='description'>
       <span v-html="description"></span>
+    </div>
+  </div>
+  <div v-if='playlistSeen' id='miniPL'>
+    <i id='miniPLDropdown' onclick='togglePlaylist()' class='fas fa-angle-down'></i>
+    <p id='miniPLTitle'><span v-on:click='playlist(playlistId)'>{{playlistTitle}}</span><br /><span id='miniPLChannelName' v-on:click='channel(playlistChannelId)'>{{playlistChannelName}} - {{playlistIndex}} / {{playlistTotal}}</span></p>
+    <i id='miniPLLoop' v-on:click='playlistLoopToggle' class='fas fa-redo'></i>
+    <i id='miniPLShuffle' v-on:click='playlistShuffleToggle' class='fas fa-random'></i>
+    <br /><br />
+    <div v-if='playlistShowList' id='miniPLVideoList'>
+      <div v-for='video in playlistVideoList'>
+        <div v-on:click='play(video.videoId, playlistId)' class='miniPLVideo'>
+          <span class='miniPLIndex'>{{video.index}}</span>
+          <img :src='video.thumbnail' class='miniPLThumbnail'></>
+          <p class='miniPLVideoTitle'>{{video.title}}</p>
+          <p class='miniPLVideoChannelName'>{{video.channelName}}</p>
+        </div>
+      </div>
     </div>
   </div>
   <div id='showComments'>

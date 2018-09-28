@@ -28,7 +28,7 @@
  *
  * @return {Void}
  */
-function playVideo(videoId) {
+function playVideo(videoId, playlistId = '') {
     hideViews();
 
     playerView.playerSeen = true;
@@ -120,7 +120,7 @@ function playVideo(videoId) {
         if (typeof (playerView.video720p) === 'undefined' && typeof (playerView.video480p) === 'undefined') {
             //useEmbedPlayer = true;
             playerView.currentQuality = 'EMBED';
-            //playerView.playerSeen = false;
+            playerView.playerSeen = false;
             //useEmbedPlayer = true;
             showToast('Unable to get video file.  Reverting to embeded player.');
         }
@@ -195,6 +195,49 @@ function playVideo(videoId) {
 
             playerView.recommendedVideoList = playerView.recommendedVideoList.concat(data);
         });
+
+        if (playlistId != '') {
+          playerView.playlistSeen = true;
+          playerView.playlistShowList = true;
+          playerView.playlistId = playlistId;
+          playerView.playlistVideoList = [];
+
+          invidiousAPI('playlists', playlistId, {}, (data) => {
+            playerView.playlistTitle = data.title;
+            playerView.playlistChannelName = data.author;
+            playerView.playlistChannelId = data.authorId;
+            playerView.playlistTotal = data.videoCount;
+
+            let amountOfPages = Math.ceil(data.videoCount / 100);
+
+            console.log(amountOfPages);
+
+            for (let i = 1; i <= amountOfPages; i++) {
+              invidiousAPI('playlists', playlistId, {page: i}, (data) => {
+                data.videos.forEach((video) => {
+                  let data = {};
+
+                  if (video.videoId == videoId){
+                    playerView.playlistIndex = video.index + 1;
+                  }
+
+                  data.title = video.title;
+                  data.videoId = video.videoId;
+                  data.channelName = video.author;
+                  data.index = video.index + 1;
+                  data.thumbnail = video.videoThumbnails[4].url;
+
+                  playerView.playlistVideoList[video.index] = data;
+                });
+              });
+            }
+          });
+        }
+        else{
+          playerView.playlistSeen = false;
+          playerView.playlistShowList = false;
+          playerView.playlistId = '';
+        }
 
         loadingView.seen = false;
 
@@ -272,16 +315,22 @@ function checkVideoSettings() {
 
     switch (defaultQuality) {
       case '480':
-        playerView.videoUrl = playerView.video480p;
-        playerView.currentQuality = '480p';
+        if (typeof(playerView.video480p) !== 'undefined') {
+          playerView.videoUrl = playerView.video480p;
+          playerView.currentQuality = '480p';
+        }
         break;
       case '720':
-        playerView.videoUrl = playerView.video720p;
-        playerView.currentQuality = '720p';
+        if (typeof(playerView.video720p) !== 'undefined') {
+          playerView.videoUrl = playerView.video720p;
+          playerView.currentQuality = '720p';
+        }
         break;
       default:
-        playerView.videoUrl = playerView.video720p;
-        playerView.currentQuality = '720p';
+        if (typeof(playerView.video720p) !== 'undefined') {
+          playerView.videoUrl = playerView.video720p;
+          playerView.currentQuality = '720p';
+        }
         break;
     }
 
@@ -292,63 +341,32 @@ function checkVideoSettings() {
   player.volume = currentVolume;
 }
 
-/**
- * Change the quality of the current video.
- *
- * @param {string} videoHtml - The HTML of the video player to be set.
- * @param {string} qualityType - The Quality Type of the video. Ex: 720p, 480p
- * @param {boolean} isEmbed - Optional: Value on if the videoHtml is the embeded player.
- *
- * @return {Void}
- */
-function changeQuality(url, qualityText, isEmbed = false) {
-    if (videoHtml == '') {
-        showToast('Video quality type is not available.  Unable to change quality.')
-        return;
-    }
+function playNextVideo() {
+  let player = document.getElementById('videoPlayer');
 
-    videoHtml = videoHtml.replace(/\&quot\;/g, '"');
+  if (player.loop !== false || playerView.playlistSeen === false) {
+    return;
+  }
 
-    ft.log('HTML Video: ', videoHtml);
-    ft.log('(Is the video embeded?) isEmbed: ', isEmbed);
+  if (playerView.playlistShuffle === true) {
+    let randomVideo = Math.floor(Math.random() * playerView.playlistTotal);
 
-    // The YouTube API creates 2 more iFrames.  This is why a boolean value is sent
-    // with the function.
-    const embedPlayer = document.getElementsByTagName('IFRAME')[0];
+    loadingView.seen = true;
+    playVideo(playerView.playlistVideoList[randomVideo].videoId, playerView.playlistId);
+    return;
+  }
 
-    const html5Player = document.getElementsByClassName('videoPlayer');
+  if (playerView.playlistLoop === true && playerView.playlistIndex == playerView.playlistTotal) {
+    loadingView.seen = true;
+    playVideo(playerView.playlistVideoList[0].videoId, playerView.playlistId);
+    return;
+  }
 
-    ft.log('Embeded Player Element: ', embedPlayer);
-    ft.log('HTML5 Player Element: ', html5Player);
-
-    if (isEmbed && html5Player.length == 0) {
-        // The embeded player is already playing.  Return.
-        showToast('You are already using the embeded player.')
-        return;
-    } else if (isEmbed) {
-        // Switch from HTML 5 player to embeded Player
-        html5Player[0].remove();
-        const mainHtml = $('#main').html();
-        $('#main').html(videoHtml + mainHtml);
-        $('#currentQuality').html(qualityType);
-    } else if (html5Player.length == 0) {
-        // Switch from embeded player to HTML 5 player
-        embedPlayer.remove();
-        let videoPlayer = document.createElement('video');
-        videoPlayer.className = 'videoPlayer';
-        videoPlayer.src = videoHtml;
-        videoPlayer.controls = true;
-        videoPlayer.autoplay = true;
-        $('#main').prepend(videoPlayer);
-        $('#currentQuality').html(qualityType);
-    } else {
-        // Switch src on HTML 5 player
-        const currentPlayBackTime = $('.videoPlayer').get(0).currentTime;
-        html5Player[0].src = videoHtml;
-        html5Player[0].load();
-        $('.videoPlayer').get(0).currentTime = currentPlayBackTime;
-        $('#currentQuality').html(qualityType);
-    }
+  if (playerView.playlistIndex != playerView.playlistTotal) {
+    loadingView.seen = true;
+    playVideo(playerView.playlistVideoList[playerView.playlistIndex].videoId, playerView.playlistId);
+    return;
+  }
 }
 
 /**
