@@ -74,7 +74,7 @@ function playVideo(videoId, playlistId = '') {
         playerView.videoTitle = data.title;
         playerView.channelName = data.author;
         playerView.channelId = data.authorId;
-        //playerView.channelIcon = data['author']['avatar'];
+        playerView.channelIcon = data.authorThumbnails[2].url;
 
         let videoUrls = data.formatStreams;
 

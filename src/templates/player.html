@@ -85,6 +85,7 @@
     <i id='miniPLLoop' v-on:click='playlistLoopToggle' class='fas fa-redo'></i>
     <i id='miniPLShuffle' v-on:click='playlistShuffleToggle' class='fas fa-random'></i>
     <br /><br />
+    <hr v-if='playlistShowList' style='width: 97%' />
     <div v-if='playlistShowList' id='miniPLVideoList'>
       <div v-for='video in playlistVideoList'>
         <div v-on:click='play(video.videoId, playlistId)' class='miniPLVideo'>

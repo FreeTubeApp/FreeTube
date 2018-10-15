@@ -2,6 +2,8 @@
   float: left;
   position: fixed;
   width: 30%;
+  height: 100%;
+  overflow-y: auto;
 }
 
 .playlistSideView img {
@@ -28,6 +30,10 @@
   cursor: pointer;
 }
 
+.playlistChannel {
+  height: 70px;
+}
+
 .playlistChannel img {
     width: 70px;
     float: left;
@@ -40,8 +46,10 @@
   float: left;
   position: relative;
   cursor: pointer;
+  width: 200px;
   margin-left: 10px;
   top: 5px;
+  font-size: 15px;
 }
 
 .playlistVideoSave {

@@ -22,13 +22,14 @@
                 <img :src='thumbnail' />
             </div>
             <h2>{{title}}</h2>
-            <p>{{videoCount}} videos - {{viewCount}} views - Last updated on {{lastUpdated}}</p>
-            <p v-html='description'></p>
-            <br />
+            <hr />
             <div v-on:click='channel(channelId)' class='playlistChannel'>
                 <img :src='channelThumbnail' />
                 <h3>{{channelName}}</h3>
             </div>
+            <p>{{videoCount}} videos - {{viewCount}} views - Last updated on {{lastUpdated}}</p>
+            <hr />
+            <p v-html='description'></p>
         </div>
         <div class='playlistVideoView'>
             <div v-for="video in videoList">
