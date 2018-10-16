@@ -24,7 +24,7 @@
  * Event when user clicks comment box,
  * and wants to show/display comments for the user.
  */
-let showComments = function (event) {
+let showComments = function (event, continuation = '') {
     let comments = $('#comments');
 
     if (comments.css('display') === 'none') {
@@ -51,6 +51,7 @@ let showComments = function (event) {
           const html = mustache.render(commentsTemplate, {
               comments: comments,
           });
+
           $('#comments').html(html);
         });
 
@@ -77,7 +78,6 @@ let videoShortcutHandler = function (event) {
 
     let videoPlayer = $('.videoPlayer').get(0);
     if (typeof (videoPlayer) !== 'undefined' && !$('#jumpToInput').is(':focus') && !$('#search').is(':focus')) {
-      console.log(event.which);
         switch (event.which) {
         case 32:
             // Space Bar

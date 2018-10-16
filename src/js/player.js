@@ -64,11 +64,6 @@ function playVideo(videoId, playlistId = '') {
         playerView.videoDislikes = data.dislikeCount;
         let totalLikes = parseInt(playerView.videoLikes) + parseInt(playerView.videoDislikes);
         playerView.likePercentage = parseInt((playerView.videoLikes / totalLikes) * 100);
-
-        /*invidiousAPI('videos', "9Ww-TQUeA3E", {}, function (data) {
-          console.log(data);
-        });*/
-
         playerView.videoTitle = data.title;
         playerView.channelName = data.author;
         playerView.channelId = data.authorId;
@@ -186,7 +181,6 @@ function playVideo(videoId, playlistId = '') {
             data.title = video.title;
             data.channelName = video.author;
             data.thumbnail = video.videoThumbnails[4].url;
-            //data.publishedDate = dateFormat(snippet.publishedAt, "mmm dS, yyyy");
             data.viewCount = video.viewCountText;
 
             playerView.recommendedVideoList = playerView.recommendedVideoList.concat(data);
@@ -205,8 +199,6 @@ function playVideo(videoId, playlistId = '') {
             playerView.playlistTotal = data.videoCount;
 
             let amountOfPages = Math.ceil(data.videoCount / 100);
-
-            console.log(amountOfPages);
 
             for (let i = 1; i <= amountOfPages; i++) {
               invidiousAPI('playlists', playlistId, {page: i}, (data) => {
@@ -299,7 +291,6 @@ function checkVideoSettings() {
   let player = document.getElementById('videoPlayer');
 
   if (autoplay) {
-    console.log(player);
     player.play();
   }
 

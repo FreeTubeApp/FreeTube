@@ -71,7 +71,6 @@ function goToChannel(channelId) {
 
 function channelNextPage() {
   showToast('Fetching results, please wait...');
-  console.log(channelView.page);
 
   invidiousAPI('channels/videos', channelView.channelId, {'page': channelView.page}, (data) => {
     console.log(data);

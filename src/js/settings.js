@@ -184,15 +184,9 @@ function updateSettings() {
   defaultQuality = qualitySelect;
   defaultPlaybackRate = rateSelect;
 
-  console.log(historySwitch);
-
-  console.log(themeSwitch);
-
   if (themeSwitch === true) {
     theme = 'dark';
   }
-
-  console.log(theme);
 
   // Update default theme
   settingsDb.update({

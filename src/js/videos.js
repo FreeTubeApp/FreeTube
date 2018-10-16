@@ -52,45 +52,6 @@ function search(page = 1) {
     }, function (data) {
         console.log(data);
 
-        /*let channels = data.items.filter((item) => {
-            if (item.id.kind === 'youtube#channel') {
-                return true;
-            }
-        });
-
-        let playlists = data.items.filter((item) => {
-            if (item.id.kind === 'youtube#playlist') {
-                return true;
-            }
-        });
-
-        let videos = data.items.filter((item) => {
-            if (item.id.kind === 'youtube#video') {
-                return true;
-            }
-        });
-
-        ft.log('Channels: ', channels);
-        ft.log('Typeof object above (channels) ^^', typeof (channels));
-        ft.log('Playlists', playlists);
-
-        if (playlists.length > 0) {
-            //displayPlaylists(playlists);
-        }
-
-        if (channels.length > 0) {
-            //displayChannels(channels);
-        }
-
-        let grabDuration = getDuration(data);
-
-    grabDuration.then((videoList) => {
-      console.log(videoList);
-      videoList.items.forEach((video) => {
-        displayVideo(video, 'search');
-      });
-    });*/
-
         data.forEach((video) => {
           switch (video.type) {
             case 'video':
@@ -106,7 +67,6 @@ function search(page = 1) {
           }
         });
 
-        //searchView.nextPageToken = data.nextPageToken;
         searchView.page = searchView.page + 1;
         loadingView.seen = false;
     })
@@ -180,10 +140,7 @@ function displayVideo(videoData, listType = '') {
           } else {
               video.duration = minutes + ":" + seconds;
           }
-
-          // Grab the published date for the video and convert to a user readable state.
-          //const dateString = new Date(videoSnippet.publishedAt);
-          //video.publishedDate = dateFormat(dateString, "mmm dS, yyyy");
+          
           video.publishedDate = videoData.publishedText;
         }
 
