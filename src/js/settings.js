@@ -18,9 +18,6 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
  * A file for functions used for settings.
  */
 
-// To any third party devs that fork the project, please be ethical and change the API keys.
-const apiKeyBank = ['AIzaSyC9E579nh_qqxg6BH4xIce3k_7a9mT4uQc', 'AIzaSyCKplYT6hZIlm2O9FbWTi1G7rkpsLNTq78', 'AIzaSyAE5xzh5GcA_tEDhXmMFd1pEzrL-W7z51E', 'AIzaSyDoFzqwuO9l386eF6BmNkVapjiTJ93CBy4', 'AIzaSyBljfZFPioB0TRJAj-0LS4tlIKl2iucyY4', 'AIzaSyAiKgR75e3XAznCcb1cj4NUJ5rR_y3uB8E', 'AIzaSyBZL2Ie1masjwbIa74bR2GONF3p518npVU', 'AIzaSyA0CkT2lS1q9HHaFYGNGM4Ycjl1kmRy22s', 'AIzaSyDPy5jq2l1Bgv3-MbpGdZd3W3ik1BMZeDc'];
-
 /**
  * Display the settings screen to the user.
  *
@@ -34,11 +31,6 @@ function updateSettingsView() {
   settingsDb.find({}, (err, docs) => {
     docs.forEach((setting) => {
       switch (setting['_id']) {
-        case 'apiKey':
-          if (apiKeyBank.indexOf(setting['value']) == -1) {
-            settingsView.apiKey = setting['value'];
-          }
-          break;
         case 'theme':
           if (currentTheme == '') {
             currentTheme = setting['value'];
@@ -95,13 +87,10 @@ function updateSettingsView() {
  */
 function checkDefaultSettings() {
 
-  // Grab a random API Key.
-  settingsView.apiKey = apiKeyBank[Math.floor(Math.random() * apiKeyBank.length)];
   let newSetting;
 
   let settingDefaults = {
     'theme': 'light',
-    'apiKey': settingsView.apiKey,
     'useTor': false,
     'history': true,
     'autoplay': true,
@@ -131,14 +120,6 @@ function checkDefaultSettings() {
         switch (docs[0]['_id']) {
           case 'theme':
             setTheme(docs[0]['value']);
-            break;
-          case 'apiKey':
-            if (apiKeyBank.indexOf(docs[0]['value']) == -1) {
-              settingsView.apiKey = docs[0]['value'];
-            }
-            else{
-              settingsView.apiKey = settingDefaults.apiKey;
-            }
             break;
           case 'useTor':
             useTor = docs[0]['value'];
@@ -192,7 +173,6 @@ function updateSettings() {
   let updatesSwitch = document.getElementById('updatesSwitch').checked;
   let qualitySelect = document.getElementById('qualitySelect').value;
   let rateSelect = document.getElementById('rateSelect').value;
-  let key = document.getElementById('api-key').value;
   let theme = 'light';
 
   settingsView.useTor = torSwitch;
@@ -205,13 +185,6 @@ function updateSettings() {
   defaultPlaybackRate = rateSelect;
 
   console.log(historySwitch);
-
-  if (apiKeyBank.indexOf(key) == -1 && key !== '') {
-    settingsView.apiKey = key;
-  }
-  else{
-    settingsView.apiKey = apiKeyBank[Math.floor(Math.random() * apiKeyBank.length)];
-  }
 
   console.log(themeSwitch);
 
@@ -307,13 +280,6 @@ function updateSettings() {
     console.log(numReplaced);
     defaultPlaybackRate = rateSelect;
   });
-
-  // To any third party devs that fork the project, please be ethical and change the API key.
-  settingsDb.update({
-    _id: 'apiKey'
-  }, {
-    value: settingsView.apiKey
-  }, {});
 
   showToast('Settings have been saved.');
 }

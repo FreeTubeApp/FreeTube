@@ -1,10 +1,6 @@
 <div v-if="seen">
     <h1 class="center">Settings</h1>
     <div class='center'>
-        <input type='text' name='api-key' id='api-key' class='settingsInput' :value='apiKey' placeholder='API Key' />
-        <br />
-        <label for='api-key'>Set API Key: Leave blank to use default</label>
-        <br />
         <input type="checkbox" id="themeSwitch" name="set-name" class="switch-input" onchange='toggleTheme(this)' :checked='useTheme'>
         <label for="themeSwitch" class="switch-label">Use Dark Theme</label>
         <input type="checkbox" id="torSwitch" name="set-name" class="switch-input" :checked='useTor'>

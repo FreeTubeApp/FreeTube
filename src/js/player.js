@@ -15,8 +15,6 @@
     along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
-
 /*
  * File for functions related to videos.
  */
@@ -88,9 +86,7 @@ function playVideo(videoId, playlistId = '') {
         dateString.setDate(dateString.getDate() + 1);
         playerView.publishedDate = dateFormat(dateString, "mmm dS, yyyy");
 
-        let description = data.description;
-        // Adds clickable links to the description.
-        playerView.description = autolinker.link(description);
+        playerView.description = parseDescription(data.descriptionHtml);
 
         // Search through the returned object to get the 480p and 720p video URLs (If available)
         Object.keys(videoUrls).forEach((key) => {
@@ -425,7 +421,33 @@ function changeDurationByPercentage(percentage) {
     videoPlayer.currentTime = videoPlayer.duration * percentage;
 }
 
+function changeDuration(seconds) {
+  const videoPlayer = $('.videoPlayer').get(0);
+  videoPlayer.currentTime = seconds;
+}
+
 function updateVolume(){
   let player = document.getElementById('videoPlayer');
   currentVolume = player.volume
+}
+
+function parseDescription(descriptionText) {
+  descriptionText = descriptionText.replace(/target\=\"\_blank\"/g, '');
+  descriptionText = descriptionText.replace(/\/redirect.+?(?=q\=)/g, '');
+  descriptionText = descriptionText.replace(/q\=/g, '');
+  descriptionText = descriptionText.replace(/rel\=\"nofollow\snoopener\"/g, '');
+  descriptionText = descriptionText.replace(/class\=.+?(?=\")./g, '');
+  descriptionText = descriptionText.replace(/id\=.+?(?=\")./g, '');
+  descriptionText = descriptionText.replace(/data\-target\-new\-window\=.+?(?=\")./g, '');
+  descriptionText = descriptionText.replace(/data\-url\=.+?(?=\")./g, '');
+  descriptionText = descriptionText.replace(/data\-sessionlink\=.+?(?=\")./g, '');
+  descriptionText = descriptionText.replace(/\&amp\;/g, '&');
+  descriptionText = descriptionText.replace(/\%3A/g, ':');
+  descriptionText = descriptionText.replace(/\%2F/g, '/');
+  descriptionText = descriptionText.replace(/\&v.+?(?=\")/g, '');
+  descriptionText = descriptionText.replace(/\&redirect\-token.+?(?=\")/g, '');
+  descriptionText = descriptionText.replace(/\&redir\_token.+?(?=\")/g, '');
+  descriptionText = descriptionText.replace(/yt\.www\.watch\.player\.seekTo/g, 'changeDuration');
+
+  return descriptionText;
 }

@@ -268,6 +268,11 @@ function displayPlaylist(playlist) {
     playListData.title = playlist.title;
     playListData.videoCount = playlist.videoCount;
 
+    if (playListData.channelName == 'YouTube' && playListData.title.includes('Mix')){
+      // Hide Mix playlists.
+      return;
+    }
+
     searchView.videoList = searchView.videoList.concat(playListData);
 }
 

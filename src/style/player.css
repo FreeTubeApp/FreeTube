@@ -161,6 +161,7 @@ iframe {
   width: 100%;
   height: 155px;
   background-color: black;
+  color: white;
   position: relative;
   bottom: 187px;
   opacity: 0.4;
