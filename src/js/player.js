@@ -278,7 +278,8 @@ function openMiniPlayer() {
 
     let miniPlayer = new BrowserWindow({
         width: 1200,
-        height: 710
+        height: 710,
+        autoHideMenuBar: true
     });
 
     // Use the miniPlayer.html template.
