@@ -140,7 +140,7 @@ function displayVideo(videoData, listType = '') {
           } else {
               video.duration = minutes + ":" + seconds;
           }
-          
+
           video.publishedDate = videoData.publishedText;
         }
 
@@ -205,8 +205,8 @@ function displayChannel(channel) {
     channelData.thumbnail = channel.authorThumbnails[4].url;
     channelData.channelName = channel.author;
     channelData.description = channel.description;
-    channelData.subscriberCount = channel.subCount;
-    channelData.videoCount = channel.videoCount;
+    channelData.subscriberCount = channel.subCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    channelData.videoCount = channel.videoCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     channelData.isVideo = false;
 
     searchView.videoList = searchView.videoList.concat(channelData);
