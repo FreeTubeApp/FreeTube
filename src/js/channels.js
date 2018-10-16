@@ -69,6 +69,11 @@ function goToChannel(channelId) {
   });
 }
 
+/**
+ * Grab the next list of videos from a channel.
+ *
+ * @return {Void}
+ */
 function channelNextPage() {
   showToast('Fetching results, please wait...');
 

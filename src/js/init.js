@@ -29,6 +29,10 @@ const {
 const path = require('path');
 const url = require('url');
 
+require('electron-context-menu')({
+    prepend: (params, browserWindow) => []
+});
+
 let win;
 
 protocol.registerStandardSchemes(['freetube']);

@@ -69,7 +69,9 @@ let playPauseVideo = function (event) {
     el.paused ? el.play() : el.pause();
 };
 
-
+/**
+* Handle keyboard shortcut commands.
+*/
 let videoShortcutHandler = function (event) {
 
     if (event.which == 68 && event.altKey === true) {

@@ -89,6 +89,7 @@
         "commonjs": "0.0.1",
         "dateformat": "^3.0.3",
         "electron-compile": "6.4.2",
+        "electron-context-menu": "^0.10.0",
         "electron-squirrel-startup": "^1.0.0",
         "github-version-checker": "^2.0.1",
         "jquery": "^3.3.1",
