@@ -245,7 +245,7 @@ function parseSearchText(url = '') {
     if (url === '') {
         input = document.getElementById('search').value;
     } else {
-        input = url;
+        input = url.replace(/freetube\:\/\//, '');
     }
 
     if (input === '') {
@@ -274,11 +274,10 @@ function parseSearchText(url = '') {
         goToChannel(urlSplit[4]);
     } else {
         ft.log('Video not found');
+        document.getElementById('search').value = decodeURIComponent(input);
         loadingView.seen = true;
         search();
     }
-
-
 }
 
 /**

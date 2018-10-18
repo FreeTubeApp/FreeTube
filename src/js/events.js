@@ -251,13 +251,23 @@ $(document).on('click', '#confirmNo', hideConfirmFunction);
 // Open links externally by default
 $(document).on('click', 'a[href^="http"]', (event) => {
   let el = event.currentTarget;
-  event.preventDefault();
-  shell.openExternal(el.href);
+  if (!el.href.includes('freetube')) {
+    event.preventDefault();
+    shell.openExternal(el.href);
+  }
+  else{
+    window.open(el.href,"_self")
+  }
 });
 
 // Open links externally on middle click.
 $(document).on('auxclick', 'a[href^="http"]', (event) => {
   let el = event.currentTarget;
-  event.preventDefault();
-  shell.openExternal(el.href);
+  if (!el.href.includes('freetube')) {
+    event.preventDefault();
+    shell.openExternal(el.href);
+  }
+  else{
+    window.open(el.href,"_self")
+  }
 });
