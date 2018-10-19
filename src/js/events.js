@@ -256,7 +256,7 @@ $(document).on('click', 'a[href^="http"]', (event) => {
     shell.openExternal(el.href);
   }
   else{
-    window.open(el.href,"_self")
+    window.open(el.href,"_self");
   }
 });
 
@@ -265,9 +265,10 @@ $(document).on('auxclick', 'a[href^="http"]', (event) => {
   let el = event.currentTarget;
   if (!el.href.includes('freetube')) {
     event.preventDefault();
-    shell.openExternal(el.href);
   }
   else{
-    window.open(el.href,"_self")
+    event.preventDefault();
+    let url = el.href.replace('freetube://', '');
+    shell.openExternal(el.href);
   }
 });

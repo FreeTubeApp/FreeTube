@@ -55,13 +55,17 @@ function search(page = 1) {
         data.forEach((video) => {
           switch (video.type) {
             case 'video':
-              displayVideo(video, 'search');
+              if (!video.paid) {
+                displayVideo(video, 'search');
+              }
               break;
             case 'channel':
               displayChannel(video);
               break;
             case 'playlist':
-              displayPlaylist(video);
+              if (video.videoCount > 0) {
+                displayPlaylist(video);
+              }
               break;
             default:
           }
