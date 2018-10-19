@@ -40,8 +40,17 @@ const getOpml = require('opml-to-json'); // Gets the file type for imported file
 const fs = require('fs'); // Used to read files. Specifically in the settings page.
 const tor = require('tor-request');
 
+// User Defaults
 let currentTheme = '';
 let useTor = false;
+let rememberHistory = true;
+let autoplay = true;
+let enableSubtitles = false;
+let checkForUpdates = true;
+let currentVolume = 1;
+let defaultQuality = 720;
+let defaultPlaybackRate = '1';
+
 let dialog = electron.remote.dialog; // Used for opening file browser to export / import subscriptions.
 let toastTimeout; // Timeout for toast notifications.
 let mouseTimeout; // Timeout for hiding the mouse cursor on video playback
@@ -54,7 +63,7 @@ require.extensions['.html'] = function (module, filename) {
 // none are found.
 
 electron.ipcRenderer.on('ping', function(event, message) {
-    ft.log(message);
+    console.log(message);
     let url = message[1].replace('freetube://', '');
     parseSearchText(url);
     ft.log(message);

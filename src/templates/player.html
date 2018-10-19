@@ -1,23 +1,6 @@
-<!--
-    This file is part of FreeTube.
-
-    FreeTube is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    FreeTube is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
-    You should have received a copy of the GNU General Public License
--->
-
 <div v-if='seen'>
   <div v-if='playerSeen'>
-    <video class="videoPlayer" type="application/x-mpegURL" onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" :src='videoUrl' :poster="videoThumbnail" v-html="subtitleHtml" autoplay>
+    <video class="videoPlayer" id='videoPlayer' type="application/x-mpegURL" object-fit='cover' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" onloadstart='checkVideoSettings()' onvolumechange='updateVolume()' controls="" onended='playNextVideo()' :src='videoUrl' :poster="videoThumbnail" v-html="subtitleHtml">
     </video>
   </div>
   <div v-else>
@@ -31,8 +14,9 @@
       <span id='currentQuality'>{{currentQuality}}</span> <i class="fas fa-angle-down"></i>
       <div class='qualityTypes'>
         <ul>
-          <li id='quality480p' v-on:click='quality(video480p, "480p")'>480p</li>
-          <li id='quality720p' v-on:click='quality(video720p, "720p")'>720p</li>
+          <li v-if='valid480p' id='quality480p' v-on:click='quality(video480p, "480p")'>480p</li>
+          <li v-if='valid720p' id='quality720p' v-on:click='quality(video720p, "720p")'>720p</li>
+          <li v-if='validAudio' id='qualityAudio' v-on:click='quality(videoAudio, "AUDIO")'>AUDIO</li>
           <li id='qualityEmbed' v-on:click='embededPlayer()'>EMBED</li>
         </ul>
       </div>
@@ -51,6 +35,9 @@
           <li onclick='changeVideoSpeed(2)'>2x</li>
         </ul>
       </div>
+    </div>
+    <div class='smallButton' v-on:click='loop'>
+      <i id='loopIcon' :class='savedIconType' class="fas fa-sync-alt"></i> LOOP
     </div>
     <div class='smallButton' v-on:click='save(videoId)'>
       <i id='saveIcon' :class='savedIconType' class="fa-star"></i> <span id='savedText'>{{savedText}}</span>
@@ -92,6 +79,27 @@
       <span v-html="description"></span>
     </div>
   </div>
+  <div v-if='playlistSeen' id='miniPL'>
+    <i id='miniPLDropdown' onclick='togglePlaylist()' class='fas fa-angle-down'></i>
+    <p id='miniPLTitle'><span v-on:click='playlist(playlistId)'>{{playlistTitle}}</span><br /><span id='miniPLChannelName' v-on:click='channel(playlistChannelId)'>{{playlistChannelName}} - {{playlistIndex}} / {{playlistTotal}}</span></p>
+    <i id='miniPLLoop' v-on:click='playlistLoopToggle' class='fas fa-redo'></i>
+    <i id='miniPLShuffle' v-on:click='playlistShuffleToggle' class='fas fa-random'></i>
+    <br /><br />
+    <hr v-if='playlistShowList' style='width: 97%' />
+    <div v-if='playlistShowList' id='miniPLVideoList'>
+      <div v-for='video in playlistVideoList'>
+        <div v-on:click='play(video.videoId, playlistId)' class='miniPLVideo'>
+          <span class='miniPLIndex'>{{video.index}}</span>
+          <img :src='video.thumbnail' class='miniPLThumbnail'></>
+          <p class='miniPLVideoTitle'>{{video.title}}</p>
+          <p class='miniPLVideoChannelName'>{{video.channelName}}</p>
+        </div>
+      </div>
+    </a>
+    <div class='smallButton' v-on:click='copy("invidio.us", videoId)'>
+      COPY INVIDIOUS LINK
+    </div>
+  </div>
   <div id='showComments'>
     Show Comments <i class="far fa-comments"></i> (Max of 100)
   </div>
@@ -109,7 +117,7 @@
         </div>
         <p class='recommendTitle'>{{video.title}}</p>
         <p class='recommendChannel'>{{video.channelName}}</p>
-        <p class='recommendDate'>{{video.publishedDate}}</p>
+        <p class='recommendDate'>{{video.viewCount}}</p>
       </div>
       <hr />
     </div>

@@ -1,54 +1,72 @@
-<!--
-    This file is part of FreeTube.
-
-    FreeTube is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-    FreeTube is distributed in the hope that it will be useful,
-
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
--->
-
 <div v-if="seen">
-  <h1 class="center">Settings</h1>
-  <div class='center'>
-    <input type='text' name='api-key' id='api-key' class='settingsInput' :value='apiKey' placeholder='API Key' />
+    <h1 class="center">Settings</h1>
+    <div class='center'>
+        <input type="checkbox" id="themeSwitch" name="set-name" class="switch-input" onchange='toggleTheme(this)' :checked='useTheme'>
+        <label for="themeSwitch" class="switch-label">Use Dark Theme</label>
+        <input type="checkbox" id="torSwitch" name="set-name" class="switch-input" :checked='useTor'>
+        <label for="torSwitch" class="switch-label">Use Tor for API calls</label>
+        <input type="checkbox" id="updatesSwitch" name="set-name" class="switch-input" :checked='updates'>
+        <label for="updatesSwitch" class="switch-label">Check for Updates</label>
+        <br />
+        <input type="checkbox" id="historySwitch" name="set-name" class="switch-input" :checked='history'>
+        <label for="historySwitch" class="switch-label">Remember History</label>
+        <input type="checkbox" id="autoplaySwitch" name="set-name" class="switch-input" :checked='autoplay'>
+        <label for="autoplaySwitch" class="switch-label">Autoplay Videos</label>
+        <input type="checkbox" id="subtitlesSwitch" name="set-name" class="switch-input" :checked='subtitles'>
+        <label for="subtitlesSwitch" class="switch-label">Turn on Subtitles by Default</label>
+        <br />
+        <br />
+        <div class="select center">
+            <select id='qualitySelect' class="select-text" required>
+                <option value="480">480p</option>
+                <option value="720" selected>720p</option>
+            </select>
+            <span class="select-highlight"></span>
+            <span class="select-bar"></span>
+            <label class="select-label">Default Video Quality</label>
+        </div>
+        <br /><br />
+        <div class="select center">
+            <select id='rateSelect' class="select-text" required>
+                <option value="0.25">0.25x</option>
+                <option value="0.5">0.5x</option>
+                <option value="0.75">0.75x</option>
+                <option value="1" selected>1x</option>
+                <option value="1.25">1.25x</option>
+                <option value="1.5">1.5x</option>
+                <option value="1.75">1.75x</option>
+                <option value="2">2x</option>
+            </select>
+            <span class="select-highlight"></span>
+            <span class="select-bar"></span>
+            <label class="select-label">Default Video Speed</label>
+        </div>
+        <br />
+    </div>
+    <div class='center'>
+        <div onclick='importSubscriptions()' class='settingsButton'>
+            IMPORT SUBSCRIPTIONS
+        </div>
+        <div onclick='exportSubscriptions();' class='settingsButton'>
+            EXPORT SUBSCRIPTIONS
+        </div>
+    </div>
     <br />
-    <label for='api-key'>Set API Key: Leave blank to use default</label>
     <br />
-    <input type="checkbox" id="themeSwitch" name="set-name" class="switch-input" onchange='toggleTheme(this)' :checked='useTheme'>
-    <label for="themeSwitch" class="switch-label">Use Dark Theme</label>
-    <input type="checkbox" id="torSwitch" name="set-name" class="switch-input" :checked='useTor'>
-    <label for="torSwitch" class="switch-label">Use Tor for API calls</label>
-  </div>
-  <div class='center'>
-    <div onclick='importSubscriptions()' class='settingsButton'>
-      IMPORT SUBSCRIPTIONS
+    <div class='center'>
+        <div onclick='confirmFunction("Are you sure you want to delete your history?", clearFile, "history")' class='settingsButton'>
+            CLEAR HISTORY
+        </div>
+        <div onclick='confirmFunction("Are you sure you want to remove all saved videos?", clearFile, "saved")' class='settingsButton'>
+            CLEAR SAVED VIDEOS
+        </div>
+        <div onclick='confirmFunction("Are you sure you want to remove all subscriptions?", clearFile, "subscriptions")' class='settingsButton'>
+            CLEAR SUBSCRIPTIONS
+        </div>
     </div>
-    <div onclick='exportSubscriptions();' class='settingsButton'>
-      EXPORT SUBSCRIPTIONS
+    <br />
+    <br />
+    <div onclick='updateSettings()' class='center settingsSubmit'>
+        SAVE SETTINGS
     </div>
-  </div>
-  <br /><br />
-  <div class='center'>
-    <div onclick='confirmFunction("Are you sure you want to delete your history?", clearFile, "history")' class='settingsButton'>
-      CLEAR HISTORY
-    </div>
-    <div onclick='confirmFunction("Are you sure you want to remove all saved videos?", clearFile, "saved")' class='settingsButton'>
-      CLEAR SAVED VIDEOS
-    </div>
-    <div onclick='confirmFunction("Are you sure you want to remove all subscriptions?", clearFile, "subscriptions")' class='settingsButton'>
-      CLEAR SUBSCRIPTIONS
-    </div>
-  </div>
-  <br /><br />
-  <div onclick='updateSettings()' class='center settingsSubmit'>
-    SAVE SETTINGS
-  </div>
 </div>

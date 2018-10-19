@@ -21,8 +21,8 @@
  * File for all functions related to subscriptions.
  */
 
- let subscriptionTimer;
- let checkSubscriptions = true;
+let subscriptionTimer;
+let checkSubscriptions = true;
 
 /**
  * Add a channel to the user's subscription database.
@@ -33,17 +33,13 @@
  */
 function addSubscription(channelId, useToast = true) {
     ft.log('Channel ID: ', channelId);
-    // Request YouTube API
-    youtubeAPI('channels', {
-        part: 'snippet',
-        id: channelId,
-    }, (data) => {
-        const channelInfo = data['items'][0]['snippet'];
-        const channelName = channelInfo['title'];
-        const thumbnail = channelInfo['thumbnails']['high']['url'];
+
+    invidiousAPI('channels', channelId, {}, (data) => {
+        const channelName = data.author;
+        const thumbnail = data.authorThumbnails[3].url;
 
         const channel = {
-            channelId: channelId,
+            channelId: data.authorId,
             channelName: channelName,
             channelThumbnail: thumbnail,
         };
@@ -80,103 +76,75 @@ function removeSubscription(channelId) {
  *
  * @return {Void}
  */
- function loadSubscriptions() {
-   if (checkSubscriptions === false && subscriptionView.videoList.length > 0){
-     console.log('Will not load subscriptions. Timer still on.');
-     loadingView.seen = false;
-     return;
-   }
-   else{
-     showToast('Refreshing Subscription List.  Please wait...');
-     checkSubscriptions = false;
-   }
+function loadSubscriptions() {
+    if (checkSubscriptions === false && subscriptionView.videoList.length > 0) {
+        console.log('Will not load subscriptions. Timer still on.');
+        loadingView.seen = false;
+        return;
+    } else {
+        showToast('Refreshing Subscription List.  Please wait...');
+        checkSubscriptions = false;
+        progressView.seen = true;
+    }
 
-   let videoList = [];
+    let videoList = [];
 
-   const subscriptions = returnSubscriptions();
+    const subscriptions = returnSubscriptions();
 
-   subscriptions.then((results) => {
-       let channelId = '';
-       let videoList = [];
+    subscriptions.then((results) => {
+        let channelId = '';
+        let videoList = [];
 
-       if (results.length > 0) {
-         let counter = 0;
+        if (results.length > 0) {
+            let counter = 0;
 
-         for (let i = 0; i < results.length; i++) {
-           channelId = results[i]['channelId'];
+            for (let i = 0; i < results.length; i++) {
+                channelId = results[i]['channelId'];
 
-           youtubeAPI('search', {
-               part: 'snippet',
-               channelId: channelId,
-               type: 'video',
-               maxResults: 15,
-               order: 'date',
-             }, (data) => {
-               console.log(data);
-               videoList = videoList.concat(data.items);
-               counter++;
-               progressView.progressWidth = (counter / results.length) * 100;
-               if (counter === results.length) {
-                 videoList.sort((a, b) => {
-                   const date1 = Date.parse(a.snippet.publishedAt);
-                   const date2 = Date.parse(b.snippet.publishedAt);
+                invidiousAPI('channels/videos', channelId, {}, (data) => {
+                    console.log(data);
+                    videoList = videoList.concat(data);
+                    counter = counter + 1;
+                    progressView.progressWidth = (counter / results.length) * 100;
 
-                   return date2.valueOf() - date1.valueOf();
-                 });
+                    if (counter === results.length) {
+                        videoList.sort((a, b) => {
+                            return b.published - a.published;
+                        });
 
-                 // The YouTube website limits the subscriptions to 100 before grabbing more so we only show 100
-                 // to keep the app running at a good speed.
-                 if (videoList.length < 50) {
-                   let grabDuration = getDuration(videoList.slice(0, 49));
+                        subscriptionView.videoList = [];
+                        console.log(videoList);
 
-                   grabDuration.then((list) => {
-                     subscriptionView.videoList = [];
-                     list.items.forEach((video) => {
-                       displayVideo(video, 'subscriptions');
-                     });
-                     loadingView.seen = false;
-                     progressView.seen = false;
-                     progressView.progressWidth = 0;
-                   });
-                 } else {
-                   console.log(videoList);
-                   let finishedList = [];
-                   let firstBatchDuration = getDuration(videoList.slice(0, 49));
+                        if (videoList.length > 100) {
+                            for (let i = 0; i < 100; i++) {
+                                displayVideo(videoList[i], 'subscriptions');
+                            }
+                        } else {
+                            videoList.forEach((video) => {
+                                displayVideo(video, 'subscriptions');
+                            });
+                        }
 
-                   firstBatchDuration.then((list1) => {
-                     finishedList = finishedList.concat(list1.items);
-                     let secondBatchDuration = getDuration(videoList.slice(50, 99));
+                        loadingView.seen = false;
+                        progressView.seen = false;
+                        progressView.progressWidth = 0;
 
-                     secondBatchDuration.then((list2) => {
-                       finishedList = finishedList.concat(list2.items);
-                       console.log(finishedList);
-                       subscriptionView.videoList = [];
-                       finishedList.forEach((video) => {
-                         displayVideo(video, 'subscriptions');
-                       });
-                       loadingView.seen = false;
-                       progressView.seen = false;
-                       progressView.progressWidth = 0;
-                       subscriptionTimer = window.setTimeout(() => {
-                         checkSubscriptions = true;
-                       }, 60000);
-                     });
-                   });
-                 }
-               }
-             }
-           );
-       }
+                        subscriptionTimer = window.setTimeout(() => {
+                            checkSubscriptions = true;
+                        }, 60000);
 
-
-     } else {
-       // User has no subscriptions. Display message.
-       loadingView.seen = false;
-       headerView.seen = false;
-       noSubscriptions.seen = true;
-     }
-   });
- }
+                        console.log('Done');
+                    }
+                });
+            }
+        } else {
+            // User has no subscriptions. Display message.
+            loadingView.seen = false;
+            headerView.seen = false;
+            noSubscriptions.seen = true;
+        }
+    });
+}
 
 /**
  * Get the list of subscriptions from the user's subscription database.

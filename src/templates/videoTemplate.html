@@ -1,50 +1,70 @@
 <div>
-  <div v-if='seen'>
-    <div v-for="video in videoList">
-      <div v-if='video.isVideo'>
-        <div class='video'>
-          <div class='videoOptions'>
-            <i class="fas fa-ellipsis-v" onclick='showVideoOptions(this)'></i>
-            <ul>
-              <a :href='video.youtubeUrl' onclick='showVideoOptions(this.parentNode.previousSibling);'>
-                <li>Open in YouTube</li>
-              </a>
-              <li v-on:click='copy("youtube.com", video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>Copy YouTube Link</li>
-              <a :href='video.invidiousUrl' onclick='showVideoOptions(this.parentNode.previousSibling);'>
-                <li>Open in Invidious</li>
-              </a>
-              <li v-on:click='copy("invidio.us", video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>Copy Invidious Link</li>
-            </ul>
-          </div>
-          <div class='videoThumbnail'>
-            <img v-on:click='play(video.id)' :src='video.thumbnail' />
-            <p v-on:click='play(video.id)' class='videoDuration'>{{video.duration}}</p>
-            <i class="fas fa-history" v-on:click='toggleSave(video.id)'></i>
-          </div>
-          <p v-on:click='play(video.id)' class='videoTitle'>{{video.title}}</p>
-          <p v-on:click='channel(video.channelId)' class='channelName'>{{video.channelName}} - {{video.publishedDate}}</p>
-          <p v-on:click='play(video.id)' class='videoDescription'>{{video.description}}</p>
-          <p v-on:click='play(video.id)' class='live'>{{video.liveText}}</p>
+    <div v-if='seen'>
+        <div v-for="video in videoList">
+            <div v-if='video.isVideo'>
+                <div class='video'>
+                    <div class='videoOptions'>
+                        <i class="fas fa-ellipsis-v" onclick='showVideoOptions(this)'></i>
+                        <ul>
+                            <a :href='video.youtubeUrl' onclick='showVideoOptions(this.parentNode.previousSibling);'>
+                                <li>Open in YouTube</li>
+                            </a>
+                            <li v-on:click='copy("youtube.com", video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>Copy YouTube Link</li>
+                            <a :href='video.invidiousUrl' onclick='showVideoOptions(this.parentNode.previousSibling);'>
+                                <li>Open in Invidious</li>
+                            </a>
+                            <li v-on:click='copy("invidio.us", video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>Copy Invidious Link</li>
+                        </ul>
+                    </div>
+                    <div class='videoThumbnail'>
+                        <img v-on:click='play(video.id)' :src='video.thumbnail' />
+                        <p v-on:click='play(video.id)' class='videoDuration'>{{video.duration}}</p>
+                        <i class="fas fa-history videoSave" v-on:click='toggleSave(video.id)'></i>
+                        <div v-if='video.watched' class='videoWatched'>
+                            WATCHED
+                        </div>
+                    </div>
+                    <p v-on:click='play(video.id)' class='videoTitle'>{{video.title}}</p>
+                    <p v-on:click='channel(video.channelId)' class='channelName'>{{video.channelName}}</p>
+                    <p v-on:click='play(video.id)' class='videoViews'>{{video.views}} {{video.viewText}} - {{video.publishedDate}}</p>
+                    <p v-on:click='play(video.id)' class='videoDescription'>{{video.description}}</p>
+                    <p v-on:click='play(video.id)' class='live'>{{video.liveText}}</p>
+                </div>
+                <hr />
+            </div>
+            <div v-else-if='video.isPlaylist'>
+                <div class='video'>
+                    <div class='videoThumbnail'>
+                        <img v-on:click='playlist(video.id)' :src='video.thumbnail' />
+                        <div class='videoPlaylist' v-on:click='playlist(video.id)'>
+                            <span class='videoPlaylistTotals'>{{video.videoCount}}</span>
+                            <i class='fas fa-list-ol videoPlaylistIcon'></i>
+                        </div>
+                    </div>
+                    <p v-on:click='playlist(video.id)' class='videoTitle'>{{video.title}}</p>
+                    <p v-on:click='channel(video.channelId)' class='channelName'>{{video.channelName}}</p>
+                    <p v-on:click='playlist(video.id)' class='videoDescription'>{{video.description}}</p>
+                    <p v-on:click='playlist(video.id)' class='viewPlaylist'>VIEW FULL PLAYLIST ({{video.videoCount}} videos)</p>
+                </div>
+                <hr />
+            </div>
+            <!-- Channel View -->
+            <div v-else>
+                <div class='video'>
+                    <div class='channelThumbnail'>
+                        <img v-on:click='channel(video.channelId)' :src='video.thumbnail' />
+                    </div>
+                    <p v-on:click='channel(video.channelId)' class='videoTitle'>{{video.channelName}}</p>
+                    <p v-on:click='channel(video.channelId)' class='channelName'>{{video.subscriberCount}} subscribers - {{video.videoCount}} videos</p>
+                    <p v-on:click='channel(video.channelId)' class='videoDescription'>{{video.channelDescription}}</p>
+                </div>
+                <hr />
+            </div>
         </div>
-        <hr />
-      </div>
-      <!-- Channel View -->
-      <div v-else>
-        <div class='video'>
-          <div class='channelThumbnail'>
-            <img v-on:click='channel(video.channelId)' :src='video.thumbnail' />
-          </div>
-          <p v-on:click='channel(video.channelId)' class='videoTitle'>{{video.channelName}}</p>
-          <p v-on:click='channel(video.channelId)' class='channelName'>{{video.subscriberCount}} subscribers - {{video.videoCount}} videos</p>
-          <p v-on:click='channel(video.channelId)' class='videoDescription'>{{video.channelDescription}}</p>
+        <div v-if='isSearch'>
+            <div v-on:click='nextPage' id='getNextPage'>
+                <i class="fas fa-search"></i> Fetch more results...
+            </div>
         </div>
-        <hr />
-      </div>
     </div>
-    <div v-if='isSearch'>
-      <div v-on:click='nextPage' id='getNextPage'>
-        <i class="fas fa-search"></i> Fetch more results...
-      </div>
-    </div>
-  </div>
 </div>

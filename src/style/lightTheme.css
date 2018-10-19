@@ -39,6 +39,22 @@ body {
     background-color: #f44336;
 }
 
+.select-text {
+  border-bottom: 1px solid rgba(0,0,0, 0.12);
+}
+
+.select-text:focus {
+  border-bottom: 1px solid rgba(0,0,0, 0);
+}
+
+.select:after {
+  border-top: 6px solid rgba(0, 0, 0, 0.12);
+}
+
+.select-label {
+  color: rgba(0,0,0, 0.26);
+}
+
 .searchBar ::-webkit-input-placeholder {
     color: #ddd;
 }
@@ -194,4 +210,8 @@ body {
 
 #comments {
     background: #eee;
+}
+
+#miniPL {
+  background-color: white;
 }

@@ -72,19 +72,19 @@ function removeSavedVideo(videoId, string) {
 function toggleSavedVideo(videoId) {
     event.stopPropagation();
 
-  const checkIfSaved = videoIsSaved(videoId);
+    const checkIfSaved = videoIsSaved(videoId);
 
-  checkIfSaved.then((results) => {
-    if (results === false) {
-      playerView.savedText = 'FAVORITED';
-      playerView.savedIconType = 'fas saved';
-      addSavedVideo(videoId);
-    } else {
-      playerView.savedText = 'FAVORITE';
-      playerView.savedIconType = 'far unsaved';
-      removeSavedVideo(videoId);
-    }
-  });
+    checkIfSaved.then((results) => {
+        if (results === false) {
+            playerView.savedText = 'FAVORITED';
+            playerView.savedIconType = 'fas saved';
+            addSavedVideo(videoId);
+        } else {
+            playerView.savedText = 'FAVORITE';
+            playerView.savedIconType = 'far unsaved';
+            removeSavedVideo(videoId);
+        }
+    });
 }
 
 /**
@@ -109,48 +109,25 @@ function videoIsSaved(videoId) {
 }
 
 /**
-* Displays a list of the user's saved videos.
-*
-* @return {Void}
-*/
-function showSavedVideos(){
-  //clearMainContainer();
-  //startLoadingAnimation();
-  console.log('checking saved videos');
+ * Displays a list of the user's saved videos.
+ *
+ * @return {Void}
+ */
+function showSavedVideos() {
+    console.log('checking saved videos');
 
-    let videoList = '';
+    savedView.videoList = [];
 
     // Check the database for the list of videos.
     savedVidsDb.find({}).sort({
         timeSaved: -1
     }).exec((err, docs) => {
-        // The YouTube API requires a max of 50 videos to be shown.  Don't show more than 50.
-        // TODO: Allow the app to show more than 50 saved videos.
-        if (docs.length > 49) {
-            for (let i = 0; i < 49; i++) {
-                videoList = videoList + ',' + docs[i].videoId;
-            }
-        } else {
-            docs.forEach((video) => {
-                videoList = videoList + ',' + video.videoId;
+        docs.forEach((video) => {
+            invidiousAPI('videos', video.videoId, {}, (data) => {
+                displayVideo(data, 'saved');
             });
-        }
-
-    // Call the YouTube API
-    youtubeAPI('videos', {
-      part: 'snippet',
-      id: videoList,
-      maxResults: 50,
-    }, (data) => {
-      // Render the videos to the screen
-      let grabDuration = getDuration(data.items);
-      grabDuration.then((videoList) => {
-        savedView.videoList = [];
-        loadingView.seen = false;
-        videoList.items.forEach((video) => {
-          displayVideo(video, 'saved');
         });
-      });
+
+        loadingView.seen = false;
     });
-  });
 }
