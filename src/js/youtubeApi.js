@@ -28,8 +28,6 @@
 function invidiousAPI(resource, id, params, success) {
   let requestUrl = 'https://www.invidio.us/api/v1/' + resource + '/' + id + '?' + $.param(params);
 
-  let requestUrl = 'https://www.googleapis.com/youtube/v3/' + resource + '?' + $.param(params);
-
   if (useTor) {
     tor.request(requestUrl, (err, res, body) => {
       if (!err && res.statusCode == 200) {
