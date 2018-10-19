@@ -55,9 +55,7 @@ function search(page = 1) {
         data.forEach((video) => {
           switch (video.type) {
             case 'video':
-              if (!video.paid) {
-                displayVideo(video, 'search');
-              }
+              displayVideo(video, 'search');
               break;
             case 'channel':
               displayChannel(video);
@@ -86,6 +84,10 @@ function search(page = 1) {
  * @return {Void}
  */
 function displayVideo(videoData, listType = '') {
+    if (videoData.paid) {
+      return;
+    }
+
     let video = {};
     video.id = videoData.videoId;
 
