@@ -81,11 +81,11 @@
     },
     "devDependencies": {
         "electron-forge": "^5.2.2",
-        "electron-forge-maker-appimage": "^20.14.4",
+        "electron-forge-maker-appimage": "^20.28.3",
         "electron-installer-flatpak": "^0.8.0",
         "electron-installer-snap": "^2.0.1",
-        "electron-prebuilt-compile": "2.0.2",
-        "electron-winstaller": "^2.6.4"
+        "electron-prebuilt-compile": "3.0.2",
+        "electron-winstaller": "^2.7.0"
     },
     "dependencies": {
         "autolinker": "^1.6.2",
@@ -101,6 +101,7 @@
         "nedb": "^1.8.0",
         "opml-to-json": "0.0.3",
         "tor-request": "^2.1.2",
+        "vue": "^2.5.17",
         "ytdl-core": "^0.20.4"
     }
 }
