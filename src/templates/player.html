@@ -95,13 +95,10 @@
           <p class='miniPLVideoChannelName'>{{video.channelName}}</p>
         </div>
       </div>
-    </a>
-    <div class='smallButton' v-on:click='copy("invidio.us", videoId)'>
-      COPY INVIDIOUS LINK
     </div>
   </div>
   <div id='showComments'>
-    Show Comments <i class="far fa-comments"></i> (Max of 100)
+    Show Comments <i class="far fa-comments"></i> (Max of 20)
   </div>
 
   <div id='comments' :data-video-id="videoId">
