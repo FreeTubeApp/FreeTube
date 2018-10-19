@@ -70,6 +70,9 @@
             "electronInstallerDebian": {
                 "icon": "src/icons/iconColor.png"
             },
+            "electronForgeMakerAppimage": {
+                "icon": "src/icons/iconColor.png"
+            },
             "repository": {
                 "type": "git",
                 "url": "https://github.com/FreeTubeApp/FreeTube"
