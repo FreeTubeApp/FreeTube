@@ -51,41 +51,19 @@ function removeFromHistory(videoId){
 * @return {Void}
 */
 function showHistory(){
-  //clearMainContainer();
-  //startLoadingAnimation();
   console.log('checking history');
 
-  let videoList = '';
+  historyView.videoList = [];
 
   historyDb.find({}).sort({
     timeWatched: -1
   }).exec((err, docs) => {
-    if(docs.length > 49){
-      // The YouTube API limits the search to 50 videos, so grab 50 most recent.
-      for (let i = 0; i < 49; i++) {
-        videoList = videoList + ',' + docs[i]['videoId'];
-      }
-    }
-    else{
-      docs.forEach((video) => {
-        videoList = videoList + ',' + video['videoId'];
-      });
-    }
-
-    youtubeAPI('videos', {
-      part: 'snippet',
-      id: videoList,
-      maxResults: 50,
-    }, function (data) {
-      let grabDuration = getDuration(data.items);
-
-      grabDuration.then((videoList) => {
-        historyView.videoList = [];
-        loadingView.seen = false;
-        videoList.items.forEach((video) => {
-          displayVideo(video, 'history');
+    docs.forEach((video) => {
+        invidiousAPI('videos', video.videoId, {}, (data) => {
+            displayVideo(data, 'history');
         });
-      });
     });
+
+    loadingView.seen = false;
   });
 }

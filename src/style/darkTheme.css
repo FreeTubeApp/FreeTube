@@ -43,6 +43,27 @@ input[type=text] {
     background-color: #f44336;
 }
 
+.select-text {
+  border-bottom: 1px solid #E0E0E0;
+  color: white;
+}
+
+.select-text option {
+  color: black;
+}
+
+.select-text:focus {
+  border-bottom: 1px solid #EEEEEE;
+}
+
+.select:after {
+  border-top: 6px solid #E0E0E0;
+}
+
+.select-label {
+  color: #F5F5F5;
+}
+
 .searchBar ::-webkit-input-placeholder {
     color: #E0E0E0;
 }
@@ -245,4 +266,8 @@ input[type=text] {
 
 #comments {
     background-color: #424242;
+}
+
+#miniPL {
+  background-color: #424242;
 }

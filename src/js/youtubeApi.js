@@ -15,10 +15,8 @@
     along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
-
 /**
- * List a YouTube HTTP API resource.
+ * List an Invidious HTTP API resource.
  *
  * @param {string} resource - The path of the resource.
  * @param {object} params - The API parameters.
@@ -27,8 +25,8 @@
  * @return {Void}
  */
 
-function youtubeAPI(resource, params, success) {
-  params.key = settingsView.apiKey;
+function invidiousAPI(resource, id, params, success) {
+  let requestUrl = 'https://www.invidio.us/api/v1/' + resource + '/' + id + '?' + $.param(params);
 
   let requestUrl = 'https://www.googleapis.com/youtube/v3/' + resource + '?' + $.param(params);
 
@@ -49,15 +47,14 @@ function youtubeAPI(resource, params, success) {
       requestUrl,
       success
     ).fail((xhr, textStatus, error) => {
-      showToast('There was an error calling the YouTube API.');
+      showToast('There was an error calling the Invidious API.');
       console.log(error);
       console.log(xhr);
       console.log(textStatus);
+      console.log(requestUrl);
       loadingView.seen = false;
     });
   }
-
-
 }
 
 /**

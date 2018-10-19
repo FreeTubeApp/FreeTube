@@ -1,7 +1,7 @@
 {
     "name": "FreeTube",
     "productName": "FreeTube",
-    "version": "0.3.2",
+    "version": "0.4.0",
     "description": "An Open Source YouTube app for privacy.",
     "main": "src/js/init.js",
     "scripts": {
@@ -18,7 +18,7 @@
         "make:linux:x86:deb": "electron-forge make --platform=linux --targets=deb --arch x64",
         "make:linux:x86:rpm": "electron-forge make --platform=linux --targets=rpm --arch x64",
         "make:linux:x86:snap": "electron-forge package && electron-installer-snap --src=out/FreeTube-linux-x64 --arch x64",
-        "make:linux:x86:flatpak": "electron-installer-flatpak --src out/FreeTube-linux-x64/ --dest out/make --arch x64",
+        "make:linux:x86:flatpak": "electron-installer-flatpak --src out/FreeTube-linux-x64/ --dest out/make --arch x64 --id org.freetube.FreeTube --productName FreeTube  --runtime org.freedesktop.Platform//1.6 --runtimeVersion 1.6 --sdk org.freedesktop.Sdk//1.6 --base io.atom.electron.BaseApp --baseVersion stable",
         "make:linux:x86:appimage": "electron-forge make --platform=linux --targets=electron-forge-maker-appimage --arch x64",
         "make:linux:arm": "electron-forge make --platform=linux --arch arm64",
         "make:linux:arm:zip": "electron-forge make --platform=linux --targets=zip --arch arm64",
@@ -70,6 +70,9 @@
             "electronInstallerDebian": {
                 "icon": "src/icons/iconColor.png"
             },
+            "electronForgeMakerAppimage": {
+                "icon": "src/icons/iconColor.png"
+            },
             "repository": {
                 "type": "git",
                 "url": "https://github.com/FreeTubeApp/FreeTube"
@@ -78,17 +81,18 @@
     },
     "devDependencies": {
         "electron-forge": "^5.2.2",
-        "electron-forge-maker-appimage": "^20.14.4",
+        "electron-forge-maker-appimage": "^20.28.3",
         "electron-installer-flatpak": "^0.8.0",
         "electron-installer-snap": "^2.0.1",
-        "electron-prebuilt-compile": "2.0.2",
-        "electron-winstaller": "^2.6.4"
+        "electron-prebuilt-compile": "3.0.2",
+        "electron-winstaller": "^2.7.0"
     },
     "dependencies": {
         "autolinker": "^1.6.2",
         "commonjs": "0.0.1",
         "dateformat": "^3.0.3",
         "electron-compile": "6.4.2",
+        "electron-context-menu": "^0.10.0",
         "electron-squirrel-startup": "^1.0.0",
         "github-version-checker": "^2.0.1",
         "jquery": "^3.3.1",
@@ -97,6 +101,7 @@
         "nedb": "^1.8.0",
         "opml-to-json": "0.0.3",
         "tor-request": "^2.1.2",
+        "vue": "^2.5.17",
         "ytdl-core": "^0.20.4"
     }
 }

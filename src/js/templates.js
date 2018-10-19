@@ -21,10 +21,10 @@ const mainHeaderTemplate = require('./templates/mainHeader.html');
 const aboutTemplate = require('./templates/about.html');
 const settingsTemplate = require('./templates/settings.html');
 const videoListTemplate = require('./templates/videoTemplate.html');
-const nextPageTemplate = require('./templates/searchNextPage.html');
 const playerTemplate = require('./templates/player.html');
 const channelTemplate = require('./templates/channelView.html');
 const progressViewTemplate = require('./templates/progressView.html');
+const playlistViewTemplate = require('./templates/playlistView.html');
 
 /*
 * Progress view
@@ -82,6 +82,19 @@ let sideNavBar = new Vue({
       headerView.title = 'Most Popular';
       popularView.seen = true;
       showMostPopular();
+    },
+    trending: (event) => {
+      hideViews();
+      if (loadingView.seen !== false){
+        loadingView.seen = false;
+      }
+      if(trendingView.videoList.length === 0){
+        loadingView.seen = true;
+      }
+      headerView.seen = true;
+      headerView.title = 'Trending';
+      trendingView.seen = true;
+      showTrending();
     },
     saved: (event) => {
       hideViews();
@@ -190,6 +203,33 @@ let popularView = new Vue({
   template: videoListTemplate
 });
 
+let trendingView = new Vue({
+  el: '#trendingView',
+  data: {
+    seen: false,
+    isSearch: false,
+    videoList: []
+  },
+  methods: {
+    play: (videoId) => {
+      loadingView.seen = true;
+      playVideo(videoId);
+    },
+    channel: (channelId) => {
+      goToChannel(channelId);
+    },
+    toggleSave: (videoId) => {
+      addSavedVideo(videoId);
+    },
+    copy: (site, videoId) => {
+      const url = 'https://' + site + '/watch?v=' + videoId;
+      clipboard.writeText(url);
+      showToast('URL has been copied to the clipboard');
+    }
+  },
+  template: videoListTemplate
+});
+
 let savedView = new Vue({
   el: '#savedView',
   data: {
@@ -244,6 +284,41 @@ let historyView = new Vue({
   template: videoListTemplate
 });
 
+let playlistView = new Vue({
+  el: '#playlistView',
+  data: {
+    seen: false,
+    playlistId: '',
+    channelName: '',
+    channelId: '',
+    thumbnail: '',
+    title: '',
+    videoCount: '',
+    viewCount: '',
+    description: '',
+    lastUpdated: '',
+    videoList: []
+  },
+  methods: {
+    play: (videoId) => {
+      loadingView.seen = true;
+      playVideo(videoId, playlistView.playlistId);
+    },
+    channel: (channelId) => {
+      goToChannel(channelId);
+    },
+    toggleSave: (videoId) => {
+      addSavedVideo(videoId);
+    },
+    copy: (site, videoId) => {
+      const url = 'https://' + site + '/watch?v=' + videoId;
+      clipboard.writeText(url);
+      showToast('URL has been copied to the clipboard');
+    }
+  },
+  template: playlistViewTemplate
+});
+
 let aboutView = new Vue({
   el: '#aboutView',
   data: {
@@ -259,7 +334,11 @@ let settingsView = new Vue({
     seen: false,
     useTheme: false,
     useTor: false,
-    apiKey: ''
+    apiKey: '',
+    history: true,
+    autoplay: true,
+    subtitles: false,
+    updates: true,
   },
   template: settingsTemplate
 });
@@ -269,7 +348,7 @@ let searchView = new Vue({
   data: {
     seen: false,
     isSearch: true,
-    nextPageToken: '',
+    page: 1,
     videoList: []
   },
   methods: {
@@ -288,10 +367,13 @@ let searchView = new Vue({
       clipboard.writeText(url);
       showToast('URL has been copied to the clipboard');
     },
-    nextPage: (nextPageToken) => {
-      console.log(searchView.nextPageToken);
-      search(searchView.nextPageToken);
-    }
+    nextPage: () => {
+      console.log(searchView.page);
+      search(searchView.page);
+    },
+    playlist: (playlistId) => {
+      showPlaylist(playlistId);
+    },
   },
   template: videoListTemplate
 });
@@ -320,7 +402,9 @@ let channelVideosView = new Vue({
   el: '#channelVideosView',
   data: {
     seen: false,
-    isSearch: false,
+    channelId: '',
+    isSearch: true,
+    page: 2,
     videoList: []
   },
   methods: {
@@ -333,6 +417,9 @@ let channelVideosView = new Vue({
     },
     toggleSave: (videoId) => {
       addSavedVideo(videoId);
+    },
+    nextPage: () => {
+      channelNextPage();
     },
     copy: (site, videoId) => {
       const url = 'https://' + site + '/watch?v=' + videoId;
@@ -347,6 +434,8 @@ let playerView = new Vue({
   el: '#playerView',
   data: {
     seen: false,
+    playlistSeen: false,
+    firstLoad: true,
     publishedDate: '',
     videoUrl: '',
     videoId: '',
@@ -360,8 +449,12 @@ let playerView = new Vue({
     videoThumbnail: '',
     subtitleHtml: '',
     currentQuality: '',
+    videoAudio: '',
+    validAudio: false,
     video480p: '',
+    valid480p: false,
     video720p: '',
+    valid720p: false,
     embededHtml: '',
     currentSpeed: 1,
     videoTitle: '',
@@ -370,7 +463,15 @@ let playerView = new Vue({
     videoLikes: 0,
     videoDislikes: 0,
     playerSeen: true,
-    recommendedVideoList: []
+    playlistTitle: '',
+    playlistChannelName: '',
+    playlistIndex: 1,
+    playlistTotal: 1,
+    playlistLoop: false,
+    playlistShuffle: false,
+    playlistShowList: true,
+    recommendedVideoList: [],
+    playlistVideoList: [],
   },
   methods: {
     channel: (channelId) => {
@@ -408,10 +509,45 @@ let playerView = new Vue({
     save: (videoId) => {
       toggleSavedVideo(videoId);
     },
-    play: (videoId) => {
+    play: (videoId, playlistId = '') => {
       loadingView.seen = true;
-      playVideo(videoId);
-    }
+      playVideo(videoId, playlistId);
+    },
+    loop: () => {
+      let player = document.getElementById('videoPlayer');
+
+      if (player.loop === false) {
+        player.loop = true;
+        showToast('Video loop has been turned on.');
+      }
+      else{
+        player.loop = false;
+        showToast('Video loop has been turned off.')
+      }
+    },
+    playlist: (playlistId) => {
+      showPlaylist(playlistId);
+    },
+    playlistLoopToggle: () => {
+      if (playerView.playlistLoop !== false) {
+        showToast('Playlist will no longer loop');
+        playerView.playlistLoop = false;
+      }
+      else {
+        showToast('Playlist will now loop');
+        playerView.playlistLoop = true;
+      }
+    },
+    playlistShuffleToggle: () => {
+      if (playerView.playlistShuffle !== false) {
+        showToast('Playlist will no longer shuffle');
+        playerView.playlistShuffle = false;
+      }
+      else{
+        showToast('Playlist will now shuffle');
+        playerView.playlistShuffle = true;
+      }
+    },
   },
   template: playerTemplate
 });
@@ -424,8 +560,10 @@ function hideViews(){
   searchView.seen = false;
   settingsView.seen = false;
   popularView.seen = false;
+  trendingView.seen = false;
   savedView.seen = false;
   historyView.seen = false;
+  playlistView.seen = false;
   playerView.seen = false;
   channelView.seen = false;
   channelVideosView.seen = false;

@@ -24,32 +24,35 @@
  * Event when user clicks comment box,
  * and wants to show/display comments for the user.
  */
-let showComments = function (event) {
+let showComments = function (event, continuation = '') {
     let comments = $('#comments');
 
     if (comments.css('display') === 'none') {
         comments.attr('loaded', 'true');
 
-        youtubeAPI('commentThreads', {
-            'videoId': $('#comments').attr('data-video-id'),
-            'part': 'snippet,replies',
-            'maxResults': 100,
-        }, function (data) {
-            let comments = [];
-            let items = data.items;
+        invidiousAPI('comments', $('#comments').attr('data-video-id'), {}, (data) => {
+          console.log(data);
 
-            items.forEach((object) => {
-                let snippet = object.snippet.topLevelComment.snippet;
+          let comments = [];
 
-                snippet.publishedAt = dateFormat(new Date(snippet.publishedAt), "mmm dS, yyyy");
+          data.comments.forEach((object) => {
 
-                comments.push(snippet);
-            })
-            const commentsTemplate = require('./templates/comments.html');
-            const html = mustache.render(commentsTemplate, {
-                comments: comments,
-            });
-            $('#comments').html(html);
+              let snippet = {
+                author: object.author,
+                authorId: object.authorId,
+                authorThumbnail: object.authorThumbnails[0].url,
+                published: object.publishedText,
+                authorComment: object.content,
+              }
+
+              comments.push(snippet);
+          })
+          const commentsTemplate = require('./templates/comments.html');
+          const html = mustache.render(commentsTemplate, {
+              comments: comments,
+          });
+
+          $('#comments').html(html);
         });
 
         comments.show();
@@ -66,8 +69,14 @@ let playPauseVideo = function (event) {
     el.paused ? el.play() : el.pause();
 };
 
-
+/**
+* Handle keyboard shortcut commands.
+*/
 let videoShortcutHandler = function (event) {
+
+    if (event.which == 68 && event.altKey === true) {
+      $('#search').focus();
+    }
 
     let videoPlayer = $('.videoPlayer').get(0);
     if (typeof (videoPlayer) !== 'undefined' && !$('#jumpToInput').is(':focus') && !$('#search').is(':focus')) {
@@ -92,10 +101,34 @@ let videoShortcutHandler = function (event) {
             event.preventDefault();
             changeDurationBySeconds(10);
             break;
+        case 79:
+            // O Key
+            event.preventDefault();
+            if (videoPlayer.playbackRate > 0.25){
+              let rate = videoPlayer.playbackRate - 0.25;
+              videoPlayer.playbackRate = rate;
+              $('#currentSpeed').html(rate);
+            }
+            break;
+        case 80:
+            // P Key
+            event.preventDefault();
+            if (videoPlayer.playbackRate < 2){
+              let rate = videoPlayer.playbackRate + 0.25;
+              videoPlayer.playbackRate = rate;
+              $('#currentSpeed').html(rate);
+            }
+            break;
         case 70:
             // F Key
             event.preventDefault();
-            videoPlayer.webkitRequestFullscreen();
+
+            if (videoPlayer.webkitDisplayingFullscreen) {
+              videoPlayer.webkitExitFullscreen
+            }
+            else{
+              videoPlayer.webkitRequestFullscreen();
+            }
             break;
         case 77:
             // M Key
@@ -218,13 +251,24 @@ $(document).on('click', '#confirmNo', hideConfirmFunction);
 // Open links externally by default
 $(document).on('click', 'a[href^="http"]', (event) => {
   let el = event.currentTarget;
-  event.preventDefault();
-  shell.openExternal(el.href);
+  if (!el.href.includes('freetube')) {
+    event.preventDefault();
+    shell.openExternal(el.href);
+  }
+  else{
+    window.open(el.href,"_self");
+  }
 });
 
 // Open links externally on middle click.
 $(document).on('auxclick', 'a[href^="http"]', (event) => {
   let el = event.currentTarget;
-  event.preventDefault();
-  shell.openExternal(el.href);
+  if (!el.href.includes('freetube')) {
+    event.preventDefault();
+  }
+  else{
+    event.preventDefault();
+    let url = el.href.replace('freetube://', '');
+    shell.openExternal(el.href);
+  }
 });

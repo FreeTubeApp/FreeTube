@@ -1,0 +1,156 @@
+.playlistSideView {
+  float: left;
+  position: fixed;
+  width: 30%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.playlistSideView img {
+  width: 100%;
+}
+
+.playlistVideo {
+  height: 115px;
+  overflow: hidden;
+}
+
+.playlistVideoView {
+  float: right;
+  width: 60%;
+}
+
+.playlistVideoThumbnail {
+  width: 200px;
+  cursor: pointer;
+}
+
+.playlistVideoThumbnail img {
+  width: 100%;
+  cursor: pointer;
+}
+
+.playlistChannel {
+  height: 70px;
+}
+
+.playlistChannel img {
+    width: 70px;
+    float: left;
+    cursor: pointer;
+    border-radius: 200px 200px 200px 200px;
+    -webkit-border-radius: 200px 200px 200px 200px;
+}
+
+.playlistChannel h3 {
+  float: left;
+  position: relative;
+  cursor: pointer;
+  width: 200px;
+  margin-left: 10px;
+  top: 5px;
+  font-size: 15px;
+}
+
+.playlistVideoSave {
+  background-color: black;
+  color: white;
+  opacity: 0.7;
+  padding: 4px;
+  position: relative;
+  left: 176px;
+  bottom: 117px;
+  cursor: pointer;
+}
+
+.playlistVideoTitle {
+  position: relative;
+  bottom: 160px;
+  margin-left: 210px;
+  font-weight: bold;
+  width: 50%;
+  cursor: pointer;
+}
+
+.playlistChannelName {
+  position: relative;
+  bottom: 160px;
+  margin-left: 210px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+#miniPL {
+  width: 100%;
+}
+
+.miniPLVideo {
+  width: 100%;
+  cursor: pointer;
+  height: 70px;
+}
+
+.miniPLThumbnail {
+  width: 120px;
+  height: 80px;
+  margin-right: 5px;
+  float: left;
+}
+
+.miniPLIndex {
+  float: left;
+  position: relative;
+  width: 15px;
+  top: 30px;
+  margin-right: 35px;
+}
+
+.miniPLVideoTitle {
+  font-weight: bold;
+}
+
+.miniPLVideoChannelName {
+  font-size: 12px;
+  position: relative;
+  bottom: 10px;
+}
+
+#miniPLTitle {
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 20px;
+  padding-top: 25px;
+  cursor: pointer;
+}
+
+#miniPLChannelName {
+  font-size: 15px;
+  font-weight: normal;
+}
+
+#miniPLVideoList {
+  padding: 10px;
+  overflow: scroll;
+  height: 375px;
+}
+
+#miniPLLoop {
+  margin-left: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#miniPLShuffle {
+  margin-left: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#miniPLDropdown {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
+  position: relative;
+  top: 20px;
+  right: 15px;
+}

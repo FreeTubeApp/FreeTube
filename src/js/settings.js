@@ -18,9 +18,6 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
  * A file for functions used for settings.
  */
 
-// To any third party devs that fork the project, please be ethical and change the API keys.
-const apiKeyBank = ['AIzaSyC9E579nh_qqxg6BH4xIce3k_7a9mT4uQc', 'AIzaSyCKplYT6hZIlm2O9FbWTi1G7rkpsLNTq78', 'AIzaSyAE5xzh5GcA_tEDhXmMFd1pEzrL-W7z51E', 'AIzaSyDoFzqwuO9l386eF6BmNkVapjiTJ93CBy4', 'AIzaSyBljfZFPioB0TRJAj-0LS4tlIKl2iucyY4', 'AIzaSyAiKgR75e3XAznCcb1cj4NUJ5rR_y3uB8E', 'AIzaSyBZL2Ie1masjwbIa74bR2GONF3p518npVU', 'AIzaSyA0CkT2lS1q9HHaFYGNGM4Ycjl1kmRy22s', 'AIzaSyDPy5jq2l1Bgv3-MbpGdZd3W3ik1BMZeDc'];
-
 /**
  * Display the settings screen to the user.
  *
@@ -34,11 +31,6 @@ function updateSettingsView() {
   settingsDb.find({}, (err, docs) => {
     docs.forEach((setting) => {
       switch (setting['_id']) {
-        case 'apiKey':
-          if (apiKeyBank.indexOf(setting['value']) == -1) {
-            settingsView.apiKey = setting['value'];
-          }
-          break;
         case 'theme':
           if (currentTheme == '') {
             currentTheme = setting['value'];
@@ -58,6 +50,33 @@ function updateSettingsView() {
     } else {
       settingsView.useTor = false;
     }
+
+    if (rememberHistory) {
+      settingsView.history = true;
+    } else {
+      settingsView.history = false;
+    }
+
+    if (autoplay) {
+      settingsView.autoplay = true;
+    } else {
+      settingsView.autoplay = false;
+    }
+
+    if (enableSubtitles) {
+      settingsView.subtitles = true;
+    } else {
+      settingsView.subtitles = false;
+    }
+
+    if (checkForUpdates) {
+      settingsView.updates = true;
+    } else {
+      settingsView.updates = false;
+    }
+
+    document.getElementById('qualitySelect').value = defaultQuality;
+    document.getElementById('rateSelect').value = defaultPlaybackRate;
   });
 }
 
@@ -68,14 +87,17 @@ function updateSettingsView() {
  */
 function checkDefaultSettings() {
 
-  // Grab a random API Key.
-  settingsView.apiKey = apiKeyBank[Math.floor(Math.random() * apiKeyBank.length)];
   let newSetting;
 
   let settingDefaults = {
     'theme': 'light',
-    'apiKey': settingsView.apiKey,
-    'useTor': false
+    'useTor': false,
+    'history': true,
+    'autoplay': true,
+    'subtitles': false,
+    'updates': true,
+    'quality': '720',
+    'rate': '1',
   };
 
   console.log(settingDefaults);
@@ -99,16 +121,35 @@ function checkDefaultSettings() {
           case 'theme':
             setTheme(docs[0]['value']);
             break;
-          case 'apiKey':
-            if (apiKeyBank.indexOf(docs[0]['value']) == -1) {
-              settingsView.apiKey = docs[0]['value'];
-            }
-            else{
-              settingsView.apiKey = settingDefaults.apiKey;
-            }
-            break;
           case 'useTor':
             useTor = docs[0]['value'];
+            break;
+          case 'history':
+            rememberHistory = docs[0]['value'];
+            break;
+          case 'autoplay':
+            autoplay = docs[0]['value'];
+            break;
+          case 'subtitles':
+            enableSubtitles = docs[0]['value'];
+            break;
+          case 'updates':
+            checkForUpdates = docs[0]['value'];
+
+            if (checkForUpdates) {
+              updateChecker(options, function (error, update) { // callback function
+                  if (error) throw error;
+                  if (update) { // print some update info if an update is available
+                      confirmFunction(update.name + ' is now available! Would you like to download the update?', openReleasePage);
+                  }
+              });
+            }
+            break;
+          case 'quality':
+            defaultQuality = docs[0]['value'];
+            break;
+          case 'rate':
+            defaultPlaybackRate = docs[0]['value'];
             break;
           default:
             break;
@@ -126,23 +167,26 @@ function checkDefaultSettings() {
 function updateSettings() {
   let themeSwitch = document.getElementById('themeSwitch').checked;
   let torSwitch = document.getElementById('torSwitch').checked;
-  let key = document.getElementById('api-key').value;
+  let historySwitch = document.getElementById('historySwitch').checked;
+  let autoplaySwitch = document.getElementById('autoplaySwitch').checked;
+  let subtitlesSwitch = document.getElementById('subtitlesSwitch').checked;
+  let updatesSwitch = document.getElementById('updatesSwitch').checked;
+  let qualitySelect = document.getElementById('qualitySelect').value;
+  let rateSelect = document.getElementById('rateSelect').value;
   let theme = 'light';
 
-  if (apiKeyBank.indexOf(key) == -1 && key !== '') {
-    settingsView.apiKey = key;
-  }
-  else{
-    settingsView.apiKey = apiKeyBank[Math.floor(Math.random() * apiKeyBank.length)];
-  }
-
-  console.log(themeSwitch);
+  settingsView.useTor = torSwitch;
+  settingsView.history = historySwitch;
+  settingsView.autoplay = autoplaySwitch;
+  settingsView.subtitles = subtitlesSwitch;
+  settingsView.updates = updatesSwitch;
+  rememberHistory = historySwitch;
+  defaultQuality = qualitySelect;
+  defaultPlaybackRate = rateSelect;
 
   if (themeSwitch === true) {
     theme = 'dark';
   }
-
-  console.log(theme);
 
   // Update default theme
   settingsDb.update({
@@ -165,12 +209,71 @@ function updateSettings() {
     useTor = torSwitch;
   });
 
-  // To any third party devs that fork the project, please be ethical and change the API key.
+  // Update history
   settingsDb.update({
-    _id: 'apiKey'
+    _id: 'history'
   }, {
-    value: settingsView.apiKey
-  }, {});
+    value: historySwitch
+  }, {}, function(err, numReplaced) {
+    console.log(err);
+    console.log(numReplaced);
+    rememberHistory = historySwitch;
+  });
+
+  // Update autoplay.
+  settingsDb.update({
+    _id: 'autoplay'
+  }, {
+    value: autoplaySwitch
+  }, {}, function(err, numReplaced) {
+    console.log(err);
+    console.log(numReplaced);
+    autoplay = autoplaySwitch;
+  });
+
+  // Update subtitles.
+  settingsDb.update({
+    _id: 'subtitles'
+  }, {
+    value: subtitlesSwitch
+  }, {}, function(err, numReplaced) {
+    console.log(err);
+    console.log(numReplaced);
+    enableSubtitles = subtitlesSwitch;
+  });
+
+  // Update checkForUpdates.
+  settingsDb.update({
+    _id: 'updates'
+  }, {
+    value: updatesSwitch
+  }, {}, function(err, numReplaced) {
+    console.log(err);
+    console.log(numReplaced);
+    checkForUpdates = updatesSwitch;
+  });
+
+  // Update default quality.
+  settingsDb.update({
+    _id: 'quality'
+  }, {
+    value: qualitySelect
+  }, {}, function(err, numReplaced) {
+    console.log(err);
+    console.log(numReplaced);
+    defaultQuality = qualitySelect;
+  });
+
+  // Update default playback rate.
+  settingsDb.update({
+    _id: 'rate'
+  }, {
+    value: rateSelect
+  }, {}, function(err, numReplaced) {
+    console.log(err);
+    console.log(numReplaced);
+    defaultPlaybackRate = rateSelect;
+  });
 
   showToast('Settings have been saved.');
 }
