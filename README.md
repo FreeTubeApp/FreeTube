@@ -3,7 +3,7 @@
 </p>
 
 FreeTube is an open source desktop YouTube player built with privacy in mind.
-Use YouTube without advertisments and prevent Google tracking from you with their cookies and JavaScript.
+Use YouTube without advertisements and prevent Google tracking from you with their cookies and JavaScript.
 Available for Windows, Mac & Linux thanks to Electron.
 
 Please note that FreeTube is currently in Beta. While it should work well for
@@ -18,7 +18,7 @@ Download our browser extension so that you can click on videos in your browser a
 
 [Download for Firefox](https://addons.mozilla.org/en-US/firefox/addon/freetube-redirect/)
 
-[Instructrions for Google Chrome](https://github.com/FreeTubeApp/FreeTube/wiki/Browser-Extension)
+[Instructions for Google Chrome](https://github.com/FreeTubeApp/FreeTube/wiki/Browser-Extension)
 
 ## How does it work?
 FreeTube uses the proprietary [YouTube HTTP
