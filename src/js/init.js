@@ -39,17 +39,17 @@ protocol.registerStandardSchemes(['freetube']);
 
 app.setAsDefaultProtocolClient('freetube');
 
-const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
-    // Someone tried to run a second instance, we should focus our window.
-    if (win) {
-        if (win.isMinimized()) win.restore()
-        win.focus()
+const gotTheLock = app.requestSingleInstanceLock()
+if (gotTheLock)
+    app.on('second-instance', (event, commandLine, workingDirectory) => {
+        if (win) {
+            if (win.isMinimized()) win.restore()
+            win.focus()
+        }
+    })
+}
 
-        win.webContents.send('ping', commandLine)
-    }
-});
-
-if (require('electron-squirrel-startup') || isSecondInstance) app.quit();
+if (require('electron-squirrel-startup') || !gotTheLock) app.quit();
 
 /**
  * Initialize the Electron application
