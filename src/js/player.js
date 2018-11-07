@@ -68,8 +68,9 @@ function playVideo(videoId, playlistId = '') {
         playerView.channelName = data.author;
         playerView.channelId = data.authorId;
         playerView.channelIcon = data.authorThumbnails[2].url;
-
+        
         let videoUrls = data.formatStreams;
+        let formatUrls = data.adaptiveFormats;
 
         // Add commas to the video view count.
         playerView.videoViews = data.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -94,12 +95,11 @@ function playVideo(videoId, playlistId = '') {
                 playerView.video720p = decodeURIComponent(videoUrls[key]['url']);
                 //console.log(video720p);
                 break;
-            case '36':
-                playerView.videoAudio = decodeURIComponent(videoUrls[key]['url']);
-                //console.log(video720p);
-                break;
             }
         });
+        
+        // Last adaptive format will be best the quality audio stream (migrate fully to adaptive formats later)
+        playerView.videoAudio = decodeURIComponent(formatUrls[formatUrls.length - 1]['url']);
 
         if (typeof(playerView.videoAudio) === 'undefined') {
           playerView.validAudio = false;
