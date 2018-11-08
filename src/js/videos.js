@@ -193,7 +193,8 @@ function displayVideo(videoData, listType = '') {
             video.removeFromSave = false;
             break;
         case 'history':
-            historyView.videoList = historyView.videoList.concat(video);
+            historyView.videoList.splice(videoData.position, 0, video);
+            console.log(video);
             video.removeFromSave = false;
             break;
         case 'channel':

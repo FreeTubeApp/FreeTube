@@ -25,7 +25,10 @@
  * @return {Void}
  */
 
-function invidiousAPI(resource, id, params, success) {
+function invidiousAPI(resource, id, params, success, fail = function(){
+  showToast('There was an error calling the Invidious API.');
+  loadingView.seen = false;
+}) {
   let requestUrl = 'https://www.invidio.us/api/v1/' + resource + '/' + id + '?' + $.param(params);
 
   if (useTor) {
@@ -45,12 +48,10 @@ function invidiousAPI(resource, id, params, success) {
       requestUrl,
       success
     ).fail((xhr, textStatus, error) => {
-      showToast('There was an error calling the Invidious API.');
-      console.log(error);
+      fail(xhr);
       console.log(xhr);
       console.log(textStatus);
       console.log(requestUrl);
-      loadingView.seen = false;
     });
   }
 }
