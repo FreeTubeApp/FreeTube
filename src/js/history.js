@@ -42,7 +42,11 @@ function addToHistory(videoId){
 */
 function removeFromHistory(videoId){
   const data = {videoId: videoId};
-  historyDb.remove(data, {}, (err, numRemoved) => {});
+  historyDb.remove(data, {}, (err, numRemoved) => {
+    if (!err) {
+      showToast('Video removed from history');
+    }
+  });
 }
 
 /**

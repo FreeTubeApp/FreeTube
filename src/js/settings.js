@@ -318,12 +318,14 @@ function setTheme(option) {
       document.getElementById('menuText').src = 'icons/textBlack.png';
       document.getElementById('menuIcon').src = 'icons/iconBlack.png';
       document.getElementById('menuButton').style.color = 'black';
+      document.getElementById('reloadButton').style.color = 'black';
       break;
     case 'dark':
       cssFile = './style/darkTheme.css';
       document.getElementById('menuText').src = 'icons/textColor.png';
       document.getElementById('menuIcon').src = 'icons/iconColor.png';
       document.getElementById('menuButton').style.color = 'white';
+      document.getElementById('reloadButton').style.color = 'white';
       break;
     default:
       // Default to the light theme

@@ -20,6 +20,10 @@ let checkPopular = true;
 let trendingTimer;
 let checkTrending = true;
 
+const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+];
+
 /**
  * Perform a search using the YouTube API. The search query is grabbed from the #search element.
  *
@@ -105,14 +109,16 @@ function displayVideo(videoData, listType = '') {
         }
 
         video.views = videoData.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        let time = videoData.lengthSeconds;
 
-        if (videoData.liveNow === true){
-          video.liveText = (videoData.liveNow === true) ? 'LIVE NOW' : '';
+        if (videoData.liveNow === true || time < 0){
+          video.liveText = 'LIVE NOW';
           video.duration = '';
           video.publishedDate = '';
           video.viewText = 'watching';
         }
         else{
+          let now = Date.now();
           video.liveText = '';
 
           if (video.views <= 1) {
@@ -122,32 +128,37 @@ function displayVideo(videoData, listType = '') {
             video.viewText = 'views';
           }
 
-          let time = videoData.lengthSeconds;
+          let published = new Date(videoData.published * 1000);
           let hours = 0;
 
-          if (time >= 3600) {
-              hours = Math.floor(time / 3600);
-              time = time - hours * 3600;
+          if (now < published.getTime()) {
+            video.publishedDate = 'Premieres on ' + published.toLocaleString();
           }
+          else {
+            if (time >= 3600) {
+                hours = Math.floor(time / 3600);
+                time = time - hours * 3600;
+            }
 
-          let minutes = Math.floor(time / 60);
-          let seconds = time - minutes * 60;
+            let minutes = Math.floor(time / 60);
+            let seconds = time - minutes * 60;
 
-          if (seconds < 10) {
-              seconds = '0' + seconds;
+            if (seconds < 10) {
+                seconds = '0' + seconds;
+            }
+
+            if (minutes < 10 && hours > 0) {
+              minutes = '0' + minutes;
+            }
+
+            if (hours > 0) {
+                video.duration = hours + ":" + minutes + ":" + seconds;
+            } else {
+                video.duration = minutes + ":" + seconds;
+            }
+
+            video.publishedDate = videoData.publishedText;
           }
-
-          if (minutes < 10 && hours > 0) {
-            minutes = '0' + minutes;
-          }
-
-          if (hours > 0) {
-              video.duration = hours + ":" + minutes + ":" + seconds;
-          } else {
-              video.duration = minutes + ":" + seconds;
-          }
-
-          video.publishedDate = videoData.publishedText;
         }
 
         //const searchMenu = $('#videoListContainer').html();

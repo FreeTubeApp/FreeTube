@@ -6,6 +6,9 @@
                     <div class='videoOptions'>
                         <i class="fas fa-ellipsis-v" onclick='showVideoOptions(this)'></i>
                         <ul>
+                          <div v-if='video.watched'>
+                              <li v-on:click='history(video.id)' onclick='showVideoOptions(this.parentNode.parentNode.previousSibling);'>Remove From History</li>
+                          </div>
                             <a :href='video.youtubeUrl' onclick='showVideoOptions(this.parentNode.previousSibling);'>
                                 <li>Open in YouTube</li>
                             </a>
