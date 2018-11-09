@@ -315,15 +315,15 @@ function setTheme(option) {
   switch (option) {
     case 'light':
       cssFile = './style/lightTheme.css';
-      document.getElementById('menuText').src = 'icons/textBlack.png';
-      document.getElementById('menuIcon').src = 'icons/iconBlack.png';
+      document.getElementById('menuText').src = 'icons/textBlackSmall.png';
+      document.getElementById('menuIcon').src = 'icons/iconBlackSmall.png';
       document.getElementById('menuButton').style.color = 'black';
       document.getElementById('reloadButton').style.color = 'black';
       break;
     case 'dark':
       cssFile = './style/darkTheme.css';
-      document.getElementById('menuText').src = 'icons/textColor.png';
-      document.getElementById('menuIcon').src = 'icons/iconColor.png';
+      document.getElementById('menuText').src = 'icons/textColorSmall.png';
+      document.getElementById('menuIcon').src = 'icons/iconColorSmall.png';
       document.getElementById('menuButton').style.color = 'white';
       document.getElementById('reloadButton').style.color = 'white';
       break;
