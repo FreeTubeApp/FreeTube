@@ -122,9 +122,12 @@ function showSavedVideos() {
     savedVidsDb.find({}).sort({
         timeSaved: -1
     }).exec((err, docs) => {
+        let position = 0;
         docs.forEach((video) => {
             invidiousAPI('videos', video.videoId, {}, (data) => {
+                data.position = position;
                 displayVideo(data, 'saved');
+                position++;
             });
         });
 

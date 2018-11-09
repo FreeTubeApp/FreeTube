@@ -200,12 +200,11 @@ function displayVideo(videoData, listType = '') {
             video.removeFromSave = false
             break;
         case 'saved':
-            savedView.videoList = savedView.videoList.concat(video);
+            savedView.videoList.splice(videoData.position, 0, video);
             video.removeFromSave = false;
             break;
         case 'history':
             historyView.videoList.splice(videoData.position, 0, video);
-            console.log(video);
             video.removeFromSave = false;
             break;
         case 'channel':
