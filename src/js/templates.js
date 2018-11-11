@@ -101,7 +101,7 @@ let sideNavBar = new Vue({
       if (loadingView.seen !== false){
         loadingView.seen = false;
       }
-      if(savedView.videoList.length === 0){
+      else{
         loadingView.seen = true;
       }
       headerView.seen = true;
@@ -114,7 +114,7 @@ let sideNavBar = new Vue({
       if (loadingView.seen !== false){
         loadingView.seen = false;
       }
-      if(historyView.videoList.length === 0){
+      else{
         loadingView.seen = true;
       }
       headerView.seen = true;
@@ -171,6 +171,9 @@ let subscriptionView = new Vue({
       const url = 'https://' + site + '/watch?v=' + videoId;
       clipboard.writeText(url);
       showToast('URL has been copied to the clipboard');
+    },
+    history: (videoId) => {
+      removeFromHistory(videoId);
     }
   },
   template: videoListTemplate
@@ -198,6 +201,9 @@ let popularView = new Vue({
       const url = 'https://' + site + '/watch?v=' + videoId;
       clipboard.writeText(url);
       showToast('URL has been copied to the clipboard');
+    },
+    history: (videoId) => {
+      removeFromHistory(videoId);
     }
   },
   template: videoListTemplate
@@ -225,6 +231,9 @@ let trendingView = new Vue({
       const url = 'https://' + site + '/watch?v=' + videoId;
       clipboard.writeText(url);
       showToast('URL has been copied to the clipboard');
+    },
+    history: (videoId) => {
+      removeFromHistory(videoId);
     }
   },
   template: videoListTemplate
@@ -252,6 +261,9 @@ let savedView = new Vue({
       const url = 'https://' + site + '/watch?v=' + videoId;
       clipboard.writeText(url);
       showToast('URL has been copied to the clipboard');
+    },
+    history: (videoId) => {
+      removeFromHistory(videoId);
     }
   },
   template: videoListTemplate
@@ -279,6 +291,9 @@ let historyView = new Vue({
       const url = 'https://' + site + '/watch?v=' + videoId;
       clipboard.writeText(url);
       showToast('URL has been copied to the clipboard');
+    },
+    history: (videoId) => {
+      removeFromHistory(videoId);
     }
   },
   template: videoListTemplate
@@ -314,6 +329,9 @@ let playlistView = new Vue({
       const url = 'https://' + site + '/watch?v=' + videoId;
       clipboard.writeText(url);
       showToast('URL has been copied to the clipboard');
+    },
+    history: (videoId) => {
+      removeFromHistory(videoId);
     }
   },
   template: playlistViewTemplate
@@ -426,6 +444,9 @@ let channelVideosView = new Vue({
       clipboard.writeText(url);
       showToast('URL has been copied to the clipboard');
     },
+    history: (videoId) => {
+      removeFromHistory(videoId);
+    }
   },
   template: videoListTemplate
 });

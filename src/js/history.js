@@ -42,7 +42,11 @@ function addToHistory(videoId){
 */
 function removeFromHistory(videoId){
   const data = {videoId: videoId};
-  historyDb.remove(data, {}, (err, numRemoved) => {});
+  historyDb.remove(data, {}, (err, numRemoved) => {
+    if (!err) {
+      showToast('Video removed from history');
+    }
+  });
 }
 
 /**
@@ -58,9 +62,12 @@ function showHistory(){
   historyDb.find({}).sort({
     timeWatched: -1
   }).exec((err, docs) => {
+    let position = 0;
     docs.forEach((video) => {
         invidiousAPI('videos', video.videoId, {}, (data) => {
+            data.position = position;
             displayVideo(data, 'history');
+            position++;
         });
     });
 
