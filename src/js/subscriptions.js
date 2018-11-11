@@ -22,7 +22,9 @@
  */
 
 let subscriptionTimer;
+let forceTimer;
 let checkSubscriptions = true;
+let forceSubs = true;
 
 /**
  * Add a channel to the user's subscription database.
@@ -108,32 +110,14 @@ function loadSubscriptions() {
                     progressView.progressWidth = (counter / results.length) * 100;
 
                     if (counter === results.length) {
-                        videoList.sort((a, b) => {
-                            return b.published - a.published;
-                        });
-
-                        subscriptionView.videoList = [];
-                        console.log(videoList);
-
-                        if (videoList.length > 100) {
-                            for (let i = 0; i < 100; i++) {
-                                displayVideo(videoList[i], 'subscriptions');
-                            }
-                        } else {
-                            videoList.forEach((video) => {
-                                displayVideo(video, 'subscriptions');
-                            });
-                        }
-
-                        loadingView.seen = false;
-                        progressView.seen = false;
-                        progressView.progressWidth = 0;
-
-                        subscriptionTimer = window.setTimeout(() => {
-                            checkSubscriptions = true;
-                        }, 60000);
-
-                        console.log('Done');
+                        addSubsToView(videoList);
+                    }
+                }, (errorData) => {
+                    showToast('Unable to load channel: ' + results[i]['channelName']);
+                    counter = counter + 1;
+                    progressView.progressWidth = (counter / results.length) * 100;
+                    if (counter === results.length) {
+                        addSubsToView(videoList);
                     }
                 });
             }
@@ -144,6 +128,53 @@ function loadSubscriptions() {
             noSubscriptions.seen = true;
         }
     });
+}
+
+function addSubsToView(videoList) {
+    videoList.sort((a, b) => {
+        return b.published - a.published;
+    });
+
+    subscriptionView.videoList = [];
+    console.log(videoList);
+
+    if (videoList.length > 100) {
+        for (let i = 0; i < 100; i++) {
+            displayVideo(videoList[i], 'subscriptions');
+        }
+    } else {
+        videoList.forEach((video) => {
+            displayVideo(video, 'subscriptions');
+        });
+    }
+
+    loadingView.seen = false;
+    progressView.seen = false;
+    progressView.progressWidth = 0;
+
+    subscriptionTimer = window.setTimeout(() => {
+        checkSubscriptions = true;
+    }, 7200000);
+
+    console.log('Done');
+}
+
+function forceSubscriptions() {
+    if (progressView.progressWidth > 0) {
+        showToast('Please wait for subscriptions to finish loading before trying again.');
+        return;
+    } else if (forceSubs === false) {
+        showToast('Too many attempts.  Please wait before loading subscriptions again.');
+        return;
+    } else {
+        window.clearTimeout(subscriptionTimer);
+        checkSubscriptions = true;
+        loadSubscriptions();
+        forceSubs = false;
+    }
+    forceTimer = window.setTimeout(() => {
+        forceSubs = true;
+    }, 300000);
 }
 
 /**

@@ -78,6 +78,12 @@ let videoShortcutHandler = function (event) {
       $('#search').focus();
     }
 
+    if (event.which == 82 && event.shiftKey === false && event.ctrlKey === true && !$('#jumpToInput').is(':focus') && !$('#search').is(':focus')) {
+      event.stopPropagation();
+      event.preventDefault();
+      forceSubscriptions();
+    }
+
     let videoPlayer = $('.videoPlayer').get(0);
     if (typeof (videoPlayer) !== 'undefined' && !$('#jumpToInput').is(':focus') && !$('#search').is(':focus')) {
         switch (event.which) {

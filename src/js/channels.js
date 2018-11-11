@@ -66,6 +66,9 @@ function goToChannel(channelId) {
     data.latestVideos.forEach((video) => {
       displayVideo(video, 'channel');
     });
+  }, (errorData) => {
+    showToast(errorData.responseJSON.error);
+    loadingView.seen = false;
   });
 }
 

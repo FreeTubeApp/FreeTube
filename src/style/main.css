@@ -82,6 +82,15 @@ a {
     top: 3px;
 }
 
+#reloadButton {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 20px;
+    position: relative;
+    top: 3px;
+}
+
 #menuIcon {
     width: 25px;
     position: relative;
