@@ -122,14 +122,22 @@ function showSavedVideos() {
     savedVidsDb.find({}).sort({
         timeSaved: -1
     }).exec((err, docs) => {
-        let position = 0;
-        docs.forEach((video) => {
-            invidiousAPI('videos', video.videoId, {}, (data) => {
-                data.position = position;
-                displayVideo(data, 'saved');
-                position++;
-            });
-        });
+      if (docs.length < 100) {
+        for (let i = 0; i < docs.length; i++) {
+          invidiousAPI('videos', docs[i].videoId, {}, (data) => {
+              data.position = i;
+              displayVideo(data, 'saved');
+          });
+        }
+      }
+      else{
+        for (let i = 0; i < 100; i++) {
+          invidiousAPI('videos', docs[i].videoId, {}, (data) => {
+              data.position = i;
+              displayVideo(data, 'saved');
+          });
+        }
+      }
 
         loadingView.seen = false;
     });
