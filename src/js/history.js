@@ -62,14 +62,23 @@ function showHistory(){
   historyDb.find({}).sort({
     timeWatched: -1
   }).exec((err, docs) => {
-    let position = 0;
-    docs.forEach((video) => {
-        invidiousAPI('videos', video.videoId, {}, (data) => {
-            data.position = position;
+
+    if (docs.length < 100) {
+      for (let i = 0; i < docs.length; i++) {
+        invidiousAPI('videos', docs[i].videoId, {}, (data) => {
+            data.position = i;
             displayVideo(data, 'history');
-            position++;
         });
-    });
+      }
+    }
+    else{
+      for (let i = 0; i < 100; i++) {
+        invidiousAPI('videos', docs[i].videoId, {}, (data) => {
+            data.position = i;
+            displayVideo(data, 'history');
+        });
+      }
+    }
 
     loadingView.seen = false;
   });
