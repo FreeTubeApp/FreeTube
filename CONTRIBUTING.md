@@ -1,7 +1,3 @@
-# API Keys
-
-When you are testing and working on FreeTube, PLEASE use your own API Key.  The keys included in the project are in use by the userbase and testing can cause these keys to max out.  Please do not risk degrading the experience for other users and use your own key if at all possible.  Thank you for your cooperation.
-
 # Code Contributions
 
 Please follow these guidlines before sending your pull request and making contributions.
