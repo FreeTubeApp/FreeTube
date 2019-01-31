@@ -165,7 +165,7 @@ let subscriptionView = new Vue({
       goToChannel(channelId);
     },
     toggleSave: (videoId) => {
-      toggleSavedVideo(videoId);
+      addSavedVideo(videoId);
     },
     copy: (site, videoId) => {
       const url = 'https://' + site + '/watch?v=' + videoId;
@@ -255,7 +255,7 @@ let savedView = new Vue({
       goToChannel(channelId);
     },
     toggleSave: (videoId) => {
-      addSavedVideo(videoId);
+      toggleSavedVideo(videoId);
     },
     copy: (site, videoId) => {
       const url = 'https://' + site + '/watch?v=' + videoId;
@@ -528,7 +528,7 @@ let playerView = new Vue({
       showToast('URL has been copied to the clipboard');
     },
     save: (videoId) => {
-      toggleSavedVideo(videoId);
+      addSavedVideo(videoId);
     },
     play: (videoId, playlistId = '') => {
       loadingView.seen = true;
