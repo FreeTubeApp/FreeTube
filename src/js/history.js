@@ -62,12 +62,10 @@ function showHistory(){
   historyDb.find({}).sort({
     timeWatched: -1
   }).exec((err, docs) => {
-    let position = 0;
-    docs.forEach((video) => {
+    docs.forEach((video, index) => {
         invidiousAPI('videos', video.videoId, {}, (data) => {
-            data.position = position;
+            data.position = index;
             displayVideo(data, 'history');
-            position++;
         });
     });
 
