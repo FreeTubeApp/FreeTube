@@ -30,7 +30,20 @@ function addToHistory(videoId){
     videoId: videoId,
     timeWatched: new Date().getTime(),
   };
-  historyDb.insert(data, (err, newDoc) => {});
+
+  historyDb.findOne({ videoId: videoId }, function (err, doc) {
+    if(doc === null) {
+      historyDb.insert(data, (err, newDoc) => {});
+    } else {
+      historyDb.update(
+        { videoId: videoId }, 
+        { 
+          $set: {
+            timeWatched: data.timeWatched,
+          } 
+        }, {}, (err, newDoc) => {});
+    }
+  });
 }
 
 /**
