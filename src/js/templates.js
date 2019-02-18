@@ -318,9 +318,13 @@ let playlistView = new Vue({
     play: (videoId) => {
       loadingView.seen = true;
       playVideo(videoId, playlistView.playlistId);
+
+      backButtonView.lastView = playlistView
     },
     channel: (channelId) => {
       goToChannel(channelId);
+
+      backButtonView.lastView = playlistView
     },
     toggleSave: (videoId) => {
       addSavedVideo(videoId);
@@ -373,9 +377,13 @@ let searchView = new Vue({
     play: (videoId) => {
       loadingView.seen = true;
       playVideo(videoId);
+      
+      backButtonView.lastView = searchView
     },
     channel: (channelId) => {
       goToChannel(channelId);
+
+      backButtonView.lastView = searchView
     },
     toggleSave: (videoId) => {
       addSavedVideo(videoId);
@@ -391,6 +399,8 @@ let searchView = new Vue({
     },
     playlist: (playlistId) => {
       showPlaylist(playlistId);
+
+      backButtonView.lastView = searchView
     },
   },
   template: videoListTemplate
@@ -573,6 +583,46 @@ let playerView = new Vue({
   template: playerTemplate
 });
 
+let backButtonView = new Vue({
+  el: '#backButton',
+  data: {
+    lastView: false
+  },
+  methods: {
+    back: function() {
+      // variable here because this.lastView gets reset in hideViews()
+      const isSearch = this.lastView.$options.el === "#searchView";
+
+      hideViews();
+
+      // Check if lastView was search
+      if(isSearch) {
+        // Change back to searchView
+        headerView.seen = true;
+        headerView.title = 'Search Results';
+        searchView.seen = true;
+
+        // reset this.lastView
+        this.lastView = false;
+      } else {
+        // if not search then this.lastView has to be playlistView
+
+        // Change back to playlistView
+        playlistView.seen = true;
+
+        // Check if searchView has videos if it does set this.lastView as searchView
+        this.lastView = searchView.videoList.length > 0 ? searchView : false;
+      }
+    }
+  },
+  computed: {
+    canShowBackButton: function() {
+      // this.lastView can be either searchView or playlistView
+      return !!this.lastView && !this.lastView.seen && this.lastView.videoList.length > 0;
+    }
+  },
+});
+
 function hideViews(){
   subscriptionView.seen = false;
   noSubscriptions.seen = false;
@@ -588,4 +638,6 @@ function hideViews(){
   playerView.seen = false;
   channelView.seen = false;
   channelVideosView.seen = false;
+
+  backButtonView.lastView = false;
 }
