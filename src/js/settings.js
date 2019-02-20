@@ -77,6 +77,8 @@ function updateSettingsView() {
 
     document.getElementById('qualitySelect').value = defaultQuality;
     document.getElementById('rateSelect').value = defaultPlaybackRate;
+
+    settingsView.defaultProxy = defaultProxy;
   });
 }
 
@@ -98,6 +100,7 @@ function checkDefaultSettings() {
     'updates': true,
     'quality': '720',
     'rate': '1',
+    'proxy': "SOCKS5://127.0.0.1:9050" // This is default value for tor client
   };
 
   console.log(settingDefaults);
@@ -151,6 +154,13 @@ function checkDefaultSettings() {
           case 'rate':
             defaultPlaybackRate = docs[0]['value'];
             break;
+          case 'proxy':
+            defaultProxy = docs[0]['value'];
+            
+            if(useTor && defaultProxy) {
+              electron.ipcRenderer.send("setProxy", defaultProxy);
+            }
+            break;
           default:
             break;
         }
@@ -173,6 +183,7 @@ function updateSettings() {
   let updatesSwitch = document.getElementById('updatesSwitch').checked;
   let qualitySelect = document.getElementById('qualitySelect').value;
   let rateSelect = document.getElementById('rateSelect').value;
+  let proxy = document.getElementById('proxy').value;
   let theme = 'light';
 
   settingsView.useTor = torSwitch;
@@ -180,9 +191,11 @@ function updateSettings() {
   settingsView.autoplay = autoplaySwitch;
   settingsView.subtitles = subtitlesSwitch;
   settingsView.updates = updatesSwitch;
+  settingsView.defaultProxy = proxy;
   rememberHistory = historySwitch;
   defaultQuality = qualitySelect;
   defaultPlaybackRate = rateSelect;
+  defaultProxy = proxy;
 
   if (themeSwitch === true) {
     theme = 'dark';
@@ -207,6 +220,17 @@ function updateSettings() {
     console.log(err);
     console.log(numReplaced);
     useTor = torSwitch;
+  });
+
+  // Update proxy address
+  settingsDb.update({
+    _id: 'proxy'
+  }, {
+    value: proxy
+  }, {}, function(err, numReplaced) {
+    console.log(err);
+    console.log(numReplaced);
+    defaultProxy = proxy;
   });
 
   // Update history
@@ -274,6 +298,13 @@ function updateSettings() {
     console.log(numReplaced);
     defaultPlaybackRate = rateSelect;
   });
+
+  // set proxy in electron based on new values
+  if(torSwitch) {
+    electron.ipcRenderer.send("setProxy", proxy);
+  } else {
+    electron.ipcRenderer.send("setProxy", {});
+  }
 
   showToast('Settings have been saved.');
 }

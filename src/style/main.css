@@ -219,6 +219,19 @@ a {
     border-bottom: 1px solid #616161;
 }
 
+.input-text-settings input {
+    width: auto;
+    border-bottom: 1px solid #616161;
+    width: 50%;
+    margin: 0 auto;
+    display: block;
+}
+
+#ipInfoSettings {
+    border: 1px solid;
+    margin: 10px 0;
+}
+
 .settingsButton {
     padding: 10px;
     display: inline-block;

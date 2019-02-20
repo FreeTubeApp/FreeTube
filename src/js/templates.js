@@ -357,6 +357,31 @@ let settingsView = new Vue({
     autoplay: true,
     subtitles: false,
     updates: true,
+    defaultProxy: false,
+    checkProxyResult: false,
+    proxyTestLoading: false
+  },
+  methods: {
+    checkProxy() {
+      this.proxyTestLoading = true;
+      $.getJSON(
+        "https://ifconfig.co/json",
+        response => { 
+          this.checkProxyResult = response;
+          this.proxyTestLoading = false;
+        }
+      ).fail((xhr, textStatus, error) => {
+        console.log(xhr);
+        console.log(textStatus);
+        showToast('Proxy test failed');
+        this.proxyTestLoading = false;
+      });
+    }
+  },
+  computed: {
+    proxyTestButtonText() {
+      return this.proxyTestLoading ? "LOADING..." : "TEST PROXY"
+    }
   },
   template: settingsTemplate
 });

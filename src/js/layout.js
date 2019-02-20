@@ -50,6 +50,10 @@ let checkForUpdates = true;
 let currentVolume = 1;
 let defaultQuality = 720;
 let defaultPlaybackRate = '1';
+// Proxy address variable
+let defaultProxy = false;
+// This variable is to make sure that proxy was set before making any API calls
+let proxyAvailable = false;
 
 let dialog = electron.remote.dialog; // Used for opening file browser to export / import subscriptions.
 let toastTimeout; // Timeout for toast notifications.
@@ -67,6 +71,11 @@ electron.ipcRenderer.on('ping', function(event, message) {
     let url = message[1].replace('freetube://', '');
     parseSearchText(url);
     ft.log(message);
+});
+
+// Listens for proxy to be set in main process
+electron.ipcRenderer.on('proxyAvailable', function(event, message) {
+    proxyAvailable = true;
 });
 
 $(document).ready(() => {

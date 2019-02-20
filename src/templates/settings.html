@@ -3,8 +3,6 @@
     <div class='center'>
         <input type="checkbox" id="themeSwitch" name="set-name" class="switch-input" onchange='toggleTheme(this)' :checked='useTheme'>
         <label for="themeSwitch" class="switch-label">Use Dark Theme</label>
-        <input type="checkbox" id="torSwitch" name="set-name" class="switch-input" :checked='useTor'>
-        <label for="torSwitch" class="switch-label">Use Tor for API calls</label>
         <input type="checkbox" id="updatesSwitch" name="set-name" class="switch-input" :checked='updates'>
         <label for="updatesSwitch" class="switch-label">Check for Updates</label>
         <br />
@@ -43,6 +41,31 @@
         </div>
         <br />
     </div>
+    <div class="center">
+        <input type="checkbox" id="torSwitch" name="set-name" class="switch-input" :checked='useTor'>
+        <label for="torSwitch" class="switch-label">Use Tor / Proxy for API calls</label>
+
+        <div class="input-text-settings">
+            <label for="proxy">Proxy Address (Example: SOCKS5://127.0.0.1:9050):</label>
+            <input  type="text" id="proxy" name="set-name" :value="defaultProxy">
+        </div>
+        
+        <div id="ipInfoSettings" v-if="checkProxyResult">
+            <h4>Your Info:</h4>
+            <p>ip: {{checkProxyResult.ip}}</p>
+            <p>ip_decimal: {{checkProxyResult.ip_decimal}}</p>
+            <p>country: {{checkProxyResult.country}}</p>
+            <p>city: {{checkProxyResult.city || "N/A"}}</p>
+            <p>hostname: {{checkProxyResult.hostname || "N/A"}}</p>
+        </div>
+
+        <p>Clicking "TEST PROXY" button will send a request to https://ifconfig.co/json</p>
+        <div v-on:click='checkProxy()' class='center settingsButton'>
+            {{proxyTestButtonText}}
+        </div>
+    </div>
+    <br />
+    <br />
     <div class='center'>
         <div onclick='importSubscriptions()' class='settingsButton'>
             IMPORT SUBSCRIPTIONS

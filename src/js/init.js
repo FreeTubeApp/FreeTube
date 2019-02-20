@@ -24,7 +24,8 @@ const {
     app,
     BrowserWindow,
     dialog,
-    protocol
+    protocol,
+    ipcMain
 } = require('electron');
 const path = require('path');
 const url = require('url');
@@ -163,6 +164,17 @@ let init = function () {
 
     const menu = Menu.buildFromTemplate(template);
     Menu.setApplicationMenu(menu);
+
+    /**
+     * Sets proxy when setProxy event is sent from renderer
+     * 
+     * example data "SOCKS5://127.0.0.1:9050"
+     */
+    ipcMain.on("setProxy", (_e, data) => {
+        win.webContents.session.setProxy({ proxyRules: data }, function () {
+            win.webContents.send("proxyAvailable")
+        });
+    });
 };
 
 /**
