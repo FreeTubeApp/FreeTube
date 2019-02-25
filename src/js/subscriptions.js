@@ -131,6 +131,10 @@ function loadSubscriptions() {
 }
 
 function addSubsToView(videoList) {
+    videoList = videoList.filter(a => {
+        return !a.premium;
+    });
+
     videoList.sort((a, b) => {
         return b.published - a.published;
     });
