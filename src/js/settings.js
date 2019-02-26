@@ -78,7 +78,11 @@ function updateSettingsView() {
     document.getElementById('qualitySelect').value = defaultQuality;
     document.getElementById('rateSelect').value = defaultPlaybackRate;
 
-    settingsView.proxyAddress = defaultProxy;
+    if(defaultProxy) {
+      settingsView.proxyAddress = defaultProxy;
+    } else {
+      settingsView.proxyAddress = "SOCKS5://127.0.0.1:9050";
+    }
   });
 }
 
