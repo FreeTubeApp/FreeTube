@@ -50,6 +50,13 @@ let loadingView = new Vue({
   }
 });
 
+let searchFilter = new Vue({
+  el: '#searchFilter',
+  data: {
+    seen: false
+  }
+});
+
 let noSubscriptions = new Vue({
   el: '#noSubscriptions',
   data: {
@@ -377,7 +384,7 @@ let searchView = new Vue({
     play: (videoId) => {
       loadingView.seen = true;
       playVideo(videoId);
-      
+
       backButtonView.lastView = searchView
     },
     channel: (channelId) => {

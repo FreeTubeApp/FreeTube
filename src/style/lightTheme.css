@@ -72,6 +72,14 @@ body {
     color: black;
 }
 
+.filterButton {
+    color: black;
+}
+
+#searchFilter {
+  background-color: white;
+}
+
 .jumpToInput {
     border-bottom: 1px solid #757575;
 }

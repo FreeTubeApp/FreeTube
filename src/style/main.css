@@ -118,17 +118,31 @@ a {
 
 .searchBar {
     position: absolute;
-    right: 135px;
+    right: 100px;
     top: 0;
-    width: 50%;
+    width: 600px;
 }
 
 .searchBar input {
-    width: 90%;
+    width: 60%;
+}
+
+#searchFilter {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 20px;
+  -webkit-box-shadow: 4px -2px 51px -6px rgba(0, 0, 0, 0.75);
 }
 
 .searchButton {
     text-decoration: none;
+    cursor: pointer;
+}
+
+.filterButton {
+  text-decoration: none;
+  margin-right: 10px;
+  cursor: pointer;
 }
 
 #sideNav {

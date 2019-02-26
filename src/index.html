@@ -38,7 +38,8 @@
     <i v-on:click='back' v-if="canShowBackButton" class="fas fa-arrow-left" id="backButton"></i>
     <div class="searchBar">
       <input id='search' class="search" type="text" placeholder="Search / Go to URL">
-      <i onclick='parseSearchText()' class="fas fa-search searchButton" style='margin-right: -10px; cursor: pointer'></i>
+      <span class='filterButton' onclick='searchFilter.seen = !searchFilter.seen'><i class="fas fa-filter" style='margin-right: -10px; cursor: pointer'></i>&nbsp;&nbsp;&nbsp;&nbsp;Filter</span>
+      <span class='searchButton' onclick='parseSearchText()'><i class="fas fa-search" style='margin-right: -10px; cursor: pointer'></i>&nbsp;&nbsp;&nbsp;&nbsp;Search</span>
     </div>
     <img src='icons/iconBlackSmall.png' id='menuIcon' /> &nbsp;
     <img src='icons/textBlackSmall.png' id='menuText' />
@@ -64,6 +65,34 @@
     </div>
   </div>
   <div id="main">
+    <div id='searchFilter' class='center' v-show='seen'>
+      <h2>Search Filters</h2>
+      <select id='searchSortby' class='select-text'>
+         <option value="relevance">Most Relevant</option>
+         <option value="rating">Rating</option>
+         <option value="upload_date">Upload Date</option>
+         <option value="view_count">View Count</option>
+      </select>
+      <select id='searchDate' class='select-text'>
+         <option value="">Any Time</option>
+         <option value="hour">Last Hour</option>
+         <option value="today">Today</option>
+         <option value="week">This Week</option>
+         <option value="month">This Month</option>
+         <option value="year">This Year</option>
+      </select>
+      <select id='searchType' class='select-text'>
+         <option value="all">All Types</option>
+         <option value="video">Videos</option>
+         <option value="channel">Channels</option>
+         <option value="playlist">Playlists</option>
+      </select>
+      <select id='searchDuration' class='select-text'>
+         <option value="">All Durations</option>
+         <option value="short">Short (< 4 minutes)</option>
+         <option value="long">Long (> 20 minutes)</option>
+      </select>
+    </div>
     <div id='noSubscriptions' v-if='seen'>
       <h2 class="message">
         Your Subscription list is currently empty.  Start adding subscriptions

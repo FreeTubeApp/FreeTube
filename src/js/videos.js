@@ -33,6 +33,12 @@ const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
  */
 function search(page = 1) {
     const query = document.getElementById('search').value;
+    const searchSortby = document.getElementById('searchSortby').value;
+    const searchType = document.getElementById('searchType').value;
+    const searchDate = document.getElementById('searchDate').value;
+    const searchDuration = document.getElementById('searchDuration').value;
+
+    searchFilter.seen = false;
 
     if (query === '') {
         return;
@@ -52,7 +58,10 @@ function search(page = 1) {
     invidiousAPI('search', '', {
         q: query,
         page: page,
-        type: 'all',
+        sort_by: searchSortby,
+        date: searchDate,
+        duration: searchDuration,
+        type: searchType,
     }, function (data) {
         console.log(data);
 
@@ -219,7 +228,7 @@ function displayChannel(channel) {
     let channelData = {};
 
     channelData.channelId = channel.authorId;
-    channelData.thumbnail = channel.authorThumbnails[4].url;
+    channelData.thumbnail = "https:" + channel.authorThumbnails[4].url;
     channelData.channelName = channel.author;
     channelData.description = channel.description;
     channelData.subscriberCount = channel.subCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
