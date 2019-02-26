@@ -103,8 +103,10 @@ function loadSubscriptions() {
             for (let i = 0; i < results.length; i++) {
                 channelId = results[i]['channelId'];
 
-                invidiousAPI('channels/videos', channelId, {}, (data) => {
-                    console.log(data);
+                invidiousAPI('channels/latest', channelId, {}, (data) => {
+                    data.forEach((video, index) => {
+                      data[index].author = results[i]['channelName'];
+                    });
                     videoList = videoList.concat(data);
                     counter = counter + 1;
                     progressView.progressWidth = (counter / results.length) * 100;
@@ -140,7 +142,6 @@ function addSubsToView(videoList) {
     });
 
     subscriptionView.videoList = [];
-    console.log(videoList);
 
     if (videoList.length > 100) {
         for (let i = 0; i < 100; i++) {
