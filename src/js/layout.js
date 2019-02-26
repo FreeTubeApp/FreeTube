@@ -38,7 +38,6 @@ const shell = electron.shell; // Used to open external links into the user's nat
 const clipboard = electron.clipboard;
 const getOpml = require('opml-to-json'); // Gets the file type for imported files.
 const fs = require('fs'); // Used to read files. Specifically in the settings page.
-const tor = require('tor-request');
 
 // User Defaults
 let currentTheme = '';
@@ -50,6 +49,10 @@ let checkForUpdates = true;
 let currentVolume = 1;
 let defaultQuality = 720;
 let defaultPlaybackRate = '1';
+// Proxy address variable
+let defaultProxy = false;
+// This variable is to make sure that proxy was set before making any API calls
+let proxyAvailable = false;
 
 let dialog = electron.remote.dialog; // Used for opening file browser to export / import subscriptions.
 let toastTimeout; // Timeout for toast notifications.
@@ -67,6 +70,11 @@ electron.ipcRenderer.on('ping', function(event, message) {
     let url = message[1].replace('freetube://', '');
     parseSearchText(url);
     ft.log(message);
+});
+
+// Listens for proxy to be set in main process
+electron.ipcRenderer.on('proxyAvailable', function(event, message) {
+    proxyAvailable = true;
 });
 
 $(document).ready(() => {
@@ -208,4 +216,29 @@ function showVideoOptions(element) {
     } else {
         element.nextElementSibling.style.display = 'none'
     }
+}
+
+/**
+ * Wrapper around AJAX calls to wait for proxy to become available
+ * @return {Void}
+ */
+function proxyRequest(callback) {
+    let proxyCheckingInterval;
+    let counter = 0;
+    
+    // Wait for proxy to become available
+    proxyCheckingInterval = setInterval(function() {
+      if(proxyAvailable) {
+        clearInterval(proxyCheckingInterval)
+        
+        callback();
+
+      } else {
+        if(counter > 10) {
+          clearInterval(proxyCheckingInterval);
+          showToast('Unable to connect to the Tor network. Check the help page if you\'re having trouble setting up your node.');
+        }
+        counter++;
+      }
+    }, 100);
 }

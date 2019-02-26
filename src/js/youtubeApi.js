@@ -32,17 +32,19 @@ function invidiousAPI(resource, id, params, success, fail = function(){
   let requestUrl = 'https://www.invidio.us/api/v1/' + resource + '/' + id + '?' + $.param(params);
 
   if (useTor) {
-    tor.request(requestUrl, (err, res, body) => {
-      if (!err && res.statusCode == 200) {
-        success(JSON.parse(body));
-      } else {
-        showToast('Unable to connect to the Tor network. Check the help page if you\'re having trouble setting up your node.');
-        console.log(err);
-        console.log(res);
-        console.log(body);
-        loadingView.seen = false;
-      }
-    });
+    
+    proxyRequest(() => {
+      $.getJSON(
+        requestUrl,
+        success
+      ).fail((xhr, textStatus, error) => {
+        fail(xhr);
+        console.log(xhr);
+        console.log(textStatus);
+        console.log(requestUrl);
+      });      
+    })
+
   } else {
     $.getJSON(
       requestUrl,
