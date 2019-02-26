@@ -32,9 +32,10 @@
     <span id='toastMessage'></span>
     <i onclick='hideToast()' class="closeToast fas fa-times"></i>
   </div>
-  <div class="topNav">
+  <div id="topNav" class="topNav">
     <i onclick='toggleSideNavigation()' class="fas fa-bars" id='menuButton'></i>
     <i onclick='forceSubscriptions()' class="fas fa-sync" id='reloadButton' title='Force Subscription Reload'></i>
+    <i v-on:click='back' v-if="canShowBackButton" class="fas fa-arrow-left" id="backButton"></i>
     <div class="searchBar">
       <input id='search' class="search" type="text" placeholder="Search / Go to URL">
       <i onclick='parseSearchText()' class="fas fa-search searchButton" style='margin-right: -10px; cursor: pointer'></i>
