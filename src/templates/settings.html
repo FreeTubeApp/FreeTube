@@ -46,8 +46,8 @@
         <label for="torSwitch" class="switch-label">Use Tor / Proxy for API calls</label>
 
         <div class="input-text-settings">
-            <label for="proxy">Proxy Address (Example: SOCKS5://127.0.0.1:9050):</label>
-            <input  type="text" id="proxy" name="set-name" :value="defaultProxy">
+            <label for="proxyAddress">Proxy Address (Example: SOCKS5://127.0.0.1:9050):</label>
+            <input  type="text" id="proxyAddress" name="set-name" v-model="proxyAddress">
         </div>
         
         <div id="ipInfoSettings" v-if="checkProxyResult">
@@ -60,7 +60,7 @@
         </div>
 
         <p>Clicking "TEST PROXY" button will send a request to https://ifconfig.co/json</p>
-        <div v-on:click='checkProxy()' class='center settingsButton'>
+        <div v-on:click='checkProxy' class='center settingsButton'>
             {{proxyTestButtonText}}
         </div>
     </div>

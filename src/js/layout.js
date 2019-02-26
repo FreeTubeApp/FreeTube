@@ -218,3 +218,28 @@ function showVideoOptions(element) {
         element.nextElementSibling.style.display = 'none'
     }
 }
+
+/**
+ * Wrapper around AJAX calls to wait for proxy to become available
+ * @return {Void}
+ */
+function proxyRequest(callback) {
+    let proxyCheckingInterval;
+    let counter = 0;
+    
+    // Wait for proxy to become available
+    proxyCheckingInterval = setInterval(function() {
+      if(proxyAvailable) {
+        clearInterval(proxyCheckingInterval)
+        
+        callback();
+
+      } else {
+        if(counter > 10) {
+          clearInterval(proxyCheckingInterval);
+          showToast('Unable to connect to the Tor network. Check the help page if you\'re having trouble setting up your node.');
+        }
+        counter++;
+      }
+    }, 100);
+}

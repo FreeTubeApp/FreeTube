@@ -357,25 +357,33 @@ let settingsView = new Vue({
     autoplay: true,
     subtitles: false,
     updates: true,
-    defaultProxy: false,
+    proxyAddress: false,
     checkProxyResult: false,
     proxyTestLoading: false
   },
   methods: {
     checkProxy() {
+      this.checkProxyResult = false;
       this.proxyTestLoading = true;
-      $.getJSON(
-        "https://ifconfig.co/json",
-        response => { 
+      electron.ipcRenderer.send("setProxy", this.proxyAddress)
+
+      proxyRequest(() => {
+        $.ajax({
+          url: "https://ifconfig.co/json",
+          dataType: 'json',
+          timeout: 3000 // 3 second timeout
+        }).done(response => { 
           this.checkProxyResult = response;
+        })
+        .fail((xhr, textStatus, error) => {
+          console.log(xhr);
+          console.log(textStatus);
+          showToast('Proxy test failed');
+        }).always(() =>{
           this.proxyTestLoading = false;
-        }
-      ).fail((xhr, textStatus, error) => {
-        console.log(xhr);
-        console.log(textStatus);
-        showToast('Proxy test failed');
-        this.proxyTestLoading = false;
-      });
+          electron.ipcRenderer.send("setProxy", {});
+        });
+      })
     }
   },
   computed: {

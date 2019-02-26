@@ -78,7 +78,7 @@ function updateSettingsView() {
     document.getElementById('qualitySelect').value = defaultQuality;
     document.getElementById('rateSelect').value = defaultPlaybackRate;
 
-    settingsView.defaultProxy = defaultProxy;
+    settingsView.proxyAddress = defaultProxy;
   });
 }
 
@@ -183,7 +183,7 @@ function updateSettings() {
   let updatesSwitch = document.getElementById('updatesSwitch').checked;
   let qualitySelect = document.getElementById('qualitySelect').value;
   let rateSelect = document.getElementById('rateSelect').value;
-  let proxy = document.getElementById('proxy').value;
+  let proxyAddress = document.getElementById('proxyAddress').value;
   let theme = 'light';
 
   settingsView.useTor = torSwitch;
@@ -191,11 +191,10 @@ function updateSettings() {
   settingsView.autoplay = autoplaySwitch;
   settingsView.subtitles = subtitlesSwitch;
   settingsView.updates = updatesSwitch;
-  settingsView.defaultProxy = proxy;
+  settingsView.proxyAddress = proxyAddress;
   rememberHistory = historySwitch;
   defaultQuality = qualitySelect;
   defaultPlaybackRate = rateSelect;
-  defaultProxy = proxy;
 
   if (themeSwitch === true) {
     theme = 'dark';
@@ -226,11 +225,11 @@ function updateSettings() {
   settingsDb.update({
     _id: 'proxy'
   }, {
-    value: proxy
+    value: proxyAddress
   }, {}, function(err, numReplaced) {
     console.log(err);
     console.log(numReplaced);
-    defaultProxy = proxy;
+    defaultProxy = proxyAddress;
   });
 
   // Update history
@@ -301,7 +300,7 @@ function updateSettings() {
 
   // set proxy in electron based on new values
   if(torSwitch) {
-    electron.ipcRenderer.send("setProxy", proxy);
+    electron.ipcRenderer.send("setProxy", proxyAddress);
   } else {
     electron.ipcRenderer.send("setProxy", {});
   }
