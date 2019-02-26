@@ -38,7 +38,6 @@ const shell = electron.shell; // Used to open external links into the user's nat
 const clipboard = electron.clipboard;
 const getOpml = require('opml-to-json'); // Gets the file type for imported files.
 const fs = require('fs'); // Used to read files. Specifically in the settings page.
-const tor = require('tor-request');
 
 // User Defaults
 let currentTheme = '';

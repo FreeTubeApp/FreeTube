@@ -100,7 +100,6 @@
         "mustache": "^2.3.0",
         "nedb": "^1.8.0",
         "opml-to-json": "0.0.3",
-        "tor-request": "^2.3.0",
         "vue": "^2.5.17",
         "ytdl-core": "^0.20.4"
     }
