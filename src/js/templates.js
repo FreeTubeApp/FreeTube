@@ -461,7 +461,12 @@ let channelView = new Vue({
   },
   methods: {
     subscription: (channelId) => {
-      toggleSubscription(channelId);
+      let channelData = {
+        channelId: channelView.id,
+        channelName: channelView.name,
+        channelThumbnail: channelView.icon
+      };
+      toggleSubscription(channelData);
     },
   },
   template: channelTemplate
@@ -549,8 +554,13 @@ let playerView = new Vue({
     channel: (channelId) => {
       goToChannel(channelId);
     },
-    subscription: (videoId) => {
-      toggleSubscription(videoId);
+    subscription: () => {
+      let channelData = {
+        channelId: playerView.channelId,
+        channelName: playerView.channelName,
+        channelThumbnail: playerView.channelIcon
+      };
+      toggleSubscription(channelData);
     },
     quality: (url, qualityText) => {
       console.log(url);

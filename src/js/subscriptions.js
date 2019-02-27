@@ -33,26 +33,15 @@ let forceSubs = true;
  *
  * @return {Void}
  */
-function addSubscription(channelId, useToast = true) {
-    ft.log('Channel ID: ', channelId);
+function addSubscription(data, useToast = true) {
+    ft.log('Channel Data: ', data);
 
-    invidiousAPI('channels', channelId, {}, (data) => {
-        const channelName = data.author;
-        const thumbnail = data.authorThumbnails[3].url;
-
-        const channel = {
-            channelId: data.authorId,
-            channelName: channelName,
-            channelThumbnail: thumbnail,
-        };
-
-        // Refresh the list of subscriptions on the side navigation bar.
-        subDb.insert(channel, (err, newDoc) => {
-            if (useToast) {
-                showToast('Added ' + channelName + ' to subscriptions.');
-                displaySubs();
-            }
-        });
+    // Refresh the list of subscriptions on the side navigation bar.
+    subDb.insert(data, (err, newDoc) => {
+        if (useToast) {
+            showToast('Added ' + data.channelName + ' to subscriptions.');
+            displaySubs();
+        }
     });
 }
 
@@ -234,19 +223,21 @@ function displaySubs() {
  *
  * @return {Void}
  */
-function toggleSubscription(channelId) {
+function toggleSubscription(data) {
     event.stopPropagation();
 
-    const checkIfSubscribed = isSubscribed(channelId);
+    const checkIfSubscribed = isSubscribed(data.channelId);
 
     checkIfSubscribed.then((results) => {
 
         if (results === false) {
-            playerView.subscribedText = 'SUBSCRIBE';
-            addSubscription(channelId);
-        } else {
             playerView.subscribedText = 'UNSUBSCRIBE';
-            removeSubscription(channelId);
+            channelView.subButtonText = 'UNSUBSCRIBE';
+            addSubscription(data);
+        } else {
+            playerView.subscribedText = 'SUBSCRIBE';
+            channelView.subButtonText = 'SUBSCRIBE';
+            removeSubscription(data.channelId);
         }
     });
 }
