@@ -41,15 +41,20 @@
         </div>
         <br />
     </div>
+    <div class='center'>
+      <div class="input-text-settings">
+          <label for="invidiousInstance">Current Invidious Instance (Defaults to https://invidio.us)</label>
+          <input  type="text" id="invidiousInstance" name="set-name" v-model="invidiousInstance">
+      </div>
+    </div>
     <div class="center">
         <input type="checkbox" id="torSwitch" name="set-name" class="switch-input" :checked='useTor'>
         <label for="torSwitch" class="switch-label">Use Tor / Proxy for API calls</label>
-
         <div class="input-text-settings">
             <label for="proxyAddress">Proxy Address (Example: SOCKS5://127.0.0.1:9050):</label>
             <input  type="text" id="proxyAddress" name="set-name" v-model="proxyAddress">
         </div>
-        
+
         <div id="ipInfoSettings" v-if="checkProxyResult">
             <h4>Your Info:</h4>
             <p>ip: {{checkProxyResult.ip}}</p>

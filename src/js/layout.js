@@ -39,21 +39,6 @@ const clipboard = electron.clipboard;
 const getOpml = require('opml-to-json'); // Gets the file type for imported files.
 const fs = require('fs'); // Used to read files. Specifically in the settings page.
 
-// User Defaults
-let currentTheme = '';
-let useTor = false;
-let rememberHistory = true;
-let autoplay = true;
-let enableSubtitles = false;
-let checkForUpdates = true;
-let currentVolume = 1;
-let defaultQuality = 720;
-let defaultPlaybackRate = '1';
-// Proxy address variable
-let defaultProxy = false;
-// This variable is to make sure that proxy was set before making any API calls
-let proxyAvailable = false;
-
 let dialog = electron.remote.dialog; // Used for opening file browser to export / import subscriptions.
 let toastTimeout; // Timeout for toast notifications.
 let mouseTimeout; // Timeout for hiding the mouse cursor on video playback
@@ -225,12 +210,12 @@ function showVideoOptions(element) {
 function proxyRequest(callback) {
     let proxyCheckingInterval;
     let counter = 0;
-    
+
     // Wait for proxy to become available
     proxyCheckingInterval = setInterval(function() {
       if(proxyAvailable) {
         clearInterval(proxyCheckingInterval)
-        
+
         callback();
 
       } else {

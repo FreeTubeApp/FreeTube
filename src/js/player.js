@@ -32,15 +32,13 @@ function playVideo(videoId, playlistId = '') {
     playerView.playerSeen = true;
     playerView.firstLoad = true;
     playerView.videoId = videoId;
-    playerView.videoAudio = '';
     playerView.videoAudio = undefined;
     playerView.validAudio = true;
-    playerView.video480p = '';
     playerView.video480p = undefined;
     playerView.valid480p = true;
-    playerView.video720p = '';
     playerView.video720p = undefined;
     playerView.valid720p = true;
+    playerView.videoUrl = '';
     playerView.embededHtml = "<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/" + videoId + "?rel=0' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>";
 
     let videoHtml = '';
@@ -69,11 +67,11 @@ function playVideo(videoId, playlistId = '') {
           switch (videoUrls[key]['itag']) {
           case '18':
               playerView.video480p = decodeURIComponent(videoUrls[key]['url']);
-              //console.log(video480p);
+              // console.log(playerView.video480p);
               break;
           case '22':
               playerView.video720p = decodeURIComponent(videoUrls[key]['url']);
-              //console.log(video720p);
+              // console.log(playerView.video720p);
               break;
           }
       });
@@ -82,6 +80,7 @@ function playVideo(videoId, playlistId = '') {
       playerView.videoAudio = decodeURIComponent(formatUrls[formatUrls.length - 1]['url']);
 
       if (typeof(playerView.videoAudio) === 'undefined') {
+        console.log(playerView.videoAudio);
         playerView.validAudio = false;
       }
 
@@ -107,15 +106,25 @@ function playVideo(videoId, playlistId = '') {
           //playerView.videoUrl = playerView.liveManifest;
       }
 
-      if (!useEmbedPlayer && data.player_response.captions !== undefined) {
+      if (!useEmbedPlayer && data.player_response.captions.playerCaptionsTracklistRenderer.captionTracks !== undefined) {
           data.player_response.captions.playerCaptionsTracklistRenderer.captionTracks.forEach((caption) => {
-              let subtitleUrl = 'https://www.invidio.us/api/v1/captions/' + videoId  + '?label=' + caption.name.simpleText;
+              let subtitleUrl = invidiousInstance + '/api/v1/captions/' + videoId  + '?label=' + caption.name.simpleText;
 
               videoHtml = videoHtml + '<track kind="subtitles" src="' + subtitleUrl + '" srclang="' + caption.languageCode + '" label="' + caption.name.simpleText + '">';
           });
 
           playerView.subtitleHtml = videoHtml;
       }
+
+      loadingView.seen = false;
+
+      if (subscriptionView.seen === false && aboutView.seen === false && headerView.seen === false && searchView.seen === false && settingsView.seen === false && popularView.seen === false && savedView.seen === false && historyView.seen === false && channelView.seen === false && channelVideosView.seen === false) {
+          playerView.seen = true;
+      } else {
+          return;
+      }
+
+      window.setTimeout(checkVideoUrls, 5000, playerView.video480p, playerView.video720p, playerView.videoAudio);
     });
 
     invidiousAPI('videos', videoId, {}, (data) => {
@@ -148,13 +157,9 @@ function playVideo(videoId, playlistId = '') {
 
         checkSubscription.then((results) => {
             if (results === false) {
-                if (subscribeButton != null) {
-                    playerView.subscribedText = 'SUBSCRIBE';
-                }
+                playerView.subscribedText = 'SUBSCRIBE';
             } else {
-                if (subscribeButton != null) {
-                    playerView.subscribedText = 'UNSUBSCRIBE';
-                }
+                playerView.subscribedText = 'UNSUBSCRIBE';
             }
         });
 
@@ -234,20 +239,9 @@ function playVideo(videoId, playlistId = '') {
           playerView.playlistId = '';
         }
 
-        loadingView.seen = false;
-
-        if (subscriptionView.seen === false && aboutView.seen === false && headerView.seen === false && searchView.seen === false && settingsView.seen === false && popularView.seen === false && savedView.seen === false && historyView.seen === false && channelView.seen === false && channelVideosView.seen === false) {
-            playerView.seen = true;
-        } else {
-            return;
-        }
-
         if (rememberHistory === true){
           addToHistory(videoId);
         }
-
-        window.setTimeout(checkVideoUrls, 5000, playerView.video480p, playerView.video720p, playerView.videoAudio);
-
     });
 }
 

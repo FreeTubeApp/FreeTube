@@ -238,19 +238,14 @@ function toggleSubscription(channelId) {
     event.stopPropagation();
 
     const checkIfSubscribed = isSubscribed(channelId);
-    const subscribeButton = document.getElementById('subscribeButton');
 
     checkIfSubscribed.then((results) => {
 
         if (results === false) {
-            if (subscribeButton != null) {
-                subscribeButton.innerHTML = 'UNSUBSCRIBE';
-            }
+            playerView.subscribedText = 'SUBSCRIBE';
             addSubscription(channelId);
         } else {
-            if (subscribeButton != null) {
-                subscribeButton.innerHTML = 'SUBSCRIBE';
-            }
+            playerView.subscribedText = 'UNSUBSCRIBE';
             removeSubscription(channelId);
         }
     });

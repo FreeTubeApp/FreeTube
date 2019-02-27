@@ -369,6 +369,7 @@ let settingsView = new Vue({
     subtitles: false,
     updates: true,
     proxyAddress: false,
+    invidiousInstance: 'https://invidio.us',
     checkProxyResult: false,
     proxyTestLoading: false
   },
@@ -383,7 +384,7 @@ let settingsView = new Vue({
           url: "https://ifconfig.co/json",
           dataType: 'json',
           timeout: 3000 // 3 second timeout
-        }).done(response => { 
+        }).done(response => {
           this.checkProxyResult = response;
         })
         .fail((xhr, textStatus, error) => {

@@ -18,6 +18,23 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
  * A file for functions used for settings.
  */
 
+ // User Defaults
+ let currentTheme = '';
+ let useTor = false;
+ let rememberHistory = true;
+ let autoplay = true;
+ let enableSubtitles = false;
+ let checkForUpdates = true;
+ let currentVolume = 1;
+ let defaultQuality = 720;
+ let defaultPlaybackRate = '1';
+ // Proxy address variable
+ let defaultProxy = false;
+ // This variable is to make sure that proxy was set before making any API calls
+ let proxyAvailable = false;
+ let invidiousInstance = 'https://invidio.us';
+ let checkedSettings = false; // Used to prevent data leak when using self-hosted Invidious Instance
+
 /**
  * Display the settings screen to the user.
  *
@@ -104,6 +121,7 @@ function checkDefaultSettings() {
     'updates': true,
     'quality': '720',
     'rate': '1',
+    'invidious': 'https://invidio.us',
     'proxy': "SOCKS5://127.0.0.1:9050" // This is default value for tor client
   };
 
@@ -160,10 +178,14 @@ function checkDefaultSettings() {
             break;
           case 'proxy':
             defaultProxy = docs[0]['value'];
-            
+
             if(useTor && defaultProxy) {
               electron.ipcRenderer.send("setProxy", defaultProxy);
             }
+            break;
+          case 'invidious':
+            settingsView.invidiousInstance = docs[0]['value'];
+            invidiousInstance = docs[0]['value'];
             break;
           default:
             break;
@@ -188,6 +210,7 @@ function updateSettings() {
   let qualitySelect = document.getElementById('qualitySelect').value;
   let rateSelect = document.getElementById('rateSelect').value;
   let proxyAddress = document.getElementById('proxyAddress').value;
+  let invidious = document.getElementById('invidiousInstance').value;
   let theme = 'light';
 
   settingsView.useTor = torSwitch;
@@ -234,6 +257,18 @@ function updateSettings() {
     console.log(err);
     console.log(numReplaced);
     defaultProxy = proxyAddress;
+  });
+
+  // Update Invidious Instance
+  settingsDb.update({
+    _id: 'invidious'
+  }, {
+    value: invidious
+  }, {}, function(err, numReplaced) {
+    console.log(err);
+    console.log(numReplaced);
+    settingsView.invidiousInstance = invidious;
+    invidiousInstance = invidious;
   });
 
   // Update history

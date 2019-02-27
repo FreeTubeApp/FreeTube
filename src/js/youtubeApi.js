@@ -29,10 +29,10 @@ function invidiousAPI(resource, id, params, success, fail = function(){
   showToast('There was an error calling the Invidious API.');
   loadingView.seen = false;
 }) {
-  let requestUrl = 'https://www.invidio.us/api/v1/' + resource + '/' + id + '?' + $.param(params);
+  let requestUrl = invidiousInstance + '/api/v1/' + resource + '/' + id + '?' + $.param(params);
 
   if (useTor) {
-    
+
     proxyRequest(() => {
       $.getJSON(
         requestUrl,
@@ -42,7 +42,7 @@ function invidiousAPI(resource, id, params, success, fail = function(){
         console.log(xhr);
         console.log(textStatus);
         console.log(requestUrl);
-      });      
+      });
     })
 
   } else {
