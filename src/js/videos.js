@@ -184,7 +184,12 @@ function displayVideo(videoData, listType = '') {
 
         video.youtubeUrl = 'https://youtube.com/watch?v=' + video.id;
         video.invidiousUrl = 'https://invidio.us/watch?v=' + video.id;
-        video.thumbnail = videoData.videoThumbnails[4].url;
+        if (typeof(videoData.videoThumbnails) === 'string'){
+          video.thumbnail = videoData.videoThumbnails;
+        }
+        else {
+          video.thumbnail = videoData.videoThumbnails[4].url;
+        }
         video.title = videoData.title;
         video.channelName = videoData.author;
         video.channelId = videoData.authorId;

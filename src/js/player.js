@@ -106,7 +106,7 @@ function playVideo(videoId, playlistId = '') {
           //playerView.videoUrl = playerView.liveManifest;
       }
 
-      if (!useEmbedPlayer && data.player_response.captions.playerCaptionsTracklistRenderer.captionTracks !== undefined) {
+    if (!useEmbedPlayer && typeof(data.player_response.captions) !== 'undefined') {
           data.player_response.captions.playerCaptionsTracklistRenderer.captionTracks.forEach((caption) => {
               let subtitleUrl = invidiousInstance + '/api/v1/captions/' + videoId  + '?label=' + caption.name.simpleText;
 
@@ -240,7 +240,25 @@ function playVideo(videoId, playlistId = '') {
         }
 
         if (rememberHistory === true){
-          addToHistory(videoId);
+          let historyData = {
+            videoId: videoId,
+            published: data.published,
+            publishedText: playerView.publishedDate,
+            description: data.description,
+            viewCount: data.viewCount,
+            title: playerView.videoTitle,
+            lengthSeconds: data.lengthSeconds,
+            videoThumbnails: playerView.videoThumbnail,
+            author: playerView.channelName,
+            authorId: playerView.channelId,
+            liveNow: false,
+            paid: false,
+            type: 'video',
+            timeWatched: new Date().getTime(),
+          };
+
+          console.log(historyData);
+          addToHistory(historyData);
         }
     });
 }

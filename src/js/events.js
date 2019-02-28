@@ -73,7 +73,6 @@ let playPauseVideo = function (event) {
 * Handle keyboard shortcut commands.
 */
 let videoShortcutHandler = function (event) {
-
     if (event.which == 68 && event.altKey === true) {
       $('#search').focus();
     }
