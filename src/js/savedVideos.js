@@ -33,14 +33,29 @@ function addSavedVideo(videoId) {
 
     checkIfSaved.then((saved) => {
         if (saved === false) {
-            let data = {
-                videoId: videoId,
-                timeSaved: new Date().getTime(),
-            };
+          invidiousAPI('videos', video.videoId, {}, (data) => {
+              let publishedText = new Date(data.published * 1000);
+              publishedText = dateFormat(publishedText, "mmm dS, yyyy");
+              let videoData = {
+                videoId: video.videoId,
+                published: data.published,
+                publishedText: publishedText,
+                description: data.description,
+                viewCount: data.viewCount,
+                title: data.title,
+                lengthSeconds: data.lengthSeconds,
+                videoThumbnails: data.videoThumbnails[4].url,
+                author: data.author,
+                authorId: data.authorId,
+                liveNow: false,
+                paid: false,
+                type: 'video',
+              };
 
-            savedVidsDb.insert(data, (err, newDoc) => {
-                showToast('The video has been favorited!');
-            });
+              savedVidsDb.insert(data, (err, newDoc) => {
+                  showToast('The video has been favorited!');
+              });
+          });
         } else {
             showToast('The video has already been favorited!')
         }
@@ -122,13 +137,39 @@ function showSavedVideos() {
     savedVidsDb.find({}).sort({
         timeSaved: -1
     }).exec((err, docs) => {
-        let position = 0;
-        docs.forEach((video) => {
+        docs.forEach((video, index) => {
+          if (typeof(video.author) === 'undefined'){
             invidiousAPI('videos', video.videoId, {}, (data) => {
-                data.position = position;
-                displayVideo(data, 'saved');
-                position++;
+                let publishedText = new Date(data.published * 1000);
+                publishedText = dateFormat(publishedText, "mmm dS, yyyy");
+                let videoData = {
+                  videoId: video.videoId,
+                  published: data.published,
+                  publishedText: publishedText,
+                  description: data.description,
+                  viewCount: data.viewCount,
+                  title: data.title,
+                  lengthSeconds: data.lengthSeconds,
+                  videoThumbnails: data.videoThumbnails[4].url,
+                  author: data.author,
+                  authorId: data.authorId,
+                  liveNow: false,
+                  paid: false,
+                  type: 'video',
+                };
+
+                savedVidsDb.update(
+                  { videoId: data.videoId },
+                  videoData, {}, (err, newDoc) => {});
+
+                  videoData.position = index;
+                  displayVideo(videoData, 'saved');
             });
+          }
+          else {
+            video.position = index;
+            displayVideo(video, 'saved');
+          }
         });
 
         loadingView.seen = false;
