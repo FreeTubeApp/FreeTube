@@ -3,7 +3,7 @@
 </p>
 
 FreeTube is an open source desktop YouTube player built with privacy in mind.
-Use YouTube without advertisements and prevent Google tracking from you with their cookies and JavaScript.
+Use YouTube without advertisements and prevent Google from tracking you with their cookies and JavaScript.
 Available for Windows, Mac & Linux thanks to Electron.
 
 Please note that FreeTube is currently in Beta. While it should work well for
@@ -32,7 +32,7 @@ to hide your IP while using FreeTube.
 ## Features
 * Watch videos without ads
 * Use YouTube without Google tracking you using cookies and JavaScript
-* Make API calls through the Tor network
+* Tor / Proxy Support
 * Subscribe to channels without an account
 * Local subscriptions, history, and saved videos
 * Export & import subscriptions
