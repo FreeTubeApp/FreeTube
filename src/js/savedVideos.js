@@ -33,11 +33,11 @@ function addSavedVideo(videoId) {
 
     checkIfSaved.then((saved) => {
         if (saved === false) {
-          invidiousAPI('videos', video.videoId, {}, (data) => {
+          invidiousAPI('videos', videoId, {}, (data) => {
               let publishedText = new Date(data.published * 1000);
               publishedText = dateFormat(publishedText, "mmm dS, yyyy");
               let videoData = {
-                videoId: video.videoId,
+                videoId: videoId,
                 published: data.published,
                 publishedText: publishedText,
                 description: data.description,
@@ -50,9 +50,10 @@ function addSavedVideo(videoId) {
                 liveNow: false,
                 paid: false,
                 type: 'video',
+                timeSaved: new Date().getTime(),
               };
 
-              savedVidsDb.insert(data, (err, newDoc) => {
+              savedVidsDb.insert(videoData, (err, newDoc) => {
                   showToast('The video has been favorited!');
               });
           });

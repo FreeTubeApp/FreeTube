@@ -589,7 +589,7 @@ let playerView = new Vue({
       showToast('URL has been copied to the clipboard');
     },
     save: (videoId) => {
-      addSavedVideo(videoId);
+      toggleSavedVideo(videoId);
     },
     play: (videoId, playlistId = '') => {
       loadingView.seen = true;
