@@ -40,8 +40,8 @@ function addSubscription(data, useToast = true) {
     subDb.insert(data, (err, newDoc) => {
         if (useToast) {
             showToast('Added ' + data.channelName + ' to subscriptions.');
-            displaySubs();
         }
+        displaySubs();
     });
 }
 

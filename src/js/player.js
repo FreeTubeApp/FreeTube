@@ -106,14 +106,17 @@ function playVideo(videoId, playlistId = '') {
           //playerView.videoUrl = playerView.liveManifest;
       }
 
-    if (!useEmbedPlayer && typeof(data.player_response.captions) !== 'undefined') {
-          data.player_response.captions.playerCaptionsTracklistRenderer.captionTracks.forEach((caption) => {
-              let subtitleUrl = invidiousInstance + '/api/v1/captions/' + videoId  + '?label=' + caption.name.simpleText;
+    if (!useEmbedPlayer &&
+      typeof(data.player_response.captions) !== 'undefined' &&
+      typeof(data.player_response.captions.playerCaptionsTracklistRenderer) !== 'undefined' &&
+      typeof(data.player_response.captions.playerCaptionsTracklistRenderer.captionTracks) !== 'undefined') {
+        data.player_response.captions.playerCaptionsTracklistRenderer.captionTracks.forEach((caption) => {
+            let subtitleUrl = invidiousInstance + '/api/v1/captions/' + videoId  + '?label=' + caption.name.simpleText;
 
-              videoHtml = videoHtml + '<track kind="subtitles" src="' + subtitleUrl + '" srclang="' + caption.languageCode + '" label="' + caption.name.simpleText + '">';
-          });
+            videoHtml = videoHtml + '<track kind="subtitles" src="' + subtitleUrl + '" srclang="' + caption.languageCode + '" label="' + caption.name.simpleText + '">';
+        });
 
-          playerView.subtitleHtml = videoHtml;
+        playerView.subtitleHtml = videoHtml;
       }
 
       loadingView.seen = false;

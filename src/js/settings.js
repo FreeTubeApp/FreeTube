@@ -420,14 +420,34 @@ function importOpmlSubs(json){
     return;
   }
 
-  json.forEach((channel) => {
+  showToast('Importing susbcriptions, please wait.');
+
+  progressView.seen = true;
+  progressView.width = 0;
+
+  let counter = 0;
+  json.forEach((channel, index) => {
     let channelId = channel['xmlurl'].replace('https://www.youtube.com/feeds/videos.xml?channel_id=', '');
 
-    addSubscription(channelId, false);
+    invidiousAPI('channels', channelId, {}, (data) => {
+      let subscription = {
+        channelId: data.authorId,
+        channelName: data.author,
+        channelThumbnail: data.authorThumbnails[2].url
+      };
+
+      addSubscription(subscription, false);
+      counter++;
+      progressView.progressWidth = (counter / json.length) * 100;
+
+      if ((counter + 1) == json.length) {
+        showToast('Subscriptions have been imported!');
+        progressView.seen = false;
+        progressView.seen = 0;
+        return;
+      }
+    });
   });
-  window.setTimeout(displaySubs, 1000);
-  showToast('Subscriptions have been imported!');
-  return;
 }
 
 /**
