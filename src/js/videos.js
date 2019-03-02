@@ -170,8 +170,6 @@ function displayVideo(videoData, listType = '') {
           }
         }
 
-        //const searchMenu = $('#videoListContainer').html();
-
         // Include a remove icon in the list if the application is displaying the history list or saved videos.
         video.deleteHtml = () => {
             switch (listType) {
@@ -195,6 +193,7 @@ function displayVideo(videoData, listType = '') {
         video.channelId = videoData.authorId;
         video.description = videoData.description;
         video.isVideo = true;
+        video.premium = videoData.premium;
 
         switch (listType) {
         case 'subscriptions':
