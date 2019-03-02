@@ -645,6 +645,7 @@ let backButtonView = new Vue({
       const isSearch = this.lastView.$options.el === "#searchView";
 
       hideViews();
+      loadingView.seen = false;
 
       // Check if lastView was search
       if(isSearch) {
