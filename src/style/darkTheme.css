@@ -85,6 +85,14 @@ input[type=text] {
     color: #E0E0E0;
 }
 
+.filterButton {
+    color: #E0E0E0;
+}
+
+#searchFilter {
+  background-color: #424242;
+}
+
 .jumpToInput {
     border-bottom: 1px solid #E0E0E0;
 }

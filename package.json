@@ -1,7 +1,7 @@
 {
     "name": "FreeTube",
     "productName": "FreeTube",
-    "version": "0.4.1",
+    "version": "0.5.0",
     "description": "An Open Source YouTube app for privacy.",
     "main": "src/js/init.js",
     "scripts": {
@@ -100,8 +100,7 @@
         "mustache": "^2.3.0",
         "nedb": "^1.8.0",
         "opml-to-json": "0.0.3",
-        "tor-request": "^2.3.0",
         "vue": "^2.5.17",
-        "ytdl-core": "^0.20.4"
+        "ytdl-core": "^0.29.1"
     }
 }

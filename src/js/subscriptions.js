@@ -33,26 +33,15 @@ let forceSubs = true;
  *
  * @return {Void}
  */
-function addSubscription(channelId, useToast = true) {
-    ft.log('Channel ID: ', channelId);
+function addSubscription(data, useToast = true) {
+    ft.log('Channel Data: ', data);
 
-    invidiousAPI('channels', channelId, {}, (data) => {
-        const channelName = data.author;
-        const thumbnail = data.authorThumbnails[3].url;
-
-        const channel = {
-            channelId: data.authorId,
-            channelName: channelName,
-            channelThumbnail: thumbnail,
-        };
-
-        // Refresh the list of subscriptions on the side navigation bar.
-        subDb.insert(channel, (err, newDoc) => {
-            if (useToast) {
-                showToast('Added ' + channelName + ' to subscriptions.');
-                displaySubs();
-            }
-        });
+    // Refresh the list of subscriptions on the side navigation bar.
+    subDb.insert(data, (err, newDoc) => {
+        if (useToast) {
+            showToast('Added ' + data.channelName + ' to subscriptions.');
+        }
+        displaySubs();
     });
 }
 
@@ -103,8 +92,10 @@ function loadSubscriptions() {
             for (let i = 0; i < results.length; i++) {
                 channelId = results[i]['channelId'];
 
-                invidiousAPI('channels/videos', channelId, {}, (data) => {
-                    console.log(data);
+                invidiousAPI('channels/latest', channelId, {}, (data) => {
+                    data.forEach((video, index) => {
+                      data[index].author = results[i]['channelName'];
+                    });
                     videoList = videoList.concat(data);
                     counter = counter + 1;
                     progressView.progressWidth = (counter / results.length) * 100;
@@ -131,12 +122,15 @@ function loadSubscriptions() {
 }
 
 function addSubsToView(videoList) {
+    videoList = videoList.filter(a => {
+        return !a.premium;
+    });
+
     videoList.sort((a, b) => {
         return b.published - a.published;
     });
 
     subscriptionView.videoList = [];
-    console.log(videoList);
 
     if (videoList.length > 100) {
         for (let i = 0; i < 100; i++) {
@@ -229,24 +223,21 @@ function displaySubs() {
  *
  * @return {Void}
  */
-function toggleSubscription(channelId) {
+function toggleSubscription(data) {
     event.stopPropagation();
 
-    const checkIfSubscribed = isSubscribed(channelId);
-    const subscribeButton = document.getElementById('subscribeButton');
+    const checkIfSubscribed = isSubscribed(data.channelId);
 
     checkIfSubscribed.then((results) => {
 
         if (results === false) {
-            if (subscribeButton != null) {
-                subscribeButton.innerHTML = 'UNSUBSCRIBE';
-            }
-            addSubscription(channelId);
+            playerView.subscribedText = 'UNSUBSCRIBE';
+            channelView.subButtonText = 'UNSUBSCRIBE';
+            addSubscription(data);
         } else {
-            if (subscribeButton != null) {
-                subscribeButton.innerHTML = 'SUBSCRIBE';
-            }
-            removeSubscription(channelId);
+            playerView.subscribedText = 'SUBSCRIBE';
+            channelView.subButtonText = 'SUBSCRIBE';
+            removeSubscription(data.channelId);
         }
     });
 }

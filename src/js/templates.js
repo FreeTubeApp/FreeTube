@@ -50,6 +50,13 @@ let loadingView = new Vue({
   }
 });
 
+let searchFilter = new Vue({
+  el: '#searchFilter',
+  data: {
+    seen: false
+  }
+});
+
 let noSubscriptions = new Vue({
   el: '#noSubscriptions',
   data: {
@@ -165,7 +172,7 @@ let subscriptionView = new Vue({
       goToChannel(channelId);
     },
     toggleSave: (videoId) => {
-      toggleSavedVideo(videoId);
+      addSavedVideo(videoId);
     },
     copy: (site, videoId) => {
       const url = 'https://' + site + '/watch?v=' + videoId;
@@ -255,7 +262,7 @@ let savedView = new Vue({
       goToChannel(channelId);
     },
     toggleSave: (videoId) => {
-      addSavedVideo(videoId);
+      toggleSavedVideo(videoId);
     },
     copy: (site, videoId) => {
       const url = 'https://' + site + '/watch?v=' + videoId;
@@ -318,9 +325,13 @@ let playlistView = new Vue({
     play: (videoId) => {
       loadingView.seen = true;
       playVideo(videoId, playlistView.playlistId);
+
+      backButtonView.lastView = playlistView
     },
     channel: (channelId) => {
       goToChannel(channelId);
+
+      backButtonView.lastView = playlistView
     },
     toggleSave: (videoId) => {
       addSavedVideo(videoId);
@@ -357,6 +368,40 @@ let settingsView = new Vue({
     autoplay: true,
     subtitles: false,
     updates: true,
+    proxyAddress: false,
+    invidiousInstance: 'https://invidio.us',
+    checkProxyResult: false,
+    proxyTestLoading: false
+  },
+  methods: {
+    checkProxy() {
+      this.checkProxyResult = false;
+      this.proxyTestLoading = true;
+      electron.ipcRenderer.send("setProxy", this.proxyAddress)
+
+      proxyRequest(() => {
+        $.ajax({
+          url: "https://ifconfig.co/json",
+          dataType: 'json',
+          timeout: 3000 // 3 second timeout
+        }).done(response => {
+          this.checkProxyResult = response;
+        })
+        .fail((xhr, textStatus, error) => {
+          console.log(xhr);
+          console.log(textStatus);
+          showToast('Proxy test failed');
+        }).always(() =>{
+          this.proxyTestLoading = false;
+          electron.ipcRenderer.send("setProxy", {});
+        });
+      })
+    }
+  },
+  computed: {
+    proxyTestButtonText() {
+      return this.proxyTestLoading ? "LOADING..." : "TEST PROXY"
+    }
   },
   template: settingsTemplate
 });
@@ -373,9 +418,13 @@ let searchView = new Vue({
     play: (videoId) => {
       loadingView.seen = true;
       playVideo(videoId);
+
+      backButtonView.lastView = searchView
     },
     channel: (channelId) => {
       goToChannel(channelId);
+
+      backButtonView.lastView = searchView
     },
     toggleSave: (videoId) => {
       addSavedVideo(videoId);
@@ -391,6 +440,8 @@ let searchView = new Vue({
     },
     playlist: (playlistId) => {
       showPlaylist(playlistId);
+
+      backButtonView.lastView = searchView
     },
   },
   template: videoListTemplate
@@ -410,7 +461,12 @@ let channelView = new Vue({
   },
   methods: {
     subscription: (channelId) => {
-      toggleSubscription(channelId);
+      let channelData = {
+        channelId: channelView.id,
+        channelName: channelView.name,
+        channelThumbnail: channelView.icon
+      };
+      toggleSubscription(channelData);
     },
   },
   template: channelTemplate
@@ -498,8 +554,13 @@ let playerView = new Vue({
     channel: (channelId) => {
       goToChannel(channelId);
     },
-    subscription: (videoId) => {
-      toggleSubscription(videoId);
+    subscription: () => {
+      let channelData = {
+        channelId: playerView.channelId,
+        channelName: playerView.channelName,
+        channelThumbnail: playerView.channelIcon
+      };
+      toggleSubscription(channelData);
     },
     quality: (url, qualityText) => {
       console.log(url);
@@ -573,6 +634,47 @@ let playerView = new Vue({
   template: playerTemplate
 });
 
+let backButtonView = new Vue({
+  el: '#backButton',
+  data: {
+    lastView: false
+  },
+  methods: {
+    back: function() {
+      // variable here because this.lastView gets reset in hideViews()
+      const isSearch = this.lastView.$options.el === "#searchView";
+
+      hideViews();
+      loadingView.seen = false;
+
+      // Check if lastView was search
+      if(isSearch) {
+        // Change back to searchView
+        headerView.seen = true;
+        headerView.title = 'Search Results';
+        searchView.seen = true;
+
+        // reset this.lastView
+        this.lastView = false;
+      } else {
+        // if not search then this.lastView has to be playlistView
+
+        // Change back to playlistView
+        playlistView.seen = true;
+
+        // Check if searchView has videos if it does set this.lastView as searchView
+        this.lastView = searchView.videoList.length > 0 ? searchView : false;
+      }
+    }
+  },
+  computed: {
+    canShowBackButton: function() {
+      // this.lastView can be either searchView or playlistView
+      return !!this.lastView && !this.lastView.seen && this.lastView.videoList.length > 0;
+    }
+  },
+});
+
 function hideViews(){
   subscriptionView.seen = false;
   noSubscriptions.seen = false;
@@ -588,4 +690,6 @@ function hideViews(){
   playerView.seen = false;
   channelView.seen = false;
   channelVideosView.seen = false;
+
+  backButtonView.lastView = false;
 }
