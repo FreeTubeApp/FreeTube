@@ -18,6 +18,23 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
  * A file for functions used for settings.
  */
 
+ // User Defaults
+ let currentTheme = '';
+ let useTor = false;
+ let rememberHistory = true;
+ let autoplay = true;
+ let enableSubtitles = false;
+ let checkForUpdates = true;
+ let currentVolume = 1;
+ let defaultQuality = 720;
+ let defaultPlaybackRate = '1';
+ // Proxy address variable
+ let defaultProxy = false;
+ // This variable is to make sure that proxy was set before making any API calls
+ let proxyAvailable = false;
+ let invidiousInstance = 'https://invidio.us';
+ let checkedSettings = false; // Used to prevent data leak when using self-hosted Invidious Instance
+
 /**
  * Display the settings screen to the user.
  *
@@ -77,6 +94,12 @@ function updateSettingsView() {
 
     document.getElementById('qualitySelect').value = defaultQuality;
     document.getElementById('rateSelect').value = defaultPlaybackRate;
+
+    if(defaultProxy) {
+      settingsView.proxyAddress = defaultProxy;
+    } else {
+      settingsView.proxyAddress = "SOCKS5://127.0.0.1:9050";
+    }
   });
 }
 
@@ -98,6 +121,8 @@ function checkDefaultSettings() {
     'updates': true,
     'quality': '720',
     'rate': '1',
+    'invidious': 'https://invidio.us',
+    'proxy': "SOCKS5://127.0.0.1:9050" // This is default value for tor client
   };
 
   console.log(settingDefaults);
@@ -151,6 +176,17 @@ function checkDefaultSettings() {
           case 'rate':
             defaultPlaybackRate = docs[0]['value'];
             break;
+          case 'proxy':
+            defaultProxy = docs[0]['value'];
+
+            if(useTor && defaultProxy) {
+              electron.ipcRenderer.send("setProxy", defaultProxy);
+            }
+            break;
+          case 'invidious':
+            settingsView.invidiousInstance = docs[0]['value'];
+            invidiousInstance = docs[0]['value'];
+            break;
           default:
             break;
         }
@@ -173,6 +209,8 @@ function updateSettings() {
   let updatesSwitch = document.getElementById('updatesSwitch').checked;
   let qualitySelect = document.getElementById('qualitySelect').value;
   let rateSelect = document.getElementById('rateSelect').value;
+  let proxyAddress = document.getElementById('proxyAddress').value;
+  let invidious = document.getElementById('invidiousInstance').value;
   let theme = 'light';
 
   settingsView.useTor = torSwitch;
@@ -180,6 +218,7 @@ function updateSettings() {
   settingsView.autoplay = autoplaySwitch;
   settingsView.subtitles = subtitlesSwitch;
   settingsView.updates = updatesSwitch;
+  settingsView.proxyAddress = proxyAddress;
   rememberHistory = historySwitch;
   defaultQuality = qualitySelect;
   defaultPlaybackRate = rateSelect;
@@ -207,6 +246,29 @@ function updateSettings() {
     console.log(err);
     console.log(numReplaced);
     useTor = torSwitch;
+  });
+
+  // Update proxy address
+  settingsDb.update({
+    _id: 'proxy'
+  }, {
+    value: proxyAddress
+  }, {}, function(err, numReplaced) {
+    console.log(err);
+    console.log(numReplaced);
+    defaultProxy = proxyAddress;
+  });
+
+  // Update Invidious Instance
+  settingsDb.update({
+    _id: 'invidious'
+  }, {
+    value: invidious
+  }, {}, function(err, numReplaced) {
+    console.log(err);
+    console.log(numReplaced);
+    settingsView.invidiousInstance = invidious;
+    invidiousInstance = invidious;
   });
 
   // Update history
@@ -274,6 +336,13 @@ function updateSettings() {
     console.log(numReplaced);
     defaultPlaybackRate = rateSelect;
   });
+
+  // set proxy in electron based on new values
+  if(torSwitch) {
+    electron.ipcRenderer.send("setProxy", proxyAddress);
+  } else {
+    electron.ipcRenderer.send("setProxy", {});
+  }
 
   showToast('Settings have been saved.');
 }
@@ -351,14 +420,34 @@ function importOpmlSubs(json){
     return;
   }
 
-  json.forEach((channel) => {
+  showToast('Importing susbcriptions, please wait.');
+
+  progressView.seen = true;
+  progressView.width = 0;
+
+  let counter = 0;
+  json.forEach((channel, index) => {
     let channelId = channel['xmlurl'].replace('https://www.youtube.com/feeds/videos.xml?channel_id=', '');
 
-    addSubscription(channelId, false);
+    invidiousAPI('channels', channelId, {}, (data) => {
+      let subscription = {
+        channelId: data.authorId,
+        channelName: data.author,
+        channelThumbnail: data.authorThumbnails[2].url
+      };
+
+      addSubscription(subscription, false);
+      counter++;
+      progressView.progressWidth = (counter / json.length) * 100;
+
+      if ((counter + 1) == json.length) {
+        showToast('Subscriptions have been imported!');
+        progressView.seen = false;
+        progressView.seen = 0;
+        return;
+      }
+    });
   });
-  window.setTimeout(displaySubs, 1000);
-  showToast('Subscriptions have been imported!');
-  return;
 }
 
 /**

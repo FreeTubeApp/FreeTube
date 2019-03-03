@@ -91,6 +91,15 @@ a {
     top: 3px;
 }
 
+#backButton {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 20px;
+    position: relative;
+    top: 3px;
+}
+
 #menuIcon {
     width: 25px;
     position: relative;
@@ -109,17 +118,31 @@ a {
 
 .searchBar {
     position: absolute;
-    right: 135px;
+    right: 100px;
     top: 0;
-    width: 50%;
+    width: 600px;
 }
 
 .searchBar input {
-    width: 90%;
+    width: 60%;
+}
+
+#searchFilter {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 20px;
+  -webkit-box-shadow: 4px -2px 51px -6px rgba(0, 0, 0, 0.75);
 }
 
 .searchButton {
     text-decoration: none;
+    cursor: pointer;
+}
+
+.filterButton {
+  text-decoration: none;
+  margin-right: 10px;
+  cursor: pointer;
 }
 
 #sideNav {
@@ -217,6 +240,19 @@ a {
 .settingsInput {
     width: 50%;
     border-bottom: 1px solid #616161;
+}
+
+.input-text-settings input {
+    width: auto;
+    border-bottom: 1px solid #616161;
+    width: 50%;
+    margin: 0 auto;
+    display: block;
+}
+
+#ipInfoSettings {
+    border: 1px solid;
+    margin: 10px 0;
 }
 
 .settingsButton {

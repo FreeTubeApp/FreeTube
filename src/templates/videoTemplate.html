@@ -29,7 +29,7 @@
                     </div>
                     <p v-on:click='play(video.id)' class='videoTitle'>{{video.title}}</p>
                     <p v-on:click='channel(video.channelId)' class='channelName'>{{video.channelName}}</p>
-                    <p v-on:click='play(video.id)' class='videoViews'>{{video.views}} {{video.viewText}} - {{video.publishedDate}}</p>
+                    <p v-if='!video.premium' v-on:click='play(video.id)' class='videoViews'>{{video.views}} {{video.viewText}} - {{video.publishedDate}}</p>
                     <p v-on:click='play(video.id)' class='videoDescription'>{{video.description}}</p>
                     <p v-on:click='play(video.id)' class='live'>{{video.liveText}}</p>
                 </div>
