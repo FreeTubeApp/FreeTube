@@ -27,7 +27,7 @@ saved videos are stored locally on your computer and never sent out.  Using a VP
 to hide your IP while using FreeTube.
 
 ## Screenshots
-<img src="https://freetubeapp.github.io/images/FreeTube1.png" width=200> <img src="https://freetubeapp.github.io/images/FreeTube2.png" width=200> <img src="https://freetubeapp.github.io/images/FreeTube3.png" width=200> <img src="https://freetubeapp.github.io/images/FreeTube5.png" width=200>
+<img src="https://freetubeapp.io/images/FreeTube1.png" width=200> <img src="https://freetubeapp.io/images/FreeTube2.png" width=200> <img src="https://freetubeapp.io/images/FreeTube3.png" width=200> <img src="https://freetubeapp.io/images/FreeTube4.png" width=200>
 
 ## Features
 * Watch videos without ads
