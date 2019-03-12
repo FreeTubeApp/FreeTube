@@ -59,6 +59,14 @@ If you ever have any questions, feel free to make an issue here on GitHub.  Alte
 
 You can also stay up to date by reading the [FreeTube Blog](https://write.as/freetube/).  [View the welcome blog](https://write.as/freetube/welcome-to-freetube-blogs).
 
+## Donate
+
+[FreeTube on Liberapay](https://liberapay.com/FreeTube)
+
+Bitcoin Address: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS
+
+If you enjoy using FreeTube, you're welcome to leave a donation using the following methods.  While your donations are much appreciated, only donate if you really want to.  Donations are used for keeping the website up and running and eventual code signing costs.
+
 ## License
 [![GNU GPLv3 Image](https://www.gnu.org/graphics/gplv3-127x51.png)](http://www.gnu.org/licenses/gpl-3.0.en.html)  
 
