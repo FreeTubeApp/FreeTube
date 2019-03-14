@@ -506,7 +506,65 @@ function importSubscriptions(){
     })
   });
 }
+/**
+* Import NewPipe Channels Subscriptions
+* @return {Void}
+*/
+function importNewpipeSubscriptions(){
+  // Open user's file browser.  Only show .json files.
+ dialog.showOpenDialog({
+  properties: ['openFile'],
+  filters: [
+    {name: 'JSON', extensions: ['*']},
+  ]
+}, function(fileLocation){
+  if(typeof(fileLocation) === 'undefined'){
+    console.log('Import Aborted');
+    return;
+  }
+  console.log(fileLocation);
+  let i = fileLocation[0].lastIndexOf('.');
+  let fileType = (i < 0) ? '' : fileLocation[0].substr(i);
+  console.log(fileType);
 
+  fs.readFile(fileLocation[0], function(readErr, data){
+    if(readErr){
+      showToast('Unable to read file.  File may be corrupt or have invalid permissions.');
+      throw readErr;
+    }
+
+    if (data.includes("app_version")){
+         
+      let newpipe, n, link, newpipesub;
+      
+      newpipe = JSON.parse(data);
+        
+        for (n in newpipe.subscriptions) {
+              
+          link = newpipe.subscriptions[n].url.split("/");
+  
+            newpipesub = {
+              channelId: link[4],
+              channelName: newpipe.subscriptions[n].name,
+              channelThumbnail: "https://newpipe.schabi.org/img/logo.svg"
+            }
+          
+            subDb.insert(newpipesub, (err, newDoc) => {
+              if (err) {
+                  showToast("Something went wrong");
+              }
+          });
+        }
+    showToast("Newpipe Subscriptions Import successful.");
+      displaySubs();
+    }
+   else if (fileType !== '.json'){
+      showToast('Incorrect file type.  Import unsuccessful.');
+      return;
+      }
+    });
+  });
+}
 /**
  * Export the susbcriptions database to a file.
  *
