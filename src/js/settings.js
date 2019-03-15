@@ -534,31 +534,32 @@ function importNewpipeSubscriptions(){
     }
 
     if (data.includes("app_version")){
-         
       let newpipe, n, link, newpipesub;
       
       newpipe = JSON.parse(data);
-        
-        for (n in newpipe.subscriptions) {
-              
+      
+      for (n in newpipe.subscriptions) {
+
           link = newpipe.subscriptions[n].url.split("/");
   
+          invidiousAPI('channels', link[4], {}, (data)=> {
             newpipesub = {
-              channelId: link[4],
-              channelName: newpipe.subscriptions[n].name,
-              channelThumbnail: "https://newpipe.schabi.org/img/logo.svg"
-            }
-          
+              channelId: data.authorId,
+              channelName: data.author,
+              channelThumbnail: data.authorThumbnails[2].url
+            };
+
+            showToast("Importing Newpipe Subscriptions. Please restart freetube when this message disappears, to see changes.");
+
             subDb.insert(newpipesub, (err, newDoc) => {
               if (err) {
                   showToast("Something went wrong");
-              }
-          });
-        }
-    showToast("Newpipe Subscriptions Import successful.");
-      displaySubs();
+              }  
+            });
+        })
+      }
     }
-   else if (fileType !== '.json'){
+    else if (fileType !== '.json'){
       showToast('Incorrect file type.  Import unsuccessful.');
       return;
       }
