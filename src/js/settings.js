@@ -489,7 +489,10 @@ function importSubscriptions(){
         });
         return;
       }
-      else if (fileType !== '.db'){
+      else if( (fileType === '.json') && (data.includes("app_version")) ) {
+        importNewpipeSubscriptions(data);
+      }
+      else if ((fileType !== '.db') && (fileType !=='.json')) {
         showToast('Incorrect file type.  Import unsuccessful.');
         return;
       }
@@ -507,36 +510,18 @@ function importSubscriptions(){
   });
 }
 /**
-* Import NewPipe Channels Subscriptions
+* Import NewPipe Channel Subscriptions
 * @return {Void}
 */
-function importNewpipeSubscriptions(){
-  // Open user's file browser.  Only show .json files.
- dialog.showOpenDialog({
-  properties: ['openFile'],
-  filters: [
-    {name: 'JSON', extensions: ['*']},
-  ]
-}, function(fileLocation){
-  if(typeof(fileLocation) === 'undefined'){
-    console.log('Import Aborted');
-    return;
-  }
-  console.log(fileLocation);
-  let i = fileLocation[0].lastIndexOf('.');
-  let fileType = (i < 0) ? '' : fileLocation[0].substr(i);
-  console.log(fileType);
+function importNewpipeSubscriptions(data){
 
-  fs.readFile(fileLocation[0], function(readErr, data){
-    if(readErr){
-      showToast('Unable to read file.  File may be corrupt or have invalid permissions.');
-      throw readErr;
-    }
-
-    if (data.includes("app_version")){
-      let newpipe, n, link, newpipesub;
+  progressView.seen = true;
+  progressView.width = 0;
+    
+  let newpipe, n, link, newpipesub, counter;
       
       newpipe = JSON.parse(data);
+      counter = 0;
       
       for (n in newpipe.subscriptions) {
 
@@ -548,18 +533,17 @@ function importNewpipeSubscriptions(){
               channelName: data.author,
               channelThumbnail: data.authorThumbnails[2].url
             };
-
-            showToast("Importing Newpipe Subscriptions. Please restart freetube when this message disappears, to see changes.");
+            counter++;
               addSubscription(newpipesub, false);
-        })
-      }
-    }
-    else if (fileType !== '.json'){
-      showToast('Incorrect file type.  Import unsuccessful.');
-      return;
-      }
+              progressView.progressWidth = (counter / newpipe.subscriptions.length) * 100;
     });
-  });
+  }
+  if ((counter + 1) == newpipe.subscriptions.length) {
+    showToast('Subscriptions have been imported!');
+    progressView.seen = false;
+    progressView.seen = 0;
+    return;
+  }
 }
 /**
  * Export the susbcriptions database to a file.
