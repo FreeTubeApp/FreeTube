@@ -550,12 +550,7 @@ function importNewpipeSubscriptions(){
             };
 
             showToast("Importing Newpipe Subscriptions. Please restart freetube when this message disappears, to see changes.");
-
-            subDb.insert(newpipesub, (err, newDoc) => {
-              if (err) {
-                  showToast("Something went wrong");
-              }  
-            });
+              addSubscription(newpipesub, false);
         })
       }
     }
