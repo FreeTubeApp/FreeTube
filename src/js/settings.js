@@ -489,7 +489,11 @@ function importSubscriptions(){
         });
         return;
       }
-      else if (fileType !== '.db'){
+      else if( (fileType === '.json') && (data.includes("app_version")) ) {
+        importNewpipeSubscriptions(data);
+        return;
+      }
+      else if ((fileType !== '.db') && (fileType !=='.json')) {
         showToast('Incorrect file type.  Import unsuccessful.');
         return;
       }
@@ -506,7 +510,44 @@ function importSubscriptions(){
     })
   });
 }
+/**
+* Import NewPipe Channel Subscriptions
+* @return {Void}
+*/
+function importNewpipeSubscriptions(data){
 
+  progressView.seen = true;
+  progressView.width = 0;
+  showToast('Importing Newpipe Subscriptions, Please Wait.');
+
+  let newpipe, n, link, newpipesub, counter;
+      
+      newpipe = JSON.parse(data);
+      counter = 0;
+      
+      for (n in newpipe.subscriptions) {
+
+          link = newpipe.subscriptions[n].url.split("/");
+  
+          invidiousAPI('channels', link[4], {}, (data)=> {
+            newpipesub = {
+              channelId: data.authorId,
+              channelName: data.author,
+              channelThumbnail: data.authorThumbnails[2].url
+            };
+              addSubscription(newpipesub, false);
+              counter++;
+              progressView.progressWidth = (counter / newpipe.subscriptions.length) * 100;
+            
+              if ((counter + 1) == newpipe.subscriptions.length) {
+                showToast('Subscriptions have been imported!');
+                progressView.seen = false;
+                progressView.seen = 0;
+                return;
+        }
+    });
+  }
+}
 /**
  * Export the susbcriptions database to a file.
  *
