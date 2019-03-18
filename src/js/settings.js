@@ -491,6 +491,7 @@ function importSubscriptions(){
       }
       else if( (fileType === '.json') && (data.includes("app_version")) ) {
         importNewpipeSubscriptions(data);
+        return;
       }
       else if ((fileType !== '.db') && (fileType !=='.json')) {
         showToast('Incorrect file type.  Import unsuccessful.');
@@ -517,7 +518,8 @@ function importNewpipeSubscriptions(data){
 
   progressView.seen = true;
   progressView.width = 0;
-    
+  showToast('Importing Newpipe Subscriptions, Please Wait.');
+
   let newpipe, n, link, newpipesub, counter;
       
       newpipe = JSON.parse(data);
@@ -533,16 +535,17 @@ function importNewpipeSubscriptions(data){
               channelName: data.author,
               channelThumbnail: data.authorThumbnails[2].url
             };
-            counter++;
               addSubscription(newpipesub, false);
+              counter++;
               progressView.progressWidth = (counter / newpipe.subscriptions.length) * 100;
+            
+              if ((counter + 1) == newpipe.subscriptions.length) {
+                showToast('Subscriptions have been imported!');
+                progressView.seen = false;
+                progressView.seen = 0;
+                return;
+        }
     });
-  }
-  if ((counter + 1) == newpipe.subscriptions.length) {
-    showToast('Subscriptions have been imported!');
-    progressView.seen = false;
-    progressView.seen = 0;
-    return;
   }
 }
 /**
