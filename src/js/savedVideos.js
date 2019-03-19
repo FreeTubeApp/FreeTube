@@ -165,6 +165,8 @@ function showSavedVideos() {
 
                   videoData.position = index;
                   displayVideo(videoData, 'saved');
+            }, () => {
+              removeSavedVideo(video.videoId);
             });
           }
           else {
