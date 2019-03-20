@@ -191,6 +191,7 @@ function checkDefaultSettings() {
             invidiousInstance = docs[0]['value'];
             break;
           case 'region':
+            defaultRegion = docs[0]['value'];
             settingsView.region = docs[0]['value'];
             break;
           default:
