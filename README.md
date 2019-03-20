@@ -55,7 +55,7 @@ Thank you very much to the [People and Projects](https://github.com/FreeTubeApp/
 
 ## Contact
 
-If you ever have any questions, feel free to make an issue here on GitHub.  Alternatively, you can email me at FreeTubeApp@protonmail.com or you can join our [Matrix Server](https://riot.im/app/#/room/#freetube:matrix.org).  Don't forget to check out the [rules](https://github.com/FreeTubeApp/FreeTube/wiki/Matrix-Server-Info-&-Rules) before joining.
+If you ever have any questions, feel free to make an issue here on GitHub.  Alternatively, you can email me at FreeTubeApp@protonmail.com or you can join our [Matrix Community](https://riot.im/app/#/group/+freetube:matrix.org).  Don't forget to check out the [rules](https://github.com/FreeTubeApp/FreeTube/wiki/Matrix-Server-Info-&-Rules) before joining.
 
 You can also stay up to date by reading the [FreeTube Blog](https://write.as/freetube/).  [View the welcome blog](https://write.as/freetube/welcome-to-freetube-blogs).
 
