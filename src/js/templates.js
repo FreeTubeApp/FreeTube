@@ -368,6 +368,7 @@ let settingsView = new Vue({
     autoplay: true,
     subtitles: false,
     updates: true,
+    region: 'US',
     proxyAddress: false,
     invidiousInstance: 'https://invidio.us',
     checkProxyResult: false,

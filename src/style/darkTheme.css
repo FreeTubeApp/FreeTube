@@ -229,6 +229,10 @@ input[type=text] {
     background-color: #212121;
 }
 
+#backButton {
+  color: white;
+}
+
 #channelIcon {
     border: 0px solid white;
 }

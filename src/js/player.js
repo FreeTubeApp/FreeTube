@@ -29,6 +29,8 @@
 function playVideo(videoId, playlistId = '') {
     hideViews();
 
+    let youtubedlFinished = false;
+    let invidiousFinished = false;
     playerView.playerSeen = true;
     playerView.firstLoad = true;
     playerView.videoId = videoId;
@@ -119,15 +121,19 @@ function playVideo(videoId, playlistId = '') {
         playerView.subtitleHtml = videoHtml;
       }
 
-      loadingView.seen = false;
+      youtubedlFinished = true;
 
-      if (subscriptionView.seen === false && aboutView.seen === false && headerView.seen === false && searchView.seen === false && settingsView.seen === false && popularView.seen === false && savedView.seen === false && historyView.seen === false && channelView.seen === false && channelVideosView.seen === false) {
-          playerView.seen = true;
-      } else {
-          return;
+      if (youtubedlFinished && invidiousFinished) {
+        loadingView.seen = false;
+
+        if (subscriptionView.seen === false && aboutView.seen === false && headerView.seen === false && searchView.seen === false && settingsView.seen === false && popularView.seen === false && savedView.seen === false && historyView.seen === false && channelView.seen === false && channelVideosView.seen === false) {
+            playerView.seen = true;
+        } else {
+            return;
+        }
+
+        window.setTimeout(checkVideoUrls, 5000, playerView.video480p, playerView.video720p, playerView.videoAudio);
       }
-
-      window.setTimeout(checkVideoUrls, 5000, playerView.video480p, playerView.video720p, playerView.videoAudio);
     });
 
     invidiousAPI('videos', videoId, {}, (data) => {
@@ -240,6 +246,20 @@ function playVideo(videoId, playlistId = '') {
           playerView.playlistSeen = false;
           playerView.playlistShowList = false;
           playerView.playlistId = '';
+        }
+
+        invidiousFinished = true;
+
+        if (youtubedlFinished && invidiousFinished) {
+          loadingView.seen = false;
+
+          if (subscriptionView.seen === false && aboutView.seen === false && headerView.seen === false && searchView.seen === false && settingsView.seen === false && popularView.seen === false && savedView.seen === false && historyView.seen === false && channelView.seen === false && channelVideosView.seen === false) {
+              playerView.seen = true;
+          } else {
+              return;
+          }
+
+          window.setTimeout(checkVideoUrls, 5000, playerView.video480p, playerView.video720p, playerView.videoAudio);
         }
 
         if (rememberHistory === true){
