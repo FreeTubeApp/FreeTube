@@ -194,6 +194,10 @@ body {
     background-color: #e0e0e0;
 }
 
+#backButton {
+  color: #000000;
+}
+
 #channelIcon {
     border: 0px solid #000000;
 }
