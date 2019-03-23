@@ -354,7 +354,7 @@ function showTrending() {
         checkTrending = false;
     }
 
-    invidiousAPI('trending', '', {}, function (data) {
+    invidiousAPI('trending', '', {region: settingsView.region}, function (data) {
         console.log(data);
         popularView.videoList = [];
 

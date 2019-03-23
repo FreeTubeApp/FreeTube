@@ -105,6 +105,8 @@ function showHistory(){
               addToHistory(videoData);
               videoData.position = index;
               displayVideo(videoData, 'history');
+          }, () => {
+            removeFromHistory(video.videoId);
           });
         }
         else{

@@ -28,8 +28,12 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
  let currentVolume = 1;
  let defaultQuality = 720;
  let defaultPlaybackRate = '1';
+<<<<<<< HEAD
  // Subscriptions Export Type
  let defaultExportType = 'FreeTube';
+=======
+ let defaultRegion = 'US';
+>>>>>>> 6c5f506c454a0d7e75b5d2e46640b69f4f86fe5a
  // Proxy address variable
  let defaultProxy = false;
  // This variable is to make sure that proxy was set before making any API calls
@@ -96,7 +100,11 @@ function updateSettingsView() {
 
     document.getElementById('qualitySelect').value = defaultQuality;
     document.getElementById('rateSelect').value = defaultPlaybackRate;
+<<<<<<< HEAD
     document.getElementById('exportSelect').value = defaultExportType;
+=======
+    document.getElementById('regionSelect').value = defaultRegion;
+>>>>>>> 6c5f506c454a0d7e75b5d2e46640b69f4f86fe5a
 
     if(defaultProxy) {
       settingsView.proxyAddress = defaultProxy;
@@ -126,7 +134,8 @@ function checkDefaultSettings() {
     'rate': '1',
     'export': 'FreeTube',
     'invidious': 'https://invidio.us',
-    'proxy': "SOCKS5://127.0.0.1:9050" // This is default value for tor client
+    'proxy': "SOCKS5://127.0.0.1:9050", // This is default value for tor client
+    'region': 'US'
   };
 
   console.log(settingDefaults);
@@ -194,6 +203,10 @@ function checkDefaultSettings() {
             settingsView.invidiousInstance = docs[0]['value'];
             invidiousInstance = docs[0]['value'];
             break;
+          case 'region':
+            defaultRegion = docs[0]['value'];
+            settingsView.region = docs[0]['value'];
+            break;
           default:
             break;
         }
@@ -216,7 +229,11 @@ function updateSettings() {
   let updatesSwitch = document.getElementById('updatesSwitch').checked;
   let qualitySelect = document.getElementById('qualitySelect').value;
   let rateSelect = document.getElementById('rateSelect').value;
+<<<<<<< HEAD
   let defaultExport = document.getElementById('exportSelect').value;
+=======
+  let regionSelect = document.getElementById('regionSelect').value;
+>>>>>>> 6c5f506c454a0d7e75b5d2e46640b69f4f86fe5a
   let proxyAddress = document.getElementById('proxyAddress').value;
   let invidious = document.getElementById('invidiousInstance').value;
   let theme = 'light';
@@ -346,6 +363,7 @@ function updateSettings() {
     defaultPlaybackRate = rateSelect;
   });
 
+<<<<<<< HEAD
   // Update default subscriptions export.
   settingsDb.update({
     _id: 'export'
@@ -355,6 +373,17 @@ function updateSettings() {
     console.log(err);
     console.log(numReplaced);
     defaultExportType = defaultExport;
+=======
+  // Update default region.
+  settingsDb.update({
+    _id: 'region'
+  }, {
+    value: regionSelect
+  }, {}, function(err, numReplaced) {
+    console.log(err);
+    console.log(numReplaced);
+    settingsView.region = regionSelect;
+>>>>>>> 6c5f506c454a0d7e75b5d2e46640b69f4f86fe5a
   });
 
   // set proxy in electron based on new values
@@ -440,7 +469,7 @@ function importOpmlSubs(json){
     return;
   }
 
-  showToast('Importing susbcriptions, please wait.');
+  showToast('Importing subscriptions, please wait.');
 
   progressView.seen = true;
   progressView.width = 0;
@@ -541,6 +570,7 @@ function importNewpipeSubscriptions(data){
   showToast('Importing Newpipe Subscriptions, Please Wait.');
 
   let newpipe, n, link, newpipesub, counter;
+<<<<<<< HEAD
       
       newpipe = JSON.parse(data);
       counter = 0;
@@ -549,6 +579,16 @@ function importNewpipeSubscriptions(data){
 
           link = newpipe.subscriptions[n].url.split("/");
   
+=======
+
+      newpipe = JSON.parse(data);
+      counter = 0;
+
+      for (n in newpipe.subscriptions) {
+
+          link = newpipe.subscriptions[n].url.split("/");
+
+>>>>>>> 6c5f506c454a0d7e75b5d2e46640b69f4f86fe5a
           invidiousAPI('channels', link[4], {}, (data)=> {
             newpipesub = {
               channelId: data.authorId,
@@ -558,7 +598,11 @@ function importNewpipeSubscriptions(data){
               addSubscription(newpipesub, false);
               counter++;
               progressView.progressWidth = (counter / newpipe.subscriptions.length) * 100;
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> 6c5f506c454a0d7e75b5d2e46640b69f4f86fe5a
               if ((counter + 1) == newpipe.subscriptions.length) {
                 showToast('Subscriptions have been imported!');
                 progressView.seen = false;
