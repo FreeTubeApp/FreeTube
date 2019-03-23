@@ -28,6 +28,8 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
  let currentVolume = 1;
  let defaultQuality = 720;
  let defaultPlaybackRate = '1';
+ // Subscriptions Export Type
+ let defaultExportType = 'FreeTube';
  // Proxy address variable
  let defaultProxy = false;
  // This variable is to make sure that proxy was set before making any API calls
@@ -94,6 +96,7 @@ function updateSettingsView() {
 
     document.getElementById('qualitySelect').value = defaultQuality;
     document.getElementById('rateSelect').value = defaultPlaybackRate;
+    document.getElementById('exportSelect').value = defaultExportType;
 
     if(defaultProxy) {
       settingsView.proxyAddress = defaultProxy;
@@ -121,6 +124,7 @@ function checkDefaultSettings() {
     'updates': true,
     'quality': '720',
     'rate': '1',
+    'export': 'FreeTube',
     'invidious': 'https://invidio.us',
     'proxy': "SOCKS5://127.0.0.1:9050" // This is default value for tor client
   };
@@ -176,6 +180,9 @@ function checkDefaultSettings() {
           case 'rate':
             defaultPlaybackRate = docs[0]['value'];
             break;
+          case 'export':
+            defaultExportType = docs[0]['value'];
+            break;
           case 'proxy':
             defaultProxy = docs[0]['value'];
 
@@ -209,6 +216,7 @@ function updateSettings() {
   let updatesSwitch = document.getElementById('updatesSwitch').checked;
   let qualitySelect = document.getElementById('qualitySelect').value;
   let rateSelect = document.getElementById('rateSelect').value;
+  let defaultExport = document.getElementById('exportSelect').value;
   let proxyAddress = document.getElementById('proxyAddress').value;
   let invidious = document.getElementById('invidiousInstance').value;
   let theme = 'light';
@@ -222,6 +230,7 @@ function updateSettings() {
   rememberHistory = historySwitch;
   defaultQuality = qualitySelect;
   defaultPlaybackRate = rateSelect;
+  defaultExportType = defaultExport;
 
   if (themeSwitch === true) {
     theme = 'dark';
@@ -335,6 +344,17 @@ function updateSettings() {
     console.log(err);
     console.log(numReplaced);
     defaultPlaybackRate = rateSelect;
+  });
+
+  // Update default subscriptions export.
+  settingsDb.update({
+    _id: 'export'
+  }, {
+    value: defaultExport
+  }, {}, function(err, numReplaced) {
+    console.log(err);
+    console.log(numReplaced);
+    defaultExportType = defaultExport;
   });
 
   // set proxy in electron based on new values
@@ -572,6 +592,12 @@ function exportSubscriptions() {
   const dateYear = date.getFullYear();
   const dateString = 'freetube-subscriptions-' + dateYear + '-' + dateMonth + '-' + dateDay;
 
+  if (document.querySelector('#exportSelect').value === "NewPipe"){
+
+    exportNewpipeSubscriptions(appDatabaseFile, dateYear, dateMonth, dateDay);    
+    return;
+  } 
+  else{
   // Open user file browser. User gives location of file to be created.
   dialog.showSaveDialog({
     defaultPath: dateString,
@@ -596,6 +622,62 @@ function exportSubscriptions() {
         showToast('Susbcriptions have been successfully exported');
       });
     })
+  });
+ }  
+}
+/**
+ * Export the susbcriptions database to a file.
+ *
+ * @return {Void}
+ */
+function exportNewpipeSubscriptions(appDatabaseFile, dateYear, dateMonth, dateDay){
+
+  const dateString = 'newpipe-subscriptions-' + dateYear + '-' + dateMonth + '-' + dateDay;
+
+  dialog.showSaveDialog({
+    defaultPath: dateString,
+    filters: [{
+      name: 'JSON',
+      extensions: ['json']
+    }, ]
+  }, function(fileLocation) {
+    console.log(fileLocation);
+    if (typeof(fileLocation) === 'undefined') {
+      console.log('Export Aborted');
+      return;
+    }
+    returnSubscriptions().then((result)=>{
+        let newpipe = {
+          app_version: "0.15.1",
+          app_version_int: 71,
+          subscriptions: []
+        }
+        for (let i=0; i < result.length; i++) {
+          invidiousAPI('channels', result[i].channelId, {}, (iapi)=>{
+            let subs = {
+              service_id: 0,
+              url: 'https://youtube.com' + iapi.authorUrl,
+              name: iapi.author
+            }
+          progressView.progressWidth = (i / result.length) * 100;
+          newpipe.subscriptions.push(subs);
+          fs.writeFile(fileLocation, JSON.stringify(newpipe), function(writeErr) {
+            if (writeErr) {
+              throw writeErr;
+            }
+            if (i === result.length-1) {
+              showToast('Susbcriptions have been successfully exported');
+              progressView.seen = false;
+                progressView.seen = 0;
+                return;
+              }
+            });
+          })
+        }
+        progressView.seen = true;
+        progressView.width = 0;
+        showToast('Exporting as Newpipe Subscriptions, Please Wait.');
+      });
   });
 }
 
