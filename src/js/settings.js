@@ -591,12 +591,56 @@ function exportSubscriptions() {
   const dateYear = date.getFullYear();
   const dateString = 'freetube-subscriptions-' + dateYear + '-' + dateMonth + '-' + dateDay;
 
-  // Open user file browser. User gives location of file to be created.
+    switch(document.querySelector('#exportSelect').value){
+      
+      case "NewPipe":
+        exportNewpipeSubscriptions(dateYear, dateMonth, dateDay); 
+      break;
+      case "OPML":
+        exportOpmlSubscriptions(dateYear, dateMonth, dateDay);
+      break;
+      default:
+        // Open user file browser. User gives location of file to be created.
+        dialog.showSaveDialog({
+          defaultPath: dateString,
+          filters: [{
+            name: 'Database File',
+            extensions: ['db']
+          }, ]
+        }, function(fileLocation) {
+          console.log(fileLocation);
+          if (typeof(fileLocation) === 'undefined') {
+            console.log('Export Aborted');
+            return;
+          }
+          fs.readFile(appDatabaseFile, function(readErr, data) {
+            if (readErr) {
+              throw readErr;
+            }
+            fs.writeFile(fileLocation, data, function(writeErr) {
+              if (writeErr) {
+                throw writeErr;
+              }
+              showToast('Susbcriptions have been successfully exported');
+            });
+          })
+        });
+    }
+}
+/**
+ * Export the subscriptions database compatable with NewPipe.
+ *
+ * @return {Void}
+ */
+function exportNewpipeSubscriptions(dateYear, dateMonth, dateDay){
+
+  const dateString = 'newpipe-subscriptions-' + dateYear + '-' + dateMonth + '-' + dateDay;
+
   dialog.showSaveDialog({
     defaultPath: dateString,
     filters: [{
-      name: 'Database File',
-      extensions: ['db']
+      name: 'JSON',
+      extensions: ['json']
     }, ]
   }, function(fileLocation) {
     console.log(fileLocation);
@@ -604,20 +648,88 @@ function exportSubscriptions() {
       console.log('Export Aborted');
       return;
     }
-    fs.readFile(appDatabaseFile, function(readErr, data) {
-      if (readErr) {
-        throw readErr;
-      }
-      fs.writeFile(fileLocation, data, function(writeErr) {
-        if (writeErr) {
-          throw writeErr;
+    returnSubscriptions().then((result)=>{
+        let newpipe = {
+          app_version: "0.15.1",
+          app_version_int: 71,
+          subscriptions: []
         }
-        showToast('Susbcriptions have been successfully exported');
+        for (let i=0; i < result.length; i++) {
+          invidiousAPI('channels', result[i].channelId, {}, (iapi)=>{
+            let subs = {
+              service_id: 0,
+              url: 'https://youtube.com' + iapi.authorUrl,
+              name: iapi.author
+            }
+          progressView.progressWidth = (i / result.length) * 100;
+          newpipe.subscriptions.push(subs);
+          fs.writeFile(fileLocation, JSON.stringify(newpipe), function(writeErr) {
+            if (writeErr) {
+              throw writeErr;
+            }
+            if (i === result.length-1) {
+              showToast('Susbcriptions have been successfully exported');
+              progressView.seen = false;
+                progressView.seen = 0;
+                return;
+              }
+            });
+          })
+        }
+        progressView.seen = true;
+        progressView.width = 0;
+        showToast('Exporting as Newpipe Subscriptions, Please Wait.');
       });
-    })
   });
 }
+/**
+ * Export subscriptions database as OPML.
+ *
+ * @return {Void}
+ */
+function exportOpmlSubscriptions(dateYear, dateMonth, dateDay){
 
+  const dateString = 'freetube-subscriptions-' + dateYear + '-' + dateMonth + '-' + dateDay;
+
+  dialog.showSaveDialog({
+    defaultPath: dateString,
+    filters: [{
+      name: 'OPML',
+      extensions: ['opml']
+    }, ]
+  }, function(fileLocation) {
+    console.log(fileLocation);
+    if (typeof(fileLocation) === 'undefined') {
+      console.log('Export Aborted');
+      return;
+    }
+    returnSubscriptions().then((result)=>{
+
+        let opml = `<opml version="1.1"><body><outline text="YouTube Subscriptions" title="YouTube Subscriptions">`;
+        
+        for (let i=0; i < result.length; i++) {
+            
+          let subs = `<outline text="${result[i].channelName}" title="${result[i].channelName}" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=${result[i].channelId}"/>`;
+            
+          if (i === result.length-1) {
+              
+              let end = `</outline></body></opml>`;
+              subs += end;
+            }
+            opml += subs;
+          fs.writeFile(fileLocation, opml, function(writeErr) {
+         if (writeErr) {
+              throw writeErr;
+            }
+            if (i === result.length-1) {
+              showToast('Susbcriptions have been successfully exported');
+                return;
+              }
+          });
+        }
+      });
+  });
+}
 /**
 * Clear out the data in a file.
 *
