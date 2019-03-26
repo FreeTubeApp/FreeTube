@@ -650,18 +650,18 @@ function exportNewpipeSubscriptions(dateYear, dateMonth, dateDay){
     }
     returnSubscriptions().then((result)=>{
         let newpipe = {
-          app_version: "0.15.1",
-          app_version_int: 71,
+          app_version: "0.16.1",
+          app_version_int: 730,
           subscriptions: []
         }
         for (let i=0; i < result.length; i++) {
-          invidiousAPI('channels', result[i].channelId, {}, (iapi)=>{
+
             let subs = {
               service_id: 0,
-              url: 'https://youtube.com' + iapi.authorUrl,
-              name: iapi.author
+              url: `https://youtube.com/channel/${result[i].channelId}`,
+              name: result[i].channelName
             }
-          progressView.progressWidth = (i / result.length) * 100;
+
           newpipe.subscriptions.push(subs);
           fs.writeFile(fileLocation, JSON.stringify(newpipe), function(writeErr) {
             if (writeErr) {
@@ -669,17 +669,11 @@ function exportNewpipeSubscriptions(dateYear, dateMonth, dateDay){
             }
             if (i === result.length-1) {
               showToast('Susbcriptions have been successfully exported');
-              progressView.seen = false;
-                progressView.seen = 0;
                 return;
               }
-            });
-          })
+          });
         }
-        progressView.seen = true;
-        progressView.width = 0;
-        showToast('Exporting as Newpipe Subscriptions, Please Wait.');
-      });
+    });
   });
 }
 /**
@@ -712,9 +706,8 @@ function exportOpmlSubscriptions(dateYear, dateMonth, dateDay){
           let subs = `<outline text="${result[i].channelName}" title="${result[i].channelName}" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=${result[i].channelId}"/>`;
             
           if (i === result.length-1) {
-              
-              let end = `</outline></body></opml>`;
-              subs += end;
+
+            subs += `</outline></body></opml>`;
             }
             opml += subs;
           fs.writeFile(fileLocation, opml, function(writeErr) {
