@@ -75,6 +75,9 @@ function removeSavedVideo(videoId, string) {
         videoId: videoId
     }, {}, (err, numRemoved) => {
         showToast('Video has been removed from the favorites list.');
+        if (savedView.seen === true) {
+          showSavedVideos();
+        }
     });
 }
 

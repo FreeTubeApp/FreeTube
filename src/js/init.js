@@ -38,7 +38,9 @@ let win;
 
 protocol.registerStandardSchemes(['freetube']);
 
-app.setAsDefaultProtocolClient('freetube');
+app.setAsDefaultProtocolClient('freetube');//--autoplay-policy=no-user-gesture-required
+
+app.commandLine.appendSwitch('autoplay-policy', 'no-user-gesture-required');
 
 const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
     // Someone tried to run a second instance, we should focus our window.
@@ -167,7 +169,7 @@ let init = function () {
 
     /**
      * Sets proxy when setProxy event is sent from renderer
-     * 
+     *
      * example data "SOCKS5://127.0.0.1:9050"
      */
     ipcMain.on("setProxy", (_e, data) => {

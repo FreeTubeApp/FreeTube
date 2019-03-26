@@ -320,8 +320,8 @@ function openMiniPlayer() {
     $.get('templates/miniPlayer.html', (template) => {
         mustache.parse(template);
         const rendered = mustache.render(template, {
-            videoHtml: videoHtml,
-            videoThumbnail: playerView.thumbnail,
+            videoUrl: playerView.videoUrl,
+            videoThumbnail: playerView.videoThumbnail,
             startTime: lastTime,
         });
         // Render the template to the new browser window.
