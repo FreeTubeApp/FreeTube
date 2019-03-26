@@ -39,6 +39,7 @@ let mouseTimeout;
 
 $('.videoPlayer').ready(() => {
     $('.videoPlayer').get(0).currentTime = startTime;
+    $('.videoPlayer').get(0).play();
 });
 
 /**
@@ -75,4 +76,5 @@ $(document).on('mouseover', '.videoPlayer', hideMouseTimeout);
 $(document).on('mouseleave', '.videoPlayer', removeMouseTimeout);
 
 </script>
-{{{videoHtml}}}
+<video class="videoPlayer" id='videoPlayer' type="application/x-mpegURL" object-fit='cover' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" src='{{videoUrl}}' poster='{{videoThumbnail}}' autoplay="autoplay">
+</video>
