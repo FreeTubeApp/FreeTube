@@ -58,11 +58,13 @@ function addToHistory(data){
 *
 * @return {Void}
 */
-function removeFromHistory(videoId){
+function removeFromHistory(videoId, toast = true){
   const data = {videoId: videoId};
   historyDb.remove(data, {}, (err, numRemoved) => {
-    if (!err) {
-      showToast('Video removed from history');
+    if (toast) {
+      if (!err) {
+        showToast('Video removed from history');
+      }
     }
   });
 }
@@ -106,7 +108,7 @@ function showHistory(){
               videoData.position = index;
               displayVideo(videoData, 'history');
           }, () => {
-            removeFromHistory(video.videoId);
+            removeFromHistory(video.videoId, false);
           });
         }
         else{

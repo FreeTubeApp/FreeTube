@@ -70,11 +70,13 @@ function addSavedVideo(videoId) {
  *
  * @return {Void}
  */
-function removeSavedVideo(videoId, string) {
+function removeSavedVideo(videoId, toast = true) {
     savedVidsDb.remove({
         videoId: videoId
     }, {}, (err, numRemoved) => {
-        showToast('Video has been removed from the favorites list.');
+        if (toast) {
+          showToast('Video has been removed from the favorites list.');
+        }
         if (savedView.seen === true) {
           showSavedVideos();
         }
@@ -169,7 +171,7 @@ function showSavedVideos() {
                   videoData.position = index;
                   displayVideo(videoData, 'saved');
             }, () => {
-              removeSavedVideo(video.videoId);
+              removeSavedVideo(video.videoId, false);
             });
           }
           else {
