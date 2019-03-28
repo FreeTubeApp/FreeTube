@@ -40,6 +40,22 @@ to hide your IP while using FreeTube.
 * Mini Player
 * Light / dark theme
 
+## Download Links
+
+### Official Downloads
+
+[GitHub Releases](https://github.com/FreeTubeApp/FreeTube/releases)
+
+[FreeTube Website](https://freetubeapp.io/#download)
+
+### Unofficial Downloads
+
+These sources are maintained by the community.  While they should be safe, download at your own risk.  Any issues with these builds should be sent to their respective maintainer.
+
+Arch User Repository (AUR): [Download](https://aur.archlinux.org/packages/freetube/)
+
+Windows Portable: [Source](https://github.com/rddim/FreeTubePortable) [Download](https://github.com/rddim/FreeTubePortable/releases)
+
 ## Contributing
 If you have an idea or if you found a bug, please submit a GitHub issue so that
 we can track it.  Please search the existing issues before submitting to
