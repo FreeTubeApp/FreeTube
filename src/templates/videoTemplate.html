@@ -20,7 +20,7 @@
                         </ul>
                     </div>
                     <div class='videoThumbnail'>
-                        <img v-on:click='play(video.id)' :src='video.thumbnail' />
+                        <img v-on:click='play(video.id)' oncontextmenu='rightClickMiniPlayer(this.src, this.parentNode.previousElementSibling.querySelectorAll("a")[0].href)' :src='video.thumbnail' />
                         <p v-on:click='play(video.id)' class='videoDuration'>{{video.duration}}</p>
                         <i class="fas fa-history videoSave" v-on:click='toggleSave(video.id)'></i>
                         <div v-if='video.watched' class='videoWatched'>

@@ -294,9 +294,9 @@ function playVideo(videoId, playlistId = '') {
  * @return {Void}
  */
 function openMiniPlayer() {
+
     let lastTime;
     let videoHtml;
-
     // Grabs whatever the HTML is for the current video player.  Done this way to grab
     // the HTML5 player (with varying qualities) as well as the YouTube embeded player.
     if ($('.videoPlayer').length > 0) {
@@ -328,7 +328,42 @@ function openMiniPlayer() {
         miniPlayer.loadURL("data:text/html;charset=utf-8," + encodeURI(rendered));
     });
 }
+/**
+ * Right click on video thumbnail opens it in pop up player
+ *
+ * @param {string} videoThumbnail - The URL of the video thumbnail.  Used to prevent another API call.
+ *
+ */
+function rightClickMiniPlayer(contextImg, contextUrl){
 
+  let vId = contextUrl.split('=');
+    
+  invidiousAPI('videos', vId[1], {}, (video)=>{
+
+    let videoSUrl = video.formatStreams[0].url;
+
+    // Create a new browser window.
+    const BrowserWindow = electron.remote.BrowserWindow;
+
+    let miniPlayer = new BrowserWindow({
+        width: 1200,
+        height: 710,
+        autoHideMenuBar: true
+    });
+
+    // Use the miniPlayer.html template.
+    $.get('templates/miniPlayer.html', (template) => {
+        mustache.parse(template);
+        const rendered = mustache.render(template, {
+            videoUrl: videoSUrl,
+            videoThumbnail: contextImg
+        });
+        
+        // Render the template to the new browser window.
+        miniPlayer.loadURL("data:text/html;charset=utf-8," + encodeURI(rendered));
+    });
+  });
+}
 function checkVideoSettings() {
   let player = document.getElementById('videoPlayer');
 
