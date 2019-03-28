@@ -329,19 +329,13 @@ function openMiniPlayer() {
     });
 }
 /**
- * Right click on video thumbnail opens it in pop up player
- *
- * @param {string} videoThumbnail - The URL of the video thumbnail.  Used to prevent another API call.
+ * Opens the video directly in pop up player
  *
  */
-function rightClickMiniPlayer(contextImg, contextUrl){
+function clickMiniPlayer(contextUrl){
 
-  let vId = contextUrl.split('=');
-    
+  let vId = contextUrl.split('v=');
   invidiousAPI('videos', vId[1], {}, (video)=>{
-
-    let videoSUrl = video.formatStreams[0].url;
-
     // Create a new browser window.
     const BrowserWindow = electron.remote.BrowserWindow;
 
@@ -355,10 +349,9 @@ function rightClickMiniPlayer(contextImg, contextUrl){
     $.get('templates/miniPlayer.html', (template) => {
         mustache.parse(template);
         const rendered = mustache.render(template, {
-            videoUrl: videoSUrl,
-            videoThumbnail: contextImg
+            videoUrl: video.formatStreams[0].url,
+            videoThumbnail: video.videoThumbnails[2].url
         });
-        
         // Render the template to the new browser window.
         miniPlayer.loadURL("data:text/html;charset=utf-8," + encodeURI(rendered));
     });
