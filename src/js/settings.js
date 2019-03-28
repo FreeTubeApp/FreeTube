@@ -165,12 +165,7 @@ function checkDefaultSettings() {
             checkForUpdates = docs[0]['value'];
 
             if (checkForUpdates) {
-              updateChecker(options, function (error, update) { // callback function
-                  if (error) throw error;
-                  if (update) { // print some update info if an update is available
-                      confirmFunction(update.name + ' is now available! Would you like to download the update?', openReleasePage);
-                  }
-              });
+              checkForNewUpdate();
             }
             break;
           case 'quality':
@@ -592,9 +587,9 @@ function exportSubscriptions() {
   const dateString = 'freetube-subscriptions-' + dateYear + '-' + dateMonth + '-' + dateDay;
 
     switch(document.querySelector('#exportSelect').value){
-      
+
       case "NewPipe":
-        exportNewpipeSubscriptions(dateYear, dateMonth, dateDay); 
+        exportNewpipeSubscriptions(dateYear, dateMonth, dateDay);
       break;
       case "OPML":
         exportOpmlSubscriptions(dateYear, dateMonth, dateDay);
@@ -700,11 +695,11 @@ function exportOpmlSubscriptions(dateYear, dateMonth, dateDay){
     returnSubscriptions().then((result)=>{
 
         let opml = `<opml version="1.1"><body><outline text="YouTube Subscriptions" title="YouTube Subscriptions">`;
-        
+
         for (let i=0; i < result.length; i++) {
-            
+
           let subs = `<outline text="${result[i].channelName}" title="${result[i].channelName}" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=${result[i].channelId}"/>`;
-            
+
           if (i === result.length-1) {
 
             subs += `</outline></body></opml>`;
