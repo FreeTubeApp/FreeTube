@@ -334,28 +334,55 @@ function openMiniPlayer() {
  */
 function clickMiniPlayer(contextUrl){
 
-  let vId = contextUrl.split('v=');
-  invidiousAPI('videos', vId[1], {}, (video)=>{
-    // Create a new browser window.
-    const BrowserWindow = electron.remote.BrowserWindow;
+let videoUrl, usrQuality, vId;
 
-    let miniPlayer = new BrowserWindow({
-        width: 1200,
-        height: 710,
-        autoHideMenuBar: true
-    });
+  vId = contextUrl.split('v=');
 
-    // Use the miniPlayer.html template.
-    $.get('templates/miniPlayer.html', (template) => {
-        mustache.parse(template);
-        const rendered = mustache.render(template, {
-            videoUrl: video.formatStreams[0].url,
-            videoThumbnail: video.videoThumbnails[2].url
-        });
-        // Render the template to the new browser window.
-        miniPlayer.loadURL("data:text/html;charset=utf-8," + encodeURI(rendered));
-    });
+  settingsDb.find({_id: 'quality'}, (err, val)=> {
+
+    switch(val[0].value) {
+
+      case "480":
+        usrQuality = "18";
+        break;
+
+      case "720":
+      usrQuality = "22";
+      break;
+
+      default:
+      break;
+    }
   });
+  showToast("Opening in mini player, Please wait.");
+    youtubedlGetInfo(vId[1], (video)=>{
+
+      for (let i in video.formats){
+  
+       if ( video.formats[i].itag === usrQuality){
+        videoUrl = video.formats[i].url;
+        break;
+          }
+        }
+        // Create a new browser window.
+      const BrowserWindow = electron.remote.BrowserWindow;
+        
+      let miniPlayer = new BrowserWindow({
+          width: 1200,
+          height: 710,
+          autoHideMenuBar: true
+      });
+      // Use the miniPlayer.html template.
+      $.get('templates/miniPlayer.html', (template) => {
+          mustache.parse(template);
+          const rendered = mustache.render(template, {
+              videoUrl: videoUrl,
+              videoThumbnail: video.thumbnail_url
+          });
+          // Render the template to the new browser window.
+          miniPlayer.loadURL("data:text/html;charset=utf-8," + encodeURI(rendered));
+      });
+    });
 }
 function checkVideoSettings() {
   let player = document.getElementById('videoPlayer');
