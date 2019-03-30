@@ -334,7 +334,9 @@ function openMiniPlayer() {
  */
 function clickMiniPlayer(contextUrl){
 
-let videoUrl, usrQuality, vId;
+let videoUrl, usrQuality, vId, validUrl;
+
+  validUrl = false;
 
   vId = contextUrl.split('v=');
 
@@ -346,24 +348,47 @@ let videoUrl, usrQuality, vId;
         usrQuality = "18";
         break;
 
-      case "720":
-      usrQuality = "22";
-      break;
-
       default:
-      break;
+      usrQuality = "22";
     }
   });
   showToast("Opening in mini player, Please wait.");
+  
     youtubedlGetInfo(vId[1], (video)=>{
 
       for (let i in video.formats){
-  
+    // check for user preferred video quality
        if ( video.formats[i].itag === usrQuality){
-        videoUrl = video.formats[i].url;
+        videoUrl = video.formats[i].url
+        validUrl = true;
         break;
-          }
+        }   
+      }
+      // If user's preferred video quality isn't available, check for alternative quality
+      if (validUrl === false) {
+        console.log("checking alternative video quality");
+        switch (usrQuality) {
+
+          case '18':
+          usrQuality = '22';
+          break;
+          case '22':
+          usrQuality = '18';
+          break;
+          default: 
         }
+        for (let i in video.formats){
+          // check for availability of alternative video quality
+             if ( video.formats[i].itag === usrQuality){
+              videoUrl = video.formats[i].url
+              validUrl = true;
+              break;
+              }   
+          }
+      }
+      //proceed to play video in mini player
+      if (validUrl == true) { 
+
         // Create a new browser window.
       const BrowserWindow = electron.remote.BrowserWindow;
         
@@ -382,7 +407,10 @@ let videoUrl, usrQuality, vId;
           // Render the template to the new browser window.
           miniPlayer.loadURL("data:text/html;charset=utf-8," + encodeURI(rendered));
       });
-    });
+    } else {
+      showToast("Unable to play the video");
+    }
+  });
 }
 function checkVideoSettings() {
   let player = document.getElementById('videoPlayer');
