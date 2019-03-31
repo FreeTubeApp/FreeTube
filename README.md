@@ -50,11 +50,15 @@ to hide your IP while using FreeTube.
 
 ### Unofficial Downloads
 
-These sources are maintained by the community.  While they should be safe, download at your own risk.  Any issues with these builds should be sent to their respective maintainer.
+These builds are maintained by the community.  While they should be safe, download at your own risk.  There may be issues with using these versus the official builds.  Any issues specific with these builds should be sent to their respective maintainer.
+
+Flatpak on Flathub: [Download](https://flathub.org/apps/details/io.freetubeapp.FreeTube) [Source](https://github.com/flathub/io.freetubeapp.FreeTube)
 
 Arch User Repository (AUR): [Download](https://aur.archlinux.org/packages/freetube/)
 
-Windows Portable: [Source](https://github.com/rddim/FreeTubePortable) [Download](https://github.com/rddim/FreeTubePortable/releases)
+Chocolatey: [Download](https://chocolatey.org/packages/freetube/)
+
+Windows Portable: [Download](https://github.com/rddim/FreeTubePortable/releases) [Source](https://github.com/rddim/FreeTubePortable)
 
 ## Contributing
 If you have an idea or if you found a bug, please submit a GitHub issue so that
