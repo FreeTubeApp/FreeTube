@@ -242,6 +242,18 @@ function changeDurationByPercentage(percentage) {
 }
 
 /**
+ * Change the duration of the current time of a video by a few seconds.
+ *
+ * @param {integer} seconds - The amount of seconds to change the video by.  Integer may be positive or negative.
+ *
+ * @return {Void}
+ */
+function changeDurationBySeconds(seconds) {
+    const videoPlayer = $('.videoPlayer').get(0);
+    videoPlayer.currentTime = videoPlayer.currentTime + seconds;
+}
+
+/**
  * Hide the mouse cursor after ~3 seconds.  Used to hide the video when the user
  * hovers the mouse over the video player.
  *
