@@ -181,6 +181,10 @@ let subscriptionView = new Vue({
     },
     history: (videoId) => {
       removeFromHistory(videoId);
+    },
+    miniPlayer: (videoId) => {
+      console.log(videoId);
+      clickMiniPlayer(videoId);
     }
   },
   template: videoListTemplate
@@ -211,6 +215,9 @@ let popularView = new Vue({
     },
     history: (videoId) => {
       removeFromHistory(videoId);
+    },
+    miniPlayer: (videoId) => {
+      clickMiniPlayer(videoId);
     }
   },
   template: videoListTemplate
@@ -241,6 +248,9 @@ let trendingView = new Vue({
     },
     history: (videoId) => {
       removeFromHistory(videoId);
+    },
+    miniPlayer: (videoId) => {
+      clickMiniPlayer(videoId);
     }
   },
   template: videoListTemplate
@@ -271,6 +281,9 @@ let savedView = new Vue({
     },
     history: (videoId) => {
       removeFromHistory(videoId);
+    },
+    miniPlayer: (videoId) => {
+      clickMiniPlayer(videoId);
     }
   },
   template: videoListTemplate
@@ -301,6 +314,9 @@ let historyView = new Vue({
     },
     history: (videoId) => {
       removeFromHistory(videoId);
+    },
+    miniPlayer: (videoId) => {
+      clickMiniPlayer(videoId);
     }
   },
   template: videoListTemplate
@@ -444,6 +460,9 @@ let searchView = new Vue({
 
       backButtonView.lastView = searchView
     },
+    miniPlayer: (videoId) => {
+      clickMiniPlayer(videoId);
+    }
   },
   template: videoListTemplate
 });
@@ -503,6 +522,9 @@ let channelVideosView = new Vue({
     },
     history: (videoId) => {
       removeFromHistory(videoId);
+    },
+    miniPlayer: (videoId) => {
+      clickMiniPlayer(videoId);
     }
   },
   template: videoListTemplate
