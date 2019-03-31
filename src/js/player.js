@@ -59,86 +59,85 @@ function playVideo(videoId, playlistId = '') {
     });
 
     youtubedlGetInfo(videoId, (data) => {
-      console.log(data);
+        console.log(data);
 
-      let videoUrls = data.formats;
-      let formatUrls = data.player_response.streamingData.adaptiveFormats;
+        let videoUrls = data.formats;
+        let formatUrls = data.player_response.streamingData.adaptiveFormats;
 
-      // Search through the returned object to get the 480p and 720p video URLs (If available)
-      Object.keys(videoUrls).forEach((key) => {
-          switch (videoUrls[key]['itag']) {
-          case '18':
-              playerView.video480p = decodeURIComponent(videoUrls[key]['url']);
-              // console.log(playerView.video480p);
-              break;
-          case '22':
-              playerView.video720p = decodeURIComponent(videoUrls[key]['url']);
-              // console.log(playerView.video720p);
-              break;
-          }
-      });
-
-      // Last adaptive format will be best the quality audio stream (migrate fully to adaptive formats later)
-      playerView.videoAudio = decodeURIComponent(formatUrls[formatUrls.length - 1]['url']);
-
-      if (typeof(playerView.videoAudio) === 'undefined') {
-        console.log(playerView.videoAudio);
-        playerView.validAudio = false;
-      }
-
-      let useEmbedPlayer = false;
-
-      // Default to the embeded player if the URLs cannot be found.
-      if (typeof (playerView.video720p) === 'undefined' && typeof (playerView.video480p) === 'undefined') {
-          //useEmbedPlayer = true;
-          playerView.currentQuality = 'EMBED';
-          playerView.playerSeen = false;
-          //useEmbedPlayer = true;
-          showToast('Unable to get video file.  Reverting to embeded player.');
-      }
-      else if (typeof (playerView.video720p) === 'undefined' && typeof (playerView.video480p) !== 'undefined') {
-          // Default to the 480p video if the 720p URL cannot be found.
-          console.log('Found');
-          playerView.videoUrl = playerView.video480p;
-          playerView.currentQuality = '480p';
-      } else {
-          // Default to the 720p video.
-          playerView.videoUrl = playerView.video720p;
-          playerView.currentQuality = '720p';
-          //playerView.videoUrl = playerView.liveManifest;
-      }
-
-    if (!useEmbedPlayer &&
-      typeof(data.player_response.captions) !== 'undefined' &&
-      typeof(data.player_response.captions.playerCaptionsTracklistRenderer) !== 'undefined' &&
-      typeof(data.player_response.captions.playerCaptionsTracklistRenderer.captionTracks) !== 'undefined') {
-        data.player_response.captions.playerCaptionsTracklistRenderer.captionTracks.forEach((caption) => {
-            let subtitleUrl = invidiousInstance + '/api/v1/captions/' + videoId  + '?label=' + caption.name.simpleText;
-
-            videoHtml = videoHtml + '<track kind="subtitles" src="' + subtitleUrl + '" srclang="' + caption.languageCode + '" label="' + caption.name.simpleText + '">';
+        // Search through the returned object to get the 480p and 720p video URLs (If available)
+        Object.keys(videoUrls).forEach((key) => {
+            switch (videoUrls[key]['itag']) {
+            case '18':
+                playerView.video480p = decodeURIComponent(videoUrls[key]['url']);
+                // console.log(playerView.video480p);
+                break;
+            case '22':
+                playerView.video720p = decodeURIComponent(videoUrls[key]['url']);
+                // console.log(playerView.video720p);
+                break;
+            }
         });
 
-        playerView.subtitleHtml = videoHtml;
-      }
+        // Last adaptive format will be best the quality audio stream (migrate fully to adaptive formats later)
+        playerView.videoAudio = decodeURIComponent(formatUrls[formatUrls.length - 1]['url']);
 
-      youtubedlFinished = true;
-
-      if (youtubedlFinished && invidiousFinished) {
-        loadingView.seen = false;
-
-        if (subscriptionView.seen === false && aboutView.seen === false && headerView.seen === false && searchView.seen === false && settingsView.seen === false && popularView.seen === false && savedView.seen === false && historyView.seen === false && channelView.seen === false && channelVideosView.seen === false) {
-            playerView.seen = true;
-        } else {
-            return;
+        if (typeof (playerView.videoAudio) === 'undefined') {
+            console.log(playerView.videoAudio);
+            playerView.validAudio = false;
         }
 
-        window.setTimeout(checkVideoUrls, 5000, playerView.video480p, playerView.video720p, playerView.videoAudio);
-      }
+        let useEmbedPlayer = false;
+
+        // Default to the embeded player if the URLs cannot be found.
+        if (typeof (playerView.video720p) === 'undefined' && typeof (playerView.video480p) === 'undefined') {
+            //useEmbedPlayer = true;
+            playerView.currentQuality = 'EMBED';
+            playerView.playerSeen = false;
+            //useEmbedPlayer = true;
+            showToast('Unable to get video file.  Reverting to embeded player.');
+        } else if (typeof (playerView.video720p) === 'undefined' && typeof (playerView.video480p) !== 'undefined') {
+            // Default to the 480p video if the 720p URL cannot be found.
+            console.log('Found');
+            playerView.videoUrl = playerView.video480p;
+            playerView.currentQuality = '480p';
+        } else {
+            // Default to the 720p video.
+            playerView.videoUrl = playerView.video720p;
+            playerView.currentQuality = '720p';
+            //playerView.videoUrl = playerView.liveManifest;
+        }
+
+        if (!useEmbedPlayer &&
+            typeof (data.player_response.captions) !== 'undefined' &&
+            typeof (data.player_response.captions.playerCaptionsTracklistRenderer) !== 'undefined' &&
+            typeof (data.player_response.captions.playerCaptionsTracklistRenderer.captionTracks) !== 'undefined') {
+            data.player_response.captions.playerCaptionsTracklistRenderer.captionTracks.forEach((caption) => {
+                let subtitleUrl = invidiousInstance + '/api/v1/captions/' + videoId + '?label=' + caption.name.simpleText;
+
+                videoHtml = videoHtml + '<track kind="subtitles" src="' + subtitleUrl + '" srclang="' + caption.languageCode + '" label="' + caption.name.simpleText + '">';
+            });
+
+            playerView.subtitleHtml = videoHtml;
+        }
+
+        youtubedlFinished = true;
+
+        if (youtubedlFinished && invidiousFinished) {
+            loadingView.seen = false;
+
+            if (subscriptionView.seen === false && aboutView.seen === false && headerView.seen === false && searchView.seen === false && settingsView.seen === false && popularView.seen === false && savedView.seen === false && historyView.seen === false && channelView.seen === false && channelVideosView.seen === false) {
+                playerView.seen = true;
+            } else {
+                return;
+            }
+
+            window.setTimeout(checkVideoUrls, 5000, playerView.video480p, playerView.video720p, playerView.videoAudio);
+        }
     });
 
     invidiousAPI('videos', videoId, {}, (data) => {
 
-      console.log(data);
+        console.log(data);
 
         // Figure out the width for the like/dislike bar.
         playerView.videoLikes = data.likeCount;
@@ -208,80 +207,81 @@ function playVideo(videoId, playlistId = '') {
         });
 
         if (playlistId != '') {
-          playerView.playlistSeen = true;
-          playerView.playlistShowList = true;
-          playerView.playlistId = playlistId;
-          playerView.playlistVideoList = [];
+            playerView.playlistSeen = true;
+            playerView.playlistShowList = true;
+            playerView.playlistId = playlistId;
+            playerView.playlistVideoList = [];
 
-          invidiousAPI('playlists', playlistId, {}, (data) => {
-            playerView.playlistTitle = data.title;
-            playerView.playlistChannelName = data.author;
-            playerView.playlistChannelId = data.authorId;
-            playerView.playlistTotal = data.videoCount;
+            invidiousAPI('playlists', playlistId, {}, (data) => {
+                playerView.playlistTitle = data.title;
+                playerView.playlistChannelName = data.author;
+                playerView.playlistChannelId = data.authorId;
+                playerView.playlistTotal = data.videoCount;
 
-            let amountOfPages = Math.ceil(data.videoCount / 100);
+                let amountOfPages = Math.ceil(data.videoCount / 100);
 
-            for (let i = 1; i <= amountOfPages; i++) {
-              invidiousAPI('playlists', playlistId, {page: i}, (data) => {
-                data.videos.forEach((video) => {
-                  let data = {};
+                for (let i = 1; i <= amountOfPages; i++) {
+                    invidiousAPI('playlists', playlistId, {
+                        page: i
+                    }, (data) => {
+                        data.videos.forEach((video) => {
+                            let data = {};
 
-                  if (video.videoId == videoId){
-                    playerView.playlistIndex = video.index + 1;
-                  }
+                            if (video.videoId == videoId) {
+                                playerView.playlistIndex = video.index + 1;
+                            }
 
-                  data.title = video.title;
-                  data.videoId = video.videoId;
-                  data.channelName = video.author;
-                  data.index = video.index + 1;
-                  data.thumbnail = video.videoThumbnails[4].url;
+                            data.title = video.title;
+                            data.videoId = video.videoId;
+                            data.channelName = video.author;
+                            data.index = video.index + 1;
+                            data.thumbnail = video.videoThumbnails[4].url;
 
-                  playerView.playlistVideoList[video.index] = data;
-                });
-              });
-            }
-          });
-        }
-        else{
-          playerView.playlistSeen = false;
-          playerView.playlistShowList = false;
-          playerView.playlistId = '';
+                            playerView.playlistVideoList[video.index] = data;
+                        });
+                    });
+                }
+            });
+        } else {
+            playerView.playlistSeen = false;
+            playerView.playlistShowList = false;
+            playerView.playlistId = '';
         }
 
         invidiousFinished = true;
 
         if (youtubedlFinished && invidiousFinished) {
-          loadingView.seen = false;
+            loadingView.seen = false;
 
-          if (subscriptionView.seen === false && aboutView.seen === false && headerView.seen === false && searchView.seen === false && settingsView.seen === false && popularView.seen === false && savedView.seen === false && historyView.seen === false && channelView.seen === false && channelVideosView.seen === false) {
-              playerView.seen = true;
-          } else {
-              return;
-          }
+            if (subscriptionView.seen === false && aboutView.seen === false && headerView.seen === false && searchView.seen === false && settingsView.seen === false && popularView.seen === false && savedView.seen === false && historyView.seen === false && channelView.seen === false && channelVideosView.seen === false) {
+                playerView.seen = true;
+            } else {
+                return;
+            }
 
-          window.setTimeout(checkVideoUrls, 5000, playerView.video480p, playerView.video720p, playerView.videoAudio);
+            window.setTimeout(checkVideoUrls, 5000, playerView.video480p, playerView.video720p, playerView.videoAudio);
         }
 
-        if (rememberHistory === true){
-          let historyData = {
-            videoId: videoId,
-            published: data.published,
-            publishedText: playerView.publishedDate,
-            description: data.description,
-            viewCount: data.viewCount,
-            title: playerView.videoTitle,
-            lengthSeconds: data.lengthSeconds,
-            videoThumbnails: playerView.videoThumbnail,
-            author: playerView.channelName,
-            authorId: playerView.channelId,
-            liveNow: false,
-            paid: false,
-            type: 'video',
-            timeWatched: new Date().getTime(),
-          };
+        if (rememberHistory === true) {
+            let historyData = {
+                videoId: videoId,
+                published: data.published,
+                publishedText: playerView.publishedDate,
+                description: data.description,
+                viewCount: data.viewCount,
+                title: playerView.videoTitle,
+                lengthSeconds: data.lengthSeconds,
+                videoThumbnails: playerView.videoThumbnail,
+                author: playerView.channelName,
+                authorId: playerView.channelId,
+                liveNow: false,
+                paid: false,
+                type: 'video',
+                timeWatched: new Date().getTime(),
+            };
 
-          console.log(historyData);
-          addToHistory(historyData);
+            console.log(historyData);
+            addToHistory(historyData);
         }
     });
 }
@@ -294,9 +294,9 @@ function playVideo(videoId, playlistId = '') {
  * @return {Void}
  */
 function openMiniPlayer() {
+
     let lastTime;
     let videoHtml;
-
     // Grabs whatever the HTML is for the current video player.  Done this way to grab
     // the HTML5 player (with varying qualities) as well as the YouTube embeded player.
     if ($('.videoPlayer').length > 0) {
@@ -329,74 +329,211 @@ function openMiniPlayer() {
     });
 }
 
+/**
+ * Opens the video directly in pop up player
+ *
+ * @param {string} videoId - The ID of the video.
+ *
+ * @return {Void}
+ */
+function clickMiniPlayer(videoId) {
+
+    let video480p, video720p, historyData;
+
+    showToast("Opening in mini player, Please wait.");
+
+    let validateUrl = function (videoUrl, callback) {
+        if (typeof (videoUrl) !== 'undefined') {
+            let getUrl = fetch(videoUrl);
+            getUrl.then((status) => {
+                switch (status.status) {
+                case 404:
+                    callback(false);
+                    return;
+                    break;
+                case 403:
+                    showToast('This video is unavailable in your country.');
+                    callback(false)
+                    return;
+                    break;
+                default:
+                    ft.log('videoUrl is valid');
+                    callback(true);
+                    return;
+                    break;
+                }
+            });
+        } else {
+            callback(false);
+            return;
+        }
+    };
+
+    let playVideo = function (videoUrl, videoThumbnail) {
+        // Create a new browser window.
+        const BrowserWindow = electron.remote.BrowserWindow;
+
+        let miniPlayer = new BrowserWindow({
+            width: 1200,
+            height: 710,
+            autoHideMenuBar: true
+        });
+
+        // Use the miniPlayer.html template.
+        $.get('templates/miniPlayer.html', (template) => {
+            mustache.parse(template);
+            const rendered = mustache.render(template, {
+                videoUrl: videoUrl,
+                videoThumbnail: videoThumbnail,
+                startTime: 0,
+            });
+            // Render the template to the new browser window.
+            miniPlayer.loadURL("data:text/html;charset=utf-8," + encodeURI(rendered));
+
+            if (rememberHistory) {
+                addToHistory(historyData);
+            }
+        });
+    };
+
+    youtubedlGetInfo(videoId, (data) => {
+
+        let videoUrls = data.formats;
+        let videoThumbnail = data.player_response.videoDetails.thumbnail.thumbnails[data.player_response.videoDetails.thumbnail.thumbnails.length - 1].url;1553990400000
+
+        let dateString = new Date(data.published);
+        dateString.setDate(dateString.getDate() + 1);
+        let publishedDate = dateFormat(dateString, "mmm dS, yyyy");
+
+        historyData = {
+            videoId: videoId,
+            published: data.published / 1000,
+            publishedText: publishedDate,
+            description: data.description,
+            viewCount: data.player_response.videoDetails.viewCount,
+            title: data.title,
+            lengthSeconds: data.player_response.videoDetails.lengthSeconds,
+            videoThumbnails: videoThumbnail,
+            author: data.author.name,
+            authorId: data.author.id,
+            liveNow: false,
+            paid: false,
+            type: 'video',
+            timeWatched: new Date().getTime(),
+        };
+
+        // Search through the returned object to get the 480p and 720p video URLs (If available)
+        Object.keys(videoUrls).forEach((key) => {
+            switch (videoUrls[key]['itag']) {
+            case '18':
+                video480p = videoUrls[key]['url'];
+                break;
+            case '22':
+                video720p = videoUrls[key]['url'];
+                break;
+            }
+        });
+
+        if (defaultQuality === "720") {
+            validateUrl(video720p, (results) => {
+                if (results) {
+                    playVideo(decodeURIComponent(video720p), videoThumbnail);
+                } else {
+                    validateUrl(video480p, (results) => {
+                        if (results) {
+                            playVideo(decodeURIComponent(video480p), videoThumbnail);
+                        } else {
+                            showToast("Unable to open video into mini player.");
+                        }
+                    });
+                }
+            });
+        } else if (defaultQuality === "480") {
+            validateUrl(video480p, (results) => {
+                if (results) {
+                    playVideo(decodeURIComponent(video480p), videoThumbnail);
+                } else {
+                    validateUrl(video720p, (results) => {
+                        if (results) {
+                            playVideo(decodeURIComponent(video720p), videoThumbnail);
+                        } else {
+                            showToast("Unable to open video into mini player.");
+                        }
+                    });
+                }
+            });
+        }
+    });
+}
+
 function checkVideoSettings() {
-  let player = document.getElementById('videoPlayer');
+    let player = document.getElementById('videoPlayer');
 
-  if (autoplay) {
-    player.play();
-  }
-
-  if (enableSubtitles) {
-    player.textTracks[0].mode = 'showing';
-  }
-
-  if (playerView.firstLoad) {
-    playerView.firstLoad = false;
-
-    switch (defaultQuality) {
-      case '480':
-        if (typeof(playerView.video480p) !== 'undefined') {
-          playerView.videoUrl = playerView.video480p;
-          playerView.currentQuality = '480p';
-        }
-        break;
-      case '720':
-        if (typeof(playerView.video720p) !== 'undefined') {
-          playerView.videoUrl = playerView.video720p;
-          playerView.currentQuality = '720p';
-        }
-        break;
-      default:
-        if (typeof(playerView.video720p) !== 'undefined') {
-          playerView.videoUrl = playerView.video720p;
-          playerView.currentQuality = '720p';
-        }
-        break;
+    if (autoplay) {
+        player.play();
     }
 
-    player.playbackRate = parseFloat(defaultPlaybackRate);
-    $('#currentSpeed').html(defaultPlaybackRate);
-  }
+    if (enableSubtitles) {
+        player.textTracks[0].mode = 'showing';
+    }
 
-  player.volume = currentVolume;
+    if (playerView.firstLoad) {
+        playerView.firstLoad = false;
+
+        switch (defaultQuality) {
+        case '480':
+            if (typeof (playerView.video480p) !== 'undefined') {
+                playerView.videoUrl = playerView.video480p;
+                playerView.currentQuality = '480p';
+            }
+            break;
+        case '720':
+            if (typeof (playerView.video720p) !== 'undefined') {
+                playerView.videoUrl = playerView.video720p;
+                playerView.currentQuality = '720p';
+            }
+            break;
+        default:
+            if (typeof (playerView.video720p) !== 'undefined') {
+                playerView.videoUrl = playerView.video720p;
+                playerView.currentQuality = '720p';
+            }
+            break;
+        }
+
+        player.playbackRate = parseFloat(defaultPlaybackRate);
+        $('#currentSpeed').html(defaultPlaybackRate);
+    }
+
+    player.volume = currentVolume;
 }
 
 function playNextVideo() {
-  let player = document.getElementById('videoPlayer');
+    let player = document.getElementById('videoPlayer');
 
-  if (player.loop !== false || playerView.playlistSeen === false) {
-    return;
-  }
+    if (player.loop !== false || playerView.playlistSeen === false) {
+        return;
+    }
 
-  if (playerView.playlistShuffle === true) {
-    let randomVideo = Math.floor(Math.random() * playerView.playlistTotal);
+    if (playerView.playlistShuffle === true) {
+        let randomVideo = Math.floor(Math.random() * playerView.playlistTotal);
 
-    loadingView.seen = true;
-    playVideo(playerView.playlistVideoList[randomVideo].videoId, playerView.playlistId);
-    return;
-  }
+        loadingView.seen = true;
+        playVideo(playerView.playlistVideoList[randomVideo].videoId, playerView.playlistId);
+        return;
+    }
 
-  if (playerView.playlistLoop === true && playerView.playlistIndex == playerView.playlistTotal) {
-    loadingView.seen = true;
-    playVideo(playerView.playlistVideoList[0].videoId, playerView.playlistId);
-    return;
-  }
+    if (playerView.playlistLoop === true && playerView.playlistIndex == playerView.playlistTotal) {
+        loadingView.seen = true;
+        playVideo(playerView.playlistVideoList[0].videoId, playerView.playlistId);
+        return;
+    }
 
-  if (playerView.playlistIndex != playerView.playlistTotal) {
-    loadingView.seen = true;
-    playVideo(playerView.playlistVideoList[playerView.playlistIndex].videoId, playerView.playlistId);
-    return;
-  }
+    if (playerView.playlistIndex != playerView.playlistTotal) {
+        loadingView.seen = true;
+        playVideo(playerView.playlistVideoList[playerView.playlistIndex].videoId, playerView.playlistId);
+        return;
+    }
 }
 
 /**
@@ -456,35 +593,35 @@ function changeDurationByPercentage(percentage) {
 }
 
 function changeDuration(seconds) {
-  const videoPlayer = $('.videoPlayer').get(0);
-  videoPlayer.currentTime = seconds;
+    const videoPlayer = $('.videoPlayer').get(0);
+    videoPlayer.currentTime = seconds;
 }
 
-function updateVolume(){
-  let player = document.getElementById('videoPlayer');
-  currentVolume = player.volume
+function updateVolume() {
+    let player = document.getElementById('videoPlayer');
+    currentVolume = player.volume
 }
 
 function parseDescription(descriptionText) {
-  descriptionText = descriptionText.replace(/target\=\"\_blank\"/g, '');
-  descriptionText = descriptionText.replace(/\/redirect.+?(?=q\=)/g, '');
-  descriptionText = descriptionText.replace(/q\=/g, '');
-  descriptionText = descriptionText.replace(/rel\=\"nofollow\snoopener\"/g, '');
-  descriptionText = descriptionText.replace(/class\=.+?(?=\")./g, '');
-  descriptionText = descriptionText.replace(/id\=.+?(?=\")./g, '');
-  descriptionText = descriptionText.replace(/data\-target\-new\-window\=.+?(?=\")./g, '');
-  descriptionText = descriptionText.replace(/data\-url\=.+?(?=\")./g, '');
-  descriptionText = descriptionText.replace(/data\-sessionlink\=.+?(?=\")./g, '');
-  descriptionText = descriptionText.replace(/\&amp\;/g, '&');
-  descriptionText = descriptionText.replace(/\%3A/g, ':');
-  descriptionText = descriptionText.replace(/\%2F/g, '/');
-  descriptionText = descriptionText.replace(/\&v.+?(?=\")/g, '');
-  descriptionText = descriptionText.replace(/\&redirect\-token.+?(?=\")/g, '');
-  descriptionText = descriptionText.replace(/\&redir\_token.+?(?=\")/g, '');
-  descriptionText = descriptionText.replace(/href\=\"http(s)?\:\/\/youtube\.com/g, 'href="freetube://https://youtube.com');
-  descriptionText = descriptionText.replace(/href\=\"\/watch/g, 'href="freetube://https://youtube.com');
-  descriptionText = descriptionText.replace(/href\=\"\/results\?search\_query\=/g, 'href="freetube://');
-  descriptionText = descriptionText.replace(/yt\.www\.watch\.player\.seekTo/g, 'changeDuration');
+    descriptionText = descriptionText.replace(/target\=\"\_blank\"/g, '');
+    descriptionText = descriptionText.replace(/\/redirect.+?(?=q\=)/g, '');
+    descriptionText = descriptionText.replace(/q\=/g, '');
+    descriptionText = descriptionText.replace(/rel\=\"nofollow\snoopener\"/g, '');
+    descriptionText = descriptionText.replace(/class\=.+?(?=\")./g, '');
+    descriptionText = descriptionText.replace(/id\=.+?(?=\")./g, '');
+    descriptionText = descriptionText.replace(/data\-target\-new\-window\=.+?(?=\")./g, '');
+    descriptionText = descriptionText.replace(/data\-url\=.+?(?=\")./g, '');
+    descriptionText = descriptionText.replace(/data\-sessionlink\=.+?(?=\")./g, '');
+    descriptionText = descriptionText.replace(/\&amp\;/g, '&');
+    descriptionText = descriptionText.replace(/\%3A/g, ':');
+    descriptionText = descriptionText.replace(/\%2F/g, '/');
+    descriptionText = descriptionText.replace(/\&v.+?(?=\")/g, '');
+    descriptionText = descriptionText.replace(/\&redirect\-token.+?(?=\")/g, '');
+    descriptionText = descriptionText.replace(/\&redir\_token.+?(?=\")/g, '');
+    descriptionText = descriptionText.replace(/href\=\"http(s)?\:\/\/youtube\.com/g, 'href="freetube://https://youtube.com');
+    descriptionText = descriptionText.replace(/href\=\"\/watch/g, 'href="freetube://https://youtube.com');
+    descriptionText = descriptionText.replace(/href\=\"\/results\?search\_query\=/g, 'href="freetube://');
+    descriptionText = descriptionText.replace(/yt\.www\.watch\.player\.seekTo/g, 'changeDuration');
 
-  return descriptionText;
+    return descriptionText;
 }
