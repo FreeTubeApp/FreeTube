@@ -17,7 +17,7 @@
                                 <li>Open in Invidious</li>
                             </a>
                             <li v-on:click='copy("invidio.us", video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>Copy Invidious Link</li>
-                            <li onclick='clickMiniPlayer(this.parentNode.querySelectorAll("a")[0].href); showVideoOptions(this.parentNode.previousSibling);'>Open in Mini Player</li>
+                            <li v-on:click='miniPlayer(video.id);' onclick='showVideoOptions(this.parentNode.previousSibling);'>Open in Mini Player</li>
                         </ul>
                     </div>
                     <div class='videoThumbnail'>
