@@ -21,15 +21,49 @@
  * A file for checking / managing updates
  */
 
-const updateChecker = require('github-version-checker');
+function checkForNewUpdate() {
+  const requestUrl = 'https://api.github.com/repos/freetubeapp/freetube/releases';
 
- const options = {
-   token: 'PUTUSERTOKENHERE', // personal access token.  Github will not allow commiting the access token, which is why this is blank.
-   repo: 'freetube', // repository name
-   owner: 'freetubeapp', // repository owner
-   currentVersion: require('electron').remote.app.getVersion(), // your app's current version
-   fetchTags: false // whether to fetch releases or tags
- };
+  let success = function(data) {
+    let currentVersion = require('electron').remote.app.getVersion();
+    let versionNumber = data[0].tag_name.replace('v', '');
+    versionNumber = versionNumber.replace('-beta', '');
+
+    let blogRegexPattern = /\(.*\)/;
+
+    let blogUrl = blogRegexPattern.exec(data[0].body);
+    blogUrl = blogUrl[0].replace(/\(|\)/g, '');
+
+    if (versionNumber > currentVersion) {
+      confirmFunction(data[0].name + ` is now available! Would you like to download the update? <a href="${blogUrl}">Changelog</a>`, openReleasePage);
+    }
+  };
+
+  if (useTor) {
+    proxyRequest(() => {
+      $.getJSON(
+        requestUrl,
+        success
+      ).fail((xhr, textStatus, error) => {
+        fail(xhr);
+        console.log(xhr);
+        console.log(textStatus);
+        console.log(requestUrl);
+      });
+    })
+
+  } else {
+    $.getJSON(
+      requestUrl,
+      success
+    ).fail((xhr, textStatus, error) => {
+      fail(xhr);
+      console.log(xhr);
+      console.log(textStatus);
+      console.log(requestUrl);
+    });
+  }
+}
 
 const openReleasePage = function () {
     shell.openExternal('https://github.com/FreeTubeApp/FreeTube/releases');

@@ -31,7 +31,6 @@ iframe {
 }
 
 </style>
-<script src="../js/events.js"></script>
 <script>
 window.$ = window.jQuery = require('jquery');
 let startTime = '{{startTime}}';
@@ -39,7 +38,220 @@ let mouseTimeout;
 
 $('.videoPlayer').ready(() => {
     $('.videoPlayer').get(0).currentTime = startTime;
+    $('.videoPlayer').get(0).play();
 });
+
+/**
+* Handle keyboard shortcut commands.
+*/
+let videoShortcutHandler = function (event) {
+    if (event.which == 68 && event.altKey === true) {
+      $('#search').focus();
+    }
+
+    if (event.which == 82 && event.shiftKey === false && event.ctrlKey === true && !$('#jumpToInput').is(':focus') && !$('#search').is(':focus')) {
+      event.stopPropagation();
+      event.preventDefault();
+      forceSubscriptions();
+    }
+
+    let videoPlayer = $('.videoPlayer').get(0);
+    if (typeof (videoPlayer) !== 'undefined' && !$('#jumpToInput').is(':focus') && !$('#search').is(':focus')) {
+        switch (event.which) {
+        case 32:
+            // Space Bar
+            event.preventDefault();
+            videoPlayer.paused ? videoPlayer.play() : videoPlayer.pause();
+            break;
+        case 74:
+            // J Key
+            event.preventDefault();
+            changeDurationBySeconds(-10);
+            break;
+        case 75:
+            // K Key
+            event.preventDefault();
+            videoPlayer.paused ? videoPlayer.play() : videoPlayer.pause();
+            break;
+        case 76:
+            // L Key
+            event.preventDefault();
+            changeDurationBySeconds(10);
+            break;
+        case 79:
+            // O Key
+            event.preventDefault();
+            if (videoPlayer.playbackRate > 0.25){
+              let rate = videoPlayer.playbackRate - 0.25;
+              videoPlayer.playbackRate = rate;
+              $('#currentSpeed').html(rate);
+            }
+            break;
+        case 80:
+            // P Key
+            event.preventDefault();
+            if (videoPlayer.playbackRate < 2){
+              let rate = videoPlayer.playbackRate + 0.25;
+              videoPlayer.playbackRate = rate;
+              $('#currentSpeed').html(rate);
+            }
+            break;
+        case 70:
+            // F Key
+            event.preventDefault();
+
+            if (videoPlayer.webkitDisplayingFullscreen) {
+              videoPlayer.webkitExitFullscreen
+            }
+            else{
+              videoPlayer.webkitRequestFullscreen();
+            }
+            break;
+        case 77:
+            // M Key
+            event.preventDefault();
+            let volume = videoPlayer.volume;
+
+            if (volume > 0) {
+                changeVolume(-1);
+            } else {
+                changeVolume(1);
+            }
+            break;
+        case 67:
+            // C Key
+            let subtitleMode = $('.videoPlayer').get(0).textTracks[0].mode;
+            if (subtitleMode === 'hidden') {
+                $('.videoPlayer').get(0).textTracks[0].mode = 'showing'
+            } else {
+                $('.videoPlayer').get(0).textTracks[0].mode = 'hidden'
+            }
+            break;
+        case 38:
+            // Up Arrow Key
+            event.preventDefault();
+            changeVolume(0.05);
+            break;
+        case 40:
+            // Down Arrow Key
+            event.preventDefault();
+            changeVolume(-0.05);
+            break;
+        case 37:
+            // Left Arrow Key
+            event.preventDefault();
+            changeDurationBySeconds(-5);
+            break;
+        case 39:
+            // Right Arrow Key
+            event.preventDefault();
+            changeDurationBySeconds(5);
+            break;
+        case 49:
+            // 1 Key
+            event.preventDefault();
+            changeDurationByPercentage(0.1);
+            break;
+        case 50:
+            // 2 Key
+            event.preventDefault();
+            changeDurationByPercentage(0.2);
+            break;
+        case 51:
+            // 3 Key
+            event.preventDefault();
+            changeDurationByPercentage(0.3);
+            break;
+        case 52:
+            // 4 Key
+            event.preventDefault();
+            changeDurationByPercentage(0.4);
+            break;
+        case 53:
+            // 5 Key
+            event.preventDefault();
+            changeDurationByPercentage(0.5);
+            break;
+        case 54:
+            // 6 Key
+            event.preventDefault();
+            changeDurationByPercentage(0.6);
+            break;
+        case 55:
+            // 7 Key
+            event.preventDefault();
+            changeDurationByPercentage(0.7);
+            break;
+        case 56:
+            // 8 Key
+            event.preventDefault();
+            changeDurationByPercentage(0.8);
+            break;
+        case 57:
+            // 9 Key
+            event.preventDefault();
+            changeDurationByPercentage(0.9);
+            break;
+        case 48:
+            // 0 Key
+            event.preventDefault();
+            changeDurationByPercentage(0);
+            break;
+        }
+    }
+};
+
+let fullscreenVideo = function (event) {
+    if (document.webkitFullscreenElement !== null) {
+        document.webkitExitFullscreen();
+    } else {
+        $('.videoPlayer').get(0).webkitRequestFullscreen();
+    }
+}
+
+/**
+ * Change the volume of the video player
+ *
+ * @param {double} amount - The volume to increase or descrease the volume by. Will be any double between 0 and 1.
+ *
+ * @return {Void}
+ */
+function changeVolume(amount) {
+    const videoPlayer = $('.videoPlayer').get(0);
+    let volume = videoPlayer.volume;
+    volume = volume + amount;
+    if (volume > 1) {
+        videoPlayer.volume = 1;
+    } else if (volume < 0) {
+        videoPlayer.volume = 0;
+    } else {
+        videoPlayer.volume = volume;
+    }
+}
+
+/**
+ * Change the duration of a video by a percentage of the duration.
+ *
+ * @param {double} percentage - The percentage to hop to of the video.  Will be any double between 0 and 1.
+ *
+ * @return {Void}
+ */
+function changeDurationByPercentage(percentage) {
+    const videoPlayer = $('.videoPlayer').get(0);
+    videoPlayer.currentTime = videoPlayer.duration * percentage;
+}
+
+/**
+ * Change the duration of the current time of a video by a few seconds.
+ *
+ * @param {integer} seconds - The amount of seconds to change the video by.  Integer may be positive or negative.
+ *
+ * @return {Void}
+ */
+function changeDurationBySeconds(seconds) {
+    const videoPlayer = $('.videoPlayer').get(0);
+    videoPlayer.currentTime = videoPlayer.currentTime + seconds;
+}
 
 /**
  * Hide the mouse cursor after ~3 seconds.  Used to hide the video when the user
@@ -73,6 +285,9 @@ let playPauseVideo = function(event) {
 $(document).on('click', '.videoPlayer', playPauseVideo);
 $(document).on('mouseover', '.videoPlayer', hideMouseTimeout);
 $(document).on('mouseleave', '.videoPlayer', removeMouseTimeout);
+$(document).on('dblclick', '.videoPlayer', fullscreenVideo);
+$(document).on('keydown', videoShortcutHandler);
 
 </script>
-{{{videoHtml}}}
+<video class="videoPlayer" id='videoPlayer' type="application/x-mpegURL" object-fit='cover' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" controls="" src='{{videoUrl}}' poster='{{videoThumbnail}}' autoplay="autoplay">
+</video>
