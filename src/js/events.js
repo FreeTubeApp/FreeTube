@@ -245,9 +245,9 @@ let fullscreenVideo = function (event) {
 
 $(document).on('click', '#showComments', showComments);
 
-$(document).on('click', '.videoPlayer', playPauseVideo);
+// $(document).on('click', '.videoPlayer', playPauseVideo);
 
-$(document).on('dblclick', '.videoPlayer', fullscreenVideo);
+// $(document).on('dblclick', '.videoPlayer', fullscreenVideo);
 
 $(document).on('keydown', videoShortcutHandler);
 

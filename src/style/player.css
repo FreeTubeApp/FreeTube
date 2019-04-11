@@ -204,7 +204,11 @@ iframe {
 
 .videoPlayer {
     width: 100%;
-    max-height: 1100px;
+    height: 100%;
+}
+
+#player {
+  min-height: 480px;
 }
 
 .statistics {

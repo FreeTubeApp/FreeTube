@@ -1,0 +1,94 @@
+.mejs__speed-button,
+.mejs-speed-button {
+    position: relative;
+}
+
+.mejs__speed-button > button,
+.mejs-speed-button > button {
+    background: transparent;
+    color: #fff;
+    font-size: 11px;
+    line-height: normal;
+    margin: 11px 0 0;
+    width: 36px;
+}
+
+.mejs__speed-selector,
+.mejs-speed-selector {
+    background: rgba(50, 50, 50, 0.7);
+    border: solid 1px transparent;
+    border-radius: 0;
+    height: 150px;
+    left: -10px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    top: -100px;
+    visibility: hidden;
+    width: 60px;
+}
+
+.mejs__speed-selector,
+.mejs-speed-selector {
+    visibility: visible;
+}
+
+.mejs__speed-selector-list,
+.mejs-speed-selector-list  {
+    display: block;
+    list-style-type: none !important;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+.mejs__speed-selector-list-item,
+.mejs-speed-selector-list-item {
+    color: #fff;
+    display: block;
+    list-style-type: none !important;
+    margin: 0 0 6px;
+    overflow: hidden;
+    padding: 0 10px;
+}
+
+.mejs__speed-selector-list-item:hover,
+.mejs-speed-selector-list-item:hover {
+    background-color: rgb(200, 200, 200) !important;
+    background-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.mejs__speed-selector-input,
+.mejs-speed-selector-input {
+    clear: both;
+    float: left;
+    left: -1000px;
+    margin: 3px 3px 0 5px;
+    position: absolute;
+}
+
+.mejs__speed-selector-label,
+.mejs-speed-selector-label {
+    color: white;
+    cursor: pointer;
+    float: left;
+    font-size: 11px;
+    line-height: 15px;
+    margin-left: 5px;
+    padding: 4px 0 0;
+    width: 60px;
+}
+
+.mejs__speed-selected,
+.mejs-speed-selected {
+    color: rgba(33, 248, 248, 1);
+}
+
+.mejs__speed-selector,
+.mejs-speed-selector {
+    visibility: hidden;
+}
+.mejs__speed-button:hover .mejs__speed-selector,
+.mejs-speed-button:hover .mejs-speed-selector {
+    visibility: visible;
+}

@@ -1,7 +1,10 @@
 <div v-if='seen'>
-  <div v-if='playerSeen'>
-    <video class="videoPlayer" id='videoPlayer' type="application/x-mpegURL" object-fit='cover' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" onloadstart='checkVideoSettings()' onvolumechange='updateVolume()' controls="" onended='playNextVideo()' :src='videoUrl' :poster="videoThumbnail" v-html="subtitleHtml">
+  <div v-if='playerSeen' class='videoPlayer'>
+    <video id='player' onloadstart='checkVideoSettings(); return;'>
+      <source data-quality='Auto' type="application/dash+xml" :src="videoDash" />
     </video>
+    <!--<video class="videoPlayer" id='videoPlayer' type="application/x-mpegURL" object-fit='cover' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" onloadstart='checkVideoSettings()' onvolumechange='updateVolume()' controls="" onended='playNextVideo()' :src='videoUrl' :poster="videoThumbnail" v-html="subtitleHtml">
+    </video>-->
   </div>
   <div v-else>
     <span v-html="embededHtml"></span>

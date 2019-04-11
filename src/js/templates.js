@@ -538,6 +538,7 @@ let playerView = new Vue({
     firstLoad: true,
     publishedDate: '',
     videoUrl: '',
+    videoDash: '',
     videoId: '',
     channelId: '',
     channelIcon: '',

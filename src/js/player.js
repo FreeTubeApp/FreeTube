@@ -19,6 +19,8 @@
  * File for functions related to videos.
  */
 
+ let checkedSettings = false;
+
 /**
  * Display the video player and play a video
  *
@@ -31,6 +33,7 @@ function playVideo(videoId, playlistId = '') {
 
     let youtubedlFinished = false;
     let invidiousFinished = false;
+    checkedSettings = false;
     playerView.playerSeen = true;
     playerView.firstLoad = true;
     playerView.videoId = videoId;
@@ -41,9 +44,11 @@ function playVideo(videoId, playlistId = '') {
     playerView.video720p = undefined;
     playerView.valid720p = true;
     playerView.videoUrl = '';
+    playerView.videoDash = 'https://invidio.us/api/manifest/dash/' + videoId + '.mpd';
     playerView.embededHtml = "<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/" + videoId + "?rel=0' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>";
 
     let videoHtml = '';
+    let player;
 
     const checkSavedVideo = videoIsSaved(videoId);
 
@@ -467,7 +472,30 @@ function clickMiniPlayer(videoId) {
 }
 
 function checkVideoSettings() {
-    let player = document.getElementById('videoPlayer');
+    //let player = document.getElementById('videoPlayer');
+
+    if (checkedSettings) {
+      return;
+    }
+
+    checkedSettings = true;
+    console.log('checking Settings');
+
+    let player = new MediaElementPlayer('player', {
+      features: ['playpause', 'current', 'progress', 'duration', 'volume', 'loop', 'stop', 'speed', 'quality', 'fullscreen'],
+
+      speeds: ['2', '1.75', '1.5', '1.25', '1', '0.75', '0.5', '0.25'],
+      defaultSpeed: '1',
+      qualityText: 'Quality',
+      defaultQuality: 'auto',
+      stretching: 'fill',
+
+      success: function(mediaElement, originalNode, instance) {
+        console.log(mediaElement,originalNode,instance);
+      }
+    });
+
+    return;
 
     if (autoplay) {
         player.play();

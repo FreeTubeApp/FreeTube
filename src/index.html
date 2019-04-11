@@ -15,6 +15,9 @@
   <link rel="stylesheet" href="style/fontawesome-all.min.css">
   <link rel="stylesheet" href="style/mediaelementplayer.css" />
   <link rel="stylesheet" href="js/plugins/quality/quality.min.css" />
+  <link rel="stylesheet" href="js/plugins/loop/loop.css" />
+  <link rel="stylesheet" href="js/plugins/speed/speed.css" />
+  <link rel="stylesheet" href="js/plugins/context-menu/context-menu.css" />
   <link rel="shortcut icon" href="icons/iconColor.ico" type="image/x-icon" />
   <title>FreeTube Player</title>
 </head>
@@ -104,12 +107,6 @@
         <i class="far fa-frown" style="font-size: 200px"></i>
       </h2>
     </div>
-    <div>
-      <video id='player' width="720" height="480">
-        <source data-quality='1080p' type="application/dash+xml" src="https://invidio.us/api/manifest/dash/[VIDEOID]" />
-      </video>
-    </div>
-
     <div id='channelView'></div>
     <div id='mainHeaderView'></div>
     <div id='channelVideosView'></div>
@@ -141,22 +138,14 @@
 <script src="js/history.js"></script>
 <script src="js/playlist.js"></script>
 <script src="js/events.js"></script>
+
 <script src="js/mediaelement-and-player.min.js"></script>
 <script src="js/plugins/quality/quality.min.js"></script>
 <script src="js/plugins/quality/quality-i18n.js"></script>
-<script>
-var player = new MediaElementPlayer('player', {
-renderers: ['html5','native_dash'],
-features: ['playpause', 'current', 'progress', 'duration', 'volume', 'loop', 'stop', 'contextmenu', 'fullscreen', 'quality'],
-
-qualityText: 'Quality',
-defaultQuality: '1080p',
-// When using `MediaElementPlayer`, an `instance` argument
-// is available in the `success` callback
-success: function(mediaElement, originalNode, instance) {
-  console.log(mediaElement,originalNode,instance);
-}
-});
-// "https://invidio.us/api/manifest/dash/3gbZJn8CHMk"
-</script>
+<script src="js/plugins/speed/speed.js"></script>
+<script src="js/plugins/speed/speed-i18n.js"></script>
+<script src="js/plugins/loop/loop.js"></script>
+<script src="js/plugins/loop/loop-i18n.js"></script>
+<script src="js/plugins/context-menu/context-menu.js"></script>
+<script src="js/plugins/context-menu/context-menu-i18n.js"></script>
 </html>
