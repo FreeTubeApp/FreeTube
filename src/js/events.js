@@ -83,13 +83,13 @@ let videoShortcutHandler = function (event) {
       forceSubscriptions();
     }
 
-    let videoPlayer = $('.videoPlayer').get(0);
+    let videoPlayer = $('#player').get(0);
     if (typeof (videoPlayer) !== 'undefined' && !$('#jumpToInput').is(':focus') && !$('#search').is(':focus')) {
         switch (event.which) {
         case 32:
             // Space Bar
             event.preventDefault();
-            videoPlayer.paused ? videoPlayer.play() : videoPlayer.pause();
+            player.paused ? player.play() : player.pause();
             break;
         case 74:
             // J Key
@@ -99,7 +99,7 @@ let videoShortcutHandler = function (event) {
         case 75:
             // K Key
             event.preventDefault();
-            videoPlayer.paused ? videoPlayer.play() : videoPlayer.pause();
+            player.paused ? player.play() : player.pause();
             break;
         case 76:
             // L Key
@@ -109,18 +109,18 @@ let videoShortcutHandler = function (event) {
         case 79:
             // O Key
             event.preventDefault();
-            if (videoPlayer.playbackRate > 0.25){
-              let rate = videoPlayer.playbackRate - 0.25;
-              videoPlayer.playbackRate = rate;
+            if (player.playbackRate > 0.25){
+              let rate = player.playbackRate - 0.25;
+              player.playbackRate = rate;
               $('#currentSpeed').html(rate);
             }
             break;
         case 80:
             // P Key
             event.preventDefault();
-            if (videoPlayer.playbackRate < 2){
-              let rate = videoPlayer.playbackRate + 0.25;
-              videoPlayer.playbackRate = rate;
+            if (player.playbackRate < 2){
+              let rate = player.playbackRate + 0.25;
+              player.playbackRate = rate;
               $('#currentSpeed').html(rate);
             }
             break;
@@ -128,17 +128,17 @@ let videoShortcutHandler = function (event) {
             // F Key
             event.preventDefault();
 
-            if (videoPlayer.webkitDisplayingFullscreen) {
-              videoPlayer.webkitExitFullscreen
+            if (player.webkitDisplayingFullscreen) {
+              player.webkitExitFullscreen
             }
             else{
-              videoPlayer.webkitRequestFullscreen();
+              player.webkitRequestFullscreen();
             }
             break;
         case 77:
             // M Key
             event.preventDefault();
-            let volume = videoPlayer.volume;
+            let volume = player.volume;
 
             if (volume > 0) {
                 changeVolume(-1);

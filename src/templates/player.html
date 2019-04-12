@@ -1,7 +1,11 @@
 <div v-if='seen'>
   <div v-if='playerSeen' class='videoPlayer'>
-    <video id='player' onloadstart='checkVideoSettings(); return;'>
+    <video id='player' onloadstart='checkVideoSettings()' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" :poster="videoThumbnail" onvolumechange='updateVolume()'>
+      <source data-quality='360p' type="video/mp4" :src="video480p" />
+      <source data-quality='720p' type="video/mp4" :src="video720p" />
+      <source data-quality='Audio' type="audio/mp4" :src="videoAudio" />
       <source data-quality='Auto' type="application/dash+xml" :src="videoDash" />
+      <span v-html="subtitleHtml"></span>
     </video>
     <!--<video class="videoPlayer" id='videoPlayer' type="application/x-mpegURL" object-fit='cover' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" onloadstart='checkVideoSettings()' onvolumechange='updateVolume()' controls="" onended='playNextVideo()' :src='videoUrl' :poster="videoThumbnail" v-html="subtitleHtml">
     </video>-->

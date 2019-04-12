@@ -232,7 +232,7 @@ function displayChannel(channel) {
     let channelData = {};
 
     channelData.channelId = channel.authorId;
-    channelData.thumbnail = "https:" + channel.authorThumbnails[4].url;
+    channelData.thumbnail = channel.authorThumbnails[4].url;
     channelData.channelName = channel.author;
     channelData.description = channel.description;
     channelData.subscriberCount = channel.subCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

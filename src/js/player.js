@@ -474,36 +474,40 @@ function clickMiniPlayer(videoId) {
 function checkVideoSettings() {
     //let player = document.getElementById('videoPlayer');
 
+    console.log('checking Settings');
+
+    // Mediaelement.js for some reason calls onLoadStart() multiple times
+    // This check is here to force checkVideoSettings to only run once.
     if (checkedSettings) {
       return;
     }
 
     checkedSettings = true;
-    console.log('checking Settings');
 
     let player = new MediaElementPlayer('player', {
-      features: ['playpause', 'current', 'progress', 'duration', 'volume', 'loop', 'stop', 'speed', 'quality', 'fullscreen'],
+      features: ['playpause', 'current', 'loop', 'tracks', 'progress', 'duration', 'volume', 'stop', 'speed', 'quality', 'fullscreen'],
 
       speeds: ['2', '1.75', '1.5', '1.25', '1', '0.75', '0.5', '0.25'],
-      defaultSpeed: '1',
+      defaultSpeed: defaultPlaybackRate,
       qualityText: 'Quality',
-      defaultQuality: 'auto',
-      stretching: 'fill',
+      defaultQuality: 'Auto',
+      stretching: 'responsive',
+      startVolume: currentVolume,
 
       success: function(mediaElement, originalNode, instance) {
         console.log(mediaElement,originalNode,instance);
+
+        if (autoplay) {
+            instance.play();
+        }
+
+        if (enableSubtitles) {
+            instance.options.startLanguage = 'en';
+        }
       }
     });
 
     return;
-
-    if (autoplay) {
-        player.play();
-    }
-
-    if (enableSubtitles) {
-        player.textTracks[0].mode = 'showing';
-    }
 
     if (playerView.firstLoad) {
         playerView.firstLoad = false;
@@ -528,9 +532,6 @@ function checkVideoSettings() {
             }
             break;
         }
-
-        player.playbackRate = parseFloat(defaultPlaybackRate);
-        $('#currentSpeed').html(defaultPlaybackRate);
     }
 
     player.volume = currentVolume;
@@ -573,7 +574,7 @@ function playNextVideo() {
  */
 function changeVideoSpeed(speed) {
     $('#currentSpeed').html(speed);
-    $('.videoPlayer').get(0).playbackRate = speed;
+    player.playbackRate = speed;
 }
 
 /**
@@ -584,15 +585,15 @@ function changeVideoSpeed(speed) {
  * @return {Void}
  */
 function changeVolume(amount) {
-    const videoPlayer = $('.videoPlayer').get(0);
-    let volume = videoPlayer.volume;
+    // const videoPlayer = $('#player').get();
+    let volume = player.volume;
     volume = volume + amount;
     if (volume > 1) {
-        videoPlayer.volume = 1;
+        player.volume = 1;
     } else if (volume < 0) {
-        videoPlayer.volume = 0;
+        player.volume = 0;
     } else {
-        videoPlayer.volume = volume;
+        player.volume = volume;
     }
 }
 
@@ -604,8 +605,8 @@ function changeVolume(amount) {
  * @return {Void}
  */
 function changeDurationBySeconds(seconds) {
-    const videoPlayer = $('.videoPlayer').get(0);
-    videoPlayer.currentTime = videoPlayer.currentTime + seconds;
+    // const videoPlayer = $('.videoPlayer').get(0);
+    player.currentTime = player.currentTime + seconds;
 }
 
 /**
@@ -616,17 +617,16 @@ function changeDurationBySeconds(seconds) {
  * @return {Void}
  */
 function changeDurationByPercentage(percentage) {
-    const videoPlayer = $('.videoPlayer').get(0);
-    videoPlayer.currentTime = videoPlayer.duration * percentage;
+    //const videoPlayer = $('.videoPlayer').get(0);
+    player.currentTime = player.duration * percentage;
 }
 
 function changeDuration(seconds) {
-    const videoPlayer = $('.videoPlayer').get(0);
-    videoPlayer.currentTime = seconds;
+    // const videoPlayer = $('.videoPlayer').get(0);
+    player.currentTime = seconds;
 }
 
 function updateVolume() {
-    let player = document.getElementById('videoPlayer');
     currentVolume = player.volume
 }
 
