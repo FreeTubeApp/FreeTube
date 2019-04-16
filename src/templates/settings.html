@@ -12,12 +12,15 @@
         <label for="autoplaySwitch" class="switch-label">Autoplay Videos</label>
         <input type="checkbox" id="subtitlesSwitch" name="set-name" class="switch-input" :checked='subtitles'>
         <label for="subtitlesSwitch" class="switch-label">Turn on Subtitles by Default</label>
+        <input type="checkbox" id="localSwitch" name="set-name" class="switch-input" :checked='localScrape'>
+        <label for="localSwitch" class="switch-label">Grab videos locally</label>
         <br />
         <br />
         <div class="select center">
             <select id='qualitySelect' class="select-text" required>
-                <option value="480">480p</option>
+                <option value="360">360p</option>
                 <option value="720" selected>720p</option>
+                <option value="Auto">Auto</option>
             </select>
             <span class="select-highlight"></span>
             <span class="select-bar"></span>

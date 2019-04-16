@@ -112,7 +112,7 @@ let videoShortcutHandler = function (event) {
             if (player.playbackRate > 0.25){
               let rate = player.playbackRate - 0.25;
               player.playbackRate = rate;
-              $('#currentSpeed').html(rate);
+              changeVideoSpeed(rate);
             }
             break;
         case 80:
@@ -121,7 +121,7 @@ let videoShortcutHandler = function (event) {
             if (player.playbackRate < 2){
               let rate = player.playbackRate + 0.25;
               player.playbackRate = rate;
-              $('#currentSpeed').html(rate);
+              changeVideoSpeed(rate);
             }
             break;
         case 70:

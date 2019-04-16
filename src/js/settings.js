@@ -31,6 +31,7 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
  let defaultRegion = 'US';
  // Proxy address variable
  let defaultProxy = false;
+ let getVideosLocally = true;
  // This variable is to make sure that proxy was set before making any API calls
  let proxyAvailable = false;
  let invidiousInstance = 'https://invidio.us';
@@ -81,6 +82,12 @@ function updateSettingsView() {
       settingsView.autoplay = false;
     }
 
+    if (getVideosLocally) {
+      settingsView.localSwitch = true;
+    } else {
+      settingsView.localSwitch = false;
+    }
+
     if (enableSubtitles) {
       settingsView.subtitles = true;
     } else {
@@ -121,6 +128,7 @@ function checkDefaultSettings() {
     'autoplay': true,
     'subtitles': false,
     'updates': true,
+    'localScrape': true,
     'quality': '720',
     'rate': '1',
     'invidious': 'https://invidio.us',
@@ -189,6 +197,10 @@ function checkDefaultSettings() {
             defaultRegion = docs[0]['value'];
             settingsView.region = docs[0]['value'];
             break;
+          case 'localScrape':
+            getVideosLocally = docs[0]['value'];
+            settingsView.localScrape = docs[0]['value'];
+            break;
           default:
             break;
         }
@@ -209,6 +221,7 @@ function updateSettings() {
   let autoplaySwitch = document.getElementById('autoplaySwitch').checked;
   let subtitlesSwitch = document.getElementById('subtitlesSwitch').checked;
   let updatesSwitch = document.getElementById('updatesSwitch').checked;
+  let localSwitch = document.getElementById('localSwitch').checked;
   let qualitySelect = document.getElementById('qualitySelect').value;
   let rateSelect = document.getElementById('rateSelect').value;
   let regionSelect = document.getElementById('regionSelect').value;
@@ -222,6 +235,7 @@ function updateSettings() {
   settingsView.subtitles = subtitlesSwitch;
   settingsView.updates = updatesSwitch;
   settingsView.proxyAddress = proxyAddress;
+  settingsView.localScrape = localSwitch;
   rememberHistory = historySwitch;
   defaultQuality = qualitySelect;
   defaultPlaybackRate = rateSelect;
@@ -294,6 +308,17 @@ function updateSettings() {
     console.log(err);
     console.log(numReplaced);
     autoplay = autoplaySwitch;
+  });
+
+  // Update autoplay.
+  settingsDb.update({
+    _id: 'localScrape'
+  }, {
+    value: localSwitch
+  }, {}, function(err, numReplaced) {
+    console.log(err);
+    console.log(numReplaced);
+    getVideosLocally = localSwitch;
   });
 
   // Update subtitles.

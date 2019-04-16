@@ -396,19 +396,46 @@ function copyLink(website, videoId) {
 
 }
 
+function validateUrl(videoUrl, callback) {
+    if (typeof (videoUrl) !== 'undefined') {
+        let getUrl = fetch(videoUrl);
+        getUrl.then((status) => {
+            switch (status.status) {
+            case 404:
+                callback(false);
+                return;
+                break;
+            case 403:
+                showToast('This video is unavailable in your country.');
+                callback(false)
+                return;
+                break;
+            default:
+                ft.log('videoUrl is valid');
+                callback(true);
+                return;
+                break;
+            }
+        });
+    } else {
+        callback(false);
+        return;
+    }
+};
+
 /**
  * Check to see if the video URLs are valid. Change the video quality if one is not.
  * The API will grab video URLs, but they will sometimes return a 404.  This
  * is why this check is needed.  The video URL will typically be resolved over time.
  *
- * @param {string} video480p - The URL to the 480p video.
+ * @param {string} video360p - The URL to the 360p video.
  * @param {string} video720p - The URL to the 720p video.
  */
-function checkVideoUrls(video480p, video720p, videoAudio) {
+function checkVideoUrls(video360p, video720p, videoAudio) {
     const currentQuality = $('#currentQuality').html();
     let buttonEmbed = document.getElementById('qualityEmbed');
 
-    let valid480 = false;
+    let valid360 = false;
 
     if (typeof (videoAudio) !== 'undefined') {
         let getAudioUrl = fetch(videoAudio);
@@ -432,32 +459,32 @@ function checkVideoUrls(video480p, video720p, videoAudio) {
       playerView.validAudio = false;
     }
 
-    if (typeof (video480p) !== 'undefined') {
-        let get480pUrl = fetch(video480p);
-        get480pUrl.then((status) => {
+    if (typeof (video360p) !== 'undefined') {
+        let get360pUrl = fetch(video360p);
+        get360pUrl.then((status) => {
             switch (status.status) {
             case 404:
-                showToast('Found valid URL for 480p, but returned a 404. Video type might be available in the future.');
-                playerView.valid480p = false;
+                showToast('Found valid URL for 360p, but returned a 404. Video type might be available in the future.');
+                playerView.valid360p = false;
                 buttonEmbed.click();
                 return;
                 break;
             case 403:
                 showToast('This video is unavailable in your country.');
-                playerView.valid480p = false;
+                playerView.valid360p = false;
                 return;
                 break;
             default:
-                ft.log('480p is valid');
+                ft.log('360p is valid');
                 if (currentQuality === '720p' && typeof (video720p) === 'undefined') {
-                  playerView.currentQuality = '480p';
+                  playerView.currentQuality = '360p';
                 }
                 break;
             }
         });
     }
     else{
-      playerView.valid480p = false;
+      playerView.valid360p = false;
     }
 
     if (typeof (video720p) !== 'undefined') {
@@ -467,8 +494,8 @@ function checkVideoUrls(video480p, video720p, videoAudio) {
             case 404:
                 showToast('Found valid URL for 720p, but returned a 404. Video type might be available in the future.');
                 playerView.valid720p = false;
-                if (typeof (valid480) !== 'undefined') {
-                  playerView.currentQuality = '480p';
+                if (typeof (valid360) !== 'undefined') {
+                  playerView.currentQuality = '360p';
                 }
                 break;
             case 403:

@@ -39,12 +39,13 @@ function playVideo(videoId, playlistId = '') {
     playerView.videoId = videoId;
     playerView.videoAudio = undefined;
     playerView.validAudio = true;
-    playerView.video480p = undefined;
-    playerView.valid480p = true;
+    playerView.video360p = undefined;
+    playerView.valid360p = true;
     playerView.video720p = undefined;
     playerView.valid720p = true;
     playerView.videoUrl = '';
-    playerView.videoDash = 'https://invidio.us/api/manifest/dash/' + videoId + '.mpd';
+    playerView.validDash = true;
+    playerView.videoDash = invidiousInstance + '/api/manifest/dash/' + videoId + '.mpd';
     playerView.embededHtml = "<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/" + videoId + "?rel=0' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>";
 
     let videoHtml = '';
@@ -63,82 +64,91 @@ function playVideo(videoId, playlistId = '') {
         }
     });
 
-    youtubedlGetInfo(videoId, (data) => {
-        console.log(data);
+    if (getVideosLocally) {
+      youtubedlGetInfo(videoId, (data) => {
+          console.log(data);
 
-        let videoUrls = data.formats;
-        let formatUrls = data.player_response.streamingData.adaptiveFormats;
+          let videoUrls = data.formats;
+          let formatUrls = data.player_response.streamingData.adaptiveFormats;
 
-        // Search through the returned object to get the 480p and 720p video URLs (If available)
-        Object.keys(videoUrls).forEach((key) => {
-            switch (videoUrls[key]['itag']) {
-            case '18':
-                playerView.video480p = decodeURIComponent(videoUrls[key]['url']);
-                // console.log(playerView.video480p);
-                break;
-            case '22':
-                playerView.video720p = decodeURIComponent(videoUrls[key]['url']);
-                // console.log(playerView.video720p);
-                break;
-            }
-        });
+          // Search through the returned object to get the 360p and 720p video URLs (If available)
+          Object.keys(videoUrls).forEach((key) => {
+              switch (videoUrls[key]['itag']) {
+              case '18':
+                  playerView.video360p = decodeURIComponent(videoUrls[key]['url']);
+                  // console.log(playerView.video360p);
+                  break;
+              case '22':
+                  playerView.video720p = decodeURIComponent(videoUrls[key]['url']);
+                  // console.log(playerView.video720p);
+                  break;
+              }
+          });
 
-        // Last adaptive format will be best the quality audio stream (migrate fully to adaptive formats later)
-        playerView.videoAudio = decodeURIComponent(formatUrls[formatUrls.length - 1]['url']);
+          // Last adaptive format will be best the quality audio stream (migrate fully to adaptive formats later)
+          playerView.videoAudio = decodeURIComponent(formatUrls[formatUrls.length - 1]['url']);
 
-        if (typeof (playerView.videoAudio) === 'undefined') {
-            console.log(playerView.videoAudio);
-            playerView.validAudio = false;
-        }
+          if (typeof (playerView.videoAudio) === 'undefined') {
+              console.log(playerView.videoAudio);
+              playerView.validAudio = false;
+          }
 
-        let useEmbedPlayer = false;
+          let useEmbedPlayer = false;
 
-        // Default to the embeded player if the URLs cannot be found.
-        if (typeof (playerView.video720p) === 'undefined' && typeof (playerView.video480p) === 'undefined') {
-            //useEmbedPlayer = true;
-            playerView.currentQuality = 'EMBED';
-            playerView.playerSeen = false;
-            //useEmbedPlayer = true;
-            showToast('Unable to get video file.  Reverting to embeded player.');
-        } else if (typeof (playerView.video720p) === 'undefined' && typeof (playerView.video480p) !== 'undefined') {
-            // Default to the 480p video if the 720p URL cannot be found.
-            console.log('Found');
-            playerView.videoUrl = playerView.video480p;
-            playerView.currentQuality = '480p';
-        } else {
-            // Default to the 720p video.
-            playerView.videoUrl = playerView.video720p;
-            playerView.currentQuality = '720p';
-            //playerView.videoUrl = playerView.liveManifest;
-        }
+          // Default to the embeded player if the URLs cannot be found.
+          if (typeof (playerView.video720p) === 'undefined' && typeof (playerView.video360p) === 'undefined') {
+              //useEmbedPlayer = true;
+              playerView.currentQuality = 'EMBED';
+              playerView.playerSeen = false;
+              playerView.valid720p = false;
+              playerView.valid360p = false;
+              playerView.video720p = '';
+              //useEmbedPlayer = true;
+              showToast('Unable to get video file.  Reverting to embeded player.');
+          } else if (typeof (playerView.video720p) === 'undefined' && typeof (playerView.video360p) !== 'undefined') {
+              // Default to the 360p video if the 720p URL cannot be found.
+              console.log('Found');
+              playerView.videoUrl = playerView.video360p;
+              playerView.currentQuality = '360p';
+              playerView.valid720p = false;
+              playerView.video720p = '';
+          } else {
+              // Default to the 720p video.
+              playerView.videoUrl = playerView.video720p;
+              playerView.currentQuality = '720p';
+              //playerView.videoUrl = playerView.liveManifest;
+          }
 
-        if (!useEmbedPlayer &&
-            typeof (data.player_response.captions) !== 'undefined' &&
-            typeof (data.player_response.captions.playerCaptionsTracklistRenderer) !== 'undefined' &&
-            typeof (data.player_response.captions.playerCaptionsTracklistRenderer.captionTracks) !== 'undefined') {
-            data.player_response.captions.playerCaptionsTracklistRenderer.captionTracks.forEach((caption) => {
-                let subtitleUrl = invidiousInstance + '/api/v1/captions/' + videoId + '?label=' + caption.name.simpleText;
+          if (!useEmbedPlayer &&
+              typeof (data.player_response.captions) !== 'undefined' &&
+              typeof (data.player_response.captions.playerCaptionsTracklistRenderer) !== 'undefined' &&
+              typeof (data.player_response.captions.playerCaptionsTracklistRenderer.captionTracks) !== 'undefined') {
+              data.player_response.captions.playerCaptionsTracklistRenderer.captionTracks.forEach((caption) => {
+                  let subtitleUrl = invidiousInstance + '/api/v1/captions/' + videoId + '?label=' + caption.name.simpleText;
 
-                videoHtml = videoHtml + '<track kind="subtitles" src="' + subtitleUrl + '" srclang="' + caption.languageCode + '" label="' + caption.name.simpleText + '">';
-            });
+                  videoHtml = videoHtml + '<track kind="subtitles" src="' + subtitleUrl + '" srclang="' + caption.languageCode + '" label="' + caption.name.simpleText + '">';
+              });
 
-            playerView.subtitleHtml = videoHtml;
-        }
+              playerView.subtitleHtml = videoHtml;
+          }
 
-        youtubedlFinished = true;
+          youtubedlFinished = true;
 
-        if (youtubedlFinished && invidiousFinished) {
-            loadingView.seen = false;
+          if (youtubedlFinished && invidiousFinished) {
+              loadingView.seen = false;
 
-            if (subscriptionView.seen === false && aboutView.seen === false && headerView.seen === false && searchView.seen === false && settingsView.seen === false && popularView.seen === false && savedView.seen === false && historyView.seen === false && channelView.seen === false && channelVideosView.seen === false) {
-                playerView.seen = true;
-            } else {
-                return;
-            }
-
-            window.setTimeout(checkVideoUrls, 5000, playerView.video480p, playerView.video720p, playerView.videoAudio);
-        }
-    });
+              if (subscriptionView.seen === false && aboutView.seen === false && headerView.seen === false && searchView.seen === false && settingsView.seen === false && popularView.seen === false && savedView.seen === false && historyView.seen === false && channelView.seen === false && channelVideosView.seen === false) {
+                  playerView.seen = true;
+              } else {
+                  return;
+              }
+          }
+      });
+    }
+    else {
+      youtubedlFinished = true;
+      console.log("Grabbing videos through Invidious");
+    }
 
     invidiousAPI('videos', videoId, {}, (data) => {
 
@@ -211,6 +221,57 @@ function playVideo(videoId, playlistId = '') {
             playerView.recommendedVideoList = playerView.recommendedVideoList.concat(data);
         });
 
+        if (!getVideosLocally) {
+          let videoUrls = data.formatStreams;
+          let formatUrls = data.adaptiveFormats;
+
+          // Search through the returned object to get the 360p and 720p video URLs (If available)
+          Object.keys(videoUrls).forEach((key) => {
+              switch (videoUrls[key]['itag']) {
+              case '18':
+                  playerView.video360p = decodeURIComponent(videoUrls[key]['url']);
+                  // console.log(playerView.video360p);
+                  break;
+              case '22':
+                  playerView.video720p = decodeURIComponent(videoUrls[key]['url']);
+                  // console.log(playerView.video720p);
+                  break;
+              }
+          });
+
+          if (typeof(playerView.video360p) === 'undefined') {
+            playerView.video360p = '';
+            playerView.valid360p = false;
+          }
+
+          if (typeof(playerView.video720p) === 'undefined') {
+            playerView.video720p = '';
+            playerView.valid720p = false;
+          }
+
+          // Last adaptive format will be best the quality audio stream (migrate fully to adaptive formats later)
+          playerView.videoAudio = decodeURIComponent(formatUrls[formatUrls.length - 1]['url']);
+
+          if (typeof (playerView.videoAudio) === 'undefined') {
+              console.log(playerView.videoAudio);
+              playerView.videoAudio = '';
+              playerView.validAudio = false;
+          }
+
+          let useEmbedPlayer = false;
+
+          if (!useEmbedPlayer &&
+              typeof (data.captions) !== 'undefined') {
+              data.captions.forEach((caption) => {
+                  let subtitleUrl = invidiousInstance + caption.url;
+
+                  videoHtml = videoHtml + '<track kind="subtitles" src="' + subtitleUrl + '" srclang="' + caption.languageCode + '" label="' + caption.label + '">';
+              });
+
+              playerView.subtitleHtml = videoHtml;
+          }
+        }
+
         if (playlistId != '') {
             playerView.playlistSeen = true;
             playerView.playlistShowList = true;
@@ -263,8 +324,6 @@ function playVideo(videoId, playlistId = '') {
             } else {
                 return;
             }
-
-            window.setTimeout(checkVideoUrls, 5000, playerView.video480p, playerView.video720p, playerView.videoAudio);
         }
 
         if (rememberHistory === true) {
@@ -343,36 +402,9 @@ function openMiniPlayer() {
  */
 function clickMiniPlayer(videoId) {
 
-    let video480p, video720p, historyData;
+    let video360p, video720p, historyData;
 
     showToast("Opening in mini player, Please wait.");
-
-    let validateUrl = function (videoUrl, callback) {
-        if (typeof (videoUrl) !== 'undefined') {
-            let getUrl = fetch(videoUrl);
-            getUrl.then((status) => {
-                switch (status.status) {
-                case 404:
-                    callback(false);
-                    return;
-                    break;
-                case 403:
-                    showToast('This video is unavailable in your country.');
-                    callback(false)
-                    return;
-                    break;
-                default:
-                    ft.log('videoUrl is valid');
-                    callback(true);
-                    return;
-                    break;
-                }
-            });
-        } else {
-            callback(false);
-            return;
-        }
-    };
 
     let playVideo = function (videoUrl, videoThumbnail) {
         // Create a new browser window.
@@ -427,11 +459,11 @@ function clickMiniPlayer(videoId) {
             timeWatched: new Date().getTime(),
         };
 
-        // Search through the returned object to get the 480p and 720p video URLs (If available)
+        // Search through the returned object to get the 360p and 720p video URLs (If available)
         Object.keys(videoUrls).forEach((key) => {
             switch (videoUrls[key]['itag']) {
             case '18':
-                video480p = videoUrls[key]['url'];
+                video360p = videoUrls[key]['url'];
                 break;
             case '22':
                 video720p = videoUrls[key]['url'];
@@ -444,19 +476,19 @@ function clickMiniPlayer(videoId) {
                 if (results) {
                     playVideo(decodeURIComponent(video720p), videoThumbnail);
                 } else {
-                    validateUrl(video480p, (results) => {
+                    validateUrl(video360p, (results) => {
                         if (results) {
-                            playVideo(decodeURIComponent(video480p), videoThumbnail);
+                            playVideo(decodeURIComponent(video360p), videoThumbnail);
                         } else {
                             showToast("Unable to open video into mini player.");
                         }
                     });
                 }
             });
-        } else if (defaultQuality === "480") {
-            validateUrl(video480p, (results) => {
+        } else if (defaultQuality === "360") {
+            validateUrl(video360p, (results) => {
                 if (results) {
-                    playVideo(decodeURIComponent(video480p), videoThumbnail);
+                    playVideo(decodeURIComponent(video360p), videoThumbnail);
                 } else {
                     validateUrl(video720p, (results) => {
                         if (results) {
@@ -483,58 +515,109 @@ function checkVideoSettings() {
     }
 
     checkedSettings = true;
+    let checked720p = false;
+    let checked360p = false;
+    let checkedAudio = false;
+    let checkedDash = false;
+    let quality = defaultQuality;
 
-    let player = new MediaElementPlayer('player', {
-      features: ['playpause', 'current', 'loop', 'tracks', 'progress', 'duration', 'volume', 'stop', 'speed', 'quality', 'fullscreen'],
-
-      speeds: ['2', '1.75', '1.5', '1.25', '1', '0.75', '0.5', '0.25'],
-      defaultSpeed: defaultPlaybackRate,
-      qualityText: 'Quality',
-      defaultQuality: 'Auto',
-      stretching: 'responsive',
-      startVolume: currentVolume,
-
-      success: function(mediaElement, originalNode, instance) {
-        console.log(mediaElement,originalNode,instance);
-
-        if (autoplay) {
-            instance.play();
-        }
-
-        if (enableSubtitles) {
-            instance.options.startLanguage = 'en';
-        }
+    let declarePlayer = function() {
+      if (!checked720p || !checked360p || !checkedAudio || !checkedDash) {
+        return;
       }
-    });
 
-    return;
-
-    if (playerView.firstLoad) {
-        playerView.firstLoad = false;
-
-        switch (defaultQuality) {
-        case '480':
-            if (typeof (playerView.video480p) !== 'undefined') {
-                playerView.videoUrl = playerView.video480p;
-                playerView.currentQuality = '480p';
-            }
-            break;
+      switch (quality) {
         case '720':
-            if (typeof (playerView.video720p) !== 'undefined') {
-                playerView.videoUrl = playerView.video720p;
-                playerView.currentQuality = '720p';
-            }
-            break;
+          if (!playerView.valid720p) {
+            quality = '360p';
+          }
+          else {
+            quality = '720p';
+          }
+          break;
+        case '480':
+          quality = '360p';
+          break;
+        case '360':
+          if (!playerView.valid360p) {
+            quality = 'Auto';
+          }
+          else {
+            quality = '360p';
+          }
         default:
-            if (typeof (playerView.video720p) !== 'undefined') {
-                playerView.videoUrl = playerView.video720p;
-                playerView.currentQuality = '720p';
-            }
-            break;
+          break;
+      }
+
+      let player = new MediaElementPlayer('player', {
+        features: ['playpause', 'current', 'loop', 'tracks', 'progress', 'duration', 'volume', 'stop', 'speed', 'quality', 'fullscreen'],
+
+        speeds: ['2', '1.75', '1.5', '1.25', '1', '0.75', '0.5', '0.25'],
+        defaultSpeed: defaultPlaybackRate,
+        qualityText: 'Quality',
+        defaultQuality: quality,
+        stretching: 'responsive',
+        startVolume: currentVolume,
+
+        success: function(mediaElement, originalNode, instance) {
+          console.log(mediaElement,originalNode,instance);
+
+          if (autoplay) {
+              instance.play();
+          }
+
+          if (enableSubtitles) {
+              instance.options.startLanguage = 'en';
+          }
         }
+      });
+    };
+
+    if (playerView.valid360p !== false) {
+      validateUrl(playerView.video360p, (valid) => {
+        playerView.valid360p = valid;
+        checked360p = true;
+        declarePlayer();
+      });
+    }
+    else {
+      checked360p = true;
     }
 
-    player.volume = currentVolume;
+    if (playerView.valid720p !== false) {
+      validateUrl(playerView.video720p, (valid) => {
+        playerView.valid720p = valid;
+        checked720p = true;
+        declarePlayer();
+      });
+    }
+    else {
+      checked720p = true;
+    }
+
+    if (playerView.validAudio !== false) {
+      validateUrl(playerView.videoAudio, (valid) => {
+        playerView.validAudio = valid;
+        checkedAudio = true;
+        declarePlayer();
+      });
+    }
+    else {
+      checkedAudio = true;
+    }
+
+    if (playerView.validDash !== false) {
+      validateUrl(playerView.videoDash, (valid) => {
+        playerView.validDash = valid;
+        checkedDash = true;
+        declarePlayer();
+      });
+    }
+    else {
+      checkedDash = true;
+    }
+
+    return;
 }
 
 function playNextVideo() {
@@ -573,8 +656,13 @@ function playNextVideo() {
  * @return {Void}
  */
 function changeVideoSpeed(speed) {
-    $('#currentSpeed').html(speed);
-    player.playbackRate = speed;
+  let speedOptions = $('.mejs__speed-selector-input').get();
+  speedOptions.forEach((option, index) => {
+    if (option.value == speed) {
+      option.click();
+      player.playbackRate = speed;
+    }
+  });
 }
 
 /**

@@ -1,9 +1,9 @@
 <div v-if='seen'>
   <div v-if='playerSeen' class='videoPlayer'>
     <video id='player' onloadstart='checkVideoSettings()' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" :poster="videoThumbnail" onvolumechange='updateVolume()'>
-      <source data-quality='360p' type="video/mp4" :src="video480p" />
-      <source data-quality='720p' type="video/mp4" :src="video720p" />
-      <source data-quality='Audio' type="audio/mp4" :src="videoAudio" />
+      <source v-if='valid360p' data-quality='360p' type="video/mp4" :src="video360p" />
+      <source v-if='valid720p' data-quality='720p' type="video/mp4" :src="video720p" />
+      <source v-if='validAudio' data-quality='Audio' type="audio/mp4" :src="videoAudio" />
       <source data-quality='Auto' type="application/dash+xml" :src="videoDash" />
       <span v-html="subtitleHtml"></span>
     </video>
@@ -16,35 +16,6 @@
   <div class='statistics'>
     <div onclick='openMiniPlayer()' class='smallButton' >
       MINI PLAYER <i class="fas fa-external-link-alt"></i>
-    </div>
-    <div class='smallButton videoQuality'>
-      <span id='currentQuality'>{{currentQuality}}</span> <i class="fas fa-angle-down"></i>
-      <div class='qualityTypes'>
-        <ul>
-          <li v-if='valid480p' id='quality480p' v-on:click='quality(video480p, "480p")'>480p</li>
-          <li v-if='valid720p' id='quality720p' v-on:click='quality(video720p, "720p")'>720p</li>
-          <li v-if='validAudio' id='qualityAudio' v-on:click='quality(videoAudio, "AUDIO")'>AUDIO</li>
-          <li id='qualityEmbed' v-on:click='embededPlayer()'>EMBED</li>
-        </ul>
-      </div>
-    </div>
-    <div class='smallButton videoSpeed'>
-      <span id='currentSpeed'>{{currentSpeed}}</span>x <i class="fas fa-angle-down"></i>
-      <div class='speedTypes'>
-        <ul>
-          <li onclick='changeVideoSpeed(0.25)'>0.25x</li>
-          <li onclick='changeVideoSpeed(0.5)'>0.5x</li>
-          <li onclick='changeVideoSpeed(0.75)'>0.75x</li>
-          <li onclick='changeVideoSpeed(1)'>1x</li>
-          <li onclick='changeVideoSpeed(1.25)'>1.25x</li>
-          <li onclick='changeVideoSpeed(1.5)'>1.5x</li>
-          <li onclick='changeVideoSpeed(1.75)'>1.75x</li>
-          <li onclick='changeVideoSpeed(2)'>2x</li>
-        </ul>
-      </div>
-    </div>
-    <div class='smallButton' v-on:click='loop'>
-      <i id='loopIcon' class="fas fa-sync-alt"></i> LOOP
     </div>
     <div class='smallButton' v-on:click='save(videoId)'>
       <i id='saveIcon' :class='savedIconType' class="fa-star"></i> <span id='savedText'>{{savedText}}</span>
