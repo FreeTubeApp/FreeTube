@@ -190,8 +190,8 @@ function checkDefaultSettings() {
             }
             break;
           case 'invidious':
-            settingsView.invidiousInstance = docs[0]['value'];
-            invidiousInstance = docs[0]['value'];
+            invidiousInstance = docs[0]['value'].replace(/\/$/, '');
+            settingsView.invidiousInstance = invidiousInstance;
             break;
           case 'region':
             defaultRegion = docs[0]['value'];
@@ -284,8 +284,8 @@ function updateSettings() {
   }, {}, function(err, numReplaced) {
     console.log(err);
     console.log(numReplaced);
-    settingsView.invidiousInstance = invidious;
-    invidiousInstance = invidious;
+    settingsView.invidiousInstance = invidious.replace(/\/$/, '');
+    invidiousInstance = invidious.replace(/\/$/, '');
   });
 
   // Update history
