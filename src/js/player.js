@@ -62,7 +62,6 @@ function playVideo(videoId, playlistId = '') {
         console.log(data);
 
         let videoUrls = data.formats;
-        let formatUrls = data.player_response.streamingData.adaptiveFormats;
 
         // Search through the returned object to get the 480p and 720p video URLs (If available)
         Object.keys(videoUrls).forEach((key) => {
@@ -79,7 +78,7 @@ function playVideo(videoId, playlistId = '') {
         });
 
         // Last adaptive format will be best the quality audio stream (migrate fully to adaptive formats later)
-        playerView.videoAudio = decodeURIComponent(formatUrls[formatUrls.length - 1]['url']);
+        playerView.videoAudio = decodeURIComponent(videoUrls[videoUrls.length - 1]['url']);
 
         if (typeof (playerView.videoAudio) === 'undefined') {
             console.log(playerView.videoAudio);
