@@ -128,12 +128,7 @@ let videoShortcutHandler = function (event) {
             // F Key
             event.preventDefault();
 
-            if (player.webkitDisplayingFullscreen) {
-              player.webkitExitFullscreen
-            }
-            else{
-              player.webkitRequestFullscreen();
-            }
+            $('.mejs__fullscreen-button').click();
             break;
         case 77:
             // M Key
@@ -230,11 +225,7 @@ let videoShortcutHandler = function (event) {
 };
 
 let fullscreenVideo = function (event) {
-    if (document.webkitFullscreenElement !== null) {
-        document.webkitExitFullscreen();
-    } else {
-        $('.videoPlayer').get(0).webkitRequestFullscreen();
-    }
+    $('.mejs__fullscreen-button').click();
 }
 
 /**
@@ -247,7 +238,7 @@ $(document).on('click', '#showComments', showComments);
 
 // $(document).on('click', '.videoPlayer', playPauseVideo);
 
-// $(document).on('dblclick', '.videoPlayer', fullscreenVideo);
+$(document).on('dblclick', '.videoPlayer', fullscreenVideo);
 
 $(document).on('keydown', videoShortcutHandler);
 

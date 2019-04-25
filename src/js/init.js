@@ -44,7 +44,7 @@ app.commandLine.appendSwitch('autoplay-policy', 'no-user-gesture-required');
 
 app.commandLine.appendSwitch('disable-web-security');
 
-const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
+/*const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
     // Someone tried to run a second instance, we should focus our window.
     if (win) {
         if (win.isMinimized()) win.restore()
@@ -52,9 +52,9 @@ const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) 
 
         win.webContents.send('ping', commandLine)
     }
-});
+});*/
 
-if (require('electron-squirrel-startup') || isSecondInstance) app.quit();
+if (require('electron-squirrel-startup')) app.quit();
 
 /**
  * Initialize the Electron application

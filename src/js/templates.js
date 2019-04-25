@@ -539,7 +539,6 @@ let playerView = new Vue({
     firstLoad: true,
     publishedDate: '',
     videoUrl: '',
-    videoDash: '',
     videoId: '',
     channelId: '',
     channelIcon: '',
@@ -557,7 +556,10 @@ let playerView = new Vue({
     valid360p: false,
     video720p: '',
     valid720p: false,
+    videoDash: '',
     validDash: true,
+    videoLive: '',
+    validLive: false,
     embededHtml: '',
     currentSpeed: 1,
     videoTitle: '',
@@ -606,8 +608,8 @@ let playerView = new Vue({
       }
     },
     embededPlayer: () => {
-      playerView.playerSeen = false;
-      playerView.currentQuality = 'EMBED';
+      playerView.playerSeen = !playerView.playerSeen;
+      checkedSettings = false;
     },
     copy: (site, videoId) => {
       const url = 'https://' + site + '/watch?v=' + videoId;

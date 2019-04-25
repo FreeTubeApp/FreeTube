@@ -38,6 +38,8 @@ const shell = electron.shell; // Used to open external links into the user's nat
 const clipboard = electron.clipboard;
 const getOpml = require('opml-to-json'); // Gets the file type for imported files.
 const fs = require('fs'); // Used to read files. Specifically in the settings page.
+const url = require('url');
+const path = require('path');
 
 let dialog = electron.remote.dialog; // Used for opening file browser to export / import subscriptions.
 let toastTimeout; // Timeout for toast notifications.

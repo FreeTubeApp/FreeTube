@@ -1,7 +1,7 @@
 {
     "name": "FreeTube",
     "productName": "FreeTube",
-    "version": "0.5.2",
+    "version": "0.5.3",
     "description": "An Open Source YouTube app for privacy.",
     "main": "src/js/init.js",
     "scripts": {
@@ -80,26 +80,26 @@
         }
     },
     "devDependencies": {
-        "electron-forge": "^5.2.2",
-        "electron-forge-maker-appimage": "^20.28.3",
+        "electron-forge": "^5.2.4",
+        "electron-forge-maker-appimage": "^20.39.0",
         "electron-installer-flatpak": "^0.8.0",
-        "electron-installer-snap": "^2.0.1",
-        "electron-prebuilt-compile": "3.0.2",
-        "electron-winstaller": "^2.7.0"
+        "electron-installer-snap": "^3.1.1",
+        "electron-prebuilt-compile": "4.0.0",
+        "electron-winstaller": "^3.0.4"
     },
     "dependencies": {
-        "autolinker": "^1.6.2",
+        "autolinker": "^3.0.5",
         "commonjs": "0.0.1",
         "dateformat": "^3.0.3",
-        "electron-compile": "6.4.2",
-        "electron-context-menu": "^0.10.0",
+        "electron-compile": "6.4.4",
+        "electron-context-menu": "^0.12.0",
         "electron-squirrel-startup": "^1.0.0",
-        "jquery": "^3.3.1",
-        "jsdom": "^11.11.0",
-        "mustache": "^2.3.0",
+        "jquery": "^3.4.0",
+        "jsdom": "^15.0.0",
+        "mustache": "^3.0.1",
         "nedb": "^1.8.0",
         "opml-to-json": "0.0.3",
-        "vue": "^2.5.17",
+        "vue": "^2.6.10",
         "ytdl-core": "^0.29.1"
     }
 }
