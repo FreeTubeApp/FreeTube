@@ -1,9 +1,9 @@
 <div v-if='seen'>
   <div v-if='playerSeen' class='videoPlayer'>
     <video id='player' onloadstart='checkVideoSettings()' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" :poster="videoThumbnail" onvolumechange='updateVolume()'>
-      <source v-if='valid360p' data-quality='360p' type="video/mp4" :src="video360p" />
+      <!--<source v-if='valid360p' data-quality='360p' type="video/mp4" :src="video360p" />
       <source v-if='valid720p' data-quality='720p' type="video/mp4" :src="video720p" />
-      <source v-if='validAudio' data-quality='Audio' type="audio/mp4" :src="videoAudio" />
+      <source v-if='validAudio' data-quality='Audio' type="audio/mp4" :src="videoAudio" />-->
       <source v-if='validDash' data-quality='Auto' type="application/dash+xml" :src="videoDash" />
       <source v-if='validLive' data-quality='Live' type="application/x-mpegURL" :src="videoLive" />
       <span v-html="subtitleHtml"></span>
