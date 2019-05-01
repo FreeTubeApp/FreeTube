@@ -536,6 +536,7 @@ let playerView = new Vue({
   data: {
     seen: false,
     playlistSeen: false,
+    legacySeen: false,
     firstLoad: true,
     publishedDate: '',
     videoUrl: '',
@@ -593,23 +594,29 @@ let playerView = new Vue({
     quality: (url, qualityText) => {
       console.log(url);
       console.log(qualityText);
-      if(playerView.playerSeen === true){
+      if(playerView.legacySeen === true){
         // Update time to new url
         const currentPlayBackTime = $('.videoPlayer').get(0).currentTime;
         console.log(currentPlayBackTime);
         playerView.videoUrl = url;
         playerView.currentQuality = qualityText;
-        setTimeout(() => {$('.videoPlayer').get(0).currentTime = currentPlayBackTime;}, 100);
-      }
-      else{
-        playerView.playerSeen = true;
-        playerView.videoUrl = url;
-        playerView.currentQuality = qualityText;
+        setTimeout(() => {$('.videoPlayer').get(0).currentTime = currentPlayBackTime; $('.videoPlayer').get(0).play();}, 100);
       }
     },
     embededPlayer: () => {
-      playerView.playerSeen = !playerView.playerSeen;
+      playerView.playerSeen = false;
+      playerView.legacySeen = false;
       checkedSettings = false;
+    },
+    legacyFormats: () => {
+      playerView.playerSeen = false;
+      checkedSettings = false;
+      playerView.legacySeen = true;
+    },
+    dashFormats: () => {
+      playerView.legacySeen = false;
+      checkedSettings = false;
+      playerView.playerSeen = true;
     },
     copy: (site, videoId) => {
       const url = 'https://' + site + '/watch?v=' + videoId;
@@ -624,14 +631,14 @@ let playerView = new Vue({
       playVideo(videoId, playlistId);
     },
     loop: () => {
-      let player = document.getElementById('videoPlayer');
+      let legacyPlayer = $('.videoPlayer').get(0);
 
-      if (player.loop === false) {
-        player.loop = true;
+      if (legacyPlayer.loop === false) {
+        legacyPlayer.loop = true;
         showToast('Video loop has been turned on.');
       }
       else{
-        player.loop = false;
+        legacyPlayer.loop = false;
         showToast('Video loop has been turned off.')
       }
     },

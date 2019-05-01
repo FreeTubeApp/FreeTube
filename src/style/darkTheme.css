@@ -181,6 +181,11 @@ input[type=text] {
     background-color: #757575;
 }
 
+.shareTypes {
+    color: #E0E0E0;
+    background-color: #757575;
+}
+
 .unsaved {
     color: #E0E0E0;
 }

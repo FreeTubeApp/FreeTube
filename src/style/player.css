@@ -325,7 +325,7 @@ iframe {
 }
 
 .videoQuality {
-    width: 42px;
+    width: 102px;
 }
 
 .videoQuality:hover .qualityTypes {
@@ -334,7 +334,7 @@ iframe {
 
 .qualityTypes {
     visibility: hidden;
-    width: 72px;
+    width: 132px;
     position: relative;
     bottom: 10px;
     right: 15px;
@@ -347,13 +347,13 @@ iframe {
 }
 
 .qualityTypes ul li {
-    width: 72px;
+    width: 132px;
     position: relative;
     right: 15px;
 }
 
 .videoSpeed {
-    width: 42px;
+    width: 92px;
 }
 
 .videoSpeed:hover .speedTypes {
@@ -362,7 +362,7 @@ iframe {
 
 .speedTypes {
     visibility: hidden;
-    width: 72px;
+    width: 122px;
     position: relative;
     bottom: 10px;
     right: 15px;
@@ -375,7 +375,35 @@ iframe {
 }
 
 .speedTypes ul li {
-    width: 72px;
+    width: 122px;
+    position: relative;
+    right: 15px;
+}
+
+.shareButton {
+    width: 92px;
+}
+
+.shareButton:hover .shareTypes {
+    visibility: visible;
+}
+
+.shareTypes {
+    visibility: hidden;
+    width: 122px;
+    position: relative;
+    bottom: 10px;
+    right: 15px;
+}
+
+.shareTypes ul {
+    list-style-type: none;
+    position: relative;
+    right: 24px;
+}
+
+.shareTypes ul li {
+    width: 122px;
     position: relative;
     right: 15px;
 }

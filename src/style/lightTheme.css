@@ -56,7 +56,7 @@ body {
 }
 
 .searchBar ::-webkit-input-placeholder {
-    color: #ddd;
+    color: rgba(0, 0, 0, 0.75);
 }
 
 .topNav {
@@ -65,7 +65,7 @@ body {
 }
 
 .searchBar input {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.75);
 }
 
 .searchButton {
@@ -153,6 +153,10 @@ body {
 }
 
 .speedTypes {
+    background-color: #eeeeee;
+}
+
+.shareTypes {
     background-color: #eeeeee;
 }
 

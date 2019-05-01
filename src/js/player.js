@@ -273,6 +273,15 @@ function playVideo(videoId, playlistId = '') {
             playerView.valid720p = false;
           }
 
+          if (defaultQuality >= '720' && playerView.video720p !== '') {
+            playerView.videoUrl = playerView.video720p;
+            playerView.currentQuality = '720p';
+          }
+          else {
+            playerView.videoUrl = playerView.video360p;
+            playerView.currentQuality = '360p';
+          }
+
           // Last adaptive format will be best the quality audio stream (migrate fully to adaptive formats later)
           playerView.videoAudio = decodeURIComponent(formatUrls[formatUrls.length - 1]['url']);
 
@@ -299,6 +308,7 @@ function playVideo(videoId, playlistId = '') {
         if (data.liveNow !== false) {
           playerView.validLive = true;
           playerView.videoLive = data.hlsUrl;
+          playerView.validDash = false;
         }
 
         if (playlistId != '') {
@@ -566,11 +576,7 @@ function clickMiniPlayer(videoId) {
     });
 }
 
-function checkVideoSettings() {
-    //let player = document.getElementById('videoPlayer');
-
-    console.log('checking Settings');
-
+function checkDashSettings() {
     // Mediaelement.js for some reason calls onLoadStart() multiple times
     // This check is here to force checkVideoSettings to only run once.
     if (checkedSettings) {
@@ -582,10 +588,11 @@ function checkVideoSettings() {
     let checked360p = false;
     let checkedAudio = false;
     let checkedDash = false;
+    let parseDash = true;
     let quality = defaultQuality;
 
     let declarePlayer = function() {
-      if (!checked720p || !checked360p || !checkedAudio || !checkedDash) {
+      if (!checkedDash) {
         return;
       }
 
@@ -617,9 +624,111 @@ function checkVideoSettings() {
         quality = 'Live';
       }
 
+        let player = new MediaElementPlayer('player', {
+          features: ['playpause', 'current', 'loop', 'tracks', 'progress', 'duration', 'volume', 'stop', 'speed', 'quality', 'fullscreen'],
+          speeds: ['2', '1.75', '1.5', '1.25', '1', '0.75', '0.5', '0.25'],
+          renderers: ['native_dash', 'native_hls', 'html5'],
+          defaultSpeed: defaultPlaybackRate,
+          autoGenerate: true,
+          autoDash: true,
+          autoHLS: false,
+          qualityText: 'Quality',
+          defaultQuality: quality,
+          stretching: 'responsive',
+          startVolume: currentVolume,
+
+          success: function(mediaElement, originalNode, instance) {
+            console.log(mediaElement,originalNode,instance);
+
+            window.setTimeout(() => {
+              if (autoplay) {
+                  instance.play();
+              }
+
+              if (enableSubtitles) {
+                  instance.options.startLanguage = 'en';
+              }
+            }, 100);
+          },
+
+          error: function(error, originalNode, instance) {
+            showToast('There was an error with playing DASH formats.  Reverting to the legacy formats.');
+            playerView.legacyFormats();
+          }
+        });
+    };
+
+    if (playerView.validDash !== false) {
+      validateUrl(playerView.videoDash, (valid) => {
+        playerView.validDash = valid;
+        checkedDash = true;
+        declarePlayer();
+      });
+    }
+    else {
+      playerView.legacyFormats();
+    }
+
+    return;
+}
+
+function checkLegacySettings() {
+  //let player = document.getElementById('videoPlayer');
+
+  console.log('checking Settings');
+
+  // Mediaelement.js for some reason calls onLoadStart() multiple times
+  // This check is here to force checkVideoSettings to only run once.
+  if (checkedSettings) {
+    console.log('Returning');
+    return;
+  }
+
+  checkedSettings = true;
+  let checked720p = false;
+  let checked360p = false;
+  let checkedAudio = false;
+  let checkedDash = false;
+  let parseDash = true;
+  let quality = defaultQuality;
+
+  let declarePlayer = function() {
+    if (!checked720p || !checked360p || !checkedAudio || !checkedDash) {
+      return;
+    }
+
+    switch (quality) {
+      case '720':
+        if (!playerView.valid720p) {
+          quality = '360p';
+        }
+        else {
+          quality = '720p';
+        }
+        break;
+      case '480':
+        quality = '360p';
+        break;
+      case '360':
+        if (!playerView.valid360p) {
+          quality = 'Auto';
+        }
+        else {
+          quality = '360p';
+        }
+        break;
+      default:
+        break;
+    }
+
+    if (playerView.validLive) {
+      quality = 'Live';
+    }
+
       let player = new MediaElementPlayer('player', {
         features: ['playpause', 'current', 'loop', 'tracks', 'progress', 'duration', 'volume', 'stop', 'speed', 'quality', 'fullscreen'],
         speeds: ['2', '1.75', '1.5', '1.25', '1', '0.75', '0.5', '0.25'],
+        renderers: ['native_dash', 'native_hls', 'html5'],
         defaultSpeed: defaultPlaybackRate,
         autoGenerate: true,
         autoDash: true,
@@ -639,59 +748,67 @@ function checkVideoSettings() {
           if (enableSubtitles) {
               instance.options.startLanguage = 'en';
           }
+        },
+
+        error: function(mediaElement, originalNode, instance, other) {
+          console.log('Look, an error!');
+          console.log(mediaElement);
+          console.log(originalNode);
+          console.log(instance);
+          console.log(other);
         }
       });
-    };
+  };
 
-    if (playerView.valid360p !== false) {
-      validateUrl(playerView.video360p, (valid) => {
-        playerView.valid360p = valid;
-        checked360p = true;
-        declarePlayer();
-      });
-    }
-    else {
+  if (playerView.valid360p !== false) {
+    validateUrl(playerView.video360p, (valid) => {
+      playerView.valid360p = valid;
       checked360p = true;
       declarePlayer();
-    }
+    });
+  }
+  else {
+    checked360p = true;
+    declarePlayer();
+  }
 
-    if (playerView.valid720p !== false) {
-      validateUrl(playerView.video720p, (valid) => {
-        playerView.valid720p = valid;
-        checked720p = true;
-        declarePlayer();
-      });
-    }
-    else {
+  if (playerView.valid720p !== false) {
+    validateUrl(playerView.video720p, (valid) => {
+      playerView.valid720p = valid;
       checked720p = true;
       declarePlayer();
-    }
+    });
+  }
+  else {
+    checked720p = true;
+    declarePlayer();
+  }
 
-    if (playerView.validAudio !== false) {
-      validateUrl(playerView.videoAudio, (valid) => {
-        playerView.validAudio = valid;
-        checkedAudio = true;
-        declarePlayer();
-      });
-    }
-    else {
+  if (playerView.validAudio !== false) {
+    validateUrl(playerView.videoAudio, (valid) => {
+      playerView.validAudio = valid;
       checkedAudio = true;
       declarePlayer();
-    }
+    });
+  }
+  else {
+    checkedAudio = true;
+    declarePlayer();
+  }
 
-    if (playerView.validDash !== false) {
-      validateUrl(playerView.videoDash, (valid) => {
-        playerView.validDash = valid;
-        checkedDash = true;
-        declarePlayer();
-      });
-    }
-    else {
+  if (playerView.validDash !== false) {
+    validateUrl(playerView.videoDash, (valid) => {
+      playerView.validDash = valid;
       checkedDash = true;
       declarePlayer();
-    }
+    });
+  }
+  else {
+    checkedDash = true;
+    declarePlayer();
+  }
 
-    return;
+  return;
 }
 
 function playNextVideo() {
@@ -730,13 +847,19 @@ function playNextVideo() {
  * @return {Void}
  */
 function changeVideoSpeed(speed) {
-  let speedOptions = $('.mejs__speed-selector-input').get();
-  speedOptions.forEach((option, index) => {
-    if (option.value == speed) {
-      option.click();
-      player.playbackRate = speed;
-    }
-  });
+  if (playerView.legacySeen) {
+    $('#currentSpeed').html(speed);
+    $('.videoPlayer').get(0).playbackRate = speed;
+  }
+  else {
+    let speedOptions = $('.mejs__speed-selector-input').get();
+    speedOptions.forEach((option, index) => {
+      if (option.value == speed) {
+        option.click();
+        player.playbackRate = speed;
+      }
+    });
+  }
 }
 
 /**
@@ -747,15 +870,23 @@ function changeVideoSpeed(speed) {
  * @return {Void}
  */
 function changeVolume(amount) {
-    // const videoPlayer = $('#player').get();
-    let volume = player.volume;
+    let videoPlayer;
+
+    if (playerView.legacySeen) {
+      videoPlayer = $('.videoPlayer').get(0);
+    }
+    else {
+      videoPlayer = $('#player').get(0);
+    }
+
+    let volume = videoPlayer.volume;
     volume = volume + amount;
     if (volume > 1) {
-        player.volume = 1;
+        videoPlayer.volume = 1;
     } else if (volume < 0) {
-        player.volume = 0;
+        videoPlayer.volume = 0;
     } else {
-        player.volume = volume;
+        videoPlayer.volume = volume;
     }
 }
 
@@ -767,8 +898,12 @@ function changeVolume(amount) {
  * @return {Void}
  */
 function changeDurationBySeconds(seconds) {
-    // const videoPlayer = $('.videoPlayer').get(0);
-    player.currentTime = player.currentTime + seconds;
+    if (playerView.legacySeen) {
+      $('#legacyPlayer').get(0).currentTime = $('#legacyPlayer').get(0).currentTime + seconds;
+    }
+    else {
+      player.currentTime = player.currentTime + seconds;
+    }
 }
 
 /**
@@ -779,17 +914,30 @@ function changeDurationBySeconds(seconds) {
  * @return {Void}
  */
 function changeDurationByPercentage(percentage) {
-    //const videoPlayer = $('.videoPlayer').get(0);
-    player.currentTime = player.duration * percentage;
+    if (playerView.legacySeen) {
+      $('#legacyPlayer').get(0).currentTime = $('#legacyPlayer').get(0).duration * percentage;
+    }
+    else {
+      player.currentTime = player.duration * percentage;
+    }
 }
 
 function changeDuration(seconds) {
-    // const videoPlayer = $('.videoPlayer').get(0);
+  if (playerView.legacySeen) {
+    $('#legacyPlayer').get(0).currentTime = seconds;
+  }
+  else {
     player.currentTime = seconds;
+  }
 }
 
 function updateVolume() {
+  if (playerView.legacySeen) {
+    currentVolume = $('#legacyPlayer').get(0).volume
+  }
+  else {
     currentVolume = player.volume
+  }
 }
 
 function parseDescription(descriptionText) {

@@ -84,11 +84,8 @@ a {
 
 #reloadButton {
     cursor: pointer;
-    font-weight: bold;
-    font-size: 20px;
-    margin-left: 20px;
-    position: relative;
-    top: 3px;
+    font-size: 15px;
+    margin-left: 65px;
 }
 
 #backButton {
@@ -118,13 +115,14 @@ a {
 
 .searchBar {
     position: absolute;
-    right: 100px;
+    right: 30px;
     top: 0;
-    width: 600px;
+    width: 800px;
 }
 
 .searchBar input {
-    width: 65%;
+    width: 75%;
+    color: black;
 }
 
 #searchFilter {
