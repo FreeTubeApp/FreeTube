@@ -538,6 +538,7 @@ let playerView = new Vue({
     playlistSeen: false,
     legacySeen: false,
     firstLoad: true,
+    currentTime: undefined,
     publishedDate: '',
     videoUrl: '',
     videoId: '',
@@ -606,22 +607,42 @@ let playerView = new Vue({
     embededPlayer: () => {
       playerView.playerSeen = false;
       playerView.legacySeen = false;
+      playerView.currentTime = undefined;
       checkedSettings = false;
     },
     legacyFormats: () => {
+      if (typeof(player) !== 'undefined') {
+          playerView.currentTime = player.currentTime;
+      }
+
       playerView.playerSeen = false;
       checkedSettings = false;
       playerView.legacySeen = true;
     },
     dashFormats: () => {
+      if (typeof($('#legacyPlayer').get(0)) !== 'undefined') {
+          playerView.currentTime = $('#legacyPlayer').get(0).currentTime;
+      }
+
       playerView.legacySeen = false;
       checkedSettings = false;
       playerView.playerSeen = true;
     },
-    copy: (site, videoId) => {
-      const url = 'https://' + site + '/watch?v=' + videoId;
+    copyYouTube: (videoId) => {
+      const url = 'https://youtube.com/watch?v=' + videoId;
       clipboard.writeText(url);
       showToast('URL has been copied to the clipboard');
+    },
+    openYouTube: (videoId) => {
+      shell.openExternal('https://youtube.com/watch?v=' + videoId);
+    },
+    copyInvidious: (videoId) => {
+      const url = invidiousInstance + '/watch?v=' + videoId;
+      clipboard.writeText(url);
+      showToast('URL has been copied to the clipboard');
+    },
+    openInvidious: (videoId) => {
+      shell.openExternal(invidiousInstance + '/watch?v=' + videoId);
     },
     save: (videoId) => {
       toggleSavedVideo(videoId);

@@ -34,7 +34,6 @@ function playVideo(videoId, playlistId = '') {
     let youtubedlFinished = false;
     let invidiousFinished = false;
     checkedSettings = false;
-    playerView.playerSeen = true;
     playerView.firstLoad = true;
     playerView.videoId = videoId;
     playerView.videoAudio = undefined;
@@ -44,6 +43,7 @@ function playVideo(videoId, playlistId = '') {
     playerView.video720p = undefined;
     playerView.valid720p = true;
     playerView.videoUrl = '';
+    playerView.subtitleHtml = '';
     playerView.videoLive = undefined;
     playerView.validLive = false;
     playerView.validDash = true;
@@ -52,6 +52,23 @@ function playVideo(videoId, playlistId = '') {
 
     let videoHtml = '';
     let player;
+
+    switch (defaultPlayer) {
+      case 'dash':
+        playerView.playerSeen = true;
+        playerView.legacySeen = false;
+        break;
+      case 'legacy':
+        playerView.playerSeen = false;
+        playerView.legacySeen = true;
+        break;
+      case 'embed':
+        playerView.playerSeen = false;
+        playerView.legacySeen = false;
+        break;
+      default:
+
+    }
 
     const checkSavedVideo = videoIsSaved(videoId);
 
@@ -109,8 +126,14 @@ function playVideo(videoId, playlistId = '') {
                 }
             });
 
-            // Last adaptive format will be best the quality audio stream (migrate fully to adaptive formats later)
-            playerView.videoAudio = decodeURIComponent(videoUrls[videoUrls.length - 1]['url']);
+            if (videoUrls.length > 3) {
+              // Last adaptive format will be the best quality audio stream
+              playerView.videoAudio = decodeURIComponent(videoUrls[videoUrls.length - 1]['url']);
+            }
+            else {
+              playerView.playerSeen = false;
+              playerView.legacySeen = true;
+            }
 
             if (typeof (playerView.videoAudio) === 'undefined') {
                 console.log(playerView.videoAudio);
@@ -187,6 +210,10 @@ function playVideo(videoId, playlistId = '') {
         playerView.channelName = data.author;
         playerView.channelId = data.authorId;
         playerView.channelIcon = data.authorThumbnails[2].url;
+
+        if (playerView.channelIcon.includes('https:') === false) {
+          playerView.channelIcon = 'https:' + playerView.channelIcon;
+        }
 
         // Add commas to the video view count.
         playerView.videoViews = data.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -282,8 +309,14 @@ function playVideo(videoId, playlistId = '') {
             playerView.currentQuality = '360p';
           }
 
-          // Last adaptive format will be best the quality audio stream (migrate fully to adaptive formats later)
-          playerView.videoAudio = decodeURIComponent(formatUrls[formatUrls.length - 1]['url']);
+          if (formatUrls.length > 0) {
+            // Last adaptive format will be best the quality audio stream (migrate fully to adaptive formats later)
+            playerView.videoAudio = decodeURIComponent(formatUrls[formatUrls.length - 1]['url']);
+          }
+          else {
+            playerView.playerSeen = false;
+            playerView.legacySeen = true;
+          }
 
           if (typeof (playerView.videoAudio) === 'undefined') {
               console.log(playerView.videoAudio);
@@ -641,6 +674,11 @@ function checkDashSettings() {
             console.log(mediaElement,originalNode,instance);
 
             window.setTimeout(() => {
+              if (typeof(playerView.currentTime) !== 'undefined') {
+                instance.currentTime = playerView.currentTime;
+                playerView.currentTime = undefined;
+              }
+
               if (autoplay) {
                   instance.play();
               }
@@ -648,11 +686,12 @@ function checkDashSettings() {
               if (enableSubtitles) {
                   instance.options.startLanguage = 'en';
               }
-            }, 100);
+            }, 200);
           },
 
           error: function(error, originalNode, instance) {
             showToast('There was an error with playing DASH formats.  Reverting to the legacy formats.');
+            playerView.currentTime = instance.currentTime;
             playerView.legacyFormats();
           }
         });
@@ -673,7 +712,7 @@ function checkDashSettings() {
 }
 
 function checkLegacySettings() {
-  //let player = document.getElementById('videoPlayer');
+  let player = document.getElementById('legacyPlayer');
 
   console.log('checking Settings');
 
@@ -688,12 +727,10 @@ function checkLegacySettings() {
   let checked720p = false;
   let checked360p = false;
   let checkedAudio = false;
-  let checkedDash = false;
-  let parseDash = true;
   let quality = defaultQuality;
 
   let declarePlayer = function() {
-    if (!checked720p || !checked360p || !checkedAudio || !checkedDash) {
+    if (!checked720p || !checked360p || !checkedAudio) {
       return;
     }
 
@@ -725,39 +762,14 @@ function checkLegacySettings() {
       quality = 'Live';
     }
 
-      let player = new MediaElementPlayer('player', {
-        features: ['playpause', 'current', 'loop', 'tracks', 'progress', 'duration', 'volume', 'stop', 'speed', 'quality', 'fullscreen'],
-        speeds: ['2', '1.75', '1.5', '1.25', '1', '0.75', '0.5', '0.25'],
-        renderers: ['native_dash', 'native_hls', 'html5'],
-        defaultSpeed: defaultPlaybackRate,
-        autoGenerate: true,
-        autoDash: true,
-        autoHLS: false,
-        qualityText: 'Quality',
-        defaultQuality: quality,
-        stretching: 'responsive',
-        startVolume: currentVolume,
+    if (typeof(playerView.currentTime) !== 'undefined') {
+      player.currentTime = playerView.currentTime;
+      playerView.currentTime = undefined;
+    }
 
-        success: function(mediaElement, originalNode, instance) {
-          console.log(mediaElement,originalNode,instance);
-
-          if (autoplay) {
-              instance.play();
-          }
-
-          if (enableSubtitles) {
-              instance.options.startLanguage = 'en';
-          }
-        },
-
-        error: function(mediaElement, originalNode, instance, other) {
-          console.log('Look, an error!');
-          console.log(mediaElement);
-          console.log(originalNode);
-          console.log(instance);
-          console.log(other);
-        }
-      });
+    if (autoplay) {
+        player.play();
+    }
   };
 
   if (playerView.valid360p !== false) {
@@ -793,18 +805,6 @@ function checkLegacySettings() {
   }
   else {
     checkedAudio = true;
-    declarePlayer();
-  }
-
-  if (playerView.validDash !== false) {
-    validateUrl(playerView.videoDash, (valid) => {
-      playerView.validDash = valid;
-      checkedDash = true;
-      declarePlayer();
-    });
-  }
-  else {
-    checkedDash = true;
     declarePlayer();
   }
 

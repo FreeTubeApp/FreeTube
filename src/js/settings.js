@@ -26,6 +26,7 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
  let enableSubtitles = false;
  let checkForUpdates = true;
  let currentVolume = 1;
+ let defaultPlayer = 'dash';
  let defaultQuality = 720;
  let defaultPlaybackRate = '1';
  let defaultRegion = 'US';
@@ -100,6 +101,7 @@ function updateSettingsView() {
       settingsView.updates = false;
     }
 
+    document.getElementById('playerSelect').value = defaultPlayer;
     document.getElementById('qualitySelect').value = defaultQuality;
     document.getElementById('rateSelect').value = defaultPlaybackRate;
     document.getElementById('regionSelect').value = defaultRegion;
@@ -129,6 +131,7 @@ function checkDefaultSettings() {
     'subtitles': false,
     'updates': true,
     'localScrape': true,
+    'player': 'dash',
     'quality': '720',
     'rate': '1',
     'invidious': 'https://invidio.us',
@@ -176,6 +179,9 @@ function checkDefaultSettings() {
               checkForNewUpdate();
             }
             break;
+          case 'player':
+            defaultPlayer = docs[0]['value'];
+            break;
           case 'quality':
             defaultQuality = docs[0]['value'];
             break;
@@ -222,6 +228,7 @@ function updateSettings() {
   let subtitlesSwitch = document.getElementById('subtitlesSwitch').checked;
   let updatesSwitch = document.getElementById('updatesSwitch').checked;
   let localSwitch = document.getElementById('localSwitch').checked;
+  let playerSelect = document.getElementById('playerSelect').value;
   let qualitySelect = document.getElementById('qualitySelect').value;
   let rateSelect = document.getElementById('rateSelect').value;
   let regionSelect = document.getElementById('regionSelect').value;
@@ -341,6 +348,17 @@ function updateSettings() {
     console.log(err);
     console.log(numReplaced);
     checkForUpdates = updatesSwitch;
+  });
+
+  // Update default player.
+  settingsDb.update({
+    _id: 'player'
+  }, {
+    value: playerSelect
+  }, {}, function(err, numReplaced) {
+    console.log(err);
+    console.log(numReplaced);
+    defaultPlayer = playerSelect;
   });
 
   // Update default quality.

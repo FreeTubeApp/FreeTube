@@ -5,6 +5,8 @@
         <label for="themeSwitch" class="switch-label">Use Dark Theme</label>
         <input type="checkbox" id="updatesSwitch" name="set-name" class="switch-input" :checked='updates'>
         <label for="updatesSwitch" class="switch-label">Check for Updates</label>
+        <input type="checkbox" id="localSwitch" name="set-name" class="switch-input" :checked='localScrape'>
+        <label for="localSwitch" class="switch-label">Grab videos locally</label>
         <br />
         <input type="checkbox" id="historySwitch" name="set-name" class="switch-input" :checked='history'>
         <label for="historySwitch" class="switch-label">Remember History</label>
@@ -12,14 +14,28 @@
         <label for="autoplaySwitch" class="switch-label">Autoplay Videos</label>
         <input type="checkbox" id="subtitlesSwitch" name="set-name" class="switch-input" :checked='subtitles'>
         <label for="subtitlesSwitch" class="switch-label">Turn on Subtitles by Default</label>
-        <input type="checkbox" id="localSwitch" name="set-name" class="switch-input" :checked='localScrape'>
-        <label for="localSwitch" class="switch-label">Grab videos locally</label>
-        <br />
-        <br />
+        <br /><br />
+        <div class="select center">
+            <select id='playerSelect' class="select-text" required>
+                <option value="dash" selected>Dash Player</option>
+                <option value="legacy">Legacy Player</option>
+                <option value="embed">YouTube Embedded Player</option>
+            </select>
+            <span class="select-highlight"></span>
+            <span class="select-bar"></span>
+            <label class="select-label">Default Video Player</label>
+        </div>
+        <br /><br />
         <div class="select center">
             <select id='qualitySelect' class="select-text" required>
+                <option value="144">144p</option>
+                <option value="240">240p</option>
                 <option value="360">360p</option>
+                <option value="480">480p</option>
                 <option value="720" selected>720p</option>
+                <option value="1080">1080p</option>
+                <option value="1440">1440p</option>
+                <option value="4k">4k</option>
                 <option value="Auto">Auto</option>
             </select>
             <span class="select-highlight"></span>

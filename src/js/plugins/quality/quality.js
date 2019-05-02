@@ -109,7 +109,7 @@ Object.assign(MediaElementPlayer.prototype, {
 					bitrates.forEach(function (level) {
 						const height = level.height;
 						const quality = t.getQualityFromHeight(height);
-						t.addValueToKey(qualityMap, quality, '');
+            t.addValueToKey(qualityMap, quality, '');
 					});
 					t.options.autoDash = true;
 					t.generateQualityButton(t, player, media, qualityMap, currentQuality);
@@ -356,7 +356,6 @@ Object.assign(MediaElementPlayer.prototype, {
 					media.dashPlayer.setAutoSwitchQualityFor("video", true);
 				} else {
 					media.dashPlayer.setAutoSwitchQualityFor("video", false);
-          console.log(media.dashPlayer);
 					media.dashPlayer.setQualityFor("video", index - 1);
 				}
 			}
@@ -418,13 +417,19 @@ Object.assign(MediaElementPlayer.prototype, {
 		} else if (height >= 2160) {
 			return "4k";
 		} else if (height >= 1440) {
-			return "2k";
+			return "1440p";
 		} else if (height >= 1080) {
 			return "1080p";
 		} else if (height >= 720) {
 			return "720p";
+    } else if (height >= 480) {
+      return "480p";
+    } else if (height >= 360) {
+      return "360p";
+    } else if (height >= 240) {
+      return "240p";
 		} else {
-			return "480p";
+			return "144p";
 		}
 	}
 });

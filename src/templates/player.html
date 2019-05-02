@@ -9,7 +9,7 @@
     </video>-->
     </div>
     <div v-else-if='!playerSeen && legacySeen'>
-        <video id='legacyPlayer' class='videoPlayer' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" :poster="videoThumbnail" onvolumechange='updateVolume()' :src='videoUrl' controls v-html="subtitleHtml">
+        <video id='legacyPlayer' class='videoPlayer' onloadstart='checkLegacySettings()' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" :poster="videoThumbnail" onvolumechange='updateVolume()' :src='videoUrl' controls="controls" v-html="subtitleHtml">
         </video>
     </div>
     <div v-else>
@@ -61,10 +61,10 @@
             <span>SHARE</span> <i class="fas fa-angle-down"></i>
             <div class='shareTypes'>
                 <ul>
-                    <li v-on:click='copy("youtube.com", videoId)'>COPY YOUTUBE LINK</li>
-                    <a :href='"https://youtube.com/watch?v=" + videoId'><li>OPEN IN YOUTUBE</li></a>
-                    <li v-on:click='copy("invidio.us", videoId)'>COPY INVIDIOUS LINK</li>
-                    <a :href='"https://invidio.us/watch?v=" + videoId'><li>OPEN IN INVIDIOUS</li></a>
+                    <li v-on:click='copyYouTube(videoId)'>COPY YOUTUBE LINK</li>
+                    <li v-on:click='openYouTube(videoId)'>OPEN IN YOUTUBE</li>
+                    <li v-on:click='copyInvidious(videoId)'>COPY INVIDIOUS LINK</li>
+                    <li v-on:click='openInvidious(videoId)'>OPEN IN INVIDIOUS</li>
                 </ul>
             </div>
         </div>

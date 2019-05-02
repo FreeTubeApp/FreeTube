@@ -208,7 +208,11 @@ iframe {
 }
 
 #player {
-  min-height: 480px;
+  max-width: 100%;
+}
+
+#legacyPlayer {
+  max-height: 80vh;
 }
 
 .statistics {
