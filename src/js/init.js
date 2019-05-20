@@ -44,6 +44,7 @@ app.commandLine.appendSwitch('autoplay-policy', 'no-user-gesture-required');
 
 app.commandLine.appendSwitch('disable-web-security');
 
+app.commandLine.appendSwitch('enable-modern-media-controls', 'disabled');
 /*const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
     // Someone tried to run a second instance, we should focus our window.
     if (win) {

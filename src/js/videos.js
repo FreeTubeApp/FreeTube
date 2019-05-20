@@ -329,7 +329,6 @@ function showMostPopular() {
         popularView.videoList = [];
 
         data.forEach((video) => {
-            loadingView.seen = false;
             console.log(video);
             displayVideo(video, 'popular');
         });

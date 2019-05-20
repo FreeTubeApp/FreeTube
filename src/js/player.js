@@ -43,6 +43,7 @@ function playVideo(videoId, playlistId = '') {
     playerView.video720p = undefined;
     playerView.valid720p = true;
     playerView.videoUrl = '';
+    playerView.currentTime = undefined;
     playerView.subtitleHtml = '';
     playerView.videoLive = undefined;
     playerView.validLive = false;
@@ -94,6 +95,9 @@ function playVideo(videoId, playlistId = '') {
             playerView.valid360p = false;
             playerView.valid720p = false;
             playerView.validAudio = false;
+
+            playerView.playerSeen = true;
+            playerView.legacySeen = false;
 
             playerView.validLive = true;
 
@@ -300,7 +304,7 @@ function playVideo(videoId, playlistId = '') {
             playerView.valid720p = false;
           }
 
-          if (defaultQuality >= '720' && playerView.video720p !== '') {
+          if ((parseInt(defaultQuality) >= 720 || defaultQuality === '4k') && playerView.video720p !== '') {
             playerView.videoUrl = playerView.video720p;
             playerView.currentQuality = '720p';
           }
@@ -342,6 +346,8 @@ function playVideo(videoId, playlistId = '') {
           playerView.validLive = true;
           playerView.videoLive = data.hlsUrl;
           playerView.validDash = false;
+          playerView.playerSeen = true;
+          playerView.legacySeen = false;
         }
 
         if (playlistId != '') {
@@ -622,14 +628,14 @@ function checkDashSettings() {
     let checkedAudio = false;
     let checkedDash = false;
     let parseDash = true;
-    let quality = defaultQuality;
+    let quality = 'Auto';
 
     let declarePlayer = function() {
       if (!checkedDash) {
         return;
       }
 
-      switch (quality) {
+      /*switch (quality) {
         case '720':
           if (!playerView.valid720p) {
             quality = '360p';
@@ -651,14 +657,14 @@ function checkDashSettings() {
           break;
         default:
           break;
-      }
+      }*/
 
       if (playerView.validLive) {
         quality = 'Live';
       }
 
         let player = new MediaElementPlayer('player', {
-          features: ['playpause', 'current', 'loop', 'tracks', 'progress', 'duration', 'volume', 'stop', 'speed', 'quality', 'fullscreen'],
+          features: ['playpause', 'current', 'progress', 'duration', 'volume', 'stop', 'speed', 'quality', 'loop', 'tracks', 'fullscreen', 'timerailthumbnails'],
           speeds: ['2', '1.75', '1.5', '1.25', '1', '0.75', '0.5', '0.25'],
           renderers: ['native_dash', 'native_hls', 'html5'],
           defaultSpeed: defaultPlaybackRate,
@@ -687,9 +693,31 @@ function checkDashSettings() {
                   instance.options.startLanguage = 'en';
               }
             }, 200);
+
+            window.setTimeout(() => {
+              let qualityOptions = $('.mejs__qualities-selector-input').get();
+              let selectedOption = false;
+              qualityOptions.reverse().forEach((option, index) => {
+                if (option.value === defaultQuality || option.value === defaultQuality + 'p') {
+                  option.click();
+                  selectedOption = true;
+                }
+              });
+
+              if (selectedOption === false) {
+                // Assume user selected a higher quality as their default.  Select the highest option available.
+                console.log('Quality not available.');
+                console.log(qualityOptions.reverse()[0]);
+
+                qualityOptions.reverse()[0].click();
+              }
+            }, 2000);
           },
 
           error: function(error, originalNode, instance) {
+            console.log(error);
+            console.log(originalNode);
+            console.log(instance);
             showToast('There was an error with playing DASH formats.  Reverting to the legacy formats.');
             playerView.currentTime = instance.currentTime;
             playerView.legacyFormats();
@@ -703,6 +731,10 @@ function checkDashSettings() {
         checkedDash = true;
         declarePlayer();
       });
+    }
+    else if (playerView.validLive !==  false) {
+      checkedDash = true;
+      declarePlayer();
     }
     else {
       playerView.legacyFormats();
@@ -732,34 +764,6 @@ function checkLegacySettings() {
   let declarePlayer = function() {
     if (!checked720p || !checked360p || !checkedAudio) {
       return;
-    }
-
-    switch (quality) {
-      case '720':
-        if (!playerView.valid720p) {
-          quality = '360p';
-        }
-        else {
-          quality = '720p';
-        }
-        break;
-      case '480':
-        quality = '360p';
-        break;
-      case '360':
-        if (!playerView.valid360p) {
-          quality = 'Auto';
-        }
-        else {
-          quality = '360p';
-        }
-        break;
-      default:
-        break;
-    }
-
-    if (playerView.validLive) {
-      quality = 'Live';
     }
 
     if (typeof(playerView.currentTime) !== 'undefined') {
