@@ -31,7 +31,7 @@ let showComments = function (event, continuation = '') {
         comments.attr('loaded', 'true');
 
         invidiousAPI('comments', $('#comments').attr('data-video-id'), {}, (data) => {
-          console.log(data);
+          ft.log(data);
 
           let comments = [];
 

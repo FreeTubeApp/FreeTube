@@ -43,7 +43,7 @@ function goToChannel(channelId) {
   });
 
   invidiousAPI('channels', channelId, {}, (data) => {
-    console.log(data);
+    ft.log(data);
 
     channelView.id = channelId;
     channelView.name = data.author;
@@ -81,7 +81,7 @@ function channelNextPage() {
   showToast('Fetching results, please wait...');
 
   invidiousAPI('channels/videos', channelView.channelId, {'page': channelView.page}, (data) => {
-    console.log(data);
+    ft.log(data);
     data.forEach((video) => {
       displayVideo(video, 'channel');
     });

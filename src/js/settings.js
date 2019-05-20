@@ -37,6 +37,7 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
  let proxyAvailable = false;
  let invidiousInstance = 'https://invidio.us';
  let checkedSettings = false; // Used to prevent data leak when using self-hosted Invidious Instance
+ let debugMode = false;
 
 /**
  * Display the settings screen to the user.
@@ -136,10 +137,11 @@ function checkDefaultSettings() {
     'rate': '1',
     'invidious': 'https://invidio.us',
     'proxy': "SOCKS5://127.0.0.1:9050", // This is default value for tor client
-    'region': 'US'
+    'region': 'US',
+    'debugMode': false
   };
 
-  console.log(settingDefaults);
+  ft.log(settingDefaults);
 
   for (let key in settingDefaults){
     settingsDb.find({_id: key}, (err, docs) => {
@@ -207,6 +209,10 @@ function checkDefaultSettings() {
             getVideosLocally = docs[0]['value'];
             settingsView.localScrape = docs[0]['value'];
             break;
+          case 'debugMode':
+            debugMode = docs[0]['value'];
+            settingsView.debugMode = docs[0]['value'];
+            break;
           default:
             break;
         }
@@ -234,6 +240,7 @@ function updateSettings() {
   let regionSelect = document.getElementById('regionSelect').value;
   let proxyAddress = document.getElementById('proxyAddress').value;
   let invidious = document.getElementById('invidiousInstance').value;
+  let debugMode = document.getElementById('debugSwitch').checked;
   let theme = 'light';
 
   settingsView.useTor = torSwitch;
@@ -243,6 +250,7 @@ function updateSettings() {
   settingsView.updates = updatesSwitch;
   settingsView.proxyAddress = proxyAddress;
   settingsView.localScrape = localSwitch;
+  settingsView.debugMode = debugMode
   rememberHistory = historySwitch;
   defaultQuality = qualitySelect;
   defaultPlaybackRate = rateSelect;
@@ -257,8 +265,8 @@ function updateSettings() {
   }, {
     value: theme
   }, {}, function(err, numReplaced) {
-    console.log(err);
-    console.log(numReplaced);
+    ft.log(err);
+    ft.log(numReplaced);
   });
 
   // Update tor usage.
@@ -267,8 +275,8 @@ function updateSettings() {
   }, {
     value: torSwitch
   }, {}, function(err, numReplaced) {
-    console.log(err);
-    console.log(numReplaced);
+    ft.log(err);
+    ft.log(numReplaced);
     useTor = torSwitch;
   });
 
@@ -278,8 +286,8 @@ function updateSettings() {
   }, {
     value: proxyAddress
   }, {}, function(err, numReplaced) {
-    console.log(err);
-    console.log(numReplaced);
+    ft.log(err);
+    ft.log(numReplaced);
     defaultProxy = proxyAddress;
   });
 
@@ -289,8 +297,8 @@ function updateSettings() {
   }, {
     value: invidious
   }, {}, function(err, numReplaced) {
-    console.log(err);
-    console.log(numReplaced);
+    ft.log(err);
+    ft.log(numReplaced);
     settingsView.invidiousInstance = invidious.replace(/\/$/, '');
     invidiousInstance = invidious.replace(/\/$/, '');
   });
@@ -301,8 +309,8 @@ function updateSettings() {
   }, {
     value: historySwitch
   }, {}, function(err, numReplaced) {
-    console.log(err);
-    console.log(numReplaced);
+    ft.log(err);
+    ft.log(numReplaced);
     rememberHistory = historySwitch;
   });
 
@@ -312,8 +320,8 @@ function updateSettings() {
   }, {
     value: autoplaySwitch
   }, {}, function(err, numReplaced) {
-    console.log(err);
-    console.log(numReplaced);
+    ft.log(err);
+    ft.log(numReplaced);
     autoplay = autoplaySwitch;
   });
 
@@ -323,8 +331,8 @@ function updateSettings() {
   }, {
     value: localSwitch
   }, {}, function(err, numReplaced) {
-    console.log(err);
-    console.log(numReplaced);
+    ft.log(err);
+    ft.log(numReplaced);
     getVideosLocally = localSwitch;
   });
 
@@ -334,8 +342,8 @@ function updateSettings() {
   }, {
     value: subtitlesSwitch
   }, {}, function(err, numReplaced) {
-    console.log(err);
-    console.log(numReplaced);
+    ft.log(err);
+    ft.log(numReplaced);
     enableSubtitles = subtitlesSwitch;
   });
 
@@ -345,8 +353,8 @@ function updateSettings() {
   }, {
     value: updatesSwitch
   }, {}, function(err, numReplaced) {
-    console.log(err);
-    console.log(numReplaced);
+    ft.log(err);
+    ft.log(numReplaced);
     checkForUpdates = updatesSwitch;
   });
 
@@ -356,8 +364,8 @@ function updateSettings() {
   }, {
     value: playerSelect
   }, {}, function(err, numReplaced) {
-    console.log(err);
-    console.log(numReplaced);
+    ft.log(err);
+    ft.log(numReplaced);
     defaultPlayer = playerSelect;
   });
 
@@ -367,8 +375,8 @@ function updateSettings() {
   }, {
     value: qualitySelect
   }, {}, function(err, numReplaced) {
-    console.log(err);
-    console.log(numReplaced);
+    ft.log(err);
+    ft.log(numReplaced);
     defaultQuality = qualitySelect;
   });
 
@@ -378,8 +386,8 @@ function updateSettings() {
   }, {
     value: rateSelect
   }, {}, function(err, numReplaced) {
-    console.log(err);
-    console.log(numReplaced);
+    ft.log(err);
+    ft.log(numReplaced);
     defaultPlaybackRate = rateSelect;
   });
 
@@ -389,9 +397,20 @@ function updateSettings() {
   }, {
     value: regionSelect
   }, {}, function(err, numReplaced) {
-    console.log(err);
-    console.log(numReplaced);
+    ft.log(err);
+    ft.log(numReplaced);
     settingsView.region = regionSelect;
+  });
+
+  // Update debug mode.
+  settingsDb.update({
+    _id: 'debugMode'
+  }, {
+    value: debugMode
+  }, {}, function(err, numReplaced) {
+    ft.log(err);
+    ft.log(numReplaced);
+    settingsView.debugMode = debugMode;
   });
 
   // set proxy in electron based on new values
@@ -523,13 +542,13 @@ function importSubscriptions(){
     ]
   }, function(fileLocation){
     if(typeof(fileLocation) === 'undefined'){
-      console.log('Import Aborted');
+      ft.log('Import Aborted');
       return;
     }
-    console.log(fileLocation);
+    ft.log(fileLocation);
     let i = fileLocation[0].lastIndexOf('.');
     let fileType = (i < 0) ? '' : fileLocation[0].substr(i);
-    console.log(fileType);
+    ft.log(fileType);
 
     fs.readFile(fileLocation[0], function(readErr, data){
       if(readErr){
@@ -646,9 +665,9 @@ function exportSubscriptions() {
             extensions: ['db']
           }, ]
         }, function(fileLocation) {
-          console.log(fileLocation);
+          ft.log(fileLocation);
           if (typeof(fileLocation) === 'undefined') {
-            console.log('Export Aborted');
+            ft.log('Export Aborted');
             return;
           }
           fs.readFile(appDatabaseFile, function(readErr, data) {
@@ -681,9 +700,9 @@ function exportNewpipeSubscriptions(dateYear, dateMonth, dateDay){
       extensions: ['json']
     }, ]
   }, function(fileLocation) {
-    console.log(fileLocation);
+    ft.log(fileLocation);
     if (typeof(fileLocation) === 'undefined') {
-      console.log('Export Aborted');
+      ft.log('Export Aborted');
       return;
     }
     returnSubscriptions().then((result)=>{
@@ -730,9 +749,9 @@ function exportOpmlSubscriptions(dateYear, dateMonth, dateDay){
       extensions: ['opml']
     }, ]
   }, function(fileLocation) {
-    console.log(fileLocation);
+    ft.log(fileLocation);
     if (typeof(fileLocation) === 'undefined') {
-      console.log('Export Aborted');
+      ft.log('Export Aborted');
       return;
     }
     returnSubscriptions().then((result)=>{
@@ -767,7 +786,7 @@ function exportOpmlSubscriptions(dateYear, dateMonth, dateDay){
 * @param {string} type - The type of file to be cleared.
 */
 function clearFile(type, showMessage = true){
-  console.log(type);
+  ft.log(type);
   let dataBaseFile;
 
   switch (type) {

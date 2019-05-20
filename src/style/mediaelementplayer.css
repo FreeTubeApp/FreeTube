@@ -7,7 +7,7 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
             clip-path: inset( 50% );
     height: 1px;
     margin: -1px;
-    overflow: hidden;
+    overflow: auto;
     padding: 0;
     position: absolute;
     width: 1px;
@@ -17,7 +17,6 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
 .mejs__container {
     background: #000;
     box-sizing: border-box;
-    font-family: 'Helvetica', Arial, serif;
     position: relative;
     text-align: left;
     text-indent: 0;
@@ -156,6 +155,8 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
     background-position: 0 -39px;
     height: 80px;
     width: 80px;
+    background-color: #f44336;
+    border-radius: 100px;
 }
 
 .mejs__overlay:hover > .mejs__overlay-button {
@@ -313,7 +314,7 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
     border-radius: 2px;
     cursor: pointer;
     display: block;
-    height: 10px;
+    height: 5px;
     position: absolute;
 }
 
@@ -321,6 +322,7 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
     background: rgba(255, 255, 255, 0.3);
     margin: 5px 0 0;
     width: 100%;
+    top: 13px;
 }
 
 .mejs__time-buffering {
@@ -356,11 +358,11 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
 
 .mejs__time-current,
 .mejs__time-handle-content {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(244,67,54 ,0.9);
 }
 
 .mejs__time-hovered {
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(244,67,54 ,0.5);
     z-index: 10;
 }
 
@@ -411,10 +413,11 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
         -ms-transform: translateX(0);
             transform: translateX(0);
     z-index: 11;
+    top: -2px;
 }
 
 .mejs__time-handle-content {
-    border: 4px solid rgba(255, 255, 255, 0.9);
+    border: 4px solid rgba(244,67,54 ,0.9);
     border-radius: 50%;
     height: 10px;
     left: -7px;
@@ -458,7 +461,7 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
     line-height: 15px;
     position: absolute;
     bottom: 0px;
-    left: 65px;
+    left: 58px;
     background-color: #212121;
 }
 

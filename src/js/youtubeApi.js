@@ -39,9 +39,9 @@ function invidiousAPI(resource, id, params, success, fail = function(){
         success
       ).fail((xhr, textStatus, error) => {
         fail(xhr);
-        console.log(xhr);
-        console.log(textStatus);
-        console.log(requestUrl);
+        ft.log(xhr);
+        ft.log(textStatus);
+        ft.log(requestUrl);
       });
     })
 
@@ -51,9 +51,9 @@ function invidiousAPI(resource, id, params, success, fail = function(){
       success
     ).fail((xhr, textStatus, error) => {
       fail(xhr);
-      console.log(xhr);
-      console.log(textStatus);
-      console.log(requestUrl);
+      ft.log(xhr);
+      ft.log(textStatus);
+      ft.log(requestUrl);
     });
   }
 }
@@ -75,8 +75,8 @@ function youtubedlGetInfo(videoId, callback) {
     if (err) {
       showToast(err.message);
       loadingView.seen = false;
-      console.log(err);
-      console.log(info);
+      ft.log(err);
+      ft.log(info);
       return;
     }
 

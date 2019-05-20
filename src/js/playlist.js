@@ -22,7 +22,7 @@ function showPlaylist(playlistId) {
   playlistView.videoList = [];
 
   invidiousAPI('playlists', playlistId, {}, (data) => {
-    console.log(data);
+    ft.log(data);
 
     playlistView.playlistId = playlistId;
     playlistView.channelName = data.author;
@@ -39,11 +39,11 @@ function showPlaylist(playlistId) {
 
     let amountOfPages = Math.ceil(data.videoCount / 100);
 
-    console.log(amountOfPages);
+    ft.log(amountOfPages);
 
     for (let i = 1; i <= amountOfPages; i++) {
       invidiousAPI('playlists', playlistId, {page: i}, (data) => {
-        console.log(data);
+        ft.log(data);
         data.videos.forEach((video) => {
           let videoData = {};
 

@@ -53,7 +53,7 @@ require.extensions['.html'] = function (module, filename) {
 // none are found.
 
 electron.ipcRenderer.on('ping', function(event, message) {
-    console.log(message);
+    ft.log(message);
     let url = message[message.length-1];
     if (url) {
         url = url.replace('freetube://', '');

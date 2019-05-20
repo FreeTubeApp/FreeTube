@@ -86,7 +86,7 @@ function playVideo(videoId, playlistId = '') {
 
     if (getVideosLocally) {
       youtubedlGetInfo(videoId, (data) => {
-          console.log(data);
+          ft.log(data);
 
           let videoUrls = data.formats;
 
@@ -121,11 +121,11 @@ function playVideo(videoId, playlistId = '') {
                 switch (videoUrls[key]['itag']) {
                 case '18':
                     playerView.video360p = decodeURIComponent(videoUrls[key]['url']);
-                    // console.log(playerView.video360p);
+                    // ft.log(playerView.video360p);
                     break;
                 case '22':
                     playerView.video720p = decodeURIComponent(videoUrls[key]['url']);
-                    // console.log(playerView.video720p);
+                    // ft.log(playerView.video720p);
                     break;
                 }
             });
@@ -140,7 +140,7 @@ function playVideo(videoId, playlistId = '') {
             }
 
             if (typeof (playerView.videoAudio) === 'undefined') {
-                console.log(playerView.videoAudio);
+                ft.log(playerView.videoAudio);
                 playerView.validAudio = false;
             }
 
@@ -158,7 +158,7 @@ function playVideo(videoId, playlistId = '') {
                 showToast('Unable to get video file.  Reverting to embeded player.');
             } else if (typeof (playerView.video720p) === 'undefined' && typeof (playerView.video360p) !== 'undefined') {
                 // Default to the 360p video if the 720p URL cannot be found.
-                console.log('Found');
+                ft.log('Found');
                 playerView.videoUrl = playerView.video360p;
                 playerView.currentQuality = '360p';
                 playerView.valid720p = false;
@@ -198,12 +198,12 @@ function playVideo(videoId, playlistId = '') {
     }
     else {
       youtubedlFinished = true;
-      console.log("Grabbing videos through Invidious");
+      ft.log("Grabbing videos through Invidious");
     }
 
     invidiousAPI('videos', videoId, {}, (data) => {
 
-        console.log(data);
+        ft.log(data);
 
         // Figure out the width for the like/dislike bar.
         playerView.videoLikes = data.likeCount;
@@ -285,11 +285,11 @@ function playVideo(videoId, playlistId = '') {
               switch (videoUrls[key]['itag']) {
               case '18':
                   playerView.video360p = decodeURIComponent(videoUrls[key]['url']);
-                  // console.log(playerView.video360p);
+                  // ft.log(playerView.video360p);
                   break;
               case '22':
                   playerView.video720p = decodeURIComponent(videoUrls[key]['url']);
-                  // console.log(playerView.video720p);
+                  // ft.log(playerView.video720p);
                   break;
               }
           });
@@ -323,7 +323,7 @@ function playVideo(videoId, playlistId = '') {
           }
 
           if (typeof (playerView.videoAudio) === 'undefined') {
-              console.log(playerView.videoAudio);
+              ft.log(playerView.videoAudio);
               playerView.videoAudio = '';
               playerView.validAudio = false;
           }
@@ -422,7 +422,7 @@ function playVideo(videoId, playlistId = '') {
                 timeWatched: new Date().getTime(),
             };
 
-            console.log(historyData);
+            ft.log(historyData);
             addToHistory(historyData);
         }
     });
@@ -677,7 +677,7 @@ function checkDashSettings() {
           startVolume: currentVolume,
 
           success: function(mediaElement, originalNode, instance) {
-            console.log(mediaElement,originalNode,instance);
+            ft.log(mediaElement,originalNode,instance);
 
             window.setTimeout(() => {
               if (typeof(playerView.currentTime) !== 'undefined') {
@@ -706,8 +706,8 @@ function checkDashSettings() {
 
               if (selectedOption === false) {
                 // Assume user selected a higher quality as their default.  Select the highest option available.
-                console.log('Quality not available.');
-                console.log(qualityOptions.reverse()[0]);
+                ft.log('Quality not available.');
+                ft.log(qualityOptions.reverse()[0]);
 
                 qualityOptions.reverse()[0].click();
               }
@@ -715,9 +715,9 @@ function checkDashSettings() {
           },
 
           error: function(error, originalNode, instance) {
-            console.log(error);
-            console.log(originalNode);
-            console.log(instance);
+            ft.log(error);
+            ft.log(originalNode);
+            ft.log(instance);
             showToast('There was an error with playing DASH formats.  Reverting to the legacy formats.');
             playerView.currentTime = instance.currentTime;
             playerView.legacyFormats();
@@ -746,12 +746,12 @@ function checkDashSettings() {
 function checkLegacySettings() {
   let player = document.getElementById('legacyPlayer');
 
-  console.log('checking Settings');
+  ft.log('checking Settings');
 
   // Mediaelement.js for some reason calls onLoadStart() multiple times
   // This check is here to force checkVideoSettings to only run once.
   if (checkedSettings) {
-    console.log('Returning');
+    ft.log('Returning');
     return;
   }
 

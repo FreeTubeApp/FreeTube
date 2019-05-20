@@ -135,7 +135,7 @@ function videoIsSaved(videoId) {
  * @return {Void}
  */
 function showSavedVideos() {
-    console.log('checking saved videos');
+    ft.log('checking saved videos');
 
     savedView.videoList = [];
 

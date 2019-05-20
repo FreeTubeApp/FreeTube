@@ -75,7 +75,7 @@ function removeFromHistory(videoId, toast = true){
 * @return {Void}
 */
 function showHistory(){
-  console.log('checking history');
+  ft.log('checking history');
 
   historyView.videoList = [];
 

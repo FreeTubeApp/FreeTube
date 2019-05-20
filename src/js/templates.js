@@ -183,7 +183,7 @@ let subscriptionView = new Vue({
       removeFromHistory(videoId);
     },
     miniPlayer: (videoId) => {
-      console.log(videoId);
+      ft.log(videoId);
       clickMiniPlayer(videoId);
     }
   },
@@ -389,7 +389,8 @@ let settingsView = new Vue({
     proxyAddress: false,
     invidiousInstance: 'https://invidio.us',
     checkProxyResult: false,
-    proxyTestLoading: false
+    proxyTestLoading: false,
+    debugMode: false,
   },
   methods: {
     checkProxy() {
@@ -406,8 +407,8 @@ let settingsView = new Vue({
           this.checkProxyResult = response;
         })
         .fail((xhr, textStatus, error) => {
-          console.log(xhr);
-          console.log(textStatus);
+          ft.log(xhr);
+          ft.log(textStatus);
           showToast('Proxy test failed');
         }).always(() =>{
           this.proxyTestLoading = false;
@@ -453,7 +454,7 @@ let searchView = new Vue({
       showToast('URL has been copied to the clipboard');
     },
     nextPage: () => {
-      console.log(searchView.page);
+      ft.log(searchView.page);
       search(searchView.page);
     },
     playlist: (playlistId) => {
@@ -593,12 +594,12 @@ let playerView = new Vue({
       toggleSubscription(channelData);
     },
     quality: (url, qualityText) => {
-      console.log(url);
-      console.log(qualityText);
+      ft.log(url);
+      ft.log(qualityText);
       if(playerView.legacySeen === true){
         // Update time to new url
         const currentPlayBackTime = $('.videoPlayer').get(0).currentTime;
-        console.log(currentPlayBackTime);
+        ft.log(currentPlayBackTime);
         playerView.videoUrl = url;
         playerView.currentQuality = qualityText;
         setTimeout(() => {$('.videoPlayer').get(0).currentTime = currentPlayBackTime; $('.videoPlayer').get(0).play();}, 100);

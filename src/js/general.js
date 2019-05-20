@@ -27,6 +27,9 @@ let ft = {};
  * @returns {Void}
  */
 ft.log = function (...data) {
+    if (!settingsView.debugMode) {
+      return;
+    }
     let currentTime = new Date();
     let time = currentTime.getDate() + "/" +
         (currentTime.getMonth() + 1) + "/" +

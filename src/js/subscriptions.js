@@ -69,7 +69,7 @@ function removeSubscription(channelId) {
  */
 function loadSubscriptions() {
     if (checkSubscriptions === false && subscriptionView.videoList.length > 0) {
-        console.log('Will not load subscriptions. Timer still on.');
+        ft.log('Will not load subscriptions. Timer still on.');
         loadingView.seen = false;
         return;
     } else {
@@ -150,7 +150,7 @@ function addSubsToView(videoList) {
         checkSubscriptions = true;
     }, 7200000);
 
-    console.log('Done');
+    ft.log('Done');
 }
 
 function forceSubscriptions() {

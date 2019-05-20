@@ -51,7 +51,7 @@ function search(page = 1) {
         searchView.videoList = [];
         searchView.seen = true;
     } else {
-        console.log(page);
+        ft.log(page);
         showToast('Fetching results.  Please wait...');
     }
 
@@ -63,7 +63,7 @@ function search(page = 1) {
         duration: searchDuration,
         type: searchType,
     }, function (data) {
-        console.log(data);
+        ft.log(data);
 
         data.forEach((video) => {
           switch (video.type) {
@@ -317,7 +317,7 @@ function parseSearchText(url = '') {
  */
 function showMostPopular() {
   if (checkPopular === false && popularView.videoList.length > 0) {
-      console.log('Will not load popular. Timer still on.');
+      ft.log('Will not load popular. Timer still on.');
       loadingView.seen = false;
       return;
   } else {
@@ -325,11 +325,11 @@ function showMostPopular() {
   }
 
     invidiousAPI('top', '', {}, function (data) {
-        console.log(data);
+        ft.log(data);
         popularView.videoList = [];
 
         data.forEach((video) => {
-            console.log(video);
+            ft.log(video);
             displayVideo(video, 'popular');
         });
     });
@@ -346,7 +346,7 @@ function showMostPopular() {
  */
 function showTrending() {
     if (checkTrending === false && trendingView.videoList.length > 0) {
-        console.log('Will not load trending. Timer still on.');
+        ft.log('Will not load trending. Timer still on.');
         loadingView.seen = false;
         return;
     } else {
@@ -354,12 +354,12 @@ function showTrending() {
     }
 
     invidiousAPI('trending', '', {region: settingsView.region}, function (data) {
-        console.log(data);
+        ft.log(data);
         popularView.videoList = [];
 
         data.forEach((video) => {
             loadingView.seen = false;
-            console.log(video);
+            ft.log(video);
             displayVideo(video, 'trending');
         });
     });
