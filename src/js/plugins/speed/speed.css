@@ -20,7 +20,7 @@
     border-radius: 0;
     height: 150px;
     left: -10px;
-    overflow: hidden;
+    overflow: auto;
     padding: 0;
     position: absolute;
     top: -100px;

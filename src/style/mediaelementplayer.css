@@ -7,7 +7,7 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
             clip-path: inset( 50% );
     height: 1px;
     margin: -1px;
-    overflow: auto;
+    overflow: hidden;
     padding: 0;
     position: absolute;
     width: 1px;
@@ -463,6 +463,7 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
     bottom: 0px;
     left: 58px;
     background-color: #212121;
+    color: white;
 }
 
 .mejs__time-float-corner {

@@ -692,7 +692,7 @@ function checkDashSettings() {
               if (enableSubtitles) {
                   instance.options.startLanguage = 'en';
               }
-            }, 200);
+            }, 300);
 
             window.setTimeout(() => {
               let qualityOptions = $('.mejs__qualities-selector-input').get();
@@ -711,7 +711,7 @@ function checkDashSettings() {
 
                 qualityOptions.reverse()[0].click();
               }
-            }, 2000);
+            }, 3000);
           },
 
           error: function(error, originalNode, instance) {
