@@ -565,6 +565,7 @@ let playerView = new Vue({
     validLive: false,
     embededHtml: '',
     currentSpeed: 1,
+    lengthSeconds: 0,
     videoTitle: '',
     videoViews: '',
     likePercentage: 0,

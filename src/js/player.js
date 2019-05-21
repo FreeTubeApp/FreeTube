@@ -214,6 +214,7 @@ function playVideo(videoId, playlistId = '') {
         playerView.channelName = data.author;
         playerView.channelId = data.authorId;
         playerView.channelIcon = data.authorThumbnails[2].url;
+        playerView.lengthSeconds = data.lengthSeconds;
 
         if (playerView.channelIcon.includes('https:') === false) {
           playerView.channelIcon = 'https:' + playerView.channelIcon;
@@ -629,6 +630,11 @@ function checkDashSettings() {
     let checkedDash = false;
     let parseDash = true;
     let quality = 'Auto';
+    let thumbnailInterval = 5;
+
+    if (playerView.lengthSeconds > 900) {
+      thumbnailInterval = 10;
+    }
 
     let declarePlayer = function() {
       if (!checkedDash) {
@@ -675,6 +681,7 @@ function checkDashSettings() {
           defaultQuality: quality,
           stretching: 'responsive',
           startVolume: currentVolume,
+          timeRailThumbnailsSeconds: thumbnailInterval,
 
           success: function(mediaElement, originalNode, instance) {
             ft.log(mediaElement,originalNode,instance);
@@ -692,7 +699,7 @@ function checkDashSettings() {
               if (enableSubtitles) {
                   instance.options.startLanguage = 'en';
               }
-            }, 300);
+            }, 200);
 
             window.setTimeout(() => {
               let qualityOptions = $('.mejs__qualities-selector-input').get();
@@ -711,7 +718,7 @@ function checkDashSettings() {
 
                 qualityOptions.reverse()[0].click();
               }
-            }, 3000);
+            }, 2000);
           },
 
           error: function(error, originalNode, instance) {
