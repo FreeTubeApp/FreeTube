@@ -126,6 +126,11 @@
        time_float.css('width', w + 'px');
        time_float.find('.mejs__time-float').css('position', 'static');
 
+       if (player.duration >= 3600) {
+         let left = parseInt(time_float.css('left')) - 100;
+         time_float.css('left', left);
+       }
+
        time_float.css('-webkit-border-radius', '0').css('border-radius', '0');
        time_float.find('span').css('-webkit-border-radius', '0').css('border-radius', '0');
 

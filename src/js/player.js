@@ -686,23 +686,31 @@ function checkDashSettings() {
           success: function(mediaElement, originalNode, instance) {
             ft.log(mediaElement,originalNode,instance);
 
+            if (autoplay) {
+                instance.play();
+            };
+
             window.setTimeout(() => {
+              if (enableSubtitles) {
+                instance.options.startLanguage = 'en';
+              };
+            }, 2000);
+
+            let initializeSettings = function() {
+              let qualityOptions = $('.mejs__qualities-selector-input').get();
+
+              if (qualityOptions.length < 2) {
+                // Other plugin hasn't finished making the qualities.  Let's try again in a moment.
+
+                window.setTimeout(initializeSettings, 500);
+                return;
+              }
+
               if (typeof(playerView.currentTime) !== 'undefined') {
                 instance.currentTime = playerView.currentTime;
                 playerView.currentTime = undefined;
               }
 
-              if (autoplay) {
-                  instance.play();
-              }
-
-              if (enableSubtitles) {
-                  instance.options.startLanguage = 'en';
-              }
-            }, 200);
-
-            window.setTimeout(() => {
-              let qualityOptions = $('.mejs__qualities-selector-input').get();
               let selectedOption = false;
               qualityOptions.reverse().forEach((option, index) => {
                 if (option.value === defaultQuality || option.value === defaultQuality + 'p') {
@@ -718,7 +726,9 @@ function checkDashSettings() {
 
                 qualityOptions.reverse()[0].click();
               }
-            }, 2000);
+            };
+
+            initializeSettings();
           },
 
           error: function(error, originalNode, instance) {

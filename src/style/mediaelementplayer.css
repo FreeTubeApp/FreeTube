@@ -452,7 +452,6 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
 
 .mejs__time-float-current {
     display: block;
-    left: 0;
     margin: 2px;
     text-align: center;
     width: 40px;
