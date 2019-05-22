@@ -650,30 +650,6 @@ function checkDashSettings() {
         return;
       }
 
-      /*switch (quality) {
-        case '720':
-          if (!playerView.valid720p) {
-            quality = '360p';
-          }
-          else {
-            quality = '720p';
-          }
-          break;
-        case '480':
-          quality = '360p';
-          break;
-        case '360':
-          if (!playerView.valid360p) {
-            quality = 'Auto';
-          }
-          else {
-            quality = '360p';
-          }
-          break;
-        default:
-          break;
-      }*/
-
       if (playerView.validLive) {
         quality = 'Live';
       }
@@ -745,6 +721,7 @@ function checkDashSettings() {
             ft.log(originalNode);
             ft.log(instance);
             showToast('There was an error with playing DASH formats.  Reverting to the legacy formats.');
+            checkedSettings = false;
             playerView.currentTime = instance.currentTime;
             playerView.legacyFormats();
           }
@@ -772,20 +749,9 @@ function checkDashSettings() {
 function checkLegacySettings() {
   let player = document.getElementById('legacyPlayer');
 
-  ft.log('checking Settings');
-
-  // Mediaelement.js for some reason calls onLoadStart() multiple times
-  // This check is here to force checkVideoSettings to only run once.
-  if (checkedSettings) {
-    ft.log('Returning');
-    return;
-  }
-
-  checkedSettings = true;
   let checked720p = false;
   let checked360p = false;
   let checkedAudio = false;
-  let quality = defaultQuality;
 
   let declarePlayer = function() {
     if (!checked720p || !checked360p || !checkedAudio) {
@@ -800,6 +766,8 @@ function checkLegacySettings() {
     if (autoplay) {
         player.play();
     }
+
+    changeVideoSpeed(defaultPlaybackRate);
   };
 
   if (playerView.valid360p !== false) {
