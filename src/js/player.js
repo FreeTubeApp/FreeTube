@@ -632,7 +632,16 @@ function checkDashSettings() {
     let quality = 'Auto';
     let thumbnailInterval = 5;
 
-    if (playerView.lengthSeconds > 900) {
+    if (playerView.lengthSeconds < 120) {
+      thumbnailInterval = 1;
+    }
+    else if (playerView.lengthSeconds < 300) {
+      thumbnailInterval = 2;
+    }
+    else if (playerView.lengthSeconds < 900) {
+      thumbnailInterval = 5;
+    }
+    else {
       thumbnailInterval = 10;
     }
 
