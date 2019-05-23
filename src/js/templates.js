@@ -402,13 +402,13 @@ let settingsView = new Vue({
         $.ajax({
           url: "https://ifconfig.co/json",
           dataType: 'json',
-          timeout: 3000 // 3 second timeout
         }).done(response => {
+          console.log(response);
           this.checkProxyResult = response;
         })
         .fail((xhr, textStatus, error) => {
-          ft.log(xhr);
-          ft.log(textStatus);
+          console.log(xhr);
+          console.log(textStatus);
           showToast('Proxy test failed');
         }).always(() =>{
           this.proxyTestLoading = false;
@@ -617,8 +617,9 @@ let playerView = new Vue({
           playerView.currentTime = player.currentTime;
       }
 
-      playerView.playerSeen = false;
       checkedSettings = false;
+
+      playerView.playerSeen = false;
       playerView.legacySeen = true;
     },
     dashFormats: () => {

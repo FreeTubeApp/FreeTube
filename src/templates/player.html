@@ -1,6 +1,6 @@
 <div v-if='seen'>
     <div v-if='playerSeen && !legacySeen' class='videoPlayer'>
-        <video id='player' onloadstart='checkDashSettings()' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" :poster="videoThumbnail" onvolumechange='updateVolume()'>
+        <video id='player' onloadstart='checkDashSettings()' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" :poster="videoThumbnail" onended='playNextVideo()' onvolumechange='updateVolume()'>
             <source v-if='validDash' data-quality='Auto' type="application/dash+xml" :src="videoDash" />
             <source v-if='validLive' data-quality='Live' type="application/x-mpegURL" :src="videoLive" />
             <span v-html="subtitleHtml"></span>
@@ -10,7 +10,7 @@
     </video>-->
     </div>
     <div v-else-if='!playerSeen && legacySeen'>
-        <video id='legacyPlayer' class='videoPlayer' onloadstart='checkLegacySettings()' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" :poster="videoThumbnail" onvolumechange='updateVolume()' :src='videoUrl' controls="controls" v-html="subtitleHtml">
+        <video id='legacyPlayer' class='videoPlayer' onloadstart='checkLegacySettings()' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" :poster="videoThumbnail" onended='playNextVideo()' onvolumechange='updateVolume()' :src='videoUrl' controls="controls" v-html="subtitleHtml">
         </video>
     </div>
     <div v-else>

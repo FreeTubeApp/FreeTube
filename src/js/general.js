@@ -27,7 +27,7 @@ let ft = {};
  * @returns {Void}
  */
 ft.log = function (...data) {
-    if (!settingsView.debugMode) {
+    if (typeof(settingsView) !== 'undefined' && !settingsView.debugMode) {
       return;
     }
     let currentTime = new Date();

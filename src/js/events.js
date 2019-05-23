@@ -85,7 +85,7 @@ let videoShortcutHandler = function (event) {
       forceSubscriptions();
     }
 
-    if (playerView.legacySeen) {
+    if ((typeof(playerView) !== 'undefined' && playerView.legacySeen) || (typeof(miniPlayerView) !== 'undefined' && miniPlayerView.legacySeen)) {
       videoPlayer = $('.videoPlayer').get(0);
     }
     else {

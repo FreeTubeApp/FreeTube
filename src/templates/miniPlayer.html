@@ -30,17 +30,26 @@ body {
 <link rel="stylesheet" href="../js/plugins/loop/loop.css" />
 <link rel="stylesheet" href="../js/plugins/speed/speed.css" />
 <link rel="stylesheet" href="../js/plugins/context-menu/context-menu.css" />
-<video id='player' class='videoPlayer' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" :poster="videoThumbnail" onvolumechange='updateVolume()'>
-  <source v-if='valid360p' data-quality='360p' type="video/mp4" :src="video360p" />
-  <source v-if='valid720p' data-quality='720p' type="video/mp4" :src="video720p" />
-  <source v-if='validAudio' data-quality='Audio' type="audio/mp4" :src="videoAudio" />
-  <source v-if='validDash' data-quality='Auto' type="application/dash+xml" :src="videoDash" />
-  <source v-if='validLive' data-quality='Live' type="application/x-mpegURL" :src="videoLive" />
-  <span v-html="subtitleHtml"></span>
-</video>
+  <div id='miniPlayer'>
+    <div v-if='playerSeen && !legacySeen' class='videoPlayer'>
+        <video id='player' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" :poster="videoThumbnail" onended='playNextVideo()' onvolumechange='updateVolume()'>
+            <source v-if='validDash' data-quality='Auto' type="application/dash+xml" :src="videoDash" />
+            <source v-if='validLive' data-quality='Live' type="application/x-mpegURL" :src="videoLive" />
+            <span v-html="subtitleHtml"></span>
+            <track kind="metadata" srclang='' class="time-rail-thumbnails" :src="'https://invidio.us/api/v1/storyboards/' + videoId + '?height=90'"></track>
+        </video>
+    </div>
+    <div v-else-if='!playerSeen && legacySeen'>
+        <video id='legacyPlayer' class='videoPlayer' onloadstart='checkLegacySettings()' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" :poster="videoThumbnail" onended='playNextVideo()' onvolumechange='updateVolume()' :src='videoUrl' controls="controls" v-html="subtitleHtml">
+        </video>
+    </div>
+    <div v-else>
+        <span v-html="embededHtml"></span>
+    </div>
+  </div>
 <script>window.$ = window.jQuery = require('jquery');</script>
-<script src="../js/mediaelement-and-player.min.js"></script>
-<script src="../js/plugins/quality/quality.min.js"></script>
+<script src="../js/mediaelement-and-player.js"></script>
+<script src="../js/plugins/quality/quality.js"></script>
 <script src="../js/plugins/quality/quality-i18n.js"></script>
 <script src="../js/plugins/speed/speed.js"></script>
 <script src="../js/plugins/speed/speed-i18n.js"></script>
@@ -48,5 +57,8 @@ body {
 <script src="../js/plugins/loop/loop-i18n.js"></script>
 <script src="../js/plugins/context-menu/context-menu.js"></script>
 <script src="../js/plugins/context-menu/context-menu-i18n.js"></script>
+<script src="../js/plugins/timerailthumbnails/vtt.min.js"></script>
+<script src="../js/plugins/timerailthumbnails/mep-feature-time-rail-thumbnails.js"></script>
+<script src="../js/general.js"></script>
 <script src="../js/miniPlayer.js"></script>
 <script src="../js/events.js"></script>

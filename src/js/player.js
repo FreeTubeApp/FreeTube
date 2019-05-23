@@ -439,16 +439,17 @@ function playVideo(videoId, playlistId = '') {
 function openMiniPlayer() {
 
     let lastTime;
-    let videoHtml;
+    let videoPlayer;
     // Grabs whatever the HTML is for the current video player.  Done this way to grab
     // the HTML5 player (with varying qualities) as well as the YouTube embeded player.
     if (typeof(player) !== 'undefined') {
-        player.pause();
-        lastTime = player.currentTime;
-        //videoHtml = $('.videoPlayer').get(0).outerHTML;
+        videoPlayer = player;
     } else {
-        //videoHtml = $('iframe').get(0).outerHTML;
+        videoPlayer = $('.videoPlayer').get(0);
     }
+
+    videoPlayer.pause();
+    lastTime = videoPlayer.currentTime;
 
     // Create a new browser window.
     const BrowserWindow = electron.remote.BrowserWindow;
@@ -471,6 +472,7 @@ function openMiniPlayer() {
       miniPlayer.show();
 
       let playerData = {
+        videoId: playerView.videoId,
         video360p: playerView.video360p,
         valid360p: playerView.valid360p,
         video720p: playerView.video720p,
@@ -484,12 +486,16 @@ function openMiniPlayer() {
         subtitleHtml: playerView.subtitleHtml,
         videoThumbnail: playerView.videoThumbnail,
         defaultPlaybackRate: player.options.defaultSpeed,
-        quality: player.options.defaultQuality,
+        quality: defaultQuality,
         volume: player.volume,
         currentTime: player.currentTime,
+        playerSeen: playerView.playerSeen,
+        legacySeen: playerView.legacySeen,
+        autoplay: autoplay,
+        enableSubtitles: settingsView.enableSubtitles,
       };
       miniPlayer.webContents.send('ping', playerData);
-    })
+    });
 
     return;
 
@@ -810,9 +816,16 @@ function checkLegacySettings() {
 }
 
 function playNextVideo() {
-    let player = document.getElementById('videoPlayer');
+    let videoPlayer
 
-    if (player.loop !== false || playerView.playlistSeen === false) {
+    if (playerView.legacySeen) {
+      videoPlayer = $('.videoPlayer').get(0);
+    }
+    else {
+      videoPlayer = $('#player').get(0);
+    }
+
+    if (videoPlayer.loop !== false || playerView.playlistSeen === false) {
         return;
     }
 

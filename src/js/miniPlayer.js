@@ -24,11 +24,12 @@ import Vue from '../js/vue.js';
 const electron = require('electron');
 
 let mouseTimeout; // Timeout for hiding the mouse cursor on video playback
-let checkedSettings = true;
+let checkedSettings = false;
 
 let miniPlayerView = new Vue({
-  el: '#player',
+  el: '#miniPlayer',
   data: {
+    videoId: '',
     video360p: '',
     valid360p: true,
     video720p: '',
@@ -45,6 +46,10 @@ let miniPlayerView = new Vue({
     quality: '',
     volume: '',
     currentTime: '',
+    playerSeen: true,
+    legacySeen: false,
+    autoplay: true,
+    enableSubtitles: false,
   }
 });
 
@@ -72,42 +77,234 @@ function removeMouseTimeout() {
     clearTimeout(mouseTimeout);
 }
 
-function checkVideoSettings() {
-  if (checkedSettings === false) {
-    return;
-  }
+function checkDashSettings() {
+    // Mediaelement.js for some reason calls onLoadStart() multiple times
+    // This check is here to force checkVideoSettings to only run once.
+    if (checkedSettings) {
+      return;
+    }
 
-  let player = new MediaElementPlayer('player', {
-    features: ['playpause', 'current', 'loop', 'tracks', 'progress', 'duration', 'volume', 'stop', 'speed', 'quality', 'fullscreen'],
-    speeds: ['2', '1.75', '1.5', '1.25', '1', '0.75', '0.5', '0.25'],
-    defaultSpeed: miniPlayerView.defaultPlaybackRate,
-    qualityText: 'Quality',
-    defaultQuality: miniPlayerView.quality,
-    stretching: 'responsive',
-    startVolume: miniPlayerView.volume,
+    checkedSettings = true;
+    let checked720p = false;
+    let checked360p = false;
+    let checkedAudio = false;
+    let checkedDash = false;
+    let parseDash = true;
+    let quality = 'Auto';
+    let thumbnailInterval = 5;
 
-    success: function(mediaElement, originalNode, instance) {
-      console.log(mediaElement,originalNode,instance);
+    if (miniPlayerView.lengthSeconds < 120) {
+      thumbnailInterval = 1;
+    }
+    else if (miniPlayerView.lengthSeconds < 300) {
+      thumbnailInterval = 2;
+    }
+    else if (miniPlayerView.lengthSeconds < 900) {
+      thumbnailInterval = 5;
+    }
+    else {
+      thumbnailInterval = 10;
+    }
 
-      instance.currentTime = miniPlayerView.currentTime;
-      instance.play();
-
-      checkedSettings = false;
-
-      /*if (autoplay) {
-          instance.play();
+    let declarePlayer = function() {
+      if (!checkedDash) {
+        return;
       }
 
-      if (enableSubtitles) {
-          instance.options.startLanguage = 'en';
-      }*/
+      if (miniPlayerView.validLive) {
+        quality = 'Live';
+      }
+
+        let player = new MediaElementPlayer('player', {
+          features: ['playpause', 'current', 'progress', 'duration', 'volume', 'stop', 'speed', 'quality', 'loop', 'tracks', 'fullscreen', 'timerailthumbnails'],
+          speeds: ['2', '1.75', '1.5', '1.25', '1', '0.75', '0.5', '0.25'],
+          renderers: ['native_dash', 'native_hls', 'html5'],
+          defaultSpeed: miniPlayerView.defaultPlaybackRate,
+          autoGenerate: true,
+          autoDash: true,
+          autoHLS: false,
+          qualityText: 'Quality',
+          defaultQuality: 'Auto',
+          stretching: 'responsive',
+          startVolume: miniPlayerView.volume,
+          timeRailThumbnailsSeconds: thumbnailInterval,
+
+          success: function(mediaElement, originalNode, instance) {
+            ft.log(mediaElement,originalNode,instance);
+
+            if (miniPlayerView.autoplay) {
+                instance.play();
+            };
+
+            window.setTimeout(() => {
+              if (miniPlayerView.enableSubtitles) {
+                instance.options.startLanguage = 'en';
+              };
+            }, 2000);
+
+            let initializeSettings = function() {
+              let qualityOptions = $('.mejs__qualities-selector-input').get();
+
+              if (qualityOptions.length < 2) {
+                // Other plugin hasn't finished making the qualities.  Let's try again in a moment.
+
+                window.setTimeout(initializeSettings, 500);
+                return;
+              }
+
+              if (typeof(miniPlayerView.currentTime) !== 'undefined') {
+                instance.currentTime = miniPlayerView.currentTime;
+                miniPlayerView.currentTime = undefined;
+              }
+
+              let selectedOption = false;
+              qualityOptions.reverse().forEach((option, index) => {
+                if (option.value === miniPlayerView.quality || option.value === miniPlayerView.quality + 'p') {
+                  option.click();
+                  selectedOption = true;
+                }
+              });
+
+              if (selectedOption === false) {
+                // Assume user selected a higher quality as their default.  Select the highest option available.
+                ft.log('Quality not available.');
+                ft.log(qualityOptions.reverse()[0]);
+
+                qualityOptions.reverse()[0].click();
+              }
+            };
+
+            initializeSettings();
+          },
+
+          error: function(error, originalNode, instance) {
+            ft.log(error);
+            ft.log(originalNode);
+            ft.log(instance);
+            showToast('There was an error with playing DASH formats.  Reverting to the legacy formats.');
+            checkedSettings = false;
+            miniPlayerView.currentTime = instance.currentTime;
+            miniPlayerView.legacyFormats();
+          }
+        });
+    };
+
+    if (miniPlayerView.validDash !== false) {
+      validateUrl(miniPlayerView.videoDash, (valid) => {
+        miniPlayerView.validDash = valid;
+        checkedDash = true;
+        declarePlayer();
+      });
     }
-  });
+    else if (miniPlayerView.validLive !==  false) {
+      checkedDash = true;
+      declarePlayer();
+    }
+    else {
+      miniPlayerView.legacyFormats();
+    }
+
+    return;
+}
+
+function checkLegacySettings() {
+  let legacyPlayer = document.getElementById('legacyPlayer');
+
+  let checked720p = false;
+  let checked360p = false;
+  let checkedAudio = false;
+
+  let declarePlayer = function() {
+    if (!checked720p || !checked360p || !checkedAudio) {
+      return;
+    }
+
+    if (typeof(miniPlayerView.currentTime) !== 'undefined') {
+      legacyPlayer.currentTime = miniPlayerView.currentTime;
+      miniPlayerView.currentTime = undefined;
+    }
+
+    if (autoplay) {
+        legacyPlayer.play();
+    }
+
+    changeVideoSpeed(defaultPlaybackRate);
+  };
+
+  if (miniPlayerView.valid360p !== false) {
+    validateUrl(miniPlayerView.video360p, (valid) => {
+      miniPlayerView.valid360p = valid;
+      checked360p = true;
+      declarePlayer();
+    });
+  }
+  else {
+    checked360p = true;
+    declarePlayer();
+  }
+
+  if (miniPlayerView.valid720p !== false) {
+    validateUrl(miniPlayerView.video720p, (valid) => {
+      miniPlayerView.valid720p = valid;
+      checked720p = true;
+      declarePlayer();
+    });
+  }
+  else {
+    checked720p = true;
+    declarePlayer();
+  }
+
+  if (miniPlayerView.validAudio !== false) {
+    validateUrl(miniPlayerView.videoAudio, (valid) => {
+      miniPlayerView.validAudio = valid;
+      checkedAudio = true;
+      declarePlayer();
+    });
+  }
+  else {
+    checkedAudio = true;
+    declarePlayer();
+  }
+
+  return;
+}
+
+function validateUrl(videoUrl, callback) {
+    if (typeof (videoUrl) !== 'undefined') {
+        let getUrl = fetch(videoUrl);
+        getUrl.then((status) => {
+            switch (status.status) {
+            case 404:
+                callback(false);
+                return;
+                break;
+            case 403:
+                showToast('This video is unavailable in your country.');
+                callback(false)
+                return;
+                break;
+            default:
+                ft.log('videoUrl is valid');
+                callback(true);
+                return;
+                break;
+            }
+        });
+    } else {
+        callback(false);
+        return;
+    }
+}
+
+function hideConfirmFunction() {
+  return;
 }
 
 electron.ipcRenderer.on('ping', function(event, message) {
    console.log(message);
 
+   miniPlayerView.videoId = message.videoId;
    miniPlayerView.video360p = message.video360p;
    miniPlayerView.valid360p = message.valid360p;
    miniPlayerView.video720p = message.video720p;
@@ -124,6 +321,10 @@ electron.ipcRenderer.on('ping', function(event, message) {
    miniPlayerView.quality = message.quality;
    miniPlayerView.volume = message.volume;
    miniPlayerView.currentTime = message.currentTime;
+   miniPlayerView.playerSeen = message.playerSeen;
+   miniPlayerView.legacySeen = message.legacySeen;
+   miniPlayerView.autoplay = message.autoplay;
+   miniPlayerView.enableSubtitles = message.enableSubtitles;
 
-   window.setTimeout(checkVideoSettings, 100);
+   window.setTimeout(checkDashSettings, 100);
 });
