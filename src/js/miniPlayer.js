@@ -30,6 +30,7 @@ let miniPlayerView = new Vue({
   el: '#miniPlayer',
   data: {
     videoId: '',
+    videoUrl: '',
     video360p: '',
     valid360p: true,
     video720p: '',
@@ -50,6 +51,7 @@ let miniPlayerView = new Vue({
     legacySeen: false,
     autoplay: true,
     enableSubtitles: false,
+    thumbnailInterval: 5,
   }
 });
 
@@ -91,20 +93,6 @@ function checkDashSettings() {
     let checkedDash = false;
     let parseDash = true;
     let quality = 'Auto';
-    let thumbnailInterval = 5;
-
-    if (miniPlayerView.lengthSeconds < 120) {
-      thumbnailInterval = 1;
-    }
-    else if (miniPlayerView.lengthSeconds < 300) {
-      thumbnailInterval = 2;
-    }
-    else if (miniPlayerView.lengthSeconds < 900) {
-      thumbnailInterval = 5;
-    }
-    else {
-      thumbnailInterval = 10;
-    }
 
     let declarePlayer = function() {
       if (!checkedDash) {
@@ -127,7 +115,7 @@ function checkDashSettings() {
           defaultQuality: 'Auto',
           stretching: 'responsive',
           startVolume: miniPlayerView.volume,
-          timeRailThumbnailsSeconds: thumbnailInterval,
+          timeRailThumbnailsSeconds: miniPlayerView.thumbnailInterval,
 
           success: function(mediaElement, originalNode, instance) {
             ft.log(mediaElement,originalNode,instance);
@@ -224,11 +212,11 @@ function checkLegacySettings() {
       miniPlayerView.currentTime = undefined;
     }
 
-    if (autoplay) {
+    if (miniPlayerView.autoplay) {
         legacyPlayer.play();
     }
 
-    changeVideoSpeed(defaultPlaybackRate);
+    changeVideoSpeed(miniPlayerView.defaultPlaybackRate);
   };
 
   if (miniPlayerView.valid360p !== false) {
@@ -297,6 +285,29 @@ function validateUrl(videoUrl, callback) {
     }
 }
 
+/**
+ * Change the playpack speed of the video.
+ *
+ * @param {double} speed - The playback speed of the video.
+ *
+ * @return {Void}
+ */
+function changeVideoSpeed(speed) {
+  if (miniPlayerView.legacySeen) {
+    $('#currentSpeed').html(speed);
+    $('.videoPlayer').get(0).playbackRate = speed;
+  }
+  else {
+    let speedOptions = $('.mejs__speed-selector-input').get();
+    speedOptions.forEach((option, index) => {
+      if (option.value == speed) {
+        option.click();
+        player.playbackRate = speed;
+      }
+    });
+  }
+}
+
 function hideConfirmFunction() {
   return;
 }
@@ -305,6 +316,7 @@ electron.ipcRenderer.on('ping', function(event, message) {
    console.log(message);
 
    miniPlayerView.videoId = message.videoId;
+   miniPlayerView.videoUrl = message.videoUrl;
    miniPlayerView.video360p = message.video360p;
    miniPlayerView.valid360p = message.valid360p;
    miniPlayerView.video720p = message.video720p;
@@ -325,6 +337,71 @@ electron.ipcRenderer.on('ping', function(event, message) {
    miniPlayerView.legacySeen = message.legacySeen;
    miniPlayerView.autoplay = message.autoplay;
    miniPlayerView.enableSubtitles = message.enableSubtitles;
+   miniPlayerView.thumbnailInterval = message.thumbnailInterval;
 
    window.setTimeout(checkDashSettings, 100);
+});
+
+electron.ipcRenderer.on('play360p', function(event, message) {
+  if (!miniPlayerView.valid360p) {
+    return;
+  }
+
+  let videoPlayer = $('.videoPlayer').get(0);
+
+  videoPlayer.pause();
+
+  let time = videoPlayer.currentTime;
+
+  console.log(time);
+
+  miniPlayerView.videoUrl = miniPlayerView.video360p;
+
+  setTimeout(() => {videoPlayer.currentTime = time; videoPlayer.play();}, 100);
+});
+
+electron.ipcRenderer.on('play720p', function(event, message) {
+  if (!miniPlayerView.valid720p) {
+    return;
+  }
+
+  let videoPlayer = $('.videoPlayer').get(0);
+
+  videoPlayer.pause();
+
+  let time = videoPlayer.currentTime;
+
+  console.log(time);
+
+  miniPlayerView.videoUrl = miniPlayerView.video720p;
+
+  setTimeout(() => {videoPlayer.currentTime = time; videoPlayer.play();}, 100);
+});
+
+electron.ipcRenderer.on('playAudio', function(event, message) {
+  if (!miniPlayerView.validAudio) {
+    return;
+  }
+
+  let videoPlayer = $('.videoPlayer').get(0);
+
+  videoPlayer.pause();
+
+  let time = videoPlayer.currentTime;
+
+  console.log(time);
+
+  miniPlayerView.videoUrl = miniPlayerView.videoAudio;
+
+  setTimeout(() => {videoPlayer.currentTime = time; videoPlayer.play();}, 100);
+});
+
+electron.ipcRenderer.on('videoSpeed', function(event, message) {
+  changeVideoSpeed(message);
+});
+
+electron.ipcRenderer.on('videoLoop', function(event, message) {
+  let videoPlayer = $('.videoPlayer').get(0);
+
+  videoPlayer.loop = !videoPlayer.loop;
 });

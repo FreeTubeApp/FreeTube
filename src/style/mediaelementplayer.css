@@ -213,8 +213,8 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
 
 .mejs__controls:not([style*='display: none']) {
     background: rgba(255, 0, 0, 0.7);
-    background: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.35));
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.35));
+    background: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
 }
 
 .mejs__button,
@@ -413,7 +413,7 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
         -ms-transform: translateX(0);
             transform: translateX(0);
     z-index: 11;
-    top: -2px;
+    top: -3px;
 }
 
 .mejs__time-handle-content {

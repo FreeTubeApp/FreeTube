@@ -400,7 +400,7 @@ let settingsView = new Vue({
 
       proxyRequest(() => {
         $.ajax({
-          url: "https://ifconfig.co/json",
+          url: "https://ipinfo.io",
           dataType: 'json',
         }).done(response => {
           console.log(response);
@@ -412,7 +412,9 @@ let settingsView = new Vue({
           showToast('Proxy test failed');
         }).always(() =>{
           this.proxyTestLoading = false;
-          electron.ipcRenderer.send("setProxy", {});
+          if (!useTor) {
+            electron.ipcRenderer.send("setProxy", {});
+          }
         });
       })
     }
@@ -689,6 +691,19 @@ let playerView = new Vue({
         playerView.playlistShuffle = true;
       }
     },
+  },
+  computed: {
+    thumbnailInterval: function() {
+      if (this.lengthSeconds < 120) {
+          return 1;
+      } else if (this.lengthSeconds < 300) {
+          return 2;
+      } else if (this.lengthSeconds < 900) {
+          return 5;
+      } else {
+          return 10;
+      }
+    }
   },
   template: playerTemplate
 });

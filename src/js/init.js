@@ -30,6 +30,14 @@ const {
 const path = require('path');
 const url = require('url');
 
+const Datastore = require('nedb'); // database logic
+const localDataStorage = app.getPath('userData'); // Grabs the userdata directory based on the user's OS
+
+const settingsDb = new Datastore({
+  filename: localDataStorage + '/settings.db',
+  autoload: true
+});
+
 require('electron-context-menu')({
     prepend: (params, browserWindow) => []
 });
@@ -71,14 +79,29 @@ let init = function () {
         autoHideMenuBar: true
     });
 
-    win.loadURL(url.format({
-        pathname: path.join(__dirname, '../index.html'),
-        protocol: 'file:',
-        slashes: true,
-    }));
+    settingsDb.find({_id: 'useTor'}, (err, docs) => {
+      if (docs[0]['value'] !== false) {
+        settingsDb.find({_id: 'proxy'}, (err, docs) => {
+          win.webContents.session.setProxy({ proxyRules: docs[0]['value'] }, function () {
+            win.loadURL(url.format({
+                pathname: path.join(__dirname, '../index.html'),
+                protocol: 'file:',
+                slashes: true,
+            }));
+          });
+        });
+      }
+      else {
+        win.loadURL(url.format({
+            pathname: path.join(__dirname, '../index.html'),
+            protocol: 'file:',
+            slashes: true,
+        }));
+      }
+    });
 
     if (process.env = 'development') {
-        //win.webContents.openDevTools();ff
+        //win.webContents.openDevTools();
     }
 
     win.on('closed', () => {
@@ -130,7 +153,8 @@ let init = function () {
                     role: 'reload'
                 },
                 {
-                    role: 'forcereload'
+                    role: 'forcereload',
+                    accelerator: "CmdOrCtrl+Shift+R",
                 },
                 {
                     role: 'toggledevtools'

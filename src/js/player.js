@@ -19,7 +19,7 @@
  * File for functions related to videos.
  */
 
- let checkedSettings = false;
+let checkedSettings = false;
 
 /**
  * Display the video player and play a video
@@ -55,19 +55,19 @@ function playVideo(videoId, playlistId = '') {
     let player;
 
     switch (defaultPlayer) {
-      case 'dash':
+    case 'dash':
         playerView.playerSeen = true;
         playerView.legacySeen = false;
         break;
-      case 'legacy':
+    case 'legacy':
         playerView.playerSeen = false;
         playerView.legacySeen = true;
         break;
-      case 'embed':
+    case 'embed':
         playerView.playerSeen = false;
         playerView.legacySeen = false;
         break;
-      default:
+    default:
 
     }
 
@@ -85,22 +85,102 @@ function playVideo(videoId, playlistId = '') {
     });
 
     if (getVideosLocally) {
-      youtubedlGetInfo(videoId, (data) => {
-          ft.log(data);
+        youtubedlGetInfo(videoId, (data) => {
+            ft.log(data);
 
-          let videoUrls = data.formats;
+            let videoUrls = data.formats;
 
-          if (data.player_response.videoDetails.isLiveContent !== false) {
-            playerView.validDash = false;
-            playerView.valid360p = false;
-            playerView.valid720p = false;
-            playerView.validAudio = false;
+            if (data.player_response.videoDetails.isLiveContent !== false) {
+                playerView.validDash = false;
+                playerView.valid360p = false;
+                playerView.valid720p = false;
+                playerView.validAudio = false;
 
-            playerView.playerSeen = true;
-            playerView.legacySeen = false;
+                playerView.playerSeen = true;
+                playerView.legacySeen = false;
 
-            playerView.validLive = true;
+                playerView.validLive = true;
 
+                youtubedlFinished = true;
+
+                if (youtubedlFinished && invidiousFinished) {
+                    loadingView.seen = false;
+
+                    if (subscriptionView.seen === false && aboutView.seen === false && headerView.seen === false && searchView.seen === false && settingsView.seen === false && popularView.seen === false && savedView.seen === false && historyView.seen === false && channelView.seen === false && channelVideosView.seen === false) {
+                        playerView.seen = true;
+                    } else {
+                        return;
+                    }
+                }
+            } else {
+                playerView.validLive = false;
+
+                // Search through the returned object to get the 360p and 720p video URLs (If available)
+                Object.keys(videoUrls).forEach((key) => {
+                    switch (videoUrls[key]['itag']) {
+                    case '18':
+                        playerView.video360p = decodeURIComponent(videoUrls[key]['url']);
+                        // ft.log(playerView.video360p);
+                        break;
+                    case '22':
+                        playerView.video720p = decodeURIComponent(videoUrls[key]['url']);
+                        // ft.log(playerView.video720p);
+                        break;
+                    }
+                });
+
+                if (videoUrls.length > 3) {
+                    // Last adaptive format will be the best quality audio stream
+                    playerView.videoAudio = decodeURIComponent(videoUrls[videoUrls.length - 1]['url']);
+                } else {
+                    playerView.playerSeen = false;
+                    playerView.legacySeen = true;
+                }
+
+                if (typeof (playerView.videoAudio) === 'undefined') {
+                    ft.log(playerView.videoAudio);
+                    playerView.validAudio = false;
+                }
+
+                let useEmbedPlayer = false;
+
+                // Default to the embeded player if the URLs cannot be found.
+                if (typeof (playerView.video720p) === 'undefined' && typeof (playerView.video360p) === 'undefined') {
+                    //useEmbedPlayer = true;
+                    playerView.currentQuality = 'EMBED';
+                    playerView.playerSeen = false;
+                    playerView.valid720p = false;
+                    playerView.valid360p = false;
+                    playerView.video720p = '';
+                    //useEmbedPlayer = true;
+                    showToast('Unable to get video file.  Reverting to embeded player.');
+                } else if (typeof (playerView.video720p) === 'undefined' && typeof (playerView.video360p) !== 'undefined') {
+                    // Default to the 360p video if the 720p URL cannot be found.
+                    ft.log('Found');
+                    playerView.videoUrl = playerView.video360p;
+                    playerView.currentQuality = '360p';
+                    playerView.valid720p = false;
+                    playerView.video720p = '';
+                } else {
+                    // Default to the 720p video.
+                    playerView.videoUrl = playerView.video720p;
+                    playerView.currentQuality = '720p';
+                    //playerView.videoUrl = playerView.liveManifest;
+                }
+
+                if (!useEmbedPlayer &&
+                    typeof (data.player_response.captions) !== 'undefined' &&
+                    typeof (data.player_response.captions.playerCaptionsTracklistRenderer) !== 'undefined' &&
+                    typeof (data.player_response.captions.playerCaptionsTracklistRenderer.captionTracks) !== 'undefined') {
+                    data.player_response.captions.playerCaptionsTracklistRenderer.captionTracks.forEach((caption) => {
+                        let subtitleUrl = invidiousInstance + '/api/v1/captions/' + videoId + '?label=' + caption.name.simpleText;
+
+                        videoHtml = videoHtml + '<track kind="subtitles" src="' + subtitleUrl + '" srclang="' + caption.languageCode + '" label="' + caption.name.simpleText + '">';
+                    });
+
+                    playerView.subtitleHtml = videoHtml;
+                }
+            }
             youtubedlFinished = true;
 
             if (youtubedlFinished && invidiousFinished) {
@@ -112,93 +192,10 @@ function playVideo(videoId, playlistId = '') {
                     return;
                 }
             }
-          }
-          else {
-            playerView.validLive = false;
-
-            // Search through the returned object to get the 360p and 720p video URLs (If available)
-            Object.keys(videoUrls).forEach((key) => {
-                switch (videoUrls[key]['itag']) {
-                case '18':
-                    playerView.video360p = decodeURIComponent(videoUrls[key]['url']);
-                    // ft.log(playerView.video360p);
-                    break;
-                case '22':
-                    playerView.video720p = decodeURIComponent(videoUrls[key]['url']);
-                    // ft.log(playerView.video720p);
-                    break;
-                }
-            });
-
-            if (videoUrls.length > 3) {
-              // Last adaptive format will be the best quality audio stream
-              playerView.videoAudio = decodeURIComponent(videoUrls[videoUrls.length - 1]['url']);
-            }
-            else {
-              playerView.playerSeen = false;
-              playerView.legacySeen = true;
-            }
-
-            if (typeof (playerView.videoAudio) === 'undefined') {
-                ft.log(playerView.videoAudio);
-                playerView.validAudio = false;
-            }
-
-            let useEmbedPlayer = false;
-
-            // Default to the embeded player if the URLs cannot be found.
-            if (typeof (playerView.video720p) === 'undefined' && typeof (playerView.video360p) === 'undefined') {
-                //useEmbedPlayer = true;
-                playerView.currentQuality = 'EMBED';
-                playerView.playerSeen = false;
-                playerView.valid720p = false;
-                playerView.valid360p = false;
-                playerView.video720p = '';
-                //useEmbedPlayer = true;
-                showToast('Unable to get video file.  Reverting to embeded player.');
-            } else if (typeof (playerView.video720p) === 'undefined' && typeof (playerView.video360p) !== 'undefined') {
-                // Default to the 360p video if the 720p URL cannot be found.
-                ft.log('Found');
-                playerView.videoUrl = playerView.video360p;
-                playerView.currentQuality = '360p';
-                playerView.valid720p = false;
-                playerView.video720p = '';
-            } else {
-                // Default to the 720p video.
-                playerView.videoUrl = playerView.video720p;
-                playerView.currentQuality = '720p';
-                //playerView.videoUrl = playerView.liveManifest;
-            }
-
-            if (!useEmbedPlayer &&
-                typeof (data.player_response.captions) !== 'undefined' &&
-                typeof (data.player_response.captions.playerCaptionsTracklistRenderer) !== 'undefined' &&
-                typeof (data.player_response.captions.playerCaptionsTracklistRenderer.captionTracks) !== 'undefined') {
-                data.player_response.captions.playerCaptionsTracklistRenderer.captionTracks.forEach((caption) => {
-                    let subtitleUrl = invidiousInstance + '/api/v1/captions/' + videoId + '?label=' + caption.name.simpleText;
-
-                    videoHtml = videoHtml + '<track kind="subtitles" src="' + subtitleUrl + '" srclang="' + caption.languageCode + '" label="' + caption.name.simpleText + '">';
-                });
-
-                playerView.subtitleHtml = videoHtml;
-            }
-          }
-          youtubedlFinished = true;
-
-          if (youtubedlFinished && invidiousFinished) {
-              loadingView.seen = false;
-
-              if (subscriptionView.seen === false && aboutView.seen === false && headerView.seen === false && searchView.seen === false && settingsView.seen === false && popularView.seen === false && savedView.seen === false && historyView.seen === false && channelView.seen === false && channelVideosView.seen === false) {
-                  playerView.seen = true;
-              } else {
-                  return;
-              }
-          }
-      });
-    }
-    else {
-      youtubedlFinished = true;
-      ft.log("Grabbing videos through Invidious");
+        });
+    } else {
+        youtubedlFinished = true;
+        ft.log("Grabbing videos through Invidious");
     }
 
     invidiousAPI('videos', videoId, {}, (data) => {
@@ -217,7 +214,7 @@ function playVideo(videoId, playlistId = '') {
         playerView.lengthSeconds = data.lengthSeconds;
 
         if (playerView.channelIcon.includes('https:') === false) {
-          playerView.channelIcon = 'https:' + playerView.channelIcon;
+            playerView.channelIcon = 'https:' + playerView.channelIcon;
         }
 
         // Add commas to the video view count.
@@ -278,77 +275,75 @@ function playVideo(videoId, playlistId = '') {
         });
 
         if (!getVideosLocally) {
-          let videoUrls = data.formatStreams;
-          let formatUrls = data.adaptiveFormats;
+            let videoUrls = data.formatStreams;
+            let formatUrls = data.adaptiveFormats;
 
-          // Search through the returned object to get the 360p and 720p video URLs (If available)
-          Object.keys(videoUrls).forEach((key) => {
-              switch (videoUrls[key]['itag']) {
-              case '18':
-                  playerView.video360p = decodeURIComponent(videoUrls[key]['url']);
-                  // ft.log(playerView.video360p);
-                  break;
-              case '22':
-                  playerView.video720p = decodeURIComponent(videoUrls[key]['url']);
-                  // ft.log(playerView.video720p);
-                  break;
-              }
-          });
+            // Search through the returned object to get the 360p and 720p video URLs (If available)
+            Object.keys(videoUrls).forEach((key) => {
+                switch (videoUrls[key]['itag']) {
+                case '18':
+                    playerView.video360p = decodeURIComponent(videoUrls[key]['url']);
+                    // ft.log(playerView.video360p);
+                    break;
+                case '22':
+                    playerView.video720p = decodeURIComponent(videoUrls[key]['url']);
+                    // ft.log(playerView.video720p);
+                    break;
+                }
+            });
 
-          if (typeof(playerView.video360p) === 'undefined') {
-            playerView.video360p = '';
-            playerView.valid360p = false;
-          }
+            if (typeof (playerView.video360p) === 'undefined') {
+                playerView.video360p = '';
+                playerView.valid360p = false;
+            }
 
-          if (typeof(playerView.video720p) === 'undefined') {
-            playerView.video720p = '';
-            playerView.valid720p = false;
-          }
+            if (typeof (playerView.video720p) === 'undefined') {
+                playerView.video720p = '';
+                playerView.valid720p = false;
+            }
 
-          if ((parseInt(defaultQuality) >= 720 || defaultQuality === '4k') && playerView.video720p !== '') {
-            playerView.videoUrl = playerView.video720p;
-            playerView.currentQuality = '720p';
-          }
-          else {
-            playerView.videoUrl = playerView.video360p;
-            playerView.currentQuality = '360p';
-          }
+            if ((parseInt(defaultQuality) >= 720 || defaultQuality === '4k') && playerView.video720p !== '') {
+                playerView.videoUrl = playerView.video720p;
+                playerView.currentQuality = '720p';
+            } else {
+                playerView.videoUrl = playerView.video360p;
+                playerView.currentQuality = '360p';
+            }
 
-          if (formatUrls.length > 0) {
-            // Last adaptive format will be best the quality audio stream (migrate fully to adaptive formats later)
-            playerView.videoAudio = decodeURIComponent(formatUrls[formatUrls.length - 1]['url']);
-          }
-          else {
-            playerView.playerSeen = false;
-            playerView.legacySeen = true;
-          }
+            if (formatUrls.length > 0) {
+                // Last adaptive format will be best the quality audio stream (migrate fully to adaptive formats later)
+                playerView.videoAudio = decodeURIComponent(formatUrls[formatUrls.length - 1]['url']);
+            } else {
+                playerView.playerSeen = false;
+                playerView.legacySeen = true;
+            }
 
-          if (typeof (playerView.videoAudio) === 'undefined') {
-              ft.log(playerView.videoAudio);
-              playerView.videoAudio = '';
-              playerView.validAudio = false;
-          }
+            if (typeof (playerView.videoAudio) === 'undefined') {
+                ft.log(playerView.videoAudio);
+                playerView.videoAudio = '';
+                playerView.validAudio = false;
+            }
 
-          let useEmbedPlayer = false;
+            let useEmbedPlayer = false;
 
-          if (!useEmbedPlayer &&
-              typeof (data.captions) !== 'undefined') {
-              data.captions.forEach((caption) => {
-                  let subtitleUrl = invidiousInstance + caption.url;
+            if (!useEmbedPlayer &&
+                typeof (data.captions) !== 'undefined') {
+                data.captions.forEach((caption) => {
+                    let subtitleUrl = invidiousInstance + caption.url;
 
-                  videoHtml = videoHtml + '<track kind="subtitles" src="' + subtitleUrl + '" srclang="' + caption.languageCode + '" label="' + caption.label + '">';
-              });
+                    videoHtml = videoHtml + '<track kind="subtitles" src="' + subtitleUrl + '" srclang="' + caption.languageCode + '" label="' + caption.label + '">';
+                });
 
-              playerView.subtitleHtml = videoHtml;
-          }
+                playerView.subtitleHtml = videoHtml;
+            }
         }
 
         if (data.liveNow !== false) {
-          playerView.validLive = true;
-          playerView.videoLive = data.hlsUrl;
-          playerView.validDash = false;
-          playerView.playerSeen = true;
-          playerView.legacySeen = false;
+            playerView.validLive = true;
+            playerView.videoLive = data.hlsUrl;
+            playerView.validDash = false;
+            playerView.playerSeen = true;
+            playerView.legacySeen = false;
         }
 
         if (playlistId != '') {
@@ -442,7 +437,7 @@ function openMiniPlayer() {
     let videoPlayer;
     // Grabs whatever the HTML is for the current video player.  Done this way to grab
     // the HTML5 player (with varying qualities) as well as the YouTube embeded player.
-    if (typeof(player) !== 'undefined') {
+    if (typeof (player) !== 'undefined') {
         videoPlayer = player;
     } else {
         videoPlayer = $('.videoPlayer').get(0);
@@ -462,6 +457,132 @@ function openMiniPlayer() {
         autoHideMenuBar: true
     });
 
+    const template = [{
+            label: 'Quality',
+            submenu: [{
+                    label: '360p',
+                    click() {
+                        miniPlayer.webContents.send('play360p', '');
+                    }
+                },
+                {
+                    label: '720p',
+                    click() {
+                        miniPlayer.webContents.send('play720p', '');
+                    }
+                },
+                {
+                    label: 'Audio',
+                    click() {
+                        miniPlayer.webContents.send('playAudio', '');
+                    }
+                }
+            ]
+        },
+        {
+            label: 'Playback',
+            submenu: [{
+                    label: '0.25x',
+                    click() {
+                        miniPlayer.webContents.send('videoSpeed', 0.25);
+                    }
+                },
+                {
+                    label: '0.5x',
+                    click() {
+                        miniPlayer.webContents.send('videoSpeed', 0.5);
+                    }
+                },
+                {
+                    label: '0.75x',
+                    click() {
+                        miniPlayer.webContents.send('videoSpeed', 0.75);
+                    }
+                },
+                {
+                    label: '1x',
+                    click() {
+                        miniPlayer.webContents.send('videoSpeed', 1);
+                    }
+                },
+                {
+                    label: '1.25x',
+                    click() {
+                        miniPlayer.webContents.send('videoSpeed', 1.25);
+                    }
+                },
+                {
+                    label: '1.5x',
+                    click() {
+                        miniPlayer.webContents.send('videoSpeed', 1.5);
+                    }
+                },
+                {
+                    label: '1.75x',
+                    click() {
+                        miniPlayer.webContents.send('videoSpeed', 1.75);
+                    }
+                },
+                {
+                    label: '2x',
+                    click() {
+                        miniPlayer.webContents.send('videoSpeed', 2);
+                    }
+                },
+            ]
+        },
+        {
+            label: 'Loop',
+            submenu: [{
+                label: 'Toggle Loop',
+                click() {
+                  miniPlayer.webContents.send('videoLoop', '');
+                }
+            }]
+        },
+        {
+            label: 'View',
+            submenu: [{
+                    role: 'toggledevtools'
+                },
+                {
+                    type: 'separator'
+                },
+                {
+                    role: 'resetzoom'
+                },
+                {
+                    role: 'zoomin'
+                },
+                {
+                    role: 'zoomout'
+                },
+                {
+                    type: 'separator'
+                },
+                {
+                    role: 'togglefullscreen'
+                }
+            ]
+        },
+        {
+            role: 'window',
+            submenu: [{
+                    role: 'minimize'
+                },
+                {
+                    role: 'close'
+                }
+            ]
+        }
+    ];
+
+    const menu = electron.remote.Menu.buildFromTemplate(template);
+
+    if(playerView.legacySeen) {
+      miniPlayer.setMenu(menu);
+    }
+
     miniPlayer.loadURL(url.format({
         pathname: path.join(__dirname, '/templates/miniPlayer.html'),
         protocol: 'file:',
@@ -469,32 +590,42 @@ function openMiniPlayer() {
     }));
 
     miniPlayer.once('ready-to-show', () => {
-      miniPlayer.show();
+        miniPlayer.show();
 
-      let playerData = {
-        videoId: playerView.videoId,
-        video360p: playerView.video360p,
-        valid360p: playerView.valid360p,
-        video720p: playerView.video720p,
-        valid720p: playerView.valid720p,
-        videoAudio: playerView.videoAudio,
-        validAudio: playerView.validAudio,
-        videoDash: playerView.videoDash,
-        validDash: playerView.validDash,
-        videoLive: playerView.videoLive,
-        validLive: playerView.validLive,
-        subtitleHtml: playerView.subtitleHtml,
-        videoThumbnail: playerView.videoThumbnail,
-        defaultPlaybackRate: player.options.defaultSpeed,
-        quality: defaultQuality,
-        volume: player.volume,
-        currentTime: player.currentTime,
-        playerSeen: playerView.playerSeen,
-        legacySeen: playerView.legacySeen,
-        autoplay: autoplay,
-        enableSubtitles: settingsView.enableSubtitles,
-      };
-      miniPlayer.webContents.send('ping', playerData);
+        let videoPlayer
+
+        if (playerView.playerSeen) {
+            videoPlayer = player;
+        } else {
+            videoPlayer = $('.videoPlayer').get(0);
+        }
+
+        let playerData = {
+            videoId: playerView.videoId,
+            videoUrl: playerView.videoUrl,
+            video360p: playerView.video360p,
+            valid360p: playerView.valid360p,
+            video720p: playerView.video720p,
+            valid720p: playerView.valid720p,
+            videoAudio: playerView.videoAudio,
+            validAudio: playerView.validAudio,
+            videoDash: playerView.videoDash,
+            validDash: playerView.validDash,
+            videoLive: playerView.videoLive,
+            validLive: playerView.validLive,
+            subtitleHtml: playerView.subtitleHtml,
+            videoThumbnail: playerView.videoThumbnail,
+            defaultPlaybackRate: defaultPlaybackRate,
+            quality: defaultQuality,
+            volume: videoPlayer.volume,
+            currentTime: videoPlayer.currentTime,
+            playerSeen: playerView.playerSeen,
+            legacySeen: playerView.legacySeen,
+            autoplay: autoplay,
+            enableSubtitles: settingsView.enableSubtitles,
+            thumbnailInterval: playerView.thumbnailInterval,
+        };
+        miniPlayer.webContents.send('ping', playerData);
     });
 
     return;
@@ -555,7 +686,8 @@ function clickMiniPlayer(videoId) {
     youtubedlGetInfo(videoId, (data) => {
 
         let videoUrls = data.formats;
-        let videoThumbnail = data.player_response.videoDetails.thumbnail.thumbnails[data.player_response.videoDetails.thumbnail.thumbnails.length - 1].url;1553990400000
+        let videoThumbnail = data.player_response.videoDetails.thumbnail.thumbnails[data.player_response.videoDetails.thumbnail.thumbnails.length - 1].url;
+        1553990400000
 
         let dateString = new Date(data.published);
         dateString.setDate(dateString.getDate() + 1);
@@ -626,7 +758,7 @@ function checkDashSettings() {
     // Mediaelement.js for some reason calls onLoadStart() multiple times
     // This check is here to force checkVideoSettings to only run once.
     if (checkedSettings) {
-      return;
+        return;
     }
 
     checkedSettings = true;
@@ -636,193 +768,173 @@ function checkDashSettings() {
     let checkedDash = false;
     let parseDash = true;
     let quality = 'Auto';
-    let thumbnailInterval = 5;
 
-    if (playerView.lengthSeconds < 120) {
-      thumbnailInterval = 1;
-    }
-    else if (playerView.lengthSeconds < 300) {
-      thumbnailInterval = 2;
-    }
-    else if (playerView.lengthSeconds < 900) {
-      thumbnailInterval = 5;
-    }
-    else {
-      thumbnailInterval = 10;
-    }
+    let declarePlayer = function () {
+        if (!checkedDash) {
+            return;
+        }
 
-    let declarePlayer = function() {
-      if (!checkedDash) {
-        return;
-      }
-
-      if (playerView.validLive) {
-        quality = 'Live';
-      }
+        if (playerView.validLive) {
+            quality = 'Live';
+        }
 
         let player = new MediaElementPlayer('player', {
-          features: ['playpause', 'current', 'progress', 'duration', 'volume', 'stop', 'speed', 'quality', 'loop', 'tracks', 'fullscreen', 'timerailthumbnails'],
-          speeds: ['2', '1.75', '1.5', '1.25', '1', '0.75', '0.5', '0.25'],
-          renderers: ['native_dash', 'native_hls', 'html5'],
-          defaultSpeed: defaultPlaybackRate,
-          autoGenerate: true,
-          autoDash: true,
-          autoHLS: false,
-          qualityText: 'Quality',
-          defaultQuality: quality,
-          stretching: 'responsive',
-          startVolume: currentVolume,
-          timeRailThumbnailsSeconds: thumbnailInterval,
+            features: ['playpause', 'current', 'progress', 'duration', 'volume', 'stop', 'speed', 'quality', 'loop', 'tracks', 'fullscreen', 'timerailthumbnails'],
+            speeds: ['2', '1.75', '1.5', '1.25', '1', '0.75', '0.5', '0.25'],
+            renderers: ['native_dash', 'native_hls', 'html5'],
+            defaultSpeed: defaultPlaybackRate,
+            autoGenerate: true,
+            autoDash: true,
+            autoHLS: false,
+            qualityText: 'Quality',
+            defaultQuality: quality,
+            stretching: 'responsive',
+            startVolume: currentVolume,
+            timeRailThumbnailsSeconds: playerView.thumbnailInterval,
 
-          success: function(mediaElement, originalNode, instance) {
-            ft.log(mediaElement,originalNode,instance);
+            success: function (mediaElement, originalNode, instance) {
+                ft.log(mediaElement, originalNode, instance);
 
-            if (autoplay) {
-                instance.play();
-            };
+                if (autoplay) {
+                    instance.play();
+                };
 
-            window.setTimeout(() => {
-              if (enableSubtitles) {
-                instance.options.startLanguage = 'en';
-              };
-            }, 2000);
+                window.setTimeout(() => {
+                    if (enableSubtitles) {
+                        instance.options.startLanguage = 'en';
+                    };
+                }, 2000);
 
-            let initializeSettings = function() {
-              let qualityOptions = $('.mejs__qualities-selector-input').get();
+                let initializeSettings = function () {
+                    let qualityOptions = $('.mejs__qualities-selector-input').get();
 
-              if (qualityOptions.length < 2) {
-                // Other plugin hasn't finished making the qualities.  Let's try again in a moment.
+                    if (qualityOptions.length < 2) {
+                        // Other plugin hasn't finished making the qualities.  Let's try again in a moment.
 
-                window.setTimeout(initializeSettings, 500);
-                return;
-              }
+                        window.setTimeout(initializeSettings, 500);
+                        return;
+                    }
 
-              if (typeof(playerView.currentTime) !== 'undefined') {
-                instance.currentTime = playerView.currentTime;
-                playerView.currentTime = undefined;
-              }
+                    if (typeof (playerView.currentTime) !== 'undefined') {
+                        instance.currentTime = playerView.currentTime;
+                        playerView.currentTime = undefined;
+                    }
 
-              let selectedOption = false;
-              qualityOptions.reverse().forEach((option, index) => {
-                if (option.value === defaultQuality || option.value === defaultQuality + 'p') {
-                  option.click();
-                  selectedOption = true;
-                }
-              });
+                    let selectedOption = false;
+                    qualityOptions.reverse().forEach((option, index) => {
+                        if (option.value === defaultQuality || option.value === defaultQuality + 'p') {
+                            option.click();
+                            selectedOption = true;
+                        }
+                    });
 
-              if (selectedOption === false) {
-                // Assume user selected a higher quality as their default.  Select the highest option available.
-                ft.log('Quality not available.');
-                ft.log(qualityOptions.reverse()[0]);
+                    if (selectedOption === false) {
+                        // Assume user selected a higher quality as their default.  Select the highest option available.
+                        ft.log('Quality not available.');
+                        ft.log(qualityOptions.reverse()[0]);
 
-                qualityOptions.reverse()[0].click();
-              }
-            };
+                        qualityOptions.reverse()[0].click();
+                    }
+                };
 
-            initializeSettings();
-          },
+                initializeSettings();
+            },
 
-          error: function(error, originalNode, instance) {
-            ft.log(error);
-            ft.log(originalNode);
-            ft.log(instance);
-            showToast('There was an error with playing DASH formats.  Reverting to the legacy formats.');
-            checkedSettings = false;
-            playerView.currentTime = instance.currentTime;
-            playerView.legacyFormats();
-          }
+            error: function (error, originalNode, instance) {
+                ft.log(error);
+                ft.log(originalNode);
+                ft.log(instance);
+                showToast('There was an error with playing DASH formats.  Reverting to the legacy formats.');
+                checkedSettings = false;
+                playerView.currentTime = instance.currentTime;
+                playerView.legacyFormats();
+            }
         });
     };
 
     if (playerView.validDash !== false) {
-      validateUrl(playerView.videoDash, (valid) => {
-        playerView.validDash = valid;
+        validateUrl(playerView.videoDash, (valid) => {
+            playerView.validDash = valid;
+            checkedDash = true;
+            declarePlayer();
+        });
+    } else if (playerView.validLive !== false) {
         checkedDash = true;
         declarePlayer();
-      });
-    }
-    else if (playerView.validLive !==  false) {
-      checkedDash = true;
-      declarePlayer();
-    }
-    else {
-      playerView.legacyFormats();
+    } else {
+        playerView.legacyFormats();
     }
 
     return;
 }
 
 function checkLegacySettings() {
-  let player = document.getElementById('legacyPlayer');
+    let player = document.getElementById('legacyPlayer');
 
-  let checked720p = false;
-  let checked360p = false;
-  let checkedAudio = false;
+    let checked720p = false;
+    let checked360p = false;
+    let checkedAudio = false;
 
-  let declarePlayer = function() {
-    if (!checked720p || !checked360p || !checkedAudio) {
-      return;
+    let declarePlayer = function () {
+        if (!checked720p || !checked360p || !checkedAudio) {
+            return;
+        }
+
+        if (typeof (playerView.currentTime) !== 'undefined') {
+            player.currentTime = playerView.currentTime;
+            playerView.currentTime = undefined;
+        }
+
+        if (autoplay) {
+            player.play();
+        }
+
+        changeVideoSpeed(defaultPlaybackRate);
+    };
+
+    if (playerView.valid360p !== false) {
+        validateUrl(playerView.video360p, (valid) => {
+            playerView.valid360p = valid;
+            checked360p = true;
+            declarePlayer();
+        });
+    } else {
+        checked360p = true;
+        declarePlayer();
     }
 
-    if (typeof(playerView.currentTime) !== 'undefined') {
-      player.currentTime = playerView.currentTime;
-      playerView.currentTime = undefined;
+    if (playerView.valid720p !== false) {
+        validateUrl(playerView.video720p, (valid) => {
+            playerView.valid720p = valid;
+            checked720p = true;
+            declarePlayer();
+        });
+    } else {
+        checked720p = true;
+        declarePlayer();
     }
 
-    if (autoplay) {
-        player.play();
+    if (playerView.validAudio !== false) {
+        validateUrl(playerView.videoAudio, (valid) => {
+            playerView.validAudio = valid;
+            checkedAudio = true;
+            declarePlayer();
+        });
+    } else {
+        checkedAudio = true;
+        declarePlayer();
     }
 
-    changeVideoSpeed(defaultPlaybackRate);
-  };
-
-  if (playerView.valid360p !== false) {
-    validateUrl(playerView.video360p, (valid) => {
-      playerView.valid360p = valid;
-      checked360p = true;
-      declarePlayer();
-    });
-  }
-  else {
-    checked360p = true;
-    declarePlayer();
-  }
-
-  if (playerView.valid720p !== false) {
-    validateUrl(playerView.video720p, (valid) => {
-      playerView.valid720p = valid;
-      checked720p = true;
-      declarePlayer();
-    });
-  }
-  else {
-    checked720p = true;
-    declarePlayer();
-  }
-
-  if (playerView.validAudio !== false) {
-    validateUrl(playerView.videoAudio, (valid) => {
-      playerView.validAudio = valid;
-      checkedAudio = true;
-      declarePlayer();
-    });
-  }
-  else {
-    checkedAudio = true;
-    declarePlayer();
-  }
-
-  return;
+    return;
 }
 
 function playNextVideo() {
     let videoPlayer
 
     if (playerView.legacySeen) {
-      videoPlayer = $('.videoPlayer').get(0);
-    }
-    else {
-      videoPlayer = $('#player').get(0);
+        videoPlayer = $('.videoPlayer').get(0);
+    } else {
+        videoPlayer = $('#player').get(0);
     }
 
     if (videoPlayer.loop !== false || playerView.playlistSeen === false) {
@@ -858,19 +970,18 @@ function playNextVideo() {
  * @return {Void}
  */
 function changeVideoSpeed(speed) {
-  if (playerView.legacySeen) {
-    $('#currentSpeed').html(speed);
-    $('.videoPlayer').get(0).playbackRate = speed;
-  }
-  else {
-    let speedOptions = $('.mejs__speed-selector-input').get();
-    speedOptions.forEach((option, index) => {
-      if (option.value == speed) {
-        option.click();
-        player.playbackRate = speed;
-      }
-    });
-  }
+    if (playerView.legacySeen) {
+        $('#currentSpeed').html(speed);
+        $('.videoPlayer').get(0).playbackRate = speed;
+    } else {
+        let speedOptions = $('.mejs__speed-selector-input').get();
+        speedOptions.forEach((option, index) => {
+            if (option.value == speed) {
+                option.click();
+                player.playbackRate = speed;
+            }
+        });
+    }
 }
 
 /**
@@ -884,10 +995,9 @@ function changeVolume(amount) {
     let videoPlayer;
 
     if (playerView.legacySeen) {
-      videoPlayer = $('.videoPlayer').get(0);
-    }
-    else {
-      videoPlayer = $('#player').get(0);
+        videoPlayer = $('.videoPlayer').get(0);
+    } else {
+        videoPlayer = $('#player').get(0);
     }
 
     let volume = videoPlayer.volume;
@@ -910,10 +1020,9 @@ function changeVolume(amount) {
  */
 function changeDurationBySeconds(seconds) {
     if (playerView.legacySeen) {
-      $('#legacyPlayer').get(0).currentTime = $('#legacyPlayer').get(0).currentTime + seconds;
-    }
-    else {
-      player.currentTime = player.currentTime + seconds;
+        $('#legacyPlayer').get(0).currentTime = $('#legacyPlayer').get(0).currentTime + seconds;
+    } else {
+        player.currentTime = player.currentTime + seconds;
     }
 }
 
@@ -926,29 +1035,26 @@ function changeDurationBySeconds(seconds) {
  */
 function changeDurationByPercentage(percentage) {
     if (playerView.legacySeen) {
-      $('#legacyPlayer').get(0).currentTime = $('#legacyPlayer').get(0).duration * percentage;
-    }
-    else {
-      player.currentTime = player.duration * percentage;
+        $('#legacyPlayer').get(0).currentTime = $('#legacyPlayer').get(0).duration * percentage;
+    } else {
+        player.currentTime = player.duration * percentage;
     }
 }
 
 function changeDuration(seconds) {
-  if (playerView.legacySeen) {
-    $('#legacyPlayer').get(0).currentTime = seconds;
-  }
-  else {
-    player.currentTime = seconds;
-  }
+    if (playerView.legacySeen) {
+        $('#legacyPlayer').get(0).currentTime = seconds;
+    } else {
+        player.currentTime = seconds;
+    }
 }
 
 function updateVolume() {
-  if (playerView.legacySeen) {
-    currentVolume = $('#legacyPlayer').get(0).volume
-  }
-  else {
-    currentVolume = player.volume
-  }
+    if (playerView.legacySeen) {
+        currentVolume = $('#legacyPlayer').get(0).volume
+    } else {
+        currentVolume = player.volume
+    }
 }
 
 function parseDescription(descriptionText) {
