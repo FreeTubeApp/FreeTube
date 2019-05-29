@@ -800,8 +800,9 @@ function checkDashSettings() {
                 };
 
                 window.setTimeout(() => {
-                    if (enableSubtitles) {
-                        instance.options.startLanguage = 'en';
+                    if (enableSubtitles && typeof($('.mejs__captions-button').get(0)) !== 'undefined') {
+                        let captionOptions = $('.mejs__captions-selector-input').get();
+                        captionOptions[1].click();
                     };
                 }, 2000);
 
@@ -887,6 +888,10 @@ function checkLegacySettings() {
 
         if (autoplay) {
             player.play();
+        }
+
+        if (enableSubtitles) {
+          player.textTracks[0].mode = 'showing'
         }
 
         changeVideoSpeed(defaultPlaybackRate);

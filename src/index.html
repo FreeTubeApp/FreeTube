@@ -44,8 +44,8 @@
     <i v-on:click='back' v-if="canShowBackButton" class="fas fa-arrow-left" id="backButton"></i>
     <div class="searchBar">
       <input id='search' class="search" type="text" placeholder="Search / Go to URL">
-      <span class='searchButton' onclick='parseSearchText()'><i class="fas fa-arrow-right" style='position: relative; right: 30px; cursor: pointer'></i></span>
-      <span class='filterButton' onclick='searchFilter.seen = !searchFilter.seen'><i class="fas fa-filter" style='margin-right: -10px; cursor: pointer'></i></span>
+      <span class='searchButton' onclick='parseSearchText()'><i class="fas fa-arrow-right" style='position: relative; right: 30px; cursor: pointer' title='Search'></i></span>
+      <span class='filterButton' onclick='searchFilter.seen = !searchFilter.seen'><i class="fas fa-filter" style='margin-right: -10px; cursor: pointer' title='Filter'></i></span>
     </div>
     <img src='icons/iconBlackSmall.png' id='menuIcon' /> &nbsp;
     <img src='icons/textBlackSmall.png' id='menuText' />
@@ -139,6 +139,7 @@
 <script src="js/playlist.js"></script>
 <script src="js/events.js"></script>
 
+<!--<script src="js/hls.min.js"></script>-->
 <script src="js/mediaelement-and-player.js"></script>
 <script src="js/plugins/quality/quality.js"></script>
 <script src="js/plugins/quality/quality-i18n.js"></script>

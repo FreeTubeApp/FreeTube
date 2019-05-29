@@ -150,11 +150,23 @@ let videoShortcutHandler = function (event) {
             break;
         case 67:
             // C Key
-            let subtitleMode = $('.videoPlayer').get(0).textTracks[0].mode;
-            if (subtitleMode === 'hidden') {
-                $('.videoPlayer').get(0).textTracks[0].mode = 'showing'
-            } else {
-                $('.videoPlayer').get(0).textTracks[0].mode = 'hidden'
+            if (playerView.legacySeen) {
+              let subtitleMode = videoPlayer.textTracks[0].mode;
+              if (subtitleMode === 'hidden') {
+                videoPlayer.textTracks[0].mode = 'showing'
+              } else {
+                videoPlayer.textTracks[0].mode = 'hidden'
+              }
+            }
+            else {
+              let captionOptions = $('.mejs__captions-selector-input').get();
+
+              if (!captionOptions[0].labels[0].className.includes('mejs__captions-selected')) {
+                captionOptions[0].click();
+              }
+              else {
+               captionOptions[1].click();
+              }
             }
             break;
         case 38:

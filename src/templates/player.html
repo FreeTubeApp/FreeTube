@@ -4,10 +4,9 @@
             <source v-if='validDash' data-quality='Auto' type="application/dash+xml" :src="videoDash" />
             <source v-if='validLive' data-quality='Live' type="application/x-mpegURL" :src="videoLive" />
             <span v-html="subtitleHtml"></span>
-            <track kind="metadata" srclang='' class="time-rail-thumbnails" :src="'https://invidio.us/api/v1/storyboards/' + videoId + '?height=90'"></track>
+            <track kind="metadata" srclang='' class="time-rail-thumbnails" :src="storyBoardUrl"></track>
         </video>
-        <!--<video class="videoPlayer" id='videoPlayer' type="application/x-mpegURL" object-fit='cover' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" onloadstart='checkVideoSettings()' onvolumechange='updateVolume()' controls="" onended='playNextVideo()' :src='videoUrl' :poster="videoThumbnail" v-html="subtitleHtml">
-    </video>-->
+
     </div>
     <div v-else-if='!playerSeen && legacySeen'>
         <video id='legacyPlayer' class='videoPlayer' onloadstart='checkLegacySettings()' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" :poster="videoThumbnail" onended='playNextVideo()' onvolumechange='updateVolume()' :src='videoUrl' controls="controls" v-html="subtitleHtml">

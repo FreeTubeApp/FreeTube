@@ -325,13 +325,12 @@
         <div id="ipInfoSettings" v-if="checkProxyResult">
             <h4>Your Info:</h4>
             <p>ip: {{checkProxyResult.ip}}</p>
-            <p>ip_decimal: {{checkProxyResult.ip_decimal}}</p>
             <p>country: {{checkProxyResult.country}}</p>
             <p>city: {{checkProxyResult.city || "N/A"}}</p>
             <p>hostname: {{checkProxyResult.hostname || "N/A"}}</p>
         </div>
 
-        <p>Clicking "TEST PROXY" button will send a request to https://ifconfig.co/json</p>
+        <p>Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json</p>
         <div v-on:click='checkProxy' class='center settingsButton'>
             {{proxyTestButtonText}}
         </div>

@@ -400,7 +400,7 @@ let settingsView = new Vue({
 
       proxyRequest(() => {
         $.ajax({
-          url: "https://ipinfo.io",
+          url: "https://ipinfo.io/json",
           dataType: 'json',
         }).done(response => {
           console.log(response);
@@ -703,6 +703,9 @@ let playerView = new Vue({
       } else {
           return 10;
       }
+    },
+    storyBoardUrl: function() {
+      return invidiousInstance + '/api/v1/storyboards/' + this.videoId + '?height=90';
     }
   },
   template: playerTemplate
