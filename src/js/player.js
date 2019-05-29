@@ -820,7 +820,7 @@ function clickMiniPlayer(videoId) {
 
             ft.log(historyData);
             addToHistory(historyData);
-        }*?
+        }*/
     });
 
     return;
