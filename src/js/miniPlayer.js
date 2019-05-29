@@ -125,10 +125,11 @@ function checkDashSettings() {
             };
 
             window.setTimeout(() => {
-              if (miniPlayerView.enableSubtitles) {
-                instance.options.startLanguage = 'en';
-              };
-            }, 2000);
+                    if (miniPlayerView.enableSubtitles && typeof($('.mejs__captions-button').get(0)) !== 'undefined') {
+                        let captionOptions = $('.mejs__captions-selector-input').get();
+                        captionOptions[1].click();
+                    };
+                }, 2000);
 
             let initializeSettings = function() {
               let qualityOptions = $('.mejs__qualities-selector-input').get();
@@ -214,6 +215,10 @@ function checkLegacySettings() {
 
     if (miniPlayerView.autoplay) {
         legacyPlayer.play();
+    }
+
+    if (miniPlayerView.enableSubtitles) {
+          legacyPlayer.textTracks[0].mode = 'showing';
     }
 
     changeVideoSpeed(miniPlayerView.defaultPlaybackRate);
