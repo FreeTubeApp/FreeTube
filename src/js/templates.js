@@ -810,8 +810,10 @@ function hideViews() {
 
     let videoIndex = subscriptionView.videoList.findIndex(x => x.id === playerView.videoId);
 
-    subscriptionView.videoList[videoIndex].watched = true;
-    subscriptionView.videoList[videoIndex].progressPercentage = (lengthSeconds / duration) * 100;
+    if (videoIndex !== -1) {
+      subscriptionView.videoList[videoIndex].watched = true;
+      subscriptionView.videoList[videoIndex].progressPercentage = (lengthSeconds / duration) * 100;
+    }
   }
 
   subscriptionView.seen = false;
