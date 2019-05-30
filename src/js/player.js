@@ -696,7 +696,31 @@ function clickMiniPlayer(videoId) {
             autoHideMenuBar: true
         });
 
-        const template = [{
+        const template = [
+        {
+          label: 'Player',
+          submenu: [
+            {
+              label: 'Dash Player',
+              click() {
+                miniPlayer.webContents.send('dashPlayer', '');
+              },
+            },
+            {
+              label: 'Legacy Player',
+              click() {
+                miniPlayer.webContents.send('legacyPlayer', '');
+              },
+            },
+                        {
+              label: 'YouTube Player',
+              click() {
+                miniPlayer.webContents.send('youtubePlayer', '');
+              },
+            },
+          ],
+        },
+        {
             label: 'Quality',
             submenu: [{
                     label: '360p',

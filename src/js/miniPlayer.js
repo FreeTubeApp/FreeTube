@@ -55,16 +55,16 @@ let miniPlayerView = new Vue({
   },
   methods: {
     legacyFormats: () => {
-      this.legacySeen = true;
-      this.playerSeen = false;
+      miniPlayerView.legacySeen = true;
+      miniPlayerView.playerSeen = false;
     },
     dashFormats: () => {
-      this.legacySeen = false;
-      this.playerSeen = true;
+      miniPlayerView.legacySeen = false;
+      miniPlayerView.playerSeen = true;
     },
     embedPlayer: () => {
-      this.legacySeen = false;
-      this.playerSeen = false;
+      miniPlayerView.legacySeen = false;
+      miniPlayerView.playerSeen = false;
     }
   },
 });
@@ -422,6 +422,18 @@ electron.ipcRenderer.on('videoLoop', function(event, message) {
   let videoPlayer = $('.videoPlayer').get(0);
 
   videoPlayer.loop = !videoPlayer.loop;
+});
+
+electron.ipcRenderer.on('dashPlayer', function(event, message) {
+  miniPlayerView.dashFormats();
+});
+
+electron.ipcRenderer.on('legacyPlayer', function(event, message) {
+  miniPlayerView.legacyFormats();
+});
+
+electron.ipcRenderer.on('youtubePlayer', function(event, message) {
+  miniPlayerView.embedPlayer();
 });
 
 window.onbeforeunload = (e) => {
