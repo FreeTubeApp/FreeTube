@@ -324,10 +324,11 @@
 
         <div id="ipInfoSettings" v-if="checkProxyResult">
             <h4>Your Info:</h4>
-            <p>ip: {{checkProxyResult.ip}}</p>
-            <p>country: {{checkProxyResult.country}}</p>
-            <p>city: {{checkProxyResult.city || "N/A"}}</p>
-            <p>hostname: {{checkProxyResult.hostname || "N/A"}}</p>
+            <p>Ip: {{checkProxyResult.ip}}</p>
+            <p>Country: {{checkProxyResult.country}}</p>
+            <p>Region: {{checkProxyResult.region}}</p>
+            <p>City: {{checkProxyResult.city || "N/A"}}</p>
+            <p>Hostname: {{checkProxyResult.hostname || "N/A"}}</p>
         </div>
 
         <p>Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json</p>

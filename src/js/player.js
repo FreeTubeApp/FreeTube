@@ -401,25 +401,34 @@ function playVideo(videoId, playlistId = '') {
         }
 
         if (rememberHistory === true) {
-            let historyData = {
-                videoId: videoId,
-                published: data.published,
-                publishedText: playerView.publishedDate,
-                description: data.description,
-                viewCount: data.viewCount,
-                title: playerView.videoTitle,
-                lengthSeconds: data.lengthSeconds,
-                videoThumbnails: playerView.videoThumbnail,
-                author: playerView.channelName,
-                authorId: playerView.channelId,
-                liveNow: false,
-                paid: false,
-                type: 'video',
-                timeWatched: new Date().getTime(),
-            };
+            historyDb.findOne({ videoId: playerView.videoId }, function (err, doc) {
+                let watchProgress = 0;
 
-            ft.log(historyData);
-            addToHistory(historyData);
+                if(doc !== null) {
+                    watchProgress = doc.watchProgress;
+                }
+
+                let historyData = {
+                    videoId: videoId,
+                    published: data.published,
+                   publishedText: playerView.publishedDate,
+                    description: data.description,
+                   viewCount: data.viewCount,
+                   title: playerView.videoTitle,
+                   lengthSeconds: data.lengthSeconds,
+                   videoThumbnails: playerView.videoThumbnail,
+                   author: playerView.channelName,
+                   authorId: playerView.channelId,
+                   liveNow: false,
+                   paid: false,
+                   type: 'video',
+                   timeWatched: new Date().getTime(),
+                   watchProgress: watchProgress,
+               };
+
+               ft.log(historyData);
+               addToHistory(historyData);
+            });
         }
     });
 }
@@ -457,7 +466,31 @@ function openMiniPlayer() {
         autoHideMenuBar: true
     });
 
-    const template = [{
+    const template = [
+        {
+          label: 'Player',
+          submenu: [
+            {
+              label: 'Dash Player',
+              click() {
+                miniPlayer.webContents.send('dashPlayer', '');
+              },
+            },
+            {
+              label: 'Legacy Player',
+              click() {
+                miniPlayer.webContents.send('legacyPlayer', '');
+              },
+            },
+                        {
+              label: 'YouTube Player',
+              click() {
+                miniPlayer.webContents.send('youtubePlayer', '');
+              },
+            },
+          ],
+        },
+        {
             label: 'Quality',
             submenu: [{
                     label: '360p',
@@ -579,9 +612,7 @@ function openMiniPlayer() {
 
     const menu = electron.remote.Menu.buildFromTemplate(template);
 
-    if(playerView.legacySeen) {
-      miniPlayer.setMenu(menu);
-    }
+    miniPlayer.setMenu(menu);
 
     miniPlayer.loadURL(url.format({
         pathname: path.join(__dirname, '/templates/miniPlayer.html'),
@@ -1051,10 +1082,17 @@ function checkDashSettings() {
                         return;
                     }
 
-                    if (typeof (playerView.currentTime) !== 'undefined') {
-                        instance.currentTime = playerView.currentTime;
-                        playerView.currentTime = undefined;
-                    }
+                    historyDb.findOne({ videoId: playerView.videoId }, function (err, doc) {
+                      if(doc !== null) {
+                        if (typeof (playerView.currentTime) !== 'undefined') {
+                            instance.currentTime = playerView.currentTime;
+                            playerView.currentTime = undefined;
+                        }
+                        else if (doc.watchProgress < instance.duration - 5) {
+                          instance.currentTime = doc.watchProgress;
+                        }
+                      }
+                    });
 
                     let selectedOption = false;
                     qualityOptions.reverse().forEach((option, index) => {
@@ -1105,7 +1143,7 @@ function checkDashSettings() {
 }
 
 function checkLegacySettings() {
-    let player = document.getElementById('legacyPlayer');
+    let player = $('.videoPlayer').get(0);
 
     let checked720p = false;
     let checked360p = false;
@@ -1118,12 +1156,23 @@ function checkLegacySettings() {
 
         if (typeof (playerView.currentTime) !== 'undefined') {
             player.currentTime = playerView.currentTime;
-            playerView.currentTime = undefined;
         }
 
         if (autoplay) {
             player.play();
         }
+
+        window.setTimeout(() => {
+          historyDb.findOne({ videoId: playerView.videoId }, function (err, doc) {
+            if(doc !== null) {
+               if (doc.watchProgress < player.duration - 5 && typeof (playerView.currentTime) === 'undefined') {
+                 player.currentTime = doc.watchProgress;
+               }
+
+               playerView.currentTime = undefined;
+            }
+          });
+        }, 400);
 
         if (enableSubtitles) {
           player.textTracks[0].mode = 'showing'
@@ -1320,3 +1369,20 @@ function parseDescription(descriptionText) {
 
     return descriptionText;
 }
+
+window.onbeforeunload = (e) => {
+  if (playerView.seen === false) {
+    return;
+  }
+
+  let lengthSeconds = 0;
+
+  if (playerView.legacySeen === false) {
+    lengthSeconds = player.currentTime;
+  }
+  else {
+    lengthSeconds = $('.videoPlayer').get(0).currentTime;
+  }
+
+  updateWatchProgress(playerView.videoId, lengthSeconds);
+};

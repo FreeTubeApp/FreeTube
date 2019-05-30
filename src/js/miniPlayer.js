@@ -52,7 +52,21 @@ let miniPlayerView = new Vue({
     autoplay: true,
     enableSubtitles: false,
     thumbnailInterval: 5,
-  }
+  },
+  methods: {
+    legacyFormats: () => {
+      this.legacySeen = true;
+      this.playerSeen = false;
+    },
+    dashFormats: () => {
+      this.legacySeen = false;
+      this.playerSeen = true;
+    },
+    embedPlayer: () => {
+      this.legacySeen = false;
+      this.playerSeen = false;
+    }
+  },
 });
 
 /**
@@ -170,7 +184,6 @@ function checkDashSettings() {
             ft.log(error);
             ft.log(originalNode);
             ft.log(instance);
-            showToast('There was an error with playing DASH formats.  Reverting to the legacy formats.');
             checkedSettings = false;
             miniPlayerView.currentTime = instance.currentTime;
             miniPlayerView.legacyFormats();
@@ -348,7 +361,7 @@ electron.ipcRenderer.on('ping', function(event, message) {
 });
 
 electron.ipcRenderer.on('play360p', function(event, message) {
-  if (!miniPlayerView.valid360p) {
+  if (miniPlayerView.valid360p === false || miniPlayerView.legacySeen === false) {
     return;
   }
 
@@ -366,7 +379,7 @@ electron.ipcRenderer.on('play360p', function(event, message) {
 });
 
 electron.ipcRenderer.on('play720p', function(event, message) {
-  if (!miniPlayerView.valid720p) {
+  if (miniPlayerView.valid720p === false || miniPlayerView.legacySeen === false) {
     return;
   }
 
@@ -384,7 +397,7 @@ electron.ipcRenderer.on('play720p', function(event, message) {
 });
 
 electron.ipcRenderer.on('playAudio', function(event, message) {
-  if (!miniPlayerView.validAudio) {
+  if (miniPlayerView.validAudio === false || miniPlayerView.legacySeen === false) {
     return;
   }
 
@@ -410,3 +423,16 @@ electron.ipcRenderer.on('videoLoop', function(event, message) {
 
   videoPlayer.loop = !videoPlayer.loop;
 });
+
+window.onbeforeunload = (e) => {
+  let lengthSeconds = 0;
+
+  if (miniPlayerView.legacySeen === false) {
+    lengthSeconds = player.currentTime;
+  }
+  else {
+    lengthSeconds = $('.videoPlayer').get(0).currentTime;
+  }
+
+  updateWatchProgress(miniPlayerView.videoId, lengthSeconds);
+};

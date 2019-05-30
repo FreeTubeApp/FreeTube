@@ -46,6 +46,7 @@ function addToHistory(data){
           videoThumbnails: data.videoThumbnails,
           type: 'video',
           timeWatched: data.timeWatched,
+          watchProgress: data.watchProgress,
         }, {}, (err, newDoc) => {});
     }
   });
@@ -65,6 +66,27 @@ function removeFromHistory(videoId, toast = true){
       if (!err) {
         showToast('Video removed from history');
       }
+    }
+  });
+}
+
+/**
+* Update the watch progress video from the history database file
+*
+* @param {string} videoId - The video ID of the video to be removed.
+*
+* @param {double} lengthSeconds - The amount of time the video has been watched in seconds.
+*
+* @return {Void}
+*/
+function updateWatchProgress(videoId, lengthSeconds){
+  historyDb.findOne({ videoId: videoId }, function (err, doc) {
+    if(doc !== null) {
+      historyDb.update(
+        { videoId: videoId },
+        {
+          $set: { watchProgress: lengthSeconds }
+        }, {}, (err, newDoc) => {});
     }
   });
 }
@@ -103,6 +125,7 @@ function showHistory(){
                 paid: false,
                 type: 'video',
                 timeWatched: video.timeWatched,
+                watchProgress: 0,
               };
               addToHistory(videoData);
               videoData.position = index;

@@ -108,13 +108,14 @@ function displayVideo(videoData, listType = '') {
       video.isPlaylist = true;
     }
 
-    historyDb.find({
+    historyDb.findOne({
         videoId: video.id
     }, (err, docs) => {
         if (jQuery.isEmptyObject(docs)) {
-            // Do nothing
+            video.progressPercentage = 0;
         } else {
             video.watched = true;
+            video.progressPercentage = (docs.watchProgress / videoData.lengthSeconds) * 100;
         }
 
         video.views = videoData.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

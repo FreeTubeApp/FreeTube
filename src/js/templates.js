@@ -174,8 +174,13 @@ let subscriptionView = new Vue({
     toggleSave: (videoId) => {
       addSavedVideo(videoId);
     },
-    copy: (site, videoId) => {
-      const url = 'https://' + site + '/watch?v=' + videoId;
+    copyYouTube: (videoId) => {
+      const url = 'https://youtube.com/watch?v=' + videoId;
+      clipboard.writeText(url);
+      showToast('URL has been copied to the clipboard');
+    },
+    copyInvidious: (videoId) => {
+      const url = invidiousInstance + '/watch?v=' + videoId;
       clipboard.writeText(url);
       showToast('URL has been copied to the clipboard');
     },
@@ -208,8 +213,13 @@ let popularView = new Vue({
     toggleSave: (videoId) => {
       addSavedVideo(videoId);
     },
-    copy: (site, videoId) => {
-      const url = 'https://' + site + '/watch?v=' + videoId;
+    copyYouTube: (videoId) => {
+      const url = 'https://youtube.com/watch?v=' + videoId;
+      clipboard.writeText(url);
+      showToast('URL has been copied to the clipboard');
+    },
+    copyInvidious: (videoId) => {
+      const url = invidiousInstance + '/watch?v=' + videoId;
       clipboard.writeText(url);
       showToast('URL has been copied to the clipboard');
     },
@@ -241,8 +251,13 @@ let trendingView = new Vue({
     toggleSave: (videoId) => {
       addSavedVideo(videoId);
     },
-    copy: (site, videoId) => {
-      const url = 'https://' + site + '/watch?v=' + videoId;
+    copyYouTube: (videoId) => {
+      const url = 'https://youtube.com/watch?v=' + videoId;
+      clipboard.writeText(url);
+      showToast('URL has been copied to the clipboard');
+    },
+    copyInvidious: (videoId) => {
+      const url = invidiousInstance + '/watch?v=' + videoId;
       clipboard.writeText(url);
       showToast('URL has been copied to the clipboard');
     },
@@ -274,8 +289,13 @@ let savedView = new Vue({
     toggleSave: (videoId) => {
       toggleSavedVideo(videoId);
     },
-    copy: (site, videoId) => {
-      const url = 'https://' + site + '/watch?v=' + videoId;
+    copyYouTube: (videoId) => {
+      const url = 'https://youtube.com/watch?v=' + videoId;
+      clipboard.writeText(url);
+      showToast('URL has been copied to the clipboard');
+    },
+    copyInvidious: (videoId) => {
+      const url = invidiousInstance + '/watch?v=' + videoId;
       clipboard.writeText(url);
       showToast('URL has been copied to the clipboard');
     },
@@ -307,8 +327,13 @@ let historyView = new Vue({
     toggleSave: (videoId) => {
       addSavedVideo(videoId);
     },
-    copy: (site, videoId) => {
-      const url = 'https://' + site + '/watch?v=' + videoId;
+    copyYouTube: (videoId) => {
+      const url = 'https://youtube.com/watch?v=' + videoId;
+      clipboard.writeText(url);
+      showToast('URL has been copied to the clipboard');
+    },
+    copyInvidious: (videoId) => {
+      const url = invidiousInstance + '/watch?v=' + videoId;
       clipboard.writeText(url);
       showToast('URL has been copied to the clipboard');
     },
@@ -352,8 +377,13 @@ let playlistView = new Vue({
     toggleSave: (videoId) => {
       addSavedVideo(videoId);
     },
-    copy: (site, videoId) => {
-      const url = 'https://' + site + '/watch?v=' + videoId;
+    copyYouTube: (videoId) => {
+      const url = 'https://youtube.com/watch?v=' + videoId;
+      clipboard.writeText(url);
+      showToast('URL has been copied to the clipboard');
+    },
+    copyInvidious: (videoId) => {
+      const url = invidiousInstance + '/watch?v=' + videoId;
       clipboard.writeText(url);
       showToast('URL has been copied to the clipboard');
     },
@@ -450,8 +480,13 @@ let searchView = new Vue({
     toggleSave: (videoId) => {
       addSavedVideo(videoId);
     },
-    copy: (site, videoId) => {
-      const url = 'https://' + site + '/watch?v=' + videoId;
+    copyYouTube: (videoId) => {
+      const url = 'https://youtube.com/watch?v=' + videoId;
+      clipboard.writeText(url);
+      showToast('URL has been copied to the clipboard');
+    },
+    copyInvidious: (videoId) => {
+      const url = invidiousInstance + '/watch?v=' + videoId;
       clipboard.writeText(url);
       showToast('URL has been copied to the clipboard');
     },
@@ -519,8 +554,13 @@ let channelVideosView = new Vue({
     nextPage: () => {
       channelNextPage();
     },
-    copy: (site, videoId) => {
-      const url = 'https://' + site + '/watch?v=' + videoId;
+    copyYouTube: (videoId) => {
+      const url = 'https://youtube.com/watch?v=' + videoId;
+      clipboard.writeText(url);
+      showToast('URL has been copied to the clipboard');
+    },
+    copyInvidious: (videoId) => {
+      const url = invidiousInstance + '/watch?v=' + videoId;
       clipboard.writeText(url);
       showToast('URL has been copied to the clipboard');
     },
@@ -752,7 +792,28 @@ let backButtonView = new Vue({
   },
 });
 
-function hideViews(){
+function hideViews() {
+  if (playerView.seen !== false) {
+    let lengthSeconds = 0;
+    let duration = 0;
+
+    if (playerView.legacySeen === false) {
+      lengthSeconds = player.currentTime;
+      duration = player.duration;
+    }
+    else {
+      lengthSeconds = $('.videoPlayer').get(0).currentTime;
+      duration = $('.videoPlayer').get(0).duration;
+    }
+
+    updateWatchProgress(playerView.videoId, lengthSeconds);
+
+    let videoIndex = subscriptionView.videoList.findIndex(x => x.id === playerView.videoId);
+
+    subscriptionView.videoList[videoIndex].watched = true;
+    subscriptionView.videoList[videoIndex].progressPercentage = (lengthSeconds / duration) * 100;
+  }
+
   subscriptionView.seen = false;
   noSubscriptions.seen = false;
   aboutView.seen = false;
@@ -767,6 +828,5 @@ function hideViews(){
   playerView.seen = false;
   channelView.seen = false;
   channelVideosView.seen = false;
-
   backButtonView.lastView = false;
 }

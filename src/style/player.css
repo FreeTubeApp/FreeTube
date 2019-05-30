@@ -148,7 +148,7 @@ iframe {
 .videoDuration {
     float: right;
     position: relative;
-    bottom: 36px;
+    bottom: 40px;
     color: white;
     background-color: black;
     opacity: 0.7;
@@ -166,6 +166,14 @@ iframe {
   bottom: 187px;
   opacity: 0.4;
   pointer-events: none;
+}
+
+.watchedProgressBar {
+  background-color: #f44336;
+  height: 3px;
+  position: relative;
+  bottom: 190px;
+  opacity: 0.8;
 }
 
 .videoPlaylist {
