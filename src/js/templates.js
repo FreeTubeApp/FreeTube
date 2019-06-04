@@ -426,7 +426,7 @@ let settingsView = new Vue({
     checkProxy() {
       this.checkProxyResult = false;
       this.proxyTestLoading = true;
-      electron.ipcRenderer.send("setProxy", this.proxyAddress)
+      electron.ipcRenderer.send("setProxy", this.proxyAddress);
 
       proxyRequest(() => {
         $.ajax({

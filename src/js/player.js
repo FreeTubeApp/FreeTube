@@ -1071,7 +1071,7 @@ function checkDashSettings() {
         let player = new MediaElementPlayer('player', {
             features: ['playpause', 'current', 'progress', 'duration', 'volume', 'stop', 'speed', 'quality', 'loop', 'tracks', 'fullscreen', 'timerailthumbnails'],
             speeds: ['2', '1.75', '1.5', '1.25', '1', '0.75', '0.5', '0.25'],
-            renderers: ['native_dash', 'native_hls', 'html5'],
+            renderers: ['native_dash', 'native_hls', 'native_flv', 'html5'],
             defaultSpeed: defaultPlaybackRate,
             autoGenerate: true,
             autoDash: true,
@@ -1092,7 +1092,9 @@ function checkDashSettings() {
                 window.setTimeout(() => {
                     if (enableSubtitles && typeof($('.mejs__captions-button').get(0)) !== 'undefined') {
                         let captionOptions = $('.mejs__captions-selector-input').get();
-                        captionOptions[1].click();
+                        if (captionOptions.length > 1) {
+                          captionOptions[1].click();
+                        }
                     };
                 }, 2000);
 
@@ -1199,7 +1201,7 @@ function checkLegacySettings() {
         }, 400);
 
         if (enableSubtitles) {
-          player.textTracks[0].mode = 'showing'
+          player.textTracks[0].mode = 'showing';
         }
 
         changeVideoSpeed(defaultPlaybackRate);
@@ -1395,6 +1397,8 @@ function parseDescription(descriptionText) {
 }
 
 window.onbeforeunload = (e) => {
+  electron.ipcRenderer.send("setBounds", '');
+
   if (playerView.seen === false) {
     return;
   }

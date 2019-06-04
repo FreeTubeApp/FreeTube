@@ -73,10 +73,34 @@ if (require('electron-squirrel-startup')) app.quit();
 let init = function () {
     const Menu = require('electron').Menu;
 
+    let winX, winY, winWidth, winHeight = null;
+    //let winWidth = 1200;
+    //let winHeight = 800;
+
     win = new BrowserWindow({
-        width: 1200,
-        height: 800,
         autoHideMenuBar: true
+    });
+
+    settingsDb.findOne({
+        _id: 'bounds'
+    }, function (err, doc) {
+        if (doc !== null) {
+            winX = doc.value.x;
+            winY = doc.value.y;
+            winWidth = doc.value.width;
+            winHeight = doc.value.height;
+        }
+        else {
+          winWidth = 1200;
+          winHeight = 800;
+        }
+
+        win.setBounds({
+          x: winX,
+          y: winY,
+          width: winWidth,
+          height: winHeight,
+        });
     });
 
     settingsDb.find({_id: 'useTor'}, (err, docs) => {
@@ -203,6 +227,22 @@ let init = function () {
         win.webContents.session.setProxy({ proxyRules: data }, function () {
             win.webContents.send("proxyAvailable")
         });
+    });
+
+
+    ipcMain.on("setBounds", (_e, data) => {
+      let bounds = win.getBounds();
+
+      settingsDb.findOne({ _id: 'bounds' }, function (err, doc) {
+         if(doc !== null) {
+           settingsDb.update({ _id: 'bounds' },
+           { $set: { value: bounds }},
+           {}, (err, newDoc) => {});
+         }
+         else {
+           settingsDb.insert({_id: 'bounds', value: bounds,});
+         }
+      });
     });
 };
 
