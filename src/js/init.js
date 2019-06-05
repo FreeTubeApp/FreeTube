@@ -78,29 +78,17 @@ let init = function () {
     //let winHeight = 800;
 
     win = new BrowserWindow({
+        width: 1200,
+        height: 800,
         autoHideMenuBar: true
     });
 
     settingsDb.findOne({
         _id: 'bounds'
     }, function (err, doc) {
-        if (doc !== null) {
-            winX = doc.value.x;
-            winY = doc.value.y;
-            winWidth = doc.value.width;
-            winHeight = doc.value.height;
+        if (docs.value !== false) {
+          win.setBounds(doc.value);
         }
-        else {
-          winWidth = 1200;
-          winHeight = 800;
-        }
-
-        win.setBounds({
-          x: winX,
-          y: winY,
-          width: winWidth,
-          height: winHeight,
-        });
     });
 
     settingsDb.find({_id: 'useTor'}, (err, docs) => {

@@ -55,19 +55,19 @@ function playVideo(videoId, playlistId = '') {
     let player;
 
     switch (defaultPlayer) {
-    case 'dash':
-        playerView.playerSeen = true;
-        playerView.legacySeen = false;
-        break;
-    case 'legacy':
-        playerView.playerSeen = false;
-        playerView.legacySeen = true;
-        break;
-    case 'embed':
-        playerView.playerSeen = false;
-        playerView.legacySeen = false;
-        break;
-    default:
+        case 'dash':
+            playerView.playerSeen = true;
+            playerView.legacySeen = false;
+            break;
+        case 'legacy':
+            playerView.playerSeen = false;
+            playerView.legacySeen = true;
+            break;
+        case 'embed':
+            playerView.playerSeen = false;
+            playerView.legacySeen = false;
+            break;
+        default:
 
     }
 
@@ -118,14 +118,14 @@ function playVideo(videoId, playlistId = '') {
                 // Search through the returned object to get the 360p and 720p video URLs (If available)
                 Object.keys(videoUrls).forEach((key) => {
                     switch (videoUrls[key]['itag']) {
-                    case '18':
-                        playerView.video360p = decodeURIComponent(videoUrls[key]['url']);
-                        // ft.log(playerView.video360p);
-                        break;
-                    case '22':
-                        playerView.video720p = decodeURIComponent(videoUrls[key]['url']);
-                        // ft.log(playerView.video720p);
-                        break;
+                        case '18':
+                            playerView.video360p = decodeURIComponent(videoUrls[key]['url']);
+                            // ft.log(playerView.video360p);
+                            break;
+                        case '22':
+                            playerView.video720p = decodeURIComponent(videoUrls[key]['url']);
+                            // ft.log(playerView.video720p);
+                            break;
                     }
                 });
 
@@ -137,7 +137,7 @@ function playVideo(videoId, playlistId = '') {
                     playerView.legacySeen = true;
                 }
 
-                if (typeof (playerView.videoAudio) === 'undefined') {
+                if (typeof(playerView.videoAudio) === 'undefined') {
                     ft.log(playerView.videoAudio);
                     playerView.validAudio = false;
                 }
@@ -145,7 +145,7 @@ function playVideo(videoId, playlistId = '') {
                 let useEmbedPlayer = false;
 
                 // Default to the embeded player if the URLs cannot be found.
-                if (typeof (playerView.video720p) === 'undefined' && typeof (playerView.video360p) === 'undefined') {
+                if (typeof(playerView.video720p) === 'undefined' && typeof(playerView.video360p) === 'undefined') {
                     //useEmbedPlayer = true;
                     playerView.currentQuality = 'EMBED';
                     playerView.playerSeen = false;
@@ -154,7 +154,7 @@ function playVideo(videoId, playlistId = '') {
                     playerView.video720p = '';
                     //useEmbedPlayer = true;
                     showToast('Unable to get video file.  Reverting to embeded player.');
-                } else if (typeof (playerView.video720p) === 'undefined' && typeof (playerView.video360p) !== 'undefined') {
+                } else if (typeof(playerView.video720p) === 'undefined' && typeof(playerView.video360p) !== 'undefined') {
                     // Default to the 360p video if the 720p URL cannot be found.
                     ft.log('Found');
                     playerView.videoUrl = playerView.video360p;
@@ -169,9 +169,9 @@ function playVideo(videoId, playlistId = '') {
                 }
 
                 if (!useEmbedPlayer &&
-                    typeof (data.player_response.captions) !== 'undefined' &&
-                    typeof (data.player_response.captions.playerCaptionsTracklistRenderer) !== 'undefined' &&
-                    typeof (data.player_response.captions.playerCaptionsTracklistRenderer.captionTracks) !== 'undefined') {
+                    typeof(data.player_response.captions) !== 'undefined' &&
+                    typeof(data.player_response.captions.playerCaptionsTracklistRenderer) !== 'undefined' &&
+                    typeof(data.player_response.captions.playerCaptionsTracklistRenderer.captionTracks) !== 'undefined') {
                     data.player_response.captions.playerCaptionsTracklistRenderer.captionTracks.forEach((caption) => {
                         let subtitleUrl = invidiousInstance + '/api/v1/captions/' + videoId + '?label=' + caption.name.simpleText;
 
@@ -281,23 +281,23 @@ function playVideo(videoId, playlistId = '') {
             // Search through the returned object to get the 360p and 720p video URLs (If available)
             Object.keys(videoUrls).forEach((key) => {
                 switch (videoUrls[key]['itag']) {
-                case '18':
-                    playerView.video360p = decodeURIComponent(videoUrls[key]['url']);
-                    // ft.log(playerView.video360p);
-                    break;
-                case '22':
-                    playerView.video720p = decodeURIComponent(videoUrls[key]['url']);
-                    // ft.log(playerView.video720p);
-                    break;
+                    case '18':
+                        playerView.video360p = decodeURIComponent(videoUrls[key]['url']);
+                        // ft.log(playerView.video360p);
+                        break;
+                    case '22':
+                        playerView.video720p = decodeURIComponent(videoUrls[key]['url']);
+                        // ft.log(playerView.video720p);
+                        break;
                 }
             });
 
-            if (typeof (playerView.video360p) === 'undefined') {
+            if (typeof(playerView.video360p) === 'undefined') {
                 playerView.video360p = '';
                 playerView.valid360p = false;
             }
 
-            if (typeof (playerView.video720p) === 'undefined') {
+            if (typeof(playerView.video720p) === 'undefined') {
                 playerView.video720p = '';
                 playerView.valid720p = false;
             }
@@ -318,7 +318,7 @@ function playVideo(videoId, playlistId = '') {
                 playerView.legacySeen = true;
             }
 
-            if (typeof (playerView.videoAudio) === 'undefined') {
+            if (typeof(playerView.videoAudio) === 'undefined') {
                 ft.log(playerView.videoAudio);
                 playerView.videoAudio = '';
                 playerView.validAudio = false;
@@ -327,7 +327,7 @@ function playVideo(videoId, playlistId = '') {
             let useEmbedPlayer = false;
 
             if (!useEmbedPlayer &&
-                typeof (data.captions) !== 'undefined') {
+                typeof(data.captions) !== 'undefined') {
                 data.captions.forEach((caption) => {
                     let subtitleUrl = invidiousInstance + caption.url;
 
@@ -401,33 +401,35 @@ function playVideo(videoId, playlistId = '') {
         }
 
         if (rememberHistory === true) {
-            historyDb.findOne({ videoId: playerView.videoId }, function (err, doc) {
+            historyDb.findOne({
+                videoId: playerView.videoId
+            }, function(err, doc) {
                 let watchProgress = 0;
 
-                if(doc !== null) {
+                if (doc !== null) {
                     watchProgress = doc.watchProgress;
                 }
 
                 let historyData = {
                     videoId: videoId,
                     published: data.published,
-                   publishedText: playerView.publishedDate,
+                    publishedText: playerView.publishedDate,
                     description: data.description,
-                   viewCount: data.viewCount,
-                   title: playerView.videoTitle,
-                   lengthSeconds: data.lengthSeconds,
-                   videoThumbnails: playerView.videoThumbnail,
-                   author: playerView.channelName,
-                   authorId: playerView.channelId,
-                   liveNow: false,
-                   paid: false,
-                   type: 'video',
-                   timeWatched: new Date().getTime(),
-                   watchProgress: watchProgress,
-               };
+                    viewCount: data.viewCount,
+                    title: playerView.videoTitle,
+                    lengthSeconds: data.lengthSeconds,
+                    videoThumbnails: playerView.videoThumbnail,
+                    author: playerView.channelName,
+                    authorId: playerView.channelId,
+                    liveNow: false,
+                    paid: false,
+                    type: 'video',
+                    timeWatched: new Date().getTime(),
+                    watchProgress: watchProgress,
+                };
 
-               ft.log(historyData);
-               addToHistory(historyData);
+                ft.log(historyData);
+                addToHistory(historyData);
             });
         }
     });
@@ -446,7 +448,7 @@ function openMiniPlayer() {
     let videoPlayer;
     // Grabs whatever the HTML is for the current video player.  Done this way to grab
     // the HTML5 player (with varying qualities) as well as the YouTube embeded player.
-    if (typeof (player) !== 'undefined') {
+    if (typeof(player) !== 'undefined') {
         videoPlayer = player;
     } else {
         videoPlayer = $('.videoPlayer').get(0);
@@ -466,149 +468,118 @@ function openMiniPlayer() {
         autoHideMenuBar: true
     });
 
-    const template = [
-        {
-          label: 'Player',
-          submenu: [
-            {
-              label: 'Dash Player',
-              click() {
+    const template = [{
+        label: 'Player',
+        submenu: [{
+            label: 'Dash Player',
+            click() {
                 miniPlayer.webContents.send('dashPlayer', '');
-              },
             },
-            {
-              label: 'Legacy Player',
-              click() {
+        }, {
+            label: 'Legacy Player',
+            click() {
                 miniPlayer.webContents.send('legacyPlayer', '');
-              },
             },
-                        {
-              label: 'YouTube Player',
-              click() {
+        }, {
+            label: 'YouTube Player',
+            click() {
                 miniPlayer.webContents.send('youtubePlayer', '');
-              },
             },
-          ],
-        },
-        {
-            label: 'Quality',
-            submenu: [{
-                    label: '360p',
-                    click() {
-                        miniPlayer.webContents.send('play360p', '');
-                    }
-                },
-                {
-                    label: '720p',
-                    click() {
-                        miniPlayer.webContents.send('play720p', '');
-                    }
-                },
-                {
-                    label: 'Audio',
-                    click() {
-                        miniPlayer.webContents.send('playAudio', '');
-                    }
-                }
-            ]
-        },
-        {
-            label: 'Playback',
-            submenu: [{
-                    label: '0.25x',
-                    click() {
-                        miniPlayer.webContents.send('videoSpeed', 0.25);
-                    }
-                },
-                {
-                    label: '0.5x',
-                    click() {
-                        miniPlayer.webContents.send('videoSpeed', 0.5);
-                    }
-                },
-                {
-                    label: '0.75x',
-                    click() {
-                        miniPlayer.webContents.send('videoSpeed', 0.75);
-                    }
-                },
-                {
-                    label: '1x',
-                    click() {
-                        miniPlayer.webContents.send('videoSpeed', 1);
-                    }
-                },
-                {
-                    label: '1.25x',
-                    click() {
-                        miniPlayer.webContents.send('videoSpeed', 1.25);
-                    }
-                },
-                {
-                    label: '1.5x',
-                    click() {
-                        miniPlayer.webContents.send('videoSpeed', 1.5);
-                    }
-                },
-                {
-                    label: '1.75x',
-                    click() {
-                        miniPlayer.webContents.send('videoSpeed', 1.75);
-                    }
-                },
-                {
-                    label: '2x',
-                    click() {
-                        miniPlayer.webContents.send('videoSpeed', 2);
-                    }
-                },
-            ]
-        },
-        {
-            label: 'Loop',
-            submenu: [{
-                label: 'Toggle Loop',
-                click() {
-                  miniPlayer.webContents.send('videoLoop', '');
-                }
-            }]
-        },
-        {
-            label: 'View',
-            submenu: [{
-                    role: 'toggledevtools'
-                },
-                {
-                    type: 'separator'
-                },
-                {
-                    role: 'resetzoom'
-                },
-                {
-                    role: 'zoomin'
-                },
-                {
-                    role: 'zoomout'
-                },
-                {
-                    type: 'separator'
-                },
-                {
-                    role: 'togglefullscreen'
-                }
-            ]
-        },
-        {
-            role: 'window',
-            submenu: [{
-                    role: 'minimize'
-                },
-                {
-                    role: 'close'
-                }
-            ]
-        }
-    ];
+        }, ],
+    }, {
+        label: 'Quality',
+        submenu: [{
+            label: '360p',
+            click() {
+                miniPlayer.webContents.send('play360p', '');
+            }
+        }, {
+            label: '720p',
+            click() {
+                miniPlayer.webContents.send('play720p', '');
+            }
+        }, {
+            label: 'Audio',
+            click() {
+                miniPlayer.webContents.send('playAudio', '');
+            }
+        }]
+    }, {
+        label: 'Playback',
+        submenu: [{
+            label: '0.25x',
+            click() {
+                miniPlayer.webContents.send('videoSpeed', 0.25);
+            }
+        }, {
+            label: '0.5x',
+            click() {
+                miniPlayer.webContents.send('videoSpeed', 0.5);
+            }
+        }, {
+            label: '0.75x',
+            click() {
+                miniPlayer.webContents.send('videoSpeed', 0.75);
+            }
+        }, {
+            label: '1x',
+            click() {
+                miniPlayer.webContents.send('videoSpeed', 1);
+            }
+        }, {
+            label: '1.25x',
+            click() {
+                miniPlayer.webContents.send('videoSpeed', 1.25);
+            }
+        }, {
+            label: '1.5x',
+            click() {
+                miniPlayer.webContents.send('videoSpeed', 1.5);
+            }
+        }, {
+            label: '1.75x',
+            click() {
+                miniPlayer.webContents.send('videoSpeed', 1.75);
+            }
+        }, {
+            label: '2x',
+            click() {
+                miniPlayer.webContents.send('videoSpeed', 2);
+            }
+        }, ]
+    }, {
+        label: 'Loop',
+        submenu: [{
+            label: 'Toggle Loop',
+            click() {
+                miniPlayer.webContents.send('videoLoop', '');
+            }
+        }]
+    }, {
+        label: 'View',
+        submenu: [{
+            role: 'toggledevtools'
+        }, {
+            type: 'separator'
+        }, {
+            role: 'resetzoom'
+        }, {
+            role: 'zoomin'
+        }, {
+            role: 'zoomout'
+        }, {
+            type: 'separator'
+        }, {
+            role: 'togglefullscreen'
+        }]
+    }, {
+        role: 'window',
+        submenu: [{
+            role: 'minimize'
+        }, {
+            role: 'close'
+        }]
+    }];
 
     const menu = electron.remote.Menu.buildFromTemplate(template);
 
@@ -673,16 +644,15 @@ function clickMiniPlayer(videoId) {
 
     showToast("Opening in mini player, Please wait.");
 
-    let playVideo = function (videoData) {
+    let playVideo = function(videoData) {
         if (videoData.checked720p === false || videoData.checked360p === false || videoData.checkedAudio === false || videoData.checkedDash === false || videoData.checkedLive === false) {
-          return;
+            return;
         }
 
         if (videoData.valid720p && (parseInt(defaultQuality) >= 720 || defaultQuality === '4k')) {
-          videoData.videoUrl = videoData.video720p;
-        }
-        else {
-          videoData.videoUrl = videoData.video360p;
+            videoData.videoUrl = videoData.video720p;
+        } else {
+            videoData.videoUrl = videoData.video360p;
         }
 
         // Create a new browser window.
@@ -696,240 +666,208 @@ function clickMiniPlayer(videoId) {
             autoHideMenuBar: true
         });
 
-        const template = [
-        {
-          label: 'Player',
-          submenu: [
-            {
-              label: 'Dash Player',
-              click() {
-                miniPlayer.webContents.send('dashPlayer', '');
-              },
-            },
-            {
-              label: 'Legacy Player',
-              click() {
-                miniPlayer.webContents.send('legacyPlayer', '');
-              },
-            },
-                        {
-              label: 'YouTube Player',
-              click() {
-                miniPlayer.webContents.send('youtubePlayer', '');
-              },
-            },
-          ],
-        },
-        {
+        const template = [{
+            label: 'Player',
+            submenu: [{
+                label: 'Dash Player',
+                click() {
+                    miniPlayer.webContents.send('dashPlayer', '');
+                },
+            }, {
+                label: 'Legacy Player',
+                click() {
+                    miniPlayer.webContents.send('legacyPlayer', '');
+                },
+            }, {
+                label: 'YouTube Player',
+                click() {
+                    miniPlayer.webContents.send('youtubePlayer', '');
+                },
+            }, ],
+        }, {
             label: 'Quality',
             submenu: [{
-                    label: '360p',
-                    click() {
-                        miniPlayer.webContents.send('play360p', '');
-                    }
-                },
-                {
-                    label: '720p',
-                    click() {
-                        miniPlayer.webContents.send('play720p', '');
-                    }
-                },
-                {
-                    label: 'Audio',
-                    click() {
-                        miniPlayer.webContents.send('playAudio', '');
-                    }
+                label: '360p',
+                click() {
+                    miniPlayer.webContents.send('play360p', '');
                 }
-            ]
-        },
-        {
+            }, {
+                label: '720p',
+                click() {
+                    miniPlayer.webContents.send('play720p', '');
+                }
+            }, {
+                label: 'Audio',
+                click() {
+                    miniPlayer.webContents.send('playAudio', '');
+                }
+            }]
+        }, {
             label: 'Playback',
             submenu: [{
-                    label: '0.25x',
-                    click() {
-                        miniPlayer.webContents.send('videoSpeed', 0.25);
-                    }
-                },
-                {
-                    label: '0.5x',
-                    click() {
-                        miniPlayer.webContents.send('videoSpeed', 0.5);
-                    }
-                },
-                {
-                    label: '0.75x',
-                    click() {
-                        miniPlayer.webContents.send('videoSpeed', 0.75);
-                    }
-                },
-                {
-                    label: '1x',
-                    click() {
-                        miniPlayer.webContents.send('videoSpeed', 1);
-                    }
-                },
-                {
-                    label: '1.25x',
-                    click() {
-                        miniPlayer.webContents.send('videoSpeed', 1.25);
-                    }
-                },
-                {
-                    label: '1.5x',
-                    click() {
-                        miniPlayer.webContents.send('videoSpeed', 1.5);
-                    }
-                },
-                {
-                    label: '1.75x',
-                    click() {
-                        miniPlayer.webContents.send('videoSpeed', 1.75);
-                    }
-                },
-                {
-                    label: '2x',
-                    click() {
-                        miniPlayer.webContents.send('videoSpeed', 2);
-                    }
-                },
-            ]
-        },
-        {
+                label: '0.25x',
+                click() {
+                    miniPlayer.webContents.send('videoSpeed', 0.25);
+                }
+            }, {
+                label: '0.5x',
+                click() {
+                    miniPlayer.webContents.send('videoSpeed', 0.5);
+                }
+            }, {
+                label: '0.75x',
+                click() {
+                    miniPlayer.webContents.send('videoSpeed', 0.75);
+                }
+            }, {
+                label: '1x',
+                click() {
+                    miniPlayer.webContents.send('videoSpeed', 1);
+                }
+            }, {
+                label: '1.25x',
+                click() {
+                    miniPlayer.webContents.send('videoSpeed', 1.25);
+                }
+            }, {
+                label: '1.5x',
+                click() {
+                    miniPlayer.webContents.send('videoSpeed', 1.5);
+                }
+            }, {
+                label: '1.75x',
+                click() {
+                    miniPlayer.webContents.send('videoSpeed', 1.75);
+                }
+            }, {
+                label: '2x',
+                click() {
+                    miniPlayer.webContents.send('videoSpeed', 2);
+                }
+            }, ]
+        }, {
             label: 'Loop',
             submenu: [{
                 label: 'Toggle Loop',
                 click() {
-                  miniPlayer.webContents.send('videoLoop', '');
+                    miniPlayer.webContents.send('videoLoop', '');
                 }
             }]
-        },
-        {
+        }, {
             label: 'View',
             submenu: [{
-                    role: 'toggledevtools'
-                },
-                {
-                    type: 'separator'
-                },
-                {
-                    role: 'resetzoom'
-                },
-                {
-                    role: 'zoomin'
-                },
-                {
-                    role: 'zoomout'
-                },
-                {
-                    type: 'separator'
-                },
-                {
-                    role: 'togglefullscreen'
-                }
-            ]
-        },
-        {
+                role: 'toggledevtools'
+            }, {
+                type: 'separator'
+            }, {
+                role: 'resetzoom'
+            }, {
+                role: 'zoomin'
+            }, {
+                role: 'zoomout'
+            }, {
+                type: 'separator'
+            }, {
+                role: 'togglefullscreen'
+            }]
+        }, {
             role: 'window',
             submenu: [{
-                    role: 'minimize'
-                },
-                {
-                    role: 'close'
-                }
-            ]
-        }
-    ];
+                role: 'minimize'
+            }, {
+                role: 'close'
+            }]
+        }];
 
-    const menu = electron.remote.Menu.buildFromTemplate(template);
+        const menu = electron.remote.Menu.buildFromTemplate(template);
 
-      miniPlayer.setMenu(menu);
+        miniPlayer.setMenu(menu);
 
-    miniPlayer.loadURL(url.format({
-        pathname: path.join(__dirname, '/templates/miniPlayer.html'),
-        protocol: 'file:',
-        slashes: true,
-    }));
+        miniPlayer.loadURL(url.format({
+            pathname: path.join(__dirname, '/templates/miniPlayer.html'),
+            protocol: 'file:',
+            slashes: true,
+        }));
 
-    miniPlayer.once('ready-to-show', () => {
-        miniPlayer.show();
-        miniPlayer.webContents.send('ping', videoData);
-        showToast('Video has been opened in a new window.');
-        // TODO: Add video to history once fully loaded.
-        /*if (rememberHistory === true) {
-            let historyData = {
-                videoId: videoId,
-                published: data.published,
-                publishedText: playerView.publishedDate,
-                description: data.description,
-                viewCount: data.viewCount,
-                title: playerView.videoTitle,
-                lengthSeconds: data.lengthSeconds,
-                videoThumbnails: playerView.videoThumbnail,
-                author: playerView.channelName,
-                authorId: playerView.channelId,
-                liveNow: false,
-                paid: false,
-                type: 'video',
-                timeWatched: new Date().getTime(),
-            };
+        miniPlayer.once('ready-to-show', () => {
+            miniPlayer.show();
+            miniPlayer.webContents.send('ping', videoData);
+            showToast('Video has been opened in a new window.');
+            // TODO: Add video to history once fully loaded.
+            /*if (rememberHistory === true) {
+                let historyData = {
+                    videoId: videoId,
+                    published: data.published,
+                    publishedText: playerView.publishedDate,
+                    description: data.description,
+                    viewCount: data.viewCount,
+                    title: playerView.videoTitle,
+                    lengthSeconds: data.lengthSeconds,
+                    videoThumbnails: playerView.videoThumbnail,
+                    author: playerView.channelName,
+                    authorId: playerView.channelId,
+                    liveNow: false,
+                    paid: false,
+                    type: 'video',
+                    timeWatched: new Date().getTime(),
+                };
 
-            ft.log(historyData);
-            addToHistory(historyData);
-        }*/
-    });
+                ft.log(historyData);
+                addToHistory(historyData);
+            }*/
+        });
 
-    return;
+        return;
     };
 
-    let validateData = function (data) {
-      let newData = data;
-      newData.checked720p = false;
-      newData.checked360p = false;
-      newData.checkedAudio = false;
-      newData.checkedDash = false;
-      newData.checkedLive = false;
+    let validateData = function(data) {
+        let newData = data;
+        newData.checked720p = false;
+        newData.checked360p = false;
+        newData.checkedAudio = false;
+        newData.checkedDash = false;
+        newData.checkedLive = false;
 
-      if (newData.validLive) {
-        newData.valid720p = false;
-        newData.valid360p = false;
-        newData.validAudio = false;
-        newData.validDash = false;
-        newData.checked720p = true;
-        newData.checked360p = true;
-        newData.checkedAudio = true;
-        newData.checkedDash = true;
-        newData.checkedLive = true;
-        playVideo(newData);
-        return;
-      }
-      else {
-        newData.checkedLive = true;
-        newData.validLive = false;
-      }
+        if (newData.validLive) {
+            newData.valid720p = false;
+            newData.valid360p = false;
+            newData.validAudio = false;
+            newData.validDash = false;
+            newData.checked720p = true;
+            newData.checked360p = true;
+            newData.checkedAudio = true;
+            newData.checkedDash = true;
+            newData.checkedLive = true;
+            playVideo(newData);
+            return;
+        } else {
+            newData.checkedLive = true;
+            newData.validLive = false;
+        }
 
-      validateUrl(newData.video720p, (results) => {
-          newData.valid720p = results;
-          newData.checked720p = true;
-          playVideo(newData);
-      });
+        validateUrl(newData.video720p, (results) => {
+            newData.valid720p = results;
+            newData.checked720p = true;
+            playVideo(newData);
+        });
 
-      validateUrl(newData.video360p, (results) => {
-          newData.valid360p = results;
-          newData.checked360p = true;
-          playVideo(newData);
-      });
+        validateUrl(newData.video360p, (results) => {
+            newData.valid360p = results;
+            newData.checked360p = true;
+            playVideo(newData);
+        });
 
-      validateUrl(newData.videoAudio, (results) => {
-          newData.validAudio = results;
-          newData.checkedAudio = true;
-          playVideo(newData);
-      });
+        validateUrl(newData.videoAudio, (results) => {
+            newData.validAudio = results;
+            newData.checkedAudio = true;
+            playVideo(newData);
+        });
 
-      validateUrl(newData.videoDash, (results) => {
-          newData.validDash = results;
-          newData.checkedDash = true;
-          playVideo(newData);
-      });
+        validateUrl(newData.videoDash, (results) => {
+            newData.validDash = results;
+            newData.checkedDash = true;
+            playVideo(newData);
+        });
     };
 
     let videoData = {};
@@ -944,58 +882,56 @@ function clickMiniPlayer(videoId) {
     videoData.currentTime = 0;
 
     if (defaultPlayer === 'dash') {
-      videoData.playerSeen = true;
-      videoData.legacySeen = false;
-    }
-    else {
-      videoData.playerSeen = false;
-      videoData.legacySeen = true;
+        videoData.playerSeen = true;
+        videoData.legacySeen = false;
+    } else {
+        videoData.playerSeen = false;
+        videoData.legacySeen = true;
     }
 
     let youtubeDlFinished = false;
     let invidiousFinished = false;
 
     if (getVideosLocally) {
-      youtubedlGetInfo(videoId, (data) => {
-        let videoUrls = data.formats;
+        youtubedlGetInfo(videoId, (data) => {
+            let videoUrls = data.formats;
 
-        Object.keys(videoUrls).forEach((key) => {
-            switch (videoUrls[key]['itag']) {
-            case '18':
-                videoData.video360p = videoUrls[key]['url'];
-                break;
-            case '22':
-                videoData.video720p = videoUrls[key]['url'];
-                break;
+            Object.keys(videoUrls).forEach((key) => {
+                switch (videoUrls[key]['itag']) {
+                    case '18':
+                        videoData.video360p = videoUrls[key]['url'];
+                        break;
+                    case '22':
+                        videoData.video720p = videoUrls[key]['url'];
+                        break;
+                }
+            });
+
+            videoData.videoAudio = decodeURIComponent(videoUrls[videoUrls.length - 1]['url']);
+
+            youtubeDlFinished = true;
+
+            if (youtubeDlFinished && invidiousFinished) {
+                validateData(videoData);
             }
         });
-
-        videoData.videoAudio = decodeURIComponent(videoUrls[videoUrls.length - 1]['url']);
-
+    } else {
         youtubeDlFinished = true;
-
-        if (youtubeDlFinished && invidiousFinished) {
-          validateData(videoData);
-        }
-      });
-    }
-    else {
-      youtubeDlFinished = true;
     }
 
     invidiousAPI('videos', videoId, {}, (data) => {
-    console.log(data);
+        console.log(data);
         let videoUrls = data.formatStreams;
         let formatUrls = data.adaptiveFormats;
 
         Object.keys(videoUrls).forEach((key) => {
             switch (videoUrls[key]['itag']) {
-            case '18':
-                videoData.video360p = videoUrls[key]['url'];
-                break;
-            case '22':
-                videoData.video720p = videoUrls[key]['url'];
-                break;
+                case '18':
+                    videoData.video360p = videoUrls[key]['url'];
+                    break;
+                case '22':
+                    videoData.video720p = videoUrls[key]['url'];
+                    break;
             }
         });
 
@@ -1011,11 +947,11 @@ function clickMiniPlayer(videoId) {
 
         let videoHtml;
 
-        if (typeof (data.captions) !== 'undefined') {
+        if (typeof(data.captions) !== 'undefined') {
             data.captions.forEach((caption) => {
-            let subtitleUrl = invidiousInstance + caption.url;
+                let subtitleUrl = invidiousInstance + caption.url;
 
-            videoHtml = videoHtml + '<track kind="subtitles" src="' + subtitleUrl + '" srclang="' + caption.languageCode + '" label="' + caption.label + '">';
+                videoHtml = videoHtml + '<track kind="subtitles" src="' + subtitleUrl + '" srclang="' + caption.languageCode + '" label="' + caption.label + '">';
             });
 
             videoData.subtitleHtml = videoHtml;
@@ -1024,13 +960,13 @@ function clickMiniPlayer(videoId) {
         let lengthSeconds = data.lengthSeconds;
 
         if (lengthSeconds < 120) {
-          videoData.thumbnailInterval = 1;
+            videoData.thumbnailInterval = 1;
         } else if (lengthSeconds < 300) {
-          videoData.thumbnailInterval = 2;
+            videoData.thumbnailInterval = 2;
         } else if (lengthSeconds < 900) {
-          videoData.thumbnailInterval = 5;
+            videoData.thumbnailInterval = 5;
         } else {
-          videoData.thumbnailInterval = 10;
+            videoData.thumbnailInterval = 10;
         }
 
         videoData.videoTitle = data.title;
@@ -1039,7 +975,7 @@ function clickMiniPlayer(videoId) {
         invidiousFinished = true;
 
         if (youtubeDlFinished && invidiousFinished) {
-          validateData(videoData);
+            validateData(videoData);
         }
     });
 }
@@ -1059,7 +995,7 @@ function checkDashSettings() {
     let parseDash = true;
     let quality = 'Auto';
 
-    let declarePlayer = function () {
+    let declarePlayer = function() {
         if (!checkedDash) {
             return;
         }
@@ -1071,7 +1007,7 @@ function checkDashSettings() {
         let player = new MediaElementPlayer('player', {
             features: ['playpause', 'current', 'progress', 'duration', 'volume', 'stop', 'speed', 'quality', 'loop', 'tracks', 'fullscreen', 'timerailthumbnails'],
             speeds: ['2', '1.75', '1.5', '1.25', '1', '0.75', '0.5', '0.25'],
-            renderers: ['native_dash', 'native_hls', 'native_flv', 'html5'],
+            renderers: ['native_dash', 'native_hls', 'html5'],
             defaultSpeed: defaultPlaybackRate,
             autoGenerate: true,
             autoDash: true,
@@ -1082,7 +1018,7 @@ function checkDashSettings() {
             startVolume: currentVolume,
             timeRailThumbnailsSeconds: playerView.thumbnailInterval,
 
-            success: function (mediaElement, originalNode, instance) {
+            success: function(mediaElement, originalNode, instance) {
                 ft.log(mediaElement, originalNode, instance);
 
                 if (autoplay) {
@@ -1093,12 +1029,12 @@ function checkDashSettings() {
                     if (enableSubtitles && typeof($('.mejs__captions-button').get(0)) !== 'undefined') {
                         let captionOptions = $('.mejs__captions-selector-input').get();
                         if (captionOptions.length > 1) {
-                          captionOptions[1].click();
+                            captionOptions[1].click();
                         }
                     };
                 }, 2000);
 
-                let initializeSettings = function () {
+                let initializeSettings = function() {
                     let qualityOptions = $('.mejs__qualities-selector-input').get();
 
                     if (qualityOptions.length < 2) {
@@ -1108,16 +1044,17 @@ function checkDashSettings() {
                         return;
                     }
 
-                    historyDb.findOne({ videoId: playerView.videoId }, function (err, doc) {
-                      if(doc !== null) {
-                        if (typeof (playerView.currentTime) !== 'undefined') {
-                            instance.currentTime = playerView.currentTime;
-                            playerView.currentTime = undefined;
+                    historyDb.findOne({
+                        videoId: playerView.videoId
+                    }, function(err, doc) {
+                        if (doc !== null) {
+                            if (typeof(playerView.currentTime) !== 'undefined') {
+                                instance.currentTime = playerView.currentTime;
+                                playerView.currentTime = undefined;
+                            } else if (doc.watchProgress < instance.duration - 5 && playerView.validLive === false) {
+                                instance.currentTime = doc.watchProgress;
+                            }
                         }
-                        else if (doc.watchProgress < instance.duration - 5) {
-                          instance.currentTime = doc.watchProgress;
-                        }
-                      }
                     });
 
                     let selectedOption = false;
@@ -1140,7 +1077,7 @@ function checkDashSettings() {
                 initializeSettings();
             },
 
-            error: function (error, originalNode, instance) {
+            error: function(error, originalNode, instance) {
                 ft.log(error);
                 ft.log(originalNode);
                 ft.log(instance);
@@ -1175,12 +1112,12 @@ function checkLegacySettings() {
     let checked360p = false;
     let checkedAudio = false;
 
-    let declarePlayer = function () {
+    let declarePlayer = function() {
         if (!checked720p || !checked360p || !checkedAudio) {
             return;
         }
 
-        if (typeof (playerView.currentTime) !== 'undefined') {
+        if (typeof(playerView.currentTime) !== 'undefined') {
             player.currentTime = playerView.currentTime;
         }
 
@@ -1189,19 +1126,21 @@ function checkLegacySettings() {
         }
 
         window.setTimeout(() => {
-          historyDb.findOne({ videoId: playerView.videoId }, function (err, doc) {
-            if(doc !== null) {
-               if (doc.watchProgress < player.duration - 5 && typeof (playerView.currentTime) === 'undefined') {
-                 player.currentTime = doc.watchProgress;
-               }
+            historyDb.findOne({
+                videoId: playerView.videoId
+            }, function(err, doc) {
+                if (doc !== null) {
+                    if (doc.watchProgress < player.duration - 5 && typeof(playerView.currentTime) === 'undefined') {
+                        player.currentTime = doc.watchProgress;
+                    }
 
-               playerView.currentTime = undefined;
-            }
-          });
+                    playerView.currentTime = undefined;
+                }
+            });
         }, 400);
 
         if (enableSubtitles) {
-          player.textTracks[0].mode = 'showing';
+            player.textTracks[0].mode = 'showing';
         }
 
         changeVideoSpeed(defaultPlaybackRate);
@@ -1397,20 +1336,19 @@ function parseDescription(descriptionText) {
 }
 
 window.onbeforeunload = (e) => {
-  electron.ipcRenderer.send("setBounds", '');
+    electron.ipcRenderer.send("setBounds", '');
 
-  if (playerView.seen === false) {
-    return;
-  }
+    if (playerView.seen === false) {
+        return;
+    }
 
-  let lengthSeconds = 0;
+    let lengthSeconds = 0;
 
-  if (playerView.legacySeen === false) {
-    lengthSeconds = player.currentTime;
-  }
-  else {
-    lengthSeconds = $('.videoPlayer').get(0).currentTime;
-  }
+    if (playerView.legacySeen === false) {
+        lengthSeconds = player.currentTime;
+    } else {
+        lengthSeconds = $('.videoPlayer').get(0).currentTime;
+    }
 
-  updateWatchProgress(playerView.videoId, lengthSeconds);
+    updateWatchProgress(playerView.videoId, lengthSeconds);
 };

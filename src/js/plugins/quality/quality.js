@@ -353,10 +353,20 @@ Object.assign(MediaElementPlayer.prototype, {
 		for (let index = 0; index < radios.length; index++) {
 			if (radios[index].checked) {
 				if (index === 0 ) {
-					media.dashPlayer.setAutoSwitchQualityFor("video", true);
+				  if (typeof(media.dashPlayer) !== 'undefined') {
+				    media.dashPlayer.setAutoSwitchQualityFor("video", true);
+				  }
+				  else {
+            media.hlsPlayer.currentLevel = -1;
+				  }
 				} else {
-					media.dashPlayer.setAutoSwitchQualityFor("video", false);
-					media.dashPlayer.setQualityFor("video", index - 1);
+				  if (typeof(media.dashPlayer) !== 'undefined') {
+					  media.dashPlayer.setAutoSwitchQualityFor("video", false);
+					  media.dashPlayer.setQualityFor("video", index - 1);
+				  }
+				  else {
+				    media.hlsPlayer.currentLevel = index - 1;
+				  }
 				}
 			}
 		}
