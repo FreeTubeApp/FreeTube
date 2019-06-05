@@ -369,6 +369,11 @@ a {
     color: #FFEB3B;
 }
 
+.blogFeed a {
+  font-size: 20px;
+  font-weight: bold;
+}
+
 /* Thanks to Guus Lieben for the Material Design Switch */
 
 .switch-input {

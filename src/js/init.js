@@ -86,7 +86,7 @@ let init = function () {
     settingsDb.findOne({
         _id: 'bounds'
     }, function (err, doc) {
-        if (docs.value !== false) {
+        if (doc.value !== false) {
           win.setBounds(doc.value);
         }
     });

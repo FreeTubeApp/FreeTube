@@ -143,6 +143,20 @@ let sideNavBar = new Vue({
         loadingView.seen = false;
       }
       aboutView.seen = true;
+
+      $.get('https://write.as/freetube/feed/', function (data) {
+         aboutView.rssFeed = [];
+         $(data).find("item").each(function () {
+           let el = $(this);
+           let rssData = {
+              title: el.find("title").text(),
+              link: el.find("link").text(),
+              pubDate: new Date(el.find("pubDate").text()).toDateString(),
+           };
+
+           aboutView.rssFeed.push(rssData);
+         });
+      });
     }
   }
 });
@@ -398,6 +412,7 @@ let aboutView = new Vue({
   el: '#aboutView',
   data: {
     seen: false,
+    rssFeed: [],
     versionNumber: electron.remote.app.getVersion()
   },
   template: aboutTemplate
