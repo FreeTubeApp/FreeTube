@@ -374,6 +374,13 @@ a {
   font-weight: bold;
 }
 
+@media only screen and (max-width: 900px) {
+  .searchBar {
+    width: 500px;
+    right: 80px;
+  }
+}
+
 /* Thanks to Guus Lieben for the Material Design Switch */
 
 .switch-input {
