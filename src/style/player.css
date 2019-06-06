@@ -216,7 +216,7 @@ iframe {
 }
 
 #player {
-  max-width: 100%;
+  min-width: 100%;
 }
 
 #legacyPlayer {

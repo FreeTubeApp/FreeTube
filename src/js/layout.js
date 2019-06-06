@@ -143,6 +143,23 @@ function toggleSideNavigation() {
         sideNav.style.display = 'none';
         mainContainer.style.marginLeft = '0px';
     }
+
+    if (playerView.playerSeen) {
+      // This is a really dumb way to fix the issue of the video player
+      // not resizing properly when the side bar is toggled.
+
+      const currentWindow = electron.remote.getCurrentWindow();
+      let bounds = currentWindow.getBounds();
+      let newBounds = {
+        height: bounds.height,
+        width:  bounds.width + 1,
+        x:  bounds.x,
+        y:  bounds.y,
+      }
+
+      currentWindow.setBounds(newBounds);
+      currentWindow.setBounds(bounds);
+    }
 }
 
 /**

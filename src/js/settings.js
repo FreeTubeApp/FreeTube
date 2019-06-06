@@ -18,27 +18,27 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
  * A file for functions used for settings.
  */
 
- // User Defaults
- let currentTheme = '';
- let useTor = false;
- let rememberHistory = true;
- let autoplay = true;
- let enableSubtitles = false;
- let checkForUpdates = true;
- let currentVolume = 1;
- let defaultPlayer = 'dash';
- let defaultQuality = 720;
- let defaultPlaybackRate = '1';
- let defaultRegion = 'US';
- // Proxy address variable
- let defaultProxy = false;
- let getVideosLocally = true;
- // This variable is to make sure that proxy was set before making any API calls
- let proxyAvailable = false;
- let invidiousInstance = 'https://invidio.us';
- let checkedSettings = false; // Used to prevent data leak when using self-hosted Invidious Instance
- let debugMode = false;
- let defaultPage = 'subscriptions';
+// User Defaults
+let currentTheme = '';
+let useTor = false;
+let rememberHistory = true;
+let autoplay = true;
+let enableSubtitles = false;
+let checkForUpdates = true;
+let currentVolume = 1;
+let defaultPlayer = 'dash';
+let defaultQuality = 720;
+let defaultPlaybackRate = '1';
+let defaultRegion = 'US';
+// Proxy address variable
+let defaultProxy = false;
+let getVideosLocally = true;
+// This variable is to make sure that proxy was set before making any API calls
+let proxyAvailable = false;
+let invidiousInstance = 'https://invidio.us';
+let checkedSettings = false; // Used to prevent data leak when using self-hosted Invidious Instance
+let debugMode = false;
+let defaultPage = 'subscriptions';
 
 /**
  * Display the settings screen to the user.
@@ -46,75 +46,75 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
  * @return {Void}
  */
 function updateSettingsView() {
-  /*
-   * Check the settings database for the user's current settings.  This is so the
-   * settings page has the correct toggles related when it is rendered.
-   */
-  settingsDb.find({}, (err, docs) => {
-    docs.forEach((setting) => {
-      switch (setting['_id']) {
-        case 'theme':
-          if (currentTheme == '') {
-            currentTheme = setting['value'];
-          }
-      }
+    /*
+     * Check the settings database for the user's current settings.  This is so the
+     * settings page has the correct toggles related when it is rendered.
+     */
+    settingsDb.find({}, (err, docs) => {
+        docs.forEach((setting) => {
+            switch (setting['_id']) {
+                case 'theme':
+                    if (currentTheme == '') {
+                        currentTheme = setting['value'];
+                    }
+            }
+        });
+
+        // Check / uncheck the switch depending on the user's settings.
+        if (currentTheme === 'light') {
+            settingsView.useTheme = false;
+        } else {
+            settingsView.useTheme = true;
+        }
+
+        if (useTor) {
+            settingsView.useTor = true;
+        } else {
+            settingsView.useTor = false;
+        }
+
+        if (rememberHistory) {
+            settingsView.history = true;
+        } else {
+            settingsView.history = false;
+        }
+
+        if (autoplay) {
+            settingsView.autoplay = true;
+        } else {
+            settingsView.autoplay = false;
+        }
+
+        if (getVideosLocally) {
+            settingsView.localSwitch = true;
+        } else {
+            settingsView.localSwitch = false;
+        }
+
+        if (enableSubtitles) {
+            settingsView.subtitles = true;
+        } else {
+            settingsView.subtitles = false;
+        }
+
+        if (checkForUpdates) {
+            settingsView.updates = true;
+        } else {
+            settingsView.updates = false;
+        }
+
+        document.getElementById('pageSelect').value = defaultPage;
+        document.getElementById('playerSelect').value = defaultPlayer;
+        document.getElementById('qualitySelect').value = defaultQuality;
+        document.getElementById('rateSelect').value = defaultPlaybackRate;
+        document.getElementById('regionSelect').value = defaultRegion;
+
+        if (defaultProxy) {
+            settingsView.proxyAddress = defaultProxy;
+        } else {
+            settingsView.proxyAddress = "SOCKS5://127.0.0.1:9050";
+        }
     });
-
-    // Check / uncheck the switch depending on the user's settings.
-    if (currentTheme === 'light') {
-      settingsView.useTheme = false;
-    } else {
-      settingsView.useTheme = true;
-    }
-
-    if (useTor) {
-      settingsView.useTor = true;
-    } else {
-      settingsView.useTor = false;
-    }
-
-    if (rememberHistory) {
-      settingsView.history = true;
-    } else {
-      settingsView.history = false;
-    }
-
-    if (autoplay) {
-      settingsView.autoplay = true;
-    } else {
-      settingsView.autoplay = false;
-    }
-
-    if (getVideosLocally) {
-      settingsView.localSwitch = true;
-    } else {
-      settingsView.localSwitch = false;
-    }
-
-    if (enableSubtitles) {
-      settingsView.subtitles = true;
-    } else {
-      settingsView.subtitles = false;
-    }
-
-    if (checkForUpdates) {
-      settingsView.updates = true;
-    } else {
-      settingsView.updates = false;
-    }
-
-    document.getElementById('pageSelect').value = defaultPage;
-    document.getElementById('playerSelect').value = defaultPlayer;
-    document.getElementById('qualitySelect').value = defaultQuality;
-    document.getElementById('rateSelect').value = defaultPlaybackRate;
-    document.getElementById('regionSelect').value = defaultRegion;
-
-    if(defaultProxy) {
-      settingsView.proxyAddress = defaultProxy;
-    } else {
-      settingsView.proxyAddress = "SOCKS5://127.0.0.1:9050";
-    }
-  });
 }
 
 /**
@@ -124,111 +124,112 @@ function updateSettingsView() {
  */
 function checkDefaultSettings() {
 
-  let newSetting;
+    let newSetting;
 
-  let settingDefaults = {
-    'theme': 'light',
-    'useTor': false,
-    'history': true,
-    'autoplay': true,
-    'subtitles': false,
-    'updates': true,
-    'localScrape': true,
-    'player': 'dash',
-    'quality': '720',
-    'rate': '1',
-    'invidious': 'https://invidio.us',
-    'proxy': "SOCKS5://127.0.0.1:9050", // This is default value for tor client
-    'region': 'US',
-    'debugMode': false,
-    'startScreen': 'subscriptions',
-    'distractionFreeMode': false,
-  };
+    let settingDefaults = {
+        'theme': 'light',
+        'useTor': false,
+        'history': true,
+        'autoplay': true,
+        'subtitles': false,
+        'updates': true,
+        'localScrape': true,
+        'player': 'dash',
+        'quality': '720',
+        'rate': '1',
+        'invidious': 'https://invidio.us',
+        'proxy': "SOCKS5://127.0.0.1:9050", // This is default value for tor client
+        'region': 'US',
+        'debugMode': false,
+        'startScreen': 'subscriptions',
+        'distractionFreeMode': false,
+    };
 
-  ft.log(settingDefaults);
+    ft.log(settingDefaults);
 
-  for (let key in settingDefaults){
-    settingsDb.find({_id: key}, (err, docs) => {
-      if (jQuery.isEmptyObject(docs)) {
-        newSetting = {
-          _id: key,
-          value: settingDefaults[key]
-        };
+    for (let key in settingDefaults) {
+        settingsDb.find({
+            _id: key
+        }, (err, docs) => {
+            if (jQuery.isEmptyObject(docs)) {
+                newSetting = {
+                    _id: key,
+                    value: settingDefaults[key]
+                };
 
-        settingsDb.insert(newSetting);
+                settingsDb.insert(newSetting);
 
-        if (key == 'theme'){
-          setTheme('light');
-        }
-      }
-      else{
-        switch (docs[0]['_id']) {
-          case 'theme':
-            setTheme(docs[0]['value']);
-            break;
-          case 'useTor':
-            useTor = docs[0]['value'];
-            break;
-          case 'history':
-            rememberHistory = docs[0]['value'];
-            break;
-          case 'autoplay':
-            autoplay = docs[0]['value'];
-            break;
-          case 'subtitles':
-            enableSubtitles = docs[0]['value'];
-            break;
-          case 'updates':
-            checkForUpdates = docs[0]['value'];
+                if (key == 'theme') {
+                    setTheme('light');
+                }
+            } else {
+                switch (docs[0]['_id']) {
+                    case 'theme':
+                        setTheme(docs[0]['value']);
+                        break;
+                    case 'useTor':
+                        useTor = docs[0]['value'];
+                        break;
+                    case 'history':
+                        rememberHistory = docs[0]['value'];
+                        break;
+                    case 'autoplay':
+                        autoplay = docs[0]['value'];
+                        break;
+                    case 'subtitles':
+                        enableSubtitles = docs[0]['value'];
+                        break;
+                    case 'updates':
+                        checkForUpdates = docs[0]['value'];
 
-            if (checkForUpdates) {
-              checkForNewUpdate();
+                        if (checkForUpdates) {
+                            checkForNewUpdate();
+                        }
+                        break;
+                    case 'player':
+                        defaultPlayer = docs[0]['value'];
+                        break;
+                    case 'quality':
+                        defaultQuality = docs[0]['value'];
+                        break;
+                    case 'rate':
+                        defaultPlaybackRate = docs[0]['value'];
+                        break;
+                    case 'proxy':
+                        defaultProxy = docs[0]['value'];
+
+                        if (useTor && defaultProxy) {
+                            electron.ipcRenderer.send("setProxy", defaultProxy);
+                        }
+                        break;
+                    case 'invidious':
+                        invidiousInstance = docs[0]['value'].replace(/\/$/, '');
+                        settingsView.invidiousInstance = invidiousInstance;
+                        break;
+                    case 'region':
+                        defaultRegion = docs[0]['value'];
+                        settingsView.region = docs[0]['value'];
+                        break;
+                    case 'localScrape':
+                        getVideosLocally = docs[0]['value'];
+                        settingsView.localScrape = docs[0]['value'];
+                        break;
+                    case 'debugMode':
+                        debugMode = docs[0]['value'];
+                        settingsView.debugMode = docs[0]['value'];
+                        break;
+                    case 'startScreen':
+                        defaultPage = docs[0]['value'];
+                        break;
+                    case 'distractionFreeMode':
+                        settingsView.setDistractionFreeMode(docs[0]['value']);
+                        break;
+                    default:
+                        break;
+                }
             }
-            break;
-          case 'player':
-            defaultPlayer = docs[0]['value'];
-            break;
-          case 'quality':
-            defaultQuality = docs[0]['value'];
-            break;
-          case 'rate':
-            defaultPlaybackRate = docs[0]['value'];
-            break;
-          case 'proxy':
-            defaultProxy = docs[0]['value'];
-
-            if(useTor && defaultProxy) {
-              electron.ipcRenderer.send("setProxy", defaultProxy);
-            }
-            break;
-          case 'invidious':
-            invidiousInstance = docs[0]['value'].replace(/\/$/, '');
-            settingsView.invidiousInstance = invidiousInstance;
-            break;
-          case 'region':
-            defaultRegion = docs[0]['value'];
-            settingsView.region = docs[0]['value'];
-            break;
-          case 'localScrape':
-            getVideosLocally = docs[0]['value'];
-            settingsView.localScrape = docs[0]['value'];
-            break;
-          case 'debugMode':
-            debugMode = docs[0]['value'];
-            settingsView.debugMode = docs[0]['value'];
-            break;
-          case 'startScreen':
-            defaultPage = docs[0]['value'];
-            break;
-          case 'distractionFreeMode':
-            settingsView.setDistractionFreeMode(docs[0]['value']);
-            break;
-          default:
-            break;
-        }
-      }
-    });
-  }
+        });
+    }
 }
 
 /**
@@ -237,223 +238,223 @@ function checkDefaultSettings() {
  * @return {Void}
  */
 function updateSettings() {
-  let themeSwitch = document.getElementById('themeSwitch').checked;
-  let torSwitch = document.getElementById('torSwitch').checked;
-  let historySwitch = document.getElementById('historySwitch').checked;
-  let autoplaySwitch = document.getElementById('autoplaySwitch').checked;
-  let subtitlesSwitch = document.getElementById('subtitlesSwitch').checked;
-  let updatesSwitch = document.getElementById('updatesSwitch').checked;
-  let localSwitch = document.getElementById('localSwitch').checked;
-  let pageSelect = document.getElementById('pageSelect').value;
-  let playerSelect = document.getElementById('playerSelect').value;
-  let qualitySelect = document.getElementById('qualitySelect').value;
-  let rateSelect = document.getElementById('rateSelect').value;
-  let regionSelect = document.getElementById('regionSelect').value;
-  let proxyAddress = document.getElementById('proxyAddress').value;
-  let invidious = document.getElementById('invidiousInstance').value.replace(/\/$/, '');
-  let debugMode = document.getElementById('debugSwitch').checked;
-  let distractionFreeMode = document.getElementById('distractionFreeModeSwitch').checked;
-  let theme = 'light';
+    let themeSwitch = document.getElementById('themeSwitch').checked;
+    let torSwitch = document.getElementById('torSwitch').checked;
+    let historySwitch = document.getElementById('historySwitch').checked;
+    let autoplaySwitch = document.getElementById('autoplaySwitch').checked;
+    let subtitlesSwitch = document.getElementById('subtitlesSwitch').checked;
+    let updatesSwitch = document.getElementById('updatesSwitch').checked;
+    let localSwitch = document.getElementById('localSwitch').checked;
+    let pageSelect = document.getElementById('pageSelect').value;
+    let playerSelect = document.getElementById('playerSelect').value;
+    let qualitySelect = document.getElementById('qualitySelect').value;
+    let rateSelect = document.getElementById('rateSelect').value;
+    let regionSelect = document.getElementById('regionSelect').value;
+    let proxyAddress = document.getElementById('proxyAddress').value;
+    let invidious = document.getElementById('invidiousInstance').value.replace(/\/$/, '');
+    let debugMode = document.getElementById('debugSwitch').checked;
+    let distractionFreeMode = document.getElementById('distractionFreeModeSwitch').checked;
+    let theme = 'light';
 
-  settingsView.useTor = torSwitch;
-  settingsView.history = historySwitch;
-  settingsView.autoplay = autoplaySwitch;
-  settingsView.subtitles = subtitlesSwitch;
-  settingsView.updates = updatesSwitch;
-  settingsView.proxyAddress = proxyAddress;
-  settingsView.localScrape = localSwitch;
-  settingsView.debugMode = debugMode
-  rememberHistory = historySwitch;
-  defaultQuality = qualitySelect;
-  defaultPlaybackRate = rateSelect;
-  settingsView.setDistractionFreeMode(distractionFreeMode);
-
-  if (themeSwitch === true) {
-    theme = 'dark';
-  }
-
-  // Update default theme
-  settingsDb.update({
-    _id: 'theme'
-  }, {
-    value: theme
-  }, {}, function(err, numReplaced) {
-    ft.log(err);
-    ft.log(numReplaced);
-  });
-
-  // Update tor usage.
-  settingsDb.update({
-    _id: 'useTor'
-  }, {
-    value: torSwitch
-  }, {}, function(err, numReplaced) {
-    ft.log(err);
-    ft.log(numReplaced);
-    useTor = torSwitch;
-  });
-
-  // Update proxy address
-  settingsDb.update({
-    _id: 'proxy'
-  }, {
-    value: proxyAddress
-  }, {}, function(err, numReplaced) {
-    ft.log(err);
-    ft.log(numReplaced);
-    defaultProxy = proxyAddress;
-  });
-
-  // Update Invidious Instance
-  settingsDb.update({
-    _id: 'invidious'
-  }, {
-    value: invidious
-  }, {}, function(err, numReplaced) {
-    ft.log(err);
-    ft.log(numReplaced);
-    settingsView.invidiousInstance = invidious;
-    invidiousInstance = invidious;
-  });
-
-  // Update history
-  settingsDb.update({
-    _id: 'history'
-  }, {
-    value: historySwitch
-  }, {}, function(err, numReplaced) {
-    ft.log(err);
-    ft.log(numReplaced);
+    settingsView.useTor = torSwitch;
+    settingsView.history = historySwitch;
+    settingsView.autoplay = autoplaySwitch;
+    settingsView.subtitles = subtitlesSwitch;
+    settingsView.updates = updatesSwitch;
+    settingsView.proxyAddress = proxyAddress;
+    settingsView.localScrape = localSwitch;
+    settingsView.debugMode = debugMode
     rememberHistory = historySwitch;
-  });
-
-  // Update autoplay.
-  settingsDb.update({
-    _id: 'autoplay'
-  }, {
-    value: autoplaySwitch
-  }, {}, function(err, numReplaced) {
-    ft.log(err);
-    ft.log(numReplaced);
-    autoplay = autoplaySwitch;
-  });
-
-  // Update autoplay.
-  settingsDb.update({
-    _id: 'localScrape'
-  }, {
-    value: localSwitch
-  }, {}, function(err, numReplaced) {
-    ft.log(err);
-    ft.log(numReplaced);
-    getVideosLocally = localSwitch;
-  });
-
-  // Update subtitles.
-  settingsDb.update({
-    _id: 'subtitles'
-  }, {
-    value: subtitlesSwitch
-  }, {}, function(err, numReplaced) {
-    ft.log(err);
-    ft.log(numReplaced);
-    enableSubtitles = subtitlesSwitch;
-  });
-
-  // Update checkForUpdates.
-  settingsDb.update({
-    _id: 'updates'
-  }, {
-    value: updatesSwitch
-  }, {}, function(err, numReplaced) {
-    ft.log(err);
-    ft.log(numReplaced);
-    checkForUpdates = updatesSwitch;
-  });
-
-  // Update default player.
-  settingsDb.update({
-    _id: 'player'
-  }, {
-    value: playerSelect
-  }, {}, function(err, numReplaced) {
-    ft.log(err);
-    ft.log(numReplaced);
-    defaultPlayer = playerSelect;
-  });
-
-  // Update default quality.
-  settingsDb.update({
-    _id: 'quality'
-  }, {
-    value: qualitySelect
-  }, {}, function(err, numReplaced) {
-    ft.log(err);
-    ft.log(numReplaced);
     defaultQuality = qualitySelect;
-  });
-
-  // Update default playback rate.
-  settingsDb.update({
-    _id: 'rate'
-  }, {
-    value: rateSelect
-  }, {}, function(err, numReplaced) {
-    ft.log(err);
-    ft.log(numReplaced);
     defaultPlaybackRate = rateSelect;
-  });
+    settingsView.setDistractionFreeMode(distractionFreeMode);
 
-  // Update default region.
-  settingsDb.update({
-    _id: 'region'
-  }, {
-    value: regionSelect
-  }, {}, function(err, numReplaced) {
-    ft.log(err);
-    ft.log(numReplaced);
-    settingsView.region = regionSelect;
-  });
+    if (themeSwitch === true) {
+        theme = 'dark';
+    }
 
-  // Update debug mode.
-  settingsDb.update({
-    _id: 'debugMode'
-  }, {
-    value: debugMode
-  }, {}, function(err, numReplaced) {
-    ft.log(err);
-    ft.log(numReplaced);
-    settingsView.debugMode = debugMode;
-  });
+    // Update default theme
+    settingsDb.update({
+        _id: 'theme'
+    }, {
+        value: theme
+    }, {}, function(err, numReplaced) {
+        ft.log(err);
+        ft.log(numReplaced);
+    });
 
-  // Update start screen.
-  settingsDb.update({
-    _id: 'startScreen'
-  }, {
-    value: pageSelect
-  }, {}, function(err, numReplaced) {
-    ft.log(err);
-    ft.log(numReplaced);
-  });
+    // Update tor usage.
+    settingsDb.update({
+        _id: 'useTor'
+    }, {
+        value: torSwitch
+    }, {}, function(err, numReplaced) {
+        ft.log(err);
+        ft.log(numReplaced);
+        useTor = torSwitch;
+    });
 
-  // Update distraction free mode.
-  settingsDb.update({
-    _id: 'distractionFreeMode'
-  }, {
-    value: distractionFreeMode
-  }, {}, function(err, numReplaced) {
-    ft.log(err);
-    ft.log(numReplaced);
-  });
+    // Update proxy address
+    settingsDb.update({
+        _id: 'proxy'
+    }, {
+        value: proxyAddress
+    }, {}, function(err, numReplaced) {
+        ft.log(err);
+        ft.log(numReplaced);
+        defaultProxy = proxyAddress;
+    });
 
-  // set proxy in electron based on new values
-  if(torSwitch) {
-    electron.ipcRenderer.send("setProxy", proxyAddress);
-  } else {
-    electron.ipcRenderer.send("setProxy", {});
-  }
+    // Update Invidious Instance
+    settingsDb.update({
+        _id: 'invidious'
+    }, {
+        value: invidious
+    }, {}, function(err, numReplaced) {
+        ft.log(err);
+        ft.log(numReplaced);
+        settingsView.invidiousInstance = invidious;
+        invidiousInstance = invidious;
+    });
 
-  showToast('Settings have been saved.');
+    // Update history
+    settingsDb.update({
+        _id: 'history'
+    }, {
+        value: historySwitch
+    }, {}, function(err, numReplaced) {
+        ft.log(err);
+        ft.log(numReplaced);
+        rememberHistory = historySwitch;
+    });
+
+    // Update autoplay.
+    settingsDb.update({
+        _id: 'autoplay'
+    }, {
+        value: autoplaySwitch
+    }, {}, function(err, numReplaced) {
+        ft.log(err);
+        ft.log(numReplaced);
+        autoplay = autoplaySwitch;
+    });
+
+    // Update autoplay.
+    settingsDb.update({
+        _id: 'localScrape'
+    }, {
+        value: localSwitch
+    }, {}, function(err, numReplaced) {
+        ft.log(err);
+        ft.log(numReplaced);
+        getVideosLocally = localSwitch;
+    });
+
+    // Update subtitles.
+    settingsDb.update({
+        _id: 'subtitles'
+    }, {
+        value: subtitlesSwitch
+    }, {}, function(err, numReplaced) {
+        ft.log(err);
+        ft.log(numReplaced);
+        enableSubtitles = subtitlesSwitch;
+    });
+
+    // Update checkForUpdates.
+    settingsDb.update({
+        _id: 'updates'
+    }, {
+        value: updatesSwitch
+    }, {}, function(err, numReplaced) {
+        ft.log(err);
+        ft.log(numReplaced);
+        checkForUpdates = updatesSwitch;
+    });
+
+    // Update default player.
+    settingsDb.update({
+        _id: 'player'
+    }, {
+        value: playerSelect
+    }, {}, function(err, numReplaced) {
+        ft.log(err);
+        ft.log(numReplaced);
+        defaultPlayer = playerSelect;
+    });
+
+    // Update default quality.
+    settingsDb.update({
+        _id: 'quality'
+    }, {
+        value: qualitySelect
+    }, {}, function(err, numReplaced) {
+        ft.log(err);
+        ft.log(numReplaced);
+        defaultQuality = qualitySelect;
+    });
+
+    // Update default playback rate.
+    settingsDb.update({
+        _id: 'rate'
+    }, {
+        value: rateSelect
+    }, {}, function(err, numReplaced) {
+        ft.log(err);
+        ft.log(numReplaced);
+        defaultPlaybackRate = rateSelect;
+    });
+
+    // Update default region.
+    settingsDb.update({
+        _id: 'region'
+    }, {
+        value: regionSelect
+    }, {}, function(err, numReplaced) {
+        ft.log(err);
+        ft.log(numReplaced);
+        settingsView.region = regionSelect;
+    });
+
+    // Update debug mode.
+    settingsDb.update({
+        _id: 'debugMode'
+    }, {
+        value: debugMode
+    }, {}, function(err, numReplaced) {
+        ft.log(err);
+        ft.log(numReplaced);
+        settingsView.debugMode = debugMode;
+    });
+
+    // Update start screen.
+    settingsDb.update({
+        _id: 'startScreen'
+    }, {
+        value: pageSelect
+    }, {}, function(err, numReplaced) {
+        ft.log(err);
+        ft.log(numReplaced);
+    });
+
+    // Update distraction free mode.
+    settingsDb.update({
+        _id: 'distractionFreeMode'
+    }, {
+        value: distractionFreeMode
+    }, {}, function(err, numReplaced) {
+        ft.log(err);
+        ft.log(numReplaced);
+    });
+
+    // set proxy in electron based on new values
+    if (torSwitch) {
+        electron.ipcRenderer.send("setProxy", proxyAddress);
+    } else {
+        electron.ipcRenderer.send("setProxy", {});
+    }
+
+    showToast('Settings have been saved.');
 }
 
 /**
@@ -464,13 +465,13 @@ function updateSettings() {
  * @return {Void}
  */
 function toggleTheme(themeValue) {
-  if (themeValue.checked === true) {
-    setTheme('dark');
-    currentTheme = 'dark';
-  } else {
-    setTheme('light');
-    currentTheme = 'light';
-  }
+    if (themeValue.checked === true) {
+        setTheme('dark');
+        currentTheme = 'dark';
+    } else {
+        setTheme('light');
+        currentTheme = 'light';
+    }
 }
 
 /**
@@ -481,181 +482,180 @@ function toggleTheme(themeValue) {
  * @return {Void}
  */
 function setTheme(option) {
-  let cssFile;
-  const currentTheme = document.getElementsByTagName("link").item(1);
+    let cssFile;
+    const currentTheme = document.getElementsByTagName("link").item(1);
 
-  // Create a link element
-  const newTheme = document.createElement("link");
-  newTheme.setAttribute("rel", "stylesheet");
-  newTheme.setAttribute("type", "text/css");
+    // Create a link element
+    const newTheme = document.createElement("link");
+    newTheme.setAttribute("rel", "stylesheet");
+    newTheme.setAttribute("type", "text/css");
 
-  // Grab the css file to be used.
-  switch (option) {
-    case 'light':
-      cssFile = './style/lightTheme.css';
-      document.getElementById('menuText').src = 'icons/textBlackSmall.png';
-      document.getElementById('menuIcon').src = 'icons/iconBlackSmall.png';
-      document.getElementById('menuButton').style.color = 'black';
-      document.getElementById('reloadButton').style.color = 'black';
-      break;
-    case 'dark':
-      cssFile = './style/darkTheme.css';
-      document.getElementById('menuText').src = 'icons/textColorSmall.png';
-      document.getElementById('menuIcon').src = 'icons/iconColorSmall.png';
-      document.getElementById('menuButton').style.color = 'white';
-      document.getElementById('reloadButton').style.color = 'white';
-      break;
-    default:
-      // Default to the light theme
-      cssFile = './style/lightTheme.css';
-      break;
-  }
-  newTheme.setAttribute("href", cssFile);
-
-  // Replace the current theme with the new theme
-  document.getElementsByTagName("head").item(0).replaceChild(newTheme, currentTheme);
-}
-
-/**
-* Import Subscriptions from an OPML file.
-*
-* @param {string} subFile - The file location of the OPML file.
-*
-* @return {Void}
-*/
-function importOpmlSubs(json){
-  if(!json[0]['folder'].includes('YouTube')){
-    showToast('Invalid OPML File.  Import is unsuccessful.');
-    return;
-  }
-
-  showToast('Importing subscriptions, please wait.');
-
-  progressView.seen = true;
-  progressView.width = 0;
-
-  let counter = 0;
-  json.forEach((channel, index) => {
-    let channelId = channel['xmlurl'].replace('https://www.youtube.com/feeds/videos.xml?channel_id=', '');
-
-    invidiousAPI('channels', channelId, {}, (data) => {
-      let subscription = {
-        channelId: data.authorId,
-        channelName: data.author,
-        channelThumbnail: data.authorThumbnails[2].url
-      };
-
-      addSubscription(subscription, false);
-      counter++;
-      progressView.progressWidth = (counter / json.length) * 100;
-
-      if ((counter + 1) == json.length) {
-        showToast('Subscriptions have been imported!');
-        progressView.seen = false;
-        progressView.seen = 0;
-        return;
-      }
-    });
-  });
-}
-
-/**
-* Import a subscriptions file that the user provides.
-*
-* @return {Void}
-*/
-function importSubscriptions(){
-  const appDatabaseFile = localDataStorage + '/subscriptions.db';
-
-  // Open user's file browser.  Only show .db files.
-  dialog.showOpenDialog({
-    properties: ['openFile'],
-    filters: [
-      {name: 'Database File', extensions: ['*']},
-    ]
-  }, function(fileLocation){
-    if(typeof(fileLocation) === 'undefined'){
-      ft.log('Import Aborted');
-      return;
+    // Grab the css file to be used.
+    switch (option) {
+        case 'light':
+            cssFile = './style/lightTheme.css';
+            document.getElementById('menuText').src = 'icons/textBlackSmall.png';
+            document.getElementById('menuIcon').src = 'icons/iconBlackSmall.png';
+            document.getElementById('menuButton').style.color = 'black';
+            document.getElementById('reloadButton').style.color = 'black';
+            break;
+        case 'dark':
+            cssFile = './style/darkTheme.css';
+            document.getElementById('menuText').src = 'icons/textColorSmall.png';
+            document.getElementById('menuIcon').src = 'icons/iconColorSmall.png';
+            document.getElementById('menuButton').style.color = 'white';
+            document.getElementById('reloadButton').style.color = 'white';
+            break;
+        default:
+            // Default to the light theme
+            cssFile = './style/lightTheme.css';
+            break;
     }
-    ft.log(fileLocation);
-    let i = fileLocation[0].lastIndexOf('.');
-    let fileType = (i < 0) ? '' : fileLocation[0].substr(i);
-    ft.log(fileType);
+    newTheme.setAttribute("href", cssFile);
 
-    fs.readFile(fileLocation[0], function(readErr, data){
-      if(readErr){
-        showToast('Unable to read file.  File may be corrupt or have invalid permissions.');
-        throw readErr;
-      }
-
-      if (data.includes("<opml")){
-        getOpml(data, function (error, json){
-          if (!error){
-            clearFile('subscriptions', false);
-            importOpmlSubs(json['children'][0]['children']);
-          }
-        });
-        return;
-      }
-      else if( (fileType === '.json') && (data.includes("app_version")) ) {
-        importNewpipeSubscriptions(data);
-        return;
-      }
-      else if ((fileType !== '.db') && (fileType !=='.json')) {
-        showToast('Incorrect file type.  Import unsuccessful.');
-        return;
-      }
-
-      clearFile('subscriptions', false);
-
-      fs.writeFile(appDatabaseFile, data, function(writeErr){
-        if(writeErr){
-          showToast('Unable to create file.  Please check your permissions and try again.');
-          throw writeErr;
-        }
-        showToast('Susbcriptions have been successfully imported. Please restart FreeTube for the changes to take effect.');
-      });
-    })
-  });
+    // Replace the current theme with the new theme
+    document.getElementsByTagName("head").item(0).replaceChild(newTheme, currentTheme);
 }
+
 /**
-* Import NewPipe Channel Subscriptions
-* @return {Void}
-*/
-function importNewpipeSubscriptions(data){
+ * Import Subscriptions from an OPML file.
+ *
+ * @param {string} subFile - The file location of the OPML file.
+ *
+ * @return {Void}
+ */
+function importOpmlSubs(json) {
+    if (!json[0]['folder'].includes('YouTube')) {
+        showToast('Invalid OPML File.  Import is unsuccessful.');
+        return;
+    }
 
-  progressView.seen = true;
-  progressView.width = 0;
-  showToast('Importing Newpipe Subscriptions, Please Wait.');
+    showToast('Importing subscriptions, please wait.');
 
-  let newpipe, n, link, newpipesub, counter;
+    progressView.seen = true;
+    progressView.width = 0;
 
-      newpipe = JSON.parse(data);
-      counter = 0;
+    let counter = 0;
+    json.forEach((channel, index) => {
+        let channelId = channel['xmlurl'].replace('https://www.youtube.com/feeds/videos.xml?channel_id=', '');
 
-      for (n in newpipe.subscriptions) {
-
-          link = newpipe.subscriptions[n].url.split("/");
-
-          invidiousAPI('channels', link[4], {}, (data)=> {
-            newpipesub = {
-              channelId: data.authorId,
-              channelName: data.author,
-              channelThumbnail: data.authorThumbnails[2].url
+        invidiousAPI('channels', channelId, {}, (data) => {
+            let subscription = {
+                channelId: data.authorId,
+                channelName: data.author,
+                channelThumbnail: data.authorThumbnails[2].url
             };
-              addSubscription(newpipesub, false);
-              counter++;
-              progressView.progressWidth = (counter / newpipe.subscriptions.length) * 100;
 
-              if ((counter + 1) == newpipe.subscriptions.length) {
+            addSubscription(subscription, false);
+            counter++;
+            progressView.progressWidth = (counter / json.length) * 100;
+
+            if ((counter + 1) == json.length) {
                 showToast('Subscriptions have been imported!');
                 progressView.seen = false;
                 progressView.seen = 0;
                 return;
-        }
+            }
+        });
     });
-  }
+}
+
+/**
+ * Import a subscriptions file that the user provides.
+ *
+ * @return {Void}
+ */
+function importSubscriptions() {
+    const appDatabaseFile = localDataStorage + '/subscriptions.db';
+
+    // Open user's file browser.  Only show .db files.
+    dialog.showOpenDialog({
+        properties: ['openFile'],
+        filters: [{
+            name: 'Database File',
+            extensions: ['*']
+        }, ]
+    }, function(fileLocation) {
+        if (typeof(fileLocation) === 'undefined') {
+            ft.log('Import Aborted');
+            return;
+        }
+        ft.log(fileLocation);
+        let i = fileLocation[0].lastIndexOf('.');
+        let fileType = (i < 0) ? '' : fileLocation[0].substr(i);
+        ft.log(fileType);
+
+        fs.readFile(fileLocation[0], function(readErr, data) {
+            if (readErr) {
+                showToast('Unable to read file.  File may be corrupt or have invalid permissions.');
+                throw readErr;
+            }
+
+            if (data.includes("<opml")) {
+                getOpml(data, function(error, json) {
+                    if (!error) {
+                        clearFile('subscriptions', false);
+                        importOpmlSubs(json['children'][0]['children']);
+                    }
+                });
+                return;
+            } else if ((fileType === '.json') && (data.includes("app_version"))) {
+                importNewpipeSubscriptions(data);
+                return;
+            } else if ((fileType !== '.db') && (fileType !== '.json')) {
+                showToast('Incorrect file type.  Import unsuccessful.');
+                return;
+            }
+
+            clearFile('subscriptions', false);
+
+            fs.writeFile(appDatabaseFile, data, function(writeErr) {
+                if (writeErr) {
+                    showToast('Unable to create file.  Please check your permissions and try again.');
+                    throw writeErr;
+                }
+                showToast('Susbcriptions have been successfully imported. Please restart FreeTube for the changes to take effect.');
+            });
+        })
+    });
+}
+/**
+ * Import NewPipe Channel Subscriptions
+ * @return {Void}
+ */
+function importNewpipeSubscriptions(data) {
+
+    progressView.seen = true;
+    progressView.width = 0;
+    showToast('Importing Newpipe Subscriptions, Please Wait.');
+
+    let newpipe, n, link, newpipesub, counter;
+
+    newpipe = JSON.parse(data);
+    counter = 0;
+
+    for (n in newpipe.subscriptions) {
+
+        link = newpipe.subscriptions[n].url.split("/");
+
+        invidiousAPI('channels', link[4], {}, (data) => {
+            newpipesub = {
+                channelId: data.authorId,
+                channelName: data.author,
+                channelThumbnail: data.authorThumbnails[2].url
+            };
+            addSubscription(newpipesub, false);
+            counter++;
+            progressView.progressWidth = (counter / newpipe.subscriptions.length) * 100;
+
+            if ((counter + 1) == newpipe.subscriptions.length) {
+                showToast('Subscriptions have been imported!');
+                progressView.seen = false;
+                progressView.seen = 0;
+                return;
+            }
+        });
+    }
 }
 /**
  * Export the susbcriptions database to a file.
@@ -663,58 +663,58 @@ function importNewpipeSubscriptions(data){
  * @return {Void}
  */
 function exportSubscriptions() {
-  const appDatabaseFile = localDataStorage + '/subscriptions.db';
+    const appDatabaseFile = localDataStorage + '/subscriptions.db';
 
-  const date = new Date();
-  let dateMonth = date.getMonth() + 1;
+    const date = new Date();
+    let dateMonth = date.getMonth() + 1;
 
-  if (dateMonth < 10){
-    dateMonth = '0' + dateMonth;
-  }
+    if (dateMonth < 10) {
+        dateMonth = '0' + dateMonth;
+    }
 
-  let dateDay = date.getDate();
+    let dateDay = date.getDate();
 
-  if (dateDay < 10){
-    dateDay = '0' + dateDay;
-  }
+    if (dateDay < 10) {
+        dateDay = '0' + dateDay;
+    }
 
-  const dateYear = date.getFullYear();
-  const dateString = 'freetube-subscriptions-' + dateYear + '-' + dateMonth + '-' + dateDay;
+    const dateYear = date.getFullYear();
+    const dateString = 'freetube-subscriptions-' + dateYear + '-' + dateMonth + '-' + dateDay;
 
-    switch(document.querySelector('#exportSelect').value){
+    switch (document.querySelector('#exportSelect').value) {
 
-      case "NewPipe":
-        exportNewpipeSubscriptions(dateYear, dateMonth, dateDay);
-      break;
-      case "OPML":
-        exportOpmlSubscriptions(dateYear, dateMonth, dateDay);
-      break;
-      default:
-        // Open user file browser. User gives location of file to be created.
-        dialog.showSaveDialog({
-          defaultPath: dateString,
-          filters: [{
-            name: 'Database File',
-            extensions: ['db']
-          }, ]
-        }, function(fileLocation) {
-          ft.log(fileLocation);
-          if (typeof(fileLocation) === 'undefined') {
-            ft.log('Export Aborted');
-            return;
-          }
-          fs.readFile(appDatabaseFile, function(readErr, data) {
-            if (readErr) {
-              throw readErr;
-            }
-            fs.writeFile(fileLocation, data, function(writeErr) {
-              if (writeErr) {
-                throw writeErr;
-              }
-              showToast('Susbcriptions have been successfully exported');
+        case "NewPipe":
+            exportNewpipeSubscriptions(dateYear, dateMonth, dateDay);
+            break;
+        case "OPML":
+            exportOpmlSubscriptions(dateYear, dateMonth, dateDay);
+            break;
+        default:
+            // Open user file browser. User gives location of file to be created.
+            dialog.showSaveDialog({
+                defaultPath: dateString,
+                filters: [{
+                    name: 'Database File',
+                    extensions: ['db']
+                }, ]
+            }, function(fileLocation) {
+                ft.log(fileLocation);
+                if (typeof(fileLocation) === 'undefined') {
+                    ft.log('Export Aborted');
+                    return;
+                }
+                fs.readFile(appDatabaseFile, function(readErr, data) {
+                    if (readErr) {
+                        throw readErr;
+                    }
+                    fs.writeFile(fileLocation, data, function(writeErr) {
+                        if (writeErr) {
+                            throw writeErr;
+                        }
+                        showToast('Susbcriptions have been successfully exported');
+                    });
+                })
             });
-          })
-        });
     }
 }
 /**
@@ -722,131 +722,132 @@ function exportSubscriptions() {
  *
  * @return {Void}
  */
-function exportNewpipeSubscriptions(dateYear, dateMonth, dateDay){
+function exportNewpipeSubscriptions(dateYear, dateMonth, dateDay) {
 
-  const dateString = 'newpipe-subscriptions-' + dateYear + '-' + dateMonth + '-' + dateDay;
+    const dateString = 'newpipe-subscriptions-' + dateYear + '-' + dateMonth + '-' + dateDay;
 
-  dialog.showSaveDialog({
-    defaultPath: dateString,
-    filters: [{
-      name: 'JSON',
-      extensions: ['json']
-    }, ]
-  }, function(fileLocation) {
-    ft.log(fileLocation);
-    if (typeof(fileLocation) === 'undefined') {
-      ft.log('Export Aborted');
-      return;
-    }
-    returnSubscriptions().then((result)=>{
-        let newpipe = {
-          app_version: "0.16.1",
-          app_version_int: 730,
-          subscriptions: []
+    dialog.showSaveDialog({
+        defaultPath: dateString,
+        filters: [{
+            name: 'JSON',
+            extensions: ['json']
+        }, ]
+    }, function(fileLocation) {
+        ft.log(fileLocation);
+        if (typeof(fileLocation) === 'undefined') {
+            ft.log('Export Aborted');
+            return;
         }
-        for (let i=0; i < result.length; i++) {
+        returnSubscriptions().then((result) => {
+            let newpipe = {
+                app_version: "0.16.1",
+                app_version_int: 730,
+                subscriptions: []
+            }
+            for (let i = 0; i < result.length; i++) {
 
-            let subs = {
-              service_id: 0,
-              url: `https://youtube.com/channel/${result[i].channelId}`,
-              name: result[i].channelName
+                let subs = {
+                    service_id: 0,
+                    url: `https://youtube.com/channel/${result[i].channelId}`,
+                    name: result[i].channelName,
+                };
+
+                newpipe.subscriptions.push(subs);
             }
 
-          newpipe.subscriptions.push(subs);
-          fs.writeFile(fileLocation, JSON.stringify(newpipe), function(writeErr) {
-            if (writeErr) {
-              throw writeErr;
-            }
-            if (i === result.length-1) {
-              showToast('Susbcriptions have been successfully exported');
-                return;
-              }
-          });
-        }
+            fs.writeFile(fileLocation, JSON.stringify(newpipe), function(writeErr) {
+                if (writeErr) {
+                    throw writeErr;
+                } else {
+                    showToast('Susbcriptions have been successfully exported');
+                    return;
+                }
+            });
+        });
     });
-  });
 }
 /**
  * Export subscriptions database as OPML.
  *
  * @return {Void}
  */
-function exportOpmlSubscriptions(dateYear, dateMonth, dateDay){
+function exportOpmlSubscriptions(dateYear, dateMonth, dateDay) {
 
-  const dateString = 'freetube-subscriptions-' + dateYear + '-' + dateMonth + '-' + dateDay;
+    const dateString = 'freetube-subscriptions-' + dateYear + '-' + dateMonth + '-' + dateDay;
 
-  dialog.showSaveDialog({
-    defaultPath: dateString,
-    filters: [{
-      name: 'OPML',
-      extensions: ['opml']
-    }, ]
-  }, function(fileLocation) {
-    ft.log(fileLocation);
-    if (typeof(fileLocation) === 'undefined') {
-      ft.log('Export Aborted');
-      return;
-    }
-    returnSubscriptions().then((result)=>{
-
-        let opml = `<opml version="1.1"><body><outline text="YouTube Subscriptions" title="YouTube Subscriptions">`;
-
-        for (let i=0; i < result.length; i++) {
-
-          let subs = `<outline text="${result[i].channelName}" title="${result[i].channelName}" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=${result[i].channelId}"/>`;
-
-          if (i === result.length-1) {
-
-            subs += `</outline></body></opml>`;
-            }
-            opml += subs;
-          fs.writeFile(fileLocation, opml, function(writeErr) {
-         if (writeErr) {
-              throw writeErr;
-            }
-            if (i === result.length-1) {
-              showToast('Susbcriptions have been successfully exported');
-                return;
-              }
-          });
+    dialog.showSaveDialog({
+        defaultPath: dateString,
+        filters: [{
+            name: 'OPML',
+            extensions: ['opml']
+        }, ]
+    }, function(fileLocation) {
+        ft.log(fileLocation);
+        if (typeof(fileLocation) === 'undefined') {
+            ft.log('Export Aborted');
+            return;
         }
-      });
-  });
+        returnSubscriptions().then((result) => {
+
+            let opml = `<opml version="1.1"><body><outline text="YouTube Subscriptions" title="YouTube Subscriptions">`;
+
+            for (let i = 0; i < result.length; i++) {
+
+                let subs = `<outline text="${result[i].channelName}" title="${result[i].channelName}" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=${result[i].channelId}"/>`;
+
+                if (i === result.length - 1) {
+
+                    subs += `</outline></body></opml>`;
+                }
+                opml += subs;
+            }
+
+            fs.writeFile(fileLocation, opml, function(writeErr) {
+                if (writeErr) {
+                    throw writeErr;
+                }
+                if (i === result.length - 1) {
+                    showToast('Susbcriptions have been successfully exported');
+                    return;
+                }
+            });
+        });
+    });
 }
 /**
-* Clear out the data in a file.
-*
-* @param {string} type - The type of file to be cleared.
-*/
-function clearFile(type, showMessage = true){
-  ft.log(type);
-  let dataBaseFile;
+ * Clear out the data in a file.
+ *
+ * @param {string} type - The type of file to be cleared.
+ */
+function clearFile(type, showMessage = true) {
+    ft.log(type);
+    let dataBaseFile;
 
-  switch (type) {
-    case 'subscriptions':
-      dataBaseFile = localDataStorage + '/subscriptions.db';
-      break;
-    case 'history':
-      dataBaseFile = localDataStorage + '/videohistory.db';
-      break;
-    case 'saved':
-      dataBaseFile = localDataStorage + '/savedvideos.db';
-      break;
-    default:
-      showToast('Unknown file: ' + type)
-      return
-  }
-
-  // Replace data with an empty string.
-  fs.writeFile(dataBaseFile, '', function(err) {
-    if (err) {
-      throw err;
+    switch (type) {
+        case 'subscriptions':
+            dataBaseFile = localDataStorage + '/subscriptions.db';
+            break;
+        case 'history':
+            dataBaseFile = localDataStorage + '/videohistory.db';
+            break;
+        case 'saved':
+            dataBaseFile = localDataStorage + '/savedvideos.db';
+            break;
+        default:
+            showToast('Unknown file: ' + type)
+            return
     }
 
-    if (showMessage){
-      showToast('File has been cleared. Restart FreeTube to see the changes');
-    }
-  })
+    // Replace data with an empty string.
+    fs.writeFile(dataBaseFile, '', function(err) {
+        if (err) {
+            throw err;
+        }
+
+        if (showMessage) {
+            showToast('File has been cleared. Restart FreeTube to see the changes');
+        }
+    })
 }
 
 checkDefaultSettings();
