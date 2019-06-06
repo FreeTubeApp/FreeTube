@@ -48,7 +48,7 @@ function playVideo(videoId, playlistId = '') {
     playerView.videoLive = undefined;
     playerView.validLive = false;
     playerView.validDash = true;
-    playerView.videoDash = invidiousInstance + '/api/manifest/dash/' + videoId + '.mpd';
+    playerView.videoDash = invidiousInstance + '/api/manifest/dash/' + videoId + '.mpd?unique_res=1';
     playerView.embededHtml = "<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/" + videoId + "?rel=0' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>";
 
     let videoHtml = '';
@@ -167,19 +167,6 @@ function playVideo(videoId, playlistId = '') {
                     playerView.currentQuality = '720p';
                     //playerView.videoUrl = playerView.liveManifest;
                 }
-
-                if (!useEmbedPlayer &&
-                    typeof(data.player_response.captions) !== 'undefined' &&
-                    typeof(data.player_response.captions.playerCaptionsTracklistRenderer) !== 'undefined' &&
-                    typeof(data.player_response.captions.playerCaptionsTracklistRenderer.captionTracks) !== 'undefined') {
-                    data.player_response.captions.playerCaptionsTracklistRenderer.captionTracks.forEach((caption) => {
-                        let subtitleUrl = invidiousInstance + '/api/v1/captions/' + videoId + '?label=' + caption.name.simpleText;
-
-                        videoHtml = videoHtml + '<track kind="subtitles" src="' + subtitleUrl + '" srclang="' + caption.languageCode + '" label="' + caption.name.simpleText + '">';
-                    });
-
-                    playerView.subtitleHtml = videoHtml;
-                }
             }
             youtubedlFinished = true;
 
@@ -274,6 +261,16 @@ function playVideo(videoId, playlistId = '') {
             playerView.recommendedVideoList = playerView.recommendedVideoList.concat(data);
         });
 
+        if (typeof(data.captions) !== 'undefined') {
+            data.captions.forEach((caption) => {
+                let subtitleUrl = invidiousInstance + caption.url;
+
+                videoHtml = videoHtml + '<track kind="subtitles" src="' + subtitleUrl + '" srclang="' + caption.languageCode + '" label="' + caption.label + '">';
+            });
+
+            playerView.subtitleHtml = videoHtml;
+        }
+
         if (!getVideosLocally) {
             let videoUrls = data.formatStreams;
             let formatUrls = data.adaptiveFormats;
@@ -322,19 +319,6 @@ function playVideo(videoId, playlistId = '') {
                 ft.log(playerView.videoAudio);
                 playerView.videoAudio = '';
                 playerView.validAudio = false;
-            }
-
-            let useEmbedPlayer = false;
-
-            if (!useEmbedPlayer &&
-                typeof(data.captions) !== 'undefined') {
-                data.captions.forEach((caption) => {
-                    let subtitleUrl = invidiousInstance + caption.url;
-
-                    videoHtml = videoHtml + '<track kind="subtitles" src="' + subtitleUrl + '" srclang="' + caption.languageCode + '" label="' + caption.label + '">';
-                });
-
-                playerView.subtitleHtml = videoHtml;
             }
         }
 
@@ -794,27 +778,27 @@ function clickMiniPlayer(videoId) {
             miniPlayer.webContents.send('ping', videoData);
             showToast('Video has been opened in a new window.');
             // TODO: Add video to history once fully loaded.
-            /*if (rememberHistory === true) {
+            if (rememberHistory === true) {
                 let historyData = {
-                    videoId: videoId,
-                    published: data.published,
-                    publishedText: playerView.publishedDate,
-                    description: data.description,
-                    viewCount: data.viewCount,
-                    title: playerView.videoTitle,
-                    lengthSeconds: data.lengthSeconds,
-                    videoThumbnails: playerView.videoThumbnail,
-                    author: playerView.channelName,
-                    authorId: playerView.channelId,
+                    videoId: videoData.videoId,
+                    published: videoData.published,
+                    publishedText: videoData.publishedText,
+                    description: videoData.description,
+                    viewCount: videoData.viewCount,
+                    title: videoData.videoTitle,
+                    lengthSeconds: videoData.lengthSeconds,
+                    videoThumbnails: videoData.videoThumbnail,
+                    author: videoData.channelName,
+                    authorId: videoData.channelId,
                     liveNow: false,
                     paid: false,
                     type: 'video',
                     timeWatched: new Date().getTime(),
+                    watchProgress: videoData.currentTime,
                 };
-
                 ft.log(historyData);
                 addToHistory(historyData);
-            }*/
+            }
         });
 
         return;
@@ -873,13 +857,20 @@ function clickMiniPlayer(videoId) {
     let videoData = {};
 
     videoData.videoId = videoId;
-    videoData.videoDash = invidiousInstance + '/api/manifest/dash/' + videoId + '.mpd';
+    videoData.videoDash = invidiousInstance + '/api/manifest/dash/' + videoId + '.mpd?unique_res=1';
     videoData.autoplay = autoplay;
     videoData.enableSubtitles = enableSubtitles;
     videoData.quality = defaultQuality;
     videoData.defaultPlaybackRate = defaultPlaybackRate;
     videoData.volume = currentVolume;
-    videoData.currentTime = 0;
+
+    historyDb.findOne({
+        videoId: videoData.videoId
+    }, function(err, doc) {
+        if (doc !== null) {
+            videoData.currentTime = doc.watchProgress;
+        }
+    });
 
     if (defaultPlayer === 'dash') {
         videoData.playerSeen = true;
@@ -945,7 +936,7 @@ function clickMiniPlayer(videoId) {
             videoData.legacySeen = false;
         }
 
-        let videoHtml;
+        let videoHtml = '';
 
         if (typeof(data.captions) !== 'undefined') {
             data.captions.forEach((caption) => {
@@ -971,6 +962,13 @@ function clickMiniPlayer(videoId) {
 
         videoData.videoTitle = data.title;
         videoData.videoThumbnail = data.videoThumbnails[0].url;
+        videoData.channelName = data.author;
+        videoData.channelId = data.authorId;
+        videoData.lengthSeconds = data.lengthSeconds;
+        videoData.published = data.published;
+        videoData.publishedText = data.publishedText;
+        videoData.description = data.description;
+        videoData.viewCount = data.viewCount;
 
         invidiousFinished = true;
 

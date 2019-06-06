@@ -26,7 +26,12 @@
  */
 
 function invidiousAPI(resource, id, params, success, fail = function(xhr){
-  showToast('Invidious API Error: ' + xhr.responseJSON.error);
+  if (typeof(xhr.responseJSON.error) !== 'undefined') {
+    showToast('Invidious API Error: ' + xhr.responseJSON.error);
+  }
+  else {
+    showToast('There was an error calling the Invidious API');
+  }
   loadingView.seen = false;
 }) {
   let requestUrl = invidiousInstance + '/api/v1/' + resource + '/' + id + '?' + $.param(params);
