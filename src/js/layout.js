@@ -91,7 +91,7 @@ $(document).ready(() => {
         invidiousInstance = docs[0].value;
         loadingView.seen = true;
 
-        if (docs[1].value !== false) {
+        if (typeof(docs[1]) !== 'undefined') {
             switch (docs[1].value) {
                 case 'subscriptions':
                     sideNavBar.subscriptions();
@@ -109,6 +109,9 @@ $(document).ready(() => {
                     sideNavBar.history();
                     break;
             }
+        }
+        else {
+          sideNavBar.subscriptions();
         }
     });
 
