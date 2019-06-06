@@ -213,7 +213,7 @@ let init = function () {
      */
     ipcMain.on("setProxy", (_e, data) => {
         win.webContents.session.setProxy({ proxyRules: data }, function () {
-            win.webContents.send("proxyAvailable")
+            win.webContents.send("proxyAvailable");
         });
     });
 

@@ -38,6 +38,7 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
  let invidiousInstance = 'https://invidio.us';
  let checkedSettings = false; // Used to prevent data leak when using self-hosted Invidious Instance
  let debugMode = false;
+ let defaultPage = 'subscriptions';
 
 /**
  * Display the settings screen to the user.
@@ -102,6 +103,7 @@ function updateSettingsView() {
       settingsView.updates = false;
     }
 
+    document.getElementById('pageSelect').value = defaultPage;
     document.getElementById('playerSelect').value = defaultPlayer;
     document.getElementById('qualitySelect').value = defaultQuality;
     document.getElementById('rateSelect').value = defaultPlaybackRate;
@@ -138,7 +140,9 @@ function checkDefaultSettings() {
     'invidious': 'https://invidio.us',
     'proxy': "SOCKS5://127.0.0.1:9050", // This is default value for tor client
     'region': 'US',
-    'debugMode': false
+    'debugMode': false,
+    'startScreen': 'subscriptions',
+    'distractionFreeMode': false,
   };
 
   ft.log(settingDefaults);
@@ -213,6 +217,12 @@ function checkDefaultSettings() {
             debugMode = docs[0]['value'];
             settingsView.debugMode = docs[0]['value'];
             break;
+          case 'startScreen':
+            defaultPage = docs[0]['value'];
+            break;
+          case 'distractionFreeMode':
+            settingsView.setDistractionFreeMode(docs[0]['value']);
+            break;
           default:
             break;
         }
@@ -234,13 +244,15 @@ function updateSettings() {
   let subtitlesSwitch = document.getElementById('subtitlesSwitch').checked;
   let updatesSwitch = document.getElementById('updatesSwitch').checked;
   let localSwitch = document.getElementById('localSwitch').checked;
+  let pageSelect = document.getElementById('pageSelect').value;
   let playerSelect = document.getElementById('playerSelect').value;
   let qualitySelect = document.getElementById('qualitySelect').value;
   let rateSelect = document.getElementById('rateSelect').value;
   let regionSelect = document.getElementById('regionSelect').value;
   let proxyAddress = document.getElementById('proxyAddress').value;
-  let invidious = document.getElementById('invidiousInstance').value;
+  let invidious = document.getElementById('invidiousInstance').value.replace(/\/$/, '');
   let debugMode = document.getElementById('debugSwitch').checked;
+  let distractionFreeMode = document.getElementById('distractionFreeModeSwitch').checked;
   let theme = 'light';
 
   settingsView.useTor = torSwitch;
@@ -254,6 +266,7 @@ function updateSettings() {
   rememberHistory = historySwitch;
   defaultQuality = qualitySelect;
   defaultPlaybackRate = rateSelect;
+  settingsView.setDistractionFreeMode(distractionFreeMode);
 
   if (themeSwitch === true) {
     theme = 'dark';
@@ -299,8 +312,8 @@ function updateSettings() {
   }, {}, function(err, numReplaced) {
     ft.log(err);
     ft.log(numReplaced);
-    settingsView.invidiousInstance = invidious.replace(/\/$/, '');
-    invidiousInstance = invidious.replace(/\/$/, '');
+    settingsView.invidiousInstance = invidious;
+    invidiousInstance = invidious;
   });
 
   // Update history
@@ -411,6 +424,26 @@ function updateSettings() {
     ft.log(err);
     ft.log(numReplaced);
     settingsView.debugMode = debugMode;
+  });
+
+  // Update start screen.
+  settingsDb.update({
+    _id: 'startScreen'
+  }, {
+    value: pageSelect
+  }, {}, function(err, numReplaced) {
+    ft.log(err);
+    ft.log(numReplaced);
+  });
+
+  // Update distraction free mode.
+  settingsDb.update({
+    _id: 'distractionFreeMode'
+  }, {
+    value: distractionFreeMode
+  }, {}, function(err, numReplaced) {
+    ft.log(err);
+    ft.log(numReplaced);
   });
 
   // set proxy in electron based on new values

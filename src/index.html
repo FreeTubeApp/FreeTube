@@ -55,8 +55,8 @@
     <div class="sideNavContainer">
       <ul>
         <li v-on:click='subscriptions'><i class="fas fa-rss"></i>&nbsp;&nbsp;Subscriptions <i onclick='event.stopPropagation(); forceSubscriptions()' class="fas fa-sync" id='reloadButton' title='Force Subscription Reload'></i></li>
-        <li v-on:click='trending'><i class="fas fa-fire"></i>&nbsp;&nbsp;Trending</li>
-        <li v-on:click='popular'><i class="fas fa-users"></i>&nbsp;&nbsp;Most Popular</li>
+        <li v-if='!distractionFreeMode' v-on:click='trending'><i class="fas fa-fire"></i>&nbsp;&nbsp;Trending</li>
+        <li v-if='!distractionFreeMode' v-on:click='popular'><i class="fas fa-users"></i>&nbsp;&nbsp;Most Popular</li>
         <li v-on:click='saved'><i class="fas fa-star"></i>&nbsp;&nbsp;Favorites</li>
         <li v-on:click='history'><i class="fas fa-history"></i>&nbsp;&nbsp;History</li>
       </ul>

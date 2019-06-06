@@ -325,11 +325,12 @@ function showMostPopular() {
       checkPopular = false;
   }
 
-    invidiousAPI('top', '', {}, function (data) {
+    invidiousAPI('popular', '', {}, function (data) {
         ft.log(data);
         popularView.videoList = [];
 
         data.forEach((video) => {
+            loadingView.seen = false;
             ft.log(video);
             displayVideo(video, 'popular');
         });

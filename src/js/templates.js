@@ -66,6 +66,9 @@ let noSubscriptions = new Vue({
 
 let sideNavBar = new Vue({
   el: '#sideNav',
+  data: {
+    distractionFreeMode: false
+  },
   methods: {
     subscriptions: (event) => {
       hideViews();
@@ -143,20 +146,6 @@ let sideNavBar = new Vue({
         loadingView.seen = false;
       }
       aboutView.seen = true;
-
-      $.get('https://write.as/freetube/feed/', function (data) {
-         aboutView.rssFeed = [];
-         $(data).find("item").each(function () {
-           let el = $(this);
-           let rssData = {
-              title: el.find("title").text(),
-              link: el.find("link").text(),
-              pubDate: new Date(el.find("pubDate").text()).toDateString(),
-           };
-
-           aboutView.rssFeed.push(rssData);
-         });
-      });
     }
   }
 });
@@ -175,7 +164,7 @@ let subscriptionView = new Vue({
   data: {
     seen: true,
     isSearch: false,
-    videoList: []
+    videoList: [],
   },
   methods: {
     play: (videoId) => {
@@ -436,6 +425,7 @@ let settingsView = new Vue({
     checkProxyResult: false,
     proxyTestLoading: false,
     debugMode: false,
+    distractionFreeMode: false
   },
   methods: {
     checkProxy() {
@@ -462,7 +452,13 @@ let settingsView = new Vue({
           }
         });
       })
-    }
+    },
+    setDistractionFreeMode(setting) {
+      settingsView.distractionFreeMode = setting;
+      sideNavBar.distractionFreeMode = setting;
+      channelView.distractionFreeMode = setting;
+      playerView.distractionFreeMode = setting;
+    },
   },
   computed: {
     proxyTestButtonText() {
@@ -531,7 +527,8 @@ let channelView = new Vue({
     baner: '',
     subCount: '',
     subButtonText: '',
-    description: ''
+    description: '',
+    distractionFreeMode: false
   },
   methods: {
     subscription: (channelId) => {
@@ -638,6 +635,7 @@ let playerView = new Vue({
     playlistShowList: true,
     recommendedVideoList: [],
     playlistVideoList: [],
+    distractionFreeMode: false
   },
   methods: {
     channel: (channelId) => {

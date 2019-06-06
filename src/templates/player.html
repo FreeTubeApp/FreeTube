@@ -74,7 +74,7 @@
         <br />
         <p class='title'>{{videoTitle}}</p>
         <p class='views'>{{videoViews}} views</p>
-        <div class='likeContainer'>
+        <div v-if='!distractionFreeMode' class='likeContainer'>
             <div class='dislikeBar'>
                 <div class='likeBar' :style='{width: likePercentage + "%"}'>
                 </div>
@@ -82,7 +82,7 @@
             <span class='likes'><i class="fas fa-thumbs-up"></i> {{videoLikes}}</span><span class='dislikes'><i class="fas fa-thumbs-down"></i> {{videoDislikes}}</span>
         </div>
     </div>
-    <div class="details">
+    <div v-if='!distractionFreeMode' class="details">
         <img id='channelIcon' v-on:click='channel(channelId)' :src="channelIcon" />
         <p id='channelName' v-on:click='channel(channelId)'>{{channelName}}</p>
         <p id='publishDate'>Published on {{publishedDate}}</p>
@@ -110,14 +110,14 @@
             </div>
         </div>
     </div>
-    <div id='showComments'>
+    <div v-if='!distractionFreeMode' id='showComments'>
         Show Comments <i class="far fa-comments"></i> (Max of 20)
     </div>
 
     <div id='comments' :data-video-id="videoId">
     </div>
 
-    <div id='recommendations'>
+    <div v-if='!distractionFreeMode' id='recommendations'>
         <strong>Recommendations</strong>
         <div v-for='video in recommendedVideoList'>
             <div class='recommendVideo' v-on:click='play(video.id)'>
