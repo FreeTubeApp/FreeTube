@@ -33,10 +33,10 @@ const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
  */
 function search(page = 1) {
     const query = document.getElementById('search').value;
-    const searchSortby = document.getElementById('searchSortby').value;
-    const searchType = document.getElementById('searchType').value;
-    const searchDate = document.getElementById('searchDate').value;
-    const searchDuration = document.getElementById('searchDuration').value;
+    const searchSortby = document.querySelector('input[name="searchSortBy"]:checked').value;
+    const searchType = document.querySelector('input[name="searchType"]:checked').value;
+    const searchDate = document.querySelector('input[name="searchDate"]:checked').value;
+    const searchDuration = document.querySelector('input[name="searchDuration"]:checked').value;
 
     searchFilter.seen = false;
 

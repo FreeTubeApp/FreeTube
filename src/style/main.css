@@ -24,7 +24,7 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-input {
+input[type=text] {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -141,6 +141,15 @@ a {
   text-decoration: none;
   margin-right: 10px;
   cursor: pointer;
+}
+
+.filter {
+  width: 180px;
+  height: 295px;
+  padding: 10px;
+  border-right: 1px solid #f44336;
+  display: inline-block;
+  text-align: left;
 }
 
 #sideNav {

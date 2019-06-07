@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="js/plugins/loop/loop.css" />
   <link rel="stylesheet" href="js/plugins/speed/speed.css" />
   <link rel="stylesheet" href="js/plugins/context-menu/context-menu.css" />
+  <link rel="stylesheet" href="style/radioButton.css">
   <link rel="shortcut icon" href="icons/iconColor.ico" type="image/x-icon" />
   <title>FreeTube Player</title>
 </head>
@@ -73,31 +74,66 @@
   <div id="main">
     <div id='searchFilter' class='center' v-show='seen'>
       <h2>Search Filters</h2>
-      <select id='searchSortby' class='select-text'>
-         <option value="relevance">Most Relevant</option>
-         <option value="rating">Rating</option>
-         <option value="upload_date">Upload Date</option>
-         <option value="view_count">View Count</option>
-      </select>
-      <select id='searchDate' class='select-text'>
-         <option value="">Any Time</option>
-         <option value="hour">Last Hour</option>
-         <option value="today">Today</option>
-         <option value="week">This Week</option>
-         <option value="month">This Month</option>
-         <option value="year">This Year</option>
-      </select>
-      <select id='searchType' class='select-text'>
-         <option value="all">All Types</option>
-         <option value="video">Videos</option>
-         <option value="channel">Channels</option>
-         <option value="playlist">Playlists</option>
-      </select>
-      <select id='searchDuration' class='select-text'>
-         <option value="">All Durations</option>
-         <option value="short">Short (< 4 minutes)</option>
-         <option value="long">Long (> 20 minutes)</option>
-      </select>
+      <br />
+      <div style='position: relative; bottom: 80px;' class='pure-radiobutton filter'>
+        <h3 class='filterTitle'>Sort By</h3>
+        <input class='radio' id='searchSortBy1' type="radio" name="searchSortBy" value="relevance" checked='checked' />
+        <label for='searchSortBy1'>Most Relevant</label>
+        <br /><br />
+        <input class='radio' id='searchSortBy2' type="radio" name="searchSortBy" value="rating" />
+        <label for='searchSortBy2'>Rating</label>
+        <br /><br />
+        <input class='radio' id='searchSortBy3' type="radio" name="searchSortBy" value="upload_date" />
+        <label for='searchSortBy3'>Upload Date</label>
+        <br /><br />
+        <input class='radio' id='searchSortBy4' type="radio" name="searchSortBy" value="view_count" />
+        <label for='searchSortBy4'>View Count</label>
+      </div>
+      <div class='pure-radiobutton filter'>
+        <h3>Time</h3>
+        <input class='radio' id='searchDate1' type="radio" name="searchDate" value="" checked='checked' />
+        <label for='searchDate1'>Any Time</label>
+        <br /><br />
+        <input class='radio' id='searchDate2' type="radio" name="searchDate" value="hour" />
+        <label for='searchDate2'>Last Hour</label>
+        <br /><br />
+        <input class='radio' id='searchDate3' type="radio" name="searchDate" value="today" />
+        <label for='searchDate3'>Today</label>
+        <br /><br />
+        <input class='radio' id='searchDate4' type="radio" name="searchDate" value="week" />
+        <label for='searchDate4'>This Week</label>
+        <br /><br />
+        <input class='radio' id='searchDate5' type="radio" name="searchDate" value="month" />
+        <label for='searchDate5'>This Month</label>
+        <br /><br />
+        <input class='radio' id='searchDate6' type="radio" name="searchDate" value="year" />
+        <label for='searchDate6'>This Year</label>
+      </div>
+      <div style='position: relative; bottom: 80px;' class='pure-radiobutton filter'>
+        <h3 class='filterTitle'>Type</h3>
+        <input class='radio' id='searchType1' type="radio" name="searchType" value="all" checked='checked' />
+        <label for='searchType1'>All Types</label>
+        <br /><br />
+        <input class='radio' id='searchType2' type="radio" name="searchType" value="video" />
+        <label for='searchType2'>Videos</label>
+        <br /><br />
+        <input class='radio' id='searchType3' type="radio" name="searchType" value="channel" />
+        <label for='searchType3'>Channels</label>
+        <br /><br />
+        <input class='radio' id='searchType4' type="radio" name="searchType" value="playlist" />
+        <label for='searchType4'>Playlists</label>
+      </div>
+      <div style='position: relative; bottom: 120px;' class='pure-radiobutton filter'>
+        <h3 class='filterTitle'>Duration</h3>
+        <input class='radio' id='searchDuration1' type="radio" name="searchDuration" value="" checked='checked' />
+        <label for='searchDuration1'>All Durations</label>
+        <br /><br />
+        <input class='radio' id='searchDuration2' type="radio" name="searchDuration" value="short" />
+        <label for='searchDuration2'>Short (< 4 minutes)</label>
+        <br /><br />
+        <input class='radio' id='searchDuration3' type="radio" name="searchDuration" value="long" />
+        <label for='searchDuration3'>Long (> 20 minutes)</label>
+      </div>
     </div>
     <div id='noSubscriptions' v-if='seen'>
       <h2 class="message">
