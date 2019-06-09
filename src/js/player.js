@@ -778,30 +778,29 @@ function clickMiniPlayer(videoId) {
             miniPlayer.webContents.send('ping', videoData);
             showToast('Video has been opened in a new window.');
             // TODO: Add video to history once fully loaded.
-            if (rememberHistory === true) {
-                let historyData = {
-                    videoId: videoData.videoId,
-                    published: videoData.published,
-                    publishedText: videoData.publishedText,
-                    description: videoData.description,
-                    viewCount: videoData.viewCount,
-                    title: videoData.videoTitle,
-                    lengthSeconds: videoData.lengthSeconds,
-                    videoThumbnails: videoData.videoThumbnail,
-                    author: videoData.channelName,
-                    authorId: videoData.channelId,
-                    liveNow: false,
-                    paid: false,
-                    type: 'video',
-                    timeWatched: new Date().getTime(),
-                    watchProgress: videoData.currentTime,
-                };
-                ft.log(historyData);
-                addToHistory(historyData);
-            }
         });
 
-        return;
+        if (rememberHistory === true) {
+            let historyData = {
+                videoId: videoData.videoId,
+                author: videoData.channelName,
+                authorId: videoData.channelId,
+                published: videoData.published,
+                publishedText: videoData.publishedText,
+                description: videoData.description,
+                viewCount: videoData.viewCount,
+                title: videoData.videoTitle,
+                lengthSeconds: videoData.lengthSeconds,
+                videoThumbnails: videoData.videoThumbnail,
+                liveNow: false,
+                paid: false,
+                type: 'video',
+                timeWatched: new Date().getTime(),
+                watchProgress: videoData.currentTime,
+            };
+            ft.log(historyData);
+            addToHistory(historyData);
+        }
     };
 
     let validateData = function(data) {
@@ -869,6 +868,9 @@ function clickMiniPlayer(videoId) {
     }, function(err, doc) {
         if (doc !== null) {
             videoData.currentTime = doc.watchProgress;
+        }
+        else {
+          videoData.currentTime = 0;
         }
     });
 

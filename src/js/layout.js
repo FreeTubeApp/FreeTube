@@ -88,7 +88,10 @@ $(document).ready(() => {
             _id: 'invidious'
         }]
     }, (err, docs) => {
-        invidiousInstance = docs[0].value;
+        if (typeof(docs[0]) !== 'undefined') {
+          invidiousInstance = docs[0].value;
+        }
+
         loadingView.seen = true;
 
         if (typeof(docs[1]) !== 'undefined') {
