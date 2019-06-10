@@ -804,7 +804,7 @@ let backButtonView = new Vue({
 });
 
 function hideViews() {
-  if (playerView.seen !== false) {
+  if (playerView.seen !== false && (playerView.playerSeen || playerView.legacySeen)) {
     let lengthSeconds = 0;
     let duration = 0;
 

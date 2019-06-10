@@ -1131,6 +1131,8 @@ function checkLegacySettings() {
             player.play();
         }
 
+        player.volume = currentVolume;
+
         window.setTimeout(() => {
             historyDb.findOne({
                 videoId: playerView.videoId
