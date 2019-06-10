@@ -449,7 +449,10 @@ function openMiniPlayer() {
         height: 710,
         show: false,
         title: 'FreeTube Mini-Player: ' + playerView.videoTitle,
-        autoHideMenuBar: true
+        autoHideMenuBar: true,
+        webPreferences: {
+          nodeIntegration: true,
+        }
     });
 
     const template = [{
@@ -644,10 +647,13 @@ function clickMiniPlayer(videoId) {
 
         let miniPlayer = new BrowserWindow({
             width: 1200,
-            height: 710,
+            height: 680,
             show: false,
             title: 'FreeTube Mini-Player: ' + videoData.videoTitle,
-            autoHideMenuBar: true
+            autoHideMenuBar: true,
+            webPreferences: {
+              nodeIntegration: true,
+            }
         });
 
         const template = [{

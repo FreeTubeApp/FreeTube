@@ -54,8 +54,6 @@ app.commandLine.appendSwitch('enable-modern-media-controls', 'disabled');
 
 const gotTheLock = app.requestSingleInstanceLock()
 
-if (require('electron-squirrel-startup') || !gotTheLock) app.quit();
-
 /**
  * Initialize the Electron application
  * 1. create the browser window

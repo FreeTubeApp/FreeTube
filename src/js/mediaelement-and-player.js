@@ -3576,7 +3576,7 @@ var config = exports.config = {
 	customError: null,
 
 	keyActions: [{
-		keys: [32, 179],
+		keys: [179],
 		action: function action(player) {
 
 			if (!_constants.IS_FIREFOX) {
