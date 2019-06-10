@@ -5,26 +5,26 @@
     "description": "An Open Source YouTube app for privacy.",
     "main": "src/js/init.js",
     "scripts": {
-        "start": "electron-forge start",
-        "package": "electron-forge package",
-        "make": "electron-forge make",
-        "publish": "electron-forge publish",
-        "make:all": "npm run make:mac && npm run make:linux:x86 && npm run make:linux:arm && npm run make:win",
-        "make:mac": "electron-forge make --platform=darwin",
-        "make:win": "electron-forge make --platform=win32",
-        "make:win:zip": "electron-forge make --platform=win32 --targets=zip",
-        "make:linux:x86": "electron-forge make --platform=linux --arch x64",
-        "make:linux:x86:zip": "electron-forge make --platform=linux --targets=zip --arch x64",
-        "make:linux:x86:deb": "electron-forge make --platform=linux --targets=deb --arch x64",
-        "make:linux:x86:rpm": "electron-forge make --platform=linux --targets=rpm --arch x64",
-        "make:linux:x86:snap": "electron-forge package && electron-installer-snap --src=out/FreeTube-linux-x64 --arch x64",
-        "make:linux:x86:flatpak": "electron-installer-flatpak --src out/FreeTube-linux-x64/ --dest out/make --arch x64 --id org.freetube.FreeTube --productName FreeTube  --runtime org.freedesktop.Platform//1.6 --runtimeVersion 1.6 --sdk org.freedesktop.Sdk//1.6 --base io.atom.electron.BaseApp --baseVersion stable",
-        "make:linux:x86:appimage": "electron-forge make --platform=linux --targets=electron-forge-maker-appimage --arch x64",
-        "make:linux:arm": "electron-forge make --platform=linux --arch arm64",
-        "make:linux:arm:zip": "electron-forge make --platform=linux --targets=zip --arch arm64",
-        "make:linux:arm:deb": "electron-forge make --platform=linux --targets=deb --arch arm64",
-        "make:linux:arm:rpm": "electron-forge make --platform=linux --targets=rpm --arch arm64",
-        "make:linux:arm:appimage": "electron-forge make --platform=linux --targets=electron-forge-maker-appimage --arch arm64"
+        "pack": "build --dir",
+        "start": "electron .",
+        "make:all": "npm run make:linux:x64 && npm run make:linux:arm && npm run make:mac:zip && npm run make:win",
+        "make:win": "build --win",
+        "make:win:exe": "build --win nsis",
+        "make:win:zip": "build --win zip",
+        "make:mac:zip": "build --mac zip",
+        "make:mac:dmg": "build --mac dmg",
+        "make:linux:x64": "build --linux --x64",
+        "make:linux:x64:deb": "build --linux deb --x64",
+        "make:linux:x64:rpm": "build --linux rpm --x64",
+        "make:linux:x64:appimage": "build --linux appimage --x64",
+        "make:linux:x64:zip": "build --linux zip --x64",
+        "make:linux:x64:tar": "build --linux tar.xz --x64",
+        "make:linux:arm": "build --linux --arm64",
+        "make:linux:arm:deb": "build --linux deb --arm64",
+        "make:linux:arm:rpm": "build --linux rpm --arm64",
+        "make:linux:arm:zip": "build --linux zip --arm64",
+        "make:linux:arm:tar.xz": "build --linux tar.xz --arm64",
+        "dist": "build"
     },
     "keywords": [],
     "author": {
@@ -33,67 +33,64 @@
         "url": "https://github.com/FreeTubeApp/FreeTube"
     },
     "license": "GPL-3.0-or-later",
-    "config": {
-        "forge": {
-            "make_targets": {
-                "win32": [
-                    "squirrel"
-                ],
-                "darwin": [
-                    "zip"
-                ],
-                "linux": [
-                    "deb",
-                    "rpm",
-                    "electron-forge-maker-appimage",
-                    "zip"
+    "build": {
+        "appId": "io.freetubeapp.freetube",
+        "asar": true,
+        "protocols": [
+            {
+                "name": "FreeTube",
+                "schemes": [
+                    "freetube"
+                ]
+            }
+        ],
+        "mac": {
+            "category": "public.app-category.video",
+            "icon": "src/icons/iconColor.icns",
+            "target": [
+              "zip"
+            ]
+        },
+        "win": {
+            "target": [
+              "nsis",
+              "zip"
+            ],
+            "icon": "src/icons/iconColor.ico"
+        },
+        "linux": {
+            "protocols": {
+                "name": "FreeTube",
+                "schemes": [
+                    "freetube"
                 ]
             },
-            "protocols": [
-                {
-                    "name": "freetube",
-                    "role": "Viewer",
-                    "schemes": [
-                        "freetube"
-                    ]
-                }
+            "target": [
+                "AppImage",
+                "deb",
+                "rpm",
+                "zip",
+                "tar.xz"
             ],
-            "electronPackagerConfig": {
-                "packageManager": "yarn",
-                "icon": "./src/icons/iconColor.icns"
+            "desktop": {
+              "Icon": "freetube"
             },
-            "electronWinstallerConfig": {
-                "name": "freetube",
-                "iconUrl": "https://raw.githubusercontent.com/FreeTubeApp/FreeTubeApp.github.io/master/images/iconColor.ico",
-                "setupIcon": "./src/icons/iconColor.ico"
-            },
-            "electronInstallerDebian": {
-                "icon": "src/icons/iconColor.png"
-            },
-            "electronForgeMakerAppimage": {
-                "icon": "src/icons/iconColor.png"
-            },
-            "repository": {
-                "type": "git",
-                "url": "https://github.com/FreeTubeApp/FreeTube"
-            }
-        }
+            "category": "Video"
+      }
     },
     "devDependencies": {
-        "electron-forge": "^5.2.4",
-        "electron-forge-maker-appimage": "^20.39.0",
-        "electron-installer-flatpak": "^0.8.0",
-        "electron-installer-snap": "^3.1.1",
-        "electron-prebuilt-compile": "4.0.0",
+        "electron": "^5.0.3",
+        "electron-builder": "^20.43.0",
+        "electron-compile": "^6.4.4",
+        "electron-installer-appimage": "^1.0.1",
+        "electron-packager": "^13.1.1",
         "electron-winstaller": "^3.0.4"
     },
     "dependencies": {
         "autolinker": "^3.0.5",
         "commonjs": "0.0.1",
         "dateformat": "^3.0.3",
-        "electron-compile": "6.4.4",
         "electron-context-menu": "^0.12.0",
-        "electron-squirrel-startup": "^1.0.0",
         "jquery": "^3.4.0",
         "jsdom": "^15.0.0",
         "mustache": "^3.0.1",

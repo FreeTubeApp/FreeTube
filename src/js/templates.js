@@ -15,8 +15,6 @@ You should have received a copy of the GNU General Public License
 along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-import Vue from './js/vue.js';
-
 const mainHeaderTemplate = require('./templates/mainHeader.html');
 const aboutTemplate = require('./templates/about.html');
 const settingsTemplate = require('./templates/settings.html');

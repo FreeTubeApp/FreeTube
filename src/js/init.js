@@ -44,8 +44,6 @@ require('electron-context-menu')({
 
 let win;
 
-protocol.registerStandardSchemes(['freetube']);
-
 app.setAsDefaultProtocolClient('freetube');
 
 app.commandLine.appendSwitch('autoplay-policy', 'no-user-gesture-required');
@@ -73,7 +71,10 @@ let init = function () {
     win = new BrowserWindow({
         width: 1200,
         height: 800,
-        autoHideMenuBar: true
+        autoHideMenuBar: true,
+        webPreferences: {
+          nodeIntegration: true,
+        }
     });
 
     settingsDb.findOne({
