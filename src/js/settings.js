@@ -26,6 +26,7 @@ let autoplay = true;
 let enableSubtitles = false;
 let checkForUpdates = true;
 let currentVolume = 1;
+let defaultVolume = 1;
 let defaultPlayer = 'dash';
 let defaultQuality = 720;
 let defaultPlaybackRate = '1';
@@ -106,6 +107,7 @@ function updateSettingsView() {
         document.getElementById('pageSelect').value = defaultPage;
         document.getElementById('playerSelect').value = defaultPlayer;
         document.getElementById('qualitySelect').value = defaultQuality;
+        document.getElementById('volumeSelect').value = defaultVolume;
         document.getElementById('rateSelect').value = defaultPlaybackRate;
         document.getElementById('regionSelect').value = defaultRegion;
 
@@ -136,6 +138,7 @@ function checkDefaultSettings() {
         'localScrape': true,
         'player': 'dash',
         'quality': '720',
+        'volume': 1,
         'rate': '1',
         'invidious': 'https://invidio.us',
         'proxy': "SOCKS5://127.0.0.1:9050", // This is default value for tor client
@@ -191,6 +194,10 @@ function checkDefaultSettings() {
                         break;
                     case 'quality':
                         defaultQuality = docs[0]['value'];
+                        break;
+                    case 'volume':
+                        defaultVolume = docs[0]['value'];
+                        currentVolume = docs[0]['value'];
                         break;
                     case 'rate':
                         defaultPlaybackRate = docs[0]['value'];
@@ -248,6 +255,7 @@ function updateSettings() {
     let pageSelect = document.getElementById('pageSelect').value;
     let playerSelect = document.getElementById('playerSelect').value;
     let qualitySelect = document.getElementById('qualitySelect').value;
+    let volumeSelect = document.getElementById('volumeSelect').value;
     let rateSelect = document.getElementById('rateSelect').value;
     let regionSelect = document.getElementById('regionSelect').value;
     let proxyAddress = document.getElementById('proxyAddress').value;
@@ -268,6 +276,10 @@ function updateSettings() {
     defaultQuality = qualitySelect;
     defaultPlaybackRate = rateSelect;
     settingsView.setDistractionFreeMode(distractionFreeMode);
+
+    //  Remove last list of videos for trending to load new region setting.
+    checkTrending = true;
+    trendingView.videoList = [];
 
     if (themeSwitch === true) {
         theme = 'dark';
@@ -339,7 +351,7 @@ function updateSettings() {
         autoplay = autoplaySwitch;
     });
 
-    // Update autoplay.
+    // Update getting videos locally
     settingsDb.update({
         _id: 'localScrape'
     }, {
@@ -392,6 +404,18 @@ function updateSettings() {
         ft.log(err);
         ft.log(numReplaced);
         defaultQuality = qualitySelect;
+    });
+
+    // Update default volume.
+    settingsDb.update({
+        _id: 'volume'
+    }, {
+        value: volumeSelect
+    }, {}, function(err, numReplaced) {
+        ft.log(err);
+        ft.log(numReplaced);
+        defaultVolume = volumeSelect;
+        currentVolume = volumeSelect;
     });
 
     // Update default playback rate.

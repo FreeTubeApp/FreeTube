@@ -19,8 +19,6 @@
  * A file for handling mini-player functionality
  */
 
-import Vue from '../js/vue.js';
-
 const electron = require('electron');
 
 let mouseTimeout; // Timeout for hiding the mouse cursor on video playback

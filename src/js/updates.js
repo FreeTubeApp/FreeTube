@@ -66,5 +66,5 @@ function checkForNewUpdate() {
 }
 
 const openReleasePage = function () {
-    shell.openExternal('https://github.com/FreeTubeApp/FreeTube/releases');
+    shell.openExternal('https://freetubeapp.io/#download');
 }

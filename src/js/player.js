@@ -19,7 +19,7 @@
  * File for functions related to videos.
  */
 
-let checkedSettings = false;
+let checkedVideoSettings = false;
 
 /**
  * Display the video player and play a video
@@ -33,7 +33,7 @@ function playVideo(videoId, playlistId = '') {
 
     let youtubedlFinished = false;
     let invidiousFinished = false;
-    checkedSettings = false;
+    checkedVideoSettings = false;
     playerView.firstLoad = true;
     playerView.videoId = videoId;
     playerView.videoAudio = undefined;
@@ -449,7 +449,10 @@ function openMiniPlayer() {
         height: 710,
         show: false,
         title: 'FreeTube Mini-Player: ' + playerView.videoTitle,
-        autoHideMenuBar: true
+        autoHideMenuBar: true,
+        webPreferences: {
+          nodeIntegration: true,
+        }
     });
 
     const template = [{
@@ -644,10 +647,13 @@ function clickMiniPlayer(videoId) {
 
         let miniPlayer = new BrowserWindow({
             width: 1200,
-            height: 710,
+            height: 680,
             show: false,
             title: 'FreeTube Mini-Player: ' + videoData.videoTitle,
-            autoHideMenuBar: true
+            autoHideMenuBar: true,
+            webPreferences: {
+              nodeIntegration: true,
+            }
         });
 
         const template = [{
@@ -983,11 +989,11 @@ function clickMiniPlayer(videoId) {
 function checkDashSettings() {
     // Mediaelement.js for some reason calls onLoadStart() multiple times
     // This check is here to force checkVideoSettings to only run once.
-    if (checkedSettings) {
+    if (checkedVideoSettings) {
         return;
     }
 
-    checkedSettings = true;
+    checkedVideoSettings = true;
     let checked720p = false;
     let checked360p = false;
     let checkedAudio = false;
@@ -1082,7 +1088,7 @@ function checkDashSettings() {
                 ft.log(originalNode);
                 ft.log(instance);
                 showToast('There was an error with playing DASH formats.  Reverting to the legacy formats.');
-                checkedSettings = false;
+                checkedVideoSettings = false;
                 playerView.currentTime = instance.currentTime;
                 playerView.legacyFormats();
             }
@@ -1124,6 +1130,8 @@ function checkLegacySettings() {
         if (autoplay) {
             player.play();
         }
+
+        player.volume = currentVolume;
 
         window.setTimeout(() => {
             historyDb.findOne({

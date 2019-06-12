@@ -76,6 +76,7 @@ function loadSubscriptions() {
         showToast('Refreshing Subscription List.  Please wait...');
         checkSubscriptions = false;
         progressView.seen = true;
+        $('#reloadButton')[0].classList.add('fa-spin');
     }
 
     let videoList = [];
@@ -117,6 +118,7 @@ function loadSubscriptions() {
             loadingView.seen = false;
             headerView.seen = false;
             noSubscriptions.seen = true;
+            $('#reloadButton')[0].classList.remove('fa-spin');
         }
     });
 }
@@ -145,6 +147,7 @@ function addSubsToView(videoList) {
     loadingView.seen = false;
     progressView.seen = false;
     progressView.progressWidth = 0;
+    $('#reloadButton')[0].classList.remove('fa-spin');
 
     subscriptionTimer = window.setTimeout(() => {
         checkSubscriptions = true;
