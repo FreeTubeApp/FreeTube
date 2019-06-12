@@ -66,14 +66,8 @@ let showComments = function (event, continuation = '') {
  */
 let playPauseVideo = function (event) {
     let el = event.currentTarget;
-    if (el.paused) {
-      el.play();
-      if($('.videoPlayer').is(':hover')) {
-        $('.videoPlayer')[0].style.cursor = 'none';
-      }
-    }
-    else {
-      el.pause();
+    if (el.paused && $('.videoPlayer').is(':hover')) {
+      $('.videoPlayer')[0].style.cursor = 'none';
     }
 };
 
