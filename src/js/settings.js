@@ -277,6 +277,10 @@ function updateSettings() {
     defaultPlaybackRate = rateSelect;
     settingsView.setDistractionFreeMode(distractionFreeMode);
 
+    //  Remove last list of videos for trending to load new region setting.
+    checkTrending = true;
+    trendingView.videoList = [];
+
     if (themeSwitch === true) {
         theme = 'dark';
     }
