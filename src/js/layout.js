@@ -250,7 +250,7 @@ function hideMouseTimeout() {
     clearTimeout(mouseTimeout);
     mouseTimeout = window.setTimeout(function() {
         $('.videoPlayer')[0].style.cursor = 'none';
-    }, 2800);
+    }, 2650);
 }
 
 /**
