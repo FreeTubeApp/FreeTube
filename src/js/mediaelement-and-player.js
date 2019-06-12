@@ -1494,6 +1494,7 @@ Object.assign(_player2.default.prototype, {
 		play.addEventListener('click', function () {
 			if (t.paused) {
 				t.play();
+        $('.videoPlayer')[0].style.cursor = 'none';
 			} else {
 				t.pause();
 			}
@@ -1745,7 +1746,7 @@ Object.assign(_player2.default.prototype, {
 
             if (t.duration > 3600) {
               leftPos = leftPos - 45;
-            } 
+            }
 
 						t.timefloat.style.left = leftPos + 'px';
 						t.timefloatcurrent.innerHTML = (0, _time.secondsToTimeCode)(t.newTime, player.options.alwaysShowHours, player.options.showTimecodeFrameCount, player.options.framesPerSecond, player.options.secondsDecimalLength, player.options.timeFormat);
@@ -4074,6 +4075,7 @@ var MediaElementPlayer = function () {
 								t.pause();
 							} else if (t.paused) {
 								t.play();
+                $('.videoPlayer')[0].style.cursor = 'none';
 							} else {
 								t.pause();
 							}
@@ -4694,6 +4696,7 @@ var MediaElementPlayer = function () {
 					if (t.options.clickToPlayPause) {
 						if (t.paused) {
 							t.play();
+              $('.videoPlayer')[0].style.cursor = 'none';
 						} else {
 							t.pause();
 						}
@@ -4918,6 +4921,7 @@ var MediaElementPlayer = function () {
 
 					if (t.paused) {
 						t.play();
+            $('.videoPlayer')[0].style.cursor = 'none';
 					} else {
 						t.pause();
 					}

@@ -66,7 +66,15 @@ let showComments = function (event, continuation = '') {
  */
 let playPauseVideo = function (event) {
     let el = event.currentTarget;
-    el.paused ? el.play() : el.pause();
+    if (el.paused) {
+      el.play();
+      if($('.videoPlayer').is(':hover')) {
+        $('.videoPlayer')[0].style.cursor = 'none';
+      }
+    }
+    else {
+      el.pause();
+    }
 };
 
 /**
@@ -97,7 +105,15 @@ let videoShortcutHandler = function (event) {
         case 32:
             // Space Bar
             event.preventDefault();
-            videoPlayer.paused ? videoPlayer.play() : videoPlayer.pause();
+            if (videoPlayer.paused) {
+              videoPlayer.play();
+              if($('.videoPlayer').is(':hover')) {
+                $('.videoPlayer')[0].style.cursor = 'none';
+              }
+            }
+            else {
+              videoPlayer.pause();
+            }
             break;
         case 74:
             // J Key
@@ -107,7 +123,15 @@ let videoShortcutHandler = function (event) {
         case 75:
             // K Key
             event.preventDefault();
-            videoPlayer.paused ? videoPlayer.play() : videoPlayer.pause();
+            if (videoPlayer.paused) {
+              videoPlayer.play();
+              if($('.videoPlayer').is(':hover')) {
+                $('.videoPlayer')[0].style.cursor = 'none';
+              }
+            }
+            else {
+              videoPlayer.pause();
+            }
             break;
         case 76:
             // L Key
