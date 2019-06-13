@@ -69,13 +69,14 @@ function removeSubscription(channelId) {
  */
 function loadSubscriptions() {
     if (checkSubscriptions === false && subscriptionView.videoList.length > 0) {
-        console.log('Will not load subscriptions. Timer still on.');
+        ft.log('Will not load subscriptions. Timer still on.');
         loadingView.seen = false;
         return;
     } else {
         showToast('Refreshing Subscription List.  Please wait...');
         checkSubscriptions = false;
         progressView.seen = true;
+        $('#reloadButton')[0].classList.add('fa-spin');
     }
 
     let videoList = [];
@@ -117,6 +118,7 @@ function loadSubscriptions() {
             loadingView.seen = false;
             headerView.seen = false;
             noSubscriptions.seen = true;
+            $('#reloadButton')[0].classList.remove('fa-spin');
         }
     });
 }
@@ -145,12 +147,13 @@ function addSubsToView(videoList) {
     loadingView.seen = false;
     progressView.seen = false;
     progressView.progressWidth = 0;
+    $('#reloadButton')[0].classList.remove('fa-spin');
 
     subscriptionTimer = window.setTimeout(() => {
         checkSubscriptions = true;
     }, 7200000);
 
-    console.log('Done');
+    ft.log('Done');
 }
 
 function forceSubscriptions() {

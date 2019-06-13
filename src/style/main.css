@@ -24,7 +24,7 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-input {
+input[type=text] {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -64,7 +64,7 @@ a {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 4;
 }
 
 .topNav span {
@@ -84,11 +84,8 @@ a {
 
 #reloadButton {
     cursor: pointer;
-    font-weight: bold;
-    font-size: 20px;
-    margin-left: 20px;
-    position: relative;
-    top: 3px;
+    font-size: 15px;
+    margin-left: 65px;
 }
 
 #backButton {
@@ -118,13 +115,14 @@ a {
 
 .searchBar {
     position: absolute;
-    right: 100px;
+    right: 30px;
     top: 0;
-    width: 600px;
+    width: 800px;
 }
 
 .searchBar input {
-    width: 65%;
+    width: 75%;
+    color: black;
 }
 
 #searchFilter {
@@ -143,6 +141,15 @@ a {
   text-decoration: none;
   margin-right: 10px;
   cursor: pointer;
+}
+
+.filter {
+  width: 180px;
+  height: 295px;
+  padding: 10px;
+  border-right: 1px solid #f44336;
+  display: inline-block;
+  text-align: left;
 }
 
 #sideNav {
@@ -303,7 +310,7 @@ a {
     font-size: 17px;
     line-height: 50px;
     opacity: 0;
-    z-index: 1;
+    z-index: 4;
     visibility: hidden;
     -webkit-transition: opacity 0.5s ease-in-out;
     -moz-transition: opacity 0.5s ease-in-out;
@@ -369,6 +376,18 @@ a {
 
 .saved {
     color: #FFEB3B;
+}
+
+.blogFeed a {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 900px) {
+  .searchBar {
+    width: 500px;
+    right: 80px;
+  }
 }
 
 /* Thanks to Guus Lieben for the Material Design Switch */

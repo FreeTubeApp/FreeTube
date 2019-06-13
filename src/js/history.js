@@ -41,11 +41,13 @@ function addToHistory(data){
           description: data.description,
           viewCount: data.viewCount,
           title: data.title,
-          description: data.description,
           lengthSeconds: data.lengthSeconds,
           videoThumbnails: data.videoThumbnails,
+          liveNow: false,
+          paid: false,
           type: 'video',
           timeWatched: data.timeWatched,
+          watchProgress: data.watchProgress,
         }, {}, (err, newDoc) => {});
     }
   });
@@ -70,12 +72,33 @@ function removeFromHistory(videoId, toast = true){
 }
 
 /**
+* Update the watch progress video from the history database file
+*
+* @param {string} videoId - The video ID of the video to be removed.
+*
+* @param {double} lengthSeconds - The amount of time the video has been watched in seconds.
+*
+* @return {Void}
+*/
+function updateWatchProgress(videoId, lengthSeconds){
+  historyDb.findOne({ videoId: videoId }, function (err, doc) {
+    if(doc !== null) {
+      historyDb.update(
+        { videoId: videoId },
+        {
+          $set: { watchProgress: lengthSeconds }
+        }, {}, (err, newDoc) => {});
+    }
+  });
+}
+
+/**
 * Show the videos within the history database.
 *
 * @return {Void}
 */
 function showHistory(){
-  console.log('checking history');
+  ft.log('checking history');
 
   historyView.videoList = [];
 
@@ -103,6 +126,7 @@ function showHistory(){
                 paid: false,
                 type: 'video',
                 timeWatched: video.timeWatched,
+                watchProgress: 0,
               };
               addToHistory(videoData);
               videoData.position = index;

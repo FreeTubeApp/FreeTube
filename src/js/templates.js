@@ -15,8 +15,6 @@ You should have received a copy of the GNU General Public License
 along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-import Vue from './js/vue.js';
-
 const mainHeaderTemplate = require('./templates/mainHeader.html');
 const aboutTemplate = require('./templates/about.html');
 const settingsTemplate = require('./templates/settings.html');
@@ -66,6 +64,9 @@ let noSubscriptions = new Vue({
 
 let sideNavBar = new Vue({
   el: '#sideNav',
+  data: {
+    distractionFreeMode: false
+  },
   methods: {
     subscriptions: (event) => {
       hideViews();
@@ -161,7 +162,7 @@ let subscriptionView = new Vue({
   data: {
     seen: true,
     isSearch: false,
-    videoList: []
+    videoList: [],
   },
   methods: {
     play: (videoId) => {
@@ -174,8 +175,13 @@ let subscriptionView = new Vue({
     toggleSave: (videoId) => {
       addSavedVideo(videoId);
     },
-    copy: (site, videoId) => {
-      const url = 'https://' + site + '/watch?v=' + videoId;
+    copyYouTube: (videoId) => {
+      const url = 'https://youtube.com/watch?v=' + videoId;
+      clipboard.writeText(url);
+      showToast('URL has been copied to the clipboard');
+    },
+    copyInvidious: (videoId) => {
+      const url = invidiousInstance + '/watch?v=' + videoId;
       clipboard.writeText(url);
       showToast('URL has been copied to the clipboard');
     },
@@ -183,7 +189,7 @@ let subscriptionView = new Vue({
       removeFromHistory(videoId);
     },
     miniPlayer: (videoId) => {
-      console.log(videoId);
+      ft.log(videoId);
       clickMiniPlayer(videoId);
     }
   },
@@ -208,8 +214,13 @@ let popularView = new Vue({
     toggleSave: (videoId) => {
       addSavedVideo(videoId);
     },
-    copy: (site, videoId) => {
-      const url = 'https://' + site + '/watch?v=' + videoId;
+    copyYouTube: (videoId) => {
+      const url = 'https://youtube.com/watch?v=' + videoId;
+      clipboard.writeText(url);
+      showToast('URL has been copied to the clipboard');
+    },
+    copyInvidious: (videoId) => {
+      const url = invidiousInstance + '/watch?v=' + videoId;
       clipboard.writeText(url);
       showToast('URL has been copied to the clipboard');
     },
@@ -241,8 +252,13 @@ let trendingView = new Vue({
     toggleSave: (videoId) => {
       addSavedVideo(videoId);
     },
-    copy: (site, videoId) => {
-      const url = 'https://' + site + '/watch?v=' + videoId;
+    copyYouTube: (videoId) => {
+      const url = 'https://youtube.com/watch?v=' + videoId;
+      clipboard.writeText(url);
+      showToast('URL has been copied to the clipboard');
+    },
+    copyInvidious: (videoId) => {
+      const url = invidiousInstance + '/watch?v=' + videoId;
       clipboard.writeText(url);
       showToast('URL has been copied to the clipboard');
     },
@@ -274,8 +290,13 @@ let savedView = new Vue({
     toggleSave: (videoId) => {
       toggleSavedVideo(videoId);
     },
-    copy: (site, videoId) => {
-      const url = 'https://' + site + '/watch?v=' + videoId;
+    copyYouTube: (videoId) => {
+      const url = 'https://youtube.com/watch?v=' + videoId;
+      clipboard.writeText(url);
+      showToast('URL has been copied to the clipboard');
+    },
+    copyInvidious: (videoId) => {
+      const url = invidiousInstance + '/watch?v=' + videoId;
       clipboard.writeText(url);
       showToast('URL has been copied to the clipboard');
     },
@@ -307,8 +328,13 @@ let historyView = new Vue({
     toggleSave: (videoId) => {
       addSavedVideo(videoId);
     },
-    copy: (site, videoId) => {
-      const url = 'https://' + site + '/watch?v=' + videoId;
+    copyYouTube: (videoId) => {
+      const url = 'https://youtube.com/watch?v=' + videoId;
+      clipboard.writeText(url);
+      showToast('URL has been copied to the clipboard');
+    },
+    copyInvidious: (videoId) => {
+      const url = invidiousInstance + '/watch?v=' + videoId;
       clipboard.writeText(url);
       showToast('URL has been copied to the clipboard');
     },
@@ -352,8 +378,13 @@ let playlistView = new Vue({
     toggleSave: (videoId) => {
       addSavedVideo(videoId);
     },
-    copy: (site, videoId) => {
-      const url = 'https://' + site + '/watch?v=' + videoId;
+    copyYouTube: (videoId) => {
+      const url = 'https://youtube.com/watch?v=' + videoId;
+      clipboard.writeText(url);
+      showToast('URL has been copied to the clipboard');
+    },
+    copyInvidious: (videoId) => {
+      const url = invidiousInstance + '/watch?v=' + videoId;
       clipboard.writeText(url);
       showToast('URL has been copied to the clipboard');
     },
@@ -368,6 +399,7 @@ let aboutView = new Vue({
   el: '#aboutView',
   data: {
     seen: false,
+    rssFeed: [],
     versionNumber: electron.remote.app.getVersion()
   },
   template: aboutTemplate
@@ -384,24 +416,27 @@ let settingsView = new Vue({
     autoplay: true,
     subtitles: false,
     updates: true,
+    localScrape: true,
     region: 'US',
     proxyAddress: false,
     invidiousInstance: 'https://invidio.us',
     checkProxyResult: false,
-    proxyTestLoading: false
+    proxyTestLoading: false,
+    debugMode: false,
+    distractionFreeMode: false
   },
   methods: {
     checkProxy() {
       this.checkProxyResult = false;
       this.proxyTestLoading = true;
-      electron.ipcRenderer.send("setProxy", this.proxyAddress)
+      electron.ipcRenderer.send("setProxy", this.proxyAddress);
 
       proxyRequest(() => {
         $.ajax({
-          url: "https://ifconfig.co/json",
+          url: "https://ipinfo.io/json",
           dataType: 'json',
-          timeout: 3000 // 3 second timeout
         }).done(response => {
+          console.log(response);
           this.checkProxyResult = response;
         })
         .fail((xhr, textStatus, error) => {
@@ -410,10 +445,18 @@ let settingsView = new Vue({
           showToast('Proxy test failed');
         }).always(() =>{
           this.proxyTestLoading = false;
-          electron.ipcRenderer.send("setProxy", {});
+          if (!useTor) {
+            electron.ipcRenderer.send("setProxy", {});
+          }
         });
       })
-    }
+    },
+    setDistractionFreeMode(setting) {
+      settingsView.distractionFreeMode = setting;
+      sideNavBar.distractionFreeMode = setting;
+      channelView.distractionFreeMode = setting;
+      playerView.distractionFreeMode = setting;
+    },
   },
   computed: {
     proxyTestButtonText() {
@@ -446,13 +489,18 @@ let searchView = new Vue({
     toggleSave: (videoId) => {
       addSavedVideo(videoId);
     },
-    copy: (site, videoId) => {
-      const url = 'https://' + site + '/watch?v=' + videoId;
+    copyYouTube: (videoId) => {
+      const url = 'https://youtube.com/watch?v=' + videoId;
+      clipboard.writeText(url);
+      showToast('URL has been copied to the clipboard');
+    },
+    copyInvidious: (videoId) => {
+      const url = invidiousInstance + '/watch?v=' + videoId;
       clipboard.writeText(url);
       showToast('URL has been copied to the clipboard');
     },
     nextPage: () => {
-      console.log(searchView.page);
+      ft.log(searchView.page);
       search(searchView.page);
     },
     playlist: (playlistId) => {
@@ -477,7 +525,8 @@ let channelView = new Vue({
     baner: '',
     subCount: '',
     subButtonText: '',
-    description: ''
+    description: '',
+    distractionFreeMode: false
   },
   methods: {
     subscription: (channelId) => {
@@ -515,8 +564,13 @@ let channelVideosView = new Vue({
     nextPage: () => {
       channelNextPage();
     },
-    copy: (site, videoId) => {
-      const url = 'https://' + site + '/watch?v=' + videoId;
+    copyYouTube: (videoId) => {
+      const url = 'https://youtube.com/watch?v=' + videoId;
+      clipboard.writeText(url);
+      showToast('URL has been copied to the clipboard');
+    },
+    copyInvidious: (videoId) => {
+      const url = invidiousInstance + '/watch?v=' + videoId;
       clipboard.writeText(url);
       showToast('URL has been copied to the clipboard');
     },
@@ -535,7 +589,9 @@ let playerView = new Vue({
   data: {
     seen: false,
     playlistSeen: false,
+    legacySeen: false,
     firstLoad: true,
+    currentTime: undefined,
     publishedDate: '',
     videoUrl: '',
     videoId: '',
@@ -551,12 +607,17 @@ let playerView = new Vue({
     currentQuality: '',
     videoAudio: '',
     validAudio: false,
-    video480p: '',
-    valid480p: false,
+    video360p: '',
+    valid360p: false,
     video720p: '',
     valid720p: false,
+    videoDash: '',
+    validDash: true,
+    videoLive: '',
+    validLive: false,
     embededHtml: '',
     currentSpeed: 1,
+    lengthSeconds: 0,
     videoTitle: '',
     videoViews: '',
     likePercentage: 0,
@@ -572,6 +633,7 @@ let playerView = new Vue({
     playlistShowList: true,
     recommendedVideoList: [],
     playlistVideoList: [],
+    distractionFreeMode: false
   },
   methods: {
     channel: (channelId) => {
@@ -586,30 +648,57 @@ let playerView = new Vue({
       toggleSubscription(channelData);
     },
     quality: (url, qualityText) => {
-      console.log(url);
-      console.log(qualityText);
-      if(playerView.playerSeen === true){
+      ft.log(url);
+      ft.log(qualityText);
+      if(playerView.legacySeen === true){
         // Update time to new url
         const currentPlayBackTime = $('.videoPlayer').get(0).currentTime;
-        console.log(currentPlayBackTime);
+        ft.log(currentPlayBackTime);
         playerView.videoUrl = url;
         playerView.currentQuality = qualityText;
-        setTimeout(() => {$('.videoPlayer').get(0).currentTime = currentPlayBackTime;}, 100);
-      }
-      else{
-        playerView.playerSeen = true;
-        playerView.videoUrl = url;
-        playerView.currentQuality = qualityText;
+        setTimeout(() => {$('.videoPlayer').get(0).currentTime = currentPlayBackTime; $('.videoPlayer').get(0).play();}, 100);
       }
     },
     embededPlayer: () => {
       playerView.playerSeen = false;
-      playerView.currentQuality = 'EMBED';
+      playerView.legacySeen = false;
+      playerView.currentTime = undefined;
+      checkedSettings = false;
     },
-    copy: (site, videoId) => {
-      const url = 'https://' + site + '/watch?v=' + videoId;
+    legacyFormats: () => {
+      if (typeof(player) !== 'undefined') {
+          playerView.currentTime = player.currentTime;
+      }
+
+      checkedSettings = false;
+
+      playerView.playerSeen = false;
+      playerView.legacySeen = true;
+    },
+    dashFormats: () => {
+      if (typeof($('#legacyPlayer').get(0)) !== 'undefined') {
+          playerView.currentTime = $('#legacyPlayer').get(0).currentTime;
+      }
+
+      playerView.legacySeen = false;
+      checkedSettings = false;
+      playerView.playerSeen = true;
+    },
+    copyYouTube: (videoId) => {
+      const url = 'https://youtube.com/watch?v=' + videoId;
       clipboard.writeText(url);
       showToast('URL has been copied to the clipboard');
+    },
+    openYouTube: (videoId) => {
+      shell.openExternal('https://youtube.com/watch?v=' + videoId);
+    },
+    copyInvidious: (videoId) => {
+      const url = invidiousInstance + '/watch?v=' + videoId;
+      clipboard.writeText(url);
+      showToast('URL has been copied to the clipboard');
+    },
+    openInvidious: (videoId) => {
+      shell.openExternal(invidiousInstance + '/watch?v=' + videoId);
     },
     save: (videoId) => {
       toggleSavedVideo(videoId);
@@ -619,14 +708,14 @@ let playerView = new Vue({
       playVideo(videoId, playlistId);
     },
     loop: () => {
-      let player = document.getElementById('videoPlayer');
+      let legacyPlayer = $('.videoPlayer').get(0);
 
-      if (player.loop === false) {
-        player.loop = true;
+      if (legacyPlayer.loop === false) {
+        legacyPlayer.loop = true;
         showToast('Video loop has been turned on.');
       }
       else{
-        player.loop = false;
+        legacyPlayer.loop = false;
         showToast('Video loop has been turned off.')
       }
     },
@@ -653,6 +742,22 @@ let playerView = new Vue({
         playerView.playlistShuffle = true;
       }
     },
+  },
+  computed: {
+    thumbnailInterval: function() {
+      if (this.lengthSeconds < 120) {
+          return 1;
+      } else if (this.lengthSeconds < 300) {
+          return 2;
+      } else if (this.lengthSeconds < 900) {
+          return 5;
+      } else {
+          return 10;
+      }
+    },
+    storyBoardUrl: function() {
+      return invidiousInstance + '/api/v1/storyboards/' + this.videoId + '?height=90';
+    }
   },
   template: playerTemplate
 });
@@ -698,7 +803,30 @@ let backButtonView = new Vue({
   },
 });
 
-function hideViews(){
+function hideViews() {
+  if (playerView.seen !== false && (playerView.playerSeen || playerView.legacySeen)) {
+    let lengthSeconds = 0;
+    let duration = 0;
+
+    if (playerView.legacySeen === false) {
+      lengthSeconds = player.currentTime;
+      duration = player.duration;
+    }
+    else {
+      lengthSeconds = $('.videoPlayer').get(0).currentTime;
+      duration = $('.videoPlayer').get(0).duration;
+    }
+
+    updateWatchProgress(playerView.videoId, lengthSeconds);
+
+    let videoIndex = subscriptionView.videoList.findIndex(x => x.id === playerView.videoId);
+
+    if (videoIndex !== -1) {
+      subscriptionView.videoList[videoIndex].watched = true;
+      subscriptionView.videoList[videoIndex].progressPercentage = (lengthSeconds / duration) * 100;
+    }
+  }
+
   subscriptionView.seen = false;
   noSubscriptions.seen = false;
   aboutView.seen = false;
@@ -713,6 +841,5 @@ function hideViews(){
   playerView.seen = false;
   channelView.seen = false;
   channelVideosView.seen = false;
-
   backButtonView.lastView = false;
 }

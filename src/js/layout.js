@@ -38,12 +38,14 @@ const shell = electron.shell; // Used to open external links into the user's nat
 const clipboard = electron.clipboard;
 const getOpml = require('opml-to-json'); // Gets the file type for imported files.
 const fs = require('fs'); // Used to read files. Specifically in the settings page.
+const url = require('url');
+const path = require('path');
 
 let dialog = electron.remote.dialog; // Used for opening file browser to export / import subscriptions.
 let toastTimeout; // Timeout for toast notifications.
 let mouseTimeout; // Timeout for hiding the mouse cursor on video playback
 
-require.extensions['.html'] = function (module, filename) {
+require.extensions['.html'] = function(module, filename) {
     module.exports = fs.readFileSync(filename, 'utf8');
 };
 
@@ -51,8 +53,8 @@ require.extensions['.html'] = function (module, filename) {
 // none are found.
 
 electron.ipcRenderer.on('ping', function(event, message) {
-    console.log(message);
-    let url = message[message.length-1];
+    ft.log(message);
+    let url = message[message.length - 1];
     if (url) {
         url = url.replace('freetube://', '');
         parseSearchText(url);
@@ -79,10 +81,56 @@ $(document).ready(() => {
         }
     };
 
-  // Display subscriptions upon the app opening up.  May allow user to specify.
-  // Home page in the future.
-  loadingView.seen = true;
-  loadSubscriptions();
+    settingsDb.find({
+        $or: [{
+            _id: 'startScreen'
+        }, {
+            _id: 'invidious'
+        }]
+    }, (err, docs) => {
+        if (typeof(docs[0]) !== 'undefined') {
+          invidiousInstance = docs[0].value;
+        }
+
+        loadingView.seen = true;
+
+        if (typeof(docs[1]) !== 'undefined') {
+            switch (docs[1].value) {
+                case 'subscriptions':
+                    sideNavBar.subscriptions();
+                    break;
+                case 'trending':
+                    sideNavBar.trending();
+                    break;
+                case 'popular':
+                    sideNavBar.popular();
+                    break;
+                case 'favorites':
+                    sideNavBar.saved();
+                    break;
+                case 'history':
+                    sideNavBar.history();
+                    break;
+            }
+        }
+        else {
+          sideNavBar.subscriptions();
+        }
+    });
+
+    $.get('https://write.as/freetube/feed/', function(data) {
+        aboutView.rssFeed = [];
+        $(data).find("item").each(function() {
+            let el = $(this);
+            let rssData = {
+                title: el.find("title").text(),
+                link: el.find("link").text(),
+                pubDate: new Date(el.find("pubDate").text()).toDateString(),
+            };
+
+            aboutView.rssFeed.push(rssData);
+        });
+    });
 });
 
 /**
@@ -100,6 +148,23 @@ function toggleSideNavigation() {
     } else {
         sideNav.style.display = 'none';
         mainContainer.style.marginLeft = '0px';
+    }
+
+    if (playerView.playerSeen) {
+      // This is a really dumb way to fix the issue of the video player
+      // not resizing properly when the side bar is toggled.
+
+      const currentWindow = electron.remote.getCurrentWindow();
+      let bounds = currentWindow.getBounds();
+      let newBounds = {
+        height: bounds.height,
+        width:  bounds.width + 1,
+        x:  bounds.x,
+        y:  bounds.y,
+      }
+
+      currentWindow.setBounds(newBounds);
+      currentWindow.setBounds(bounds);
     }
 }
 
@@ -183,9 +248,9 @@ function hideConfirmFunction() {
 function hideMouseTimeout() {
     $('.videoPlayer')[0].style.cursor = 'default';
     clearTimeout(mouseTimeout);
-    mouseTimeout = window.setTimeout(function () {
+    mouseTimeout = window.setTimeout(function() {
         $('.videoPlayer')[0].style.cursor = 'none';
-    }, 3150);
+    }, 2650);
 }
 
 /**
@@ -216,17 +281,17 @@ function proxyRequest(callback) {
 
     // Wait for proxy to become available
     proxyCheckingInterval = setInterval(function() {
-      if(proxyAvailable) {
-        clearInterval(proxyCheckingInterval)
+        if (proxyAvailable) {
+            clearInterval(proxyCheckingInterval)
 
-        callback();
+            callback();
 
-      } else {
-        if(counter > 10) {
-          clearInterval(proxyCheckingInterval);
-          showToast('Unable to connect to the Tor network. Check the help page if you\'re having trouble setting up your node.');
+        } else {
+            if (counter > 10) {
+                clearInterval(proxyCheckingInterval);
+                showToast('Unable to connect to the Tor network. Check the help page if you\'re having trouble setting up your node.');
+            }
+            counter++;
         }
-        counter++;
-      }
     }, 100);
 }

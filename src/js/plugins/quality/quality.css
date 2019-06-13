@@ -1,0 +1,78 @@
+.mejs__qualities-button,
+.mejs-qualities-button {
+    position: relative;
+}
+
+.mejs__qualities-button > button,
+.mejs-qualities-button > button {
+    background: transparent;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: normal;
+    margin: 9px 0 0;
+    width: 36px;
+}
+
+.mejs__qualities-selector,
+.mejs-qualities-selector {
+    background: rgba(50, 50, 50, 0.7);
+    border: solid 1px transparent;
+    border-radius: 0;
+    height: 100px;
+    left: -10px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    top: -100px;
+    width: 60px;
+}
+
+.mejs__qualities-selector ul,
+.mejs-qualities-selector ul {
+    display: block;
+    list-style-type: none !important;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+.mejs__qualities-selector li,
+.mejs-qualities-selector li {
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    list-style-type: none!important;
+    margin: 0 0 6px;
+    overflow: hidden;
+    padding: 0 10px;
+}
+.mejs__qualities-selector li:hover,
+.mejs-qualities-selector li:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+.mejs__qualities-selector input,
+.mejs-qualities-selector input {
+    clear: both;
+    float: left;
+    left: -1000px;
+    margin: 3px 3px 0 5px;
+    position: absolute;
+}
+
+.mejs__qualities-selector label,
+.mejs-qualities-selector label {
+    cursor: pointer;
+    float: left;
+    font-size: 10px;
+    line-height: 15px;
+    padding: 4px 0 0;
+    width: 55px;
+}
+
+.mejs__qualities-selected,
+.mejs-qualities-selected {
+    color: rgba(33, 248, 248, 1);
+}

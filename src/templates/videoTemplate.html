@@ -12,11 +12,11 @@
                             <a :href='video.youtubeUrl' onclick='showVideoOptions(this.parentNode.previousSibling);'>
                                 <li>Open in YouTube</li>
                             </a>
-                            <li v-on:click='copy("youtube.com", video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>Copy YouTube Link</li>
+                            <li v-on:click='copyYouTube(video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>Copy YouTube Link</li>
                             <a :href='video.invidiousUrl' onclick='showVideoOptions(this.parentNode.previousSibling);'>
                                 <li>Open in Invidious</li>
                             </a>
-                            <li v-on:click='copy("invidio.us", video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>Copy Invidious Link</li>
+                            <li v-on:click='copyInvidious(video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>Copy Invidious Link</li>
                             <li v-on:click='miniPlayer(video.id);' onclick='showVideoOptions(this.parentNode.previousSibling);'>Open in Mini Player</li>
                         </ul>
                     </div>
@@ -27,6 +27,7 @@
                         <div v-if='video.watched' class='videoWatched'>
                             WATCHED
                         </div>
+                        <div v-if='video.watched' class='watchedProgressBar' :style='{width: video.progressPercentage + "%"}'></div>
                     </div>
                     <p v-on:click='play(video.id)' class='videoTitle'>{{video.title}}</p>
                     <p v-on:click='channel(video.channelId)' class='channelName'>{{video.channelName}}</p>

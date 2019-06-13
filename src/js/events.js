@@ -31,7 +31,7 @@ let showComments = function (event, continuation = '') {
         comments.attr('loaded', 'true');
 
         invidiousAPI('comments', $('#comments').attr('data-video-id'), {}, (data) => {
-          console.log(data);
+          ft.log(data);
 
           let comments = [];
 
@@ -66,13 +66,17 @@ let showComments = function (event, continuation = '') {
  */
 let playPauseVideo = function (event) {
     let el = event.currentTarget;
-    el.paused ? el.play() : el.pause();
+    if (el.paused && $('.videoPlayer').is(':hover')) {
+      $('.videoPlayer')[0].style.cursor = 'none';
+    }
 };
 
 /**
 * Handle keyboard shortcut commands.
 */
 let videoShortcutHandler = function (event) {
+    let videoPlayer;
+
     if (event.which == 68 && event.altKey === true) {
       $('#search').focus();
     }
@@ -83,13 +87,27 @@ let videoShortcutHandler = function (event) {
       forceSubscriptions();
     }
 
-    let videoPlayer = $('.videoPlayer').get(0);
-    if (typeof (videoPlayer) !== 'undefined' && !$('#jumpToInput').is(':focus') && !$('#search').is(':focus')) {
+    if ((typeof(playerView) !== 'undefined' && playerView.legacySeen) || (typeof(miniPlayerView) !== 'undefined' && miniPlayerView.legacySeen)) {
+      videoPlayer = $('.videoPlayer').get(0);
+    }
+    else {
+      videoPlayer = $('#player').get(0);
+    }
+
+    if (typeof(videoPlayer) !== 'undefined' && !$('#jumpToInput').is(':focus') && !$('#search').is(':focus')) {
         switch (event.which) {
         case 32:
             // Space Bar
             event.preventDefault();
-            videoPlayer.paused ? videoPlayer.play() : videoPlayer.pause();
+            if (videoPlayer.paused) {
+              videoPlayer.play();
+              if($('.videoPlayer').is(':hover')) {
+                $('.videoPlayer')[0].style.cursor = 'none';
+              }
+            }
+            else {
+              videoPlayer.pause();
+            }
             break;
         case 74:
             // J Key
@@ -99,7 +117,15 @@ let videoShortcutHandler = function (event) {
         case 75:
             // K Key
             event.preventDefault();
-            videoPlayer.paused ? videoPlayer.play() : videoPlayer.pause();
+            if (videoPlayer.paused) {
+              videoPlayer.play();
+              if($('.videoPlayer').is(':hover')) {
+                $('.videoPlayer')[0].style.cursor = 'none';
+              }
+            }
+            else {
+              videoPlayer.pause();
+            }
             break;
         case 76:
             // L Key
@@ -112,7 +138,7 @@ let videoShortcutHandler = function (event) {
             if (videoPlayer.playbackRate > 0.25){
               let rate = videoPlayer.playbackRate - 0.25;
               videoPlayer.playbackRate = rate;
-              $('#currentSpeed').html(rate);
+              changeVideoSpeed(rate);
             }
             break;
         case 80:
@@ -121,19 +147,13 @@ let videoShortcutHandler = function (event) {
             if (videoPlayer.playbackRate < 2){
               let rate = videoPlayer.playbackRate + 0.25;
               videoPlayer.playbackRate = rate;
-              $('#currentSpeed').html(rate);
+              changeVideoSpeed(rate);
             }
             break;
         case 70:
             // F Key
             event.preventDefault();
-
-            if (videoPlayer.webkitDisplayingFullscreen) {
-              videoPlayer.webkitExitFullscreen
-            }
-            else{
-              videoPlayer.webkitRequestFullscreen();
-            }
+            fullscreenVideo();
             break;
         case 77:
             // M Key
@@ -148,11 +168,23 @@ let videoShortcutHandler = function (event) {
             break;
         case 67:
             // C Key
-            let subtitleMode = $('.videoPlayer').get(0).textTracks[0].mode;
-            if (subtitleMode === 'hidden') {
-                $('.videoPlayer').get(0).textTracks[0].mode = 'showing'
-            } else {
-                $('.videoPlayer').get(0).textTracks[0].mode = 'hidden'
+            if (playerView.legacySeen) {
+              let subtitleMode = videoPlayer.textTracks[0].mode;
+              if (subtitleMode === 'hidden') {
+                videoPlayer.textTracks[0].mode = 'showing'
+              } else {
+                videoPlayer.textTracks[0].mode = 'hidden'
+              }
+            }
+            else {
+              let captionOptions = $('.mejs__captions-selector-input').get();
+
+              if (!captionOptions[0].labels[0].className.includes('mejs__captions-selected')) {
+                captionOptions[0].click();
+              }
+              else {
+               captionOptions[1].click();
+              }
             }
             break;
         case 38:
@@ -230,11 +262,16 @@ let videoShortcutHandler = function (event) {
 };
 
 let fullscreenVideo = function (event) {
+  if (playerView.legacySeen) {
     if (document.webkitFullscreenElement !== null) {
         document.webkitExitFullscreen();
     } else {
         $('.videoPlayer').get(0).webkitRequestFullscreen();
-    }
+      }
+  }
+  else {
+    $('.mejs__fullscreen-button').click();
+  }
 }
 
 /**
@@ -245,7 +282,7 @@ let fullscreenVideo = function (event) {
 
 $(document).on('click', '#showComments', showComments);
 
-$(document).on('click', '.videoPlayer', playPauseVideo);
+$(document).on('click', '#legacyPlayer', playPauseVideo);
 
 $(document).on('dblclick', '.videoPlayer', fullscreenVideo);
 

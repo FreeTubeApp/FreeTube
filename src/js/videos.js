@@ -33,10 +33,10 @@ const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
  */
 function search(page = 1) {
     const query = document.getElementById('search').value;
-    const searchSortby = document.getElementById('searchSortby').value;
-    const searchType = document.getElementById('searchType').value;
-    const searchDate = document.getElementById('searchDate').value;
-    const searchDuration = document.getElementById('searchDuration').value;
+    const searchSortby = document.querySelector('input[name="searchSortBy"]:checked').value;
+    const searchType = document.querySelector('input[name="searchType"]:checked').value;
+    const searchDate = document.querySelector('input[name="searchDate"]:checked').value;
+    const searchDuration = document.querySelector('input[name="searchDuration"]:checked').value;
 
     searchFilter.seen = false;
 
@@ -51,7 +51,7 @@ function search(page = 1) {
         searchView.videoList = [];
         searchView.seen = true;
     } else {
-        console.log(page);
+        ft.log(page);
         showToast('Fetching results.  Please wait...');
     }
 
@@ -63,7 +63,7 @@ function search(page = 1) {
         duration: searchDuration,
         type: searchType,
     }, function (data) {
-        console.log(data);
+        ft.log(data);
 
         data.forEach((video) => {
           switch (video.type) {
@@ -108,13 +108,14 @@ function displayVideo(videoData, listType = '') {
       video.isPlaylist = true;
     }
 
-    historyDb.find({
+    historyDb.findOne({
         videoId: video.id
     }, (err, docs) => {
         if (jQuery.isEmptyObject(docs)) {
-            // Do nothing
+            video.progressPercentage = 0;
         } else {
             video.watched = true;
+            video.progressPercentage = (docs.watchProgress / videoData.lengthSeconds) * 100;
         }
 
         video.views = videoData.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -181,7 +182,7 @@ function displayVideo(videoData, listType = '') {
         };
 
         video.youtubeUrl = 'https://youtube.com/watch?v=' + video.id;
-        video.invidiousUrl = 'https://invidio.us/watch?v=' + video.id;
+        video.invidiousUrl = invidiousInstance + '/watch?v=' + video.id;
         if (typeof(videoData.videoThumbnails) === 'string'){
           video.thumbnail = videoData.videoThumbnails;
         }
@@ -317,20 +318,20 @@ function parseSearchText(url = '') {
  */
 function showMostPopular() {
   if (checkPopular === false && popularView.videoList.length > 0) {
-      console.log('Will not load popular. Timer still on.');
+      ft.log('Will not load popular. Timer still on.');
       loadingView.seen = false;
       return;
   } else {
       checkPopular = false;
   }
 
-    invidiousAPI('top', '', {}, function (data) {
-        console.log(data);
+    invidiousAPI('popular', '', {}, function (data) {
+        ft.log(data);
         popularView.videoList = [];
 
         data.forEach((video) => {
             loadingView.seen = false;
-            console.log(video);
+            ft.log(video);
             displayVideo(video, 'popular');
         });
     });
@@ -347,7 +348,7 @@ function showMostPopular() {
  */
 function showTrending() {
     if (checkTrending === false && trendingView.videoList.length > 0) {
-        console.log('Will not load trending. Timer still on.');
+        ft.log('Will not load trending. Timer still on.');
         loadingView.seen = false;
         return;
     } else {
@@ -355,12 +356,12 @@ function showTrending() {
     }
 
     invidiousAPI('trending', '', {region: settingsView.region}, function (data) {
-        console.log(data);
+        ft.log(data);
         popularView.videoList = [];
 
         data.forEach((video) => {
             loadingView.seen = false;
-            console.log(video);
+            ft.log(video);
             displayVideo(video, 'trending');
         });
     });
@@ -396,19 +397,46 @@ function copyLink(website, videoId) {
 
 }
 
+function validateUrl(videoUrl, callback) {
+    if (typeof (videoUrl) !== 'undefined') {
+        let getUrl = fetch(videoUrl);
+        getUrl.then((status) => {
+            switch (status.status) {
+            case 404:
+                callback(false);
+                return;
+                break;
+            case 403:
+                showToast('This video is unavailable in your country.');
+                callback(false)
+                return;
+                break;
+            default:
+                ft.log('videoUrl is valid');
+                callback(true);
+                return;
+                break;
+            }
+        });
+    } else {
+        callback(false);
+        return;
+    }
+};
+
 /**
  * Check to see if the video URLs are valid. Change the video quality if one is not.
  * The API will grab video URLs, but they will sometimes return a 404.  This
  * is why this check is needed.  The video URL will typically be resolved over time.
  *
- * @param {string} video480p - The URL to the 480p video.
+ * @param {string} video360p - The URL to the 360p video.
  * @param {string} video720p - The URL to the 720p video.
  */
-function checkVideoUrls(video480p, video720p, videoAudio) {
+function checkVideoUrls(video360p, video720p, videoAudio) {
     const currentQuality = $('#currentQuality').html();
     let buttonEmbed = document.getElementById('qualityEmbed');
 
-    let valid480 = false;
+    let valid360 = false;
 
     if (typeof (videoAudio) !== 'undefined') {
         let getAudioUrl = fetch(videoAudio);
@@ -432,32 +460,32 @@ function checkVideoUrls(video480p, video720p, videoAudio) {
       playerView.validAudio = false;
     }
 
-    if (typeof (video480p) !== 'undefined') {
-        let get480pUrl = fetch(video480p);
-        get480pUrl.then((status) => {
+    if (typeof (video360p) !== 'undefined') {
+        let get360pUrl = fetch(video360p);
+        get360pUrl.then((status) => {
             switch (status.status) {
             case 404:
-                showToast('Found valid URL for 480p, but returned a 404. Video type might be available in the future.');
-                playerView.valid480p = false;
+                showToast('Found valid URL for 360p, but returned a 404. Video type might be available in the future.');
+                playerView.valid360p = false;
                 buttonEmbed.click();
                 return;
                 break;
             case 403:
                 showToast('This video is unavailable in your country.');
-                playerView.valid480p = false;
+                playerView.valid360p = false;
                 return;
                 break;
             default:
-                ft.log('480p is valid');
+                ft.log('360p is valid');
                 if (currentQuality === '720p' && typeof (video720p) === 'undefined') {
-                  playerView.currentQuality = '480p';
+                  playerView.currentQuality = '360p';
                 }
                 break;
             }
         });
     }
     else{
-      playerView.valid480p = false;
+      playerView.valid360p = false;
     }
 
     if (typeof (video720p) !== 'undefined') {
@@ -467,8 +495,8 @@ function checkVideoUrls(video480p, video720p, videoAudio) {
             case 404:
                 showToast('Found valid URL for 720p, but returned a 404. Video type might be available in the future.');
                 playerView.valid720p = false;
-                if (typeof (valid480) !== 'undefined') {
-                  playerView.currentQuality = '480p';
+                if (typeof (valid360) !== 'undefined') {
+                  playerView.currentQuality = '360p';
                 }
                 break;
             case 403:

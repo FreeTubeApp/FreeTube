@@ -30,29 +30,29 @@ const {
 const path = require('path');
 const url = require('url');
 
+const Datastore = require('nedb'); // database logic
+const localDataStorage = app.getPath('userData'); // Grabs the userdata directory based on the user's OS
+
+const settingsDb = new Datastore({
+    filename: localDataStorage + '/settings.db',
+    autoload: true
+});
+
 require('electron-context-menu')({
     prepend: (params, browserWindow) => []
 });
 
 let win;
 
-protocol.registerStandardSchemes(['freetube']);
-
-app.setAsDefaultProtocolClient('freetube');//--autoplay-policy=no-user-gesture-required
+app.setAsDefaultProtocolClient('freetube');
 
 app.commandLine.appendSwitch('autoplay-policy', 'no-user-gesture-required');
 
-const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
-    // Someone tried to run a second instance, we should focus our window.
-    if (win) {
-        if (win.isMinimized()) win.restore()
-        win.focus()
+app.commandLine.appendSwitch('disable-web-security');
 
-        win.webContents.send('ping', commandLine)
-    }
-});
+app.commandLine.appendSwitch('enable-modern-media-controls', 'disabled');
 
-if (require('electron-squirrel-startup') || isSecondInstance) app.quit();
+const gotTheLock = app.requestSingleInstanceLock()
 
 /**
  * Initialize the Electron application
@@ -62,20 +62,66 @@ if (require('electron-squirrel-startup') || isSecondInstance) app.quit();
 let init = function () {
     const Menu = require('electron').Menu;
 
+    let winX, winY, winWidth, winHeight = null;
+    //let winWidth = 1200;
+    //let winHeight = 800;
+
     win = new BrowserWindow({
         width: 1200,
         height: 800,
-        autoHideMenuBar: true
+        autoHideMenuBar: true,
+        webPreferences: {
+          nodeIntegration: true,
+        }
     });
 
-    win.loadURL(url.format({
-        pathname: path.join(__dirname, '../index.html'),
-        protocol: 'file:',
-        slashes: true,
-    }));
+    settingsDb.findOne({
+        _id: 'bounds'
+    }, function (err, doc) {
+        if (doc !== null) {
+            if (doc.value !== false) {
+                win.setBounds(doc.value);
+            }
+        }
+    });
+
+    settingsDb.findOne({
+        _id: 'useTor'
+    }, (err, doc) => {
+        if (doc !== null && doc.value !== false) {
+            settingsDb.findOne({
+                _id: 'proxy'
+            }, (err, doc) => {
+                if (doc !== null) {
+                  win.webContents.session.setProxy({
+                      proxyRules: doc.value
+                  }, function () {
+                      win.loadURL(url.format({
+                          pathname: path.join(__dirname, '../index.html'),
+                          protocol: 'file:',
+                          slashes: true,
+                      }));
+                  });
+                }
+                else {
+                  win.loadURL(url.format({
+                      pathname: path.join(__dirname, '../index.html'),
+                      protocol: 'file:',
+                      slashes: true,
+                  }));
+                }
+            });
+        } else {
+            win.loadURL(url.format({
+                pathname: path.join(__dirname, '../index.html'),
+                protocol: 'file:',
+                slashes: true,
+            }));
+        }
+    });
 
     if (process.env = 'development') {
-        //win.webContents.openDevTools();ff
+        //win.webContents.openDevTools();
     }
 
     win.on('closed', () => {
@@ -127,7 +173,8 @@ let init = function () {
                     role: 'reload'
                 },
                 {
-                    role: 'forcereload'
+                    role: 'forcereload',
+                    accelerator: "CmdOrCtrl+Shift+R",
                 },
                 {
                     role: 'toggledevtools'
@@ -173,8 +220,34 @@ let init = function () {
      * example data "SOCKS5://127.0.0.1:9050"
      */
     ipcMain.on("setProxy", (_e, data) => {
-        win.webContents.session.setProxy({ proxyRules: data }, function () {
-            win.webContents.send("proxyAvailable")
+        win.webContents.session.setProxy({
+            proxyRules: data
+        }, function () {
+            win.webContents.send("proxyAvailable");
+        });
+    });
+
+
+    ipcMain.on("setBounds", (_e, data) => {
+        let bounds = win.getBounds();
+
+        settingsDb.findOne({
+            _id: 'bounds'
+        }, function (err, doc) {
+            if (doc !== null) {
+                settingsDb.update({
+                    _id: 'bounds'
+                }, {
+                    $set: {
+                        value: bounds
+                    }
+                }, {}, (err, newDoc) => {});
+            } else {
+                settingsDb.insert({
+                    _id: 'bounds',
+                    value: bounds,
+                });
+            }
         });
     });
 };
@@ -200,11 +273,27 @@ let active = function () {
     }
 };
 
+if (!gotTheLock) {
+  app.quit()
+} else {
+  app.on('second-instance', (event, commandLine, workingDirectory) => {
+    // Someone tried to run a second instance, we should focus our window.
+    if (win) {
+        if (win.isMinimized()) win.restore()
+        win.focus()
+
+        win.webContents.send('ping', commandLine)
+    }
+  })
+
+  // Create myWindow, load the rest of the app, etc...
+  app.on('ready', init);
+}
+
 /**
  * bind events, ready (initialize),
  * window-all-closed (what happens when the windows closed),
  * activate
  */
-app.on('ready', init);
 app.on('window-all-closed', allWindowsClosed);
 app.on('activate', active);

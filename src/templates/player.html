@@ -1,122 +1,135 @@
 <div v-if='seen'>
-  <div v-if='playerSeen'>
-    <video class="videoPlayer" id='videoPlayer' type="application/x-mpegURL" object-fit='cover' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" onloadstart='checkVideoSettings()' onvolumechange='updateVolume()' controls="" onended='playNextVideo()' :src='videoUrl' :poster="videoThumbnail" v-html="subtitleHtml">
-    </video>
-  </div>
-  <div v-else>
-    <span v-html="embededHtml"></span>
-  </div>
-  <div class='statistics'>
-    <div onclick='openMiniPlayer()' class='smallButton' >
-      MINI PLAYER <i class="fas fa-external-link-alt"></i>
-    </div>
-    <div class='smallButton videoQuality'>
-      <span id='currentQuality'>{{currentQuality}}</span> <i class="fas fa-angle-down"></i>
-      <div class='qualityTypes'>
-        <ul>
-          <li v-if='valid480p' id='quality480p' v-on:click='quality(video480p, "480p")'>480p</li>
-          <li v-if='valid720p' id='quality720p' v-on:click='quality(video720p, "720p")'>720p</li>
-          <li v-if='validAudio' id='qualityAudio' v-on:click='quality(videoAudio, "AUDIO")'>AUDIO</li>
-          <li id='qualityEmbed' v-on:click='embededPlayer()'>EMBED</li>
-        </ul>
-      </div>
-    </div>
-    <div class='smallButton videoSpeed'>
-      <span id='currentSpeed'>{{currentSpeed}}</span>x <i class="fas fa-angle-down"></i>
-      <div class='speedTypes'>
-        <ul>
-          <li onclick='changeVideoSpeed(0.25)'>0.25x</li>
-          <li onclick='changeVideoSpeed(0.5)'>0.5x</li>
-          <li onclick='changeVideoSpeed(0.75)'>0.75x</li>
-          <li onclick='changeVideoSpeed(1)'>1x</li>
-          <li onclick='changeVideoSpeed(1.25)'>1.25x</li>
-          <li onclick='changeVideoSpeed(1.5)'>1.5x</li>
-          <li onclick='changeVideoSpeed(1.75)'>1.75x</li>
-          <li onclick='changeVideoSpeed(2)'>2x</li>
-        </ul>
-      </div>
-    </div>
-    <div class='smallButton' v-on:click='loop'>
-      <i id='loopIcon' class="fas fa-sync-alt"></i> LOOP
-    </div>
-    <div class='smallButton' v-on:click='save(videoId)'>
-      <i id='saveIcon' :class='savedIconType' class="fa-star"></i> <span id='savedText'>{{savedText}}</span>
-    </div>
-    <div class='smallButton' v-on:click='copy("youtube.com", videoId)'>
-      COPY YOUTUBE LINK
-    </div>
-    <a :href='"https://youtube.com/watch?v=" + videoId'>
-      <div class='smallButton'>
-        OPEN IN YOUTUBE
-      </div>
-    </a>
-    <div class='smallButton' v-on:click='copy("invidio.us", videoId)'>
-      COPY INVIDIOUS LINK
-    </div>
-    <a :href='"https://invidio.us/watch?v=" + videoId'>
-      <div class='smallButton'>
-        OPEN IN INVIDIOUS
-      </div>
-    </a>
-    <br />
-    <p class='title'>{{videoTitle}}</p>
-    <p class='views'>{{videoViews}} views</p>
-    <div class='likeContainer'>
-      <div class='dislikeBar'>
-        <div class='likeBar' :style='{width: likePercentage + "%"}'>
-        </div>
-      </div>
-      <span class='likes'><i class="fas fa-thumbs-up"></i> {{videoLikes}}</span><span class='dislikes'><i class="fas fa-thumbs-down"></i> {{videoDislikes}}</span>
-    </div>
-  </div>
-  <div class="details">
-    <img id='channelIcon' v-on:click='channel(channelId)' :src="channelIcon" />
-    <p id='channelName' v-on:click='channel(channelId)'>{{channelName}}</p>
-    <p id='publishDate'>Published on {{publishedDate}}</p>
-    <div id='subscribeButton' class='playerSubButton' v-on:click='subscription(channelId)'>{{subscribedText}}</div>
-    <br /><br />
-    <div id='description'>
-      <span v-html="description"></span>
-    </div>
-  </div>
-  <div v-if='playlistSeen' id='miniPL'>
-    <i id='miniPLDropdown' onclick='togglePlaylist()' class='fas fa-angle-down'></i>
-    <p id='miniPLTitle'><span v-on:click='playlist(playlistId)'>{{playlistTitle}}</span><br /><span id='miniPLChannelName' v-on:click='channel(playlistChannelId)'>{{playlistChannelName}} - {{playlistIndex}} / {{playlistTotal}}</span></p>
-    <i id='miniPLLoop' v-on:click='playlistLoopToggle' class='fas fa-redo'></i>
-    <i id='miniPLShuffle' v-on:click='playlistShuffleToggle' class='fas fa-random'></i>
-    <br /><br />
-    <hr v-if='playlistShowList' style='width: 97%' />
-    <div v-if='playlistShowList' id='miniPLVideoList'>
-      <div v-for='video in playlistVideoList'>
-        <div v-on:click='play(video.videoId, playlistId)' class='miniPLVideo'>
-          <span class='miniPLIndex'>{{video.index}}</span>
-          <img :src='video.thumbnail' class='miniPLThumbnail'></>
-          <p class='miniPLVideoTitle'>{{video.title}}</p>
-          <p class='miniPLVideoChannelName'>{{video.channelName}}</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id='showComments'>
-    Show Comments <i class="far fa-comments"></i> (Max of 20)
-  </div>
+    <div v-if='playerSeen && !legacySeen' class='videoPlayer'>
+        <video id='player' onloadstart='checkDashSettings()' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" :poster="videoThumbnail" onended='playNextVideo()' onvolumechange='updateVolume()'>
+            <source v-if='validDash' data-quality='Auto' type="application/dash+xml" :src="videoDash" />
+            <source v-if='validLive' data-quality='Live' type="application/x-mpegURL" :src="videoLive" />
+            <span v-html="subtitleHtml"></span>
+            <track kind="metadata" srclang='' class="time-rail-thumbnails" :src="storyBoardUrl"></track>
+        </video>
 
-  <div id='comments' :data-video-id="videoId">
-  </div>
-
-  <div id='recommendations'>
-    <strong>Recommendations</strong>
-    <div v-for='video in recommendedVideoList'>
-      <div class='recommendVideo' v-on:click='play(video.id)'>
-        <div class='recommendThumbnail'>
-          <img :src='video.thumbnail'></img>
-          <p v-on:click='play(video.id)' class='videoDuration'>{{video.duration}}</p>
-        </div>
-        <p class='recommendTitle'>{{video.title}}</p>
-        <p class='recommendChannel'>{{video.channelName}}</p>
-        <p class='recommendDate'>{{video.viewCount}}</p>
-      </div>
-      <hr />
     </div>
-  </div>
+    <div v-else-if='!playerSeen && legacySeen'>
+        <video id='legacyPlayer' class='videoPlayer' onloadstart='checkLegacySettings()' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" :poster="videoThumbnail" onended='playNextVideo()' onvolumechange='updateVolume()' :src='videoUrl' controls="controls" v-html="subtitleHtml">
+        </video>
+    </div>
+    <div v-else>
+        <span v-html="embededHtml"></span>
+    </div>
+    <div class='statistics'>
+        <div onclick='openMiniPlayer()' class='smallButton'>
+            MINI PLAYER <i class="fas fa-external-link-alt"></i>
+        </div>
+        <div class='smallButton shareButton'>
+            <span>VIDEO FORMATS</span> <i class="fas fa-angle-down"></i>
+            <div class='shareTypes'>
+                <ul>
+                    <li v-on:click='dashFormats'>USE DASH FORMATS</li>
+                    <li v-on:click='legacyFormats'>USE LEGACY FORMATS</li>
+                    <li v-on:click='embededPlayer'>USE YOUTUBE PLAYER</li>
+                </ul>
+            </div>
+        </div>
+        <div v-if='legacySeen' class='smallButton videoQuality'>
+            <span>QUALITY - {{currentQuality}}</span> <i class="fas fa-angle-down"></i>
+            <div class='qualityTypes'>
+                <ul>
+                    <li v-if='valid360p' id='quality480p' v-on:click='quality(video360p, "360p")'>360p</li>
+                    <li v-if='valid720p' id='quality720p' v-on:click='quality(video720p, "720p")'>720p</li>
+                    <li v-if='validAudio' id='qualityAudio' v-on:click='quality(videoAudio, "AUDIO")'>AUDIO ONLY</li>
+                </ul>
+            </div>
+        </div>
+        <div v-if='legacySeen' class='smallButton videoSpeed'>
+            PLAYBACK - <span id='currentSpeed'>{{currentSpeed}}</span>x <i class="fas fa-angle-down"></i>
+            <div class='speedTypes'>
+                <ul>
+                    <li onclick='changeVideoSpeed(0.25)'>0.25x</li>
+                    <li onclick='changeVideoSpeed(0.5)'>0.5x</li>
+                    <li onclick='changeVideoSpeed(0.75)'>0.75x</li>
+                    <li onclick='changeVideoSpeed(1)'>1x</li>
+                    <li onclick='changeVideoSpeed(1.25)'>1.25x</li>
+                    <li onclick='changeVideoSpeed(1.5)'>1.5x</li>
+                    <li onclick='changeVideoSpeed(1.75)'>1.75x</li>
+                    <li onclick='changeVideoSpeed(2)'>2x</li>
+                </ul>
+            </div>
+        </div>
+        <div v-if='legacySeen' class='smallButton' v-on:click='loop'>
+            <i id='loopIcon' class="fas fa-sync-alt"></i> LOOP
+        </div>
+        <div class='smallButton shareButton'>
+            <span>SHARE</span> <i class="fas fa-angle-down"></i>
+            <div class='shareTypes'>
+                <ul>
+                    <li v-on:click='copyYouTube(videoId)'>COPY YOUTUBE LINK</li>
+                    <li v-on:click='openYouTube(videoId)'>OPEN IN YOUTUBE</li>
+                    <li v-on:click='copyInvidious(videoId)'>COPY INVIDIOUS LINK</li>
+                    <li v-on:click='openInvidious(videoId)'>OPEN IN INVIDIOUS</li>
+                </ul>
+            </div>
+        </div>
+        <div class='smallButton' v-on:click='save(videoId)'>
+            <i id='saveIcon' :class='savedIconType' class="fa-star"></i> <span id='savedText'>{{savedText}}</span>
+        </div>
+        <br />
+        <p class='title'>{{videoTitle}}</p>
+        <p class='views'>{{videoViews}} views</p>
+        <div v-if='!distractionFreeMode' class='likeContainer'>
+            <div class='dislikeBar'>
+                <div class='likeBar' :style='{width: likePercentage + "%"}'>
+                </div>
+            </div>
+            <span class='likes'><i class="fas fa-thumbs-up"></i> {{videoLikes}}</span><span class='dislikes'><i class="fas fa-thumbs-down"></i> {{videoDislikes}}</span>
+        </div>
+    </div>
+    <div v-if='!distractionFreeMode' class="details">
+        <img id='channelIcon' v-on:click='channel(channelId)' :src="channelIcon" />
+        <p id='channelName' v-on:click='channel(channelId)'>{{channelName}}</p>
+        <p id='publishDate'>Published on {{publishedDate}}</p>
+        <div id='subscribeButton' class='playerSubButton' v-on:click='subscription(channelId)'>{{subscribedText}}</div>
+        <br /><br />
+        <div id='description'>
+            <span v-html="description"></span>
+        </div>
+    </div>
+    <div v-if='playlistSeen' id='miniPL'>
+        <i id='miniPLDropdown' onclick='togglePlaylist()' class='fas fa-angle-down'></i>
+        <p id='miniPLTitle'><span v-on:click='playlist(playlistId)'>{{playlistTitle}}</span><br /><span id='miniPLChannelName' v-on:click='channel(playlistChannelId)'>{{playlistChannelName}} - {{playlistIndex}} / {{playlistTotal}}</span></p>
+        <i id='miniPLLoop' v-on:click='playlistLoopToggle' class='fas fa-redo'></i>
+        <i id='miniPLShuffle' v-on:click='playlistShuffleToggle' class='fas fa-random'></i>
+        <br /><br />
+        <hr v-if='playlistShowList' style='width: 97%' />
+        <div v-if='playlistShowList' id='miniPLVideoList'>
+            <div v-for='video in playlistVideoList'>
+                <div v-on:click='play(video.videoId, playlistId)' class='miniPLVideo'>
+                    <span class='miniPLIndex'>{{video.index}}</span>
+                    <img :src='video.thumbnail' class='miniPLThumbnail'></>
+                    <p class='miniPLVideoTitle'>{{video.title}}</p>
+                    <p class='miniPLVideoChannelName'>{{video.channelName}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div v-if='!distractionFreeMode' id='showComments'>
+        Show Comments <i class="far fa-comments"></i> (Max of 20)
+    </div>
+
+    <div id='comments' :data-video-id="videoId">
+    </div>
+
+    <div v-if='!distractionFreeMode' id='recommendations'>
+        <strong>Recommendations</strong>
+        <div v-for='video in recommendedVideoList'>
+            <div class='recommendVideo' v-on:click='play(video.id)'>
+                <div class='recommendThumbnail'>
+                    <img :src='video.thumbnail'></img>
+                    <p v-on:click='play(video.id)' class='videoDuration'>{{video.duration}}</p>
+                </div>
+                <p class='recommendTitle'>{{video.title}}</p>
+                <p class='recommendChannel'>{{video.channelName}}</p>
+                <p class='recommendDate'>{{video.viewCount}}</p>
+            </div>
+            <hr />
+        </div>
+    </div>
 </div>

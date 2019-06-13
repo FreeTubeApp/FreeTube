@@ -46,9 +46,9 @@ function checkForNewUpdate() {
         success
       ).fail((xhr, textStatus, error) => {
         fail(xhr);
-        console.log(xhr);
-        console.log(textStatus);
-        console.log(requestUrl);
+        ft.log(xhr);
+        ft.log(textStatus);
+        ft.log(requestUrl);
       });
     })
 
@@ -58,13 +58,13 @@ function checkForNewUpdate() {
       success
     ).fail((xhr, textStatus, error) => {
       fail(xhr);
-      console.log(xhr);
-      console.log(textStatus);
-      console.log(requestUrl);
+      ft.log(xhr);
+      ft.log(textStatus);
+      ft.log(requestUrl);
     });
   }
 }
 
 const openReleasePage = function () {
-    shell.openExternal('https://github.com/FreeTubeApp/FreeTube/releases');
+    shell.openExternal('https://freetubeapp.io/#download');
 }

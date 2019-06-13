@@ -148,7 +148,7 @@ iframe {
 .videoDuration {
     float: right;
     position: relative;
-    bottom: 36px;
+    bottom: 40px;
     color: white;
     background-color: black;
     opacity: 0.7;
@@ -166,6 +166,14 @@ iframe {
   bottom: 187px;
   opacity: 0.4;
   pointer-events: none;
+}
+
+.watchedProgressBar {
+  background-color: #f44336;
+  height: 3px;
+  position: relative;
+  bottom: 190px;
+  opacity: 0.8;
 }
 
 .videoPlaylist {
@@ -204,7 +212,15 @@ iframe {
 
 .videoPlayer {
     width: 100%;
-    max-height: 1100px;
+    height: 100%;
+}
+
+#player {
+  min-width: 100%;
+}
+
+#legacyPlayer {
+  max-height: 80vh;
 }
 
 .statistics {
@@ -321,7 +337,7 @@ iframe {
 }
 
 .videoQuality {
-    width: 42px;
+    width: 102px;
 }
 
 .videoQuality:hover .qualityTypes {
@@ -330,7 +346,7 @@ iframe {
 
 .qualityTypes {
     visibility: hidden;
-    width: 72px;
+    width: 132px;
     position: relative;
     bottom: 10px;
     right: 15px;
@@ -343,13 +359,13 @@ iframe {
 }
 
 .qualityTypes ul li {
-    width: 72px;
+    width: 132px;
     position: relative;
     right: 15px;
 }
 
 .videoSpeed {
-    width: 42px;
+    width: 92px;
 }
 
 .videoSpeed:hover .speedTypes {
@@ -358,7 +374,7 @@ iframe {
 
 .speedTypes {
     visibility: hidden;
-    width: 72px;
+    width: 122px;
     position: relative;
     bottom: 10px;
     right: 15px;
@@ -371,7 +387,35 @@ iframe {
 }
 
 .speedTypes ul li {
-    width: 72px;
+    width: 122px;
+    position: relative;
+    right: 15px;
+}
+
+.shareButton {
+    width: 92px;
+}
+
+.shareButton:hover .shareTypes {
+    visibility: visible;
+}
+
+.shareTypes {
+    visibility: hidden;
+    width: 122px;
+    position: relative;
+    bottom: 10px;
+    right: 15px;
+}
+
+.shareTypes ul {
+    list-style-type: none;
+    position: relative;
+    right: 24px;
+}
+
+.shareTypes ul li {
+    width: 122px;
     position: relative;
     right: 15px;
 }
