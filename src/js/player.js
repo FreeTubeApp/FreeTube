@@ -1011,13 +1011,14 @@ function checkDashSettings() {
         }
 
         let player = new MediaElementPlayer('player', {
-            features: ['playpause', 'current', 'progress', 'duration', 'volume', 'stop', 'speed', 'quality', 'loop', 'tracks', 'fullscreen', 'timerailthumbnails'],
+            features: ['title', 'playpause', 'current', 'progress', 'duration', 'volume', 'stop', 'speed', 'quality', 'loop', 'tracks', 'fullscreen', 'timerailthumbnails'],
             speeds: ['2', '1.75', '1.5', '1.25', '1', '0.75', '0.5', '0.25'],
             renderers: ['native_dash', 'native_hls', 'html5'],
             defaultSpeed: defaultPlaybackRate,
             autoGenerate: true,
             autoDash: true,
             autoHLS: false,
+            title: playerView.videoTitle,
             qualityText: 'Quality',
             defaultQuality: quality,
             stretching: 'responsive',

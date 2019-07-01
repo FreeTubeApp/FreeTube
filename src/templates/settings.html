@@ -1,23 +1,14 @@
 <div v-if="seen">
-    <h1 class="center">Settings</h1>
-    <div class='center'>
+    <div class='card'>
+        <h2>General Settings</h2>
         <input type="checkbox" id="themeSwitch" name="set-name" class="switch-input" onchange='toggleTheme(this)' :checked='useTheme'>
         <label for="themeSwitch" class="switch-label">Use Dark Theme</label>
         <input type="checkbox" id="updatesSwitch" name="set-name" class="switch-input" :checked='updates'>
         <label for="updatesSwitch" class="switch-label">Check for Updates</label>
-        <input type="checkbox" id="localSwitch" name="set-name" class="switch-input" :checked='localScrape'>
-        <label for="localSwitch" class="switch-label">Grab videos locally</label>
         <input type="checkbox" id="distractionFreeModeSwitch" name="set-name" class="switch-input" :checked='distractionFreeMode'>
         <label for="distractionFreeModeSwitch" class="switch-label">Distraction Free Mode</label>
-        <input type="checkbox" id="historySwitch" name="set-name" class="switch-input" :checked='history'>
-        <label for="historySwitch" class="switch-label">Remember History</label>
-        <input type="checkbox" id="autoplaySwitch" name="set-name" class="switch-input" :checked='autoplay'>
-        <label for="autoplaySwitch" class="switch-label">Autoplay Videos</label>
-        <input type="checkbox" id="subtitlesSwitch" name="set-name" class="switch-input" :checked='subtitles'>
-        <label for="subtitlesSwitch" class="switch-label">Turn on Subtitles by Default</label>
-        <input type="checkbox" id="debugSwitch" name="set-name" class="switch-input" :checked='debugMode'>
-        <label for="debugSwitch" class="switch-label">Enable Debug Mode (Prints data to the console)</label>
-        <br /><br />
+        <br />
+        <br />
         <div class="select center">
             <select id='pageSelect' class="select-text" required>
                 <option value="subscriptions" selected>Subcriptions</option>
@@ -30,79 +21,6 @@
             <span class="select-bar"></span>
             <label class="select-label">Default Landing Page</label>
         </div>
-        <br /><br />
-        <div class="select center">
-            <select id='playerSelect' class="select-text" required>
-                <option value="dash" selected>Dash Player</option>
-                <option value="legacy">Legacy Player</option>
-                <option value="embed">YouTube Embedded Player</option>
-            </select>
-            <span class="select-highlight"></span>
-            <span class="select-bar"></span>
-            <label class="select-label">Default Video Player</label>
-        </div>
-        <br /><br />
-        <div class="select center">
-            <select id='qualitySelect' class="select-text" required>
-                <option value="144">144p</option>
-                <option value="240">240p</option>
-                <option value="360">360p</option>
-                <option value="480">480p</option>
-                <option value="720" selected>720p</option>
-                <option value="1080">1080p</option>
-                <option value="1440">1440p</option>
-                <option value="4k">4k</option>
-                <option value="Auto">Auto</option>
-            </select>
-            <span class="select-highlight"></span>
-            <span class="select-bar"></span>
-            <label class="select-label">Default Video Quality</label>
-        </div>
-        <br /><br />
-        <div class="select center">
-            <select id='volumeSelect' class="select-text" required>
-                <option value="1" selected>100%</option>
-                <option value="0.95">95%</option>
-                <option value="0.90">90%</option>
-                <option value="0.85">85%</option>
-                <option value="0.80">80%</option>
-                <option value="0.75">75%</option>
-                <option value="0.70">70%</option>
-                <option value="0.65">65%</option>
-                <option value="0.60">60%</option>
-                <option value="0.55">55%</option>
-                <option value="0.50">50%</option>
-                <option value="0.45">45%</option>
-                <option value="0.40">40%</option>
-                <option value="0.35">35%</option>
-                <option value="0.30">30%</option>
-                <option value="0.25">25%</option>
-                <option value="0.20">20%</option>
-                <option value="0.15">15%</option>
-                <option value="0.10">10%</option>
-                <option value="0.05">5%</option>
-            </select>
-            <span class="select-highlight"></span>
-            <span class="select-bar"></span>
-            <label class="select-label">Default Volume</label>
-        </div>
-        <br /><br />
-        <div class="select center">
-            <select id='rateSelect' class="select-text" required>
-                <option value="0.25">0.25x</option>
-                <option value="0.5">0.5x</option>
-                <option value="0.75">0.75x</option>
-                <option value="1" selected>1x</option>
-                <option value="1.25">1.25x</option>
-                <option value="1.5">1.5x</option>
-                <option value="1.75">1.75x</option>
-                <option value="2">2x</option>
-            </select>
-            <span class="select-highlight"></span>
-            <span class="select-bar"></span>
-            <label class="select-label">Default Video Speed</label>
-        </div>
-        <br /><br />
         <div class="select center">
             <select id='regionSelect' class="select-text" required>
                 <option value='AF'>Afghanistan</option>
@@ -349,17 +267,87 @@
             <label class="select-label">Region for Trending</label>
         </div>
         <br />
+        <br />
     </div>
-    <div class='center'>
-        <div class="input-text-settings">
-            <label for="invidiousInstance">Current Invidious Instance (Defaults to https://invidio.us)</label>
-            <input type="text" id="invidiousInstance" name="set-name" v-model="invidiousInstance" />
-            <a href='https://github.com/omarroth/invidious/wiki/Invidious-Instances'>
-              <p>See Public Instances</p>
-            </a>
+    <div class='card'>
+        <h2>Player Settings</h2>
+        <input type="checkbox" id="historySwitch" name="set-name" class="switch-input" :checked='history'>
+        <label for="historySwitch" class="switch-label">Remember History</label>
+        <input type="checkbox" id="autoplaySwitch" name="set-name" class="switch-input" :checked='autoplay'>
+        <label for="autoplaySwitch" class="switch-label">Autoplay Videos</label>
+        <input type="checkbox" id="subtitlesSwitch" name="set-name" class="switch-input" :checked='subtitles'>
+        <label for="subtitlesSwitch" class="switch-label">Turn on Subtitles by Default</label>
+        <input type="checkbox" id="localSwitch" name="set-name" class="switch-input" :checked='localScrape'>
+        <label for="localSwitch" class="switch-label">Grab videos locally</label>
+        <br />
+        <label class="settingsSlider pure-material-slider">
+            <input id='volumeSelect' type="range" min="0" max="1" step="0.01" v-model.number="defaultVolume">
+            <span>Default Volume - <span>{{volumeHtml}}</span>%</span>
+        </label>
+        <label class="pure-material-slider">
+            <input id='rateSelect' type="range" min="0.25" max="2" step="0.25" v-model.number="defaultVideoSpeed">
+            <span>Default Video Speed - <span>{{defaultVideoSpeed}}</span>x</span>
+        </label>
+        <br />
+        <br />
+        <div class="select center">
+            <select id='playerSelect' class="select-text" required>
+                <option value="dash" selected>Dash Player</option>
+                <option value="legacy">Legacy Player</option>
+                <option value="embed">YouTube Embedded Player</option>
+            </select>
+            <span class="select-highlight"></span>
+            <span class="select-bar"></span>
+            <label class="select-label">Default Video Player</label>
         </div>
+        <div class="select center">
+            <select id='qualitySelect' class="select-text" required>
+                <option value="144">144p</option>
+                <option value="240">240p</option>
+                <option value="360">360p</option>
+                <option value="480">480p</option>
+                <option value="720" selected>720p</option>
+                <option value="1080">1080p</option>
+                <option value="1440">1440p</option>
+                <option value="4k">4k</option>
+                <option value="Auto">Auto</option>
+            </select>
+            <span class="select-highlight"></span>
+            <span class="select-bar"></span>
+            <label class="select-label">Default Video Quality</label>
+        </div>
+        <br />
+        <br />
     </div>
-    <div class="center">
+    <div class='card'>
+        <h2>Subscription Settings</h2>
+        <br />
+        <br />
+        <div class="select center">
+            <select id="exportSelect" class="select-text" required>
+                <option>FreeTube</option>
+                <option>NewPipe</option>
+                <option>OPML</option>
+            </select>
+            <span class="select-highlight"></span>
+            <span class="select-bar"></span>
+            <label class="select-label">Subscriptions Export Format</label>
+        </div>
+        <div class='center'>
+            <div onclick='importSubscriptions()' class='settingsButton'>
+                IMPORT SUBSCRIPTIONS
+            </div>
+            <div onclick='exportSubscriptions();' class='settingsButton'>
+                EXPORT SUBSCRIPTIONS
+            </div>
+        </div>
+        <br />
+        <br />
+    </div>
+    <div class="card">
+        <h2>Advanced Settings</h2>
+        <input type="checkbox" id="debugSwitch" name="set-name" class="switch-input" :checked='debugMode'>
+        <label for="debugSwitch" class="switch-label">Enable Debug Mode (Prints data to the console)</label>
         <input type="checkbox" id="torSwitch" name="set-name" class="switch-input" :checked='useTor'>
         <label for="torSwitch" class="switch-label">Use Tor / Proxy for API calls</label>
         <div class="input-text-settings">
@@ -380,45 +368,38 @@
         <div v-on:click='checkProxy' class='center settingsButton'>
             {{proxyTestButtonText}}
         </div>
-    </div>
-    <br />
-    <br />
-    <br />
-    <br />
-    <div class="select center">
-        <select id="exportSelect" class="select-text" required>
-            <option>FreeTube</option>
-            <option>NewPipe</option>
-            <option>OPML</option>
-        </select>
-        <span class="select-highlight"></span>
-        <span class="select-bar"></span>
-        <label class="select-label">Subscriptions Export Format</label>
-    </div>
-    <div class='center'>
-        <div onclick='importSubscriptions()' class='settingsButton'>
-            IMPORT SUBSCRIPTIONS
+        <br />
+        <br />
+        <div class='center'>
+            <div class="input-text-settings">
+                <label for="invidiousInstance">Current Invidious Instance (Defaults to https://invidio.us)</label>
+                <input type="text" id="invidiousInstance" name="set-name" v-model="invidiousInstance" />
+                <a href='https://github.com/omarroth/invidious/wiki/Invidious-Instances'>
+                    <p>See Public Instances</p>
+                </a>
+            </div>
         </div>
-        <div onclick='exportSubscriptions();' class='settingsButton'>
-            EXPORT SUBSCRIPTIONS
+        <br />
+        <br />
+        <div class='center'>
+            <div onclick='confirmFunction("Are you sure you want to delete your history?", clearFile, "history")' class='settingsButton'>
+                CLEAR HISTORY
+            </div>
+            <div onclick='confirmFunction("Are you sure you want to remove all saved videos?", clearFile, "saved")' class='settingsButton'>
+                CLEAR FAVORITED VIDEOS
+            </div>
+            <div onclick='confirmFunction("Are you sure you want to remove all subscriptions?", clearFile, "subscriptions")' class='settingsButton'>
+                CLEAR SUBSCRIPTIONS
+            </div>
         </div>
+        <br />
+        <br />
     </div>
-    <br />
-    <br />
-    <div class='center'>
-        <div onclick='confirmFunction("Are you sure you want to delete your history?", clearFile, "history")' class='settingsButton'>
-            CLEAR HISTORY
-        </div>
-        <div onclick='confirmFunction("Are you sure you want to remove all saved videos?", clearFile, "saved")' class='settingsButton'>
-            CLEAR FAVORITED VIDEOS
-        </div>
-        <div onclick='confirmFunction("Are you sure you want to remove all subscriptions?", clearFile, "subscriptions")' class='settingsButton'>
-            CLEAR SUBSCRIPTIONS
-        </div>
+    <div id='confirmSettings'>
+        <span onclick='updateSettings()' class='settingsSubmit'>
+            SAVE SETTINGS
+        </span>
+        <p>You must save your changes in order for new settings to take effect.</p>
     </div>
-    <br />
-    <br />
-    <div onclick='updateSettings()' class='center settingsSubmit'>
-        SAVE SETTINGS
-    </div>
+</div>
 </div>

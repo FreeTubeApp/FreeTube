@@ -48,13 +48,13 @@
             "category": "public.app-category.video",
             "icon": "src/icons/iconColor.icns",
             "target": [
-              "zip"
+                "zip"
             ]
         },
         "win": {
             "target": [
-              "nsis",
-              "zip"
+                "nsis",
+                "zip"
             ],
             "icon": "src/icons/iconColor.ico"
         },
@@ -73,10 +73,10 @@
                 "tar.xz"
             ],
             "desktop": {
-              "Icon": "freetube"
+                "Icon": "freetube"
             },
             "category": "Video"
-      }
+        }
     },
     "devDependencies": {
         "electron": "^5.0.3",

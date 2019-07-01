@@ -7730,6 +7730,7 @@ function fadeOut(el) {
 
 	if (!el.style.opacity) {
 		el.style.opacity = 1;
+    $('.mejs__title').get(0).style.opacity = 1;
 	}
 
 	var start = null;
@@ -7738,6 +7739,7 @@ function fadeOut(el) {
 		var progress = timestamp - start;
 		var opacity = parseFloat(1 - progress / duration, 2);
 		el.style.opacity = opacity < 0 ? 0 : opacity;
+    $('.mejs__title').get(0).style.opacity = opacity < 0 ? 0 : opacity;
 		if (progress > duration) {
 			if (callback && typeof callback === 'function') {
 				callback();
@@ -7754,6 +7756,7 @@ function fadeIn(el) {
 
 	if (!el.style.opacity) {
 		el.style.opacity = 0;
+    $('.mejs__title').get(0).style.opacity = 0;
 	}
 
 	var start = null;
@@ -7762,6 +7765,7 @@ function fadeIn(el) {
 		var progress = timestamp - start;
 		var opacity = parseFloat(progress / duration, 2);
 		el.style.opacity = opacity > 1 ? 1 : opacity;
+    $('.mejs__title').get(0).style.opacity = opacity;
 		if (progress > duration) {
 			if (callback && typeof callback === 'function') {
 				callback();

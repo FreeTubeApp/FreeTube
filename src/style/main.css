@@ -249,10 +249,30 @@ a {
     border-bottom: 1px solid #616161;
 }
 
+.settingsSlider {
+  padding: 30px;
+}
+
+#confirmSettings {
+  position: fixed;
+  margin-left: 250px;
+  margin-right: auto;
+  left: 4%;
+  right: 4%;
+  bottom: 20px;
+  height: 50px;
+  background-color: #212121;
+  color: #f5f5f5;
+  padding: 10px;
+  opacity: 0.9;
+  z-index: 1;
+  -webkit-box-shadow: 4px -2px 51px -6px rgba(0, 0, 0, 0.75);
+}
+
 .input-text-settings input {
     width: auto;
     border-bottom: 1px solid #616161;
-    width: 50%;
+    width: 35%;
     margin: 0 auto;
     display: block;
 }
@@ -267,20 +287,29 @@ a {
     display: inline-block;
     cursor: pointer;
     margin: 5px;
-    -webkit-box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
-    box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
+    color: #2196f3;
 }
 
 .settingsSubmit {
-    padding: 15px;
-    color: #212121;
-    background-color: #f44336;
+    float: right;
+    color: #2196f3;
+    background-color: white;
     cursor: pointer;
-    width: 150px;
-    -webkit-box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
-    box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
+    width: 120px;
+    height: 50px;
+    line-height: 50px;
+    background-color: #212121;
+}
+
+.card {
+  margin: 0 auto;
+  width: 90%;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 30px;
+  -webkit-box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
 }
 
 .help {

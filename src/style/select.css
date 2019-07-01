@@ -23,14 +23,16 @@
 /* select starting stylings ------------------------------*/
 .select {
 	position: relative;
-	width: 350px;
+	width: 200px;
+	display: inline-block;
+	padding: 10px 10px 10px 0;
 }
 
 .select-text {
 	position: relative;
 	font-family: inherit;
 	background-color: transparent;
-	width: 350px;
+	width: 200px;
 	padding: 10px 10px 10px 0;
 	font-size: 18px;
 	border-radius: 0;
@@ -86,7 +88,7 @@
 .select-bar {
 	position: relative;
 	display: block;
-	width: 350px;
+	width: 200px;
 }
 
 .select-bar:before, .select-bar:after {

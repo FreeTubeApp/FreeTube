@@ -423,13 +423,18 @@ let settingsView = new Vue({
     checkProxyResult: false,
     proxyTestLoading: false,
     debugMode: false,
-    distractionFreeMode: false
+    distractionFreeMode: false,
+    defaultVolume: 1,
+    defaultVideoSpeed: 1
   },
   methods: {
     checkProxy() {
       this.checkProxyResult = false;
       this.proxyTestLoading = true;
-      electron.ipcRenderer.send("setProxy", this.proxyAddress);
+      let data = {
+        proxyAddress: this.proxyAddress,
+      };
+      electron.ipcRenderer.send("setProxy", data);
 
       proxyRequest(() => {
         $.ajax({
@@ -461,6 +466,9 @@ let settingsView = new Vue({
   computed: {
     proxyTestButtonText() {
       return this.proxyTestLoading ? "LOADING..." : "TEST PROXY"
+    },
+    volumeHtml() {
+      return Math.round(this.defaultVolume * 100);
     }
   },
   template: settingsTemplate

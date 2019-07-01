@@ -107,9 +107,9 @@ function updateSettingsView() {
         document.getElementById('pageSelect').value = defaultPage;
         document.getElementById('playerSelect').value = defaultPlayer;
         document.getElementById('qualitySelect').value = defaultQuality;
-        document.getElementById('volumeSelect').value = defaultVolume;
-        document.getElementById('rateSelect').value = defaultPlaybackRate;
         document.getElementById('regionSelect').value = defaultRegion;
+        settingsView.defaultVolume = defaultVolume;
+        settingsView.defaultVideoSpeed = defaultPlaybackRate;
 
         if (defaultProxy) {
             settingsView.proxyAddress = defaultProxy;
@@ -492,9 +492,11 @@ function toggleTheme(themeValue) {
     if (themeValue.checked === true) {
         setTheme('dark');
         currentTheme = 'dark';
+        settingsView.useTheme = true;
     } else {
         setTheme('light');
         currentTheme = 'light';
+        settingsView.useTheme = false;
     }
 }
 

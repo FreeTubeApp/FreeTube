@@ -141,13 +141,20 @@ $(document).ready(() => {
 function toggleSideNavigation() {
     const sideNav = document.getElementById('sideNav');
     const mainContainer = document.getElementById('main');
+    const confirmSettings = document.getElementById('confirmSettings');
 
     if (sideNav.style.display === 'none') {
         sideNav.style.display = 'inline';
         mainContainer.style.marginLeft = '250px';
+        if (typeof(confirmSettings) !== 'undefined') {
+          confirmSettings.style.marginLeft = '250px';
+        }
     } else {
         sideNav.style.display = 'none';
         mainContainer.style.marginLeft = '0px';
+        if (typeof(confirmSettings) !== 'undefined') {
+          confirmSettings.style.marginLeft = '0px';
+        }
     }
 
     if (playerView.playerSeen) {
