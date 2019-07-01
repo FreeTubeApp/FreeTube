@@ -73,7 +73,7 @@ let init = function () {
         webPreferences: {
           nodeIntegration: true,
         },
-        icon: path.join(__dirname, '..', 'icons', 'iconColor.png');
+        icon: path.join(__dirname, '..', 'icons', 'iconColor.png')
     });
 
     settingsDb.findOne({
