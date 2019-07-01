@@ -25,8 +25,7 @@ const {
     BrowserWindow,
     dialog,
     protocol,
-    ipcMain,
-    nativeImage
+    ipcMain
 } = require('electron');
 const path = require('path');
 const url = require('url');
@@ -73,11 +72,9 @@ let init = function () {
         autoHideMenuBar: true,
         webPreferences: {
           nodeIntegration: true,
-        }
+        },
+        icon: path.join(__dirname, '..', 'icons', 'iconColor.png');
     });
-
-    if (process.platform === 'linux')
-        win.setIcon(nativeImage.createFromPath(path.join(__dirname, '..', 'icons', 'iconColor.png')));
 
     settingsDb.findOne({
         _id: 'bounds'
