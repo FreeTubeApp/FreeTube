@@ -163,6 +163,7 @@ let subscriptionView = new Vue({
     seen: true,
     isSearch: false,
     videoList: [],
+    fullVideoList: [],
   },
   methods: {
     play: (videoId) => {
@@ -414,6 +415,8 @@ let settingsView = new Vue({
     apiKey: '',
     history: true,
     autoplay: true,
+    autoplayPlaylists: true,
+    playNextVideo: false,
     subtitles: false,
     updates: true,
     localScrape: true,
@@ -425,7 +428,8 @@ let settingsView = new Vue({
     debugMode: false,
     distractionFreeMode: false,
     defaultVolume: 1,
-    defaultVideoSpeed: 1
+    defaultVideoSpeed: 1,
+    subWatched: false,
   },
   methods: {
     checkProxy() {

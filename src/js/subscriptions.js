@@ -96,6 +96,14 @@ function loadSubscriptions() {
                 invidiousAPI('channels/latest', channelId, {}, (data) => {
                     data.forEach((video, index) => {
                       data[index].author = results[i]['channelName'];
+                      historyDb.findOne({ videoId: video.videoId }, function (err, doc) {
+                        if(doc === null) {
+                          data[index].watched = false
+                        }
+                        else {
+                          data[index].watched = true;
+                        }
+                      });
                     });
                     videoList = videoList.concat(data);
                     counter = counter + 1;
@@ -124,9 +132,17 @@ function loadSubscriptions() {
 }
 
 function addSubsToView(videoList) {
+    subscriptionView.fullVideoList = videoList;
+
     videoList = videoList.filter(a => {
         return !a.premium;
     });
+
+    if (hideWatchedSubs) {
+      videoList = videoList.filter(a => {
+        return !a.watched;
+      });
+    }
 
     videoList.sort((a, b) => {
         return b.published - a.published;

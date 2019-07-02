@@ -710,7 +710,7 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
 .mejs__captions-layer {
     bottom: 0;
     color: #fff;
-    font-size: 25px;
+    font-size: 2vw;
     left: 0;
     line-height: 20px;
     position: absolute;

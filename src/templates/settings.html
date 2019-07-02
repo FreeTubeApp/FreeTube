@@ -275,6 +275,10 @@
         <label for="historySwitch" class="switch-label">Remember History</label>
         <input type="checkbox" id="autoplaySwitch" onchange='showSettingsConfirm()' name="set-name" class="switch-input" :checked='autoplay'>
         <label for="autoplaySwitch" class="switch-label">Autoplay Videos</label>
+        <input type="checkbox" id="autoplayPlaylistsSwitch" onchange='showSettingsConfirm()' name="set-name" class="switch-input" :checked='autoplayPlaylists'>
+        <label for="autoplayPlaylistsSwitch" class="switch-label">Autoplay Playlists</label>
+        <input type="checkbox" id="playNextVideoSwitch" onchange='showSettingsConfirm()' name="set-name" class="switch-input" :checked='playNextVideo'>
+        <label for="playNextVideoSwitch" class="switch-label">Play Next Video</label>
         <input type="checkbox" id="subtitlesSwitch" onchange='showSettingsConfirm()' name="set-name" class="switch-input" :checked='subtitles'>
         <label for="subtitlesSwitch" class="switch-label">Turn on Subtitles by Default</label>
         <input type="checkbox" id="localSwitch" onchange='showSettingsConfirm()' name="set-name" class="switch-input" :checked='localScrape'>
@@ -321,6 +325,8 @@
     </div>
     <div class='card'>
         <h2>Subscription Settings</h2>
+        <input type="checkbox" id="hideWatchedSubsSwitch" onchange='showSettingsConfirm()' name="set-name" class="switch-input" :checked='hideWatchedSubs'>
+        <label for="hideWatchedSubsSwitch" class="switch-label">Hide Videos on Watch</label>
         <br />
         <br />
         <div class="select center">
@@ -333,8 +339,6 @@
             <span class="select-bar"></span>
             <label class="select-label">Subscriptions Export Format</label>
         </div>
-        <br />
-        <br />
         <div class='center'>
             <div onclick='importSubscriptions()' class='settingsButton'>
                 IMPORT SUBSCRIPTIONS
@@ -348,7 +352,7 @@
         <h2>Advanced Settings</h2>
         <input type="checkbox" id="debugSwitch" onchange='showSettingsConfirm()' name="set-name" class="switch-input" :checked='debugMode'>
         <label for="debugSwitch" class="switch-label">Enable Debug Mode (Prints data to the console)</label>
-        <input type="checkbox" id="torSwitch" onchange='showSettingsConfirm()' name="set-name" class="switch-input" :checked='useTor' v-on:click='showSettingsConfirm'>
+        <input type="checkbox" id="torSwitch" onchange='showSettingsConfirm()' name="set-name" class="switch-input" :checked='useTor'>
         <label for="torSwitch" class="switch-label">Use Tor / Proxy for API calls</label>
         <div class="input-text-settings">
             <label for="proxyAddress">Proxy Address (Example: SOCKS5://127.0.0.1:9050 ): </label>

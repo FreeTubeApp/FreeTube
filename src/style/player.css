@@ -78,6 +78,7 @@ iframe {
 }
 
 .videoOptions i {
+  padding: 10px;
   cursor: pointer;
 }
 
@@ -86,7 +87,7 @@ iframe {
     width: 90px;
     font-size: 12px;
     position: relative;
-    right: 90px;
+    right: 110px;
     bottom: 10px;
     list-style-type: none;
     display: none;

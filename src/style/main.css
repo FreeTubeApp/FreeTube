@@ -42,6 +42,13 @@ a {
     color: #2196F3;
 }
 
+.link {
+  color: #2196F3;
+  cursor: pointer;
+  font-weight: bold;
+  font-decoration-line: 'underline';
+}
+
 #progressBar{
   height: 3px;
   background-color: #f44336;

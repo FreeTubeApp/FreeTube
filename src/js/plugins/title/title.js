@@ -31,10 +31,5 @@ Object.assign(MediaElementPlayer.prototype, {
 		titleDiv.innerHTML = '<span>' + t.options.title + '</span>';
 
 		t.container.children[0].appendChild(titleDiv);
-
-		//t.container.children[0].children[1].appendChild(titleDiv);
-
-		console.log(t);
-		console.log(t.container);
 	}
 });

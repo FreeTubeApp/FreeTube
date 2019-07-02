@@ -19,8 +19,6 @@
  * A file for handling mini-player functionality
  */
 
-const electron = require('electron');
-
 let mouseTimeout; // Timeout for hiding the mouse cursor on video playback
 let checkedSettings = false;
 
@@ -29,6 +27,7 @@ let miniPlayerView = new Vue({
   data: {
     videoId: '',
     videoUrl: '',
+    videoTitle: '',
     video360p: '',
     valid360p: true,
     video720p: '',
@@ -116,13 +115,14 @@ function checkDashSettings() {
       }
 
         let player = new MediaElementPlayer('player', {
-          features: ['playpause', 'current', 'progress', 'duration', 'volume', 'stop', 'speed', 'quality', 'loop', 'tracks', 'fullscreen', 'timerailthumbnails'],
+          features: ['playpause', 'current', 'progress', 'duration', 'volume', 'stop', 'speed', 'quality', 'loop', 'tracks', 'fullscreen', 'timerailthumbnails', 'title'],
           speeds: ['2', '1.75', '1.5', '1.25', '1', '0.75', '0.5', '0.25'],
           renderers: ['native_dash', 'native_hls', 'html5'],
           defaultSpeed: miniPlayerView.defaultPlaybackRate,
           autoGenerate: true,
           autoDash: true,
           autoHLS: false,
+          title: miniPlayerView.videoTitle,
           qualityText: 'Quality',
           defaultQuality: 'Auto',
           stretching: 'responsive',
@@ -333,6 +333,7 @@ electron.ipcRenderer.on('ping', function(event, message) {
 
    miniPlayerView.videoId = message.videoId;
    miniPlayerView.videoUrl = message.videoUrl;
+   miniPlayerView.videoTitle = message.videoTitle;
    miniPlayerView.video360p = message.video360p;
    miniPlayerView.valid360p = message.valid360p;
    miniPlayerView.video720p = message.video720p;

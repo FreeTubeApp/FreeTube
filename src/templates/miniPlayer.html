@@ -32,6 +32,7 @@ body {
 <link rel="stylesheet" href="../js/plugins/loop/loop.css" />
 <link rel="stylesheet" href="../js/plugins/speed/speed.css" />
 <link rel="stylesheet" href="../js/plugins/context-menu/context-menu.css" />
+<link rel="stylesheet" href="../js/plugins/title/title.css" />
   <div id='miniPlayer'>
     <div v-if='playerSeen && !legacySeen' class='videoPlayer'>
         <video id='player' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" :poster="videoThumbnail">
@@ -50,6 +51,7 @@ body {
     </div>
   </div>
 <script>window.$ = window.jQuery = require('jquery');</script>
+<script src="../js/dash.all.min.js"></script>
 <script src="../js/mediaelement-and-player.js"></script>
 <script src="../js/plugins/quality/quality.js"></script>
 <script src="../js/plugins/quality/quality-i18n.js"></script>
@@ -57,13 +59,14 @@ body {
 <script src="../js/plugins/speed/speed-i18n.js"></script>
 <script src="../js/plugins/loop/loop.js"></script>
 <script src="../js/plugins/loop/loop-i18n.js"></script>
+<script src="../js/plugins/title/title.js"></script>
 <script src="../js/plugins/context-menu/context-menu.js"></script>
 <script src="../js/plugins/context-menu/context-menu-i18n.js"></script>
 <script src="../js/plugins/timerailthumbnails/vtt.min.js"></script>
 <script src="../js/plugins/timerailthumbnails/mep-feature-time-rail-thumbnails.js"></script>
 <script src="../js/vue.js"></script>
+<script src="../js/db.js"></script>
 <script src="../js/general.js"></script>
 <script src="../js/miniPlayer.js"></script>
 <script src="../js/events.js"></script>
-<script src="../js/db.js"></script>
 <script src="../js/history.js"></script>
