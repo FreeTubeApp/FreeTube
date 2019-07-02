@@ -264,9 +264,13 @@ a {
   background-color: #212121;
   color: #f5f5f5;
   padding: 10px;
-  opacity: 0.9;
+  opacity: 0;
   z-index: 1;
   -webkit-box-shadow: 4px -2px 51px -6px rgba(0, 0, 0, 0.75);
+  -webkit-transition: opacity 0.4s ease-in-out;
+  -moz-transition: opacity 0.4s ease-in-out;
+  -ms-transition: opacity 0.4s ease-in-out;
+  -o-transition: opacity 0.4s ease-in-out;
 }
 
 .input-text-settings input {
@@ -288,6 +292,8 @@ a {
     cursor: pointer;
     margin: 5px;
     color: #2196f3;
+    font-weight: bold;
+    font-size: 17px;
 }
 
 .settingsSubmit {

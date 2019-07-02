@@ -607,6 +607,7 @@ let playerView = new Vue({
     channelIcon: '',
     channelName: '',
     subscribedText: '',
+    subscriptionCount: '',
     savedText: '',
     savedIconType: 'far',
     description: '',

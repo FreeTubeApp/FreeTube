@@ -1,16 +1,16 @@
 <div v-if="seen">
     <div class='card'>
         <h2>General Settings</h2>
-        <input type="checkbox" id="themeSwitch" name="set-name" class="switch-input" onchange='toggleTheme(this)' :checked='useTheme'>
+        <input type="checkbox" id="themeSwitch" name="set-name" class="switch-input" onchange='toggleTheme(this); showSettingsConfirm()' :checked='useTheme'>
         <label for="themeSwitch" class="switch-label">Use Dark Theme</label>
-        <input type="checkbox" id="updatesSwitch" name="set-name" class="switch-input" :checked='updates'>
+        <input type="checkbox" id="updatesSwitch" onchange='showSettingsConfirm()' name="set-name" class="switch-input" :checked='updates'>
         <label for="updatesSwitch" class="switch-label">Check for Updates</label>
-        <input type="checkbox" id="distractionFreeModeSwitch" name="set-name" class="switch-input" :checked='distractionFreeMode'>
+        <input type="checkbox" id="distractionFreeModeSwitch" onchange='showSettingsConfirm()' name="set-name" class="switch-input" :checked='distractionFreeMode'>
         <label for="distractionFreeModeSwitch" class="switch-label">Distraction Free Mode</label>
         <br />
         <br />
         <div class="select center">
-            <select id='pageSelect' class="select-text" required>
+            <select id='pageSelect' class="select-text" onchange='showSettingsConfirm()' required>
                 <option value="subscriptions" selected>Subcriptions</option>
                 <option value="trending">Trending</option>
                 <option value="popular">Most Popular</option>
@@ -22,7 +22,7 @@
             <label class="select-label">Default Landing Page</label>
         </div>
         <div class="select center">
-            <select id='regionSelect' class="select-text" required>
+            <select id='regionSelect' class="select-text" onchange='showSettingsConfirm()' required>
                 <option value='AF'>Afghanistan</option>
                 <option value='AL'>Albania</option>
                 <option value='DZ'>Algeria</option>
@@ -271,27 +271,27 @@
     </div>
     <div class='card'>
         <h2>Player Settings</h2>
-        <input type="checkbox" id="historySwitch" name="set-name" class="switch-input" :checked='history'>
+        <input type="checkbox" id="historySwitch" onchange='showSettingsConfirm()' name="set-name" class="switch-input" :checked='history'>
         <label for="historySwitch" class="switch-label">Remember History</label>
-        <input type="checkbox" id="autoplaySwitch" name="set-name" class="switch-input" :checked='autoplay'>
+        <input type="checkbox" id="autoplaySwitch" onchange='showSettingsConfirm()' name="set-name" class="switch-input" :checked='autoplay'>
         <label for="autoplaySwitch" class="switch-label">Autoplay Videos</label>
-        <input type="checkbox" id="subtitlesSwitch" name="set-name" class="switch-input" :checked='subtitles'>
+        <input type="checkbox" id="subtitlesSwitch" onchange='showSettingsConfirm()' name="set-name" class="switch-input" :checked='subtitles'>
         <label for="subtitlesSwitch" class="switch-label">Turn on Subtitles by Default</label>
-        <input type="checkbox" id="localSwitch" name="set-name" class="switch-input" :checked='localScrape'>
+        <input type="checkbox" id="localSwitch" onchange='showSettingsConfirm()' name="set-name" class="switch-input" :checked='localScrape'>
         <label for="localSwitch" class="switch-label">Grab videos locally</label>
         <br />
         <label class="settingsSlider pure-material-slider">
-            <input id='volumeSelect' type="range" min="0" max="1" step="0.01" v-model.number="defaultVolume">
+            <input id='volumeSelect' onchange='showSettingsConfirm()' type="range" min="0" max="1" step="0.01" v-model.number="defaultVolume">
             <span>Default Volume - <span>{{volumeHtml}}</span>%</span>
         </label>
-        <label class="pure-material-slider">
-            <input id='rateSelect' type="range" min="0.25" max="2" step="0.25" v-model.number="defaultVideoSpeed">
+        <label class="settingsSlider pure-material-slider">
+            <input id='rateSelect' onchange='showSettingsConfirm()' type="range" min="0.25" max="2" step="0.25" v-model.number="defaultVideoSpeed">
             <span>Default Video Speed - <span>{{defaultVideoSpeed}}</span>x</span>
         </label>
         <br />
         <br />
         <div class="select center">
-            <select id='playerSelect' class="select-text" required>
+            <select id='playerSelect' class="select-text" onchange='showSettingsConfirm()' required>
                 <option value="dash" selected>Dash Player</option>
                 <option value="legacy">Legacy Player</option>
                 <option value="embed">YouTube Embedded Player</option>
@@ -301,7 +301,7 @@
             <label class="select-label">Default Video Player</label>
         </div>
         <div class="select center">
-            <select id='qualitySelect' class="select-text" required>
+            <select id='qualitySelect' class="select-text" onchange='showSettingsConfirm()' required>
                 <option value="144">144p</option>
                 <option value="240">240p</option>
                 <option value="360">360p</option>
@@ -333,6 +333,8 @@
             <span class="select-bar"></span>
             <label class="select-label">Subscriptions Export Format</label>
         </div>
+        <br />
+        <br />
         <div class='center'>
             <div onclick='importSubscriptions()' class='settingsButton'>
                 IMPORT SUBSCRIPTIONS
@@ -341,18 +343,16 @@
                 EXPORT SUBSCRIPTIONS
             </div>
         </div>
-        <br />
-        <br />
     </div>
     <div class="card">
         <h2>Advanced Settings</h2>
-        <input type="checkbox" id="debugSwitch" name="set-name" class="switch-input" :checked='debugMode'>
+        <input type="checkbox" id="debugSwitch" onchange='showSettingsConfirm()' name="set-name" class="switch-input" :checked='debugMode'>
         <label for="debugSwitch" class="switch-label">Enable Debug Mode (Prints data to the console)</label>
-        <input type="checkbox" id="torSwitch" name="set-name" class="switch-input" :checked='useTor'>
+        <input type="checkbox" id="torSwitch" onchange='showSettingsConfirm()' name="set-name" class="switch-input" :checked='useTor' v-on:click='showSettingsConfirm'>
         <label for="torSwitch" class="switch-label">Use Tor / Proxy for API calls</label>
         <div class="input-text-settings">
             <label for="proxyAddress">Proxy Address (Example: SOCKS5://127.0.0.1:9050 ): </label>
-            <input type="text" id="proxyAddress" name="set-name" v-model="proxyAddress">
+            <input type="text" id="proxyAddress" name="set-name" v-model="proxyAddress" onkeydown='showSettingsConfirm()' />
         </div>
 
         <div id="ipInfoSettings" v-if="checkProxyResult">
@@ -370,10 +370,12 @@
         </div>
         <br />
         <br />
+        <br />
+        <br />
         <div class='center'>
             <div class="input-text-settings">
                 <label for="invidiousInstance">Current Invidious Instance (Defaults to https://invidio.us)</label>
-                <input type="text" id="invidiousInstance" name="set-name" v-model="invidiousInstance" />
+                <input type="text" onkeydown='showSettingsConfirm()' id="invidiousInstance" name="set-name" v-model="invidiousInstance" />
                 <a href='https://github.com/omarroth/invidious/wiki/Invidious-Instances'>
                     <p>See Public Instances</p>
                 </a>
@@ -392,9 +394,11 @@
                 CLEAR SUBSCRIPTIONS
             </div>
         </div>
-        <br />
-        <br />
     </div>
+    <br />
+    <br />
+    <br />
+    <br />
     <div id='confirmSettings'>
         <span onclick='updateSettings()' class='settingsSubmit'>
             SAVE SETTINGS

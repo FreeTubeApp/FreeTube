@@ -97,6 +97,10 @@ input[type=text] {
     border-bottom: 1px solid #E0E0E0;
 }
 
+.settingsSlider span {
+  color: white;
+}
+
 .card {
   background-color: #424242;
 }

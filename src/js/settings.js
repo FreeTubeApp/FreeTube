@@ -51,6 +51,7 @@ function updateSettingsView() {
      * Check the settings database for the user's current settings.  This is so the
      * settings page has the correct toggles related when it is rendered.
      */
+
     settingsDb.find({}, (err, docs) => {
         docs.forEach((setting) => {
             switch (setting['_id']) {
@@ -874,6 +875,14 @@ function clearFile(type, showMessage = true) {
             showToast('File has been cleared. Restart FreeTube to see the changes');
         }
     })
+}
+
+function showSettingsConfirm() {
+  $('#confirmSettings').get(0).style.opacity = 0.9;
+}
+
+function hideSettingsConfirm() {
+  $('#confirmSettings').get(0).style.opacity = 0;
 }
 
 checkDefaultSettings();

@@ -5579,7 +5579,7 @@ var NativeDash = {
 				NativeDash._createPlayer(settings);
 			});
 		} else {
-			settings.options.path = typeof settings.options.path === 'string' ? settings.options.path : 'https://cdn.dashjs.org/latest/dash.all.min.js';
+			settings.options.path = typeof settings.options.path === 'string' ? settings.options.path : __dirname + '/js/dash.all.min.js';
 
 			NativeDash.promise = NativeDash.promise || (0, _dom.loadScript)(settings.options.path);
 			NativeDash.promise.then(function () {
@@ -5602,7 +5602,7 @@ var DashNativeRenderer = {
 	options: {
 		prefix: 'native_dash',
 		dash: {
-			path: 'https://cdn.dashjs.org/latest/dash.all.min.js',
+			path: __dirname + '/js/dash.all.min.js',
 			debug: false,
 			drm: {},
 

@@ -226,6 +226,8 @@ function playVideo(videoId, playlistId = '') {
             }
         });
 
+        playerView.subscriptionCount = data.subCountText;
+
         playerView.recommendedVideoList = [];
 
         data.recommendedVideos.forEach((video) => {

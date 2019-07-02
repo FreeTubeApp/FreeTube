@@ -86,7 +86,7 @@
         <img id='channelIcon' v-on:click='channel(channelId)' :src="channelIcon" />
         <p id='channelName' v-on:click='channel(channelId)'>{{channelName}}</p>
         <p id='publishDate'>Published on {{publishedDate}}</p>
-        <div id='subscribeButton' class='playerSubButton' v-on:click='subscription(channelId)'>{{subscribedText}}</div>
+        <div id='subscribeButton' class='playerSubButton' v-on:click='subscription(channelId)'>{{subscribedText}} - {{subscriptionCount}}</div>
         <br /><br />
         <div id='description'>
             <span v-html="description"></span>
