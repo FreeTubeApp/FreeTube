@@ -1597,7 +1597,7 @@ Object.assign(_player2.default.prototype, {
 		t.addControlElement(rail, 'progress');
 
 		t.options.keyActions.push({
-			keys: [37, 227],
+			keys: [227],
 			action: function action(player) {
 				if (!isNaN(player.duration) && player.duration > 0) {
 					if (player.isVideo) {
@@ -1612,7 +1612,7 @@ Object.assign(_player2.default.prototype, {
 				}
 			}
 		}, {
-			keys: [39, 228],
+			keys: [228],
 			action: function action(player) {
 
 				if (!isNaN(player.duration) && player.duration > 0) {
@@ -1843,16 +1843,6 @@ Object.assign(_player2.default.prototype, {
 				}
 
 				switch (keyCode) {
-					case 37:
-						if (t.getDuration() !== Infinity) {
-							seekTime -= seekBackward;
-						}
-						break;
-					case 39:
-						if (t.getDuration() !== Infinity) {
-							seekTime += seekForward;
-						}
-						break;
 					case 36:
 						seekTime = 0;
 						break;
