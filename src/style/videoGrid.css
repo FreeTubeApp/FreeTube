@@ -1,19 +1,18 @@
-.videoListContainer {
-    width: 100%;
+.videoDivider {
+  display: none;
 }
 
-.videoListContainer hr {
-    width: 95%;
-    height: 1px;
-    border: 0;
+.inlineBlock {
+  width: 305px;
+  height: 285px;
+  overflow: hidden;
+  display: inline-block;
 }
 
 .video {
-    width: 95%;
-    max-width: 1000px;
-    height: auto;
     padding: 10px;
     overflow: hidden;
+    display: inline-block;
 }
 
 .videoThumbnail {
@@ -57,7 +56,9 @@
 
 .videoOptions {
     float: right;
-    width: 50px;
+    width: 30px;
+    position: absolute;
+    margin-left: 275px;
 }
 
 .videoOptions i {
@@ -101,31 +102,25 @@
 
 .videoTitle {
     font-weight: bold;
-    margin-left: 285px;
-    margin-top: 5px;
-    margin-bottom: -10px;
+    margin-top: 165px;
     cursor: pointer;
+    width: 275px;
 }
 
 .channelName {
-    margin-left: 285px;
     font-size: 14px;
     cursor: pointer;
+    width: 275px;
+    margin-top: -12px;
 }
 
 .videoViews {
-    margin-left: 285px;
     font-size: 13px;
     cursor: pointer;
 }
 
 .videoDescription {
-    margin-left: 285px;
-    font-size: 13px;
-    cursor: pointer;
-    margin-bottom: -60px;
-    height: 60px;
-    overflow: hidden;
+  display: none;
 }
 
 .videoDuration {
@@ -199,8 +194,8 @@
     text-align: center;
     width: 57px;
     position: relative;
-    left: 284px;
+    left: 220px;
     color: #f44336;
-    bottom: 15px;
+    bottom: 35px;
     line-height: 10px;
 }

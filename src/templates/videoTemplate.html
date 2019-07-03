@@ -1,7 +1,7 @@
 <div>
     <div v-if='seen'>
-        <div v-for="video in videoList">
-            <div v-if='video.isVideo'>
+        <div class='inlineBlock' v-for="video in videoList">
+            <div class='inlineBlock' v-if='video.isVideo'>
                 <div class='video'>
                     <div class='videoOptions'>
                         <i class="fas fa-ellipsis-v" onclick='showVideoOptions(this)'></i>
@@ -35,7 +35,7 @@
                     <p v-on:click='play(video.id)' class='videoDescription'>{{video.description}}</p>
                     <p v-on:click='play(video.id)' class='live'>{{video.liveText}}</p>
                 </div>
-                <hr />
+                <hr class='videoDivider' />
             </div>
             <div v-else-if='video.isPlaylist'>
                 <div class='video'>
@@ -51,7 +51,7 @@
                     <p v-on:click='playlist(video.id)' class='videoDescription'>{{video.description}}</p>
                     <p v-on:click='playlist(video.id)' class='viewPlaylist'>VIEW FULL PLAYLIST ({{video.videoCount}} videos)</p>
                 </div>
-                <hr />
+                <hr class='videoDivider' />
             </div>
             <!-- Channel View -->
             <div v-else>
@@ -63,7 +63,7 @@
                     <p v-on:click='channel(video.channelId)' class='channelName'>{{video.subscriberCount}} subscribers - {{video.videoCount}} videos</p>
                     <p v-on:click='channel(video.channelId)' class='videoDescription'>{{video.channelDescription}}</p>
                 </div>
-                <hr />
+                <hr class='videoDivider' />
             </div>
         </div>
         <div v-if='isSearch'>

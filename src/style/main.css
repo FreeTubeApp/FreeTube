@@ -329,18 +329,6 @@ a {
     margin: 30px;
 }
 
-.live {
-    font-size: 12px;
-    height: 20px;
-    text-align: center;
-    width: 57px;
-    position: relative;
-    left: 284px;
-    color: #f44336;
-    bottom: 15px;
-    line-height: 10px;
-}
-
 #toast {
     min-width: 400px;
     height: 50px;
