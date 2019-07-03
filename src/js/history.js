@@ -29,6 +29,12 @@ function addToHistory(data){
   historyDb.findOne({ videoId: data.videoId }, function (err, doc) {
     if(doc === null) {
       historyDb.insert(data, (err, newDoc) => {});
+      let videoIndex = subscriptionView.fullVideoList.findIndex((video) => {
+          return video.videoId == data.videoId;
+      });
+
+      subscriptionView.fullVideoList[videoIndex].watched = true;
+      addSubsToView(subscriptionView.fullVideoList);
     } else {
       historyDb.update(
         { videoId: data.videoId },

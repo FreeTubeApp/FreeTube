@@ -146,13 +146,13 @@ function toggleSideNavigation() {
     if (sideNav.style.display === 'none') {
         sideNav.style.display = 'inline';
         mainContainer.style.marginLeft = '250px';
-        if (typeof(confirmSettings) !== 'undefined') {
+        if (confirmSettings !== null) {
           confirmSettings.style.marginLeft = '250px';
         }
     } else {
         sideNav.style.display = 'none';
         mainContainer.style.marginLeft = '0px';
-        if (typeof(confirmSettings) !== 'undefined') {
+        if (confirmSettings !== null) {
           confirmSettings.style.marginLeft = '0px';
         }
     }
