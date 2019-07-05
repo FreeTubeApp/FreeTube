@@ -3,7 +3,7 @@
 }
 
 .inlineBlock {
-  width: 305px;
+  width: 285px;
   height: 285px;
   overflow: hidden;
   display: inline-block;
@@ -56,21 +56,23 @@
 
 .videoOptions {
     float: right;
-    width: 30px;
+    padding: 1px;
+    width: 10px;
     position: absolute;
-    margin-left: 275px;
+    margin-left: 130px;
+    margin-top: 155px;
 }
 
 .videoOptions i {
   padding: 10px;
   cursor: pointer;
+  margin-left: 118px;
 }
 
 .videoOptions ul {
     width: 90px;
     font-size: 12px;
     position: relative;
-    right: 110px;
     bottom: 10px;
     list-style-type: none;
     display: none;
@@ -104,7 +106,7 @@
     font-weight: bold;
     margin-top: 165px;
     cursor: pointer;
-    width: 275px;
+    width: 250px;
 }
 
 .channelName {

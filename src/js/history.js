@@ -33,8 +33,10 @@ function addToHistory(data){
           return video.videoId == data.videoId;
       });
 
-      subscriptionView.fullVideoList[videoIndex].watched = true;
-      addSubsToView(subscriptionView.fullVideoList);
+      if (videoIndex >= 0) {
+        subscriptionView.fullVideoList[videoIndex].watched = true;
+        addSubsToView(subscriptionView.fullVideoList);  
+      }
     } else {
       historyDb.update(
         { videoId: data.videoId },
