@@ -430,6 +430,7 @@ let settingsView = new Vue({
     defaultVolume: 1,
     defaultVideoSpeed: 1,
     subWatched: false,
+    videoView: 'grid',
   },
   methods: {
     checkProxy() {

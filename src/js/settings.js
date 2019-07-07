@@ -115,7 +115,8 @@ function updateSettingsView() {
         document.getElementById('pageSelect').value = defaultPage;
         document.getElementById('playerSelect').value = defaultPlayer;
         document.getElementById('qualitySelect').value = defaultQuality;
-        document.getElementById('regionSelect').value = defaultRegion;
+        document.getElementById('regionSelect').value = settingsView.region;
+        document.getElementById('videoViewSelect').value = settingsView.videoView;
         settingsView.defaultVolume = defaultVolume;
         settingsView.defaultVideoSpeed = defaultPlaybackRate;
 
@@ -157,6 +158,7 @@ function checkDefaultSettings() {
         'startScreen': 'subscriptions',
         'distractionFreeMode': false,
         'hideWatchedSubs': false,
+        'videoView': 'grid',
     };
 
     ft.log(settingDefaults);
@@ -175,6 +177,10 @@ function checkDefaultSettings() {
 
                 if (key == 'theme') {
                     setTheme('light');
+                }
+
+                if (key == 'videoView') {
+                  enableGridView();
                 }
             } else {
                 switch (docs[0]['_id']) {
@@ -252,6 +258,15 @@ function checkDefaultSettings() {
                         hideWatchedSubs = docs[0]['value'];
                         settingsView.hideWatchedSubs = docs[0]['value'];
                         break;
+                    case 'videoView':
+                        settingsView.videoView = docs[0]['value'];
+                        if (settingsView.videoView == 'grid') {
+                          enableGridView();
+                        }
+                        else {
+                          enableListView();
+                        }
+                        break;
                     default:
                         break;
                 }
@@ -283,6 +298,7 @@ function updateSettings() {
     let regionSelect = document.getElementById('regionSelect').value;
     let proxyAddress = document.getElementById('proxyAddress').value;
     let invidious = document.getElementById('invidiousInstance').value.replace(/\/$/, '');
+    let videoViewType = document.getElementById('videoViewSelect').value;
     let debugMode = document.getElementById('debugSwitch').checked;
     let distractionFreeMode = document.getElementById('distractionFreeModeSwitch').checked;
     let hideSubs = document.getElementById('hideWatchedSubsSwitch').checked;
@@ -303,6 +319,7 @@ function updateSettings() {
     defaultPlaybackRate = rateSelect;
     settingsView.setDistractionFreeMode(distractionFreeMode);
     settingsView.hideWatchedSubs = hideSubs;
+    settingsView.videoView = videoViewType;
 
     //  Remove last list of videos for trending to load new region setting.
     checkTrending = true;
@@ -532,6 +549,23 @@ function updateSettings() {
         addSubsToView(subscriptionView.fullVideoList);
     });
 
+    // Update distraction free mode.
+    settingsDb.update({
+        _id: 'videoView'
+    }, {
+        value: videoViewType
+    }, {}, function(err, numReplaced) {
+        ft.log(err);
+        ft.log(numReplaced);
+        if (settingsView.videoView == 'grid') {
+          enableGridView();
+        }
+        else {
+          enableListView();
+        }
+    });
+
+
     // set proxy in electron based on new values
     if (torSwitch) {
         electron.ipcRenderer.send("setProxy", proxyAddress);
@@ -603,6 +637,34 @@ function setTheme(option) {
 
     // Replace the current theme with the new theme
     document.getElementsByTagName("head").item(0).replaceChild(newTheme, currentTheme);
+}
+
+function enableGridView() {
+  let cssFile;
+  const currentView = document.getElementsByTagName("link").item(2);
+
+  // Create a link element
+  const newView = document.createElement("link");
+  newView.setAttribute("rel", "stylesheet");
+  newView.setAttribute("type", "text/css");
+  newView.setAttribute("href", './style/videoGrid.css');
+
+  // Replace the current theme with the new theme
+  document.getElementsByTagName("head").item(0).replaceChild(newView, currentView);
+}
+
+function enableListView() {
+  let cssFile;
+  const currentView = document.getElementsByTagName("link").item(2);
+
+  // Create a link element
+  const newView = document.createElement("link");
+  newView.setAttribute("rel", "stylesheet");
+  newView.setAttribute("type", "text/css");
+  newView.setAttribute("href", './style/videoList.css');
+
+  // Replace the current theme with the new theme
+  document.getElementsByTagName("head").item(0).replaceChild(newView, currentView);
 }
 
 /**
