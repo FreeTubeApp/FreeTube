@@ -676,14 +676,14 @@ let playerView = new Vue({
       playerView.playerSeen = false;
       playerView.legacySeen = false;
       playerView.currentTime = undefined;
-      checkedSettings = false;
+      checkedVideoSettings = false;
     },
     legacyFormats: () => {
       if (typeof(player) !== 'undefined') {
           playerView.currentTime = player.currentTime;
       }
 
-      checkedSettings = false;
+      checkedVideoSettings = false;
 
       playerView.playerSeen = false;
       playerView.legacySeen = true;
@@ -692,9 +692,9 @@ let playerView = new Vue({
       if (typeof($('#legacyPlayer').get(0)) !== 'undefined') {
           playerView.currentTime = $('#legacyPlayer').get(0).currentTime;
       }
+      checkedVideoSettings = false;
 
       playerView.legacySeen = false;
-      checkedSettings = false;
       playerView.playerSeen = true;
     },
     copyYouTube: (videoId) => {
