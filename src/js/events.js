@@ -99,6 +99,9 @@ let videoShortcutHandler = function (event) {
         case 32:
             // Space Bar
             event.preventDefault();
+            if ($('.videoPlayer').is(':focus')) {
+              return;
+            }
             if (videoPlayer.paused) {
               videoPlayer.play();
               if($('.videoPlayer').is(':hover')) {
