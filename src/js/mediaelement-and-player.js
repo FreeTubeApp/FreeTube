@@ -1342,6 +1342,8 @@ Object.assign(_player2.default.prototype, {
 
 		t.getElement(t.container).style.width = '100%';
 		t.getElement(t.container).style.height = '100%';
+    $('#player_native_dash').get(0).style.maxHeight = '100%';
+    $('.mejs__container').get(0).style.maxHeight = '100%';
 
 		t.containerSizeTimeout = setTimeout(function () {
 			t.getElement(t.container).style.width = '100%';
@@ -1383,9 +1385,8 @@ Object.assign(_player2.default.prototype, {
 		var zoomFactor = Math.min(screen.width / t.width, screen.height / t.height),
 		    captionText = t.getElement(t.container).querySelector('.' + t.options.classPrefix + 'captions-text');
 		if (captionText) {
-			captionText.style.fontSize = zoomFactor * 100 + '%';
 			captionText.style.lineHeight = 'normal';
-			t.getElement(t.container).querySelector('.' + t.options.classPrefix + 'captions-position').style.bottom = (screen.height - t.normalHeight) / 2 - t.getElement(t.controls).offsetHeight / 2 + zoomFactor + 15 + 'px';
+			//t.getElement(t.container).querySelector('.' + t.options.classPrefix + 'captions-position').style.bottom = (screen.height - t.normalHeight) / 2 - t.getElement(t.controls).offsetHeight / 2 + zoomFactor + 15 + 'px';
 		}
 		var event = (0, _general.createEvent)('enteredfullscreen', t.getElement(t.container));
 		t.getElement(t.container).dispatchEvent(event);
@@ -1410,6 +1411,8 @@ Object.assign(_player2.default.prototype, {
 		if (t.options.setDimensions) {
 			t.getElement(t.container).style.width = t.normalWidth + 'px';
 			t.getElement(t.container).style.height = t.normalHeight + 'px';
+      $('#player_native_dash').get(0).style.maxHeight = '80vh';
+      $('.mejs__container').get(0).style.maxHeight = '80vh';
 
 			if (isNative) {
 				t.node.style.width = t.normalWidth + 'px';
@@ -1447,7 +1450,7 @@ Object.assign(_player2.default.prototype, {
 		if (captionText) {
 			captionText.style.fontSize = '';
 			captionText.style.lineHeight = '';
-			t.getElement(t.container).querySelector('.' + t.options.classPrefix + 'captions-position').style.bottom = '';
+			//t.getElement(t.container).querySelector('.' + t.options.classPrefix + 'captions-position').style.bottom = '';
 		}
 		var event = (0, _general.createEvent)('exitedfullscreen', t.getElement(t.container));
 		t.getElement(t.container).dispatchEvent(event);

@@ -21,6 +21,7 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
     text-align: left;
     text-indent: 0;
     vertical-align: top;
+    max-height: 80vh;
 }
 
 .mejs__container * {
@@ -712,7 +713,6 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
     color: #fff;
     font-size: 2vw;
     left: 0;
-    line-height: 20px;
     position: absolute;
     text-align: center;
 }
@@ -732,6 +732,7 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
     left: 0;
     position: absolute;
     width: 100%;
+    font-size: 2.5vw;
 }
 
 .mejs__captions-position-hover {
