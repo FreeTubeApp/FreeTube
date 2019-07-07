@@ -52,14 +52,17 @@ let miniPlayerView = new Vue({
   },
   methods: {
     legacyFormats: () => {
+      checkedSettings = false;
       miniPlayerView.legacySeen = true;
       miniPlayerView.playerSeen = false;
     },
     dashFormats: () => {
+      checkedSettings = false;
       miniPlayerView.legacySeen = false;
       miniPlayerView.playerSeen = true;
     },
     embedPlayer: () => {
+      checkedSettings = false;
       miniPlayerView.legacySeen = false;
       miniPlayerView.playerSeen = false;
     }

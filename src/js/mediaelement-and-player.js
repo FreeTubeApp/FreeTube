@@ -1231,21 +1231,6 @@ Object.assign(_player2.default.prototype, {
 
 		player.fullscreenBtn = fullscreenBtn;
 
-		t.options.keyActions.push({
-			keys: [70],
-			action: function action(player, media, key, event) {
-				if (!event.ctrlKey) {
-					if (typeof player.enterFullScreen !== 'undefined') {
-						if (player.isFullScreen) {
-							player.exitFullScreen();
-						} else {
-							player.enterFullScreen();
-						}
-					}
-				}
-			}
-		});
-
 		t.exitFullscreenCallback = function (e) {
 			var key = e.which || e.keyCode || 0;
 			if (t.options.enableKeyboard && key === 27 && (Features.HAS_TRUE_NATIVE_FULLSCREEN && Features.IS_FULLSCREEN || t.isFullScreen)) {
@@ -1342,8 +1327,10 @@ Object.assign(_player2.default.prototype, {
 
 		t.getElement(t.container).style.width = '100%';
 		t.getElement(t.container).style.height = '100%';
-    $('#player_native_dash').get(0).style.maxHeight = '100%';
-    $('.mejs__container').get(0).style.maxHeight = '100%';
+    if (typeof(playerView) !== 'undefined') {
+      $('#player_native_dash').get(0).style.maxHeight = '100%';
+      $('.mejs__container').get(0).style.maxHeight = '100%';
+    }
 
 		t.containerSizeTimeout = setTimeout(function () {
 			t.getElement(t.container).style.width = '100%';
@@ -1411,8 +1398,10 @@ Object.assign(_player2.default.prototype, {
 		if (t.options.setDimensions) {
 			t.getElement(t.container).style.width = t.normalWidth + 'px';
 			t.getElement(t.container).style.height = t.normalHeight + 'px';
-      $('#player_native_dash').get(0).style.maxHeight = '80vh';
-      $('.mejs__container').get(0).style.maxHeight = '80vh';
+      if (typeof(playerView) !== 'undefined') {
+        $('#player_native_dash').get(0).style.maxHeight = '80vh';
+        $('.mejs__container').get(0).style.maxHeight = '80vh';
+      }
 
 			if (isNative) {
 				t.node.style.width = t.normalWidth + 'px';
