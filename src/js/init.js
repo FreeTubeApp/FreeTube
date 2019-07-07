@@ -72,7 +72,8 @@ let init = function () {
         autoHideMenuBar: true,
         webPreferences: {
           nodeIntegration: true,
-        }
+        },
+        icon: path.join(__dirname, '..', 'icons', 'iconColor.png')
     });
 
     settingsDb.findOne({
