@@ -42,6 +42,13 @@ a {
     color: #2196F3;
 }
 
+.link {
+  color: #2196F3;
+  cursor: pointer;
+  font-weight: bold;
+  font-decoration-line: 'underline';
+}
+
 #progressBar{
   height: 3px;
   background-color: #f44336;
@@ -249,10 +256,34 @@ a {
     border-bottom: 1px solid #616161;
 }
 
+.settingsSlider {
+  padding: 30px;
+}
+
+#confirmSettings {
+  position: fixed;
+  margin-left: 250px;
+  margin-right: auto;
+  left: 4%;
+  right: 4%;
+  bottom: 20px;
+  height: 50px;
+  background-color: #212121;
+  color: #f5f5f5;
+  padding: 10px;
+  opacity: 0;
+  z-index: 1;
+  -webkit-box-shadow: 4px -2px 51px -6px rgba(0, 0, 0, 0.75);
+  -webkit-transition: opacity 0.4s ease-in-out;
+  -moz-transition: opacity 0.4s ease-in-out;
+  -ms-transition: opacity 0.4s ease-in-out;
+  -o-transition: opacity 0.4s ease-in-out;
+}
+
 .input-text-settings input {
     width: auto;
     border-bottom: 1px solid #616161;
-    width: 50%;
+    width: 35%;
     margin: 0 auto;
     display: block;
 }
@@ -267,36 +298,35 @@ a {
     display: inline-block;
     cursor: pointer;
     margin: 5px;
-    -webkit-box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
-    box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
+    color: #2196f3;
+    font-weight: bold;
+    font-size: 17px;
 }
 
 .settingsSubmit {
-    padding: 15px;
-    color: #212121;
-    background-color: #f44336;
+    float: right;
+    color: #2196f3;
+    background-color: white;
     cursor: pointer;
-    width: 150px;
-    -webkit-box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
-    box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
+    width: 120px;
+    height: 50px;
+    line-height: 50px;
+    background-color: #212121;
+}
+
+.card {
+  margin: 0 auto;
+  width: 90%;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 30px;
+  -webkit-box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
 }
 
 .help {
     margin: 30px;
-}
-
-.live {
-    font-size: 12px;
-    height: 20px;
-    text-align: center;
-    width: 57px;
-    position: relative;
-    left: 284px;
-    color: #f44336;
-    bottom: 15px;
-    line-height: 10px;
 }
 
 #toast {

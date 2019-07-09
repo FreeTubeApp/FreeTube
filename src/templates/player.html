@@ -1,6 +1,6 @@
 <div v-if='seen'>
     <div v-if='playerSeen && !legacySeen' class='videoPlayer'>
-        <video id='player' onloadstart='checkDashSettings()' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" :poster="videoThumbnail" onended='playNextVideo()' onvolumechange='updateVolume()'>
+        <video id='player' onloadstart='checkDashSettings()' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" :poster="videoThumbnail" onended='playNext(5)' onvolumechange='updateVolume()' >
             <source v-if='validDash' data-quality='Auto' type="application/dash+xml" :src="videoDash" />
             <source v-if='validLive' data-quality='Live' type="application/x-mpegURL" :src="videoLive" />
             <span v-html="subtitleHtml"></span>
@@ -9,7 +9,7 @@
 
     </div>
     <div v-else-if='!playerSeen && legacySeen'>
-        <video id='legacyPlayer' class='videoPlayer' onloadstart='checkLegacySettings()' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" :poster="videoThumbnail" onended='playNextVideo()' onvolumechange='updateVolume()' :src='videoUrl' controls="controls" v-html="subtitleHtml">
+        <video id='legacyPlayer' class='videoPlayer' onloadstart='checkLegacySettings()' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" :poster="videoThumbnail" onended='playNextVideo()' onvolumechange='updateVolume()' :src='videoUrl' controls="controls" v-html="subtitleHtml" >
         </video>
     </div>
     <div v-else>
@@ -86,7 +86,7 @@
         <img id='channelIcon' v-on:click='channel(channelId)' :src="channelIcon" />
         <p id='channelName' v-on:click='channel(channelId)'>{{channelName}}</p>
         <p id='publishDate'>Published on {{publishedDate}}</p>
-        <div id='subscribeButton' class='playerSubButton' v-on:click='subscription(channelId)'>{{subscribedText}}</div>
+        <div id='subscribeButton' class='playerSubButton' v-on:click='subscription(channelId)'>{{subscribedText}} - {{subscriptionCount}}</div>
         <br /><br />
         <div id='description'>
             <span v-html="description"></span>

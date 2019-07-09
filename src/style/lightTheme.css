@@ -84,6 +84,10 @@ body {
     border-bottom: 1px solid #757575;
 }
 
+.card {
+  background-color: #ffffff;
+}
+
 .message {
     color: #757575;
 }
@@ -141,11 +145,6 @@ body {
 
 .recommendDate {
     color: #616161;
-}
-
-.settingsButton {
-    color: #424242;
-    background-color: #BDBDBD;
 }
 
 .qualityTypes {
@@ -213,7 +212,6 @@ body {
 #toast {
     background-color: #212121;
     color: #f5f5f5;
-    ;
 }
 
 #confirmFunction {

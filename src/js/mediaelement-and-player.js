@@ -1231,21 +1231,6 @@ Object.assign(_player2.default.prototype, {
 
 		player.fullscreenBtn = fullscreenBtn;
 
-		t.options.keyActions.push({
-			keys: [70],
-			action: function action(player, media, key, event) {
-				if (!event.ctrlKey) {
-					if (typeof player.enterFullScreen !== 'undefined') {
-						if (player.isFullScreen) {
-							player.exitFullScreen();
-						} else {
-							player.enterFullScreen();
-						}
-					}
-				}
-			}
-		});
-
 		t.exitFullscreenCallback = function (e) {
 			var key = e.which || e.keyCode || 0;
 			if (t.options.enableKeyboard && key === 27 && (Features.HAS_TRUE_NATIVE_FULLSCREEN && Features.IS_FULLSCREEN || t.isFullScreen)) {
@@ -1342,6 +1327,10 @@ Object.assign(_player2.default.prototype, {
 
 		t.getElement(t.container).style.width = '100%';
 		t.getElement(t.container).style.height = '100%';
+    if (typeof(playerView) !== 'undefined') {
+      $('#player_native_dash').get(0).style.maxHeight = '100%';
+      $('.mejs__container').get(0).style.maxHeight = '100%';
+    }
 
 		t.containerSizeTimeout = setTimeout(function () {
 			t.getElement(t.container).style.width = '100%';
@@ -1383,9 +1372,8 @@ Object.assign(_player2.default.prototype, {
 		var zoomFactor = Math.min(screen.width / t.width, screen.height / t.height),
 		    captionText = t.getElement(t.container).querySelector('.' + t.options.classPrefix + 'captions-text');
 		if (captionText) {
-			captionText.style.fontSize = zoomFactor * 100 + '%';
 			captionText.style.lineHeight = 'normal';
-			t.getElement(t.container).querySelector('.' + t.options.classPrefix + 'captions-position').style.bottom = (screen.height - t.normalHeight) / 2 - t.getElement(t.controls).offsetHeight / 2 + zoomFactor + 15 + 'px';
+			//t.getElement(t.container).querySelector('.' + t.options.classPrefix + 'captions-position').style.bottom = (screen.height - t.normalHeight) / 2 - t.getElement(t.controls).offsetHeight / 2 + zoomFactor + 15 + 'px';
 		}
 		var event = (0, _general.createEvent)('enteredfullscreen', t.getElement(t.container));
 		t.getElement(t.container).dispatchEvent(event);
@@ -1410,6 +1398,10 @@ Object.assign(_player2.default.prototype, {
 		if (t.options.setDimensions) {
 			t.getElement(t.container).style.width = t.normalWidth + 'px';
 			t.getElement(t.container).style.height = t.normalHeight + 'px';
+      if (typeof(playerView) !== 'undefined') {
+        $('#player_native_dash').get(0).style.maxHeight = '80vh';
+        $('.mejs__container').get(0).style.maxHeight = '80vh';
+      }
 
 			if (isNative) {
 				t.node.style.width = t.normalWidth + 'px';
@@ -1447,7 +1439,7 @@ Object.assign(_player2.default.prototype, {
 		if (captionText) {
 			captionText.style.fontSize = '';
 			captionText.style.lineHeight = '';
-			t.getElement(t.container).querySelector('.' + t.options.classPrefix + 'captions-position').style.bottom = '';
+			//t.getElement(t.container).querySelector('.' + t.options.classPrefix + 'captions-position').style.bottom = '';
 		}
 		var event = (0, _general.createEvent)('exitedfullscreen', t.getElement(t.container));
 		t.getElement(t.container).dispatchEvent(event);
@@ -1597,7 +1589,7 @@ Object.assign(_player2.default.prototype, {
 		t.addControlElement(rail, 'progress');
 
 		t.options.keyActions.push({
-			keys: [37, 227],
+			keys: [227],
 			action: function action(player) {
 				if (!isNaN(player.duration) && player.duration > 0) {
 					if (player.isVideo) {
@@ -1612,7 +1604,7 @@ Object.assign(_player2.default.prototype, {
 				}
 			}
 		}, {
-			keys: [39, 228],
+			keys: [228],
 			action: function action(player) {
 
 				if (!isNaN(player.duration) && player.duration > 0) {
@@ -1843,16 +1835,6 @@ Object.assign(_player2.default.prototype, {
 				}
 
 				switch (keyCode) {
-					case 37:
-						if (t.getDuration() !== Infinity) {
-							seekTime -= seekBackward;
-						}
-						break;
-					case 39:
-						if (t.getDuration() !== Infinity) {
-							seekTime += seekForward;
-						}
-						break;
 					case 36:
 						seekTime = 0;
 						break;
@@ -5579,7 +5561,7 @@ var NativeDash = {
 				NativeDash._createPlayer(settings);
 			});
 		} else {
-			settings.options.path = typeof settings.options.path === 'string' ? settings.options.path : 'https://cdn.dashjs.org/latest/dash.all.min.js';
+			settings.options.path = typeof settings.options.path === 'string' ? settings.options.path : __dirname + '/js/dash.all.min.js';
 
 			NativeDash.promise = NativeDash.promise || (0, _dom.loadScript)(settings.options.path);
 			NativeDash.promise.then(function () {
@@ -5602,7 +5584,7 @@ var DashNativeRenderer = {
 	options: {
 		prefix: 'native_dash',
 		dash: {
-			path: 'https://cdn.dashjs.org/latest/dash.all.min.js',
+			path: __dirname + '/js/dash.all.min.js',
 			debug: false,
 			drm: {},
 
@@ -7730,6 +7712,7 @@ function fadeOut(el) {
 
 	if (!el.style.opacity) {
 		el.style.opacity = 1;
+    $('.mejs__title').get(0).style.opacity = 1;
 	}
 
 	var start = null;
@@ -7738,6 +7721,7 @@ function fadeOut(el) {
 		var progress = timestamp - start;
 		var opacity = parseFloat(1 - progress / duration, 2);
 		el.style.opacity = opacity < 0 ? 0 : opacity;
+    $('.mejs__title').get(0).style.opacity = opacity < 0 ? 0 : opacity;
 		if (progress > duration) {
 			if (callback && typeof callback === 'function') {
 				callback();
@@ -7754,6 +7738,7 @@ function fadeIn(el) {
 
 	if (!el.style.opacity) {
 		el.style.opacity = 0;
+    $('.mejs__title').get(0).style.opacity = 0;
 	}
 
 	var start = null;
@@ -7762,6 +7747,7 @@ function fadeIn(el) {
 		var progress = timestamp - start;
 		var opacity = parseFloat(progress / duration, 2);
 		el.style.opacity = opacity > 1 ? 1 : opacity;
+    $('.mejs__title').get(0).style.opacity = opacity;
 		if (progress > duration) {
 			if (callback && typeof callback === 'function') {
 				callback();

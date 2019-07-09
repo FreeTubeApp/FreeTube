@@ -34,6 +34,7 @@ let defaultRegion = 'US';
 // Proxy address variable
 let defaultProxy = false;
 let getVideosLocally = true;
+let hideWatchedSubs = false;
 // This variable is to make sure that proxy was set before making any API calls
 let proxyAvailable = false;
 let invidiousInstance = 'https://invidio.us';
@@ -51,6 +52,7 @@ function updateSettingsView() {
      * Check the settings database for the user's current settings.  This is so the
      * settings page has the correct toggles related when it is rendered.
      */
+
     settingsDb.find({}, (err, docs) => {
         docs.forEach((setting) => {
             switch (setting['_id']) {
@@ -104,12 +106,19 @@ function updateSettingsView() {
             settingsView.updates = false;
         }
 
+        if (hideWatchedSubs) {
+            settingsView.hideWatchedSubs = true;
+        } else {
+            settingsView.hideWatchedSubs = false;
+        }
+
         document.getElementById('pageSelect').value = defaultPage;
         document.getElementById('playerSelect').value = defaultPlayer;
         document.getElementById('qualitySelect').value = defaultQuality;
-        document.getElementById('volumeSelect').value = defaultVolume;
-        document.getElementById('rateSelect').value = defaultPlaybackRate;
-        document.getElementById('regionSelect').value = defaultRegion;
+        document.getElementById('regionSelect').value = settingsView.region;
+        document.getElementById('videoViewSelect').value = settingsView.videoView;
+        settingsView.defaultVolume = defaultVolume;
+        settingsView.defaultVideoSpeed = defaultPlaybackRate;
 
         if (defaultProxy) {
             settingsView.proxyAddress = defaultProxy;
@@ -133,6 +142,8 @@ function checkDefaultSettings() {
         'useTor': false,
         'history': true,
         'autoplay': true,
+        'autoplayPlaylists': true,
+        'playNextVideo': false,
         'subtitles': false,
         'updates': true,
         'localScrape': true,
@@ -146,6 +157,8 @@ function checkDefaultSettings() {
         'debugMode': false,
         'startScreen': 'subscriptions',
         'distractionFreeMode': false,
+        'hideWatchedSubs': false,
+        'videoView': 'grid',
     };
 
     ft.log(settingDefaults);
@@ -165,6 +178,10 @@ function checkDefaultSettings() {
                 if (key == 'theme') {
                     setTheme('light');
                 }
+
+                if (key == 'videoView') {
+                  enableGridView();
+                }
             } else {
                 switch (docs[0]['_id']) {
                     case 'theme':
@@ -178,6 +195,12 @@ function checkDefaultSettings() {
                         break;
                     case 'autoplay':
                         autoplay = docs[0]['value'];
+                        break;
+                    case 'autoplayPlaylists':
+                        settingsView.autoplayPlaylists = docs[0]['value'];
+                        break;
+                    case 'autoplayPlaylists':
+                        settingsView.playNextVideo = docs[0]['value'];
                         break;
                     case 'subtitles':
                         enableSubtitles = docs[0]['value'];
@@ -231,6 +254,19 @@ function checkDefaultSettings() {
                     case 'distractionFreeMode':
                         settingsView.setDistractionFreeMode(docs[0]['value']);
                         break;
+                    case 'hideWatchedSubs':
+                        hideWatchedSubs = docs[0]['value'];
+                        settingsView.hideWatchedSubs = docs[0]['value'];
+                        break;
+                    case 'videoView':
+                        settingsView.videoView = docs[0]['value'];
+                        if (settingsView.videoView == 'grid') {
+                          enableGridView();
+                        }
+                        else {
+                          enableListView();
+                        }
+                        break;
                     default:
                         break;
                 }
@@ -249,6 +285,8 @@ function updateSettings() {
     let torSwitch = document.getElementById('torSwitch').checked;
     let historySwitch = document.getElementById('historySwitch').checked;
     let autoplaySwitch = document.getElementById('autoplaySwitch').checked;
+    let autoplayPlaylistsSwitch = document.getElementById('autoplayPlaylistsSwitch').checked;
+    let playNextVideoSwitch = document.getElementById('playNextVideoSwitch').checked;
     let subtitlesSwitch = document.getElementById('subtitlesSwitch').checked;
     let updatesSwitch = document.getElementById('updatesSwitch').checked;
     let localSwitch = document.getElementById('localSwitch').checked;
@@ -260,22 +298,28 @@ function updateSettings() {
     let regionSelect = document.getElementById('regionSelect').value;
     let proxyAddress = document.getElementById('proxyAddress').value;
     let invidious = document.getElementById('invidiousInstance').value.replace(/\/$/, '');
+    let videoViewType = document.getElementById('videoViewSelect').value;
     let debugMode = document.getElementById('debugSwitch').checked;
     let distractionFreeMode = document.getElementById('distractionFreeModeSwitch').checked;
+    let hideSubs = document.getElementById('hideWatchedSubsSwitch').checked;
     let theme = 'light';
 
     settingsView.useTor = torSwitch;
     settingsView.history = historySwitch;
     settingsView.autoplay = autoplaySwitch;
+    settingsView.autoplayPlaylists = autoplayPlaylistsSwitch;
+    settingsView.playNextVideo = playNextVideoSwitch;
     settingsView.subtitles = subtitlesSwitch;
     settingsView.updates = updatesSwitch;
     settingsView.proxyAddress = proxyAddress;
     settingsView.localScrape = localSwitch;
-    settingsView.debugMode = debugMode
+    settingsView.debugMode = debugMode;
     rememberHistory = historySwitch;
     defaultQuality = qualitySelect;
     defaultPlaybackRate = rateSelect;
     settingsView.setDistractionFreeMode(distractionFreeMode);
+    settingsView.hideWatchedSubs = hideSubs;
+    settingsView.videoView = videoViewType;
 
     //  Remove last list of videos for trending to load new region setting.
     checkTrending = true;
@@ -349,6 +393,28 @@ function updateSettings() {
         ft.log(err);
         ft.log(numReplaced);
         autoplay = autoplaySwitch;
+    });
+
+    // Update autoplay.
+    settingsDb.update({
+        _id: 'autoplayPlaylists'
+    }, {
+        value: autoplayPlaylistsSwitch
+    }, {}, function(err, numReplaced) {
+        ft.log(err);
+        ft.log(numReplaced);
+        settingsView.autoplayPlaylists = autoplayPlaylistsSwitch;
+    });
+
+    // Update autoplay.
+    settingsDb.update({
+        _id: 'playNextVideo'
+    }, {
+        value: playNextVideoSwitch
+    }, {}, function(err, numReplaced) {
+        ft.log(err);
+        ft.log(numReplaced);
+        settingsView.playNextVideo = playNextVideoSwitch;
     });
 
     // Update getting videos locally
@@ -471,6 +537,35 @@ function updateSettings() {
         ft.log(numReplaced);
     });
 
+    // Update distraction free mode.
+    settingsDb.update({
+        _id: 'hideWatchedSubs'
+    }, {
+        value: hideSubs
+    }, {}, function(err, numReplaced) {
+        ft.log(err);
+        ft.log(numReplaced);
+        hideWatchedSubs = hideSubs;
+        addSubsToView(subscriptionView.fullVideoList);
+    });
+
+    // Update distraction free mode.
+    settingsDb.update({
+        _id: 'videoView'
+    }, {
+        value: videoViewType
+    }, {}, function(err, numReplaced) {
+        ft.log(err);
+        ft.log(numReplaced);
+        if (settingsView.videoView == 'grid') {
+          enableGridView();
+        }
+        else {
+          enableListView();
+        }
+    });
+
+
     // set proxy in electron based on new values
     if (torSwitch) {
         electron.ipcRenderer.send("setProxy", proxyAddress);
@@ -479,6 +574,7 @@ function updateSettings() {
     }
 
     showToast('Settings have been saved.');
+    hideSettingsConfirm();
 }
 
 /**
@@ -492,9 +588,11 @@ function toggleTheme(themeValue) {
     if (themeValue.checked === true) {
         setTheme('dark');
         currentTheme = 'dark';
+        settingsView.useTheme = true;
     } else {
         setTheme('light');
         currentTheme = 'light';
+        settingsView.useTheme = false;
     }
 }
 
@@ -539,6 +637,34 @@ function setTheme(option) {
 
     // Replace the current theme with the new theme
     document.getElementsByTagName("head").item(0).replaceChild(newTheme, currentTheme);
+}
+
+function enableGridView() {
+  let cssFile;
+  const currentView = document.getElementsByTagName("link").item(2);
+
+  // Create a link element
+  const newView = document.createElement("link");
+  newView.setAttribute("rel", "stylesheet");
+  newView.setAttribute("type", "text/css");
+  newView.setAttribute("href", './style/videoGrid.css');
+
+  // Replace the current theme with the new theme
+  document.getElementsByTagName("head").item(0).replaceChild(newView, currentView);
+}
+
+function enableListView() {
+  let cssFile;
+  const currentView = document.getElementsByTagName("link").item(2);
+
+  // Create a link element
+  const newView = document.createElement("link");
+  newView.setAttribute("rel", "stylesheet");
+  newView.setAttribute("type", "text/css");
+  newView.setAttribute("href", './style/videoList.css');
+
+  // Replace the current theme with the new theme
+  document.getElementsByTagName("head").item(0).replaceChild(newView, currentView);
 }
 
 /**
@@ -872,6 +998,14 @@ function clearFile(type, showMessage = true) {
             showToast('File has been cleared. Restart FreeTube to see the changes');
         }
     })
+}
+
+function showSettingsConfirm() {
+  $('#confirmSettings').get(0).style.opacity = 0.9;
+}
+
+function hideSettingsConfirm() {
+  $('#confirmSettings').get(0).style.opacity = 0;
 }
 
 checkDefaultSettings();

@@ -1,7 +1,7 @@
 {
     "name": "FreeTube",
     "productName": "FreeTube",
-    "version": "0.6.0",
+    "version": "0.6.1",
     "description": "An Open Source YouTube app for privacy.",
     "main": "src/js/init.js",
     "scripts": {
@@ -48,13 +48,13 @@
             "category": "public.app-category.video",
             "icon": "src/icons/iconColor.icns",
             "target": [
-              "zip"
+                "zip"
             ]
         },
         "win": {
             "target": [
-              "nsis",
-              "zip"
+                "nsis",
+                "zip"
             ],
             "icon": "src/icons/iconColor.ico"
         },
@@ -73,30 +73,30 @@
                 "tar.xz"
             ],
             "desktop": {
-              "Icon": "freetube"
+                "Icon": "freetube"
             },
             "category": "Video"
-      }
+        }
     },
     "devDependencies": {
-        "electron": "^5.0.3",
-        "electron-builder": "^20.43.0",
+        "electron": "^5.0.6",
+        "electron-builder": "^20.44.4",
         "electron-compile": "^6.4.4",
         "electron-installer-appimage": "^1.0.1",
-        "electron-packager": "^13.1.1",
+        "electron-packager": "^14.0.1",
         "electron-winstaller": "^3.0.4"
     },
     "dependencies": {
-        "autolinker": "^3.0.5",
+        "autolinker": "^3.1.0",
         "commonjs": "0.0.1",
         "dateformat": "^3.0.3",
-        "electron-context-menu": "^0.12.0",
-        "jquery": "^3.4.0",
-        "jsdom": "^15.0.0",
+        "electron-context-menu": "^0.13.0",
+        "jquery": "^3.4.1",
+        "jsdom": "^15.1.1",
         "mustache": "^3.0.1",
         "nedb": "^1.8.0",
         "opml-to-json": "0.0.3",
         "vue": "^2.6.10",
-        "ytdl-core": "^0.29.1"
+        "ytdl-core": "^0.29.2"
     }
 }

@@ -163,6 +163,7 @@ let subscriptionView = new Vue({
     seen: true,
     isSearch: false,
     videoList: [],
+    fullVideoList: [],
   },
   methods: {
     play: (videoId) => {
@@ -414,6 +415,8 @@ let settingsView = new Vue({
     apiKey: '',
     history: true,
     autoplay: true,
+    autoplayPlaylists: true,
+    playNextVideo: false,
     subtitles: false,
     updates: true,
     localScrape: true,
@@ -423,13 +426,20 @@ let settingsView = new Vue({
     checkProxyResult: false,
     proxyTestLoading: false,
     debugMode: false,
-    distractionFreeMode: false
+    distractionFreeMode: false,
+    defaultVolume: 1,
+    defaultVideoSpeed: 1,
+    subWatched: false,
+    videoView: 'grid',
   },
   methods: {
     checkProxy() {
       this.checkProxyResult = false;
       this.proxyTestLoading = true;
-      electron.ipcRenderer.send("setProxy", this.proxyAddress);
+      let data = {
+        proxyAddress: this.proxyAddress,
+      };
+      electron.ipcRenderer.send("setProxy", data);
 
       proxyRequest(() => {
         $.ajax({
@@ -461,6 +471,9 @@ let settingsView = new Vue({
   computed: {
     proxyTestButtonText() {
       return this.proxyTestLoading ? "LOADING..." : "TEST PROXY"
+    },
+    volumeHtml() {
+      return Math.round(this.defaultVolume * 100);
     }
   },
   template: settingsTemplate
@@ -599,6 +612,7 @@ let playerView = new Vue({
     channelIcon: '',
     channelName: '',
     subscribedText: '',
+    subscriptionCount: '',
     savedText: '',
     savedIconType: 'far',
     description: '',
@@ -663,14 +677,14 @@ let playerView = new Vue({
       playerView.playerSeen = false;
       playerView.legacySeen = false;
       playerView.currentTime = undefined;
-      checkedSettings = false;
+      checkedVideoSettings = false;
     },
     legacyFormats: () => {
       if (typeof(player) !== 'undefined') {
           playerView.currentTime = player.currentTime;
       }
 
-      checkedSettings = false;
+      checkedVideoSettings = false;
 
       playerView.playerSeen = false;
       playerView.legacySeen = true;
@@ -679,9 +693,9 @@ let playerView = new Vue({
       if (typeof($('#legacyPlayer').get(0)) !== 'undefined') {
           playerView.currentTime = $('#legacyPlayer').get(0).currentTime;
       }
+      checkedVideoSettings = false;
 
       playerView.legacySeen = false;
-      checkedSettings = false;
       playerView.playerSeen = true;
     },
     copyYouTube: (videoId) => {

@@ -1,0 +1,9 @@
+.mejs__title {
+    color: white;
+    position: absolute;
+    padding: 10px;
+    width: 100%;
+    font-size: 20px;
+    background: -webkit-linear-gradient(to top, transparent, rgba(0, 0, 0, 0.75));
+    background: linear-gradient(to top, transparent, rgba(0, 0, 0, 0.75));
+}

@@ -99,6 +99,9 @@ let videoShortcutHandler = function (event) {
         case 32:
             // Space Bar
             event.preventDefault();
+            if ($('.videoPlayer').is(':focus')) {
+              return;
+            }
             if (videoPlayer.paused) {
               videoPlayer.play();
               if($('.videoPlayer').is(':hover')) {
@@ -271,6 +274,21 @@ let fullscreenVideo = function (event) {
   }
   else {
     $('.mejs__fullscreen-button').click();
+
+    if (document.webkitFullscreenElement !== null) {
+      console.log('changing screen size...');
+      const currentWindow = electron.remote.getCurrentWindow();
+      let bounds = currentWindow.getBounds();
+      let newBounds = {
+        height: bounds.height,
+        width:  bounds.width + 1,
+        x:  bounds.x,
+        y:  bounds.y,
+      }
+
+      currentWindow.setBounds(newBounds);
+      currentWindow.setBounds(bounds);
+    }
   }
 }
 

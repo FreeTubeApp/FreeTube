@@ -20,6 +20,7 @@
  */
 
 let checkedVideoSettings = false;
+let playNextTimeout = '';
 
 /**
  * Display the video player and play a video
@@ -225,6 +226,8 @@ function playVideo(videoId, playlistId = '') {
                 playerView.subscribedText = 'UNSUBSCRIBE';
             }
         });
+
+        playerView.subscriptionCount = data.subCountText;
 
         playerView.recommendedVideoList = [];
 
@@ -451,7 +454,7 @@ function openMiniPlayer() {
         title: 'FreeTube Mini-Player: ' + playerView.videoTitle,
         autoHideMenuBar: true,
         webPreferences: {
-          nodeIntegration: true,
+            nodeIntegration: true,
         }
     });
 
@@ -562,6 +565,11 @@ function openMiniPlayer() {
     }, {
         role: 'window',
         submenu: [{
+            label: 'Toggle Always On Top',
+            click() {
+                miniPlayer.setAlwaysOnTop(!miniPlayer.isAlwaysOnTop());
+            }
+        }, {
             role: 'minimize'
         }, {
             role: 'close'
@@ -592,6 +600,7 @@ function openMiniPlayer() {
         let playerData = {
             videoId: playerView.videoId,
             videoUrl: playerView.videoUrl,
+            videoTitle: playerView.videoTitle,
             video360p: playerView.video360p,
             valid360p: playerView.valid360p,
             video720p: playerView.video720p,
@@ -652,7 +661,7 @@ function clickMiniPlayer(videoId) {
             title: 'FreeTube Mini-Player: ' + videoData.videoTitle,
             autoHideMenuBar: true,
             webPreferences: {
-              nodeIntegration: true,
+                nodeIntegration: true,
             }
         });
 
@@ -763,6 +772,11 @@ function clickMiniPlayer(videoId) {
         }, {
             role: 'window',
             submenu: [{
+                label: 'Toggle Always On Top',
+                click() {
+                    miniPlayer.setAlwaysOnTop(!miniPlayer.isAlwaysOnTop());
+                }
+            }, {
                 role: 'minimize'
             }, {
                 role: 'close'
@@ -874,9 +888,8 @@ function clickMiniPlayer(videoId) {
     }, function(err, doc) {
         if (doc !== null) {
             videoData.currentTime = doc.watchProgress;
-        }
-        else {
-          videoData.currentTime = 0;
+        } else {
+            videoData.currentTime = 0;
         }
     });
 
@@ -1011,13 +1024,14 @@ function checkDashSettings() {
         }
 
         let player = new MediaElementPlayer('player', {
-            features: ['playpause', 'current', 'progress', 'duration', 'volume', 'stop', 'speed', 'quality', 'loop', 'tracks', 'fullscreen', 'timerailthumbnails'],
+            features: ['title', 'playpause', 'current', 'progress', 'duration', 'volume', 'stop', 'speed', 'quality', 'loop', 'tracks', 'fullscreen', 'timerailthumbnails'],
             speeds: ['2', '1.75', '1.5', '1.25', '1', '0.75', '0.5', '0.25'],
             renderers: ['native_dash', 'native_hls', 'html5'],
             defaultSpeed: defaultPlaybackRate,
             autoGenerate: true,
             autoDash: true,
             autoHLS: false,
+            title: playerView.videoTitle,
             qualityText: 'Quality',
             defaultQuality: quality,
             stretching: 'responsive',
@@ -1028,6 +1042,7 @@ function checkDashSettings() {
                 ft.log(mediaElement, originalNode, instance);
 
                 if (autoplay) {
+                    instance.autoplay = true;
                     instance.play();
                 };
 
@@ -1037,6 +1052,10 @@ function checkDashSettings() {
                         if (captionOptions.length > 1) {
                             captionOptions[1].click();
                         }
+                    };
+
+                    if (autoplay) {
+                        instance.play();
                     };
                 }, 2000);
 
@@ -1190,6 +1209,32 @@ function checkLegacySettings() {
     return;
 }
 
+function playNext(timeLeft) {
+    if (playerView.playlistSeen && !settingsView.autoplayPlaylists) {
+      return;
+    };
+    if (!playerView.playlistSeen && !settingsView.playNextVideo) {
+      return;
+    }
+    const clearHtml = "<span class='link' onclick='stopPlayNext()'>Cancel</span>";
+
+    showToast('Playing next video in ' + timeLeft + ' seconds... ' + clearHtml);
+    playNextTimeout = window.setTimeout(() => {
+        if (timeLeft === 1) {
+            clearTimeout(playNextTimeout);
+            showToast('Playing next video...');
+            playNextVideo();
+        } else {
+            playNext(timeLeft - 1);
+        }
+    }, 1000);
+}
+
+function stopPlayNext() {
+    clearTimeout(playNextTimeout);
+    showToast('Next Video has been stopped');
+}
+
 function playNextVideo() {
     let videoPlayer
 
@@ -1199,28 +1244,41 @@ function playNextVideo() {
         videoPlayer = $('#player').get(0);
     }
 
-    if (videoPlayer.loop !== false || playerView.playlistSeen === false) {
+    if (videoPlayer.loop !== false) {
         return;
     }
 
-    if (playerView.playlistShuffle === true) {
-        let randomVideo = Math.floor(Math.random() * playerView.playlistTotal);
-
-        loadingView.seen = true;
-        playVideo(playerView.playlistVideoList[randomVideo].videoId, playerView.playlistId);
+    if (playerView.playlistSeen !== false && settingsView.autoplayPlaylists === false) {
         return;
     }
 
-    if (playerView.playlistLoop === true && playerView.playlistIndex == playerView.playlistTotal) {
-        loadingView.seen = true;
-        playVideo(playerView.playlistVideoList[0].videoId, playerView.playlistId);
+    if (playerView.playlistSeen === false && settingsView.playNextVideo === false) {
         return;
     }
 
-    if (playerView.playlistIndex != playerView.playlistTotal) {
-        loadingView.seen = true;
-        playVideo(playerView.playlistVideoList[playerView.playlistIndex].videoId, playerView.playlistId);
-        return;
+    if (playerView.playlistSeen !== false) {
+        if (playerView.playlistShuffle === true) {
+            let randomVideo = Math.floor(Math.random() * playerView.playlistTotal);
+
+            loadingView.seen = true;
+            playVideo(playerView.playlistVideoList[randomVideo].videoId, playerView.playlistId);
+            return;
+        }
+
+        if (playerView.playlistLoop === true && playerView.playlistIndex == playerView.playlistTotal) {
+            loadingView.seen = true;
+            playVideo(playerView.playlistVideoList[0].videoId, playerView.playlistId);
+            return;
+        }
+
+        if (playerView.playlistIndex != playerView.playlistTotal) {
+            loadingView.seen = true;
+            playVideo(playerView.playlistVideoList[playerView.playlistIndex].videoId, playerView.playlistId);
+            return;
+        }
+    } else {
+      loadingView.seen = true;
+      playVideo(playerView.recommendedVideoList[0].id);
     }
 }
 

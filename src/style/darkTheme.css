@@ -97,6 +97,14 @@ input[type=text] {
     border-bottom: 1px solid #E0E0E0;
 }
 
+.settingsSlider span {
+  color: white;
+}
+
+.card {
+  background-color: #424242;
+}
+
 .message {
     color: #757575;
 }
@@ -164,11 +172,6 @@ input[type=text] {
 
 .recommendDate {
     color: #E0E0E0;
-}
-
-.settingsButton {
-    color: #BDBDBD;
-    background-color: #424242;
 }
 
 .qualityTypes {
