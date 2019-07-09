@@ -1,5 +1,5 @@
 <div>
-    <div v-if='seen'>
+    <div class='flexGrid' v-if='seen'>
         <div class='inlineBlock' v-for="video in videoList">
             <div class='inlineBlock' v-if='video.isVideo'>
                 <div class='video'>
@@ -66,7 +66,7 @@
                 <hr class='videoDivider' />
             </div>
         </div>
-        <div v-if='isSearch'>
+        <div class='getNextPage' v-if='isSearch'>
             <div v-on:click='nextPage' id='getNextPage'>
                 <i class="fas fa-search"></i> Fetch more results...
             </div>

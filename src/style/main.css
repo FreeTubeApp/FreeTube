@@ -398,6 +398,10 @@ a {
     cursor: pointer;
 }
 
+.getNextPage {
+    display: contents;
+}
+
 #comments {
     display: none;
     padding: 1em;

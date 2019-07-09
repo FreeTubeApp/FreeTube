@@ -9,6 +9,12 @@
   display: inline-block;
 }
 
+.flexGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
 .video {
     padding: 10px;
     overflow: hidden;
