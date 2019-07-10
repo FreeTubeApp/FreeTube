@@ -52,7 +52,7 @@ function search(page = 1) {
         searchView.seen = true;
     } else {
         ft.log(page);
-        showToast('Fetching results.  Please wait...');
+        showToast('Fetching results.  Please wait…');
     }
 
     invidiousAPI('search', '', {
