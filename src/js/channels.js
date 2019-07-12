@@ -62,7 +62,18 @@ function goToChannel(channelId) {
 
     channelVideosView.videoList = [];
 
-    if (subscriptionView.seen === false && aboutView.seen === false && headerView.seen === false && searchView.seen === false && settingsView.seen === false && popularView.seen === false && savedView.seen === false && historyView.seen === false) {
+    const views = [
+      aboutView,
+      headerView,
+      historyView,
+      popularView,
+      savedView,
+      searchView,
+      settingsView,
+      subscriptionView
+    ]
+
+    if (seenAll(views, false)) {
       channelVideosView.seen = true;
       channelView.seen = true;
     }
@@ -96,4 +107,17 @@ function channelNextPage() {
   });
 
   channelView.page = channelView.page + 1;
+}
+
+/**
+ * Check the status of all view objects 'seen' property.
+ * @param {Array} views - An array of view objects, that should have a 'seen' property
+ * @param {bool} expected - The expected match, confirm all seen props === expected.
+ *  True by default.
+ * @returns {bool} - True if all views.seen === expected
+ * @example seenAll{[view1, view2], false} => bool
+ * @example seenAll{[view1, view2]} => bool
+ */
+function seenAll(views, expected = true) {
+  return views.every(({ seen }) => seen === expected)
 }
