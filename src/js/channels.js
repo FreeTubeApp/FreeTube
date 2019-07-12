@@ -47,8 +47,16 @@ function goToChannel(channelId) {
 
     channelView.id = channelId;
     channelView.name = data.author;
-    channelView.banner = data.authorBanners[0].url;
-    channelView.icon = data.authorThumbnails[3].url
+
+    // Can't access url of undefined, check defined
+    data.authorBanners.length
+      ? channelView.banner = data.authorBanners[0].url
+      : channelView.banner = undefined;
+
+    data.authorThumbnails.length >= 4
+      ? channelView.icon = data.authorThumbnails[3].url
+      : channelView.icon = undefined
+
     channelView.subCount = data.subCount.toLocaleString(); //toLocaleString adds commas as thousands separators
     channelView.description = autolinker.link(data.description); //autolinker makes URLs clickable
 
@@ -58,7 +66,7 @@ function goToChannel(channelId) {
       channelVideosView.seen = true;
       channelView.seen = true;
     }
-    else{
+    else {
       return;
     }
 
@@ -80,7 +88,7 @@ function goToChannel(channelId) {
 function channelNextPage() {
   showToast('Fetching results, please wait...');
 
-  invidiousAPI('channels/videos', channelView.channelId, {'page': channelView.page}, (data) => {
+  invidiousAPI('channels/videos', channelView.channelId, { 'page': channelView.page }, (data) => {
     ft.log(data);
     data.forEach((video) => {
       displayVideo(video, 'channel');
