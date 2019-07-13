@@ -73,7 +73,7 @@ function loadSubscriptions() {
         loadingView.seen = false;
         return;
     } else {
-        showToast('Refreshing Subscription List.  Please wait...');
+        showToast('Refreshing Subscription List.  Please wait…');
         checkSubscriptions = false;
         progressView.seen = true;
         $('#reloadButton')[0].classList.add('fa-spin');

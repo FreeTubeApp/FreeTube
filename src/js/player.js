@@ -1218,11 +1218,11 @@ function playNext(timeLeft) {
     }
     const clearHtml = "<span class='link' onclick='stopPlayNext()'>Cancel</span>";
 
-    showToast('Playing next video in ' + timeLeft + ' seconds... ' + clearHtml);
+    showToast('Playing next video in ' + timeLeft + ' seconds… ' + clearHtml);
     playNextTimeout = window.setTimeout(() => {
         if (timeLeft === 1) {
             clearTimeout(playNextTimeout);
-            showToast('Playing next video...');
+            showToast('Playing next video…');
             playNextVideo();
         } else {
             playNext(timeLeft - 1);
