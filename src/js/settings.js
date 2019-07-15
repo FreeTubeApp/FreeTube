@@ -199,7 +199,7 @@ function checkDefaultSettings() {
                     case 'autoplayPlaylists':
                         settingsView.autoplayPlaylists = docs[0]['value'];
                         break;
-                    case 'autoplayPlaylists':
+                    case 'playNextVideo':
                         settingsView.playNextVideo = docs[0]['value'];
                         break;
                     case 'subtitles':
