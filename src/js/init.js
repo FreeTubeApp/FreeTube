@@ -61,6 +61,7 @@ const gotTheLock = app.requestSingleInstanceLock()
  */
 let init = function () {
     const Menu = require('electron').Menu;
+    const screen = require('electron').screen;
 
     let winX, winY, winWidth, winHeight = null;
     //let winWidth = 1200;
@@ -81,7 +82,15 @@ let init = function () {
     }, function (err, doc) {
         if (doc !== null) {
             if (doc.value !== false) {
-                win.setBounds(doc.value);
+                let monitorList = screen.getAllDisplays();
+                let width = 0;
+                for (let i = 0; i < monitorList.length - 1; i++) {
+                  width = width + monitorList[i].size.width;
+                }
+
+                if (width <= doc.value.x) {
+                  win.setBounds(doc.value);
+                }
             }
         }
     });
