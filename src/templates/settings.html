@@ -349,6 +349,9 @@
             <label class="select-label">Subscriptions Export Format</label>
         </div>
         <div class='center'>
+            <div onclick='hideViews(); subscriptionManagerView.seen = true;' class='settingsButton'>
+                MANAGE SUBSCRIPTIONS
+            </div>
             <div onclick='importSubscriptions()' class='settingsButton'>
                 IMPORT SUBSCRIPTIONS
             </div>
@@ -397,13 +400,13 @@
         <br />
         <br />
         <div class='center'>
-            <div onclick='confirmFunction("Are you sure you want to delete your history?", clearFile, "history")' class='settingsButton'>
+            <div onclick='confirmFunction("Are you sure you want to delete your history?", clearFile, "history")' style='color: #f44336' class='settingsButton'>
                 CLEAR HISTORY
             </div>
-            <div onclick='confirmFunction("Are you sure you want to remove all saved videos?", clearFile, "saved")' class='settingsButton'>
+            <div onclick='confirmFunction("Are you sure you want to remove all saved videos?", clearFile, "saved")' style='color: #f44336' class='settingsButton'>
                 CLEAR FAVORITED VIDEOS
             </div>
-            <div onclick='confirmFunction("Are you sure you want to remove all subscriptions?", clearFile, "subscriptions")' class='settingsButton'>
+            <div onclick='confirmFunction("Are you sure you want to remove all subscriptions?", clearFile, "subscriptions")' style='color: #f44336' class='settingsButton'>
                 CLEAR SUBSCRIPTIONS
             </div>
         </div>

@@ -1,0 +1,11 @@
+<div v-if='seen' id='profileSelect'>
+    <h3 id='profileSelectHeader'>Profile Select<span v-on:click='showSubscriptionManager'><i class="fas fa-sliders-h"></i></span></h3>
+    <div id='profileSelectList'>
+        <div class='profile' v-on:click='setActiveProfile(index)' v-for='(profile, index) in profileList'>
+            <div class='profileBackground' :style='{ backgroundColor: profile.color }'>
+                <span class='profileInitial' :style='{ color: profileTextColor[index] }'>{{profileInitials[index]}}</span>
+            </div>
+            <p class='profileName'>{{profile.name}}</p>
+        </div>
+    </div>
+</div>

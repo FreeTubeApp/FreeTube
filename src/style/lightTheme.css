@@ -180,6 +180,22 @@ body {
     color: black;
 }
 
+.profile:hover {
+    background-color: #e0e0e0;
+}
+
+.profileEditSelected {
+    background-color: #424242;
+}
+
+.profileSelectSettings {
+    background-color: #9E9E9E;
+}
+
+.profileEditPadding:hover {
+    background-color: #e0e0e0;
+}
+
 #subscriptions img {
     border: 0px solid #000000;
 }
@@ -228,4 +244,12 @@ body {
 
 #miniPL {
   background-color: white;
+}
+
+#profileSelect {
+    background-color: white;
+}
+
+#profileSelectHeader span:hover {
+    background-color: #e0e0e0;
 }

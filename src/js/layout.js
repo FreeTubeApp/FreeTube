@@ -45,14 +45,14 @@ let dialog = electron.remote.dialog; // Used for opening file browser to export 
 let toastTimeout; // Timeout for toast notifications.
 let mouseTimeout; // Timeout for hiding the mouse cursor on video playback
 
-require.extensions['.html'] = function(module, filename) {
+require.extensions['.html'] = function (module, filename) {
     module.exports = fs.readFileSync(filename, 'utf8');
 };
 
 // Grabs the default settings from the settings database file.  Makes defaults if
 // none are found.
 
-electron.ipcRenderer.on('ping', function(event, message) {
+electron.ipcRenderer.on('ping', function (event, message) {
     ft.log(message);
     let url = message[message.length - 1];
     if (url) {
@@ -63,7 +63,7 @@ electron.ipcRenderer.on('ping', function(event, message) {
 });
 
 // Listens for proxy to be set in main process
-electron.ipcRenderer.on('proxyAvailable', function(event, message) {
+electron.ipcRenderer.on('proxyAvailable', function (event, message) {
     proxyAvailable = true;
 });
 
@@ -88,39 +88,38 @@ $(document).ready(() => {
             _id: 'invidious'
         }]
     }, (err, docs) => {
-        if (typeof(docs[0]) !== 'undefined') {
-          invidiousInstance = docs[0].value;
+        if (typeof (docs[0]) !== 'undefined') {
+            invidiousInstance = docs[0].value;
         }
 
         loadingView.seen = true;
 
-        if (typeof(docs[1]) !== 'undefined') {
+        if (typeof (docs[1]) !== 'undefined') {
             switch (docs[1].value) {
-                case 'subscriptions':
-                    sideNavBar.subscriptions();
-                    break;
-                case 'trending':
-                    sideNavBar.trending();
-                    break;
-                case 'popular':
-                    sideNavBar.popular();
-                    break;
-                case 'favorites':
-                    sideNavBar.saved();
-                    break;
-                case 'history':
-                    sideNavBar.history();
-                    break;
+            case 'subscriptions':
+                sideNavBar.subscriptions();
+                break;
+            case 'trending':
+                sideNavBar.trending();
+                break;
+            case 'popular':
+                sideNavBar.popular();
+                break;
+            case 'favorites':
+                sideNavBar.saved();
+                break;
+            case 'history':
+                sideNavBar.history();
+                break;
             }
-        }
-        else {
-          sideNavBar.subscriptions();
+        } else {
+            sideNavBar.subscriptions();
         }
     });
 
-    $.get('https://write.as/freetube/feed/', function(data) {
+    $.get('https://write.as/freetube/feed/', function (data) {
         aboutView.rssFeed = [];
-        $(data).find("item").each(function() {
+        $(data).find("item").each(function () {
             let el = $(this);
             let rssData = {
                 title: el.find("title").text(),
@@ -147,31 +146,31 @@ function toggleSideNavigation() {
         sideNav.style.display = 'inline';
         mainContainer.style.marginLeft = '250px';
         if (confirmSettings !== null) {
-          confirmSettings.style.marginLeft = '250px';
+            confirmSettings.style.marginLeft = '250px';
         }
     } else {
         sideNav.style.display = 'none';
         mainContainer.style.marginLeft = '0px';
         if (confirmSettings !== null) {
-          confirmSettings.style.marginLeft = '0px';
+            confirmSettings.style.marginLeft = '0px';
         }
     }
 
     if (playerView.playerSeen) {
-      // This is a really dumb way to fix the issue of the video player
-      // not resizing properly when the side bar is toggled.
+        // This is a really dumb way to fix the issue of the video player
+        // not resizing properly when the side bar is toggled.
 
-      const currentWindow = electron.remote.getCurrentWindow();
-      let bounds = currentWindow.getBounds();
-      let newBounds = {
-        height: bounds.height,
-        width:  bounds.width + 1,
-        x:  bounds.x,
-        y:  bounds.y,
-      }
+        const currentWindow = electron.remote.getCurrentWindow();
+        let bounds = currentWindow.getBounds();
+        let newBounds = {
+            height: bounds.height,
+            width: bounds.width + 1,
+            x: bounds.x,
+            y: bounds.y,
+        }
 
-      currentWindow.setBounds(newBounds);
-      currentWindow.setBounds(bounds);
+        currentWindow.setBounds(newBounds);
+        currentWindow.setBounds(bounds);
     }
 }
 
@@ -220,20 +219,25 @@ function hideToast() {
  * @return {Void}
  */
 function confirmFunction(message, performFunction, parameters = '') {
+    let confirmYes = document.getElementById('confirmYes');
     let confirmContainer = document.getElementById('confirmFunction');
     let confirmMessage = document.getElementById('confirmMessage');
+
+    confirmYes.removeAttribute("onclick");
 
     confirmMessage.innerHTML = message;
     confirmContainer.style.visibility = 'visible';
 
-    $(document).on('click', '#confirmYes', (event) => {
+    confirmYes.onclick = function (event) {
+        event.preventDefault();
+        event.stopPropagation();
         if (parameters != '') {
             performFunction(parameters);
         } else {
             performFunction();
         }
         hideConfirmFunction();
-    });
+    };
 }
 
 /**
@@ -255,7 +259,7 @@ function hideConfirmFunction() {
 function hideMouseTimeout() {
     $('.videoPlayer')[0].style.cursor = 'default';
     clearTimeout(mouseTimeout);
-    mouseTimeout = window.setTimeout(function() {
+    mouseTimeout = window.setTimeout(function () {
         $('.videoPlayer')[0].style.cursor = 'none';
     }, 2650);
 }
@@ -287,7 +291,7 @@ function proxyRequest(callback) {
     let counter = 0;
 
     // Wait for proxy to become available
-    proxyCheckingInterval = setInterval(function() {
+    proxyCheckingInterval = setInterval(function () {
         if (proxyAvailable) {
             clearInterval(proxyCheckingInterval)
 

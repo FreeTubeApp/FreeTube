@@ -25,6 +25,7 @@ let subscriptionTimer;
 let forceTimer;
 let checkSubscriptions = true;
 let forceSubs = true;
+let displaySubsLock = false;
 
 /**
  * Add a channel to the user's subscription database.
@@ -33,15 +34,46 @@ let forceSubs = true;
  *
  * @return {Void}
  */
-function addSubscription(data, useToast = true) {
+function addSubscription(data, useToast = true, profile = '') {
     ft.log('Channel Data: ', data);
 
-    // Refresh the list of subscriptions on the side navigation bar.
-    subDb.insert(data, (err, newDoc) => {
-        if (useToast) {
-            showToast('Added ' + data.channelName + ' to subscriptions.');
+    let newSubscription = data;
+    newSubscription.profile = [{
+        value: profile
+    }];
+
+    if (profile === '') {
+        newSubscription.profile = [{
+            value: profileSelectView.activeProfile.name
+        }];
+    }
+
+    subDb.find({
+        channelId: data.channelId
+    }, (err, docs) => {
+        if (jQuery.isEmptyObject(docs)) {
+            subDb.insert(newSubscription, (err, newDoc) => {
+                if (useToast) {
+                    showToast('Added ' + newSubscription.channelName + ' to subscriptions.');
+                }
+                // Refresh the list of subscriptions on the side navigation bar.
+                displaySubs();
+            });
+        } else {
+            subDb.update({
+                channelId: data.channelId,
+            }, {
+                $push: {
+                    profile: {
+                        value: newSubscription.profile[0].value
+                    }
+                }
+            }, (err, numAdded) => {
+                // Refresh the list of subscriptions on the side navigation bar.
+                displaySubs();
+                showToast('Added ' + data.channelName + ' to subscriptions.');
+            });
         }
-        displaySubs();
     });
 }
 
@@ -53,12 +85,32 @@ function addSubscription(data, useToast = true) {
  * @return {Void}
  */
 function removeSubscription(channelId) {
-    subDb.remove({
+    subDb.find({
         channelId: channelId
-    }, {}, (err, numRemoved) => {
-        // Refresh the list of subscriptions on the side navigation bar.
-        displaySubs();
-        showToast('Removed channel from subscriptions.');
+    }, (err, docs) => {
+        if (docs[0].profile.length > 1) {
+            subDb.update({
+                channelId: channelId,
+            }, {
+                $pull: {
+                    profile: {
+                        value: profileSelectView.activeProfile.name
+                    }
+                }
+            }, (err, numAdded) => {
+                // Refresh the list of subscriptions on the side navigation bar.
+                displaySubs();
+                showToast('Removed channel from subscriptions.');
+            });
+        } else {
+            subDb.remove({
+                channelId: channelId
+            }, {}, (err, numRemoved) => {
+                // Refresh the list of subscriptions on the side navigation bar.
+                displaySubs();
+                showToast('Removed channel from subscriptions.');
+            });
+        }
     });
 }
 
@@ -95,15 +147,17 @@ function loadSubscriptions() {
 
                 invidiousAPI('channels/latest', channelId, {}, (data) => {
                     data.forEach((video, index) => {
-                      data[index].author = results[i]['channelName'];
-                      historyDb.findOne({ videoId: video.videoId }, function (err, doc) {
-                        if(doc === null) {
-                          data[index].watched = false
-                        }
-                        else {
-                          data[index].watched = true;
-                        }
-                      });
+                        data[index].author = results[i]['channelName'];
+                        data[index].profile = results[i]['profile'];
+                        historyDb.findOne({
+                            videoId: video.videoId
+                        }, function (err, doc) {
+                            if (doc === null) {
+                                data[index].watched = false
+                            } else {
+                                data[index].watched = true;
+                            }
+                        });
                     });
                     videoList = videoList.concat(data);
                     counter = counter + 1;
@@ -139,10 +193,14 @@ function addSubsToView(videoList) {
     });
 
     if (hideWatchedSubs) {
-      videoList = videoList.filter(a => {
-        return !a.watched;
-      });
+        videoList = videoList.filter(a => {
+            return !a.watched;
+        });
     }
+
+    videoList = videoList.filter(a => {
+        return a.profile.map(x => x.value).indexOf(profileSelectView.activeProfile.name) !== -1
+    });
 
     videoList.sort((a, b) => {
         return b.published - a.published;
@@ -209,12 +267,24 @@ function returnSubscriptions() {
  * @return {Void}
  */
 function displaySubs() {
+    if (displaySubsLock) {
+        return;
+    }
+
+    displaySubsLock = true;
+
     const subList = document.getElementById('subscriptions');
 
     subList.innerHTML = '';
 
     // Sort alphabetically
-    subDb.find({}).sort({
+    subDb.find({
+        profile: {
+            $elemMatch: {
+                value: profileSelectView.activeProfile.name
+            }
+        }
+    }).sort({
         channelName: 1
     }).exec((err, subs) => {
         subs.forEach((channel) => {
@@ -230,6 +300,8 @@ function displaySubs() {
             const subscriptionsHtml = $('#subscriptions').html();
             $('#subscriptions').html(subscriptionsHtml + rendered);
         });
+
+        displaySubsLock = false;
     });
 
     // Add onclick function
@@ -268,10 +340,20 @@ function toggleSubscription(data) {
  *
  * @return {promise} - A boolean value if the channel is currently subscribed or not.
  */
-function isSubscribed(channelId) {
+function isSubscribed(channelId, profile = profileSelectView.activeProfile.name) {
     return new Promise((resolve, reject) => {
         subDb.find({
-            channelId: channelId
+            $and: [{
+                    channelId: channelId
+                },
+                {
+                    profile: {
+                        $elemMatch: {
+                            value: profile
+                        }
+                    }
+                },
+            ]
         }, (err, docs) => {
             if (jQuery.isEmptyObject(docs)) {
                 resolve(false);

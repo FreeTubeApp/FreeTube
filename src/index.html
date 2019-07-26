@@ -2,165 +2,168 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="style/main.css">
-  <link rel="stylesheet" href="style/lightTheme.css">
-  <link rel="stylesheet" href="style/videoGrid.css">
-  <link rel="stylesheet" href="style/player.css">
-  <link rel="stylesheet" href="style/playerFix.css">
-  <link rel="stylesheet" href="style/channel.css">
-  <link rel="stylesheet" href="style/playlist.css">
-  <link rel="stylesheet" href="style/loading.css">
-  <link rel="stylesheet" href="style/select.css">
-  <link rel="stylesheet" href="style/fa-solid.min.css">
-  <link rel="stylesheet" href="style/fontawesome-all.min.css">
-  <link rel="stylesheet" href="style/mediaelementplayer.css" />
-  <link rel="stylesheet" href="style/radioButton.css" />
-  <link rel="stylesheet" href="style/mdSlider.css" />
-  <link rel="stylesheet" href="js/plugins/title/title.css" />
-  <link rel="stylesheet" href="js/plugins/quality/quality.min.css" />
-  <link rel="stylesheet" href="js/plugins/loop/loop.css" />
-  <link rel="stylesheet" href="js/plugins/speed/speed.css" />
-  <link rel="stylesheet" href="js/plugins/context-menu/context-menu.css" />
-  <link rel="shortcut icon" href="icons/iconColor.ico" type="image/x-icon" />
-  <title>FreeTube Player</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/lightTheme.css">
+    <link rel="stylesheet" href="style/videoGrid.css">
+    <link rel="stylesheet" href="style/player.css">
+    <link rel="stylesheet" href="style/playerFix.css">
+    <link rel="stylesheet" href="style/channel.css">
+    <link rel="stylesheet" href="style/playlist.css">
+    <link rel="stylesheet" href="style/loading.css">
+    <link rel="stylesheet" href="style/select.css">
+    <link rel="stylesheet" href="style/fa-solid.min.css">
+    <link rel="stylesheet" href="style/fontawesome-all.min.css">
+    <link rel="stylesheet" href="style/mediaelementplayer.css" />
+    <link rel="stylesheet" href="style/radioButton.css" />
+    <link rel="stylesheet" href="style/mdSlider.css" />
+    <link rel="stylesheet" href="js/plugins/title/title.css" />
+    <link rel="stylesheet" href="js/plugins/quality/quality.min.css" />
+    <link rel="stylesheet" href="js/plugins/loop/loop.css" />
+    <link rel="stylesheet" href="js/plugins/speed/speed.css" />
+    <link rel="stylesheet" href="js/plugins/context-menu/context-menu.css" />
+    <link rel="shortcut icon" href="icons/iconColor.ico" type="image/x-icon" />
+    <title>FreeTube Player</title>
 </head>
 
 <body>
-  <div v-if='seen' id='loading'>
-    <div class="spinner">
-      <div class="double-bounce1"></div>
-      <div class="double-bounce2"></div>
+    <div v-if='seen' id='loading'>
+        <div class="spinner">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+        </div>
     </div>
-  </div>
-  <div id='confirmFunction'>
-    <span id='confirmMessage'>Would you like to perform the function?</span>
-    <div class='confirmButton' id='confirmYes'>Yes</div>
-    <div class='confirmButton' id='confirmNo'>No</div>
-  </div>
-  <div id='toast'>
-    <span id='toastMessage'></span>
-    <i onclick='hideToast()' class="closeToast fas fa-times"></i>
-  </div>
-  <div id="topNav" class="topNav">
-    <i onclick='toggleSideNavigation()' class="fas fa-bars" id='menuButton'></i>
-    <!--<i onclick='forceSubscriptions()' class="fas fa-sync" id='reloadButton' title='Force Subscription Reload'></i>-->
-    <i v-on:click='back' v-if="canShowBackButton" class="fas fa-arrow-left" id="backButton"></i>
-    <div class="searchBar">
-      <input id='search' class="search" type="text" placeholder="Search / Go to URL">
-      <span class='searchButton' onclick='parseSearchText()'><i class="fas fa-arrow-right" style='position: relative; right: 30px; cursor: pointer' title='Search'></i></span>
-      <span class='filterButton' onclick='searchFilter.seen = !searchFilter.seen'><i class="fas fa-filter" style='margin-right: -10px; cursor: pointer' title='Filter'></i></span>
+    <div id='confirmFunction'>
+        <span id='confirmMessage'>Would you like to perform the function?</span>
+        <div class='confirmButton' id='confirmYes'>Yes</div>
+        <div class='confirmButton' id='confirmNo'>No</div>
     </div>
-    <img src='icons/iconBlackSmall.png' id='menuIcon' /> &nbsp;
-    <img src='icons/textBlackSmall.png' id='menuText' />
-  </div>
-  <div id='sideNavDisabled'></div>
-  <div id="sideNav">
-    <div class="sideNavContainer">
-      <ul>
-        <li v-on:click='subscriptions'><i class="fas fa-rss"></i>&nbsp;&nbsp;Subscriptions <i onclick='event.stopPropagation(); forceSubscriptions()' class="fas fa-sync" id='reloadButton' title='Force Subscription Reload'></i></li>
-        <li v-if='!distractionFreeMode' v-on:click='trending'><i class="fas fa-fire"></i>&nbsp;&nbsp;Trending</li>
-        <li v-if='!distractionFreeMode' v-on:click='popular'><i class="fas fa-users"></i>&nbsp;&nbsp;Most Popular</li>
-        <li v-on:click='saved'><i class="fas fa-star"></i>&nbsp;&nbsp;Favorites</li>
-        <li v-on:click='history'><i class="fas fa-history"></i>&nbsp;&nbsp;History</li>
-      </ul>
-      <hr />
-      <ul>
-        <li v-on:click='settings'><i class="fas fa-sliders-h"></i>&nbsp;&nbsp;Settings</li>
-        <li v-on:click='about'><i class="fas fa-info-circle"></i>&nbsp;&nbsp;About</li>
-      </ul>
-      <hr />
-      <ul id='subscriptions'>
-      </ul>
+    <div id='toast'>
+        <span id='toastMessage'></span>
+        <i onclick='hideToast()' class="closeToast fas fa-times"></i>
     </div>
-  </div>
-  <div id="main">
-    <div id='searchFilter' class='center' v-show='seen'>
-      <h2>Search Filters</h2>
-      <br />
-      <div style='position: relative; bottom: 80px;' class='pure-radiobutton filter'>
-        <h3 class='filterTitle'>Sort By</h3>
-        <input class='radio' id='searchSortBy1' type="radio" name="searchSortBy" value="relevance" checked='checked' />
-        <label for='searchSortBy1'>Most Relevant</label>
-        <br /><br />
-        <input class='radio' id='searchSortBy2' type="radio" name="searchSortBy" value="rating" />
-        <label for='searchSortBy2'>Rating</label>
-        <br /><br />
-        <input class='radio' id='searchSortBy3' type="radio" name="searchSortBy" value="upload_date" />
-        <label for='searchSortBy3'>Upload Date</label>
-        <br /><br />
-        <input class='radio' id='searchSortBy4' type="radio" name="searchSortBy" value="view_count" />
-        <label for='searchSortBy4'>View Count</label>
-      </div>
-      <div class='pure-radiobutton filter'>
-        <h3>Time</h3>
-        <input class='radio' id='searchDate1' type="radio" name="searchDate" value="" checked='checked' />
-        <label for='searchDate1'>Any Time</label>
-        <br /><br />
-        <input class='radio' id='searchDate2' type="radio" name="searchDate" value="hour" />
-        <label for='searchDate2'>Last Hour</label>
-        <br /><br />
-        <input class='radio' id='searchDate3' type="radio" name="searchDate" value="today" />
-        <label for='searchDate3'>Today</label>
-        <br /><br />
-        <input class='radio' id='searchDate4' type="radio" name="searchDate" value="week" />
-        <label for='searchDate4'>This Week</label>
-        <br /><br />
-        <input class='radio' id='searchDate5' type="radio" name="searchDate" value="month" />
-        <label for='searchDate5'>This Month</label>
-        <br /><br />
-        <input class='radio' id='searchDate6' type="radio" name="searchDate" value="year" />
-        <label for='searchDate6'>This Year</label>
-      </div>
-      <div style='position: relative; bottom: 80px;' class='pure-radiobutton filter'>
-        <h3 class='filterTitle'>Type</h3>
-        <input class='radio' id='searchType1' type="radio" name="searchType" value="all" checked='checked' />
-        <label for='searchType1'>All Types</label>
-        <br /><br />
-        <input class='radio' id='searchType2' type="radio" name="searchType" value="video" />
-        <label for='searchType2'>Videos</label>
-        <br /><br />
-        <input class='radio' id='searchType3' type="radio" name="searchType" value="channel" />
-        <label for='searchType3'>Channels</label>
-        <br /><br />
-        <input class='radio' id='searchType4' type="radio" name="searchType" value="playlist" />
-        <label for='searchType4'>Playlists</label>
-      </div>
-      <div style='position: relative; bottom: 120px;' class='pure-radiobutton filter'>
-        <h3 class='filterTitle'>Duration</h3>
-        <input class='radio' id='searchDuration1' type="radio" name="searchDuration" value="" checked='checked' />
-        <label for='searchDuration1'>All Durations</label>
-        <br /><br />
-        <input class='radio' id='searchDuration2' type="radio" name="searchDuration" value="short" />
-        <label for='searchDuration2'>Short (< 4 minutes)</label>
-        <br /><br />
-        <input class='radio' id='searchDuration3' type="radio" name="searchDuration" value="long" />
-        <label for='searchDuration3'>Long (> 20 minutes)</label>
-      </div>
+    <div id="topNav" class="topNav">
+        <i onclick='toggleSideNavigation()' class="fas fa-bars" id='menuButton'></i>
+        <i v-on:click='back' v-if="canShowBackButton" class="fas fa-arrow-left" id="backButton"></i>
+        <img src='icons/iconBlackSmall.png' id='menuIcon' /> &nbsp;
+        <img src='icons/textBlackSmall.png' id='menuText' />
+        <div class="searchBar">
+            <input id='search' class="search" type="text" placeholder="Search / Go to URL">
+            <span class='searchButton' onclick='parseSearchText()'><i class="fas fa-arrow-right" style='position: relative; right: 30px; cursor: pointer' title='Search'></i></span>
+            <span class='filterButton' onclick='searchFilter.seen = !searchFilter.seen'><i class="fas fa-filter" style='margin-right: -10px; cursor: pointer' title='Filter'></i></span>
+        </div>
+        <div id='currentProfileView'></div>
+        <div id='profileSelectView'></div>
     </div>
-    <div id='noSubscriptions' v-if='seen'>
-      <h2 class="message">
+    <div id='sideNavDisabled'></div>
+    <div id="sideNav">
+        <div class="sideNavContainer">
+            <ul>
+                <li v-on:click='subscriptions'><i class="fas fa-rss"></i>&nbsp;&nbsp;Subscriptions <i onclick='event.stopPropagation(); forceSubscriptions()' class="fas fa-sync" id='reloadButton' title='Force Subscription Reload'></i></li>
+                <li v-if='!distractionFreeMode' v-on:click='trending'><i class="fas fa-fire"></i>&nbsp;&nbsp;Trending</li>
+                <li v-if='!distractionFreeMode' v-on:click='popular'><i class="fas fa-users"></i>&nbsp;&nbsp;Most Popular</li>
+                <li v-on:click='saved'><i class="fas fa-star"></i>&nbsp;&nbsp;Favorites</li>
+                <li v-on:click='history'><i class="fas fa-history"></i>&nbsp;&nbsp;History</li>
+            </ul>
+            <hr />
+            <ul>
+                <li v-on:click='settings'><i class="fas fa-sliders-h"></i>&nbsp;&nbsp;Settings</li>
+                <li v-on:click='about'><i class="fas fa-info-circle"></i>&nbsp;&nbsp;About</li>
+            </ul>
+            <hr />
+            <ul id='subscriptions'>
+            </ul>
+        </div>
+    </div>
+    <div id="main">
+        <div id='searchFilter' class='center' v-show='seen'>
+            <h2>Search Filters</h2>
+            <br />
+            <div style='position: relative; bottom: 80px;' class='pure-radiobutton filter'>
+                <h3 class='filterTitle'>Sort By</h3>
+                <input class='radio' id='searchSortBy1' type="radio" name="searchSortBy" value="relevance" checked='checked' />
+                <label for='searchSortBy1'>Most Relevant</label>
+                <br /><br />
+                <input class='radio' id='searchSortBy2' type="radio" name="searchSortBy" value="rating" />
+                <label for='searchSortBy2'>Rating</label>
+                <br /><br />
+                <input class='radio' id='searchSortBy3' type="radio" name="searchSortBy" value="upload_date" />
+                <label for='searchSortBy3'>Upload Date</label>
+                <br /><br />
+                <input class='radio' id='searchSortBy4' type="radio" name="searchSortBy" value="view_count" />
+                <label for='searchSortBy4'>View Count</label>
+            </div>
+            <div class='pure-radiobutton filter'>
+                <h3>Time</h3>
+                <input class='radio' id='searchDate1' type="radio" name="searchDate" value="" checked='checked' />
+                <label for='searchDate1'>Any Time</label>
+                <br /><br />
+                <input class='radio' id='searchDate2' type="radio" name="searchDate" value="hour" />
+                <label for='searchDate2'>Last Hour</label>
+                <br /><br />
+                <input class='radio' id='searchDate3' type="radio" name="searchDate" value="today" />
+                <label for='searchDate3'>Today</label>
+                <br /><br />
+                <input class='radio' id='searchDate4' type="radio" name="searchDate" value="week" />
+                <label for='searchDate4'>This Week</label>
+                <br /><br />
+                <input class='radio' id='searchDate5' type="radio" name="searchDate" value="month" />
+                <label for='searchDate5'>This Month</label>
+                <br /><br />
+                <input class='radio' id='searchDate6' type="radio" name="searchDate" value="year" />
+                <label for='searchDate6'>This Year</label>
+            </div>
+            <div style='position: relative; bottom: 80px;' class='pure-radiobutton filter'>
+                <h3 class='filterTitle'>Type</h3>
+                <input class='radio' id='searchType1' type="radio" name="searchType" value="all" checked='checked' />
+                <label for='searchType1'>All Types</label>
+                <br /><br />
+                <input class='radio' id='searchType2' type="radio" name="searchType" value="video" />
+                <label for='searchType2'>Videos</label>
+                <br /><br />
+                <input class='radio' id='searchType3' type="radio" name="searchType" value="channel" />
+                <label for='searchType3'>Channels</label>
+                <br /><br />
+                <input class='radio' id='searchType4' type="radio" name="searchType" value="playlist" />
+                <label for='searchType4'>Playlists</label>
+            </div>
+            <div style='position: relative; bottom: 120px;' class='pure-radiobutton filter'>
+                <h3 class='filterTitle'>Duration</h3>
+                <input class='radio' id='searchDuration1' type="radio" name="searchDuration" value="" checked='checked' />
+                <label for='searchDuration1'>All Durations</label>
+                <br /><br />
+                <input class='radio' id='searchDuration2' type="radio" name="searchDuration" value="short" />
+                <label for='searchDuration2'>Short (
+                    < 4 minutes)</label> <br /><br />
+                    <input class='radio' id='searchDuration3' type="radio" name="searchDuration" value="long" />
+                    <label for='searchDuration3'>Long (> 20 minutes)</label>
+            </div>
+        </div>
+        <div id='noSubscriptions' v-if='seen'>
+            <h2 class="message">
         Your Subscription list is currently empty.  Start adding subscriptions
         to see them here.
         <br /><br />
         <i class="far fa-frown" style="font-size: 200px"></i>
       </h2>
+        </div>
+        <div id='channelView'></div>
+        <div id='mainHeaderView'></div>
+        <div id='channelVideosView'></div>
+        <div id='searchView'></div>
+        <div id='subscriptionView'></div>
+        <div id='popularView'></div>
+        <div id='trendingView'></div>
+        <div id='savedView'></div>
+        <div id='historyView'></div>
+        <div id='playlistView'></div>
+        <div id='aboutView'></div>
+        <div id='settingsView'></div>
+        <div id='playerView'></div>
+        <div id='subscriptionManagerView'></div>
+        <div id='editProfileView'></div>
     </div>
-    <div id='channelView'></div>
-    <div id='mainHeaderView'></div>
-    <div id='channelVideosView'></div>
-    <div id='searchView'></div>
-    <div id='subscriptionView'></div>
-    <div id='popularView'></div>
-    <div id='trendingView'></div>
-    <div id='savedView'></div>
-    <div id='historyView'></div>
-    <div id='playlistView'></div>
-    <div id='aboutView'></div>
-    <div id='settingsView'></div>
-    <div id='playerView'></div>
-  </div>
-  <div id='progressView'></div>
+    <div id='progressView'></div>
 </body>
 <script src="js/vue.js"></script>
 <script src="js/general.js"></script>
@@ -192,4 +195,5 @@
 <script src="js/plugins/context-menu/context-menu-i18n.js"></script>
 <script src="js/plugins/timerailthumbnails/vtt.min.js"></script>
 <script src="js/plugins/timerailthumbnails/mep-feature-time-rail-thumbnails.js"></script>
+
 </html>

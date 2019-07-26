@@ -72,7 +72,7 @@ let init = function () {
         height: 800,
         autoHideMenuBar: true,
         webPreferences: {
-          nodeIntegration: true,
+            nodeIntegration: true,
         },
         icon: path.join(__dirname, '..', 'icons', 'iconColor.png')
     });
@@ -85,11 +85,11 @@ let init = function () {
                 let monitorList = screen.getAllDisplays();
                 let width = 0;
                 for (let i = 0; i < monitorList.length - 1; i++) {
-                  width = width + monitorList[i].size.width;
+                    width = width + monitorList[i].size.width;
                 }
 
                 if (width <= doc.value.x) {
-                  win.setBounds(doc.value);
+                    win.setBounds(doc.value);
                 }
             }
         }
@@ -103,22 +103,21 @@ let init = function () {
                 _id: 'proxy'
             }, (err, doc) => {
                 if (doc !== null) {
-                  win.webContents.session.setProxy({
-                      proxyRules: doc.value
-                  }, function () {
-                      win.loadURL(url.format({
-                          pathname: path.join(__dirname, '../index.html'),
-                          protocol: 'file:',
-                          slashes: true,
-                      }));
-                  });
-                }
-                else {
-                  win.loadURL(url.format({
-                      pathname: path.join(__dirname, '../index.html'),
-                      protocol: 'file:',
-                      slashes: true,
-                  }));
+                    win.webContents.session.setProxy({
+                        proxyRules: doc.value
+                    }, function () {
+                        win.loadURL(url.format({
+                            pathname: path.join(__dirname, '../index.html'),
+                            protocol: 'file:',
+                            slashes: true,
+                        }));
+                    });
+                } else {
+                    win.loadURL(url.format({
+                        pathname: path.join(__dirname, '../index.html'),
+                        protocol: 'file:',
+                        slashes: true,
+                    }));
                 }
             });
         } else {
@@ -267,8 +266,8 @@ let init = function () {
  */
 let allWindowsClosed = function () {
     if (win !== null) {
-      win.webContents.session.clearStorageData([], (data) => {});
-      win.webContents.session.clearCache((data) => {});
+        win.webContents.session.clearStorageData([], (data) => {});
+        win.webContents.session.clearCache((data) => {});
     }
     app.quit();
 };
@@ -284,20 +283,20 @@ let active = function () {
 };
 
 if (!gotTheLock) {
-  app.quit()
+    app.quit()
 } else {
-  app.on('second-instance', (event, commandLine, workingDirectory) => {
-    // Someone tried to run a second instance, we should focus our window.
-    if (win) {
-        if (win.isMinimized()) win.restore()
-        win.focus()
+    app.on('second-instance', (event, commandLine, workingDirectory) => {
+        // Someone tried to run a second instance, we should focus our window.
+        if (win) {
+            if (win.isMinimized()) win.restore()
+            win.focus()
 
-        win.webContents.send('ping', commandLine)
-    }
-  })
+            win.webContents.send('ping', commandLine)
+        }
+    })
 
-  // Create myWindow, load the rest of the app, etc...
-  app.on('ready', init);
+    // Create myWindow, load the rest of the app, etc...
+    app.on('ready', init);
 }
 
 /**

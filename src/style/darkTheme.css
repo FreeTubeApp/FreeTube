@@ -211,6 +211,22 @@ input[type=text] {
     color: white;
 }
 
+.profile:hover {
+    background-color: #616161;
+}
+
+.profileEditSelected {
+    background-color: #424242;
+}
+
+.profileSelectSettings {
+    background-color: #9E9E9E;
+}
+
+.profileEditPadding:hover {
+    background-color: #616161;
+}
+
 #main {
     color: #EEEEEE;
 }
@@ -290,4 +306,13 @@ input[type=text] {
 
 #miniPL {
   background-color: #424242;
+}
+
+#profileSelect {
+    background-color: #424242;
+    color: white;
+}
+
+#profileSelectHeader span:hover {
+    background-color: #616161;
 }
