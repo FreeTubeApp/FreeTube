@@ -80,18 +80,20 @@ let init = function () {
     settingsDb.findOne({
         _id: 'bounds'
     }, function (err, doc) {
-        if (doc !== null) {
-            if (doc.value !== false) {
-                let monitorList = screen.getAllDisplays();
-                let width = 0;
-                for (let i = 0; i < monitorList.length - 1; i++) {
-                    width = width + monitorList[i].size.width;
-                }
+        if (typeof doc !== "object" || typeof doc.value !== "object") {
+            return;
+        }
 
-                if (width <= doc.value.x) {
-                    win.setBounds(doc.value);
-                }
-            }
+        const {maximized, ...bounds} = doc.value;
+        const allDisplaysSummaryWidth = screen
+          .getAllDisplays()
+          .reduce((accumulator, {size: {width}}) => accumulator + width, 0);
+
+        if (allDisplaysSummaryWidth >= bounds.x) {
+            win.setBounds(bounds);
+        }
+        if (maximized) {
+            win.maximize();
         }
     });
 
@@ -236,9 +238,11 @@ let init = function () {
         });
     });
 
-
     ipcMain.on("setBounds", (_e, data) => {
-        let bounds = win.getBounds();
+        const value = {
+            ...win.getBounds(),
+            maximized: win.isMaximized(),
+        };
 
         settingsDb.findOne({
             _id: 'bounds'
@@ -248,13 +252,13 @@ let init = function () {
                     _id: 'bounds'
                 }, {
                     $set: {
-                        value: bounds
+                        value,
                     }
                 }, {}, (err, newDoc) => {});
             } else {
                 settingsDb.insert({
                     _id: 'bounds',
-                    value: bounds,
+                    value,
                 });
             }
         });
