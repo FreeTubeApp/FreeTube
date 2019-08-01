@@ -84,23 +84,25 @@ function addSubscription(data, useToast = true, profile = '') {
  *
  * @return {Void}
  */
-function removeSubscription(channelId) {
+function removeSubscription(channelId, profile = profileSelectView.activeProfile.name, displayToast = true) {
     subDb.find({
         channelId: channelId
     }, (err, docs) => {
-        if (docs[0].profile.length > 1) {
+        if (docs[0].profile.length > 1 && profile !== 'All Profiles') {
             subDb.update({
                 channelId: channelId,
             }, {
                 $pull: {
                     profile: {
-                        value: profileSelectView.activeProfile.name
+                        value: profile
                     }
                 }
-            }, (err, numAdded) => {
+            }, { multi: true },(err, numRemoved) => {
                 // Refresh the list of subscriptions on the side navigation bar.
                 displaySubs();
-                showToast('Removed channel from subscriptions.');
+                if (displayToast) {
+                  showToast('Removed channel from subscriptions.');
+                }
             });
         } else {
             subDb.remove({
@@ -108,7 +110,9 @@ function removeSubscription(channelId) {
             }, {}, (err, numRemoved) => {
                 // Refresh the list of subscriptions on the side navigation bar.
                 displaySubs();
-                showToast('Removed channel from subscriptions.');
+                if (displayToast) {
+                  showToast('Removed channel from subscriptions.');
+                }
             });
         }
     });
@@ -198,9 +202,11 @@ function addSubsToView(videoList) {
         });
     }
 
-    videoList = videoList.filter(a => {
+    if (profileSelectView.activeProfile.name !== 'All Channels') {
+      videoList = videoList.filter(a => {
         return a.profile.map(x => x.value).indexOf(profileSelectView.activeProfile.name) !== -1
-    });
+      });
+    }
 
     videoList.sort((a, b) => {
         return b.published - a.published;
@@ -278,16 +284,20 @@ function displaySubs() {
     subList.innerHTML = '';
 
     // Sort alphabetically
-    subDb.find({
-        profile: {
-            $elemMatch: {
-                value: profileSelectView.activeProfile.name
-            }
-        }
-    }).sort({
+    subDb.find().sort({
         channelName: 1
     }).exec((err, subs) => {
-        subs.forEach((channel) => {
+        let subFilter;
+        if (profileSelectView.activeProfile.name === 'All Channels' || typeof(profileSelectView.activeProfile.name) === 'undefined') {
+          subFilter = subs;
+        }
+        else {
+          subFilter = subs.filter(a => {
+              return a.profile.find((name) => {return name.value === profileSelectView.activeProfile.name });
+          });
+        }
+
+        subFilter.forEach((channel) => {
             // Grab subscriptions.html to be used as a template.
             const subsTemplate = require('./templates/subscriptions.html')
             mustache.parse(subsTemplate);

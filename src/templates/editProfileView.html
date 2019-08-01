@@ -1,5 +1,10 @@
 <div v-if='seen'>
     <div v-if='!isNewProfile' class='card'>
+      <div v-if="subscriptionList.length === 0" >
+        <h2>Subscription List for {{profileName}} Profile</h2>
+        <h4>This profile is empty.  Add subscriptions to this profile to manage them.</h4>
+      </div>
+      <div v-else >
         <h2>Subscription List for {{profileName}} Profile</h2>
         <h3>{{amountSelected}} Selected</h3>
         <br />
@@ -10,6 +15,24 @@
             <div class='profileEditName'><span>{{channel.channelName}}</span></div>
         </div>
         <br /><br /><br />
+        <div class='center'>
+            <div v-on:click='selectAll' class='settingsButton'>
+                SELECT ALL
+            </div>
+            <div v-on:click='selectNone' class='settingsButton'>
+                SELECT NONE
+            </div>
+            <div v-if="profileName !== 'All Channels'" v-on:click='move' class='settingsButton'>
+                MOVE SELECTED TO
+            </div>
+            <div v-on:click='copy' class='settingsButton'>
+                COPY SELECTED TO
+            </div>
+            <div v-on:click='deleteChannel' style='color: #f44336' class='settingsButton'>
+                DELETE SELECTED
+            </div>
+        </div>
+        <br />
         <div class="select center">
             <select id="profileListSelect" class="select-text" v-model='selectedProfile' required>
                 <option v-for='profile in profileList' :value='profile.name'>{{profile.name}}</option>
@@ -18,29 +41,15 @@
             <span class="select-bar"></span>
             <label class="select-label">Profile Select</label>
         </div>
-        <div class='center'>
-            <div v-on:click='selectAll' class='settingsButton'>
-                SELECT ALL
-            </div>
-            <div v-on:click='selectNone' class='settingsButton'>
-                SELECT NONE
-            </div>
-            <div v-on:click='move' class='settingsButton'>
-                MOVE SELECTED
-            </div>
-            <div v-on:click='copy' class='settingsButton'>
-                COPY SELECTED
-            </div>
-            <div v-on:click='deleteChannel' style='color: #f44336' class='settingsButton'>
-                DELETE SELECTED
-            </div>
-        </div>
+        <h4 v-if="profileName === 'All Channels'">NOTE: Deleting a channel from the "All Channels" profile will also delete the channel from all other profiles.</h4>
+      </div>
     </div>
     <div class='card'>
         <h2 v-if='isNewProfile'>Add New Profile</h2>
         <h2 v-if='!isNewProfile'>Edit Profile Attributes</h2>
         <div class="input-text-settings">
-            <input type="text" placeholder='Profile Name' name="set-name" v-model='newProfileName' />
+            <input v-if="profileName !== 'All Channels'" type="text" placeholder='Profile Name' name="set-name" v-model='newProfileName' />
+            <input v-if="profileName === 'All Channels'" type="text" placeholder='Profile Name' name="set-name" v-model='newProfileName' disabled />
         </div>
         <h3>Color Picker</h3>
         <div class='colorPickerPadding' v-for='(value, key) in colorPalette'>
@@ -48,10 +57,11 @@
         </div>
         <br />
         <div class="input-text-settings">
-            <input type="text" placeholder='HEX Color' name="set-name" v-model='newProfileColor' />
+            <input type="text" placeholder='HEX Color' name="set-name" v-model='newProfileColorText' />
         </div>
         <br />
-        <h3>New Profile Color</h3>
+        <h3 v-if='!isNewProfile'>New Profile Color</h3>
+        <h3 v-if='isNewProfile'>Selected Profile Color</h3>
         <div class='colorPickerPadding'>
             <div class='colorPicker' :style='{ backgroundColor: newProfileColor }'></div>
         </div>
@@ -66,7 +76,7 @@
                 <div v-on:click='defaultProfile' class='settingsButton'>
                     MAKE DEFAULT PROFILE
                 </div>
-                <div v-on:click='deleteProfile' style='color: #f44336' class='settingsButton'>
+                <div v-if="profileName !== 'All Channels'" v-on:click='deleteProfile' style='color: #f44336' class='settingsButton'>
                     DELETE PROFILE
                 </div>
             </div>

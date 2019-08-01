@@ -923,15 +923,32 @@ let subscriptionManagerView = new Vue({
             if (isNewProfile) {
                 editProfileView.profileName = '';
                 editProfileView.profileColor = '';
-                editProfileView.newProfileName = '';
-                editProfileView.newProfileColor = '';
+                editProfileView.newProfileName = 'Profile ' + (this.profileList.length + 1);
+                let colorPaletteKeys = Object.keys(editProfileView.colorPalette);
+                let randomColor = colorPalette[colorPaletteKeys[colorPaletteKeys.length * Math.random() << 0]];
+                editProfileView.newProfileColorText = randomColor;
                 editProfileView.subscriptionList = [];
             } else {
                 editProfileView.profileName = this.profileList[index].name;
                 editProfileView.profileColor = this.profileList[index].color;
                 editProfileView.newProfileName = this.profileList[index].name;
-                editProfileView.newProfileColor = this.profileList[index].color;
-                // Sort alphabetically
+                editProfileView.newProfileColorText = this.profileList[index].color;
+                if (this.profileList[index].name === 'All Channels') {
+                  // Sort alphabetically
+                subDb.find({
+                }).sort({
+                    channelName: 1
+                }).exec((err, subs) => {
+                    let list = [];
+                    subs.forEach((sub) => {
+                        sub.checked = false;
+                        list.push(sub);
+                    });
+                    editProfileView.subscriptionList = list;
+                });
+                }
+                else {
+                  // Sort alphabetically
                 subDb.find({
                     profile: {
                         $elemMatch: {
@@ -948,8 +965,10 @@ let subscriptionManagerView = new Vue({
                     });
                     editProfileView.subscriptionList = list;
                 });
+                }
             }
             editProfileView.seen = true;
+            loadingView.seen = false;
             //backButtonView.lastView = subscriptionManagerView;
         }
     },
@@ -976,7 +995,7 @@ let editProfileView = new Vue({
         profileName: '',
         profileColor: '',
         newProfileName: '',
-        newProfileColor: '',
+        newProfileColorText: '',
         selectedProfile: '',
         colorPalette: {
             red: '#d50000',
@@ -999,7 +1018,7 @@ let editProfileView = new Vue({
     },
     methods: {
         changeProfileColor: function (value) {
-            this.newProfileColor = value;
+            this.newProfileColorText = value;
         },
         selectAll: function () {
             this.subscriptionList.forEach(channel => {
@@ -1012,6 +1031,11 @@ let editProfileView = new Vue({
             });
         },
         defaultProfile: function () {
+            if (editProfileView.profileName === settingsView.defaultProfile) {
+              showToast('This profile is already set as your default.');
+              return;
+            }
+
             settingsDb.update({
                 _id: 'defaultProfile'
             }, {
@@ -1087,6 +1111,11 @@ let editProfileView = new Vue({
             });
         },
         updateProfile: function (updateView = true) {
+            if (this.newProfileName === '') {
+              showToast('Profile name cannot be blank.');
+              return;
+            }
+
             let patt = new RegExp("^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$");
             if (patt.test(this.newProfileColor)) {
                 if (this.isNewProfile) {
@@ -1121,7 +1150,7 @@ let editProfileView = new Vue({
                                 if (updateView) {
                                     hideViews();
                                     subscriptionManagerView.seen = true;
-                                    showToast('The' + newProfile.name + ' profile has been added!');
+                                    showToast('The ' + newProfile.name + ' profile has been added!');
                                 }
                             });
                         }
@@ -1244,7 +1273,11 @@ let editProfileView = new Vue({
                 showToast('Select a profile other than the one being edited.');
                 return;
             }
-            let confirmString = 'Would you like to move the selected channels to the ' + this.selectedProfile + ' profile?';
+            if (this.selectedProfile === 'All Channels') {
+                showToast('There is no need to move channels to "All Channels".');
+                return;
+            }
+            let confirmString = 'Would you like to move the selected channel(s) to the ' + this.selectedProfile + ' profile?';
             confirmFunction(confirmString, () => {
                 let amountRemoved = 0;
                 this.subscriptionList.forEach(channel => {
@@ -1318,7 +1351,11 @@ let editProfileView = new Vue({
                 showToast('Select a profile other than the one being edited.');
                 return;
             }
-            let confirmString = 'Would you like to copy the selected channels to the ' + this.selectedProfile + ' profile?';
+            if (this.selectedProfile === 'All Channels') {
+                showToast('There is no need to copy channels to "All Channels".');
+                return;
+            }
+            let confirmString = 'Would you like to copy the selected channel(s) to the ' + this.selectedProfile + ' profile?';
             confirmFunction(confirmString, () => {
                 let amountCopied = 0;
                 this.subscriptionList.forEach(channel => {
@@ -1369,52 +1406,55 @@ let editProfileView = new Vue({
             });
         },
         deleteChannel: function () {
-            let confirmString = 'Are you sure you want to delete the selected channels from this profile?';
+            let confirmString = 'Are you sure you want to delete the selected channel(s) from this profile?';
             let amountDeleted = 0;
+
+            if (this.amountSelected === 0) {
+              showToast('A channel must be selected before it can be deleted.');
+              return;
+            }
 
             confirmFunction(confirmString, () => {
                 this.subscriptionList.forEach((channel, index) => {
+                    console.log(channel);
                     if (channel.checked) {
-                        subDb.update({
-                            channelId: channel.channelId,
-                        }, {
-                            $pull: {
-                                profile: {
-                                    value: editProfileView.profileName
-                                }
-                            }
-                        }, {
-                            multi: true
-                        }, (err, numRemoved) => {
-                            if (err) {
-                                console.log(err);
-                            }
+                        removeSubscription(channel.channelId, editProfileView.profileName, false);
 
-                            let subMap = subscriptionView.fullVideoList.map(x => x.author === channel.channelName);
 
-                            for (let i = 0; i < subMap.length; i++) {
-                                if (subMap[i]) {
+                            let subViewListMap = subscriptionView.fullVideoList.map(x => x.author === channel.channelName);
+
+                            for (let i = 0; i < subViewListMap.length; i++) {
+                                if (subViewListMap[i]) {
                                     let subProfileIndex = subscriptionView.fullVideoList[i].profile.findIndex(x => x.value === editProfileView.profileName);
                                     subscriptionView.fullVideoList[i].profile.splice(subProfileIndex, 1);
                                 }
                             }
 
-                            editProfileView.subscriptionList.splice(index, 1);
-                        });
-
-                        amountDeleted++;
+                            amountDeleted++;
                     }
+
                 });
                 window.setTimeout(() => {
                     // Refresh the list of subscriptions on the side navigation bar and subscriptions view.
                     displaySubs();
                     addSubsToView(subscriptionView.fullVideoList);
                     showToast(amountDeleted + ' channel(s) have been deleted from this profile.');
+                    this.subscriptionList = this.subscriptionList.filter(a => {
+                      return !a.checked;
+                    });
                 }, 500);
             });
         },
     },
     computed: {
+        newProfileColor: function () {
+          if (this.newProfileColorText[0] === '#') {
+            return this.newProfileColorText;
+          }
+          else {
+            return '#' + this.newProfileColorText;
+          }
+        },
         isDefaultProfile: function () {
             return settingsView.defaultProfile === this.profileName;
         },

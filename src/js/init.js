@@ -68,8 +68,6 @@ let init = function () {
     //let winHeight = 800;
 
     win = new BrowserWindow({
-        width: 1200,
-        height: 800,
         autoHideMenuBar: true,
         webPreferences: {
             nodeIntegration: true,
@@ -77,25 +75,7 @@ let init = function () {
         icon: path.join(__dirname, '..', 'icons', 'iconColor.png')
     });
 
-    settingsDb.findOne({
-        _id: 'bounds'
-    }, function (err, doc) {
-        if (typeof doc !== "object" || typeof doc.value !== "object") {
-            return;
-        }
-
-        const {maximized, ...bounds} = doc.value;
-        const allDisplaysSummaryWidth = screen
-          .getAllDisplays()
-          .reduce((accumulator, {size: {width}}) => accumulator + width, 0);
-
-        if (allDisplaysSummaryWidth >= bounds.x) {
-            win.setBounds(bounds);
-        }
-        if (maximized) {
-            win.maximize();
-        }
-    });
+    win.setBounds({width: 1200, height: 800});
 
     settingsDb.findOne({
         _id: 'useTor'
@@ -132,7 +112,7 @@ let init = function () {
     });
 
     if (process.env = 'development') {
-        //win.webContents.openDevTools();
+        win.webContents.openDevTools();
     }
 
     win.on('closed', () => {
@@ -224,6 +204,30 @@ let init = function () {
 
     const menu = Menu.buildFromTemplate(template);
     Menu.setApplicationMenu(menu);
+
+    settingsDb.findOne({
+        _id: 'bounds'
+    }, function (err, doc) {
+        if (doc === null) {
+            return;
+        }
+
+        if (typeof doc !== "object" || typeof doc.value !== "object") {
+            return;
+        }
+
+        const {maximized, ...bounds} = doc.value;
+        const allDisplaysSummaryWidth = screen
+          .getAllDisplays()
+          .reduce((accumulator, {size: {width}}) => accumulator + width, 0);
+
+        if (allDisplaysSummaryWidth >= bounds.x) {
+            win.setBounds({"x":bounds.x,"y":bounds.y,"width":bounds.width,"height":bounds.height});
+        }
+        if (maximized) {
+            win.maximize();
+        }
+    });
 
     /**
      * Sets proxy when setProxy event is sent from renderer

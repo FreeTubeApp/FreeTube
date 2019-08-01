@@ -85,6 +85,10 @@ function goToChannel(channelId) {
     data.latestVideos.forEach((video) => {
       displayVideo(video, 'channel');
     });
+
+    if (typeof(channelView.banner) === 'undefined') {
+       window.setTimeout(() => {$('.channelViewBanner').get(0).height = 200;}, 50);
+    }
   }, (errorData) => {
     showToast(errorData.responseJSON.error);
     loadingView.seen = false;

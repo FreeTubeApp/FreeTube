@@ -180,11 +180,13 @@ function checkDefaultSettings() {
         'distractionFreeMode': false,
         'hideWatchedSubs': false,
         'videoView': 'grid',
-        'profileList': [{
-            name: 'Default',
+        'profileList': [
+          {
+            name: 'All Channels',
             color: randomColor
-        }, ],
-        'defaultProfile': 'Default',
+          },
+        ],
+        'defaultProfile': 'All Channels',
     };
 
     ft.log(settingDefaults);
@@ -221,7 +223,7 @@ function checkDefaultSettings() {
                                 }, {
                                     $set: {
                                         profile: [{
-                                            value: 'Default'
+                                            value: 'All Channels'
                                         }]
                                     }
                                 }, {}, (err, newDoc) => {
@@ -856,7 +858,7 @@ function importSubscriptions() {
                                 let colorPaletteKeys = Object.keys(colorPalette);
                                 let randomColor = colorPalette[colorPaletteKeys[colorPaletteKeys.length * Math.random() << 0]];
                                 editProfileView.isNewProfile = true;
-                                editProfileView.newProfileColor = randomColor;
+                                editProfileView.newProfileColorText = randomColor;
                                 editProfileView.newProfileName = profile.value;
                                 editProfileView.updateProfile(false);
                             }
