@@ -324,11 +324,11 @@ a {
     position: absolute;
     left: 40%;
     top: 0;
-    width: 650px;
+    width: 500px;
 }
 
 .searchBar input {
-    width: 94%;
+    width: 90%;
     color: black;
 }
 
@@ -625,10 +625,9 @@ a {
     font-weight: bold;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 925px) {
     .searchBar {
-        width: 500px;
-        right: -15px;
+        width: 400px;
     }
 }
 

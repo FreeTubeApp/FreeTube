@@ -786,6 +786,7 @@ let backButtonView = new Vue({
         back: function () {
             // variable here because this.lastView gets reset in hideViews()
             const isSearch = this.lastView.$options.el === "#searchView";
+            const isSubManager = this.lastView.$options.el === "#subscriptionManagerView";
 
             hideViews();
             loadingView.seen = false;
@@ -799,7 +800,12 @@ let backButtonView = new Vue({
 
                 // reset this.lastView
                 this.lastView = false;
-            } else {
+            }
+            else if (isSubManager) {
+              subscriptionManagerView.seen = true;
+              this.lastView = false;
+            }
+            else {
                 // if not search then this.lastView has to be playlistView
 
                 // Change back to playlistView
@@ -812,8 +818,8 @@ let backButtonView = new Vue({
     },
     computed: {
         canShowBackButton: function () {
-            // this.lastView can be either searchView or playlistView
-            return !!this.lastView && !this.lastView.seen && this.lastView.videoList.length > 0;
+            // this.lastView can be either searchView, subscriptionManagerView, or playlistView
+            return !!this.lastView && !this.lastView.seen;
         }
     },
 });
@@ -969,7 +975,7 @@ let subscriptionManagerView = new Vue({
             }
             editProfileView.seen = true;
             loadingView.seen = false;
-            //backButtonView.lastView = subscriptionManagerView;
+            backButtonView.lastView = subscriptionManagerView;
         }
     },
     computed: {
