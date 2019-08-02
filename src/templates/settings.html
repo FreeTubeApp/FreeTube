@@ -292,6 +292,8 @@
         <label for="subtitlesSwitch" class="switch-label">Turn on Subtitles by Default</label>
         <input type="checkbox" id="localSwitch" onchange='showSettingsConfirm()' name="set-name" class="switch-input" :checked='localScrape'>
         <label for="localSwitch" class="switch-label">Grab videos locally</label>
+        <input type="checkbox" id="proxyVideosSwitch" onchange='showSettingsConfirm()' name="set-name" class="switch-input" :checked='proxyVideos'>
+        <label for="proxyVideosSwitch" class="switch-label">Proxy Videos Through Invidious</label>
         <br />
         <label class="settingsSlider pure-material-slider">
             <input id='volumeSelect' onchange='showSettingsConfirm()' type="range" min="0" max="1" step="0.01" v-model.number="defaultVolume">

@@ -435,6 +435,7 @@ let settingsView = new Vue({
         subWatched: false,
         videoView: 'grid',
         defaultProfile: 'Default',
+        proxyVideos: false,
     },
     methods: {
         checkProxy() {

@@ -49,7 +49,13 @@ function playVideo(videoId, playlistId = '') {
     playerView.videoLive = undefined;
     playerView.validLive = false;
     playerView.validDash = true;
-    playerView.videoDash = invidiousInstance + '/api/manifest/dash/' + videoId + '.mpd?unique_res=1';
+
+    playerView.videoDash = invidiousInstance + '/api/manifest/dash/' + videoId + '.mpd';
+
+    if (settingsView.proxyVideos) {
+      playerView.videoDash = playerView.videoDash + '?local=true';
+    }
+
     playerView.embededHtml = "<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/" + videoId + "?rel=0' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>";
 
     let videoHtml = '';
@@ -1083,8 +1089,8 @@ function checkDashSettings() {
                     });
 
                     let selectedOption = false;
-                    qualityOptions.reverse().forEach((option, index) => {
-                        if (option.value === defaultQuality || option.value === defaultQuality + 'p') {
+                    qualityOptions.forEach((option, index) => {
+                        if (option.value === defaultQuality || option.value === defaultQuality + 'p' || option.value === defaultQuality + 'p60') {
                             option.click();
                             selectedOption = true;
                         }

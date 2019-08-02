@@ -1,6 +1,7 @@
 .mejs__qualities-button,
 .mejs-qualities-button {
     position: relative;
+    width: 40px;
 }
 
 .mejs__qualities-button > button,
@@ -11,7 +12,7 @@
     font-weight: 700;
     line-height: normal;
     margin: 9px 0 0;
-    width: 36px;
+    width: 50px;
 }
 
 .mejs__qualities-selector,

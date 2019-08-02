@@ -174,6 +174,7 @@ function checkDefaultSettings() {
         'rate': '1',
         'invidious': 'https://invidio.us',
         'proxy': "SOCKS5://127.0.0.1:9050", // This is default value for tor client
+        'proxyVideos': false,
         'region': 'US',
         'debugMode': false,
         'startScreen': 'subscriptions',
@@ -283,6 +284,9 @@ function checkDefaultSettings() {
                         electron.ipcRenderer.send("setProxy", defaultProxy);
                     }
                     break;
+                case 'proxyVideos':
+                    settingsView.proxyVideos = docs[0]['value'];
+                    break;
                 case 'invidious':
                     invidiousInstance = docs[0]['value'].replace(/\/$/, '');
                     settingsView.invidiousInstance = invidiousInstance;
@@ -360,6 +364,7 @@ function updateSettings() {
     let rateSelect = document.getElementById('rateSelect').value;
     let regionSelect = document.getElementById('regionSelect').value;
     let proxyAddress = document.getElementById('proxyAddress').value;
+    let proxyVideos = document.getElementById('proxyVideosSwitch').value;
     let invidious = document.getElementById('invidiousInstance').value.replace(/\/$/, '');
     let videoViewType = document.getElementById('videoViewSelect').value;
     let debugMode = document.getElementById('debugSwitch').checked;
@@ -375,6 +380,7 @@ function updateSettings() {
     settingsView.subtitles = subtitlesSwitch;
     settingsView.updates = updatesSwitch;
     settingsView.proxyAddress = proxyAddress;
+    settingsView.proxyVideos = proxyVideos;
     settingsView.localScrape = localSwitch;
     settingsView.debugMode = debugMode;
     rememberHistory = historySwitch;
@@ -422,6 +428,16 @@ function updateSettings() {
         ft.log(err);
         ft.log(numReplaced);
         defaultProxy = proxyAddress;
+    });
+
+    // Update proxy address
+    settingsDb.update({
+        _id: 'proxyVideos'
+    }, {
+        value: proxyVideos
+    }, {}, function (err, numReplaced) {
+        ft.log(err);
+        ft.log(numReplaced);
     });
 
     // Update Invidious Instance
