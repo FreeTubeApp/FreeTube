@@ -1,4 +1,4 @@
-<div v-if='seen'>
+<div v-if='seen' class='channelViewContainer'>
   <img class='channelViewBanner' :src='banner' />
   <br />
   <div class='channelViewTitle'>
@@ -11,10 +11,22 @@
     </div>
   </div>
   <br />
-  <hr />
-  <div class='channelViewDescription'>
-    <span v-html='description'></span>
-  </div>
   <br />
+  <div v-on:click='videoTab' class='channelTabOption'>
+      VIDEOS
+  </div>
+  <div v-on:click='playlistTab' class='channelTabOption'>
+      PLAYLISTS
+  </div>
+  <div v-on:click='aboutTab' class='channelTabOption'>
+      ABOUT
+  </div>
+  <div v-if='aboutTabSeen'>
+    <hr />
+    <div class='channelViewDescription'>
+      <span v-html='description'></span>
+    </div>
+    <br />
+  </div>
   <hr />
 </div>

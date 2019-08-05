@@ -534,6 +534,7 @@ let channelView = new Vue({
     el: '#channelView',
     data: {
         seen: false,
+        aboutTabSeen: false,
         id: '',
         name: '',
         icon: '',
@@ -544,6 +545,21 @@ let channelView = new Vue({
         distractionFreeMode: false
     },
     methods: {
+        videoTab: () => {
+          channelVideosView.seen = true;
+          channelView.aboutTabSeen = false;
+          channelPlaylistsView.seen = false;
+        },
+        playlistTab: () => {
+          channelPlaylistsView.seen = true;
+          channelVideosView.seen = false;
+          channelView.aboutTabSeen = false;
+        },
+        aboutTab: () => {
+          channelView.aboutTabSeen = true;
+          channelVideosView.seen = false;
+          channelPlaylistsView.seen = false;
+        },
         subscription: (channelId) => {
             let channelData = {
                 channelId: channelView.id,
@@ -595,6 +611,33 @@ let channelVideosView = new Vue({
         miniPlayer: (videoId) => {
             clickMiniPlayer(videoId);
         }
+    },
+    template: videoListTemplate
+});
+
+let channelPlaylistsView = new Vue({
+    el: '#channelPlaylistsView',
+    data: {
+        seen: false,
+        channelId: '',
+        isSearch: true,
+        page: 2,
+        continuationString: '',
+        videoList: []
+    },
+    methods: {
+        playlist: (playlistId) => {
+            showPlaylist(playlistId);
+        },
+        channel: (channelId) => {
+            goToChannel(channelId);
+        },
+        toggleSave: (videoId) => {
+            addSavedVideo(videoId);
+        },
+        nextPage: () => {
+            channelPlaylistNextPage();
+        },
     },
     template: videoListTemplate
 });
@@ -1518,6 +1561,7 @@ function hideViews() {
     playerView.seen = false;
     channelView.seen = false;
     channelVideosView.seen = false;
+    channelPlaylistsView.seen = false;
     profileSelectView.seen = false;
     subscriptionManagerView.seen = false;
     editProfileView.seen = false;

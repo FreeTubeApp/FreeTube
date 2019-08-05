@@ -364,7 +364,7 @@ function updateSettings() {
     let rateSelect = document.getElementById('rateSelect').value;
     let regionSelect = document.getElementById('regionSelect').value;
     let proxyAddress = document.getElementById('proxyAddress').value;
-    let proxyVideos = document.getElementById('proxyVideosSwitch').value;
+    let proxyVideos = document.getElementById('proxyVideosSwitch').checked;
     let invidious = document.getElementById('invidiousInstance').value.replace(/\/$/, '');
     let videoViewType = document.getElementById('videoViewSelect').value;
     let debugMode = document.getElementById('debugSwitch').checked;

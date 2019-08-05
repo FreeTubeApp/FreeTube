@@ -113,6 +113,10 @@ input[type=text] {
     color: white;
 }
 
+.channelViewContainer {
+  background-color: #424242;
+}
+
 .channelViewImage {
     border: 0px solid white;
 }
@@ -132,6 +136,10 @@ input[type=text] {
 .channelSubButton {
     color: #E0E0E0;
     background-color: #f44336;
+}
+
+.channelTabOption:hover {
+    background-color: #262626;
 }
 
 .videoTitle {

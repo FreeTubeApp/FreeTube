@@ -75,7 +75,7 @@ function search(page = 1) {
               break;
             case 'playlist':
               if (video.videoCount > 0) {
-                displayPlaylist(video);
+                displayPlaylist(video, 'search');
               }
               break;
             default:
@@ -84,7 +84,17 @@ function search(page = 1) {
 
         searchView.page = searchView.page + 1;
         loadingView.seen = false;
-    })
+    });
+}
+
+function getSearchSuggestion() {
+  const query = document.getElementById('search').value;
+
+  invidiousAPI('search/suggestions', '', {
+        q: query,
+    }, function (data) {
+        console.log(data);
+    });
 }
 
 /**
@@ -243,8 +253,13 @@ function displayChannel(channel) {
     searchView.videoList = searchView.videoList.concat(channelData);
 }
 
-function displayPlaylist(playlist) {
+function displayPlaylist(playlist, listType) {
     let playListData = {};
+    playListData.videoCount = playlist.videoCount;
+
+    if (playlist.videoCount === 0) {
+      return;
+    }
 
     playListData.isPlaylist = true;
     playListData.isVideo = false;
@@ -252,16 +267,28 @@ function displayPlaylist(playlist) {
     playListData.channelName = playlist.author;
     playListData.channelId = playlist.authorId;
     playListData.id = playlist.playlistId;
-    playListData.description = playlist.videos[0].title + "\r\n" + playlist.videos[1].title;
     playListData.title = playlist.title;
-    playListData.videoCount = playlist.videoCount;
+
+
+    if (playlist.videoCount.length > 2) {
+          playListData.description = playlist.videos[0].title + "\r\n" + playlist.videos[1].title;
+    }
+    else {
+          playListData.description = playlist.videos[0].title;
+    }
 
     if (playListData.channelName == 'YouTube' && playListData.title.includes('Mix')){
       // Hide Mix playlists.
       return;
     }
 
-    searchView.videoList = searchView.videoList.concat(playListData);
+    switch (listType) {
+      case 'channelPlaylist':
+        channelPlaylistsView.videoList = channelPlaylistsView.videoList.concat(playListData);
+        break;
+      default:
+        searchView.videoList = searchView.videoList.concat(playListData);
+    }
 }
 
 /**

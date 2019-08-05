@@ -96,6 +96,10 @@ body {
     color: black;
 }
 
+.channelViewContainer {
+  background-color: white;
+}
+
 .channelViewImage {
     border: 0px solid #000000;
 }
@@ -106,6 +110,10 @@ body {
 
 .channelSubButton {
     color: #616161;
+    background-color: #eeeeee;
+}
+
+.channelTabOption:hover {
     background-color: #eeeeee;
 }
 

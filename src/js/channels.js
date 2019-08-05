@@ -37,6 +37,8 @@ function goToChannel(channelId) {
   hideViews();
   loadingView.seen = true;
 
+  channelView.aboutTabSeen = false;
+
   // Setting subButtonText here as Mustache templates are logic-less.
   isSubscribed(channelId).then((subscribed) => {
     channelView.subButtonText = (subscribed ? "UNSUBSCRIBE" : "SUBSCRIBE");
@@ -93,6 +95,17 @@ function goToChannel(channelId) {
     showToast(errorData.responseJSON.error);
     loadingView.seen = false;
   });
+
+  invidiousAPI('channels/playlists', channelId, {}, (data) => {
+    console.log(data);
+
+    channelPlaylistsView.videoList = [];
+    channelPlaylistsView.continuationString = data.continuation;
+
+    data.playlists.forEach((playlist) => {
+      displayPlaylist(playlist, 'channelPlaylist');
+    });
+  });
 }
 
 /**
@@ -107,6 +120,25 @@ function channelNextPage() {
     ft.log(data);
     data.forEach((video) => {
       displayVideo(video, 'channel');
+    });
+  });
+
+  channelView.page = channelView.page + 1;
+}
+
+function channelPlaylistNextPage() {
+  if (channelPlaylistsView.continuationString === null) {
+    showToast('There are no more playlists for this channel.');
+    return;
+  }
+
+  showToast('Fetching results, please wait…');
+
+  invidiousAPI('channels/playlists', channelView.channelId, { 'continuation': channelPlaylistsView.continuationString }, (data) => {
+    console.log(data);
+    channelPlaylistsView.continuationString = data.continuation;
+    data.playlists.forEach((playlist) => {
+      displayPlaylist(playlist, 'channelPlaylist');
     });
   });
 

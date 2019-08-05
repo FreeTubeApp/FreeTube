@@ -49,7 +49,6 @@ function playVideo(videoId, playlistId = '') {
     playerView.videoLive = undefined;
     playerView.validLive = false;
     playerView.validDash = true;
-
     playerView.videoDash = invidiousInstance + '/api/manifest/dash/' + videoId + '.mpd';
 
     if (settingsView.proxyVideos) {
@@ -630,6 +629,16 @@ function openMiniPlayer() {
             thumbnailInterval: playerView.thumbnailInterval,
         };
         miniPlayer.webContents.send('ping', playerData);
+
+        var tmpSize = [0,0];
+
+        miniPlayer.on('resize', (e)=>{
+           var size = miniPlayer.getSize()
+           if( Math.abs(size[0]-tmpSize[0]) > 2 || Math.abs(size[1]-tmpSize[1]) > 2){
+             miniPlayer.setSize(size[0], parseInt(size[0] * 9 / 16))
+           }
+           tmpSize = size;
+        });
     });
 
     return;
