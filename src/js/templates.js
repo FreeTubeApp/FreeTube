@@ -27,6 +27,7 @@ const currentProfileViewTemplate = require('./templates/currentProfileView.html'
 const profileSelectViewTemplate = require('./templates/profileSelectView.html');
 const subscriptionManagerViewTemplate = require('./templates/subscriptionManagerView.html');
 const editProfileViewTemplate = require('./templates/editProfileView.html');
+const searchSuggestionsViewTemplate = require('./templates/searchSuggestionsView.html');
 
 /*
  * Progress view
@@ -157,6 +158,22 @@ let headerView = new Vue({
         title: 'Latest Subscriptions'
     },
     template: mainHeaderTemplate
+});
+
+let searchSuggestionsView = new Vue({
+    el: '#searchSuggestionsView',
+    data: {
+        seen: false,
+        suggestionList: [],
+    },
+    methods: {
+      newSearchTerm: (text) => {
+        document.getElementById('search').value = text;
+        getSearchSuggestion();
+        searchSuggestionsView.seen = false;
+      },
+    },
+    template: searchSuggestionsViewTemplate
 });
 
 let subscriptionView = new Vue({

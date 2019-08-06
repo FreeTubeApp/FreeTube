@@ -48,9 +48,10 @@
         <img src='icons/iconBlackSmall.png' id='menuIcon' /> &nbsp;
         <img src='icons/textBlackSmall.png' id='menuText' />
         <div class="searchBar">
-            <input id='search' class="search" type="text" onkeyup='getSearchSuggestion()' placeholder="Search / Go to URL">
+            <input id='search' class="search" type="text" onkeyup='getSearchSuggestion()' onfocus='searchSuggestionsView.seen = true' onblur='hideSearchSuggestion()' placeholder="Search / Go to URL">
             <span class='searchButton' onclick='parseSearchText()'><i class="fas fa-arrow-right" style='position: relative; right: 30px; cursor: pointer' title='Search'></i></span>
             <span class='filterButton' onclick='searchFilter.seen = !searchFilter.seen'><i class="fas fa-filter" style='margin-right: -10px; cursor: pointer' title='Filter'></i></span>
+            <div id='searchSuggestionsView'></div>
         </div>
         <div id='currentProfileView'></div>
         <div id='profileSelectView'></div>

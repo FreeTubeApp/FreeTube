@@ -68,6 +68,15 @@ input[type=text] {
     color: #E0E0E0;
 }
 
+.searchSuggestions {
+  background-color: #424242;
+  color: white;
+}
+
+.searchSuggestions p:hover {
+  background-color: #262626;
+}
+
 .topNav {
     background-color: #262626;
     -webkit-box-shadow: 0px -4px 20px 0px rgba(0, 0, 0, 0.75);

@@ -93,8 +93,14 @@ function getSearchSuggestion() {
   invidiousAPI('search/suggestions', '', {
         q: query,
     }, function (data) {
-        console.log(data);
+        searchSuggestionsView.suggestionList = data.suggestions;
     });
+}
+
+function hideSearchSuggestion() {
+  if (!$('.searchSuggestions').is(':hover')) {
+    searchSuggestionsView.seen = false;
+  }
 }
 
 /**

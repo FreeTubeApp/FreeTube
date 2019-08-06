@@ -59,6 +59,14 @@ body {
     color: rgba(0, 0, 0, 0.75);
 }
 
+.searchSuggestions {
+  background-color: white;
+}
+
+.searchSuggestions p:hover {
+  background-color: #e0e0e0;
+}
+
 .topNav {
     background-color: #f44336;
     -webkit-box-shadow: 0px -4px 32px 0px rgba(0, 0, 0, 0.75);
