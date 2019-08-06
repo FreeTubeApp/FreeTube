@@ -100,7 +100,7 @@ function goToChannel(channelId) {
   });
 
   invidiousAPI('channels/playlists', channelId, {}, (data) => {
-    console.log(data);
+    ft.log(data);
 
     channelPlaylistsView.videoList = [];
     channelPlaylistsView.continuationString = data.continuation;
@@ -142,7 +142,7 @@ function channelPlaylistNextPage() {
   let sortValue = document.getElementById('channelVideosSortValue').value;
 
   invidiousAPI('channels/playlists', channelView.channelId, {'sort_by': sortValue, 'continuation': channelPlaylistsView.continuationString }, (data) => {
-    console.log(data);
+    ft.log(data);
     channelPlaylistsView.continuationString = data.continuation;
     data.playlists.forEach((playlist) => {
       displayPlaylist(playlist, 'channelPlaylist');

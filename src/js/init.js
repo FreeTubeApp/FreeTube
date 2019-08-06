@@ -112,7 +112,7 @@ let init = function () {
     });
 
     if (process.env = 'development') {
-        win.webContents.openDevTools();
+        //win.webContents.openDevTools();
     }
 
     win.on('closed', () => {

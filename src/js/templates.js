@@ -456,12 +456,12 @@ let settingsView = new Vue({
                         url: "https://ipinfo.io/json",
                         dataType: 'json',
                     }).done(response => {
-                        console.log(response);
+                        ft.log(response);
                         this.checkProxyResult = response;
                     })
                     .fail((xhr, textStatus, error) => {
-                        console.log(xhr);
-                        console.log(textStatus);
+                        ft.log(xhr);
+                        ft.log(textStatus);
                         showToast('Proxy test failed');
                     }).always(() => {
                         this.proxyTestLoading = false;
@@ -1235,7 +1235,7 @@ let editProfileView = new Vue({
                         multi: true
                     }, (err, numRemoved) => {
                         if (err) {
-                            console.log(err);
+                            ft.log(err);
                         }
 
                         let subMap = subscriptionView.fullVideoList.map(x => x.profile.map(x => x.value).indexOf(editProfileView.profileName) !== -1);
@@ -1333,7 +1333,7 @@ let editProfileView = new Vue({
                                             value: editProfileView.newProfileName
                                         }
                                     }, (err, numRemoved) => {
-                                        console.log(numRemoved);
+                                        ft.log(numRemoved);
                                     });
                                 }
 
@@ -1353,7 +1353,7 @@ let editProfileView = new Vue({
                                     multi: true
                                 }, (err, numRemoved) => {
                                     if (err) {
-                                        console.log(err);
+                                        ft.log(err);
                                     }
 
                                     let profileIndex = profileSelectView.profileList.findIndex(x => x.name === editProfileView.profileName);
@@ -1389,7 +1389,7 @@ let editProfileView = new Vue({
                                             multi: true
                                         }, (err, numRemoved) => {
                                             if (err) {
-                                                console.log(err);
+                                                ft.log(err);
                                             }
                                         });
                                     }
@@ -1443,7 +1443,7 @@ let editProfileView = new Vue({
                             }
                         }, (err, numRemoved) => {
                             if (err) {
-                                console.log(err);
+                                ft.log(err);
                             }
                         });
 
@@ -1460,7 +1460,7 @@ let editProfileView = new Vue({
                             }
                         }, (err, numRemoved) => {
                             if (err) {
-                                console.log(err);
+                                ft.log(err);
                             }
                             let subMap = subscriptionView.fullVideoList.map(x => x.author === channel.channelName && x.profile.map(x => x.value).indexOf(this.profileName) !== -1);
 
@@ -1531,7 +1531,7 @@ let editProfileView = new Vue({
                                     }
                                 }, (err, numAdded) => {
                                     if (err) {
-                                        console.log(err);
+                                        ft.log(err);
                                     }
                                     let subMap = subscriptionView.fullVideoList.map(x => x.author === channel.channelName);
 
@@ -1567,7 +1567,7 @@ let editProfileView = new Vue({
 
             confirmFunction(confirmString, () => {
                 this.subscriptionList.forEach((channel, index) => {
-                    console.log(channel);
+                    ft.log(channel);
                     if (channel.checked) {
                         removeSubscription(channel.channelId, editProfileView.profileName, false);
 

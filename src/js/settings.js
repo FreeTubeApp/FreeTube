@@ -841,7 +841,7 @@ function importSubscriptions() {
             let textDecode = new TextDecoder("utf-8").decode(data);
             textDecode = textDecode.split("\n");
             textDecode.pop();
-            console.log(textDecode);
+            ft.log(textDecode);
 
             textDecode.forEach((data) => {
                 let parsedData = JSON.parse(data);
@@ -856,7 +856,6 @@ function importSubscriptions() {
                     let profileList = [];
                     parsedData.profile.forEach((profile) => {
                         if (profileList.indexOf(profile.value) !== -1) {
-                            console.log('found duplicate');
                             return;
                         }
 
