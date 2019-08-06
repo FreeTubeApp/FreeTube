@@ -31,7 +31,8 @@
 function goToChannel(channelId) {
 
   channelView.channelId = channelId;
-  channelView.page = 2;
+  channelView.channelSearchValue = '';
+  channelVideosView.page = 2;
 
   headerView.title = 'Latest Uploads';
   hideViews();
@@ -63,6 +64,8 @@ function goToChannel(channelId) {
     channelView.description = autolinker.link(data.description); //autolinker makes URLs clickable
 
     channelVideosView.videoList = [];
+
+    channelView.featuredChannels = data.relatedChannels;
 
     const views = [
       aboutView,
@@ -116,14 +119,16 @@ function goToChannel(channelId) {
 function channelNextPage() {
   showToast('Fetching results, please wait…');
 
-  invidiousAPI('channels/videos', channelView.channelId, { 'page': channelView.page }, (data) => {
+  let sortValue = document.getElementById('channelVideosSortValue').value;
+
+  invidiousAPI('channels/videos', channelView.channelId, {'sort_by': sortValue, 'page': channelVideosView.page }, (data) => {
     ft.log(data);
     data.forEach((video) => {
       displayVideo(video, 'channel');
     });
   });
 
-  channelView.page = channelView.page + 1;
+  channelVideosView.page = channelVideosView.page + 1;
 }
 
 function channelPlaylistNextPage() {
@@ -134,15 +139,52 @@ function channelPlaylistNextPage() {
 
   showToast('Fetching results, please wait…');
 
-  invidiousAPI('channels/playlists', channelView.channelId, { 'continuation': channelPlaylistsView.continuationString }, (data) => {
+  let sortValue = document.getElementById('channelVideosSortValue').value;
+
+  invidiousAPI('channels/playlists', channelView.channelId, {'sort_by': sortValue, 'continuation': channelPlaylistsView.continuationString }, (data) => {
     console.log(data);
     channelPlaylistsView.continuationString = data.continuation;
     data.playlists.forEach((playlist) => {
       displayPlaylist(playlist, 'channelPlaylist');
     });
   });
+}
 
-  channelView.page = channelView.page + 1;
+function channelSearchKeypress(e) {
+    if (e.keyCode === 13) {
+        channelView.search();
+    }
+}
+
+function searchChannel() {
+  if (channelView.channelSearchValue === '') {
+      return;
+  }
+
+  showToast('Fetching results, please wait…');
+
+  invidiousAPI('channels/search', channelView.channelId, {
+      q: channelView.channelSearchValue,
+      page: channelSearchView.page,
+  }, function (data) {
+      ft.log(data);
+
+      data.forEach((video) => {
+        switch (video.type) {
+          case 'video':
+            displayVideo(video, 'channelSearch');
+            break;
+          case 'playlist':
+            if (video.videoCount > 0) {
+              displayPlaylist(video, 'channelSearch');
+            }
+            break;
+          default:
+        }
+      });
+
+      channelSearchView.page = channelSearchView.page + 1;
+  });
 }
 
 /**

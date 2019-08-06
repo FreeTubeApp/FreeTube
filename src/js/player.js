@@ -630,7 +630,7 @@ function openMiniPlayer() {
         };
         miniPlayer.webContents.send('ping', playerData);
 
-        var tmpSize = [0,0];
+        let tmpSize = [0,0];
 
         miniPlayer.on('resize', (e)=>{
            var size = miniPlayer.getSize()
@@ -812,7 +812,16 @@ function clickMiniPlayer(videoId) {
             miniPlayer.show();
             miniPlayer.webContents.send('ping', videoData);
             showToast('Video has been opened in a new window.');
-            // TODO: Add video to history once fully loaded.
+
+            let tmpSize = [0,0];
+
+            miniPlayer.on('resize', (e)=>{
+               var size = miniPlayer.getSize()
+               if( Math.abs(size[0]-tmpSize[0]) > 2 || Math.abs(size[1]-tmpSize[1]) > 2){
+                 miniPlayer.setSize(size[0], parseInt(size[0] * 9 / 16))
+               }
+               tmpSize = size;
+            });
         });
 
         if (rememberHistory === true) {
@@ -892,6 +901,11 @@ function clickMiniPlayer(videoId) {
 
     videoData.videoId = videoId;
     videoData.videoDash = invidiousInstance + '/api/manifest/dash/' + videoId + '.mpd?unique_res=1';
+
+    if (settingsView.proxyVideos) {
+      videoData.videoDash = videoData.videoDash + '&local=true';
+    }
+
     videoData.autoplay = autoplay;
     videoData.enableSubtitles = enableSubtitles;
     videoData.quality = defaultQuality;
@@ -1084,19 +1098,6 @@ function checkDashSettings() {
                         return;
                     }
 
-                    historyDb.findOne({
-                        videoId: playerView.videoId
-                    }, function(err, doc) {
-                        if (doc !== null) {
-                            if (typeof(playerView.currentTime) !== 'undefined') {
-                                instance.currentTime = playerView.currentTime;
-                                playerView.currentTime = undefined;
-                            } else if (doc.watchProgress < instance.duration - 5 && playerView.validLive === false) {
-                                instance.currentTime = doc.watchProgress;
-                            }
-                        }
-                    });
-
                     let selectedOption = false;
                     qualityOptions.forEach((option, index) => {
                         if (option.value === defaultQuality || option.value === defaultQuality + 'p' || option.value === defaultQuality + 'p60') {
@@ -1109,9 +1110,26 @@ function checkDashSettings() {
                         // Assume user selected a higher quality as their default.  Select the highest option available.
                         ft.log('Quality not available.');
                         ft.log(qualityOptions.reverse()[0]);
+                        console.log(selectedOption);
 
-                        qualityOptions.reverse()[0].click();
+                        $('.mejs__qualities-selector-input').get().reverse()[0].click();
                     }
+
+                    window.setTimeout(() => {
+                      historyDb.findOne({
+                          videoId: playerView.videoId
+                      }, function(err, doc) {
+                          if (doc !== null) {
+                              console.log('History');
+                              if (typeof(playerView.currentTime) !== 'undefined') {
+                                  instance.currentTime = playerView.currentTime;
+                                  playerView.currentTime = undefined;
+                              } else if (doc.watchProgress < instance.duration - 5 && playerView.validLive === false) {
+                                  instance.currentTime = doc.watchProgress;
+                              }
+                          }
+                      });
+                    }, 200);
                 };
 
                 initializeSettings();

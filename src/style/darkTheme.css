@@ -17,7 +17,7 @@
 
 ::-webkit-scrollbar {
     height: 12px;
-    width: 12px;
+    width: 5px;
     background: #262626;
 }
 
@@ -216,6 +216,19 @@ input[type=text] {
 }
 
 .videoOptions a {
+    color: white;
+}
+
+.playlistVideoOptions ul {
+    background-color: #262626;
+    color: white;
+}
+
+.playlistVideoOptions li:hover {
+    background-color: #262626;
+}
+
+.playlistVideoOptions a {
     color: white;
 }
 

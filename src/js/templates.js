@@ -381,10 +381,18 @@ let playlistView = new Vue({
         toggleSave: (videoId) => {
             addSavedVideo(videoId);
         },
+        openYouTube: (videoId) => {
+            const url = 'https://youtube.com/watch?v=' + videoId;
+            shell.openExternal(url);
+        },
         copyYouTube: (videoId) => {
             const url = 'https://youtube.com/watch?v=' + videoId;
             clipboard.writeText(url);
             showToast('URL has been copied to the clipboard');
+        },
+        openInvidious: (videoId) => {
+            const url = invidiousInstance + '/watch?v=' + videoId;
+            shell.openExternal(url);
         },
         copyInvidious: (videoId) => {
             const url = invidiousInstance + '/watch?v=' + videoId;
@@ -538,27 +546,32 @@ let channelView = new Vue({
         id: '',
         name: '',
         icon: '',
-        baner: '',
+        banner: '',
         subCount: '',
         subButtonText: '',
         description: '',
-        distractionFreeMode: false
+        channelSearchValue: '',
+        distractionFreeMode: false,
+        featuredChannels: [],
     },
     methods: {
         videoTab: () => {
           channelVideosView.seen = true;
           channelView.aboutTabSeen = false;
           channelPlaylistsView.seen = false;
+          channelSearchView.seen = false;
         },
         playlistTab: () => {
           channelPlaylistsView.seen = true;
           channelVideosView.seen = false;
           channelView.aboutTabSeen = false;
+          channelSearchView.seen = false;
         },
         aboutTab: () => {
           channelView.aboutTabSeen = true;
           channelVideosView.seen = false;
           channelPlaylistsView.seen = false;
+          channelSearchView.seen = false;
         },
         subscription: (channelId) => {
             let channelData = {
@@ -568,6 +581,49 @@ let channelView = new Vue({
             };
             toggleSubscription(channelData);
         },
+        sort: () => {
+          if (channelVideosView.seen) {
+            channelVideosView.page = 1;
+            channelVideosView.videoList = [];
+            channelNextPage();
+          }
+          else {
+            // Playlist View is active
+            channelPlaylistsView.continuationString = '';
+            channelPlaylistsView.videoList = [];
+            channelPlaylistNextPage();
+          }
+        },
+        search: () => {
+          channelSearchView.page = 1;
+          channelSearchView.videoList = [];
+          channelView.aboutTabSeen = false;
+          channelVideosView.seen = false;
+          channelPlaylistsView.seen = false;
+          channelSearchView.seen = true;
+          searchChannel();
+        },
+        goToChannel: (channelId) => {
+          goToChannel(channelId);
+        },
+    },
+    computed: {
+      sortOptions: () => {
+        if (channelVideosView.seen) {
+          return [
+            {value: 'newest', label: 'Newest'},
+            {value: 'oldest', label: 'Oldest'},
+            {value: 'popular', label: 'Most Popular'},
+          ];
+        }
+        else {
+          return [
+            {value: 'newest', label: 'Newest'},
+            {value: 'oldest', label: 'Oldest'},
+            {value: 'last', label: 'Last Video Added'},
+          ];
+        }
+      },
     },
     template: channelTemplate
 });
@@ -576,7 +632,6 @@ let channelVideosView = new Vue({
     el: '#channelVideosView',
     data: {
         seen: false,
-        channelId: '',
         isSearch: true,
         page: 2,
         videoList: []
@@ -619,7 +674,6 @@ let channelPlaylistsView = new Vue({
     el: '#channelPlaylistsView',
     data: {
         seen: false,
-        channelId: '',
         isSearch: true,
         page: 2,
         continuationString: '',
@@ -638,6 +692,53 @@ let channelPlaylistsView = new Vue({
         nextPage: () => {
             channelPlaylistNextPage();
         },
+    },
+    template: videoListTemplate
+});
+
+let channelSearchView = new Vue({
+    el: '#channelSearchView',
+    data: {
+        seen: false,
+        channelId: '',
+        isSearch: true,
+        page: 2,
+        videoList: []
+    },
+    methods: {
+        play: (videoId) => {
+            loadingView.seen = true;
+            playVideo(videoId);
+        },
+        channel: (channelId) => {
+            goToChannel(channelId);
+        },
+        playlist: (playlistId) => {
+            showPlaylist(playlistId);
+        },
+        toggleSave: (videoId) => {
+            addSavedVideo(videoId);
+        },
+        nextPage: () => {
+            showToast('Fetching results.  Please wait…');
+            searchChannel();
+        },
+        copyYouTube: (videoId) => {
+            const url = 'https://youtube.com/watch?v=' + videoId;
+            clipboard.writeText(url);
+            showToast('URL has been copied to the clipboard');
+        },
+        copyInvidious: (videoId) => {
+            const url = invidiousInstance + '/watch?v=' + videoId;
+            clipboard.writeText(url);
+            showToast('URL has been copied to the clipboard');
+        },
+        history: (videoId) => {
+            removeFromHistory(videoId);
+        },
+        miniPlayer: (videoId) => {
+            clickMiniPlayer(videoId);
+        }
     },
     template: videoListTemplate
 });
@@ -1562,6 +1663,7 @@ function hideViews() {
     channelView.seen = false;
     channelVideosView.seen = false;
     channelPlaylistsView.seen = false;
+    channelSearchView.seen = false;
     profileSelectView.seen = false;
     subscriptionManagerView.seen = false;
     editProfileView.seen = false;

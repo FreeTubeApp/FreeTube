@@ -235,6 +235,10 @@ function displayVideo(videoData, listType = '') {
             channelVideosView.videoList = channelVideosView.videoList.concat(video);
             video.removeFromSave = false;
             break;
+        case 'channelSearch':
+            channelSearchView.videoList = channelSearchView.videoList.concat(video);
+            video.removeFromSave = false;
+            break;
         }
     });
 }
@@ -285,6 +289,9 @@ function displayPlaylist(playlist, listType) {
     switch (listType) {
       case 'channelPlaylist':
         channelPlaylistsView.videoList = channelPlaylistsView.videoList.concat(playListData);
+        break;
+      case 'channelSearch':
+        channelSearchView.videoList = channelSearchView.videoList.concat(playListData);
         break;
       default:
         searchView.videoList = searchView.videoList.concat(playListData);

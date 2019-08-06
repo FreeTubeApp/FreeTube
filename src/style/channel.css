@@ -83,6 +83,33 @@
     transition: background 0.2s ease-in;
 }
 
+.channelVideosSortSelect {
+  float: right;
+  top: 10px;
+  margin-right: 10px;
+}
+
+.channelSearch {
+  float: left;
+  margin-left: 15px;
+  width: 300px;
+}
+
+.channelSearch input {
+  width: 100%;
+  margin: auto;
+}
+
 .channelViewDescription {
     white-space: pre-line;
+}
+
+.featuredChannel {
+  display: inline-block;
+  width: 120px;
+}
+
+.featuredChannel img {
+  border-radius: 200px 200px 200px 200px;
+  -webkit-border-radius: 200px 200px 200px 200px;
 }

@@ -17,7 +17,7 @@
 
 .playlistVideoView {
   float: right;
-  width: 60%;
+  width: 58%;
 }
 
 .playlistVideoThumbnail {
@@ -78,6 +78,50 @@
   margin-left: 210px;
   font-size: 12px;
   cursor: pointer;
+}
+
+.playlistVideoOptions {
+    float: right;
+    width: 37px;
+}
+
+.playlistVideoOptions i {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.playlistVideoOptions ul {
+    width: 90px;
+    font-size: 12px;
+    position: relative;
+    right: 110px;
+    bottom: 10px;
+    list-style-type: none;
+    display: none;
+    -webkit-box-shadow: 4px 4px 33px -7px rgba(0, 0, 0, 0.75);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.playlistVideoOptions li {
+    width: 110px;
+    position: relative;
+    right: 40px;
+    padding: 10px;
+    -webkit-transition: background 0.2s ease-out;
+    -moz-transition: background 0.2s ease-out;
+    -o-transition: background 0.2s ease-out;
+    transition: background 0.2s ease-out;
+}
+
+.playlistVideoOptions li:hover {
+    -moz-transition: background 0.2s ease-in;
+    -o-transition: background 0.2s ease-in;
+    transition: background 0.2s ease-in;
+}
+
+.playlistVideoOptions a {
+    text-decoration: none;
 }
 
 #miniPL {

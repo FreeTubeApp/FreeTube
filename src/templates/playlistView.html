@@ -33,20 +33,20 @@
         </div>
         <div class='playlistVideoView'>
             <div v-for="video in videoList">
+              <div class='playlistVideoOptions'>
+                  <i class="fas fa-ellipsis-v" onclick='showVideoOptions(this)'></i>
+                  <ul>
+                      <a v-on:click='openYouTube(video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>
+                          <li>Open in YouTube</li>
+                      </a>
+                      <li v-on:click='copyYouTube(video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>Copy YouTube Link</li>
+                      <a v-on:click='openInvidious(video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>
+                          <li>Open in Invidious</li>
+                      </a>
+                      <li v-on:click='copyInvidious(video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>Copy Invidious Link</li>
+                  </ul>
+              </div>
                 <div class='playlistVideo'>
-                    <div class='videoOptions'>
-                        <i class="fas fa-ellipsis-v" onclick='showVideoOptions(this)'></i>
-                        <ul>
-                            <a :href='video.youtubeUrl' onclick='showVideoOptions(this.parentNode.previousSibling);'>
-                                <li>Open in YouTube</li>
-                            </a>
-                            <li v-on:click='copy("youtube.com", video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>Copy YouTube Link</li>
-                            <a :href='video.invidiousUrl' onclick='showVideoOptions(this.parentNode.previousSibling);'>
-                                <li>Open in Invidious</li>
-                            </a>
-                            <li v-on:click='copy("invidio.us", video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>Copy Invidious Link</li>
-                        </ul>
-                    </div>
                     <div class='playlistVideoThumbnail'>
                         <img v-on:click='play(video.id)' :src='video.thumbnail' />
                         <p v-on:click='play(video.id)' class='videoDuration'>{{video.duration}}</p>

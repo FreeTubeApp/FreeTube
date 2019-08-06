@@ -12,6 +12,24 @@
   </div>
   <br />
   <br />
+  <div class="select channelVideosSortSelect" v-if='!aboutTabSeen'>
+      <select id='channelVideosSortValue' class="select-text" v-on:change='sort' >
+          <option v-for='option in sortOptions' :value='option.value'>{{option.label}}</option>
+      </select>
+      <span class="select-highlight"></span>
+      <span class="select-bar"></span>
+      <label class="select-label">Sort By</label>
+  </div>
+  <div class="input-text-settings channelSearch">
+      <label for="channelSearchInput">Search Channel</label>
+      <input type="text" id="channelSearchInput" onkeyup="channelSearchKeypress(event)" name="set-name" v-model="channelSearchValue" />
+      <span class='searchButton' v-on:click='search'><i class="fas fa-arrow-right" style='position: relative; float: right; right: 5px; bottom: 30px; cursor: pointer' title='Search'></i></span>
+  </div>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
   <div v-on:click='videoTab' class='channelTabOption'>
       VIDEOS
   </div>
@@ -26,7 +44,15 @@
     <div class='channelViewDescription'>
       <span v-html='description'></span>
     </div>
+    <hr />
     <br />
+    <div v-if='featuredChannels.length > 0' class='center'>
+      <h2>Featured Channels</h2>
+      <div class='profileEditPadding' v-for='channel in featuredChannels' v-on:click='goToChannel(channel.authorId)'>
+          <img class='profileEdit' :src='channel.authorThumbnails[3].url' style='cursor: pointer;' />
+          <div class='profileEditName'><span>{{channel.author}}</span></div>
+      </div>
+    </div>
   </div>
   <hr />
 </div>
