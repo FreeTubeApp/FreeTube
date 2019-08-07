@@ -49,10 +49,10 @@ function playVideo(videoId, playlistId = '') {
     playerView.videoLive = undefined;
     playerView.validLive = false;
     playerView.validDash = true;
-    playerView.videoDash = invidiousInstance + '/api/manifest/dash/' + videoId + '.mpd';
+    playerView.videoDash = invidiousInstance + '/api/manifest/dash/' + videoId + '.mpd?unique_res=1';
 
     if (settingsView.proxyVideos) {
-        playerView.videoDash = playerView.videoDash + '?local=true';
+        playerView.videoDash = playerView.videoDash + '&local=true';
     }
 
     playerView.embededHtml = "<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/" + videoId + "?rel=0' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>";
@@ -1110,7 +1110,6 @@ function checkDashSettings() {
                         // Assume user selected a higher quality as their default.  Select the highest option available.
                         ft.log('Quality not available.');
                         ft.log(qualityOptions.reverse()[0]);
-                        console.log(selectedOption);
 
                         $('.mejs__qualities-selector-input').get().reverse()[0].click();
                     }
@@ -1120,7 +1119,6 @@ function checkDashSettings() {
                             videoId: playerView.videoId
                         }, function (err, doc) {
                             if (doc !== null) {
-                                console.log('History');
                                 if (typeof (playerView.currentTime) !== 'undefined') {
                                     instance.currentTime = playerView.currentTime;
                                     playerView.currentTime = undefined;
