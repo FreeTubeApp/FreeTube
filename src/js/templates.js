@@ -168,8 +168,10 @@ let searchSuggestionsView = new Vue({
     },
     methods: {
         newSearchTerm: (text) => {
+            loadingView.seen = true;
             document.getElementById('search').value = text;
             getSearchSuggestion();
+            search();
             searchSuggestionsView.seen = false;
         },
     },
