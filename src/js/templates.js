@@ -1015,7 +1015,6 @@ let profileSelectView = new Vue({
         },
         setActiveProfile: function (index) {
             if (profileSelectView.profileLock !== false) {
-                console.log('Lock is active');
                 window.setTimeout(() => {
                     profileSelectView.setActiveProfile(index);
                 }, 1000);
@@ -1023,7 +1022,6 @@ let profileSelectView = new Vue({
             }
 
             profileSelectView.profileLock = true;
-            console.log('Set to true');
 
             this.activeProfile = this.profileList[index];
             this.activeProfileInitial = this.profileInitials[index];
