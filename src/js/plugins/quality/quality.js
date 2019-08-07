@@ -373,12 +373,15 @@ Object.assign(MediaElementPlayer.prototype, {
 					  media.dashPlayer.setAutoSwitchQualityFor("video", false);
 					  media.dashPlayer.setTrackSwitchModeFor("video", "alwaysReplace");
 					  media.dashPlayer.setQualityFor("video", index - 1);
+            // TODO: Make this work better.  Green Artifacting for some videos.
+            /*
             let time = media.currentTime;
             media.setCurrentTime(0);
             setTimeout(() => {
               media.setCurrentTime(time);
               media.play();
             }, 200);
+            */
 				  }
 				  else {
 				    media.hlsPlayer.currentLevel = index - 1;
