@@ -167,11 +167,11 @@ let searchSuggestionsView = new Vue({
         suggestionList: [],
     },
     methods: {
-      newSearchTerm: (text) => {
-        document.getElementById('search').value = text;
-        getSearchSuggestion();
-        searchSuggestionsView.seen = false;
-      },
+        newSearchTerm: (text) => {
+            document.getElementById('search').value = text;
+            getSearchSuggestion();
+            searchSuggestionsView.seen = false;
+        },
     },
     template: searchSuggestionsViewTemplate
 });
@@ -573,22 +573,22 @@ let channelView = new Vue({
     },
     methods: {
         videoTab: () => {
-          channelVideosView.seen = true;
-          channelView.aboutTabSeen = false;
-          channelPlaylistsView.seen = false;
-          channelSearchView.seen = false;
+            channelVideosView.seen = true;
+            channelView.aboutTabSeen = false;
+            channelPlaylistsView.seen = false;
+            channelSearchView.seen = false;
         },
         playlistTab: () => {
-          channelPlaylistsView.seen = true;
-          channelVideosView.seen = false;
-          channelView.aboutTabSeen = false;
-          channelSearchView.seen = false;
+            channelPlaylistsView.seen = true;
+            channelVideosView.seen = false;
+            channelView.aboutTabSeen = false;
+            channelSearchView.seen = false;
         },
         aboutTab: () => {
-          channelView.aboutTabSeen = true;
-          channelVideosView.seen = false;
-          channelPlaylistsView.seen = false;
-          channelSearchView.seen = false;
+            channelView.aboutTabSeen = true;
+            channelVideosView.seen = false;
+            channelPlaylistsView.seen = false;
+            channelSearchView.seen = false;
         },
         subscription: (channelId) => {
             let channelData = {
@@ -599,48 +599,62 @@ let channelView = new Vue({
             toggleSubscription(channelData);
         },
         sort: () => {
-          if (channelVideosView.seen) {
-            channelVideosView.page = 1;
-            channelVideosView.videoList = [];
-            channelNextPage();
-          }
-          else {
-            // Playlist View is active
-            channelPlaylistsView.continuationString = '';
-            channelPlaylistsView.videoList = [];
-            channelPlaylistNextPage();
-          }
+            if (channelVideosView.seen) {
+                channelVideosView.page = 1;
+                channelVideosView.videoList = [];
+                channelNextPage();
+            } else {
+                // Playlist View is active
+                channelPlaylistsView.continuationString = '';
+                channelPlaylistsView.videoList = [];
+                channelPlaylistNextPage();
+            }
         },
         search: () => {
-          channelSearchView.page = 1;
-          channelSearchView.videoList = [];
-          channelView.aboutTabSeen = false;
-          channelVideosView.seen = false;
-          channelPlaylistsView.seen = false;
-          channelSearchView.seen = true;
-          searchChannel();
+            channelSearchView.page = 1;
+            channelSearchView.videoList = [];
+            channelView.aboutTabSeen = false;
+            channelVideosView.seen = false;
+            channelPlaylistsView.seen = false;
+            channelSearchView.seen = true;
+            searchChannel();
         },
         goToChannel: (channelId) => {
-          goToChannel(channelId);
+            goToChannel(channelId);
         },
     },
     computed: {
-      sortOptions: () => {
-        if (channelVideosView.seen) {
-          return [
-            {value: 'newest', label: 'Newest'},
-            {value: 'oldest', label: 'Oldest'},
-            {value: 'popular', label: 'Most Popular'},
-          ];
-        }
-        else {
-          return [
-            {value: 'newest', label: 'Newest'},
-            {value: 'oldest', label: 'Oldest'},
-            {value: 'last', label: 'Last Video Added'},
-          ];
-        }
-      },
+        sortOptions: () => {
+            if (channelVideosView.seen) {
+                return [{
+                        value: 'newest',
+                        label: 'Newest'
+                    },
+                    {
+                        value: 'oldest',
+                        label: 'Oldest'
+                    },
+                    {
+                        value: 'popular',
+                        label: 'Most Popular'
+                    },
+                ];
+            } else {
+                return [{
+                        value: 'newest',
+                        label: 'Newest'
+                    },
+                    {
+                        value: 'oldest',
+                        label: 'Oldest'
+                    },
+                    {
+                        value: 'last',
+                        label: 'Last Video Added'
+                    },
+                ];
+            }
+        },
     },
     template: channelTemplate
 });
@@ -962,12 +976,10 @@ let backButtonView = new Vue({
 
                 // reset this.lastView
                 this.lastView = false;
-            }
-            else if (isSubManager) {
-              subscriptionManagerView.seen = true;
-              this.lastView = false;
-            }
-            else {
+            } else if (isSubManager) {
+                subscriptionManagerView.seen = true;
+                this.lastView = false;
+            } else {
                 // if not search then this.lastView has to be playlistView
 
                 // Change back to playlistView
@@ -994,6 +1006,7 @@ let profileSelectView = new Vue({
         activeProfileInitial: '',
         activeProfileInitialColor: '#000000',
         profileList: [],
+        profileLock: false,
     },
     methods: {
         showSubscriptionManager: function () {
@@ -1001,6 +1014,17 @@ let profileSelectView = new Vue({
             subscriptionManagerView.seen = true;
         },
         setActiveProfile: function (index) {
+            if (profileSelectView.profileLock !== false) {
+                console.log('Lock is active');
+                window.setTimeout(() => {
+                    profileSelectView.setActiveProfile(index);
+                }, 1000);
+                return;
+            }
+
+            profileSelectView.profileLock = true;
+            console.log('Set to true');
+
             this.activeProfile = this.profileList[index];
             this.activeProfileInitial = this.profileInitials[index];
             this.activeProfileInitialColor = this.profileTextColor[index];
@@ -1102,37 +1126,35 @@ let subscriptionManagerView = new Vue({
                 editProfileView.newProfileName = this.profileList[index].name;
                 editProfileView.newProfileColorText = this.profileList[index].color;
                 if (this.profileList[index].name === 'All Channels') {
-                  // Sort alphabetically
-                subDb.find({
-                }).sort({
-                    channelName: 1
-                }).exec((err, subs) => {
-                    let list = [];
-                    subs.forEach((sub) => {
-                        sub.checked = false;
-                        list.push(sub);
+                    // Sort alphabetically
+                    subDb.find({}).sort({
+                        channelName: 1
+                    }).exec((err, subs) => {
+                        let list = [];
+                        subs.forEach((sub) => {
+                            sub.checked = false;
+                            list.push(sub);
+                        });
+                        editProfileView.subscriptionList = list;
                     });
-                    editProfileView.subscriptionList = list;
-                });
-                }
-                else {
-                  // Sort alphabetically
-                subDb.find({
-                    profile: {
-                        $elemMatch: {
-                            value: this.profileList[index].name
+                } else {
+                    // Sort alphabetically
+                    subDb.find({
+                        profile: {
+                            $elemMatch: {
+                                value: this.profileList[index].name
+                            }
                         }
-                    }
-                }).sort({
-                    channelName: 1
-                }).exec((err, subs) => {
-                    let list = [];
-                    subs.forEach((sub) => {
-                        sub.checked = false;
-                        list.push(sub);
+                    }).sort({
+                        channelName: 1
+                    }).exec((err, subs) => {
+                        let list = [];
+                        subs.forEach((sub) => {
+                            sub.checked = false;
+                            list.push(sub);
+                        });
+                        editProfileView.subscriptionList = list;
                     });
-                    editProfileView.subscriptionList = list;
-                });
                 }
             }
             editProfileView.seen = true;
@@ -1200,8 +1222,8 @@ let editProfileView = new Vue({
         },
         defaultProfile: function () {
             if (editProfileView.profileName === settingsView.defaultProfile) {
-              showToast('This profile is already set as your default.');
-              return;
+                showToast('This profile is already set as your default.');
+                return;
             }
 
             settingsDb.update({
@@ -1280,8 +1302,8 @@ let editProfileView = new Vue({
         },
         updateProfile: function (updateView = true) {
             if (this.newProfileName === '') {
-              showToast('Profile name cannot be blank.');
-              return;
+                showToast('Profile name cannot be blank.');
+                return;
             }
 
             let patt = new RegExp("^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$");
@@ -1578,8 +1600,8 @@ let editProfileView = new Vue({
             let amountDeleted = 0;
 
             if (this.amountSelected === 0) {
-              showToast('A channel must be selected before it can be deleted.');
-              return;
+                showToast('A channel must be selected before it can be deleted.');
+                return;
             }
 
             confirmFunction(confirmString, () => {
@@ -1589,16 +1611,16 @@ let editProfileView = new Vue({
                         removeSubscription(channel.channelId, editProfileView.profileName, false);
 
 
-                            let subViewListMap = subscriptionView.fullVideoList.map(x => x.author === channel.channelName);
+                        let subViewListMap = subscriptionView.fullVideoList.map(x => x.author === channel.channelName);
 
-                            for (let i = 0; i < subViewListMap.length; i++) {
-                                if (subViewListMap[i]) {
-                                    let subProfileIndex = subscriptionView.fullVideoList[i].profile.findIndex(x => x.value === editProfileView.profileName);
-                                    subscriptionView.fullVideoList[i].profile.splice(subProfileIndex, 1);
-                                }
+                        for (let i = 0; i < subViewListMap.length; i++) {
+                            if (subViewListMap[i]) {
+                                let subProfileIndex = subscriptionView.fullVideoList[i].profile.findIndex(x => x.value === editProfileView.profileName);
+                                subscriptionView.fullVideoList[i].profile.splice(subProfileIndex, 1);
                             }
+                        }
 
-                            amountDeleted++;
+                        amountDeleted++;
                     }
 
                 });
@@ -1608,7 +1630,7 @@ let editProfileView = new Vue({
                     addSubsToView(subscriptionView.fullVideoList);
                     showToast(amountDeleted + ' channel(s) have been deleted from this profile.');
                     this.subscriptionList = this.subscriptionList.filter(a => {
-                      return !a.checked;
+                        return !a.checked;
                     });
                 }, 500);
             });
@@ -1616,12 +1638,11 @@ let editProfileView = new Vue({
     },
     computed: {
         newProfileColor: function () {
-          if (this.newProfileColorText[0] === '#') {
-            return this.newProfileColorText;
-          }
-          else {
-            return '#' + this.newProfileColorText;
-          }
+            if (this.newProfileColorText[0] === '#') {
+                return this.newProfileColorText;
+            } else {
+                return '#' + this.newProfileColorText;
+            }
         },
         isDefaultProfile: function () {
             return settingsView.defaultProfile === this.profileName;

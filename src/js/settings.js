@@ -181,12 +181,10 @@ function checkDefaultSettings() {
         'distractionFreeMode': false,
         'hideWatchedSubs': false,
         'videoView': 'grid',
-        'profileList': [
-          {
+        'profileList': [{
             name: 'All Channels',
             color: randomColor
-          },
-        ],
+        }, ],
         'defaultProfile': 'All Channels',
     };
 

@@ -25,42 +25,41 @@
  * @return {Void}
  */
 
-function invidiousAPI(resource, id, params, success, fail = function(xhr){
-  if (typeof(xhr.responseJSON.error) !== 'undefined') {
-    showToast('Invidious API Error: ' + xhr.responseJSON.error);
-  }
-  else {
-    showToast('There was an error calling the Invidious API');
-  }
-  loadingView.seen = false;
+function invidiousAPI(resource, id, params, success, fail = function (xhr) {
+    if (typeof (xhr.responseJSON.error) !== 'undefined') {
+        showToast('Invidious API Error: ' + xhr.responseJSON.error);
+    } else {
+        showToast('There was an error calling the Invidious API');
+    }
+    loadingView.seen = false;
 }) {
-  let requestUrl = invidiousInstance + '/api/v1/' + resource + '/' + id + '?' + $.param(params);
+    let requestUrl = invidiousInstance + '/api/v1/' + resource + '/' + id + '?' + $.param(params);
 
-  if (useTor) {
+    if (useTor) {
 
-    proxyRequest(() => {
-      $.getJSON(
-        requestUrl,
-        success
-      ).fail((xhr, textStatus, error) => {
-        fail(xhr);
-        ft.log(xhr);
-        ft.log(textStatus);
-        ft.log(requestUrl);
-      });
-    })
+        proxyRequest(() => {
+            $.getJSON(
+                requestUrl,
+                success
+            ).fail((xhr, textStatus, error) => {
+                fail(xhr);
+                ft.log(xhr);
+                ft.log(textStatus);
+                ft.log(requestUrl);
+            });
+        })
 
-  } else {
-    $.getJSON(
-      requestUrl,
-      success
-    ).fail((xhr, textStatus, error) => {
-      fail(xhr);
-      ft.log(xhr);
-      ft.log(textStatus);
-      ft.log(requestUrl);
-    });
-  }
+    } else {
+        $.getJSON(
+            requestUrl,
+            success
+        ).fail((xhr, textStatus, error) => {
+            fail(xhr);
+            ft.log(xhr);
+            ft.log(textStatus);
+            ft.log(requestUrl);
+        });
+    }
 }
 
 /**
@@ -76,14 +75,14 @@ function youtubedlGetInfo(videoId, callback) {
     let url = 'https://youtube.com/watch?v=' + videoId;
     let options = ['--all-subs', '--write-subs'];
 
-  ytdl.getInfo(url, options, function(err, info) {
-    if (err) {
-      showToast(err.message);
-      loadingView.seen = false;
-      ft.log(err);
-      ft.log(info);
-      return;
-    }
+    ytdl.getInfo(url, options, function (err, info) {
+        if (err) {
+            showToast(err.message);
+            loadingView.seen = false;
+            ft.log(err);
+            ft.log(info);
+            return;
+        }
 
         ft.log('Success');
         callback(info);

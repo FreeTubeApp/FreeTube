@@ -21,46 +21,46 @@
             <div class='playlistThumbnail'>
                 <img :src='thumbnail' />
             </div>
-            <h2>{{title}}</h2>
-            <hr />
-            <div v-on:click='channel(channelId)' class='playlistChannel'>
-                <img :src='channelThumbnail' />
-                <h3>{{channelName}}</h3>
+                <h2>{{title}}</h2>
+                <hr />
+                <div v-on:click='channel(channelId)' class='playlistChannel'>
+                    <img :src='channelThumbnail' />
+                    <h3>{{channelName}}</h3>
+                </div>
+                <p>{{videoCount}} videos - {{viewCount}} views - Last updated on {{lastUpdated}}</p>
+                <hr />
+                <p v-html='description'></p>
             </div>
-            <p>{{videoCount}} videos - {{viewCount}} views - Last updated on {{lastUpdated}}</p>
-            <hr />
-            <p v-html='description'></p>
-        </div>
-        <div class='playlistVideoView'>
-            <div v-for="video in videoList">
-              <div class='playlistVideoOptions'>
-                  <i class="fas fa-ellipsis-v" onclick='showVideoOptions(this)'></i>
-                  <ul>
-                      <a v-on:click='openYouTube(video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>
+            <div class='playlistVideoView'>
+                <div v-for="video in videoList">
+                    <div class='playlistVideoOptions'>
+                        <i class="fas fa-ellipsis-v" onclick='showVideoOptions(this)'></i>
+                        <ul>
+                            <a v-on:click='openYouTube(video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>
                           <li>Open in YouTube</li>
                       </a>
-                      <li v-on:click='copyYouTube(video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>Copy YouTube Link</li>
-                      <a v-on:click='openInvidious(video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>
+                            <li v-on:click='copyYouTube(video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>Copy YouTube Link</li>
+                            <a v-on:click='openInvidious(video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>
                           <li>Open in Invidious</li>
                       </a>
-                      <li v-on:click='copyInvidious(video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>Copy Invidious Link</li>
-                  </ul>
-              </div>
-                <div class='playlistVideo'>
-                    <div class='playlistVideoThumbnail'>
-                        <img v-on:click='play(video.id)' :src='video.thumbnail' />
-                        <p v-on:click='play(video.id)' class='videoDuration'>{{video.duration}}</p>
-                        <i class="fas fa-history playlistVideoSave" v-on:click='toggleSave(video.id)'></i>
-                        <div v-if='video.watched' class='videoWatched'>
-                            WATCHED
-                        </div>
+                            <li v-on:click='copyInvidious(video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>Copy Invidious Link</li>
+                        </ul>
                     </div>
-                    <p v-on:click='play(video.id)' class='playlistVideoTitle'>{{video.title}}</p>
-                    <p v-on:click='channel(video.channelId)' class='playlistChannelName'>{{video.channelName}}</p>
-                    <p v-on:click='play(video.id)' class='live'>{{video.liveText}}</p>
+                    <div class='playlistVideo'>
+                        <div class='playlistVideoThumbnail'>
+                            <img v-on:click='play(video.id)' :src='video.thumbnail' />
+                            <p v-on:click='play(video.id)' class='videoDuration'>{{video.duration}}</p>
+                            <i class="fas fa-history playlistVideoSave" v-on:click='toggleSave(video.id)'></i>
+                            <div v-if='video.watched' class='videoWatched'>
+                                WATCHED
+                            </div>
+                        </div>
+                        <p v-on:click='play(video.id)' class='playlistVideoTitle'>{{video.title}}</p>
+                        <p v-on:click='channel(video.channelId)' class='playlistChannelName'>{{video.channelName}}</p>
+                        <p v-on:click='play(video.id)' class='live'>{{video.liveText}}</p>
+                    </div>
+                    <hr />
                 </div>
-                <hr />
             </div>
         </div>
     </div>
-</div>

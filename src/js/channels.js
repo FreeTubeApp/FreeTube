@@ -30,85 +30,86 @@
  */
 function goToChannel(channelId) {
 
-  channelView.channelId = channelId;
-  channelView.channelSearchValue = '';
-  channelVideosView.page = 2;
+    channelView.channelId = channelId;
+    channelView.channelSearchValue = '';
+    channelVideosView.page = 2;
 
-  headerView.title = 'Latest Uploads';
-  hideViews();
-  loadingView.seen = true;
+    headerView.title = 'Latest Uploads';
+    hideViews();
+    loadingView.seen = true;
 
-  channelView.aboutTabSeen = false;
+    channelView.aboutTabSeen = false;
 
-  // Setting subButtonText here as Mustache templates are logic-less.
-  isSubscribed(channelId).then((subscribed) => {
-    channelView.subButtonText = (subscribed ? "UNSUBSCRIBE" : "SUBSCRIBE");
-  });
-
-  invidiousAPI('channels', channelId, {}, (data) => {
-    ft.log(data);
-
-    channelView.id = channelId;
-    channelView.name = data.author;
-
-    // Can't access url of undefined, check defined
-    data.authorBanners.length
-      ? channelView.banner = data.authorBanners[0].url
-      : channelView.banner = undefined;
-
-    data.authorThumbnails.length >= 4
-      ? channelView.icon = data.authorThumbnails[3].url
-      : channelView.icon = undefined
-
-    channelView.subCount = data.subCount.toLocaleString(); //toLocaleString adds commas as thousands separators
-    channelView.description = autolinker.link(data.description); //autolinker makes URLs clickable
-
-    channelVideosView.videoList = [];
-
-    channelView.featuredChannels = data.relatedChannels;
-
-    const views = [
-      aboutView,
-      headerView,
-      historyView,
-      popularView,
-      savedView,
-      searchView,
-      settingsView,
-      subscriptionView
-    ]
-
-    if (seenAll(views, false)) {
-      channelVideosView.seen = true;
-      channelView.seen = true;
-    }
-    else {
-      return;
-    }
-
-    loadingView.seen = false;
-    data.latestVideos.forEach((video) => {
-      displayVideo(video, 'channel');
+    // Setting subButtonText here as Mustache templates are logic-less.
+    isSubscribed(channelId).then((subscribed) => {
+        channelView.subButtonText = (subscribed ? "UNSUBSCRIBE" : "SUBSCRIBE");
     });
 
-    if (typeof(channelView.banner) === 'undefined') {
-       window.setTimeout(() => {$('.channelViewBanner').get(0).height = 200;}, 50);
-    }
-  }, (errorData) => {
-    showToast(errorData.responseJSON.error);
-    loadingView.seen = false;
-  });
+    invidiousAPI('channels', channelId, {}, (data) => {
+        ft.log(data);
 
-  invidiousAPI('channels/playlists', channelId, {}, (data) => {
-    ft.log(data);
+        channelView.id = channelId;
+        channelView.name = data.author;
 
-    channelPlaylistsView.videoList = [];
-    channelPlaylistsView.continuationString = data.continuation;
+        // Can't access url of undefined, check defined
+        data.authorBanners.length ?
+            channelView.banner = data.authorBanners[0].url :
+            channelView.banner = undefined;
 
-    data.playlists.forEach((playlist) => {
-      displayPlaylist(playlist, 'channelPlaylist');
+        data.authorThumbnails.length >= 4 ?
+            channelView.icon = data.authorThumbnails[3].url :
+            channelView.icon = undefined
+
+        channelView.subCount = data.subCount.toLocaleString(); //toLocaleString adds commas as thousands separators
+        channelView.description = autolinker.link(data.description); //autolinker makes URLs clickable
+
+        channelVideosView.videoList = [];
+
+        channelView.featuredChannels = data.relatedChannels;
+
+        const views = [
+            aboutView,
+            headerView,
+            historyView,
+            popularView,
+            savedView,
+            searchView,
+            settingsView,
+            subscriptionView
+        ]
+
+        if (seenAll(views, false)) {
+            channelVideosView.seen = true;
+            channelView.seen = true;
+        } else {
+            return;
+        }
+
+        loadingView.seen = false;
+        data.latestVideos.forEach((video) => {
+            displayVideo(video, 'channel');
+        });
+
+        if (typeof (channelView.banner) === 'undefined') {
+            window.setTimeout(() => {
+                $('.channelViewBanner').get(0).height = 200;
+            }, 50);
+        }
+    }, (errorData) => {
+        showToast(errorData.responseJSON.error);
+        loadingView.seen = false;
     });
-  });
+
+    invidiousAPI('channels/playlists', channelId, {}, (data) => {
+        ft.log(data);
+
+        channelPlaylistsView.videoList = [];
+        channelPlaylistsView.continuationString = data.continuation;
+
+        data.playlists.forEach((playlist) => {
+            displayPlaylist(playlist, 'channelPlaylist');
+        });
+    });
 }
 
 /**
@@ -117,37 +118,43 @@ function goToChannel(channelId) {
  * @return {Void}
  */
 function channelNextPage() {
-  showToast('Fetching results, please wait…');
+    showToast('Fetching results, please wait…');
 
-  let sortValue = document.getElementById('channelVideosSortValue').value;
+    let sortValue = document.getElementById('channelVideosSortValue').value;
 
-  invidiousAPI('channels/videos', channelView.channelId, {'sort_by': sortValue, 'page': channelVideosView.page }, (data) => {
-    ft.log(data);
-    data.forEach((video) => {
-      displayVideo(video, 'channel');
+    invidiousAPI('channels/videos', channelView.channelId, {
+        'sort_by': sortValue,
+        'page': channelVideosView.page
+    }, (data) => {
+        ft.log(data);
+        data.forEach((video) => {
+            displayVideo(video, 'channel');
+        });
     });
-  });
 
-  channelVideosView.page = channelVideosView.page + 1;
+    channelVideosView.page = channelVideosView.page + 1;
 }
 
 function channelPlaylistNextPage() {
-  if (channelPlaylistsView.continuationString === null) {
-    showToast('There are no more playlists for this channel.');
-    return;
-  }
+    if (channelPlaylistsView.continuationString === null) {
+        showToast('There are no more playlists for this channel.');
+        return;
+    }
 
-  showToast('Fetching results, please wait…');
+    showToast('Fetching results, please wait…');
 
-  let sortValue = document.getElementById('channelVideosSortValue').value;
+    let sortValue = document.getElementById('channelVideosSortValue').value;
 
-  invidiousAPI('channels/playlists', channelView.channelId, {'sort_by': sortValue, 'continuation': channelPlaylistsView.continuationString }, (data) => {
-    ft.log(data);
-    channelPlaylistsView.continuationString = data.continuation;
-    data.playlists.forEach((playlist) => {
-      displayPlaylist(playlist, 'channelPlaylist');
+    invidiousAPI('channels/playlists', channelView.channelId, {
+        'sort_by': sortValue,
+        'continuation': channelPlaylistsView.continuationString
+    }, (data) => {
+        ft.log(data);
+        channelPlaylistsView.continuationString = data.continuation;
+        data.playlists.forEach((playlist) => {
+            displayPlaylist(playlist, 'channelPlaylist');
+        });
     });
-  });
 }
 
 function channelSearchKeypress(e) {
@@ -157,34 +164,34 @@ function channelSearchKeypress(e) {
 }
 
 function searchChannel() {
-  if (channelView.channelSearchValue === '') {
-      return;
-  }
+    if (channelView.channelSearchValue === '') {
+        return;
+    }
 
-  showToast('Fetching results, please wait…');
+    showToast('Fetching results, please wait…');
 
-  invidiousAPI('channels/search', channelView.channelId, {
-      q: channelView.channelSearchValue,
-      page: channelSearchView.page,
-  }, function (data) {
-      ft.log(data);
+    invidiousAPI('channels/search', channelView.channelId, {
+        q: channelView.channelSearchValue,
+        page: channelSearchView.page,
+    }, function (data) {
+        ft.log(data);
 
-      data.forEach((video) => {
-        switch (video.type) {
-          case 'video':
-            displayVideo(video, 'channelSearch');
-            break;
-          case 'playlist':
-            if (video.videoCount > 0) {
-              displayPlaylist(video, 'channelSearch');
+        data.forEach((video) => {
+            switch (video.type) {
+            case 'video':
+                displayVideo(video, 'channelSearch');
+                break;
+            case 'playlist':
+                if (video.videoCount > 0) {
+                    displayPlaylist(video, 'channelSearch');
+                }
+                break;
+            default:
             }
-            break;
-          default:
-        }
-      });
+        });
 
-      channelSearchView.page = channelSearchView.page + 1;
-  });
+        channelSearchView.page = channelSearchView.page + 1;
+    });
 }
 
 /**
@@ -197,5 +204,7 @@ function searchChannel() {
  * @example seenAll{[view1, view2]} => bool
  */
 function seenAll(views, expected = true) {
-  return views.every(({ seen }) => seen === expected)
+    return views.every(({
+        seen
+    }) => seen === expected)
 }

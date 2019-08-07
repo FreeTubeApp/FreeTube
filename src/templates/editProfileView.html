@@ -1,48 +1,48 @@
 <div v-if='seen'>
     <div v-if='!isNewProfile' class='card'>
-      <div v-if="subscriptionList.length === 0" >
-        <h2>Subscription List for {{profileName}} Profile</h2>
-        <h4>This profile is empty.  Add subscriptions to this profile to manage them.</h4>
-      </div>
-      <div v-else >
-        <h2>Subscription List for {{profileName}} Profile</h2>
-        <h3>{{amountSelected}} Selected</h3>
-        <br />
-        <div class='profileEditPadding' v-on:click='channel.checked = !channel.checked' v-for='channel in subscriptionList'>
-            <div class='profileEdit' :style="{ backgroundImage: 'url(' + channel.channelThumbnail + ')' }" style='cursor: pointer; background-size: contain;'>
-            </div>
-            <div v-if='channel.checked' class='profileEditSelected'><i class='fas fa-check'></i></div>
-            <div class='profileEditName'><span>{{channel.channelName}}</span></div>
+        <div v-if="subscriptionList.length === 0">
+            <h2>Subscription List for {{profileName}} Profile</h2>
+            <h4>This profile is empty.  Add subscriptions to this profile to manage them.</h4>
         </div>
-        <br /><br /><br />
-        <div class='center'>
-            <div v-on:click='selectAll' class='settingsButton'>
-                SELECT ALL
+        <div v-else>
+            <h2>Subscription List for {{profileName}} Profile</h2>
+            <h3>{{amountSelected}} Selected</h3>
+            <br />
+            <div class='profileEditPadding' v-on:click='channel.checked = !channel.checked' v-for='channel in subscriptionList'>
+                <div class='profileEdit' :style="{ backgroundImage: 'url(' + channel.channelThumbnail + ')' }" style='cursor: pointer; background-size: contain;'>
+                </div>
+                <div v-if='channel.checked' class='profileEditSelected'><i class='fas fa-check'></i></div>
+                <div class='profileEditName'><span>{{channel.channelName}}</span></div>
             </div>
-            <div v-on:click='selectNone' class='settingsButton'>
-                SELECT NONE
+            <br /><br /><br />
+            <div class='center'>
+                <div v-on:click='selectAll' class='settingsButton'>
+                    SELECT ALL
+                </div>
+                <div v-on:click='selectNone' class='settingsButton'>
+                    SELECT NONE
+                </div>
+                <div v-if="profileName !== 'All Channels'" v-on:click='move' class='settingsButton'>
+                    MOVE SELECTED TO
+                </div>
+                <div v-on:click='copy' class='settingsButton'>
+                    COPY SELECTED TO
+                </div>
+                <div v-on:click='deleteChannel' style='color: #f44336' class='settingsButton'>
+                    DELETE SELECTED
+                </div>
             </div>
-            <div v-if="profileName !== 'All Channels'" v-on:click='move' class='settingsButton'>
-                MOVE SELECTED TO
+            <br />
+            <div class="select center">
+                <select id="profileListSelect" class="select-text" v-model='selectedProfile' required>
+                    <option v-for='profile in profileList' :value='profile.name'>{{profile.name}}</option>
+                </select>
+                <span class="select-highlight"></span>
+                <span class="select-bar"></span>
+                <label class="select-label">Profile Select</label>
             </div>
-            <div v-on:click='copy' class='settingsButton'>
-                COPY SELECTED TO
-            </div>
-            <div v-on:click='deleteChannel' style='color: #f44336' class='settingsButton'>
-                DELETE SELECTED
-            </div>
+            <h4 v-if="profileName === 'All Channels'">NOTE: Deleting a channel from the "All Channels" profile will also delete the channel from all other profiles.</h4>
         </div>
-        <br />
-        <div class="select center">
-            <select id="profileListSelect" class="select-text" v-model='selectedProfile' required>
-                <option v-for='profile in profileList' :value='profile.name'>{{profile.name}}</option>
-            </select>
-            <span class="select-highlight"></span>
-            <span class="select-bar"></span>
-            <label class="select-label">Profile Select</label>
-        </div>
-        <h4 v-if="profileName === 'All Channels'">NOTE: Deleting a channel from the "All Channels" profile will also delete the channel from all other profiles.</h4>
-      </div>
     </div>
     <div class='card'>
         <h2 v-if='isNewProfile'>Add New Profile</h2>

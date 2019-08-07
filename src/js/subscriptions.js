@@ -97,11 +97,13 @@ function removeSubscription(channelId, profile = profileSelectView.activeProfile
                         value: profile
                     }
                 }
-            }, { multi: true },(err, numRemoved) => {
+            }, {
+                multi: true
+            }, (err, numRemoved) => {
                 // Refresh the list of subscriptions on the side navigation bar.
                 displaySubs();
                 if (displayToast) {
-                  showToast('Removed channel from subscriptions.');
+                    showToast('Removed channel from subscriptions.');
                 }
             });
         } else {
@@ -111,7 +113,7 @@ function removeSubscription(channelId, profile = profileSelectView.activeProfile
                 // Refresh the list of subscriptions on the side navigation bar.
                 displaySubs();
                 if (displayToast) {
-                  showToast('Removed channel from subscriptions.');
+                    showToast('Removed channel from subscriptions.');
                 }
             });
         }
@@ -203,9 +205,9 @@ function addSubsToView(videoList) {
     }
 
     if (profileSelectView.activeProfile.name !== 'All Channels') {
-      videoList = videoList.filter(a => {
-        return a.profile.map(x => x.value).indexOf(profileSelectView.activeProfile.name) !== -1
-      });
+        videoList = videoList.filter(a => {
+            return a.profile.map(x => x.value).indexOf(profileSelectView.activeProfile.name) !== -1
+        });
     }
 
     videoList.sort((a, b) => {
@@ -232,6 +234,13 @@ function addSubsToView(videoList) {
     subscriptionTimer = window.setTimeout(() => {
         checkSubscriptions = true;
     }, 7200000);
+
+    let profileLockTimer = window.setInterval(() => {
+        if (videoList.length === subscriptionView.videoList.length || subscriptionView.videoList.length === 100) {
+            profileSelectView.profileLock = false;
+            clearInterval(profileLockTimer);
+        }
+    }, 500);
 
     ft.log('Done');
 }
@@ -288,13 +297,14 @@ function displaySubs() {
         channelName: 1
     }).exec((err, subs) => {
         let subFilter;
-        if (profileSelectView.activeProfile.name === 'All Channels' || typeof(profileSelectView.activeProfile.name) === 'undefined') {
-          subFilter = subs;
-        }
-        else {
-          subFilter = subs.filter(a => {
-              return a.profile.find((name) => {return name.value === profileSelectView.activeProfile.name });
-          });
+        if (profileSelectView.activeProfile.name === 'All Channels' || typeof (profileSelectView.activeProfile.name) === 'undefined') {
+            subFilter = subs;
+        } else {
+            subFilter = subs.filter(a => {
+                return a.profile.find((name) => {
+                    return name.value === profileSelectView.activeProfile.name
+                });
+            });
         }
 
         subFilter.forEach((channel) => {

@@ -22,47 +22,47 @@
  */
 
 function checkForNewUpdate() {
-  const requestUrl = 'https://api.github.com/repos/freetubeapp/freetube/releases';
+    const requestUrl = 'https://api.github.com/repos/freetubeapp/freetube/releases';
 
-  let success = function(data) {
-    let currentVersion = require('electron').remote.app.getVersion();
-    let versionNumber = data[0].tag_name.replace('v', '');
-    versionNumber = versionNumber.replace('-beta', '');
+    let success = function (data) {
+        let currentVersion = require('electron').remote.app.getVersion();
+        let versionNumber = data[0].tag_name.replace('v', '');
+        versionNumber = versionNumber.replace('-beta', '');
 
-    let blogRegexPattern = /\(.*\)/;
+        let blogRegexPattern = /\(.*\)/;
 
-    let blogUrl = blogRegexPattern.exec(data[0].body);
-    blogUrl = blogUrl[0].replace(/\(|\)/g, '');
+        let blogUrl = blogRegexPattern.exec(data[0].body);
+        blogUrl = blogUrl[0].replace(/\(|\)/g, '');
 
-    if (versionNumber > currentVersion) {
-      confirmFunction(data[0].name + ` is now available! Would you like to download the update? <a href="${blogUrl}">Changelog</a>`, openReleasePage);
+        if (versionNumber > currentVersion) {
+            confirmFunction(data[0].name + ` is now available! Would you like to download the update? <a href="${blogUrl}">Changelog</a>`, openReleasePage);
+        }
+    };
+
+    if (useTor) {
+        proxyRequest(() => {
+            $.getJSON(
+                requestUrl,
+                success
+            ).fail((xhr, textStatus, error) => {
+                fail(xhr);
+                ft.log(xhr);
+                ft.log(textStatus);
+                ft.log(requestUrl);
+            });
+        })
+
+    } else {
+        $.getJSON(
+            requestUrl,
+            success
+        ).fail((xhr, textStatus, error) => {
+            fail(xhr);
+            ft.log(xhr);
+            ft.log(textStatus);
+            ft.log(requestUrl);
+        });
     }
-  };
-
-  if (useTor) {
-    proxyRequest(() => {
-      $.getJSON(
-        requestUrl,
-        success
-      ).fail((xhr, textStatus, error) => {
-        fail(xhr);
-        ft.log(xhr);
-        ft.log(textStatus);
-        ft.log(requestUrl);
-      });
-    })
-
-  } else {
-    $.getJSON(
-      requestUrl,
-      success
-    ).fail((xhr, textStatus, error) => {
-      fail(xhr);
-      ft.log(xhr);
-      ft.log(textStatus);
-      ft.log(requestUrl);
-    });
-  }
 }
 
 const openReleasePage = function () {
