@@ -1691,6 +1691,7 @@ function hideViews() {
     aboutView.seen = false;
     headerView.seen = false;
     searchView.seen = false;
+    searchSuggestionsView.seen = false;
     settingsView.seen = false;
     popularView.seen = false;
     trendingView.seen = false;
