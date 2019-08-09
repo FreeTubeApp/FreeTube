@@ -647,6 +647,10 @@ a {
     color: #FFEB3B;
 }
 
+.videoThumbnail:hover .videoWatched {
+    visibility: hidden;
+}
+
 .blogFeed a {
     font-size: 20px;
     font-weight: bold;
