@@ -1098,6 +1098,19 @@ function checkDashSettings() {
                         return;
                     }
 
+                    historyDb.findOne({
+                        videoId: playerView.videoId
+                    }, function (err, doc) {
+                        if (doc !== null) {
+                            if (typeof (playerView.currentTime) !== 'undefined') {
+                                instance.currentTime = playerView.currentTime;
+                                playerView.currentTime = undefined;
+                            } else if (doc.watchProgress < instance.duration - 5 && playerView.validLive === false) {
+                                instance.currentTime = doc.watchProgress;
+                            }
+                        }
+                    });
+
                     let selectedOption = false;
                     qualityOptions.forEach((option, index) => {
                         if (option.value === defaultQuality || option.value === defaultQuality + 'p' || option.value === defaultQuality + 'p60') {
@@ -1113,21 +1126,6 @@ function checkDashSettings() {
 
                         $('.mejs__qualities-selector-input').get().reverse()[0].click();
                     }
-
-                    window.setTimeout(() => {
-                        historyDb.findOne({
-                            videoId: playerView.videoId
-                        }, function (err, doc) {
-                            if (doc !== null) {
-                                if (typeof (playerView.currentTime) !== 'undefined') {
-                                    instance.currentTime = playerView.currentTime;
-                                    playerView.currentTime = undefined;
-                                } else if (doc.watchProgress < instance.duration - 5 && playerView.validLive === false) {
-                                    instance.currentTime = doc.watchProgress;
-                                }
-                            }
-                        });
-                    }, 200);
                 };
 
                 initializeSettings();
