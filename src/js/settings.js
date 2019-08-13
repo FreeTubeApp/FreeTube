@@ -169,7 +169,7 @@ function checkDefaultSettings() {
         'updates': true,
         'localScrape': true,
         'player': 'dash',
-        'quality': '720',
+        'quality': 'Auto',
         'volume': 1,
         'rate': '1',
         'invidious': 'https://invidio.us',
