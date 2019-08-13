@@ -92,7 +92,7 @@ a {
 #reloadButton {
     cursor: pointer;
     font-size: 15px;
-    margin-left: 65px;
+    margin-left: 75px;
 }
 
 #backButton {
@@ -387,12 +387,13 @@ a {
 }
 
 #sideNav {
-    height: 100vh;
+    height: 93vh;
     width: 250px;
     overflow-y: auto;
     position: fixed;
     left: 0;
     top: 0px;
+    margin-top: 60px;
     -webkit-box-shadow: 4px -2px 51px -6px rgba(0, 0, 0, 0.75);
 }
 
@@ -408,7 +409,7 @@ a {
 
 #sideNav li {
     padding: 20px;
-    width: 205px;
+    width: 215px;
     position: relative;
     right: 50px;
     cursor: pointer;
@@ -433,10 +434,6 @@ a {
     z-index: 1;
     margin-top: 85px;
     display: none;
-}
-
-.sideNavContainer {
-    margin-top: 85px;
 }
 
 #subscriptions img {
