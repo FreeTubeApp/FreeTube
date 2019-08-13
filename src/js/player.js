@@ -1075,6 +1075,8 @@ function checkDashSettings() {
                     instance.play();
                 };
 
+                instance.dashPlayer.setFastSwitchEnabled(true);
+
                 window.setTimeout(() => {
                     if (enableSubtitles && typeof ($('.mejs__captions-button').get(0)) !== 'undefined') {
                         let captionOptions = $('.mejs__captions-selector-input').get();
