@@ -387,7 +387,7 @@ a {
 }
 
 #sideNav {
-    height: 93vh;
+    height: calc(100vh - 60px);
     width: 250px;
     overflow-y: auto;
     position: fixed;
