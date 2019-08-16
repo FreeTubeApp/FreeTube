@@ -25,6 +25,7 @@ let subscriptionTimer;
 let forceTimer;
 let checkSubscriptions = true;
 let forceSubs = true;
+let displaySubsLock = false;
 
 /**
  * Add a channel to the user's subscription database.
@@ -33,15 +34,46 @@ let forceSubs = true;
  *
  * @return {Void}
  */
-function addSubscription(data, useToast = true) {
+function addSubscription(data, useToast = true, profile = '') {
     ft.log('Channel Data: ', data);
 
-    // Refresh the list of subscriptions on the side navigation bar.
-    subDb.insert(data, (err, newDoc) => {
-        if (useToast) {
-            showToast('Added ' + data.channelName + ' to subscriptions.');
+    let newSubscription = data;
+    newSubscription.profile = [{
+        value: profile
+    }];
+
+    if (profile === '') {
+        newSubscription.profile = [{
+            value: profileSelectView.activeProfile.name
+        }];
+    }
+
+    subDb.find({
+        channelId: data.channelId
+    }, (err, docs) => {
+        if (jQuery.isEmptyObject(docs)) {
+            subDb.insert(newSubscription, (err, newDoc) => {
+                if (useToast) {
+                    showToast('Added ' + newSubscription.channelName + ' to subscriptions.');
+                }
+                // Refresh the list of subscriptions on the side navigation bar.
+                displaySubs();
+            });
+        } else {
+            subDb.update({
+                channelId: data.channelId,
+            }, {
+                $push: {
+                    profile: {
+                        value: newSubscription.profile[0].value
+                    }
+                }
+            }, (err, numAdded) => {
+                // Refresh the list of subscriptions on the side navigation bar.
+                displaySubs();
+                showToast('Added ' + data.channelName + ' to subscriptions.');
+            });
         }
-        displaySubs();
     });
 }
 
@@ -52,13 +84,39 @@ function addSubscription(data, useToast = true) {
  *
  * @return {Void}
  */
-function removeSubscription(channelId) {
-    subDb.remove({
+function removeSubscription(channelId, profile = profileSelectView.activeProfile.name, displayToast = true) {
+    subDb.find({
         channelId: channelId
-    }, {}, (err, numRemoved) => {
-        // Refresh the list of subscriptions on the side navigation bar.
-        displaySubs();
-        showToast('Removed channel from subscriptions.');
+    }, (err, docs) => {
+        if (docs[0].profile.length > 1 && profile !== 'All Profiles') {
+            subDb.update({
+                channelId: channelId,
+            }, {
+                $pull: {
+                    profile: {
+                        value: profile
+                    }
+                }
+            }, {
+                multi: true
+            }, (err, numRemoved) => {
+                // Refresh the list of subscriptions on the side navigation bar.
+                displaySubs();
+                if (displayToast) {
+                    showToast('Removed channel from subscriptions.');
+                }
+            });
+        } else {
+            subDb.remove({
+                channelId: channelId
+            }, {}, (err, numRemoved) => {
+                // Refresh the list of subscriptions on the side navigation bar.
+                displaySubs();
+                if (displayToast) {
+                    showToast('Removed channel from subscriptions.');
+                }
+            });
+        }
     });
 }
 
@@ -73,7 +131,7 @@ function loadSubscriptions() {
         loadingView.seen = false;
         return;
     } else {
-        showToast('Refreshing Subscription List.  Please wait...');
+        showToast('Refreshing Subscription List.  Please wait…');
         checkSubscriptions = false;
         progressView.seen = true;
         $('#reloadButton')[0].classList.add('fa-spin');
@@ -95,15 +153,17 @@ function loadSubscriptions() {
 
                 invidiousAPI('channels/latest', channelId, {}, (data) => {
                     data.forEach((video, index) => {
-                      data[index].author = results[i]['channelName'];
-                      historyDb.findOne({ videoId: video.videoId }, function (err, doc) {
-                        if(doc === null) {
-                          data[index].watched = false
-                        }
-                        else {
-                          data[index].watched = true;
-                        }
-                      });
+                        data[index].author = results[i]['channelName'];
+                        data[index].profile = results[i]['profile'];
+                        historyDb.findOne({
+                            videoId: video.videoId
+                        }, function (err, doc) {
+                            if (doc === null) {
+                                data[index].watched = false
+                            } else {
+                                data[index].watched = true;
+                            }
+                        });
                     });
                     videoList = videoList.concat(data);
                     counter = counter + 1;
@@ -139,9 +199,15 @@ function addSubsToView(videoList) {
     });
 
     if (hideWatchedSubs) {
-      videoList = videoList.filter(a => {
-        return !a.watched;
-      });
+        videoList = videoList.filter(a => {
+            return !a.watched;
+        });
+    }
+
+    if (profileSelectView.activeProfile.name !== 'All Channels') {
+        videoList = videoList.filter(a => {
+            return a.profile.map(x => x.value).indexOf(profileSelectView.activeProfile.name) !== -1
+        });
     }
 
     videoList.sort((a, b) => {
@@ -168,6 +234,13 @@ function addSubsToView(videoList) {
     subscriptionTimer = window.setTimeout(() => {
         checkSubscriptions = true;
     }, 7200000);
+
+    let profileLockTimer = window.setInterval(() => {
+        if (videoList.length === subscriptionView.videoList.length || subscriptionView.videoList.length === 100) {
+            profileSelectView.profileLock = false;
+            clearInterval(profileLockTimer);
+        }
+    }, 500);
 
     ft.log('Done');
 }
@@ -209,15 +282,32 @@ function returnSubscriptions() {
  * @return {Void}
  */
 function displaySubs() {
+    if (displaySubsLock) {
+        return;
+    }
+
+    displaySubsLock = true;
+
     const subList = document.getElementById('subscriptions');
 
     subList.innerHTML = '';
 
     // Sort alphabetically
-    subDb.find({}).sort({
+    subDb.find().sort({
         channelName: 1
     }).exec((err, subs) => {
-        subs.forEach((channel) => {
+        let subFilter;
+        if (profileSelectView.activeProfile.name === 'All Channels' || typeof (profileSelectView.activeProfile.name) === 'undefined') {
+            subFilter = subs;
+        } else {
+            subFilter = subs.filter(a => {
+                return a.profile.find((name) => {
+                    return name.value === profileSelectView.activeProfile.name
+                });
+            });
+        }
+
+        subFilter.forEach((channel) => {
             // Grab subscriptions.html to be used as a template.
             const subsTemplate = require('./templates/subscriptions.html')
             mustache.parse(subsTemplate);
@@ -230,6 +320,8 @@ function displaySubs() {
             const subscriptionsHtml = $('#subscriptions').html();
             $('#subscriptions').html(subscriptionsHtml + rendered);
         });
+
+        displaySubsLock = false;
     });
 
     // Add onclick function
@@ -268,10 +360,20 @@ function toggleSubscription(data) {
  *
  * @return {promise} - A boolean value if the channel is currently subscribed or not.
  */
-function isSubscribed(channelId) {
+function isSubscribed(channelId, profile = profileSelectView.activeProfile.name) {
     return new Promise((resolve, reject) => {
         subDb.find({
-            channelId: channelId
+            $and: [{
+                    channelId: channelId
+                },
+                {
+                    profile: {
+                        $elemMatch: {
+                            value: profile
+                        }
+                    }
+                },
+            ]
         }, (err, docs) => {
             if (jQuery.isEmptyObject(docs)) {
                 resolve(false);

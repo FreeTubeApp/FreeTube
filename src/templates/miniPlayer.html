@@ -19,13 +19,14 @@
 body {
     background-color: #424242;
     font-family: 'Roboto', sans-serif;
-    margin:0;
+    margin: 0;
     overflow: hidden;
 }
 
 #legacyPlayer {
-  width: 100%;
+    width: 100%;
 }
+
 </style>
 <link rel="stylesheet" href="../style/mediaelementplayer.css" />
 <link rel="stylesheet" href="../js/plugins/quality/quality.min.css" />
@@ -33,13 +34,14 @@ body {
 <link rel="stylesheet" href="../js/plugins/speed/speed.css" />
 <link rel="stylesheet" href="../js/plugins/context-menu/context-menu.css" />
 <link rel="stylesheet" href="../js/plugins/title/title.css" />
-  <div id='miniPlayer'>
+<div id='miniPlayer'>
     <div v-if='playerSeen && !legacySeen' class='videoPlayer'>
         <video id='player' onmousemove="hideMouseTimeout()" onmouseleave="removeMouseTimeout()" :poster="videoThumbnail">
             <source v-if='validDash' data-quality='Auto' type="application/dash+xml" :src="videoDash" />
             <source v-if='validLive' data-quality='Live' type="application/x-mpegURL" :src="videoLive" />
             <span v-html="subtitleHtml"></span>
-            <track kind="metadata" srclang='' class="time-rail-thumbnails" :src="'https://invidio.us/api/v1/storyboards/' + videoId + '?height=90'"></track>
+            <track kind="metadata" srclang='' class="time-rail-thumbnails" :src="'https://invidio.us/api/v1/storyboards/' + videoId + '?height=90'">
+            </track>
         </video>
     </div>
     <div v-else-if='!playerSeen && legacySeen'>
@@ -49,8 +51,11 @@ body {
     <div v-else>
         <span v-html="embededHtml"></span>
     </div>
-  </div>
-<script>window.$ = window.jQuery = require('jquery');</script>
+</div>
+<script>
+window.$ = window.jQuery = require('jquery');
+
+</script>
 <script src="../js/dash.all.min.js"></script>
 <script src="../js/mediaelement-and-player.js"></script>
 <script src="../js/plugins/quality/quality.js"></script>

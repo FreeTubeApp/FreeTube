@@ -31,28 +31,28 @@ let showComments = function (event, continuation = '') {
         comments.attr('loaded', 'true');
 
         invidiousAPI('comments', $('#comments').attr('data-video-id'), {}, (data) => {
-          ft.log(data);
+            ft.log(data);
 
-          let comments = [];
+            let comments = [];
 
-          data.comments.forEach((object) => {
+            data.comments.forEach((object) => {
 
-              let snippet = {
-                author: object.author,
-                authorId: object.authorId,
-                authorThumbnail: object.authorThumbnails[0].url,
-                published: object.publishedText,
-                authorComment: object.content,
-              }
+                let snippet = {
+                    author: object.author,
+                    authorId: object.authorId,
+                    authorThumbnail: object.authorThumbnails[0].url,
+                    published: object.publishedText,
+                    authorComment: object.content,
+                }
 
-              comments.push(snippet);
-          })
-          const commentsTemplate = require('./templates/comments.html');
-          const html = mustache.render(commentsTemplate, {
-              comments: comments,
-          });
+                comments.push(snippet);
+            })
+            const commentsTemplate = require('./templates/comments.html');
+            const html = mustache.render(commentsTemplate, {
+                comments: comments,
+            });
 
-          $('#comments').html(html);
+            $('#comments').html(html);
         });
 
         comments.show();
@@ -67,49 +67,47 @@ let showComments = function (event, continuation = '') {
 let playPauseVideo = function (event) {
     let el = event.currentTarget;
     if (el.paused && $('.videoPlayer').is(':hover')) {
-      $('.videoPlayer')[0].style.cursor = 'none';
+        $('.videoPlayer')[0].style.cursor = 'none';
     }
 };
 
 /**
-* Handle keyboard shortcut commands.
-*/
+ * Handle keyboard shortcut commands.
+ */
 let videoShortcutHandler = function (event) {
     let videoPlayer;
 
     if (event.which == 68 && event.altKey === true) {
-      $('#search').focus();
+        $('#search').focus();
     }
 
     if (event.which == 82 && event.shiftKey === false && event.ctrlKey === true && !$('#jumpToInput').is(':focus') && !$('#search').is(':focus')) {
-      event.stopPropagation();
-      event.preventDefault();
-      forceSubscriptions();
+        event.stopPropagation();
+        event.preventDefault();
+        forceSubscriptions();
     }
 
-    if ((typeof(playerView) !== 'undefined' && playerView.legacySeen) || (typeof(miniPlayerView) !== 'undefined' && miniPlayerView.legacySeen)) {
-      videoPlayer = $('.videoPlayer').get(0);
-    }
-    else {
-      videoPlayer = $('#player').get(0);
+    if ((typeof (playerView) !== 'undefined' && playerView.legacySeen) || (typeof (miniPlayerView) !== 'undefined' && miniPlayerView.legacySeen)) {
+        videoPlayer = $('.videoPlayer').get(0);
+    } else {
+        videoPlayer = $('#player').get(0);
     }
 
-    if (typeof(videoPlayer) !== 'undefined' && !$('#jumpToInput').is(':focus') && !$('#search').is(':focus')) {
+    if (typeof (videoPlayer) !== 'undefined' && !$('#jumpToInput').is(':focus') && !$('#search').is(':focus')) {
         switch (event.which) {
         case 32:
             // Space Bar
             event.preventDefault();
             if ($('.videoPlayer').is(':focus')) {
-              return;
+                return;
             }
             if (videoPlayer.paused) {
-              videoPlayer.play();
-              if($('.videoPlayer').is(':hover')) {
-                $('.videoPlayer')[0].style.cursor = 'none';
-              }
-            }
-            else {
-              videoPlayer.pause();
+                videoPlayer.play();
+                if ($('.videoPlayer').is(':hover')) {
+                    $('.videoPlayer')[0].style.cursor = 'none';
+                }
+            } else {
+                videoPlayer.pause();
             }
             break;
         case 74:
@@ -121,13 +119,12 @@ let videoShortcutHandler = function (event) {
             // K Key
             event.preventDefault();
             if (videoPlayer.paused) {
-              videoPlayer.play();
-              if($('.videoPlayer').is(':hover')) {
-                $('.videoPlayer')[0].style.cursor = 'none';
-              }
-            }
-            else {
-              videoPlayer.pause();
+                videoPlayer.play();
+                if ($('.videoPlayer').is(':hover')) {
+                    $('.videoPlayer')[0].style.cursor = 'none';
+                }
+            } else {
+                videoPlayer.pause();
             }
             break;
         case 76:
@@ -138,19 +135,19 @@ let videoShortcutHandler = function (event) {
         case 79:
             // O Key
             event.preventDefault();
-            if (videoPlayer.playbackRate > 0.25){
-              let rate = videoPlayer.playbackRate - 0.25;
-              videoPlayer.playbackRate = rate;
-              changeVideoSpeed(rate);
+            if (videoPlayer.playbackRate > 0.25) {
+                let rate = videoPlayer.playbackRate - 0.25;
+                videoPlayer.playbackRate = rate;
+                changeVideoSpeed(rate);
             }
             break;
         case 80:
             // P Key
             event.preventDefault();
-            if (videoPlayer.playbackRate < 2){
-              let rate = videoPlayer.playbackRate + 0.25;
-              videoPlayer.playbackRate = rate;
-              changeVideoSpeed(rate);
+            if (videoPlayer.playbackRate < 2) {
+                let rate = videoPlayer.playbackRate + 0.25;
+                videoPlayer.playbackRate = rate;
+                changeVideoSpeed(rate);
             }
             break;
         case 70:
@@ -172,22 +169,20 @@ let videoShortcutHandler = function (event) {
         case 67:
             // C Key
             if (playerView.legacySeen) {
-              let subtitleMode = videoPlayer.textTracks[0].mode;
-              if (subtitleMode === 'hidden') {
-                videoPlayer.textTracks[0].mode = 'showing'
-              } else {
-                videoPlayer.textTracks[0].mode = 'hidden'
-              }
-            }
-            else {
-              let captionOptions = $('.mejs__captions-selector-input').get();
+                let subtitleMode = videoPlayer.textTracks[0].mode;
+                if (subtitleMode === 'hidden') {
+                    videoPlayer.textTracks[0].mode = 'showing'
+                } else {
+                    videoPlayer.textTracks[0].mode = 'hidden'
+                }
+            } else {
+                let captionOptions = $('.mejs__captions-selector-input').get();
 
-              if (!captionOptions[0].labels[0].className.includes('mejs__captions-selected')) {
-                captionOptions[0].click();
-              }
-              else {
-               captionOptions[1].click();
-              }
+                if (!captionOptions[0].labels[0].className.includes('mejs__captions-selected')) {
+                    captionOptions[0].click();
+                } else {
+                    captionOptions[1].click();
+                }
             }
             break;
         case 38:
@@ -265,31 +260,30 @@ let videoShortcutHandler = function (event) {
 };
 
 let fullscreenVideo = function (event) {
-  if (playerView.legacySeen) {
-    if (document.webkitFullscreenElement !== null) {
-        document.webkitExitFullscreen();
+    if (playerView.legacySeen) {
+        if (document.webkitFullscreenElement !== null) {
+            document.webkitExitFullscreen();
+        } else {
+            $('.videoPlayer').get(0).webkitRequestFullscreen();
+        }
     } else {
-        $('.videoPlayer').get(0).webkitRequestFullscreen();
-      }
-  }
-  else {
-    $('.mejs__fullscreen-button').click();
+        $('.mejs__fullscreen-button').click();
 
-    if (document.webkitFullscreenElement !== null) {
-      console.log('changing screen size...');
-      const currentWindow = electron.remote.getCurrentWindow();
-      let bounds = currentWindow.getBounds();
-      let newBounds = {
-        height: bounds.height,
-        width:  bounds.width + 1,
-        x:  bounds.x,
-        y:  bounds.y,
-      }
+        if (document.webkitFullscreenElement !== null) {
+            console.log('changing screen size...');
+            const currentWindow = electron.remote.getCurrentWindow();
+            let bounds = currentWindow.getBounds();
+            let newBounds = {
+                height: bounds.height,
+                width: bounds.width + 1,
+                x: bounds.x,
+                y: bounds.y,
+            }
 
-      currentWindow.setBounds(newBounds);
-      currentWindow.setBounds(bounds);
+            currentWindow.setBounds(newBounds);
+            currentWindow.setBounds(bounds);
+        }
     }
-  }
 }
 
 /**
@@ -310,24 +304,38 @@ $(document).on('click', '#confirmNo', hideConfirmFunction);
 
 // Open links externally by default
 $(document).on('click', 'a[href^="http"]', (event) => {
-  let el = event.currentTarget;
-  if (!el.href.includes('freetube://')) {
-    event.preventDefault();
-    shell.openExternal(el.href);
-  }
-  else{
-    search(el.href);
-  }
+    let el = event.currentTarget;
+    if (!el.href.includes('freetube://')) {
+        event.preventDefault();
+        shell.openExternal(el.href);
+    } else {
+        search(el.href);
+    }
 });
 
 // Open links externally on middle click.
 $(document).on('auxclick', 'a[href^="http"]', (event) => {
-  let el = event.currentTarget;
-  if (!el.href.includes('freetube://')) {
-    event.preventDefault();
-    shell.openExternal(el.href);
-  }
-  else{
-    search(el.href);
-  }
+    let el = event.currentTarget;
+    if (!el.href.includes('freetube://')) {
+        event.preventDefault();
+        shell.openExternal(el.href);
+    } else {
+        search(el.href);
+    }
+});
+
+window.addEventListener('mousewheel', function (event) {
+    if (playerView.seen !== false && $('.mejs__volume-slider').is(':hover')) {
+        event.stopPropagation();
+        event.preventDefault();
+        if (event.deltaY <= 0) {
+            // Scroll up
+            changeVolume(0.05);
+        } else {
+            // Scroll down
+            changeVolume(-0.05);
+        }
+    }
+}, {
+    passive: false
 });

@@ -20,12 +20,12 @@
         <div onclick='goToChannel("{{authorId}}")' style="float:left;margin-right: 1em; width:48px">
             <img class="userIcon" src="{{authorThumbnail}}" alt="" class="user-icon" />
         </div>
-        <div class="comment-data">
-            <p onclick='goToChannel("{{authorId}}")' style='cursor: pointer; margin-left: 65px; font-weight: bold;'>{{author}}</p>
-            <p style="margin-bottom: 0; margin-left: 65px; word-break: break-word;">{{authorComment}}</p>
-            <p style="font-size:80%; padding: 0; margin-left: 65px;">{{published}}</p>
+            <div class="comment-data">
+                <p onclick='goToChannel("{{authorId}}")' style='cursor: pointer; margin-left: 65px; font-weight: bold;'>{{author}}</p>
+                <p style="margin-bottom: 0; margin-left: 65px; word-break: break-word;">{{authorComment}}</p>
+                <p style="font-size:80%; padding: 0; margin-left: 65px;">{{published}}</p>
+            </div>
         </div>
-    </div>
-    <br/>
-    <div class="line"></div>
+        <br />
+        <div class="line"></div>
 {{/comments}}

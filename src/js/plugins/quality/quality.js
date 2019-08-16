@@ -106,10 +106,19 @@ Object.assign(MediaElementPlayer.prototype, {
 			} else if (!!media.dashPlayer) {
 				const bitrates = media.dashPlayer.getBitrateInfoListFor("video");
 				if (t.options.autoGenerate && bitrates.length > 1) {
-					bitrates.forEach(function (level) {
+					bitrates.forEach(function (level, index) {
 						const height = level.height;
-						const quality = t.getQualityFromHeight(height);
-            t.addValueToKey(qualityMap, quality, '');
+						let quality = t.getQualityFromHeight(height);
+
+						if (index > 0) {
+						  const heightLast = bitrates[index - 1].height;
+						  const qualityLast = t.getQualityFromHeight(heightLast);
+						  if (qualityLast === quality) {
+						    quality = quality + '60';
+						  }
+						}
+
+						t.addValueToKey(qualityMap, quality, '');
 					});
 					t.options.autoDash = true;
 					t.generateQualityButton(t, player, media, qualityMap, currentQuality);
@@ -362,7 +371,17 @@ Object.assign(MediaElementPlayer.prototype, {
 				} else {
 				  if (typeof(media.dashPlayer) !== 'undefined') {
 					  media.dashPlayer.setAutoSwitchQualityFor("video", false);
+					  media.dashPlayer.setTrackSwitchModeFor("video", "alwaysReplace");
 					  media.dashPlayer.setQualityFor("video", index - 1);
+            // TODO: Make this work better.  Green Artifacting for some videos.
+            /*
+            let time = media.currentTime;
+            media.setCurrentTime(0);
+            setTimeout(() => {
+              media.setCurrentTime(time);
+              media.play();
+            }, 200);
+            */
 				  }
 				  else {
 				    media.hlsPlayer.currentLevel = index - 1;

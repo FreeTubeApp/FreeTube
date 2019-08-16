@@ -1,0 +1,18 @@
+<div v-if='seen'>
+    <div class='card'>
+        <h2>Subscription / Profile Manager</h2>
+        <br />
+        <div class='profileEditPadding' v-for='(profile, index) in profileList' v-on:click='editProfile(false, index)'>
+            <div class='profileEdit' :style='{ backgroundColor: profile.color }' style='cursor: pointer;'>
+                <span class='profileEditInitial' :style='{ color: profileTextColor[index] }'>{{profileInitials[index]}}</span>
+            </div>
+            <div class='profileEditName'><span>{{profile.name}}</span></div>
+        </div>
+        <div class='profileEditPadding' v-on:click='editProfile(true, -1)'>
+            <div class='profileEdit' style='background-color: #9E9E9E; cursor: pointer;'>
+                <i class='profileEditInitial fas fa-plus' style='color: #000000; top: 14px; left: 0.4px;'></i>
+            </div>
+            <div class='profileEditName'><span>Add New Profile</span></div>
+        </div>
+    </div>
+</div>

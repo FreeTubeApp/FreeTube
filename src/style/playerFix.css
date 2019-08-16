@@ -3,7 +3,7 @@ This file is to fix some of the resizing issues introduced when full screening t
 */
 
 #player_native_dash {
-  max-height: 80vh;
+    max-height: 80vh;
 }
 
 .mejs__container {

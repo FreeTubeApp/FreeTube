@@ -43,20 +43,20 @@ a {
 }
 
 .link {
-  color: #2196F3;
-  cursor: pointer;
-  font-weight: bold;
-  font-decoration-line: 'underline';
+    color: #2196F3;
+    cursor: pointer;
+    font-weight: bold;
+    font-decoration-line: 'underline';
 }
 
-#progressBar{
-  height: 3px;
-  background-color: #f44336;
-  display: block;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
+#progressBar {
+    height: 3px;
+    background-color: #f44336;
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
 }
 
 .center {
@@ -86,13 +86,13 @@ a {
     font-size: 20px;
     margin-left: 20px;
     position: relative;
-    top: 3px;
+    bottom: 10px;
 }
 
 #reloadButton {
     cursor: pointer;
     font-size: 15px;
-    margin-left: 65px;
+    margin-left: 75px;
 }
 
 #backButton {
@@ -101,42 +101,269 @@ a {
     font-size: 20px;
     margin-left: 20px;
     position: relative;
-    top: 3px;
+    bottom: 10px;
 }
 
 #menuIcon {
     width: 25px;
     position: relative;
-    top: 15px;
-    right: 120px;
-    float: right;
+    left: 20px;
+    bottom: 5px;
 }
 
 #menuText {
     width: 100px;
     position: relative;
-    top: 5px;
-    left: 10px;
+    top: 7px;
+    left: 15px;
+}
+
+#currentProfile {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    border-radius: 200px 200px 200px 200px;
+    -webkit-border-radius: 200px 200px 200px 200px;
+}
+
+#currentInitial {
+    font-size: 22px;
+    text-align: center;
+    position: relative;
+    left: 13px;
+    bottom: 10px;
+}
+
+#profileSelect {
+    width: 275px;
+    position: absolute;
+    right: 30px;
+    top: 50px;
+    -webkit-box-shadow: -15px 25px 50px -30px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -15px 25px 50px -30px rgba(0, 0, 0, 0.75);
+    box-shadow: -15px 25px 50px -30px rgba(0, 0, 0, 0.75);
+}
+
+#profileSelectHeader {
+    height: 55px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    line-height: 55px;
+    padding-left: 10px;
+}
+
+#profileSelectHeader span {
     float: right;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    margin-top: 5px;
+    cursor: pointer;
+    border-radius: 200px 200px 200px 200px;
+    -webkit-border-radius: 200px 200px 200px 200px;
+    -webkit-transition: background 0.2s ease-out;
+    -moz-transition: background 0.2s ease-out;
+    -o-transition: background 0.2s ease-out;
+    transition: background 0.2s ease-out;
+}
+
+#profileSelectHeader span:hover {
+    -moz-transition: background 0.2s ease-in;
+    -o-transition: background 0.2s ease-in;
+    transition: background 0.2s ease-in;
+}
+
+#profileSelectHeader i {
+    font-size: 15px;
+    position: relative;
+    left: 11px;
+    top: 8px;
+}
+
+#profileSelectList {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 400px;
+}
+
+.profile {
+    width: 265px;
+    height: 30px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    -webkit-transition: background 0.2s ease-out;
+    -moz-transition: background 0.2s ease-out;
+    -o-transition: background 0.2s ease-out;
+    transition: background 0.2s ease-out;
+}
+
+.profile:hover {
+    -moz-transition: background 0.2s ease-in;
+    -o-transition: background 0.2s ease-in;
+    transition: background 0.2s ease-in;
+}
+
+.profileBackground {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    float: left;
+    border-radius: 200px 200px 200px 200px;
+    -webkit-border-radius: 200px 200px 200px 200px;
+}
+
+.profileEditSelected {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    float: left;
+    position: absolute;
+    margin-left: -50px;
+    opacity: 0.8;
+    border-radius: 200px 200px 200px 200px;
+    -webkit-border-radius: 200px 200px 200px 200px;
+}
+
+.profileEditSelected i {
+    font-size: 22px;
+    position: relative;
+    top: 16px;
+}
+
+.profileInitial {
+    font-size: 15px;
+    display: inline-block;
+    position: relative;
+    left: 10px;
+    bottom: 16px;
+}
+
+.profileName {
+    display: inline-block;
+    position: relative;
+    bottom: 30px;
+    left: 10px;
+}
+
+.profileSelectSettings {
+    margin: 0 auto;
+    line-height: 55px;
+}
+
+.profileSelectSettings i {
+    position: relative;
+    left: 15px;
+    bottom: 2px;
+}
+
+.colorPicker {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border-radius: 200px 200px 200px 200px;
+    -webkit-border-radius: 200px 200px 200px 200px;
+}
+
+.colorPicker span {
+    position: relative;
+    top: 15px;
+}
+
+.colorPickerPadding {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+}
+
+.profileEdit {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 5px;
+    border-radius: 200px 200px 200px 200px;
+    -webkit-border-radius: 200px 200px 200px 200px;
+}
+
+.profileEditInitial {
+    font-size: 25px;
+    position: relative;
+    top: 11px;
+}
+
+.profileEditName {
+    font-size: 13px;
+    height: 60px;
+    overflow: hidden;
+}
+
+.profileEditPadding {
+    display: inline-block;
+    width: 100px;
+    height: 115px;
+    padding: 10px;
+    cursor: pointer;
+    -webkit-transition: background 0.2s ease-out;
+    -moz-transition: background 0.2s ease-out;
+    -o-transition: background 0.2s ease-out;
+    transition: background 0.2s ease-out;
+}
+
+.profileEditPadding:hover {
+    -moz-transition: background 0.2s ease-in;
+    -o-transition: background 0.2s ease-in;
+    transition: background 0.2s ease-in;
 }
 
 .searchBar {
     position: absolute;
-    right: 30px;
+    left: 40%;
     top: 0;
-    width: 800px;
+    width: 500px;
 }
 
 .searchBar input {
-    width: 75%;
+    width: 90%;
     color: black;
 }
 
+.searchSuggestions {
+    width: 100%;
+    height: 200px;
+    overflow-y: scroll;
+    margin-top: -5px;
+    -webkit-box-shadow: -15px 25px 50px -30px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -15px 25px 50px -30px rgba(0, 0, 0, 0.75);
+    box-shadow: -15px 25px 50px -30px rgba(0, 0, 0, 0.75);
+}
+
+.searchSuggestions p {
+    height: 15px;
+    line-height: 15px;
+    padding: 15px;
+    margin: 0;
+    -webkit-transition: background 0.2s ease-out;
+    -moz-transition: background 0.2s ease-out;
+    -o-transition: background 0.2s ease-out;
+    transition: background 0.2s ease-out;
+}
+
+.searchSuggestions p:hover {
+    -moz-transition: background 0.2s ease-in;
+    -o-transition: background 0.2s ease-in;
+    transition: background 0.2s ease-in;
+}
+
 #searchFilter {
-  width: 90%;
-  padding: 10px;
-  margin-bottom: 20px;
-  -webkit-box-shadow: 4px -2px 51px -6px rgba(0, 0, 0, 0.75);
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 20px;
+    -webkit-box-shadow: 4px -2px 51px -6px rgba(0, 0, 0, 0.75);
 }
 
 .searchButton {
@@ -145,27 +372,28 @@ a {
 }
 
 .filterButton {
-  text-decoration: none;
-  margin-right: 10px;
-  cursor: pointer;
+    text-decoration: none;
+    margin-right: 10px;
+    cursor: pointer;
 }
 
 .filter {
-  width: 180px;
-  height: 295px;
-  padding: 10px;
-  border-right: 1px solid #f44336;
-  display: inline-block;
-  text-align: left;
+    width: 180px;
+    height: 295px;
+    padding: 10px;
+    border-right: 1px solid #f44336;
+    display: inline-block;
+    text-align: left;
 }
 
 #sideNav {
-    height: 100vh;
+    height: calc(100vh - 60px);
     width: 250px;
     overflow-y: auto;
     position: fixed;
     left: 0;
     top: 0px;
+    margin-top: 60px;
     -webkit-box-shadow: 4px -2px 51px -6px rgba(0, 0, 0, 0.75);
 }
 
@@ -181,7 +409,7 @@ a {
 
 #sideNav li {
     padding: 20px;
-    width: 205px;
+    width: 215px;
     position: relative;
     right: 50px;
     cursor: pointer;
@@ -206,10 +434,6 @@ a {
     z-index: 1;
     margin-top: 85px;
     display: none;
-}
-
-.sideNavContainer {
-    margin-top: 85px;
 }
 
 #subscriptions img {
@@ -241,14 +465,14 @@ a {
 }
 
 #loading {
-  width: 75%;
-  height: 20%;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  left: 5;
-  bottom: 0;
-  right: 0;
+    width: 75%;
+    height: 20%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 5;
+    bottom: 0;
+    right: 0;
 }
 
 .settingsInput {
@@ -257,27 +481,27 @@ a {
 }
 
 .settingsSlider {
-  padding: 30px;
+    padding: 30px;
 }
 
 #confirmSettings {
-  position: fixed;
-  margin-left: 250px;
-  margin-right: auto;
-  left: 4%;
-  right: 4%;
-  bottom: 20px;
-  height: 50px;
-  background-color: #212121;
-  color: #f5f5f5;
-  padding: 10px;
-  opacity: 0;
-  z-index: 1;
-  -webkit-box-shadow: 4px -2px 51px -6px rgba(0, 0, 0, 0.75);
-  -webkit-transition: opacity 0.4s ease-in-out;
-  -moz-transition: opacity 0.4s ease-in-out;
-  -ms-transition: opacity 0.4s ease-in-out;
-  -o-transition: opacity 0.4s ease-in-out;
+    position: fixed;
+    margin-left: 250px;
+    margin-right: auto;
+    left: 4%;
+    right: 4%;
+    bottom: 20px;
+    height: 50px;
+    background-color: #212121;
+    color: #f5f5f5;
+    padding: 10px;
+    opacity: 0;
+    z-index: 1;
+    -webkit-box-shadow: 4px -2px 51px -6px rgba(0, 0, 0, 0.75);
+    -webkit-transition: opacity 0.4s ease-in-out;
+    -moz-transition: opacity 0.4s ease-in-out;
+    -ms-transition: opacity 0.4s ease-in-out;
+    -o-transition: opacity 0.4s ease-in-out;
 }
 
 .input-text-settings input {
@@ -315,14 +539,14 @@ a {
 }
 
 .card {
-  margin: 0 auto;
-  width: 90%;
-  text-align: center;
-  padding: 10px;
-  margin-bottom: 30px;
-  -webkit-box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
+    margin: 0 auto;
+    width: 90%;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 30px;
+    -webkit-box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
 }
 
 .help {
@@ -358,21 +582,25 @@ a {
 
 #confirmFunction {
     position: fixed;
+    margin-left: 250px;
+    margin-right: auto;
+    left: 4%;
+    right: 4%;
     top: 50%;
-    left: 30%;
-    width: 800px;
-    height: 65px;
-    font-weight: bold;
-    line-height: 65px;
-    visibility: hidden;
+    height: 45px;
+    line-height: 45px;
+    padding: 10px;
     z-index: 1;
-    -webkit-box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.75);
-    box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.75);
+    visibility: hidden;
+    -webkit-box-shadow: 4px -2px 51px -6px rgba(0, 0, 0, 0.75);
+    -webkit-transition: opacity 0.4s ease-in-out;
+    -moz-transition: opacity 0.4s ease-in-out;
+    -ms-transition: opacity 0.4s ease-in-out;
+    -o-transition: opacity 0.4s ease-in-out;
 }
 
 #confirmMessage {
-    margin-left: 15px;
+    font-weight: bold;
 }
 
 .confirmButton {
@@ -383,11 +611,15 @@ a {
 
 #confirmYes {
     right: 90px;
+    line-height: 65px;
+    font-weight: bold;
     color: #2196f3;
 }
 
 #confirmNo {
     right: 20px;
+    line-height: 65px;
+    font-weight: bold;
 }
 
 #getNextPage {
@@ -396,6 +628,10 @@ a {
     line-height: 45px;
     text-align: center;
     cursor: pointer;
+}
+
+.getNextPage {
+    display: contents;
 }
 
 #comments {
@@ -408,16 +644,19 @@ a {
     color: #FFEB3B;
 }
 
-.blogFeed a {
-  font-size: 20px;
-  font-weight: bold;
+.videoThumbnail:hover .videoWatched {
+    visibility: hidden;
 }
 
-@media only screen and (max-width: 900px) {
-  .searchBar {
-    width: 500px;
-    right: 80px;
-  }
+.blogFeed a {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 925px) {
+    .searchBar {
+        width: 400px;
+    }
 }
 
 /* Thanks to Guus Lieben for the Material Design Switch */

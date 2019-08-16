@@ -1,0 +1,5 @@
+<div v-if='seen'>
+    <div v-if='suggestionList.length > 0' onfocus='searchSuggestionView.seen = true' class='searchSuggestions'>
+        <p v-for='suggestion in suggestionList' v-on:click='newSearchTerm(suggestion)'>{{suggestion}}</p>
+    </div>
+</div>

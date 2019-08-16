@@ -24,20 +24,20 @@
 }
 
 .videoThumbnail img {
-  width: 100%;
+    width: 100%;
 }
 
 .videoThumbnail i {
-  color: white;
-  background-color: black;
-  padding: 6px;
-  opacity: 0.7;
-  position: relative;
+    color: white;
+    background-color: black;
+    padding: 6px;
+    opacity: 0.7;
+    position: relative;
 }
 
 .videoSave {
-  bottom: 159px;
-  left: 247px;
+    bottom: 159px;
+    left: 247px;
 }
 
 .channelThumbnail {
@@ -61,8 +61,8 @@
 }
 
 .videoOptions i {
-  padding: 10px;
-  cursor: pointer;
+    padding: 10px;
+    cursor: pointer;
 }
 
 .videoOptions ul {
@@ -141,56 +141,56 @@
 }
 
 .videoWatched {
-  width: 100%;
-  height: 155px;
-  background-color: black;
-  color: white;
-  position: relative;
-  bottom: 187px;
-  opacity: 0.4;
-  pointer-events: none;
+    width: 100%;
+    height: 155px;
+    background-color: black;
+    color: white;
+    position: relative;
+    bottom: 187px;
+    opacity: 0.4;
+    pointer-events: none;
 }
 
 .watchedProgressBar {
-  background-color: #f44336;
-  height: 3px;
-  position: relative;
-  bottom: 190px;
-  opacity: 0.8;
+    background-color: #f44336;
+    height: 3px;
+    position: relative;
+    bottom: 190px;
+    opacity: 0.8;
 }
 
 .videoPlaylist {
-  float: right;
-  width: 45%;
-  position: relative;
-  bottom: 159px;
-  height: 155px;
-  background-color: black;
-  opacity: 0.7;
+    float: right;
+    width: 45%;
+    position: relative;
+    bottom: 159px;
+    height: 155px;
+    background-color: black;
+    opacity: 0.7;
 }
 
 .videoPlaylistTotals {
-  font-size: 20px;
-  position: relative;
-  left: 50px;
-  top: 40px;
-  color: white;
+    font-size: 20px;
+    position: relative;
+    left: 50px;
+    top: 40px;
+    color: white;
 }
 
 .videoPlaylistIcon {
-  font-size: 25px;
-  top: 70px;
-  left: 10px;
-  background-color: inherit;
-  opacity: 1;
-  bottom: 0px;
+    font-size: 25px;
+    top: 70px;
+    left: 10px;
+    background-color: inherit;
+    opacity: 1;
+    bottom: 0px;
 }
 
 .viewPlaylist {
-  position: relative;
-  left: 10px;
-  top: 60px;
-  cursor: pointer;
+    position: relative;
+    left: 10px;
+    top: 60px;
+    cursor: pointer;
 }
 
 .live {

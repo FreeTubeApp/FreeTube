@@ -61,30 +61,21 @@ const gotTheLock = app.requestSingleInstanceLock()
  */
 let init = function () {
     const Menu = require('electron').Menu;
+    const screen = require('electron').screen;
 
     let winX, winY, winWidth, winHeight = null;
     //let winWidth = 1200;
     //let winHeight = 800;
 
     win = new BrowserWindow({
-        width: 1200,
-        height: 800,
         autoHideMenuBar: true,
         webPreferences: {
-          nodeIntegration: true,
+            nodeIntegration: true,
         },
         icon: path.join(__dirname, '..', 'icons', 'iconColor.png')
     });
 
-    settingsDb.findOne({
-        _id: 'bounds'
-    }, function (err, doc) {
-        if (doc !== null) {
-            if (doc.value !== false) {
-                win.setBounds(doc.value);
-            }
-        }
-    });
+    win.setBounds({width: 1200, height: 800});
 
     settingsDb.findOne({
         _id: 'useTor'
@@ -94,22 +85,21 @@ let init = function () {
                 _id: 'proxy'
             }, (err, doc) => {
                 if (doc !== null) {
-                  win.webContents.session.setProxy({
-                      proxyRules: doc.value
-                  }, function () {
-                      win.loadURL(url.format({
-                          pathname: path.join(__dirname, '../index.html'),
-                          protocol: 'file:',
-                          slashes: true,
-                      }));
-                  });
-                }
-                else {
-                  win.loadURL(url.format({
-                      pathname: path.join(__dirname, '../index.html'),
-                      protocol: 'file:',
-                      slashes: true,
-                  }));
+                    win.webContents.session.setProxy({
+                        proxyRules: doc.value
+                    }, function () {
+                        win.loadURL(url.format({
+                            pathname: path.join(__dirname, '../index.html'),
+                            protocol: 'file:',
+                            slashes: true,
+                        }));
+                    });
+                } else {
+                    win.loadURL(url.format({
+                        pathname: path.join(__dirname, '../index.html'),
+                        protocol: 'file:',
+                        slashes: true,
+                    }));
                 }
             });
         } else {
@@ -215,6 +205,30 @@ let init = function () {
     const menu = Menu.buildFromTemplate(template);
     Menu.setApplicationMenu(menu);
 
+    settingsDb.findOne({
+        _id: 'bounds'
+    }, function (err, doc) {
+        if (doc === null) {
+            return;
+        }
+
+        if (typeof doc !== "object" || typeof doc.value !== "object") {
+            return;
+        }
+
+        const {maximized, ...bounds} = doc.value;
+        const allDisplaysSummaryWidth = screen
+          .getAllDisplays()
+          .reduce((accumulator, {size: {width}}) => accumulator + width, 0);
+
+        if (allDisplaysSummaryWidth >= bounds.x) {
+            win.setBounds({"x":bounds.x,"y":bounds.y,"width":bounds.width,"height":bounds.height});
+        }
+        if (maximized) {
+            win.maximize();
+        }
+    });
+
     /**
      * Sets proxy when setProxy event is sent from renderer
      *
@@ -228,9 +242,11 @@ let init = function () {
         });
     });
 
-
     ipcMain.on("setBounds", (_e, data) => {
-        let bounds = win.getBounds();
+        const value = {
+            ...win.getBounds(),
+            maximized: win.isMaximized(),
+        };
 
         settingsDb.findOne({
             _id: 'bounds'
@@ -240,13 +256,13 @@ let init = function () {
                     _id: 'bounds'
                 }, {
                     $set: {
-                        value: bounds
+                        value,
                     }
                 }, {}, (err, newDoc) => {});
             } else {
                 settingsDb.insert({
                     _id: 'bounds',
-                    value: bounds,
+                    value,
                 });
             }
         });
@@ -258,8 +274,8 @@ let init = function () {
  */
 let allWindowsClosed = function () {
     if (win !== null) {
-      win.webContents.session.clearStorageData([], (data) => {});
-      win.webContents.session.clearCache((data) => {});
+        win.webContents.session.clearStorageData([], (data) => {});
+        win.webContents.session.clearCache((data) => {});
     }
     app.quit();
 };
@@ -275,20 +291,20 @@ let active = function () {
 };
 
 if (!gotTheLock) {
-  app.quit()
+    app.quit()
 } else {
-  app.on('second-instance', (event, commandLine, workingDirectory) => {
-    // Someone tried to run a second instance, we should focus our window.
-    if (win) {
-        if (win.isMinimized()) win.restore()
-        win.focus()
+    app.on('second-instance', (event, commandLine, workingDirectory) => {
+        // Someone tried to run a second instance, we should focus our window.
+        if (win) {
+            if (win.isMinimized()) win.restore()
+            win.focus()
 
-        win.webContents.send('ping', commandLine)
-    }
-  })
+            win.webContents.send('ping', commandLine)
+        }
+    })
 
-  // Create myWindow, load the rest of the app, etc...
-  app.on('ready', init);
+    // Create myWindow, load the rest of the app, etc...
+    app.on('ready', init);
 }
 
 /**

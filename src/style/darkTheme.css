@@ -17,7 +17,7 @@
 
 ::-webkit-scrollbar {
     height: 12px;
-    width: 12px;
+    width: 5px;
     background: #262626;
 }
 
@@ -44,28 +44,37 @@ input[type=text] {
 }
 
 .select-text {
-  border-bottom: 1px solid #E0E0E0;
-  color: white;
+    border-bottom: 1px solid #E0E0E0;
+    color: white;
 }
 
 .select-text option {
-  color: black;
+    color: black;
 }
 
 .select-text:focus {
-  border-bottom: 1px solid #EEEEEE;
+    border-bottom: 1px solid #EEEEEE;
 }
 
 .select:after {
-  border-top: 6px solid #E0E0E0;
+    border-top: 6px solid #E0E0E0;
 }
 
 .select-label {
-  color: #F5F5F5;
+    color: #F5F5F5;
 }
 
 .searchBar ::-webkit-input-placeholder {
     color: #E0E0E0;
+}
+
+.searchSuggestions {
+    background-color: #424242;
+    color: white;
+}
+
+.searchSuggestions p:hover {
+    background-color: #262626;
 }
 
 .topNav {
@@ -90,7 +99,7 @@ input[type=text] {
 }
 
 #searchFilter {
-  background-color: #424242;
+    background-color: #424242;
 }
 
 .jumpToInput {
@@ -98,11 +107,11 @@ input[type=text] {
 }
 
 .settingsSlider span {
-  color: white;
+    color: white;
 }
 
 .card {
-  background-color: #424242;
+    background-color: #424242;
 }
 
 .message {
@@ -111,6 +120,10 @@ input[type=text] {
 
 .videoDelete {
     color: white;
+}
+
+.channelViewContainer {
+    background-color: #424242;
 }
 
 .channelViewImage {
@@ -132,6 +145,10 @@ input[type=text] {
 .channelSubButton {
     color: #E0E0E0;
     background-color: #f44336;
+}
+
+.channelTabOption:hover {
+    background-color: #262626;
 }
 
 .videoTitle {
@@ -211,6 +228,35 @@ input[type=text] {
     color: white;
 }
 
+.playlistVideoOptions ul {
+    background-color: #262626;
+    color: white;
+}
+
+.playlistVideoOptions li:hover {
+    background-color: #262626;
+}
+
+.playlistVideoOptions a {
+    color: white;
+}
+
+.profile:hover {
+    background-color: #616161;
+}
+
+.profileEditSelected {
+    background-color: #424242;
+}
+
+.profileSelectSettings {
+    background-color: #9E9E9E;
+}
+
+.profileEditPadding:hover {
+    background-color: #616161;
+}
+
 #main {
     color: #EEEEEE;
 }
@@ -238,7 +284,7 @@ input[type=text] {
 }
 
 #backButton {
-  color: white;
+    color: white;
 }
 
 #channelIcon {
@@ -289,5 +335,14 @@ input[type=text] {
 }
 
 #miniPL {
-  background-color: #424242;
+    background-color: #424242;
+}
+
+#profileSelect {
+    background-color: #424242;
+    color: white;
+}
+
+#profileSelectHeader span:hover {
+    background-color: #616161;
 }

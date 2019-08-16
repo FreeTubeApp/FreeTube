@@ -16,87 +16,88 @@
 */
 
 function showPlaylist(playlistId) {
-  hideViews();
-  loadingView.seen = true;
+    hideViews();
+    loadingView.seen = true;
 
-  playlistView.videoList = [];
+    playlistView.videoList = [];
 
-  invidiousAPI('playlists', playlistId, {}, (data) => {
-    ft.log(data);
-
-    playlistView.playlistId = playlistId;
-    playlistView.channelName = data.author;
-    playlistView.channelId = data.authorId;
-    playlistView.channelThumbnail = data.authorThumbnails[3].url;
-    playlistView.title = data.title;
-    playlistView.videoCount = data.videoCount;
-    playlistView.viewCount = data.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    playlistView.thumbnail = data.videos[Math.floor((Math.random() * data.videos.length) + 1)].videoThumbnails[0].url;
-    playlistView.description = data.descriptionHtml;
-    let dateString = new Date(data.updated * 1000);
-    dateString.setDate(dateString.getDate() + 1);
-    playlistView.lastUpdated = dateFormat(dateString, "mmm dS, yyyy");
-
-    let amountOfPages = Math.ceil(data.videoCount / 100);
-
-    ft.log(amountOfPages);
-
-    for (let i = 1; i <= amountOfPages; i++) {
-      invidiousAPI('playlists', playlistId, {page: i}, (data) => {
+    invidiousAPI('playlists', playlistId, {}, (data) => {
         ft.log(data);
-        data.videos.forEach((video) => {
-          let videoData = {};
 
-          let time = video.lengthSeconds;
-          let hours = 0;
+        playlistView.playlistId = playlistId;
+        playlistView.channelName = data.author;
+        playlistView.channelId = data.authorId;
+        playlistView.channelThumbnail = data.authorThumbnails[3].url;
+        playlistView.title = data.title;
+        playlistView.videoCount = data.videoCount;
+        playlistView.viewCount = data.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        playlistView.thumbnail = data.videos[Math.floor((Math.random() * data.videos.length) + 1)].videoThumbnails[0].url;
+        playlistView.description = data.descriptionHtml;
+        let dateString = new Date(data.updated * 1000);
+        dateString.setDate(dateString.getDate() + 1);
+        playlistView.lastUpdated = dateFormat(dateString, "mmm dS, yyyy");
 
-          if (time >= 3600) {
-              hours = Math.floor(time / 3600);
-              time = time - hours * 3600;
-          }
+        let amountOfPages = Math.ceil(data.videoCount / 100);
 
-          let minutes = Math.floor(time / 60);
-          let seconds = time - minutes * 60;
+        ft.log(amountOfPages);
 
-          if (seconds < 10) {
-              seconds = '0' + seconds;
-          }
+        for (let i = 1; i <= amountOfPages; i++) {
+            invidiousAPI('playlists', playlistId, {
+                page: i
+            }, (data) => {
+                ft.log(data);
+                data.videos.forEach((video) => {
+                    let videoData = {};
 
-          if (minutes < 10 && hours > 0) {
-            minutes = '0' + minutes;
-          }
+                    let time = video.lengthSeconds;
+                    let hours = 0;
 
-          if (hours > 0) {
-              videoData.duration = hours + ":" + minutes + ":" + seconds;
-          } else {
-              videoData.duration = minutes + ":" + seconds;
-          }
+                    if (time >= 3600) {
+                        hours = Math.floor(time / 3600);
+                        time = time - hours * 3600;
+                    }
 
-          videoData.id = video.videoId;
-          videoData.title = video.title;
-          videoData.channelName = video.author;
-          videoData.channelId = video.authorId;
-          videoData.thumbnail = video.videoThumbnails[4].url;
+                    let minutes = Math.floor(time / 60);
+                    let seconds = time - minutes * 60;
 
-          playlistView.videoList[video.index] = videoData;
-        });
-        if (playlistView.seen !== false) {
-          playlistView.seen = false;
-          playlistView.seen = true;
+                    if (seconds < 10) {
+                        seconds = '0' + seconds;
+                    }
+
+                    if (minutes < 10 && hours > 0) {
+                        minutes = '0' + minutes;
+                    }
+
+                    if (hours > 0) {
+                        videoData.duration = hours + ":" + minutes + ":" + seconds;
+                    } else {
+                        videoData.duration = minutes + ":" + seconds;
+                    }
+
+                    videoData.id = video.videoId;
+                    videoData.title = video.title;
+                    videoData.channelName = video.author;
+                    videoData.channelId = video.authorId;
+                    videoData.thumbnail = video.videoThumbnails[4].url;
+
+                    playlistView.videoList[video.index] = videoData;
+                });
+                if (playlistView.seen !== false) {
+                    playlistView.seen = false;
+                    playlistView.seen = true;
+                }
+            });
+
+            loadingView.seen = false;
+            playlistView.seen = true;
         }
-      });
-
-      loadingView.seen = false;
-      playlistView.seen = true;
-    }
-  });
+    });
 }
 
 function togglePlaylist() {
-  if (playerView.playlistShowList !== false) {
-    playerView.playlistShowList = false;
-  }
-  else{
-    playerView.playlistShowList = true;
-  }
+    if (playerView.playlistShowList !== false) {
+        playerView.playlistShowList = false;
+    } else {
+        playerView.playlistShowList = true;
+    }
 }

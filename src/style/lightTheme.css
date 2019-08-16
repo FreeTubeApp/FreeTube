@@ -17,7 +17,7 @@
 
 ::-webkit-scrollbar {
     height: 12px;
-    width: 12px;
+    width: 5px;
     background: white;
 }
 
@@ -40,23 +40,31 @@ body {
 }
 
 .select-text {
-  border-bottom: 1px solid rgba(0,0,0, 0.12);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .select-text:focus {
-  border-bottom: 1px solid rgba(0,0,0, 0);
+    border-bottom: 1px solid rgba(0, 0, 0, 0);
 }
 
 .select:after {
-  border-top: 6px solid rgba(0, 0, 0, 0.12);
+    border-top: 6px solid rgba(0, 0, 0, 0.12);
 }
 
 .select-label {
-  color: rgba(0,0,0, 0.26);
+    color: rgba(0, 0, 0, 0.26);
 }
 
 .searchBar ::-webkit-input-placeholder {
     color: rgba(0, 0, 0, 0.75);
+}
+
+.searchSuggestions {
+    background-color: white;
+}
+
+.searchSuggestions p:hover {
+    background-color: #e0e0e0;
 }
 
 .topNav {
@@ -77,7 +85,7 @@ body {
 }
 
 #searchFilter {
-  background-color: white;
+    background-color: white;
 }
 
 .jumpToInput {
@@ -85,7 +93,7 @@ body {
 }
 
 .card {
-  background-color: #ffffff;
+    background-color: #ffffff;
 }
 
 .message {
@@ -94,6 +102,10 @@ body {
 
 .videoDelete {
     color: black;
+}
+
+.channelViewContainer {
+    background-color: white;
 }
 
 .channelViewImage {
@@ -106,6 +118,10 @@ body {
 
 .channelSubButton {
     color: #616161;
+    background-color: #eeeeee;
+}
+
+.channelTabOption:hover {
     background-color: #eeeeee;
 }
 
@@ -180,6 +196,34 @@ body {
     color: black;
 }
 
+.playlistVideoOptions ul {
+    background-color: #f5f5f5;
+}
+
+.playlistVideoOptions li:hover {
+    background-color: #e0e0e0;
+}
+
+.playlistVideoOptions a {
+    color: black;
+}
+
+.profile:hover {
+    background-color: #e0e0e0;
+}
+
+.profileEditSelected {
+    background-color: #424242;
+}
+
+.profileSelectSettings {
+    background-color: #9E9E9E;
+}
+
+.profileEditPadding:hover {
+    background-color: #e0e0e0;
+}
+
 #subscriptions img {
     border: 0px solid #000000;
 }
@@ -198,7 +242,7 @@ body {
 }
 
 #backButton {
-  color: #000000;
+    color: #000000;
 }
 
 #channelIcon {
@@ -227,5 +271,13 @@ body {
 }
 
 #miniPL {
-  background-color: white;
+    background-color: white;
+}
+
+#profileSelect {
+    background-color: white;
+}
+
+#profileSelectHeader span:hover {
+    background-color: #e0e0e0;
 }

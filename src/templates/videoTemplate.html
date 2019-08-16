@@ -1,14 +1,14 @@
 <div>
-    <div v-if='seen'>
+    <div class='flexGrid' v-if='seen'>
         <div class='inlineBlock' v-for="video in videoList">
             <div class='inlineBlock' v-if='video.isVideo'>
                 <div class='video'>
                     <div class='videoOptions'>
                         <i class="fas fa-ellipsis-v" onclick='showVideoOptions(this)'></i>
                         <ul>
-                          <div v-if='video.watched'>
-                              <li v-on:click='history(video.id)' onclick='showVideoOptions(this.parentNode.parentNode.previousSibling);'>Remove From History</li>
-                          </div>
+                            <div v-if='video.watched'>
+                                <li v-on:click='history(video.id)' onclick='showVideoOptions(this.parentNode.parentNode.previousSibling);'>Remove From History</li>
+                            </div>
                             <a :href='video.youtubeUrl' onclick='showVideoOptions(this.parentNode.previousSibling);'>
                                 <li>Open in YouTube</li>
                             </a>
@@ -59,17 +59,17 @@
                     <div class='channelThumbnail'>
                         <img v-on:click='channel(video.channelId)' :src='video.thumbnail' />
                     </div>
-                    <p v-on:click='channel(video.channelId)' class='videoTitle'>{{video.channelName}}</p>
-                    <p v-on:click='channel(video.channelId)' class='channelName'>{{video.subscriberCount}} subscribers - {{video.videoCount}} videos</p>
-                    <p v-on:click='channel(video.channelId)' class='videoDescription'>{{video.channelDescription}}</p>
+                        <p v-on:click='channel(video.channelId)' class='videoTitle'>{{video.channelName}}</p>
+                        <p v-on:click='channel(video.channelId)' class='channelName'>{{video.subscriberCount}} subscribers - {{video.videoCount}} videos</p>
+                        <p v-on:click='channel(video.channelId)' class='videoDescription'>{{video.channelDescription}}</p>
+                    </div>
+                    <hr class='videoDivider' />
                 </div>
-                <hr class='videoDivider' />
             </div>
-        </div>
-        <div v-if='isSearch'>
-            <div v-on:click='nextPage' id='getNextPage'>
-                <i class="fas fa-search"></i> Fetch more results...
+            <div class='getNextPage' v-if='isSearch'>
+                <div v-on:click='nextPage' id='getNextPage'>
+                    <i class="fas fa-search"></i> Fetch more results…
+                </div>
             </div>
         </div>
     </div>
-</div>

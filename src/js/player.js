@@ -49,26 +49,31 @@ function playVideo(videoId, playlistId = '') {
     playerView.videoLive = undefined;
     playerView.validLive = false;
     playerView.validDash = true;
-    playerView.videoDash = invidiousInstance + '/api/manifest/dash/' + videoId + '.mpd?unique_res=1';
+    playerView.videoDash = invidiousInstance + '/api/manifest/dash/' + videoId + '.mpd';
+
+    if (settingsView.proxyVideos) {
+        playerView.videoDash = playerView.videoDash + '?local=true';
+    }
+
     playerView.embededHtml = "<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/" + videoId + "?rel=0' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>";
 
     let videoHtml = '';
     let player;
 
     switch (defaultPlayer) {
-        case 'dash':
-            playerView.playerSeen = true;
-            playerView.legacySeen = false;
-            break;
-        case 'legacy':
-            playerView.playerSeen = false;
-            playerView.legacySeen = true;
-            break;
-        case 'embed':
-            playerView.playerSeen = false;
-            playerView.legacySeen = false;
-            break;
-        default:
+    case 'dash':
+        playerView.playerSeen = true;
+        playerView.legacySeen = false;
+        break;
+    case 'legacy':
+        playerView.playerSeen = false;
+        playerView.legacySeen = true;
+        break;
+    case 'embed':
+        playerView.playerSeen = false;
+        playerView.legacySeen = false;
+        break;
+    default:
 
     }
 
@@ -119,14 +124,14 @@ function playVideo(videoId, playlistId = '') {
                 // Search through the returned object to get the 360p and 720p video URLs (If available)
                 Object.keys(videoUrls).forEach((key) => {
                     switch (videoUrls[key]['itag']) {
-                        case '18':
-                            playerView.video360p = decodeURIComponent(videoUrls[key]['url']);
-                            // ft.log(playerView.video360p);
-                            break;
-                        case '22':
-                            playerView.video720p = decodeURIComponent(videoUrls[key]['url']);
-                            // ft.log(playerView.video720p);
-                            break;
+                    case '18':
+                        playerView.video360p = decodeURIComponent(videoUrls[key]['url']);
+                        // ft.log(playerView.video360p);
+                        break;
+                    case '22':
+                        playerView.video720p = decodeURIComponent(videoUrls[key]['url']);
+                        // ft.log(playerView.video720p);
+                        break;
                     }
                 });
 
@@ -138,7 +143,7 @@ function playVideo(videoId, playlistId = '') {
                     playerView.legacySeen = true;
                 }
 
-                if (typeof(playerView.videoAudio) === 'undefined') {
+                if (typeof (playerView.videoAudio) === 'undefined') {
                     ft.log(playerView.videoAudio);
                     playerView.validAudio = false;
                 }
@@ -146,7 +151,7 @@ function playVideo(videoId, playlistId = '') {
                 let useEmbedPlayer = false;
 
                 // Default to the embeded player if the URLs cannot be found.
-                if (typeof(playerView.video720p) === 'undefined' && typeof(playerView.video360p) === 'undefined') {
+                if (typeof (playerView.video720p) === 'undefined' && typeof (playerView.video360p) === 'undefined') {
                     //useEmbedPlayer = true;
                     playerView.currentQuality = 'EMBED';
                     playerView.playerSeen = false;
@@ -155,7 +160,7 @@ function playVideo(videoId, playlistId = '') {
                     playerView.video720p = '';
                     //useEmbedPlayer = true;
                     showToast('Unable to get video file.  Reverting to embeded player.');
-                } else if (typeof(playerView.video720p) === 'undefined' && typeof(playerView.video360p) !== 'undefined') {
+                } else if (typeof (playerView.video720p) === 'undefined' && typeof (playerView.video360p) !== 'undefined') {
                     // Default to the 360p video if the 720p URL cannot be found.
                     ft.log('Found');
                     playerView.videoUrl = playerView.video360p;
@@ -264,7 +269,7 @@ function playVideo(videoId, playlistId = '') {
             playerView.recommendedVideoList = playerView.recommendedVideoList.concat(data);
         });
 
-        if (typeof(data.captions) !== 'undefined') {
+        if (typeof (data.captions) !== 'undefined') {
             data.captions.forEach((caption) => {
                 let subtitleUrl = invidiousInstance + caption.url;
 
@@ -281,23 +286,23 @@ function playVideo(videoId, playlistId = '') {
             // Search through the returned object to get the 360p and 720p video URLs (If available)
             Object.keys(videoUrls).forEach((key) => {
                 switch (videoUrls[key]['itag']) {
-                    case '18':
-                        playerView.video360p = decodeURIComponent(videoUrls[key]['url']);
-                        // ft.log(playerView.video360p);
-                        break;
-                    case '22':
-                        playerView.video720p = decodeURIComponent(videoUrls[key]['url']);
-                        // ft.log(playerView.video720p);
-                        break;
+                case '18':
+                    playerView.video360p = decodeURIComponent(videoUrls[key]['url']);
+                    // ft.log(playerView.video360p);
+                    break;
+                case '22':
+                    playerView.video720p = decodeURIComponent(videoUrls[key]['url']);
+                    // ft.log(playerView.video720p);
+                    break;
                 }
             });
 
-            if (typeof(playerView.video360p) === 'undefined') {
+            if (typeof (playerView.video360p) === 'undefined') {
                 playerView.video360p = '';
                 playerView.valid360p = false;
             }
 
-            if (typeof(playerView.video720p) === 'undefined') {
+            if (typeof (playerView.video720p) === 'undefined') {
                 playerView.video720p = '';
                 playerView.valid720p = false;
             }
@@ -318,7 +323,7 @@ function playVideo(videoId, playlistId = '') {
                 playerView.legacySeen = true;
             }
 
-            if (typeof(playerView.videoAudio) === 'undefined') {
+            if (typeof (playerView.videoAudio) === 'undefined') {
                 ft.log(playerView.videoAudio);
                 playerView.videoAudio = '';
                 playerView.validAudio = false;
@@ -390,7 +395,7 @@ function playVideo(videoId, playlistId = '') {
         if (rememberHistory === true) {
             historyDb.findOne({
                 videoId: playerView.videoId
-            }, function(err, doc) {
+            }, function (err, doc) {
                 let watchProgress = 0;
 
                 if (doc !== null) {
@@ -435,7 +440,7 @@ function openMiniPlayer() {
     let videoPlayer;
     // Grabs whatever the HTML is for the current video player.  Done this way to grab
     // the HTML5 player (with varying qualities) as well as the YouTube embeded player.
-    if (typeof(player) !== 'undefined') {
+    if (typeof (player) !== 'undefined') {
         videoPlayer = player;
     } else {
         videoPlayer = $('.videoPlayer').get(0);
@@ -624,6 +629,16 @@ function openMiniPlayer() {
             thumbnailInterval: playerView.thumbnailInterval,
         };
         miniPlayer.webContents.send('ping', playerData);
+
+        let tmpSize = [0, 0];
+
+        miniPlayer.on('resize', (e) => {
+            var size = miniPlayer.getSize()
+            if (Math.abs(size[0] - tmpSize[0]) > 2 || Math.abs(size[1] - tmpSize[1]) > 2) {
+                miniPlayer.setSize(size[0], parseInt(size[0] * 9 / 16))
+            }
+            tmpSize = size;
+        });
     });
 
     return;
@@ -640,7 +655,7 @@ function clickMiniPlayer(videoId) {
 
     showToast("Opening in mini player, Please wait.");
 
-    let playVideo = function(videoData) {
+    let playVideo = function (videoData) {
         if (videoData.checked720p === false || videoData.checked360p === false || videoData.checkedAudio === false || videoData.checkedDash === false || videoData.checkedLive === false) {
             return;
         }
@@ -797,7 +812,16 @@ function clickMiniPlayer(videoId) {
             miniPlayer.show();
             miniPlayer.webContents.send('ping', videoData);
             showToast('Video has been opened in a new window.');
-            // TODO: Add video to history once fully loaded.
+
+            let tmpSize = [0, 0];
+
+            miniPlayer.on('resize', (e) => {
+                var size = miniPlayer.getSize()
+                if (Math.abs(size[0] - tmpSize[0]) > 2 || Math.abs(size[1] - tmpSize[1]) > 2) {
+                    miniPlayer.setSize(size[0], parseInt(size[0] * 9 / 16))
+                }
+                tmpSize = size;
+            });
         });
 
         if (rememberHistory === true) {
@@ -823,7 +847,7 @@ function clickMiniPlayer(videoId) {
         }
     };
 
-    let validateData = function(data) {
+    let validateData = function (data) {
         let newData = data;
         newData.checked720p = false;
         newData.checked360p = false;
@@ -877,6 +901,11 @@ function clickMiniPlayer(videoId) {
 
     videoData.videoId = videoId;
     videoData.videoDash = invidiousInstance + '/api/manifest/dash/' + videoId + '.mpd?unique_res=1';
+
+    if (settingsView.proxyVideos) {
+        videoData.videoDash = videoData.videoDash + '&local=true';
+    }
+
     videoData.autoplay = autoplay;
     videoData.enableSubtitles = enableSubtitles;
     videoData.quality = defaultQuality;
@@ -885,7 +914,7 @@ function clickMiniPlayer(videoId) {
 
     historyDb.findOne({
         videoId: videoData.videoId
-    }, function(err, doc) {
+    }, function (err, doc) {
         if (doc !== null) {
             videoData.currentTime = doc.watchProgress;
         } else {
@@ -910,12 +939,12 @@ function clickMiniPlayer(videoId) {
 
             Object.keys(videoUrls).forEach((key) => {
                 switch (videoUrls[key]['itag']) {
-                    case '18':
-                        videoData.video360p = videoUrls[key]['url'];
-                        break;
-                    case '22':
-                        videoData.video720p = videoUrls[key]['url'];
-                        break;
+                case '18':
+                    videoData.video360p = videoUrls[key]['url'];
+                    break;
+                case '22':
+                    videoData.video720p = videoUrls[key]['url'];
+                    break;
                 }
             });
 
@@ -938,12 +967,12 @@ function clickMiniPlayer(videoId) {
 
         Object.keys(videoUrls).forEach((key) => {
             switch (videoUrls[key]['itag']) {
-                case '18':
-                    videoData.video360p = videoUrls[key]['url'];
-                    break;
-                case '22':
-                    videoData.video720p = videoUrls[key]['url'];
-                    break;
+            case '18':
+                videoData.video360p = videoUrls[key]['url'];
+                break;
+            case '22':
+                videoData.video720p = videoUrls[key]['url'];
+                break;
             }
         });
 
@@ -959,7 +988,7 @@ function clickMiniPlayer(videoId) {
 
         let videoHtml = '';
 
-        if (typeof(data.captions) !== 'undefined') {
+        if (typeof (data.captions) !== 'undefined') {
             data.captions.forEach((caption) => {
                 let subtitleUrl = invidiousInstance + caption.url;
 
@@ -1014,7 +1043,7 @@ function checkDashSettings() {
     let parseDash = true;
     let quality = 'Auto';
 
-    let declarePlayer = function() {
+    let declarePlayer = function () {
         if (!checkedDash) {
             return;
         }
@@ -1038,7 +1067,7 @@ function checkDashSettings() {
             startVolume: currentVolume,
             timeRailThumbnailsSeconds: playerView.thumbnailInterval,
 
-            success: function(mediaElement, originalNode, instance) {
+            success: function (mediaElement, originalNode, instance) {
                 ft.log(mediaElement, originalNode, instance);
 
                 if (autoplay) {
@@ -1047,7 +1076,7 @@ function checkDashSettings() {
                 };
 
                 window.setTimeout(() => {
-                    if (enableSubtitles && typeof($('.mejs__captions-button').get(0)) !== 'undefined') {
+                    if (enableSubtitles && typeof ($('.mejs__captions-button').get(0)) !== 'undefined') {
                         let captionOptions = $('.mejs__captions-selector-input').get();
                         if (captionOptions.length > 1) {
                             captionOptions[1].click();
@@ -1059,7 +1088,7 @@ function checkDashSettings() {
                     };
                 }, 2000);
 
-                let initializeSettings = function() {
+                let initializeSettings = function () {
                     let qualityOptions = $('.mejs__qualities-selector-input').get();
 
                     if (qualityOptions.length < 2) {
@@ -1071,9 +1100,9 @@ function checkDashSettings() {
 
                     historyDb.findOne({
                         videoId: playerView.videoId
-                    }, function(err, doc) {
+                    }, function (err, doc) {
                         if (doc !== null) {
-                            if (typeof(playerView.currentTime) !== 'undefined') {
+                            if (typeof (playerView.currentTime) !== 'undefined') {
                                 instance.currentTime = playerView.currentTime;
                                 playerView.currentTime = undefined;
                             } else if (doc.watchProgress < instance.duration - 5 && playerView.validLive === false) {
@@ -1083,8 +1112,8 @@ function checkDashSettings() {
                     });
 
                     let selectedOption = false;
-                    qualityOptions.reverse().forEach((option, index) => {
-                        if (option.value === defaultQuality || option.value === defaultQuality + 'p') {
+                    qualityOptions.forEach((option, index) => {
+                        if (option.value === defaultQuality || option.value === defaultQuality + 'p' || option.value === defaultQuality + 'p60') {
                             option.click();
                             selectedOption = true;
                         }
@@ -1095,14 +1124,14 @@ function checkDashSettings() {
                         ft.log('Quality not available.');
                         ft.log(qualityOptions.reverse()[0]);
 
-                        qualityOptions.reverse()[0].click();
+                        $('.mejs__qualities-selector-input').get().reverse()[0].click();
                     }
                 };
 
                 initializeSettings();
             },
 
-            error: function(error, originalNode, instance) {
+            error: function (error, originalNode, instance) {
                 ft.log(error);
                 ft.log(originalNode);
                 ft.log(instance);
@@ -1137,12 +1166,12 @@ function checkLegacySettings() {
     let checked360p = false;
     let checkedAudio = false;
 
-    let declarePlayer = function() {
+    let declarePlayer = function () {
         if (!checked720p || !checked360p || !checkedAudio) {
             return;
         }
 
-        if (typeof(playerView.currentTime) !== 'undefined') {
+        if (typeof (playerView.currentTime) !== 'undefined') {
             player.currentTime = playerView.currentTime;
         }
 
@@ -1155,9 +1184,9 @@ function checkLegacySettings() {
         window.setTimeout(() => {
             historyDb.findOne({
                 videoId: playerView.videoId
-            }, function(err, doc) {
+            }, function (err, doc) {
                 if (doc !== null) {
-                    if (doc.watchProgress < player.duration - 5 && typeof(playerView.currentTime) === 'undefined') {
+                    if (doc.watchProgress < player.duration - 5 && typeof (playerView.currentTime) === 'undefined') {
                         player.currentTime = doc.watchProgress;
                     }
 
@@ -1211,18 +1240,18 @@ function checkLegacySettings() {
 
 function playNext(timeLeft) {
     if (playerView.playlistSeen && !settingsView.autoplayPlaylists) {
-      return;
+        return;
     };
     if (!playerView.playlistSeen && !settingsView.playNextVideo) {
-      return;
+        return;
     }
     const clearHtml = "<span class='link' onclick='stopPlayNext()'>Cancel</span>";
 
-    showToast('Playing next video in ' + timeLeft + ' seconds... ' + clearHtml);
+    showToast('Playing next video in ' + timeLeft + ' seconds… ' + clearHtml);
     playNextTimeout = window.setTimeout(() => {
         if (timeLeft === 1) {
             clearTimeout(playNextTimeout);
-            showToast('Playing next video...');
+            showToast('Playing next video…');
             playNextVideo();
         } else {
             playNext(timeLeft - 1);
@@ -1277,8 +1306,8 @@ function playNextVideo() {
             return;
         }
     } else {
-      loadingView.seen = true;
-      playVideo(playerView.recommendedVideoList[0].id);
+        loadingView.seen = true;
+        playVideo(playerView.recommendedVideoList[0].id);
     }
 }
 

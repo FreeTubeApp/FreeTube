@@ -21,7 +21,7 @@ let trendingTimer;
 let checkTrending = true;
 
 const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
 ];
 
 /**
@@ -52,7 +52,7 @@ function search(page = 1) {
         searchView.seen = true;
     } else {
         ft.log(page);
-        showToast('Fetching results.  Please wait...');
+        showToast('Fetching results.  Please wait…');
     }
 
     invidiousAPI('search', '', {
@@ -66,25 +66,41 @@ function search(page = 1) {
         ft.log(data);
 
         data.forEach((video) => {
-          switch (video.type) {
+            switch (video.type) {
             case 'video':
-              displayVideo(video, 'search');
-              break;
+                displayVideo(video, 'search');
+                break;
             case 'channel':
-              displayChannel(video);
-              break;
+                displayChannel(video);
+                break;
             case 'playlist':
-              if (video.videoCount > 0) {
-                displayPlaylist(video);
-              }
-              break;
+                if (video.videoCount > 0) {
+                    displayPlaylist(video, 'search');
+                }
+                break;
             default:
-          }
+            }
         });
 
         searchView.page = searchView.page + 1;
         loadingView.seen = false;
-    })
+    });
+}
+
+function getSearchSuggestion() {
+    const query = document.getElementById('search').value;
+
+    invidiousAPI('search/suggestions', '', {
+        q: query,
+    }, function (data) {
+        searchSuggestionsView.suggestionList = data.suggestions;
+    });
+}
+
+function hideSearchSuggestion() {
+    if (typeof ($('.searchSuggestions').get(0)) !== 'undefined' && !$('.searchSuggestions').is(':hover')) {
+        searchSuggestionsView.seen = false;
+    }
 }
 
 /**
@@ -98,14 +114,14 @@ function search(page = 1) {
  */
 function displayVideo(videoData, listType = '') {
     if (videoData.paid) {
-      return;
+        return;
     }
 
     let video = {};
     video.id = videoData.videoId;
 
     if (videoData.type == 'playlist') {
-      video.isPlaylist = true;
+        video.isPlaylist = true;
     }
 
     historyDb.findOne({
@@ -121,54 +137,51 @@ function displayVideo(videoData, listType = '') {
         video.views = videoData.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         let time = videoData.lengthSeconds;
 
-        if (videoData.liveNow === true || time < 0){
-          video.liveText = 'LIVE NOW';
-          video.duration = '';
-          video.publishedDate = '';
-          video.viewText = 'watching';
-        }
-        else{
-          let now = Date.now();
-          video.liveText = '';
+        if (videoData.liveNow === true || time < 0) {
+            video.liveText = 'LIVE NOW';
+            video.duration = '';
+            video.publishedDate = '';
+            video.viewText = 'watching';
+        } else {
+            let now = Date.now();
+            video.liveText = '';
 
-          if (video.views <= 1) {
-            video.viewText = 'view';
-          }
-          else{
-            video.viewText = 'views';
-          }
-
-          let published = new Date(videoData.published * 1000);
-          let hours = 0;
-
-          if (now < published.getTime()) {
-            video.publishedDate = 'Premieres on ' + published.toLocaleString();
-          }
-          else {
-            if (time >= 3600) {
-                hours = Math.floor(time / 3600);
-                time = time - hours * 3600;
-            }
-
-            let minutes = Math.floor(time / 60);
-            let seconds = time - minutes * 60;
-
-            if (seconds < 10) {
-                seconds = '0' + seconds;
-            }
-
-            if (minutes < 10 && hours > 0) {
-              minutes = '0' + minutes;
-            }
-
-            if (hours > 0) {
-                video.duration = hours + ":" + minutes + ":" + seconds;
+            if (video.views <= 1) {
+                video.viewText = 'view';
             } else {
-                video.duration = minutes + ":" + seconds;
+                video.viewText = 'views';
             }
 
-            video.publishedDate = videoData.publishedText;
-          }
+            let published = new Date(videoData.published * 1000);
+            let hours = 0;
+
+            if (now < published.getTime()) {
+                video.publishedDate = 'Premieres on ' + published.toLocaleString();
+            } else {
+                if (time >= 3600) {
+                    hours = Math.floor(time / 3600);
+                    time = time - hours * 3600;
+                }
+
+                let minutes = Math.floor(time / 60);
+                let seconds = time - minutes * 60;
+
+                if (seconds < 10) {
+                    seconds = '0' + seconds;
+                }
+
+                if (minutes < 10 && hours > 0) {
+                    minutes = '0' + minutes;
+                }
+
+                if (hours > 0) {
+                    video.duration = hours + ":" + minutes + ":" + seconds;
+                } else {
+                    video.duration = minutes + ":" + seconds;
+                }
+
+                video.publishedDate = videoData.publishedText;
+            }
         }
 
         // Include a remove icon in the list if the application is displaying the history list or saved videos.
@@ -183,11 +196,10 @@ function displayVideo(videoData, listType = '') {
 
         video.youtubeUrl = 'https://youtube.com/watch?v=' + video.id;
         video.invidiousUrl = invidiousInstance + '/watch?v=' + video.id;
-        if (typeof(videoData.videoThumbnails) === 'string'){
-          video.thumbnail = videoData.videoThumbnails;
-        }
-        else {
-          video.thumbnail = videoData.videoThumbnails[4].url;
+        if (typeof (videoData.videoThumbnails) === 'string') {
+            video.thumbnail = videoData.videoThumbnails;
+        } else {
+            video.thumbnail = videoData.videoThumbnails[4].url;
         }
         video.title = videoData.title;
         video.channelName = videoData.author;
@@ -225,6 +237,10 @@ function displayVideo(videoData, listType = '') {
             channelVideosView.videoList = channelVideosView.videoList.concat(video);
             video.removeFromSave = false;
             break;
+        case 'channelSearch':
+            channelSearchView.videoList = channelSearchView.videoList.concat(video);
+            video.removeFromSave = false;
+            break;
         }
     });
 }
@@ -243,8 +259,13 @@ function displayChannel(channel) {
     searchView.videoList = searchView.videoList.concat(channelData);
 }
 
-function displayPlaylist(playlist) {
+function displayPlaylist(playlist, listType) {
     let playListData = {};
+    playListData.videoCount = playlist.videoCount;
+
+    if (playlist.videoCount === 0) {
+        return;
+    }
 
     playListData.isPlaylist = true;
     playListData.isVideo = false;
@@ -252,16 +273,30 @@ function displayPlaylist(playlist) {
     playListData.channelName = playlist.author;
     playListData.channelId = playlist.authorId;
     playListData.id = playlist.playlistId;
-    playListData.description = playlist.videos[0].title + "\r\n" + playlist.videos[1].title;
     playListData.title = playlist.title;
-    playListData.videoCount = playlist.videoCount;
 
-    if (playListData.channelName == 'YouTube' && playListData.title.includes('Mix')){
-      // Hide Mix playlists.
-      return;
+
+    if (playlist.videoCount.length > 2) {
+        playListData.description = playlist.videos[0].title + "\r\n" + playlist.videos[1].title;
+    } else {
+        playListData.description = playlist.videos[0].title;
     }
 
-    searchView.videoList = searchView.videoList.concat(playListData);
+    if (playListData.channelName == 'YouTube' && playListData.title.includes('Mix')) {
+        // Hide Mix playlists.
+        return;
+    }
+
+    switch (listType) {
+    case 'channelPlaylist':
+        channelPlaylistsView.videoList = channelPlaylistsView.videoList.concat(playListData);
+        break;
+    case 'channelSearch':
+        channelSearchView.videoList = channelSearchView.videoList.concat(playListData);
+        break;
+    default:
+        searchView.videoList = searchView.videoList.concat(playListData);
+    }
 }
 
 /**
@@ -317,13 +352,13 @@ function parseSearchText(url = '') {
  * @return {Void}
  */
 function showMostPopular() {
-  if (checkPopular === false && popularView.videoList.length > 0) {
-      ft.log('Will not load popular. Timer still on.');
-      loadingView.seen = false;
-      return;
-  } else {
-      checkPopular = false;
-  }
+    if (checkPopular === false && popularView.videoList.length > 0) {
+        ft.log('Will not load popular. Timer still on.');
+        loadingView.seen = false;
+        return;
+    } else {
+        checkPopular = false;
+    }
 
     invidiousAPI('popular', '', {}, function (data) {
         ft.log(data);
@@ -355,7 +390,9 @@ function showTrending() {
         checkTrending = false;
     }
 
-    invidiousAPI('trending', '', {region: settingsView.region}, function (data) {
+    invidiousAPI('trending', '', {
+        region: settingsView.region
+    }, function (data) {
         ft.log(data);
         popularView.videoList = [];
 
@@ -455,9 +492,8 @@ function checkVideoUrls(video360p, video720p, videoAudio) {
                 break;
             }
         });
-    }
-    else{
-      playerView.validAudio = false;
+    } else {
+        playerView.validAudio = false;
     }
 
     if (typeof (video360p) !== 'undefined') {
@@ -478,14 +514,13 @@ function checkVideoUrls(video360p, video720p, videoAudio) {
             default:
                 ft.log('360p is valid');
                 if (currentQuality === '720p' && typeof (video720p) === 'undefined') {
-                  playerView.currentQuality = '360p';
+                    playerView.currentQuality = '360p';
                 }
                 break;
             }
         });
-    }
-    else{
-      playerView.valid360p = false;
+    } else {
+        playerView.valid360p = false;
     }
 
     if (typeof (video720p) !== 'undefined') {
@@ -496,7 +531,7 @@ function checkVideoUrls(video360p, video720p, videoAudio) {
                 showToast('Found valid URL for 720p, but returned a 404. Video type might be available in the future.');
                 playerView.valid720p = false;
                 if (typeof (valid360) !== 'undefined') {
-                  playerView.currentQuality = '360p';
+                    playerView.currentQuality = '360p';
                 }
                 break;
             case 403:
@@ -509,8 +544,7 @@ function checkVideoUrls(video360p, video720p, videoAudio) {
                 break;
             }
         });
-    }
-    else{
-      playerView.valid720p = false;
+    } else {
+        playerView.valid720p = false;
     }
 }

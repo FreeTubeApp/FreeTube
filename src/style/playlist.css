@@ -1,37 +1,37 @@
 .playlistSideView {
-  float: left;
-  position: fixed;
-  width: 30%;
-  height: 100%;
-  overflow-y: auto;
+    float: left;
+    position: fixed;
+    width: 30%;
+    height: 100%;
+    overflow-y: auto;
 }
 
 .playlistSideView img {
-  width: 100%;
+    width: 100%;
 }
 
 .playlistVideo {
-  height: 115px;
-  overflow: hidden;
+    height: 115px;
+    overflow: hidden;
 }
 
 .playlistVideoView {
-  float: right;
-  width: 60%;
+    float: right;
+    width: 58%;
 }
 
 .playlistVideoThumbnail {
-  width: 200px;
-  cursor: pointer;
+    width: 200px;
+    cursor: pointer;
 }
 
 .playlistVideoThumbnail img {
-  width: 100%;
-  cursor: pointer;
+    width: 100%;
+    cursor: pointer;
 }
 
 .playlistChannel {
-  height: 70px;
+    height: 70px;
 }
 
 .playlistChannel img {
@@ -43,114 +43,158 @@
 }
 
 .playlistChannel h3 {
-  float: left;
-  position: relative;
-  cursor: pointer;
-  width: 200px;
-  margin-left: 10px;
-  top: 5px;
-  font-size: 15px;
+    float: left;
+    position: relative;
+    cursor: pointer;
+    width: 200px;
+    margin-left: 10px;
+    top: 5px;
+    font-size: 15px;
 }
 
 .playlistVideoSave {
-  background-color: black;
-  color: white;
-  opacity: 0.7;
-  padding: 4px;
-  position: relative;
-  left: 176px;
-  bottom: 117px;
-  cursor: pointer;
+    background-color: black;
+    color: white;
+    opacity: 0.7;
+    padding: 4px;
+    position: relative;
+    left: 176px;
+    bottom: 117px;
+    cursor: pointer;
 }
 
 .playlistVideoTitle {
-  position: relative;
-  bottom: 160px;
-  margin-left: 210px;
-  font-weight: bold;
-  width: 50%;
-  cursor: pointer;
+    position: relative;
+    bottom: 160px;
+    margin-left: 210px;
+    font-weight: bold;
+    width: 50%;
+    cursor: pointer;
 }
 
 .playlistChannelName {
-  position: relative;
-  bottom: 160px;
-  margin-left: 210px;
-  font-size: 12px;
-  cursor: pointer;
+    position: relative;
+    bottom: 160px;
+    margin-left: 210px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.playlistVideoOptions {
+    float: right;
+    width: 37px;
+}
+
+.playlistVideoOptions i {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.playlistVideoOptions ul {
+    width: 90px;
+    font-size: 12px;
+    position: relative;
+    right: 110px;
+    bottom: 10px;
+    list-style-type: none;
+    display: none;
+    -webkit-box-shadow: 4px 4px 33px -7px rgba(0, 0, 0, 0.75);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.playlistVideoOptions li {
+    width: 110px;
+    position: relative;
+    right: 40px;
+    padding: 10px;
+    -webkit-transition: background 0.2s ease-out;
+    -moz-transition: background 0.2s ease-out;
+    -o-transition: background 0.2s ease-out;
+    transition: background 0.2s ease-out;
+}
+
+.playlistVideoOptions li:hover {
+    -moz-transition: background 0.2s ease-in;
+    -o-transition: background 0.2s ease-in;
+    transition: background 0.2s ease-in;
+}
+
+.playlistVideoOptions a {
+    text-decoration: none;
 }
 
 #miniPL {
-  width: 100%;
+    width: 100%;
 }
 
 .miniPLVideo {
-  width: 100%;
-  cursor: pointer;
-  height: 70px;
+    width: 100%;
+    cursor: pointer;
+    height: 70px;
 }
 
 .miniPLThumbnail {
-  width: 120px;
-  height: 80px;
-  margin-right: 5px;
-  float: left;
+    width: 120px;
+    height: 80px;
+    margin-right: 5px;
+    float: left;
 }
 
 .miniPLIndex {
-  float: left;
-  position: relative;
-  width: 15px;
-  top: 30px;
-  margin-right: 35px;
+    float: left;
+    position: relative;
+    width: 15px;
+    top: 30px;
+    margin-right: 35px;
 }
 
 .miniPLVideoTitle {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .miniPLVideoChannelName {
-  font-size: 12px;
-  position: relative;
-  bottom: 10px;
+    font-size: 12px;
+    position: relative;
+    bottom: 10px;
 }
 
 #miniPLTitle {
-  font-weight: bold;
-  font-size: 20px;
-  margin-left: 20px;
-  padding-top: 25px;
-  cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 20px;
+    padding-top: 25px;
+    cursor: pointer;
 }
 
 #miniPLChannelName {
-  font-size: 15px;
-  font-weight: normal;
+    font-size: 15px;
+    font-weight: normal;
 }
 
 #miniPLVideoList {
-  padding: 10px;
-  overflow: scroll;
-  height: 375px;
+    padding: 10px;
+    overflow: scroll;
+    height: 375px;
 }
 
 #miniPLLoop {
-  margin-left: 20px;
-  font-size: 20px;
-  cursor: pointer;
+    margin-left: 20px;
+    font-size: 20px;
+    cursor: pointer;
 }
 
 #miniPLShuffle {
-  margin-left: 20px;
-  font-size: 20px;
-  cursor: pointer;
+    margin-left: 20px;
+    font-size: 20px;
+    cursor: pointer;
 }
 
 #miniPLDropdown {
-  float: right;
-  cursor: pointer;
-  font-size: 20px;
-  position: relative;
-  top: 20px;
-  right: 15px;
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+    position: relative;
+    top: 20px;
+    right: 15px;
 }
