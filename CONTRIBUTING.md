@@ -46,14 +46,14 @@ npm run make:win
 
 Mac:
 ```
-npm run make:mac
+npm run make:mac:zip
 ```
 
 Linux (Requires deb and rpm to be installed):
 ```
-npm run make:linux
+npm run make:linux:x64
 ```
 
-Other commands are available in the `package.json` file for making specific packages.  Refer to `package.json` for instructions.
+Other commands are available in the `package.json` file for making specific packages.  Refer to [package.json](https://github.com/FreeTubeApp/FreeTube/blob/development/package.json) for instructions.
 
 I will update this document when necessary.  Anyone who has questions or suggestions on this document are welcome to create an issue or pull request.
