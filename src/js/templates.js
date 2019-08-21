@@ -1699,6 +1699,8 @@ function hideViews() {
     historyView.seen = false;
     playlistView.seen = false;
     playerView.seen = false;
+    playerView.playerSeen = false;
+    playerView.legacySeen = false;
     channelView.seen = false;
     channelVideosView.seen = false;
     channelPlaylistsView.seen = false;
