@@ -202,6 +202,11 @@ let subscriptionView = new Vue({
             clipboard.writeText(url);
             showToast('URL has been copied to the clipboard');
         },
+        copyYouTubeNoCookie: (videoId) => {
+            const url = 'https://www.youtube-nocookie.com/embed/' + videoId;
+            clipboard.writeText(url);
+            showToast('URL has been copied to the clipboard');
+        },
         copyInvidious: (videoId) => {
             const url = invidiousInstance + '/watch?v=' + videoId;
             clipboard.writeText(url);
@@ -238,6 +243,11 @@ let popularView = new Vue({
         },
         copyYouTube: (videoId) => {
             const url = 'https://youtube.com/watch?v=' + videoId;
+            clipboard.writeText(url);
+            showToast('URL has been copied to the clipboard');
+        },
+        copyYouTubeNoCookie: (videoId) => {
+            const url = 'https://www.youtube-nocookie.com/embed/' + videoId;
             clipboard.writeText(url);
             showToast('URL has been copied to the clipboard');
         },
@@ -279,6 +289,11 @@ let trendingView = new Vue({
             clipboard.writeText(url);
             showToast('URL has been copied to the clipboard');
         },
+        copyYouTubeNoCookie: (videoId) => {
+            const url = 'https://www.youtube-nocookie.com/embed/' + videoId;
+            clipboard.writeText(url);
+            showToast('URL has been copied to the clipboard');
+        },
         copyInvidious: (videoId) => {
             const url = invidiousInstance + '/watch?v=' + videoId;
             clipboard.writeText(url);
@@ -317,6 +332,11 @@ let savedView = new Vue({
             clipboard.writeText(url);
             showToast('URL has been copied to the clipboard');
         },
+        copyYouTubeNoCookie: (videoId) => {
+            const url = 'https://www.youtube-nocookie.com/embed/' + videoId;
+            clipboard.writeText(url);
+            showToast('URL has been copied to the clipboard');
+        },
         copyInvidious: (videoId) => {
             const url = invidiousInstance + '/watch?v=' + videoId;
             clipboard.writeText(url);
@@ -352,6 +372,11 @@ let historyView = new Vue({
         },
         copyYouTube: (videoId) => {
             const url = 'https://youtube.com/watch?v=' + videoId;
+            clipboard.writeText(url);
+            showToast('URL has been copied to the clipboard');
+        },
+        copyYouTubeNoCookie: (videoId) => {
+            const url = 'https://www.youtube-nocookie.com/embed/' + videoId;
             clipboard.writeText(url);
             showToast('URL has been copied to the clipboard');
         },
@@ -406,6 +431,15 @@ let playlistView = new Vue({
         },
         copyYouTube: (videoId) => {
             const url = 'https://youtube.com/watch?v=' + videoId;
+            clipboard.writeText(url);
+            showToast('URL has been copied to the clipboard');
+        },
+        openYouTubeNoCookie: (videoId) => {
+            const url = 'https://www.youtube-nocookie.com/embed/' + videoId;
+            shell.openExternal(url);
+        },
+        copyYouTubeNoCookie: (videoId) => {
+            const url = 'https://www.youtube-nocookie.com/embed/' + videoId;
             clipboard.writeText(url);
             showToast('URL has been copied to the clipboard');
         },
@@ -533,6 +567,11 @@ let searchView = new Vue({
         },
         copyYouTube: (videoId) => {
             const url = 'https://youtube.com/watch?v=' + videoId;
+            clipboard.writeText(url);
+            showToast('URL has been copied to the clipboard');
+        },
+        copyYouTubeNoCookie: (videoId) => {
+            const url = 'https://www.youtube-nocookie.com/embed/' + videoId;
             clipboard.writeText(url);
             showToast('URL has been copied to the clipboard');
         },
@@ -688,6 +727,11 @@ let channelVideosView = new Vue({
             clipboard.writeText(url);
             showToast('URL has been copied to the clipboard');
         },
+        copyYouTubeNoCookie: (videoId) => {
+            const url = 'https://www.youtube-nocookie.com/embed/' + videoId;
+            clipboard.writeText(url);
+            showToast('URL has been copied to the clipboard');
+        },
         copyInvidious: (videoId) => {
             const url = invidiousInstance + '/watch?v=' + videoId;
             clipboard.writeText(url);
@@ -758,6 +802,11 @@ let channelSearchView = new Vue({
         },
         copyYouTube: (videoId) => {
             const url = 'https://youtube.com/watch?v=' + videoId;
+            clipboard.writeText(url);
+            showToast('URL has been copied to the clipboard');
+        },
+        copyYouTubeNoCookie: (videoId) => {
+            const url = 'https://www.youtube-nocookie.com/embed/' + videoId;
             clipboard.writeText(url);
             showToast('URL has been copied to the clipboard');
         },
@@ -887,6 +936,15 @@ let playerView = new Vue({
         },
         openYouTube: (videoId) => {
             shell.openExternal('https://youtube.com/watch?v=' + videoId);
+        },
+        openYouTubeNoCookie: (videoId) => {
+            const url = 'https://www.youtube-nocookie.com/embed/' + videoId;
+            shell.openExternal(url);
+        },
+        copyYouTubeNoCookie: (videoId) => {
+            const url = 'https://www.youtube-nocookie.com/embed/' + videoId;
+            clipboard.writeText(url);
+            showToast('URL has been copied to the clipboard');
         },
         copyInvidious: (videoId) => {
             const url = invidiousInstance + '/watch?v=' + videoId;

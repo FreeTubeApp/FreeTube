@@ -195,6 +195,7 @@ function displayVideo(videoData, listType = '') {
         };
 
         video.youtubeUrl = 'https://youtube.com/watch?v=' + video.id;
+        video.youtubeNocookieUrl = 'https://www.youtube-nocookie.com/embed/' + video.id;
         video.invidiousUrl = invidiousInstance + '/watch?v=' + video.id;
         if (typeof (videoData.videoThumbnails) === 'string') {
             video.thumbnail = videoData.videoThumbnails;
