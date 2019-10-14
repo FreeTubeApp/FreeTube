@@ -232,6 +232,39 @@ function playVideo(videoId, playlistId = '') {
                     return;
                 }
             }
+
+            if (rememberHistory === true) {
+                historyDb.findOne({
+                    videoId: playerView.videoId
+                }, function (err, doc) {
+                    let watchProgress = 0;
+
+                    if (doc !== null) {
+                        watchProgress = doc.watchProgress;
+                    }
+
+                    let historyData = {
+                        videoId: videoId,
+                        published: data.timestamp,
+                        publishedText: playerView.publishedDate,
+                        description: data.description,
+                        viewCount: data.player_response.videoDetails.viewCount,
+                        title: playerView.videoTitle,
+                        lengthSeconds: data.player_response.videoDetails.lengthSeconds,
+                        videoThumbnails: playerView.videoThumbnail,
+                        author: playerView.channelName,
+                        authorId: playerView.channelId,
+                        liveNow: false,
+                        paid: false,
+                        type: 'video',
+                        timeWatched: new Date().getTime(),
+                        watchProgress: watchProgress,
+                    };
+
+                    ft.log(historyData);
+                    addToHistory(historyData);
+                });
+            }
         });
     } else {
         youtubedlFinished = true;
@@ -988,6 +1021,7 @@ function clickMiniPlayer(videoId) {
 
     let youtubeDlFinished = false;
     let invidiousFinished = false;
+    let invidiousError = false;
 
     if (getVideosLocally) {
         youtubedlGetInfo(videoId, (data) => {
@@ -1007,6 +1041,28 @@ function clickMiniPlayer(videoId) {
             videoData.videoAudio = decodeURIComponent(videoUrls[videoUrls.length - 1]['url']);
 
             youtubeDlFinished = true;
+
+            if (invidiousError) {
+              videoData.videoTitle = data.title;
+              videoData.videoThumbnail = data.player_response.videoDetails.thumbnail.thumbnails[data.player_response.videoDetails.thumbnail.thumbnails.length - 1].url;
+              videoData.channelName = data.author.name;
+              videoData.channelId = data.author.id;
+              videoData.lengthSeconds = data.player_response.videoDetails.lengthSeconds;
+              videoData.published = data.timestamp;
+              videoData.publishedText = '';
+              videoData.description = data.description;
+              videoData.viewCount = data.player_response.videoDetails.viewCount;
+
+              if (playerView.channelIcon.includes('https:') === false) {
+                  playerView.channelIcon = 'https:' + playerView.channelIcon;
+              }
+
+              // Format the date to a more readable format.
+              let dateString = new Date(data.timestamp * 1000);
+              dateString.setDate(dateString.getDate());
+
+              invidiousFinished = true;
+            }
 
             if (youtubeDlFinished && invidiousFinished) {
                 validateData(videoData);
@@ -1081,6 +1137,15 @@ function clickMiniPlayer(videoId) {
         if (youtubeDlFinished && invidiousFinished) {
             validateData(videoData);
         }
+    }, (xhr) => {
+      if (getVideosLocally) {
+        showToast('Invidious API Error: ' + xhr.responseJSON.error + " Trying other method to retrieve video.");
+        invidiousError = true;
+      }
+      else {
+        showToast('Invidious API Error: ' + xhr.responseJSON.error);
+        invidiousError = true;
+      }
     });
 }
 
@@ -1161,7 +1226,7 @@ function checkDashSettings() {
                             if (typeof (playerView.currentTime) !== 'undefined') {
                                 instance.currentTime = playerView.currentTime;
                                 playerView.currentTime = undefined;
-                            } else if (doc.watchProgress < instance.duration - 5 && playerView.validLive === false) {
+                            } else if (doc.watchProgress > 0 && doc.watchProgress < instance.duration - 5 && playerView.validLive === false) {
                                 instance.currentTime = doc.watchProgress;
                             }
                         }
@@ -1242,7 +1307,7 @@ function checkLegacySettings() {
                 videoId: playerView.videoId
             }, function (err, doc) {
                 if (doc !== null) {
-                    if (doc.watchProgress < player.duration - 5 && typeof (playerView.currentTime) === 'undefined') {
+                    if (doc.watchProgress > 0 && doc.watchProgress < player.duration - 5 && typeof (playerView.currentTime) === 'undefined') {
                         player.currentTime = doc.watchProgress;
                     }
 
