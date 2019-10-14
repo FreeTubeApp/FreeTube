@@ -418,6 +418,24 @@ let playlistView = new Vue({
             clipboard.writeText(url);
             showToast('URL has been copied to the clipboard');
         },
+        copyYouTubePlaylist: (playlistId) => {
+            const url = `https://www.youtube.com/playlist?list=${playlistId}`          
+            clipboard.writeText(url);
+            showToast('URL has been copied to the clipboard');
+        },
+        copyInvidiousPlaylist: (playlistId) => {
+            const url = `${invidiousInstance}/playlist?list=${playlistId}`          
+            clipboard.writeText(url);
+            showToast('URL has been copied to the clipboard');
+        },
+        openYouTubePlaylist: (playlistId) => {
+            const url = `https://www.youtube.com/playlist?list=${playlistId}`          
+            shell.openExternal(url);
+        },
+        openInvidiousPlaylist: (playlistId) => {
+            const url = `${invidiousInstance}/playlist?list=${playlistId}`          
+            shell.openExternal(url);
+        },
         history: (videoId) => {
             removeFromHistory(videoId);
         }

@@ -198,3 +198,47 @@
     top: 20px;
     right: 15px;
 }
+
+.playlistShare {
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0 5px;
+}
+
+.playlistShare ul {
+    display: none;
+    position: absolute;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.playlistShare ul li {
+    width: 100%;
+    float: none;
+    box-sizing: border-box;
+}
+
+.playlistShare:hover ul {
+    display: block;
+}
+
+.playlistShare ul li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.playlistShareButton.smallButton {
+    float: none;
+    margin: 0;
+}
+
+.playlistShareButton.smallButton i {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%)
+}
