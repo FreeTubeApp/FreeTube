@@ -325,7 +325,7 @@ $(document).on('auxclick', 'a[href^="http"]', (event) => {
 });
 
 window.addEventListener('mousewheel', function (event) {
-    if (playerView.seen !== false && $('.mejs__volume-slider').is(':hover')) {
+    if (playerView.seen !== false && playerView.playerSeen !== false && $('.mejs__volume-slider').is(':hover')) {
         event.stopPropagation();
         event.preventDefault();
         if (event.deltaY <= 0) {
