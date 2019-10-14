@@ -75,7 +75,7 @@
             "desktop": {
                 "Icon": "freetube"
             },
-            "category": "Video"
+            "category": "Network"
         }
     },
     "devDependencies": {
