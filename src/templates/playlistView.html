@@ -50,6 +50,10 @@
                           <li>Open in YouTube</li>
                       </a>
                             <li v-on:click='copyYouTube(video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>Copy YouTube Link</li>
+                            <a v-on:click='openYouTubeNoCookie(video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>
+                        <li>Open in YouTube-NoCookie</li>
+                    </a>
+                            <li v-on:click='copyYouTubeNoCookie(video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>Copy YouTube-NoCookie Link</li>
                             <a v-on:click='openInvidious(video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>
                           <li>Open in Invidious</li>
                       </a>
