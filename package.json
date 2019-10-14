@@ -79,24 +79,24 @@
         }
     },
     "devDependencies": {
-        "electron": "^6.0.1",
+        "electron": "^6.0.12",
         "electron-builder": "^21.2.0",
         "electron-compile": "^6.4.4",
         "electron-installer-appimage": "^1.0.1",
-        "electron-packager": "^14.0.4",
+        "electron-packager": "^14.0.6",
         "electron-winstaller": "^4.0.0"
     },
     "dependencies": {
-        "autolinker": "^3.11.0",
+        "autolinker": "^3.11.1",
         "commonjs": "0.0.1",
         "dateformat": "^3.0.3",
-        "electron-context-menu": "^0.13.0",
+        "electron-context-menu": "^0.15.0",
         "jquery": "^3.4.1",
-        "jsdom": "^15.1.1",
-        "mustache": "^3.0.1",
+        "jsdom": "^15.2.0",
+        "mustache": "^3.1.0",
         "nedb": "^1.8.0",
         "opml-to-json": "0.0.3",
         "vue": "^2.6.10",
-        "ytdl-core": "^0.29.5"
+        "ytdl-core": "^1.0.0"
     }
 }
