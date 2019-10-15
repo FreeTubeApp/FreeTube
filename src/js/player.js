@@ -220,6 +220,39 @@ function playVideo(videoId, playlistId = '') {
 
               playerView.recommendedVideoList = [];
 
+              data.related_videos.forEach((video) => {
+                  let data = {};
+
+                  let time = video.length_seconds;
+                  let hours = 0;
+
+                  if (time >= 3600) {
+                      hours = Math.floor(time / 3600);
+                      time = time - hours * 3600;
+                  }
+
+                  let minutes = Math.floor(time / 60);
+                  let seconds = time - minutes * 60;
+
+                  if (seconds < 10) {
+                      seconds = '0' + seconds;
+                  }
+
+                  if (hours > 0) {
+                      data.duration = hours + ":" + minutes + ":" + seconds;
+                  } else {
+                      data.duration = minutes + ":" + seconds;
+                  }
+
+                  data.id = video.id;
+                  data.title = video.title;
+                  data.channelName = video.author;
+                  data.thumbnail = video.video_thumbnail;
+                  data.viewCount = video.short_view_count_text + " views";
+
+                  playerView.recommendedVideoList = playerView.recommendedVideoList.concat(data);
+              });
+
               invidiousFinished = true;
             }
 
