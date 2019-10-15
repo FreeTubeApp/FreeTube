@@ -29,6 +29,16 @@
                 </div>
                 <p>{{videoCount}} videos - {{viewCount}} views - Last updated on {{lastUpdated}}</p>
                 <hr />
+                <div class='playlistShare'>
+                    <div class='playlistShareButton smallButton'>Share Playlist <i class='fas fa-angle-down'></i></div>
+                    <ul>
+                        <li class='smallButton'><a v-on:click='copyYouTubePlaylist(playlistId)'>Copy YouTube Link</a></li>
+                        <li class='smallButton'><a v-on:click='openYouTubePlaylist(playlistId)'>Open in YouTube</a></li>
+                        <li class='smallButton'><a v-on:click='copyInvidiousPlaylist(playlistId)'>Copy Invidious Link</a></li>
+                        <li class='smallButton'><a v-on:click='openInvidiousPlaylist(playlistId)'>Open in Invidious</a></li>
+                    </ul>
+                </div>
+                <hr />
                 <p v-html='description'></p>
             </div>
             <div class='playlistVideoView'>
@@ -40,6 +50,10 @@
                           <li>Open in YouTube</li>
                       </a>
                             <li v-on:click='copyYouTube(video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>Copy YouTube Link</li>
+                            <a v-on:click='openYouTubeNoCookie(video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>
+                        <li>Open in YouTube-NoCookie</li>
+                    </a>
+                            <li v-on:click='copyYouTubeNoCookie(video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>Copy YouTube-NoCookie Link</li>
                             <a v-on:click='openInvidious(video.id)' onclick='showVideoOptions(this.parentNode.previousSibling);'>
                           <li>Open in Invidious</li>
                       </a>

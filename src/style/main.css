@@ -57,6 +57,7 @@ a {
     bottom: 0;
     left: 0;
     z-index: 1;
+    transition: width 0.5s;
 }
 
 .center {
@@ -409,7 +410,7 @@ a {
 
 #sideNav li {
     padding: 20px;
-    width: 215px;
+    width: 214px;
     position: relative;
     right: 50px;
     cursor: pointer;

@@ -15,45 +15,4 @@ Please follow these guidlines before sending your pull request and making contri
 
 # Setting up Your Environment
 
-Here's how to get your environment setup.  You will need Git and NPM installed on your system.
-
-Clone down the repositoy:
-```
-git clone https://github.com/FreeTubeApp/FreeTube.git
-```
-
-Install Dependencies:
-```
-npm install
-```
-
-Install Dev Dependencies:
-```
-npm install --only=dev
-```
-
-Run the application:
-```
-npm start
-```
-
-Make / Package application:
-
-Windows (Requires Wine on Linux):
-```
-npm run make:win
-```
-
-Mac:
-```
-npm run make:mac
-```
-
-Linux (Requires deb and rpm to be installed):
-```
-npm run make:linux
-```
-
-Other commands are available in the `package.json` file for making specific packages.  Refer to `package.json` for instructions.
-
-I will update this document when necessary.  Anyone who has questions or suggestions on this document are welcome to create an issue or pull request.
+Check out the [wiki](https://github.com/FreeTubeApp/FreeTube/wiki/Environment-Setup-and-Packaging) page to learn how to setup your environment and create packages.

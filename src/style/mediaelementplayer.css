@@ -640,12 +640,13 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
     border-radius: 0;
     bottom: 100%;
     margin-right: -43px;
-    overflow: hidden;
+    overflow-y: scroll;
     padding: 0;
     position: absolute;
     right: 50%;
     visibility: visible;
     width: 86px;
+    max-height: 250px;
 }
 
 .mejs__chapters-button > .mejs__chapters-selector {

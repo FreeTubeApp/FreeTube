@@ -34,6 +34,7 @@ function playVideo(videoId, playlistId = '') {
 
     let youtubedlFinished = false;
     let invidiousFinished = false;
+    let invidiousError = false;
     checkedVideoSettings = false;
     playerView.firstLoad = true;
     playerView.videoId = videoId;
@@ -101,7 +102,6 @@ function playVideo(videoId, playlistId = '') {
                 playerView.valid360p = false;
                 playerView.valid720p = false;
                 playerView.validAudio = false;
-
                 playerView.playerSeen = true;
                 playerView.legacySeen = false;
 
@@ -176,6 +176,86 @@ function playVideo(videoId, playlistId = '') {
             }
             youtubedlFinished = true;
 
+            if (invidiousError) {
+              playerView.playerSeen = false;
+              playerView.legacySeen = true;
+
+              // Likes are not provided, default to 0
+              playerView.videoLikes = 0;
+              playerView.videoDislikes = 0;
+              playerView.likePercentage = 100;
+              playerView.videoTitle = data.title;
+              playerView.channelName = data.author.name;
+              playerView.channelId = data.author.id;
+              playerView.channelIcon = data.author.avatar;
+              playerView.lengthSeconds = data.player_response.videoDetails.lengthSeconds;
+
+              if (playerView.channelIcon.includes('https:') === false) {
+                  playerView.channelIcon = 'https:' + playerView.channelIcon;
+              }
+
+              // Add commas to the video view count.
+              playerView.videoViews = data.player_response.videoDetails.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+              playerView.videoThumbnail = data.player_response.videoDetails.thumbnail.thumbnails[data.player_response.videoDetails.thumbnail.thumbnails.length - 1].url;
+
+              // Format the date to a more readable format.
+              let dateString = new Date(data.timestamp * 1000);
+              dateString.setDate(dateString.getDate());
+              playerView.publishedDate = dateFormat(dateString, "mmm dS, yyyy");
+
+              playerView.description = autolinker.link(parseDescription(data.description));
+
+              const checkSubscription = isSubscribed(playerView.channelId);
+
+              checkSubscription.then((results) => {
+                  if (results === false) {
+                      playerView.subscribedText = 'SUBSCRIBE';
+                  } else {
+                      playerView.subscribedText = 'UNSUBSCRIBE';
+                  }
+              });
+
+              playerView.subscriptionCount = data.subCountText;
+
+              playerView.recommendedVideoList = [];
+
+              data.related_videos.forEach((video) => {
+                  let data = {};
+
+                  let time = video.length_seconds;
+                  let hours = 0;
+
+                  if (time >= 3600) {
+                      hours = Math.floor(time / 3600);
+                      time = time - hours * 3600;
+                  }
+
+                  let minutes = Math.floor(time / 60);
+                  let seconds = time - minutes * 60;
+
+                  if (seconds < 10) {
+                      seconds = '0' + seconds;
+                  }
+
+                  if (hours > 0) {
+                      data.duration = hours + ":" + minutes + ":" + seconds;
+                  } else {
+                      data.duration = minutes + ":" + seconds;
+                  }
+
+                  data.id = video.id;
+                  data.title = video.title;
+                  data.channelName = video.author;
+                  data.thumbnail = video.video_thumbnail;
+                  data.viewCount = video.short_view_count_text + " views";
+
+                  playerView.recommendedVideoList = playerView.recommendedVideoList.concat(data);
+              });
+
+              invidiousFinished = true;
+            }
+
             if (youtubedlFinished && invidiousFinished) {
                 loadingView.seen = false;
 
@@ -184,6 +264,39 @@ function playVideo(videoId, playlistId = '') {
                 } else {
                     return;
                 }
+            }
+
+            if (rememberHistory === true) {
+                historyDb.findOne({
+                    videoId: playerView.videoId
+                }, function (err, doc) {
+                    let watchProgress = 0;
+
+                    if (doc !== null) {
+                        watchProgress = doc.watchProgress;
+                    }
+
+                    let historyData = {
+                        videoId: videoId,
+                        published: data.timestamp,
+                        publishedText: playerView.publishedDate,
+                        description: data.description,
+                        viewCount: data.player_response.videoDetails.viewCount,
+                        title: playerView.videoTitle,
+                        lengthSeconds: data.player_response.videoDetails.lengthSeconds,
+                        videoThumbnails: playerView.videoThumbnail,
+                        author: playerView.channelName,
+                        authorId: playerView.channelId,
+                        liveNow: false,
+                        paid: false,
+                        type: 'video',
+                        timeWatched: new Date().getTime(),
+                        watchProgress: watchProgress,
+                    };
+
+                    ft.log(historyData);
+                    addToHistory(historyData);
+                });
             }
         });
     } else {
@@ -424,6 +537,15 @@ function playVideo(videoId, playlistId = '') {
                 addToHistory(historyData);
             });
         }
+    }, (xhr) => {
+      if (getVideosLocally) {
+        showToast('Invidious API Error: ' + xhr.responseJSON.error + " Trying other method to retrieve video.");
+        invidiousError = true;
+      }
+      else {
+        showToast('Invidious API Error: ' + xhr.responseJSON.error);
+        invidiousError = true;
+      }
     });
 }
 
@@ -932,6 +1054,7 @@ function clickMiniPlayer(videoId) {
 
     let youtubeDlFinished = false;
     let invidiousFinished = false;
+    let invidiousError = false;
 
     if (getVideosLocally) {
         youtubedlGetInfo(videoId, (data) => {
@@ -951,6 +1074,28 @@ function clickMiniPlayer(videoId) {
             videoData.videoAudio = decodeURIComponent(videoUrls[videoUrls.length - 1]['url']);
 
             youtubeDlFinished = true;
+
+            if (invidiousError) {
+              videoData.videoTitle = data.title;
+              videoData.videoThumbnail = data.player_response.videoDetails.thumbnail.thumbnails[data.player_response.videoDetails.thumbnail.thumbnails.length - 1].url;
+              videoData.channelName = data.author.name;
+              videoData.channelId = data.author.id;
+              videoData.lengthSeconds = data.player_response.videoDetails.lengthSeconds;
+              videoData.published = data.timestamp;
+              videoData.publishedText = '';
+              videoData.description = data.description;
+              videoData.viewCount = data.player_response.videoDetails.viewCount;
+
+              if (playerView.channelIcon.includes('https:') === false) {
+                  playerView.channelIcon = 'https:' + playerView.channelIcon;
+              }
+
+              // Format the date to a more readable format.
+              let dateString = new Date(data.timestamp * 1000);
+              dateString.setDate(dateString.getDate());
+
+              invidiousFinished = true;
+            }
 
             if (youtubeDlFinished && invidiousFinished) {
                 validateData(videoData);
@@ -1025,6 +1170,15 @@ function clickMiniPlayer(videoId) {
         if (youtubeDlFinished && invidiousFinished) {
             validateData(videoData);
         }
+    }, (xhr) => {
+      if (getVideosLocally) {
+        showToast('Invidious API Error: ' + xhr.responseJSON.error + " Trying other method to retrieve video.");
+        invidiousError = true;
+      }
+      else {
+        showToast('Invidious API Error: ' + xhr.responseJSON.error);
+        invidiousError = true;
+      }
     });
 }
 
@@ -1105,7 +1259,7 @@ function checkDashSettings() {
                             if (typeof (playerView.currentTime) !== 'undefined') {
                                 instance.currentTime = playerView.currentTime;
                                 playerView.currentTime = undefined;
-                            } else if (doc.watchProgress < instance.duration - 5 && playerView.validLive === false) {
+                            } else if (doc.watchProgress > 0 && doc.watchProgress < instance.duration - 5 && playerView.validLive === false) {
                                 instance.currentTime = doc.watchProgress;
                             }
                         }
@@ -1186,7 +1340,7 @@ function checkLegacySettings() {
                 videoId: playerView.videoId
             }, function (err, doc) {
                 if (doc !== null) {
-                    if (doc.watchProgress < player.duration - 5 && typeof (playerView.currentTime) === 'undefined') {
+                    if (doc.watchProgress > 0 && doc.watchProgress < player.duration - 5 && typeof (playerView.currentTime) === 'undefined') {
                         player.currentTime = doc.watchProgress;
                     }
 
