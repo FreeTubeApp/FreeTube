@@ -1,7 +1,7 @@
 {
     "name": "FreeTube",
     "productName": "FreeTube",
-    "version": "0.7.1",
+    "version": "0.7.2",
     "description": "An Open Source YouTube app for privacy.",
     "main": "src/js/init.js",
     "scripts": {
@@ -11,17 +11,20 @@
         "make:win": "electron-builder build --win",
         "make:win:exe": "electron-builder build --win nsis",
         "make:win:zip": "electron-builder build --win zip",
+        "make:win:portable": "electron-builder build --win portable --x64 ",
         "make:mac:zip": "electron-builder build --mac zip",
         "make:mac:dmg": "electron-builder build --mac dmg",
         "make:linux:x64": "electron-builder build --linux --x64",
         "make:linux:x64:deb": "electron-builder build --linux deb --x64",
         "make:linux:x64:rpm": "electron-builder build --linux rpm --x64",
+        "make:linux:x64:pac": "electron-builder build --linux pacman --x64",
         "make:linux:x64:appimage": "electron-builder build --linux appimage --x64",
         "make:linux:x64:zip": "electron-builder build --linux zip --x64",
         "make:linux:x64:tar": "electron-builder build --linux tar.xz --x64",
         "make:linux:arm": "electron-builder build --linux --arm64",
         "make:linux:arm:deb": "electron-builder build --linux deb --arm64",
         "make:linux:arm:rpm": "electron-builder build --linux rpm --arm64",
+        "make:linux:arm:pac": "electron-builder build --linux pacman --arm64",
         "make:linux:arm:zip": "electron-builder build --linux zip --arm64",
         "make:linux:arm:tar.xz": "electron-builder build --linux tar.xz --arm64",
         "dist": "build"
@@ -97,6 +100,6 @@
         "nedb": "^1.8.0",
         "opml-to-json": "0.0.3",
         "vue": "^2.6.10",
-        "ytdl-core": "^1.0.0"
+        "ytdl-core": "^1.0.3"
     }
 }

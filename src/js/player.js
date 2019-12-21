@@ -122,14 +122,14 @@ function playVideo(videoId, playlistId = '') {
                 playerView.validLive = false;
 
                 // Search through the returned object to get the 360p and 720p video URLs (If available)
-                Object.keys(videoUrls).forEach((key) => {
-                    switch (videoUrls[key]['itag']) {
-                    case '18':
-                        playerView.video360p = decodeURIComponent(videoUrls[key]['url']);
+                videoUrls.forEach((video) => {
+                    switch (video.itag) {
+                    case 18:
+                        playerView.video360p = decodeURIComponent(video.url);
                         // ft.log(playerView.video360p);
                         break;
-                    case '22':
-                        playerView.video720p = decodeURIComponent(videoUrls[key]['url']);
+                    case 22:
+                        playerView.video720p = decodeURIComponent(video.url);
                         // ft.log(playerView.video720p);
                         break;
                     }
@@ -397,14 +397,14 @@ function playVideo(videoId, playlistId = '') {
             let formatUrls = data.adaptiveFormats;
 
             // Search through the returned object to get the 360p and 720p video URLs (If available)
-            Object.keys(videoUrls).forEach((key) => {
-                switch (videoUrls[key]['itag']) {
-                case '18':
-                    playerView.video360p = decodeURIComponent(videoUrls[key]['url']);
+            videoUrls.forEach((video) => {
+                switch (video.itag) {
+                case 18:
+                    playerView.video360p = decodeURIComponent(video.url);
                     // ft.log(playerView.video360p);
                     break;
-                case '22':
-                    playerView.video720p = decodeURIComponent(videoUrls[key]['url']);
+                case 22:
+                    playerView.video720p = decodeURIComponent(video.url);
                     // ft.log(playerView.video720p);
                     break;
                 }
@@ -1058,15 +1058,16 @@ function clickMiniPlayer(videoId) {
 
     if (getVideosLocally) {
         youtubedlGetInfo(videoId, (data) => {
-            let videoUrls = data.formats;
+            let videoUrls = data.formats
 
-            Object.keys(videoUrls).forEach((key) => {
-                switch (videoUrls[key]['itag']) {
-                case '18':
-                    videoData.video360p = videoUrls[key]['url'];
+            // Search through the returned object to get the 360p and 720p video URLs (If available)
+            videoUrls.forEach((video) => {
+                switch (video.itag) {
+                case 18:
+                    videoData.video360p = decodeURIComponent(video.url);
                     break;
-                case '22':
-                    videoData.video720p = videoUrls[key]['url'];
+                case 22:
+                    videoData.video720p = decodeURIComponent(video.url);
                     break;
                 }
             });
@@ -1110,13 +1111,14 @@ function clickMiniPlayer(videoId) {
         let videoUrls = data.formatStreams;
         let formatUrls = data.adaptiveFormats;
 
-        Object.keys(videoUrls).forEach((key) => {
-            switch (videoUrls[key]['itag']) {
-            case '18':
-                videoData.video360p = videoUrls[key]['url'];
+        // Search through the returned object to get the 360p and 720p video URLs (If available)
+        videoUrls.forEach((video) => {
+            switch (video.itag) {
+            case 18:
+                videoData.video360p = decodeURIComponent(video.url);
                 break;
-            case '22':
-                videoData.video720p = videoUrls[key]['url'];
+            case 22:
+                videoData.video720p = decodeURIComponent(video.url);
                 break;
             }
         });
