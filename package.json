@@ -11,6 +11,7 @@
         "make:win": "electron-builder build --win",
         "make:win:exe": "electron-builder build --win nsis",
         "make:win:zip": "electron-builder build --win zip",
+        "make:win:portable": "electron-builder build --win portable --x64 ",
         "make:mac:zip": "electron-builder build --mac zip",
         "make:mac:dmg": "electron-builder build --mac dmg",
         "make:linux:x64": "electron-builder build --linux --x64",
