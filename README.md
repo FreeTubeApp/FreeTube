@@ -6,7 +6,7 @@
 
 FreeTube is an open source desktop YouTube player built with privacy in mind.  This repository specifically is about a rewrite of FreeTube that is actively being worked on.  FreeTube will be rewritten from the ground up to take advantage of better coding practices and to make proper use of Vue.js compared to the previous code base.  You can read more about why a rewrite is in development over at the related [blog post](#).
 
-This version of FreeTube is not finished.  It is in active development and a lot of features (Even ones that are already implemented in FreeTube).  Almost all features are being remade.
+This version of FreeTube is not finished.  It is in active development and a lot of features (Even ones that are already implemented in FreeTube) are missing.  Almost all features are being remade.
 
 ## Contributing
 
@@ -39,9 +39,24 @@ At this time, here is the list of things to do/need to do:
 - [ ] Settings Page
 - [ ] Subscriptions Page and Logic
 - [ ] Playlists Page (Will allow for creating user playlists.  Will replace the "Favorites" Page)
-- [ ] History Page
+- [ ] History Page and Logic
 - [ ] Profile Page and Logic
 - [ ] Misc. Adjustments and Settings
 - [ ] Packagaing and Testing
 
-This list is somewhat in order of when I plan on working on each thing.  Obviously things can change and anyone is welcome to work on whatever they like whenever.
+This list is somewhat in order of when I plan on working on each thing.  Obviously things can change and anyone is welcome to work on whatever they like.
+
+I will add more things to do as progress gets made.  For now what I have listed out should be more than enough.
+
+## Contact
+
+To chat about the FreeTube rewrite or to ask questions, we encourage you to join our [Matrix Community](https://riot.im/app/#/group/+freetube:matrix.org).  I will be there actively working on the rewrite and will be available to help you get started.  Alternatively, you can email me at FreeTubeApp@protonmail.com.
+
+## License
+[![GNU GPLv3 Image](https://www.gnu.org/graphics/gplv3-127x51.png)](http://www.gnu.org/licenses/gpl-3.0.en.html)  
+
+FreeTube is Free Software: You can use, study share and improve it at your
+will. Specifically you can redistribute and/or modify it under the terms of the
+[GNU General Public License](https://www.gnu.org/licenses/gpl.html) as
+published by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.  
