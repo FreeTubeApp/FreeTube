@@ -12,7 +12,7 @@ This version of FreeTube is not finished.  It is in active development and a lot
 
 Since the code base is smaller and ever expanding.  Now is a great time to get involved with contributing to FreeTube.  There are a lot of things that need to be done right now and the more help we can get the better.
 
-Check out the [getting started](#) page over on the wiki on how to get your environment setup.  Since this is a rewrite, that means that there are things that we'd like to avoid to prevent the same issues from the old code base.  Because of this, there are some coding standards that we'd like to keep while working on this rewrite.
+Check out the [getting started](https://github.com/FreeTubeApp/FreeTube-Vue/wiki/Getting-Started) page over on the wiki on how to get your environment setup.  Since this is a rewrite, that means that there are things that we'd like to avoid to prevent the same issues from the old code base.  Because of this, there are some coding standards that we'd like to keep while working on this rewrite.
 
 Enough of the rewrite has been done to hopefully provide code examples of what we'd like to see moving forward.  Just because standards are already made, it doesn't mean that I'm not open to suggestions for changing things.  I would love to hear your thoughts on if you believe that something about our methods can be improved on.
 
