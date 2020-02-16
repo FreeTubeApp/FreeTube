@@ -1,0 +1,95 @@
+.relative {
+  position: relative;
+}
+
+.videoTitle {
+  font-size: 22px;
+  max-width: 60%;
+}
+
+.channelInformation {
+  position: relative;
+}
+
+.channelThumbnail {
+  cursor: pointer;
+  border-radius: 200px 200px 200px 200px;
+  -webkit-border-radius: 200px 200px 200px 200px;
+}
+
+.channelName {
+  position: absolute;
+  top: 0px;
+  left: 55px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.subscribeButton {
+  height: 20px;
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  line-height: 1px;
+  font-size: 0.8rem;
+}
+
+.viewCount {
+  position: absolute;
+  right: 15px;
+  top: 60px;
+}
+
+.likeBarContainer {
+  position: absolute;
+  right: 15px;
+  top: 100px;
+  width: 300px;
+  height: 5px;
+}
+
+.likeBar {
+  background-color: var(--accent-color);
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  border-radius: 200px 200px 200px 200px;
+  -webkit-border-radius: 200px 200px 200px 200px;
+}
+
+.dislikeBar {
+  background-color: #9E9E9E;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 200px 200px 200px 200px;
+  -webkit-border-radius: 200px 200px 200px 200px;
+}
+
+.likeCountContainer {
+  position: absolute;
+  right: 15px;
+  top: 100px;
+  font-size: 12px;
+  color: var(--teritary-text-color);
+}
+
+.videoOptions {
+  position: absolute;
+  right: 15px;
+  top: 20px;
+  width: 350px;
+}
+
+.formatTypeDropdown {
+  width: 150px;
+}
+
+.shareDropdown {
+  width: 175px;
+}

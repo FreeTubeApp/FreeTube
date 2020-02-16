@@ -1,0 +1,24 @@
+@font-face {
+  font-family: Roboto;
+  src: url(assets/font/Roboto-Regular.ttf);
+}
+
+body {
+  min-height: 100vh;
+}
+
+#app {
+  font-family: 'Roboto', sans-serif;
+}
+
+.routerView {
+  margin-left: 200px;
+  margin-top: 80px;
+  transition-property: margin;
+  transition-duration: 150ms;
+  transition-timing-function: ease-in-out;
+}
+
+.expand {
+  margin-left: 80px;
+}

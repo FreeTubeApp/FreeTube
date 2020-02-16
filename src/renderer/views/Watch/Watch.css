@@ -1,0 +1,48 @@
+.watchVideo {
+  width: 65%;
+  float: left;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.videoPlayer {
+  width: calc(65% + 30px);
+  float: left;
+  margin-top: 0px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.watchVideoRecommendations {
+  width: 27%;
+  max-width: 425px;
+  float: right;
+  margin-bottom: 10px;
+  position: absolute;
+  top: 70px;
+  right: 10px;
+}
+
+@media only screen and (max-width: 1700px) {
+  .watchVideo {
+    float: none;
+    margin: 0 auto;
+    width: 85%;
+    margin-bottom: 10px;
+  }
+
+  .videoPlayer {
+    float: none;
+    margin: 0 auto;
+    width: calc(85% + 30px);
+    margin-bottom: 10px;
+  }
+
+  .watchVideoRecommendations {
+    float: none;
+    margin: 0 auto;
+    width: 85%;
+    max-width: none;
+    position: static;
+  }
+}

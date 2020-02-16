@@ -1,0 +1,46 @@
+<template>
+  <div>
+    <ft-loader
+      v-if="isLoading"
+      :fullscreen="true"
+    />
+    <ft-video-player
+      v-if="!isLoading"
+      :src="videoUrl720p"
+      class="videoPlayer"
+    />
+    <watch-video-info
+      v-if="!isLoading"
+      :id="videoId"
+      :title="videoTitle"
+      :channel-id="channelId"
+      :channel-name="channelName"
+      :channel-thumbnail="channelThumbnail"
+      :subscription-count-text="channelSubscriptionCountText"
+      :like-count="videoLikeCount"
+      :dislike-count="videoDislikeCount"
+      :view-count="videoViewCount"
+      class="watchVideo"
+    />
+    <watch-video-description
+      v-if="!isLoading"
+      :published="videoPublished"
+      :description="videoDescription"
+      :description-html="videoDescriptionHtml"
+      class="watchVideo"
+    />
+    <watch-video-comments
+      v-if="!isLoading"
+      :id="videoId"
+      class="watchVideo"
+    />
+    <watch-video-recommendations
+      v-if="!isLoading"
+      :data="recommendedVideos"
+      class="watchVideoRecommendations"
+    />
+  </div>
+</template>
+
+<script src="./Watch.js" />
+<style scoped src="./Watch.css" />

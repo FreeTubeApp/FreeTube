@@ -1,0 +1,172 @@
+.videoThumbnail {
+  position: relative;
+  cursor: pointer;
+}
+
+.videoThumbnail:hover .videoWatched {
+    visibility: hidden;
+}
+
+.favoritesIcon {
+  position: absolute;
+  font-size: 15px;
+  top: 0px;
+  right: 0px;
+  color: #FFFFFF;
+  padding: 5px;
+  background-color: #000000;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.favorited {
+  color: yellow;
+}
+
+.videoDuration {
+  position: absolute;
+  font-size: 13px;
+  bottom: -7px;
+  right: 0px;
+  color: #FFFFFF;
+  padding: 2px;
+  background-color: #000000;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.videoWatched {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  background-color: rgba(0,0,0,0.4);
+  color: #FFFFFF;
+  pointer-events: none;
+}
+
+.watchedProgressBar {
+  background-color: var(--red-500);
+  opacity: 0.8;
+  height: 3px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  cursor: pointer;
+}
+
+.videoTitle {
+  color: var(--title-color);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.channelName {
+  color: var(--secondary-text-color);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.viewCount {
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.uploadedTime {
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.liveText {
+  color: var(--red-500);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.grid {
+  width: 240px;
+  height: 250px;
+  padding: 2px;
+  overflow: hidden;
+}
+
+.grid .videoThumbnail {
+  width: 100%;
+  height: 130px;
+  margin-bottom: -5px;
+}
+
+.grid .videoThumbnail img {
+  width: 100%;
+  height: 130px;
+}
+
+.grid .videoWatched {
+  height: 110px;
+}
+
+.grid .videoTitle {
+  max-height: 55px;
+  overflow-y: hidden;
+  margin-bottom: -15px;
+}
+
+.grid .channelName {
+  width: 220px;
+  height: 17px;
+  margin-bottom: 10px;
+  overflow-y: hidden;
+}
+
+.grid .liveText {
+  float: right;
+}
+
+.list {
+  height: 140px;
+  width: 100%;
+  margin-left: 5px;
+  margin-top: 15px;
+}
+
+.list .videoThumbnail {
+  float: left;
+  width: 240px;
+  height: 130px;
+}
+
+.list .videoThumbnail img {
+  width: 100%;
+  height: 130px;
+}
+
+.list .videoWatched {
+  height: 130px;
+}
+
+.list .videoTitle {
+  margin-left: 250px;
+  margin-top: 5px;
+  margin-bottom: -10px;
+}
+
+.list .channelName {
+  margin-left: 250px;
+  max-width: 275px;
+}
+
+.list .viewCount {
+  margin-left: 10px;
+}
+
+.list .liveText {
+  margin-left: 10px;
+}
+
+.list .description {
+  margin-left: 250px;
+  font-size: 13px;
+  color: var(--secondary-text-color);
+  height: 35px;
+  overflow: hidden;
+}

@@ -1,0 +1,92 @@
+.sideNav {
+  height: calc(100vh - 60px);
+  width: 200px;
+  overflow-y: auto;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  z-index: 1;
+  margin-top: 60px;
+  -webkit-box-shadow: 1px -1px 1px -1px var(--primary-shadow-color);
+  background-color: var(--side-nav-color);
+  transition-property: width;
+  transition-duration: 150ms;
+  transition-timing-function: ease-in-out;
+}
+
+.topNavOption {
+  margin-top: 10px;
+}
+
+.navOption {
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.navOption:hover {
+  background-color: var(--side-nav-hover-color);
+  -moz-transition: background 0.2s ease-in;
+  -o-transition: background 0.2s ease-in;
+  transition: background 0.2s ease-in;
+}
+
+.navOption:active {
+  background-color: var(--side-nav-active-color);
+  -moz-transition: background 0.2s ease-in;
+  -o-transition: background 0.2s ease-in;
+  transition: background 0.2s ease-in;
+}
+
+.navIcon {
+  margin-left: 10px;
+}
+
+.navLabel {
+  margin-left: 5px;
+  display: inline-block;
+}
+
+.closed {
+  width: 80px;
+}
+
+.sideNav hr {
+  width: 90%;
+  height: 1px;
+  border: 0;
+  background-color: var(--primary-color);
+}
+
+.refreshIcon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.closed .refreshIcon {
+  display: none;
+}
+
+.closed .navOption {
+  width: 100%;
+  height: 40px;
+  padding: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.closed .navIcon {
+  margin-left: 0px;
+  width: 100%;
+  display: block;
+  margin-bottom: 0px;
+}
+
+.closed .navLabel {
+  margin-left: 0px;
+  width: 100%;
+  text-align: center;
+  left: 0px;
+  font-size: 11px;
+}

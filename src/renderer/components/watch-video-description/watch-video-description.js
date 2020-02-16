@@ -1,0 +1,66 @@
+import Vue from 'vue'
+import FtCard from '../ft-card/ft-card.vue'
+import autolinker from 'autolinker'
+
+export default Vue.extend({
+  name: 'WatchVideoDescription',
+  components: {
+    'ft-card': FtCard
+  },
+  props: {
+    published: {
+      type: Number,
+      required: true
+    },
+    description: {
+      type: String,
+      required: true
+    },
+    descriptionHtml: {
+      type: String,
+      default: ''
+    }
+  },
+  data: function () {
+    return {
+      dateString: '',
+      shownDescription: ''
+    }
+  },
+  mounted: function () {
+    const date = new Date(this.published)
+    const dateSplit = date.toDateString().split(' ')
+    this.dateString = `${dateSplit[0]} ${dateSplit[1]} ${dateSplit[2]}, ${dateSplit[3]}`
+
+    if (this.descriptionHtml !== '') {
+      this.shownDescription = this.parseDescriptionHtml(this.descriptionHtml)
+    } else {
+      this.shownDescription = autolinker.link(this.description)
+    }
+  },
+  methods: {
+    parseDescriptionHtml: function (descriptionText) {
+      descriptionText = descriptionText.replace(/target="_blank"/g, '')
+      descriptionText = descriptionText.replace(/\/redirect.+?(?=q=)/g, '')
+      descriptionText = descriptionText.replace(/q=/g, '')
+      descriptionText = descriptionText.replace(/rel="nofollow\snoopener"/g, '')
+      descriptionText = descriptionText.replace(/class=.+?(?=")./g, '')
+      descriptionText = descriptionText.replace(/id=.+?(?=")./g, '')
+      descriptionText = descriptionText.replace(/data-target-new-window=.+?(?=")./g, '')
+      descriptionText = descriptionText.replace(/data-url=.+?(?=")./g, '')
+      descriptionText = descriptionText.replace(/data-sessionlink=.+?(?=")./g, '')
+      descriptionText = descriptionText.replace(/&amp;/g, '&')
+      descriptionText = descriptionText.replace(/%3A/g, ':')
+      descriptionText = descriptionText.replace(/%2F/g, '/')
+      descriptionText = descriptionText.replace(/&v.+?(?=")/g, '')
+      descriptionText = descriptionText.replace(/&redirect-token.+?(?=")/g, '')
+      descriptionText = descriptionText.replace(/&redir_token.+?(?=")/g, '')
+      descriptionText = descriptionText.replace(/href="http(s)?:\/\/youtube\.com/g, 'href="freetube://https://youtube.com')
+      descriptionText = descriptionText.replace(/href="\/watch/g, 'href="freetube://https://youtube.com')
+      descriptionText = descriptionText.replace(/href="\/results\?search_query=/g, 'href="freetube://')
+      descriptionText = descriptionText.replace(/yt\.www\.watch\.player\.seekTo/g, 'changeDuration')
+
+      return descriptionText
+    }
+  }
+})

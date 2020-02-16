@@ -1,0 +1,15 @@
+.playlistInfo {
+  background-color: var(--card-bg-color);
+  padding: 10px;
+  float: left;
+  position: fixed;
+  top: 60px;
+  width: 30%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.playlistItems {
+  float: right;
+  width: 60%;
+}

@@ -1,0 +1,17 @@
+.card {
+  width: 85%;
+  margin: 0 auto;
+  margin-bottom: 60px;
+}
+
+.logo {
+  max-width: 500px;
+}
+
+.center {
+  text-align: center;
+}
+
+.leftAlign {
+  text-align: left;
+}

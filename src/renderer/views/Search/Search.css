@@ -1,0 +1,14 @@
+.getNextPage {
+  background-color: var(--search-bar-color);
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.card {
+  width: 85%;
+  margin: 0 auto;
+  margin-bottom: 60px;
+}

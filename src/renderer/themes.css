@@ -1,0 +1,30 @@
+.redLight {
+  --primary-color: #f44336;
+  --primary-color-hover: #e53935;
+  --primary-color-active: #c62828;
+  --accent-color: #2196F3;
+  --primary-text-color: #212121;
+  --secondary-text-color: #424242;
+  --teritary-text-color: #757575;
+  --primary-input-color: rgba(0, 0, 0, 0.50);
+  --primary-shadow-color: rgba(232, 232, 232, 1);
+  --title-color: #3f7ac6;
+  --bg-color: #f1f1f1;
+  --card-bg-color: #FFFFFF;
+  --secondary-card-bg-color: #eeeeee;
+  --side-nav-color: #FFFFFF;
+  --side-nav-hover-color: #e0e0e0;
+  --side-nav-active-color: #757575;
+  --search-bar-color: #f5f5f5;
+}
+
+body {
+  color: var(--primary-text-color);
+  background-color: var(--bg-color);
+  --red-500: #f44336;
+}
+
+#app {
+  color: var(--primary-text-color);
+  background-color: var(--bg-color);
+}

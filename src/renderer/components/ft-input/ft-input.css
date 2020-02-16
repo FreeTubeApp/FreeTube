@@ -1,0 +1,46 @@
+.ft-input-component {
+  position: relative;
+}
+
+.ft-input {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px;
+    height: 45px;
+    border-bottom: 1px solid var(--primary-input-color);
+}
+
+.ft-input-component ::-webkit-input-placeholder {
+  color: var(--primary-input-color);
+}
+
+.inputAction {
+  position: absolute;
+  padding: 10px;
+  top: 10px;
+  right: 0px;
+  cursor: pointer;
+  border-radius: 200px 200px 200px 200px;
+  color: var(--primary-text-color);
+}
+
+.inputAction:hover {
+  background-color: var(--side-nav-hover-color);
+  -moz-transition: background 0.2s ease-in;
+  -o-transition: background 0.2s ease-in;
+  transition: background 0.2s ease-in;
+}
+
+.inputAction:active {
+  background-color: var(--teritary-text-color);
+  -moz-transition: background 0.2s ease-in;
+  -o-transition: background 0.2s ease-in;
+  transition: background 0.2s ease-in;
+}

@@ -1,0 +1,93 @@
+.channelThumbnail {
+  position: relative;
+  cursor: pointer;
+}
+
+.channelThumbnail img {
+  width: 140px;
+  height: 140px;
+  border-radius: 200px 200px 200px 200px;
+  -webkit-border-radius: 200px 200px 200px 200px;
+}
+
+.channelName {
+  font-weight: bold;
+  color: var(--title-color);
+  cursor: pointer;
+  margin-bottom: 0px;
+}
+
+.subscriberCount {
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--secondary-text-color);
+}
+
+.videoCount {
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--secondary-text-color);
+}
+
+.grid {
+  width: 240px;
+  height: 250px;
+  padding: 2px;
+  overflow: hidden;
+}
+
+.grid .channelThumbnail {
+  width: 100%;
+  height: 140px;
+  margin-bottom: 5px;
+}
+
+.grid .channelThumbnail img {
+  position: relative;
+  left: 50px;
+}
+
+.grid .channelName {
+  width: 240px;
+}
+
+.list {
+  height: 140px;
+  width: 100%;
+  margin-left: 5px;
+  margin-top: 15px;
+  border-bottom: 1px solid var(--secondary-text-color);
+}
+
+.list .channelThumbnail {
+  float: left;
+  width: 240px;
+}
+
+.list .channelThumbnail img {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  left: 60px;
+}
+
+.list .channelName {
+  margin-left: 250px;
+  width: 275px;
+}
+
+.list .subscriberCount {
+  margin-left: 10px;
+}
+
+.list .videoCount {
+  margin-left: 1px;
+}
+
+.list .description {
+  margin-left: 250px;
+  font-size: 13px;
+  color: var(--secondary-text-color);
+  height: 35px;
+  overflow: hidden;
+}
