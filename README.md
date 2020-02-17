@@ -4,7 +4,7 @@
 
 # The FreeTube Vue.js Rewrite
 
-FreeTube is an open source desktop YouTube player built with privacy in mind.  This repository specifically is about a rewrite of FreeTube that is actively being worked on.  FreeTube will be rewritten from the ground up to take advantage of better coding practices and to make proper use of Vue.js compared to the previous code base.  You can read more about why a rewrite is in development over at the related [blog post](#).
+FreeTube is an open source desktop YouTube player built with privacy in mind.  This repository specifically is about a rewrite of FreeTube that is actively being worked on.  FreeTube will be rewritten from the ground up to take advantage of better coding practices and to make proper use of Vue.js compared to the previous code base.  You can read more about why a rewrite is in development over at the related [blog post](https://write.as/freetube/behind-the-scenes-the-rewrite-also-code-release).
 
 This version of FreeTube is not finished.  It is in active development and a lot of features (Even ones that are already implemented in FreeTube) are missing.  Almost all features are being remade.
 
