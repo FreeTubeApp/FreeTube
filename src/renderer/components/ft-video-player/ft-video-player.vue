@@ -3,15 +3,25 @@
     <video
       :id="id"
       class="ftVideoPlayer video-js vjs-default-skin"
-      width="800"
-      height="600"
       controls
       preload="auto"
       :data-setup="JSON.stringify(dataSetup)"
     >
       <source
-        :src="src"
-        type="video/mp4"
+        v-for="(source, index) in activeSourceList"
+        :key="index + '_source'"
+        :src="source.url"
+        :type="source.type || source.mimeType"
+        :label="source.qualityLabel"
+      />
+      <track
+        v-for="(caption, index) in captionList"
+        :key="index + '_caption'"
+        kind="subtitles"
+        :src="caption.baseUrl || caption.url"
+        :srclang="caption.languageCode"
+        :label="caption.label || caption.name.simpleText"
+        :type="caption.type"
       >
     </video>
   </div>

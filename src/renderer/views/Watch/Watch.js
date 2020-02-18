@@ -24,9 +24,11 @@ export default Vue.extend({
     return {
       isLoading: false,
       firstLoad: true,
+      useTheatreMode: true,
       showDashPlayer: true,
       showLegacyPlayer: false,
       showYouTubeNoCookieEmbed: false,
+      proxyVideos: false,
       videoId: '',
       videoTitle: '',
       videoDescription: '',
@@ -39,9 +41,10 @@ export default Vue.extend({
       channelId: '',
       channelSubscriptionCountText: '',
       videoPublished: 0,
-      videoUrl360p: '',
-      videoUrl720p: '',
+      videoStoryboardSrc: '',
       audioUrl: '',
+      videoSourceList: [],
+      captionSourceList: [],
       recommendedVideos: []
     }
   },
@@ -64,6 +67,14 @@ export default Vue.extend({
 
     youtubeNoCookieEmbeddedFrame: function () {
       return `<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/${this.videoId}?rel=0' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>`
+    },
+
+    dashSrc: function () {
+      return {
+        url: `${this.invidiousInstance}/api/manifest/dash/${this.videoId}.mpd`,
+        type: 'application/dash+xml',
+        label: 'Dash'
+      }
     }
   },
   watch: {
@@ -85,6 +96,11 @@ export default Vue.extend({
   },
   mounted: function () {
     this.videoId = this.$route.params.id
+    this.videoStoryboardSrc = `${this.invidiousInstance}/api/v1/storyboards/${this.videoId}?height=90`
+
+    if (this.proxyVideos) {
+      this.dashSrc = this.dashSrc + '?local=true'
+    }
 
     switch (this.backendPreference) {
       case 'local':
@@ -96,6 +112,10 @@ export default Vue.extend({
     }
   },
   methods: {
+    toggleTheatreMode: function () {
+      this.useTheatreMode = !this.useTheatreMode
+    },
+
     getVideoInformationLocal: function () {
       if (this.firstLoad) {
         this.isLoading = true
@@ -112,8 +132,45 @@ export default Vue.extend({
         this.videoPublished = result.published
         this.videoDescription = result.player_response.videoDetails.shortDescription
         this.recommendedVideos = result.related_videos
+        this.videoSourceList = result.player_response.streamingData.formats
 
-        this.videoUrl720p = result.player_response.streamingData.formats[1].url
+        // The response provides a storyboard, however it returns a 403 error.
+        // Uncomment this line if that ever changes.
+        // this.videoStoryboardSrc = result.player_response.storyboards.playerStoryboardSpecRenderer.spec
+
+        this.captionSourceList = result.player_response.captions.playerCaptionsTracklistRenderer.captionTracks
+        this.captionSourceList = this.captionSourceList.map((caption) => {
+          caption.baseUrl = `${this.invidiousInstance}/api/v1/captions/${this.videoId}?label=${encodeURI(caption.name.simpleText)}`
+
+          return caption
+        })
+
+        // TODO: The response returns the captions of the video, however they're returned
+        // in XML / TTML.  I haven't found a way to properly convert this for use.
+        // There may be another URL that we can use to grab an appropriate format as well.
+        // Video.js requires that the captions are returned in .vtt format.  The below code
+        // Converts it to .srt which may work, but I can't get the player to accept the data.
+
+        // this.captionSourceList = this.captionSourceList.map((caption) => {
+        //   caption.type = 'application/ttml+xml'
+        //   caption.dataSource = 'local'
+        //
+        //   $.get(caption.baseUrl, (response) => {
+        //     console.log('response')
+        //     console.log(response)
+        //     console.log()
+        //     xml2srt.Parse(new XMLSerializer().serializeToString(response))
+        //       .then(srt => {
+        //         caption.track = srt
+        //       }).catch(err => console.log(`Error while converting XML to SRT : ${err}`))
+        //   }).fail((xhr, textStatus, error) => {
+        //     console.log(xhr)
+        //     console.log(textStatus)
+        //     console.log(error)
+        //   })
+        //
+        //   return caption
+        // })
 
         this.isLoading = false
       }).catch((err) => {
@@ -147,8 +204,13 @@ export default Vue.extend({
         this.videoPublished = result.published * 1000
         this.videoDescriptionHtml = result.descriptionHtml
         this.recommendedVideos = result.recommendedVideos
-
-        this.videoUrl720p = result.formatStreams[0].url
+        this.videoSourceList = result.formatStreams.reverse()
+        this.captionSourceList = result.captions.map((caption) => {
+          caption.url = this.invidiousInstance + caption.url
+          caption.type = ''
+          caption.dataSource = 'invidious'
+          return caption
+        })
 
         this.isLoading = false
       }).catch((err) => {

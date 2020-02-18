@@ -5,11 +5,25 @@
   margin-bottom: 10px;
 }
 
+.theatreWatchVideo {
+  float: none;
+  margin: 0 auto;
+  width: 85%;
+  margin-bottom: 10px;
+}
+
 .videoPlayer {
   width: calc(65% + 30px);
   float: left;
   margin-top: 0px;
   margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.theatrePlayer {
+  width: calc(85% + 30px);
+  float: none;
+  margin: 0 auto;
   margin-bottom: 10px;
 }
 
@@ -21,6 +35,14 @@
   position: absolute;
   top: 70px;
   right: 10px;
+}
+
+.theatreRecommendations {
+  float: none;
+  margin: 0 auto;
+  width: 85%;
+  max-width: none;
+  position: static;
 }
 
 @media only screen and (max-width: 1700px) {

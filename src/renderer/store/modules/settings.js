@@ -14,6 +14,7 @@ const state = {
   useClickBaitRemover: true,
   clickBaitRemoverPreference: '',
   backendFallback: true,
+  videoFormatPreference: 'dash',
   autoplay: true,
   useTor: false,
   history: true,
@@ -61,6 +62,10 @@ const getters = {
 
   getClickBaitRemoverPreference: () => {
     return state.clickBaitRemoverPreference
+  },
+
+  getVideoFormatPreference: () => {
+    return state.videoFormatPreference
   }
 }
 

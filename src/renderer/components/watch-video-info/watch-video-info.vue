@@ -27,6 +27,11 @@
       />
     </div>
     <ft-flex-box class="videoOptions">
+      <ft-button
+        label="Toggle Theatre Mode"
+        class="theatreModeButton"
+        @click="$emit('theatreMode')"
+      />
       <ft-list-dropdown
         :title="formatTypeLabel"
         :label-names="formatTypeNames"

@@ -6,8 +6,12 @@
     />
     <ft-video-player
       v-if="!isLoading"
-      :src="videoUrl720p"
+      :dash-src="dashSrc"
+      :source-list="videoSourceList"
+      :caption-list="captionSourceList"
+      :storyboard-src="videoStoryboardSrc"
       class="videoPlayer"
+      :class="{ theatrePlayer: useTheatreMode }"
     />
     <watch-video-info
       v-if="!isLoading"
@@ -20,7 +24,9 @@
       :like-count="videoLikeCount"
       :dislike-count="videoDislikeCount"
       :view-count="videoViewCount"
+      @theatreMode="toggleTheatreMode"
       class="watchVideo"
+      :class="{ theatreWatchVideo: useTheatreMode }"
     />
     <watch-video-description
       v-if="!isLoading"
@@ -28,16 +34,19 @@
       :description="videoDescription"
       :description-html="videoDescriptionHtml"
       class="watchVideo"
+      :class="{ theatreWatchVideo: useTheatreMode }"
     />
     <watch-video-comments
       v-if="!isLoading"
       :id="videoId"
       class="watchVideo"
+      :class="{ theatreWatchVideo: useTheatreMode }"
     />
     <watch-video-recommendations
       v-if="!isLoading"
       :data="recommendedVideos"
       class="watchVideoRecommendations"
+      :class="{ theatreRecommendations: useTheatreMode }"
     />
   </div>
 </template>

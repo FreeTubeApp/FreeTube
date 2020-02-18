@@ -18,6 +18,7 @@ export default Vue.extend({
   data: function () {
     return {
       isLoading: false,
+      showComments: false,
       nextPageToken: null,
       commentData: []
     }
@@ -87,6 +88,7 @@ export default Vue.extend({
         this.commentData = this.commentData.concat(commentData)
         this.nextPageToken = p.nextPageToken
         this.isLoading = false
+        this.showComments = true
       })
     },
 
@@ -127,6 +129,7 @@ export default Vue.extend({
         this.commentData = this.commentData.concat(commentData)
         this.nextPageToken = response.continuation
         this.isLoading = false
+        this.showComments = true
       }).catch((xhr) => {
         console.log('found an error')
         console.log(xhr)

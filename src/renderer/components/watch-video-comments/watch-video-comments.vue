@@ -10,13 +10,26 @@
     >
       Click to view comments
     </h4>
+    <h4
+      v-if="commentData.length > 0 && !isLoading && !showComments"
+      class="getCommentsTitle"
+      @click="showComments = true"
+    >
+      Click to view comments
+    </h4>
     <h3
-      v-if="commentData.length > 0 && !isLoading"
+      v-if="commentData.length > 0 && !isLoading && showComments"
     >
       Comments
+      <span
+        class="hideComments"
+        @click="showComments = false"
+      >
+        Hide Comments
+      </span>
     </h3>
     <div
-      v-if="commentData.length > 0"
+      v-if="commentData.length > 0 && showComments"
     >
       <div
         v-for="(comment, index) in commentData"
@@ -87,8 +100,15 @@
         </div>
       </div>
     </div>
+    <div
+      v-else-if="showComments && !isLoading"
+    >
+      <h3 class="center">
+        There are no comments available for this video.
+      </h3>
+    </div>
     <h4
-      v-if="commentData.length > 0 && !isLoading"
+      v-if="commentData.length > 0 && !isLoading && showComments"
       class="getMoreComments"
       @click="getCommentData"
     >

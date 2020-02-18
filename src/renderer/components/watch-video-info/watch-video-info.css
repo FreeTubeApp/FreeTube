@@ -83,7 +83,14 @@
   position: absolute;
   right: 15px;
   top: 20px;
-  width: 350px;
+  width: 550px;
+}
+
+.theatreModeButton {
+  height: 30px;
+  line-height: 10px;
+  position: relative;
+  bottom: 5px;
 }
 
 .formatTypeDropdown {
@@ -92,4 +99,14 @@
 
 .shareDropdown {
   width: 175px;
+}
+
+@media only screen and (max-width: 1700px) {
+  .theatreModeButton {
+    display: none;
+  }
+
+  .videoOptions {
+    width: 350px;
+  }
 }

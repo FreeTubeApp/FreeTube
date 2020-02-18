@@ -8,9 +8,20 @@
   color: var(--title-color);
 }
 
+.center {
+  text-align: center;
+}
+
 .comment {
   padding: 15px;
   position: relative;
+}
+
+.hideComments {
+  font-size: 13px;
+  text-decoration: underline;
+  cursor: pointer;
+  color: var(--title-color);
 }
 
 .commentThumbnail {
@@ -47,7 +58,7 @@
 
 .commentMoreReplies {
   font-size: 11px;
-  margin-left: 110px;
+  margin-left: 120px;
   margin-top: -25px;
   text-decoration: underline;
   cursor: pointer;
