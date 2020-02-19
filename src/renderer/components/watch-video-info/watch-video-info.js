@@ -125,6 +125,20 @@ export default Vue.extend({
       console.log('TODO: Handle subscription logic')
     },
 
+    handleFormatChange: function (format) {
+      console.log('Handling share')
+      console.log(this)
+
+      switch (format) {
+        case 'dash':
+          this.$parent.enableDashFormat()
+          break
+        case 'legacy':
+          this.$parent.enableLegacyFormat()
+          break
+      }
+    },
+
     handleShare: function (method) {
       console.log('Handling share')
 

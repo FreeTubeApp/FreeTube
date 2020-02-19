@@ -29,6 +29,8 @@ export default Vue.extend({
       showLegacyPlayer: false,
       showYouTubeNoCookieEmbed: false,
       proxyVideos: false,
+      hidePlayer: false,
+      activeFormat: 'legacy',
       videoId: '',
       videoTitle: '',
       videoDescription: '',
@@ -61,6 +63,10 @@ export default Vue.extend({
       return this.$store.getters.getInvidiousInstance
     },
 
+    videoFormatPreference: function () {
+      return this.$store.getters.getVideoFormatPreference
+    },
+
     videoDashUrl: function () {
       return `${this.invidiousInstance}/api/manifest/dash/id/${this.videoId}.mpd`
     },
@@ -70,11 +76,11 @@ export default Vue.extend({
     },
 
     dashSrc: function () {
-      return {
+      return [{
         url: `${this.invidiousInstance}/api/manifest/dash/${this.videoId}.mpd`,
         type: 'application/dash+xml',
         label: 'Dash'
-      }
+      }]
     }
   },
   watch: {
@@ -97,6 +103,8 @@ export default Vue.extend({
   mounted: function () {
     this.videoId = this.$route.params.id
     this.videoStoryboardSrc = `${this.invidiousInstance}/api/v1/storyboards/${this.videoId}?height=90`
+
+    this.activeFormat = this.videoFormatPreference
 
     if (this.proxyVideos) {
       this.dashSrc = this.dashSrc + '?local=true'
@@ -223,6 +231,20 @@ export default Vue.extend({
           // TODO: Show toast with error message
         }
       })
+    },
+
+    enableDashFormat: function () {
+      this.activeFormat = 'dash'
+      this.hidePlayer = true
+
+      setTimeout(() => { this.hidePlayer = false }, 100)
+    },
+
+    enableLegacyFormat: function () {
+      this.activeFormat = 'legacy'
+      this.hidePlayer = true
+
+      setTimeout(() => { this.hidePlayer = false }, 100)
     }
   }
 })

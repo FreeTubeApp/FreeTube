@@ -37,6 +37,7 @@
         :label-names="formatTypeNames"
         :label-values="formatTypeValues"
         class="formatTypeDropdown"
+        @click="handleFormatChange"
       />
       <ft-list-dropdown
         :title="shareLabel"

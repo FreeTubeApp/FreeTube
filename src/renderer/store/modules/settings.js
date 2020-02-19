@@ -10,7 +10,7 @@ const settingsDb = new Datastore({
 const state = {
   listType: 'grid',
   invidiousInstance: 'https://invidio.us',
-  backendPreference: 'invidious',
+  backendPreference: 'local',
   useClickBaitRemover: true,
   clickBaitRemoverPreference: '',
   backendFallback: true,

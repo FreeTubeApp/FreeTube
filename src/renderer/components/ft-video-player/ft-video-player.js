@@ -16,16 +16,20 @@ export default Vue.extend({
     'ft-card': FtCard
   },
   props: {
-    sourceList: {
-      type: Array,
+    format: {
+      type: String,
       required: true
     },
+    sourceList: {
+      type: Array,
+      default: null
+    },
     dashSrc: {
-      type: Object,
+      type: Array,
       default: null
     },
     hlsSrc: {
-      type: Object,
+      type: Array,
       default: null
     },
     captionList: {
@@ -126,7 +130,7 @@ export default Vue.extend({
     },
 
     determineFormatType: function () {
-      if (this.hlsSrc === null && this.dashSrc !== null && this.videoFormatPreference === 'dash') {
+      if (this.format === 'dash') {
         this.enableDashFormat()
       } else {
         this.enableLegacyFormat()
@@ -139,13 +143,9 @@ export default Vue.extend({
         return
       }
 
-      console.log('using dash format')
-
       this.useDash = true
       this.useHls = false
       this.activeSourceList = this.dashSrc
-
-      console.log(this.activeSourceList)
 
       setTimeout(this.initializePlayer, 1000)
     },
@@ -155,8 +155,6 @@ export default Vue.extend({
         console.log('No sources available')
         return
       }
-
-      console.log('using legacy format')
 
       this.useDash = false
       this.useHls = false

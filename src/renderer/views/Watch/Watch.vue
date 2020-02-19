@@ -5,13 +5,15 @@
       :fullscreen="true"
     />
     <ft-video-player
-      v-if="!isLoading"
+      v-if="!isLoading && !hidePlayer"
       :dash-src="dashSrc"
       :source-list="videoSourceList"
       :caption-list="captionSourceList"
       :storyboard-src="videoStoryboardSrc"
+      :format="activeFormat"
       class="videoPlayer"
       :class="{ theatrePlayer: useTheatreMode }"
+      ref="videoPlayer"
     />
     <watch-video-info
       v-if="!isLoading"
