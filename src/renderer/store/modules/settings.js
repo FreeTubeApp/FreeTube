@@ -66,6 +66,10 @@ const getters = {
 
   getVideoFormatPreference: () => {
     return state.videoFormatPreference
+  },
+
+  getAutoplay: () => {
+    return state.autoplay
   }
 }
 

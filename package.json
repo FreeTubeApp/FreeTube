@@ -37,7 +37,7 @@
     "youtube-comments-task": "^1.3.14",
     "youtube-suggest": "^1.1.0",
     "yt-xml2srt": "^1.1.0",
-    "ytdl-core": "^1.0.7",
+    "ytdl-core": "^1.0.9",
     "ytpl": "^0.1.20",
     "ytsr": "^0.1.10"
   },

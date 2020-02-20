@@ -147,11 +147,14 @@ export default Vue.extend({
         // this.videoStoryboardSrc = result.player_response.storyboards.playerStoryboardSpecRenderer.spec
 
         this.captionSourceList = result.player_response.captions.playerCaptionsTracklistRenderer.captionTracks
-        this.captionSourceList = this.captionSourceList.map((caption) => {
-          caption.baseUrl = `${this.invidiousInstance}/api/v1/captions/${this.videoId}?label=${encodeURI(caption.name.simpleText)}`
 
-          return caption
-        })
+        if (typeof (this.captionSourceList) !== 'undefined') {
+          this.captionSourceList = this.captionSourceList.map((caption) => {
+            caption.baseUrl = `${this.invidiousInstance}/api/v1/captions/${this.videoId}?label=${encodeURI(caption.name.simpleText)}`
+
+            return caption
+          })
+        }
 
         // TODO: The response returns the captions of the video, however they're returned
         // in XML / TTML.  I haven't found a way to properly convert this for use.
@@ -234,6 +237,10 @@ export default Vue.extend({
     },
 
     enableDashFormat: function () {
+      if (this.activeFormat === 'dash') {
+        return
+      }
+
       this.activeFormat = 'dash'
       this.hidePlayer = true
 
@@ -241,10 +248,16 @@ export default Vue.extend({
     },
 
     enableLegacyFormat: function () {
+      if (this.activeFormat === 'legacy') {
+        return
+      }
+
       this.activeFormat = 'legacy'
       this.hidePlayer = true
 
-      setTimeout(() => { this.hidePlayer = false }, 100)
+      setTimeout(() => {
+        this.hidePlayer = false
+      }, 100)
     }
   }
 })
