@@ -1,8 +1,7 @@
 <template>
   <div>
-    <ft-card class="card">
-      <h3>Settings</h3>
-    </ft-card>
+    <general-settings />
+    <player-settings />
   </div>
 </template>
 
