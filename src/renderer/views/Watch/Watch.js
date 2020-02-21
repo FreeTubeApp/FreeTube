@@ -258,6 +258,18 @@ export default Vue.extend({
       setTimeout(() => {
         this.hidePlayer = false
       }, 100)
+    },
+
+    handleVideoError: function (error) {
+      console.log(error)
+      if (error.code === 4) {
+        if (this.activeFormat === 'dash') {
+          console.log('Unable to play dash formats.  Reverting to legacy formats...')
+          this.enableLegacyFormat()
+        } else {
+          this.enableDashFormat()
+        }
+      }
     }
   }
 })

@@ -50,6 +50,7 @@ export default Vue.extend({
       useDash: false,
       useHls: false,
       activeSourceList: [],
+      mouseTimeout: null,
       dataSetup: {
         aspectRatio: '16:9',
         nativeTextTracks: false,
@@ -115,6 +116,7 @@ export default Vue.extend({
     if (this.player !== null && !this.player.isInPictureInPicture()) {
       this.player.dispose()
       this.player = null
+      clearTimeout(this.mouseTimeout)
     }
   },
   methods: {
@@ -147,6 +149,15 @@ export default Vue.extend({
         }
 
         $(document).on('keydown', this.keyboardShortcutHandler)
+
+        this.player.on('mousemove', this.hideMouseTimeout)
+        this.player.on('mouseleave', this.removeMouseTimeout)
+
+        const v = this
+
+        this.player.on('error', function (error, message) {
+          v.$emit('error', error.target.player.error_)
+        })
       }
     },
 
@@ -258,6 +269,27 @@ export default Vue.extend({
         } else {
           tracks[1].mode = 'showing'
         }
+      }
+    },
+
+    hideMouseTimeout: function () {
+      if (this.id === '') {
+        return
+      }
+
+      const videoPlayer = $(`#${this.id} video`).get(0)
+      if (typeof (videoPlayer) !== 'undefined') {
+        videoPlayer.style.cursor = 'default'
+        clearTimeout(this.mouseTimeout)
+        this.mouseTimeout = window.setTimeout(function () {
+          videoPlayer.style.cursor = 'none'
+        }, 2650)
+      }
+    },
+
+    removeMouseTimeout: function () {
+      if (this.mouseTimeout !== null) {
+        clearTimeout(this.mouseTimeout)
       }
     },
 
@@ -396,6 +428,7 @@ export default Vue.extend({
     if (this.player !== null && !this.player.isInPictureInPicture()) {
       this.player.dispose()
       this.player = null
+      clearTimeout(this.mouseTimeout)
     }
   }
 })

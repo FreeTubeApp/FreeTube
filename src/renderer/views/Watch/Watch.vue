@@ -14,6 +14,7 @@
       class="videoPlayer"
       :class="{ theatrePlayer: useTheatreMode }"
       ref="videoPlayer"
+      @error="handleVideoError"
     />
     <watch-video-info
       v-if="!isLoading"
