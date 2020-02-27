@@ -10,6 +10,10 @@
     -webkit-box-shadow: 0px 2px 1px 0px var(--primary-shadow-color);
 }
 
+.topNavBarColor {
+  background-color: var(--primary-color);
+}
+
 .menuIcon {
   position: absolute;
   top: 10px;
@@ -101,7 +105,7 @@
 }
 
 .logoIcon {
-  background-image: url("/_icons/iconColorSmall.png");
+  background-image: var(--logo-icon);
   background-repeat: no-repeat;
   background-position: right top;
   background-size: 25px;
@@ -112,8 +116,12 @@
   height: 25px;
 }
 
+.logoIconBarColor {
+  background-image: var(--logo-icon-bar-color);
+}
+
 .logoText {
-  background-image: url("/_icons/textColorSmall.png");
+  background-image: var(--logo-text);
   background-repeat: no-repeat;
   background-position: right top;
   background-size: 100px;
@@ -122,6 +130,10 @@
   left: 175px;
   width: 100px;
   height: 40px;
+}
+
+.logoTextBarColor {
+  background-image: var(--logo-text-bar-color);
 }
 
 .searchContainer {

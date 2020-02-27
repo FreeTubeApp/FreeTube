@@ -16,6 +16,15 @@ export default Vue.extend({
     }
   },
   mounted: function () {
+    this.$store.dispatch('grabUserSettings')
+
+    const theme = localStorage.getItem('theme')
+    console.log(theme)
+
+    if (theme !== null) {
+      this.updateTheme(theme)
+    }
+
     // Open links externally by default
     $(document).on('click', 'a[href^="http"]', (event) => {
       const el = event.currentTarget
@@ -25,5 +34,13 @@ export default Vue.extend({
         shell.openExternal(el.href)
       }
     })
+  },
+  methods: {
+    updateTheme: function (theme) {
+      console.log(theme)
+      const body = document.getElementsByTagName('body')[0]
+      body.className = theme
+      localStorage.setItem('theme', theme)
+    }
   }
 })

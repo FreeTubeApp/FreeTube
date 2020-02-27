@@ -31,6 +31,25 @@
     </ft-flex-box>
     <br>
     <ft-flex-box>
+      <ft-slider
+        label="Default Volume"
+        :default-value="100"
+        :min-value="0"
+        :max-value="100"
+        :step="1"
+        value-extension="%"
+      />
+      <ft-slider
+        label="Default Playback Rate"
+        :default-value="1"
+        :min-value="0.25"
+        :max-value="3"
+        :step="0.25"
+        value-extension="x"
+      />
+    </ft-flex-box>
+    <br>
+    <ft-flex-box>
       <ft-select
         placeholder="Default Video Format"
         :value="formatValues[0]"

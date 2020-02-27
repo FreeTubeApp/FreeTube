@@ -35,8 +35,8 @@ export default Vue.extend({
       return this.$store.getters.getListType
     },
 
-    clickBaitRemoverPreference: function () {
-      return this.$store.getters.getClickBaitRemoverPreference
+    thumbnailPreference: function () {
+      return this.$store.getters.getThumbnailPreference
     }
   },
   mounted: function () {
@@ -49,7 +49,6 @@ export default Vue.extend({
     ) {
       this.parseInvidiousData()
     } else {
-      console.log('parsing local data')
       this.parseLocalData()
     }
   },
@@ -102,7 +101,7 @@ export default Vue.extend({
       this.id = this.data.videoId
       this.title = this.data.title
       // this.thumbnail = this.data.videoThumbnails[4].url
-      switch (this.clickBaitRemoverPreference) {
+      switch (this.thumbnailPreference) {
         case 'start':
           this.thumbnail = `https://i.ytimg.com/vi/${this.id}/mq1.jpg`
           break
@@ -145,7 +144,7 @@ export default Vue.extend({
       this.title = this.data.title
       // this.thumbnail = this.data.thumbnail
 
-      switch (this.clickBaitRemoverPreference) {
+      switch (this.thumbnailPreference) {
         case 'start':
           this.thumbnail = `https://i.ytimg.com/vi/${this.id}/mq1.jpg`
           break

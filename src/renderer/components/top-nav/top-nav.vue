@@ -1,5 +1,8 @@
 <template>
-  <div class="topNav">
+  <div
+    class="topNav"
+    :class="{ topNavBarColor: barColor }"
+  >
     <font-awesome-icon
       class="menuIcon"
       icon="bars"
@@ -15,8 +18,14 @@
       icon="arrow-right"
       @click="historyForward"
     />
-    <div class="logoIcon" />
-    <div class="logoText" />
+    <div
+      class="logoIcon"
+      :class="{ logoIconBarColor: barColor }"
+    />
+    <div
+      class="logoText"
+      :class="{ logoTextBarColor: barColor }"
+    />
     <div class="searchContainer">
       <ft-input
         placeholder="Search / Go to URL"

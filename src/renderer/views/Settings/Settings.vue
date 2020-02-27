@@ -2,6 +2,7 @@
   <div>
     <general-settings />
     <player-settings />
+    <subscription-settings />
   </div>
 </template>
 

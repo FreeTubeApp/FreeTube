@@ -14,11 +14,12 @@
     margin-bottom: 10px;
     font: 16px;
     height: 45px;
-    border-bottom: 1px solid var(--primary-input-color);
+    color: var(--teritary-text-color);
+    border-bottom: 1px solid var(--teritary-text-color);
 }
 
 .ft-input-component ::-webkit-input-placeholder {
-  color: var(--primary-input-color);
+  color: var(--teritary-text-color);
 }
 
 .inputAction {

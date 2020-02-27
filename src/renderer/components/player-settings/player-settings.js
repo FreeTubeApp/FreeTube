@@ -2,6 +2,7 @@ import Vue from 'vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtSelect from '../ft-select/ft-select.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
+import FtSlider from '../ft-slider/ft-slider.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 
 export default Vue.extend({
@@ -10,6 +11,7 @@ export default Vue.extend({
     'ft-card': FtCard,
     'ft-select': FtSelect,
     'ft-toggle-switch': FtToggleSwitch,
+    'ft-slider': FtSlider,
     'ft-flex-box': FtFlexBox
   },
   data: function () {
@@ -55,8 +57,6 @@ export default Vue.extend({
     invidiousInstance: function () {
       return this.$store.getters.getInvidiousInstance
     }
-  },
-  mounted: function () {
   },
   methods: {
     goToChannel: function () {

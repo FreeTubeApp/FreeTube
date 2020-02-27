@@ -9,42 +9,63 @@
     <ft-flex-box>
       <ft-toggle-switch
         label="Fallback to Non-Preferred Backend on Failure"
+        :default-value="backendFallback"
+        @change="updateBackendFallback"
       />
       <ft-toggle-switch
         label="Check for Updates"
+        :default-value="checkForUpdates"
+        @change="updateCheckForUpdates"
+      />
+      <ft-toggle-switch
+        label="Match Top Bar with Theme Color"
+        :default-value="barColor"
+        @change="updateBarColor"
       />
     </ft-flex-box>
     <br>
     <ft-flex-box>
       <ft-select
         placeholder="Preferred API Backend"
-        :value="backendValues[0]"
+        :value="backendPreference"
         :select-names="backendNames"
         :select-values="backendValues"
+        @change="updateBackendPreference"
       />
       <ft-select
         placeholder="Default Theme"
-        :value="themeValues[0]"
+        :value="currentTheme"
         :select-names="themeNames"
         :select-values="themeValues"
+        @change="updateTheme"
       />
       <ft-select
         placeholder="Default Landing Page"
-        :value="defaultPageValues[0]"
+        :value="landingPage"
         :select-names="defaultPageNames"
         :select-values="defaultPageValues"
+        @change="updateLandingPage"
       />
       <ft-select
         placeholder="Region for Trending"
-        :value="regionValues[0]"
+        :value="region"
         :select-names="regionNames"
         :select-values="regionValues"
+        @change="updateRegion"
       />
       <ft-select
         placeholder="Video View Type"
-        :value="viewTypeValues[0]"
+        :value="listType"
         :select-names="viewTypeNames"
         :select-values="viewTypeValues"
+        @change="updateListType"
+      />
+      <ft-select
+        placeholder="Thumbnail Preference"
+        :value="thumbnailPreference"
+        :select-names="thumbnailTypeNames"
+        :select-values="thumbnailTypeValues"
+        @change="updateThumbnailPreference"
       />
     </ft-flex-box>
   </ft-card>

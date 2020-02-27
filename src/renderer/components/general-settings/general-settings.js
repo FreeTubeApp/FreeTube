@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
 import FtSelect from '../ft-select/ft-select.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
@@ -15,15 +16,16 @@ export default Vue.extend({
   data: function () {
     return {
       title: 'General Settings',
+      currentTheme: '',
       themeNames: [
         'Light Red',
         'Dark Red',
         'Gray Red'
       ],
       themeValues: [
-        'lightRed',
-        'darkRed',
-        'grayRed'
+        'redLight',
+        'redDark',
+        'redGray'
       ],
       backendNames: [
         'Invidious API',
@@ -54,6 +56,18 @@ export default Vue.extend({
       viewTypeValues: [
         'grid',
         'list'
+      ],
+      thumbnailTypeNames: [
+        'Default',
+        'Beginning',
+        'Middle',
+        'End'
+      ],
+      thumbnailTypeValues: [
+        '',
+        'start',
+        'middle',
+        'end'
       ],
       regionNames: [
         'Afghanistan',
@@ -538,15 +552,48 @@ export default Vue.extend({
     }
   },
   computed: {
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
+    backendFallback: function () {
+      return this.$store.getters.getBackendFallback
+    },
+    checkForUpdates: function () {
+      return this.$store.getters.getCheckForUpdates
+    },
+    barColor: function () {
+      return this.$store.getters.getBarColor
+    },
+    backendPreference: function () {
+      return this.$store.getters.getBackendPreference
+    },
+    landingPage: function () {
+      return this.$store.getters.getLandingPage
+    },
+    region: function () {
+      return this.$store.getters.getRegion
+    },
+    listType: function () {
+      return this.$store.getters.getListType
+    },
+    thumbnailPreference: function () {
+      return this.$store.getters.getThumbnailPreference
     }
   },
   mounted: function () {
+    this.currentTheme = localStorage.getItem('theme')
   },
   methods: {
-    goToChannel: function () {
-      console.log('TODO: Handle goToChannel')
-    }
+    updateTheme: function (theme) {
+      this.$parent.$parent.updateTheme(theme)
+    },
+
+    ...mapActions([
+      'updateBackendFallback',
+      'updateCheckForUpdates',
+      'updateBarColor',
+      'updateBackendPreference',
+      'updateLandingPage',
+      'updateRegion',
+      'updateListType',
+      'updateThumbnailPreference'
+    ])
   }
 })

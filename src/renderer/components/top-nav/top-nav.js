@@ -22,6 +22,10 @@ export default Vue.extend({
 
     isSideNavOpen: function () {
       return this.$store.getters.getIsSideNavOpen
+    },
+
+    barColor: function () {
+      return this.$store.getters.getBarColor
     }
   },
   methods: {

@@ -141,6 +141,8 @@ export default Vue.extend({
         this.videoDescription = result.player_response.videoDetails.shortDescription
         this.recommendedVideos = result.related_videos
         this.videoSourceList = result.player_response.streamingData.formats
+        this.videoLikeCount = result.likes
+        this.videoDislikeCount = result.dislikes
 
         // The response provides a storyboard, however it returns a 403 error.
         // Uncomment this line if that ever changes.

@@ -18,6 +18,11 @@ export default Vue.extend({
       currentValue: false
     }
   },
+  watch: {
+    defaultValue: function () {
+      this.currentValue = this.defaultValue
+    }
+  },
   mounted: function () {
     this.id = this._uid
     this.currentValue = this.defaultValue
