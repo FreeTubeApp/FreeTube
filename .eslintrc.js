@@ -33,10 +33,12 @@ module.exports = {
   plugins: ['vue'],
 
   rules: {
-    'vue/no-v-html': "off",
+    'space-before-function-paren': 0,
+    'comma-dangle': 0,
+    'vue/no-v-html': 'off',
     'no-console': 0,
     'no-unused-vars': 1,
     'no-undef': 1,
-    'vue/no-template-key': 1
+    'vue/no-template-key': 1,
   },
 }
