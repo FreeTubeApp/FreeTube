@@ -1205,7 +1205,7 @@ body.vjs-full-window {
 .video-js .vjs-time-control {
   flex: none;
   font-size: 1em;
-  line-height: 4em;
+  line-height: 3.7em;
   min-width: 2em;
   width: auto;
   padding-left: 0em;

@@ -16,7 +16,7 @@ const getters = {
 }
 
 const actions = {
-  ytSearch ({ commit, dispatch }, payload) {
+  ytSearch ({ commit, dispatch, rootState }, payload) {
     console.log('Performing search please wait...')
     return new Promise((resolve, reject) => {
       if (state.isYtSearchRunning) {
