@@ -2,6 +2,8 @@ import ytdl from 'ytdl-core'
 import ytsr from 'ytsr'
 import ytpl from 'ytpl'
 
+import IsEqual from 'lodash.isequal'
+
 const state = {
   main: 0,
   isYtSearchRunning: false
@@ -22,13 +24,34 @@ const actions = {
         resolve(false)
       }
 
+      const defaultFilters = {
+        sortBy: 'relevance',
+        time: '',
+        type: 'all',
+        duration: ''
+      }
+
       commit('toggleIsYtSearchRunning')
 
-      dispatch('ytSearchGetFilters', payload).then((filter) => {
-        if (typeof (payload.options.nextpageRef) === 'undefined' && filter !== payload.query) {
-          payload.options.nextpageRef = filter
-        }
+      if (!IsEqual(defaultFilters, rootState.utils.searchSettings)) {
+        dispatch('ytSearchGetFilters', payload).then((filter) => {
+          if (typeof (payload.options.nextpageRef) === 'undefined' && filter !== payload.query) {
+            payload.options.nextpageRef = filter
+          }
 
+          ytsr(payload.query, payload.options, (err, result) => {
+            commit('toggleIsYtSearchRunning')
+            if (err) {
+              console.log(err)
+              reject(err)
+            } else {
+              console.log(result)
+              console.log('done')
+              resolve(result)
+            }
+          })
+        })
+      } else {
         ytsr(payload.query, payload.options, (err, result) => {
           commit('toggleIsYtSearchRunning')
           if (err) {
@@ -40,7 +63,7 @@ const actions = {
             resolve(result)
           }
         })
-      })
+      }
     })
   },
 

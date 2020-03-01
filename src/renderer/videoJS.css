@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .vjs-modal-dialog .vjs-modal-dialog-content, .video-js .vjs-modal-dialog, .vjs-button > .vjs-icon-placeholder:before, .video-js .vjs-big-play-button .vjs-icon-placeholder:before {
   position: absolute;
-  top: 0;
+  top: 3px;
   left: 0;
   width: 100%;
   height: 100%;
@@ -982,6 +982,7 @@ body.vjs-full-window {
 
 .video-js .vjs-volume-control.vjs-volume-horizontal {
   width: 5em;
+  top: 3px;
 }
 
 .video-js .vjs-volume-panel .vjs-volume-control {
@@ -1204,7 +1205,7 @@ body.vjs-full-window {
 .video-js .vjs-time-control {
   flex: none;
   font-size: 1em;
-  line-height: 3em;
+  line-height: 4em;
   min-width: 2em;
   width: auto;
   padding-left: 0em;
@@ -1292,7 +1293,7 @@ video::-webkit-media-text-track-display {
 .vjs-playback-rate > .vjs-menu-button,
 .vjs-playback-rate .vjs-playback-rate-value {
   position: absolute;
-  top: 30%;
+  top: 16px;
   left: 0;
   width: 100%;
   height: 100%;
@@ -1802,7 +1803,7 @@ video::-webkit-media-text-track-display {
     right: 0;
     width: 100%;
     height: .4em;
-    top: -.4em
+    top: -.1em
 }
 
 .video-js .vjs-progress-control .vjs-load-progress,.video-js .vjs-progress-control .vjs-play-progress,.video-js .vjs-progress-control .vjs-progress-holder {
@@ -1918,11 +1919,11 @@ video::-webkit-media-text-track-display {
 }
 
 .video-js:hover .vjs-big-play-button,.video-js .vjs-big-play-button:focus,.video-js .vjs-big-play-button:active {
-    background-color: #cc181e
+    background-color: var(--primary-color)
 }
 
 .video-js .vjs-loading-spinner {
-    border-color: #cc181e
+    border-color: var(--primary-color)
 }
 
 .video-js .vjs-control-bar2 {
@@ -1936,7 +1937,7 @@ video::-webkit-media-text-track-display {
 }
 
 .video-js .vjs-play-progress,.video-js  .vjs-volume-level {
-    background-color: #cc181e
+    background-color: var(--primary-color)
 }
 
 .video-js .vjs-load-progress {
@@ -1980,4 +1981,8 @@ video::-webkit-media-text-track-display {
     bottom: 20px;
     pointer-events: none;
     box-shadow: 0 0 7px rgba(0,0,0,.6);
+}
+
+.video-js .vjs-http-source-selector {
+  top: 4px;
 }

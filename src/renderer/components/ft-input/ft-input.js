@@ -10,13 +10,25 @@ export default Vue.extend({
     showArrow: {
       type: Boolean,
       default: true
+    },
+    isSearch: {
+      type: Boolean,
+      default: false
     }
   },
   data: function () {
     return {
       id: '',
-      inputData: '',
-      component: this
+      inputData: ''
+    }
+  },
+  computed: {
+    barColor: function () {
+      return this.$store.getters.getBarColor
+    },
+
+    forceTextColor: function () {
+      return this.isSearch && this.barColor
     }
   },
   mounted: function () {

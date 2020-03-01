@@ -9,30 +9,29 @@ const settingsDb = new Datastore({
 
 const state = {
   currentTheme: 'lightRed',
-  barColor: false,
-  listType: 'grid',
-  invidiousInstance: 'https://invidio.us',
-  backendPreference: 'local',
-  useClickBaitRemover: true,
-  thumbnailPreference: '',
   backendFallback: true,
-  videoFormatPreference: 'dash',
-  defaultQuality: 'Auto',
-  videoAutoplay: true,
-  playlistAutoplay: true,
-  playNextVideo: false,
   checkForUpdates: true,
-  useTor: false,
-  history: true,
-  subtitles: false,
-  player: 'dash',
-  volume: 1,
-  rate: '1',
-  proxy: 'SOCKS5://127.0.0.1:9050',
-  proxyVideos: false,
-  region: 'US',
-  debugMode: false,
+  backendPreference: 'local',
   landingPage: 'subscriptions',
+  region: 'US',
+  listType: 'grid',
+  thumbnailPreference: '',
+  invidiousInstance: 'https://invidio.us',
+  barColor: false,
+  rememberHistory: true,
+  autoplayVideos: true,
+  autoplayPlaylists: true,
+  playNextVideo: false,
+  enableSubtitles: true,
+  forceLocalBackendForLegacy: true,
+  proxyVideos: false,
+  defaultVolume: 1,
+  defaultPlayback: 1,
+  defaultVideoFormat: 'dash',
+  defaultQuality: 'auto',
+  useTor: false,
+  proxy: 'SOCKS5://127.0.0.1:9050',
+  debugMode: false,
   disctractionFreeMode: false,
   hideWatchedSubs: false,
   profileList: [{ name: 'All Channels', color: '#304FFE' }],
@@ -76,12 +75,48 @@ const getters = {
     return state.invidiousInstance
   },
 
-  getVideoFormatPreference: () => {
-    return state.videoFormatPreference
+  getRememberHistory: () => {
+    return state.rememberHistory
   },
 
-  getAutoplay: () => {
-    return state.videoAutoplay
+  getAutoplayVideos: () => {
+    return state.autoplayVideos
+  },
+
+  getAutoplayPlaylists: () => {
+    return state.autoplayPlaylists
+  },
+
+  getPlayNextVideo: () => {
+    return state.playNextVideo
+  },
+
+  getEnableSubtitles: () => {
+    return state.enableSubtitles
+  },
+
+  getForceLocalBackendForLegacy: () => {
+    return state.forceLocalBackendForLegacy
+  },
+
+  getProxyVideos: () => {
+    return state.proxyVideos
+  },
+
+  getDefaultVolume: () => {
+    return state.defaultVolume
+  },
+
+  getDefaultPlayback: () => {
+    return state.defaultPlayback
+  },
+
+  getDefaultVideoFormat: () => {
+    return state.defaultVideoFormat
+  },
+
+  getDefaultQuality: () => {
+    return state.defaultQuality
   }
 }
 
@@ -89,6 +124,7 @@ const actions = {
   grabUserSettings ({ commit }) {
     settingsDb.find({}, (err, results) => {
       if (!err) {
+        console.log(results)
         results.forEach((result) => {
           switch (result._id) {
             case 'backendFallback':
@@ -96,9 +132,6 @@ const actions = {
               break
             case 'checkForUpdates':
               commit('setCheckForUpdates', result.value)
-              break
-            case 'barColor':
-              commit('setBarColor', result.value)
               break
             case 'backendPreference':
               commit('setBackendPreference', result.value)
@@ -114,6 +147,43 @@ const actions = {
               break
             case 'thumbnailPreference':
               commit('setThumbnailPreference', result.value)
+              break
+            case 'barColor':
+              commit('setBarColor', result.value)
+              break
+            case 'rememberHistory':
+              commit('setRememberHistory', result.value)
+              break
+            case 'autoplayVideos':
+              commit('setAutoplayVideos', result.value)
+              break
+            case 'autoplayPlaylists':
+              commit('setAutoplayPlaylists', result.value)
+              break
+            case 'playNextVideo':
+              commit('setPlayNextVideo', result.value)
+              break
+            case 'enableSubtitles':
+              commit('setEnableSubtitles', result.value)
+              break
+            case 'forceLocalBackendForLegacy':
+              commit('setForceLocalBackendForLegacy', result.value)
+              break
+            case 'proxyVideos':
+              commit('setProxyVideos', result.value)
+              break
+            case 'defaultVolume':
+              commit('setDefaultVolume', result.value)
+              sessionStorage.setItem('volume', result.value)
+              break
+            case 'defaultPlayback':
+              commit('setDefaultPlayback', result.value)
+              break
+            case 'defaultVideoFormat':
+              commit('setDefaultVideoFormat', result.value)
+              break
+            case 'defaultQuality':
+              commit('setDefaultQuality', result.value)
               break
           }
         })
@@ -133,14 +203,6 @@ const actions = {
     settingsDb.update({ _id: 'checkForUpdates' }, { _id: 'checkForUpdates', value: checkForUpdates }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
         commit('setCheckForUpdates', checkForUpdates)
-      }
-    })
-  },
-
-  updateBarColor ({ commit }, barColor) {
-    settingsDb.update({ _id: 'barColor' }, { _id: 'barColor', value: barColor }, { upsert: true }, (err, numReplaced) => {
-      if (!err) {
-        commit('setBarColor', barColor)
       }
     })
   },
@@ -185,34 +247,107 @@ const actions = {
     })
   },
 
+  updateBarColor ({ commit }, barColor) {
+    settingsDb.update({ _id: 'barColor' }, { _id: 'barColor', value: barColor }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setBarColor', barColor)
+      }
+    })
+  },
+
+  updateRememberHistory ({ commit }, history) {
+    settingsDb.update({ _id: 'rememberHistory' }, { _id: 'rememberHistory', value: history }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setRememberHistory', history)
+      }
+    })
+  },
+
+  updateAutoplayVideos ({ commit }, autoplayVideos) {
+    settingsDb.update({ _id: 'autoplayVideos' }, { _id: 'autoplayVideos', value: autoplayVideos }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setAutoplayVideos', autoplayVideos)
+      }
+    })
+  },
+
+  updateAutoplayPlaylists ({ commit }, autoplayPlaylists) {
+    settingsDb.update({ _id: 'autoplayPlaylists' }, { _id: 'autoplayPlaylists', value: autoplayPlaylists }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setAutoplayPlaylists', autoplayPlaylists)
+      }
+    })
+  },
+
+  updatePlayNextVideo ({ commit }, playNextVideo) {
+    settingsDb.update({ _id: 'playNextVideo' }, { _id: 'playNextVideo', value: playNextVideo }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setPlayNextVideo', playNextVideo)
+      }
+    })
+  },
+
+  updateEnableSubtitles ({ commit }, enableSubtitles) {
+    settingsDb.update({ _id: 'enableSubtitles' }, { _id: 'enableSubtitles', value: enableSubtitles }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setEnableSubtitles', enableSubtitles)
+      }
+    })
+  },
+
+  updateForceLocalBackendForLegacy ({ commit }, forceLocalBackendForLegacy) {
+    settingsDb.update({ _id: 'forceLocalBackendForLegacy' }, { _id: 'forceLocalBackendForLegacy', value: forceLocalBackendForLegacy }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setForceLocalBackendForLegacy', forceLocalBackendForLegacy)
+      }
+    })
+  },
+
+  updateProxyVideos ({ commit }, proxyVideos) {
+    settingsDb.update({ _id: 'proxyVideos' }, { _id: 'proxyVideos', value: proxyVideos }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setProxyVideos', proxyVideos)
+      }
+    })
+  },
+
+  updateDefaultVolume ({ commit }, defaultVolume) {
+    settingsDb.update({ _id: 'defaultVolume' }, { _id: 'defaultVolume', value: defaultVolume }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setDefaultVolume', defaultVolume)
+        sessionStorage.setItem('volume', defaultVolume)
+      }
+    })
+  },
+
+  updateDefaultPlayback ({ commit }, defaultPlayback) {
+    settingsDb.update({ _id: 'defaultPlayback' }, { _id: 'defaultPlayback', value: defaultPlayback }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setDefaultPlayback', defaultPlayback)
+      }
+    })
+  },
+
+  updateDefaultVideoFormat ({ commit }, defaultVideoFormat) {
+    settingsDb.update({ _id: 'defaultVideoFormat' }, { _id: 'defaultVideoFormat', value: defaultVideoFormat }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setDefaultVideoFormat', defaultVideoFormat)
+      }
+    })
+  },
+
+  updateDefaultQuality ({ commit }, defaultQuality) {
+    settingsDb.update({ _id: 'defaultQuality' }, { _id: 'defaultQuality', value: defaultQuality }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setDefaultQuality', defaultQuality)
+      }
+    })
+  },
+
   updateUseTor ({ commit }, useTor) {
     settingsDb.update({ _id: useTor }, { value: useTor }, { upsert: true }, (err, useTor) => {
       if (!err) {
         commit('setUseTor', useTor)
-      }
-    })
-  },
-
-  updateSetHistory ({ commit }, history) {
-    settingsDb.update({ _id: history }, { value: history }, { upsert: true }, (err, history) => {
-      if (!err) {
-        commit('setHistory', history)
-      }
-    })
-  },
-
-  updateAutoPlay ({ commit }, autoplay) {
-    settingsDb.update({ _id: autoplay }, { value: autoplay }, { upsert: true }, (err, autoplay) => {
-      if (!err) {
-        commit('setAutoplay', autoplay)
-      }
-    })
-  },
-
-  updateAutoPlayPlaylists ({ commit }, autoplayPlaylists) {
-    settingsDb.update({ _id: autoplayPlaylists }, { value: autoplayPlaylists }, { upsert: true }, (err, autoplayPlaylists) => {
-      if (!err) {
-        commit('setAutoplayPlaylists', autoplayPlaylists)
       }
     })
   }
@@ -227,9 +362,6 @@ const mutations = {
   },
   setCheckForUpdates (state, checkForUpdates) {
     state.checkForUpdates = checkForUpdates
-  },
-  setBarColor (state, barColor) {
-    state.barColor = barColor
   },
   setBackendPreference (state, backendPreference) {
     state.backendPreference = backendPreference
@@ -246,14 +378,14 @@ const mutations = {
   setThumbnailPreference (state, thumbnailPreference) {
     state.thumbnailPreference = thumbnailPreference
   },
-  setUseTor (state, useTor) {
-    state.useTor = useTor
+  setBarColor (state, barColor) {
+    state.barColor = barColor
   },
-  setHistory (state, history) {
-    state.history = history
+  setRememberHistory (state, rememberHistory) {
+    state.rememberHistory = rememberHistory
   },
-  setAutoplay (state, autoplay) {
-    state.autoplay = autoplay
+  setAutoplayVideos (state, autoplayVideos) {
+    state.autoplayVideos = autoplayVideos
   },
   setAutoplayPlaylists (state, autoplayPlaylists) {
     state.autoplayPlaylists = autoplayPlaylists
@@ -261,38 +393,35 @@ const mutations = {
   setPlayNextVideo (state, playNextVideo) {
     state.playNextVideo = playNextVideo
   },
-  setSubtitles (state, subtitles) {
-    state.subtitles = subtitles
+  setEnableSubtitles (state, enableSubtitles) {
+    state.enableSubtitles = enableSubtitles
   },
-  setUpdates (state, updates) {
-    state.updates = updates
-  },
-  setLocalScrape (state, localScrape) {
-    state.localScrape = localScrape
-  },
-  setPlayer (state, player) {
-    state.player = player
-  },
-  setQuality (state, quality) {
-    state.quality = quality
-  },
-  setVolume (state, volume) {
-    state.volume = volume
-  },
-  setRate (state, rate) {
-    state.rate = rate
-  },
-  setProxy (state, proxy) {
-    state.proxy = proxy
+  setForceLocalBackendForLegacy (state, forceLocalBackendForLegacy) {
+    state.forceLocalBackendForLegacy = forceLocalBackendForLegacy
   },
   setProxyVideos (state, proxyVideos) {
     state.proxyVideos = proxyVideos
   },
+  setDefaultVolume (state, defaultVolume) {
+    state.defaultVolume = defaultVolume
+  },
+  setDefaultPlayback (state, defaultPlayback) {
+    state.defaultPlayback = defaultPlayback
+  },
+  setDefaultVideoFormat (state, defaultVideoFormat) {
+    state.defaultVideoFormat = defaultVideoFormat
+  },
+  setDefaultQuality (state, defaultQuality) {
+    state.defaultQuality = defaultQuality
+  },
+  setProxy (state, proxy) {
+    state.proxy = proxy
+  },
+  setUseTor (state, useTor) {
+    state.useTor = useTor
+  },
   setDebugMode (state, debugMode) {
     state.debugMode = debugMode
-  },
-  setStartScreen (state, startScreen) {
-    state.startScreen = startScreen
   },
   setDistractionFreeMode (state, disctractionFreeMode) {
     state.disctractionFreeMode = disctractionFreeMode

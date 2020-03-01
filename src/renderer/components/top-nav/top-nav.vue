@@ -4,17 +4,17 @@
     :class="{ topNavBarColor: barColor }"
   >
     <font-awesome-icon
-      class="menuIcon"
+      class=" menuIcon navIcon"
       icon="bars"
       @click="toggleSideNav"
     />
     <font-awesome-icon
-      class="navBackIcon"
+      class="navBackIcon navIcon"
       icon="arrow-left"
       @click="historyBack"
     />
     <font-awesome-icon
-      class="navForwardIcon"
+      class="navForwardIcon navIcon"
       icon="arrow-right"
       @click="historyForward"
     />
@@ -29,11 +29,12 @@
     <div class="searchContainer">
       <ft-input
         placeholder="Search / Go to URL"
-        class="search"
+        class="searchInput"
+        :is-search="true"
         @click="goToSearch"
       />
       <font-awesome-icon
-        class="navFilterIcon"
+        class="navFilterIcon navIcon"
         icon="filter"
         @click="showFilters = !showFilters"
       />

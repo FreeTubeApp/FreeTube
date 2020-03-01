@@ -16,17 +16,6 @@ export default Vue.extend({
   data: function () {
     return {
       title: 'General Settings',
-      currentTheme: '',
-      themeNames: [
-        'Light Red',
-        'Dark Red',
-        'Gray Red'
-      ],
-      themeValues: [
-        'redLight',
-        'redDark',
-        'redGray'
-      ],
       backendNames: [
         'Invidious API',
         'Local API'
@@ -558,9 +547,6 @@ export default Vue.extend({
     checkForUpdates: function () {
       return this.$store.getters.getCheckForUpdates
     },
-    barColor: function () {
-      return this.$store.getters.getBarColor
-    },
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
@@ -577,14 +563,7 @@ export default Vue.extend({
       return this.$store.getters.getThumbnailPreference
     }
   },
-  mounted: function () {
-    this.currentTheme = localStorage.getItem('theme')
-  },
   methods: {
-    updateTheme: function (theme) {
-      this.$parent.$parent.updateTheme(theme)
-    },
-
     ...mapActions([
       'updateBackendFallback',
       'updateCheckForUpdates',

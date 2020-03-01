@@ -53,31 +53,35 @@ export default Vue.extend({
     }
   },
   computed: {
-    backendPreference: function() {
+    backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
 
-    backendFallback: function() {
+    backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
 
-    invidiousInstance: function() {
+    invidiousInstance: function () {
       return this.$store.getters.getInvidiousInstance
     },
 
-    videoFormatPreference: function() {
-      return this.$store.getters.getVideoFormatPreference
+    defaultVideoFormat: function () {
+      return this.$store.getters.getDefaultVideoFormat
     },
 
-    videoDashUrl: function() {
+    forceLocalBackendForLegacy: function () {
+      return this.$store.getters.getForceLocalBackendForLegacy
+    },
+
+    videoDashUrl: function () {
       return `${this.invidiousInstance}/api/manifest/dash/id/${this.videoId}.mpd`
     },
 
-    youtubeNoCookieEmbeddedFrame: function() {
+    youtubeNoCookieEmbeddedFrame: function () {
       return `<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/${this.videoId}?rel=0' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>`
     },
 
-    dashSrc: function() {
+    dashSrc: function () {
       return [
         {
           url: `${this.invidiousInstance}/api/manifest/dash/${this.videoId}.mpd`,
@@ -100,6 +104,10 @@ export default Vue.extend({
           break
         case 'invidious':
           this.getVideoInformationInvidious(this.videoId)
+
+          if (this.forceLocalBackendForLegacy) {
+            this.getVideoInformationLocal(this.videoId)
+          }
           break
       }
     },
@@ -108,7 +116,7 @@ export default Vue.extend({
     this.videoId = this.$route.params.id
     this.videoStoryboardSrc = `${this.invidiousInstance}/api/v1/storyboards/${this.videoId}?height=90`
 
-    this.activeFormat = this.videoFormatPreference
+    this.activeFormat = this.defaultVideoFormat
 
     if (this.proxyVideos) {
       this.dashSrc = this.dashSrc + '?local=true'
@@ -116,10 +124,10 @@ export default Vue.extend({
 
     switch (this.backendPreference) {
       case 'local':
-        this.getVideoInformationLocal(this.videoId)
+        this.getVideoInformationLocal()
         break
       case 'invidious':
-        this.getVideoInformationInvidious(this.videoId)
+        this.getVideoInformationInvidious()
         break
     }
   },
@@ -223,13 +231,18 @@ export default Vue.extend({
           this.videoPublished = result.published * 1000
           this.videoDescriptionHtml = result.descriptionHtml
           this.recommendedVideos = result.recommendedVideos
-          this.videoSourceList = result.formatStreams.reverse()
           this.captionSourceList = result.captions.map(caption => {
             caption.url = this.invidiousInstance + caption.url
             caption.type = ''
             caption.dataSource = 'invidious'
             return caption
           })
+
+          if (this.forceLocalBackendForLegacy) {
+            this.videoSourceList = result.formatStreams.reverse()
+          } else {
+            this.getLegacyFormats()
+          }
 
           this.isLoading = false
         })
@@ -247,7 +260,15 @@ export default Vue.extend({
         })
     },
 
-    enableDashFormat: function() {
+    getLegacyFormats: function () {
+      this.$store
+        .dispatch('ytGetVideoInformation', this.videoId)
+        .then(result => {
+          this.videoSourceList = result.player_response.streamingData.formats
+        })
+    },
+
+    enableDashFormat: function () {
       if (this.activeFormat === 'dash') {
         return
       }

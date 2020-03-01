@@ -9,6 +9,7 @@
       :max="maxValue"
       :step="step"
       v-model.number="currentValue"
+      @change="$emit('change', $event.target.value)"
     >
       <span>
         {{ label }} -

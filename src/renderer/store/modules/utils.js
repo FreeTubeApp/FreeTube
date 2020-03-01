@@ -12,16 +12,20 @@ const state = {
 }
 
 const getters = {
+  getIsSideNavOpen () {
+    return state.isSideNavOpen
+  },
+
+  getCurrentVolume () {
+    return state.currentVolume
+  },
+
   getSessionSearchHistory () {
     return state.sessionSearchHistory
   },
 
   getSearchSettings () {
     return state.searchSettings
-  },
-
-  getIsSideNavOpen () {
-    return state.isSideNavOpen
   }
 }
 

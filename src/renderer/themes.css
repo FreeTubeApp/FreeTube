@@ -1,8 +1,4 @@
-.redLight {
-  --primary-color: #f44336;
-  --primary-color-hover: #e53935;
-  --primary-color-active: #c62828;
-  --accent-color: #2196F3;
+.light {
   --primary-text-color: #212121;
   --secondary-text-color: #424242;
   --teritary-text-color: #757575;
@@ -18,15 +14,10 @@
   --search-bar-color: #f5f5f5;
   --logo-icon: url("/_icons/iconColorSmall.png");
   --logo-text: url("/_icons/textColorSmall.png");
-  --logo-icon-bar-color: url("/_icons/iconBlackSmall.png");
-  --logo-text-bar-color: url("/_icons/textBlackSmall.png");
 }
 
-.redDark {
-  --primary-color: #f44336;
-  --primary-color-hover: #e53935;
-  --primary-color-active: #c62828;
-  --accent-color: #2196F3;
+
+.dark {
   --primary-text-color: #EEEEEE;
   --secondary-text-color: #E0E0E0;
   --teritary-text-color: #F5F5F5;
@@ -42,32 +33,329 @@
   --search-bar-color: #f5f5f5;
   --logo-icon: url("/_icons/iconColorSmall.png");
   --logo-text: url("/_icons/textColorSmall.png");
+}
+
+
+.gray {
+  --primary-text-color: #EEEEEE;
+  --secondary-text-color: #E0E0E0;
+  --teritary-text-color: #F5F5F5;
+  --primary-input-color: rgba(0, 0, 0, 0.50);
+  --primary-shadow-color: rgba(0, 0, 0, 0.75);
+  --title-color: #EEEEEE;
+  --bg-color: #212121;
+  --card-bg-color: #303030;
+  --secondary-card-bg-color: rgba(0, 0, 0, 0.75);
+  --side-nav-color: #262626;
+  --side-nav-hover-color: #212121;
+  --side-nav-active-color: #303030;
+  --search-bar-color: #f5f5f5;
+  --logo-icon: url("/_icons/iconColorSmall.png");
+  --logo-text: url("/_icons/textColorSmall.png");
+}
+
+.mainRed {
+  --primary-color: #f44336;
+  --primary-color-hover: #e53935;
+  --primary-color-active: #c62828;
+  --text-with-main-color: #FFFFFF;
+  --logo-icon-bar-color: url("/_icons/iconWhite.png");
+  --logo-text-bar-color: url("/_icons/textWhite.png");
+}
+
+.mainPink {
+  --primary-color: #E91E63;
+  --primary-color-hover: #D81B60;
+  --primary-color-active: #AD1457;
+  --text-with-main-color: #FFFFFF;
+  --logo-icon-bar-color: url("/_icons/iconWhite.png");
+  --logo-text-bar-color: url("/_icons/textWhite.png");
+}
+
+.mainPurple {
+  --primary-color: #9C27B0;
+  --primary-color-hover: #8E24AA;
+  --primary-color-active: #6A1B9A;
+  --text-with-main-color: #FFFFFF;
+  --logo-icon-bar-color: url("/_icons/iconWhite.png");
+  --logo-text-bar-color: url("/_icons/textWhite.png");
+}
+
+.mainDeepPurple {
+  --primary-color: #673AB7;
+  --primary-color-hover: #5E35B1;
+  --primary-color-active: #4527A0;
+  --text-with-main-color: #FFFFFF;
+  --logo-icon-bar-color: url("/_icons/iconWhite.png");
+  --logo-text-bar-color: url("/_icons/textWhite.png");
+}
+
+.mainIndigo {
+  --primary-color: #3F51B5;
+  --primary-color-hover: #3949AB;
+  --primary-color-active: #283593;
+  --text-with-main-color: #FFFFFF;
+  --logo-icon-bar-color: url("/_icons/iconWhite.png");
+  --logo-text-bar-color: url("/_icons/textWhite.png");
+}
+
+.mainBlue {
+  --primary-color: #2196F3;
+  --primary-color-hover: #1E88E5;
+  --primary-color-active: #1565C0;
+  --text-with-main-color: #FFFFFF;
+  --logo-icon-bar-color: url("/_icons/iconWhite.png");
+  --logo-text-bar-color: url("/_icons/textWhite.png");
+}
+
+.mainLightBlue {
+  --primary-color: #03A9F4;
+  --primary-color-hover: #039BE5;
+  --primary-color-active: #0277BD;
+  --text-with-main-color: #FFFFFF;
+  --logo-icon-bar-color: url("/_icons/iconWhite.png");
+  --logo-text-bar-color: url("/_icons/textWhite.png");
+}
+
+.mainCyan {
+  --primary-color: #00BCD4;
+  --primary-color-hover: #00ACC1;
+  --primary-color-active: #00838F;
+  --text-with-main-color: #FFFFFF;
+  --logo-icon-bar-color: url("/_icons/iconWhite.png");
+  --logo-text-bar-color: url("/_icons/textWhite.png");
+}
+
+.mainTeal {
+  --primary-color: #009688;
+  --primary-color-hover: #00897B;
+  --primary-color-active: #00695C;
+  --text-with-main-color: #FFFFFF;
+  --logo-icon-bar-color: url("/_icons/iconWhite.png");
+  --logo-text-bar-color: url("/_icons/textWhite.png");
+}
+
+.mainGreen {
+  --primary-color: #4CAF50;
+  --primary-color-hover: #43A047;
+  --primary-color-active: #2E7D32;
+  --text-with-main-color: #FFFFFF;
+  --logo-icon-bar-color: url("/_icons/iconWhite.png");
+  --logo-text-bar-color: url("/_icons/textWhite.png");
+}
+
+.mainLightGreen {
+  --primary-color: #8BC34A;
+  --primary-color-hover: #7CB342;
+  --primary-color-active: #558B2F;
+  --text-with-main-color: #000000;
   --logo-icon-bar-color: url("/_icons/iconBlackSmall.png");
   --logo-text-bar-color: url("/_icons/textBlackSmall.png");
 }
 
-.redGray {
-  --primary-color: #f44336;
-  --primary-color-hover: #e53935;
-  --primary-color-active: #c62828;
-  --accent-color: #2196F3;
-  --primary-text-color: #212121;
-  --secondary-text-color: #424242;
-  --teritary-text-color: #757575;
-  --primary-input-color: rgba(0, 0, 0, 0.50);
-  --primary-shadow-color: rgba(232, 232, 232, 1);
-  --title-color: #3f7ac6;
-  --bg-color: #f1f1f1;
-  --card-bg-color: #FFFFFF;
-  --secondary-card-bg-color: #eeeeee;
-  --side-nav-color: #FFFFFF;
-  --side-nav-hover-color: #e0e0e0;
-  --side-nav-active-color: #757575;
-  --search-bar-color: #f5f5f5;
-  --logo-icon: url("/_icons/iconColorSmall.png");
-  --logo-text: url("/_icons/textColorSmall.png");
+.mainLime {
+  --primary-color: #CDDC39;
+  --primary-color-hover: #C0CA33;
+  --primary-color-active: #9E9D24;
+  --text-with-main-color: #000000;
   --logo-icon-bar-color: url("/_icons/iconBlackSmall.png");
   --logo-text-bar-color: url("/_icons/textBlackSmall.png");
+}
+
+.mainYellow {
+  --primary-color: #FFEB3B;
+  --primary-color-hover: #FDD835;
+  --primary-color-active: #F9A825;
+  --text-with-main-color: #000000;
+  --logo-icon-bar-color: url("/_icons/iconBlackSmall.png");
+  --logo-text-bar-color: url("/_icons/textBlackSmall.png");
+}
+
+.mainAmber {
+  --primary-color: #FFC107;
+  --primary-color-hover: #FFB300;
+  --primary-color-active: #FF8F00;
+  --text-with-main-color: #000000;
+  --logo-icon-bar-color: url("/_icons/iconBlackSmall.png");
+  --logo-text-bar-color: url("/_icons/textBlackSmall.png");
+}
+
+.mainOrange {
+  --primary-color: #FF9800;
+  --primary-color-hover: #FB8C00;
+  --primary-color-active: #EF6C00;
+  --text-with-main-color: #000000;
+  --logo-icon-bar-color: url("/_icons/iconBlackSmall.png");
+  --logo-text-bar-color: url("/_icons/textBlackSmall.png");
+}
+
+.mainDeepOrange {
+  --primary-color: #FF5722;
+  --primary-color-hover: #F4511E;
+  --primary-color-active: #D84315;
+  --text-with-main-color: #000000;
+  --logo-icon-bar-color: url("/_icons/iconBlackSmall.png");
+  --logo-text-bar-color: url("/_icons/textBlackSmall.png");
+}
+
+.secRed {
+  --accent-color: #f44336;
+  --accent-color-light: #ef9a9a;
+  --text-with-accent-color: #FFFFFF;
+  --accent-color-opacity1: rgba(244,67,54,0.04);
+  --accent-color-opacity2: rgba(244,67,54,0.12);
+  --accent-color-opacity3: rgba(244,67,54,0.16);
+  --accent-color-opacity4: rgba(244,67,54,0.24);
+}
+
+.secPink {
+  --accent-color: #E91E63;
+  --accent-color-light: #F48FB1;
+  --text-with-accent-color: #FFFFFF;
+  --accent-color-opacity1: rgba(233,30,99,0.04);
+  --accent-color-opacity2: rgba(233,30,99,0.12);
+  --accent-color-opacity3: rgba(233,30,99,0.16);
+  --accent-color-opacity4: rgba(233,30,99,0.24);
+}
+
+.secPurple {
+  --accent-color: #9C27B0;
+  --accent-color-light: #CE93D8;
+  --text-with-accent-color: #FFFFFF;
+  --accent-color-opacity1: rgba(156,39,176,0.04);
+  --accent-color-opacity2: rgba(156,39,176,0.12);
+  --accent-color-opacity3: rgba(156,39,176,0.16);
+  --accent-color-opacity4: rgba(156,39,176,0.24);
+}
+
+.secDeepPurple {
+  --accent-color: #673AB7;
+  --accent-color-light: #B39DDB;
+  --text-with-accent-color: #FFFFFF;
+  --accent-color-opacity1: rgba(103,58,183,0.04);
+  --accent-color-opacity2: rgba(103,58,183,0.12);
+  --accent-color-opacity3: rgba(103,58,183,0.16);
+  --accent-color-opacity4: rgba(103,58,183,0.24);
+}
+
+.secIndigo {
+  --accent-color: #3F51B5;
+  --accent-color-light: #9FA8DA;
+  --text-with-accent-color: #FFFFFF;
+  --accent-color-opacity1: rgba(63,81,181,0.04);
+  --accent-color-opacity2: rgba(63,81,181,0.12);
+  --accent-color-opacity3: rgba(63,81,181,0.16);
+  --accent-color-opacity4: rgba(63,81,181,0.24);
+}
+
+.secBlue {
+  --accent-color: #2196F3;
+  --accent-color-light: #90CAF9;
+  --text-with-accent-color: #FFFFFF;
+  --accent-color-opacity1: rgba(33,150,243,0.04);
+  --accent-color-opacity2: rgba(33,150,243,0.12);
+  --accent-color-opacity3: rgba(33,150,243,0.16);
+  --accent-color-opacity4: rgba(33,150,243,0.24);
+}
+
+.secLightBlue {
+  --accent-color: #03A9F4;
+  --accent-color-light: #81D4FA;
+  --text-with-accent-color: #FFFFFF;
+  --accent-color-opacity1: rgba(3,169,244,0.04);
+  --accent-color-opacity2: rgba(3,169,244,0.12);
+  --accent-color-opacity3: rgba(3,169,244,0.16);
+  --accent-color-opacity4: rgba(3,169,244,0.24);
+}
+
+.secCyan {
+  --accent-color: #00BCD4;
+  --accent-color-light: #80DEEA;
+  --text-with-accent-color: #FFFFFF;
+  --accent-color-opacity1: rgba(0,188,212,0.04);
+  --accent-color-opacity2: rgba(0,188,212,0.12);
+  --accent-color-opacity3: rgba(0,188,212,0.16);
+  --accent-color-opacity4: rgba(0,188,212,0.24);
+}
+
+.secTeal {
+  --accent-color: #009688;
+  --accent-color-light: #80CBC4;
+  --text-with-accent-color: #FFFFFF;
+  --accent-color-opacity1: rgba(0,150,136,0.04);
+  --accent-color-opacity2: rgba(0,150,136,0.12);
+  --accent-color-opacity3: rgba(0,150,136,0.16);
+  --accent-color-opacity4: rgba(0,150,136,0.24);
+}
+
+.secGreen {
+  --accent-color: #4CAF50;
+  --accent-color-light: #A5D6A7;
+  --text-with-accent-color: #FFFFFF;
+  --accent-color-opacity1: rgba(76,175,80,0.04);
+  --accent-color-opacity2: rgba(76,175,80,0.12);
+  --accent-color-opacity3: rgba(76,175,80,0.16);
+  --accent-color-opacity4: rgba(76,175,80,0.24);
+}
+
+.secLightGreen {
+  --accent-color: #8BC34A;
+  --accent-color-light: #C5E1A5;
+  --text-with-accent-color: #000000;
+  --accent-color-opacity1: rgba(139,195,74,0.04);
+  --accent-color-opacity2: rgba(139,195,74,0.12);
+  --accent-color-opacity3: rgba(139,195,74,0.16);
+  --accent-color-opacity4: rgba(139,195,74,0.24);
+}
+
+.secLime {
+  --accent-color: #CDDC39;
+  --accent-color-light: #E6EE9C;
+  --text-with-accent-color: #000000;
+  --accent-color-opacity1: rgba(205,220,57,0.04);
+  --accent-color-opacity2: rgba(205,220,57,0.12);
+  --accent-color-opacity3: rgba(205,220,57,0.16);
+  --accent-color-opacity4: rgba(205,220,57,0.24);
+}
+
+.secYellow {
+  --accent-color: #FFEB3B;
+  --accent-color-light: #FFF59D;
+  --text-with-accent-color: #000000;
+  --accent-color-opacity1: rgba(255,235,59,0.04);
+  --accent-color-opacity2: rgba(255,235,59,0.12);
+  --accent-color-opacity3: rgba(255,235,59,0.16);
+  --accent-color-opacity4: rgba(255,235,59,0.24);
+}
+
+.secAmber {
+  --accent-color: #FFC107;
+  --accent-color-light: #FFE082;
+  --text-with-accent-color: #000000;
+  --accent-color-opacity1: rgba(255,193,7,0.04);
+  --accent-color-opacity2: rgba(255,193,7,0.12);
+  --accent-color-opacity3: rgba(255,193,7,0.16);
+  --accent-color-opacity4: rgba(255,193,7,0.24);
+}
+
+.secOrange {
+  --accent-color: #FF9800;
+  --accent-color-light: #FFCC80;
+  --text-with-accent-color: #000000;
+  --accent-color-opacity1: rgba(255,152,0,0.04);
+  --accent-color-opacity2: rgba(255,152,0,0.12);
+  --accent-color-opacity3: rgba(255,152,0,0.16);
+  --accent-color-opacity4: rgba(255,152,0,0.24);
+}
+
+.secDeepOrange {
+  --accent-color: #FF5722;
+  --accent-color-light: #FFAB91;
+  --text-with-accent-color: #000000;
+  --accent-color-opacity1: rgba(255,87,34,0.04);
+  --accent-color-opacity2: rgba(255,87,34,0.12);
+  --accent-color-opacity3: rgba(255,87,34,0.16);
+  --accent-color-opacity4: rgba(255,87,34,0.24);
 }
 
 body {

@@ -46,6 +46,7 @@ export default Vue.extend({
   data: function () {
     return {
       id: '',
+      volume: 1,
       player: null,
       useDash: false,
       useHls: false,
@@ -99,16 +100,26 @@ export default Vue.extend({
       return this.$store.getters.getListType
     },
 
-    videoFormatPreference: function () {
-      return this.$store.getters.getVideoFormatPreference
+    defaultPlayback: function () {
+      return this.$store.getters.getDefaultPlayback
     },
 
-    autoplay: function () {
-      return this.$store.getters.getAutoplay
+    defaultVideoFormat: function () {
+      return this.$store.getters.getDefaultVideoFormat
+    },
+
+    autoplayVideos: function () {
+      return this.$store.getters.getAutoplayVideos
     }
   },
   mounted: function () {
     this.id = this._uid
+
+    const volume = sessionStorage.getItem('volume')
+
+    if (volume !== null) {
+      this.volume = volume
+    }
 
     this.determineFormatType()
   },
@@ -129,6 +140,9 @@ export default Vue.extend({
 
         this.player = videojs(videoPlayer)
 
+        this.player.volume(this.volume)
+        this.player.playbackRate(this.defaultPlayback)
+
         this.player.vttThumbnails({
           src: this.storyboardSrc
         })
@@ -141,7 +155,7 @@ export default Vue.extend({
           this.player.httpSourceSelector()
         }
 
-        if (this.autoplay) {
+        if (this.autoplayVideos) {
           // Calling play() won't happen right away, so a quick timeout will make it function properly.
           setTimeout(() => {
             this.player.play()
@@ -152,6 +166,7 @@ export default Vue.extend({
 
         this.player.on('mousemove', this.hideMouseTimeout)
         this.player.on('mouseleave', this.removeMouseTimeout)
+        this.player.on('volumechange', this.updateVolume)
 
         const v = this
 
@@ -159,6 +174,11 @@ export default Vue.extend({
           v.$emit('error', error.target.player.error_)
         })
       }
+    },
+
+    updateVolume: function (event) {
+      const volume = this.player.volume()
+      sessionStorage.setItem('volume', volume)
     },
 
     determineFormatType: function () {

@@ -22,6 +22,15 @@
   color: var(--teritary-text-color);
 }
 
+.search .ft-input {
+  color: var(--text-with-main-color);
+  border-bottom: 1px solid var(--text-with-main-color);
+}
+
+.search ::-webkit-input-placeholder {
+  color: var(--text-with-main-color);
+}
+
 .inputAction {
   position: absolute;
   padding: 10px;
@@ -32,6 +41,10 @@
   color: var(--primary-text-color);
 }
 
+.search .inputAction {
+  color: var(--text-with-main-color)
+}
+
 .inputAction:hover {
   background-color: var(--side-nav-hover-color);
   -moz-transition: background 0.2s ease-in;
@@ -39,9 +52,17 @@
   transition: background 0.2s ease-in;
 }
 
+.search .inputAction:hover {
+  background-color: var(--primary-color-hover);
+}
+
 .inputAction:active {
   background-color: var(--teritary-text-color);
   -moz-transition: background 0.2s ease-in;
   -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
+}
+
+.search .inputAction:active {
+  background-color: var(--primary-color-active);
 }

@@ -17,11 +17,6 @@
         :default-value="checkForUpdates"
         @change="updateCheckForUpdates"
       />
-      <ft-toggle-switch
-        label="Match Top Bar with Theme Color"
-        :default-value="barColor"
-        @change="updateBarColor"
-      />
     </ft-flex-box>
     <br>
     <ft-flex-box>
@@ -31,13 +26,6 @@
         :select-names="backendNames"
         :select-values="backendValues"
         @change="updateBackendPreference"
-      />
-      <ft-select
-        placeholder="Default Theme"
-        :value="currentTheme"
-        :select-names="themeNames"
-        :select-values="themeValues"
-        @change="updateTheme"
       />
       <ft-select
         placeholder="Default Landing Page"

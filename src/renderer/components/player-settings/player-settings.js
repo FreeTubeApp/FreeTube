@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
 import FtSelect from '../ft-select/ft-select.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
@@ -54,13 +55,67 @@ export default Vue.extend({
     }
   },
   computed: {
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
+    rememberHistory: function () {
+      return this.$store.getters.getRememberHistory
+    },
+
+    autoplayVideos: function () {
+      return this.$store.getters.getAutoplayVideos
+    },
+
+    autoplayPlaylists: function () {
+      return this.$store.getters.getAutoplayPlaylists
+    },
+
+    playNextVideo: function () {
+      return this.$store.getters.getPlayNextVideo
+    },
+
+    enableSubtitles: function () {
+      return this.$store.getters.getEnableSubtitles
+    },
+
+    forceLocalBackendForLegacy: function () {
+      return this.$store.getters.getForceLocalBackendForLegacy
+    },
+
+    proxyVideos: function () {
+      return this.$store.getters.getProxyVideos
+    },
+
+    defaultVolume: function () {
+      return parseFloat(this.$store.getters.getDefaultVolume) * 100
+    },
+
+    defaultPlayback: function () {
+      return parseFloat(this.$store.getters.getDefaultPlayback)
+    },
+
+    defaultVideoFormat: function () {
+      return this.$store.getters.getDefaultVideoFormat
+    },
+
+    defaultQuality: function () {
+      return this.$store.getters.getDefaultQuality
     }
   },
   methods: {
-    goToChannel: function () {
-      console.log('TODO: Handle goToChannel')
-    }
+    parseVolumeBeforeUpdate: function (volume) {
+      this.updateDefaultVolume(volume / 100)
+    },
+
+    ...mapActions([
+      'updateRememberHistory',
+      'updateAutoplayVideos',
+      'updateAutoplayPlaylists',
+      'updatePlayNextVideo',
+      'updateEnableSubtitles',
+      'updateForceLocalBackendForLegacy',
+      'updateProxyVideos',
+      'updateDefaultVolume',
+      'updateDefaultPlayback',
+      'updateDefaultVideoFormat',
+      'updateDefaultQuality'
+    ])
   }
 })

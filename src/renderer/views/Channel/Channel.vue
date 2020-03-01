@@ -34,7 +34,8 @@
         </div>
         <ft-button
           label="SUBSCRIBE"
-          background-color="#f44336"
+          background-color="var(--primary-color)"
+          text-color="var(--text-with-main-color)"
           class="subscribeButton"
           @click="handleSubscription"
         />

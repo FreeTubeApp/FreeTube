@@ -55,11 +55,11 @@
 }
 
 .switch-input:checked+.switch-label:before {
-    background-color: #90CAF9;
+    background-color: var(--accent-color-light);
 }
 
 .switch-input:checked+.switch-label:after {
-    background-color: #2196F3;
+    background-color: var(--accent-color);
     -ms-transform: translate(80%, -50%);
     -webkit-transform: translate(80%, -50%);
     transform: translate(80%, -50%);

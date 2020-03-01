@@ -1,5 +1,8 @@
 <template>
-  <div class="ft-input-component">
+  <div
+    class="ft-input-component"
+    :class="{ search: forceTextColor }"
+  >
     <input
       :id="id"
       v-model="inputData"
@@ -11,7 +14,7 @@
       v-if="showArrow"
       icon="arrow-right"
       class="inputAction"
-      @click="handleClick(inputData, component)"
+      @click="handleClick"
     />
   </div>
 </template>

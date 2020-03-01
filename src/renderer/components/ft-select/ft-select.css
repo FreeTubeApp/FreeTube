@@ -40,6 +40,10 @@
 	border: none;
 }
 
+.select option {
+	color: #000000;
+}
+
 /* Remove focus */
 .select-text:focus {
 	outline: none;

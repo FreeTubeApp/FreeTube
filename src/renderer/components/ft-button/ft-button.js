@@ -19,11 +19,11 @@ export default Vue.extend({
     },
     textColor: {
       type: String,
-      default: '#FFFFFF'
+      default: 'var(--text-with-accent-color)'
     },
     backgroundColor: {
       type: String,
-      default: '#2196F3'
+      default: 'var(--accent-color)'
     }
   }
 })
