@@ -45,7 +45,25 @@
   position: static;
 }
 
-@media only screen and (max-width: 1700px) {
+@media only screen and (max-width: 1500px) {
+  .watchVideo {
+    width: 63%;
+  }
+
+  .videoPlayer {
+    width: calc(63% + 30px);
+  }
+
+  .theatreWatchVideo {
+    width: 85%;
+  }
+
+  .theatrePlayer {
+    width: calc(85% + 30px);
+  }
+}
+
+@media only screen and (max-width: 1350px) {
   .watchVideo {
     float: none;
     margin: 0 auto;

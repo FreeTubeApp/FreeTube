@@ -1,5 +1,5 @@
 <template>
-  <ft-card class="relative">
+  <ft-card class="relative watchVideoInfo">
     <p
       class="videoTitle"
     >

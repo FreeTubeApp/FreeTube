@@ -2,13 +2,19 @@
   position: relative;
 }
 
+.watchVideoInfo {
+  min-height: 130px;
+}
+
 .videoTitle {
   font-size: 22px;
-  max-width: 50%;
+  max-width: 45%;
 }
 
 .channelInformation {
-  position: relative;
+  position: absolute;
+  bottom: 10px;
+  width: 300px;
 }
 
 .channelThumbnail {
@@ -38,13 +44,13 @@
 .viewCount {
   position: absolute;
   right: 15px;
-  top: 60px;
+  bottom: 30px;
 }
 
 .likeBarContainer {
   position: absolute;
   right: 15px;
-  top: 100px;
+  bottom: 35px;
   width: 300px;
   height: 5px;
 }
@@ -74,7 +80,7 @@
 .likeCountContainer {
   position: absolute;
   right: 15px;
-  top: 100px;
+  bottom: 0px;
   font-size: 12px;
   color: var(--teritary-text-color);
 }
@@ -101,9 +107,23 @@
   width: 175px;
 }
 
-@media only screen and (max-width: 1700px) {
+@media only screen and (max-width: 1500px) {
+  .videoOptions {
+    width: 350px;
+  }
+
+  .watchVideoInfo {
+    min-height: 150px;
+  }
+}
+
+@media only screen and (max-width: 1350px) {
   .theatreModeButton {
     display: none;
+  }
+
+  .watchVideoInfo {
+    min-height: 130px;
   }
 
   .videoOptions {
