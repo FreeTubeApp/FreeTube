@@ -1,0 +1,177 @@
+.topNav
+  position: fixed
+  z-index: 4
+  left: 0
+  right: 0
+  top: 0
+  height: 60px
+  line-height: 60px
+  background-color: var(--card-bg-color)
+  -webkit-box-shadow: 0px 2px 1px 0px var(--primary-shadow-color)
+  display: grid
+  grid-template-columns: 1fr auto 1fr
+  align-items: center
+
+
+.side
+  display: flex
+  align-items: center
+
+
+.topNavBarColor
+  background-color: var(--primary-color)
+
+
+.navIcon
+  font-size: 20px
+  padding: 10px
+  cursor: pointer
+  color: var(--primary-text-color)
+  border-radius: 50%
+  transition: background 0.2s ease-out
+
+
+.topNavBarColor .navIcon
+  color: var(--text-with-main-color)
+
+
+.navIcon:hover
+  background-color: var(--side-nav-hover-color)
+  transition: background 0.2s ease-in
+
+
+.topNavBarColor .navIcon:hover
+  background-color: var(--primary-color-hover)
+
+
+.navIcon:active
+  background-color: var(--tertiary-text-color)
+  transition: background 0.2s ease-in
+
+
+.topNavBarColor .menuIcon:active
+  background-color: var(--primary-color-active)
+
+
+.navBackIcon
+  top: 10px
+  left: 50px
+
+
+.navForwardIcon
+  top: 10px
+  left: 85px
+
+
+.navSearchIcon
+  top: 10px
+  display: none
+
+.logo
+  display: flex
+  align-items: center
+  padding: 0px 25px 0px 10px
+
+  .logoIcon
+    background-image: var(--logo-icon)
+    background-repeat: no-repeat
+    background-position: right top
+    background-size: 25px
+    width: 25px
+    height: 25px
+
+
+  .logoIconBarColor
+    background-image: var(--logo-icon-bar-color)
+
+
+  .logoText
+    margin-left: 5px
+    position: relative
+    top: -3px
+    background-image: var(--logo-text)
+    background-repeat: no-repeat
+    background-position: right top
+    background-size: 100px
+    width: 100px
+    height: 40px
+
+
+  .logoTextBarColor
+    background-image: var(--logo-text-bar-color)
+
+.middle
+
+  .searchContainer
+    display: flex
+    align-items: center
+
+  .searchInput
+    width: 400px
+
+  .searchFilters
+    position: absolute
+    margin-left: 270px
+    margin-right: 20px
+    margin-top: 10px
+    margin-bottom: 20px
+    transition-property: margin
+    transition-duration: 150ms
+    transition-timing-function: ease-in-out
+
+
+.expand
+  margin-left: 100px
+
+
+@media only screen and (max-width: 680px)
+  .menuIcon
+    display: none
+
+
+  .navBackIcon
+    left: 45px
+
+
+  .navForwardIcon
+    left: 80px
+
+
+  .navSearchIcon
+    display: block
+    left: 120px
+
+
+  .logoIcon
+    left: 10px
+
+
+  .logoText
+    display: none
+
+
+  .searchContainer
+    position: fixed
+    display: none
+    width: 100%
+    top: 60px
+    background-color: var(--side-nav-color)
+
+
+  .topNavBarColor .searchContainer
+    background-color: var(--primary-color-hover)
+
+
+  .searchInput
+    width: 80%
+    margin: 0 auto
+
+
+  .navFilterIcon
+    right: 0px
+
+
+  .searchFilters
+    margin-top: 130px
+    margin-left: 10px
+    margin-right: 10px

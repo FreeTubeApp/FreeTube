@@ -35,7 +35,7 @@ export default Vue.extend({
       const searchContainer = $('.searchContainer').get(0)
 
       if (width > 680) {
-        searchContainer.style.display = 'block'
+        searchContainer.style.display = ''
       } else {
         searchContainer.style.display = 'none'
       }
@@ -68,8 +68,8 @@ export default Vue.extend({
     toggleSearchContainer: function () {
       const searchContainer = $('.searchContainer').get(0)
 
-      if (searchContainer.style.display === 'none' || searchContainer.style.display === '') {
-        searchContainer.style.display = 'block'
+      if (searchContainer.style.display === 'none') {
+        searchContainer.style.display = ''
       } else {
         searchContainer.style.display = 'none'
       }
