@@ -38,7 +38,7 @@
   padding-left: 15px;
   padding-right: 15px;
   cursor: pointer;
-  color: var(--teritary-text-color);
+  color: var(--tertiary-text-color);
   background-color: var(--secondary-card-bg-color);
 }
 
@@ -52,7 +52,7 @@
   padding-left: 15px;
   padding-right: 15px;
   cursor: pointer;
-  color: var(--teritary-text-color);
+  color: var(--tertiary-text-color);
   background-color: var(--secondary-card-bg-color);
   -webkit-transition: background 0.2s ease-out;
   -moz-transition: background 0.2s ease-out;
