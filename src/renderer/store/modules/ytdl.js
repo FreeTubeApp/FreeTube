@@ -114,8 +114,7 @@ const actions = {
     })
   },
 
-  /* eslint-disable-next-line */
-  ytGetPlaylistInfo ({}, playlistId) {
+  ytGetPlaylistInfo (_, playlistId) {
     return new Promise((resolve, reject) => {
       console.log(playlistId)
       console.log('Getting playlist info please wait...')

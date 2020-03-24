@@ -71,6 +71,12 @@
   left: 85px;
 }
 
+.navSearchIcon {
+  position: absolute;
+  top: 10px;
+  display: none;
+}
+
 .logoIcon {
   background-image: var(--logo-icon);
   background-repeat: no-repeat;
@@ -131,4 +137,58 @@
 
 .expand {
   margin-left: 100px;
+}
+
+@media only screen and (max-width: 680px) {
+  .menuIcon {
+    display: none;
+  }
+
+  .navBackIcon {
+    left: 45px;
+  }
+
+  .navForwardIcon {
+    left: 80px;
+  }
+
+  .navSearchIcon {
+    display: block;
+    left: 120px;
+  }
+
+  .logoIcon {
+    left: 10px;
+  }
+
+  .logoText {
+    display: none;
+  }
+
+  .searchContainer {
+    position: fixed;
+    display: none;
+    width: 100%;
+    top: 60px;
+    background-color: var(--side-nav-color);
+  }
+
+  .topNavBarColor .searchContainer {
+    background-color: var(--primary-color-hover);
+  }
+
+  .searchInput {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .navFilterIcon {
+    right: 0px;
+  }
+
+  .searchFilters {
+    margin-top: 130px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 }

@@ -2,7 +2,17 @@ import Vue from 'vue'
 import TopNav from './components/top-nav/top-nav.vue'
 import SideNav from './components/side-nav/side-nav.vue'
 import $ from 'jquery'
-import { shell } from 'electron'
+
+let useElectron
+let shell
+
+if (window && window.process && window.process.type === 'renderer') {
+  /* eslint-disable-next-line */
+  shell = require('electron').shell
+  useElectron = true
+} else {
+  useElectron = false
+}
 
 export default Vue.extend({
   name: 'App',
@@ -42,9 +52,12 @@ export default Vue.extend({
 
     this.updateTheme(theme)
 
+    console.log(useElectron)
+
     // Open links externally by default
     $(document).on('click', 'a[href^="http"]', (event) => {
       const el = event.currentTarget
+      console.log(useElectron)
       console.log(el)
       if (typeof (shell) !== 'undefined') {
         event.preventDefault()

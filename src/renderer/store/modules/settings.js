@@ -1,6 +1,5 @@
-import electron from 'electron'
 import Datastore from 'nedb'
-const localDataStorage = electron.remote.app.getPath('userData')
+const localDataStorage = '/db'
 
 const settingsDb = new Datastore({
   filename: localDataStorage + '/settings.db',

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import FtListDropdown from '../ft-list-dropdown/ft-list-dropdown.vue'
-import { shell } from 'electron'
+// import { shell } from 'electron'
 
 export default Vue.extend({
   name: 'FtElementList',
@@ -75,13 +75,13 @@ export default Vue.extend({
           navigator.clipboard.writeText(youtubeUrl)
           break
         case 'openYoutube':
-          shell.openExternal(youtubeUrl)
+          // shell.openExternal(youtubeUrl)
           break
         case 'copyInvidious':
           navigator.clipboard.writeText(invidiousUrl)
           break
         case 'openInvidious':
-          shell.openExternal(invidiousUrl)
+          // shell.openExternal(invidiousUrl)
           break
       }
     }

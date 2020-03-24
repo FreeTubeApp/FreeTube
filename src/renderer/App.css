@@ -22,3 +22,10 @@ body {
 .expand {
   margin-left: 80px;
 }
+
+@media only screen and (max-width: 680px) {
+  .expand, .routerView {
+    margin-left: 0px;
+    margin-bottom: 80px;
+  }
+}

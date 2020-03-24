@@ -1,5 +1,4 @@
 // import the styles
-import { ipcRenderer } from 'electron'
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router/index'
@@ -26,9 +25,14 @@ new Vue({
   render: h => h(App)
 })
 
-// handle menu event updates from main script
-ipcRenderer.on('change-view', (event, data) => {
-  if (data.route) {
-    router.push(data.route)
-  }
-})
+// to avoild accesing electorn api from web app build
+if (window && window.process && window.process.type === 'renderer') {
+  const { ipcRenderer } = require('electron')
+
+  // handle menu event updates from main script
+  ipcRenderer.on('change-view', (event, data) => {
+    if (data.route) {
+      router.push(data.route)
+    }
+  })
+}

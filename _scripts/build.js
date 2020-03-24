@@ -20,11 +20,11 @@ const config = {
   copyright: 'Copyleft ©2020 freetubeapp@protonmail.com',
   // asar: false,
   // compression: 'store',
-  // productName,
+  productName,
   directories: {
     output: './build/',
   },
-  files: ['_icons/icon.*', './dist/**/*'],
+  files: ['_icons/icon.*', './dist/**/*', '!./dist/web/**/*'],
   dmg: {
     contents: [
       {

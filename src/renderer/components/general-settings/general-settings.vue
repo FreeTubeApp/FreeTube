@@ -6,7 +6,7 @@
     >
       {{ title }}
     </h3>
-    <ft-flex-box>
+    <ft-flex-box class="generalSettingsFlexBox">
       <ft-toggle-switch
         label="Fallback to Non-Preferred Backend on Failure"
         :default-value="backendFallback"

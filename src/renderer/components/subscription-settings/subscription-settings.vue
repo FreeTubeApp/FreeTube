@@ -6,7 +6,7 @@
     >
       {{ title }}
     </h3>
-    <ft-flex-box>
+    <ft-flex-box class="subscriptionSettingsFlexBox">
       <ft-toggle-switch
         label="Hide Videos When Watched"
       />

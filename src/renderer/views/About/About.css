@@ -5,7 +5,8 @@
 }
 
 .logo {
-  max-width: 500px;
+  width: 500px;
+  max-width: 100%;
 }
 
 .center {
@@ -14,4 +15,10 @@
 
 .leftAlign {
   text-align: left;
+}
+
+@media only screen and (max-width: 680px) {
+  .card {
+    width: 90%;
+  }
 }

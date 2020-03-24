@@ -5,7 +5,7 @@
         About
       </h3>
       <img
-        src="/_icons/logoColor.png"
+        src="_icons/logoColor.png"
         class="logo"
       >
       <h1>

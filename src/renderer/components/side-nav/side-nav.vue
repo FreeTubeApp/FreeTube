@@ -1,11 +1,11 @@
 <template>
-  <div
+  <ft-flex-box
     ref="sideNav"
     class="sideNav"
     :class="{closed: !isOpen}"
   >
     <div
-      class="navOption topNavOption"
+      class="navOption topNavOption mobileShow"
       @click="navigate('subscriptions')"
     >
       <font-awesome-icon
@@ -21,7 +21,7 @@
       />
     </div>
     <div
-      class="navOption"
+      class="navOption mobileHidden"
       @click="navigate('trending')"
     >
       <font-awesome-icon
@@ -33,7 +33,7 @@
       </p>
     </div>
     <div
-      class="navOption"
+      class="navOption mobileHidden"
       @click="navigate('popular')"
     >
       <font-awesome-icon
@@ -45,7 +45,7 @@
       </p>
     </div>
     <div
-      class="navOption"
+      class="navOption mobileShow"
       @click="navigate('userplaylists')"
     >
       <font-awesome-icon
@@ -56,8 +56,11 @@
         Playlists
       </p>
     </div>
+    <side-nav-more-options
+      @navigate="navigate"
+    />
     <div
-      class="navOption"
+      class="navOption mobileShow"
       @click="navigate('history')"
     >
       <font-awesome-icon
@@ -70,7 +73,7 @@
     </div>
     <hr>
     <div
-      class="navOption"
+      class="navOption mobileShow"
       @click="navigate('settings')"
     >
       <font-awesome-icon
@@ -82,7 +85,7 @@
       </p>
     </div>
     <div
-      class="navOption"
+      class="navOption mobileHidden"
       @click="navigate('about')"
     >
       <font-awesome-icon
@@ -94,7 +97,7 @@
       </p>
     </div>
     <hr>
-  </div>
+  </ft-flex-box>
 </template>
 
 <script src="./side-nav.js" />

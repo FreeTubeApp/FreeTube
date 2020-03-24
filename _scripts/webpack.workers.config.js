@@ -13,7 +13,7 @@ const isDevMode = process.env.NODE_ENV === 'development'
 const config = {
   name: 'workers',
   mode: process.env.NODE_ENV,
-  devtool: isDevMode ? 'eval' : false,
+  devtool: isDevMode ? '#cheap-module-eval-source-map' : false,
   entry: {
     workerSample: path.join(__dirname, '../src/utilities/workerSample.ts'),
   },
@@ -62,6 +62,12 @@ const config = {
 if (isDevMode) {
   // any dev only config
   config.plugins.push(new webpack.HotModuleReplacementPlugin())
+} else {
+  config.plugins.push(
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+    })
+  )
 }
 
 module.exports = config

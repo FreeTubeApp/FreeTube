@@ -1,4 +1,5 @@
 .sideNav {
+  display: block;
   height: calc(100vh - 60px);
   width: 200px;
   overflow-y: auto;
@@ -22,6 +23,10 @@
   position: relative;
   padding: 5px;
   cursor: pointer;
+}
+
+.moreOption {
+  display: none;
 }
 
 .navOption:hover {
@@ -89,4 +94,56 @@
   text-align: center;
   left: 0px;
   font-size: 11px;
+}
+
+@media only screen and (max-width: 680px) {
+  hr, .mobileHidden, .refreshIcon {
+    display: none;
+  }
+
+  .sideNav {
+    display: flex;
+  }
+
+  .topNavOption {
+    margin-top: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .sideNav, .closed {
+    margin-top: 0px;
+    height: 60px;
+    width: 100%;
+    bottom: 0px;
+    top: auto;
+    overflow-y: inherit;
+  }
+
+  .navOption, .closed .navOption {
+    width: 70px;
+    height: 40px;
+    padding: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .navLabel {
+    margin-left: 0px;
+    width: 100%;
+    text-align: center;
+    left: 0px;
+    font-size: 11px;
+  }
+
+  .navIcon {
+    margin-left: 0px;
+    width: 100%;
+    display: block;
+    margin-bottom: 0px;
+  }
+
+  .moreOption {
+    display: block;
+  }
 }

@@ -6,7 +6,7 @@
     >
       {{ title }}
     </h3>
-    <ft-flex-box>
+    <ft-flex-box class="playerSettingsFlexBox">
       <ft-toggle-switch
         label="Remember History"
         :default-value="rememberHistory"

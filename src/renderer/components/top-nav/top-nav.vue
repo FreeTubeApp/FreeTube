@@ -18,6 +18,11 @@
       icon="arrow-right"
       @click="historyForward"
     />
+    <font-awesome-icon
+      class="navSearchIcon navIcon"
+      icon="search"
+      @click="toggleSearchContainer"
+    />
     <div
       class="logoIcon"
       :class="{ logoIconBarColor: barColor }"

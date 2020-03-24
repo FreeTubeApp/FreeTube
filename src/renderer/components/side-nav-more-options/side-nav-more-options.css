@@ -1,0 +1,76 @@
+.sideNavMoreOptions {
+  display: none;
+}
+
+.navOption {
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.navOption:hover {
+  background-color: var(--side-nav-hover-color);
+  -moz-transition: background 0.2s ease-in;
+  -o-transition: background 0.2s ease-in;
+  transition: background 0.2s ease-in;
+}
+
+.navOption:active {
+  background-color: var(--side-nav-active-color);
+  -moz-transition: background 0.2s ease-in;
+  -o-transition: background 0.2s ease-in;
+  transition: background 0.2s ease-in;
+}
+
+.moreOptionContainer {
+  position: fixed;
+  background-color: var(--side-nav-color);
+  bottom: 60px;
+  width: 70px;
+  z-index: 0;
+  -webkit-box-shadow: 3px -3px 5px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 3px -3px 5px 0px rgba(0,0,0,0.2);
+  box-shadow: 3px -3px 5px 0px rgba(0,0,0,0.2);
+}
+
+@media only screen and (max-width: 680px) {
+  .sideNavMoreOptions {
+    display: block;
+  }
+
+  .sideNav, .closed {
+    margin-top: 0px;
+    height: 60px;
+    width: 100%;
+    bottom: 0px;
+    top: auto;
+    overflow-y: inherit;
+  }
+
+  .navOption, .closed .navOption {
+    width: 70px;
+    height: 40px;
+    padding: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .navLabel {
+    margin-left: 0px;
+    width: 100%;
+    text-align: center;
+    left: 0px;
+    font-size: 11px;
+  }
+
+  .navIcon {
+    margin-left: 0px;
+    width: 100%;
+    display: block;
+    margin-bottom: 0px;
+  }
+
+  .moreOption {
+    display: block;
+  }
+}

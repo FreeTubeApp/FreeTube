@@ -15,7 +15,7 @@ const whiteListedModules = []
 const config = {
   name: 'main',
   mode: process.env.NODE_ENV,
-  devtool: isDevMode ? 'eval' : false,
+  devtool: isDevMode ? '#cheap-module-eval-source-map' : false,
   entry: {
     main: path.join(__dirname, '../src/main/index.js'),
   },
@@ -57,7 +57,13 @@ const config = {
   target: 'electron-main',
 }
 
-if (!isDevMode) {
+if (isDevMode) {
+  config.plugins.push(
+    new webpack.DefinePlugin({
+      __static: `"${path.join(__dirname, '../static').replace(/\\/g, '\\\\')}"`,
+    })
+  )
+} else {
   config.plugins.push(
     new CopyWebpackPlugin([
       {
@@ -67,8 +73,12 @@ if (!isDevMode) {
       {
         from: path.join(__dirname, '../static'),
         to: path.join(__dirname, '../dist/static'),
+        ignore: ['.*'],
       },
-    ])
+    ]),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+    })
   )
 }
 

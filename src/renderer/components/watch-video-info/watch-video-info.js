@@ -3,7 +3,7 @@ import FtCard from '../ft-card/ft-card.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtListDropdown from '../ft-list-dropdown/ft-list-dropdown.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
-import { shell } from 'electron'
+// import { shell } from 'electron'
 
 export default Vue.extend({
   name: 'WatchVideoInfo',
@@ -147,19 +147,19 @@ export default Vue.extend({
           navigator.clipboard.writeText(this.youtubeUrl)
           break
         case 'openYoutube':
-          shell.openExternal(this.youtubeUrl)
+          // shell.openExternal(this.youtubeUrl)
           break
         case 'copyYoutubeEmbed':
           navigator.clipboard.writeText(this.youtubeEmbedUrl)
           break
         case 'openYoutubeEmbed':
-          shell.openExternal(this.youtubeEmbedUrl)
+          // shell.openExternal(this.youtubeEmbedUrl)
           break
         case 'copyInvidious':
           navigator.clipboard.writeText(this.invidiousUrl)
           break
         case 'openInvidious':
-          shell.openExternal(this.invidiousUrl)
+          // shell.openExternal(this.invidiousUrl)
           break
       }
     }
