@@ -45,6 +45,7 @@ const config = {
     },
   },
   linux: {
+    category: 'Network',
     icon: '_icons/icon.png',
     target: ['deb', 'snap', 'AppImage'],
   },
