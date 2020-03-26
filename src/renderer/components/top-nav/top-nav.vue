@@ -5,7 +5,7 @@
   >
     <div class="side">
       <font-awesome-icon
-        class=" menuIcon navIcon"
+        class="menuIcon navIcon"
         icon="bars"
         @click="toggleSideNav"
       />
@@ -27,11 +27,9 @@
       <div class="logo">
         <div
           class="logoIcon"
-          :class="{ logoIconBarColor: barColor }"
         />
         <div
           class="logoText"
-          :class="{ logoTextBarColor: barColor }"
         />
       </div>
     </div>

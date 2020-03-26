@@ -1,5 +1,3 @@
-@use "sass:selector"
-
 @mixin top-nav-is-colored
   @at-root
     .topNavBarColor &, .topNavBarColor#{&}
@@ -22,11 +20,14 @@
   @include top-nav-is-colored
     background-color: var(--primary-color)
 
-.menuIcon
+.menuIcon // the hamburger menu button
   @include top-nav-is-colored
     background-color: var(--primary-color-active)
 
-.navIcon
+  @media only screen and (max-width: 680px)
+    display: none
+
+.navIcon // all icons in the top navigation
   font-size: 20px
   padding: 10px
   cursor: pointer
@@ -50,7 +51,7 @@
     background-color: var(--tertiary-text-color)
     transition: background 0.2s ease-in
 
-.side
+.side // parts of the top nav either side of the search bar
   display: flex
   align-items: center
 
@@ -58,7 +59,7 @@
     @media only screen and (min-width: 681px)
       display: none
 
-  .logo
+  .logo // parts that make up the logo
     display: flex
     align-items: center
     padding: 0px 25px 0px 10px
@@ -71,10 +72,8 @@
       width: 25px
       height: 25px
 
-
-    .logoIconBarColor
-      background-image: var(--logo-icon-bar-color)
-
+      @include top-nav-is-colored
+        background-image: var(--logo-icon-bar-color)
 
     .logoText
       margin-left: 5px
@@ -90,23 +89,19 @@
       @media only screen and (max-width: 680px)
         display: none
 
-    .logoTextBarColor
-      background-image: var(--logo-text-bar-color)
+      @include top-nav-is-colored
+        background-image: var(--logo-text-bar-color)
 
-.middle
+.middle // the middle part of the top nav which contains the search bar
   .searchContainer
     display: flex
     align-items: center
-
-    @include top-nav-is-colored
-      background-color: var(--primary-color-hover)
 
     @media only screen and (max-width: 680px)
       position: fixed
       left: 0
       right: 0
       top: 60px
-      display: none
       background-color: var(--side-nav-color)
 
     .searchInput
@@ -117,7 +112,9 @@
 
   .searchFilters
     position: absolute
-    margin: 10px 20px 20px 270px
+    left: 0
+    right: 0
+    margin: 10px 20px 20px 220px
     transition: margin 150ms ease-in-out
 
     @media only screen and (max-width: 680px)
@@ -125,11 +122,5 @@
       right: 0
       margin: 95px 10px 0px
 
-// ?
-.expand
-  margin-left: 100px
-
-// unsure where to group this selector instead
-@media only screen and (max-width: 680px)
-  .menuIcon
-    display: none
+    &.expand
+      margin-left: 100px
