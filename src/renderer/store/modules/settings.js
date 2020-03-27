@@ -1,5 +1,7 @@
+import electron from 'electron'
 import Datastore from 'nedb'
-const localDataStorage = '/db'
+// TODO: Add logic for database when electron is not in use
+const localDataStorage = electron.remote.app.getPath('userData')
 
 const settingsDb = new Datastore({
   filename: localDataStorage + '/settings.db',
