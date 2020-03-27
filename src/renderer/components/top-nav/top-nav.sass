@@ -13,16 +13,16 @@
   line-height: 60px
   background-color: var(--card-bg-color)
   -webkit-box-shadow: 0px 2px 1px 0px var(--primary-shadow-color)
-  display: grid
-  grid-template-columns: 1fr auto 1fr
+  display: flex
   align-items: center
+  align-content: center
+
+  @media only screen and (min-width: 901px)
+    display: grid
+    grid-template-columns: 1fr 440px 1fr
 
   @include top-nav-is-colored
     background-color: var(--primary-color)
-
-.menuIcon // the hamburger menu button
-  @include top-nav-is-colored
-    background-color: var(--primary-color-active)
 
   @media only screen and (max-width: 680px)
     display: none
@@ -50,6 +50,9 @@
   &:active
     background-color: var(--tertiary-text-color)
     transition: background 0.2s ease-in
+
+    @include top-nav-is-colored
+      background-color: var(--primary-color-active)
 
 .side // parts of the top nav either side of the search bar
   display: flex
@@ -93,6 +96,9 @@
         background-image: var(--logo-text-bar-color)
 
 .middle // the middle part of the top nav which contains the search bar
+  max-width: 440px
+  flex: 1
+
   .searchContainer
     display: flex
     align-items: center
@@ -105,10 +111,7 @@
       background-color: var(--side-nav-color)
 
     .searchInput
-      width: 420px
-
-      @media only screen and (max-width: 680px)
-        flex: 1
+      flex: 1
 
   .searchFilters
     position: absolute
