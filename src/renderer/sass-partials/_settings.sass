@@ -1,0 +1,29 @@
+.switchGrid
+  display: grid
+  grid-template-columns: auto auto
+  justify-content: space-evenly
+  align-items: center
+
+  @media only screen and (max-width: 680px)
+    grid-template-columns: auto
+
+.switchColumnGrid
+  @extend .switchGrid
+  align-items: start
+
+.switchColumn
+  display: flex
+  flex-direction: column
+  justify-items: start
+
+.card
+  width: 85%
+  margin: 0 auto
+  margin-bottom: 10px
+
+  @media only screen and (max-width: 680px)
+    width: 90%
+
+@media only screen and (max-width: 460px)
+  .generalSettingsFlexBox, .playerSettingsFlexBox
+    justify-content: flex-start
