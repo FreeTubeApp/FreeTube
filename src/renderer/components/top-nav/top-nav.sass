@@ -17,7 +17,7 @@
   align-items: center
   align-content: center
 
-  @media only screen and (min-width: 901px)
+  @media only screen and (min-width: 961px)
     display: grid
     grid-template-columns: 1fr 440px 1fr
 
@@ -111,6 +111,9 @@
       top: 60px
       background-color: var(--side-nav-color)
 
+      @include top-nav-is-colored
+        background-color: var(--primary-color-hover)
+
     .searchInput
       flex: 1
 
@@ -126,5 +129,6 @@
       right: 0
       margin: 95px 10px 0px
 
-    &.expand
-      margin-left: 100px
+    @media only screen and (min-width: 681px)
+      &.expand
+        margin-left: 100px
