@@ -1,7 +1,7 @@
 .light {
   --primary-text-color: #212121;
   --secondary-text-color: #424242;
-  --teritary-text-color: #757575;
+  --tertiary-text-color: #757575;
   --primary-input-color: rgba(0, 0, 0, 0.50);
   --primary-shadow-color: rgba(232, 232, 232, 1);
   --title-color: #3f7ac6;
@@ -19,8 +19,8 @@
 
 .dark {
   --primary-text-color: #EEEEEE;
-  --secondary-text-color: #E0E0E0;
-  --teritary-text-color: #F5F5F5;
+  --secondary-text-color: #ddd;
+  --tertiary-text-color: #888;
   --primary-input-color: rgba(0, 0, 0, 0.50);
   --primary-shadow-color: rgba(0, 0, 0, 0.75);
   --title-color: #EEEEEE;
@@ -39,7 +39,7 @@
 .gray {
   --primary-text-color: #EEEEEE;
   --secondary-text-color: #E0E0E0;
-  --teritary-text-color: #F5F5F5;
+  --tertiary-text-color: #F5F5F5;
   --primary-input-color: rgba(0, 0, 0, 0.50);
   --primary-shadow-color: rgba(0, 0, 0, 0.75);
   --title-color: #EEEEEE;
