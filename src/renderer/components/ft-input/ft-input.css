@@ -14,12 +14,12 @@
     margin-bottom: 10px;
     font: 16px;
     height: 45px;
-    color: var(--teritary-text-color);
-    border-bottom: 1px solid var(--teritary-text-color);
+    color: var(--secondary-text-color);
+    border-bottom: 1px solid var(--secondary-text-color);
 }
 
 .ft-input-component ::-webkit-input-placeholder {
-  color: var(--teritary-text-color);
+  color: var(--tertiary-text-color);
 }
 
 .search .ft-input {
@@ -57,7 +57,7 @@
 }
 
 .inputAction:active {
-  background-color: var(--teritary-text-color);
+  background-color: var(--tertiary-text-color);
   -moz-transition: background 0.2s ease-in;
   -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;

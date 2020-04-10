@@ -60,7 +60,10 @@ const config = {
             options: {
               // eslint-disable-next-line
               implementation: require('sass'),
-            },
+              sassOptions: {
+                indentedSyntax: true
+              }
+            }
           },
         ],
       },

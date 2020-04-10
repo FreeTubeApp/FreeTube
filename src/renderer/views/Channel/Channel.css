@@ -47,7 +47,7 @@
 
 .channelSubCount {
   position: absolute;
-  color: var(--teritary-text-color);
+  color: var(--tertiary-text-color);
   top: 50px;
   left: 120px;
 }

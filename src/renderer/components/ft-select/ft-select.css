@@ -65,7 +65,7 @@
 	border-left: 6px solid transparent;
 	border-right: 6px solid transparent;
 	pointer-events: none;
-  color: var(--teritary-text-color);
+  color: var(--tertiary-text-color);
 }
 
 
@@ -78,7 +78,7 @@
 	left: 0;
 	top: 10px;
 	transition: 0.2s ease all;
-  color: var(--teritary-text-color);
+  color: var(--tertiary-text-color);
 }
 
 /* active state */
