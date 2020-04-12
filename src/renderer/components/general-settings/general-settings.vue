@@ -9,13 +9,11 @@
     <ft-flex-box class="generalSettingsFlexBox">
       <ft-toggle-switch
         label="Fallback to Non-Preferred Backend on Failure"
-        :compact=false
         :default-value="backendFallback"
         @change="updateBackendFallback"
       />
       <ft-toggle-switch
         label="Check for Updates"
-        :compact=false
         :default-value="checkForUpdates"
         @change="updateCheckForUpdates"
       />
