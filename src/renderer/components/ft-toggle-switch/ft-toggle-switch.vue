@@ -11,7 +11,8 @@
     >
     <label
       :for="id"
-      :class='(compact ? "compact " : "")+"switch-label"'
+      class="switch-label"
+      :class="{compact}"
     >
       {{ label }}
     </label>
