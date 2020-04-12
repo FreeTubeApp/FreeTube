@@ -6,44 +6,54 @@
     >
       {{ title }}
     </h3>
-    <ft-flex-box class="playerSettingsFlexBox">
-      <ft-toggle-switch
-        label="Remember History"
-        :default-value="rememberHistory"
-        @change="updateRememberHistory"
-      />
-      <ft-toggle-switch
-        label="Autoplay Videos"
-        :default-value="autoplayVideos"
-        @change="updateAutoplayVideos"
-      />
-      <ft-toggle-switch
-        label="Autoplay Playlists"
-        :default-value="autoplayPlaylists"
-        @change="updateAutoplayPlaylists"
-      />
-      <ft-toggle-switch
-        label="Play Next Video"
-        :default-value="playNextVideo"
-        @change="updatePlayNextVideo"
-      />
-      <ft-toggle-switch
-        label="Enable Subtitles by Default"
-        :default-value="enableSubtitles"
-        @change="updateEnableSubtitles"
-      />
-      <ft-toggle-switch
-        label="Force Local Backend for Legacy Formats"
-        :default-value="forceLocalBackendForLegacy"
-        @change="updateForceLocalBackendForLegacy"
-      />
-      <ft-toggle-switch
-        label="Proxy Videos Through Invidious"
-        :default-value="proxyVideos"
-        @change="updateProxyVideos"
-      />
-    </ft-flex-box>
-    <br>
+    <div class="switchColumnGrid">
+      <div class="switchColumn">
+        <ft-toggle-switch
+          label="Remember History"
+          :compact=true
+          :default-value="rememberHistory"
+          @change="updateRememberHistory"
+        />
+        <ft-toggle-switch
+          label="Enable Subtitles by Default"
+          :compact=true
+          :default-value="enableSubtitles"
+          @change="updateEnableSubtitles"
+        />
+        <ft-toggle-switch
+          label="Force Local Backend for Legacy Formats"
+          :compact=true
+          :default-value="forceLocalBackendForLegacy"
+          @change="updateForceLocalBackendForLegacy"
+        />
+        <ft-toggle-switch
+          label="Proxy Videos Through Invidious"
+          :compact=true
+          :default-value="proxyVideos"
+          @change="updateProxyVideos"
+        />
+      </div>
+      <div class="switchColumn">
+        <ft-toggle-switch
+          label="Autoplay Videos"
+          :compact=true
+          :default-value="autoplayVideos"
+          @change="updateAutoplayVideos"
+        />
+        <ft-toggle-switch
+          label="Autoplay Playlists"
+          :compact=true
+          :default-value="autoplayPlaylists"
+          @change="updateAutoplayPlaylists"
+        />
+        <ft-toggle-switch
+          label="Play Next Video"
+          :compact=true
+          :default-value="playNextVideo"
+          @change="updatePlayNextVideo"
+        />
+      </div>
+    </div>
     <ft-flex-box>
       <ft-slider
         label="Default Volume"
@@ -64,7 +74,6 @@
         @change="updateDefaultPlayback"
       />
     </ft-flex-box>
-    <br>
     <ft-flex-box>
       <ft-select
         placeholder="Default Video Format"
@@ -85,4 +94,4 @@
 </template>
 
 <script src="./player-settings.js" />
-<style scoped src="./player-settings.css" />
+<style scoped lang="sass" src="./player-settings.sass" />

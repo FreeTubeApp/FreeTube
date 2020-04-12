@@ -12,6 +12,7 @@
     <label
       :for="id"
       class="switch-label"
+      :class="{compact}"
     >
       {{ label }}
     </label>
@@ -19,4 +20,4 @@
 </template>
 
 <script src="./ft-toggle-switch.js" />
-<style scoped src="./ft-toggle-switch.css" />
+<style scoped lang="sass" src="./ft-toggle-switch.sass" />

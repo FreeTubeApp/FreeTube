@@ -1,6 +1,6 @@
 <template>
   <ft-card
-    class="relative card">
+    class="card">
     <h3
       class="videoTitle"
     >
@@ -18,8 +18,7 @@
         @change="updateCheckForUpdates"
       />
     </ft-flex-box>
-    <br>
-    <ft-flex-box>
+    <div class="switchGrid">
       <ft-select
         placeholder="Preferred API Backend"
         :value="backendPreference"
@@ -55,9 +54,9 @@
         :select-values="thumbnailTypeValues"
         @change="updateThumbnailPreference"
       />
-    </ft-flex-box>
+    </div>
   </ft-card>
 </template>
 
 <script src="./general-settings.js" />
-<style scoped src="./general-settings.css" />
+<style scoped lang="sass" src="./general-settings.sass" />

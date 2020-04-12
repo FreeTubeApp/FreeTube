@@ -10,6 +10,10 @@ export default Vue.extend({
     defaultValue: {
       type: Boolean,
       default: false
+    },
+    compact: {
+      type: Boolean,
+      default: false
     }
   },
   data: function () {
