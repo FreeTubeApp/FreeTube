@@ -111,10 +111,6 @@ const router = new Router({
         icon: 'fa-user'
       },
       component: Watch
-    },
-    {
-      path: '*',
-      redirect: '/subscriptions'
     }
   ],
   scrollBehavior (to, from, savedPosition) {

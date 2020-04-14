@@ -1,0 +1,19 @@
+{
+	"dir" : "ltr",
+	"lang" : "de",
+	"name" : "FreeTube",
+	"scope" : "/",
+	"display" : "standalone",
+	"start_url" : "https://app.freetubeapp.io/",
+	"short_name" : "FreeTube",
+	"theme_color" : "transparent",
+	"description" : "A description",
+	"orientation" : "any",
+	"background_color" : "transparent",
+	"related_applications" : [],
+	"prefer_related_applications" : false,
+	"icons" : ["/_icons/logoColor.png"],
+	"url" : "https://app.freetubeapp.io",
+	"screenshots" : [],
+	"generated" : "true"
+}

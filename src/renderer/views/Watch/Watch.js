@@ -30,7 +30,6 @@ export default Vue.extend({
       showDashPlayer: true,
       showLegacyPlayer: false,
       showYouTubeNoCookieEmbed: false,
-      proxyVideos: false,
       hidePlayer: false,
       activeFormat: 'legacy',
       videoId: '',
@@ -65,6 +64,10 @@ export default Vue.extend({
       return this.$store.getters.getInvidiousInstance
     },
 
+    proxyVideos: function () {
+      return this.$store.getters.getProxyVideos
+    },
+
     defaultVideoFormat: function () {
       return this.$store.getters.getDefaultVideoFormat
     },
@@ -82,9 +85,15 @@ export default Vue.extend({
     },
 
     dashSrc: function () {
+      let url = `${this.invidiousInstance}/api/manifest/dash/${this.videoId}.mpd`
+
+      if (this.proxyVideos) {
+        url = url + '?local=true'
+      }
+
       return [
         {
-          url: `${this.invidiousInstance}/api/manifest/dash/${this.videoId}.mpd`,
+          url: url,
           type: 'application/dash+xml',
           label: 'Dash',
         },
@@ -117,10 +126,6 @@ export default Vue.extend({
     this.videoStoryboardSrc = `${this.invidiousInstance}/api/v1/storyboards/${this.videoId}?height=90`
 
     this.activeFormat = this.defaultVideoFormat
-
-    if (this.proxyVideos) {
-      this.dashSrc = this.dashSrc + '?local=true'
-    }
 
     switch (this.backendPreference) {
       case 'local':
@@ -239,9 +244,9 @@ export default Vue.extend({
           })
 
           if (this.forceLocalBackendForLegacy) {
-            this.videoSourceList = result.formatStreams.reverse()
-          } else {
             this.getLegacyFormats()
+          } else {
+            this.videoSourceList = result.formatStreams.reverse()
           }
 
           this.isLoading = false

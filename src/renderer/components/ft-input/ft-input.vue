@@ -5,10 +5,10 @@
   >
     <input
       :id="id"
-      v-model="inputData"
       class="ft-input"
       type="text"
       :placeholder="placeholder"
+      @input="e => inputData = e.target.value"
     >
     <font-awesome-icon
       v-if="showArrow"

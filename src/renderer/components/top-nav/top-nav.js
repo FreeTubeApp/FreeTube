@@ -13,6 +13,7 @@ export default Vue.extend({
   data: () => {
     return {
       component: this,
+      windowWidth: 0,
       showFilters: false
     }
   },
@@ -30,6 +31,13 @@ export default Vue.extend({
     }
   },
   mounted: function () {
+    const appWidth = $(window).width()
+
+    if (appWidth <= 680) {
+      const searchContainer = $('.searchContainer').get(0)
+      searchContainer.style.display = 'none'
+    }
+
     window.addEventListener('resize', function(event) {
       const width = event.srcElement.innerWidth
       const searchContainer = $('.searchContainer').get(0)
@@ -43,12 +51,11 @@ export default Vue.extend({
   },
   methods: {
     goToSearch: function (query) {
-      console.log(this)
-      this.showFilters = false
       const appWidth = $(window).width()
 
       if (appWidth <= 680) {
         const searchContainer = $('.searchContainer').get(0)
+        searchContainer.blur()
         searchContainer.style.display = 'none'
       }
 
@@ -63,6 +70,8 @@ export default Vue.extend({
           }
         }
       )
+
+      this.showFilters = false
     },
 
     toggleSearchContainer: function () {

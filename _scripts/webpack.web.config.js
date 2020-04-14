@@ -146,13 +146,17 @@ if (isDevMode) {
   config.plugins.push(
     new CopyWebpackPlugin([
       {
-        from: path.join(__dirname, '../static'),
-        to: path.join(__dirname, '../dist/web/static'),
-        ignore: ['.*'],
+        from: path.join(__dirname, '../static/pwabuilder-sw.js'),
+        to: path.join(__dirname, '../dist/web/pwabuilder-sw.js'),
       },
       {
-        from: path.join(__dirname, '../__icons'),
-        to: path.join(__dirname, '../dist/web/icons'),
+        from: path.join(__dirname, '../static'),
+        to: path.join(__dirname, '../dist/web/static'),
+        ignore: ['.*', 'pwabuilder-sw.js'],
+      },
+      {
+        from: path.join(__dirname, '../_icons'),
+        to: path.join(__dirname, '../dist/web/_icons'),
         ignore: ['.*'],
       },
     ]),
