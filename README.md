@@ -53,10 +53,10 @@ I will add more things to do as progress gets made.  For now what I have listed 
 To chat about the FreeTube rewrite or to ask questions, we encourage you to join our [Matrix Community](https://riot.im/app/#/group/+freetube:matrix.org).  I will be there actively working on the rewrite and will be available to help you get started.  Alternatively, you can email me at FreeTubeApp@protonmail.com.
 
 ## License
-[![GNU GPLv3 Image](https://www.gnu.org/graphics/gplv3-127x51.png)](http://www.gnu.org/licenses/gpl-3.0.en.html)  
+[![GNU AGPLv3 Image](https://www.gnu.org/graphics/agplv3-155x51.png)](https://www.gnu.org/licenses/agpl-3.0.html)  
 
 FreeTube is Free Software: You can use, study share and improve it at your
 will. Specifically you can redistribute and/or modify it under the terms of the
-[GNU General Public License](https://www.gnu.org/licenses/gpl.html) as
+[GNU Affero General Public License](https://www.gnu.org/licenses/agpl-3.0.html) as
 published by the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.  
