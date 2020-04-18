@@ -27,6 +27,7 @@ export default Vue.extend({
   },
   mounted: function () {
     this.$store.dispatch('grabUserSettings')
+    this.$store.commit('setUsingElectron', useElectron)
 
     let baseTheme = localStorage.getItem('baseTheme')
     let mainColor = localStorage.getItem('mainColor')

@@ -1,10 +1,23 @@
-import electron from 'electron'
 import Datastore from 'nedb'
-// TODO: Add logic for database when electron is not in use
-const localDataStorage = electron.remote.app.getPath('userData')
+
+let dbLocation
+
+if (window && window.process && window.process.type === 'renderer') {
+  // Electron is being used
+  let dbLocation = localStorage.getItem('dbLocation')
+
+  if (dbLocation === null) {
+    const electron = require('electron')
+    dbLocation = electron.remote.app.getPath('userData')
+  }
+
+  dbLocation += '/settings.db'
+} else {
+  dbLocation = 'settings.db'
+}
 
 const settingsDb = new Datastore({
-  filename: localDataStorage + '/settings.db',
+  filename: dbLocation,
   autoload: true
 })
 
@@ -35,6 +48,7 @@ const state = {
   debugMode: false,
   disctractionFreeMode: false,
   hideWatchedSubs: false,
+  usingElectron: true,
   profileList: [{ name: 'All Channels', color: '#304FFE' }],
   defaultProfile: 'All Channels'
 }
@@ -118,6 +132,10 @@ const getters = {
 
   getDefaultQuality: () => {
     return state.defaultQuality
+  },
+
+  getUsingElectron: () => {
+    return state.usingElectron
   }
 }
 
@@ -429,6 +447,9 @@ const mutations = {
   },
   setHideWatchedSubs (state, hideWatchedSubs) {
     state.hideWatchedSubs = hideWatchedSubs
+  },
+  setUsingElectron (state, usingElectron) {
+    state.usingElectron = usingElectron
   },
   setVideoView (state, videoView) {
     state.videoView = videoView

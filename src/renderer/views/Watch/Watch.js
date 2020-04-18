@@ -52,6 +52,10 @@ export default Vue.extend({
     }
   },
   computed: {
+    usingElectron: function () {
+      return this.$store.getters.getUsingElectron
+    },
+
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
@@ -76,18 +80,14 @@ export default Vue.extend({
       return this.$store.getters.getForceLocalBackendForLegacy
     },
 
-    videoDashUrl: function () {
-      return `${this.invidiousInstance}/api/manifest/dash/id/${this.videoId}.mpd`
-    },
-
     youtubeNoCookieEmbeddedFrame: function () {
       return `<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/${this.videoId}?rel=0' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>`
     },
 
     dashSrc: function () {
-      let url = `${this.invidiousInstance}/api/manifest/dash/${this.videoId}.mpd`
+      let url = `${this.invidiousInstance}/api/manifest/dash/id/${this.videoId}.mpd`
 
-      if (this.proxyVideos) {
+      if (this.proxyVideos || !this.usingElectron) {
         url = url + '?local=true'
       }
 
@@ -127,13 +127,17 @@ export default Vue.extend({
 
     this.activeFormat = this.defaultVideoFormat
 
-    switch (this.backendPreference) {
-      case 'local':
-        this.getVideoInformationLocal()
-        break
-      case 'invidious':
-        this.getVideoInformationInvidious()
-        break
+    if (!this.usingElectron) {
+      this.getVideoInformationInvidious()
+    } else {
+      switch (this.backendPreference) {
+        case 'local':
+          this.getVideoInformationLocal()
+          break
+        case 'invidious':
+          this.getVideoInformationInvidious()
+          break
+      }
     }
   },
   methods: {
@@ -202,8 +206,9 @@ export default Vue.extend({
           this.isLoading = false
         })
         .catch(err => {
+          console.log('Error grabbing video data through local API')
           console.log(err)
-          if (this.backendPreference === 'local' && this.backendFallback) {
+          if (!this.usingElectron || (this.backendPreference === 'local' && this.backendFallback)) {
             console.log(
               'Error getting data with local backend, falling back to Invidious'
             )

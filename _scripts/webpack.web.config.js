@@ -53,6 +53,16 @@ const config = {
           {
             loader: 'css-loader',
           },
+          {
+            loader: 'sass-loader',
+            options: {
+              // eslint-disable-next-line
+              implementation: require('sass'),
+              sassOptions: {
+                indentedSyntax: true
+              }
+            }
+          },
         ],
       },
       {

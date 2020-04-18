@@ -1,10 +1,23 @@
-import electron from 'electron'
 import Datastore from 'nedb'
-// TODO: Add logic for database when electron is not in use
-const localDataStorage = electron.remote.app.getPath('userData')
+
+let dbLocation
+
+if (window && window.process && window.process.type === 'renderer') {
+  // Electron is being used
+  let dbLocation = localStorage.getItem('dbLocation')
+
+  if (dbLocation === null) {
+    const electron = require('electron')
+    dbLocation = electron.remote.app.getPath('userData')
+  }
+
+  dbLocation += '/subscriptions.db'
+} else {
+  dbLocation = 'subscriptions.db'
+}
 
 const subDb = new Datastore({
-  filename: localDataStorage + '/subscriptions.db',
+  filename: dbLocation,
   autoload: true
 })
 
