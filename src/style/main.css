@@ -450,6 +450,11 @@ a {
 #subscriptions .fa-times {
     float: right;
     margin-right: 5px;
+    opacity: 0;
+}
+
+#subscriptions :hover .fa-times {
+    opacity: 1;
 }
 
 #subscriptions li {
