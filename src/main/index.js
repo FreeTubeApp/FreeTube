@@ -1,6 +1,13 @@
 import { app, BrowserWindow, Menu } from 'electron'
 import { productName } from '../../package.json'
 
+require('electron-context-menu')({
+  showSearchWithGoogle: false,
+  showSaveImageAs: true,
+  showCopyImageAddress: true,
+  prepend: (params, browserWindow) => []
+})
+
 // set app name
 app.setName(productName)
 

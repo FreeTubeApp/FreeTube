@@ -24,7 +24,7 @@ export default Vue.extend({
     },
     sourceList: {
       type: Array,
-      default: null
+      default: () => { return [] }
     },
     dashSrc: {
       type: Array,
