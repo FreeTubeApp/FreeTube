@@ -10,25 +10,25 @@
       <div class="switchColumn">
         <ft-toggle-switch
           label="Remember History"
-          :compact=true
+          :compact="true"
           :default-value="rememberHistory"
           @change="updateRememberHistory"
         />
         <ft-toggle-switch
           label="Enable Subtitles by Default"
-          :compact=true
+          :compact="true"
           :default-value="enableSubtitles"
           @change="updateEnableSubtitles"
         />
         <ft-toggle-switch
           label="Force Local Backend for Legacy Formats"
-          :compact=true
+          :compact="true"
           :default-value="forceLocalBackendForLegacy"
           @change="updateForceLocalBackendForLegacy"
         />
         <ft-toggle-switch
           label="Proxy Videos Through Invidious"
-          :compact=true
+          :compact="true"
           :default-value="proxyVideos"
           @change="updateProxyVideos"
         />
@@ -36,21 +36,27 @@
       <div class="switchColumn">
         <ft-toggle-switch
           label="Autoplay Videos"
-          :compact=true
+          :compact="true"
           :default-value="autoplayVideos"
           @change="updateAutoplayVideos"
         />
         <ft-toggle-switch
           label="Autoplay Playlists"
-          :compact=true
+          :compact="true"
           :default-value="autoplayPlaylists"
           @change="updateAutoplayPlaylists"
         />
         <ft-toggle-switch
           label="Play Next Video"
-          :compact=true
+          :compact="true"
           :default-value="playNextVideo"
           @change="updatePlayNextVideo"
+        />
+        <ft-toggle-switch
+          label="Enable Theatre Mode by Default"
+          :compact="true"
+          :default-value="defaultTheatreMode"
+          @change="updateDefaultTheatreMode"
         />
       </div>
     </div>

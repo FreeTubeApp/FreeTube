@@ -21,7 +21,7 @@
 }
 
 .theatrePlayer {
-  width: calc(85% + 30px);
+  width: 100%;
   float: none;
   margin: 0 auto;
   margin-bottom: 10px;

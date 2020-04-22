@@ -4,17 +4,22 @@ let dbLocation
 
 if (window && window.process && window.process.type === 'renderer') {
   // Electron is being used
-  let dbLocation = localStorage.getItem('dbLocation')
+  /* let dbLocation = localStorage.getItem('dbLocation')
 
   if (dbLocation === null) {
     const electron = require('electron')
     dbLocation = electron.remote.app.getPath('userData')
-  }
+  } */
 
-  dbLocation += '/settings.db'
+  const electron = require('electron')
+  dbLocation = electron.remote.app.getPath('userData')
+
+  dbLocation = dbLocation + '/settings.db'
 } else {
   dbLocation = 'settings.db'
 }
+
+console.log(dbLocation)
 
 const settingsDb = new Datastore({
   filename: dbLocation,
@@ -39,6 +44,7 @@ const state = {
   enableSubtitles: true,
   forceLocalBackendForLegacy: true,
   proxyVideos: false,
+  defaultTheatreMode: false,
   defaultVolume: 1,
   defaultPlayback: 1,
   defaultVideoFormat: 'dash',
@@ -118,6 +124,10 @@ const getters = {
     return state.proxyVideos
   },
 
+  getDefaultTheatreMode: () => {
+    return state.defaultTheatreMode
+  },
+
   getDefaultVolume: () => {
     return state.defaultVolume
   },
@@ -190,6 +200,9 @@ const actions = {
               break
             case 'proxyVideos':
               commit('setProxyVideos', result.value)
+              break
+            case 'defaultTheatreMode':
+              commit('setDefaultTheatreMode', result.value)
               break
             case 'defaultVolume':
               commit('setDefaultVolume', result.value)
@@ -330,6 +343,14 @@ const actions = {
     })
   },
 
+  updateDefaultTheatreMode ({ commit }, defaultTheatreMode) {
+    settingsDb.update({ _id: 'defaultTheatreMode' }, { _id: 'defaultTheatreMode', value: defaultTheatreMode }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setDefaultTheatreMode', defaultTheatreMode)
+      }
+    })
+  },
+
   updateDefaultVolume ({ commit }, defaultVolume) {
     settingsDb.update({ _id: 'defaultVolume' }, { _id: 'defaultVolume', value: defaultVolume }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
@@ -435,6 +456,9 @@ const mutations = {
   },
   setProxy (state, proxy) {
     state.proxy = proxy
+  },
+  setDefaultTheatreMode (state, defaultTheatreMode) {
+    state.defaultTheatreMode = defaultTheatreMode
   },
   setUseTor (state, useTor) {
     state.useTor = useTor

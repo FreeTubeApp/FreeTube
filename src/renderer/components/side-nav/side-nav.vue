@@ -49,7 +49,7 @@
       @click="navigate('userplaylists')"
     >
       <font-awesome-icon
-        icon="star"
+        icon="bookmark"
         class="navIcon"
       />
       <p class="navLabel">

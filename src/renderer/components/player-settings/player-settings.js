@@ -97,6 +97,10 @@ export default Vue.extend({
 
     defaultQuality: function () {
       return this.$store.getters.getDefaultQuality
+    },
+
+    defaultTheatreMode: function () {
+      return this.$store.getters.getDefaultTheatreMode
     }
   },
   methods: {
@@ -112,6 +116,7 @@ export default Vue.extend({
       'updateEnableSubtitles',
       'updateForceLocalBackendForLegacy',
       'updateProxyVideos',
+      'updateDefaultTheatreMode',
       'updateDefaultVolume',
       'updateDefaultPlayback',
       'updateDefaultVideoFormat',

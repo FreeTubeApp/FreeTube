@@ -96,10 +96,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    listType: function () {
-      return this.$store.getters.getListType
-    },
-
     defaultPlayback: function () {
       return this.$store.getters.getDefaultPlayback
     },
@@ -110,6 +106,12 @@ export default Vue.extend({
 
     autoplayVideos: function () {
       return this.$store.getters.getAutoplayVideos
+    }
+  },
+  watch: {
+    sourceList: function () {
+      console.log('Obtained Source list')
+      this.determineFormatType()
     }
   },
   mounted: function () {
@@ -199,7 +201,7 @@ export default Vue.extend({
       this.useHls = false
       this.activeSourceList = this.dashSrc
 
-      setTimeout(this.initializePlayer, 1000)
+      setTimeout(this.initializePlayer, 100)
     },
 
     enableLegacyFormat: function () {

@@ -26,7 +26,7 @@ export default Vue.extend({
     return {
       isLoading: false,
       firstLoad: true,
-      useTheatreMode: true,
+      useTheatreMode: false,
       showDashPlayer: true,
       showLegacyPlayer: false,
       showYouTubeNoCookieEmbed: false,
@@ -70,6 +70,10 @@ export default Vue.extend({
 
     proxyVideos: function () {
       return this.$store.getters.getProxyVideos
+    },
+
+    defaultTheatreMode: function () {
+      return this.$store.getters.getDefaultTheatreMode
     },
 
     defaultVideoFormat: function () {
@@ -126,6 +130,7 @@ export default Vue.extend({
     this.videoStoryboardSrc = `${this.invidiousInstance}/api/v1/storyboards/${this.videoId}?height=90`
 
     this.activeFormat = this.defaultVideoFormat
+    this.useTheatreMode = this.defaultTheatreMode
 
     if (!this.usingElectron) {
       this.getVideoInformationInvidious()
