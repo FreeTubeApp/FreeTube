@@ -14,6 +14,7 @@
       class="videoPlayer"
       :class="{ theatrePlayer: useTheatreMode }"
       ref="videoPlayer"
+      @ended="handleVideoEnded"
       @error="handleVideoError"
     />
     <watch-video-info
@@ -45,11 +46,24 @@
       class="watchVideo"
       :class="{ theatreWatchVideo: useTheatreMode }"
     />
+    <watch-video-playlist
+      v-if="watchingPlaylist"
+      v-show="!isLoading"
+      :playlist-id="playlistId"
+      :video-id="videoId"
+      ref="watchVideoPlaylist"
+      class="watchVideoSideBar watchVideoPlaylist"
+      :class="{ theatrePlaylist: useTheatreMode }"
+    />
     <watch-video-recommendations
       v-if="!isLoading"
       :data="recommendedVideos"
-      class="watchVideoRecommendations"
-      :class="{ theatreRecommendations: useTheatreMode }"
+      class="watchVideoSideBar watchVideoRecommendations"
+      :class="{
+        theatreRecommendations: useTheatreMode,
+        watchVideoRecommendationsLowerCard: watchingPlaylist,
+        watchVideoRecommendationsNoCard: !watchingPlaylist
+      }"
     />
   </div>
 </template>

@@ -37,7 +37,10 @@
         :style="{width: progressPercentage + '%'}"
       />
     </div>
-    <p class="videoTitle">
+    <p
+      class="videoTitle"
+      @click="play(id)"
+    >
       {{ title }}
     </p>
     <p
@@ -49,30 +52,35 @@
     <span
       v-if="!isLive && !hideViews"
       class="viewCount"
+      @click="play(id)"
     >
       {{ viewCount }} views
     </span>
     <span
       v-if="uploadedTime !== '' && !isLive"
       class="uploadedTime"
+      @click="play(id)"
     >
       - {{ uploadedTime }}
     </span>
     <span
       v-if="isLive"
       class="viewCount"
+      @click="play(id)"
     >
       {{ viewCount }} watching
     </span>
     <p
       v-if="listType !== 'grid'"
       class="description"
+      @click="play(id)"
     >
       {{ description }}
     </p>
     <span
       v-if="isLive"
       class="liveText"
+      @click="play(id)"
     >
       LIVE NOW
     </span>

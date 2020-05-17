@@ -34,9 +34,9 @@ At this time, here is the list of things to do/need to do:
 - [x] Playlist View
 - [x] Video Watch Page (Recommendations, Comments)
 - [ ] Video player logic (Switching formats / quality, live video, fallback logic)
-- [ ] Playlist logic (Autoplay next video, shuffle list)
-- [ ] Database Setup and Logic (Updating and creating data)
-- [ ] Settings Page
+- [x] Playlist logic (Autoplay next video, shuffle list)
+- [x] Database Setup and Logic (Updating and creating data)
+- [x] Settings Page
 - [ ] Subscriptions Page and Logic
 - [ ] Playlists Page (Will allow for creating user playlists.  Will replace the "Favorites" Page)
 - [ ] History Page and Logic

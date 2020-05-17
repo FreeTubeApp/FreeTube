@@ -1,0 +1,106 @@
+.pointer {
+  cursor: pointer;
+}
+
+.channelName {
+  font-size: 15px;
+  cursor: pointer;
+  position: relative;
+  bottom: 15px;
+}
+
+.playlistIndex {
+  position: relative;
+  bottom: 15px;
+  color: var(--tertiary-text-color);
+}
+
+.playlistIcon {
+  font-size: 20px;
+  padding: 10px;
+  margin-top: -25px;
+  cursor: pointer;
+  border-radius: 50%;
+  color: var(--tertiary-text-color);
+  transition: background 0.2s ease-out;
+}
+
+.playlistIcon:hover {
+  background-color: var(--side-nav-hover-color);
+  transition: background 0.2s ease-in;
+}
+
+.playlistIconActive {
+  color: var(--accent-color)
+}
+
+.playlistItems {
+  overflow-y: auto;
+  height: 395px;
+  margin-top: -15px;
+  margin-left: -16px;
+  margin-right: -16px;
+}
+
+.playlistItem {
+  height: 75px;
+  width: 100%;
+  transition: background 0.2s ease-out;
+}
+
+.playlistItem:hover {
+  background-color: var(--side-nav-hover-color);
+  transition: background 0.2s ease-in;
+}
+
+.videoIndex {
+  float: left;
+  position: relative;
+  top: 15px;
+  left: 10px;
+  color: var(--tertiary-text-color);
+}
+
+.videoIndexIcon {
+  float: left;
+  position: relative;
+  font-size: 14px;
+  top: 32px;
+  left: 10px;
+  color: var(--tertiary-text-color);
+}
+
+.videoInfo {
+  margin-left: 30px;
+  position: relative;
+  bottom: 7px;
+}
+
+/deep/ .list {
+  height: 60px;
+  width: calc(100% - 30px);
+}
+
+/deep/ .list .videoThumbnail {
+  width: 100px;
+  height: 60px;
+}
+
+/deep/ .list .videoThumbnail img {
+  height: 60px;
+}
+
+/deep/ .list .videoTitle {
+  font-size: 12px;
+  margin-left: 105px;
+  margin-right: 30px;
+}
+
+/deep/ .list .channelName {
+  margin-left: 105px;
+  margin-right: 30px;
+}
+
+/deep/ .list .viewCount {
+  margin-left: 5px;
+}

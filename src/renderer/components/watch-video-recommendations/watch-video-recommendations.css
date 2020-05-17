@@ -5,3 +5,29 @@
 .videoRecommendation {
   margin-bottom: -15px;
 }
+
+/deep/ .list {
+  height: 110px;
+}
+
+/deep/ .list .videoThumbnail {
+  width: 180px;
+  height: 100px;
+}
+
+/deep/ .list .videoThumbnail img {
+  height: 100px;
+}
+
+/deep/ .list .videoTitle {
+  font-size: 12px;
+  margin-left: 185px;
+}
+
+/deep/ .list .channelName {
+  margin-left: 185px;
+}
+
+/deep/ .list .viewCount {
+  margin-left: 5px;
+}

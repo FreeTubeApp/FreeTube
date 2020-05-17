@@ -18,7 +18,7 @@ export default Vue.extend({
   data: function () {
     return {
       isLoading: false,
-      playlistId: '',
+      playlistId: null,
       nextPageRef: '',
       lastSearchQuery: '',
       playlistPage: 1,
@@ -82,13 +82,14 @@ export default Vue.extend({
           id: result.id,
           title: result.title,
           description: result.description,
-          thumbnail: result.items[randomVideoIndex].thumbnail,
+          randomVideoId: result.items[randomVideoIndex].id,
           viewCount: result.views,
           videoCount: result.total_items,
           lastUpdated: result.last_updated,
           channelName: result.author.name,
           channelThumbnail: result.author.avatar,
-          channelId: result.author.id
+          channelId: result.author.id,
+          infoSource: 'local'
         }
 
         this.playlistItems = result.items
@@ -127,12 +128,13 @@ export default Vue.extend({
           id: result.playlistId,
           title: result.title,
           description: result.description,
-          thumbnail: result.videos[randomVideoIndex].videoThumbnails[0].url,
+          randomVideoId: result.videos[randomVideoIndex].videoId,
           viewCount: result.viewCount,
           videoCount: result.videoCount,
           channelName: result.author,
           channelThumbnail: result.authorThumbnails[2].url,
-          channelId: result.authorId
+          channelId: result.authorId,
+          infoSource: 'invidious'
         }
 
         const dateString = new Date(result.updated * 1000)

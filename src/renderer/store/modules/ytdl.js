@@ -118,7 +118,7 @@ const actions = {
     return new Promise((resolve, reject) => {
       console.log(playlistId)
       console.log('Getting playlist info please wait...')
-      ytpl(playlistId, (err, result) => {
+      ytpl(playlistId, { limit: 0 }, (err, result) => {
         if (err) {
           reject(err)
         } else {

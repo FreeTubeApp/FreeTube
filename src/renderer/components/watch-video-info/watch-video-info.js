@@ -44,11 +44,11 @@ export default Vue.extend({
     },
     likeCount: {
       type: Number,
-      required: true
+      default: 0
     },
     dislikeCount: {
       type: Number,
-      required: true
+      default: 0
     }
   },
   data: function () {
@@ -88,6 +88,10 @@ export default Vue.extend({
       return this.$store.getters.getInvidiousInstance
     },
 
+    usingElectron: function () {
+      return this.$store.getters.getUsingElectron
+    },
+
     invidiousUrl: function () {
       return `${this.invidiousInstance}/watch?v=${this.id}`
     },
@@ -118,7 +122,7 @@ export default Vue.extend({
   },
   methods: {
     goToChannel: function () {
-      console.log('TODO: Handle goToChannel')
+      this.$router.push({ path: `/channel/${this.channelId}` })
     },
 
     handleSubscription: function () {
@@ -126,9 +130,6 @@ export default Vue.extend({
     },
 
     handleFormatChange: function (format) {
-      console.log('Handling share')
-      console.log(this)
-
       switch (format) {
         case 'dash':
           this.$parent.enableDashFormat()
@@ -147,19 +148,28 @@ export default Vue.extend({
           navigator.clipboard.writeText(this.youtubeUrl)
           break
         case 'openYoutube':
-          // shell.openExternal(this.youtubeUrl)
+          if (this.usingElectron) {
+            const shell = require('electron').shell
+            shell.openExternal(this.youtubeUrl)
+          }
           break
         case 'copyYoutubeEmbed':
           navigator.clipboard.writeText(this.youtubeEmbedUrl)
           break
         case 'openYoutubeEmbed':
-          // shell.openExternal(this.youtubeEmbedUrl)
+          if (this.usingElectron) {
+            const shell = require('electron').shell
+            shell.openExternal(this.youtubeEmbedUrl)
+          }
           break
         case 'copyInvidious':
           navigator.clipboard.writeText(this.invidiousUrl)
           break
         case 'openInvidious':
-          // shell.openExternal(this.invidiousUrl)
+          if (this.usingElectron) {
+            const shell = require('electron').shell
+            shell.openExternal(this.invidiousUrl)
+          }
           break
       }
     }

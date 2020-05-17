@@ -9,18 +9,21 @@
       :data="infoData"
       class="playlistInfo"
     />
-    <ft-flex-box
+    <ft-card
       v-if="!isLoading"
       class="playlistItems"
     >
-      <ft-list-video
-        v-for="(item, index) in playlistItems"
-        :key="index"
-        :data="item"
-        force-list-type="list"
-        class="playlistItem"
-      />
-    </ft-flex-box>
+      <ft-flex-box>
+        <ft-list-video
+          v-for="(item, index) in playlistItems"
+          :key="index"
+          :data="item"
+          :playlist-id="playlistId"
+          force-list-type="list"
+          class="playlistItem"
+        />
+      </ft-flex-box>
+    </ft-card>
   </div>
 </template>
 

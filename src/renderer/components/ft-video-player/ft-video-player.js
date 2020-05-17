@@ -100,12 +100,80 @@ export default Vue.extend({
       return this.$store.getters.getDefaultPlayback
     },
 
+    defaultQuality: function () {
+      return this.$store.getters.getDefaultQuality
+    },
+
     defaultVideoFormat: function () {
       return this.$store.getters.getDefaultVideoFormat
     },
 
     autoplayVideos: function () {
       return this.$store.getters.getAutoplayVideos
+    },
+
+    selectedDefaultQuality: function () {
+      let selectedQuality = null
+
+      const maxAvailableQuality = parseInt(this.sourceList[this.sourceList.length - 1].qualityLabel.replace(/p|k/, ''))
+
+      switch (maxAvailableQuality) {
+        case 4:
+          if (this.defaultQuality >= 2160) {
+            return '4k'
+          }
+          break
+        case 8:
+          if (this.defaultQuality >= 4320) {
+            return '8k'
+          }
+          break
+        case 144:
+          if (this.defaultQuality >= 144) {
+            return '144p'
+          }
+          break
+        case 240:
+          if (this.defaultQuality >= 240) {
+            return '240p'
+          }
+          break
+        case 360:
+          if (this.defaultQuality >= 360) {
+            return '360p'
+          }
+          break
+        case 480:
+          if (this.defaultQuality >= 480) {
+            return '480p'
+          }
+          break
+        case 720:
+          if (this.defaultQuality >= 720) {
+            return '720p'
+          }
+          break
+        case 1080:
+          if (this.defaultQuality >= 1080) {
+            return '1080p'
+          }
+          break
+        case 1440:
+          if (this.defaultQuality >= 1440) {
+            return '1440p'
+          }
+          break
+        default:
+          return maxAvailableQuality + 'p'
+      }
+
+      this.activeSourceList.forEach((source) => {
+        if (this.determineDefaultQuality(source.qualityLabel)) {
+          selectedQuality = source.qualityLabel
+        }
+      })
+
+      return selectedQuality
     }
   },
   watch: {
@@ -172,6 +240,10 @@ export default Vue.extend({
 
         const v = this
 
+        this.player.on('ended', function () {
+          v.$emit('ended')
+        })
+
         this.player.on('error', function (error, message) {
           v.$emit('error', error.target.player.error_)
         })
@@ -188,6 +260,27 @@ export default Vue.extend({
         this.enableDashFormat()
       } else {
         this.enableLegacyFormat()
+      }
+    },
+
+    determineDefaultQuality: function (label) {
+      if (label.includes('p')) {
+        const selectedQuality = parseInt(label.replace('p', ''))
+        return this.defaultQuality === selectedQuality
+      } else if (label.includes('k')) {
+        const hdQuality = parseInt(label.replace('k', ''))
+
+        switch (hdQuality) {
+          case 4:
+            return this.defaultQuality === 2160
+          case 8:
+            return this.defaultQuality === 4320
+          default:
+            return false
+        }
+      } else {
+        console.log('Invalid label')
+        return false
       }
     },
 

@@ -11,7 +11,11 @@
       {{ title }}
     </h2>
     <p>
-      {{ videoCount }} videos - {{ viewCount }} views - Last updated on {{ lastUpdated }}
+      {{ videoCount }} videos - {{ viewCount }} views -
+      <span v-if="infoSource !== 'local'">
+        Last updated on
+      </span>
+      {{ lastUpdated }}
     </p>
     <p>
       {{ description }}

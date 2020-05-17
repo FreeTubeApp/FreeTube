@@ -16,8 +16,8 @@ export default Vue.extend({
   data: function () {
     return {
       id: '',
+      randomVideoId: '',
       title: '',
-      thumbnail: '',
       channelThumbnail: '',
       channelName: '',
       channelId: '',
@@ -25,6 +25,7 @@ export default Vue.extend({
       viewCount: 0,
       lastUpdated: '',
       description: '',
+      infoSource: '',
       shareHeaders: [
         'Copy YouTube Link',
         'Open in YouTube',
@@ -42,17 +43,35 @@ export default Vue.extend({
   computed: {
     listType: function () {
       return this.$store.getters.getListType
+    },
+
+    thumbnailPreference: function () {
+      return this.$store.getters.getThumbnailPreference
+    },
+
+    thumbnail: function () {
+      switch (this.thumbnailPreference) {
+        case 'start':
+          return `https://i.ytimg.com/vi/${this.randomVideoId}/mq1.jpg`
+        case 'middle':
+          return `https://i.ytimg.com/vi/${this.randomVideoId}/mq2.jpg`
+        case 'end':
+          return `https://i.ytimg.com/vi/${this.randomVideoId}/mq3.jpg`
+        default:
+          return `https://i.ytimg.com/vi/${this.randomVideoId}/mqdefault.jpg`
+      }
     }
   },
   mounted: function () {
     console.log(this.data)
     this.id = this.data.id
+    this.randomVideoId = this.data.randomVideoId
     this.title = this.data.title
-    this.thumbnail = this.data.thumbnail
     this.channelName = this.data.channelName
     this.channelThumbnail = this.data.channelThumbnail
     this.uploadedTime = this.data.uploaded_at
     this.description = this.data.description
+    this.infoSource = this.data.infoSource
 
     // Causes errors if not put inside of a check
     if (typeof (this.data.viewCount) !== 'undefined') {

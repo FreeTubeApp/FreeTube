@@ -27,14 +27,40 @@
   margin-bottom: 10px;
 }
 
-.watchVideoRecommendations {
+.watchVideoSideBar {
   width: 27%;
   max-width: 425px;
   float: right;
   margin-bottom: 10px;
   position: absolute;
-  top: 70px;
+}
+
+.watchVideoPlaylist {
   right: 10px;
+  top: 70px;
+  height: 500px;
+}
+
+.theatrePlaylist {
+  float: none;
+  margin: 0 auto;
+  width: 85%;
+  height: 500px;
+  margin-bottom: 10px;
+  max-width: none;
+  position: static;
+}
+
+.watchVideoRecommendations {
+  right: 10px;
+}
+
+.watchVideoRecommendationsNoCard {
+  top: 70px;
+}
+
+.watchVideoRecommendationsLowerCard {
+  top: 600px;
 }
 
 .theatreRecommendations {
@@ -76,6 +102,14 @@
     margin: 0 auto;
     width: calc(85% + 30px);
     margin-bottom: 10px;
+  }
+
+  .watchVideoPlaylist {
+    float: none;
+    margin: 0 auto;
+    width: 85%;
+    max-width: none;
+    position: static;
   }
 
   .watchVideoRecommendations {

@@ -7,6 +7,10 @@ export default Vue.extend({
       type: Object,
       required: true
     },
+    playlistId: {
+      type: String,
+      default: null
+    },
     forceListType: {
       type: String,
       default: null
@@ -16,7 +20,6 @@ export default Vue.extend({
     return {
       id: '',
       title: '',
-      thumbnail: '',
       channelName: '',
       channelId: '',
       viewCount: 0,
@@ -37,6 +40,19 @@ export default Vue.extend({
 
     thumbnailPreference: function () {
       return this.$store.getters.getThumbnailPreference
+    },
+
+    thumbnail: function () {
+      switch (this.thumbnailPreference) {
+        case 'start':
+          return `https://i.ytimg.com/vi/${this.id}/mq1.jpg`
+        case 'middle':
+          return `https://i.ytimg.com/vi/${this.id}/mq2.jpg`
+        case 'end':
+          return `https://i.ytimg.com/vi/${this.id}/mq3.jpg`
+        default:
+          return `https://i.ytimg.com/vi/${this.id}/mqdefault.jpg`
+      }
     }
   },
   mounted: function () {
@@ -54,11 +70,27 @@ export default Vue.extend({
   },
   methods: {
     play: function () {
-      this.$router.push({ path: `/watch/${this.id}` })
+      const playlistInfo = {
+        playlistId: this.playlistId
+      }
+      console.log('playlist info')
+      console.log(playlistInfo)
+
+      if (this.playlistId !== null) {
+        console.log('Sending playlist info')
+        this.$router.push(
+          {
+            path: `/watch/${this.id}`,
+            query: playlistInfo
+          }
+        )
+      } else {
+        console.log('no playlist found')
+        this.$router.push({ path: `/watch/${this.id}` })
+      }
     },
 
     goToChannel: function () {
-      console.log(this.data)
       this.$router.push({ path: `/channel/${this.channelId}` })
     },
 
@@ -101,20 +133,7 @@ export default Vue.extend({
       this.id = this.data.videoId
       this.title = this.data.title
       // this.thumbnail = this.data.videoThumbnails[4].url
-      switch (this.thumbnailPreference) {
-        case 'start':
-          this.thumbnail = `https://i.ytimg.com/vi/${this.id}/mq1.jpg`
-          break
-        case 'middle':
-          this.thumbnail = `https://i.ytimg.com/vi/${this.id}/mq2.jpg`
-          break
-        case 'end':
-          this.thumbnail = `https://i.ytimg.com/vi/${this.id}/mq3.jpg`
-          break
-        default:
-          this.thumbnail = `https://i.ytimg.com/vi/${this.id}/mqdefault.jpg`
-          break
-      }
+
       this.channelName = this.data.author
       this.channelId = this.data.authorId
       this.duration = this.calculateVideoDuration(this.data.lengthSeconds)
@@ -142,22 +161,6 @@ export default Vue.extend({
       }
 
       this.title = this.data.title
-      // this.thumbnail = this.data.thumbnail
-
-      switch (this.thumbnailPreference) {
-        case 'start':
-          this.thumbnail = `https://i.ytimg.com/vi/${this.id}/mq1.jpg`
-          break
-        case 'middle':
-          this.thumbnail = `https://i.ytimg.com/vi/${this.id}/mq2.jpg`
-          break
-        case 'end':
-          this.thumbnail = `https://i.ytimg.com/vi/${this.id}/mq3.jpg`
-          break
-        default:
-          this.thumbnail = `https://i.ytimg.com/vi/${this.id}/mqdefault.jpg`
-          break
-      }
 
       if (typeof (this.data.author) === 'string') {
         this.channelName = this.data.author
@@ -188,7 +191,7 @@ export default Vue.extend({
         this.hideViews = true
       }
 
-      if (typeof (this.data.uploaded_at) !== 'undefined' && this.data.uploaded_at.includes('watching')) {
+      if (typeof (this.data.uploaded_at) !== 'undefined' && this.data.uploaded_at !== null && this.data.uploaded_at.includes('watching')) {
         const uploadSplit = this.data.uploaded_at.split(' ')
         this.viewCount = parseInt(uploadSplit[0])
         this.isLive = true

@@ -8,6 +8,7 @@ import FtVideoPlayer from '../../components/ft-video-player/ft-video-player.vue'
 import WatchVideoInfo from '../../components/watch-video-info/watch-video-info.vue'
 import WatchVideoDescription from '../../components/watch-video-description/watch-video-description.vue'
 import WatchVideoComments from '../../components/watch-video-comments/watch-video-comments.vue'
+import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-video-playlist.vue'
 import WatchVideoRecommendations from '../../components/watch-video-recommendations/watch-video-recommendations.vue'
 
 export default Vue.extend({
@@ -20,6 +21,7 @@ export default Vue.extend({
     'watch-video-info': WatchVideoInfo,
     'watch-video-description': WatchVideoDescription,
     'watch-video-comments': WatchVideoComments,
+    'watch-video-playlist': WatchVideoPlaylist,
     'watch-video-recommendations': WatchVideoRecommendations,
   },
   data: function() {
@@ -31,6 +33,7 @@ export default Vue.extend({
       showLegacyPlayer: false,
       showYouTubeNoCookieEmbed: false,
       hidePlayer: false,
+      isLive: false,
       activeFormat: 'legacy',
       videoId: '',
       videoTitle: '',
@@ -49,6 +52,8 @@ export default Vue.extend({
       videoSourceList: [],
       captionSourceList: [],
       recommendedVideos: [],
+      watchingPlaylist: false,
+      playlistId: '',
     }
   },
   computed: {
@@ -111,6 +116,8 @@ export default Vue.extend({
 
       this.firstLoad = true
 
+      this.checkIfPlaylist()
+
       switch (this.backendPreference) {
         case 'local':
           this.getVideoInformationLocal(this.videoId)
@@ -125,12 +132,14 @@ export default Vue.extend({
       }
     },
   },
-  mounted: function() {
+  mounted: function () {
     this.videoId = this.$route.params.id
     this.videoStoryboardSrc = `${this.invidiousInstance}/api/v1/storyboards/${this.videoId}?height=90`
 
     this.activeFormat = this.defaultVideoFormat
     this.useTheatreMode = this.defaultTheatreMode
+
+    this.checkIfPlaylist()
 
     if (!this.usingElectron) {
       this.getVideoInformationInvidious()
@@ -158,6 +167,7 @@ export default Vue.extend({
       this.$store
         .dispatch('ytGetVideoInformation', this.videoId)
         .then(result => {
+          console.log(result)
           this.videoTitle = result.title
           this.videoViewCount = parseInt(
             result.player_response.videoDetails.viewCount,
@@ -170,9 +180,24 @@ export default Vue.extend({
           this.videoDescription =
             result.player_response.videoDetails.shortDescription
           this.recommendedVideos = result.related_videos
-          this.videoSourceList = result.player_response.streamingData.formats
           this.videoLikeCount = result.likes
           this.videoDislikeCount = result.dislikes
+          this.isLive = result.player_response.videoDetails.isLive
+
+          if (this.isLive) {
+            this.showLegacyPlayer = false
+            this.showDashPlayer = true
+            this.videoSourceList = [
+              {
+                url: 'https://invidious.snopyta.org/api/manifest/dash/id/EEIk7gwjgIM',
+                type: 'application/dash+xml',
+                label: 'Dash',
+                qualityLabel: 'Auto'
+              },
+            ]
+          } else {
+            this.videoSourceList = result.player_response.streamingData.formats
+          }
 
           // The response provides a storyboard, however it returns a 403 error.
           // Uncomment this line if that ever changes.
@@ -275,6 +300,22 @@ export default Vue.extend({
         })
     },
 
+    checkIfPlaylist: function () {
+      if (typeof (this.$route.query) !== 'undefined') {
+        console.log('defined')
+        console.log(this.$route.query)
+        this.playlistId = this.$route.query.playlistId
+
+        if (typeof (this.playlistId) !== 'undefined') {
+          this.watchingPlaylist = true
+        } else {
+          this.watchingPlaylist = false
+        }
+      } else {
+        this.watchingPlaylist = false
+      }
+    },
+
     getLegacyFormats: function () {
       this.$store
         .dispatch('ytGetVideoInformation', this.videoId)
@@ -296,7 +337,7 @@ export default Vue.extend({
       }, 100)
     },
 
-    enableLegacyFormat: function() {
+    enableLegacyFormat: function () {
       if (this.activeFormat === 'legacy') {
         return
       }
@@ -307,6 +348,15 @@ export default Vue.extend({
       setTimeout(() => {
         this.hidePlayer = false
       }, 100)
+    },
+
+    handleVideoEnded: function () {
+      if (this.watchingPlaylist) {
+        console.log('Playlist next video in 5 seconds')
+        setTimeout(() => {
+          this.$refs.watchVideoPlaylist.playNextVideo()
+        }, 5000)
+      }
     },
 
     handleVideoError: function(error) {
