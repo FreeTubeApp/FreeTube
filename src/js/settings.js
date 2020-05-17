@@ -23,6 +23,7 @@ let currentTheme = '';
 let useTor = false;
 let rememberHistory = true;
 let autoplay = true;
+let vlcAutoPlay = false;
 let enableSubtitles = false;
 let checkForUpdates = true;
 let currentVolume = 1;
@@ -165,6 +166,7 @@ function checkDefaultSettings() {
         'autoplay': true,
         'autoplayPlaylists': true,
         'playNextVideo': false,
+        'vlcAutoPlay': false,
         'subtitles': false,
         'updates': true,
         'localScrape': true,
@@ -251,6 +253,9 @@ function checkDefaultSettings() {
                     break;
                 case 'playNextVideo':
                     settingsView.playNextVideo = docs[0]['value'];
+                    break;
+                case 'vlcAutoPlay':
+                    settingsView.vlcAutoPlay = docs[0]['value'];
                     break;
                 case 'subtitles':
                     enableSubtitles = docs[0]['value'];
@@ -352,6 +357,7 @@ function updateSettings() {
     let autoplaySwitch = document.getElementById('autoplaySwitch').checked;
     let autoplayPlaylistsSwitch = document.getElementById('autoplayPlaylistsSwitch').checked;
     let playNextVideoSwitch = document.getElementById('playNextVideoSwitch').checked;
+    let vlcAutoPlaySwitch = document.getElementById('vlcAutoPlaySwitch').checked;
     let subtitlesSwitch = document.getElementById('subtitlesSwitch').checked;
     let updatesSwitch = document.getElementById('updatesSwitch').checked;
     let localSwitch = document.getElementById('localSwitch').checked;
@@ -375,6 +381,7 @@ function updateSettings() {
     settingsView.autoplay = autoplaySwitch;
     settingsView.autoplayPlaylists = autoplayPlaylistsSwitch;
     settingsView.playNextVideo = playNextVideoSwitch;
+    settingsView.vlcAutoPlay = vlcAutoPlaySwitch;
     settingsView.subtitles = subtitlesSwitch;
     settingsView.updates = updatesSwitch;
     settingsView.proxyAddress = proxyAddress;
@@ -492,6 +499,16 @@ function updateSettings() {
         ft.log(err);
         ft.log(numReplaced);
         settingsView.playNextVideo = playNextVideoSwitch;
+    });
+
+    settingsDb.update({
+        _id: 'vlcAutoPlay'
+    }, {
+        value: vlcAutoPlaySwitch
+    }, {}, function (err, numReplaced) {
+        ft.log(err);
+        ft.log(numReplaced);
+        settingsView.vlcAutoPlay = vlcAutoPlaySwitch;
     });
 
     // Update getting videos locally

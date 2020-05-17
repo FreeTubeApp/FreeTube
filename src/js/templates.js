@@ -978,31 +978,32 @@ let playerView = new Vue({
 
             // before VLC started we will set html player to pause
             const htmlPlayer = $('.videoPlayer').get(0);
-            htmlPlayer.pause();
+            if (typeof htmlPlayer != 'undefined') {
+                htmlPlayer.pause();
 
-            // creating a subprocess by executing VLC command with video URL
-            const child_process = require('child_process');
-            const process = child_process.spawn('vlc', [url]);
+                // creating a subprocess by executing VLC command with video URL
+                const child_process = require('child_process');
+                const process = child_process.spawn('vlc', [url]);
 
-            // here we need to sure if VLC started properly
-            if (typeof process.pid != 'undefined') {
-                showToast('Watching video in VLC');
+                // here we need to sure if VLC started properly
+                if (typeof process.pid != 'undefined') {
+                    showToast('Watching video in VLC');
 
-                // redirecting VLC stdout to console
-                process.stdout.on('data', (data) => {
-                    console.log('External VLC: ' + data);
-                });
+                    // redirecting VLC stdout to console
+                    process.stdout.on('data', (data) => {
+                        console.log('External VLC: ' + data);
+                    });
 
-                // redirecting VLC stderr to console
-                process.stderr.on('data', (data) => {
-                    console.log('External VLC: ' + data);
-                });
+                    // redirecting VLC stderr to console
+                    process.stderr.on('data', (data) => {
+                        console.log('External VLC: ' + data);
+                    });
 
-                // after VLC exited we will set html player to play
-                process.on('close', (code) => {
-                    console.log('External VLC exited with code: ' + code);
-                    htmlPlayer.play();
-                });
+                    // after VLC exited we will set html player to play
+                    process.on('close', (code) => {
+                        console.log('External VLC exited with code: ' + code);
+                        htmlPlayer.play();
+                    });
                 } else {
                     // if VLC didn't start propely we will resume playing video
                     showToast(
@@ -1010,6 +1011,7 @@ let playerView = new Vue({
                         'Please make sure it is installed and exists in path.');
                     htmlPlayer.play();
                 }
+            }
         },
         save: (videoId) => {
             toggleSavedVideo(videoId);
@@ -1050,6 +1052,20 @@ let playerView = new Vue({
                 playerView.playlistShuffle = true;
             }
         },
+    },
+    updated() {
+        // if vlcAutoPlay is set to true then opening it with videoId
+        this.$nextTick(function() {
+            settingsDb.find({
+                _id: 'vlcAutoPlay'
+            }, (err, docs) => {
+                if (docs[0]['value']) {
+                    const currentVideoId = playerView._data.videoId;
+                    this.openInVLC(playerView._data.videoId);
+                }
+            }); 
+        });
+               
     },
     computed: {
         thumbnailInterval: function () {
