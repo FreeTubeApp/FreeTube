@@ -972,6 +972,45 @@ let playerView = new Vue({
         openInvidious: (videoId) => {
             shell.openExternal(invidiousInstance + '/watch?v=' + videoId);
         },
+        openInVLC: (videoId) => {
+            // getting YouTube url as usual
+            const url = 'https://youtube.com/watch?v=' + videoId;
+
+            // before VLC started we will set html player to pause
+            const htmlPlayer = $('.videoPlayer').get(0);
+            htmlPlayer.pause();
+
+            // creating a subprocess by executing VLC command with video URL
+            const child_process = require('child_process');
+            const process = child_process.spawn('vlc', [url]);
+
+            // here we need to sure if VLC started properly
+            if (typeof process.pid != 'undefined') {
+                showToast('Watching video in VLC');
+
+                // redirecting VLC stdout to console
+                process.stdout.on('data', (data) => {
+                    console.log('External VLC: ' + data);
+                });
+
+                // redirecting VLC stderr to console
+                process.stderr.on('data', (data) => {
+                    console.log('External VLC: ' + data);
+                });
+
+                // after VLC exited we will set html player to play
+                process.on('close', (code) => {
+                    console.log('External VLC exited with code: ' + code);
+                    htmlPlayer.play();
+                });
+                } else {
+                    // if VLC didn't start propely we will resume playing video
+                    showToast(
+                        'Can not run your VLC.' +
+                        'Please make sure it is installed and exists in path.');
+                    htmlPlayer.play();
+                }
+        },
         save: (videoId) => {
             toggleSavedVideo(videoId);
         },
