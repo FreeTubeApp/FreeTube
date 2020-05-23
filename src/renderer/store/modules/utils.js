@@ -8,7 +8,25 @@ const state = {
     time: '',
     type: 'all',
     duration: ''
-  }
+  },
+  colorClasses: [
+    'mainRed',
+    'mainPink',
+    'mainPurple',
+    'mainDeepPurple',
+    'mainIndigo',
+    'mainBlue',
+    'mainLightBlue',
+    'mainCyan',
+    'mainTeal',
+    'mainGreen',
+    'mainLightGreen',
+    'mainLime',
+    'mainYellow',
+    'mainAmber',
+    'mainOrange',
+    'mainDeepOrange'
+  ]
 }
 
 const getters = {
@@ -29,7 +47,12 @@ const getters = {
   }
 }
 
-const actions = {}
+const actions = {
+  getRandomColorClass () {
+    const randomInt = Math.floor(Math.random() * state.colorClasses.length)
+    return state.colorClasses[randomInt]
+  }
+}
 
 const mutations = {
   toggleSideNav (state) {

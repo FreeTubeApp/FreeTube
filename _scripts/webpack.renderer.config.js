@@ -151,13 +151,29 @@ if (isDevMode) {
   )
 } else {
   config.plugins.push(
-    new CopyWebpackPlugin([
-      {
-        from: path.join(__dirname, '../static'),
-        to: path.join(__dirname, '../dist/static'),
-        ignore: ['.*'],
-      },
-    ]),
+    new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: path.join(__dirname, '../static/pwabuilder-sw.js'),
+            to: path.join(__dirname, '../dist/web/pwabuilder-sw.js'),
+          },
+          {
+            from: path.join(__dirname, '../static'),
+            to: path.join(__dirname, '../dist/web/static'),
+            globOptions: {
+              ignore: ['.*', 'pwabuilder-sw.js'],
+            },
+          },
+          {
+            from: path.join(__dirname, '../_icons'),
+            to: path.join(__dirname, '../dist/web/_icons'),
+            globOptions: {
+              ignore: ['.*'],
+            },
+          },
+        ]
+      }
+    ),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
     })

@@ -8,6 +8,7 @@ import FtVideoPlayer from '../../components/ft-video-player/ft-video-player.vue'
 import WatchVideoInfo from '../../components/watch-video-info/watch-video-info.vue'
 import WatchVideoDescription from '../../components/watch-video-description/watch-video-description.vue'
 import WatchVideoComments from '../../components/watch-video-comments/watch-video-comments.vue'
+import WatchVideoLiveChat from '../../components/watch-video-live-chat/watch-video-live-chat.vue'
 import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-video-playlist.vue'
 import WatchVideoRecommendations from '../../components/watch-video-recommendations/watch-video-recommendations.vue'
 
@@ -21,6 +22,7 @@ export default Vue.extend({
     'watch-video-info': WatchVideoInfo,
     'watch-video-description': WatchVideoDescription,
     'watch-video-comments': WatchVideoComments,
+    'watch-video-live-chat': WatchVideoLiveChat,
     'watch-video-playlist': WatchVideoPlaylist,
     'watch-video-recommendations': WatchVideoRecommendations,
   },
@@ -185,16 +187,21 @@ export default Vue.extend({
           this.isLive = result.player_response.videoDetails.isLive
 
           if (this.isLive) {
-            this.showLegacyPlayer = false
-            this.showDashPlayer = true
-            this.videoSourceList = [
-              {
-                url: 'https://invidious.snopyta.org/api/manifest/dash/id/EEIk7gwjgIM',
-                type: 'application/dash+xml',
+            this.showLegacyPlayer = true
+            this.showDashPlayer = false
+
+            this.videoSourceList = result.formats.filter((format) => {
+              if (typeof (format.mimeType) !== 'undefined') {
+                return format.mimeType.includes('video/ts')
+              }
+            }).map((format) => {
+              return {
+                url: format.url,
+                type: 'application/x-mpegURL',
                 label: 'Dash',
-                qualityLabel: 'Auto'
-              },
-            ]
+                qualityLabel: format.qualityLabel
+              }
+            })
           } else {
             this.videoSourceList = result.player_response.streamingData.formats
           }
@@ -271,6 +278,7 @@ export default Vue.extend({
           this.videoPublished = result.published * 1000
           this.videoDescriptionHtml = result.descriptionHtml
           this.recommendedVideos = result.recommendedVideos
+          this.isLive = result.liveNow
           this.captionSourceList = result.captions.map(caption => {
             caption.url = this.invidiousInstance + caption.url
             caption.type = ''
@@ -278,7 +286,35 @@ export default Vue.extend({
             return caption
           })
 
-          if (this.forceLocalBackendForLegacy) {
+          if (this.isLive) {
+            this.showLegacyPlayer = true
+            this.showDashPlayer = false
+            this.activeFormat = 'legacy'
+
+            this.videoSourceList = [
+              {
+                url: result.hlsUrl,
+                type: 'application/x-mpegURL',
+                label: 'Dash',
+                qualityLabel: 'Live'
+              }
+            ]
+
+            // Grabs the adaptive formats from Invidious.  Might be worth making these work.
+            // The type likely needs to be changed in order for these to be played properly.
+            // this.videoSourceList = result.adaptiveFormats.filter((format) => {
+            //   if (typeof (format.type) !== 'undefined') {
+            //     return format.type.includes('video/mp4')
+            //   }
+            // }).map((format) => {
+            //   return {
+            //     url: format.url,
+            //     type: 'application/x-mpegURL',
+            //     label: 'Dash',
+            //     qualityLabel: format.qualityLabel
+            //   }
+            // })
+          } else if (this.forceLocalBackendForLegacy) {
             this.getLegacyFormats()
           } else {
             this.videoSourceList = result.formatStreams.reverse()
@@ -302,8 +338,6 @@ export default Vue.extend({
 
     checkIfPlaylist: function () {
       if (typeof (this.$route.query) !== 'undefined') {
-        console.log('defined')
-        console.log(this.$route.query)
         this.playlistId = this.$route.query.playlistId
 
         if (typeof (this.playlistId) !== 'undefined') {
@@ -325,7 +359,7 @@ export default Vue.extend({
     },
 
     enableDashFormat: function () {
-      if (this.activeFormat === 'dash') {
+      if (this.activeFormat === 'dash' || this.isLive) {
         return
       }
 
@@ -361,6 +395,10 @@ export default Vue.extend({
 
     handleVideoError: function(error) {
       console.log(error)
+      if (this.isLive) {
+        return
+      }
+
       if (error.code === 4) {
         if (this.activeFormat === 'dash') {
           console.log(

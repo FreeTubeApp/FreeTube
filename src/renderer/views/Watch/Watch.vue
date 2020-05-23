@@ -41,10 +41,17 @@
       :class="{ theatreWatchVideo: useTheatreMode }"
     />
     <watch-video-comments
-      v-if="!isLoading"
+      v-if="!isLoading && !isLive"
       :id="videoId"
       class="watchVideo"
       :class="{ theatreWatchVideo: useTheatreMode }"
+    />
+    <watch-video-live-chat
+      v-if="!isLoading && isLive"
+      :video-id="videoId"
+      :channel-name="channelName"
+      class="watchVideoSideBar watchVideoPlaylist"
+      :class="{ theatrePlaylist: useTheatreMode }"
     />
     <watch-video-playlist
       v-if="watchingPlaylist"
@@ -61,8 +68,8 @@
       class="watchVideoSideBar watchVideoRecommendations"
       :class="{
         theatreRecommendations: useTheatreMode,
-        watchVideoRecommendationsLowerCard: watchingPlaylist,
-        watchVideoRecommendationsNoCard: !watchingPlaylist
+        watchVideoRecommendationsLowerCard: watchingPlaylist || isLive,
+        watchVideoRecommendationsNoCard: !watchingPlaylist || !isLive
       }"
     />
   </div>

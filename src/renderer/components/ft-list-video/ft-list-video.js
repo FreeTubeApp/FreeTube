@@ -191,11 +191,7 @@ export default Vue.extend({
         this.hideViews = true
       }
 
-      if (typeof (this.data.uploaded_at) !== 'undefined' && this.data.uploaded_at !== null && this.data.uploaded_at.includes('watching')) {
-        const uploadSplit = this.data.uploaded_at.split(' ')
-        this.viewCount = parseInt(uploadSplit[0])
-        this.isLive = true
-      }
+      this.isLive = this.data.live
     }
   }
 })

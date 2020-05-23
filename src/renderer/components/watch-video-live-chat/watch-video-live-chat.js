@@ -1,0 +1,240 @@
+import Vue from 'vue'
+import FtLoader from '../ft-loader/ft-loader.vue'
+import FtCard from '../ft-card/ft-card.vue'
+import FtButton from '../ft-button/ft-button.vue'
+import FtListVideo from '../ft-list-video/ft-list-video.vue'
+
+import $ from 'jquery'
+import autolinker from 'autolinker'
+import { LiveChat } from 'youtube-chat'
+
+export default Vue.extend({
+  name: 'WatchVideoLiveChat',
+  components: {
+    'ft-loader': FtLoader,
+    'ft-card': FtCard,
+    'ft-button': FtButton,
+    'ft-list-video': FtListVideo
+  },
+  props: {
+    videoId: {
+      type: String,
+      required: true
+    },
+    channelName: {
+      type: String,
+      required: true
+    }
+  },
+  data: function () {
+    return {
+      liveChat: null,
+      isLoading: true,
+      hasError: false,
+      hasEnded: false,
+      showEnableChat: false,
+      errorMessage: '',
+      stayAtBottom: true,
+      showSuperChat: false,
+      showScrollToBottom: false,
+      comments: [],
+      superChatComments: [],
+      superChat: {
+        author: {
+          name: '',
+          thumbnail: ''
+        },
+        message: [
+          ''
+        ],
+        superChat: {
+          amount: ''
+        }
+      }
+    }
+  },
+  computed: {
+    usingElectron: function () {
+      return this.$store.getters.getUsingElectron
+    },
+
+    backendPreference: function () {
+      return this.$store.getters.getBackendPreference
+    },
+
+    backendFallback: function () {
+      return this.$store.getters.getBackendFallback
+    },
+
+    chatHeight: function () {
+      if (this.superChatComments.length > 0) {
+        return '390px'
+      } else {
+        return '445px'
+      }
+    }
+  },
+  created: function () {
+    if (!this.usingElectron) {
+      this.hasError = true
+      this.errorMessage = 'Live Chat is currently not supported in this build.'
+    } else {
+      switch (this.backendPreference) {
+        case 'local':
+          console.log('Getting Chat')
+          this.getLiveChatLocal()
+          break
+        case 'invidious':
+          if (this.backendFallback) {
+            this.getLiveChatLocal()
+          } else {
+            this.hasError = true
+            this.errorMessage = 'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.'
+            this.showEnableChat = true
+            this.isLoading = false
+          }
+          break
+      }
+    }
+  },
+  methods: {
+    enableLiveChat: function () {
+      this.hasError = false
+      this.showEnableChat = false
+      this.isLoading = true
+      this.getLiveChatLocal()
+    },
+
+    getLiveChatLocal: function () {
+      this.liveChat = new LiveChat({ liveId: this.videoId })
+
+      this.isLoading = false
+
+      this.liveChat.on('start', (liveId) => {
+        console.log('Live chat is enabled')
+        this.isLoading = false
+      })
+
+      this.liveChat.on('end', (reason) => {
+        console.log('Live chat has ended')
+        console.log(reason)
+      })
+
+      this.liveChat.on('error', (err) => {
+        this.hasError = true
+        this.errorMessage = err
+        this.showEnableChat = false
+      })
+
+      this.liveChat.on('comment', (comment) => {
+        this.parseLiveChatComment(comment)
+      })
+
+      this.liveChat.start()
+    },
+
+    parseLiveChatComment: function (comment) {
+      if (this.hasEnded) {
+        return
+      }
+
+      comment.messageHtml = ''
+
+      comment.message.forEach((text) => {
+        comment.messageHtml = comment.messageHtml + text.text
+      })
+
+      comment.messageHtml = autolinker.link(comment.messageHtml)
+
+      const liveChatComments = $('.liveChatComments')
+
+      if (typeof (liveChatComments.get(0)) === 'undefined' && this.comments.length !== 0) {
+        this.liveChat.stop()
+        return
+      }
+
+      this.comments.push(comment)
+
+      if (typeof (comment.superchat) !== 'undefined') {
+        this.$store.dispatch('getRandomColorClass').then((data) => {
+          comment.superchat.colorClass = data
+
+          this.superChatComments.unshift(comment)
+
+          setTimeout(() => {
+            this.removeFromSuperChat(comment.id)
+          }, 120000)
+        })
+      }
+
+      if (comment.author.name[0] === 'Ge' || comment.author.name[0] === 'Ne') {
+        this.$store.dispatch('getRandomColorClass').then((data) => {
+          comment.superChat = {
+            amount: '$5.00',
+            colorClass: data
+          }
+
+          this.superChatComments.unshift(comment)
+
+          setTimeout(() => {
+            this.removeFromSuperChat(comment.id)
+          }, 120000)
+        })
+      }
+
+      if (this.stayAtBottom) {
+        liveChatComments.animate({ scrollTop: liveChatComments.prop('scrollHeight') })
+      }
+    },
+
+    removeFromSuperChat: function (id) {
+      this.superChatComments = this.superChatComments.filter((comment) => {
+        return comment.id !== id
+      })
+    },
+
+    showSuperChatComment: function (comment) {
+      if (this.superChat.id === comment.id && this.showSuperChat) {
+        this.showSuperChat = false
+      } else {
+        this.superChat = comment
+        this.showSuperChat = true
+      }
+    },
+
+    onScroll: function (event) {
+      const liveChatComments = $('.liveChatComments').get(0)
+      const scrollTop = liveChatComments.scrollTop
+      const scrollHeight = liveChatComments.scrollHeight
+      const clientHeight = liveChatComments.clientHeight
+      if (event.wheelDelta >= 0 && this.stayAtBottom) {
+        $('.liveChatComments').data('animating', 0)
+        this.stayAtBottom = false
+
+        if (liveChatComments.scrollHeight > liveChatComments.clientHeight) {
+          this.showScrollToBottom = true
+        }
+      } else if (event.wheelDelta < 0 && !this.stayAtBottom) {
+        if ((liveChatComments.scrollHeight - liveChatComments.scrollTop) === liveChatComments.clientHeight) {
+          this.scrollToBottom()
+        }
+      }
+    },
+
+    scrollToBottom: function () {
+      const liveChatComments = $('.liveChatComments')
+      liveChatComments.animate({ scrollTop: liveChatComments.prop('scrollHeight') })
+      this.stayAtBottom = true
+      this.showScrollToBottom = false
+    },
+
+    preventDefault: function (event) {
+      event.stopPropagation()
+      event.preventDefault()
+    }
+  },
+  beforeRouteLeave: function () {
+    this.liveChat.stop()
+    this.hasEnded = true
+  }
+})

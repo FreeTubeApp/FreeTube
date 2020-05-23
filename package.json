@@ -95,9 +95,9 @@
   },
   "license": "GPL-3.0-or-later",
   "main": "./dist/main.js",
-  "name": "freetube",
+  "name": "freetube-vue",
   "private": true,
-  "productName": "FreeTube",
+  "productName": "FreeTube-Vue",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mubaidr/vue-electron-template.git"

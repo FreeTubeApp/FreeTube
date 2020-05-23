@@ -217,7 +217,7 @@ export default Vue.extend({
           src: this.storyboardSrc
         })
 
-        if (this.useDash) {
+        if (this.useDash || this.useHls) {
           this.dataSetup.plugins.httpSourceSelector = {
             default: 'auto'
           }

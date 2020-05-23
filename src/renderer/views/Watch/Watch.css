@@ -107,6 +107,7 @@
   .watchVideoPlaylist {
     float: none;
     margin: 0 auto;
+    margin-bottom: 10px;
     width: 85%;
     max-width: none;
     position: static;
