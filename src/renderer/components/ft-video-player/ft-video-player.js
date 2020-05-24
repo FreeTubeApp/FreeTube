@@ -204,7 +204,7 @@ export default Vue.extend({
     initializePlayer: function () {
       const videoPlayer = document.getElementById(this.id)
       if (videoPlayer !== null) {
-        if (!this.useDash && !this.useHls) {
+        if (!this.useDash) {
           qualitySelector(videojs, { showQualitySelectionLabelInControlBar: true })
         }
 
@@ -217,7 +217,7 @@ export default Vue.extend({
           src: this.storyboardSrc
         })
 
-        if (this.useDash || this.useHls) {
+        if (this.useDash) {
           this.dataSetup.plugins.httpSourceSelector = {
             default: 'auto'
           }
@@ -229,7 +229,7 @@ export default Vue.extend({
           // Calling play() won't happen right away, so a quick timeout will make it function properly.
           setTimeout(() => {
             this.player.play()
-          }, 100)
+          }, 200)
         }
 
         $(document).on('keydown', this.keyboardShortcutHandler)

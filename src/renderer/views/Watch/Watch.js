@@ -107,6 +107,7 @@ export default Vue.extend({
           url: url,
           type: 'application/dash+xml',
           label: 'Dash',
+          qualityLabel: 'Auto'
         },
       ]
     },
