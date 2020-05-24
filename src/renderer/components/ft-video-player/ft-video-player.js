@@ -115,6 +115,10 @@ export default Vue.extend({
     selectedDefaultQuality: function () {
       let selectedQuality = null
 
+      if (this.sourceList.length === 0) {
+        return this.defaultQuality
+      }
+
       const maxAvailableQuality = parseInt(this.sourceList[this.sourceList.length - 1].qualityLabel.replace(/p|k/, ''))
 
       switch (maxAvailableQuality) {
@@ -168,8 +172,11 @@ export default Vue.extend({
       }
 
       this.activeSourceList.forEach((source) => {
-        if (this.determineDefaultQuality(source.qualityLabel)) {
-          selectedQuality = source.qualityLabel
+        console.log(source)
+        if (typeof (source.qualityLabel) !== 'undefined') {
+          if (this.determineDefaultQuality(source.qualityLabel)) {
+            selectedQuality = source.qualityLabel
+          }
         }
       })
 
@@ -264,6 +271,10 @@ export default Vue.extend({
     },
 
     determineDefaultQuality: function (label) {
+      if (this.useDash) {
+        return false
+      }
+
       if (label.includes('p')) {
         const selectedQuality = parseInt(label.replace('p', ''))
         return this.defaultQuality === selectedQuality
