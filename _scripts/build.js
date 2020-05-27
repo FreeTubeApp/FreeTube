@@ -46,7 +46,7 @@ const config = {
   },
   linux: {
     icon: '_icons/icon.png',
-    target: ['deb', 'snap', 'AppImage'],
+    target: ['deb', 'rpm', 'AppImage'],
   },
   mac: {
     category: 'public.app-category.utilities',
