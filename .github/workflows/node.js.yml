@@ -24,5 +24,13 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - name: Install Dependencies
     - run: npm ci
+    - name: Build App
     - run: npm run build --if-present
+      env:
+        GH_TOKEN: ${{secrets.GH_TOKEN}}
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        path: build/freetube-vue_0.8.0_amd64.deb
