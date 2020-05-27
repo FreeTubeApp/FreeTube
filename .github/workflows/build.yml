@@ -38,6 +38,12 @@ jobs:
       with:
         name: freetube-vue_0.8.0_amd64.AppImage
         path: build/FreeTube-Vue-0.8.0.AppImage
+    - name: Upload .rpm Artifact
+      uses: actions/upload-artifact@v2
+      if: startsWith(matrix.os, 'ubuntu')
+      with:
+        name: freetube-vue_0.8.0_amd64.rpm
+        path: build/freetube-vue-0.8.0.x86_64.rpm
     - name: Upload Windows .exe Artifact
       uses: actions/upload-artifact@v2
       if: startsWith(matrix.os, 'windows')
