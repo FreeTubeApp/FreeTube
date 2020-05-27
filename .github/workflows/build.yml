@@ -43,4 +43,4 @@ jobs:
       if: startsWith(matrix.os, 'windows')
       with:
         name: freetube-vue_0.8.0.exe
-        path: build/FreeTube-Vue 0.8.0.exe
+        path: build/FreeTube-Vue Setup 0.8.0.exe
