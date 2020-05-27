@@ -56,7 +56,7 @@ const config = {
   },
   win: {
     icon: '_icons/icon.ico',
-    target: ['nsis', 'zip', 'portable'],
+    target: ['nsis', 'zip', 'portable', 'squirrel'],
   },
   nsis: {
     allowToChangeInstallationDirectory: true,
