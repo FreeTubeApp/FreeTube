@@ -38,9 +38,15 @@ jobs:
       with:
         name: freetube-vue_0.8.0_amd64.AppImage
         path: build/FreeTube-Vue-0.8.0.AppImage
-    - name: Upload Windows Exe Artifact
+    - name: Upload Windows .exe Artifact
       uses: actions/upload-artifact@v2
       if: startsWith(matrix.os, 'windows')
       with:
-        name: freetube-vue-0.8.0-win
+        name: freetube-vue-0.8.0-win-portable
         path: build/FreeTube-Vue-0.8.0-win.zip
+    - name: Upload Windows .zip Artifact
+      uses: actions/upload-artifact@v2
+      if: startsWith(matrix.os, 'windows')
+      with:
+        name: freetube-vue-0.8.0-setup.exe
+        path: build/FreeTube-Vue Setup 0.8.0.exe
