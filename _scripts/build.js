@@ -45,17 +45,17 @@ const config = {
     },
   },
   linux: {
-    icon: '_icons/icon.png',
-    target: ['deb', 'rpm', 'AppImage'],
+    icon: '_icons/iconColor.png',
+    target: ['deb', 'rpm', 'zip', 'AppImage'],
   },
   mac: {
     category: 'public.app-category.utilities',
-    icon: '_icons/icon.icns',
+    icon: '_icons/iconColor.icns',
     target: ['dmg', 'zip'],
     type: 'distribution',
   },
   win: {
-    icon: '_icons/icon.ico',
+    icon: '_icons/iconColor.ico',
     target: ['nsis', 'zip', 'portable', 'squirrel'],
   },
   nsis: {

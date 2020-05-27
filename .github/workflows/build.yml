@@ -15,7 +15,7 @@ jobs:
       matrix:
         node-version: [12.x]
         os: [ubuntu-latest, windows-latest]
-        
+
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -44,15 +44,21 @@ jobs:
       with:
         name: freetube-vue_0.8.0_amd64.rpm
         path: build/freetube-vue-0.8.0.x86_64.rpm
+    - name: Upload Linux .zip Artifact
+      uses: actions/upload-artifact@v2
+      if: startsWith(matrix.os, 'ubuntu')
+      with:
+        name: freetube-vue_0.8.0_amd64.zip
+        path: build/freetube-vue-0.8.0.zip
     - name: Upload Windows .exe Artifact
       uses: actions/upload-artifact@v2
       if: startsWith(matrix.os, 'windows')
       with:
-        name: freetube-vue-0.8.0-win-portable
+        name: freetube-vue-0.8.0-win-x64-portable
         path: build/FreeTube-Vue-0.8.0-win.zip
     - name: Upload Windows .zip Artifact
       uses: actions/upload-artifact@v2
       if: startsWith(matrix.os, 'windows')
       with:
-        name: freetube-vue-0.8.0-setup.exe
+        name: freetube-vue-0.8.0-setup-x64.exe
         path: build/FreeTube-Vue Setup 0.8.0.exe
