@@ -59,6 +59,7 @@
     "devtron": "^1.4.0",
     "electron": "^8.3.0",
     "electron-builder": "^22.6.0",
+    "electron-builder-squirrel-windows": "^22.7.0",
     "electron-debug": "^3.0.1",
     "electron-rebuild": "^1.11.0",
     "eslint": "^7.0.0",
