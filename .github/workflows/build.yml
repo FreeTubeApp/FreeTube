@@ -1,7 +1,7 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Node.js CI
+name: Build CI
 
 on:
   push:
@@ -12,11 +12,10 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [12.x]
+        os: [ubuntu-latest, windows-latest]
 
     steps:
     - uses: actions/checkout@v2
@@ -26,8 +25,21 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
     - run: npm run build --if-present
-    - name: Upload Ubuntu Artifact
+    - name: Upload .deb Artifact
       uses: actions/upload-artifact@v2
+      if: startsWith(matrix.os, 'ubuntu')
       with:
         name: freetube-vue_0.8.0_amd64.deb
         path: build/freetube-vue_0.8.0_amd64.deb
+    - name: Upload AppImage Artifact
+      uses: actions/upload-artifact@v2
+      if: startsWith(matrix.os, 'ubuntu')
+      with:
+        name: freetube-vue_0.8.0_amd64.AppImage
+        path: build/FreeTube-Vue-0.8.0.AppImage
+    - name: Upload Windows Exe Artifact
+      uses: actions/upload-artifact@v2
+      if: startsWith(matrix.os, 'windows')
+      with:
+        name: freetube-vue_0.8.0.exe
+        path: build/FreeTube-Vue 0.8.0.exe
