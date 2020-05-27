@@ -29,4 +29,5 @@ jobs:
     - name: Upload Ubuntu Artifact
       uses: actions/upload-artifact@v2
       with:
+        name: freetube-vue_0.8.0_amd64.deb
         path: build/freetube-vue_0.8.0_amd64.deb
