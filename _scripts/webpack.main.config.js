@@ -80,7 +80,7 @@ if (isDevMode) {
           },
           {
             from: path.join(__dirname, '../_icons'),
-            to: path.join(__dirname, '../dist/web/_icons'),
+            to: path.join(__dirname, '../dist/_icons'),
             globOptions: {
               ignore: ['.*'],
             },

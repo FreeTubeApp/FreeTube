@@ -202,7 +202,7 @@ export default Vue.extend({
                 label: 'Dash',
                 qualityLabel: format.qualityLabel
               }
-            })
+            }).reverse()
           } else {
             this.videoSourceList = result.player_response.streamingData.formats
           }

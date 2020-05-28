@@ -41,6 +41,10 @@ export default Vue.extend({
     }
   },
   computed: {
+    invidiousInstance: function () {
+      return this.$store.getters.getInvidiousInstance
+    },
+    
     listType: function () {
       return this.$store.getters.getListType
     },
@@ -87,7 +91,7 @@ export default Vue.extend({
   methods: {
     sharePlaylist: function (method) {
       const youtubeUrl = `https://youtube.com/playlist?list=${this.id}`
-      const invidiousUrl = `https://invidio.us/playlist?list=${this.id}`
+      const invidiousUrl = `${this.invidiousInstance}/playlist?list=${this.id}`
 
       switch (method) {
         case 'copyYoutube':

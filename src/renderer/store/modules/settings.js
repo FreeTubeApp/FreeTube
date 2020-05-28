@@ -48,7 +48,7 @@ const state = {
   defaultVolume: 1,
   defaultPlayback: 1,
   defaultVideoFormat: 'dash',
-  defaultQuality: 'auto',
+  defaultQuality: '720',
   useTor: false,
   proxy: 'SOCKS5://127.0.0.1:9050',
   debugMode: false,
@@ -156,6 +156,9 @@ const actions = {
         console.log(results)
         results.forEach((result) => {
           switch (result._id) {
+            case 'invidiousInstance':
+              commit('setInvidiousInstance', result.value)
+              break
             case 'backendFallback':
               commit('setBackendFallback', result.value)
               break
@@ -219,6 +222,15 @@ const actions = {
               break
           }
         })
+      }
+    })
+  },
+
+  updateInvidiousInstance ({ commit }, invidiousInstance) {
+    console.log(invidiousInstance)
+    settingsDb.update({ _id: 'invidiousInstance' }, { _id: 'invidiousInstance', value: invidiousInstance }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setInvidiousInstance', invidiousInstance)
       }
     })
   },
@@ -394,6 +406,9 @@ const actions = {
 }
 
 const mutations = {
+  setInvidiousInstance (state, invidiousInstance) {
+    state.invidiousInstance = invidiousInstance
+  },
   setCurrentTheme (state, currentTheme) {
     state.barColor = currentTheme
   },

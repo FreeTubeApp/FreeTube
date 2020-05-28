@@ -56,8 +56,7 @@ export default Vue.extend({
       formatTypeLabel: 'VIDEO FORMATS',
       formatTypeNames: [
         'USE DASH FORMATS',
-        'USE LEGACY FORMATS',
-        'USE YOUTUBE PLAYER'
+        'USE LEGACY FORMATS'
       ],
       formatTypeValues: [
         'dash',
@@ -69,17 +68,13 @@ export default Vue.extend({
         'COPY INVIDIOUS LINK',
         'OPEN INVIDIOUS LINK',
         'COPY YOUTUBE LINK',
-        'OPEN YOUTUBE LINK',
-        'COPY YOUTUBE EMBED LINK',
-        'OPEN YOUTUBE EMBED LINK'
+        'OPEN YOUTUBE LINK'
       ],
       shareValues: [
         'copyInvidious',
         'openInvidious',
         'copyYoutube',
-        'openYoutube',
-        'copyYoutubeEmbed',
-        'openYoutubeEmbed'
+        'openYoutube'
       ]
     }
   },

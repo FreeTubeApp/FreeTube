@@ -220,9 +220,9 @@ export default Vue.extend({
         this.player.volume(this.volume)
         this.player.playbackRate(this.defaultPlayback)
 
-        this.player.vttThumbnails({
-          src: this.storyboardSrc
-        })
+        // this.player.vttThumbnails({
+        //   src: this.storyboardSrc
+        // })
 
         if (this.useDash) {
           this.dataSetup.plugins.httpSourceSelector = {

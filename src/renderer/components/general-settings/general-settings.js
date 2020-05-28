@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import $ from 'jquery'
 import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
 import FtSelect from '../ft-select/ft-select.vue'
@@ -16,6 +17,9 @@ export default Vue.extend({
   data: function () {
     return {
       title: 'General Settings',
+      showInvidiousInstances: false,
+      instanceNames: [],
+      instanceValues: [],
       backendNames: [
         'Invidious API',
         'Local API'
@@ -541,6 +545,9 @@ export default Vue.extend({
     }
   },
   computed: {
+    invidiousInstance: function () {
+      return this.$store.getters.getInvidiousInstance
+    },
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
@@ -563,6 +570,34 @@ export default Vue.extend({
       return this.$store.getters.getThumbnailPreference
     }
   },
+  mounted: function () {
+    const requestUrl = 'https://instances.invidio.us/instances.json'
+    $.getJSON(requestUrl, (response) => {
+      console.log(response)
+      const instances = response.filter((instance) => {
+        if (instance[0].includes('.onion') || instance[0].includes('.i2p')) {
+          return false
+        } else {
+          return true
+        }
+      })
+
+      this.instanceNames = instances.map((instance) => {
+        return instance[0]
+      })
+
+      this.instanceValues = instances.map((instance) => {
+        return instance[1].uri.replace(/\/$/, '')
+      })
+
+      this.showInvidiousInstances = true
+    }).fail((xhr, textStatus, error) => {
+      console.log(xhr)
+      console.log(textStatus)
+      console.log(requestUrl)
+      console.log(error)
+    })
+  },
   methods: {
     ...mapActions([
       'updateBackendFallback',
@@ -572,7 +607,8 @@ export default Vue.extend({
       'updateLandingPage',
       'updateRegion',
       'updateListType',
-      'updateThumbnailPreference'
+      'updateThumbnailPreference',
+      'updateInvidiousInstance'
     ])
   }
 })

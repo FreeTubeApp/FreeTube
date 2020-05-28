@@ -101,7 +101,7 @@
   "productName": "FreeTube-Vue",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mubaidr/vue-electron-template.git"
+    "url": "git+https://github.com/FreeTubeApp/FreeTube-Vue.git"
   },
   "scripts": {
     "build": "run-s rebuild:electron pack build-release",

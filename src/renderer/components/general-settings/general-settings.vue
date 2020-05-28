@@ -13,6 +13,7 @@
         @change="updateBackendFallback"
       />
       <ft-toggle-switch
+        v-if="false"
         label="Check for Updates"
         :default-value="checkForUpdates"
         @change="updateCheckForUpdates"
@@ -27,6 +28,7 @@
         @change="updateBackendPreference"
       />
       <ft-select
+        v-if="false"
         placeholder="Default Landing Page"
         :value="landingPage"
         :select-names="defaultPageNames"
@@ -34,6 +36,7 @@
         @change="updateLandingPage"
       />
       <ft-select
+        v-if="false"
         placeholder="Region for Trending"
         :value="region"
         :select-names="regionNames"
@@ -53,6 +56,14 @@
         :select-names="thumbnailTypeNames"
         :select-values="thumbnailTypeValues"
         @change="updateThumbnailPreference"
+      />
+      <ft-select
+        v-if="showInvidiousInstances"
+        placeholder="Invidious Instance"
+        :value="invidiousInstance"
+        :select-names="instanceNames"
+        :select-values="instanceValues"
+        @change="updateInvidiousInstance"
       />
     </div>
   </ft-card>

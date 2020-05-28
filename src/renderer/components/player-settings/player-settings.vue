@@ -9,12 +9,14 @@
     <div class="switchColumnGrid">
       <div class="switchColumn">
         <ft-toggle-switch
+          v-if="false"
           label="Remember History"
           :compact="true"
           :default-value="rememberHistory"
           @change="updateRememberHistory"
         />
         <ft-toggle-switch
+          v-if="false"
           label="Enable Subtitles by Default"
           :compact="true"
           :default-value="enableSubtitles"
@@ -47,6 +49,7 @@
           @change="updateAutoplayPlaylists"
         />
         <ft-toggle-switch
+          v-if="false"
           label="Play Next Video"
           :compact="true"
           :default-value="playNextVideo"

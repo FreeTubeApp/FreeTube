@@ -12,8 +12,8 @@
   --side-nav-hover-color: #e0e0e0;
   --side-nav-active-color: #757575;
   --search-bar-color: #f5f5f5;
-  --logo-icon: url("/_icons/iconColorSmall.png");
-  --logo-text: url("/_icons/textColorSmall.png");
+  --logo-icon: url("~../../_icons/iconColorSmall.png");
+  --logo-text: url("~../../_icons/textColorSmall.png");
 }
 
 
@@ -31,8 +31,8 @@
   --side-nav-hover-color: #212121;
   --side-nav-active-color: #303030;
   --search-bar-color: #262626;
-  --logo-icon: url("/_icons/iconColorSmall.png");
-  --logo-text: url("/_icons/textColorSmall.png");
+  --logo-icon: url("~../../_icons/iconColorSmall.png");
+  --logo-text: url("~../../_icons/textColorSmall.png");
 }
 
 
@@ -50,8 +50,8 @@
   --side-nav-hover-color: #212121;
   --side-nav-active-color: #303030;
   --search-bar-color: #212121;
-  --logo-icon: url("/_icons/iconColorSmall.png");
-  --logo-text: url("/_icons/textColorSmall.png");
+  --logo-icon: url("~../../_icons/iconColorSmall.png");
+  --logo-text: url("~../../_icons/textColorSmall.png");
 }
 
 .mainRed {
@@ -59,8 +59,8 @@
   --primary-color-hover: #e53935;
   --primary-color-active: #c62828;
   --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("/_icons/iconWhite.png");
-  --logo-text-bar-color: url("/_icons/textWhite.png");
+  --logo-icon-bar-color: url("~../../_icons/iconWhite.png");
+  --logo-text-bar-color: url("~../../_icons/textWhite.png");
 }
 
 .mainPink {
@@ -68,8 +68,8 @@
   --primary-color-hover: #D81B60;
   --primary-color-active: #AD1457;
   --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("/_icons/iconWhite.png");
-  --logo-text-bar-color: url("/_icons/textWhite.png");
+  --logo-icon-bar-color: url("~../../_icons/iconWhite.png");
+  --logo-text-bar-color: url("~../../_icons/textWhite.png");
 }
 
 .mainPurple {
@@ -77,8 +77,8 @@
   --primary-color-hover: #8E24AA;
   --primary-color-active: #6A1B9A;
   --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("/_icons/iconWhite.png");
-  --logo-text-bar-color: url("/_icons/textWhite.png");
+  --logo-icon-bar-color: url("~../../_icons/iconWhite.png");
+  --logo-text-bar-color: url("~../../_icons/textWhite.png");
 }
 
 .mainDeepPurple {
@@ -86,8 +86,8 @@
   --primary-color-hover: #5E35B1;
   --primary-color-active: #4527A0;
   --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("/_icons/iconWhite.png");
-  --logo-text-bar-color: url("/_icons/textWhite.png");
+  --logo-icon-bar-color: url("~../../_icons/iconWhite.png");
+  --logo-text-bar-color: url("~../../_icons/textWhite.png");
 }
 
 .mainIndigo {
@@ -95,8 +95,8 @@
   --primary-color-hover: #3949AB;
   --primary-color-active: #283593;
   --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("/_icons/iconWhite.png");
-  --logo-text-bar-color: url("/_icons/textWhite.png");
+  --logo-icon-bar-color: url("~../../_icons/iconWhite.png");
+  --logo-text-bar-color: url("~../../_icons/textWhite.png");
 }
 
 .mainBlue {
@@ -104,8 +104,8 @@
   --primary-color-hover: #1E88E5;
   --primary-color-active: #1565C0;
   --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("/_icons/iconWhite.png");
-  --logo-text-bar-color: url("/_icons/textWhite.png");
+  --logo-icon-bar-color: url("~../../_icons/iconWhite.png");
+  --logo-text-bar-color: url("~../../_icons/textWhite.png");
 }
 
 .mainLightBlue {
@@ -113,8 +113,8 @@
   --primary-color-hover: #039BE5;
   --primary-color-active: #0277BD;
   --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("/_icons/iconWhite.png");
-  --logo-text-bar-color: url("/_icons/textWhite.png");
+  --logo-icon-bar-color: url("~../../_icons/iconWhite.png");
+  --logo-text-bar-color: url("~../../_icons/textWhite.png");
 }
 
 .mainCyan {
@@ -122,8 +122,8 @@
   --primary-color-hover: #00ACC1;
   --primary-color-active: #00838F;
   --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("/_icons/iconWhite.png");
-  --logo-text-bar-color: url("/_icons/textWhite.png");
+  --logo-icon-bar-color: url("~../../_icons/iconWhite.png");
+  --logo-text-bar-color: url("~../../_icons/textWhite.png");
 }
 
 .mainTeal {
@@ -131,8 +131,8 @@
   --primary-color-hover: #00897B;
   --primary-color-active: #00695C;
   --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("/_icons/iconWhite.png");
-  --logo-text-bar-color: url("/_icons/textWhite.png");
+  --logo-icon-bar-color: url("~../../_icons/iconWhite.png");
+  --logo-text-bar-color: url("~../../_icons/textWhite.png");
 }
 
 .mainGreen {
@@ -140,8 +140,8 @@
   --primary-color-hover: #43A047;
   --primary-color-active: #2E7D32;
   --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("/_icons/iconWhite.png");
-  --logo-text-bar-color: url("/_icons/textWhite.png");
+  --logo-icon-bar-color: url("~../../_icons/iconWhite.png");
+  --logo-text-bar-color: url("~../../_icons/textWhite.png");
 }
 
 .mainLightGreen {
@@ -149,8 +149,8 @@
   --primary-color-hover: #7CB342;
   --primary-color-active: #558B2F;
   --text-with-main-color: #000000;
-  --logo-icon-bar-color: url("/_icons/iconBlackSmall.png");
-  --logo-text-bar-color: url("/_icons/textBlackSmall.png");
+  --logo-icon-bar-color: url("~../../_icons/iconBlackSmall.png");
+  --logo-text-bar-color: url("~../../_icons/textBlackSmall.png");
 }
 
 .mainLime {
@@ -158,8 +158,8 @@
   --primary-color-hover: #C0CA33;
   --primary-color-active: #9E9D24;
   --text-with-main-color: #000000;
-  --logo-icon-bar-color: url("/_icons/iconBlackSmall.png");
-  --logo-text-bar-color: url("/_icons/textBlackSmall.png");
+  --logo-icon-bar-color: url("~../../_icons/iconBlackSmall.png");
+  --logo-text-bar-color: url("~../../_icons/textBlackSmall.png");
 }
 
 .mainYellow {
@@ -167,8 +167,8 @@
   --primary-color-hover: #FDD835;
   --primary-color-active: #F9A825;
   --text-with-main-color: #000000;
-  --logo-icon-bar-color: url("/_icons/iconBlackSmall.png");
-  --logo-text-bar-color: url("/_icons/textBlackSmall.png");
+  --logo-icon-bar-color: url("~../../_icons/iconBlackSmall.png");
+  --logo-text-bar-color: url("~../../_icons/textBlackSmall.png");
 }
 
 .mainAmber {
@@ -176,8 +176,8 @@
   --primary-color-hover: #FFB300;
   --primary-color-active: #FF8F00;
   --text-with-main-color: #000000;
-  --logo-icon-bar-color: url("/_icons/iconBlackSmall.png");
-  --logo-text-bar-color: url("/_icons/textBlackSmall.png");
+  --logo-icon-bar-color: url("~../../_icons/iconBlackSmall.png");
+  --logo-text-bar-color: url("~../../_icons/textBlackSmall.png");
 }
 
 .mainOrange {
@@ -185,8 +185,8 @@
   --primary-color-hover: #FB8C00;
   --primary-color-active: #EF6C00;
   --text-with-main-color: #000000;
-  --logo-icon-bar-color: url("/_icons/iconBlackSmall.png");
-  --logo-text-bar-color: url("/_icons/textBlackSmall.png");
+  --logo-icon-bar-color: url("~../../_icons/iconBlackSmall.png");
+  --logo-text-bar-color: url("~../../_icons/textBlackSmall.png");
 }
 
 .mainDeepOrange {
@@ -194,8 +194,8 @@
   --primary-color-hover: #F4511E;
   --primary-color-active: #D84315;
   --text-with-main-color: #000000;
-  --logo-icon-bar-color: url("/_icons/iconBlackSmall.png");
-  --logo-text-bar-color: url("/_icons/textBlackSmall.png");
+  --logo-icon-bar-color: url("~../../_icons/iconBlackSmall.png");
+  --logo-text-bar-color: url("~../../_icons/textBlackSmall.png");
 }
 
 .secRed {

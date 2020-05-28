@@ -134,6 +134,8 @@ export default Vue.extend({
     },
 
     parseLiveChatComment: function (comment) {
+      console.log(comment)
+
       if (this.hasEnded) {
         return
       }
@@ -141,14 +143,28 @@ export default Vue.extend({
       comment.messageHtml = ''
 
       comment.message.forEach((text) => {
-        comment.messageHtml = comment.messageHtml + text.text
+        if (typeof (text.navigationEndpoint) !== 'undefined') {
+          if (typeof (text.navigationEndpoint.watchEndpoint) !== 'undefined') {
+            const htmlRef = `<router-link to="/watch/${text.navigationEndpoint.watchEndpoint.videoId}">${text.text}</router-link>`
+            comment.messageHtml = comment.messageHtml + htmlRef
+          } else {
+            comment.messageHtml = comment.messageHtml + text.text
+          }
+        } else if (typeof (text.alt) !== 'undefined') {
+          const htmlImg = `<img src="${text.url}" alt="${text.alt}" />`
+          comment.messageHtml = comment.messageHtml + htmlImg
+        } else {
+          comment.messageHtml = comment.messageHtml + text.text
+        }
       })
 
       comment.messageHtml = autolinker.link(comment.messageHtml)
 
       const liveChatComments = $('.liveChatComments')
+      const liveChatMessage = $('.liveChatMessage')
 
-      if (typeof (liveChatComments.get(0)) === 'undefined' && this.comments.length !== 0) {
+      if (typeof (liveChatComments.get(0)) === 'undefined' && typeof (liveChatMessage.get(0)) === 'undefined') {
+        console.log("Can't find chat object.  Stopping chat connection")
         this.liveChat.stop()
         return
       }

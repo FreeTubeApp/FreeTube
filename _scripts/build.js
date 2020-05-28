@@ -17,14 +17,14 @@ if (platform == 'darwin') {
 
 const config = {
   appId: `io.freetubeapp.${name}`,
-  copyright: 'Copyleft ©2020 freetubeapp@protonmail.com',
+  copyright: 'Copyleft © 2020 freetubeapp@protonmail.com',
   // asar: false,
   // compression: 'store',
   productName,
   directories: {
     output: './build/',
   },
-  files: ['_icons/icon.*', './dist/**/*', '!./dist/web/**/*'],
+  files: ['_icons/**/*', './dist/**/*', '!./dist/web/**/*'],
   dmg: {
     contents: [
       {
@@ -46,7 +46,7 @@ const config = {
   },
   linux: {
     icon: '_icons/iconColor.png',
-    target: ['deb', 'rpm', 'zip', 'AppImage'],
+    target: ['deb'],
   },
   mac: {
     category: 'public.app-category.utilities',

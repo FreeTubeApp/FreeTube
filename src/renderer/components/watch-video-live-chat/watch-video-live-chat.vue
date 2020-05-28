@@ -24,7 +24,7 @@
     </div>
     <div
      v-else-if="comments.length === 0"
-     class="messageContainer"
+     class="messageContainer liveChatMessage"
     >
       <p
         class="message"
@@ -96,7 +96,7 @@
           <p
             class="chatMessage"
             v-if="superChat.message.length > 0"
-            v-html="comment.messageHtml"
+            v-html="superChat.messageHtml"
           >
           </p>
         </div>
