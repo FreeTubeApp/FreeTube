@@ -24,7 +24,7 @@ const config = {
   directories: {
     output: './build/',
   },
-  files: ['_icons/**/*', './dist/**/*', '!./dist/web/**/*'],
+  files: ['_icons/iconColor.*', './dist/**/*', '!./dist/web/**/*'],
   dmg: {
     contents: [
       {
@@ -45,8 +45,8 @@ const config = {
     },
   },
   linux: {
-    icon: '_icons/iconColor.png',
-    target: ['deb'],
+    icon: '_icons/icon.png',
+    target: ['deb', 'rpm', 'zip', 'AppImage'],
   },
   mac: {
     category: 'public.app-category.utilities',
