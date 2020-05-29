@@ -66,5 +66,5 @@ jobs:
       uses: actions/upload-artifact@v2
       if: startsWith(matrix.os, 'macos')
       with:
-        name: freetube-vue-0.8.0.dmg
-        path: build/FreeTube-Vue-0.8.0-mac.dmg
+        name: freetube-vue-0.8.0-mac.dmg
+        path: build/FreeTube-Vue-0.8.0.dmg
