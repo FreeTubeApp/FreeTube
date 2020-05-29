@@ -38,7 +38,6 @@ jobs:
       with:
         name: freetube-vue_0.8.0_amd64.AppImage
         path: build/FreeTube-Vue-0.8.0.AppImage
-        authentication: token ${{ secrets.GH_TOKEN }}
     - name: Upload .rpm Artifact
       uses: actions/upload-artifact@v2
       if: startsWith(matrix.os, 'ubuntu')
