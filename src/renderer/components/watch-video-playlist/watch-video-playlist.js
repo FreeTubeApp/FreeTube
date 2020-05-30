@@ -167,7 +167,7 @@ export default Vue.extend({
             query: playlistInfo
           }
         )
-      } else if (videoIndex < this.playlistItems.length - 1 && !videosRemain) {
+      } else if (videoIndex < this.playlistItems.length - 1 && videosRemain) {
         this.$router.push(
           {
             path: `/watch/${this.playlistItems[videoIndex + 1].videoId}`,
