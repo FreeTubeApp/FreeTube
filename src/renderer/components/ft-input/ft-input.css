@@ -12,7 +12,7 @@
     border: none;
     background: transparent;
     margin-bottom: 10px;
-    font: 16px;
+    font-size: 16px;
     height: 45px;
     color: var(--secondary-text-color);
     border-bottom: 1px solid var(--secondary-text-color);
