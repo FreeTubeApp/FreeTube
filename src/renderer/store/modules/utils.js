@@ -51,6 +51,20 @@ const actions = {
   getRandomColorClass () {
     const randomInt = Math.floor(Math.random() * state.colorClasses.length)
     return state.colorClasses[randomInt]
+  },
+
+  getVideoIdFromUrl ({ state }, url) {
+    console.log('checking for id')
+    console.log(url)
+    const rx = /^.*(?:(?:(you|hook)tu\.?be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/
+
+    const match = url.match(rx)
+
+    if (match) {
+      return match[2]
+    } else {
+      return false
+    }
   }
 }
 

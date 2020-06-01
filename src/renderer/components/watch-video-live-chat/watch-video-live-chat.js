@@ -220,9 +220,6 @@ export default Vue.extend({
 
     onScroll: function (event) {
       const liveChatComments = $('.liveChatComments').get(0)
-      const scrollTop = liveChatComments.scrollTop
-      const scrollHeight = liveChatComments.scrollHeight
-      const clientHeight = liveChatComments.clientHeight
       if (event.wheelDelta >= 0 && this.stayAtBottom) {
         $('.liveChatComments').data('animating', 0)
         this.stayAtBottom = false

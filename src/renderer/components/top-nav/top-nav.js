@@ -59,17 +59,27 @@ export default Vue.extend({
         searchContainer.style.display = 'none'
       }
 
-      router.push(
-        {
-          path: `/search/${query}`,
-          query: {
-            sortBy: this.searchSettings.sortBy,
-            time: this.searchSettings.time,
-            type: this.searchSettings.type,
-            duration: this.searchSettings.duration
-          }
+      this.$store.dispatch('getVideoIdFromUrl', query).then((result) => {
+        if (result) {
+          this.$router.push(
+            {
+              path: `/watch/${result}`,
+            }
+          )
+        } else {
+          router.push(
+            {
+              path: `/search/${query}`,
+              query: {
+                sortBy: this.searchSettings.sortBy,
+                time: this.searchSettings.time,
+                type: this.searchSettings.type,
+                duration: this.searchSettings.duration
+              }
+            }
+          )
         }
-      )
+      })
 
       this.showFilters = false
     },
