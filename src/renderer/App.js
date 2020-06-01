@@ -28,45 +28,41 @@ export default Vue.extend({
   mounted: function () {
     this.$store.dispatch('grabUserSettings')
     this.$store.commit('setUsingElectron', useElectron)
+    this.checkThemeSettings()
 
-    let baseTheme = localStorage.getItem('baseTheme')
-    let mainColor = localStorage.getItem('mainColor')
-    let secColor = localStorage.getItem('secColor')
-
-    if (baseTheme === null) {
-      baseTheme = 'light'
+    if (useElectron) {
+      console.log('User is using Electron')
+      this.activateKeyboardShortcuts()
+      this.openAllLinksExternally()
     }
-
-    if (mainColor === null) {
-      mainColor = 'mainRed'
-    }
-
-    if (secColor === null) {
-      secColor = 'secBlue'
-    }
-
-    const theme = {
-      baseTheme: baseTheme,
-      mainColor: mainColor,
-      secColor: secColor
-    }
-
-    this.updateTheme(theme)
-
-    console.log(useElectron)
-
-    // Open links externally by default
-    $(document).on('click', 'a[href^="http"]', (event) => {
-      const el = event.currentTarget
-      console.log(useElectron)
-      console.log(el)
-      if (typeof (shell) !== 'undefined') {
-        event.preventDefault()
-        shell.openExternal(el.href)
-      }
-    })
   },
   methods: {
+    checkThemeSettings: function () {
+      let baseTheme = localStorage.getItem('baseTheme')
+      let mainColor = localStorage.getItem('mainColor')
+      let secColor = localStorage.getItem('secColor')
+
+      if (baseTheme === null) {
+        baseTheme = 'light'
+      }
+
+      if (mainColor === null) {
+        mainColor = 'mainRed'
+      }
+
+      if (secColor === null) {
+        secColor = 'secBlue'
+      }
+
+      const theme = {
+        baseTheme: baseTheme,
+        mainColor: mainColor,
+        secColor: secColor
+      }
+
+      this.updateTheme(theme)
+    },
+
     updateTheme: function (theme) {
       console.log(theme)
       const className = `${theme.baseTheme} ${theme.mainColor} ${theme.secColor}`
@@ -75,6 +71,36 @@ export default Vue.extend({
       localStorage.setItem('baseTheme', theme.baseTheme)
       localStorage.setItem('mainColor', theme.mainColor)
       localStorage.setItem('secColor', theme.secColor)
+    },
+
+    activateKeyboardShortcuts: function () {
+      $(document).on('keydown', this.handleKeyboardShortcuts)
+    },
+
+    handleKeyboardShortcuts: function (event) {
+      if (event.altKey) {
+        switch (event.code) {
+          case 'ArrowRight':
+            window.history.forward()
+            break
+          case 'ArrowLeft':
+            window.history.back()
+            break
+        }
+      }
+    },
+
+    openAllLinksExternally: function () {
+      // Open links externally by default
+      $(document).on('click', 'a[href^="http"]', (event) => {
+        const el = event.currentTarget
+        console.log(useElectron)
+        console.log(el)
+        if (typeof (shell) !== 'undefined') {
+          event.preventDefault()
+          shell.openExternal(el.href)
+        }
+      })
     }
   }
 })
