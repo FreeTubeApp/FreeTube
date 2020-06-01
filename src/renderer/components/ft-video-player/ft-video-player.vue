@@ -3,6 +3,7 @@
     <video
       :id="id"
       class="ftVideoPlayer video-js vjs-default-skin"
+      :poster="thumbnail"
       controls
       preload="auto"
       :data-setup="JSON.stringify(dataSetup)"

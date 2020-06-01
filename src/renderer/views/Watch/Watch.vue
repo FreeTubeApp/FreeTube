@@ -7,10 +7,11 @@
     <ft-video-player
       v-if="!isLoading && !hidePlayer"
       :dash-src="dashSrc"
-      :source-list="videoSourceList"
+      :source-list="activeSourceList"
       :caption-list="captionSourceList"
       :storyboard-src="videoStoryboardSrc"
       :format="activeFormat"
+      :thumbnail="thumbnail"
       class="videoPlayer"
       :class="{ theatrePlayer: useTheatreMode }"
       ref="videoPlayer"

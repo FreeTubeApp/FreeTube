@@ -51,7 +51,9 @@ export default Vue.extend({
       videoPublished: 0,
       videoStoryboardSrc: '',
       audioUrl: '',
+      activeSourceList: [],
       videoSourceList: [],
+      audioSourceList: [],
       captionSourceList: [],
       recommendedVideos: [],
       watchingPlaylist: false,
@@ -89,6 +91,23 @@ export default Vue.extend({
 
     forceLocalBackendForLegacy: function () {
       return this.$store.getters.getForceLocalBackendForLegacy
+    },
+
+    thumbnailPreference: function () {
+      return this.$store.getters.getThumbnailPreference
+    },
+
+    thumbnail: function () {
+      switch (this.thumbnailPreference) {
+        case 'start':
+          return `https://i.ytimg.com/vi/${this.videoId}/mq1.jpg`
+        case 'middle':
+          return `https://i.ytimg.com/vi/${this.videoId}/mq2.jpg`
+        case 'end':
+          return `https://i.ytimg.com/vi/${this.videoId}/mq3.jpg`
+        default:
+          return `https://i.ytimg.com/vi/${this.videoId}/mqdefault.jpg`
+      }
     },
 
     youtubeNoCookieEmbeddedFrame: function () {
@@ -205,6 +224,25 @@ export default Vue.extend({
             }).reverse()
           } else {
             this.videoSourceList = result.player_response.streamingData.formats
+
+            this.audioSourceList = result.player_response.streamingData.adaptiveFormats.filter((format) => {
+              return format.mimeType.includes('audio')
+            }).map((format) => {
+              return {
+                url: format.url,
+                type: format.mimeType,
+                label: 'Audio',
+                qualityLabel: format.bitrate
+              }
+            }).sort((a, b) => {
+              return a.qualityLabel - b.qualityLabel
+            })
+
+            if (this.activeFormat === 'audio') {
+              this.activeSourceList = this.audioSourceList
+            } else {
+              this.activeSourceList = this.videoSourceList
+            }
           }
 
           // The response provides a storyboard, however it returns a 403 error.
@@ -319,6 +357,25 @@ export default Vue.extend({
             this.getLegacyFormats()
           } else {
             this.videoSourceList = result.formatStreams.reverse()
+
+            this.audioSourceList = result.adaptiveFormats.filter((format) => {
+              return format.type.includes('audio')
+            }).map((format) => {
+              return {
+                url: format.url,
+                type: format.type,
+                label: 'Audio',
+                qualityLabel: parseInt(format.bitrate)
+              }
+            }).sort((a, b) => {
+              return a.qualityLabel - b.qualityLabel
+            })
+
+            if (this.activeFormat === 'audio') {
+              this.activeSourceList = this.audioSourceList
+            } else {
+              this.activeSourceList = this.videoSourceList
+            }
           }
 
           this.isLoading = false
@@ -378,6 +435,21 @@ export default Vue.extend({
       }
 
       this.activeFormat = 'legacy'
+      this.activeSourceList = this.videoSourceList
+      this.hidePlayer = true
+
+      setTimeout(() => {
+        this.hidePlayer = false
+      }, 100)
+    },
+
+    enableAudioFormat: function () {
+      if (this.activeFormat === 'audio') {
+        return
+      }
+
+      this.activeFormat = 'audio'
+      this.activeSourceList = this.audioSourceList
       this.hidePlayer = true
 
       setTimeout(() => {

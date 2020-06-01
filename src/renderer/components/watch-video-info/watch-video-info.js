@@ -56,12 +56,13 @@ export default Vue.extend({
       formatTypeLabel: 'VIDEO FORMATS',
       formatTypeNames: [
         'USE DASH FORMATS',
-        'USE LEGACY FORMATS'
+        'USE LEGACY FORMATS',
+        'USE AUDIO FORMATS'
       ],
       formatTypeValues: [
         'dash',
         'legacy',
-        'youtube'
+        'audio'
       ],
       shareLabel: 'SHARE VIDEO',
       shareNames: [
@@ -131,6 +132,9 @@ export default Vue.extend({
           break
         case 'legacy':
           this.$parent.enableLegacyFormat()
+          break
+        case 'audio':
+          this.$parent.enableAudioFormat()
           break
       }
     },

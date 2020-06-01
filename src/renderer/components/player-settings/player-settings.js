@@ -21,12 +21,12 @@ export default Vue.extend({
       formatNames: [
         'Dash Formats',
         'Legacy Formats',
-        'YouTube Player'
+        'Audio Formats'
       ],
       formatValues: [
         'dash',
         'legacy',
-        'youtube'
+        'audio'
       ],
       qualityNames: [
         'Auto',

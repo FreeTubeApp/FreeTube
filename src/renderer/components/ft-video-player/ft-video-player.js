@@ -41,6 +41,10 @@ export default Vue.extend({
     storyboardSrc: {
       type: String,
       default: ''
+    },
+    thumbnail: {
+      type: String,
+      default: ''
     }
   },
   data: function () {
@@ -113,10 +117,14 @@ export default Vue.extend({
     },
 
     selectedDefaultQuality: function () {
-      let selectedQuality = null
+      let selectedQuality = ''
 
       if (this.sourceList.length === 0) {
-        return this.defaultQuality
+        return ''
+      }
+
+      if (typeof (this.sourceList[0].qualityLabel) === 'number') {
+        return ''
       }
 
       const maxAvailableQuality = parseInt(this.sourceList[this.sourceList.length - 1].qualityLabel.replace(/p|k/, ''))
