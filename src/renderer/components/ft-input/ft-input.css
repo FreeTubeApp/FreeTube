@@ -22,27 +22,35 @@
   color: var(--tertiary-text-color);
 }
 
-.search .ft-input {
+.forceTextColor .ft-input {
   color: var(--text-with-main-color);
   border-bottom: 1px solid var(--text-with-main-color);
 }
 
-.search ::-webkit-input-placeholder {
+.forceTextColor ::-webkit-input-placeholder {
   color: var(--text-with-main-color);
 }
 
 .inputAction {
   position: absolute;
   padding: 10px;
-  top: 10px;
+  top: 5px;
   right: 0px;
   cursor: pointer;
   border-radius: 200px 200px 200px 200px;
   color: var(--primary-text-color);
 }
 
+.search ::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
 .search .inputAction {
-  color: var(--text-with-main-color)
+  top: 12px;
+}
+
+.forceTextColor .inputAction {
+  color: var(--text-with-main-color);
 }
 
 .inputAction:hover {
@@ -52,7 +60,7 @@
   transition: background 0.2s ease-in;
 }
 
-.search .inputAction:hover {
+.forceTextColor .inputAction:hover {
   background-color: var(--primary-color-hover);
 }
 
@@ -63,6 +71,6 @@
   transition: background 0.2s ease-in;
 }
 
-.search .inputAction:active {
+.forceTextColor .inputAction:active {
   background-color: var(--primary-color-active);
 }

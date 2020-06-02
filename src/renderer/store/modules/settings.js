@@ -150,14 +150,18 @@ const getters = {
 }
 
 const actions = {
-  grabUserSettings ({ commit }) {
+  grabUserSettings ({ dispatch, commit }) {
     settingsDb.find({}, (err, results) => {
       if (!err) {
         console.log(results)
         results.forEach((result) => {
           switch (result._id) {
             case 'invidiousInstance':
-              commit('setInvidiousInstance', result.value)
+              if (result.value === '') {
+                dispatch('updateInvidiousInstance', 'https://invidio.us')
+              } else {
+                commit('setInvidiousInstance', result.value)
+              }
               break
             case 'backendFallback':
               commit('setBackendFallback', result.value)

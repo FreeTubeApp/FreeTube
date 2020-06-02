@@ -57,15 +57,17 @@
         :select-values="thumbnailTypeValues"
         @change="updateThumbnailPreference"
       />
-      <ft-select
-        v-if="showInvidiousInstances"
-        placeholder="Invidious Instance"
-        :value="invidiousInstance"
-        :select-names="instanceNames"
-        :select-values="instanceValues"
-        @change="updateInvidiousInstance"
-      />
     </div>
+    <ft-flex-box class="generalSettingsFlexBox">
+      <ft-input
+        placeholder="Invidious Instance (Default is https://invidio.us)"
+        :show-arrow="false"
+        :show-label="true"
+        :value="invidiousInstance"
+        :data-list="instanceValues"
+        @input="handleInvidiousInstanceInput"
+      />
+    </ft-flex-box>
   </ft-card>
 </template>
 

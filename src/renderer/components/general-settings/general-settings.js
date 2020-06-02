@@ -3,14 +3,18 @@ import $ from 'jquery'
 import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
 import FtSelect from '../ft-select/ft-select.vue'
+import FtInput from '../ft-input/ft-input.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
+
+import debounce from 'lodash.debounce'
 
 export default Vue.extend({
   name: 'GeneralSettings',
   components: {
     'ft-card': FtCard,
     'ft-select': FtSelect,
+    'ft-input': FtInput,
     'ft-toggle-switch': FtToggleSwitch,
     'ft-flex-box': FtFlexBox
   },
@@ -597,8 +601,20 @@ export default Vue.extend({
       console.log(requestUrl)
       console.log(error)
     })
+
+    this.updateInvidiousInstanceBounce = debounce(this.updateInvidiousInstance, 500)
+  },
+  beforeDestroy: function () {
+    if (this.invidiousInstance === '') {
+      this.updateInvidiousInstance('https://invidio.us')
+    }
   },
   methods: {
+    handleInvidiousInstanceInput: function (input) {
+      const invidiousInstance = input.replace(/\/$/, '')
+      this.updateInvidiousInstanceBounce(invidiousInstance)
+    },
+
     ...mapActions([
       'updateBackendFallback',
       'updateCheckForUpdates',

@@ -3,6 +3,8 @@ import FtInput from '../ft-input/ft-input.vue'
 import FtSearchFilters from '../ft-search-filters/ft-search-filters.vue'
 import $ from 'jquery'
 import router from '../../router/index.js'
+import debounce from 'lodash.debounce'
+import ytSuggest from 'youtube-suggest'
 
 export default Vue.extend({
   name: 'TopNav',
@@ -14,7 +16,9 @@ export default Vue.extend({
     return {
       component: this,
       windowWidth: 0,
-      showFilters: false
+      showFilters: false,
+      searchValue: '',
+      searchSuggestionsDataList: []
     }
   },
   computed: {
@@ -28,7 +32,19 @@ export default Vue.extend({
 
     barColor: function () {
       return this.$store.getters.getBarColor
-    }
+    },
+
+    invidiousInstance: function () {
+      return this.$store.getters.getInvidiousInstance
+    },
+
+    backendFallback: function () {
+      return this.$store.getters.getBackendFallback
+    },
+
+    backendPreference: function () {
+      return this.$store.getters.getBackendPreference
+    },
   },
   mounted: function () {
     const appWidth = $(window).width()
@@ -48,6 +64,8 @@ export default Vue.extend({
         searchContainer.style.display = 'none'
       }
     })
+
+    this.debounceSearchResults = debounce(this.getSearchSuggestions, 500)
   },
   methods: {
     goToSearch: function (query) {
@@ -82,6 +100,55 @@ export default Vue.extend({
       })
 
       this.showFilters = false
+    },
+
+    getSearchSuggestionsDebounce: function (query) {
+      this.debounceSearchResults(query)
+    },
+
+    getSearchSuggestions: function (query) {
+      switch (this.backendPreference) {
+        case 'local':
+          this.getSearchSuggestionsLocal(query)
+          break
+        case 'invidious':
+          this.getSearchSuggestionsInvidious(query)
+          break
+      }
+    },
+
+    getSearchSuggestionsLocal: function (query) {
+      if (query === '') {
+        this.searchSuggestionsDataList = []
+        this.searchValue = ''
+        return
+      }
+
+      ytSuggest(query).then((results) => {
+        this.searchSuggestionsDataList = results
+        this.searchValue = query
+      })
+    },
+
+    getSearchSuggestionsInvidious: function (query) {
+      if (query === '') {
+        this.searchSuggestionsDataList = []
+        this.searchValue = ''
+        return
+      }
+
+      const searchPayload = {
+        resource: 'search/suggestions',
+        id: '',
+        params: {
+          q: query
+        }
+      }
+
+      this.$store.dispatch('invidiousAPICall', searchPayload).then((results) => {
+        this.searchSuggestionsDataList = results.suggestions
+        this.searchValue = query
+      })
     },
 
     toggleSearchContainer: function () {

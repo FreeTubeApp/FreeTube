@@ -1,14 +1,25 @@
 <template>
   <div
     class="ft-input-component"
-    :class="{ search: forceTextColor }"
+    :class="{
+      search: isSearch,
+      forceTextColor: forceTextColor
+    }"
   >
+    <label
+      v-if="showLabel"
+      :for="id"
+    >
+      {{ placeholder }}
+    </label>
     <input
       :id="id"
+      :list="idDataList"
+      :value="value"
       class="ft-input"
       type="text"
       :placeholder="placeholder"
-      @input="e => inputData = e.target.value"
+      @input="e => handleInput(e.target.value)"
     >
     <font-awesome-icon
       v-if="showArrow"
@@ -16,6 +27,16 @@
       class="inputAction"
       @click="handleClick"
     />
+    <datalist
+      v-if="dataList.length > 0"
+      :id="idDataList"
+    >
+      <option
+        v-for="(list, index) in dataList"
+        :key="index"
+        :value="list"
+      />
+    </datalist>
   </div>
 </template>
 

@@ -39,6 +39,9 @@
           placeholder="Search / Go to URL"
           class="searchInput"
           :is-search="true"
+          :data-list="searchSuggestionsDataList"
+          :value="searchValue"
+          @input="getSearchSuggestionsDebounce"
           @click="goToSearch"
         />
         <font-awesome-icon

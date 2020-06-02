@@ -7,14 +7,26 @@ export default Vue.extend({
       type: String,
       required: true
     },
+    value: {
+      type: String,
+      default: ''
+    },
     showArrow: {
       type: Boolean,
       default: true
     },
+    showLabel: {
+      type: Boolean,
+      default: false
+    },
     isSearch: {
       type: Boolean,
       default: false
-    }
+    },
+    dataList: {
+      type: Array,
+      default: () => { return [] }
+    },
   },
   data: function () {
     return {
@@ -29,6 +41,10 @@ export default Vue.extend({
 
     forceTextColor: function () {
       return this.isSearch && this.barColor
+    },
+
+    idDataList: function () {
+      return `${this.id}_datalist`
     }
   },
   mounted: function () {
@@ -39,6 +55,11 @@ export default Vue.extend({
   methods: {
     handleClick: function () {
       this.$emit('click', this.inputData)
+    },
+
+    handleInput: function (input) {
+      this.inputData = input
+      this.$emit('input', input)
     },
 
     addListener: function () {

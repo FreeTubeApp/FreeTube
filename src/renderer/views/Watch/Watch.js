@@ -137,6 +137,7 @@ export default Vue.extend({
       this.videoId = this.$route.params.id
 
       this.firstLoad = true
+      this.activeFormat = this.defaultVideoFormat
 
       this.checkIfPlaylist()
 
@@ -205,6 +206,16 @@ export default Vue.extend({
           this.videoLikeCount = result.likes
           this.videoDislikeCount = result.dislikes
           this.isLive = result.player_response.videoDetails.isLive
+
+          const subCount = result.author.subscriber_count
+
+          if (subCount >= 1000000) {
+            this.channelSubscriptionCountText = `${subCount / 1000000}M`
+          } else if (subCount >= 10000) {
+            this.channelSubscriptionCountText = `${subCount / 1000}K`
+          } else {
+            this.channelSubscriptionCountText = subCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+          }
 
           if (this.isLive) {
             this.showLegacyPlayer = true
