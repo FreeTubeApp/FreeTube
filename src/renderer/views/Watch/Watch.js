@@ -98,15 +98,22 @@ export default Vue.extend({
     },
 
     thumbnail: function () {
+      let baseUrl
+      if (this.backendPreference === 'invidious') {
+        baseUrl = this.invidiousInstance
+      } else {
+        baseUrl = 'https://i.ytimg.com'
+      }
+
       switch (this.thumbnailPreference) {
         case 'start':
-          return `https://i.ytimg.com/vi/${this.videoId}/mq1.jpg`
+          return `${baseUrl}/vi/${this.videoId}/maxres1.jpg`
         case 'middle':
-          return `https://i.ytimg.com/vi/${this.videoId}/mq2.jpg`
+          return `${baseUrl}/vi/${this.videoId}/maxres2.jpg`
         case 'end':
-          return `https://i.ytimg.com/vi/${this.videoId}/mq3.jpg`
+          return `${baseUrl}/vi/${this.videoId}/maxres3.jpg`
         default:
-          return `https://i.ytimg.com/vi/${this.videoId}/mqdefault.jpg`
+          return `${baseUrl}/vi/${this.videoId}/maxresdefault.jpg`
       }
     },
 

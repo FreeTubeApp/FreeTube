@@ -42,16 +42,31 @@ export default Vue.extend({
       return this.$store.getters.getThumbnailPreference
     },
 
+    backendPreference: function () {
+      return this.$store.getters.getBackendPreference
+    },
+
+    invidiousInstance: function () {
+      return this.$store.getters.getInvidiousInstance
+    },
+
     thumbnail: function () {
+      let baseUrl
+      if (this.backendPreference === 'invidious') {
+        baseUrl = this.invidiousInstance
+      } else {
+        baseUrl = 'https://i.ytimg.com'
+      }
+
       switch (this.thumbnailPreference) {
         case 'start':
-          return `https://i.ytimg.com/vi/${this.id}/mq1.jpg`
+          return `${baseUrl}/vi/${this.id}/mq1.jpg`
         case 'middle':
-          return `https://i.ytimg.com/vi/${this.id}/mq2.jpg`
+          return `${baseUrl}/vi/${this.id}/mq2.jpg`
         case 'end':
-          return `https://i.ytimg.com/vi/${this.id}/mq3.jpg`
+          return `${baseUrl}/vi/${this.id}/mq3.jpg`
         default:
-          return `https://i.ytimg.com/vi/${this.id}/mqdefault.jpg`
+          return `${baseUrl}/vi/${this.id}/mqdefault.jpg`
       }
     }
   },
