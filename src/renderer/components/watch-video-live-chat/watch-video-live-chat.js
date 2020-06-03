@@ -118,6 +118,9 @@ export default Vue.extend({
       this.liveChat.on('end', (reason) => {
         console.log('Live chat has ended')
         console.log(reason)
+        this.hasError = true
+        this.showEnableChat = false
+        this.errorMessage = 'Chat is disabled or the Live Stream has ended.'
       })
 
       this.liveChat.on('error', (err) => {

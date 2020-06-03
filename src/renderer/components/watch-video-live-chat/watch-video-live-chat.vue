@@ -17,6 +17,7 @@
         class="errorIcon"
       />
       <ft-button
+        v-if="showEnableChat"
         label="Enable Live Chat"
         class="enableLiveChat"
         @click="enableLiveChat"
