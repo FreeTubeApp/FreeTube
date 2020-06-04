@@ -15,7 +15,7 @@
     font-size: 16px;
     height: 45px;
     color: var(--secondary-text-color);
-    border-bottom: 1px solid var(--secondary-text-color);
+    background-color: var(--search-bar-color);
 }
 
 .ft-input-component ::-webkit-input-placeholder {
@@ -24,7 +24,7 @@
 
 .forceTextColor .ft-input {
   color: var(--text-with-main-color);
-  border-bottom: 1px solid var(--text-with-main-color);
+  background-color: var(--primary-input-color);
 }
 
 .forceTextColor ::-webkit-input-placeholder {
