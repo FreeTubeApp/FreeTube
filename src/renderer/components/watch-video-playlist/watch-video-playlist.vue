@@ -36,6 +36,16 @@
           icon="random"
           @click="toggleShuffle"
         />
+        <font-awesome-icon
+          class="playlistIcon"
+          icon="step-backward"
+          @click="playPreviousVideo"
+        />
+        <font-awesome-icon
+          class="playlistIcon"
+          icon="step-forward"
+          @click="playNextVideo"
+        />
       </p>
       <ft-flex-box
         v-if="!isLoading"

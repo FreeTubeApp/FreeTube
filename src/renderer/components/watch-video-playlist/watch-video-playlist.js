@@ -177,6 +177,43 @@ export default Vue.extend({
       }
     },
 
+    playPreviousVideo: function () {
+      const playlistInfo = {
+        playlistId: this.playlistId
+      }
+
+      const watchedIndex = this.playlistItems.findIndex((watchedVideo) => {
+        return watchedVideo.videoId === this.videoId
+      })
+
+      if (this.shuffleEnabled && this.playlistWatchedVideoList.length > 1) {
+        this.playlistWatchedVideoList.pop()
+        const lastVideo = this.playlistWatchedVideoList.pop()
+        this.$router.push(
+          {
+            path: `/watch/${lastVideo}`,
+            query: playlistInfo
+          }
+        )
+      } else if (watchedIndex === 0) {
+        const videoId = this.playlistItems[this.playlistItems.length - 1].videoId
+        this.$router.push(
+          {
+            path: `/watch/${videoId}`,
+            query: playlistInfo
+          }
+        )
+      } else {
+        const videoId = this.playlistItems[watchedIndex - 1].videoId
+        this.$router.push(
+          {
+            path: `/watch/${videoId}`,
+            query: playlistInfo
+          }
+        )
+      }
+    },
+
     getPlaylistInformationLocal: function () {
       this.isLoading = true
 
