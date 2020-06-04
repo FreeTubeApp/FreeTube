@@ -119,8 +119,6 @@ export default Vue.extend({
           return
         }
 
-        console.log(result)
-
         const returnData = result.items.filter((item) => {
           return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
         })
@@ -132,8 +130,6 @@ export default Vue.extend({
         } else {
           this.shownResults = returnData
         }
-
-        console.log('made it here')
 
         this.nextPageRef = result.nextpageRef
         this.isLoading = false

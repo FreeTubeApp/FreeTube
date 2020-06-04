@@ -127,12 +127,6 @@ export default Vue.extend({
       ytSuggest(query).then((results) => {
         this.searchSuggestionsDataList = results
         this.searchValue = query
-      }).error((err) => {
-        console.log(err)
-        if (this.backendFallback) {
-          console.log('Error gettings search suggestions.  Falling back to Invidious API')
-          this.getSearchSuggestionsInvidious(query)
-        }
       })
     },
 

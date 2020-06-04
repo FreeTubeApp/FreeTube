@@ -198,23 +198,23 @@ export default Vue.extend({
         .dispatch('ytGetVideoInformation', this.videoId)
         .then(result => {
           console.log(result)
-          this.videoTitle = result.title
+          this.videoTitle = result.videoDetails.title
           this.videoViewCount = parseInt(
             result.player_response.videoDetails.viewCount,
             10
           )
-          this.channelId = result.author.id
-          this.channelName = result.author.name
-          this.channelThumbnail = result.author.avatar
-          this.videoPublished = result.published
+          this.channelId = result.videoDetails.author.id
+          this.channelName = result.videoDetails.author.name
+          this.channelThumbnail = result.videoDetails.author.avatar
+          this.videoPublished = new Date(result.videoDetails.publishDate.replace('-', '/')).getTime()
           this.videoDescription =
             result.player_response.videoDetails.shortDescription
           this.recommendedVideos = result.related_videos
-          this.videoLikeCount = result.likes
-          this.videoDislikeCount = result.dislikes
+          this.videoLikeCount = result.videoDetails.likes
+          this.videoDislikeCount = result.videoDetails.dislikes
           this.isLive = result.player_response.videoDetails.isLive
 
-          const subCount = result.author.subscriber_count
+          const subCount = result.videoDetails.author.subscriber_count
 
           if (subCount >= 1000000) {
             this.channelSubscriptionCountText = `${subCount / 1000000}M`
@@ -240,6 +240,8 @@ export default Vue.extend({
                 qualityLabel: format.qualityLabel
               }
             }).reverse()
+
+            this.activeSourceList = this.videoSourceList
           } else {
             this.videoSourceList = result.player_response.streamingData.formats
 
@@ -371,6 +373,8 @@ export default Vue.extend({
             //     qualityLabel: format.qualityLabel
             //   }
             // })
+
+            this.activeSourceList = this.videoSourceList
           } else if (this.forceLocalBackendForLegacy) {
             this.getLegacyFormats()
           } else {

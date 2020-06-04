@@ -180,7 +180,6 @@ export default Vue.extend({
       }
 
       this.activeSourceList.forEach((source) => {
-        console.log(source)
         if (typeof (source.qualityLabel) !== 'undefined') {
           if (this.determineDefaultQuality(source.qualityLabel)) {
             selectedQuality = source.qualityLabel
@@ -193,7 +192,6 @@ export default Vue.extend({
   },
   watch: {
     sourceList: function () {
-      console.log('Obtained Source list')
       this.determineFormatType()
     }
   },
