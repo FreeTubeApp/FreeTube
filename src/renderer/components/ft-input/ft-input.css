@@ -28,6 +28,13 @@
   background-color: var(--primary-input-color);
 }
 
+.forceTextColor .ft-input:focus {
+  box-shadow: 0 0 1rem 0 var(--primary-input-color);
+  -moz-transition: box-shadow 0.2s ease-in-out;
+  -o-transition: box-shadow 0.2s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
 .forceTextColor ::-webkit-input-placeholder {
   color: var(--text-with-main-color);
 }
