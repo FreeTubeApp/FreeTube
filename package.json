@@ -39,9 +39,9 @@
     "youtube-comments-task": "^1.3.15",
     "youtube-suggest": "^1.1.0",
     "yt-xml2vtt": "^1.0.1",
-    "ytdl-core": "^3.1.0",
+    "ytdl-core": "^3.1.1",
     "ytpl": "^0.1.21",
-    "ytsr": "^0.1.14"
+    "ytsr": "^0.1.15"
   },
   "description": "A private YouTube client",
   "devDependencies": {
@@ -84,7 +84,7 @@
     "sass-loader": "^8.0.2",
     "style-loader": "^1.2.1",
     "tree-kill": "1.2.2",
-    "typescript": "^3.9.3",
+    "typescript": "^3.9.5",
     "url-loader": "^4.1.0",
     "vue-devtools": "^5.1.3",
     "vue-eslint-parser": "^7.1.0",
