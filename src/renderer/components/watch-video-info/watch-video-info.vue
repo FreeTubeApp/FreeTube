@@ -27,23 +27,27 @@
       />
     </div>
     <ft-flex-box class="videoOptions">
-      <ft-button
-        label="Toggle Theatre Mode"
+      <ft-icon-button
+        title="Toggle Theatre Mode"
         class="theatreModeButton"
+        icon="expand-alt"
+        theme="secondary"
         @click="$emit('theatreMode')"
       />
-      <ft-list-dropdown
-        :title="formatTypeLabel"
-        :label-names="formatTypeNames"
-        :label-values="formatTypeValues"
-        class="formatTypeDropdown"
+      <ft-icon-button
+        title="Change Video Formats"
+        theme="secondary"
+        icon="file-video"
+        :dropdown-names="formatTypeNames"
+        :dropdown-values="formatTypeValues"
         @click="handleFormatChange"
       />
-      <ft-list-dropdown
-        :title="shareLabel"
-        :label-names="shareNames"
-        :label-values="shareValues"
-        class="shareDropdown"
+      <ft-icon-button
+        title="Share Video"
+        theme="secondary"
+        icon="share-alt"
+        :dropdown-names="shareNames"
+        :dropdown-values="shareValues"
         @click="handleShare"
       />
     </ft-flex-box>
