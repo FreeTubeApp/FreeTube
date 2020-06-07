@@ -13,7 +13,7 @@ along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 
-
+//"use strict";
 /*
  * A file for functions used for settings.
  */
@@ -742,50 +742,6 @@ function enableListView() {
     // Replace the current theme with the new theme
     document.getElementsByTagName("head").item(0).replaceChild(newView, currentView);
 }
-
-/**
- * Import Subscriptions from an OPML file.
- *
- * @param {string} subFile - The file location of the OPML file.
- *
- * @return {Void}
- */
-function importOpmlSubs(json) {
-    if (!json[0]['folder'].includes('YouTube')) {
-        showToast('Invalid OPML File.  Import is unsuccessful.');
-        return;
-    }
-
-    showToast('Importing subscriptions, please wait.');
-
-    progressView.seen = true;
-    progressView.width = 0;
-
-    let counter = 0;
-    json.forEach((channel, index) => {
-        let channelId = channel['xmlurl'].replace('https://www.youtube.com/feeds/videos.xml?channel_id=', '');
-
-        invidiousAPI('channels', channelId, {}, (data) => {
-            let subscription = {
-                channelId: data.authorId,
-                channelName: data.author,
-                channelThumbnail: data.authorThumbnails[2].url
-            };
-
-            addSubscription(subscription, false);
-            counter++;
-            progressView.progressWidth = (counter / json.length) * 100;
-
-            if ((counter + 1) == json.length) {
-                showToast('Subscriptions have been imported!');
-                progressView.seen = false;
-                progressView.seen = 0;
-                return;
-            }
-        });
-    });
-}
-
 /**
  * Import a subscriptions file that the user provides.
  *
@@ -821,12 +777,12 @@ function importSubscriptions() {
                 getOpml(data, function (error, json) {
                     if (!error) {
                         clearFile('subscriptions', false);
-                        importOpmlSubs(json['children'][0]['children']);
+                        ImportSubs.opml(json['children'][0]['children']);
                     }
                 });
                 return;
             } else if ((fileType === '.json') && (data.includes("app_version"))) {
-                importNewpipeSubscriptions(data);
+                ImportSubs.newPipe(data);
                 return;
             } else if ((fileType !== '.db') && (fileType !== '.json')) {
                 showToast('Incorrect file type.  Import unsuccessful.');
@@ -894,41 +850,89 @@ function importSubscriptions() {
     });
 }
 /**
- * Import NewPipe Channel Subscriptions
- * @return {Void}
+ * This class contains methods to import 
+ * subscription of various formats
  */
-function importNewpipeSubscriptions(data) {
+class ImportSubs {
+    /**
+     * Import NewPipe Channel Subscriptions
+     * @return {Void}
+    */
+    static newPipe(data) {
 
-    progressView.seen = true;
-    progressView.width = 0;
-    showToast('Importing Newpipe Subscriptions, Please Wait.');
+        progressView.seen = true;
+        progressView.width = 0;
+        showToast('Importing Newpipe Subscriptions, Please Wait.');
 
-    let newpipe, n, link, newpipesub, counter;
+        let newpipe, n, link, newpipesub, counter;
 
-    newpipe = JSON.parse(data);
-    counter = 0;
+        newpipe = JSON.parse(data);
+        counter = 0;
 
-    for (n in newpipe.subscriptions) {
+        for (n in newpipe.subscriptions) {
 
-        link = newpipe.subscriptions[n].url.split("/");
+            link = newpipe.subscriptions[n].url.split("/");
 
-        invidiousAPI('channels', link[4], {}, (data) => {
-            newpipesub = {
-                channelId: data.authorId,
-                channelName: data.author,
-                channelThumbnail: data.authorThumbnails[2].url
-            };
-            addSubscription(newpipesub, false);
-            counter++;
-            progressView.progressWidth = (counter / newpipe.subscriptions.length) * 100;
+            invidiousAPI('channels', link[4], {}, (data) => {
+                newpipesub = {
+                    channelId: data.authorId,
+                    channelName: data.author,
+                    channelThumbnail: data.authorThumbnails[2].url
+                };
+                addSubscription(newpipesub, false);
+                counter++;
+                progressView.progressWidth = (counter / newpipe.subscriptions.length) * 100;
 
-            if ((counter + 1) == newpipe.subscriptions.length) {
-                showToast('Subscriptions have been imported!');
-                progressView.seen = false;
-                progressView.seen = 0;
-                return;
+                if ((counter + 1) == newpipe.subscriptions.length) {
+                    showToast('Subscriptions have been imported!');
+                    progressView.seen = false;
+                    progressView.seen = 0;
+                    return;
+                    }
+                });
             }
-        });
+    }
+    /**
+     * Import Subscriptions from an OPML file.
+     *
+     * @param {string} subFile - The file location of the OPML file.
+     *
+     * @return {Void}
+     */
+    static opml(json) {
+            if (!json[0]['folder'].includes('YouTube')) {
+            showToast('Invalid OPML File.  Import is unsuccessful.');
+            return;
+            }
+
+            showToast('Importing subscriptions, please wait.');
+
+            progressView.seen = true;
+            progressView.width = 0;
+
+            let counter = 0;
+            json.forEach((channel, index) => {
+                let channelId = channel['xmlurl'].replace('https://www.youtube.com/feeds/videos.xml?channel_id=', '');
+
+                invidiousAPI('channels', channelId, {}, (data) => {
+                    let subscription = {
+                        channelId: data.authorId,
+                        channelName: data.author,
+                        channelThumbnail: data.authorThumbnails[2].url
+                    };
+
+                    addSubscription(subscription, false);
+                    counter++;
+                    progressView.progressWidth = (counter / json.length) * 100;
+
+                    if ((counter + 1) == json.length) {
+                        showToast('Subscriptions have been imported!');
+                        progressView.seen = false;
+                        progressView.seen = 0;
+                        return;
+                        }
+                    });
+                });
     }
 }
 /**
@@ -958,10 +962,10 @@ function exportSubscriptions() {
     switch (document.querySelector('#exportSelect').value) {
 
     case "NewPipe":
-        exportNewpipeSubscriptions(dateYear, dateMonth, dateDay);
+        ExportSubs.newPipe(dateYear, dateMonth, dateDay);
         break;
     case "OPML":
-        exportOpmlSubscriptions(dateYear, dateMonth, dateDay);
+        ExportSubs.opml(dateYear, dateMonth, dateDay);
         break;
     default:
         // Open user file browser. User gives location of file to be created.
@@ -992,60 +996,64 @@ function exportSubscriptions() {
     }
 }
 /**
- * Export the subscriptions database compatable with NewPipe.
- *
- * @return {Void}
+ * This class contains methods to export subscriptions
+ * to various formats
  */
-function exportNewpipeSubscriptions(dateYear, dateMonth, dateDay) {
-
-    const dateString = 'newpipe-subscriptions-' + dateYear + '-' + dateMonth + '-' + dateDay;
-
-    dialog.showSaveDialog({
-        defaultPath: dateString,
-        filters: [{
-            name: 'JSON',
-            extensions: ['json']
-        }, ]
-    }, function (fileLocation) {
-        ft.log(fileLocation);
-        if (typeof (fileLocation) === 'undefined') {
-            ft.log('Export Aborted');
-            return;
-        }
-        returnSubscriptions().then((result) => {
-            let newpipe = {
-                app_version: "0.16.1",
-                app_version_int: 730,
-                subscriptions: []
-            }
-            for (let i = 0; i < result.length; i++) {
-
-                let subs = {
-                    service_id: 0,
-                    url: `https://youtube.com/channel/${result[i].channelId}`,
-                    name: result[i].channelName,
-                };
-
-                newpipe.subscriptions.push(subs);
-            }
-
-            fs.writeFile(fileLocation, JSON.stringify(newpipe), function (writeErr) {
-                if (writeErr) {
-                    throw writeErr;
-                } else {
-                    showToast('Susbcriptions have been successfully exported');
-                    return;
-                }
-            });
-        });
-    });
-}
+class ExportSubs {
+    /* Export the subscriptions database compatable with NewPipe.
+    *
+    * @return {Void}
+    */   
+    static newPipe(dateYear, dateMonth, dateDay) {
+   
+       const dateString = 'newpipe-subscriptions-' + dateYear + '-' + dateMonth + '-' + dateDay;
+   
+       dialog.showSaveDialog({
+           defaultPath: dateString,
+           filters: [{
+               name: 'JSON',
+               extensions: ['json']
+           }, ]
+       }, function (fileLocation) {
+           ft.log(fileLocation);
+           if (typeof (fileLocation) === 'undefined') {
+               ft.log('Export Aborted');
+               return;
+           }
+           returnSubscriptions().then((result) => {
+               let newpipe = {
+                   app_version: "0.16.1",
+                   app_version_int: 730,
+                   subscriptions: []
+               }
+               for (let i = 0; i < result.length; i++) {
+   
+                   let subs = {
+                       service_id: 0,
+                       url: `https://youtube.com/channel/${result[i].channelId}`,
+                       name: result[i].channelName,
+                   };
+   
+                   newpipe.subscriptions.push(subs);
+               }
+   
+               fs.writeFile(fileLocation, JSON.stringify(newpipe), function (writeErr) {
+                   if (writeErr) {
+                       throw writeErr;
+                   } else {
+                       showToast('Susbcriptions have been successfully exported');
+                       return;
+                   }
+               });
+           });
+       });
+   }
 /**
  * Export subscriptions database as OPML.
  *
  * @return {Void}
  */
-function exportOpmlSubscriptions(dateYear, dateMonth, dateDay) {
+    static opml(dateYear, dateMonth, dateDay) {
 
     const dateString = 'freetube-subscriptions-' + dateYear + '-' + dateMonth + '-' + dateDay;
 
@@ -1063,15 +1071,14 @@ function exportOpmlSubscriptions(dateYear, dateMonth, dateDay) {
         }
         returnSubscriptions().then((result) => {
 
-            let opml = `<opml version="1.1"><body><outline text="YouTube Subscriptions" title="YouTube Subscriptions">`;
-
+            let opml = `<opml version="1.1">\n<body>\n<outline text="YouTube Subscriptions" title="YouTube Subscriptions">\n`; 
             for (let i = 0; i < result.length; i++) {
 
-                let subs = `<outline text="${result[i].channelName}" title="${result[i].channelName}" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=${result[i].channelId}"/>`;
+                let subs = `<outline text="${result[i].channelName}" title="${result[i].channelName}" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=${result[i].channelId}"/>\n`;
 
                 if (i === result.length - 1) {
 
-                    subs += `</outline></body></opml>`;
+                    subs += `</outline>\n</body>\n</opml>`;
                 }
                 opml += subs;
             }
@@ -1080,13 +1087,14 @@ function exportOpmlSubscriptions(dateYear, dateMonth, dateDay) {
                 if (writeErr) {
                     throw writeErr;
                 }
-                if (i === result.length - 1) {
+                else {
                     showToast('Susbcriptions have been successfully exported');
                     return;
-                }
+                    }
+                });
             });
         });
-    });
+    }
 }
 /**
  * Clear out the data in a file.
