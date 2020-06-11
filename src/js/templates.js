@@ -947,6 +947,9 @@ let playerView = new Vue({
             playerView.legacySeen = false;
             playerView.playerSeen = true;
         },
+        toggleSave: (videoId) => {
+            addSavedVideo(videoId);
+        },
         copyYouTube: (videoId) => {
             const url = 'https://youtube.com/watch?v=' + videoId;
             clipboard.writeText(url);

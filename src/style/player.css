@@ -263,6 +263,19 @@ iframe {
     width: 100%;
 }
 
+.recommendThumbnail i {
+    color: white;
+    background-color: black;
+    padding: 6px;
+    opacity: 0.7;
+    position: relative;
+}
+
+.recommendVideoSave {
+    bottom: 145px;
+    left: 222px;
+}
+
 .recommendTitle {
     font-size: 16px;
     font-weight: bold;
