@@ -1,7 +1,11 @@
 import Vue from 'vue'
+import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 
 export default Vue.extend({
   name: 'FtListVideo',
+  components: {
+    'ft-icon-button': FtIconButton
+  },
   props: {
     data: {
       type: Object,
@@ -30,10 +34,30 @@ export default Vue.extend({
       progressPercentage: 0,
       isLive: false,
       isFavorited: false,
-      hideViews: false
+      hideViews: false,
+      optionsNames: [
+        'Open in YouTube',
+        'Copy YouTube Link',
+        'Open YouTube Embedded Player',
+        'Copy YouTube Embedded Player Link',
+        'Open in Invidious',
+        'Copy Invidious Link'
+      ],
+      optionsValues: [
+        'openYoutube',
+        'copyYoutube',
+        'openYoutubeEmbed',
+        'copyYoutubeEmbed',
+        'openInvidious',
+        'copyInvidious'
+      ]
     }
   },
   computed: {
+    usingElectron: function () {
+      return this.$store.getters.getUsingElectron
+    },
+
     listType: function () {
       return this.$store.getters.getListType
     },
@@ -48,6 +72,18 @@ export default Vue.extend({
 
     invidiousInstance: function () {
       return this.$store.getters.getInvidiousInstance
+    },
+
+    invidiousUrl: function () {
+      return `${this.invidiousInstance}/watch?v=${this.id}`
+    },
+
+    youtubeUrl: function () {
+      return `https://www.youtube.com/watch?v=${this.id}`
+    },
+
+    youtubeEmbedUrl: function () {
+      return `https://www.youtube-nocookie.com/embed/${this.id}`
     },
 
     thumbnail: function () {
@@ -111,6 +147,42 @@ export default Vue.extend({
 
     toggleSave: function () {
       console.log('TODO: ft-list-video method toggleSave')
+    },
+
+    handleOptionsClick: function (option) {
+      console.log('Handling share')
+      console.log(option)
+
+      switch (option) {
+        case 'copyYoutube':
+          navigator.clipboard.writeText(this.youtubeUrl)
+          break
+        case 'openYoutube':
+          if (this.usingElectron) {
+            const shell = require('electron').shell
+            shell.openExternal(this.youtubeUrl)
+          }
+          break
+        case 'copyYoutubeEmbed':
+          navigator.clipboard.writeText(this.youtubeEmbedUrl)
+          break
+        case 'openYoutubeEmbed':
+          if (this.usingElectron) {
+            const shell = require('electron').shell
+            shell.openExternal(this.youtubeEmbedUrl)
+          }
+          break
+        case 'copyInvidious':
+          navigator.clipboard.writeText(this.invidiousUrl)
+          break
+        case 'openInvidious':
+          if (this.usingElectron) {
+            console.log('using electron')
+            const shell = require('electron').shell
+            shell.openExternal(this.invidiousUrl)
+          }
+          break
+      }
     },
 
     // For Invidious data, as duration is sent in seconds

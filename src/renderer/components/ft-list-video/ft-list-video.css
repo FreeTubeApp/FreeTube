@@ -83,6 +83,15 @@
   cursor: pointer;
 }
 
+/deep/ .iconButton {
+  font-size: 15px;
+  padding: 8px;
+}
+
+/deep/ .iconDropdown {
+  margin-top: 30px;
+}
+
 .grid {
   width: 240px;
   height: 250px;
@@ -105,8 +114,15 @@
   height: 110px;
 }
 
+.grid .optionsButton {
+  margin-top: 10px;
+  margin-left: 210px;
+  position: absolute;
+}
+
 .grid .videoTitle {
   max-height: 55px;
+  width: 210px;
   overflow-y: hidden;
   margin-bottom: -15px;
 }
@@ -142,6 +158,10 @@
 
 .list .videoWatched {
   height: 130px;
+}
+
+.list .optionsButton {
+  float: right;
 }
 
 .list .videoTitle {

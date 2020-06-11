@@ -7,7 +7,8 @@
       :class="{
         base: theme === 'base',
         primary: theme === 'primary',
-        secondary: theme === 'secondary'
+        secondary: theme === 'secondary',
+        shadow: useShadow
       }"
       @click="handleIconClick"
     />

@@ -15,6 +15,10 @@ export default Vue.extend({
       type: String,
       default: 'base'
     },
+    useShadow: {
+      type: Boolean,
+      default: true
+    },
     dropdownPosition: {
       type: String,
       default: 'center'

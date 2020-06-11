@@ -18,7 +18,7 @@ Enough of the rewrite has been done to hopefully provide code examples of what w
 
 ## What Needs to be Done?
 
-Like I mentioned above, there are a lot of things that need to be done.  I have created some issues over at the [issues](#) page to give a quick rundown on what needs to be done as well as what the requirements are in order for those issues to be considered complete.  I will make more issues with more requirements as progress is made.
+Like I mentioned above, there are a lot of things that need to be done.  I have created some issues over at the [issues](https://github.com/FreeTubeApp/FreeTube-Vue/issues) page to give a quick rundown on what needs to be done as well as what the requirements are in order for those issues to be considered complete.  I will make more issues with more requirements as progress is made.
 
 At this time, here is the list of things to do/need to do:
 
@@ -26,7 +26,7 @@ At this time, here is the list of things to do/need to do:
 - [x] Basic App Structure and Layout
 - [x] Video Layout (Along with Channel and Playlist Layout)
 - [x] Search / Search View (Along with Filters)
-- [ ] Search Suggestions
+- [x] Search Suggestions
 - [x] Channel View
 - [x] Channel Search
 - [x] Trending Page
@@ -42,7 +42,7 @@ At this time, here is the list of things to do/need to do:
 - [ ] History Page and Logic
 - [ ] Profile Page and Logic
 - [ ] Misc. Adjustments and Settings
-- [ ] Packagaing and Testing
+- [ ] Packaging and Testing
 
 This list is somewhat in order of when I plan on working on each thing.  Obviously things can change and anyone is welcome to work on whatever they like.
 
