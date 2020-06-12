@@ -123,14 +123,15 @@
     <div v-if='!distractionFreeMode' id='recommendations'>
         <strong>Recommendations</strong>
         <div v-for='video in recommendedVideoList'>
-            <div class='recommendVideo' v-on:click='play(video.id)'>
+            <div class='recommendVideo'>
                 <div class='recommendThumbnail'>
-                    <img :src='video.thumbnail'></img>
+                    <img v-on:click='play(video.id)' :src='video.thumbnail'></img>
                     <p v-on:click='play(video.id)' class='videoDuration'>{{video.duration}}</p>
+                    <i class="fas fa-history recommendVideoSave" v-on:click='toggleSave(video.id)'></i>
                 </div>
-                <p class='recommendTitle'>{{video.title}}</p>
-                <p class='recommendChannel'>{{video.channelName}}</p>
-                <p class='recommendDate'>{{video.viewCount}}</p>
+                <p v-on:click='play(video.id)' class='recommendTitle'>{{video.title}}</p>
+                <p v-on:click='play(video.id)' class='recommendChannel'>{{video.channelName}}</p>
+                <p v-on:click='play(video.id)' class='recommendDate'>{{video.viewCount}}</p>
             </div>
             <hr />
         </div>
