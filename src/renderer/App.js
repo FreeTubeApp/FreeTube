@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import TopNav from './components/top-nav/top-nav.vue'
 import SideNav from './components/side-nav/side-nav.vue'
+import FtToast from './components/ft-toast/ft-toast.vue'
 import $ from 'jquery'
 
 let useElectron
@@ -18,7 +19,8 @@ export default Vue.extend({
   name: 'App',
   components: {
     TopNav,
-    SideNav
+    SideNav,
+    FtToast,
   },
   computed: {
     isOpen: function () {

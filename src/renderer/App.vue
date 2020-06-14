@@ -14,6 +14,7 @@
       />
       <!-- </keep-alive> -->
     </Transition>
+    <ft-toast ref="toast" message="hello world" :action="toastAction" />
   </div>
 </template>
 

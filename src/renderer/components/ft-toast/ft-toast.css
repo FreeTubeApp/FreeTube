@@ -1,0 +1,31 @@
+.toast {
+  display: flex;
+  height: 60px;
+  width: 200px;
+  overflow-y: auto;
+  position: fixed;
+  left: calc(50vw - 100px);
+  bottom: 100px;
+  text-align: center;
+  z-index: 100;
+  background-color: var(--card-bg-color);
+  opacity: 0;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.message {
+  margin: auto;
+}
+
+.open {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0s, opacity 300ms;
+}
+
+.closed {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 300ms, opacity 300ms;
+}
