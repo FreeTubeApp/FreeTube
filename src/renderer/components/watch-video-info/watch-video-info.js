@@ -4,6 +4,7 @@ import FtButton from '../ft-button/ft-button.vue'
 import FtListDropdown from '../ft-list-dropdown/ft-list-dropdown.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import FtToastEvents from '../ft-toast/ft-toast-events'
 // import { shell } from 'electron'
 
 export default Vue.extend({
@@ -146,6 +147,7 @@ export default Vue.extend({
 
       switch (method) {
         case 'copyYoutube':
+          FtToastEvents.$emit('toast.open', "YouTube URL copied to clipboard")
           navigator.clipboard.writeText(this.youtubeUrl)
           break
         case 'openYoutube':
@@ -155,6 +157,7 @@ export default Vue.extend({
           }
           break
         case 'copyYoutubeEmbed':
+          FtToastEvents.$emit('toast.open', "YouTube Embed URL copied to clipboard")
           navigator.clipboard.writeText(this.youtubeEmbedUrl)
           break
         case 'openYoutubeEmbed':
@@ -164,6 +167,7 @@ export default Vue.extend({
           }
           break
         case 'copyInvidious':
+          FtToastEvents.$emit('toast.open', "Invidious URL copied to clipboard")
           navigator.clipboard.writeText(this.invidiousUrl)
           break
         case 'openInvidious':
