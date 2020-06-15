@@ -1,14 +1,13 @@
 .toast {
   display: flex;
-  height: 60px;
-  width: 200px;
+  padding: 10px;
   overflow-y: auto;
   position: fixed;
-  left: calc(50vw - 100px);
+  left: 50vw;
+  transform: translate(-50%, 0);
   bottom: 100px;
-  text-align: center;
-  z-index: 100;
-  background-color: var(--card-bg-color);
+  z-index: 1;
+  background-color: var(--primary-input-color);
   opacity: 0;
   border-radius: 20px;
   cursor: pointer;
