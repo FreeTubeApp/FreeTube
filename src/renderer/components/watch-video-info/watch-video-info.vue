@@ -40,46 +40,44 @@
       <p class="viewCount">
         {{ parsedViewCount }}
       </p>
-      <div
-        class="likeSection"
-      >
+      <div class="likeBarContainer">
         <div
-          class="likeBar"
-          :style="{ background: `linear-gradient(to right, var(--accent-color) ${likePercentageRatio}%, #9E9E9E ${likePercentageRatio}%` }"
-        ></div>
-        <div class="likeCount">👍 {{ likeCount }}</div>
-        <div class="dislikeCount">{{ dislikeCount }} 👎</div>
-      </div>
-      <!--
-        <ft-flex-box class="videoOptions">
-          <ft-button
-            label="Toggle Theatre Mode"
-            class="theatreModeButton"
-            @click="$emit('theatreMode')"
-          />
-          <ft-list-dropdown
-            :title="formatTypeLabel"
-            :label-names="formatTypeNames"
-            :label-values="formatTypeValues"
-            class="formatTypeDropdown"
-            @click="handleFormatChange"
-          />
-          <ft-list-dropdown
-            :title="shareLabel"
-            :label-names="shareNames"
-            :label-values="shareValues"
-            class="shareDropdown"
-            @click="handleShare"
-          />
-        </ft-flex-box>
-      -->
-      <div class="optionsContainer">
-        <div v-for="i in [`download`, `star`, `bookmark`, `share`]" :key="i" class="option">
-          <font-awesome-icon
-            class="refreshIcon"
-            :icon="i"
-          />
+          class="likeSection"
+        >
+          <div
+            class="likeBar"
+            :style="{ background: `linear-gradient(to right, var(--accent-color) ${likePercentageRatio}%, #9E9E9E ${likePercentageRatio}%` }"
+          ></div>
+          <div class="likeCount">👍 {{ likeCount }}</div>
+          <div class="dislikeCount">{{ dislikeCount }} 👎</div>
         </div>
+      </div>
+      <div class="videoOptions">
+        <ft-icon-button
+          title="Toggle Theatre Mode"
+          class="theatreModeButton option"
+          icon="expand-alt"
+          theme="secondary"
+          @click="$emit('theatreMode')"
+        />
+        <ft-icon-button
+          title="Change Video Formats"
+          class="option"
+          theme="secondary"
+          icon="file-video"
+          :dropdown-names="formatTypeNames"
+          :dropdown-values="formatTypeValues"
+          @click="handleFormatChange"
+        />
+        <ft-icon-button
+          title="Share Video"
+          class="option"
+          theme="secondary"
+          icon="share-alt"
+          :dropdown-names="shareNames"
+          :dropdown-values="shareValues"
+          @click="handleShare"
+        />
       </div>
     </div>
   </ft-card>

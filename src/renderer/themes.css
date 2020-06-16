@@ -200,6 +200,8 @@
 
 .secRed {
   --accent-color: #f44336;
+  --accent-color-hover: #e53935;
+  --accent-color-active: #c62828;
   --accent-color-light: #ef9a9a;
   --text-with-accent-color: #FFFFFF;
   --accent-color-opacity1: rgba(244,67,54,0.04);
@@ -210,6 +212,8 @@
 
 .secPink {
   --accent-color: #E91E63;
+  --accent-color-hover: #D81B60;
+  --accent-color-active: #AD1457;
   --accent-color-light: #F48FB1;
   --text-with-accent-color: #FFFFFF;
   --accent-color-opacity1: rgba(233,30,99,0.04);
@@ -220,6 +224,8 @@
 
 .secPurple {
   --accent-color: #9C27B0;
+  --accent-color-hover: #8E24AA;
+  --accent-color-active: #6A1B9A;
   --accent-color-light: #CE93D8;
   --text-with-accent-color: #FFFFFF;
   --accent-color-opacity1: rgba(156,39,176,0.04);
@@ -230,6 +236,8 @@
 
 .secDeepPurple {
   --accent-color: #673AB7;
+  --accent-color-hover: #5E35B1;
+  --accent-color-active: #4527A0;
   --accent-color-light: #B39DDB;
   --text-with-accent-color: #FFFFFF;
   --accent-color-opacity1: rgba(103,58,183,0.04);
@@ -240,6 +248,8 @@
 
 .secIndigo {
   --accent-color: #3F51B5;
+  --accent-color-hover: #3949AB;
+  --accent-color-active: #283593;
   --accent-color-light: #9FA8DA;
   --text-with-accent-color: #FFFFFF;
   --accent-color-opacity1: rgba(63,81,181,0.04);
@@ -250,6 +260,8 @@
 
 .secBlue {
   --accent-color: #2196F3;
+  --accent-color-hover: #1E88E5;
+  --accent-color-active: #1565C0;
   --accent-color-light: #90CAF9;
   --text-with-accent-color: #FFFFFF;
   --accent-color-opacity1: rgba(33,150,243,0.04);
@@ -260,6 +272,8 @@
 
 .secLightBlue {
   --accent-color: #03A9F4;
+  --accent-color-hover: #039BE5;
+  --accent-color-active: #0277BD;
   --accent-color-light: #81D4FA;
   --text-with-accent-color: #FFFFFF;
   --accent-color-opacity1: rgba(3,169,244,0.04);
@@ -270,6 +284,8 @@
 
 .secCyan {
   --accent-color: #00BCD4;
+  --accent-color-hover: #00ACC1;
+  --accent-color-active: #00838F;
   --accent-color-light: #80DEEA;
   --text-with-accent-color: #FFFFFF;
   --accent-color-opacity1: rgba(0,188,212,0.04);
@@ -280,6 +296,8 @@
 
 .secTeal {
   --accent-color: #009688;
+  --accent-color-hover: #00897B;
+  --accent-color-active: #00695C;
   --accent-color-light: #80CBC4;
   --text-with-accent-color: #FFFFFF;
   --accent-color-opacity1: rgba(0,150,136,0.04);
@@ -290,6 +308,8 @@
 
 .secGreen {
   --accent-color: #4CAF50;
+  --accent-color-hover: #43A047;
+  --accent-color-active: #2E7D32;
   --accent-color-light: #A5D6A7;
   --text-with-accent-color: #FFFFFF;
   --accent-color-opacity1: rgba(76,175,80,0.04);
@@ -300,6 +320,8 @@
 
 .secLightGreen {
   --accent-color: #8BC34A;
+  --accent-color-hover: #7CB342;
+  --accent-color-active: #558B2F;
   --accent-color-light: #C5E1A5;
   --text-with-accent-color: #000000;
   --accent-color-opacity1: rgba(139,195,74,0.04);
@@ -310,6 +332,8 @@
 
 .secLime {
   --accent-color: #CDDC39;
+  --accent-color-hover: #C0CA33;
+  --accent-color-active: #9E9D24;
   --accent-color-light: #E6EE9C;
   --text-with-accent-color: #000000;
   --accent-color-opacity1: rgba(205,220,57,0.04);
@@ -320,6 +344,8 @@
 
 .secYellow {
   --accent-color: #FFEB3B;
+  --accent-color-hover: #FDD835;
+  --accent-color-active: #F9A825;
   --accent-color-light: #FFF59D;
   --text-with-accent-color: #000000;
   --accent-color-opacity1: rgba(255,235,59,0.04);
@@ -330,6 +356,8 @@
 
 .secAmber {
   --accent-color: #FFC107;
+  --accent-color-hover: #FFB300;
+  --accent-color-active: #FF8F00;
   --accent-color-light: #FFE082;
   --text-with-accent-color: #000000;
   --accent-color-opacity1: rgba(255,193,7,0.04);
@@ -340,6 +368,8 @@
 
 .secOrange {
   --accent-color: #FF9800;
+  --accent-color-hover: #FB8C00;
+  --accent-color-active: #EF6C00;
   --accent-color-light: #FFCC80;
   --text-with-accent-color: #000000;
   --accent-color-opacity1: rgba(255,152,0,0.04);
@@ -350,6 +380,8 @@
 
 .secDeepOrange {
   --accent-color: #FF5722;
+  --accent-color-hover: #F4511E;
+  --accent-color-active: #D84315;
   --accent-color-light: #FFAB91;
   --text-with-accent-color: #000000;
   --accent-color-opacity1: rgba(255,87,34,0.04);

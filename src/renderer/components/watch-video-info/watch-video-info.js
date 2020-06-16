@@ -3,6 +3,7 @@ import FtCard from '../ft-card/ft-card.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtListDropdown from '../ft-list-dropdown/ft-list-dropdown.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
+import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 // import { shell } from 'electron'
 
 export default Vue.extend({
@@ -11,7 +12,8 @@ export default Vue.extend({
     'ft-card': FtCard,
     'ft-button': FtButton,
     'ft-list-dropdown': FtListDropdown,
-    'ft-flex-box': FtFlexBox
+    'ft-flex-box': FtFlexBox,
+    'ft-icon-button': FtIconButton
   },
   props: {
     id: {

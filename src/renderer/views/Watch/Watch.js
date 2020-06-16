@@ -232,14 +232,29 @@ export default Vue.extend({
               if (typeof (format.mimeType) !== 'undefined') {
                 return format.mimeType.includes('video/ts')
               }
+
+              return format.itag === 300 || format.itag === 301
             }).map((format) => {
+              let qualityLabel
+
+              if (format.itag === 300) {
+                qualityLabel = '720p'
+              } else if (format.itag === 301) {
+                qualityLabel = '1080p'
+              } else {
+                qualityLabel = format.qualityLabel
+              }
               return {
                 url: format.url,
                 type: 'application/x-mpegURL',
                 label: 'Dash',
-                qualityLabel: format.qualityLabel
+                qualityLabel: qualityLabel
               }
-            }).reverse()
+            }).sort((a, b) => {
+              const qualityA = parseInt(a.qualityLabel.replace('p', ''))
+              const qualityB = parseInt(b.qualityLabel.replace('p', ''))
+              return qualityA - qualityB
+            })
 
             this.activeSourceList = this.videoSourceList
           } else {

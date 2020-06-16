@@ -41,7 +41,7 @@
   grid-template-columns: auto auto
   justify-content: space-between
   margin-left: auto
-  max-width: 250px
+  max-width: 210px
 
   @media screen and (max-width: 680px)
     margin-left: 0
@@ -53,22 +53,17 @@
     grid-column: 1 / 3
     margin-bottom: 4px
 
-.optionsContainer
+.videoOptions
   margin-top: 16px
   display: flex
   justify-content: flex-end
 
+  .option:not(:first-child)
+    margin-left: 4px
+
   @media screen and (max-width: 680px)
     justify-content: flex-start
 
-  .option
-    width: 36px
-    height: 36px
-    border-radius: 50%
-    background-color: rgba(255, 255, 255, 0.15)
-    display: flex
-    align-items: center
-    justify-content: center
-
-    &:not(:last-child)
-      margin-right: 4px
+  @media only screen and (max-width: 1350px)
+    .theatreModeButton
+      display: none
