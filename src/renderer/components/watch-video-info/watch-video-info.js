@@ -36,6 +36,10 @@ export default Vue.extend({
       type: String,
       required: true
     },
+    published: {
+      type: Number,
+      required: true
+    },
     viewCount: {
       type: Number,
       required: true
