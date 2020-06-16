@@ -1815,8 +1815,8 @@ video::-webkit-media-text-track-display {
 }
 
 .video-js .vjs-progress-control:hover {
-    height: 1em;
-    top: -1em
+    height: 1.25em;
+    top: -0.95em
 }
 
 .video-js .vjs-control-bar {
