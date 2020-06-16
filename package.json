@@ -23,7 +23,7 @@
     "mediaelement": "^4.2.16",
     "nedb": "^1.8.0",
     "opml-to-json": "0.0.3",
-    "video.js": "^7.8.2",
+    "video.js": "7.6.6",
     "videojs-abloop": "^1.1.2",
     "videojs-contrib-quality-levels": "^2.0.9",
     "videojs-http-source-selector": "^1.1.6",

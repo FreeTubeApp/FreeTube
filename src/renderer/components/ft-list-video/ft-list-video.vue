@@ -37,6 +37,16 @@
         :style="{width: progressPercentage + '%'}"
       />
     </div>
+    <ft-icon-button
+      class="optionsButton"
+      title="More Options"
+      theme="base"
+      :use-shadow="false"
+      dropdown-position="left"
+      :dropdown-names="optionsNames"
+      :dropdown-values="optionsValues"
+      @click="handleOptionsClick"
+    />
     <p
       class="videoTitle"
       @click="play(id)"

@@ -11,11 +11,14 @@
   padding: 10px;
   font-size: 20px;
   border-radius: 50%;
-  box-shadow: 0 1px 2px rgba(0,0,0,.5);
   cursor: pointer;
   -moz-transition: background 0.2s ease-out;
   -o-transition: background 0.2s ease-out;
   transition: background 0.2s ease-out;
+}
+
+.shadow {
+  box-shadow: 0 1px 2px rgba(0,0,0,.5);
 }
 
 .iconButton:hover {
@@ -105,9 +108,9 @@
 }
 
 .left {
-  right: 100%;
+  right: 50%;
 }
 
 .right {
-  left: 100%;
+  left: 50%;
 }
