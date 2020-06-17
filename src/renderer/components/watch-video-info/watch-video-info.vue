@@ -71,15 +71,7 @@
           :dropdown-values="formatTypeValues"
           @click="handleFormatChange"
         />
-        <ft-icon-button
-          title="Share Video"
-          class="option"
-          theme="secondary"
-          icon="share-alt"
-          :dropdown-names="shareNames"
-          :dropdown-values="shareValues"
-          @click="handleShare"
-        />
+        <ft-share-button class="option"></ft-share-button>
       </div>
     </div>
   </ft-card>

@@ -23,16 +23,6 @@
         top: dropdownPositionY === 'top'
       }"
     >
-      <ul class="list">
-        <li
-          v-for="(label, index) in dropdownNames"
-          class="listItem"
-          :key="index"
-          @click="handleDropdownClick(index)"
-        >
-          {{ label }}
-        </li>
-      </ul>
       <slot>
         <ul
           class="list"
