@@ -75,32 +75,3 @@
   position: relative;
   bottom: 7px;
 }
-
-/deep/ .list {
-  height: 60px;
-  width: calc(100% - 30px);
-}
-
-/deep/ .list .videoThumbnail {
-  width: 100px;
-  height: 60px;
-}
-
-/deep/ .list .videoThumbnail img {
-  height: 60px;
-}
-
-/deep/ .list .videoTitle {
-  font-size: 12px;
-  margin-left: 105px;
-  margin-right: 30px;
-}
-
-/deep/ .list .channelName {
-  margin-left: 105px;
-  margin-right: 30px;
-}
-
-/deep/ .list .viewCount {
-  margin-left: 5px;
-}
