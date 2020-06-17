@@ -19,9 +19,17 @@ export default Vue.extend({
       type: Boolean,
       default: true
     },
-    dropdownPosition: {
+    forceDropdown: {
+      type: Boolean,
+      default: false
+    },
+    dropdownPositionX: {
       type: String,
       default: 'center'
+    },
+    dropdownPositionY: {
+      type: String,
+      default: 'bottom'
     },
     dropdownNames: {
       type: Array,
@@ -43,7 +51,7 @@ export default Vue.extend({
     },
 
     handleIconClick: function () {
-      if (this.dropdownNames.length > 0 && this.dropdownValues.length > 0) {
+      if (this.forceDropdown || (this.dropdownNames.length > 0 && this.dropdownValues.length > 0)) {
         this.toggleDropdown()
       } else {
         this.$emit('click')

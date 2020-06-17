@@ -42,7 +42,7 @@
       title="More Options"
       theme="base"
       :use-shadow="false"
-      dropdown-position="left"
+      dropdown-position-x="left"
       :dropdown-names="optionsNames"
       :dropdown-values="optionsValues"
       @click="handleOptionsClick"

@@ -25,6 +25,7 @@
       :channel-id="channelId"
       :channel-name="channelName"
       :channel-thumbnail="channelThumbnail"
+      :published="videoPublished"
       :subscription-count-text="channelSubscriptionCountText"
       :like-count="videoLikeCount"
       :dislike-count="videoDislikeCount"
