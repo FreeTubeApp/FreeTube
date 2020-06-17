@@ -166,9 +166,14 @@
   font-family: VideoJS;
   font-weight: normal;
   font-style: normal;
+  position: relative;
+  top: -2px;
 }
 .vjs-icon-cog:before {
   content: "\f110";
+}
+.video-js .vjs-icon-cog {
+  font-size: 1.8em;
 }
 
 .vjs-icon-circle, .vjs-seek-to-live-control .vjs-icon-placeholder, .video-js .vjs-volume-level, .video-js .vjs-play-progress {
@@ -335,7 +340,6 @@
 
 .video-js {
   display: block;
-  vertical-align: top;
   box-sizing: border-box;
   color: #fff;
   background-color: #000;
@@ -1012,7 +1016,7 @@ body.vjs-full-window {
   transition: left 0s;
 }
 .video-js .vjs-volume-panel.vjs-volume-panel-horizontal.vjs-hover, .video-js .vjs-volume-panel.vjs-volume-panel-horizontal:active, .video-js .vjs-volume-panel.vjs-volume-panel-horizontal.vjs-slider-active {
-  width: 10em;
+  width: 8em;
   transition: width 0.1s;
 }
 .video-js .vjs-volume-panel.vjs-volume-panel-horizontal.vjs-mute-toggle-only {
@@ -1237,6 +1241,8 @@ body.vjs-full-window {
 
 .video-js .vjs-play-control {
   cursor: pointer;
+  position: relative;
+  top: 1px;
 }
 
 .video-js .vjs-play-control .vjs-icon-placeholder {
@@ -1285,6 +1291,8 @@ video::-webkit-media-text-track-display {
 .video-js .vjs-picture-in-picture-control {
   cursor: pointer;
   flex: none;
+  position: relative;
+  top: 1px;
 }
 .video-js .vjs-fullscreen-control {
   cursor: pointer;
@@ -1293,7 +1301,7 @@ video::-webkit-media-text-track-display {
 .vjs-playback-rate > .vjs-menu-button,
 .vjs-playback-rate .vjs-playback-rate-value {
   position: absolute;
-  top: 16px;
+  top: 12px;
   left: 0;
   width: 100%;
   height: 100%;
@@ -1760,7 +1768,10 @@ video::-webkit-media-text-track-display {
     -webkit-flex: 0 1 auto;
     -ms-flex: 0 1 auto;
     flex: 0 1 auto;
-    width: auto
+    width: auto;
+    font-size: 14px;
+    position: relative;
+    top: -6px;
 }
 
 .video-js .vjs-time-control.vjs-time-divider {
@@ -1831,6 +1842,7 @@ video::-webkit-media-text-track-display {
     visibility: visible;
     opacity: 1;
     -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
     -webkit-transform: translateY(3em);
     -moz-transform: translateY(3em);
     -ms-transform: translateY(3em);
@@ -1987,4 +1999,14 @@ video::-webkit-media-text-track-display {
 
 .video-js .vjs-http-source-selector {
   top: 4px;
+}
+
+.vjs-subs-caps-button.vjs-control {
+  position: relative;
+  top: 1px;
+}
+
+.vjs-volume-panel .vjs-mute-control {
+  position: relative;
+  top: 1px;
 }
