@@ -40,6 +40,10 @@ export default Vue.extend({
       return `${this.invidiousInstance}/watch?v=${this.id}`
     },
 
+    getInvidiousEmbedURL() {
+      return `${this.invidiousInstance}/embed/${this.id}`
+    },
+
     getYoutubeURL() {
       return `https://www.youtube.com/watch?v=${this.id}`
     },
@@ -70,6 +74,14 @@ export default Vue.extend({
 
     copyYoutubeEmbed() {
       this.copy(this.getYoutubeEmbedURL())
-    }
+    },
+
+    openInvidiousEmbed() {
+      this.open(this.getInvidiousEmbedURL())
+    },
+
+    copyInvidiousEmbed() {
+      this.copy(this.getInvidiousEmbedURL())
+    },
   }
 })

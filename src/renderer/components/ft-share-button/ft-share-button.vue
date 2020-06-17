@@ -60,6 +60,20 @@
 					<font-awesome-icon icon="globe"/>
 					Open link
 				</ft-button>
+				<ft-button
+					class="action"
+					@click="copyInvidiousEmbed()"
+				>
+					<font-awesome-icon icon="file-video"/>
+					Copy embed
+				</ft-button>
+				<ft-button
+					class="action"
+					@click="openInvidiousEmbed()"
+				>
+					<font-awesome-icon icon="file-video"/>
+					Open embed
+				</ft-button>
 			</div>
 		</div>
 	</ft-icon-button>
