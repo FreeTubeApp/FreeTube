@@ -78,7 +78,7 @@
   color: var(--secondary-text-color);
 }
 
-.iconDropdown p {
+.iconDropdown .dropdownItem {
     padding: 10px;
     margin: 0;
     white-space: nowrap;
@@ -88,21 +88,21 @@
     transition: background 0.2s ease-out;
 }
 
-.iconDropdown p:hover {
+.iconDropdown .dropdownItem:hover {
   background-color: var(--side-nav-hover-color);
   -moz-transition: background 0.2s ease-in;
   -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 
-.iconDropdown p:active {
+.iconDropdown .dropdownItem:active {
   background-color: var(--side-nav-active-color);
   -moz-transition: background 0.1s ease-in;
   -o-transition: background 0.1s ease-in;
   transition: background 0.1s ease-in;
 }
 
-.iconDropdown p a {
+.iconDropdown .dropdownItem a {
     text-decoration: none;
     color: inherit;
 }
@@ -113,4 +113,9 @@
 
 .right {
   left: 50%;
+}
+
+.top {
+  margin-top: 0px;
+  bottom: 60px;
 }

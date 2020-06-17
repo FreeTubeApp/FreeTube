@@ -13,21 +13,30 @@
       @click="handleIconClick"
     />
     <div
-      v-if="dropdownNames.length > 0 && showDropdown"
+      v-if="showDropdown"
       class="iconDropdown"
       :class="{
-        left: dropdownPosition === 'left',
-        right: dropdownPosition === 'right',
-        center: dropdownPosition === 'center'
+        left: dropdownPositionX === 'left',
+        right: dropdownPositionX === 'right',
+        center: dropdownPositionX === 'center',
+        bottom: dropdownPositionY === 'bottom',
+        top: dropdownPositionY === 'top'
       }"
     >
-      <p
-        v-for="(label, index) in dropdownNames"
-        :key="index"
-        @click="handleDropdownClick(index)"
-      >
-        {{ label }}
-      </p>
+      <slot>
+        <div
+          v-if="dropdownNames.length > 0"
+        >
+          <p
+            v-for="(label, index) in dropdownNames"
+            :key="index"
+            class="dropdownItem
+            @click="handleDropdownClick(index)"
+          >
+            {{ label }}
+          </p>
+        </div>
+      </slot>
     </div>
   </div>
 </template>
