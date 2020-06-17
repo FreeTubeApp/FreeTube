@@ -71,7 +71,10 @@
           :dropdown-values="formatTypeValues"
           @click="handleFormatChange"
         />
-        <ft-share-button class="option"></ft-share-button>
+        <ft-share-button
+          class="option"
+          :id="id"
+        />
       </div>
     </div>
   </ft-card>

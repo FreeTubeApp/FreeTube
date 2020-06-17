@@ -10,27 +10,57 @@
 				<img class="youtubeLogo" src="~../../assets/img/yt_logo_mono_dark.png" alt="YouTube" width="794" height="178">
 			</div>
 
-			<ft-button class="action">
-				<font-awesome-icon icon="copy"></font-awesome-icon>
-				Copy link
-			</ft-button>
-			<ft-button class="action">
-				<font-awesome-icon icon="globe"></font-awesome-icon>
-				Open link
-			</ft-button>
+			<div class="buttons">
+				<ft-button
+					class="action"
+					@click="copyYoutube()"
+				>
+					<font-awesome-icon icon="copy"/>
+					Copy link
+				</ft-button>
+				<ft-button
+					class="action"
+					@click="openYoutube()"
+				>
+					<font-awesome-icon icon="globe"/>
+					Open link
+				</ft-button>
+				<ft-button
+					class="action"
+					@click="copyYoutubeEmbed()"
+				>
+					<font-awesome-icon icon="file-video"/>
+					Copy embed
+				</ft-button>
+				<ft-button
+					class="action"
+					@click="openYoutubeEmbed()"
+				>
+					<font-awesome-icon icon="file-video"/>
+					Open embed
+				</ft-button>
+			</div>
 
 			<div class="divider"></div>
 
-			<div class="header invidious"><span class="invidiousLogo"></span>Invidious</div>
+			<div class="header invidious"><span class="invidiousLogo"/>Invidious</div>
 
-			<ft-button class="action">
-				<font-awesome-icon icon="copy"></font-awesome-icon>
-				Copy link
-			</ft-button>
-			<ft-button class="action">
-				<font-awesome-icon icon="globe"></font-awesome-icon>
-				Open link
-			</ft-button>
+			<div class="buttons">
+				<ft-button
+					class="action"
+					@click="copyInvidious()"
+				>
+					<font-awesome-icon icon="copy"/>
+					Copy link
+				</ft-button>
+				<ft-button
+					class="action"
+					@click="openInvidious()"
+				>
+					<font-awesome-icon icon="globe"/>
+					Open link
+				</ft-button>
+			</div>
 		</div>
 	</ft-icon-button>
 </template>

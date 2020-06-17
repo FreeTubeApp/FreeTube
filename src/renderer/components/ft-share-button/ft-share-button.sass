@@ -1,6 +1,6 @@
 .shareLinks
 	display: grid
-	grid-template-rows: auto auto auto
+	grid-template-rows: auto auto
 	grid-auto-flow: column
 	padding: 12px
 	width: max-content
@@ -11,8 +11,12 @@
 		margin: 4px 0px 8px
 		color: var(--primary-text-color)
 
-	.action
-		padding: 6px
+	.buttons
+		display: flex
+		flex-direction: column
+
+		.action
+			padding: 6px
 
 	.divider
 		grid-row: span 3
