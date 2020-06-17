@@ -71,19 +71,6 @@ export default Vue.extend({
         'dash',
         'legacy',
         'audio'
-      ],
-      shareLabel: 'SHARE VIDEO',
-      shareNames: [
-        'COPY INVIDIOUS LINK',
-        'OPEN INVIDIOUS LINK',
-        'COPY YOUTUBE LINK',
-        'OPEN YOUTUBE LINK'
-      ],
-      shareValues: [
-        'copyInvidious',
-        'openInvidious',
-        'copyYoutube',
-        'openYoutube'
       ]
     }
   },
@@ -94,18 +81,6 @@ export default Vue.extend({
 
     usingElectron: function () {
       return this.$store.getters.getUsingElectron
-    },
-
-    invidiousUrl: function () {
-      return `${this.invidiousInstance}/watch?v=${this.id}`
-    },
-
-    youtubeUrl: function () {
-      return `https://www.youtube.com/watch?v=${this.id}`
-    },
-
-    youtubeEmbedUrl: function () {
-      return `https://www.youtube-nocookie.com/embed/${this.id}`
     },
 
     totalLikeCount: function () {
@@ -143,40 +118,6 @@ export default Vue.extend({
           break
         case 'audio':
           this.$parent.enableAudioFormat()
-          break
-      }
-    },
-
-    handleShare: function (method) {
-      console.log('Handling share')
-
-      switch (method) {
-        case 'copyYoutube':
-          navigator.clipboard.writeText(this.youtubeUrl)
-          break
-        case 'openYoutube':
-          if (this.usingElectron) {
-            const shell = require('electron').shell
-            shell.openExternal(this.youtubeUrl)
-          }
-          break
-        case 'copyYoutubeEmbed':
-          navigator.clipboard.writeText(this.youtubeEmbedUrl)
-          break
-        case 'openYoutubeEmbed':
-          if (this.usingElectron) {
-            const shell = require('electron').shell
-            shell.openExternal(this.youtubeEmbedUrl)
-          }
-          break
-        case 'copyInvidious':
-          navigator.clipboard.writeText(this.invidiousUrl)
-          break
-        case 'openInvidious':
-          if (this.usingElectron) {
-            const shell = require('electron').shell
-            shell.openExternal(this.invidiousUrl)
-          }
           break
       }
     }
