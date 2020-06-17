@@ -39,10 +39,10 @@
 .likeSection
   margin-top: 16px
   font-size: 14px
-  display: grid
-  grid-template-columns: auto auto
-  justify-content: space-between
+  display: flex
+  flex-direction: column
   margin-left: auto
+  text-align: right
   max-width: 210px
 
   @media screen and (max-width: 680px)
@@ -51,9 +51,10 @@
   .likeBar
     height: 8px
     border-radius: 4px
-    background: red
-    grid-column: 1 / 3
     margin-bottom: 4px
+
+  .likeCount
+    margin-right: 6px
 
 .videoOptions
   margin-top: 16px

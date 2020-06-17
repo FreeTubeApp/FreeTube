@@ -48,8 +48,10 @@
             class="likeBar"
             :style="{ background: `linear-gradient(to right, var(--accent-color) ${likePercentageRatio}%, #9E9E9E ${likePercentageRatio}%` }"
           ></div>
-          <div class="likeCount">👍 {{ likeCount }}</div>
-          <div class="dislikeCount">{{ dislikeCount }} 👎</div>
+          <div>
+            <span class="likeCount">👍 {{ likeCount }}</span>
+            <span class="dislikeCount">👎 {{ dislikeCount }}</span>
+          </div>
         </div>
       </div>
       <div class="videoOptions">
