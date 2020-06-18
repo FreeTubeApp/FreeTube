@@ -27,6 +27,7 @@
 				</ft-button>
 				<ft-button
 					class="action"
+					backgroundColor="var(--accent-color-active)"
 					@click="copyYoutubeEmbed()"
 				>
 					<font-awesome-icon icon="copy"/>
@@ -34,6 +35,7 @@
 				</ft-button>
 				<ft-button
 					class="action"
+					backgroundColor="var(--accent-color-active)"
 					@click="openYoutubeEmbed()"
 				>
 					<font-awesome-icon icon="globe"/>
@@ -62,6 +64,7 @@
 				</ft-button>
 				<ft-button
 					class="action"
+					backgroundColor="var(--accent-color-active)"
 					@click="copyInvidiousEmbed()"
 				>
 					<font-awesome-icon icon="copy"/>
@@ -69,6 +72,7 @@
 				</ft-button>
 				<ft-button
 					class="action"
+					backgroundColor="var(--accent-color-active)"
 					@click="openInvidiousEmbed()"
 				>
 					<font-awesome-icon icon="globe"/>
