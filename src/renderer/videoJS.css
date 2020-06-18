@@ -1913,6 +1913,12 @@ video::-webkit-media-text-track-display {
     width: 5.5em;
     left: 1.5em;
     padding-bottom: .5em;
+    z-index: 1;
+    bottom: 1.15em;
+}
+
+.video-js .vjs-menu-button-popup.vjs-http-source-selector .vjs-menu .vjs-menu-content {
+    bottom: 1.5em;
 }
 
 .video-js .vjs-menu-button-popup .vjs-menu .vjs-menu-item,.video-js .vjs-menu-button-popup .vjs-menu .vjs-menu-title {
