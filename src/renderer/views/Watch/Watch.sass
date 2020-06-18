@@ -1,0 +1,54 @@
+=dual-column-template
+  grid-template: "video video sidebar" 0fr "info info sidebar" auto "info info sidebar" auto / 1fr 1fr 1fr
+
+=theatre-mode-template
+  grid-template: "video video video" auto "info info sidebar" auto "info info sidebar" auto / 1fr 1fr 1fr
+
+=single-column-template
+  grid-template: "video" auto "info" auto "sidebar" auto / auto
+
+.videoLayout
+  display: grid
+  align-items: start
+  +dual-column-template
+
+  @media only screen and (max-width: 1350px)
+    +theatre-mode-template
+
+  @media only screen and (max-width: 900px)
+    +single-column-template
+
+  &.useTheatreMode
+    +theatre-mode-template
+
+  &.isLoading
+    +single-column-template
+
+  .videoArea
+    grid-area: video
+
+    .videoAreaMargin
+      margin: 0px 8px 16px
+
+    .videoPlayer
+      grid-column: 1
+      max-width: calc(80vh * 1.78)
+      margin: 0 auto
+
+  .watchVideo
+    margin: 0px 8px 16px
+    grid-column: 1
+
+  .infoArea
+    grid-area: info
+
+  .sidebarArea
+    grid-area: sidebar
+    min-width: 380px
+
+  .watchVideoPlaylist, .watchVideoSidebar, .theatrePlaylist
+    height: 500px
+    margin: 0 8px 16px
+
+  .watchVideoRecommendations, .theatreRecommendations
+    margin: 0 8px 16px
