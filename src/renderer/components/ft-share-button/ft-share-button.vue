@@ -1,5 +1,6 @@
 <template>
 	<ft-icon-button
+		ref="iconButton"
 		title="Share Video"
 		theme="secondary"
 		icon="share-alt"

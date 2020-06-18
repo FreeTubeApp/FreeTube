@@ -55,34 +55,42 @@ export default Vue.extend({
 
     openInvidious() {
       this.open(this.invidiousURL)
+      this.$refs.iconButton.toggleDropdown()
     },
 
     copyInvidious() {
       this.copy(this.invidiousURL)
+      this.$refs.iconButton.toggleDropdown()
     },
 
     openYoutube() {
       this.open(this.youtubeURL)
+      this.$refs.iconButton.toggleDropdown()
     },
 
     copyYoutube() {
       this.copy(this.youtubeURL)
+      this.$refs.iconButton.toggleDropdown()
     },
 
     openYoutubeEmbed() {
       this.open(this.youtubeEmbedURL)
+      this.$refs.iconButton.toggleDropdown()
     },
 
     copyYoutubeEmbed() {
       this.copy(this.youtubeEmbedURL)
+      this.$refs.iconButton.toggleDropdown()
     },
 
     openInvidiousEmbed() {
       this.open(this.invidiousEmbedURL)
+      this.$refs.iconButton.toggleDropdown()
     },
 
     copyInvidiousEmbed() {
       this.copy(this.invidiousEmbedURL)
+      this.$refs.iconButton.toggleDropdown()
     },
   }
 })
