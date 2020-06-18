@@ -3,6 +3,7 @@
 		title="Share Video"
 		theme="secondary"
 		icon="share-alt"
+		dropdown-position-x="left"
 		:forceDropdown="true"
 	>
 		<div class="shareLinks">
