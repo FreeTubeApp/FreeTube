@@ -29,14 +29,14 @@
 					class="action"
 					@click="copyYoutubeEmbed()"
 				>
-					<font-awesome-icon icon="file-video"/>
+					<font-awesome-icon icon="copy"/>
 					Copy embed
 				</ft-button>
 				<ft-button
 					class="action"
 					@click="openYoutubeEmbed()"
 				>
-					<font-awesome-icon icon="file-video"/>
+					<font-awesome-icon icon="globe"/>
 					Open embed
 				</ft-button>
 			</div>
@@ -64,14 +64,14 @@
 					class="action"
 					@click="copyInvidiousEmbed()"
 				>
-					<font-awesome-icon icon="file-video"/>
+					<font-awesome-icon icon="copy"/>
 					Copy embed
 				</ft-button>
 				<ft-button
 					class="action"
 					@click="openInvidiousEmbed()"
 				>
-					<font-awesome-icon icon="file-video"/>
+					<font-awesome-icon icon="globe"/>
 					Open embed
 				</ft-button>
 			</div>
