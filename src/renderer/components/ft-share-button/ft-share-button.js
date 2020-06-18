@@ -23,6 +23,23 @@ export default Vue.extend({
     usingElectron: function () {
       return this.$store.getters.getUsingElectron
     },
+
+    invidiousURL() {
+      return `${this.invidiousInstance}/watch?v=${this.id}`
+    },
+
+    invidiousEmbedURL() {
+      return `${this.invidiousInstance}/embed/${this.id}`
+    },
+
+    youtubeURL() {
+      return `https://www.youtube.com/watch?v=${this.id}`
+    },
+
+    youtubeEmbedURL() {
+      return `https://www.youtube-nocookie.com/embed/${this.id}`
+    },
+
   },
   methods: {
     copy(text) {
@@ -36,52 +53,36 @@ export default Vue.extend({
       }
     },
 
-    getInvidiousURL() {
-      return `${this.invidiousInstance}/watch?v=${this.id}`
-    },
-
-    getInvidiousEmbedURL() {
-      return `${this.invidiousInstance}/embed/${this.id}`
-    },
-
-    getYoutubeURL() {
-      return `https://www.youtube.com/watch?v=${this.id}`
-    },
-
-    getYoutubeEmbedURL() {
-      return `https://www.youtube-nocookie.com/embed/${this.id}`
-    },
-
     openInvidious() {
-      this.open(this.getInvidiousURL())
+      this.open(this.invidiousURL)
     },
 
     copyInvidious() {
-      this.copy(this.getInvidiousURL())
+      this.copy(this.invidiousURL)
     },
 
     openYoutube() {
-      this.open(this.getYoutubeURL())
+      this.open(this.youtubeURL)
     },
 
     copyYoutube() {
-      this.copy(this.getYoutubeURL())
+      this.copy(this.youtubeURL)
     },
 
     openYoutubeEmbed() {
-      this.open(this.getYoutubeEmbedURL())
+      this.open(this.youtubeEmbedURL)
     },
 
     copyYoutubeEmbed() {
-      this.copy(this.getYoutubeEmbedURL())
+      this.copy(this.youtubeEmbedURL)
     },
 
     openInvidiousEmbed() {
-      this.open(this.getInvidiousEmbedURL())
+      this.open(this.invidiousEmbedURL)
     },
 
     copyInvidiousEmbed() {
-      this.copy(this.getInvidiousEmbedURL())
+      this.copy(this.invidiousEmbedURL)
     },
   }
 })
