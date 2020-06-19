@@ -221,7 +221,11 @@ export default Vue.extend({
           qualitySelector(videojs, { showQualitySelectionLabelInControlBar: true })
         }
 
-        this.player = videojs(videoPlayer)
+        this.player = videojs(videoPlayer, {
+          userActions: {
+            hotkeys: this.keyboardShortcutHandler
+          }
+        })
 
         this.player.volume(this.volume)
         this.player.playbackRate(this.defaultPlayback)
