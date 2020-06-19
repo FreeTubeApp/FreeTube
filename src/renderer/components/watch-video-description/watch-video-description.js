@@ -23,15 +23,10 @@ export default Vue.extend({
   },
   data: function () {
     return {
-      dateString: '',
       shownDescription: ''
     }
   },
   mounted: function () {
-    const date = new Date(this.published)
-    const dateSplit = date.toDateString().split(' ')
-    this.dateString = `${dateSplit[0]} ${dateSplit[1]} ${dateSplit[2]}, ${dateSplit[3]}`
-
     if (this.descriptionHtml !== '') {
       this.shownDescription = this.parseDescriptionHtml(this.descriptionHtml)
     } else {

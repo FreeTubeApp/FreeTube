@@ -13,30 +13,42 @@
 .channelInformation
   .profileRow
     display: flex
+    align-items: center
 
   .channelThumbnail
     border-radius: 50%
     margin-right: 8px
+    position: relative
+    top: -4px
     cursor: pointer
 
   .channelName
     margin-left: 6px
+    font-size: 18px
     cursor: pointer
 
   .subscribeButton
-    padding: 5px
-    font-size: 14px
+    margin-top: 8px
+    margin-left: 6px
+    padding: 6px
+    font-size: 16px
 
-.datePublished
-  margin-bottom: 24px
+.viewCount, .datePublished
+  color: var(--secondary-text-color)
+  text-align: right
+  font-size: 15px
+
+  @media screen and (max-width: 680px)
+    text-align: left
 
 .viewCount
+  margin: 6px 0px 0px
+
+.datePublished
   margin: 4px 0px 0px
-  text-align: right
 
   @media screen and (max-width: 680px)
     margin-top: 16px
-    text-align: left
 
 .likeSection
   margin-top: 16px
@@ -50,6 +62,7 @@
 
   @media screen and (max-width: 680px)
     margin-left: 0
+    text-align: left
 
   .likeBar
     height: 8px

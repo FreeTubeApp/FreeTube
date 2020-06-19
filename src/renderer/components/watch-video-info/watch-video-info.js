@@ -97,6 +97,12 @@ export default Vue.extend({
 
     subscribedText: function () {
       return `SUBSCRIBE ${this.subscriptionCountText}`
+    },
+
+    dateString() {
+      const date = new Date(this.published)
+      const dateSplit = date.toDateString().split(' ')
+      return `${dateSplit[1]} ${dateSplit[2]} ${dateSplit[3]}`
     }
   },
   methods: {

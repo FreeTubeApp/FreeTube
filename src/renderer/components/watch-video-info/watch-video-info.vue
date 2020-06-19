@@ -37,9 +37,12 @@
       </div>
     </div>
     <div>
-      <p class="viewCount">
+      <div class="datePublished">
+        Published {{ dateString }}
+      </div>
+      <div class="viewCount">
         {{ parsedViewCount }}
-      </p>
+      </div>
       <div class="likeBarContainer">
         <div
           class="likeSection"
