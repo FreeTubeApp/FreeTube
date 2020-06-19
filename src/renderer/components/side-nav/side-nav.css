@@ -108,6 +108,10 @@
 }
 
 @media only screen and (max-width: 680px) {
+  .inner {
+    display: contents; /* sunglasses emoji */
+  }
+
   hr, .mobileHidden, .refreshIcon {
     display: none;
   }
