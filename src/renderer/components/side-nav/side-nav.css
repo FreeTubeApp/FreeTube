@@ -2,17 +2,28 @@
   display: block;
   height: calc(100vh - 60px);
   width: 200px;
-  overflow-y: auto;
+  overflow-x: hidden;
   position: fixed;
   left: 0px;
   top: 0px;
   z-index: 1;
   margin-top: 60px;
-  -webkit-box-shadow: 1px -1px 1px -1px var(--primary-shadow-color);
+  box-shadow: 1px -1px 1px -1px var(--primary-shadow-color);
   background-color: var(--side-nav-color);
   transition-property: width;
   transition-duration: 150ms;
   transition-timing-function: ease-in-out;
+}
+
+.inner {
+  height: 100%;
+  width: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.closed .inner {
+  width: 80px;
 }
 
 .topNavOption {
