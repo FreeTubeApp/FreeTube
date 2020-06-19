@@ -19,6 +19,11 @@ const isDev = process.env.NODE_ENV === 'development'
 const isDebug = process.argv.includes('--debug')
 let mainWindow
 
+// CORS somehow gets re-enabled in Electron v9.0.4
+// This line disables it.
+// This line can possible be removed if the issue is fixed upstream
+app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors')
+
 // only allow single instance of application
 if (!isDev) {
   if (gotTheLock) {

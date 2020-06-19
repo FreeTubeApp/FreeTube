@@ -102,7 +102,7 @@ export default Vue.extend({
     dateString() {
       const date = new Date(this.published)
       const dateSplit = date.toDateString().split(' ')
-      return `${dateSplit[1]} ${dateSplit[2]} ${dateSplit[3]}`
+      return `${dateSplit[1]} ${dateSplit[2]}, ${dateSplit[3]}`
     }
   },
   methods: {
