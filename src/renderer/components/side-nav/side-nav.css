@@ -132,7 +132,7 @@
     width: 100%;
     bottom: 0px;
     top: auto;
-    overflow-y: inherit;
+    overflow-y: hidden;
   }
 
   .navOption, .closed .navOption {
