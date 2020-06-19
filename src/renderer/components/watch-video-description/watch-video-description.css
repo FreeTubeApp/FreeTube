@@ -1,7 +1,10 @@
+.videoDescription {
+  overflow-y: auto;
+  max-height: 300px;
+}
+
 .description {
   font-family: 'Roboto', sans-serif;
   font-size: 17px;
   white-space: pre-wrap;
-  max-height: 300px;
-  overflow-y: auto;
 }
