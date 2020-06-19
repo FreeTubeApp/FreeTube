@@ -23,6 +23,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
+    - run: npm run lint
     - run: npm run build --if-present
     - name: Upload .deb Artifact
       uses: actions/upload-artifact@v2
