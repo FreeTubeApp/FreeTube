@@ -40,7 +40,6 @@
           class="searchInput"
           :is-search="true"
           :data-list="searchSuggestionsDataList"
-          :value="searchValue"
           @input="getSearchSuggestionsDebounce"
           @click="goToSearch"
         />

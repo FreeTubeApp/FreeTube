@@ -17,7 +17,6 @@ export default Vue.extend({
       component: this,
       windowWidth: 0,
       showFilters: false,
-      searchValue: '',
       searchSuggestionsDataList: []
     }
   },
@@ -126,20 +125,17 @@ export default Vue.extend({
     getSearchSuggestionsLocal: function (query) {
       if (query === '') {
         this.searchSuggestionsDataList = []
-        this.searchValue = ''
         return
       }
 
       ytSuggest(query).then((results) => {
         this.searchSuggestionsDataList = results
-        this.searchValue = query
       })
     },
 
     getSearchSuggestionsInvidious: function (query) {
       if (query === '') {
         this.searchSuggestionsDataList = []
-        this.searchValue = ''
         return
       }
 
@@ -153,7 +149,6 @@ export default Vue.extend({
 
       this.$store.dispatch('invidiousAPICall', searchPayload).then((results) => {
         this.searchSuggestionsDataList = results.suggestions
-        this.searchValue = query
       }).error((err) => {
         console.log(err)
         if (this.backendFallback) {

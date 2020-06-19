@@ -49,6 +49,7 @@ export default Vue.extend({
   },
   mounted: function () {
     this.id = this._uid
+    this.inputData = this.value
 
     setTimeout(this.addListener, 200)
   },
@@ -57,9 +58,8 @@ export default Vue.extend({
       this.$emit('click', this.inputData)
     },
 
-    handleInput: function (input) {
-      this.inputData = input
-      this.$emit('input', input)
+    handleInput: function () {
+      this.$emit('input', this.inputData)
     },
 
     addListener: function () {
