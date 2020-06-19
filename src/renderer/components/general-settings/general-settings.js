@@ -552,6 +552,9 @@ export default Vue.extend({
     invidiousInstance: function () {
       return this.$store.getters.getInvidiousInstance
     },
+    enableSearchSuggestions: function () {
+      return this.$store.getters.getEnableSearchSuggestions
+    },
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
@@ -616,6 +619,7 @@ export default Vue.extend({
     },
 
     ...mapActions([
+      'updateEnableSearchSuggestions',
       'updateBackendFallback',
       'updateCheckForUpdates',
       'updateBarColor',

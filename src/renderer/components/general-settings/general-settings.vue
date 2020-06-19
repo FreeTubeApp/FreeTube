@@ -13,6 +13,11 @@
         @change="updateBackendFallback"
       />
       <ft-toggle-switch
+        label="Enable Search Suggestions"
+        :default-value="enableSearchSuggestions"
+        @change="updateEnableSearchSuggestions"
+      />
+      <ft-toggle-switch
         v-if="false"
         label="Check for Updates"
         :default-value="checkForUpdates"

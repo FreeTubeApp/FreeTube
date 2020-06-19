@@ -22,6 +22,10 @@ export default Vue.extend({
     }
   },
   computed: {
+    enableSearchSuggestions: function () {
+      return this.$store.getters.getEnableSearchSuggestions
+    },
+
     searchSettings: function () {
       return this.$store.getters.getSearchSettings
     },
@@ -103,7 +107,9 @@ export default Vue.extend({
     },
 
     getSearchSuggestionsDebounce: function (query) {
-      this.debounceSearchResults(query)
+      if (this.enableSearchSuggestions) {
+        this.debounceSearchResults(query)
+      }
     },
 
     getSearchSuggestions: function (query) {
