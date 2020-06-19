@@ -15,11 +15,12 @@
   @media only screen and (max-width: 1350px)
     +theatre-mode-template
 
+  @media only screen and (min-width: 901px)
+    &.useTheatreMode
+      +theatre-mode-template
+
   @media only screen and (max-width: 900px)
     +single-column-template
-
-  &.useTheatreMode
-    +theatre-mode-template
 
   &.isLoading
     +single-column-template
@@ -44,7 +45,9 @@
 
   .sidebarArea
     grid-area: sidebar
-    min-width: 380px
+
+    @media only screen and (min-width: 901px)
+      min-width: 380px
 
   .watchVideoPlaylist, .watchVideoSidebar, .theatrePlaylist
     height: 500px
