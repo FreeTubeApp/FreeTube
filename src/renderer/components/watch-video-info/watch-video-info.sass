@@ -1,0 +1,87 @@
+.watchVideoInfo
+  display: grid
+  grid-template-columns: 2fr 1fr
+  padding: 16px
+
+  @media screen and (max-width: 680px)
+    grid-template-columns: auto
+
+.videoTitle
+  font-size: 22px
+  margin: 0 0 24px
+
+.channelInformation
+  .profileRow
+    display: flex
+
+  .channelThumbnail
+    border-radius: 50%
+    margin-right: 10px
+    cursor: pointer
+    width: 56px
+
+  .channelName
+    margin-left: 6px
+    cursor: pointer
+    position: relative
+    top: -2px
+
+  .subscribeButton
+    margin-top: 6px
+    margin-left: 6px
+    padding: 6px
+    font-size: 14px
+
+.viewCount, .datePublished
+  color: var(--secondary-text-color)
+  text-align: right
+  font-size: 15px
+
+  @media screen and (max-width: 680px)
+    text-align: left
+
+.viewCount
+  margin: 18px 0px 0px
+
+.datePublished
+  margin: 4px 0px 0px
+
+  @media screen and (max-width: 680px)
+    margin-top: 16px
+
+.likeSection
+  margin-top: 4px
+  font-size: 12px
+  color: var(--tertiary-text-color)
+  display: flex
+  flex-direction: column
+  margin-left: auto
+  text-align: right
+  max-width: 210px
+
+  @media screen and (max-width: 680px)
+    margin-left: 0
+    text-align: left
+
+  .likeBar
+    height: 8px
+    border-radius: 4px
+    margin-bottom: 4px
+
+  .likeCount
+    margin-right: 6px
+
+.videoOptions
+  margin-top: 16px
+  display: flex
+  justify-content: flex-end
+
+  .option:not(:first-child)
+    margin-left: 4px
+
+  @media screen and (max-width: 680px)
+    justify-content: flex-start
+
+  @media only screen and (max-width: 1350px)
+    .theatreModeButton
+      display: none

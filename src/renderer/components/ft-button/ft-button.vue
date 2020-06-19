@@ -8,7 +8,9 @@
     }"
     @click="$emit('click')"
   >
-    {{ label }}
+    <slot>
+      {{ label }}
+    </slot>
   </button>
 </template>
 

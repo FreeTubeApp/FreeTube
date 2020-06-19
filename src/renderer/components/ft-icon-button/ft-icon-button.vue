@@ -24,22 +24,23 @@
       }"
     >
       <slot>
-        <div
+        <ul
+          class="list"
           v-if="dropdownNames.length > 0"
         >
-          <p
+          <li
             v-for="(label, index) in dropdownNames"
             :key="index"
-            class="dropdownItem
+            class="listItem"
             @click="handleDropdownClick(index)"
           >
             {{ label }}
-          </p>
-        </div>
+          </li>
+        </ul>
       </slot>
     </div>
   </div>
 </template>
 
 <script src="./ft-icon-button.js" />
-<style scoped src="./ft-icon-button.css" />
+<style scoped lang="sass" src="./ft-icon-button.sass" />

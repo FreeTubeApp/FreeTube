@@ -190,3 +190,58 @@
   height: 35px;
   overflow: hidden;
 }
+
+.videoRecommendation.list {
+  height: 110px;
+}
+
+.videoRecommendation.list .videoThumbnail {
+  width: 180px;
+  height: 100px;
+}
+
+.videoRecommendation.list .videoThumbnail img {
+  height: 100px;
+}
+
+.videoRecommendation.list .videoTitle {
+  font-size: 12px;
+  margin-left: 185px;
+}
+
+.videoRecommendation.list .channelName {
+  margin-left: 185px;
+}
+
+.videoRecommendation.list .viewCount {
+  margin-left: 5px;
+}
+
+.playlistItem .list {
+  height: 60px;
+  width: calc(100% - 30px);
+}
+
+.playlistItem .list .videoThumbnail {
+  width: 100px;
+  height: 60px;
+}
+
+.playlistItem .list .videoThumbnail img {
+  height: 60px;
+}
+
+.playlistItem .list .videoTitle {
+  font-size: 12px;
+  margin-left: 105px;
+  margin-right: 30px;
+}
+
+.playlistItem .list .channelName {
+  margin-left: 105px;
+  margin-right: 30px;
+}
+
+.playlistItem .list .viewCount {
+  margin-left: 5px;
+}

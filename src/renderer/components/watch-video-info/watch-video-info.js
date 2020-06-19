@@ -4,6 +4,7 @@ import FtButton from '../ft-button/ft-button.vue'
 import FtListDropdown from '../ft-list-dropdown/ft-list-dropdown.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import FtShareButton from '../ft-share-button/ft-share-button.vue'
 // import { shell } from 'electron'
 
 export default Vue.extend({
@@ -13,7 +14,8 @@ export default Vue.extend({
     'ft-button': FtButton,
     'ft-list-dropdown': FtListDropdown,
     'ft-flex-box': FtFlexBox,
-    'ft-icon-button': FtIconButton
+    'ft-icon-button': FtIconButton,
+    'ft-share-button': FtShareButton
   },
   props: {
     id: {
@@ -69,19 +71,6 @@ export default Vue.extend({
         'dash',
         'legacy',
         'audio'
-      ],
-      shareLabel: 'SHARE VIDEO',
-      shareNames: [
-        'COPY INVIDIOUS LINK',
-        'OPEN INVIDIOUS LINK',
-        'COPY YOUTUBE LINK',
-        'OPEN YOUTUBE LINK'
-      ],
-      shareValues: [
-        'copyInvidious',
-        'openInvidious',
-        'copyYoutube',
-        'openYoutube'
       ]
     }
   },
@@ -92,18 +81,6 @@ export default Vue.extend({
 
     usingElectron: function () {
       return this.$store.getters.getUsingElectron
-    },
-
-    invidiousUrl: function () {
-      return `${this.invidiousInstance}/watch?v=${this.id}`
-    },
-
-    youtubeUrl: function () {
-      return `https://www.youtube.com/watch?v=${this.id}`
-    },
-
-    youtubeEmbedUrl: function () {
-      return `https://www.youtube-nocookie.com/embed/${this.id}`
     },
 
     totalLikeCount: function () {
@@ -120,6 +97,12 @@ export default Vue.extend({
 
     subscribedText: function () {
       return `SUBSCRIBE ${this.subscriptionCountText}`
+    },
+
+    dateString() {
+      const date = new Date(this.published)
+      const dateSplit = date.toDateString().split(' ')
+      return `${dateSplit[1]} ${dateSplit[2]} ${dateSplit[3]}`
     }
   },
   methods: {
@@ -141,40 +124,6 @@ export default Vue.extend({
           break
         case 'audio':
           this.$parent.enableAudioFormat()
-          break
-      }
-    },
-
-    handleShare: function (method) {
-      console.log('Handling share')
-
-      switch (method) {
-        case 'copyYoutube':
-          navigator.clipboard.writeText(this.youtubeUrl)
-          break
-        case 'openYoutube':
-          if (this.usingElectron) {
-            const shell = require('electron').shell
-            shell.openExternal(this.youtubeUrl)
-          }
-          break
-        case 'copyYoutubeEmbed':
-          navigator.clipboard.writeText(this.youtubeEmbedUrl)
-          break
-        case 'openYoutubeEmbed':
-          if (this.usingElectron) {
-            const shell = require('electron').shell
-            shell.openExternal(this.youtubeEmbedUrl)
-          }
-          break
-        case 'copyInvidious':
-          navigator.clipboard.writeText(this.invidiousUrl)
-          break
-        case 'openInvidious':
-          if (this.usingElectron) {
-            const shell = require('electron').shell
-            shell.openExternal(this.invidiousUrl)
-          }
           break
       }
     }
