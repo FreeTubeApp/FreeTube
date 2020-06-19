@@ -15,7 +15,7 @@
         :type="source.type || source.mimeType"
         :label="source.qualityLabel"
         :selected="source.qualityLabel === selectedDefaultQuality"
-      />
+      >
       <track
         v-for="(caption, index) in captionList"
         :key="index + '_caption'"

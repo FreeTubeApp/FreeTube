@@ -15,7 +15,7 @@ export default Vue.extend({
   props: {
     label: {
       type: String,
-      default: ""
+      default: ''
     },
     textColor: {
       type: String,

@@ -4,19 +4,19 @@
   >
     <input
       :id="id"
+      v-model.number="currentValue"
       type="range"
       :min="minValue"
       :max="maxValue"
       :step="step"
-      v-model.number="currentValue"
       @change="$emit('change', $event.target.value)"
     >
+    <span>
+      {{ label }} -
       <span>
-        {{ label }} -
-        <span>
-          {{ displayLabel }}
-        </span>
+        {{ displayLabel }}
       </span>
+    </span>
   </label>
 </template>
 

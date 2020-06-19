@@ -24,8 +24,8 @@
       />
     </div>
     <div
-     v-else-if="comments.length === 0"
-     class="messageContainer liveChatMessage"
+      v-else-if="comments.length === 0"
+      class="messageContainer liveChatMessage"
     >
       <p
         class="message"
@@ -53,7 +53,7 @@
           <img
             :src="comment.author.thumbnail.url"
             class="channelThumbnail"
-          />
+          >
           <p
             class="superChatContent"
             :style="{ color: 'var(--text-with-main-color)' }"
@@ -67,8 +67,8 @@
         </div>
       </div>
       <div
-        class="openedSuperChat"
         v-if="showSuperChat"
+        class="openedSuperChat"
         :class="superChat.superchat.colorClass"
         @click="showSuperChat = false"
       >
@@ -82,7 +82,7 @@
             <img
               :src="superChat.author.thumbnail.url"
               class="channelThumbnail"
-            />
+            >
             <p
               class="channelName"
             >
@@ -95,11 +95,10 @@
             </p>
           </div>
           <p
-            class="chatMessage"
             v-if="superChat.message.length > 0"
+            class="chatMessage"
             v-html="superChat.messageHtml"
-          >
-          </p>
+          />
         </div>
       </div>
       <div
@@ -107,9 +106,11 @@
         :style="{ height: chatHeight }"
         @mousewheel="e => onScroll(e)"
       >
-        <div v-for="(comment, index) in comments"
-        :key="index"
-        class="comment">
+        <div
+          v-for="(comment, index) in comments"
+          :key="index"
+          class="comment"
+        >
           <div
             v-if="typeof (comment.superchat) !== 'undefined'"
             class="superChatMessage"
@@ -121,7 +122,7 @@
               <img
                 :src="comment.author.thumbnail.url"
                 class="channelThumbnail"
-              />
+              >
               <p
                 class="channelName"
               >
@@ -134,50 +135,48 @@
               </p>
             </div>
             <p
-              class="chatMessage"
               v-if="comment.message.length > 0"
+              class="chatMessage"
               v-html="comment.messageHtml"
-            >
-            </p>
+            />
           </div>
           <div
             v-else
           >
-          <img
-            :src="comment.author.thumbnail.url"
-            class="channelThumbnail"
-          />
-          <p
-            class="chatContent"
-          >
-            <span
-              class="channelName"
-              :class="{
-                member: typeof (comment.author.badge) !== 'undefined' || comment.membership,
-                moderator: comment.isOwner,
-                owner: comment.author.name === channelName
-              }"
+            <img
+              :src="comment.author.thumbnail.url"
+              class="channelThumbnail"
             >
-              {{ comment.author.name }}
-            </span>
-            <span
-              v-if="typeof (comment.author.badge) !== 'undefined'"
-              class="badge"
+            <p
+              class="chatContent"
             >
-              <img
-                :src="comment.author.badge.thumbnail.url"
-                :alt="comment.author.badge.thumbnail.alt"
-                :title="comment.author.badge.thumbnail.alt"
-                class="badgeImage"
+              <span
+                class="channelName"
+                :class="{
+                  member: typeof (comment.author.badge) !== 'undefined' || comment.membership,
+                  moderator: comment.isOwner,
+                  owner: comment.author.name === channelName
+                }"
+              >
+                {{ comment.author.name }}
+              </span>
+              <span
+                v-if="typeof (comment.author.badge) !== 'undefined'"
+                class="badge"
+              >
+                <img
+                  :src="comment.author.badge.thumbnail.url"
+                  :alt="comment.author.badge.thumbnail.alt"
+                  :title="comment.author.badge.thumbnail.alt"
+                  class="badgeImage"
+                >
+              </span>
+              <span
+                v-if="comment.message.length > 0"
+                class="chatMessage"
+                v-html="comment.messageHtml"
               />
-            </span>
-            <span
-              class="chatMessage"
-              v-if="comment.message.length > 0"
-              v-html="comment.messageHtml"
-            >
-            </span>
-          </p>
+            </p>
           </div>
         </div>
       </div>

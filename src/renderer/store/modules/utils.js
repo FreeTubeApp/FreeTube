@@ -56,7 +56,7 @@ const actions = {
   getVideoIdFromUrl ({ state }, url) {
     console.log('checking for id')
     console.log(url)
-    const rx = /^.*(?:(?:(you|hook)tu\.?be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/
+    const rx = /^.*(?:(?:(you|hook)tu\.?be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|&v(?:i)?=))([^#&?]*).*/
 
     const match = url.match(rx)
 

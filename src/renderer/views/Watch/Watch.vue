@@ -14,6 +14,7 @@
       <div class="videoAreaMargin">
         <ft-video-player
           v-if="!isLoading && !hidePlayer"
+          ref="videoPlayer"
           :dash-src="dashSrc"
           :source-list="activeSourceList"
           :caption-list="captionSourceList"
@@ -22,7 +23,6 @@
           :thumbnail="thumbnail"
           class="videoPlayer"
           :class="{ theatrePlayer: useTheatreMode }"
-          ref="videoPlayer"
           @ended="handleVideoEnded"
           @error="handleVideoError"
         />
@@ -41,9 +41,9 @@
         :like-count="videoLikeCount"
         :dislike-count="videoDislikeCount"
         :view-count="videoViewCount"
-        @theatreMode="toggleTheatreMode"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
+        @theatreMode="toggleTheatreMode"
       />
       <watch-video-description
         v-if="!isLoading"
@@ -71,9 +71,9 @@
       <watch-video-playlist
         v-if="watchingPlaylist"
         v-show="!isLoading"
+        ref="watchVideoPlaylist"
         :playlist-id="playlistId"
         :video-id="videoId"
-        ref="watchVideoPlaylist"
         class="watchVideoSideBar watchVideoPlaylist"
         :class="{ theatrePlaylist: useTheatreMode }"
       />

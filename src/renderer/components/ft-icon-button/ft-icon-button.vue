@@ -25,8 +25,8 @@
     >
       <slot>
         <ul
-          class="list"
           v-if="dropdownNames.length > 0"
+          class="list"
         >
           <li
             v-for="(label, index) in dropdownNames"

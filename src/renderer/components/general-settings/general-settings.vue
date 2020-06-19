@@ -1,6 +1,7 @@
 <template>
   <ft-card
-    class="card">
+    class="card"
+  >
     <h3
       class="videoTitle"
     >
