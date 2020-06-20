@@ -65,20 +65,20 @@ const actions = {
     const extractors = [
       // anything with /watch?v=
       function() {
-        if (urlObject.pathname === "/watch" && urlObject.searchParams.has("v")) {
-          return urlObject.searchParams.get("v")
+        if (urlObject.pathname === '/watch' && urlObject.searchParams.has('v')) {
+          return urlObject.searchParams.get('v')
         }
       },
       // youtu.be
       function() {
-        if (urlObject.host === "youtu.be" && urlObject.pathname.match(/^\/[A-Za-z0-9_-]+$/)) {
+        if (urlObject.host === 'youtu.be' && urlObject.pathname.match(/^\/[A-Za-z0-9_-]+$/)) {
           return urlObject.pathname.slice(1)
         }
       },
       // cloudtube
       function() {
         if (urlObject.host.match(/^cadence\.(gq|moe)$/) && urlObject.pathname.match(/^\/cloudtube\/video\/[A-Za-z0-9_-]+$/)) {
-          return urlObject.pathname.slice("/cloudtube/video/".length)
+          return urlObject.pathname.slice('/cloudtube/video/'.length)
         }
       }
     ]
