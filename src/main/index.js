@@ -63,6 +63,7 @@ function createWindow () {
     backgroundColor: '#fff',
     width: 960,
     height: 540,
+    autoHideMenuBar: true,
     // useContentSize: true,
     webPreferences: {
       nodeIntegration: true,
