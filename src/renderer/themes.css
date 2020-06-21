@@ -6,12 +6,15 @@
   --primary-shadow-color: rgba(232, 232, 232, 1);
   --title-color: #3f7ac6;
   --bg-color: #f1f1f1;
+  --link-color: var(--primary-color);
+  --link-visited-color: var(--accent-color-light);
   --card-bg-color: #FFFFFF;
   --secondary-card-bg-color: #eeeeee;
   --side-nav-color: #FFFFFF;
   --side-nav-hover-color: #e0e0e0;
   --side-nav-active-color: #757575;
   --search-bar-color: #f5f5f5;
+  --instance-menu-color: var(--search-bar-color);
   --logo-icon: url("~../../_icons/iconColorSmall.png");
   --logo-text: url("~../../_icons/textColorSmall.png");
 }
@@ -25,16 +28,39 @@
   --primary-shadow-color: rgba(0, 0, 0, 0.75);
   --title-color: #EEEEEE;
   --bg-color: #212121;
+  --link-color: var(--primary-color);
+  --link-visited-color: var(--accent-color-light);
   --card-bg-color: #303030;
   --secondary-card-bg-color: rgba(0, 0, 0, 0.75);
   --side-nav-color: #262626;
   --side-nav-hover-color: #212121;
   --side-nav-active-color: #303030;
   --search-bar-color: #262626;
+  --instance-menu-color: var(--search-bar-color);
   --logo-icon: url("~../../_icons/iconColorSmall.png");
   --logo-text: url("~../../_icons/textColorSmall.png");
 }
 
+.black {
+    --primary-text-color: #EEEEEE;
+    --secondary-text-color: #ddd;
+    --tertiary-text-color: #EEEEEE;
+    --primary-input-color: rgba(0, 0, 0, 0.50);
+    --primary-shadow-color: rgba(0, 0, 0, 0.75);
+    --title-color: #EEEEEEE;
+    --bg-color: #000000;
+    --link-color: var(--primary-color);
+    --link-visited-color: var(--accent-color-light);
+    --card-bg-color: #000000;
+    --secondary-card-bg-color: rgba(0, 0, 0, 0.75);
+    --side-nav-color: #000000;
+    --side-nav-hover-color: #212121;
+    --side-nav-active-color: #303030;
+    --search-bar-color: #262626;
+    --instance-menu-color: var(--search-bar-color);
+	--logo-icon: url("~../../_icons/iconColorSmall.png");
+   	--logo-text: url("~../../_icons/textColorSmall.png");
+}
 
 .gray {
   --primary-text-color: #EEEEEE;
@@ -399,4 +425,10 @@ body {
 #app {
   color: var(--primary-text-color);
   background-color: var(--bg-color);
+}
+a:link {
+    color: var(--link-color);
+}
+a:visited {
+    color: var(--link-visited-color);
 }
