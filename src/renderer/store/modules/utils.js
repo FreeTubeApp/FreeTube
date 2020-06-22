@@ -53,18 +53,37 @@ const actions = {
     return state.colorClasses[randomInt]
   },
 
-  getVideoIdFromUrl ({ state }, url) {
-    console.log('checking for id')
-    console.log(url)
-    const rx = /^.*(?:(?:(you|hook)tu\.?be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|&v(?:i)?=))([^#&?]*).*/
-
-    const match = url.match(rx)
-
-    if (match) {
-      return match[2]
-    } else {
+  getVideoIdFromUrl (_, url) {
+    /** @type {URL} */
+    let urlObject
+    try {
+      urlObject = new URL(url)
+    } catch (e) {
       return false
     }
+
+    const extractors = [
+      // anything with /watch?v=
+      function() {
+        if (urlObject.pathname === '/watch' && urlObject.searchParams.has('v')) {
+          return urlObject.searchParams.get('v')
+        }
+      },
+      // youtu.be
+      function() {
+        if (urlObject.host === 'youtu.be' && urlObject.pathname.match(/^\/[A-Za-z0-9_-]+$/)) {
+          return urlObject.pathname.slice(1)
+        }
+      },
+      // cloudtube
+      function() {
+        if (urlObject.host.match(/^cadence\.(gq|moe)$/) && urlObject.pathname.match(/^\/cloudtube\/video\/[A-Za-z0-9_-]+$/)) {
+          return urlObject.pathname.slice('/cloudtube/video/'.length)
+        }
+      }
+    ]
+
+    return extractors.reduce((a, c) => a || c(), null) || false
   }
 }
 

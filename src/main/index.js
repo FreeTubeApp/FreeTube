@@ -14,7 +14,7 @@ app.setName(productName)
 // disable electron warning
 process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true'
 
-const gotTheLock = app.requestSingleInstanceLock()
+// const gotTheLock = app.requestSingleInstanceLock()
 const isDev = process.env.NODE_ENV === 'development'
 const isDebug = process.argv.includes('--debug')
 let mainWindow
@@ -24,25 +24,26 @@ let mainWindow
 // This line can possible be removed if the issue is fixed upstream
 app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors')
 
+// TODO: Uncomment if needed
 // only allow single instance of application
-if (!isDev) {
-  if (gotTheLock) {
-    app.on('second-instance', () => {
-      // Someone tried to run a second instance, we should focus our window.
-      if (mainWindow && mainWindow.isMinimized()) {
-        mainWindow.restore()
-      }
-      mainWindow.focus()
-    })
-  } else {
-    app.quit()
-    process.exit(0)
-  }
-} else {
-  require('electron-debug')({
-    showDevTools: !(process.env.RENDERER_REMOTE_DEBUGGING === 'true')
-  })
-}
+// if (!isDev) {
+//   if (gotTheLock) {
+//     app.on('second-instance', () => {
+//       // Someone tried to run a second instance, we should focus our window.
+//       if (mainWindow && mainWindow.isMinimized()) {
+//         mainWindow.restore()
+//       }
+//       mainWindow.focus()
+//     })
+//   } else {
+//     app.quit()
+//     process.exit(0)
+//   }
+// } else {
+//   require('electron-debug')({
+//     showDevTools: !(process.env.RENDERER_REMOTE_DEBUGGING === 'true')
+//   })
+// }
 
 async function installDevTools () {
   try {
@@ -70,7 +71,6 @@ function createWindow () {
       webSecurity: false,
       backgroundThrottling: false
     },
-    show: false
   })
 
   // eslint-disable-next-line

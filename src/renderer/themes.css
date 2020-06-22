@@ -454,6 +454,7 @@ a:link {
 a:visited {
     color: var(--link-visited-color);
 }
+<<<<<<< HEAD
 ::-webkit-scrollbar {
 	width: 10px;
 }
@@ -465,3 +466,5 @@ a:visited {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--scrollbar-color-hover);
 }
+=======
+>>>>>>> 9b9313d348ab019cb17ffb3478fe3c4c7b0292e5
