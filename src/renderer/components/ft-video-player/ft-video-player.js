@@ -249,7 +249,7 @@ export default Vue.extend({
           }, 200)
         }
 
-        $(document).on('keydown', this.keyboardShortcutHandler)
+        // $(document).on('keydown', this.keyboardShortcutHandler)
 
         this.player.on('mousemove', this.hideMouseTimeout)
         this.player.on('mouseleave', this.removeMouseTimeout)
