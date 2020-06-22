@@ -10,6 +10,8 @@
   --link-visited-color: var(--accent-color-visited);
   --card-bg-color: #FFFFFF;
   --secondary-card-bg-color: #eeeeee;
+  --scrollbar-color: #9E9E9E;
+  --scrollbar-color-hover: #BDBDBD;
   --side-nav-color: #FFFFFF;
   --side-nav-hover-color: #e0e0e0;
   --side-nav-active-color: #757575;
@@ -32,6 +34,8 @@
   --link-visited-color: var(--accent-color-visited);
   --card-bg-color: #303030;
   --secondary-card-bg-color: rgba(0, 0, 0, 0.75);
+  --scrollbar-color: #616161;
+  --scrollbar-color-hover: #757575;
   --side-nav-color: #262626;
   --side-nav-hover-color: #212121;
   --side-nav-active-color: #303030;
@@ -53,6 +57,8 @@
     --link-visited-color: var(--accent-color-visited);
     --card-bg-color: #000000;
     --secondary-card-bg-color: rgba(0, 0, 0, 0.75);
+    --scrollbar-color: #212121;
+    --scrollbar-color-hover: #424242;
     --side-nav-color: #000000;
     --side-nav-hover-color: #212121;
     --side-nav-active-color: #303030;
@@ -453,9 +459,9 @@ a:visited {
 }
 ::-webkit-scrollbar-thumb {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
-  background: var(--primary-color);
+  background: var(--scrollbar-color);
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-color-active);
+  background: var(--scrollbar-color-hover);
 }
