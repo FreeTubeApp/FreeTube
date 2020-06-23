@@ -10,6 +10,10 @@
         secondary: theme === 'secondary',
         shadow: useShadow
       }"
+      :style="{
+        padding: padding + 'px',
+        fontSize: size + 'px'
+      }"
       @click="handleIconClick"
     />
     <div

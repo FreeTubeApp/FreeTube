@@ -12,4 +12,7 @@
 .playlistItems {
   float: right;
   width: 60%;
+  padding: 10px;
+  display: grid;
+  grid-gap: 10px;
 }

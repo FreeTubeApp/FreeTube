@@ -13,16 +13,14 @@
       v-if="!isLoading"
       class="playlistItems"
     >
-      <ft-flex-box>
-        <ft-list-video
-          v-for="(item, index) in playlistItems"
-          :key="index"
-          :data="item"
-          :playlist-id="playlistId"
-          force-list-type="list"
-          class="playlistItem"
-        />
-      </ft-flex-box>
+      <ft-list-video
+        v-for="(item, index) in playlistItems"
+        :key="index"
+        :data="item"
+        :playlist-id="playlistId"
+        appearance="result"
+        force-list-type="list"
+      />
     </ft-card>
   </div>
 </template>

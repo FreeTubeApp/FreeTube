@@ -1,7 +1,4 @@
-.relative {
-  position: relative;
-}
-
-.videoRecommendation {
-  margin-bottom: -15px;
+.watchVideoRecommendations {
+	display: grid;
+	grid-gap: 8px;
 }

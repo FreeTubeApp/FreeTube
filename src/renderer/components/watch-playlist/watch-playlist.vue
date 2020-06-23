@@ -14,6 +14,7 @@
         />
         <ft-list-video
           v-if="result.type === 'video' || result.type === 'shortVideo'"
+          appearance="result"
           :data="result"
         />
         <ft-list-playlist
@@ -35,6 +36,7 @@
         />
         <ft-list-video
           v-if="result.type === 'video' || result.type === 'shortVideo'"
+          appearance="result"
           :data="result"
         />
         <ft-list-playlist

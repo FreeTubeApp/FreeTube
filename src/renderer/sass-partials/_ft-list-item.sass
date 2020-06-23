@@ -1,0 +1,151 @@
+$thumbnail-overlay-opacity: 0.85
+
+@mixin is-result
+  @at-root
+    .result#{&}
+      @content
+
+@mixin is-watch-playlist-item
+  @at-root
+    .watchPlaylistItem#{&}
+      @content
+
+@mixin is-recommendation
+  @at-root
+    .recommendation#{&}
+      @content
+
+@mixin is-sidebar-item
+  @at-root
+    .watchPlaylistItem#{&}, .recommendation#{&}
+      @content
+
+.ft-list-video
+  .videoThumbnail
+    display: flex
+    position: relative
+
+    .thumbnailLink
+      display: flex
+
+    .thumbnailImage
+      height: 130px
+
+      @include is-sidebar-item
+        height: 75px
+
+      @include is-recommendation
+        width: 163px
+        height: auto
+
+    .videoDuration
+      position: absolute
+      bottom: 4px
+      right: 4px
+      padding: 3px 4px
+      line-height: 1.2
+      font-size: 15px
+      border-radius: 5px
+      margin: 0
+      opacity: $thumbnail-overlay-opacity
+      color: var(--primary-text-color)
+      background-color: var(--card-bg-color)
+
+      &.live
+        background-color: #f22
+        color: #fff
+
+    .favoritesIcon
+      position: absolute
+      top: 3px
+      right: 3px
+      font-size: 17px
+      opacity: $thumbnail-overlay-opacity
+
+    .videoCountContainer
+      position: absolute
+      right: 0
+      top: 0
+      bottom: 0
+      width: 60px
+      font-size: 20px
+
+      .background, .inner
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 0
+        right: 0
+
+      .background
+        background-color: var(--bg-color)
+        opacity: 0.9
+
+      .inner
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        color: var(--primary-text-color)
+
+  .videoInfo
+    flex: 1
+    position: relative
+
+    .optionsButton
+      float: right // ohhhh man, float was finally the right choice for something
+
+    .title
+      font-size: 20px
+      color: var(--primary-text-color)
+      text-decoration: none
+
+      @include is-sidebar-item
+        font-size: 15px
+
+    .infoLine
+      margin-top: 5px
+      font-size: 14px
+
+      @include is-sidebar-item
+        font-size: 12px
+
+      &, .channelName
+        color: var(--secondary-text-color)
+
+    .description
+      font-size: 14px
+      color: var(--secondary-text-color)
+
+  &.list
+    display: flex
+    align-items: flex-start
+
+    .videoThumbnail
+      margin-right: 20px
+
+      @include is-sidebar-item
+        margin-right: 10px
+
+  &.grid
+    display: flex
+    flex-direction: column
+    min-height: 230px
+    padding-bottom: 20px
+
+    .videoThumbnail
+      margin-bottom: 12px
+
+      .thumbnailImage
+        width: 100%
+
+    .title
+      font-size: 18px
+
+    .infoLine
+      margin-top: 8px
+      font-size: 13px
+
+
+.videoWatched, .live
+  text-transform: uppercase

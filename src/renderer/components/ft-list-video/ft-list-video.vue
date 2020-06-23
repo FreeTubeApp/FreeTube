@@ -3,25 +3,37 @@
     class="ft-list-video"
     :class="{
       list: (listType === 'list' || forceListType === 'list') && forceListType !== 'grid',
-      grid: (listType === 'grid' || forceListType === 'list') && forceListType !== 'list'
+      grid: (listType === 'grid' || forceListType === 'list') && forceListType !== 'list',
+      [appearance]: true
     }"
   >
-    <div class="videoThumbnail">
-      <img
-        :src="thumbnail"
-        @click="play(id)"
+    <div
+      class="videoThumbnail"
+    >
+      <router-link
+        class="thumbnailLink"
+        :to="{
+          path: `/watch/${id}`,
+          query: playlistId ? {playlistId} : {}
+        }"
       >
-      <p
-        v-if="!isLive"
+        <img
+          :src="thumbnail"
+          class="thumbnailImage"
+        >
+      </router-link>
+      <div
         class="videoDuration"
-        @click="play(id)"
+        :class="{ live: isLive }"
       >
-        {{ duration }}
-      </p>
-      <font-awesome-icon
+        {{ isLive ? "Live" : duration }}
+      </div>
+      <ft-icon-button
         v-if="!isLive"
         icon="star"
         class="favoritesIcon"
+        :padding="6"
+        :size="18"
         :class="{ favorited: isFavorited }"
         @click="toggleSave(id)"
       />
@@ -29,7 +41,7 @@
         v-if="watched"
         class="videoWatched"
       >
-        WATCHED
+        Watched
       </div>
       <div
         v-if="watched"
@@ -37,65 +49,42 @@
         :style="{width: progressPercentage + '%'}"
       />
     </div>
-    <ft-icon-button
-      class="optionsButton"
-      title="More Options"
-      theme="base"
-      :use-shadow="false"
-      dropdown-position-x="left"
-      :dropdown-names="optionsNames"
-      :dropdown-values="optionsValues"
-      @click="handleOptionsClick"
-    />
-    <p
-      class="videoTitle"
-      @click="play(id)"
-    >
-      {{ title }}
-    </p>
-    <p
-      class="channelName"
-      @click="goToChannel"
-    >
-      {{ channelName }}
-    </p>
-    <span
-      v-if="!isLive && !hideViews"
-      class="viewCount"
-      @click="play(id)"
-    >
-      {{ viewCount }} views
-    </span>
-    <span
-      v-if="uploadedTime !== '' && !isLive"
-      class="uploadedTime"
-      @click="play(id)"
-    >
-      - {{ uploadedTime }}
-    </span>
-    <span
-      v-if="isLive"
-      class="viewCount"
-      @click="play(id)"
-    >
-      {{ viewCount }} watching
-    </span>
-    <p
-      v-if="listType !== 'grid'"
-      class="description"
-      @click="play(id)"
-    >
-      {{ description }}
-    </p>
-    <span
-      v-if="isLive"
-      class="liveText"
-      @click="play(id)"
-    >
-      LIVE NOW
-    </span>
+    <div class="videoInfo">
+      <ft-icon-button
+        class="optionsButton"
+        title="More Options"
+        theme="base"
+        :size="16"
+        :use-shadow="false"
+        dropdown-position-x="left"
+        :dropdown-names="optionsNames"
+        :dropdown-values="optionsValues"
+        @click="handleOptionsClick"
+      />
+      <router-link
+        class="title"
+        :to="{
+          path: `/watch/${id}`,
+          query: playlistId ? {playlistId} : {}
+        }"
+      >
+        {{ title }}
+      </router-link>
+      <div class="infoLine">
+        <router-link class="channelName" :to="`/channel/${channelId}`">{{ channelName }}</router-link>
+        <span v-if="!isLive && !hideViews" class="viewCount">• {{ viewCount }} views</span>
+        <span v-if="uploadedTime !== '' && !isLive" class="uploadedTime">• {{ uploadedTime }}</span>
+        <span v-if="isLive" class="viewCount">• {{ viewCount }} watching</span>
+      </div>
+      <p
+        v-if="listType !== 'grid' && appearance === 'result'"
+        class="description"
+      >
+        {{ description }}
+      </p>
+    </div>
   </div>
 </template>
 
 <script src="./ft-list-video.js" />
-<style scoped src="./ft-list-video.css" />
+<style scoped src="./ft-list-video.sass" lang="sass" />
