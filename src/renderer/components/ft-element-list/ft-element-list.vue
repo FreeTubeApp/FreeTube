@@ -7,21 +7,21 @@
     >
       <ft-list-channel
         v-if="result.type === 'channel'"
+        :key="index"
         appearance="result"
         :data="result"
-        :key="index"
       />
       <ft-list-video
         v-if="result.type === 'video' || result.type === 'shortVideo'"
+        :key="index"
         appearance="result"
         :data="result"
-        :key="index"
       />
       <ft-list-playlist
         v-if="result.type === 'playlist'"
+        :key="index"
         appearance="result"
         :data="result"
-        :key="index"
       />
     </template>
   </ft-auto-grid>

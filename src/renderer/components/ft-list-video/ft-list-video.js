@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
-import FtCard from "../ft-card/ft-card.vue"
+import FtCard from '../ft-card/ft-card.vue'
 
 export default Vue.extend({
   name: 'FtListVideo',

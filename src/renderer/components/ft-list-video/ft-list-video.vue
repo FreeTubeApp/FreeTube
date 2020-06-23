@@ -71,10 +71,24 @@
         {{ title }}
       </router-link>
       <div class="infoLine">
-        <router-link class="channelName" :to="`/channel/${channelId}`">{{ channelName }}</router-link>
-        <span v-if="!isLive && !hideViews" class="viewCount">• {{ viewCount }} views</span>
-        <span v-if="uploadedTime !== '' && !isLive" class="uploadedTime">• {{ uploadedTime }}</span>
-        <span v-if="isLive" class="viewCount">• {{ viewCount }} watching</span>
+        <router-link
+          class="channelName"
+          :to="`/channel/${channelId}`"
+        >
+          <span>{{ channelName }}</span>
+        </router-link>
+        <span
+          v-if="!isLive && !hideViews"
+          class="viewCount"
+        >• {{ viewCount }} views</span>
+        <span
+          v-if="uploadedTime !== '' && !isLive"
+          class="uploadedTime"
+        >• {{ uploadedTime }}</span>
+        <span
+          v-if="isLive"
+          class="viewCount"
+        >• {{ viewCount }} watching</span>
       </div>
       <p
         v-if="listType !== 'grid' && appearance === 'result'"
