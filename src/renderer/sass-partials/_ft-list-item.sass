@@ -20,7 +20,7 @@ $thumbnail-overlay-opacity: 0.85
     .watchPlaylistItem#{&}, .recommendation#{&}
       @content
 
-.ft-list-video
+.ft-list-item
   .videoThumbnail
     display: flex
     position: relative
@@ -88,7 +88,15 @@ $thumbnail-overlay-opacity: 0.85
         align-items: center
         color: var(--primary-text-color)
 
-  .videoInfo
+  .channelThumbnail
+    display: flex
+    justify-content: center
+
+    .channelImage
+      height: 130px
+      border-radius: 50%
+
+  .info
     flex: 1
     position: relative
 
@@ -121,10 +129,14 @@ $thumbnail-overlay-opacity: 0.85
     display: flex
     align-items: flex-start
 
-    .videoThumbnail
+    .videoThumbnail, .channelThumbnail
       margin-right: 20px
 
-      @include is-sidebar-item
+    .channelThumbnail
+      width: 231px
+
+    @include is-sidebar-item
+      .videoThumbnail
         margin-right: 10px
 
   &.grid
@@ -133,7 +145,7 @@ $thumbnail-overlay-opacity: 0.85
     min-height: 230px
     padding-bottom: 20px
 
-    .videoThumbnail
+    .videoThumbnail, .channelThumbnail
       margin-bottom: 12px
 
       .thumbnailImage
@@ -145,7 +157,6 @@ $thumbnail-overlay-opacity: 0.85
     .infoLine
       margin-top: 8px
       font-size: 13px
-
 
 .videoWatched, .live
   text-transform: uppercase

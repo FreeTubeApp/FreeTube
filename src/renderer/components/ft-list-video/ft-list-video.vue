@@ -1,6 +1,6 @@
 <template>
   <div
-    class="ft-list-video"
+    class="ft-list-video ft-list-item"
     :class="{
       list: (listType === 'list' || forceListType === 'list') && forceListType !== 'grid',
       grid: (listType === 'grid' || forceListType === 'list') && forceListType !== 'list',
@@ -49,7 +49,7 @@
         :style="{width: progressPercentage + '%'}"
       />
     </div>
-    <div class="videoInfo">
+    <div class="info">
       <ft-icon-button
         class="optionsButton"
         title="More Options"

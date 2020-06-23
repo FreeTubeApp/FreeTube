@@ -1,6 +1,6 @@
 <template>
   <div
-    class="ft-list-video"
+    class="ft-list-video ft-list-item"
     :appearance="appearance"
     :class="{ list: listType === 'list', grid: listType === 'grid' }"
   >
@@ -22,7 +22,7 @@
         </div>
       </div>
     </router-link>
-    <div class="videoInfo">
+    <div class="info">
       <router-link
         class="title"
         :to="`/playlist/${playlistId}`"

@@ -7,6 +7,7 @@
     >
       <ft-list-channel
         v-if="result.type === 'channel'"
+        appearance="result"
         :data="result"
         :key="index"
       />
