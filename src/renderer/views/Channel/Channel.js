@@ -152,7 +152,7 @@ export default Vue.extend({
         this.channelName = response.author
         this.subCount = response.subscriberCount
         this.thumbnailUrl = response.authorThumbnails[2].url
-        this.bannerUrl = response.authorBanners[response.authorBanners.length - 1].url
+        this.bannerUrl = `https://${response.authorBanners[response.authorBanners.length - 1].url}`
         this.channelDescription = response.description
         this.relatedChannels = response.relatedChannels
         this.isLoading = false
