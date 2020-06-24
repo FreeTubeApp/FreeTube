@@ -8,6 +8,8 @@ import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubbl
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 
+import ytch from 'yt-channel-info'
+
 export default Vue.extend({
   name: 'Search',
   components: {
@@ -32,7 +34,9 @@ export default Vue.extend({
       subCount: 0,
       latestVideosPage: 2,
       searchPage: 2,
+      videoContinuationString: '',
       playlistContinuationString: '',
+      searchContinuationString: '',
       channelDescription: '',
       videoSortBy: 'newest',
       playlistSortBy: 'last',
@@ -42,6 +46,7 @@ export default Vue.extend({
       latestPlaylists: [],
       searchResults: [],
       shownElementList: [],
+      apiUsed: '',
       videoSelectNames: [
         'Newest',
         'Oldest',
@@ -65,6 +70,18 @@ export default Vue.extend({
     }
   },
   computed: {
+    usingElectron: function () {
+      return this.$store.getters.getUsingElectron
+    },
+
+    backendPreference: function () {
+      return this.$store.getters.getBackendPreference
+    },
+
+    backendFallback: function () {
+      return this.$store.getters.getBackendFallback
+    },
+
     sessionSearchHistory: function () {
       return this.$store.getters.getSessionSearchHistory
     },
@@ -77,25 +94,92 @@ export default Vue.extend({
     videoSortBy () {
       this.isElementListLoading = true
       this.latestVideos = []
-      this.latestVideosPage = 1
-      this.channelNextPage()
+      switch (this.apiUsed) {
+        case 'local':
+          this.getChannelVideosLocal()
+          break
+        case 'invidious':
+          this.latestVideosPage = 1
+          this.channelInvidiousNextPage()
+          break
+        default:
+          this.getChannelVideosLocal()
+      }
     },
 
     playlistSortBy () {
       this.isElementListLoading = true
       this.latestPlaylists = []
       this.playlistContinuationString = ''
-      this.getPlaylists()
+      switch (this.apiUsed) {
+        case 'local':
+          this.getPlaylistsLocal()
+          break
+        case 'invidious':
+          this.channelInvidiousNextPage()
+          break
+        default:
+          this.getPlaylistsLocal()
+      }
     }
   },
   mounted: function () {
     this.id = this.$route.params.id
+    this.isLoading = true
 
-    this.getChannelInfo()
-    this.getPlaylists()
+    if (!this.usingElectron) {
+      this.getVideoInformationInvidious()
+    } else {
+      switch (this.backendPreference) {
+        case 'local':
+          this.apiUsed = 'local'
+          this.getChannelInfoLocal()
+          this.getChannelVideosLocal()
+          this.getPlaylistsLocal()
+          break
+        case 'invidious':
+          this.apiUsed = 'invidious'
+          this.getChannelInfoInvidious()
+          this.getPlaylistsInvidious()
+          break
+      }
+    }
   },
   methods: {
-    getChannelInfo: function () {
+    getChannelInfoLocal: function () {
+      ytch.getChannelInfo(this.id).then((response) => {
+        this.id = response.authorId
+        this.channelName = response.author
+        this.subCount = response.subscriberCount
+        this.thumbnailUrl = response.authorThumbnails[2].url
+        this.bannerUrl = response.authorBanners[response.authorBanners.length - 1].url
+        this.channelDescription = response.description
+        this.relatedChannels = response.relatedChannels
+        this.isLoading = false
+      }).catch((err) => {
+        console.log(err)
+      })
+    },
+
+    getChannelVideosLocal: function () {
+      this.isElementListLoading = true
+      ytch.getChannelVideos(this.id, this.videoSortBy).then((response) => {
+        this.latestVideos = response.items
+        this.videoContinuationString = response.continuation
+        this.isElementListLoading = false
+      })
+    },
+
+    channelLocalNextPage: function () {
+      console.log(this.videoContinuationString)
+      ytch.getChannelVideosMore(this.id, this.videoContinuationString).then((response) => {
+        this.latestVideos = this.latestVideos.concat(response.items)
+        this.videoContinuationString = response.continuation
+        console.log(this.videoContinuationString)
+      })
+    },
+
+    getChannelInfoInvidious: function () {
       this.isLoading = true
 
       this.$store.dispatch('invidiousGetChannelInfo', this.id).then((response) => {
@@ -115,7 +199,7 @@ export default Vue.extend({
       })
     },
 
-    channelNextPage: function () {
+    channelInvidiousNextPage: function () {
       const payload = {
         resource: 'channels/videos',
         id: this.id,
@@ -132,7 +216,24 @@ export default Vue.extend({
       })
     },
 
-    getPlaylists: function () {
+    getPlaylistsLocal: function () {
+      ytch.getChannelPlaylistInfo(this.id, this.playlistSortBy).then((response) => {
+        console.log(response)
+        this.latestPlaylists = response.items
+        this.playlistContinuationString = response.continuation
+        this.isElementListLoading = false
+      })
+    },
+
+    getPlaylistsLocalMore: function () {
+      ytch.getChannelPlaylistsMore(this.id, this.playlistContinuationString).then((response) => {
+        console.log(response)
+        this.latestPlaylists = this.latestPlaylists.concat(response.items)
+        this.playlistContinuationString = response.continuation
+      })
+    },
+
+    getPlaylistsInvidious: function () {
       if (this.playlistContinuationString === null) {
         console.log('There are no more playlists available for this channel')
         return
@@ -163,13 +264,34 @@ export default Vue.extend({
     handleFetchMore: function () {
       switch (this.currentTab) {
         case 'videos':
-          this.channelNextPage()
+          switch (this.apiUsed) {
+            case 'local':
+              this.channelLocalNextPage()
+              break
+            case 'invidious':
+              this.channelInvidiousNextPage()
+              break
+          }
           break
         case 'playlists':
-          this.getPlaylists()
+          switch (this.apiUsed) {
+            case 'local':
+              this.getPlaylistsLocalMore()
+              break
+            case 'invidious':
+              this.getPlaylistsInvidious()
+              break
+          }
           break
         case 'search':
-          this.searchChannel()
+          switch (this.apiUsed) {
+            case 'local':
+              this.searchChannelLocal()
+              break
+            case 'invidious':
+              this.searchChannelInvidious()
+              break
+          }
           break
       }
     },
@@ -180,14 +302,40 @@ export default Vue.extend({
 
     newSearch: function (query) {
       this.lastSearchQuery = query
+      this.searchContinuationString = ''
       this.isElementListLoading = true
       this.searchPage = 1
       this.searchResults = []
       this.changeTab('search')
-      this.searchChannel()
+      switch (this.apiUsed) {
+        case 'local':
+          this.searchChannelLocal()
+          break
+        case 'invidious':
+          this.searchChannelInvidious()
+          break
+      }
     },
 
-    searchChannel: function () {
+    searchChannelLocal: function () {
+      if (this.searchContinuationString === '') {
+        ytch.searchChannel(this.id, this.lastSearchQuery).then((response) => {
+          console.log(response)
+          this.searchResults = response.items
+          this.isElementListLoading = false
+          this.searchContinuationString = response.continuation
+        })
+      } else {
+        ytch.searchChannelMore(this.id, this.searchContinuationString).then((response) => {
+          console.log(response)
+          this.searchResults = this.searchResults.concat(response.items)
+          this.isElementListLoading = false
+          this.searchContinuationString = response.continuation
+        })
+      }
+    },
+
+    searchChannelInvidious: function () {
       const payload = {
         resource: 'channels/search',
         id: this.id,
