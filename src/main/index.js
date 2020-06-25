@@ -71,6 +71,7 @@ function createWindow () {
       webSecurity: false,
       backgroundThrottling: false
     },
+    show: false
   })
 
   // eslint-disable-next-line
