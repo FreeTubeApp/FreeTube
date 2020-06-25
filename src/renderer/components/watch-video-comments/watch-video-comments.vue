@@ -60,7 +60,9 @@
           class="commentMoreReplies"
           @click="getCommentReplies(index)"
         >
-          View {{ comment.numReplies }} replies
+          <span v-if="!comment.showReplies">View</span>
+          <span v-else>Hide</span>
+          {{ comment.numReplies }} replies
         </p>
         <div
           v-if="comment.showReplies"
