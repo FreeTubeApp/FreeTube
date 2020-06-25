@@ -155,8 +155,9 @@ function displayVideo(videoData, listType = '') {
             let published = new Date(videoData.published * 1000);
             let hours = 0;
 
-            if (now < published.getTime()) {
-                video.publishedDate = 'Premieres on ' + published.toLocaleString();
+            if (videoData.isUpcoming) {
+                const premiereDate = new Date(videoData.premiereTimestamp * 1000);
+                video.publishedDate = 'Premieres on ' + premiereDate.toLocaleString();
             } else {
                 if (time >= 3600) {
                     hours = Math.floor(time / 3600);
