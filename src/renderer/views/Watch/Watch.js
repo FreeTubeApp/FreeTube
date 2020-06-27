@@ -214,14 +214,20 @@ export default Vue.extend({
           this.videoDislikeCount = result.videoDetails.dislikes
           this.isLive = result.player_response.videoDetails.isLive
 
+          if (this.videoDislikeCount === null) {
+            this.videoDislikeCount = 0
+          }
+
           const subCount = result.videoDetails.author.subscriber_count
 
-          if (subCount >= 1000000) {
-            this.channelSubscriptionCountText = `${subCount / 1000000}M`
-          } else if (subCount >= 10000) {
-            this.channelSubscriptionCountText = `${subCount / 1000}K`
-          } else {
-            this.channelSubscriptionCountText = subCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+          if (typeof (subCount) !== 'undefined') {
+            if (subCount >= 1000000) {
+              this.channelSubscriptionCountText = `${subCount / 1000000}M`
+            } else if (subCount >= 10000) {
+              this.channelSubscriptionCountText = `${subCount / 1000}K`
+            } else {
+              this.channelSubscriptionCountText = subCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+            }
           }
 
           if (this.isLive) {
