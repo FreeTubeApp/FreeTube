@@ -7,7 +7,9 @@
       :class="{ closed: !toast.isOpen, open: toast.isOpen }"
       @click="performAction(toast)"
     >
-      <p class="message">{{ toast.message }}</p>
+      <p class="message">
+        {{ toast.message }}
+      </p>
     </div>
   </div>
 </template>
