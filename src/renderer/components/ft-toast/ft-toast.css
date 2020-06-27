@@ -1,12 +1,15 @@
+.toast-holder {
+  position: fixed;
+  left: 50vw;
+  transform: translate(-50%, 0);
+  bottom: 50px;
+  z-index: 1;
+}
+
 .toast {
   display: flex;
   padding: 10px;
   overflow-y: auto;
-  position: fixed;
-  left: 50vw;
-  transform: translate(-50%, 0);
-  bottom: 100px;
-  z-index: 1;
   background-color: var(--primary-input-color);
   opacity: 0;
   border-radius: 20px;
