@@ -13,24 +13,34 @@
       @click="handleIconClick"
     />
     <div
-      v-if="dropdownNames.length > 0 && showDropdown"
+      v-if="showDropdown"
       class="iconDropdown"
       :class="{
-        left: dropdownPosition === 'left',
-        right: dropdownPosition === 'right',
-        center: dropdownPosition === 'center'
+        left: dropdownPositionX === 'left',
+        right: dropdownPositionX === 'right',
+        center: dropdownPositionX === 'center',
+        bottom: dropdownPositionY === 'bottom',
+        top: dropdownPositionY === 'top'
       }"
     >
-      <p
-        v-for="(label, index) in dropdownNames"
-        :key="index"
-        @click="handleDropdownClick(index)"
-      >
-        {{ label }}
-      </p>
+      <slot>
+        <ul
+          v-if="dropdownNames.length > 0"
+          class="list"
+        >
+          <li
+            v-for="(label, index) in dropdownNames"
+            :key="index"
+            class="listItem"
+            @click="handleDropdownClick(index)"
+          >
+            {{ label }}
+          </li>
+        </ul>
+      </slot>
     </div>
   </div>
 </template>
 
 <script src="./ft-icon-button.js" />
-<style scoped src="./ft-icon-button.css" />
+<style scoped lang="sass" src="./ft-icon-button.sass" />

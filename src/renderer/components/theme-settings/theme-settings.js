@@ -21,11 +21,13 @@ export default Vue.extend({
       currentSecColor: '',
       baseThemeNames: [
         'Light',
-        'Dark'
+        'Dark',
+        'Black'
       ],
       baseThemeValues: [
         'light',
-        'dark'
+        'dark',
+        'black'
       ],
       colorNames: [
         'Red',

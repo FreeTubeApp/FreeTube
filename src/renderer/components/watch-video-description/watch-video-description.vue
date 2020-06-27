@@ -1,6 +1,5 @@
 <template>
   <ft-card class="videoDescription">
-    <h4>Published on {{ dateString }}</h4>
     <p
       class="description"
       v-html="shownDescription"

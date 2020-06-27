@@ -14,8 +14,8 @@
     </label>
     <input
       :id="id"
+      v-model="inputData"
       :list="idDataList"
-      :value="value"
       class="ft-input"
       type="text"
       :placeholder="placeholder"

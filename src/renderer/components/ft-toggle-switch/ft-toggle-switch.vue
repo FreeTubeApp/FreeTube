@@ -1,12 +1,12 @@
 <template>
   <div>
     <input
-      type="checkbox"
       :id="id"
+      v-model="currentValue"
+      type="checkbox"
       name="set-name"
       class="switch-input"
-      :checked='currentValue'
-      v-model="currentValue"
+      :checked="currentValue"
       @change="$emit('change', currentValue)"
     >
     <label

@@ -221,7 +221,11 @@ export default Vue.extend({
           qualitySelector(videojs, { showQualitySelectionLabelInControlBar: true })
         }
 
-        this.player = videojs(videoPlayer)
+        this.player = videojs(videoPlayer, {
+          userActions: {
+            hotkeys: this.keyboardShortcutHandler
+          }
+        })
 
         this.player.volume(this.volume)
         this.player.playbackRate(this.defaultPlayback)
@@ -245,7 +249,7 @@ export default Vue.extend({
           }, 200)
         }
 
-        $(document).on('keydown', this.keyboardShortcutHandler)
+        // $(document).on('keydown', this.keyboardShortcutHandler)
 
         this.player.on('mousemove', this.hideMouseTimeout)
         this.player.on('mouseleave', this.removeMouseTimeout)

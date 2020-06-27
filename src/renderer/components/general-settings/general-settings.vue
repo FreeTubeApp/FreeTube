@@ -1,6 +1,7 @@
 <template>
   <ft-card
-    class="card">
+    class="card"
+  >
     <h3
       class="videoTitle"
     >
@@ -11,6 +12,11 @@
         label="Fallback to Non-Preferred Backend on Failure"
         :default-value="backendFallback"
         @change="updateBackendFallback"
+      />
+      <ft-toggle-switch
+        label="Enable Search Suggestions"
+        :default-value="enableSearchSuggestions"
+        @change="updateEnableSearchSuggestions"
       />
       <ft-toggle-switch
         v-if="false"

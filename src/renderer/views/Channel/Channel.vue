@@ -109,7 +109,7 @@
             :key="index"
             :channel-name="channel.author"
             :channel-id="channel.authorId"
-            :channel-thumbnail="channel.authorThumbnails[3].url"
+            :channel-thumbnail="channel.authorThumbnails[channel.authorThumbnails.length - 1].url"
           />
         </ft-flex-box>
       </div>

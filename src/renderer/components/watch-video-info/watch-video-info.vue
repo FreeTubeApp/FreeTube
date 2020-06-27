@@ -1,79 +1,87 @@
 <template>
-  <ft-card class="relative watchVideoInfo">
-    <p
-      class="videoTitle"
-    >
-      {{ title }}
-    </p>
-    <div
-      class="channelInformation"
-    >
-      <img
-        :src="channelThumbnail"
-        class="channelThumbnail"
-        @click="goToChannel"
+  <ft-card class="watchVideoInfo">
+    <div>
+      <p
+        class="videoTitle"
       >
-      <span
-        class="channelName"
-        @click="goToChannel"
-      >
-        {{ channelName }}
-      </span>
-      <ft-button
-        :label="subscribedText"
-        class="subscribeButton"
-        background-color="var(--primary-color)"
-        @click="handleSubscription"
-      />
-    </div>
-    <ft-flex-box class="videoOptions">
-      <ft-icon-button
-        title="Toggle Theatre Mode"
-        class="theatreModeButton"
-        icon="expand-alt"
-        theme="secondary"
-        @click="$emit('theatreMode')"
-      />
-      <ft-icon-button
-        title="Change Video Formats"
-        theme="secondary"
-        icon="file-video"
-        :dropdown-names="formatTypeNames"
-        :dropdown-values="formatTypeValues"
-        @click="handleFormatChange"
-      />
-      <ft-icon-button
-        title="Share Video"
-        theme="secondary"
-        icon="share-alt"
-        :dropdown-names="shareNames"
-        :dropdown-values="shareValues"
-        @click="handleShare"
-      />
-    </ft-flex-box>
-    <p class="viewCount">
-      {{ parsedViewCount }}
-    </p>
-    <div class="likeBarContainer">
+        {{ title }}
+      </p>
       <div
-        class="likeBar"
-        :style="{ width: likePercentageRatio + '%' }"
-      />
-      <div class="dislikeBar" />
+        class="channelInformation"
+      >
+        <div
+          class="profileRow"
+        >
+          <div>
+            <img
+              :src="channelThumbnail"
+              class="channelThumbnail"
+              @click="goToChannel"
+            >
+          </div>
+          <div>
+            <div
+              class="channelName"
+              @click="goToChannel"
+            >
+              {{ channelName }}
+            </div>
+            <ft-button
+              :label="subscribedText"
+              class="subscribeButton"
+              background-color="var(--primary-color)"
+              @click="handleSubscription"
+            />
+          </div>
+        </div>
+      </div>
     </div>
-    <p class="likeCountContainer">
-      <font-awesome-icon
-        icon="thumbs-up"
-      />
-      {{ likeCount }}
-      &nbsp;
-      <font-awesome-icon
-        icon="thumbs-down"
-      />
-      {{ dislikeCount }}
-    </p>
+    <div>
+      <div class="datePublished">
+        Published {{ dateString }}
+      </div>
+      <div class="viewCount">
+        {{ parsedViewCount }}
+      </div>
+      <div class="likeBarContainer">
+        <div
+          class="likeSection"
+        >
+          <div
+            class="likeBar"
+            :style="{ background: `linear-gradient(to right, var(--accent-color) ${likePercentageRatio}%, #9E9E9E ${likePercentageRatio}%` }"
+          />
+          <div>
+            <span class="likeCount"><font-awesome-icon icon="thumbs-up" /> {{ likeCount }}</span>
+            <span class="dislikeCount"><font-awesome-icon icon="thumbs-down" /> {{ dislikeCount }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="videoOptions">
+        <ft-icon-button
+          title="Toggle Theatre Mode"
+          class="theatreModeButton option"
+          icon="expand-alt"
+          theme="secondary"
+          @click="$emit('theatreMode')"
+        />
+        <ft-icon-button
+          title="Change Video Formats"
+          class="option"
+          theme="secondary"
+          icon="file-video"
+          :dropdown-names="formatTypeNames"
+          :dropdown-values="formatTypeValues"
+          @click="handleFormatChange"
+        />
+        <ft-share-button
+          :id="id"
+          class="option"
+        />
+      </div>
+    </div>
   </ft-card>
 </template>
 
 <script src="./watch-video-info.js" />
-<style scoped src="./watch-video-info.css" />
+<style scoped src="./watch-video-info.sass" lang="sass" />

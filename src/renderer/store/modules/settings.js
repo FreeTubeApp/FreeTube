@@ -37,6 +37,7 @@ const state = {
   thumbnailPreference: '',
   invidiousInstance: 'https://invidio.us',
   barColor: false,
+  enableSearchSuggestions: true,
   rememberHistory: true,
   autoplayVideos: true,
   autoplayPlaylists: true,
@@ -70,6 +71,10 @@ const getters = {
 
   getBarColor: () => {
     return state.barColor
+  },
+
+  getEnableSearchSuggestions: () => {
+    return state.enableSearchSuggestions
   },
 
   getBackendPreference: () => {
@@ -169,6 +174,9 @@ const actions = {
             case 'checkForUpdates':
               commit('setCheckForUpdates', result.value)
               break
+            case 'enableSearchSuggestions':
+              commit('setEnableSearchSuggestions', result.value)
+              break
             case 'backendPreference':
               commit('setBackendPreference', result.value)
               break
@@ -251,6 +259,14 @@ const actions = {
     settingsDb.update({ _id: 'checkForUpdates' }, { _id: 'checkForUpdates', value: checkForUpdates }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
         commit('setCheckForUpdates', checkForUpdates)
+      }
+    })
+  },
+
+  updateEnableSearchSuggestions ({ commit }, enableSearchSuggestions) {
+    settingsDb.update({ _id: 'enableSearchSuggestions' }, { _id: 'enableSearchSuggestions', value: enableSearchSuggestions }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setEnableSearchSuggestions', enableSearchSuggestions)
       }
     })
   },
@@ -439,6 +455,9 @@ const mutations = {
   },
   setBarColor (state, barColor) {
     state.barColor = barColor
+  },
+  setEnableSearchSuggestions (state, enableSearchSuggestions) {
+    state.enableSearchSuggestions = enableSearchSuggestions
   },
   setRememberHistory (state, rememberHistory) {
     state.rememberHistory = rememberHistory

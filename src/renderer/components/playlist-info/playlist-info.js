@@ -44,7 +44,7 @@ export default Vue.extend({
     invidiousInstance: function () {
       return this.$store.getters.getInvidiousInstance
     },
-    
+
     listType: function () {
       return this.$store.getters.getListType
     },

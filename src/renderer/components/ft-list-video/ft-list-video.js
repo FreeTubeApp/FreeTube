@@ -111,6 +111,7 @@ export default Vue.extend({
 
     if (typeof (this.data.descriptionHtml) !== 'undefined' ||
       typeof (this.data.index) !== 'undefined' ||
+      typeof (this.data.authorId) !== 'undefined' ||
       typeof (this.data.publishedText) !== 'undefined' ||
       typeof (this.data.authorThumbnails) === 'object'
     ) {

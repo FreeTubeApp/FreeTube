@@ -1,9 +1,7 @@
 .relative {
   position: relative;
-  width: 85%;
 }
 
 .ftVideoPlayer {
-  width: 85%;
   max-height: 50vh;
 }
