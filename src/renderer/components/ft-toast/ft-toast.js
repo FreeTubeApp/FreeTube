@@ -19,31 +19,32 @@ export default Vue.extend({
     FtToastEvents.$on('toast.open', this.open)
   },
   methods: {
-    performAction: function (index) {
-      this.toasts[index].action()
-      this.close(index)
+    performAction: function (toast) {
+      toast.action()
+      this.close(toast)
     },
-    close: function (index) {
-      clearTimeout(this.toasts[index].timeout);
-      this.toasts[index].isOpen = false
+    close: function (toast) {
+      clearTimeout(toast.timeout);
+      toast.isOpen = false
       if(this.queue.length !== 0) {
-        const toast = this.queue.shift()
-        this.open(toast.message, toast.action)
+        const nexToast = this.queue.shift()
+        this.open(nexToast.message, nexToast.action)
       }
     },
     open: function (message, action) {
       for(let i = this.toasts.length - 1; i >= 0 ; i--){
-        if (!this.toasts[i].isOpen) {
-          return this.showToast(message, action, i)
+        const toast = this.toasts[i]
+        if (!toast.isOpen) {
+          return this.showToast(message, action, toast)
         }
       }
       this.queue.push({ message: message, action: action })
     },
-    showToast: function(message, action, index) {
-      this.toasts[index].message = message
-      this.toasts[index].action = action || (() => {})
-      this.toasts[index].isOpen = true
-      this.toasts[index].timeout = setTimeout(this.close, 2000, index)
+    showToast: function(message, action, toast) {
+      toast.message = message
+      toast.action = action || (() => {})
+      toast.isOpen = true
+      toast.timeout = setTimeout(this.close, 2000, toast)
     }
   },
   beforeDestroy: function () {

@@ -9,8 +9,10 @@
 .toast {
   display: flex;
   padding: 10px;
+  margin: 5px;
   overflow-y: auto;
-  background-color: var(--primary-input-color);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
   opacity: 0;
   border-radius: 20px;
   cursor: pointer;

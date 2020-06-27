@@ -5,7 +5,7 @@
       :key="'toast-' + index"
       class="toast"
       :class="{ closed: !toast.isOpen, open: toast.isOpen }"
-      @click="performAction(index)"
+      @click="performAction(toast)"
     >
       <p class="message">{{ toast.message }}</p>
     </div>
