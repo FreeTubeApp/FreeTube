@@ -893,7 +893,8 @@ let playerView = new Vue({
         playlistShowList: true,
         recommendedVideoList: [],
         playlistVideoList: [],
-        distractionFreeMode: false
+        distractionFreeMode: false,
+        includeCurrentTime: false
     },
     methods: {
         channel: (channelId) => {
@@ -947,13 +948,16 @@ let playerView = new Vue({
             playerView.legacySeen = false;
             playerView.playerSeen = true;
         },
+        toggleSave: (videoId) => {
+            addSavedVideo(videoId);
+        },
         copyYouTube: (videoId) => {
-            const url = 'https://youtube.com/watch?v=' + videoId;
+            const url = 'https://youtube.com/watch?v=' + videoId + currentTimeParameter();
             clipboard.writeText(url);
             showToast('URL has been copied to the clipboard');
         },
         openYouTube: (videoId) => {
-            shell.openExternal('https://youtube.com/watch?v=' + videoId);
+            shell.openExternal('https://youtube.com/watch?v=' + videoId + currentTimeParameter());
         },
         openYouTubeNoCookie: (videoId) => {
             const url = 'https://www.youtube-nocookie.com/embed/' + videoId;
@@ -965,12 +969,12 @@ let playerView = new Vue({
             showToast('URL has been copied to the clipboard');
         },
         copyInvidious: (videoId) => {
-            const url = invidiousInstance + '/watch?v=' + videoId;
+            const url = invidiousInstance + '/watch?v=' + videoId + currentTimeParameter();
             clipboard.writeText(url);
             showToast('URL has been copied to the clipboard');
         },
         openInvidious: (videoId) => {
-            shell.openExternal(invidiousInstance + '/watch?v=' + videoId);
+            shell.openExternal(invidiousInstance + '/watch?v=' + videoId + currentTimeParameter());
         },
         save: (videoId) => {
             toggleSavedVideo(videoId);
@@ -1785,4 +1789,13 @@ function hideViews() {
     subscriptionManagerView.seen = false;
     editProfileView.seen = false;
     backButtonView.lastView = false;
+}
+
+function currentTimeParameter(){
+    if (!playerView.includeCurrentTime) return "";
+    if (typeof (playerView.currentTime) !== 'undefined') return "&t=" + Math.floor(playerView.currentTime);
+    if (typeof (player) !== 'undefined') return "&t=" + Math.floor(player.currentTime);
+    const legacyPlayer = $('#legacyPlayer').get(0);
+    if (typeof (legacyPlayer) !== 'undefined') return "&t=" + Math.floor(legacyPlayer.currentTime);
+    return "";
 }

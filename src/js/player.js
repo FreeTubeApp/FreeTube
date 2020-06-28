@@ -399,11 +399,11 @@ function playVideo(videoId, playlistId = '') {
             // Search through the returned object to get the 360p and 720p video URLs (If available)
             videoUrls.forEach((video) => {
                 switch (video.itag) {
-                case 18:
+                case '18':
                     playerView.video360p = decodeURIComponent(video.url);
                     // ft.log(playerView.video360p);
                     break;
-                case 22:
+                case '22':
                     playerView.video720p = decodeURIComponent(video.url);
                     // ft.log(playerView.video720p);
                     break;
