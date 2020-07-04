@@ -6,13 +6,7 @@ export default Vue.extend({
   data: function () {
     return {
       toasts: [
-        { isOpen: false, message: '', action: null, timeout: null },
-        { isOpen: false, message: '', action: null, timeout: null },
-        { isOpen: false, message: '', action: null, timeout: null },
-        { isOpen: false, message: '', action: null, timeout: null },
-        { isOpen: false, message: '', action: null, timeout: null }
       ],
-      queue: [],
     }
   },
   mounted: function () {
@@ -28,26 +22,34 @@ export default Vue.extend({
     },
     close: function (toast) {
       clearTimeout(toast.timeout)
-      toast.isOpen = false
-      if (this.queue.length !== 0) {
-        const nexToast = this.queue.shift()
-        this.open(nexToast.message, nexToast.action)
+      // Remove toasts when most recent toast has finished to avoid re-render
+      if (this.toasts.filter(toast => toast.isOpen).length === 1) {
+        // Wait for fade-out to finish
+        setTimeout(this.clear, 300)
       }
+      toast.isOpen = false
+
     },
     open: function (message, action) {
-      for (let i = this.toasts.length - 1; i >= 0; i--) {
-        const toast = this.toasts[i]
-        if (!toast.isOpen) {
-          return this.showToast(message, action, toast)
+      const toast = { message: message, action: action || (() => { }), isOpen: false, timeout: null }
+      toast.timeout = setTimeout(this.close, 5000, toast)
+      setImmediate(() => toast.isOpen = true)
+      if (this.toasts.length > 4) {
+        for (let i = this.toasts.length - 1; i >= 0; i--) {
+          if (!this.toasts[i].isOpen) {
+            // Replace the first hidden toast starting from the bottom
+            return this.toasts.splice(i, 1, toast)
+          }
         }
+        // Else replace the most recent
+        return this.toasts.splice(4, 1, toast)
       }
-      this.queue.push({ message: message, action: action })
+      this.toasts.push(toast)
     },
-    showToast: function(message, action, toast) {
-      toast.message = message
-      toast.action = action || (() => {})
-      toast.isOpen = true
-      toast.timeout = setTimeout(this.close, 2000, toast)
+    clear: function () {
+      if (this.toasts.every(toast => !toast.isOpen)) {
+        this.toasts = []
+      }
     }
   },
 })
