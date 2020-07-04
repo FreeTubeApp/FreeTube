@@ -2,7 +2,7 @@ import Vue from 'vue'
 
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtButton from '../ft-button/ft-button.vue'
-import FtToastEvents from '../ft-toast/ft-toast-events'
+import { mapActions } from 'vuex'
 
 export default Vue.extend({
   name: 'FtShareButton',
@@ -60,7 +60,7 @@ export default Vue.extend({
     },
 
     copyInvidious() {
-      FtToastEvents.$emit('toast.open', 'Invidious URL copied to clipboard')
+      this.showToast('Invidious URL copied to clipboard')
       this.copy(this.invidiousURL)
       this.$refs.iconButton.toggleDropdown()
     },
@@ -71,7 +71,7 @@ export default Vue.extend({
     },
 
     copyYoutube() {
-      FtToastEvents.$emit('toast.open', 'YouTube URL copied to clipboard')
+      this.showToast('YouTube URL copied to clipboard')
       this.copy(this.youtubeURL)
       this.$refs.iconButton.toggleDropdown()
     },
@@ -82,7 +82,7 @@ export default Vue.extend({
     },
 
     copyYoutubeEmbed() {
-      FtToastEvents.$emit('toast.open', 'YouTube Embed URL copied to clipboard')
+      this.showToast('YouTube Embed URL copied to clipboard')
       this.copy(this.youtubeEmbedURL)
       this.$refs.iconButton.toggleDropdown()
     },
@@ -93,9 +93,13 @@ export default Vue.extend({
     },
 
     copyInvidiousEmbed() {
-      FtToastEvents.$emit('toast.open', 'Invidious Embed URL copied to clipboard')
+      this.showToast('Invidious Embed URL copied to clipboard')
       this.copy(this.invidiousEmbedURL)
       this.$refs.iconButton.toggleDropdown()
     },
+
+    ...mapActions([
+      'showToast'
+    ])
   }
 })

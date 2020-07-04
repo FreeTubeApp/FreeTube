@@ -30,9 +30,9 @@ export default Vue.extend({
       toast.isOpen = false
 
     },
-    open: function (message, action) {
+    open: function (message, action, time) {
       const toast = { message: message, action: action || (() => { }), isOpen: false, timeout: null }
-      toast.timeout = setTimeout(this.close, 5000, toast)
+      toast.timeout = setTimeout(this.close, time || 3000, toast)
       setImmediate(() => toast.isOpen = true)
       if (this.toasts.length > 4) {
         for (let i = this.toasts.length - 1; i >= 0; i--) {
