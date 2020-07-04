@@ -4,10 +4,12 @@
   transform: translate(-50%, 0);
   bottom: 50px;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .toast {
-  display: flex;
   padding: 10px;
   margin: 5px;
   overflow-y: auto;
