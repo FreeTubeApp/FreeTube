@@ -32,8 +32,8 @@
         v-if="!isLive"
         icon="star"
         class="favoritesIcon"
-        :padding="6"
-        :size="18"
+        :padding="appearance === `watchPlaylistItem` ? 5 : 6"
+        :size="appearance === `watchPlaylistItem` ? 14 : 18"
         :class="{ favorited: isFavorited }"
         @click="toggleSave(id)"
       />
