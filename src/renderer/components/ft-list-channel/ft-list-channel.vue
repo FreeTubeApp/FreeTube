@@ -1,40 +1,50 @@
 <template>
   <div
-    class="ft-list-channel"
-    :class="{ list: listType === 'list', grid: listType === 'grid' }"
+    class="ft-list-channel ft-list-item"
+    :class="{
+      list: listType === 'list',
+      grid: listType === 'grid',
+      [appearance]: true
+    }"
   >
     <div class="channelThumbnail">
-      <img
-        :src="thumbnail"
-        @click="goToChannel(id)"
+      <router-link
+        :to="`/channel/${id}`"
       >
+        <img
+          :src="thumbnail"
+          class="channelImage"
+        >
+      </router-link>
     </div>
-    <p
-      class="channelName"
-      @click="goToChannel(id)"
-    >
-      {{ channelName }}
-    </p>
-    <span
-      class="subscriberCount"
-      @click="goToChannel(id)"
-    >
-      {{ subscriberCount }} subscribers
-    </span>
-    <span
-      class="videoCount"
-      @click="goToChannel(id)"
-    >
-      - {{ videoCount }} videos
-    </span>
-    <p
-      v-if="listType !== 'grid'"
-      class="description"
-    >
-      {{ description }}
-    </p>
+    <div class="info">
+      <router-link
+        class="title"
+        :to="`/channel/${id}`"
+      >
+        {{ channelName }}
+      </router-link>
+      <div class="infoLine">
+        <span
+          class="subscriberCount"
+        >
+          {{ subscriberCount }} subscribers
+        </span>
+        <span
+          class="videoCount"
+        >
+          - {{ videoCount }} videos
+        </span>
+      </div>
+      <p
+        v-if="listType !== 'grid'"
+        class="description"
+      >
+        {{ description }}
+      </p>
+    </div>
   </div>
 </template>
 
 <script src="./ft-list-channel.js" />
-<style scoped src="./ft-list-channel.css" />
+<style scoped lang="sass" src="./ft-list-channel.sass" />

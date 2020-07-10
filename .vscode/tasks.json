@@ -7,6 +7,13 @@
 			"type": "npm",
 			"script": "dev",
 			"problemMatcher": []
+		},
+		{
+			"type": "npm",
+			"script": "dev-runner",
+			"problemMatcher": [],
+			"label": "npm: dev-runner",
+			"detail": "node _scripts/dev-runner.js"
 		}
 	]
 }

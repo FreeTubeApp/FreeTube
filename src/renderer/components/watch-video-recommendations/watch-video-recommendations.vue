@@ -1,5 +1,5 @@
 <template>
-  <ft-card class="relative">
+  <ft-card class="relative watchVideoRecommendations">
     <h3>
       Up Next
     </h3>
@@ -7,8 +7,8 @@
       v-for="(video, index) in data"
       :key="index"
       :data="video"
+      appearance="recommendation"
       force-list-type="list"
-      class="videoRecommendation"
     />
   </ft-card>
 </template>

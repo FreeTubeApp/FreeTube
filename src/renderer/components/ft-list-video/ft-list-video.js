@@ -18,6 +18,10 @@ export default Vue.extend({
     forceListType: {
       type: String,
       default: null
+    },
+    appearance: {
+      type: String,
+      required: true
     }
   },
   data: function () {
@@ -121,31 +125,6 @@ export default Vue.extend({
     }
   },
   methods: {
-    play: function () {
-      const playlistInfo = {
-        playlistId: this.playlistId
-      }
-      console.log('playlist info')
-      console.log(playlistInfo)
-
-      if (this.playlistId !== null) {
-        console.log('Sending playlist info')
-        this.$router.push(
-          {
-            path: `/watch/${this.id}`,
-            query: playlistInfo
-          }
-        )
-      } else {
-        console.log('no playlist found')
-        this.$router.push({ path: `/watch/${this.id}` })
-      }
-    },
-
-    goToChannel: function () {
-      this.$router.push({ path: `/channel/${this.channelId}` })
-    },
-
     toggleSave: function () {
       console.log('TODO: ft-list-video method toggleSave')
     },

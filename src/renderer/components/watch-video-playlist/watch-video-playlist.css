@@ -37,15 +37,17 @@
 .playlistItems {
   overflow-y: auto;
   height: 395px;
-  margin-top: -15px;
-  margin-left: -16px;
-  margin-right: -16px;
 }
 
 .playlistItem {
-  height: 75px;
-  width: 100%;
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  align-items: center;
   transition: background 0.2s ease-out;
+}
+
+.playlistItem:not(:last-child) {
+  margin-bottom: 8px;
 }
 
 .playlistItem:hover {
@@ -53,20 +55,16 @@
   transition: background 0.2s ease-in;
 }
 
+.videoIndexContainer {
+  text-align: center;
+}
+
 .videoIndex {
-  float: left;
-  position: relative;
-  top: 15px;
-  left: 10px;
   color: var(--tertiary-text-color);
 }
 
 .videoIndexIcon {
-  float: left;
-  position: relative;
   font-size: 14px;
-  top: 32px;
-  left: 10px;
   color: var(--tertiary-text-color);
 }
 
