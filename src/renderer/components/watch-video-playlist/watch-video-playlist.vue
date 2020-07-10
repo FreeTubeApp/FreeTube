@@ -47,7 +47,7 @@
           @click="playNextVideo"
         />
       </p>
-      <ft-flex-box
+      <div
         v-if="!isLoading"
         class="playlistItems"
       >
@@ -76,7 +76,7 @@
             force-list-type="list"
           />
         </div>
-      </ft-flex-box>
+      </div>
     </div>
   </ft-card>
 </template>
