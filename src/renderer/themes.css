@@ -10,7 +10,7 @@
   --link-visited-color: var(--accent-color-visited);
   --card-bg-color: #FFFFFF;
   --secondary-card-bg-color: #eeeeee;
-  --scrollbar-color: #9E9E9E;
+  --scrollbar-color: #CCCCCC;
   --scrollbar-color-hover: #BDBDBD;
   --side-nav-color: #FFFFFF;
   --side-nav-hover-color: #e0e0e0;
@@ -34,7 +34,7 @@
   --link-visited-color: var(--accent-color-visited);
   --card-bg-color: #303030;
   --secondary-card-bg-color: rgba(0, 0, 0, 0.75);
-  --scrollbar-color: #616161;
+  --scrollbar-color: #414141;
   --scrollbar-color-hover: #757575;
   --side-nav-color: #262626;
   --side-nav-hover-color: #212121;
@@ -57,14 +57,14 @@
     --link-visited-color: var(--accent-color-visited);
     --card-bg-color: #000000;
     --secondary-card-bg-color: rgba(0, 0, 0, 0.75);
-    --scrollbar-color: #212121;
+    --scrollbar-color: #515151;
     --scrollbar-color-hover: #424242;
     --side-nav-color: #000000;
     --side-nav-hover-color: #212121;
     --side-nav-active-color: #303030;
     --search-bar-color: #262626;
     --instance-menu-color: var(--search-bar-color);
-	--logo-icon: url("~../../_icons/iconColorSmall.png");
+	  --logo-icon: url("~../../_icons/iconColorSmall.png");
    	--logo-text: url("~../../_icons/textColorSmall.png");
 }
 
@@ -458,13 +458,12 @@ a:visited {
 }
 
 ::-webkit-scrollbar {
-	width: 10px;
+	width: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
   background: var(--scrollbar-color);
-  border-radius: 10px;
+  border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
