@@ -85,6 +85,13 @@ if (isDevMode) {
               ignore: ['.*'],
             },
           },
+          {
+            from: path.join(__dirname, '../src/renderer/assets/img'),
+            to: path.join(__dirname, '../dist/images'),
+            globOptions: {
+              ignore: ['.*'],
+            },
+          },
         ]
       }
     ),

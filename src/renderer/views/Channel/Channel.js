@@ -88,6 +88,28 @@ export default Vue.extend({
 
     formattedSubCount: function () {
       return this.subCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    },
+
+    showFetchMoreButton: function () {
+      switch (this.currentTab) {
+        case 'videos':
+          if (this.videoContinuationString !== '' && this.videoContinuationString !== null) {
+            return true
+          }
+          break
+        case 'playlists':
+          if (this.playlistContinuationString !== '' && this.playlistContinuationString !== null) {
+            return true
+          }
+          break
+        case 'search':
+          if (this.searchContinuationString !== '' && this.searchContinuationString !== null) {
+            return true
+          }
+          break
+      }
+
+      return false
     }
   },
   watch: {
@@ -152,9 +174,15 @@ export default Vue.extend({
         this.channelName = response.author
         this.subCount = response.subscriberCount
         this.thumbnailUrl = response.authorThumbnails[2].url
-        this.bannerUrl = `https://${response.authorBanners[response.authorBanners.length - 1].url}`
         this.channelDescription = response.description
         this.relatedChannels = response.relatedChannels
+
+        if (response.authorBanners !== null) {
+          this.bannerUrl = `https://${response.authorBanners[response.authorBanners.length - 1].url}`
+        } else {
+          this.bannerUrl = null
+        }
+
         this.isLoading = false
       }).catch((err) => {
         console.log(err)
@@ -167,15 +195,17 @@ export default Vue.extend({
         this.latestVideos = response.items
         this.videoContinuationString = response.continuation
         this.isElementListLoading = false
+      }).catch((err) => {
+        console.log(err)
       })
     },
 
     channelLocalNextPage: function () {
-      console.log(this.videoContinuationString)
-      ytch.getChannelVideosMore(this.id, this.videoContinuationString).then((response) => {
+      ytch.getChannelVideosMore(this.videoContinuationString).then((response) => {
         this.latestVideos = this.latestVideos.concat(response.items)
         this.videoContinuationString = response.continuation
-        console.log(this.videoContinuationString)
+      }).catch((err) => {
+        console.log(err)
       })
     },
 
@@ -188,10 +218,14 @@ export default Vue.extend({
         this.id = response.authorId
         this.subCount = response.subCount
         this.thumbnailUrl = response.authorThumbnails[3].url
-        this.bannerUrl = response.authorBanners[0].url
         this.channelDescription = response.description
         this.relatedChannels = response.relatedChannels
         this.latestVideos = response.latestVideos
+
+        if (typeof (response.authorBanners) !== 'undefined') {
+          this.bannerUrl = response.authorBanners[0].url
+        }
+
         this.isLoading = false
       }).catch((error) => {
         console.log(error)
@@ -222,14 +256,18 @@ export default Vue.extend({
         this.latestPlaylists = response.items
         this.playlistContinuationString = response.continuation
         this.isElementListLoading = false
+      }).catch((err) => {
+        console.log(err)
       })
     },
 
     getPlaylistsLocalMore: function () {
-      ytch.getChannelPlaylistsMore(this.id, this.playlistContinuationString).then((response) => {
+      ytch.getChannelPlaylistsMore(this.playlistContinuationString).then((response) => {
         console.log(response)
         this.latestPlaylists = this.latestPlaylists.concat(response.items)
         this.playlistContinuationString = response.continuation
+      }).catch((err) => {
+        console.log(err)
       })
     },
 
@@ -324,13 +362,17 @@ export default Vue.extend({
           this.searchResults = response.items
           this.isElementListLoading = false
           this.searchContinuationString = response.continuation
+        }).catch((err) => {
+          console.log(err)
         })
       } else {
-        ytch.searchChannelMore(this.id, this.searchContinuationString).then((response) => {
+        ytch.searchChannelMore(this.searchContinuationString).then((response) => {
           console.log(response)
           this.searchResults = this.searchResults.concat(response.items)
           this.isElementListLoading = false
           this.searchContinuationString = response.continuation
+        }).catch((err) => {
+          console.log(err)
         })
       }
     },

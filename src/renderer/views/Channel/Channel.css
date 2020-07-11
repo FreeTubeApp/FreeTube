@@ -13,6 +13,16 @@
   max-height: 300px;
 }
 
+.defaultChannelBanner {
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 200px;
+  background-color: black;
+  background-image: url("~images/defaultBanner.png");
+}
+
 .channelInfoContainer {
   width: 100%;
   height: 200px;
@@ -114,6 +124,10 @@
 
 .elementListLoading {
   margin-top: 200px;
+}
+
+.message {
+  color: var(--tertiary-text-color);
 }
 
 .getNextPage {

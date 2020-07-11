@@ -11,8 +11,13 @@
       class="card"
     >
       <img
+        v-if="bannerUrl !== null"
         class="channelBanner"
         :src="bannerUrl"
+      >
+      <img
+        v-else
+        class="defaultChannelBanner"
       >
       <div class="channelInfoContainer">
         <div class="channelInfo">
@@ -102,8 +107,14 @@
           v-html="channelDescription"
         />
         <br>
-        <h2>Featured Channels</h2>
-        <ft-flex-box>
+        <h2
+          v-if="relatedChannels.length > 0"
+        >
+          Featured Channels
+        </h2>
+        <ft-flex-box
+          v-if="relatedChannels.length > 0"
+        >
           <ft-channel-bubble
             v-for="(channel, index) in relatedChannels"
             :key="index"
@@ -124,15 +135,37 @@
           v-show="currentTab === 'videos'"
           :data="latestVideos"
         />
+        <ft-flex-box
+          v-if="currentTab === 'videos' && latestVideos.length === 0"
+        >
+          <p class="message">
+            This channel does not currently have any videos
+          </p>
+        </ft-flex-box>
         <ft-element-list
           v-show="currentTab === 'playlists'"
           :data="latestPlaylists"
         />
+        <ft-flex-box
+          v-if="currentTab === 'playlists' && latestPlaylists.length === 0"
+        >
+          <p class="message">
+            This channel does not currently have any playlists
+          </p>
+        </ft-flex-box>
         <ft-element-list
           v-show="currentTab === 'search'"
           :data="searchResults"
         />
+        <ft-flex-box
+          v-if="currentTab === 'search' && searchResults.length === 0"
+        >
+          <p class="message">
+            Your search results have returned 0 results
+          </p>
+        </ft-flex-box>
         <div
+          v-if="showFetchMoreButton"
           class="getNextPage"
           @click="handleFetchMore"
         >
