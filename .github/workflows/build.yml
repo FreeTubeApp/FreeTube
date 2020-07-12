@@ -50,6 +50,8 @@ jobs:
         architecture: aarch64
         distribution: ubuntu20.04
         run: |
+          apt install -y npm
+          apt install -y nodejs
           npm install
           npm run lint
           npm run build --if-present
