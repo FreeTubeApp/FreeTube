@@ -50,6 +50,7 @@ jobs:
         architecture: aarch64
         distribution: ubuntu20.04
         run: |
+          ENV DEBIAN_FRONTEND=noninteractive 
           apt update
           apt install -y npm
           apt install -y nodejs
