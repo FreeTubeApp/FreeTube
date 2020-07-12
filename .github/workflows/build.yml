@@ -47,9 +47,13 @@ jobs:
       if: startsWith(matrix.os, 'ubuntu')
       uses: uraimo/run-on-arch-action@v1.0.9
       with:
-          architecture: armv7
+          architecture: aarch64
           distribution: ubuntu18.04
           run: |
+            apt update
+            curl -sL https://deb.nodesource.com/setup_12.x | -E bash -
+            apt install -y nodejs
+            apt install -y build-essential
             npm ci
             npm run lint
             npm run build --if-present
