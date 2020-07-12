@@ -50,9 +50,9 @@ jobs:
           architecture: aarch64
           distribution: ubuntu18.04
           run: |
-            apt update
             apt install -y curl
-            curl -sL https://deb.nodesource.com/setup_12.x | -E bash -
+            curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+            apt update
             apt install -y nodejs
             apt install -y build-essential
             apt install -y npm
