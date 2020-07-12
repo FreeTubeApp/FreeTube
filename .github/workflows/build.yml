@@ -51,6 +51,7 @@ jobs:
           distribution: ubuntu18.04
           run: |
             apt update
+            apt install -y curl
             curl -sL https://deb.nodesource.com/setup_12.x | -E bash -
             apt install -y nodejs
             apt install -y build-essential
