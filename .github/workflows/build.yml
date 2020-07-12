@@ -50,8 +50,8 @@ jobs:
         architecture: aarch64
         distribution: ubuntu20.04
         run: |
-          ENV DEBIAN_FRONTEND=noninteractive
-          ENV TZ=Europe/Kiev
+          export DEBIAN_FRONTEND=noninteractive
+          export TZ=Europe/Kiev
           apt update
           apt install -y npm
           apt install -y nodejs
