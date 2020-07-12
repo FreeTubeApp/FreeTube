@@ -52,6 +52,8 @@ jobs:
         run: |
           export DEBIAN_FRONTEND=noninteractive
           export TZ=Europe/Kiev
+          apt install -y curl
+          curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
           apt update
           apt install -y npm
           apt install -y nodejs
