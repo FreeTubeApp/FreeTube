@@ -50,6 +50,8 @@ jobs:
           architecture: aarch64
           distribution: ubuntu18.04
           run: |
+            apt update
+            apt install -y snapd
             snap install node
             npm install
             npm run lint
