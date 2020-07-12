@@ -48,10 +48,6 @@ const config = {
     category: 'Network',
     icon: '_icons/icon.png',
     target: ['deb', 'rpm', 'zip', 'AppImage'],
-    arch: [
-      'x64',
-      'arm64'
-    ]
   },
   mac: {
     category: 'public.app-category.utilities',
