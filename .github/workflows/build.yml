@@ -44,9 +44,7 @@ jobs:
         name: freetube-vue_0.8.0_amd64.rpm
         path: build/freetube-vue-0.8.0.x86_64.rpm
     - name: Build on ARMv7 
-    - uses: actions/checkout@v2.1.0
-    - uses: uraimo/run-on-arch-action@v1.0.9
-      id: runcmd
+      uses: uraimo/run-on-arch-action@v1.0.9
       with:
         architecture: aarch64
         distribution: ubuntu20.04
