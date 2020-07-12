@@ -12,19 +12,7 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x]
-        runtime: [ linux-x64, linux-arm64, win-x64, osx-x64 ]
-        include:
-        - runtime: linux-x64
-          os: ubuntu-latest
-
-        - runtime: linux-arm64
-          os: ubuntu-latest
-
-        - runtime: osx-x64
-          os: macOS-latest
-
-        - runtime: win-x64
-          os: windows-latest
+        os: [ubuntu-latest, windows-latest, macos-latest]
 
     runs-on: ${{ matrix.os }}
 
@@ -39,25 +27,38 @@ jobs:
     - run: npm run build --if-present
     - name: Upload .deb Artifact
       uses: actions/upload-artifact@v2
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
+      if: startsWith(matrix.os, 'ubuntu')
       with:
         name: freetube-vue_0.8.0_amd64.deb
         path: build/freetube-vue_0.8.0_amd64.deb
     - name: Upload AppImage Artifact
       uses: actions/upload-artifact@v2
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
+      if: startsWith(matrix.os, 'ubuntu')
       with:
         name: freetube-vue_0.8.0_amd64.AppImage
         path: build/FreeTube-Vue-0.8.0.AppImage
     - name: Upload .rpm Artifact
       uses: actions/upload-artifact@v2
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
+      if: startsWith(matrix.os, 'ubuntu')
       with:
         name: freetube-vue_0.8.0_amd64.rpm
         path: build/freetube-vue-0.8.0.x86_64.rpm
+    - name: Build on ARMv7 
+    - uses: actions/checkout@v2.1.0
+    - uses: uraimo/run-on-arch-action@v1.0.9
+      id: runcmd
+      with:
+        architecture: aarch64
+        distribution: ubuntu20.04
+        run: |
+          apt update
+          apt install -y nodejs
+          npm install
+          npm run lint
+          npm run build --if-present
     - name: Upload Linux ARM64 .deb Artifact
       uses: actions/upload-artifact@v2
-      if: startsWith(matrix.os, 'ubuntu-latest') && startsWith(matrix.runtime, 'linux-arm64')
+      if: startsWith(matrix.os, 'ubuntu-latest')
       with:
         name: freetube-vue_0.8.0_arm64.deb
         path: build/freetube-vue_0.8.0_arm64.deb
