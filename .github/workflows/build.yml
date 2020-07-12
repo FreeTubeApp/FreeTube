@@ -56,7 +56,7 @@ jobs:
             apt install -y nodejs
             apt install -y build-essential
             apt install -y npm
-            npm ci
+            npm install
             npm run lint
             npm run build --if-present
     - name: Upload Linux ARM64 .deb Artifact
