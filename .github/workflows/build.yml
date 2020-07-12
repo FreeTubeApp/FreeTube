@@ -48,7 +48,7 @@ jobs:
       if: startsWith(matrix.os, 'ubuntu')
       with:
         architecture: aarch64
-        distribution: ubuntu20.04
+        distribution: ubuntu18.04
         run: |
           export DEBIAN_FRONTEND=noninteractive
           export TZ=Europe/Kiev
