@@ -48,11 +48,14 @@ jobs:
       uses: uraimo/run-on-arch-action@v1.0.9
       with:
           architecture: aarch64
-          distribution: ubuntu18.04
+          distribution: ubuntu20.04
           run: |
+            apt install -y curl
+            curl -sL https://rpm.nodesource.com/setup_lts.x | bash -
             apt update
-            apt install -y snapd
-            snap install node
+            apt install -y nodejs
+            apt install -y build-essential
+            apt install -y npm
             npm install
             npm run lint
             npm run build --if-present
