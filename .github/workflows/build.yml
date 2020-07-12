@@ -48,7 +48,7 @@ jobs:
       if: startsWith(matrix.os, 'ubuntu')
       with:
         architecture: aarch64
-        distribution: ubuntu18.04
+        distribution: ubuntu20.04
         run: |
           export DEBIAN_FRONTEND=noninteractive
           export TZ=Europe/Kiev
@@ -57,6 +57,7 @@ jobs:
           apt update
           apt install -y npm
           apt install -y nodejs
+          node --version
           npm install
           npm run lint
           npm run build --if-present
