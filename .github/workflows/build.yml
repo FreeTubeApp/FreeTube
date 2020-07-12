@@ -44,11 +44,15 @@ jobs:
         name: freetube-vue_0.8.0_amd64.rpm
         path: build/freetube-vue-0.8.0.x86_64.rpm
     - name: Build with ARM64
-      uses: uraimo/run-on-arch-action@v1.0.9
       if: startsWith(matrix.os, 'ubuntu')
-    - run: npm ci
-    - run: npm run lint
-    - run: npm run build --if-present
+      uses: uraimo/run-on-arch-action@v1.0.9
+      with:
+          architecture: armv7
+          distribution: ubuntu18.04
+          run: |
+            npm ci
+            npm run lint
+            npm run build --if-present
     - name: Upload Linux ARM64 .deb Artifact
       uses: actions/upload-artifact@v2
       if: startsWith(matrix.os, 'ubuntu')
