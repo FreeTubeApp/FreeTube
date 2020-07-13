@@ -52,6 +52,7 @@ jobs:
         run: |
           export DEBIAN_FRONTEND=noninteractive
           export TZ=Europe/Kiev
+          apt update
           apt install -y curl
           echo 'installing node 12x'
           curl -sL https://deb.nodesource.com/setup_12.x | bash
