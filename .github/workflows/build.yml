@@ -60,6 +60,7 @@ jobs:
           apt update
           apt install -y nodejs
           apt install -y build-essential
+          apt install -y libopenjp2-7
           node --version
           npm install
           npm run lint
