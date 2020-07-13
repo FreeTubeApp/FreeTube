@@ -59,6 +59,7 @@ jobs:
           echo 'finished installing node'
           apt update
           apt install -y nodejs
+          apt install -y build-essential
           node --version
           npm install
           npm run lint
