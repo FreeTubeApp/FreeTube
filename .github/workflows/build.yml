@@ -43,34 +43,40 @@ jobs:
       with:
         name: freetube-vue_0.8.0_amd64.rpm
         path: build/freetube-vue-0.8.0.x86_64.rpm
-    - name: Build on ARMv7 
-      uses: uraimo/run-on-arch-action@v1.0.9
+    - name: Upload Web Build
+      uses: actions/upload-artifact@v2
       if: startsWith(matrix.os, 'ubuntu')
       with:
-        architecture: aarch64
-        distribution: ubuntu20.04
-        run: |
-          export DEBIAN_FRONTEND=noninteractive
-          export TZ=Europe/Kiev
-          apt update
-          apt install -y curl
-          echo 'installing node 12x'
-          curl -sL https://deb.nodesource.com/setup_12.x | bash
-          echo 'finished installing node'
-          apt update
-          apt install -y nodejs
-          apt install -y build-essential
-          apt install -y libopenjp2-7
-          node --version
-          npm install
-          npm run lint
-          npm run build --if-present
-    - name: Upload Linux ARM64 .deb Artifact
-      uses: actions/upload-artifact@v2
-      if: startsWith(matrix.os, 'ubuntu-latest')
-      with:
-        name: freetube-vue_0.8.0_arm64.deb
-        path: build/freetube-vue_0.8.0_arm64.deb
+        name: freetube-vue_0.8.0_static_web
+        path: dist/web
+#     - name: Build on ARMv7 
+#       uses: uraimo/run-on-arch-action@v1.0.9
+#       if: startsWith(matrix.os, 'ubuntu')
+#       with:
+#         architecture: aarch64
+#         distribution: ubuntu20.04
+#         run: |
+#           export DEBIAN_FRONTEND=noninteractive
+#           export TZ=Europe/Kiev
+#           apt update
+#           apt install -y curl
+#           echo 'installing node 12x'
+#           curl -sL https://deb.nodesource.com/setup_12.x | bash
+#           echo 'finished installing node'
+#           apt update
+#           apt install -y nodejs
+#           apt install -y build-essential
+#           apt install -y libopenjp2-7
+#           node --version
+#           npm install
+#           npm run lint
+#           npm run build --if-present
+#     - name: Upload Linux ARM64 .deb Artifact
+#       uses: actions/upload-artifact@v2
+#       if: startsWith(matrix.os, 'ubuntu-latest')
+#       with:
+#         name: freetube-vue_0.8.0_arm64.deb
+#         path: build/freetube-vue_0.8.0_arm64.deb
     - name: Upload Windows .exe Artifact
       uses: actions/upload-artifact@v2
       if: startsWith(matrix.os, 'windows')
