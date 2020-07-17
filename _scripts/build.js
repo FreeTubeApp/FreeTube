@@ -47,7 +47,7 @@ const config = {
   linux: {
     category: 'Network',
     icon: '_icons/icon.png',
-    target: ['deb', 'zip', 'AppImage'], // re-add RPM after testiing
+    target: ['deb', 'zip', 'rpm', 'AppImage'],
   },
   mac: {
     category: 'public.app-category.utilities',
