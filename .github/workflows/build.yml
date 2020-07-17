@@ -68,6 +68,8 @@ jobs:
           apt install -y build-essential
           apt install -y libopenjp2-7
           node --version
+          mkdir build
+          cp -r _icons/.icon-set/ build/.icon-set/
           npm install
           npm run lint
           npm run build --if-present
