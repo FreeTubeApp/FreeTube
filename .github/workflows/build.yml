@@ -68,8 +68,8 @@ jobs:
           apt install -y build-essential
           apt install -y libopenjp2-7
           node --version
-          mkdir build
-          cp -r _icons/.icon-set/ build/.icon-set/
+          mkdir /github/workplace/build
+          cp -r _icons/.icon-set/ /github/workplace/build/.icon-set/
           npm install
           npm run lint
           npm run build --if-present
@@ -77,8 +77,8 @@ jobs:
       uses: actions/upload-artifact@v2
       if: startsWith(matrix.os, 'ubuntu-latest')
       with:
-        name: freetube-vue_0.8.0_arm64.deb
-        path: build/freetube-vue_0.8.0_arm64.deb
+        name: FreeTube-Vue-0.8.0-arm64.AppImage
+        path: build/FreeTube-Vue-0.8.0-arm64.AppImage
     - name: Upload Windows .exe Artifact
       uses: actions/upload-artifact@v2
       if: startsWith(matrix.os, 'windows')
