@@ -178,7 +178,13 @@ export default Vue.extend({
         this.relatedChannels = response.relatedChannels
 
         if (response.authorBanners !== null) {
-          this.bannerUrl = `https://${response.authorBanners[response.authorBanners.length - 1].url}`
+          const bannerUrl = response.authorBanners[response.authorBanners.length - 1].url
+
+          if (!bannerUrl.includes('https')) {
+            this.bannerUrl = `https://${bannerUrl}`
+          } else {
+            this.bannerUrl = bannerUrl
+          }
         } else {
           this.bannerUrl = null
         }
