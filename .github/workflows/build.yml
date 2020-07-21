@@ -43,6 +43,12 @@ jobs:
       with:
         name: freetube-vue_0.8.0_amd64.rpm
         path: build/freetube-vue-0.8.0.x86_64.rpm
+    - name: Upload Alpine .apk Artifact
+      uses: actions/upload-artifact@v2
+      if: startsWith(matrix.os, 'ubuntu')
+      with:
+        name: freetube-vue_0.8.0_alpine_x64.apk
+        path: build/freetube-vue-0.8.0.apk
     - name: Upload Web Build
       uses: actions/upload-artifact@v2
       if: startsWith(matrix.os, 'ubuntu')
