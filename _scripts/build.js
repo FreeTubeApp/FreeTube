@@ -16,7 +16,7 @@ if (platform == 'darwin') {
 } else if (platform == 'linux') {
   let arch = Arch.x64
 
-  if (args[3] === 'arm') {
+  if (args[2] === 'arm') {
     arch = Arch.arm64
   }
 
