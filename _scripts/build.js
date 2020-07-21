@@ -2,7 +2,9 @@ const os = require('os')
 const builder = require('electron-builder')
 
 const Platform = builder.Platform
+const Arch = builder.Arch
 const { name, productName } = require('../package.json')
+const args = process.argv
 
 let targets
 var platform = os.platform()
@@ -12,7 +14,13 @@ if (platform == 'darwin') {
 } else if (platform == 'win32') {
   targets = Platform.WINDOWS.createTarget()
 } else if (platform == 'linux') {
-  targets = Platform.LINUX.createTarget()
+  let arch = Arch.x64
+
+  if (args[0] === 'arm') {
+    arch = Arch.arm64
+  }
+
+  targets = Platform.LINUX.createTarget(['deb', 'zip', 'apk', 'rpm', 'AppImage'], arch)
 }
 
 const config = {

@@ -25,6 +25,9 @@ jobs:
     - run: npm ci
     - run: npm run lint
     - run: npm run build --if-present
+    - name: Build ARM64 with Node.js ${{ matrix.node-version}}
+      if: startsWith(matrix.os, 'ubuntu')
+      run: npm run build:arm --if-present
     - name: Upload .deb Artifact
       uses: actions/upload-artifact@v2
       if: startsWith(matrix.os, 'ubuntu')
