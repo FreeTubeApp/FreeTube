@@ -33,13 +33,13 @@ jobs:
       if: startsWith(matrix.os, 'ubuntu')
       with:
         name: freetube-vue_0.8.0_portable_x64.zip
-        path: build/freetube-vue_0.8.0.zip
+        path: build/freetube-vue-0.8.0.zip
     - name: Upload Linux .zip ARM Artifact
       uses: actions/upload-artifact@v2
       if: startsWith(matrix.os, 'ubuntu')
       with:
         name: freetube-vue_0.8.0_portable_arm64.zip
-        path: build/freetube-vue_0.8.0-arm64.zip
+        path: build/freetube-vue-0.8.0-arm64.zip
     - name: Upload .deb x64 Artifact
       uses: actions/upload-artifact@v2
       if: startsWith(matrix.os, 'ubuntu')
