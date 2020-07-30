@@ -106,6 +106,12 @@ jobs:
       with:
         name: freetube-vue-0.8.0-setup-x64.exe
         path: build/FreeTube-Vue Setup 0.8.0.exe
+    - name: Upload Windows Portable Artifact
+      uses: actions/upload-artifact@v2
+      if: startsWith(matrix.os, 'windows')
+      with:
+        name: freetube-vue-0.8.0-portable-x64.exe
+        path: build/FreeTube-Vue 0.8.0.exe
     - name: Upload Mac .dmg Artifact
       uses: actions/upload-artifact@v2
       if: startsWith(matrix.os, 'macos')

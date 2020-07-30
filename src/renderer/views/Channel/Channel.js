@@ -154,13 +154,11 @@ export default Vue.extend({
     } else {
       switch (this.backendPreference) {
         case 'local':
-          this.apiUsed = 'local'
           this.getChannelInfoLocal()
           this.getChannelVideosLocal()
           this.getPlaylistsLocal()
           break
         case 'invidious':
-          this.apiUsed = 'invidious'
           this.getChannelInfoInvidious()
           this.getPlaylistsInvidious()
           break
@@ -169,6 +167,7 @@ export default Vue.extend({
   },
   methods: {
     getChannelInfoLocal: function () {
+      this.apiUsed = 'local'
       ytch.getChannelInfo(this.id).then((response) => {
         this.id = response.authorId
         this.channelName = response.author
@@ -192,6 +191,13 @@ export default Vue.extend({
         this.isLoading = false
       }).catch((err) => {
         console.log(err)
+        if (this.backendPreference === 'local' && this.backendFallback) {
+          console.log('Falling back to Invidious API')
+          this.getChannelInfoInvidious()
+        } else {
+          this.isLoading = false
+          // TODO: Show toast with error message
+        }
       })
     },
 
@@ -203,6 +209,13 @@ export default Vue.extend({
         this.isElementListLoading = false
       }).catch((err) => {
         console.log(err)
+        if (this.backendPreference === 'local' && this.backendFallback) {
+          console.log('Falling back to Invidious API')
+          this.getChannelInfoInvidious()
+        } else {
+          this.isLoading = false
+          // TODO: Show toast with error message
+        }
       })
     },
 
@@ -217,6 +230,7 @@ export default Vue.extend({
 
     getChannelInfoInvidious: function () {
       this.isLoading = true
+      this.apiUsed = 'invidious'
 
       this.$store.dispatch('invidiousGetChannelInfo', this.id).then((response) => {
         console.log(response)
@@ -264,6 +278,13 @@ export default Vue.extend({
         this.isElementListLoading = false
       }).catch((err) => {
         console.log(err)
+        if (this.backendPreference === 'local' && this.backendFallback) {
+          console.log('Falling back to Invidious API')
+          this.getPlaylistsInvidious()
+        } else {
+          this.isLoading = false
+          // TODO: Show toast with error message
+        }
       })
     },
 
@@ -296,8 +317,15 @@ export default Vue.extend({
         this.playlistContinuationString = response.continuation
         this.latestPlaylists = this.latestPlaylists.concat(response.playlists)
         this.isElementListLoading = false
-      }).catch((error) => {
-        console.log(error)
+      }).catch((err) => {
+        console.log(err)
+        if (this.backendPreference === 'invidious' && this.backendFallback) {
+          console.log('Falling back to Local API')
+          this.getPlaylistsLocal()
+        } else {
+          this.isLoading = false
+          // TODO: Show toast with error message
+        }
       })
     },
 
@@ -370,6 +398,13 @@ export default Vue.extend({
           this.searchContinuationString = response.continuation
         }).catch((err) => {
           console.log(err)
+          if (this.backendPreference === 'local' && this.backendFallback) {
+            console.log('Falling back to Invidious API')
+            this.searchChannelInvidious()
+          } else {
+            this.isLoading = false
+            // TODO: Show toast with error message
+          }
         })
       } else {
         ytch.searchChannelMore(this.searchContinuationString).then((response) => {
@@ -397,6 +432,15 @@ export default Vue.extend({
         this.searchResults = this.searchResults.concat(response)
         this.isElementListLoading = false
         this.searchPage++
+      }).catch((err) => {
+        console.log(err)
+        if (this.backendPreference === 'invidious' && this.backendFallback) {
+          console.log('Falling back to Local API')
+          this.searchChannelLocal()
+        } else {
+          this.isLoading = false
+          // TODO: Show toast with error message
+        }
       })
     }
   }
