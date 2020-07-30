@@ -97,7 +97,7 @@
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
   },
-  "license": "GPL-3.0-or-later",
+  "license": "AGPL-3.0-or-later",
   "main": "./dist/main.js",
   "name": "freetube-vue",
   "private": true,
