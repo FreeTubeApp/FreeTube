@@ -21,7 +21,7 @@ export default Vue.extend({
     },
     close: function (toast) {
       // Wait for fade-out to finish
-      setTimeout(this.remove, 300, this.toasts.length)
+      setTimeout(this.remove, 300, 0)
 
       toast.isOpen = false
     },
@@ -36,7 +36,7 @@ export default Vue.extend({
     },
     remove: function(index) {
       const removed = this.toasts.splice(index, 1)
-      clearTimeout(removed.timeout)
+      clearTimeout(removed[0].timeout)
     }
   },
 })
