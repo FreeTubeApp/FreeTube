@@ -14,6 +14,7 @@
       />
       <!-- </keep-alive> -->
     </Transition>
+    <ft-toast />
   </div>
 </template>
 

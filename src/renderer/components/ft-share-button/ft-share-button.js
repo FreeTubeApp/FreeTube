@@ -2,6 +2,7 @@ import Vue from 'vue'
 
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtButton from '../ft-button/ft-button.vue'
+import { mapActions } from 'vuex'
 
 export default Vue.extend({
   name: 'FtShareButton',
@@ -59,6 +60,7 @@ export default Vue.extend({
     },
 
     copyInvidious() {
+      this.showToast('Invidious URL copied to clipboard')
       this.copy(this.invidiousURL)
       this.$refs.iconButton.toggleDropdown()
     },
@@ -69,6 +71,7 @@ export default Vue.extend({
     },
 
     copyYoutube() {
+      this.showToast('YouTube URL copied to clipboard')
       this.copy(this.youtubeURL)
       this.$refs.iconButton.toggleDropdown()
     },
@@ -79,6 +82,7 @@ export default Vue.extend({
     },
 
     copyYoutubeEmbed() {
+      this.showToast('YouTube Embed URL copied to clipboard')
       this.copy(this.youtubeEmbedURL)
       this.$refs.iconButton.toggleDropdown()
     },
@@ -89,8 +93,13 @@ export default Vue.extend({
     },
 
     copyInvidiousEmbed() {
+      this.showToast('Invidious Embed URL copied to clipboard')
       this.copy(this.invidiousEmbedURL)
       this.$refs.iconButton.toggleDropdown()
     },
+
+    ...mapActions([
+      'showToast'
+    ])
   }
 })

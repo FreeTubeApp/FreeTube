@@ -1,5 +1,5 @@
 import IsEqual from 'lodash.isequal'
-
+import FtToastEvents from '../../components/ft-toast/ft-toast-events'
 const state = {
   isSideNavOpen: false,
   sessionSearchHistory: [],
@@ -84,6 +84,10 @@ const actions = {
     ]
 
     return extractors.reduce((a, c) => a || c(), null) || false
+  },
+
+  showToast (_, message, action, time) {
+    FtToastEvents.$emit('toast.open', message, action, time)
   }
 }
 
