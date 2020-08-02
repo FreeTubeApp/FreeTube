@@ -6,6 +6,10 @@ export default Vue.extend({
     data: {
       type: Object,
       required: true
+    },
+    appearance: {
+      type: String,
+      required: true
     }
   },
   data: function () {
@@ -58,14 +62,6 @@ export default Vue.extend({
       this.channelLink = this.data.author.ref
       this.playlistLink = this.data.link
       this.videoCount = parseInt(this.data.length.split(' ')[0])
-    },
-
-    goToPlaylist: function (id) {
-      this.$router.push({ path: `/playlist/${id}` })
-    },
-
-    goToChannel: function (id) {
-      console.log(id)
     }
   }
 })

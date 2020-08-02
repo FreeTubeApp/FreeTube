@@ -3,12 +3,11 @@
   flex-flow: row wrap
   justify-content: space-evenly
   position: relative
+  user-select: none
 
 .iconButton
   width: 1em
   height: 1em
-  padding: 10px
-  font-size: 20px
   border-radius: 50%
   cursor: pointer
   transition: background 0.15s ease-out
@@ -59,10 +58,10 @@
   user-select: none
 
   &.left
-    right: calc(50% - 20px)
+    right: calc(50% - 10px)
 
   &.right
-    left: calc(50% - 20px)
+    left: calc(50% - 10px)
 
   .list
     margin: 0

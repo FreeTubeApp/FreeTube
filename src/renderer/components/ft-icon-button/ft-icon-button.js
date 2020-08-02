@@ -19,6 +19,14 @@ export default Vue.extend({
       type: Boolean,
       default: true
     },
+    padding: {
+      type: Number,
+      default: 10
+    },
+    size: {
+      type: Number,
+      default: 20
+    },
     forceDropdown: {
       type: Boolean,
       default: false

@@ -135,6 +135,7 @@ const config = {
       vue$: 'vue/dist/vue.esm.js',
       src: path.join(__dirname, '../src/'),
       icons: path.join(__dirname, '../_icons/'),
+      images: path.join(__dirname, '../src/renderer/assets/img/'),
     },
     extensions: ['.js', '.vue', '.json', '.css'],
   },
@@ -170,6 +171,13 @@ if (isDevMode) {
           {
             from: path.join(__dirname, '../_icons'),
             to: path.join(__dirname, '../dist/web/_icons'),
+            globOptions: {
+              ignore: ['.*'],
+            },
+          },
+          {
+            from: path.join(__dirname, '../src/renderer/assets/img'),
+            to: path.join(__dirname, '../dist/web/images'),
             globOptions: {
               ignore: ['.*'],
             },

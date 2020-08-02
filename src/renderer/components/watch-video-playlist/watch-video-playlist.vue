@@ -47,7 +47,7 @@
           @click="playNextVideo"
         />
       </p>
-      <ft-flex-box
+      <div
         v-if="!isLoading"
         class="playlistItems"
       >
@@ -56,25 +56,27 @@
           :key="index"
           class="playlistItem"
         >
-          <font-awesome-icon
-            v-if="item.videoId === videoId"
-            class="videoIndexIcon"
-            icon="play"
-          />
-          <p
-            v-else
-            class="videoIndex"
-          >
-            {{ index + 1 }}
-          </p>
+          <div class="videoIndexContainer">
+            <font-awesome-icon
+              v-if="item.videoId === videoId"
+              class="videoIndexIcon"
+              icon="play"
+            />
+            <p
+              v-else
+              class="videoIndex"
+            >
+              {{ index + 1 }}
+            </p>
+          </div>
           <ft-list-video
             :data="item"
             :playlist-id="playlistId"
+            appearance="watchPlaylistItem"
             force-list-type="list"
-            class="videoInfo"
           />
         </div>
-      </ft-flex-box>
+      </div>
     </div>
   </ft-card>
 </template>

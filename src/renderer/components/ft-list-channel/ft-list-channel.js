@@ -6,6 +6,10 @@ export default Vue.extend({
     data: {
       type: Object,
       required: true
+    },
+    appearance: {
+      type: String,
+      required: true
     }
   },
   data: function () {
@@ -32,10 +36,6 @@ export default Vue.extend({
     }
   },
   methods: {
-    goToChannel: function () {
-      this.$router.push({ path: `/channel/${this.id}` })
-    },
-
     parseLocalData: function () {
       this.thumbnail = this.data.avatar
       this.channelName = this.data.name

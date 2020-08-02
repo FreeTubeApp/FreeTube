@@ -1,38 +1,45 @@
 <template>
   <div
-    class="ft-list-video"
+    class="ft-list-video ft-list-item"
+    :appearance="appearance"
     :class="{ list: listType === 'list', grid: listType === 'grid' }"
   >
-    <div class="videoThumbnail">
+    <router-link
+      class="videoThumbnail"
+      :to="`/playlist/${playlistId}`"
+    >
       <img
         :src="thumbnail"
-        @click="goToPlaylist(playlistId)"
+        class="thumbnailImage"
       >
       <div
         class="videoCountContainer"
-        @click="goToPlaylist(playlistId)"
       >
-        <span>
-          {{ videoCount }}
-          <br>
-          <font-awesome-icon icon="list" />
-        </span>
+        <div class="background" />
+        <div class="inner">
+          <div>{{ videoCount }}</div>
+          <div><font-awesome-icon icon="list" /></div>
+        </div>
+      </div>
+    </router-link>
+    <div class="info">
+      <router-link
+        class="title"
+        :to="`/playlist/${playlistId}`"
+      >
+        {{ title }}
+      </router-link>
+      <div class="infoLine">
+        <router-link
+          class="channelName"
+          :to="`/channel/${channelId}`"
+        >
+          {{ channelName }}
+        </router-link>
       </div>
     </div>
-    <p
-      class="playlistTitle"
-      @click="goToPlaylist(playlistId)"
-    >
-      {{ title }}
-    </p>
-    <p
-      class="channelName"
-      @click="goToChannel(channelId)"
-    >
-      {{ channelName }}
-    </p>
   </div>
 </template>
 
 <script src="./ft-list-playlist.js" />
-<style scoped src="./ft-list-playlist.css" />
+<style scoped lang="sass" src="./ft-list-playlist.sass" />
