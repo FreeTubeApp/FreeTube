@@ -50,7 +50,7 @@ I will add more things to do as progress gets made.  For now what I have listed 
 
 ## Contact
 
-To chat about the FreeTube rewrite or to ask questions, we encourage you to join our [Matrix Community](https://riot.im/app/#/group/+freetube:matrix.org).  I will be there actively working on the rewrite and will be available to help you get started.  Alternatively, you can email me at FreeTubeApp@protonmail.com.
+To chat about the FreeTube rewrite or to ask questions, we encourage you to join our [Matrix Community](https://app.element.io/#/group/+freetube:matrix.org).  I will be there actively working on the rewrite and will be available to help you get started.  Alternatively, you can email me at FreeTubeApp@protonmail.com.
 
 ## License
 [![GNU AGPLv3 Image](https://www.gnu.org/graphics/agplv3-155x51.png)](https://www.gnu.org/licenses/agpl-3.0.html)  
