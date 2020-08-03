@@ -33,7 +33,7 @@
       </p>
       <p>
         Want to chat? Join our
-        <a href="https://riot.im/app/#/group/+freetube:matrix.org">Riot / Matrix Server</a>
+        <a href="https://app.element.io/#/group/+freetube:matrix.org">Element / Matrix Server</a>
         . Please check the
         <a href="https://github.com/FreeTubeApp/FreeTube/wiki/Matrix-Server-Info-&-Rules">rules</a>
         before joining.
