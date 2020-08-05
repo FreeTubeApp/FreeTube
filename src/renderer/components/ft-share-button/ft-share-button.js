@@ -39,7 +39,7 @@ export default Vue.extend({
 
     youtubeEmbedURL() {
       return `https://www.youtube-nocookie.com/embed/${this.id}`
-    },
+    }
 
   },
   methods: {

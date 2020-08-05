@@ -20,7 +20,7 @@ export default Vue.extend({
   components: {
     TopNav,
     SideNav,
-    FtToast,
+    FtToast
   },
   computed: {
     isOpen: function () {

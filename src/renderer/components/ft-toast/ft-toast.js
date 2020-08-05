@@ -5,7 +5,7 @@ export default Vue.extend({
   name: 'FtToast',
   data: function () {
     return {
-      toasts: [],
+      toasts: []
     }
   },
   mounted: function () {
@@ -38,5 +38,5 @@ export default Vue.extend({
       const removed = this.toasts.splice(index, 1)
       clearTimeout(removed[0].timeout)
     }
-  },
+  }
 })

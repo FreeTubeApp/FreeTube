@@ -24,7 +24,7 @@ export default Vue.extend({
     'watch-video-comments': WatchVideoComments,
     'watch-video-live-chat': WatchVideoLiveChat,
     'watch-video-playlist': WatchVideoPlaylist,
-    'watch-video-recommendations': WatchVideoRecommendations,
+    'watch-video-recommendations': WatchVideoRecommendations
   },
   data: function() {
     return {
@@ -57,7 +57,7 @@ export default Vue.extend({
       captionSourceList: [],
       recommendedVideos: [],
       watchingPlaylist: false,
-      playlistId: '',
+      playlistId: ''
     }
   },
   computed: {
@@ -134,9 +134,9 @@ export default Vue.extend({
           type: 'application/dash+xml',
           label: 'Dash',
           qualityLabel: 'Auto'
-        },
+        }
       ]
-    },
+    }
   },
   watch: {
     $route() {
@@ -160,7 +160,7 @@ export default Vue.extend({
           }
           break
       }
-    },
+    }
   },
   mounted: function () {
     this.videoId = this.$route.params.id
@@ -525,6 +525,6 @@ export default Vue.extend({
           this.enableDashFormat()
         }
       }
-    },
-  },
+    }
+  }
 })

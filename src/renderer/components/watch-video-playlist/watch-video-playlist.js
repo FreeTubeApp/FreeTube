@@ -63,7 +63,7 @@ export default Vue.extend({
   watch: {
     videoId () {
       this.playlistWatchedVideoList.push(this.videoId)
-    },
+    }
   },
   mounted: function () {
     if (this.usingElectron) {

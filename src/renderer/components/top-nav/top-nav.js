@@ -10,14 +10,14 @@ export default Vue.extend({
   name: 'TopNav',
   components: {
     FtInput,
-    FtSearchFilters,
+    FtSearchFilters
   },
   data: () => {
     return {
       component: this,
       windowWidth: 0,
       showFilters: false,
-      searchSuggestionsDataList: [],
+      searchSuggestionsDataList: []
     }
   },
   computed: {
@@ -47,7 +47,7 @@ export default Vue.extend({
 
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
-    },
+    }
   },
   mounted: function () {
     const appWidth = $(window).width()
@@ -83,7 +83,7 @@ export default Vue.extend({
       this.$store.dispatch('getVideoIdFromUrl', query).then((result) => {
         if (result) {
           this.$router.push({
-            path: `/watch/${result}`,
+            path: `/watch/${result}`
           })
         } else {
           router.push({
@@ -92,8 +92,8 @@ export default Vue.extend({
               sortBy: this.searchSettings.sortBy,
               time: this.searchSettings.time,
               type: this.searchSettings.type,
-              duration: this.searchSettings.duration,
-            },
+              duration: this.searchSettings.duration
+            }
           })
         }
       })
@@ -139,8 +139,8 @@ export default Vue.extend({
         resource: 'search/suggestions',
         id: '',
         params: {
-          q: query,
-        },
+          q: query
+        }
       }
 
       this.$store
@@ -181,6 +181,6 @@ export default Vue.extend({
 
     toggleSideNav: function () {
       this.$store.commit('toggleSideNav')
-    },
-  },
+    }
+  }
 })

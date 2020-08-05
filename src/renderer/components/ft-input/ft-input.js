@@ -26,7 +26,7 @@ export default Vue.extend({
     dataList: {
       type: Array,
       default: () => { return [] }
-    },
+    }
   },
   data: function () {
     return {
