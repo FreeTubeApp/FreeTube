@@ -11,7 +11,10 @@
             #Pink: Pink
         #Secondary Color Theme: Secondary Color Theme
             #* Main Color Theme
-# An exclamation point (!) is used for entries not yet completed
+# An exclamation point (!) is used for entries not yet completed.
+# A tilda (~) is used for entries that are present, but do not need to be translated. i.e:
+    #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
+
 ---
 FreeTube: FreeTube
 # Currently on Subscriptions, Playlists, and History
@@ -191,8 +194,8 @@ About: About
     Thank you very much to the People and Projects that make FreeTube possible!: >
     Thank you very much to the People and Projects that make FreeTube possible!
 
-    'Want to chat? Join our Riot / Matrix Server . Please check the rules before joining.': >
-    'Want to chat? Join our Riot / Matrix Server . Please check the rules before joining.'
+    'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': >
+    'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.'
 
     'Looking for help? Check out our Wiki page.': 'Looking for help? Check out our Wiki page.'
 
@@ -201,7 +204,7 @@ About: About
     'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': >
     'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.'
 
-    'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS': 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
+    #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
 
 #On Channel Page
 Subscriber: Subscriber
@@ -278,7 +281,7 @@ Canceled next video autoplay: Canceled next video autoplay
             Autoplay Playlists: Autoplay Playlists
             Play Next Video: Play Next Video
             Turn on Subtitles by Default: Turn on Subtitles by Default
-            Grab videos locally: Grab videos locally
+            Force Local backend for legacy formats: Force Local backend for legacy formats
             Proxy Videos Through Invidious: Proxy Videos Through Invidious
         # Subscription Settings
             Hide Videos on Watch: Hide Videos on Watch
