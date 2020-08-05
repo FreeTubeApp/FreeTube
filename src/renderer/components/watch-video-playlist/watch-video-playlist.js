@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { mapActions } from 'vuex'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
@@ -91,24 +92,36 @@ export default Vue.extend({
     toggleLoop: function () {
       if (this.loopEnabled) {
         this.loopEnabled = false
-        console.log('Disabling loop')
+        this.showToast({
+          message: 'Loop is now disabled'
+        })
       } else {
         this.loopEnabled = true
-        console.log('Enabling loop')
+        this.showToast({
+          message: 'Loop is now enabled'
+        })
       }
     },
 
     toggleShuffle: function () {
       if (this.shuffleEnabled) {
         this.shuffleEnabled = false
-        console.log('Disabling shuffle')
+        this.showToast({
+          message: 'Shuffle is now disabled'
+        })
       } else {
         this.shuffleEnabled = true
-        console.log('Enabling shuffle')
+        this.showToast({
+          message: 'Shuffle is now enabled'
+        })
       }
     },
 
     playNextVideo: function () {
+      this.showToast({
+        message: 'Playing Next Video'
+      })
+
       const playlistInfo = {
         playlistId: this.playlistId
       }
@@ -178,6 +191,10 @@ export default Vue.extend({
     },
 
     playPreviousVideo: function () {
+      this.showToast({
+        message: 'Playing previous video'
+      })
+
       const playlistInfo = {
         playlistId: this.playlistId
       }
@@ -284,6 +301,10 @@ export default Vue.extend({
           // TODO: Show toast with error message
         }
       })
-    }
+    },
+
+    ...mapActions([
+      'showToast'
+    ])
   }
 })

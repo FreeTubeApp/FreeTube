@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtListDropdown from '../ft-list-dropdown/ft-list-dropdown.vue'
@@ -111,7 +112,9 @@ export default Vue.extend({
     },
 
     handleSubscription: function () {
-      console.log('TODO: Handle subscription logic')
+      this.showToast({
+        message: 'Subscriptions have not yet been implemented'
+      })
     },
 
     handleFormatChange: function (format) {
@@ -126,6 +129,10 @@ export default Vue.extend({
           this.$parent.enableAudioFormat()
           break
       }
-    }
+    },
+
+    ...mapActions([
+      'showToast'
+    ])
   }
 })

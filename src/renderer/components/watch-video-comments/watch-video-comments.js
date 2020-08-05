@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import ytct from 'youtube-comments-task'
@@ -65,11 +66,20 @@ export default Vue.extend({
     },
 
     getCommentDataLocal: function () {
-      console.log('Getting comment data please wait...')
+      console.log('Getting comment data please wait..')
       ytct(this.id, this.nextPageToken).fork(e => {
+        this.showToast({
+          message: `Local API Error (Click to copy): ${e.message}`,
+          time: 10000,
+          action: () => {
+            navigator.clipboard.writeText(e.message)
+          }
+        })
         console.error('ERROR', e)
         if (this.backendFallback && this.backendPreference === 'local') {
-          console.log('Falling back to Invidious API')
+          this.showToast({
+            message: 'Falling back to Invidious API'
+          })
           this.getCommentDataInvidious()
         } else {
           this.isLoading = false
@@ -178,6 +188,10 @@ export default Vue.extend({
         console.log(xhr)
         this.isLoading = false
       })
-    }
+    },
+
+    ...mapActions([
+      'showToast'
+    ])
   }
 })

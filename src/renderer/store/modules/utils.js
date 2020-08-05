@@ -86,8 +86,8 @@ const actions = {
     return extractors.reduce((a, c) => a || c(), null) || false
   },
 
-  showToast (_, message, action, time) {
-    FtToastEvents.$emit('toast.open', message, action, time)
+  showToast (_, payload) {
+    FtToastEvents.$emit('toast.open', payload.message, payload.action, payload.time)
   }
 }
 

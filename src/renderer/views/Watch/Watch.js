@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { mapActions } from 'vuex'
 import xml2vtt from 'yt-xml2vtt'
 import $ from 'jquery'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
@@ -323,16 +324,19 @@ export default Vue.extend({
           this.isLoading = false
         })
         .catch(err => {
-          console.log('Error grabbing video data through local API')
+          this.showToast({
+            message: `Local API Error (Click to copy): ${err}`,
+            time: 10000,
+            action: () => {
+              navigator.clipboard.writeText(err)
+            }
+          })
           console.log(err)
           if (!this.usingElectron || (this.backendPreference === 'local' && this.backendFallback)) {
-            console.log(
-              'Error getting data with local backend, falling back to Invidious'
-            )
+            this.showToast('Falling back to Invidious API')
             this.getVideoInformationInvidious()
           } else {
             this.isLoading = false
-            // TODO: Show toast with error message
           }
         })
     },
@@ -424,11 +428,18 @@ export default Vue.extend({
           this.isLoading = false
         })
         .catch(err => {
+          this.showToast({
+            message: `Invidious API Error (Click to copy): ${err}`,
+            time: 10000,
+            action: () => {
+              navigator.clipboard.writeText(err)
+            }
+          })
           console.log(err)
           if (this.backendPreference === 'invidious' && this.backendFallback) {
-            console.log(
-              'Error getting data with Invidious, falling back to local backend'
-            )
+            this.showToast({
+              message: 'Falling back to the local API'
+            })
             this.getVideoInformationLocal()
           } else {
             this.isLoading = false
@@ -456,6 +467,20 @@ export default Vue.extend({
         .dispatch('ytGetVideoInformation', this.videoId)
         .then(result => {
           this.videoSourceList = result.player_response.streamingData.formats
+        })
+        .catch(err => {
+          this.showToast({
+            message: `Local API Error (Click to copy): ${err}`,
+            time: 10000,
+            action: () => {
+              navigator.clipboard.writeText(err)
+            }
+          })
+          console.log(err)
+          if (!this.usingElectron || (this.backendPreference === 'local' && this.backendFallback)) {
+            this.showToast('Falling back to Invidious API')
+            this.getVideoInformationInvidious()
+          }
         })
     },
 
@@ -503,9 +528,20 @@ export default Vue.extend({
     handleVideoEnded: function () {
       if (this.watchingPlaylist) {
         console.log('Playlist next video in 5 seconds')
-        setTimeout(() => {
+        const timeout = setTimeout(() => {
           this.$refs.watchVideoPlaylist.playNextVideo()
         }, 5000)
+
+        this.showToast({
+          message: 'Playing next video in 5 seconds.  Click to cancel',
+          time: 5500,
+          action: () => {
+            clearTimeout(timeout)
+            this.showToast({
+              message: 'Canceled next video autoplay'
+            })
+          }
+        })
       }
     },
 
@@ -525,6 +561,10 @@ export default Vue.extend({
           this.enableDashFormat()
         }
       }
-    }
+    },
+
+    ...mapActions([
+      'showToast'
+    ])
   }
 })
