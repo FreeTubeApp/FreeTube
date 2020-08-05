@@ -10,14 +10,14 @@ export default Vue.extend({
   name: 'TopNav',
   components: {
     FtInput,
-    FtSearchFilters
+    FtSearchFilters,
   },
   data: () => {
     return {
       component: this,
       windowWidth: 0,
       showFilters: false,
-      searchSuggestionsDataList: []
+      searchSuggestionsDataList: [],
     }
   },
   computed: {
@@ -57,7 +57,7 @@ export default Vue.extend({
       searchContainer.style.display = 'none'
     }
 
-    window.addEventListener('resize', function(event) {
+    window.addEventListener('resize', function (event) {
       const width = event.srcElement.innerWidth
       const searchContainer = $('.searchContainer').get(0)
 
@@ -82,23 +82,19 @@ export default Vue.extend({
 
       this.$store.dispatch('getVideoIdFromUrl', query).then((result) => {
         if (result) {
-          this.$router.push(
-            {
-              path: `/watch/${result}`,
-            }
-          )
+          this.$router.push({
+            path: `/watch/${result}`,
+          })
         } else {
-          router.push(
-            {
-              path: `/search/${query}`,
-              query: {
-                sortBy: this.searchSettings.sortBy,
-                time: this.searchSettings.time,
-                type: this.searchSettings.type,
-                duration: this.searchSettings.duration
-              }
-            }
-          )
+          router.push({
+            path: `/search/${encodeURIComponent(query)}`,
+            query: {
+              sortBy: this.searchSettings.sortBy,
+              time: this.searchSettings.time,
+              type: this.searchSettings.type,
+              duration: this.searchSettings.duration,
+            },
+          })
         }
       })
 
@@ -143,19 +139,24 @@ export default Vue.extend({
         resource: 'search/suggestions',
         id: '',
         params: {
-          q: query
-        }
+          q: query,
+        },
       }
 
-      this.$store.dispatch('invidiousAPICall', searchPayload).then((results) => {
-        this.searchSuggestionsDataList = results.suggestions
-      }).error((err) => {
-        console.log(err)
-        if (this.backendFallback) {
-          console.log('Error gettings search suggestions.  Falling back to Local API')
-          this.getSearchSuggestionsLocal(query)
-        }
-      })
+      this.$store
+        .dispatch('invidiousAPICall', searchPayload)
+        .then((results) => {
+          this.searchSuggestionsDataList = results.suggestions
+        })
+        .error((err) => {
+          console.log(err)
+          if (this.backendFallback) {
+            console.log(
+              'Error gettings search suggestions.  Falling back to Local API'
+            )
+            this.getSearchSuggestionsLocal(query)
+          }
+        })
     },
 
     toggleSearchContainer: function () {
@@ -180,6 +181,6 @@ export default Vue.extend({
 
     toggleSideNav: function () {
       this.$store.commit('toggleSideNav')
-    }
-  }
+    },
+  },
 })
