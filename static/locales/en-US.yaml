@@ -19,7 +19,7 @@
 FreeTube: FreeTube
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >
-  'This part of the app is not ready yet. Come back later when progress has been made.'
+  This part of the app is not ready yet. Come back later when progress has been made.
 
 # Webkit Menu Bar
 File: File
@@ -47,44 +47,50 @@ Forward: Forward
 
 # Search Bar
 Search / Go to URL: Search / Go to URL
-    # In Filter Button
-    Search Filters: Search Filters
+  # In Filter Button
+Search Filters:
+  Search Filters: Search Filters
+  Sort By:
     Sort By: Sort By
-        Most Relevant: Most Relevant
-        Rating: Rating
-        Upload Date: Upload Date
-        View Count: View Count
+    Most Relevant: Most Relevant
+    Rating: Rating
+    Upload Date: Upload Date
+    View Count: View Count
+  Time:
     Time: Time
-        Any Time: Any Time
-        Last Hour: Last Hour
-        Today: Today
-        This Week: This Week
-        This Month: This Month
-        This Year: This Year
+    Any Time: Any Time
+    Last Hour: Last Hour
+    Today: Today
+    This Week: This Week
+    This Month: This Month
+    This Year: This Year
+  Type:
     Type: Type
-        All Types: All Types
-        Videos: Videos
-        Channels: Channels
-        #& Playlists
+    All Types: All Types
+    Videos: Videos
+    Channels: Channels
+    #& Playlists
+  Duration:
     Duration: Duration
-        All Durations: All Durations
-        Short (< 4 minutes): Short (< 4 minutes)
-        Long (> 20 minutes): Long (> 20 minutes)
-    # On Search Page
-    Search Results: Search Results
-    Fetching results. Please wait: Fetching results. Please wait
-    Fetch more results: Fetch more results
+    All Durations: All Durations
+    Short (< 4 minutes): Short (< 4 minutes)
+    Long (> 20 minutes): Long (> 20 minutes)
+  # On Search Page
+  Search Results: Search Results
+  Fetching results. Please wait: Fetching results. Please wait
+  Fetch more results: Fetch more results
 # Sidebar
-Subscriptions: Subscriptions
+Subscriptions:
     # On Subscriptions Page
+    Subscriptions: Subscriptions
     Latest Subscriptions: Latest Subscriptions
 
     'Your Subscription list is currently empty. Start adding subscriptions to see them here.': >
-    'Your Subscription list is currently empty. Start adding subscriptions to see them here.'
+      Your Subscription list is currently empty. Start adding subscriptions to see them here.
 
-    'Getting Subscriptions.  Please wait...': 'Getting Subscriptions.  Please wait…'
+    'Getting Subscriptions.  Please wait...': Getting Subscriptions.  Please wait…
     Live Now: Live Now
-    Published: Published
+    Published:
         Jan: Jan
         Feb: Feb
         Mar: Mar
@@ -112,99 +118,154 @@ Subscriptions: Subscriptions
 Featured: Featured
 Most Popular: Most Popular
 Playlists: Playlists
-History: History
-    # On History Page
-    Watch History: Watch History
-Settings: Settings
-    # On Settings Page
+History:
+  # On History Page
+  History: History
+  Watch History: Watch History
+Settings:
+  # On Settings Page
+  Settings: Settings
+  General Settings:
     General Settings: General Settings
-        Fallback to Non-Preferred Backend on Failure: Fallback to Non-Preferred Backend on Failure
-        Enable Search Suggestions: Enable Search Suggestions
-        Perferred API Backend: Perferred API Backend
-        Local API: Local API
-        Invidious API: Invidious API
-        Video View Type: Video View Type
-            Grid: Grid
-            List: List
-        Thumbnail Preference: Thumbnail Preference
-            Default: Default
-            Beginning: Beginning
-            Middle: Middle
-            End: End
-        'Invidious Instance (Default is https://invidio.us)': 'Invidious Instance (Default is https://invidio.us)'
+    Fallback to Non-Preferred Backend on Failure: Fallback to Non-Preferred Backend on Failure
+    Enable Search Suggestions: Enable Search Suggestions
+    Default Landing Page: Default Landing Page
+    Perferred API Backend:
+      Perferred API Backend: Perferred API Backend
+      Local API: Local API
+      Invidious API: Invidious API
+    Video View Type:
+      Video View Type: Video View Type
+      Grid: Grid
+      List: List
+    Thumbnail Preference:
+      Thumbnail Preference: Thumbnail Preference
+      Default: Default
+      Beginning: Beginning
+      Middle: Middle
+      End: End
+    'Invidious Instance (Default is https://invidio.us)': Invidious Instance (Default is https://invidio.us)
+    Region for Trending: Region for Trending
+        #! List countries
+  Theme Settings:
     Theme Settings: Theme Settings
-        Match Top Bar with Main Color: Match Top Bar with Main Color
-        Base Theme: Base Theme
-            Black: Black
-            Dark: Dark
-            Light: Light
-        Main Color Theme: Main Color Theme
-            Red: Red
-            Pink: Pink
-            Purple: Purple
-            Dark Purple: Dark Purple
-            Indigo: Indigo
-            Blue: Blue
-            Light Blue: Light Blue
-            Cyan: Cyan
-            Teal: Teal
-            Green: Green
-            Light Green: Light Green
-            Lime: Lime
-            Yellow: Yellow
-            Amber: Amber
-            Orange: Orange
-            Deep Orange: Deep Orange
-        Secondary Color Theme: Secondary Color Theme
+    Match Top Bar with Main Color: Match Top Bar with Main Color
+    Base Theme:
+      Base Theme: Base Theme
+      Black: Black
+      Dark: Dark
+      Light: Light
+    Main Color Theme:
+      Main Color Theme: Main Color Theme
+      Red: Red
+      Pink: Pink
+      Purple: Purple
+      Dark Purple: Dark Purple
+      Indigo: Indigo
+      Blue: Blue
+      Light Blue: Light Blue
+      Cyan: Cyan
+      Teal: Teal
+      Green: Green
+      Light Green: Light Green
+      Lime: Lime
+      Yellow: Yellow
+      Amber: Amber
+      Orange: Orange
+      Deep Orange: Deep Orange
+    Secondary Color Theme: Secondary Color Theme
         #* Main Color Theme
+  Player Settings:
     Player Settings: Player Settings
-        Force Local Backend for Legacy Formats: Force Local Backend for Legacy Formats
-        Autoplay Videos: Autoplay Videos
-        Proxy Videos Through Invidious: Proxy Videos Through Invidious
-        Autoplay Playlists: Autoplay Playlists
-        Enable Theatre Mode by Default: Enable Theatre Mode by Default
-        Default Volume: Default Volume
-        Default Playback Rate: Default Playback Rate
-        Default Video Format: Default Video Format
-            Dash Formats: Dash Formats
-            Legacy Formats: Legacy Formats
-            Audio Formats: Audio Formats
-        Default Quality: Default Quality
-            Auto: Auto
-            144p: 144p
-            240p: 240p
-            360p: 360p
-            480p: 480p
-            720p: 720p
-            1080p: 1080p
-            1440p: 1440p
-            4k: 4k
-            8k: 8k
+    Force Local Backend for Legacy Formats: Force Local Backend for Legacy Formats
+    Remember History: Remember History
+    Play Next Video: Play Next Video
+    Turn on Subtitles by Default: Turn on Subtitles by Default
+    Autoplay Videos: Autoplay Videos
+    Proxy Videos Through Invidious: Proxy Videos Through Invidious
+    Autoplay Playlists: Autoplay Playlists
+    Enable Theatre Mode by Default: Enable Theatre Mode by Default
+    Default Volume: Default Volume
+    Default Playback Rate: Default Playback Rate
+    Default Video Format:
+      Default Video Format: Default Video Format
+      Dash Formats: Dash Formats
+      Legacy Formats: Legacy Formats
+      Audio Formats: Audio Formats
+    Default Quality:
+      Default Quality: Default Quality
+      Auto: Auto
+      144p: 144p
+      240p: 240p
+      360p: 360p
+      480p: 480p
+      720p: 720p
+      1080p: 1080p
+      1440p: 1440p
+      4k: 4k
+      8k: 8k
+  Subscription Settings:
+    Subscription Settings: Subscription Settings
+    Hide Videos on Watch: Hide Videos on Watch
+    Subscriptions Export Format:
+      Subscriptions Export Format: Subscriptions Export Format
+      #& Freetube
+      Newpipe: Newpipe
+      OPML: OPML
+    Manage Subscriptions: Manage Subscriptions
+    Import Subscriptions: Import Subscriptions
+    Export Subscriptions: Export Subscriptions
+    How do I import my subscriptions?: How do I import my subscriptions?
+  Advanced Settings:
+    Advanced Settings: Advanced Settings
+    Enable Debug Mode (Prints data to the console): Enable Debug Mode (Prints data to the console)
+    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )'
+    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': >
+      Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json
+    Use Tor / Proxy for API calls: Use Tor / Proxy for API calls
+    TEST PROXY: TEST PROXY
+    #& Invidious Instance (Default is https://invidio.us)
+    See Public Instances: See Public Instances
+    Clear History:
+      Clear History: Clear History
+      # On Click
+      Are you sure you want to delete your history?: Are you sure you want to delete your history?
+      #& Yes
+      #& No
+    Clear Subscriptions:
+      Clear Subscriptions: Clear Subscriptions
+      # On Click
+      Are you sure you want to remove all subscriptions?: Are you sure you want to remove all subscriptions?
+      #& Yes
+      #& No
 
-About: About
-    #On About Page
-    #& About
-    'This software is FOSS and released under the GNU Public License v3+.': >
-    'This copylefted software is freely licensed GPLv3+.'
+About:
+  #On About page
+  About: About
+  #& About
+  'This software is FOSS and released under the GNU Public License v3+.': >
+    This copylefted software is freely licensed GPLv3+.
 
-    'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-      'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub
-      page. Pull requests welcome.'
+  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
+    Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub
+    page. Pull requests welcome.
 
-    Thank you very much to the People and Projects that make FreeTube possible!: >
+  Thank you very much to the People and Projects that make FreeTube possible!: >
     Thank you very much to the People and Projects that make FreeTube possible!
 
-    'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': >
-    'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.'
+  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': >
+    Want to chat? Join our Element / Matrix Server . Please check the rules before joining.
 
-    'Looking for help? Check out our Wiki page.': 'Looking for help? Check out our Wiki page.'
+  'Looking for help? Check out our Wiki page.': Looking for help? Check out our Wiki page.
 
-    Check out our Firefox extension!: Check out our Firefox extension!
+  Check out our Firefox extension!: Check out our Firefox extension!
 
-    'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': >
-    'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.'
+  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': >
+    If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.
 
-    #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
+  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
+
+  Latest FreeTube News: Latest FreeTube News
 
 #On Channel Page
 Subscriber: Subscriber
@@ -213,38 +274,44 @@ Subscribe: Subscribe
 Unsubscribe: Unsubscribe
 Video: Video
 #& Videos
-    #& Sort By
-        Newest: Newest
-        Oldest: Oldest
-        #& Most Popular
+Videos:
+  #& Sort By
+  Sort By:
+    Newest: Newest
+    Oldest: Oldest
+    #& Most Popular
 #& Playlists
-    #& About
-    Channel Description: Channel Description
-    Featured Channels: Featured Channels
-    Search Channel: Search Channel
-    View Full Playlist: View Full Playlist
+Playlist:
+  #& About
+  Channel Description: Channel Description
+  Featured Channels: Featured Channels
+  Search Channel: Search Channel
+  View Full Playlist: View Full Playlist
 
 # On Channel Playlist Page
-Share Playlist: Share Playlist
-    Copy YouTube Link: Copy YouTube Link
-    Open in YouTube: Open in YouTube
-    Copy Invidious Link: Copy Invidious Link
-    Open in Invidious: Open in Invidious
+Share Playlist:
+  Share Playlist: Share Playlist
+  Copy YouTube Link: Copy YouTube Link
+  Open in YouTube: Open in YouTube
+  Copy Invidious Link: Copy Invidious Link
+  Open in Invidious: Open in Invidious
 
 # On Video Watch Page
 #* Published
 #& Views
-Change Format: Change Format
-    Use Dash Formats: Use Dash Formats
-    Use Legacy Formats: Use Legacy Formats
-    Use Audio Formats: Use Audio Formats
-Share: Share
-    Copy Link: Copy Link
-    Open Link: Open Link
-    Copy Embed: Copy Embed
-    Open Embed: Open Embed
-    # On Click
-    URL has been copied to the clipboard: URL copied to clipboard
+Change Format:
+  Change Format: Change Format
+  Use Dash Formats: Use Dash Formats
+  Use Legacy Formats: Use Legacy Formats
+  Use Audio Formats: Use Audio Formats
+Share:
+  Share: Share
+  Copy Link: Copy Link
+  Open Link: Open Link
+  Copy Embed: Copy Embed
+  Open Embed: Open Embed
+  # On Click
+  URL has been copied to the clipboard: URL has been copied to clipboard
 Mini Player: Mini Player
 Click to View Comments: Click to View Comments
 Show Comments: Show Comments
@@ -264,54 +331,5 @@ Playing previous video: Playing previous video
 Playing next video in 5 seconds.  Click to cancel: Playing next video in 5 seconds.  Click to cancel
 Canceled next video autoplay: Canceled next video autoplay
 
-# Currently Not Added from Live
-    # On Settings Page
-        # General Settings
-            Default Landing Page: Default Landing Page
-                #& Subscriptions
-                #& Trending
-                #& Most Popular
-                #& Playlists
-                #& History
-            Region for Trending: Region for Trending
-                #! List countries
-        # Player Settings
-            Remember History: Remember History
-            Autoplay Videos: Autoplay Videos
-            Autoplay Playlists: Autoplay Playlists
-            Play Next Video: Play Next Video
-            Turn on Subtitles by Default: Turn on Subtitles by Default
-            Force Local backend for legacy formats: Force Local backend for legacy formats
-            Proxy Videos Through Invidious: Proxy Videos Through Invidious
-        # Subscription Settings
-            Hide Videos on Watch: Hide Videos on Watch
-            Subscriptions Export Format: Subscriptions Export Format
-                    #& Freetube
-                    Newpipe: Newpipe
-                    OPML: OPML
-            Manage Subscriptions: Manage Subscriptions
-            Import Subscriptions: Import Subscriptions
-            Export Subscriptions: Export Subscriptions
-            How do I import my subscriptions?: How do I import my subscriptions?
-        # Advanced Settings
-        Enable Debug Mode (Prints data to the console): Enable Debug Mode (Prints data to the console)
-        'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )'
-        'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': >
-        'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json'
-        Use Tor / Proxy for API calls: Use Tor / Proxy for API calls
-        TEST PROXY: TEST PROXY
-        #& Invidious Instance (Default is https://invidio.us)
-        See Public Instances: See Public Instances
-        Clear History: Clear History
-            # On Click
-            Are you sure you want to delete your history?: Are you sure you want to delete your history?
-            'Yes': 'Yes'
-            'No': 'No'
-        Clear Subscriptions: Clear Subscriptions
-            # On Click
-            Are you sure you want to remove all subscriptions?: Are you sure you want to remove all subscriptions?
-            #& Yes
-            #& No
-        Save Settings: Save Settings
-    # On About Page
-        Latest FreeTube News: Latest FreeTube News
+Yes: Yes
+No: No

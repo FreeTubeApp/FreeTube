@@ -136,6 +136,7 @@ const config = {
       src: path.join(__dirname, '../src/'),
       icons: path.join(__dirname, '../_icons/'),
       images: path.join(__dirname, '../src/renderer/assets/img/'),
+      static: path.join(__dirname, '../static/'),
     },
     extensions: ['.js', '.vue', '.json', '.css'],
   },

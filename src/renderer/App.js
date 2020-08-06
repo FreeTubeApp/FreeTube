@@ -3,6 +3,8 @@ import TopNav from './components/top-nav/top-nav.vue'
 import SideNav from './components/side-nav/side-nav.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
 import $ from 'jquery'
+import yaml from 'js-yaml'
+import fs from 'fs'
 
 let useElectron
 let shell
@@ -36,6 +38,13 @@ export default Vue.extend({
       console.log('User is using Electron')
       this.activateKeyboardShortcuts()
       this.openAllLinksExternally()
+    }
+
+    try {
+      const doc = yaml.safeLoad(fs.readFileSync('./static/locales/en-US.yaml'))
+      console.log(doc)
+    } catch (e) {
+      console.log(e)
     }
   },
   methods: {
