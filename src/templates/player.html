@@ -61,6 +61,8 @@
         <div class='smallButton shareButton'>
             <span>SHARE</span> <i class="fas fa-angle-down"></i>
             <div class='shareTypes'>
+                <input type="checkbox" id="timeCheckbox" v-model="includeCurrentTime">
+                <label for="timeCheckbox">AT CURRENT TIME</label>
                 <ul>
                     <li v-on:click='copyYouTube(videoId)'>COPY YOUTUBE LINK</li>
                     <li v-on:click='openYouTube(videoId)'>OPEN IN YOUTUBE</li>
