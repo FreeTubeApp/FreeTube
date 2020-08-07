@@ -263,7 +263,11 @@ export default Vue.extend({
               return qualityA - qualityB
             })
 
-            this.activeSourceList = this.videoSourceList
+            if (this.videoSourceList.length === 0) {
+              this.activeSourceList = result.player_response.streamingData.formats
+            } else {
+              this.activeSourceList = this.videoSourceList
+            }
           } else {
             this.videoSourceList = result.player_response.streamingData.formats
 
