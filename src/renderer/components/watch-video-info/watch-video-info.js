@@ -63,11 +63,6 @@ export default Vue.extend({
   data: function () {
     return {
       formatTypeLabel: 'VIDEO FORMATS',
-      formatTypeNames: [
-        'USE DASH FORMATS',
-        'USE LEGACY FORMATS',
-        'USE AUDIO FORMATS'
-      ],
       formatTypeValues: [
         'dash',
         'legacy',
@@ -84,6 +79,14 @@ export default Vue.extend({
       return this.$store.getters.getUsingElectron
     },
 
+    formatTypeNames: function () {
+      return [
+        this.$t('Change Format.Use Dash Formats').toUpperCase(),
+        this.$t('Change Format.Use Legacy Formats').toUpperCase(),
+        this.$t('Change Format.Use Audio Formats').toUpperCase()
+      ]
+    },
+
     totalLikeCount: function () {
       return this.likeCount + this.dislikeCount
     },
@@ -93,17 +96,18 @@ export default Vue.extend({
     },
 
     parsedViewCount: function () {
-      return this.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' views'
+      return this.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ` ${this.$t('Video.Views').toLowerCase()}`
     },
 
     subscribedText: function () {
-      return `SUBSCRIBE ${this.subscriptionCountText}`
+      return `${this.$t('Subscribe').toUpperCase()} ${this.subscriptionCountText}`
     },
 
     dateString() {
       const date = new Date(this.published)
       const dateSplit = date.toDateString().split(' ')
-      return `${dateSplit[1]} ${dateSplit[2]}, ${dateSplit[3]}`
+      const localeDateString = `Video.Published.${dateSplit[1]}`
+      return `${this.$t(localeDateString)} ${dateSplit[2]}, ${dateSplit[3]}`
     }
   },
   methods: {

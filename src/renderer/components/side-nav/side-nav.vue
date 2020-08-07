@@ -14,7 +14,7 @@
           class="navIcon"
         />
         <p class="navLabel">
-          Subscriptions
+          {{ $t("Subscriptions.Subscriptions") }}
         </p>
         <font-awesome-icon
           class="refreshIcon"
@@ -30,7 +30,7 @@
           class="navIcon"
         />
         <p class="navLabel">
-          Trending
+          {{ $t("Trending") }}
         </p>
       </div>
       <div
@@ -42,7 +42,7 @@
           class="navIcon"
         />
         <p class="navLabel">
-          Most Popular
+          {{ $t("Most Popular") }}
         </p>
       </div>
       <div
@@ -54,7 +54,7 @@
           class="navIcon"
         />
         <p class="navLabel">
-          Playlists
+          {{ $t("Playlists") }}
         </p>
       </div>
       <side-nav-more-options
@@ -69,7 +69,7 @@
           class="navIcon"
         />
         <p class="navLabel">
-          History
+          {{ $t("History.History") }}
         </p>
       </div>
       <hr>
@@ -82,7 +82,7 @@
           class="navIcon"
         />
         <p class="navLabel">
-          Settings
+          {{ $t("Settings.Settings") }}
         </p>
       </div>
       <div
@@ -94,7 +94,7 @@
           class="navIcon"
         />
         <p class="navLabel">
-          About
+          {{ $t("About.About") }}
         </p>
       </div>
       <hr>

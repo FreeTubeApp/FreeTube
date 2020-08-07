@@ -20,14 +20,9 @@ export default Vue.extend({
   },
   data: function () {
     return {
-      title: 'General Settings',
       showInvidiousInstances: false,
       instanceNames: [],
       instanceValues: [],
-      backendNames: [
-        'Invidious API',
-        'Local API'
-      ],
       backendValues: [
         'invidious',
         'local'
@@ -46,19 +41,9 @@ export default Vue.extend({
         'playlists',
         'history'
       ],
-      viewTypeNames: [
-        'Grid',
-        'List'
-      ],
       viewTypeValues: [
         'grid',
         'list'
-      ],
-      thumbnailTypeNames: [
-        'Default',
-        'Beginning',
-        'Middle',
-        'End'
       ],
       thumbnailTypeValues: [
         '',
@@ -575,6 +560,29 @@ export default Vue.extend({
     },
     thumbnailPreference: function () {
       return this.$store.getters.getThumbnailPreference
+    },
+
+    backendNames: function () {
+      return [
+        this.$t('Settings.General Settings.Preferred API Backend.Invidious API'),
+        this.$t('Settings.General Settings.Preferred API Backend.Local API')
+      ]
+    },
+
+    viewTypeNames: function () {
+      return [
+        this.$t('Settings.General Settings.Video View Type.Grid'),
+        this.$t('Settings.General Settings.Video View Type.List')
+      ]
+    },
+
+    thumbnailTypeNames: function () {
+      return [
+        this.$t('Settings.General Settings.Thumbnail Preference.Default'),
+        this.$t('Settings.General Settings.Thumbnail Preference.Beginning'),
+        this.$t('Settings.General Settings.Thumbnail Preference.Middle'),
+        this.$t('Settings.General Settings.Thumbnail Preference.End')
+      ]
     }
   },
   mounted: function () {

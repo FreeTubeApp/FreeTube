@@ -3,11 +3,11 @@
     class="relative card"
   >
     <h3>
-      {{ title }}
+      {{ $t("Settings.Theme Settings.Theme Settings") }}
     </h3>
     <ft-flex-box>
       <ft-toggle-switch
-        label="Match Top Bar with Main Color"
+        :label="$t('Settings.Theme Settings.Match Top Bar with Main Color')"
         :default-value="barColor"
         @change="updateBarColor"
       />
@@ -15,21 +15,21 @@
     <br>
     <ft-flex-box>
       <ft-select
-        placeholder="Base Theme"
+        :placeholder="$t('Settings.Theme Settings.Base Theme.Base Theme')"
         :value="currentBaseTheme"
         :select-names="baseThemeNames"
         :select-values="baseThemeValues"
         @change="updateBaseTheme"
       />
       <ft-select
-        placeholder="Main Color Theme"
+        :placeholder="$t('Settings.Theme Settings.Main Color Theme.Main Color Theme')"
         :value="currentMainColor"
         :select-names="colorNames"
         :select-values="colorValues"
         @change="updateMainColor"
       />
       <ft-select
-        placeholder="Secondary Color Theme"
+        :placeholder="$t('Settings.Theme Settings.Secondary Color Theme')"
         :value="currentSecColor"
         :select-names="colorNames"
         :select-values="colorValues"

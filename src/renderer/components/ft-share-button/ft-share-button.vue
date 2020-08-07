@@ -1,7 +1,7 @@
 <template>
   <ft-icon-button
     ref="iconButton"
-    title="Share Video"
+    :title="$t('Share.Share Video')"
     theme="secondary"
     icon="share-alt"
     dropdown-position-x="left"
@@ -24,14 +24,14 @@
           @click="copyYoutube()"
         >
           <font-awesome-icon icon="copy" />
-          Copy link
+          {{ $t("Share.Copy Link") }}
         </ft-button>
         <ft-button
           class="action"
           @click="openYoutube()"
         >
           <font-awesome-icon icon="globe" />
-          Open link
+          {{ $t("Share.Open Link") }}
         </ft-button>
         <ft-button
           class="action"
@@ -39,7 +39,7 @@
           @click="copyYoutubeEmbed()"
         >
           <font-awesome-icon icon="copy" />
-          Copy embed
+          {{ $t("Share.Copy Embed") }}
         </ft-button>
         <ft-button
           class="action"
@@ -47,7 +47,7 @@
           @click="openYoutubeEmbed()"
         >
           <font-awesome-icon icon="globe" />
-          Open embed
+          {{ $t("Share.Open Embed") }}
         </ft-button>
       </div>
 
@@ -63,14 +63,14 @@
           @click="copyInvidious()"
         >
           <font-awesome-icon icon="copy" />
-          Copy link
+          {{ $t("Share.Copy Link") }}
         </ft-button>
         <ft-button
           class="action"
           @click="openInvidious()"
         >
           <font-awesome-icon icon="globe" />
-          Open link
+          {{ $t("Share.Open Link") }}
         </ft-button>
         <ft-button
           class="action"
@@ -78,7 +78,7 @@
           @click="copyInvidiousEmbed()"
         >
           <font-awesome-icon icon="copy" />
-          Copy embed
+          {{ $t("Share.Copy Embed") }}
         </ft-button>
         <ft-button
           class="action"
@@ -86,7 +86,7 @@
           @click="openInvidiousEmbed()"
         >
           <font-awesome-icon icon="globe" />
-          Open embed
+          {{ $t("Share.Open Embed") }}
         </ft-button>
       </div>
     </div>

@@ -5,7 +5,7 @@
     <h3
       class="videoTitle"
     >
-      {{ title }}
+      {{ $t("Settings.Player Settings.Player Settings") }}
     </h3>
     <div class="switchColumnGrid">
       <div class="switchColumn">
@@ -24,13 +24,13 @@
           @change="updateEnableSubtitles"
         />
         <ft-toggle-switch
-          label="Force Local Backend for Legacy Formats"
+          :label="$t('Settings.Player Settings.Force Local Backend for Legacy Formats')"
           :compact="true"
           :default-value="forceLocalBackendForLegacy"
           @change="updateForceLocalBackendForLegacy"
         />
         <ft-toggle-switch
-          label="Proxy Videos Through Invidious"
+          :label="$t('Settings.Player Settings.Proxy Videos Through Invidious')"
           :compact="true"
           :default-value="proxyVideos"
           @change="updateProxyVideos"
@@ -38,26 +38,26 @@
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
-          label="Autoplay Videos"
+          :label="$t('Settings.Player Settings.Autoplay Videos')"
           :compact="true"
           :default-value="autoplayVideos"
           @change="updateAutoplayVideos"
         />
         <ft-toggle-switch
-          label="Autoplay Playlists"
+          :label="$t('Settings.Player Settings.Autoplay Playlists')"
           :compact="true"
           :default-value="autoplayPlaylists"
           @change="updateAutoplayPlaylists"
         />
         <ft-toggle-switch
           v-if="false"
-          label="Play Next Video"
+          :label="$t('Settings.Player Settings.Play Next Video')"
           :compact="true"
           :default-value="playNextVideo"
           @change="updatePlayNextVideo"
         />
         <ft-toggle-switch
-          label="Enable Theatre Mode by Default"
+          :label="$t('Settings.Player Settings.Enable Theatre Mode by Default')"
           :compact="true"
           :default-value="defaultTheatreMode"
           @change="updateDefaultTheatreMode"
@@ -66,7 +66,7 @@
     </div>
     <ft-flex-box>
       <ft-slider
-        label="Default Volume"
+        :label="$t('Settings.Player Settings.Default Volume')"
         :default-value="defaultVolume"
         :min-value="0"
         :max-value="100"
@@ -75,7 +75,7 @@
         @change="parseVolumeBeforeUpdate"
       />
       <ft-slider
-        label="Default Playback Rate"
+        :label="$t('Settings.Player Settings.Default Playback Rate')"
         :default-value="defaultPlayback"
         :min-value="0.25"
         :max-value="3"
@@ -86,14 +86,14 @@
     </ft-flex-box>
     <ft-flex-box>
       <ft-select
-        placeholder="Default Video Format"
+        :placeholder="$t('Settings.Player Settings.Default Video Format.Default Video Format')"
         :value="defaultVideoFormat"
         :select-names="formatNames"
         :select-values="formatValues"
         @change="updateDefaultVideoFormat"
       />
       <ft-select
-        placeholder="Default Quality"
+        :placeholder="$t('Settings.Player Settings.Default Quality.Default Quality')"
         :value="defaultQuality"
         :select-names="qualityNames"
         :select-values="qualityValues"

@@ -17,28 +17,10 @@ export default Vue.extend({
   },
   data: function () {
     return {
-      title: 'Player Settings',
-      formatNames: [
-        'Dash Formats',
-        'Legacy Formats',
-        'Audio Formats'
-      ],
       formatValues: [
         'dash',
         'legacy',
         'audio'
-      ],
-      qualityNames: [
-        'Auto',
-        '144p',
-        '240p',
-        '360p',
-        '480p',
-        '720p',
-        '1080p',
-        '1440p',
-        '4k',
-        '8k'
       ],
       qualityValues: [
         'auto',
@@ -101,6 +83,29 @@ export default Vue.extend({
 
     defaultTheatreMode: function () {
       return this.$store.getters.getDefaultTheatreMode
+    },
+
+    formatNames: function () {
+      return [
+        this.$t('Settings.Player Settings.Default Video Format.Dash Formats'),
+        this.$t('Settings.Player Settings.Default Video Format.Legacy Formats'),
+        this.$t('Settings.Player Settings.Default Video Format.Audio Formats')
+      ]
+    },
+
+    qualityNames: function () {
+      return [
+        this.$t('Settings.Player Settings.Default Quality.Auto'),
+        this.$t('Settings.Player Settings.Default Quality.144p'),
+        this.$t('Settings.Player Settings.Default Quality.240p'),
+        this.$t('Settings.Player Settings.Default Quality.360p'),
+        this.$t('Settings.Player Settings.Default Quality.480p'),
+        this.$t('Settings.Player Settings.Default Quality.720p'),
+        this.$t('Settings.Player Settings.Default Quality.1080p'),
+        this.$t('Settings.Player Settings.Default Quality.1440p'),
+        this.$t('Settings.Player Settings.Default Quality.4k'),
+        this.$t('Settings.Player Settings.Default Quality.8k')
+      ]
     }
   },
   methods: {

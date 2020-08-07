@@ -1,7 +1,7 @@
 <template>
   <ft-card class="relative watchVideoRecommendations">
     <h3>
-      Up Next
+      {{ $t("Up Next") }}
     </h3>
     <ft-list-video
       v-for="(video, index) in data"

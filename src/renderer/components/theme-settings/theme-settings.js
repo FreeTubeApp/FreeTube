@@ -15,37 +15,13 @@ export default Vue.extend({
   },
   data: function () {
     return {
-      title: 'Theme Settings',
       currentBaseTheme: '',
       currentMainColor: '',
       currentSecColor: '',
-      baseThemeNames: [
-        'Light',
-        'Dark',
-        'Black'
-      ],
       baseThemeValues: [
         'light',
         'dark',
         'black'
-      ],
-      colorNames: [
-        'Red',
-        'Pink',
-        'Purple',
-        'Deep Purple',
-        'Indigo',
-        'Blue',
-        'Light Blue',
-        'Cyan',
-        'Teal',
-        'Green',
-        'Light Green',
-        'Lime',
-        'Yellow',
-        'Amber',
-        'Orange',
-        'Deep Orange'
       ],
       colorValues: [
         'Red',
@@ -70,6 +46,35 @@ export default Vue.extend({
   computed: {
     barColor: function () {
       return this.$store.getters.getBarColor
+    },
+
+    baseThemeNames: function () {
+      return [
+        this.$t('Settings.Theme Settings.Base Theme.Light'),
+        this.$t('Settings.Theme Settings.Base Theme.Dark'),
+        this.$t('Settings.Theme Settings.Base Theme.Black')
+      ]
+    },
+
+    colorNames: function () {
+      return [
+        this.$t('Settings.Theme Settings.Main Color Theme.Red'),
+        this.$t('Settings.Theme Settings.Main Color Theme.Pink'),
+        this.$t('Settings.Theme Settings.Main Color Theme.Purple'),
+        this.$t('Settings.Theme Settings.Main Color Theme.Deep Purple'),
+        this.$t('Settings.Theme Settings.Main Color Theme.Indigo'),
+        this.$t('Settings.Theme Settings.Main Color Theme.Blue'),
+        this.$t('Settings.Theme Settings.Main Color Theme.Light Blue'),
+        this.$t('Settings.Theme Settings.Main Color Theme.Cyan'),
+        this.$t('Settings.Theme Settings.Main Color Theme.Teal'),
+        this.$t('Settings.Theme Settings.Main Color Theme.Green'),
+        this.$t('Settings.Theme Settings.Main Color Theme.Light Green'),
+        this.$t('Settings.Theme Settings.Main Color Theme.Lime'),
+        this.$t('Settings.Theme Settings.Main Color Theme.Yellow'),
+        this.$t('Settings.Theme Settings.Main Color Theme.Amber'),
+        this.$t('Settings.Theme Settings.Main Color Theme.Orange'),
+        this.$t('Settings.Theme Settings.Main Color Theme.Deep Orange')
+      ]
     }
   },
   mounted: function () {

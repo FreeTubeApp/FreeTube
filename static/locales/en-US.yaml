@@ -89,35 +89,11 @@ Subscriptions:
       Your Subscription list is currently empty. Start adding subscriptions to see them here.
 
     'Getting Subscriptions.  Please wait...': Getting Subscriptions.  Please wait…
-    Live Now: Live Now
-    Published:
-        Jan: Jan
-        Feb: Feb
-        Mar: Mar
-        Apr: Apr
-        May: May
-        Jun: Jun
-        Jul: Jul
-        Aug: Aug
-        Sep: Sep
-        Oct: Oct
-        Nov: Nov
-        Dec: Dec
-        Hour: Hour
-        Hours: Hours
-        Day: Day
-        Days: Days
-        Week: Week
-        Weeks: Weeks
-        Month: Month
-        Months: Months
-        Year: Year
-        Years: Years
-        Ago: Ago
-    Published on: Published on
-Featured: Featured
+Trending: Trending
 Most Popular: Most Popular
 Playlists: Playlists
+User Playlists:
+  Your Playlists: Your Playlists
 History:
   # On History Page
   History: History
@@ -130,8 +106,8 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: Fallback to Non-Preferred Backend on Failure
     Enable Search Suggestions: Enable Search Suggestions
     Default Landing Page: Default Landing Page
-    Perferred API Backend:
-      Perferred API Backend: Perferred API Backend
+    Preferred API Backend:
+      Preferred API Backend: Preferred API Backend
       Local API: Local API
       Invidious API: Invidious API
     Video View Type:
@@ -160,7 +136,7 @@ Settings:
       Red: Red
       Pink: Pink
       Purple: Purple
-      Dark Purple: Dark Purple
+      Deep Purple: Deep Purple
       Indigo: Indigo
       Blue: Blue
       Light Blue: Light Blue
@@ -272,7 +248,34 @@ Subscriber: Subscriber
 Subscribers: Subscribers
 Subscribe: Subscribe
 Unsubscribe: Unsubscribe
-Video: Video
+Video:
+  Views: Views
+  Live Now: Live Now
+  Published:
+      Jan: Jan
+      Feb: Feb
+      Mar: Mar
+      Apr: Apr
+      May: May
+      Jun: Jun
+      Jul: Jul
+      Aug: Aug
+      Sep: Sep
+      Oct: Oct
+      Nov: Nov
+      Dec: Dec
+      Hour: Hour
+      Hours: Hours
+      Day: Day
+      Days: Days
+      Week: Week
+      Weeks: Weeks
+      Month: Month
+      Months: Months
+      Year: Year
+      Years: Years
+      Ago: Ago
+  Published on: Published on
 #& Videos
 Videos:
   #& Sort By
@@ -299,13 +302,14 @@ Share Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+Toggle Theatre Mode: Toggle Theatre Mode
 Change Format:
-  Change Format: Change Format
+  Change Video Formats: Change Video Formats
   Use Dash Formats: Use Dash Formats
   Use Legacy Formats: Use Legacy Formats
   Use Audio Formats: Use Audio Formats
 Share:
-  Share: Share
+  Share Video: Share Video
   Copy Link: Copy Link
   Open Link: Open Link
   Copy Embed: Copy Embed

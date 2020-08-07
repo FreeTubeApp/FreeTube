@@ -38,7 +38,7 @@
     </div>
     <div>
       <div class="datePublished">
-        Published {{ dateString }}
+        {{ $t("Video.Published on") }} {{ dateString }}
       </div>
       <div class="viewCount">
         {{ parsedViewCount }}
@@ -59,14 +59,14 @@
       </div>
       <div class="videoOptions">
         <ft-icon-button
-          title="Toggle Theatre Mode"
+          :title="$t('Toggle Theatre Mode')"
           class="theatreModeButton option"
           icon="expand-alt"
           theme="secondary"
           @click="$emit('theatreMode')"
         />
         <ft-icon-button
-          title="Change Video Formats"
+          :title="$t('Change Format.Change Video Formats')"
           class="option"
           theme="secondary"
           icon="file-video"

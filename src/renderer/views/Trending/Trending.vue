@@ -8,7 +8,7 @@
       v-else
       class="card"
     >
-      <h3>Trending</h3>
+      <h3>{{ $t("Trending") }}</h3>
       <ft-element-list
         :data="shownResults"
       />

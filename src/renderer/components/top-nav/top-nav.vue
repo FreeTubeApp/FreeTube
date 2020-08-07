@@ -36,7 +36,7 @@
     <div class="middle">
       <div class="searchContainer">
         <ft-input
-          placeholder="Search / Go to URL"
+          :placeholder="$t('Search / Go to URL')"
           class="searchInput"
           :is-search="true"
           :data-list="searchSuggestionsDataList"

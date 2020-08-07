@@ -213,7 +213,7 @@ export default Vue.extend({
           this.recommendedVideos = result.related_videos
           this.videoLikeCount = result.videoDetails.likes
           this.videoDislikeCount = result.videoDetails.dislikes
-          this.isLive = result.player_response.videoDetails.isLive
+          this.isLive = result.player_response.videoDetails.isLiveContent
 
           if (this.videoDislikeCount === null) {
             this.videoDislikeCount = 0
