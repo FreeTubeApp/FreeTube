@@ -33,7 +33,7 @@ export default Vue.extend({
       channelThumbnail: '',
       playlistTitle: '',
       playlistItems: [],
-      playlistWatchedVideoList: []
+      randomizedPlaylistItems: []
     }
   },
   computed: {
@@ -114,79 +114,79 @@ export default Vue.extend({
         this.showToast({
           message: 'Shuffle is now enabled'
         })
+        this.shufflePlaylistItems()
       }
     },
 
     playNextVideo: function () {
-      this.showToast({
-        message: 'Playing Next Video'
-      })
-
       const playlistInfo = {
         playlistId: this.playlistId
       }
 
-      const videoIndex = this.playlistItems.findIndex((item) => {
-        return item.videoId === this.videoId
-      })
+      if (this.shuffleEnabled) {
+        const videoIndex = this.randomizedPlaylistItems.findIndex((item) => {
+          return item === this.videoId
+        })
 
-      const videosRemain = this.playlistWatchedVideoList.length < this.playlistItems.length
-
-      if (this.shuffleEnabled && videosRemain) {
-        let runLoop = true
-        while (runLoop) {
-          const randomInt = Math.floor(Math.random() * this.playlistItems.length)
-          const randomVideoId = this.playlistItems[randomInt].videoId
-
-          const watchedIndex = this.playlistWatchedVideoList.findIndex((watchedVideo) => {
-            return watchedVideo === randomVideoId
-          })
-
-          if (watchedIndex === -1) {
-            runLoop = false
+        if (videoIndex === this.randomizedPlaylistItems.length - 1) {
+          if (this.loopEnabled) {
             this.$router.push(
               {
-                path: `/watch/${randomVideoId}`,
+                path: `/watch/${this.randomizedPlaylistItems[0]}`,
                 query: playlistInfo
               }
             )
-            break
+            this.showToast({
+              message: 'Playing Next Video'
+            })
+            this.shufflePlaylistItems()
+          } else {
+            this.showToast({
+              message: 'The playlist has ended.  Enable loop to continue playing'
+            })
           }
-        }
-      } else if (this.shuffleEnabled && !videosRemain) {
-        if (this.loopEnabled) {
-          let runLoop = true
-          while (runLoop) {
-            const randomInt = Math.floor(Math.random() * this.playlistItems.length)
-            const randomVideoId = this.playlistItems[randomInt].videoId
-
-            if (this.videoId !== randomVideoId) {
-              this.playlistItems = []
-              runLoop = false
-              this.$router.push(
-                {
-                  path: `/watch/${randomVideoId}`,
-                  query: playlistInfo
-                }
-              )
-              break
+        } else {
+          this.$router.push(
+            {
+              path: `/watch/${this.randomizedPlaylistItems[videoIndex + 1]}`,
+              query: playlistInfo
             }
-          }
+          )
+          this.showToast({
+            message: 'Playing Next Video'
+          })
         }
-      } else if (this.loopEnabled && videoIndex === this.playlistItems.length - 1) {
-        this.$router.push(
-          {
-            path: `/watch/${this.playlistItems[0].videoId}`,
-            query: playlistInfo
+      } else {
+        const videoIndex = this.playlistItems.findIndex((item) => {
+          return item.videoId === this.videoId
+        })
+
+        if (videoIndex === this.playlistItems.length - 1) {
+          if (this.loopEnabled) {
+            this.$router.push(
+              {
+                path: `/watch/${this.playlistItems[0].videoId}`,
+                query: playlistInfo
+              }
+            )
+            this.showToast({
+              message: 'Playing Next Video'
+            })
           }
-        )
-      } else if (videoIndex < this.playlistItems.length - 1 && videosRemain) {
-        this.$router.push(
-          {
-            path: `/watch/${this.playlistItems[videoIndex + 1].videoId}`,
-            query: playlistInfo
-          }
-        )
+          this.showToast({
+            message: 'The playlist has ended.  Enable loop to continue playing'
+          })
+        } else {
+          this.$router.push(
+            {
+              path: `/watch/${this.playlistItems[videoIndex + 1].videoId}`,
+              query: playlistInfo
+            }
+          )
+          this.showToast({
+            message: 'Playing Next Video'
+          })
+        }
       }
     },
 
@@ -199,35 +199,46 @@ export default Vue.extend({
         playlistId: this.playlistId
       }
 
-      const watchedIndex = this.playlistItems.findIndex((watchedVideo) => {
-        return watchedVideo.videoId === this.videoId
-      })
+      if (this.shuffleEnabled) {
+        const videoIndex = this.randomizedPlaylistItems.findIndex((item) => {
+          return item.videoId === this.videoId
+        })
 
-      if (this.shuffleEnabled && this.playlistWatchedVideoList.length > 1) {
-        this.playlistWatchedVideoList.pop()
-        const lastVideo = this.playlistWatchedVideoList.pop()
-        this.$router.push(
-          {
-            path: `/watch/${lastVideo}`,
-            query: playlistInfo
-          }
-        )
-      } else if (watchedIndex === 0) {
-        const videoId = this.playlistItems[this.playlistItems.length - 1].videoId
-        this.$router.push(
-          {
-            path: `/watch/${videoId}`,
-            query: playlistInfo
-          }
-        )
+        if (videoIndex === 0) {
+          this.$router.push(
+            {
+              path: `/watch/${this.randomizedPlaylistItems[this.randomizedPlaylistItems.length - 1]}`,
+              query: playlistInfo
+            }
+          )
+        } else {
+          this.$router.push(
+            {
+              path: `/watch/${this.randomizedPlaylistItems[videoIndex - 1]}`,
+              query: playlistInfo
+            }
+          )
+        }
       } else {
-        const videoId = this.playlistItems[watchedIndex - 1].videoId
-        this.$router.push(
-          {
-            path: `/watch/${videoId}`,
-            query: playlistInfo
-          }
-        )
+        const videoIndex = this.playlistItems.findIndex((item) => {
+          return item.videoId === this.videoId
+        })
+
+        if (videoIndex === 0) {
+          this.$router.push(
+            {
+              path: `/watch/${this.playlistItems[this.randomizedPlaylistItems.length - 1].videoId}`,
+              query: playlistInfo
+            }
+          )
+        } else {
+          this.$router.push(
+            {
+              path: `/watch/${this.playlistItems[videoIndex - 1].videoId}`,
+              query: playlistInfo
+            }
+          )
+        }
       }
     },
 
@@ -301,6 +312,26 @@ export default Vue.extend({
           // TODO: Show toast with error message
         }
       })
+    },
+
+    shufflePlaylistItems: function () {
+      // Prevents the array from affecting the original object
+      const remainingItems = [].concat(this.playlistItems)
+      const items = []
+
+      items.push(this.videoId)
+
+      this.playlistItems.forEach((item) => {
+        const randomInt = Math.floor(Math.random() * remainingItems.length)
+
+        if (remainingItems[randomInt].videoId !== this.videoId) {
+          items.push(remainingItems[randomInt].videoId)
+        }
+
+        remainingItems.splice(randomInt, 1)
+      })
+
+      this.randomizedPlaylistItems = items
     },
 
     ...mapActions([
