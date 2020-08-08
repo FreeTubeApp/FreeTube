@@ -61,6 +61,25 @@ export default Vue.extend({
       return this.playlistItems.length
     }
   },
+  watch: {
+    videoId: function (newId, oldId) {
+      // Check if next video is from the shuffled list or if the user clicked a different video
+      if (this.shuffleEnabled) {
+        const newVideoIndex = this.randomizedPlaylistItems.findIndex((item) => {
+          return item === newId
+        })
+
+        const oldVideoIndex = this.randomizedPlaylistItems.findIndex((item) => {
+          return item === this.oldId
+        })
+
+        if ((newVideoIndex - 1) !== oldVideoIndex) {
+          // User clicked a different video than expected. Re-shuffle the list
+          this.shufflePlaylistItems()
+        }
+      }
+    }
+  },
   mounted: function () {
     if (!this.usingElectron) {
       this.getPlaylistInformationInvidious()
@@ -120,7 +139,7 @@ export default Vue.extend({
 
       if (this.shuffleEnabled) {
         const videoIndex = this.randomizedPlaylistItems.findIndex((item) => {
-          return item.id === this.videoId
+          return item === this.videoId
         })
 
         if (videoIndex === this.randomizedPlaylistItems.length - 1) {
@@ -196,7 +215,7 @@ export default Vue.extend({
 
       if (this.shuffleEnabled) {
         const videoIndex = this.randomizedPlaylistItems.findIndex((item) => {
-          return item.id === this.videoId
+          return item === this.videoId
         })
 
         if (videoIndex === 0) {
@@ -239,8 +258,6 @@ export default Vue.extend({
 
     getPlaylistInformationLocal: function () {
       this.isLoading = true
-
-      console.log(this.playlistId)
 
       this.$store.dispatch('ytGetPlaylistInfo', this.playlistId).then((result) => {
         console.log('done')
@@ -316,7 +333,6 @@ export default Vue.extend({
           }
         })
         if (this.backendPreference === 'invidious' && this.backendFallback) {
-          console.log('Error getting data with Invidious, falling back to local backend')
           this.showToast({
             message: this.$t('Falling back to Local API')
           })
