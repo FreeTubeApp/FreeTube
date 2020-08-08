@@ -62,9 +62,7 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    console.log('mount')
     if (!this.usingElectron) {
-      console.log('wha')
       this.getPlaylistInformationInvidious()
     } else {
       switch (this.backendPreference) {
