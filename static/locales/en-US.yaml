@@ -251,6 +251,11 @@ Unsubscribe: Unsubscribe
 Video:
   Views: Views
   Live Now: Live Now
+  Enable Live Chat: Enable Live Chat
+  Live Chat is currently not supported in this build.: Live Chat is currently not supported in this build.
+  'Chat is disabled or the Live Stream has ended.': Chat is disabled or the Live Stream has ended.
+  Live chat is enabled.  Chat messages will appear here once sent.: Live chat is enabled.  Chat messages will appear here once sent.
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.
   Published:
       Jan: Jan
       Feb: Feb
@@ -315,14 +320,29 @@ Share:
   Copy Embed: Copy Embed
   Open Embed: Open Embed
   # On Click
-  URL has been copied to the clipboard: URL has been copied to clipboard
+  Invidious URL copied to clipboard: Invidious URL copied to clipboard
+  Invidious Embed URL copied to clipboard: Invidious Embed URL copied to clipboard
+  YouTube URL copied to clipboard: YouTube URL copied to clipboard
+  YouTube Embed URL copied to clipboard: YouTube Embed URL copied to clipboard
 Mini Player: Mini Player
-Click to View Comments: Click to View Comments
-Show Comments: Show Comments
+Comments:
+  Comments: Comments
+  Click to View Comments: Click to View Comments
+  Getting comment replies, please wait: Getting comment replies, please wait
+  Show Comments: Show Comments
+  Hide Comments: Hide Comments
+  # Context: View 10 Replies, View 1 Reply
+  View: View
+  Hide: Hide
+  Replies: Replies
+  Reply: Reply
+  There are no comments available for this video: There are no comments available for this video
+  Load More Comments: Load More Comments
 Up Next: Up Next
 
 # Toast Messages
 Local API Error (Click to copy): Local API Error (Click to copy)
+Invidious API Error (Click to copy): Invidious API Error (Click to copy)
 Falling back to Invidious API: Falling back to Invidious API
 Falling back to the local API: Falling back to the local API
 Subscriptions have not yet been implemented: Subscriptions have not yet been implemented
@@ -334,6 +354,7 @@ Playing Next Video: Playing Next Video
 Playing previous video: Playing previous video
 Playing next video in 5 seconds.  Click to cancel: Playing next video in 5 seconds.  Click to cancel
 Canceled next video autoplay: Canceled next video autoplay
+'The playlist has ended.  Enable loop to continue playing': 'The playlist has ended.  Enable loop to continue playing'
 
 Yes: Yes
 No: No

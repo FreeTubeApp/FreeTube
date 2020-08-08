@@ -77,7 +77,7 @@ export default Vue.extend({
   created: function () {
     if (!this.usingElectron) {
       this.hasError = true
-      this.errorMessage = 'Live Chat is currently not supported in this build.'
+      this.errorMessage = this.$t('Video["Live Chat is currently not supported in this build."]')
     } else {
       switch (this.backendPreference) {
         case 'local':
@@ -89,7 +89,7 @@ export default Vue.extend({
             this.getLiveChatLocal()
           } else {
             this.hasError = true
-            this.errorMessage = 'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.'
+            this.errorMessage = this.$t('Video["Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required."]')
             this.showEnableChat = true
             this.isLoading = false
           }
@@ -120,7 +120,7 @@ export default Vue.extend({
         console.log(reason)
         this.hasError = true
         this.showEnableChat = false
-        this.errorMessage = 'Chat is disabled or the Live Stream has ended.'
+        this.errorMessage = this.$t('Video["Chat is disabled or the Live Stream has ended."]')
       })
 
       this.liveChat.on('error', (err) => {

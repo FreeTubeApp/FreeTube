@@ -18,7 +18,7 @@
       />
       <ft-button
         v-if="showEnableChat"
-        label="Enable Live Chat"
+        :label="$t('Video.Enable Live Chat')"
         class="enableLiveChat"
         @click="enableLiveChat"
       />
@@ -30,7 +30,7 @@
       <p
         class="message"
       >
-        Live chat is enabled.  Chat messages will appear here once sent.
+        {{ $t("Video['Live chat is enabled.  Chat messages will appear here once sent.']") }}
       </p>
     </div>
     <div

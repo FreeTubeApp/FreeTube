@@ -482,7 +482,9 @@ export default Vue.extend({
           })
           console.log(err)
           if (!this.usingElectron || (this.backendPreference === 'local' && this.backendFallback)) {
-            this.showToast('Falling back to Invidious API')
+            this.showToast({
+              message: this.$t('Falling back to Invidious API')
+            })
             this.getVideoInformationInvidious()
           }
         })

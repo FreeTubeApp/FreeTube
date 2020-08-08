@@ -68,8 +68,9 @@ export default Vue.extend({
     getCommentDataLocal: function () {
       console.log('Getting comment data please wait..')
       ytct(this.id, this.nextPageToken).fork(e => {
+        const errorMessage = this.$t('Local API Error (Click to copy)')
         this.showToast({
-          message: `Local API Error (Click to copy): ${e.message}`,
+          message: `${errorMessage}: ${e.message}`,
           time: 10000,
           action: () => {
             navigator.clipboard.writeText(e.message)
@@ -78,7 +79,7 @@ export default Vue.extend({
         console.error('ERROR', e)
         if (this.backendFallback && this.backendPreference === 'local') {
           this.showToast({
-            message: 'Falling back to Invidious API'
+            message: this.$t('Falling back to Invidious API')
           })
           this.getCommentDataInvidious()
         } else {
@@ -143,8 +144,18 @@ export default Vue.extend({
       }).catch((xhr) => {
         console.log('found an error')
         console.log(xhr)
+        const errorMessage = this.$t('Invidious API Error (Click to copy)')
+        this.showToast({
+          message: `${errorMessage}: ${xhr.responseText}`,
+          time: 10000,
+          action: () => {
+            navigator.clipboard.writeText(xhr.responseText)
+          }
+        })
         if (this.backendFallback && this.backendPreference === 'invidious') {
-          console.log('Falling back to local API')
+          this.showToast({
+            message: this.$t('Falling back to Local API')
+          })
           this.getCommentDataLocal()
         } else {
           this.isLoading = false
@@ -153,7 +164,9 @@ export default Vue.extend({
     },
 
     getCommentRepliesInvidious: function (index) {
-      console.log('Getting comment replies')
+      this.showToast({
+        message: this.$t('Getting comment replies, please wait')
+      })
       const payload = {
         resource: 'comments',
         id: this.id,
@@ -186,6 +199,14 @@ export default Vue.extend({
       }).catch((xhr) => {
         console.log('found an error')
         console.log(xhr)
+        const errorMessage = this.$t('Invidious API Error (Click to copy)')
+        this.showToast({
+          message: `${errorMessage}: ${xhr.responseText}`,
+          time: 10000,
+          action: () => {
+            navigator.clipboard.writeText(xhr.responseText)
+          }
+        })
         this.isLoading = false
       })
     },

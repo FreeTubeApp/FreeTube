@@ -8,24 +8,24 @@
       class="getCommentsTitle"
       @click="getCommentData"
     >
-      Click to view comments
+      {{ $t("Comments.Click to View Comments") }}
     </h4>
     <h4
       v-if="commentData.length > 0 && !isLoading && !showComments"
       class="getCommentsTitle"
       @click="showComments = true"
     >
-      Click to view comments
+      {{ $t("Comments.Click to View Comments") }}
     </h4>
     <h3
       v-if="commentData.length > 0 && !isLoading && showComments"
     >
-      Comments
+      {{ $t("Comments.Comments") }}
       <span
         class="hideComments"
         @click="showComments = false"
       >
-        Hide Comments
+        {{ $t("Comments.Hide Comments") }}
       </span>
     </h3>
     <div
@@ -60,9 +60,11 @@
           class="commentMoreReplies"
           @click="getCommentReplies(index)"
         >
-          <span v-if="!comment.showReplies">View</span>
+          <span v-if="!comment.showReplies">{{ $t("Comments.View") }}</span>
           <span v-else>Hide</span>
-          {{ comment.numReplies }} replies
+          {{ comment.numReplies }}
+          <span v-if="comment.numReplies === 1">{{ $t("Comments.Reply").toLowerCase() }}</span>
+          <span v-else>{{ $t("Comments.Replies").toLowerCase() }}</span>
         </p>
         <div
           v-if="comment.showReplies"
@@ -106,7 +108,7 @@
       v-else-if="showComments && !isLoading"
     >
       <h3 class="center">
-        There are no comments available for this video.
+        {{ $t("There are no comments available for this video") }}
       </h3>
     </div>
     <h4
@@ -114,7 +116,7 @@
       class="getMoreComments"
       @click="getCommentData"
     >
-      Load More Comments
+      {{ $t("Load More Comments") }}
     </h4>
   </ft-card>
 </template>

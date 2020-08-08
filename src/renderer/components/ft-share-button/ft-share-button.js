@@ -60,7 +60,9 @@ export default Vue.extend({
     },
 
     copyInvidious() {
-      this.showToast('Invidious URL copied to clipboard')
+      this.showToast({
+        message: this.$t('Share.Invidious URL copied to clipboard')
+      })
       this.copy(this.invidiousURL)
       this.$refs.iconButton.toggleDropdown()
     },
@@ -71,7 +73,9 @@ export default Vue.extend({
     },
 
     copyYoutube() {
-      this.showToast('YouTube URL copied to clipboard')
+      this.showToast({
+        message: this.$t('Share.YouTube URL copied to clipboard')
+      })
       this.copy(this.youtubeURL)
       this.$refs.iconButton.toggleDropdown()
     },
@@ -82,7 +86,9 @@ export default Vue.extend({
     },
 
     copyYoutubeEmbed() {
-      this.showToast('YouTube Embed URL copied to clipboard')
+      this.showToast({
+        message: this.$t('Share.YouTube Embed URL copied to clipboard')
+      })
       this.copy(this.youtubeEmbedURL)
       this.$refs.iconButton.toggleDropdown()
     },
@@ -93,7 +99,9 @@ export default Vue.extend({
     },
 
     copyInvidiousEmbed() {
-      this.showToast('Invidious Embed URL copied to clipboard')
+      this.showToast({
+        message: this.$t('Share.Invidious Embed URL copied to clipboard')
+      })
       this.copy(this.invidiousEmbedURL)
       this.$refs.iconButton.toggleDropdown()
     },

@@ -58,7 +58,7 @@
         >
           <div class="videoIndexContainer">
             <font-awesome-icon
-              v-if="item.videoId === videoId"
+              v-if="item.id === videoId"
               class="videoIndexIcon"
               icon="play"
             />

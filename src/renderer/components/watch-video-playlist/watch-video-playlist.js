@@ -51,7 +51,7 @@ export default Vue.extend({
 
     currentVideoIndex: function () {
       const index = this.playlistItems.findIndex((item) => {
-        return item.videoId === this.videoId
+        return item.id === this.videoId
       })
 
       return index + 1
@@ -61,13 +61,10 @@ export default Vue.extend({
       return this.playlistItems.length
     }
   },
-  watch: {
-    videoId () {
-      this.playlistWatchedVideoList.push(this.videoId)
-    }
-  },
   mounted: function () {
-    if (this.usingElectron) {
+    console.log('mount')
+    if (!this.usingElectron) {
+      console.log('wha')
       this.getPlaylistInformationInvidious()
     } else {
       switch (this.backendPreference) {
@@ -93,12 +90,12 @@ export default Vue.extend({
       if (this.loopEnabled) {
         this.loopEnabled = false
         this.showToast({
-          message: 'Loop is now disabled'
+          message: this.$t('Loop is now disabled')
         })
       } else {
         this.loopEnabled = true
         this.showToast({
-          message: 'Loop is now enabled'
+          message: this.$t('Loop is now enabled')
         })
       }
     },
@@ -107,12 +104,12 @@ export default Vue.extend({
       if (this.shuffleEnabled) {
         this.shuffleEnabled = false
         this.showToast({
-          message: 'Shuffle is now disabled'
+          message: this.$t('Shuffle is now disabled')
         })
       } else {
         this.shuffleEnabled = true
         this.showToast({
-          message: 'Shuffle is now enabled'
+          message: this.$t('Shuffle is now enabled')
         })
         this.shufflePlaylistItems()
       }
@@ -125,7 +122,7 @@ export default Vue.extend({
 
       if (this.shuffleEnabled) {
         const videoIndex = this.randomizedPlaylistItems.findIndex((item) => {
-          return item === this.videoId
+          return item.id === this.videoId
         })
 
         if (videoIndex === this.randomizedPlaylistItems.length - 1) {
@@ -137,12 +134,12 @@ export default Vue.extend({
               }
             )
             this.showToast({
-              message: 'Playing Next Video'
+              message: this.$t('Playing Next Video')
             })
             this.shufflePlaylistItems()
           } else {
             this.showToast({
-              message: 'The playlist has ended.  Enable loop to continue playing'
+              message: this.$t('The playlist has ended.  Enable loop to continue playing')
             })
           }
         } else {
@@ -153,38 +150,38 @@ export default Vue.extend({
             }
           )
           this.showToast({
-            message: 'Playing Next Video'
+            message: this.$t('Playing Next Video')
           })
         }
       } else {
         const videoIndex = this.playlistItems.findIndex((item) => {
-          return item.videoId === this.videoId
+          return item.id === this.videoId
         })
 
         if (videoIndex === this.playlistItems.length - 1) {
           if (this.loopEnabled) {
             this.$router.push(
               {
-                path: `/watch/${this.playlistItems[0].videoId}`,
+                path: `/watch/${this.playlistItems[0].id}`,
                 query: playlistInfo
               }
             )
             this.showToast({
-              message: 'Playing Next Video'
+              message: this.$t('Playing Next Video')
             })
           }
           this.showToast({
-            message: 'The playlist has ended.  Enable loop to continue playing'
+            message: this.$t('The playlist has ended.  Enable loop to continue playing')
           })
         } else {
           this.$router.push(
             {
-              path: `/watch/${this.playlistItems[videoIndex + 1].videoId}`,
+              path: `/watch/${this.playlistItems[videoIndex + 1].id}`,
               query: playlistInfo
             }
           )
           this.showToast({
-            message: 'Playing Next Video'
+            message: this.$t('Playing Next Video')
           })
         }
       }
@@ -201,7 +198,7 @@ export default Vue.extend({
 
       if (this.shuffleEnabled) {
         const videoIndex = this.randomizedPlaylistItems.findIndex((item) => {
-          return item.videoId === this.videoId
+          return item.id === this.videoId
         })
 
         if (videoIndex === 0) {
@@ -221,20 +218,20 @@ export default Vue.extend({
         }
       } else {
         const videoIndex = this.playlistItems.findIndex((item) => {
-          return item.videoId === this.videoId
+          return item.id === this.videoId
         })
 
         if (videoIndex === 0) {
           this.$router.push(
             {
-              path: `/watch/${this.playlistItems[this.randomizedPlaylistItems.length - 1].videoId}`,
+              path: `/watch/${this.playlistItems[this.randomizedPlaylistItems.length - 1].id}`,
               query: playlistInfo
             }
           )
         } else {
           this.$router.push(
             {
-              path: `/watch/${this.playlistItems[videoIndex - 1].videoId}`,
+              path: `/watch/${this.playlistItems[videoIndex - 1].id}`,
               query: playlistInfo
             }
           )
@@ -244,6 +241,8 @@ export default Vue.extend({
 
     getPlaylistInformationLocal: function () {
       this.isLoading = true
+
+      console.log(this.playlistId)
 
       this.$store.dispatch('ytGetPlaylistInfo', this.playlistId).then((result) => {
         console.log('done')
@@ -257,17 +256,24 @@ export default Vue.extend({
         this.channelId = result.author.id
 
         this.playlistItems = result.items
-
-        this.playlistWatchedVideoList.push(this.videoId)
         this.isLoading = false
       }).catch((err) => {
         console.log(err)
+        const errorMessage = this.$t('Local API Error (Click to copy):')
+        this.showToast({
+          message: `${errorMessage} ${err}`,
+          time: 10000,
+          action: () => {
+            navigator.clipboard.writeText(err)
+          }
+        })
         if (this.backendPreference === 'local' && this.backendFallback) {
-          console.log('Falling back to Invidious API')
+          this.showToast({
+            message: this.$t('Falling back to Invidious API')
+          })
           this.getPlaylistInformationInvidious()
         } else {
           this.isLoading = false
-          // TODO: Show toast with error message
         }
       })
     },
@@ -299,13 +305,23 @@ export default Vue.extend({
           this.playlistPage++
           this.getPlaylistInformationInvidious()
         } else {
-          this.playlistWatchedVideoList.push(this.videoId)
           this.isLoading = false
         }
       }).catch((err) => {
         console.log(err)
+        const errorMessage = this.$t('Invidious API Error (Click to copy):')
+        this.showToast({
+          message: `${errorMessage} ${err}`,
+          time: 10000,
+          action: () => {
+            navigator.clipboard.writeText(err)
+          }
+        })
         if (this.backendPreference === 'invidious' && this.backendFallback) {
           console.log('Error getting data with Invidious, falling back to local backend')
+          this.showToast({
+            message: this.$t('Falling back to Local API')
+          })
           this.getPlaylistInformationLocal()
         } else {
           this.isLoading = false
@@ -324,8 +340,8 @@ export default Vue.extend({
       this.playlistItems.forEach((item) => {
         const randomInt = Math.floor(Math.random() * remainingItems.length)
 
-        if (remainingItems[randomInt].videoId !== this.videoId) {
-          items.push(remainingItems[randomInt].videoId)
+        if (remainingItems[randomInt].id !== this.videoId) {
+          items.push(remainingItems[randomInt].id)
         }
 
         remainingItems.splice(randomInt, 1)
