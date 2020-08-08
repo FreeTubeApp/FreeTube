@@ -70,12 +70,14 @@ export default Vue.extend({
         })
 
         const oldVideoIndex = this.randomizedPlaylistItems.findIndex((item) => {
-          return item === this.oldId
+          return item === oldId
         })
 
         if ((newVideoIndex - 1) !== oldVideoIndex) {
           // User clicked a different video than expected. Re-shuffle the list
+          console.log(this.randomizedPlaylistItems)
           this.shufflePlaylistItems()
+          console.log(this.randomizedPlaylistItems)
         }
       }
     }
