@@ -41,6 +41,7 @@
     "youtube-comments-task": "^1.3.15",
     "youtube-suggest": "^1.1.0",
     "yt-channel-info": "^1.0.3",
+    "yt-trending-scraper": "^1.0.2",
     "yt-xml2vtt": "^1.1.1",
     "ytdl-core": "^3.2.0",
     "ytpl": "^0.2.4",
