@@ -351,10 +351,10 @@ export default Vue.extend({
           this.videoViewCount = result.viewCount
           this.videoLikeCount = result.likeCount
           this.videoDislikeCount = result.dislikeCount
-          this.channelSubscriptionCountText = result.subCountText
+          this.channelSubscriptionCountText = result.subCountText || 'FT-0'
           this.channelId = result.authorId
           this.channelName = result.author
-          this.channelThumbnail = result.authorThumbnails[1].url
+          this.channelThumbnail = result.authorThumbnails[1] ? result.authorThumbnails[1].url : ''
           this.videoPublished = result.published * 1000
           this.videoDescriptionHtml = result.descriptionHtml
           this.recommendedVideos = result.recommendedVideos
