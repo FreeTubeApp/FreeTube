@@ -47,20 +47,10 @@ export default Vue.extend({
       searchResults: [],
       shownElementList: [],
       apiUsed: '',
-      videoSelectNames: [
-        'Newest',
-        'Oldest',
-        'Most Popular'
-      ],
       videoSelectValues: [
         'newest',
         'oldest',
         'popular'
-      ],
-      playlistSelectNames: [
-        'Last Video Added',
-        'Newest',
-        'Oldest'
       ],
       playlistSelectValues: [
         'last',
@@ -84,6 +74,22 @@ export default Vue.extend({
 
     sessionSearchHistory: function () {
       return this.$store.getters.getSessionSearchHistory
+    },
+
+    videoSelectNames: function () {
+      return [
+        this.$t('Channel.Videos.Sort Types.Newest'),
+        this.$t('Channel.Videos.Sort Types.Oldest'),
+        this.$t('Channel.Videos.Sort Types.Most Popular')
+      ]
+    },
+
+    playlistSelectNames: function () {
+      return [
+        this.$t('Channel.Playlists.Sort Types.Last Video Added'),
+        this.$t('Channel.Playlists.Sort Types.Newest'),
+        this.$t('Channel.Playlists.Sort Types.Oldest')
+      ]
     },
 
     formattedSubCount: function () {
@@ -191,12 +197,21 @@ export default Vue.extend({
         this.isLoading = false
       }).catch((err) => {
         console.log(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        this.showToast({
+          message: `${errorMessage}: ${err}`,
+          time: 10000,
+          action: () => {
+            navigator.clipboard.writeText(err)
+          }
+        })
         if (this.backendPreference === 'local' && this.backendFallback) {
-          console.log('Falling back to Invidious API')
+          this.showToast({
+            message: this.$t('Falling back to Invidious API')
+          })
           this.getChannelInfoInvidious()
         } else {
           this.isLoading = false
-          // TODO: Show toast with error message
         }
       })
     },
@@ -209,12 +224,21 @@ export default Vue.extend({
         this.isElementListLoading = false
       }).catch((err) => {
         console.log(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        this.showToast({
+          message: `${errorMessage}: ${err}`,
+          time: 10000,
+          action: () => {
+            navigator.clipboard.writeText(err)
+          }
+        })
         if (this.backendPreference === 'local' && this.backendFallback) {
-          console.log('Falling back to Invidious API')
+          this.showToast({
+            message: this.$t('Falling back to Invidious API')
+          })
           this.getChannelInfoInvidious()
         } else {
           this.isLoading = false
-          // TODO: Show toast with error message
         }
       })
     },
@@ -225,6 +249,14 @@ export default Vue.extend({
         this.videoContinuationString = response.continuation
       }).catch((err) => {
         console.log(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        this.showToast({
+          message: `${errorMessage}: ${err}`,
+          time: 10000,
+          action: () => {
+            navigator.clipboard.writeText(err)
+          }
+        })
       })
     },
 
@@ -247,8 +279,16 @@ export default Vue.extend({
         }
 
         this.isLoading = false
-      }).catch((error) => {
-        console.log(error)
+      }).catch((err) => {
+        console.log(err)
+        const errorMessage = this.$t('Invidious API Error (Click to copy)')
+        this.showToast({
+          message: `${errorMessage}: ${err}`,
+          time: 10000,
+          action: () => {
+            navigator.clipboard.writeText(err)
+          }
+        })
         this.isLoading = false
       })
     },
@@ -267,6 +307,16 @@ export default Vue.extend({
         this.latestVideos = this.latestVideos.concat(response)
         this.latestVideosPage++
         this.isElementListLoading = false
+      }).catch((err) => {
+        console.log(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        this.showToast({
+          message: `${errorMessage}: ${err}`,
+          time: 10000,
+          action: () => {
+            navigator.clipboard.writeText(err)
+          }
+        })
       })
     },
 
@@ -278,12 +328,21 @@ export default Vue.extend({
         this.isElementListLoading = false
       }).catch((err) => {
         console.log(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        this.showToast({
+          message: `${errorMessage}: ${err}`,
+          time: 10000,
+          action: () => {
+            navigator.clipboard.writeText(err)
+          }
+        })
         if (this.backendPreference === 'local' && this.backendFallback) {
-          console.log('Falling back to Invidious API')
+          this.showToast({
+            message: this.$t('Falling back to Invidious API')
+          })
           this.getPlaylistsInvidious()
         } else {
           this.isLoading = false
-          // TODO: Show toast with error message
         }
       })
     },
@@ -295,6 +354,14 @@ export default Vue.extend({
         this.playlistContinuationString = response.continuation
       }).catch((err) => {
         console.log(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        this.showToast({
+          message: `${errorMessage}: ${err}`,
+          time: 10000,
+          action: () => {
+            navigator.clipboard.writeText(err)
+          }
+        })
       })
     },
 
@@ -319,12 +386,21 @@ export default Vue.extend({
         this.isElementListLoading = false
       }).catch((err) => {
         console.log(err)
+        const errorMessage = this.$t('Invidious API Error (Click to copy)')
+        this.showToast({
+          message: `${errorMessage}: ${err}`,
+          time: 10000,
+          action: () => {
+            navigator.clipboard.writeText(err)
+          }
+        })
         if (this.backendPreference === 'invidious' && this.backendFallback) {
-          console.log('Falling back to Local API')
+          this.showToast({
+            message: this.$t('Falling back to Local API')
+          })
           this.getPlaylistsLocal()
         } else {
           this.isLoading = false
-          // TODO: Show toast with error message
         }
       })
     },
@@ -398,12 +474,21 @@ export default Vue.extend({
           this.searchContinuationString = response.continuation
         }).catch((err) => {
           console.log(err)
+          const errorMessage = this.$t('Local API Error (Click to copy)')
+          this.showToast({
+            message: `${errorMessage}: ${err}`,
+            time: 10000,
+            action: () => {
+              navigator.clipboard.writeText(err)
+            }
+          })
           if (this.backendPreference === 'local' && this.backendFallback) {
-            console.log('Falling back to Invidious API')
+            this.showToast({
+              message: this.$t('Falling back to Invidious API')
+            })
             this.searchChannelInvidious()
           } else {
             this.isLoading = false
-            // TODO: Show toast with error message
           }
         })
       } else {
@@ -414,6 +499,14 @@ export default Vue.extend({
           this.searchContinuationString = response.continuation
         }).catch((err) => {
           console.log(err)
+          const errorMessage = this.$t('Local API Error (Click to copy)')
+          this.showToast({
+            message: `${errorMessage}: ${err}`,
+            time: 10000,
+            action: () => {
+              navigator.clipboard.writeText(err)
+            }
+          })
         })
       }
     },
@@ -434,12 +527,21 @@ export default Vue.extend({
         this.searchPage++
       }).catch((err) => {
         console.log(err)
+        const errorMessage = this.$t('Invidious API Error (Click to copy)')
+        this.showToast({
+          message: `${errorMessage}: ${err}`,
+          time: 10000,
+          action: () => {
+            navigator.clipboard.writeText(err)
+          }
+        })
         if (this.backendPreference === 'invidious' && this.backendFallback) {
-          console.log('Falling back to Local API')
+          this.showToast({
+            message: this.$t('Falling back to Local API')
+          })
           this.searchChannelLocal()
         } else {
           this.isLoading = false
-          // TODO: Show toast with error message
         }
       })
     }

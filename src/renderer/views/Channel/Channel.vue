@@ -34,7 +34,9 @@
           <span
             class="channelSubCount"
           >
-            {{ formattedSubCount }} Subscribers
+            {{ formattedSubCount }}
+            <span v-if="subCount === 1">{{ $t("Channel.Subscriber") }}</span>
+            <span v-else>{{ $t("Channel.Subscribers") }}</span>
           </span>
         </div>
         <ft-button
@@ -51,19 +53,19 @@
             class="tab"
             @click="changeTab('videos')"
           >
-            VIDEOS
+            {{ $t("Channel.Videos.Videos").toUpperCase() }}
           </div>
           <div
             class="tab"
             @click="changeTab('playlists')"
           >
-            PLAYLISTS
+            {{ $t("Channel.Playlists.Playlists").toUpperCase() }}
           </div>
           <div
             class="tab"
             @click="changeTab('about')"
           >
-            ABOUT
+            {{ $t("Channel.About.About").toUpperCase() }}
           </div>
           <ft-input
             placeholder="Search Channel"
@@ -100,7 +102,7 @@
         class="aboutTab"
       >
         <h2>
-          Channel Description
+          {{ $t("Channel.About.Channel Description") }}
         </h2>
         <div
           class="aboutInfo"
@@ -110,7 +112,7 @@
         <h2
           v-if="relatedChannels.length > 0"
         >
-          Featured Channels
+          {{ $t("Channel.About.Featured Channels") }}
         </h2>
         <ft-flex-box
           v-if="relatedChannels.length > 0"
@@ -139,7 +141,7 @@
           v-if="currentTab === 'videos' && latestVideos.length === 0"
         >
           <p class="message">
-            This channel does not currently have any videos
+            {{ $t("Channel.Videos.This channel does not currently have any videos") }}
           </p>
         </ft-flex-box>
         <ft-element-list
@@ -150,7 +152,7 @@
           v-if="currentTab === 'playlists' && latestPlaylists.length === 0"
         >
           <p class="message">
-            This channel does not currently have any playlists
+            {{ $t("Channel.Playlists.This channel does not currently have any playlists") }}
           </p>
         </ft-flex-box>
         <ft-element-list
@@ -161,7 +163,7 @@
           v-if="currentTab === 'search' && searchResults.length === 0"
         >
           <p class="message">
-            Your search results have returned 0 results
+            {{ $t("Channel.Your search results have returned 0 results") }}
           </p>
         </ft-flex-box>
         <div

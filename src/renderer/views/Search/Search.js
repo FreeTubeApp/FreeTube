@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { mapActions } from 'vuex'
 import IsEqual from 'lodash.isequal'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
@@ -144,8 +145,18 @@ export default Vue.extend({
         this.$store.commit('addToSessionSearchHistory', historyPayload)
       }).catch((err) => {
         console.log(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        this.showToast({
+          message: `${errorMessage}: ${err}`,
+          time: 10000,
+          action: () => {
+            navigator.clipboard.writeText(err)
+          }
+        })
         if (this.backendPreference === 'local' && this.backendFallback) {
-          console.log('Error getting data with local backend, falling back to Invidious')
+          this.showToast({
+            message: this.$t('Falling back to Invidious API')
+          })
           this.performSearchInvidious(payload)
         } else {
           this.isLoading = false
@@ -206,8 +217,18 @@ export default Vue.extend({
         this.$store.commit('addToSessionSearchHistory', historyPayload)
       }).catch((err) => {
         console.log(err)
+        const errorMessage = this.$t('Invidious API Error (Click to copy)')
+        this.showToast({
+          message: `${errorMessage}: ${err}`,
+          time: 10000,
+          action: () => {
+            navigator.clipboard.writeText(err)
+          }
+        })
         if (this.backendPreference === 'invidious' && this.backendFallback) {
-          console.log('Error getting data with Invidious, falling back to local backend')
+          this.showToast({
+            message: this.$t('Falling back to Local API')
+          })
           this.performSearchLocal(payload)
         } else {
           this.isLoading = false
@@ -227,6 +248,10 @@ export default Vue.extend({
       }
 
       console.log(payload)
+
+      this.showToast({
+        message: this.$t('Search Filters["Fetching results. Please wait"]')
+      })
 
       if (this.nextPageRef !== '') {
         this.performSearchLocal(payload)
@@ -249,6 +274,10 @@ export default Vue.extend({
       }
 
       this.isLoading = false
-    }
+    },
+
+    ...mapActions([
+      'showToast'
+    ])
   }
 })

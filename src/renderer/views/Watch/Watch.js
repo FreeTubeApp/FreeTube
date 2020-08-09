@@ -328,8 +328,9 @@ export default Vue.extend({
           this.isLoading = false
         })
         .catch(err => {
+          const errorMessage = this.$t('Local API Error (Click to copy)')
           this.showToast({
-            message: `Local API Error (Click to copy): ${err}`,
+            message: `${errorMessage}: ${err}`,
             time: 10000,
             action: () => {
               navigator.clipboard.writeText(err)
@@ -337,7 +338,9 @@ export default Vue.extend({
           })
           console.log(err)
           if (!this.usingElectron || (this.backendPreference === 'local' && this.backendFallback)) {
-            this.showToast('Falling back to Invidious API')
+            this.showToast({
+              message: this.$t('Falling back to Invidious API')
+            })
             this.getVideoInformationInvidious()
           } else {
             this.isLoading = false
@@ -432,8 +435,9 @@ export default Vue.extend({
           this.isLoading = false
         })
         .catch(err => {
+          const errorMessage = this.$t('Invidious API Error (Click to copy)')
           this.showToast({
-            message: `Invidious API Error (Click to copy): ${err}`,
+            message: `${errorMessage}: ${err}`,
             time: 10000,
             action: () => {
               navigator.clipboard.writeText(err)
@@ -442,7 +446,7 @@ export default Vue.extend({
           console.log(err)
           if (this.backendPreference === 'invidious' && this.backendFallback) {
             this.showToast({
-              message: 'Falling back to the local API'
+              message: this.$t('Falling back to Local API')
             })
             this.getVideoInformationLocal()
           } else {
@@ -473,8 +477,9 @@ export default Vue.extend({
           this.videoSourceList = result.player_response.streamingData.formats
         })
         .catch(err => {
+          const errorMessage = this.$t('Local API Error (Click to copy)')
           this.showToast({
-            message: `Local API Error (Click to copy): ${err}`,
+            message: `${errorMessage}: ${err}`,
             time: 10000,
             action: () => {
               navigator.clipboard.writeText(err)
@@ -533,18 +538,17 @@ export default Vue.extend({
 
     handleVideoEnded: function () {
       if (this.watchingPlaylist) {
-        console.log('Playlist next video in 5 seconds')
         const timeout = setTimeout(() => {
           this.$refs.watchVideoPlaylist.playNextVideo()
         }, 5000)
 
         this.showToast({
-          message: 'Playing next video in 5 seconds.  Click to cancel',
+          message: this.$t('Playing next video in 5 seconds.  Click to cancel'),
           time: 5500,
           action: () => {
             clearTimeout(timeout)
             this.showToast({
-              message: 'Canceled next video autoplay'
+              message: this.$t('Canceled next video autoplay')
             })
           }
         })

@@ -274,9 +274,9 @@ export default Vue.extend({
         this.isLoading = false
       }).catch((err) => {
         console.log(err)
-        const errorMessage = this.$t('Local API Error (Click to copy):')
+        const errorMessage = this.$t('Local API Error (Click to copy)')
         this.showToast({
-          message: `${errorMessage} ${err}`,
+          message: `${errorMessage}: ${err}`,
           time: 10000,
           action: () => {
             navigator.clipboard.writeText(err)
@@ -324,9 +324,9 @@ export default Vue.extend({
         }
       }).catch((err) => {
         console.log(err)
-        const errorMessage = this.$t('Invidious API Error (Click to copy):')
+        const errorMessage = this.$t('Invidious API Error (Click to copy)')
         this.showToast({
-          message: `${errorMessage} ${err}`,
+          message: `${errorMessage}: ${err}`,
           time: 10000,
           action: () => {
             navigator.clipboard.writeText(err)
