@@ -298,18 +298,21 @@ export default Vue.extend({
           // Uncomment this line if that ever changes.
           const TemplateUrl = result.player_response.storyboards.playerStoryboardSpecRenderer.spec
           const Storyboards = TemplateUrl.split('|')
-
-          const BaseUrl = Url.url.parse(Storyboards.shift(), true)
-          const BaseUrlParams = BaseUrl.query
+          console.log('AAAAAAAAAAAAAAAAAAAAAAAAA')
+          const BaseUrl = new Url.URL(Storyboards.shift())
           const items = []
+          FileWriter.writeFile('D:\\Workspace\\JavaScript\\FreeTube-Vue\\Debug-Log\\log.txt', BaseUrl.URLS, (err) => {
+            if (err) {
+              console.log(err)
+            }
+          })
           Storyboards.forEach((storyboard, i) => {
             const [width, height, count, sWidth, sHeight, interval, _, sigh] = storyboard.split('#')
-            const BaseStoryboardUrl = BaseUrl.sub('$L', i).sub('$N', 'M$M')
-            BaseUrlParams.sigh = sigh
-            BaseUrl.query = BaseUrlParams
+            const BaseStoryboardUrl = new URL(BaseUrl.toString().replace('$L', i).replace('$N', 'M$M'))
+            BaseStoryboardUrl.searchParams.append('sigh', sigh)
             items.push(
               {
-                Url: BaseStoryboardUrl,
+                Url: BaseStoryboardUrl.toString(),
                 Width: Number(width),
                 Height: Number(height),
                 Count: Number(count),
@@ -319,13 +322,11 @@ export default Vue.extend({
                 StoryboardCount: Math.ceil((Number(count) / (Number(sHeight) * Number(sWidth))))
               }
             )
+            console.log('URL: ', items[items.length - 1].Url)
           })
-          FileWriter.writeFile('D:\\Workspace\\JavaScript\\FreeTube-Vue\\Debug-Log\\log.txt', TemplateUrl, (err) => {
-            if (err) {
-              console.log(err)
-            }
-          })
+
           // this.videoStoryboardSrc = result.player_response.storyboards.playerStoryboardSpecRenderer.spec
+          this.videoStoryboardSrc = items[0].Url
 
           this.captionSourceList =
             result.player_response.captions &&
