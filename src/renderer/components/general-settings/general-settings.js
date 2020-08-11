@@ -23,6 +23,7 @@ export default Vue.extend({
       showInvidiousInstances: false,
       instanceNames: [],
       instanceValues: [],
+      currentLocale: '',
       backendValues: [
         'invidious',
         'local'
@@ -562,6 +563,10 @@ export default Vue.extend({
       return this.$store.getters.getThumbnailPreference
     },
 
+    localeOptions: function () {
+      return Object.keys(this.$i18n.messages)
+    },
+
     backendNames: function () {
       return [
         this.$t('Settings.General Settings.Preferred API Backend.Invidious API'),
@@ -614,6 +619,8 @@ export default Vue.extend({
     })
 
     this.updateInvidiousInstanceBounce = debounce(this.updateInvidiousInstance, 500)
+
+    this.currentLocale = this.$i18n.locale
   },
   beforeDestroy: function () {
     if (this.invidiousInstance === '') {
@@ -624,6 +631,11 @@ export default Vue.extend({
     handleInvidiousInstanceInput: function (input) {
       const invidiousInstance = input.replace(/\/$/, '')
       this.updateInvidiousInstanceBounce(invidiousInstance)
+    },
+
+    updateLocale: function (locale) {
+      this.$i18n.locale = locale
+      localStorage.setItem('locale', locale)
     },
 
     ...mapActions([

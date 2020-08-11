@@ -33,6 +33,7 @@ export default Vue.extend({
     this.$store.dispatch('grabUserSettings')
     this.$store.commit('setUsingElectron', useElectron)
     this.checkThemeSettings()
+    this.checkLocale()
 
     if (useElectron) {
       console.log('User is using Electron')
@@ -48,6 +49,17 @@ export default Vue.extend({
     }
   },
   methods: {
+    checkLocale: function () {
+      const locale = localStorage.getItem('locale')
+
+      if (locale === null) {
+        // TODO: Get User default locale
+        this.$i18n.locale = 'en-US'
+      } else {
+        this.$i18n.locale = locale
+      }
+    },
+
     checkThemeSettings: function () {
       let baseTheme = localStorage.getItem('baseTheme')
       let mainColor = localStorage.getItem('mainColor')
