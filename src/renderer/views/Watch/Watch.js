@@ -12,6 +12,9 @@ import WatchVideoComments from '../../components/watch-video-comments/watch-vide
 import WatchVideoLiveChat from '../../components/watch-video-live-chat/watch-video-live-chat.vue'
 import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-video-playlist.vue'
 import WatchVideoRecommendations from '../../components/watch-video-recommendations/watch-video-recommendations.vue'
+import FileWriter from 'fs'
+import Url from 'url'
+import Utils from 'util'
 
 export default Vue.extend({
   name: 'Watch',
@@ -293,6 +296,35 @@ export default Vue.extend({
 
           // The response provides a storyboard, however it returns a 403 error.
           // Uncomment this line if that ever changes.
+          const TemplateUrl = result.player_response.storyboards.playerStoryboardSpecRenderer.spec
+          const Storyboards = TemplateUrl.split('|')
+
+          const BaseUrl = Url.url.parse(Storyboards.shift(), true)
+          const BaseUrlParams = BaseUrl.query
+          const items = []
+          Storyboards.forEach((storyboard, i) => {
+            const [width, height, count, sWidth, sHeight, interval, _, sigh] = storyboard.split('#')
+            const BaseStoryboardUrl = BaseUrl.sub('$L', i).sub('$N', 'M$M')
+            BaseUrlParams.sigh = sigh
+            BaseUrl.query = BaseUrlParams
+            items.push(
+              {
+                Url: BaseStoryboardUrl,
+                Width: Number(width),
+                Height: Number(height),
+                Count: Number(count),
+                Interval: Number(interval),
+                StoryboardWidth: Number(sWidth),
+                StoryboardHeight: Number(sHeight),
+                StoryboardCount: Math.ceil((Number(count) / (Number(sHeight) * Number(sWidth))))
+              }
+            )
+          })
+          FileWriter.writeFile('D:\\Workspace\\JavaScript\\FreeTube-Vue\\Debug-Log\\log.txt', TemplateUrl, (err) => {
+            if (err) {
+              console.log(err)
+            }
+          })
           // this.videoStoryboardSrc = result.player_response.storyboards.playerStoryboardSpecRenderer.spec
 
           this.captionSourceList =
