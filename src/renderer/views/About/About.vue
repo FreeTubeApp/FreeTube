@@ -19,7 +19,7 @@
       </h3>
       <h2>
         This software is FOSS and released under the
-        <a href="https://www.gnu.org/licenses/quick-guide-gplv3.html">GNU Public License v3+</a>.
+        <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">GNU Affero General Public License v3.0</a>.
       </h2>
       <p>
         Found a bug? Want to suggest a feature? Want to help out? Check out our
