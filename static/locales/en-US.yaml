@@ -220,8 +220,8 @@ About:
   #On About page
   About: About
   #& About
-  'This software is FOSS and released under the GNU Public License v3+.': >
-    This copylefted software is freely licensed GPLv3+.
+  'This software is FOSS and released under the GNU Affero General Public License v3.0.': >
+    This copylefted software is freely licensed AGPL-3.0.
 
   'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
     Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub
