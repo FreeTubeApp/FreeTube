@@ -33,7 +33,7 @@ fs.readdir('.', (err, dir) => {
 })
 
 // List of locales approved for use
-const activeLocales = ['en-US']
+const activeLocales = ['en-US', 'de-DE']
 const messages = {}
 
 // Take active locales and load respective YAML file
@@ -56,6 +56,9 @@ activeLocales.forEach((locale) => {
 
 const i18n = new VueI18n({
   locale: 'en-US', // set locale
+  fallbackLocale: {
+    default: 'en-US'
+  },
   messages // set locale messages
 })
 

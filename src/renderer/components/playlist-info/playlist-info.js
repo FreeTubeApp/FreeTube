@@ -26,12 +26,6 @@ export default Vue.extend({
       lastUpdated: '',
       description: '',
       infoSource: '',
-      shareHeaders: [
-        'Copy YouTube Link',
-        'Open in YouTube',
-        'Copy Invidious Link',
-        'Open in Invidious'
-      ],
       shareValues: [
         'copyYoutube',
         'openYoutube',
@@ -51,6 +45,15 @@ export default Vue.extend({
 
     thumbnailPreference: function () {
       return this.$store.getters.getThumbnailPreference
+    },
+
+    shareHeaders: function () {
+      return [
+        this.$t('Playlist.Share Playlist.Copy YouTube Link'),
+        this.$t('Playlist.Share Playlist.Open in YouTube'),
+        this.$t('Playlist.Share Playlist.Copy Invidious Link'),
+        this.$t('Playlist.Share Playlist.Open in Invidious')
+      ]
     },
 
     thumbnail: function () {

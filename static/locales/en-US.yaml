@@ -106,6 +106,7 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: Fallback to Non-Preferred Backend on Failure
     Enable Search Suggestions: Enable Search Suggestions
     Default Landing Page: Default Landing Page
+    Locale Preference: Locale Preference
     Preferred API Backend:
       Preferred API Backend: Preferred API Backend
       Local API: Local API
@@ -271,8 +272,21 @@ Channel:
     Channel Description: Channel Description
     Featured Channels: Featured Channels
 Video:
+  Open in YouTube: Open in YouTube
+  Copy YouTube Link: Copy YouTube Link
+  Open YouTube Embedded Player: Open YouTube Embedded Player
+  Copy YouTube Embedded Player Link: Copy YouTube Embedded Player Link
+  Open in Invidious: Open in Invidious
+  Copy Invidious Link: Copy Invidious Link
+  View: View
   Views: Views
+  # Context is "X People Watching"
+  Watching: Watching
+  Watched: Watched
+  # As in a Live Video
+  Live: Live
   Live Now: Live Now
+  Live Chat: Live Chat
   Enable Live Chat: Enable Live Chat
   Live Chat is currently not supported in this build.: Live Chat is currently not supported in this build.
   'Chat is disabled or the Live Stream has ended.': Chat is disabled or the Live Stream has ended.
@@ -314,14 +328,16 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: View Full Playlist
-
-# On Channel Playlist Page
-Share Playlist:
-  Share Playlist: Share Playlist
-  Copy YouTube Link: Copy YouTube Link
-  Open in YouTube: Open in YouTube
-  Copy Invidious Link: Copy Invidious Link
-  Open in Invidious: Open in Invidious
+  Videos: Videos
+  View: View
+  Views: Views
+  Last Updated On: Last Updated On
+  Share Playlist:
+    Share Playlist: Share Playlist
+    Copy YouTube Link: Copy YouTube Link
+    Open in YouTube: Open in YouTube
+    Copy Invidious Link: Copy Invidious Link
+    Open in Invidious: Open in Invidious
 
 # On Video Watch Page
 #* Published

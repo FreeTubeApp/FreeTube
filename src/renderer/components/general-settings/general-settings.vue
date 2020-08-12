@@ -63,6 +63,13 @@
         :select-values="thumbnailTypeValues"
         @change="updateThumbnailPreference"
       />
+      <ft-select
+        placeholder="Change Locale"
+        :value="currentLocale"
+        :select-names="localeOptions"
+        :select-values="localeOptions"
+        @change="updateLocale"
+      />
     </div>
     <ft-flex-box class="generalSettingsFlexBox">
       <ft-input

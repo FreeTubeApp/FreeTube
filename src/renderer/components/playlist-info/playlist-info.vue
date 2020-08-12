@@ -11,9 +11,9 @@
       {{ title }}
     </h2>
     <p>
-      {{ videoCount }} videos - {{ viewCount }} views -
+      {{ videoCount }} {{ $t("Playlist.Videos") }} - {{ viewCount }} {{ $t("Playlist.Views") }} -
       <span v-if="infoSource !== 'local'">
-        Last updated on
+        {{ $t("Playlist.Last Updated On") }}
       </span>
       {{ lastUpdated }}
     </p>
@@ -31,7 +31,7 @@
     </div>
     <br>
     <ft-list-dropdown
-      title="SHARE PLAYLIST"
+      :title="$t('Playlist.Share Playlist.Share Playlist')"
       :label-names="shareHeaders"
       :label-values="shareValues"
       @click="sharePlaylist"

@@ -31,6 +31,7 @@ export default Vue.extend({
       channelName: '',
       channelId: '',
       viewCount: 0,
+      parsedViewCount: '',
       uploadedTime: '',
       duration: '',
       description: '',
@@ -39,14 +40,6 @@ export default Vue.extend({
       isLive: false,
       isFavorited: false,
       hideViews: false,
-      optionsNames: [
-        'Open in YouTube',
-        'Copy YouTube Link',
-        'Open YouTube Embedded Player',
-        'Copy YouTube Embedded Player Link',
-        'Open in Invidious',
-        'Copy Invidious Link'
-      ],
       optionsValues: [
         'openYoutube',
         'copyYoutube',
@@ -88,6 +81,17 @@ export default Vue.extend({
 
     youtubeEmbedUrl: function () {
       return `https://www.youtube-nocookie.com/embed/${this.id}`
+    },
+
+    optionsNames: function () {
+      return [
+        this.$t('Video.Open in YouTube'),
+        this.$t('Video.Copy YouTube Link'),
+        this.$t('Video.Open YouTube Embedded Player'),
+        this.$t('Video.Copy YouTube Embedded Player Link'),
+        this.$t('Video.Open in Invidious'),
+        this.$t('Video.Copy Invidious Link')
+      ]
     },
 
     thumbnail: function () {
@@ -206,15 +210,16 @@ export default Vue.extend({
       this.duration = this.calculateVideoDuration(this.data.lengthSeconds)
       this.description = this.data.description
       this.isLive = this.data.liveNow
+      this.viewCount = this.data.viewCount
 
       if (typeof (this.data.publishedText) !== 'undefined') {
         this.uploadedTime = this.data.publishedText
       }
 
       if (typeof (this.data.viewCount) !== 'undefined' && this.data.viewCount !== null) {
-        this.viewCount = this.data.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+        this.parsedViewCount = this.data.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
       } else if (typeof (this.data.viewCountText) !== 'undefined') {
-        this.viewCount = this.data.viewCountText.replace(' views', '')
+        this.parsedViewCount = this.data.viewCountText.replace(' views', '')
       } else {
         this.hideViews = true
       }
@@ -232,6 +237,7 @@ export default Vue.extend({
       if (typeof (this.data.author) === 'string') {
         this.channelName = this.data.author
         this.channelId = this.data.ucid
+        this.viewCount = this.data.views
 
         // Data is returned as a literal string names 'undefined'
         if (this.data.length_seconds !== 'undefined') {
@@ -250,10 +256,10 @@ export default Vue.extend({
       }
 
       if (this.data.views !== null && typeof (this.data.views) !== 'undefined') {
-        this.viewCount = this.data.views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+        this.parsedViewCount = this.data.views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
       } else if (typeof (this.data.view_count) !== 'undefined') {
         const viewCount = this.data.view_count.replace(',', '')
-        this.viewCount = viewCount.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+        this.parsedViewCount = viewCount.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
       } else {
         this.hideViews = true
       }
