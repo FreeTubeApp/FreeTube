@@ -26,7 +26,7 @@
         class="videoDuration"
         :class="{ live: isLive }"
       >
-        {{ isLive ? "Live" : duration }}
+        {{ isLive ? $t("Video.Live") : duration }}
       </div>
       <ft-icon-button
         v-if="!isLive"
@@ -41,7 +41,7 @@
         v-if="watched"
         class="videoWatched"
       >
-        Watched
+        {{ $t("Video.Watched") }}
       </div>
       <div
         v-if="watched"
@@ -80,7 +80,9 @@
         <span
           v-if="!isLive && !hideViews"
           class="viewCount"
-        >• {{ viewCount }} views</span>
+        >• {{ parsedViewCount }}</span>
+        <span v-if="viewCount > 1">{{ $t("Video.Views").toLowerCase() }}</span>
+        <span v-if="viewCount === 1">{{ $t("Video.View") }}</span>
         <span
           v-if="uploadedTime !== '' && !isLive"
           class="uploadedTime"
@@ -88,7 +90,7 @@
         <span
           v-if="isLive"
           class="viewCount"
-        >• {{ viewCount }} watching</span>
+        >• {{ viewCount }} {{ $t("Video.Watching").toLowerCase() }}</span>
       </div>
       <p
         v-if="listType !== 'grid' && appearance === 'result'"

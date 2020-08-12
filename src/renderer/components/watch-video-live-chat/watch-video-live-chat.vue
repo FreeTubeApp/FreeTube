@@ -37,7 +37,7 @@
       v-else
       class="relative"
     >
-      <h4>Live Chat</h4>
+      <h4>{{ $t("Video.Live Chat") }}</h4>
       <div
         v-if="superChatComments.length > 0"
         class="superChatComments"

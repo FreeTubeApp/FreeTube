@@ -56,6 +56,9 @@ activeLocales.forEach((locale) => {
 
 const i18n = new VueI18n({
   locale: 'en-US', // set locale
+  fallbackLocale: {
+    default: 'en-US'
+  },
   messages // set locale messages
 })
 

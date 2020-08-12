@@ -68,7 +68,7 @@
             {{ $t("Channel.About.About").toUpperCase() }}
           </div>
           <ft-input
-            placeholder="Search Channel"
+            :placeholder="$t('Channel.Search Channel')"
             class="channelSearch"
             @click="newSearch"
           />
@@ -171,7 +171,7 @@
           class="getNextPage"
           @click="handleFetchMore"
         >
-          <font-awesome-icon icon="search" /> Fetch more results…
+          <font-awesome-icon icon="search" /> {{ $t("Search Filters.Fetch more results") }}
         </div>
       </div>
     </ft-card>

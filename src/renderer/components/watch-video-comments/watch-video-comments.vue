@@ -116,7 +116,7 @@
       class="getMoreComments"
       @click="getCommentData"
     >
-      {{ $t("Load More Comments") }}
+      {{ $t("Comments.Load More Comments") }}
     </h4>
   </ft-card>
 </template>
