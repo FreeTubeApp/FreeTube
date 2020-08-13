@@ -12,9 +12,6 @@ import WatchVideoComments from '../../components/watch-video-comments/watch-vide
 import WatchVideoLiveChat from '../../components/watch-video-live-chat/watch-video-live-chat.vue'
 import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-video-playlist.vue'
 import WatchVideoRecommendations from '../../components/watch-video-recommendations/watch-video-recommendations.vue'
-import FileWriter from 'fs'
-import Url from 'url'
-import Utils from 'util'
 
 export default Vue.extend({
   name: 'Watch',
