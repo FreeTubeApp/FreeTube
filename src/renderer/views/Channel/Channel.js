@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { mapActions } from 'vuex'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
@@ -9,6 +10,7 @@ import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 
 import ytch from 'yt-channel-info'
+import autolinker from 'autolinker'
 
 export default Vue.extend({
   name: 'Search',
@@ -179,7 +181,7 @@ export default Vue.extend({
         this.channelName = response.author
         this.subCount = response.subscriberCount
         this.thumbnailUrl = response.authorThumbnails[2].url
-        this.channelDescription = response.description
+        this.channelDescription = autolinker.link(response.description)
         this.relatedChannels = response.relatedChannels
 
         if (response.authorBanners !== null) {
@@ -270,7 +272,7 @@ export default Vue.extend({
         this.id = response.authorId
         this.subCount = response.subCount
         this.thumbnailUrl = response.authorThumbnails[3].url
-        this.channelDescription = response.description
+        this.channelDescription = autolinker.link(response.description)
         this.relatedChannels = response.relatedChannels
         this.latestVideos = response.latestVideos
 
@@ -544,6 +546,10 @@ export default Vue.extend({
           this.isLoading = false
         }
       })
-    }
+    },
+
+    ...mapActions([
+      'showToast'
+    ])
   }
 })
