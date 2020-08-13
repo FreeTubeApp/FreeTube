@@ -13,6 +13,12 @@
         :data="shownResults"
       />
     </ft-card>
+    <ft-icon-button
+      icon="sync"
+      class="floatingTopButton"
+      :size="10"
+      @click="refreshTrendingInfo"
+    />
   </div>
 </template>
 
