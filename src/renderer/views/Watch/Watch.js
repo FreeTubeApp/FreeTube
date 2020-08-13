@@ -294,40 +294,20 @@ export default Vue.extend({
             }
           }
 
-          // The response provides a storyboard, however it returns a 403 error.
-          // Uncomment this line if that ever changes.
-          const TemplateUrl = result.player_response.storyboards.playerStoryboardSpecRenderer.spec
-          const Storyboards = TemplateUrl.split('|')
-          console.log('AAAAAAAAAAAAAAAAAAAAAAAAA')
-          const BaseUrl = new Url.URL(Storyboards.shift())
-          const items = []
-          FileWriter.writeFile('D:\\Workspace\\JavaScript\\FreeTube-Vue\\Debug-Log\\log.txt', BaseUrl.URLS, (err) => {
-            if (err) {
-              console.log(err)
-            }
-          })
-          Storyboards.forEach((storyboard, i) => {
+          const templateUrl = result.player_response.storyboards.playerStoryboardSpecRenderer.spec
+          const storyboards = templateUrl.split('|')
+          const storyboardArray = []
+          // Second storyboard: L1/M0 - Third storyboard: L2/M0 - Fourth: L3/M0
+
+          const baseUrl = storyboards.shift()
+          // remove the first link because it does not work
+          storyboards.splice(0, 1)
+          storyboards.forEach((storyboard, i) => {
             const [width, height, count, sWidth, sHeight, interval, _, sigh] = storyboard.split('#')
-            const BaseStoryboardUrl = new URL(BaseUrl.toString().replace('$L', i).replace('$N', 'M$M'))
-            BaseStoryboardUrl.searchParams.append('sigh', sigh)
-            items.push(
-              {
-                Url: BaseStoryboardUrl.toString(),
-                Width: Number(width),
-                Height: Number(height),
-                Count: Number(count),
-                Interval: Number(interval),
-                StoryboardWidth: Number(sWidth),
-                StoryboardHeight: Number(sHeight),
-                StoryboardCount: Math.ceil((Number(count) / (Number(sHeight) * Number(sWidth))))
-              }
-            )
-            console.log('URL: ', items[items.length - 1].Url)
+            storyboardArray.push(baseUrl.replace('$L', i + 1).replace('$N', 'M0').replace(/<\/?sub>/g, '') + '&sigh=' + sigh)
           })
 
-          // this.videoStoryboardSrc = result.player_response.storyboards.playerStoryboardSpecRenderer.spec
-          this.videoStoryboardSrc = items[0].Url
-
+          this.videoStoryboardSrc = storyboardArray[0]
           this.captionSourceList =
             result.player_response.captions &&
             result.player_response.captions.playerCaptionsTracklistRenderer
