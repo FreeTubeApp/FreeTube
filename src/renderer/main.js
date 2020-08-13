@@ -33,7 +33,7 @@ fs.readdir('.', (err, dir) => {
 })
 
 // List of locales approved for use
-const activeLocales = ['en-US', 'de-DE']
+const activeLocales = ['en-US', 'de-DE', 'pt-PT']
 const messages = {}
 
 // Take active locales and load respective YAML file
