@@ -301,10 +301,21 @@ export default Vue.extend({
           storyboards.splice(0, 1)
           storyboards.forEach((storyboard, i) => {
             const [width, height, count, sWidth, sHeight, interval, _, sigh] = storyboard.split('#')
-            storyboardArray.push(baseUrl.replace('$L', i + 1).replace('$N', 'M0').replace(/<\/?sub>/g, '') + '&sigh=' + sigh)
+            storyboardArray.push({
+              url: baseUrl.replace('$L', i + 1).replace('$N', 'M0').replace(/<\/?sub>/g, '') + '&sigh=' + sigh,
+              width: Number(width), // Width of one sub image
+              height: Number(height), // Height of one sub image
+              sWidth: Number(sWidth), // Number of images vertically  (if full)
+              sHeight: Number(sHeight), // Number of images horizontally (if full)
+              count: Number(count), // Number of images total
+              interval: Number(interval) // How long one image is used
+            })
+            console.log(storyboardArray[storyboardArray.length - 1].url)
+            console.log(storyboardArray[storyboardArray.length - 1])
+            console.log(storyboard)
           })
-
-          this.videoStoryboardSrc = storyboardArray[0]
+          const vttFile = this.buildVTTFileLocally(storyboardArray)
+          // this.videoStoryboardSrc = storyboardArray[0]
           this.captionSourceList =
             result.player_response.captions &&
             result.player_response.captions.playerCaptionsTracklistRenderer
@@ -356,6 +367,10 @@ export default Vue.extend({
             this.isLoading = false
           }
         })
+    },
+
+    buildVTTFileLocally: function(Storyboards) {
+      // let vttString = 'WEBVTT\n\n'
     },
 
     getVideoInformationInvidious: function() {
