@@ -106,6 +106,7 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: Falle zu nicht-präferiertem System bei Fehlschlag zurück
     Enable Search Suggestions: Aktiviere Suchvorschläge
     Default Landing Page: Standardseite
+
     Locale Preference: Locale Preference
     Preferred API Backend:
       Preferred API Backend: Präferiertes API System

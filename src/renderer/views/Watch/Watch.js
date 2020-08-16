@@ -291,9 +291,29 @@ export default Vue.extend({
             }
           }
 
-          // The response provides a storyboard, however it returns a 403 error.
-          // Uncomment this line if that ever changes.
-          // this.videoStoryboardSrc = result.player_response.storyboards.playerStoryboardSpecRenderer.spec
+          const templateUrl = result.player_response.storyboards.playerStoryboardSpecRenderer.spec
+          const storyboards = templateUrl.split('|')
+          const storyboardArray = []
+          // Second storyboard: L1/M0 - Third storyboard: L2/M0 - Fourth: L3/M0
+
+          const baseUrl = storyboards.shift()
+          // remove the first link because it does not work
+          storyboards.splice(0, 1)
+          storyboards.forEach((storyboard, i) => {
+            const [width, height, count, sWidth, sHeight, interval, _, sigh] = storyboard.split('#')
+            storyboardArray.push({
+              url: baseUrl.replace('$L', i + 1).replace('$N', 'M0').replace(/<\/?sub>/g, '') + '&sigh=' + sigh,
+              width: Number(width), // Width of one sub image
+              height: Number(height), // Height of one sub image
+              sWidth: Number(sWidth), // Number of images vertically  (if full)
+              sHeight: Number(sHeight), // Number of images horizontally (if full)
+              count: Number(count), // Number of images total
+              interval: Number(interval) // How long one image is used
+            })
+          })
+          // TODO MAKE A VARIABLE WHICH CAN CHOOSE BETWEEN STROYBOARD ARRAY ELEMENTS
+          const vttFile = this.buildVTTFileLocally(storyboardArray[1])
+          this.videoStoryboardSrc = vttFile
 
           this.captionSourceList =
             result.player_response.captions &&
@@ -346,6 +366,62 @@ export default Vue.extend({
             this.isLoading = false
           }
         })
+    },
+
+    padNumberWithLeadingZeros: function(number, length) {
+      let numberString = number.toString()
+      while (numberString.length < length) {
+        numberString = '0' + numberString
+      }
+      return numberString
+    },
+
+    buildVTTFileLocally: function(Storyboard) {
+      let vttString = 'WEBVTT\n\n'
+      // how many images are in one image
+      const numberOfSubImagesPerImage = Storyboard.sWidth * Storyboard.sHeight
+      // the number of storyboard images
+      const numberOfImages = Math.ceil(Storyboard.count / numberOfSubImagesPerImage)
+      const intervalInSeconds = Storyboard.interval / 1000
+      let currentUrl = Storyboard.url
+      let startHours = 0
+      let startMinutes = 0
+      let startSeconds = 0
+      let endHours = 0
+      let endMinutes = 0
+      let endSeconds = intervalInSeconds
+      for (let i = 0; i < numberOfImages; i++) {
+        let xCoord = 0
+        let yCoord = 0
+        for (let j = 0; j < numberOfSubImagesPerImage; j++) {
+          // add the timestamp information
+          vttString += `${this.padNumberWithLeadingZeros(startHours, 2)}:${this.padNumberWithLeadingZeros(startMinutes, 2)}:${this.padNumberWithLeadingZeros(startSeconds, 2)}.000 --> ${this.padNumberWithLeadingZeros(endHours, 2)}:${this.padNumberWithLeadingZeros(endMinutes, 2)}:${this.padNumberWithLeadingZeros(endSeconds, 2)}.000\n`
+          // add the current image url as well as the x, y, width, height information
+          vttString += currentUrl + `#xywh=${xCoord},${yCoord},${Storyboard.width},${Storyboard.height}\n\n`
+          // update the variables
+          startHours = endHours
+          startMinutes = endMinutes
+          startSeconds = endSeconds
+          endSeconds += intervalInSeconds
+          if (endSeconds >= 60) {
+            endSeconds -= 60
+            endMinutes += 1
+          }
+          if (endMinutes >= 60) {
+            endMinutes -= 60
+            endHours += 1
+          }
+          // x coordinate can only be smaller than the width of one subimage * the number of subimages per row
+          xCoord = (xCoord + Storyboard.width) % (Storyboard.width * Storyboard.sWidth)
+          // only if the x coordinate is , so in a new row, we have to update the y coordinate
+          if (xCoord === 0) {
+            yCoord += Storyboard.height
+          }
+        }
+        // make sure that there is no value like M0 or M1 in the parameters that gets replaced
+        currentUrl = currentUrl.replace('M' + i.toString() + '.jpg', 'M' + (i + 1).toString() + '.jpg')
+      }
+      return vttString
     },
 
     getVideoInformationInvidious: function() {
