@@ -86,6 +86,86 @@ const actions = {
     return extractors.reduce((a, c) => a || c(), null) || false
   },
 
+  padNumberWithLeadingZeros(_, payload) {
+    let numberString = payload.number.toString()
+    while (numberString.length < payload.length) {
+      numberString = '0' + numberString
+    }
+    return numberString
+  },
+
+  async buildVTTFileLocally ({ dispatch }, Storyboard) {
+    let vttString = 'WEBVTT\n\n'
+    // how many images are in one image
+    const numberOfSubImagesPerImage = Storyboard.sWidth * Storyboard.sHeight
+    // the number of storyboard images
+    const numberOfImages = Math.ceil(Storyboard.count / numberOfSubImagesPerImage)
+    const intervalInSeconds = Storyboard.interval / 1000
+    let currentUrl = Storyboard.url
+    let startHours = 0
+    let startMinutes = 0
+    let startSeconds = 0
+    let endHours = 0
+    let endMinutes = 0
+    let endSeconds = intervalInSeconds
+    for (let i = 0; i < numberOfImages; i++) {
+      let xCoord = 0
+      let yCoord = 0
+      for (let j = 0; j < numberOfSubImagesPerImage; j++) {
+        // add the timestamp information
+        const paddedStartHours = await dispatch('padNumberWithLeadingZeros', {
+          number: startHours,
+          length: 2
+        })
+        const paddedStartMinutes = await dispatch('padNumberWithLeadingZeros', {
+          number: startMinutes,
+          length: 2
+        })
+        const paddedStartSeconds = await dispatch('padNumberWithLeadingZeros', {
+          number: startSeconds,
+          length: 2
+        })
+        const paddedEndHours = await dispatch('padNumberWithLeadingZeros', {
+          number: endHours,
+          length: 2
+        })
+        const paddedEndMinutes = await dispatch('padNumberWithLeadingZeros', {
+          number: endMinutes,
+          length: 2
+        })
+        const paddedEndSeconds = await dispatch('padNumberWithLeadingZeros', {
+          number: endSeconds,
+          length: 2
+        })
+        vttString += `${paddedStartHours}:${paddedStartMinutes}:${paddedStartSeconds}.000 --> ${paddedEndHours}:${paddedEndMinutes}:${paddedEndSeconds}.000\n`
+        // add the current image url as well as the x, y, width, height information
+        vttString += currentUrl + `#xywh=${xCoord},${yCoord},${Storyboard.width},${Storyboard.height}\n\n`
+        // update the variables
+        startHours = endHours
+        startMinutes = endMinutes
+        startSeconds = endSeconds
+        endSeconds += intervalInSeconds
+        if (endSeconds >= 60) {
+          endSeconds -= 60
+          endMinutes += 1
+        }
+        if (endMinutes >= 60) {
+          endMinutes -= 60
+          endHours += 1
+        }
+        // x coordinate can only be smaller than the width of one subimage * the number of subimages per row
+        xCoord = (xCoord + Storyboard.width) % (Storyboard.width * Storyboard.sWidth)
+        // only if the x coordinate is , so in a new row, we have to update the y coordinate
+        if (xCoord === 0) {
+          yCoord += Storyboard.height
+        }
+      }
+      // make sure that there is no value like M0 or M1 in the parameters that gets replaced
+      currentUrl = currentUrl.replace('M' + i.toString() + '.jpg', 'M' + (i + 1).toString() + '.jpg')
+    }
+    return vttString
+  },
+
   showToast (_, payload) {
     FtToastEvents.$emit('toast.open', payload.message, payload.action, payload.time)
   }

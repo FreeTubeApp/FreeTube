@@ -2,6 +2,8 @@ import Vue from 'vue'
 import { mapActions } from 'vuex'
 import xml2vtt from 'yt-xml2vtt'
 import $ from 'jquery'
+import fs from 'fs'
+import electron from 'electron'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
@@ -62,6 +64,10 @@ export default Vue.extend({
     }
   },
   computed: {
+    isDev: function () {
+      return process.env.NODE_ENV === 'development'
+    },
+
     usingElectron: function () {
       return this.$store.getters.getUsingElectron
     },
@@ -146,6 +152,7 @@ export default Vue.extend({
 
       this.firstLoad = true
       this.activeFormat = this.defaultVideoFormat
+      this.videoStoryboardSrc = ''
 
       this.checkIfPlaylist()
 
@@ -292,57 +299,15 @@ export default Vue.extend({
           }
 
           const templateUrl = result.player_response.storyboards.playerStoryboardSpecRenderer.spec
-          const storyboards = templateUrl.split('|')
-          const storyboardArray = []
-          // Second storyboard: L1/M0 - Third storyboard: L2/M0 - Fourth: L3/M0
+          this.createLocalStoryboardUrls(templateUrl)
 
-          const baseUrl = storyboards.shift()
-          // remove the first link because it does not work
-          storyboards.splice(0, 1)
-          storyboards.forEach((storyboard, i) => {
-            const [width, height, count, sWidth, sHeight, interval, _, sigh] = storyboard.split('#')
-            storyboardArray.push({
-              url: baseUrl.replace('$L', i + 1).replace('$N', 'M0').replace(/<\/?sub>/g, '') + '&sigh=' + sigh,
-              width: Number(width), // Width of one sub image
-              height: Number(height), // Height of one sub image
-              sWidth: Number(sWidth), // Number of images vertically  (if full)
-              sHeight: Number(sHeight), // Number of images horizontally (if full)
-              count: Number(count), // Number of images total
-              interval: Number(interval) // How long one image is used
-            })
-          })
-          // TODO MAKE A VARIABLE WHICH CAN CHOOSE BETWEEN STROYBOARD ARRAY ELEMENTS
-          const vttFile = this.buildVTTFileLocally(storyboardArray[1])
-          this.videoStoryboardSrc = vttFile
-
-          this.captionSourceList =
+          const captionTracks =
             result.player_response.captions &&
             result.player_response.captions.playerCaptionsTracklistRenderer
               .captionTracks
 
-          if (typeof this.captionSourceList !== 'undefined') {
-            this.captionSourceList = this.captionSourceList.map(caption => {
-              caption.type = 'text/vtt'
-              caption.charset = 'charset=utf-8'
-              caption.dataSource = 'local'
-
-              $.get(caption.baseUrl, response => {
-                xml2vtt
-                  .Parse(new XMLSerializer().serializeToString(response))
-                  .then(vtt => {
-                    caption.baseUrl = `data:${caption.type};${caption.charset},${vtt}`
-                  })
-                  .catch(err =>
-                    console.log(`Error while converting XML to VTT : ${err}`)
-                  )
-              }).fail((xhr, textStatus, error) => {
-                console.log(xhr)
-                console.log(textStatus)
-                console.log(error)
-              })
-
-              return caption
-            })
+          if (typeof captionTracks !== 'undefined') {
+            this.createCaptionUrls(captionTracks)
           }
 
           this.isLoading = false
@@ -366,62 +331,6 @@ export default Vue.extend({
             this.isLoading = false
           }
         })
-    },
-
-    padNumberWithLeadingZeros: function(number, length) {
-      let numberString = number.toString()
-      while (numberString.length < length) {
-        numberString = '0' + numberString
-      }
-      return numberString
-    },
-
-    buildVTTFileLocally: function(Storyboard) {
-      let vttString = 'WEBVTT\n\n'
-      // how many images are in one image
-      const numberOfSubImagesPerImage = Storyboard.sWidth * Storyboard.sHeight
-      // the number of storyboard images
-      const numberOfImages = Math.ceil(Storyboard.count / numberOfSubImagesPerImage)
-      const intervalInSeconds = Storyboard.interval / 1000
-      let currentUrl = Storyboard.url
-      let startHours = 0
-      let startMinutes = 0
-      let startSeconds = 0
-      let endHours = 0
-      let endMinutes = 0
-      let endSeconds = intervalInSeconds
-      for (let i = 0; i < numberOfImages; i++) {
-        let xCoord = 0
-        let yCoord = 0
-        for (let j = 0; j < numberOfSubImagesPerImage; j++) {
-          // add the timestamp information
-          vttString += `${this.padNumberWithLeadingZeros(startHours, 2)}:${this.padNumberWithLeadingZeros(startMinutes, 2)}:${this.padNumberWithLeadingZeros(startSeconds, 2)}.000 --> ${this.padNumberWithLeadingZeros(endHours, 2)}:${this.padNumberWithLeadingZeros(endMinutes, 2)}:${this.padNumberWithLeadingZeros(endSeconds, 2)}.000\n`
-          // add the current image url as well as the x, y, width, height information
-          vttString += currentUrl + `#xywh=${xCoord},${yCoord},${Storyboard.width},${Storyboard.height}\n\n`
-          // update the variables
-          startHours = endHours
-          startMinutes = endMinutes
-          startSeconds = endSeconds
-          endSeconds += intervalInSeconds
-          if (endSeconds >= 60) {
-            endSeconds -= 60
-            endMinutes += 1
-          }
-          if (endMinutes >= 60) {
-            endMinutes -= 60
-            endHours += 1
-          }
-          // x coordinate can only be smaller than the width of one subimage * the number of subimages per row
-          xCoord = (xCoord + Storyboard.width) % (Storyboard.width * Storyboard.sWidth)
-          // only if the x coordinate is , so in a new row, we have to update the y coordinate
-          if (xCoord === 0) {
-            yCoord += Storyboard.height
-          }
-        }
-        // make sure that there is no value like M0 or M1 in the parameters that gets replaced
-        currentUrl = currentUrl.replace('M' + i.toString() + '.jpg', 'M' + (i + 1).toString() + '.jpg')
-      }
-      return vttString
     },
 
     getVideoInformationInvidious: function() {
@@ -631,7 +540,7 @@ export default Vue.extend({
       }
     },
 
-    handleVideoError: function(error) {
+    handleVideoError: function (error) {
       console.log(error)
       if (this.isLive) {
         return
@@ -649,8 +558,79 @@ export default Vue.extend({
       }
     },
 
+    createLocalStoryboardUrls: function (templateUrl) {
+      const storyboards = templateUrl.split('|')
+      const storyboardArray = []
+      // Second storyboard: L1/M0 - Third storyboard: L2/M0 - Fourth: L3/M0
+
+      const baseUrl = storyboards.shift()
+      // remove the first link because it does not work
+      storyboards.splice(0, 1)
+      storyboards.forEach((storyboard, i) => {
+        // Not sure why the _ variable is needed, but storyboards don't work unless we initialize it.
+
+        /* eslint-disable-next-line */
+        const [width, height, count, sWidth, sHeight, interval, _, sigh] = storyboard.split('#')
+        storyboardArray.push({
+          url: baseUrl.replace('$L', i + 1).replace('$N', 'M0').replace(/<\/?sub>/g, '') + '&sigh=' + sigh,
+          width: Number(width), // Width of one sub image
+          height: Number(height), // Height of one sub image
+          sWidth: Number(sWidth), // Number of images vertically  (if full)
+          sHeight: Number(sHeight), // Number of images horizontally (if full)
+          count: Number(count), // Number of images total
+          interval: Number(interval) // How long one image is used
+        })
+      })
+      // TODO: MAKE A VARIABLE WHICH CAN CHOOSE BETWEEN STROYBOARD ARRAY ELEMENTS
+      this.buildVTTFileLocally(storyboardArray[1]).then((results) => {
+        const userData = electron.remote.app.getPath('userData')
+        let fileLocation
+        let uriSchema
+
+        // Dev mode doesn't have access to the file:// schema, so we access
+        // storyboards differently when run in dev
+        if (this.isDev) {
+          fileLocation = `storyboards/${this.videoId}.vtt`
+          uriSchema = fileLocation
+        } else {
+          fileLocation = `${userData}/storyboards/${this.videoId}.vtt`
+          uriSchema = `file://${fileLocation}`
+        }
+
+        fs.writeFileSync(fileLocation, results)
+
+        this.videoStoryboardSrc = uriSchema
+      })
+    },
+
+    createCaptionUrls: function (captionTracks) {
+      this.captionSourceList = captionTracks.map(caption => {
+        caption.type = 'text/vtt'
+        caption.charset = 'charset=utf-8'
+        caption.dataSource = 'local'
+
+        $.get(caption.baseUrl, response => {
+          xml2vtt
+            .Parse(new XMLSerializer().serializeToString(response))
+            .then(vtt => {
+              caption.baseUrl = `data:${caption.type};${caption.charset},${vtt}`
+            })
+            .catch(err =>
+              console.log(`Error while converting XML to VTT : ${err}`)
+            )
+        }).fail((xhr, textStatus, error) => {
+          console.log(xhr)
+          console.log(textStatus)
+          console.log(error)
+        })
+
+        return caption
+      })
+    },
+
     ...mapActions([
-      'showToast'
+      'showToast',
+      'buildVTTFileLocally'
     ])
   }
 })
