@@ -1910,7 +1910,7 @@ video::-webkit-media-text-track-display {
 
 .video-js .vjs-menu-button-popup .vjs-menu .vjs-menu-content {
     background-color: transparent;
-    width: 5.5em;
+    width: 7.5em;
     left: 1.5em;
     padding-bottom: .5em;
     z-index: 1;
