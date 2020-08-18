@@ -296,10 +296,10 @@ export default Vue.extend({
             } else {
               this.activeSourceList = this.videoSourceList
             }
-          }
 
-          const templateUrl = result.player_response.storyboards.playerStoryboardSpecRenderer.spec
-          this.createLocalStoryboardUrls(templateUrl)
+            const templateUrl = result.player_response.storyboards.playerStoryboardSpecRenderer.spec
+            this.createLocalStoryboardUrls(templateUrl)
+          }
 
           const captionTracks =
             result.player_response.captions &&
