@@ -166,6 +166,70 @@ const actions = {
     return vttString
   },
 
+  toLocalePublicationString ({ dispatch }, payload) {
+    if (payload.isLive) {
+      return '0' + payload.liveStreamString
+    } else if (payload.isUpcoming || payload.publishText === null) {
+      // the check for null is currently just an inferring of knowledge, because there is no other possibility left
+      return payload.upcomingString
+    }
+    const strings = payload.publishText.split(' ')
+    const singular = (strings[0] === '1')
+    let publicationString = payload.templateString.replace('$', strings[0])
+    switch (strings[1].substring(0, 2)) {
+      case 'se':
+        if (singular) {
+          publicationString = publicationString.replace('%', payload.timeStrings.Second)
+        } else {
+          publicationString = publicationString.replace('%', payload.timeStrings.Seconds)
+        }
+        break
+      case 'mi':
+        if (singular) {
+          publicationString = publicationString.replace('%', payload.timeStrings.Minute)
+        } else {
+          publicationString = publicationString.replace('%', payload.timeStrings.Minutes)
+        }
+        break
+      case 'ho':
+        if (singular) {
+          publicationString = publicationString.replace('%', payload.timeStrings.Hour)
+        } else {
+          publicationString = publicationString.replace('%', payload.timeStrings.Hours)
+        }
+        break
+      case 'da':
+        if (singular) {
+          publicationString = publicationString.replace('%', payload.timeStrings.Day)
+        } else {
+          publicationString = publicationString.replace('%', payload.timeStrings.Days)
+        }
+        break
+      case 'we':
+        if (singular) {
+          publicationString = publicationString.replace('%', payload.timeStrings.Week)
+        } else {
+          publicationString = publicationString.replace('%', payload.timeStrings.Weeks)
+        }
+        break
+      case 'mo':
+        if (singular) {
+          publicationString = publicationString.replace('%', payload.timeStrings.Month)
+        } else {
+          publicationString = publicationString.replace('%', payload.timeStrings.Months)
+        }
+        break
+      case 'ye':
+        if (singular) {
+          publicationString = publicationString.replace('%', payload.timeStrings.Year)
+        } else {
+          publicationString = publicationString.replace('%', payload.timeStrings.Years)
+        }
+        break
+    }
+    return publicationString
+  },
+
   showToast (_, payload) {
     FtToastEvents.$emit('toast.open', payload.message, payload.action, payload.time)
   }

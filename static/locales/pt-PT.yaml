@@ -302,6 +302,10 @@ Video:
     Oct: Out
     Nov: Nov
     Dec: Dez
+    # !
+    Second: Second
+    # !
+    Seconds: Seconds
     Hour: Hora
     Hours: Horas
     Day: Dia
@@ -313,7 +317,12 @@ Video:
     Year: Ano
     Years: Anos
     Ago: Há
+    # !
+    Upcoming: Premieres soon
   Published on: Publicado em
+  # !
+  # $ is replaced with the number and % with the unit (days, hours, minutes...)
+  Publicationtemplate: $ % ago
 #& Videos
 Videos:
   #& Sort By

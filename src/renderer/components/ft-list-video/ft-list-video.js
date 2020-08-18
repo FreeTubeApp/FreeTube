@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import { mapActions } from 'vuex'
 
 export default Vue.extend({
   name: 'FtListVideo',
@@ -213,7 +214,20 @@ export default Vue.extend({
       this.viewCount = this.data.viewCount
 
       if (typeof (this.data.publishedText) !== 'undefined') {
-        this.uploadedTime = this.data.publishedText
+        // produces a string according to the template in the locales string
+        this.toLocalePublicationString({
+          publishText: this.data.publishedText,
+          templateString: this.$t('Video.Publicationtemplate'),
+          timeStrings: this.$t('Video.Published'),
+          liveStreamString: this.$t('Video.Watching'),
+          upcomingString: this.$t('Video.Published.Upcoming'),
+          isLive: this.data.live,
+          isUpcoming: this.data.isUpcoming
+        }).then((data) => {
+          this.uploadedTime = data
+        }).catch((error) => {
+          console.error(error)
+        })
       }
 
       if (typeof (this.data.viewCount) !== 'undefined' && this.data.viewCount !== null) {
@@ -252,6 +266,19 @@ export default Vue.extend({
       }
 
       if (typeof (this.data.uploaded_at) !== 'undefined') {
+        this.toLocalePublicationString({
+          publishText: this.data.uploaded_at,
+          templateString: this.$t('Video.Publicationtemplate'),
+          timeStrings: this.$t('Video.Published'),
+          liveStreamString: this.$t('Video.Watching'),
+          upcomingString: this.$t('Video.Published.Upcoming'),
+          isLive: this.data.live,
+          isUpcoming: false
+        }).then((data) => {
+          this.uploadedTime = data
+        }).catch((error) => {
+          console.error(error)
+        })
         this.uploadedTime = this.data.uploaded_at
       }
 
@@ -265,6 +292,9 @@ export default Vue.extend({
       }
 
       this.isLive = this.data.live
-    }
+    },
+    ...mapActions([
+      'toLocalePublicationString'
+    ])
   }
 })
