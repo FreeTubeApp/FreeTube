@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import { mapActions } from 'vuex'
 
 export default Vue.extend({
   name: 'FtListVideo',
@@ -213,7 +214,16 @@ export default Vue.extend({
       this.viewCount = this.data.viewCount
 
       if (typeof (this.data.publishedText) !== 'undefined') {
-        this.uploadedTime = this.data.publishedText
+        // produces a string according to the template in the locales string
+        this.toLocaleStringS({
+          publishText: this.data.publishedText,
+          templateString: this.$t('Video.Publicationtemplate'),
+          timeStrings: this.$t('Video.Published')
+        }).then((data) => {
+          this.uploadedTime = data
+        }).catch((error) => {
+          console.error(error)
+        })
       }
 
       if (typeof (this.data.viewCount) !== 'undefined' && this.data.viewCount !== null) {
@@ -265,6 +275,9 @@ export default Vue.extend({
       }
 
       this.isLive = this.data.live
-    }
+    },
+    ...mapActions([
+      'toLocaleStringS'
+    ])
   }
 })

@@ -305,18 +305,22 @@ Video:
     Oct: Okt
     Nov: Nov
     Dec: Dez
+    Second: Sekunde
+    Seconds: Sekunden
     Hour: Stunde
     Hours: Stunden
     Day: Tag
-    Days: Tage
+    Days: Tagen
     Week: Woche
     Weeks: Wochen
     Month: Monat
-    Months: Monate
+    Months: Monaten
     Year: Jahr
-    Years: Jahre
+    Years: Jahren
     Ago: Vor
   Published on: Veröffentlicht am
+  Publicationtemplate: vor $ % veröffentlicht
+
 #& Videos
 Videos:
   #& Sort By
