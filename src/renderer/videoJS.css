@@ -633,9 +633,9 @@ body.vjs-full-window {
   position: absolute;
   bottom: 0;
   width: 10em;
-  left: -3em;
+  left: -2em;
   height: 0em;
-  margin-bottom: 1.5em;
+  margin-bottom: 1.4em;
   border-top-color: rgba(43, 51, 63, 0.7);
 }
 
@@ -643,7 +643,6 @@ body.vjs-full-window {
   background-color: #2B333F;
   background-color: rgba(43, 51, 63, 0.7);
   position: absolute;
-  width: 100%;
   bottom: 1.5em;
   max-height: 15em;
 }
@@ -1323,10 +1322,6 @@ video::-webkit-media-text-track-display {
   left: 0em;
 }
 
-.vjs-playback-rate .vjs-menu .vjs-menu-content {
-  width: 4em;
-}
-
 .vjs-error .vjs-error-display .vjs-modal-dialog-content {
   font-size: 1.4em;
   text-align: center;
@@ -1463,6 +1458,10 @@ video::-webkit-media-text-track-display {
 }
 .vjs-chapters-button .vjs-menu ul {
   width: 24em;
+}
+
+.vjs-subs-caps-button .vjs-menu {
+  left: -4em!important;
 }
 
 .video-js .vjs-subs-caps-button + .vjs-menu .vjs-captions-menu-item .vjs-menu-item-text .vjs-icon-placeholder {
@@ -1905,12 +1904,11 @@ video::-webkit-media-text-track-display {
 }
 
 .video-js .vjs-menu-button-popup .vjs-menu {
-    left: -3em
+    left: -2em
 }
 
 .video-js .vjs-menu-button-popup .vjs-menu .vjs-menu-content {
     background-color: transparent;
-    width: 7.5em;
     left: 1.5em;
     padding-bottom: .5em;
     z-index: 1;
@@ -1923,13 +1921,12 @@ video::-webkit-media-text-track-display {
 
 .video-js .vjs-menu-button-popup .vjs-menu .vjs-menu-item,.video-js .vjs-menu-button-popup .vjs-menu .vjs-menu-title {
     background-color: #151b17;
-    margin: .3em 0;
-    padding: .5em;
-    border-radius: .3em
+    padding: .6em;
 }
 
 .video-js .vjs-menu-button-popup .vjs-menu .vjs-menu-item.vjs-selected {
-    background-color: #2483d5
+    background-color: var(--primary-color);
+    color: var(--text-with-main-color);
 }
 
 .video-js .vjs-big-play-button {
@@ -1942,15 +1939,16 @@ video::-webkit-media-text-track-display {
 }
 
 .video-js:hover .vjs-big-play-button,.video-js .vjs-big-play-button:focus,.video-js .vjs-big-play-button:active {
-    background-color: var(--primary-color)
+    background-color: var(--primary-color);
+    color: var(--text-with-main-color);
 }
 
 .video-js .vjs-loading-spinner {
-    border-color: var(--primary-color)
+    border-color: var(--primary-color);
 }
 
 .video-js .vjs-control-bar2 {
-    background-color: #000000
+    background-color: #000000;
 }
 
 .video-js .vjs-control-bar {

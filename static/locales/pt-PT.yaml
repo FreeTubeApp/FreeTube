@@ -1,21 +1,3 @@
-# This document follows a roughly page to page, top to bottom, left to right view
-# as things appear on the screen for the user. It is layouted in this way to allow for
-# easy verification of all words and phrases by the translator.
-
-# For repeat entries,
-    #an ampersand (&) will follow the pound (#) in a comment for single item repeats, i.e:
-        #& Playlists
-    #an asterisk (*) will follow the pound (#) in a comment to reference the head listing in multiple item repeats, i.e:
-        #Main Color Theme: Main Color Theme
-            #Red: Red
-            #Pink: Pink
-        #Secondary Color Theme: Secondary Color Theme
-            #* Main Color Theme
-# An exclamation point (!) is used for entries not yet completed.
-# A tilda (~) is used for entries that are present, but do not need to be translated. i.e:
-    #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
----
 FreeTube: FreeTube
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >
@@ -82,13 +64,11 @@ Search Filters:
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
-    Subscriptions: Subscrições
-    Latest Subscriptions: Subscrições Recentes
-
-    'Your Subscription list is currently empty. Start adding subscriptions to see them here.': >
-      A lista de subscrições encontra-se vazia. Adicione algumas para as ver aqui.
-
-    'Getting Subscriptions.  Please wait...': A carregar subscrições.  Por favor aguarde…
+  Subscriptions: Subscrições
+  Latest Subscriptions: Subscrições Recentes
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': A
+    lista de subscrições encontra-se vazia. Adicione algumas para as ver aqui.
+  'Getting Subscriptions.  Please wait.': A carregar subscrições.  Por favor aguarde.
 Trending: Tendências
 Most Popular: Mais Populares
 Playlists: Listas de Reprodução
@@ -103,7 +83,8 @@ Settings:
   Settings: Definições
   General Settings:
     General Settings: Definições Gerais
-    Fallback to Non-Preferred Backend on Failure: Utilizar Motor de Pesquisa Não Preferido em Caso de Falha
+    Fallback to Non-Preferred Backend on Failure: Utilizar Motor de Pesquisa Não Preferido
+      em Caso de Falha
     Enable Search Suggestions: Activar Sugestões de Pesquisa
     Default Landing Page: Página Inicial
     Locale Preference: Localização
@@ -121,7 +102,8 @@ Settings:
       Beginning: Princípio
       Middle: Meio
       End: Fim
-    'Invidious Instance (Default is https://invidio.us)': Instância Invidious (Por omissão é https://invidio.us)
+    'Invidious Instance (Default is https://invidio.us)': Instância Invidious (Por
+      omissão é https://invidio.us)
     Region for Trending: Região para as tendências
         #! List countries
   Theme Settings:
@@ -154,11 +136,12 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: Definições do reprodutor
-    Force Local Backend for Legacy Formats: Forçar Motor de Pesquisa Local para Formatos Antigos
+    Force Local Backend for Legacy Formats: Forçar Motor de Pesquisa Local para Formatos
+      Antigos
     Remember History: Lembrar Histórico
     Play Next Video: Passar Para o Próximo Vídeo
     Turn on Subtitles by Default: Ligar Legendas Automáticamente
-    Autoplay Videos: Reproduzir Vídeos Automaticamente.
+    Autoplay Videos: Reproduzir Vídeos Automaticamente
     Proxy Videos Through Invidious: Utilizar Invidious Como Intermediário
     Autoplay Playlists: Reproduzir Listas de Reprodução Automaticamente
     Enable Theatre Mode by Default: Ligar Modo Cinema por Omissão
@@ -195,9 +178,11 @@ Settings:
     How do I import my subscriptions?: Como posso importar as minhas subcrições?
   Advanced Settings:
     Advanced Settings: Definições Avançadas
-    Enable Debug Mode (Prints data to the console): Ligar Modo de Depuração (Escreve dados para a consola)
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Endereço de intermediário (Exemplo: SOCKS5://127.0.0.1:9050 )'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': >
+    Enable Debug Mode (Prints data to the console): Ligar Modo de Depuração (Escreve
+      dados para a consola)
+    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Endereço de intermediário
+      (Exemplo: SOCKS5://127.0.0.1:9050 )'
+    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': >-
       Ao Carregar "TESTAR INTERMEDIÁRIO" um pedido vai ser enviado a https://ipinfo.io/json
     Use Tor / Proxy for API calls: Usar Tor / Intermediário para Chamadas API
     TEST PROXY: TESTAR INTERMEDIÁRIO
@@ -206,13 +191,15 @@ Settings:
     Clear History:
       Clear History: Limpar Histórico
       # On Click
-      Are you sure you want to delete your history?: Tem a certeza de que quer apagar o seu histórico?
+      Are you sure you want to delete your history?: Tem a certeza de que quer apagar
+        o seu histórico?
       #& Yes
       #& No
     Clear Subscriptions:
       Clear Subscriptions: Limpar Subcrições
       # On Click
-      Are you sure you want to remove all subscriptions?: Tem a certeza de que quer apagar as suas subcrições?
+      Are you sure you want to remove all subscriptions?: Tem a certeza de que quer
+        apagar as suas subcrições?
       #& Yes
       #& No
 
@@ -220,25 +207,28 @@ About:
   #On About page
   About: Sobre
   #& About
-  'This software is FOSS and released under the GNU Public License v3+.': >
+  'This software is FOSS and released under the GNU Public License v3+.': >-
     This copylefted software is freely licensed GPLv3+.
 
   'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
     Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub
     page. Pull requests welcome.
 
-  Thank you very much to the People and Projects that make FreeTube possible!: >
+  Thank you very much to the People and Projects that make FreeTube possible!: >-
     Thank you very much to the People and Projects that make FreeTube possible!
 
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': >
-    Want to chat? Join our Element / Matrix Server . Please check the rules before joining.
+  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': >-
+    Want to chat? Join our Element / Matrix Server . Please check the rules before
+    joining.
 
-  'Looking for help? Check out our Wiki page.': Looking for help? Check out our Wiki page.
+  'Looking for help? Check out our Wiki page.': Looking for help? Check out our Wiki
+    page.
 
   Check out our Firefox extension!: Check out our Firefox extension!
 
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': >
-    If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.
+  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': >-
+    If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin
+    address.
 
   #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
 
@@ -255,14 +245,16 @@ Channel:
   Sort By: Ordenar Por
   Videos:
     Videos: Vídeos
-    This channel does not currently have any videos: Este canal de momento encontra-se sem vídeos
+    This channel does not currently have any videos: Este canal de momento encontra-se
+      sem vídeos
     Sort Types:
       Newest: Recentes
       Oldest: Antigos
       Most Popular: Mais Populares
   Playlists:
     Playlists: Listas de Reprodução
-    This channel does not currently have any playlists: Este canal de momento encontra-se sem listas de reprodução
+    This channel does not currently have any playlists: Este canal de momento encontra-se
+      sem listas de reprodução
     Sort Types:
       Last Video Added: Último Vídeo
       Newest: Recentes
@@ -288,34 +280,39 @@ Video:
   Live Now: Ao Vivo
   Live Chat: Chat Ao Vivo
   Enable Live Chat: Permitir Chat Ao Vivo
-  Live Chat is currently not supported in this build.: De momento, chat ao vivo não se encontra a funcionar nesta versão.
-  'Chat is disabled or the Live Stream has ended.': Chat foi desactivado ou Live Stream já acabou.
-  Live chat is enabled.  Chat messages will appear here once sent.: Chat ao vivo activado. Mensagens vão aparecer aqui ao serem enviadas.
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': Chat ao vivo não se encontra a funcionar com o API Invividious. Uma ligação directa ao Youtube é necessária.
+  Live Chat is currently not supported in this build.: De momento, chat ao vivo não
+    se encontra a funcionar nesta versão.
+  'Chat is disabled or the Live Stream has ended.': Chat foi desactivado ou Live Stream
+    já acabou.
+  Live chat is enabled.  Chat messages will appear here once sent.: Chat ao vivo activado.
+    Mensagens vão aparecer aqui ao serem enviadas.
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': Chat
+    ao vivo não se encontra a funcionar com o API Invividious. Uma ligação directa
+    ao Youtube é necessária.
   Published:
-      Jan: Jan
-      Feb: Fev
-      Mar: Mar
-      Apr: Abr
-      May: Mai
-      Jun: Jun
-      Jul: Jul
-      Aug: Ago
-      Sep: Set
-      Oct: Out
-      Nov: Nov
-      Dec: Dez
-      Hour: Hora
-      Hours: Horas
-      Day: Dia
-      Days: Dias
-      Week: Semana
-      Weeks: Semanas
-      Month: Mês
-      Months: Mêses
-      Year: Ano
-      Years: Anos
-      Ago: Há
+    Jan: Jan
+    Feb: Fev
+    Mar: Mar
+    Apr: Abr
+    May: Mai
+    Jun: Jun
+    Jul: Jul
+    Aug: Ago
+    Sep: Set
+    Oct: Out
+    Nov: Nov
+    Dec: Dez
+    Hour: Hora
+    Hours: Horas
+    Day: Dia
+    Days: Dias
+    Week: Semana
+    Weeks: Semanas
+    Month: Mês
+    Months: Mêses
+    Year: Ano
+    Years: Anos
+    Ago: Há
   Published on: Publicado em
 #& Videos
 Videos:
@@ -356,14 +353,17 @@ Share:
   Open Embed: Abrir Embutido
   # On Click
   Invidious URL copied to clipboard: URL Invidious copiado para área de transferência
-  Invidious Embed URL copied to clipboard: URL Invidious embutido copiado para área de tranferência
+  Invidious Embed URL copied to clipboard: URL Invidious embutido copiado para área
+    de tranferência
   YouTube URL copied to clipboard: URL Youtube copiado para área de transferência
-  YouTube Embed URL copied to clipboard: URL Youtube embutido copiado para área de transferência
+  YouTube Embed URL copied to clipboard: URL Youtube embutido copiado para área de
+    transferência
 Mini Player: Mini Reprodutor
 Comments:
   Comments: Comentários
   Click to View Comments: Clicar para Ver Comentários
-  Getting comment replies, please wait: A receber respostas ao comentário, por favor aguarde
+  Getting comment replies, please wait: A receber respostas ao comentário, por favor
+    aguarde
   Show Comments: Mostrar Comentários
   Hide Comments: Esconder Comentários
   # Context: View 10 Replies, View 1 Reply
@@ -371,13 +371,14 @@ Comments:
   Hide: Esconder
   Replies: Respostas
   Reply: Resposta
-  There are no comments available for this video: Este vídeo não contém nenhum comentário.
+  There are no comments available for this video: Este vídeo não contém nenhum comentário
   Load More Comments: Carregar Mais Comentários
 Up Next: A Seguir
 
 # Toast Messages
 Local API Error (Click to copy): API local encontrou um erro (Clique para copiar)
-Invidious API Error (Click to copy): API Invidious encontrou um erro (Clique para copiar)
+Invidious API Error (Click to copy): API Invidious encontrou um erro (Clique para
+  copiar)
 Falling back to Invidious API: Ocorreu uma falha, a mudar para o API Invidious
 Falling back to the local API: Ocorreu uma falha, a mudar para o API local
 Subscriptions have not yet been implemented: Subcrições ainda não foram implementadas
@@ -387,9 +388,11 @@ Shuffle is now disabled: Reprodução aleatória desactivada
 Shuffle is now enabled: Reprodução aleatória activada
 Playing Next Video: A Reproduzir o Próximo Vídeo
 Playing Previous Video: A Reproduzir o Vídeo Anterior
-Playing next video in 5 seconds.  Click to cancel: A reproduzir o próximo vídeo em 5 segundos. Clique para cancelar.
+Playing next video in 5 seconds.  Click to cancel: A reproduzir o próximo vídeo em
+  5 segundos. Clique para cancelar
 Canceled next video autoplay: Reprodução automática cancelada
-'The playlist has ended.  Enable loop to continue playing': 'A lista de reprodução chegou ao fim. Active a reprodução cíclica para continuar'
+'The playlist has ended.  Enable loop to continue playing': 'A lista de reprodução
+  chegou ao fim. Active a reprodução cíclica para continuar'
 
 Yes: Sim
 No: Não

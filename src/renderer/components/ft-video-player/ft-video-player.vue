@@ -2,7 +2,7 @@
   <div class="relative">
     <video
       :id="id"
-      class="ftVideoPlayer video-js vjs-default-skin"
+      class="ftVideoPlayer video-js vjs-default-skin dark"
       :poster="thumbnail"
       controls
       preload="auto"
