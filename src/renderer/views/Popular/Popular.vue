@@ -16,7 +16,8 @@
     <ft-icon-button
       icon="sync"
       class="floatingTopButton"
-      :size="10"
+      :size="12"
+      :theme="primary"
       @click="refreshTrendingInfo"
     />
   </div>

@@ -24,12 +24,14 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    this.getTrendingInfo()
+    this.shownResults = this.popularCache
+    if (!this.shownResults || this.shownResults.length < 1) {
+      this.fetchTrendingInfo()
+    }
   },
   methods: {
-    refreshTrendingInfo: async function () {
-      await this.fetchTrendingInfo()
-      await this.getTrendingInfo()
+    refreshTrendingInfo: function () {
+      this.fetchTrendingInfo()
     },
     fetchTrendingInfo: async function () {
       const searchPayload = {
@@ -38,35 +40,23 @@ export default Vue.extend({
         params: {}
       }
 
+      this.isLoading = true
       const result = await this.$store.dispatch('invidiousAPICall', searchPayload).catch((err) => {
         console.log(err)
       })
 
       if (!result) {
+        this.isLoading = false
         return
       }
 
       console.log(result)
 
-      const returnData = result.filter((item) => {
+      this.shownResults = result.filter((item) => {
         return item.type === 'video' || item.type === 'shortVideo' || item.type === 'channel' || item.type === 'playlist'
       })
-      this.$store.commit('setPopularCache', returnData)
-      return returnData
-    },
-
-    getTrendingInfo: async function () {
-      this.isLoading = true
-      let data = this.popularCache
-      if (!data || data.length < 1) {
-        data = await this.fetchTrendingInfo()
-      }
-      if (!data) {
-        return
-      }
-
-      this.shownResults = this.shownResults.concat(data)
       this.isLoading = false
+      this.$store.commit('setPopularCache', this.shownResults)
     }
   }
 })

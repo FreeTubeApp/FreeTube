@@ -3,7 +3,7 @@ import FtToastEvents from '../../components/ft-toast/ft-toast-events'
 const state = {
   isSideNavOpen: false,
   sessionSearchHistory: [],
-  popularCache: undefined,
+  popularCache: null,
   searchSettings: {
     sortBy: 'relevance',
     time: '',
