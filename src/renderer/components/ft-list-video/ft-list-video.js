@@ -215,10 +215,14 @@ export default Vue.extend({
 
       if (typeof (this.data.publishedText) !== 'undefined') {
         // produces a string according to the template in the locales string
-        this.toLocaleStringS({
+        this.toLocalePublicationString({
           publishText: this.data.publishedText,
           templateString: this.$t('Video.Publicationtemplate'),
-          timeStrings: this.$t('Video.Published')
+          timeStrings: this.$t('Video.Published'),
+          liveStreamString: this.$t('Video.Watching'),
+          upcomingString: this.$t('Video.Published.Upcoming'),
+          isLive: this.data.live,
+          isUpcoming: this.data.isUpcoming
         }).then((data) => {
           this.uploadedTime = data
         }).catch((error) => {
@@ -262,6 +266,19 @@ export default Vue.extend({
       }
 
       if (typeof (this.data.uploaded_at) !== 'undefined') {
+        this.toLocalePublicationString({
+          publishText: this.data.uploaded_at,
+          templateString: this.$t('Video.Publicationtemplate'),
+          timeStrings: this.$t('Video.Published'),
+          liveStreamString: this.$t('Video.Watching'),
+          upcomingString: this.$t('Video.Published.Upcoming'),
+          isLive: this.data.live,
+          isUpcoming: false
+        }).then((data) => {
+          this.uploadedTime = data
+        }).catch((error) => {
+          console.error(error)
+        })
         this.uploadedTime = this.data.uploaded_at
       }
 
@@ -277,7 +294,7 @@ export default Vue.extend({
       this.isLive = this.data.live
     },
     ...mapActions([
-      'toLocaleStringS'
+      'toLocalePublicationString'
     ])
   }
 })

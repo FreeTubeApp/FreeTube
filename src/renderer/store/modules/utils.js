@@ -166,7 +166,13 @@ const actions = {
     return vttString
   },
 
-  toLocaleStringS ({ dispatch }, payload) {
+  toLocalePublicationString ({ dispatch }, payload) {
+    if (payload.isLive) {
+      return '0' + payload.liveStreamString
+    } else if (payload.isUpcoming || payload.publishText === null) {
+      // the check for null is currently just an inferring of knowledge, because there is no other possibility left
+      return payload.upcomingString
+    }
     const strings = payload.publishText.split(' ')
     const singular = (strings[0] === '1')
     let publicationString = payload.templateString.replace('$', strings[0])
