@@ -84,11 +84,8 @@ Subscriptions:
     # On Subscriptions Page
     Subscriptions: Abonnement
     Latest Subscriptions: Neueste Abonnements
-
-    'Your Subscription list is currently empty. Start adding subscriptions to see them here.': >
-      Deine Abonnementliste ist aktuell leer. Beginne Abonnements hinzuzufügen um sie hier zu sehen.
-
-    'Getting Subscriptions.  Please wait...': Rufe Abonnements ab.  Bitte warten…
+    'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Deine Abonnementliste ist aktuell leer. Beginne Abonnements hinzuzufügen um sie hier zu sehen.
+    'Getting Subscriptions.  Please wait.': Rufe Abonnements ab.  Bitte warten.
 Trending: Trends
 Most Popular: Am beliebtesten
 Playlists: Playlists

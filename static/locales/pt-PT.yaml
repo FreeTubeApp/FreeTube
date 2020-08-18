@@ -66,11 +66,8 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: Subscrições
   Latest Subscriptions: Subscrições Recentes
-
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': >
-    A lista de subscrições encontra-se vazia. Adicione algumas para as ver aqui.
-
-  'Getting Subscriptions.  Please wait...': A carregar subscrições.  Por favor aguarde…
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': A lista de subscrições encontra-se vazia. Adicione algumas para as ver aqui.
+  'Getting Subscriptions.  Please wait.': A carregar subscrições.  Por favor aguarde.
 Trending: Tendências
 Most Popular: Mais Populares
 Playlists: Listas de Reprodução
