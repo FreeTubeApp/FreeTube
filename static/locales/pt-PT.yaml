@@ -66,7 +66,8 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: Subscrições
   Latest Subscriptions: Subscrições Recentes
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': A lista de subscrições encontra-se vazia. Adicione algumas para as ver aqui.
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': A
+    lista de subscrições encontra-se vazia. Adicione algumas para as ver aqui.
   'Getting Subscriptions.  Please wait.': A carregar subscrições.  Por favor aguarde.
 Trending: Tendências
 Most Popular: Mais Populares
@@ -181,7 +182,7 @@ Settings:
       dados para a consola)
     'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Endereço de intermediário
       (Exemplo: SOCKS5://127.0.0.1:9050 )'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': >
+    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': >-
       Ao Carregar "TESTAR INTERMEDIÁRIO" um pedido vai ser enviado a https://ipinfo.io/json
     Use Tor / Proxy for API calls: Usar Tor / Intermediário para Chamadas API
     TEST PROXY: TESTAR INTERMEDIÁRIO
@@ -206,17 +207,17 @@ About:
   #On About page
   About: Sobre
   #& About
-  'This software is FOSS and released under the GNU Public License v3+.': >
+  'This software is FOSS and released under the GNU Public License v3+.': >-
     This copylefted software is freely licensed GPLv3+.
 
   'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
     Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub
     page. Pull requests welcome.
 
-  Thank you very much to the People and Projects that make FreeTube possible!: >
+  Thank you very much to the People and Projects that make FreeTube possible!: >-
     Thank you very much to the People and Projects that make FreeTube possible!
 
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': >
+  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': >-
     Want to chat? Join our Element / Matrix Server . Please check the rules before
     joining.
 
@@ -225,7 +226,7 @@ About:
 
   Check out our Firefox extension!: Check out our Firefox extension!
 
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': >
+  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': >-
     If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin
     address.
 
@@ -370,7 +371,7 @@ Comments:
   Hide: Esconder
   Replies: Respostas
   Reply: Resposta
-  There are no comments available for this video: Este vídeo não contém nenhum comentário.
+  There are no comments available for this video: Este vídeo não contém nenhum comentário
   Load More Comments: Carregar Mais Comentários
 Up Next: A Seguir
 
@@ -388,7 +389,7 @@ Shuffle is now enabled: Reprodução aleatória activada
 Playing Next Video: A Reproduzir o Próximo Vídeo
 Playing Previous Video: A Reproduzir o Vídeo Anterior
 Playing next video in 5 seconds.  Click to cancel: A reproduzir o próximo vídeo em
-  5 segundos. Clique para cancelar.
+  5 segundos. Clique para cancelar
 Canceled next video autoplay: Reprodução automática cancelada
 'The playlist has ended.  Enable loop to continue playing': 'A lista de reprodução
   chegou ao fim. Active a reprodução cíclica para continuar'
