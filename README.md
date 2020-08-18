@@ -48,6 +48,14 @@ This list is somewhat in order of when I plan on working on each thing.  Obvious
 
 I will add more things to do as progress gets made.  For now what I have listed out should be more than enough.
 
+## Localization
+
+<a href="https://hosted.weblate.org/engage/free-tube/?utm_source=widget">
+<img src="https://hosted.weblate.org/widgets/free-tube/-/translations/multi-blue.svg" alt="Translation status" />
+</a>
+
+Want to help translate FreeTube into your native language?  We're now accepting translations via Weblate!  Click on the chart above to learn how to get involved.
+
 ## Contact
 
 To chat about the FreeTube rewrite or to ask questions, we encourage you to join our [Matrix Community](https://app.element.io/#/group/+freetube:matrix.org).  I will be there actively working on the rewrite and will be available to help you get started.  Alternatively, you can email me at FreeTubeApp@protonmail.com.
