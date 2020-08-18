@@ -1,25 +1,8 @@
-# This document follows a roughly page to page, top to bottom, left to right view
-# as things appear on the screen for the user. It is layouted in this way to allow for
-# easy verification of all words and phrases by the translator.
-
-# For repeat entries,
-    #an ampersand (&) will follow the pound (#) in a comment for single item repeats, i.e:
-        #& Playlists
-    #an asterisk (*) will follow the pound (#) in a comment to reference the head listing in multiple item repeats, i.e:
-        #Main Color Theme: Main Color Theme
-            #Red: Red
-            #Pink: Pink
-        #Secondary Color Theme: Secondary Color Theme
-            #* Main Color Theme
-# An exclamation point (!) is used for entries not yet completed.
-# A tilda (~) is used for entries that are present, but do not need to be translated. i.e:
-    #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
----
 FreeTube: FreeTube
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >
-  Dieser Teil des Programms is noch nicht fertig. Bitte komme zu einem späteren Zeitpunkt wieder.
+  Dieser Teil des Programms is noch nicht fertig. Bitte komme zu einem späteren Zeitpunkt
+  wieder.
 
 # Webkit Menu Bar
 File: Datei
@@ -82,10 +65,12 @@ Search Filters:
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
-    Subscriptions: Abonnement
-    Latest Subscriptions: Neueste Abonnements
-    'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Deine Abonnementliste ist aktuell leer. Beginne Abonnements hinzuzufügen um sie hier zu sehen.
-    'Getting Subscriptions.  Please wait.': Rufe Abonnements ab.  Bitte warten.
+  Subscriptions: Abonnement
+  Latest Subscriptions: Neueste Abonnements
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Deine
+    Abonnementliste ist aktuell leer. Beginne Abonnements hinzuzufügen um sie hier
+    zu sehen.
+  'Getting Subscriptions.  Please wait.': Rufe Abonnements ab.  Bitte warten.
 Trending: Trends
 Most Popular: Am beliebtesten
 Playlists: Playlists
@@ -100,7 +85,8 @@ Settings:
   Settings: Einstellungen
   General Settings:
     General Settings: Allgemeine Einstellungen
-    Fallback to Non-Preferred Backend on Failure: Falle zu nicht-präferiertem System bei Fehlschlag zurück
+    Fallback to Non-Preferred Backend on Failure: Falle zu nicht-präferiertem System
+      bei Fehlschlag zurück
     Enable Search Suggestions: Aktiviere Suchvorschläge
     Default Landing Page: Standardseite
 
@@ -119,7 +105,8 @@ Settings:
       Beginning: Anfang
       Middle: Mitte
       End: Ende
-    'Invidious Instance (Default is https://invidio.us)': Invidious Instanz (Standard ist https://invidio.us)
+    'Invidious Instance (Default is https://invidio.us)': Invidious Instanz (Standard
+      ist https://invidio.us)
     Region for Trending: Region für Trends
         #! List countries
   Theme Settings:
@@ -193,9 +180,11 @@ Settings:
     How do I import my subscriptions?: Wie importiere ich meine Abonnements?
   Advanced Settings:
     Advanced Settings: Erweiterte Einstellungen
-    Enable Debug Mode (Prints data to the console): Aktiviere Debug Modus (Gibt Daten auf der Konsole aus)
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Proxy Adresse (Beispiel: SOCKS5://127.0.0.1:9050 )'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': >
+    Enable Debug Mode (Prints data to the console): Aktiviere Debug Modus (Gibt Daten
+      auf der Konsole aus)
+    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Proxy Adresse (Beispiel:
+      SOCKS5://127.0.0.1:9050 )'
+    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': >-
       Den "TESTE PROXY" Knopf zu drücken, sendet eine Anfrage an https://ipinfo.io/json
     Use Tor / Proxy for API calls: Nutze Tor / Proxy für API Aufrufe
     TEST PROXY: TEST PROXY
@@ -204,13 +193,15 @@ Settings:
     Clear History:
       Clear History: Lösche Verlauf
       # On Click
-      Are you sure you want to delete your history?: Bist du sicher, dass du deinen Verlauf löschen möchtest?
+      Are you sure you want to delete your history?: Bist du sicher, dass du deinen
+        Verlauf löschen möchtest?
       #& Yes
       #& No
     Clear Subscriptions:
       Clear Subscriptions: Lösche Abonnements
       # On Click
-      Are you sure you want to remove all subscriptions?: Bist du sicher, dass du deine Abonnements löschen möchtest?
+      Are you sure you want to remove all subscriptions?: Bist du sicher, dass du
+        deine Abonnements löschen möchtest?
       #& Yes
       #& No
 
@@ -218,25 +209,29 @@ About:
   #On About page
   About: Über
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0..': >
+  'This software is FOSS and released under the GNU Affero General Public License v3.0..': >-
     Dieses Programm is unter der freien Lizent AGPL-3.0 veröffentlicht.
 
   'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    Einen Bug gefunden? Eine neue Funktion vorschlagen? Mithelfen? Schau auf unserer GitHub-Seite vorbei.
+    Einen Bug gefunden? Eine neue Funktion vorschlagen? Mithelfen? Schau auf unserer
+    GitHub-Seite vorbei.
     Pull requests sind wilkommen.
 
-  Thank you very much to the People and Projects that make FreeTube possible!: >
+  Thank you very much to the People and Projects that make FreeTube possible!: >-
     Vielen Dank an all die Personen und Projekte die FreeTube möglich machen!
 
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': >
-    Lust zu chatten? Tritt unserem Element / Matrix Server bei. Bitte lese zuvor aber noch die Regeln.
+  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': >-
+    Lust zu chatten? Tritt unserem Element / Matrix Server bei. Bitte lese zuvor aber
+    noch die Regeln.
 
-  'Looking for help? Check out our Wiki page.': Suchst nach Hilfe? Schaue auf unserer Wiki vorbei.
+  'Looking for help? Check out our Wiki page.': Suchst nach Hilfe? Schaue auf unserer
+    Wiki vorbei.
 
   Check out our Firefox extension!: Installiere auch unsere Firefox-Erweiterung!
 
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': >
-    Falls du FreeTube gerne nutzt, erwäge doch view Liberapay oder über unsere Bitcoinadresse zu spenden.
+  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': >-
+    Falls du FreeTube gerne nutzt, erwäge doch view Liberapay oder über unsere Bitcoinadresse
+    zu spenden.
 
   #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
 
@@ -249,18 +244,20 @@ Channel:
   Subscribe: Abonnieren
   Unsubscribe: Deabonnieren
   Search Channel: Suche Kanal
-  Your search results have returned 0 results: Deine Suche hat 0 Ergebnisse geliefert.
+  Your search results have returned 0 results: Deine Suche hat 0 Ergebnisse geliefert
   Sort By: Sortiere nach
   Videos:
     Videos: Videos
-    This channel does not currently have any videos: Dieser Kanal hat aktuell keine Videos
+    This channel does not currently have any videos: Dieser Kanal hat aktuell keine
+      Videos
     Sort Types:
       Newest: Neueste
       Oldest: Älteste
       Most Popular: Am beliebtesten
   Playlists:
     Playlists: Playlists
-    This channel does not currently have any playlists: Dieser Kanal hat aktuell keine Playlists
+    This channel does not currently have any playlists: Dieser Kanal hat aktuell keine
+      Playlists
     Sort Types:
       Last Video Added: Zuletzt hinzugefügtes Video
       Newest: Neuestes
@@ -286,34 +283,39 @@ Video:
   Live Now: Jetzt Live
   Live Chat: Live Chat
   Enable Live Chat: Aktiviere Live-Chat
-  Live Chat is currently not supported in this build.: Live-Chat ist in der aktuellen Version nicht unterstützt.
-  'Chat is disabled or the Live Stream has ended.': Der Chat ist deaktiviert oder der Livestream zuende.
-  Live chat is enabled.  Chat messages will appear here once sent.: Der Live chat ist aktivier. Chatnachrichten tauchen hier auf.
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': Live Chat ist in der aktuellen Invidious API nicht unterstützt.  Eine direkte Verbindung zu YouTube wird benötigt.
+  Live Chat is currently not supported in this build.: Live-Chat ist in der aktuellen
+    Version nicht unterstützt.
+  'Chat is disabled or the Live Stream has ended.': Der Chat ist deaktiviert oder
+    der Livestream zuende.
+  Live chat is enabled.  Chat messages will appear here once sent.: Der Live chat
+    ist aktivier. Chatnachrichten tauchen hier auf.
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': Live
+    Chat ist in der aktuellen Invidious API nicht unterstützt.  Eine direkte Verbindung
+    zu YouTube wird benötigt.
   Published:
-      Jan: Jan
-      Feb: Feb
-      Mar: Mär
-      Apr: Apr
-      May: Mai
-      Jun: Jun
-      Jul: Jul
-      Aug: Aug
-      Sep: Sep
-      Oct: Okt
-      Nov: Nov
-      Dec: Dez
-      Hour: Stunde
-      Hours: Stunden
-      Day: Tag
-      Days: Tage
-      Week: Woche
-      Weeks: Wochen
-      Month: Monat
-      Months: Monate
-      Year: Jahr
-      Years: Jahre
-      Ago: Vor
+    Jan: Jan
+    Feb: Feb
+    Mar: Mär
+    Apr: Apr
+    May: Mai
+    Jun: Jun
+    Jul: Jul
+    Aug: Aug
+    Sep: Sep
+    Oct: Okt
+    Nov: Nov
+    Dec: Dez
+    Hour: Stunde
+    Hours: Stunden
+    Day: Tag
+    Days: Tage
+    Week: Woche
+    Weeks: Wochen
+    Month: Monat
+    Months: Monate
+    Year: Jahr
+    Years: Jahre
+    Ago: Vor
   Published on: Veröffentlicht am
 #& Videos
 Videos:
@@ -355,7 +357,8 @@ Share:
   Open Embed: Öffne Embed
   # On Click
   Invidious URL copied to clipboard: Invidious URL in die Zwischenablage kopiert
-  Invidious Embed URL copied to clipboard: Invidious Embed URL in die Zwischenablage kopiert
+  Invidious Embed URL copied to clipboard: Invidious Embed URL in die Zwischenablage
+    kopiert
   YouTube URL copied to clipboard: YouTube URL in die Zwischenablage kopiert
   YouTube Embed URL copied to clipboard: YouTube Embed URL in die Zwischenablage kopiert
 Mini Player: Mini Player
@@ -386,9 +389,11 @@ Shuffle is now disabled: Zufallswiedergabe ist jetzt deaktiviert
 Shuffle is now enabled: Zufallswiedergabe ist jetzt aktiviert
 Playing Next Video: Spiele nächstes Video
 Playing Previous Video: Spiele vorheriges Video
-Playing next video in 5 seconds.  Click to cancel: Spiele nächstes Video in 5 Sekunden.  Klicke um abzubrechen
+Playing next video in 5 seconds.  Click to cancel: Spiele nächstes Video in 5 Sekunden.  Klicke
+  um abzubrechen
 Canceled next video autoplay: Wiedergabe des nächsten Videos abgebrochen
-'The playlist has ended.  Enable loop to continue playing': 'Die Playlist hat das Ende erreicht. Aktiviere Schleife um weiterzuspielen'
+'The playlist has ended.  Enable loop to continue playing': 'Die Playlist hat das
+  Ende erreicht. Aktiviere Schleife um weiterzuspielen'
 
 Yes: Ja
 No: Nein
