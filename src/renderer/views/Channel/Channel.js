@@ -179,7 +179,7 @@ export default Vue.extend({
       ytch.getChannelInfo(this.id).then((response) => {
         this.id = response.authorId
         this.channelName = response.author
-        this.subCount = response.subscriberCount
+        this.subCount = response.subscriberCount.toFixed(0)
         this.thumbnailUrl = response.authorThumbnails[2].url
         this.channelDescription = autolinker.link(response.description)
         this.relatedChannels = response.relatedChannels
