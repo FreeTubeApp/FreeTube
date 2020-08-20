@@ -47,6 +47,7 @@ export default Vue.extend({
       videoViewCount: 0,
       videoLikeCount: 0,
       videoDislikeCount: 0,
+      videoLengthSeconds: 0,
       channelName: '',
       channelThumbnail: '',
       channelId: '',
@@ -70,6 +71,14 @@ export default Vue.extend({
 
     usingElectron: function () {
       return this.$store.getters.getUsingElectron
+    },
+
+    historyCache: function () {
+      return this.$store.getters.getHistoryCache
+    },
+
+    rememberHistory: function () {
+      return this.$store.getters.getRememberHistory
     },
 
     backendPreference: function () {
@@ -276,6 +285,7 @@ export default Vue.extend({
               this.activeSourceList = this.videoSourceList
             }
           } else {
+            this.videoLengthSeconds = parseInt(result.videoDetails.lengthSeconds)
             this.videoSourceList = result.player_response.streamingData.formats
 
             this.audioSourceList = result.player_response.streamingData.adaptiveFormats.filter((format) => {
@@ -395,6 +405,7 @@ export default Vue.extend({
           } else if (this.forceLocalBackendForLegacy) {
             this.getLegacyFormats()
           } else {
+            this.videoLengthSeconds = result.lengthSeconds
             this.videoSourceList = result.formatStreams.reverse()
 
             this.audioSourceList = result.adaptiveFormats.filter((format) => {
@@ -439,6 +450,46 @@ export default Vue.extend({
             // TODO: Show toast with error message
           }
         })
+    },
+
+    addToHistory: function (watchProgress) {
+      const videoData = {
+        videoId: this.videoId,
+        title: this.videoTitle,
+        author: this.channelName,
+        authorId: this.channelId,
+        published: this.videoPublished,
+        description: this.videoDescription,
+        viewCount: this.videoViewCount,
+        lengthSeconds: this.videoLengthSeconds,
+        watchProgress: watchProgress,
+        timeWatched: new Date().getTime(),
+        isLive: false,
+        paid: false,
+        type: 'video'
+      }
+
+      this.updateHistory(videoData)
+    },
+
+    checkIfWatched: function () {
+      const historyIndex = this.historyCache.findIndex((video) => {
+        return video.videoId === this.videoId
+      })
+
+      console.log(historyIndex)
+
+      if (historyIndex !== -1 && !this.isLive) {
+        console.log(this.historyCache[historyIndex])
+        const watchProgress = this.historyCache[historyIndex].watchProgress
+        this.$refs.videoPlayer.player.currentTime(watchProgress)
+      }
+
+      if (this.rememberHistory && historyIndex !== -1) {
+        this.addToHistory(this.historyCache[historyIndex].watchProgress)
+      } else if (this.rememberHistory) {
+        this.addToHistory(0)
+      }
     },
 
     checkIfPlaylist: function () {
@@ -630,7 +681,24 @@ export default Vue.extend({
 
     ...mapActions([
       'showToast',
-      'buildVTTFileLocally'
+      'buildVTTFileLocally',
+      'updateHistory',
+      'updateWatchProgress'
     ])
+  },
+  beforeRouteLeave: function (to, from, next) {
+    if (this.rememberHistory) {
+      const currentTime = this.$refs.videoPlayer.player.currentTime()
+      console.log(currentTime)
+      const payload = {
+        videoId: this.videoId,
+        watchProgress: currentTime
+      }
+
+      console.log('update watch progress')
+      this.updateWatchProgress(payload)
+    }
+
+    next()
   }
 })

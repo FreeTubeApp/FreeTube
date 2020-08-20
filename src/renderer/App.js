@@ -31,6 +31,7 @@ export default Vue.extend({
   },
   mounted: function () {
     this.$store.dispatch('grabUserSettings')
+    this.$store.dispatch('grabHistory')
     this.$store.commit('setUsingElectron', useElectron)
     this.checkThemeSettings()
     this.checkLocale()

@@ -95,6 +95,7 @@ History:
   # On History Page
   History: History
   Watch History: Watch History
+  Your history list is currently empty.: Your history list is currently empty.
 Settings:
   # On Settings Page
   Settings: Settings
@@ -264,6 +265,10 @@ Channel:
     Channel Description: Channel Description
     Featured Channels: Featured Channels
 Video:
+  Mark As Watched: Mark As Watched
+  Remove From History: Remove From History
+  Video has been marked as watched: Video has been marked as watched
+  Video has been removed from your history: Video has been removed from your history
   Open in YouTube: Open in YouTube
   Copy YouTube Link: Copy YouTube Link
   Open YouTube Embedded Player: Open YouTube Embedded Player

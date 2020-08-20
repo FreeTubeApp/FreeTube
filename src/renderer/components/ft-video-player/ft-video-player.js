@@ -257,6 +257,10 @@ export default Vue.extend({
 
         const v = this
 
+        this.player.on('ready', function () {
+          v.$emit('ready')
+        })
+
         this.player.on('ended', function () {
           v.$emit('ended')
         })

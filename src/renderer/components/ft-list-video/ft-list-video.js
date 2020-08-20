@@ -37,11 +37,13 @@ export default Vue.extend({
       duration: '',
       description: '',
       watched: false,
-      progressPercentage: 0,
+      watchProgress: 0,
+      publishedText: '',
       isLive: false,
       isFavorited: false,
       hideViews: false,
       optionsValues: [
+        'history',
         'openYoutube',
         'copyYoutube',
         'openYoutubeEmbed',
@@ -54,6 +56,10 @@ export default Vue.extend({
   computed: {
     usingElectron: function () {
       return this.$store.getters.getUsingElectron
+    },
+
+    historyCache: function () {
+      return this.$store.getters.getHistoryCache
     },
 
     listType: function () {
@@ -72,6 +78,12 @@ export default Vue.extend({
       return this.$store.getters.getInvidiousInstance
     },
 
+    inHistory: function () {
+      // When in the history page, showing relative dates isn't very useful.
+      // We want to show the exact date instead
+      return this.$router.currentRoute.name === 'history'
+    },
+
     invidiousUrl: function () {
       return `${this.invidiousInstance}/watch?v=${this.id}`
     },
@@ -84,8 +96,12 @@ export default Vue.extend({
       return `https://www.youtube-nocookie.com/embed/${this.id}`
     },
 
+    progressPercentage: function () {
+      return (this.watchProgress / this.data.lengthSeconds) * 100
+    },
+
     optionsNames: function () {
-      return [
+      const names = [
         this.$t('Video.Open in YouTube'),
         this.$t('Video.Copy YouTube Link'),
         this.$t('Video.Open YouTube Embedded Player'),
@@ -93,6 +109,14 @@ export default Vue.extend({
         this.$t('Video.Open in Invidious'),
         this.$t('Video.Copy Invidious Link')
       ]
+
+      if (this.watched) {
+        names.unshift(this.$t('Video.Remove From History'))
+      } else {
+        names.unshift(this.$t('Video.Mark As Watched'))
+      }
+
+      return names
     },
 
     thumbnail: function () {
@@ -128,6 +152,8 @@ export default Vue.extend({
     } else {
       this.parseLocalData()
     }
+
+    this.checkIfWatched()
   },
   methods: {
     toggleSave: function () {
@@ -139,6 +165,13 @@ export default Vue.extend({
       console.log(option)
 
       switch (option) {
+        case 'history':
+          if (this.watched) {
+            this.removeFromWatched()
+          } else {
+            this.markAsWatched()
+          }
+          break
         case 'copyYoutube':
           navigator.clipboard.writeText(this.youtubeUrl)
           break
@@ -213,7 +246,7 @@ export default Vue.extend({
       this.isLive = this.data.liveNow
       this.viewCount = this.data.viewCount
 
-      if (typeof (this.data.publishedText) !== 'undefined') {
+      if (typeof (this.data.publishedText) !== 'undefined' && !this.isLive) {
         // produces a string according to the template in the locales string
         this.toLocalePublicationString({
           publishText: this.data.publishedText,
@@ -221,7 +254,7 @@ export default Vue.extend({
           timeStrings: this.$t('Video.Published'),
           liveStreamString: this.$t('Video.Watching'),
           upcomingString: this.$t('Video.Published.Upcoming'),
-          isLive: this.data.live,
+          isLive: this.isLive,
           isUpcoming: this.data.isUpcoming
         }).then((data) => {
           this.uploadedTime = data
@@ -253,7 +286,7 @@ export default Vue.extend({
         this.channelId = this.data.ucid
         this.viewCount = this.data.views
 
-        // Data is returned as a literal string names 'undefined'
+        // Data is returned as a literal string named 'undefined'
         if (this.data.length_seconds !== 'undefined') {
           this.duration = this.calculateVideoDuration(parseInt(this.data.length_seconds))
         }
@@ -265,7 +298,7 @@ export default Vue.extend({
         this.channelId = this.channelId.replace('https://www.youtube.com/channel/', '')
       }
 
-      if (typeof (this.data.uploaded_at) !== 'undefined') {
+      if (typeof (this.data.uploaded_at) !== 'undefined' && !this.data.live) {
         this.toLocalePublicationString({
           publishText: this.data.uploaded_at,
           templateString: this.$t('Video.Publicationtemplate'),
@@ -293,8 +326,67 @@ export default Vue.extend({
 
       this.isLive = this.data.live
     },
+
+    checkIfWatched: function () {
+      const historyIndex = this.historyCache.findIndex((video) => {
+        return video.videoId === this.id
+      })
+
+      if (historyIndex !== -1) {
+        this.watched = true
+        this.watchProgress = this.historyCache[historyIndex].watchProgress
+
+        if (this.historyCache[historyIndex].published !== '') {
+          const videoPublished = this.historyCache[historyIndex].published
+          const videoPublishedDate = new Date(videoPublished)
+          this.publishedText = videoPublishedDate.toLocaleDateString()
+        } else {
+          this.publishedText = ''
+        }
+      }
+    },
+
+    markAsWatched: function () {
+      const videoData = {
+        videoId: this.id,
+        title: this.title,
+        author: this.channelName,
+        authorId: this.channelId,
+        published: '',
+        description: this.description,
+        viewCount: this.viewCount,
+        lengthSeconds: this.data.lengthSeconds,
+        watchProgress: 0,
+        timeWatched: new Date().getTime(),
+        isLive: false,
+        paid: false,
+        type: 'video'
+      }
+
+      this.updateHistory(videoData)
+
+      this.showToast({
+        message: this.$t('Video.Video has been marked as watched')
+      })
+
+      this.watched = true
+    },
+
+    removeFromWatched: function () {
+      this.removeFromHistory(this.id)
+
+      this.showToast({
+        message: this.$t('Video.Video has been removed from your history')
+      })
+
+      this.watched = false
+    },
+
     ...mapActions([
-      'toLocalePublicationString'
+      'showToast',
+      'toLocalePublicationString',
+      'updateHistory',
+      'removeFromHistory'
     ])
   }
 })

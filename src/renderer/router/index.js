@@ -58,6 +58,7 @@ const router = new Router({
     },
     {
       path: '/history',
+      name: 'history',
       meta: {
         title: 'History',
         icon: 'fa-home'

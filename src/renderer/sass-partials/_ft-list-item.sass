@@ -38,6 +38,14 @@ $thumbnail-overlay-opacity: 0.85
         width: 163px
         height: auto
 
+    .videoWatched
+      position: absolute
+      padding: 2px
+      opacity: $thumbnail-overlay-opacity
+      color: var(--primary-text-color)
+      background-color: var(--card-bg-color)
+      pointer-events: none
+
     .videoDuration
       position: absolute
       bottom: 4px
@@ -65,6 +73,13 @@ $thumbnail-overlay-opacity: 0.85
       right: 3px
       font-size: 17px
       opacity: $thumbnail-overlay-opacity
+
+    .watchedProgressBar
+      height: 2px
+      position: absolute
+      bottom: 0px
+      background-color: var(--primary-color)
+      z-index: 2
 
     .videoCountContainer
       position: absolute

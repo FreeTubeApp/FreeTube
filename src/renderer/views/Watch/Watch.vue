@@ -23,6 +23,7 @@
           :thumbnail="thumbnail"
           class="videoPlayer"
           :class="{ theatrePlayer: useTheatreMode }"
+          @ready="checkIfWatched"
           @ended="handleVideoEnded"
           @error="handleVideoError"
         />

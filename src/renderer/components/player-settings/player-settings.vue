@@ -10,7 +10,6 @@
     <div class="switchColumnGrid">
       <div class="switchColumn">
         <ft-toggle-switch
-          v-if="false"
           label="Remember History"
           :compact="true"
           :default-value="rememberHistory"
