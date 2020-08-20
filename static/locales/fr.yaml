@@ -1,6 +1,8 @@
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >
+'This part of the app is not ready yet. Come back later when progress has been made.': >-
+  Cette partie de l'application n'est pas encore prête. Revenez plus tard lorsque
+  des progrès auront été réalisés.
 
 # Webkit Menu Bar
 File: 'Fichier'
@@ -16,21 +18,21 @@ Select all: 'Tout sélectionner'
 Reload: 'Actualiser'
 Force Reload: 'Forcer l''actualisation'
 Toggle Developer Tools: ''
-Actual size: ''
+Actual size: 'Taille actuelle'
 Zoom in: 'Agrandir'
 Zoom out: 'Réduire'
 Toggle fullscreen: 'Plein écran'
 Window: 'Fenêtre'
 Minimize: 'Réduire'
-Close: ''
-Back: ''
+Close: 'Fermer'
+Back: 'Retour'
 Forward: ''
 
 # Search Bar
-Search / Go to URL: ''
+Search / Go to URL: 'Rechercher / Aller à l''URL'
   # In Filter Button
 Search Filters:
-  Search Filters: ''
+  Search Filters: 'Filtres de recherche->Filtres de recherche'
   Sort By:
     Sort By: ''
     Most Relevant: ''
@@ -67,7 +69,7 @@ Subscriptions:
   Latest Subscriptions: ''
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
   'Getting Subscriptions.  Please wait.': ''
-Trending: ''
+Trending: 'Tendance'
 Most Popular: ''
 Playlists: ''
 User Playlists:
@@ -79,7 +81,7 @@ History:
   Your history list is currently empty.: ''
 Settings:
   # On Settings Page
-  Settings: ''
+  Settings: 'Paramètres->Paramètres'
   General Settings:
     General Settings: ''
     Fallback to Non-Preferred Backend on Failure: ''
@@ -196,7 +198,7 @@ Settings:
 
 About:
   #On About page
-  About: ''
+  About: 'À propos->À propos'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
 
@@ -218,16 +220,17 @@ About:
 
 #On Channel Page
 Channel:
-  Subscriber: ''
-  Subscribers: ''
-  Subscribe: ''
-  Unsubscribe: ''
+  Subscriber: 'Chaîne->Abonnement'
+  Subscribers: 'Chaîne->Abonnements'
+  Subscribe: 'Chaîne->S''abonner'
+  Unsubscribe: 'Chaîne->Désabonnement'
   Search Channel: ''
   Your search results have returned 0 results: ''
-  Sort By: ''
+  Sort By: 'Chaîne->Trier Par'
   Videos:
-    Videos: ''
-    This channel does not currently have any videos: ''
+    Videos: 'Chaîne->Vidéos->Vidéos'
+    This channel does not currently have any videos: 'Chaîne->Vidéos->Cette chaîne
+      n''a pas de vidéos actuellement'
     Sort Types:
       Newest: ''
       Oldest: ''
@@ -357,13 +360,13 @@ Comments:
 Up Next: ''
 
 # Toast Messages
-Local API Error (Click to copy): ''
-Invidious API Error (Click to copy): ''
-Falling back to Invidious API: ''
-Falling back to the local API: ''
+Local API Error (Click to copy): 'Erreur d''API locale (Cliquez pour copier)'
+Invidious API Error (Click to copy): 'Erreur d''API Invidious (Cliquez pour copier)'
+Falling back to Invidious API: 'Revenir à l''API Invidious'
+Falling back to the local API: 'Revenir à l''API locale'
 Subscriptions have not yet been implemented: ''
-Loop is now disabled: ''
-Loop is now enabled: ''
+Loop is now disabled: 'La boucle est maintenant désactivée'
+Loop is now enabled: 'La boucle est maintenant activée'
 Shuffle is now disabled: ''
 Shuffle is now enabled: ''
 Playing Next Video: ''
@@ -373,4 +376,4 @@ Canceled next video autoplay: ''
 'The playlist has ended.  Enable loop to continue playing': ''
 
 Yes: ''
-No: ''
+No: 'Non'
