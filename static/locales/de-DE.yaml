@@ -80,6 +80,7 @@ History:
   # On History Page
   History: Verlauf
   Watch History: Verlauf anschauen
+  Your history list is currently empty.: Dein Verlauf ist aktuell leer.
 Settings:
   # On Settings Page
   Settings: Einstellungen
@@ -90,7 +91,7 @@ Settings:
     Enable Search Suggestions: Aktiviere Suchvorschläge
     Default Landing Page: Standardseite
 
-    Locale Preference: Locale Preference
+    Locale Preference: Locale Präferenz
     Preferred API Backend:
       Preferred API Backend: Präferiertes API System
       Local API: Lokale API
@@ -238,6 +239,8 @@ About:
   Latest FreeTube News: Aktuellsten FreeTube Neuigkeiten
 
 #On Channel Page
+  This software is FOSS and released under the GNU Affero General Public License v3.0.: Diese
+    kopiergeschützte Software ist frei lizenziert unter der AGPL-3.0.
 Channel:
   Subscriber: Abonnement
   Subscribers: Abonnements
@@ -323,6 +326,10 @@ Video:
   Publicationtemplate: vor $ % veröffentlicht
 
 #& Videos
+  Video has been removed from your history: Das Video wurde aus deinem Verlauf entfernt
+  Video has been marked as watched: Das Video wurde als gesehen markiert
+  Remove From History: Vom Verlauf löschen
+  Mark As Watched: Als gesehen markieren
 Videos:
   #& Sort By
   Sort By:
@@ -338,6 +345,12 @@ Playlist:
   Views: Aufrufe
   Last Updated On: Zuletzt aktualisiert am
 # On Channel Playlist Page
+  Share Playlist:
+    Open in Invidious: In Invidious öffnen
+    Copy Invidious Link: Invidious Link kopieren
+    Open in YouTube: In YouTube öffnen
+    Copy YouTube Link: YouTube Link kopieren
+    Share Playlist: Playlist teilen
 Share Playlist:
   Share Playlist: Teile Playlist
   Copy YouTube Link: Kopiere YouTube Link
