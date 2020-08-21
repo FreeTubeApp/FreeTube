@@ -31,399 +31,358 @@ Forward: 'Avançar'
 Search / Go to URL: 'Pesquisar / Ir para o URL'
   # In Filter Button
 Search Filters:
-  Search Filters: 'Filtros de pesquisa->Filtros de pesquisa'
+  Search Filters: 'Filtros de pesquisa'
   Sort By:
-    Sort By: 'Filtro->Classificar por->Classificar por'
-    Most Relevant: 'Filtro->Classificar por->Relevância'
-    Rating: 'Filtro->Classificar por->Classificação'
-    Upload Date: 'Filtro->Classificar por->Data de envio'
-    View Count: 'Filtro->Classificar por->Contagem de Visualizações'
+    Sort By: 'Classificar por'
+    Most Relevant: 'Relevância'
+    Rating: 'Classificação'
+    Upload Date: 'Data de envio'
+    View Count: 'Contagem de Visualizações'
   Time:
-    Time: 'Filtro->Data do upload->Data do upload'
-    Any Time: 'Filtro->Data do upload->Qualquer hora'
-    Last Hour: 'Filtro->Data do upload->Última hora'
-    Today: 'Filtro->Data do upload->Hoje'
-    This Week: 'Filtro->Data do upload->Esta semana'
-    This Month: 'Filtro->Data do upload->Este mês'
-    This Year: 'Filtro->Data do upload->Este ano'
+    Time: 'Data do upload'
+    Any Time: 'Qualquer hora'
+    Last Hour: 'Última hora'
+    Today: 'Hoje'
+    This Week: 'Esta semana'
+    This Month: 'Este mês'
+    This Year: 'Este ano'
   Type:
-    Type: 'Filtro->Tipo->Tipo'
-    All Types: 'Filtro->Tipo->Qualquer tipo'
-    Videos: 'Filtro->Tipo->Vídeos'
-    Channels: 'Filtro->Tipo->Canais'
+    Type: 'Tipo'
+    All Types: 'Qualquer tipo'
+    Videos: 'Vídeos'
+    Channels: 'Canais'
     #& Playlists
   Duration:
-    Duration: 'Filtro->Duração->Duração'
-    All Durations: 'Filtro->Duração->Qualquer duração'
-    Short (< 4 minutes): 'Filtro->Duração->Curto (< 4 minutos)'
-    Long (> 20 minutes): 'Filtro->Duração->Longo (> 20 Minutos)'
+    Duration: 'Duração'
+    All Durations: 'Qualquer duração'
+    Short (< 4 minutes): 'Curto (< 4 minutos)'
+    Long (> 20 minutes): 'Longo (> 20 Minutos)'
   # On Search Page
-  Search Results: 'Filtro->Resultados da pesquisa'
-  Fetching results. Please wait: 'Filtro->Buscando resultados. Por favor, aguarde'
-  Fetch more results: 'Filtro->Buscar mais resultados'
+  Search Results: 'Resultados da pesquisa'
+  Fetching results. Please wait: 'Buscando resultados. Por favor, aguarde'
+  Fetch more results: 'Buscar mais resultados'
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: 'Inscrições->Inscrições'
-  Latest Subscriptions: 'Inscrições->Últimas inscrições'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Inscrições->Sua
+  Subscriptions: 'Inscrições'
+  Latest Subscriptions: 'Últimas inscrições'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Sua
     lista de inscrições está vazia no momento. Comece a adicionar assinaturas para
     vê-las aqui.'
-  'Getting Subscriptions.  Please wait.': 'Inscrições->Buscando inscrições. Por favor,
-    aguarde.'
+  'Getting Subscriptions.  Please wait.': 'Buscando inscrições. Por favor, aguarde.'
 Trending: 'Em alta'
 Most Popular: 'Mais populares'
 Playlists: 'Listas'
 User Playlists:
-  Your Playlists: 'Listas do usuário->Suas listas'
+  Your Playlists: 'Suas listas'
 History:
   # On History Page
-  History: 'Histórico->Histórico'
-  Watch History: 'Histórico->Histórico de visualizações'
-  Your history list is currently empty.: 'Histórico->Seu Histórico está vazio no momento.'
+  History: 'Histórico'
+  Watch History: 'Histórico de visualizações'
+  Your history list is currently empty.: 'Seu Histórico está vazio no momento.'
 Settings:
   # On Settings Page
-  Settings: 'Configurações->Configurações'
+  Settings: 'Configurações'
   General Settings:
-    General Settings: 'Configurações->Configurações gerais->Configurações gerais'
-    Fallback to Non-Preferred Backend on Failure: 'Configurações->Configurações gerais->Usar
-      motor de pesquisa não preferido em caso de falha'
-    Enable Search Suggestions: 'Configurações->Configurações gerais->Habilitar sugestões
-      de pesquisa'
-    Default Landing Page: 'Configurações->Configurações gerais->Página inicial preferida'
-    Locale Preference: 'Configurações->Configurações gerais->Preferência de localização'
+    General Settings: 'Configurações gerais'
+    Fallback to Non-Preferred Backend on Failure: 'Usar motor de pesquisa não preferido
+      em caso de falha'
+    Enable Search Suggestions: 'Habilitar sugestões de pesquisa'
+    Default Landing Page: 'Página inicial preferida'
+    Locale Preference: 'Preferência de localização'
     Preferred API Backend:
-      Preferred API Backend: 'Configurações->Configurações gerais->API Motriz preferida->API
-        Motriz preferida'
-      Local API: 'Configurações->Configurações gerais->API Motriz preferida->API local'
-      Invidious API: 'Configurações->Configurações gerais->API Motriz preferida->API
-        do Invidious'
+      Preferred API Backend: 'API Motriz preferida'
+      Local API: 'API local'
+      Invidious API: 'API do Invidious'
     Video View Type:
-      Video View Type: 'Configurações->Configurações gerais->Tipo de visualização
-        de vídeo->Tipo de visualização de vídeo'
-      Grid: 'Configurações->Configurações gerais->Tipo de visualização de vídeo->Em
-        grade'
-      List: 'Configurações->Configurações gerais->Tipo de visualização de vídeo->Em
-        lista'
+      Video View Type: 'Tipo de visualização de vídeo'
+      Grid: 'Em grade'
+      List: 'Em lista'
     Thumbnail Preference:
-      Thumbnail Preference: 'Configurações->Configurações gerais->Preferência por
-        miniaturas->Preferência por miniaturas'
-      Default: 'Configurações->Configurações gerais->Preferência por miniaturas->Normal'
-      Beginning: 'Configurações->Configurações gerais->Preferência por miniaturas->No
-        começo'
-      Middle: 'Configurações->Configurações gerais->Preferência por miniaturas->No
-        meio'
-      End: 'Configurações->Configurações gerais->Preferência por miniaturas->No fim'
-    'Invidious Instance (Default is https://invidio.us)': 'Configurações->Configurações
-      gerais->Instância do invidious (A padrão é https://invidio.us)'
-    Region for Trending: 'Configurações->Configurações gerais->Região para o “Em alta”'
+      Thumbnail Preference: 'Preferência por miniaturas'
+      Default: 'Normal'
+      Beginning: 'No começo'
+      Middle: 'No meio'
+      End: 'No fim'
+    'Invidious Instance (Default is https://invidio.us)': 'Instância do Invidious
+      (A padrão é https://invidio.us)'
+    Region for Trending: 'Região para o “Em alta”'
         #! List countries
   Theme Settings:
-    Theme Settings: 'Configurações->Configurações de aparência->Configurações de aparência'
-    Match Top Bar with Main Color: 'Configurações->Configurações de aparência->Usar
-      a cor principal para a barra superior'
+    Theme Settings: 'Configurações de aparência'
+    Match Top Bar with Main Color: 'Usar a cor principal para a barra superior'
     Base Theme:
-      Base Theme: 'Configurações->Configurações de aparência->Tema base->Tema base'
-      Black: 'Configurações->Configurações de aparência->Tema base->Preto'
-      Dark: 'Configurações->Configurações de aparência->Tema base->Escuro'
-      Light: 'Configurações->Configurações de aparência->Tema base->Claro'
+      Base Theme: 'Tema base'
+      Black: 'Preto'
+      Dark: 'Escuro'
+      Light: 'Claro'
     Main Color Theme:
-      Main Color Theme: 'Configurações->Configurações de aparência->Cor principal->Cor
-        principal'
-      Red: 'Configurações->Configurações de aparência->Cor principal->Vermelha'
-      Pink: 'Configurações->Configurações de aparência->Cor principal->Rosa'
-      Purple: 'Configurações->Configurações de aparência->Cor principal->Roxa'
-      Deep Purple: 'Configurações->Configurações de aparência->Cor principal->Roxa
-        escura'
-      Indigo: 'Configurações->Configurações de aparência->Cor principal->Anil'
-      Blue: 'Configurações->Configurações de aparência->Cor principal->Azul'
-      Light Blue: 'Configurações->Configurações de aparência->Cor principal->Azul
-        claro'
-      Cyan: 'Configurações->Configurações de aparência->Cor principal->Ciano'
-      Teal: 'Configurações->Configurações de aparência->Cor principal->Cerceta'
-      Green: 'Configurações->Configurações de aparência->Cor principal->Verde'
-      Light Green: 'Configurações->Configurações de aparência->Cor principal->Verde
-        claro'
-      Lime: 'Configurações->Configurações de aparência->Cor principal->Limão'
-      Yellow: 'Configurações->Configurações de aparência->Cor principal->Amarelo'
-      Amber: 'Configurações->Configurações de aparência->Cor principal->Âmbar'
-      Orange: 'Configurações->Configurações de aparência->Cor principal->Laranja'
-      Deep Orange: 'Configurações->Configurações de aparência->Cor principal->Laranja
-        escura'
-    Secondary Color Theme: 'Configurações->Configurações de aparência->Cor secundária'
+      Main Color Theme: 'Cor principal'
+      Red: 'Vermelha'
+      Pink: 'Rosa'
+      Purple: 'Roxa'
+      Deep Purple: 'Roxa escura'
+      Indigo: 'Anil'
+      Blue: 'Azul'
+      Light Blue: 'Azul claro'
+      Cyan: 'Ciano'
+      Teal: 'Cerceta'
+      Green: 'Verde'
+      Light Green: 'Verde claro'
+      Lime: 'Limão'
+      Yellow: 'Amarelo'
+      Amber: 'Âmbar'
+      Orange: 'Laranja'
+      Deep Orange: 'Laranja escura'
+    Secondary Color Theme: 'Cor secundária'
         #* Main Color Theme
   Player Settings:
-    Player Settings: 'Configurações->Configurações do Vídeo->Configurações do Vídeo'
-    Force Local Backend for Legacy Formats: 'Configurações->Configurações do Vídeo->Forçar
-      motor local para formatos legados'
-    Remember History: 'Configurações->Configurações do Vídeo->Lembrar do histórico'
-    Play Next Video: 'Configurações->Configurações do Vídeo->Reproduzir próximo vídeo'
-    Turn on Subtitles by Default: 'Configurações->Configurações do Vídeo->Ativar legendas
-      por padrão'
-    Autoplay Videos: 'Configurações->Configurações do Vídeo->Reproduzir automaticamente'
-    Proxy Videos Through Invidious: 'Configurações->Configurações do Vídeo->Usar o
-      Invidious como proxy'
-    Autoplay Playlists: 'Configurações->Configurações do Vídeo->Reproduzir listas
-      automaticamente'
-    Enable Theatre Mode by Default: 'Configurações->Configurações do Vídeo->Habilitar
-      modo teatro por padrão'
-    Default Volume: 'Configurações->Configurações do Vídeo->Volume padrão'
-    Default Playback Rate: 'Configurações->Configurações do Vídeo->Velocidade de reprodução'
+    Player Settings: 'Configurações do Vídeo'
+    Force Local Backend for Legacy Formats: 'Forçar motor local para formatos legados'
+    Remember History: 'Lembrar do histórico'
+    Play Next Video: 'Reproduzir próximo vídeo'
+    Turn on Subtitles by Default: 'Ativar legendas por padrão'
+    Autoplay Videos: 'Reproduzir automaticamente'
+    Proxy Videos Through Invidious: 'Usar o Invidious como proxy'
+    Autoplay Playlists: 'Reproduzir listas automaticamente'
+    Enable Theatre Mode by Default: 'Habilitar modo teatro por padrão'
+    Default Volume: 'Volume padrão'
+    Default Playback Rate: 'Velocidade de reprodução'
     Default Video Format:
-      Default Video Format: 'Configurações->Configurações do Vídeo->Formato de vídeo->Formato
-        de vídeo padrão'
-      Dash Formats: 'Configurações->Configurações do Vídeo->Formato de vídeo->Formatos
-        DASH'
-      Legacy Formats: 'Configurações->Configurações do Vídeo->Formato de vídeo->Formatos
-        legados'
-      Audio Formats: 'Configurações->Configurações do Vídeo->Formatos de vídeo->Formato
-        de áudio'
+      Default Video Format: 'Formato de vídeo padrão'
+      Dash Formats: 'Formatos DASH'
+      Legacy Formats: 'Formatos legados'
+      Audio Formats: 'Formato de áudio'
     Default Quality:
-      Default Quality: 'Configurações->Configurações do Vídeo->Qualidade->Qualidade
-        padrão'
-      Auto: 'Configurações->Configurações do Vídeo->Qualidade->Automática'
-      144p: 'Configurações->Configurações do Vídeo->Qualidade->144p'
-      240p: 'Configurações->Configurações do Vídeo->Qualidade->240p'
-      360p: 'Configurações->Configurações do Vídeo->Qualidade->360p'
-      480p: 'Configurações->Configurações do Vídeo->Qualidade->480p'
-      720p: 'Configurações->Configurações do Vídeo->Qualidade->720p'
-      1080p: 'Configurações->Configurações do Vídeo->Qualidade->1080p'
-      1440p: 'Configurações->Configurações do Vídeo->Qualidade->1440p'
-      4k: 'Configurações->Configurações do Vídeo->Qualidade->4k'
-      8k: 'Configurações->Configurações do Vídeo->Qualidade->8k'
+      Default Quality: 'Qualidade padrão'
+      Auto: 'Automática'
+      144p: '144p'
+      240p: '240p'
+      360p: '360p'
+      480p: '480p'
+      720p: '720p'
+      1080p: '1080p'
+      1440p: '1440p'
+      4k: '4k'
+      8k: '8k'
   Subscription Settings:
-    Subscription Settings: 'Configurações->Configurações de inscrições->Configurações
-      de inscrições'
-    Hide Videos on Watch: 'Configurações->Configurações de inscrições->Esconder vídeos
-      após assisti-los'
+    Subscription Settings: 'Configurações de inscrições'
+    Hide Videos on Watch: 'Esconder vídeos após assisti-los'
     Subscriptions Export Format:
-      Subscriptions Export Format: 'Configurações->Configurações de inscrições->Formato
-        de exportação das inscrições->Formato de exportação das inscrições'
+      Subscriptions Export Format: 'Formato de exportação das inscrições'
       #& Freetube
-      Newpipe: 'Configurações->Configurações de inscrições->Formato de exportação
-        das inscrições->Newpipe'
-      OPML: 'Configurações->Configurações de inscrições->Formato de exportação das
-        inscrições->OPML'
-    Manage Subscriptions: 'Configurações->Configurações de inscrições->Gerenciar inscrições'
-    Import Subscriptions: 'Configurações->Configurações de inscrições->Importar inscrições'
-    Export Subscriptions: 'Configurações->Configurações de inscrições->Exportar inscrições'
-    How do I import my subscriptions?: 'Configurações->Configurações de inscrições->Como
-      posso importar minhas inscrições?'
+      Newpipe: 'Newpipe'
+      OPML: 'OPML'
+    Manage Subscriptions: 'Gerenciar inscrições'
+    Import Subscriptions: 'Importar inscrições'
+    Export Subscriptions: 'Exportar inscrições'
+    How do I import my subscriptions?: 'Como posso importar minhas inscrições?'
   Advanced Settings:
-    Advanced Settings: 'Configurações->Configurações avançadas->Configurações avançadas'
-    Enable Debug Mode (Prints data to the console): 'Configurações->Configurações
-      avançadas->Habilitar modo de depuração (Mostra dados no console)'
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Configurações->Configurações
-      avançadas->Endereço de proxy (ex.: SOCKS5://127.0.0.1:9050)'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Configurações->Configurações
-      avançadas->Clicar em "TESTAR PROXY" enviara uma requisição para https://ipinfo.io/json'
-    Use Tor / Proxy for API calls: 'Configurações->Configurações avançadas->Usar tor
-      / proxy para chamadas da API'
-    TEST PROXY: 'Configurações->Configurações avançadas->TESTAR PROXY'
+    Advanced Settings: 'Configurações avançadas'
+    Enable Debug Mode (Prints data to the console): 'Habilitar modo de depuração (Mostra
+      dados no console)'
+    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Endereço de proxy (ex.:
+      SOCKS5://127.0.0.1:9050)'
+    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Clicar
+      em "TESTAR PROXY" enviara uma requisição para https://ipinfo.io/json'
+    Use Tor / Proxy for API calls: 'Usar tor / proxy para chamadas da API'
+    TEST PROXY: 'TESTAR PROXY'
     #& Invidious Instance (Default is https://invidio.us)
-    See Public Instances: 'Configurações->Configurações avançadas->Ver instâncias
-      públicas'
+    See Public Instances: 'Ver instâncias públicas'
     Clear History:
-      Clear History: 'Configurações->Configurações avançadas->Apagar histórico->Apagar
-        histórico'
+      Clear History: 'Apagar histórico'
       # On Click
-      Are you sure you want to delete your history?: 'Configurações->Configurações
-        avançadas->Apagar histórico->Tens certeza que queres apagar teu histórico?'
+      Are you sure you want to delete your history?: 'Tens certeza que queres apagar
+        teu histórico?'
       #& Yes
       #& No
     Clear Subscriptions:
-      Clear Subscriptions: 'Configurações->Configurações avançadas->Apagar inscrições->Apagar
-        inscrições'
+      Clear Subscriptions: 'Apagar inscrições'
       # On Click
-      Are you sure you want to remove all subscriptions?: 'Configurações->Configurações
-        avançadas->Apagar inscrições->Tens certeza que queres remover todas as tuas
-        incrições?'
+      Are you sure you want to remove all subscriptions?: 'Tens certeza que queres
+        remover todas as tuas inscrições?'
       #& Yes
       #& No
 
 About:
   #On About page
-  About: 'Sobre->Sobre'
+  About: 'Sobre'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Sobre->Este
-    software é Livre e de Código Aberto sob a licença GNU Affero General Public Licence
-    v3.0 (AGPL-3.0).'
+  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Este
+    software é Livre sob a licença AGPL-3.0.'
 
   'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    Sobre->Encontrastes um problema? Tens uma sugestão de funcionalidade? Queres ajudar?
+    Encontrastes um problema? Tens uma sugestão de funcionalidade? Queres ajudar?
     Veja como na nossa página na GitHub. PR são bem-vindas.
 
-  Thank you very much to the People and Projects that make FreeTube possible!: 'Sobre->Muito
+  Thank you very much to the People and Projects that make FreeTube possible!: 'Muito
     Obrigado a todas as pessoas e projetos que tornam o FreeTube possível!'
 
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'Sobre->Queres
+  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'Queres
     conversar? Junte-se ao nosso servidor Element/Matrix. Verifique as regras antes
     de juntar-se.'
 
-  'Looking for help? Check out our Wiki page.': 'Sobre->Procurastes ajuda? Veja na
-    nossa página Wiki.'
+  'Looking for help? Check out our Wiki page.': 'Procurastes ajuda? Veja na nossa
+    página Wiki.'
 
-  Check out our Firefox extension!: 'Sobre->Experimente nosso complemento do Firefox!'
+  Check out our Firefox extension!: 'Experimente nosso complemento do Firefox!'
 
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'Sobre->Gosta
-    de usar o Freetube, considere realizar uma doação via Liberapay ou via Bitcoin.'
+  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'Gosta
+    de usar o FreeTube, considere realizar uma doação via Liberapay ou via Bitcoin.'
 
   #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
 
-  Latest FreeTube News: 'Sobre->Ultimas notícias sobre o FreeTube'
+  Latest FreeTube News: 'Ultimas notícias sobre o FreeTube'
 
 #On Channel Page
 Channel:
-  Subscriber: 'Canal->Inscrito'
-  Subscribers: 'Canal->Inscritos'
-  Subscribe: 'Canal->Inscrever-se'
-  Unsubscribe: 'Canal->Remover inscrição'
-  Search Channel: 'Canal->Buscar Canal'
-  Your search results have returned 0 results: 'Canal->Não tivemos nenhum resultado
-    para tua busca'
-  Sort By: 'Canal->Filtrar por'
+  Subscriber: 'Inscrito'
+  Subscribers: 'Inscritos'
+  Subscribe: 'Inscrever-se'
+  Unsubscribe: 'Remover inscrição'
+  Search Channel: 'Buscar Canal'
+  Your search results have returned 0 results: 'Não tivemos nenhum resultado para
+    tua busca'
+  Sort By: 'Filtrar por'
   Videos:
-    Videos: 'Canal->Vídeos->Vídeos'
-    This channel does not currently have any videos: 'Canal->Vídeos->Este canal não
-      possui vídeos no momento'
+    Videos: 'Vídeos'
+    This channel does not currently have any videos: 'Este canal não possui vídeos
+      no momento'
     Sort Types:
-      Newest: 'Canal->Vídeos->Tipos de ordenação->Novos'
-      Oldest: 'Canal->Vídeos->Tipos de ordenação->Antigos'
-      Most Popular: 'Canal->Vídeos->Tipos de ordenação->Mais populares'
+      Newest: 'Novos'
+      Oldest: 'Antigos'
+      Most Popular: 'Mais populares'
   Playlists:
-    Playlists: 'Canal->Listas->Listas'
-    This channel does not currently have any playlists: 'Canal->Listas->Este canal
-      não possui nenhuma lista no momento'
+    Playlists: 'Listas'
+    This channel does not currently have any playlists: 'Este canal não possui nenhuma
+      lista no momento'
     Sort Types:
-      Last Video Added: 'Canal->Listas->Tipos de ordenação->Último vídeo adicionado'
-      Newest: 'Canal->Listas->Tipos de ordenação->Novos'
-      Oldest: 'Canal->Listas->Tipos de ordenação->Antigos'
+      Last Video Added: 'Último vídeo adicionado'
+      Newest: 'Novos'
+      Oldest: 'Antigos'
   About:
-    About: 'Canal->Sobre->Sobre'
-    Channel Description: 'Canal->Sobre->Descrição do canal'
-    Featured Channels: 'Canal->Sobre->Canais destacados'
+    About: 'Sobre'
+    Channel Description: 'Descrição do canal'
+    Featured Channels: 'Canais destacados'
 Video:
-  Mark As Watched: 'Vídeo->Marcar como assistido'
-  Remove From History: 'Vídeo->Remover do histórico'
-  Video has been marked as watched: 'Vídeo->O vídeo foi marcado como assistido'
-  Video has been removed from your history: 'Vídeo->O vídeo foi removido do teu histórico'
-  Open in YouTube: 'Vídeo->Abrir no YouTube'
-  Copy YouTube Link: 'Vídeo->Copiar link do YouTube'
-  Open YouTube Embedded Player: 'Vídeo->Abrir vídeo do YouTube embutido'
-  Copy YouTube Embedded Player Link: 'Vídeo->Copiar link do YouTube embutido'
-  Open in Invidious: 'Vídeo->Abrir no Invidious'
-  Copy Invidious Link: 'Vídeo->Copiar link do Invidious'
-  View: 'Vídeo->Visualização'
-  Views: 'Vídeo->Visualizações'
+  Mark As Watched: 'Marcar como assistido'
+  Remove From History: 'Remover do histórico'
+  Video has been marked as watched: 'O vídeo foi marcado como assistido'
+  Video has been removed from your history: 'O vídeo foi removido do teu histórico'
+  Open in YouTube: 'Abrir no YouTube'
+  Copy YouTube Link: 'Copiar link do YouTube'
+  Open YouTube Embedded Player: 'Abrir vídeo do YouTube embutido'
+  Copy YouTube Embedded Player Link: 'Copiar link do YouTube embutido'
+  Open in Invidious: 'Abrir no Invidious'
+  Copy Invidious Link: 'Copiar link do Invidious'
+  View: 'Visualização'
+  Views: 'Visualizações'
   # Context is "X People Watching"
-  Watching: 'Vídeo->Assistindo'
-  Watched: 'Vídeo->Assistido'
+  Watching: 'Assistindo'
+  Watched: 'Assistido'
   # As in a Live Video
-  Live: 'Vídeo->Ao vivo'
-  Live Now: 'Vídeo->Ao vivo agora'
-  Live Chat: 'Vídeo->Chat ao vivo'
-  Enable Live Chat: 'Vídeo->Habilitar chat ao vivo'
-  Live Chat is currently not supported in this build.: 'Vídeo->Chat ao vivo não é
-    suportado nessa versão.'
-  'Chat is disabled or the Live Stream has ended.': 'Vídeo->O chat está desativado
-    ou a transmissão ao vivo se encerrou.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Vídeo->Chat ao
-    vivo habilitado. As mensagens irão aparecer uma vez enviadas.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Vídeo->O
+  Live: 'Ao vivo'
+  Live Now: 'Ao vivo agora'
+  Live Chat: 'Chat ao vivo'
+  Enable Live Chat: 'Habilitar chat ao vivo'
+  Live Chat is currently not supported in this build.: 'Chat ao vivo não é suportado
+    nessa versão.'
+  'Chat is disabled or the Live Stream has ended.': 'O chat está desativado ou a transmissão
+    ao vivo se encerrou.'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'Chat ao vivo
+    habilitado. As mensagens irão aparecer uma vez enviadas.'
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'O
     chat ao vivo não é suportado pela API do Invidious. Uma conexão com o YouTube
     é necessária.'
   Published:
-    Jan: 'Vídeo->Publicados->Jan'
-    Feb: 'Vídeo->Publicados->Fev'
-    Mar: 'Vídeo->Publicados->Mar'
-    Apr: 'Vídeo->Publicados->Abr'
-    May: 'Vídeo->Publicados->Mai'
-    Jun: 'Vídeo->Publicados->Jun'
-    Jul: 'Vídeo->Publicados->Jul'
-    Aug: 'Vídeo->Publicados->Ago'
-    Sep: 'Vídeo->Publicados->Set'
-    Oct: 'Vídeo->Publicados->Out'
-    Nov: 'Vídeo->Publicados->Nov'
-    Dec: 'Vídeo->Publicados->Dez'
-    Second: 'Vídeo->Publicados->Segundo'
-    Seconds: 'Vídeo->Publicados->Segundos'
-    Hour: 'Vídeo->Publicados->Hora'
-    Hours: 'Vídeo->Publicados->Horas'
-    Day: 'Vídeo->Publicados->Dia'
-    Days: 'Vídeo->Publicados->Dias'
-    Week: 'Vídeo->Publicados->Semana'
-    Weeks: 'Vídeo->Publicados->Semanas'
-    Month: 'Vídeo->Publicados->Mês'
-    Months: 'Vídeo->Publicados->Meses'
-    Year: 'Vídeo->Publicados->Ano'
-    Years: 'Vídeo->Publicados->Anos'
-    Ago: 'Vídeo->Publicados->Atrás'
-    Upcoming: 'Vídeo->Publicados->Futuramente'
-  Published on: 'Vídeo->Publicado em'
+    Jan: 'Jan'
+    Feb: 'Fev'
+    Mar: 'Mar'
+    Apr: 'Abr'
+    May: 'Mai'
+    Jun: 'Jun'
+    Jul: 'Jul'
+    Aug: 'Ago'
+    Sep: 'Set'
+    Oct: 'Out'
+    Nov: 'Nov'
+    Dec: 'Dez'
+    Second: 'Segundo'
+    Seconds: 'Segundos'
+    Hour: 'Hora'
+    Hours: 'Horas'
+    Day: 'Dia'
+    Days: 'Dias'
+    Week: 'Semana'
+    Weeks: 'Semanas'
+    Month: 'Mês'
+    Months: 'Meses'
+    Year: 'Ano'
+    Years: 'Anos'
+    Ago: 'Atrás'
+    Upcoming: 'Futuramente'
+  Published on: 'Publicado em'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'Vídeo->Template de publicação'
+  Publicationtemplate: 'Há $ %'
 #& Videos
 Videos:
   #& Sort By
   Sort By:
-    Newest: 'Vídeo->Ordenar Por->Novos'
-    Oldest: 'Vídeo->Ordenar Por->Antigos'
+    Newest: 'Novos'
+    Oldest: 'Antigos'
     #& Most Popular
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: 'Vídeo->Ver lista completa'
-  Videos: 'Lista->Vídeos'
-  View: 'Lista->Visualização'
-  Views: 'Lista->Visualizações'
-  Last Updated On: 'Lista->Atualizado em'
+  View Full Playlist: 'Ver lista completa'
+  Videos: 'Vídeos'
+  View: 'Visualização'
+  Views: 'Visualizações'
+  Last Updated On: 'Atualizado em'
   Share Playlist:
-    Share Playlist: 'Lista->Compartilhas Lista->Compartilhar Lista'
-    Copy YouTube Link: 'Lista->Compartilhar Lista->Copiar link do YouTube'
-    Open in YouTube: 'Lista->Compartilhar Lista->Abrir no YouTube'
-    Copy Invidious Link: 'Lista->Compartilhar Lista->Copiar link do Invidious'
-    Open in Invidious: 'Lista->Compartilhar Lista->Abrir no Invidious'
+    Share Playlist: 'Compartilhar Lista'
+    Copy YouTube Link: 'Copiar link do YouTube'
+    Open in YouTube: 'Abrir no YouTube'
+    Copy Invidious Link: 'Copiar link do Invidious'
+    Open in Invidious: 'Abrir no Invidious'
 
 # On Video Watch Page
 #* Published
 #& Views
 Toggle Theatre Mode: 'Alternar Modo Teatro'
 Change Format:
-  Change Video Formats: 'Mudar formato->Mudar formato do vídeo'
-  Use Dash Formats: 'Mudar formato->Usar formatos DASH'
-  Use Legacy Formats: 'Mudar formato->Usar formatos legados'
-  Use Audio Formats: 'Mudar formato->Usar formato de áudio'
+  Change Video Formats: 'Mudar formato do vídeo'
+  Use Dash Formats: 'Usar formatos DASH'
+  Use Legacy Formats: 'Usar formatos legados'
+  Use Audio Formats: 'Usar formato de áudio'
 Share:
-  Share Video: 'Compartilhar->Compartilhar vídeo'
-  Copy Link: 'Compartilhar->Copiar link'
-  Open Link: 'Compartilhar->Abrir link'
-  Copy Embed: 'Compartilhar->Copiar embutido'
-  Open Embed: 'Compartilhar->Abrir embutido'
+  Share Video: 'Compartilhar vídeo'
+  Copy Link: 'Copiar link'
+  Open Link: 'Abrir link'
+  Copy Embed: 'Copiar embutido'
+  Open Embed: 'Abrir embutido'
   # On Click
-  Invidious URL copied to clipboard: 'Compartilhar->O URL do Invidious está na área
-    de tranferência'
-  Invidious Embed URL copied to clipboard: 'Compartilhar->O URL embutido do Invidious
-    está na área de transferência'
-  YouTube URL copied to clipboard: 'Compartilhar->O URL do YouTube está na área de
+  Invidious URL copied to clipboard: 'O URL do Invidious está na área de transferência'
+  Invidious Embed URL copied to clipboard: 'O URL embutido do Invidious está na área
+    de transferência'
+  YouTube URL copied to clipboard: 'O URL do YouTube está na área de transferência'
+  YouTube Embed URL copied to clipboard: 'O URL embutido do YouTube está na área de
     transferência'
-  YouTube Embed URL copied to clipboard: 'Compartilhar->O URL embutido do YouTube
-    está na área de transferência'
 Mini Player: 'Visualizador Pequeno'
 Comments:
-  Comments: 'Comentários->Comentários'
-  Click to View Comments: 'Comentários->Clique para ver os Comentários'
-  Getting comment replies, please wait: 'Comentários->Buscando respostas, por favor,
-    aguarde'
-  Show Comments: 'Comentários->Mostrar comentários'
-  Hide Comments: 'Comentários->Esconder comentários'
+  Comments: 'Comentários'
+  Click to View Comments: 'Clique para ver os Comentários'
+  Getting comment replies, please wait: 'Buscando respostas, por favor, aguarde'
+  Show Comments: 'Mostrar comentários'
+  Hide Comments: 'Esconder comentários'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Comentários->Ver'
-  Hide: 'Comentários->Esconder'
-  Replies: 'Comentários->Respostas'
-  Reply: 'Comentários->Resposta'
-  There are no comments available for this video: 'Comentários->Não há comentários
-    disponíveis neste vídeo'
-  Load More Comments: 'Comentários->Buscar mais comentários'
+  View: 'Ver'
+  Hide: 'Esconder'
+  Replies: 'Respostas'
+  Reply: 'Resposta'
+  There are no comments available for this video: 'Não há comentários disponíveis
+    neste vídeo'
+  Load More Comments: 'Buscar mais comentários'
 Up Next: 'Próximo'
 
 # Toast Messages
