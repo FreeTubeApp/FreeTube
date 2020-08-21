@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Subscriptions from '../views/Subscriptions/Subscriptions.vue'
+import ProfileSettings from '../views/ProfileSettings/ProfileSettings.vue'
+import ProfileEdit from '../views/ProfileEdit/ProfileEdit.vue'
 import Trending from '../views/Trending/Trending.vue'
 import Popular from '../views/Popular/Popular.vue'
 import UserPlaylists from '../views/UserPlaylists/UserPlaylists.vue'
@@ -31,6 +33,30 @@ const router = new Router({
         icon: 'fa-home'
       },
       component: Subscriptions
+    },
+    {
+      path: '/settings/profile',
+      meta: {
+        title: 'Profile Settings',
+        icon: 'fa-home'
+      },
+      component: ProfileSettings
+    },
+    {
+      path: '/settings/profile/new',
+      meta: {
+        title: 'New Profile',
+        icon: 'fa-home'
+      },
+      component: ProfileEdit
+    },
+    {
+      path: '/settings/profile/edit/:id',
+      meta: {
+        title: 'Edit Profile',
+        icon: 'fa-home'
+      },
+      component: ProfileEdit
     },
     {
       path: '/trending',

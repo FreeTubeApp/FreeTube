@@ -87,7 +87,7 @@
       </div>
       <div
         class="navOption mobileHidden"
-        @click="navigate('about')"
+        @click="navigate('settings/profile')"
       >
         <font-awesome-icon
           icon="info-circle"

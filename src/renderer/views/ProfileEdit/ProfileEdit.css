@@ -1,0 +1,15 @@
+.card {
+  width: 85%;
+  margin: 0 auto;
+  margin-bottom: 60px;
+}
+
+.message {
+  color: var(--tertiary-text-color);
+}
+
+@media only screen and (max-width: 680px) {
+  .card {
+    width: 90%;
+  }
+}
