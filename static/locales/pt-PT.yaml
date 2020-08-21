@@ -1,6 +1,6 @@
 FreeTube: FreeTube
 # Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >
+'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Esta parte ainda não está pronta. Volte mais tarde quando já houver progresso.
 
 # Webkit Menu Bar
@@ -78,6 +78,7 @@ History:
   # On History Page
   History: Histórico
   Watch History: Histórico de Visualizações
+  Your history list is currently empty.: O seu histórico encontra-se vazio.
 Settings:
   # On Settings Page
   Settings: Definições
@@ -264,6 +265,10 @@ Channel:
     Channel Description: Descrição
     Featured Channels: Canais
 Video:
+  Mark As Watched: Marcar como visto
+  Remove From History: Apagar do histórico
+  Video has been marked as watched: O vídeo foi marcado como visto
+  Video has been removed from your history: O vídeo foi removido do seu histórico
   Open in YouTube: Abrir no Youtube
   Copy YouTube Link: Copiar Ligação para Youtube
   Open YouTube Embedded Player: Abrir Reprodutor Youtube Embutido
@@ -302,10 +307,8 @@ Video:
     Oct: Out
     Nov: Nov
     Dec: Dez
-    # !
-    Second: Second
-    # !
-    Seconds: Seconds
+    Second: Segundo
+    Seconds: Segundos
     Hour: Hora
     Hours: Horas
     Day: Dia
@@ -317,12 +320,10 @@ Video:
     Year: Ano
     Years: Anos
     Ago: Há
-    # !
-    Upcoming: Premieres soon
+    Upcoming: Estreia em breve
   Published on: Publicado em
-  # !
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: $ % ago
+  Publicationtemplate: Há $ %
 #& Videos
 Videos:
   #& Sort By
