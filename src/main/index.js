@@ -116,6 +116,20 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
   }
+
+  mainWindow.webContents.session.clearCache()
+  mainWindow.webContents.session.clearStorageData({
+    storages: [
+      'appcache',
+      'cookies',
+      'filesystem',
+      'indexdb',
+      'shadercache',
+      'websql',
+      'serviceworkers',
+      'cachestorage'
+    ]
+  })
 })
 
 app.on('activate', () => {

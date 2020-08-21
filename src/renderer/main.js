@@ -22,16 +22,6 @@ library.add(fas)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.use(VueI18n)
 
-fs.readdir('.', (err, dir) => {
-  if (err) {
-    console.log(err)
-  }
-  console.log(dir)
-  for (const filePath of dir) {
-    console.log(filePath)
-  }
-})
-
 // List of locales approved for use
 const activeLocales = ['en-US', 'de-DE', 'pt-PT']
 const messages = {}

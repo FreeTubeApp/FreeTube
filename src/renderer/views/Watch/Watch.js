@@ -687,16 +687,20 @@ export default Vue.extend({
     ])
   },
   beforeRouteLeave: function (to, from, next) {
-    if (this.rememberHistory) {
-      const currentTime = this.$refs.videoPlayer.player.currentTime()
-      console.log(currentTime)
-      const payload = {
-        videoId: this.videoId,
-        watchProgress: currentTime
-      }
+    if (this.rememberHistory && !this.isLoading && !this.isLive) {
+      const player = this.$refs.videoPlayer.player
 
-      console.log('update watch progress')
-      this.updateWatchProgress(payload)
+      if (typeof player !== 'undefined') {
+        const currentTime = this.$refs.videoPlayer.player.currentTime()
+        console.log(currentTime)
+        const payload = {
+          videoId: this.videoId,
+          watchProgress: currentTime
+        }
+
+        console.log('update watch progress')
+        this.updateWatchProgress(payload)
+      }
     }
 
     next()

@@ -174,6 +174,9 @@ export default Vue.extend({
           break
         case 'copyYoutube':
           navigator.clipboard.writeText(this.youtubeUrl)
+          this.showToast({
+            message: this.$t('Share.YouTube URL copied to clipboard')
+          })
           break
         case 'openYoutube':
           if (this.usingElectron) {
@@ -183,6 +186,9 @@ export default Vue.extend({
           break
         case 'copyYoutubeEmbed':
           navigator.clipboard.writeText(this.youtubeEmbedUrl)
+          this.showToast({
+            message: this.$t('Share.YouTube Embed URL copied to clipboard')
+          })
           break
         case 'openYoutubeEmbed':
           if (this.usingElectron) {
@@ -192,6 +198,9 @@ export default Vue.extend({
           break
         case 'copyInvidious':
           navigator.clipboard.writeText(this.invidiousUrl)
+          this.showToast({
+            message: this.$t('Share.Invidious URL copied to clipboard')
+          })
           break
         case 'openInvidious':
           if (this.usingElectron) {

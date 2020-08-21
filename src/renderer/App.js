@@ -42,12 +42,12 @@ export default Vue.extend({
       this.openAllLinksExternally()
     }
 
-    try {
-      const doc = yaml.safeLoad(fs.readFileSync('./static/locales/en-US.yaml'))
-      console.log(doc)
-    } catch (e) {
-      console.log(e)
-    }
+    // try {
+    //   const doc = yaml.safeLoad(fs.readFileSync('./static/locales/en-US.yaml'))
+    //   console.log(doc)
+    // } catch (e) {
+    //   console.log(e)
+    // }
   },
   methods: {
     checkLocale: function () {
