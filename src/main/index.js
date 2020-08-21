@@ -64,6 +64,7 @@ function createWindow () {
     backgroundColor: '#fff',
     width: 960,
     height: 540,
+    icon: require('path').join(__dirname, '../../_icons/iconColor.png'),
     autoHideMenuBar: true,
     // useContentSize: true,
     webPreferences: {
