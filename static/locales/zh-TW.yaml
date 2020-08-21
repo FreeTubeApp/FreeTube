@@ -1,6 +1,6 @@
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >
+'This part of the app is not ready yet. Come back later when progress has been made.': >-
   應用此部分尚未完成。有了進展再來。
 
 # Webkit Menu Bar
@@ -77,6 +77,7 @@ History:
   # On History Page
   History: '曆史'
   Watch History: '觀看曆史'
+  Your history list is currently empty.: 您的曆史清單目前是空的。
 Settings:
   # On Settings Page
   Settings: '設定'
@@ -298,6 +299,10 @@ Video:
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % 以前'
 #& Videos
+  Video has been removed from your history: 視訊已經從您的曆史中移除
+  Video has been marked as watched: 視訊已經被記號為已觀看
+  Remove From History: 從曆史中移除
+  Mark As Watched: 記號為已觀看
 Videos:
   #& Sort By
   Sort By:
