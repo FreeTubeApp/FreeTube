@@ -15,6 +15,7 @@ app.setName(productName)
 process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true'
 
 // const gotTheLock = app.requestSingleInstanceLock()
+const path = require('path')
 const isDev = process.env.NODE_ENV === 'development'
 const isDebug = process.argv.includes('--debug')
 let mainWindow
@@ -64,6 +65,9 @@ function createWindow () {
     backgroundColor: '#fff',
     width: 960,
     height: 540,
+    icon: isDev
+      ? path.join(__dirname, '../../_icons/iconColor.png')
+      : `${__dirname}/_icons/iconColor.png`,
     autoHideMenuBar: true,
     // useContentSize: true,
     webPreferences: {
@@ -84,7 +88,7 @@ function createWindow () {
   } else {
     mainWindow.loadFile(`${__dirname}/index.html`)
 
-    global.__static = require('path')
+    global.__static = path
       .join(__dirname, '/static')
       .replace(/\\/g, '\\\\')
   }
