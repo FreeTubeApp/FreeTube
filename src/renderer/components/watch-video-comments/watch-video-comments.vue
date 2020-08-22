@@ -61,7 +61,7 @@
           @click="getCommentReplies(index)"
         >
           <span v-if="!comment.showReplies">{{ $t("Comments.View") }}</span>
-          <span v-else>Hide</span>
+          <span v-else>{{ $t("Comments.Hide") }}</span>
           {{ comment.numReplies }}
           <span v-if="comment.numReplies === 1">{{ $t("Comments.Reply").toLowerCase() }}</span>
           <span v-else>{{ $t("Comments.Replies").toLowerCase() }}</span>

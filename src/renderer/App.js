@@ -3,8 +3,6 @@ import TopNav from './components/top-nav/top-nav.vue'
 import SideNav from './components/side-nav/side-nav.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
 import $ from 'jquery'
-import yaml from 'js-yaml'
-import fs from 'fs'
 
 let useElectron
 let shell

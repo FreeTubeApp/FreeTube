@@ -226,7 +226,13 @@ export default Vue.extend({
           this.videoPublished = new Date(result.videoDetails.publishDate.replace('-', '/')).getTime()
           this.videoDescription =
             result.player_response.videoDetails.shortDescription
-          this.recommendedVideos = result.related_videos
+          this.recommendedVideos = result.related_videos.map((video) => {
+            video.videoId = video.id
+            video.authorId = video.ucid
+            video.viewCount = video.view_count
+            video.lengthSeconds = video.length_seconds
+            return video
+          })
           this.videoLikeCount = result.videoDetails.likes
           this.videoDislikeCount = result.videoDetails.dislikes
           this.isLive = result.player_response.videoDetails.isLiveContent
