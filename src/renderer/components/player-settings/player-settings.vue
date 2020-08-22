@@ -10,7 +10,7 @@
     <div class="switchColumnGrid">
       <div class="switchColumn">
         <ft-toggle-switch
-          label="Remember History"
+          :label="$t('Settings.Player Settings.Remember History')"
           :compact="true"
           :default-value="rememberHistory"
           @change="updateRememberHistory"

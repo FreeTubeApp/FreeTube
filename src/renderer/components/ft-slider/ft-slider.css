@@ -4,7 +4,7 @@
     --pure-material-safari-helper3: var(--accent-color-opacity3);
     --pure-material-safari-helper4: var(--accent-color-opacity4);
     display: inline-block;
-    width: 220px;
+    width: 380px;
     color: rgba(var(--primary-text-color), 0.87);
     font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
     font-size: 16px;

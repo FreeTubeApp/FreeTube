@@ -12,8 +12,7 @@
 }
 
 .searchRadio {
-  width: 170px;
-  border-right: 1px solid var(--primary-color);
+  padding: 5px;
 }
 
 .radioFlexBox {
