@@ -211,7 +211,6 @@ export default Vue.extend({
       if (this.searchPage === 1) {
         this.isLoading = true
       }
-      console.log("DATA 2")
       console.log(payload)
 
       const searchPayload = {
