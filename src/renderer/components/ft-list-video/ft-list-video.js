@@ -140,19 +140,7 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    // Check if data came from Invidious or from local backend
-
-    if (typeof (this.data.descriptionHtml) !== 'undefined' ||
-      typeof (this.data.index) !== 'undefined' ||
-      typeof (this.data.authorId) !== 'undefined' ||
-      typeof (this.data.publishedText) !== 'undefined' ||
-      typeof (this.data.authorThumbnails) === 'object'
-    ) {
-      this.parseInvidiousData()
-    } else {
-      this.parseLocalData()
-    }
-
+    this.parseVideoData()
     this.checkIfWatched()
   },
   methods: {
@@ -243,7 +231,7 @@ export default Vue.extend({
       return durationText
     },
 
-    parseInvidiousData: function () {
+    parseVideoData: function () {
       this.id = this.data.videoId
       this.title = this.data.title
       // this.thumbnail = this.data.videoThumbnails[4].url
@@ -279,61 +267,6 @@ export default Vue.extend({
       } else {
         this.hideViews = true
       }
-    },
-
-    parseLocalData: function () {
-      if (typeof (this.data.id) !== 'undefined') {
-        this.id = this.data.id
-      } else {
-        this.id = this.data.link.replace('https://www.youtube.com/watch?v=', '')
-      }
-
-      this.title = this.data.title
-
-      if (typeof (this.data.author) === 'string') {
-        this.channelName = this.data.author
-        this.channelId = this.data.ucid
-        this.viewCount = this.data.views
-
-        // Data is returned as a literal string named 'undefined'
-        if (this.data.length_seconds !== 'undefined') {
-          this.duration = this.calculateVideoDuration(parseInt(this.data.length_seconds))
-        }
-      } else {
-        this.channelName = this.data.author.name
-        this.duration = this.data.duration
-        this.description = this.data.description
-        this.channelId = this.data.author.ref.replace('https://www.youtube.com/user/', '')
-        this.channelId = this.channelId.replace('https://www.youtube.com/channel/', '')
-      }
-
-      if (typeof (this.data.uploaded_at) !== 'undefined' && !this.data.live) {
-        this.toLocalePublicationString({
-          publishText: this.data.uploaded_at,
-          templateString: this.$t('Video.Publicationtemplate'),
-          timeStrings: this.$t('Video.Published'),
-          liveStreamString: this.$t('Video.Watching'),
-          upcomingString: this.$t('Video.Published.Upcoming'),
-          isLive: this.data.live,
-          isUpcoming: false
-        }).then((data) => {
-          this.uploadedTime = data
-        }).catch((error) => {
-          console.error(error)
-        })
-        this.uploadedTime = this.data.uploaded_at
-      }
-
-      if (this.data.views !== null && typeof (this.data.views) !== 'undefined') {
-        this.parsedViewCount = this.data.views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-      } else if (typeof (this.data.view_count) !== 'undefined') {
-        const viewCount = this.data.view_count.replace(',', '')
-        this.parsedViewCount = viewCount.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-      } else {
-        this.hideViews = true
-      }
-
-      this.isLive = this.data.live
     },
 
     checkIfWatched: function () {
