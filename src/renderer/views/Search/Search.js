@@ -4,6 +4,7 @@ import IsEqual from 'lodash.isequal'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
+import ytTrendScraper from 'yt-trending-scraper'
 
 export default Vue.extend({
   name: 'Search',
@@ -124,12 +125,52 @@ export default Vue.extend({
           return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
         })
 
-        console.log(returnData)
+        const returnDataInvidious = []
+        returnData.forEach((video) => {
+          if (video.type === 'video') {
+            let authId = video.author.ref.match(/user(.)*/)
+            let publishDate = null
+            let videoDuration = null
+            const videoId = video.link.match(/\?v=(.)*/)[0].split('=')[1]
+            if (authId === null) {
+              authId = video.author.ref.match(/channel(.)*/)
+            }
+            if (video.uploaded_at !== null) {
+              publishDate = ytTrendScraper.calculate_published(video.uploaded_at, Date.now())
+            }
+            if (video.duration !== null) {
+              videoDuration = ytTrendScraper.calculate_length_in_seconds(video.duration)
+            }
+            returnDataInvidious.push(
+              {
+                videoId: videoId,
+                title: video.title,
+                type: 'video',
+                author: video.author.name,
+                authorId: authId,
+                authorUrl: video.author.ref,
+                videoThumbnails: video.thumbnail,
+                description: video.description,
+                viewCount: video.views,
+                published: publishDate,
+                publishedText: video.uploaded_at,
+                lengthSeconds: videoDuration,
+                liveNow: video.live,
+                paid: false,
+                premium: false,
+                isUpcoming: false,
+                timeText: video.duration
+              }
+            )
+          } else {
+            returnDataInvidious.push(video)
+          }
+        })
 
         if (payload.nextPage) {
-          this.shownResults = this.shownResults.concat(returnData)
+          this.shownResults = this.shownResults.concat(returnDataInvidious)
         } else {
-          this.shownResults = returnData
+          this.shownResults = returnDataInvidious
         }
 
         this.nextPageRef = result.nextpageRef
@@ -169,7 +210,6 @@ export default Vue.extend({
       if (this.searchPage === 1) {
         this.isLoading = true
       }
-
       console.log(payload)
 
       const searchPayload = {
