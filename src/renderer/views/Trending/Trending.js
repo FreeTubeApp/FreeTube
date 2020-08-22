@@ -2,6 +2,7 @@ import Vue from 'vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
+import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 
 import ytrend from 'yt-trending-scraper'
 
@@ -10,7 +11,8 @@ export default Vue.extend({
   components: {
     'ft-card': FtCard,
     'ft-loader': FtLoader,
-    'ft-element-list': FtElementList
+    'ft-element-list': FtElementList,
+    'ft-icon-button': FtIconButton
   },
   data: function () {
     return {
@@ -30,23 +32,34 @@ export default Vue.extend({
     },
     invidiousInstance: function () {
       return this.$store.getters.getInvidiousInstance
+    },
+    trendingCache () {
+      return this.$store.getters.getTrendingCache
     }
   },
   mounted: function () {
-    if (!this.usingElectron) {
-      this.getVideoInformationInvidious()
+    if (this.trendingCache && this.trendingCache.length > 0) {
+      this.shownResults = this.trendingCache
     } else {
-      switch (this.backendPreference) {
-        case 'local':
-          this.getTrendingInfoLocal()
-          break
-        case 'invidious':
-          this.getTrendingInfoInvidious()
-          break
-      }
+      this.getTrendingInfo()
     }
   },
   methods: {
+    getTrendingInfo () {
+      if (!this.usingElectron) {
+        this.getVideoInformationInvidious()
+      } else {
+        switch (this.backendPreference) {
+          case 'local':
+            this.getTrendingInfoLocal()
+            break
+          case 'invidious':
+            this.getTrendingInfoInvidious()
+            break
+        }
+      }
+    },
+
     getTrendingInfoLocal: function () {
       this.isLoading = true
 
@@ -59,6 +72,7 @@ export default Vue.extend({
 
         this.shownResults = this.shownResults.concat(returnData)
         this.isLoading = false
+        this.$store.commit('setTrendingCache', this.shownResults)
       }).catch((err) => {
         console.log(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -102,6 +116,7 @@ export default Vue.extend({
 
         this.shownResults = this.shownResults.concat(returnData)
         this.isLoading = false
+        this.$store.commit('setTrendingCache', this.shownResults)
       }).catch((err) => {
         console.log(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')

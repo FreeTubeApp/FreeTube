@@ -4,6 +4,7 @@ const state = {
   isSideNavOpen: false,
   sessionSearchHistory: [],
   popularCache: null,
+  trendingCache: null,
   searchSettings: {
     sortBy: 'relevance',
     time: '',
@@ -45,6 +46,10 @@ const getters = {
 
   getPopularCache () {
     return state.popularCache
+  },
+
+  getTrendingCache () {
+    return state.trendingCache
   },
 
   getSearchSettings () {
@@ -120,6 +125,10 @@ const mutations = {
 
   setPopularCache (state, value) {
     state.popularCache = value
+  },
+
+  setTrendingCache (state, value) {
+    state.trendingCache = value
   },
 
   setSearchSortBy (state, value) {
