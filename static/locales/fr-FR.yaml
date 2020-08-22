@@ -9,7 +9,7 @@ File: 'Fichier'
 Quit: 'Quitter'
 Edit: 'Éditer'
 Undo: 'Annuler'
-Redo: ''
+Redo: 'Rétablir'
 Cut: 'Couper'
 Copy: 'Copier'
 Paste: 'Coller'
@@ -26,7 +26,7 @@ Window: 'Fenêtre'
 Minimize: 'Réduire'
 Close: 'Fermer'
 Back: 'Retour'
-Forward: ''
+Forward: 'Avancer'
 
 # Search Bar
 Search / Go to URL: 'Rechercher / Aller à l''URL'
@@ -36,85 +36,88 @@ Search Filters:
   Sort By:
     Sort By: 'Trier Par'
     Most Relevant: 'Le Plus Pertinent'
-    Rating: ''
+    Rating: 'Note'
     Upload Date: 'Date de Mise en Ligne'
     View Count: 'Nombre de Vues'
   Time:
-    Time: ''
-    Any Time: ''
+    Time: 'Date'
+    Any Time: 'Toutes les dates'
     Last Hour: 'Dernière Heure'
     Today: 'Aujourd''hui'
     This Week: 'Cette Semaine'
-    This Month: ''
+    This Month: 'Ce mois'
     This Year: 'Cette Année'
   Type:
     Type: 'Type'
-    All Types: ''
-    Videos: ''
-    Channels: ''
+    All Types: 'Tous les types'
+    Videos: 'Vidéos'
+    Channels: 'Chaînes'
     #& Playlists
   Duration:
-    Duration: ''
-    All Durations: ''
-    Short (< 4 minutes): ''
-    Long (> 20 minutes): ''
+    Duration: 'Durée'
+    All Durations: 'Toutes les durées'
+    Short (< 4 minutes): 'Court (< 4 minutes)'
+    Long (> 20 minutes): 'Long (> 20 minutes)'
   # On Search Page
-  Search Results: ''
-  Fetching results. Please wait: ''
-  Fetch more results: ''
+  Search Results: 'Résultats de la recherche'
+  Fetching results. Please wait: 'Récupération des résultats. Veuillez patienter'
+  Fetch more results: 'Montrer plus de résultats'
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: ''
-  Latest Subscriptions: ''
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
-  'Getting Subscriptions.  Please wait.': ''
+  Subscriptions: 'Abonnements'
+  Latest Subscriptions: 'Derniers abonnements'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Votre
+    liste d''abonnements est vide.'
+  'Getting Subscriptions.  Please wait.': 'Récupération des vidéos de vos abonnements,
+    veuillez patienter.'
 Trending: 'Tendance'
-Most Popular: ''
-Playlists: ''
+Most Popular: 'Les plus populaires'
+Playlists: 'Playlists'
 User Playlists:
-  Your Playlists: ''
+  Your Playlists: 'Vos playlists'
 History:
   # On History Page
-  History: ''
-  Watch History: ''
-  Your history list is currently empty.: ''
+  History: 'Historique'
+  Watch History: 'Voir l''historique'
+  Your history list is currently empty.: 'Votre historique est vide.'
 Settings:
   # On Settings Page
-  Settings: 'Paramètres->Paramètres'
+  Settings: 'Paramètres'
   General Settings:
-    General Settings: ''
+    General Settings: 'Paramètres généraux'
     Fallback to Non-Preferred Backend on Failure: ''
-    Enable Search Suggestions: ''
-    Default Landing Page: ''
-    Locale Preference: ''
+    Enable Search Suggestions: 'Activer les suggestions de recherche'
+    Default Landing Page: 'Page de lancement par défaut'
+    Locale Preference: 'Préférence locale'
     Preferred API Backend:
-      Preferred API Backend: ''
-      Local API: ''
-      Invidious API: ''
+      Preferred API Backend: 'API Backend préférée'
+      Local API: 'Local API'
+      Invidious API: 'Invidious API'
     Video View Type:
-      Video View Type: ''
-      Grid: ''
-      List: ''
+      Video View Type: 'Type d''affichage des vidéos'
+      Grid: 'Grille'
+      List: 'Liste'
     Thumbnail Preference:
-      Thumbnail Preference: ''
-      Default: ''
-      Beginning: ''
-      Middle: ''
-      End: ''
-    'Invidious Instance (Default is https://invidio.us)': ''
-    Region for Trending: ''
+      Thumbnail Preference: 'Préférences des miniatures'
+      Default: 'Défaut'
+      Beginning: 'Début'
+      Middle: 'Milieu'
+      End: 'Fin'
+    'Invidious Instance (Default is https://invidio.us)': 'Instance Individious (https://invidio.us
+      par défaut)'
+    Region for Trending: 'Pays pour les tendances'
         #! List countries
   Theme Settings:
-    Theme Settings: ''
+    Theme Settings: 'Paramètres du thème'
     Match Top Bar with Main Color: ''
     Base Theme:
-      Base Theme: ''
-      Black: ''
-      Dark: ''
+      Base Theme: 'Thème de base'
+      Black: 'Noir'
+      Dark: 'Sombre'
       Light: 'Clair'
     Main Color Theme:
-      Main Color Theme: ''
+      Main Color Theme: 'Couleur principale du thème'
       Red: 'Rouge'
       Pink: 'Rose'
       Purple: 'Violet'
@@ -123,7 +126,7 @@ Settings:
       Blue: 'Bleu'
       Light Blue: 'Bleu clair'
       Cyan: 'Cyan'
-      Teal: ''
+      Teal: 'Bleu sarcelle'
       Green: 'Vert'
       Light Green: 'Vert clair'
       Lime: 'Citron vert'
@@ -131,57 +134,58 @@ Settings:
       Amber: 'Ambre'
       Orange: 'Orange'
       Deep Orange: 'Orange foncé'
-    Secondary Color Theme: ''
+    Secondary Color Theme: 'Couleur secondaire du thème'
         #* Main Color Theme
   Player Settings:
     Player Settings: 'Paramètres du lecteur'
     Force Local Backend for Legacy Formats: ''
-    Remember History: ''
-    Play Next Video: ''
-    Turn on Subtitles by Default: ''
-    Autoplay Videos: ''
-    Proxy Videos Through Invidious: ''
-    Autoplay Playlists: ''
-    Enable Theatre Mode by Default: ''
-    Default Volume: ''
-    Default Playback Rate: ''
+    Remember History: 'Se souvenir de l''historique'
+    Play Next Video: 'Lire la vidéo suivante'
+    Turn on Subtitles by Default: 'Activer les sous-titres par défaut'
+    Autoplay Videos: 'Lecture automatique des vidéos'
+    Proxy Videos Through Invidious: 'Proxy vidéo via Invidious'
+    Autoplay Playlists: 'Lecture automatique des playlists'
+    Enable Theatre Mode by Default: 'Activer le mode théâtre par défaut'
+    Default Volume: 'Volume par défaut'
+    Default Playback Rate: 'Vitesse de lecture par défaut'
     Default Video Format:
-      Default Video Format: ''
+      Default Video Format: 'Format de vidéo par défaut'
       Dash Formats: ''
       Legacy Formats: ''
-      Audio Formats: ''
+      Audio Formats: 'Formats audio'
     Default Quality:
-      Default Quality: ''
-      Auto: ''
-      144p: ''
-      240p: ''
-      360p: ''
-      480p: ''
-      720p: ''
-      1080p: ''
-      1440p: ''
-      4k: ''
-      8k: ''
+      Default Quality: 'Qualité par défaut'
+      Auto: 'Auto'
+      144p: '144p'
+      240p: '240p'
+      360p: '360p'
+      480p: '480p'
+      720p: '720p'
+      1080p: '1080p'
+      1440p: '1440p'
+      4k: '4k'
+      8k: '8k'
   Subscription Settings:
-    Subscription Settings: ''
+    Subscription Settings: 'Paramètres des abonnements'
     Hide Videos on Watch: ''
     Subscriptions Export Format:
-      Subscriptions Export Format: ''
+      Subscriptions Export Format: 'Format d''exportation des abonnements'
       #& Freetube
-      Newpipe: ''
-      OPML: ''
+      Newpipe: 'Newpipe'
+      OPML: 'OPML'
     Manage Subscriptions: 'Gérer les abonnements'
     Import Subscriptions: 'Importer vos abonnements'
     Export Subscriptions: 'Exporter vos abonnements'
     How do I import my subscriptions?: 'Comment importer mes abonnements ?'
   Advanced Settings:
     Advanced Settings: 'Paramètres Avancés'
-    Enable Debug Mode (Prints data to the console): ''
+    Enable Debug Mode (Prints data to the console): 'Activer le mode débug (afficher
+      les données dans la console)'
     'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Adresse Proxy (Exemple :
       SOCKS5://127.0.0.1:9050 )'
     'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Cliquer
       sur le bouton "TEST PROXY" enverra une demande à https://ipinfo.io/json'
-    Use Tor / Proxy for API calls: ''
+    Use Tor / Proxy for API calls: 'Utiliser Tor / Proxy pour les appels de l''API'
     TEST PROXY: 'TEST PROXY'
     #& Invidious Instance (Default is https://invidio.us)
     See Public Instances: 'Voir les instances publiques'
@@ -204,24 +208,34 @@ About:
   #On About page
   About: 'À propos->À propos'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
+  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Ce
+    logiciel est sous licence AGPL-3.0.'
 
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >
+  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
+    Vous avez trouvé un bug ? Vous souhaitez suggérer une nouvelle fonctionnalité
+    ? Vous voulez aider de façon générale ? Rendez-vous sur la page GitHub. Les "Pull
+    requests" sont les bienvenues.
 
-  Thank you very much to the People and Projects that make FreeTube possible!: ''
+  Thank you very much to the People and Projects that make FreeTube possible!: 'Un
+    grand merci à toutes les personnes et à tous les projets qui ont rendu FreeTube
+    possible !'
 
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': ''
+  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'Envie
+    de discuter ? Rejoigner notre serveur Element / Matrix. Merci de lire les règles
+    avant de nous rejoindre.'
 
   'Looking for help? Check out our Wiki page.': 'Vous cherchez de l''aide ? Consultez
     notre page Wiki.'
 
   Check out our Firefox extension!: 'Découvrez notre extension Firefox !'
 
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': ''
+  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'Si
+    vous aimez utiliser FreeTube, envisagez de faire un don via Liberapay ou via notre
+    adresse Bitcoin.'
 
   #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
 
-  Latest FreeTube News: ''
+  Latest FreeTube News: 'Les dernières actualités FreeTube'
 
 #On Channel Page
 Channel:
@@ -240,34 +254,35 @@ Channel:
     Sort Types:
       Newest: 'Plus récent'
       Oldest: 'Plus ancien'
-      Most Popular: ''
+      Most Popular: 'Les plus populaires'
   Playlists:
-    Playlists: ''
-    This channel does not currently have any playlists: ''
+    Playlists: 'Playlists'
+    This channel does not currently have any playlists: 'Cette chaîne n''a actuellement
+      aucune playlist'
     Sort Types:
-      Last Video Added: ''
-      Newest: ''
-      Oldest: ''
+      Last Video Added: 'Dernière vidéo ajoutée'
+      Newest: 'Les plus récentes'
+      Oldest: 'Les plus anciennes'
   About:
-    About: ''
-    Channel Description: ''
-    Featured Channels: ''
+    About: 'A propos'
+    Channel Description: 'Description de la chaîne'
+    Featured Channels: 'Chaînes en vedette'
 Video:
-  Mark As Watched: ''
-  Remove From History: ''
-  Video has been marked as watched: ''
-  Video has been removed from your history: ''
-  Open in YouTube: ''
-  Copy YouTube Link: ''
-  Open YouTube Embedded Player: ''
-  Copy YouTube Embedded Player Link: ''
-  Open in Invidious: ''
-  Copy Invidious Link: ''
-  View: ''
-  Views: ''
+  Mark As Watched: 'Marquer comme Vu'
+  Remove From History: 'Retirer de l''historique'
+  Video has been marked as watched: 'La vidéo a été marqué comme Vu'
+  Video has been removed from your history: 'La vidéo a été retiré de votre historique'
+  Open in YouTube: 'Ouvrir dans Youtube'
+  Copy YouTube Link: 'Copier le lien Youtube'
+  Open YouTube Embedded Player: 'Ouvrir le lecteur Youtube intégré'
+  Copy YouTube Embedded Player Link: 'Copier le lien du lecteur Youtube intégré'
+  Open in Invidious: 'Ouvrir dans Individious'
+  Copy Invidious Link: 'Copier le lien Individious'
+  View: 'Vu'
+  Views: 'Vus'
   # Context is "X People Watching"
-  Watching: ''
-  Watched: ''
+  Watching: 'En cours de lecture'
+  Watched: 'Vu'
   # As in a Live Video
   Live: 'En direct'
   Live Now: 'En direct maintenant'
@@ -277,8 +292,11 @@ Video:
     pas pris en charge dans cette version.'
   'Chat is disabled or the Live Stream has ended.': 'Le chat est désactivé ou la diffusion
     en direct est terminée.'
-  Live chat is enabled.  Chat messages will appear here once sent.: ''
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
+  Live chat is enabled.  Chat messages will appear here once sent.: 'Le chat en direct
+    est activé. Les messages de chat apparaîtront ici une fois envoyés.'
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Le
+    chat en direct n''est actuellement pas pris en charge avec l''API Invidious. Une
+    connexion directe à YouTube est requise.'
   Published:
     Jan: 'Jan'
     Feb: 'Fév'
@@ -287,15 +305,15 @@ Video:
     May: 'Mai'
     Jun: 'Jui'
     Jul: 'Jui'
-    Aug: ''
-    Sep: ''
-    Oct: ''
-    Nov: ''
-    Dec: ''
-    Second: ''
-    Seconds: ''
-    Hour: ''
-    Hours: ''
+    Aug: 'Août'
+    Sep: 'Sep'
+    Oct: 'Oct'
+    Nov: 'Nov'
+    Dec: 'Déc'
+    Second: 'Seconde'
+    Seconds: 'Secondes'
+    Hour: 'Heure'
+    Hours: 'Heures'
     Day: 'Jour'
     Days: 'Jours'
     Week: 'Semaine'
@@ -304,68 +322,71 @@ Video:
     Months: 'Mois'
     Year: 'Année'
     Years: 'Années'
-    Ago: ''
+    Ago: 'Il y a'
     Upcoming: ''
-  Published on: ''
+  Published on: 'Mise en ligne le'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: ''
+  Publicationtemplate: 'Il y a % $'
 #& Videos
 Videos:
   #& Sort By
   Sort By:
-    Newest: ''
-    Oldest: ''
+    Newest: 'Les plus récentes'
+    Oldest: 'Les plus anciennes'
     #& Most Popular
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: ''
-  Videos: ''
-  View: ''
-  Views: ''
-  Last Updated On: ''
+  View Full Playlist: 'Afficher la liste de lecture complète'
+  Videos: 'Vidéos'
+  View: 'Vu'
+  Views: 'Vus'
+  Last Updated On: 'Dernière mise à jour le'
   Share Playlist:
-    Share Playlist: ''
-    Copy YouTube Link: ''
-    Open in YouTube: ''
-    Copy Invidious Link: ''
-    Open in Invidious: ''
+    Share Playlist: 'Partager la playlist'
+    Copy YouTube Link: 'Copier le lien Youtube'
+    Open in YouTube: 'Ouvrir dans Youtube'
+    Copy Invidious Link: 'Copier le lien Individious'
+    Open in Invidious: 'Ouvrir dans Individious'
 
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: ''
+Toggle Theatre Mode: 'Mode Théâtre'
 Change Format:
-  Change Video Formats: ''
-  Use Dash Formats: ''
-  Use Legacy Formats: ''
-  Use Audio Formats: ''
+  Change Video Formats: 'Changer le format de la vidéo'
+  Use Dash Formats: 'Utiliser le format Dash'
+  Use Legacy Formats: 'Utiliser le format standard'
+  Use Audio Formats: 'Utiliser le format audio'
 Share:
-  Share Video: ''
-  Copy Link: ''
-  Open Link: ''
-  Copy Embed: ''
-  Open Embed: ''
+  Share Video: 'Partager la vidéo'
+  Copy Link: 'Copier le lien'
+  Open Link: 'Ouvrir le lien'
+  Copy Embed: 'Copier le code d''intégration'
+  Open Embed: 'Copier le code d''intégration'
   # On Click
-  Invidious URL copied to clipboard: ''
-  Invidious Embed URL copied to clipboard: ''
-  YouTube URL copied to clipboard: ''
-  YouTube Embed URL copied to clipboard: ''
-Mini Player: ''
+  Invidious URL copied to clipboard: 'URL Individious copié dans le presse-papier'
+  Invidious Embed URL copied to clipboard: 'URL d''intégration Individious copié dans
+    le presse-papier'
+  YouTube URL copied to clipboard: 'URL Youtube copié dans le presse-papiers'
+  YouTube Embed URL copied to clipboard: 'URL d''intégration Youtube copié dans le
+    presse-papiers'
+Mini Player: 'Mini Lecteur'
 Comments:
-  Comments: ''
-  Click to View Comments: ''
-  Getting comment replies, please wait: ''
-  Show Comments: ''
-  Hide Comments: ''
+  Comments: 'Commentaires'
+  Click to View Comments: 'Cliquer pour voir les commentaires'
+  Getting comment replies, please wait: 'Récupération des commentaires, veuillez patienter'
+  Show Comments: 'Voir les commentaires'
+  Hide Comments: 'Cacher les commentaires'
   # Context: View 10 Replies, View 1 Reply
-  View: ''
-  Hide: ''
-  Replies: ''
-  Reply: ''
-  There are no comments available for this video: ''
-  Load More Comments: ''
-Up Next: ''
+  View: 'Voir'
+  Hide: 'Cacher'
+  Replies: 'Réponses'
+  Reply: 'Répondre'
+  There are no comments available for this video: 'Il n''y a aucun commentaire pour
+    cette vidéo'
+  Load More Comments: 'Charger plus de commentaires'
+Up Next: 'Suivante'
 
 # Toast Messages
 Local API Error (Click to copy): 'Erreur d''API locale (Cliquez pour copier)'
@@ -375,13 +396,15 @@ Falling back to the local API: 'Revenir à l''API locale'
 Subscriptions have not yet been implemented: ''
 Loop is now disabled: 'La boucle est maintenant désactivée'
 Loop is now enabled: 'La boucle est maintenant activée'
-Shuffle is now disabled: ''
-Shuffle is now enabled: ''
-Playing Next Video: ''
-Playing Previous Video: ''
-Playing next video in 5 seconds.  Click to cancel: ''
-Canceled next video autoplay: ''
-'The playlist has ended.  Enable loop to continue playing': ''
+Shuffle is now disabled: 'Mode aléatoire désactivé'
+Shuffle is now enabled: 'Mode aléatoire activé'
+Playing Next Video: 'Lire la vidéo suivante'
+Playing Previous Video: 'Lire la vidéo précédente'
+Playing next video in 5 seconds.  Click to cancel: 'Lecture de la vidéo suivante dans
+  5 secondes. Cliquer pour annuler'
+Canceled next video autoplay: 'Annuler la lecture automatique'
+'The playlist has ended.  Enable loop to continue playing': 'Fin de la playlist. Activer
+  la lecture en boucle pour continuer'
 
-Yes: ''
+Yes: 'Oui'
 No: 'Non'
