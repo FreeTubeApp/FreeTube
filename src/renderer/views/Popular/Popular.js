@@ -26,14 +26,11 @@ export default Vue.extend({
   mounted: function () {
     this.shownResults = this.popularCache
     if (!this.shownResults || this.shownResults.length < 1) {
-      this.fetchTrendingInfo()
+      this.fetchPopularInfo()
     }
   },
   methods: {
-    refreshTrendingInfo: function () {
-      this.fetchTrendingInfo()
-    },
-    fetchTrendingInfo: async function () {
+    fetchPopularInfo: async function () {
       const searchPayload = {
         resource: 'popular',
         id: '',

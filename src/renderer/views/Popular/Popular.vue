@@ -17,8 +17,8 @@
       icon="sync"
       class="floatingTopButton"
       :size="12"
-      :theme="primary"
-      @click="refreshTrendingInfo"
+      theme="primary"
+      @click="fetchPopularInfo"
     />
   </div>
 </template>
