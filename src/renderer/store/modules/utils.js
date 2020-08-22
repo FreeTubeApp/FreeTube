@@ -230,6 +230,10 @@ const actions = {
     return publicationString
   },
 
+  clearSessionSearchHistory ({ commit }) {
+    commit('setSessionSearchHistory', [])
+  },
+
   showToast (_, payload) {
     FtToastEvents.$emit('toast.open', payload.message, payload.action, payload.time)
   }

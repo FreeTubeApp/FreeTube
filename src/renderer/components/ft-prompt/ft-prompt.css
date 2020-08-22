@@ -1,0 +1,19 @@
+.prompt {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+  padding: 15px;
+}
+
+.promptCard {
+  width: 95%;
+  margin-top: 40%;
+}
+
+.center {
+  text-align: center;
+}

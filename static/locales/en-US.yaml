@@ -1,3 +1,5 @@
+# Put the name of your locale in the same language
+Locale Name: English
 FreeTube: FreeTube
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -138,7 +140,6 @@ Settings:
   Player Settings:
     Player Settings: Player Settings
     Force Local Backend for Legacy Formats: Force Local Backend for Legacy Formats
-    Remember History: Remember History
     Play Next Video: Play Next Video
     Turn on Subtitles by Default: Turn on Subtitles by Default
     Autoplay Videos: Autoplay Videos
@@ -164,6 +165,16 @@ Settings:
       1440p: 1440p
       4k: 4k
       8k: 8k
+  Privacy Settings:
+    Privacy Settings: Privacy Settings
+    Remember History: Remember History
+    Save Watched Progress: Save Watched Progress
+    Clear Search Cache: Clear Search Cache
+    Are you sure you want to clear out your search cache?: Are you sure you want to clear out your search cache?
+    Search cache has been cleared: Search cache has been cleared
+    Remove Watch History: Remove Watch History
+    Are you sure you want to remove your entire watch history?: Are you sure you want to remove your entire watch history?
+    Watch history has been cleared: Watch history has been cleared
   Subscription Settings:
     Subscription Settings: Subscription Settings
     Hide Videos on Watch: Hide Videos on Watch

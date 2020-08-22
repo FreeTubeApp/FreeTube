@@ -3,6 +3,7 @@
     <general-settings />
     <theme-settings />
     <player-settings />
+    <privacy-settings />
   </div>
 </template>
 

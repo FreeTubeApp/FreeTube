@@ -64,7 +64,7 @@
         @change="updateThumbnailPreference"
       />
       <ft-select
-        placeholder="Change Locale"
+        :placeholder="$t('Settings.General Settings.Locale Preference')"
         :value="currentLocale"
         :select-names="localeOptions"
         :select-values="localeOptions"

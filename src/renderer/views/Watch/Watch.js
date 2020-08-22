@@ -81,6 +81,10 @@ export default Vue.extend({
       return this.$store.getters.getRememberHistory
     },
 
+    saveWatchedProgress: function () {
+      return this.$store.getters.getSaveWatchedProgress
+    },
+
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
@@ -696,7 +700,7 @@ export default Vue.extend({
     if (this.rememberHistory && !this.isLoading && !this.isLive) {
       const player = this.$refs.videoPlayer.player
 
-      if (typeof player !== 'undefined') {
+      if (typeof player !== 'undefined' && this.saveWatchedProgress) {
         const currentTime = this.$refs.videoPlayer.player.currentTime()
         console.log(currentTime)
         const payload = {

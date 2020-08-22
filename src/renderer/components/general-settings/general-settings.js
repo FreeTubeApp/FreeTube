@@ -635,6 +635,7 @@ export default Vue.extend({
 
     updateLocale: function (locale) {
       this.$i18n.locale = locale
+      this.currentLocale = locale
       localStorage.setItem('locale', locale)
     },
 

@@ -37,10 +37,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    rememberHistory: function () {
-      return this.$store.getters.getRememberHistory
-    },
-
     autoplayVideos: function () {
       return this.$store.getters.getAutoplayVideos
     },
@@ -114,7 +110,6 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'updateRememberHistory',
       'updateAutoplayVideos',
       'updateAutoplayPlaylists',
       'updatePlayNextVideo',

@@ -63,6 +63,14 @@ const actions = {
     })
   },
 
+  removeAllHistory ({ dispatch }) {
+    historyDb.remove({}, { multi: true }, (err, numReplaced) => {
+      if (!err) {
+        dispatch('grabHistory')
+      }
+    })
+  },
+
   updateWatchProgress ({ dispatch }, videoData) {
     historyDb.update({ videoId: videoData.videoId }, { $set: { watchProgress: videoData.watchProgress } }, { upsert: true }, (err, numReplaced) => {
       if (!err) {

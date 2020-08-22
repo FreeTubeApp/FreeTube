@@ -39,6 +39,7 @@ const state = {
   barColor: false,
   enableSearchSuggestions: true,
   rememberHistory: true,
+  saveWatchedProgress: true,
   autoplayVideos: true,
   autoplayPlaylists: true,
   playNextVideo: false,
@@ -103,6 +104,10 @@ const getters = {
 
   getRememberHistory: () => {
     return state.rememberHistory
+  },
+
+  getSaveWatchedProgress: () => {
+    return state.saveWatchedProgress
   },
 
   getAutoplayVideos: () => {
@@ -197,6 +202,9 @@ const actions = {
               break
             case 'rememberHistory':
               commit('setRememberHistory', result.value)
+              break
+            case 'saveWatchedProgress':
+              commit('setSaveWatchedProgress', result.value)
               break
             case 'autoplayVideos':
               commit('setAutoplayVideos', result.value)
@@ -323,6 +331,14 @@ const actions = {
     settingsDb.update({ _id: 'rememberHistory' }, { _id: 'rememberHistory', value: history }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
         commit('setRememberHistory', history)
+      }
+    })
+  },
+
+  updateSaveWatchedProgress ({ commit }, saveWatchedProgress) {
+    settingsDb.update({ _id: 'saveWatchedProgress' }, { _id: 'saveWatchedProgress', value: saveWatchedProgress }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setSaveWatchedProgress', saveWatchedProgress)
       }
     })
   },
@@ -461,6 +477,9 @@ const mutations = {
   },
   setRememberHistory (state, rememberHistory) {
     state.rememberHistory = rememberHistory
+  },
+  setSaveWatchedProgress (state, saveWatchedProgress) {
+    state.saveWatchedProgress = saveWatchedProgress
   },
   setAutoplayVideos (state, autoplayVideos) {
     state.autoplayVideos = autoplayVideos
