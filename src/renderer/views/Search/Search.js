@@ -138,7 +138,7 @@ export default Vue.extend({
             if (video.uploaded_at !== null) {
               publishDate = ytTrendScraper.calculate_published(video.uploaded_at, Date.now())
             }
-            if(video.duration !== null) {
+            if (video.duration !== null) {
               videoDuration = ytTrendScraper.calculate_length_in_seconds(video.duration)
             }
             returnDataInvidious.push(
@@ -159,8 +159,7 @@ export default Vue.extend({
                 paid: false,
                 premium: false,
                 isUpcoming: false,
-                timeText: video.duration,
-                test: "test"
+                timeText: video.duration
               }
             )
           } else {
