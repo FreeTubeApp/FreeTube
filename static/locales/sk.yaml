@@ -94,24 +94,25 @@ Settings:
       Local API: 'Lokálne API'
       Invidious API: 'Invidious web API'
     Video View Type:
-      Video View Type: ''
-      Grid: ''
-      List: ''
+      Video View Type: 'Typ zobrazenia videa'
+      Grid: 'Mriežka'
+      List: 'Zoznam'
     Thumbnail Preference:
-      Thumbnail Preference: ''
-      Default: ''
-      Beginning: ''
-      Middle: ''
-      End: ''
-    'Invidious Instance (Default is https://invidio.us)': ''
-    Region for Trending: ''
+      Thumbnail Preference: 'Preferencia náhľadu'
+      Default: 'Štandardné'
+      Beginning: 'Začiatok'
+      Middle: 'Stred'
+      End: 'Koniec'
+    'Invidious Instance (Default is https://invidio.us)': 'Invidious príklad (Predvolená
+      hodnota je https://invidio.us)'
+    Region for Trending: 'Región pre trendy'
         #! List countries
   Theme Settings:
-    Theme Settings: ''
-    Match Top Bar with Main Color: ''
+    Theme Settings: 'Nastavenie motívu'
+    Match Top Bar with Main Color: 'Prispôsobiť hornú lištu s hlavnou farbou'
     Base Theme:
-      Base Theme: ''
-      Black: ''
+      Base Theme: 'Základný motív'
+      Black: 'Čierny'
       Dark: ''
       Light: ''
     Main Color Theme:
