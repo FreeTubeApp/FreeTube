@@ -110,7 +110,8 @@ Settings:
         #! List countries
   Theme Settings:
     Theme Settings: 'Paramètres du thème'
-    Match Top Bar with Main Color: ''
+    Match Top Bar with Main Color: 'Faire correspondre la barre supérieure à la couleur
+      principale'
     Base Theme:
       Base Theme: 'Thème de base'
       Black: 'Noir'
@@ -206,7 +207,7 @@ Settings:
 
 About:
   #On About page
-  About: 'À propos->À propos'
+  About: 'À propos'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Ce
     logiciel est sous licence AGPL-3.0.'
@@ -239,18 +240,18 @@ About:
 
 #On Channel Page
 Channel:
-  Subscriber: 'Chaîne->Abonnement'
-  Subscribers: 'Chaîne->Abonnements'
-  Subscribe: 'Chaîne->S''abonner'
-  Unsubscribe: 'Chaîne->Désabonnement'
+  Subscriber: 'Abonnement'
+  Subscribers: 'Abonnements'
+  Subscribe: 'S''abonner'
+  Unsubscribe: 'Se désabonner'
   Search Channel: 'Chercher une chaîne'
   Your search results have returned 0 results: 'Les résultats de votre recherche ont
     donné 0 résultat'
-  Sort By: 'Chaîne->Trier Par'
+  Sort By: 'Trier Par'
   Videos:
-    Videos: 'Chaîne->Vidéos->Vidéos'
-    This channel does not currently have any videos: 'Chaîne->Vidéos->Cette chaîne
-      n''a pas de vidéos actuellement'
+    Videos: 'Vidéos'
+    This channel does not currently have any videos: 'Cette chaîne n''a pas de vidéos
+      actuellement'
     Sort Types:
       Newest: 'Plus récent'
       Oldest: 'Plus ancien'
@@ -303,7 +304,7 @@ Video:
     Mar: 'Mar'
     Apr: 'Avr'
     May: 'Mai'
-    Jun: 'Jui'
+    Jun: 'Juin'
     Jul: 'Jui'
     Aug: 'Août'
     Sep: 'Sep'
@@ -323,7 +324,7 @@ Video:
     Year: 'Année'
     Years: 'Années'
     Ago: 'Il y a'
-    Upcoming: ''
+    Upcoming: 'Avant-première bientôt'
   Published on: 'Mise en ligne le'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Il y a % $'
@@ -356,7 +357,7 @@ Toggle Theatre Mode: 'Mode Théâtre'
 Change Format:
   Change Video Formats: 'Changer le format de la vidéo'
   Use Dash Formats: 'Utiliser le format Dash'
-  Use Legacy Formats: 'Utiliser le format standard'
+  Use Legacy Formats: 'Utiliser le format Legacy'
   Use Audio Formats: 'Utiliser le format audio'
 Share:
   Share Video: 'Partager la vidéo'
@@ -393,7 +394,8 @@ Local API Error (Click to copy): 'Erreur d''API locale (Cliquez pour copier)'
 Invidious API Error (Click to copy): 'Erreur d''API Invidious (Cliquez pour copier)'
 Falling back to Invidious API: 'Revenir à l''API Invidious'
 Falling back to the local API: 'Revenir à l''API locale'
-Subscriptions have not yet been implemented: ''
+Subscriptions have not yet been implemented: 'Les abonnements n’ont pas encore été
+  implémentés'
 Loop is now disabled: 'La boucle est maintenant désactivée'
 Loop is now enabled: 'La boucle est maintenant activée'
 Shuffle is now disabled: 'Mode aléatoire désactivé'
