@@ -83,12 +83,12 @@ Settings:
   Settings: '設定'
   General Settings:
     General Settings: '常規設定'
-    Fallback to Non-Preferred Backend on Failure: '失敗時回撤到非偏好Backend'
+    Fallback to Non-Preferred Backend on Failure: '失敗時回撤到非偏好后端'
     Enable Search Suggestions: '允許搜索建議'
     Default Landing Page: '預設加載頁面'
     Locale Preference: '地域偏好'
     Preferred API Backend:
-      Preferred API Backend: '偏好API Backend'
+      Preferred API Backend: '偏好API后端'
       Local API: '區域API'
       Invidious API: 'Invidious API'
     Video View Type:
@@ -101,7 +101,7 @@ Settings:
       Beginning: '開始'
       Middle: '中間'
       End: '結尾'
-    'Invidious Instance (Default is https://invidio.us)': 'Invidious Instance（預設https://invidio.us）'
+    'Invidious Instance (Default is https://invidio.us)': 'Invidious實例（預設https://invidio.us）'
     Region for Trending: '熱門區域'
         #! List countries
   Theme Settings:
@@ -134,7 +134,7 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: '播放器選項'
-    Force Local Backend for Legacy Formats: '強制區域Backend給Legacy格式'
+    Force Local Backend for Legacy Formats: '強制區域后端給傳統格式'
     Remember History: '記住曆史'
     Play Next Video: '播放下一視訊'
     Turn on Subtitles by Default: '預設開啟字幕'
@@ -147,7 +147,7 @@ Settings:
     Default Video Format:
       Default Video Format: '預設視訊格式'
       Dash Formats: 'Dash格式'
-      Legacy Formats: 'Legacy格式'
+      Legacy Formats: '傳統格式'
       Audio Formats: '聲訊格式'
     Default Quality:
       Default Quality: '預設品質'
@@ -175,13 +175,13 @@ Settings:
     How do I import my subscriptions?: '如何導入我的訂閱？'
   Advanced Settings:
     Advanced Settings: '進階設定'
-    Enable Debug Mode (Prints data to the console): '允許Debug型態（列印資料在控制板）'
+    Enable Debug Mode (Prints data to the console): '允許除錯型態（列印資料在控制板）'
     'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': '代理位址（例如：SOCKS5://127.0.0.1:9050）'
     'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': '按“測試代理”健將傳送要求給https://ipinfo.io/json'
     Use Tor / Proxy for API calls: '用Tor / 代理給API呼叫'
     TEST PROXY: '測試代理'
     #& Invidious Instance (Default is https://invidio.us)
-    See Public Instances: '察看公用Instances'
+    See Public Instances: '察看公用實例'
     Clear History:
       Clear History: '清除曆史'
       # On Click
@@ -293,11 +293,11 @@ Video:
     Months: '月'
     Year: '年'
     Years: '年'
-    Ago: '以前'
+    Ago: '前'
     Upcoming: '即將上映'
   Published on: '發布於'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % 以前'
+  Publicationtemplate: '$ % 前'
 #& Videos
   Video has been removed from your history: 視訊已經從您的曆史中移除
   Video has been marked as watched: 視訊已經被記號為已觀看
@@ -331,7 +331,7 @@ Toggle Theatre Mode: '切換劇場型態'
 Change Format:
   Change Video Formats: '更換視訊格式'
   Use Dash Formats: '使用Dash格式'
-  Use Legacy Formats: '使用Legacy格式'
+  Use Legacy Formats: '使用傳統格式'
   Use Audio Formats: '使用聲訊格式'
 Share:
   Share Video: '分享視訊'
