@@ -185,16 +185,26 @@ Settings:
     Clear History:
       Clear History: '清除历史'
       # On Click
-      Are you sure you want to delete your history?: '确认删除您的历史？'
+      Are you sure you want to delete your history?: '您确认想删除您的历史？'
       #& Yes
       #& No
     Clear Subscriptions:
       Clear Subscriptions: '清除订阅'
       # On Click
-      Are you sure you want to remove all subscriptions?: '确定要删除所有订阅？'
+      Are you sure you want to remove all subscriptions?: '您确定想删除所有订阅？'
       #& Yes
       #& No
 
+  Privacy Settings:
+    Are you sure you want to remove your entire watch history?: 您确认想删除您的全部观看历史？
+    Are you sure you want to clear out your search cache?: 您确定想清除您的搜索缓存？
+    Save Watched Progress: 保存观看进度
+    Remember History: 记住历史
+    Privacy Settings: 隐私设置
+    Watch history has been cleared: 观看历史已经被清除
+    Remove Watch History: 删除观看历史
+    Search cache has been cleared: 搜索缓存已被清除
+    Clear Search Cache: 清除搜索缓存
 About:
   #On About page
   About: '关于'
@@ -378,3 +388,4 @@ Canceled next video autoplay: '取消的自动播放下一视频'
 
 Yes: '是'
 No: '否'
+Locale Name: 英文
