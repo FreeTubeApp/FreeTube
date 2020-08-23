@@ -11,16 +11,16 @@ Undo: '元に戻す'
 Redo: 'やり直し'
 Cut: 'カット'
 Copy: 'コピー'
-Paste: 'ペースト'
+Paste: '貼り付け'
 Delete: '削除'
 Select all: 'すべて選択'
 Reload: '再読み込み'
-Force Reload: '強制再読み込み'
-Toggle Developer Tools: '開発者ツールを切替'
+Force Reload: '強制的に再読み込み'
+Toggle Developer Tools: '開発者ツールの切替'
 Actual size: '実際のサイズ'
 Zoom in: '拡大'
 Zoom out: '縮小'
-Toggle fullscreen: '全画面を切替'
+Toggle fullscreen: '全画面の切替'
 Window: 'ウィンドウ'
 Minimize: '最小化'
 Close: '閉じる'
@@ -28,7 +28,7 @@ Back: '戻る'
 Forward: '進む'
 
 # Search Bar
-Search / Go to URL: '検索 / URLに移動'
+Search / Go to URL: '検索 /  URL を開く'
   # In Filter Button
 Search Filters:
   Search Filters: '検索絞り込み'
@@ -40,8 +40,8 @@ Search Filters:
     View Count: '再生数'
   Time:
     Time: '日時'
-    Any Time: 'いつ'
-    Last Hour: '最近一時間'
+    Any Time: 'すべての時間'
+    Last Hour: '最近1時間'
     Today: '今日'
     This Week: '今週'
     This Month: '今月'
@@ -65,9 +65,9 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: '購読'
-  Latest Subscriptions: '最後の購読'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '購読リストは空です。ここに表示するには先に追加してください。'
-  'Getting Subscriptions.  Please wait.': '購読を取得中..お待ちください。'
+  Latest Subscriptions: '最新の登録'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'まだチャンネル登録がありません。登録するとここに表示されます。'
+  'Getting Subscriptions.  Please wait.': '登録を取得中。お待ちください...'
 Trending: '急上昇'
 Most Popular: '最も人気'
 Playlists: '再生リスト'
@@ -75,9 +75,9 @@ User Playlists:
   Your Playlists: 'あなたの再生リスト'
 History:
   # On History Page
-  History: '履歴'
+  History: '閲覧履歴'
   Watch History: '履歴を表示'
-  Your history list is currently empty.: 履歴は空です。
+  Your history list is currently empty.: 閲覧履歴は空です。
 Settings:
   # On Settings Page
   Settings: '設定'
@@ -147,8 +147,8 @@ Settings:
     Default Playback Rate: '標準の再生速度'
     Default Video Format:
       Default Video Format: '標準の動画形式'
-      Dash Formats: ''
-      Legacy Formats: ''
+      Dash Formats: 'DASH 形式'
+      Legacy Formats: '旧形式'
       Audio Formats: '音声形式'
     Default Quality:
       Default Quality: '標準の品質'
@@ -163,16 +163,16 @@ Settings:
       4k: '4K'
       8k: '8K'
   Subscription Settings:
-    Subscription Settings: '購読の設定'
+    Subscription Settings: 'チャンネル登録の設定'
     Hide Videos on Watch: ''
     Subscriptions Export Format:
-      Subscriptions Export Format: '購読のエクスポート形式'
+      Subscriptions Export Format: '登録のエクスポート形式'
       #& Freetube
-      Newpipe: ''
-      OPML: ''
-    Manage Subscriptions: '購読の管理'
-    Import Subscriptions: '購読のインポート'
-    Export Subscriptions: '購読のエクスポート'
+      Newpipe: 'Newpipe'
+      OPML: 'OPML'
+    Manage Subscriptions: '登録の管理'
+    Import Subscriptions: '登録のインポート'
+    Export Subscriptions: '登録のエクスポート'
     How do I import my subscriptions?: 'どうやってインポートするのですか？'
   Advanced Settings:
     Advanced Settings: '高度な設定'
@@ -198,12 +198,22 @@ Settings:
       #& Yes
       #& No
 
+  Privacy Settings:
+    Save Watched Progress: 再生位置を保存
+    Remember History: 閲覧履歴を保存
+    Watch history has been cleared: 閲覧履歴は削除されました
+    Are you sure you want to remove your entire watch history?: 閲覧履歴をすべて削除しますか？
+    Remove Watch History: 閲覧履歴を削除
+    Search cache has been cleared: 検索キャッシュは削除されました
+    Are you sure you want to clear out your search cache?: 検索キャッシュを削除しますか？
+    Clear Search Cache: 検索キャッシュを削除
+    Privacy Settings: 個人情報の設定
 About:
   #On About page
-  About: 'このソフトの情報'
+  About: 'このソフト'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'このソフトは自由なライセンスの  AGPL-3.0
-    です。'
+  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'このコピーレフトのソフトウェアは
+    GPLv3+ の自由なライセンスです。'
 
   'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
     バグ発報告や機能要望、サポートが必要であれば、私たちの GitHub  をご覧ください。プルリクエストも歓迎します。
@@ -214,7 +224,7 @@ About:
   'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'チャットがしたいなら私たちの
     Element / Matrix にご参加ください。参加前にルールのご確認を。'
 
-  'Looking for help? Check out our Wiki page.': '減宇rプが必要なら 私たちの Wiki をご覧ください。'
+  'Looking for help? Check out our Wiki page.': 'ヘルプが必要なら 私たちの Wiki をご覧ください。'
 
   Check out our Firefox extension!: '私たちの Firefox 拡張機能！'
 
@@ -227,10 +237,10 @@ About:
 
 #On Channel Page
 Channel:
-  Subscriber: ''
-  Subscribers: ''
-  Subscribe: '購読'
-  Unsubscribe: '購読解除'
+  Subscriber: '登録者'
+  Subscribers: '登録者'
+  Subscribe: '登録'
+  Unsubscribe: '登録解除'
   Search Channel: 'チャンネルを検索'
   Your search results have returned 0 results: '検索結果はありません'
   Sort By: '並び替え'
@@ -249,7 +259,7 @@ Channel:
       Newest: '新しい'
       Oldest: '古い'
   About:
-    About: ''
+    About: '情報'
     Channel Description: 'チャンネルの説明'
     Featured Channels: ''
 Video:
@@ -263,7 +273,7 @@ Video:
   Views: '回再生'
   # Context is "X People Watching"
   Watching: ''
-  Watched: ''
+  Watched: '視聴済み'
   # As in a Live Video
   Live: 'ライブ配信'
   Live Now: 'ライブ配信中'
@@ -303,82 +313,83 @@ Video:
     Upcoming: ''
   Published on: '公開日'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % ago'
+  Publicationtemplate: '$ % 前'
 #& Videos
   Video has been removed from your history: 動画は履歴から削除されました
   Remove From History: 履歴から削除
 Videos:
   #& Sort By
   Sort By:
-    Newest: ''
-    Oldest: ''
+    Newest: '新しい'
+    Oldest: '古い'
     #& Most Popular
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: ''
-  Videos: ''
-  View: ''
-  Views: ''
-  Last Updated On: ''
+  View Full Playlist: '完全な再生リストを表示'
+  Videos: '本の動画'
+  View: '回視聴'
+  Views: '回視聴'
+  Last Updated On: '最終更新日'
   Share Playlist:
-    Share Playlist: ''
-    Copy YouTube Link: ''
-    Open in YouTube: ''
-    Copy Invidious Link: ''
-    Open in Invidious: ''
+    Share Playlist: '再生リストを共有'
+    Copy YouTube Link: 'YouTube のリンクをコピー'
+    Open in YouTube: 'YouTube で開く'
+    Copy Invidious Link: 'Invidious のリンクをコピー'
+    Open in Invidious: 'Invidious  で開く'
 
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: ''
+Toggle Theatre Mode: 'シアターモードを切替'
 Change Format:
-  Change Video Formats: ''
-  Use Dash Formats: ''
-  Use Legacy Formats: ''
-  Use Audio Formats: ''
+  Change Video Formats: '動画形式の変更'
+  Use Dash Formats: 'DASH 形式を使用'
+  Use Legacy Formats: '旧形式を使用'
+  Use Audio Formats: '音声形式を使用'
 Share:
-  Share Video: ''
-  Copy Link: ''
-  Open Link: ''
-  Copy Embed: ''
-  Open Embed: ''
+  Share Video: '動画の共有'
+  Copy Link: 'リンクをコピー'
+  Open Link: 'リンクを開く'
+  Copy Embed: '埋め込みをコピー'
+  Open Embed: '埋め込みを開く'
   # On Click
-  Invidious URL copied to clipboard: ''
-  Invidious Embed URL copied to clipboard: ''
-  YouTube URL copied to clipboard: ''
-  YouTube Embed URL copied to clipboard: ''
-Mini Player: ''
+  Invidious URL copied to clipboard: 'Invidious の URL をコピーしました'
+  Invidious Embed URL copied to clipboard: 'Invidious の 埋め込みURL をコピーしました'
+  YouTube URL copied to clipboard: 'YouTube の URL をコピーしました'
+  YouTube Embed URL copied to clipboard: 'YouTube の 埋め込みURL をコピーしました'
+Mini Player: 'ミニプレーヤー'
 Comments:
-  Comments: ''
-  Click to View Comments: ''
-  Getting comment replies, please wait: ''
-  Show Comments: ''
-  Hide Comments: ''
+  Comments: 'コメント'
+  Click to View Comments: 'クリックでコメント表示'
+  Getting comment replies, please wait: 'コメント返信を取得中。お待ちください'
+  Show Comments: 'コメントを表示'
+  Hide Comments: 'コメントを非表示'
   # Context: View 10 Replies, View 1 Reply
-  View: ''
-  Hide: ''
-  Replies: ''
-  Reply: ''
-  There are no comments available for this video: ''
-  Load More Comments: ''
+  View: '表示'
+  Hide: '隠す'
+  Replies: '返信'
+  Reply: '返信'
+  There are no comments available for this video: 'この動画へのコメントはありません'
+  Load More Comments: 'さらにコメントを読み込み'
 Up Next: ''
 
 # Toast Messages
-Local API Error (Click to copy): ''
-Invidious API Error (Click to copy): ''
-Falling back to Invidious API: ''
-Falling back to the local API: ''
-Subscriptions have not yet been implemented: ''
-Loop is now disabled: ''
-Loop is now enabled: ''
-Shuffle is now disabled: ''
-Shuffle is now enabled: ''
-Playing Next Video: ''
-Playing Previous Video: ''
-Playing next video in 5 seconds.  Click to cancel: ''
-Canceled next video autoplay: ''
-'The playlist has ended.  Enable loop to continue playing': ''
+Local API Error (Click to copy): 'ローカル API エラー (クリックでコピー)'
+Invidious API Error (Click to copy): 'Invidious API エラー (クリックでコピー)'
+Falling back to Invidious API: 'Invidious API にフォールバック'
+Falling back to the local API: 'ローカル API にフォールバック'
+Subscriptions have not yet been implemented: '登録はまだ実装されていません'
+Loop is now disabled: 'ループ再生を無効にしました'
+Loop is now enabled: 'ループ再生を有効にしました'
+Shuffle is now disabled: 'シャッフル再生を無効にしました'
+Shuffle is now enabled: 'シャッフル再生を有効にしました'
+Playing Next Video: '次の動画を再生'
+Playing Previous Video: '前の動画を再生'
+Playing next video in 5 seconds.  Click to cancel: '5秒後に次の動画を再生します..クリックでキャンセル'
+Canceled next video autoplay: '次の動画の自動再生をキャンセルしました'
+'The playlist has ended.  Enable loop to continue playing': '再生リストの最後に到達しました..再生を続けるにはループを有効にします'
 
-Yes: ''
-No: ''
+Yes: 'はい'
+No: 'いいえ'
+Locale Name: English
