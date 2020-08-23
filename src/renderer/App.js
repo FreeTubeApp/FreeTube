@@ -33,6 +33,7 @@ export default Vue.extend({
   mounted: function () {
     this.$store.dispatch('grabUserSettings')
     this.$store.dispatch('grabHistory')
+    this.$store.dispatch('grabAllProfiles', this.$t('Profile.All Channels'))
     this.$store.commit('setUsingElectron', useElectron)
     this.checkThemeSettings()
     this.checkLocale()

@@ -28,6 +28,24 @@ const state = {
     'mainAmber',
     'mainOrange',
     'mainDeepOrange'
+  ],
+  colorValues: [
+    '#d50000',
+    '#C51162',
+    '#AA00FF',
+    '#6200EA',
+    '#304FFE',
+    '#2962FF',
+    '#0091EA',
+    '#00B8D4',
+    '#00BFA5',
+    '#00C853',
+    '#64DD17',
+    '#AEEA00',
+    '#FFD600',
+    '#FFAB00',
+    '#FF6D00',
+    '#DD2C00'
   ]
 }
 
@@ -61,6 +79,26 @@ const actions = {
   getRandomColorClass () {
     const randomInt = Math.floor(Math.random() * state.colorClasses.length)
     return state.colorClasses[randomInt]
+  },
+
+  getRandomColor () {
+    const randomInt = Math.floor(Math.random() * state.colorValues.length)
+    return state.colorValues[randomInt]
+  },
+
+  calculateColorLuminance (_, colorValue) {
+    const cutHex = colorValue.substring(1, 7)
+    const colorValueR = parseInt(cutHex.substring(0, 2), 16)
+    const colorValueG = parseInt(cutHex.substring(2, 4), 16)
+    const colorValueB = parseInt(cutHex.substring(4, 6), 16)
+
+    const luminance = (0.299 * colorValueR + 0.587 * colorValueG + 0.114 * colorValueB) / 255
+
+    if (luminance > 0.5) {
+      return '#000000'
+    } else {
+      return '#FFFFFF'
+    }
   },
 
   getVideoIdFromUrl (_, url) {
