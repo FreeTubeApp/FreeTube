@@ -205,6 +205,8 @@ Settings:
       #& Yes
       #& No
 
+  Privacy Settings:
+    Privacy Settings: Paramètres de confidentialité
 About:
   #On About page
   About: 'À propos'
@@ -410,3 +412,4 @@ Canceled next video autoplay: 'Annuler la lecture automatique'
 
 Yes: 'Oui'
 No: 'Non'
+Locale Name: Anglais
