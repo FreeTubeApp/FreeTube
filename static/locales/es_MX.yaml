@@ -144,10 +144,10 @@ Settings:
     Turn on Subtitles by Default: 'Activar subtitulos por defecto'
     Autoplay Videos: 'Reproduccion automatica'
     Proxy Videos Through Invidious: 'Enmascarar videos a través de invidious'
-    Autoplay Playlists: ''
+    Autoplay Playlists: 'Reproducción automática de listas de reproducción'
     Enable Theatre Mode by Default: 'Activar modo teatro por defecto'
     Default Volume: 'Volumen predeterminado'
-    Default Playback Rate: ''
+    Default Playback Rate: 'Velocidad de reproducción predeterminada'
     Default Video Format:
       Default Video Format: 'Formato de video predeterminado'
       Dash Formats: 'Formato DASH'
@@ -169,7 +169,7 @@ Settings:
     Subscription Settings: 'Ajustes de suscripción'
     Hide Videos on Watch: ''
     Subscriptions Export Format:
-      Subscriptions Export Format: ''
+      Subscriptions Export Format: 'Formato de exportación de suscripciones'
       #& Freetube
       Newpipe: 'Newpipe'
       OPML: 'OPML'
@@ -179,11 +179,14 @@ Settings:
     How do I import my subscriptions?: '¿Cómo importo mis suscripciones?'
   Advanced Settings:
     Advanced Settings: 'Ajustes avanzados'
-    Enable Debug Mode (Prints data to the console): ''
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': ''
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': ''
-    Use Tor / Proxy for API calls: ''
-    TEST PROXY: ''
+    Enable Debug Mode (Prints data to the console): 'Activar modo de depuración (Muestra
+      datos en la consola)'
+    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Dirección de mascara (Ejemplo:
+      SOCKS5://127.0.0.1:9050 )'
+    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Presionando
+      el botón "PROBAR MASCARA" enviará una solicitud a https://ipinfo.io/json'
+    Use Tor / Proxy for API calls: 'Usar Tor / Mascara para las llamadas API'
+    TEST PROXY: 'PROBAR MASCARA'
     #& Invidious Instance (Default is https://invidio.us)
     See Public Instances: 'Ver Instancias Públicas'
     Clear History:
@@ -208,9 +211,14 @@ Settings:
     Clear Search Cache: Borrar Caché de Búsqueda
     Remember History: Recuerda Historial
     Privacy Settings: Ajustes de privacidad
+    Watch history has been cleared: El historial de vistas ha sido borrado
+    Are you sure you want to remove your entire watch history?: Estas seguro que quiere
+      eliminar todo tu historial de vistas?
+    Remove Watch History: Eliminar historial de vistas
+    Save Watched Progress: Guardar el progreso observado
 About:
   #On About page
-  About: ''
+  About: 'Acerca de'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Este
     software copylefted tiene licencia libre AGPL-3.0.'
@@ -229,7 +237,7 @@ About:
   'Looking for help? Check out our Wiki page.': '¿Buscando ayuda? Visite nuestra pagina
     de Wiki.'
 
-  Check out our Firefox extension!: ''
+  Check out our Firefox extension!: '¡Prueba nuestra extensión para Firefox!'
 
   'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'Si
     te gusta usar Free Tube, considera donar a través de Liberapay o a través de nuestra
@@ -245,7 +253,7 @@ Channel:
   Subscribers: 'Suscriptores'
   Subscribe: 'Suscribir'
   Unsubscribe: 'Desuscribir'
-  Search Channel: ''
+  Search Channel: 'Buscar canal'
   Your search results have returned 0 results: 'Los resultados de su búsqueda han
     arrojado 0 resultados'
   Sort By: 'Ordenar por'
@@ -266,34 +274,40 @@ Channel:
       Newest: 'Mas nuevo'
       Oldest: 'Mas viejo'
   About:
-    About: ''
+    About: 'Acerca de'
     Channel Description: 'Descripción del canal'
-    Featured Channels: ''
+    Featured Channels: 'Canales destacados'
 Video:
   Mark As Watched: 'Marcar como visto'
   Remove From History: 'Borrar del historial'
   Video has been marked as watched: 'El vídeo ha sido marcado como visto'
   Video has been removed from your history: 'El vídeo se ha borrado de tu historial'
   Open in YouTube: 'Abrir en Youtube'
-  Copy YouTube Link: ''
-  Open YouTube Embedded Player: ''
-  Copy YouTube Embedded Player Link: ''
+  Copy YouTube Link: 'Copiar enlace de YouTube'
+  Open YouTube Embedded Player: 'Abrir el reproductor incrustado de YouTube'
+  Copy YouTube Embedded Player Link: 'Copiar enlace del reproductor incrustado de
+    YouTube'
   Open in Invidious: 'Abrir en Invidious'
-  Copy Invidious Link: ''
+  Copy Invidious Link: 'Copiar enlace de Invidious'
   View: 'Ver'
-  Views: ''
+  Views: 'Vistas'
   # Context is "X People Watching"
   Watching: 'Viendo'
   Watched: 'Visto'
   # As in a Live Video
   Live: 'En vivo'
   Live Now: 'En vivo'
-  Live Chat: ''
-  Enable Live Chat: ''
-  Live Chat is currently not supported in this build.: ''
-  'Chat is disabled or the Live Stream has ended.': ''
-  Live chat is enabled.  Chat messages will appear here once sent.: ''
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
+  Live Chat: 'Chat en vivo'
+  Enable Live Chat: 'Activar chat en vivo'
+  Live Chat is currently not supported in this build.: 'El chat en vivo no esta soportado
+    actualmente en esta compilación.'
+  'Chat is disabled or the Live Stream has ended.': 'El chat esta desactivado o la
+    transmisión en vivo ha terminado.'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'El chat en vivo
+    esta activado. Los mensajes del chat aparecerán aquí cuando sean enviados.'
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'El
+    chat en vivo no esta soportado actualmente con la API de Invidious. Es necesaria
+    una conexión directa a YouTube.'
   Published:
     Jan: 'Ene'
     Feb: 'Feb'
@@ -336,37 +350,38 @@ Playlist:
   #& About
   View Full Playlist: 'Ver lista de reproducción completa'
   Videos: 'Videos'
-  View: ''
-  Views: ''
-  Last Updated On: ''
+  View: 'Vista'
+  Views: 'Vistas'
+  Last Updated On: 'Última actualización el'
   Share Playlist:
     Share Playlist: 'Compartir lista de reproducción'
-    Copy YouTube Link: ''
+    Copy YouTube Link: 'Copiar enlace de YouTube'
     Open in YouTube: 'Abrir en Youtube'
-    Copy Invidious Link: ''
+    Copy Invidious Link: 'Copiar enlace de Invidious'
     Open in Invidious: 'Abrir en Invidious'
 
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: ''
+Toggle Theatre Mode: 'Alternar modo teatro'
 Change Format:
   Change Video Formats: 'Cambia formatos de vídeo'
   Use Dash Formats: 'Usa formatos DASH'
-  Use Legacy Formats: ''
+  Use Legacy Formats: 'Usar formatos heredados'
   Use Audio Formats: 'Usa formatos de audio'
 Share:
   Share Video: 'Compartir Video'
-  Copy Link: ''
-  Open Link: ''
-  Copy Embed: ''
-  Open Embed: ''
+  Copy Link: 'Copiar enlace'
+  Open Link: 'Abrir enlace'
+  Copy Embed: 'Copiar incrustado'
+  Open Embed: 'Abrir incrustado'
   # On Click
   Invidious URL copied to clipboard: 'La URL de Invidious ha sido copiado al portapapeles'
-  Invidious Embed URL copied to clipboard: ''
+  Invidious Embed URL copied to clipboard: 'URL incrustada de Invidious copiada al
+    portapapeles'
   YouTube URL copied to clipboard: 'La URL de Youtube ha sido copiado al portapapeles'
-  YouTube Embed URL copied to clipboard: ''
-Mini Player: ''
+  YouTube Embed URL copied to clipboard: 'URL incrustada de YouTube copiada al portapapeles'
+Mini Player: 'Mini reproductor'
 Comments:
   Comments: 'Comentarios'
   Click to View Comments: 'Presione para Ver Comentarios'
@@ -375,7 +390,7 @@ Comments:
   Show Comments: 'Mostrar comentarios'
   Hide Comments: 'Esconde comentarios'
   # Context: View 10 Replies, View 1 Reply
-  View: ''
+  View: 'Vista'
   Hide: 'Esconde'
   Replies: 'Respuestas'
   Reply: 'Responde'
@@ -385,20 +400,23 @@ Comments:
 Up Next: ''
 
 # Toast Messages
-Local API Error (Click to copy): ''
-Invidious API Error (Click to copy): ''
-Falling back to Invidious API: ''
-Falling back to the local API: ''
+Local API Error (Click to copy): 'Error de la API local (Presione para copiar)'
+Invidious API Error (Click to copy): 'Error de la API de Invidious (Presione para
+  copiar)'
+Falling back to Invidious API: 'Recurriendo a la API de Invidious'
+Falling back to the local API: 'Recurriendo a la API local'
 Subscriptions have not yet been implemented: 'Las suscripciones aún no se han implementado'
-Loop is now disabled: ''
-Loop is now enabled: ''
+Loop is now disabled: 'El bucle esta desactivado'
+Loop is now enabled: 'El bucle esta activado'
 Shuffle is now disabled: ''
 Shuffle is now enabled: ''
-Playing Next Video: ''
-Playing Previous Video: ''
-Playing next video in 5 seconds.  Click to cancel: ''
+Playing Next Video: 'Reproduciendo el video siguiente'
+Playing Previous Video: 'Reproduciendo el video anterior'
+Playing next video in 5 seconds.  Click to cancel: 'Reproduciendo el video siguiente
+  en 5 segundos. Presione para cancelar'
 Canceled next video autoplay: ''
-'The playlist has ended.  Enable loop to continue playing': ''
+'The playlist has ended.  Enable loop to continue playing': 'La lista de reproducción
+  ha terminado. Activa el bucle para continuar reproduciendo'
 
 Yes: 'Sí'
 No: 'No'
