@@ -206,6 +206,18 @@ Settings:
       #& Yes
       #& No
 
+  Privacy Settings:
+    Watch history has been cleared: Verlauf wurde gelöscht
+    Are you sure you want to remove your entire watch history?: Bist du sicher, dass
+      du deinen gesamten Verlauf löschen willst?
+    Remove Watch History: Verlauf löschen
+    Search cache has been cleared: Suchzwischenspeicher wurde geleert
+    Are you sure you want to clear out your search cache?: Bist du sicher, dass du
+      deinen Suchzwischenspeicher leeren möchtest?
+    Clear Search Cache: Suchzwischenspeicher löschen
+    Save Watched Progress: Videofortschritt speichern
+    Remember History: Verlauf speichern
+    Privacy Settings: Privatsphäre Einstellungen
 About:
   #On About page
   About: Über
@@ -415,3 +427,4 @@ Canceled next video autoplay: Wiedergabe des nächsten Videos abgebrochen
 
 Yes: Ja
 No: Nein
+Locale Name: Deutsch
