@@ -205,6 +205,18 @@ Settings:
       #& Yes
       #& No
 
+  Privacy Settings:
+    Watch history has been cleared: История просмотров очищена
+    Are you sure you want to remove your entire watch history?: Вы уверены, что хотите
+      удалить всю историю просмотров?
+    Remove Watch History: Удалить историю просмотров
+    Search cache has been cleared: Кеш поиска был очищен
+    Are you sure you want to clear out your search cache?: Вы уверены, что хотите
+      очистить кеш поиска?
+    Clear Search Cache: Очистить кеш поиска
+    Save Watched Progress: Сохранять прогресс просмотра
+    Remember History: Запоминать историю
+    Privacy Settings: Настройки конфиденциальности
 About:
   #On About page
   About: 'О программе'
@@ -407,3 +419,4 @@ Canceled next video autoplay: 'Отменено автовоспроизведе
 
 Yes: 'Да'
 No: 'Нет'
+Locale Name: Английский
