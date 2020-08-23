@@ -28,7 +28,7 @@ Back: '戻る'
 Forward: '進む'
 
 # Search Bar
-Search / Go to URL: '検索 /  URL を開く'
+Search / Go to URL: '検索 / URLを開く'
   # In Filter Button
 Search Filters:
   Search Filters: '検索絞り込み'
@@ -90,7 +90,7 @@ Settings:
     Preferred API Backend:
       Preferred API Backend: 'API バックエンドの設定'
       Local API: 'ローカル API'
-      Invidious API: 'Invidious API'
+      Invidious API: 'InvidiousのAPI'
     Video View Type:
       Video View Type: '動画表示の種類'
       Grid: 'グリッド'
@@ -135,7 +135,7 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: 'プレイヤーの設定'
-    Force Local Backend for Legacy Formats: 'レガシーフォーマットではローカルに強制バックエンド'
+    Force Local Backend for Legacy Formats: 'レガシーフォーマットのためにローカルバックエンドを強制する'
     Remember History: '履歴を記憶'
     Play Next Video: '次の動画を再生'
     Turn on Subtitles by Default: '標準で字幕を有効化'
@@ -164,11 +164,11 @@ Settings:
       8k: '8K'
   Subscription Settings:
     Subscription Settings: 'チャンネル登録の設定'
-    Hide Videos on Watch: ''
+    Hide Videos on Watch: '視聴後の動画を非表示にする'
     Subscriptions Export Format:
       Subscriptions Export Format: '登録のエクスポート形式'
       #& Freetube
-      Newpipe: 'Newpipe'
+      Newpipe: 'NewPipe'
       OPML: 'OPML'
     Manage Subscriptions: '登録の管理'
     Import Subscriptions: '登録のインポート'
@@ -184,7 +184,7 @@ Settings:
     Use Tor / Proxy for API calls: 'API 呼び出しに Tor/Proxy を使用'
     TEST PROXY: 'プロキシのテスト'
     #& Invidious Instance (Default is https://invidio.us)
-    See Public Instances: ''
+    See Public Instances: 'パブリックインスタンスを参照'
     Clear History:
       Clear History: '履歴を消去'
       # On Click
@@ -216,7 +216,7 @@ About:
     GPLv3+ の自由なライセンスです。'
 
   'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    バグ発報告や機能要望、サポートが必要であれば、私たちの GitHub  をご覧ください。プルリクエストも歓迎します。
+    バグ発報告や機能要望、サポートが必要であれば、私たちのGitHubをご覧ください。プルリクエストも歓迎します。
 
   Thank you very much to the People and Projects that make FreeTube possible!: 'FreeTube
     を継続させてくれている人々とプロジェクトに感謝！'
@@ -261,7 +261,7 @@ Channel:
   About:
     About: '情報'
     Channel Description: 'チャンネルの説明'
-    Featured Channels: ''
+    Featured Channels: '目玉チャンネル'
 Video:
   Open in YouTube: 'YouTube で開く'
   Copy YouTube Link: 'YouTube のリンクをコピー'
@@ -272,7 +272,7 @@ Video:
   View: '回再生'
   Views: '回再生'
   # Context is "X People Watching"
-  Watching: ''
+  Watching: '監視中'
   Watched: '視聴済み'
   # As in a Live Video
   Live: 'ライブ配信'
@@ -310,13 +310,15 @@ Video:
     Year: '年'
     Years: '年'
     Ago: '前'
-    Upcoming: ''
+    Upcoming: 'すぐに初公開'
   Published on: '公開日'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % 前'
 #& Videos
   Video has been removed from your history: 動画は履歴から削除されました
   Remove From History: 履歴から削除
+  Video has been marked as watched: 動画の見たマークをした
+  Mark As Watched: 見たマークをする
 Videos:
   #& Sort By
   Sort By:
@@ -336,7 +338,7 @@ Playlist:
     Copy YouTube Link: 'YouTube のリンクをコピー'
     Open in YouTube: 'YouTube で開く'
     Copy Invidious Link: 'Invidious のリンクをコピー'
-    Open in Invidious: 'Invidious  で開く'
+    Open in Invidious: 'Invidiousで開く'
 
 # On Video Watch Page
 #* Published
@@ -372,7 +374,7 @@ Comments:
   Reply: '返信'
   There are no comments available for this video: 'この動画へのコメントはありません'
   Load More Comments: 'さらにコメントを読み込み'
-Up Next: ''
+Up Next: '次に'
 
 # Toast Messages
 Local API Error (Click to copy): 'ローカル API エラー (クリックでコピー)'
