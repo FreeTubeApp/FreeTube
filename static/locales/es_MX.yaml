@@ -70,7 +70,7 @@ Subscriptions:
     lista de Suscripción está actualmente vacía. Empieza añadiendo suscripciones para
     verlas ahí.'
   'Getting Subscriptions.  Please wait.': 'Obteniendo Suscripciones. Por favor espere.'
-Trending: ''
+Trending: 'Tendencias'
 Most Popular: 'Mas popular'
 Playlists: 'Listas de Reproducción'
 User Playlists:
@@ -201,11 +201,19 @@ Settings:
       #& Yes
       #& No
 
+  Privacy Settings:
+    Search cache has been cleared: Se ha borrado la caché de búsqueda
+    Are you sure you want to clear out your search cache?: ¿Está seguro de que desea
+      borrar su caché de búsqueda?
+    Clear Search Cache: Borrar Caché de Búsqueda
+    Remember History: Recuerda Historial
+    Privacy Settings: Ajustes de privacidad
 About:
   #On About page
   About: ''
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
+  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Este
+    software copylefted tiene licencia libre AGPL-3.0.'
 
   'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
     ¿Encontraste un bug? ¿Quieres sugerir una nueva característica? ¿Quieres ayudar?
@@ -254,7 +262,7 @@ Channel:
     This channel does not currently have any playlists: 'Este canal no tiene ninguna
       lista de reproducción actualmente'
     Sort Types:
-      Last Video Added: ''
+      Last Video Added: 'Último Vídeo Añadido'
       Newest: 'Mas nuevo'
       Oldest: 'Mas viejo'
   About:
@@ -321,13 +329,13 @@ Videos:
   #& Sort By
   Sort By:
     Newest: 'Mas nuevo'
-    Oldest: ''
+    Oldest: 'Mas viejo'
     #& Most Popular
 #& Playlists
 Playlist:
   #& About
   View Full Playlist: 'Ver lista de reproducción completa'
-  Videos: ''
+  Videos: 'Videos'
   View: ''
   Views: ''
   Last Updated On: ''
@@ -344,11 +352,11 @@ Playlist:
 Toggle Theatre Mode: ''
 Change Format:
   Change Video Formats: 'Cambia formatos de vídeo'
-  Use Dash Formats: ''
+  Use Dash Formats: 'Usa formatos DASH'
   Use Legacy Formats: ''
   Use Audio Formats: 'Usa formatos de audio'
 Share:
-  Share Video: ''
+  Share Video: 'Compartir Video'
   Copy Link: ''
   Open Link: ''
   Copy Embed: ''
@@ -361,18 +369,19 @@ Share:
 Mini Player: ''
 Comments:
   Comments: 'Comentarios'
-  Click to View Comments: ''
+  Click to View Comments: 'Presione para Ver Comentarios'
   Getting comment replies, please wait: 'Recibiendo respuestas de comentarios, por
     favor espere'
-  Show Comments: ''
+  Show Comments: 'Mostrar comentarios'
   Hide Comments: 'Esconde comentarios'
   # Context: View 10 Replies, View 1 Reply
   View: ''
-  Hide: ''
-  Replies: ''
-  Reply: ''
-  There are no comments available for this video: ''
-  Load More Comments: ''
+  Hide: 'Esconde'
+  Replies: 'Respuestas'
+  Reply: 'Responde'
+  There are no comments available for this video: 'No hay comentarios disponibles
+    para este video'
+  Load More Comments: 'Cargar Más Comentarios'
 Up Next: ''
 
 # Toast Messages
@@ -380,7 +389,7 @@ Local API Error (Click to copy): ''
 Invidious API Error (Click to copy): ''
 Falling back to Invidious API: ''
 Falling back to the local API: ''
-Subscriptions have not yet been implemented: ''
+Subscriptions have not yet been implemented: 'Las suscripciones aún no se han implementado'
 Loop is now disabled: ''
 Loop is now enabled: ''
 Shuffle is now disabled: ''
@@ -391,5 +400,6 @@ Playing next video in 5 seconds.  Click to cancel: ''
 Canceled next video autoplay: ''
 'The playlist has ended.  Enable loop to continue playing': ''
 
-Yes: ''
-No: ''
+Yes: 'Sí'
+No: 'No'
+Locale Name: Español
