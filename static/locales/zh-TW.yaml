@@ -185,22 +185,22 @@ Settings:
     Clear History:
       Clear History: '清除曆史'
       # On Click
-      Are you sure you want to delete your history?: '確認移除您的曆史？'
+      Are you sure you want to delete your history?: '您確認想移除您的曆史？'
       #& Yes
       #& No
     Clear Subscriptions:
       Clear Subscriptions: '清除訂閱'
       # On Click
-      Are you sure you want to remove all subscriptions?: '確定要移除所有訂閱？'
+      Are you sure you want to remove all subscriptions?: '您確定想移除所有訂閱？'
       #& Yes
       #& No
 
   Privacy Settings:
     Watch history has been cleared: 觀看歷史紀錄已被清除
-    Are you sure you want to remove your entire watch history?: 您確定您想要移除您全部的觀看紀錄？
+    Are you sure you want to remove your entire watch history?: 您確定您想移除您全部的觀看紀錄？
     Remove Watch History: 移除觀看歷史紀錄
     Search cache has been cleared: 搜尋快取已被清除
-    Are you sure you want to clear out your search cache?: 您確定您想要清除您的搜尋快取？
+    Are you sure you want to clear out your search cache?: 您確定您想清除您的搜尋快取？
     Clear Search Cache: 清除搜尋快取
     Save Watched Progress: 儲存觀看進度
     Remember History: 記住歷史紀錄
