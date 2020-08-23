@@ -70,7 +70,7 @@ Subscriptions:
   Latest Subscriptions: Latest Subscriptions
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Your
     Subscription list is currently empty. Start adding subscriptions to see them here.
-  'Getting Subscriptions.  Please wait.': Getting Subscriptions.  Please wait.
+  'Getting Subscriptions.  Please wait.': Getting Subscriptions. Please wait.
 Trending: Trending
 Most Popular: Most Popular
 Playlists: Playlists
@@ -170,10 +170,12 @@ Settings:
     Remember History: Remember History
     Save Watched Progress: Save Watched Progress
     Clear Search Cache: Clear Search Cache
-    Are you sure you want to clear out your search cache?: Are you sure you want to clear out your search cache?
+    Are you sure you want to clear out your search cache?: Are you sure you want to
+      clear out your search cache?
     Search cache has been cleared: Search cache has been cleared
     Remove Watch History: Remove Watch History
-    Are you sure you want to remove your entire watch history?: Are you sure you want to remove your entire watch history?
+    Are you sure you want to remove your entire watch history?: Are you sure you want
+      to remove your entire watch history?
     Watch history has been cleared: Watch history has been cleared
   Subscription Settings:
     Subscription Settings: Subscription Settings
