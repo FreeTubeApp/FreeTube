@@ -32,11 +32,11 @@ Forward: 'Avancer'
 Search / Go to URL: 'Rechercher / Aller à l''URL'
   # In Filter Button
 Search Filters:
-  Search Filters: 'Filtres de recherche->Filtres de recherche'
+  Search Filters: 'Filtres de recherche'
   Sort By:
     Sort By: 'Trier Par'
     Most Relevant: 'Le Plus Pertinent'
-    Rating: 'Note'
+    Rating: 'Avis'
     Upload Date: 'Date de Mise en Ligne'
     View Count: 'Nombre de Vues'
   Time:
@@ -207,6 +207,16 @@ Settings:
 
   Privacy Settings:
     Privacy Settings: Paramètres de confidentialité
+    Remember History: Enregistrer l'historique
+    Watch history has been cleared: L'historique a été effacé
+    Are you sure you want to remove your entire watch history?: Êtes-vous sûr de vouloir
+      supprimer tout votre historique ?
+    Search cache has been cleared: Le cache de recherche a été effacé
+    Are you sure you want to clear out your search cache?: Êtes-vous sûr de vouloir
+      effacer votre cache de recherche ?
+    Clear Search Cache: Effacer le cache de recherche
+    Save Watched Progress: Garder la progression de la vidéo
+    Remove Watch History: Effacer l'historique des vidéos regardées
 About:
   #On About page
   About: 'À propos'
@@ -275,14 +285,14 @@ Video:
   Remove From History: 'Retirer de l''historique'
   Video has been marked as watched: 'La vidéo a été marqué comme Vu'
   Video has been removed from your history: 'La vidéo a été retiré de votre historique'
-  Open in YouTube: 'Ouvrir dans Youtube'
+  Open in YouTube: 'Ouvrir sur Youtube'
   Copy YouTube Link: 'Copier le lien Youtube'
   Open YouTube Embedded Player: 'Ouvrir le lecteur Youtube intégré'
   Copy YouTube Embedded Player Link: 'Copier le lien du lecteur Youtube intégré'
-  Open in Invidious: 'Ouvrir dans Individious'
+  Open in Invidious: 'Ouvrir sur Individious'
   Copy Invidious Link: 'Copier le lien Individious'
-  View: 'Vu'
-  Views: 'Vus'
+  View: 'Vue'
+  Views: 'Vues'
   # Context is "X People Watching"
   Watching: 'En cours de lecture'
   Watched: 'Vu'
@@ -342,15 +352,15 @@ Playlist:
   #& About
   View Full Playlist: 'Afficher la liste de lecture complète'
   Videos: 'Vidéos'
-  View: 'Vu'
-  Views: 'Vus'
+  View: 'Vue'
+  Views: 'Vues'
   Last Updated On: 'Dernière mise à jour le'
   Share Playlist:
     Share Playlist: 'Partager la playlist'
     Copy YouTube Link: 'Copier le lien Youtube'
-    Open in YouTube: 'Ouvrir dans Youtube'
+    Open in YouTube: 'Ouvrir sur Youtube'
     Copy Invidious Link: 'Copier le lien Individious'
-    Open in Invidious: 'Ouvrir dans Individious'
+    Open in Invidious: 'Ouvrir sur Individious'
 
 # On Video Watch Page
 #* Published
@@ -389,7 +399,7 @@ Comments:
   There are no comments available for this video: 'Il n''y a aucun commentaire pour
     cette vidéo'
   Load More Comments: 'Charger plus de commentaires'
-Up Next: 'Suivante'
+Up Next: 'À suivre'
 
 # Toast Messages
 Local API Error (Click to copy): 'Erreur d''API locale (Cliquez pour copier)'
