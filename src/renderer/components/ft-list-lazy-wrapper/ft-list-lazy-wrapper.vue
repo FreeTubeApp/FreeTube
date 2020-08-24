@@ -17,7 +17,7 @@
       :data="data"
     />
     <ft-list-playlist
-      v-if="data.type === 'playlist' && visilbe"
+      v-if="data.type === 'playlist' && visible"
       :appearance="appearance"
       :data="data"
     />
