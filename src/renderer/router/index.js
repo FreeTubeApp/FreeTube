@@ -44,6 +44,7 @@ const router = new Router({
     },
     {
       path: '/settings/profile/new',
+      name: 'newProfile',
       meta: {
         title: 'New Profile',
         icon: 'fa-home'
@@ -52,6 +53,7 @@ const router = new Router({
     },
     {
       path: '/settings/profile/edit/:id',
+      name: 'editProfile',
       meta: {
         title: 'Edit Profile',
         icon: 'fa-home'

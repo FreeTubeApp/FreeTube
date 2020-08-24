@@ -31,7 +31,7 @@ const state = {
 
 const getters = {
   getProfileList: () => {
-    return state.historyCache
+    return state.profileList
   }
 }
 
@@ -39,12 +39,24 @@ const actions = {
   grabAllProfiles ({ dispatch, commit }, defaultName = null) {
     profileDb.find({}, (err, results) => {
       if (!err) {
+        console.log(results)
         if (results.length === 0) {
           dispatch('createDefaultProfile', defaultName)
         } else {
           commit('setProfileList', results)
         }
       }
+    })
+  },
+
+  grabProfileInfo (_, profileId) {
+    return new Promise((resolve, reject) => {
+      console.log(profileId)
+      profileDb.findOne({ _id: profileId }, (err, results) => {
+        if (!err) {
+          resolve(results)
+        }
+      })
     })
   },
 
@@ -59,7 +71,6 @@ const actions = {
       subscriptions: []
     }
     console.log(defaultProfile)
-    return
     profileDb.update({ _id: 'allChannels' }, defaultProfile, { upsert: true }, (err, numReplaced) => {
       if (!err) {
         dispatch('grabAllProfiles')
@@ -68,23 +79,23 @@ const actions = {
   },
 
   updateProfile ({ dispatch }, profile) {
-    profileDb.update({ name: profile.name }, profile, { upsert: true }, (err, numReplaced) => {
+    profileDb.update({ _id: profile._id }, profile, { upsert: true }, (err, numReplaced) => {
       if (!err) {
         dispatch('grabAllProfiles')
       }
     })
   },
 
-  removeFromHistory ({ dispatch }, videoId) {
-    historyDb.remove({ videoId: videoId }, (err, numReplaced) => {
+  insertProfile ({ dispatch }, profile) {
+    profileDb.insert(profile, (err, newDocs) => {
       if (!err) {
-        dispatch('grabHistory')
+        dispatch('grabAllProfiles')
       }
     })
   },
 
-  updateWatchProgress ({ dispatch }, videoData) {
-    historyDb.update({ videoId: videoData.videoId }, { $set: { watchProgress: videoData.watchProgress } }, { upsert: true }, (err, numReplaced) => {
+  removeProfile ({ dispatch }, videoId) {
+    profileDb.remove({ videoId: videoId }, (err, numReplaced) => {
       if (!err) {
         dispatch('grabHistory')
       }
@@ -93,8 +104,8 @@ const actions = {
 }
 
 const mutations = {
-  setHistoryCache (state, historyCache) {
-    state.historyCache = historyCache
+  setProfileList (state, profileList) {
+    state.profileList = profileList
   }
 }
 

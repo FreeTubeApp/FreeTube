@@ -8,6 +8,30 @@
   color: var(--tertiary-text-color);
 }
 
+.profileName {
+  width: 400px;
+}
+
+.bottomMargin {
+  margin-bottom: 30px;
+}
+
+.colorOption {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 200px 200px 200px 200px;
+  -webkit-border-radius: 200px 200px 200px 200px;
+}
+
+.initial {
+  font-size: 50px;
+  text-align: center;
+  position: relative;
+  bottom: 27px;
+}
+
 @media only screen and (max-width: 680px) {
   .card {
     width: 90%;

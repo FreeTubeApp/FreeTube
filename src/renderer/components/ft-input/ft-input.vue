@@ -20,6 +20,7 @@
       type="text"
       :placeholder="placeholder"
       @input="e => handleInput(e.target.value)"
+      :disabled="disabled"
     >
     <font-awesome-icon
       v-if="showArrow"

@@ -72,6 +72,10 @@ const getters = {
 
   getSearchSettings () {
     return state.searchSettings
+  },
+
+  getColorValues () {
+    return state.colorValues
   }
 }
 

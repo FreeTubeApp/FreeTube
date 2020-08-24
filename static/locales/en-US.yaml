@@ -249,6 +249,17 @@ About:
 Profile:
   All Channels: All Channels
   Profile Manager: Profile Manager
+  Create New Profile: Create New Profile
+  Edit Profile: Edit Profile
+  Color Picker: Color Picker
+  Custom Color: Custom Color
+  Profile Preview: Profile Preview
+  Create Profile: Create Profile
+  Update Profile: Update Profile
+  Make Default Profile: Make Default Profile
+  Delete Profile: Delete Profile
+  Are you sure you want to delete this profile?: Are you sure you want to delete this profile?
+  All subscriptions will also be deleted.: All subscriptions will also be deleted.
 #On Channel Page
 Channel:
   Subscriber: Subscriber

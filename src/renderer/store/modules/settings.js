@@ -36,6 +36,7 @@ const state = {
   listType: 'grid',
   thumbnailPreference: '',
   invidiousInstance: 'https://invidio.us',
+  defaultProfile: 'allChannels',
   barColor: false,
   enableSearchSuggestions: true,
   rememberHistory: true,
@@ -56,9 +57,7 @@ const state = {
   debugMode: false,
   disctractionFreeMode: false,
   hideWatchedSubs: false,
-  usingElectron: true,
-  profileList: [{ name: 'All Channels', color: '#304FFE' }],
-  defaultProfile: 'All Channels'
+  usingElectron: true
 }
 
 const getters = {
@@ -100,6 +99,10 @@ const getters = {
 
   getInvidiousInstance: () => {
     return state.invidiousInstance
+  },
+
+  getDefaultProfile: () => {
+    return state.defaultProfile
   },
 
   getRememberHistory: () => {
@@ -176,6 +179,9 @@ const actions = {
             case 'backendFallback':
               commit('setBackendFallback', result.value)
               break
+            case 'defaultProfile':
+              commit('setDefaultProfile', result.value)
+              break
             case 'checkForUpdates':
               commit('setCheckForUpdates', result.value)
               break
@@ -251,6 +257,14 @@ const actions = {
     settingsDb.update({ _id: 'invidiousInstance' }, { _id: 'invidiousInstance', value: invidiousInstance }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
         commit('setInvidiousInstance', invidiousInstance)
+      }
+    })
+  },
+
+  updateDefaultProfile ({ commit }, defaultProfile) {
+    settingsDb.update({ _id: 'defaultProfile' }, { _id: 'defaultProfile', value: defaultProfile }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setDefaultProfile', defaultProfile)
       }
     })
   },
@@ -448,6 +462,9 @@ const mutations = {
   setCurrentTheme (state, currentTheme) {
     state.barColor = currentTheme
   },
+  setDefaultProfile (state, defaultProfile) {
+    state.defaultProfile = defaultProfile
+  },
   setBackendFallback (state, backendFallback) {
     state.backendFallback = backendFallback
   },
@@ -537,9 +554,6 @@ const mutations = {
   },
   setProfileList (state, profileList) {
     state.profileList = profileList
-  },
-  setDefaultProfile (state, defaultProfile) {
-    state.defaultProfile = defaultProfile
   }
 }
 
