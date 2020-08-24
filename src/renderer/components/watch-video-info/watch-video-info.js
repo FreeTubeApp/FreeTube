@@ -100,7 +100,7 @@ export default Vue.extend({
     },
 
     subscribedText: function () {
-      return `${this.$t('Subscribe').toUpperCase()} ${this.subscriptionCountText}`
+      return `${this.$t('Channel.Subscribe').toUpperCase()} ${this.subscriptionCountText}`
     },
 
     dateString() {

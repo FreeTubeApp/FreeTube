@@ -40,7 +40,7 @@
           </span>
         </div>
         <ft-button
-          label="SUBSCRIBE"
+          :label="$t('Channel.Subscribe')"
           background-color="var(--primary-color)"
           text-color="var(--text-with-main-color)"
           class="subscribeButton"
@@ -78,7 +78,7 @@
             :value="videoSelectValues[0]"
             :select-names="videoSelectNames"
             :select-values="videoSelectValues"
-            placeholder="Sort By"
+            :placeholder="$t('Search Filters.Sort By.Sort By')"
             @change="videoSortBy = $event"
           />
           <ft-select
@@ -87,7 +87,7 @@
             :value="playlistSelectValues[0]"
             :select-names="playlistSelectNames"
             :select-values="playlistSelectValues"
-            placeholder="Sort By"
+            :placeholder="$t('Search Filters.Sort By.Sort By')"
             @change="playlistSortBy = $event"
           />
         </ft-flex-box>
