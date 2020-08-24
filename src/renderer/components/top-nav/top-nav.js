@@ -78,6 +78,9 @@ export default Vue.extend({
         const searchContainer = $('.searchContainer').get(0)
         searchContainer.blur()
         searchContainer.style.display = 'none'
+      } else {
+        const searchInput = $('.searchInput input').get(0)
+        searchInput.blur()
       }
 
       this.$store.dispatch('getVideoIdFromUrl', query).then((result) => {
