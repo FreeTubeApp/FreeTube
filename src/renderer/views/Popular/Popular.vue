@@ -13,6 +13,13 @@
         :data="shownResults"
       />
     </ft-card>
+    <ft-icon-button
+      icon="sync"
+      class="floatingTopButton"
+      :size="12"
+      theme="primary"
+      @click="fetchPopularInfo"
+    />
   </div>
 </template>
 
