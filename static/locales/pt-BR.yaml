@@ -204,6 +204,18 @@ Settings:
       #& Yes
       #& No
 
+  Privacy Settings:
+    Watch history has been cleared: Histórico de visualizações foi limpo
+    Are you sure you want to remove your entire watch history?: Queres realmente remover
+      todo o teu histórico de visualizações?
+    Remove Watch History: Remover histórico
+    Search cache has been cleared: O cache de buscas foi limpo
+    Are you sure you want to clear out your search cache?: Queres realmente limpar
+      teu cache de buscas?
+    Clear Search Cache: Limpar cache de buscas
+    Save Watched Progress: Salvar progresso de visualização
+    Remember History: Lembrar histórico
+    Privacy Settings: Configurações de privacidade
 About:
   #On About page
   About: 'Sobre'
@@ -405,3 +417,4 @@ Canceled next video autoplay: 'Auto-reprodução foi cancelada para o próximo v
 
 Yes: 'Sim'
 No: 'Não'
+Locale Name: Inglês
