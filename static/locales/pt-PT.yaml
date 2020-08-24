@@ -1,3 +1,5 @@
+# Put the name of your locale in the same language
+Locale Name: Português
 FreeTube: FreeTube
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -109,7 +111,7 @@ Settings:
         #! List countries
   Theme Settings:
     Theme Settings: Definições de Tema
-    Match Top Bar with Main Color: Cor da Barra Superior Igual à Cor Principal
+    Match Top Bar with Main Color: Utilizar Cor Principal Para Barra Superior
     Base Theme:
       Base Theme: Tema Base
       Black: Preto
@@ -165,6 +167,16 @@ Settings:
       1440p: 1440p
       4k: 4k
       8k: 8k
+  Privacy Settings:
+    Privacy Settings: Definições de Privacidade
+    Remember History: Lembrar Histórico
+    Save Watched Progress: Guardar onde ficou da última vez num vídeo
+    Clear Search Cache: Limpar Cache de Pesquisas
+    Are you sure you want to clear out your search cache?: Tem certeza de que quer apagar a cache de pesquisas?
+    Search cache has been cleared: Cache de pesquisas foi apagada
+    Remove Watch History: Limpar Histórico
+    Are you sure you want to remove your entire watch history?: Tem certeza de que quer apagar o seu histórico?
+    Watch history has been cleared: Histórico foi apagado
   Subscription Settings:
     Subscription Settings: Definições de Subscrições
     Hide Videos on Watch: Esconder Vídeos Visualisados
