@@ -70,7 +70,7 @@ export default Vue.extend({
           return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
         })
 
-        this.shownResults = this.shownResults.concat(returnData)
+        this.shownResults = returnData
         this.isLoading = false
         this.$store.commit('setTrendingCache', this.shownResults)
       }).catch((err) => {
@@ -114,7 +114,7 @@ export default Vue.extend({
           return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
         })
 
-        this.shownResults = this.shownResults.concat(returnData)
+        this.shownResults = returnData
         this.isLoading = false
         this.$store.commit('setTrendingCache', this.shownResults)
       }).catch((err) => {

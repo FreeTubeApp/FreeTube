@@ -5,7 +5,9 @@
   >
     <ft-card class="promptCard">
       <slot>
-        <h2 class="center">{{ label }}</h2>
+        <h2 class="center">
+          {{ label }}
+        </h2>
         <ft-flex-box>
           <ft-button
             v-for="(option, index) in optionNames"

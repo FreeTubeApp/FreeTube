@@ -14,6 +14,7 @@
       />
     </ft-card>
     <ft-icon-button
+      v-if="!isLoading"
       icon="sync"
       class="floatingTopButton"
       :size="12"
