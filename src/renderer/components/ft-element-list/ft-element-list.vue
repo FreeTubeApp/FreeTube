@@ -8,6 +8,7 @@
       appearance="result"
       :data="result"
       :first-screen="index < 16"
+      :layout="listType"
     />
   </ft-auto-grid>
 </template>

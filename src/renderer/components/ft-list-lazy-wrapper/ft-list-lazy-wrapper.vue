@@ -4,7 +4,10 @@
       callback: onVisibilityChanged,
       once: true,
     }"
-    class="lazyWrapper"
+    :class="{
+      grid: layout === 'grid',
+      list: layout === 'list'
+    }"
   >
     <ft-list-channel
       v-if="data.type === 'channel' && visible"
