@@ -202,6 +202,9 @@ export default Vue.extend({
 
     // For Invidious data, as duration is sent in seconds
     calculateVideoDuration: function (lengthSeconds) {
+      if (typeof lengthSeconds === 'string') {
+        return lengthSeconds
+      }
       let durationText = ''
       let time = lengthSeconds
       let hours = 0

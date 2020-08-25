@@ -92,7 +92,13 @@ export default Vue.extend({
           infoSource: 'local'
         }
 
-        this.playlistItems = result.items
+        this.playlistItems = result.items.map((video) => {
+          video.videoId = video.id
+          video.lengthSeconds = video.duration
+          video.author = video.author.name
+
+          return video
+        })
 
         this.isLoading = false
       }).catch((err) => {

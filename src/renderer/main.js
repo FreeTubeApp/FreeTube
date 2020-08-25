@@ -25,22 +25,16 @@ Vue.use(VueI18n)
 // List of locales approved for use
 const activeLocales = ['en-US', 'de-DE', 'es-MX', 'fi', 'fr-FR', 'ja', 'pt-BR', 'pt-PT', 'ru', 'vi', 'zh-CN', 'zh-TW']
 const messages = {}
+const fileLocation = isDev ? 'static/locales/' : `${__dirname}/static/locales/`
 
 // Take active locales and load respective YAML file
 activeLocales.forEach((locale) => {
   try {
     // File location when running in dev
-    const doc = yaml.safeLoad(fs.readFileSync(`static/locales/${locale}.yaml`))
+    const doc = yaml.safeLoad(fs.readFileSync(`${fileLocation}${locale}.yaml`))
     messages[locale] = doc
   } catch (e) {
     console.log(e)
-    try {
-      // File location when compiled
-      const doc = yaml.safeLoad(fs.readFileSync(`${__dirname}/static/locales/${locale}.yaml`))
-      messages[locale] = doc
-    } catch (e) {
-      console.log(e)
-    }
   }
 })
 

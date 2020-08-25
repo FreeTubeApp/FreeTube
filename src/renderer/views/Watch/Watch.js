@@ -700,9 +700,8 @@ export default Vue.extend({
     if (this.rememberHistory && !this.isLoading && !this.isLive) {
       const player = this.$refs.videoPlayer.player
 
-      if (typeof player !== 'undefined' && this.saveWatchedProgress) {
+      if (player !== null && this.saveWatchedProgress) {
         const currentTime = this.$refs.videoPlayer.player.currentTime()
-        console.log(currentTime)
         const payload = {
           videoId: this.videoId,
           watchProgress: currentTime
