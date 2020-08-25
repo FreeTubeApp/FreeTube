@@ -107,6 +107,9 @@ export default Vue.extend({
           return video
         })
 
+          return video
+        })
+
         this.isLoading = false
       }).catch((err) => {
         console.log(err)
