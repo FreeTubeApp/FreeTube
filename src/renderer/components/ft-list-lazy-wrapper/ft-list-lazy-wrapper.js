@@ -22,6 +22,10 @@ export default Vue.extend({
     firstScreen: {
       type: Boolean,
       required: true
+    },
+    layout: {
+      type: String,
+      default: 'grid'
     }
   },
   data: function () {
