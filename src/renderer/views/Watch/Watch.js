@@ -217,7 +217,7 @@ export default Vue.extend({
 
       this.$store
         .dispatch('ytGetVideoInformation', this.videoId)
-        .then(result => {
+        .then(async result => {
           console.log(result)
           this.videoTitle = result.videoDetails.title
           this.videoViewCount = parseInt(
@@ -327,7 +327,7 @@ export default Vue.extend({
               .captionTracks
 
           if (typeof captionTracks !== 'undefined') {
-            this.createCaptionUrls(captionTracks)
+            await this.createCaptionUrls(captionTracks)
           }
 
           this.isLoading = false
