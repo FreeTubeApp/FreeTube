@@ -653,11 +653,14 @@ export default Vue.extend({
         if (this.isDev) {
           fileLocation = `storyboards/${this.videoId}.vtt`
           uriSchema = fileLocation
+          // if the location does not exist, writeFileSync will not create the directory, so we have to do that manually
+          if (!fs.existsSync('storyboards/')) {
+            fs.mkdirSync('storyboards/')
+          }
         } else {
           fileLocation = `${userData}/storyboards/${this.videoId}.vtt`
           uriSchema = `file://${fileLocation}`
         }
-
         fs.writeFileSync(fileLocation, results)
 
         this.videoStoryboardSrc = uriSchema
