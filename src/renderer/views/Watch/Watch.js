@@ -241,6 +241,15 @@ export default Vue.extend({
           this.videoDislikeCount = result.videoDetails.dislikes
           this.isLive = result.player_response.videoDetails.isLiveContent
 
+          const captionTracks =
+            result.player_response.captions &&
+            result.player_response.captions.playerCaptionsTracklistRenderer
+              .captionTracks
+
+          if (typeof captionTracks !== 'undefined') {
+            await this.createCaptionUrls(captionTracks)
+          }
+
           if (this.videoDislikeCount === null) {
             this.videoDislikeCount = 0
           }
@@ -319,15 +328,6 @@ export default Vue.extend({
 
             const templateUrl = result.player_response.storyboards.playerStoryboardSpecRenderer.spec
             this.createLocalStoryboardUrls(templateUrl)
-          }
-
-          const captionTracks =
-            result.player_response.captions &&
-            result.player_response.captions.playerCaptionsTracklistRenderer
-              .captionTracks
-
-          if (typeof captionTracks !== 'undefined') {
-            await this.createCaptionUrls(captionTracks)
           }
 
           this.isLoading = false
