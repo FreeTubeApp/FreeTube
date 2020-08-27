@@ -342,7 +342,7 @@ export default Vue.extend({
             }
           })
           console.log(err)
-          if (!this.usingElectron || (this.backendPreference === 'local' && this.backendFallback)) {
+          if (!this.usingElectron || (this.backendPreference === 'local' && this.backendFallback && !err.includes('private'))) {
             this.showToast({
               message: this.$t('Falling back to Invidious API')
             })
