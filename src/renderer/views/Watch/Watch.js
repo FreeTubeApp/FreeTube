@@ -4,6 +4,7 @@ import xml2vtt from 'yt-xml2vtt'
 import $ from 'jquery'
 import fs from 'fs'
 import electron from 'electron'
+import ytDashGen from 'yt-dash-manifest-generator'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
@@ -55,6 +56,7 @@ export default Vue.extend({
       videoPublished: 0,
       videoStoryboardSrc: '',
       audioUrl: '',
+      dashSrc: [],
       activeSourceList: [],
       videoSourceList: [],
       audioSourceList: [],
@@ -139,23 +141,6 @@ export default Vue.extend({
 
     youtubeNoCookieEmbeddedFrame: function () {
       return `<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/${this.videoId}?rel=0' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>`
-    },
-
-    dashSrc: function () {
-      let url = `${this.invidiousInstance}/api/manifest/dash/id/${this.videoId}.mpd`
-
-      if (this.proxyVideos || !this.usingElectron) {
-        url = url + '?local=true'
-      }
-
-      return [
-        {
-          url: url,
-          type: 'application/dash+xml',
-          label: 'Dash',
-          qualityLabel: 'Auto'
-        }
-      ]
     }
   },
   watch: {
@@ -306,6 +291,7 @@ export default Vue.extend({
           } else {
             this.videoLengthSeconds = parseInt(result.videoDetails.lengthSeconds)
             this.videoSourceList = result.player_response.streamingData.formats
+            this.dashSrc = await this.createLocalDashManifest(result.formats)
 
             this.audioSourceList = result.player_response.streamingData.adaptiveFormats.filter((format) => {
               return format.mimeType.includes('audio')
@@ -617,6 +603,55 @@ export default Vue.extend({
           this.enableDashFormat()
         }
       }
+    },
+
+    createLocalDashManifest: function (formats) {
+      const xmlData = ytDashGen.generate_dash_file_from_formats(formats, this.videoLengthSeconds)
+      const userData = electron.remote.app.getPath('userData')
+      let fileLocation
+      let uriSchema
+      if (this.isDev) {
+        fileLocation = `dashFiles/${this.videoId}.xml`
+        uriSchema = fileLocation
+        // if the location does not exist, writeFileSync will not create the directory, so we have to do that manually
+        if (!fs.existsSync('dashFiles/')) {
+          fs.mkdirSync('dashFiles/')
+        }
+      } else {
+        fileLocation = `${userData}/dashFiles/${this.videoId}.xml`
+        uriSchema = `file://${fileLocation}`
+
+        if (!fs.existsSync(`${userData}/dashFiles/`)) {
+          fs.mkdirSync(`${userData}/dashFiles/`)
+        }
+      }
+      fs.writeFileSync(fileLocation, xmlData)
+      console.log('CREATED FILE')
+      return [
+        {
+          url: uriSchema,
+          type: 'application/dash+xml',
+          label: 'Dash',
+          qualityLabel: 'Auto'
+        }
+      ]
+    },
+
+    createInvidiousDashManifest: function () {
+      let url = `${this.invidiousInstance}/api/manifest/dash/id/${this.videoId}.mpd`
+
+      if (this.proxyVideos || !this.usingElectron) {
+        url = url + '?local=true'
+      }
+
+      return [
+        {
+          url: url,
+          type: 'application/dash+xml',
+          label: 'Dash',
+          qualityLabel: 'Auto'
+        }
+      ]
     },
 
     createLocalStoryboardUrls: function (templateUrl) {
