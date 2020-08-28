@@ -141,6 +141,7 @@ export default Vue.extend({
             if (video.duration !== null && video.duration !== '') {
               videoDuration = ytTrendScraper.calculate_length_in_seconds(video.duration)
             }
+            authId = authId[0].replace(/(user|channel)\//, '')
             returnDataInvidious.push(
               {
                 videoId: videoId,
