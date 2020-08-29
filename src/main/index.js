@@ -74,7 +74,8 @@ function createWindow () {
       nodeIntegration: true,
       nodeIntegrationInWorker: false,
       webSecurity: false,
-      backgroundThrottling: false
+      backgroundThrottling: false,
+      enableRemoteModule: true
     },
     show: false
   })

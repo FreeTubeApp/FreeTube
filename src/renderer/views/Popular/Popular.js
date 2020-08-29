@@ -2,13 +2,15 @@ import Vue from 'vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
+import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 
 export default Vue.extend({
   name: 'Popular',
   components: {
     'ft-loader': FtLoader,
     'ft-card': FtCard,
-    'ft-element-list': FtElementList
+    'ft-element-list': FtElementList,
+    'ft-icon-button': FtIconButton
   },
   data: function () {
     return {
@@ -16,35 +18,42 @@ export default Vue.extend({
       shownResults: []
     }
   },
+  computed: {
+    popularCache: function () {
+      return this.$store.getters.getPopularCache
+    }
+  },
   mounted: function () {
-    this.getTrendingInfo()
+    this.shownResults = this.popularCache
+    if (!this.shownResults || this.shownResults.length < 1) {
+      this.fetchPopularInfo()
+    }
   },
   methods: {
-    getTrendingInfo: function () {
-      this.isLoading = true
-
+    fetchPopularInfo: async function () {
       const searchPayload = {
         resource: 'popular',
         id: '',
         params: {}
       }
 
-      this.$store.dispatch('invidiousAPICall', searchPayload).then((result) => {
-        if (!result) {
-          return
-        }
-
-        console.log(result)
-
-        const returnData = result.filter((item) => {
-          return item.type === 'video' || item.type === 'shortVideo' || item.type === 'channel' || item.type === 'playlist'
-        })
-
-        this.shownResults = this.shownResults.concat(returnData)
-        this.isLoading = false
-      }).catch((err) => {
+      this.isLoading = true
+      const result = await this.$store.dispatch('invidiousAPICall', searchPayload).catch((err) => {
         console.log(err)
       })
+
+      if (!result) {
+        this.isLoading = false
+        return
+      }
+
+      console.log(result)
+
+      this.shownResults = result.filter((item) => {
+        return item.type === 'video' || item.type === 'shortVideo' || item.type === 'channel' || item.type === 'playlist'
+      })
+      this.isLoading = false
+      this.$store.commit('setPopularCache', this.shownResults)
     }
   }
 })

@@ -4,6 +4,12 @@
   margin-bottom: 60px;
 }
 
+.floatingTopButton {
+  position: absolute;
+  top: 70px;
+  right: 10px;
+}
+
 @media only screen and (max-width: 680px) {
   .card {
     width: 90%;

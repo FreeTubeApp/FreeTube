@@ -3,6 +3,8 @@ import FtToastEvents from '../../components/ft-toast/ft-toast-events'
 const state = {
   isSideNavOpen: false,
   sessionSearchHistory: [],
+  popularCache: null,
+  trendingCache: null,
   searchSettings: {
     sortBy: 'relevance',
     time: '',
@@ -40,6 +42,14 @@ const getters = {
 
   getSessionSearchHistory () {
     return state.sessionSearchHistory
+  },
+
+  getPopularCache () {
+    return state.popularCache
+  },
+
+  getTrendingCache () {
+    return state.trendingCache
   },
 
   getSearchSettings () {
@@ -259,6 +269,14 @@ const mutations = {
     } else {
       state.sessionSearchHistory.push(payload)
     }
+  },
+
+  setPopularCache (state, value) {
+    state.popularCache = value
+  },
+
+  setTrendingCache (state, value) {
+    state.trendingCache = value
   },
 
   setSearchSortBy (state, value) {

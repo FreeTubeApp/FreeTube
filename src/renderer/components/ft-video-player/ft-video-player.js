@@ -193,6 +193,11 @@ export default Vue.extend({
   watch: {
     sourceList: function () {
       this.determineFormatType()
+    },
+    captionList: function () {
+      this.player.caption({
+        data: this.captionList
+      })
     }
   },
   mounted: function () {

@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { ObserveVisibility } from 'vue-observe-visibility'
 import TopNav from './components/top-nav/top-nav.vue'
 import SideNav from './components/side-nav/side-nav.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
@@ -6,6 +7,8 @@ import $ from 'jquery'
 
 let useElectron
 let shell
+
+Vue.directive('observe-visibility', ObserveVisibility)
 
 if (window && window.process && window.process.type === 'renderer') {
   /* eslint-disable-next-line */

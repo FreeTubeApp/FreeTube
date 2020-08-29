@@ -132,12 +132,10 @@ const actions = {
   ytGetVideoInformation ({}, videoId) {
     return new Promise((resolve, reject) => {
       console.log('Getting video info please wait...')
-      ytdl.getInfo(videoId).then((result, err) => {
-        if (err) {
-          reject(err)
-        } else {
-          resolve(result)
-        }
+      ytdl.getInfo(videoId).then((result) => {
+        resolve(result)
+      }).catch((err) => {
+        reject(err)
       })
     })
   }

@@ -2,28 +2,14 @@
   <ft-auto-grid
     :grid="listType !== 'list'"
   >
-    <template
+    <ft-list-lazy-wrapper
       v-for="(result, index) in data"
-    >
-      <ft-list-channel
-        v-if="result.type === 'channel'"
-        :key="index"
-        appearance="result"
-        :data="result"
-      />
-      <ft-list-video
-        v-if="result.type === 'video' || result.type === 'shortVideo'"
-        :key="index"
-        appearance="result"
-        :data="result"
-      />
-      <ft-list-playlist
-        v-if="result.type === 'playlist'"
-        :key="index"
-        appearance="result"
-        :data="result"
-      />
-    </template>
+      :key="index"
+      appearance="result"
+      :data="result"
+      :first-screen="index < 16"
+      :layout="listType"
+    />
   </ft-auto-grid>
 </template>
 
