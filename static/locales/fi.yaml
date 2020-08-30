@@ -203,6 +203,18 @@ Settings:
       #& Yes
       #& No
 
+  Privacy Settings:
+    Watch history has been cleared: Katseluhistoria poistettiin
+    Are you sure you want to remove your entire watch history?: Oletko varma, että
+      haluat poistaa katseluhistorian?
+    Remove Watch History: Poista katseluhistoria
+    Search cache has been cleared: Hakuvälimuisti tyhjennettiin
+    Are you sure you want to clear out your search cache?: Oletko varma, että haluat
+      tyhjentää hakuvälimuistin?
+    Clear Search Cache: Tyhjennä hakuvälimuisti
+    Save Watched Progress: Tallenna tilanne katsotuissa
+    Remember History: Muista historia
+    Privacy Settings: Yksityisyysasetukset
 About:
   #On About page
   About: 'Tietoja'
@@ -397,3 +409,4 @@ Canceled next video autoplay: 'Peruttiin seuraavan videon toistaminen'
 
 Yes: 'Kyllä'
 No: 'Ei'
+Locale Name: suomi

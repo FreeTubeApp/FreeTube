@@ -64,8 +64,8 @@ Search Filters:
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: '購読'
-  Latest Subscriptions: '最新の登録'
+  Subscriptions: '登録'
+  Latest Subscriptions: '最近の登録'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'まだチャンネル登録がありません。登録するとここに表示されます。'
   'Getting Subscriptions.  Please wait.': '登録を取得中。お待ちください...'
 Trending: '急上昇'
@@ -83,14 +83,14 @@ Settings:
   Settings: '設定'
   General Settings:
     General Settings: '一般設定'
-    Fallback to Non-Preferred Backend on Failure: '問題発生時に非推奨バックエンドへフォールバック'
+    Fallback to Non-Preferred Backend on Failure: '問題発生時に非推奨のバックエンドへフォールバック'
     Enable Search Suggestions: '検索候補を有効化'
     Default Landing Page: '最初に表示するページ'
     Locale Preference: 'ローカル設定'
     Preferred API Backend:
       Preferred API Backend: 'API バックエンドの設定'
       Local API: 'ローカル API'
-      Invidious API: 'InvidiousのAPI'
+      Invidious API: 'Invidious の API'
     Video View Type:
       Video View Type: '動画表示の種類'
       Grid: 'グリッド'
@@ -98,7 +98,7 @@ Settings:
     Thumbnail Preference:
       Thumbnail Preference: 'サムネイルの設定'
       Default: '標準'
-      Beginning: '開始'
+      Beginning: '最初'
       Middle: '中間'
       End: '終了'
     'Invidious Instance (Default is https://invidio.us)': 'Invidious のインスタンス (初期値は
@@ -109,12 +109,12 @@ Settings:
     Theme Settings: 'テーマの設定'
     Match Top Bar with Main Color: '上部のバーをメインカラーに一致'
     Base Theme:
-      Base Theme: '基本テーマ'
+      Base Theme: 'ベースの配色'
       Black: '黒'
       Dark: 'ダーク'
       Light: 'ライト'
     Main Color Theme:
-      Main Color Theme: 'メインのカラーテーマ'
+      Main Color Theme: '第一配色'
       Red: '赤'
       Pink: 'ピンク'
       Purple: '紫'
@@ -131,11 +131,11 @@ Settings:
       Amber: 'アンバー'
       Orange: 'オレンジ'
       Deep Orange: '深いオレンジ'
-    Secondary Color Theme: '第2カラーテーマ'
+    Secondary Color Theme: '第二配色'
         #* Main Color Theme
   Player Settings:
     Player Settings: 'プレイヤーの設定'
-    Force Local Backend for Legacy Formats: 'レガシーフォーマットのためにローカルバックエンドを強制する'
+    Force Local Backend for Legacy Formats: '旧形式には強制的にローカルバックエンド'
     Remember History: '履歴を記憶'
     Play Next Video: '次の動画を再生'
     Turn on Subtitles by Default: '標準で字幕を有効化'
@@ -164,7 +164,7 @@ Settings:
       8k: '8K'
   Subscription Settings:
     Subscription Settings: 'チャンネル登録の設定'
-    Hide Videos on Watch: '視聴後の動画を非表示にする'
+    Hide Videos on Watch: '視聴済みの動画は非表示'
     Subscriptions Export Format:
       Subscriptions Export Format: '登録のエクスポート形式'
       #& Freetube
@@ -184,7 +184,7 @@ Settings:
     Use Tor / Proxy for API calls: 'API 呼び出しに Tor/Proxy を使用'
     TEST PROXY: 'プロキシのテスト'
     #& Invidious Instance (Default is https://invidio.us)
-    See Public Instances: 'パブリックインスタンスを参照'
+    See Public Instances: '公開インスタンスを参照'
     Clear History:
       Clear History: '履歴を消去'
       # On Click
@@ -192,9 +192,9 @@ Settings:
       #& Yes
       #& No
     Clear Subscriptions:
-      Clear Subscriptions: '購読を消去'
+      Clear Subscriptions: '登録を消去'
       # On Click
-      Are you sure you want to remove all subscriptions?: 'すべての購読を消去しますか？'
+      Are you sure you want to remove all subscriptions?: 'すべての登録を消去しますか？'
       #& Yes
       #& No
 
@@ -216,15 +216,15 @@ About:
     GPLv3+ の自由なライセンスです。'
 
   'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    バグ発報告や機能要望、サポートが必要であれば、私たちのGitHubをご覧ください。プルリクエストも歓迎します。
+    バグ発報告や機能要望、サポートが必要であれば、私たちの GitHub をご覧ください。プルリクエストも歓迎します。
 
   Thank you very much to the People and Projects that make FreeTube possible!: 'FreeTube
     を継続させてくれている人々とプロジェクトに感謝！'
 
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'チャットがしたいなら私たちの
+  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'チャットがしたければ私たちの
     Element / Matrix にご参加ください。参加前にルールのご確認を。'
 
-  'Looking for help? Check out our Wiki page.': 'ヘルプが必要なら 私たちの Wiki をご覧ください。'
+  'Looking for help? Check out our Wiki page.': 'ヘルプが必要なら私たちの Wiki をご覧ください。'
 
   Check out our Firefox extension!: '私たちの Firefox 拡張機能！'
 
@@ -261,7 +261,7 @@ Channel:
   About:
     About: '情報'
     Channel Description: 'チャンネルの説明'
-    Featured Channels: '目玉チャンネル'
+    Featured Channels: '注目チャンネル'
 Video:
   Open in YouTube: 'YouTube で開く'
   Copy YouTube Link: 'YouTube のリンクをコピー'
@@ -272,7 +272,7 @@ Video:
   View: '回再生'
   Views: '回再生'
   # Context is "X People Watching"
-  Watching: '監視中'
+  Watching: '視聴中'
   Watched: '視聴済み'
   # As in a Live Video
   Live: 'ライブ配信'
@@ -310,15 +310,15 @@ Video:
     Year: '年'
     Years: '年'
     Ago: '前'
-    Upcoming: 'すぐに初公開'
+    Upcoming: 'まもなく公開予定'
   Published on: '公開日'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % 前'
 #& Videos
   Video has been removed from your history: 動画は履歴から削除されました
   Remove From History: 履歴から削除
-  Video has been marked as watched: 動画の見たマークをした
-  Mark As Watched: 見たマークをする
+  Video has been marked as watched: 視聴済みにしました
+  Mark As Watched: 視聴済みにする
 Videos:
   #& Sort By
   Sort By:
@@ -338,7 +338,7 @@ Playlist:
     Copy YouTube Link: 'YouTube のリンクをコピー'
     Open in YouTube: 'YouTube で開く'
     Copy Invidious Link: 'Invidious のリンクをコピー'
-    Open in Invidious: 'Invidiousで開く'
+    Open in Invidious: 'Invidious で開く'
 
 # On Video Watch Page
 #* Published
@@ -374,7 +374,7 @@ Comments:
   Reply: '返信'
   There are no comments available for this video: 'この動画へのコメントはありません'
   Load More Comments: 'さらにコメントを読み込み'
-Up Next: '次に'
+Up Next: '次へ'
 
 # Toast Messages
 Local API Error (Click to copy): 'ローカル API エラー (クリックでコピー)'
@@ -394,4 +394,4 @@ Canceled next video autoplay: '次の動画の自動再生をキャンセルし�
 
 Yes: 'はい'
 No: 'いいえ'
-Locale Name: English
+Locale Name: '英語'

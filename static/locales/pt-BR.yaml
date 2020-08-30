@@ -35,9 +35,9 @@ Search Filters:
   Sort By:
     Sort By: 'Classificar por'
     Most Relevant: 'Relevância'
-    Rating: 'Classificação'
+    Rating: 'Avaliação'
     Upload Date: 'Data de envio'
-    View Count: 'Contagem de Visualizações'
+    View Count: 'Número de visualizações'
   Time:
     Time: 'Data do upload'
     Any Time: 'Qualquer hora'
@@ -137,7 +137,7 @@ Settings:
     Secondary Color Theme: 'Cor secundária'
         #* Main Color Theme
   Player Settings:
-    Player Settings: 'Configurações do Vídeo'
+    Player Settings: 'Configurações do vídeo'
     Force Local Backend for Legacy Formats: 'Forçar motor local para formatos legados'
     Remember History: 'Lembrar do histórico'
     Play Next Video: 'Reproduzir próximo vídeo'
@@ -204,6 +204,18 @@ Settings:
       #& Yes
       #& No
 
+  Privacy Settings:
+    Watch history has been cleared: Histórico de visualizações foi limpo
+    Are you sure you want to remove your entire watch history?: Queres realmente remover
+      todo o teu histórico de visualizações?
+    Remove Watch History: Remover histórico
+    Search cache has been cleared: O cache de buscas foi limpo
+    Are you sure you want to clear out your search cache?: Queres realmente limpar
+      teu cache de buscas?
+    Clear Search Cache: Limpar cache de buscas
+    Save Watched Progress: Salvar progresso de visualização
+    Remember History: Lembrar histórico
+    Privacy Settings: Configurações de privacidade
 About:
   #On About page
   About: 'Sobre'
@@ -240,9 +252,8 @@ Channel:
   Subscribers: 'Inscritos'
   Subscribe: 'Inscrever-se'
   Unsubscribe: 'Remover inscrição'
-  Search Channel: 'Buscar Canal'
-  Your search results have returned 0 results: 'Não tivemos nenhum resultado para
-    tua busca'
+  Search Channel: 'Buscar no canal'
+  Your search results have returned 0 results: 'Nenhum vídeo encontrado para a busca'
   Sort By: 'Filtrar por'
   Videos:
     Videos: 'Vídeos'
@@ -271,8 +282,8 @@ Video:
   Video has been removed from your history: 'O vídeo foi removido do teu histórico'
   Open in YouTube: 'Abrir no YouTube'
   Copy YouTube Link: 'Copiar link do YouTube'
-  Open YouTube Embedded Player: 'Abrir vídeo do YouTube embutido'
-  Copy YouTube Embedded Player Link: 'Copiar link do YouTube embutido'
+  Open YouTube Embedded Player: 'Abrir vídeo incorporado do YouTube'
+  Copy YouTube Embedded Player Link: 'Copiar link incorporado do YouTube'
   Open in Invidious: 'Abrir no Invidious'
   Copy Invidious Link: 'Copiar link do Invidious'
   View: 'Visualização'
@@ -307,18 +318,18 @@ Video:
     Oct: 'Out'
     Nov: 'Nov'
     Dec: 'Dez'
-    Second: 'Segundo'
-    Seconds: 'Segundos'
-    Hour: 'Hora'
-    Hours: 'Horas'
-    Day: 'Dia'
-    Days: 'Dias'
-    Week: 'Semana'
-    Weeks: 'Semanas'
-    Month: 'Mês'
-    Months: 'Meses'
-    Year: 'Ano'
-    Years: 'Anos'
+    Second: 'segundo'
+    Seconds: 'segundos'
+    Hour: 'hora'
+    Hours: 'horas'
+    Day: 'dia'
+    Days: 'dias'
+    Week: 'semana'
+    Weeks: 'semanas'
+    Month: 'mês'
+    Months: 'meses'
+    Year: 'ano'
+    Years: 'anos'
     Ago: 'Atrás'
     Upcoming: 'Futuramente'
   Published on: 'Publicado em'
@@ -359,19 +370,19 @@ Share:
   Share Video: 'Compartilhar vídeo'
   Copy Link: 'Copiar link'
   Open Link: 'Abrir link'
-  Copy Embed: 'Copiar embutido'
-  Open Embed: 'Abrir embutido'
+  Copy Embed: 'Copiar incorporado'
+  Open Embed: 'Abrir incorporado'
   # On Click
   Invidious URL copied to clipboard: 'O URL do Invidious está na área de transferência'
-  Invidious Embed URL copied to clipboard: 'O URL embutido do Invidious está na área
-    de transferência'
+  Invidious Embed URL copied to clipboard: 'O URL incorporado do Invidious está na
+    área de transferência'
   YouTube URL copied to clipboard: 'O URL do YouTube está na área de transferência'
-  YouTube Embed URL copied to clipboard: 'O URL embutido do YouTube está na área de
-    transferência'
+  YouTube Embed URL copied to clipboard: 'O URL incorporado do YouTube está na área
+    de transferência'
 Mini Player: 'Visualizador Pequeno'
 Comments:
   Comments: 'Comentários'
-  Click to View Comments: 'Clique para ver os Comentários'
+  Click to View Comments: 'Mostrar comentários'
   Getting comment replies, please wait: 'Buscando respostas, por favor, aguarde'
   Show Comments: 'Mostrar comentários'
   Hide Comments: 'Esconder comentários'
@@ -405,3 +416,4 @@ Canceled next video autoplay: 'Auto-reprodução foi cancelada para o próximo v
 
 Yes: 'Sim'
 No: 'Não'
+Locale Name: Inglês

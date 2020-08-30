@@ -40,7 +40,7 @@ Search Filters:
     View Count: 'Recuento de vistas'
   Time:
     Time: 'Tiempo'
-    Any Time: ''
+    Any Time: 'Cualquier momento'
     Last Hour: 'Última hora'
     Today: 'Hoy'
     This Week: 'Esta semana'
@@ -167,7 +167,7 @@ Settings:
       8k: '8k'
   Subscription Settings:
     Subscription Settings: 'Ajustes de suscripción'
-    Hide Videos on Watch: ''
+    Hide Videos on Watch: 'Ocultar videos vistos'
     Subscriptions Export Format:
       Subscriptions Export Format: 'Formato de exportación de suscripciones'
       #& Freetube
@@ -397,7 +397,7 @@ Comments:
   There are no comments available for this video: 'No hay comentarios disponibles
     para este video'
   Load More Comments: 'Cargar Más Comentarios'
-Up Next: ''
+Up Next: 'A continuación'
 
 # Toast Messages
 Local API Error (Click to copy): 'Error de la API local (Presione para copiar)'
@@ -408,13 +408,13 @@ Falling back to the local API: 'Recurriendo a la API local'
 Subscriptions have not yet been implemented: 'Las suscripciones aún no se han implementado'
 Loop is now disabled: 'El bucle esta desactivado'
 Loop is now enabled: 'El bucle esta activado'
-Shuffle is now disabled: ''
-Shuffle is now enabled: ''
+Shuffle is now disabled: 'La reproducción aleatoria se ha desactivado'
+Shuffle is now enabled: 'La reproducción aleatoria se ha activado'
 Playing Next Video: 'Reproduciendo el video siguiente'
 Playing Previous Video: 'Reproduciendo el video anterior'
 Playing next video in 5 seconds.  Click to cancel: 'Reproduciendo el video siguiente
   en 5 segundos. Presione para cancelar'
-Canceled next video autoplay: ''
+Canceled next video autoplay: 'Reproducción automática del siguiente video cancelado'
 'The playlist has ended.  Enable loop to continue playing': 'La lista de reproducción
   ha terminado. Activa el bucle para continuar reproduciendo'
 

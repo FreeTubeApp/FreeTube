@@ -70,7 +70,7 @@ Subscriptions:
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Deine
     Abonnementliste ist aktuell leer. Beginne Abonnements hinzuzufügen um sie hier
     zu sehen.
-  'Getting Subscriptions.  Please wait.': Rufe Abonnements ab.  Bitte warten.
+  'Getting Subscriptions.  Please wait.': Rufe Abonnements ab. Bitte warten.
 Trending: Trends
 Most Popular: Am beliebtesten
 Playlists: Playlists
@@ -217,7 +217,7 @@ Settings:
     Clear Search Cache: Suchzwischenspeicher löschen
     Save Watched Progress: Videofortschritt speichern
     Remember History: Verlauf speichern
-    Privacy Settings: Privatsphäre Einstellungen
+    Privacy Settings: Datenschutzeinstellungen
 About:
   #On About page
   About: Über
