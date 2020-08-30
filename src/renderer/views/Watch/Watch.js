@@ -252,8 +252,7 @@ export default Vue.extend({
           }
 
           if (this.isLive) {
-            this.showLegacyPlayer = true
-            this.showDashPlayer = false
+            this.enableLegacyFormat()
 
             this.videoSourceList = result.formats.filter((format) => {
               if (typeof (format.mimeType) !== 'undefined') {
@@ -343,6 +342,8 @@ export default Vue.extend({
       if (this.firstLoad) {
         this.isLoading = true
       }
+
+      this.dashSrc = this.createInvidiousDashManifest()
 
       this.$store
         .dispatch('invidiousGetVideoInformation', this.videoId)
