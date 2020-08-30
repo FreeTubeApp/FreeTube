@@ -290,7 +290,7 @@ export default Vue.extend({
           } else {
             this.videoLengthSeconds = parseInt(result.videoDetails.lengthSeconds)
             this.videoSourceList = result.player_response.streamingData.formats
-            this.dashSrc = await this.createLocalDashManifest(result.formats)
+            this.dashSrc = await this.createLocalDashManifest(result.player_response.streamingData.adaptiveFormats)
 
             this.audioSourceList = result.player_response.streamingData.adaptiveFormats.filter((format) => {
               return format.mimeType.includes('audio')
@@ -627,7 +627,6 @@ export default Vue.extend({
         }
       }
       fs.writeFileSync(fileLocation, xmlData)
-      console.log('CREATED FILE')
       return [
         {
           url: uriSchema,
