@@ -693,6 +693,9 @@ export default Vue.extend({
             fs.mkdirSync('storyboards/')
           }
         } else {
+          if (!fs.existsSync(`${userData}/storyboards/`)) {
+            fs.mkdirSync(`${userData}/storyboards/`)
+          }
           fileLocation = `${userData}/storyboards/${this.videoId}.vtt`
           uriSchema = `file://${fileLocation}`
         }
