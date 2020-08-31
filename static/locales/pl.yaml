@@ -66,11 +66,11 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Subskrypcje'
-  Latest Subscriptions: ''
+  Latest Subscriptions: 'Ostatnie subskrypcje'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Twoja
     lista subskrypcji jest obecnie pusta. Zacznij dodawać subskrypcje, aby zobaczyć
     je tutaj.'
-  'Getting Subscriptions.  Please wait.': 'Lołding subskrybcji. Proszę czekać...'
+  'Getting Subscriptions.  Please wait.': 'Pobieranie subskrypcji. Proszę czekać...'
 Trending: 'Na czasie'
 Most Popular: 'Najpopularniejsze'
 Playlists: 'Playlisty'
@@ -80,81 +80,83 @@ History:
   # On History Page
   History: 'Historia'
   Watch History: 'Historia oglądania'
-  Your history list is currently empty.: ''
+  Your history list is currently empty.: 'Twoja historia jest obecnie pusta.'
 Settings:
   # On Settings Page
   Settings: 'Ustawienia'
   General Settings:
     General Settings: 'Ustawienia ogólne'
-    Fallback to Non-Preferred Backend on Failure: ''
+    Fallback to Non-Preferred Backend on Failure: 'Wycofaj się do niepreferowanego
+      back-endu przy niepowodzeniu'
     Enable Search Suggestions: 'Włącz sugestie wyszukiwania'
-    Default Landing Page: ''
+    Default Landing Page: 'Domyślna karta startowa'
     Locale Preference: 'Ustawienia regionalne'
     Preferred API Backend:
-      Preferred API Backend: ''
-      Local API: ''
-      Invidious API: ''
+      Preferred API Backend: 'Preferowany back-end API'
+      Local API: 'Lokalne API'
+      Invidious API: 'API Invidious'
     Video View Type:
-      Video View Type: ''
-      Grid: ''
-      List: ''
+      Video View Type: 'Sposób prezentacji filmów'
+      Grid: 'Siatka'
+      List: 'Lista'
     Thumbnail Preference:
-      Thumbnail Preference: ''
-      Default: ''
-      Beginning: ''
-      Middle: ''
-      End: ''
-    'Invidious Instance (Default is https://invidio.us)': ''
-    Region for Trending: ''
+      Thumbnail Preference: 'Ustawienia miniaturek'
+      Default: 'Domyślnie'
+      Beginning: 'Początek'
+      Middle: 'Środek'
+      End: 'Koniec'
+    'Invidious Instance (Default is https://invidio.us)': 'Serwer Invidious (Domyślnie
+      jest https://invidio.us)'
+    Region for Trending: '„Na czasie” z obszaru'
         #! List countries
   Theme Settings:
-    Theme Settings: ''
-    Match Top Bar with Main Color: ''
+    Theme Settings: 'Ustawienia wyglądu'
+    Match Top Bar with Main Color: 'Dopasuj górną belkę do głównego koloru'
     Base Theme:
-      Base Theme: ''
-      Black: ''
-      Dark: ''
-      Light: ''
+      Base Theme: 'Bazowy motyw'
+      Black: 'Czarny'
+      Dark: 'Ciemny'
+      Light: 'Jasny'
     Main Color Theme:
-      Main Color Theme: ''
-      Red: ''
-      Pink: ''
-      Purple: ''
-      Deep Purple: ''
-      Indigo: ''
-      Blue: ''
-      Light Blue: ''
-      Cyan: ''
-      Teal: ''
-      Green: ''
-      Light Green: ''
-      Lime: ''
-      Yellow: ''
-      Amber: ''
-      Orange: ''
-      Deep Orange: ''
-    Secondary Color Theme: ''
+      Main Color Theme: 'Główny kolor motywu'
+      Red: 'Czerwony'
+      Pink: 'Różowy'
+      Purple: 'Fioletowy'
+      Deep Purple: 'Granatowy'
+      Indigo: 'Indygo'
+      Blue: 'Niebieski'
+      Light Blue: 'Jasnoniebieski'
+      Cyan: 'Turkusowy'
+      Teal: 'Morski'
+      Green: 'Zielony'
+      Light Green: 'Jasnozielony'
+      Lime: 'Limonkowy'
+      Yellow: 'Żółty'
+      Amber: 'Bursztynowy'
+      Orange: 'Pomarańczowy'
+      Deep Orange: 'Głęboka pomarańcza'
+    Secondary Color Theme: 'Drugi kolor motywu'
         #* Main Color Theme
   Player Settings:
-    Player Settings: ''
-    Force Local Backend for Legacy Formats: ''
+    Player Settings: 'Ustawienia odtwarzacza'
+    Force Local Backend for Legacy Formats: 'Wymuś lokalny back-end dla starych formatów'
     Remember History: ''
-    Play Next Video: ''
-    Turn on Subtitles by Default: ''
-    Autoplay Videos: ''
-    Proxy Videos Through Invidious: ''
-    Autoplay Playlists: ''
-    Enable Theatre Mode by Default: ''
-    Default Volume: ''
-    Default Playback Rate: ''
+    Play Next Video: 'Odtwórz następny film'
+    Turn on Subtitles by Default: 'Domyślnie odtwarzaj z napisami'
+    Autoplay Videos: 'Auto-odtwarzanie filmów'
+    Proxy Videos Through Invidious: 'Odtwarzaj filmy poprzez proxy Invidious'
+    Autoplay Playlists: 'Auto-odtwarzanie playlist'
+    Enable Theatre Mode by Default: 'Domyślnie włącz tryb kinowy'
+    Default Volume: 'Domyślna głośność'
+    Default Playback Rate: 'Domyślna szybkość odtwarzania'
     Default Video Format:
-      Default Video Format: ''
-      Dash Formats: ''
-      Legacy Formats: ''
-      Audio Formats: ''
+      Default Video Format: 'Domyślny format filmów'
+      Dash Formats: 'Formaty Dash'
+      Legacy Formats: 'Stare formaty'
+      Audio Formats: 'Formaty audio'
     Default Quality:
-      Default Quality: ''
-      Auto: ''
+      Default Quality: 'Domyślna jakość'
+      Auto: 'Auto'
       144p: ''
       240p: ''
       360p: ''
@@ -165,10 +167,10 @@ Settings:
       4k: ''
       8k: ''
   Subscription Settings:
-    Subscription Settings: ''
-    Hide Videos on Watch: ''
+    Subscription Settings: 'Ustawienia subskrypcji'
+    Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
     Subscriptions Export Format:
-      Subscriptions Export Format: ''
+      Subscriptions Export Format: 'Format exportu subskrypcji'
       #& Freetube
       Newpipe: ''
       OPML: ''
@@ -198,6 +200,18 @@ Settings:
       #& Yes
       #& No
 
+  Privacy Settings:
+    Watch history has been cleared: Historia oglądania została wyczyszczona
+    Are you sure you want to remove your entire watch history?: Jesteś pewny, że chcesz
+      usunąć całą historie oglądania?
+    Remove Watch History: Usuń historie oglądania
+    Search cache has been cleared: Plik cache wyszukiwań został wyczyszczony
+    Are you sure you want to clear out your search cache?: Jesteś pewny, że chcesz
+      wyczyścić plik cache wyszukiwań?
+    Clear Search Cache: Wyczyść plik cache wyszukiwań
+    Save Watched Progress: Zapisuj postęp odtwarzania
+    Remember History: Pamiętaj historię
+    Privacy Settings: Ustawienia prywatności
 About:
   #On About page
   About: ''
@@ -230,17 +244,18 @@ Channel:
   Your search results have returned 0 results: ''
   Sort By: ''
   Videos:
-    Videos: ''
-    This channel does not currently have any videos: ''
+    Videos: 'Filmy'
+    This channel does not currently have any videos: 'Ten kanał nie ma obecnie żadnych
+      filmów'
     Sort Types:
-      Newest: ''
-      Oldest: ''
-      Most Popular: ''
+      Newest: 'Najnowsze'
+      Oldest: 'Najstarsze'
+      Most Popular: 'Najpopularniejsze'
   Playlists:
     Playlists: ''
     This channel does not currently have any playlists: ''
     Sort Types:
-      Last Video Added: ''
+      Last Video Added: 'Ostatnio dodany film'
       Newest: ''
       Oldest: ''
   About:
@@ -248,16 +263,16 @@ Channel:
     Channel Description: ''
     Featured Channels: ''
 Video:
-  Mark As Watched: ''
-  Remove From History: ''
-  Video has been marked as watched: ''
-  Video has been removed from your history: ''
-  Open in YouTube: ''
-  Copy YouTube Link: ''
-  Open YouTube Embedded Player: ''
-  Copy YouTube Embedded Player Link: ''
-  Open in Invidious: ''
-  Copy Invidious Link: ''
+  Mark As Watched: 'Oznacz jako obejrzany'
+  Remove From History: 'Usuń z historii'
+  Video has been marked as watched: 'Film został oznaczony jako obejrzany'
+  Video has been removed from your history: 'Film został usunięty z twojej historii'
+  Open in YouTube: 'Otwórz na stronie YouTube'
+  Copy YouTube Link: 'Skopiuj link do strony YouTube'
+  Open YouTube Embedded Player: 'Otwórz odtwarzacz YouTube'
+  Copy YouTube Embedded Player Link: 'Skopiuj link do odtwarzacza YouTube'
+  Open in Invidious: 'Otwórz na stronie Invidious'
+  Copy Invidious Link: 'Skopiuj link do strony Invidious'
   View: ''
   Views: ''
   # Context is "X People Watching"
@@ -322,7 +337,7 @@ Playlist:
     Copy YouTube Link: ''
     Open in YouTube: ''
     Copy Invidious Link: ''
-    Open in Invidious: ''
+    Open in Invidious: 'Otwórz w Invidious'
 
 # On Video Watch Page
 #* Published
@@ -374,7 +389,8 @@ Playing Next Video: ''
 Playing Previous Video: ''
 Playing next video in 5 seconds.  Click to cancel: ''
 Canceled next video autoplay: ''
-'The playlist has ended.  Enable loop to continue playing': ''
+'The playlist has ended.  Enable loop to continue playing': 'Playlista się zakończyła.
+  Włącz zapętlanie by kontynuować odtwarzanie'
 
 Yes: ''
 No: ''
