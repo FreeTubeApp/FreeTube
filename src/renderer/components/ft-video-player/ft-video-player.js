@@ -7,7 +7,7 @@ import $ from 'jquery'
 // Need to expirement with both of them to see which one will work best.
 import videojs from 'video.js'
 import qualitySelector from '@silvermine/videojs-quality-selector'
-import 'videojs-vtt-thumbnails'
+import 'videojs-vtt-thumbnails-fork'
 import 'videojs-contrib-quality-levels'
 import 'videojs-http-source-selector'
 // import mediaelement from 'mediaelement'
