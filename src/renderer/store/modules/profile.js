@@ -25,13 +25,23 @@ const profileDb = new Datastore({
 })
 
 const state = {
-  profileList: [],
-  activeProfile: 'allChannels'
+  profileList: [{
+    _id: 'allChannels',
+    name: 'All Channels',
+    bgColor: '#000000',
+    textColor: '#FFFFFF',
+    subscriptions: []
+  }],
+  activeProfile: 0
 }
 
 const getters = {
   getProfileList: () => {
     return state.profileList
+  },
+
+  getActiveProfile: () => {
+    return state.activeProfile
   }
 }
 
@@ -39,11 +49,23 @@ const actions = {
   grabAllProfiles ({ dispatch, commit }, defaultName = null) {
     profileDb.find({}, (err, results) => {
       if (!err) {
-        console.log(results)
         if (results.length === 0) {
           dispatch('createDefaultProfile', defaultName)
         } else {
-          commit('setProfileList', results)
+          // We want the primary profile to always be first
+          // So sort with that then sort alphabetically by profile name
+          const profiles = results.sort((a, b) => {
+            if (a._id === 'allChannels') {
+              return -1
+            }
+
+            if (b._id === 'allChannels') {
+              return 1
+            }
+
+            return b.name - a.name
+          })
+          commit('setProfileList', profiles)
         }
       }
     })
@@ -94,18 +116,25 @@ const actions = {
     })
   },
 
-  removeProfile ({ dispatch }, videoId) {
-    profileDb.remove({ videoId: videoId }, (err, numReplaced) => {
+  removeProfile ({ dispatch }, profileId) {
+    profileDb.remove({ _id: profileId }, (err, numReplaced) => {
       if (!err) {
-        dispatch('grabHistory')
+        dispatch('grabAllProfiles')
       }
     })
+  },
+
+  updateActiveProfile ({ commit }, index) {
+    commit('setActiveProfile', index)
   }
 }
 
 const mutations = {
   setProfileList (state, profileList) {
     state.profileList = profileList
+  },
+  setActiveProfile (state, activeProfile) {
+    state.activeProfile = activeProfile
   }
 }
 

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtSearchFilters from '../ft-search-filters/ft-search-filters.vue'
+import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
 import $ from 'jquery'
 import router from '../../router/index.js'
 import debounce from 'lodash.debounce'
@@ -10,7 +11,8 @@ export default Vue.extend({
   name: 'TopNav',
   components: {
     FtInput,
-    FtSearchFilters
+    FtSearchFilters,
+    FtProfileSelector
   },
   data: () => {
     return {

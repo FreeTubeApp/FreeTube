@@ -335,6 +335,8 @@ Video:
     Dec: Dec
     Second: Second
     Seconds: Seconds
+    Minute: Minute
+    Minutes: Minutes
     Hour: Hour
     Hours: Hours
     Day: Day

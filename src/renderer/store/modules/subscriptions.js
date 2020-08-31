@@ -1,61 +1,40 @@
-import Datastore from 'nedb'
-
-let dbLocation
-
-if (window && window.process && window.process.type === 'renderer') {
-  // Electron is being used
-  let dbLocation = localStorage.getItem('dbLocation')
-
-  if (dbLocation === null) {
-    const electron = require('electron')
-    dbLocation = electron.remote.app.getPath('userData')
-  }
-
-  dbLocation += '/subscriptions.db'
-} else {
-  dbLocation = 'subscriptions.db'
-}
-
-const subDb = new Datastore({
-  filename: dbLocation,
-  autoload: true
-})
+import ytch from 'yt-channel-info'
 
 const state = {
-  subscriptions: []
+  subscriptions: [],
+  profileSubscriptions: {
+    activeProfile: 0,
+    videoList: []
+  }
 }
 
-const mutations = {
-  addSubscription (state, payload) {
-    state.subscriptions.push(payload)
+const getters = {
+  getSubscriptions: () => {
+    return state.subscriptions
   },
-  setSubscriptions (state, payload) {
-    state.subscriptions = payload
+  getProfileSubscriptions: () => {
+    return state.profileSubscriptions
   }
 }
 
 const actions = {
-  addSubscriptions ({ commit }, payload) {
-    subDb.insert(payload, (err, payload) => {
-      if (!err) {
-        commit('addSubscription', payload)
-      }
-    })
+  updateSubscriptions ({ commit }, subscriptions) {
+    commit('setSubscriptions', subscriptions)
   },
-  getSubscriptions ({ commit }, payload) {
-    subDb.find({}, (err, payload) => {
-      if (!err) {
-        commit('setSubscriptions', payload)
-      }
-    })
-  },
-  removeSubscription ({ commit }, channelId) {
-    subDb.remove({ channelId: channelId }, {}, () => {
-      commit('setSubscriptions', this.state.subscriptions.filter(sub => sub.channelId !== channelId))
-    })
+  updateProfileSubscriptions ({ commit }, subscriptions) {
+    commit('setProfileSubscriptions', subscriptions)
   }
 }
-const getters = {}
+
+const mutations = {
+  setSubscriptions (state, subscriptions) {
+    state.subscriptions = subscriptions
+  },
+  setProfileSubscriptions (state, profileSubscriptions) {
+    state.profileSubscriptions = profileSubscriptions
+  }
+}
+
 export default {
   state,
   getters,

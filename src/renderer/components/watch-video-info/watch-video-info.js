@@ -79,6 +79,14 @@ export default Vue.extend({
       return this.$store.getters.getUsingElectron
     },
 
+    profileList: function () {
+      return this.$store.getters.getProfileList
+    },
+
+    activeProfile: function () {
+      return this.$store.getters.getActiveProfile
+    },
+
     formatTypeNames: function () {
       return [
         this.$t('Change Format.Use Dash Formats').toUpperCase(),
@@ -99,8 +107,24 @@ export default Vue.extend({
       return this.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ` ${this.$t('Video.Views').toLowerCase()}`
     },
 
+    isSubscribed: function () {
+      const subIndex = this.profileList[this.activeProfile].subscriptions.findIndex((channel) => {
+        return channel.id === this.channelId
+      })
+
+      if (subIndex === -1) {
+        return false
+      } else {
+        return true
+      }
+    },
+
     subscribedText: function () {
-      return `${this.$t('Channel.Subscribe').toUpperCase()} ${this.subscriptionCountText}`
+      if (this.isSubscribed) {
+        return `${this.$t('Channel.Unsubscribe').toUpperCase()} ${this.subscriptionCountText}`
+      } else {
+        return `${this.$t('Channel.Subscribe').toUpperCase()} ${this.subscriptionCountText}`
+      }
     },
 
     dateString() {
@@ -116,9 +140,74 @@ export default Vue.extend({
     },
 
     handleSubscription: function () {
-      this.showToast({
-        message: 'Subscriptions have not yet been implemented'
-      })
+      const currentProfile = JSON.parse(JSON.stringify(this.profileList[this.activeProfile]))
+      const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
+
+      if (this.isSubscribed) {
+        currentProfile.subscriptions = currentProfile.subscriptions.filter((channel) => {
+          return channel.id !== this.channelId
+        })
+
+        this.updateProfile(currentProfile)
+        this.showToast({
+          message: 'Channel has been removed from your subscriptions'
+        })
+
+        if (this.activeProfile === 0) {
+          // Check if a subscription exists in a different profile.
+          // Remove from there as well.
+          let duplicateSubscriptions = 0
+
+          this.profileList.forEach((profile) => {
+            if (profile._id === 'allChannels') {
+              return
+            }
+            const parsedProfile = JSON.parse(JSON.stringify(profile))
+            const index = parsedProfile.subscriptions.findIndex((channel) => {
+              return channel.id === this.channelId
+            })
+
+            if (index !== -1) {
+              duplicateSubscriptions++
+
+              parsedProfile.subscriptions = parsedProfile.subscriptions.filter((x) => {
+                return x.id !== this.channelId
+              })
+
+              this.updateProfile(parsedProfile)
+            }
+          })
+
+          if (duplicateSubscriptions > 0) {
+            this.showToast({
+              message: `Removed subscription from ${duplicateSubscriptions} other channel(s)`
+            })
+          }
+        }
+      } else {
+        const subscription = {
+          id: this.channelId,
+          name: this.channelName,
+          thumbnail: this.channelThumbnail
+        }
+        currentProfile.subscriptions.push(subscription)
+
+        this.updateProfile(currentProfile)
+        this.showToast({
+          message: 'Added channel to your subscriptions'
+        })
+
+        if (this.activeProfile !== 0) {
+          const index = primaryProfile.subscriptions.findIndex((channel) => {
+            return channel.id === this.channelId
+          })
+
+          if (index === -1) {
+            primaryProfile.subscriptions.push(subscription)
+            this.updateProfile(primaryProfile)
+          }
+        }
+      }
     },
 
     handleFormatChange: function (format) {
@@ -136,7 +225,8 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'showToast'
+      'showToast',
+      'updateProfile'
     ])
   }
 })

@@ -16,6 +16,12 @@
   margin-bottom: 30px;
 }
 
+.colorOptions {
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
 .colorOption {
   width: 100px;
   height: 100px;

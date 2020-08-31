@@ -8,6 +8,12 @@
   color: var(--tertiary-text-color);
 }
 
+.profileList {
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
 @media only screen and (max-width: 680px) {
   .card {
     width: 90%;

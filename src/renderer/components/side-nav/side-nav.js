@@ -12,11 +12,35 @@ export default Vue.extend({
   computed: {
     isOpen: function () {
       return this.$store.getters.getIsSideNavOpen
+    },
+    profileList: function () {
+      return this.$store.getters.getProfileList
+    },
+    activeProfile: function () {
+      return this.$store.getters.getActiveProfile
+    },
+    activeSubscriptions: function () {
+      const profile = JSON.parse(JSON.stringify(this.profileList[this.activeProfile]))
+      return profile.subscriptions.sort((a, b) => {
+        const nameA = a.name.toLowerCase()
+        const nameB = b.name.toLowerCase()
+        if (nameA < nameB) {
+          return -1
+        }
+        if (nameA > nameB) {
+          return 1
+        }
+        return 0
+      })
     }
   },
   methods: {
     navigate: function (route) {
       router.push('/' + route)
+    },
+
+    goToChannel: function (id) {
+      this.$router.push({ path: `/channel/${id}` })
     }
   }
 })

@@ -5,6 +5,8 @@ const state = {
   sessionSearchHistory: [],
   popularCache: null,
   trendingCache: null,
+  showProgressBar: false,
+  progressBarPercentage: 0,
   searchSettings: {
     sortBy: 'relevance',
     time: '',
@@ -76,10 +78,22 @@ const getters = {
 
   getColorValues () {
     return state.colorValues
+  },
+
+  getShowProgressBar () {
+    return state.showProgressBar
+  },
+
+  getProgressBarPercentage () {
+    return state.progressBarPercentage
   }
 }
 
 const actions = {
+  updateShowProgressBar ({ commit }, value) {
+    commit('setShowProgressBar', value)
+  },
+
   getRandomColorClass () {
     const randomInt = Math.floor(Math.random() * state.colorClasses.length)
     return state.colorClasses[randomInt]
@@ -103,6 +117,33 @@ const actions = {
     } else {
       return '#FFFFFF'
     }
+  },
+
+  calculatePublishedDate(_, publishedText) {
+    const date = new Date()
+
+    const textSplit = publishedText.split(' ')
+    const timeFrame = textSplit[1]
+    const timeAmount = parseInt(textSplit[0])
+    let timeSpan = null
+
+    if (timeFrame.indexOf('second') > -1) {
+      timeSpan = timeAmount * 1000
+    } else if (timeFrame.indexOf('minute') > -1) {
+      timeSpan = timeAmount * 60000
+    } else if (timeFrame.indexOf('hour') > -1) {
+      timeSpan = timeAmount * 3600000
+    } else if (timeFrame.indexOf('day') > -1) {
+      timeSpan = timeAmount * 86400000
+    } else if (timeFrame.indexOf('week') > -1) {
+      timeSpan = timeAmount * 604800000
+    } else if (timeFrame.indexOf('month') > -1) {
+      timeSpan = timeAmount * 2592000000
+    } else if (timeFrame.indexOf('year') > -1) {
+      timeSpan = timeAmount * 31556952000
+    }
+
+    return date.getTime() - timeSpan
   },
 
   getVideoIdFromUrl (_, url) {
@@ -294,6 +335,14 @@ const actions = {
 const mutations = {
   toggleSideNav (state) {
     state.isSideNavOpen = !state.isSideNavOpen
+  },
+
+  setShowProgressBar (state, value) {
+    state.showProgressBar = value
+  },
+
+  setProgressBarPercentage (state, value) {
+    state.progressBarPercentage = value
   },
 
   setSessionSearchHistory (state, history) {

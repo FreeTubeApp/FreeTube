@@ -1,0 +1,65 @@
+.colorOption {
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 200px 200px 200px 200px;
+  -webkit-border-radius: 200px 200px 200px 200px;
+}
+
+.initial {
+  font-size: 25px;
+  text-align: center;
+  position: relative;
+  bottom: 27px;
+}
+
+#profileList {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  min-width: 250px;
+  height: 300px;
+  padding: 5px;
+  background-color: var(--card-bg-color);
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
+}
+
+#profileList:focus {
+  display: inline;
+  outline: none;
+}
+
+.profileWrapper {
+  margin-top: 60px;
+  height: 240px;
+  overflow-y: auto;
+}
+
+.profile {
+  cursor: pointer;
+}
+
+.profile:hover {
+  background-color: var(--side-nav-hover-color);
+}
+
+.profile .colorOption {
+  float: left;
+  position: relative;
+  bottom: 5px;
+}
+
+.profileListTitle {
+  position: absolute;
+  top: -15px;
+  left: 10px;
+}
+
+.profileSettings {
+  float: right;
+  position: absolute;
+  top: 10px;
+  right: 5px;
+}

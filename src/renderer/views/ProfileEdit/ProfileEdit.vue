@@ -20,7 +20,7 @@
         </ft-flex-box>
         <h3>{{ $t("Profile.Color Picker") }}</h3>
         <ft-flex-box
-          class="bottomMargin"
+          class="bottomMargin colorOptions"
         >
           <div
             v-for="(color, index) in colorValues"
@@ -69,22 +69,37 @@
         </ft-flex-box>
         <ft-flex-box>
           <ft-button
+            v-if="isNew"
+            :label="$t('Profile.Create Profile')"
+            @click="saveProfile"
+          />
+          <ft-button
+            v-if="!isNew"
             :label="$t('Profile.Update Profile')"
             @click="saveProfile"
           />
           <ft-button
+            v-if="!isNew"
             :label="$t('Profile.Make Default Profile')"
-            @click="saveProfile"
+            @click="setDefaultProfile"
           />
           <ft-button
+            v-if="profileId !== 'allChannels' && !isNew"
             :label="$t('Profile.Delete Profile')"
             text-color="var(--text-with-main-color)"
             background-color="var(--primary-color)"
-            @click="saveProfile"
+            @click="openDeletePrompt"
           />
         </ft-flex-box>
       </ft-card>
     </div>
+    <ft-prompt
+      v-if="showDeletePrompt"
+      :label="deletePromptLabel"
+      :option-names="deletePromptNames"
+      :option-values="deletePromptValues"
+      @click="handleDeletePrompt"
+    />
   </div>
 </template>
 

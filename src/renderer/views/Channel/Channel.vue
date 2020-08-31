@@ -40,7 +40,7 @@
           </span>
         </div>
         <ft-button
-          :label="$t('Channel.Subscribe')"
+          :label="subscribedText"
           background-color="var(--primary-color)"
           text-color="var(--text-with-main-color)"
           class="subscribeButton"
