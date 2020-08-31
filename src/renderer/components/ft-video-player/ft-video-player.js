@@ -236,7 +236,8 @@ export default Vue.extend({
         this.player.playbackRate(this.defaultPlayback)
 
         this.player.vttThumbnails({
-          src: this.storyboardSrc
+          src: this.storyboardSrc,
+          showTimestamp: true
         })
 
         if (this.useDash) {
