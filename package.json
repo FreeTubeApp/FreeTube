@@ -29,7 +29,7 @@
     "videojs-contrib-quality-levels": "^2.0.9",
     "videojs-http-source-selector": "^1.1.6",
     "videojs-replay": "^1.1.0",
-    "videojs-vtt-thumbnails-fork": "github:gilgusmaximus/videojs-vtt-thumbnails#build",
+    "videojs-vtt-thumbnails-freetube": "0.0.15",
     "vue": "^2.6.12",
     "vue-electron": "^1.0.6",
     "vue-i18n": "^8.21.0",
