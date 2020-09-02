@@ -71,6 +71,8 @@ Subscriptions:
     Abonnementliste ist aktuell leer. Beginne Abonnements hinzuzufügen um sie hier
     zu sehen.
   'Getting Subscriptions.  Please wait.': Rufe Abonnements ab. Bitte warten.
+  Refresh Subscriptions: Abonnements aktualisieren
+  Getting Subscriptions. Please wait.: Lade Abonnements. Bitte warten.
 Trending: Trends
 Most Popular: Am beliebtesten
 Playlists: Playlists
@@ -179,6 +181,7 @@ Settings:
     Import Subscriptions: Importiere Abonnements
     Export Subscriptions: Exportiere Abonnements
     How do I import my subscriptions?: Wie importiere ich meine Abonnements?
+    Fetch Feeds from RSS: Lade Feed von RSS
   Advanced Settings:
     Advanced Settings: Erweiterte Einstellungen
     Enable Debug Mode (Prints data to the console): Aktiviere Debug Modus (Gibt Daten
@@ -334,6 +337,8 @@ Video:
     Years: Jahren
     Ago: Vor
     Upcoming: Premiere bald
+    Minutes: Minuten
+    Minute: Minute
   Published on: Veröffentlicht am
   Publicationtemplate: vor $ % veröffentlicht
 
@@ -428,3 +433,27 @@ Canceled next video autoplay: Wiedergabe des nächsten Videos abgebrochen
 Yes: Ja
 No: Nein
 Locale Name: Deutsch
+Profile:
+  $ is now the active profile: $ ist jetzt dein aktives Profil
+  Your default profile has been changed to your primary profile: Dein Hauptprofil
+    wurde als Standardprofil festgelegt
+  Removed $ from your profiles: $ wurde aus deinen Profilen entfernt
+  Your default profile has been set to $: $ wurde als Standardprofil festgelegt
+  Profile has been created: Das Profil wurde erstellt
+  Profile has been updated: Das Profil wurde aktualisiert
+  Your profile name cannot be empty: Der Profilname darf nicht leer sein
+  Profile could not be found: Profil wurde nicht gefunden
+  All subscriptions will also be deleted.: Alle Abonnements werden ebenfalls gelöscht.
+  Are you sure you want to delete this profile?: Bist du sicher, dass du dieses Profil
+    löschen willst?
+  Delete Profile: Profil löschen
+  Make Default Profile: Als Standardprofil festlegen
+  Update Profile: Profil aktualisieren
+  Create Profile: Profil erstellen
+  Profile Preview: Profilvorschau
+  Custom Color: Benutzerdefinierte Farbe
+  Color Picker: Farbauswahl
+  Edit Profile: Profil bearbeiten
+  Create New Profile: Neues Profil erstellen
+  Profile Manager: Profilmanager
+  All Channels: Alle Kanäle
