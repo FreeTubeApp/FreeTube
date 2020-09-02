@@ -269,6 +269,10 @@ const actions = {
       return payload.publishText
     }
     const strings = payload.publishText.split(' ')
+    // filters out the streamed x hours ago and removes the streamed in order to keep the rest of the code working
+    if (strings[0].toLowerCase() === 'streamed') {
+      strings.shift()
+    }
     const singular = (strings[0] === '1')
     let publicationString = payload.templateString.replace('$', strings[0])
     switch (strings[1].substring(0, 2)) {
