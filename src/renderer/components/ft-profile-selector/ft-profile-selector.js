@@ -36,6 +36,16 @@ export default Vue.extend({
     }
   },
   mounted: function () {
+    setTimeout(() => {
+      const profileIndex = this.profileList.findIndex((profile) => {
+        return profile._id === this.defaultProfile
+      })
+
+      if (profileIndex !== -1) {
+        this.updateActiveProfile(profileIndex)
+      }
+    }, 100)
+
     $('#profileList').focusout(() => {
       $('#profileList')[0].style.display = 'none'
     })
@@ -65,8 +75,9 @@ export default Vue.extend({
         return
       }
       this.updateActiveProfile(index)
+      const message = this.$t('Profile.$ is now the active profile').replace('$', profile.name)
       this.showToast({
-        message: `${profile.name} is now the active profile`
+        message: message
       })
       $('#profileList').focusout()
     },

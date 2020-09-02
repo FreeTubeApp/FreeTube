@@ -3,6 +3,7 @@
     <general-settings />
     <theme-settings />
     <player-settings />
+    <subscription-settings />
     <privacy-settings />
   </div>
 </template>

@@ -10,20 +10,20 @@
     >
       <h3>{{ $t("Subscriptions.Subscriptions") }}</h3>
       <ft-flex-box
-        v-if="profileSubscriptions.videoList.length === 0"
+        v-if="activeVideoList.length === 0"
       >
         <p class="message">
-          {{ $t("History['Your history list is currently empty.']") }}
+          {{ $t("Subscriptions['Your Subscription list is currently empty. Start adding subscriptions to see them here.']") }}
         </p>
       </ft-flex-box>
       <ft-element-list
         v-else
-        :data="profileSubscriptions.videoList"
+        :data="activeVideoList"
       />
       <ft-flex-box
-        v-if="false"
       >
         <ft-button
+          v-if="videoList.length > dataLimit"
           label="Load More"
           background-color="var(--primary-color)"
           text-color="var(--text-with-main-color)"
@@ -31,6 +31,15 @@
         />
       </ft-flex-box>
     </ft-card>
+    <ft-icon-button
+      v-if="!isLoading"
+      icon="sync"
+      class="floatingTopButton"
+      :title="$t('Subscriptions.Refresh Subscriptions')"
+      :size="12"
+      theme="primary"
+      @click="getSubscriptions"
+    />
   </div>
 </template>
 

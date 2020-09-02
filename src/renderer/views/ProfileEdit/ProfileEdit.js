@@ -63,7 +63,7 @@ export default Vue.extend({
     this.isLoading = true
     const profileType = this.$route.name
 
-    this.deletePromptLabel = 'Are you sure you want to delete this profile?  All subscriptions in this profile will also be deleted.'
+    this.deletePromptLabel = `${this.$t('Profile.Are you sure you want to delete this profile?')} ${this.$t('Profile["All subscriptions will also be deleted."]')}`
 
     if (profileType === 'newProfile') {
       this.isNew = true
@@ -78,7 +78,7 @@ export default Vue.extend({
       this.grabProfileInfo(this.profileId).then((profile) => {
         if (profile === null) {
           this.showToast({
-            message: 'Profile could not be found'
+            message: this.$t('Profile.Profile could not be found')
           })
           this.$router.push({
             path: '/settings/profile/'
@@ -108,7 +108,7 @@ export default Vue.extend({
     saveProfile: function () {
       if (this.profileName === '') {
         this.showToast({
-          message: 'Your profile name cannot be empty'
+          message: this.$t('Profile.Your profile name cannot be empty')
         })
         return
       }
@@ -129,34 +129,36 @@ export default Vue.extend({
 
       if (this.isNew) {
         this.showToast({
-          message: 'Profile has been created'
+          message: this.$t('Profile.Profile has been created')
         })
         this.$router.push({
           path: '/settings/profile/'
         })
       } else {
         this.showToast({
-          message: 'Profile has been updated'
+          message: this.$t('Profile.Profile has been updated')
         })
       }
     },
 
     setDefaultProfile: function () {
       this.updateDefaultProfile(this.profileId)
+      const message = this.$t('Profile.Your default profile has been set to $').replace('$', this.profileName)
       this.showToast({
-        message: `Your default profile has been set to ${this.profileName}`
+        message: message
       })
     },
 
     deleteProfile: function () {
       this.removeProfile(this.profileId)
+      const message = this.$t('Profile.Removed $ from your profiles').replace('$', this.profileName)
       this.showToast({
-        message: `Removed ${this.profileName} from your profiles`
+        message: message
       })
       if (this.defaultProfile === this.profileId) {
         this.updateDefaultProfile('allChannels')
         this.showToast({
-          message: 'Your default profile has been set your Primary profile'
+          message: this.$t('Profile.Your default profile has been changed to your primary profile')
         })
       }
       if (this.activeProfile._id === this.profileId) {

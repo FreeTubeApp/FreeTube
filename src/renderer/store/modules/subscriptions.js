@@ -1,7 +1,5 @@
-import ytch from 'yt-channel-info'
-
 const state = {
-  subscriptions: [],
+  allSubscriptionsList: [],
   profileSubscriptions: {
     activeProfile: 0,
     videoList: []
@@ -9,8 +7,8 @@ const state = {
 }
 
 const getters = {
-  getSubscriptions: () => {
-    return state.subscriptions
+  getAllSubscriptionsList: () => {
+    return state.allSubscriptionsList
   },
   getProfileSubscriptions: () => {
     return state.profileSubscriptions
@@ -18,8 +16,8 @@ const getters = {
 }
 
 const actions = {
-  updateSubscriptions ({ commit }, subscriptions) {
-    commit('setSubscriptions', subscriptions)
+  updateAllSubscriptionsList ({ commit }, subscriptions) {
+    commit('setAllSubscriptionsList', subscriptions)
   },
   updateProfileSubscriptions ({ commit }, subscriptions) {
     commit('setProfileSubscriptions', subscriptions)
@@ -27,8 +25,8 @@ const actions = {
 }
 
 const mutations = {
-  setSubscriptions (state, subscriptions) {
-    state.subscriptions = subscriptions
+  setAllSubscriptionsList (state, allSubscriptionsList) {
+    state.allSubscriptionsList = allSubscriptionsList
   },
   setProfileSubscriptions (state, profileSubscriptions) {
     state.profileSubscriptions = profileSubscriptions

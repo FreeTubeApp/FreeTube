@@ -25,6 +25,7 @@
     "mediaelement": "^4.2.16",
     "nedb": "^1.8.0",
     "opml-to-json": "0.0.3",
+    "rss-parser": "^3.9.0",
     "video.js": "7.6.6",
     "videojs-abloop": "^1.1.2",
     "videojs-contrib-quality-levels": "^2.0.9",

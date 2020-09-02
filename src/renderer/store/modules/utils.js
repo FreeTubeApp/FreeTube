@@ -265,6 +265,8 @@ const actions = {
     } else if (payload.isUpcoming || payload.publishText === null) {
       // the check for null is currently just an inferring of knowledge, because there is no other possibility left
       return payload.upcomingString
+    } else if (payload.isRSS) {
+      return payload.publishText
     }
     const strings = payload.publishText.split(' ')
     const singular = (strings[0] === '1')

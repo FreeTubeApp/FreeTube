@@ -70,7 +70,8 @@ Subscriptions:
   Latest Subscriptions: Latest Subscriptions
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Your
     Subscription list is currently empty. Start adding subscriptions to see them here.
-  'Getting Subscriptions.  Please wait.': Getting Subscriptions. Please wait.
+  'Getting Subscriptions. Please wait.': Getting Subscriptions. Please wait.
+  Refresh Subscriptions: Refresh Subscriptions
 Trending: Trending
 Most Popular: Most Popular
 Playlists: Playlists
@@ -180,6 +181,7 @@ Settings:
   Subscription Settings:
     Subscription Settings: Subscription Settings
     Hide Videos on Watch: Hide Videos on Watch
+    Fetch Feeds from RSS: Fetch Feeds from RSS
     Subscriptions Export Format:
       Subscriptions Export Format: Subscriptions Export Format
       #& Freetube
@@ -260,6 +262,14 @@ Profile:
   Delete Profile: Delete Profile
   Are you sure you want to delete this profile?: Are you sure you want to delete this profile?
   All subscriptions will also be deleted.: All subscriptions will also be deleted.
+  Profile could not be found: Profile could not be found
+  Your profile name cannot be empty: Your profile name cannot be empty
+  Profile has been created: Profile has been created
+  Profile has been updated: Profile has been updated
+  Your default profile has been set to $: Your default profile has been set to $
+  Removed $ from your profiles: Removed $ from your profiles
+  Your default profile has been changed to your primary profile: Your default profile has been changed to your primary profile
+  $ is now the active profile: $ is now the active profile
 #On Channel Page
 Channel:
   Subscriber: Subscriber

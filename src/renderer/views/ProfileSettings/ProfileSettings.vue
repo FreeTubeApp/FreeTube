@@ -16,7 +16,7 @@
       </ft-flex-box>
       <ft-flex-box>
         <ft-button
-          label="Create New Profile"
+          :label="$t('Profile.Create New Profile')"
           @click="newProfile"
         />
       </ft-flex-box>

@@ -255,7 +255,8 @@ export default Vue.extend({
           liveStreamString: this.$t('Video.Watching'),
           upcomingString: this.$t('Video.Published.Upcoming'),
           isLive: this.isLive,
-          isUpcoming: this.data.isUpcoming
+          isUpcoming: this.data.isUpcoming,
+          isRSS: this.data.isRSS
         }).then((data) => {
           this.uploadedTime = data
         }).catch((error) => {

@@ -44,7 +44,9 @@
               {{ profileInitials[index] }}
             </p>
           </div>
-          <p>
+          <p
+            class="profileName"
+          >
             {{ profile.name }}
           </p>
         </div>
