@@ -70,6 +70,8 @@ Subscriptions:
     список подписок в настоящее время пуст. Начните добавлять подписки, чтобы увидеть
     их здесь.'
   'Getting Subscriptions.  Please wait.': 'Получение подписок. Пожалуйста, подождите.'
+  Refresh Subscriptions: Обновить подписки
+  Getting Subscriptions. Please wait.: Получение подписок. Пожалуйста, подождите.
 Trending: 'Тренды'
 Most Popular: 'Самые популярные'
 Playlists: 'Плейлисты'
@@ -178,6 +180,7 @@ Settings:
     Import Subscriptions: 'Импорт подписок'
     Export Subscriptions: 'Экспорт подписок'
     How do I import my subscriptions?: 'Как мне импортировать свои подписки?'
+    Fetch Feeds from RSS: Получить каналы из RSS
   Advanced Settings:
     Advanced Settings: 'Расширенные настройки'
     Enable Debug Mode (Prints data to the console): 'Включить режим отладки (выводит
@@ -335,6 +338,8 @@ Video:
     Years: 'Лет'
     Ago: 'Назад'
     Upcoming: 'Скоро премьера'
+    Minutes: Минут
+    Minute: Минуты
   Published on: 'Опубликовано'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % назад'
@@ -420,3 +425,28 @@ Canceled next video autoplay: 'Отменено автовоспроизведе
 Yes: 'Да'
 No: 'Нет'
 Locale Name: Английский
+Profile:
+  $ is now the active profile: $ теперь активный профиль
+  Your default profile has been changed to your primary profile: Ваш профиль по умолчанию
+    был изменён на ваш основной профиль
+  Profile has been updated: Профиль обновлён
+  Removed $ from your profiles: $ удалён из ваших профилей
+  Your default profile has been set to $: Ваш профиль по умолчанию был установлен
+    на $
+  Profile has been created: Профиль создан
+  Your profile name cannot be empty: Имя вашего профиля не может быть пустым
+  Profile could not be found: Профиль не найден
+  All subscriptions will also be deleted.: Все подписки также будут удалены.
+  Are you sure you want to delete this profile?: Вы уверены, что хотите удалить этот
+    профиль?
+  Delete Profile: Удалить профиль
+  Make Default Profile: Сделать профиль по умолчанию
+  Update Profile: Обновить профиль
+  Create Profile: Создать профиль
+  Profile Preview: Предварительный просмотр профиля
+  Custom Color: Пользовательский цвет
+  Color Picker: Палитра цветов
+  Edit Profile: Редактировать профиль
+  Create New Profile: Создать новый профиль
+  Profile Manager: Менеджер профилей
+  All Channels: Все каналы
