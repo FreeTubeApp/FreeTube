@@ -8,10 +8,10 @@
   color: var(--tertiary-text-color);
 }
 
-.floatingTopButton {
-  position: absolute;
-  top: 70px;
-  right: 10px;
+.profileList {
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 10px;
 }
 
 @media only screen and (max-width: 680px) {

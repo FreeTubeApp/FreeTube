@@ -55,7 +55,7 @@
         :class="{ expand: !isSideNavOpen }"
       />
     </div>
-    <div class="side" />
+    <ft-profile-selector class="side profiles" />
   </div>
 </template>
 

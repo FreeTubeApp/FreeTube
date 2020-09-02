@@ -5,6 +5,8 @@ const state = {
   sessionSearchHistory: [],
   popularCache: null,
   trendingCache: null,
+  showProgressBar: false,
+  progressBarPercentage: 0,
   searchSettings: {
     sortBy: 'relevance',
     time: '',
@@ -28,6 +30,24 @@ const state = {
     'mainAmber',
     'mainOrange',
     'mainDeepOrange'
+  ],
+  colorValues: [
+    '#d50000',
+    '#C51162',
+    '#AA00FF',
+    '#6200EA',
+    '#304FFE',
+    '#2962FF',
+    '#0091EA',
+    '#00B8D4',
+    '#00BFA5',
+    '#00C853',
+    '#64DD17',
+    '#AEEA00',
+    '#FFD600',
+    '#FFAB00',
+    '#FF6D00',
+    '#DD2C00'
   ]
 }
 
@@ -54,13 +74,76 @@ const getters = {
 
   getSearchSettings () {
     return state.searchSettings
+  },
+
+  getColorValues () {
+    return state.colorValues
+  },
+
+  getShowProgressBar () {
+    return state.showProgressBar
+  },
+
+  getProgressBarPercentage () {
+    return state.progressBarPercentage
   }
 }
 
 const actions = {
+  updateShowProgressBar ({ commit }, value) {
+    commit('setShowProgressBar', value)
+  },
+
   getRandomColorClass () {
     const randomInt = Math.floor(Math.random() * state.colorClasses.length)
     return state.colorClasses[randomInt]
+  },
+
+  getRandomColor () {
+    const randomInt = Math.floor(Math.random() * state.colorValues.length)
+    return state.colorValues[randomInt]
+  },
+
+  calculateColorLuminance (_, colorValue) {
+    const cutHex = colorValue.substring(1, 7)
+    const colorValueR = parseInt(cutHex.substring(0, 2), 16)
+    const colorValueG = parseInt(cutHex.substring(2, 4), 16)
+    const colorValueB = parseInt(cutHex.substring(4, 6), 16)
+
+    const luminance = (0.299 * colorValueR + 0.587 * colorValueG + 0.114 * colorValueB) / 255
+
+    if (luminance > 0.5) {
+      return '#000000'
+    } else {
+      return '#FFFFFF'
+    }
+  },
+
+  calculatePublishedDate(_, publishedText) {
+    const date = new Date()
+
+    const textSplit = publishedText.split(' ')
+    const timeFrame = textSplit[1]
+    const timeAmount = parseInt(textSplit[0])
+    let timeSpan = null
+
+    if (timeFrame.indexOf('second') > -1) {
+      timeSpan = timeAmount * 1000
+    } else if (timeFrame.indexOf('minute') > -1) {
+      timeSpan = timeAmount * 60000
+    } else if (timeFrame.indexOf('hour') > -1) {
+      timeSpan = timeAmount * 3600000
+    } else if (timeFrame.indexOf('day') > -1) {
+      timeSpan = timeAmount * 86400000
+    } else if (timeFrame.indexOf('week') > -1) {
+      timeSpan = timeAmount * 604800000
+    } else if (timeFrame.indexOf('month') > -1) {
+      timeSpan = timeAmount * 2592000000
+    } else if (timeFrame.indexOf('year') > -1) {
+      timeSpan = timeAmount * 31556952000
+    }
+
+    return date.getTime() - timeSpan
   },
 
   getVideoIdFromUrl (_, url) {
@@ -182,6 +265,8 @@ const actions = {
     } else if (payload.isUpcoming || payload.publishText === null) {
       // the check for null is currently just an inferring of knowledge, because there is no other possibility left
       return payload.upcomingString
+    } else if (payload.isRSS) {
+      return payload.publishText
     }
     const strings = payload.publishText.split(' ')
     const singular = (strings[0] === '1')
@@ -252,6 +337,14 @@ const actions = {
 const mutations = {
   toggleSideNav (state) {
     state.isSideNavOpen = !state.isSideNavOpen
+  },
+
+  setShowProgressBar (state, value) {
+    state.showProgressBar = value
+  },
+
+  setProgressBarPercentage (state, value) {
+    state.progressBarPercentage = value
   },
 
   setSessionSearchHistory (state, history) {

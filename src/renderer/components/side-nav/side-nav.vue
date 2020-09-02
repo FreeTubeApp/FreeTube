@@ -16,10 +16,6 @@
         <p class="navLabel">
           {{ $t("Subscriptions.Subscriptions") }}
         </p>
-        <font-awesome-icon
-          class="refreshIcon"
-          icon="sync"
-        />
       </div>
       <div
         class="navOption mobileHidden"
@@ -98,6 +94,28 @@
         </p>
       </div>
       <hr>
+      <div
+        v-for="(channel, index) in activeSubscriptions"
+        :key="index"
+        class="navChannel mobileHidden"
+        :title="channel.name"
+        @click="goToChannel(channel.id)"
+      >
+        <div
+          class="thumbnailContainer"
+        >
+          <img
+            class="channelThumbnail"
+            :src="channel.thumbnail"
+          />
+        </div>
+        <p
+          class="navLabel"
+          v-if="isOpen"
+        >
+          {{ channel.name }}
+        </p>
+      </div>
     </div>
   </ft-flex-box>
 </template>

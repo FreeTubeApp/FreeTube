@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtButton from '../ft-button/ft-button.vue'
@@ -27,9 +28,18 @@ export default Vue.extend({
       ]
     }
   },
-  methods: {
-    goToChannel: function () {
-      console.log('TODO: Handle goToChannel')
+  computed: {
+    hideWatchedSubs: function () {
+      return this.$store.getters.getHideWatchedSubs
+    },
+    useRssFeeds: function () {
+      return this.$store.getters.getUseRssFeeds
     }
+  },
+  methods: {
+    ...mapActions([
+      'updateHideWatchedSubs',
+      'updateUseRssFeeds'
+    ])
   }
 })

@@ -23,6 +23,10 @@ export default Vue.extend({
       type: Boolean,
       default: false
     },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
     dataList: {
       type: Array,
       default: () => { return [] }
@@ -45,6 +49,11 @@ export default Vue.extend({
 
     idDataList: function () {
       return `${this.id}_datalist`
+    }
+  },
+  watch: {
+    value: function (val) {
+      this.inputData = val
     }
   },
   mounted: function () {

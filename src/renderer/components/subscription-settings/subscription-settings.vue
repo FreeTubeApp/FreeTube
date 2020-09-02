@@ -5,16 +5,24 @@
     <h3
       class="videoTitle"
     >
-      {{ title }}
+      {{ $t("Settings.Subscription Settings.Subscription Settings") }}
     </h3>
     <ft-flex-box class="subscriptionSettingsFlexBox">
       <ft-toggle-switch
-        label="Hide Videos When Watched"
+        :label="$t('Settings.Subscription Settings.Hide Videos on Watch')"
+        :default-value="hideWatchedSubs"
+        @change="updateHideWatchedSubs"
+      />
+      <ft-toggle-switch
+        :label="$t('Settings.Subscription Settings.Fetch Feeds from RSS')"
+        :default-value="useRssFeeds"
+        @change="updateUseRssFeeds"
       />
     </ft-flex-box>
     <br>
     <ft-flex-box>
       <ft-select
+        v-if="false"
         placeholder="Subscription View Type"
         :value="viewValues[0]"
         :select-names="viewNames"
@@ -24,6 +32,7 @@
     <br>
     <ft-flex-box>
       <ft-button
+        v-if="false"
         label="Manage My Subscriptions"
       />
     </ft-flex-box>

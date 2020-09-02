@@ -36,6 +36,7 @@ const state = {
   listType: 'grid',
   thumbnailPreference: '',
   invidiousInstance: 'https://invidio.us',
+  defaultProfile: 'allChannels',
   barColor: false,
   enableSearchSuggestions: true,
   rememberHistory: true,
@@ -56,9 +57,8 @@ const state = {
   debugMode: false,
   disctractionFreeMode: false,
   hideWatchedSubs: false,
-  usingElectron: true,
-  profileList: [{ name: 'All Channels', color: '#304FFE' }],
-  defaultProfile: 'All Channels'
+  useRssFeeds: false,
+  usingElectron: true
 }
 
 const getters = {
@@ -100,6 +100,10 @@ const getters = {
 
   getInvidiousInstance: () => {
     return state.invidiousInstance
+  },
+
+  getDefaultProfile: () => {
+    return state.defaultProfile
   },
 
   getRememberHistory: () => {
@@ -154,13 +158,21 @@ const getters = {
     return state.defaultQuality
   },
 
+  getHideWatchedSubs: () => {
+    return state.hideWatchedSubs
+  },
+
+  getUseRssFeeds: () => {
+    return state.useRssFeeds
+  },
+
   getUsingElectron: () => {
     return state.usingElectron
   }
 }
 
 const actions = {
-  grabUserSettings ({ dispatch, commit }) {
+  grabUserSettings ({ dispatch, commit, rootState }) {
     settingsDb.find({}, (err, results) => {
       if (!err) {
         console.log(results)
@@ -175,6 +187,9 @@ const actions = {
               break
             case 'backendFallback':
               commit('setBackendFallback', result.value)
+              break
+            case 'defaultProfile':
+              commit('setDefaultProfile', result.value)
               break
             case 'checkForUpdates':
               commit('setCheckForUpdates', result.value)
@@ -199,6 +214,12 @@ const actions = {
               break
             case 'barColor':
               commit('setBarColor', result.value)
+              break
+            case 'hideWatchedSubs':
+              commit('setHideWatchedSubs', result.value)
+              break
+            case 'useRssFeeds':
+              commit('setUseRssFeeds', result.value)
               break
             case 'rememberHistory':
               commit('setRememberHistory', result.value)
@@ -251,6 +272,14 @@ const actions = {
     settingsDb.update({ _id: 'invidiousInstance' }, { _id: 'invidiousInstance', value: invidiousInstance }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
         commit('setInvidiousInstance', invidiousInstance)
+      }
+    })
+  },
+
+  updateDefaultProfile ({ commit }, defaultProfile) {
+    settingsDb.update({ _id: 'defaultProfile' }, { _id: 'defaultProfile', value: defaultProfile }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setDefaultProfile', defaultProfile)
       }
     })
   },
@@ -323,6 +352,22 @@ const actions = {
     settingsDb.update({ _id: 'barColor' }, { _id: 'barColor', value: barColor }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
         commit('setBarColor', barColor)
+      }
+    })
+  },
+
+  updateHideWatchedSubs ({ commit }, hideWatchedSubs) {
+    settingsDb.update({ _id: 'hideWatchedSubs' }, { _id: 'hideWatchedSubs', value: hideWatchedSubs }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setHideWatchedSubs', hideWatchedSubs)
+      }
+    })
+  },
+
+  updateUseRssFeeds ({ commit }, useRssFeeds) {
+    settingsDb.update({ _id: 'useRssFeeds' }, { _id: 'useRssFeeds', value: useRssFeeds }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setUseRssFeeds', useRssFeeds)
       }
     })
   },
@@ -448,6 +493,9 @@ const mutations = {
   setCurrentTheme (state, currentTheme) {
     state.barColor = currentTheme
   },
+  setDefaultProfile (state, defaultProfile) {
+    state.defaultProfile = defaultProfile
+  },
   setBackendFallback (state, backendFallback) {
     state.backendFallback = backendFallback
   },
@@ -529,6 +577,9 @@ const mutations = {
   setHideWatchedSubs (state, hideWatchedSubs) {
     state.hideWatchedSubs = hideWatchedSubs
   },
+  setUseRssFeeds (state, useRssFeeds) {
+    state.useRssFeeds = useRssFeeds
+  },
   setUsingElectron (state, usingElectron) {
     state.usingElectron = usingElectron
   },
@@ -537,9 +588,6 @@ const mutations = {
   },
   setProfileList (state, profileList) {
     state.profileList = profileList
-  },
-  setDefaultProfile (state, defaultProfile) {
-    state.defaultProfile = defaultProfile
   }
 }
 

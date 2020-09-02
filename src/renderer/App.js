@@ -3,6 +3,7 @@ import { ObserveVisibility } from 'vue-observe-visibility'
 import TopNav from './components/top-nav/top-nav.vue'
 import SideNav from './components/side-nav/side-nav.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
+import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
 import $ from 'jquery'
 
 let useElectron
@@ -23,16 +24,21 @@ export default Vue.extend({
   components: {
     TopNav,
     SideNav,
-    FtToast
+    FtToast,
+    FtProgressBar
   },
   computed: {
     isOpen: function () {
       return this.$store.getters.getIsSideNavOpen
+    },
+    showProgressBar: function () {
+      return this.$store.getters.getShowProgressBar
     }
   },
   mounted: function () {
     this.$store.dispatch('grabUserSettings')
     this.$store.dispatch('grabHistory')
+    this.$store.dispatch('grabAllProfiles', this.$t('Profile.All Channels'))
     this.$store.commit('setUsingElectron', useElectron)
     this.checkThemeSettings()
     this.checkLocale()

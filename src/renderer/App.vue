@@ -15,6 +15,9 @@
       <!-- </keep-alive> -->
     </Transition>
     <ft-toast />
+    <ft-progress-bar
+      v-if="showProgressBar"
+    />
   </div>
 </template>
 
