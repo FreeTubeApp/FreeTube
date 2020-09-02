@@ -43,49 +43,50 @@ Search Filters:
   Time:
     Time: 'الوقت'
     Any Time: 'أي وقت'
-    Last Hour: ''
-    Today: ''
-    This Week: ''
-    This Month: ''
-    This Year: ''
+    Last Hour: 'آخر ساعة'
+    Today: 'اليوم'
+    This Week: 'هذا الأسبوع'
+    This Month: 'هذا الشهر'
+    This Year: 'هذه السنة'
   Type:
-    Type: ''
-    All Types: ''
-    Videos: ''
-    Channels: ''
+    Type: 'النوع'
+    All Types: 'كل الأنواع'
+    Videos: 'فيديوهات'
+    Channels: 'قنوات'
     #& Playlists
   Duration:
-    Duration: ''
-    All Durations: ''
-    Short (< 4 minutes): ''
-    Long (> 20 minutes): ''
+    Duration: 'المدة'
+    All Durations: 'كل المدد'
+    Short (< 4 minutes): 'قصير (< 4 دقائق)'
+    Long (> 20 minutes): 'طويل (> 20 دقيقة)'
   # On Search Page
-  Search Results: ''
-  Fetching results. Please wait: ''
-  Fetch more results: ''
+  Search Results: 'نتائج البحث'
+  Fetching results. Please wait: 'جاري إحضار النتائج. الرجاء الانتظار'
+  Fetch more results: 'إحضار المزيد من النتائج'
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: ''
-  Latest Subscriptions: ''
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
-  'Getting Subscriptions. Please wait.': ''
-  Refresh Subscriptions: ''
-Trending: ''
-Most Popular: ''
-Playlists: ''
+  Subscriptions: 'الاشتراكات'
+  Latest Subscriptions: 'أحدث الاشتراكات'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'قائمة
+    الاشتراك الخاصة بك فارغة حالياً. قم بإضافة اشتراكات لرؤيتهم هنا.'
+  'Getting Subscriptions. Please wait.': 'جاري تحميل الاشتراكات. الرجاء الانتظار.'
+  Refresh Subscriptions: 'تحديث الاشتراكات'
+Trending: 'المحتوى الرائج'
+Most Popular: 'الأكثر شعبية'
+Playlists: 'قوائم التشغيل'
 User Playlists:
-  Your Playlists: ''
+  Your Playlists: 'قوائم التشغيل الخاصة بك'
 History:
   # On History Page
-  History: ''
-  Watch History: ''
-  Your history list is currently empty.: ''
+  History: 'السجلّ'
+  Watch History: 'سجلّ المشاهدة'
+  Your history list is currently empty.: 'قائمة سجلّك فارغة حالياً.'
 Settings:
   # On Settings Page
-  Settings: ''
+  Settings: 'الإعدادات'
   General Settings:
-    General Settings: ''
+    General Settings: 'الإعدادات العامة'
     Fallback to Non-Preferred Backend on Failure: ''
     Enable Search Suggestions: ''
     Default Landing Page: ''
