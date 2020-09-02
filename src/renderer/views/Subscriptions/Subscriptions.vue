@@ -20,8 +20,7 @@
         v-else
         :data="activeVideoList"
       />
-      <ft-flex-box
-      >
+      <ft-flex-box>
         <ft-button
           v-if="videoList.length > dataLimit"
           label="Load More"

@@ -37,9 +37,9 @@
             <label for="colorPicker">{{ $t("Profile.Custom Color") }}</label>
             <input
               id="colorPicker"
-              type="color"
               v-model="profileBgColor"
-            />
+              type="color"
+            >
           </div>
         </ft-flex-box>
         <ft-flex-box>

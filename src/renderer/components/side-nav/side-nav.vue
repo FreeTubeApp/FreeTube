@@ -107,11 +107,11 @@
           <img
             class="channelThumbnail"
             :src="channel.thumbnail"
-          />
+          >
         </div>
         <p
-          class="navLabel"
           v-if="isOpen"
+          class="navLabel"
         >
           {{ channel.name }}
         </p>

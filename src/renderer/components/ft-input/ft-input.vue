@@ -19,8 +19,8 @@
       class="ft-input"
       type="text"
       :placeholder="placeholder"
-      @input="e => handleInput(e.target.value)"
       :disabled="disabled"
+      @input="e => handleInput(e.target.value)"
     >
     <font-awesome-icon
       v-if="showArrow"

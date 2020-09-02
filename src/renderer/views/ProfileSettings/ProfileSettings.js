@@ -23,7 +23,7 @@ export default Vue.extend({
   methods: {
     newProfile: function () {
       this.$router.push({
-        path: `/settings/profile/new/`
+        path: '/settings/profile/new/'
       })
     }
   }

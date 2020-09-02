@@ -29,9 +29,9 @@
         class="profileWrapper"
       >
         <div
-          class="profile"
           v-for="(profile, index) in profileList"
           :key="index"
+          class="profile"
           @click="setActiveProfile(profile)"
         >
           <div
