@@ -1,6 +1,6 @@
 # Put the name of your locale in the same language
 Locale Name: ''
-FreeTube: ''
+FreeTube: 'فري تيوب'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >
 
@@ -264,9 +264,9 @@ Channel:
     Videos: ''
     This channel does not currently have any videos: ''
     Sort Types:
-      Newest: ''
-      Oldest: ''
-      Most Popular: ''
+      Newest: 'الأجدد'
+      Oldest: 'الأقدم'
+      Most Popular: 'الأكثر شهرة'
   Playlists:
     Playlists: ''
     This channel does not currently have any playlists: ''
@@ -410,4 +410,4 @@ Canceled next video autoplay: ''
 'The playlist has ended.  Enable loop to continue playing': ''
 
 Yes: ''
-No: ''
+No: 'لا'
