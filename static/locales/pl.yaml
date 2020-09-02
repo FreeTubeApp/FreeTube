@@ -71,6 +71,8 @@ Subscriptions:
     lista subskrypcji jest obecnie pusta. Zacznij dodawać subskrypcje, aby zobaczyć
     je tutaj.'
   'Getting Subscriptions.  Please wait.': 'Pobieranie subskrypcji. Proszę czekać...'
+  Refresh Subscriptions: Odświerz subskrypcje
+  Getting Subscriptions. Please wait.: Pobieranie subskrypcji. Proszę poczekać.
 Trending: 'Na czasie'
 Most Popular: 'Najpopularniejsze'
 Playlists: 'Playlisty'
@@ -334,6 +336,8 @@ Video:
     Years: 'lat/a'
     Ago: 'temu'
     Upcoming: 'Najbliższe premiery'
+    Minutes: minut/y
+    Minute: minutę
   Published on: 'Opublikowano'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % temu'
@@ -419,3 +423,27 @@ Canceled next video autoplay: 'Anulowano samoodtworzenie następnego filmu'
 Yes: 'Tak'
 No: 'Nie'
 Locale Name: polski
+Profile:
+  $ is now the active profile: $ jest teraz aktywnym profilem
+  Your default profile has been changed to your primary profile: Twój domyślny profil
+    został zmieniony na profil główny
+  Removed $ from your profiles: Usunięto $ z twoich profili
+  Your default profile has been set to $: $ został ustawiony jako Twój domyślny profil.
+  Profile has been updated: Zaktualizowano profil
+  Profile has been created: Utworzono profil
+  Your profile name cannot be empty: Nazwa profilu nie może być pusta
+  Profile could not be found: Nie odnaleziono profilu
+  All subscriptions will also be deleted.: Wszystkie subskrypcje również zostaną usunięte.
+  Are you sure you want to delete this profile?: Czy jesteś pewien, że chcesz usunąć
+    ten profil?
+  Delete Profile: Usuń profil
+  Make Default Profile: Ustaw jako profil domyślny
+  Update Profile: Zaktualizuj profil
+  Create Profile: Stwórz profil
+  Profile Preview: Podgląd profilu
+  Custom Color: Własny kolor
+  Color Picker: Wybór kolorów
+  Edit Profile: Edytuj profil
+  Create New Profile: Stwórz nowy profil
+  Profile Manager: Menadżer profili
+  All Channels: Wszystkie kanały
