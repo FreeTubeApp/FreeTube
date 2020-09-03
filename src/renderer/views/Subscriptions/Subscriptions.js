@@ -115,25 +115,27 @@ export default Vue.extend({
     if (dataLimit !== null) {
       this.dataLimit = dataLimit
     }
-    setTimeout(async () => {
-      if (this.profileSubscriptions.videoList.length === 0) {
-        this.getSubscriptions()
-      } else {
-        const subscriptionList = JSON.parse(JSON.stringify(this.profileSubscriptions))
-        if (this.hideWatchedSubs) {
-          this.videoList = await Promise.all(subscriptionList.videoList.filter((video) => {
-            const historyIndex = this.historyCache.findIndex((x) => {
-              return x.videoId === video.videoId
-            })
 
-            return historyIndex === -1
-          }))
-        } else {
-          this.videoList = subscriptionList.videoList
-        }
-        this.isLoading = false
+    if (this.profileSubscriptions.videoList.length !== 0) {
+      const subscriptionList = JSON.parse(JSON.stringify(this.profileSubscriptions))
+      if (this.hideWatchedSubs) {
+        this.videoList = await Promise.all(subscriptionList.videoList.filter((video) => {
+          const historyIndex = this.historyCache.findIndex((x) => {
+            return x.videoId === video.videoId
+          })
+
+          return historyIndex === -1
+        }))
+      } else {
+        this.videoList = subscriptionList.videoList
       }
-    }, 200)
+
+      this.isLoading = false
+    } else {
+      setTimeout(async () => {
+        this.getSubscriptions()
+      }, 200)
+    }
   },
   methods: {
     getSubscriptions: function () {
