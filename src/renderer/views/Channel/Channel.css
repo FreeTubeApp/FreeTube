@@ -67,7 +67,7 @@
   top: 50px;
   right: 20px;
   height: 50px;
-  width: 150px;
+  min-width: 150px;
 }
 
 .channelSearch {
