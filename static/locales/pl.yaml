@@ -21,7 +21,7 @@ Toggle Developer Tools: 'Włącz/wyłącz narzędzia deweloperskie'
 Actual size: 'Rzeczywisty rozmiar'
 Zoom in: 'Powiększ'
 Zoom out: 'Zmniejsz'
-Toggle fullscreen: 'Przełączanie trybu pełnoekranowego'
+Toggle fullscreen: 'Włącz/wyłacz tryb pełnoekranowy'
 Window: 'Okno'
 Minimize: 'Zminimalizuj'
 Close: 'Zamknij'
@@ -180,6 +180,7 @@ Settings:
     Import Subscriptions: 'Importuj subskrypcje'
     Export Subscriptions: 'Eksportuj subskrypcje'
     How do I import my subscriptions?: 'Jak zaimportować swoje subskrypcje?'
+    Fetch Feeds from RSS: Pobierz subskrypcje z RSS
   Advanced Settings:
     Advanced Settings: 'Ustawienia zaawansowane'
     Enable Debug Mode (Prints data to the console): 'Włącz tryb dubugowania (pokazuje
@@ -331,7 +332,7 @@ Video:
     Week: 'tydzień'
     Weeks: 'tygodni/e'
     Month: 'miesiąc'
-    Months: 'miesięce/y'
+    Months: 'miesiące/y'
     Year: 'rok'
     Years: 'lat/a'
     Ago: 'temu'
@@ -428,7 +429,7 @@ Profile:
   Your default profile has been changed to your primary profile: Twój domyślny profil
     został zmieniony na profil główny
   Removed $ from your profiles: Usunięto $ z twoich profili
-  Your default profile has been set to $: $ został ustawiony jako Twój domyślny profil.
+  Your default profile has been set to $: $ został ustawiony jako Twój domyślny profil
   Profile has been updated: Zaktualizowano profil
   Profile has been created: Utworzono profil
   Your profile name cannot be empty: Nazwa profilu nie może być pusta
