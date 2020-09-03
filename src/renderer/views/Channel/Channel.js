@@ -149,6 +149,28 @@ export default Vue.extend({
     }
   },
   watch: {
+    $route() {
+      // react to route changes...
+      this.id = this.$route.params.id
+      this.isLoading = true
+
+      if (!this.usingElectron) {
+        this.getVideoInformationInvidious()
+      } else {
+        switch (this.backendPreference) {
+          case 'local':
+            this.getChannelInfoLocal()
+            this.getChannelVideosLocal()
+            this.getPlaylistsLocal()
+            break
+          case 'invidious':
+            this.getChannelInfoInvidious()
+            this.getPlaylistsInvidious()
+            break
+        }
+      }
+    },
+
     videoSortBy () {
       this.isElementListLoading = true
       this.latestVideos = []
