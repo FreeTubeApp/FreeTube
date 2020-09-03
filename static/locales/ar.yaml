@@ -17,7 +17,7 @@ Paste: 'لصق'
 Delete: 'حذف'
 Select all: 'اختر الكل'
 Reload: 'إعادة تحميل'
-Force Reload: 'فرض إعادة التحميل'
+Force Reload: 'إجبار إعادة التحميل'
 Toggle Developer Tools: 'تبديل إلى أدوات المطوّر'
 Actual size: 'الحجم الأصلي'
 Zoom in: 'تكبير'
@@ -93,9 +93,9 @@ Settings:
     Default Landing Page: 'الصفحة ‪المقصودة الإفتراضية'
     Locale Preference: ''
     Preferred API Backend:
-      Preferred API Backend: ''
+      Preferred API Backend: 'نهاية API المفضلة'
       Local API: 'API محلي'
-      Invidious API: ''
+      Invidious API: 'Invidious API'
     Video View Type:
       Video View Type: 'نوع مشاهدة الفيديو'
       Grid: 'شبكة'
@@ -106,7 +106,8 @@ Settings:
       Beginning: 'بداية'
       Middle: 'وسط'
       End: 'نهاية'
-    'Invidious Instance (Default is https://invidio.us)': ''
+    'Invidious Instance (Default is https://invidio.us)': 'حالة Invidious (الإفتراضي
+      هو  https://invidio.us)'
     Region for Trending: 'المنطقة للأكثر شيوعاً'
         #! List countries
   Theme Settings:
@@ -143,7 +144,7 @@ Settings:
     Play Next Video: 'شغل الفيديو التالي'
     Turn on Subtitles by Default: 'شغّل الترجمات بشكل افتراضي'
     Autoplay Videos: 'شغًل الفيديوهات تلقائياً'
-    Proxy Videos Through Invidious: ''
+    Proxy Videos Through Invidious: 'بروكسي الفيديوهات من خلال Invidious'
     Autoplay Playlists: 'شغّل قوائم التشغيل تلقائياً'
     Enable Theatre Mode by Default: 'فعّل وضع المسرح بشكل افتراضي'
     Default Volume: 'مستوى الصوت الافتراضي'
@@ -179,7 +180,7 @@ Settings:
     Watch history has been cleared: 'تم مسح سجل المشاهدة'
   Subscription Settings:
     Subscription Settings: 'إعدادات الاشتراك'
-    Hide Videos on Watch: ''
+    Hide Videos on Watch: 'إخفاء الفيديوهات بعد المشاهدة'
     Fetch Feeds from RSS: ''
     Subscriptions Export Format:
       Subscriptions Export Format: ''
