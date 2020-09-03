@@ -122,7 +122,16 @@ const actions = {
   calculatePublishedDate(_, publishedText) {
     const date = new Date()
 
+    if (publishedText === 'Live') {
+      return publishedText
+    }
+
     const textSplit = publishedText.split(' ')
+
+    if (textSplit[0].toLowerCase() === 'streamed') {
+      textSplit.shift()
+    }
+
     const timeFrame = textSplit[1]
     const timeAmount = parseInt(textSplit[0])
     let timeSpan = null

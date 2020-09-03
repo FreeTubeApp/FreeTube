@@ -207,7 +207,11 @@ export default Vue.extend({
       return new Promise((resolve, reject) => {
         ytch.getChannelVideos(channelId, 'latest').then(async (response) => {
           const videos = await Promise.all(response.items.map(async (video) => {
-            video.publishedDate = await this.calculatePublishedDate(video.publishedText)
+            if (video.liveNow) {
+              video.publishedDate = new Date().getTime()
+            } else {
+              video.publishedDate = await this.calculatePublishedDate(video.publishedText)
+            }
             return video
           }))
 
