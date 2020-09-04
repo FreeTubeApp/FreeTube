@@ -71,7 +71,7 @@ Subscriptions:
     lista subskrypcji jest obecnie pusta. Zacznij dodawać subskrypcje, aby zobaczyć
     je tutaj.'
   'Getting Subscriptions.  Please wait.': 'Pobieranie subskrypcji. Proszę czekać...'
-  Refresh Subscriptions: Odświerz subskrypcje
+  Refresh Subscriptions: Odśwież subskrypcje
   Getting Subscriptions. Please wait.: Pobieranie subskrypcji. Proszę poczekać.
 Trending: 'Na czasie'
 Most Popular: 'Najpopularniejsze'
@@ -311,18 +311,18 @@ Video:
     na żywo nie wspiera obecnie API Invidious. Konieczne jest połączenie bezpośrednie
     z YouTube.'
   Published:
-    Jan: 'st.'
-    Feb: 'lt.'
-    Mar: 'mrz.'
-    Apr: 'kw.'
-    May: 'mj.'
-    Jun: 'czrw.'
-    Jul: 'lp.'
-    Aug: 'sp.'
-    Sep: 'wrz.'
-    Oct: 'prn.'
-    Nov: 'lst.'
-    Dec: 'gr.'
+    Jan: 'sty'
+    Feb: 'lut'
+    Mar: 'mar'
+    Apr: 'kwi'
+    May: 'maj'
+    Jun: 'cze'
+    Jul: 'lip'
+    Aug: 'sie'
+    Sep: 'wrz'
+    Oct: 'paź'
+    Nov: 'lis'
+    Dec: 'gru'
     Second: 'sekundę'
     Seconds: 'sekund/y'
     Hour: 'godzinę'
