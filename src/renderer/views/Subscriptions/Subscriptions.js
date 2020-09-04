@@ -205,7 +205,7 @@ export default Vue.extend({
       })
     },
 
-    getChannelVideosLocalScraper: function (channelId) {
+    getChannelVideosLocalScraper: function (channelId, failedAttempts = 0) {
       return new Promise((resolve, reject) => {
         ytch.getChannelVideos(channelId, 'latest').then(async (response) => {
           const videos = await Promise.all(response.items.map(async (video) => {
@@ -228,12 +228,31 @@ export default Vue.extend({
               navigator.clipboard.writeText(err)
             }
           })
-          resolve([])
+          switch (failedAttempts) {
+            case 0:
+              resolve(this.getChannelVideosLocalRSS(channelId, failedAttempts + 1))
+              break
+            case 1:
+              if (this.backendFallback) {
+                this.showToast({
+                  message: this.$t('Falling back to the Invidious API')
+                })
+                resolve(this.getChannelVideosInvidiousScraper(channelId, failedAttempts + 1))
+              } else {
+                resolve([])
+              }
+              break
+            case 2:
+              resolve(this.getChannelVideosLocalRSS(channelId, failedAttempts + 1))
+              break
+            default:
+              resolve([])
+          }
         })
       })
     },
 
-    getChannelVideosLocalRSS: function (channelId) {
+    getChannelVideosLocalRSS: function (channelId, failedAttempts = 0) {
       return new Promise((resolve, reject) => {
         const parser = new Parser()
         const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`
@@ -252,12 +271,39 @@ export default Vue.extend({
           })))
         }).catch((err) => {
           console.log(err)
-          resolve([])
+          const errorMessage = this.$t('Local API Error (Click to copy)')
+          this.showToast({
+            message: `${errorMessage}: ${err}`,
+            time: 10000,
+            action: () => {
+              navigator.clipboard.writeText(err)
+            }
+          })
+          switch (failedAttempts) {
+            case 0:
+              resolve(this.getChannelVideosLocalScraper(channelId, failedAttempts + 1))
+              break
+            case 1:
+              if (this.backendFallback) {
+                this.showToast({
+                  message: this.$t('Falling back to the Invidious API')
+                })
+                resolve(this.getChannelVideosInvidiousRSS(channelId, failedAttempts + 1))
+              } else {
+                resolve([])
+              }
+              break
+            case 2:
+              resolve(this.getChannelVideosLocalScraper(channelId, failedAttempts + 1))
+              break
+            default:
+              resolve([])
+          }
         })
       })
     },
 
-    getChannelVideosInvidiousScraper: function (channelId) {
+    getChannelVideosInvidiousScraper: function (channelId, failedAttempts = 0) {
       return new Promise((resolve, reject) => {
         const subscriptionsPayload = {
           resource: 'channels/latest',
@@ -265,13 +311,46 @@ export default Vue.extend({
           params: {}
         }
 
-        this.invidiousAPICall(subscriptionsPayload).then((result) => {
-          resolve(result)
+        this.invidiousAPICall(subscriptionsPayload).then(async (result) => {
+          resolve(await Promise.all(result.map((video) => {
+            video.publishedDate = new Date(video.published * 1000)
+            return video
+          })))
+        }).catch((err) => {
+          console.log(err)
+          const errorMessage = this.$t('Invidious API Error (Click to copy)')
+          this.showToast({
+            message: `${errorMessage}: ${err.responseText}`,
+            time: 10000,
+            action: () => {
+              navigator.clipboard.writeText(err)
+            }
+          })
+          switch (failedAttempts) {
+            case 0:
+              resolve(this.getChannelVideosInvidiousRSS(channelId, failedAttempts + 1))
+              break
+            case 1:
+              if (this.backendFallback) {
+                this.showToast({
+                  message: this.$t('Falling back to the local API')
+                })
+                resolve(this.getChannelVideosLocalScraper(channelId, failedAttempts + 1))
+              } else {
+                resolve([])
+              }
+              break
+            case 2:
+              resolve(this.getChannelVideosInvidiousRSS(channelId, failedAttempts + 1))
+              break
+            default:
+              resolve([])
+          }
         })
       })
     },
 
-    getChannelVideosInvidiousRSS: function (channelId) {
+    getChannelVideosInvidiousRSS: function (channelId, failedAttempts = 0) {
       return new Promise((resolve, reject) => {
         const parser = new Parser()
         const feedUrl = `${this.invidiousInstance}/feed/channel/${channelId}`
@@ -288,6 +367,36 @@ export default Vue.extend({
 
             return video
           })))
+        }).catch((err) => {
+          console.log(err)
+          const errorMessage = this.$t('Invidious API Error (Click to copy)')
+          this.showToast({
+            message: `${errorMessage}: ${err.responseText}`,
+            time: 10000,
+            action: () => {
+              navigator.clipboard.writeText(err)
+            }
+          })
+          switch (failedAttempts) {
+            case 0:
+              resolve(this.getChannelVideosInvidiousScraper(channelId, failedAttempts + 1))
+              break
+            case 1:
+              if (this.backendFallback) {
+                this.showToast({
+                  message: this.$t('Falling back to the local API')
+                })
+                resolve(this.getChannelVideosLocalRSS(channelId, failedAttempts + 1))
+              } else {
+                resolve([])
+              }
+              break
+            case 2:
+              resolve(this.getChannelVideosInvidiousScraper(channelId, failedAttempts + 1))
+              break
+            default:
+              resolve([])
+          }
         })
       })
     },
