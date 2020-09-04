@@ -70,6 +70,8 @@ Subscriptions:
     lista de Suscripción está actualmente vacía. Empieza añadiendo suscripciones para
     verlas ahí.'
   'Getting Subscriptions.  Please wait.': 'Obteniendo Suscripciones. Por favor espere.'
+  Refresh Subscriptions: Actulizar Suscripciones
+  Getting Subscriptions. Please wait.: Obteniendo Suscripciones. Por favor espere.
 Trending: 'Tendencias'
 Most Popular: 'Mas popular'
 Playlists: 'Listas de Reproducción'
@@ -177,6 +179,7 @@ Settings:
     Import Subscriptions: 'Importa tus suscripciones'
     Export Subscriptions: 'Exporta tus suscripciones'
     How do I import my subscriptions?: '¿Cómo importo mis suscripciones?'
+    Fetch Feeds from RSS: Buscar Información desde RSS
   Advanced Settings:
     Advanced Settings: 'Ajustes avanzados'
     Enable Debug Mode (Prints data to the console): 'Activar modo de depuración (Muestra
@@ -335,6 +338,8 @@ Video:
     Years: 'Años'
     Ago: 'Hace'
     Upcoming: 'Estrena pronto'
+    Minutes: minutos
+    Minute: minuto
   Published on: 'Publicado en'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Hace $ %'
@@ -421,3 +426,29 @@ Canceled next video autoplay: 'Reproducción automática del siguiente video can
 Yes: 'Sí'
 No: 'No'
 Locale Name: Español
+Profile:
+  $ is now the active profile: $ ahora es el perfil activo
+  Your default profile has been changed to your primary profile: Su perfil predeterminado
+    ha sido cambiado a su perfil primario
+  Removed $ from your profiles: Se eliminó $ de sus perfiles
+  Your default profile has been set to $: Su perfil predeterminado ha sido establecido
+    a $
+  Profile has been updated: El perfil ha sido actualizado
+  Profile has been created: El profil ha sido creado
+  Your profile name cannot be empty: Su nombre de perfil no puede estar vacío
+  Profile could not be found: No se puede localizar el perfil
+  All subscriptions will also be deleted.: Todas las suscripciones serán borradas
+    también.
+  Are you sure you want to delete this profile?: ¿Está seguro que quiere borrar este
+    perfil?
+  Delete Profile: Borrar Perfil
+  Make Default Profile: Hacer perfil predeterminado
+  Update Profile: Actualizar Perfil
+  Create Profile: Crear Perfil
+  Profile Preview: Vista previa del perfil
+  Custom Color: Color personalizado
+  Color Picker: Selector de color
+  Edit Profile: Editar Perfil
+  Create New Profile: Crear Perfil Nuevo
+  Profile Manager: Gestor de Perfiles
+  All Channels: Todos Los Canales
