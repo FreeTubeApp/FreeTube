@@ -68,6 +68,8 @@ Subscriptions:
   Latest Subscriptions: '最新訂閱'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '您的訂閱清單目前是空的。在這裡開始添加訂閱。'
   'Getting Subscriptions.  Please wait.': '抓取訂閱中。請稍等。'
+  Refresh Subscriptions: 重新整理訂閱
+  Getting Subscriptions. Please wait.: 正在取得訂閱。請稍候。
 Trending: '熱門'
 Most Popular: '最流行'
 Playlists: '播放清單'
@@ -173,6 +175,7 @@ Settings:
     Import Subscriptions: '導入訂閱'
     Export Subscriptions: '導出訂閱'
     How do I import my subscriptions?: '如何導入我的訂閱？'
+    Fetch Feeds from RSS: 從 RSS 擷取 Feed
   Advanced Settings:
     Advanced Settings: '進階設定'
     Enable Debug Mode (Prints data to the console): '允許除錯型態（列印資料在控制板）'
@@ -305,6 +308,8 @@ Video:
     Years: '年'
     Ago: '前'
     Upcoming: '即將上映'
+    Minutes: 分鐘
+    Minute: 分鐘
   Published on: '發布於'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % 前'
@@ -389,3 +394,25 @@ Canceled next video autoplay: '取消的自動播放下一視訊'
 Yes: '是'
 No: '否'
 Locale Name: 正體中文
+Profile:
+  $ is now the active profile: $ 現在是作用中的設定檔
+  Your default profile has been changed to your primary profile: 您的預設設定檔已被變更為您的主要設定檔
+  Removed $ from your profiles: 已從您的設定檔移除 $
+  Your default profile has been set to $: 您的預設設定檔已被設定為 $
+  Profile has been updated: 設定檔已更新
+  Profile has been created: 設定檔已建立
+  Your profile name cannot be empty: 您的設定檔名稱不能為空
+  Profile could not be found: 找不到設定檔
+  All subscriptions will also be deleted.: 所有訂閱將會被刪除。
+  Are you sure you want to delete this profile?: 您確定您要刪除此設定檔嗎？
+  Delete Profile: 刪除設定檔
+  Make Default Profile: 設為預設設定檔
+  Update Profile: 更新設定檔
+  Create Profile: 建立設定檔
+  Profile Preview: 設定檔預覽
+  Custom Color: 自訂色彩
+  Color Picker: 選色器
+  Edit Profile: 編輯設定檔
+  Create New Profile: 建立新設定檔
+  Profile Manager: 設定檔管理員
+  All Channels: 所有頻道
