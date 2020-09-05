@@ -222,7 +222,8 @@ About:
   #On About page
   About: 'حول'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
+  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'هذا
+    البرنامج متروك الحقوق مرخّص بحرية AGPL-3.0.'
 
   'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >
 
