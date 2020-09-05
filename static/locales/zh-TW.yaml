@@ -12,7 +12,7 @@ Redo: '回復'
 Cut: '剪下'
 Copy: '複製'
 Paste: '黏貼'
-Delete: '移除'
+Delete: '刪除'
 Select all: '全選'
 Reload: '重載'
 Force Reload: '強制重載'
@@ -59,8 +59,8 @@ Search Filters:
     Long (> 20 minutes): '長（> 20分鐘）'
   # On Search Page
   Search Results: '搜索結果'
-  Fetching results. Please wait: '抓取結果中。請稍等'
-  Fetch more results: '抓取更多結果'
+  Fetching results. Please wait: '擷取結果中。請稍候'
+  Fetch more results: '擷取更多結果'
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
@@ -175,7 +175,7 @@ Settings:
     Import Subscriptions: '導入訂閱'
     Export Subscriptions: '導出訂閱'
     How do I import my subscriptions?: '如何導入我的訂閱？'
-    Fetch Feeds from RSS: 從 RSS 擷取 Feed
+    Fetch Feeds from RSS: 從RSS擷取推送
   Advanced Settings:
     Advanced Settings: '進階設定'
     Enable Debug Mode (Prints data to the console): '允許除錯型態（列印資料在控制板）'
@@ -188,7 +188,7 @@ Settings:
     Clear History:
       Clear History: '清除曆史'
       # On Click
-      Are you sure you want to delete your history?: '您確認想移除您的曆史？'
+      Are you sure you want to delete your history?: '您確認想刪除您的曆史？'
       #& Yes
       #& No
     Clear Subscriptions:
@@ -199,10 +199,10 @@ Settings:
       #& No
 
   Privacy Settings:
-    Watch history has been cleared: 觀看歷史紀錄已被清除
+    Watch history has been cleared: 觀看歷史紀錄已清除
     Are you sure you want to remove your entire watch history?: 您確定您想移除您全部的觀看紀錄？
     Remove Watch History: 移除觀看歷史紀錄
-    Search cache has been cleared: 搜尋快取已被清除
+    Search cache has been cleared: 搜尋快取已清除
     Are you sure you want to clear out your search cache?: 您確定您想清除您的搜尋快取？
     Clear Search Cache: 清除搜尋快取
     Save Watched Progress: 儲存觀看進度
@@ -312,10 +312,10 @@ Video:
     Minute: 分鐘
   Published on: '發布於'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % 前'
+  Publicationtemplate: '$ %前'
 #& Videos
-  Video has been removed from your history: 視訊已經從您的曆史中移除
-  Video has been marked as watched: 視訊已經被記號為已觀看
+  Video has been removed from your history: 視訊已從您的曆史中移除
+  Video has been marked as watched: 視訊已記號為已觀看
   Remove From History: 從曆史中移除
   Mark As Watched: 記號為已觀看
 Videos:
@@ -389,22 +389,22 @@ Playing Next Video: '將播放下一視訊'
 Playing Previous Video: '將播放上一視訊'
 Playing next video in 5 seconds.  Click to cancel: '下一視訊將在5秒后播放。 點擊取消'
 Canceled next video autoplay: '取消的自動播放下一視訊'
-'The playlist has ended.  Enable loop to continue playing': '播放清單已經結束。 允許迴圈播以繼續播放視訊'
+'The playlist has ended.  Enable loop to continue playing': '播放清單已結束。 允許迴圈播以繼續播放視訊'
 
 Yes: '是'
 No: '否'
 Locale Name: 正體中文
 Profile:
-  $ is now the active profile: $ 現在是作用中的設定檔
-  Your default profile has been changed to your primary profile: 您的預設設定檔已被變更為您的主要設定檔
-  Removed $ from your profiles: 已從您的設定檔移除 $
-  Your default profile has been set to $: 您的預設設定檔已被設定為 $
+  $ is now the active profile: $現在是作用中的設定檔
+  Your default profile has been changed to your primary profile: 您的預設設定檔已變更為您的主要設定檔
+  Removed $ from your profiles: 已從您的設定檔移除$
+  Your default profile has been set to $: 您的預設設定檔已設定為$
   Profile has been updated: 設定檔已更新
   Profile has been created: 設定檔已建立
   Your profile name cannot be empty: 您的設定檔名稱不能為空
   Profile could not be found: 找不到設定檔
   All subscriptions will also be deleted.: 所有訂閱將會被刪除。
-  Are you sure you want to delete this profile?: 您確定您要刪除此設定檔嗎？
+  Are you sure you want to delete this profile?: 您確定您想刪除此設定檔嗎？
   Delete Profile: 刪除設定檔
   Make Default Profile: 設為預設設定檔
   Update Profile: 更新設定檔
@@ -414,5 +414,5 @@ Profile:
   Color Picker: 選色器
   Edit Profile: 編輯設定檔
   Create New Profile: 建立新設定檔
-  Profile Manager: 設定檔管理員
+  Profile Manager: 設定檔管理器
   All Channels: 所有頻道
