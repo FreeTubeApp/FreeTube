@@ -337,6 +337,8 @@ Video:
     Years: 'Années'
     Ago: 'Il y a'
     Upcoming: 'Avant-première bientôt'
+    Minutes: Minutes
+    Minute: Minute
   Published on: 'Mise en ligne le'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Il y a % $'
@@ -423,3 +425,27 @@ Canceled next video autoplay: 'Annuler la lecture automatique'
 Yes: 'Oui'
 No: 'Non'
 Locale Name: Anglais
+Profile:
+  $ is now the active profile: $ est maintenant le profil actif
+  Your default profile has been changed to your primary profile: Votre profil par
+    défaut a été modifié en votre profil principal
+  Removed $ from your profiles: Supprimer $ de vos profils
+  Your default profile has been set to $: Votre profil par défaut a été fixé à $
+  Profile has been updated: Le profil a été mis à jour
+  Profile has been created: Le profil a été créé
+  Your profile name cannot be empty: Le nom de votre profil ne peut pas être vide
+  Profile could not be found: Le profil n'a pas pu être trouvé
+  All subscriptions will also be deleted.: Tous les abonnements seront également supprimés.
+  Are you sure you want to delete this profile?: Êtes-vous sûr de vouloir supprimer
+    ce profil ?
+  Delete Profile: Supprimer le profil
+  Make Default Profile: Établir un profil par défaut
+  Update Profile: Mise à jour du profil
+  Create Profile: Créer un profil
+  Profile Preview: Aperçu du profil
+  Custom Color: Couleur personnalisée
+  Color Picker: Sélecteur de couleurs
+  Edit Profile: Éditer le profil
+  Create New Profile: Créer un nouveau profil
+  Profile Manager: Gestionnaire de profil
+  All Channels: Tous les canaux

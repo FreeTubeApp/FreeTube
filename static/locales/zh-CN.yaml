@@ -59,8 +59,8 @@ Search Filters:
     Long (> 20 minutes): '长（> 20分钟）'
   # On Search Page
   Search Results: '搜索结果'
-  Fetching results. Please wait: '获取结果中。请稍等'
-  Fetch more results: '获取更多结果'
+  Fetching results. Please wait: '摘取结果中。请稍候'
+  Fetch more results: '摘取更多结果'
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
@@ -68,6 +68,8 @@ Subscriptions:
   Latest Subscriptions: '最新订阅'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '您的订阅列表目前是空的。在这里开始添加订阅。'
   'Getting Subscriptions.  Please wait.': '获取订阅中。 请稍等。'
+  Refresh Subscriptions: 刷新订阅
+  Getting Subscriptions. Please wait.: 获取订阅中。 请稍候。
 Trending: '热门'
 Most Popular: '最流行'
 Playlists: '播放列表'
@@ -173,6 +175,7 @@ Settings:
     Import Subscriptions: '导入订阅'
     Export Subscriptions: '导出订阅'
     How do I import my subscriptions?: '如何导入我的订阅？'
+    Fetch Feeds from RSS: 从RSS摘取推送
   Advanced Settings:
     Advanced Settings: '高级设置'
     Enable Debug Mode (Prints data to the console): '允许调试模式（打印数据在控制板）'
@@ -191,19 +194,19 @@ Settings:
     Clear Subscriptions:
       Clear Subscriptions: '清除订阅'
       # On Click
-      Are you sure you want to remove all subscriptions?: '您确定想删除所有订阅？'
+      Are you sure you want to remove all subscriptions?: '您确定想移除所有订阅？'
       #& Yes
       #& No
 
   Privacy Settings:
-    Are you sure you want to remove your entire watch history?: 您确认想删除您的全部观看历史？
+    Are you sure you want to remove your entire watch history?: 您确认想移除您的全部观看历史？
     Are you sure you want to clear out your search cache?: 您确定想清除您的搜索缓存？
     Save Watched Progress: 保存观看进度
     Remember History: 记住历史
     Privacy Settings: 隐私设置
-    Watch history has been cleared: 观看历史已经被清除
-    Remove Watch History: 删除观看历史
-    Search cache has been cleared: 搜索缓存已被清除
+    Watch history has been cleared: 观看历史已清除
+    Remove Watch History: 移除观看历史
+    Search cache has been cleared: 搜索缓存已清除
     Clear Search Cache: 清除搜索缓存
 About:
   #On About page
@@ -305,14 +308,16 @@ Video:
     Years: '年'
     Ago: '前'
     Upcoming: '即将上映'
+    Minutes: 分钟
+    Minute: 分钟
   Published on: '发布于'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % 前'
+  Publicationtemplate: '$ %前'
 #& Videos
-  Video has been removed from your history: 视频已经从您的历史中删除
+  Video has been removed from your history: 视频已从您的历史中移除
   Mark As Watched: 标记为已观看
-  Video has been marked as watched: 视频已经被标记为已观看
-  Remove From History: 从历史中删除
+  Video has been marked as watched: 视频已标记为已观看
+  Remove From History: 从历史中移除
 Videos:
   #& Sort By
   Sort By:
@@ -384,8 +389,30 @@ Playing Next Video: '将播放下一视频'
 Playing Previous Video: '将播放上一视频'
 Playing next video in 5 seconds.  Click to cancel: '下一视频将在5秒后播放。 点击取消'
 Canceled next video autoplay: '取消的自动播放下一视频'
-'The playlist has ended.  Enable loop to continue playing': '播放列表已经结束。 允许循环播以继续播放视频'
+'The playlist has ended.  Enable loop to continue playing': '播放列表已结束。 允许循环播以继续播放视频'
 
 Yes: '是'
 No: '否'
 Locale Name: 简体中文
+Profile:
+  $ is now the active profile: $现在是使用中的配置文件
+  Removed $ from your profiles: 已从您的配置文件移除$
+  Your default profile has been set to $: 您的默认配置文件已设定为$
+  Your default profile has been changed to your primary profile: 您的默认配置文件已变为您的主配置文件
+  Profile has been updated: 配置文件已更新
+  Profile has been created: 配置文件已建立
+  Your profile name cannot be empty: 您的配置文件名不能是空的
+  Profile could not be found: 找不到配置文件
+  All subscriptions will also be deleted.: 所有订阅将会被删除。
+  Are you sure you want to delete this profile?: 您确认您想删除这个配置文件吗？
+  Delete Profile: 删除配置文件
+  Make Default Profile: 设为默认配置文件
+  Update Profile: 更新配置文件
+  Create Profile: 建立配置文件
+  Profile Preview: 配置文件预览
+  Edit Profile: 编辑配置文件
+  Create New Profile: 建立新配置文件
+  Profile Manager: 配置文件管理器
+  Custom Color: 自定义颜色
+  Color Picker: 选色器
+  All Channels: 所有频道
