@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { mapActions } from 'vuex'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
@@ -121,7 +122,7 @@ export default Vue.extend({
         console.log(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         this.showToast({
-          message: `${errorMessage}: ${err}`,
+          message: `${errorMessage}: ${err.responseText}`,
           time: 10000,
           action: () => {
             navigator.clipboard.writeText(err)
@@ -137,6 +138,10 @@ export default Vue.extend({
           this.isLoading = false
         }
       })
-    }
+    },
+
+    ...mapActions([
+      'showToast'
+    ])
   }
 })

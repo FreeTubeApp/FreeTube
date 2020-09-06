@@ -19,6 +19,7 @@ export default Vue.extend({
     return {
       showSearchCachePrompt: false,
       showRemoveHistoryPrompt: false,
+      showRemoveSubscriptionsPrompt: false,
       promptValues: [
         'yes',
         'no'
@@ -31,6 +32,12 @@ export default Vue.extend({
     },
     saveWatchedProgress: function () {
       return this.$store.getters.getSaveWatchedProgress
+    },
+    profileList: function () {
+      return this.$store.getters.getProfileList
+    },
+    removeSubscriptionsPromptMessage: function () {
+      return this.$t('Settings.Privacy Settings["Are you sure you want to remove all subscriptions and profiles?  This cannot be undone."]')
     },
     promptNames: function () {
       return [
@@ -62,11 +69,37 @@ export default Vue.extend({
       }
     },
 
+    handleRemoveSubscriptions: function (option) {
+      this.showRemoveSubscriptionsPrompt = false
+
+      this.updateActiveProfile(0)
+
+      if (option === 'yes') {
+        this.profileList.forEach((profile) => {
+          if (profile._id === 'allChannels') {
+            const newProfile = {
+              _id: 'allChannels',
+              name: profile.name,
+              bgColor: profile.bgColor,
+              textColor: profile.textColor,
+              subscriptions: []
+            }
+            this.updateProfile(newProfile)
+          } else {
+            this.removeProfile(profile._id)
+          }
+        })
+      }
+    },
+
     ...mapActions([
       'updateRememberHistory',
       'removeAllHistory',
       'updateSaveWatchedProgress',
       'clearSessionSearchHistory',
+      'updateProfile',
+      'removeProfile',
+      'updateActiveProfile',
       'showToast'
     ])
   }

@@ -37,6 +37,12 @@
         background-color="var(--primary-color)"
         @click="showRemoveHistoryPrompt = true"
       />
+      <ft-button
+        :label="$t('Settings.Privacy Settings.Remove All Subscriptions / Profiles')"
+        text-color="var(--text-with-main-color)"
+        background-color="var(--primary-color)"
+        @click="showRemoveSubscriptionsPrompt = true"
+      />
     </ft-flex-box>
     <ft-prompt
       v-if="showSearchCachePrompt"
@@ -51,6 +57,13 @@
       :option-names="promptNames"
       :option-values="promptValues"
       @click="handleRemoveHistory"
+    />
+    <ft-prompt
+      v-if="showRemoveSubscriptionsPrompt"
+      :label="removeSubscriptionsPromptMessage"
+      :option-names="promptNames"
+      :option-values="promptValues"
+      @click="handleRemoveSubscriptions"
     />
   </ft-card>
 </template>

@@ -5,6 +5,7 @@
     <player-settings />
     <subscription-settings />
     <privacy-settings />
+    <data-settings />
   </div>
 </template>
 
