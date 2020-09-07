@@ -226,13 +226,15 @@ export default Vue.extend({
           this.videoDislikeCount = result.videoDetails.dislikes
           this.isLive = result.player_response.videoDetails.isLiveContent
 
-          const captionTracks =
-            result.player_response.captions &&
-            result.player_response.captions.playerCaptionsTracklistRenderer
-              .captionTracks
+          if (!this.isLive) {
+            const captionTracks =
+              result.player_response.captions &&
+              result.player_response.captions.playerCaptionsTracklistRenderer
+                .captionTracks
 
-          if (typeof captionTracks !== 'undefined') {
-            await this.createCaptionUrls(captionTracks)
+            if (typeof captionTracks !== 'undefined') {
+              await this.createCaptionUrls(captionTracks)
+            }
           }
 
           if (this.videoDislikeCount === null) {
