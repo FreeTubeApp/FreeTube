@@ -220,6 +220,45 @@ Settings:
     Save Watched Progress: Zapisuj postęp odtwarzania
     Remember History: Pamiętaj historię
     Privacy Settings: Ustawienia prywatności
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Czy
+      jesteś pewien, że chcesz usunąć wszystkie subskrypcje i profile? Nie będzie
+      można tego cofnąć.
+    Remove All Subscriptions / Profiles: Usuń wszystkie subskrypcje / profile
+  Data Settings:
+    How do I import my subscriptions?: Jak mogę zaimportować swoje subskrypcje?
+    Unknown data key: Nieznany klucz danych
+    Unable to write file: Nie można zapisać pliku
+    Unable to read file: Nie można odczytać pliku
+    All watched history has been successfully exported: Cała historia obejrzeń została
+      pomyślnie wyeksportowana
+    All watched history has been successfully imported: Cała historia obejrzeń została
+      pomyślnie zaimportowana
+    History object has insufficient data, skipping item: Obiekt historii ma niewystarczające
+      dane, pomijam element
+    Subscriptions have been successfully exported: Subskrypcje zostały z powodzeniem
+      wyeksportowane
+    Invalid history file: Nieprawidłowy plik historii
+    This might take a while, please wait: Może to chwilę potrwać, proszę poczekać
+    Invalid subscriptions file: Nieprawidłowy plik subskrypcji
+    All subscriptions have been successfully imported: Wszystkie subskrypcje zostały
+      z powodzeniem zaimportowane
+    All subscriptions and profiles have been successfully imported: Wszystkie subskrypcje
+      i profile zostały z powodzeniem zaimportowane
+    Profile object has insufficient data, skipping item: Obiekt profilu ma niewystarczające
+      dane, pomijam element
+    Export History: Wyeksportuj historię
+    Import History: Zaimportuj historię
+    Export FreeTube: Eksport do FreeTube
+    Export YouTube: Eksport do YouTube
+    Export NewPipe: Eksport do NewPipe
+    Export Subscriptions: Wyeksportuj subskrypcje
+    Import NewPipe: Import z NewPipe
+    Import YouTube: Import z YouTube
+    Import FreeTube: Import z FreeTube
+    Import Subscriptions: Zaimportuj subskrypcje
+    Select Export Type: Wybierz typ exportu
+    Select Import Type: Wybierz typ importu
+    Data Settings: Ustawienia danych
 About:
   #On About page
   About: 'O projekcie'
