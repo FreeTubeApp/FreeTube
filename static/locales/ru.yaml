@@ -220,6 +220,43 @@ Settings:
     Save Watched Progress: Сохранять прогресс просмотра
     Remember History: Запоминать историю
     Privacy Settings: Настройки конфиденциальности
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Вы
+      уверены, что хотите удалить все подписки и профили?  Это нельзя отменить.
+    Remove All Subscriptions / Profiles: Удалить все подписки/профили
+  Data Settings:
+    How do I import my subscriptions?: Как мне импортировать свои подписки?
+    Unknown data key: Неизвестный ключ данных
+    Unable to write file: Невозможно записать файл
+    Unable to read file: Невозможно прочитать файл
+    All watched history has been successfully exported: Вся история просмотров успешно
+      экспортирована
+    All watched history has been successfully imported: Вся история просмотров успешно
+      импортирована
+    History object has insufficient data, skipping item: У объекта истории недостаточно
+      данных, пропуск элемента
+    Subscriptions have been successfully exported: Подписки успешно экспортированы
+    Invalid history file: Неверный файл истории
+    Invalid subscriptions file: Неверный файл подписок
+    This might take a while, please wait: Это может занять некоторое время, пожалуйста,
+      подождите
+    All subscriptions have been successfully imported: Все подписки успешно импортированы
+    All subscriptions and profiles have been successfully imported: Все подписки и
+      профили успешно импортированы
+    Profile object has insufficient data, skipping item: У объекта профиля недостаточно
+      данных, пропуск элемента
+    Export History: Экспорт истории
+    Import History: Импорт истории
+    Export NewPipe: Экспорт NewPipe
+    Export YouTube: Экспорт YouTube
+    Export FreeTube: Экспорт FreeTube
+    Export Subscriptions: Экспорт подписок
+    Import NewPipe: Импорт NewPipe
+    Import YouTube: Импорт YouTube
+    Import FreeTube: Импорт FreeTube
+    Import Subscriptions: Импорт подписок
+    Select Export Type: Выбрать тип экспорта
+    Select Import Type: Выбрать тип импорта
+    Data Settings: Настройки данных
 About:
   #On About page
   About: 'О программе'
