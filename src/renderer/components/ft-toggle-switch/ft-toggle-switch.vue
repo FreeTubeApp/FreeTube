@@ -6,6 +6,7 @@
       type="checkbox"
       name="set-name"
       class="switch-input"
+      :class="{compact}"
       :checked="currentValue"
       @change="$emit('change', currentValue)"
     >
