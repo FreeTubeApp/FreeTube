@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="switch-ctn">
     <input
       :id="id"
       v-model="currentValue"
