@@ -382,6 +382,7 @@ Video:
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % temu'
 #& Videos
+  Autoplay: Samoodtwarzanie
 Videos:
   #& Sort By
   Sort By:
