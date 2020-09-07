@@ -1,5 +1,8 @@
 <template>
-  <div>
+  <div
+    class="switch-ctn"
+    :class="{compact}"
+  >
     <input
       :id="id"
       v-model="currentValue"
@@ -12,7 +15,6 @@
     <label
       :for="id"
       class="switch-label"
-      :class="{compact}"
     >
       {{ label }}
     </label>
