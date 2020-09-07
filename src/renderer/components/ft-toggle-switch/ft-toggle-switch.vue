@@ -1,19 +1,20 @@
 <template>
-  <div class="switch-ctn">
+  <div
+    class="switch-ctn"
+    :class="{compact}"
+  >
     <input
       :id="id"
       v-model="currentValue"
       type="checkbox"
       name="set-name"
       class="switch-input"
-      :class="{compact}"
       :checked="currentValue"
       @change="$emit('change', currentValue)"
     >
     <label
       :for="id"
       class="switch-label"
-      :class="{compact}"
     >
       {{ label }}
     </label>

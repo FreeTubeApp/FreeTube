@@ -1,21 +1,22 @@
 /* Thanks to Guus Lieben for the Material Design Switch */
 
 .switch-ctn
+  margin: 20px 16px
   position: relative
+
+  &.compact
+    margin: 0
 
 .switch-input
   appearance: none
   height: 20px
-  left: 13px
+  left: -3px
   position: absolute
   top: calc(50% - 3px)
   -ms-transform: translate(0, (-50%))
   -webkit-transform: translate(0, -50%)
   transform: translate(0, -50%)
   width: 34px
-
-  &.compact
-    left: -3px
 
 .switch-label
   position: relative
@@ -24,12 +25,7 @@
   cursor: pointer
   font-weight: 500
   text-align: left
-  margin: 16px
-  padding: 16px 0 16px 44px
-
-  &.compact
-    margin: 0px
-    padding: 12px 0 12px 44px
+  padding: 12px 0 12px 44px
 
   &:before, &:after
     content: ""
