@@ -170,8 +170,6 @@ export default Vue.extend({
   },
   mounted: function () {
     this.videoId = this.$route.params.id
-    this.videoStoryboardSrc = `${this.invidiousInstance}/api/v1/storyboards/${this.videoId}?height=90`
-
     this.activeFormat = this.defaultVideoFormat
     this.useTheatreMode = this.defaultTheatreMode
 
@@ -346,6 +344,7 @@ export default Vue.extend({
       }
 
       this.dashSrc = this.createInvidiousDashManifest()
+      this.videoStoryboardSrc = `${this.invidiousInstance}/api/v1/storyboards/${this.videoId}?height=90`
 
       this.$store
         .dispatch('invidiousGetVideoInformation', this.videoId)

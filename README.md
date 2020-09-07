@@ -33,14 +33,14 @@ At this time, here is the list of things to do/need to do:
 - [x] Most Popular Page
 - [x] Playlist View
 - [x] Video Watch Page (Recommendations, Comments)
-- [ ] Video player logic (Switching formats / quality, live video, fallback logic)
+- [x] Video player logic (Switching formats / quality, live video, fallback logic)
 - [x] Playlist logic (Autoplay next video, shuffle list)
 - [x] Database Setup and Logic (Updating and creating data)
 - [x] Settings Page
-- [ ] Subscriptions Page and Logic
+- [x] Subscriptions Page and Logic
 - [ ] Playlists Page (Will allow for creating user playlists.  Will replace the "Favorites" Page)
-- [ ] History Page and Logic
-- [ ] Profile Page and Logic
+- [x] History Page and Logic
+- [x] Profile Page and Logic
 - [ ] Misc. Adjustments and Settings
 - [ ] Packaging and Testing
 
