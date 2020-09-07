@@ -68,6 +68,8 @@ Subscriptions:
   Latest Subscriptions: '最近の登録'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'まだチャンネル登録がありません。登録するとここに表示されます。'
   'Getting Subscriptions.  Please wait.': '登録を取得中。お待ちください...'
+  Refresh Subscriptions: 登録を更新
+  Getting Subscriptions. Please wait.: 登録を取得中...お待ちください。
 Trending: '急上昇'
 Most Popular: '最も人気'
 Playlists: '再生リスト'
@@ -174,6 +176,7 @@ Settings:
     Import Subscriptions: '登録のインポート'
     Export Subscriptions: '登録のエクスポート'
     How do I import my subscriptions?: 'どうやってインポートするのですか？'
+    Fetch Feeds from RSS: RSS からフィードを取得
   Advanced Settings:
     Advanced Settings: '高度な設定'
     Enable Debug Mode (Prints data to the console): 'デバッグモードを有効化 (コンソールにデータを出力)'
@@ -208,6 +211,36 @@ Settings:
     Are you sure you want to clear out your search cache?: 検索キャッシュを削除しますか？
     Clear Search Cache: 検索キャッシュを削除
     Privacy Settings: 個人情報の設定
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: すべての登録とプロファイルを削除しますか？元に戻せません。
+    Remove All Subscriptions / Profiles: すべての登録とプロファイルを削除
+  Data Settings:
+    How do I import my subscriptions?: 私の登録をインポートするには？
+    Unknown data key: 不明なデータキー
+    Unable to write file: ファイルに書き込めません
+    Unable to read file: ファイルが読み込めません
+    All watched history has been successfully exported: すべての視聴履歴は正常にエクスポートされました
+    All watched history has been successfully imported: すべての視聴履歴は正常にインポートされました
+    Profile object has insufficient data, skipping item: プロファイルのデータが不十分なのでこの項目を飛ばします
+    History object has insufficient data, skipping item: 履歴のデータが不十分なのでこの項目を飛ばします
+    Subscriptions have been successfully exported: 登録は正常にエクスポートされました
+    Invalid history file: 無効な履歴ファイル
+    This might take a while, please wait: 少し時間がかかります./.お待ちください
+    Invalid subscriptions file: 無効な登録ファイル
+    All subscriptions have been successfully imported: すべての登録は正常にインポートされました
+    All subscriptions and profiles have been successfully imported: すべての登録とプロファイルは正常にインポートされました
+    Export History: 履歴のエクスポート
+    Import History: 履歴のインポート
+    Export NewPipe: NewPipe エクスポート
+    Export YouTube: YouTube エクスポート
+    Export FreeTube: FreeTube エクスポート
+    Import YouTube: YouTube インポート
+    Import NewPipe: NewPipe インポート
+    Import FreeTube: FreeTube インポート
+    Export Subscriptions: 登録のエクスポート
+    Import Subscriptions: 登録のインポート
+    Select Export Type: エクスポート形式の選択
+    Select Import Type: インポート形式の選択
+    Data Settings: データ設定
 About:
   #On About page
   About: 'このソフト'
@@ -311,6 +344,8 @@ Video:
     Years: '年'
     Ago: '前'
     Upcoming: 'まもなく公開予定'
+    Minutes: 分
+    Minute: 分
   Published on: '公開日'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % 前'
@@ -395,3 +430,25 @@ Canceled next video autoplay: '次の動画の自動再生をキャンセルし�
 Yes: 'はい'
 No: 'いいえ'
 Locale Name: '英語'
+Profile:
+  $ is now the active profile: $ は現在使用中のプロファイルです
+  Your default profile has been changed to your primary profile: 標準のプロファイルは、第一プロファイルに変更されました
+  Removed $ from your profiles: プロファイルから $ を削除しました
+  Your default profile has been set to $: 標準のプロファイルは $ に設定されています
+  Profile has been updated: プロファイルが更新されました
+  Profile has been created: プロファイルが作成されました
+  Your profile name cannot be empty: プロファイル名が空です
+  Profile could not be found: プロファイルはありません
+  All subscriptions will also be deleted.: すべての登録も削除されます。
+  Are you sure you want to delete this profile?: このプロファイルを削除しますか？
+  Delete Profile: プロファイルの削除
+  Make Default Profile: 初期設定のプロファイル
+  Create Profile: プロファイルの作成
+  Update Profile: プロファイルの更新
+  Profile Preview: プロファイルのプレビュー
+  Custom Color: 色を指定
+  Color Picker: 色の選択
+  Edit Profile: プロファイル編集
+  Create New Profile: 新規プロファイル作成
+  Profile Manager: プロファイル管理
+  All Channels: すべてのチャンネル
