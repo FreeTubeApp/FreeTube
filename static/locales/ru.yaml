@@ -381,6 +381,7 @@ Video:
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % назад'
 #& Videos
+  Autoplay: Автовоспроизведение
 Videos:
   #& Sort By
   Sort By:
