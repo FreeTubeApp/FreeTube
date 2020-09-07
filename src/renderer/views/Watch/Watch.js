@@ -70,53 +70,44 @@ export default Vue.extend({
     isDev: function () {
       return process.env.NODE_ENV === 'development'
     },
-
     usingElectron: function () {
       return this.$store.getters.getUsingElectron
     },
-
     historyCache: function () {
       return this.$store.getters.getHistoryCache
     },
-
     rememberHistory: function () {
       return this.$store.getters.getRememberHistory
     },
-
     saveWatchedProgress: function () {
       return this.$store.getters.getSaveWatchedProgress
     },
-
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
-
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
-
     invidiousInstance: function () {
       return this.$store.getters.getInvidiousInstance
     },
-
     proxyVideos: function () {
       return this.$store.getters.getProxyVideos
     },
-
     defaultTheatreMode: function () {
       return this.$store.getters.getDefaultTheatreMode
     },
-
     defaultVideoFormat: function () {
       return this.$store.getters.getDefaultVideoFormat
     },
-
     forceLocalBackendForLegacy: function () {
       return this.$store.getters.getForceLocalBackendForLegacy
     },
-
     thumbnailPreference: function () {
       return this.$store.getters.getThumbnailPreference
+    },
+    playNextVideo: function () {
+      return this.$store.getters.getPlayNextVideo
     },
 
     thumbnail: function () {
@@ -145,6 +136,7 @@ export default Vue.extend({
   },
   watch: {
     $route() {
+      this.handleRouteChange()
       // react to route changes...
       this.videoId = this.$route.params.id
 
@@ -586,6 +578,46 @@ export default Vue.extend({
             })
           }
         })
+      } else if (this.playNextVideo) {
+        const timeout = setTimeout(() => {
+          const nextVideoId = this.recommendedVideos[0].videoId
+          this.$router.push(
+            {
+              path: `/watch/${nextVideoId}`
+            }
+          )
+          this.showToast({
+            message: this.$t('Playing Next Video')
+          })
+        }, 5000)
+
+        this.showToast({
+          message: this.$t('Playing next video in 5 seconds.  Click to cancel'),
+          time: 5500,
+          action: () => {
+            clearTimeout(timeout)
+            this.showToast({
+              message: this.$t('Canceled next video autoplay')
+            })
+          }
+        })
+      }
+    },
+
+    handleRouteChange: function () {
+      if (this.rememberHistory && !this.isLoading && !this.isLive) {
+        const player = this.$refs.videoPlayer.player
+
+        if (player !== null && this.saveWatchedProgress) {
+          const currentTime = this.$refs.videoPlayer.player.currentTime()
+          const payload = {
+            videoId: this.videoId,
+            watchProgress: currentTime
+          }
+
+          console.log('update watch progress')
+          this.updateWatchProgress(payload)
+        }
       }
     },
 
@@ -739,21 +771,7 @@ export default Vue.extend({
     ])
   },
   beforeRouteLeave: function (to, from, next) {
-    if (this.rememberHistory && !this.isLoading && !this.isLive) {
-      const player = this.$refs.videoPlayer.player
-
-      if (player !== null && this.saveWatchedProgress) {
-        const currentTime = this.$refs.videoPlayer.player.currentTime()
-        const payload = {
-          videoId: this.videoId,
-          watchProgress: currentTime
-        }
-
-        console.log('update watch progress')
-        this.updateWatchProgress(payload)
-      }
-    }
-
+    this.handleRouteChange()
     next()
   }
 })

@@ -28,6 +28,12 @@
           :default-value="proxyVideos"
           @change="updateProxyVideos"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Player Settings.Enable Theatre Mode by Default')"
+          :compact="true"
+          :default-value="defaultTheatreMode"
+          @change="updateDefaultTheatreMode"
+        />
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
@@ -43,17 +49,10 @@
           @change="updateAutoplayPlaylists"
         />
         <ft-toggle-switch
-          v-if="false"
           :label="$t('Settings.Player Settings.Play Next Video')"
           :compact="true"
           :default-value="playNextVideo"
           @change="updatePlayNextVideo"
-        />
-        <ft-toggle-switch
-          :label="$t('Settings.Player Settings.Enable Theatre Mode by Default')"
-          :compact="true"
-          :default-value="defaultTheatreMode"
-          @change="updateDefaultTheatreMode"
         />
       </div>
     </div>

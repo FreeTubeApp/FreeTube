@@ -29,10 +29,7 @@ export default Vue.extend({
         360,
         480,
         720,
-        1080,
-        1440,
-        2160,
-        4320
+        1080
       ]
     }
   },
@@ -97,10 +94,7 @@ export default Vue.extend({
         this.$t('Settings.Player Settings.Default Quality.360p'),
         this.$t('Settings.Player Settings.Default Quality.480p'),
         this.$t('Settings.Player Settings.Default Quality.720p'),
-        this.$t('Settings.Player Settings.Default Quality.1080p'),
-        this.$t('Settings.Player Settings.Default Quality.1440p'),
-        this.$t('Settings.Player Settings.Default Quality.4k'),
-        this.$t('Settings.Player Settings.Default Quality.8k')
+        this.$t('Settings.Player Settings.Default Quality.1080p')
       ]
     }
   },

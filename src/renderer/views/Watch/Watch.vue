@@ -80,6 +80,7 @@
       />
       <watch-video-recommendations
         v-if="!isLoading"
+        :watching-playlist="watchingPlaylist"
         :data="recommendedVideos"
         class="watchVideoSideBar watchVideoRecommendations"
         :class="{

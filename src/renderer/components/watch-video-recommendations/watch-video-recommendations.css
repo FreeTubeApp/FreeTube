@@ -1,4 +1,15 @@
+.relative {
+	position: relative;
+}
+
 .watchVideoRecommendations {
 	display: grid;
 	grid-gap: 8px;
+}
+
+.autoPlayToggle {
+	width: 120px;
+	position: absolute;
+	top: 10px;
+	right: 0px;
 }

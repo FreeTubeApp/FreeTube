@@ -338,6 +338,7 @@ Video:
   # Context is "X People Watching"
   Watching: Watching
   Watched: Watched
+  Autoplay: Autoplay
   # As in a Live Video
   Live: Live
   Live Now: Live Now
