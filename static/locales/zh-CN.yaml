@@ -77,9 +77,9 @@ User Playlists:
   Your Playlists: '您的播放列表'
 History:
   # On History Page
-  History: '历史'
-  Watch History: '观看历史'
-  Your history list is currently empty.: 您的历史列表目前是空的。
+  History: '历史记录'
+  Watch History: '观看历史记录'
+  Your history list is currently empty.: 您的历史记录列表目前是空的。
 Settings:
   # On Settings Page
   Settings: '设置'
@@ -186,9 +186,9 @@ Settings:
     #& Invidious Instance (Default is https://invidio.us)
     See Public Instances: '显示公共实例'
     Clear History:
-      Clear History: '清除历史'
+      Clear History: '清除历史记录'
       # On Click
-      Are you sure you want to delete your history?: '您确认想删除您的历史？'
+      Are you sure you want to delete your history?: '您确认想删除您的历史记录？'
       #& Yes
       #& No
     Clear Subscriptions:
@@ -199,15 +199,45 @@ Settings:
       #& No
 
   Privacy Settings:
-    Are you sure you want to remove your entire watch history?: 您确认想移除您的全部观看历史？
+    Are you sure you want to remove your entire watch history?: 您确认想移除您的全部观看历史记录？
     Are you sure you want to clear out your search cache?: 您确定想清除您的搜索缓存？
     Save Watched Progress: 保存观看进度
-    Remember History: 记住历史
+    Remember History: 记住历史记录
     Privacy Settings: 隐私设置
-    Watch history has been cleared: 观看历史已清除
-    Remove Watch History: 移除观看历史
+    Watch history has been cleared: 观看历史记录已清除
+    Remove Watch History: 移除观看历史记录
     Search cache has been cleared: 搜索缓存已清除
     Clear Search Cache: 清除搜索缓存
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 您确定您想移除所有订阅和配置文件吗？这无法撤销。
+    Remove All Subscriptions / Profiles: 移除所有订阅 / 配置文件
+  Data Settings:
+    Subscriptions have been successfully exported: 订阅已成功导出
+    This might take a while, please wait: 这肯能需要一段时间，请稍候
+    Invalid subscriptions file: 无效的订阅文件
+    All subscriptions have been successfully imported: 所有订阅已成功导入
+    All subscriptions and profiles have been successfully imported: 所有订阅和配置文件已成功导入
+    Profile object has insufficient data, skipping item: 文件物件数据不足，正在跳过项目
+    How do I import my subscriptions?: 我要如何导入我的订阅？
+    Unknown data key: 未知的数据密钥
+    Unable to write file: 无法写入文件
+    Unable to read file: 无法读取文件
+    All watched history has been successfully exported: 所有观看的历史记录已成功导出
+    All watched history has been successfully imported: 所有观看的历史记录已成功导入
+    History object has insufficient data, skipping item: 历史记录物件数据不足，正在跳过项目
+    Invalid history file: 无效的历史记录文件
+    Import History: 导入历史记录
+    Export History: 导出历史记录
+    Export NewPipe: 导出NewPipe
+    Export YouTube: 导出YouTube
+    Export FreeTube: 导出FreeTube
+    Export Subscriptions: 导出订阅
+    Import NewPipe: 导入NewPipe
+    Import YouTube: 导入YouTube
+    Import FreeTube: 导入FreeTube
+    Import Subscriptions: 导入订阅
+    Select Export Type: 选择导出类型
+    Select Import Type: 选择导入类型
+    Data Settings: 数据设置
 About:
   #On About page
   About: '关于'
@@ -314,10 +344,11 @@ Video:
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ %前'
 #& Videos
-  Video has been removed from your history: 视频已从您的历史中移除
+  Video has been removed from your history: 视频已从您的历史记录中移除
   Mark As Watched: 标记为已观看
   Video has been marked as watched: 视频已标记为已观看
-  Remove From History: 从历史中移除
+  Remove From History: 从历史记录中移除
+  Autoplay: 自动播放
 Videos:
   #& Sort By
   Sort By:

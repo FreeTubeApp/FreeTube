@@ -68,9 +68,11 @@ Subscriptions:
   Subscriptions: 'Abonnements'
   Latest Subscriptions: 'Derniers abonnements'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Votre
-    liste d''abonnements est vide.'
+    liste d''abonnements est vide. Ajoutez des abonnements pour les voir apparaître
+    ici.'
   'Getting Subscriptions.  Please wait.': 'Récupération des vidéos de vos abonnements,
     veuillez patienter.'
+  Getting Subscriptions. Please wait.: Récupération des abonnements. Veuillez patienter.
 Trending: 'Tendance'
 Most Popular: 'Les plus populaires'
 Playlists: 'Playlists'
@@ -217,6 +219,10 @@ Settings:
     Clear Search Cache: Effacer le cache de recherche
     Save Watched Progress: Garder la progression de la vidéo
     Remove Watch History: Effacer l'historique des vidéos regardées
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Etes-vous
+      sur de vouloir supprimer tous les abonnements et les profils ? Cette action
+      est définitive.
+    Remove All Subscriptions / Profiles: Supprimer tous les abonnements / profils
 About:
   #On About page
   About: 'À propos'
@@ -424,7 +430,7 @@ Canceled next video autoplay: 'Annuler la lecture automatique'
 
 Yes: 'Oui'
 No: 'Non'
-Locale Name: Anglais
+Locale Name: Français
 Profile:
   $ is now the active profile: $ est maintenant le profil actif
   Your default profile has been changed to your primary profile: Votre profil par
