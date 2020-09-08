@@ -208,6 +208,36 @@ Settings:
     Save Watched Progress: 儲存觀看進度
     Remember History: 記住歷史紀錄
     Privacy Settings: 隱私設定
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 您確定您想要移除所有訂閱與設定檔嗎？這無法復原。
+    Remove All Subscriptions / Profiles: 移除所有訂閱／設定檔
+  Data Settings:
+    How do I import my subscriptions?: 我要如何匯入我的訂閱？
+    Unknown data key: 未知的資料金鑰
+    Unable to write file: 無法寫入檔案
+    Unable to read file: 無法讀取檔案
+    All watched history has been successfully exported: 所有觀看紀錄已成功匯出
+    All watched history has been successfully imported: 所有觀看的歷史紀錄已成功匯入
+    History object has insufficient data, skipping item: 歷史紀錄物件資料不足，正在跳過項目
+    Subscriptions have been successfully exported: 訂閱已成功匯出
+    Invalid history file: 無效的歷史紀錄檔案
+    This might take a while, please wait: 這可能需要一段時間，請稍候
+    Invalid subscriptions file: 無效的訂閱檔案
+    All subscriptions have been successfully imported: 所有訂閱已成功匯入
+    All subscriptions and profiles have been successfully imported: 所有訂閱與設定檔已成功匯入
+    Profile object has insufficient data, skipping item: 設定檔物件資料不足，正在跳過項目
+    Export History: 匯出歷史紀錄
+    Import History: 匯入歷史紀錄
+    Export NewPipe: 匯出 NewPipe
+    Export YouTube: 匯出 YouTube
+    Export FreeTube: 匯出 FreeTube
+    Export Subscriptions: 匯出訂閱
+    Import NewPipe: 匯入 NewPipe
+    Import YouTube: 匯入 YouTube
+    Import FreeTube: 匯入 FreeTube
+    Import Subscriptions: 匯入訂閱
+    Select Export Type: 選取匯出類型
+    Select Import Type: 選取匯入類型
+    Data Settings: 資料設定
 About:
   #On About page
   About: '關於'
@@ -318,6 +348,7 @@ Video:
   Video has been marked as watched: 視訊已記號為已觀看
   Remove From History: 從曆史中移除
   Mark As Watched: 記號為已觀看
+  Autoplay: 自動播放
 Videos:
   #& Sort By
   Sort By:
