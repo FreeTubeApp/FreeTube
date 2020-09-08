@@ -70,7 +70,7 @@ Subscriptions:
   Latest Subscriptions: Subscrições Recentes
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': A
     sua lista de subscrições encontra-se vazia. Adicione algumas para as ver aqui.
-  'Getting Subscriptions.  Please wait.': A carregar subscrições.  Por favor aguarde.
+  'Getting Subscriptions. Please wait.': A carregar subscrições.  Por favor aguarde.
   Refresh Subscriptions: Actualizar subsrições
 Trending: Tendências
 Most Popular: Mais Populares
@@ -173,11 +173,13 @@ Settings:
     Remember History: Lembrar Histórico
     Save Watched Progress: Guardar onde ficou da última vez num vídeo
     Clear Search Cache: Limpar Cache de Pesquisas
-    Are you sure you want to clear out your search cache?: Tem certeza de que quer apagar a cache de pesquisas?
+    Are you sure you want to clear out your search cache?: Tem a certeza de que quer apagar a sua cache de pesquisas?
     Search cache has been cleared: Cache de pesquisas foi apagada
     Remove Watch History: Limpar Histórico
-    Are you sure you want to remove your entire watch history?: Tem certeza de que quer apagar o seu histórico?
+    Are you sure you want to remove your entire watch history?: Tem a certeza de que quer apagar o seu histórico?
     Watch history has been cleared: Histórico foi apagado
+    Remove All Subscriptions / Profiles: Apagar todas as subscrições / perfis.
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Tem a certeza de que quer apagar todas as suas subscrições e perfis? Esta acção não pode ser revertida.
   Subscription Settings:
     Subscription Settings: Definições de Subscrições
     Hide Videos on Watch: Esconder Vídeos Visualisados
@@ -188,9 +190,34 @@ Settings:
       Newpipe: Newpipe
       OPML: OPML
     Manage Subscriptions: Gerir Subscrições
+  Data Settings:
+    Data Settings: Definições dos dados
+    Select Import Type: Escolher tipo de importação
+    Select Export Type: Escolher tipo de exportação
     Import Subscriptions: Importar Subscrições
+    Import FreeTube: Importar FreeTube
+    Import YouTube: ImportarYouTube
+    Import NewPipe: Importar NewPipe
     Export Subscriptions: Exportar Subscrições
-    How do I import my subscriptions?: Como posso importar as minhas subcrições?
+    Export FreeTube: Exportar FreeTube
+    Export YouTube: Exportar YouTube
+    Export NewPipe: Exportar NewPipe
+    Import History: Importar Histórico
+    Export History: Exportar Histórico
+    Profile object has insufficient data, skipping item: O objecto perfil tem dados em falta, a ignorar
+    All subscriptions and profiles have been successfully imported: Todas as subscrições e perfis foram importados com sucesso
+    All subscriptions have been successfully imported: Todas as subscrições foram importadas com sucesso
+    Invalid subscriptions file: Ficheiro de subscrições inválido
+    This might take a while, please wait: Este processo pode demorar, por favor espere
+    Invalid history file: Ficheiro de histórico inválido
+    Subscriptions have been successfully exported: Subscrições foram exportadas com sucesso
+    History object has insufficient data, skipping item: O objecto histórico tem dados em falta, a ignorar
+    All watched history has been successfully imported: Histórico foi importado com sucesso
+    All watched history has been successfully exported: Histórico foi exportado com sucesso
+    Unable to read file: Ficheiro não pode ser lido
+    Unable to write file: Ficheiro não pode ser escrito
+    Unknown data key: Dado chave desconhecido
+    How do I import my subscriptions?: Como posso importar as minhas subscrições?
   Advanced Settings:
     Advanced Settings: Definições Avançadas
     Enable Debug Mode (Prints data to the console): Ligar Modo de Depuração (Escreve
@@ -261,7 +288,7 @@ Profile:
   Update Profile: Actualizar Perfil
   Make Default Profile: Tornar no Perfil Padrão
   Delete Profile: Apagar Perfil
-  Are you sure you want to delete this profile?: Tem certeza de que quer apagar este perfil?
+  Are you sure you want to delete this profile?: Tem a certeza de que quer apagar este perfil?
   All subscriptions will also be deleted.: Todas as subscrições ligadas a este perfil também serão apagadas.
   Profile could not be found: Perfil não encontrado
   Your profile name cannot be empty: O nome do perfil não pode ficar em branco
@@ -316,6 +343,7 @@ Video:
   # Context is "X People Watching"
   Watching: A Ver
   Watched: Visto
+  Autoplay: Reprodução Automática
 # As in a Live Video
   Live: Ao Vivo
   Live Now: Ao Vivo
