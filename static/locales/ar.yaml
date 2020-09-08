@@ -1,6 +1,6 @@
 # Put the name of your locale in the same language
 Locale Name: 'العربية'
-FreeTube: 'فري تيوب'
+FreeTube: 'فريتيوب'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   هذا الجزء من التطبيق ليس جاهزاً بعد. عُد لاحقاً عندما يتم إحراز تقدم.
@@ -15,9 +15,9 @@ Cut: 'قص'
 Copy: 'نسخ'
 Paste: 'لصق'
 Delete: 'حذف'
-Select all: 'اختر الكل'
+Select all: 'تحديد الكل'
 Reload: 'إعادة تحميل'
-Force Reload: 'إجبار إعادة التحميل'
+Force Reload: 'فرض إعادة التحميل'
 Toggle Developer Tools: 'تبديل إلى أدوات المطوّر'
 Actual size: 'الحجم الأصلي'
 Zoom in: 'تكبير'
@@ -70,7 +70,7 @@ Subscriptions:
   Latest Subscriptions: 'أحدث الاشتراكات'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'قائمة
     اشتراكاتك فارغة حالياً. ابدأ بإضافة الاشتراكات لتراهم هنا.'
-  'Getting Subscriptions. Please wait.': 'جاري تحميل الاشتراكات. الرجاء الانتظار.'
+  'Getting Subscriptions. Please wait.': 'جاري تحميل الاشتراكات. يرجى الانتظار.'
   Refresh Subscriptions: 'تحديث الاشتراكات'
 Trending: 'المحتوى الرائج'
 Most Popular: 'الأكثر شعبية'
@@ -90,7 +90,7 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: 'الرجوع إلى الواجهة الخلفية الغير
       مفضلة عند الفشل'
     Enable Search Suggestions: 'تفعيل إقتراحات البحث'
-    Default Landing Page: 'الصفحة ‪المقصودة الإفتراضية'
+    Default Landing Page: 'الصفحة ‪المقصودة الافتراضية'
     Locale Preference: 'تفضيل اللغة'
     Preferred API Backend:
       Preferred API Backend: 'API الواجهة الخلفية المفضلة'
@@ -101,8 +101,8 @@ Settings:
       Grid: 'شبكة'
       List: 'قائمة'
     Thumbnail Preference:
-      Thumbnail Preference: 'المصغرات المفضلة'
-      Default: 'الإفتراضي'
+      Thumbnail Preference: 'تفضيل الصورة المصغّرة'
+      Default: 'الافتراضي'
       Beginning: 'بداية'
       Middle: 'وسط'
       End: 'نهاية'
@@ -111,15 +111,15 @@ Settings:
     Region for Trending: 'المنطقة للأكثر شيوعاً'
         #! List countries
   Theme Settings:
-    Theme Settings: 'إعدادات المظهر'
-    Match Top Bar with Main Color: 'تطابق الشريط العلوي مع اللون الأساسي'
+    Theme Settings: 'إعدادات السِمة'
+    Match Top Bar with Main Color: 'طابق الشريط العلوي مع اللون الأساسي'
     Base Theme:
-      Base Theme: 'المظهر الأساسي'
+      Base Theme: 'السِمة الأساسية'
       Black: 'أسود'
       Dark: 'داكن'
       Light: 'فاتح'
     Main Color Theme:
-      Main Color Theme: 'لون المظهر الأساسي'
+      Main Color Theme: 'لون السِمة الأساسي'
       Red: 'أحمر'
       Pink: 'وردي'
       Purple: 'إرجواني'
@@ -136,7 +136,7 @@ Settings:
       Amber: 'كهرماني'
       Orange: 'برتقالي'
       Deep Orange: 'برتقالي داكن'
-    Secondary Color Theme: 'لون المظهر الثانوي'
+    Secondary Color Theme: 'لون السِمة الثانوي'
         #* Main Color Theme
   Player Settings:
     Player Settings: 'إعدادات المشغل'
@@ -153,7 +153,7 @@ Settings:
     Default Video Format:
       Default Video Format: 'تنسيق الفيديو الافتراضي'
       Dash Formats: 'تنسيقات DASH'
-      Legacy Formats: 'تنسيقات تراثية'
+      Legacy Formats: 'تنسيقات قديمة'
       Audio Formats: 'تنسيقات الصوت'
     Default Quality:
       Default Quality: 'الجودة الافتراضية'
@@ -169,7 +169,7 @@ Settings:
       8k: '‍8k'
   Privacy Settings:
     Privacy Settings: 'إعدادات الخصوصية'
-    Remember History: 'تذّكر سجل التاريخ'
+    Remember History: 'تذّكر سجلّ المشاهدة'
     Save Watched Progress: 'حفظ نسبة المشاهدة'
     Clear Search Cache: 'مسح ذاكرة التخزين المؤقت للبحث'
     Are you sure you want to clear out your search cache?: 'هل أنت متأكد أنك تريد
@@ -185,7 +185,7 @@ Settings:
     Remove All Subscriptions / Profiles: إزالة جميع الاشتراكات \ الملفات الشخصية
   Subscription Settings:
     Subscription Settings: 'إعدادات الاشتراك'
-    Hide Videos on Watch: 'أخف الفيديوهات عند مشاهدتها'
+    Hide Videos on Watch: 'أخفِ الفيديوهات عند مشاهدتها'
     Fetch Feeds from RSS: 'جلب المحتوى عن طريق RSS'
     Subscriptions Export Format:
       Subscriptions Export Format: 'صيغة تصدير الاشتراكات'
@@ -203,11 +203,11 @@ Settings:
     'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'عنوان البروكسي ( مثال :
       SOCKS5://127.0.0.1:9050 )'
     'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'يؤدي
-      النقر فوق زر"اختبار البروكسي" إلى إرسال طلب إلى https://ipinfo.io/json'
-    Use Tor / Proxy for API calls: 'استخدم تور / بروكسي لطلبات ال API'
-    TEST PROXY: 'اختبار البروكسي'
+      النقر فوق زر"اختبار Proxy" إلى إرسال طلب إلى https://ipinfo.io/json'
+    Use Tor / Proxy for API calls: 'استخدم Tor / Proxy لطلبات ال API'
+    TEST PROXY: 'اختبار Proxy'
     #& Invidious Instance (Default is https://invidio.us)
-    See Public Instances: 'أظهر النماذج العامة'
+    See Public Instances: 'اطّلع على الحالات العامة'
     Clear History:
       Clear History: 'محو السجلّ'
       # On Click
@@ -276,7 +276,7 @@ About:
   'Looking for help? Check out our Wiki page.': 'هل تبحث عن المساعدة؟ اطّلع على صفحة
     الويكي الخاصة بنا.'
 
-  Check out our Firefox extension!: 'تحقّق من إضافتنا على فايرفوكس!'
+  Check out our Firefox extension!: 'تفقّد إضافتنا على فايرفوكس!'
 
   'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'إذا
     كنت تستمتع باستخدام FreeTube، ففكر في التبرع عبر Liberapay أو من خلال عنوان Bitcoin
@@ -396,7 +396,7 @@ Video:
     Year: 'سنة'
     Years: 'سنوات'
     Ago: 'منذ'
-    Upcoming: 'العروض الأولى قريباً'
+    Upcoming: 'العرض الأول قريباً'
   Published on: 'نُشر في'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'قبل $ %'
