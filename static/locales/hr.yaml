@@ -180,6 +180,9 @@ Settings:
     Are you sure you want to remove your entire watch history?: 'Jeste li sigurni
       da želite ukloniti cijelu povijest gledanja?'
     Watch history has been cleared: 'Povijest gledanja je izbrisana'
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Jeste
+      li sigurni da želite ukloniti sve pretplate i profile? To se ne može povratiti.
+    Remove All Subscriptions / Profiles: Uklonite sve pretplate / profile
   Subscription Settings:
     Subscription Settings: 'Postavke pretplata'
     Hide Videos on Watch: 'Sakrij videozapise poslije gledanja'
@@ -215,6 +218,38 @@ Settings:
       #& Yes
       #& No
 
+  Data Settings:
+    Unknown data key: Nepoznati podatkovni ključ
+    Unable to write file: Nije moguće napisati datoteku
+    Unable to read file: Datoteka se ne može pročitati
+    All watched history has been successfully exported: Sva povijest gledanja uspješno
+      je izvezena
+    All watched history has been successfully imported: Sva povijest gledanja uspješno
+      je uvezena
+    History object has insufficient data, skipping item: Objekt povijesti nema dovoljno
+      podataka, preskakanje stavke
+    Subscriptions have been successfully exported: Pretplate su uspješno izvezene
+    Invalid history file: Nevaljana datoteka povijesti
+    This might take a while, please wait: To bi moglo potrajati, pričekajte
+    Invalid subscriptions file: Nevažeća datoteka s pretplatama
+    All subscriptions have been successfully imported: Sve su pretplate uspješno uvezene
+    All subscriptions and profiles have been successfully imported: Sve pretplate
+      i profili uspješno su uvezeni
+    Profile object has insufficient data, skipping item: Objekt profila nema dovoljno
+      podataka, preskakanje stavke
+    Export History: Izvezi povijest
+    Import History: Uvezi povijest
+    Export NewPipe: Izvezi NewPipe
+    Export YouTube: Izvezi YouTube
+    Export FreeTube: Izvezi FreeTube
+    Export Subscriptions: Izvezi pretplate
+    Import NewPipe: Uvezi NewPipe
+    Import YouTube: Uvezi YouTube
+    Import Subscriptions: Uvezi pretplate
+    Import FreeTube: Uvezi FreeTube
+    Select Export Type: Odaberite vrstu izvoza
+    Select Import Type: Odaberite vrstu uvoza
+    Data Settings: Postavke podataka
 About:
   #On About page
   About: ''
