@@ -28,6 +28,7 @@ export default Vue.extend({
       isLoading: false,
       shuffleEnabled: false,
       loopEnabled: false,
+      reversePlaylist: false,
       channelName: '',
       channelId: '',
       channelThumbnail: '',
@@ -130,6 +131,19 @@ export default Vue.extend({
         })
         this.shufflePlaylistItems()
       }
+    },
+
+    toggleReversePlaylist: function () {
+      this.isLoading = true
+      this.showToast({
+        message: this.$t('The playlist has been reversed')
+      })
+
+      this.reversePlaylist = !this.reversePlaylist
+      this.playlistItems = this.playlistItems.reverse()
+      setTimeout(() => {
+        this.isLoading = false
+      }, 1)
     },
 
     playNextVideo: function () {

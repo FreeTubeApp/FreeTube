@@ -422,7 +422,7 @@ export default Vue.extend({
             }
 
             this.showToast({
-              message: this.$t('Settings.Data Settings.All subscriptions have been successfully exported')
+              message: this.$t('Settings.Data Settings.Subscriptions have been successfully exported')
             })
           })
         })
@@ -489,7 +489,7 @@ export default Vue.extend({
           }
 
           this.showToast({
-            message: this.$t('Settings.Data Settings.All subscriptions have been successfully exported')
+            message: this.$t('Settings.Data Settings.Subscriptions have been successfully exported')
           })
         })
       })
@@ -557,7 +557,7 @@ export default Vue.extend({
           }
 
           this.showToast({
-            message: this.$t('Settings.Data Settings.All subscriptions have been successfully exported')
+            message: this.$t('Settings.Data Settings.Subscriptions have been successfully exported')
           })
         })
       })

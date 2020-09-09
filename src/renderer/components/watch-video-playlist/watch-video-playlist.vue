@@ -28,22 +28,33 @@
           class="playlistIcon"
           :class="{ playlistIconActive: loopEnabled }"
           icon="retweet"
+          :title="$t('Video.Loop Playlist')"
           @click="toggleLoop"
         />
         <font-awesome-icon
           class="playlistIcon"
           :class="{ playlistIconActive: shuffleEnabled }"
           icon="random"
+          :title="$t('Video.Shuffle Playlist')"
           @click="toggleShuffle"
         />
         <font-awesome-icon
           class="playlistIcon"
+          :class="{ playlistIconActive: reversePlaylist }"
+          icon="exchange-alt"
+          :title="$t('Video.Reverse Playlist')"
+          @click="toggleReversePlaylist"
+        />
+        <font-awesome-icon
+          class="playlistIcon"
           icon="step-backward"
+          :title="$t('Video.Play Previous Video')"
           @click="playPreviousVideo"
         />
         <font-awesome-icon
           class="playlistIcon"
           icon="step-forward"
+          :title="$t('Video.Play Next Video')"
           @click="playNextVideo"
         />
       </p>

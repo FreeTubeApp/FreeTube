@@ -19,7 +19,7 @@
         @click="importHistory"
       />
       <ft-button
-        :label="$t('Settings.Data Settings.Export Subscriptions')"
+        :label="$t('Settings.Data Settings.Export History')"
         @click="exportHistory"
       />
     </ft-flex-box>

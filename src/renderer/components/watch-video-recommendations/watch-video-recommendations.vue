@@ -4,7 +4,7 @@
       {{ $t("Up Next") }}
     </h3>
     <ft-toggle-switch
-      v-if="!watchingPlaylist"
+      v-if="showAutoplay"
       class="autoPlayToggle"
       :label="$t('Video.Autoplay')"
       :compact="true"

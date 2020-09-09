@@ -16,7 +16,7 @@ export default Vue.extend({
       type: Array,
       required: true
     },
-    watchingPlaylist: {
+    showAutoplay: {
       type: Boolean,
       default: false
     }

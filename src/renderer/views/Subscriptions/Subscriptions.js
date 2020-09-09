@@ -258,17 +258,25 @@ export default Vue.extend({
         const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`
 
         parser.parseURL(feedUrl).then(async (feed) => {
-          resolve(await Promise.all(feed.items.map((video) => {
+          const items = await Promise.all(feed.items.map((video) => {
             video.authorId = channelId
             video.videoId = video.id.replace('yt:video:', '')
             video.type = 'video'
-            video.publishedDate = new Date(video.pubDate)
-            video.publishedText = video.publishedDate.toLocaleString()
             video.lengthSeconds = '0:00'
             video.isRSS = true
 
+            video.publishedDate = new Date(video.pubDate)
+
+            if (video.publishedDate.toString() === 'Invalid Date') {
+              video.publishedDate = new Date(video.isoDate)
+            }
+
+            video.publishedText = video.publishedDate.toLocaleString()
+
             return video
-          })))
+          }))
+
+          resolve(items)
         }).catch((err) => {
           console.log(err)
           const errorMessage = this.$t('Local API Error (Click to copy)')

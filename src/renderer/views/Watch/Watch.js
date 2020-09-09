@@ -303,8 +303,10 @@ export default Vue.extend({
               this.activeSourceList = this.videoSourceList
             }
 
-            const templateUrl = result.player_response.storyboards.playerStoryboardSpecRenderer.spec
-            this.createLocalStoryboardUrls(templateUrl)
+            if (typeof result.player_response.storyboards !== 'undefined') {
+              const templateUrl = result.player_response.storyboards.playerStoryboardSpecRenderer.spec
+              this.createLocalStoryboardUrls(templateUrl)
+            }
           }
 
           this.isLoading = false

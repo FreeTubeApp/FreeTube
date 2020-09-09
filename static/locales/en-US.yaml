@@ -271,6 +271,7 @@ About:
   Latest FreeTube News: Latest FreeTube News
 
 Profile:
+  Profile Select: Profile Select
   All Channels: All Channels
   Profile Manager: Profile Manager
   Create New Profile: Create New Profile
@@ -335,6 +336,11 @@ Video:
   Copy Invidious Link: Copy Invidious Link
   View: View
   Views: Views
+  Loop Playlist: Loop Playlist
+  Shuffle Playlist: Shuffle Playlist
+  Reverse Playlist: Reverse Playlist
+  Play Next Video: Play Next Video
+  Play Previous Video: Play Previous Video
   # Context is "X People Watching"
   Watching: Watching
   Watched: Watched
@@ -454,6 +460,7 @@ Loop is now disabled: Loop is now disabled
 Loop is now enabled: Loop is now enabled
 Shuffle is now disabled: Shuffle is now disabled
 Shuffle is now enabled: Shuffle is now enabled
+The playlist has been reversed: The playlist has been reversed
 Playing Next Video: Playing Next Video
 Playing Previous Video: Playing Previous Video
 Playing next video in 5 seconds.  Click to cancel: Playing next video in 5 seconds.  Click

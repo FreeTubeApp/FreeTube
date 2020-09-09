@@ -18,7 +18,7 @@
       <h3
         class="profileListTitle"
       >
-        Profile Select
+        {{ $t("Profile.Profile Select") }}
       </h3>
       <ft-icon-button
         class="profileSettings"
