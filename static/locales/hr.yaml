@@ -198,23 +198,28 @@ Settings:
     How do I import my subscriptions?: 'Kako mogu uvesti pretplate?'
   Advanced Settings:
     Advanced Settings: 'Napredne postavke'
-    Enable Debug Mode (Prints data to the console): ''
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': ''
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': ''
-    Use Tor / Proxy for API calls: ''
-    TEST PROXY: ''
+    Enable Debug Mode (Prints data to the console): 'Omogući način otklanjanja pogrešaka
+      (ispisuje podatke na konzolu)'
+    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Proxy adresa (primjer: SOCKS5:
+      //127.0.0.1: 9050)'
+    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Klikom
+      na gumb "TEST PROXY" poslat će se zahtjev na https://ipinfo.io/json'
+    Use Tor / Proxy for API calls: 'Koristite Tor / Proxy za API pozive'
+    TEST PROXY: 'TESTIRAJ PROXY'
     #& Invidious Instance (Default is https://invidio.us)
-    See Public Instances: ''
+    See Public Instances: 'Pogledajte javne instance'
     Clear History:
-      Clear History: ''
+      Clear History: 'Izbriši povijest'
       # On Click
-      Are you sure you want to delete your history?: ''
+      Are you sure you want to delete your history?: 'Jeste li sigurni da želite izbrisati
+        svoju povijest?'
       #& Yes
       #& No
     Clear Subscriptions:
-      Clear Subscriptions: ''
+      Clear Subscriptions: 'Izbriši pretplate'
       # On Click
-      Are you sure you want to remove all subscriptions?: ''
+      Are you sure you want to remove all subscriptions?: 'Jeste li sigurni da želite
+        ukloniti sve pretplate?'
       #& Yes
       #& No
 
@@ -250,15 +255,20 @@ Settings:
     Select Export Type: Odaberite vrstu izvoza
     Select Import Type: Odaberite vrstu uvoza
     Data Settings: Postavke podataka
+    How do I import my subscriptions?: Kako mogu uvesti pretplate?
 About:
   #On About page
-  About: ''
+  About: 'O'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
+  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Ovaj
+    program zaštićen autorskim pravima slobodno je licenciran AGPL-3.0.'
 
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >
+  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
+    Pronašli ste grešku? Želite li predložiti značajku? Želite li pomoći? Pogledajte
+    našu GitHub stranicu. Zahtjevi za povlačenje dobrodošli.
 
-  Thank you very much to the People and Projects that make FreeTube possible!: ''
+  Thank you very much to the People and Projects that make FreeTube possible!: 'Veliko
+    hvala ljudima i projektima koji omogućuju FreeTube!'
 
   'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': ''
 
