@@ -349,6 +349,11 @@ Video:
   Remove From History: 從曆史紀錄中移除
   Mark As Watched: 記號為已觀看
   Autoplay: 自動播放
+  Play Previous Video: 播放前一部影片
+  Play Next Video: 播放下一部影片
+  Reverse Playlist: 反向播放清單
+  Shuffle Playlist: 隨機播放清單
+  Loop Playlist: 循環播放清單
 Videos:
   #& Sort By
   Sort By:
@@ -447,3 +452,5 @@ Profile:
   Create New Profile: 建立新設定檔
   Profile Manager: 設定檔管理器
   All Channels: 所有頻道
+  Profile Select: 選取設定檔
+The playlist has been reversed: 播放清單已反轉
