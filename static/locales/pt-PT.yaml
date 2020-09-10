@@ -18,7 +18,7 @@ Delete: Eliminar
 Select all: Seleccionar tudo
 Reload: Recarregar
 Force Reload: Forçar recarregamento
-Toggle Developer Tools: Alternar ferramentas de desenvolvimento
+Toggle Developer Tools: Alternar Ferramentas de Desenvolvimento
 Actual size: Tamanho normal
 Zoom in: Ampliar zoom
 Zoom out: Reduzir zoom
@@ -58,7 +58,7 @@ Search Filters:
     Duration: Duração
     All Durations: Toda Duração
     Short (< 4 minutes): Curtos (< 4 minutos)
-    Long (> 20 minutes): Compridos (> 20 minutos)
+    Long (> 20 minutes): Longos (> 20 minutos)
   # On Search Page
   Search Results: Resultados
   Fetching results. Please wait: A procurar. Por favor aguarde
@@ -70,8 +70,8 @@ Subscriptions:
   Latest Subscriptions: Subscrições Recentes
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': A
     sua lista de subscrições encontra-se vazia. Adicione algumas para as ver aqui.
-  'Getting Subscriptions. Please wait.': A carregar subscrições.  Por favor aguarde.
-  Refresh Subscriptions: Actualizar subsrições
+  'Getting Subscriptions. Please wait.': A carregar subscrições. Por favor aguarde.
+  Refresh Subscriptions: Atualizar Subscrições
 Trending: Tendências
 Most Popular: Mais Populares
 Playlists: Listas de Reprodução
@@ -144,7 +144,7 @@ Settings:
       Antigos
     Remember History: Lembrar Histórico
     Play Next Video: Passar Para o Próximo Vídeo
-    Turn on Subtitles by Default: Ligar Legendas Automáticamente
+    Turn on Subtitles by Default: Ligar Legendas Automaticamente
     Autoplay Videos: Reproduzir Vídeos Automaticamente
     Proxy Videos Through Invidious: Utilizar Invidious Como Intermediário
     Autoplay Playlists: Reproduzir Listas de Reprodução Automaticamente
@@ -173,13 +173,17 @@ Settings:
     Remember History: Lembrar Histórico
     Save Watched Progress: Guardar onde ficou da última vez num vídeo
     Clear Search Cache: Limpar Cache de Pesquisas
-    Are you sure you want to clear out your search cache?: Tem a certeza de que quer apagar a sua cache de pesquisas?
+    Are you sure you want to clear out your search cache?: Tem a certeza de que quer
+      apagar a sua cache de pesquisas?
     Search cache has been cleared: Cache de pesquisas foi apagada
     Remove Watch History: Limpar Histórico
-    Are you sure you want to remove your entire watch history?: Tem a certeza de que quer apagar o seu histórico?
+    Are you sure you want to remove your entire watch history?: Tem a certeza de que
+      quer apagar o seu histórico?
     Watch history has been cleared: Histórico foi apagado
-    Remove All Subscriptions / Profiles: Apagar todas as subscrições / perfis.
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Tem a certeza de que quer apagar todas as suas subscrições e perfis? Esta acção não pode ser revertida.
+    Remove All Subscriptions / Profiles: Apagar Todas as Subscrições / Perfis
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Tem
+      a certeza de que quer apagar todas as suas subscrições e perfis? Esta acção
+      não pode ser revertida.
   Subscription Settings:
     Subscription Settings: Definições de Subscrições
     Hide Videos on Watch: Esconder Vídeos Visualisados
@@ -196,7 +200,7 @@ Settings:
     Select Export Type: Escolher tipo de exportação
     Import Subscriptions: Importar Subscrições
     Import FreeTube: Importar FreeTube
-    Import YouTube: ImportarYouTube
+    Import YouTube: Importar YouTube
     Import NewPipe: Importar NewPipe
     Export Subscriptions: Exportar Subscrições
     Export FreeTube: Exportar FreeTube
@@ -204,19 +208,26 @@ Settings:
     Export NewPipe: Exportar NewPipe
     Import History: Importar Histórico
     Export History: Exportar Histórico
-    Profile object has insufficient data, skipping item: O objecto perfil tem dados em falta, a ignorar
-    All subscriptions and profiles have been successfully imported: Todas as subscrições e perfis foram importados com sucesso
-    All subscriptions have been successfully imported: Todas as subscrições foram importadas com sucesso
+    Profile object has insufficient data, skipping item: O objecto perfil tem dados
+      em falta, a ignorar
+    All subscriptions and profiles have been successfully imported: Todas as subscrições
+      e perfis foram importados com sucesso
+    All subscriptions have been successfully imported: Todas as subscrições foram
+      importadas com sucesso
     Invalid subscriptions file: Ficheiro de subscrições inválido
     This might take a while, please wait: Este processo pode demorar, por favor espere
     Invalid history file: Ficheiro de histórico inválido
-    Subscriptions have been successfully exported: Subscrições foram exportadas com sucesso
-    History object has insufficient data, skipping item: O objecto histórico tem dados em falta, a ignorar
-    All watched history has been successfully imported: Histórico foi importado com sucesso
-    All watched history has been successfully exported: Histórico foi exportado com sucesso
+    Subscriptions have been successfully exported: Subscrições foram exportadas com
+      sucesso
+    History object has insufficient data, skipping item: O item do histórico tem dados
+      em falta, a ignorar
+    All watched history has been successfully imported: Histórico foi importado com
+      sucesso
+    All watched history has been successfully exported: Histórico foi exportado com
+      sucesso
     Unable to read file: Ficheiro não pode ser lido
     Unable to write file: Ficheiro não pode ser escrito
-    Unknown data key: Dado chave desconhecido
+    Unknown data key: Chave dada é desconhecida
     How do I import my subscriptions?: Como posso importar as minhas subscrições?
   Advanced Settings:
     Advanced Settings: Definições Avançadas
@@ -238,10 +249,10 @@ Settings:
       #& Yes
       #& No
     Clear Subscriptions:
-      Clear Subscriptions: Limpar Subcrições
+      Clear Subscriptions: Limpar Subscrições
       # On Click
       Are you sure you want to remove all subscriptions?: Tem a certeza de que quer
-        apagar as suas subcrições?
+        apagar as suas subscrições?
       #& Yes
       #& No
 
@@ -253,29 +264,32 @@ About:
     This copylefted software is freely licensed GPLv3+.
 
   'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub
-    page. Pull requests welcome.
+    Encontraste um bug? Queres sugerir uma funcionalidade? Queres ajudar-nos? Vai
+    á nossa página de GitHub. Pull requests são bem vindos.
 
   Thank you very much to the People and Projects that make FreeTube possible!: >-
-    Thank you very much to the People and Projects that make FreeTube possible!
+    Agradeço imenso a todas as pessoas e projetos que façam com que o FreeTube seja
+    possivel!
 
   'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': >-
-    Want to chat? Join our Element / Matrix Server . Please check the rules before
-    joining.
+    Queres conversar? Junta-te ao nosso servidor Element / Matrix. Por favor verifica
+    as regras antes de te juntares.
 
-  'Looking for help? Check out our Wiki page.': Looking for help? Check out our Wiki
-    page.
+  'Looking for help? Check out our Wiki page.': Há procura de ajuda? Vê a nossa página
+    Wiki.
 
-  Check out our Firefox extension!: Check out our Firefox extension!
+  Check out our Firefox extension!: Experimenta a nossa extensão Firefox!
 
   'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': >-
-    If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin
-    address.
+    Se gostas de usar FreeTube, considera doar via Liberapay ou através do nosso endereço
+    Bitcoin.
 
   #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
 
-  Latest FreeTube News: Latest FreeTube News
+  Latest FreeTube News: Notícias recentes sobre FreeTube
 
+  This software is FOSS and released under the GNU Affero General Public License v3.0.: Este
+    software é licenciado livremente via AGPL-3.0.
 Profile:
   All Channels: Todos os Canais
   Profile Manager: Gestor de Perfis
@@ -288,17 +302,21 @@ Profile:
   Update Profile: Actualizar Perfil
   Make Default Profile: Tornar no Perfil Padrão
   Delete Profile: Apagar Perfil
-  Are you sure you want to delete this profile?: Tem a certeza de que quer apagar este perfil?
-  All subscriptions will also be deleted.: Todas as subscrições ligadas a este perfil também serão apagadas.
+  Are you sure you want to delete this profile?: Tem a certeza de que quer apagar
+    este perfil?
+  All subscriptions will also be deleted.: Todas as subscrições ligadas a este perfil
+    também serão apagadas.
   Profile could not be found: Perfil não encontrado
   Your profile name cannot be empty: O nome do perfil não pode ficar em branco
   Profile has been created: Perfil criado
   Profile has been updated: Perfil actualizado
   Your default profile has been set to $: $ é agora o seu perfil padrão
   Removed $ from your profiles: Perfil $ foi apagado
-  Your default profile has been changed to your primary profile: O perfil padrão é agora o seu perfil principal.
-  $ is now the active profile: Está agora a ver as subsrições do perfil $
+  Your default profile has been changed to your primary profile: O seu perfil padrão
+    é agora o seu perfil principal
+  $ is now the active profile: Está agora a ver as subscrições do perfil $
 #On Channel Page
+  Profile Select: Seleção de perfil
 Channel:
   Subscriber: Subscritor
   Subscribers: Subscritores
@@ -391,6 +409,11 @@ Video:
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: Há $ %
 #& Videos
+  Play Previous Video: Reproduzir Vídeo Anterior
+  Play Next Video: Reproduzir Próximo Vídeo
+  Reverse Playlist: Inverter lista de reprodução
+  Shuffle Playlist: Embaralhar lista de reprodução
+  Loop Playlist: Repetir lista de reprodução
 Videos:
   #& Sort By
   Sort By:
@@ -472,3 +495,4 @@ Canceled next video autoplay: Reprodução automática cancelada
 
 Yes: Sim
 No: Não
+The playlist has been reversed: A lista de reprodução foi invertida
