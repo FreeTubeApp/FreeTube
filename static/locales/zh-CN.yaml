@@ -349,6 +349,11 @@ Video:
   Video has been marked as watched: 视频已标记为已观看
   Remove From History: 从历史记录中移除
   Autoplay: 自动播放
+  Play Previous Video: 播放上一视频
+  Play Next Video: 播放下一视频
+  Reverse Playlist: 反向播放列表
+  Shuffle Playlist: 随机播放列表
+  Loop Playlist: 循环播放列表
 Videos:
   #& Sort By
   Sort By:
@@ -420,7 +425,7 @@ Playing Next Video: '将播放下一视频'
 Playing Previous Video: '将播放上一视频'
 Playing next video in 5 seconds.  Click to cancel: '下一视频将在5秒后播放。 点击取消'
 Canceled next video autoplay: '取消的自动播放下一视频'
-'The playlist has ended.  Enable loop to continue playing': '播放列表已结束。 允许循环播以继续播放视频'
+'The playlist has ended.  Enable loop to continue playing': '播放列表已结束。 允许循环播放以继续播放视频'
 
 Yes: '是'
 No: '否'
@@ -447,3 +452,5 @@ Profile:
   Custom Color: 自定义颜色
   Color Picker: 选色器
   All Channels: 所有频道
+  Profile Select: 选择配置文件
+The playlist has been reversed: 播放列表已反转
