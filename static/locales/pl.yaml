@@ -383,6 +383,11 @@ Video:
   Publicationtemplate: '$ % temu'
 #& Videos
   Autoplay: Samoodtwarzanie
+  Play Previous Video: Odtwórz poprzedni film
+  Play Next Video: Odtwórz następny film
+  Reverse Playlist: Odwróć playlistę
+  Shuffle Playlist: Losuj z playlisty
+  Loop Playlist: Zapętl playlistę
 Videos:
   #& Sort By
   Sort By:
@@ -488,3 +493,5 @@ Profile:
   Create New Profile: Stwórz nowy profil
   Profile Manager: Menadżer profili
   All Channels: Wszystkie kanały
+  Profile Select: Wybór profilu
+The playlist has been reversed: Playlista została odwrócona
