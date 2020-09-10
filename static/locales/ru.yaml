@@ -382,6 +382,11 @@ Video:
   Publicationtemplate: '$ % назад'
 #& Videos
   Autoplay: Автовоспроизведение
+  Play Previous Video: Воспроизвести предыдущее видео
+  Play Next Video: Воспроизводить следующее видео
+  Reverse Playlist: Обратный плейлист
+  Shuffle Playlist: Перемешанный плейлист
+  Loop Playlist: Циклический плейлист
 Videos:
   #& Sort By
   Sort By:
@@ -488,3 +493,5 @@ Profile:
   Create New Profile: Создать новый профиль
   Profile Manager: Менеджер профилей
   All Channels: Все каналы
+  Profile Select: Выбор профиля
+The playlist has been reversed: Плейлист был перевёрнут
