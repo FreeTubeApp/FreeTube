@@ -355,6 +355,11 @@ Video:
   Video has been marked as watched: 視聴済みにしました
   Mark As Watched: 視聴済みにする
   Autoplay: 自動再生
+  Play Previous Video: 前の動画を再生
+  Play Next Video: 次の動画を再生
+  Reverse Playlist: 再生リストを逆順に
+  Shuffle Playlist: 再生リストをシャッフル
+  Loop Playlist: 再生リストをループ
 Videos:
   #& Sort By
   Sort By:
@@ -453,3 +458,5 @@ Profile:
   Create New Profile: 新規プロファイル作成
   Profile Manager: プロファイル管理
   All Channels: すべてのチャンネル
+  Profile Select: プロファイルの選択
+The playlist has been reversed: 再生リストは逆順になりました
