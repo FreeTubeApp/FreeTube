@@ -349,8 +349,8 @@ Video:
   Remove From History: 從曆史紀錄中移除
   Mark As Watched: 記號為已觀看
   Autoplay: 自動播放
-  Play Previous Video: 播放前一部影片
-  Play Next Video: 播放下一部影片
+  Play Previous Video: 播放前一視訊
+  Play Next Video: 播放下一視訊
   Reverse Playlist: 反向播放清單
   Shuffle Playlist: 隨機播放清單
   Loop Playlist: 循環播放清單
@@ -417,15 +417,15 @@ Invidious API Error (Click to copy): 'Invidious API錯誤（點擊複製）'
 Falling back to Invidious API: '回退到Invidious API'
 Falling back to the local API: '回退到區域API'
 Subscriptions have not yet been implemented: '訂閱功能尚未被推行'
-Loop is now disabled: '迴圈播放現在被禁用'
-Loop is now enabled: '迴圈播放現在被允許'
+Loop is now disabled: '循環播放現在被禁用'
+Loop is now enabled: '循環播放現在被允許'
 Shuffle is now disabled: '隨機播放現在被禁用'
 Shuffle is now enabled: '隨機播放現在被禁用'
 Playing Next Video: '將播放下一視訊'
 Playing Previous Video: '將播放上一視訊'
 Playing next video in 5 seconds.  Click to cancel: '下一視訊將在5秒后播放。 點擊取消'
 Canceled next video autoplay: '取消的自動播放下一視訊'
-'The playlist has ended.  Enable loop to continue playing': '播放清單已結束。 允許迴圈播以繼續播放視訊'
+'The playlist has ended.  Enable loop to continue playing': '播放清單已結束。 允許循環播放以繼續播放視訊'
 
 Yes: '是'
 No: '否'
