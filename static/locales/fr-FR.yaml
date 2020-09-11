@@ -45,7 +45,7 @@ Search Filters:
     Last Hour: 'Dernière Heure'
     Today: 'Aujourd''hui'
     This Week: 'Cette Semaine'
-    This Month: 'Ce mois'
+    This Month: 'Ce Mois-ci'
     This Year: 'Cette Année'
   Type:
     Type: 'Type'
@@ -73,8 +73,9 @@ Subscriptions:
   'Getting Subscriptions.  Please wait.': 'Récupération des vidéos de vos abonnements,
     veuillez patienter.'
   Getting Subscriptions. Please wait.: Récupération des abonnements. Veuillez patienter.
+  Refresh Subscriptions: Actualiser les abonnements
 Trending: 'Tendance'
-Most Popular: 'Les plus populaires'
+Most Popular: 'Les Plus Populaires'
 Playlists: 'Playlists'
 User Playlists:
   Your Playlists: 'Vos playlists'
@@ -88,7 +89,8 @@ Settings:
   Settings: 'Paramètres'
   General Settings:
     General Settings: 'Paramètres généraux'
-    Fallback to Non-Preferred Backend on Failure: ''
+    Fallback to Non-Preferred Backend on Failure: 'Revenir au système non préférentiel
+      en cas d''échec'
     Enable Search Suggestions: 'Activer les suggestions de recherche'
     Default Landing Page: 'Page de lancement par défaut'
     Locale Preference: 'Préférence locale'
@@ -141,7 +143,8 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: 'Paramètres du lecteur'
-    Force Local Backend for Legacy Formats: ''
+    Force Local Backend for Legacy Formats: 'Forcer le système local pour le format
+      Legacy'
     Remember History: 'Se souvenir de l''historique'
     Play Next Video: 'Lire la vidéo suivante'
     Turn on Subtitles by Default: 'Activer les sous-titres par défaut'
@@ -153,8 +156,8 @@ Settings:
     Default Playback Rate: 'Vitesse de lecture par défaut'
     Default Video Format:
       Default Video Format: 'Format de vidéo par défaut'
-      Dash Formats: ''
-      Legacy Formats: ''
+      Dash Formats: 'Format Dash'
+      Legacy Formats: 'Format Legacy'
       Audio Formats: 'Formats audio'
     Default Quality:
       Default Quality: 'Qualité par défaut'
@@ -170,7 +173,7 @@ Settings:
       8k: '8k'
   Subscription Settings:
     Subscription Settings: 'Paramètres des abonnements'
-    Hide Videos on Watch: ''
+    Hide Videos on Watch: 'Masquer les vidéos visionnées'
     Subscriptions Export Format:
       Subscriptions Export Format: 'Format d''exportation des abonnements'
       #& Freetube
@@ -243,6 +246,14 @@ Settings:
     Import Subscriptions: Importer vos abonnements
     Select Export Type: Sélectionner le type d’exportation
     Select Import Type: Sélectionner le type d’importation
+    Unknown data key: Clé de données inconnue
+    Unable to write file: Impossible d'écrire le fichier
+    Unable to read file: Impossible de lire le fichier
+    Invalid history file: Fichier d'historique non valide
+    This might take a while, please wait: Cela pourrait prendre un certain temps,
+      veuillez patienter
+    Invalid subscriptions file: Fichier d’abonnements non valide
+    Data Settings: Paramètres des données
 About:
   #On About page
   About: 'À propos'
@@ -367,10 +378,14 @@ Video:
     Minute: Minute
   Published on: 'Mise en ligne le'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'Il y a % $'
+  Publicationtemplate: 'Il y a $ %'
 #& Videos
   Play Previous Video: Lire la vidéo précédente
   Play Next Video: Lire la vidéo suivante
+  Autoplay: Lecture Automatique
+  Reverse Playlist: Inverser la Playlist
+  Shuffle Playlist: Mélanger la Playlist
+  Loop Playlist: Playlist en boucle
 Videos:
   #& Sort By
   Sort By:
@@ -477,3 +492,5 @@ Profile:
   Create New Profile: Créer un nouveau profil
   Profile Manager: Gestionnaire de profil
   All Channels: Tous les canaux
+  Profile Select: Sélection du profil
+The playlist has been reversed: La playlist a été inversée
