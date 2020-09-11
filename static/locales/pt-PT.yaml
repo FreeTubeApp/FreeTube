@@ -219,14 +219,14 @@ Settings:
     Invalid history file: Ficheiro de histórico inválido
     Subscriptions have been successfully exported: Subscrições foram exportadas com
       sucesso
-    History object has insufficient data, skipping item: O item do histórico tem dados
+    History object has insufficient data, skipping item: O objecto histórico tem dados
       em falta, a ignorar
     All watched history has been successfully imported: Histórico foi importado com
       sucesso
     All watched history has been successfully exported: Histórico foi exportado com
       sucesso
-    Unable to read file: Ficheiro não pode ser lido
-    Unable to write file: Ficheiro não pode ser escrito
+    Unable to read file: Ficheiro não pôde ser lido
+    Unable to write file: Ficheiro não pôde ser escrito
     Unknown data key: Chave dada é desconhecida
     How do I import my subscriptions?: Como posso importar as minhas subscrições?
   Advanced Settings:
@@ -316,7 +316,7 @@ Profile:
     é agora o seu perfil principal
   $ is now the active profile: Está agora a ver as subscrições do perfil $
 #On Channel Page
-  Profile Select: Seleção de perfil
+  Profile Select: Selecção de perfil
 Channel:
   Subscriber: Subscritor
   Subscribers: Subscritores
@@ -410,9 +410,9 @@ Video:
   Publicationtemplate: Há $ %
 #& Videos
   Play Previous Video: Reproduzir Vídeo Anterior
-  Play Next Video: Reproduzir Próximo Vídeo
+  Play Next Video: Reproduzir Vídeo Seguinte
   Reverse Playlist: Inverter lista de reprodução
-  Shuffle Playlist: Embaralhar lista de reprodução
+  Shuffle Playlist: Baralhar lista de reprodução
   Loop Playlist: Repetir lista de reprodução
 Videos:
   #& Sort By
@@ -480,14 +480,14 @@ Invidious API Error (Click to copy): API Invidious encontrou um erro (Clique par
   copiar)
 Falling back to Invidious API: Ocorreu uma falha, a mudar para o API Invidious
 Falling back to the local API: Ocorreu uma falha, a mudar para o API local
-Subscriptions have not yet been implemented: Subcrições ainda não foram implementadas
+Subscriptions have not yet been implemented: Subscrições ainda não foram implementadas
 Loop is now disabled: Reprodução cíclica desactivada
 Loop is now enabled: Reprodução cíclica activada
 Shuffle is now disabled: Reprodução aleatória desactivada
 Shuffle is now enabled: Reprodução aleatória activada
-Playing Next Video: A Reproduzir o Próximo Vídeo
+Playing Next Video: A Reproduzir o Vídeo Seguinte
 Playing Previous Video: A Reproduzir o Vídeo Anterior
-Playing next video in 5 seconds.  Click to cancel: A reproduzir o próximo vídeo em
+Playing next video in 5 seconds.  Click to cancel: A reproduzir o vídeo seguinte em
   5 segundos. Clique para cancelar
 Canceled next video autoplay: Reprodução automática cancelada
 'The playlist has ended.  Enable loop to continue playing': 'A lista de reprodução
