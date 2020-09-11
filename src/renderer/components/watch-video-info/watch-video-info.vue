@@ -77,6 +77,7 @@
         />
         <ft-share-button
           :id="id"
+          :timestamp="timestamp"
           class="option"
         />
       </div>

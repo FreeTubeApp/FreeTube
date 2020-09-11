@@ -611,7 +611,7 @@ export default Vue.extend({
         const player = this.$refs.videoPlayer.player
 
         if (player !== null && this.saveWatchedProgress) {
-          const currentTime = this.$refs.videoPlayer.player.currentTime()
+          const currentTime = this.getWatchedProgress()
           const payload = {
             videoId: this.videoId,
             watchProgress: currentTime
@@ -763,6 +763,14 @@ export default Vue.extend({
 
         return caption
       })
+    },
+
+    getWatchedProgress: function () {
+      return this.$refs.videoPlayer && this.$refs.videoPlayer.player ? this.$refs.videoPlayer.player.currentTime() : 0
+    },
+
+    getTimestamp: function () {
+      return Math.floor(this.getWatchedProgress())
     },
 
     ...mapActions([

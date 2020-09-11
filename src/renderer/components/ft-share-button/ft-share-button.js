@@ -14,6 +14,10 @@ export default Vue.extend({
     id: {
       type: String,
       required: true
+    },
+    timestamp: {
+      default: 0,
+      type: Number
     }
   },
   computed: {
@@ -29,12 +33,20 @@ export default Vue.extend({
       return `${this.invidiousInstance}/watch?v=${this.id}`
     },
 
+    invidiousURLWithTime() {
+      return `${this.invidiousInstance}/watch?v=${this.id}&t=${this.timestamp}`
+    },
+
     invidiousEmbedURL() {
       return `${this.invidiousInstance}/embed/${this.id}`
     },
 
     youtubeURL() {
       return `https://www.youtube.com/watch?v=${this.id}`
+    },
+
+    youtubeURLWithTime() {
+      return `https://www.youtube.com/watch?v=${this.id}&t=${this.timestamp}`
     },
 
     youtubeEmbedURL() {
@@ -59,6 +71,11 @@ export default Vue.extend({
       this.$refs.iconButton.toggleDropdown()
     },
 
+    openInvidiousAtTime() {
+      this.open(this.invidiousURLWithTime)
+      this.$refs.iconButton.toggleDropdown()
+    },
+
     copyInvidious() {
       this.showToast({
         message: this.$t('Share.Invidious URL copied to clipboard')
@@ -67,8 +84,21 @@ export default Vue.extend({
       this.$refs.iconButton.toggleDropdown()
     },
 
+    copyInvidiousAtTime() {
+      this.showToast({
+        message: this.$t('Share.Invidious URL copied to clipboard')
+      })
+      this.copy(this.invidiousURLWithTime)
+      this.$refs.iconButton.toggleDropdown()
+    },
+
     openYoutube() {
       this.open(this.youtubeURL)
+      this.$refs.iconButton.toggleDropdown()
+    },
+
+    openYoutubeAtTime() {
+      this.open(this.youtubeURLWithTime)
       this.$refs.iconButton.toggleDropdown()
     },
 
@@ -77,6 +107,14 @@ export default Vue.extend({
         message: this.$t('Share.YouTube URL copied to clipboard')
       })
       this.copy(this.youtubeURL)
+      this.$refs.iconButton.toggleDropdown()
+    },
+
+    copyYoutubeAtTime() {
+      this.showToast({
+        message: this.$t('Share.YouTube URL copied to clipboard')
+      })
+      this.copy(this.youtubeURLWithTime)
       this.$refs.iconButton.toggleDropdown()
     },
 
