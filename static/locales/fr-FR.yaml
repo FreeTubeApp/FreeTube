@@ -223,6 +223,26 @@ Settings:
       sur de vouloir supprimer tous les abonnements et les profils ? Cette action
       est définitive.
     Remove All Subscriptions / Profiles: Supprimer tous les abonnements / profils
+  Data Settings:
+    How do I import my subscriptions?: Comment importer mes abonnements ?
+    Subscriptions have been successfully exported: Les abonnements ont été exportés
+      avec succès
+    All subscriptions have been successfully imported: Tous les abonnements ont été
+      importés avec succès
+    All subscriptions and profiles have been successfully imported: Tous les abonnements
+      et profils ont été importés avec succès
+    Export History: Exporter l'historique
+    Import History: Importer l'historique
+    Export NewPipe: Exporter NewPipe
+    Export YouTube: Exporter YouTube
+    Export FreeTube: Exporter FreeTube
+    Export Subscriptions: Exporter vos abonnements
+    Import NewPipe: Importer NewPipe
+    Import YouTube: Importer YouTube
+    Import FreeTube: Importer FreeTube
+    Import Subscriptions: Importer vos abonnements
+    Select Export Type: Sélectionner le type d’exportation
+    Select Import Type: Sélectionner le type d’importation
 About:
   #On About page
   About: 'À propos'
@@ -349,6 +369,8 @@ Video:
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Il y a % $'
 #& Videos
+  Play Previous Video: Lire la vidéo précédente
+  Play Next Video: Lire la vidéo suivante
 Videos:
   #& Sort By
   Sort By:
