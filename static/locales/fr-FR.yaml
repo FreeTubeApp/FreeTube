@@ -183,6 +183,7 @@ Settings:
     Import Subscriptions: 'Importer vos abonnements'
     Export Subscriptions: 'Exporter vos abonnements'
     How do I import my subscriptions?: 'Comment importer mes abonnements ?'
+    Fetch Feeds from RSS: Récupération de flux RSS
   Advanced Settings:
     Advanced Settings: 'Paramètres Avancés'
     Enable Debug Mode (Prints data to the console): 'Activer le mode débug (afficher
