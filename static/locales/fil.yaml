@@ -1,0 +1,443 @@
+# Put the name of your locale in the same language
+Locale Name: ''
+FreeTube: ''
+# Currently on Subscriptions, Playlists, and History
+'This part of the app is not ready yet. Come back later when progress has been made.': >
+
+# Webkit Menu Bar
+File: ''
+Quit: ''
+Edit: ''
+Undo: ''
+Redo: ''
+Cut: ''
+Copy: ''
+Paste: ''
+Delete: ''
+Select all: ''
+Reload: ''
+Force Reload: ''
+Toggle Developer Tools: ''
+Actual size: ''
+Zoom in: ''
+Zoom out: ''
+Toggle fullscreen: ''
+Window: ''
+Minimize: ''
+Close: ''
+Back: ''
+Forward: ''
+
+# Search Bar
+Search / Go to URL: ''
+  # In Filter Button
+Search Filters:
+  Search Filters: ''
+  Sort By:
+    Sort By: ''
+    Most Relevant: ''
+    Rating: ''
+    Upload Date: ''
+    View Count: ''
+  Time:
+    Time: ''
+    Any Time: ''
+    Last Hour: ''
+    Today: ''
+    This Week: ''
+    This Month: ''
+    This Year: ''
+  Type:
+    Type: ''
+    All Types: ''
+    Videos: ''
+    Channels: ''
+    #& Playlists
+  Duration:
+    Duration: ''
+    All Durations: ''
+    Short (< 4 minutes): ''
+    Long (> 20 minutes): ''
+  # On Search Page
+  Search Results: ''
+  Fetching results. Please wait: ''
+  Fetch more results: ''
+# Sidebar
+Subscriptions:
+    # On Subscriptions Page
+  Subscriptions: ''
+  Latest Subscriptions: ''
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
+  'Getting Subscriptions. Please wait.': ''
+  Refresh Subscriptions: ''
+Trending: ''
+Most Popular: ''
+Playlists: ''
+User Playlists:
+  Your Playlists: ''
+History:
+  # On History Page
+  History: ''
+  Watch History: ''
+  Your history list is currently empty.: ''
+Settings:
+  # On Settings Page
+  Settings: ''
+  General Settings:
+    General Settings: ''
+    Fallback to Non-Preferred Backend on Failure: ''
+    Enable Search Suggestions: ''
+    Default Landing Page: ''
+    Locale Preference: ''
+    Preferred API Backend:
+      Preferred API Backend: ''
+      Local API: ''
+      Invidious API: ''
+    Video View Type:
+      Video View Type: ''
+      Grid: ''
+      List: ''
+    Thumbnail Preference:
+      Thumbnail Preference: ''
+      Default: ''
+      Beginning: ''
+      Middle: ''
+      End: ''
+    'Invidious Instance (Default is https://invidio.us)': ''
+    Region for Trending: ''
+        #! List countries
+  Theme Settings:
+    Theme Settings: ''
+    Match Top Bar with Main Color: ''
+    Base Theme:
+      Base Theme: ''
+      Black: ''
+      Dark: ''
+      Light: ''
+    Main Color Theme:
+      Main Color Theme: ''
+      Red: ''
+      Pink: ''
+      Purple: ''
+      Deep Purple: ''
+      Indigo: ''
+      Blue: ''
+      Light Blue: ''
+      Cyan: ''
+      Teal: ''
+      Green: ''
+      Light Green: ''
+      Lime: ''
+      Yellow: ''
+      Amber: ''
+      Orange: ''
+      Deep Orange: ''
+    Secondary Color Theme: ''
+        #* Main Color Theme
+  Player Settings:
+    Player Settings: ''
+    Force Local Backend for Legacy Formats: ''
+    Play Next Video: ''
+    Turn on Subtitles by Default: ''
+    Autoplay Videos: ''
+    Proxy Videos Through Invidious: ''
+    Autoplay Playlists: ''
+    Enable Theatre Mode by Default: ''
+    Default Volume: ''
+    Default Playback Rate: ''
+    Default Video Format:
+      Default Video Format: ''
+      Dash Formats: ''
+      Legacy Formats: ''
+      Audio Formats: ''
+    Default Quality:
+      Default Quality: ''
+      Auto: ''
+      144p: ''
+      240p: ''
+      360p: ''
+      480p: ''
+      720p: ''
+      1080p: ''
+      1440p: ''
+      4k: ''
+      8k: ''
+  Privacy Settings:
+    Privacy Settings: ''
+    Remember History: ''
+    Save Watched Progress: ''
+    Clear Search Cache: ''
+    Are you sure you want to clear out your search cache?: ''
+    Search cache has been cleared: ''
+    Remove Watch History: ''
+    Are you sure you want to remove your entire watch history?: ''
+    Watch history has been cleared: ''
+    Remove All Subscriptions / Profiles: ''
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
+  Subscription Settings:
+    Subscription Settings: ''
+    Hide Videos on Watch: ''
+    Fetch Feeds from RSS: ''
+    Manage Subscriptions: ''
+  Data Settings:
+    Data Settings: ''
+    Select Import Type: ''
+    Select Export Type: ''
+    Import Subscriptions: ''
+    Import FreeTube: ''
+    Import YouTube: ''
+    Import NewPipe: ''
+    Export Subscriptions: ''
+    Export FreeTube: ''
+    Export YouTube: ''
+    Export NewPipe: ''
+    Import History: ''
+    Export History: ''
+    Profile object has insufficient data, skipping item: ''
+    All subscriptions and profiles have been successfully imported: ''
+    All subscriptions have been successfully imported: ''
+    Invalid subscriptions file: ''
+    This might take a while, please wait: ''
+    Invalid history file: ''
+    Subscriptions have been successfully exported: ''
+    History object has insufficient data, skipping item: ''
+    All watched history has been successfully imported: ''
+    All watched history has been successfully exported: ''
+    Unable to read file: ''
+    Unable to write file: ''
+    Unknown data key: ''
+    How do I import my subscriptions?: ''
+  Advanced Settings:
+    Advanced Settings: ''
+    Enable Debug Mode (Prints data to the console): ''
+    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': ''
+    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': ''
+    Use Tor / Proxy for API calls: ''
+    TEST PROXY: ''
+    #& Invidious Instance (Default is https://invidio.us)
+    See Public Instances: ''
+    Clear History:
+      Clear History: ''
+      # On Click
+      Are you sure you want to delete your history?: ''
+      #& Yes
+      #& No
+    Clear Subscriptions:
+      Clear Subscriptions: ''
+      # On Click
+      Are you sure you want to remove all subscriptions?: ''
+      #& Yes
+      #& No
+
+About:
+  #On About page
+  About: ''
+  #& About
+  'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
+
+  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >
+
+  Thank you very much to the People and Projects that make FreeTube possible!: ''
+
+  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': ''
+
+  'Looking for help? Check out our Wiki page.': ''
+
+  Check out our Firefox extension!: ''
+
+  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': ''
+
+  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
+
+  Latest FreeTube News: ''
+
+Profile:
+  Profile Select: ''
+  All Channels: ''
+  Profile Manager: ''
+  Create New Profile: ''
+  Edit Profile: ''
+  Color Picker: ''
+  Custom Color: ''
+  Profile Preview: ''
+  Create Profile: ''
+  Update Profile: ''
+  Make Default Profile: ''
+  Delete Profile: ''
+  Are you sure you want to delete this profile?: ''
+  All subscriptions will also be deleted.: ''
+  Profile could not be found: ''
+  Your profile name cannot be empty: ''
+  Profile has been created: ''
+  Profile has been updated: ''
+  Your default profile has been set to $: ''
+  Removed $ from your profiles: ''
+  Your default profile has been changed to your primary profile: ''
+  $ is now the active profile: ''
+#On Channel Page
+Channel:
+  Subscriber: ''
+  Subscribers: ''
+  Subscribe: ''
+  Unsubscribe: ''
+  Search Channel: ''
+  Your search results have returned 0 results: ''
+  Sort By: ''
+  Videos:
+    Videos: ''
+    This channel does not currently have any videos: ''
+    Sort Types:
+      Newest: ''
+      Oldest: ''
+      Most Popular: ''
+  Playlists:
+    Playlists: ''
+    This channel does not currently have any playlists: ''
+    Sort Types:
+      Last Video Added: ''
+      Newest: ''
+      Oldest: ''
+  About:
+    About: ''
+    Channel Description: ''
+    Featured Channels: ''
+Video:
+  Mark As Watched: ''
+  Remove From History: ''
+  Video has been marked as watched: ''
+  Video has been removed from your history: ''
+  Open in YouTube: ''
+  Copy YouTube Link: ''
+  Open YouTube Embedded Player: ''
+  Copy YouTube Embedded Player Link: ''
+  Open in Invidious: ''
+  Copy Invidious Link: ''
+  View: ''
+  Views: ''
+  Loop Playlist: ''
+  Shuffle Playlist: ''
+  Reverse Playlist: ''
+  Play Next Video: ''
+  Play Previous Video: ''
+  # Context is "X People Watching"
+  Watching: ''
+  Watched: ''
+  Autoplay: ''
+  # As in a Live Video
+  Live: ''
+  Live Now: ''
+  Live Chat: ''
+  Enable Live Chat: ''
+  Live Chat is currently not supported in this build.: ''
+  'Chat is disabled or the Live Stream has ended.': ''
+  Live chat is enabled.  Chat messages will appear here once sent.: ''
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
+  Published:
+    Jan: ''
+    Feb: ''
+    Mar: ''
+    Apr: ''
+    May: ''
+    Jun: ''
+    Jul: ''
+    Aug: ''
+    Sep: ''
+    Oct: ''
+    Nov: ''
+    Dec: ''
+    Second: ''
+    Seconds: ''
+    Minute: ''
+    Minutes: ''
+    Hour: ''
+    Hours: ''
+    Day: ''
+    Days: ''
+    Week: ''
+    Weeks: ''
+    Month: ''
+    Months: ''
+    Year: ''
+    Years: ''
+    Ago: ''
+    Upcoming: ''
+  Published on: ''
+  # $ is replaced with the number and % with the unit (days, hours, minutes...)
+  Publicationtemplate: ''
+#& Videos
+Videos:
+  #& Sort By
+  Sort By:
+    Newest: ''
+    Oldest: ''
+    #& Most Popular
+#& Playlists
+Playlist:
+  #& About
+  View Full Playlist: ''
+  Videos: ''
+  View: ''
+  Views: ''
+  Last Updated On: ''
+  Share Playlist:
+    Share Playlist: ''
+    Copy YouTube Link: ''
+    Open in YouTube: ''
+    Copy Invidious Link: ''
+    Open in Invidious: ''
+
+# On Video Watch Page
+#* Published
+#& Views
+Toggle Theatre Mode: ''
+Change Format:
+  Change Video Formats: ''
+  Use Dash Formats: ''
+  Use Legacy Formats: ''
+  Use Audio Formats: ''
+Share:
+  Share Video: ''
+  Copy Link: ''
+  Open Link: ''
+  Copy Embed: ''
+  Open Embed: ''
+  # On Click
+  Invidious URL copied to clipboard: ''
+  Invidious Embed URL copied to clipboard: ''
+  YouTube URL copied to clipboard: ''
+  YouTube Embed URL copied to clipboard: ''
+Mini Player: ''
+Comments:
+  Comments: ''
+  Click to View Comments: ''
+  Getting comment replies, please wait: ''
+  Show Comments: ''
+  Hide Comments: ''
+  # Context: View 10 Replies, View 1 Reply
+  View: ''
+  Hide: ''
+  Replies: ''
+  Reply: ''
+  There are no comments available for this video: ''
+  Load More Comments: ''
+Up Next: ''
+
+# Toast Messages
+Local API Error (Click to copy): ''
+Invidious API Error (Click to copy): ''
+Falling back to Invidious API: ''
+Falling back to the local API: ''
+Subscriptions have not yet been implemented: ''
+Loop is now disabled: ''
+Loop is now enabled: ''
+Shuffle is now disabled: ''
+Shuffle is now enabled: ''
+The playlist has been reversed: ''
+Playing Next Video: ''
+Playing Previous Video: ''
+Playing next video in 5 seconds.  Click to cancel: ''
+Canceled next video autoplay: ''
+'The playlist has ended.  Enable loop to continue playing': ''
+
+Yes: ''
+No: ''
