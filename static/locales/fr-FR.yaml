@@ -89,15 +89,15 @@ Settings:
   Settings: 'Paramètres'
   General Settings:
     General Settings: 'Paramètres généraux'
-    Fallback to Non-Preferred Backend on Failure: 'Revenir au système non préférentiel
+    Fallback to Non-Preferred Backend on Failure: 'Revenir au Backend non préférentiel
       en cas d''échec'
     Enable Search Suggestions: 'Activer les suggestions de recherche'
     Default Landing Page: 'Page de lancement par défaut'
     Locale Preference: 'Préférence locale'
     Preferred API Backend:
       Preferred API Backend: 'API Backend préférée'
-      Local API: 'Local API'
-      Invidious API: 'Invidious API'
+      Local API: 'API Locale'
+      Invidious API: 'API Invidious'
     Video View Type:
       Video View Type: 'Type d''affichage des vidéos'
       Grid: 'Grille'
@@ -143,7 +143,7 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: 'Paramètres du lecteur'
-    Force Local Backend for Legacy Formats: 'Forcer le système local pour le format
+    Force Local Backend for Legacy Formats: 'Forcer le Backend local pour le format
       Legacy'
     Remember History: 'Se souvenir de l''historique'
     Play Next Video: 'Lire la vidéo suivante'
@@ -438,6 +438,7 @@ Share:
   YouTube URL copied to clipboard: 'URL Youtube copié dans le presse-papiers'
   YouTube Embed URL copied to clipboard: 'URL d''intégration Youtube copié dans le
     presse-papiers'
+  Include Timestamp: Inclure l'horodatage
 Mini Player: 'Mini Lecteur'
 Comments:
   Comments: 'Commentaires'
