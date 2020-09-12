@@ -259,6 +259,8 @@ Settings:
     Select Export Type: Wybierz typ exportu
     Select Import Type: Wybierz typ importu
     Data Settings: Ustawienia danych
+    One or more subscriptions were unable to be imported: Nie można było zaimportować
+      conajmniej jednej subskrypcji
 About:
   #On About page
   About: 'O projekcie'
