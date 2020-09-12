@@ -59,9 +59,9 @@ export default Vue.extend({
       type: Number,
       default: 0
     },
-    timestamp: {
-      default: 0,
-      type: Number
+    getTimestamp: {
+      type: Function,
+      required: true
     }
   },
   data: function () {

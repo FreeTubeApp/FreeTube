@@ -1,23 +1,32 @@
 import Vue from 'vue'
 
+import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtButton from '../ft-button/ft-button.vue'
+import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import { mapActions } from 'vuex'
 
 export default Vue.extend({
   name: 'FtShareButton',
   components: {
+    'ft-flex-box': FtFlexBox,
     'ft-icon-button': FtIconButton,
-    'ft-button': FtButton
+    'ft-button': FtButton,
+    'ft-toggle-switch': FtToggleSwitch
   },
   props: {
     id: {
       type: String,
       required: true
     },
-    timestamp: {
-      default: 0,
-      type: Number
+    getTimestamp: {
+      type: Function,
+      required: true
+    }
+  },
+  data: function () {
+    return {
+      includeTime: false
     }
   },
   computed: {
@@ -33,10 +42,6 @@ export default Vue.extend({
       return `${this.invidiousInstance}/watch?v=${this.id}`
     },
 
-    invidiousURLWithTime() {
-      return `${this.invidiousInstance}/watch?v=${this.id}&t=${this.timestamp}`
-    },
-
     invidiousEmbedURL() {
       return `${this.invidiousInstance}/embed/${this.id}`
     },
@@ -45,14 +50,9 @@ export default Vue.extend({
       return `https://www.youtube.com/watch?v=${this.id}`
     },
 
-    youtubeURLWithTime() {
-      return `https://www.youtube.com/watch?v=${this.id}&t=${this.timestamp}`
-    },
-
     youtubeEmbedURL() {
       return `https://www.youtube-nocookie.com/embed/${this.id}`
     }
-
   },
   methods: {
     copy(text) {
@@ -67,12 +67,7 @@ export default Vue.extend({
     },
 
     openInvidious() {
-      this.open(this.invidiousURL)
-      this.$refs.iconButton.toggleDropdown()
-    },
-
-    openInvidiousAtTime() {
-      this.open(this.invidiousURLWithTime)
+      this.open(this.getFinalUrl(this.invidiousURL))
       this.$refs.iconButton.toggleDropdown()
     },
 
@@ -80,25 +75,12 @@ export default Vue.extend({
       this.showToast({
         message: this.$t('Share.Invidious URL copied to clipboard')
       })
-      this.copy(this.invidiousURL)
-      this.$refs.iconButton.toggleDropdown()
-    },
-
-    copyInvidiousAtTime() {
-      this.showToast({
-        message: this.$t('Share.Invidious URL copied to clipboard')
-      })
-      this.copy(this.invidiousURLWithTime)
+      this.copy(this.getFinalUrl(this.invidiousURL))
       this.$refs.iconButton.toggleDropdown()
     },
 
     openYoutube() {
-      this.open(this.youtubeURL)
-      this.$refs.iconButton.toggleDropdown()
-    },
-
-    openYoutubeAtTime() {
-      this.open(this.youtubeURLWithTime)
+      this.open(this.getFinalUrl(this.youtubeURL))
       this.$refs.iconButton.toggleDropdown()
     },
 
@@ -106,20 +88,12 @@ export default Vue.extend({
       this.showToast({
         message: this.$t('Share.YouTube URL copied to clipboard')
       })
-      this.copy(this.youtubeURL)
-      this.$refs.iconButton.toggleDropdown()
-    },
-
-    copyYoutubeAtTime() {
-      this.showToast({
-        message: this.$t('Share.YouTube URL copied to clipboard')
-      })
-      this.copy(this.youtubeURLWithTime)
+      this.copy(this.getFinalUrl(this.youtubeURL))
       this.$refs.iconButton.toggleDropdown()
     },
 
     openYoutubeEmbed() {
-      this.open(this.youtubeEmbedURL)
+      this.open(this.getFinalUrl(this.youtubeEmbedURL))
       this.$refs.iconButton.toggleDropdown()
     },
 
@@ -127,12 +101,12 @@ export default Vue.extend({
       this.showToast({
         message: this.$t('Share.YouTube Embed URL copied to clipboard')
       })
-      this.copy(this.youtubeEmbedURL)
+      this.copy(this.getFinalUrl(this.youtubeEmbedURL))
       this.$refs.iconButton.toggleDropdown()
     },
 
     openInvidiousEmbed() {
-      this.open(this.invidiousEmbedURL)
+      this.open(this.getFinalUrl(this.invidiousEmbedURL))
       this.$refs.iconButton.toggleDropdown()
     },
 
@@ -140,8 +114,16 @@ export default Vue.extend({
       this.showToast({
         message: this.$t('Share.Invidious Embed URL copied to clipboard')
       })
-      this.copy(this.invidiousEmbedURL)
+      this.copy(this.getFinalUrl(this.invidiousEmbedURL))
       this.$refs.iconButton.toggleDropdown()
+    },
+
+    updateIncludeTime() {
+      this.includeTime = !this.includeTime
+    },
+
+    getFinalUrl(url) {
+      return this.includeTime ? `${url}&t=${this.getTimestamp()}` : url
     },
 
     ...mapActions([

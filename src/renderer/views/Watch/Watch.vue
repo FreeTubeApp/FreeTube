@@ -42,7 +42,7 @@
         :like-count="videoLikeCount"
         :dislike-count="videoDislikeCount"
         :view-count="videoViewCount"
-        :timestamp="getTimestamp()"
+        :get-timestamp="getTimestamp"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
         @theatreMode="toggleTheatreMode"

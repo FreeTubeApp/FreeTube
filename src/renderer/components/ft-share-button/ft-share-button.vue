@@ -7,6 +7,14 @@
     dropdown-position-x="left"
     :force-dropdown="true"
   >
+    <ft-flex-box>
+      <ft-toggle-switch
+        :label="$t('Share.Include Time')"
+        :compact="true"
+        :default-value="includeTime"
+        @change="updateIncludeTime"
+      />
+    </ft-flex-box>
     <div class="shareLinks">
       <div class="header">
         <img
@@ -28,24 +36,10 @@
         </ft-button>
         <ft-button
           class="action"
-          @click="copyYoutubeAtTime()"
-        >
-          <font-awesome-icon icon="copy" />
-          {{ $t("Share.Copy Link At Current Time") }}
-        </ft-button>
-        <ft-button
-          class="action"
           @click="openYoutube()"
         >
           <font-awesome-icon icon="globe" />
           {{ $t("Share.Open Link") }}
-        </ft-button>
-        <ft-button
-          class="action"
-          @click="openYoutubeAtTime()"
-        >
-          <font-awesome-icon icon="globe" />
-          {{ $t("Share.Open Link At Current Time") }}
         </ft-button>
         <ft-button
           class="action"
@@ -81,24 +75,10 @@
         </ft-button>
         <ft-button
           class="action"
-          @click="copyInvidiousAtTime()"
-        >
-          <font-awesome-icon icon="copy" />
-          {{ $t("Share.Copy Link At Current Time") }}
-        </ft-button>
-        <ft-button
-          class="action"
           @click="openInvidious()"
         >
           <font-awesome-icon icon="globe" />
           {{ $t("Share.Open Link") }}
-        </ft-button>
-        <ft-button
-          class="action"
-          @click="openInvidiousAtTime()"
-        >
-          <font-awesome-icon icon="globe" />
-          {{ $t("Share.Open Link At Current Time") }}
         </ft-button>
         <ft-button
           class="action"
