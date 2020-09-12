@@ -9,10 +9,10 @@
   >
     <ft-flex-box>
       <ft-toggle-switch
-        :label="$t('Share.Include Time')"
+        :label="$t('Share.Include Timestamp')"
         :compact="true"
-        :default-value="includeTime"
-        @change="updateIncludeTime"
+        :default-value="includeTimestamp"
+        @change="updateincludeTimestamp"
       />
     </ft-flex-box>
     <div class="shareLinks">

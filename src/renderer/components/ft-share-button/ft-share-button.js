@@ -26,7 +26,7 @@ export default Vue.extend({
   },
   data: function () {
     return {
-      includeTime: false
+      includeTimestamp: false
     }
   },
   computed: {
@@ -118,12 +118,12 @@ export default Vue.extend({
       this.$refs.iconButton.toggleDropdown()
     },
 
-    updateIncludeTime() {
-      this.includeTime = !this.includeTime
+    updateincludeTimestamp() {
+      this.includeTimestamp = !this.includeTimestamp
     },
 
     getFinalUrl(url) {
-      return this.includeTime ? `${url}&t=${this.getTimestamp()}` : url
+      return this.includeTimestamp ? `${url}&t=${this.getTimestamp()}` : url
     },
 
     ...mapActions([
