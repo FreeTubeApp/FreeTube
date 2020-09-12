@@ -257,6 +257,8 @@ Settings:
     Select Export Type: Выбрать тип экспорта
     Select Import Type: Выбрать тип импорта
     Data Settings: Настройки данных
+    One or more subscriptions were unable to be imported: Не удалось импортировать
+      одну или несколько подписок
 About:
   #On About page
   About: 'О программе'
