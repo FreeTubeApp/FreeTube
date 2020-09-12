@@ -69,6 +69,8 @@ Subscriptions:
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Sinulla
     ei juuri nyt ole tilauksia. Tilaa kanavia nähdäksesi ne täällä.'
   'Getting Subscriptions.  Please wait.': 'Haetaan tilauksia. Odota hetki.'
+  Refresh Subscriptions: Päivitä tilaukset
+  Getting Subscriptions. Please wait.: Haetaan tilauksia. Odota hetki.
 Trending: 'Nousussa'
 Most Popular: 'Suosituimmat'
 Playlists: 'Soittolistat'
@@ -177,6 +179,7 @@ Settings:
     Import Subscriptions: 'Tuo tilauksia'
     Export Subscriptions: 'Vie tilauksia'
     How do I import my subscriptions?: 'Miten voin tuoda tilaukseni?'
+    Fetch Feeds from RSS: Nouda RSS-syöte
   Advanced Settings:
     Advanced Settings: 'Lisäasetukset'
     Enable Debug Mode (Prints data to the console): 'Ota virheenkorjaustila käyttöön
@@ -215,6 +218,44 @@ Settings:
     Save Watched Progress: Tallenna tilanne katsotuissa
     Remember History: Muista historia
     Privacy Settings: Yksityisyysasetukset
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Haluatko
+      cvarmasti poistaa kaikki tilaukset ja profiilit. Tätä toimintoa ei voi perua.
+    Remove All Subscriptions / Profiles: Poista kaikki tilaukset / profiilit
+  Data Settings:
+    How do I import my subscriptions?: Kuinka voin tuoda tilaukseni?
+    Unknown data key: Tuntematon data-avain
+    Unable to write file: Tiedostoa ei voida kirjoittaa
+    Unable to read file: Tiedostoa ei voida lukea
+    All watched history has been successfully exported: Kaikki katsottujen historia
+      on viety onnistuneesti
+    All watched history has been successfully imported: Kaikki katsottujen historia
+      on tuotu onnistuneesti
+    History object has insufficient data, skipping item: Historiakohteen tiedot ovat
+      puuttelliset, ohitetaan kohde
+    Subscriptions have been successfully exported: Tilaukset on viety onnistuneesti
+    Invalid history file: Puutteellinen historiatiedosto
+    This might take a while, please wait: Tämä saattaa viedä tovin, odota hetki
+    Invalid subscriptions file: Puutteellinen tilaustiedosto
+    One or more subscriptions were unable to be imported: Yhden tai useamman tilauksen
+      tuonti epäonnistui
+    All subscriptions have been successfully imported: Kaikki tilaukset on tuotu onnistuneesti
+    All subscriptions and profiles have been successfully imported: Kaikki tilaukset
+      ja profiilit on tuotu onnistuneesti
+    Profile object has insufficient data, skipping item: Profiilikohteen tiedot ovat
+      puutteelliset, ohitetaan kohde
+    Export History: Vie historia
+    Import History: Tuo historia
+    Export NewPipe: Vie NewPipe
+    Export YouTube: Vie YouTube
+    Export FreeTube: Vie FreeTube
+    Export Subscriptions: Vie tilaukset
+    Import NewPipe: Tuo NewPipe
+    Import YouTube: Tuo YouTube
+    Import FreeTube: Vie tilaukset
+    Import Subscriptions: Tuo tilaukset
+    Select Export Type: Valitse Viennin tyyppi
+    Select Import Type: Valitse Tuonnin tyyppi
+    Data Settings: Data-asetukset
 About:
   #On About page
   About: 'Tietoja'
@@ -324,6 +365,8 @@ Video:
     Years: 'Vuotta'
     Ago: 'sitten'
     Upcoming: 'Ensiesitys pian'
+    Minutes: Minuutit
+    Minute: Minuutti
   Published on: 'Julkaistu'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % sitten'
@@ -332,6 +375,12 @@ Video:
   Video has been marked as watched: Video on merkitty katsotuksi
   Remove From History: Poista historiasta
   Mark As Watched: Merkitse katsotuksi
+  Autoplay: Automaattinen toisto
+  Play Previous Video: Toista edellinen video
+  Play Next Video: Toista seuraava video
+  Reverse Playlist: Käänteinen soittolista
+  Shuffle Playlist: Sekoita soittolistaa
+  Loop Playlist: Kierrätä soittolistaa
 Videos:
   #& Sort By
   Sort By:
@@ -373,6 +422,7 @@ Share:
   Invidious Embed URL copied to clipboard: 'Invidious-upotus kopioitu leikepöydälle'
   YouTube URL copied to clipboard: 'YouTube-osoite kopioitu leikepöydälle'
   YouTube Embed URL copied to clipboard: 'YouTube-upotteen osoite kopioitu leikepöydälle'
+  Include Timestamp: Sisällytä aikaleima
 Mini Player: 'Pieni soitin'
 Comments:
   Comments: 'Kommentit'
@@ -410,3 +460,28 @@ Canceled next video autoplay: 'Peruttiin seuraavan videon toistaminen'
 Yes: 'Kyllä'
 No: 'Ei'
 Locale Name: suomi
+The playlist has been reversed: Soittolista on muutettu käänteiseksi
+Profile:
+  $ is now the active profile: $ on nyt aktiivinen profiili
+  Your default profile has been changed to your primary profile: Oletusprofiilisi
+    on vaihdettu ensisijaiseksi profiiliksesi
+  Removed $ from your profiles: $ on poistettu profiileistasi
+  Your default profile has been set to $: Oletusprofiiliksesi on määritetty $
+  Profile has been updated: Profiili on päivitetty
+  Profile has been created: Profiili on luotu
+  Your profile name cannot be empty: Profiilisi nimi ei voi olla tyhjä
+  Profile could not be found: Profiilia ei löydetty
+  All subscriptions will also be deleted.: Kaikki tilaukset tullaan myös poistamaan.
+  Are you sure you want to delete this profile?: Haluatko varmasti poistaa tämän profiilin?
+  Delete Profile: Poista profiili
+  Make Default Profile: Määritä oletusprofiiliksi
+  Update Profile: Päivitä profiili
+  Create Profile: Luo profiili
+  Profile Preview: Profiilin esikatselu
+  Custom Color: Mukautettu väri
+  Color Picker: Värin valinta
+  Edit Profile: Muokkaa profiilia
+  Create New Profile: Luo uusi profiili
+  Profile Manager: Profiilin hallinta
+  All Channels: Kaikki kanavat
+  Profile Select: Profiilin valinta
