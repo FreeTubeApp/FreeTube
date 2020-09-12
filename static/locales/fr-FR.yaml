@@ -259,6 +259,10 @@ Settings:
       a été exporté avec succès
     All watched history has been successfully imported: Tout votre historique de visionnage
       a été importé avec succès
+    History object has insufficient data, skipping item: Ignorer cet élément car les
+      données d'historique sont insuffisantes
+    Profile object has insufficient data, skipping item: Ignorer cet élément car les
+      données de profil sont insuffisantes
 About:
   #On About page
   About: 'À propos'
