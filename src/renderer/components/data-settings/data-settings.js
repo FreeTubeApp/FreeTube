@@ -125,9 +125,17 @@ export default Vue.extend({
           let textDecode = new TextDecoder('utf-8').decode(data)
           textDecode = textDecode.split('\n')
           textDecode.pop()
+          textDecode = textDecode.map(data => JSON.parse(data))
 
-          textDecode.forEach((data) => {
-            const profileData = JSON.parse(data)
+          let importingOldFormat = false
+          const firstEntry = textDecode[0]
+          if (firstEntry.channelId && firstEntry.channelName && firstEntry.channelThumbnail && firstEntry._id && firstEntry.profile) {
+            // Old FreeTube subscriptions format detected, so convert it to the new one:
+            textDecode = await this.convertOldFreeTubeFormatToNew(textDecode)
+            importingOldFormat = true
+          }
+
+          textDecode.forEach((profileData) => {
             // We would technically already be done by the time the data is parsed,
             // however we want to limit the possibility of malicious data being sent
             // to the app, so we'll only grab the data we need here.
@@ -159,7 +167,18 @@ export default Vue.extend({
                 message: message
               })
             } else {
-              this.updateProfile(profileObject)
+              if (importingOldFormat && profileObject.name === 'All Channels') {
+                const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
+                // filter out subscriptions that already exist before concatenating
+                profileObject.subscriptions = profileObject.subscriptions.filter(newSub => {
+                  const existingSub = primaryProfile.subscriptions.find(existingSub => existingSub.id === newSub.id)
+                  return !existingSub // return false if sub already exists in default profile
+                })
+                primaryProfile.subscriptions = primaryProfile.subscriptions.concat(profileObject.subscriptions)
+                this.updateProfile(primaryProfile)
+              } else {
+                this.updateProfile(profileObject)
+              }
             }
           })
 
@@ -707,6 +726,33 @@ export default Vue.extend({
       })
     },
 
+    async convertOldFreeTubeFormatToNew(oldData) {
+      const convertedData = []
+      for (const channel of oldData) {
+        for (const profile of channel.profile) {
+          let index = convertedData.findIndex(p => p.name === profile.value)
+          if (index === -1) { // profile doesn't exist yet
+            const randomBgColor = await this.getRandomColor()
+            const contrastyTextColor = await this.calculateColorLuminance(randomBgColor)
+            convertedData.push({
+              name: profile.value,
+              bgColor: randomBgColor,
+              textColor: contrastyTextColor,
+              subscriptions: [],
+              _id: channel._id
+            })
+            index = convertedData.length - 1
+          }
+          convertedData[index].subscriptions.push({
+            id: channel.channelId,
+            name: channel.channelName,
+            thumbnail: channel.channelThumbnail
+          })
+        }
+      }
+      return convertedData
+    },
+
     getChannelInfoInvidious: function (channelId) {
       return new Promise((resolve, reject) => {
         const subscriptionsPayload = {
@@ -772,7 +818,9 @@ export default Vue.extend({
       'updateProfile',
       'updateShowProgressBar',
       'updateHistory',
-      'showToast'
+      'showToast',
+      'getRandomColor',
+      'calculateColorLuminance'
     ]),
 
     ...mapMutations([
