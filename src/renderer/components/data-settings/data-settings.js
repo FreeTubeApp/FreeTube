@@ -247,6 +247,8 @@ export default Vue.extend({
             this.updateShowProgressBar(true)
             this.setProgressBarPercentage(0)
 
+            let count = 0
+
             feedData.forEach(async (channel, index) => {
               const channelId = channel.xmlurl.replace('https://www.youtube.com/feeds/videos.xml?channel_id=', '')
               let channelInfo
@@ -256,24 +258,35 @@ export default Vue.extend({
                 channelInfo = await this.getChannelInfoLocal(channelId)
               }
 
-              const subscription = {
-                id: channelId,
-                name: channelInfo.author,
-                thumbnail: channelInfo.authorThumbnails[1].url
+              if (typeof channelInfo.author !== 'undefined') {
+                const subscription = {
+                  id: channelId,
+                  name: channelInfo.author,
+                  thumbnail: channelInfo.authorThumbnails[1].url
+                }
+
+                subscriptions.push(subscription)
               }
 
-              subscriptions.push(subscription)
+              count++
 
-              const progressPercentage = ((subscriptions.length + 1) / feedData.length) * 100
+              const progressPercentage = (count / feedData.length) * 100
               this.setProgressBarPercentage(progressPercentage)
 
-              if (subscriptions.length === feedData.length) {
+              if (count === feedData.length) {
                 primaryProfile.subscriptions = primaryProfile.subscriptions.concat(subscriptions)
                 this.updateProfile(primaryProfile)
 
-                this.showToast({
-                  message: this.$t('Settings.Data Settings.All subscriptions have been successfully imported')
-                })
+                if (subscriptions.length < count) {
+                  this.showToast({
+                    message: this.$t('Settings.Data Settings.One or more subscriptions were unable to be imported')
+                  })
+                } else {
+                  this.showToast({
+                    message: this.$t('Settings.Data Settings.All subscriptions have been successfully imported')
+                  })
+                }
+
                 this.updateShowProgressBar(false)
               }
             })
@@ -331,6 +344,8 @@ export default Vue.extend({
           this.updateShowProgressBar(true)
           this.setProgressBarPercentage(0)
 
+          let count = 0
+
           newPipeSubscriptions.forEach(async (channel, index) => {
             const channelId = channel.url.replace(/https:\/\/(www\.)?youtube\.com\/channel\//, '')
             let channelInfo
@@ -340,24 +355,35 @@ export default Vue.extend({
               channelInfo = await this.getChannelInfoLocal(channelId)
             }
 
-            const subscription = {
-              id: channelId,
-              name: channelInfo.author,
-              thumbnail: channelInfo.authorThumbnails[1].url
+            if (typeof channelInfo.author !== 'undefined') {
+              const subscription = {
+                id: channelId,
+                name: channelInfo.author,
+                thumbnail: channelInfo.authorThumbnails[1].url
+              }
+
+              subscriptions.push(subscription)
             }
 
-            subscriptions.push(subscription)
+            count++
 
-            const progressPercentage = ((subscriptions.length + 1) / newPipeSubscriptions.length) * 100
+            const progressPercentage = (count / newPipeSubscriptions.length) * 100
             this.setProgressBarPercentage(progressPercentage)
 
-            if (subscriptions.length === newPipeSubscriptions.length) {
+            if (count === newPipeSubscriptions.length) {
               primaryProfile.subscriptions = primaryProfile.subscriptions.concat(subscriptions)
               this.updateProfile(primaryProfile)
 
-              this.showToast({
-                message: this.$t('Settings.Data Settings.All subscriptions have been successfully imported')
-              })
+              if (subscriptions.length < count) {
+                this.showToast({
+                  message: this.$t('Settings.Data Settings.One or more subscriptions were unable to be imported')
+                })
+              } else {
+                this.showToast({
+                  message: this.$t('Settings.Data Settings.All subscriptions have been successfully imported')
+                })
+              }
+
               this.updateShowProgressBar(false)
             }
           })
