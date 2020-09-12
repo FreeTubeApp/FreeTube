@@ -219,6 +219,25 @@ Settings:
       eliminar todo tu historial de vistas?
     Remove Watch History: Eliminar historial de vistas
     Save Watched Progress: Guardar el progreso observado
+    Remove All Subscriptions / Profiles: Eliminar todos los suscripciones / perfiles
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ¿Estás
+      seguro de que deseas eliminar todos los suscripciones y perfiles? Esto no puede
+      ser deshecho.
+  Data Settings:
+    How do I import my subscriptions?: ¿Cómo puedo importar mis suscripciones?
+    Export History: Exportar Historia
+    Import History: Importar Historia
+    Export NewPipe: Exportar NewPipe
+    Export YouTube: Exportar YouTube
+    Export FreeTube: Exportar FreeTube
+    Export Subscriptions: Exportar Suscripciones
+    Import NewPipe: Importar NewPipe
+    Import YouTube: Importar YouTube
+    Import FreeTube: Importar FreeTube
+    Import Subscriptions: Importar Suscripciones
+    Select Export Type: Seleccionar tipo de exportación
+    Select Import Type: Seleccionar tipo de importación
+    Data Settings: Ajustes de datos
 About:
   #On About page
   About: 'Acerca de'
