@@ -263,6 +263,8 @@ Settings:
       données d'historique sont insuffisantes
     Profile object has insufficient data, skipping item: Ignorer cet élément car les
       données de profil sont insuffisantes
+    One or more subscriptions were unable to be imported: Un ou plusieurs abonnements
+      n’ont pas pu être importés
 About:
   #On About page
   About: 'À propos'
@@ -470,7 +472,7 @@ Shuffle is now enabled: 'Mode aléatoire activé'
 Playing Next Video: 'Lire la vidéo suivante'
 Playing Previous Video: 'Lire la vidéo précédente'
 Playing next video in 5 seconds.  Click to cancel: 'Lecture de la vidéo suivante dans
-  5 secondes. Cliquer pour annuler'
+  5 secondes. Cliquer pour annuler.'
 Canceled next video autoplay: 'Annuler la lecture automatique'
 'The playlist has ended.  Enable loop to continue playing': 'Fin de la playlist. Activer
   la lecture en boucle pour continuer'
