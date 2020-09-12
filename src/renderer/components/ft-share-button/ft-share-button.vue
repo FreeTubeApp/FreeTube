@@ -7,6 +7,14 @@
     dropdown-position-x="left"
     :force-dropdown="true"
   >
+    <ft-flex-box>
+      <ft-toggle-switch
+        :label="$t('Share.Include Timestamp')"
+        :compact="true"
+        :default-value="includeTimestamp"
+        @change="updateincludeTimestamp"
+      />
+    </ft-flex-box>
     <div class="shareLinks">
       <div class="header">
         <img

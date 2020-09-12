@@ -58,6 +58,10 @@ export default Vue.extend({
     dislikeCount: {
       type: Number,
       default: 0
+    },
+    getTimestamp: {
+      type: Function,
+      required: true
     }
   },
   data: function () {
