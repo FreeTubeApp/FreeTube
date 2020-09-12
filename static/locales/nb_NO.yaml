@@ -71,6 +71,8 @@ Subscriptions:
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Din
     abbonementsliste er for tiden tom. Legg til noen for å se dem her.'
   'Getting Subscriptions.  Please wait.': 'Henter abonnementer. Vent.'
+  Refresh Subscriptions: Gjenoppfrisk abonnementer
+  Getting Subscriptions. Please wait.: Henter abonnementer. Vent.
 Trending: 'Populært'
 Most Popular: 'Mest populært'
 Playlists: 'Spillelister'
@@ -86,25 +88,27 @@ Settings:
   Settings: 'Innstillinger'
   General Settings:
     General Settings: 'Generelle innstillinger'
-    Fallback to Non-Preferred Backend on Failure: ''
-    Enable Search Suggestions: ''
+    Fallback to Non-Preferred Backend on Failure: 'Tilbakefall til ikke-foretrukken
+      bakende ved feil'
+    Enable Search Suggestions: 'Skru på søkeforslag'
     Default Landing Page: 'Forvalgt landingsside'
-    Locale Preference: ''
+    Locale Preference: 'Lokale-innstilling'
     Preferred API Backend:
-      Preferred API Backend: ''
-      Local API: ''
+      Preferred API Backend: 'Foretrukket API-bakende'
+      Local API: 'Lokalt API'
       Invidious API: 'Invidious-API'
     Video View Type:
       Video View Type: 'Videovisningstype'
       Grid: 'Rutenett'
       List: 'Liste'
     Thumbnail Preference:
-      Thumbnail Preference: ''
+      Thumbnail Preference: 'Miniatyrbilde-innstilling'
       Default: 'Forvalg'
       Beginning: 'Begynnelsen'
       Middle: 'Midten'
       End: 'Slutten'
-    'Invidious Instance (Default is https://invidio.us)': ''
+    'Invidious Instance (Default is https://invidio.us)': 'Individious-instans (forvalget
+      er https://invidio.us)'
     Region for Trending: 'Region for populære'
         #! List countries
   Theme Settings:
@@ -188,30 +192,39 @@ Settings:
   Advanced Settings:
     Advanced Settings: 'Avanserte innstillinger'
     Enable Debug Mode (Prints data to the console): ''
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': ''
+    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Mellomtjener-adresse (Eksempel:
+      SOCKS5://127.0.0.1:9050 )'
     'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': ''
-    Use Tor / Proxy for API calls: ''
+    Use Tor / Proxy for API calls: 'Bruk Tor / mellomtjener for API-kall'
     TEST PROXY: ''
     #& Invidious Instance (Default is https://invidio.us)
     See Public Instances: ''
     Clear History:
       Clear History: 'Tøm historikk'
       # On Click
-      Are you sure you want to delete your history?: ''
+      Are you sure you want to delete your history?: 'Er du sikker på at du vil slette
+        historikken din?'
       #& Yes
       #& No
     Clear Subscriptions:
-      Clear Subscriptions: ''
+      Clear Subscriptions: 'Tøm abonnementer'
       # On Click
-      Are you sure you want to remove all subscriptions?: ''
+      Are you sure you want to remove all subscriptions?: 'Er du sikker på at du vil
+        fjerne alle abonnementer?'
       #& Yes
       #& No
 
+  Data Settings:
+    How do I import my subscriptions?: Hvordan importerer jeg abonnementene mine?
+    Unknown data key: Ukjent datanøkkel
+    Unable to write file: Kunne ikke skrive fil
+    Invalid history file: Ugyldig historikkfil
 About:
   #On About page
-  About: ''
+  About: 'Om'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
+  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Denne
+    gemenslig frie programvaren er lisensiert AGPL-3.0.'
 
   'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >
 
@@ -231,25 +244,26 @@ About:
 
 #On Channel Page
 Channel:
-  Subscriber: ''
+  Subscriber: 'Abonnent'
   Subscribers: 'Abonnenter'
   Subscribe: 'Abonner'
   Unsubscribe: 'Opphev abonnement'
-  Search Channel: ''
-  Your search results have returned 0 results: ''
+  Search Channel: 'Søk i kanal'
+  Your search results have returned 0 results: 'Resultatløst søk'
   Sort By: 'Sorter etter'
   Videos:
     Videos: 'Videoer'
-    This channel does not currently have any videos: ''
+    This channel does not currently have any videos: 'Kanalen har ingen videoer enda'
     Sort Types:
       Newest: 'Nyeste'
       Oldest: 'Eldste'
       Most Popular: 'Mest populær'
   Playlists:
     Playlists: 'Spillelister'
-    This channel does not currently have any playlists: ''
+    This channel does not currently have any playlists: 'Kanalen har ingen spillelister
+      enda'
     Sort Types:
-      Last Video Added: ''
+      Last Video Added: 'Siste video lagt til'
       Newest: 'Nyeste'
       Oldest: 'Eldste'
   About:
@@ -257,7 +271,7 @@ Channel:
     Channel Description: 'Kanalbeskrivelse'
     Featured Channels: 'Framhevede kanaler'
 Video:
-  Mark As Watched: ''
+  Mark As Watched: 'Marker som sett'
   Remove From History: 'Fjern fra historikk'
   Video has been marked as watched: 'Videoen har blitt markert som sett'
   Video has been removed from your history: ''
@@ -389,3 +403,20 @@ Canceled next video autoplay: ''
 
 Yes: 'Ja'
 No: 'Nei'
+Profile:
+  $ is now the active profile: $ er nå den aktive profilen
+  Your default profile has been changed to your primary profile: Din forvalgte profil
+    har blitt endret til din hovedprofil
+  Removed $ from your profiles: Fjernet $ fra dine profiler
+  Your default profile has been set to $: Din forvalgte profil har blitt satt til
+    $
+  Profile has been updated: Profil oppdatert
+  Profile has been created: Profil opprettet
+  Your profile name cannot be empty: Profilnavnet ditt kan ikke stå tomt
+  Profile could not be found: Fant ikke profilen
+  All subscriptions will also be deleted.: Alle abonnementer vil også bli slettet.
+  Are you sure you want to delete this profile?: Er du sikker på at du vil slette
+    denne profilen?
+  Delete Profile: Slett profil
+  Make Default Profile: Gjør til forvalgt profil
+  Update Profile: Oppdater profil
