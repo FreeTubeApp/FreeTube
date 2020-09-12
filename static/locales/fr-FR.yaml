@@ -72,7 +72,7 @@ Subscriptions:
     ici.'
   'Getting Subscriptions.  Please wait.': 'Récupération des vidéos de vos abonnements,
     veuillez patienter.'
-  Getting Subscriptions. Please wait.: Récupération des abonnements. Veuillez patienter.
+  Getting Subscriptions. Please wait.: Obtention des abonnements. Veuillez patienter.
   Refresh Subscriptions: Actualiser les abonnements
 Trending: 'Tendance'
 Most Popular: 'Les Plus Populaires'
@@ -151,14 +151,14 @@ Settings:
     Autoplay Videos: 'Lecture automatique des vidéos'
     Proxy Videos Through Invidious: 'Proxy vidéo via Invidious'
     Autoplay Playlists: 'Lecture automatique des playlists'
-    Enable Theatre Mode by Default: 'Activer le mode théâtre par défaut'
+    Enable Theatre Mode by Default: 'Activer le mode cinéma par défaut'
     Default Volume: 'Volume par défaut'
     Default Playback Rate: 'Vitesse de lecture par défaut'
     Default Video Format:
       Default Video Format: 'Format de vidéo par défaut'
       Dash Formats: 'Format Dash'
       Legacy Formats: 'Format Legacy'
-      Audio Formats: 'Formats audio'
+      Audio Formats: 'Format Audio'
     Default Quality:
       Default Quality: 'Qualité par défaut'
       Auto: 'Auto'
@@ -217,16 +217,16 @@ Settings:
     Watch history has been cleared: L'historique a été effacé
     Are you sure you want to remove your entire watch history?: Êtes-vous sûr de vouloir
       supprimer tout votre historique ?
-    Search cache has been cleared: Le cache de recherche a été effacé
+    Search cache has been cleared: L'historique de recherche a été effacé
     Are you sure you want to clear out your search cache?: Êtes-vous sûr de vouloir
-      effacer votre cache de recherche ?
-    Clear Search Cache: Effacer le cache de recherche
+      effacer votre historique de recherche ?
+    Clear Search Cache: Effacer l'historique de recherche
     Save Watched Progress: Garder la progression de la vidéo
     Remove Watch History: Effacer l'historique des vidéos regardées
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Etes-vous
       sur de vouloir supprimer tous les abonnements et les profils ? Cette action
       est définitive.
-    Remove All Subscriptions / Profiles: Supprimer tous les abonnements / profils
+    Remove All Subscriptions / Profiles: Supprimer tous les Abonnements / Profils
   Data Settings:
     How do I import my subscriptions?: Comment importer mes abonnements ?
     Subscriptions have been successfully exported: Les abonnements ont été exportés
@@ -255,6 +255,10 @@ Settings:
       veuillez patienter
     Invalid subscriptions file: Fichier d’abonnements non valide
     Data Settings: Paramètres des données
+    All watched history has been successfully exported: Tout votre historique de visionnage
+      a été exporté avec succès
+    All watched history has been successfully imported: Tout votre historique de visionnage
+      a été importé avec succès
 About:
   #On About page
   About: 'À propos'
@@ -325,8 +329,8 @@ Video:
   Video has been removed from your history: 'La vidéo a été retiré de votre historique'
   Open in YouTube: 'Ouvrir sur Youtube'
   Copy YouTube Link: 'Copier le lien Youtube'
-  Open YouTube Embedded Player: 'Ouvrir le lecteur Youtube intégré'
-  Copy YouTube Embedded Player Link: 'Copier le lien du lecteur Youtube intégré'
+  Open YouTube Embedded Player: 'Ouvrir sur Youtube-NoCookie'
+  Copy YouTube Embedded Player Link: 'Copier le lien Youtube-NoCookie'
   Open in Invidious: 'Ouvrir sur Individious'
   Copy Invidious Link: 'Copier le lien Individious'
   View: 'Vue'
@@ -411,12 +415,12 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: 'Mode Théâtre'
+Toggle Theatre Mode: 'Mode Cinéma'
 Change Format:
   Change Video Formats: 'Changer le format de la vidéo'
   Use Dash Formats: 'Utiliser le format Dash'
   Use Legacy Formats: 'Utiliser le format Legacy'
-  Use Audio Formats: 'Utiliser le format audio'
+  Use Audio Formats: 'Utiliser le format Audio'
 Share:
   Share Video: 'Partager la vidéo'
   Copy Link: 'Copier le lien'
@@ -436,10 +440,10 @@ Comments:
   Click to View Comments: 'Cliquer pour voir les commentaires'
   Getting comment replies, please wait: 'Récupération des commentaires, veuillez patienter'
   Show Comments: 'Voir les commentaires'
-  Hide Comments: 'Cacher les commentaires'
+  Hide Comments: 'Masquer les commentaires'
   # Context: View 10 Replies, View 1 Reply
   View: 'Voir'
-  Hide: 'Cacher'
+  Hide: 'Masquer'
   Replies: 'Réponses'
   Reply: 'Répondre'
   There are no comments available for this video: 'Il n''y a aucun commentaire pour
