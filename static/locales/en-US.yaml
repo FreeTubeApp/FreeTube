@@ -179,7 +179,9 @@ Settings:
       to remove your entire watch history?
     Watch history has been cleared: Watch history has been cleared
     Remove All Subscriptions / Profiles: Remove All Subscriptions / Profiles
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Are
+      you sure you want to remove all subscriptions and profiles?  This cannot be
+      undone.
   Subscription Settings:
     Subscription Settings: Subscription Settings
     Hide Videos on Watch: Hide Videos on Watch
@@ -199,17 +201,25 @@ Settings:
     Export NewPipe: Export NewPipe
     Import History: Import History
     Export History: Export History
-    Profile object has insufficient data, skipping item: Profile object has insufficient data, skipping item
-    All subscriptions and profiles have been successfully imported: All subscriptions and profiles have been successfully imported
-    All subscriptions have been successfully imported: All subscriptions have been successfully imported
-    One or more subscriptions were unable to be imported: One or more subscriptions were unable to be imported
+    Profile object has insufficient data, skipping item: Profile object has insufficient
+      data, skipping item
+    All subscriptions and profiles have been successfully imported: All subscriptions
+      and profiles have been successfully imported
+    All subscriptions have been successfully imported: All subscriptions have been
+      successfully imported
+    One or more subscriptions were unable to be imported: One or more subscriptions
+      were unable to be imported
     Invalid subscriptions file: Invalid subscriptions file
     This might take a while, please wait: This might take a while, please wait
     Invalid history file: Invalid history file
-    Subscriptions have been successfully exported: Subscriptions have been successfully exported
-    History object has insufficient data, skipping item: History object has insufficient data, skipping item
-    All watched history has been successfully imported: All watched history has been successfully imported
-    All watched history has been successfully exported: All watched history has been successfully exported
+    Subscriptions have been successfully exported: Subscriptions have been successfully
+      exported
+    History object has insufficient data, skipping item: History object has insufficient
+      data, skipping item
+    All watched history has been successfully imported: All watched history has been
+      successfully imported
+    All watched history has been successfully exported: All watched history has been
+      successfully exported
     Unable to read file: Unable to read file
     Unable to write file: Unable to write file
     Unknown data key: Unknown data key
@@ -284,7 +294,8 @@ Profile:
   Update Profile: Update Profile
   Make Default Profile: Make Default Profile
   Delete Profile: Delete Profile
-  Are you sure you want to delete this profile?: Are you sure you want to delete this profile?
+  Are you sure you want to delete this profile?: Are you sure you want to delete this
+    profile?
   All subscriptions will also be deleted.: All subscriptions will also be deleted.
   Profile could not be found: Profile could not be found
   Your profile name cannot be empty: Your profile name cannot be empty
@@ -292,7 +303,8 @@ Profile:
   Profile has been updated: Profile has been updated
   Your default profile has been set to $: Your default profile has been set to $
   Removed $ from your profiles: Removed $ from your profiles
-  Your default profile has been changed to your primary profile: Your default profile has been changed to your primary profile
+  Your default profile has been changed to your primary profile: Your default profile
+    has been changed to your primary profile
   $ is now the active profile: $ is now the active profile
 #On Channel Page
 Channel:
@@ -465,8 +477,8 @@ Shuffle is now enabled: Shuffle is now enabled
 The playlist has been reversed: The playlist has been reversed
 Playing Next Video: Playing Next Video
 Playing Previous Video: Playing Previous Video
-Playing next video in 5 seconds.  Click to cancel: Playing next video in 5 seconds.  Click
-  to cancel
+Playing next video in 5 seconds.  Click to cancel: Playing next video in 5 seconds.
+  Click to cancel.
 Canceled next video autoplay: Canceled next video autoplay
 'The playlist has ended.  Enable loop to continue playing': 'The playlist has ended.  Enable
   loop to continue playing'
