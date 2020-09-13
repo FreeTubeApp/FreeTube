@@ -256,6 +256,10 @@ Settings:
     Unknown data key: Clave de datos desconocida
     Unable to write file: El archivo no se puede escribir
     Unable to read file: El archivo no se puede leer
+    History object has insufficient data, skipping item: El objeto de historial tiene
+      datos insuficientes, ignorando artículo
+    Profile object has insufficient data, skipping item: El objeto de perfil tiene
+      datos insuficientes, ignorando artículo
 About:
   #On About page
   About: 'Acerca de'
@@ -382,6 +386,11 @@ Video:
   Publicationtemplate: 'Hace $ %'
 #& Videos
   Autoplay: Reproducción Automática
+  Play Previous Video: Reproducir el video anterior
+  Play Next Video: Reproducir el video siguiente
+  Reverse Playlist: Lista de reproducción invertida
+  Shuffle Playlist: Lista de reproducción aleatoria
+  Loop Playlist: Lista de reproducción en bucle
 Videos:
   #& Sort By
   Sort By:
@@ -491,3 +500,5 @@ Profile:
   Create New Profile: Crear Perfil Nuevo
   Profile Manager: Gestor de Perfiles
   All Channels: Todos Los Canales
+  Profile Select: Selección de perfil
+The playlist has been reversed: La lista de reproducción ha sido invertida
