@@ -39,29 +39,27 @@ const actions = {
             payload.options.nextpageRef = filter
           }
 
-          ytsr(payload.query, payload.options, (err, result) => {
-            commit('toggleIsYtSearchRunning')
-            if (err) {
-              console.log(err)
-              reject(err)
-            } else {
-              console.log(result)
-              console.log('done')
-              resolve(result)
-            }
-          })
-        })
-      } else {
-        ytsr(payload.query, payload.options, (err, result) => {
-          commit('toggleIsYtSearchRunning')
-          if (err) {
-            console.log(err)
-            reject(err)
-          } else {
+          ytsr(payload.query, payload.options).then((result) => {
             console.log(result)
             console.log('done')
             resolve(result)
-          }
+          }).catch((err) => {
+            console.log(err)
+            reject(err)
+          }).finally(() => {
+            commit('toggleIsYtSearchRunning')
+          })
+        })
+      } else {
+        ytsr(payload.query, payload.options).then((result) => {
+          console.log(result)
+          console.log('done')
+          resolve(result)
+        }).catch((err) => {
+          console.log(err)
+          reject(err)
+        }).finally(() => {
+          commit('toggleIsYtSearchRunning')
         })
       }
     })
@@ -118,18 +116,15 @@ const actions = {
     return new Promise((resolve, reject) => {
       console.log(playlistId)
       console.log('Getting playlist info please wait...')
-      ytpl(playlistId, { limit: 0 }, (err, result) => {
-        if (err) {
-          reject(err)
-        } else {
-          resolve(result)
-        }
+      ytpl(playlistId, { limit: 0 }).then((result) => {
+        resolve(result)
+      }).catch((err) => {
+        reject(err)
       })
     })
   },
 
-  /* eslint-disable-next-line */
-  ytGetVideoInformation ({}, videoId) {
+  ytGetVideoInformation (_, videoId) {
     return new Promise((resolve, reject) => {
       console.log('Getting video info please wait...')
       ytdl.getInfo(videoId).then((result) => {
