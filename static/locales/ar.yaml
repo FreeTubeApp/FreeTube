@@ -255,6 +255,8 @@ Settings:
     Select Export Type: حدّد نوع التصدير
     Select Import Type: حدّد نوع الاستيراد
     Data Settings: إعدادات البيانات
+    One or more subscriptions were unable to be imported: تعذر استيراد واحد أو أكثر
+      من الاشتراكات
 About:
   #On About page
   About: 'حول'
@@ -311,6 +313,7 @@ Profile:
     الافتراضي إلى ملفك الشخصي الأساسي'
   $ is now the active profile: '$ هو الآن الملف الشخصي النشط'
 #On Channel Page
+  Profile Select: اختيار الملف الشخصي
 Channel:
   Subscriber: 'مُشترِك'
   Subscribers: 'مُشترِكين'
@@ -402,6 +405,11 @@ Video:
   Publicationtemplate: 'قبل $ %'
 #& Videos
   Autoplay: تشغيل تلقائي
+  Play Previous Video: شغل الفيديو السابق
+  Play Next Video: شغل الفيديو التالي
+  Reverse Playlist: عكس قائمة التشغيل
+  Shuffle Playlist: ‮خلط قائمة التشغيل
+  Loop Playlist: تكرار قائمة التشغيل
 Videos:
   #& Sort By
   Sort By:
@@ -443,6 +451,7 @@ Share:
   Invidious Embed URL copied to clipboard: 'تم نسخ رابط Invidious المُضمّن إلى الحافظة'
   YouTube URL copied to clipboard: 'تم نسخ رابط اليوتيوب إلى الحافظة'
   YouTube Embed URL copied to clipboard: 'تم نسخ رابط يوتيوب المُضمّن إلى الحافظة'
+  Include Timestamp: تضمين الختم الزمني
 Mini Player: 'المشغل المصغّر'
 Comments:
   Comments: 'التعليقات'
@@ -472,10 +481,11 @@ Shuffle is now enabled: 'تم تمكين التبديل العشوائي'
 Playing Next Video: 'جاري تشغيل الفيديو التالي'
 Playing Previous Video: 'جاري تشغيل الفيديو السابق'
 Playing next video in 5 seconds.  Click to cancel: 'سيتم تشغيل الفيديو التالي في 5
-  ثوان. انقر للإلغاء'
+  ثوان. انقر للإلغاء.'
 Canceled next video autoplay: 'تم إلغاء التشغيل التلقائي للفيديو التالي'
 'The playlist has ended.  Enable loop to continue playing': 'انتهت قائمة التشغيل.
   قم بتمكن التكرار لمواصلة التشغيل'
 
 Yes: 'نعم'
 No: 'لا'
+The playlist has been reversed: تم عكس قائمة التشغيل
