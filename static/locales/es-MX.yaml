@@ -73,7 +73,7 @@ Subscriptions:
   Refresh Subscriptions: Actulizar Suscripciones
   Getting Subscriptions. Please wait.: Obteniendo Suscripciones. Por favor espere.
 Trending: 'Tendencias'
-Most Popular: 'Mas popular'
+Most Popular: 'Más Popular'
 Playlists: 'Listas de Reproducción'
 User Playlists:
   Your Playlists: 'Tus Listas de Reproducción'
@@ -103,7 +103,7 @@ Settings:
     Thumbnail Preference:
       Thumbnail Preference: 'Preferencias de miniatura'
       Default: 'Predeterminado'
-      Beginning: 'Principio'
+      Beginning: 'Comienzo'
       Middle: 'Medio'
       End: 'Fin'
     'Invidious Instance (Default is https://invidio.us)': 'Instancia de Invidious
@@ -238,6 +238,24 @@ Settings:
     Select Export Type: Seleccionar tipo de exportación
     Select Import Type: Seleccionar tipo de importación
     Data Settings: Ajustes de datos
+    All watched history has been successfully exported: Historial de reproducciones
+      se exportó con éxito
+    All watched history has been successfully imported: Historial de reproducciones
+      se importó con éxito
+    This might take a while, please wait: Esto puede tomar un tiempo, por favor espera
+    All subscriptions and profiles have been successfully imported: Suscripciones
+      y perfiles se importaron con éxito
+    One or more subscriptions were unable to be imported: Una o más suscripciones
+      no se pudo importar
+    All subscriptions have been successfully imported: Suscripciones se importaron
+      con éxito
+    Subscriptions have been successfully exported: Suscripciones se exportaron con
+      éxito
+    Invalid subscriptions file: Archivo de suscripciones no válido
+    Invalid history file: Archivo de historia no válido
+    Unknown data key: Clave de datos desconocida
+    Unable to write file: El archivo no se puede escribir
+    Unable to read file: El archivo no se puede leer
 About:
   #On About page
   About: 'Acerca de'
@@ -363,6 +381,7 @@ Video:
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Hace $ %'
 #& Videos
+  Autoplay: Reproducción Automática
 Videos:
   #& Sort By
   Sort By:
@@ -405,6 +424,7 @@ Share:
     portapapeles'
   YouTube URL copied to clipboard: 'La URL de Youtube ha sido copiado al portapapeles'
   YouTube Embed URL copied to clipboard: 'URL incrustada de YouTube copiada al portapapeles'
+  Include Timestamp: Incluir marca del tiempo
 Mini Player: 'Mini reproductor'
 Comments:
   Comments: 'Comentarios'
@@ -432,12 +452,12 @@ Falling back to the local API: 'Recurriendo a la API local'
 Subscriptions have not yet been implemented: 'Las suscripciones aún no se han implementado'
 Loop is now disabled: 'El bucle esta desactivado'
 Loop is now enabled: 'El bucle esta activado'
-Shuffle is now disabled: 'La reproducción aleatoria se ha desactivado'
+Shuffle is now disabled: 'La reproducción aleatoria se ha desactivada'
 Shuffle is now enabled: 'La reproducción aleatoria se ha activado'
 Playing Next Video: 'Reproduciendo el video siguiente'
 Playing Previous Video: 'Reproduciendo el video anterior'
 Playing next video in 5 seconds.  Click to cancel: 'Reproduciendo el video siguiente
-  en 5 segundos. Presione para cancelar'
+  en 5 segundos. Presione para cancelar.'
 Canceled next video autoplay: 'Reproducción automática del siguiente video cancelado'
 'The playlist has ended.  Enable loop to continue playing': 'La lista de reproducción
   ha terminado. Activa el bucle para continuar reproduciendo'
@@ -448,7 +468,7 @@ Locale Name: Español
 Profile:
   $ is now the active profile: $ ahora es el perfil activo
   Your default profile has been changed to your primary profile: Su perfil predeterminado
-    ha sido cambiado a su perfil primario
+    se ha cambiado a su perfil principal
   Removed $ from your profiles: Se eliminó $ de sus perfiles
   Your default profile has been set to $: Su perfil predeterminado ha sido establecido
     a $
