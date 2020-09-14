@@ -256,6 +256,8 @@ Settings:
     Select Import Type: Odaberite vrstu uvoza
     Data Settings: Postavke podataka
     How do I import my subscriptions?: Kako mogu uvesti pretplate?
+    One or more subscriptions were unable to be imported: Nije moguće uvesti jednu
+      ili više pretplata
 About:
   #On About page
   About: 'O'
@@ -441,46 +443,53 @@ Change Format:
   Use Audio Formats: 'Koristite audio formate'
 Share:
   Share Video: 'Podijelite videozapis'
-  Copy Link: ''
-  Open Link: ''
-  Copy Embed: ''
-  Open Embed: ''
+  Copy Link: 'Kopirajte link'
+  Open Link: 'Otvorite link'
+  Copy Embed: 'Kopirajte ugrađeno'
+  Open Embed: 'Otvorite ugrađeno'
   # On Click
-  Invidious URL copied to clipboard: ''
-  Invidious Embed URL copied to clipboard: ''
-  YouTube URL copied to clipboard: ''
-  YouTube Embed URL copied to clipboard: ''
-Mini Player: ''
+  Invidious URL copied to clipboard: 'Invidious URL kopiran u međuspremnik'
+  Invidious Embed URL copied to clipboard: 'Invidious URL za ugrađivanje kopiran je
+    u međuspremnik'
+  YouTube URL copied to clipboard: 'YouTube URL kopiran u međuspremnik'
+  YouTube Embed URL copied to clipboard: 'YouTube URL za ugrađivanje kopiran je u
+    međuspremnik'
+  Include Timestamp: Uključite vremensku oznaku
+Mini Player: 'Mini Player'
 Comments:
-  Comments: ''
-  Click to View Comments: ''
-  Getting comment replies, please wait: ''
-  Show Comments: ''
-  Hide Comments: ''
+  Comments: 'Komentari'
+  Click to View Comments: 'Kliknite za prikaz komentara'
+  Getting comment replies, please wait: 'Dobivanje odgovora na komentare, pričekajte'
+  Show Comments: 'Prikaži komentare'
+  Hide Comments: 'Sakrij komentare'
   # Context: View 10 Replies, View 1 Reply
-  View: ''
-  Hide: ''
-  Replies: ''
-  Reply: ''
-  There are no comments available for this video: ''
-  Load More Comments: ''
-Up Next: ''
+  View: 'Pogledaj'
+  Hide: 'Sakrij'
+  Replies: 'Odgovori'
+  Reply: 'Odgovor'
+  There are no comments available for this video: 'Nema dostupnih komentara za ovaj
+    videozapis'
+  Load More Comments: 'Učitaj više komentara'
+Up Next: 'Sljedeći'
 
 # Toast Messages
-Local API Error (Click to copy): ''
-Invidious API Error (Click to copy): ''
-Falling back to Invidious API: ''
-Falling back to the local API: ''
-Subscriptions have not yet been implemented: ''
-Loop is now disabled: ''
-Loop is now enabled: ''
-Shuffle is now disabled: ''
-Shuffle is now enabled: ''
-Playing Next Video: ''
-Playing Previous Video: ''
-Playing next video in 5 seconds.  Click to cancel: ''
-Canceled next video autoplay: ''
-'The playlist has ended.  Enable loop to continue playing': ''
+Local API Error (Click to copy): 'Pogreška lokalnog API-ja (kliknite za kopiranje)'
+Invidious API Error (Click to copy): 'Pogreška Invidious API-ja (kliknite za kopiranje)'
+Falling back to Invidious API: 'Vraćam se na Invidious API'
+Falling back to the local API: 'Vraćam se na lokalni API'
+Subscriptions have not yet been implemented: 'Pretplate još nisu implementirane'
+Loop is now disabled: 'Petlja je sada onemogućena'
+Loop is now enabled: 'Petlja je sada omogućena'
+Shuffle is now disabled: 'Nasumično je sada onemogućeno'
+Shuffle is now enabled: 'Nasumično je sada omogućeno'
+Playing Next Video: 'Reprodukcija sljedećeg videozapisa'
+Playing Previous Video: 'Reprodukcija prethodnog videozapisa'
+Playing next video in 5 seconds.  Click to cancel: 'Reprodukcija sljedećeg videozapisa
+  za 5 sekundi. Kliknite za prestanak.'
+Canceled next video autoplay: 'Otkazana je automatska reprodukcija sljedećeg videozapisa'
+'The playlist has ended.  Enable loop to continue playing': 'Popis za reprodukciju
+  je završen. Omogući petlju za nastavak reprodukcije'
 
-Yes: ''
-No: ''
+Yes: 'Da'
+No: 'Ne'
+The playlist has been reversed: Popis za reprodukciju je obrnut
