@@ -241,6 +241,7 @@ Settings:
     Select Export Type: エクスポート形式の選択
     Select Import Type: インポート形式の選択
     Data Settings: データ設定
+    One or more subscriptions were unable to be imported: 1 つ以上の登録をインポートできませんでした
 About:
   #On About page
   About: 'このソフト'
@@ -401,6 +402,7 @@ Share:
   Invidious Embed URL copied to clipboard: 'Invidious の 埋め込みURL をコピーしました'
   YouTube URL copied to clipboard: 'YouTube の URL をコピーしました'
   YouTube Embed URL copied to clipboard: 'YouTube の 埋め込みURL をコピーしました'
+  Include Timestamp: タイムスタンプを含める
 Mini Player: 'ミニプレーヤー'
 Comments:
   Comments: 'コメント'
@@ -429,7 +431,7 @@ Shuffle is now disabled: 'シャッフル再生を無効にしました'
 Shuffle is now enabled: 'シャッフル再生を有効にしました'
 Playing Next Video: '次の動画を再生'
 Playing Previous Video: '前の動画を再生'
-Playing next video in 5 seconds.  Click to cancel: '5秒後に次の動画を再生します..クリックでキャンセル'
+Playing next video in 5 seconds.  Click to cancel: '5 秒後に次の動画を再生。.クリックでキャンセル。'
 Canceled next video autoplay: '次の動画の自動再生をキャンセルしました'
 'The playlist has ended.  Enable loop to continue playing': '再生リストの最後に到達しました..再生を続けるにはループを有効にします'
 
