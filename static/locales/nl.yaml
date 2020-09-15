@@ -198,24 +198,29 @@ Settings:
     How do I import my subscriptions?: ''
     Fetch Feeds from RSS: Verzamel Feeds van RSS
   Advanced Settings:
-    Advanced Settings: ''
-    Enable Debug Mode (Prints data to the console): ''
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': ''
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': ''
-    Use Tor / Proxy for API calls: ''
-    TEST PROXY: ''
+    Advanced Settings: 'Geavanceerde Instellingen'
+    Enable Debug Mode (Prints data to the console): 'Schakel Debug Modus in (Print
+      data naar console)'
+    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Proxy Adres (Voorbeeld:
+      SOCKS5://127.0.0.1:9050 )'
+    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Door
+      op "TEST PROXY" te klikken zal er een verzoek worden gestuurd naar https://ipinfo.io/json'
+    Use Tor / Proxy for API calls: 'Gebruik Tor / Proxy voor API calls'
+    TEST PROXY: 'TEST PROXY'
     #& Invidious Instance (Default is https://invidio.us)
-    See Public Instances: ''
+    See Public Instances: 'Zie Publieke Instanties'
     Clear History:
-      Clear History: ''
+      Clear History: 'Geschiedenis Opschonen'
       # On Click
-      Are you sure you want to delete your history?: ''
+      Are you sure you want to delete your history?: 'Weet u zeker dat u uw geschiedenis
+        wil verwijderen?'
       #& Yes
       #& No
     Clear Subscriptions:
-      Clear Subscriptions: ''
+      Clear Subscriptions: 'Abonnementen Opschonen'
       # On Click
-      Are you sure you want to remove all subscriptions?: ''
+      Are you sure you want to remove all subscriptions?: 'Weet u zeker dat u alle
+        abonnementen wil verwijderen?'
       #& Yes
       #& No
 
@@ -247,183 +252,246 @@ Settings:
     Select Export Type: Select Exporteer Type
     Select Import Type: Selecteer Importeer Type
     Data Settings: Data Instellingen
+    How do I import my subscriptions?: Hoe importeer ik mijn abonnementen?
+    Unknown data key: Onbekende datasleutel
+    Unable to write file: Bestand kan niet worden geschreven
+    Unable to read file: Bestand kan niet worden gelezen
+    All watched history has been successfully exported: De bekeken geschiedenis is
+      met succes geëxporteerd
+    All watched history has been successfully imported: De bekeken geschiedenis is
+      met succes geïmporteerd
 About:
   #On About page
-  About: ''
+  About: 'Over'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
+  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Dit
+    is copyleft software en is vrij beschikbaar onder de AGPL-3.0.'
 
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >
+  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
+    Een probleem gevonden? Idee voor een feature? Wil je helpen? Ga naar onze GitHub
+    pagina. Pull requests zijn welkom.
 
-  Thank you very much to the People and Projects that make FreeTube possible!: ''
+  Thank you very much to the People and Projects that make FreeTube possible!: 'Hartelijk
+    dank naar de Mensen en Projecten die FreeTube mogelijk maken!'
 
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': ''
+  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'Wil
+    je chatten? Kom op onze Element / Matrix Server. Lees alstublieft eerst de groep
+    regels voordat u in de chat springt.'
 
-  'Looking for help? Check out our Wiki page.': ''
+  'Looking for help? Check out our Wiki page.': 'Heeft u hulp nodig? Bezichtig onze
+    Wiki pagina.'
 
-  Check out our Firefox extension!: ''
+  Check out our Firefox extension!: 'Bekijk onze Firefox extensie!'
 
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': ''
+  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'Als
+    u FreeTube met plezier gebruikt denk er over na om te doneren via Liberapay of
+    via ons Bitcoin adres.'
 
   #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
 
-  Latest FreeTube News: ''
+  Latest FreeTube News: 'Laatste FreeTube nieuws'
 
 #On Channel Page
 Channel:
-  Subscriber: ''
-  Subscribers: ''
-  Subscribe: ''
-  Unsubscribe: ''
-  Search Channel: ''
-  Your search results have returned 0 results: ''
-  Sort By: ''
+  Subscriber: 'Abonnee'
+  Subscribers: 'Abonnees'
+  Subscribe: 'Abonneer'
+  Unsubscribe: 'Afmelden'
+  Search Channel: 'Zoek op Kanaal'
+  Your search results have returned 0 results: 'Uw zoekactie heeft 0 resultaten opgeleverd'
+  Sort By: 'Sorteer Bij'
   Videos:
-    Videos: ''
-    This channel does not currently have any videos: ''
+    Videos: 'Video''s'
+    This channel does not currently have any videos: 'Dit kanaal heeft momenteel geen
+      video''s'
     Sort Types:
-      Newest: ''
-      Oldest: ''
-      Most Popular: ''
+      Newest: 'Nieuwste'
+      Oldest: 'Oudste'
+      Most Popular: 'Meest Populair'
   Playlists:
-    Playlists: ''
-    This channel does not currently have any playlists: ''
+    Playlists: 'Afspeellijsten'
+    This channel does not currently have any playlists: 'Dit kanaal heeft momenteel
+      geen afspeellijsten'
     Sort Types:
-      Last Video Added: ''
-      Newest: ''
-      Oldest: ''
+      Last Video Added: 'Laatst Toegevoegd'
+      Newest: 'Nieuwste'
+      Oldest: 'Oudste'
   About:
-    About: ''
-    Channel Description: ''
-    Featured Channels: ''
+    About: 'Over'
+    Channel Description: 'Kanaal Beschrijving'
+    Featured Channels: 'Uitgelichte Kanalen'
 Video:
-  Mark As Watched: ''
-  Remove From History: ''
-  Video has been marked as watched: ''
-  Video has been removed from your history: ''
-  Open in YouTube: ''
-  Copy YouTube Link: ''
-  Open YouTube Embedded Player: ''
-  Copy YouTube Embedded Player Link: ''
-  Open in Invidious: ''
-  Copy Invidious Link: ''
-  View: ''
-  Views: ''
+  Mark As Watched: 'Markeer Als Bekeken'
+  Remove From History: 'Verwijder Uit Geschiedenis'
+  Video has been marked as watched: 'Video is gemarkeerd als bekeken'
+  Video has been removed from your history: 'Video is verwijdert uit uw geschiedenis'
+  Open in YouTube: 'Open op YouTube'
+  Copy YouTube Link: 'Kopieer YouTube Link'
+  Open YouTube Embedded Player: 'Open Ingebedde YouTube Videospeler'
+  Copy YouTube Embedded Player Link: 'Kopieer Insluitlink YouTube Videospeler'
+  Open in Invidious: 'Open op Invidious'
+  Copy Invidious Link: 'Kopieer Invidious Link'
+  View: 'Bekijk'
+  Views: 'Weergaven'
   # Context is "X People Watching"
-  Watching: ''
-  Watched: ''
+  Watching: 'Aan het kijken'
+  Watched: 'Bekeken'
   # As in a Live Video
-  Live: ''
-  Live Now: ''
-  Live Chat: ''
-  Enable Live Chat: ''
-  Live Chat is currently not supported in this build.: ''
-  'Chat is disabled or the Live Stream has ended.': ''
-  Live chat is enabled.  Chat messages will appear here once sent.: ''
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
+  Live: 'Live'
+  Live Now: 'Nu Live'
+  Live Chat: 'Live Chat'
+  Enable Live Chat: 'Schakel Live Chat in'
+  Live Chat is currently not supported in this build.: 'Live chat wordt momenteel
+    niet ondersteunt in deze versie.'
+  'Chat is disabled or the Live Stream has ended.': 'Chat is uitgeschakeld of de Live
+    Stream is beëindigd.'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'Live chat is
+    ingeschakeld. Chat berichten zullen hier verschijnen.'
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Live
+    Chat wordt momenteel niet ondersteund door de Invidious API. Een directe verbinding
+    met YouTube is nodig.'
   Published:
-    Jan: ''
-    Feb: ''
-    Mar: ''
-    Apr: ''
-    May: ''
-    Jun: ''
-    Jul: ''
-    Aug: ''
-    Sep: ''
-    Oct: ''
-    Nov: ''
-    Dec: ''
-    Second: ''
-    Seconds: ''
-    Hour: ''
-    Hours: ''
-    Day: ''
-    Days: ''
-    Week: ''
-    Weeks: ''
-    Month: ''
-    Months: ''
-    Year: ''
-    Years: ''
-    Ago: ''
-    Upcoming: ''
-  Published on: ''
+    Jan: 'Jan'
+    Feb: 'Feb'
+    Mar: 'Maa'
+    Apr: 'Apr'
+    May: 'Mei'
+    Jun: 'Jun'
+    Jul: 'Jul'
+    Aug: 'Aug'
+    Sep: 'Sep'
+    Oct: 'Okt'
+    Nov: 'Nov'
+    Dec: 'Dec'
+    Second: 'Seconde'
+    Seconds: 'Seconden'
+    Hour: 'Uur'
+    Hours: 'Uren'
+    Day: 'Dag'
+    Days: 'Dagen'
+    Week: 'Week'
+    Weeks: 'Weken'
+    Month: 'Maand'
+    Months: 'Maanden'
+    Year: 'Jaar'
+    Years: 'Jaren'
+    Ago: 'Geleden'
+    Upcoming: 'Premières binnenkort'
+    Minutes: Minuten
+    Minute: Minuut
+  Published on: 'Gepubliceerd op'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: ''
+  Publicationtemplate: '$ % geleden'
 #& Videos
+  Autoplay: Autoplay
+  Play Previous Video: Speel Vorige Video af
+  Play Next Video: Speel Volgende Video af
+  Reverse Playlist: Playlist Omkeren
+  Shuffle Playlist: Schuifelen Playlist
+  Loop Playlist: Herhaal Playlist
 Videos:
   #& Sort By
   Sort By:
-    Newest: ''
-    Oldest: ''
+    Newest: 'Nieuwste'
+    Oldest: 'Oudste'
     #& Most Popular
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: ''
-  Videos: ''
-  View: ''
-  Views: ''
-  Last Updated On: ''
+  View Full Playlist: 'Bekijk Volledige Afspeellijst'
+  Videos: 'Video''s'
+  View: 'Bekijk'
+  Views: 'Weergaven'
+  Last Updated On: 'Laatste Geüpdate Op'
   Share Playlist:
-    Share Playlist: ''
-    Copy YouTube Link: ''
-    Open in YouTube: ''
-    Copy Invidious Link: ''
-    Open in Invidious: ''
+    Share Playlist: 'Deel Afspeellijst'
+    Copy YouTube Link: 'Kopieer YouTube Link'
+    Open in YouTube: 'Openen in YouTube'
+    Copy Invidious Link: 'Kopieer Invidious Link'
+    Open in Invidious: 'Openen in Invidious'
 
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: ''
+Toggle Theatre Mode: 'Schakel Theatermodus In'
 Change Format:
-  Change Video Formats: ''
-  Use Dash Formats: ''
-  Use Legacy Formats: ''
-  Use Audio Formats: ''
+  Change Video Formats: 'Verander Videoformat'
+  Use Dash Formats: 'Gebruikt Dash Format'
+  Use Legacy Formats: 'Gebruik Legacy Format'
+  Use Audio Formats: 'Gebruikt Audio Format'
 Share:
-  Share Video: ''
-  Copy Link: ''
-  Open Link: ''
-  Copy Embed: ''
-  Open Embed: ''
+  Share Video: 'Deel Video'
+  Copy Link: 'Kopieer Link'
+  Open Link: 'Open Link'
+  Copy Embed: 'Kopieer Insluitlink'
+  Open Embed: 'Open Insluitlink'
   # On Click
-  Invidious URL copied to clipboard: ''
-  Invidious Embed URL copied to clipboard: ''
-  YouTube URL copied to clipboard: ''
-  YouTube Embed URL copied to clipboard: ''
-Mini Player: ''
+  Invidious URL copied to clipboard: 'Invidious URL is gekopieerd naar het klembord'
+  Invidious Embed URL copied to clipboard: 'Invidious Insluitlink is gekopieerd naar
+    het klembord'
+  YouTube URL copied to clipboard: 'YouTube URL is gekopieerd naar het klembord'
+  YouTube Embed URL copied to clipboard: 'YouTube Insluitlink is gekopieerd naar het
+    klemboard'
+  Include Timestamp: Begrijp Tijdstempel In
+Mini Player: 'Minispeler'
 Comments:
-  Comments: ''
-  Click to View Comments: ''
-  Getting comment replies, please wait: ''
-  Show Comments: ''
-  Hide Comments: ''
+  Comments: 'Reacties'
+  Click to View Comments: 'Click om de Reacties te Zien'
+  Getting comment replies, please wait: 'Reacties worden verzameld, een momentje'
+  Show Comments: 'Toon Reacties'
+  Hide Comments: 'Verberg Reacties'
   # Context: View 10 Replies, View 1 Reply
-  View: ''
-  Hide: ''
-  Replies: ''
-  Reply: ''
-  There are no comments available for this video: ''
-  Load More Comments: ''
-Up Next: ''
+  View: 'Toon'
+  Hide: 'Verberg'
+  Replies: 'Reacties'
+  Reply: 'Reageer'
+  There are no comments available for this video: 'Er zijn geen reacties op deze video'
+  Load More Comments: 'Laad Meer Reacties'
+Up Next: 'Volgende'
 
 # Toast Messages
-Local API Error (Click to copy): ''
-Invidious API Error (Click to copy): ''
-Falling back to Invidious API: ''
-Falling back to the local API: ''
-Subscriptions have not yet been implemented: ''
-Loop is now disabled: ''
-Loop is now enabled: ''
-Shuffle is now disabled: ''
-Shuffle is now enabled: ''
-Playing Next Video: ''
-Playing Previous Video: ''
-Playing next video in 5 seconds.  Click to cancel: ''
-Canceled next video autoplay: ''
-'The playlist has ended.  Enable loop to continue playing': ''
+Local API Error (Click to copy): 'Lokale API Error (Klik om te kopiëren)'
+Invidious API Error (Click to copy): 'Invidious API Error (Klik op te kopiëren)'
+Falling back to Invidious API: 'Terugvallen op Invidious API'
+Falling back to the local API: 'Terugvallen op lokale API'
+Subscriptions have not yet been implemented: 'Abonnementen zijn nog niet geïmplementeerd'
+Loop is now disabled: 'Herhalen is nu uitgeschakeld'
+Loop is now enabled: 'Herhalen is nu ingeschakeld'
+Shuffle is now disabled: 'Schuifelen is nu uitgeschakeld'
+Shuffle is now enabled: 'Schuifelen is nu ingeschakeld'
+Playing Next Video: 'Volgende Video Word Afgespeeld'
+Playing Previous Video: 'Vorige Video Word Afgespeeld'
+Playing next video in 5 seconds.  Click to cancel: 'Volgende Video Begint in 5 Seconden.
+  Klik om te Annuleer.'
+Canceled next video autoplay: 'Autoplay is geannuleerd'
+'The playlist has ended.  Enable loop to continue playing': 'Het einde van de playlist
+  is bereikt.  Schakel herhalen in de playlist te blijven afspelen'
 
-Yes: ''
-No: ''
+Yes: 'Ja'
+No: 'Nee'
+The playlist has been reversed: De afspeellijst is omgedraaid
+Profile:
+  $ is now the active profile: $ is nu het actieve profiel
+  Your default profile has been changed to your primary profile: Uw standaardprofiel
+    is veranderd naar uw hoofdprofiel
+  Removed $ from your profiles: $ is verwijdert uit uw profielen
+  Your default profile has been set to $: Uw standaard profiel is ingesteld op $
+  Profile has been updated: Profiel is geüpdate
+  Profile has been created: Profiel is aangemaakt
+  Your profile name cannot be empty: U profiel naam kan niet leeg zijn
+  Profile could not be found: Profiel kon niet worden gevonden
+  All subscriptions will also be deleted.: Alle abonnementen zullen worden verwijderd.
+  Are you sure you want to delete this profile?: Weet u zeker dat u dit profiel wil
+    verwijderen?
+  Delete Profile: Verwijder Profiel
+  Make Default Profile: Creëer Standaard Profiel
+  Update Profile: Update Profiel
+  Create Profile: Creëer Profiel
+  Profile Preview: Profiel Voorbeeld
+  Custom Color: Eigen Kleur
+  Color Picker: Kleur Kiezer
+  Edit Profile: Pas Profiel aan
+  Create New Profile: Creëer een Nieuw Profile
+  Profile Manager: Beheer Profiel
+  All Channels: Alle Kanalen
+  Profile Select: Selecteer een Profiel
