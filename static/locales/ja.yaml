@@ -224,7 +224,7 @@ Settings:
     History object has insufficient data, skipping item: 履歴のデータが不十分なのでこの項目を飛ばします
     Subscriptions have been successfully exported: 登録は正常にエクスポートされました
     Invalid history file: 無効な履歴ファイル
-    This might take a while, please wait: 少し時間がかかります./.お待ちください
+    This might take a while, please wait: 少し時間がかかります...お待ちください
     Invalid subscriptions file: 無効な登録ファイル
     All subscriptions have been successfully imported: すべての登録は正常にインポートされました
     All subscriptions and profiles have been successfully imported: すべての登録とプロファイルは正常にインポートされました
@@ -241,7 +241,7 @@ Settings:
     Select Export Type: エクスポート形式の選択
     Select Import Type: インポート形式の選択
     Data Settings: データ設定
-    One or more subscriptions were unable to be imported: 1 つ以上の登録をインポートできませんでした
+    One or more subscriptions were unable to be imported: 1つ以上の登録をインポートできませんでした
 About:
   #On About page
   About: 'このソフト'
@@ -260,7 +260,7 @@ About:
 
   'Looking for help? Check out our Wiki page.': 'ヘルプが必要なら私たちの Wiki をご覧ください。'
 
-  Check out our Firefox extension!: '私たちの Firefox 拡張機能！'
+  Check out our Firefox extension!: '私たちによる Firefox 拡張機能！'
 
   'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'FreeTube
     を気に入っていただけていれば、ぜひ Liberapay かビットコインで自由な寄付をお願いします。'
