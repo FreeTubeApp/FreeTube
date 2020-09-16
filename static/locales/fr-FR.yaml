@@ -108,8 +108,8 @@ Settings:
       Beginning: 'Début'
       Middle: 'Milieu'
       End: 'Fin'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instance Individious (https://invidious.snopyta.org
-      par défaut)'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instance Individious
+      (https://invidious.snopyta.org par défaut)'
     Region for Trending: 'Pays pour les tendances'
         #! List countries
   Theme Settings:
@@ -328,6 +328,11 @@ Channel:
     About: 'A propos'
     Channel Description: 'Description de la chaîne'
     Featured Channels: 'Chaînes en vedette'
+  Added channel to your subscriptions: Chaîne ajoutée à vos abonnements
+  Removed subscription from $ other channel(s): Abonnement supprimé de $ autre(s)
+    chaîne(s)
+  Channel has been removed from your subscriptions: La chaîne a été retirée de vos
+    abonnements
 Video:
   Mark As Watched: 'Marquer comme Vu'
   Remove From History: 'Retirer de l''historique'
