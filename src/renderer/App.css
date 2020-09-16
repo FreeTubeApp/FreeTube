@@ -11,6 +11,10 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+.hideOutlines *:focus {
+  outline: none;
+}
+
 .routerView {
   margin-left: 200px;
   margin-top: 80px;

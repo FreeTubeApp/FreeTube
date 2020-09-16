@@ -1,5 +1,10 @@
 <template>
-  <div id="app">
+  <div
+    id="app"
+    :class="{
+      hideOutlines: hideOutlines
+    }"
+  >
     <top-nav ref="topNav" />
     <side-nav ref="sideNav" />
     <Transition
@@ -25,4 +30,4 @@
 
 <style src="./themes.css" />
 <style src="./videoJS.css" />
-<style scoped src="./App.css" />
+<style src="./App.css" />

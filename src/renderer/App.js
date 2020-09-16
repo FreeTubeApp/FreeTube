@@ -27,6 +27,11 @@ export default Vue.extend({
     FtToast,
     FtProgressBar
   },
+  data: function () {
+    return {
+      hideOutlines: true
+    }
+  },
   computed: {
     isOpen: function () {
       return this.$store.getters.getIsSideNavOpen
@@ -48,13 +53,6 @@ export default Vue.extend({
       this.activateKeyboardShortcuts()
       this.openAllLinksExternally()
     }
-
-    // try {
-    //   const doc = yaml.safeLoad(fs.readFileSync('./static/locales/en-US.yaml'))
-    //   console.log(doc)
-    // } catch (e) {
-    //   console.log(e)
-    // }
   },
   methods: {
     checkLocale: function () {
@@ -106,6 +104,9 @@ export default Vue.extend({
 
     activateKeyboardShortcuts: function () {
       $(document).on('keydown', this.handleKeyboardShortcuts)
+      $(document).on('mousedown', () => {
+        this.hideOutlines = true
+      })
     },
 
     handleKeyboardShortcuts: function (event) {
@@ -118,6 +119,11 @@ export default Vue.extend({
             window.history.back()
             break
         }
+      }
+      switch (event.code) {
+        case 'Tab':
+          this.hideOutlines = false
+          break
       }
     },
 
