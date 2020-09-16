@@ -385,6 +385,8 @@ Change Format:
   Use Dash Formats: '使用Dash格式'
   Use Legacy Formats: '使用传统格式'
   Use Audio Formats: '使用音频格式'
+  Audio formats are not available for this video: 这个视频没有音频格式
+  Dash formats are not available for this video: 这个视频没有Dash格式
 Share:
   Share Video: '分享视频'
   Copy Link: '复制链接'
@@ -455,4 +457,17 @@ Profile:
   Color Picker: 选色器
   All Channels: 所有频道
   Profile Select: 选择配置文件
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 您确定您想删除选择的频道？
+    这不会从其他配置文件中删除频道。
+  Add Selected To Profile: 添加选择的到配置文件
+  Delete Selected: 删除选择的
+  $ selected: $选择的
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
+    same channels will be deleted in any profile they are found in.
+  : 这是您的主配置文件。 您确定您想删除选择的频道？ 相同的频道中任何找到的配置文件会被删除。
+  No channel(s) have been selected: 无频道已选择
+  Select None: 全不选
+  Select All: 全选
+  Other Channels: 其他频道
+  Subscription List: 订阅列表
 The playlist has been reversed: 播放列表已反转
