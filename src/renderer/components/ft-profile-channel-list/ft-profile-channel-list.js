@@ -128,12 +128,12 @@ export default Vue.extend({
               return index === -1
             })
             this.updateProfile(profile)
-
-            this.showToast({
-              message: this.$t('Profile.Profile has been updated')
-            })
-            this.selectNone()
           })
+
+          this.showToast({
+            message: this.$t('Profile.Profile has been updated')
+          })
+          this.selectNone()
         } else {
           const profile = JSON.parse(JSON.stringify(this.profile))
 

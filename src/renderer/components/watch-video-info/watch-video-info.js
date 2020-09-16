@@ -158,7 +158,7 @@ export default Vue.extend({
 
         this.updateProfile(currentProfile)
         this.showToast({
-          message: 'Channel has been removed from your subscriptions'
+          message: this.$t('Channel.Channel has been removed from your subscriptions')
         })
 
         if (this.activeProfile === 0) {
@@ -187,8 +187,9 @@ export default Vue.extend({
           })
 
           if (duplicateSubscriptions > 0) {
+            const message = this.$t('Channel.Removed subscription from $ other channel(s)')
             this.showToast({
-              message: `Removed subscription from ${duplicateSubscriptions} other channel(s)`
+              message: message.replace('$', duplicateSubscriptions)
             })
           }
         }
@@ -202,7 +203,7 @@ export default Vue.extend({
 
         this.updateProfile(currentProfile)
         this.showToast({
-          message: 'Added channel to your subscriptions'
+          message: this.$t('Channel.Added channel to your subscriptions')
         })
 
         if (this.activeProfile !== 0) {
