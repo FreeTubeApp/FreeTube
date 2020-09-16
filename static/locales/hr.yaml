@@ -107,8 +107,8 @@ Settings:
       Beginning: 'Početak'
       Middle: 'Sredina'
       End: 'Kraj'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious instancija (zadano
-      je https://invidious.snopyta.org)'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious instancija
+      (zadano je https://invidious.snopyta.org)'
     Region for Trending: 'Regija za trendove'
         #! List countries
   Theme Settings:
@@ -260,7 +260,7 @@ Settings:
       ili više pretplata
 About:
   #On About page
-  About: 'O'
+  About: 'Informacije'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Ovaj
     program zaštićen autorskim pravima slobodno je licenciran AGPL-3.0.'
@@ -358,12 +358,15 @@ Channel:
     About: 'O'
     Channel Description: 'Opis kanala'
     Featured Channels: 'Istaknuti kanali'
+  Added channel to your subscriptions: Kanal je dodan vašim pretplatama
+  Removed subscription from $ other channel(s): Uklonjena pretplata s $ drugih kanala
+  Channel has been removed from your subscriptions: Kanal je uklonjen iz vaših pretplata
 Video:
   Mark As Watched: 'Označi kao promatrano'
   Remove From History: 'Ukloni iz povijesti'
   Video has been marked as watched: 'Videozapis je označen kao gledan'
   Video has been removed from your history: 'Videozapis je uklonjen iz vaše povijesti'
-  Open in YouTube: 'Otvori na YouTube'
+  Open in YouTube: 'Otvorite na YouTube'
   Copy YouTube Link: 'Kopirajte YouTube link'
   Open YouTube Embedded Player: 'Otvorite YouTube ugrađeni player'
   Copy YouTube Embedded Player Link: 'Kopirajte vezu YouTube Embedded Player'
@@ -445,7 +448,7 @@ Playlist:
     Copy YouTube Link: 'Kopirajte YouTube link'
     Open in YouTube: 'Otvorite na YouTube'
     Copy Invidious Link: 'Kopirajte Invidious link'
-    Open in Invidious: 'Otvori u Invidious'
+    Open in Invidious: 'Otvorite u Invidious'
 
 # On Video Watch Page
 #* Published
