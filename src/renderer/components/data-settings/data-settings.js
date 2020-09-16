@@ -793,14 +793,14 @@ export default Vue.extend({
           console.log(err)
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
           this.showToast({
-            message: `${errorMessage}: ${err.responseText}`,
+            message: `${errorMessage}: ${err.responseJSON.error}`,
             time: 10000,
             action: () => {
-              navigator.clipboard.writeText(err)
+              navigator.clipboard.writeText(err.responseJSON.error)
             }
           })
 
-          if (this.backendFallback) {
+          if (this.backendFallback && this.backendPreference === 'invidious') {
             this.showToast({
               message: this.$t('Falling back to the local API')
             })
@@ -827,7 +827,7 @@ export default Vue.extend({
             }
           })
 
-          if (this.backendFallback) {
+          if (this.backendFallback && this.backendPreference === 'local') {
             this.showToast({
               message: this.$t('Falling back to the Invidious API')
             })
