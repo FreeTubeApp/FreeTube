@@ -11,10 +11,10 @@
       v-if="selected"
       class="bubble selected"
     >
-    <font-awesome-icon
-      icon="check"
-      class="icon"
-    />
+      <font-awesome-icon
+        icon="check"
+        class="icon"
+      />
     </div>
     <div class="channelName">
       {{ channelName }}

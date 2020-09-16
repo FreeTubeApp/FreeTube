@@ -34,9 +34,9 @@
           <img
             :src="thumbnail"
             class="upcomingThumbnail"
-          />
+          >
           <div
-            class='premiereDate'
+            class="premiereDate"
           >
             <font-awesome-icon
               icon="satellite-dish"
@@ -46,7 +46,7 @@
               class="premiereText"
             >
               Premieres on:
-              <br />
+              <br>
               {{ upcomingTimestamp }}
             </p>
           </div>
