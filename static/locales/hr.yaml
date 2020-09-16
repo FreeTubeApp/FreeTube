@@ -315,6 +315,21 @@ Profile:
   $ is now the active profile: '$ je sada aktivan profil'
 #On Channel Page
   Profile Select: Odaberite profil
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Jeste
+    li sigurni da želite izbrisati odabrane kanale? Ovim nećete izbrisati kanal s
+    bilo kojeg drugog profila.
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
+    same channels will be deleted in any profile they are found in.
+  : Ovo je vaš primarni profil. Jeste li sigurni da želite izbrisati odabrane kanale?
+    Isti kanali bit će izbrisani u bilo kojem profilu u kojem su pronađeni.
+  No channel(s) have been selected: Nije odabran nijedan kanal
+  Add Selected To Profile: Dodaj odabrano u profil
+  Delete Selected: Izbriši odabrano
+  Select None: Odaberi ništa
+  Select All: Odaberi sve
+  $ selected: $ odabrano
+  Other Channels: Ostali kanali
+  Subscription List: Popis pretplata
 Channel:
   Subscriber: 'Pretplatnik'
   Subscribers: 'Pretplatnici'
@@ -441,6 +456,10 @@ Change Format:
   Use Dash Formats: 'Koristite Dash formate'
   Use Legacy Formats: 'Koristite naslijeđene formate'
   Use Audio Formats: 'Koristite audio formate'
+  Audio formats are not available for this video: Audio formati nisu dostupni za ovaj
+    videozapis
+  Dash formats are not available for this video: Dash formati nisu dostupni za ovaj
+    videozapis
 Share:
   Share Video: 'Podijelite videozapis'
   Copy Link: 'Kopirajte link'
