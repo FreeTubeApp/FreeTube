@@ -104,8 +104,8 @@ Settings:
       Beginning: 'No começo'
       Middle: 'No meio'
       End: 'No fim'
-    'Invidious Instance (Default is https://invidio.us)': 'Instância do Invidious
-      (A padrão é https://invidio.us)'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instância do Invidious
+      (A padrão é https://invidious.snopyta.org)'
     Region for Trending: 'Região para o “Em alta”'
         #! List countries
   Theme Settings:
@@ -187,7 +187,7 @@ Settings:
       em "TESTAR PROXY" enviara uma requisição para https://ipinfo.io/json'
     Use Tor / Proxy for API calls: 'Usar tor / proxy para chamadas da API'
     TEST PROXY: 'TESTAR PROXY'
-    #& Invidious Instance (Default is https://invidio.us)
+    #& Invidious Instance (Default is https://invidious.snopyta.org)
     See Public Instances: 'Ver instâncias públicas'
     Clear History:
       Clear History: 'Apagar histórico'
@@ -416,4 +416,4 @@ Canceled next video autoplay: 'Auto-reprodução foi cancelada para o próximo v
 
 Yes: 'Sim'
 No: 'Não'
-Locale Name: Inglês
+Locale Name: Português (BR)

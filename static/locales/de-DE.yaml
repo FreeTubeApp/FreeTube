@@ -108,8 +108,8 @@ Settings:
       Beginning: Anfang
       Middle: Mitte
       End: Ende
-    'Invidious Instance (Default is https://invidio.us)': Invidious Instanz (Standard
-      ist https://invidio.us)
+    'Invidious Instance (Default is https://invidious.snopyta.org)': Invidious Instanz (Standard
+      ist https://invidious.snopyta.org)
     Region for Trending: Region für Trends
         #! List countries
   Theme Settings:
@@ -192,7 +192,7 @@ Settings:
       Den "TESTE PROXY" Knopf zu drücken, sendet eine Anfrage an https://ipinfo.io/json
     Use Tor / Proxy for API calls: Nutze Tor / Proxy für API Aufrufe
     TEST PROXY: TEST PROXY
-    #& Invidious Instance (Default is https://invidio.us)
+    #& Invidious Instance (Default is https://invidious.snopyta.org)
     See Public Instances: Zeige öffentliche Instanzen
     Clear History:
       Clear History: Lösche Verlauf

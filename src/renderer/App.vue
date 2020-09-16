@@ -2,7 +2,8 @@
   <div
     id="app"
     :class="{
-      hideOutlines: hideOutlines
+      hideOutlines: hideOutlines,
+      rightAligned: isRightAligned
     }"
   >
     <top-nav ref="topNav" />

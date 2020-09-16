@@ -567,6 +567,21 @@ export default Vue.extend({
       return Object.keys(this.$i18n.messages)
     },
 
+    localeNames: function () {
+      const names = []
+
+      Object.keys(this.$i18n.messages).forEach((locale) => {
+        const localeName = this.$i18n.messages[locale]['Locale Name']
+        if (typeof localeName !== 'undefined') {
+          names.push(localeName)
+        } else {
+          names.push(locale)
+        }
+      })
+
+      return names
+    },
+
     backendNames: function () {
       return [
         this.$t('Settings.General Settings.Preferred API Backend.Invidious API'),
@@ -624,7 +639,7 @@ export default Vue.extend({
   },
   beforeDestroy: function () {
     if (this.invidiousInstance === '') {
-      this.updateInvidiousInstance('https://invidio.us')
+      this.updateInvidiousInstance('https://invidious.snopyta.org')
     }
   },
   methods: {

@@ -105,8 +105,8 @@ Settings:
       Beginning: 'Alku'
       Middle: 'Puoliväli'
       End: 'Loppu'
-    'Invidious Instance (Default is https://invidio.us)': 'Invidious instanssi (Oletus
-      on https://invidio.us)'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious instanssi (Oletus
+      on https://invidious.snopyta.org)'
     Region for Trending: 'Nousussa-sivun alue'
         #! List countries
   Theme Settings:
@@ -190,7 +190,7 @@ Settings:
       VÄLITYSPALVELIN" -painikkeen napsauttaminen lähettää pyynnön osoitteeseen https://ipinfo.io/json'
     Use Tor / Proxy for API calls: 'Käytä Tor-verkkoa / Välityspalvelinta API-pyynnöille'
     TEST PROXY: 'TESTAA VÄLITYSPALVELIN'
-    #& Invidious Instance (Default is https://invidio.us)
+    #& Invidious Instance (Default is https://invidious.snopyta.org)
     See Public Instances: 'Näytä julkiset instanssit'
     Clear History:
       Clear History: 'Tyhjennä historia'
@@ -459,7 +459,7 @@ Canceled next video autoplay: 'Peruttiin seuraavan videon toistaminen'
 
 Yes: 'Kyllä'
 No: 'Ei'
-Locale Name: suomi
+Locale Name: Suomi
 The playlist has been reversed: Soittolista on muutettu käänteiseksi
 Profile:
   $ is now the active profile: $ on nyt aktiivinen profiili

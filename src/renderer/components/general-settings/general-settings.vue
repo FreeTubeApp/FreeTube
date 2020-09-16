@@ -66,14 +66,14 @@
       <ft-select
         :placeholder="$t('Settings.General Settings.Locale Preference')"
         :value="currentLocale"
-        :select-names="localeOptions"
+        :select-names="localeNames"
         :select-values="localeOptions"
         @change="updateLocale"
       />
     </div>
     <ft-flex-box class="generalSettingsFlexBox">
       <ft-input
-        :placeholder="$t('Settings.General Settings[\'Invidious Instance (Default is https://invidio.us)\']')"
+        :placeholder="$t('Settings.General Settings[\'Invidious Instance (Default is https://invidious.snopyta.org)\']')"
         :show-arrow="false"
         :show-label="true"
         :value="invidiousInstance"

@@ -1,3 +1,4 @@
+Locale Name: Tiếng Việt
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -103,8 +104,8 @@ Settings:
       Beginning: 'Lúc đầu'
       Middle: 'Chính giữa'
       End: 'Đầu cuối'
-    'Invidious Instance (Default is https://invidio.us)': 'Phiên bản Invidious (Mặc
-      định là https://invidio.us)'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Phiên bản Invidious (Mặc
+      định là https://invidious.snopyta.org)'
     Region for Trending: 'Phổ biến theo quốc gia'
         #! List countries
   Theme Settings:
@@ -187,7 +188,7 @@ Settings:
       nút "TEST PROXY" sẽ gửi một yêu cầu đến https://ipinfo.io/json'
     Use Tor / Proxy for API calls: 'Sử dụng Tor / Proxy cho API calls'
     TEST PROXY: 'TEST PROXY'
-    #& Invidious Instance (Default is https://invidio.us)
+    #& Invidious Instance (Default is https://invidious.snopyta.org)
     See Public Instances: 'Xem Instances công cộng'
     Clear History:
       Clear History: 'Xóa lịch sử'

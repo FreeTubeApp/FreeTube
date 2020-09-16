@@ -106,8 +106,8 @@ Settings:
       Beginning: 'بداية'
       Middle: 'وسط'
       End: 'نهاية'
-    'Invidious Instance (Default is https://invidio.us)': 'حالة Invidious (الافتراضية
-      هي https://invidio.us)'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'حالة Invidious (الافتراضية
+      هي https://invidious.snopyta.org)'
     Region for Trending: 'المنطقة للأكثر شيوعاً'
         #! List countries
   Theme Settings:
@@ -206,7 +206,7 @@ Settings:
       النقر فوق زر"اختبار Proxy" إلى إرسال طلب إلى https://ipinfo.io/json'
     Use Tor / Proxy for API calls: 'استخدم Tor / Proxy لطلبات ال API'
     TEST PROXY: 'اختبار Proxy'
-    #& Invidious Instance (Default is https://invidio.us)
+    #& Invidious Instance (Default is https://invidious.snopyta.org)
     See Public Instances: 'اطّلع على الحالات العامة'
     Clear History:
       Clear History: 'محو السجلّ'

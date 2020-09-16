@@ -107,8 +107,8 @@ Settings:
       Beginning: 'Początek'
       Middle: 'Środek'
       End: 'Koniec'
-    'Invidious Instance (Default is https://invidio.us)': 'Serwer Invidious (Domyślnie
-      jest https://invidio.us)'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Serwer Invidious (Domyślnie
+      jest https://invidious.snopyta.org)'
     Region for Trending: '„Na czasie” z obszaru'
         #! List countries
   Theme Settings:
@@ -191,7 +191,7 @@ Settings:
       przycisku „SPRAWDŹ PROXY” wyśle zapytanie na https://ipinfo.io/json'
     Use Tor / Proxy for API calls: 'Użyj proxy, lub sieci Tor do wywołań API'
     TEST PROXY: 'SPRAWDŹ PROXY'
-    #& Invidious Instance (Default is https://invidio.us)
+    #& Invidious Instance (Default is https://invidious.snopyta.org)
     See Public Instances: 'Zobacz publiczne serwery'
     Clear History:
       Clear History: 'Wyczyść historię'
@@ -471,7 +471,7 @@ Canceled next video autoplay: 'Anulowano samoodtworzenie następnego filmu'
 
 Yes: 'Tak'
 No: 'Nie'
-Locale Name: polski
+Locale Name: Polski
 Profile:
   $ is now the active profile: $ jest teraz aktywnym profilem
   Your default profile has been changed to your primary profile: Twój domyślny profil

@@ -15,6 +15,10 @@ body {
   outline: none;
 }
 
+.rightAligned: {
+  text-align: right;
+}
+
 .routerView {
   margin-left: 200px;
   margin-top: 80px;

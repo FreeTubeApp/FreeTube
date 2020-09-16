@@ -103,8 +103,8 @@ Settings:
       Beginning: '最初'
       Middle: '中間'
       End: '終了'
-    'Invidious Instance (Default is https://invidio.us)': 'Invidious のインスタンス (初期値は
-      https://invidio.us)'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious のインスタンス (初期値は
+      https://invidious.snopyta.org)'
     Region for Trending: '地域の急上昇'
         #! List countries
   Theme Settings:
@@ -186,7 +186,7 @@ Settings:
       https://ipinfo.io/json へリクエストを送信します'
     Use Tor / Proxy for API calls: 'API 呼び出しに Tor/Proxy を使用'
     TEST PROXY: 'プロキシのテスト'
-    #& Invidious Instance (Default is https://invidio.us)
+    #& Invidious Instance (Default is https://invidious.snopyta.org)
     See Public Instances: '公開インスタンスを参照'
     Clear History:
       Clear History: '履歴を消去'

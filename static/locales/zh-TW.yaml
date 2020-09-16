@@ -103,7 +103,7 @@ Settings:
       Beginning: '開始'
       Middle: '中間'
       End: '結尾'
-    'Invidious Instance (Default is https://invidio.us)': 'Invidious實例（預設https://invidio.us）'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious實例（預設https://invidious.snopyta.org）'
     Region for Trending: '熱門區域'
         #! List countries
   Theme Settings:
@@ -183,7 +183,7 @@ Settings:
     'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': '點擊“測試代理”健將傳送要求給https://ipinfo.io/json'
     Use Tor / Proxy for API calls: '用Tor / 代理給API呼叫'
     TEST PROXY: '測試代理'
-    #& Invidious Instance (Default is https://invidio.us)
+    #& Invidious Instance (Default is https://invidious.snopyta.org)
     See Public Instances: '察看公用實例'
     Clear History:
       Clear History: '清除曆史紀錄'

@@ -35,7 +35,7 @@ const state = {
   region: 'US',
   listType: 'grid',
   thumbnailPreference: '',
-  invidiousInstance: 'https://invidio.us',
+  invidiousInstance: 'https://invidious.snopyta.org',
   defaultProfile: 'allChannels',
   barColor: false,
   enableSearchSuggestions: true,
@@ -180,7 +180,7 @@ const actions = {
           switch (result._id) {
             case 'invidiousInstance':
               if (result.value === '') {
-                dispatch('updateInvidiousInstance', 'https://invidio.us')
+                dispatch('updateInvidiousInstance', 'https://invidious.snopyta.org')
               } else {
                 commit('setInvidiousInstance', result.value)
               }

@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'Engleski'
+Locale Name: 'Hrvatski'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -107,8 +107,8 @@ Settings:
       Beginning: 'Početak'
       Middle: 'Sredina'
       End: 'Kraj'
-    'Invidious Instance (Default is https://invidio.us)': 'Invidious instancija (zadano
-      je https://invidio.us)'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious instancija (zadano
+      je https://invidious.snopyta.org)'
     Region for Trending: 'Regija za trendove'
         #! List countries
   Theme Settings:
@@ -206,7 +206,7 @@ Settings:
       na gumb "TEST PROXY" poslat će se zahtjev na https://ipinfo.io/json'
     Use Tor / Proxy for API calls: 'Koristite Tor / Proxy za API pozive'
     TEST PROXY: 'TESTIRAJ PROXY'
-    #& Invidious Instance (Default is https://invidio.us)
+    #& Invidious Instance (Default is https://invidious.snopyta.org)
     See Public Instances: 'Pogledajte javne instance'
     Clear History:
       Clear History: 'Izbriši povijest'

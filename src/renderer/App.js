@@ -38,6 +38,9 @@ export default Vue.extend({
     },
     showProgressBar: function () {
       return this.$store.getters.getShowProgressBar
+    },
+    isRightAligned: function () {
+      return this.$i18n.locale === 'ar'
     }
   },
   mounted: function () {

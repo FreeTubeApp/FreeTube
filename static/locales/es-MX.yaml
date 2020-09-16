@@ -106,8 +106,8 @@ Settings:
       Beginning: 'Comienzo'
       Middle: 'Medio'
       End: 'Fin'
-    'Invidious Instance (Default is https://invidio.us)': 'Instancia de Invidious
-      (por defecto es https://invidio.us)'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instancia de Invidious
+      (por defecto es https://invidious.snopyta.org)'
     Region for Trending: 'Tendencia por región'
         #! List countries
   Theme Settings:
@@ -190,7 +190,7 @@ Settings:
       el botón "PROBAR MASCARA" enviará una solicitud a https://ipinfo.io/json'
     Use Tor / Proxy for API calls: 'Usar Tor / Mascara para las llamadas API'
     TEST PROXY: 'PROBAR MASCARA'
-    #& Invidious Instance (Default is https://invidio.us)
+    #& Invidious Instance (Default is https://invidious.snopyta.org)
     See Public Instances: 'Ver Instancias Públicas'
     Clear History:
       Clear History: 'Borrar Historial'
