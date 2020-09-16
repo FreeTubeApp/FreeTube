@@ -106,8 +106,8 @@ Settings:
       Beginning: 'В начале'
       Middle: 'В середине'
       End: 'В конце'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Экземпляр Invidious (по
-      умолчанию https://invidious.snopyta.org)'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Экземпляр Invidious
+      (по умолчанию https://invidious.snopyta.org)'
     Region for Trending: 'Регион для трендов'
         #! List countries
   Theme Settings:
@@ -319,6 +319,9 @@ Channel:
     About: 'О канале'
     Channel Description: 'Описание канала'
     Featured Channels: 'Избранные каналы'
+  Added channel to your subscriptions: Канаь добавлен в ваши подписки
+  Removed subscription from $ other channel(s): Подписка удалена с $ другого(их) канала(ов)
+  Channel has been removed from your subscriptions: Канал был удалён из ваших подписок
 Video:
   Mark As Watched: 'Отметить как просмотренное'
   Remove From History: 'Удалить из истории'
