@@ -214,6 +214,8 @@ Settings:
       e perfis foram importados com sucesso
     All subscriptions have been successfully imported: Todas as subscrições foram
       importadas com sucesso
+    One or more subscriptions were unable to be imported: Uma ou mais subscrições
+      não poderam ser importadas
     Invalid subscriptions file: Ficheiro de subscrições inválido
     This might take a while, please wait: Este processo pode demorar, por favor espere
     Invalid history file: Ficheiro de histórico inválido
@@ -315,6 +317,16 @@ Profile:
   Your default profile has been changed to your primary profile: O seu perfil padrão
     é agora o seu perfil principal
   $ is now the active profile: Está agora a ver as subscrições do perfil $
+  Subscription List: Lista de Subscrições
+  Other Channels: Outros Canais
+  $ selected: $ seleccionado
+  Select All: Seleccionar Todos
+  Select None: Seleccionar Nenhum
+  Delete Selected: Apagar Seleccionados
+  Add Selected To Profile: Adicionar Seleccionado a Perfil
+  No channel(s) have been selected: Nenhum canal foi seleccionado
+  This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.: Este é o seu perfil principal. Tem a certeza de que quer apagar os canais seleccionados? Os mesmos vão ser apagados em qualquer perfil em que se encontrem.
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Tem a certeza de que quer apagar os canais sleccionados? Esta acção não vai apagar os canais em mais nenhum perfil.
 #On Channel Page
   Profile Select: Selecção de perfil
 Channel:
@@ -444,8 +456,11 @@ Change Format:
   Use Dash Formats: Utilizar Formato Dash
   Use Legacy Formats: Utilizar Formato Antigo
   Use Audio Formats: Utilizar Formatos de Áudio
+  Dash formats are not available for this video: Formato DASH não disponível para este vídeo
+  Audio formats are not available for this video: Formato áudio não disponível para este vídeo
 Share:
   Share Video: Partilhar Vídeo
+  Include Timestamp: Incluir Marcação de Tempo
   Copy Link: Copiar Ligação
   Open Link: Abrir Ligação
   Copy Embed: Copiar Embutido
@@ -488,7 +503,7 @@ Shuffle is now enabled: Reprodução aleatória activada
 Playing Next Video: A Reproduzir o Vídeo Seguinte
 Playing Previous Video: A Reproduzir o Vídeo Anterior
 Playing next video in 5 seconds.  Click to cancel: A reproduzir o vídeo seguinte em
-  5 segundos. Clique para cancelar
+  5 segundos. Clique para cancelar.
 Canceled next video autoplay: Reprodução automática cancelada
 'The playlist has ended.  Enable loop to continue playing': 'A lista de reprodução
   chegou ao fim. Active a reprodução cíclica para continuar'
