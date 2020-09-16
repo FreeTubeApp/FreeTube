@@ -421,6 +421,10 @@ Change Format:
   Use Dash Formats: 'Usa formatos DASH'
   Use Legacy Formats: 'Usar formatos heredados'
   Use Audio Formats: 'Usa formatos de audio'
+  Audio formats are not available for this video: Los formatos de audio no están disponibles
+    por este video
+  Dash formats are not available for this video: Los formatos de Dash no están disponibles
+    por este video
 Share:
   Share Video: 'Compartir Video'
   Copy Link: 'Copiar enlace'
@@ -501,4 +505,19 @@ Profile:
   Profile Manager: Gestor de Perfiles
   All Channels: Todos Los Canales
   Profile Select: Selección de perfil
+  Select None: No Seleccionar Ninguno
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
+    same channels will be deleted in any profile they are found in.
+  : Este es su perfil principal. ¿Estás seguro de que quieres borrar los canales seleccionados?
+    Los mismos canales serán borrados de cualquier perfil en el que se encuentren.
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ¿Estás
+    seguro de que quieres borrar los canales seleccionados? Esto no se borrará el
+    canal de ningún otro perfil.
+  No channel(s) have been selected: Ningún canal ha sido seleccionado
+  Add Selected To Profile: Añadir Seleccionado al Perfil
+  Delete Selected: Borrar Seleccionado
+  Select All: Seleccionar Todo
+  $ selected: $ seleccionado
+  Other Channels: Otros Canales
+  Subscription List: Lista de Suscripciones
 The playlist has been reversed: La lista de reproducción ha sido invertida
