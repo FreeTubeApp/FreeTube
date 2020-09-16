@@ -385,6 +385,8 @@ Change Format:
   Use Dash Formats: '使用Dash格式'
   Use Legacy Formats: '使用傳統格式'
   Use Audio Formats: '使用聲訊格式'
+  Audio formats are not available for this video: 這個視訊沒有聲訊格式
+  Dash formats are not available for this video: 這個視訊沒有Dash格式
 Share:
   Share Video: '分享視訊'
   Copy Link: '複製鏈結'
@@ -455,4 +457,17 @@ Profile:
   Profile Manager: 設定檔管理器
   All Channels: 所有頻道
   Profile Select: 選取設定檔
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 您確定您想移除選取的頻道？
+    這不會從其他設定檔中移除頻道。
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
+    same channels will be deleted in any profile they are found in.
+  : 這是您的主設定檔。 您確定您想移除選取的頻道？ 相同的頻道中任何找到的設定檔會被移除。
+  No channel(s) have been selected: 無頻道已選取
+  Add Selected To Profile: 添加選取的到設定檔
+  Delete Selected: 移除選取的
+  Select None: 全不選
+  Select All: 全選
+  $ selected: $選取的
+  Other Channels: 其他頻道
+  Subscription List: 訂閱清單
 The playlist has been reversed: 播放清單已反轉
