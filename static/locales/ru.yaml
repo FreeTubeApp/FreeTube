@@ -419,6 +419,10 @@ Change Format:
   Use Dash Formats: 'Использовать форматы Dash'
   Use Legacy Formats: 'Использовать устаревшие форматы'
   Use Audio Formats: 'Использовать аудио форматы'
+  Audio formats are not available for this video: Аудио форматы недоступны для этого
+    видео
+  Dash formats are not available for this video: Формат dash недоступен для этого
+    видео
 Share:
   Share Video: 'Поделиться видео'
   Copy Link: 'Скопировать ссылку'
@@ -497,4 +501,19 @@ Profile:
   Profile Manager: Менеджер профилей
   All Channels: Все каналы
   Profile Select: Выбор профиля
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Вы
+    уверены, что хотите удалить выбранные каналы? Это не приведет к удалению канала
+    из любого другого профиля.
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
+    same channels will be deleted in any profile they are found in.
+  : Это ваш основной профиль. Вы уверены, что хотите удалить выбранные каналы? Те
+    же каналы будут удалены из любого профиля, в котором они находятся.
+  No channel(s) have been selected: Канал(ы) не были выбраны
+  Add Selected To Profile: Добавить выбранное в профиль
+  Delete Selected: Удалить выбранное
+  Select None: Выбрать ничего
+  Select All: Выбрать все
+  $ selected: $ выбрано
+  Other Channels: Другие каналы
+  Subscription List: Список подписок
 The playlist has been reversed: Плейлист был перевёрнут
