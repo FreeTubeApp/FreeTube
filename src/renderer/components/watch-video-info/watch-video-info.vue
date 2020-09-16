@@ -67,6 +67,7 @@
           @click="$emit('theatreMode')"
         />
         <ft-icon-button
+          v-if="!isUpcoming"
           :title="$t('Change Format.Change Video Formats')"
           class="option"
           theme="secondary"

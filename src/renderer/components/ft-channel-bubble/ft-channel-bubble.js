@@ -7,18 +7,26 @@ export default Vue.extend({
       type: String,
       required: true
     },
-    channelId: {
-      type: String,
-      required: true
-    },
     channelThumbnail: {
       type: String,
       required: true
+    },
+    showSelected: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data: function () {
+    return {
+      selected: false
     }
   },
   methods: {
-    goToChannel: function () {
-      console.log('Go to channel')
+    handleClick: function () {
+      if (this.showSelected) {
+        this.selected = !this.selected
+      }
+      this.$emit('click')
     }
   }
 })

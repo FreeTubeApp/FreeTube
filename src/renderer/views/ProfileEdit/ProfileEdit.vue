@@ -7,99 +7,20 @@
     <div
       v-else
     >
-      <ft-card class="card">
-        <h2>{{ $t("Profile.Edit Profile") }}</h2>
-        <ft-flex-box>
-          <ft-input
-            class="profileName"
-            placeholder="Profile Name"
-            :value="profileName"
-            :show-arrow="false"
-            @input="e => profileName = e"
-          />
-        </ft-flex-box>
-        <h3>{{ $t("Profile.Color Picker") }}</h3>
-        <ft-flex-box
-          class="bottomMargin colorOptions"
-        >
-          <div
-            v-for="(color, index) in colorValues"
-            :key="index"
-            class="colorOption"
-            :style="{ background: color }"
-            @click="profileBgColor = color"
-          />
-        </ft-flex-box>
-        <ft-flex-box
-          class="bottomMargin"
-        >
-          <div>
-            <label for="colorPicker">{{ $t("Profile.Custom Color") }}</label>
-            <input
-              id="colorPicker"
-              v-model="profileBgColor"
-              type="color"
-            >
-          </div>
-        </ft-flex-box>
-        <ft-flex-box>
-          <ft-input
-            class="profileName"
-            placeholder=""
-            :value="profileBgColor"
-            :show-arrow="false"
-            :disabled="true"
-          />
-        </ft-flex-box>
-        <h3>{{ $t("Profile.Profile Preview") }}</h3>
-        <ft-flex-box
-          class="bottomMargin"
-        >
-          <div
-            class="colorOption"
-            :style="{ background: profileBgColor, color: profileTextColor }"
-            style="cursor: default"
-          >
-            <p
-              class="initial"
-            >
-              {{ profileInitial }}
-            </p>
-          </div>
-        </ft-flex-box>
-        <ft-flex-box>
-          <ft-button
-            v-if="isNew"
-            :label="$t('Profile.Create Profile')"
-            @click="saveProfile"
-          />
-          <ft-button
-            v-if="!isNew"
-            :label="$t('Profile.Update Profile')"
-            @click="saveProfile"
-          />
-          <ft-button
-            v-if="!isNew"
-            :label="$t('Profile.Make Default Profile')"
-            @click="setDefaultProfile"
-          />
-          <ft-button
-            v-if="profileId !== 'allChannels' && !isNew"
-            :label="$t('Profile.Delete Profile')"
-            text-color="var(--text-with-main-color)"
-            background-color="var(--primary-color)"
-            @click="openDeletePrompt"
-          />
-        </ft-flex-box>
-      </ft-card>
+      <ft-profile-edit
+        :profile="profile"
+        :is-new="isNew"
+      />
+      <ft-profile-channel-list
+        v-if="!isNew"
+        :profile="profile"
+        :is-main-profile="isMainProfile"
+      />
+      <ft-profile-all-channels-list
+        v-if="!isNew && !isMainProfile"
+        :profile="profile"
+      />
     </div>
-    <ft-prompt
-      v-if="showDeletePrompt"
-      :label="deletePromptLabel"
-      :option-names="deletePromptNames"
-      :option-values="deletePromptValues"
-      @click="handleDeletePrompt"
-    />
   </div>
 </template>
 

@@ -13,7 +13,7 @@
     <div class="videoArea">
       <div class="videoAreaMargin">
         <ft-video-player
-          v-if="!isLoading && !hidePlayer"
+          v-if="!isLoading && !hidePlayer && !isUpcoming"
           ref="videoPlayer"
           :dash-src="dashSrc"
           :source-list="activeSourceList"
@@ -27,6 +27,30 @@
           @ended="handleVideoEnded"
           @error="handleVideoError"
         />
+        <div
+          v-if="!isLoading && isUpcoming"
+          class="videoPlayer"
+        >
+          <img
+            :src="thumbnail"
+            class="upcomingThumbnail"
+          />
+          <div
+            class='premiereDate'
+          >
+            <font-awesome-icon
+              icon="satellite-dish"
+              class="premiereIcon"
+            />
+            <p
+              class="premiereText"
+            >
+              Premieres on:
+              <br />
+              {{ upcomingTimestamp }}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
     <div class="infoArea">
@@ -43,6 +67,7 @@
         :dislike-count="videoDislikeCount"
         :view-count="videoViewCount"
         :get-timestamp="getTimestamp"
+        :is-upcoming="isUpcoming"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
         @theatreMode="toggleTheatreMode"

@@ -62,6 +62,10 @@ export default Vue.extend({
     getTimestamp: {
       type: Function,
       required: true
+    },
+    isUpcoming: {
+      type: Boolean,
+      required: true
     }
   },
   data: function () {

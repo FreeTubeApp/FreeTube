@@ -1,12 +1,21 @@
 <template>
   <div
     class="bubblePadding"
-    @click="goToChannel(channelId)"
+    @click="handleClick"
   >
     <img
       class="bubble"
       :src="channelThumbnail"
     >
+    <div
+      v-if="selected"
+      class="bubble selected"
+    >
+    <font-awesome-icon
+      icon="check"
+      class="icon"
+    />
+    </div>
     <div class="channelName">
       {{ channelName }}
     </div>

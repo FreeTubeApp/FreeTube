@@ -1,4 +1,5 @@
 .bubblePadding {
+  position: relative;
   width: 100px;
   height: 115px;
   padding: 10px;
@@ -23,6 +24,20 @@
   margin-left: 25px;
   border-radius: 200px 200px 200px 200px;
   -webkit-border-radius: 200px 200px 200px 200px;
+}
+
+.selected {
+  position: absolute;
+  top: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.icon {
+  color: #EEEEEE;
+  font-size: 25px;
+  position: absolute;
+  top: 12px;
+  left: 12px;
 }
 
 .channelName {

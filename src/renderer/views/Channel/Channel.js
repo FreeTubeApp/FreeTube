@@ -152,6 +152,7 @@ export default Vue.extend({
     $route() {
       // react to route changes...
       this.id = this.$route.params.id
+      this.currentTab = 'videos'
       this.isLoading = true
 
       if (!this.usingElectron) {
@@ -224,6 +225,10 @@ export default Vue.extend({
     }
   },
   methods: {
+    goToChannel: function (id) {
+      this.$router.push({ path: `/channel/${id}` })
+    },
+
     getChannelInfoLocal: function () {
       this.apiUsed = 'local'
       ytch.getChannelInfo(this.id).then((response) => {

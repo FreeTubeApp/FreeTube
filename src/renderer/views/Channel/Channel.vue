@@ -123,6 +123,7 @@
             :channel-name="channel.author"
             :channel-id="channel.authorId"
             :channel-thumbnail="channel.authorThumbnails[channel.authorThumbnails.length - 1].url"
+            @click="goToChannel(channel.authorId)"
           />
         </ft-flex-box>
       </div>

@@ -40,6 +40,8 @@ export default Vue.extend({
       showYouTubeNoCookieEmbed: false,
       hidePlayer: false,
       isLive: false,
+      isUpcoming: false,
+      upcomingTimestamp: null,
       activeFormat: 'legacy',
       videoId: '',
       videoTitle: '',
@@ -215,8 +217,9 @@ export default Vue.extend({
           this.videoLikeCount = result.videoDetails.likes
           this.videoDislikeCount = result.videoDetails.dislikes
           this.isLive = result.player_response.videoDetails.isLiveContent
+          this.isUpcoming = result.player_response.videoDetails.isUpcoming
 
-          if (!this.isLive) {
+          if (!this.isLive && !this.isUpcoming) {
             const captionTracks =
               result.player_response.captions &&
               result.player_response.captions.playerCaptionsTracklistRenderer
@@ -243,7 +246,7 @@ export default Vue.extend({
             }
           }
 
-          if (this.isLive) {
+          if (this.isLive && !this.isUpcoming) {
             this.enableLegacyFormat()
 
             this.videoSourceList = result.formats.filter((format) => {
@@ -279,28 +282,39 @@ export default Vue.extend({
             } else {
               this.activeSourceList = this.videoSourceList
             }
+          } else if (this.isUpcoming) {
+            const upcomingTimestamp = new Date(result.videoDetails.liveBroadcastDetails.startTimestamp)
+            this.upcomingTimestamp = upcomingTimestamp.toLocaleString()
           } else {
             this.videoLengthSeconds = parseInt(result.videoDetails.lengthSeconds)
             this.videoSourceList = result.player_response.streamingData.formats
-            this.dashSrc = await this.createLocalDashManifest(result.player_response.streamingData.adaptiveFormats)
 
-            this.audioSourceList = result.player_response.streamingData.adaptiveFormats.filter((format) => {
-              return format.mimeType.includes('audio')
-            }).map((format) => {
-              return {
-                url: format.url,
-                type: format.mimeType,
-                label: 'Audio',
-                qualityLabel: format.bitrate
+            if (typeof result.player_response.streamingData.adaptiveFormats !== 'undefined') {
+              this.dashSrc = await this.createLocalDashManifest(result.player_response.streamingData.adaptiveFormats)
+
+              this.audioSourceList = result.player_response.streamingData.adaptiveFormats.filter((format) => {
+                return format.mimeType.includes('audio')
+              }).map((format) => {
+                return {
+                  url: format.url,
+                  type: format.mimeType,
+                  label: 'Audio',
+                  qualityLabel: format.bitrate
+                }
+              }).sort((a, b) => {
+                return a.qualityLabel - b.qualityLabel
+              })
+
+              if (this.activeFormat === 'audio') {
+                this.activeSourceList = this.audioSourceList
+              } else {
+                this.activeSourceList = this.videoSourceList
               }
-            }).sort((a, b) => {
-              return a.qualityLabel - b.qualityLabel
-            })
-
-            if (this.activeFormat === 'audio') {
-              this.activeSourceList = this.audioSourceList
             } else {
               this.activeSourceList = this.videoSourceList
+              this.audioSourceList = null
+              this.dashSrc = null
+              this.enableLegacyFormat()
             }
 
             if (typeof result.player_response.storyboards !== 'undefined') {
@@ -528,6 +542,13 @@ export default Vue.extend({
         return
       }
 
+      if (this.dashSrc === null) {
+        this.showToast({
+          message: this.$t('Change Format.Dash formats are not available for this video')
+        })
+        return
+      }
+
       this.activeFormat = 'dash'
       this.hidePlayer = true
 
@@ -552,6 +573,13 @@ export default Vue.extend({
 
     enableAudioFormat: function () {
       if (this.activeFormat === 'audio') {
+        return
+      }
+
+      if (this.audioSourceList === null) {
+        this.showToast({
+          message: this.$t('Change Format.Audio formats are not available for this video')
+        })
         return
       }
 

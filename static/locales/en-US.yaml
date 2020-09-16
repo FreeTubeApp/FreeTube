@@ -306,6 +306,16 @@ Profile:
   Your default profile has been changed to your primary profile: Your default profile
     has been changed to your primary profile
   $ is now the active profile: $ is now the active profile
+  Subscription List: Subscription List
+  Other Channels: Other Channels
+  $ selected: $ selected
+  Select All: Select All
+  Select None: Select None
+  Delete Selected: Delete Selected
+  Add Selected To Profile: Add Selected To Profile
+  No channel(s) have been selected: No channel(s) have been selected
+  This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.: This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.
 #On Channel Page
 Channel:
   Subscriber: Subscriber
@@ -435,6 +445,8 @@ Change Format:
   Use Dash Formats: Use Dash Formats
   Use Legacy Formats: Use Legacy Formats
   Use Audio Formats: Use Audio Formats
+  Dash formats are not available for this video: Dash formats are not available for this video
+  Audio formats are not available for this video: Audio formats are not available for this video
 Share:
   Share Video: Share Video
   Include Timestamp: Include Timestamp
