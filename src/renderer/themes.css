@@ -449,6 +449,14 @@ body {
   background-color: var(--bg-color);
 }
 
+.hideOutlines *:focus {
+  outline: none;
+}
+
+.rightAligned: {
+  text-align: right;
+}
+
 a:link {
     color: var(--link-color);
 }

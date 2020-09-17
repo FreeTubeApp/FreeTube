@@ -31,4 +31,4 @@
 
 <style src="./themes.css" />
 <style src="./videoJS.css" />
-<style src="./App.css" />
+<style scoped src="./App.css" />
