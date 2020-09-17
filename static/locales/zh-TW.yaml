@@ -291,7 +291,7 @@ Channel:
     Channel Description: '頻道說明'
     Featured Channels: '列出頻道'
   Added channel to your subscriptions: 已新增頻道至您的訂閱
-  Removed subscription from $ other channel(s): 從 $ 個其他頻道移除訂閱
+  Removed subscription from $ other channel(s): 從$個其他頻道移除訂閱
   Channel has been removed from your subscriptions: 頻道已從您的訂閱中移除
 Video:
   Open in YouTube: '在YouTube中開啟'
@@ -470,7 +470,7 @@ Profile:
   Delete Selected: 移除選取的
   Select None: 全不選
   Select All: 全選
-  $ selected: $選取的
+  $ selected: $個選取的
   Other Channels: 其他頻道
   Subscription List: 訂閱清單
 The playlist has been reversed: 播放清單已反轉
