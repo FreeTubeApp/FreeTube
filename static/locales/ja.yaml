@@ -298,6 +298,7 @@ Channel:
     Featured Channels: '注目チャンネル'
   Added channel to your subscriptions: 登録にチャンネルを追加しました
   Channel has been removed from your subscriptions: チャンネルは登録から削除されました
+  Removed subscription from $ other channel(s): $ ほかのチャンネルから登録を削除しました
 Video:
   Open in YouTube: 'YouTube で開く'
   Copy YouTube Link: 'YouTube のリンクをコピー'
@@ -472,4 +473,9 @@ Profile:
   Select All: すべて選択
   Other Channels: ほかのチャンネル
   Subscription List: 登録の一覧
+  $ selected: $ 選択
+  Add Selected To Profile: 選択項目をプロファイルに追加
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
+    same channels will be deleted in any profile they are found in.
+  : これは第一プロファイルです。選択したチャンネルを削除しますか？同じチャンネルは、登録されていればほかのプロフィールからも削除されます。
 The playlist has been reversed: 再生リストは逆順になりました
