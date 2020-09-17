@@ -103,8 +103,8 @@ Settings:
       Beginning: '最初'
       Middle: '中間'
       End: '終了'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious のインスタンス (初期値は
-      https://invidious.snopyta.org)'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious のインスタンス
+      (初期値は https://invidious.snopyta.org)'
     Region for Trending: '地域の急上昇'
         #! List countries
   Theme Settings:
@@ -296,6 +296,8 @@ Channel:
     About: '情報'
     Channel Description: 'チャンネルの説明'
     Featured Channels: '注目チャンネル'
+  Added channel to your subscriptions: 登録にチャンネルを追加しました
+  Channel has been removed from your subscriptions: チャンネルは登録から削除されました
 Video:
   Open in YouTube: 'YouTube で開く'
   Copy YouTube Link: 'YouTube のリンクをコピー'
@@ -391,6 +393,8 @@ Change Format:
   Use Dash Formats: 'DASH 形式を使用'
   Use Legacy Formats: '旧形式を使用'
   Use Audio Formats: '音声形式を使用'
+  Audio formats are not available for this video: この動画用の音声形式はありません
+  Dash formats are not available for this video: この動画用の DASH 形式はありません
 Share:
   Share Video: '動画の共有'
   Copy Link: 'リンクをコピー'
@@ -461,4 +465,11 @@ Profile:
   Profile Manager: プロファイル管理
   All Channels: すべてのチャンネル
   Profile Select: プロファイルの選択
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 選択したチャンネルを削除しますか？ほかのプロファイルからは削除されません。
+  No channel(s) have been selected: チャンネルが選択されていません
+  Delete Selected: 選択項目を削除
+  Select None: 洗濯なし
+  Select All: すべて選択
+  Other Channels: ほかのチャンネル
+  Subscription List: 登録の一覧
 The playlist has been reversed: 再生リストは逆順になりました
