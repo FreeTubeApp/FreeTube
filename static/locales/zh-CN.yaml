@@ -290,6 +290,9 @@ Channel:
     About: '关于'
     Channel Description: '频道描述'
     Featured Channels: '列出频道'
+  Removed subscription from $ other channel(s): 从$个其他频道移除订阅
+  Added channel to your subscriptions: 已新增频道至您的订阅
+  Channel has been removed from your subscriptions: 频道已从您的订阅中移除
 Video:
   Open in YouTube: '在YouTube中打开'
   Copy YouTube Link: '复制YouTube链接'
