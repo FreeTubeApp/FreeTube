@@ -290,6 +290,9 @@ Channel:
     About: '關於'
     Channel Description: '頻道說明'
     Featured Channels: '列出頻道'
+  Added channel to your subscriptions: 已新增頻道至您的訂閱
+  Removed subscription from $ other channel(s): 從 $ 個其他頻道移除訂閱
+  Channel has been removed from your subscriptions: 頻道已從您的訂閱中移除
 Video:
   Open in YouTube: '在YouTube中開啟'
   Copy YouTube Link: '複製YouTube鏈結'
