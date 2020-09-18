@@ -106,8 +106,8 @@ Settings:
       Beginning: 'بداية'
       Middle: 'وسط'
       End: 'نهاية'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'حالة Invidious (الافتراضية
-      هي https://invidious.snopyta.org)'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'حالة Invidious
+      (الافتراضية هي https://invidious.snopyta.org)'
     Region for Trending: 'المنطقة للأكثر شيوعاً'
         #! List countries
   Theme Settings:
@@ -314,6 +314,21 @@ Profile:
   $ is now the active profile: '$ هو الآن الملف الشخصي النشط'
 #On Channel Page
   Profile Select: اختيار الملف الشخصي
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: هل
+    أنت متأكد أنك تريد حذف القنوات المُحددة؟ لن يؤدي هذا إلى حذف القناة من أي ملف
+    شخصي آخر.
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
+    same channels will be deleted in any profile they are found in.
+  : هذا هو ملفك الشخصي الأساسي. هل أنت متأكد أنك تريد حذف القنوات المُحددة؟ سيتم حذف
+    القنوات نفسها إن وجدت في أي ملف شخصي.
+  No channel(s) have been selected: لم يتم تحديد أي قناة/قنوات
+  Add Selected To Profile: إضافة المُحدد إلى الملف الشخصي
+  Delete Selected: حذف المُحدد
+  Select None: إلغاء التحديد
+  Select All: تحديد الكل
+  $ selected: $ تم اختياره
+  Other Channels: قنوات أُخرى
+  Subscription List: قائمة الاشتراكات
 Channel:
   Subscriber: 'مُشترِك'
   Subscribers: 'مُشترِكين'
@@ -342,6 +357,10 @@ Channel:
     About: 'حول'
     Channel Description: 'وصف القناة'
     Featured Channels: 'القنوات المميزة'
+  Added channel to your subscriptions: تم إضافة القناة إلى اشتراكاتك
+  Removed subscription from $ other channel(s): تم إزالة الاشتراك من $ قناة/قنوات
+    أخرى
+  Channel has been removed from your subscriptions: تمت إزالة القناة من اشتراكاتك
 Video:
   Mark As Watched: 'علّمه كفيديو تمت مشاهدته'
   Remove From History: 'إزالة من سجلّ المشاهدة'
@@ -440,6 +459,8 @@ Change Format:
   Use Dash Formats: 'استخدم تنسيقات DASH'
   Use Legacy Formats: 'استخدم التنسيقات التراثية'
   Use Audio Formats: 'استخدم تنسيقات الصوت'
+  Audio formats are not available for this video: تنسيقات الصوت غير متوفرة لهذا الفيديو
+  Dash formats are not available for this video: تنسيقات DASH غير متوفرة لهذا الفيديو
 Share:
   Share Video: 'شارك الفيديو'
   Copy Link: 'انسخ الرابط'
