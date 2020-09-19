@@ -86,12 +86,14 @@
         :description-html="videoDescriptionHtml"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
+        @timestampEvent="changeTimestamp"
       />
       <watch-video-comments
         v-if="!isLoading && !isLive"
         :id="videoId"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
+        @timestampEvent="changeTimestamp"
       />
     </div>
     <div class="sidebarArea">

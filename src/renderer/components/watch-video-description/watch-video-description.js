@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import FtCard from '../ft-card/ft-card.vue'
+import FtTimestampCatcher from '../ft-timestamp-catcher/ft-timestamp-catcher.vue'
 import autolinker from 'autolinker'
 
 export default Vue.extend({
   name: 'WatchVideoDescription',
   components: {
-    'ft-card': FtCard
+    'ft-card': FtCard,
+    'ft-timestamp-catcher': FtTimestampCatcher
   },
   props: {
     published: {
@@ -34,6 +36,9 @@ export default Vue.extend({
     }
   },
   methods: {
+    onTimestamp: function(timestamp) {
+      this.$emit('timestampEvent', timestamp)
+    },
     parseDescriptionHtml: function (descriptionText) {
       descriptionText = descriptionText.replace(/target="_blank"/g, '')
       descriptionText = descriptionText.replace(/\/redirect.+?(?=q=)/g, '')
