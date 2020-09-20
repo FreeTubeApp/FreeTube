@@ -547,6 +547,9 @@ export default Vue.extend({
     checkForUpdates: function () {
       return this.$store.getters.getCheckForUpdates
     },
+    checkForBlogPosts: function () {
+      return this.$store.getters.getCheckForBlogPosts
+    },
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
@@ -658,6 +661,7 @@ export default Vue.extend({
       'updateEnableSearchSuggestions',
       'updateBackendFallback',
       'updateCheckForUpdates',
+      'updateCheckForBlogPosts',
       'updateBarColor',
       'updateBackendPreference',
       'updateLandingPage',

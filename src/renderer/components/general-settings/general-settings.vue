@@ -7,24 +7,36 @@
     >
       {{ $t("Settings.General Settings.General Settings") }}
     </h3>
-    <ft-flex-box class="generalSettingsFlexBox">
-      <ft-toggle-switch
-        :label="$t('Settings.General Settings.Fallback to Non-Preferred Backend on Failure')"
-        :default-value="backendFallback"
-        @change="updateBackendFallback"
-      />
-      <ft-toggle-switch
-        :label="$t('Settings.General Settings.Enable Search Suggestions')"
-        :default-value="enableSearchSuggestions"
-        @change="updateEnableSearchSuggestions"
-      />
-      <ft-toggle-switch
-        v-if="false"
-        :label="$t('Settings.General Settings.Check for Updates')"
-        :default-value="checkForUpdates"
-        @change="updateCheckForUpdates"
-      />
-    </ft-flex-box>
+    <div class="switchColumnGrid">
+      <div class="switchColumn">
+        <ft-toggle-switch
+          :label="$t('Settings.General Settings.Check for Updates')"
+          :default-value="checkForUpdates"
+          :compact="true"
+          @change="updateCheckForUpdates"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.General Settings.Fallback to Non-Preferred Backend on Failure')"
+          :default-value="backendFallback"
+          :compact="true"
+          @change="updateBackendFallback"
+        />
+      </div>
+      <div class="switchColumn">
+        <ft-toggle-switch
+          :label="$t('Settings.General Settings.Check for Latest Blog Posts')"
+          :default-value="checkForBlogPosts"
+          :compact="true"
+          @change="updateCheckForBlogPosts"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.General Settings.Enable Search Suggestions')"
+          :default-value="enableSearchSuggestions"
+          :compact="true"
+          @change="updateEnableSearchSuggestions"
+        />
+      </div>
+    </div>
     <div class="switchGrid">
       <ft-select
         :placeholder="$t('Settings.General Settings.Preferred API Backend.Preferred API Backend')"

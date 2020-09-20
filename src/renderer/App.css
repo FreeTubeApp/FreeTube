@@ -24,12 +24,16 @@ body {
 }
 
 .banner {
-  margin-top: 70px;
-  margin-bottom: -65px;
+  width: 85%;
+}
+
+.flexBox {
+  margin-top: 60px;
+  margin-bottom: -75px;
 }
 
 .fade-enter-active, .fade-leave-active {
-  transition: opacity .2s;
+  transition: opacity .15s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
@@ -42,7 +46,11 @@ body {
   }
 
   .banner {
-    margin-top: 70px;
-    margin-bottom: -65px;
+    width: 90%;
+  }
+
+  .flexBox {
+    margin-top: 60px;
+    margin-bottom: -75px;
   }
 }

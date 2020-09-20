@@ -1,10 +1,16 @@
 import Vue from 'vue'
 import { ObserveVisibility } from 'vue-observe-visibility'
+import FtFlexBox from './components/ft-flex-box/ft-flex-box.vue'
 import TopNav from './components/top-nav/top-nav.vue'
 import SideNav from './components/side-nav/side-nav.vue'
+import FtNotificationBanner from './components/ft-notification-banner/ft-notification-banner.vue'
+import FtPrompt from './components/ft-prompt/ft-prompt.vue'
+import FtButton from './components/ft-button/ft-button.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
 import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
 import $ from 'jquery'
+import { markdown } from 'markdown'
+import Parser from 'rss-parser'
 
 let useElectron
 let shell
@@ -22,14 +28,26 @@ if (window && window.process && window.process.type === 'renderer') {
 export default Vue.extend({
   name: 'App',
   components: {
+    FtFlexBox,
     TopNav,
     SideNav,
+    FtNotificationBanner,
+    FtPrompt,
+    FtButton,
     FtToast,
     FtProgressBar
   },
   data: function () {
     return {
-      hideOutlines: true
+      hideOutlines: true,
+      showUpdatesBanner: false,
+      showBlogBanner: false,
+      showReleaseNotes: false,
+      updateBannerMessage: '',
+      blogBannerMessage: '',
+      latestBlogUrl: '',
+      updateChangelog: '',
+      changeLogTitle: ''
     }
   },
   computed: {
@@ -41,6 +59,12 @@ export default Vue.extend({
     },
     isRightAligned: function () {
       return this.$i18n.locale === 'ar'
+    },
+    checkForUpdates: function () {
+      return this.$store.getters.getCheckForUpdates
+    },
+    checkForBlogPosts: function () {
+      return this.$store.getters.getCheckForBlogPosts
     }
   },
   mounted: function () {
@@ -56,6 +80,11 @@ export default Vue.extend({
       this.activateKeyboardShortcuts()
       this.openAllLinksExternally()
     }
+
+    setTimeout(() => {
+      this.checkForNewUpdates()
+      this.checkForNewBlogPosts()
+    }, 500)
   },
   methods: {
     checkLocale: function () {
@@ -103,6 +132,80 @@ export default Vue.extend({
       localStorage.setItem('baseTheme', theme.baseTheme)
       localStorage.setItem('mainColor', theme.mainColor)
       localStorage.setItem('secColor', theme.secColor)
+    },
+
+    checkForNewUpdates: function () {
+      if (this.checkForUpdates) {
+        const { version } = require('../../package.json')
+        const requestUrl = 'https://api.github.com/repos/freetubeapp/freetube-vue/releases'
+
+        $.getJSON(requestUrl, (response) => {
+          const tagName = response[0].tag_name
+          const versionNumber = tagName.replace('v', '').replace('-beta', '')
+          this.updateChangelog = markdown.toHTML(response[0].body)
+          this.changeLogTitle = response[0].name
+
+          const message = this.$t('Version $ is now available!  Click for more details')
+          this.updateBannerMessage = message.replace('$', versionNumber)
+          if (version < versionNumber) {
+            this.showUpdatesBanner = true
+          }
+        }).fail((xhr, textStatus, error) => {
+          console.log(xhr)
+          console.log(textStatus)
+          console.log(requestUrl)
+          console.log(error)
+        })
+      }
+    },
+
+    checkForNewBlogPosts: function () {
+      if (this.checkForBlogPosts) {
+        const parser = new Parser()
+        const feedUrl = 'https://write.as/freetube/feed/'
+        let lastAppWasRunning = localStorage.getItem('lastAppWasRunning')
+
+        if (lastAppWasRunning !== null) {
+          lastAppWasRunning = new Date(lastAppWasRunning)
+        }
+
+        parser.parseURL(feedUrl).then((response) => {
+          const latestBlog = response.items[0]
+          const latestPubDate = new Date(latestBlog.pubDate)
+
+          if (lastAppWasRunning === null || latestPubDate > lastAppWasRunning) {
+            const message = this.$t('A new blog is now available, $. Click to view more')
+            this.blogBannerMessage = message.replace('$', latestBlog.title)
+            this.latestBlogUrl = latestBlog.link
+            this.showBlogBanner = true
+          }
+
+          localStorage.setItem('lastAppWasRunning', new Date())
+        })
+      }
+    },
+
+    handleUpdateBannerClick: function (response) {
+      if (response !== false) {
+        this.showReleaseNotes = true
+      } else {
+        this.showUpdatesBanner = false
+      }
+    },
+
+    handleNewBlogBannerClick: function (response) {
+      if (response) {
+        shell.openExternal(this.latestBlogUrl)
+      }
+
+      this.showBlogBanner = false
+    },
+
+    openDownloadsPage: function () {
+      const url = 'https://freetubeapp.io#download'
+      shell.openExternal(url)
+      this.showReleaseNotes = false
+      this.showUpdatesBanner = false
     },
 
     activateKeyboardShortcuts: function () {

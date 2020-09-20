@@ -29,6 +29,10 @@ Close: Close
 Back: Back
 Forward: Forward
 
+Version $ is now available!  Click for more details: Version $ is now available!  Click for more details
+Download From Site: Download From Site
+A new blog is now available, $. Click to view more: A new blog is now available, $. Click to view more
+
 # Search Bar
 Search / Go to URL: Search / Go to URL
   # In Filter Button
@@ -87,6 +91,8 @@ Settings:
   Settings: Settings
   General Settings:
     General Settings: General Settings
+    Check for Updates: Check for Updates
+    Check for Latest Blog Posts: Check for Latest Blog Posts
     Fallback to Non-Preferred Backend on Failure: Fallback to Non-Preferred Backend
       on Failure
     Enable Search Suggestions: Enable Search Suggestions

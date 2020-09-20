@@ -7,6 +7,7 @@ const state = {
   trendingCache: null,
   showProgressBar: false,
   progressBarPercentage: 0,
+  recentBlogPosts: [],
   searchSettings: {
     sortBy: 'relevance',
     time: '',
@@ -86,6 +87,10 @@ const getters = {
 
   getProgressBarPercentage () {
     return state.progressBarPercentage
+  },
+
+  getRecentBlogPosts () {
+    return state.recentBlogPosts
   }
 }
 
@@ -399,6 +404,10 @@ const mutations = {
 
   setSearchDuration (state, value) {
     state.searchSettings.duration = value
+  },
+
+  setRecentBlogPosts (state, value) {
+    state.recentBlogPosts = value
   }
 }
 

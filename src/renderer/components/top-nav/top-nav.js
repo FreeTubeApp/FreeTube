@@ -70,7 +70,7 @@ export default Vue.extend({
       }
     })
 
-    this.debounceSearchResults = debounce(this.getSearchSuggestions, 500)
+    this.debounceSearchResults = debounce(this.getSearchSuggestions, 200)
   },
   methods: {
     goToSearch: function (query) {

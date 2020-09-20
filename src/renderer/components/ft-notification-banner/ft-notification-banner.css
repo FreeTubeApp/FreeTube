@@ -1,0 +1,27 @@
+.ftNotificationBanner {
+  background-color: var(--primary-color);
+  color: var(--text-with-main-color);
+  /*
+  background-color: var(--accent-color);
+  color: var(--text-with-accent-color);
+  */
+  margin: 4px;
+	padding: 16px;
+	padding-top: 3px;
+	padding-bottom: 5px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
+  position: relative;
+  cursor: pointer;
+}
+
+.message {
+  margin-right: 25px;
+  cursor: pointer;
+}
+
+.bannerIcon {
+  position: absolute;
+  top: 35%;
+  right: 10px;
+  cursor: pointer;
+}

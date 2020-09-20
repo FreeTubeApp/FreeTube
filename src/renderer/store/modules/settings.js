@@ -30,6 +30,7 @@ const state = {
   currentTheme: 'lightRed',
   backendFallback: true,
   checkForUpdates: true,
+  checkForBlogPosts: true,
   backendPreference: 'local',
   landingPage: 'subscriptions',
   region: 'US',
@@ -68,6 +69,10 @@ const getters = {
 
   getCheckForUpdates: () => {
     return state.checkForUpdates
+  },
+
+  getCheckForBlogPosts: () => {
+    return state.checkForBlogPosts
   },
 
   getBarColor: () => {
@@ -194,6 +199,9 @@ const actions = {
             case 'checkForUpdates':
               commit('setCheckForUpdates', result.value)
               break
+            case 'checkForBlogPosts':
+              commit('setCheckForBlogPosts', result.value)
+              break
             case 'enableSearchSuggestions':
               commit('setEnableSearchSuggestions', result.value)
               break
@@ -296,6 +304,14 @@ const actions = {
     settingsDb.update({ _id: 'checkForUpdates' }, { _id: 'checkForUpdates', value: checkForUpdates }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
         commit('setCheckForUpdates', checkForUpdates)
+      }
+    })
+  },
+
+  updateCheckForBlogPosts ({ commit }, checkForBlogPosts) {
+    settingsDb.update({ _id: 'checkForBlogPosts' }, { _id: 'checkForBlogPosts', value: checkForBlogPosts }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setCheckForBlogPosts', checkForBlogPosts)
       }
     })
   },
@@ -501,6 +517,9 @@ const mutations = {
   },
   setCheckForUpdates (state, checkForUpdates) {
     state.checkForUpdates = checkForUpdates
+  },
+  setCheckForBlogPosts (state, checkForBlogPosts) {
+    state.checkForBlogPosts = checkForBlogPosts
   },
   setBackendPreference (state, backendPreference) {
     state.backendPreference = backendPreference

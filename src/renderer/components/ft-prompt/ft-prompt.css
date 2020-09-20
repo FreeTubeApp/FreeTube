@@ -11,7 +11,11 @@
 
 .promptCard {
   width: 95%;
-  margin-top: 40vh;
+  margin: 0;
+  position: absolute;
+  top: 40%;
+  -ms-transform: translateY(-40%);
+  transform: translateY(-40%);
 }
 
 .center {
