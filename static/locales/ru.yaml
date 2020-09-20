@@ -110,6 +110,8 @@ Settings:
       (по умолчанию https://invidious.snopyta.org)'
     Region for Trending: 'Регион для трендов'
         #! List countries
+    Check for Latest Blog Posts: Проверить последние сообщения в блоге
+    Check for Updates: Проверить наличие обновлений
   Theme Settings:
     Theme Settings: 'Настройки темы'
     Match Top Bar with Main Color: 'Совместить верхнюю панель с основным цветом'
@@ -520,3 +522,8 @@ Profile:
   Other Channels: Другие каналы
   Subscription List: Список подписок
 The playlist has been reversed: Плейлист был перевёрнут
+A new blog is now available, $. Click to view more: Теперь доступен новый блог $.
+  Нажмите, чтобы увидеть больше
+Download From Site: Скачать с сайта
+Version $ is now available!  Click for more details: Версия $ уже доступна! Нажмите,
+  чтобы узнать больше
