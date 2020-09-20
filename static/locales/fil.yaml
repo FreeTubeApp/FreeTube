@@ -67,13 +67,16 @@ Search Filters:
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: ''
-  Latest Subscriptions: ''
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
-  'Getting Subscriptions. Please wait.': ''
-  Refresh Subscriptions: ''
-Trending: ''
-Most Popular: ''
+  Subscriptions: 'Mga Suskripsyon'
+  Latest Subscriptions: 'Mga Pinakabagong Suskripsyon'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Ang
+    iyong listahan ng Suskripsyon ay kasalukuyang walang laman. Simulang magdagdag
+    ng mga suskripsyon upang makita ang mga ito dito.'
+  'Getting Subscriptions. Please wait.': 'Kinukuha ang mga suskripsyon. Maghintay
+    lang po.'
+  Refresh Subscriptions: 'I-refresh ang mga Suskripsyon'
+Trending: 'Nagte-trend'
+Most Popular: 'Pinakasikat'
 Playlists: ''
 User Playlists:
   Your Playlists: ''
