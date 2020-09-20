@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import $ from 'jquery'
 
 export default Vue.extend({
   name: 'FtIconButton',
@@ -50,12 +51,34 @@ export default Vue.extend({
   },
   data: function () {
     return {
-      showDropdown: false
+      showDropdown: false,
+      id: ''
     }
+  },
+  mounted: function () {
+    this.id = `iconButton${this._uid}`
   },
   methods: {
     toggleDropdown: function () {
-      this.showDropdown = !this.showDropdown
+      $(`#${this.id}`)[0].style.display = 'inline'
+      $(`#${this.id}`).focus()
+
+      $(`#${this.id}`).focusout(() => {
+        const shareLinks = $(`#${this.id}`).find('.shareLinks')
+
+        if (shareLinks.length > 0) {
+          if (!shareLinks[0].parentNode.matches(':hover')) {
+            $(`#${this.id}`)[0].style.display = 'none'
+          }
+        } else {
+          $(`#${this.id}`)[0].style.display = 'none'
+        }
+      })
+    },
+
+    focusOut: function () {
+      $(`#${this.id}`).focusout()
+      $(`#${this.id}`)[0].style.display = 'none'
     },
 
     handleIconClick: function () {
@@ -67,8 +90,8 @@ export default Vue.extend({
     },
 
     handleDropdownClick: function (index) {
-      this.toggleDropdown()
       this.$emit('click', this.dropdownValues[index])
+      this.focusOut()
     }
   }
 })

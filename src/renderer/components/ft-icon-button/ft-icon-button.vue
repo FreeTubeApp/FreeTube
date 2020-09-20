@@ -17,7 +17,8 @@
       @click="handleIconClick"
     />
     <div
-      v-if="showDropdown"
+      tabindex="-1"
+      :id="id"
       class="iconDropdown"
       :class="{
         left: dropdownPositionX === 'left',

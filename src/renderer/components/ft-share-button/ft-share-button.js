@@ -68,7 +68,7 @@ export default Vue.extend({
 
     openInvidious() {
       this.open(this.getFinalUrl(this.invidiousURL))
-      this.$refs.iconButton.toggleDropdown()
+      this.$refs.iconButton.focusOut()
     },
 
     copyInvidious() {
@@ -76,12 +76,12 @@ export default Vue.extend({
         message: this.$t('Share.Invidious URL copied to clipboard')
       })
       this.copy(this.getFinalUrl(this.invidiousURL))
-      this.$refs.iconButton.toggleDropdown()
+      this.$refs.iconButton.focusOut()
     },
 
     openYoutube() {
       this.open(this.getFinalUrl(this.youtubeURL))
-      this.$refs.iconButton.toggleDropdown()
+      this.$refs.iconButton.focusOut()
     },
 
     copyYoutube() {
@@ -89,12 +89,12 @@ export default Vue.extend({
         message: this.$t('Share.YouTube URL copied to clipboard')
       })
       this.copy(this.getFinalUrl(this.youtubeURL))
-      this.$refs.iconButton.toggleDropdown()
+      this.$refs.iconButton.focusOut()
     },
 
     openYoutubeEmbed() {
       this.open(this.getFinalUrl(this.youtubeEmbedURL))
-      this.$refs.iconButton.toggleDropdown()
+      this.$refs.iconButton.focusOut()
     },
 
     copyYoutubeEmbed() {
@@ -102,12 +102,12 @@ export default Vue.extend({
         message: this.$t('Share.YouTube Embed URL copied to clipboard')
       })
       this.copy(this.getFinalUrl(this.youtubeEmbedURL))
-      this.$refs.iconButton.toggleDropdown()
+      this.$refs.iconButton.focusOut()
     },
 
     openInvidiousEmbed() {
       this.open(this.getFinalUrl(this.invidiousEmbedURL))
-      this.$refs.iconButton.toggleDropdown()
+      this.$refs.iconButton.focusOut()
     },
 
     copyInvidiousEmbed() {
@@ -115,7 +115,7 @@ export default Vue.extend({
         message: this.$t('Share.Invidious Embed URL copied to clipboard')
       })
       this.copy(this.getFinalUrl(this.invidiousEmbedURL))
-      this.$refs.iconButton.toggleDropdown()
+      this.$refs.iconButton.focusOut()
     },
 
     updateincludeTimestamp() {

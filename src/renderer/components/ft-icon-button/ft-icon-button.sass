@@ -46,6 +46,7 @@
       background-color: var(--accent-color-active)
 
 .iconDropdown
+  display: none
   position: absolute
   text-align: center
   list-style-type: none
@@ -56,6 +57,9 @@
   background-color: var(--side-nav-color)
   color: var(--secondary-text-color)
   user-select: none
+
+  &:focus
+    display: inline
 
   &.left
     right: calc(50% - 10px)
