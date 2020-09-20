@@ -23,9 +23,26 @@ body {
   margin-left: 80px;
 }
 
+.banner {
+  margin-top: 70px;
+  margin-bottom: -65px;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .2s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
 @media only screen and (max-width: 680px) {
   .expand, .routerView {
     margin-left: 0px;
     margin-bottom: 80px;
+  }
+
+  .banner {
+    margin-top: 70px;
+    margin-bottom: -65px;
   }
 }

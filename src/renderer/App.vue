@@ -8,9 +8,9 @@
   >
     <top-nav ref="topNav" />
     <side-nav ref="sideNav" />
-    <Transition
+    <transition
       mode="out-in"
-      name="slide-up"
+      name="fade"
     >
       <!-- <keep-alive> -->
       <RouterView
@@ -19,7 +19,7 @@
         :class="{ expand: !isOpen }"
       />
       <!-- </keep-alive> -->
-    </Transition>
+    </transition>
     <ft-toast />
     <ft-progress-bar
       v-if="showProgressBar"
