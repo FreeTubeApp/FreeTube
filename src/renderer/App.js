@@ -79,6 +79,7 @@ export default Vue.extend({
       console.log('User is using Electron')
       this.activateKeyboardShortcuts()
       this.openAllLinksExternally()
+      this.setBoundsOnClose()
     }
 
     setTimeout(() => {
@@ -244,6 +245,13 @@ export default Vue.extend({
           shell.openExternal(el.href)
         }
       })
+    },
+
+    setBoundsOnClose: function () {
+      window.onbeforeunload = (e) => {
+        const electron = require('electron')
+        electron.ipcRenderer.send('setBounds')
+      }
     }
   }
 })

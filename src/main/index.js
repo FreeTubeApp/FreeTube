@@ -1,11 +1,19 @@
-import { app, BrowserWindow, Menu } from 'electron'
+import { app, BrowserWindow, Menu, ipcMain, screen } from 'electron'
 import { productName } from '../../package.json'
+import Datastore from 'nedb'
 
 require('electron-context-menu')({
   showSearchWithGoogle: false,
   showSaveImageAs: true,
   showCopyImageAddress: true,
   prepend: (params, browserWindow) => []
+})
+
+const localDataStorage = app.getPath('userData') // Grabs the userdata directory based on the user's OS
+
+const settingsDb = new Datastore({
+  filename: localDataStorage + '/settings.db',
+  autoload: true
 })
 
 // set app name
@@ -63,8 +71,6 @@ function createWindow () {
    */
   mainWindow = new BrowserWindow({
     backgroundColor: '#fff',
-    width: 960,
-    height: 540,
     icon: isDev
       ? path.join(__dirname, '../../_icons/iconColor.png')
       : `${__dirname}/_icons/iconColor.png`,
@@ -78,6 +84,40 @@ function createWindow () {
       enableRemoteModule: true
     },
     show: false
+  })
+
+  mainWindow.setBounds({
+    width: 1200,
+    height: 800
+  })
+
+  settingsDb.findOne({
+    _id: 'bounds'
+  }, function (err, doc) {
+    if (doc === null || err) {
+      return
+    }
+
+    if (typeof doc !== 'object' || typeof doc.value !== 'object') {
+      return
+    }
+
+    const { maximized, ...bounds } = doc.value
+    const allDisplaysSummaryWidth = screen
+      .getAllDisplays()
+      .reduce((accumulator, { size: { width } }) => accumulator + width, 0)
+
+    if (allDisplaysSummaryWidth >= bounds.x) {
+      mainWindow.setBounds({
+        x: bounds.x,
+        y: bounds.y,
+        width: bounds.width,
+        height: bounds.height
+      })
+    }
+    if (maximized) {
+      mainWindow.maximize()
+    }
   })
 
   // eslint-disable-next-line
@@ -102,6 +142,35 @@ function createWindow () {
 
   mainWindow.on('closed', () => {
     console.log('closed')
+  })
+
+  ipcMain.on('setBounds', (_e, data) => {
+    const value = {
+      ...mainWindow.getBounds(),
+      maximized: mainWindow.isMaximized()
+    }
+
+    settingsDb.findOne({
+      _id: 'bounds'
+    }, function (err, doc) {
+      if (err) {
+        return
+      }
+      if (doc !== null) {
+        settingsDb.update({
+          _id: 'bounds'
+        }, {
+          $set: {
+            value
+          }
+        }, {})
+      } else {
+        settingsDb.insert({
+          _id: 'bounds',
+          value
+        })
+      }
+    })
   })
 }
 
