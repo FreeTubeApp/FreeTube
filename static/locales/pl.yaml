@@ -107,10 +107,12 @@ Settings:
       Beginning: 'Początek'
       Middle: 'Środek'
       End: 'Koniec'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Serwer Invidious (Domyślnie
-      jest https://invidious.snopyta.org)'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Serwer Invidious
+      (Domyślnie jest https://invidious.snopyta.org)'
     Region for Trending: '„Na czasie” z obszaru'
         #! List countries
+    Check for Latest Blog Posts: Sprawdź ostatnie wpisy na blogu
+    Check for Updates: Szukaj aktualizacji
   Theme Settings:
     Theme Settings: 'Ustawienia wyglądu'
     Match Top Bar with Main Color: 'Dopasuj górną belkę do głównego koloru'
@@ -321,6 +323,11 @@ Channel:
     About: 'O kanale'
     Channel Description: 'Opis kanału'
     Featured Channels: 'Polecane kanały'
+  Added channel to your subscriptions: Dodano kanał do twoich subskrypcji
+  Removed subscription from $ other channel(s): Usunięto subskrypcje z $ pozostałych
+    kanałów
+  Channel has been removed from your subscriptions: Kanał został usunięty z twoich
+    subskrypcji
 Video:
   Mark As Watched: 'Oznacz jako obejrzany'
   Remove From History: 'Usuń z historii'
@@ -420,6 +427,10 @@ Change Format:
   Use Dash Formats: 'Użyj formatów Dash'
   Use Legacy Formats: 'Użyj starych formatów'
   Use Audio Formats: 'Użyj formatów audio'
+  Audio formats are not available for this video: Formaty audio nie są dostępne dla
+    tego filmu
+  Dash formats are not available for this video: Formaty Dash nie są dostępne dla
+    tego filmu
 Share:
   Share Video: 'Podziel się filmem'
   Copy Link: 'Skopiuj link'
@@ -497,4 +508,24 @@ Profile:
   Profile Manager: Menadżer profili
   All Channels: Wszystkie kanały
   Profile Select: Wybór profilu
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Czy
+    jesteś pewien, że chcesz usunąć wybrane kanały? Te kanały nie  zostaną usunięte
+    w żadnym innym profilu.
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
+    same channels will be deleted in any profile they are found in.
+  : To jest twój główny profil. Czy jesteś pewien, że chcesz usunąć wybrane kanały?
+    Te kanały zostaną usunięte we wszystkich profilach, w których się znajdują.
+  No channel(s) have been selected: Nie wybrano żadnego kanału
+  Add Selected To Profile: Dodaj wybrane do profilu
+  Delete Selected: Usuń wybrane
+  Select None: Nic nie wybieraj
+  Select All: Wybierz wszystkie
+  $ selected: Wybrano $
+  Other Channels: Inne kanały
+  Subscription List: Lista subskrypcji
 The playlist has been reversed: Playlista została odwrócona
+A new blog is now available, $. Click to view more: Nowy wpis bloga jest już dostępny,
+  $. Kliknij, aby zobaczyć więcej
+Download From Site: Pobierz ze strony
+Version $ is now available!  Click for more details: Wersja $ jest już dostępna! Kliknij
+  po więcej szczegółów
