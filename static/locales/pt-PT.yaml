@@ -29,6 +29,10 @@ Close: Fechar
 Back: Retroceder
 Forward: Avançar
 
+Version $ is now available!  Click for more details: Versão $ está agora disponível! Clique aqui para ver mais detalhes.
+Download From Site: Descarregar Do Site
+A new blog is now available, $. Click to view more: Um novo blogue está disponível, $. Clique para ver mais
+
 # Search Bar
 Search / Go to URL: Pesquisar / Ir para URL
   # In Filter Button
@@ -87,6 +91,8 @@ Settings:
   Settings: Definições
   General Settings:
     General Settings: Definições Gerais
+    Check for Updates: Verificar se há Actualizações
+    Check for Latest Blog Posts: Verificar se há Novos Blogues
     Fallback to Non-Preferred Backend on Failure: Utilizar Motor de Pesquisa Não Preferido
       em Caso de Falha
     Enable Search Suggestions: Activar Sugestões de Pesquisa
@@ -334,6 +340,9 @@ Channel:
   Subscribers: Subscritores
   Subscribe: Subscrever
   Unsubscribe: Anular Subscrição
+  Channel has been removed from your subscriptions: Canal foi removido das suas subscrições
+  Removed subscription from $ other channel(s): Subscrição removida de mais $ canais
+  Added channel to your subscriptions: Canal adicionado às suas subscrições
   Search Channel: Procurar em Canal
   Your search results have returned 0 results: Pesquisa devolveu 0 resultados
   Sort By: Ordenar Por
