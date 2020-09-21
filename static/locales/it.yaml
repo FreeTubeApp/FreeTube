@@ -271,8 +271,8 @@ About:
     software [copylefted] è sotto licenza gratuita AGPL-3.0.'
 
   'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    Hai trovato un bug? Vuoi suggerire nuove funzionalità? Vuoi aiutare? Controlla
-    la nostra pagina GitHub. Ogni pull request è benvenuta.
+    Hai trovato un problema? Vuoi suggerire nuove funzionalità? Vuoi dare una mano?
+    Controlla la nostra pagina GitHub. Le pull request sono benvenue.
 
   Thank you very much to the People and Projects that make FreeTube possible!: 'Grazie
     mille alle Persone e ai Progetti che rendono FreeTube possibile!'
@@ -287,8 +287,8 @@ About:
   Check out our Firefox extension!: 'Dai un occhiata alla nostra estensione Firefox!'
 
   'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'Se
-    ti piace FreeTube, considera la possibilità di donare tramite Liberpay o attraverso
-    il nostro indirizzo Bitcoin.'
+    ti piace FreeTube, considera la possibilità di donare con Liberapay o sul nostro
+    indirizzo Bitcoin.'
 
   #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
 
@@ -342,7 +342,7 @@ Video:
   View: 'Vista'
   Views: 'Visualizzazioni'
   # Context is "X People Watching"
-  Watching: 'Sto guardando...'
+  Watching: 'Sto guardando'
   Watched: 'Visto'
   # As in a Live Video
   Live: 'Dal Vivo'
