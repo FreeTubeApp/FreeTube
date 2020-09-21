@@ -153,6 +153,14 @@ export default Vue.extend({
       // react to route changes...
       this.id = this.$route.params.id
       this.currentTab = 'videos'
+      this.latestVideosPage = 2
+      this.searchPage = 2
+      this.relatedChannels = []
+      this.latestVideos = []
+      this.latestPlaylists = []
+      this.searchResults = []
+      this.shownElementList = []
+      this.apiUsed = ''
       this.isLoading = true
 
       if (!this.usingElectron) {
