@@ -44,7 +44,7 @@ export default Vue.extend({
       if (profileIndex !== -1) {
         this.updateActiveProfile(profileIndex)
       }
-    }, 100)
+    }, 200)
 
     $('#profileList').focusout(() => {
       $('#profileList')[0].style.display = 'none'
