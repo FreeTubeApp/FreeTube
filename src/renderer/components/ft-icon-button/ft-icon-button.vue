@@ -17,8 +17,8 @@
       @click="handleIconClick"
     />
     <div
-      tabindex="-1"
       :id="id"
+      tabindex="-1"
       class="iconDropdown"
       :class="{
         left: dropdownPositionX === 'left',

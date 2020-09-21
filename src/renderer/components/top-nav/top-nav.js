@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import { mapActions } from 'vuex'
 import FtInput from '../ft-input/ft-input.vue'
 import FtSearchFilters from '../ft-search-filters/ft-search-filters.vue'
 import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
