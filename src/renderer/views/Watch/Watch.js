@@ -65,7 +65,8 @@ export default Vue.extend({
       captionSourceList: [],
       recommendedVideos: [],
       watchingPlaylist: false,
-      playlistId: ''
+      playlistId: '',
+      playNextTimeout: null
     }
   },
   computed: {
@@ -594,7 +595,7 @@ export default Vue.extend({
 
     handleVideoEnded: function () {
       if (this.watchingPlaylist) {
-        const timeout = setTimeout(() => {
+        this.playNextTimeout = setTimeout(() => {
           this.$refs.watchVideoPlaylist.playNextVideo()
         }, 5000)
 
@@ -602,14 +603,14 @@ export default Vue.extend({
           message: this.$t('Playing next video in 5 seconds.  Click to cancel'),
           time: 5500,
           action: () => {
-            clearTimeout(timeout)
+            clearTimeout(this.playNextTimeout)
             this.showToast({
               message: this.$t('Canceled next video autoplay')
             })
           }
         })
       } else if (this.playNextVideo) {
-        const timeout = setTimeout(() => {
+        this.playNextTimeout = setTimeout(() => {
           const nextVideoId = this.recommendedVideos[0].videoId
           this.$router.push(
             {
@@ -625,7 +626,7 @@ export default Vue.extend({
           message: this.$t('Playing next video in 5 seconds.  Click to cancel'),
           time: 5500,
           action: () => {
-            clearTimeout(timeout)
+            clearTimeout(this.playNextTimeout)
             this.showToast({
               message: this.$t('Canceled next video autoplay')
             })
@@ -635,6 +636,8 @@ export default Vue.extend({
     },
 
     handleRouteChange: function () {
+      clearTimeout(this.playNextTimeout)
+
       if (this.rememberHistory && !this.isLoading && !this.isLive) {
         const player = this.$refs.videoPlayer.player
 
