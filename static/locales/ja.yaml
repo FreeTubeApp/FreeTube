@@ -107,6 +107,8 @@ Settings:
       (初期値は https://invidious.snopyta.org)'
     Region for Trending: '地域の急上昇'
         #! List countries
+    Check for Latest Blog Posts: ブログ投稿の更新を確認
+    Check for Updates: 最新版を確認
   Theme Settings:
     Theme Settings: 'テーマの設定'
     Match Top Bar with Main Color: '上部のバーをメインカラーに一致'
@@ -479,3 +481,6 @@ Profile:
     same channels will be deleted in any profile they are found in.
   : これは第一プロファイルです。選択したチャンネルを削除しますか？同じチャンネルは、登録されていればほかのプロフィールからも削除されます。
 The playlist has been reversed: 再生リストは逆順になりました
+A new blog is now available, $. Click to view more: '新しいブログがあります: $。クリックで続きを表示'
+Download From Site: サイトからダウンロード
+Version $ is now available!  Click for more details: 最新バージョンの $ があります！ クリックで詳細
