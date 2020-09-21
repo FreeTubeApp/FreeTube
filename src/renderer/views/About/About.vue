@@ -9,7 +9,7 @@
         class="logo"
       >
       <h1>
-        {{ versionNumber }} Alpha
+        {{ versionNumber }} Beta
       </h1>
       <h3>
         <font-awesome-icon
