@@ -106,6 +106,8 @@ Settings:
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious实例（默认https://invidious.snopyta.org）'
     Region for Trending: '热门区域'
         #! List countries
+    Check for Updates: 检查更新
+    Check for Latest Blog Posts: 检查最新的博客贴
   Theme Settings:
     Theme Settings: '主题设置'
     Match Top Bar with Main Color: '顶部菜单栏对应主颜色'
@@ -474,3 +476,6 @@ Profile:
   Other Channels: 其他频道
   Subscription List: 订阅列表
 The playlist has been reversed: 播放列表已反转
+A new blog is now available, $. Click to view more: 已有新的博客，$。点击以查看更多
+Download From Site: 从网站下载
+Version $ is now available!  Click for more details: 版本$已可使用！ 点击以取得更多信息
