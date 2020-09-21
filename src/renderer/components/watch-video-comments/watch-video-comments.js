@@ -2,7 +2,7 @@ import Vue from 'vue'
 import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
-import ytct from 'youtube-comments-task'
+import ytcs from 'yt-comment-scraper'
 
 export default Vue.extend({
   name: 'WatchVideoComments',
@@ -67,16 +67,28 @@ export default Vue.extend({
 
     getCommentDataLocal: function () {
       console.log('Getting comment data please wait..')
-      ytct(this.id, this.nextPageToken).fork(e => {
+      ytcs.scrape_next_page_youtube_comments(this.id).then((response) => {
+        console.log(response)
+        const commentData = response.comments.map((comment) => {
+          comment.showReplies = false
+          comment.dataType = 'local'
+
+          return comment
+        })
+        console.log(commentData)
+        this.commentData = this.commentData.concat(commentData)
+        this.isLoading = false
+        this.showComments = true
+      }).catch((err) => {
+        console.log(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         this.showToast({
-          message: `${errorMessage}: ${e.message}`,
+          message: `${errorMessage}: ${err}`,
           time: 10000,
           action: () => {
-            navigator.clipboard.writeText(e.message)
+            navigator.clipboard.writeText(err)
           }
         })
-        console.error('ERROR', e)
         if (this.backendFallback && this.backendPreference === 'local') {
           this.showToast({
             message: this.$t('Falling back to Invidious API')
@@ -85,21 +97,6 @@ export default Vue.extend({
         } else {
           this.isLoading = false
         }
-      },
-      p => {
-        const commentData = p.comments.map((comment) => {
-          comment.showReplies = false
-          comment.authorId = comment.authorLink.replace('/channel/', '')
-          comment.authorId = comment.authorId.replace('/user/', '')
-          comment.dataType = 'local'
-
-          return comment
-        })
-        console.log(commentData)
-        this.commentData = this.commentData.concat(commentData)
-        this.nextPageToken = p.nextPageToken
-        this.isLoading = false
-        this.showComments = true
       })
     },
 
@@ -112,7 +109,7 @@ export default Vue.extend({
         }
       }
 
-      this.$store.dispatch('invidiousAPICall', payload).then((response) => {
+      this.invidiousAPICall(payload).then((response) => {
         console.log(response)
 
         const commentData = response.comments.map((comment) => {
@@ -154,7 +151,7 @@ export default Vue.extend({
         })
         if (this.backendFallback && this.backendPreference === 'invidious') {
           this.showToast({
-            message: this.$t('Falling back to Local API')
+            message: this.$t('Falling back to local API')
           })
           this.getCommentDataLocal()
         } else {
@@ -212,7 +209,8 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'showToast'
+      'showToast',
+      'invidiousAPICall'
     ])
   }
 })

@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { mapActions } from 'vuex'
 import FtInput from '../ft-input/ft-input.vue'
 import FtSearchFilters from '../ft-search-filters/ft-search-filters.vue'
 import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
@@ -148,20 +149,17 @@ export default Vue.extend({
         }
       }
 
-      this.$store
-        .dispatch('invidiousAPICall', searchPayload)
-        .then((results) => {
-          this.searchSuggestionsDataList = results.suggestions
-        })
-        .error((err) => {
-          console.log(err)
-          if (this.backendFallback) {
-            console.log(
-              'Error gettings search suggestions.  Falling back to Local API'
-            )
-            this.getSearchSuggestionsLocal(query)
-          }
-        })
+      this.$store.dispatch('invidiousAPICall', searchPayload).then((results) => {
+        this.searchSuggestionsDataList = results.suggestions
+      }).catch((err) => {
+        console.log(err)
+        if (this.backendFallback) {
+          console.log(
+            'Error gettings search suggestions.  Falling back to Local API'
+          )
+          this.getSearchSuggestionsLocal(query)
+        }
+      })
     },
 
     toggleSearchContainer: function () {
