@@ -108,10 +108,12 @@ Settings:
       Beginning: Anfang
       Middle: Mitte
       End: Ende
-    'Invidious Instance (Default is https://invidious.snopyta.org)': Invidious Instanz (Standard
-      ist https://invidious.snopyta.org)
+    'Invidious Instance (Default is https://invidious.snopyta.org)': Invidious Instanz
+      (Standard ist https://invidious.snopyta.org)
     Region for Trending: Region für Trends
         #! List countries
+    Check for Latest Blog Posts: Nach aktuellsten Blogposts suchen
+    Check for Updates: Nach Updates suchen
   Theme Settings:
     Theme Settings: Thema Einstellungen
     Match Top Bar with Main Color: Passe obere Leiste an Hauptfarbe an
@@ -221,6 +223,47 @@ Settings:
     Save Watched Progress: Videofortschritt speichern
     Remember History: Verlauf speichern
     Privacy Settings: Datenschutzeinstellungen
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Bist
+      du sicher, dass du alle Abonnements und Profile löschen möchtest? Diese Aktion
+      kann nicht rückgängig gemacht werden.
+    Remove All Subscriptions / Profiles: Lösche alle Abonnements und Profile
+  Data Settings:
+    How do I import my subscriptions?: Wie importiere ich meine Abonnements?
+    Unknown data key: Unbekannter Datenschlüssel
+    Unable to write file: Datei kann nicht geschrieben werden
+    Unable to read file: Datei kann nicht gelesen werden
+    All watched history has been successfully exported: Der gesamte Verlauf wurde
+      erfolgreich exportiert
+    All watched history has been successfully imported: Der gesamte Verlauf wurde
+      erfolgreich importiert
+    History object has insufficient data, skipping item: Ein Verlauf-Objekt hat fehlerhafte
+      Daten, überspringe Objekt
+    Subscriptions have been successfully exported: Abonnements wurden erfolgreich
+      exportiert
+    Invalid history file: Ungültige Verlauf-Datei
+    This might take a while, please wait: Dies dauert einen Moment, bitte warten
+    Invalid subscriptions file: Ungültige Abonnement-Datei
+    One or more subscriptions were unable to be imported: Eine oder mehrere Abonnements
+      konnten nicht importiert werden
+    All subscriptions and profiles have been successfully imported: Alle Abonnements
+      und Profile wurden erfolgreich importiert
+    All subscriptions have been successfully imported: Alle Abonnements wurden erfolgreich
+      importiert
+    Profile object has insufficient data, skipping item: Ein Profilobjekt hat fehlerhafte
+      Daten, überspringe Objekt
+    Export History: Verlauf exportieren
+    Import History: Verlauf importieren
+    Export NewPipe: Exportiere NewPipe
+    Export YouTube: Exportiere YouTube
+    Export FreeTube: Exportiere FreeTube
+    Export Subscriptions: Exportiere Abonnements
+    Import NewPipe: Importiere NewPipe
+    Import YouTube: Importiere YouTube
+    Import FreeTube: Importiere FreeTube
+    Import Subscriptions: Importiere Abonnements
+    Select Export Type: Wähle Exporttyp
+    Select Import Type: Wähle Importtyp
+    Data Settings: Dateneinstellungen
 About:
   #On About page
   About: Über
@@ -284,6 +327,10 @@ Channel:
     About: Über
     Channel Description: Kanalbeschreibung
     Featured Channels: Empfohlene Kanäle
+  Added channel to your subscriptions: Der Kanal wurde deinen Abonnements hinzugefügt
+  Removed subscription from $ other channel(s): Es wurden $ anderen Kanälen deabonniert
+  Channel has been removed from your subscriptions: Der Kanal wurde von deinen Abonnements
+    entfernt
 Video:
   Open in YouTube: In YouTube öffnem
   Copy YouTube Link: YouTube Link kopieren
@@ -347,6 +394,12 @@ Video:
   Video has been marked as watched: Das Video wurde als gesehen markiert
   Remove From History: Vom Verlauf löschen
   Mark As Watched: Als gesehen markieren
+  Autoplay: Automatische Wiedergabe
+  Play Previous Video: Voriges Video abspielen
+  Play Next Video: Nächstes Video abspielen
+  Reverse Playlist: Umgekehrte Wiedergabe
+  Shuffle Playlist: Zufällige Wiedergabe
+  Loop Playlist: Wiederhole Wiedergabeliste
 Videos:
   #& Sort By
   Sort By:
@@ -384,6 +437,10 @@ Change Format:
   Use Dash Formats: Nutze Dash Format
   Use Legacy Formats: Nutze Legacy Format
   Use Audio Formats: Nutze Audio Format
+  Audio formats are not available for this video: Es sind keine Audioformate für dieses
+    Video verfügbar
+  Dash formats are not available for this video: Das Dashformat ist für dieses Video
+    nicht verfügbar
 Share:
   Share Video: Teile das Video
   Copy Link: Kopiere Link
@@ -396,6 +453,7 @@ Share:
     kopiert
   YouTube URL copied to clipboard: YouTube URL in die Zwischenablage kopiert
   YouTube Embed URL copied to clipboard: YouTube Embed URL in die Zwischenablage kopiert
+  Include Timestamp: Zeitstempel einfügen
 Mini Player: Mini Player
 Comments:
   Comments: Kommentare
@@ -457,3 +515,25 @@ Profile:
   Create New Profile: Neues Profil erstellen
   Profile Manager: Profilmanager
   All Channels: Alle Kanäle
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Bist
+    du sicher, dass du die ausgewählten Kanäle löschen möchtest? Dies löscht den Kanal
+    nur aus diesem Profil.
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
+    same channels will be deleted in any profile they are found in.
+  : Dies ist dein Hauptprofil. Bist du sicher, dass du die ausgewählten Kanäle löschen
+    möchtest? Diese Kanäle werden auch in allen anderen Profilen gelöscht.
+  No channel(s) have been selected: Es wurden keinen Kanäle ausgewählt
+  Add Selected To Profile: Ausgewählte zum Profil hinzufügen
+  Delete Selected: Ausgewählte löschen
+  Select None: Alles abwählen
+  Select All: Alles auswählen
+  $ selected: $ ausgewählt
+  Other Channels: Andere Kanäle
+  Subscription List: Abonnement-Liste
+  Profile Select: Profilauswahl
+The playlist has been reversed: Die Wiedergabeliste wurde umgedreht
+A new blog is now available, $. Click to view more: Ein neuer Blogpost ist verfügbar,
+  $. Um ihn zu öffnen klicken
+Download From Site: Von der Seite herunterladen
+Version $ is now available!  Click for more details: Version $ is jetzt verfügbar!
+  Für mehr Details klicken

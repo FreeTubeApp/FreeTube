@@ -3,7 +3,7 @@ Locale Name: 'Inglese'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Questa parte dell'app è sotto sviluppo. Torna quando sono stati fatti dei progressi.
+  Questa parte dell'app è ancora in sviluppo. Torna quando i lavori saranno ultimati.
 
 # Webkit Menu Bar
 File: 'File'
@@ -72,9 +72,11 @@ Subscriptions:
     lista delle tue iscrizioni è vuota. Inizia aggiungendo iscrizioni per visualizzarle
     qui.'
   'Getting Subscriptions.  Please wait.': 'Caricamento Iscrizioni. Attendi.'
+  Refresh Subscriptions: Ricarica le sottoscrizioni
+  'Getting Subscriptions. Please wait.': Scaricamento delle iscrizioni. Prego attendere.
 Trending: 'Tendenze'
 Most Popular: 'Popolari'
-Playlists: 'Playlists'
+Playlists: 'Playlist'
 User Playlists:
   Your Playlists: 'Le tue Playlist'
 History:
@@ -90,9 +92,9 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: ''
     Enable Search Suggestions: 'Abilita Suggerimenti di Ricerca'
     Default Landing Page: 'Pagina Iniziale di Default'
-    Locale Preference: ''
+    Locale Preference: 'Lingua Predefinita'
     Preferred API Backend:
-      Preferred API Backend: ''
+      Preferred API Backend: 'Back-end API Preferito'
       Local API: 'API Locali'
       Invidious API: 'API di Indidious'
     Video View Type:
@@ -105,10 +107,12 @@ Settings:
       Beginning: 'Inizio'
       Middle: 'Centrato'
       End: 'Fine'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Istanza Invidious (https://invidious.snopyta.org
-      di Default)'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Istanza Invidious
+      (https://invidious.snopyta.org di Default)'
     Region for Trending: 'Regione per le Tendenze'
         #! List countries
+    Check for Latest Blog Posts: Controlla gli Ultimi Post del Blog
+    Check for Updates: Controlla gli Aggiornamenti
   Theme Settings:
     Theme Settings: 'Impostazioni Tema'
     Match Top Bar with Main Color: ''
@@ -150,12 +154,12 @@ Settings:
     Default Playback Rate: ''
     Default Video Format:
       Default Video Format: 'Formato Video Predefinito'
-      Dash Formats: ''
-      Legacy Formats: ''
+      Dash Formats: 'Formati Dash'
+      Legacy Formats: 'Formati Legacy'
       Audio Formats: 'Formati Audio'
     Default Quality:
       Default Quality: 'Qualità di Default'
-      Auto: ''
+      Auto: 'Auto'
       144p: '144p'
       240p: '240p'
       360p: '360p'
@@ -392,17 +396,22 @@ Falling back to Invidious API: 'Torno alle API Invidious'
 Falling back to the local API: 'Torno alle API locali'
 Subscriptions have not yet been implemented: 'Le Iscrizioni non sono ancora state
   implementate'
-Loop is now disabled: ''
-Loop is now enabled: ''
-Shuffle is now disabled: ''
-Shuffle is now enabled: ''
+Loop is now disabled: 'Riproduzione a loop disattivata'
+Loop is now enabled: 'Riproduzione a loop attivata'
+Shuffle is now disabled: 'La riproduzione casuale è disabilitata'
+Shuffle is now enabled: 'La riproduzione casuale è abilitata'
 Playing Next Video: 'Riproduzione Prossimo Video'
 Playing Previous Video: 'Riproduzione Video Precedente'
-Playing next video in 5 seconds.  Click to cancel: 'Riproduzione prossimo video in
-  5 secondi. Clicca per cancellare'
+Playing next video in 5 seconds.  Click to cancel: 'Riproduzione del prossimo video
+  in 5 secondi. Clicca per cancellare.'
 Canceled next video autoplay: 'Riproduzione automatica del prossimo video cancellata'
 'The playlist has ended.  Enable loop to continue playing': 'La playlist è terminata.
   Abilita il loop per continuare la riproduzione'
 
 Yes: 'Si'
 No: 'No'
+A new blog is now available, $. Click to view more: Un nuovo blog è ora disponibile,
+  $. Clicca per saperne di più
+Version $ is now available!  Click for more details: La versione $ è ora disponibile!.
+  Clicca per maggiori dettagli
+Download From Site: Scarica Dal Sito
