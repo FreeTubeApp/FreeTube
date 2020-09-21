@@ -116,7 +116,7 @@ Settings:
     Check for Updates: Controlla gli Aggiornamenti
   Theme Settings:
     Theme Settings: 'Impostazioni Tema'
-    Match Top Bar with Main Color: ''
+    Match Top Bar with Main Color: 'Abbina la barra superiore con il colore principale'
     Base Theme:
       Base Theme: 'Tema di Base'
       Black: 'Nero'
@@ -135,24 +135,24 @@ Settings:
       Teal: 'Verde acqua'
       Green: 'Verde'
       Light Green: 'Verde Chiaro'
-      Lime: ''
+      Lime: 'Lime'
       Yellow: 'Giallo'
       Amber: 'Ambra'
       Orange: 'Arancione'
-      Deep Orange: ''
+      Deep Orange: 'Arancione scuro'
     Secondary Color Theme: 'Tema Colori Secondario'
         #* Main Color Theme
   Player Settings:
     Player Settings: 'Impostazioni Player Video'
-    Force Local Backend for Legacy Formats: ''
+    Force Local Backend for Legacy Formats: 'Forza back-end locale per formati legacy'
     Play Next Video: 'Riproduci Prossimo Video'
     Turn on Subtitles by Default: 'Abilita Sottotitoli di Default'
     Autoplay Videos: 'Riproduci Video Automaticamente'
-    Proxy Videos Through Invidious: ''
+    Proxy Videos Through Invidious: 'Proxy dei Video tramite Invidious'
     Autoplay Playlists: 'Riproduci Playlist Automaticamente'
     Enable Theatre Mode by Default: 'Abilita Modalità Teatro di Default'
     Default Volume: 'Volume di Default'
-    Default Playback Rate: ''
+    Default Playback Rate: 'Velocità di riproduzione predefinita'
     Default Video Format:
       Default Video Format: 'Formato Video Predefinito'
       Dash Formats: 'Formati Dash'
@@ -174,11 +174,13 @@ Settings:
     Privacy Settings: 'Impostazioni Privacy'
     Remember History: 'Salva la Cronologia'
     Save Watched Progress: 'Salva Cronologia Visione'
-    Clear Search Cache: ''
-    Are you sure you want to clear out your search cache?: ''
-    Search cache has been cleared: ''
+    Clear Search Cache: 'Pulisci la Cache di Ricerca'
+    Are you sure you want to clear out your search cache?: 'Sei sicuro di voler pulire
+      la cache di ricerca?'
+    Search cache has been cleared: 'La cache di ricerca è stata pulita'
     Remove Watch History: 'Cancella Cronologia Visualizzazioni'
-    Are you sure you want to remove your entire watch history?: ''
+    Are you sure you want to remove your entire watch history?: 'Sei sicuro di voler
+      cancellare l''intera cronologia di visualizzazione?'
     Watch history has been cleared: 'La cronologia di visualizzazioni è stata pulita'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Sei
       sicuro di volere eliminare tutte le iscrizioni e profili? L'operazione è definitiva
@@ -186,7 +188,7 @@ Settings:
     Remove All Subscriptions / Profiles: Elimina Tutte le Iscrizioni / Profili
   Subscription Settings:
     Subscription Settings: 'Impostazioni Iscrizioni'
-    Hide Videos on Watch: ''
+    Hide Videos on Watch: 'Nascondi Video mentre Guardi'
     Subscriptions Export Format:
       Subscriptions Export Format: ''
       #& Freetube
@@ -327,7 +329,7 @@ Channel:
   Channel has been removed from your subscriptions: Il canale è stato rimosso dalle
     tue iscrizioni
 Video:
-  Mark As Watched: ''
+  Mark As Watched: 'Segna come Visto'
   Remove From History: 'Rimuovi dalla Cronologia'
   Video has been marked as watched: 'Il Video è stato contrassegnato come guardato'
   Video has been removed from your history: 'Il Video è stato rimosso dalla Cronologia'
@@ -340,8 +342,8 @@ Video:
   View: 'Vista'
   Views: 'Visualizzazioni'
   # Context is "X People Watching"
-  Watching: ''
-  Watched: ''
+  Watching: 'Sto guardando...'
+  Watched: 'Visto'
   # As in a Live Video
   Live: 'Dal Vivo'
   Live Now: 'Ora Dal Vivo'
@@ -382,7 +384,7 @@ Video:
     Year: 'Anno'
     Years: 'Anni'
     Ago: 'Fa'
-    Upcoming: ''
+    Upcoming: 'Première a breve'
     Minutes: Minuti
     Minute: Minuto
   Published on: 'Pubblicato il'
@@ -437,9 +439,11 @@ Share:
   Open Embed: 'Apri Codice da Incorporare'
   # On Click
   Invidious URL copied to clipboard: 'URL Invidious copiato negli appunti'
-  Invidious Embed URL copied to clipboard: ''
+  Invidious Embed URL copied to clipboard: 'URL Incorporato di Invidious copiato negli
+    appunti'
   YouTube URL copied to clipboard: 'URL YouTube copiato negli appunti'
-  YouTube Embed URL copied to clipboard: ''
+  YouTube Embed URL copied to clipboard: 'URL Incorporato di YouTube copiato negli
+    appunti'
   Include Timestamp: Includi Timestamp
 Mini Player: 'Visualizzatore Mini'
 Comments:
@@ -465,8 +469,8 @@ Falling back to Invidious API: 'Torno alle API Invidious'
 Falling back to the local API: 'Torno alle API locali'
 Subscriptions have not yet been implemented: 'Le Iscrizioni non sono ancora state
   implementate'
-Loop is now disabled: 'Riproduzione a loop disattivata'
-Loop is now enabled: 'Riproduzione a loop attivata'
+Loop is now disabled: 'Il Loop è disabilitato'
+Loop is now enabled: 'Il Loop è abilitato'
 Shuffle is now disabled: 'La riproduzione casuale è disabilitata'
 Shuffle is now enabled: 'La riproduzione casuale è abilitata'
 Playing Next Video: 'Riproduzione Prossimo Video'
