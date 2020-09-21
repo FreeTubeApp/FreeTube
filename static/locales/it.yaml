@@ -89,7 +89,8 @@ Settings:
   Settings: 'Impostazioni'
   General Settings:
     General Settings: 'Impostazioni Generali'
-    Fallback to Non-Preferred Backend on Failure: ''
+    Fallback to Non-Preferred Backend on Failure: 'Reimposta Back-end non Predefiniti
+      in Caso di Errore'
     Enable Search Suggestions: 'Abilita Suggerimenti di Ricerca'
     Default Landing Page: 'Pagina Iniziale di Default'
     Locale Preference: 'Lingua Predefinita'
@@ -98,7 +99,7 @@ Settings:
       Local API: 'API Locali'
       Invidious API: 'API di Indidious'
     Video View Type:
-      Video View Type: ''
+      Video View Type: 'Modalità di Visualizzazione Video'
       Grid: 'Griglia'
       List: 'Lista'
     Thumbnail Preference:
@@ -131,7 +132,7 @@ Settings:
       Blue: 'Blu'
       Light Blue: 'Azzurro'
       Cyan: 'Ciano'
-      Teal: ''
+      Teal: 'Verde acqua'
       Green: 'Verde'
       Light Green: 'Verde Chiaro'
       Lime: ''
@@ -172,13 +173,17 @@ Settings:
   Privacy Settings:
     Privacy Settings: 'Impostazioni Privacy'
     Remember History: 'Salva la Cronologia'
-    Save Watched Progress: ''
+    Save Watched Progress: 'Salva Cronologia Visione'
     Clear Search Cache: ''
     Are you sure you want to clear out your search cache?: ''
     Search cache has been cleared: ''
     Remove Watch History: 'Cancella Cronologia Visualizzazioni'
     Are you sure you want to remove your entire watch history?: ''
     Watch history has been cleared: 'La cronologia di visualizzazioni è stata pulita'
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Sei
+      sicuro di volere eliminare tutte le iscrizioni e profili? L'operazione è definitiva
+      e non può essere annullata.
+    Remove All Subscriptions / Profiles: Elimina Tutte le Iscrizioni / Profili
   Subscription Settings:
     Subscription Settings: 'Impostazioni Iscrizioni'
     Hide Videos on Watch: ''
@@ -191,9 +196,11 @@ Settings:
     Import Subscriptions: 'Importa Iscrizioni'
     Export Subscriptions: 'Esporta Iscrizioni'
     How do I import my subscriptions?: 'Come importo le mie iscrizioni?'
+    Fetch Feeds from RSS: Scarica Aggiornamenti dai Feed RSS
   Advanced Settings:
     Advanced Settings: 'Impostazioni Avanzate'
-    Enable Debug Mode (Prints data to the console): ''
+    Enable Debug Mode (Prints data to the console): 'Abilita Modalità di Debug (Mostra
+      i dati nella console)'
     'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Indirizzo Proxy (Esempio:
       SOCKS5://127.0.0.1:9050 )'
     'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Cliccare
@@ -217,29 +224,73 @@ Settings:
       #& Yes
       #& No
 
+  Data Settings:
+    How do I import my subscriptions?: Come posso importare le mie iscrizioni?
+    Unknown data key: Chiave dati sconosciuta
+    Unable to write file: Impossibile salvare il file
+    Unable to read file: Impossibile leggere il file
+    All watched history has been successfully exported: La cronologia di visualizzazione
+      è stata esportata con successo
+    All watched history has been successfully imported: La cronologia di visualizzazione
+      è stata importata con successo
+    History object has insufficient data, skipping item: La Cronologia ha dati insufficienti,
+      non verrà elaborata
+    Import Subscriptions: Importa Iscrizioni
+    Subscriptions have been successfully exported: Tutte le iscrizioni sono state
+      esportate con successo
+    Invalid history file: File cronologia non valido
+    This might take a while, please wait: Potrebbe richiedere del tempo, prego attendere
+    Invalid subscriptions file: File iscrizioni non valido
+    One or more subscriptions were unable to be imported: Una o più iscrizioni non
+      possono essere importate
+    All subscriptions have been successfully imported: Tutte le iscrizioni sono state
+      importate con successo
+    All subscriptions and profiles have been successfully imported: Tutte le iscrizioni
+      e i profili sono stati importati con successo
+    Profile object has insufficient data, skipping item: Il profilo selezionato ha
+      dati insufficienti, non verrà elaborato
+    Export History: Esporta la Cronologia
+    Import History: Importa la Cronologia
+    Export NewPipe: Esporta per NewPipe
+    Export YouTube: Esporta per YouTube
+    Export FreeTube: Esporta per FreeTube
+    Export Subscriptions: Esporta Iscrizioni
+    Import NewPipe: Importa da NewPipe
+    Import YouTube: Importa da YouTube
+    Import FreeTube: Importa da FreeTube
+    Select Export Type: Seleziona Tipo di Esportazione
+    Select Import Type: Seleziona Tipo di importazione
+    Data Settings: Impostazioni Dati
 About:
   #On About page
   About: 'Informazioni'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
+  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Questo
+    software copyleft dispone di una licenza libera AGPL-3.0.'
 
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >
+  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
+    Hai trovato un bug? Vuoi suggerire nuove funzionalità? Vuoi aiutare? Controlla
+    la nostra pagina GitHub. Ogni pull request è benvenuta.
 
-  Thank you very much to the People and Projects that make FreeTube possible!: ''
+  Thank you very much to the People and Projects that make FreeTube possible!: 'Grazie
+    mille alle Persone e ai Progetti che rendono FreeTube possibile!'
 
   'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'Vuoi
     chattare? Entra nel nostro Server Element / Matrix. Controlla le regole prima
     di entrare.'
 
-  'Looking for help? Check out our Wiki page.': ''
+  'Looking for help? Check out our Wiki page.': 'Cerchi aiuto? Controlla la nostra
+    pagina Wiki.'
 
   Check out our Firefox extension!: 'Dai un occhiata alla nostra estensione Firefox!'
 
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': ''
+  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'Se
+    ti piace FreeTube, considera la possibilità di donare tramite Liberpay o attraverso
+    il nostro indirizzo Bitcoin.'
 
   #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
 
-  Latest FreeTube News: ''
+  Latest FreeTube News: 'Le ultime notizie riguardo FreeTube'
 
 #On Channel Page
 Channel:
@@ -248,7 +299,7 @@ Channel:
   Subscribe: 'Iscriviti'
   Unsubscribe: 'Disiscriviti'
   Search Channel: 'Cerca Canale'
-  Your search results have returned 0 results: ''
+  Your search results have returned 0 results: 'La tua ricerca ha prodotto 0 risultati'
   Sort By: 'Filtra Per'
   Videos:
     Videos: 'Video'
@@ -256,10 +307,10 @@ Channel:
       ha nessun video'
     Sort Types:
       Newest: 'Recenti'
-      Oldest: ''
+      Oldest: 'Più vecchi'
       Most Popular: 'Più Popolari'
   Playlists:
-    Playlists: 'Playlists'
+    Playlists: 'Playlist'
     This channel does not currently have any playlists: 'Questo canale attualmente
       non ha nessuna playlist'
     Sort Types:
@@ -270,6 +321,11 @@ Channel:
     About: 'Informazioni'
     Channel Description: 'Descrizione Canale'
     Featured Channels: 'Canali Suggeriti'
+  Added channel to your subscriptions: Aggiunto canale alle tue iscrizioni
+  Removed subscription from $ other channel(s): Rimossa iscrizione dagli altri canali
+    di $
+  Channel has been removed from your subscriptions: Il canale è stato rimosso dalle
+    tue iscrizioni
 Video:
   Mark As Watched: ''
   Remove From History: 'Rimuovi dalla Cronologia'
@@ -281,7 +337,7 @@ Video:
   Copy YouTube Embedded Player Link: 'Copia Link del Lettore YouTube Incorporato'
   Open in Invidious: 'Apri in Invidious'
   Copy Invidious Link: 'Copia Link Invidious'
-  View: ''
+  View: 'Vista'
   Views: 'Visualizzazioni'
   # Context is "X People Watching"
   Watching: ''
@@ -325,12 +381,20 @@ Video:
     Months: 'Mesi'
     Year: 'Anno'
     Years: 'Anni'
-    Ago: ''
+    Ago: 'Fa'
     Upcoming: ''
+    Minutes: Minuti
+    Minute: Minuto
   Published on: 'Pubblicato il'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: ''
+  Publicationtemplate: '$ % fa'
 #& Videos
+  Play Previous Video: Riproduci il video precedente
+  Play Next Video: Riproduci il Prossimo Video
+  Reverse Playlist: Playlist Inversa
+  Shuffle Playlist: Playlist Riproduzione Casuale
+  Loop Playlist: Playlist Loop
+  Autoplay: Riproduzione Automatica
 Videos:
   #& Sort By
   Sort By:
@@ -361,17 +425,22 @@ Change Format:
   Use Dash Formats: 'Usa Formati Dash'
   Use Legacy Formats: 'Usa Formati Legacy'
   Use Audio Formats: 'Usa Formati Audio'
+  Audio formats are not available for this video: I formati audio non sono disponibili
+    per questo video
+  Dash formats are not available for this video: Formato Dash non disponibile per
+    questo video
 Share:
   Share Video: 'Condividi Video'
   Copy Link: 'Copia Link'
   Open Link: 'Apri Link'
-  Copy Embed: ''
-  Open Embed: ''
+  Copy Embed: 'Copia Codice da Incorporare'
+  Open Embed: 'Apri Codice da Incorporare'
   # On Click
   Invidious URL copied to clipboard: 'URL Invidious copiato negli appunti'
   Invidious Embed URL copied to clipboard: ''
   YouTube URL copied to clipboard: 'URL YouTube copiato negli appunti'
   YouTube Embed URL copied to clipboard: ''
+  Include Timestamp: Includi Timestamp
 Mini Player: 'Visualizzatore Mini'
 Comments:
   Comments: 'Commenti'
@@ -415,3 +484,44 @@ A new blog is now available, $. Click to view more: Un nuovo blog è ora disponi
 Version $ is now available!  Click for more details: La versione $ è ora disponibile!.
   Clicca per maggiori dettagli
 Download From Site: Scarica Dal Sito
+The playlist has been reversed: La playlist è stata invertita
+Profile:
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Sei
+    sicuro di voler eliminare i canali selezionati? L'operazione non eliminerà i canali
+    da nessun altro profilo.
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
+    same channels will be deleted in any profile they are found in.
+  : Questo è il tuo profilo primario. Sei sicuro di voler eliminare i canali selezionati?
+    Gli stessi canali saranno eliminati da ogni profilo in cui sono presenti.
+  No channel(s) have been selected: Nessun canale è stato selezionato
+  Add Selected To Profile: Aggiungi i selezionati al Profilo
+  Delete Selected: Elimina i Selezionati
+  Select None: Deseleziona Tutto
+  Select All: Seleziona Tutto
+  $ selected: $ selezionato
+  Other Channels: Altri Canali
+  Subscription List: Lista Iscrizioni
+  $ is now the active profile: $ è ora il tuo profilo attivo
+  Your default profile has been changed to your primary profile: Il tuo profilo predefinito
+    è stato impostato come profilo primario
+  Removed $ from your profiles: Hai rimosso $ dai tuoi profili
+  Your default profile has been set to $: $ è stato impostato come profilo predefinito
+  Profile has been updated: Il profilo è stato aggiornato
+  Profile has been created: Il profilo è stato creato
+  Your profile name cannot be empty: Il tuo nome profilo non può essere vuoto
+  Profile could not be found: Impossibile trovare il profilo
+  All subscriptions will also be deleted.: Tutte le iscrizioni saranno eliminate.
+  Are you sure you want to delete this profile?: Sei sicuro di voler eliminare il
+    profilo?
+  Delete Profile: Elimina Profilo
+  Make Default Profile: Imposta come Profilo Predefinito
+  Update Profile: Aggiorna Profilo
+  Create Profile: Crea un Profilo
+  Profile Preview: Anteprima Profilo
+  Custom Color: Colore Personalizzato
+  Color Picker: Selettore Colore
+  Edit Profile: Modifica Profilo
+  Create New Profile: Crea un Nuovo Profilo
+  Profile Manager: Gestione Profili
+  All Channels: Tutti i Canali
+  Profile Select: Seleziona il Profilo
