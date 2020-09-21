@@ -2,7 +2,7 @@ import Vue from 'vue'
 import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
-import ytcs from 'yt-comment-scraper'
+// import ytcs from 'yt-comment-scraper'
 
 export default Vue.extend({
   name: 'WatchVideoComments',
@@ -67,37 +67,48 @@ export default Vue.extend({
 
     getCommentDataLocal: function () {
       console.log('Getting comment data please wait..')
-      ytcs.scrape_next_page_youtube_comments(this.id).then((response) => {
-        console.log(response)
-        const commentData = response.comments.map((comment) => {
-          comment.showReplies = false
-          comment.dataType = 'local'
-
-          return comment
-        })
-        console.log(commentData)
-        this.commentData = this.commentData.concat(commentData)
-        this.isLoading = false
-        this.showComments = true
-      }).catch((err) => {
-        console.log(err)
-        const errorMessage = this.$t('Local API Error (Click to copy)')
-        this.showToast({
-          message: `${errorMessage}: ${err}`,
-          time: 10000,
-          action: () => {
-            navigator.clipboard.writeText(err)
-          }
-        })
-        if (this.backendFallback && this.backendPreference === 'local') {
-          this.showToast({
-            message: this.$t('Falling back to Invidious API')
-          })
-          this.getCommentDataInvidious()
-        } else {
-          this.isLoading = false
-        }
+      this.showToast({
+        message: 'Comments through the local API are temporarily disabled'
       })
+      if (this.backendFallback && this.backendPreference === 'local') {
+        this.showToast({
+          message: this.$t('Falling back to Invidious API')
+        })
+        this.getCommentDataInvidious()
+      } else {
+        this.isLoading = false
+      }
+      // ytcs.scrape_next_page_youtube_comments(this.id).then((response) => {
+      //   console.log(response)
+      //   const commentData = response.comments.map((comment) => {
+      //     comment.showReplies = false
+      //     comment.dataType = 'local'
+      //
+      //     return comment
+      //   })
+      //   console.log(commentData)
+      //   this.commentData = this.commentData.concat(commentData)
+      //   this.isLoading = false
+      //   this.showComments = true
+      // }).catch((err) => {
+      //   console.log(err)
+      //   const errorMessage = this.$t('Local API Error (Click to copy)')
+      //   this.showToast({
+      //     message: `${errorMessage}: ${err}`,
+      //     time: 10000,
+      //     action: () => {
+      //       navigator.clipboard.writeText(err)
+      //     }
+      //   })
+      //   if (this.backendFallback && this.backendPreference === 'local') {
+      //     this.showToast({
+      //       message: this.$t('Falling back to Invidious API')
+      //     })
+      //     this.getCommentDataInvidious()
+      //   } else {
+      //     this.isLoading = false
+      //   }
+      // })
     },
 
     getCommentDataInvidious: function () {
