@@ -112,6 +112,8 @@ Settings:
       (https://invidious.snopyta.org par défaut)'
     Region for Trending: 'Pays pour les tendances'
         #! List countries
+    Check for Latest Blog Posts: Consultez les derniers billets du blog
+    Check for Updates: Vérifier les mises à jour
   Theme Settings:
     Theme Settings: 'Paramètres du thème'
     Match Top Bar with Main Color: 'Faire correspondre la barre supérieure à la couleur
@@ -531,3 +533,8 @@ Profile:
   $ selected: $ sélectionné(s)
   Other Channels: Autres chaînes
 The playlist has been reversed: La playlist a été inversée
+A new blog is now available, $. Click to view more: Un nouveau billet est maintenant
+  disponible, $. Cliquez pour en savoir plus
+Download From Site: Télécharger depuis le site
+Version $ is now available!  Click for more details: La version $ est maintenant disponible
+  !  Cliquez pour plus de détails
