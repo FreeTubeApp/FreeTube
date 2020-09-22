@@ -146,6 +146,9 @@ export default Vue.extend({
   methods: {
     toggleSave: function () {
       console.log('TODO: ft-list-video method toggleSave')
+      this.showToast({
+        message: this.$t('Saving videos are currently not available.  Please wait for a future update')
+      })
     },
 
     handleOptionsClick: function (option) {
