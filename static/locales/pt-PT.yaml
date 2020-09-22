@@ -22,16 +22,18 @@ Toggle Developer Tools: Alternar Ferramentas de Desenvolvimento
 Actual size: Tamanho normal
 Zoom in: Ampliar zoom
 Zoom out: Reduzir zoom
-Toggle fullscreen: Alternar tela inteira
+Toggle fullscreen: Alternar ecrã inteiro
 Window: Restaurar
 Minimize: Minimizar
 Close: Fechar
 Back: Retroceder
 Forward: Avançar
 
-Version $ is now available!  Click for more details: Versão $ está agora disponível! Clique aqui para ver mais detalhes.
+Version $ is now available!  Click for more details: Versão $ está agora disponível!
+  Clique aqui para ver mais detalhes.
 Download From Site: Descarregar Do Site
-A new blog is now available, $. Click to view more: Um novo blogue está disponível, $. Clique para ver mais
+A new blog is now available, $. Click to view more: Um novo blogue está disponível,
+  $. Clique para ver mais
 
 # Search Bar
 Search / Go to URL: Pesquisar / Ir para URL
@@ -112,8 +114,8 @@ Settings:
       Beginning: Princípio
       Middle: Meio
       End: Fim
-    'Invidious Instance (Default is https://invidious.snopyta.org)': Instância Invidious (Por
-      omissão é https://invidious.snopyta.org)
+    'Invidious Instance (Default is https://invidious.snopyta.org)': Instância Invidious
+      (Por omissão é https://invidious.snopyta.org)
     Region for Trending: Região para as tendências
         #! List countries
   Theme Settings:
@@ -180,7 +182,7 @@ Settings:
     Save Watched Progress: Guardar onde ficou da última vez num vídeo
     Clear Search Cache: Limpar Cache de Pesquisas
     Are you sure you want to clear out your search cache?: Tem a certeza de que quer
-      apagar a sua cache de pesquisas?
+      apagar o seu cache de pesquisas?
     Search cache has been cleared: Cache de pesquisas foi apagada
     Remove Watch History: Limpar Histórico
     Are you sure you want to remove your entire watch history?: Tem a certeza de que
@@ -188,8 +190,8 @@ Settings:
     Watch history has been cleared: Histórico foi apagado
     Remove All Subscriptions / Profiles: Apagar Todas as Subscrições / Perfis
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Tem
-      a certeza de que quer apagar todas as suas subscrições e perfis? Esta acção
-      não pode ser revertida.
+      a certeza de que quer apagar todas as subscrições e perfis? Esta acção não pode
+      ser revertida.
   Subscription Settings:
     Subscription Settings: Definições de Subscrições
     Hide Videos on Watch: Esconder Vídeos Visualisados
@@ -308,7 +310,7 @@ Profile:
   Profile Preview: Antevisão
   Create Profile: Criar Perfil
   Update Profile: Actualizar Perfil
-  Make Default Profile: Tornar no Perfil Padrão
+  Make Default Profile: Criar Perfil Predefinido
   Delete Profile: Apagar Perfil
   Are you sure you want to delete this profile?: Tem a certeza de que quer apagar
     este perfil?
@@ -318,9 +320,9 @@ Profile:
   Your profile name cannot be empty: O nome do perfil não pode ficar em branco
   Profile has been created: Perfil criado
   Profile has been updated: Perfil actualizado
-  Your default profile has been set to $: $ é agora o seu perfil padrão
+  Your default profile has been set to $: $ é agora o seu perfil predefinido
   Removed $ from your profiles: Perfil $ foi apagado
-  Your default profile has been changed to your primary profile: O seu perfil padrão
+  Your default profile has been changed to your primary profile: O seu perfil predefinido
     é agora o seu perfil principal
   $ is now the active profile: Está agora a ver as subscrições do perfil $
   Subscription List: Lista de Subscrições
@@ -331,8 +333,13 @@ Profile:
   Delete Selected: Apagar Seleccionados
   Add Selected To Profile: Adicionar Seleccionado a Perfil
   No channel(s) have been selected: Nenhum canal foi seleccionado
-  This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.: Este é o seu perfil principal. Tem a certeza de que quer apagar os canais seleccionados? Os mesmos vão ser apagados em qualquer perfil em que se encontrem.
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Tem a certeza de que quer apagar os canais sleccionados? Esta acção não vai apagar os canais em mais nenhum perfil.
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
+    same channels will be deleted in any profile they are found in.
+  : Este é o seu perfil principal. Tem a certeza de que quer apagar os canais seleccionados?
+    Os mesmos vão ser apagados em qualquer perfil em que se encontrem.
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Tem
+    a certeza de que quer apagar os canais sleccionados? Esta acção não vai apagar
+    os canais em mais nenhum perfil.
 #On Channel Page
   Profile Select: Selecção de perfil
 Channel:
@@ -465,8 +472,10 @@ Change Format:
   Use Dash Formats: Utilizar Formato Dash
   Use Legacy Formats: Utilizar Formato Antigo
   Use Audio Formats: Utilizar Formatos de Áudio
-  Dash formats are not available for this video: Formato DASH não disponível para este vídeo
-  Audio formats are not available for this video: Formato áudio não disponível para este vídeo
+  Dash formats are not available for this video: Formato DASH não disponível para
+    este vídeo
+  Audio formats are not available for this video: Formato áudio não disponível para
+    este vídeo
 Share:
   Share Video: Partilhar Vídeo
   Include Timestamp: Incluir Marcação de Tempo
