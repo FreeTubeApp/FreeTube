@@ -114,7 +114,7 @@
     <h4
       v-if="commentData.length > 0 && !isLoading && showComments"
       class="getMoreComments"
-      @click="getCommentData"
+      @click="getMoreComments"
     >
       {{ $t("Comments.Load More Comments") }}
     </h4>

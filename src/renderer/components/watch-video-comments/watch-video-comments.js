@@ -50,6 +50,16 @@ export default Vue.extend({
       }
     },
 
+    getMoreComments: function () {
+      if (this.commentData.length === 0 || this.nextPageToken === null || typeof this.nextPageToken === 'undefined') {
+        this.showToast({
+          message: this.$t('Comments.There are no more comments for this video')
+        })
+      } else {
+        this.getCommentData()
+      }
+    },
+
     getCommentReplies: function (index) {
       switch (this.commentData[index].dataType) {
         case 'local':
@@ -173,7 +183,7 @@ export default Vue.extend({
 
     getCommentRepliesInvidious: function (index) {
       this.showToast({
-        message: this.$t('Getting comment replies, please wait')
+        message: this.$t('Comments.Getting comment replies, please wait')
       })
       const payload = {
         resource: 'comments',
