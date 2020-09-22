@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'Italiano'
+Locale Name: 'Inglese'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -89,10 +89,10 @@ Settings:
   Settings: 'Impostazioni'
   General Settings:
     General Settings: 'Impostazioni Generali'
-    Fallback to Non-Preferred Backend on Failure: 'Reimposta Back-end non Predefiniti
+    Fallback to Non-Preferred Backend on Failure: 'Reimposta Back-end non Predefinito
       in Caso di Errore'
     Enable Search Suggestions: 'Abilita Suggerimenti di Ricerca'
-    Default Landing Page: 'Pagina Iniziale di Default'
+    Default Landing Page: 'Pagina Iniziale Predefinita'
     Locale Preference: 'Lingua Predefinita'
     Preferred API Backend:
       Preferred API Backend: 'Back-end API Preferito'
@@ -109,7 +109,7 @@ Settings:
       Middle: 'Centrato'
       End: 'Fine'
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Istanza Invidious
-      (https://invidious.snopyta.org di Default)'
+      (La predefinita è https://invidious.snopyta.org)'
     Region for Trending: 'Regione per le Tendenze'
         #! List countries
     Check for Latest Blog Posts: Controlla gli Ultimi Post del Blog
@@ -143,7 +143,7 @@ Settings:
     Secondary Color Theme: 'Tema Colori Secondario'
         #* Main Color Theme
   Player Settings:
-    Player Settings: 'Impostazioni Player Video'
+    Player Settings: 'Impostazioni Riproduttore Video'
     Force Local Backend for Legacy Formats: 'Forza back-end locale per formati legacy'
     Play Next Video: 'Riproduci Prossimo Video'
     Turn on Subtitles by Default: 'Abilita Sottotitoli di Default'
@@ -151,7 +151,7 @@ Settings:
     Proxy Videos Through Invidious: 'Proxy dei Video tramite Invidious'
     Autoplay Playlists: 'Riproduci Playlist Automaticamente'
     Enable Theatre Mode by Default: 'Abilita Modalità Teatro di Default'
-    Default Volume: 'Volume di Default'
+    Default Volume: 'Volume Predefinito'
     Default Playback Rate: 'Velocità di riproduzione predefinita'
     Default Video Format:
       Default Video Format: 'Formato Video Predefinito'
@@ -159,7 +159,7 @@ Settings:
       Legacy Formats: 'Formati Legacy'
       Audio Formats: 'Formati Audio'
     Default Quality:
-      Default Quality: 'Qualità di Default'
+      Default Quality: 'Qualità Predefinita'
       Auto: 'Auto'
       144p: '144p'
       240p: '240p'
@@ -173,7 +173,7 @@ Settings:
   Privacy Settings:
     Privacy Settings: 'Impostazioni Privacy'
     Remember History: 'Salva la Cronologia'
-    Save Watched Progress: 'Salva Cronologia Visione'
+    Save Watched Progress: 'Salva Cronologia Visualizzazioni'
     Clear Search Cache: 'Pulisci la Cache di Ricerca'
     Are you sure you want to clear out your search cache?: 'Sei sicuro di voler pulire
       la cache di ricerca?'
@@ -188,7 +188,7 @@ Settings:
     Remove All Subscriptions / Profiles: Elimina Tutte le Iscrizioni / Profili
   Subscription Settings:
     Subscription Settings: 'Impostazioni Iscrizioni'
-    Hide Videos on Watch: 'Nascondi Video mentre Guardi'
+    Hide Videos on Watch: 'Nascondi Video durante la riproduzione'
     Subscriptions Export Format:
       Subscriptions Export Format: ''
       #& Freetube
@@ -301,7 +301,7 @@ Channel:
   Subscribe: 'Iscriviti'
   Unsubscribe: 'Disiscriviti'
   Search Channel: 'Cerca Canale'
-  Your search results have returned 0 results: 'La tua ricerca ha trovato 0 risultati'
+  Your search results have returned 0 results: 'La tua ricerca ha prodotto 0 risultati'
   Sort By: 'Filtra Per'
   Videos:
     Videos: 'Video'
@@ -331,9 +331,9 @@ Channel:
 Video:
   Mark As Watched: 'Segna come Visto'
   Remove From History: 'Rimuovi dalla Cronologia'
-  Video has been marked as watched: 'Il Video è stato contrassegnato come guardato'
-  Video has been removed from your history: 'Il Video è stato rimosso dalla Cronologia'
-  Open in YouTube: 'Apri su YouTube :('
+  Video has been marked as watched: 'Il Video è stato contrassegnato come visualizzato'
+  Video has been removed from your history: 'Il Video è stato rimosso dalla cronologia'
+  Open in YouTube: 'Apri su YouTube'
   Copy YouTube Link: 'Copia Link YouTube'
   Open YouTube Embedded Player: 'Apri Lettore YouTube Incorporato'
   Copy YouTube Embedded Player Link: 'Copia Link del Lettore YouTube Incorporato'
@@ -342,15 +342,15 @@ Video:
   View: 'Vista'
   Views: 'Visualizzazioni'
   # Context is "X People Watching"
-  Watching: 'Sto guardando'
+  Watching: 'Sto Guardando'
   Watched: 'Visto'
   # As in a Live Video
   Live: 'Dal Vivo'
   Live Now: 'Ora Dal Vivo'
   Live Chat: 'Chat dal Vivo'
   Enable Live Chat: 'Abilita Chat dal Vivo'
-  Live Chat is currently not supported in this build.: 'La Chat dal Vivo non è supportata
-    al momento per questa build.'
+  Live Chat is currently not supported in this build.: 'La Chat dal Vivo al momento
+    non è supportata per questa build.'
   'Chat is disabled or the Live Stream has ended.': 'La chat è disabilitata o la Diretta
     è terminata.'
   Live chat is enabled.  Chat messages will appear here once sent.: 'La chat dal vivo
@@ -391,7 +391,7 @@ Video:
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % fa'
 #& Videos
-  Play Previous Video: Riproduci il video precedente
+  Play Previous Video: Riproduci il Video Precedente
   Play Next Video: Riproduci il Prossimo Video
   Reverse Playlist: Playlist Inversa
   Shuffle Playlist: Playlist Riproduzione Casuale
@@ -414,7 +414,7 @@ Playlist:
   Share Playlist:
     Share Playlist: 'Condividi Playlist'
     Copy YouTube Link: 'Copia Link YouTube'
-    Open in YouTube: 'Apri su YouTube :('
+    Open in YouTube: 'Apri su YouTube'
     Copy Invidious Link: 'Copia Link Invidious'
     Open in Invidious: 'Apri in Invidious'
 
@@ -429,7 +429,7 @@ Change Format:
   Use Audio Formats: 'Usa Formati Audio'
   Audio formats are not available for this video: I formati audio non sono disponibili
     per questo video
-  Dash formats are not available for this video: Formato Dash non disponibile per
+  Dash formats are not available for this video: Formati Dash non disponibili per
     questo video
 Share:
   Share Video: 'Condividi Video'
@@ -439,23 +439,23 @@ Share:
   Open Embed: 'Apri Codice da Incorporare'
   # On Click
   Invidious URL copied to clipboard: 'URL Invidious copiato negli appunti'
-  Invidious Embed URL copied to clipboard: 'URL Incorporato di Invidious copiato negli
-    appunti'
+  Invidious Embed URL copied to clipboard: 'URL di Invidious da Incorporare copiato
+    negli appunti'
   YouTube URL copied to clipboard: 'URL YouTube copiato negli appunti'
-  YouTube Embed URL copied to clipboard: 'URL Incorporato di YouTube copiato negli
+  YouTube Embed URL copied to clipboard: 'URL di YouTube da incorporare copiato negli
     appunti'
   Include Timestamp: Includi Timestamp
 Mini Player: 'Visualizzatore Mini'
 Comments:
   Comments: 'Commenti'
   Click to View Comments: 'Clicca per Vedere i Commenti'
-  Getting comment replies, please wait: 'Sto recuperando le risposte, attendere'
+  Getting comment replies, please wait: 'Sto recuperando le risposte, attendere prego'
   Show Comments: 'Mostra Commenti'
   Hide Comments: 'Nascondi Commenti'
   # Context: View 10 Replies, View 1 Reply
   View: 'Guarda'
   Hide: 'Nascondi'
-  Replies: 'Rispondi'
+  Replies: 'Risposte'
   Reply: 'Rispondi'
   There are no comments available for this video: 'Non ci sono commenti disponibili
     per questo video'
@@ -485,7 +485,7 @@ Yes: 'Si'
 No: 'No'
 A new blog is now available, $. Click to view more: Un nuovo blog è ora disponibile,
   $. Clicca per saperne di più
-Version $ is now available!  Click for more details: La versione $ è ora disponibile!.
+Version $ is now available!  Click for more details: La versione $ è ora disponibile!
   Clicca per maggiori dettagli
 Download From Site: Scarica Dal Sito
 The playlist has been reversed: La playlist è stata invertita
