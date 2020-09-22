@@ -43,6 +43,7 @@ export default Vue.extend({
       isUpcoming: false,
       upcomingTimestamp: null,
       activeFormat: 'legacy',
+      thumbnail: '',
       videoId: '',
       videoTitle: '',
       videoDescription: '',
@@ -111,26 +112,6 @@ export default Vue.extend({
     },
     playNextVideo: function () {
       return this.$store.getters.getPlayNextVideo
-    },
-
-    thumbnail: function () {
-      let baseUrl
-      if (this.backendPreference === 'invidious') {
-        baseUrl = this.invidiousInstance
-      } else {
-        baseUrl = 'https://i.ytimg.com'
-      }
-
-      switch (this.thumbnailPreference) {
-        case 'start':
-          return `${baseUrl}/vi/${this.videoId}/maxres1.jpg`
-        case 'middle':
-          return `${baseUrl}/vi/${this.videoId}/maxres2.jpg`
-        case 'end':
-          return `${baseUrl}/vi/${this.videoId}/maxres3.jpg`
-        default:
-          return `${baseUrl}/vi/${this.videoId}/maxresdefault.jpg`
-      }
     },
 
     youtubeNoCookieEmbeddedFrame: function () {
@@ -206,8 +187,23 @@ export default Vue.extend({
           this.channelName = result.videoDetails.author.name
           this.channelThumbnail = result.videoDetails.author.avatar
           this.videoPublished = new Date(result.videoDetails.publishDate.replace('-', '/')).getTime()
-          this.videoDescription =
-            result.player_response.videoDetails.shortDescription
+          this.videoDescription = result.player_response.videoDetails.shortDescription
+
+          switch (this.thumbnailPreference) {
+            case 'start':
+              this.thumbnail = `https://i.ytimg.com/vi/${this.videoId}/maxres1.jpg`
+              break
+            case 'middle':
+              this.thumbnail = `https://i.ytimg.com/vi/${this.videoId}/maxres2.jpg`
+              break
+            case 'end':
+              this.thumbnail = `https://i.ytimg.com/vi/${this.videoId}/maxres3.jpg`
+              break
+            default:
+              this.thumbnail = result.videoDetails.thumbnail.thumbnails[result.videoDetails.thumbnail.thumbnails.length - 1].url
+              break
+          }
+
           this.recommendedVideos = result.related_videos.map((video) => {
             video.videoId = video.id
             video.authorId = video.ucid
@@ -378,6 +374,21 @@ export default Vue.extend({
             caption.dataSource = 'invidious'
             return caption
           })
+
+          switch (this.thumbnailPreference) {
+            case 'start':
+              this.thumbnail = `${this.invidiousInstance}/vi/${this.videoId}/maxres1.jpg`
+              break
+            case 'middle':
+              this.thumbnail = `${this.invidiousInstance}/vi/${this.videoId}/maxres2.jpg`
+              break
+            case 'end':
+              this.thumbnail = `${this.invidiousInstance}/vi/${this.videoId}/maxres3.jpg`
+              break
+            default:
+              this.thumbnail = result.videoThumbnails[0].url
+              break
+          }
 
           if (this.isLive) {
             this.showLegacyPlayer = true
@@ -650,6 +661,25 @@ export default Vue.extend({
 
           console.log('update watch progress')
           this.updateWatchProgress(payload)
+        }
+
+        if (player.isInPictureInPicture()) {
+          setTimeout(() => {
+            player.play()
+            player.on('leavepictureinpicture', () => {
+              const watchTime = player.currentTime()
+              if (this.$route.fullPath.includes('/watch')) {
+                const routeId = this.$route.params.id
+                if (routeId === this.videoId) {
+                  const activePlayer = $('.ftVideoPlayer video').get(0)
+                  activePlayer.currentTime = watchTime
+                }
+              }
+
+              player.pause()
+              player.dispose()
+            })
+          }, 200)
         }
       }
     },

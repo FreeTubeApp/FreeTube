@@ -575,6 +575,8 @@ export default Vue.extend({
       this.player.dispose()
       this.player = null
       clearTimeout(this.mouseTimeout)
+    } else if (this.player.isInPictureInPicture()) {
+      this.player.play()
     }
   }
 })
