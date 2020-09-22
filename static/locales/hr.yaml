@@ -111,6 +111,8 @@ Settings:
       (zadano je https://invidious.snopyta.org)'
     Region for Trending: 'Regija za trendove'
         #! List countries
+    Check for Latest Blog Posts: Potraži najnovije postove na blogu
+    Check for Updates: Potraži nove verzije
   Theme Settings:
     Theme Settings: 'Postavke tema'
     Match Top Bar with Main Color: 'Uskladite gornju traku s glavnom bojom'
@@ -515,3 +517,8 @@ Canceled next video autoplay: 'Otkazana je automatska reprodukcija sljedećeg vi
 Yes: 'Da'
 No: 'Ne'
 The playlist has been reversed: Popis za reprodukciju je obrnut
+A new blog is now available, $. Click to view more: Dostupan je novi blog, $. Klikni
+  za prikaz detalja
+Download From Site: Preuzmi s web-stranice
+Version $ is now available!  Click for more details: Dostupna je verzija $!  Klikni
+  za prikaz detalja
