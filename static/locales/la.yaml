@@ -1,20 +1,21 @@
 # Put the name of your locale in the same language
-Locale Name: ''
-FreeTube: ''
+Locale Name: 'Latina'
+FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >
+'This part of the app is not ready yet. Come back later when progress has been made.': >-
+  Haec programmatis pars perfecta non est. Remea cum in hac profectum sit.
 
 # Webkit Menu Bar
 File: ''
-Quit: ''
-Edit: ''
-Undo: ''
-Redo: ''
-Cut: ''
-Copy: ''
-Paste: ''
-Delete: ''
-Select all: ''
+Quit: 'Exi'
+Edit: 'Muta'
+Undo: 'Tolle'
+Redo: 'Refac'
+Cut: 'Deseca'
+Copy: 'Effinge'
+Paste: 'Agglutina'
+Delete: 'Dele'
+Select all: 'Omnia selige'
 Reload: ''
 Force Reload: ''
 Toggle Developer Tools: ''
