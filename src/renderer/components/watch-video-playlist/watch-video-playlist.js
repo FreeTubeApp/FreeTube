@@ -284,7 +284,9 @@ export default Vue.extend({
         this.channelThumbnail = result.author.avatar
         this.channelId = result.author.id
 
-        this.playlistItems = result.items.map((video) => {
+        this.playlistItems = result.items.filter((video) => {
+          return !(video.title === '[Private video]' || video.title === '[Deleted video]')
+        }).map((video) => {
           if (video.author !== null) {
             const channelName = video.author.name
             const channelId = video.author.ref.replace(/https:\/\/(www\.)?youtube\.com\/(user|channel)\//g, '')
