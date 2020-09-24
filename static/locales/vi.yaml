@@ -1,4 +1,4 @@
-Locale Name: Tiếng Việt
+Locale Name: Tiếng Anh
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -104,8 +104,8 @@ Settings:
       Beginning: 'Lúc đầu'
       Middle: 'Chính giữa'
       End: 'Đầu cuối'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Phiên bản Invidious (Mặc
-      định là https://invidious.snopyta.org)'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Phiên bản Invidious
+      (Mặc định là https://invidious.snopyta.org)'
     Region for Trending: 'Phổ biến theo quốc gia'
         #! List countries
   Theme Settings:

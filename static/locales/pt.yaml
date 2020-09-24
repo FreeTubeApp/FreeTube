@@ -4,7 +4,6 @@ FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Esta parte ainda não está pronta. Volte mais tarde quando já houver progresso.
-
 # Webkit Menu Bar
 File: 'Ficheiro'
 Quit: 'Sair'
@@ -270,7 +269,6 @@ About:
   'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
     Encontraste um bug? Queres sugerir uma funcionalidade? Queres ajudar-nos? Vai
     á nossa página de GitHub. Pull requests são bem vindos.
-
   Thank you very much to the People and Projects that make FreeTube possible!: 'Agradeço
     imenso a todas as pessoas e projetos que façam com que o FreeTube seja possivel!'
 

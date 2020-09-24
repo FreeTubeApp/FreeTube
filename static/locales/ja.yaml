@@ -300,7 +300,7 @@ Channel:
     Featured Channels: '注目チャンネル'
   Added channel to your subscriptions: 登録にチャンネルを追加しました
   Channel has been removed from your subscriptions: チャンネルは登録から削除されました
-  Removed subscription from $ other channel(s): 他の $ チャンネルからサブスクリプションを削除しました
+  Removed subscription from $ other channel(s): 他の $ チャンネルから登録を削除しました
 Video:
   Open in YouTube: 'YouTube で開く'
   Copy YouTube Link: 'YouTube のリンクをコピー'
@@ -424,6 +424,7 @@ Comments:
   Reply: '返信'
   There are no comments available for this video: 'この動画へのコメントはありません'
   Load More Comments: 'さらにコメントを読み込み'
+  There are no more comments for this video: この動画へのコメントはまだありません
 Up Next: '次へ'
 
 # Toast Messages
@@ -444,7 +445,7 @@ Canceled next video autoplay: '次の動画の自動再生をキャンセルし�
 
 Yes: 'はい'
 No: 'いいえ'
-Locale Name: '英語'
+Locale Name: '日本語'
 Profile:
   $ is now the active profile: $ は現在使用中のプロファイルです
   Your default profile has been changed to your primary profile: 標準のプロファイルは、第一プロファイルに変更されました

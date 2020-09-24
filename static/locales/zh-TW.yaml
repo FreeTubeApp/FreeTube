@@ -49,7 +49,7 @@ Search Filters:
   Type:
     Type: '類別'
     All Types: '所有類別'
-    Videos: '視訊'
+    Videos: '影片'
     Channels: '頻道'
     #& Playlists
   Duration:
@@ -94,7 +94,7 @@ Settings:
       Local API: '區域API'
       Invidious API: 'Invidious API'
     Video View Type:
-      Video View Type: '視訊觀看類別'
+      Video View Type: '影片觀看類別'
       Grid: '網格'
       List: '清單'
     Thumbnail Preference:
@@ -140,16 +140,16 @@ Settings:
     Player Settings: '播放器選項'
     Force Local Backend for Legacy Formats: '強制區域后端給傳統格式'
     Remember History: '記住曆史'
-    Play Next Video: '播放下一視訊'
+    Play Next Video: '播放下一影片'
     Turn on Subtitles by Default: '預設開啟字幕'
-    Autoplay Videos: '自動播放視訊'
-    Proxy Videos Through Invidious: '通過Invidious代理視訊'
+    Autoplay Videos: '自動播放影片'
+    Proxy Videos Through Invidious: '通過Invidious代理影片'
     Autoplay Playlists: '自動播放清單'
     Enable Theatre Mode by Default: '預設允許劇場型態'
     Default Volume: '預設音量'
     Default Playback Rate: '預設重播速率'
     Default Video Format:
-      Default Video Format: '預設視訊格式'
+      Default Video Format: '預設影片格式'
       Dash Formats: 'Dash格式'
       Legacy Formats: '傳統格式'
       Audio Formats: '聲訊格式'
@@ -167,7 +167,7 @@ Settings:
       8k: '8k'
   Subscription Settings:
     Subscription Settings: '訂閱設定'
-    Hide Videos on Watch: '觀看時隱藏視訊'
+    Hide Videos on Watch: '觀看時隱藏影片'
     Subscriptions Export Format:
       Subscriptions Export Format: '導出訂閱格式'
       #& Freetube
@@ -275,8 +275,8 @@ Channel:
   Your search results have returned 0 results: '您的搜索結果是0結果'
   Sort By: '排序方式'
   Videos:
-    Videos: '視訊'
-    This channel does not currently have any videos: '這個頻道目前沒有任何視訊'
+    Videos: '影片'
+    This channel does not currently have any videos: '這個頻道目前沒有任何影片'
     Sort Types:
       Newest: '最新'
       Oldest: '最老'
@@ -285,7 +285,7 @@ Channel:
     Playlists: '播放清單'
     This channel does not currently have any playlists: '這個頻道目前沒有任何播放清單'
     Sort Types:
-      Last Video Added: '最新添加的視訊'
+      Last Video Added: '最新添加的影片'
       Newest: '最新'
       Oldest: '最老'
   About:
@@ -350,13 +350,13 @@ Video:
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ %前'
 #& Videos
-  Video has been removed from your history: 視訊已從您的曆史紀錄中移除
-  Video has been marked as watched: 視訊已記號為已觀看
+  Video has been removed from your history: 影片已從您的曆史紀錄中移除
+  Video has been marked as watched: 影片已記號為已觀看
   Remove From History: 從曆史紀錄中移除
   Mark As Watched: 記號為已觀看
   Autoplay: 自動播放
-  Play Previous Video: 播放前一視訊
-  Play Next Video: 播放下一視訊
+  Play Previous Video: 播放前一影片
+  Play Next Video: 播放下一影片
   Reverse Playlist: 反向播放清單
   Shuffle Playlist: 隨機播放清單
   Loop Playlist: 循環播放清單
@@ -370,7 +370,7 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: '觀看完整播放清單'
-  Videos: '視訊'
+  Videos: '影片'
   View: '觀看'
   Views: '觀看'
   Last Updated On: '最后更新於'
@@ -386,14 +386,14 @@ Playlist:
 #& Views
 Toggle Theatre Mode: '切換劇場型態'
 Change Format:
-  Change Video Formats: '更換視訊格式'
+  Change Video Formats: '更換影片格式'
   Use Dash Formats: '使用Dash格式'
   Use Legacy Formats: '使用傳統格式'
   Use Audio Formats: '使用聲訊格式'
-  Audio formats are not available for this video: 這個視訊沒有聲訊格式
-  Dash formats are not available for this video: 這個視訊沒有Dash格式
+  Audio formats are not available for this video: 這個影片沒有聲訊格式
+  Dash formats are not available for this video: 這個影片沒有Dash格式
 Share:
-  Share Video: '分享視訊'
+  Share Video: '分享影片'
   Copy Link: '複製鏈結'
   Open Link: '開啟鏈結'
   Copy Embed: '複製內嵌'
@@ -416,8 +416,9 @@ Comments:
   Hide: '隱藏'
   Replies: '回覆'
   Reply: '回覆'
-  There are no comments available for this video: '這個視訊沒有評論'
+  There are no comments available for this video: '這個影片沒有評論'
   Load More Comments: '加載更多評論'
+  There are no more comments for this video: 此影片無更多留言
 Up Next: 'Up Next'
 
 # Toast Messages
@@ -430,11 +431,11 @@ Loop is now disabled: '循環播放現在被禁用'
 Loop is now enabled: '循環播放現在被允許'
 Shuffle is now disabled: '隨機播放現在被禁用'
 Shuffle is now enabled: '隨機播放現在被禁用'
-Playing Next Video: '將播放下一視訊'
-Playing Previous Video: '將播放上一視訊'
-Playing next video in 5 seconds.  Click to cancel: '下一視訊將在5秒后播放。點擊取消。'
-Canceled next video autoplay: '取消的自動播放下一視訊'
-'The playlist has ended.  Enable loop to continue playing': '播放清單已結束。 允許循環播放以繼續播放視訊'
+Playing Next Video: '將播放下一影片'
+Playing Previous Video: '將播放上一影片'
+Playing next video in 5 seconds.  Click to cancel: '下一影片將在5秒后播放。點擊取消。'
+Canceled next video autoplay: '取消的自動播放下一影片'
+'The playlist has ended.  Enable loop to continue playing': '播放清單已結束。 允許循環播放以繼續播放'
 
 Yes: '是'
 No: '否'
