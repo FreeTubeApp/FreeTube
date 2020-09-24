@@ -35,11 +35,14 @@ export default Vue.extend({
     selectedText: function () {
       const localeText = this.$t('Profile.$ selected')
       return localeText.replace('$', this.selectedLength)
+    },
+    primaryProfile: function () {
+      return JSON.parse(JSON.stringify(this.profileList[0]))
     }
   },
   watch: {
     profile: function () {
-      this.channels = [].concat(this.profileList[0].subscriptions).sort((a, b) => {
+      this.channels = [].concat(this.primaryProfile.subscriptions).sort((a, b) => {
         const nameA = a.name.toLowerCase()
         const nameB = b.name.toLowerCase()
         if (nameA < nameB) {

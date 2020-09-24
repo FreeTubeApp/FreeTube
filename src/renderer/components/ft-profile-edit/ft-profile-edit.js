@@ -46,6 +46,9 @@ export default Vue.extend({
     profileInitial: function () {
       return this.profileName.slice(0, 1).toUpperCase()
     },
+    profileList: function () {
+      return this.$store.getters.getProfileList
+    },
     activeProfile: function () {
       return this.$store.getters.getActiveProfile
     },
@@ -72,7 +75,6 @@ export default Vue.extend({
     this.profileName = this.profile.name
     this.profileBgColor = this.profile.bgColor
     this.profileTextColor = this.profile.textColor
-    this.profileSubscriptions = this.profile.subscriptions
   },
   methods: {
     openDeletePrompt: function () {
@@ -98,7 +100,7 @@ export default Vue.extend({
         name: this.profileName,
         bgColor: this.profileBgColor,
         textColor: this.profileTextColor,
-        subscriptions: this.profileSubscriptions
+        subscriptions: this.profile.subscriptions
       }
 
       if (!this.isNew) {
@@ -143,8 +145,8 @@ export default Vue.extend({
           message: this.$t('Profile.Your default profile has been changed to your primary profile')
         })
       }
-      if (this.activeProfile._id === this.profileId) {
-        this.updateActiveProfile('allChannels')
+      if (this.profileList[this.activeProfile]._id === this.profileId) {
+        this.updateActiveProfile(0)
       }
       this.$router.push({
         path: '/settings/profile/'

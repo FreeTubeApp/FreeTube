@@ -127,6 +127,7 @@ export default Vue.extend({
       this.firstLoad = true
       this.activeFormat = this.defaultVideoFormat
       this.videoStoryboardSrc = ''
+      this.captionSourceList = []
 
       this.checkIfPlaylist()
 
@@ -498,9 +499,11 @@ export default Vue.extend({
       console.log(historyIndex)
 
       if (historyIndex !== -1 && !this.isLive) {
-        console.log(this.historyCache[historyIndex])
         const watchProgress = this.historyCache[historyIndex].watchProgress
-        this.$refs.videoPlayer.player.currentTime(watchProgress)
+
+        if (watchProgress < (this.videoLengthSeconds - 10)) {
+          this.$refs.videoPlayer.player.currentTime(watchProgress)
+        }
       }
 
       if (this.rememberHistory && historyIndex !== -1) {

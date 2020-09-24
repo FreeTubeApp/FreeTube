@@ -257,11 +257,6 @@ export default Vue.extend({
 
         this.player.on('ready', function () {
           v.$emit('ready')
-          if (this.captionList.length > 0) {
-            this.player.caption({
-              data: this.captionList
-            })
-          }
         })
 
         this.player.on('ended', function () {
