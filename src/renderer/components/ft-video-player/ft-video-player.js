@@ -2,15 +2,11 @@ import Vue from 'vue'
 import FtCard from '../ft-card/ft-card.vue'
 
 import $ from 'jquery'
-
-// I haven't decided which video player I want to use
-// Need to expirement with both of them to see which one will work best.
 import videojs from 'video.js'
 import qualitySelector from '@silvermine/videojs-quality-selector'
 import 'videojs-vtt-thumbnails-freetube'
 import 'videojs-contrib-quality-levels'
 import 'videojs-http-source-selector'
-// import mediaelement from 'mediaelement'
 
 export default Vue.extend({
   name: 'FtVideoPlayer',
@@ -226,11 +222,7 @@ export default Vue.extend({
           qualitySelector(videojs, { showQualitySelectionLabelInControlBar: true })
         }
 
-        this.player = videojs(videoPlayer, {
-          userActions: {
-            hotkeys: this.keyboardShortcutHandler
-          }
-        })
+        this.player = videojs(videoPlayer)
 
         this.player.volume(this.volume)
         this.player.playbackRate(this.defaultPlayback)
@@ -255,7 +247,7 @@ export default Vue.extend({
           }, 200)
         }
 
-        // $(document).on('keydown', this.keyboardShortcutHandler)
+        $(document).on('keydown', this.keyboardShortcutHandler)
 
         this.player.on('mousemove', this.hideMouseTimeout)
         this.player.on('mouseleave', this.removeMouseTimeout)
@@ -265,6 +257,11 @@ export default Vue.extend({
 
         this.player.on('ready', function () {
           v.$emit('ready')
+          if (this.captionList.length > 0) {
+            this.player.caption({
+              data: this.captionList
+            })
+          }
         })
 
         this.player.on('ended', function () {
