@@ -3,13 +3,14 @@ Locale Name: 'Italiano'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Questa parte dell'app è ancora in sviluppo. Torna quando i lavori saranno ultimati.
+  Questa parte dell'app è ancora in fase di sviluppo. Ritorna quando i lavori saranno
+  ultimati.
 
 # Webkit Menu Bar
 File: 'File'
 Quit: 'Chiudi'
 Edit: 'Modifica'
-Undo: 'Indietro'
+Undo: 'Annulla'
 Redo: 'Ripeti'
 Cut: 'Taglia'
 Copy: 'Copia'
@@ -17,11 +18,11 @@ Paste: 'Incolla'
 Delete: 'Elimina'
 Select all: 'Seleziona tutto'
 Reload: 'Ricarica'
-Force Reload: 'Forza Ricarica'
-Toggle Developer Tools: 'Abilita Strumenti Sviluppatore'
-Actual size: 'Grandezza attuale'
-Zoom in: 'Ingrandire'
-Zoom out: 'Ridurre lo zoom'
+Force Reload: 'Forza Ricaricamento'
+Toggle Developer Tools: 'Abilita / Disattiva Strumenti Sviluppatore'
+Actual size: 'Grandezza effettiva'
+Zoom in: 'Ingrandisci'
+Zoom out: 'Rimpicciolisci'
 Toggle fullscreen: 'Mostra a schermo intero'
 Window: 'Finestra'
 Minimize: 'Minimizza'
@@ -39,7 +40,7 @@ Search Filters:
     Most Relevant: 'Più Rilevante'
     Rating: 'Valutazione'
     Upload Date: 'Data di Caricamento'
-    View Count: 'Conteggio Visualizzazioni'
+    View Count: 'Visualizzazioni'
   Time:
     Time: 'Tempo'
     Any Time: 'Sempre'
@@ -47,7 +48,7 @@ Search Filters:
     Today: 'Oggi'
     This Week: 'Questa Settimana'
     This Month: 'Questo Mese'
-    This Year: 'Quest'' anno'
+    This Year: 'Quest’anno'
   Type:
     Type: 'Tipologia'
     All Types: 'Tutti i Tipi'
@@ -69,10 +70,10 @@ Subscriptions:
   Subscriptions: 'Iscrizioni'
   Latest Subscriptions: 'Ultime Iscrizioni'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'La
-    lista delle tue iscrizioni è vuota. Inizia aggiungendo iscrizioni per visualizzarle
+    lista delle tue iscrizioni è vuota. Aggiungi delle iscrizioni per visualizzarle
     qui.'
   'Getting Subscriptions.  Please wait.': 'Caricamento Iscrizioni. Attendi.'
-  Refresh Subscriptions: Ricarica le sottoscrizioni
+  Refresh Subscriptions: Ricarica le Iscrizioni
   'Getting Subscriptions. Please wait.': Scaricamento delle iscrizioni. Prego attendere.
 Trending: 'Tendenze'
 Most Popular: 'Popolari'
@@ -106,7 +107,7 @@ Settings:
       Thumbnail Preference: 'Preferenze Miniatura'
       Default: 'Default'
       Beginning: 'Inizio'
-      Middle: 'Centrato'
+      Middle: 'Nel mezzo'
       End: 'Fine'
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Istanza Invidious
       (La predefinita è https://invidious.snopyta.org)'
@@ -183,8 +184,8 @@ Settings:
       cancellare l''intera cronologia di visualizzazione?'
     Watch history has been cleared: 'La cronologia di visualizzazioni è stata pulita'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Sei
-      sicuro di volere eliminare tutte le iscrizioni e profili? L'operazione è definitiva
-      e non può essere annullata.
+      sicuro di volere eliminare tutte le iscrizioni e profili? L'operazione non può
+      essere annullata.
     Remove All Subscriptions / Profiles: Elimina Tutte le Iscrizioni / Profili
   Subscription Settings:
     Subscription Settings: 'Impostazioni Iscrizioni'
@@ -241,16 +242,17 @@ Settings:
     Subscriptions have been successfully exported: Tutte le iscrizioni sono state
       esportate con successo
     Invalid history file: File cronologia non valido
-    This might take a while, please wait: Potrebbe richiedere del tempo, prego attendere
+    This might take a while, please wait: Questa operazione potrebbe richiedere del
+      tempo. Prego attendere
     Invalid subscriptions file: File iscrizioni non valido
     One or more subscriptions were unable to be imported: Una o più iscrizioni non
-      possono essere importate
+      sono state importate
     All subscriptions have been successfully imported: Tutte le iscrizioni sono state
       importate con successo
     All subscriptions and profiles have been successfully imported: Tutte le iscrizioni
       e i profili sono stati importati con successo
     Profile object has insufficient data, skipping item: Il profilo selezionato ha
-      dati insufficienti, non verrà elaborato
+      dati insufficienti, quindi non sarà elaborato
     Export History: Esporta la Cronologia
     Import History: Importa la Cronologia
     Export NewPipe: Esporta per NewPipe
@@ -268,26 +270,26 @@ About:
   About: 'Informazioni'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Questo
-    software [copylefted] è sotto licenza gratuita AGPL-3.0.'
+    software in permesso d''autore è sotto licenza gratuita AGPL-3.0.'
 
   'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
     Hai trovato un problema? Vuoi suggerire nuove funzionalità? Vuoi dare una mano?
-    Controlla la nostra pagina GitHub. Le pull request sono benvenue.
+    Controlla la nostra pagina GitHub. Accettiamo volentieri pull request.
 
   Thank you very much to the People and Projects that make FreeTube possible!: 'Grazie
-    mille alle Persone e ai Progetti che rendono FreeTube possibile!'
+    mille alle persone e ai progetti che rendono FreeTube possibile!'
 
   'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'Vuoi
-    chattare? Entra nel nostro Server Element / Matrix. Controlla le regole prima
-    di entrare.'
+    chattare? Entra nel nostro server Element / Matrix. Per favore, leggi il regolamento
+    prima di entrare.'
 
-  'Looking for help? Check out our Wiki page.': 'Cerchi aiuto? Dai un occhiata alla
+  'Looking for help? Check out our Wiki page.': 'Cerchi aiuto? Da’ un’occhiata alla
     nostra pagina Wiki.'
 
-  Check out our Firefox extension!: 'Dai un occhiata alla nostra estensione Firefox!'
+  Check out our Firefox extension!: 'Da’ un’occhiata alla nostra estensione Firefox!'
 
   'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'Se
-    ti piace FreeTube, considera la possibilità di donare con Liberapay o sul nostro
+    ti piace FreeTube, prendi in considerazione di donare con Liberapay o al nostro
     indirizzo Bitcoin.'
 
   #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
