@@ -110,6 +110,8 @@ Settings:
       (الافتراضية هي https://invidious.snopyta.org)'
     Region for Trending: 'المنطقة للأكثر شيوعاً'
         #! List countries
+    Check for Latest Blog Posts: تحقق من أحدث منشورات المدونة
+    Check for Updates: تحقّق من وجود تحديثات
   Theme Settings:
     Theme Settings: 'إعدادات السِمة'
     Match Top Bar with Main Color: 'طابق الشريط العلوي مع اللون الأساسي'
@@ -487,6 +489,7 @@ Comments:
   Reply: 'ردّ'
   There are no comments available for this video: 'لا يتوفر تعليقات لهذا الفيديو'
   Load More Comments: 'تحميل المزيد من التعليقات'
+  There are no more comments for this video: لا يوجد المزيد من التعليقات لهذا الفيديو
 Up Next: 'التالي'
 
 # Toast Messages
@@ -510,3 +513,8 @@ Canceled next video autoplay: 'تم إلغاء التشغيل التلقائي �
 Yes: 'نعم'
 No: 'لا'
 The playlist has been reversed: تم عكس قائمة التشغيل
+A new blog is now available, $. Click to view more: مدوّنة جديدة متاحة الآن، $. انقر
+  لعرض المزيد
+Download From Site: تنزيل من الموقع
+Version $ is now available!  Click for more details: الإصدار $ متاح الآن! انقر للحصول
+  على المزيد من التفاصيل
