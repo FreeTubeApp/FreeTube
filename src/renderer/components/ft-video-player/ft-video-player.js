@@ -50,6 +50,7 @@ export default Vue.extend({
       player: null,
       useDash: false,
       useHls: false,
+      selectedDefaultQuality: '',
       activeSourceList: [],
       mouseTimeout: null,
       dataSetup: {
@@ -110,80 +111,6 @@ export default Vue.extend({
 
     autoplayVideos: function () {
       return this.$store.getters.getAutoplayVideos
-    },
-
-    selectedDefaultQuality: function () {
-      let selectedQuality = ''
-
-      if (this.sourceList.length === 0) {
-        return ''
-      }
-
-      if (typeof (this.sourceList[0].qualityLabel) === 'number') {
-        return ''
-      }
-
-      const maxAvailableQuality = parseInt(this.sourceList[this.sourceList.length - 1].qualityLabel.replace(/p|k/, ''))
-
-      switch (maxAvailableQuality) {
-        case 4:
-          if (this.defaultQuality >= 2160) {
-            return '4k'
-          }
-          break
-        case 8:
-          if (this.defaultQuality >= 4320) {
-            return '8k'
-          }
-          break
-        case 144:
-          if (this.defaultQuality >= 144) {
-            return '144p'
-          }
-          break
-        case 240:
-          if (this.defaultQuality >= 240) {
-            return '240p'
-          }
-          break
-        case 360:
-          if (this.defaultQuality >= 360) {
-            return '360p'
-          }
-          break
-        case 480:
-          if (this.defaultQuality >= 480) {
-            return '480p'
-          }
-          break
-        case 720:
-          if (this.defaultQuality >= 720) {
-            return '720p'
-          }
-          break
-        case 1080:
-          if (this.defaultQuality >= 1080) {
-            return '1080p'
-          }
-          break
-        case 1440:
-          if (this.defaultQuality >= 1440) {
-            return '1440p'
-          }
-          break
-        default:
-          return maxAvailableQuality + 'p'
-      }
-
-      this.activeSourceList.forEach((source) => {
-        if (typeof (source.qualityLabel) !== 'undefined') {
-          if (this.determineDefaultQuality(source.qualityLabel)) {
-            selectedQuality = source.qualityLabel
-          }
-        }
-      })
-
-      return selectedQuality
     }
   },
   watch: {
@@ -215,11 +142,12 @@ export default Vue.extend({
     }
   },
   methods: {
-    initializePlayer: function () {
+    initializePlayer: async function () {
       const videoPlayer = document.getElementById(this.id)
       if (videoPlayer !== null) {
         if (!this.useDash) {
           qualitySelector(videojs, { showQualitySelectionLabelInControlBar: true })
+          await this.determineDefaultQuality()
         }
 
         this.player = videojs(videoPlayer)
@@ -227,10 +155,12 @@ export default Vue.extend({
         this.player.volume(this.volume)
         this.player.playbackRate(this.defaultPlayback)
 
-        this.player.vttThumbnails({
-          src: this.storyboardSrc,
-          showTimestamp: true
-        })
+        if (this.storyboardSrc !== '') {
+          this.player.vttThumbnails({
+            src: this.storyboardSrc,
+            showTimestamp: true
+          })
+        }
 
         if (this.useDash) {
           this.dataSetup.plugins.httpSourceSelector = {
@@ -284,26 +214,60 @@ export default Vue.extend({
 
     determineDefaultQuality: function (label) {
       if (this.useDash) {
-        return false
+        return
       }
 
-      if (label.includes('p')) {
-        const selectedQuality = parseInt(label.replace('p', ''))
-        return this.defaultQuality === selectedQuality
-      } else if (label.includes('k')) {
-        const hdQuality = parseInt(label.replace('k', ''))
+      if (this.sourceList.length === 0) {
+        return ''
+      }
 
-        switch (hdQuality) {
-          case 4:
-            return this.defaultQuality === 2160
-          case 8:
-            return this.defaultQuality === 4320
-          default:
-            return false
+      if (typeof (this.sourceList[0].qualityLabel) === 'number') {
+        return ''
+      }
+
+      let maxAvailableQuality = parseInt(this.sourceList[this.sourceList.length - 1].qualityLabel.replace(/p|k/, ''))
+
+      if (maxAvailableQuality === 4) {
+        maxAvailableQuality = 2160
+      }
+
+      if (maxAvailableQuality === 8) {
+        maxAvailableQuality = 4320
+      }
+
+      if (maxAvailableQuality < this.defaultQuality) {
+        this.selectedDefaultQuality = this.sourceList[this.sourceList.length - 1].qualityLabel
+      }
+
+      const reversedList = [].concat(this.sourceList).reverse()
+
+      reversedList.forEach((source, index) => {
+        let qualityNumber = parseInt(source.qualityLabel.replace(/p|k/, ''))
+        if (qualityNumber === 4) {
+          qualityNumber = 2160
         }
-      } else {
-        console.log('Invalid label')
-        return false
+        if (qualityNumber === 8) {
+          qualityNumber = 4320
+        }
+
+        if (index < (this.sourceList.length - 1)) {
+          let upperQualityNumber = parseInt(reversedList[index + 1].qualityLabel.replace(/p|k/, ''))
+          if (upperQualityNumber === 4) {
+            upperQualityNumber = 2160
+          }
+          if (upperQualityNumber === 8) {
+            upperQualityNumber = 4320
+          }
+          if (this.defaultQuality >= qualityNumber && this.defaultQuality < upperQualityNumber) {
+            this.selectedDefaultQuality = source.qualityLabel
+          }
+        } else if (qualityNumber === this.defaultQuality) {
+          this.selectedDefaultQuality = source.qualityLabel
+        }
+      })
+
+      if (this.selectedDefaultQuality === '') {
+        this.selectedDefaultQuality = this.sourceList[this.sourceList.length - 1].qualityLabel
       }
     },
 

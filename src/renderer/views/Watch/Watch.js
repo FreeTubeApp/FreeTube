@@ -273,7 +273,7 @@ export default Vue.extend({
               const qualityA = parseInt(a.qualityLabel.replace('p', ''))
               const qualityB = parseInt(b.qualityLabel.replace('p', ''))
               return qualityA - qualityB
-            })
+            }).reverse()
 
             if (this.videoSourceList.length === 0) {
               this.activeSourceList = result.player_response.streamingData.formats
@@ -285,7 +285,7 @@ export default Vue.extend({
             this.upcomingTimestamp = upcomingTimestamp.toLocaleString()
           } else {
             this.videoLengthSeconds = parseInt(result.videoDetails.lengthSeconds)
-            this.videoSourceList = result.player_response.streamingData.formats
+            this.videoSourceList = result.player_response.streamingData.formats.reverse()
 
             if (typeof result.player_response.streamingData.adaptiveFormats !== 'undefined') {
               this.dashSrc = await this.createLocalDashManifest(result.player_response.streamingData.adaptiveFormats)

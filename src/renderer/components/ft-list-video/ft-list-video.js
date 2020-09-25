@@ -208,6 +208,10 @@ export default Vue.extend({
       if (typeof lengthSeconds === 'string') {
         return lengthSeconds
       }
+
+      if (typeof lengthSeconds === 'undefined') {
+        return '0:00'
+      }
       let durationText = ''
       let time = lengthSeconds
       let hours = 0
