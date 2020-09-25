@@ -1,17 +1,19 @@
 # Put the name of your locale in the same language
-Locale Name: ''
-FreeTube: ''
+Locale Name: 'Ελληνικά'
+FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >
+'This part of the app is not ready yet. Come back later when progress has been made.': >-
+  Αυτό το μέρος της εφαρμογής δεν είναι ακόμη έτοιμο. Επιστρέψτε αργότερα όταν έχει
+  σημειωθεί πρόοδος.
 
 # Webkit Menu Bar
-File: ''
-Quit: ''
-Edit: ''
+File: 'αρχείο'
+Quit: 'εγκαταλείψει'
+Edit: 'Επεξεργασία'
 Undo: ''
 Redo: ''
-Cut: ''
-Copy: ''
+Cut: 'κόψιμο'
+Copy: 'αντιγραφή'
 Paste: ''
 Delete: ''
 Select all: ''
