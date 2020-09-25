@@ -43,11 +43,18 @@
               class="premiereIcon"
             />
             <p
+              v-if="upcomingTimestamp !== null"
               class="premiereText"
             >
               Premieres on:
               <br>
               {{ upcomingTimestamp }}
+            </p>
+            <p
+              v-else
+              class="premiereText"
+            >
+              {{ $t("Video.Starting soon, please refresh the page to check again") }}
             </p>
           </div>
         </div>

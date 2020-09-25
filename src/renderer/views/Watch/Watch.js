@@ -281,8 +281,14 @@ export default Vue.extend({
               this.activeSourceList = this.videoSourceList
             }
           } else if (this.isUpcoming) {
-            const upcomingTimestamp = new Date(result.videoDetails.liveBroadcastDetails.startTimestamp)
-            this.upcomingTimestamp = upcomingTimestamp.toLocaleString()
+            const startTimestamp = result.videoDetails.liveBroadcastDetails.startTimestamp
+
+            if (typeof startTimestamp !== 'undefined') {
+              const upcomingTimestamp = new Date(result.videoDetails.liveBroadcastDetails.startTimestamp)
+              this.upcomingTimestamp = upcomingTimestamp.toLocaleString()
+            } else {
+              this.upcomingTimestamp = null
+            }
           } else {
             this.videoLengthSeconds = parseInt(result.videoDetails.lengthSeconds)
             this.videoSourceList = result.player_response.streamingData.formats.reverse()
@@ -672,7 +678,7 @@ export default Vue.extend({
     handleRouteChange: function () {
       clearTimeout(this.playNextTimeout)
 
-      if (this.rememberHistory && !this.isLoading && !this.isLive) {
+      if (this.rememberHistory && !this.isUpcoming && !this.isLoading && !this.isLive) {
         const player = this.$refs.videoPlayer.player
 
         if (player !== null && this.saveWatchedProgress) {
