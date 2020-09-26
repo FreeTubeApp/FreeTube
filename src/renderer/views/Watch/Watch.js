@@ -214,7 +214,7 @@ export default Vue.extend({
           })
           this.videoLikeCount = result.videoDetails.likes
           this.videoDislikeCount = result.videoDetails.dislikes
-          this.isLive = result.player_response.videoDetails.isLiveContent
+          this.isLive = result.player_response.videoDetails.isLiveContent || result.player_response.videoDetails.isLive
           this.isUpcoming = result.player_response.videoDetails.isUpcoming ? result.player_response.videoDetails.isUpcoming : false
 
           if (!this.isLive && !this.isUpcoming) {
