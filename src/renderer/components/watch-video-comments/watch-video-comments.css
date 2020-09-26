@@ -48,6 +48,7 @@
 .commentDate {
   font-weight: normal;
   margin-left: 5px;
+  font-size: 12px;
 }
 
 .commentLikeCount {
@@ -58,8 +59,7 @@
 
 .commentMoreReplies {
   font-size: 11px;
-  margin-left: 120px;
-  margin-top: -25px;
+  margin-left: 5px;
   text-decoration: underline;
   cursor: pointer;
   color: var(--title-color);
