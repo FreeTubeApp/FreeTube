@@ -327,10 +327,7 @@ export default Vue.extend({
             }
           }
 
-          // TODO: Remove before release
-          setTimeout(() => {
-            this.isLoading = false
-          }, 400)
+          this.isLoading = false
         })
         .catch(err => {
           const errorMessage = this.$t('Local API Error (Click to copy)')
