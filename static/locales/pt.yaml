@@ -29,7 +29,7 @@ Back: 'Retroceder'
 Forward: 'Avançar'
 
 Version $ is now available!  Click for more details: 'Versão $ está agora disponível!
-  Clique aqui para ver mais detalhes.'
+  Clique aqui para ver mais detalhes'
 Download From Site: 'Descarregar Do Site'
 A new blog is now available, $. Click to view more: 'Um novo blogue está disponível,
   $. Clique para ver mais'
@@ -431,6 +431,8 @@ Video:
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Há $ %'
 #& Videos
+  Starting soon, please refresh the page to check again: A começar em breve, por favor
+    atualize a página para verificar novamente
 Videos:
   #& Sort By
   Sort By:
@@ -494,6 +496,7 @@ Comments:
   Reply: 'Resposta'
   There are no comments available for this video: 'Este vídeo não contém nenhum comentário'
   Load More Comments: 'Carregar Mais Comentários'
+  There are no more comments for this video: Não há mais comentários para este video
 Up Next: 'A Seguir'
 
 # Toast Messages
