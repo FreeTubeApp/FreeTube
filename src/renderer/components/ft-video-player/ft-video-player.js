@@ -102,7 +102,7 @@ export default Vue.extend({
     },
 
     defaultQuality: function () {
-      return this.$store.getters.getDefaultQuality
+      return parseInt(this.$store.getters.getDefaultQuality)
     },
 
     defaultVideoFormat: function () {
@@ -212,7 +212,7 @@ export default Vue.extend({
       }
     },
 
-    determineDefaultQuality: function (label) {
+    determineDefaultQuality: function () {
       if (this.useDash) {
         return
       }
@@ -248,6 +248,10 @@ export default Vue.extend({
         }
         if (qualityNumber === 8) {
           qualityNumber = 4320
+        }
+
+        if (this.defaultQuality === qualityNumber) {
+          this.selectedDefaultQuality = source.qualityLabel
         }
 
         if (index < (this.sourceList.length - 1)) {
