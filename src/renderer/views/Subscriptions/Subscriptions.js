@@ -156,15 +156,15 @@ export default Vue.extend({
 
         if (!this.usingElectron || this.backendPreference === 'invidious') {
           if (this.useRssFeeds) {
-            videos = await this.getChannelVideosInvidiousRSS(channel.id)
+            videos = await this.getChannelVideosInvidiousRSS(channel)
           } else {
-            videos = await this.getChannelVideosInvidiousScraper(channel.id)
+            videos = await this.getChannelVideosInvidiousScraper(channel)
           }
         } else {
           if (this.useRssFeeds) {
-            videos = await this.getChannelVideosLocalRSS(channel.id)
+            videos = await this.getChannelVideosLocalRSS(channel)
           } else {
-            videos = await this.getChannelVideosLocalScraper(channel.id)
+            videos = await this.getChannelVideosLocalScraper(channel)
           }
         }
 
@@ -205,9 +205,9 @@ export default Vue.extend({
       })
     },
 
-    getChannelVideosLocalScraper: function (channelId, failedAttempts = 0) {
+    getChannelVideosLocalScraper: function (channel, failedAttempts = 0) {
       return new Promise((resolve, reject) => {
-        ytch.getChannelVideos(channelId, 'latest').then(async (response) => {
+        ytch.getChannelVideos(channel.id, 'latest').then(async (response) => {
           const videos = await Promise.all(response.items.map(async (video) => {
             if (video.liveNow) {
               video.publishedDate = new Date().getTime()
@@ -230,20 +230,20 @@ export default Vue.extend({
           })
           switch (failedAttempts) {
             case 0:
-              resolve(this.getChannelVideosLocalRSS(channelId, failedAttempts + 1))
+              resolve(this.getChannelVideosLocalRSS(channel, failedAttempts + 1))
               break
             case 1:
               if (this.backendFallback) {
                 this.showToast({
-                  message: this.$t('Falling back to the Invidious API')
+                  message: this.$t('Falling back to Invidious API')
                 })
-                resolve(this.getChannelVideosInvidiousScraper(channelId, failedAttempts + 1))
+                resolve(this.getChannelVideosInvidiousScraper(channel, failedAttempts + 1))
               } else {
                 resolve([])
               }
               break
             case 2:
-              resolve(this.getChannelVideosLocalRSS(channelId, failedAttempts + 1))
+              resolve(this.getChannelVideosLocalRSS(channel, failedAttempts + 1))
               break
             default:
               resolve([])
@@ -252,14 +252,14 @@ export default Vue.extend({
       })
     },
 
-    getChannelVideosLocalRSS: function (channelId, failedAttempts = 0) {
+    getChannelVideosLocalRSS: function (channel, failedAttempts = 0) {
       return new Promise((resolve, reject) => {
         const parser = new Parser()
-        const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`
+        const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channel.id}`
 
         parser.parseURL(feedUrl).then(async (feed) => {
           const items = await Promise.all(feed.items.map((video) => {
-            video.authorId = channelId
+            video.authorId = channel.id
             video.videoId = video.id.replace('yt:video:', '')
             video.type = 'video'
             video.lengthSeconds = '0:00'
@@ -289,20 +289,20 @@ export default Vue.extend({
           })
           switch (failedAttempts) {
             case 0:
-              resolve(this.getChannelVideosLocalScraper(channelId, failedAttempts + 1))
+              resolve(this.getChannelVideosLocalScraper(channel, failedAttempts + 1))
               break
             case 1:
               if (this.backendFallback) {
                 this.showToast({
-                  message: this.$t('Falling back to the Invidious API')
+                  message: this.$t('Falling back to Invidious API')
                 })
-                resolve(this.getChannelVideosInvidiousRSS(channelId, failedAttempts + 1))
+                resolve(this.getChannelVideosInvidiousRSS(channel, failedAttempts + 1))
               } else {
                 resolve([])
               }
               break
             case 2:
-              resolve(this.getChannelVideosLocalScraper(channelId, failedAttempts + 1))
+              resolve(this.getChannelVideosLocalScraper(channel, failedAttempts + 1))
               break
             default:
               resolve([])
@@ -311,11 +311,11 @@ export default Vue.extend({
       })
     },
 
-    getChannelVideosInvidiousScraper: function (channelId, failedAttempts = 0) {
+    getChannelVideosInvidiousScraper: function (channel, failedAttempts = 0) {
       return new Promise((resolve, reject) => {
         const subscriptionsPayload = {
           resource: 'channels/latest',
-          id: channelId,
+          id: channel.id,
           params: {}
         }
 
@@ -336,20 +336,20 @@ export default Vue.extend({
           })
           switch (failedAttempts) {
             case 0:
-              resolve(this.getChannelVideosInvidiousRSS(channelId, failedAttempts + 1))
+              resolve(this.getChannelVideosInvidiousRSS(channel, failedAttempts + 1))
               break
             case 1:
               if (this.backendFallback) {
                 this.showToast({
                   message: this.$t('Falling back to the local API')
                 })
-                resolve(this.getChannelVideosLocalScraper(channelId, failedAttempts + 1))
+                resolve(this.getChannelVideosLocalScraper(channel, failedAttempts + 1))
               } else {
                 resolve([])
               }
               break
             case 2:
-              resolve(this.getChannelVideosInvidiousRSS(channelId, failedAttempts + 1))
+              resolve(this.getChannelVideosInvidiousRSS(channel, failedAttempts + 1))
               break
             default:
               resolve([])
@@ -358,14 +358,14 @@ export default Vue.extend({
       })
     },
 
-    getChannelVideosInvidiousRSS: function (channelId, failedAttempts = 0) {
+    getChannelVideosInvidiousRSS: function (channel, failedAttempts = 0) {
       return new Promise((resolve, reject) => {
         const parser = new Parser()
-        const feedUrl = `${this.invidiousInstance}/feed/channel/${channelId}`
+        const feedUrl = `${this.invidiousInstance}/feed/channel/${channel.id}`
 
         parser.parseURL(feedUrl).then(async (feed) => {
           resolve(await Promise.all(feed.items.map((video) => {
-            video.authorId = channelId
+            video.authorId = channel.id
             video.videoId = video.id.replace('yt:video:', '')
             video.type = 'video'
             video.publishedDate = new Date(video.pubDate)
@@ -387,20 +387,20 @@ export default Vue.extend({
           })
           switch (failedAttempts) {
             case 0:
-              resolve(this.getChannelVideosInvidiousScraper(channelId, failedAttempts + 1))
+              resolve(this.getChannelVideosInvidiousScraper(channel, failedAttempts + 1))
               break
             case 1:
               if (this.backendFallback) {
                 this.showToast({
                   message: this.$t('Falling back to the local API')
                 })
-                resolve(this.getChannelVideosLocalRSS(channelId, failedAttempts + 1))
+                resolve(this.getChannelVideosLocalRSS(channel, failedAttempts + 1))
               } else {
                 resolve([])
               }
               break
             case 2:
-              resolve(this.getChannelVideosInvidiousScraper(channelId, failedAttempts + 1))
+              resolve(this.getChannelVideosInvidiousScraper(channel, failedAttempts + 1))
               break
             default:
               resolve([])
