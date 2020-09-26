@@ -147,7 +147,7 @@ export default Vue.extend({
       if (videoPlayer !== null) {
         if (!this.useDash) {
           qualitySelector(videojs, { showQualitySelectionLabelInControlBar: true })
-          await this.determineDefaultQuality()
+          await this.determineDefaultQualityLegacy()
         }
 
         this.player = videojs(videoPlayer)
@@ -168,6 +168,9 @@ export default Vue.extend({
           }
 
           this.player.httpSourceSelector()
+          setTimeout(() => {
+            this.determineDefaultQualityDash()
+          }, 400)
         }
 
         if (this.autoplayVideos) {
@@ -212,7 +215,7 @@ export default Vue.extend({
       }
     },
 
-    determineDefaultQuality: function () {
+    determineDefaultQualityLegacy: function () {
       if (this.useDash) {
         return
       }
@@ -225,6 +228,12 @@ export default Vue.extend({
         return ''
       }
 
+      let defaultQuality = this.defaultQuality
+
+      if (defaultQuality === 'auto') {
+        defaultQuality = 720
+      }
+
       let maxAvailableQuality = parseInt(this.sourceList[this.sourceList.length - 1].qualityLabel.replace(/p|k/, ''))
 
       if (maxAvailableQuality === 4) {
@@ -235,7 +244,7 @@ export default Vue.extend({
         maxAvailableQuality = 4320
       }
 
-      if (maxAvailableQuality < this.defaultQuality) {
+      if (maxAvailableQuality < defaultQuality) {
         this.selectedDefaultQuality = this.sourceList[this.sourceList.length - 1].qualityLabel
       }
 
@@ -250,7 +259,7 @@ export default Vue.extend({
           qualityNumber = 4320
         }
 
-        if (this.defaultQuality === qualityNumber) {
+        if (defaultQuality === qualityNumber) {
           this.selectedDefaultQuality = source.qualityLabel
         }
 
@@ -262,10 +271,10 @@ export default Vue.extend({
           if (upperQualityNumber === 8) {
             upperQualityNumber = 4320
           }
-          if (this.defaultQuality >= qualityNumber && this.defaultQuality < upperQualityNumber) {
+          if (defaultQuality >= qualityNumber && defaultQuality < upperQualityNumber) {
             this.selectedDefaultQuality = source.qualityLabel
           }
-        } else if (qualityNumber === this.defaultQuality) {
+        } else if (qualityNumber <= defaultQuality) {
           this.selectedDefaultQuality = source.qualityLabel
         }
       })
@@ -273,6 +282,45 @@ export default Vue.extend({
       if (this.selectedDefaultQuality === '') {
         this.selectedDefaultQuality = this.sourceList[this.sourceList.length - 1].qualityLabel
       }
+    },
+
+    determineDefaultQualityDash: function () {
+      if (this.defaultQuality === 'auto') {
+        return
+      }
+
+      this.player.qualityLevels().levels_.sort((a, b) => {
+        return a.height - b.height
+      }).forEach((ql, index, arr) => {
+        const height = ql.height
+        const width = ql.width
+        const quality = width < height ? width : height
+        let upperLevel = null
+
+        if (index < arr.length - 1) {
+          upperLevel = arr[index + 1]
+        }
+
+        if (this.defaultQuality === quality) {
+          ql.enabled = true
+        } else if (upperLevel !== null) {
+          const upperHeight = upperLevel.height
+          const upperWidth = upperLevel.width
+          const upperQuality = upperWidth < upperHeight ? upperWidth : upperHeight
+
+          if (this.defaultQuality >= quality && this.defaultQuality < upperQuality) {
+            ql.enabled = true
+          } else {
+            ql.enabled = false
+          }
+        } else if (index === 0 && quality > this.defaultQuality) {
+          ql.enabled = true
+        } else if (index === (arr.length - 1) && quality < this.defaultQuality) {
+          ql.enabled = true
+        } else {
+          ql.enabled = false
+        }
+      })
     },
 
     enableDashFormat: function () {
