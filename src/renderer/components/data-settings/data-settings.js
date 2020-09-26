@@ -171,8 +171,8 @@ export default Vue.extend({
                 const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
                 // filter out subscriptions that already exist before concatenating
                 profileObject.subscriptions = profileObject.subscriptions.filter(newSub => {
-                  const existingSub = primaryProfile.subscriptions.find(existingSub => existingSub.id === newSub.id)
-                  return !existingSub // return false if sub already exists in default profile
+                  const subExists = primaryProfile.subscriptions.find(existingSub => existingSub.id === newSub.id)
+                  return !subExists // return false if sub already exists in default profile
                 })
                 primaryProfile.subscriptions = primaryProfile.subscriptions.concat(profileObject.subscriptions)
                 this.updateProfile(primaryProfile)
@@ -265,7 +265,13 @@ export default Vue.extend({
                   thumbnail: channelInfo.authorThumbnails[1].url
                 }
 
-                subscriptions.push(subscription)
+                const subExists = primaryProfile.subscriptions.findIndex((sub) => {
+                  return sub.id === subscription.id || sub.name === subscription.name
+                })
+
+                if (subExists === -1) {
+                  subscriptions.push(subscription)
+                }
               }
 
               count++
@@ -362,7 +368,13 @@ export default Vue.extend({
                 thumbnail: channelInfo.authorThumbnails[1].url
               }
 
-              subscriptions.push(subscription)
+              const subExists = primaryProfile.subscriptions.findIndex((sub) => {
+                return sub.id === subscription.id || sub.name === subscription.name
+              })
+
+              if (subExists === -1) {
+                subscriptions.push(subscription)
+              }
             }
 
             count++
