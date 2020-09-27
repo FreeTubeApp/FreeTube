@@ -21,7 +21,7 @@ Toggle Developer Tools: 'Włącz/wyłącz narzędzia deweloperskie'
 Actual size: 'Rzeczywisty rozmiar'
 Zoom in: 'Powiększ'
 Zoom out: 'Zmniejsz'
-Toggle fullscreen: 'Włącz/wyłacz tryb pełnoekranowy'
+Toggle fullscreen: 'Włącz/wyłącz tryb pełnoekranowy'
 Window: 'Okno'
 Minimize: 'Zminimalizuj'
 Close: 'Zamknij'
@@ -38,7 +38,7 @@ Search Filters:
     Most Relevant: 'Trafność'
     Rating: 'Ocena'
     Upload Date: 'Data przesłania'
-    View Count: 'Liczba wyświetleń'
+    View Count: 'Liczba obejrzeń'
   Time:
     Time: 'Czas przesłania'
     Any Time: 'Kiedykolwiek'
@@ -60,7 +60,7 @@ Search Filters:
     Long (> 20 minutes): 'Długie (> 20 minut)'
   # On Search Page
   Search Results: 'Wyniki wyszukiwania'
-  Fetching results. Please wait: 'Szukanie. Proszę czekać'
+  Fetching results. Please wait: 'Szukanie. Proszę poczekać'
   Fetch more results: 'Pokaż więcej wyników'
 # Sidebar
 Subscriptions:
@@ -198,32 +198,32 @@ Settings:
     Clear History:
       Clear History: 'Wyczyść historię'
       # On Click
-      Are you sure you want to delete your history?: 'Czy jesteś pewny, że chcesz
+      Are you sure you want to delete your history?: 'Czy jesteś pewny/a, że chcesz
         usunąć swoją historię?'
       #& Yes
       #& No
     Clear Subscriptions:
       Clear Subscriptions: 'Wyczyść subskrypcje'
       # On Click
-      Are you sure you want to remove all subscriptions?: 'Czy jesteś pewny, że chcesz
-        usunąć wszystkie subskrypcje?'
+      Are you sure you want to remove all subscriptions?: 'Czy jesteś pewny/a, że
+        chcesz usunąć wszystkie subskrypcje?'
       #& Yes
       #& No
 
   Privacy Settings:
     Watch history has been cleared: Historia oglądania została wyczyszczona
-    Are you sure you want to remove your entire watch history?: Jesteś pewny, że chcesz
-      usunąć całą historię oglądania?
+    Are you sure you want to remove your entire watch history?: Jesteś pewny/a, że
+      chcesz usunąć całą historię oglądania?
     Remove Watch History: Usuń historię oglądania
     Search cache has been cleared: Plik cache wyszukiwań został wyczyszczony
-    Are you sure you want to clear out your search cache?: Jesteś pewny, że chcesz
+    Are you sure you want to clear out your search cache?: Jesteś pewny/a, że chcesz
       wyczyścić plik cache wyszukiwań?
     Clear Search Cache: Wyczyść plik cache wyszukiwań
     Save Watched Progress: Zapisuj postęp odtwarzania
     Remember History: Pamiętaj historię
     Privacy Settings: Ustawienia prywatności
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Czy
-      jesteś pewien, że chcesz usunąć wszystkie subskrypcje i profile? Nie będzie
+      jesteś pewny/a, że chcesz usunąć wszystkie subskrypcje i profile? Nie będzie
       można tego cofnąć.
     Remove All Subscriptions / Profiles: Usuń wszystkie subskrypcje / profile
   Data Settings:
@@ -359,18 +359,18 @@ Video:
     na żywo nie wspiera obecnie API Invidious. Konieczne jest połączenie bezpośrednie
     z YouTube.'
   Published:
-    Jan: 'sty'
-    Feb: 'lut'
-    Mar: 'mar'
-    Apr: 'kwi'
+    Jan: 'sty.'
+    Feb: 'lut.'
+    Mar: 'mar.'
+    Apr: 'kwi.'
     May: 'maj'
-    Jun: 'cze'
-    Jul: 'lip'
-    Aug: 'sie'
-    Sep: 'wrz'
-    Oct: 'paź'
-    Nov: 'lis'
-    Dec: 'gru'
+    Jun: 'cze.'
+    Jul: 'lip.'
+    Aug: 'sie.'
+    Sep: 'wrz.'
+    Oct: 'paź.'
+    Nov: 'lis.'
+    Dec: 'gru.'
     Second: 'sekundę'
     Seconds: 'sekund/y'
     Hour: 'godzinę'
@@ -397,6 +397,8 @@ Video:
   Reverse Playlist: Odwróć playlistę
   Shuffle Playlist: Losuj z playlisty
   Loop Playlist: Zapętl playlistę
+  Starting soon, please refresh the page to check again: Wkrótce się zacznie, proszę
+    odświeżyć stronę , aby ponownie sprawdzić
 Videos:
   #& Sort By
   Sort By:
@@ -435,8 +437,8 @@ Share:
   Share Video: 'Podziel się filmem'
   Copy Link: 'Skopiuj link'
   Open Link: 'Otwórz link'
-  Copy Embed: 'Skopiuj bezp.'
-  Open Embed: 'Otwórz bezp.'
+  Copy Embed: 'Skopiuj bzpoś.'
+  Open Embed: 'Otwórz bzpoś.'
   # On Click
   Invidious URL copied to clipboard: 'Skopiowano URL Invidious do schowka'
   Invidious Embed URL copied to clipboard: 'Skopiowano URL odtwarzacza Invidious do
@@ -460,6 +462,7 @@ Comments:
   There are no comments available for this video: 'Nie ma żadnych komentarzy odnośnie
     tego filmu'
   Load More Comments: 'Pokaż więcej komentarzy'
+  There are no more comments for this video: Nie ma więcej komentarzy pod tym filmem
 Up Next: 'Następne w kolejce'
 
 # Toast Messages
@@ -475,7 +478,7 @@ Shuffle is now enabled: 'Losowanie jest teraz włączone'
 Playing Next Video: 'Odtwórz następny film'
 Playing Previous Video: 'Odtwórz poprzedni film'
 Playing next video in 5 seconds.  Click to cancel: 'Odtworzenie następnego filmu za
-  5 sekund. Kliknij aby anulować'
+  5 sekund. Kliknij aby anulować.'
 Canceled next video autoplay: 'Anulowano samoodtworzenie następnego filmu'
 'The playlist has ended.  Enable loop to continue playing': 'Playlista się zakończyła.
   Włącz zapętlanie by kontynuować odtwarzanie'
@@ -494,7 +497,7 @@ Profile:
   Your profile name cannot be empty: Nazwa profilu nie może być pusta
   Profile could not be found: Nie odnaleziono profilu
   All subscriptions will also be deleted.: Wszystkie subskrypcje również zostaną usunięte.
-  Are you sure you want to delete this profile?: Czy jesteś pewien, że chcesz usunąć
+  Are you sure you want to delete this profile?: Czy jesteś pewny/a, że chcesz usunąć
     ten profil?
   Delete Profile: Usuń profil
   Make Default Profile: Ustaw jako profil domyślny
@@ -509,11 +512,11 @@ Profile:
   All Channels: Wszystkie kanały
   Profile Select: Wybór profilu
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Czy
-    jesteś pewien, że chcesz usunąć wybrane kanały? Te kanały nie  zostaną usunięte
+    jesteś pewny/a, że chcesz usunąć wybrane kanały? Te kanały nie  zostaną usunięte
     w żadnym innym profilu.
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : To jest twój główny profil. Czy jesteś pewien, że chcesz usunąć wybrane kanały?
+  : To jest twój główny profil. Czy jesteś pewny/a, że chcesz usunąć wybrane kanały?
     Te kanały zostaną usunięte we wszystkich profilach, w których się znajdują.
   No channel(s) have been selected: Nie wybrano żadnego kanału
   Add Selected To Profile: Dodaj wybrane do profilu
