@@ -195,7 +195,7 @@ export default Vue.extend({
         filters: [
           {
             name: 'Database File',
-            extensions: ['*']
+            extensions: ['opml', 'xml']
           }
         ]
       }
@@ -219,6 +219,7 @@ export default Vue.extend({
           opmlToJson(data, async (err, json) => {
             if (err) {
               console.log(err)
+              console.log('error reading')
               const message = this.$t('Settings.Data Settings.Invalid subscriptions file')
               this.showToast({
                 message: `${message}: ${err}`
@@ -226,15 +227,19 @@ export default Vue.extend({
               return
             }
 
-            const feedData = json.children[0].children
+            let feedData = json.children[0].children
 
             if (typeof feedData === 'undefined') {
-              const message = this.$t('Settings.Data Settings.Invalid subscriptions file')
-              this.showToast({
-                message: message
-              })
+              if (json.title.includes('gPodder')) {
+                feedData = json.children
+              } else {
+                const message = this.$t('Settings.Data Settings.Invalid subscriptions file')
+                this.showToast({
+                  message: message
+                })
 
-              return
+                return
+              }
             }
 
             const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
