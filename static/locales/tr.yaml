@@ -2,7 +2,8 @@
 Locale Name: 'Türkçe'
 FreeTube: 'Freetube'
 # Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >
+'This part of the app is not ready yet. Come back later when progress has been made.': >-
+  Uygulamanın bu bölümü hala hazır değil. Geliştirme bitince geri gel.
 
 # Webkit Menu Bar
 File: 'Dosya'
@@ -46,7 +47,7 @@ Search Filters:
     Upload Date: 'Yükleme Tarihi'
     View Count: 'İzlenme Miktarı'
   Time:
-    Time: 'Tarih'
+    Time: 'Zaman'
     Any Time: 'Herhangi Bir Zaman'
     Last Hour: 'Son Bir Saat'
     Today: 'Bugün'
@@ -73,11 +74,12 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonelikler'
   Latest Subscriptions: 'En Yeni'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Abonelik
+    Listeniz Şu Anda Boş. Burada Görmek İçin Abone Olmaya Başlayın.'
   'Getting Subscriptions. Please wait.': 'Abonelikler Yükleniyor. Lütfen Bekleyin.'
   Refresh Subscriptions: 'Abonelikleri Yenile'
 Trending: 'Trendler'
-Most Popular: ''
+Most Popular: 'Popüler Olanlar'
 Playlists: 'Oynatma Listesi'
 User Playlists:
   Your Playlists: 'Oynatma Listelerin'
@@ -85,7 +87,7 @@ History:
   # On History Page
   History: 'Geçmiş'
   Watch History: 'İzleme Geçmişi'
-  Your history list is currently empty.: 'Geçmişin Şuan Boş :).'
+  Your history list is currently empty.: 'Geçmişin Şuan Boş.'
 Settings:
   # On Settings Page
   Settings: 'Ayarlar'
@@ -112,15 +114,15 @@ Settings:
       Beginning: 'Başlangıç'
       Middle: 'Orta'
       End: 'Bitiş'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious Instance
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious Oluşumu
       (Varsayılan https://invidious.snopyta.org)'
-    Region for Trending: 'Trendler İçin Ülke'
+    Region for Trending: 'Trendler İçin Ülke Tercihi'
         #! List countries
   Theme Settings:
     Theme Settings: 'Tema Ayarları'
     Match Top Bar with Main Color: 'Üst Barı Ana Renk ile Eşleştir'
     Base Theme:
-      Base Theme: 'Temel Tema'
+      Base Theme: 'Uygulama Teması'
       Black: 'Siyah'
       Dark: 'Koyu'
       Light: 'Aydınlık'
@@ -137,7 +139,7 @@ Settings:
       Teal: 'Deniz Mavisi'
       Green: 'Yeşil'
       Light Green: 'Açık Yeşil'
-      Lime: 'Lime'
+      Lime: 'Limon Yeşili'
       Yellow: 'Sarı'
       Amber: 'Kehribar Rengi'
       Orange: 'Turuncu'
@@ -146,20 +148,21 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: 'Oynatıcı Ayarları'
-    Force Local Backend for Legacy Formats: ''
+    Force Local Backend for Legacy Formats: 'Legacy Biçimler için Yerel Backend Kullanmaya
+      Zorla'
     Play Next Video: 'Sonraki Videoyu Oynat'
     Turn on Subtitles by Default: 'Altyazıyı Varsayılan Olarak Aç'
     Autoplay Videos: 'Videoları Otomatik Başlat'
     Proxy Videos Through Invidious: ''
-    Autoplay Playlists: ''
+    Autoplay Playlists: 'Oytma Listelerini Otomatik Başlat'
     Enable Theatre Mode by Default: 'Sinema Modunu Varsayılan Olarak Etkinleştir'
     Default Volume: 'Varsayılan Ses Düzeyi'
     Default Playback Rate: 'Varsayılan Oynatma Hızı'
     Default Video Format:
       Default Video Format: 'Varsayılan Video Formatı'
-      Dash Formats: ''
-      Legacy Formats: ''
-      Audio Formats: ''
+      Dash Formats: 'Dash Biçimi'
+      Legacy Formats: 'Legacy Biçimi'
+      Audio Formats: 'Ses Biçimi'
     Default Quality:
       Default Quality: 'Varsayılan Kalite'
       Auto: 'Otomatik'
@@ -186,14 +189,14 @@ Settings:
     Watch history has been cleared: 'İzleme Geçmişi Temizlendi'
     Remove All Subscriptions / Profiles: 'Tüm Abonelikler/Profilleri Temizle'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Tüm
-      Abonelikler/Profilleri Temizlemek İstediğinizden Emin Misiniz? Geri Alınamaz'
+      Abonelikler/Profilleri Temizlemek İstediğinizden Emin Misiniz?  Geri Alınamaz.'
   Subscription Settings:
     Subscription Settings: 'Abonelik Ayarları'
-    Hide Videos on Watch: ''
-    Fetch Feeds from RSS: ''
+    Hide Videos on Watch: 'İzlenmiş Videoları Gizle'
+    Fetch Feeds from RSS: 'Akışı RSS''den Getir'
     Manage Subscriptions: 'Abonelikleri Yönet'
   Data Settings:
-    Data Settings: 'Dosya Ayarları'
+    Data Settings: 'Veri Ayarları'
     Select Import Type: 'İçe Aktarma Türünü Seç'
     Select Export Type: 'Dışa Aktarma Türünü Seç'
     Import Subscriptions: 'Abonelikleri İçe Aktar'
@@ -206,37 +209,42 @@ Settings:
     Export NewPipe: 'NewPipe Biçiminde Dışa Aktar'
     Import History: 'Geçmişi İçe Aktar'
     Export History: 'Geçmişi Dışa Aktar'
-    Profile object has insufficient data, skipping item: ''
+    Profile object has insufficient data, skipping item: 'Profil Nesnesinde Yetersiz
+      Veri Var, Öğe Atlanıyor'
     All subscriptions and profiles have been successfully imported: 'Tüm Abonelikler
       ve Profiller Başarılı Bir Şekilde İçe Aktarıldı'
     All subscriptions have been successfully imported: 'Tüm Abonelikler Başarılı Bir
       Şekilde İçe Aktarıldı'
     One or more subscriptions were unable to be imported: 'Bir ya da Daha Fazla Abonelik
       İçe Aktarılamadı'
-    Invalid subscriptions file: ''
+    Invalid subscriptions file: 'Geçersiz Aboneler Dosyası'
     This might take a while, please wait: 'Biraz Uzun Sürebilir, Lütfen Bekleyin'
-    Invalid history file: ''
+    Invalid history file: 'Geçersiz Geçmiş Dosyası'
     Subscriptions have been successfully exported: 'Tüm Abonelikler Başarılı Bir Şekilde
       Dışa Aktarıldı'
-    History object has insufficient data, skipping item: ''
+    History object has insufficient data, skipping item: 'Geçmiş Nesnesinde Yetersiz
+      Veri Var, Öğe Atlanıyor'
     All watched history has been successfully imported: 'Tüm İzleme Geçmişi Başarılı
       Bir Şekilde İçe Aktarıldı'
     All watched history has been successfully exported: 'Tüm İzleme Geçmişi Başarılı
       Bir Şekilde Dışa Aktarıldı'
-    Unable to read file: ''
-    Unable to write file: ''
-    Unknown data key: ''
+    Unable to read file: 'Dosya Okunamadı'
+    Unable to write file: 'Dosya Yazılamadı'
+    Unknown data key: 'Bilinmeyen Veri Anahtarı'
     How do I import my subscriptions?: 'Aboneliklerimi Nasıl İçe Artarırım?'
   Advanced Settings:
     Advanced Settings: 'Gelişmiş Ayarlar'
-    Enable Debug Mode (Prints data to the console): ''
+    Enable Debug Mode (Prints data to the console): 'Hata Ayıklama Modunu Etkinleştir
+      (Veriyi Konsola Yazdırır)'
     'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Vekil Sunucu Adresi (Örneğin:
       SOCKS5://127.0.0.1:9050)'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': ''
-    Use Tor / Proxy for API calls: ''
-    TEST PROXY: ''
+    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': '"Vekil
+      Sunucuyu Test Et" Butonuna Tıklamak https://ipinfo.io/json Adresine bir Talep
+      Gönderecek'
+    Use Tor / Proxy for API calls: 'API çağrıları için Tor / Vekil Sunucu Kullan'
+    TEST PROXY: 'Vekil Sunucuyu Test Et'
     #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: ''
+    See Public Instances: 'Genel Oluşumları Gör'
     Clear History:
       Clear History: 'Geçmişi Temizle'
       # On Click
@@ -275,26 +283,27 @@ About:
   Latest FreeTube News: ''
 
 Profile:
-  Profile Select: ''
-  All Channels: ''
-  Profile Manager: ''
-  Create New Profile: ''
-  Edit Profile: ''
-  Color Picker: ''
-  Custom Color: ''
-  Profile Preview: ''
-  Create Profile: ''
-  Update Profile: ''
-  Make Default Profile: ''
-  Delete Profile: ''
-  Are you sure you want to delete this profile?: ''
-  All subscriptions will also be deleted.: ''
-  Profile could not be found: ''
-  Your profile name cannot be empty: ''
-  Profile has been created: ''
-  Profile has been updated: ''
-  Your default profile has been set to $: ''
-  Removed $ from your profiles: ''
+  Profile Select: 'Profil Seçimi'
+  All Channels: 'Tüm Kanallar'
+  Profile Manager: 'Profil Yöneticisi'
+  Create New Profile: 'Yeni Profil Oluştur'
+  Edit Profile: 'Profili Düzenle'
+  Color Picker: 'Renk Seçimi'
+  Custom Color: 'Özel Renk'
+  Profile Preview: 'Profil Önizleme'
+  Create Profile: 'Profil Oluştur'
+  Update Profile: 'Profili Güncelle'
+  Make Default Profile: 'Varsayılan Profil Yap'
+  Delete Profile: 'Profili Sil'
+  Are you sure you want to delete this profile?: 'Bu profili silmek istediğinizden
+    emin misiniz?'
+  All subscriptions will also be deleted.: 'Tüm abonelikler de silinecek.'
+  Profile could not be found: 'Profil Bulunamadı'
+  Your profile name cannot be empty: 'Profil adı boş olamaz'
+  Profile has been created: 'Profil oluşturuldu'
+  Profile has been updated: 'Profil güncellendi'
+  Your default profile has been set to $: 'Varsayılan profiliniz $ olarak ayarlandı'
+  Removed $ from your profiles: '$ Profillerinizden kaldırıldı'
   Your default profile has been changed to your primary profile: ''
   $ is now the active profile: ''
   Subscription List: ''
