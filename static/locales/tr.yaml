@@ -1,0 +1,495 @@
+# Put the name of your locale in the same language
+Locale Name: 'Türkçe'
+FreeTube: 'Freetube'
+# Currently on Subscriptions, Playlists, and History
+'This part of the app is not ready yet. Come back later when progress has been made.': >-
+  Uygulamanın bu bölümü hala hazır değil. Geliştirme bitince geri gel.
+
+# Webkit Menu Bar
+File: 'Dosya'
+Quit: 'Çık'
+Edit: 'Düzenle'
+Undo: 'Geri al'
+Redo: 'İleri al'
+Cut: 'Kes'
+Copy: 'Kopyala'
+Paste: 'Yapıştır'
+Delete: 'Sil'
+Select all: 'Tümünü Seç'
+Reload: 'Yeniden Yükle'
+Force Reload: 'Zorla Yeniden Yükle'
+Toggle Developer Tools: 'Geliştirici Seçeneklerini Aç'
+Actual size: 'Gerçek Boyut'
+Zoom in: 'Yakınlaştır'
+Zoom out: 'Uzaklaştır'
+Toggle fullscreen: 'Tam Ekran Yap'
+Window: 'Pencere'
+Minimize: 'Küçült'
+Close: 'Kapat'
+Back: 'Geri'
+Forward: 'İleri'
+
+Version $ is now available!  Click for more details: 'Sürüm $ mevcut! Daha fazla detay
+  için tıklayın'
+Download From Site: 'Siteden İndir'
+A new blog is now available, $. Click to view more: 'Yeni blog postu mevcut, $. Daha
+  fazlası için tıkla'
+
+# Search Bar
+Search / Go to URL: 'Arama / URL''ye git'
+  # In Filter Button
+Search Filters:
+  Search Filters: 'Filtreler'
+  Sort By:
+    Sort By: 'Göre Sırala'
+    Most Relevant: 'En İlgili'
+    Rating: 'Derecelendirme'
+    Upload Date: 'Yükleme Tarihi'
+    View Count: 'İzlenme Miktarı'
+  Time:
+    Time: 'Zaman'
+    Any Time: 'Herhangi Bir Zaman'
+    Last Hour: 'Son Bir Saat'
+    Today: 'Bugün'
+    This Week: 'Bu Hafta'
+    This Month: 'Bu Ay'
+    This Year: 'Bu Yıl'
+  Type:
+    Type: 'Tür'
+    All Types: 'Tüm Türler'
+    Videos: 'Videolar'
+    Channels: 'Kanallar'
+    #& Playlists
+  Duration:
+    Duration: 'Süre'
+    All Durations: 'Tüm Süreler'
+    Short (< 4 minutes): 'Kısa (4 dakikadan az)'
+    Long (> 20 minutes): 'Uzun (20 dakikadan fazla)'
+  # On Search Page
+  Search Results: 'Arama Sonuçları'
+  Fetching results. Please wait: 'Sonuçlar Yükleniyor. Lütfen Bekleyin'
+  Fetch more results: 'Daha Fazla Sonuç Yükle'
+# Sidebar
+Subscriptions:
+    # On Subscriptions Page
+  Subscriptions: 'Abonelikler'
+  Latest Subscriptions: 'En Yeni'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Abonelik
+    Listeniz Şu Anda Boş. Burada Görmek İçin Abone Olmaya Başlayın.'
+  'Getting Subscriptions. Please wait.': 'Abonelikler Yükleniyor. Lütfen Bekleyin.'
+  Refresh Subscriptions: 'Abonelikleri Yenile'
+Trending: 'Trendler'
+Most Popular: 'Popüler Olanlar'
+Playlists: 'Oynatma Listesi'
+User Playlists:
+  Your Playlists: 'Oynatma Listelerin'
+History:
+  # On History Page
+  History: 'Geçmiş'
+  Watch History: 'İzleme Geçmişi'
+  Your history list is currently empty.: 'Geçmişin Şuan Boş.'
+Settings:
+  # On Settings Page
+  Settings: 'Ayarlar'
+  General Settings:
+    General Settings: 'Genel Ayarlar'
+    Check for Updates: 'Güncellemeleri Kontrol Et'
+    Check for Latest Blog Posts: 'En Yeni Blog Postlarını Kontrol Et'
+    Fallback to Non-Preferred Backend on Failure: 'Hata Zamanında Tercih Edilmeyen
+      Backend''e Geç'
+    Enable Search Suggestions: 'Arama Önerilerini Etkinleştir'
+    Default Landing Page: 'Varsayılan Açılış Ekranı'
+    Locale Preference: 'Tercih Edilen Yerel Ayar'
+    Preferred API Backend:
+      Preferred API Backend: 'Tercih Edilen API Backend'
+      Local API: 'Yerel API'
+      Invidious API: 'Invidious API'
+    Video View Type:
+      Video View Type: 'Video Görüntüleme Düzeni'
+      Grid: 'Izgara'
+      List: 'Liste'
+    Thumbnail Preference:
+      Thumbnail Preference: 'Küçük Resim Tercihi'
+      Default: 'Varsayılan'
+      Beginning: 'Başlangıç'
+      Middle: 'Orta'
+      End: 'Bitiş'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious Oluşumu
+      (Varsayılan https://invidious.snopyta.org)'
+    Region for Trending: 'Trendler İçin Ülke Tercihi'
+        #! List countries
+  Theme Settings:
+    Theme Settings: 'Tema Ayarları'
+    Match Top Bar with Main Color: 'Üst Barı Ana Renk ile Eşleştir'
+    Base Theme:
+      Base Theme: 'Uygulama Teması'
+      Black: 'Siyah'
+      Dark: 'Koyu'
+      Light: 'Aydınlık'
+    Main Color Theme:
+      Main Color Theme: 'Ana Renk'
+      Red: 'Kırmızı'
+      Pink: 'Pembe'
+      Purple: 'Mor'
+      Deep Purple: 'Koyu Mor'
+      Indigo: 'Çivit Mavisi'
+      Blue: 'Mavi'
+      Light Blue: 'Açık Mavi'
+      Cyan: 'Camgöbeği'
+      Teal: 'Deniz Mavisi'
+      Green: 'Yeşil'
+      Light Green: 'Açık Yeşil'
+      Lime: 'Limon Yeşili'
+      Yellow: 'Sarı'
+      Amber: 'Kehribar Rengi'
+      Orange: 'Turuncu'
+      Deep Orange: 'Koyu Turuncu'
+    Secondary Color Theme: 'İkincil Renk'
+        #* Main Color Theme
+  Player Settings:
+    Player Settings: 'Oynatıcı Ayarları'
+    Force Local Backend for Legacy Formats: 'Legacy Biçimler için Yerel Backend Kullanmaya
+      Zorla'
+    Play Next Video: 'Sonraki Videoyu Oynat'
+    Turn on Subtitles by Default: 'Altyazıyı Varsayılan Olarak Aç'
+    Autoplay Videos: 'Videoları Otomatik Başlat'
+    Proxy Videos Through Invidious: ''
+    Autoplay Playlists: 'Oytma Listelerini Otomatik Başlat'
+    Enable Theatre Mode by Default: 'Sinema Modunu Varsayılan Olarak Etkinleştir'
+    Default Volume: 'Varsayılan Ses Düzeyi'
+    Default Playback Rate: 'Varsayılan Oynatma Hızı'
+    Default Video Format:
+      Default Video Format: 'Varsayılan Video Formatı'
+      Dash Formats: 'Dash Biçimi'
+      Legacy Formats: 'Legacy Biçimi'
+      Audio Formats: 'Ses Biçimi'
+    Default Quality:
+      Default Quality: 'Varsayılan Kalite'
+      Auto: 'Otomatik'
+      144p: '144p'
+      240p: '240p'
+      360p: '360p'
+      480p: '480p'
+      720p: '720p'
+      1080p: '1080p'
+      1440p: '1440p'
+      4k: '4k'
+      8k: '8k'
+  Privacy Settings:
+    Privacy Settings: 'Gizlilik Ayarları'
+    Remember History: 'Geçmişi Hatırla'
+    Save Watched Progress: 'Kaldığım Yeri Hatırla'
+    Clear Search Cache: 'Arama Önbelleğini Temizle'
+    Are you sure you want to clear out your search cache?: 'Arama Önbelleğini Temizlemek
+      İstediğinizden Emin Misiniz?'
+    Search cache has been cleared: 'Arama Önbelleği Temizlendi'
+    Remove Watch History: 'İzleme Geçmişini Temizle'
+    Are you sure you want to remove your entire watch history?: 'İzleme Geçmişini
+      Temizlemek İstediğinizden Emin Misiniz?'
+    Watch history has been cleared: 'İzleme Geçmişi Temizlendi'
+    Remove All Subscriptions / Profiles: 'Tüm Abonelikler/Profilleri Temizle'
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Tüm
+      Abonelikler/Profilleri Temizlemek İstediğinizden Emin Misiniz?  Geri Alınamaz.'
+  Subscription Settings:
+    Subscription Settings: 'Abonelik Ayarları'
+    Hide Videos on Watch: 'İzlenmiş Videoları Gizle'
+    Fetch Feeds from RSS: 'Akışı RSS''den Getir'
+    Manage Subscriptions: 'Abonelikleri Yönet'
+  Data Settings:
+    Data Settings: 'Veri Ayarları'
+    Select Import Type: 'İçe Aktarma Türünü Seç'
+    Select Export Type: 'Dışa Aktarma Türünü Seç'
+    Import Subscriptions: 'Abonelikleri İçe Aktar'
+    Import FreeTube: 'Freetube''dan İçe Aktar'
+    Import YouTube: 'YouTube''dan İçe Aktar'
+    Import NewPipe: 'NewPipe''dan İçe Aktar'
+    Export Subscriptions: 'Abonelikleri Dışa Aktar'
+    Export FreeTube: 'Freetube Biçiminde Dışa Aktar'
+    Export YouTube: 'YouTube Biçiminde Dışa Aktar'
+    Export NewPipe: 'NewPipe Biçiminde Dışa Aktar'
+    Import History: 'Geçmişi İçe Aktar'
+    Export History: 'Geçmişi Dışa Aktar'
+    Profile object has insufficient data, skipping item: 'Profil Nesnesinde Yetersiz
+      Veri Var, Öğe Atlanıyor'
+    All subscriptions and profiles have been successfully imported: 'Tüm Abonelikler
+      ve Profiller Başarılı Bir Şekilde İçe Aktarıldı'
+    All subscriptions have been successfully imported: 'Tüm Abonelikler Başarılı Bir
+      Şekilde İçe Aktarıldı'
+    One or more subscriptions were unable to be imported: 'Bir ya da Daha Fazla Abonelik
+      İçe Aktarılamadı'
+    Invalid subscriptions file: 'Geçersiz Aboneler Dosyası'
+    This might take a while, please wait: 'Biraz Uzun Sürebilir, Lütfen Bekleyin'
+    Invalid history file: 'Geçersiz Geçmiş Dosyası'
+    Subscriptions have been successfully exported: 'Tüm Abonelikler Başarılı Bir Şekilde
+      Dışa Aktarıldı'
+    History object has insufficient data, skipping item: 'Geçmiş Nesnesinde Yetersiz
+      Veri Var, Öğe Atlanıyor'
+    All watched history has been successfully imported: 'Tüm İzleme Geçmişi Başarılı
+      Bir Şekilde İçe Aktarıldı'
+    All watched history has been successfully exported: 'Tüm İzleme Geçmişi Başarılı
+      Bir Şekilde Dışa Aktarıldı'
+    Unable to read file: 'Dosya Okunamadı'
+    Unable to write file: 'Dosya Yazılamadı'
+    Unknown data key: 'Bilinmeyen Veri Anahtarı'
+    How do I import my subscriptions?: 'Aboneliklerimi Nasıl İçe Artarırım?'
+  Advanced Settings:
+    Advanced Settings: 'Gelişmiş Ayarlar'
+    Enable Debug Mode (Prints data to the console): 'Hata Ayıklama Modunu Etkinleştir
+      (Veriyi Konsola Yazdırır)'
+    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Vekil Sunucu Adresi (Örneğin:
+      SOCKS5://127.0.0.1:9050)'
+    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': '"Vekil
+      Sunucuyu Test Et" Butonuna Tıklamak https://ipinfo.io/json Adresine bir Talep
+      Gönderecek'
+    Use Tor / Proxy for API calls: 'API çağrıları için Tor / Vekil Sunucu Kullan'
+    TEST PROXY: 'Vekil Sunucuyu Test Et'
+    #& Invidious Instance (Default is https://invidious.snopyta.org)
+    See Public Instances: 'Genel Oluşumları Gör'
+    Clear History:
+      Clear History: 'Geçmişi Temizle'
+      # On Click
+      Are you sure you want to delete your history?: 'Geçmişi Temizlemek İstediğinizden
+        Emin Misiniz?'
+      #& Yes
+      #& No
+    Clear Subscriptions:
+      Clear Subscriptions: 'Abonelikleri Temizle'
+      # On Click
+      Are you sure you want to remove all subscriptions?: 'Abonelikleri Temizlemek
+        İstediğinizden Emin Misiniz?'
+      #& Yes
+      #& No
+
+About:
+  #On About page
+  About: 'Hakkında'
+  #& About
+  'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
+
+  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >
+
+  Thank you very much to the People and Projects that make FreeTube possible!: ''
+
+  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': ''
+
+  'Looking for help? Check out our Wiki page.': ''
+
+  Check out our Firefox extension!: ''
+
+  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': ''
+
+  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
+
+  Latest FreeTube News: ''
+
+Profile:
+  Profile Select: 'Profil Seçimi'
+  All Channels: 'Tüm Kanallar'
+  Profile Manager: 'Profil Yöneticisi'
+  Create New Profile: 'Yeni Profil Oluştur'
+  Edit Profile: 'Profili Düzenle'
+  Color Picker: 'Renk Seçimi'
+  Custom Color: 'Özel Renk'
+  Profile Preview: 'Profil Önizleme'
+  Create Profile: 'Profil Oluştur'
+  Update Profile: 'Profili Güncelle'
+  Make Default Profile: 'Varsayılan Profil Yap'
+  Delete Profile: 'Profili Sil'
+  Are you sure you want to delete this profile?: 'Bu profili silmek istediğinizden
+    emin misiniz?'
+  All subscriptions will also be deleted.: 'Tüm abonelikler de silinecek.'
+  Profile could not be found: 'Profil Bulunamadı'
+  Your profile name cannot be empty: 'Profil adı boş olamaz'
+  Profile has been created: 'Profil oluşturuldu'
+  Profile has been updated: 'Profil güncellendi'
+  Your default profile has been set to $: 'Varsayılan profiliniz $ olarak ayarlandı'
+  Removed $ from your profiles: '$ Profillerinizden kaldırıldı'
+  Your default profile has been changed to your primary profile: ''
+  $ is now the active profile: ''
+  Subscription List: ''
+  Other Channels: ''
+  $ selected: ''
+  Select All: ''
+  Select None: ''
+  Delete Selected: ''
+  Add Selected To Profile: ''
+  No channel(s) have been selected: ''
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
+    same channels will be deleted in any profile they are found in.
+  : ''
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
+#On Channel Page
+Channel:
+  Subscriber: ''
+  Subscribers: ''
+  Subscribe: ''
+  Unsubscribe: ''
+  Channel has been removed from your subscriptions: ''
+  Removed subscription from $ other channel(s): ''
+  Added channel to your subscriptions: ''
+  Search Channel: ''
+  Your search results have returned 0 results: ''
+  Sort By: ''
+  Videos:
+    Videos: ''
+    This channel does not currently have any videos: ''
+    Sort Types:
+      Newest: ''
+      Oldest: ''
+      Most Popular: ''
+  Playlists:
+    Playlists: ''
+    This channel does not currently have any playlists: ''
+    Sort Types:
+      Last Video Added: ''
+      Newest: ''
+      Oldest: ''
+  About:
+    About: ''
+    Channel Description: ''
+    Featured Channels: ''
+Video:
+  Mark As Watched: ''
+  Remove From History: ''
+  Video has been marked as watched: ''
+  Video has been removed from your history: ''
+  Open in YouTube: ''
+  Copy YouTube Link: ''
+  Open YouTube Embedded Player: ''
+  Copy YouTube Embedded Player Link: ''
+  Open in Invidious: ''
+  Copy Invidious Link: ''
+  View: ''
+  Views: ''
+  Loop Playlist: ''
+  Shuffle Playlist: ''
+  Reverse Playlist: ''
+  Play Next Video: ''
+  Play Previous Video: ''
+  # Context is "X People Watching"
+  Watching: ''
+  Watched: ''
+  Autoplay: ''
+  Starting soon, please refresh the page to check again: ''
+  # As in a Live Video
+  Live: ''
+  Live Now: ''
+  Live Chat: ''
+  Enable Live Chat: ''
+  Live Chat is currently not supported in this build.: ''
+  'Chat is disabled or the Live Stream has ended.': ''
+  Live chat is enabled.  Chat messages will appear here once sent.: ''
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
+  Published:
+    Jan: ''
+    Feb: ''
+    Mar: ''
+    Apr: ''
+    May: ''
+    Jun: ''
+    Jul: ''
+    Aug: ''
+    Sep: ''
+    Oct: ''
+    Nov: ''
+    Dec: ''
+    Second: ''
+    Seconds: ''
+    Minute: ''
+    Minutes: ''
+    Hour: ''
+    Hours: ''
+    Day: ''
+    Days: ''
+    Week: ''
+    Weeks: ''
+    Month: ''
+    Months: ''
+    Year: ''
+    Years: ''
+    Ago: ''
+    Upcoming: ''
+  Published on: ''
+  # $ is replaced with the number and % with the unit (days, hours, minutes...)
+  Publicationtemplate: ''
+#& Videos
+Videos:
+  #& Sort By
+  Sort By:
+    Newest: ''
+    Oldest: ''
+    #& Most Popular
+#& Playlists
+Playlist:
+  #& About
+  View Full Playlist: ''
+  Videos: ''
+  View: ''
+  Views: ''
+  Last Updated On: ''
+  Share Playlist:
+    Share Playlist: ''
+    Copy YouTube Link: ''
+    Open in YouTube: ''
+    Copy Invidious Link: ''
+    Open in Invidious: ''
+
+# On Video Watch Page
+#* Published
+#& Views
+Toggle Theatre Mode: ''
+Change Format:
+  Change Video Formats: ''
+  Use Dash Formats: ''
+  Use Legacy Formats: ''
+  Use Audio Formats: ''
+  Dash formats are not available for this video: ''
+  Audio formats are not available for this video: ''
+Share:
+  Share Video: ''
+  Include Timestamp: ''
+  Copy Link: ''
+  Open Link: ''
+  Copy Embed: ''
+  Open Embed: ''
+  # On Click
+  Invidious URL copied to clipboard: ''
+  Invidious Embed URL copied to clipboard: ''
+  YouTube URL copied to clipboard: ''
+  YouTube Embed URL copied to clipboard: ''
+Mini Player: ''
+Comments:
+  Comments: ''
+  Click to View Comments: ''
+  Getting comment replies, please wait: ''
+  There are no more comments for this video: ''
+  Show Comments: ''
+  Hide Comments: ''
+  # Context: View 10 Replies, View 1 Reply
+  View: ''
+  Hide: ''
+  Replies: ''
+  Reply: ''
+  There are no comments available for this video: ''
+  Load More Comments: ''
+Up Next: ''
+
+# Toast Messages
+Local API Error (Click to copy): ''
+Invidious API Error (Click to copy): ''
+Falling back to Invidious API: ''
+Falling back to the local API: ''
+Subscriptions have not yet been implemented: ''
+Loop is now disabled: ''
+Loop is now enabled: ''
+Shuffle is now disabled: ''
+Shuffle is now enabled: ''
+The playlist has been reversed: ''
+Playing Next Video: ''
+Playing Previous Video: ''
+Playing next video in 5 seconds.  Click to cancel: ''
+Canceled next video autoplay: ''
+'The playlist has ended.  Enable loop to continue playing': ''
+
+Yes: ''
+No: ''
