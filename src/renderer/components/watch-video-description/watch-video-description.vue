@@ -1,8 +1,9 @@
 <template>
   <ft-card class="videoDescription">
-    <p
+    <ft-timestamp-catcher
       class="description"
-      v-html="shownDescription"
+      :inputHTML="shownDescription"
+      @timestampEvent="onTimestamp"
     />
   </ft-card>
 </template>

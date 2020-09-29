@@ -3,12 +3,14 @@ import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import CommentScraper from 'yt-comment-scraper'
+import FtTimestampCatcher from '../../components/ft-timestamp-catcher/ft-timestamp-catcher.vue'
 
 export default Vue.extend({
   name: 'WatchVideoComments',
   components: {
     'ft-card': FtCard,
-    'ft-loader': FtLoader
+    'ft-loader': FtLoader,
+    'ft-timestamp-catcher': FtTimestampCatcher
   },
   props: {
     id: {
@@ -39,6 +41,10 @@ export default Vue.extend({
     }
   },
   methods: {
+    onTimestamp: function(timestamp) {
+      this.$emit('timestampEvent', timestamp)
+    },
+
     getCommentData: function () {
       this.isLoading = true
       switch (this.backendPreference) {
