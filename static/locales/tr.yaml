@@ -32,8 +32,8 @@ Forward: 'İleri'
 Version $ is now available!  Click for more details: 'Sürüm $ mevcut! Daha fazla detay
   için tıklayın'
 Download From Site: 'Siteden indir'
-A new blog is now available, $. Click to view more: 'Yeni blog postu mevcut, $. Daha
-  fazlası için tıkla'
+A new blog is now available, $. Click to view more: 'Yeni blog gönderisi mevcut, $.
+  Daha fazlası için tıkla'
 
 # Search Bar
 Search / Go to URL: 'Arama / URL''ye git'
@@ -184,8 +184,8 @@ Settings:
       istediğinizden emin misiniz?'
     Search cache has been cleared: 'Arama önbelleği temizlendi'
     Remove Watch History: 'İzleme Geçmişini Temizle'
-    Are you sure you want to remove your entire watch history?: 'İzleme geçmişini
-      temizlemek istediğinizden emin misiniz?'
+    Are you sure you want to remove your entire watch history?: 'Tüm izleme geçmişini
+      silmek istediğinizden emin misiniz?'
     Watch history has been cleared: 'İzleme geçmişi temizlendi'
     Remove All Subscriptions / Profiles: 'Tüm Abonelikler/Profilleri Temizle'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Tüm
@@ -215,7 +215,7 @@ Settings:
       ve profiller başarılı bir şekilde içe aktarıldı'
     All subscriptions have been successfully imported: 'Tüm abonelikler başarılı bir
       şekilde içe aktarıldı'
-    One or more subscriptions were unable to be imported: 'Bir ya da baha fazla abonelik
+    One or more subscriptions were unable to be imported: 'Bir ya da daha fazla abonelik
       içe aktarılamadı'
     Invalid subscriptions file: 'Geçersiz aboneler dosyası'
     This might take a while, please wait: 'Biraz uzun sürebilir, lütfen bekleyin'
@@ -244,11 +244,11 @@ Settings:
     Use Tor / Proxy for API calls: 'API çağrıları için Tor / Vekil Sunucu Kullan'
     TEST PROXY: 'Vekil Sunucuyu Test Et'
     #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: 'Genel Oluşumları Gör'
+    See Public Instances: 'Genel Oluşumları Göster'
     Clear History:
       Clear History: 'Geçmişi Temizle'
       # On Click
-      Are you sure you want to delete your history?: 'Geçmişi temizlemek istediğinizden
+      Are you sure you want to delete your history?: 'Geçmişi silmek istediğinizden
         emin misiniz?'
       #& Yes
       #& No
@@ -327,7 +327,7 @@ Profile:
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
   : 'Bu birincil profilinizdir. Seçili kanalları silmek istediğinizden emin misiniz?
-    Aynı kanallar bulundukları herhangi bir profilde silinecektir.'
+    Aynı kanallar bulundukları tüm profillerden silinecek.'
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Seçili
     kanalları silmek istediğinizden emin misiniz?  Bu, kanalı başka bir profilden
     silmez.'
@@ -365,9 +365,9 @@ Channel:
     Featured Channels: 'Öne Çıkan Kanallar'
 Video:
   Mark As Watched: 'İzlendi Olarak İşaretle'
-  Remove From History: 'İzleme Geçmişinden Kaldır'
+  Remove From History: 'Geçmişden Kaldır'
   Video has been marked as watched: 'Video izlendi olarak işaretlendi'
-  Video has been removed from your history: 'Video izleme geçmişinizden kaldırıldı'
+  Video has been removed from your history: 'Video geçmişinizden kaldırıldı'
   Open in YouTube: 'YouTube''da aç'
   Copy YouTube Link: 'YouTube Bağlantısını Kopyala'
   Open YouTube Embedded Player: 'Youtube Bütünleşik Oynatıcıda Aç'
@@ -484,7 +484,7 @@ Share:
 Mini Player: 'Mini Oynatıcı'
 Comments:
   Comments: 'Yorumlar'
-  Click to View Comments: 'Yorumları Görüntülemek İçin Tıklayınız'
+  Click to View Comments: 'Yorumları Görüntülemek İçin Tıklayın'
   Getting comment replies, please wait: 'Yorum yanıtları yükleniyor, lütfen bekleyin'
   There are no more comments for this video: 'Bu video için daha fazla yorum yok'
   Show Comments: 'Yorumları Göster'
