@@ -166,6 +166,9 @@ export default Vue.extend({
     }
   },
   methods: {
+    changeTimestamp: function(timestamp) {
+      this.$refs.videoPlayer.player.currentTime(timestamp)
+    },
     toggleTheatreMode: function() {
       this.useTheatreMode = !this.useTheatreMode
     },
