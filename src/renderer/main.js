@@ -23,7 +23,7 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.use(VueI18n)
 
 // List of locales approved for use
-const activeLocales = ['en-US', 'de-DE', 'es-MX', 'fi', 'fr-FR', 'ja', 'hr', 'it', 'id', 'nl', 'ar', 'pt-BR', 'pt-PT', 'pl', 'ru', 'vi', 'zh-CN', 'zh-TW']
+const activeLocales = ['en-US', 'en_GB', 'ar', 'zh-CN', 'zh-TW', 'hr', 'da', 'nl', 'fi', 'fr-FR', 'de-DE', 'id', 'it', 'ja', 'pl', 'pt-BR', 'pt-PT', 'ru', 'es-MX', 'vi']
 const messages = {}
 const fileLocation = isDev ? 'static/locales/' : `${__dirname}/static/locales/`
 
