@@ -86,27 +86,7 @@ export default Vue.extend({
   },
   watch: {
     activeProfile: async function (val) {
-      if (this.allSubscriptionsList.length !== 0) {
-        this.isLoading = true
-        this.videoList = await Promise.all(this.allSubscriptionsList.filter((video) => {
-          const channelIndex = this.activeSubscriptionList.findIndex((x) => {
-            return x.id === video.authorId
-          })
-
-          const historyIndex = this.historyCache.findIndex((x) => {
-            return x.videoId === video.videoId
-          })
-
-          if (this.hideWatchedSubs) {
-            return channelIndex !== -1 && historyIndex === -1
-          } else {
-            return channelIndex !== -1
-          }
-        }))
-        this.isLoading = false
-      } else {
-        this.getSubscriptions()
-      }
+      this.getProfileSubscriptions()
     }
   },
   mounted: async function () {
@@ -117,17 +97,21 @@ export default Vue.extend({
     }
 
     if (this.profileSubscriptions.videoList.length !== 0) {
-      const subscriptionList = JSON.parse(JSON.stringify(this.profileSubscriptions))
-      if (this.hideWatchedSubs) {
-        this.videoList = await Promise.all(subscriptionList.videoList.filter((video) => {
-          const historyIndex = this.historyCache.findIndex((x) => {
-            return x.videoId === video.videoId
-          })
+      if (this.profileSubscriptions.activeProfile === this.activeProfile) {
+        const subscriptionList = JSON.parse(JSON.stringify(this.profileSubscriptions))
+        if (this.hideWatchedSubs) {
+          this.videoList = await Promise.all(subscriptionList.videoList.filter((video) => {
+            const historyIndex = this.historyCache.findIndex((x) => {
+              return x.videoId === video.videoId
+            })
 
-          return historyIndex === -1
-        }))
+            return historyIndex === -1
+          }))
+        } else {
+          this.videoList = subscriptionList.videoList
+        }
       } else {
-        this.videoList = subscriptionList.videoList
+        this.getProfileSubscriptions()
       }
 
       this.isLoading = false
@@ -203,6 +187,30 @@ export default Vue.extend({
           }
         }
       })
+    },
+
+    getProfileSubscriptions: async function () {
+      if (this.allSubscriptionsList.length !== 0) {
+        this.isLoading = true
+        this.videoList = await Promise.all(this.allSubscriptionsList.filter((video) => {
+          const channelIndex = this.activeSubscriptionList.findIndex((x) => {
+            return x.id === video.authorId
+          })
+
+          const historyIndex = this.historyCache.findIndex((x) => {
+            return x.videoId === video.videoId
+          })
+
+          if (this.hideWatchedSubs) {
+            return channelIndex !== -1 && historyIndex === -1
+          } else {
+            return channelIndex !== -1
+          }
+        }))
+        this.isLoading = false
+      } else {
+        this.getSubscriptions()
+      }
     },
 
     getChannelVideosLocalScraper: function (channel, failedAttempts = 0) {
