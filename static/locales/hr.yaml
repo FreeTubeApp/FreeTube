@@ -143,7 +143,7 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: 'Postavke playera'
-    Force Local Backend for Legacy Formats: 'Prisiliti lokalnu pozadinu za naslijeđene
+    Force Local Backend for Legacy Formats: 'Prisili lokalni backend za starije (legacy)
       formate'
     Play Next Video: 'Reproduciraj sljedeći video'
     Turn on Subtitles by Default: 'Uključi titlove prema zadanim postavkama'
@@ -156,7 +156,7 @@ Settings:
     Default Video Format:
       Default Video Format: 'Zadani video format'
       Dash Formats: 'Dash formati'
-      Legacy Formats: 'Naslijeđeni formati'
+      Legacy Formats: 'Stariji (legacy) formati'
       Audio Formats: 'Audio formati'
     Default Quality:
       Default Quality: 'Zadana kvaliteta'
@@ -262,7 +262,7 @@ Settings:
       ili više pretplata
 About:
   #On About page
-  About: 'Informacije'
+  About: 'O aplikaciji'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Ovaj
     program zaštićen autorskim pravima slobodno je licenciran AGPL-3.0.'
@@ -357,7 +357,7 @@ Channel:
       Newest: 'Najnoviji'
       Oldest: 'Najstariji'
   About:
-    About: 'O'
+    About: 'O aplikaciji'
     Channel Description: 'Opis kanala'
     Featured Channels: 'Istaknuti kanali'
   Added channel to your subscriptions: Kanal je dodan vašim pretplatama
@@ -461,7 +461,7 @@ Toggle Theatre Mode: 'Uključi / isključi kazališni način'
 Change Format:
   Change Video Formats: 'Promijenite video formate'
   Use Dash Formats: 'Koristite Dash formate'
-  Use Legacy Formats: 'Koristite naslijeđene formate'
+  Use Legacy Formats: 'Koristite starije (legacy) formate'
   Use Audio Formats: 'Koristite audio formate'
   Audio formats are not available for this video: Audio formati nisu dostupni za ovaj
     videozapis
