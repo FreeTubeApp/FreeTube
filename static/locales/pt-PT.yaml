@@ -390,6 +390,7 @@ Video:
   Watching: A Ver
   Watched: Visto
   Autoplay: Reprodução Automática
+  Starting soon, please refresh the page to check again: A começar em breve, recarregue a página para voltar a verificar
 # As in a Live Video
   Live: Ao Vivo
   Live Now: Ao Vivo
@@ -496,6 +497,7 @@ Comments:
   Click to View Comments: Clicar para Ver Comentários
   Getting comment replies, please wait: A receber respostas ao comentário, por favor
     aguarde
+  There are no more comments for this video: Não há mais comentários neste vídeo
   Show Comments: Mostrar Comentários
   Hide Comments: Esconder Comentários
   # Context: View 10 Replies, View 1 Reply
@@ -511,8 +513,8 @@ Up Next: A Seguir
 Local API Error (Click to copy): API local encontrou um erro (Clique para copiar)
 Invidious API Error (Click to copy): API Invidious encontrou um erro (Clique para
   copiar)
-Falling back to Invidious API: Ocorreu uma falha, a mudar à API Invidious
-Falling back to the local API: Ocorreu uma falha, a mudar à API local
+Falling back to Invidious API: Ocorreu uma falha, a mudar para o API Invidious
+Falling back to the local API: Ocorreu uma falha, a mudar para o API local
 Subscriptions have not yet been implemented: Subscrições ainda não foram implementadas
 Loop is now disabled: Reprodução cíclica desactivada
 Loop is now enabled: Reprodução cíclica activada
@@ -520,7 +522,7 @@ Shuffle is now disabled: Reprodução aleatória desactivada
 Shuffle is now enabled: Reprodução aleatória activada
 Playing Next Video: A Reproduzir o Vídeo Seguinte
 Playing Previous Video: A Reproduzir o Vídeo Anterior
-Playing next video in 5 seconds.  Click to cancel: A reproduzir o vídeo seguinte em
+Playing next video in 5 seconds. Click to cancel: A reproduzir o vídeo seguinte em
   5 segundos. Clique para cancelar.
 Canceled next video autoplay: Reprodução automática cancelada
 'The playlist has ended.  Enable loop to continue playing': 'A lista de reprodução

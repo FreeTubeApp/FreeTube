@@ -516,7 +516,7 @@ Profile:
     w żadnym innym profilu.
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : To jest twój główny profil. Czy jesteś pewny/a, że chcesz usunąć wybrane kanały?
+  : To jest Twój główny profil. Czy jesteś pewny/a, że chcesz usunąć wybrane kanały?
     Te kanały zostaną usunięte we wszystkich profilach, w których się znajdują.
   No channel(s) have been selected: Nie wybrano żadnego kanału
   Add Selected To Profile: Dodaj wybrane do profilu
