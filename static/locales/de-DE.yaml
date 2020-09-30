@@ -479,6 +479,7 @@ Local API Error (Click to copy): Lokaler API Fehler (Klicke zum Kopieren)
 Invidious API Error (Click to copy): Invidious API Fehler (Klicke zum Kopieren)
 Falling back to Invidious API: Falle auf Invidious API zurück
 Falling back to the local API: Dalle auf lokale API zurück
+This video is unavailable because of missing formats. This can happen due to country unavailability.: Dieses Video ist aufgrund fehlernder Formate nicht verfügbar. Dies kann zum Beispiel durch Zugriffsbeschränkungen für Länder geschehen.
 Subscriptions have not yet been implemented: Abonnements sind noch nicht implementiert
 Loop is now disabled: Schleife ist jetzt deaktiviert
 Loop is now enabled: Schleife ist jetzt aktiviert
