@@ -106,8 +106,8 @@ Settings:
       Beginning: 'Comienzo'
       Middle: 'Medio'
       End: 'Fin'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instancia de Invidious
-      (por defecto es https://invidious.snopyta.org)'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instancia de
+      Invidious (por defecto es https://invidious.snopyta.org)'
     Region for Trending: 'Tendencia por región'
         #! List countries
   Theme Settings:
@@ -477,7 +477,7 @@ Canceled next video autoplay: 'Reproducción automática del siguiente video can
 
 Yes: 'Sí'
 No: 'No'
-Locale Name: Español
+Locale Name: Español (MX)
 Profile:
   $ is now the active profile: $ ahora es el perfil activo
   Your default profile has been changed to your primary profile: Su perfil predeterminado
