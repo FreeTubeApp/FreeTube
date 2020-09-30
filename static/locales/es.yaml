@@ -33,7 +33,7 @@ Forward: 'Adelante'
 Search / Go to URL: 'Buscar / Ir a la dirección'
   # In Filter Button
 Search Filters:
-  Search Filters: 'Buscar filtros'
+  Search Filters: 'Filtros de búsqueda'
   Sort By:
     Sort By: 'Ordenar por'
     Most Relevant: 'Más relevantes'
@@ -43,7 +43,7 @@ Search Filters:
   Time:
     Time: 'Publicado en'
     Any Time: 'Cualquier momento'
-    Last Hour: 'En la última hora'
+    Last Hour: 'La última hora'
     Today: 'Hoy'
     This Week: 'Esta semana'
     This Month: 'Este mes'
@@ -74,7 +74,7 @@ Subscriptions:
   Refresh Subscriptions: 'Recargar suscripciones'
 Trending: 'Tendencias'
 Most Popular: 'Lo mas popular'
-Playlists: 'Listas de reproducción'
+Playlists: 'Playlists'
 User Playlists:
   Your Playlists: 'Tus listas de reproducción'
 History:
@@ -97,7 +97,7 @@ Settings:
       Local API: 'API local'
       Invidious API: 'API de Invidious'
     Video View Type:
-      Video View Type: 'Visualización de las suscripciones'
+      Video View Type: 'Vista de las suscripciones'
       Grid: 'Cuadrícula'
       List: 'Lista'
     Thumbnail Preference:
@@ -110,7 +110,7 @@ Settings:
       Invidious (por defecto es https://invidious.snopyta.org)'
     Region for Trending: 'Región de las tendencias'
         #! List countries
-    Check for Latest Blog Posts: Busca las últimas publicaciones en el blog
+    Check for Latest Blog Posts: Buscar las últimas publicaciones en el blog
     Check for Updates: Buscar actualizaciones
   Theme Settings:
     Theme Settings: 'Tema'
@@ -142,11 +142,11 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: 'Ajustes del reproductor'
-    Force Local Backend for Legacy Formats: 'Fuerza API local para el formato "Legacy"'
+    Force Local Backend for Legacy Formats: 'Forzar API local para el formato "Legacy"'
     Play Next Video: 'Reproducir el video siguiente'
     Turn on Subtitles by Default: 'Activar subtítulos por defecto'
     Autoplay Videos: 'Reproducción automática'
-    Proxy Videos Through Invidious: 'Enmascara videos a través de invidious'
+    Proxy Videos Through Invidious: 'Enmascarar videos a través de invidious'
     Autoplay Playlists: 'Reproducción automática de listas de reproducción'
     Enable Theatre Mode by Default: 'Activar el modo cine por defecto'
     Default Volume: 'Volumen predeterminado'
