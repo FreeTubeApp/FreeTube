@@ -91,7 +91,7 @@ Settings:
       en caso de fallo'
     Enable Search Suggestions: 'Activar sugerencias de búsqueda'
     Default Landing Page: 'Sección de inicio por defecto'
-    Locale Preference: 'Preferencia regional'
+    Locale Preference: 'Idioma'
     Preferred API Backend:
       Preferred API Backend: 'Motor API principal'
       Local API: 'API local'
