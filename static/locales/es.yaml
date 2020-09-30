@@ -1,436 +1,525 @@
 # Put the name of your locale in the same language
-Locale Name: ''
-FreeTube: ''
+Locale Name: 'Español'
+FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >
+'This part of the app is not ready yet. Come back later when progress has been made.': >-
+  Esta sección está en desarrollo. Regrese cuando esté lista
 
 # Webkit Menu Bar
-File: ''
-Quit: ''
-Edit: ''
-Undo: ''
-Redo: ''
-Cut: ''
-Copy: ''
-Paste: ''
-Delete: ''
-Select all: ''
-Reload: ''
-Force Reload: ''
-Toggle Developer Tools: ''
-Actual size: ''
-Zoom in: ''
-Zoom out: ''
-Toggle fullscreen: ''
-Window: ''
-Minimize: ''
-Close: ''
-Back: ''
-Forward: ''
+File: 'Archivo'
+Quit: 'Cerrar'
+Edit: 'Editar'
+Undo: 'Deshacer'
+Redo: 'Rehacer'
+Cut: 'Cortar'
+Copy: 'Copiar'
+Paste: 'Pegar'
+Delete: 'Eliminar'
+Select all: 'Seleccionar todo'
+Reload: 'Recargar'
+Force Reload: 'Forzar recargado'
+Toggle Developer Tools: 'Activar herramientas de desarrollo'
+Actual size: 'Tamaño actual'
+Zoom in: 'Aumentar zoom'
+Zoom out: 'Reducir zoom'
+Toggle fullscreen: 'Cambiar a pantalla completa'
+Window: 'Ventana'
+Minimize: 'Minimizar'
+Close: 'Cerrar'
+Back: 'Atrás'
+Forward: 'Adelante'
 
 # Search Bar
-Search / Go to URL: ''
+Search / Go to URL: 'Buscar / Ir a la dirección'
   # In Filter Button
 Search Filters:
-  Search Filters: ''
+  Search Filters: 'Buscar filtros'
   Sort By:
-    Sort By: ''
-    Most Relevant: ''
-    Rating: ''
-    Upload Date: ''
-    View Count: ''
+    Sort By: 'Ordenar por'
+    Most Relevant: 'Más relevantes'
+    Rating: 'Mejor valorados'
+    Upload Date: 'Fecha de publicación'
+    View Count: 'Número de visitas'
   Time:
-    Time: ''
-    Any Time: ''
-    Last Hour: ''
-    Today: ''
-    This Week: ''
-    This Month: ''
-    This Year: ''
+    Time: 'Publicado en'
+    Any Time: 'Cualquier momento'
+    Last Hour: 'En la última hora'
+    Today: 'Hoy'
+    This Week: 'Esta semana'
+    This Month: 'Este mes'
+    This Year: 'Este año'
   Type:
-    Type: ''
-    All Types: ''
-    Videos: ''
-    Channels: ''
+    Type: 'Tipo'
+    All Types: 'Cualquier tipo'
+    Videos: 'Videos'
+    Channels: 'Canales'
     #& Playlists
   Duration:
-    Duration: ''
-    All Durations: ''
-    Short (< 4 minutes): ''
-    Long (> 20 minutes): ''
+    Duration: 'Duración'
+    All Durations: 'Cualquier duración'
+    Short (< 4 minutes): 'Cortos (< 4 minutos)'
+    Long (> 20 minutes): 'Largos (> 20 minutos)'
   # On Search Page
-  Search Results: ''
-  Fetching results. Please wait: ''
-  Fetch more results: ''
+  Search Results: 'Resultados de la búsqueda'
+  Fetching results. Please wait: 'Obteniendo resultados. Por favor, espera'
+  Fetch more results: 'Obtener más resultados'
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: ''
-  Latest Subscriptions: ''
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
-  'Getting Subscriptions. Please wait.': ''
-  Refresh Subscriptions: ''
-Trending: ''
-Most Popular: ''
-Playlists: ''
+  Subscriptions: 'Suscripciones'
+  Latest Subscriptions: 'Suscripciones más recientes'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Tu
+    lista de suscripciones está vacía. Suscríbete a canales para verlos aquí'
+  'Getting Subscriptions. Please wait.': 'Obteniendo suscripciones. Por favor, espera'
+  Refresh Subscriptions: 'Recargar las suscripciones'
+Trending: 'Tendencias'
+Most Popular: 'Más populares'
+Playlists: 'Listas de reproducción'
 User Playlists:
-  Your Playlists: ''
+  Your Playlists: 'Tus listas de reproducción'
 History:
   # On History Page
-  History: ''
-  Watch History: ''
-  Your history list is currently empty.: ''
+  History: 'Historial'
+  Watch History: 'Historial de reproducción'
+  Your history list is currently empty.: 'Su historial está vacío'
 Settings:
   # On Settings Page
-  Settings: ''
+  Settings: 'Ajustes'
   General Settings:
-    General Settings: ''
-    Fallback to Non-Preferred Backend on Failure: ''
-    Enable Search Suggestions: ''
-    Default Landing Page: ''
-    Locale Preference: ''
+    General Settings: 'Ajustes generales'
+    Fallback to Non-Preferred Backend on Failure: 'Recurrir al motor API secundario
+      en caso de fallo'
+    Enable Search Suggestions: 'Habilita Sugerencias de Búsqueda'
+    Default Landing Page: 'Sección de inicio por defecto'
+    Locale Preference: 'Preferencia regional'
     Preferred API Backend:
-      Preferred API Backend: ''
-      Local API: ''
-      Invidious API: ''
+      Preferred API Backend: 'Motor API principal'
+      Local API: 'API local'
+      Invidious API: 'API de Invidious'
     Video View Type:
-      Video View Type: ''
-      Grid: ''
-      List: ''
+      Video View Type: 'Visualización de las suscripciones'
+      Grid: 'Cuadrícula'
+      List: 'Lista'
     Thumbnail Preference:
-      Thumbnail Preference: ''
-      Default: ''
-      Beginning: ''
-      Middle: ''
-      End: ''
-    'Invidious Instance (Default is https://invidious.snopyta.org)': ''
-    Region for Trending: ''
+      Thumbnail Preference: 'Preferencia de miniaturas'
+      Default: 'Por defecto'
+      Beginning: 'Comienzo'
+      Middle: 'Mitad'
+      End: 'Final'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instancia de
+      Invidious (por defecto es https://invidious.snopyta.org)'
+    Region for Trending: 'Región de las tendencias'
         #! List countries
+    Check for Latest Blog Posts: Busca las últimas publicaciones del blog
+    Check for Updates: Buscar actualizaciones
   Theme Settings:
-    Theme Settings: ''
-    Match Top Bar with Main Color: ''
+    Theme Settings: 'Tema'
+    Match Top Bar with Main Color: 'Igualar el color de la barra superior al principal'
     Base Theme:
-      Base Theme: ''
-      Black: ''
-      Dark: ''
-      Light: ''
+      Base Theme: 'Apariencia base'
+      Black: 'Negro'
+      Dark: 'Oscuro'
+      Light: 'Claro'
     Main Color Theme:
-      Main Color Theme: ''
-      Red: ''
-      Pink: ''
-      Purple: ''
-      Deep Purple: ''
-      Indigo: ''
-      Blue: ''
-      Light Blue: ''
-      Cyan: ''
-      Teal: ''
-      Green: ''
-      Light Green: ''
-      Lime: ''
-      Yellow: ''
-      Amber: ''
-      Orange: ''
-      Deep Orange: ''
-    Secondary Color Theme: ''
+      Main Color Theme: 'Color Principal'
+      Red: 'Rojo'
+      Pink: 'Rosado'
+      Purple: 'Púrpura'
+      Deep Purple: 'Morado oscuro'
+      Indigo: 'Índigo'
+      Blue: 'Azul'
+      Light Blue: 'Azul claro'
+      Cyan: 'Cian'
+      Teal: 'Azul petróleo'
+      Green: 'Verde'
+      Light Green: 'Verde claro'
+      Lime: 'Lima'
+      Yellow: 'Amarillo'
+      Amber: 'Ámbar'
+      Orange: 'Naranja'
+      Deep Orange: 'Naranja profundo'
+    Secondary Color Theme: 'Color secundario'
         #* Main Color Theme
   Player Settings:
-    Player Settings: ''
-    Force Local Backend for Legacy Formats: ''
-    Play Next Video: ''
-    Turn on Subtitles by Default: ''
-    Autoplay Videos: ''
-    Proxy Videos Through Invidious: ''
-    Autoplay Playlists: ''
-    Enable Theatre Mode by Default: ''
-    Default Volume: ''
-    Default Playback Rate: ''
+    Player Settings: 'Ajustes de reproducción'
+    Force Local Backend for Legacy Formats: 'Fuerza API local para el formato "Legacy"'
+    Play Next Video: 'Reproduce el video siguiente'
+    Turn on Subtitles by Default: 'Habilita subtítulos por defecto'
+    Autoplay Videos: 'Reproducción automática'
+    Proxy Videos Through Invidious: 'Enmascara videos a través de invidious'
+    Autoplay Playlists: 'Reproducción automática de listas de reproducción'
+    Enable Theatre Mode by Default: 'Activa el modo teatro por defecto'
+    Default Volume: 'Volumen predeterminado'
+    Default Playback Rate: 'Velocidad de reproducción predeterminada'
     Default Video Format:
-      Default Video Format: ''
-      Dash Formats: ''
-      Legacy Formats: ''
-      Audio Formats: ''
+      Default Video Format: 'Formato de video predeterminado'
+      Dash Formats: 'Dash'
+      Legacy Formats: 'Legacy'
+      Audio Formats: 'Solo audio'
     Default Quality:
-      Default Quality: ''
-      Auto: ''
-      144p: ''
-      240p: ''
-      360p: ''
-      480p: ''
-      720p: ''
-      1080p: ''
-      1440p: ''
-      4k: ''
-      8k: ''
+      Default Quality: 'Calidad predeterminada'
+      Auto: 'Automático'
+      144p: '144p'
+      240p: '240p'
+      360p: '360p'
+      480p: '480p'
+      720p: '720p'
+      1080p: '1080p'
+      1440p: '1440p'
+      4k: '4k'
+      8k: '8k'
   Privacy Settings:
-    Privacy Settings: ''
-    Remember History: ''
-    Save Watched Progress: ''
-    Clear Search Cache: ''
-    Are you sure you want to clear out your search cache?: ''
-    Search cache has been cleared: ''
-    Remove Watch History: ''
-    Are you sure you want to remove your entire watch history?: ''
-    Watch history has been cleared: ''
-    Remove All Subscriptions / Profiles: ''
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
+    Privacy Settings: 'Ajustes de privacidad'
+    Remember History: 'Recuerda historial'
+    Save Watched Progress: 'Guarda el progreso reproducido'
+    Clear Search Cache: 'Borra la cache de búsqueda'
+    Are you sure you want to clear out your search cache?: '¿Seguro de que quieres
+      borrar la cache de búsqueda?'
+    Search cache has been cleared: '¡Hecho!'
+    Remove Watch History: 'Borra el historial de reproducción'
+    Are you sure you want to remove your entire watch history?: '¿Seguro de que quieres
+      borrar el historial de reproducción?'
+    Watch history has been cleared: '¡Hecho!'
+    Remove All Subscriptions / Profiles: 'Borra todas las suscripciones y perfiles'
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: '¿Estás
+      seguro de que quieres borrar todas las suscripciones y perfiles? Esta operación
+      será irreversible'
   Subscription Settings:
-    Subscription Settings: ''
-    Hide Videos on Watch: ''
-    Fetch Feeds from RSS: ''
-    Manage Subscriptions: ''
+    Subscription Settings: 'Datos locales'
+    Hide Videos on Watch: 'Oculta los videos vistos'
+    Fetch Feeds from RSS: 'Recibe suscripciones usando RSS'
+    Manage Subscriptions: 'Administrar suscripciones'
   Data Settings:
-    Data Settings: ''
-    Select Import Type: ''
-    Select Export Type: ''
-    Import Subscriptions: ''
-    Import FreeTube: ''
-    Import YouTube: ''
-    Import NewPipe: ''
-    Export Subscriptions: ''
-    Export FreeTube: ''
-    Export YouTube: ''
-    Export NewPipe: ''
-    Import History: ''
-    Export History: ''
-    Profile object has insufficient data, skipping item: ''
-    All subscriptions and profiles have been successfully imported: ''
-    All subscriptions have been successfully imported: ''
-    Invalid subscriptions file: ''
-    This might take a while, please wait: ''
-    Invalid history file: ''
-    Subscriptions have been successfully exported: ''
-    History object has insufficient data, skipping item: ''
-    All watched history has been successfully imported: ''
-    All watched history has been successfully exported: ''
-    Unable to read file: ''
-    Unable to write file: ''
-    Unknown data key: ''
-    How do I import my subscriptions?: ''
+    Data Settings: 'Datos'
+    Select Import Type: 'Tipo de importación'
+    Select Export Type: 'Tipo de exportación'
+    Import Subscriptions: 'Importar suscripciones'
+    Import FreeTube: 'Importar FreeTube'
+    Import YouTube: 'Importar YouTube'
+    Import NewPipe: 'Importar NewPipe'
+    Export Subscriptions: 'Exportar suscripciones'
+    Export FreeTube: 'Exportar FreeTube'
+    Export YouTube: 'Exportar YouTube'
+    Export NewPipe: 'Exportar NewPipe'
+    Import History: 'Importar historial'
+    Export History: 'Exportar historial'
+    Profile object has insufficient data, skipping item: 'Este perfil no tiene datos
+      suficientes, omitiendo objeto'
+    All subscriptions and profiles have been successfully imported: 'Todas las suscripciones
+      y perfilas han sido importados con éxito'
+    All subscriptions have been successfully imported: 'Todas las suscripciones han
+      sido importadas con éxito'
+    Invalid subscriptions file: 'Archivo de suscripciones no válido'
+    This might take a while, please wait: 'Esto puede tardar un rato. Por favor, espera'
+    Invalid history file: 'Archivo de historial no válido'
+    Subscriptions have been successfully exported: 'Las suscripciones han sido exportadas
+      con éxito'
+    History object has insufficient data, skipping item: 'El historial no tiene datos
+      suficientes, omitiendo objeto'
+    All watched history has been successfully imported: 'El historial de visionados
+      ha sido importado con éxito'
+    All watched history has been successfully exported: 'El historial de visionados
+      ha sido exportado con éxito'
+    Unable to read file: 'Imposible leer el archivo'
+    Unable to write file: 'Imposible escribir el archivo'
+    Unknown data key: 'Clave de datos desconocida'
+    How do I import my subscriptions?: '¿Cómo puedo importar mis suscripciones?'
+    One or more subscriptions were unable to be imported: Una o varias de las suscripciones
+      no han podido ser importadas
   Advanced Settings:
-    Advanced Settings: ''
-    Enable Debug Mode (Prints data to the console): ''
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': ''
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': ''
-    Use Tor / Proxy for API calls: ''
-    TEST PROXY: ''
+    Advanced Settings: 'Ajustes avanzados'
+    Enable Debug Mode (Prints data to the console): 'Activa el modo de depuración
+      (Muestra datos en la consola)'
+    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Dirección de máscara (Ejemplo:
+      SOCKS5://127.0.0.1:9050)'
+    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Haciendo
+      click en "PROBAR MÁSCARA" se enviará una solicitud a https://ipinfo.io/json'
+    Use Tor / Proxy for API calls: 'Usa Tor / Máscara para llamadas API'
+    TEST PROXY: 'PROBAR MÁSCARA'
     #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: ''
+    See Public Instances: 'Ver instancias públicas'
     Clear History:
-      Clear History: ''
+      Clear History: 'Borrar historial'
       # On Click
-      Are you sure you want to delete your history?: ''
+      Are you sure you want to delete your history?: '¿Seguro de que quieres borrar
+        el historial?'
       #& Yes
       #& No
     Clear Subscriptions:
-      Clear Subscriptions: ''
+      Clear Subscriptions: 'Borrar suscripciones'
       # On Click
-      Are you sure you want to remove all subscriptions?: ''
+      Are you sure you want to remove all subscriptions?: '¿Seguro de que quieres
+        borrar todas las suscripciones?'
       #& Yes
       #& No
 
 About:
   #On About page
-  About: ''
+  About: 'Acerca de'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
+  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Este
+    software de copyleft tiene licencia libre AGPL-3.0.'
 
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >
+  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
+    ¿Has encontrado algún fallo? ¿Tienes alguna sugerencia? ¿te gustaría colaborar?
+    Visita nuestra página en GitHub. Podrás solicitar nuevas características/cambios.
 
-  Thank you very much to the People and Projects that make FreeTube possible!: ''
+  Thank you very much to the People and Projects that make FreeTube possible!: 'Muchísimas
+    gracias a todas las personas y los proyectos que han hecho posible FreeTube'
 
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': ''
+  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': '¿Quieres
+    chatear? Únete a nuestro servidor en Element / Matrix. Por favor, antes de unirte,
+    lee las reglas'
 
-  'Looking for help? Check out our Wiki page.': ''
+  'Looking for help? Check out our Wiki page.': '¿Buscas ayuda? Visita nuestra página
+    Wiki'
 
-  Check out our Firefox extension!: ''
+  Check out our Firefox extension!: 'Prueba nuestra extensión para Firefox'
 
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': ''
+  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'Si
+    te gusta FreeTube, considera donar a través de Liberapay o a nuestra dirección
+    de Bitcoin'
 
   #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
 
-  Latest FreeTube News: ''
+  Latest FreeTube News: 'Últimas noticias de FreeTube'
 
 Profile:
-  All Channels: ''
-  Profile Manager: ''
-  Create New Profile: ''
-  Edit Profile: ''
-  Color Picker: ''
-  Custom Color: ''
-  Profile Preview: ''
-  Create Profile: ''
-  Update Profile: ''
-  Make Default Profile: ''
-  Delete Profile: ''
-  Are you sure you want to delete this profile?: ''
-  All subscriptions will also be deleted.: ''
-  Profile could not be found: ''
-  Your profile name cannot be empty: ''
-  Profile has been created: ''
-  Profile has been updated: ''
-  Your default profile has been set to $: ''
-  Removed $ from your profiles: ''
-  Your default profile has been changed to your primary profile: ''
-  $ is now the active profile: ''
+  All Channels: 'Todos los canales'
+  Profile Manager: 'Administrador de perfiles'
+  Create New Profile: 'Crear nuevo perfil'
+  Edit Profile: 'Editar perfil'
+  Color Picker: 'Selector de color'
+  Custom Color: 'Color personalizado'
+  Profile Preview: 'Vista previa del perfil'
+  Create Profile: 'Crear perfil'
+  Update Profile: 'Actualizar perfil'
+  Make Default Profile: 'Haz este perfil por defecto'
+  Delete Profile: 'Borrar perfil'
+  Are you sure you want to delete this profile?: '¿Seguro de que quieres borrar este
+    perfil?'
+  All subscriptions will also be deleted.: 'Las suscripciones también serán borradas'
+  Profile could not be found: 'No se pudo encontrar el perfil'
+  Your profile name cannot be empty: 'Tu nombre de perfil no puede estar vacío'
+  Profile has been created: 'Se ha creado el perfil'
+  Profile has been updated: 'El perfil se ha actualizado'
+  Your default profile has been set to $: 'Tu perfil predeterminado se ha establecido
+    en $'
+  Removed $ from your profiles: 'Eliminado $ de tus perfiles'
+  Your default profile has been changed to your primary profile: 'Tu perfil predeterminado
+    se ha cambiado a tu perfil principal'
+  $ is now the active profile: '$ es ahora el perfil activo'
 #On Channel Page
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ¿Está
+    seguro de que desea eliminar los canales seleccionados? Esto no eliminará el canal
+    de ningún otro perfil.
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
+    same channels will be deleted in any profile they are found in.
+  : Este es tu perfil principal. ¿Está seguro de que desea eliminar los canales seleccionados?
+    Los mismos canales se eliminarán en cualquier perfil en el que se encuentren.
+  No channel(s) have been selected: No se ha seleccionado ningún canal
+  Add Selected To Profile: Añade lo seleccionado al perfil
+  Delete Selected: Eliminar seleccionado
+  Select None: Seleccionar ninguno
+  Select All: Seleccionar todo
+  $ selected: $ seleccionado
+  Other Channels: Otros canales
+  Subscription List: Lista de suscripciones
+  Profile Select: Seleccionar perfil
 Channel:
-  Subscriber: ''
-  Subscribers: ''
-  Subscribe: ''
-  Unsubscribe: ''
-  Search Channel: ''
-  Your search results have returned 0 results: ''
-  Sort By: ''
+  Subscriber: 'Suscriptor'
+  Subscribers: 'Suscriptores'
+  Subscribe: 'Suscríbete'
+  Unsubscribe: 'Anula la suscripción'
+  Search Channel: 'Buscar canal'
+  Your search results have returned 0 results: 'Su búsqueda no encontró resultados'
+  Sort By: 'Ordenar por'
   Videos:
-    Videos: ''
-    This channel does not currently have any videos: ''
+    Videos: 'Videos'
+    This channel does not currently have any videos: 'Este canal no tiene actualmente
+      ningún video'
     Sort Types:
-      Newest: ''
-      Oldest: ''
-      Most Popular: ''
+      Newest: 'Más recientes'
+      Oldest: 'Más antiguos'
+      Most Popular: 'Más populares'
   Playlists:
-    Playlists: ''
-    This channel does not currently have any playlists: ''
+    Playlists: 'Listas de reproducción'
+    This channel does not currently have any playlists: 'Este canal no tiene actualmente
+      ninguna lista de reproducción'
     Sort Types:
-      Last Video Added: ''
-      Newest: ''
-      Oldest: ''
+      Last Video Added: 'Último video añadido'
+      Newest: 'El más reciente'
+      Oldest: 'El más antiguo'
   About:
-    About: ''
-    Channel Description: ''
-    Featured Channels: ''
+    About: 'Acerca de'
+    Channel Description: 'Descripción del canal'
+    Featured Channels: 'Canales destacados'
+  Added channel to your subscriptions: Canal añadido a tus suscripciones
+  Removed subscription from $ other channel(s): Suscripción eliminada de $ otros canales
+  Channel has been removed from your subscriptions: El canal ha sido eliminado de
+    tus suscripciones
 Video:
-  Mark As Watched: ''
-  Remove From History: ''
-  Video has been marked as watched: ''
-  Video has been removed from your history: ''
-  Open in YouTube: ''
-  Copy YouTube Link: ''
-  Open YouTube Embedded Player: ''
-  Copy YouTube Embedded Player Link: ''
-  Open in Invidious: ''
-  Copy Invidious Link: ''
-  View: ''
-  Views: ''
+  Mark As Watched: 'Marcar como visto'
+  Remove From History: 'Borrar del historial'
+  Video has been marked as watched: 'El video ha sido marcado como visto'
+  Video has been removed from your history: 'El video ha sido eliminado de tu historial'
+  Open in YouTube: 'Abrir en YouTube'
+  Copy YouTube Link: 'Copia el enlace de YouTube'
+  Open YouTube Embedded Player: 'Abre el reproductor integrado de YouTube'
+  Copy YouTube Embedded Player Link: 'Copia el enlace del reproductor integrado de
+    YouTube'
+  Open in Invidious: 'Abrir en Invidious'
+  Copy Invidious Link: 'Copiar el enlace de Invidious'
+  View: 'Ver'
+  Views: 'Vistas'
   # Context is "X People Watching"
-  Watching: ''
-  Watched: ''
-  Autoplay: ''
+  Watching: 'Viendo'
+  Watched: 'Visto'
+  Autoplay: 'Reproducción automática'
   # As in a Live Video
-  Live: ''
-  Live Now: ''
-  Live Chat: ''
-  Enable Live Chat: ''
-  Live Chat is currently not supported in this build.: ''
-  'Chat is disabled or the Live Stream has ended.': ''
-  Live chat is enabled.  Chat messages will appear here once sent.: ''
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
+  Live: 'En directo'
+  Live Now: 'En directo ahora'
+  Live Chat: 'Chat en directo'
+  Enable Live Chat: 'Activar chat en directo'
+  Live Chat is currently not supported in this build.: 'El chat en directo no está
+    soportado de momento en esta build'
+  'Chat is disabled or the Live Stream has ended.': 'El chat está deshabilitado o
+    la emisión ha acabado'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'El chat está
+    habilitado. Tus mensajes aparecerán aquí cuando los envíes'
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Actualmente
+    el chat no funciona con la API de Invidious. Se requiere una conexión directa
+    con YouTube.'
   Published:
-    Jan: ''
-    Feb: ''
-    Mar: ''
-    Apr: ''
-    May: ''
-    Jun: ''
-    Jul: ''
-    Aug: ''
-    Sep: ''
-    Oct: ''
-    Nov: ''
-    Dec: ''
-    Second: ''
-    Seconds: ''
-    Minute: ''
-    Minutes: ''
-    Hour: ''
-    Hours: ''
-    Day: ''
-    Days: ''
-    Week: ''
-    Weeks: ''
-    Month: ''
-    Months: ''
-    Year: ''
-    Years: ''
-    Ago: ''
-    Upcoming: ''
-  Published on: ''
+    Jan: 'Ene'
+    Feb: 'Feb'
+    Mar: 'Mar'
+    Apr: 'Abr'
+    May: 'May'
+    Jun: 'Jun'
+    Jul: 'Jul'
+    Aug: 'Ago'
+    Sep: 'Sep'
+    Oct: 'Oct'
+    Nov: 'Nov'
+    Dec: 'Dic'
+    Second: 'Segundo'
+    Seconds: 'Segundos'
+    Minute: 'Minuto'
+    Minutes: 'Minutos'
+    Hour: 'Hora'
+    Hours: 'Horas'
+    Day: 'Día'
+    Days: 'Días'
+    Week: 'Semana'
+    Weeks: 'Semanas'
+    Month: 'Mes'
+    Months: 'Meses'
+    Year: 'Año'
+    Years: 'Años'
+    Ago: 'Hace'
+    Upcoming: 'Comenzará pronto'
+  Published on: 'Publicado el'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: ''
+  Publicationtemplate: 'Hace $ %'
 #& Videos
+  Play Previous Video: Reproducir video anterior
+  Play Next Video: Reproducir siguiente vídeo
+  Reverse Playlist: Lista de reproducción inversa
+  Shuffle Playlist: Lista de reproducción aleatoria
+  Loop Playlist: Lista de reproducción del bucle
+  Starting soon, please refresh the page to check again: Comenzará en breve. Por favor,
+    recarga la página para comprobarlo
 Videos:
   #& Sort By
   Sort By:
-    Newest: ''
-    Oldest: ''
+    Newest: 'El más reciente'
+    Oldest: 'El más antiguo'
     #& Most Popular
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: ''
-  Videos: ''
-  View: ''
-  Views: ''
-  Last Updated On: ''
+  View Full Playlist: 'Ver la lista de reproducción completa'
+  Videos: 'Videos'
+  View: 'Vista'
+  Views: 'Vistas'
+  Last Updated On: 'Se actualizó por última vez el'
   Share Playlist:
-    Share Playlist: ''
-    Copy YouTube Link: ''
-    Open in YouTube: ''
-    Copy Invidious Link: ''
-    Open in Invidious: ''
+    Share Playlist: 'Compartir lista de reproducción'
+    Copy YouTube Link: 'Copiar enlace YouTube'
+    Open in YouTube: 'Abrir en YouTube'
+    Copy Invidious Link: 'Copiar enlace Invidious'
+    Open in Invidious: 'Abrir en Invidious'
 
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: ''
+Toggle Theatre Mode: 'Pasar al modo teatro'
 Change Format:
-  Change Video Formats: ''
-  Use Dash Formats: ''
-  Use Legacy Formats: ''
-  Use Audio Formats: ''
+  Change Video Formats: 'Cambiar formato de video'
+  Use Dash Formats: 'Usar formato Dash'
+  Use Legacy Formats: 'Usar formato Legacy'
+  Use Audio Formats: 'Usar formato solo audio'
+  Audio formats are not available for this video: El formato solo audio no está disponible
+    para este video
+  Dash formats are not available for this video: El formato Dash no está disponible
+    para este video
 Share:
-  Share Video: ''
-  Copy Link: ''
-  Open Link: ''
-  Copy Embed: ''
-  Open Embed: ''
+  Share Video: 'Compartir video'
+  Copy Link: 'Copiar enlace'
+  Open Link: 'Abrir enlace'
+  Copy Embed: 'Copiar código encrustado'
+  Open Embed: 'Abrir código encrustado'
   # On Click
-  Invidious URL copied to clipboard: ''
-  Invidious Embed URL copied to clipboard: ''
-  YouTube URL copied to clipboard: ''
-  YouTube Embed URL copied to clipboard: ''
-Mini Player: ''
+  Invidious URL copied to clipboard: 'El enlace de Invidious ha sido copiado al portapapeles'
+  Invidious Embed URL copied to clipboard: 'El enlace encrustada de Invidious ha sido
+    copiada al portapapeles'
+  YouTube URL copied to clipboard: 'El enlace de Youtube ha sido copiado al portapapeles'
+  YouTube Embed URL copied to clipboard: 'El enlace encrustado de Youtube ha sido
+    copiado al portapapeles'
+  Include Timestamp: Incluir marcas de tiempo
+Mini Player: 'Reproductor Mini'
 Comments:
-  Comments: ''
-  Click to View Comments: ''
-  Getting comment replies, please wait: ''
-  Show Comments: ''
-  Hide Comments: ''
+  Comments: 'Comentarios'
+  Click to View Comments: 'Haz click para ver los comentarios'
+  Getting comment replies, please wait: 'Obteniendo las respuestas. Por favor, espera'
+  Show Comments: 'Mostrar comentarios'
+  Hide Comments: 'Esconder comentarios'
   # Context: View 10 Replies, View 1 Reply
-  View: ''
-  Hide: ''
-  Replies: ''
-  Reply: ''
-  There are no comments available for this video: ''
-  Load More Comments: ''
-Up Next: ''
+  View: 'Ver'
+  Hide: 'Esconder'
+  Replies: 'Respuestas'
+  Reply: 'Responder'
+  There are no comments available for this video: 'Este video no tiene comentarios'
+  Load More Comments: 'Cargar más comentarios'
+  There are no more comments for this video: No hay más comentarios sobre en este
+    video
+Up Next: 'Siguiente'
 
 # Toast Messages
-Local API Error (Click to copy): ''
-Invidious API Error (Click to copy): ''
-Falling back to Invidious API: ''
-Falling back to the local API: ''
-Subscriptions have not yet been implemented: ''
-Loop is now disabled: ''
-Loop is now enabled: ''
-Shuffle is now disabled: ''
-Shuffle is now enabled: ''
-Playing Next Video: ''
-Playing Previous Video: ''
-Playing next video in 5 seconds.  Click to cancel: ''
-Canceled next video autoplay: ''
-'The playlist has ended.  Enable loop to continue playing': ''
+Local API Error (Click to copy): 'Error de la API local (Click para copiar el código)'
+Invidious API Error (Click to copy): 'Error de la API de Invidious (Click para copiar
+  el código)'
+Falling back to Invidious API: 'Recurriendo a la API de Invidious'
+Falling back to the local API: 'Recurriendo a la API local'
+Subscriptions have not yet been implemented: 'Este sección está en desarrollo'
+Loop is now disabled: 'La reproducción en bucle se ha desactivado'
+Loop is now enabled: 'La reproducción en bucle se ha activado'
+Shuffle is now disabled: 'La reproducción aleatoria se ha desactivado'
+Shuffle is now enabled: 'La reproducción aleatoria se ha activado'
+Playing Next Video: 'Reproduciendo el video siguiente'
+Playing Previous Video: 'Reproduciendo el video anterior'
+Playing next video in 5 seconds.  Click to cancel: 'El video siguiente comenzará en
+  5 segundos. Click para cancelar'
+Canceled next video autoplay: 'La reproducción del video siguiente se ha cancelado'
+'The playlist has ended.  Enable loop to continue playing': 'Esta lista de reproducción
+  ha finalizado. Activa la reproducción en bucle para continuar con ella'
 
-Yes: ''
-No: ''
+Yes: 'Sí'
+No: 'No'
+A new blog is now available, $. Click to view more: Hay un nuevo post en el blog disponible,
+  $. Haz click para saber más
+Download From Site: Descargar de la web
+Version $ is now available!  Click for more details: La versión $ está disponible!
+  Haz click para saber más
+The playlist has been reversed: La lista de reproducción se ha invertido

@@ -59,11 +59,11 @@ Search Filters:
     Duration: 'Duur'
     All Durations: 'Alle Tijdsduren'
     Short (< 4 minutes): 'kort (< 4 minuten)'
-    Long (> 20 minutes): 'Lang (> 20 minuten'
+    Long (> 20 minutes): 'Lang (> 20 minuten)'
   # On Search Page
   Search Results: 'Zoekresultaten'
   Fetching results. Please wait: 'Resultaten verzamelen. Een momentje'
-  Fetch more results: 'Verzamel meer resultaten'
+  Fetch more results: 'Meer resultaten laden'
 # Sidebar
 Subscriptions:
     # On Subscriptions Page

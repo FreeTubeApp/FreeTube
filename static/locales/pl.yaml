@@ -268,7 +268,7 @@ About:
   About: 'O projekcie'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Ten
-    program typu copyleft jest objęty swobodną licencją APGL-3.0.'
+    program copyleft jest objęty wolną licencją APGL-3.0.'
 
   'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
     Znalazłeś/aś błąd? Masz pomysł na nową funkcję? Chcesz jakoś pomóc? Zajrzyj na
@@ -437,8 +437,8 @@ Share:
   Share Video: 'Podziel się filmem'
   Copy Link: 'Skopiuj link'
   Open Link: 'Otwórz link'
-  Copy Embed: 'Skopiuj bzpoś.'
-  Open Embed: 'Otwórz bzpoś.'
+  Copy Embed: 'Skopiuj embed'
+  Open Embed: 'Otwórz embed'
   # On Click
   Invidious URL copied to clipboard: 'Skopiowano URL Invidious do schowka'
   Invidious Embed URL copied to clipboard: 'Skopiowano URL odtwarzacza Invidious do
