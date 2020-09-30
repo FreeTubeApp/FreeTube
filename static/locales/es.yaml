@@ -61,7 +61,7 @@ Search Filters:
     Long (> 20 minutes): 'Largos (> 20 minutos)'
   # On Search Page
   Search Results: 'Resultados de la búsqueda'
-  Fetching results. Please wait: 'Obteniendo resultados. Por favor, espere'
+  Fetching results. Please wait: 'Obteniendo resultados. Por favor, espera'
   Fetch more results: 'Obtener más resultados'
 # Sidebar
 Subscriptions:
@@ -70,7 +70,7 @@ Subscriptions:
   Latest Subscriptions: 'Suscripciones más recientes'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Tu
     lista de suscripciones está vacía. Suscríbete a canales para verlos aquí'
-  'Getting Subscriptions. Please wait.': 'Obteniendo suscripciones. Por favor, espere'
+  'Getting Subscriptions. Please wait.': 'Obteniendo suscripciones. Por favor, espera'
   Refresh Subscriptions: 'Recargar las suscripciones'
 Trending: 'Tendencias'
 Most Popular: 'Más populares'
@@ -210,7 +210,7 @@ Settings:
     All subscriptions have been successfully imported: 'Todas las suscripciones han
       sido importadas con éxito'
     Invalid subscriptions file: 'Archivo de suscripciones no válido'
-    This might take a while, please wait: 'Esto puede tardar un rato, por favor, espera'
+    This might take a while, please wait: 'Esto puede tardar un rato. Por favor, espera'
     Invalid history file: 'Archivo de historial no válido'
     Subscriptions have been successfully exported: 'Las suscripciones han sido exportadas
       con éxito'
@@ -382,39 +382,43 @@ Video:
   Live Chat: ''
   Enable Live Chat: ''
   Live Chat is currently not supported in this build.: ''
-  'Chat is disabled or the Live Stream has ended.': ''
-  Live chat is enabled.  Chat messages will appear here once sent.: ''
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
+  'Chat is disabled or the Live Stream has ended.': 'El chat está deshabilitado o
+    la emisión ha acabado'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'El chat está
+    habilitado. Tus mensajes aparecerán aquí cuando los envíes'
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Actualmente
+    el chat no funciona con la API de Invidious. Se requiere una conexión directa
+    con YouTube.'
   Published:
-    Jan: ''
-    Feb: ''
-    Mar: ''
-    Apr: ''
-    May: ''
-    Jun: ''
-    Jul: ''
-    Aug: ''
-    Sep: ''
-    Oct: ''
-    Nov: ''
-    Dec: ''
-    Second: ''
-    Seconds: ''
-    Minute: ''
-    Minutes: ''
-    Hour: ''
-    Hours: ''
-    Day: ''
-    Days: ''
-    Week: ''
-    Weeks: ''
-    Month: ''
-    Months: ''
-    Year: ''
-    Years: ''
-    Ago: ''
-    Upcoming: ''
-  Published on: ''
+    Jan: 'Ene'
+    Feb: 'Feb'
+    Mar: 'Mar'
+    Apr: 'Abr'
+    May: 'May'
+    Jun: 'Jun'
+    Jul: 'Jul'
+    Aug: 'Ago'
+    Sep: 'Sep'
+    Oct: 'Oct'
+    Nov: 'Nov'
+    Dec: 'Dic'
+    Second: 'Segundo'
+    Seconds: 'Segundos'
+    Minute: 'Minuto'
+    Minutes: 'Minutos'
+    Hour: 'Hora'
+    Hours: 'Horas'
+    Day: 'Día'
+    Days: 'Días'
+    Week: 'Semana'
+    Weeks: 'Semanas'
+    Month: 'Mes'
+    Months: 'Meses'
+    Year: 'Año'
+    Years: 'Años'
+    Ago: 'Hace'
+    Upcoming: 'Comenzará pronto'
+  Published on: 'Publicado el'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: ''
 #& Videos
@@ -426,80 +430,93 @@ Video:
 Videos:
   #& Sort By
   Sort By:
-    Newest: ''
-    Oldest: ''
+    Newest: 'El más reciente'
+    Oldest: 'El más antiguo'
     #& Most Popular
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: ''
-  Videos: ''
-  View: ''
-  Views: ''
-  Last Updated On: ''
+  View Full Playlist: 'Ver la lista de reproducción completa'
+  Videos: 'Videos'
+  View: 'Vista'
+  Views: 'Vistas'
+  Last Updated On: 'Se actualizó por última vez el'
   Share Playlist:
-    Share Playlist: ''
-    Copy YouTube Link: ''
-    Open in YouTube: ''
-    Copy Invidious Link: ''
-    Open in Invidious: ''
+    Share Playlist: 'Compartir lista de reproducción'
+    Copy YouTube Link: 'Copiar enlace YouTube'
+    Open in YouTube: 'Abrir en YouTube'
+    Copy Invidious Link: 'Copiar enlace Invidious'
+    Open in Invidious: 'Abrir en Invidious'
 
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: ''
+Toggle Theatre Mode: 'Pasar al modo teatro'
 Change Format:
-  Change Video Formats: ''
-  Use Dash Formats: ''
-  Use Legacy Formats: ''
-  Use Audio Formats: ''
+  Change Video Formats: 'Cambiar formato de video'
+  Use Dash Formats: 'Usar formato Dash'
+  Use Legacy Formats: 'Usar formato Legacy'
+  Use Audio Formats: 'Usar formato solo audio'
+  Audio formats are not available for this video: El formato solo audio no está disponible
+    para este video
+  Dash formats are not available for this video: El formato Dash no está disponible
+    para este video
 Share:
-  Share Video: ''
-  Copy Link: ''
-  Open Link: ''
-  Copy Embed: ''
-  Open Embed: ''
+  Share Video: 'Compartir video'
+  Copy Link: 'Copiar enlace'
+  Open Link: 'Abrir enlace'
+  Copy Embed: 'Copiar código encrustado'
+  Open Embed: 'Abrir código encrustado'
   # On Click
-  Invidious URL copied to clipboard: ''
-  Invidious Embed URL copied to clipboard: ''
-  YouTube URL copied to clipboard: ''
-  YouTube Embed URL copied to clipboard: ''
-Mini Player: ''
+  Invidious URL copied to clipboard: 'El enlace de Invidious ha sido copiado al portapapeles'
+  Invidious Embed URL copied to clipboard: 'El enlace encrustada de Invidious ha sido
+    copiada al portapapeles'
+  YouTube URL copied to clipboard: 'El enlace de Youtube ha sido copiado al portapapeles'
+  YouTube Embed URL copied to clipboard: 'El enlace encrustado de Youtube ha sido
+    copiado al portapapeles'
+  Include Timestamp: Incluir marcas de tiempo
+Mini Player: 'Reproductor Mini'
 Comments:
-  Comments: ''
-  Click to View Comments: ''
-  Getting comment replies, please wait: ''
-  Show Comments: ''
-  Hide Comments: ''
+  Comments: 'Comentarios'
+  Click to View Comments: 'Haz click para ver los comentarios'
+  Getting comment replies, please wait: 'Obteniendo las respuestas. Por favor, espera'
+  Show Comments: 'Mostrar comentarios'
+  Hide Comments: 'Esconder comentarios'
   # Context: View 10 Replies, View 1 Reply
-  View: ''
-  Hide: ''
-  Replies: ''
-  Reply: ''
-  There are no comments available for this video: ''
-  Load More Comments: ''
-Up Next: ''
+  View: 'Ver'
+  Hide: 'Esconder'
+  Replies: 'Respuestas'
+  Reply: 'Responder'
+  There are no comments available for this video: 'Este video no tiene comentarios'
+  Load More Comments: 'Cargar más comentarios'
+  There are no more comments for this video: No hay más comentarios sobre en este
+    video
+Up Next: 'Siguiente'
 
 # Toast Messages
-Local API Error (Click to copy): ''
-Invidious API Error (Click to copy): ''
-Falling back to Invidious API: ''
-Falling back to the local API: ''
-Subscriptions have not yet been implemented: ''
-Loop is now disabled: ''
-Loop is now enabled: ''
-Shuffle is now disabled: ''
-Shuffle is now enabled: ''
-Playing Next Video: ''
-Playing Previous Video: ''
-Playing next video in 5 seconds.  Click to cancel: ''
-Canceled next video autoplay: ''
-'The playlist has ended.  Enable loop to continue playing': ''
+Local API Error (Click to copy): 'Error de la API local (Click para copiar el código)'
+Invidious API Error (Click to copy): 'Error de la API de Invidious (Click para copiar
+  el código)'
+Falling back to Invidious API: 'Recurriendo a la API de Invidious'
+Falling back to the local API: 'Recurriendo a la API local'
+Subscriptions have not yet been implemented: 'Este sección está en desarrollo'
+Loop is now disabled: 'La reproducción en bucle se ha desactivado'
+Loop is now enabled: 'La reproducción en bucle se ha activado'
+Shuffle is now disabled: 'La reproducción aleatoria se ha desactivado'
+Shuffle is now enabled: 'La reproducción aleatoria se ha activado'
+Playing Next Video: 'Reproduciendo el video siguiente'
+Playing Previous Video: 'Reproduciendo el video anterior'
+Playing next video in 5 seconds.  Click to cancel: 'El video siguiente comenzará en
+  5 segundos. Click para cancelar'
+Canceled next video autoplay: 'La reproducción del video siguiente se ha cancelado'
+'The playlist has ended.  Enable loop to continue playing': 'Esta lista de reproducción
+  ha finalizado. Activa la reproducción en bucle para continuar con ella'
 
-Yes: ''
+Yes: 'Sí'
 No: 'No'
 A new blog is now available, $. Click to view more: Hay un nuevo post en el blog disponible,
   $. Haz click para saber más
 Download From Site: Descargar de la web
 Version $ is now available!  Click for more details: La versión $ está disponible!
   Haz click para saber más
+The playlist has been reversed: La lista de reproducción se ha invertido
