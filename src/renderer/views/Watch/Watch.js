@@ -294,7 +294,17 @@ export default Vue.extend({
             }
           } else {
             this.videoLengthSeconds = parseInt(result.videoDetails.lengthSeconds)
-            this.videoSourceList = result.player_response.streamingData.formats.reverse()
+            if (result.player_response.streamingData !== undefined) {
+              this.videoSourceList = result.player_response.streamingData.formats.reverse()
+            } else {
+              // video might be region locked or something else. This leads to no formats being available
+              this.showToast({
+                message: this.$t('This video is unavailable because of missing formats. This can happen due to country unavailability.'),
+                time: 7000
+              })
+              this.handleVideoEnded()
+              return
+            }
 
             if (typeof result.player_response.streamingData.adaptiveFormats !== 'undefined') {
               this.dashSrc = await this.createLocalDashManifest(result.player_response.streamingData.adaptiveFormats)
