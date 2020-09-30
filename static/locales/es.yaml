@@ -377,11 +377,12 @@ Video:
   Watched: 'Visto'
   Autoplay: 'Reproducción automática'
   # As in a Live Video
-  Live: ''
-  Live Now: ''
-  Live Chat: ''
-  Enable Live Chat: ''
-  Live Chat is currently not supported in this build.: ''
+  Live: 'En directo'
+  Live Now: 'En directo ahora'
+  Live Chat: 'Chat en directo'
+  Enable Live Chat: 'Activar chat en directo'
+  Live Chat is currently not supported in this build.: 'El chat en directo no está
+    soportado de momento en esta build'
   'Chat is disabled or the Live Stream has ended.': 'El chat está deshabilitado o
     la emisión ha acabado'
   Live chat is enabled.  Chat messages will appear here once sent.: 'El chat está
@@ -420,13 +421,15 @@ Video:
     Upcoming: 'Comenzará pronto'
   Published on: 'Publicado el'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: ''
+  Publicationtemplate: 'Hace $ %'
 #& Videos
   Play Previous Video: Reproducir video anterior
   Play Next Video: Reproducir siguiente vídeo
   Reverse Playlist: Lista de reproducción inversa
   Shuffle Playlist: Lista de reproducción aleatoria
   Loop Playlist: Lista de reproducción del bucle
+  Starting soon, please refresh the page to check again: Comenzará en breve. Por favor,
+    recarga la página para comprobarlo
 Videos:
   #& Sort By
   Sort By:
