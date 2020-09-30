@@ -3,7 +3,7 @@ Locale Name: 'Español'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Esta sección está en desarrollo. Regrese cuando esté lista
+  Esta sección está en desarrollo. Regresa cuando esté lista.
 
 # Webkit Menu Bar
 File: 'Archivo'
@@ -73,7 +73,7 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Obteniendo suscripciones. Por favor, espera.'
   Refresh Subscriptions: 'Recargar suscripciones'
 Trending: 'Tendencias'
-Most Popular: 'Lo mas popular'
+Most Popular: 'Más populares'
 Playlists: 'Playlists'
 User Playlists:
   Your Playlists: 'Tus listas de reproducción'
@@ -114,7 +114,8 @@ Settings:
     Check for Updates: Buscar actualizaciones
   Theme Settings:
     Theme Settings: 'Tema'
-    Match Top Bar with Main Color: 'Igualar el color de la barra superior al principal'
+    Match Top Bar with Main Color: 'Igualar el color de la barra superior al color
+      principal'
     Base Theme:
       Base Theme: 'Apariencia base'
       Black: 'Negro'
@@ -523,3 +524,6 @@ Download From Site: Descargar de la web
 Version $ is now available!  Click for more details: La versión $ está disponible!
   Haz click para saber más
 The playlist has been reversed: La lista de reproducción se ha invertido
+This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
+  video no está disponible por no tener un formato válido. Esto puede suceder por
+  la falta de acceso de este formato a tu región.
