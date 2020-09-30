@@ -93,7 +93,7 @@ export default Vue.extend({
           comment.showReplies = false
           comment.dataType = 'local'
           this.toLocalePublicationString({
-            publishText: (comment.time + 'ago'),
+            publishText: (comment.time + ' ago'),
             templateString: this.$t('Video.Publicationtemplate'),
             timeStrings: this.$t('Video.Published'),
             liveStreamString: this.$t('Video.Watching'),

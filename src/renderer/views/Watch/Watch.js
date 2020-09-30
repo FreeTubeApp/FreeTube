@@ -302,6 +302,7 @@ export default Vue.extend({
                 message: this.$t('This video is unavailable because of missing formats. This can happen due to country unavailability.'),
                 time: 7000
               })
+              this.handleVideoEnded()
               return
             }
 
