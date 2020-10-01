@@ -88,36 +88,12 @@ Subscriptions:
     'Your Subscription list is currently empty. Start adding subscriptions to see them here.': >
       Your Subscription list is currently empty. Start adding subscriptions to see them here.
 
-    'Getting Subscriptions.  Please wait...': Getting Subscriptions.  Please wait…
-    Live Now: Live Now
-    Published:
-        Jan: Jan
-        Feb: Feb
-        Mar: Mar
-        Apr: Apr
-        May: May
-        Jun: Jun
-        Jul: Jul
-        Aug: Aug
-        Sep: Sep
-        Oct: Oct
-        Nov: Nov
-        Dec: Dec
-        Hour: Hour
-        Hours: Hours
-        Day: Day
-        Days: Days
-        Week: Week
-        Weeks: Weeks
-        Month: Month
-        Months: Months
-        Year: Year
-        Years: Years
-        Ago: Ago
-    Published on: Published on
-Featured: Featured
+    'Getting Subscriptions.  Please wait…': Getting Subscriptions.  Please wait…
+Trending: Trending
 Most Popular: Most Popular
 Playlists: Playlists
+User Playlists:
+  Your Playlists: Your Playlists
 History:
   # On History Page
   History: History
@@ -130,8 +106,9 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: Fallback to Non-Preferred Backend on Failure
     Enable Search Suggestions: Enable Search Suggestions
     Default Landing Page: Default Landing Page
-    Perferred API Backend:
-      Perferred API Backend: Perferred API Backend
+    Locale Preference: Locale Preference
+    Preferred API Backend:
+      Preferred API Backend: Preferred API Backend
       Local API: Local API
       Invidious API: Invidious API
     Video View Type:
@@ -160,7 +137,7 @@ Settings:
       Red: Red
       Pink: Pink
       Purple: Purple
-      Dark Purple: Dark Purple
+      Deep Purple: Deep Purple
       Indigo: Indigo
       Blue: Blue
       Light Blue: Light Blue
@@ -220,8 +197,7 @@ Settings:
     Advanced Settings: Advanced Settings
     Enable Debug Mode (Prints data to the console): Enable Debug Mode (Prints data to the console)
     'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': >
-      Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json
+    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json
     Use Tor / Proxy for API calls: Use Tor / Proxy for API calls
     TEST PROXY: TEST PROXY
     #& Invidious Instance (Default is https://invidio.us)
@@ -243,36 +219,99 @@ About:
   #On About page
   About: About
   #& About
-  'This software is FOSS and released under the GNU Public License v3+.': >
-    This copylefted software is freely licensed GPLv3+.
+  'This software is FOSS and released under the GNU Affero General Public License v3.0.': This copylefted software is freely licensed AGPL-3.0.
 
   'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
     Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub
     page. Pull requests welcome.
 
-  Thank you very much to the People and Projects that make FreeTube possible!: >
-    Thank you very much to the People and Projects that make FreeTube possible!
+  Thank you very much to the People and Projects that make FreeTube possible!: Thank you very much to the People and Projects that make FreeTube possible!
 
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': >
-    Want to chat? Join our Element / Matrix Server . Please check the rules before joining.
+  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': Want to chat? Join our Element / Matrix Server . Please check the rules before joining.
 
   'Looking for help? Check out our Wiki page.': Looking for help? Check out our Wiki page.
 
   Check out our Firefox extension!: Check out our Firefox extension!
 
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': >
-    If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.
+  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.
 
   #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
 
   Latest FreeTube News: Latest FreeTube News
 
 #On Channel Page
-Subscriber: Subscriber
-Subscribers: Subscribers
-Subscribe: Subscribe
-Unsubscribe: Unsubscribe
-Video: Video
+Channel:
+  Subscriber: Subscriber
+  Subscribers: Subscribers
+  Subscribe: Subscribe
+  Unsubscribe: Unsubscribe
+  Search Channel: Search Channel
+  Your search results have returned 0 results: Your search results have returned 0 results
+  Sort By: Sort By
+  Videos:
+    Videos: Videos
+    This channel does not currently have any videos: This channel does not currently have any videos
+    Sort Types:
+      Newest: Newest
+      Oldest: Oldest
+      Most Popular: Most Popular
+  Playlists:
+    Playlists: Playlists
+    This channel does not currently have any playlists: This channel does not currently have any playlists
+    Sort Types:
+      Last Video Added: Last Video Added
+      Newest: Newest
+      Oldest: Oldest
+  About:
+    About: About
+    Channel Description: Channel Description
+    Featured Channels: Featured Channels
+Video:
+  Open in YouTube: Open in YouTube
+  Copy YouTube Link: Copy YouTube Link
+  Open YouTube Embedded Player: Open YouTube Embedded Player
+  Copy YouTube Embedded Player Link: Copy YouTube Embedded Player Link
+  Open in Invidious: Open in Invidious
+  Copy Invidious Link: Copy Invidious Link
+  View: View
+  Views: Views
+  # Context is "X People Watching"
+  Watching: Watching
+  Watched: Watched
+  # As in a Live Video
+  Live: Live
+  Live Now: Live Now
+  Live Chat: Live Chat
+  Enable Live Chat: Enable Live Chat
+  Live Chat is currently not supported in this build.: Live Chat is currently not supported in this build.
+  'Chat is disabled or the Live Stream has ended.': Chat is disabled or the Live Stream has ended.
+  Live chat is enabled.  Chat messages will appear here once sent.: Live chat is enabled.  Chat messages will appear here once sent.
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.
+  Published:
+      Jan: Jan
+      Feb: Feb
+      Mar: Mar
+      Apr: Apr
+      May: May
+      Jun: Jun
+      Jul: Jul
+      Aug: Aug
+      Sep: Sep
+      Oct: Oct
+      Nov: Nov
+      Dec: Dec
+      Hour: Hour
+      Hours: Hours
+      Day: Day
+      Days: Days
+      Week: Week
+      Weeks: Weeks
+      Month: Month
+      Months: Months
+      Year: Year
+      Years: Years
+      Ago: Ago
+  Published on: Published on
 #& Videos
 Videos:
   #& Sort By
@@ -283,42 +322,57 @@ Videos:
 #& Playlists
 Playlist:
   #& About
-  Channel Description: Channel Description
-  Featured Channels: Featured Channels
-  Search Channel: Search Channel
   View Full Playlist: View Full Playlist
-
-# On Channel Playlist Page
-Share Playlist:
-  Share Playlist: Share Playlist
-  Copy YouTube Link: Copy YouTube Link
-  Open in YouTube: Open in YouTube
-  Copy Invidious Link: Copy Invidious Link
-  Open in Invidious: Open in Invidious
+  Videos: Videos
+  View: View
+  Views: Views
+  Last Updated On: Last Updated On
+  Share Playlist:
+    Share Playlist: Share Playlist
+    Copy YouTube Link: Copy YouTube Link
+    Open in YouTube: Open in YouTube
+    Copy Invidious Link: Copy Invidious Link
+    Open in Invidious: Open in Invidious
 
 # On Video Watch Page
 #* Published
 #& Views
+Toggle Theatre Mode: Toggle Theatre Mode
 Change Format:
-  Change Format: Change Format
+  Change Video Formats: Change Video Formats
   Use Dash Formats: Use Dash Formats
   Use Legacy Formats: Use Legacy Formats
   Use Audio Formats: Use Audio Formats
 Share:
-  Share: Share
+  Share Video: Share Video
   Copy Link: Copy Link
   Open Link: Open Link
   Copy Embed: Copy Embed
   Open Embed: Open Embed
   # On Click
-  URL has been copied to the clipboard: URL has been copied to clipboard
+  Invidious URL copied to clipboard: Invidious URL copied to clipboard
+  Invidious Embed URL copied to clipboard: Invidious Embed URL copied to clipboard
+  YouTube URL copied to clipboard: YouTube URL copied to clipboard
+  YouTube Embed URL copied to clipboard: YouTube Embed URL copied to clipboard
 Mini Player: Mini Player
-Click to View Comments: Click to View Comments
-Show Comments: Show Comments
+Comments:
+  Comments: Comments
+  Click to View Comments: Click to View Comments
+  Getting comment replies, please wait: Getting comment replies, please wait
+  Show Comments: Show Comments
+  Hide Comments: Hide Comments
+  # Context: View 10 Replies, View 1 Reply
+  View: View
+  Hide: Hide
+  Replies: Replies
+  Reply: Reply
+  There are no comments available for this video: There are no comments available for this video
+  Load More Comments: Load More Comments
 Up Next: Up Next
 
 # Toast Messages
 Local API Error (Click to copy): Local API Error (Click to copy)
+Invidious API Error (Click to copy): Invidious API Error (Click to copy)
 Falling back to Invidious API: Falling back to Invidious API
 Falling back to the local API: Falling back to the local API
 Subscriptions have not yet been implemented: Subscriptions have not yet been implemented
@@ -327,9 +381,10 @@ Loop is now enabled: Loop is now enabled
 Shuffle is now disabled: Shuffle is now disabled
 Shuffle is now enabled: Shuffle is now enabled
 Playing Next Video: Playing Next Video
-Playing previous video: Playing previous video
+Playing Previous Video: Playing Previous Video
 Playing next video in 5 seconds.  Click to cancel: Playing next video in 5 seconds.  Click to cancel
 Canceled next video autoplay: Canceled next video autoplay
+'The playlist has ended.  Enable loop to continue playing': 'The playlist has ended.  Enable loop to continue playing'
 
 Yes: Yes
 No: No

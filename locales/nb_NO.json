@@ -20,7 +20,11 @@
     "Window": "Vindu",
     "Minimize": "Minimer",
     "Close": "Lukk",
+<<<<<<< HEAD
     "FreeTube": "FriTube",
+=======
+    "FreeTube": "FreeTube",
+>>>>>>> development
     "Subscriptions": "Abonnementer",
     "Featured": "Framhevet",
     "Most Popular": "Mest populært",
@@ -31,6 +35,7 @@
     "About": "Om",
     "Search / Go to URL": "Søk / gå til nettadresse",
     "Search Results": "Søkeresultater",
+<<<<<<< HEAD
     "Subscriber": "Abonnent",
     "Video": "Video",
     "Videos": "Videoer",
@@ -39,12 +44,24 @@
     "Fetch more results": "Hent flere resultater",
     "Fetching results. Please wait": "Henter resultater. Vent.",
     "Latest Subscriptions": "Siste abonnementer",
+=======
+    "Subscriber": "Abonnement",
+    "Subscribers": "Abonnenter",
+    "Video": "Video",
+    "Videos": "Videoer",
+    "View Full Playlist": "Vis full spilleliste",
+    "Live Now": "Sanntidsvises nå",
+    "Fetch more results": "Hent flere resultater",
+    "Fetching results. Please wait": "Henter resultater. Vent.",
+    "Latest Subscriptions": "Seneste abonnementer",
+>>>>>>> development
     "Save Video": "Lagre video",
     "Remove Saved Video": "Fjern lagret video",
     "Open in YouTube": "Åpne i YouTube",
     "Copy YouTube Link": "Kopier YouTube-lenke",
     "Open in HookTube": "Åpne i HookTube",
     "Copy HookTube Link": "Kopier HookTube-lenke",
+<<<<<<< HEAD
     "URL has been copied to the clipboard": "Nettadresse kopiert til utklippstavle",
     "Found valid URL for 480p, but returned a 404. Video type might be available in the future.": "Fant gyldig nettadresse for 480p, men fikk 404. Videotypen kan bli tilgjengelig i fremtiden.",
     "Save": "Lagre",
@@ -53,6 +70,16 @@
     "Subscribe": "Abonner",
     "Unsubscribe": "Opphev abonnement",
     "Published on": "Offentliggjort",
+=======
+    "URL has been copied to the clipboard": "Nettadressen har blitt kopiert til utklippstavlen",
+    "Found valid URL for 480p, but returned a 404. Video type might be available in the future.": "Fant gyldig nettadresse for 480p, men returnerte en 404. Videotypen kan bli tilgjengelig i fremtiden.",
+    "Save": "Lagre",
+    "Mini Player": "Minispiller",
+    "Views": "Visninger",
+    "Subscribe": "Abonner",
+    "Unsubscribe": "Opphev abonnement",
+    "Published on": "Offentliggjort den",
+>>>>>>> development
     "Jan": "Jan",
     "Feb": "Feb",
     "Mar": "Mar",
@@ -69,24 +96,44 @@
     "Max of 100": "Maksimalt 100",
     "Recommendations": "Anbefalinger",
     "Getting Subscriptions.  Please wait...": "Henter abonnementer. Vent…",
+<<<<<<< HEAD
     "Your Subscription list is currently empty. Start adding subscriptions to see them here.": "Din abonnementsliste er for tiden tom. Legg til abonnementer for å se dem her.",
     "Saved Videos": "Lagrede videoer",
     "Watch History": "Visningshistorikk",
     "API Key": "API-nøkkel",
     "Set API Key: Leave blank to use default": "Sett API-nøkkel: La stå tom for å bruke forvalg",
     "Use Dark Theme": "Bruk Mørk drakt",
+=======
+    "Your Subscription list is currently empty. Start adding subscriptions to see them here.": "Din abonnementsliste er foreløpig tom. Legg til noen for å se dem her.",
+    "Saved Videos": "Lagrede videoer",
+    "Watch History": "Visninghistorikk",
+    "API Key": "API-nøkkel",
+    "Set API Key: Leave blank to use default": "Sett API-nøkkel: La stå tom for å bruke forvalg",
+    "Use Dark Theme": "Bruk mørk drakt",
+>>>>>>> development
     "Import Subscriptions": "Importer abonnementer",
     "Export Subscriptions": "Eksporter abonnementer",
     "Clear History": "Tøm historikk",
     "Are you sure you want to delete your history?": "Er du sikker på at du ønsker å slette historikken din?",
     "Clear Saved Videos": "Tøm lagrede videoer",
+<<<<<<< HEAD
     "Are you sure you want to remove all saved videos?": "Er du sikker på at du vil fjerne alle lagrede videoer?",
     "Clear Subscriptions": "Tøm abonnementer",
     "Are you sure you want to remove all subscriptions?": "Er du sikker på at du vil fjerne alle abonnementer?",
+=======
+    "Are you sure you want to remove all saved videos?": "Er du sikker på at du ønsker å fjerne alle lagrede videoer?",
+    "Clear Subscriptions": "Opphev abonnementer",
+    "Are you sure you want to remove all subscriptions?": "Er du sikker på at du ønsker å oppheve alle abonnementer?",
+>>>>>>> development
     "Save Settings": "Lagre innstillinger",
     "Yes": "Ja",
     "No": "Nei",
     "Beta": "Beta",
+<<<<<<< HEAD
     "This software is FOSS and released under the GNU Public License v3+.": "Denne programvaren er fri, lisensiert GPLv3+.",
     "Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.": "Funnet en feil? Vil du foreslå noe? Hjelpe til? Sjekk GitHub-siden. Endringsforespørsler mottas med takk."
+=======
+    "This software is FOSS and released under the GNU Public License v3+.": "Dette er fri programvare, utgitt med GNU Public-lisens, versjon 3+.",
+    "Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.": "Har du funnet en feil? Ønsker du å foreslå en funksjon? Ønsker du å bidra? Sjekk vår GitHub-side. Flettingsforespørsler er velkomne."
+>>>>>>> development
 }
