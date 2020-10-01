@@ -1,8 +1,8 @@
 {
-    "name": "FreeTube",
-    "productName": "FreeTube",
+    "name": "FreeTube-legacy",
+    "productName": "FreeTube-legacy",
     "version": "0.7.3",
-    "description": "An Open Source YouTube app for privacy.",
+    "description": "An Open Source YouTube app for privacy. A legacy version of FreeTube",
     "main": "src/js/init.js",
     "scripts": {
         "pack": "electron-builder build --dir",
@@ -37,11 +37,11 @@
     },
     "license": "GPL-3.0-or-later",
     "build": {
-        "appId": "io.freetubeapp.freetube",
+        "appId": "io.freetubeapp.freetube-legacy",
         "asar": true,
         "protocols": [
             {
-                "name": "FreeTube",
+                "name": "FreeTube-legacy",
                 "schemes": [
                     "freetube"
                 ]
@@ -63,7 +63,7 @@
         },
         "linux": {
             "protocols": {
-                "name": "FreeTube",
+                "name": "FreeTube-legacy",
                 "schemes": [
                     "freetube"
                 ]
