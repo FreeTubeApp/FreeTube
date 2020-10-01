@@ -399,6 +399,8 @@ Video:
   Shuffle Playlist: Playlist Riproduzione Casuale
   Loop Playlist: Playlist Loop
   Autoplay: Riproduzione Automatica
+  Starting soon, please refresh the page to check again: La riproduzione partirà a
+    breve, refreshare la pagina per ricontrollare
 Videos:
   #& Sort By
   Sort By:
@@ -532,3 +534,6 @@ Profile:
   Profile Manager: Gestione Profili
   All Channels: Tutti i Canali
   Profile Select: Seleziona il Profilo
+This video is unavailable because of missing formats. This can happen due to country unavailability.: Questo
+  video non è disponibile a causa di alcuni formati mancanti. Questo può succedere
+  in caso di mancata disponibilità del paese.
