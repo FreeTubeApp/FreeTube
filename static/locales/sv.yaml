@@ -6,8 +6,8 @@ FreeTube: 'FreeTube'
   Den här delen av appen är inte klar än. Kom tillbaka senare när framsteg har gjorts.
 
 # Webkit Menu Bar
-File: ''
-Quit: ''
+File: 'Arkiv'
+Quit: 'Avsluta'
 Edit: 'Redigera'
 Undo: 'Ångra'
 Redo: 'Upprepa'
