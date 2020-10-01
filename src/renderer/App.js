@@ -138,7 +138,7 @@ export default Vue.extend({
     checkForNewUpdates: function () {
       if (this.checkForUpdates) {
         const { version } = require('../../package.json')
-        const requestUrl = 'https://api.github.com/repos/freetubeapp/freetube-vue/releases'
+        const requestUrl = 'https://api.github.com/repos/freetubeapp/freetube/releases'
 
         $.getJSON(requestUrl, (response) => {
           const tagName = response[0].tag_name
