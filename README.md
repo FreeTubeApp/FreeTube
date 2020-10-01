@@ -2,63 +2,98 @@
  <img src="https://freetubeapp.github.io/images/logoColor.png" width=500 align="center">
 </p>
 
-# The FreeTube Vue.js Rewrite
+FreeTube is an open source desktop YouTube player built with privacy in mind.
+Use YouTube without advertisements and prevent Google from tracking you with their cookies and JavaScript.
+Available for Windows, Mac & Linux thanks to Electron.
 
-FreeTube is an open source desktop YouTube player built with privacy in mind.  This repository specifically is about a rewrite of FreeTube that is actively being worked on.  FreeTube will be rewritten from the ground up to take advantage of better coding practices and to make proper use of Vue.js compared to the previous code base.  You can read more about why a rewrite is in development over at the related [blog post](https://write.as/freetube/behind-the-scenes-the-rewrite-also-code-release).
+Please note that FreeTube is currently in Beta. While it should work well for
+most users, there are still bugs and missing features that need to be
+addressed.
 
-This version of FreeTube is not finished.  It is in active development and a lot of features (Even ones that are already implemented in FreeTube) are missing.  Almost all features are being remade.
+[Download FreeTube](https://github.com/FreeTubeApp/FreeTube/releases)
+
+### Browser Extension
+
+Download our browser extension so that you can click on videos in your browser and have them automatically open up in FreeTube.
+
+[Download for Firefox](https://addons.mozilla.org/en-US/firefox/addon/freetube-redirect/)
+
+[Instructions for Google Chrome](https://github.com/FreeTubeApp/FreeTube/wiki/Browser-Extension)
+
+## How does it work?
+FreeTube uses a built in extractor to grab and serve data / videos.  The [Invidious API](https://github.com/iv-org/invidious) can also optionally be used.  FreeTube does not use any official APIs to obtain data.  While YouTube can still see your video requests, it can no
+longer track you using cookies or JavaScript. Your subscriptions and history are stored locally on your computer and never sent out.  Using a VPN or Tor is highly recommended
+to hide your IP while using FreeTube.
+
+## Screenshots
+<img src="https://freetubeapp.io/images/FreeTube1.png" width=200> <img src="https://freetubeapp.io/images/FreeTube2.png" width=200> <img src="https://freetubeapp.io/images/FreeTube3.png" width=200> <img src="https://freetubeapp.io/images/FreeTube4.png" width=200>
+
+## Features
+* Watch videos without ads
+* Use YouTube without Google tracking you using cookies and JavaScript
+* Two extractor APIs to choose from (Built in or Invidious)
+* Subscribe to channels without an account
+* Local subscriptions, history, and saved videos
+* Export & import subscriptions
+* Open videos from your browser directly into FreeTube (with extension)
+* Mini Player
+* Full Theme support
+
+## Download Links
+
+### Official Downloads
+
+[GitHub Releases](https://github.com/FreeTubeApp/FreeTube/releases)
+
+[FreeTube Website](https://freetubeapp.io/#download)
+
+### Unofficial Downloads
+
+These builds are maintained by the community.  While they should be safe, download at your own risk.  There may be issues with using these versus the official builds.  Any issues specific with these builds should be sent to their respective maintainer.
+
+Flatpak on Flathub: [Download](https://flathub.org/apps/details/io.freetubeapp.FreeTube) [Source](https://github.com/flathub/io.freetubeapp.FreeTube)
+
+Arch User Repository (AUR): [Download](https://aur.archlinux.org/packages/freetube-bin/)
+
+Chocolatey: [Download](https://chocolatey.org/packages/freetube/)
+
+Windows Portable: [Download](https://github.com/rddim/FreeTubePortable/releases) [Source](https://github.com/rddim/FreeTubePortable)
 
 ## Contributing
+If you have an idea or if you found a bug, please submit a GitHub issue so that
+we can track it.  Please search the existing issues before submitting to
+prevent duplicates.
 
-Since the code base is smaller and ever expanding.  Now is a great time to get involved with contributing to FreeTube.  There are a lot of things that need to be done right now and the more help we can get the better.
+If you like to get your hands dirty and want to contribute, we would love to
+have your help.  Send a pull request and someone will review your code. Please
+follow the [Contribution
+Guidelines](https://github.com/FreeTubeApp/FreeTube/blob/master/CONTRIBUTING.md)
+before sending your pull request.
 
-Check out the [getting started](https://github.com/FreeTubeApp/FreeTube-Vue/wiki/Getting-Started) page over on the wiki on how to get your environment setup.  Since this is a rewrite, that means that there are things that we'd like to avoid to prevent the same issues from the old code base.  Because of this, there are some coding standards that we'd like to keep while working on this rewrite.
-
-Enough of the rewrite has been done to hopefully provide code examples of what we'd like to see moving forward.  Just because standards are already made, it doesn't mean that I'm not open to suggestions for changing things.  I would love to hear your thoughts on if you believe that something about our methods can be improved on.
-
-## What Needs to be Done?
-
-Like I mentioned above, there are a lot of things that need to be done.  I have created some issues over at the [issues](https://github.com/FreeTubeApp/FreeTube-Vue/issues) page to give a quick rundown on what needs to be done as well as what the requirements are in order for those issues to be considered complete.  I will make more issues with more requirements as progress is made.
-
-At this time, here is the list of things to do/need to do:
-
-- [x] Setup App Environment
-- [x] Basic App Structure and Layout
-- [x] Video Layout (Along with Channel and Playlist Layout)
-- [x] Search / Search View (Along with Filters)
-- [x] Search Suggestions
-- [x] Channel View
-- [x] Channel Search
-- [x] Trending Page
-- [x] Most Popular Page
-- [x] Playlist View
-- [x] Video Watch Page (Recommendations, Comments)
-- [x] Video player logic (Switching formats / quality, live video, fallback logic)
-- [x] Playlist logic (Autoplay next video, shuffle list)
-- [x] Database Setup and Logic (Updating and creating data)
-- [x] Settings Page
-- [x] Subscriptions Page and Logic
-- [ ] Playlists Page (Will allow for creating user playlists.  Will replace the "Favorites" Page)
-- [x] History Page and Logic
-- [x] Profile Page and Logic
-- [ ] Misc. Adjustments and Settings
-- [ ] Packaging and Testing
-
-This list is somewhat in order of when I plan on working on each thing.  Obviously things can change and anyone is welcome to work on whatever they like.
-
-I will add more things to do as progress gets made.  For now what I have listed out should be more than enough.
+Thank you very much to the [People and Projects](https://github.com/FreeTubeApp/FreeTube/wiki/Credits) that make FreeTube possible!
 
 ## Localization
-
-<a href="https://hosted.weblate.org/engage/free-tube/?utm_source=widget">
-<img src="https://hosted.weblate.org/widgets/free-tube/-/translations/multi-blue.svg" alt="Translation status" />
+<a href="https://hosted.weblate.org/engage/free-tube/">
+<img src="https://hosted.weblate.org/widgets/free-tube/-/translations/287x66-grey.png" alt="Translation status" />
 </a>
 
-Want to help translate FreeTube into your native language?  We're now accepting translations via Weblate!  Click on the chart above to learn how to get involved.
+We are actively looking for translations!  We use Weblate to make it easy for translators to get involved.  Click on the badge above to learn how to get involved.
 
 ## Contact
 
-To chat about the FreeTube rewrite or to ask questions, we encourage you to join our [Matrix Community](https://app.element.io/#/group/+freetube:matrix.org).  I will be there actively working on the rewrite and will be available to help you get started.  Alternatively, you can email me at FreeTubeApp@protonmail.com.
+If you ever have any questions, feel free to make an issue here on GitHub.  Alternatively, you can email me at FreeTubeApp@protonmail.com or you can join our [Matrix Community](https://riot.im/app/#/group/+freetube:matrix.org).  Don't forget to check out the [rules](https://github.com/FreeTubeApp/FreeTube/wiki/Matrix-Server-Info-&-Rules) before joining.
+
+You can also stay up to date by reading the [FreeTube Blog](https://write.as/freetube/).  [View the welcome blog](https://write.as/freetube/welcome-to-freetube-blogs).
+
+## Donate
+
+[FreeTube on Liberapay](https://liberapay.com/FreeTube)
+
+Bitcoin Address: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS
+
+Monero Address: 48WyAPdjwc6VokeXACxSZCFeKEXBiYPV6GjfvBsfg4CrUJ95LLCQSfpM9pvNKy5GE5H4hNaw99P8RZyzmaU9kb1pD7kzhCB
+
+If you enjoy using FreeTube, you're welcome to leave a donation using the following methods.  While your donations are much appreciated, only donate if you really want to.  Donations are used for keeping the website up and running and eventual code signing costs.
 
 ## License
 [![GNU AGPLv3 Image](https://www.gnu.org/graphics/agplv3-155x51.png)](https://www.gnu.org/licenses/agpl-3.0.html)  
