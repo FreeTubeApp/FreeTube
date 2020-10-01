@@ -46,7 +46,7 @@ const state = {
   autoplayPlaylists: true,
   playNextVideo: false,
   enableSubtitles: true,
-  forceLocalBackendForLegacy: true,
+  forceLocalBackendForLegacy: false,
   proxyVideos: false,
   defaultTheatreMode: false,
   defaultVolume: 1,

@@ -105,12 +105,12 @@
   },
   "license": "AGPL-3.0-or-later",
   "main": "./dist/main.js",
-  "name": "freetube-vue",
+  "name": "freetube",
   "private": true,
-  "productName": "FreeTube-Vue",
+  "productName": "FreeTube",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FreeTubeApp/FreeTube-Vue.git"
+    "url": "git+https://github.com/FreeTubeApp/FreeTube.git"
   },
   "scripts": {
     "build": "run-s rebuild:electron pack build-release",
