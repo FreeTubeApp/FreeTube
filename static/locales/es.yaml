@@ -86,9 +86,9 @@ Settings:
   # On Settings Page
   Settings: 'Ajustes'
   General Settings:
-    General Settings: 'Ajustes generales'
-    Fallback to Non-Preferred Backend on Failure: 'Recurrir al motor API secundario
-      en caso de fallo'
+    General Settings: 'General'
+    Fallback to Non-Preferred Backend on Failure: 'Usar motor API secundario en caso
+      de fallo'
     Enable Search Suggestions: 'Activar sugerencias de búsqueda'
     Default Landing Page: 'Sección de inicio por defecto'
     Locale Preference: 'Idioma'
@@ -97,7 +97,7 @@ Settings:
       Local API: 'API local'
       Invidious API: 'API de Invidious'
     Video View Type:
-      Video View Type: 'Vista de las suscripciones'
+      Video View Type: 'Vista de suscripciones'
       Grid: 'Cuadrícula'
       List: 'Lista'
     Thumbnail Preference:
@@ -110,14 +110,13 @@ Settings:
       Invidious (por defecto es https://invidious.snopyta.org)'
     Region for Trending: 'Región de las tendencias'
         #! List countries
-    Check for Latest Blog Posts: Buscar las últimas publicaciones en el blog
+    Check for Latest Blog Posts: Buscar últimas publicaciones del blog
     Check for Updates: Buscar actualizaciones
   Theme Settings:
-    Theme Settings: 'Tema'
-    Match Top Bar with Main Color: 'Igualar el color de la barra superior al color
-      principal'
+    Theme Settings: 'Apariencia'
+    Match Top Bar with Main Color: 'Usar color principal para barra superior'
     Base Theme:
-      Base Theme: 'Apariencia base'
+      Base Theme: 'Tema base'
       Black: 'Negro'
       Dark: 'Oscuro'
       Light: 'Claro'
@@ -142,18 +141,18 @@ Settings:
     Secondary Color Theme: 'Color secundario'
         #* Main Color Theme
   Player Settings:
-    Player Settings: 'Ajustes del reproductor'
-    Force Local Backend for Legacy Formats: 'Forzar API local para el formato "Legacy"'
-    Play Next Video: 'Reproducir el video siguiente'
+    Player Settings: 'Reproductor'
+    Force Local Backend for Legacy Formats: 'Forzar API local para formato Legacy'
+    Play Next Video: 'Reproducir video siguiente'
     Turn on Subtitles by Default: 'Activar subtítulos por defecto'
     Autoplay Videos: 'Reproducción automática'
     Proxy Videos Through Invidious: 'Enmascarar videos a través de invidious'
     Autoplay Playlists: 'Reproducción automática de listas de reproducción'
-    Enable Theatre Mode by Default: 'Activar el modo cine por defecto'
+    Enable Theatre Mode by Default: 'Activar modo cine por defecto'
     Default Volume: 'Volumen predeterminado'
     Default Playback Rate: 'Velocidad de reproducción predeterminada'
     Default Video Format:
-      Default Video Format: 'Formato de video predeterminado'
+      Default Video Format: 'Formato de video'
       Dash Formats: 'Dash'
       Legacy Formats: 'Legacy'
       Audio Formats: 'Solo audio'
@@ -170,7 +169,7 @@ Settings:
       4k: '4k'
       8k: '8k'
   Privacy Settings:
-    Privacy Settings: 'Ajustes de privacidad'
+    Privacy Settings: 'Privacidad'
     Remember History: 'Recordar historial'
     Save Watched Progress: 'Guardar progreso reproducido'
     Clear Search Cache: 'Borrar cache de búsqueda'
@@ -186,12 +185,12 @@ Settings:
       seguro de que quieres borrar todas las suscripciones y perfiles? Esta operación
       será irreversible.'
   Subscription Settings:
-    Subscription Settings: 'Datos locales'
+    Subscription Settings: 'Suscripciones'
     Hide Videos on Watch: 'Ocultar videos vistos'
     Fetch Feeds from RSS: 'Obtener suscripciones usando RSS'
     Manage Subscriptions: 'Administrar suscripciones'
   Data Settings:
-    Data Settings: 'Datos'
+    Data Settings: 'Datos locales'
     Select Import Type: 'Tipo de importación'
     Select Export Type: 'Tipo de exportación'
     Import Subscriptions: 'Importar suscripciones'
@@ -229,8 +228,8 @@ Settings:
       no han podido ser importadas
   Advanced Settings:
     Advanced Settings: 'Ajustes avanzados'
-    Enable Debug Mode (Prints data to the console): 'Activar el modo de depuración
-      (Muestra datos en la consola)'
+    Enable Debug Mode (Prints data to the console): 'Activar modo de depuración (muestra
+      datos en la consola)'
     'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Dirección de máscara (Ejemplo:
       SOCKS5://127.0.0.1:9050)'
     'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Haciendo
@@ -330,9 +329,9 @@ Profile:
 Channel:
   Subscriber: 'Suscriptor'
   Subscribers: 'Suscriptores'
-  Subscribe: 'Suscríbete'
-  Unsubscribe: 'Anula la suscripción'
-  Search Channel: 'Buscar canal'
+  Subscribe: 'Suscribirse'
+  Unsubscribe: 'Anular suscripción'
+  Search Channel: 'Buscar en canal'
   Your search results have returned 0 results: 'Su búsqueda no encontró resultados'
   Sort By: 'Ordenar por'
   Videos:
@@ -425,7 +424,7 @@ Video:
   Publicationtemplate: 'Hace $ %'
 #& Videos
   Play Previous Video: Reproducir video anterior
-  Play Next Video: Reproducir siguiente vídeo
+  Play Next Video: Reproducir vídeo siguiente
   Reverse Playlist: Lista de reproducción inversa
   Shuffle Playlist: Lista de reproducción aleatoria
   Loop Playlist: Lista de reproducción del bucle
@@ -495,7 +494,7 @@ Comments:
   Load More Comments: 'Cargar más comentarios'
   There are no more comments for this video: No hay más comentarios sobre en este
     video
-Up Next: 'Siguiente'
+Up Next: 'Siguientes'
 
 # Toast Messages
 Local API Error (Click to copy): 'Error de la API local (Click para copiar el código)'
@@ -508,7 +507,7 @@ Loop is now disabled: 'La reproducción en bucle se ha desactivado'
 Loop is now enabled: 'La reproducción en bucle se ha activado'
 Shuffle is now disabled: 'La reproducción aleatoria se ha desactivado'
 Shuffle is now enabled: 'La reproducción aleatoria se ha activado'
-Playing Next Video: 'Reproduciendo el video siguiente'
+Playing Next Video: 'Reproduciendo video'
 Playing Previous Video: 'Reproduciendo el video anterior'
 Playing next video in 5 seconds.  Click to cancel: 'El video siguiente comenzará en
   5 segundos. Click para cancelar.'

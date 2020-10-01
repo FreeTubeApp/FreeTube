@@ -262,7 +262,7 @@ Settings:
       ili više pretplata
 About:
   #On About page
-  About: 'O aplikaciji'
+  About: 'Informacije'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Ovaj
     program zaštićen autorskim pravima slobodno je licenciran AGPL-3.0.'
@@ -357,7 +357,7 @@ Channel:
       Newest: 'Najnoviji'
       Oldest: 'Najstariji'
   About:
-    About: 'O aplikaciji'
+    About: 'Informacije'
     Channel Description: 'Opis kanala'
     Featured Channels: 'Istaknuti kanali'
   Added channel to your subscriptions: Kanal je dodan vašim pretplatama
@@ -525,3 +525,6 @@ A new blog is now available, $. Click to view more: Dostupan je novi blog, $. Kl
 Download From Site: Preuzmi s web-stranice
 Version $ is now available!  Click for more details: Dostupna je verzija $!  Klikni
   za prikaz detalja
+This video is unavailable because of missing formats. This can happen due to country unavailability.: Ovaj
+  videozapis nije dostupan zbog nedostajućih formata. To se može dogoditi zbog nedostupnosti
+  zemlje.
