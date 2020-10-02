@@ -253,7 +253,7 @@ export default Vue.extend({
       this.isLive = this.data.liveNow
       this.viewCount = this.data.viewCount
 
-      if (typeof (this.data.publishedText) !== 'undefined' && !this.isLive) {
+      if (typeof (this.data.publishedText) !== 'undefined' && this.data.publishedText !== null && !this.isLive) {
         // produces a string according to the template in the locales string
         this.toLocalePublicationString({
           publishText: this.data.publishedText,
