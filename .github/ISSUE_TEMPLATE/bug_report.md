@@ -9,6 +9,7 @@ assignees: ''
 
 **Important note**
 Please check other open and closed issues for a similar bug before reporting a new one. 
+Also please leave all headers except this one in the issue, so that it is clear what belongs where.
 
 **Behavior of the program**
 Please write a clear and concise description of what the bug is.
