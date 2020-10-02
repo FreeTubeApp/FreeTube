@@ -105,10 +105,12 @@ Settings:
       Beginning: 'Alku'
       Middle: 'Puoliväli'
       End: 'Loppu'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious instanssi (Oletus
-      on https://invidious.snopyta.org)'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious instanssi
+      (Oletus on https://invidious.snopyta.org)'
     Region for Trending: 'Nousussa-sivun alue'
         #! List countries
+    Check for Latest Blog Posts: Tarkista tuoreimmat blogimerkinnät
+    Check for Updates: Tarkista päivitykset
   Theme Settings:
     Theme Settings: 'Teema-asetukset'
     Match Top Bar with Main Color: 'Käytä pääväriä yläpalkissa'
@@ -313,6 +315,9 @@ Channel:
     About: 'Tietoja'
     Channel Description: 'Kanavan kuvaus'
     Featured Channels: 'Suositellut kanavat'
+  Added channel to your subscriptions: Kanava on lisätty tilauksiisi
+  Removed subscription from $ other channel(s): Poistettu tilaus $ muulta kanavalta
+  Channel has been removed from your subscriptions: Kanava on poistettu tilauksistasi
 Video:
   Open in YouTube: 'Avaa Youtubessa'
   Copy YouTube Link: 'Kopioi Youtube-linkki'
@@ -381,6 +386,8 @@ Video:
   Reverse Playlist: Käänteinen soittolista
   Shuffle Playlist: Sekoita soittolistaa
   Loop Playlist: Kierrätä soittolistaa
+  Starting soon, please refresh the page to check again: Hetki pieni, päivitä sivu
+    uudelleen
 Videos:
   #& Sort By
   Sort By:
@@ -411,6 +418,10 @@ Change Format:
   Use Dash Formats: 'Käytä Dash-formaatteja'
   Use Legacy Formats: 'Käytä Legacy-formaatteja'
   Use Audio Formats: 'Käytä ääniformaatteja'
+  Audio formats are not available for this video: Audioformaatit eivät ole saatavilla
+    tähän videoon
+  Dash formats are not available for this video: Dash-formaatit eivät ole saatavilla
+    tähän videoon
 Share:
   Share Video: 'Jaa video'
   Copy Link: 'Kopioi linkki'
@@ -437,6 +448,7 @@ Comments:
   Reply: 'Vastaa'
   There are no comments available for this video: 'Tähän videoon ei ole yhtään kommenttia'
   Load More Comments: 'Lataa lisää kommentteja'
+  There are no more comments for this video: Ei enempää kommentteja
 Up Next: 'Seuraavaksi'
 
 # Toast Messages
@@ -485,3 +497,25 @@ Profile:
   Profile Manager: Profiilin hallinta
   All Channels: Kaikki kanavat
   Profile Select: Profiilin valinta
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Haluatko
+    varmasti poistaa valitut kanavat? Kanavia ei poisteta muista profiileista.
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
+    same channels will be deleted in any profile they are found in.
+  : Tämä on ensisijainen profiilisi. Haluatko poistaa valitut kanavat? Kanavat poistetaan
+    kaikista profiileista joissa ne ovat.
+  No channel(s) have been selected: Kanavia ei ole valittu
+  Add Selected To Profile: Lisää valitut profiiliin
+  Delete Selected: Poista valitut
+  Select None: Älä valitse mitään
+  Select All: Valitse kaikki
+  $ selected: $ valittu
+  Other Channels: Muut kanavat
+  Subscription List: Tilauslista
+Version $ is now available!  Click for more details: Versio $ on nyt saatavilla! Napsauta
+  lisätietoja
+This video is unavailable because of missing formats. This can happen due to country unavailability.: Tämä
+  video ei ole saatavilla puuttuvien formaattien takia. Tämä voi tapahtua koska video
+  ei ole saatavilla maassasi.
+A new blog is now available, $. Click to view more: Uusi blogi on saatavilla , $.
+  Klikkaa nähdäksesi lisää
+Download From Site: Lataa sivustolta
