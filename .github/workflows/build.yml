@@ -57,13 +57,13 @@ jobs:
       if: startsWith(matrix.os, 'ubuntu')
       with:
         name: freetube_0.8.0_amd64.AppImage
-        path: build/freetube-0.8.0.AppImage
+        path: build/FreeTube-0.8.0.AppImage
     - name: Upload AppImage ARM Artifact
       uses: actions/upload-artifact@v2
       if: startsWith(matrix.os, 'ubuntu')
       with:
         name: freetube_0.8.0_arm64.AppImage
-        path: build/freetube-0.8.0-arm64.AppImage
+        path: build/FreeTube-0.8.0-arm64.AppImage
     - name: Upload .rpm x64 Artifact
       uses: actions/upload-artifact@v2
       if: startsWith(matrix.os, 'ubuntu')
