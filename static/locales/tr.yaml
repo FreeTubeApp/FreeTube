@@ -519,3 +519,6 @@ Canceled next video autoplay: 'Sonraki videoyu otomatik oynatma iptal edildi'
 
 Yes: 'Evet'
 No: 'Hayır'
+This video is unavailable because of missing formats. This can happen due to country unavailability.: Eksik
+  biçimler nedeniyle bu video kullanılamıyor. Bu durum, ülke kullanılamazlığı nedeniyle
+  gerçekleşebilir.
