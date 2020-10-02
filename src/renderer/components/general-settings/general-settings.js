@@ -613,7 +613,7 @@ export default Vue.extend({
     $.getJSON(requestUrl, (response) => {
       console.log(response)
       const instances = response.filter((instance) => {
-        if (instance[0].includes('.onion') || instance[0].includes('.i2p')) {
+        if (instance[0].includes('.onion') || instance[0].includes('.i2p') || instance[0].includes('yewtu.be')) {
           return false
         } else {
           return true
