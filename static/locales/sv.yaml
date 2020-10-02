@@ -92,7 +92,7 @@ Settings:
   # On Settings Page
   Settings: 'Inställningar'
   General Settings:
-    General Settings: 'Generala inställningar'
+    General Settings: 'General'
     Check for Updates: 'Sök efter uppdateringar'
     Check for Latest Blog Posts: 'Sök efter senaste blogginlägg'
     Fallback to Non-Preferred Backend on Failure: 'Falla tillbaka till icke-föredragen
@@ -127,7 +127,7 @@ Settings:
       Dark: 'Mörkt'
       Light: 'Ljust'
     Main Color Theme:
-      Main Color Theme: 'Huvudfärg tema'
+      Main Color Theme: 'Huvudfärg'
       Red: 'Röd'
       Pink: 'Rosa'
       Purple: 'Lila'
@@ -144,7 +144,7 @@ Settings:
       Amber: 'Amber'
       Orange: 'Orange'
       Deep Orange: 'Djup Orange'
-    Secondary Color Theme: 'Sekundärt färgtema'
+    Secondary Color Theme: 'Sekundärfärg'
         #* Main Color Theme
   Player Settings:
     Player Settings: 'Spelare'
@@ -206,7 +206,7 @@ Settings:
     Export FreeTube: 'Exportera FreeTube'
     Export YouTube: 'Exportera YouTube'
     Export NewPipe: 'Exportera NewPipe'
-    Import History: 'Exportera historik'
+    Import History: 'Importera historik'
     Export History: 'Exportera historik'
     Profile object has insufficient data, skipping item: 'Profilobjekt har otillräckliga
       data, hoppar över objekt'
@@ -381,7 +381,7 @@ Video:
   # Context is "X People Watching"
   Watching: 'Tittar på'
   Watched: 'Sedd'
-  Autoplay: 'Autouppspelning'
+  Autoplay: 'Autospelning'
   Starting soon, please refresh the page to check again: 'Börjar snart, vänligen uppdatera
     sidan för att kontrollera igen'
   # As in a Live Video
