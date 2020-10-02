@@ -9,6 +9,7 @@ assignees: ''
 
 **Important note**
 Please check other open and closed issues for a similar feature request before proposing a new one. 
+Also please leave all headers except this one in the issue, so that it is clear what belongs where.
 
 **Is your feature request related to a usage problem (not a bug)? Please describe.**
 Please describe clear and concise of what the problem is. Ex. I'm always frustrated when [...]
