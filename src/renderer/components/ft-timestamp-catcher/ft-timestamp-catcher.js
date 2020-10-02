@@ -20,7 +20,7 @@ export default Vue.extend({
       }
     },
     detectTimestamps: function (input) {
-      return input.replaceAll(/(\d+(:\d+)+)/g, '<a href="#" onclick="this.dispatchEvent(new CustomEvent(\'timestampClicked\',{bubbles:true, detail:\'$1\'}))">$1</a>')
+      return input.replace(/(\d+(:\d+)+)/g, '<a href="#" onclick="this.dispatchEvent(new CustomEvent(\'timestampClicked\',{bubbles:true, detail:\'$1\'}))">$1</a>')
     }
   }
 })
