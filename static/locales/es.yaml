@@ -425,9 +425,9 @@ Video:
 #& Videos
   Play Previous Video: Reproducir video anterior
   Play Next Video: Reproducir vídeo siguiente
-  Reverse Playlist: Lista de reproducción inversa
-  Shuffle Playlist: Lista de reproducción aleatoria
-  Loop Playlist: Lista de reproducción del bucle
+  Reverse Playlist: Invertir orden
+  Shuffle Playlist: Reproducción aleatoria
+  Loop Playlist: Reproducción en bucle
   Starting soon, please refresh the page to check again: Comenzará en breve. Por favor,
     recarga la página para comprobarlo
 Videos:
@@ -481,19 +481,18 @@ Share:
 Mini Player: 'Reproductor Mini'
 Comments:
   Comments: 'Comentarios'
-  Click to View Comments: 'Haz click para ver los comentarios'
+  Click to View Comments: 'Ver comentarios'
   Getting comment replies, please wait: 'Obteniendo las respuestas. Por favor, espera'
-  Show Comments: 'Mostrar comentarios'
+  Show Comments: 'Ver comentarios'
   Hide Comments: 'Esconder comentarios'
   # Context: View 10 Replies, View 1 Reply
   View: 'Ver'
   Hide: 'Esconder'
   Replies: 'Respuestas'
   Reply: 'Responder'
-  There are no comments available for this video: 'Este video no tiene comentarios'
-  Load More Comments: 'Cargar más comentarios'
-  There are no more comments for this video: No hay más comentarios sobre en este
-    video
+  There are no comments available for this video: 'Aún no hay comentarios'
+  Load More Comments: 'Más comentarios'
+  There are no more comments for this video: No hay más comentarios en este video
 Up Next: 'Siguientes'
 
 # Toast Messages
@@ -503,10 +502,10 @@ Invidious API Error (Click to copy): 'Error de la API de Invidious (Click para c
 Falling back to Invidious API: 'Recurriendo a la API de Invidious'
 Falling back to the local API: 'Recurriendo a la API local'
 Subscriptions have not yet been implemented: 'Este sección está en desarrollo'
-Loop is now disabled: 'La reproducción en bucle se ha desactivado'
-Loop is now enabled: 'La reproducción en bucle se ha activado'
-Shuffle is now disabled: 'La reproducción aleatoria se ha desactivado'
-Shuffle is now enabled: 'La reproducción aleatoria se ha activado'
+Loop is now disabled: 'Reproducción en bucle desactivada'
+Loop is now enabled: 'Reproducción en bucle activada'
+Shuffle is now disabled: 'Reproducción aleatoria desactivada'
+Shuffle is now enabled: 'Reproducción aleatoria activada'
 Playing Next Video: 'Reproduciendo video'
 Playing Previous Video: 'Reproduciendo el video anterior'
 Playing next video in 5 seconds.  Click to cancel: 'El video siguiente comenzará en
@@ -517,12 +516,12 @@ Canceled next video autoplay: 'La reproducción del video siguiente se ha cancel
 
 Yes: 'Sí'
 No: 'No'
-A new blog is now available, $. Click to view more: Hay un nuevo post en el blog disponible,
-  $. Haz click para saber más
+A new blog is now available, $. Click to view more: Nueva publicación del blog disponible,
+  $. Click para saber más
 Download From Site: Descargar de la web
 Version $ is now available!  Click for more details: La versión $ está disponible!
-  Haz click para saber más
-The playlist has been reversed: La lista de reproducción se ha invertido
+  Click para saber más
+The playlist has been reversed: Orden invertido
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
   video no está disponible por no tener un formato válido. Esto puede suceder por
   la falta de acceso de este formato a tu región.
