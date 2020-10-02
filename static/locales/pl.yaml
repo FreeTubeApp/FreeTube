@@ -74,7 +74,7 @@ Subscriptions:
   Refresh Subscriptions: Odśwież subskrypcje
   Getting Subscriptions. Please wait.: Pobieranie subskrypcji. Proszę poczekać.
 Trending: 'Na czasie'
-Most Popular: 'Najpopularniejsze'
+Most Popular: 'Popularne'
 Playlists: 'Playlisty'
 User Playlists:
   Your Playlists: 'Twoje playlisty'
@@ -297,7 +297,7 @@ About:
 #On Channel Page
 Channel:
   Subscriber: 'Subskrybent/ka'
-  Subscribers: 'Subskrybenci'
+  Subscribers: 'subskrybentów'
   Subscribe: 'Zasubskrybuj'
   Unsubscribe: 'Odsubskrybuj'
   Search Channel: 'Przeszukaj kanał'
@@ -505,7 +505,7 @@ Profile:
   Create Profile: Stwórz profil
   Profile Preview: Podgląd profilu
   Custom Color: Własny kolor
-  Color Picker: Wybór kolorów
+  Color Picker: Wybór koloru
   Edit Profile: Edytuj profil
   Create New Profile: Stwórz nowy profil
   Profile Manager: Menadżer profili
