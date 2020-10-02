@@ -29,10 +29,10 @@ Close: 'Stäng'
 Back: 'Tillbaka'
 Forward: 'Framåt'
 
-Version $ is now available!  Click for more details: 'Versionen $ är inte tillgänglig!
-  Klicka här för mer detaljer'
+Version $ is now available!  Click for more details: 'Versionen $ är nu tillgänglig!
+  Klicka för mer detaljer'
 Download From Site: 'Ladda ner från sajten'
-A new blog is now available, $. Click to view more: 'En ny blogg är nu tillgänglig,
+A new blog is now available, $. Click to view more: 'En ny bloggpost är nu tillgänglig,
   $. Klicka för att se mer'
 
 # Search Bar
@@ -373,7 +373,7 @@ Video:
   Copy Invidious Link: 'Kopiera Invidious-länk'
   View: 'Visa'
   Views: 'Visningar'
-  Loop Playlist: 'Loop-spellista'
+  Loop Playlist: 'Loop spellista'
   Shuffle Playlist: 'Blanda spellista'
   Reverse Playlist: 'Omvänd spellista'
   Play Next Video: 'Spela nästa video'
@@ -480,10 +480,9 @@ Share:
 Mini Player: 'Minispelare'
 Comments:
   Comments: 'Kommentarer'
-  Click to View Comments: 'Klicka för att visa kommentarer'
+  Click to View Comments: 'Visa kommentarer'
   Getting comment replies, please wait: 'Hämtar kommentar svar. Snälla vänta'
-  There are no more comments for this video: 'Det finns inga fler kommentarer för
-    den här videon'
+  There are no more comments for this video: 'Det finns inga fler kommentarer'
   Show Comments: 'Visa kommentarer'
   Hide Comments: 'Dölj kommentarer'
   # Context: View 10 Replies, View 1 Reply
@@ -491,9 +490,8 @@ Comments:
   Hide: 'Dölja'
   Replies: 'Svar'
   Reply: 'Svara'
-  There are no comments available for this video: 'Det finns inga kommentarer för
-    den här videon'
-  Load More Comments: 'Ladda fler kommentarer'
+  There are no comments available for this video: 'Det finns inga kommentarer'
+  Load More Comments: 'Fler kommentarer'
 Up Next: 'Kommer härnäst'
 
 # Toast Messages
