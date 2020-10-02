@@ -145,7 +145,7 @@ Settings:
     Force Local Backend for Legacy Formats: 'Forzar API local para formato Legacy'
     Play Next Video: 'Reproducir video siguiente'
     Turn on Subtitles by Default: 'Activar subtítulos por defecto'
-    Autoplay Videos: 'Reproducción automática'
+    Autoplay Videos: 'Reproducción automática de videos'
     Proxy Videos Through Invidious: 'Enmascarar videos a través de invidious'
     Autoplay Playlists: 'Reproducción automática de listas de reproducción'
     Enable Theatre Mode by Default: 'Activar modo cine por defecto'
@@ -318,11 +318,11 @@ Profile:
   : Este es tu perfil principal. ¿Está seguro de que desea eliminar los canales seleccionados?
     Los mismos canales se eliminarán en cualquier perfil en el que se encuentren.
   No channel(s) have been selected: No se ha seleccionado ningún canal
-  Add Selected To Profile: Añade lo seleccionado al perfil
-  Delete Selected: Eliminar seleccionado
-  Select None: Seleccionar ninguno
+  Add Selected To Profile: Añadir seleccionados al perfil
+  Delete Selected: Eliminar seleccionados
+  Select None: No seleccionar nada
   Select All: Seleccionar todo
-  $ selected: $ seleccionado
+  $ selected: $ seleccionados
   Other Channels: Otros canales
   Subscription List: Lista de suscripciones
   Profile Select: Seleccionar perfil
@@ -375,7 +375,7 @@ Video:
   # Context is "X People Watching"
   Watching: 'Viendo'
   Watched: 'Visto'
-  Autoplay: 'Reproducción automática'
+  Autoplay: 'Reproducción automática de videos'
   # As in a Live Video
   Live: 'En directo'
   Live Now: 'En directo ahora'
