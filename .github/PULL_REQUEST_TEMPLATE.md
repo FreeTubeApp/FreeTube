@@ -1,26 +1,26 @@
 ---
-name: Bugfix
-about: Thanks for the submission of a bugfix
-title: ''
-labels: bug
-assignees: ''
-
+Title
 ---
 
 **Important note**
 Please note that only PrestoN is able to merge Pull Requests into master.
 
+**Pull Request Type**
+Please select what type of pull request this is:
+- [ ] Bugfix
+- [ ] Feature Implementation
+
 **Related issue**
-Please link the issue your bugfix is referring to.
+Please link the issue your pull request is referring to.
 
 **Description**
-Please write a clear and concise description of what the bugfix does.
+Please write a clear and concise description of what the pull request does.
 
 **Screenshots (if appropriate)**
 Please add before and after screenshots if there is a visible change.
 
-**Testing (for fixes that are not easily understandable)**
-Has this bugfix been tested?
+**Testing (for code that is not small enough to be easily understandable)**
+Has this pull request been tested?
 Please describe shortly how you tested it and whether there are any ramifications remaining. 
 
 **Desktop (please complete the following information):**
