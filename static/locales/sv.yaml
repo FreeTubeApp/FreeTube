@@ -175,7 +175,7 @@ Settings:
       4k: '4k'
       8k: '8k'
   Privacy Settings:
-    Privacy Settings: 'Privat'
+    Privacy Settings: 'Dataintegritet'
     Remember History: 'Aktivera visningshistorik'
     Save Watched Progress: 'Spara sedd framsteg'
     Clear Search Cache: 'Rensa sökcache'
@@ -195,7 +195,7 @@ Settings:
     Fetch Feeds from RSS: 'Hämta prenumerationer från RSS'
     Manage Subscriptions: 'Hantera prenumerationer'
   Data Settings:
-    Data Settings: 'Data'
+    Data Settings: 'Lokala datorer'
     Select Import Type: 'Välj import-typen'
     Select Export Type: 'Välj export-typen'
     Import Subscriptions: 'Importera prenumerationer'
