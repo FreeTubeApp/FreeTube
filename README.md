@@ -26,7 +26,7 @@ longer track you using cookies or JavaScript. Your subscriptions and history are
 to hide your IP while using FreeTube.
 
 ## Screenshots
-<img src="https://freetubeapp.io/images/FreeTube1.png" width=200> <img src="https://freetubeapp.io/images/FreeTube2.png" width=200> <img src="https://freetubeapp.io/images/FreeTube3.png" width=200> <img src="https://freetubeapp.io/images/FreeTube4.png" width=200>
+<img src="https://i.imgur.com/zFgZUUV.png" width=300> <img src="https://i.imgur.com/9evYHgN.png" width=300> <img src="https://i.imgur.com/yT2UzPa.png" width=300> <img src="https://i.imgur.com/47zIEt4.png" width=300> <img src="https://i.imgur.com/hFB2fKC.png" width=300>
 
 ## Features
 * Watch videos without ads
