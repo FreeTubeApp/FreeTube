@@ -1,6 +1,6 @@
 # Put the name of your locale in the same language
-Locale Name: ''
-FreeTube: ''
+Locale Name: 'Български'
+FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Тази част от приложението не е готова все още. Върнете се по-късно когато ще има
@@ -23,7 +23,7 @@ Toggle Developer Tools: 'Показване инструменти за разр
 Actual size: 'Действителен размер'
 Zoom in: 'Увеличи'
 Zoom out: 'Намали'
-Toggle fullscreen: 'Превключи на целия екран'
+Toggle fullscreen: 'Превключи на цял екран'
 Window: 'Прозорец'
 Minimize: 'Минимизирай'
 Close: 'Затвори'
@@ -49,12 +49,12 @@ Search Filters:
     View Count: 'Брой гледания'
   Time:
     Time: 'Време'
-    Any Time: 'всяко време'
-    Last Hour: 'от последния час'
-    Today: 'днес'
-    This Week: 'тази седмица'
-    This Month: 'този месец'
-    This Year: 'тази година'
+    Any Time: 'Всяко време'
+    Last Hour: 'От последния час'
+    Today: 'Днес'
+    This Week: 'Тази седмица'
+    This Month: 'Този месец'
+    This Year: 'Тази година'
   Type:
     Type: 'Вид'
     All Types: 'Всички видове'
@@ -79,16 +79,17 @@ Subscriptions:
     с абонамети е празен. Започнете да добавяте, за да ги видите тук.'
   'Getting Subscriptions. Please wait.': 'Получаване на абонаменти. Моля, изчакайте.'
   Refresh Subscriptions: 'Опресни абонаментите'
-Trending: 'Популярност'
+Trending: 'Популярни'
 Most Popular: 'Най-популярни'
-Playlists: 'Плейлиста'
+Playlists: 'Плейлисти'
 User Playlists:
   Your Playlists: 'Вашите плейлисти'
 History:
   # On History Page
-  History: 'История'
-  Watch History: 'История на гледанията'
-  Your history list is currently empty.: 'Вашият списък История на гледанията е празен.'
+  History: 'Хронология'
+  Watch History: 'Хронология на гледанията'
+  Your history list is currently empty.: 'Вашият списък Хронология на гледанията е
+    празен.'
 Settings:
   # On Settings Page
   Settings: 'Настройки'
@@ -96,7 +97,7 @@ Settings:
     General Settings: 'Общи настройки'
     Check for Updates: 'Провери за актуализации'
     Check for Latest Blog Posts: 'Провери за нови публикации в блога'
-    Fallback to Non-Preferred Backend on Failure: 'При грешка връщане към определения
+    Fallback to Non-Preferred Backend on Failure: 'При грешка връщане към определен
       интерфейс'
     Enable Search Suggestions: 'Активирай препоръките при търсене'
     Default Landing Page: 'Страница по подразбиране'
@@ -107,26 +108,26 @@ Settings:
       Invidious API: 'Invidious интерфейс'
     Video View Type:
       Video View Type: 'Вид видео изглед'
-      Grid: 'решетка'
-      List: 'списък'
+      Grid: 'Решетка'
+      List: 'Списък'
     Thumbnail Preference:
       Thumbnail Preference: 'Предпочитни миниатюрни изображения'
-      Default: 'по подразбиране'
-      Beginning: 'начално'
-      Middle: 'средно'
-      End: 'крайно'
+      Default: 'По подразбиране'
+      Beginning: 'Начално'
+      Middle: 'Средно'
+      End: 'Край'
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Илюстрация на
       Invidious (по подразбиране е https://invidious.snopyta.org)'
-    Region for Trending: 'Регион за показване в Популярни'
+    Region for Trending: 'Регион за Популярни'
         #! List countries
   Theme Settings:
     Theme Settings: 'Настройки на изгледа'
     Match Top Bar with Main Color: 'Подобност на горната лента с основния цвят'
     Base Theme:
-      Base Theme: 'Основен изглед'
-      Black: 'Черен'
-      Dark: 'Тъмен'
-      Light: 'Светъл'
+      Base Theme: 'Основна схема'
+      Black: 'Черна'
+      Dark: 'Тъмна'
+      Light: 'Светла'
     Main Color Theme:
       Main Color Theme: 'Основен цветови изглед'
       Red: 'Червен'
@@ -161,7 +162,7 @@ Settings:
     Default Playback Rate: 'Скорост на възпроизвеждане по подразбиране'
     Default Video Format:
       Default Video Format: 'Видео формат по подразбиране'
-      Dash Formats: ''
+      Dash Formats: 'Dash формати'
       Legacy Formats: 'Стари формати'
       Audio Formats: 'Звукови формати'
     Default Quality:
@@ -177,17 +178,17 @@ Settings:
       4k: '4k'
       8k: '8k'
   Privacy Settings:
-    Privacy Settings: 'Натройки поверителност'
-    Remember History: 'Запази историята'
-    Save Watched Progress: 'Запиши напредъка на гладането'
-    Clear Search Cache: 'Изчисти кешираните търсения'
+    Privacy Settings: 'Настройки поверителност'
+    Remember History: 'Запази хронологията'
+    Save Watched Progress: 'Запиши напредъка на гледането'
+    Clear Search Cache: 'Изчисти кеша на търсенията'
     Are you sure you want to clear out your search cache?: 'Сигурни ли сте, че искате
       да изчистите кеша на търсенията си?'
     Search cache has been cleared: 'Кешът на търсенията беше изчистен'
-    Remove Watch History: 'Премахване на историята на гледанията'
+    Remove Watch History: 'Премахване на хронологията на гледанията'
     Are you sure you want to remove your entire watch history?: 'Сигурни ли сте, че
-      искате да премахнете цялата история на гледанията?'
-    Watch history has been cleared: 'Историята на гледанията беше изчистена'
+      искате да премахнете цялата хронология на гледанията?'
+    Watch history has been cleared: 'Хронологията на гледанията беше изчистена'
     Remove All Subscriptions / Profiles: 'Премахване на всички абонаменти / профили'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Сигурни
       ли сте, че искате да премахнете всички абонаменти и профили? Това не може да
@@ -202,16 +203,17 @@ Settings:
     Select Import Type: 'Изберете вид импорт'
     Select Export Type: 'Изберете вид експорт'
     Import Subscriptions: 'Внасяне на абонаменти'
-    Import FreeTube: 'Внасяне на FreeTube'
-    Import YouTube: 'Внасяне на YouTube'
-    Import NewPipe: 'Внасяне на NewPipe'
+    Import FreeTube: 'Внасяне на FreeTube формат'
+    Import YouTube: 'Внасяне на YouTube формат'
+    Import NewPipe: 'Внасяне на NewPipe формат'
     Export Subscriptions: 'Експортиране на абонаменти'
-    Export FreeTube: 'Експортиране на FreeTube'
-    Export YouTube: 'Експортиране на YouTube'
-    Export NewPipe: 'Експортиране на NewPipe'
-    Import History: 'Внасяне на история'
-    Export History: 'Експортиране на история'
-    Profile object has insufficient data, skipping item: ''
+    Export FreeTube: 'Експортиране във FreeTube формат'
+    Export YouTube: 'Експортиране в YouTube формат'
+    Export NewPipe: 'Експортиране в NewPipe формат'
+    Import History: 'Внасяне на хронология'
+    Export History: 'Експортиране на хронология'
+    Profile object has insufficient data, skipping item: 'В профила няма достатъчно
+      данни, прескачам обекта'
     All subscriptions and profiles have been successfully imported: 'Всички абонаменти
       и профили бяха импортирани успешно'
     All subscriptions have been successfully imported: 'Всички абонаменти бяха импортирани
@@ -221,17 +223,18 @@ Settings:
     Invalid subscriptions file: 'Невалиден файл с абонаменти'
     This might take a while, please wait: 'Това може да отнеме повече време, моля
       изчакайте'
-    Invalid history file: 'Невалиден файл с история'
+    Invalid history file: 'Невалиден файл с хронология'
     Subscriptions have been successfully exported: 'Абонаментите бяха експортирани
       успешно'
-    History object has insufficient data, skipping item: ''
-    All watched history has been successfully imported: 'Цялата история на гледанията
+    History object has insufficient data, skipping item: 'Хронологията няма достатъчно
+      данни, прескачам обекта'
+    All watched history has been successfully imported: 'Цялата хронология на гледанията
       беше импортирана успешно'
-    All watched history has been successfully exported: 'Цялата история на гледанията
+    All watched history has been successfully exported: 'Цялата хронология на гледанията
       беше експортирана успешно'
     Unable to read file: 'Файлът не се прочете'
     Unable to write file: 'Файлът не се записа'
-    Unknown data key: 'Непознат ключ'
+    Unknown data key: 'Непознат ключ данни'
     How do I import my subscriptions?: 'Как да импортирам абонаментите си?'
   Advanced Settings:
     Advanced Settings: 'Настройки за напреднали'
@@ -239,16 +242,17 @@ Settings:
       (извежда данни в конзолата)'
     'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Адрес на прокси (пример:
       SOCKS5://127.0.0.1:9050 )'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': ''
+    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Кликането
+      на бутон "Тест прокси" ще изпрати искане към https://ipinfo.io/json'
     Use Tor / Proxy for API calls: 'Използвай TOR / прокси за интерфейсни запитвания'
     TEST PROXY: 'Тест на прокси'
     #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: 'Виж публични примери'
+    See Public Instances: 'Виж публични инстанции'
     Clear History:
-      Clear History: 'Изчисти историята'
+      Clear History: 'Изчисти хронологията'
       # On Click
       Are you sure you want to delete your history?: 'Сигурни ли сте, че искате да
-        изтриете вашата история?'
+        изтриете вашата хронология?'
       #& Yes
       #& No
     Clear Subscriptions:
@@ -274,8 +278,8 @@ About:
     на хората и проектите, които правят възможен FreeTube!'
 
   'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'Искате
-    да полафите? Включете се на нашия Element / Matrix сървър. Моля, първо проверете
-    правилата преди да се присъедините.'
+    да чатите? Включете се на нашия Element / Matrix сървър. Моля, преди да се присъедините
+    първо прочетете правилата.'
 
   'Looking for help? Check out our Wiki page.': 'Нуждаете се от помощ? Погледнете
     в нашата Wiki страница.'
@@ -312,7 +316,7 @@ Profile:
   Profile has been updated: 'Профилът беше актуализиран'
   Your default profile has been set to $: 'Вашият профил по подразбиране беше указан
     да е $'
-  Removed $ from your profiles: 'Прамехнат е $ от вашите профили'
+  Removed $ from your profiles: 'Премахнат е $ от вашите профили'
   Your default profile has been changed to your primary profile: 'Профилът по подразбиране
     е променен на вашия първоначален профил'
   $ is now the active profile: '$ е сега активният профил'
@@ -326,11 +330,11 @@ Profile:
   No channel(s) have been selected: 'Няма избрани канали'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : 'Това е основният профил. Сигурни ли сте, че искате да изтриете избраните канали?
-    Същите канали ще бъдат изтрити във всички проли, в които бъдат намерени.'
+  : 'Това е основният ви профил. Сигурни ли сте, че искате да изтриете избраните канали?
+    Същите канали ще бъдат изтрити във всички профили, в които бъдат намерени.'
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Сигурни
-    ли сте, че искате да изтриете избраните канали? Така каналът няма да бъде изтрити
-    от други профили.'
+    ли сте, че искате да изтриете избраните канали? Така каналът няма да бъде изтрит
+    от другите профили.'
 #On Channel Page
 Channel:
   Subscriber: 'Абонат'
@@ -347,7 +351,7 @@ Channel:
   Sort By: 'Подреди по'
   Videos:
     Videos: 'Видеа'
-    This channel does not currently have any videos: 'Този канал по настоящем няма
+    This channel does not currently have any videos: 'В този канал по настоящем няма
       видеа'
     Sort Types:
       Newest: 'Най-новото'
@@ -355,8 +359,8 @@ Channel:
       Most Popular: 'Най-популярното'
   Playlists:
     Playlists: 'Плейлисти'
-    This channel does not currently have any playlists: 'Този канал по настоящем няма
-      плейлисти'
+    This channel does not currently have any playlists: 'В този канал по настоящем
+      няма плейлисти'
     Sort Types:
       Last Video Added: 'Последно добавено видео'
       Newest: 'Най-ново'
@@ -364,16 +368,16 @@ Channel:
   About:
     About: 'Относно'
     Channel Description: 'Описание на канала'
-    Featured Channels: 'Забележителни канали'
+    Featured Channels: 'Препоръчани канали'
 Video:
   Mark As Watched: 'Отбележи като гледан'
-  Remove From History: 'Премахни от историята'
+  Remove From History: 'Премахни от хронологията'
   Video has been marked as watched: 'Видеото беше отбелязано като гледано'
   Video has been removed from your history: 'Видеото беше премахнато от хронологията'
   Open in YouTube: 'Отвори в YouTube'
   Copy YouTube Link: 'Копирай YouTube линк'
   Open YouTube Embedded Player: 'Отвори вградения YouTube плейър'
-  Copy YouTube Embedded Player Link: 'Копирай вградения YouTube плейър линк'
+  Copy YouTube Embedded Player Link: 'Копирай линка за вградения YouTube плейър'
   Open in Invidious: 'Отвори в Invidious'
   Copy Invidious Link: 'Копирай Invidious линка'
   View: 'Изглед'
@@ -385,7 +389,7 @@ Video:
   Play Previous Video: 'Пусни предишното видео'
   # Context is "X People Watching"
   Watching: 'Гледане'
-  Watched: 'Изгледан'
+  Watched: 'Гледан'
   Autoplay: 'Автоматично пускане'
   Starting soon, please refresh the page to check again: 'Започва скоро, моля опреснете
     страницата за актуализация'
@@ -421,7 +425,7 @@ Video:
     Minute: 'минута'
     Minutes: 'минути'
     Hour: 'час'
-    Hours: 'часове'
+    Hours: 'часа'
     Day: 'ден'
     Days: 'дни'
     Week: 'седмица'
@@ -430,9 +434,9 @@ Video:
     Months: 'месеца'
     Year: 'година'
     Years: 'години'
-    Ago: ''
-    Upcoming: 'Премиерата е скоро'
-  Published on: 'Публикуван скоро'
+    Ago: 'преди'
+    Upcoming: 'Премиерата започва скоро'
+  Published on: 'Публикуван на'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Преди $ %'
 #& Videos
@@ -449,7 +453,7 @@ Playlist:
   Videos: 'Видеа'
   View: 'Изглед'
   Views: 'Изгледи'
-  Last Updated On: 'Последно актуализиран на'
+  Last Updated On: 'Последна актуализиция на'
   Share Playlist:
     Share Playlist: 'Сподели плейлиста'
     Copy YouTube Link: 'Копирай YouTube линка'
@@ -463,58 +467,65 @@ Playlist:
 Toggle Theatre Mode: 'Превключи в широкоекранен режим'
 Change Format:
   Change Video Formats: 'Смяна видео формати'
-  Use Dash Formats: ''
+  Use Dash Formats: 'Използвай Dash формати'
   Use Legacy Formats: 'Използвай стари формати'
   Use Audio Formats: 'Използвай аудио формати'
-  Dash formats are not available for this video: ''
+  Dash formats are not available for this video: 'Dash форматите не са достъпни за
+    това видео'
   Audio formats are not available for this video: 'Аудио форматите не са достъпни
     за това видео'
 Share:
   Share Video: 'Сподели видео'
-  Include Timestamp: ''
+  Include Timestamp: 'Включи времева отметка'
   Copy Link: 'Копирай линк'
   Open Link: 'Отвори линк'
   Copy Embed: 'Копирай за вграждане'
   Open Embed: 'Отвори линк за вграждане'
   # On Click
   Invidious URL copied to clipboard: 'Invidious адрес копиран в клипборда'
-  Invidious Embed URL copied to clipboard: ''
-  YouTube URL copied to clipboard: ''
-  YouTube Embed URL copied to clipboard: ''
-Mini Player: ''
+  Invidious Embed URL copied to clipboard: 'Invidious адрес за вграждане копиран в
+    клипборда'
+  YouTube URL copied to clipboard: 'YouTube адрес копиран в клипборда'
+  YouTube Embed URL copied to clipboard: 'YouTube адрес за вграждане копиран в клипборда'
+Mini Player: 'Мини плейър'
 Comments:
-  Comments: ''
-  Click to View Comments: ''
-  Getting comment replies, please wait: ''
-  There are no more comments for this video: ''
-  Show Comments: ''
-  Hide Comments: ''
+  Comments: 'Коментари'
+  Click to View Comments: 'Кликнете, за да видите коментарите'
+  Getting comment replies, please wait: 'Получаване на отговори на коментара, моля
+    изчакайте'
+  There are no more comments for this video: 'Към това видео няма коментари'
+  Show Comments: 'Покажи коментари'
+  Hide Comments: 'Скрий коментарите'
   # Context: View 10 Replies, View 1 Reply
-  View: ''
-  Hide: ''
-  Replies: ''
-  Reply: ''
-  There are no comments available for this video: ''
-  Load More Comments: ''
-Up Next: ''
+  View: 'Изглед'
+  Hide: 'Скрий'
+  Replies: 'Отговори'
+  Reply: 'Отговори'
+  There are no comments available for this video: 'Към това видео няма коментари'
+  Load More Comments: 'Зареди още коментари'
+Up Next: 'Следващ'
 
 # Toast Messages
-Local API Error (Click to copy): ''
-Invidious API Error (Click to copy): ''
-Falling back to Invidious API: ''
-Falling back to the local API: ''
-This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
-Subscriptions have not yet been implemented: ''
-Loop is now disabled: ''
-Loop is now enabled: ''
-Shuffle is now disabled: ''
-Shuffle is now enabled: ''
-The playlist has been reversed: ''
-Playing Next Video: ''
-Playing Previous Video: ''
-Playing next video in 5 seconds.  Click to cancel: ''
-Canceled next video autoplay: ''
-'The playlist has ended.  Enable loop to continue playing': ''
+Local API Error (Click to copy): 'Грешка на локалния интерфейс (кликни за копиране)'
+Invidious API Error (Click to copy): 'Грешка на Invidious интерфейса (кликни за копиране)'
+Falling back to Invidious API: 'Връщане към Invidious интерфейса'
+Falling back to the local API: 'Връщане към локалния интерфейс'
+This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Видеото
+  не е достъпно поради липсващи формати. Това може да се дължи на ограничен достъп
+  за страната.'
+Subscriptions have not yet been implemented: 'Абонаментите засега не са допълнени'
+Loop is now disabled: 'Повторното пускане е деактивирано'
+Loop is now enabled: 'Повторното пускане е активирано'
+Shuffle is now disabled: 'Разбъркването е деактивирано'
+Shuffle is now enabled: 'Разбъркването е активирано'
+The playlist has been reversed: 'Плейлистата е в обърнат ред'
+Playing Next Video: 'Пускане на следващото видео'
+Playing Previous Video: 'Пускане на предишното видео'
+Playing next video in 5 seconds.  Click to cancel: 'Следващото видео започва след
+  5 секунди. Кликнете за спиране.'
+Canceled next video autoplay: 'Спиране на автоматичното пускане на следващо видео'
+'The playlist has ended.  Enable loop to continue playing': 'Плейлистата приключи.
+  Активарайте повторението, за да тръгне наново'
 
-Yes: ''
-No: ''
+Yes: 'Да'
+No: 'Не'
