@@ -98,7 +98,7 @@ Settings:
     Preferred API Backend:
       Preferred API Backend: 'Back-end API Preferito'
       Local API: 'API Locali'
-      Invidious API: 'API di Indidious'
+      Invidious API: 'API di Invidious'
     Video View Type:
       Video View Type: 'Modalità di Visualizzazione Video'
       Grid: 'Griglia'
