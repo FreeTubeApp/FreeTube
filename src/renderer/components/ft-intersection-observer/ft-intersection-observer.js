@@ -40,11 +40,15 @@ export default Vue.extend({
   },
   methods: {
     handleIntersection(entries) {
-      if (this.runOnce || this.checkOnMount) {
-        this.$emit(entries[0].isIntersecting ? 'intersected' : 'unintersected')
-      } else {
+      if (!this.runOnce) {
         this.runOnce = true
+
+        if (!this.checkOnMount) {
+          return
+        }
       }
+
+      this.$emit(entries[0].isIntersecting ? 'intersected' : 'unintersected')
     }
   }
 })
