@@ -107,15 +107,15 @@ Settings:
       Beginning: 'Begynnelsen'
       Middle: 'Midten'
       End: 'Slutten'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Individious-instans (forvalget
-      er https://invidious.snopyta.org)'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Individious-instans
+      (forvalget er https://invidious.snopyta.org)'
     Region for Trending: 'Region for populære'
         #! List countries
   Theme Settings:
-    Theme Settings: 'Draktinnstillinger'
+    Theme Settings: 'Tema innstillinger'
     Match Top Bar with Main Color: ''
     Base Theme:
-      Base Theme: 'Grunndrakt'
+      Base Theme: 'Hovedtema'
       Black: 'Svart'
       Dark: 'Mørk'
       Light: 'Lys'
@@ -125,7 +125,7 @@ Settings:
       Pink: 'Rosa'
       Purple: 'Lilla'
       Deep Purple: 'Mørkelilla'
-      Indigo: ''
+      Indigo: 'Indigo'
       Blue: 'Blå'
       Light Blue: 'Lyseblå'
       Cyan: ''
