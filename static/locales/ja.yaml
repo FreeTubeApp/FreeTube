@@ -1,7 +1,7 @@
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  アプリのこの部分はまだ準備ができていません。進展後に戻ってきてください。
+  アプリのこの部分はまだ準備ができていません。開発後に戻ってきてください。
 
 # Webkit Menu Bar
 File: 'ファイル'
@@ -88,7 +88,7 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: '問題発生時に非推奨のバックエンドへフォールバック'
     Enable Search Suggestions: '検索候補を有効化'
     Default Landing Page: '最初に表示するページ'
-    Locale Preference: 'ローカル設定'
+    Locale Preference: '言語設定'
     Preferred API Backend:
       Preferred API Backend: 'API バックエンドの設定'
       Local API: 'ローカル API'
@@ -277,7 +277,7 @@ Channel:
   Subscribers: '登録者'
   Subscribe: '登録'
   Unsubscribe: '登録解除'
-  Search Channel: 'チャンネルを検索'
+  Search Channel: 'チャンネルの検索'
   Your search results have returned 0 results: '検索結果はありません'
   Sort By: '並び替え'
   Videos:
@@ -291,13 +291,13 @@ Channel:
     Playlists: '再生リスト'
     This channel does not currently have any playlists: 'このチャンネルには再生リストがありません'
     Sort Types:
-      Last Video Added: '最近追加の動画'
+      Last Video Added: '最近追加された動画'
       Newest: '新しい'
       Oldest: '古い'
   About:
     About: '情報'
     Channel Description: 'チャンネルの説明'
-    Featured Channels: '注目チャンネル'
+    Featured Channels: '注目のチャンネル'
   Added channel to your subscriptions: 登録にチャンネルを追加しました
   Channel has been removed from your subscriptions: チャンネルは登録から削除されました
   Removed subscription from $ other channel(s): 他の $ チャンネルから登録を削除しました
@@ -410,7 +410,7 @@ Share:
   Invidious Embed URL copied to clipboard: 'Invidious の 埋め込みURL をコピーしました'
   YouTube URL copied to clipboard: 'YouTube の URL をコピーしました'
   YouTube Embed URL copied to clipboard: 'YouTube の 埋め込みURL をコピーしました'
-  Include Timestamp: タイムスタンプを含める
+  Include Timestamp: 時間情報を追加
 Mini Player: 'ミニプレーヤー'
 Comments:
   Comments: 'コメント'
@@ -424,9 +424,9 @@ Comments:
   Replies: '返信'
   Reply: '返信'
   There are no comments available for this video: 'この動画へのコメントはありません'
-  Load More Comments: 'さらにコメントを読み込み'
+  Load More Comments: 'さらにコメントを読み込む'
   There are no more comments for this video: この動画へのコメントはまだありません
-Up Next: '次へ'
+Up Next: '次の動画'
 
 # Toast Messages
 Local API Error (Click to copy): 'ローカル API エラー (クリックでコピー)'
@@ -440,7 +440,7 @@ Shuffle is now disabled: 'シャッフル再生を無効にしました'
 Shuffle is now enabled: 'シャッフル再生を有効にしました'
 Playing Next Video: '次の動画を再生'
 Playing Previous Video: '前の動画を再生'
-Playing next video in 5 seconds.  Click to cancel: '5 秒後に次の動画を再生。.クリックでキャンセル。'
+Playing next video in 5 seconds.  Click to cancel: '5 秒後に次の動画を再生。クリックでキャンセル。'
 Canceled next video autoplay: '次の動画の自動再生をキャンセルしました'
 'The playlist has ended.  Enable loop to continue playing': '再生リストの最後に到達しました..再生を続けるにはループを有効にします'
 
