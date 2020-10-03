@@ -375,7 +375,7 @@ Video:
   # Context is "X People Watching"
   Watching: 'Viendo'
   Watched: 'Visto'
-  Autoplay: 'Reproducción automática de videos'
+  Autoplay: 'Reproducción automática'
   # As in a Live Video
   Live: 'En directo'
   Live Now: 'En directo ahora'
@@ -489,7 +489,7 @@ Comments:
   View: 'Ver'
   Hide: 'Esconder'
   Replies: 'Respuestas'
-  Reply: 'Responder'
+  Reply: 'Respuesta'
   There are no comments available for this video: 'Aún no hay comentarios'
   Load More Comments: 'Más comentarios'
   There are no more comments for this video: No hay más comentarios en este video
