@@ -163,7 +163,7 @@ Settings:
     Default Quality:
       Default Quality: 'איכות ברירת המחדל'
       Auto: 'אוטומטית'
-      144p: ''
+      144p: '144p'
       240p: ''
       360p: ''
       480p: ''
