@@ -4,7 +4,7 @@
 
 FreeTube is an open source desktop YouTube player built with privacy in mind.
 Use YouTube without advertisements and prevent Google from tracking you with their cookies and JavaScript.
-Available for Windows, Mac & Linux thanks to Electron.
+Available for Windows, Mac & GNU/Linux thanks to Electron.
 
 Please note that FreeTube is currently in Beta. While it should work well for
 most users, there are still bugs and missing features that need to be
@@ -26,7 +26,7 @@ longer track you using cookies or JavaScript. Your subscriptions and history are
 to hide your IP while using FreeTube.
 
 ## Screenshots
-<img src="https://freetubeapp.io/images/FreeTube1.png" width=200> <img src="https://freetubeapp.io/images/FreeTube2.png" width=200> <img src="https://freetubeapp.io/images/FreeTube3.png" width=200> <img src="https://freetubeapp.io/images/FreeTube4.png" width=200>
+<img src="https://i.imgur.com/zFgZUUV.png" width=300> <img src="https://i.imgur.com/9evYHgN.png" width=300> <img src="https://i.imgur.com/yT2UzPa.png" width=300> <img src="https://i.imgur.com/47zIEt4.png" width=300> <img src="https://i.imgur.com/hFB2fKC.png" width=300>
 
 ## Features
 * Watch videos without ads
