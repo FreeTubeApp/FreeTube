@@ -2,11 +2,12 @@
 Locale Name: 'עברית'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >
+'This part of the app is not ready yet. Come back later when progress has been made.': >-
+  החלק הזה ביישומון עדיין לא מוכן. מזמינים אותך לשוב ולבדוק בהמשך כשנתקדם.
 
 # Webkit Menu Bar
 File: 'קובץ'
-Quit: ''
+Quit: 'יציאה'
 Edit: 'עריכה'
 Undo: 'ביטול'
 Redo: 'לעשות שוב'
@@ -14,11 +15,11 @@ Cut: 'גזירה'
 Copy: 'העתקה'
 Paste: 'הדבקה'
 Delete: 'מחיקה'
-Select all: 'בחר הכל'
+Select all: 'לבחור הכול'
 Reload: 'רענון'
-Force Reload: ''
+Force Reload: 'לרענן בכוח'
 Toggle Developer Tools: 'אפשר / בטל כלים למפתחים'
-Actual size: ''
+Actual size: 'גודל מקורי'
 Zoom in: 'הגדלה'
 Zoom out: 'הקטנה'
 Toggle fullscreen: 'כניסה / יציאה ממסך מלא'
@@ -28,22 +29,23 @@ Close: 'סגירה'
 Back: 'אחורה'
 Forward: 'קדימה'
 
-Version $ is now available!  Click for more details: 'גירסה $ יצאה! לחצו לפרטים נוספים'
+Version $ is now available!  Click for more details: 'גירסה $ יצאה! יש ללחוץ לפרטים
+  נוספים'
 Download From Site: 'הורדה מהאתר'
-A new blog is now available, $. Click to view more: 'פוסט חדש יצא לבלוג, $. לחצו כדאי
-  לראות עוד'
+A new blog is now available, $. Click to view more: 'פוסט חדש יצא לבלוג, $. יש ללחוץ
+  כדאי לראות עוד'
 
 # Search Bar
-Search / Go to URL: 'חיפוש / הכנס כתובת'
+Search / Go to URL: 'חיפוש / מעבר לכתובת'
   # In Filter Button
 Search Filters:
-  Search Filters: 'סנני חיפוש'
+  Search Filters: 'מסנני חיפוש'
   Sort By:
     Sort By: 'מיין לפי'
     Most Relevant: 'הכי רלוונטי'
     Rating: 'דירוג'
     Upload Date: 'תאריך העלאה'
-    View Count: 'מס'' צפיות'
+    View Count: 'מס׳ צפיות'
   Time:
     Time: 'זמן'
     Any Time: 'כל זמן'
@@ -60,17 +62,17 @@ Search Filters:
     #& Playlists
   Duration:
     Duration: 'משך זמן'
-    All Durations: 'הכל'
-    Short (< 4 minutes): 'קצר (מתחת ל-4 דקות)'
-    Long (> 20 minutes): 'ארוך ( מעל ל-20 דקות)'
+    All Durations: 'הכול'
+    Short (< 4 minutes): 'קצר (מתחת ל־4 דקות)'
+    Long (> 20 minutes): 'ארוך ( מעל ל־20 דקות)'
   # On Search Page
   Search Results: 'תוצאות חיפוש'
-  Fetching results. Please wait: 'אוסף תוצאות. אנא המתן'
+  Fetching results. Please wait: 'נאספות תוצאות. נא להמתין'
   Fetch more results: 'חפש תוצאות נוספות'
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: 'מנויים'
+  Subscriptions: 'מינויים'
   Latest Subscriptions: 'מנויים אחרונים'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'רשימת
     המנויים שלכם כרגע ריקה. תתחילו להוסיף הרשמות כדי לראות אותן כאן.'
@@ -93,12 +95,12 @@ Settings:
     General Settings: 'הגדרות כלליות'
     Check for Updates: 'בדוק אם קיימים עדכונים'
     Check for Latest Blog Posts: 'בדוק אם קיימים פוסטים חדשים בבלוג'
-    Fallback to Non-Preferred Backend on Failure: ''
+    Fallback to Non-Preferred Backend on Failure: 'לסגת למנגנון שאינו מועדף בעת כשל'
     Enable Search Suggestions: 'אפשר הצעות לחיפוש'
-    Default Landing Page: ''
+    Default Landing Page: 'דף נחיתה כבררת מחדל'
     Locale Preference: 'העדפת שפה'
     Preferred API Backend:
-      Preferred API Backend: ''
+      Preferred API Backend: 'מנגנון API מועדף'
       Local API: 'API מקומי'
       Invidious API: 'Invidious API'
     Video View Type:
@@ -113,7 +115,7 @@ Settings:
       End: 'סוף'
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'שרת Invidious
       ( ברירת המחדל היא https://invidious.snopyta.org )'
-    Region for Trending: ''
+    Region for Trending: 'איזור לסרטונים חמים'
         #! List countries
   Theme Settings:
     Theme Settings: 'הגדרת מראה'
@@ -308,14 +310,14 @@ Profile:
   Your default profile has been changed to your primary profile: 'פרופיל ברירת המחדל
     שלך השתנה לפרופיל הראשי שלך'
   $ is now the active profile: 'פרופיל $ פעיל עכשיו'
-  Subscription List: 'רשימת מנויים'
+  Subscription List: 'רשימת מינויים'
   Other Channels: 'ערוצים אחרים'
   $ selected: ''
-  Select All: ''
-  Select None: ''
-  Delete Selected: ''
-  Add Selected To Profile: ''
-  No channel(s) have been selected: ''
+  Select All: 'לבחור הכול'
+  Select None: 'לבטל בחירה'
+  Delete Selected: 'למחוק את הנבחרים'
+  Add Selected To Profile: 'הוספת הנבחרים לפרופיל'
+  No channel(s) have been selected: 'לא נבחרו ערוצים'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
   : ''
