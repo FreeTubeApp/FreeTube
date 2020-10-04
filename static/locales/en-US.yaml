@@ -72,6 +72,7 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: Subscriptions
   Latest Subscriptions: Latest Subscriptions
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Your
     Subscription list is currently empty. Start adding subscriptions to see them here.
   'Getting Subscriptions. Please wait.': Getting Subscriptions. Please wait.

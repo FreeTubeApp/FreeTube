@@ -128,6 +128,15 @@ export default Vue.extend({
         this.videoList = []
         return
       }
+
+      let useRss = this.useRssFeeds
+      if (this.activeSubscriptionList.length >= 125 && !useRss) {
+        this.showToast({
+          message: this.$t('Subscriptions["This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting"]'),
+          time: 10000
+        })
+        useRss = true
+      }
       this.isLoading = true
       this.updateShowProgressBar(true)
       this.setProgressBarPercentage(0)
@@ -139,13 +148,13 @@ export default Vue.extend({
         let videos = []
 
         if (!this.usingElectron || this.backendPreference === 'invidious') {
-          if (this.useRssFeeds) {
+          if (useRss) {
             videos = await this.getChannelVideosInvidiousRSS(channel)
           } else {
             videos = await this.getChannelVideosInvidiousScraper(channel)
           }
         } else {
-          if (this.useRssFeeds) {
+          if (useRss) {
             videos = await this.getChannelVideosLocalRSS(channel)
           } else {
             videos = await this.getChannelVideosLocalScraper(channel)
