@@ -348,7 +348,7 @@ const actions = {
   },
 
   showToast (_, payload) {
-    FtToastEvents.$emit('toast.open', payload.message, payload.action, payload.time)
+    FtToastEvents.$emit('toast-open', payload.message, payload.action, payload.time)
   }
 }
 

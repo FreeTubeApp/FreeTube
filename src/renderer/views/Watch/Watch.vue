@@ -77,7 +77,7 @@
         :is-upcoming="isUpcoming"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
-        @theatreMode="toggleTheatreMode"
+        @theatre-mode="toggleTheatreMode"
       />
       <watch-video-description
         v-if="!isLoading"
@@ -86,14 +86,14 @@
         :description-html="videoDescriptionHtml"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
-        @timestampEvent="changeTimestamp"
+        @timestamp-event="changeTimestamp"
       />
       <watch-video-comments
         v-if="!isLoading && !isLive"
         :id="videoId"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
-        @timestampEvent="changeTimestamp"
+        @timestamp-event="changeTimestamp"
       />
     </div>
     <div class="sidebarArea">

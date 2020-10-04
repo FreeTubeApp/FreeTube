@@ -467,12 +467,12 @@ a:visited {
 
 ::-webkit-scrollbar {
 	width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--scrollbar-color);
   border-radius: 6px;
-  height: 6px;
 }
 
 ::-webkit-scrollbar-thumb:hover {

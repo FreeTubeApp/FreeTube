@@ -30,6 +30,10 @@ export default Vue.extend({
     'watch-video-playlist': WatchVideoPlaylist,
     'watch-video-recommendations': WatchVideoRecommendations
   },
+  beforeRouteLeave: function (to, from, next) {
+    this.handleRouteChange()
+    next()
+  },
   data: function() {
     return {
       isLoading: false,
@@ -883,9 +887,5 @@ export default Vue.extend({
       'updateHistory',
       'updateWatchProgress'
     ])
-  },
-  beforeRouteLeave: function (to, from, next) {
-    this.handleRouteChange()
-    next()
   }
 })
