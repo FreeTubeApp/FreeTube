@@ -32,6 +32,14 @@ const config = {
   directories: {
     output: './build/',
   },
+  protocols: [
+    {
+      name: "FreeTube",
+      schemes: [
+        "freetube"
+      ]
+    }
+  ],
   files: ['_icons/iconColor.*', './dist/**/*', '!./dist/web/**/*'],
   dmg: {
     contents: [

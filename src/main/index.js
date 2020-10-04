@@ -21,8 +21,6 @@ app.setName(productName)
 
 // disable electron warning
 process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true'
-
-// const gotTheLock = app.requestSingleInstanceLock()
 const path = require('path')
 const isDev = process.env.NODE_ENV === 'development'
 const isDebug = process.argv.includes('--debug')
@@ -33,26 +31,55 @@ let mainWindow
 // This line can possible be removed if the issue is fixed upstream
 app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors')
 
+app.setAsDefaultProtocolClient('freetube')
+
 // TODO: Uncomment if needed
 // only allow single instance of application
-// if (!isDev) {
-//   if (gotTheLock) {
-//     app.on('second-instance', () => {
-//       // Someone tried to run a second instance, we should focus our window.
-//       if (mainWindow && mainWindow.isMinimized()) {
-//         mainWindow.restore()
-//       }
-//       mainWindow.focus()
-//     })
-//   } else {
-//     app.quit()
-//     process.exit(0)
-//   }
-// } else {
-//   require('electron-debug')({
-//     showDevTools: !(process.env.RENDERER_REMOTE_DEBUGGING === 'true')
-//   })
-// }
+if (!isDev) {
+  const gotTheLock = app.requestSingleInstanceLock()
+
+  if (gotTheLock) {
+    app.on('second-instance', (event, commandLine, workingDirectory) => {
+      // Someone tried to run a second instance, we should focus our window.
+      if (mainWindow && typeof (commandLine) !== 'undefined') {
+        if (mainWindow.isMinimized()) mainWindow.restore()
+        mainWindow.focus()
+
+        mainWindow.webContents.send('ping', commandLine)
+      }
+    })
+
+    app.on('ready', (event, commandLine, workingDirectory) => {
+      createWindow()
+
+      if (isDev) {
+        installDevTools()
+      }
+
+      if (isDebug) {
+        mainWindow.webContents.openDevTools()
+      }
+    })
+  } else {
+    app.quit()
+  }
+} else {
+  require('electron-debug')({
+    showDevTools: !(process.env.RENDERER_REMOTE_DEBUGGING === 'true')
+  })
+
+  app.on('ready', () => {
+    createWindow()
+
+    if (isDev) {
+      installDevTools()
+    }
+
+    if (isDebug) {
+      mainWindow.webContents.openDevTools()
+    }
+  })
+}
 
 async function installDevTools () {
   try {
@@ -172,19 +199,14 @@ function createWindow () {
       }
     })
   })
+
+  ipcMain.on('appReady', () => {
+    const param = process.argv[1]
+    if (typeof (param) !== 'undefined' && param !== null) {
+      mainWindow.webContents.send('ping', process.argv)
+    }
+  })
 }
-
-app.on('ready', () => {
-  createWindow()
-
-  if (isDev) {
-    installDevTools()
-  }
-
-  if (isDebug) {
-    mainWindow.webContents.openDevTools()
-  }
-})
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
@@ -222,7 +244,6 @@ app.on('activate', () => {
 
 /*
 import { autoUpdater } from 'electron-updater'
-
 autoUpdater.on('update-downloaded', () => {
   autoUpdater.quitAndInstall()
 })

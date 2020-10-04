@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { mapActions } from 'vuex'
 import { ObserveVisibility } from 'vue-observe-visibility'
 import FtFlexBox from './components/ft-flex-box/ft-flex-box.vue'
 import TopNav from './components/top-nav/top-nav.vue'
@@ -14,12 +15,14 @@ import Parser from 'rss-parser'
 
 let useElectron
 let shell
+let electron
 
 Vue.directive('observe-visibility', ObserveVisibility)
 
 if (window && window.process && window.process.type === 'renderer') {
   /* eslint-disable-next-line */
-  shell = require('electron').shell
+  electron = require('electron')
+  shell = electron.shell
   useElectron = true
 } else {
   useElectron = false
@@ -65,6 +68,9 @@ export default Vue.extend({
     },
     checkForBlogPosts: function () {
       return this.$store.getters.getCheckForBlogPosts
+    },
+    searchSettings: function () {
+      return this.$store.getters.getSearchSettings
     }
   },
   mounted: function () {
@@ -79,6 +85,7 @@ export default Vue.extend({
       console.log('User is using Electron')
       this.activateKeyboardShortcuts()
       this.openAllLinksExternally()
+      this.enableCliPing()
       this.setBoundsOnClose()
     }
 
@@ -247,9 +254,39 @@ export default Vue.extend({
       })
     },
 
+    enableCliPing: function () {
+      const v = this
+      electron.ipcRenderer.on('ping', function (event, message) {
+        console.log('ping!')
+        console.log(message)
+        let url = message[message.length - 1]
+        if (url) {
+          url = url.replace('freetube://', '')
+          v.$store.dispatch('getVideoIdFromUrl', url).then((result) => {
+            if (result) {
+              v.$router.push({
+                path: `/watch/${result}`
+              })
+            } else {
+              v.$router.push({
+                path: `/search/${encodeURIComponent(url)}`,
+                query: {
+                  sortBy: v.searchSettings.sortBy,
+                  time: v.searchSettings.time,
+                  type: v.searchSettings.type,
+                  duration: v.searchSettings.duration
+                }
+              })
+            }
+          })
+        }
+      })
+
+      electron.ipcRenderer.send('appReady')
+    },
+
     setBoundsOnClose: function () {
       window.onbeforeunload = (e) => {
-        const electron = require('electron')
         electron.ipcRenderer.send('setBounds')
       }
     }
