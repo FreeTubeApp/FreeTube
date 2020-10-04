@@ -2,7 +2,7 @@
  <img src="https://freetubeapp.github.io/images/logoColor.png" width=500 align="center">
 </p>
 
-FreeTube is an open source desktop YouTube player built with privacy in mind.
+FreeTube is an open-source desktop YouTube player built with privacy in mind.
 Use YouTube without advertisements and prevent Google from tracking you with their cookies and JavaScript.
 Available for Windows, Mac & Linux thanks to Electron.
 
@@ -21,7 +21,7 @@ Download our browser extension so that you can click on videos in your browser a
 [Instructions for Google Chrome](https://github.com/FreeTubeApp/FreeTube/wiki/Browser-Extension)
 
 ## How does it work?
-FreeTube uses a built in extractor to grab and serve data / videos.  The [Invidious API](https://github.com/iv-org/invidious) can also optionally be used.  FreeTube does not use any official APIs to obtain data.  While YouTube can still see your video requests, it can no
+FreeTube uses a built-in extractor to grab and serve data/videos.  The [Invidious API](https://github.com/iv-org/invidious) can also optionally be used.  FreeTube does not use any official APIs to obtain data.  While YouTube can still see your video requests, it can no
 longer track you using cookies or JavaScript. Your subscriptions and history are stored locally on your computer and never sent out.  Using a VPN or Tor is highly recommended
 to hide your IP while using FreeTube.
 
@@ -31,7 +31,7 @@ to hide your IP while using FreeTube.
 ## Features
 * Watch videos without ads
 * Use YouTube without Google tracking you using cookies and JavaScript
-* Two extractor APIs to choose from (Built in or Invidious)
+* Two extractor APIs to choose from (Built-in or Invidious)
 * Subscribe to channels without an account
 * Local subscriptions, history, and saved videos
 * Export & import subscriptions
@@ -99,7 +99,7 @@ If you enjoy using FreeTube, you're welcome to leave a donation using the follow
 [![GNU AGPLv3 Image](https://www.gnu.org/graphics/agplv3-155x51.png)](https://www.gnu.org/licenses/agpl-3.0.html)  
 
 FreeTube is Free Software: You can use, study share and improve it at your
-will. Specifically you can redistribute and/or modify it under the terms of the
+will. Specifically, you can redistribute and/or modify it under the terms of the
 [GNU Affero General Public License](https://www.gnu.org/licenses/agpl-3.0.html) as
 published by the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.  
