@@ -391,7 +391,7 @@ Video:
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % temu'
 #& Videos
-  Autoplay: Samoodtwarzanie
+  Autoplay: Odtwarzaj
   Play Previous Video: Odtwórz poprzedni film
   Play Next Video: Odtwórz następny film
   Reverse Playlist: Odwróć playlistę
@@ -463,7 +463,7 @@ Comments:
     tego filmu'
   Load More Comments: 'Pokaż więcej komentarzy'
   There are no more comments for this video: Nie ma więcej komentarzy pod tym filmem
-Up Next: 'Następne w kolejce'
+Up Next: 'Następne'
 
 # Toast Messages
 Local API Error (Click to copy): 'Błąd lokalnego API (kliknij by skopiować)'
