@@ -103,8 +103,8 @@ Settings:
       Beginning: 'Začiatok'
       Middle: 'Stred'
       End: 'Koniec'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious príklad (Predvolená
-      hodnota je https://invidious.snopyta.org)'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious príklad
+      (Predvolená hodnota je https://invidious.snopyta.org)'
     Region for Trending: 'Región pre trendy'
         #! List countries
   Theme Settings:
@@ -264,117 +264,143 @@ Video:
   Watching: ''
   Watched: ''
   # As in a Live Video
-  Live: ''
-  Live Now: ''
-  Live Chat: ''
-  Enable Live Chat: ''
-  Live Chat is currently not supported in this build.: ''
-  'Chat is disabled or the Live Stream has ended.': ''
-  Live chat is enabled.  Chat messages will appear here once sent.: ''
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
+  Live: 'Naživo'
+  Live Now: 'Teraz Naživo'
+  Live Chat: 'Živý Chat'
+  Enable Live Chat: 'Povoliť Live Chat'
+  Live Chat is currently not supported in this build.: 'Live chat nie je v tejto verzií
+    momentálne podporovaný.'
+  'Chat is disabled or the Live Stream has ended.': 'Chat je zakázaný alebo sa priamy
+    prenos skončil.'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'Live chat je
+    povolený. Po odoslaní sa tu zobrazia četové správy.'
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Live
+    Chat momentálne nie je podporovaný pomocou API Invidious. Vyžaduje sa priame pripojenie
+    k službe YouTube.'
   Published:
-    Jan: ''
-    Feb: ''
-    Mar: ''
-    Apr: ''
-    May: ''
-    Jun: ''
-    Jul: ''
-    Aug: ''
-    Sep: ''
-    Oct: ''
-    Nov: ''
-    Dec: ''
-    Second: ''
-    Seconds: ''
-    Hour: ''
-    Hours: ''
-    Day: ''
-    Days: ''
-    Week: ''
-    Weeks: ''
-    Month: ''
-    Months: ''
-    Year: ''
-    Years: ''
-    Ago: ''
-    Upcoming: ''
-  Published on: ''
+    Jan: 'Jan'
+    Feb: 'Feb'
+    Mar: 'Mar'
+    Apr: 'Apr'
+    May: 'Máj'
+    Jun: 'Jún'
+    Jul: 'Júl'
+    Aug: 'Aug'
+    Sep: 'Sep'
+    Oct: 'Okt'
+    Nov: 'Nov'
+    Dec: 'Dec'
+    Second: 'Sekunda'
+    Seconds: 'Sekúnd'
+    Hour: 'Hodina'
+    Hours: 'Hodiny'
+    Day: 'Deň'
+    Days: 'Dni'
+    Week: 'Týždeň'
+    Weeks: 'Týždne'
+    Month: 'Mesiac'
+    Months: 'Mesiace'
+    Year: 'Rok'
+    Years: 'Rokov'
+    Ago: 'Pred'
+    Upcoming: 'Premiéra čoskoro'
+    Minute: Minúta
+    Minutes: Minuty
+  Published on: 'Publikované dňa'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: ''
+  Publicationtemplate: 'pred $%'
 #& Videos
+  Autoplay: Automatické prehrávanie
+  Starting soon, please refresh the page to check again: Čoskoro začína, obnovte stránku
+    a znova skontrolujte
 Videos:
   #& Sort By
   Sort By:
-    Newest: ''
-    Oldest: ''
+    Newest: 'Najnovšie'
+    Oldest: 'Najstaršie'
     #& Most Popular
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: ''
-  Videos: ''
-  View: ''
-  Views: ''
-  Last Updated On: ''
+  View Full Playlist: 'Zobraziť celý zoznam videí'
+  Videos: 'Videá'
+  View: 'Pozrieť'
+  Views: 'zhliadnutí'
+  Last Updated On: 'Posledná aktualizácia'
   Share Playlist:
-    Share Playlist: ''
-    Copy YouTube Link: ''
-    Open in YouTube: ''
-    Copy Invidious Link: ''
-    Open in Invidious: ''
+    Share Playlist: 'Zdieľať zoznam videí'
+    Copy YouTube Link: 'Kopírovať YouTube odkaz'
+    Open in YouTube: 'Otvoriť v YouTube'
+    Copy Invidious Link: 'Kopírovať Invidious odkaz'
+    Open in Invidious: 'Otvoriť v Invidious'
 
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: ''
+Toggle Theatre Mode: 'Prepnúť na režim Divadlo'
 Change Format:
-  Change Video Formats: ''
-  Use Dash Formats: ''
-  Use Legacy Formats: ''
-  Use Audio Formats: ''
+  Change Video Formats: 'Zmena formátov videa'
+  Use Dash Formats: 'Použite Dash formáty'
+  Use Legacy Formats: 'Použite staršie formáty'
+  Use Audio Formats: 'Použite zvukové formáty'
+  Dash formats are not available for this video: Dash formáty nie sú pre toto video
+    k dispozícii
+  Audio formats are not available for this video: Pre toto video nie sú k dispozícii
+    zvukové formáty
 Share:
-  Share Video: ''
-  Copy Link: ''
-  Open Link: ''
-  Copy Embed: ''
-  Open Embed: ''
+  Share Video: 'Zdieľať video'
+  Copy Link: 'Skopírovať odkaz'
+  Open Link: 'Otvoriť odkaz'
+  Copy Embed: 'Kopírovať Embed'
+  Open Embed: 'Otvoriť Embed'
   # On Click
-  Invidious URL copied to clipboard: ''
-  Invidious Embed URL copied to clipboard: ''
-  YouTube URL copied to clipboard: ''
-  YouTube Embed URL copied to clipboard: ''
-Mini Player: ''
+  Invidious URL copied to clipboard: 'Invidious URL bola skopírovaná do schránky'
+  Invidious Embed URL copied to clipboard: 'Invidious Embed URL bola skopírovaná do
+    schránky'
+  YouTube URL copied to clipboard: 'Adresa URL služby YouTube bola skopírovaná do
+    schránky'
+  YouTube Embed URL copied to clipboard: 'YouTube Adresa URL bola skopírovaná do schránky'
+  Include Timestamp: Zahrnúť časovú pečiatku
+Mini Player: 'Mini prehrávač'
 Comments:
-  Comments: ''
-  Click to View Comments: ''
-  Getting comment replies, please wait: ''
-  Show Comments: ''
-  Hide Comments: ''
+  Comments: 'Komentáre'
+  Click to View Comments: 'Kliknutím zobrazíte komentáre'
+  Getting comment replies, please wait: 'Získavanie odpovedí na komentáre, čakajte
+    prosím'
+  Show Comments: 'Zobraziť Komentáre'
+  Hide Comments: 'Skryť komentáre'
   # Context: View 10 Replies, View 1 Reply
-  View: ''
-  Hide: ''
-  Replies: ''
-  Reply: ''
-  There are no comments available for this video: ''
-  Load More Comments: ''
-Up Next: ''
+  View: 'Pozrieť'
+  Hide: 'Skryť'
+  Replies: 'Odpovede'
+  Reply: 'Odpovedať'
+  There are no comments available for this video: 'K tomuto videu nie sú k dispozícii
+    žiadne komentáre'
+  Load More Comments: 'Načítať ďalšie komentáre'
+  There are no more comments for this video: K tomuto videu nie sú žiadne ďalšie komentáre
+Up Next: 'Nasledujúci'
 
 # Toast Messages
-Local API Error (Click to copy): ''
-Invidious API Error (Click to copy): ''
-Falling back to Invidious API: ''
-Falling back to the local API: ''
-Subscriptions have not yet been implemented: ''
-Loop is now disabled: ''
-Loop is now enabled: ''
-Shuffle is now disabled: ''
-Shuffle is now enabled: ''
-Playing Next Video: ''
-Playing Previous Video: ''
-Playing next video in 5 seconds.  Click to cancel: ''
-Canceled next video autoplay: ''
-'The playlist has ended.  Enable loop to continue playing': ''
+Local API Error (Click to copy): 'Local API chyba (kliknutím skopírujete)'
+Invidious API Error (Click to copy): 'Invidious API chyba (kliknutím skopírujete)'
+Falling back to Invidious API: 'Návrat k Invidious API'
+Falling back to the local API: 'Návrat k local API'
+Subscriptions have not yet been implemented: 'Odbery ešte nie sú implementované'
+Loop is now disabled: 'Opakovanie(loop) je teraz deaktivované'
+Loop is now enabled: 'Opakovanie(loop) je teraz povolené'
+Shuffle is now disabled: 'Náhodné prehrávanie je teraz zakázané'
+Shuffle is now enabled: 'Náhodné prehrávanie je teraz povolené'
+Playing Next Video: 'Prehráva sa nasledujúce video'
+Playing Previous Video: 'Prehráva sa predchádzajúce video'
+Playing next video in 5 seconds.  Click to cancel: 'Prehranie ďalšieho videa za 5
+  sekúnd. Kliknutím ju zrušíte.'
+Canceled next video autoplay: 'Automatické prehrávanie ďalšieho videa bolo zrušené'
+'The playlist has ended.  Enable loop to continue playing': 'Zoznam videí sa skončil.
+  Ak chcete pokračovať v hraní, povoľte opakovania'
 
-Yes: ''
-No: ''
+Yes: 'Ano'
+No: 'Nie'
+This video is unavailable because of missing formats. This can happen due to country unavailability.: Toto
+  video nie je k dispozícii z dôvodu chýbajúcich formátov. Môže sa to stať z dôvodu
+  nedostupnosti krajiny.
+The playlist has been reversed: Zoznam videí bol obrátený
