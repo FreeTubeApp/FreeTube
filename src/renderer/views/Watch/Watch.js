@@ -311,7 +311,11 @@ export default Vue.extend({
             }
 
             if (typeof result.player_response.streamingData.adaptiveFormats !== 'undefined') {
-              this.dashSrc = await this.createLocalDashManifest(result.player_response.streamingData.adaptiveFormats)
+              if (this.proxyVideos) {
+                this.dashSrc = await this.createInvidiousDashManifest()
+              } else {
+                this.dashSrc = await this.createLocalDashManifest(result.player_response.streamingData.adaptiveFormats)
+              }
 
               this.audioSourceList = result.player_response.streamingData.adaptiveFormats.filter((format) => {
                 return format.mimeType.includes('audio')
