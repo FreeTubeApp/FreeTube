@@ -20,7 +20,7 @@
     <ft-select
       v-if="commentData.length > 0 && !isLoading && showComments"
       class="commentSort"
-      placeholder="Sort by"
+      :placeholder="$t('Comments.Sort by')"
       :value="sortValues[0]"
       :select-names="sortNames"
       :select-values="sortValues"
