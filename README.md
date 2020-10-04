@@ -93,7 +93,8 @@ Bitcoin Address: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS
 
 Monero Address: 48WyAPdjwc6VokeXACxSZCFeKEXBiYPV6GjfvBsfg4CrUJ95LLCQSfpM9pvNKy5GE5H4hNaw99P8RZyzmaU9kb1pD7kzhCB
 
-If you enjoy using FreeTube, you're welcome to leave a donation using the following methods.  While your donations are much appreciated, only donate if you really want to.  Donations are used for keeping the website up and running and eventual code signing costs.
+If you enjoy using FreeTube, you're welcome to leave a donation using the following methods.  
+While your donations are much appreciated, only donate if you really want to.  Donations are used for keeping the website up and running and eventual code signing costs.
 
 ## License
 [![GNU AGPLv3 Image](https://www.gnu.org/graphics/agplv3-155x51.png)](https://www.gnu.org/licenses/agpl-3.0.html)  
