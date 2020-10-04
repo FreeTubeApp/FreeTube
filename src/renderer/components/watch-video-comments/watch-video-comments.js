@@ -2,14 +2,17 @@ import Vue from 'vue'
 import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
-import CommentScraper from 'yt-comment-scraper'
+import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtTimestampCatcher from '../../components/ft-timestamp-catcher/ft-timestamp-catcher.vue'
+
+import CommentScraper from 'yt-comment-scraper'
 
 export default Vue.extend({
   name: 'WatchVideoComments',
   components: {
     'ft-card': FtCard,
     'ft-loader': FtLoader,
+    'ft-select': FtSelect,
     'ft-timestamp-catcher': FtTimestampCatcher
   },
   props: {
@@ -38,11 +41,32 @@ export default Vue.extend({
 
     invidiousInstance: function () {
       return this.$store.getters.getInvidiousInstance
+    },
+
+    sortNames: function () {
+      return [
+        this.$t('Comments.Top comments'),
+        this.$t('Comments.Newest first')
+      ]
+    },
+
+    sortValues: function () {
+      return [
+        'top',
+        'newest'
+      ]
     }
   },
   methods: {
-    onTimestamp: function(timestamp) {
+    onTimestamp: function (timestamp) {
       this.$emit('timestamp-event', timestamp)
+    },
+
+    handleSortChange: function (sortType) {
+      console.log(sortType)
+      this.showToast({
+        message: 'Not currently implemented'
+      })
     },
 
     getCommentData: function () {

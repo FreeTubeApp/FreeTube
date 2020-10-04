@@ -12,6 +12,10 @@
   text-align: center;
 }
 
+.commentSort {
+  float: right;
+}
+
 .comment {
   padding: 15px;
   position: relative;

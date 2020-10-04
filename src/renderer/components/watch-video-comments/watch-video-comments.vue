@@ -17,6 +17,15 @@
     >
       {{ $t("Comments.Click to View Comments") }}
     </h4>
+    <ft-select
+      v-if="commentData.length > 0 && !isLoading && showComments"
+      class="commentSort"
+      placeholder="Sort by"
+      :value="sortValues[0]"
+      :select-names="sortNames"
+      :select-values="sortValues"
+      @change="handleSortChange"
+    />
     <h3
       v-if="commentData.length > 0 && !isLoading && showComments"
     >
