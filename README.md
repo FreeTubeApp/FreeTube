@@ -59,6 +59,12 @@ Chocolatey: [Download](https://chocolatey.org/packages/freetube/)
 
 Windows Portable: [Download](https://github.com/rddim/FreeTubePortable/releases) [Source](https://github.com/rddim/FreeTubePortable)
 
+### Automated Builds (Nightly / Weekly)
+
+Builds are automatically created from changes to our development branch via [GitHub Actions](https://github.com/FreeTubeApp/FreeTube/actions?query=workflow%3ABuild).
+
+The first build with a green check mark is the latest build.  You will need to have a GitHub account to download these builds.
+
 ## Contributing
 If you have an idea or if you found a bug, please submit a GitHub issue so that
 we can track it.  Please search the existing issues before submitting to
