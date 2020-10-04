@@ -37,7 +37,7 @@ export default Vue.extend({
   },
   methods: {
     onTimestamp: function(timestamp) {
-      this.$emit('timestampEvent', timestamp)
+      this.$emit('timestamp-event', timestamp)
     },
     parseDescriptionHtml: function (descriptionText) {
       descriptionText = descriptionText.replace(/target="_blank"/g, '')

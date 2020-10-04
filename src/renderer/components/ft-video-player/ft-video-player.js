@@ -13,6 +13,15 @@ export default Vue.extend({
   components: {
     'ft-card': FtCard
   },
+  beforeRouteLeave: function () {
+    if (this.player !== null && !this.player.isInPictureInPicture()) {
+      this.player.dispose()
+      this.player = null
+      clearTimeout(this.mouseTimeout)
+    } else if (this.player.isInPictureInPicture()) {
+      this.player.play()
+    }
+  },
   props: {
     format: {
       type: String,
@@ -598,15 +607,6 @@ export default Vue.extend({
             break
         }
       }
-    }
-  },
-  beforeRouteLeave: function () {
-    if (this.player !== null && !this.player.isInPictureInPicture()) {
-      this.player.dispose()
-      this.player = null
-      clearTimeout(this.mouseTimeout)
-    } else if (this.player.isInPictureInPicture()) {
-      this.player.play()
     }
   }
 })

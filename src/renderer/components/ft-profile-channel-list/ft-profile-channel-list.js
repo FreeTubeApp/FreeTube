@@ -62,7 +62,7 @@ export default Vue.extend({
   },
   watch: {
     profile: function () {
-      this.subscriptions = [].concat(this.profile.subscriptions.sort((a, b) => {
+      this.subscriptions = [].concat(this.profile.subscriptions).sort((a, b) => {
         const nameA = a.name.toLowerCase()
         const nameB = b.name.toLowerCase()
         if (nameA < nameB) {
@@ -75,12 +75,12 @@ export default Vue.extend({
       }).map((channel) => {
         channel.selected = false
         return channel
-      }))
+      })
     }
   },
   mounted: function () {
     if (typeof this.profile.subscriptions !== 'undefined') {
-      this.subscriptions = [].concat(this.profile.subscriptions.sort((a, b) => {
+      this.subscriptions = [].concat(this.profile.subscriptions).sort((a, b) => {
         const nameA = a.name.toLowerCase()
         const nameB = b.name.toLowerCase()
         if (nameA < nameB) {
@@ -93,7 +93,7 @@ export default Vue.extend({
       }).map((channel) => {
         channel.selected = false
         return channel
-      }))
+      })
     }
   },
   methods: {

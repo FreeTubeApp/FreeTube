@@ -2,8 +2,8 @@
   <ft-card class="videoDescription">
     <ft-timestamp-catcher
       class="description"
-      :inputHTML="shownDescription"
-      @timestampEvent="onTimestamp"
+      :input-html="shownDescription"
+      @timestamp-event="onTimestamp"
     />
   </ft-card>
 </template>

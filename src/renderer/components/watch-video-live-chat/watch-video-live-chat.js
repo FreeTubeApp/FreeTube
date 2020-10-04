@@ -16,6 +16,10 @@ export default Vue.extend({
     'ft-button': FtButton,
     'ft-list-video': FtListVideo
   },
+  beforeRouteLeave: function () {
+    this.liveChat.stop()
+    this.hasEnded = true
+  },
   props: {
     videoId: {
       type: String,
@@ -248,9 +252,5 @@ export default Vue.extend({
       event.stopPropagation()
       event.preventDefault()
     }
-  },
-  beforeRouteLeave: function () {
-    this.liveChat.stop()
-    this.hasEnded = true
   }
 })

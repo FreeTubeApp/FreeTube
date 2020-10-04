@@ -48,8 +48,8 @@
         </p>
         <ft-timestamp-catcher
           class="commentText"
-          :inputHTML="comment.text"
-          @timestampEvent="onTimestamp"
+          :input-html="comment.text"
+          @timestamp-event="onTimestamp"
         />
         <p class="commentLikeCount">
           <font-awesome-icon

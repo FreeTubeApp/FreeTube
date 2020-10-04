@@ -42,7 +42,7 @@ export default Vue.extend({
   },
   methods: {
     onTimestamp: function(timestamp) {
-      this.$emit('timestampEvent', timestamp)
+      this.$emit('timestamp-event', timestamp)
     },
 
     getCommentData: function () {

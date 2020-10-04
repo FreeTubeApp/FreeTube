@@ -19,7 +19,7 @@ Vue.config.productionTip = isDev
 
 library.add(fas)
 
-Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.component('FontAwesomeIcon', FontAwesomeIcon)
 Vue.use(VueI18n)
 
 // List of locales approved for use

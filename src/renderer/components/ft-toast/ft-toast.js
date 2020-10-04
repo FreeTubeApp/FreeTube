@@ -9,10 +9,10 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    FtToastEvents.$on('toast.open', this.open)
+    FtToastEvents.$on('toast-open', this.open)
   },
   beforeDestroy: function () {
-    FtToastEvents.$off('toast.open', this.open)
+    FtToastEvents.$off('toast-open', this.open)
   },
   methods: {
     performAction: function (index) {

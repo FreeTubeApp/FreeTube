@@ -64,7 +64,7 @@
           class="theatreModeButton option"
           icon="expand-alt"
           theme="secondary"
-          @click="$emit('theatreMode')"
+          @click="$emit('theatre-mode')"
         />
         <ft-icon-button
           v-if="!isUpcoming"
