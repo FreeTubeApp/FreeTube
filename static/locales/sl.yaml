@@ -82,9 +82,9 @@ Subscriptions:
   Refresh Subscriptions: 'Osveži naročnine'
 Trending: 'Priljubljeno'
 Most Popular: 'Najbolj popularno'
-Playlists: ''
+Playlists: 'Seznami predvajanja'
 User Playlists:
-  Your Playlists: ''
+  Your Playlists: 'Vaši seznami predvajanja'
 History:
   # On History Page
   History: 'Zgodovina'
@@ -97,14 +97,16 @@ Settings:
     General Settings: 'Splošne nastavitve'
     Check for Updates: 'Preveri posodobitve'
     Check for Latest Blog Posts: 'Preveri najnovejše članke na blogu'
-    Fallback to Non-Preferred Backend on Failure: ''
+    Fallback to Non-Preferred Backend on Failure: 'Ob napaki začasno uporabi sekundarni
+      zaledni sistem'
     Enable Search Suggestions: 'Vklopi iskalne predloge'
     Default Landing Page: 'Prevzeta vstopna stran'
-    Locale Preference: ''
+    Locale Preference: 'Izbira lokacije'
     Preferred API Backend:
-      Preferred API Backend: ''
-      Local API: 'Lokalni API'
-      Invidious API: 'Invidious API'
+      Preferred API Backend: 'Primarni zaledni sistem aplikacijskega programskega
+        vmesnika (APV)'
+      Local API: 'Lokalni APV'
+      Invidious API: 'Invidious APV'
     Video View Type:
       Video View Type: 'Tip razvrščanja videoposnetkov'
       Grid: 'Mreža'
@@ -149,19 +151,20 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: 'Nastavitve predvajalnika'
-    Force Local Backend for Legacy Formats: ''
+    Force Local Backend for Legacy Formats: 'Vedno uporabi lokalni zaledni sistem
+      za zapuščinske oblike'
     Play Next Video: 'Predvajaj naslednji videoposnetek'
     Turn on Subtitles by Default: 'Samodejno vklopi podnapise'
     Autoplay Videos: 'Samodejno predvajaj naslednji videoposnetek'
-    Proxy Videos Through Invidious: ''
-    Autoplay Playlists: ''
+    Proxy Videos Through Invidious: 'Uporabi Invidious kot namestnik'
+    Autoplay Playlists: 'Samodejno predvajaj sezname predvajanja'
     Enable Theatre Mode by Default: 'Samodejno vklopi gledališki način'
     Default Volume: 'Prevzeta glasnost'
     Default Playback Rate: 'Prevzeta hitrost predvajanja'
     Default Video Format:
       Default Video Format: 'Prevzeta oblika videoposnetka'
-      Dash Formats: ''
-      Legacy Formats: ''
+      Dash Formats: 'DASH oblike'
+      Legacy Formats: 'Zapuščinske oblike'
       Audio Formats: 'Audio oblike'
     Default Quality:
       Default Quality: 'Prevzeta kvaliteta'
@@ -186,7 +189,7 @@ Settings:
     Remove Watch History: 'Izbriši zgodovino gledanj'
     Are you sure you want to remove your entire watch history?: 'Ste prepričani, da
       želite izbrisati vašo celotno zgodovino gledanj?'
-    Watch history has been cleared: 'Zgodovina gledanj je bila izbrisana.'
+    Watch history has been cleared: 'Zgodovina gledanj je bila izbrisana'
     Remove All Subscriptions / Profiles: 'Izbriši vse naročnine/profile'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Ste
       prepričani, da želite izbrisati vse naročnine in profile?·· ·· Te odločitve
@@ -263,9 +266,12 @@ About:
   #On About page
   About: 'O programu'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
+  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Ta
+    programska oprema je objavljena pod odprto licenco AGPL-3.0.'
 
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >
+  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
+    Ste našli napako? Želite prelagati novo funkcijo? Želite priskočiti na pomoč?
+    Pojdite na našo GitHub stran. Pull request-i so dobrodošli.
 
   Thank you very much to the People and Projects that make FreeTube possible!: 'Najlepša
     hvala projektom in osebam, zaradi katerih je FreeTube mogoč!'
@@ -335,7 +341,7 @@ Channel:
   Subscribe: 'Naroči se'
   Unsubscribe: 'Prekini naročnino'
   Channel has been removed from your subscriptions: 'Kanal je bil odstranjen iz vaših
-    naročnin.'
+    naročnin'
   Removed subscription from $ other channel(s): 'Naročnina je bila prekinjena v $
     kanalih'
   Added channel to your subscriptions: 'Kanal je bil dodan v vaše naročnine'
@@ -351,8 +357,9 @@ Channel:
       Oldest: 'Najstarejši'
       Most Popular: 'Najbolj popularni'
   Playlists:
-    Playlists: ''
-    This channel does not currently have any playlists: ''
+    Playlists: 'Seznami predvajanja'
+    This channel does not currently have any playlists: 'Ta kanal trenutno nima nobenih
+      seznamov predvajanja'
     Sort Types:
       Last Video Added: 'Zadnji videoposnetek dodan'
       Newest: 'Najnovejši'
@@ -373,137 +380,148 @@ Video:
   Open in Invidious: 'Odpri v Invidious'
   Copy Invidious Link: 'Kopiraj Invidious povezavo'
   View: 'Ogled'
-  Views: ''
-  Loop Playlist: ''
-  Shuffle Playlist: ''
-  Reverse Playlist: ''
-  Play Next Video: ''
-  Play Previous Video: ''
+  Views: 'Ogledi'
+  Loop Playlist: 'Ponovno predvajaj seznam predvajanja'
+  Shuffle Playlist: 'Mešaj seznam predvajanja'
+  Reverse Playlist: 'Obrni seznam predvajanja'
+  Play Next Video: 'Predvajaj naslednji videoposnetek'
+  Play Previous Video: 'Predvajaj prejšnji videoposnetek'
   # Context is "X People Watching"
-  Watching: ''
-  Watched: ''
-  Autoplay: ''
-  Starting soon, please refresh the page to check again: ''
+  Watching: 'Gledano'
+  Watched: 'Ogledano'
+  Autoplay: 'Samodejno predvajanje'
+  Starting soon, please refresh the page to check again: 'Predvajanje se začenja.
+    Prosimo, osvežite stran, če želite poskusiti znova'
   # As in a Live Video
-  Live: ''
-  Live Now: ''
-  Live Chat: ''
-  Enable Live Chat: ''
-  Live Chat is currently not supported in this build.: ''
-  'Chat is disabled or the Live Stream has ended.': ''
-  Live chat is enabled.  Chat messages will appear here once sent.: ''
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
+  Live: 'V živo'
+  Live Now: 'Trenutno v živo'
+  Live Chat: 'Klepet v živo'
+  Enable Live Chat: 'Vklopi klepet v živo'
+  Live Chat is currently not supported in this build.: 'Klepet v živo v tej različici
+    trenutno ni podprt.'
+  'Chat is disabled or the Live Stream has ended.': 'Ali je klepet izklopljen ali
+    pa se je neposredni prenos že končal.'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'Pogovor v živo
+    je vklopljen.'
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Pogovor
+    v živo trenutno ni podprt v Invidious APV.'
   Published:
-    Jan: ''
-    Feb: ''
-    Mar: ''
-    Apr: ''
-    May: ''
-    Jun: ''
-    Jul: ''
-    Aug: ''
-    Sep: ''
-    Oct: ''
-    Nov: ''
-    Dec: ''
-    Second: ''
-    Seconds: ''
-    Minute: ''
-    Minutes: ''
-    Hour: ''
-    Hours: ''
-    Day: ''
-    Days: ''
-    Week: ''
-    Weeks: ''
-    Month: ''
-    Months: ''
-    Year: ''
-    Years: ''
-    Ago: ''
-    Upcoming: ''
-  Published on: ''
+    Jan: 'jan.'
+    Feb: 'feb.'
+    Mar: 'mar.'
+    Apr: 'apr.'
+    May: 'maj'
+    Jun: 'jun.'
+    Jul: 'jul.'
+    Aug: 'avg.'
+    Sep: 'sep.'
+    Oct: 'okt.'
+    Nov: 'nov.'
+    Dec: 'dec.'
+    Second: 'Sekunda'
+    Seconds: 'Sekund'
+    Minute: 'Minuta'
+    Minutes: 'Minut'
+    Hour: 'Ura'
+    Hours: 'Ur'
+    Day: 'Dan'
+    Days: 'Dni'
+    Week: 'Teden'
+    Weeks: 'Tedni'
+    Month: 'Mesec'
+    Months: 'Mesecev'
+    Year: 'Leto'
+    Years: 'Let'
+    Ago: 'Nazaj'
+    Upcoming: 'Kmalu bo objavljeno'
+  Published on: 'Objavljeno dne'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: ''
+  Publicationtemplate: '$ % nazaj'
 #& Videos
 Videos:
   #& Sort By
   Sort By:
-    Newest: ''
-    Oldest: ''
+    Newest: 'Najnovejši'
+    Oldest: 'Najstarejši'
     #& Most Popular
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: ''
-  Videos: ''
-  View: ''
-  Views: ''
-  Last Updated On: ''
+  View Full Playlist: 'Pokaži celoten seznam predvajanja'
+  Videos: 'Videoposnetki'
+  View: 'Ogled'
+  Views: 'Ogledi'
+  Last Updated On: 'Nazadnje posodobljeno dne'
   Share Playlist:
-    Share Playlist: ''
-    Copy YouTube Link: ''
-    Open in YouTube: ''
-    Copy Invidious Link: ''
-    Open in Invidious: ''
+    Share Playlist: 'Deli seznam predvajanja'
+    Copy YouTube Link: 'Kopiraj YouTube povezavo'
+    Open in YouTube: 'Odpri v YouTube'
+    Copy Invidious Link: 'Kopiraj Invidious povezavo'
+    Open in Invidious: 'Odpri v Invidious'
 
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: ''
+Toggle Theatre Mode: 'Preklopi gledališki način'
 Change Format:
-  Change Video Formats: ''
-  Use Dash Formats: ''
-  Use Legacy Formats: ''
-  Use Audio Formats: ''
-  Dash formats are not available for this video: ''
-  Audio formats are not available for this video: ''
+  Change Video Formats: 'Spremeni vrsto videoposnetka'
+  Use Dash Formats: 'Uporabi DASH oblike'
+  Use Legacy Formats: 'Uporabi zapuščinske oblike'
+  Use Audio Formats: 'Uporabi avdio oblike'
+  Dash formats are not available for this video: 'DASH oblike za ta videoposnetek
+    niso na voljo'
+  Audio formats are not available for this video: 'Avdio oblike za ta videoposnetek
+    niso na voljo'
 Share:
-  Share Video: ''
-  Include Timestamp: ''
-  Copy Link: ''
-  Open Link: ''
-  Copy Embed: ''
-  Open Embed: ''
+  Share Video: 'Deli videoposnetek'
+  Include Timestamp: 'Vključi časovno oznako'
+  Copy Link: 'Kopiraj povezavo'
+  Open Link: 'Odpri povezavo'
+  Copy Embed: 'Kopiraj vložek'
+  Open Embed: 'Odpri vložek'
   # On Click
-  Invidious URL copied to clipboard: ''
-  Invidious Embed URL copied to clipboard: ''
-  YouTube URL copied to clipboard: ''
-  YouTube Embed URL copied to clipboard: ''
-Mini Player: ''
+  Invidious URL copied to clipboard: 'Invidious URL kopiran'
+  Invidious Embed URL copied to clipboard: 'Invidious vložek URL kopiran'
+  YouTube URL copied to clipboard: 'YouTube URL kopiran'
+  YouTube Embed URL copied to clipboard: 'YouTube vložek URL kopiran'
+Mini Player: 'Mini predvajalnik'
 Comments:
-  Comments: ''
-  Click to View Comments: ''
-  Getting comment replies, please wait: ''
-  There are no more comments for this video: ''
-  Show Comments: ''
-  Hide Comments: ''
+  Comments: 'Komentarji'
+  Click to View Comments: 'Kliknite za prikaz komentarjev'
+  Getting comment replies, please wait: 'Pridobivanje odgovorov na komentar. Prosimo,
+    počakajte'
+  There are no more comments for this video: 'Za ta posnetek ni več komentarjev'
+  Show Comments: 'Prikaži komentarje'
+  Hide Comments: 'Skrij komentarje'
   # Context: View 10 Replies, View 1 Reply
-  View: ''
-  Hide: ''
-  Replies: ''
-  Reply: ''
-  There are no comments available for this video: ''
-  Load More Comments: ''
-Up Next: ''
+  View: 'Pokaži'
+  Hide: 'Skrij'
+  Replies: 'Odgovorov'
+  Reply: 'Odgovor'
+  There are no comments available for this video: 'Ta videoposnetek nima nobenih komentarjev'
+  Load More Comments: 'Naloži več komentarjev'
+Up Next: 'Naslednje na sporedu'
 
 # Toast Messages
-Local API Error (Click to copy): ''
-Invidious API Error (Click to copy): ''
-Falling back to Invidious API: ''
-Falling back to the local API: ''
-This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
-Subscriptions have not yet been implemented: ''
-Loop is now disabled: ''
-Loop is now enabled: ''
-Shuffle is now disabled: ''
-Shuffle is now enabled: ''
-The playlist has been reversed: ''
-Playing Next Video: ''
-Playing Previous Video: ''
-Playing next video in 5 seconds.  Click to cancel: ''
-Canceled next video autoplay: ''
-'The playlist has ended.  Enable loop to continue playing': ''
+Local API Error (Click to copy): 'Napaka lokalnega APV (kliknite za kopiranje)'
+Invidious API Error (Click to copy): 'Napaka Invidious APV (kliknite za kopiranje)'
+Falling back to Invidious API: 'Začasno bo uporabljen Invidious APV'
+Falling back to the local API: 'Začasno bo uporabljen lokalni APV'
+This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Videoposnetek
+  zaradi mankajočih oblik ni dostopen. To se lahko zgodi, ko v vaši državi ni na razpolago.'
+Subscriptions have not yet been implemented: 'Naročnine še niso bile izvršene'
+Loop is now disabled: 'Ponovno predvajanje je izklopljeno'
+Loop is now enabled: 'Ponovno predvajanje je vklopljeno'
+Shuffle is now disabled: 'Mešanje je izklopljeno'
+Shuffle is now enabled: 'Mešanje je vklopljeno'
+The playlist has been reversed: 'Sezam predvajanja je bil obrnjen'
+Playing Next Video: 'Predvaja se naslednji videoposnetek'
+Playing Previous Video: 'Predvaja se prejšnji videoposnetek'
+Playing next video in 5 seconds.  Click to cancel: 'Naslednji videoposnetek čez 5
+  sekund. Kliknite za preklic.'
+Canceled next video autoplay: 'Samodejno predvajanje preklicano'
+'The playlist has ended.  Enable loop to continue playing': 'Seznama predvajanja je
+  konec. ·· ·· Vklopite ponovno predvajanje, če želite nadaljevati'
 
-Yes: ''
-No: ''
+Yes: 'Da'
+No: 'Ne'
