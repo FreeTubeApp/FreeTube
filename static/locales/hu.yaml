@@ -1,42 +1,44 @@
 # Put the name of your locale in the same language
-Locale Name: ''
-FreeTube: ''
+Locale Name: 'magyar'
+FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >
 
 # Webkit Menu Bar
-File: ''
-Quit: ''
-Edit: ''
-Undo: ''
-Redo: ''
-Cut: ''
-Copy: ''
-Paste: ''
-Delete: ''
-Select all: ''
-Reload: ''
-Force Reload: ''
-Toggle Developer Tools: ''
-Actual size: ''
-Zoom in: ''
-Zoom out: ''
-Toggle fullscreen: ''
-Window: ''
-Minimize: ''
-Close: ''
-Back: ''
-Forward: ''
+File: 'Fájl'
+Quit: 'Kilépés'
+Edit: 'Szerkesztés'
+Undo: 'Visszavonás'
+Redo: 'Ismét'
+Cut: 'Kivágás'
+Copy: 'Másolás'
+Paste: 'Beillesztés'
+Delete: 'Törlés'
+Select all: 'Összes kijelölése'
+Reload: 'Újrabetöltés'
+Force Reload: 'Újrabetöltés kényszerítése'
+Toggle Developer Tools: 'Fejlesztői eszközök be-/kikapcsolása'
+Actual size: 'Tényleges méret'
+Zoom in: 'Nagyítás'
+Zoom out: 'Kicsinyítés'
+Toggle fullscreen: 'Teljes képernyős nézet be-/kikapcsolása'
+Window: 'Ablak'
+Minimize: 'Kis méret'
+Close: 'Bezárás'
+Back: 'Vissza'
+Forward: 'Előre'
 
-Version $ is now available!  Click for more details: ''
-Download From Site: ''
-A new blog is now available, $. Click to view more: ''
+Version $ is now available!  Click for more details: 'A(z) $ verzió már elérhető!
+  Kattintson a további részletekért'
+Download From Site: 'Letöltés a webhelyről'
+A new blog is now available, $. Click to view more: 'Új blog már elérhető: $. Kattintson
+  további információk megtekintéséhez'
 
 # Search Bar
-Search / Go to URL: ''
+Search / Go to URL: 'Keresés / Ugrás az URL-címre'
   # In Filter Button
 Search Filters:
-  Search Filters: ''
+  Search Filters: 'Keresési szűrők'
   Sort By:
     Sort By: ''
     Most Relevant: ''
