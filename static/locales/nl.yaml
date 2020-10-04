@@ -56,9 +56,9 @@ Search Filters:
     Channels: 'Kanalen'
     #& Playlists
   Duration:
-    Duration: 'Duur'
+    Duration: 'Tijdsduur'
     All Durations: 'Alle Tijdsduren'
-    Short (< 4 minutes): 'kort (< 4 minuten)'
+    Short (< 4 minutes): 'Kort (< 4 minuten)'
     Long (> 20 minutes): 'Lang (> 20 minuten)'
   # On Search Page
   Search Results: 'Zoekresultaten'
@@ -116,14 +116,14 @@ Settings:
     Check for Updates: Check voor Updates
   Theme Settings:
     Theme Settings: 'Thema Instellingen'
-    Match Top Bar with Main Color: 'Paar Bovenste Balk met Hoofd Kleur'
+    Match Top Bar with Main Color: 'Paar Bovenste Balk met Primaire Kleur'
     Base Theme:
       Base Theme: 'Basis Thema'
       Black: 'Zwart'
       Dark: 'Donker'
       Light: 'Licht'
     Main Color Theme:
-      Main Color Theme: 'Hoofdkleurenthema'
+      Main Color Theme: 'Primair Themakleur'
       Red: 'Rood'
       Pink: 'Roze'
       Purple: 'Paars'
@@ -140,7 +140,7 @@ Settings:
       Amber: 'Amber'
       Orange: 'Oranje'
       Deep Orange: 'Donker Oranje'
-    Secondary Color Theme: 'Secundair Kleurenthema'
+    Secondary Color Theme: 'Secundaire Themakleur'
         #* Main Color Theme
   Player Settings:
     Player Settings: 'Speler Instellingen'
@@ -152,7 +152,7 @@ Settings:
     Autoplay Playlists: 'Autoplay Afspeellijsten'
     Enable Theatre Mode by Default: 'Schakel Theatermodus Standaard in'
     Default Volume: 'Standaard Volume'
-    Default Playback Rate: 'Standaard Afspeel Snelheid'
+    Default Playback Rate: 'Standaard Afspeelsnelheid'
     Default Video Format:
       Default Video Format: 'Standaard Videoformaat'
       Dash Formats: 'Dash Formaten'
@@ -448,7 +448,7 @@ Share:
 Mini Player: 'Minispeler'
 Comments:
   Comments: 'Reacties'
-  Click to View Comments: 'Click om de Reacties te Zien'
+  Click to View Comments: 'Klik om Reacties Te Tonen'
   Getting comment replies, please wait: 'Reacties worden verzameld, een momentje'
   Show Comments: 'Toon Reacties'
   Hide Comments: 'Verberg Reacties'
@@ -456,7 +456,7 @@ Comments:
   View: 'Toon'
   Hide: 'Verberg'
   Replies: 'Reacties'
-  Reply: 'Reageer'
+  Reply: 'Reactie'
   There are no comments available for this video: 'Er zijn geen reacties op deze video'
   Load More Comments: 'Laad Meer Reacties'
   There are no more comments for this video: Er zijn geen verdere reacties op deze
