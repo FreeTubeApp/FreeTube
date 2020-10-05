@@ -74,6 +74,9 @@ Subscriptions:
     veuillez patienter.'
   Getting Subscriptions. Please wait.: Obtention des abonnements. Veuillez patienter.
   Refresh Subscriptions: Actualiser les abonnements
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Ce
+    profil comporte un grand nombre d'abonnements.  Le flux RSS outrepassera la limite
+    fixée
 Trending: 'Tendance'
 Most Popular: 'Les Plus Populaires'
 Playlists: 'Playlists'
@@ -104,7 +107,7 @@ Settings:
       List: 'Liste'
     Thumbnail Preference:
       Thumbnail Preference: 'Préférences des miniatures'
-      Default: 'Défaut'
+      Default: 'Par défaut'
       Beginning: 'Début'
       Middle: 'Milieu'
       End: 'Fin'
@@ -406,6 +409,11 @@ Video:
   Loop Playlist: Playlist en boucle
   Starting soon, please refresh the page to check again: Débute prochainement, veuillez
     actualiser la page pour vérifier à nouveau
+  Audio:
+    Best: Meilleure
+    Medium: Normale
+    Low: Basse
+    High: Haute
 Videos:
   #& Sort By
   Sort By:
@@ -471,6 +479,9 @@ Comments:
   Load More Comments: 'Charger plus de commentaires'
   There are no more comments for this video: Il n'y a plus de commentaires pour cette
     vidéo
+  Newest first: Les plus récents d'abord
+  Top comments: Top des commentaires
+  Sort by: Trier par
 Up Next: 'À suivre'
 
 # Toast Messages
