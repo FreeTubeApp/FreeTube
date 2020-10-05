@@ -80,6 +80,9 @@ Subscriptions:
     tukaj.'
   'Getting Subscriptions. Please wait.': 'Pridobivamo naročnine. Prosimo, počakajte.'
   Refresh Subscriptions: 'Osveži naročnine'
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Ta
+    profil ima veliko količino naročnin.·· ·· Da bi se izognili omejitvi hitrosti,
+    bo uporabljen RSS
 Trending: 'Priljubljeno'
 Most Popular: 'Najbolj popularno'
 Playlists: 'Seznami predvajanja'
@@ -404,7 +407,8 @@ Video:
   Live chat is enabled.  Chat messages will appear here once sent.: 'Pogovor v živo
     je vklopljen.'
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Pogovor
-    v živo trenutno ni podprt v Invidious APV.'
+    v živo trenutno ni podprt v Invidious APV.·· ·· Potrebna je neposredna povezava
+    z YouTube-om.'
   Published:
     Jan: 'jan.'
     Feb: 'feb.'
@@ -418,26 +422,31 @@ Video:
     Oct: 'okt.'
     Nov: 'nov.'
     Dec: 'dec.'
-    Second: 'Sekunda'
-    Seconds: 'Sekund'
-    Minute: 'Minuta'
-    Minutes: 'Minut'
-    Hour: 'Ura'
-    Hours: 'Ur'
-    Day: 'Dan'
-    Days: 'Dni'
-    Week: 'Teden'
-    Weeks: 'Tedni'
-    Month: 'Mesec'
-    Months: 'Mesecev'
-    Year: 'Leto'
-    Years: 'Let'
+    Second: 'sek.'
+    Seconds: 'sek.'
+    Minute: 'min.'
+    Minutes: 'min.'
+    Hour: 'h'
+    Hours: 'h'
+    Day: 'd'
+    Days: 'd'
+    Week: 'ted.'
+    Weeks: 'ted.'
+    Month: 'mes.'
+    Months: 'mes.'
+    Year: 'let.'
+    Years: 'let.'
     Ago: 'Nazaj'
     Upcoming: 'Kmalu bo objavljeno'
   Published on: 'Objavljeno dne'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % nazaj'
 #& Videos
+  Audio:
+    Best: Najvišja
+    High: Visoka
+    Medium: Srednja
+    Low: Nizka
 Videos:
   #& Sort By
   Sort By:
@@ -500,6 +509,9 @@ Comments:
   Reply: 'Odgovor'
   There are no comments available for this video: 'Ta videoposnetek nima nobenih komentarjev'
   Load More Comments: 'Naloži več komentarjev'
+  Newest first: Najnovejši komentarji
+  Top comments: Najbolje ocenjeni komentarji
+  Sort by: Razvrstitev
 Up Next: 'Naslednje na sporedu'
 
 # Toast Messages
@@ -509,7 +521,7 @@ Falling back to Invidious API: 'Začasno bo uporabljen Invidious APV'
 Falling back to the local API: 'Začasno bo uporabljen lokalni APV'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Videoposnetek
   zaradi mankajočih oblik ni dostopen. To se lahko zgodi, ko v vaši državi ni na razpolago.'
-Subscriptions have not yet been implemented: 'Naročnine še niso bile izvršene'
+Subscriptions have not yet been implemented: 'Naročnine še niso bile implementirane'
 Loop is now disabled: 'Ponovno predvajanje je izklopljeno'
 Loop is now enabled: 'Ponovno predvajanje je vklopljeno'
 Shuffle is now disabled: 'Mešanje je izklopljeno'

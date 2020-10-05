@@ -72,6 +72,8 @@ Subscriptions:
     lista de suscripciones está vacía. Suscríbete a canales para verlos aquí'
   'Getting Subscriptions. Please wait.': 'Obteniendo suscripciones. Por favor, espera.'
   Refresh Subscriptions: 'Recargar suscripciones'
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
+    perfil tiene muchas suscripciones. Para eludir este límite, usaremos RSS.
 Trending: 'Tendencias'
 Most Popular: 'Más populares'
 Playlists: 'Playlists'
@@ -143,7 +145,7 @@ Settings:
   Player Settings:
     Player Settings: 'Reproductor'
     Force Local Backend for Legacy Formats: 'Forzar API local para formato Legacy'
-    Play Next Video: 'Reproducir video siguiente'
+    Play Next Video: 'Reproducción continua'
     Turn on Subtitles by Default: 'Activar subtítulos por defecto'
     Autoplay Videos: 'Reproducción automática de videos'
     Proxy Videos Through Invidious: 'Enmascarar videos a través de invidious'
@@ -430,6 +432,11 @@ Video:
   Loop Playlist: Reproducción en bucle
   Starting soon, please refresh the page to check again: Comenzará en breve. Por favor,
     recarga la página para comprobarlo
+  Audio:
+    Best: Máxima
+    High: Alta
+    Medium: Media
+    Low: Baja
 Videos:
   #& Sort By
   Sort By:
@@ -493,6 +500,9 @@ Comments:
   There are no comments available for this video: 'Aún no hay comentarios'
   Load More Comments: 'Más comentarios'
   There are no more comments for this video: No hay más comentarios en este video
+  Newest first: Comentarios más recientes
+  Top comments: Mejores comentarios
+  Sort by: Ordenar por
 Up Next: 'Siguientes'
 
 # Toast Messages

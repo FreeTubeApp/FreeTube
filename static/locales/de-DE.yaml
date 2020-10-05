@@ -1,7 +1,7 @@
 FreeTube: FreeTube
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Dieser Teil des Programms is noch nicht fertig. Bitte komme zu einem späteren Zeitpunkt
+  Dieser Teil des Programms ist noch nicht fertig. Bitte komme zu einem späteren Zeitpunkt
   wieder.
 
 # Webkit Menu Bar
@@ -37,12 +37,12 @@ Search Filters:
     Sort By: Sortiere nach
     Most Relevant: Am relevantesten
     Rating: Bewertung
-    Upload Date: Uploaddatum
+    Upload Date: Hochlade-Datum
     View Count: Anzahl der Aufrufe
   Time:
     Time: Zeit
     Any Time: Jeder Zeitraum
-    Last Hour: Letze Stunde
+    Last Hour: Letzte Stunde
     Today: Heute
     This Week: Diese Woche
     This Month: Dieser Monat
@@ -55,7 +55,7 @@ Search Filters:
     #& Playlists
   Duration:
     Duration: Dauer
-    All Durations: Aller Dauern
+    All Durations: Alle Dauern
     Short (< 4 minutes): Kurz (< 4 Minuten)
     Long (> 20 minutes): Lang (> 20 Minuten)
   # On Search Page
@@ -73,11 +73,14 @@ Subscriptions:
   'Getting Subscriptions.  Please wait.': Rufe Abonnements ab. Bitte warten.
   Refresh Subscriptions: Abonnements aktualisieren
   Getting Subscriptions. Please wait.: Lade Abonnements. Bitte warten.
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Dieses
+    Profil hat eine große Anzahl von Abonnementen.  RSS zur Vermeidung von Tarifbeschränkungen
+    erzwingen
 Trending: Trends
 Most Popular: Am beliebtesten
-Playlists: Playlists
+Playlists: Wiedergabelisten
 User Playlists:
-  Your Playlists: Deine Playlists
+  Your Playlists: Deine Wiedergabelisten
 History:
   # On History Page
   History: Verlauf
@@ -93,27 +96,27 @@ Settings:
     Enable Search Suggestions: Aktiviere Suchvorschläge
     Default Landing Page: Standardseite
 
-    Locale Preference: Locale Präferenz
+    Locale Preference: Spracheinstellung
     Preferred API Backend:
-      Preferred API Backend: Präferiertes API System
+      Preferred API Backend: Bevorzugtes API-System
       Local API: Lokale API
-      Invidious API: Invidious API
+      Invidious API: Invidious' API
     Video View Type:
       Video View Type: Videoansichtstyp
       Grid: Gitter
       List: Liste
     Thumbnail Preference:
-      Thumbnail Preference: Thumbnail Präferenz
+      Thumbnail Preference: Einstellung des Vorschaubildes
       Default: Standard
       Beginning: Anfang
       Middle: Mitte
       End: Ende
-    'Invidious Instance (Default is https://invidious.snopyta.org)': Invidious Instanz
+    'Invidious Instance (Default is https://invidious.snopyta.org)': Invidious-Instanz
       (Standard ist https://invidious.snopyta.org)
     Region for Trending: Region für Trends
         #! List countries
-    Check for Latest Blog Posts: Nach aktuellsten Blogposts suchen
-    Check for Updates: Nach Updates suchen
+    Check for Latest Blog Posts: Nach aktuellsten Blogeintrag suchen
+    Check for Updates: Nach Aktualisierungen suchen
   Theme Settings:
     Theme Settings: Thema Einstellungen
     Match Top Bar with Main Color: Passe obere Leiste an Hauptfarbe an
@@ -123,28 +126,28 @@ Settings:
       Dark: Dunkel
       Light: Hell
     Main Color Theme:
-      Main Color Theme: Hauptfarbenthema
+      Main Color Theme: Hauptfarbe des Themas
       Red: Rot
-      Pink: Pink
+      Pink: Rosa
       Purple: Lila
       Deep Purple: Dunkellila
       Indigo: Indigo
       Blue: Blau
       Light Blue: Hellblau
-      Cyan: Cyan
-      Teal: Petrol
+      Cyan: Mittleres Zyan
+      Teal: Dunkles Türkis
       Green: Grün
       Light Green: Hellgrün
       Lime: Lindgrün
       Yellow: Gelb
-      Amber: Bernstein
+      Amber: Bernsteingelb
       Orange: Orange
       Deep Orange: Dunkelorange
     Secondary Color Theme: Sekundäres Farbenthema
         #* Main Color Theme
   Player Settings:
-    Player Settings: Videoplayer Einstellungen
-    Force Local Backend for Legacy Formats: Erzwinge lokales System für Legacyformat
+    Player Settings: Videoabspieler-Einstellungen
+    Force Local Backend for Legacy Formats: Lokales System für Altformat erzwingen
     Remember History: Verlauf speichern
     Play Next Video: Spiele nächstes Video
     Turn on Subtitles by Default: Untertitel standardmäßig aktivieren
@@ -479,7 +482,9 @@ Local API Error (Click to copy): Lokaler API Fehler (Klicke zum Kopieren)
 Invidious API Error (Click to copy): Invidious API Fehler (Klicke zum Kopieren)
 Falling back to Invidious API: Falle auf Invidious API zurück
 Falling back to the local API: Dalle auf lokale API zurück
-This video is unavailable because of missing formats. This can happen due to country unavailability.: Dieses Video ist aufgrund fehlernder Formate nicht verfügbar. Dies kann zum Beispiel durch Zugriffsbeschränkungen für Länder geschehen.
+This video is unavailable because of missing formats. This can happen due to country unavailability.: Dieses
+  Video ist aufgrund fehlernder Formate nicht verfügbar. Dies kann zum Beispiel durch
+  Zugriffsbeschränkungen für Länder geschehen.
 Subscriptions have not yet been implemented: Abonnements sind noch nicht implementiert
 Loop is now disabled: Schleife ist jetzt deaktiviert
 Loop is now enabled: Schleife ist jetzt aktiviert
@@ -537,8 +542,8 @@ Profile:
   Subscription List: Abonnement-Liste
   Profile Select: Profilauswahl
 The playlist has been reversed: Die Wiedergabeliste wurde umgedreht
-A new blog is now available, $. Click to view more: Ein neuer Blogpost ist verfügbar,
+A new blog is now available, $. Click to view more: Ein neuer Blogeintrag ist verfügbar,
   $. Um ihn zu öffnen klicken
 Download From Site: Von der Seite herunterladen
-Version $ is now available!  Click for more details: Version $ is jetzt verfügbar!
-  Für mehr Details klicken
+Version $ is now available!  Click for more details: Version $ ist jetzt verfügbar!  Für
+  mehr Details klicken

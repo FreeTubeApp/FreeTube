@@ -70,6 +70,8 @@ Subscriptions:
   'Getting Subscriptions.  Please wait.': '抓取訂閱中。請稍等。'
   Refresh Subscriptions: 重新整理訂閱
   Getting Subscriptions. Please wait.: 正在取得訂閱。請稍候。
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 這個設定檔有大量訂閱。
+    強制RSS已防止速率限制
 Trending: '熱門'
 Most Popular: '最流行'
 Playlists: '播放清單'
@@ -361,6 +363,11 @@ Video:
   Shuffle Playlist: 隨機播放清單
   Loop Playlist: 循環播放清單
   Starting soon, please refresh the page to check again: 即將開始，請重新整理頁面以再次檢查
+  Audio:
+    Best: 最佳
+    High: 高
+    Medium: 中
+    Low: 低
 Videos:
   #& Sort By
   Sort By:
@@ -420,6 +427,9 @@ Comments:
   There are no comments available for this video: '這個影片沒有評論'
   Load More Comments: '加載更多評論'
   There are no more comments for this video: 此影片無更多留言
+  Newest first: 最新優先
+  Top comments: 最熱評論
+  Sort by: 排序方式
 Up Next: 'Up Next'
 
 # Toast Messages

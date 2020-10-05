@@ -78,6 +78,9 @@ Subscriptions:
     till prenumerationer för att se dem här.'
   'Getting Subscriptions. Please wait.': 'Hämtar prenumerationer. Snälla vänta.'
   Refresh Subscriptions: 'Uppdatera prenumerationer'
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Den
+    här profilen har ett stort antal prenumerationer.  Tvinga RSS för att undvika
+    ränta begränsa
 Trending: 'Trender'
 Most Popular: 'Mest populära'
 Playlists: 'Spellistor'
@@ -431,6 +434,11 @@ Video:
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'för $ % sedan'
 #& Videos
+  Audio:
+    Best: Högsta
+    High: Hög
+    Medium: Medium
+    Low: Låg
 Videos:
   #& Sort By
   Sort By:
@@ -492,6 +500,9 @@ Comments:
   Reply: 'Svar'
   There are no comments available for this video: 'Det finns inga kommentarer'
   Load More Comments: 'Fler kommentarer'
+  Newest first: Nyaste först
+  Top comments: Top kommentarer
+  Sort by: Sortera efter
 Up Next: 'Kommer härnäst'
 
 # Toast Messages
