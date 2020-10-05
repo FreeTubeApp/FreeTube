@@ -79,7 +79,7 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Abonelikler yükleniyor. Lütfen bekleyin.'
   Refresh Subscriptions: 'Abonelikleri Yenile'
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Bu
-    profilin çok sayıda abonesi var.  Hız sınırlamalarından kaçınmak için RSS'e geç
+    profilin çok sayıda abonesi var.  Hız sınırlamalarından kaçınmak için RSS zorlanıyor
 Trending: 'Trendler'
 Most Popular: 'Popüler Olanlar'
 Playlists: 'Oynatma Listeleri'
@@ -506,6 +506,7 @@ Comments:
   Newest first: En yeni ilk önce
   Top comments: En iyi yorumlar
   Sort by: Sıralama ölçütü
+  No more comments available: Başka yorum yok
 Up Next: 'Sonraki'
 
 # Toast Messages
