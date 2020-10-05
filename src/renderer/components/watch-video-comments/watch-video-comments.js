@@ -4,7 +4,6 @@ import FtCard from '../ft-card/ft-card.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtTimestampCatcher from '../../components/ft-timestamp-catcher/ft-timestamp-catcher.vue'
-
 import CommentScraper from 'yt-comment-scraper'
 
 export default Vue.extend({
@@ -27,7 +26,8 @@ export default Vue.extend({
       showComments: false,
       commentScraper: null,
       nextPageToken: null,
-      commentData: []
+      commentData: [],
+      sortNewest: false
     }
   },
   computed: {
@@ -55,6 +55,10 @@ export default Vue.extend({
         'top',
         'newest'
       ]
+    },
+
+    currentSortValue: function () {
+      return (this.sortNewest) ? 'newest' : 'top'
     }
   },
   methods: {
@@ -63,17 +67,15 @@ export default Vue.extend({
     },
 
     handleSortChange: function (sortType) {
-      console.log(sortType)
-      this.showToast({
-        message: 'Not currently implemented'
-      })
+      this.sortNewest = !this.sortNewest
+      this.getCommentData(true)
     },
 
-    getCommentData: function () {
+    getCommentData: function (sortChanged = false) {
       this.isLoading = true
       switch (this.backendPreference) {
         case 'local':
-          this.getCommentDataLocal()
+          this.getCommentDataLocal(sortChanged)
           break
         case 'invidious':
           this.getCommentDataInvidious(this.nextPageToken)
@@ -107,9 +109,10 @@ export default Vue.extend({
       }
     },
 
-    getCommentDataLocal: function () {
-      if (this.commentScraper === null) {
-        this.commentScraper = new CommentScraper(false)
+    getCommentDataLocal: function (sortChanged = false) {
+      if (this.commentScraper === null || sortChanged === true) {
+        this.commentScraper = new CommentScraper(false, this.sortNewest)
+        this.commentData = []
       }
       this.commentScraper.scrape_next_page_youtube_comments(this.id).then((response) => {
         console.log(response)
