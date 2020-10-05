@@ -78,6 +78,8 @@ Subscriptions:
     המנויים שלכם כרגע ריקה. תתחילו להוסיף הרשמות כדי לראות אותן כאן.'
   'Getting Subscriptions. Please wait.': 'אוסף מנויים. אנא המתן.'
   Refresh Subscriptions: 'רענון מנויים'
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: לפרופיל
+    זה יש מספר רב של מנויים. עובר לעדכונים בעזרת RSS על מנת להימנע מהגבלות רוחב פס
 Trending: 'חם'
 Most Popular: 'הכי פופולרי'
 Playlists: 'פלייליסטים'
@@ -423,6 +425,11 @@ Video:
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'לפני $ %'
 #& Videos
+  Audio:
+    Best: איכות הכי טובה
+    High: איכות גבוהה
+    Medium: איכות בינונית
+    Low: איכות נמוכה
 Videos:
   #& Sort By
   Sort By:
@@ -482,6 +489,9 @@ Comments:
   Reply: 'תשובה'
   There are no comments available for this video: 'לסרטון זה אין תגובות'
   Load More Comments: 'טעינת תגובות נוספות'
+  Newest first: החדשות ביותר תחילה
+  Sort by: מיין לפי
+  Top comments: תגובות מובילות
 Up Next: 'הסרטון הבא'
 
 # Toast Messages
