@@ -70,6 +70,8 @@ Subscriptions:
   'Getting Subscriptions.  Please wait.': '获取订阅中。 请稍等。'
   Refresh Subscriptions: 刷新订阅
   Getting Subscriptions. Please wait.: 获取订阅中。 请稍候。
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 这个配置文件有大量订阅。
+    强制RSS已防止速率限制
 Trending: '热门'
 Most Popular: '最流行'
 Playlists: '播放列表'
@@ -361,6 +363,11 @@ Video:
   Shuffle Playlist: 随机播放列表
   Loop Playlist: 循环播放列表
   Starting soon, please refresh the page to check again: 即将开始，请刷新页面已再次检查
+  Audio:
+    Best: 最佳
+    High: 高
+    Medium: 中
+    Low: 低
 Videos:
   #& Sort By
   Sort By:
@@ -420,6 +427,9 @@ Comments:
   There are no comments available for this video: '这个视频没有评论'
   Load More Comments: '加载更多评论'
   There are no more comments for this video: 此视频无更多留言
+  Newest first: 最新优先
+  Top comments: 最热评论
+  Sort by: 排序方式
 Up Next: 'Up Next'
 
 # Toast Messages
