@@ -319,16 +319,30 @@ export default Vue.extend({
 
               this.audioSourceList = result.player_response.streamingData.adaptiveFormats.filter((format) => {
                 return format.mimeType.includes('audio')
-              }).map((format) => {
+              }).sort((a, b) => {
+                return a.bitrate - b.bitrate
+              }).map((format, index) => {
+                const label = (x) => {
+                  switch (x) {
+                    case 0:
+                      return this.$t('Video.Audio.Low')
+                    case 1:
+                      return this.$t('Video.Audio.Medium')
+                    case 2:
+                      return this.$t('Video.Audio.High')
+                    case 3:
+                      return this.$t('Video.Audio.Best')
+                    default:
+                      return format.bitrate
+                  }
+                }
                 return {
                   url: format.url,
                   type: format.mimeType,
                   label: 'Audio',
-                  qualityLabel: format.bitrate
+                  qualityLabel: label(index)
                 }
-              }).sort((a, b) => {
-                return a.qualityLabel - b.qualityLabel
-              })
+              }).reverse()
 
               if (this.activeFormat === 'audio') {
                 this.activeSourceList = this.audioSourceList

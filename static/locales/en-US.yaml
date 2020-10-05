@@ -393,6 +393,11 @@ Video:
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': Live
     Chat is currently not supported with the Invidious API.  A direct connection to
     YouTube is required.
+  Audio:
+    Low: Low
+    Medium: Medium
+    High: High
+    Best: Best
   Published:
     Jan: Jan
     Feb: Feb

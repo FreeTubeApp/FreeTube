@@ -237,6 +237,11 @@ export default Vue.extend({
         return ''
       }
 
+      if (this.sourceList[this.sourceList.length - 1].qualityLabel === this.$t('Video.Audio.Low')) {
+        this.selectedDefaultQuality = this.sourceList[0].qualityLabel
+        return
+      }
+
       let defaultQuality = this.defaultQuality
 
       if (defaultQuality === 'auto') {
