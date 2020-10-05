@@ -5,7 +5,7 @@ import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtTimestampCatcher from '../../components/ft-timestamp-catcher/ft-timestamp-catcher.vue'
 
-import CommentScraper from 'D:\\Workspace\\JavaScript\\yt-comment-scraper\\index.js'//'yt-comment-scraper' //'D:\\Workspace\\JavaScript\\yt-comment-scraper\\index.js'
+import CommentScraper from 'yt-comment-scraper' //'D:\\Workspace\\JavaScript\\yt-comment-scraper\\index.js'
 
 export default Vue.extend({
   name: 'WatchVideoComments',
