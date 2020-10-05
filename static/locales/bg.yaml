@@ -79,6 +79,9 @@ Subscriptions:
     с абонамети е празен. Започнете да добавяте, за да ги видите тук.'
   'Getting Subscriptions. Please wait.': 'Получаване на абонаменти. Моля, изчакайте.'
   Refresh Subscriptions: 'Опресни абонаментите'
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Този
+    профил има голям брой абонаменти.  Принудително използване на RSS за заобикаляне
+    на ограниченията
 Trending: 'Популярни'
 Most Popular: 'Най-популярни'
 Playlists: 'Плейлисти'
@@ -440,6 +443,11 @@ Video:
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Преди $ %'
 #& Videos
+  Audio:
+    Best: Най-добро
+    High: Високо
+    Medium: Средно
+    Low: Ниско
 Videos:
   #& Sort By
   Sort By:
@@ -503,6 +511,10 @@ Comments:
   Reply: 'Отговори'
   There are no comments available for this video: 'Към това видео няма коментари'
   Load More Comments: 'Зареди още коментари'
+  No more comments available: Не са налични повече коментари
+  Newest first: Първо най-новите
+  Top comments: Последни коментари
+  Sort by: Сортиране по
 Up Next: 'Следващ'
 
 # Toast Messages
