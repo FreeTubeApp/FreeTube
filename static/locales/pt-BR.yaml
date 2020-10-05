@@ -70,6 +70,8 @@ Subscriptions:
     lista de inscrições está vazia no momento. Comece a adicionar assinaturas para
     vê-las aqui.'
   'Getting Subscriptions.  Please wait.': 'Buscando inscrições. Por favor, aguarde.'
+  Refresh Subscriptions: Atualizar Inscrições
+  'Getting Subscriptions. Please wait.': Obtendo Inscrições. Por favor aguarde.
 Trending: 'Em alta'
 Most Popular: 'Mais populares'
 Playlists: 'Listas'
@@ -104,8 +106,8 @@ Settings:
       Beginning: 'No começo'
       Middle: 'No meio'
       End: 'No fim'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instância do Invidious
-      (A padrão é https://invidious.snopyta.org)'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instância do
+      Invidious (A padrão é https://invidious.snopyta.org)'
     Region for Trending: 'Região para o “Em alta”'
         #! List countries
   Theme Settings:
@@ -417,3 +419,12 @@ Canceled next video autoplay: 'Auto-reprodução foi cancelada para o próximo v
 Yes: 'Sim'
 No: 'Não'
 Locale Name: Português (BR)
+Profile:
+  Delete Profile: Deletar Perfil
+  Update Profile: Atualizar Perfil
+  Profile Preview: Visualização do Perfil
+  Color Picker: Selecionador de Cores
+  Create New Profile: Criar um novo perfil
+  All Channels: Todos os Canais
+Version $ is now available!  Click for more details: Versão $ está disponível agora!
+  Clique para mais detalhes
