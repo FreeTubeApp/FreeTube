@@ -4,6 +4,7 @@ import FtCard from '../ft-card/ft-card.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtTimestampCatcher from '../../components/ft-timestamp-catcher/ft-timestamp-catcher.vue'
+
 import CommentScraper from 'yt-comment-scraper'
 
 export default Vue.extend({
@@ -115,6 +116,16 @@ export default Vue.extend({
         this.commentData = []
       }
       this.commentScraper.scrape_next_page_youtube_comments(this.id).then((response) => {
+        if (response === null) {
+          this.showToast({
+            message: this.$t('No more comments available'),
+            time: 7000,
+            action: () => {
+            }
+          })
+          this.isLoading = false
+          return
+        }
         console.log(response)
         const commentData = response.map((comment) => {
           comment.showReplies = false
