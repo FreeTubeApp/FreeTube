@@ -152,19 +152,19 @@ Settings:
     Play Next Video: Spiele nächstes Video
     Turn on Subtitles by Default: Untertitel standardmäßig aktivieren
     Autoplay Videos: Automatische Videowiedergabe
-    Proxy Videos Through Invidious: Proxy Videos durch Invidious
-    Autoplay Playlists: Automatische Playlistwiedergabe
+    Proxy Videos Through Invidious: Invidious als Vermittler der Videos
+    Autoplay Playlists: Automatisch Wiedergabelisten abspielen
     Enable Theatre Mode by Default: Aktiviere standardmäßig Kinomodus
-    Default Volume: Standard Lautstärke
-    Default Playback Rate: Standard Wiedergabegeschwindigkeit
+    Default Volume: Standard-Lautstärke
+    Default Playback Rate: Standard-Wiedergabegeschwindigkeit
     Default Video Format:
-      Default Video Format: Standard Video Format
-      Dash Formats: Dash Formate
-      Legacy Formats: Legacy Formate
-      Audio Formats: Audio Formate
+      Default Video Format: Standard-Videoformat
+      Dash Formats: DASH-Formate
+      Legacy Formats: Altformate
+      Audio Formats: Audioformate
     Default Quality:
-      Default Quality: Standard Qualität
-      Auto: Auto
+      Default Quality: Standardqualität
+      Auto: Automatisch
       144p: 144p
       240p: 240p
       360p: 360p
@@ -175,7 +175,7 @@ Settings:
       4k: 4k
       8k: 8k
   Subscription Settings:
-    Subscription Settings: Abonnement Einstellungen
+    Subscription Settings: Abonnement-Einstellungen
     Hide Videos on Watch: Verstecke Videos bei Wiedergabe
     Subscriptions Export Format:
       Subscriptions Export Format: Abonnement Exportierformat
@@ -186,17 +186,17 @@ Settings:
     Import Subscriptions: Importiere Abonnements
     Export Subscriptions: Exportiere Abonnements
     How do I import my subscriptions?: Wie importiere ich meine Abonnements?
-    Fetch Feeds from RSS: Lade Feed von RSS
+    Fetch Feeds from RSS: Abrufen von RSS-Feeds
   Advanced Settings:
     Advanced Settings: Erweiterte Einstellungen
-    Enable Debug Mode (Prints data to the console): Aktiviere Debug Modus (Gibt Daten
-      auf der Konsole aus)
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Proxy Adresse (Beispiel:
+    Enable Debug Mode (Prints data to the console): Aktiviere Debug-Modus (Konsolenausgabe
+      des Programmes)
+    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Proxy-Adresse (Beispiel:
       SOCKS5://127.0.0.1:9050 )'
     'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': >-
-      Den "TESTE PROXY" Knopf zu drücken, sendet eine Anfrage an https://ipinfo.io/json
+      Den "TESTE PROXY"-Knopf zu drücken, sendet eine Anfrage an https://ipinfo.io/json
     Use Tor / Proxy for API calls: Nutze Tor / Proxy für API Aufrufe
-    TEST PROXY: TEST PROXY
+    TEST PROXY: TESTE PROXY
     #& Invidious Instance (Default is https://invidious.snopyta.org)
     See Public Instances: Zeige öffentliche Instanzen
     Clear History:
@@ -229,7 +229,7 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Bist
       du sicher, dass du alle Abonnements und Profile löschen möchtest? Diese Aktion
       kann nicht rückgängig gemacht werden.
-    Remove All Subscriptions / Profiles: Lösche alle Abonnements und Profile
+    Remove All Subscriptions / Profiles: Alle Abonnements / Profile löschen
   Data Settings:
     How do I import my subscriptions?: Wie importiere ich meine Abonnements?
     Unknown data key: Unbekannter Datenschlüssel
@@ -239,13 +239,13 @@ Settings:
       erfolgreich exportiert
     All watched history has been successfully imported: Der gesamte Verlauf wurde
       erfolgreich importiert
-    History object has insufficient data, skipping item: Ein Verlauf-Objekt hat fehlerhafte
+    History object has insufficient data, skipping item: Ein Verlaufsobjekt hat fehlerhafte
       Daten, überspringe Objekt
     Subscriptions have been successfully exported: Abonnements wurden erfolgreich
       exportiert
-    Invalid history file: Ungültige Verlauf-Datei
+    Invalid history file: Ungültige Verlaufsdatei
     This might take a while, please wait: Dies dauert einen Moment, bitte warten
-    Invalid subscriptions file: Ungültige Abonnement-Datei
+    Invalid subscriptions file: Ungültige Abonnementdatei
     One or more subscriptions were unable to be imported: Eine oder mehrere Abonnements
       konnten nicht importiert werden
     All subscriptions and profiles have been successfully imported: Alle Abonnements
@@ -275,33 +275,33 @@ About:
     Dieses Programm is unter der freien Lizent AGPL-3.0 veröffentlicht.
 
   'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    Einen Bug gefunden? Eine neue Funktion vorschlagen? Mithelfen? Schau auf unserer
-    GitHub-Seite vorbei.
-    Pull requests sind wilkommen.
+    Einen Programmfehler gefunden? Eine neue Funktion vorschlagen? Mithelfen? Schau
+    auf unserer GitHub-Seite vorbei. Änderungsvorschläge am Programmquelltext sind
+    dort willkommen.
 
   Thank you very much to the People and Projects that make FreeTube possible!: >-
     Vielen Dank an all die Personen und Projekte die FreeTube möglich machen!
 
   'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': >-
-    Lust zu chatten? Tritt unserem Element / Matrix Server bei. Bitte lese zuvor aber
-    noch die Regeln.
+    Lust zu chatten? Tritt unserem Element- / Matrix-Server bei. Bitte lese zuvor
+    aber noch die Regeln.
 
-  'Looking for help? Check out our Wiki page.': Suchst nach Hilfe? Schaue auf unserer
+  'Looking for help? Check out our Wiki page.': Suchst Du nach Hilfe? Schaue auf unseren
     Wiki vorbei.
 
   Check out our Firefox extension!: Installiere auch unsere Firefox-Erweiterung!
 
   'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': >-
-    Falls du FreeTube gerne nutzt, erwäge doch view Liberapay oder über unsere Bitcoinadresse
-    zu spenden.
+    Falls du FreeTube gerne nutzt, erwäge doch das Spenden über Liberapay oder unsere
+    Bitcoinadresse.
 
   #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
 
-  Latest FreeTube News: Aktuellsten FreeTube Neuigkeiten
+  Latest FreeTube News: Aktuellsten FreeTube-Neuigkeiten
 
 #On Channel Page
   This software is FOSS and released under the GNU Affero General Public License v3.0.: Diese
-    kopiergeschützte Software ist frei lizenziert unter der AGPL-3.0.
+    freie Software ist unter der AGPL-3.0 lizenziert.
 Channel:
   Subscriber: Abonnement
   Subscribers: Abonnements
@@ -319,9 +319,9 @@ Channel:
       Oldest: Älteste
       Most Popular: Am beliebtesten
   Playlists:
-    Playlists: Playlists
+    Playlists: Wiedergabelisten
     This channel does not currently have any playlists: Dieser Kanal hat aktuell keine
-      Playlists
+      Wiedergabelisten
     Sort Types:
       Last Video Added: Zuletzt hinzugefügtes Video
       Newest: Neuestes
@@ -335,12 +335,13 @@ Channel:
   Channel has been removed from your subscriptions: Der Kanal wurde von deinen Abonnements
     entfernt
 Video:
-  Open in YouTube: In YouTube öffnem
+  Open in YouTube: In YouTube öffnen
   Copy YouTube Link: YouTube Link kopieren
-  Open YouTube Embedded Player: Öffne YouTube Embedded Player
-  Copy YouTube Embedded Player Link: Kopieren YouTube Embedded Player Link
+  Open YouTube Embedded Player: Öffne eingebetteter Abspieler von YouTube
+  Copy YouTube Embedded Player Link: Kopiere Link des eingebetteten Abspieler von
+    YouTube
   Open in Invidious: In Invidious öffnen
-  Copy Invidious Link: Invidious Link kopieren
+  Copy Invidious Link: Invidious-Link kopieren
   View: Ansehen
   Views: Aufrufe
   # Context is "X People Watching"
@@ -349,16 +350,16 @@ Video:
   # As in a Live Video
   Live: Live
   Live Now: Jetzt Live
-  Live Chat: Live Chat
+  Live Chat: Live-Chat
   Enable Live Chat: Aktiviere Live-Chat
   Live Chat is currently not supported in this build.: Live-Chat ist in der aktuellen
     Version nicht unterstützt.
   'Chat is disabled or the Live Stream has ended.': Der Chat ist deaktiviert oder
     der Livestream zuende.
-  Live chat is enabled.  Chat messages will appear here once sent.: Der Live chat
-    ist aktivier. Chatnachrichten tauchen hier auf.
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': Live
-    Chat ist in der aktuellen Invidious API nicht unterstützt.  Eine direkte Verbindung
+  Live chat is enabled.  Chat messages will appear here once sent.: Der Live-Chat
+    ist aktiviert.  Chatnachrichten tauchen hier auf, wenn sie abgesendet wurden.
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': Live-Chat
+    ist in der aktuellen Invidious-API nicht unterstützt.  Eine direkte Verbindung
     zu YouTube wird benötigt.
   Published:
     Jan: Jan
@@ -405,6 +406,11 @@ Video:
   Loop Playlist: Wiederhole Wiedergabeliste
   Starting soon, please refresh the page to check again: Es beginnt bald, bitte aktualisieren
     Sie die Seite, um es erneut zu überprüfen
+  Audio:
+    Best: Bestes
+    High: Hoch
+    Medium: Mittel
+    Low: Niedrig
 Videos:
   #& Sort By
   Sort By:
@@ -414,7 +420,7 @@ Videos:
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: Zeige volle Playlist
+  View Full Playlist: Zeige ganze Wiedergabeliste
   Videos: Videos
   View: Ansehen
   Views: Aufrufe
@@ -422,10 +428,10 @@ Playlist:
 # On Channel Playlist Page
   Share Playlist:
     Open in Invidious: In Invidious öffnen
-    Copy Invidious Link: Invidious Link kopieren
+    Copy Invidious Link: Invidious-Link kopieren
     Open in YouTube: In YouTube öffnen
-    Copy YouTube Link: YouTube Link kopieren
-    Share Playlist: Playlist teilen
+    Copy YouTube Link: YouTube-Link kopieren
+    Share Playlist: Wiedergabeliste teilen
 Share Playlist:
   Share Playlist: Teile Playlist
   Copy YouTube Link: Kopiere YouTube Link
@@ -439,27 +445,28 @@ Share Playlist:
 Toggle Theatre Mode: Aktiviere Kinomodus
 Change Format:
   Change Video Formats: Ändere Videoformat
-  Use Dash Formats: Nutze Dash Format
-  Use Legacy Formats: Nutze Legacy Format
-  Use Audio Formats: Nutze Audio Format
+  Use Dash Formats: Nutze DASH-Format
+  Use Legacy Formats: Nutze Altformat
+  Use Audio Formats: Nutze Audioformat
   Audio formats are not available for this video: Es sind keine Audioformate für dieses
     Video verfügbar
-  Dash formats are not available for this video: Das Dashformat ist für dieses Video
+  Dash formats are not available for this video: Das DASH-Format ist für dieses Video
     nicht verfügbar
 Share:
   Share Video: Teile das Video
   Copy Link: Kopiere Link
   Open Link: Öffne Link
-  Copy Embed: Kopiere Embed
-  Open Embed: Öffne Embed
+  Copy Embed: Kopiere eingebettete Version
+  Open Embed: Öffne eingebettete Version
   # On Click
-  Invidious URL copied to clipboard: Invidious URL in die Zwischenablage kopiert
-  Invidious Embed URL copied to clipboard: Invidious Embed URL in die Zwischenablage
+  Invidious URL copied to clipboard: Invidious-URL in die Zwischenablage kopiert
+  Invidious Embed URL copied to clipboard: Invidious' eingebettete URL in die Zwischenablage
     kopiert
-  YouTube URL copied to clipboard: YouTube URL in die Zwischenablage kopiert
-  YouTube Embed URL copied to clipboard: YouTube Embed URL in die Zwischenablage kopiert
+  YouTube URL copied to clipboard: YouTube-URL in die Zwischenablage kopiert
+  YouTube Embed URL copied to clipboard: YouTubes eingebettete URL in die Zwischenablage
+    kopiert
   Include Timestamp: Zeitstempel einfügen
-Mini Player: Mini Player
+Mini Player: Mini-Abspieler
 Comments:
   Comments: Kommentare
   Click to View Comments: Klicke um Kommentare anzuzeigen
@@ -475,16 +482,20 @@ Comments:
   Load More Comments: Lade mehr Kommentare
   There are no more comments for this video: Es gibt keine weiteren Kommentare zu
     diesem Video
+  No more comments available: Keine Kommentare mehr verfügbar
+  Newest first: Neustes zuerst
+  Top comments: Topp-Kommentare
+  Sort by: Sortiert nach
 Up Next: Nächster Titel
 
 # Toast Messages
-Local API Error (Click to copy): Lokaler API Fehler (Klicke zum Kopieren)
-Invidious API Error (Click to copy): Invidious API Fehler (Klicke zum Kopieren)
-Falling back to Invidious API: Falle auf Invidious API zurück
-Falling back to the local API: Dalle auf lokale API zurück
+Local API Error (Click to copy): Lokaler API-Fehler (Klicke zum Kopieren)
+Invidious API Error (Click to copy): Invidious-API-Fehler (Klicke zum Kopieren)
+Falling back to Invidious API: Falle auf Invidious-API zurück
+Falling back to the local API: Falle auf lokale API zurück
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Dieses
-  Video ist aufgrund fehlernder Formate nicht verfügbar. Dies kann zum Beispiel durch
-  Zugriffsbeschränkungen für Länder geschehen.
+  Video ist aufgrund fehlender Formate nicht verfügbar. Zugriffsbeschränkungen im
+  Land kann dafür der Grund sein.
 Subscriptions have not yet been implemented: Abonnements sind noch nicht implementiert
 Loop is now disabled: Schleife ist jetzt deaktiviert
 Loop is now enabled: Schleife ist jetzt aktiviert
@@ -495,8 +506,8 @@ Playing Previous Video: Spiele vorheriges Video
 Playing next video in 5 seconds.  Click to cancel: Spiele nächstes Video in 5 Sekunden.
   Klicke um abzubrechen.
 Canceled next video autoplay: Wiedergabe des nächsten Videos abgebrochen
-'The playlist has ended.  Enable loop to continue playing': 'Die Playlist hat das
-  Ende erreicht. Aktiviere Schleife um weiterzuspielen'
+'The playlist has ended.  Enable loop to continue playing': 'Die Wiedergabeliste hat
+  das Ende erreicht.  Aktiviere Schleife um weiterabzuspielen'
 
 Yes: Ja
 No: Nein
@@ -523,7 +534,7 @@ Profile:
   Color Picker: Farbauswahl
   Edit Profile: Profil bearbeiten
   Create New Profile: Neues Profil erstellen
-  Profile Manager: Profilmanager
+  Profile Manager: Profilverwalter
   All Channels: Alle Kanäle
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Bist
     du sicher, dass du die ausgewählten Kanäle löschen möchtest? Dies löscht den Kanal
