@@ -611,7 +611,7 @@ const actions = {
       }
     })
   },
-  
+
   updateHidePopularVideos ({ commit }, hidePopularVideos) {
     settingsDb.update({ _id: 'hidePopularVideos' }, { _id: 'hidePopularVideos', value: hidePopularVideos }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
@@ -626,7 +626,7 @@ const actions = {
         commit('setHideLiveChat', hideLiveChat)
       }
     })
-  },
+  }
 }
 
 const mutations = {

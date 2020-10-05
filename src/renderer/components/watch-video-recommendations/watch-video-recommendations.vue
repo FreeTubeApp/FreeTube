@@ -1,5 +1,6 @@
 <template>
-  <ft-card v-if="!hideRecommendedVideos" class="relative watchVideoRecommendations">
+  <ft-card v-if="!hideRecommendedVideos"
+    class="relative watchVideoRecommendations">
     <h3>
       {{ $t("Up Next") }}
     </h3>

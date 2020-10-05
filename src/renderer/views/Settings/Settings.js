@@ -20,6 +20,6 @@ export default Vue.extend({
     'subscription-settings': SubscriptionSettings,
     'privacy-settings': PrivacySettings,
     'data-settings': DataSettings,
-    'distraction-settings' : DistractionSettings
+    'distraction-settings': DistractionSettings
   }
 })

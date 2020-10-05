@@ -32,8 +32,8 @@
           </span>
           <br>
           <span
-            class="channelSubCount"
             v-if="subCount !== null"
+            class="channelSubCount"
           >
             {{ formattedSubCount }}
             <span v-if="subCount === 1">{{ $t("Channel.Subscriber") }}</span>
