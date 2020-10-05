@@ -88,6 +88,12 @@ jobs:
       with:
         name: freetube_0.8.0_alpine_arm64.apk
         path: build/freetube-0.8.0-arm64.apk
+    - name: Upload Pacman .pacman x64 Artifact
+      uses: actions/upload-artifact@v2
+      if: startsWith(matrix.os, 'ubuntu')
+      with:
+        name: freetube_0.8.0_pacman_arm64.pacman
+        path: build/freetube-0.8.0.pacman
     - name: Upload Web Build
       uses: actions/upload-artifact@v2
       if: startsWith(matrix.os, 'ubuntu')
