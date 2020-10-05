@@ -21,7 +21,7 @@
       v-if="commentData.length > 0 && !isLoading && showComments"
       class="commentSort"
       :placeholder="$t('Comments.Sort by')"
-      :value="sortValues[0]"
+      :value="currentSortValue"
       :select-names="sortNames"
       :select-values="sortValues"
       @change="handleSortChange"
