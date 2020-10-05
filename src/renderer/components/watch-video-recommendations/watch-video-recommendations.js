@@ -27,6 +27,9 @@ export default Vue.extend({
     },
     playNextVideo: function () {
       return this.$store.getters.getPlayNextVideo
+    },
+    hideRecommendedVideos: function () {
+      return this.$store.getters.getHideRecommendedVideos
     }
   },
   methods: {

@@ -42,6 +42,9 @@ export default Vue.extend({
     invidiousInstance: function () {
       return this.$store.getters.getInvidiousInstance
     },
+    hideCommentLikes: function () {
+      return this.$store.getters.getHideCommentLikes
+    },
 
     sortNames: function () {
       return [
@@ -130,6 +133,9 @@ export default Vue.extend({
           }).catch((error) => {
             console.error(error)
           })
+          if (this.hideCommentLikes) {
+            comment.likes = null
+          }
           return comment
         })
         this.commentData = this.commentData.concat(commentData)
@@ -172,7 +178,11 @@ export default Vue.extend({
         const commentData = response.comments.map((comment) => {
           comment.showReplies = false
           comment.authorThumb = comment.authorThumbnails[1].url
-          comment.likes = comment.likeCount
+          if (this.hideCommentLikes) {
+            comment.likes = null
+          } else {
+            comment.likes = comment.likeCount
+          }
           comment.text = comment.content
           comment.dataType = 'invidious'
 
@@ -236,7 +246,11 @@ export default Vue.extend({
         const commentData = response.comments.map((comment) => {
           comment.showReplies = false
           comment.authorThumb = comment.authorThumbnails[1].url
-          comment.likes = comment.likeCount
+          if (this.hideCommentLikes) {
+            comment.likes = null
+          } else {
+            comment.likes = comment.likeCount
+          }
           comment.text = comment.content
           comment.time = comment.publishedText
           comment.dataType = 'invidious'

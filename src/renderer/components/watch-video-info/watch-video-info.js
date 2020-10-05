@@ -104,14 +104,23 @@ export default Vue.extend({
     },
 
     totalLikeCount: function () {
+      if (this.hideVideoLikesAndDislikes) {
+        return null
+      }
       return this.likeCount + this.dislikeCount
     },
 
     likePercentageRatio: function () {
+      if (this.hideVideoLikesAndDislikes) {
+        return null
+      }
       return parseInt(this.likeCount / this.totalLikeCount * 100)
     },
 
     parsedViewCount: function () {
+      if (this.hideVideoViews) {
+        return null
+      }
       return this.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ` ${this.$t('Video.Views').toLowerCase()}`
     },
 
@@ -140,6 +149,12 @@ export default Vue.extend({
       const dateSplit = date.toDateString().split(' ')
       const localeDateString = `Video.Published.${dateSplit[1]}`
       return `${this.$t(localeDateString)} ${dateSplit[2]}, ${dateSplit[3]}`
+    },
+    hideVideoLikesAndDislikes: function () {
+      return this.$store.getters.getHideVideoLikesAndDislikes
+    },
+    hideVideoViews: function () {
+      return this.$store.getters.getHideVideoViews
     }
   },
   methods: {

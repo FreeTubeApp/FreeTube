@@ -59,7 +59,15 @@ const state = {
   disctractionFreeMode: false,
   hideWatchedSubs: false,
   useRssFeeds: false,
-  usingElectron: true
+  usingElectron: true,
+  hideVideoViews: false,
+  hideVideoLikesAndDislikes: false,
+  hideChannelSubscriptions: false,
+  hideCommentLikes: false,
+  hideRecommendedVideos: false,
+  hideTrendingVideos: false,
+  hidePopularVideos: false,
+  hideLiveChat: false
 }
 
 const getters = {
@@ -173,6 +181,37 @@ const getters = {
 
   getUsingElectron: () => {
     return state.usingElectron
+  },
+
+  getHideVideoViews: () => {
+    return state.hideVideoViews
+  },
+
+  getHideVideoLikesAndDislikes: () => {
+    return state.hideVideoLikesAndDislikes
+  },
+
+  getHideChannelSubscriptions: () => {
+    return state.hideChannelSubscriptions
+  },
+
+  getHideCommentLikes: () => {
+    return state.hideCommentLikes
+  },
+
+  getHideRecommendedVideos: () => {
+    return state.hideRecommendedVideos
+  },
+
+  getHideTrendingVideos: () => {
+    return state.hideTrendingVideos
+  },
+
+  getHidePopularVideos: () => {
+    return state.hidePopularVideos
+  },
+  getHideLiveChat: () => {
+    return state.hideLiveChat
   }
 }
 
@@ -268,6 +307,30 @@ const actions = {
               break
             case 'defaultQuality':
               commit('setDefaultQuality', result.value)
+              break
+            case 'hideVideoViews':
+              commit('setHideVideoViews', result.value)
+              break
+            case 'hideVideoLikesAndDislikes':
+              commit('setHideVideoLikesAndDislikes', result.value)
+              break
+            case 'hideChannelSubscriptions':
+              commit('setHideChannelSubscriptions', result.value)
+              break
+            case 'hideCommentLikes':
+              commit('setHideCommentLikes', result.value)
+              break
+            case 'hideRecommendedVideos':
+              commit('setHideRecommendedVideos', result.value)
+              break
+            case 'hideTrendingVideos':
+              commit('setHideTrendingVideos', result.value)
+              break
+            case 'hidePopularVideos':
+              commit('setHidePopularVideos', result.value)
+              break
+            case 'hideLiveChat':
+              commit('setHideLiveChat, result.value')
               break
           }
         })
@@ -499,7 +562,71 @@ const actions = {
         commit('setUseTor', useTor)
       }
     })
-  }
+  },
+
+  updateHideVideoViews ({ commit }, hideVideoViews) {
+    settingsDb.update({ _id: 'hideVideoViews' }, { _id: 'hideVideoViews', value: hideVideoViews }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setHideVideoViews', hideVideoViews)
+      }
+    })
+  },
+
+  updateHideVideoLikesAndDislikes ({ commit }, hideVideoLikesAndDislikes) {
+    settingsDb.update({ _id: 'hideVideoLikesAndDislikes' }, { _id: 'hideVideoLikesAndDislikes', value: hideVideoLikesAndDislikes }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setHideVideoLikesAndDislikes', hideVideoLikesAndDislikes)
+      }
+    })
+  },
+
+  updateHideChannelSubscriptions ({ commit }, hideChannelSubscriptions) {
+    settingsDb.update({ _id: 'hideChannelSubscriptions' }, { _id: 'hideChannelSubscriptions', value: hideChannelSubscriptions }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setHideChannelSubscriptions', hideChannelSubscriptions)
+      }
+    })
+  },
+
+  updateHideCommentLikes ({ commit }, hideCommentLikes) {
+    settingsDb.update({ _id: 'hideCommentLikes' }, { _id: 'hideCommentLikes', value: hideCommentLikes }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setHideCommentLikes', hideCommentLikes)
+      }
+    })
+  },
+
+  updateHideRecommendedVideos ({ commit }, hideRecommendedVideos) {
+    settingsDb.update({ _id: 'hideRecommendedVideos' }, { _id: 'hideRecommendedVideos', value: hideRecommendedVideos }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setHideRecommendedVideos', hideRecommendedVideos)
+      }
+    })
+  },
+
+  updateHideTrendingVideos ({ commit }, hideTrendingVideos) {
+    settingsDb.update({ _id: 'hideTrendingVideos' }, { _id: 'hideTrendingVideos', value: hideTrendingVideos }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setHideTrendingVideos', hideTrendingVideos)
+      }
+    })
+  },
+  
+  updateHidePopularVideos ({ commit }, hidePopularVideos) {
+    settingsDb.update({ _id: 'hidePopularVideos' }, { _id: 'hidePopularVideos', value: hidePopularVideos }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setHidePopularVideos', hidePopularVideos)
+      }
+    })
+  },
+
+  updateHideLiveChat ({ commit }, hideLiveChat) {
+    settingsDb.update({ _id: 'hideLiveChat' }, { _id: 'hideLiveChat', value: hideLiveChat }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setHideLiveChat', hideLiveChat)
+      }
+    })
+  },
 }
 
 const mutations = {
@@ -607,6 +734,30 @@ const mutations = {
   },
   setProfileList (state, profileList) {
     state.profileList = profileList
+  },
+  setHideVideoViews (state, hideVideoViews) {
+    state.hideVideoViews = hideVideoViews
+  },
+  setHideVideoLikesAndDislikes (state, hideVideoLikesAndDislikes) {
+    state.hideVideoLikesAndDislikes = hideVideoLikesAndDislikes
+  },
+  setHideChannelSubscriptions (state, hideChannelSubscriptions) {
+    state.hideChannelSubscriptions = hideChannelSubscriptions
+  },
+  setHideCommentLikes (state, hideCommentLikes) {
+    state.hideCommentLikes = hideCommentLikes
+  },
+  setHideRecommendedVideos (state, hideRecommendedVideos) {
+    state.hideRecommendedVideos = hideRecommendedVideos
+  },
+  setHideTrendingVideos (state, hideTrendingVideos) {
+    state.hideTrendingVideos = hideTrendingVideos
+  },
+  setHidePopularVideos (state, hidePopularVideos) {
+    state.hidePopularVideos = hidePopularVideos
+  },
+  setHideLiveChat (state, hideLiveChat) {
+    state.hideLiveChat = hideLiveChat
   }
 }
 

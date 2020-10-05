@@ -27,13 +27,14 @@
       <div class="infoLine">
         <span
           class="subscriberCount"
+          v-if="subscriberCount !== null"
         >
-          {{ subscriberCount }} subscribers
+          {{ subscriberCount }} subscribers -
         </span>
         <span
           class="videoCount"
         >
-          - {{ videoCount }} videos
+           {{ videoCount }} videos
         </span>
       </div>
       <p

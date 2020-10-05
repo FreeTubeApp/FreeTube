@@ -26,6 +26,9 @@ export default Vue.extend({
   computed: {
     listType: function () {
       return this.$store.getters.getListType
+    },
+    hideChannelSubscriptions: function () {
+      return this.$store.getters.getHideChannelSubscriptions
     }
   },
   mounted: function () {
@@ -40,7 +43,11 @@ export default Vue.extend({
       this.thumbnail = this.data.avatar
       this.channelName = this.data.name
       this.id = this.data.channel_id
-      this.subscriberCount = this.data.followers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+      if (this.hideChannelSubscriptions) {
+        this.subscriberCount = null
+      } else {
+        this.subscriberCount = this.data.followers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+      }
       this.videoCount = this.data.videos.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
       this.description = this.data.description_short
     },
@@ -49,7 +56,11 @@ export default Vue.extend({
       this.thumbnail = this.data.authorThumbnails[2].url
       this.channelName = this.data.author
       this.id = this.data.authorId
-      this.subscriberCount = this.data.subCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+      if (this.hideChannelSubscriptions) {
+        this.subscriberCount = null
+      } else {
+        this.subscriberCount = this.data.subCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+      }
       this.videoCount = this.data.videoCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
       this.description = this.data.description
     }

@@ -137,6 +137,9 @@ export default Vue.extend({
         default:
           return `${baseUrl}/vi/${this.id}/mqdefault.jpg`
       }
+    },
+    hideVideoViews: function () {
+      return this.$store.getters.getHideVideoViews
     }
   },
   mounted: function () {
@@ -271,7 +274,9 @@ export default Vue.extend({
         })
       }
 
-      if (typeof (this.data.viewCount) !== 'undefined' && this.data.viewCount !== null) {
+      if (this.hideVideoViews) {
+        this.hideViews = true
+      } else if (typeof (this.data.viewCount) !== 'undefined' && this.data.viewCount !== null) {
         this.parsedViewCount = this.data.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
       } else if (typeof (this.data.viewCountText) !== 'undefined') {
         this.parsedViewCount = this.data.viewCountText.replace(' views', '')

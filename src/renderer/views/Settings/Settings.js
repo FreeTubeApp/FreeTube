@@ -7,6 +7,7 @@ import PlayerSettings from '../../components/player-settings/player-settings.vue
 import SubscriptionSettings from '../../components/subscription-settings/subscription-settings.vue'
 import PrivacySettings from '../../components/privacy-settings/privacy-settings.vue'
 import DataSettings from '../../components/data-settings/data-settings.vue'
+import DistractionSettings from '../../components/distraction-settings/distraction-settings.vue'
 
 export default Vue.extend({
   name: 'Settings',
@@ -18,6 +19,7 @@ export default Vue.extend({
     'player-settings': PlayerSettings,
     'subscription-settings': SubscriptionSettings,
     'privacy-settings': PrivacySettings,
-    'data-settings': DataSettings
+    'data-settings': DataSettings,
+    'distraction-settings' : DistractionSettings
   }
 })
