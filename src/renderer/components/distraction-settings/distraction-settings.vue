@@ -64,22 +64,22 @@
     <br>
     <ft-flex-box>
       <ft-select
-          v-if="false"
-          placeholder="Distraction View Type"
-          :value="viewValues[0]"
-          :select-names="viewNames"
-          :select-values="viewValues"
-        />
-      </ft-flex-box>
-      <br>
-      <ft-flex-box>
-        <ft-button
-          v-if="false"
-          label="Manage My Distractions"
-        />
-      </ft-flex-box>
-    </ft-card>
-  </template>
+        v-if="false"
+        placeholder="Distraction View Type"
+        :value="viewValues[0]"
+        :select-names="viewNames"
+        :select-values="viewValues"
+      />
+    </ft-flex-box>
+    <br>
+    <ft-flex-box>
+      <ft-button
+        v-if="false"
+        label="Manage My Distractions"
+      />
+    </ft-flex-box>
+  </ft-card>
+</template>
 
 <script src="./distraction-settings.js" />
 <style scoped lang="sass" src="./distraction-settings.sass" />
