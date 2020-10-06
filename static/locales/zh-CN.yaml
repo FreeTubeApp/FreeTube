@@ -243,6 +243,16 @@ Settings:
     Select Import Type: 选择导入类型
     Data Settings: 数据设置
     One or more subscriptions were unable to be imported: 一个或者更多订阅无法被导入
+  Distraction Free Settings:
+    Hide Popular Videos: 隐藏流行视频
+    Hide Trending Videos: 隐藏热门视频
+    Hide Recommended Videos: 隐藏推荐视频
+    Hide Comment Likes: 隐藏评论点赞
+    Hide Live Chat: 隐藏在线聊天
+    Hide Channel Subscribers: 隐藏频道订阅者
+    Hide Video Likes And Dislikes: 隐藏视频喜欢与不喜欢
+    Hide Video Views: 隐藏视频观看数量
+    Distraction Free Settings: 零打扰设置
 About:
   #On About page
   About: '关于'
@@ -426,10 +436,11 @@ Comments:
   Reply: '回复'
   There are no comments available for this video: '这个视频没有评论'
   Load More Comments: '加载更多评论'
-  There are no more comments for this video: 此视频无更多留言
+  There are no more comments for this video: 此视频无更多评论
   Newest first: 最新优先
   Top comments: 最热评论
   Sort by: 排序方式
+  No more comments available: 没有更多评论
 Up Next: 'Up Next'
 
 # Toast Messages
