@@ -248,7 +248,7 @@ export default Vue.extend({
       ytch.getChannelInfo(this.id).then((response) => {
         this.id = response.authorId
         this.channelName = response.author
-        if (this.hideChannelSubscriptions) {
+        if (this.hideChannelSubscriptions || response.subscriberCount === 0) {
           this.subCount = null
         } else {
           this.subCount = response.subscriberCount.toFixed(0)
