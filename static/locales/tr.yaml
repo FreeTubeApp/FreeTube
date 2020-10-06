@@ -148,6 +148,8 @@ Settings:
       Deep Orange: 'Koyu Turuncu'
     Secondary Color Theme: 'İkincil Renk'
         #* Main Color Theme
+    UI Scale: Kullanıcı Arayüzü Ölçeği
+    Expand Side Bar by Default: Yan Çubuğu Öntanımlı Olarak Genişlet
   Player Settings:
     Player Settings: 'Oynatıcı Ayarları'
     Force Local Backend for Legacy Formats: 'Legacy Biçimler için Yerel Backend Kullanmaya
