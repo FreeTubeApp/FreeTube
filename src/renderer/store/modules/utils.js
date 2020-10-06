@@ -292,51 +292,51 @@ const actions = {
     switch (strings[1].substring(0, 2)) {
       case 'se':
         if (singular) {
-          publicationString = publicationString.replace('%', payload.timeStrings.Second)
+          publicationString = publicationString.replace('%', payload.timeStrings.Second.toLowerCase())
         } else {
-          publicationString = publicationString.replace('%', payload.timeStrings.Seconds)
+          publicationString = publicationString.replace('%', payload.timeStrings.Seconds.toLowerCase())
         }
         break
       case 'mi':
         if (singular) {
-          publicationString = publicationString.replace('%', payload.timeStrings.Minute)
+          publicationString = publicationString.replace('%', payload.timeStrings.Minute.toLowerCase())
         } else {
-          publicationString = publicationString.replace('%', payload.timeStrings.Minutes)
+          publicationString = publicationString.replace('%', payload.timeStrings.Minutes.toLowerCase())
         }
         break
       case 'ho':
         if (singular) {
-          publicationString = publicationString.replace('%', payload.timeStrings.Hour)
+          publicationString = publicationString.replace('%', payload.timeStrings.Hour.toLowerCase())
         } else {
-          publicationString = publicationString.replace('%', payload.timeStrings.Hours)
+          publicationString = publicationString.replace('%', payload.timeStrings.Hours.toLowerCase())
         }
         break
       case 'da':
         if (singular) {
-          publicationString = publicationString.replace('%', payload.timeStrings.Day)
+          publicationString = publicationString.replace('%', payload.timeStrings.Day.toLowerCase())
         } else {
-          publicationString = publicationString.replace('%', payload.timeStrings.Days)
+          publicationString = publicationString.replace('%', payload.timeStrings.Days.toLowerCase())
         }
         break
       case 'we':
         if (singular) {
-          publicationString = publicationString.replace('%', payload.timeStrings.Week)
+          publicationString = publicationString.replace('%', payload.timeStrings.Week.toLowerCase())
         } else {
-          publicationString = publicationString.replace('%', payload.timeStrings.Weeks)
+          publicationString = publicationString.replace('%', payload.timeStrings.Weeks.toLowerCase())
         }
         break
       case 'mo':
         if (singular) {
-          publicationString = publicationString.replace('%', payload.timeStrings.Month)
+          publicationString = publicationString.replace('%', payload.timeStrings.Month.toLowerCase())
         } else {
-          publicationString = publicationString.replace('%', payload.timeStrings.Months)
+          publicationString = publicationString.replace('%', payload.timeStrings.Months.toLowerCase())
         }
         break
       case 'ye':
         if (singular) {
-          publicationString = publicationString.replace('%', payload.timeStrings.Year)
+          publicationString = publicationString.replace('%', payload.timeStrings.Year.toLowerCase())
         } else {
-          publicationString = publicationString.replace('%', payload.timeStrings.Years)
+          publicationString = publicationString.replace('%', payload.timeStrings.Years.toLowerCase())
         }
         break
     }
