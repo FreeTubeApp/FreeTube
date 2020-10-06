@@ -258,6 +258,16 @@ Settings:
       #& Yes
       #& No
 
+  Distraction Free Settings:
+    Hide Live Chat: הסתרת צ׳אט חי
+    Hide Popular Videos: הסתרת סרטונים נפוצים
+    Hide Trending Videos: הסתרת סרטונים חמים
+    Hide Recommended Videos: הסתרת סרטונים מומלצים
+    Hide Comment Likes: הסתרת לייקים על תגובות
+    Hide Channel Subscribers: הסתרת מנויי הערוץ
+    Hide Video Likes And Dislikes: הסתרת לייקים ודיסלייקים לסרטון
+    Distraction Free Settings: הגדרות להשבתת הסחות
+    Hide Video Views: הסתרת תצוגות סרטונים
 About:
   #On About page
   About: 'אודות'
