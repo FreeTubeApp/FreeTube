@@ -15,19 +15,6 @@ export default Vue.extend({
     'ft-select': FtSelect,
     'ft-flex-box': FtFlexBox
   },
-  data: function () {
-    return {
-      title: 'Distraction Free Settings',
-      viewNames: [
-        'Basic',
-        'Modern'
-      ],
-      viewValues: [
-        'basic',
-        'modern'
-      ]
-    }
-  },
   computed: {
     hideVideoViews: function () {
       return this.$store.getters.getHideVideoViews
