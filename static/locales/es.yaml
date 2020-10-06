@@ -142,6 +142,8 @@ Settings:
       Deep Orange: 'Naranja oscuro'
     Secondary Color Theme: 'Color secundario'
         #* Main Color Theme
+    UI Scale: Escala de interfaz gráfica
+    Expand Side Bar by Default: Expandir barra lateral por defecto
   Player Settings:
     Player Settings: 'Reproductor'
     Force Local Backend for Legacy Formats: 'Forzar API local para formato Legacy'
