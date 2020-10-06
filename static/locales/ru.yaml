@@ -72,6 +72,9 @@ Subscriptions:
   'Getting Subscriptions.  Please wait.': 'Получение подписок. Пожалуйста, подождите.'
   Refresh Subscriptions: Обновить подписки
   Getting Subscriptions. Please wait.: Получение подписок. Пожалуйста, подождите.
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Этот
+    профиль имеет большое количество подписок. Используйте RSS, чтобы избежать ограничения
+    скорости
 Trending: 'Тренды'
 Most Popular: 'Самые популярные'
 Playlists: 'Плейлисты'
@@ -261,6 +264,16 @@ Settings:
     Data Settings: Настройки данных
     One or more subscriptions were unable to be imported: Не удалось импортировать
       одну или несколько подписок
+  Distraction Free Settings:
+    Hide Live Chat: Скрыть Live чат
+    Hide Popular Videos: Скрыть популярные видео
+    Hide Trending Videos: Скрыть видео в тренде
+    Hide Recommended Videos: Скрыть рекомендуемые видео
+    Distraction Free Settings: Настройки отвлекающих факторов
+    Hide Comment Likes: Скрыть лайки в комментариях
+    Hide Channel Subscribers: Скрыть подписчиков канала
+    Hide Video Likes And Dislikes: Скрыть лайки и дизлайки к видео
+    Hide Video Views: Скрыть просмотры видео
 About:
   #On About page
   About: 'О программе'
@@ -396,6 +409,11 @@ Video:
   Loop Playlist: Циклический плейлист
   Starting soon, please refresh the page to check again: Скоро начнётся, обновите
     страницу, чтобы проверить ещё раз
+  Audio:
+    Best: Лучшее
+    High: Высокое
+    Medium: Среднее
+    Low: Низкое
 Videos:
   #& Sort By
   Sort By:
@@ -460,6 +478,10 @@ Comments:
   There are no comments available for this video: 'К этому видео нет комментариев'
   Load More Comments: 'Загрузить больше комментариев'
   There are no more comments for this video: К этому видео больше нет комментариев
+  No more comments available: Больше комментариев нет
+  Newest first: Сначала новые
+  Top comments: Лучшим комментариям
+  Sort by: Сортировать по
 Up Next: 'Следующий'
 
 # Toast Messages

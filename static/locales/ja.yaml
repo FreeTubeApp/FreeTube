@@ -70,6 +70,8 @@ Subscriptions:
   'Getting Subscriptions.  Please wait.': '登録を取得中。お待ちください...'
   Refresh Subscriptions: 登録を更新
   Getting Subscriptions. Please wait.: 登録を取得中...お待ちください。
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: このプロファイルには多くのチャンネル登録があります。評価の制限を回避するため強制的に
+    RSS にします
 Trending: '急上昇'
 Most Popular: '最も人気'
 Playlists: '再生リスト'
@@ -244,6 +246,16 @@ Settings:
     Select Import Type: インポート形式の選択
     Data Settings: データ設定
     One or more subscriptions were unable to be imported: 1つ以上の登録をインポートできませんでした
+  Distraction Free Settings:
+    Hide Live Chat: ライブチャットを非表示
+    Hide Popular Videos: 人気の動画を非表示
+    Hide Trending Videos: 急上昇の動画を非表示
+    Hide Recommended Videos: おすすめの動画を非表示
+    Hide Comment Likes: コメントの評価を非表示
+    Hide Channel Subscribers: チャンネル登録者数を非表示
+    Hide Video Views: 再生数を非表示
+    Hide Video Likes And Dislikes: 評価を非表示
+    Distraction Free Settings: 集中用の設定
 About:
   #On About page
   About: 'このソフト'
@@ -367,6 +379,11 @@ Video:
   Shuffle Playlist: 再生リストをシャッフル
   Loop Playlist: 再生リストをループ
   Starting soon, please refresh the page to check again: 今すぐ開始します、ページを再読み込みして確認してください
+  Audio:
+    Best: 最適
+    High: 高
+    Medium: 中
+    Low: 低
 Videos:
   #& Sort By
   Sort By:
@@ -426,6 +443,10 @@ Comments:
   There are no comments available for this video: 'この動画へのコメントはありません'
   Load More Comments: 'さらにコメントを読み込む'
   There are no more comments for this video: この動画へのコメントはまだありません
+  Top comments: 評価順
+  Newest first: 新しい順
+  No more comments available: これ以上コメントはありません
+  Sort by: 表示順
 Up Next: '次の動画'
 
 # Toast Messages
