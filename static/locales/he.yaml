@@ -147,6 +147,8 @@ Settings:
       Deep Orange: 'כתום כהה'
     Secondary Color Theme: 'צבע משני'
         #* Main Color Theme
+    UI Scale: גודל הממשק
+    Expand Side Bar by Default: תפריט צד מורחב כברירת מחדל
   Player Settings:
     Player Settings: 'הגדרת נגן'
     Force Local Backend for Legacy Formats: 'כפה את מחלץ הסירטונים המקומי על פורמטים
