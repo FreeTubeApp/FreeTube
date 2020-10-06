@@ -93,7 +93,7 @@
           class="uploadedTime"
         >• {{ publishedText }}</span>
         <span
-          v-if="isLive"
+          v-if="isLive && !hideViews"
           class="viewCount"
         >• {{ viewCount }} {{ $t("Video.Watching").toLowerCase() }}</span>
       </div>

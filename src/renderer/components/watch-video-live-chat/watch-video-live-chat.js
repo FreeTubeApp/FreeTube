@@ -76,6 +76,9 @@ export default Vue.extend({
       } else {
         return '445px'
       }
+    },
+    hideLiveChat: function () {
+      return this.$store.getters.getHideLiveChat
     }
   },
   created: function () {

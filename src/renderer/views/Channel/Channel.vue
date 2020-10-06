@@ -32,6 +32,7 @@
           </span>
           <br>
           <span
+            v-if="subCount !== null"
             class="channelSubCount"
           >
             {{ formattedSubCount }}

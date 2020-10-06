@@ -26,14 +26,15 @@
       </router-link>
       <div class="infoLine">
         <span
+          v-if="subscriberCount !== null"
           class="subscriberCount"
         >
-          {{ subscriberCount }} subscribers
+          {{ subscriberCount }} subscribers -
         </span>
         <span
           class="videoCount"
         >
-          - {{ videoCount }} videos
+          {{ videoCount }} videos
         </span>
       </div>
       <p

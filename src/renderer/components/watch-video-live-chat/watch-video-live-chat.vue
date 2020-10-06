@@ -1,5 +1,8 @@
 <template>
-  <ft-card class="relative">
+  <ft-card
+    v-if="!hideLiveChat"
+    class="relative"
+  >
     <ft-loader
       v-if="isLoading"
     />

@@ -123,6 +123,9 @@ export default Vue.extend({
     },
 
     formattedSubCount: function () {
+      if (this.hideChannelSubscriptions) {
+        return null
+      }
       return this.subCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
     },
 
@@ -146,6 +149,9 @@ export default Vue.extend({
       }
 
       return false
+    },
+    hideChannelSubscriptions: function () {
+      return this.$store.getters.getHideChannelSubscriptions
     }
   },
   watch: {
@@ -242,7 +248,11 @@ export default Vue.extend({
       ytch.getChannelInfo(this.id).then((response) => {
         this.id = response.authorId
         this.channelName = response.author
-        this.subCount = response.subscriberCount.toFixed(0)
+        if (this.hideChannelSubscriptions) {
+          this.subCount = null
+        } else {
+          this.subCount = response.subscriberCount.toFixed(0)
+        }
         this.thumbnailUrl = response.authorThumbnails[2].url
         this.channelDescription = autolinker.link(response.description)
         this.relatedChannels = response.relatedChannels
@@ -333,7 +343,11 @@ export default Vue.extend({
         console.log(response)
         this.channelName = response.author
         this.id = response.authorId
-        this.subCount = response.subCount
+        if (this.hideChannelSubscriptions) {
+          this.subCount = null
+        } else {
+          this.subCount = response.subCount
+        }
         this.thumbnailUrl = response.authorThumbnails[3].url
         this.channelDescription = autolinker.link(response.description)
         this.relatedChannels = response.relatedChannels

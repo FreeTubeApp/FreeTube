@@ -18,6 +18,7 @@
         </p>
       </div>
       <div
+        v-if="!hideTrendingVideos"
         class="navOption mobileHidden"
         @click="navigate('trending')"
       >
@@ -30,6 +31,7 @@
         </p>
       </div>
       <div
+        v-if="!hidePopularVideos"
         class="navOption mobileHidden"
         @click="navigate('popular')"
       >

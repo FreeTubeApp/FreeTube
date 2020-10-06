@@ -4,6 +4,7 @@
     <theme-settings />
     <player-settings />
     <subscription-settings />
+    <distraction-settings />
     <privacy-settings />
     <data-settings />
   </div>

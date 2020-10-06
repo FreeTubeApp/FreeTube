@@ -32,6 +32,12 @@ export default Vue.extend({
         }
         return 0
       })
+    },
+    hidePopularVideos: function () {
+      return this.$store.getters.getHidePopularVideos
+    },
+    hideTrendingVideos: function () {
+      return this.$store.getters.getHideTrendingVideos
     }
   },
   methods: {

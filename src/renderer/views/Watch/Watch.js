@@ -120,6 +120,12 @@ export default Vue.extend({
 
     youtubeNoCookieEmbeddedFrame: function () {
       return `<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/${this.videoId}?rel=0' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>`
+    },
+    hideChannelSubscriptions: function () {
+      return this.$store.getters.getHideChannelSubscriptions
+    },
+    hideVideoLikesAndDislikes: function () {
+      return this.$store.getters.getHideVideoLikesAndDislikes
     }
   },
   watch: {
@@ -219,8 +225,13 @@ export default Vue.extend({
             video.lengthSeconds = video.length_seconds
             return video
           })
-          this.videoLikeCount = result.videoDetails.likes
-          this.videoDislikeCount = result.videoDetails.dislikes
+          if (this.hideVideoLikesAndDislikes) {
+            this.videoLikeCount = null
+            this.videoDislikeCount = null
+          } else {
+            this.videoLikeCount = result.videoDetails.likes
+            this.videoDislikeCount = result.videoDetails.dislikes
+          }
           this.isLive = result.player_response.videoDetails.isLiveContent || result.player_response.videoDetails.isLive
           this.isUpcoming = result.player_response.videoDetails.isUpcoming ? result.player_response.videoDetails.isUpcoming : false
 
@@ -235,13 +246,13 @@ export default Vue.extend({
             }
           }
 
-          if (this.videoDislikeCount === null) {
+          if (this.videoDislikeCount === null && !this.hideVideoLikesAndDislikes) {
             this.videoDislikeCount = 0
           }
 
           const subCount = result.videoDetails.author.subscriber_count
 
-          if (typeof (subCount) !== 'undefined') {
+          if (typeof (subCount) !== 'undefined' && !this.hideChannelSubscriptions) {
             if (subCount >= 1000000) {
               this.channelSubscriptionCountText = `${subCount / 1000000}M`
             } else if (subCount >= 10000) {
@@ -400,9 +411,18 @@ export default Vue.extend({
 
           this.videoTitle = result.title
           this.videoViewCount = result.viewCount
-          this.videoLikeCount = result.likeCount
-          this.videoDislikeCount = result.dislikeCount
-          this.channelSubscriptionCountText = result.subCountText || 'FT-0'
+          if (this.hideVideoLikesAndDislikes) {
+            this.videoLikeCount = null
+            this.videoDislikeCount = null
+          } else {
+            this.videoLikeCount = result.likeCount
+            this.videoDislikeCount = result.dislikeCount
+          }
+          if (this.hideChannelSubscriptions) {
+            this.channelSubscriptionCountText = ''
+          } else {
+            this.channelSubscriptionCountText = result.subCountText || 'FT-0'
+          }
           this.channelId = result.authorId
           this.channelName = result.author
           this.channelThumbnail = result.authorThumbnails[1] ? result.authorThumbnails[1].url : ''
