@@ -246,6 +246,13 @@ Settings:
   Distraction Free Settings:
     Hide Video Likes And Dislikes: 隱藏影片喜歡與不喜歡
     Distraction Free Settings: 零打擾設定
+    Hide Video Views: 隱藏觀看數
+    Hide Popular Videos: 隱藏流行影片
+    Hide Trending Videos: 隱藏發燒影片
+    Hide Live Chat: 隱藏聊天室
+    Hide Comment Likes: 隱藏討論點讚數
+    Hide Recommended Videos: 隱藏推薦影片
+    Hide Channel Subscribers: 隱藏頻道訂閱數
 About:
   #On About page
   About: '關於'
