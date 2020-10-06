@@ -259,6 +259,16 @@ Settings:
       #& Yes
       #& No
 
+  Distraction Free Settings:
+    Hide Live Chat: Dölj livechatt
+    Hide Popular Videos: Dölj mest populära
+    Hide Trending Videos: Dölj trender
+    Hide Recommended Videos: Dölj rekommenderade videor
+    Hide Comment Likes: Dölj kommentarer gillar
+    Hide Video Likes And Dislikes: Dölj video gillar/ogillar
+    Hide Channel Subscribers: Dölj kanalprenumeranter
+    Hide Video Views: Dölj videovisningar
+    Distraction Free Settings: Distraktionsfri
 About:
   #On About page
   About: 'Om'
@@ -503,6 +513,7 @@ Comments:
   Newest first: Nyaste först
   Top comments: Top kommentarer
   Sort by: Sortera efter
+  No more comments available: Det finns Inga fler kommentarer
 Up Next: 'Kommer härnäst'
 
 # Toast Messages
