@@ -243,6 +243,9 @@ Settings:
     Select Import Type: 選取匯入類型
     Data Settings: 資料設定
     One or more subscriptions were unable to be imported: 一個或者更多訂閱無法被導入
+  Distraction Free Settings:
+    Hide Video Likes And Dislikes: 隱藏影片喜歡與不喜歡
+    Distraction Free Settings: 零打擾設定
 About:
   #On About page
   About: '關於'
@@ -430,6 +433,7 @@ Comments:
   Newest first: 最新優先
   Top comments: 最熱評論
   Sort by: 排序方式
+  No more comments available: 沒有更多留言
 Up Next: 'Up Next'
 
 # Toast Messages
