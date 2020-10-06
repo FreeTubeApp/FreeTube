@@ -330,7 +330,7 @@ const actions = {
               commit('setHidePopularVideos', result.value)
               break
             case 'hideLiveChat':
-              commit('setHideLiveChat, result.value')
+              commit('setHideLiveChat', result.value)
               break
           }
         })
