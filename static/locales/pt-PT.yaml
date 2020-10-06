@@ -74,6 +74,7 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: Subscrições
   Latest Subscriptions: Subscrições Recentes
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este perfil contém um elevado número de subscrições. O uso de RSS vai ser obrigado para evitar que a sua rede seja bloqueada
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': A
     sua lista de subscrições está vazia. Adicione algumas para as ver aqui.
   'Getting Subscriptions. Please wait.': A carregar subscrições. Por favor aguarde.
@@ -202,8 +203,18 @@ Settings:
       Newpipe: Newpipe
       OPML: OPML
     Manage Subscriptions: Gerir Subscrições
+  Distraction Free Settings:
+    Distraction Free Settings: Definições de Distracções
+    Hide Video Views: Esconder Visualizações
+    Hide Video Likes And Dislikes: Esconder Gostos em Vídeos
+    Hide Channel Subscribers: Esconder Nº de Subscritores
+    Hide Comment Likes: Esconder Gostos em Comentários
+    Hide Recommended Videos: Esconder Vídeos Recomendados
+    Hide Trending Videos: Esconder Tendências
+    Hide Popular Videos: Esconder Mais Populares
+    Hide Live Chat: Esconder Chat ao Vivo
   Data Settings:
-    Data Settings: Definições dos dados
+    Data Settings: Definições de dados
     Select Import Type: Escolher tipo de importação
     Select Export Type: Escolher tipo de exportação
     Import Subscriptions: Importar Subscrições
@@ -405,6 +416,11 @@ Video:
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': Chat
     ao vivo não se encontra a funcionar com o API Invividious. Uma ligação directa
     ao Youtube é necessária.
+  Audio:
+    Low: Baixa
+    Medium: Média
+    High: Alta
+    Best: Melhor
   Published:
     Jan: Jan
     Feb: Fev
@@ -500,6 +516,9 @@ Comments:
   There are no more comments for this video: Não há mais comentários neste vídeo
   Show Comments: Mostrar Comentários
   Hide Comments: Esconder Comentários
+  Sort by: Ordenar por
+  Top comments: Comentários principais
+  Newest first: Mais recentes primeiro
   # Context: View 10 Replies, View 1 Reply
   View: Mostrar
   Hide: Esconder
@@ -507,6 +526,7 @@ Comments:
   Reply: Resposta
   There are no comments available for this video: Este vídeo não contém nenhum comentário
   Load More Comments: Carregar Mais Comentários
+  No more comments available: Não existem mais comentários
 Up Next: A Seguir
 
 # Toast Messages
@@ -515,6 +535,7 @@ Invidious API Error (Click to copy): API Invidious encontrou um erro (Clique par
   copiar)
 Falling back to Invidious API: Ocorreu uma falha, a mudar para o API Invidious
 Falling back to the local API: Ocorreu uma falha, a mudar para o API local
+This video is unavailable because of missing formats. This can happen due to country unavailability.: Este vídeo não está disponível devido a formatos em falta. Isto pode acontecer devido à sua indisponibilidade no seu país.
 Subscriptions have not yet been implemented: Subscrições ainda não foram implementadas
 Loop is now disabled: Reprodução cíclica desactivada
 Loop is now enabled: Reprodução cíclica activada
@@ -522,7 +543,7 @@ Shuffle is now disabled: Reprodução aleatória desactivada
 Shuffle is now enabled: Reprodução aleatória activada
 Playing Next Video: A Reproduzir o Vídeo Seguinte
 Playing Previous Video: A Reproduzir o Vídeo Anterior
-Playing next video in 5 seconds. Click to cancel: A reproduzir o vídeo seguinte em
+Playing next video in 5 seconds. Click to cancel.: A reproduzir o vídeo seguinte em
   5 segundos. Clique para cancelar.
 Canceled next video autoplay: Reprodução automática cancelada
 'The playlist has ended.  Enable loop to continue playing': 'A lista de reprodução
