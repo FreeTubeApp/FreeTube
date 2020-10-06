@@ -74,6 +74,9 @@ Subscriptions:
   'Getting Subscriptions.  Please wait.': ''
   Refresh Subscriptions: Vernieuw abonnementen
   Getting Subscriptions. Please wait.: Abonnementen verzamelen. Een momentje.
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Dit
+    profiel heeft een groot aantal abonnementen. RSS word geforceerd om tariefbeperkingen
+    te voorkomen
 Trending: 'Trending'
 Most Popular: 'Meest Populair'
 Playlists: 'Afspeellijsten'
@@ -82,7 +85,7 @@ User Playlists:
 History:
   # On History Page
   History: 'Geschiedenis'
-  Watch History: 'Doorzoek Geschiedenis'
+  Watch History: 'Bekijk Geschiedenis'
   Your history list is currently empty.: 'Uw geschiedenis is momenteel leeg.'
 Settings:
   # On Settings Page
@@ -92,7 +95,7 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: 'Val terug op een Niet-Voorkeur
       Backend bij falen'
     Enable Search Suggestions: 'Schakel Zoek Suggesties in'
-    Default Landing Page: 'Standaard Landing Page'
+    Default Landing Page: 'Standaard Landingspagina'
     Locale Preference: 'Locale Voorkeur'
     Preferred API Backend:
       Preferred API Backend: 'Voorkeur API Backend'
@@ -107,12 +110,12 @@ Settings:
       Default: 'Standaard'
       Beginning: 'Begin'
       Middle: 'Midden'
-      End: 'Eind'
+      End: 'Einde'
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious Instantie
       (Standaard is https://invidious.snopyta.org)'
     Region for Trending: 'Regio voor Trending'
         #! List countries
-    Check for Latest Blog Posts: Check voor Nieuwe Blogposts
+    Check for Latest Blog Posts: Controleer de Laatste Blogposts
     Check for Updates: Check voor Updates
   Theme Settings:
     Theme Settings: 'Thema Instellingen'
@@ -123,16 +126,16 @@ Settings:
       Dark: 'Donker'
       Light: 'Licht'
     Main Color Theme:
-      Main Color Theme: 'Primair Themakleur'
+      Main Color Theme: 'Primaire Themakleur'
       Red: 'Rood'
       Pink: 'Roze'
       Purple: 'Paars'
       Deep Purple: 'Donker Paars'
-      Indigo: 'Indigo'
+      Indigo: 'Indigoblauw'
       Blue: 'Blauw'
       Light Blue: 'Lichtblauw'
       Cyan: 'Cyaan'
-      Teal: 'Teal'
+      Teal: 'Groenblauw'
       Green: 'Groen'
       Light Green: 'Lichtgroen'
       Lime: 'Limoen'
@@ -142,6 +145,8 @@ Settings:
       Deep Orange: 'Donker Oranje'
     Secondary Color Theme: 'Secundaire Themakleur'
         #* Main Color Theme
+    UI Scale: UI schaal
+    Expand Side Bar by Default: Zijbalk Standaard Uitschuiven
   Player Settings:
     Player Settings: 'Speler Instellingen'
     Force Local Backend for Legacy Formats: 'Forceer Lokale Backend Voor Legacy Formats'
@@ -173,7 +178,7 @@ Settings:
   Privacy Settings:
     Privacy Settings: 'Privacy Instellingen'
     Remember History: 'Herinner Geschiedenis'
-    Save Watched Progress: 'Behoud Video Vooruitgang'
+    Save Watched Progress: 'Behoud Video Voortgang'
     Clear Search Cache: 'Zoek Cache Opschonen'
     Are you sure you want to clear out your search cache?: 'Weet u zeker dat u de
       zoek cache wil opschonen?'
@@ -198,7 +203,7 @@ Settings:
     Import Subscriptions: ''
     Export Subscriptions: ''
     How do I import my subscriptions?: ''
-    Fetch Feeds from RSS: Verzamel Feeds van RSS
+    Fetch Feeds from RSS: Verzamel Feeds via RSS
   Advanced Settings:
     Advanced Settings: 'Geavanceerde Instellingen'
     Enable Debug Mode (Prints data to the console): 'Schakel Debug Modus in (Print
@@ -262,6 +267,16 @@ Settings:
       met succes geëxporteerd
     All watched history has been successfully imported: De bekeken geschiedenis is
       met succes geïmporteerd
+  Distraction Free Settings:
+    Hide Live Chat: Verberg Live Chat
+    Hide Popular Videos: Verberg Populaire Video's
+    Hide Trending Videos: Verberg Trending Video's
+    Hide Recommended Videos: Verberg Aanbevolen Video's
+    Hide Comment Likes: Verberg Likes op Comments
+    Hide Channel Subscribers: Verberg Abonnee Aantal
+    Hide Video Likes And Dislikes: Verberg Likes en Dislikes
+    Hide Video Views: Verberg Weergaven
+    Distraction Free Settings: Afleidingsvrije Instellingen
 About:
   #On About page
   About: 'Over'
@@ -397,6 +412,11 @@ Video:
   Loop Playlist: Herhaal Playlist
   Starting soon, please refresh the page to check again: Begint spoedig, a.u.b. herlaad
     de pagina om nog maal te checken
+  Audio:
+    Best: Beste
+    High: Hoog
+    Medium: Gemiddeld
+    Low: Laag
 Videos:
   #& Sort By
   Sort By:
@@ -461,6 +481,10 @@ Comments:
   Load More Comments: 'Laad Meer Reacties'
   There are no more comments for this video: Er zijn geen verdere reacties op deze
     video
+  No more comments available: Er zijn niet meer reacties beschikbaar
+  Newest first: Nieuwste Eerst
+  Top comments: Bovenste reacties
+  Sort by: Sorteer Bij
 Up Next: 'Volgende'
 
 # Toast Messages
