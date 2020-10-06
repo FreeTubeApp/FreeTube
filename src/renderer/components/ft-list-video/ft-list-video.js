@@ -262,7 +262,7 @@ export default Vue.extend({
           publishText: this.data.publishedText,
           templateString: this.$t('Video.Publicationtemplate'),
           timeStrings: this.$t('Video.Published'),
-          liveStreamString: this.$t('Video.Watching').toLowerCase(),
+          liveStreamString: this.$t('Video.Watching'),
           upcomingString: this.$t('Video.Published.Upcoming'),
           isLive: this.isLive,
           isUpcoming: this.data.isUpcoming,
