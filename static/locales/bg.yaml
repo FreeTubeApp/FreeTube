@@ -266,6 +266,16 @@ Settings:
       #& Yes
       #& No
 
+  Distraction Free Settings:
+    Hide Live Chat: Скрий чата на живо
+    Hide Popular Videos: Скрий популярните видеа
+    Hide Trending Videos: Скрий набиращите популярност видеа
+    Hide Recommended Videos: Скрий препоръчаните видеа
+    Hide Comment Likes: Скрий оценките на коментарите
+    Hide Channel Subscribers: Скрий броя на абонатите на канали
+    Hide Video Likes And Dislikes: Скрий оценките на видеата
+    Hide Video Views: Скрий видео изгледите
+    Distraction Free Settings: Настройки за неразсейване
 About:
   #On About page
   About: 'Относно'

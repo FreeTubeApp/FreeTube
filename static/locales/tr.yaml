@@ -262,6 +262,16 @@ Settings:
       #& Yes
       #& No
 
+  Distraction Free Settings:
+    Hide Live Chat: Canlı Sohbeti Gizle
+    Hide Popular Videos: Popüler Videoları Gizle
+    Hide Trending Videos: Trend Olan Videoları Gizle
+    Hide Recommended Videos: Tavsiye Edilen Videoları Gizle
+    Hide Comment Likes: Yorum Beğenmelerini Gizle
+    Hide Channel Subscribers: Kanal Abonelerini Gizle
+    Hide Video Likes And Dislikes: Video Beğenmeleri Ve Beğenmemelerini Gizle
+    Hide Video Views: Video Görüntülenme Sayılarını Gizle
+    Distraction Free Settings: Dikkat Dağıtmama Ayarları
 About:
   #On About page
   About: 'Hakkında'

@@ -246,13 +246,13 @@ Settings:
   Distraction Free Settings:
     Hide Video Likes And Dislikes: 隱藏影片喜歡與不喜歡
     Distraction Free Settings: 零打擾設定
-    Hide Video Views: 隱藏觀看數
+    Hide Video Views: 隱藏影片觀看數量
     Hide Popular Videos: 隱藏流行影片
-    Hide Trending Videos: 隱藏發燒影片
-    Hide Live Chat: 隱藏聊天室
-    Hide Comment Likes: 隱藏討論點讚數
+    Hide Trending Videos: 隱藏熱門影片
+    Hide Live Chat: 隱藏在線聊天
+    Hide Comment Likes: 隱藏評論點讚
     Hide Recommended Videos: 隱藏推薦影片
-    Hide Channel Subscribers: 隱藏頻道訂閱數
+    Hide Channel Subscribers: 隱藏頻道訂閱者
 About:
   #On About page
   About: '關於'
@@ -436,11 +436,11 @@ Comments:
   Reply: '回覆'
   There are no comments available for this video: '這個影片沒有評論'
   Load More Comments: '加載更多評論'
-  There are no more comments for this video: 此影片無更多留言
+  There are no more comments for this video: 此影片無更多評論
   Newest first: 最新優先
   Top comments: 最熱評論
   Sort by: 排序方式
-  No more comments available: 沒有更多留言
+  No more comments available: 沒有更多評論
 Up Next: 'Up Next'
 
 # Toast Messages

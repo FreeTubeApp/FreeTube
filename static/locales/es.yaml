@@ -255,6 +255,16 @@ Settings:
       #& Yes
       #& No
 
+  Distraction Free Settings:
+    Hide Video Likes And Dislikes: No mostrar likes/dislikes en videos
+    Hide Video Views: No mostrar visitas en videos
+    Hide Live Chat: No mostrar chat
+    Hide Popular Videos: No mostrar más populares
+    Hide Trending Videos: No mostrar tendencias
+    Hide Recommended Videos: No mostrar videos recomendados
+    Hide Comment Likes: No mostrar likes de comentarios
+    Hide Channel Subscribers: No mostrar suscriptores en canales
+    Distraction Free Settings: No distraer
 About:
   #On About page
   About: 'Acerca de'
@@ -503,6 +513,7 @@ Comments:
   Newest first: Comentarios más recientes
   Top comments: Mejores comentarios
   Sort by: Ordenar por
+  No more comments available: No hay más comentarios
 Up Next: 'Siguientes'
 
 # Toast Messages

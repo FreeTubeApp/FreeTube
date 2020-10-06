@@ -270,6 +270,16 @@ Settings:
       données de profil sont insuffisantes
     One or more subscriptions were unable to be imported: Un ou plusieurs abonnements
       n’ont pas pu être importés
+  Distraction Free Settings:
+    Hide Video Likes And Dislikes: Masquer les J'aime et Je n'aime pas des vidéos
+    Hide Comment Likes: Masquer les J'aime dans les commentaires
+    Hide Channel Subscribers: Masquer le nombre d'abonnés des chaînes
+    Hide Video Views: Masquer les vues des vidéos
+    Hide Live Chat: Masquer le chat en direct
+    Hide Popular Videos: Masquer les vidéos populaires
+    Hide Trending Videos: Masquer les tendances
+    Hide Recommended Videos: Masquer les vidéos recommandées
+    Distraction Free Settings: Mode Sans Distraction
 About:
   #On About page
   About: 'À propos'
