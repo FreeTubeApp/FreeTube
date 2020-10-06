@@ -11,6 +11,22 @@
         :default-value="barColor"
         @change="updateBarColor"
       />
+      <ft-toggle-switch
+        :label="$t('Settings.Theme Settings.Expand Side Bar by Default')"
+        :default-value="expandSideBar"
+        @change="handleExpandSideBar"
+      />
+    </ft-flex-box>
+    <ft-flex-box>
+      <ft-slider
+        :label="$t('Settings.Theme Settings.UI Scale')"
+        :default-value="uiScale"
+        :min-value="minUiScale"
+        :max-value="maxUiScale"
+        :step="uiScaleStep"
+        value-extension="%"
+        @change="handleUiScale"
+      />
     </ft-flex-box>
     <br>
     <ft-flex-box>

@@ -1,6 +1,8 @@
 import Datastore from 'nedb'
 
 let dbLocation
+let electron = null
+let webframe = null
 
 if (window && window.process && window.process.type === 'renderer') {
   // Electron is being used
@@ -11,7 +13,8 @@ if (window && window.process && window.process.type === 'renderer') {
     dbLocation = electron.remote.app.getPath('userData')
   } */
 
-  const electron = require('electron')
+  electron = require('electron')
+  webframe = electron.webFrame
   dbLocation = electron.remote.app.getPath('userData')
 
   dbLocation = dbLocation + '/settings.db'
@@ -28,6 +31,7 @@ const settingsDb = new Datastore({
 
 const state = {
   currentTheme: 'lightRed',
+  uiScale: 100,
   backendFallback: true,
   checkForUpdates: true,
   checkForBlogPosts: true,
@@ -85,6 +89,10 @@ const getters = {
 
   getBarColor: () => {
     return state.barColor
+  },
+
+  getUiScale: () => {
+    return state.uiScale
   },
 
   getEnableSearchSuggestions: () => {
@@ -262,6 +270,10 @@ const actions = {
             case 'barColor':
               commit('setBarColor', result.value)
               break
+            case 'uiScale':
+              webframe.setZoomFactor(parseInt(result.value) / 100)
+              commit('setUiScale', result.value)
+              break
             case 'hideWatchedSubs':
               commit('setHideWatchedSubs', result.value)
               break
@@ -431,6 +443,14 @@ const actions = {
     settingsDb.update({ _id: 'barColor' }, { _id: 'barColor', value: barColor }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
         commit('setBarColor', barColor)
+      }
+    })
+  },
+
+  updateUiScale ({ commit }, uiScale) {
+    settingsDb.update({ _id: 'uiScale' }, { _id: 'uiScale', value: uiScale }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setUiScale', uiScale)
       }
     })
   },
@@ -665,6 +685,9 @@ const mutations = {
   },
   setBarColor (state, barColor) {
     state.barColor = barColor
+  },
+  setUiScale (state, uiScale) {
+    state.uiScale = uiScale
   },
   setEnableSearchSuggestions (state, enableSearchSuggestions) {
     state.enableSearchSuggestions = enableSearchSuggestions

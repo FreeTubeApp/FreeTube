@@ -3,6 +3,7 @@ import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
 import FtSelect from '../ft-select/ft-select.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
+import FtSlider from '../ft-slider/ft-slider.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 
 export default Vue.extend({
@@ -11,6 +12,7 @@ export default Vue.extend({
     'ft-card': FtCard,
     'ft-select': FtSelect,
     'ft-toggle-switch': FtToggleSwitch,
+    'ft-slider': FtSlider,
     'ft-flex-box': FtFlexBox
   },
   data: function () {
@@ -18,6 +20,10 @@ export default Vue.extend({
       currentBaseTheme: '',
       currentMainColor: '',
       currentSecColor: '',
+      expandSideBar: false,
+      minUiScale: 50,
+      maxUiScale: 300,
+      uiScaleStep: 5,
       baseThemeValues: [
         'light',
         'dark',
@@ -46,6 +52,14 @@ export default Vue.extend({
   computed: {
     barColor: function () {
       return this.$store.getters.getBarColor
+    },
+
+    isSideNavOpen: function () {
+      return this.$store.getters.getIsSideNavOpen
+    },
+
+    uiScale: function () {
+      return this.$store.getters.getUiScale
     },
 
     baseThemeNames: function () {
@@ -81,6 +95,7 @@ export default Vue.extend({
     this.currentBaseTheme = localStorage.getItem('baseTheme')
     this.currentMainColor = localStorage.getItem('mainColor').replace('main', '')
     this.currentSecColor = localStorage.getItem('secColor').replace('sec', '')
+    this.expandSideBar = localStorage.getItem('expandSideBar') === 'true'
   },
   methods: {
     updateBaseTheme: function (theme) {
@@ -95,6 +110,22 @@ export default Vue.extend({
 
       this.$parent.$parent.updateTheme(payload)
       this.currentBaseTheme = theme
+    },
+
+    handleExpandSideBar: function (value) {
+      if (this.isSideNavOpen !== value) {
+        this.$store.commit('toggleSideNav')
+      }
+
+      this.expandSideBar = value
+      localStorage.setItem('expandSideBar', value)
+    },
+
+    handleUiScale: function (value) {
+      const { webFrame } = require('electron')
+      const zoomFactor = value / 100
+      webFrame.setZoomFactor(zoomFactor)
+      this.updateUiScale(parseInt(value))
     },
 
     updateMainColor: function (color) {
@@ -126,7 +157,8 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'updateBarColor'
+      'updateBarColor',
+      'updateUiScale'
     ])
   }
 })

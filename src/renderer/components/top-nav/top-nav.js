@@ -59,6 +59,10 @@ export default Vue.extend({
       searchContainer.style.display = 'none'
     }
 
+    if (localStorage.getItem('expandSideBar') === 'true') {
+      this.toggleSideNav()
+    }
+
     window.addEventListener('resize', function (event) {
       const width = event.srcElement.innerWidth
       const searchContainer = $('.searchContainer').get(0)
