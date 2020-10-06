@@ -48,7 +48,7 @@
     "yt-xml2vtt": "^1.1.2",
     "ytdl-core": "^3.3.0",
     "ytpl": "^1.0.1",
-    "ytsr": "^1.0.3"
+    "ytsr": "^1.0.4"
   },
   "description": "A private YouTube client",
   "devDependencies": {
