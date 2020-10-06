@@ -267,6 +267,16 @@ Settings:
     Select Export Type: Wähle Exporttyp
     Select Import Type: Wähle Importtyp
     Data Settings: Dateneinstellungen
+  Distraction Free Settings:
+    Hide Live Chat: Live Chat verbergen
+    Hide Popular Videos: Beliebte Videos verbergen
+    Hide Trending Videos: Trends verbergen
+    Hide Recommended Videos: Vorgeschlagene Videos verbergen
+    Hide Channel Subscribers: Kanal-Abonnenten verbergen
+    Hide Comment Likes: Kommentarbewertungen verbergen
+    Hide Video Likes And Dislikes: Videobewertungen verbergen
+    Hide Video Views: Video-Klicks verbergen
+    Distraction Free Settings: Einstellungen für ablenkungsfreien Modus
 About:
   #On About page
   About: Über
