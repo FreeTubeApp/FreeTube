@@ -148,6 +148,8 @@ Settings:
       Deep Orange: 'Βαθύ Πορτοκαλί'
     Secondary Color Theme: 'Δευτερεύων Χρώμα Θέματος'
         #* Main Color Theme
+    UI Scale: Μέγεθος κλίμακας διεπαφής χρήστη
+    Expand Side Bar by Default: Λειτουργία προεπιλογής πλάγιας Μπάρας
   Player Settings:
     Player Settings: 'Ρυθμίσεις προγράμματος αναπαραγωγής'
     Force Local Backend for Legacy Formats: 'Εξαναγκασμένη τοπική υποστήριξη για Προηγούμενες
