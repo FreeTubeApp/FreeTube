@@ -73,6 +73,9 @@ Subscriptions:
   'Getting Subscriptions.  Please wait.': 'Pobieranie subskrypcji. Proszę czekać...'
   Refresh Subscriptions: Odśwież subskrypcje
   Getting Subscriptions. Please wait.: Pobieranie subskrypcji. Proszę poczekać.
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Ten
+    profil posiada dużą liczbę subskrypcji. Wymuszenie RSS w celu uniknięcia ograniczenia
+    dostępu
 Trending: 'Na czasie'
 Most Popular: 'Popularne'
 Playlists: 'Playlisty'
@@ -141,6 +144,8 @@ Settings:
       Deep Orange: 'Głęboka pomarańcza'
     Secondary Color Theme: 'Drugi kolor motywu'
         #* Main Color Theme
+    UI Scale: Skala UI
+    Expand Side Bar by Default: Domyślnie rozwiń pasek boczny
   Player Settings:
     Player Settings: 'Ustawienia odtwarzacza'
     Force Local Backend for Legacy Formats: 'Wymuś lokalny back-end dla starych formatów'
@@ -263,6 +268,16 @@ Settings:
     Data Settings: Ustawienia danych
     One or more subscriptions were unable to be imported: Nie można było zaimportować
       conajmniej jednej subskrypcji
+  Distraction Free Settings:
+    Distraction Free Settings: Ustawienia skupienia uwagi
+    Hide Live Chat: Schowaj czat na żywo
+    Hide Popular Videos: Schowaj filmy „Popularne”
+    Hide Trending Videos: Schowaj filmy „Na czasie”
+    Hide Recommended Videos: Schowaj polecane filmy
+    Hide Comment Likes: Schowaj łapki w górę komentarzy
+    Hide Channel Subscribers: Schowaj subskrybentów kanału
+    Hide Video Likes And Dislikes: Schowaj łapki w górę i dół filmów
+    Hide Video Views: Schowaj obejrzenia filmu
 About:
   #On About page
   About: 'O projekcie'
@@ -399,6 +414,11 @@ Video:
   Loop Playlist: Zapętl playlistę
   Starting soon, please refresh the page to check again: Wkrótce się zacznie, proszę
     odświeżyć stronę , aby ponownie sprawdzić
+  Audio:
+    Best: Najlepsza
+    High: Wysoka
+    Medium: Średnia
+    Low: Niska
 Videos:
   #& Sort By
   Sort By:
@@ -463,6 +483,10 @@ Comments:
     tego filmu'
   Load More Comments: 'Pokaż więcej komentarzy'
   There are no more comments for this video: Nie ma więcej komentarzy pod tym filmem
+  No more comments available: Nie ma więcej komentarzy
+  Newest first: Najpierw najnowsze
+  Top comments: Najlepsze komentarze
+  Sort by: Sortuj według
 Up Next: 'Następne'
 
 # Toast Messages
