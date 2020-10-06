@@ -70,6 +70,15 @@ export default Vue.extend({
     },
     searchSettings: function () {
       return this.$store.getters.getSearchSettings
+    },
+    profileList: function () {
+      return this.$store.getters.getProfileList
+    },
+    activeProfile: function () {
+      return this.$store.getters.getActiveProfile
+    },
+    defaultProfile: function () {
+      return this.$store.getters.getDefaultProfile
     }
   },
   mounted: function () {
@@ -256,8 +265,6 @@ export default Vue.extend({
     enableCliPing: function () {
       const v = this
       electron.ipcRenderer.on('ping', function (event, message) {
-        console.log('ping!')
-        console.log(message)
         let url = message[message.length - 1]
         if (url) {
           url = url.replace('freetube://', '')

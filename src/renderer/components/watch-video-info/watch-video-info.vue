@@ -60,6 +60,7 @@
       </div>
       <div class="videoOptions">
         <ft-icon-button
+          v-if="!hideRecommendedVideos"
           :title="$t('Toggle Theatre Mode')"
           class="theatreModeButton option"
           icon="expand-alt"

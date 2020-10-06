@@ -78,6 +78,10 @@ export default Vue.extend({
       return this.$store.getters.getDefaultTheatreMode
     },
 
+    hideRecommendedVideos: function () {
+      return this.$store.getters.getHideRecommendedVideos
+    },
+
     formatNames: function () {
       return [
         this.$t('Settings.Player Settings.Default Video Format.Dash Formats'),

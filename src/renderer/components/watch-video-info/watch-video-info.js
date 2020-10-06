@@ -95,6 +95,10 @@ export default Vue.extend({
       return this.$store.getters.getActiveProfile
     },
 
+    hideRecommendedVideos: function () {
+      return this.$store.getters.getHideRecommendedVideos
+    },
+
     formatTypeNames: function () {
       return [
         this.$t('Change Format.Use Dash Formats').toUpperCase(),

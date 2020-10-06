@@ -58,6 +58,14 @@ export default Vue.extend({
       }
     },
 
+    handleRememberHistory: function (value) {
+      if (!value) {
+        this.updateSaveWatchedProgress(false)
+      }
+
+      this.updateRememberHistory(value)
+    },
+
     handleRemoveHistory: function (option) {
       this.showRemoveHistoryPrompt = false
 

@@ -39,7 +39,7 @@
           :label="$t('Settings.Distraction Free Settings.Hide Recommended Videos')"
           :compact="true"
           :default-value="hideRecommendedVideos"
-          @change="updateHideRecommendedVideos"
+          @change="handleHideRecommendedVideos"
         />
         <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Trending Videos')"

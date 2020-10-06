@@ -50,6 +50,9 @@
     .switch-input:checked + &
       background-color: var(--accent-color-light)
 
+    .switch-input:disabled + &
+      background-color: #9E9E9E
+
   &:after
     left: 0
     width: 20px
@@ -63,3 +66,6 @@
       -ms-transform: translate(80%, -50%)
       -webkit-transform: translate(80%, -50%)
       transform: translate(80%, -50%)
+
+    .switch-input:disabled + &
+      background-color: #BDBDBD

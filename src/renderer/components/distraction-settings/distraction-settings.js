@@ -42,6 +42,15 @@ export default Vue.extend({
     }
   },
   methods: {
+    handleHideRecommendedVideos: function (value) {
+      if (value) {
+        this.updatePlayNextVideo(false)
+        this.updateDefaultTheatreMode(true)
+      }
+
+      this.updateHideRecommendedVideos(value)
+    },
+
     ...mapActions([
       'updateHideVideoViews',
       'updateHideVideoLikesAndDislikes',
@@ -50,7 +59,9 @@ export default Vue.extend({
       'updateHideRecommendedVideos',
       'updateHideTrendingVideos',
       'updateHidePopularVideos',
-      'updateHideLiveChat'
+      'updateHideLiveChat',
+      'updatePlayNextVideo',
+      'updateDefaultTheatreMode'
     ])
   }
 })

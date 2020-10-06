@@ -10,6 +10,7 @@
       name="set-name"
       class="switch-input"
       :checked="currentValue"
+      :disabled="disabled"
       @change="$emit('change', currentValue)"
     >
     <label

@@ -31,6 +31,7 @@
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Enable Theatre Mode by Default')"
           :compact="true"
+          :disabled="hideRecommendedVideos"
           :default-value="defaultTheatreMode"
           @change="updateDefaultTheatreMode"
         />
@@ -51,6 +52,7 @@
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Play Next Video')"
           :compact="true"
+          :disabled="hideRecommendedVideos"
           :default-value="playNextVideo"
           @change="updatePlayNextVideo"
         />

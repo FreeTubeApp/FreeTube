@@ -36,16 +36,6 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    setTimeout(() => {
-      const profileIndex = this.profileList.findIndex((profile) => {
-        return profile._id === this.defaultProfile
-      })
-
-      if (profileIndex !== -1) {
-        this.updateActiveProfile(profileIndex)
-      }
-    }, 200)
-
     $('#profileList').focusout(() => {
       $('#profileList')[0].style.display = 'none'
     })

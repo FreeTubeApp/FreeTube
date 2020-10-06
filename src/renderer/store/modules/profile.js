@@ -46,7 +46,7 @@ const getters = {
 }
 
 const actions = {
-  grabAllProfiles ({ dispatch, commit }, defaultName = null) {
+  grabAllProfiles ({ rootState, dispatch, commit }, defaultName = null) {
     profileDb.find({}, (err, results) => {
       if (!err) {
         if (results.length === 0) {
@@ -65,6 +65,17 @@ const actions = {
 
             return b.name - a.name
           })
+
+          if (state.profileList.length < profiles.length) {
+            const profileIndex = profiles.findIndex((profile) => {
+              return profile._id === rootState.settings.defaultProfile
+            })
+
+            if (profileIndex !== -1) {
+              dispatch('updateActiveProfile', profileIndex)
+            }
+          }
+
           commit('setProfileList', profiles)
         }
       }
