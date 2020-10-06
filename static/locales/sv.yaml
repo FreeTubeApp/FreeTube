@@ -149,6 +149,8 @@ Settings:
       Deep Orange: 'Djup Orange'
     Secondary Color Theme: 'Sekundärfärg'
         #* Main Color Theme
+    UI Scale: Skala för användargränssnitt
+    Expand Side Bar by Default: Expandera sidpanelen som standard
   Player Settings:
     Player Settings: 'Spelare'
     Force Local Backend for Legacy Formats: 'Tvinga lokal backend för Legacy format'
