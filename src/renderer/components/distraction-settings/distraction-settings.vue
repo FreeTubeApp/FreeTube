@@ -7,8 +7,8 @@
     >
       {{ $t("Settings.Distraction Free Settings.Distraction Free Settings") }}
     </h3>
-      <div class="switchColumnGrid">
-        <div class="switchColumn">
+    <div class="switchColumnGrid">
+      <div class="switchColumn">
         <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Video Views')"
           :compact="true"
@@ -33,8 +33,8 @@
           :default-value="hideCommentLikes"
           @change="updateHideCommentLikes"
         />
-        </div>
-        <div class="switchColumn">
+      </div>
+      <div class="switchColumn">
         <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Recommended Videos')"
           :compact="true"
@@ -59,11 +59,11 @@
           :default-value="hideLiveChat"
           @change="updateHideLiveChat"
         />
-        </div>
       </div>
-      <br>
-      <ft-flex-box>
-        <ft-select
+    </div>
+    <br>
+    <ft-flex-box>
+      <ft-select
           v-if="false"
           placeholder="Distraction View Type"
           :value="viewValues[0]"
