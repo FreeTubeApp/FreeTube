@@ -152,6 +152,8 @@ Settings:
       Deep Orange: 'Sötét narancssárga'
     Secondary Color Theme: 'Másodlagos színtéma'
         #* Main Color Theme
+    UI Scale: Felhasználói felület méretezése
+    Expand Side Bar by Default: Alapértelmezés szerint oldalsáv megjelenítése
   Player Settings:
     Player Settings: 'Lejátszó beállításai'
     Force Local Backend for Legacy Formats: 'Helyi háttéralkalmazás kényszerítése
@@ -198,7 +200,7 @@ Settings:
       törli az összes feliratkozását és profilt? A művelet nem vonható vissza.'
   Subscription Settings:
     Subscription Settings: 'Feliratkozás beállításai'
-    Hide Videos on Watch: ''
+    Hide Videos on Watch: 'Videók elrejtése megtekintés után'
     Fetch Feeds from RSS: ''
     Manage Subscriptions: ''
   Data Settings:
@@ -224,8 +226,10 @@ Settings:
     Invalid history file: ''
     Subscriptions have been successfully exported: ''
     History object has insufficient data, skipping item: ''
-    All watched history has been successfully imported: ''
-    All watched history has been successfully exported: ''
+    All watched history has been successfully imported: 'Az összes megtekintett előzmény
+      sikeresen importálva'
+    All watched history has been successfully exported: 'Az összes megtekintett előzmény
+      sikeresen exportálva lett'
     Unable to read file: ''
     Unable to write file: ''
     Unknown data key: ''
@@ -340,7 +344,7 @@ Channel:
     Channel Description: ''
     Featured Channels: ''
 Video:
-  Mark As Watched: ''
+  Mark As Watched: 'Megjelölés figyeltként'
   Remove From History: ''
   Video has been marked as watched: ''
   Video has been removed from your history: ''
