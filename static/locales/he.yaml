@@ -149,6 +149,7 @@ Settings:
         #* Main Color Theme
     UI Scale: גודל הממשק
     Expand Side Bar by Default: תפריט צד מורחב כברירת מחדל
+    Disable Smooth Scrolling: השבתת גלילה חלקה
   Player Settings:
     Player Settings: 'הגדרת נגן'
     Force Local Backend for Legacy Formats: 'כפה את מחלץ הסירטונים המקומי על פורמטים
@@ -270,6 +271,8 @@ Settings:
     Hide Video Likes And Dislikes: הסתרת לייקים ודיסלייקים לסרטון
     Distraction Free Settings: הגדרות להשבתת הסחות
     Hide Video Views: הסתרת תצוגות סרטונים
+  The app needs to restart for changes to take effect. Restart and apply change?: צריך
+    להפעיל את היישומון מחדש כדי שהשינויים ייכנסו לתוקף. להפעיל מחדש ולהחיל את השינוי?
 About:
   #On About page
   About: 'אודות'
