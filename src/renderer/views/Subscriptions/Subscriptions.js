@@ -118,7 +118,7 @@ export default Vue.extend({
     } else {
       setTimeout(async () => {
         this.getSubscriptions()
-      }, 200)
+      }, 300)
     }
   },
   methods: {
