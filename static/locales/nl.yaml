@@ -116,7 +116,7 @@ Settings:
     Region for Trending: 'Regio voor Trending'
         #! List countries
     Check for Latest Blog Posts: Controleer de Laatste Blogposts
-    Check for Updates: Check voor Updates
+    Check for Updates: Controleer op Updates
   Theme Settings:
     Theme Settings: 'Thema Instellingen'
     Match Top Bar with Main Color: 'Paar Bovenste Balk met Primaire Kleur'
@@ -178,7 +178,7 @@ Settings:
       8k: '8k'
   Privacy Settings:
     Privacy Settings: 'Privacy Instellingen'
-    Remember History: 'Herinner Geschiedenis'
+    Remember History: 'Onthoud Geschiedenis'
     Save Watched Progress: 'Behoud Video Voortgang'
     Clear Search Cache: 'Zoek Cache Opschonen'
     Are you sure you want to clear out your search cache?: 'Weet u zeker dat u de
@@ -194,7 +194,7 @@ Settings:
     Remove All Subscriptions / Profiles: Verwijder alle Abonnementen / Profielen
   Subscription Settings:
     Subscription Settings: 'Abonnement instellingen'
-    Hide Videos on Watch: 'Verstop video''s zodra bekeken'
+    Hide Videos on Watch: 'Verberg Video''s Zodra Bekeken'
     Subscriptions Export Format:
       Subscriptions Export Format: ''
       #& Freetube
