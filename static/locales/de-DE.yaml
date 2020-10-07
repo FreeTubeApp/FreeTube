@@ -145,6 +145,9 @@ Settings:
       Deep Orange: Dunkelorange
     Secondary Color Theme: Sekundäres Farbenthema
         #* Main Color Theme
+    UI Scale: Skalierung der Benutzeroberfläche
+    Disable Smooth Scrolling: Gleichmäßiges Scrollen deaktivieren
+    Expand Side Bar by Default: Seitenleiste standardmäßig erweitern
   Player Settings:
     Player Settings: Videoabspieler-Einstellungen
     Force Local Backend for Legacy Formats: Lokales System für Altformat erzwingen
@@ -277,6 +280,9 @@ Settings:
     Hide Video Likes And Dislikes: Videobewertungen verbergen
     Hide Video Views: Video-Klicks verbergen
     Distraction Free Settings: Einstellungen für ablenkungsfreien Modus
+  The app needs to restart for changes to take effect. Restart and apply change?: Damit
+    die Änderungen wirksam werden, muss das Programm neu gestartet werden. Änderungen
+    jetzt anwenden und neustarten?
 About:
   #On About page
   About: Über
