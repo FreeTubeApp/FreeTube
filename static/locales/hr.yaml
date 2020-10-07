@@ -144,6 +144,9 @@ Settings:
       Deep Orange: 'Tamno narančasto'
     Secondary Color Theme: 'Tema sekundarne boje'
         #* Main Color Theme
+    UI Scale: Skaliranje korisničkog sučelja
+    Disable Smooth Scrolling: Deaktiviraj glatko klizanje
+    Expand Side Bar by Default: Standardno proširi bočnu traku
   Player Settings:
     Player Settings: 'Postavke playera'
     Force Local Backend for Legacy Formats: 'Prisili lokalni backend za starije (legacy)
@@ -263,6 +266,13 @@ Settings:
     How do I import my subscriptions?: Kako mogu uvesti pretplate?
     One or more subscriptions were unable to be imported: Nije moguće uvesti jednu
       ili više pretplata
+  Distraction Free Settings:
+    Hide Trending Videos: Sakrij videa u trendu
+    Hide Recommended Videos: Sakrij preporučena videa
+    Hide Channel Subscribers: Sakrij pretplatnike kanala
+  The app needs to restart for changes to take effect. Restart and apply change?: Program
+    se mora ponovo pokrenuti da bi promjene stupile na snagu. Ponovo pokrenuti i primijeniti
+    promjene?
 About:
   #On About page
   About: 'Informacije'
