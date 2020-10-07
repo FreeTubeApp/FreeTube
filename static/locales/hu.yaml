@@ -197,31 +197,33 @@ Settings:
     Watch history has been cleared: 'Megtörtént a figyelt előzmények törlése'
     Remove All Subscriptions / Profiles: 'Összes feliratkozás és profil eltávolítása'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Biztosan
-      törli az összes feliratkozását és profilt? A művelet nem vonható vissza.'
+      törli az összes feliratkozást és profilt? A művelet nem vonható vissza.'
   Subscription Settings:
     Subscription Settings: 'Feliratkozás beállításai'
     Hide Videos on Watch: 'Videók elrejtése megtekintés után'
-    Fetch Feeds from RSS: ''
-    Manage Subscriptions: ''
+    Fetch Feeds from RSS: 'RSS-hírcsatornák beolvasása'
+    Manage Subscriptions: 'Feliratkozások kezelése'
   Data Settings:
-    Data Settings: ''
-    Select Import Type: ''
-    Select Export Type: ''
-    Import Subscriptions: ''
-    Import FreeTube: ''
-    Import YouTube: ''
-    Import NewPipe: ''
-    Export Subscriptions: ''
-    Export FreeTube: ''
-    Export YouTube: ''
-    Export NewPipe: ''
-    Import History: ''
-    Export History: ''
+    Data Settings: 'Adatbeállítások'
+    Select Import Type: 'Importálás típusa kiválasztása'
+    Select Export Type: 'Exportálás típusa kiválasztása'
+    Import Subscriptions: 'Feliratkozások importálása'
+    Import FreeTube: 'FreeTube importálása'
+    Import YouTube: 'YouTube importálása'
+    Import NewPipe: 'NewPipe importálása'
+    Export Subscriptions: 'Feliratkozások exportálása'
+    Export FreeTube: 'FreeTube exportálása'
+    Export YouTube: 'FreeTube exportálása'
+    Export NewPipe: 'NewPipe exportálása'
+    Import History: 'Előzmények importálása'
+    Export History: 'Előzmények exportálása'
     Profile object has insufficient data, skipping item: ''
-    All subscriptions and profiles have been successfully imported: ''
-    All subscriptions have been successfully imported: ''
+    All subscriptions and profiles have been successfully imported: 'Az összes feliratkozást
+      és a profilt sikeresen importált'
+    All subscriptions have been successfully imported: 'Az összes feliratkozást sikeresen
+      importált'
     One or more subscriptions were unable to be imported: ''
-    Invalid subscriptions file: ''
+    Invalid subscriptions file: 'Érvénytelen feliratkozási fájl'
     This might take a while, please wait: ''
     Invalid history file: ''
     Subscriptions have been successfully exported: ''
@@ -233,7 +235,7 @@ Settings:
     Unable to read file: ''
     Unable to write file: ''
     Unknown data key: ''
-    How do I import my subscriptions?: ''
+    How do I import my subscriptions?: 'Hogyan lehet importálni feliratkozásaimmal?'
   Advanced Settings:
     Advanced Settings: ''
     Enable Debug Mode (Prints data to the console): ''
@@ -250,12 +252,23 @@ Settings:
       #& Yes
       #& No
     Clear Subscriptions:
-      Clear Subscriptions: ''
+      Clear Subscriptions: 'Feliratkozások törlése'
       # On Click
-      Are you sure you want to remove all subscriptions?: ''
+      Are you sure you want to remove all subscriptions?: 'Biztosan eltávolítja az
+        összes feliratkozást?'
       #& Yes
       #& No
 
+  Distraction Free Settings:
+    Hide Live Chat: Élő csevegés elrejtése
+    Hide Popular Videos: Népszerű videók elrejtése
+    Hide Trending Videos: Felkapott videók elrejtése
+    Hide Recommended Videos: Ajánlott videók elrejtése
+    Hide Comment Likes: Megjegyzés-kedvelések elrejtése
+    Hide Channel Subscribers: Csatorna feliratkozók elrejtése
+    Hide Video Likes And Dislikes: Videó kedvelések és nemtetszések elrejtése
+    Hide Video Views: Videó nézetek elrejtése
+    Distraction Free Settings: Zavartalan beállítások
 About:
   #On About page
   About: ''
@@ -292,7 +305,7 @@ Profile:
   Make Default Profile: ''
   Delete Profile: ''
   Are you sure you want to delete this profile?: ''
-  All subscriptions will also be deleted.: ''
+  All subscriptions will also be deleted.: 'Az összes feliratkozás is törlődik.'
   Profile could not be found: ''
   Your profile name cannot be empty: ''
   Profile has been created: ''
@@ -301,7 +314,7 @@ Profile:
   Removed $ from your profiles: ''
   Your default profile has been changed to your primary profile: ''
   $ is now the active profile: ''
-  Subscription List: ''
+  Subscription List: 'Feliratkozási lista'
   Other Channels: ''
   $ selected: ''
   Select All: ''
@@ -319,9 +332,11 @@ Channel:
   Subscribers: ''
   Subscribe: ''
   Unsubscribe: ''
-  Channel has been removed from your subscriptions: ''
-  Removed subscription from $ other channel(s): ''
-  Added channel to your subscriptions: ''
+  Channel has been removed from your subscriptions: 'A csatornát eltávolítottuk a
+    feliratkozásokból'
+  Removed subscription from $ other channel(s): '$ másik csatornából eltávolította
+    a feliratkozást'
+  Added channel to your subscriptions: 'Csatorna hozzáadva a feliratkozásaihoz'
   Search Channel: ''
   Your search results have returned 0 results: ''
   Sort By: ''
@@ -475,7 +490,7 @@ Invidious API Error (Click to copy): ''
 Falling back to Invidious API: ''
 Falling back to the local API: ''
 This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
-Subscriptions have not yet been implemented: ''
+Subscriptions have not yet been implemented: 'Feliratkozások még nem hajtották végre'
 Loop is now disabled: ''
 Loop is now enabled: ''
 Shuffle is now disabled: ''
