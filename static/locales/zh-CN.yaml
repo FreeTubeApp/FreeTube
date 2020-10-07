@@ -138,6 +138,8 @@ Settings:
       Deep Orange: '深橙'
     Secondary Color Theme: '次主题色'
         #* Main Color Theme
+    UI Scale: UI缩放
+    Expand Side Bar by Default: 默认展开侧边栏
   Player Settings:
     Player Settings: '播放器选项'
     Force Local Backend for Legacy Formats: '强制本地后端给传统格式'
