@@ -149,7 +149,6 @@ export default Vue.extend({
             ]
 
             const profileObject = {}
-
             Object.keys(profileData).forEach((key) => {
               if (!requiredKeys.includes(key)) {
                 const message = this.$t('Settings.Data Settings.Unknown data key')
@@ -772,6 +771,7 @@ export default Vue.extend({
     async convertOldFreeTubeFormatToNew(oldData) {
       const convertedData = []
       for (const channel of oldData) {
+        const listOfProfilesAlreadyAdded = []
         for (const profile of channel.profile) {
           let index = convertedData.findIndex(p => p.name === profile.value)
           if (index === -1) { // profile doesn't exist yet
@@ -785,7 +785,10 @@ export default Vue.extend({
               _id: channel._id
             })
             index = convertedData.length - 1
+          } else if (listOfProfilesAlreadyAdded.indexOf(index) !== -1) {
+            continue
           }
+          listOfProfilesAlreadyAdded.push(index)
           convertedData[index].subscriptions.push({
             id: channel.channelId,
             name: channel.channelName,
