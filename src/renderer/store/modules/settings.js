@@ -60,7 +60,7 @@ const state = {
   useTor: false,
   proxy: 'SOCKS5://127.0.0.1:9050',
   debugMode: false,
-  disctractionFreeMode: false,
+  disableSmoothScrolling: false,
   hideWatchedSubs: false,
   useRssFeeds: false,
   usingElectron: true,
@@ -191,6 +191,10 @@ const getters = {
     return state.usingElectron
   },
 
+  getDisableSmoothScrolling: () => {
+    return state.disableSmoothScrolling
+  },
+
   getHideVideoViews: () => {
     return state.hideVideoViews
   },
@@ -273,6 +277,9 @@ const actions = {
             case 'uiScale':
               webframe.setZoomFactor(parseInt(result.value) / 100)
               commit('setUiScale', result.value)
+              break
+            case 'disableSmoothScrolling':
+              commit('setDisableSmoothScrolling', result.value)
               break
             case 'hideWatchedSubs':
               commit('setHideWatchedSubs', result.value)
@@ -584,6 +591,14 @@ const actions = {
     })
   },
 
+  updateDisableSmoothScrolling ({ commit }, disableSmoothScrolling) {
+    settingsDb.update({ _id: 'disableSmoothScrolling' }, { _id: 'disableSmoothScrolling', value: disableSmoothScrolling }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setDisableSmoothScrolling', disableSmoothScrolling)
+      }
+    })
+  },
+
   updateHideVideoViews ({ commit }, hideVideoViews) {
     settingsDb.update({ _id: 'hideVideoViews' }, { _id: 'hideVideoViews', value: hideVideoViews }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
@@ -740,9 +755,6 @@ const mutations = {
   setDebugMode (state, debugMode) {
     state.debugMode = debugMode
   },
-  setDistractionFreeMode (state, disctractionFreeMode) {
-    state.disctractionFreeMode = disctractionFreeMode
-  },
   setHideWatchedSubs (state, hideWatchedSubs) {
     state.hideWatchedSubs = hideWatchedSubs
   },
@@ -751,6 +763,9 @@ const mutations = {
   },
   setUsingElectron (state, usingElectron) {
     state.usingElectron = usingElectron
+  },
+  setDisableSmoothScrolling (state, disableSmoothScrolling) {
+    state.disableSmoothScrolling = disableSmoothScrolling
   },
   setVideoView (state, videoView) {
     state.videoView = videoView

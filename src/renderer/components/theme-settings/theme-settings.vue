@@ -16,6 +16,11 @@
         :default-value="expandSideBar"
         @change="handleExpandSideBar"
       />
+      <ft-toggle-switch
+        :label="$t('Settings.Theme Settings.Disable Smooth Scrolling')"
+        :default-value="disableSmoothScrollingToggleValue"
+        @change="handleRestartPrompt"
+      />
     </ft-flex-box>
     <ft-flex-box>
       <ft-slider
@@ -52,6 +57,13 @@
         @change="updateSecColor"
       />
     </ft-flex-box>
+    <ft-prompt
+      v-if="showRestartPrompt"
+      :label="restartPromptMessage"
+      :option-names="restartPromptNames"
+      :option-values="restartPromptValues"
+      @click="handleSmoothScrolling"
+    />
   </ft-card>
 </template>
 

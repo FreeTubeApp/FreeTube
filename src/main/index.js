@@ -50,15 +50,28 @@ if (!isDev) {
     })
 
     app.on('ready', (event, commandLine, workingDirectory) => {
-      createWindow()
+      settingsDb.findOne({
+        _id: 'disableSmoothScrolling'
+      }, function (err, doc) {
+        if (err) {
+          app.exit(0)
+          return
+        }
 
-      if (isDev) {
-        installDevTools()
-      }
+        if (doc !== null && doc.value) {
+          app.commandLine.appendSwitch('disable-smooth-scrolling')
+        }
 
-      if (isDebug) {
-        mainWindow.webContents.openDevTools()
-      }
+        createWindow()
+
+        if (isDev) {
+          installDevTools()
+        }
+
+        if (isDebug) {
+          mainWindow.webContents.openDevTools()
+        }
+      })
     })
   } else {
     app.quit()
@@ -69,15 +82,28 @@ if (!isDev) {
   })
 
   app.on('ready', () => {
-    createWindow()
+    settingsDb.findOne({
+      _id: 'disableSmoothScrolling'
+    }, function (err, doc) {
+      if (err) {
+        app.exit(0)
+        return
+      }
 
-    if (isDev) {
-      installDevTools()
-    }
+      if (doc !== null && doc.value) {
+        app.commandLine.appendSwitch('disable-smooth-scrolling')
+      }
 
-    if (isDebug) {
-      mainWindow.webContents.openDevTools()
-    }
+      createWindow()
+
+      if (isDev) {
+        installDevTools()
+      }
+
+      if (isDebug) {
+        mainWindow.webContents.openDevTools()
+      }
+    })
   })
 }
 
@@ -205,6 +231,18 @@ function createWindow () {
     if (typeof (param) !== 'undefined' && param !== null) {
       mainWindow.webContents.send('ping', process.argv)
     }
+  })
+
+  ipcMain.on('disableSmoothScrolling', () => {
+    app.commandLine.appendSwitch('disable-smooth-scrolling')
+    mainWindow.close()
+    createWindow()
+  })
+
+  ipcMain.on('enableSmoothScrolling', () => {
+    app.commandLine.appendSwitch('enable-smooth-scrolling')
+    mainWindow.close()
+    createWindow()
   })
 }
 

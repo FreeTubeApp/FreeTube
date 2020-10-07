@@ -90,6 +90,7 @@ History:
 Settings:
   # On Settings Page
   Settings: Settings
+  The app needs to restart for changes to take effect. Restart and apply change?: The app needs to restart for changes to take effect. Restart and apply change?
   General Settings:
     General Settings: General Settings
     Check for Updates: Check for Updates
@@ -121,6 +122,7 @@ Settings:
     Theme Settings: Theme Settings
     Match Top Bar with Main Color: Match Top Bar with Main Color
     Expand Side Bar by Default: Expand Side Bar by Default
+    Disable Smooth Scrolling: Disable Smooth Scrolling
     UI Scale: UI Scale
     Base Theme:
       Base Theme: Base Theme
