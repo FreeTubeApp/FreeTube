@@ -146,6 +146,7 @@ Settings:
         #* Main Color Theme
     UI Scale: Skala UI
     Expand Side Bar by Default: Domyślnie rozwiń pasek boczny
+    Disable Smooth Scrolling: Wyłącz płynne przewijanie
   Player Settings:
     Player Settings: 'Ustawienia odtwarzacza'
     Force Local Backend for Legacy Formats: 'Wymuś lokalny back-end dla starych formatów'
@@ -278,6 +279,9 @@ Settings:
     Hide Channel Subscribers: Schowaj subskrybentów kanału
     Hide Video Likes And Dislikes: Schowaj łapki w górę i dół filmów
     Hide Video Views: Schowaj obejrzenia filmu
+  The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
+    musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
+    i zastosować zmiany?
 About:
   #On About page
   About: 'O projekcie'
