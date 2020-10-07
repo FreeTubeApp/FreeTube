@@ -143,6 +143,8 @@ Settings:
       Deep Orange: 'Тёмно-оранжевая'
     Secondary Color Theme: 'Тема вторичного цвета'
         #* Main Color Theme
+    UI Scale: Масштаб пользовательского интерфейса
+    Expand Side Bar by Default: Развернуть боковую панель по умолчанию
   Player Settings:
     Player Settings: 'Настройки плеера'
     Force Local Backend for Legacy Formats: 'Принудительно использовать локальный
