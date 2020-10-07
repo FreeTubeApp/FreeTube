@@ -96,9 +96,11 @@
                 {{ reply.time }}
               </span>
             </p>
-            <p class="commentText">
-              {{ reply.text }}
-            </p>
+            <ft-timestamp-catcher
+              class="commentText"
+              :input-html="reply.text"
+              @timestamp-event="onTimestamp"
+            />
             <p class="commentLikeCount">
               <font-awesome-icon
                 icon="thumbs-up"
