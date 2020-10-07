@@ -151,6 +151,9 @@ Settings:
       Deep Orange: 'Наситен оранжев'
     Secondary Color Theme: 'Втора цветова схема'
         #* Main Color Theme
+    UI Scale: Мащ на клиентския интерфейс
+    Disable Smooth Scrolling: Деактивирай плавното скролиране
+    Expand Side Bar by Default: Развиване на страничната лента по подразбиране
   Player Settings:
     Player Settings: 'Настройки на плейъра'
     Force Local Backend for Legacy Formats: 'Принудено връщане към локалния интерфейс
@@ -276,6 +279,8 @@ Settings:
     Hide Video Likes And Dislikes: Скрий оценките на видеата
     Hide Video Views: Скрий видео изгледите
     Distraction Free Settings: Настройки за неразсейване
+  The app needs to restart for changes to take effect. Restart and apply change?: За
+    да имат ефект промените, приложението трябва да се рестартира. Рестартиране?
 About:
   #On About page
   About: 'Относно'
