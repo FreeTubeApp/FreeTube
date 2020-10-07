@@ -130,7 +130,7 @@ Settings:
       Red: 'Rood'
       Pink: 'Roze'
       Purple: 'Paars'
-      Deep Purple: 'Donker Paars'
+      Deep Purple: 'Donkerpaars'
       Indigo: 'Indigoblauw'
       Blue: 'Blauw'
       Light Blue: 'Lichtblauw'
@@ -147,9 +147,10 @@ Settings:
         #* Main Color Theme
     UI Scale: UI schaal
     Expand Side Bar by Default: Zijbalk Standaard Uitschuiven
+    Disable Smooth Scrolling: Schakel Vloeiend Scrollen Uit
   Player Settings:
     Player Settings: 'Speler Instellingen'
-    Force Local Backend for Legacy Formats: 'Forceer Lokale Backend Voor Legacy Formats'
+    Force Local Backend for Legacy Formats: 'Forceer Lokale Backend Voor Legacy Indelingen'
     Play Next Video: 'Speel Volgende Video af'
     Turn on Subtitles by Default: 'Schakel Ondertiteling Standaard in'
     Autoplay Videos: 'Autoplay Video''s'
@@ -159,10 +160,10 @@ Settings:
     Default Volume: 'Standaard Volume'
     Default Playback Rate: 'Standaard Afspeelsnelheid'
     Default Video Format:
-      Default Video Format: 'Standaard Videoformaat'
-      Dash Formats: 'Dash Formaten'
-      Legacy Formats: 'Legacy Formaten'
-      Audio Formats: 'Audio Formaten'
+      Default Video Format: 'Standaard Video-Indeling'
+      Dash Formats: 'Dash Indelingen'
+      Legacy Formats: 'Legacy Indelingen'
+      Audio Formats: 'Audio Indelingen'
     Default Quality:
       Default Quality: 'Standaard Kwaliteit'
       Auto: 'Automatisch'
@@ -277,6 +278,9 @@ Settings:
     Hide Video Likes And Dislikes: Verberg Likes en Dislikes
     Hide Video Views: Verberg Weergaven
     Distraction Free Settings: Afleidingsvrije Instellingen
+  The app needs to restart for changes to take effect. Restart and apply change?: De
+    applicatie moet opnieuw opstarten om de veranderingen aan te brengen. Wilt u opnieuw
+    opstarten?
 About:
   #On About page
   About: 'Over'
@@ -443,14 +447,14 @@ Playlist:
 #& Views
 Toggle Theatre Mode: 'Schakel Theatermodus In'
 Change Format:
-  Change Video Formats: 'Verander Videoformat'
-  Use Dash Formats: 'Gebruikt Dash Format'
-  Use Legacy Formats: 'Gebruik Legacy Format'
-  Use Audio Formats: 'Gebruikt Audio Format'
-  Audio formats are not available for this video: Audio format is niet beschikbaar
+  Change Video Formats: 'Verander Video-indeling'
+  Use Dash Formats: 'Gebruik Dash Indelingen'
+  Use Legacy Formats: 'Gebruik Legacy Indelingen'
+  Use Audio Formats: 'Gebruik Audio Indelingen'
+  Audio formats are not available for this video: Audio indelingen zijn niet beschikbaar
     voor deze video
-  Dash formats are not available for this video: Dash format is niet beschikbaar voor
-    deze video
+  Dash formats are not available for this video: Dash indelingen zijn niet beschikbaar
+    voor deze video
 Share:
   Share Video: 'Deel Video'
   Copy Link: 'Kopieer Link'
@@ -554,5 +558,5 @@ Download From Site: Download Van Website
 Version $ is now available!  Click for more details: Versie $ is nu beschikbaar! Klik
   voor meer informatie
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Deze
-  video is niet beschikbaar vanwege ontbrekende video indelingen. Dit kan gebeuren
+  video is niet beschikbaar vanwege ontbrekende video-indelingen. Dit kan gebeuren
   als de video niet in uw land beschikbaar is.
