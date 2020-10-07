@@ -151,6 +151,9 @@ export default Vue.extend({
             comment.likes = null
           }
           comment.text = autolinker.link(comment.text)
+          comment.replies.forEach((reply) => {
+            reply.text = autolinker.link(reply.text)
+          })
           return comment
         })
         this.commentData = this.commentData.concat(commentData)
