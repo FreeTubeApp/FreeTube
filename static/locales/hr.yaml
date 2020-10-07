@@ -73,6 +73,9 @@ Subscriptions:
     vidjeli.'
   'Getting Subscriptions. Please wait.': 'Dobivanje pretplata. Molimo pričekajte.'
   Refresh Subscriptions: 'Ažurirajte pretplate'
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Ovaj
+    profil sadrži velik broj pretplata. Za izbjegavanje ograničenja stope koristit
+    će se RSS
 Trending: 'U trendu'
 Most Popular: 'Najpopularniji'
 Playlists: 'Popisi za reprodukciju'
