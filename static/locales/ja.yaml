@@ -139,6 +139,8 @@ Settings:
       Deep Orange: '深いオレンジ'
     Secondary Color Theme: '第二配色'
         #* Main Color Theme
+    UI Scale: UI 規模
+    Expand Side Bar by Default: 標準でサイドバーを展開
   Player Settings:
     Player Settings: 'プレイヤーの設定'
     Force Local Backend for Legacy Formats: '旧形式には強制的にローカルバックエンド'
