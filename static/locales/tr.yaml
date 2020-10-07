@@ -150,6 +150,7 @@ Settings:
         #* Main Color Theme
     UI Scale: Kullanıcı Arayüzü Ölçeği
     Expand Side Bar by Default: Yan Çubuğu Öntanımlı Olarak Genişlet
+    Disable Smooth Scrolling: Düzgün Kaydırmayı Devre Dışı Bırak
   Player Settings:
     Player Settings: 'Oynatıcı Ayarları'
     Force Local Backend for Legacy Formats: 'Legacy Biçimler için Yerel Backend Kullanmaya
@@ -274,6 +275,9 @@ Settings:
     Hide Video Likes And Dislikes: Video Beğenmeleri Ve Beğenmemelerini Gizle
     Hide Video Views: Video Görüntülenme Sayılarını Gizle
     Distraction Free Settings: Dikkat Dağıtmama Ayarları
+  The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin
+    etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın
+    ve değişiklikler uygulansın mı?
 About:
   #On About page
   About: 'Hakkında'
