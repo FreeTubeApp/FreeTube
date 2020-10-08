@@ -428,6 +428,9 @@ Video:
     High: Hoch
     Medium: Mittel
     Low: Niedrig
+  audio only: nur Audio
+  video only: nur Video
+  Download Video: Video herunterladen
 Videos:
   #& Sort By
   Sort By:

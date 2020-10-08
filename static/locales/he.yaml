@@ -446,6 +446,9 @@ Video:
     High: איכות גבוהה
     Medium: איכות בינונית
     Low: איכות נמוכה
+  audio only: שמע בלבד
+  video only: סרטון בלבד
+  Download Video: להוריד סרטון
 Videos:
   #& Sort By
   Sort By:

@@ -424,6 +424,9 @@ Video:
     High: Wysoka
     Medium: Średnia
     Low: Niska
+  audio only: tylko audio
+  video only: tylko wideo
+  Download Video: Pobierz film
 Videos:
   #& Sort By
   Sort By:

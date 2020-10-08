@@ -402,7 +402,7 @@ Video:
     Year: 'Jaar'
     Years: 'Jaren'
     Ago: 'Geleden'
-    Upcoming: 'Premières binnenkort'
+    Upcoming: 'Première start binnenkort'
     Minutes: Minuten
     Minute: Minuut
   Published on: 'Gepubliceerd op'
@@ -422,6 +422,9 @@ Video:
     High: Hoog
     Medium: Gemiddeld
     Low: Laag
+  audio only: alleen audio
+  video only: alleen video
+  Download Video: Download Video
 Videos:
   #& Sort By
   Sort By:
