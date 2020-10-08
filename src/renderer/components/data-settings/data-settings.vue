@@ -11,6 +11,10 @@
         @click="showImportSubscriptionsPrompt = true"
       />
       <ft-button
+        :label="$t('Settings.Data Settings.Check for Legacy Subscriptions')"
+        @click="checkForLegacySubscriptions"
+      />
+      <ft-button
         :label="$t('Settings.Data Settings.Export Subscriptions')"
         @click="showExportSubscriptionsPrompt = true"
       />

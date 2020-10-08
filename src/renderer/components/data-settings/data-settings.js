@@ -95,6 +95,81 @@ export default Vue.extend({
       }
     },
 
+    handleFreetubeImportFile: function (filePath) {
+      fs.readFile(filePath, async (err, data) => {
+        if (err) {
+          const message = this.$t('Settings.Data Settings.Unable to read file')
+          this.showToast({
+            message: `${message}: ${err}`
+          })
+          return
+        }
+
+        let textDecode = new TextDecoder('utf-8').decode(data)
+        textDecode = textDecode.split('\n')
+        textDecode.pop()
+        textDecode = textDecode.map(data => JSON.parse(data))
+
+        let importingOldFormat = false
+        const firstEntry = textDecode[0]
+        if (firstEntry.channelId && firstEntry.channelName && firstEntry.channelThumbnail && firstEntry._id && firstEntry.profile) {
+          // Old FreeTube subscriptions format detected, so convert it to the new one:
+          textDecode = await this.convertOldFreeTubeFormatToNew(textDecode)
+          importingOldFormat = true
+        }
+
+        textDecode.forEach((profileData) => {
+          // We would technically already be done by the time the data is parsed,
+          // however we want to limit the possibility of malicious data being sent
+          // to the app, so we'll only grab the data we need here.
+
+          const requiredKeys = [
+            '_id',
+            'name',
+            'bgColor',
+            'textColor',
+            'subscriptions'
+          ]
+
+          const profileObject = {}
+          Object.keys(profileData).forEach((key) => {
+            if (!requiredKeys.includes(key)) {
+              const message = this.$t('Settings.Data Settings.Unknown data key')
+              this.showToast({
+                message: `${message}: ${key}`
+              })
+            } else {
+              profileObject[key] = profileData[key]
+            }
+          })
+
+          if (Object.keys(profileObject).length < requiredKeys.length) {
+            const message = this.$t('Settings.Data Settings.Profile object has insufficient data, skipping item')
+            this.showToast({
+              message: message
+            })
+          } else {
+            if (importingOldFormat && profileObject.name === 'All Channels') {
+              const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
+              // filter out subscriptions that already exist before concatenating
+              profileObject.subscriptions = profileObject.subscriptions.filter(newSub => {
+                const subExists = primaryProfile.subscriptions.find(existingSub => existingSub.id === newSub.id)
+                return !subExists // return false if sub already exists in default profile
+              })
+              primaryProfile.subscriptions = primaryProfile.subscriptions.concat(profileObject.subscriptions)
+              this.updateProfile(primaryProfile)
+            } else {
+              this.updateProfile(profileObject)
+            }
+          }
+        })
+
+        this.showToast({
+          message: this.$t('Settings.Data Settings.All subscriptions and profiles have been successfully imported')
+        })
+      })
+    },
+
     importFreeTubeSubscriptions: function () {
       const options = {
         properties: ['openFile'],
@@ -112,79 +187,7 @@ export default Vue.extend({
         }
 
         const filePath = response.filePaths[0]
-
-        fs.readFile(filePath, async (err, data) => {
-          if (err) {
-            const message = this.$t('Settings.Data Settings.Unable to read file')
-            this.showToast({
-              message: `${message}: ${err}`
-            })
-            return
-          }
-
-          let textDecode = new TextDecoder('utf-8').decode(data)
-          textDecode = textDecode.split('\n')
-          textDecode.pop()
-          textDecode = textDecode.map(data => JSON.parse(data))
-
-          let importingOldFormat = false
-          const firstEntry = textDecode[0]
-          if (firstEntry.channelId && firstEntry.channelName && firstEntry.channelThumbnail && firstEntry._id && firstEntry.profile) {
-            // Old FreeTube subscriptions format detected, so convert it to the new one:
-            textDecode = await this.convertOldFreeTubeFormatToNew(textDecode)
-            importingOldFormat = true
-          }
-
-          textDecode.forEach((profileData) => {
-            // We would technically already be done by the time the data is parsed,
-            // however we want to limit the possibility of malicious data being sent
-            // to the app, so we'll only grab the data we need here.
-
-            const requiredKeys = [
-              '_id',
-              'name',
-              'bgColor',
-              'textColor',
-              'subscriptions'
-            ]
-
-            const profileObject = {}
-            Object.keys(profileData).forEach((key) => {
-              if (!requiredKeys.includes(key)) {
-                const message = this.$t('Settings.Data Settings.Unknown data key')
-                this.showToast({
-                  message: `${message}: ${key}`
-                })
-              } else {
-                profileObject[key] = profileData[key]
-              }
-            })
-
-            if (Object.keys(profileObject).length < requiredKeys.length) {
-              const message = this.$t('Settings.Data Settings.Profile object has insufficient data, skipping item')
-              this.showToast({
-                message: message
-              })
-            } else {
-              if (importingOldFormat && profileObject.name === 'All Channels') {
-                const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
-                // filter out subscriptions that already exist before concatenating
-                profileObject.subscriptions = profileObject.subscriptions.filter(newSub => {
-                  const subExists = primaryProfile.subscriptions.find(existingSub => existingSub.id === newSub.id)
-                  return !subExists // return false if sub already exists in default profile
-                })
-                primaryProfile.subscriptions = primaryProfile.subscriptions.concat(profileObject.subscriptions)
-                this.updateProfile(primaryProfile)
-              } else {
-                this.updateProfile(profileObject)
-              }
-            }
-          })
-
-          this.showToast({
-            message: this.$t('Settings.Data Settings.All subscriptions and profiles have been successfully imported')
-          })
-        })
+        this.handleFreetubeImportFile(filePath)
       })
     },
 
@@ -621,6 +624,17 @@ export default Vue.extend({
             message: this.$t('Settings.Data Settings.Subscriptions have been successfully exported')
           })
         })
+      })
+    },
+
+    checkForLegacySubscriptions: function () {
+      let dbLocation = app.getPath('userData')
+      dbLocation = dbLocation + '/subscriptions.db'
+      this.handleFreetubeImportFile(dbLocation)
+      fs.unlink(dbLocation, (err) => {
+        if (err) {
+          console.log(err)
+        }
       })
     },
 
