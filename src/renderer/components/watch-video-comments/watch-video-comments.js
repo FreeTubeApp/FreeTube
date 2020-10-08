@@ -72,7 +72,16 @@ export default Vue.extend({
 
     handleSortChange: function (sortType) {
       this.sortNewest = !this.sortNewest
-      this.getCommentData(true)
+      switch (this.backendPreference) {
+        case 'local':
+          this.getCommentDataLocal(true)
+          break
+        case 'invidious':
+          this.isLoading = true
+          this.commentData = []
+          this.getCommentDataInvidious(null)
+          break
+      }
     },
 
     getCommentData: function (sortChanged = false) {
@@ -186,7 +195,8 @@ export default Vue.extend({
         resource: 'comments',
         id: this.id,
         params: {
-          continuation: this.nextPageToken
+          continuation: this.nextPageToken,
+          sort_by: this.sortNewest ? 'new' : 'top'
         }
       }
 
@@ -201,7 +211,7 @@ export default Vue.extend({
           } else {
             comment.likes = comment.likeCount
           }
-          comment.text = comment.content
+          comment.text = autolinker.link(comment.content)
           comment.dataType = 'invidious'
 
           if (typeof (comment.replies) !== 'undefined' && typeof (comment.replies.replyCount) !== 'undefined') {
@@ -269,7 +279,7 @@ export default Vue.extend({
           } else {
             comment.likes = comment.likeCount
           }
-          comment.text = comment.content
+          comment.text = autolinker.link(comment.content)
           comment.time = comment.publishedText
           comment.dataType = 'invidious'
           comment.numReplies = 0
