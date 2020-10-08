@@ -140,6 +140,7 @@ Settings:
         #* Main Color Theme
     UI Scale: UI缩放
     Expand Side Bar by Default: 默认展开侧边栏
+    Disable Smooth Scrolling: 禁用平滑滚动
   Player Settings:
     Player Settings: '播放器选项'
     Force Local Backend for Legacy Formats: '强制本地后端给传统格式'
@@ -255,6 +256,7 @@ Settings:
     Hide Video Likes And Dislikes: 隐藏视频喜欢与不喜欢
     Hide Video Views: 隐藏视频观看数量
     Distraction Free Settings: 零打扰设置
+  The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
 About:
   #On About page
   About: '关于'
