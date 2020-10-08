@@ -23,7 +23,7 @@
       <ft-flex-box>
         <ft-button
           v-if="videoList.length > dataLimit"
-          label="Load More"
+          :label="$t('Subscriptions.Load More Videos')"
           background-color="var(--primary-color)"
           text-color="var(--text-with-main-color)"
           @click="increaseLimit"
