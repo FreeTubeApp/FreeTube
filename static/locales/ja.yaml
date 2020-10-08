@@ -33,7 +33,7 @@ Search / Go to URL: '検索 / URLを開く'
 Search Filters:
   Search Filters: '検索絞り込み'
   Sort By:
-    Sort By: '表示順'
+    Sort By: '並び替え'
     Most Relevant: '関連度'
     Rating: '評価'
     Upload Date: 'アップロード日'
@@ -113,7 +113,7 @@ Settings:
     Check for Updates: 最新版を確認
   Theme Settings:
     Theme Settings: 'テーマの設定'
-    Match Top Bar with Main Color: '上部のバーをメインカラーに一致'
+    Match Top Bar with Main Color: '上部バーをメインカラーにする'
     Base Theme:
       Base Theme: 'ベースの配色'
       Black: '黒'
@@ -141,6 +141,7 @@ Settings:
         #* Main Color Theme
     UI Scale: UI 規模
     Expand Side Bar by Default: 標準でサイドバーを展開
+    Disable Smooth Scrolling: 滑らかなスクロールの無効化
   Player Settings:
     Player Settings: 'プレイヤーの設定'
     Force Local Backend for Legacy Formats: '旧形式には強制的にローカルバックエンド'
@@ -148,7 +149,7 @@ Settings:
     Play Next Video: '次の動画を再生'
     Turn on Subtitles by Default: '標準で字幕を有効化'
     Autoplay Videos: '動画の自動再生'
-    Proxy Videos Through Invidious: 'Invidious を介した動画のプロクシー'
+    Proxy Videos Through Invidious: 'Invidious 経由で動画にプロキシ使用'
     Autoplay Playlists: '再生リストの自動再生'
     Enable Theatre Mode by Default: '標準でシアターモードを有効化'
     Default Volume: '標準の音量'
@@ -203,7 +204,7 @@ Settings:
     Clear Subscriptions:
       Clear Subscriptions: '登録を消去'
       # On Click
-      Are you sure you want to remove all subscriptions?: 'すべての登録を消去しますか？'
+      Are you sure you want to remove all subscriptions?: 'すべてのチャンネル登録を消去しますか？'
       #& Yes
       #& No
 
@@ -217,7 +218,7 @@ Settings:
     Are you sure you want to clear out your search cache?: 検索キャッシュを削除しますか？
     Clear Search Cache: 検索キャッシュを削除
     Privacy Settings: 個人情報の設定
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: すべての登録とプロファイルを削除しますか？元に戻せません。
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: すべてのチャンネル登録とプロファイルを削除しますか？元に戻せません。
     Remove All Subscriptions / Profiles: すべての登録とプロファイルを削除
   Data Settings:
     How do I import my subscriptions?: 私の登録をインポートするには？
@@ -228,12 +229,12 @@ Settings:
     All watched history has been successfully imported: すべての視聴履歴は正常にインポートされました
     Profile object has insufficient data, skipping item: プロファイルのデータが不十分なのでこの項目を飛ばします
     History object has insufficient data, skipping item: 履歴のデータが不十分なのでこの項目を飛ばします
-    Subscriptions have been successfully exported: 登録は正常にエクスポートされました
+    Subscriptions have been successfully exported: チャンネル登録は正常にエクスポートされました
     Invalid history file: 無効な履歴ファイル
     This might take a while, please wait: 少し時間がかかります...お待ちください
-    Invalid subscriptions file: 無効な登録ファイル
-    All subscriptions have been successfully imported: すべての登録は正常にインポートされました
-    All subscriptions and profiles have been successfully imported: すべての登録とプロファイルは正常にインポートされました
+    Invalid subscriptions file: 無効なチャンネル登録ファイル
+    All subscriptions have been successfully imported: すべてのチャンネル登録は正常にインポートされました
+    All subscriptions and profiles have been successfully imported: すべてのチャンネル登録とプロファイルは正常にインポートされました
     Export History: 履歴のエクスポート
     Import History: 履歴のインポート
     Export NewPipe: NewPipe エクスポート
@@ -247,7 +248,7 @@ Settings:
     Select Export Type: エクスポート形式の選択
     Select Import Type: インポート形式の選択
     Data Settings: データ設定
-    One or more subscriptions were unable to be imported: 1つ以上の登録をインポートできませんでした
+    One or more subscriptions were unable to be imported: 1つ以上のチャンネル登録をインポートできませんでした
   Distraction Free Settings:
     Hide Live Chat: ライブチャットを非表示
     Hide Popular Videos: 人気の動画を非表示
@@ -258,6 +259,7 @@ Settings:
     Hide Video Views: 再生数を非表示
     Hide Video Likes And Dislikes: 評価を非表示
     Distraction Free Settings: 集中用の設定
+  The app needs to restart for changes to take effect. Restart and apply change?: 変更を反映するには、アプリを再起動する必要があります。再起動し変更を適用しますか？
 About:
   #On About page
   About: 'このソフト'
@@ -287,8 +289,8 @@ About:
 
 #On Channel Page
 Channel:
-  Subscriber: '登録者'
-  Subscribers: '登録者'
+  Subscriber: '人の登録者'
+  Subscribers: '人の登録者'
   Subscribe: '登録'
   Unsubscribe: '登録解除'
   Search Channel: 'チャンネルの検索'
@@ -448,7 +450,7 @@ Comments:
   Top comments: 評価順
   Newest first: 新しい順
   No more comments available: これ以上コメントはありません
-  Sort by: 表示順
+  Sort by: 並び替え
 Up Next: '次の動画'
 
 # Toast Messages
@@ -456,7 +458,7 @@ Local API Error (Click to copy): 'ローカル API エラー (クリックでコ
 Invidious API Error (Click to copy): 'Invidious API エラー (クリックでコピー)'
 Falling back to Invidious API: 'Invidious API にフォールバック'
 Falling back to the local API: 'ローカル API にフォールバック'
-Subscriptions have not yet been implemented: '登録はまだ実装されていません'
+Subscriptions have not yet been implemented: 'チャンネル登録はまだ実装されていません'
 Loop is now disabled: 'ループ再生を無効にしました'
 Loop is now enabled: 'ループ再生を有効にしました'
 Shuffle is now disabled: 'シャッフル再生を無効にしました'
@@ -479,7 +481,7 @@ Profile:
   Profile has been created: プロファイルが作成されました
   Your profile name cannot be empty: プロファイル名が空です
   Profile could not be found: プロファイルはありません
-  All subscriptions will also be deleted.: すべての登録も削除されます。
+  All subscriptions will also be deleted.: すべてのチャンネル登録も削除されます。
   Are you sure you want to delete this profile?: このプロファイルを削除しますか？
   Delete Profile: プロファイルの削除
   Make Default Profile: 初期設定のプロファイル
@@ -499,12 +501,12 @@ Profile:
   Select None: 選択なし
   Select All: すべて選択
   Other Channels: ほかのチャンネル
-  Subscription List: 登録の一覧
+  Subscription List: チャンネル登録の一覧
   $ selected: $ 選択
   Add Selected To Profile: 選択項目をプロファイルに追加
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : これは第一プロファイルです。選択したチャンネルを削除しますか？同じチャンネルは、登録されていればほかのプロフィールからも削除されます。
+  : これは第一プロファイルです。選択したチャンネルを削除しますか？同じチャンネルは、登録されていればほかのプロファイルからも削除されます。
 The playlist has been reversed: 再生リストは逆順になりました
 A new blog is now available, $. Click to view more: '新しいブログがあります: $。クリックで続きを表示'
 Download From Site: サイトからダウンロード
