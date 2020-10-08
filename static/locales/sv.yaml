@@ -151,6 +151,7 @@ Settings:
         #* Main Color Theme
     UI Scale: Skala för användargränssnitt
     Expand Side Bar by Default: Expandera sidpanelen som standard
+    Disable Smooth Scrolling: Inaktivera mjuk rullning
   Player Settings:
     Player Settings: 'Spelare'
     Force Local Backend for Legacy Formats: 'Tvinga lokal backend för Legacy format'
@@ -271,6 +272,8 @@ Settings:
     Hide Channel Subscribers: Dölj kanalprenumeranter
     Hide Video Views: Dölj videovisningar
     Distraction Free Settings: Distraktionsfri
+  The app needs to restart for changes to take effect. Restart and apply change?: Starta
+    om FreeTube nu för att tillämpa ändringarna?
 About:
   #On About page
   About: 'Om'
