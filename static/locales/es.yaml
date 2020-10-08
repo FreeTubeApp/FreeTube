@@ -144,6 +144,7 @@ Settings:
         #* Main Color Theme
     UI Scale: Escala de interfaz gráfica
     Expand Side Bar by Default: Expandir barra lateral por defecto
+    Disable Smooth Scrolling: Desactivar desplazamiento suave
   Player Settings:
     Player Settings: 'Reproductor'
     Force Local Backend for Legacy Formats: 'Forzar API local para formato Legacy'
@@ -267,6 +268,8 @@ Settings:
     Hide Comment Likes: No mostrar likes de comentarios
     Hide Channel Subscribers: No mostrar suscriptores en canales
     Distraction Free Settings: No distraer
+  The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
+    reiniciar FreeTube ahora para aplicar los cambios?
 About:
   #On About page
   About: 'Acerca de'
