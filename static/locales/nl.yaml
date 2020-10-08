@@ -77,6 +77,7 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Dit
     profiel heeft een groot aantal abonnementen. RSS word geforceerd om tariefbeperkingen
     te voorkomen
+  Load More Videos: Laad Meer Video's
 Trending: 'Trending'
 Most Popular: 'Meest Populair'
 Playlists: 'Afspeellijsten'
@@ -506,8 +507,8 @@ Playing Previous Video: 'Vorige Video Word Afgespeeld'
 Playing next video in 5 seconds.  Click to cancel: 'Volgende Video Begint in 5 Seconden.
   Klik om te Annuleer.'
 Canceled next video autoplay: 'Autoplay is geannuleerd'
-'The playlist has ended.  Enable loop to continue playing': 'Het einde van de playlist
-  is bereikt.  Schakel herhalen in de playlist te blijven afspelen'
+'The playlist has ended.  Enable loop to continue playing': 'Het einde van de afspeellijst
+  is bereikt.  Schakel herhalen in om de afspeellijst te blijven afspelen'
 
 Yes: 'Ja'
 No: 'Nee'
