@@ -421,6 +421,9 @@ Video:
     High: Высокое
     Medium: Среднее
     Low: Низкое
+  audio only: только аудио
+  video only: только видео
+  Download Video: Скачать видео
 Videos:
   #& Sort By
   Sort By:
