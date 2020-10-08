@@ -71,6 +71,9 @@ Subscriptions:
   'Getting Subscriptions.  Please wait.': 'Haetaan tilauksia. Odota hetki.'
   Refresh Subscriptions: Päivitä tilaukset
   Getting Subscriptions. Please wait.: Haetaan tilauksia. Odota hetki.
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Tällä
+    profiililla on paljon tilauksia.  Pakotetaan RSS nopeuden rajoittamisen välttämiseksi
+  Load More Videos: Lataa lisää videoita
 Trending: 'Nousussa'
 Most Popular: 'Suosituimmat'
 Playlists: 'Soittolistat'
@@ -139,6 +142,9 @@ Settings:
       Deep Orange: 'Syvä oranssi'
     Secondary Color Theme: 'Toissijainen väriteema'
         #* Main Color Theme
+    UI Scale: Käyttöliittymän koko
+    Disable Smooth Scrolling: Poista tasainen vieritys käytöstä
+    Expand Side Bar by Default: Laajenna sivupalkki oletusarvoisesti
   Player Settings:
     Player Settings: 'Soittimen asetukset'
     Force Local Backend for Legacy Formats: 'Pakota paikallinen taustaohjelma vanhoille
@@ -258,6 +264,19 @@ Settings:
     Select Export Type: Valitse Viennin tyyppi
     Select Import Type: Valitse Tuonnin tyyppi
     Data Settings: Data-asetukset
+  Distraction Free Settings:
+    Hide Live Chat: Piilota Live-keskustelu
+    Hide Popular Videos: Piilota suositut videot
+    Hide Trending Videos: Piilota nousevat videot
+    Hide Recommended Videos: Piilota suositellut videot
+    Hide Comment Likes: Piilota kommenttien tykkäykset
+    Hide Channel Subscribers: Piilota kanavan tilaajat
+    Hide Video Likes And Dislikes: Piilota videon tykkäykset
+    Distraction Free Settings: Häiriöttömän tilan asetukset
+    Hide Video Views: Piilota videonäkymät
+  The app needs to restart for changes to take effect. Restart and apply change?: Sovellus
+    on käynnistettävä uudelleen, jotta sovellukset tulevat voimaan. Käynnistetäänkö
+    uudelleen?
 About:
   #On About page
   About: 'Tietoja'
@@ -388,6 +407,11 @@ Video:
   Loop Playlist: Kierrätä soittolistaa
   Starting soon, please refresh the page to check again: Hetki pieni, päivitä sivu
     uudelleen
+  Audio:
+    Best: Paras
+    High: Korkea
+    Medium: Keskitaso
+    Low: Alhainen
 Videos:
   #& Sort By
   Sort By:
@@ -449,6 +473,10 @@ Comments:
   There are no comments available for this video: 'Tähän videoon ei ole yhtään kommenttia'
   Load More Comments: 'Lataa lisää kommentteja'
   There are no more comments for this video: Ei enempää kommentteja
+  No more comments available: Ei enempää kommentteja
+  Newest first: Uusimmat ensin
+  Top comments: Suosituimmat kommentit
+  Sort by: Lajitteluperuste
 Up Next: 'Seuraavaksi'
 
 # Toast Messages
