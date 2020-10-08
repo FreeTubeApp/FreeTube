@@ -154,6 +154,7 @@ Settings:
         #* Main Color Theme
     UI Scale: Felhasználói felület méretezése
     Expand Side Bar by Default: Alapértelmezés szerint oldalsáv megjelenítése
+    Disable Smooth Scrolling: Finomgörgetés kikapcsolása
   Player Settings:
     Player Settings: 'Lejátszó beállításai'
     Force Local Backend for Legacy Formats: 'Helyi háttéralkalmazás kényszerítése
@@ -163,7 +164,7 @@ Settings:
     Autoplay Videos: 'Videók önműködően lejátszása'
     Proxy Videos Through Invidious: 'Meghatalmazás videók az Invidious révén'
     Autoplay Playlists: 'Lejátszási listák önműködően lejátszása'
-    Enable Theatre Mode by Default: 'Alapértelmezés szerint színházi mód engedélyezése'
+    Enable Theatre Mode by Default: 'Alapértelmezés szerint mozi mód engedélyezése'
     Default Volume: 'Alapértelmezett hangerő'
     Default Playback Rate: 'Alapértelmezett lejátszási sebesség'
     Default Video Format:
@@ -217,38 +218,46 @@ Settings:
     Export NewPipe: 'NewPipe exportálása'
     Import History: 'Előzmények importálása'
     Export History: 'Előzmények exportálása'
-    Profile object has insufficient data, skipping item: ''
+    Profile object has insufficient data, skipping item: 'A profilobjektum nem rendelkezik
+      elegendő adattal, az elem kihagyása'
     All subscriptions and profiles have been successfully imported: 'Az összes feliratkozást
       és a profilt sikeresen importált'
     All subscriptions have been successfully imported: 'Az összes feliratkozást sikeresen
       importált'
-    One or more subscriptions were unable to be imported: ''
+    One or more subscriptions were unable to be imported: 'Egy vagy több feliratkozást
+      nem sikerült importálni'
     Invalid subscriptions file: 'Érvénytelen feliratkozási fájl'
-    This might take a while, please wait: ''
-    Invalid history file: ''
-    Subscriptions have been successfully exported: ''
-    History object has insufficient data, skipping item: ''
+    This might take a while, please wait: 'Ez eltarthat egy ideig. Kis türelmet kérünk'
+    Invalid history file: 'Érvénytelen előzményfájl'
+    Subscriptions have been successfully exported: 'Feliratkozások sikeresen exportálva'
+    History object has insufficient data, skipping item: 'Az előzményobjektum nem
+      rendelkezik elegendő adattal, az elem kihagyása'
     All watched history has been successfully imported: 'Az összes megtekintett előzmény
       sikeresen importálva'
     All watched history has been successfully exported: 'Az összes megtekintett előzmény
       sikeresen exportálva lett'
-    Unable to read file: ''
-    Unable to write file: ''
-    Unknown data key: ''
+    Unable to read file: 'Nem lehet olvasni a fájlt'
+    Unable to write file: 'Nem lehet fájlt írni'
+    Unknown data key: 'Ismeretlen adatkulcs'
     How do I import my subscriptions?: 'Hogyan lehet importálni feliratkozásaimmal?'
   Advanced Settings:
-    Advanced Settings: ''
-    Enable Debug Mode (Prints data to the console): ''
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': ''
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': ''
-    Use Tor / Proxy for API calls: ''
-    TEST PROXY: ''
+    Advanced Settings: 'További beállítások'
+    Enable Debug Mode (Prints data to the console): 'Hibakeresési mód engedélyezése
+      (Adatok nyomtatása a konzolra)'
+    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Meghatalmazás kiszolgáló
+      címe (Példa: SOCKS5://127.0.0.1:9050 )'
+    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'A
+      „Meghatalmazás kiszolgáló ellenőrzése” gombra kattintva kérelmet küld a https://ipinfo.io/json
+      címre'
+    Use Tor / Proxy for API calls: 'Használja a Tor/meghatalmazás kiszolgálót az API
+      hívásokhoz'
+    TEST PROXY: 'Meghatalmazás kiszolgáló ellenőrzése'
     #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: ''
+    See Public Instances: 'Nyilvános példányok megjelenítése'
     Clear History:
-      Clear History: ''
+      Clear History: 'Előzmények törlése'
       # On Click
-      Are you sure you want to delete your history?: ''
+      Are you sure you want to delete your history?: 'Biztosan törli az előzményeket?'
       #& Yes
       #& No
     Clear Subscriptions:
@@ -269,238 +278,281 @@ Settings:
     Hide Video Likes And Dislikes: Videó kedvelések és nemtetszések elrejtése
     Hide Video Views: Videó nézetek elrejtése
     Distraction Free Settings: Zavartalan beállítások
+  The app needs to restart for changes to take effect. Restart and apply change?: Az
+    alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Indítsa
+    újra és alkalmazza a módosítást?
 About:
   #On About page
-  About: ''
+  About: 'Névjegy'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
+  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Ez
+    a másolással szállított szoftver szabadon licencelt az AGPL-3.0.'
 
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >
+  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
+    Talált egy hibát? Szeretne javaslatot tenni egy szolgáltatásra? Szeretne segíteni?
+    Nézze meg GitHub oldalunkat. Húzni kéréseket szívesen fogadjuk.
 
-  Thank you very much to the People and Projects that make FreeTube possible!: ''
+  Thank you very much to the People and Projects that make FreeTube possible!: 'Nagyon
+    köszönöm azoknak az embereknek és projekteknek, amelyek lehetővé teszik a FreeTube
+    használatát!'
 
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': ''
+  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'Szeretnél
+    csevegni? Csatlakozzon az Element/Matrix kiszolgálóhoz. Kérjük, csatlakozás előtt
+    ellenőrizze a szabályokat.'
 
-  'Looking for help? Check out our Wiki page.': ''
+  'Looking for help? Check out our Wiki page.': 'Segítséget keres? Nézze meg Wiki
+    oldalunkat.'
 
-  Check out our Firefox extension!: ''
+  Check out our Firefox extension!: 'Nézze meg Firefox kiegészítőnket!'
 
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': ''
+  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'Ha
+    FreeTube-t használ, fontolja meg az adományozást a Liberapay-n keresztül vagy
+    a Bitcoin-címen keresztül.'
 
   #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
 
-  Latest FreeTube News: ''
+  Latest FreeTube News: 'Legfrissebb FreeTube hírek'
 
 Profile:
-  Profile Select: ''
-  All Channels: ''
-  Profile Manager: ''
-  Create New Profile: ''
-  Edit Profile: ''
-  Color Picker: ''
-  Custom Color: ''
-  Profile Preview: ''
-  Create Profile: ''
-  Update Profile: ''
-  Make Default Profile: ''
-  Delete Profile: ''
-  Are you sure you want to delete this profile?: ''
+  Profile Select: 'Profil kiválasztása'
+  All Channels: 'Összes csatorna'
+  Profile Manager: 'Profilkezelő'
+  Create New Profile: 'Új profil létrehozása'
+  Edit Profile: 'Profil szerkesztése'
+  Color Picker: 'Színválasztó'
+  Custom Color: 'Egyéni szín'
+  Profile Preview: 'Profil előnézet'
+  Create Profile: 'Profil létrehozása'
+  Update Profile: 'Profil frissítése'
+  Make Default Profile: 'Alapértelmezett profil létrehozása'
+  Delete Profile: 'Profil törlése'
+  Are you sure you want to delete this profile?: 'Biztosan törli ezt a profilt?'
   All subscriptions will also be deleted.: 'Az összes feliratkozás is törlődik.'
-  Profile could not be found: ''
-  Your profile name cannot be empty: ''
-  Profile has been created: ''
-  Profile has been updated: ''
-  Your default profile has been set to $: ''
-  Removed $ from your profiles: ''
-  Your default profile has been changed to your primary profile: ''
-  $ is now the active profile: ''
+  Profile could not be found: 'A profil nem található'
+  Your profile name cannot be empty: 'A profil neve nem lehet üres'
+  Profile has been created: 'Profil létrehozva'
+  Profile has been updated: 'A profil frissült'
+  Your default profile has been set to $: 'Alapértelmezett profilja a következőre
+    lett beállítva: $'
+  Removed $ from your profiles: 'A(z) $ eltávolítva a profiljaidból'
+  Your default profile has been changed to your primary profile: 'Az alapértelmezett
+    profil az elsődleges profilra változott'
+  $ is now the active profile: 'A(z) $ most az aktív profil'
   Subscription List: 'Feliratkozási lista'
-  Other Channels: ''
-  $ selected: ''
-  Select All: ''
-  Select None: ''
-  Delete Selected: ''
-  Add Selected To Profile: ''
-  No channel(s) have been selected: ''
+  Other Channels: 'Egyéb csatornák'
+  $ selected: '$ kiválasztva'
+  Select All: 'Összes kijelölése'
+  Select None: 'Kijelölések megszüntetése'
+  Delete Selected: 'Kijelöltek törlése'
+  Add Selected To Profile: 'Kijelöltek hozzáadása a profilhoz'
+  No channel(s) have been selected: 'Nincs kijelölve csatorna'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : ''
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
+  : 'Ez az elsődleges profilod. Biztosan törli a kijelölt csatornákat? Ugyanazok a
+    csatornák törlődnek minden olyan profilban, amelyben megtalálhatók.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Biztosan
+    törli a kijelölt csatornákat? Ez nem törli a csatornát más profilokból.'
 #On Channel Page
 Channel:
-  Subscriber: ''
-  Subscribers: ''
-  Subscribe: ''
-  Unsubscribe: ''
+  Subscriber: 'Feliratkozó'
+  Subscribers: 'Feliratkozók'
+  Subscribe: 'Feliratkozás'
+  Unsubscribe: 'Leiratkozás'
   Channel has been removed from your subscriptions: 'A csatornát eltávolítottuk a
     feliratkozásokból'
   Removed subscription from $ other channel(s): '$ másik csatornából eltávolította
     a feliratkozást'
   Added channel to your subscriptions: 'Csatorna hozzáadva a feliratkozásaihoz'
-  Search Channel: ''
-  Your search results have returned 0 results: ''
-  Sort By: ''
+  Search Channel: 'Csatornakeresés'
+  Your search results have returned 0 results: 'Keresési eredmény: 0 talált'
+  Sort By: 'Rendezés alapja'
   Videos:
-    Videos: ''
-    This channel does not currently have any videos: ''
+    Videos: 'Videók'
+    This channel does not currently have any videos: 'Ebben a csatornában jelenleg
+      nincsenek videók'
     Sort Types:
-      Newest: ''
-      Oldest: ''
-      Most Popular: ''
+      Newest: 'Legújabb'
+      Oldest: 'Legrégebbi'
+      Most Popular: 'Legnépszerűbbek'
   Playlists:
-    Playlists: ''
-    This channel does not currently have any playlists: ''
+    Playlists: 'Lejátszási listák'
+    This channel does not currently have any playlists: 'Ennek a csatornának jelenleg
+      nincsenek lejátszási listái'
     Sort Types:
-      Last Video Added: ''
-      Newest: ''
-      Oldest: ''
+      Last Video Added: 'Utolsó videó hozzáadva'
+      Newest: 'Legújabb'
+      Oldest: 'Legrégebbi'
   About:
-    About: ''
-    Channel Description: ''
-    Featured Channels: ''
+    About: 'Névjegy'
+    Channel Description: 'Csatorna leírása'
+    Featured Channels: 'Kiemelt csatornák'
 Video:
   Mark As Watched: 'Megjelölés figyeltként'
-  Remove From History: ''
-  Video has been marked as watched: ''
-  Video has been removed from your history: ''
-  Open in YouTube: ''
-  Copy YouTube Link: ''
-  Open YouTube Embedded Player: ''
-  Copy YouTube Embedded Player Link: ''
-  Open in Invidious: ''
-  Copy Invidious Link: ''
-  View: ''
-  Views: ''
-  Loop Playlist: ''
-  Shuffle Playlist: ''
-  Reverse Playlist: ''
-  Play Next Video: ''
-  Play Previous Video: ''
+  Remove From History: 'Eltávolítás az előzményekből'
+  Video has been marked as watched: 'A videót figyeltként jelölték meg'
+  Video has been removed from your history: 'A videót eltávolítottuk az előzményekből'
+  Open in YouTube: 'YouTube megnyitása'
+  Copy YouTube Link: 'YouTube hivatkozás másolása'
+  Open YouTube Embedded Player: 'YouTube beágyazott lejátszó megnyitása'
+  Copy YouTube Embedded Player Link: 'YouTube beágyazott lejátszói hivatkozás másolása'
+  Open in Invidious: 'Invidious megnyitása'
+  Copy Invidious Link: 'Invidious hivatkozás másolása'
+  View: 'Nézet'
+  Views: 'Nézetek'
+  Loop Playlist: 'Lejátszási lista folyamatos lejátszása'
+  Shuffle Playlist: 'Véletlen sorrendű lejátszás'
+  Reverse Playlist: 'Fordított lejátszási lista'
+  Play Next Video: 'Következő videó lejátszása'
+  Play Previous Video: 'Előző videó lejátszása'
   # Context is "X People Watching"
-  Watching: ''
-  Watched: ''
-  Autoplay: ''
-  Starting soon, please refresh the page to check again: ''
+  Watching: 'Figyelni'
+  Watched: 'Figyelt'
+  Autoplay: 'Önműködő lejátszás'
+  Starting soon, please refresh the page to check again: 'Hamarosan kezdődik. Kérjük,
+    frissítse az oldalt az ellenőrzéshez'
   # As in a Live Video
-  Live: ''
-  Live Now: ''
-  Live Chat: ''
-  Enable Live Chat: ''
-  Live Chat is currently not supported in this build.: ''
-  'Chat is disabled or the Live Stream has ended.': ''
-  Live chat is enabled.  Chat messages will appear here once sent.: ''
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
+  Live: 'Élő'
+  Live Now: 'Élő most'
+  Live Chat: 'Élő csevegés'
+  Enable Live Chat: 'Élő csevegés engedélyezése'
+  Live Chat is currently not supported in this build.: 'Az élő csevegés jelenleg nem
+    támogatott ebben az összeállításban.'
+  'Chat is disabled or the Live Stream has ended.': 'Csevegés letiltva vagy az élő
+    adatfolyam véget ért.'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'Élő csevegés
+    engedélyezve. A csevegőüzenetek itt jelennek meg, miután elküldték.'
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Az
+    élő csevegést jelenleg nem támogatja az Invidious API. Közvetlen kapcsolat szükséges
+    a YouTube-hoz.'
   Published:
-    Jan: ''
-    Feb: ''
-    Mar: ''
-    Apr: ''
-    May: ''
-    Jun: ''
-    Jul: ''
-    Aug: ''
-    Sep: ''
-    Oct: ''
-    Nov: ''
-    Dec: ''
-    Second: ''
-    Seconds: ''
-    Minute: ''
-    Minutes: ''
-    Hour: ''
-    Hours: ''
-    Day: ''
-    Days: ''
-    Week: ''
-    Weeks: ''
-    Month: ''
-    Months: ''
-    Year: ''
-    Years: ''
-    Ago: ''
-    Upcoming: ''
-  Published on: ''
+    Jan: 'január'
+    Feb: 'február'
+    Mar: 'március'
+    Apr: 'április'
+    May: 'május'
+    Jun: 'június'
+    Jul: 'július'
+    Aug: 'augusztus'
+    Sep: 'szeptember'
+    Oct: 'október'
+    Nov: 'november'
+    Dec: 'december'
+    Second: 'másodperc'
+    Seconds: 'másodperc'
+    Minute: 'perc'
+    Minutes: 'perc'
+    Hour: 'óra'
+    Hours: 'óra'
+    Day: 'nap'
+    Days: 'nap'
+    Week: 'hét'
+    Weeks: 'hét'
+    Month: 'hónap'
+    Months: 'hónap'
+    Year: 'év'
+    Years: 'év'
+    Ago: 'ezelőtt'
+    Upcoming: 'Az első előadás hamarosan lesz'
+  Published on: 'Megjelent'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: ''
+  Publicationtemplate: '$ % ezelőtt'
 #& Videos
+  Audio:
+    Best: Legjobb
+    High: Magas
+    Medium: Közepes
+    Low: Alacsony
 Videos:
   #& Sort By
   Sort By:
-    Newest: ''
-    Oldest: ''
+    Newest: 'Legújabb'
+    Oldest: 'Legrégebbi'
     #& Most Popular
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: ''
-  Videos: ''
-  View: ''
-  Views: ''
-  Last Updated On: ''
+  View Full Playlist: 'Teljes lejátszási lista megtekintése'
+  Videos: 'Videók'
+  View: 'Megtekintés'
+  Views: 'Megtekintések'
+  Last Updated On: 'Utoljára frissítve:'
   Share Playlist:
-    Share Playlist: ''
-    Copy YouTube Link: ''
-    Open in YouTube: ''
-    Copy Invidious Link: ''
-    Open in Invidious: ''
+    Share Playlist: 'Lejátszási lista megosztása'
+    Copy YouTube Link: 'YouTube hivatkozás másolása'
+    Open in YouTube: 'YouTube megnyitása'
+    Copy Invidious Link: 'Invidious hivatkozás másolása'
+    Open in Invidious: 'Invidious megnyitása'
 
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: ''
+Toggle Theatre Mode: 'Mozi mód be-/kikapcsolása'
 Change Format:
-  Change Video Formats: ''
-  Use Dash Formats: ''
-  Use Legacy Formats: ''
-  Use Audio Formats: ''
-  Dash formats are not available for this video: ''
-  Audio formats are not available for this video: ''
+  Change Video Formats: 'Videoformátumok módosítása'
+  Use Dash Formats: 'Kötőjel formátumok használata'
+  Use Legacy Formats: 'Örökölt formátumok használata'
+  Use Audio Formats: 'Hangformátumok használata'
+  Dash formats are not available for this video: 'Kötőjel formátumok nem állnak rendelkezésre
+    ehhez a videóhoz'
+  Audio formats are not available for this video: 'Hangformátumok nem érhetők el ehhez
+    a videóhoz'
 Share:
-  Share Video: ''
-  Include Timestamp: ''
-  Copy Link: ''
-  Open Link: ''
-  Copy Embed: ''
-  Open Embed: ''
+  Share Video: 'Videó megosztása'
+  Include Timestamp: 'Időbélyeg beágyazása'
+  Copy Link: 'Hivatkozás másolása'
+  Open Link: 'Hivatkozás megnyitása'
+  Copy Embed: 'Beágyazás másolása'
+  Open Embed: 'Beágyazás megnyitása'
   # On Click
-  Invidious URL copied to clipboard: ''
-  Invidious Embed URL copied to clipboard: ''
-  YouTube URL copied to clipboard: ''
-  YouTube Embed URL copied to clipboard: ''
-Mini Player: ''
+  Invidious URL copied to clipboard: 'Invidious URL-címe vágólapra másolva'
+  Invidious Embed URL copied to clipboard: 'Invidious beágyazott URL-címe vágólapra
+    másolva'
+  YouTube URL copied to clipboard: 'YouTube URL-címe vágólapra másolva'
+  YouTube Embed URL copied to clipboard: 'YouTube beágyazott URL-címe vágólapra másolva'
+Mini Player: 'Minilejátszó'
 Comments:
-  Comments: ''
-  Click to View Comments: ''
-  Getting comment replies, please wait: ''
-  There are no more comments for this video: ''
-  Show Comments: ''
-  Hide Comments: ''
+  Comments: 'Megjegyzések'
+  Click to View Comments: 'Kattintson a megjegyzések megtekintéséhez'
+  Getting comment replies, please wait: 'Megjegyzésre adott válaszok beolvasása. Kis
+    türelmet kérünk'
+  There are no more comments for this video: 'Ehhez a videóhoz nincsenek további megjegyzések'
+  Show Comments: 'Megjegyzések megjelenítése'
+  Hide Comments: 'Megjegyzések elrejtése'
   # Context: View 10 Replies, View 1 Reply
-  View: ''
-  Hide: ''
-  Replies: ''
-  Reply: ''
-  There are no comments available for this video: ''
-  Load More Comments: ''
-Up Next: ''
+  View: 'Megjelenítés'
+  Hide: 'Elrejtés'
+  Replies: 'Válaszok'
+  Reply: 'Válasz'
+  There are no comments available for this video: 'Ehhez a videóhoz még nincsenek
+    megjegyzések'
+  Load More Comments: 'További megjegyzések betöltése'
+  No more comments available: Nincs több megjegyzés
+  Newest first: Legújabb először
+  Top comments: Legnépszerűbb megjegyzések
+  Sort by: Rendezés alapja
+Up Next: 'Következő'
 
 # Toast Messages
-Local API Error (Click to copy): ''
-Invidious API Error (Click to copy): ''
-Falling back to Invidious API: ''
-Falling back to the local API: ''
-This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
+Local API Error (Click to copy): 'Helyi-API hiba (kattintson a másoláshoz)'
+Invidious API Error (Click to copy): 'Invidious-API hiba (Kattintson a másoláshoz)'
+Falling back to Invidious API: 'Invidious-API visszatérve'
+Falling back to the local API: 'Helyi-API visszatérve'
+This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Ez
+  a videó hiányzó formátumok miatt nem érhető el. Ez az ország nem elérhetősége miatt
+  következhet be.'
 Subscriptions have not yet been implemented: 'Feliratkozások még nem hajtották végre'
-Loop is now disabled: ''
-Loop is now enabled: ''
-Shuffle is now disabled: ''
-Shuffle is now enabled: ''
-The playlist has been reversed: ''
-Playing Next Video: ''
-Playing Previous Video: ''
-Playing next video in 5 seconds.  Click to cancel: ''
-Canceled next video autoplay: ''
-'The playlist has ended.  Enable loop to continue playing': ''
+Loop is now disabled: 'Folyamatos lejátszás kikapcsolva'
+Loop is now enabled: 'Folyamatos lejátszás bekapcsolva'
+Shuffle is now disabled: 'Véletlen sorrendű lejátszás kikapcsolva'
+Shuffle is now enabled: 'Véletlen sorrendű lejátszás bekapcsolva'
+The playlist has been reversed: 'Lejátszási lista megfordítva'
+Playing Next Video: 'Következő videó lejátszása'
+Playing Previous Video: 'Előző videó lejátszása'
+Playing next video in 5 seconds.  Click to cancel: 'A következő videó lejátszása 5
+  másodperc múlva. Kattintson a törléshez.'
+Canceled next video autoplay: 'Következő videó önműködő lejátszása megszakítva'
+'The playlist has ended.  Enable loop to continue playing': 'A lejátszási lista véget
+  ért. Engedélyezze a folyamatos lejátszást a lejátszás folytatásához'
 
-Yes: ''
+Yes: 'Igen'
 No: 'Nem'
