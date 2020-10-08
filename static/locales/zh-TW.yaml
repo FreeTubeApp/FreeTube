@@ -140,6 +140,7 @@ Settings:
         #* Main Color Theme
     UI Scale: UI縮放
     Expand Side Bar by Default: 預設展開側邊欄
+    Disable Smooth Scrolling: 停用平滑捲動
   Player Settings:
     Player Settings: '播放器選項'
     Force Local Backend for Legacy Formats: '強制區域后端給傳統格式'
@@ -255,6 +256,7 @@ Settings:
     Hide Comment Likes: 隱藏評論點讚
     Hide Recommended Videos: 隱藏推薦影片
     Hide Channel Subscribers: 隱藏頻道訂閱者
+  The app needs to restart for changes to take effect. Restart and apply change?: 必須重新啟動應用程式以生效。重新啟動並套用變更嗎？
 About:
   #On About page
   About: '關於'
