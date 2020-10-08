@@ -457,6 +457,9 @@ Video:
     High: Yüksek
     Medium: Orta
     Low: Düşük
+  audio only: yalnızca ses
+  video only: yalnızca video
+  Download Video: Video İndir
 Videos:
   #& Sort By
   Sort By:
