@@ -76,6 +76,7 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Ovaj
     profil sadrži velik broj pretplata. Za izbjegavanje ograničenja stope koristit
     će se RSS
+  Load More Videos: Učitaj još videa
 Trending: 'U trendu'
 Most Popular: 'Najpopularniji'
 Playlists: 'Popisi za reprodukciju'
@@ -269,7 +270,13 @@ Settings:
   Distraction Free Settings:
     Hide Trending Videos: Sakrij videa u trendu
     Hide Recommended Videos: Sakrij preporučena videa
-    Hide Channel Subscribers: Sakrij pretplatnike kanala
+    Hide Channel Subscribers: Sakrij pretplatnike na kanal
+    Hide Live Chat: Sakrij čavrljanje u živo
+    Hide Popular Videos: Sakrij popularna videa
+    Hide Comment Likes: Sakrij ocjene komentara
+    Hide Video Likes And Dislikes: Sakrij ocjenjivanje videa
+    Hide Video Views: Sakrij broj pregleda videa
+    Distraction Free Settings: Postavke za nesmetan rad
   The app needs to restart for changes to take effect. Restart and apply change?: Program
     se mora ponovo pokrenuti da bi promjene stupile na snagu. Ponovo pokrenuti i primijeniti
     promjene?
@@ -446,6 +453,11 @@ Video:
   Loop Playlist: Petljaj popis za reprodukciju
   Starting soon, please refresh the page to check again: Počevši uskoro, osvježite
     stranicu da biste provjerili ponovo
+  Audio:
+    Best: Najbolja
+    High: Visoka
+    Medium: Srednja
+    Low: Niska
 Videos:
   #& Sort By
   Sort By:
@@ -510,6 +522,10 @@ Comments:
     videozapis'
   Load More Comments: 'Učitaj više komentara'
   There are no more comments for this video: Nema više komentara za ovaj video
+  No more comments available: Nema daljnjih komentara
+  Newest first: Najprije najnovije
+  Top comments: Najpopularniji komentari
+  Sort by: Razvrstaj po
 Up Next: 'Sljedeći'
 
 # Toast Messages
