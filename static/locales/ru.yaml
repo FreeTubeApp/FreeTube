@@ -75,6 +75,7 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Этот
     профиль имеет большое количество подписок. Используйте RSS, чтобы избежать ограничения
     скорости
+  Load More Videos: Загрузить больше видео
 Trending: 'Тренды'
 Most Popular: 'Самые популярные'
 Playlists: 'Плейлисты'
@@ -145,6 +146,7 @@ Settings:
         #* Main Color Theme
     UI Scale: Масштаб пользовательского интерфейса
     Expand Side Bar by Default: Развернуть боковую панель по умолчанию
+    Disable Smooth Scrolling: Отключить плавную прокрутку
   Player Settings:
     Player Settings: 'Настройки плеера'
     Force Local Backend for Legacy Formats: 'Принудительно использовать локальный
@@ -276,6 +278,9 @@ Settings:
     Hide Channel Subscribers: Скрыть подписчиков канала
     Hide Video Likes And Dislikes: Скрыть лайки и дизлайки к видео
     Hide Video Views: Скрыть просмотры видео
+  The app needs to restart for changes to take effect. Restart and apply change?: Чтобы
+    изменения вступили в силу, необходимо перезапустить приложение. Перезапустить
+    и применить изменения?
 About:
   #On About page
   About: 'О программе'
