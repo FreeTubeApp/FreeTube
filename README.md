@@ -73,7 +73,7 @@ prevent duplicates.
 If you like to get your hands dirty and want to contribute, we would love to
 have your help.  Send a pull request and someone will review your code. Please
 follow the [Contribution
-Guidelines](https://github.com/FreeTubeApp/FreeTube/blob/master/CONTRIBUTING.md)
+Guidelines](https://github.com/FreeTubeApp/FreeTube/blob/development/CONTRIBUTING.md)
 before sending your pull request.
 
 Thank you very much to the [People and Projects](https://github.com/FreeTubeApp/FreeTube/wiki/Credits) that make FreeTube possible!
