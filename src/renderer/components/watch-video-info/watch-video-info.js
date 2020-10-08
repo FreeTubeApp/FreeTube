@@ -66,6 +66,10 @@ export default Vue.extend({
     isUpcoming: {
       type: Boolean,
       required: true
+    },
+    downloadLinks: {
+      type: Array,
+      required: true
     }
   },
   data: function () {
@@ -97,6 +101,26 @@ export default Vue.extend({
 
     hideRecommendedVideos: function () {
       return this.$store.getters.getHideRecommendedVideos
+    },
+
+    hideVideoLikesAndDislikes: function () {
+      return this.$store.getters.getHideVideoLikesAndDislikes
+    },
+
+    hideVideoViews: function () {
+      return this.$store.getters.getHideVideoViews
+    },
+
+    downloadLinkNames: function () {
+      return this.downloadLinks.map((download) => {
+        return download.label
+      })
+    },
+
+    downloadLinkValues: function () {
+      return this.downloadLinks.map((download) => {
+        return download.url
+      })
     },
 
     formatTypeNames: function () {
@@ -153,12 +177,6 @@ export default Vue.extend({
       const dateSplit = date.toDateString().split(' ')
       const localeDateString = `Video.Published.${dateSplit[1]}`
       return `${this.$t(localeDateString)} ${dateSplit[2]}, ${dateSplit[3]}`
-    },
-    hideVideoLikesAndDislikes: function () {
-      return this.$store.getters.getHideVideoLikesAndDislikes
-    },
-    hideVideoViews: function () {
-      return this.$store.getters.getHideVideoViews
     }
   },
   methods: {
@@ -250,6 +268,11 @@ export default Vue.extend({
           this.$parent.enableAudioFormat()
           break
       }
+    },
+
+    handleDownloadLink: function (url) {
+      const shell = require('electron').shell
+      shell.openExternal(url)
     },
 
     ...mapActions([

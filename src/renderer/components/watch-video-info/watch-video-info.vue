@@ -68,6 +68,16 @@
           @click="$emit('theatre-mode')"
         />
         <ft-icon-button
+          v-if="!isUpcoming && downloadLinks.length > 0"
+          :title="$t('Video.Download Video')"
+          class="option"
+          theme="secondary"
+          icon="download"
+          :dropdown-names="downloadLinkNames"
+          :dropdown-values="downloadLinkValues"
+          @click="handleDownloadLink"
+        />
+        <ft-icon-button
           v-if="!isUpcoming"
           :title="$t('Change Format.Change Video Formats')"
           class="option"

@@ -75,6 +75,7 @@
         :view-count="videoViewCount"
         :get-timestamp="getTimestamp"
         :is-upcoming="isUpcoming"
+        :download-links="downloadLinks"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
         @theatre-mode="toggleTheatreMode"

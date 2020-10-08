@@ -69,6 +69,7 @@ export default Vue.extend({
       audioSourceList: [],
       captionSourceList: [],
       recommendedVideos: [],
+      downloadLinks: [],
       watchingPlaylist: false,
       playlistId: '',
       playNextTimeout: null
@@ -138,6 +139,7 @@ export default Vue.extend({
       this.activeFormat = this.defaultVideoFormat
       this.videoStoryboardSrc = ''
       this.captionSourceList = []
+      this.downloadLinks = []
 
       this.checkIfPlaylist()
 
@@ -311,6 +313,27 @@ export default Vue.extend({
             this.videoLengthSeconds = parseInt(result.videoDetails.lengthSeconds)
             if (result.player_response.streamingData !== undefined) {
               this.videoSourceList = result.player_response.streamingData.formats.reverse()
+              this.downloadLinks = result.formats.map((format) => {
+                const qualityLabel = format.qualityLabel || format.bitrate
+                const itag = format.itag
+                const fps = format.fps ? (format.fps + 'fps') : 'kbps'
+                const type = format.mimeType.match(/.*;/)[0].replace(';', '')
+                let label = `${qualityLabel} ${fps} - ${type}`
+
+                if (itag !== 18 && itag !== 22) {
+                  if (type.includes('video')) {
+                    label += ` ${this.$t('Video.video only')}`
+                  } else {
+                    label += ` ${this.$t('Video.audio only')}`
+                  }
+                }
+                const object = {
+                  url: format.url,
+                  label: label
+                }
+
+                return object
+              })
             } else {
               // video might be region locked or something else. This leads to no formats being available
               this.showToast({
@@ -487,6 +510,28 @@ export default Vue.extend({
           } else {
             this.videoLengthSeconds = result.lengthSeconds
             this.videoSourceList = result.formatStreams.reverse()
+
+            this.downloadLinks = result.adaptiveFormats.concat(this.videoSourceList).map((format) => {
+              const qualityLabel = format.qualityLabel || format.bitrate
+              const itag = parseInt(format.itag)
+              const fps = format.fps ? (format.fps + 'fps') : 'kbps'
+              const type = format.type.match(/.*;/)[0].replace(';', '')
+              let label = `${qualityLabel} ${fps} - ${type}`
+
+              if (itag !== 18 && itag !== 22) {
+                if (type.includes('video')) {
+                  label += ` ${this.$t('Video.video only')}`
+                } else {
+                  label += ` ${this.$t('Video.audio only')}`
+                }
+              }
+              const object = {
+                url: format.url,
+                label: label
+              }
+
+              return object
+            }).reverse()
 
             this.audioSourceList = result.adaptiveFormats.filter((format) => {
               return format.type.includes('audio')
