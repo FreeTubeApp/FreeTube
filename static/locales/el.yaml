@@ -77,6 +77,7 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Αυτό
     το προφίλ διαθέτει ήδη ένα μεγάλο αριθμό Εγγραφών. Εξαναγκασμένη εναλλαγή σε λειτουργία
     RSS για αποφυγή περιορισμού των κλήσεων
+  Load More Videos: Φόρτωση περισσότερων Βίντεο
 Trending: 'Τάσεις'
 Most Popular: 'Πιο δημοφιλή'
 Playlists: 'Λίστες αναπαραγωγής'
@@ -150,6 +151,7 @@ Settings:
         #* Main Color Theme
     UI Scale: Μέγεθος κλίμακας διεπαφής χρήστη
     Expand Side Bar by Default: Λειτουργία προεπιλογής πλάγιας Μπάρας
+    Disable Smooth Scrolling: Απενεργοποίηση ομαλής κύλισης
   Player Settings:
     Player Settings: 'Ρυθμίσεις προγράμματος αναπαραγωγής'
     Force Local Backend for Legacy Formats: 'Εξαναγκασμένη τοπική υποστήριξη για Προηγούμενες
@@ -276,6 +278,9 @@ Settings:
     Hide Video Likes And Dislikes: Απόκρυψη μπάρας "μου αρέσει/δεν μου αρέσει"
     Hide Channel Subscribers: Απόκρυψη συνδρομών καναλιού
     Hide Video Views: Απόκρυψη προβολών βίντεο
+  The app needs to restart for changes to take effect. Restart and apply change?: Η
+    εφαρμογή πρέπει να κάνει επανεκκίνηση για να εφαρμοστούν οι αλλαγές. Επανεκκίνηση
+    και εφαρμογή αλλαγών;
 About:
   #On About page
   About: 'Σχετικά με'
