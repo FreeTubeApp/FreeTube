@@ -96,8 +96,8 @@ Settings:
   Settings: 'Ayarlar'
   General Settings:
     General Settings: 'Genel Ayarlar'
-    Check for Updates: 'Güncellemeleri denetle'
-    Check for Latest Blog Posts: 'En yeni blog gönderilerini denetle'
+    Check for Updates: 'Güncellemeleri Denetle'
+    Check for Latest Blog Posts: 'En Yeni Blog Gönderilerini Denetle'
     Fallback to Non-Preferred Backend on Failure: 'Hata Zamanında Tercih Edilmeyen
       Backend''e Geç'
     Enable Search Suggestions: 'Arama Önerilerini Etkinleştir'
@@ -238,6 +238,7 @@ Settings:
     Unable to write file: 'Dosya yazılamadı'
     Unknown data key: 'Bilinmeyen veri anahtarı'
     How do I import my subscriptions?: 'Aboneliklerimi nasıl içe artarırım?'
+    Check for Legacy Subscriptions: Eski Abonelikleri Denetle
   Advanced Settings:
     Advanced Settings: 'Gelişmiş Ayarlar'
     Enable Debug Mode (Prints data to the console): 'Hata Ayıklama Modunu Etkinleştir
@@ -287,18 +288,17 @@ About:
     lisanssız kopya, ücretsiz olarak AGPL-3.0 lisansına sahiptir.'
 
   'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    Hata mı buldun? Yeni bir özellik mi tavsiye etmek istiyorsun? Yardım mı etmek
-    istiyorsun? GitHub sayfamızı kontrol et.
+    Hata mı buldunuz? Yeni bir özellik mi önermek istiyorsunuz? Yardım etmek mi istiyorsunuz?
+    GitHub sayfamıza bakın. Çekme istekleri kabul edilir.
 
   Thank you very much to the People and Projects that make FreeTube possible!: 'Freetube''yi
     yapmamıza olanak veren herkese ve tüm projelere teşekkürler!'
 
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'Konuşmak
-    mı istiyorsun? Element / Matrix sunucularımızı kontrol et. Lütfen katılmadan önce
-    kuralları gözden geçir.'
+  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'Sohbet
+    etmek mi istiyorsunuz? Element / Matrix sunucumuza katılın. Lütfen katılmadan
+    önce kuralları gözden geçirin.'
 
-  'Looking for help? Check out our Wiki page.': 'Yardım mı lazım? Wiki sayfamızı kontrol
-    et.'
+  'Looking for help? Check out our Wiki page.': 'Yardım mı lazım? Wiki sayfamıza bakın.'
 
   Check out our Firefox extension!: 'Firefox uzantımıza göz atın!'
 
@@ -405,7 +405,7 @@ Video:
   Watched: 'İzlendi'
   Autoplay: 'Otomatik oynatma'
   Starting soon, please refresh the page to check again: 'Yakında başlayacak, lütfen
-    tekrar kontrol etmek için sayfayı yenileyin'
+    tekrar denetlemek için sayfayı yenileyin'
   # As in a Live Video
   Live: 'Canlı'
   Live Now: 'Şimdi Canlı'
