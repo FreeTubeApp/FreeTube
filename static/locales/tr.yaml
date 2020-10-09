@@ -447,7 +447,7 @@ Video:
     Year: 'Yıl'
     Years: 'Yıl'
     Ago: 'Önce'
-    Upcoming: 'Ön gösterim yakında'
+    Upcoming: 'İlk gösterim tarihi'
   Published on: 'Yayınlandı'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % önce'
