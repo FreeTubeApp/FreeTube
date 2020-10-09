@@ -72,6 +72,7 @@ Subscriptions:
   Getting Subscriptions. Please wait.: 正在取得訂閱。請稍候。
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 這個設定檔有大量訂閱。
     強制RSS已防止速率限制
+  Load More Videos: 載入更多影片
 Trending: '熱門'
 Most Popular: '最流行'
 Playlists: '播放清單'
@@ -246,6 +247,7 @@ Settings:
     Select Import Type: 選取匯入類型
     Data Settings: 資料設定
     One or more subscriptions were unable to be imported: 一個或者更多訂閱無法被導入
+    Check for Legacy Subscriptions: 檢查舊版訂閱
   Distraction Free Settings:
     Hide Video Likes And Dislikes: 隱藏影片喜歡與不喜歡
     Distraction Free Settings: 零打擾設定
@@ -359,7 +361,7 @@ Video:
     Year: '年'
     Years: '年'
     Ago: '前'
-    Upcoming: '即將上映'
+    Upcoming: '首映'
     Minutes: 分鐘
     Minute: 分鐘
   Published on: '發布於'
@@ -382,6 +384,9 @@ Video:
     High: 高
     Medium: 中
     Low: 低
+  audio only: 僅音訊
+  video only: 僅影片
+  Download Video: 下載影片
 Videos:
   #& Sort By
   Sort By:
