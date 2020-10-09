@@ -92,7 +92,7 @@ Settings:
   Settings: 'Postavke'
   General Settings:
     General Settings: 'Opće postavke'
-    Fallback to Non-Preferred Backend on Failure: 'Vraćanje na ne-preferirani pozadinski
+    Fallback to Non-Preferred Backend on Failure: 'Koristi ne-preferirani pozadinski
       sustav u slučaju neuspjeha'
     Enable Search Suggestions: 'Aktiviraj prijedloge pretraživanja'
     Default Landing Page: 'Standardna odredišna stranica'
@@ -115,7 +115,7 @@ Settings:
       (standardno se koristi https://invidious.snopyta.org)'
     Region for Trending: 'Regija za videozapise u trendu'
         #! List countries
-    Check for Latest Blog Posts: Potraži najnovije objave na blogu
+    Check for Latest Blog Posts: Aktualiziraj objave na blogu
     Check for Updates: Potraži nove verzije
   Theme Settings:
     Theme Settings: 'Postavke teme'
@@ -154,7 +154,7 @@ Settings:
       stare formate'
     Play Next Video: 'Reproduciraj sljedeći videozapis'
     Turn on Subtitles by Default: 'Standardno uključi titlove'
-    Autoplay Videos: 'Automatska reprodukcija videozapisa'
+    Autoplay Videos: 'Automatski reproduciraj videozapise'
     Proxy Videos Through Invidious: 'Reproduciraj videozapise putem Invidious proxyja'
     Autoplay Playlists: 'Automatski reproduciraj zbirke'
     Enable Theatre Mode by Default: 'Standardno aktiviraj kazališni modus'
@@ -533,8 +533,8 @@ Up Next: 'Sljedeći'
 # Toast Messages
 Local API Error (Click to copy): 'Greška lokalnog sučelja (pritisni za kopiranje)'
 Invidious API Error (Click to copy): 'Greška Invidious sučelja (pritisni za kopiranje)'
-Falling back to Invidious API: 'Vraćanje na Invidious sučelje'
-Falling back to the local API: 'Vraćanje na lokalno sučelje'
+Falling back to Invidious API: 'Koristit će se Invidious sučelje'
+Falling back to the local API: 'Koristit će se lokalno sučelje'
 Subscriptions have not yet been implemented: 'Pretplate još nisu implementirane'
 Loop is now disabled: 'Ponavljanje je sada deaktivirano'
 Loop is now enabled: 'Ponavljanje je sada aktivirano'
