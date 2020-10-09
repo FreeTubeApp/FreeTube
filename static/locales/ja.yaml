@@ -72,6 +72,7 @@ Subscriptions:
   Getting Subscriptions. Please wait.: 登録を取得中...お待ちください。
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: このプロファイルには多くのチャンネル登録があります。評価の制限を回避するため強制的に
     RSS にします
+  Load More Videos: さらに動画を読み込む
 Trending: '急上昇'
 Most Popular: '最も人気'
 Playlists: '再生リスト'
@@ -249,6 +250,7 @@ Settings:
     Select Import Type: インポート形式の選択
     Data Settings: データ設定
     One or more subscriptions were unable to be imported: 1つ以上のチャンネル登録をインポートできませんでした
+    Check for Legacy Subscriptions: 従来の登録を確認
   Distraction Free Settings:
     Hide Live Chat: ライブチャットを非表示
     Hide Popular Videos: 人気の動画を非表示
@@ -388,6 +390,9 @@ Video:
     High: 高
     Medium: 中
     Low: 低
+  audio only: ''
+  video only: ''
+  Download Video: ''
 Videos:
   #& Sort By
   Sort By:
