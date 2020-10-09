@@ -235,6 +235,7 @@ Settings:
     Unable to write file: 'לא ניתן ליצור את הקובץ'
     Unknown data key: 'מפתח נתון לא ידוע'
     How do I import my subscriptions?: 'איך לייבא את המנויים שלי?'
+    Check for Legacy Subscriptions: איתור מינויים מיושנים
   Advanced Settings:
     Advanced Settings: 'הגדרות מתקדמות'
     Enable Debug Mode (Prints data to the console): 'הפעל מצב Debug ( מציג נתונים
@@ -436,7 +437,7 @@ Video:
     Year: 'שנה'
     Years: 'שנים'
     Ago: 'לפני'
-    Upcoming: 'שידור הבכורה ישודר בקרוב'
+    Upcoming: 'שידור הבכורה ישודר ב־'
   Published on: 'פורסם ב'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'לפני $ %'
