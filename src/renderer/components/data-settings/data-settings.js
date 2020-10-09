@@ -110,12 +110,10 @@ export default Vue.extend({
         textDecode.pop()
         textDecode = textDecode.map(data => JSON.parse(data))
 
-        let importingOldFormat = false
         const firstEntry = textDecode[0]
         if (firstEntry.channelId && firstEntry.channelName && firstEntry.channelThumbnail && firstEntry._id && firstEntry.profile) {
           // Old FreeTube subscriptions format detected, so convert it to the new one:
           textDecode = await this.convertOldFreeTubeFormatToNew(textDecode)
-          importingOldFormat = true
         }
 
         const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))

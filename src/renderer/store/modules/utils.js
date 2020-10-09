@@ -278,7 +278,7 @@ const actions = {
       return '0' + payload.liveStreamString
     } else if (payload.isUpcoming || payload.publishText === null) {
       // the check for null is currently just an inferring of knowledge, because there is no other possibility left
-      return payload.upcomingString
+      return `${payload.upcomingString}: ${payload.publishText}`
     } else if (payload.isRSS) {
       return payload.publishText
     }

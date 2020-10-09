@@ -445,7 +445,7 @@ Video:
     Year: Year
     Years: Years
     Ago: Ago
-    Upcoming: Premieres soon
+    Upcoming: Premieres on
   Published on: Published on
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: $ % ago

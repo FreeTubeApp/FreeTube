@@ -78,7 +78,7 @@
         >
           <span>{{ channelName }}</span>
         </router-link>
-        <template v-if="!isLive && !hideViews">
+        <template v-if="!isLive && !isUpcoming && !hideViews">
           <span class="viewCount">• {{ parsedViewCount }}</span>
           <span v-if="viewCount === 1">{{ $t("Video.View").toLowerCase() }}</span>
           <span v-else>{{ $t("Video.Views").toLowerCase() }}</span>

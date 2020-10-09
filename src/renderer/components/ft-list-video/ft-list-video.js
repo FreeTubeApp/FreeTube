@@ -41,6 +41,7 @@ export default Vue.extend({
       publishedText: '',
       isLive: false,
       isFavorited: false,
+      isUpcoming: false,
       hideViews: false,
       optionsValues: [
         'history',
@@ -254,18 +255,25 @@ export default Vue.extend({
       this.duration = this.calculateVideoDuration(this.data.lengthSeconds)
       this.description = this.data.description
       this.isLive = this.data.liveNow
+      this.isUpcoming = this.data.isUpcoming || this.data.premiere
       this.viewCount = this.data.viewCount
+
+      if (typeof (this.data.premiereTimestamp) !== 'undefined') {
+        this.publishedText = new Date(this.data.premiereTimestamp * 1000).toLocaleString()
+      } else {
+        this.publishedText = this.data.publishedText
+      }
 
       if (typeof (this.data.publishedText) !== 'undefined' && this.data.publishedText !== null && !this.isLive) {
         // produces a string according to the template in the locales string
         this.toLocalePublicationString({
-          publishText: this.data.publishedText,
+          publishText: this.publishedText,
           templateString: this.$t('Video.Publicationtemplate'),
           timeStrings: this.$t('Video.Published'),
           liveStreamString: this.$t('Video.Watching'),
           upcomingString: this.$t('Video.Published.Upcoming'),
           isLive: this.isLive,
-          isUpcoming: this.data.isUpcoming,
+          isUpcoming: this.isUpcoming,
           isRSS: this.data.isRSS
         }).then((data) => {
           this.uploadedTime = data
