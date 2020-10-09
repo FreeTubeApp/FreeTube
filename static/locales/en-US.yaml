@@ -29,9 +29,11 @@ Close: Close
 Back: Back
 Forward: Forward
 
-Version $ is now available!  Click for more details: Version $ is now available!  Click for more details
+Version $ is now available!  Click for more details: Version $ is now available!  Click
+  for more details
 Download From Site: Download From Site
-A new blog is now available, $. Click to view more: A new blog is now available, $. Click to view more
+A new blog is now available, $. Click to view more: A new blog is now available, $.
+  Click to view more
 
 # Search Bar
 Search / Go to URL: Search / Go to URL
@@ -72,7 +74,8 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: Subscriptions
   Latest Subscriptions: Latest Subscriptions
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: This
+    profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Your
     Subscription list is currently empty. Start adding subscriptions to see them here.
   'Getting Subscriptions. Please wait.': Getting Subscriptions. Please wait.
@@ -91,7 +94,8 @@ History:
 Settings:
   # On Settings Page
   Settings: Settings
-  The app needs to restart for changes to take effect. Restart and apply change?: The app needs to restart for changes to take effect. Restart and apply change?
+  The app needs to restart for changes to take effect. Restart and apply change?: The
+    app needs to restart for changes to take effect. Restart and apply change?
   General Settings:
     General Settings: General Settings
     Check for Updates: Check for Updates
@@ -115,8 +119,8 @@ Settings:
       Beginning: Beginning
       Middle: Middle
       End: End
-    'Invidious Instance (Default is https://invidious.snopyta.org)': Invidious Instance (Default
-      is https://invidious.snopyta.org)
+    'Invidious Instance (Default is https://invidious.snopyta.org)': Invidious Instance
+      (Default is https://invidious.snopyta.org)
     Region for Trending: Region for Trending
         #! List countries
   Theme Settings:
@@ -337,16 +341,23 @@ Profile:
   Delete Selected: Delete Selected
   Add Selected To Profile: Add Selected To Profile
   No channel(s) have been selected: No channel(s) have been selected
-  This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.: This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
+    same channels will be deleted in any profile they are found in.
+  : This is your primary profile.  Are you sure you want to delete the selected channels?  The
+    same channels will be deleted in any profile they are found in.
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Are
+    you sure you want to delete the selected channels?  This will not delete the channel
+    from any other profile.
 #On Channel Page
 Channel:
   Subscriber: Subscriber
   Subscribers: Subscribers
   Subscribe: Subscribe
   Unsubscribe: Unsubscribe
-  Channel has been removed from your subscriptions: Channel has been removed from your subscriptions
-  Removed subscription from $ other channel(s): Removed subscription from $ other channel(s)
+  Channel has been removed from your subscriptions: Channel has been removed from
+    your subscriptions
+  Removed subscription from $ other channel(s): Removed subscription from $ other
+    channel(s)
   Added channel to your subscriptions: Added channel to your subscriptions
   Search Channel: Search Channel
   Your search results have returned 0 results: Your search results have returned 0
@@ -394,7 +405,8 @@ Video:
   Watching: Watching
   Watched: Watched
   Autoplay: Autoplay
-  Starting soon, please refresh the page to check again: Starting soon, please refresh the page to check again
+  Starting soon, please refresh the page to check again: Starting soon, please refresh
+    the page to check again
   # As in a Live Video
   Live: Live
   Live Now: Live Now
@@ -448,7 +460,7 @@ Video:
     Upcoming: Premieres on
   Published on: Published on
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: $ % ago
+  Publicationtemplate: $ % ago
 #& Videos
 Videos:
   #& Sort By
@@ -480,8 +492,10 @@ Change Format:
   Use Dash Formats: Use Dash Formats
   Use Legacy Formats: Use Legacy Formats
   Use Audio Formats: Use Audio Formats
-  Dash formats are not available for this video: Dash formats are not available for this video
-  Audio formats are not available for this video: Audio formats are not available for this video
+  Dash formats are not available for this video: Dash formats are not available for
+    this video
+  Audio formats are not available for this video: Audio formats are not available
+    for this video
 Share:
   Share Video: Share Video
   Include Timestamp: Include Timestamp
@@ -521,7 +535,9 @@ Local API Error (Click to copy): Local API Error (Click to copy)
 Invidious API Error (Click to copy): Invidious API Error (Click to copy)
 Falling back to Invidious API: Falling back to Invidious API
 Falling back to the local API: Falling back to the local API
-This video is unavailable because of missing formats. This can happen due to country unavailability.: This video is unavailable because of missing formats. This can happen due to country unavailability.
+This video is unavailable because of missing formats. This can happen due to country unavailability.: This
+  video is unavailable because of missing formats. This can happen due to country
+  unavailability.
 Subscriptions have not yet been implemented: Subscriptions have not yet been implemented
 Loop is now disabled: Loop is now disabled
 Loop is now enabled: Loop is now enabled
