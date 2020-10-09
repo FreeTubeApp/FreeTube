@@ -115,7 +115,7 @@ Settings:
       (standardno se koristi https://invidious.snopyta.org)'
     Region for Trending: 'Regija za trendove'
         #! List countries
-    Check for Latest Blog Posts: Potraži najnovije postove na blogu
+    Check for Latest Blog Posts: Potraži najnovije objave na blogu
     Check for Updates: Potraži nove verzije
   Theme Settings:
     Theme Settings: 'Postavke teme'
@@ -266,6 +266,7 @@ Settings:
     How do I import my subscriptions?: Kako uvesti pretplate?
     One or more subscriptions were unable to be imported: Nije moguće uvesti jednu
       ili više pretplata
+    Check for Legacy Subscriptions: Potraži stare pretplate
   Distraction Free Settings:
     Hide Trending Videos: Sakrij videozapise u trendu
     Hide Recommended Videos: Sakrij preporučene videozapise
