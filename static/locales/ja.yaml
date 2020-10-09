@@ -390,9 +390,9 @@ Video:
     High: 高
     Medium: 中
     Low: 低
-  audio only: ''
-  video only: ''
-  Download Video: ''
+  audio only: '音声のみ'
+  video only: '映像のみ'
+  Download Video: 'ビデオのダウンロード'
 Videos:
   #& Sort By
   Sort By:
