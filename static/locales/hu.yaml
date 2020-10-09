@@ -84,6 +84,7 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Ez
     a profil nagyszámú feliratkozást tartalmaz. RSS kényszerítése a sebességkorlátozás
     elkerülésére
+  Load More Videos: További videók betöltése
 Trending: 'Népszerű'
 Most Popular: 'Legnépszerűbbek'
 Playlists: 'Lejátszási listák'
@@ -240,6 +241,7 @@ Settings:
     Unable to write file: 'Nem lehet fájlt írni'
     Unknown data key: 'Ismeretlen adatkulcs'
     How do I import my subscriptions?: 'Hogyan lehet importálni feliratkozásaimmal?'
+    Check for Legacy Subscriptions: Örökölt feliratkozások keresése
   Advanced Settings:
     Advanced Settings: 'További beállítások'
     Enable Debug Mode (Prints data to the console): 'Hibakeresési mód engedélyezése
@@ -462,6 +464,9 @@ Video:
     High: Magas
     Medium: Közepes
     Low: Alacsony
+  audio only: csak hang
+  video only: csak videó
+  Download Video: Videó letöltése
 Videos:
   #& Sort By
   Sort By:
