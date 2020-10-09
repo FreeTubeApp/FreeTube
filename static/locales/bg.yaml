@@ -243,6 +243,7 @@ Settings:
     Unable to write file: 'Файлът не се записа'
     Unknown data key: 'Непознат ключ данни'
     How do I import my subscriptions?: 'Как да импортирам абонаментите си?'
+    Check for Legacy Subscriptions: Провери за стари абонаменти
   Advanced Settings:
     Advanced Settings: 'Настройки за напреднали'
     Enable Debug Mode (Prints data to the console): 'Активиране на режим за дебъгване
@@ -454,7 +455,7 @@ Video:
     Year: 'година'
     Years: 'години'
     Ago: 'преди'
-    Upcoming: 'Премиерата започва скоро'
+    Upcoming: 'Премиерата върви'
   Published on: 'Публикуван на'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Преди $ %'
@@ -464,6 +465,9 @@ Video:
     High: Високо
     Medium: Средно
     Low: Ниско
+  audio only: само аудио
+  video only: само видео
+  Download Video: Свали видео
 Videos:
   #& Sort By
   Sort By:
