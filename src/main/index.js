@@ -60,6 +60,8 @@ if (!isDev) {
 
         if (doc !== null && doc.value) {
           app.commandLine.appendSwitch('disable-smooth-scrolling')
+        } else {
+          app.commandLine.appendSwitch('enable-smooth-scrolling')
         }
 
         createWindow()
@@ -92,6 +94,8 @@ if (!isDev) {
 
       if (doc !== null && doc.value) {
         app.commandLine.appendSwitch('disable-smooth-scrolling')
+      } else {
+        app.commandLine.appendSwitch('enable-smooth-scrolling')
       }
 
       createWindow()
