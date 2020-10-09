@@ -450,7 +450,7 @@ Video:
     Upcoming: 'İlk gösterim tarihi'
   Published on: 'Yayınlandı'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % önce'
+  Publicationtemplate: '$ % önce'
 #& Videos
   Audio:
     Best: En iyi
