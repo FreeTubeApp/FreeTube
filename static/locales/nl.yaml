@@ -269,6 +269,7 @@ Settings:
       met succes geëxporteerd
     All watched history has been successfully imported: De bekeken geschiedenis is
       met succes geïmporteerd
+    Check for Legacy Subscriptions: Controleer op Legacy Abonnementen
   Distraction Free Settings:
     Hide Live Chat: Verberg Live Chat
     Hide Popular Videos: Verberg Populaire Video's
@@ -402,7 +403,7 @@ Video:
     Year: 'Jaar'
     Years: 'Jaren'
     Ago: 'Geleden'
-    Upcoming: 'Première start binnenkort'
+    Upcoming: 'Première start op'
     Minutes: Minuten
     Minute: Minuut
   Published on: 'Gepubliceerd op'
