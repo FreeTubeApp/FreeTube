@@ -74,6 +74,7 @@ Subscriptions:
   Refresh Subscriptions: 'Recargar suscripciones'
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
     perfil tiene muchas suscripciones. Para eludir este límite, usaremos RSS.
+  Load More Videos: Ver más
 Trending: 'Tendencias'
 Most Popular: 'Más populares'
 Playlists: 'Playlists'
@@ -231,6 +232,7 @@ Settings:
     How do I import my subscriptions?: '¿Cómo puedo importar mis suscripciones?'
     One or more subscriptions were unable to be imported: Una o varias de las suscripciones
       no han podido ser importadas
+    Check for Legacy Subscriptions: Comprobar suscripciones Legacy
   Advanced Settings:
     Advanced Settings: 'Ajustes avanzados'
     Enable Debug Mode (Prints data to the console): 'Activar modo de depuración (muestra
@@ -435,7 +437,7 @@ Video:
     Year: 'Año'
     Years: 'Años'
     Ago: 'Hace'
-    Upcoming: 'Comenzará pronto'
+    Upcoming: 'Comenzará el'
   Published on: 'Publicado el'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Hace $ %'
@@ -452,6 +454,9 @@ Video:
     High: Alta
     Medium: Media
     Low: Baja
+  audio only: Solo audio
+  video only: Solo video
+  Download Video: Descargar video
 Videos:
   #& Sort By
   Sort By:
