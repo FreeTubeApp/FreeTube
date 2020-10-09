@@ -30,7 +30,7 @@ Back: 'Natrag'
 Forward: 'Naprijed'
 
 # Search Bar
-Search / Go to URL: 'Pretraži / idi na URL'
+Search / Go to URL: 'Pretraži / Idi na URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtri za pretraživanje'
@@ -43,7 +43,7 @@ Search Filters:
   Time:
     Time: 'Vrijeme'
     Any Time: 'Bilo kada'
-    Last Hour: 'Posljednji sat'
+    Last Hour: 'U zadnjih sat vremena'
     Today: 'Danas'
     This Week: 'Ovaj tjedan'
     This Month: 'Ovaj mjesec'
@@ -69,7 +69,7 @@ Subscriptions:
   Subscriptions: 'Pretplate'
   Latest Subscriptions: 'Najnovije pretplate'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Tvoj
-    popis pretplata trenutačno je prazan. Za prikaz pretplata na ovom mjestu, dodaj
+    popis pretplata je trenutačno prazan. Za prikaz pretplata na ovom mjestu, dodaj
     pretplate.'
   'Getting Subscriptions. Please wait.': 'Preuzimanje pretplata. Pričekaj.'
   Refresh Subscriptions: 'Aktualiziraj pretplate'
@@ -96,14 +96,14 @@ Settings:
       sustav u slučaju neuspjeha'
     Enable Search Suggestions: 'Aktiviraj prijedloge pretraživanja'
     Default Landing Page: 'Standardna odredišna stranica'
-    Locale Preference: 'Preferirani jezik'
+    Locale Preference: 'Jezik'
     Preferred API Backend:
-      Preferred API Backend: 'Preferirani pozadinski sustav API-a'
-      Local API: 'Lokalni API'
-      Invidious API: 'Invidious API'
+      Preferred API Backend: 'Preferirani pozadinski sustav sučelja'
+      Local API: 'Lokalno sučelje'
+      Invidious API: 'Invidious sučelje'
     Video View Type:
       Video View Type: 'Način prikaza videozapisa'
-      Grid: 'Pločasto'
+      Grid: 'Popločeno'
       List: 'Popis'
     Thumbnail Preference:
       Thumbnail Preference: 'Minijature'
@@ -113,7 +113,7 @@ Settings:
       End: 'Kraj'
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious primjerak
       (standardno se koristi https://invidious.snopyta.org)'
-    Region for Trending: 'Regija za trendove'
+    Region for Trending: 'Regija za videozapise u trendu'
         #! List countries
     Check for Latest Blog Posts: Potraži najnovije objave na blogu
     Check for Updates: Potraži nove verzije
@@ -131,7 +131,7 @@ Settings:
       Pink: 'Ružičasta'
       Purple: 'Ljubičasta'
       Deep Purple: 'Tamnoljubičasta'
-      Indigo: 'Indigo'
+      Indigo: 'Modroljubičasta'
       Blue: 'Plava'
       Light Blue: 'Svjetloplava'
       Cyan: 'Cijan'
@@ -140,7 +140,7 @@ Settings:
       Light Green: 'Svjetlozelena'
       Lime: 'Limunasta'
       Yellow: 'Žuta'
-      Amber: 'Jantar'
+      Amber: 'Žutosmeđa'
       Orange: 'Narančasta'
       Deep Orange: 'Tamnonarančasta'
     Secondary Color Theme: 'Sekundarna boja teme'
@@ -164,7 +164,7 @@ Settings:
       Default Video Format: 'Standardni videoformat'
       Dash Formats: 'Dash formati'
       Legacy Formats: 'Stari formati'
-      Audio Formats: 'Audio formati'
+      Audio Formats: 'Audioformati'
     Default Quality:
       Default Quality: 'Standardna kvaliteta'
       Auto: 'Automatski'
@@ -213,7 +213,7 @@ Settings:
       //127.0.0.1: 9050)'
     'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Pritiskom
       gumba „TESTIRAJ PROXY” poslat će se zahtjev na https://ipinfo.io/json'
-    Use Tor / Proxy for API calls: 'Koristi Tor/Proxy za API pozive'
+    Use Tor / Proxy for API calls: 'Koristi Tor/Proxy za pozive sučelja'
     TEST PROXY: 'TESTIRAJ PROXY'
     #& Invidious Instance (Default is https://invidious.snopyta.org)
     See Public Instances: 'Pogledaj javne primjerke'
@@ -277,15 +277,15 @@ Settings:
     Hide Video Likes And Dislikes: Sakrij ocjenjivanje videozapisa
     Hide Video Views: Sakrij broj gledanja videozapisa
     Distraction Free Settings: Postavke za nesmetan rad
-  The app needs to restart for changes to take effect. Restart and apply change?: Program
-    se mora ponovo pokrenuti da bi promjene stupile na snagu. Ponovo pokrenuti program
+  The app needs to restart for changes to take effect. Restart and apply change?: Za
+    primjenu promjena, program se mora ponovo pokrenuti. Ponovo pokrenuti program
     i primijeniti promjene?
 About:
   #On About page
   About: 'Informacije'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Ovaj
-    je program slobodno licenciran pod uvjetima AGPL-3.0 licence.'
+    je program licenciran pod uvjetima AGPL-3.0 licence.'
 
   'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
     Pronašao/la si grešku? Želiš predložiti funkciju? Želiš pomoći? Pogledaj našu
@@ -324,7 +324,7 @@ Profile:
   Make Default Profile: 'Postavi kao standardni profil'
   Delete Profile: 'Izbriši profil'
   Are you sure you want to delete this profile?: 'Stvarno želiš izbrisati ovaj profil?'
-  All subscriptions will also be deleted.: 'Također će se izbrisati sve pretplate.'
+  All subscriptions will also be deleted.: 'Izbrisat će se i sve pretplate.'
   Profile could not be found: 'Profil nije pronađen'
   Your profile name cannot be empty: 'Ime profila ne smije biti prazno'
   Profile has been created: 'Profil je stvoren'
@@ -387,11 +387,11 @@ Video:
   Remove From History: 'Ukloni iz povijesti'
   Video has been marked as watched: 'Videozapis je označen kao pogledan'
   Video has been removed from your history: 'Videozapis je uklonjen iz tvoje povijesti'
-  Open in YouTube: 'Otvori u YouTube'
+  Open in YouTube: 'Otvori na YouTube stranici'
   Copy YouTube Link: 'Kopiraj poveznicu na YouTube'
   Open YouTube Embedded Player: 'Otvori ugrađeni YouTube player'
   Copy YouTube Embedded Player Link: 'Kopiraj poveznicu na ugrađeni YouTube player'
-  Open in Invidious: 'Otvori u Invidious'
+  Open in Invidious: 'Otvori na Invidious stranici'
   Copy Invidious Link: 'Kopiraj poveznicu na Invidious'
   View: 'gledanje'
   Views: 'gledanja'
@@ -410,8 +410,8 @@ Video:
   Live chat is enabled.  Chat messages will appear here once sent.: 'Chat uživo je
     aktiviran. Poruke chata pojavit će se ovdje nakon slanja.'
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Chat
-    uživo trenutačno nije podržan s Invidious API-jem. Potrebna je izravna veza s
-    YouTube-om.'
+    uživo trenutačno nije podržan s Invidious sučeljem. Potrebna je izravna veza s
+    YouTubeom.'
   Published:
     Jan: 'sij'
     Feb: 'velj'
@@ -440,10 +440,10 @@ Video:
     Year: 'g'
     Years: 'g'
     Ago: 'Prije'
-    Upcoming: 'Uskoro premijera'
+    Upcoming: 'Datum premijere'
   Published on: 'Datum objave'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'prije $ %'
+  Publicationtemplate: 'prije $ %'
 #& Videos
   Autoplay: Automatska reprodukcija
   Play Previous Video: Reproduciraj prethodni videozapis
@@ -478,9 +478,9 @@ Playlist:
   Share Playlist:
     Share Playlist: 'Dijeli zbirku'
     Copy YouTube Link: 'Kopiraj poveznicu na YouTube'
-    Open in YouTube: 'Otvori na YouTube'
+    Open in YouTube: 'Otvori na YouTube stranici'
     Copy Invidious Link: 'Kopiraj poveznicu na Invidious'
-    Open in Invidious: 'Otvori u Invidious'
+    Open in Invidious: 'Otvori na Invidious stranici'
 
 # On Video Watch Page
 #* Published
@@ -499,15 +499,15 @@ Share:
   Share Video: 'Dijeli videozapis'
   Copy Link: 'Kopiraj poveznicu'
   Open Link: 'Otvori poveznicu'
-  Copy Embed: 'Kopiraj ugrađeno'
-  Open Embed: 'Otvori ugrađeni'
+  Copy Embed: 'Kopiraj ugrađenu verziju'
+  Open Embed: 'Otvori ugrađenu verziju'
   # On Click
   Invidious URL copied to clipboard: 'Invidious URL je kopiran u međuspremnik'
-  Invidious Embed URL copied to clipboard: 'Invidious URL za ugrađivanje kopiran je
-    u međuspremnik'
+  Invidious Embed URL copied to clipboard: 'Invidious URL ugrađene verzije kopiran
+    je u međuspremnik'
   YouTube URL copied to clipboard: 'YouTube URL je kopiran u međuspremnik'
-  YouTube Embed URL copied to clipboard: 'YouTube URL za ugrađivanje kopiran je u
-    međuspremnik'
+  YouTube Embed URL copied to clipboard: 'YouTube URL ugrađene verzije kopiran je
+    u međuspremnik'
   Include Timestamp: Uključi vremensku oznaku
 Mini Player: 'Mali player'
 Comments:
@@ -531,10 +531,10 @@ Comments:
 Up Next: 'Sljedeći'
 
 # Toast Messages
-Local API Error (Click to copy): 'Greška lokalnog API-ja (Pritisni za kopiranje)'
-Invidious API Error (Click to copy): 'Greška Invidious API-ja (Pritisni za kopiranje)'
-Falling back to Invidious API: 'Vraćanje na Invidious API'
-Falling back to the local API: 'Vraćanje na lokalni API'
+Local API Error (Click to copy): 'Greška lokalnog sučelja (pritisni za kopiranje)'
+Invidious API Error (Click to copy): 'Greška Invidious sučelja (pritisni za kopiranje)'
+Falling back to Invidious API: 'Vraćanje na Invidious sučelje'
+Falling back to the local API: 'Vraćanje na lokalno sučelje'
 Subscriptions have not yet been implemented: 'Pretplate još nisu implementirane'
 Loop is now disabled: 'Ponavljanje je sada deaktivirano'
 Loop is now enabled: 'Ponavljanje je sada aktivirano'
