@@ -118,6 +118,8 @@ export default Vue.extend({
           importingOldFormat = true
         }
 
+        const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
+
         textDecode.forEach((profileData) => {
           // We would technically already be done by the time the data is parsed,
           // however we want to limit the possibility of malicious data being sent
@@ -149,17 +151,45 @@ export default Vue.extend({
               message: message
             })
           } else {
-            if (importingOldFormat && profileObject.name === 'All Channels') {
-              const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
-              // filter out subscriptions that already exist before concatenating
-              profileObject.subscriptions = profileObject.subscriptions.filter(newSub => {
-                const subExists = primaryProfile.subscriptions.find(existingSub => existingSub.id === newSub.id)
-                return !subExists // return false if sub already exists in default profile
-              })
+            if (profileObject.name === 'All Channels' || profileObject._id === 'allChannels') {
               primaryProfile.subscriptions = primaryProfile.subscriptions.concat(profileObject.subscriptions)
+              primaryProfile.subscriptions = primaryProfile.subscriptions.filter((sub, index) => {
+                const profileIndex = primaryProfile.subscriptions.findIndex((x) => {
+                  return x.name === sub.name
+                })
+
+                return profileIndex === index
+              })
               this.updateProfile(primaryProfile)
             } else {
-              this.updateProfile(profileObject)
+              const existingProfileIndex = this.profileList.findIndex((profile) => {
+                return profile.name.includes(profileObject.name)
+              })
+
+              if (existingProfileIndex !== -1) {
+                const existingProfile = JSON.parse(JSON.stringify(this.profileList[existingProfileIndex]))
+                existingProfile.subscriptions = existingProfile.subscriptions.concat(profileObject.subscriptions)
+                existingProfile.subscriptions = existingProfile.subscriptions.filter((sub, index) => {
+                  const profileIndex = existingProfile.subscriptions.findIndex((x) => {
+                    return x.name === sub.name
+                  })
+
+                  return profileIndex === index
+                })
+                this.updateProfile(existingProfile)
+              } else {
+                this.updateProfile(profileObject)
+              }
+
+              primaryProfile.subscriptions = primaryProfile.subscriptions.concat(profileObject.subscriptions)
+              primaryProfile.subscriptions = primaryProfile.subscriptions.filter((sub, index) => {
+                const profileIndex = primaryProfile.subscriptions.findIndex((x) => {
+                  return x.name === sub.name
+                })
+
+                return profileIndex === index
+              })
+              this.updateProfile(primaryProfile)
             }
           }
         })
