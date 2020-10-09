@@ -72,6 +72,7 @@ Subscriptions:
   Getting Subscriptions. Please wait.: 获取订阅中。 请稍候。
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 这个配置文件有大量订阅。
     强制RSS已防止速率限制
+  Load More Videos: 加载更多视频
 Trending: '热门'
 Most Popular: '最流行'
 Playlists: '播放列表'
@@ -246,6 +247,7 @@ Settings:
     Select Import Type: 选择导入类型
     Data Settings: 数据设置
     One or more subscriptions were unable to be imported: 一个或者更多订阅无法被导入
+    Check for Legacy Subscriptions: 检查传统订阅
   Distraction Free Settings:
     Hide Popular Videos: 隐藏流行视频
     Hide Trending Videos: 隐藏热门视频
@@ -359,7 +361,7 @@ Video:
     Year: '年'
     Years: '年'
     Ago: '前'
-    Upcoming: '即将上映'
+    Upcoming: '首映于'
     Minutes: 分钟
     Minute: 分钟
   Published on: '发布于'
@@ -382,6 +384,9 @@ Video:
     High: 高
     Medium: 中
     Low: 低
+  audio only: 仅音频
+  video only: 仅视频
+  Download Video: 下载视频
 Videos:
   #& Sort By
   Sort By:
