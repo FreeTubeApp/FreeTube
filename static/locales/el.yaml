@@ -415,7 +415,7 @@ Video:
   Play Previous Video: 'Αναπαραγωγή προηγούμενου βίντεο'
   # Context is "X People Watching"
   Watching: 'Παρακολουθούν τώρα'
-  Watched: 'Παρακολούθησαν'
+  Watched: 'Παρακολουθήθηκε'
   Autoplay: 'Αυτόματη αναπαραγωγή'
   # As in a Live Video
   Live: 'Ζωντανά'
