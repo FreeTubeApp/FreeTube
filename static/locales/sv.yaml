@@ -81,6 +81,7 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Den
     här profilen har ett stort antal prenumerationer.  Tvinga RSS för att undvika
     ränta begränsa
+  Load More Videos: Se mer
 Trending: 'Trender'
 Most Popular: 'Mest populära'
 Playlists: 'Spellistor'
@@ -235,6 +236,7 @@ Settings:
     Unable to write file: 'kan inte skriva arkivet'
     Unknown data key: 'Okänd datanyckel'
     How do I import my subscriptions?: 'Hur importerar jag mina prenumerationer?'
+    Check for Legacy Subscriptions: Sök efter Legacy prenumerationer
   Advanced Settings:
     Advanced Settings: 'Avancerade inställningar'
     Enable Debug Mode (Prints data to the console): 'Aktivera felsökningsläge (Skriver
@@ -444,7 +446,7 @@ Video:
     Year: 'År'
     Years: 'År'
     Ago: 'Sedan'
-    Upcoming: 'Premiär snart'
+    Upcoming: 'Premiärer på'
   Published on: 'Publicerad den'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'för $ % sedan'
@@ -454,6 +456,9 @@ Video:
     High: Hög
     Medium: Medium
     Low: Låg
+  audio only: endast ljud
+  video only: endast video
+  Download Video: Ladda ner video
 Videos:
   #& Sort By
   Sort By:

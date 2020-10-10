@@ -158,7 +158,7 @@ Settings:
       Default Video Format: '預設影片格式'
       Dash Formats: 'Dash格式'
       Legacy Formats: '傳統格式'
-      Audio Formats: '聲訊格式'
+      Audio Formats: '音訊格式'
     Default Quality:
       Default Quality: '預設品質'
       Auto: '自動'
@@ -247,7 +247,7 @@ Settings:
     Select Import Type: 選取匯入類型
     Data Settings: 資料設定
     One or more subscriptions were unable to be imported: 一個或者更多訂閱無法被導入
-    Check for Legacy Subscriptions: 檢查舊版訂閱
+    Check for Legacy Subscriptions: 檢查傳統訂閱
   Distraction Free Settings:
     Hide Video Likes And Dislikes: 隱藏影片喜歡與不喜歡
     Distraction Free Settings: 零打擾設定
@@ -361,7 +361,7 @@ Video:
     Year: '年'
     Years: '年'
     Ago: '前'
-    Upcoming: '首映'
+    Upcoming: '首映於'
     Minutes: 分鐘
     Minute: 分鐘
   Published on: '發布於'
@@ -416,8 +416,8 @@ Change Format:
   Change Video Formats: '更換影片格式'
   Use Dash Formats: '使用Dash格式'
   Use Legacy Formats: '使用傳統格式'
-  Use Audio Formats: '使用聲訊格式'
-  Audio formats are not available for this video: 這個影片沒有聲訊格式
+  Use Audio Formats: '使用音訊格式'
+  Audio formats are not available for this video: 這個影片沒有音訊格式
   Dash formats are not available for this video: 這個影片沒有Dash格式
 Share:
   Share Video: '分享影片'

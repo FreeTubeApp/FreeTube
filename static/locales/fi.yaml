@@ -264,6 +264,7 @@ Settings:
     Select Export Type: Valitse Viennin tyyppi
     Select Import Type: Valitse Tuonnin tyyppi
     Data Settings: Data-asetukset
+    Check for Legacy Subscriptions: Tarkista vanhat tilaukset
   Distraction Free Settings:
     Hide Live Chat: Piilota Live-keskustelu
     Hide Popular Videos: Piilota suositut videot
@@ -345,7 +346,7 @@ Video:
   Open in Invidious: 'Avaa Invidious'
   Copy Invidious Link: 'Kopioi Invidious-linkki'
   View: 'Katselu'
-  Views: 'Katselukerrat'
+  Views: 'Katsomiskertaa'
   # Context is "X People Watching"
   Watching: 'Katsoo'
   Watched: 'Katsotut'
@@ -388,12 +389,12 @@ Video:
     Year: 'Vuosi'
     Years: 'Vuotta'
     Ago: 'sitten'
-    Upcoming: 'Ensiesitys pian'
+    Upcoming: 'Ensiesitys'
     Minutes: Minuutit
     Minute: Minuutti
   Published on: 'Julkaistu'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % sitten'
+  Publicationtemplate: '$ % sitten'
 #& Videos
   Video has been removed from your history: Video on poistettu historiastasi
   Video has been marked as watched: Video on merkitty katsotuksi
@@ -412,6 +413,9 @@ Video:
     High: Korkea
     Medium: Keskitaso
     Low: Alhainen
+  audio only: vain ääni
+  video only: vain video
+  Download Video: Lataa video
 Videos:
   #& Sort By
   Sort By:
@@ -424,7 +428,7 @@ Playlist:
   View Full Playlist: 'Näytä koko soittolista'
   Videos: 'Videot'
   View: 'Katselu'
-  Views: 'Katselukerrat'
+  Views: 'Katsomiskertaa'
   Last Updated On: 'Viimeksi päivitetty'
   Share Playlist:
     Share Playlist: 'Jaa soittolista'

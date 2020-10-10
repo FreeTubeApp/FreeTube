@@ -440,7 +440,7 @@ Video:
     Upcoming: 'שידור הבכורה ישודר ב־'
   Published on: 'פורסם ב'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'לפני $ %'
+  Publicationtemplate: 'לפני $ %'
 #& Videos
   Audio:
     Best: איכות הכי טובה

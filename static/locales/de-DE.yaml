@@ -271,6 +271,7 @@ Settings:
     Select Export Type: Wähle Exporttyp
     Select Import Type: Wähle Importtyp
     Data Settings: Dateneinstellungen
+    Check for Legacy Subscriptions: Prüfung auf Altabonnements
   Distraction Free Settings:
     Hide Live Chat: Live-Chat verbergen
     Hide Popular Videos: Beliebte Videos verbergen
@@ -404,7 +405,7 @@ Video:
     Year: Jahr
     Years: Jahren
     Ago: Vor
-    Upcoming: Premiere bald
+    Upcoming: Premiere am
     Minutes: Minuten
     Minute: Minute
   Published on: Veröffentlicht am

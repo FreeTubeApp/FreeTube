@@ -100,8 +100,7 @@ Settings:
     Default Landing Page: 'Προεπιλεγμένη σελίδα προορισμού'
     Locale Preference: 'Τοπική Προτίμηση'
     Preferred API Backend:
-      Preferred API Backend: 'Προτιμώμενο συστήμα υποστήριξης (διεπαφής προγραμματισμού
-        εφαρμογών (API))'
+      Preferred API Backend: 'Προτιμώμενο συστήμα (API)'
       Local API: 'Τοπική διεπαφή προγραμματισμού εφαρμογών (API)'
       Invidious API: 'Διεπαφή προγραμματισμού εφαρμογής Invidious (*API)'
     Video View Type:
@@ -240,6 +239,7 @@ Settings:
     Unable to write file: 'Αδύνατη εγγραφή του αρχείου'
     Unknown data key: 'Άγνωστο κλειδί δεδομένων'
     How do I import my subscriptions?: 'Πως γίνεται η εισαγωγή των συνδρομών μου;'
+    Check for Legacy Subscriptions: Ελέγξτε για παλαιότερες εγγραφές
   Advanced Settings:
     Advanced Settings: 'Ρυθμίσεις για προχωρημένους'
     Enable Debug Mode (Prints data to the console): 'Ενεργοποίηση λειτουργίας εντοπισμού
@@ -459,7 +459,7 @@ Video:
     Year: 'Έτος'
     Years: 'Χρόνια'
     Ago: 'Πριν'
-    Upcoming: 'Πρεμιέρα σύντομα'
+    Upcoming: 'Πρεμιέρες στις'
   Published on: 'Δημοσιεύθηκε στις'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'δημοσιεύθηκε πριν από $ %'
@@ -471,6 +471,9 @@ Video:
     Low: Χαμηλή
   Starting soon, please refresh the page to check again: Η εκκίνηση θα γίνει σύντομα,
     παρακαλούμε κάντε ανανέωση της σελίδας και ελέγξτε ξανά
+  audio only: μόνο Ήχος
+  video only: μόνο Βίντεο
+  Download Video: Λήψη Βίντεο
 Videos:
   #& Sort By
   Sort By:
