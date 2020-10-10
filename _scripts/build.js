@@ -58,14 +58,6 @@ const config = {
     window: {
       height: 380,
       width: 540,
-    },
-    extendInfo: {
-      CFBundleURLTypes: [
-        'freetube'
-      ],
-      CFBundleURLSchemes: [
-        'freetube'
-      ]
     }
   },
   linux: {
@@ -78,6 +70,14 @@ const config = {
     icon: '_icons/iconColor.icns',
     target: ['dmg', 'zip'],
     type: 'distribution',
+    extendInfo: {
+      CFBundleURLTypes: [
+        'freetube'
+      ],
+      CFBundleURLSchemes: [
+        'freetube'
+      ]
+    }
   },
   win: {
     icon: '_icons/iconColor.ico',
