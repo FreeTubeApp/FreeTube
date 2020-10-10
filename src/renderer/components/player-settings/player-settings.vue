@@ -65,7 +65,7 @@
         :min-value="0"
         :max-value="100"
         :step="1"
-        value-extension="%"
+        value-extension=" %"
         @change="parseVolumeBeforeUpdate"
       />
       <ft-slider
@@ -74,7 +74,7 @@
         :min-value="0.25"
         :max-value="3"
         :step="0.25"
-        value-extension="x"
+        value-extension=" ×"
         @change="updateDefaultPlayback"
       />
     </ft-flex-box>
