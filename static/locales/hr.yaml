@@ -43,7 +43,7 @@ Search Filters:
   Time:
     Time: 'Vrijeme'
     Any Time: 'Bilo kada'
-    Last Hour: 'U zadnjih sat vremena'
+    Last Hour: 'Zadnji sat'
     Today: 'Danas'
     This Week: 'Ovaj tjedan'
     This Month: 'Ovaj mjesec'
@@ -441,7 +441,7 @@ Video:
     Years: 'g'
     Ago: 'Prije'
     Upcoming: 'Datum premijere'
-  Published on: 'Datum objave'
+  Published on: 'Objavljeno'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'prije $ %'
 #& Videos
