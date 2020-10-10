@@ -366,7 +366,7 @@ Video:
     Minute: 分钟
   Published on: '发布于'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ %前'
+  Publicationtemplate: '$-%前'
 #& Videos
   Video has been removed from your history: 视频已从您的历史记录中移除
   Mark As Watched: 标记为已观看
