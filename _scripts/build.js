@@ -59,6 +59,14 @@ const config = {
       height: 380,
       width: 540,
     },
+    extendInfo: {
+      CFBundleURLTypes: [
+        'freetube'
+      ],
+      CFBundleURLSchemes: [
+        'freetube'
+      ]
+    }
   },
   linux: {
     category: 'Network',
