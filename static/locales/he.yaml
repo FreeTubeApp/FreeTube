@@ -68,7 +68,7 @@ Search Filters:
   # On Search Page
   Search Results: 'תוצאות חיפוש'
   Fetching results. Please wait: 'נאספות תוצאות. נא להמתין'
-  Fetch more results: 'חפש תוצאות נוספות'
+  Fetch more results: 'חיפוש תוצאות נוספות'
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
@@ -81,7 +81,7 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: לפרופיל
     זה יש מספר רב של מנויים. עובר לעדכונים בעזרת RSS על מנת להימנע מהגבלות רוחב פס
   Load More Videos: לטעון סרטונים נוספים
-Trending: 'חם'
+Trending: 'הסרטונים החמים'
 Most Popular: 'הכי פופולרי'
 Playlists: 'פלייליסטים'
 User Playlists:
@@ -155,7 +155,7 @@ Settings:
     Player Settings: 'הגדרת נגן'
     Force Local Backend for Legacy Formats: 'כפה את מחלץ הסירטונים המקומי על פורמטים
       ישנים'
-    Play Next Video: 'נגן את הסירטון הבא'
+    Play Next Video: 'ניגון הסרטון הבא'
     Turn on Subtitles by Default: 'הפעל כתוביות כברירת מחדל'
     Autoplay Videos: 'הפעלה אוטומטית לסרטונים'
     Proxy Videos Through Invidious: 'השתמש בפרוקסי לסרטונים דרך Invidious'
@@ -165,7 +165,7 @@ Settings:
     Default Playback Rate: 'ברירת המחדל למהירות הצפייה'
     Default Video Format:
       Default Video Format: 'ברירת המחדל לפורמט הסרטונים'
-      Dash Formats: 'פורמת Dash'
+      Dash Formats: 'פורמטי Dash'
       Legacy Formats: 'פורמטים ישנים'
       Audio Formats: 'פורמטי שמע'
     Default Quality:
@@ -277,7 +277,7 @@ Settings:
     להפעיל את היישומון מחדש כדי שהשינויים ייכנסו לתוקף. להפעיל מחדש ולהחיל את השינוי?
 About:
   #On About page
-  About: 'אודות'
+  About: 'על אודות'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'תוכנה
     זו היא Copyleft המופצת ברשיון החופשי AGPL-3.0.'
@@ -315,7 +315,7 @@ Profile:
   Profile Preview: 'לוגו הפרופיל'
   Create Profile: 'צרו פרופיל'
   Update Profile: 'עדכון פרופיל'
-  Make Default Profile: 'הפכו את הפרופיל לברירת המחדל'
+  Make Default Profile: 'להפוך לפרופיל ברירת המחדל'
   Delete Profile: 'מחיקת פרופיל'
   Are you sure you want to delete this profile?: 'האם אתם בטוחים שאתה רוצים למחוק
     את הפרופיל?'
@@ -324,7 +324,7 @@ Profile:
   Your profile name cannot be empty: 'לא ניתן לרוקן את הפרופיל שלך'
   Profile has been created: 'הפרופיל נוצר'
   Profile has been updated: 'הפרופיל עודכן'
-  Your default profile has been set to $: 'פרופיל ברירת המחדל שלך מגדר ל- $'
+  Your default profile has been set to $: 'הגדרת את $ כפרופיל ברירת המחדל'
   Removed $ from your profiles: '$ נמחק מהפרופילים שלך'
   Your default profile has been changed to your primary profile: 'פרופיל ברירת המחדל
     שלך השתנה לפרופיל הראשי שלך'
@@ -347,8 +347,8 @@ Profile:
 Channel:
   Subscriber: 'מנוי'
   Subscribers: 'מנויים'
-  Subscribe: 'הרשמו כמנוי'
-  Unsubscribe: 'בטלו את המנוי'
+  Subscribe: 'הרשמה למינוי'
+  Unsubscribe: 'ביטול הרשמה למינוי'
   Channel has been removed from your subscriptions: 'הערוץ נמחק מרשימת המנויים שלך'
   Removed subscription from $ other channel(s): 'המנוי הוסר מ-$ ערוצ/ים אחר/ים'
   Added channel to your subscriptions: 'הערוץ נוסף לרשימת המנויים שלך'
@@ -370,7 +370,7 @@ Channel:
       Newest: 'הכי חדש'
       Oldest: 'הכי ישן'
   About:
-    About: 'אודות'
+    About: 'על אודות'
     Channel Description: 'תיאור הערוץ'
     Featured Channels: 'ערוצים מומלצים'
 Video:
@@ -410,18 +410,18 @@ Video:
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'מנגנון
     הצ''אט כרגע לא נתמך ע"י ה-API של Invidious. דרוש חיבור ישיר ל-YouTube.'
   Published:
-    Jan: 'ינואר'
-    Feb: 'פבואר'
-    Mar: 'מרץ'
-    Apr: 'אפריל'
-    May: 'מאי'
-    Jun: 'יוני'
-    Jul: 'יולי'
-    Aug: 'אוגוסט'
-    Sep: 'ספטמבר'
-    Oct: 'אוקטובר'
-    Nov: 'נובמבר'
-    Dec: 'דצמבר'
+    Jan: 'בינו׳'
+    Feb: 'בפבר׳'
+    Mar: 'במרץ'
+    Apr: 'באפר׳'
+    May: 'במאי'
+    Jun: 'ביונ׳'
+    Jul: 'ביול׳'
+    Aug: 'באוג׳'
+    Sep: 'בספט׳'
+    Oct: 'באוק׳'
+    Nov: 'בנוב׳'
+    Dec: 'בדצמ׳'
     Second: 'שנייה'
     Seconds: 'שניות'
     Minute: 'דקה'
@@ -438,7 +438,7 @@ Video:
     Years: 'שנים'
     Ago: 'לפני'
     Upcoming: 'שידור הבכורה ישודר ב־'
-  Published on: 'פורסם ב'
+  Published on: 'פורסם'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'לפני $ %'
 #& Videos
