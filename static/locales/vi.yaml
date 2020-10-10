@@ -70,6 +70,11 @@ Subscriptions:
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Danh
     sách Đăng ký đang trống. Bắt đầu thêm đăng ký để xem chúng tại đây.'
   'Getting Subscriptions.  Please wait.': 'Đang lấy Đăng ký. Vui lòng đợi.'
+  'Getting Subscriptions. Please wait.': Đang lấy Đăng ký. Vui lòng chờ.
+  Load More Videos: Load thêm video
+  Refresh Subscriptions: Refresh đăng ký
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Kênh
+    này có nhiều người đăng ký. Buộc RSS để tránh bị giới hạn
 Trending: 'Xu hướng'
 Most Popular: 'Phổ biến nhất'
 Playlists: 'Danh sách phát'
@@ -108,6 +113,8 @@ Settings:
       (Mặc định là https://invidious.snopyta.org)'
     Region for Trending: 'Phổ biến theo quốc gia'
         #! List countries
+    Check for Latest Blog Posts: Check Blog post mới nhất
+    Check for Updates: Kiểm tra cập nhật
   Theme Settings:
     Theme Settings: 'Cài đặt chủ đề'
     Match Top Bar with Main Color: 'Khớp thanh trên cùng với màu chính'
@@ -136,6 +143,9 @@ Settings:
       Deep Orange: 'Cam Đậm'
     Secondary Color Theme: 'Màu chủ đề thứ hai'
         #* Main Color Theme
+    UI Scale: Tỉ lệ UI
+    Disable Smooth Scrolling: Tắt cuộn mượt
+    Expand Side Bar by Default: Mở rộng thanh bên theo mặc định
   Player Settings:
     Player Settings: 'Cài đặt trình phát'
     Force Local Backend for Legacy Formats: 'Bắt buộc Local Backend cho định dạng
@@ -178,6 +188,7 @@ Settings:
     Import Subscriptions: 'Nhập đăng ký'
     Export Subscriptions: 'Xuất đăng ký'
     How do I import my subscriptions?: 'Làm sao để nhập đăng ký của tôi?'
+    Fetch Feeds from RSS: Lấy feeds từ RSS
   Advanced Settings:
     Advanced Settings: 'Cài đặt nâng cao'
     Enable Debug Mode (Prints data to the console): 'Bật chế độ Debug (Ghi data ra
@@ -204,6 +215,70 @@ Settings:
       #& Yes
       #& No
 
+  Data Settings:
+    How do I import my subscriptions?: Làm sao để tôi nhập đăng ký?
+    Unknown data key: Key data không xác định
+    Unable to write file: Không thể viết file
+    Unable to read file: Không thể đọc file
+    All watched history has been successfully exported: Tất cả lịch sử xem đã được
+      xuất ra thành công
+    All watched history has been successfully imported: Tất cả lịch sử xem đã được
+      nhập vào thành công
+    History object has insufficient data, skipping item: Lịch sử object không đủ dữ
+      liệu, bỏ qua
+    Subscriptions have been successfully exported: Đăng ký đã được xuất thành công
+    Invalid history file: File lịch sử không hợp lệ
+    This might take a while, please wait: Điều này có thể tốn thời gian, xin hãy chờ
+    Invalid subscriptions file: File đăng ký không hợp lệ
+    One or more subscriptions were unable to be imported: Một hay hơn đăng ký không
+      thể nhập
+    All subscriptions have been successfully imported: Tất cả đăng ký đã được nhập
+      vào thành công
+    All subscriptions and profiles have been successfully imported: Tất cả đăng ký
+      và profiles đã được nhập vào thành công
+    Profile object has insufficient data, skipping item: Profile object không đủ dữ
+      liệu, bỏ qua
+    Export History: Xuất lịch sử
+    Import History: Nhập lịch sử
+    Export NewPipe: Xuất NewPipe
+    Export YouTube: Xuất YouTube
+    Export FreeTube: Xuất FreeTube
+    Export Subscriptions: Xuất đăng ký
+    Check for Legacy Subscriptions: Kiểm tra đăng ký cũ
+    Import NewPipe: Nhập NewPipe
+    Import YouTube: Nhập YouTube
+    Import FreeTube: Nhập FreeTube
+    Import Subscriptions: Nhập đăng ký
+    Select Export Type: Chọn kiểu xuất ra
+    Select Import Type: Chọn kiểu nhập vào
+    Data Settings: Dữ liệu
+  Distraction Free Settings:
+    Hide Live Chat: Giấu live chat
+    Hide Popular Videos: Giấu video phổ biến
+    Hide Trending Videos: Giấu video xu hướng
+    Hide Recommended Videos: Giấu video nên xem
+    Hide Comment Likes: Giấu bình luận like
+    Hide Channel Subscribers: Giấu số người đăng ký
+    Hide Video Likes And Dislikes: Giấu thích và không thích
+    Hide Video Views: Giấu lượt xem
+    Distraction Free Settings: Chế độ không phân tâm
+  Privacy Settings:
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Bạn
+      có muốn xóa toàn bộ đăng ký và profiles không? Điều này không thể phục hồi.
+    Remove All Subscriptions / Profiles: Xóa bỏ tất cả đăng ký / Profiles
+    Watch history has been cleared: Lịch sử xem đã được xóa
+    Are you sure you want to remove your entire watch history?: Bạn có thực sự muốn
+      xóa toàn bộ lịch sử xem?
+    Remove Watch History: Xóa lịch sử xem
+    Search cache has been cleared: Bộ đệm của tìm kiếm đã xóa
+    Are you sure you want to clear out your search cache?: Bạn có chắc là muốn xóa
+      bộ đệm của tìm kiếm?
+    Clear Search Cache: Xóa Tìm kiếm cache
+    Save Watched Progress: Lưu quá trình xem
+    Remember History: Nhớ lịch sử
+    Privacy Settings: Thiết lập quyền riêng tư
+  The app needs to restart for changes to take effect. Restart and apply change?: App
+    cần khởi động lại để chỉnh sửa có hiệu nghiệm. Khởi động lại và áp đặt?
 About:
   #On About page
   About: 'Giới thiệu'
@@ -264,6 +339,10 @@ Channel:
     About: 'Giới thiệu'
     Channel Description: 'Miêu tả kênh'
     Featured Channels: 'Kênh đặc sắc'
+  Added channel to your subscriptions: Đã thêm kênh vào đăng ký của bạn
+  Removed subscription from $ other channel(s): Đã xóa đăng ký từ $ các kênh khác
+  Channel has been removed from your subscriptions: Kênh đã được xóa khỏi đăng ký
+    của bạn
 Video:
   Open in YouTube: 'Mở trong Youtube'
   Copy YouTube Link: 'Sao chép link Youtube'
@@ -316,7 +395,9 @@ Video:
     Year: 'Năm'
     Years: 'Năm'
     Ago: 'Vừa qua'
-    Upcoming: 'Công chiếu sau'
+    Upcoming: 'Công chiếu vào'
+    Minutes: Phút
+    Minute: Phút
   Published on: 'Phát hành vào'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % vừa qua'
@@ -325,6 +406,22 @@ Video:
   Video has been marked as watched: Video đánh dấu đã xem
   Remove From History: Xóa khỏi lịch sử
   Mark As Watched: Đánh dấu đã xem
+  Audio:
+    Best: Tốt nhất
+    High: Cao
+    Medium: Trung bình
+    Low: Thấp
+  audio only: Chỉ âm thanh
+  video only: Chỉ video
+  Download Video: Tải video
+  Starting soon, please refresh the page to check again: Sắp bắt đầu, vui lòng refresh
+    trang để kiểm tra
+  Autoplay: Tự động phát
+  Play Previous Video: Phát video trước
+  Play Next Video: Phát video tiếp theo
+  Reverse Playlist: Đảo ngược Playlist
+  Shuffle Playlist: Trộn Playlist
+  Loop Playlist: Lặp lại Playlist
 Videos:
   #& Sort By
   Sort By:
@@ -355,6 +452,10 @@ Change Format:
   Use Dash Formats: 'Sử dụng định dạng Dash'
   Use Legacy Formats: 'Sử dụng định dạng Legacy'
   Use Audio Formats: 'Sử dụng dịnh đạng Âm Thanh'
+  Audio formats are not available for this video: Định dạng âm thanh không có sẵn
+    cho video này
+  Dash formats are not available for this video: Định dạng Dash không có sẵn cho video
+    này
 Share:
   Share Video: 'Chia sẻ video'
   Copy Link: 'Sao chép link'
@@ -366,6 +467,7 @@ Share:
   Invidious Embed URL copied to clipboard: 'Invidious Embed URL sao chép đến clipboard'
   YouTube URL copied to clipboard: 'Youtube URL sao chép đến clipboard'
   YouTube Embed URL copied to clipboard: 'Youtube Embed URL sao chép đến clipboard'
+  Include Timestamp: Có kèm dấu thời gian
 Mini Player: 'Trình phát Mini'
 Comments:
   Comments: 'Bình luận'
@@ -381,6 +483,11 @@ Comments:
   There are no comments available for this video: 'Không có bình luận nào cho video
     này'
   Load More Comments: 'Tải thêm bình luận'
+  No more comments available: Không còn bình luận có sẵn
+  Newest first: Mới nhất trước
+  Top comments: Top bình luận
+  Sort by: Sắp xếp theo
+  There are no more comments for this video: Không có bình luận cho video này
 Up Next: 'Tiếp theo'
 
 # Toast Messages
@@ -397,10 +504,58 @@ Shuffle is now enabled: 'Xáo trộn hiện đã bật'
 Playing Next Video: 'Phát video tiếp theo'
 Playing Previous Video: 'Phát video trước'
 Playing next video in 5 seconds.  Click to cancel: 'Phát video tiếp theo trong 5 giây.
-  Nhấn để bỏ'
+  Nhấn để bỏ.'
 Canceled next video autoplay: 'Bỏ tự động phát video tiếp theo'
 'The playlist has ended.  Enable loop to continue playing': 'Danh sách phát đã kết
   thúc. Bật lặp lại để tiếp tục phát'
 
 Yes: 'Có'
 No: 'Không'
+The playlist has been reversed: Playlist đã được đảo ngược
+This video is unavailable because of missing formats. This can happen due to country unavailability.: Video
+  này không có sẵn vì thiếu mất định dạng. Đây có thể xảy ra do giới hạn quốc gia.
+Profile:
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Bạn
+    có chắc chắn muốn xóa các kênh đã chọn không? Điều này sẽ không xóa kênh khỏi
+    bất kì profile nào.
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
+    same channels will be deleted in any profile they are found in.
+  : Đây là profile chính của bạn. Bạn có chắc là muốn xóa các kênh đã chọn không?
+    Các kênh tương tự sẽ bị xóa trong profile nào mà chúng được tìm thấy.
+  No channel(s) have been selected: Không kênh nào được chọn
+  Add Selected To Profile: Thêm đã chọn vào Profile
+  Delete Selected: Xóa đã chọn
+  Select None: Chọn không
+  Select All: Chọn hết
+  $ selected: $ đã chọn
+  Other Channels: Các kênh khác
+  Subscription List: Danh sách đăng ký
+  $ is now the active profile: $ bây giờ là hoạt động profile
+  Your default profile has been changed to your primary profile: Profile mặc định
+    của bạn đã thay đổi thành profile chính
+  Removed $ from your profiles: Đã xóa $ khỏi Profile của bạn
+  Your default profile has been set to $: Profile mặc định của bạn đã được chỉnh về
+    $
+  Profile has been updated: Profile đã được cập nhật
+  Profile has been created: Profile đã được tạo
+  Your profile name cannot be empty: Tên Profile của bạn không được để trống
+  Profile could not be found: Probile không thể tìm thấy được
+  All subscriptions will also be deleted.: Tất cả đăng ký đều sẽ bị xóa.
+  Are you sure you want to delete this profile?: Bạn có chắc là muốn xóa Profile này?
+  Delete Profile: Xóa Profile
+  Make Default Profile: Chọn làm Profile mặc định
+  Update Profile: Cập nhật Profile
+  Create Profile: Tạo Profile
+  Profile Preview: Xem trước Profile
+  Custom Color: Màu custom
+  Color Picker: Chọn màu
+  Edit Profile: Chỉnh sửa Profile
+  Create New Profile: Tạo Profile mới
+  Profile Manager: Quản lý Profile
+  All Channels: Tất cả kênh
+  Profile Select: Chọn Profile
+A new blog is now available, $. Click to view more: Một blog mới đã có, $. Nhấn để
+  xem chi tiết
+Download From Site: Tải từ website
+Version $ is now available!  Click for more details: Phiên bản $ đã có! Click để xem
+  chi tiết
