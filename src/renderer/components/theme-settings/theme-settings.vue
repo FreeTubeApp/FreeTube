@@ -29,7 +29,7 @@
         :min-value="minUiScale"
         :max-value="maxUiScale"
         :step="uiScaleStep"
-        value-extension="%"
+        value-extension=" %"
         @change="handleUiScale"
       />
     </ft-flex-box>
