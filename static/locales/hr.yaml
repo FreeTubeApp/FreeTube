@@ -70,13 +70,13 @@ Subscriptions:
   Latest Subscriptions: 'Najnovije pretplate'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Tvoj
     popis pretplata je trenutačno prazan. Za prikaz pretplata na ovom mjestu, dodaj
-    pretplate.'
+    neke pretplate.'
   'Getting Subscriptions. Please wait.': 'Preuzimanje pretplata. Pričekaj.'
   Refresh Subscriptions: 'Aktualiziraj pretplate'
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Ovaj
     profil sadrži velik broj pretplata. Za izbjegavanje ograničenja stope koristit
     će se RSS
-  Load More Videos: Učitaj daljnje videozapise
+  Load More Videos: Učitaj još videozapisa
 Trending: 'U trendu'
 Most Popular: 'Najpopularniji'
 Playlists: 'Zbirke'
@@ -115,8 +115,8 @@ Settings:
       (standardno se koristi https://invidious.snopyta.org)'
     Region for Trending: 'Regija za videozapise u trendu'
         #! List countries
-    Check for Latest Blog Posts: Aktualiziraj objave na blogu
-    Check for Updates: Potraži nove verzije
+    Check for Latest Blog Posts: Traži najnovije objave na blogu
+    Check for Updates: Traži nove verzije
   Theme Settings:
     Theme Settings: 'Postavke teme'
     Match Top Bar with Main Color: 'Koristi glavnu boju u gornjoj traci'
@@ -334,15 +334,15 @@ Profile:
   Removed $ from your profiles: '$ uklonjen iz tvojih profila'
   Your default profile has been changed to your primary profile: 'Tvoj standardni
     profil je promijenjen u tvoj primarni profil'
-  $ is now the active profile: '$ je sada aktivan profil'
+  $ is now the active profile: '$ je sada aktivni profil'
 #On Channel Page
   Profile Select: Biranje profila
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Stvarno
     želiš izbrisati odabrane kanale? Ovime se kanali ne brišu iz drugih profila.
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : Ovo je tvoj primarni profil. Stvarno želiš izbrisati odabrane kanale? Isti kanali
-    će se izbrisaii u svim profilima u kojima se pronađu.
+  : Ovo je tvoj primarni profil. Stvarno želiš izbrisati odabrane kanale? Ti kanali
+    će se izbrisati iz svih profila u kojima se pronađu.
   No channel(s) have been selected: Nije odabran nijedan kanal
   Add Selected To Profile: Dodaj odabrano u profil
   Delete Selected: Izbriši odabrano
