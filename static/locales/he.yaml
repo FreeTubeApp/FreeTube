@@ -29,7 +29,7 @@ Close: 'סגירה'
 Back: 'אחורה'
 Forward: 'קדימה'
 
-Version $ is now available!  Click for more details: 'גירסה $ יצאה! יש ללחוץ לפרטים
+Version $ is now available!  Click for more details: 'גרסה $ זמינה כעת! יש ללחוץ לפרטים
   נוספים'
 Download From Site: 'הורדה מהאתר'
 A new blog is now available, $. Click to view more: 'פוסט חדש יצא לבלוג, $. יש ללחוץ
@@ -52,7 +52,7 @@ Search Filters:
     Last Hour: 'מהשעה האחרונה'
     Today: 'מהיום'
     This Week: 'מהשבוע הנוכחי'
-    This Month: 'מהחודש הנוכחי'
+    This Month: 'חודש זה'
     This Year: 'מהשנה הנוכחית'
   Type:
     Type: 'סוג'
@@ -64,7 +64,7 @@ Search Filters:
     Duration: 'משך זמן'
     All Durations: 'הכול'
     Short (< 4 minutes): 'קצר (מתחת ל־4 דקות)'
-    Long (> 20 minutes): 'ארוך ( מעל ל־20 דקות)'
+    Long (> 20 minutes): 'ארוך (מעל 20 דקות)'
   # On Search Page
   Search Results: 'תוצאות חיפוש'
   Fetching results. Please wait: 'נאספות תוצאות. נא להמתין'
