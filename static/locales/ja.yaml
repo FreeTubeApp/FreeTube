@@ -1,7 +1,7 @@
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  この部分のアプリは未完成です。完成後にきてください。
+  この部分のアプリは未完成です。完成後にまた開いてください。
 
 # Webkit Menu Bar
 File: 'ファイル'
@@ -9,7 +9,7 @@ Quit: '終了'
 Edit: '編集'
 Undo: '元に戻す'
 Redo: 'やり直し'
-Cut: 'カット'
+Cut: '切り取り'
 Copy: 'コピー'
 Paste: '貼り付け'
 Delete: '削除'
@@ -55,12 +55,12 @@ Search Filters:
   Duration:
     Duration: '長さ'
     All Durations: 'すべての長さ'
-    Short (< 4 minutes): '短編（4 分未満）'
-    Long (> 20 minutes): '長編（20 分以上）'
+    Short (< 4 minutes): '短編 (4 分未満)'
+    Long (> 20 minutes): '長編 (20 分以上)'
   # On Search Page
   Search Results: '検索結果'
   Fetching results. Please wait: '結果を取得中。お待ちください'
-  Fetch more results: '結果の追加取得'
+  Fetch more results: 'さらに結果を取得'
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
@@ -72,7 +72,7 @@ Subscriptions:
   Getting Subscriptions. Please wait.: 登録を取得中...お待ちください。
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: このプロファイルは、多くのチャンネル登録がされています。RSS
     を強制して接続制限を回避します
-  Load More Videos: 動画の追加読み込み
+  Load More Videos: さらに動画を読み込む
 Trending: '急上昇'
 Most Popular: '最も人気'
 Playlists: '再生リスト'
@@ -90,7 +90,7 @@ Settings:
     General Settings: '一般設定'
     Fallback to Non-Preferred Backend on Failure: '障害時には非推奨のツールで機能を制限して実行'
     Enable Search Suggestions: '検索候補の有効化'
-    Default Landing Page: 'デフォルトの開始ページ'
+    Default Landing Page: '最初に表示するページ'
     Locale Preference: '言語設定'
     Preferred API Backend:
       Preferred API Backend: 'API バックエンドの設定'
@@ -102,7 +102,7 @@ Settings:
       List: '一覧'
     Thumbnail Preference:
       Thumbnail Preference: 'サムネイルの設定'
-      Default: 'デフォルト'
+      Default: '標準'
       Beginning: '先頭'
       Middle: '中間'
       End: '末尾'
@@ -141,7 +141,7 @@ Settings:
     Secondary Color Theme: 'テーマの第 2 基本色'
         #* Main Color Theme
     UI Scale: UI の拡大率
-    Expand Side Bar by Default: デフォルトでサイド バーの展開
+    Expand Side Bar by Default: 標準でサイド バーの展開
     Disable Smooth Scrolling: スムーズ スクロールの無効化
   Player Settings:
     Player Settings: 'プレイヤーの設定'
@@ -512,7 +512,7 @@ Profile:
     same channels will be deleted in any profile they are found in.
   : これは基本のプロファイルです。選択したチャンネルを削除しますか？同じチャンネルは、ほかのプロファイルにあれば削除されます。
 The playlist has been reversed: 再生リストを逆順にしました
-A new blog is now available, $. Click to view more: '新着のブログが読めます、$。クリックして内容を読む'
+A new blog is now available, $. Click to view more: '新着のブログ記事があります。$ クリックでさらに読む'
 Download From Site: サイトからダウンロード
-Version $ is now available!  Click for more details: 最新の Ver. $ 登場！　詳細は クリックで
+Version $ is now available!  Click for more details: 最新版のバージョン $ が利用可能です！詳細は クリックで
 This video is unavailable because of missing formats. This can happen due to country unavailability.: この動画のファイル形式が読み取れないため再生できません。再生の許可がない国で発生します。
