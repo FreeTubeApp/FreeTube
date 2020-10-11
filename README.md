@@ -85,6 +85,12 @@ Thank you very much to the [People and Projects](https://github.com/FreeTubeApp/
 
 We are actively looking for translations!  We use Weblate to make it easy for translators to get involved.  Click on the badge above to learn how to get involved.
 
+In
+`/src/renderer/main.js`
+enable language under
+`// List of locales approved for use`
+.
+
 ## Contact
 
 If you ever have any questions, feel free to make an issue here on GitHub.  Alternatively, you can email me at FreeTubeApp@protonmail.com or you can join our [Matrix Community](https://riot.im/app/#/group/+freetube:matrix.org).  Don't forget to check out the [rules](https://github.com/FreeTubeApp/FreeTube/wiki/Matrix-Server-Info-&-Rules) before joining.
