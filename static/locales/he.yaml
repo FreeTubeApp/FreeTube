@@ -161,11 +161,11 @@ Settings:
     Autoplay Videos: 'הפעלה אוטומטית לסרטונים'
     Proxy Videos Through Invidious: 'השתמש בפרוקסי לסרטונים דרך Invidious'
     Autoplay Playlists: 'הפעלה אוטומטית לפלייליסטים'
-    Enable Theatre Mode by Default: 'הפעל את מצב קולנוע כברירת מחדל'
+    Enable Theatre Mode by Default: 'הפעלת מצב קולנוע כברירת מחדל'
     Default Volume: 'ווליום ברירת מחדל'
     Default Playback Rate: 'ברירת המחדל למהירות הצפייה'
     Default Video Format:
-      Default Video Format: 'תצורת הסרטונים ברירת־המחדל'
+      Default Video Format: 'תצורת הסרטונים כברירת־המחדל'
       Dash Formats: 'תצורות Dash'
       Legacy Formats: 'תצורות ישנות'
       Audio Formats: 'תצורות שמע'
