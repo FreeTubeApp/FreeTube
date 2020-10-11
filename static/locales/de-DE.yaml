@@ -231,7 +231,7 @@ Settings:
     Remember History: Verlauf speichern
     Privacy Settings: Datenschutzeinstellungen
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Bist
-      du sicher, dass du alle Abonnements und Profile löschen möchtest? Diese Aktion
+      du sicher, dass du alle Abonnements und Profile löschen möchtest?  Diese Aktion
       kann nicht rückgängig gemacht werden.
     Remove All Subscriptions / Profiles: Alle Abonnements / Profile löschen
   Data Settings:
@@ -282,9 +282,9 @@ Settings:
     Hide Video Likes And Dislikes: Videobewertungen verbergen
     Hide Video Views: Video-Klicks verbergen
     Distraction Free Settings: Einstellungen für ablenkungsfreien Modus
-  The app needs to restart for changes to take effect. Restart and apply change?: Damit
-    die Änderungen wirksam werden, muss das Programm neu gestartet werden. Änderungen
-    jetzt anwenden und neustarten?
+  The app needs to restart for changes to take effect. Restart and apply change?: Um
+    die Änderungen anzuwenden muss die Anwendung neustarten. Jetzt neustarten und
+    Änderungen aktivieren?
 About:
   #On About page
   About: Über
