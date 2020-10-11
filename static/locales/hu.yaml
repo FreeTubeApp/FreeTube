@@ -457,7 +457,7 @@ Video:
     Upcoming: 'Az első előadás hamarosan lesz'
   Published on: 'Megjelent'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % ezelőtt'
+  Publicationtemplate: '$ % ezelőtt'
 #& Videos
   Audio:
     Best: Legjobb
