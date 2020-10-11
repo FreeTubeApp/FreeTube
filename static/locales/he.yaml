@@ -98,14 +98,15 @@ Settings:
     General Settings: 'הגדרות כלליות'
     Check for Updates: 'בדוק אם קיימים עדכונים'
     Check for Latest Blog Posts: 'בדוק אם קיימים פוסטים חדשים בבלוג'
-    Fallback to Non-Preferred Backend on Failure: 'לסגת למנגנון שאינו מועדף בעת כשל'
+    Fallback to Non-Preferred Backend on Failure: 'לסגת לגישור חבוי שאינו מועדף בעת
+      כשל'
     Enable Search Suggestions: 'אפשר הצעות לחיפוש'
     Default Landing Page: 'דף נחיתה כבררת מחדל'
     Locale Preference: 'העדפת שפה'
     Preferred API Backend:
-      Preferred API Backend: 'מנגנון API מועדף'
+      Preferred API Backend: 'גישור חבוי מועדף של API'
       Local API: 'API מקומי'
-      Invidious API: 'Invidious API'
+      Invidious API: 'API של Invidious'
     Video View Type:
       Video View Type: 'סוג תצוגת הסרטונים'
       Grid: 'טבלה'
@@ -118,11 +119,11 @@ Settings:
       End: 'סוף'
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'שרת Invidious
       ( ברירת המחדל היא https://invidious.snopyta.org )'
-    Region for Trending: 'איזור לסרטונים חמים'
+    Region for Trending: 'אזור לסרטונים חמים'
         #! List countries
   Theme Settings:
     Theme Settings: 'הגדרת מראה'
-    Match Top Bar with Main Color: 'התאם את האיזור העליון לצבע הראשי'
+    Match Top Bar with Main Color: 'התאמת האזור העליון לצבע הראשי'
     Base Theme:
       Base Theme: 'ערכת נושא בסיסית'
       Black: 'שחור'
@@ -153,8 +154,8 @@ Settings:
     Disable Smooth Scrolling: השבתת גלילה חלקה
   Player Settings:
     Player Settings: 'הגדרת נגן'
-    Force Local Backend for Legacy Formats: 'כפה את מחלץ הסירטונים המקומי על פורמטים
-      ישנים'
+    Force Local Backend for Legacy Formats: 'לכפות את הגישור החבוי המקומי לתצורות
+      ישנות'
     Play Next Video: 'ניגון הסרטון הבא'
     Turn on Subtitles by Default: 'הפעל כתוביות כברירת מחדל'
     Autoplay Videos: 'הפעלה אוטומטית לסרטונים'
@@ -164,10 +165,10 @@ Settings:
     Default Volume: 'ווליום ברירת מחדל'
     Default Playback Rate: 'ברירת המחדל למהירות הצפייה'
     Default Video Format:
-      Default Video Format: 'ברירת המחדל לפורמט הסרטונים'
-      Dash Formats: 'פורמטי Dash'
-      Legacy Formats: 'פורמטים ישנים'
-      Audio Formats: 'פורמטי שמע'
+      Default Video Format: 'תצורת הסרטונים ברירת־המחדל'
+      Dash Formats: 'תצורות Dash'
+      Legacy Formats: 'תצורות ישנות'
+      Audio Formats: 'תצורות שמע'
     Default Quality:
       Default Quality: 'איכות ברירת המחדל'
       Auto: 'אוטומטית'
@@ -243,7 +244,7 @@ Settings:
     'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'כתובת פרוקסי (דוגמה: SOCKS5://127.0.0.1:9050
       )'
     'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'לחיצה
-      על כפתור "נסה פרוקסי" תשלח בקשה לאתר https://ipinfo.io/json'
+      על כפתור "בדיקת פרוקסי" תשלח בקשה לאתר https://ipinfo.io/json'
     Use Tor / Proxy for API calls: 'השתמש ב-Tor או פרוקסי לקריאות API'
     TEST PROXY: 'בדוק פרוקסי'
     #& Invidious Instance (Default is https://invidious.snopyta.org)
@@ -348,7 +349,7 @@ Channel:
   Subscriber: 'מנוי'
   Subscribers: 'מנויים'
   Subscribe: 'הרשמה למינוי'
-  Unsubscribe: 'ביטול הרשמה למינוי'
+  Unsubscribe: 'ביטול המינוי'
   Channel has been removed from your subscriptions: 'הערוץ נמחק מרשימת המנויים שלך'
   Removed subscription from $ other channel(s): 'המנוי הוסר מ-$ ערוצ/ים אחר/ים'
   Added channel to your subscriptions: 'הערוץ נוסף לרשימת המנויים שלך'
@@ -476,12 +477,12 @@ Playlist:
 #& Views
 Toggle Theatre Mode: 'הפעלו / בטלו מצב קולנוע'
 Change Format:
-  Change Video Formats: 'שנו את פורמטי הוידאו'
-  Use Dash Formats: 'השתמשו בפורמטי Dash'
-  Use Legacy Formats: 'השתמשו בפורמטים ישנים'
-  Use Audio Formats: 'פורמטי שמע'
-  Dash formats are not available for this video: 'לא קיימים פורמטי Dash לסרטון הזה'
-  Audio formats are not available for this video: 'לא קיימים פורמטי שמע לסרטון הזה'
+  Change Video Formats: 'שינוי תצורות הסרטונים'
+  Use Dash Formats: 'שימוש בתצורות Dash'
+  Use Legacy Formats: 'שימוש בתצורות ישנות'
+  Use Audio Formats: 'שימוש בתצורות שמע'
+  Dash formats are not available for this video: 'לא קיימות תצורות Dash לסרטון הזה'
+  Audio formats are not available for this video: 'לא קיימות תצורות שמע לסרטון הזה'
 Share:
   Share Video: 'שתפו את הסרטון'
   Include Timestamp: 'לשמור נקודת זמן'
@@ -520,8 +521,8 @@ Local API Error (Click to copy): 'בעיה ב-API המקומי (יש ללחוץ 
 Invidious API Error (Click to copy): 'בעיה ב-API של Invidious (יש ללחוץ להעתקה)'
 Falling back to Invidious API: 'נסוג ל-API של Invidious'
 Falling back to the local API: 'נסוג ל-API המקומי'
-This video is unavailable because of missing formats. This can happen due to country unavailability.: 'חסרים
-  פורמטים לסרטון הזה. הדבר יכול להיגרם בגלל חוסר זמינות למדינה.'
+This video is unavailable because of missing formats. This can happen due to country unavailability.: 'חסרות
+  תצורות לסרטון הזה. הדבר יכול להיגרם בגלל חוסר זמינות למדינה.'
 Subscriptions have not yet been implemented: 'מנגנון המנויים עדיין לא מוכן'
 Loop is now disabled: 'ניגון בלופ בוטל'
 Loop is now enabled: 'ניגון בלופ הופעל'
@@ -533,8 +534,8 @@ Playing Previous Video: 'מנגן את הסרטון הקודם'
 Playing next video in 5 seconds.  Click to cancel: 'מנגן את הסרטון הבא תוך 5 שניות.
   לחצו לביטול.'
 Canceled next video autoplay: 'ניגון אוטומטי לסרטון הבא בוטל'
-'The playlist has ended.  Enable loop to continue playing': 'הפלייליסט הגיע לסופו.
-  הפעל ניגון בלופ כדי להמשיך לנגן'
+'The playlist has ended.  Enable loop to continue playing': 'הפלייליסט הגיע לסופו.  יש
+  להפעיל ניגון בלולאה כדי להמשיך לנגן אותו'
 
 Yes: 'כן'
 No: 'לא'
