@@ -111,7 +111,7 @@ Settings:
       Local API: 'Локален интерфейс (API)'
       Invidious API: 'Invidious интерфейс'
     Video View Type:
-      Video View Type: 'Вид видео изглед'
+      Video View Type: 'Подредба на видеата'
       Grid: 'Решетка'
       List: 'Списък'
     Thumbnail Preference:
@@ -120,8 +120,8 @@ Settings:
       Beginning: 'Начално'
       Middle: 'Средно'
       End: 'Край'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Илюстрация на
-      Invidious (по подразбиране е https://invidious.snopyta.org)'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Излед на Invidious
+      (по подразбиране е https://invidious.snopyta.org)'
     Region for Trending: 'Регион за Популярни'
         #! List countries
   Theme Settings:
@@ -152,9 +152,9 @@ Settings:
       Deep Orange: 'Наситен оранжев'
     Secondary Color Theme: 'Втора цветова схема'
         #* Main Color Theme
-    UI Scale: Мащ на клиентския интерфейс
+    UI Scale: Мащаб на клиентския интерфейс
     Disable Smooth Scrolling: Деактивирай плавното скролиране
-    Expand Side Bar by Default: Развиване на страничната лента по подразбиране
+    Expand Side Bar by Default: Широка странична лента по подразбиране
   Player Settings:
     Player Settings: 'Настройки на плейъра'
     Force Local Backend for Legacy Formats: 'Принудено връщане към локалния интерфейс
@@ -187,7 +187,7 @@ Settings:
   Privacy Settings:
     Privacy Settings: 'Настройки поверителност'
     Remember History: 'Запази хронологията'
-    Save Watched Progress: 'Запиши напредъка на гледането'
+    Save Watched Progress: 'Запази напредъка на гледането'
     Clear Search Cache: 'Изчисти кеша на търсенията'
     Are you sure you want to clear out your search cache?: 'Сигурни ли сте, че искате
       да изчистите кеша на търсенията си?'
@@ -458,7 +458,7 @@ Video:
     Upcoming: 'Премиерата върви'
   Published on: 'Публикуван на'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'Преди $ %'
+  Publicationtemplate: 'Преди $ %'
 #& Videos
   Audio:
     Best: Най-добро
