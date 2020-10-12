@@ -16,7 +16,7 @@ Delete: '削除'
 Select all: 'すべて選択'
 Reload: '再読み込み'
 Force Reload: '強制的に再読み込み'
-Toggle Developer Tools: '開発者ツールに切替'
+Toggle Developer Tools: '開発者ツールの切替'
 Actual size: '実際のサイズ'
 Zoom in: '拡大'
 Zoom out: '縮小'
@@ -31,7 +31,7 @@ Forward: '進む'
 Search / Go to URL: '検索 / URLを開く'
   # In Filter Button
 Search Filters:
-  Search Filters: '検索絞り込み'
+  Search Filters: '検索の絞り込み'
   Sort By:
     Sort By: '並び替え'
     Most Relevant: '関連度'
@@ -68,8 +68,8 @@ Subscriptions:
   Latest Subscriptions: '最近の登録'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'まだチャンネル登録がありません。登録するとここに表示されます。'
   'Getting Subscriptions.  Please wait.': '登録を取得中。お待ちください...'
-  Refresh Subscriptions: 登録の更新
-  Getting Subscriptions. Please wait.: 登録を取得中...お待ちください。
+  Refresh Subscriptions: 登録から更新
+  Getting Subscriptions. Please wait.: 登録から取得中...お待ちください。
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: このプロファイルはチャンネル登録が多くなっています。接続制限の回避のため強制的な
     RSS にします
   Load More Videos: さらに動画を読み込む
@@ -82,19 +82,19 @@ History:
   # On History Page
   History: '閲覧履歴'
   Watch History: '履歴の表示'
-  Your history list is currently empty.: 閲覧履歴がありません。
+  Your history list is currently empty.: 閲覧履歴はありません。
 Settings:
   # On Settings Page
   Settings: '設定'
   General Settings:
     General Settings: '一般設定'
-    Fallback to Non-Preferred Backend on Failure: '失敗時に非推奨の代替バックエンドに接続'
+    Fallback to Non-Preferred Backend on Failure: '失敗時に非優先の代替バックエンドに接続'
     Enable Search Suggestions: '検索候補の有効化'
     Default Landing Page: '起動時の表示'
     Locale Preference: '言語設定'
     Preferred API Backend:
-      Preferred API Backend: 'API バックエンドの設定'
-      Local API: 'ローカル API'
+      Preferred API Backend: '優先する API バックエンド'
+      Local API: '内部 API'
       Invidious API: 'Invidious API'
     Video View Type:
       Video View Type: '動画一覧の表示方法'
@@ -103,65 +103,65 @@ Settings:
     Thumbnail Preference:
       Thumbnail Preference: 'サムネイルの設定'
       Default: '標準'
-      Beginning: '先頭'
+      Beginning: '開始'
       Middle: '中間'
-      End: '末尾'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious のインスタンス
+      End: '終了'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious の実体
       (初期値は https://invidious.snopyta.org)'
     Region for Trending: '地域内の急上昇'
         #! List countries
-    Check for Latest Blog Posts: 最新のブログを確認
+    Check for Latest Blog Posts: ブログ投稿の新着を確認
     Check for Updates: 最新版の確認
   Theme Settings:
     Theme Settings: 'テーマの設定'
     Match Top Bar with Main Color: '上部のバーを第一配色に調和'
     Base Theme:
-      Base Theme: '基本テーマ'
+      Base Theme: 'テーマ'
       Black: '黒'
       Dark: 'ダーク'
       Light: 'ライト'
     Main Color Theme:
       Main Color Theme: '第一配色'
       Red: '赤'
-      Pink: 'ピンク'
+      Pink: '桃'
       Purple: '紫'
-      Deep Purple: '深い紫'
-      Indigo: 'インディゴ'
+      Deep Purple: '濃い紫'
+      Indigo: '藍'
       Blue: '青'
-      Light Blue: '薄い青'
+      Light Blue: '明るい青'
       Cyan: 'シアン'
-      Teal: 'ティール'
+      Teal: '青緑'
       Green: '緑'
-      Light Green: '薄緑'
+      Light Green: '明るい緑'
       Lime: 'ライム'
       Yellow: '黄'
-      Amber: 'アンバー'
+      Amber: '琥珀'
       Orange: 'オレンジ'
-      Deep Orange: '深いオレンジ'
+      Deep Orange: '濃いオレンジ'
     Secondary Color Theme: '第二配色'
         #* Main Color Theme
     UI Scale: UI の拡大率
-    Expand Side Bar by Default: 標準でサイド バーの展開
+    Expand Side Bar by Default: サイドバーを展開して起動
     Disable Smooth Scrolling: 滑らかなスクロールの無効化
   Player Settings:
     Player Settings: 'プレイヤーの設定'
-    Force Local Backend for Legacy Formats: '旧形式は強制的にローカルの機能で実行'
+    Force Local Backend for Legacy Formats: '旧形式は内部バックエンドを強制的に使用'
     Remember History: '履歴を記憶'
     Play Next Video: '次の動画を再生'
-    Turn on Subtitles by Default: 'デフォルトで字幕の有効化'
+    Turn on Subtitles by Default: '最初から字幕を有効化'
     Autoplay Videos: '動画の自動再生'
     Proxy Videos Through Invidious: 'Invidious 経由で動画にプロキシを使用'
     Autoplay Playlists: '再生リストの自動再生'
-    Enable Theatre Mode by Default: '標準でシアターモードを有効化'
-    Default Volume: 'デフォルトの音量'
-    Default Playback Rate: 'デフォルトの再生速度'
+    Enable Theatre Mode by Default: '最初からシアターモードで開く'
+    Default Volume: '音量の初期値'
+    Default Playback Rate: '再生速度の初期値'
     Default Video Format:
-      Default Video Format: 'デフォルトの動画形式'
+      Default Video Format: '動画形式の初期値'
       Dash Formats: 'DASH 形式'
       Legacy Formats: '旧形式'
       Audio Formats: '音声形式'
     Default Quality:
-      Default Quality: 'デフォルトの品質'
+      Default Quality: '動画品質の初期値'
       Auto: '自動'
       144p: '144p'
       240p: '240p'
@@ -196,13 +196,13 @@ Settings:
     #& Invidious Instance (Default is https://invidious.snopyta.org)
     See Public Instances: '公開インスタンスを参照してください'
     Clear History:
-      Clear History: '履歴を消去'
+      Clear History: '履歴の削除'
       # On Click
-      Are you sure you want to delete your history?: '履歴を消去しますか？'
+      Are you sure you want to delete your history?: '履歴を削除しますか？'
       #& Yes
       #& No
     Clear Subscriptions:
-      Clear Subscriptions: '登録を消去'
+      Clear Subscriptions: '登録の削除'
       # On Click
       Are you sure you want to remove all subscriptions?: 'すべてのチャンネル登録を削除しますか？'
       #& Yes
@@ -249,7 +249,7 @@ Settings:
     Select Import Type: インポート形式の選択
     Data Settings: データ設定
     One or more subscriptions were unable to be imported: いくつかのチャンネル登録はインポートできませんでした
-    Check for Legacy Subscriptions: 登録記録の確認
+    Check for Legacy Subscriptions: 旧登録形式の確認
   Distraction Free Settings:
     Hide Live Chat: ライブチャットを非表示
     Hide Popular Videos: 人気の動画を非表示
@@ -274,7 +274,7 @@ About:
   Thank you very much to the People and Projects that make FreeTube possible!: 'FreeTube
     を実現させてくれている人々とプロジェクトに感謝！'
 
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'チャットが必要であれば私たちの
+  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'チャットが必要なら私たちの
     Element / Matrix にご参加ください。参加前にルールの確認をお願いします。'
 
   'Looking for help? Check out our Wiki page.': 'ヘルプが必要なら私たちの Wiki をご覧ください。'
@@ -322,37 +322,37 @@ Video:
   Open in YouTube: 'YouTube で開く'
   Copy YouTube Link: 'YouTube のリンクをコピー'
   Open YouTube Embedded Player: 'YouTube 埋め込みプレーヤーを開く'
-  Copy YouTube Embedded Player Link: 'YouTube 埋め込みプレーヤーのリンクのコピー'
+  Copy YouTube Embedded Player Link: 'YouTube 埋め込みプレーヤーのリンクをコピー'
   Open in Invidious: 'Invidious で開く'
   Copy Invidious Link: 'Invidious のリンクをコピー'
   View: '回再生'
   Views: '回再生'
   # Context is "X People Watching"
-  Watching: '視聴中'
+  Watching: '人が視聴中'
   Watched: '視聴済み'
   # As in a Live Video
   Live: 'ライブ配信'
   Live Now: 'ライブ配信中'
-  Live Chat: 'ライブ チャット'
+  Live Chat: 'ライブチャット'
   Enable Live Chat: 'ライブチャットの有効化'
   Live Chat is currently not supported in this build.: '現在、このビルドはライブチャットに未対応です。'
-  'Chat is disabled or the Live Stream has ended.': 'チャットを無効化しているか、ライブは終了しています。'
+  'Chat is disabled or the Live Stream has ended.': 'チャットを無効化しているか、ライブ配信は終了しています。'
   Live chat is enabled.  Chat messages will appear here once sent.: 'ライブチャットは有効です。チャットが送信されるとここに表示されます。'
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': '現在、ライブチャットは
     Invidious API では未対応です。直接 YouTube への接続が必要です。'
   Published:
-    Jan: '1 月'
-    Feb: '2 月'
-    Mar: '3 月'
-    Apr: '4 月'
-    May: '5 月'
-    Jun: '6 月'
-    Jul: '7 月'
-    Aug: '8 月'
-    Sep: '9 月'
-    Oct: '10 月'
-    Nov: '11 月'
-    Dec: '12 月'
+    Jan: '1月'
+    Feb: '2月'
+    Mar: '3月'
+    Apr: '4月'
+    May: '5月'
+    Jun: '6月'
+    Jul: '7月'
+    Aug: '8月'
+    Sep: '9月'
+    Oct: '10月'
+    Nov: '11月'
+    Dec: '12月'
     Second: '秒'
     Seconds: '秒'
     Hour: '時間'
@@ -366,7 +366,7 @@ Video:
     Year: '年'
     Years: '年'
     Ago: '前'
-    Upcoming: 'まもなく公開予定'
+    Upcoming: '公開予定日'
     Minutes: 分
     Minute: 分
   Published on: '公開日'
@@ -383,7 +383,7 @@ Video:
   Reverse Playlist: 再生リストを逆順に
   Shuffle Playlist: 再生リストのシャッフル
   Loop Playlist: 再生リストのループ
-  Starting soon, please refresh the page to check again: すぐに再生します、ページを再読み込みして確認してください
+  Starting soon, please refresh the page to check again: まもなく開始されます。再読み込みしご確認ください
   Audio:
     Best: 最適
     High: 高
@@ -408,15 +408,15 @@ Playlist:
   Last Updated On: '最終更新日'
   Share Playlist:
     Share Playlist: '再生リストの共有'
-    Copy YouTube Link: 'YouTube リンクのコピー'
+    Copy YouTube Link: 'YouTube のリンクをコピー'
     Open in YouTube: 'YouTube で開く'
-    Copy Invidious Link: 'Invidious のリンクのコピー'
+    Copy Invidious Link: 'Invidious のリンクをコピー'
     Open in Invidious: 'Invidious で開く'
 
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: 'シアターモードに切替'
+Toggle Theatre Mode: 'シアターモードの切替'
 Change Format:
   Change Video Formats: '動画形式の変更'
   Use Dash Formats: 'DASH 形式の使用'
@@ -435,7 +435,7 @@ Share:
   Invidious Embed URL copied to clipboard: 'Invidious の埋め込み URL をコピーしました'
   YouTube URL copied to clipboard: 'YouTube の URL をコピーしました'
   YouTube Embed URL copied to clipboard: 'YouTube の埋め込み URL をコピーしました'
-  Include Timestamp: 時間情報の追加
+  Include Timestamp: 時間情報を追加
 Mini Player: 'ミニプレーヤー'
 Comments:
   Comments: 'コメント'
@@ -458,10 +458,10 @@ Comments:
 Up Next: '次の動画'
 
 # Toast Messages
-Local API Error (Click to copy): 'ローカル API エラー (クリックでコピー)'
+Local API Error (Click to copy): '内部 API エラー (クリックでコピー)'
 Invidious API Error (Click to copy): 'Invidious API エラー (クリックでコピー)'
-Falling back to Invidious API: 'Invidious API で制限して実行'
-Falling back to the local API: 'ローカル API で制限して実行'
+Falling back to Invidious API: '代替の Invidious API に切替'
+Falling back to the local API: '代替の内部 API に切替'
 Subscriptions have not yet been implemented: 'チャンネル登録は未実装です'
 Loop is now disabled: 'ループ再生を無効にしました'
 Loop is now enabled: 'ループ再生を有効にしました'
@@ -471,16 +471,16 @@ Playing Next Video: '次の動画を再生'
 Playing Previous Video: '前の動画を再生'
 Playing next video in 5 seconds.  Click to cancel: '5 秒後に次の動画を再生。クリックでキャンセル。'
 Canceled next video autoplay: '次の動画の自動再生をキャンセルしました'
-'The playlist has ended.  Enable loop to continue playing': '再生リストの最後に到達しました。　再生を続けるにはループを有効にします'
+'The playlist has ended.  Enable loop to continue playing': '再生リストの最後に到達しました。再生を続けるにはループを有効にします'
 
 Yes: 'はい'
 No: 'いいえ'
 Locale Name: '日本語'
 Profile:
-  $ is now the active profile: $ は現在使用中のプロファイルです
+  $ is now the active profile: $ のプロファイルに切り替えました
   Your default profile has been changed to your primary profile: デフォルトのプロファイルを、基本のプロファイルに変更しました
   Removed $ from your profiles: プロファイルから $ を削除しました
-  Your default profile has been set to $: デフォルトのプロファイルは $ に設定されています
+  Your default profile has been set to $: 起動時のプロファイルは $ に設定されました
   Profile has been updated: プロファイルを更新しました
   Profile has been created: プロファイルを作成しました
   Your profile name cannot be empty: プロファイル名は空にできません
@@ -488,13 +488,13 @@ Profile:
   All subscriptions will also be deleted.: すべてのチャンネル登録も削除されます。
   Are you sure you want to delete this profile?: このプロファイルを削除しますか？
   Delete Profile: プロファイルの削除
-  Make Default Profile: プロファイルの初期設定にする
+  Make Default Profile: 起動時のプロファイルに設定
   Create Profile: プロファイルの作成
   Update Profile: プロファイルの更新
   Profile Preview: プロファイルのプレビュー
   Custom Color: 色の指定
   Color Picker: 色の選択
-  Edit Profile: プロファイル編集
+  Edit Profile: プロファイルの編集
   Create New Profile: プロファイルの新規作成
   Profile Manager: プロファイル管理
   All Channels: すべてのチャンネル
@@ -506,7 +506,7 @@ Profile:
   Select All: すべて選択
   Other Channels: ほかのチャンネル
   Subscription List: チャンネル登録の一覧
-  $ selected: $ 選択
+  $ selected: $ 項目を選択
   Add Selected To Profile: 選択項目をプロファイルに追加
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
@@ -514,5 +514,5 @@ Profile:
 The playlist has been reversed: 再生リストを逆順にしました
 A new blog is now available, $. Click to view more: '新着のブログ記事があります。$ クリックでさらに読む'
 Download From Site: サイトからダウンロード
-Version $ is now available!  Click for more details: 最新版のバージョン $ が利用可能です！詳細は クリックで
+Version $ is now available!  Click for more details: 最新版のバージョン $ が利用可能です！クリックで詳細
 This video is unavailable because of missing formats. This can happen due to country unavailability.: この動画は形式の情報が不足しているため再生できません。国の情報が利用できないことで発生しています。
