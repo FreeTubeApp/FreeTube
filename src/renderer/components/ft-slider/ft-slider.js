@@ -39,7 +39,7 @@ export default Vue.extend({
       if (this.valueExtension === null) {
         return this.currentValue
       } else {
-        return `${this.currentValue}${this.valueExtension}`
+        return `${this.currentValue} ${this.valueExtension}`
       }
     }
   },
