@@ -280,7 +280,7 @@ Settings:
     Hide Channel Subscribers: Kanal-Abonnenten verbergen
     Hide Comment Likes: Kommentarbewertungen verbergen
     Hide Video Likes And Dislikes: Videobewertungen verbergen
-    Hide Video Views: Video-Klicks verbergen
+    Hide Video Views: Video-Aufrufe verbergen
     Distraction Free Settings: Einstellungen für ablenkungsfreien Modus
   The app needs to restart for changes to take effect. Restart and apply change?: Um
     die Änderungen anzuwenden muss die Anwendung neustarten. Jetzt neustarten und
@@ -335,7 +335,7 @@ Channel:
     Sort Types:
       Newest: Neueste
       Oldest: Älteste
-      Most Popular: Am beliebtesten
+      Most Popular: Beliebteste
   Playlists:
     Playlists: Wiedergabelisten
     This channel does not currently have any playlists: Dieser Kanal hat aktuell keine
@@ -360,7 +360,7 @@ Video:
     YouTube
   Open in Invidious: In Invidious öffnen
   Copy Invidious Link: Invidious-Link kopieren
-  View: Ansehen
+  View: Aufruf
   Views: Aufrufe
   # Context is "X People Watching"
   Watching: aktive Zuschauer
@@ -409,12 +409,12 @@ Video:
     Minutes: Minuten
     Minute: Minute
   Published on: Veröffentlicht am
-  Publicationtemplate: vor $ % veröffentlicht
+  Publicationtemplate: vor $ %
 
 #& Videos
   Video has been removed from your history: Das Video wurde aus deinem Verlauf entfernt
   Video has been marked as watched: Das Video wurde als gesehen markiert
-  Remove From History: Vom Verlauf löschen
+  Remove From History: Aus dem Verlauf entfernen
   Mark As Watched: Als gesehen markieren
   Autoplay: Automatische Wiedergabe
   Play Previous Video: Voriges Video abspielen
@@ -443,7 +443,7 @@ Playlist:
   #& About
   View Full Playlist: Zeige ganze Wiedergabeliste
   Videos: Videos
-  View: Ansehen
+  View: Aufruf
   Views: Aufrufe
   Last Updated On: Zuletzt aktualisiert am
 # On Channel Playlist Page
@@ -491,7 +491,7 @@ Mini Player: Mini-Abspieler
 Comments:
   Comments: Kommentare
   Click to View Comments: Klicke um Kommentare anzuzeigen
-  Getting comment replies, please wait: Lade Kommentare, bitte warten
+  Getting comment replies, please wait: Kommentare werden geledan, bitte warten
   Show Comments: Zeige Kommentare
   Hide Comments: Verstecke Kommentare
   # Context: View 10 Replies, View 1 Reply
@@ -518,8 +518,8 @@ This video is unavailable because of missing formats. This can happen due to cou
   Video ist aufgrund fehlender Formate nicht verfügbar. Zugriffsbeschränkungen im
   Land kann dafür der Grund sein.
 Subscriptions have not yet been implemented: Abonnements sind noch nicht implementiert
-Loop is now disabled: Schleife ist jetzt deaktiviert
-Loop is now enabled: Schleife ist jetzt aktiviert
+Loop is now disabled: Wiederholung ist jetzt deaktiviert
+Loop is now enabled: Wiederholung ist jetzt aktiviert
 Shuffle is now disabled: Zufallswiedergabe ist jetzt deaktiviert
 Shuffle is now enabled: Zufallswiedergabe ist jetzt aktiviert
 Playing Next Video: Spiele nächstes Video
@@ -527,8 +527,8 @@ Playing Previous Video: Spiele vorheriges Video
 Playing next video in 5 seconds.  Click to cancel: Spiele nächstes Video in 5 Sekunden.
   Klicke um abzubrechen.
 Canceled next video autoplay: Wiedergabe des nächsten Videos abgebrochen
-'The playlist has ended.  Enable loop to continue playing': 'Die Wiedergabeliste hat
-  das Ende erreicht.  Aktiviere Schleife um weiterabzuspielen'
+'The playlist has ended.  Enable loop to continue playing': 'Ende der Wiedergabeliste
+  erreicht.  Aktiviere Wiederholung um weiter abzuspielen'
 
 Yes: Ja
 No: Nein
