@@ -1,7 +1,7 @@
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  この部分のアプリは未完成です。完成後にまた開いてください。
+  アプリのこの部分は未完成です。完成後にまた開いてください。
 
 # Webkit Menu Bar
 File: 'ファイル'
@@ -70,8 +70,8 @@ Subscriptions:
   'Getting Subscriptions.  Please wait.': '登録を取得中。お待ちください...'
   Refresh Subscriptions: 登録の更新
   Getting Subscriptions. Please wait.: 登録を取得中...お待ちください。
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: このプロファイルは、多くのチャンネル登録がされています。RSS
-    を強制して接続制限を回避します
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: このプロファイルはチャンネル登録が多くなっています。接続制限の回避のため強制的な
+    RSS にします
   Load More Videos: さらに動画を読み込む
 Trending: '急上昇'
 Most Popular: '最も人気'
@@ -90,7 +90,7 @@ Settings:
     General Settings: '一般設定'
     Fallback to Non-Preferred Backend on Failure: '障害時には非推奨のツールで機能を制限して実行'
     Enable Search Suggestions: '検索候補の有効化'
-    Default Landing Page: '最初に表示するページ'
+    Default Landing Page: '起動時の表示'
     Locale Preference: '言語設定'
     Preferred API Backend:
       Preferred API Backend: 'API バックエンドの設定'
@@ -142,7 +142,7 @@ Settings:
         #* Main Color Theme
     UI Scale: UI の拡大率
     Expand Side Bar by Default: 標準でサイド バーの展開
-    Disable Smooth Scrolling: スムーズ スクロールの無効化
+    Disable Smooth Scrolling: 滑らかなスクロールの無効化
   Player Settings:
     Player Settings: 'プレイヤーの設定'
     Force Local Backend for Legacy Formats: '旧形式は強制的にローカルの機能で実行'
@@ -150,7 +150,7 @@ Settings:
     Play Next Video: '次の動画を再生'
     Turn on Subtitles by Default: 'デフォルトで字幕の有効化'
     Autoplay Videos: '動画の自動再生'
-    Proxy Videos Through Invidious: 'Invidious 経由で動画にプロキシの使用'
+    Proxy Videos Through Invidious: 'Invidious 経由で動画にプロキシを使用'
     Autoplay Playlists: '再生リストの自動再生'
     Enable Theatre Mode by Default: '標準でシアターモードを有効化'
     Default Volume: 'デフォルトの音量'
