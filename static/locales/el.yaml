@@ -369,7 +369,7 @@ Channel:
     κανάλια'
   Added channel to your subscriptions: 'Προστέθηκε κανάλι στις συνδρομές/εγγραφές
     σας'
-  Search Channel: 'Αναζήτηση καναλιού'
+  Search Channel: 'Αναζήτηση στο κανάλι'
   Your search results have returned 0 results: 'Τα αποτελέσματα της αναζήτησής σας
     έχουν επιστρέψει 0 αποτελέσματα'
   Sort By: 'Ταξινόμηση κατά'
@@ -415,7 +415,7 @@ Video:
   Play Previous Video: 'Αναπαραγωγή προηγούμενου βίντεο'
   # Context is "X People Watching"
   Watching: 'Παρακολουθούν τώρα'
-  Watched: 'Παρακολουθήθηκε'
+  Watched: 'ΠΑΡΑΚΟΛΟΥΘΗΘΗΚΕ'
   Autoplay: 'Αυτόματη αναπαραγωγή'
   # As in a Live Video
   Live: 'Ζωντανά'
