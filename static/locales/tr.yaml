@@ -18,7 +18,7 @@ Delete: 'Sil'
 Select all: 'Tümünü Seç'
 Reload: 'Yeniden Yükle'
 Force Reload: 'Zorla Yeniden Yükle'
-Toggle Developer Tools: 'Geliştirici Seçeneklerini Aç'
+Toggle Developer Tools: 'Geliştirici Seçeneklerini Aç/Kapat'
 Actual size: 'Gerçek Boyut'
 Zoom in: 'Yakınlaştır'
 Zoom out: 'Uzaklaştır'
@@ -29,23 +29,23 @@ Close: 'Kapat'
 Back: 'Geri'
 Forward: 'İleri'
 
-Version $ is now available!  Click for more details: 'Sürüm $ mevcut! Daha fazla detay
-  için tıklayın'
+Version $ is now available!  Click for more details: '$ sürümü çıktı!  Daha fazla
+  ayrıntı için tıklayın'
 Download From Site: 'Siteden indir'
-A new blog is now available, $. Click to view more: 'Yeni blog gönderisi mevcut, $.
-  Daha fazlası için tıkla'
+A new blog is now available, $. Click to view more: 'Yeni blog gönderisi var, $. Daha
+  fazlasını görüntülemek için tıklayın'
 
 # Search Bar
-Search / Go to URL: 'Arama / URL''ye git'
+Search / Go to URL: 'Ara / URL''ye git'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtreler'
   Sort By:
     Sort By: 'Sırala'
-    Most Relevant: 'En ilgili'
+    Most Relevant: 'En Uygun'
     Rating: 'Derecelendirme'
     Upload Date: 'Yükleme Tarihi'
-    View Count: 'İzlenme Miktarı'
+    View Count: 'İzlenme Sayısı'
   Time:
     Time: 'Zaman'
     Any Time: 'Herhangi Bir Zaman'
@@ -285,7 +285,7 @@ About:
   About: 'Hakkında'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Bu
-    lisanssız kopya, ücretsiz olarak AGPL-3.0 lisansına sahiptir.'
+    copyleft yazılım, özgür bir şekilde AGPL-3.0 altında lisanslanmıştır.'
 
   'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
     Hata mı buldunuz? Yeni bir özellik mi önermek istiyorsunuz? Yardım etmek mi istiyorsunuz?
@@ -484,7 +484,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: 'Tiyatro Modunu Aç'
+Toggle Theatre Mode: 'Tiyatro Modunu Aç/Kapat'
 Change Format:
   Change Video Formats: 'Video Biçimini Değiştir'
   Use Dash Formats: 'Dash Biçimi Kullan'
