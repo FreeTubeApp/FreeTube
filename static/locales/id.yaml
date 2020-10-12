@@ -99,7 +99,8 @@ Settings:
     General Settings: 'Pengaturan Umum'
     Check for Updates: 'Cek Pembaruan'
     Check for Latest Blog Posts: 'Cek Kiriman Blog Terbaru'
-    Fallback to Non-Preferred Backend on Failure: ''
+    Fallback to Non-Preferred Backend on Failure: 'Beralih ke Backend Cadangan saat
+      terjadi Kegagalan'
     Enable Search Suggestions: 'Aktifkan Saran Pencarian'
     Default Landing Page: 'Halaman Awal Baku'
     Locale Preference: 'Preferensi Lokal'
@@ -238,6 +239,7 @@ Settings:
     Unable to write file: 'Tidak dapat menulis berkas'
     Unknown data key: 'Kunci data tidak diketahui'
     How do I import my subscriptions?: 'Bagaimana saya mengimpor langganan saya?'
+    Check for Legacy Subscriptions: Cek untuk Langganan Lama
   Advanced Settings:
     Advanced Settings: 'Pengaturan Lanjutan'
     Enable Debug Mode (Prints data to the console): 'Aktifkan Mode Debug (Menampilkan
@@ -448,7 +450,7 @@ Video:
     Upcoming: 'Segera tayang di'
   Published on: 'Dipublikasi pada'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % lalu'
+  Publicationtemplate: '$ % yang lalu'
 #& Videos
   Audio:
     Best: Terbaik
