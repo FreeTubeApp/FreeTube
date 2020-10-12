@@ -20,7 +20,7 @@ if (platform == 'darwin') {
     arch = Arch.arm64
   }
 
-  targets = Platform.LINUX.createTarget(['deb', 'zip', 'apk', 'rpm', 'AppImage', 'pacman'], arch)
+  targets = Platform.LINUX.createTarget(['deb', 'zip', 'apk', 'rpm', 'AppImage', 'pkg.tar.zst'], arch)
 }
 
 const config = {
@@ -63,7 +63,7 @@ const config = {
   linux: {
     category: 'Network',
     icon: '_icons/icon.png',
-    target: ['deb', 'zip', 'apk', 'rpm', 'AppImage', 'pacman'],
+    target: ['deb', 'zip', 'apk', 'rpm', 'AppImage', 'pkg.tar.zst'],
   },
   mac: {
     category: 'public.app-category.utilities',
