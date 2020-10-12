@@ -88,7 +88,7 @@ Settings:
   Settings: '設定'
   General Settings:
     General Settings: '一般設定'
-    Fallback to Non-Preferred Backend on Failure: '障害時には非推奨のツールで機能を制限して実行'
+    Fallback to Non-Preferred Backend on Failure: '失敗時に非推奨の代替バックエンドに接続'
     Enable Search Suggestions: '検索候補の有効化'
     Default Landing Page: '起動時の表示'
     Locale Preference: '言語設定'
