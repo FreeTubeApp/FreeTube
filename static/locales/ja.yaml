@@ -249,7 +249,7 @@ Settings:
     Select Import Type: インポート形式の選択
     Data Settings: データ設定
     One or more subscriptions were unable to be imported: いくつかのチャンネル登録はインポートできませんでした
-    Check for Legacy Subscriptions: 旧登録形式の確認
+    Check for Legacy Subscriptions: 古い登録形式の確認
   Distraction Free Settings:
     Hide Live Chat: ライブチャットを非表示
     Hide Popular Videos: 人気の動画を非表示
@@ -263,7 +263,7 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
 About:
   #On About page
-  About: 'FreeTube について'
+  About: 'このソフト'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'このコピーレフトのソフトウェアは、AGPL-3.0
     の自由なライセンスです。'
@@ -275,7 +275,7 @@ About:
     を実現させてくれている人々とプロジェクトに感謝！'
 
   'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'チャットが必要なら私たちの
-    Element / Matrix にご参加ください。参加前にルールの確認をお願いします。'
+    Element / Matrix に参加ください。参加前にルールの確認をお願いします。'
 
   'Looking for help? Check out our Wiki page.': 'ヘルプが必要なら私たちの Wiki をご覧ください。'
 
@@ -336,7 +336,7 @@ Video:
   Live Chat: 'ライブチャット'
   Enable Live Chat: 'ライブチャットの有効化'
   Live Chat is currently not supported in this build.: '現在、このビルドはライブチャットに未対応です。'
-  'Chat is disabled or the Live Stream has ended.': 'チャットを無効化しているか、ライブ配信は終了しています。'
+  'Chat is disabled or the Live Stream has ended.': 'チャットが無効化されているか、ライブ配信は終了しています。'
   Live chat is enabled.  Chat messages will appear here once sent.: 'ライブチャットは有効です。チャットが送信されるとここに表示されます。'
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': '現在、ライブチャットは
     Invidious API では未対応です。直接 YouTube への接続が必要です。'
@@ -514,5 +514,5 @@ Profile:
 The playlist has been reversed: 再生リストを逆順にしました
 A new blog is now available, $. Click to view more: '新着のブログ記事があります。$ クリックでさらに読む'
 Download From Site: サイトからダウンロード
-Version $ is now available!  Click for more details: 最新版のバージョン $ が利用可能です！クリックで詳細
+Version $ is now available!  Click for more details: 最新バージョン $ が利用可能です！クリックで詳細表示
 This video is unavailable because of missing formats. This can happen due to country unavailability.: この動画は形式の情報が不足しているため再生できません。国の情報が利用できないことで発生しています。
