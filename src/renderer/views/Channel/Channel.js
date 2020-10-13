@@ -74,6 +74,10 @@ export default Vue.extend({
       return this.$store.getters.getBackendFallback
     },
 
+    invidiousInstance: function () {
+      return this.$store.getters.getInvidiousInstance
+    },
+
     sessionSearchHistory: function () {
       return this.$store.getters.getSessionSearchHistory
     },
@@ -348,13 +352,17 @@ export default Vue.extend({
         } else {
           this.subCount = response.subCount
         }
-        this.thumbnailUrl = response.authorThumbnails[3].url
+        this.thumbnailUrl = response.authorThumbnails[3].url.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`)
         this.channelDescription = autolinker.link(response.description)
-        this.relatedChannels = response.relatedChannels
+        this.relatedChannels = response.relatedChannels.map((channel) => {
+          channel.authorThumbnails[channel.authorThumbnails.length - 1].url = channel.authorThumbnails[channel.authorThumbnails.length - 1].url.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`)
+
+          return channel
+        })
         this.latestVideos = response.latestVideos
 
         if (typeof (response.authorBanners) !== 'undefined') {
-          this.bannerUrl = response.authorBanners[0].url
+          this.bannerUrl = response.authorBanners[0].url.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`)
         }
 
         this.isLoading = false

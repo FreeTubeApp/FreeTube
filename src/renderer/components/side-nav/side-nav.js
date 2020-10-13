@@ -13,6 +13,12 @@ export default Vue.extend({
     isOpen: function () {
       return this.$store.getters.getIsSideNavOpen
     },
+    backendPreference: function () {
+      return this.$store.getters.getBackendPreference
+    },
+    invidiousInstance: function () {
+      return this.$store.getters.getInvidiousInstance
+    },
     profileList: function () {
       return this.$store.getters.getProfileList
     },
@@ -31,6 +37,12 @@ export default Vue.extend({
           return 1
         }
         return 0
+      }).map((channel) => {
+        if (this.backendPreference === 'invidious') {
+          channel.thumbnail = channel.thumbnail.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`)
+        }
+
+        return channel
       })
     },
     hidePopularVideos: function () {

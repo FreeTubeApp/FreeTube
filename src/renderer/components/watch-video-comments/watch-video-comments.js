@@ -205,7 +205,7 @@ export default Vue.extend({
 
         const commentData = response.comments.map((comment) => {
           comment.showReplies = false
-          comment.authorThumb = comment.authorThumbnails[1].url
+          comment.authorThumb = comment.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`)
           if (this.hideCommentLikes) {
             comment.likes = null
           } else {
@@ -273,7 +273,7 @@ export default Vue.extend({
 
         const commentData = response.comments.map((comment) => {
           comment.showReplies = false
-          comment.authorThumb = comment.authorThumbnails[1].url
+          comment.authorThumb = comment.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`)
           if (this.hideCommentLikes) {
             comment.likes = null
           } else {
