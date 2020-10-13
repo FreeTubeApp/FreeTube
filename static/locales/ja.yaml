@@ -351,8 +351,8 @@ Video:
     Aug: '8月'
     Sep: '9月'
     Oct: '10月'
-    Nov: '11月'
-    Dec: '12月'
+    Nov: '11 月'
+    Dec: '12 月'
     Second: '秒'
     Seconds: '秒'
     Hour: '時間'
@@ -478,7 +478,7 @@ No: 'いいえ'
 Locale Name: '日本語'
 Profile:
   $ is now the active profile: $ のプロファイルに切り替えました
-  Your default profile has been changed to your primary profile: デフォルトのプロファイルを、基本のプロファイルに変更しました
+  Your default profile has been changed to your primary profile: 起動時のプロファイルを、上位のプロファイルに変更しました
   Removed $ from your profiles: プロファイルから $ を削除しました
   Your default profile has been set to $: 起動時のプロファイルは $ に設定されました
   Profile has been updated: プロファイルを更新しました
@@ -510,7 +510,7 @@ Profile:
   Add Selected To Profile: 選択項目をプロファイルに追加
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : これは基本のプロファイルです。選択したチャンネルを削除しますか？同じチャンネルがほかのプロファイルにも登録されていれば削除されます。
+  : これは上位のプロファイルです。選択したチャンネルを削除しますか？同じチャンネルがほかのプロファイルにも登録されていれば削除されます。
 The playlist has been reversed: 再生リストを逆順にしました
 A new blog is now available, $. Click to view more: '新着のブログ記事があります。$ クリックでさらに読む'
 Download From Site: サイトからダウンロード
