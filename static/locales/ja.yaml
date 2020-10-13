@@ -60,7 +60,7 @@ Search Filters:
   # On Search Page
   Search Results: '検索結果'
   Fetching results. Please wait: '結果を取得中。お待ちください'
-  Fetch more results: 'さらに結果を取得'
+  Fetch more results: 'もっと見る'
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
@@ -72,7 +72,7 @@ Subscriptions:
   Getting Subscriptions. Please wait.: 登録から取得中...お待ちください。
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: このプロファイルはチャンネル登録が多くなっています。接続制限の回避のため強制的な
     RSS にします
-  Load More Videos: さらに動画を読み込む
+  Load More Videos: もっと見る
 Trending: '急上昇'
 Most Popular: '最も人気'
 Playlists: '再生リスト'
@@ -263,7 +263,7 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
 About:
   #On About page
-  About: 'このソフト'
+  About: 'FreeTube について'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'このコピーレフトのソフトウェアは、AGPL-3.0
     の自由なライセンスです。'
@@ -402,7 +402,7 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: '完全な再生リストの表示'
-  Videos: '本の動画'
+  Videos: '動画'
   View: '回視聴'
   Views: '回視聴'
   Last Updated On: '最終更新日'
@@ -449,7 +449,7 @@ Comments:
   Replies: '返信'
   Reply: '返信'
   There are no comments available for this video: 'この動画へのコメントはありません'
-  Load More Comments: 'さらにコメントを読み込む'
+  Load More Comments: 'もっと見る'
   There are no more comments for this video: この動画へのコメントはまだありません
   Top comments: 評価順
   Newest first: 新しい順
