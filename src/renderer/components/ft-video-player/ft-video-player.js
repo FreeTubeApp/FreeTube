@@ -7,7 +7,9 @@ import qualitySelector from '@silvermine/videojs-quality-selector'
 import 'videojs-vtt-thumbnails-freetube'
 import 'videojs-contrib-quality-levels'
 import 'videojs-http-source-selector'
-import 'videojs-abloop'
+import abLoopPlugin from 'videojs-abloop'
+
+abLoopPlugin(window, videojs)
 
 export default Vue.extend({
   name: 'FtVideoPlayer',
@@ -195,11 +197,6 @@ export default Vue.extend({
             this.player.play()
           }, 200)
         }
-
-        // this.dataSetup.plugins.abLoopPlugin = {}
-        // this.player.ready(function() {
-        //   this.abLoopPlugin.playLoop()
-        // })
 
         $(document).on('keydown', this.keyboardShortcutHandler)
 
