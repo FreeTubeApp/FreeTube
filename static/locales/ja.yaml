@@ -110,7 +110,7 @@ Settings:
       (初期値は https://invidious.snopyta.org)'
     Region for Trending: '地域内の急上昇'
         #! List countries
-    Check for Latest Blog Posts: ブログ投稿の新着を確認
+    Check for Latest Blog Posts: 新着ブログの確認
     Check for Updates: 最新版の確認
   Theme Settings:
     Theme Settings: 'テーマの設定'
@@ -480,7 +480,7 @@ Profile:
   $ is now the active profile: $ のプロファイルに切り替えました
   Your default profile has been changed to your primary profile: 起動時のプロファイルを、上位のプロファイルに変更しました
   Removed $ from your profiles: プロファイルから $ を削除しました
-  Your default profile has been set to $: 起動時のプロファイルは $ に設定されました
+  Your default profile has been set to $: 起動時のプロファイルを $ に設定しました
   Profile has been updated: プロファイルを更新しました
   Profile has been created: プロファイルを作成しました
   Your profile name cannot be empty: プロファイル名は空にできません
