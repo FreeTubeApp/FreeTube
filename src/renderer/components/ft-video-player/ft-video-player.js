@@ -7,6 +7,7 @@ import qualitySelector from '@silvermine/videojs-quality-selector'
 import 'videojs-vtt-thumbnails-freetube'
 import 'videojs-contrib-quality-levels'
 import 'videojs-http-source-selector'
+import 'videojs-abloop'
 
 export default Vue.extend({
   name: 'FtVideoPlayer',
@@ -65,7 +66,13 @@ export default Vue.extend({
       dataSetup: {
         aspectRatio: '16:9',
         nativeTextTracks: false,
-        plugins: {},
+        plugins: {
+          abLoopPlugin: {
+            start: 0,
+            end: false,
+            createButtons: true
+          }
+        },
         controlBar: {
           children: [
             'playToggle',
@@ -159,7 +166,7 @@ export default Vue.extend({
           await this.determineDefaultQualityLegacy()
         }
 
-        this.player = videojs(videoPlayer)
+        this.player = videojs(videoPlayer, this.dataSetup.plugins)
 
         this.player.volume(this.volume)
         this.player.playbackRate(this.defaultPlayback)
@@ -188,6 +195,11 @@ export default Vue.extend({
             this.player.play()
           }, 200)
         }
+
+        // this.dataSetup.plugins.abLoopPlugin = {}
+        // this.player.ready(function() {
+        //   this.abLoopPlugin.playLoop()
+        // })
 
         $(document).on('keydown', this.keyboardShortcutHandler)
 

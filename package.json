@@ -27,7 +27,7 @@
     "opml-to-json": "0.0.3",
     "rss-parser": "^3.9.0",
     "video.js": "7.6.6",
-    "videojs-abloop": "^1.1.2",
+    "videojs-abloop": "^1.2.0",
     "videojs-contrib-quality-levels": "^2.0.9",
     "videojs-http-source-selector": "^1.1.6",
     "videojs-replay": "^1.1.0",
