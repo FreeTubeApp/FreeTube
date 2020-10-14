@@ -60,7 +60,7 @@ Search Filters:
   # On Search Page
   Search Results: '検索結果'
   Fetching results. Please wait: '結果を取得中。お待ちください'
-  Fetch more results: 'もっと見る'
+  Fetch more results: '結果の追加取得'
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
@@ -72,7 +72,7 @@ Subscriptions:
   Getting Subscriptions. Please wait.: 登録から取得中...お待ちください。
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: このプロファイルはチャンネル登録が多くなっています。接続制限の回避のため強制的な
     RSS にします
-  Load More Videos: もっと見る
+  Load More Videos: さらに動画を読み込む
 Trending: '急上昇'
 Most Popular: '最も人気'
 Playlists: '再生リスト'
@@ -416,7 +416,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: 'シアターモードの切替'
+Toggle Theatre Mode: 'シアターモードに切替'
 Change Format:
   Change Video Formats: '動画形式の変更'
   Use Dash Formats: 'DASH 形式の使用'
@@ -449,7 +449,7 @@ Comments:
   Replies: '返信'
   Reply: '返信'
   There are no comments available for this video: 'この動画へのコメントはありません'
-  Load More Comments: 'もっと見る'
+  Load More Comments: 'さらにコメントを読み込む'
   There are no more comments for this video: この動画へのコメントはまだありません
   Top comments: 評価順
   Newest first: 新しい順
