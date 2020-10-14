@@ -252,7 +252,7 @@ Settings:
     Check for Legacy Subscriptions: 古い登録形式の確認
   Distraction Free Settings:
     Hide Live Chat: ライブチャットを非表示
-    Hide Popular Videos: 人気の動画を非表示
+    Hide Popular Videos: 最も人気を非表示
     Hide Trending Videos: 急上昇の動画を非表示
     Hide Recommended Videos: おすすめ動画を非表示
     Hide Comment Likes: コメントの評価を非表示
@@ -512,7 +512,7 @@ Profile:
     same channels will be deleted in any profile they are found in.
   : これは上位のプロファイルです。選択したチャンネルを削除しますか？同じチャンネルがほかのプロファイルにも登録されていれば削除されます。
 The playlist has been reversed: 再生リストを逆順にしました
-A new blog is now available, $. Click to view more: '新着のブログ記事があります。$ クリックでさらに読む'
+A new blog is now available, $. Click to view more: '新着のブログ記事があります。$ クリックでブログを開く'
 Download From Site: サイトからダウンロード
 Version $ is now available!  Click for more details: 最新バージョン $ が利用可能です！クリックで詳細表示
-This video is unavailable because of missing formats. This can happen due to country unavailability.: この動画は、ファイル形式の情報を取得できないため再生できません。再生が許可されていない国で発生します。
+This video is unavailable because of missing formats. This can happen due to country unavailability.: この動画は、形式の情報が利用できないため再生できません。再生が許可されていない国で発生します。
