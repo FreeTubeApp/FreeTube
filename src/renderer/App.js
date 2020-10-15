@@ -93,7 +93,7 @@ export default Vue.extend({
       console.log('User is using Electron')
       this.activateKeyboardShortcuts()
       this.openAllLinksExternally()
-      this.enableCliPing()
+      this.enableOpenUrl()
       this.setBoundsOnClose()
     }
 
@@ -262,12 +262,10 @@ export default Vue.extend({
       })
     },
 
-    enableCliPing: function () {
+    enableOpenUrl: function () {
       const v = this
-      electron.ipcRenderer.on('ping', function (event, message) {
-        let url = message[message.length - 1]
+      electron.ipcRenderer.on('openUrl', function (event, url) {
         if (url) {
-          url = url.replace('freetube://', '')
           v.$store.dispatch('getVideoIdFromUrl', url).then((result) => {
             if (result) {
               v.$router.push({

@@ -25,13 +25,25 @@ const path = require('path')
 const isDev = process.env.NODE_ENV === 'development'
 const isDebug = process.argv.includes('--debug')
 let mainWindow
+let startupUrl
 
 // CORS somehow gets re-enabled in Electron v9.0.4
 // This line disables it.
 // This line can possible be removed if the issue is fixed upstream
 app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors')
 
-app.setAsDefaultProtocolClient('freetube')
+// See: https://stackoverflow.com/questions/45570589/electron-protocol-handler-not-working-on-windows
+// remove so we can register each time as we run the app.
+app.removeAsDefaultProtocolClient('freetube')
+
+// If we are running a non-packaged version of the app && on windows
+if (isDev && process.platform === 'win32') {
+  // Set the path of electron.exe and your app.
+  // These two additional parameters are only available on windows.
+  app.setAsDefaultProtocolClient('freetube', process.execPath, [path.resolve(process.argv[1])])
+} else {
+  app.setAsDefaultProtocolClient('freetube')
+}
 
 // TODO: Uncomment if needed
 // only allow single instance of application
@@ -45,7 +57,10 @@ if (!isDev) {
         if (mainWindow.isMinimized()) mainWindow.restore()
         mainWindow.focus()
 
-        mainWindow.webContents.send('ping', commandLine)
+        const url = getLinkUrl(commandLine)
+        if (url) {
+          mainWindow.webContents.send('openUrl', url)
+        }
       }
     })
 
@@ -231,9 +246,8 @@ function createWindow () {
   })
 
   ipcMain.on('appReady', () => {
-    const param = process.argv[1]
-    if (typeof (param) !== 'undefined' && param !== null) {
-      mainWindow.webContents.send('ping', process.argv)
+    if (startupUrl) {
+      mainWindow.webContents.send('openUrl', startupUrl)
     }
   })
 
@@ -275,6 +289,40 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
+/*
+ * Callback when processing a freetube:// link (macOS)
+ */
+app.on('open-url', (event, url) => {
+  event.preventDefault()
+
+  if (mainWindow && mainWindow.webContents) {
+    mainWindow.webContents.send('openUrl', baseUrl(url))
+  } else {
+    startupUrl = baseUrl(url)
+  }
+})
+
+/*
+ * Check if we were passed a freetube:// URL on process startup (linux/win)
+ */
+const url = getLinkUrl(process.argv)
+if (url) {
+  startupUrl = url
+}
+
+function baseUrl(arg) {
+  return arg.replace('freetube://', '')
+}
+
+function getLinkUrl(argv) {
+  for (const arg of argv) {
+    if (arg.indexOf('freetube://') !== -1) {
+      return baseUrl(arg)
+    }
+  }
+  return null
+}
 
 /**
  * Auto Updater
