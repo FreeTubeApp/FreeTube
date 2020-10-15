@@ -39,6 +39,12 @@ export default Vue.extend({
     }
   },
   computed: {
+    backendPreference: function () {
+      return this.$store.getters.getBackendPreference
+    },
+    invidiousInstance: function () {
+      return this.$store.getters.getInvidiousInstance
+    },
     profileList: function () {
       return this.$store.getters.getProfileList
     },
@@ -62,7 +68,7 @@ export default Vue.extend({
   },
   watch: {
     profile: function () {
-      this.subscriptions = [].concat(this.profile.subscriptions).sort((a, b) => {
+      this.subscriptions = JSON.parse(JSON.stringify(this.profile.subscriptions)).sort((a, b) => {
         const nameA = a.name.toLowerCase()
         const nameB = b.name.toLowerCase()
         if (nameA < nameB) {
@@ -73,6 +79,9 @@ export default Vue.extend({
         }
         return 0
       }).map((channel) => {
+        if (this.backendPreference === 'invidious') {
+          channel.thumbnail = channel.thumbnail.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`)
+        }
         channel.selected = false
         return channel
       })
@@ -80,7 +89,7 @@ export default Vue.extend({
   },
   mounted: function () {
     if (typeof this.profile.subscriptions !== 'undefined') {
-      this.subscriptions = [].concat(this.profile.subscriptions).sort((a, b) => {
+      this.subscriptions = JSON.parse(JSON.stringify(this.profile.subscriptions)).sort((a, b) => {
         const nameA = a.name.toLowerCase()
         const nameB = b.name.toLowerCase()
         if (nameA < nameB) {
@@ -91,6 +100,9 @@ export default Vue.extend({
         }
         return 0
       }).map((channel) => {
+        if (this.backendPreference === 'invidious') {
+          channel.thumbnail = channel.thumbnail.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`)
+        }
         channel.selected = false
         return channel
       })

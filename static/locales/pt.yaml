@@ -426,7 +426,7 @@ Video:
     Year: 'Ano'
     Years: 'Anos'
     Ago: 'Há'
-    Upcoming: 'Estreia em breve'
+    Upcoming: 'Estreias em'
   Published on: 'Publicado em'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Há $ %'

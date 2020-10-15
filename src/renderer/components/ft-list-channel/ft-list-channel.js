@@ -24,6 +24,9 @@ export default Vue.extend({
     }
   },
   computed: {
+    invidiousInstance: function () {
+      return this.$store.getters.getInvidiousInstance
+    },
     listType: function () {
       return this.$store.getters.getListType
     },
@@ -53,7 +56,7 @@ export default Vue.extend({
     },
 
     parseInvidiousData: function () {
-      this.thumbnail = this.data.authorThumbnails[2].url
+      this.thumbnail = this.data.authorThumbnails[2].url.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`)
       this.channelName = this.data.author
       this.id = this.data.authorId
       if (this.hideChannelSubscriptions) {

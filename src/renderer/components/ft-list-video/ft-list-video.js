@@ -254,7 +254,7 @@ export default Vue.extend({
       this.channelId = this.data.authorId
       this.duration = this.calculateVideoDuration(this.data.lengthSeconds)
       this.description = this.data.description
-      this.isLive = this.data.liveNow
+      this.isLive = this.data.liveNow || this.data.lengthSeconds === 'undefined'
       this.isUpcoming = this.data.isUpcoming || this.data.premiere
       this.viewCount = this.data.viewCount
 

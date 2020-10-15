@@ -30,9 +30,11 @@ export default Vue.extend({
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
-
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
+    },
+    invidiousInstance: function () {
+      return this.$store.getters.getInvidiousInstance
     }
   },
   watch: {
@@ -145,7 +147,7 @@ export default Vue.extend({
           viewCount: result.viewCount,
           videoCount: result.videoCount,
           channelName: result.author,
-          channelThumbnail: result.authorThumbnails[2].url,
+          channelThumbnail: result.authorThumbnails[2].url.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`),
           channelId: result.authorId,
           infoSource: 'invidious'
         }

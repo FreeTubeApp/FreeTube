@@ -74,7 +74,7 @@
         :min-value="0.25"
         :max-value="3"
         :step="0.25"
-        value-extension="x"
+        value-extension="×"
         @change="updateDefaultPlayback"
       />
     </ft-flex-box>

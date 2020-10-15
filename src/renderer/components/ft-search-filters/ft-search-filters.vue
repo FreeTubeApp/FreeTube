@@ -15,21 +15,21 @@
         :title="$t('Search Filters.Time.Time')"
         :labels="timeLabels"
         :values="timeValues"
-        class="searchRadio radioMargin"
+        class="searchRadio"
         @change="updateTime"
       />
       <ft-radio-button
         :title="$t('Search Filters.Type.Type')"
         :labels="typeLabels"
         :values="typeValues"
-        class="searchRadio radioMargin"
+        class="searchRadio"
         @change="updateType"
       />
       <ft-radio-button
         :title="$t('Search Filters.Duration.Duration')"
         :labels="durationLabels"
         :values="durationValues"
-        class="radioMargin"
+        class="searchRadio"
         @change="updateDuration"
       />
     </ft-flex-box>

@@ -24,6 +24,10 @@ export default Vue.extend({
     }
   },
   computed: {
+    invidiousInstance: function () {
+      return this.$store.getters.getInvidiousInstance
+    },
+
     listType: function () {
       return this.$store.getters.getListType
     },
@@ -48,7 +52,7 @@ export default Vue.extend({
   methods: {
     parseInvidiousData: function () {
       this.title = this.data.title
-      this.thumbnail = this.data.playlistThumbnail
+      this.thumbnail = this.data.playlistThumbnail.replace('https://i.ytimg.com', this.invidiousInstance).replace('hqdefault', 'mqdefault')
       this.channelName = this.data.author
       this.channelLink = this.data.authorUrl
       this.playlistLink = this.data.playlistId

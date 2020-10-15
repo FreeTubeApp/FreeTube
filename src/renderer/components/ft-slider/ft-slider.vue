@@ -12,7 +12,7 @@
       @change="$emit('change', $event.target.value)"
     >
     <span>
-      {{ label }} -
+      {{ label }}:
       <span>
         {{ displayLabel }}
       </span>
