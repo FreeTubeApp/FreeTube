@@ -918,7 +918,7 @@ body.vjs-full-window {
   width: 1px;
   height: 100%;
   background-color: #000;
-  z-index: 1;
+  z-index: 4;
 }
 
 .vjs-no-flex .vjs-progress-control .vjs-mouse-display {
@@ -2004,6 +2004,7 @@ video::-webkit-media-text-track-display {
     bottom: 20px;
     pointer-events: none;
     box-shadow: 0 0 7px rgba(0,0,0,.6);
+    z-index: 3;
 }
 
 .video-js .vjs-http-source-selector {
