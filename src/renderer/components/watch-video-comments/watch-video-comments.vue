@@ -65,8 +65,14 @@
             icon="thumbs-up"
           />
           {{ comment.likes }}
-          <span v-if="comment.isHearted" class="commentHeartBadge">
-            <img :src="channelThumbnail" class="commentHeartBadgeImg"/>
+          <span
+            v-if="comment.isHearted"
+            class="commentHeartBadge"
+          >
+            <img
+              :src="channelThumbnail"
+              class="commentHeartBadgeImg"
+            >
             <font-awesome-icon
               icon="heart"
               class="commentHeartBadgeWhite"
