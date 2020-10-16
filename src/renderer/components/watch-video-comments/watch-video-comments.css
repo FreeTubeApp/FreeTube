@@ -90,7 +90,7 @@
 
 .commentHeartBadgeRed {
   position: absolute;
-  color: red;
+  color: var(--red-500);
   left: 10px;
   bottom: 2px;
   width: 9px;
