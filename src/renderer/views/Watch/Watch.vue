@@ -94,6 +94,7 @@
         :id="videoId"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
+        :channel-thumbnail="channelThumbnail"
         @timestamp-event="changeTimestamp"
       />
     </div>
