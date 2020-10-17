@@ -55,8 +55,8 @@ Search Filters:
   Duration:
     Duration: '長さ'
     All Durations: 'すべての長さ'
-    Short (< 4 minutes): '短編 (4 分未満)'
-    Long (> 20 minutes): '長編 (20 分以上)'
+    Short (< 4 minutes): '短編（4 分未満）'
+    Long (> 20 minutes): '長編（20 分以上）'
   # On Search Page
   Search Results: '検索結果'
   Fetching results. Please wait: '結果を取得中。お待ちください'
@@ -106,7 +106,7 @@ Settings:
       Beginning: '開始'
       Middle: '中間'
       End: '終了'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious の実体
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious のインスタンス
       (初期値は https://invidious.snopyta.org)'
     Region for Trending: '地域内の急上昇'
         #! List countries
