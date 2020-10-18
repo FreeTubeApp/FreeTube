@@ -75,6 +75,7 @@ Subscriptions:
   'Getting Subscriptions.  Please wait.': 'Caricamento Iscrizioni. Attendi.'
   Refresh Subscriptions: Ricarica le Iscrizioni
   'Getting Subscriptions. Please wait.': Scaricamento delle iscrizioni. Prego attendere.
+  Load More Videos: Carica Più Video
 Trending: 'Tendenze'
 Most Popular: 'Popolari'
 Playlists: 'Playlist'
@@ -143,6 +144,9 @@ Settings:
       Deep Orange: 'Arancione scuro'
     Secondary Color Theme: 'Tema Colori Secondario'
         #* Main Color Theme
+    UI Scale: Dimensioni Interfaccia
+    Disable Smooth Scrolling: Disabilita Scorrimento Fluido
+    Expand Side Bar by Default: Espandi Automaticamente la Barra Laterale
   Player Settings:
     Player Settings: 'Impostazioni Riproduttore Video'
     Force Local Backend for Legacy Formats: 'Forza back-end locale per formati legacy'
@@ -265,6 +269,17 @@ Settings:
     Select Export Type: Seleziona Tipo di Esportazione
     Select Import Type: Seleziona Tipo di importazione
     Data Settings: Impostazioni Dati
+  Distraction Free Settings:
+    Hide Popular Videos: Nascondi Video Popolari
+    Hide Trending Videos: Nascondi Video in Tendenze
+    Hide Recommended Videos: Nascondi Video Suggeriti
+    Hide Comment Likes: Nascondi i Mi Piace dei Commenti
+    Hide Channel Subscribers: Nascondi il Numero di Iscritti
+    Hide Video Views: Nascondi Visualizzazioni Video
+    Distraction Free Settings: Impostazioni modalità "Senza Distrazioni"
+  The app needs to restart for changes to take effect. Restart and apply change?: L'applicazione
+    deve essere riavviata per applicare i cambiamenti. Riavviare e applicare i cambiamenti
+    ora?
 About:
   #On About page
   About: 'Informazioni'
@@ -401,6 +416,14 @@ Video:
   Autoplay: Riproduzione Automatica
   Starting soon, please refresh the page to check again: La riproduzione partirà a
     breve, refreshare la pagina per ricontrollare
+  Audio:
+    Best: Migliore
+    High: Alto
+    Medium: Medio
+    Low: Basso
+  audio only: solo audio
+  video only: solo video
+  Download Video: Scarica Video
 Videos:
   #& Sort By
   Sort By:
