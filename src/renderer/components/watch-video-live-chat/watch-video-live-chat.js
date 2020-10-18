@@ -180,6 +180,7 @@ export default Vue.extend({
       }
 
       this.comments.push(comment)
+      console.log(this.comments.length)
 
       if (typeof (comment.superchat) !== 'undefined') {
         this.$store.dispatch('getRandomColorClass').then((data) => {
@@ -210,6 +211,10 @@ export default Vue.extend({
 
       if (this.stayAtBottom) {
         liveChatComments.animate({ scrollTop: liveChatComments.prop('scrollHeight') })
+      }
+
+      if (this.comments.length > 150) {
+        this.comments = this.comments.splice(this.comments.length - 150, this.comments.length)
       }
     },
 

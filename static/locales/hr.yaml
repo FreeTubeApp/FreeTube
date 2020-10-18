@@ -92,13 +92,13 @@ Settings:
   Settings: 'Postavke'
   General Settings:
     General Settings: 'Opće postavke'
-    Fallback to Non-Preferred Backend on Failure: 'Koristi ne-preferirani pozadinski
-      sustav u slučaju neuspjeha'
+    Fallback to Non-Preferred Backend on Failure: 'U slučaju neuspjeha koristi sekundarni
+      pozadinski sustav'
     Enable Search Suggestions: 'Aktiviraj prijedloge pretraživanja'
     Default Landing Page: 'Standardna odredišna stranica'
     Locale Preference: 'Jezik'
     Preferred API Backend:
-      Preferred API Backend: 'Preferirani pozadinski sustav sučelja'
+      Preferred API Backend: 'Primarni pozadinski sustav'
       Local API: 'Lokalno sučelje'
       Invidious API: 'Invidious sučelje'
     Video View Type:
@@ -150,12 +150,12 @@ Settings:
     Expand Side Bar by Default: Standardno proširi bočnu traku
   Player Settings:
     Player Settings: 'Postavke playera'
-    Force Local Backend for Legacy Formats: 'Prisili lokalni pozadinski sustav za
+    Force Local Backend for Legacy Formats: 'Koristi lokalni pozadinski sustav za
       stare formate'
     Play Next Video: 'Reproduciraj sljedeći videozapis'
     Turn on Subtitles by Default: 'Standardno uključi titlove'
     Autoplay Videos: 'Automatski reproduciraj videozapise'
-    Proxy Videos Through Invidious: 'Reproduciraj videozapise putem Invidious proxyja'
+    Proxy Videos Through Invidious: 'Koristi Invidious za prosljeđivanje videozapisa'
     Autoplay Playlists: 'Automatski reproduciraj zbirke'
     Enable Theatre Mode by Default: 'Standardno aktiviraj kazališni modus'
     Default Volume: 'Standardna glasnoća'
@@ -278,8 +278,7 @@ Settings:
     Hide Video Views: Sakrij broj gledanja videozapisa
     Distraction Free Settings: Postavke za nesmetan rad
   The app needs to restart for changes to take effect. Restart and apply change?: Za
-    primjenu promjena, program se mora ponovo pokrenuti. Ponovo pokrenuti program
-    i primijeniti promjene?
+    primjenu promjena, program se mora ponovo pokrenuti. Ponovo pokrenuti program?
 About:
   #On About page
   About: 'Informacije'

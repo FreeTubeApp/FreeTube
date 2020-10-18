@@ -3,13 +3,13 @@ Locale Name: 'Български'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Тази част от приложението не е готова все още. Върнете се по-късно когато ще има
+  Тази част от приложението все още не е готова. Върнете се по-късно когато ще има
   напредък.
 
 # Webkit Menu Bar
 File: 'Файл'
-Quit: 'Напускане'
-Edit: 'Редакция'
+Quit: 'Изход'
+Edit: 'Редактиране'
 Undo: 'Върни'
 Redo: 'Възстанови'
 Cut: 'Изрежи'
@@ -27,26 +27,26 @@ Toggle fullscreen: 'Превключи на цял екран'
 Window: 'Прозорец'
 Minimize: 'Минимизирай'
 Close: 'Затвори'
-Back: 'Обратно'
+Back: 'Назад'
 Forward: 'Напред'
 
-Version $ is now available!  Click for more details: 'Вече е налична версия $!  Кликнете
+Version $ is now available!  Click for more details: 'Вече е налична версия $!  Щракнете
   за повече детайли'
-Download From Site: 'Свали от сайта'
+Download From Site: 'Сваляне от сайта'
 A new blog is now available, $. Click to view more: 'Налична е нова публикация в блога,
-  $. Кликни, за да я видиш'
+  $. Щракнете за я видите'
 
 # Search Bar
-Search / Go to URL: 'Търси / Отиди на адрес'
+Search / Go to URL: 'Търсене / Отиване на адрес'
   # In Filter Button
 Search Filters:
   Search Filters: 'Филтри за търсене'
   Sort By:
-    Sort By: 'Подреди по'
+    Sort By: 'Сортиране по'
     Most Relevant: 'Най-уместно'
-    Rating: 'Оценки'
+    Rating: 'Оценка'
     Upload Date: 'Дата на качване'
-    View Count: 'Брой гледания'
+    View Count: 'Брой показвания'
   Time:
     Time: 'Време'
     Any Time: 'Всяко време'
@@ -56,16 +56,16 @@ Search Filters:
     This Month: 'Този месец'
     This Year: 'Тази година'
   Type:
-    Type: 'Вид'
-    All Types: 'Всички видове'
+    Type: 'Тип'
+    All Types: 'Всички типове'
     Videos: 'Видеа'
     Channels: 'Канали'
     #& Playlists
   Duration:
     Duration: 'Продължителност'
     All Durations: 'Всички продължителности'
-    Short (< 4 minutes): 'Кратки (под 4 минути)'
-    Long (> 20 minutes): 'Дълги (над 20 минути)'
+    Short (< 4 minutes): 'Кратки (< 4 минути)'
+    Long (> 20 minutes): 'Дълги (> 20 минути)'
   # On Search Page
   Search Results: 'Резултати от търсене'
   Fetching results. Please wait: 'Намиране на резултати. Моля, изчакайте'
@@ -78,100 +78,99 @@ Subscriptions:
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Списъкът
     с абонамети е празен. Започнете да добавяте, за да ги видите тук.'
   'Getting Subscriptions. Please wait.': 'Получаване на абонаменти. Моля, изчакайте.'
-  Refresh Subscriptions: 'Опресни абонаментите'
+  Refresh Subscriptions: 'Опресняване на абонаментите'
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Този
     профил има голям брой абонаменти.  Принудително използване на RSS за заобикаляне
     на ограниченията
-  Load More Videos: Зареди още видеа
-Trending: 'Популярни'
+  Load More Videos: Зареждане на още видеа
+Trending: 'Набиращи популярност'
 Most Popular: 'Най-популярни'
 Playlists: 'Плейлисти'
 User Playlists:
   Your Playlists: 'Вашите плейлисти'
 History:
   # On History Page
-  History: 'Хронология'
-  Watch History: 'Хронология на гледанията'
-  Your history list is currently empty.: 'Вашият списък Хронология на гледанията е
-    празен.'
+  History: 'История'
+  Watch History: 'История на гледанията'
+  Your history list is currently empty.: 'Списъка с история на гледанията е празен.'
 Settings:
   # On Settings Page
   Settings: 'Настройки'
   General Settings:
     General Settings: 'Общи настройки'
-    Check for Updates: 'Провери за актуализации'
-    Check for Latest Blog Posts: 'Провери за нови публикации в блога'
-    Fallback to Non-Preferred Backend on Failure: 'При грешка връщане към определен
+    Check for Updates: 'Проверка за актуализации'
+    Check for Latest Blog Posts: 'Проверка за нови публикации в блога'
+    Fallback to Non-Preferred Backend on Failure: 'При грешка, връщане към непредпочитан
       интерфейс'
-    Enable Search Suggestions: 'Активирай препоръките при търсене'
+    Enable Search Suggestions: 'Активиране на препоръките при търсене'
     Default Landing Page: 'Страница по подразбиране'
-    Locale Preference: 'Локални предпочитания'
+    Locale Preference: 'Език'
     Preferred API Backend:
       Preferred API Backend: 'Предпочитан вътрешен интерфейс'
-      Local API: 'Локален интерфейс (API)'
-      Invidious API: 'Invidious интерфейс'
+      Local API: 'Локален API'
+      Invidious API: 'Invidious API'
     Video View Type:
       Video View Type: 'Подредба на видеата'
       Grid: 'Решетка'
       List: 'Списък'
     Thumbnail Preference:
-      Thumbnail Preference: 'Предпочитни миниатюрни изображения'
+      Thumbnail Preference: 'Настройки на миниатюри'
       Default: 'По подразбиране'
-      Beginning: 'Начално'
-      Middle: 'Средно'
-      End: 'Край'
+      Beginning: 'Начало на видео'
+      Middle: 'Среда на видео'
+      End: 'Край на видео'
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Излед на Invidious
       (по подразбиране е https://invidious.snopyta.org)'
-    Region for Trending: 'Регион за Популярни'
+    Region for Trending: 'Регион за Набиращи популярност'
         #! List countries
   Theme Settings:
-    Theme Settings: 'Настройки на изгледа'
-    Match Top Bar with Main Color: 'Подобност на горната лента с основния цвят'
+    Theme Settings: 'Настройки на облик'
+    Match Top Bar with Main Color: 'Съвпадане на горната лента с основния цвят'
     Base Theme:
-      Base Theme: 'Основна схема'
+      Base Theme: 'Основна тема'
       Black: 'Черна'
       Dark: 'Тъмна'
       Light: 'Светла'
     Main Color Theme:
-      Main Color Theme: 'Основен цветови изглед'
-      Red: 'Червен'
-      Pink: 'Розов'
-      Purple: 'Пурпурен'
-      Deep Purple: 'Наситен пурпурен'
-      Indigo: 'Наситен син'
-      Blue: 'Син'
-      Light Blue: 'Светло син'
-      Cyan: 'Синьозелен'
-      Teal: 'Наситен синьозелен'
-      Green: 'Зелен'
-      Light Green: 'Светло зелен'
-      Lime: 'Жълтозелен'
-      Yellow: 'Жълт'
-      Amber: 'Кехлибарен'
-      Orange: 'Оранжев'
-      Deep Orange: 'Наситен оранжев'
-    Secondary Color Theme: 'Втора цветова схема'
+      Main Color Theme: 'Основна цветова тема'
+      Red: 'Червено'
+      Pink: 'Розово'
+      Purple: 'Пурпурно'
+      Deep Purple: 'Наситено пурпурно'
+      Indigo: 'Наситено синьо'
+      Blue: 'Синьо'
+      Light Blue: 'Светло синьо'
+      Cyan: 'Синьозелено'
+      Teal: 'Наситено синьозелено'
+      Green: 'Зелено'
+      Light Green: 'Светло зелено'
+      Lime: 'Жълтозелено'
+      Yellow: 'Жълто'
+      Amber: 'Кехлибарено'
+      Orange: 'Оранжево'
+      Deep Orange: 'Наситено оранжево'
+    Secondary Color Theme: 'Втора цветова тема'
         #* Main Color Theme
-    UI Scale: Мащаб на клиентския интерфейс
-    Disable Smooth Scrolling: Деактивирай плавното скролиране
-    Expand Side Bar by Default: Широка странична лента по подразбиране
+    UI Scale: Мащаб на интерфейса
+    Disable Smooth Scrolling: Изключване на плавното превъртане
+    Expand Side Bar by Default: Разширяване на страничната лента по подразбиране
   Player Settings:
     Player Settings: 'Настройки на плейъра'
-    Force Local Backend for Legacy Formats: 'Принудено връщане към локалния интерфейс
+    Force Local Backend for Legacy Formats: 'Принудително връщане към локалния интерфейс
       при стари формати'
-    Play Next Video: 'Пусни следващото видео'
-    Turn on Subtitles by Default: 'Включвай субтитрите по подразбиране'
+    Play Next Video: 'Пускане на следващото видео'
+    Turn on Subtitles by Default: 'Включване на субтитрите по подразбиране'
     Autoplay Videos: 'Автоматично пускане на видеата'
-    Proxy Videos Through Invidious: 'Прекарвай видеата през Invidious'
+    Proxy Videos Through Invidious: 'Прекарване на видеата през Invidious'
     Autoplay Playlists: 'Автоматични плейлисти'
-    Enable Theatre Mode by Default: 'Активирай широкоекранен режим по подразбиране'
+    Enable Theatre Mode by Default: 'Активиране на широкоекранен режим по подразбиране'
     Default Volume: 'Сила на звука по подразбиране'
     Default Playback Rate: 'Скорост на възпроизвеждане по подразбиране'
     Default Video Format:
       Default Video Format: 'Видео формат по подразбиране'
       Dash Formats: 'Dash формати'
       Legacy Formats: 'Стари формати'
-      Audio Formats: 'Звукови формати'
+      Audio Formats: 'Аудио формати'
     Default Quality:
       Default Quality: 'Качество по подразбиране'
       Auto: 'Автоматично'
@@ -185,82 +184,81 @@ Settings:
       4k: '4k'
       8k: '8k'
   Privacy Settings:
-    Privacy Settings: 'Настройки поверителност'
-    Remember History: 'Запази хронологията'
-    Save Watched Progress: 'Запази напредъка на гледането'
-    Clear Search Cache: 'Изчисти кеша на търсенията'
+    Privacy Settings: 'Настройки за поверителност'
+    Remember History: 'Запазване на историята'
+    Save Watched Progress: 'Запазване напредъка на гледането'
+    Clear Search Cache: 'Изчистване кеша на търсенията'
     Are you sure you want to clear out your search cache?: 'Сигурни ли сте, че искате
       да изчистите кеша на търсенията си?'
     Search cache has been cleared: 'Кешът на търсенията беше изчистен'
-    Remove Watch History: 'Премахване на хронологията на гледанията'
+    Remove Watch History: 'Премахване на историята на гледанията'
     Are you sure you want to remove your entire watch history?: 'Сигурни ли сте, че
-      искате да премахнете цялата хронология на гледанията?'
-    Watch history has been cleared: 'Хронологията на гледанията беше изчистена'
+      искате да премахнете цялата история на гледанията?'
+    Watch history has been cleared: 'Историята на гледанията беше изчистена'
     Remove All Subscriptions / Profiles: 'Премахване на всички абонаменти / профили'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Сигурни
       ли сте, че искате да премахнете всички абонаменти и профили? Това не може да
       бъде възстановено.'
   Subscription Settings:
     Subscription Settings: 'Настройки на абонаменти'
-    Hide Videos on Watch: 'Скрий видеата при гледане'
+    Hide Videos on Watch: 'Скриване на видеата при гледане'
     Fetch Feeds from RSS: 'Изтегляне на съдържания от RSS'
     Manage Subscriptions: 'Управление на абонаменти'
   Data Settings:
-    Data Settings: 'Настройки данни'
-    Select Import Type: 'Изберете вид импорт'
-    Select Export Type: 'Изберете вид експорт'
+    Data Settings: 'Настройки на данни'
+    Select Import Type: 'Избор на тип за внасяне'
+    Select Export Type: 'Избор на тип за изнасяне'
     Import Subscriptions: 'Внасяне на абонаменти'
     Import FreeTube: 'Внасяне на FreeTube формат'
     Import YouTube: 'Внасяне на YouTube формат'
     Import NewPipe: 'Внасяне на NewPipe формат'
-    Export Subscriptions: 'Експортиране на абонаменти'
-    Export FreeTube: 'Експортиране във FreeTube формат'
-    Export YouTube: 'Експортиране в YouTube формат'
-    Export NewPipe: 'Експортиране в NewPipe формат'
-    Import History: 'Внасяне на хронология'
-    Export History: 'Експортиране на хронология'
+    Export Subscriptions: 'Изнасяне на абонаменти'
+    Export FreeTube: 'Изнасяне във FreeTube формат'
+    Export YouTube: 'Изнасяне в YouTube формат'
+    Export NewPipe: 'Изнасяне в NewPipe формат'
+    Import History: 'Внасяне на история'
+    Export History: 'Изнасяне на история'
     Profile object has insufficient data, skipping item: 'В профила няма достатъчно
-      данни, прескачам обекта'
+      данни, прескачане на обекта'
     All subscriptions and profiles have been successfully imported: 'Всички абонаменти
-      и профили бяха импортирани успешно'
-    All subscriptions have been successfully imported: 'Всички абонаменти бяха импортирани
+      и профили бяха внесени успешно'
+    All subscriptions have been successfully imported: 'Всички абонаменти бяха внесени
       успешно'
     One or more subscriptions were unable to be imported: 'Един или повече абонаменти
-      не беше импортиран'
+      не беше внесен'
     Invalid subscriptions file: 'Невалиден файл с абонаменти'
     This might take a while, please wait: 'Това може да отнеме повече време, моля
       изчакайте'
-    Invalid history file: 'Невалиден файл с хронология'
-    Subscriptions have been successfully exported: 'Абонаментите бяха експортирани
-      успешно'
-    History object has insufficient data, skipping item: 'Хронологията няма достатъчно
-      данни, прескачам обекта'
-    All watched history has been successfully imported: 'Цялата хронология на гледанията
-      беше импортирана успешно'
-    All watched history has been successfully exported: 'Цялата хронология на гледанията
-      беше експортирана успешно'
+    Invalid history file: 'Невалиден файл с история'
+    Subscriptions have been successfully exported: 'Абонаментите бяха изнесени успешно'
+    History object has insufficient data, skipping item: 'Историята няма достатъчно
+      данни, прескачане на обекта'
+    All watched history has been successfully imported: 'Цялата история на гледанията
+      беше внесена успешно'
+    All watched history has been successfully exported: 'Цялата история на гледанията
+      беше изнесена успешно'
     Unable to read file: 'Файлът не се прочете'
     Unable to write file: 'Файлът не се записа'
     Unknown data key: 'Непознат ключ данни'
-    How do I import my subscriptions?: 'Как да импортирам абонаментите си?'
-    Check for Legacy Subscriptions: Провери за стари абонаменти
+    How do I import my subscriptions?: 'Как да внеса абонаментите си?'
+    Check for Legacy Subscriptions: Проверка за стари абонаменти
   Advanced Settings:
-    Advanced Settings: 'Настройки за напреднали'
+    Advanced Settings: 'Разширени настройки'
     Enable Debug Mode (Prints data to the console): 'Активиране на режим за дебъгване
       (извежда данни в конзолата)'
     'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Адрес на прокси (пример:
       SOCKS5://127.0.0.1:9050 )'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Кликането
+    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Щракането
       на бутон "Тест прокси" ще изпрати искане към https://ipinfo.io/json'
-    Use Tor / Proxy for API calls: 'Използвай TOR / прокси за интерфейсни запитвания'
+    Use Tor / Proxy for API calls: 'Използване на TOR / прокси за интерфейсни запитвания'
     TEST PROXY: 'Тест на прокси'
     #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: 'Виж публични инстанции'
+    See Public Instances: 'Преглед на публични инстанции'
     Clear History:
-      Clear History: 'Изчисти хронологията'
+      Clear History: 'Изчистване на историята'
       # On Click
       Are you sure you want to delete your history?: 'Сигурни ли сте, че искате да
-        изтриете вашата хронология?'
+        изтриете историята си?'
       #& Yes
       #& No
     Clear Subscriptions:
@@ -272,27 +270,27 @@ Settings:
       #& No
 
   Distraction Free Settings:
-    Hide Live Chat: Скрий чата на живо
-    Hide Popular Videos: Скрий популярните видеа
-    Hide Trending Videos: Скрий набиращите популярност видеа
-    Hide Recommended Videos: Скрий препоръчаните видеа
-    Hide Comment Likes: Скрий оценките на коментарите
-    Hide Channel Subscribers: Скрий броя на абонатите на канали
-    Hide Video Likes And Dislikes: Скрий оценките на видеата
-    Hide Video Views: Скрий видео изгледите
+    Hide Live Chat: Скриване на чата на живо
+    Hide Popular Videos: Скриване на популярните видеа
+    Hide Trending Videos: Скриване на набиращите популярност видеа
+    Hide Recommended Videos: Скриване на препоръчаните видеа
+    Hide Comment Likes: Скриване оценките на коментарите
+    Hide Channel Subscribers: Скриване броя на абонатите на канали
+    Hide Video Likes And Dislikes: Скриване оценките на видеата
+    Hide Video Views: Скриване броя показвания на видеото
     Distraction Free Settings: Настройки за неразсейване
-  The app needs to restart for changes to take effect. Restart and apply change?: За
-    да имат ефект промените, приложението трябва да се рестартира. Рестартиране?
+  The app needs to restart for changes to take effect. Restart and apply change?: Приложението
+    трябва да се рестартира за да се приложат промените. Рестартиране?
 About:
   #On About page
   About: 'Относно'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Този
-    софтуер се разпространява свободно по лиценза AGPL-3.0.'
+    софтуер се разпространява свободно под AGPL-3.0 лиценз.'
 
   'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    Откривте грешка? Искате да предложите нова функционалност? Или искате да помогате?
-    Проверете нашата GitHub страница. Добре дошли сте с готови предложния.
+    Откривате грешка? Искате да предложите нова функционалност? Или искате да помагате?
+    Проверете нашата GitHub страница. Добре дошли сте с готови предложения.
 
   Thank you very much to the People and Projects that make FreeTube possible!: 'Благодарим
     на хората и проектите, които правят възможен FreeTube!'
@@ -304,7 +302,7 @@ About:
   'Looking for help? Check out our Wiki page.': 'Нуждаете се от помощ? Погледнете
     в нашата Wiki страница.'
 
-  Check out our Firefox extension!: 'Потърсете нашето Firefox разширение!'
+  Check out our Firefox extension!: 'Потърсете нашето разширение за Firefox!'
 
   'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'Ако
     ползването на FreeTube ви харесва, помислете за дарение през Liberapay или през
@@ -317,16 +315,16 @@ About:
 Profile:
   Profile Select: 'Избор на профил'
   All Channels: 'Всички канали'
-  Profile Manager: 'Мениджър профили'
-  Create New Profile: 'Създай нов профил'
-  Edit Profile: 'Редактирай профил'
+  Profile Manager: 'Управление на профили'
+  Create New Profile: 'Създаване на нов профил'
+  Edit Profile: 'Редактиране на профил'
   Color Picker: 'Избор на цвят'
-  Custom Color: 'Собствен цвят'
+  Custom Color: 'Потребителски цвят'
   Profile Preview: 'Преглед на профила'
-  Create Profile: 'Създай профил'
-  Update Profile: 'Актуализирай профила'
-  Make Default Profile: 'Направи профил по подразбиране'
-  Delete Profile: 'Изтрий профил'
+  Create Profile: 'Създаване на профил'
+  Update Profile: 'Актуализиране на профила'
+  Make Default Profile: 'Задаване профил по подразбиране'
+  Delete Profile: 'Изтриване на профила'
   Are you sure you want to delete this profile?: 'Сигурни ли сте, че искате да изтриете
     профила?'
   All subscriptions will also be deleted.: 'Всички абонаменти също ще бъдат изтрити.'
@@ -336,17 +334,17 @@ Profile:
   Profile has been updated: 'Профилът беше актуализиран'
   Your default profile has been set to $: 'Вашият профил по подразбиране беше указан
     да е $'
-  Removed $ from your profiles: 'Премахнат е $ от вашите профили'
+  Removed $ from your profiles: '$ е премахнат от вашите профили'
   Your default profile has been changed to your primary profile: 'Профилът по подразбиране
     е променен на вашия първоначален профил'
-  $ is now the active profile: '$ е сега активният профил'
+  $ is now the active profile: 'Активният профил сега е $'
   Subscription List: 'Списък с абонаменти'
   Other Channels: 'Други канали'
   $ selected: '$ избран'
-  Select All: 'Избери всички'
-  Select None: 'Не избирай'
-  Delete Selected: 'Изтрий избраните'
-  Add Selected To Profile: 'Добави избраното към профила'
+  Select All: 'Избиране на всички'
+  Select None: 'Без избиране'
+  Delete Selected: 'Изтриване на избраните'
+  Add Selected To Profile: 'Добавяне на избраното към профила'
   No channel(s) have been selected: 'Няма избрани канали'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
@@ -359,24 +357,24 @@ Profile:
 Channel:
   Subscriber: 'Абонат'
   Subscribers: 'Абонати'
-  Subscribe: 'Абонирай се'
-  Unsubscribe: 'Прекрати абонамент'
+  Subscribe: 'Абониране'
+  Unsubscribe: 'Отписване'
   Channel has been removed from your subscriptions: 'Каналът беше премахнат от вашите
     абонаменти'
   Removed subscription from $ other channel(s): 'Премахнат абонамент от $ друг(и)
     канал(и)'
   Added channel to your subscriptions: 'Добавен канал към вашите абонаменти'
-  Search Channel: 'Търси в канал'
-  Your search results have returned 0 results: 'Вашето търсене даде 0 резултата'
-  Sort By: 'Подреди по'
+  Search Channel: 'Търсене в канал'
+  Your search results have returned 0 results: 'Вашето търсене върна 0 резултата'
+  Sort By: 'Сортиране по'
   Videos:
     Videos: 'Видеа'
     This channel does not currently have any videos: 'В този канал по настоящем няма
       видеа'
     Sort Types:
-      Newest: 'Най-новото'
-      Oldest: 'Най-старото'
-      Most Popular: 'Най-популярното'
+      Newest: 'Най-нови'
+      Oldest: 'Най-стари'
+      Most Popular: 'Най-популярни'
   Playlists:
     Playlists: 'Плейлисти'
     This channel does not currently have any playlists: 'В този канал по настоящем
@@ -390,23 +388,23 @@ Channel:
     Channel Description: 'Описание на канала'
     Featured Channels: 'Препоръчани канали'
 Video:
-  Mark As Watched: 'Отбележи като гледан'
-  Remove From History: 'Премахни от хронологията'
+  Mark As Watched: 'Отбелезване като гледано'
+  Remove From History: 'Премахване от историята'
   Video has been marked as watched: 'Видеото беше отбелязано като гледано'
-  Video has been removed from your history: 'Видеото беше премахнато от хронологията'
-  Open in YouTube: 'Отвори в YouTube'
-  Copy YouTube Link: 'Копирай YouTube линк'
-  Open YouTube Embedded Player: 'Отвори вградения YouTube плейър'
-  Copy YouTube Embedded Player Link: 'Копирай линка за вградения YouTube плейър'
-  Open in Invidious: 'Отвори в Invidious'
-  Copy Invidious Link: 'Копирай Invidious линка'
-  View: 'Изглед'
-  Views: 'Изгледи'
-  Loop Playlist: 'Превърти плейлиста'
-  Shuffle Playlist: 'Разбъркай плейлиста'
-  Reverse Playlist: 'Пусни плейлиста наобратно'
-  Play Next Video: 'Пусни следващото видео'
-  Play Previous Video: 'Пусни предишното видео'
+  Video has been removed from your history: 'Видеото беше премахнато от историята'
+  Open in YouTube: 'Отворяне в YouTube'
+  Copy YouTube Link: 'Копиране на връзка за YouTube'
+  Open YouTube Embedded Player: 'Отворяне на вградения YouTube плейър'
+  Copy YouTube Embedded Player Link: 'Копиране на връзка за вградения YouTube плейър'
+  Open in Invidious: 'Отваряне в Invidious'
+  Copy Invidious Link: 'Копиране на връзка за Invidious'
+  View: 'показване'
+  Views: 'показвания'
+  Loop Playlist: 'Повтаряне на плейлиста'
+  Shuffle Playlist: 'Разбъркване на плейлиста'
+  Reverse Playlist: 'Обръщане на плейлиста'
+  Play Next Video: 'Следващо видео'
+  Play Previous Video: 'Предишно видео'
   # Context is "X People Watching"
   Watching: 'Гледане'
   Watched: 'Гледан'
@@ -417,7 +415,7 @@ Video:
   Live: 'На живо'
   Live Now: 'На живо сега'
   Live Chat: 'Чат на живо'
-  Enable Live Chat: 'Активирай чата на живо'
+  Enable Live Chat: 'Активиране чата на живо'
   Live Chat is currently not supported in this build.: 'Чатът на живо не се поддръжа
     в тази версия.'
   'Chat is disabled or the Live Stream has ended.': 'Чатът е деактивиран или предаването
@@ -458,7 +456,7 @@ Video:
     Upcoming: 'Премиерата върви'
   Published on: 'Публикуван на'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'Преди $ %'
+  Publicationtemplate: 'Преди $ %'
 #& Videos
   Audio:
     Best: Най-добро
@@ -467,7 +465,7 @@ Video:
     Low: Ниско
   audio only: само аудио
   video only: само видео
-  Download Video: Свали видео
+  Download Video: Сваляне на видео
 Videos:
   #& Sort By
   Sort By:
@@ -477,60 +475,59 @@ Videos:
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: 'Виж пълна плейлиста'
+  View Full Playlist: 'Преглед на пълен плейлист'
   Videos: 'Видеа'
-  View: 'Изглед'
-  Views: 'Изгледи'
+  View: 'показване'
+  Views: 'показвания'
   Last Updated On: 'Последна актуализиция на'
   Share Playlist:
-    Share Playlist: 'Сподели плейлиста'
-    Copy YouTube Link: 'Копирай YouTube линка'
-    Open in YouTube: 'Отвори в YouTube'
-    Copy Invidious Link: 'Копирай Invidious линка'
-    Open in Invidious: 'Отвори в Invidious'
+    Share Playlist: 'Споделяне на плейлиста'
+    Copy YouTube Link: 'Копиране на връзка за YouTube'
+    Open in YouTube: 'Отваряне в YouTube'
+    Copy Invidious Link: 'Копиране на връзка за Invidious'
+    Open in Invidious: 'Отваряне в Invidious'
 
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: 'Превключи в широкоекранен режим'
+Toggle Theatre Mode: 'Режим "Театър"'
 Change Format:
   Change Video Formats: 'Смяна видео формати'
-  Use Dash Formats: 'Използвай Dash формати'
-  Use Legacy Formats: 'Използвай стари формати'
-  Use Audio Formats: 'Използвай аудио формати'
+  Use Dash Formats: 'Използване на Dash формати'
+  Use Legacy Formats: 'Използване на стари формати'
+  Use Audio Formats: 'Използване на аудио формати'
   Dash formats are not available for this video: 'Dash форматите не са достъпни за
     това видео'
   Audio formats are not available for this video: 'Аудио форматите не са достъпни
     за това видео'
 Share:
-  Share Video: 'Сподели видео'
-  Include Timestamp: 'Включи времева отметка'
-  Copy Link: 'Копирай линк'
-  Open Link: 'Отвори линк'
-  Copy Embed: 'Копирай за вграждане'
-  Open Embed: 'Отвори линк за вграждане'
+  Share Video: 'Споделяне на видео'
+  Include Timestamp: 'Включване на текущото време'
+  Copy Link: 'Копиране на връзка'
+  Open Link: 'Отваряне на връзка'
+  Copy Embed: 'Копиране за вграждане'
+  Open Embed: 'Отваряне на връзка за вграждане'
   # On Click
-  Invidious URL copied to clipboard: 'Invidious адрес копиран в клипборда'
-  Invidious Embed URL copied to clipboard: 'Invidious адрес за вграждане копиран в
-    клипборда'
-  YouTube URL copied to clipboard: 'YouTube адрес копиран в клипборда'
-  YouTube Embed URL copied to clipboard: 'YouTube адрес за вграждане копиран в клипборда'
+  Invidious URL copied to clipboard: 'Адреса за Invidious е копиран'
+  Invidious Embed URL copied to clipboard: 'Адреса на Invidious за вграждане е копиран'
+  YouTube URL copied to clipboard: 'Адреса за YouTube е копиран'
+  YouTube Embed URL copied to clipboard: 'Адреса на YouTube за вграждане е копиран'
 Mini Player: 'Мини плейър'
 Comments:
   Comments: 'Коментари'
-  Click to View Comments: 'Кликнете, за да видите коментарите'
+  Click to View Comments: 'Щракнете, за да видите коментарите'
   Getting comment replies, please wait: 'Получаване на отговори на коментара, моля
     изчакайте'
-  There are no more comments for this video: 'Към това видео няма коментари'
-  Show Comments: 'Покажи коментари'
-  Hide Comments: 'Скрий коментарите'
+  There are no more comments for this video: 'Към това видео няма повече коментари'
+  Show Comments: 'Показване на коментари'
+  Hide Comments: 'Скриване на коментарите'
   # Context: View 10 Replies, View 1 Reply
   View: 'Изглед'
-  Hide: 'Скрий'
+  Hide: 'Скриване'
   Replies: 'Отговори'
-  Reply: 'Отговори'
+  Reply: 'Отговаряне'
   There are no comments available for this video: 'Към това видео няма коментари'
-  Load More Comments: 'Зареди още коментари'
+  Load More Comments: 'Зареждане на още коментари'
   No more comments available: Не са налични повече коментари
   Newest first: Първо най-новите
   Top comments: Последни коментари
@@ -538,26 +535,27 @@ Comments:
 Up Next: 'Следващ'
 
 # Toast Messages
-Local API Error (Click to copy): 'Грешка на локалния интерфейс (кликни за копиране)'
-Invidious API Error (Click to copy): 'Грешка на Invidious интерфейса (кликни за копиране)'
+Local API Error (Click to copy): 'Грешка на локалния интерфейс (щракнете за копиране)'
+Invidious API Error (Click to copy): 'Грешка на Invidious интерфейса (щракнете за
+  копиране)'
 Falling back to Invidious API: 'Връщане към Invidious интерфейса'
 Falling back to the local API: 'Връщане към локалния интерфейс'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Видеото
   не е достъпно поради липсващи формати. Това може да се дължи на ограничен достъп
   за страната.'
 Subscriptions have not yet been implemented: 'Абонаментите засега не са допълнени'
-Loop is now disabled: 'Повторното пускане е деактивирано'
-Loop is now enabled: 'Повторното пускане е активирано'
-Shuffle is now disabled: 'Разбъркването е деактивирано'
-Shuffle is now enabled: 'Разбъркването е активирано'
+Loop is now disabled: 'Повтарянето е изключено'
+Loop is now enabled: 'Повтарянето е включено'
+Shuffle is now disabled: 'Разбъркването е изключено'
+Shuffle is now enabled: 'Разбъркването е включено'
 The playlist has been reversed: 'Плейлистата е в обърнат ред'
 Playing Next Video: 'Пускане на следващото видео'
 Playing Previous Video: 'Пускане на предишното видео'
 Playing next video in 5 seconds.  Click to cancel: 'Следващото видео започва след
-  5 секунди. Кликнете за спиране.'
-Canceled next video autoplay: 'Спиране на автоматичното пускане на следващо видео'
-'The playlist has ended.  Enable loop to continue playing': 'Плейлистата приключи.
-  Активарайте повторението, за да тръгне наново'
+  5 секунди. Щракнете за отказ.'
+Canceled next video autoplay: 'Следващото видео е отказано'
+'The playlist has ended.  Enable loop to continue playing': 'Плейлиста приключи. Включете
+  повторението за да продължи'
 
 Yes: 'Да'
 No: 'Не'
