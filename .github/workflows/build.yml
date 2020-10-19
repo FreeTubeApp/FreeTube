@@ -12,7 +12,19 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x]
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        runtime: [ linux-x64, linux-arm64, win-x64, osx-x64 ]
+        include:
+        - runtime: linux-x64
+          os: ubuntu-latest
+
+        - runtime: linux-arm64
+          os: ubuntu-latest
+
+        - runtime: osx-x64
+          os: macOS-latest
+
+        - runtime: win-x64
+          os: windows-latest
 
     runs-on: ${{ matrix.os }}
 
@@ -24,103 +36,124 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
     - run: npm run lint
+      
     - name: Install libarchive-tools
-      if: startsWith(matrix.os, 'ubuntu')
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
       run: sudo apt -y install libarchive-tools
-    - run: npm run build --if-present
+      
+    - name: Build x64 with Node.js ${{ matrix.node-version}}
+      if: contains(matrix.runtime, 'x64')
+      run: npm run build --if-present
+      
     - name: Build ARM64 with Node.js ${{ matrix.node-version}}
-      if: startsWith(matrix.os, 'ubuntu')
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
       run: npm run build:arm --if-present
+      
     - name: Upload Linux .zip x64 Artifact
       uses: actions/upload-artifact@v2
-      if: startsWith(matrix.os, 'ubuntu')
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
       with:
         name: freetube_0.9.0_linux_portable_x64
         path: build/freetube-0.9.0.zip
+
     - name: Upload Linux .zip ARM Artifact
       uses: actions/upload-artifact@v2
-      if: startsWith(matrix.os, 'ubuntu')
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
       with:
         name: freetube_0.9.0_linux_portable_arm64
         path: build/freetube-0.9.0-arm64.zip
+
     - name: Upload .deb x64 Artifact
       uses: actions/upload-artifact@v2
-      if: startsWith(matrix.os, 'ubuntu')
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
       with:
         name: freetube_0.9.0_amd64.deb
         path: build/freetube_0.9.0_amd64.deb
+
     - name: Upload .deb ARM Artifact
       uses: actions/upload-artifact@v2
-      if: startsWith(matrix.os, 'ubuntu')
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
       with:
         name: freetube_0.9.0_arm64.deb
         path: build/freetube_0.9.0_arm64.deb
+
     - name: Upload AppImage x64 Artifact
       uses: actions/upload-artifact@v2
-      if: startsWith(matrix.os, 'ubuntu')
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
       with:
         name: freetube_0.9.0_amd64.AppImage
         path: build/FreeTube-0.9.0.AppImage
+
     - name: Upload AppImage ARM Artifact
       uses: actions/upload-artifact@v2
-      if: startsWith(matrix.os, 'ubuntu')
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
       with:
         name: freetube_0.9.0_arm64.AppImage
         path: build/FreeTube-0.9.0-arm64.AppImage
+
     - name: Upload .rpm x64 Artifact
       uses: actions/upload-artifact@v2
-      if: startsWith(matrix.os, 'ubuntu')
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
       with:
         name: freetube_0.9.0_amd64.rpm
         path: build/freetube-0.9.0.x86_64.rpm
+
     - name: Upload .rpm ARM Artifact
       uses: actions/upload-artifact@v2
-      if: startsWith(matrix.os, 'ubuntu')
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
       with:
         name: freetube_0.9.0_arm64.rpm
         path: build/freetube-0.9.0.arm64.rpm
+
     - name: Upload Alpine .apk x64 Artifact
       uses: actions/upload-artifact@v2
-      if: startsWith(matrix.os, 'ubuntu')
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
       with:
         name: freetube_0.9.0_alpine_amd64.apk
         path: build/freetube-0.9.0.apk
+
     - name: Upload Alpine .apk ARM Artifact
       uses: actions/upload-artifact@v2
-      if: startsWith(matrix.os, 'ubuntu')
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
       with:
         name: freetube_0.9.0_alpine_arm64.apk
         path: build/freetube-0.9.0-arm64.apk
+
     - name: Upload Pacman .pacman x64 Artifact
       uses: actions/upload-artifact@v2
-      if: startsWith(matrix.os, 'ubuntu')
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
       with:
         name: freetube_0.9.0_pacman_arm64.pacman
         path: build/freetube-0.9.0.pacman
+
     - name: Upload Web Build
       uses: actions/upload-artifact@v2
-      if: startsWith(matrix.os, 'ubuntu')
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
       with:
         name: freetube_0.9.0_static_web
         path: dist/web
+
     - name: Upload Windows .exe Artifact
       uses: actions/upload-artifact@v2
       if: startsWith(matrix.os, 'windows')
       with:
         name: freetube-0.9.0-win-x64-portable
         path: build/freetube-0.9.0-win.zip
+
     - name: Upload Windows .zip Artifact
       uses: actions/upload-artifact@v2
       if: startsWith(matrix.os, 'windows')
       with:
         name: freetube-0.9.0-setup-x64.exe
         path: build/freetube Setup 0.9.0.exe
+
     - name: Upload Windows Portable Artifact
       uses: actions/upload-artifact@v2
       if: startsWith(matrix.os, 'windows')
       with:
         name: freetube-0.9.0-portable-x64.exe
         path: build/freetube 0.9.0.exe
+
     - name: Upload Mac .dmg Artifact
       uses: actions/upload-artifact@v2
       if: startsWith(matrix.os, 'macos')
