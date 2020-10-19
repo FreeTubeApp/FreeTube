@@ -264,8 +264,8 @@ Settings:
     Select Import Type: Odaberi vrstu uvoza
     Data Settings: Postavke podataka
     How do I import my subscriptions?: Kako uvesti pretplate?
-    One or more subscriptions were unable to be imported: Nije moguće uvesti jednu
-      ili više pretplata
+    One or more subscriptions were unable to be imported: Neuspio uvoz jedne ili više
+      pretplata
     Check for Legacy Subscriptions: Potraži stare pretplate
   Distraction Free Settings:
     Hide Trending Videos: Sakrij videozapise u trendu
@@ -521,7 +521,7 @@ Comments:
   Replies: 'Odgovori'
   Reply: 'Odgovor'
   There are no comments available for this video: 'Nema komentara za ovaj videozapis'
-  Load More Comments: 'Učitaj više komentara'
+  Load More Comments: 'Učitaj još komentara'
   There are no more comments for this video: Nema daljnjih komentara za ovaj videozapis
   No more comments available: Nema daljnjih komentara
   Newest first: Najprije najnovije
