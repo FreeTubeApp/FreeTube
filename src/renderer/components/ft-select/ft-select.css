@@ -68,6 +68,12 @@
   color: var(--tertiary-text-color);
 }
 
+.selectTooltip {
+  position: absolute;
+  top: -20px;
+  right: 17px;
+}
+
 
 /* LABEL ======================================= */
 .select-label {

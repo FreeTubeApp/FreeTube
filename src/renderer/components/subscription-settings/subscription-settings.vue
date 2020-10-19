@@ -16,6 +16,7 @@
       <ft-toggle-switch
         :label="$t('Settings.Subscription Settings.Fetch Feeds from RSS')"
         :default-value="useRssFeeds"
+        :tooltip="$t('Tooltips.Subscription Settings.Fetch Feeds from RSS')"
         @change="updateUseRssFeeds"
       />
     </ft-flex-box>

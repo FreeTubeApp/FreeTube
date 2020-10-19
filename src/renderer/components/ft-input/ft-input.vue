@@ -11,6 +11,12 @@
       :for="id"
     >
       {{ placeholder }}
+      <ft-tooltip
+        v-if="tooltip !== ''"
+        class="selectTooltip"
+        position="right"
+        :tooltip="tooltip"
+      />
     </label>
     <input
       :id="id"

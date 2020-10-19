@@ -36,8 +36,8 @@
   font-size: 1rem;
   line-height: 120%;
   margin: 0;
-  max-width: 10em;
-  min-width: max-content;
+  max-width: max-content;
+  min-width: 15em;
   opacity: 0;
   padding: 10px 8px;
   pointer-events: none;

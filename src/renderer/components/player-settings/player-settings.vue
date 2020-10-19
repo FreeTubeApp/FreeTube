@@ -19,13 +19,16 @@
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Force Local Backend for Legacy Formats')"
           :compact="true"
+          :disabled="backendPreference === 'local'"
           :default-value="forceLocalBackendForLegacy"
+          :tooltip="$t('Tooltips.Player Settings.Force Local Backend for Legacy Formats')"
           @change="updateForceLocalBackendForLegacy"
         />
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Proxy Videos Through Invidious')"
           :compact="true"
           :default-value="proxyVideos"
+          :tooltip="$t('Tooltips.Player Settings.Proxy Videos Through Invidious')"
           @change="updateProxyVideos"
         />
         <ft-toggle-switch
@@ -84,6 +87,7 @@
         :value="defaultVideoFormat"
         :select-names="formatNames"
         :select-values="formatValues"
+        :tooltip="$t('Tooltips.Player Settings.Default Video Format')"
         @change="updateDefaultVideoFormat"
       />
       <ft-select

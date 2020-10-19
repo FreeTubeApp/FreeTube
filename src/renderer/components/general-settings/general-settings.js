@@ -651,6 +651,15 @@ export default Vue.extend({
       this.updateInvidiousInstanceBounce(invidiousInstance)
     },
 
+    handlePreferredApiBackend: function (backend) {
+      this.updateBackendPreference(backend)
+      console.log(backend)
+
+      if (backend === 'local') {
+        this.updateForceLocalBackendForLegacy(false)
+      }
+    },
+
     updateLocale: function (locale) {
       this.$i18n.locale = locale
       this.currentLocale = locale
@@ -668,7 +677,8 @@ export default Vue.extend({
       'updateRegion',
       'updateListType',
       'updateThumbnailPreference',
-      'updateInvidiousInstance'
+      'updateInvidiousInstance',
+      'updateForceLocalBackendForLegacy'
     ])
   }
 })
