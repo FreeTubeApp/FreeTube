@@ -271,7 +271,7 @@ Settings:
     Select Export Type: Seleziona Tipo di Esportazione
     Select Import Type: Seleziona Tipo di importazione
     Data Settings: Impostazioni Dati
-    Check for Legacy Subscriptions: Controlla iscrizioni in formato legacy
+    Check for Legacy Subscriptions: Cerca Iscrizioni in formato Legacy
   Distraction Free Settings:
     Hide Popular Videos: Nascondi Video Popolari
     Hide Trending Videos: Nascondi Video in Tendenze
@@ -488,7 +488,7 @@ Comments:
   View: 'Guarda'
   Hide: 'Nascondi'
   Replies: 'Risposte'
-  Reply: 'Rispondi'
+  Reply: 'Risposta'
   There are no comments available for this video: 'Non ci sono commenti disponibili
     per questo video'
   Load More Comments: 'Carica più commenti'
@@ -569,3 +569,9 @@ Profile:
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Questo
   video non è disponibile a causa di alcuni formati mancanti. Questo può succedere
   in caso di mancata disponibilità del paese.
+Tooltips:
+  Player Settings:
+    Force Local Backend for Legacy Formats: Funziona solo quando Invidious è l'API
+      predefinita. Quando abilitato mostra i formati legacy recuperati dall'API Locale
+      al posto di quelli di Invidious. Consigliato quando i video di Invidious non
+      vengono riprodotti a causa di restrizioni geografiche
