@@ -1,0 +1,87 @@
+.button {
+  background-color: transparent;
+  border-style: none;
+  color: var(--primary-text-color);
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0;
+}
+
+.button:focus + .text,
+.button:hover + .text {
+  opacity: 1;
+  visibility: visible;
+}
+
+.button:focus + .text.bottom,
+.button:hover + .text.bottom,
+.button:focus + .text.top,
+.button:hover + .text.top {
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+}
+
+.button:focus + .text.left,
+.button:hover + .text.left,
+.button:focus + .text.right,
+.button:hover + .text.right {
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+
+.text {
+  background-color: black;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 1rem;
+  line-height: 120%;
+  margin: 0;
+  max-width: 10em;
+  min-width: max-content;
+  opacity: 0;
+  padding: 10px 8px;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  transition-duration: 275ms;
+  transition-property: opacity, transform, visibility;
+  visibility: hidden;
+  z-index: 4;
+}
+
+.text.bottom {
+  margin-top: 1em;
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -1em);
+  transform: translate(-50%, -1em);
+}
+
+.text.left {
+  margin-right:1em;
+  right: 100%;
+  top: 50%;
+  -webkit-transform: translate(1em, -50%);
+  transform: translate(1em, -50%);
+}
+
+.text.right {
+  left: 100%;
+  margin-left: 1em;
+  top: 50%;
+  -webkit-transform: translate(-1em, -50%);
+  transform: translate(-1em, -50%);
+}
+
+.text.top {
+  bottom: 100%;
+  left: 50%;
+  margin-bottom: 1em;
+  -webkit-transform: translate(-50%, 1em);
+  transform: translate(-50%, 1em);
+}
+
+.tooltip {
+  display: inline-block;
+  position: relative;
+}
