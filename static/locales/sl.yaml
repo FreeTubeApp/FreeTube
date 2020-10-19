@@ -83,6 +83,7 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Ta
     profil ima veliko količino naročnin.·· ·· Da bi se izognili omejitvi hitrosti,
     bo uporabljen RSS
+  Load More Videos: Naloži več videoposnetkov
 Trending: 'Priljubljeno'
 Most Popular: 'Najbolj popularno'
 Playlists: 'Seznami predvajanja'
@@ -152,6 +153,9 @@ Settings:
       Deep Orange: 'Temno oranžna'
     Secondary Color Theme: 'Sekundarna barvna tema'
         #* Main Color Theme
+    UI Scale: Merilo uporabniškega vmesnika
+    Disable Smooth Scrolling: Izklopi gladko drsenje
+    Expand Side Bar by Default: Prevzeto razširi stransko vrstico
   Player Settings:
     Player Settings: 'Nastavitve predvajalnika'
     Force Local Backend for Legacy Formats: 'Vedno uporabi lokalni zaledni sistem
@@ -239,6 +243,7 @@ Settings:
     Unable to write file: 'Datoteke ni možno prebrati'
     Unknown data key: 'Neznan podatkovni ključ'
     How do I import my subscriptions?: 'Kako lahko uvozim moje naročnine?'
+    Check for Legacy Subscriptions: Poišči zapuščinske naročnine
   Advanced Settings:
     Advanced Settings: 'Napredne nastavitve'
     Enable Debug Mode (Prints data to the console): 'Vklopi razhroščevalni način (podatke
@@ -265,6 +270,19 @@ Settings:
       #& Yes
       #& No
 
+  Distraction Free Settings:
+    Hide Live Chat: Skrij klepet v živo
+    Hide Popular Videos: Skrij popularne videoposnetke
+    Hide Trending Videos: Skrij trendne videoposnetke
+    Hide Recommended Videos: Skrij priporočene videoposnetke
+    Hide Comment Likes: Skrij všečke komentarjev
+    Hide Video Likes And Dislikes: Skrij všečke in nevšečke videoposnetkov
+    Hide Channel Subscribers: Skrij število naročnikov
+    Hide Video Views: Skrij število ogledov
+    Distraction Free Settings: Brezmotenjske nastavitve
+  The app needs to restart for changes to take effect. Restart and apply change?: Program
+    se mora ponovno zagnati, preden bodo spremembe uveljavljene. Ga želite ponovno
+    zagnati zdaj?
 About:
   #On About page
   About: 'O programu'
@@ -447,6 +465,9 @@ Video:
     High: Visoka
     Medium: Srednja
     Low: Nizka
+  audio only: Samo avdio
+  video only: Samo video
+  Download Video: Prenesi videoposnetek
 Videos:
   #& Sort By
   Sort By:
@@ -512,6 +533,7 @@ Comments:
   Newest first: Najnovejši komentarji
   Top comments: Najbolje ocenjeni komentarji
   Sort by: Razvrstitev
+  No more comments available: Ni več komentarjev
 Up Next: 'Naslednje na sporedu'
 
 # Toast Messages
