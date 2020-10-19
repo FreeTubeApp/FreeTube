@@ -547,7 +547,15 @@ export default Vue.extend({
               }
 
               return object
-            }).reverse()
+            }).reverse().concat(result.captions.map((caption) => {
+              const label = `${caption.label} (${caption.languageCode}) - text/vtt`
+              const object = {
+                url: caption.url,
+                label: label
+              }
+
+              return object
+            }))
 
             this.audioSourceList = result.adaptiveFormats.filter((format) => {
               return format.type.includes('audio')
