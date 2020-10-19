@@ -334,6 +334,22 @@ export default Vue.extend({
 
                 return object
               })
+
+              let captionLinks = result.playerResponse.captions
+
+              if (typeof captionLinks !== 'undefined') {
+                captionLinks = captionLinks.playerCaptionsTracklistRenderer.captionTracks.map((caption) => {
+                  const label = `${caption.name.simpleText} (${caption.languageCode}) - text/vtt`
+                  const object = {
+                    url: caption.baseUrl,
+                    label: label
+                  }
+
+                  return object
+                })
+
+                this.downloadLinks = this.downloadLinks.concat(captionLinks)
+              }
             } else {
               // video might be region locked or something else. This leads to no formats being available
               this.showToast({
