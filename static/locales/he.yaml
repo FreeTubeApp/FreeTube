@@ -539,3 +539,10 @@ Canceled next video autoplay: 'ניגון אוטומטי לסרטון הבא ב�
 
 Yes: 'כן'
 No: 'לא'
+Tooltips:
+  General Settings:
+    Fallback to Non-Preferred Backend on Failure: כאשר ל־API המועדף עליך יש בעיה,
+      FreeTube ינסה להשתמש ב־API בעדיפות הנמוכה יותר באופן אוטומטי כשיטת נסיגה כאשר
+      האפשרות פעילה
+    Preferred API Backend: נא לבחור את המנגנון בו ישתמש FreeTube כדי לקבל נתונים.
+      ה־API המקומי הוא מחלץ מובנה. ה־API של Invidious דורש התחברות לשרת Invidious
