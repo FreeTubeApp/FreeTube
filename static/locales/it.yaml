@@ -75,7 +75,9 @@ Subscriptions:
   'Getting Subscriptions.  Please wait.': 'Caricamento Iscrizioni. Attendi.'
   Refresh Subscriptions: Ricarica le Iscrizioni
   'Getting Subscriptions. Please wait.': Scaricamento delle iscrizioni. Prego attendere.
-  Load More Videos: Carica Più Video
+  Load More Videos: Carica più video
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Questo
+    profilo ha un grande numero di iscrizioni. Utilizzo RSS per evitare limitazioni
 Trending: 'Tendenze'
 Most Popular: 'Popolari'
 Playlists: 'Playlist'
@@ -269,6 +271,7 @@ Settings:
     Select Export Type: Seleziona Tipo di Esportazione
     Select Import Type: Seleziona Tipo di importazione
     Data Settings: Impostazioni Dati
+    Check for Legacy Subscriptions: Controlla iscrizioni in formato legacy
   Distraction Free Settings:
     Hide Popular Videos: Nascondi Video Popolari
     Hide Trending Videos: Nascondi Video in Tendenze
@@ -277,6 +280,8 @@ Settings:
     Hide Channel Subscribers: Nascondi il Numero di Iscritti
     Hide Video Views: Nascondi Visualizzazioni Video
     Distraction Free Settings: Impostazioni modalità "Senza Distrazioni"
+    Hide Live Chat: Nascondi la chat live
+    Hide Video Likes And Dislikes: Nascondi Mi piace e Non mi piace
   The app needs to restart for changes to take effect. Restart and apply change?: L'applicazione
     deve essere riavviata per applicare i cambiamenti. Riavviare e applicare i cambiamenti
     ora?
@@ -401,7 +406,7 @@ Video:
     Year: 'Anno'
     Years: 'Anni'
     Ago: 'Fa'
-    Upcoming: 'Première a breve'
+    Upcoming: 'Première il'
     Minutes: Minuti
     Minute: Minuto
   Published on: 'Pubblicato il'
