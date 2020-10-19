@@ -61,6 +61,43 @@
   margin-top: 0px;
 }
 
+.commentHeartBadge {
+  display: inline-block;
+  position: relative;
+  width: 25px;
+  height: 20px;
+  margin-left: 10px;
+  margin-bottom: -7px;
+}
+
+.commentHeartBadgeImg {
+  position: absolute;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
+
+.commentHeartBadgeWhite {
+  position: absolute;
+  left: 9px;
+  bottom: 1px;
+  width: 11px;
+  height: 11px;
+  z-index: 1;
+}
+
+.commentHeartBadgeRed {
+  position: absolute;
+  color: var(--red-500);
+  left: 10px;
+  bottom: 2px;
+  width: 9px;
+  height: 9px;
+  z-index: 2;
+}
+
 .commentMoreReplies {
   font-size: 11px;
   margin-left: 5px;
