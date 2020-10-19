@@ -41,8 +41,8 @@ jobs:
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
       run: sudo apt -y install libarchive-tools
       
-    - name: Build ARM64 with Node.js ${{ matrix.node-version}}
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
+    - name: Build x64 with Node.js ${{ matrix.node-version}}
+      if: startsWith(matrix.runtime, !'linux-arm64')
       run: npm run build --if-present
       
     - name: Build ARM64 with Node.js ${{ matrix.node-version}}
