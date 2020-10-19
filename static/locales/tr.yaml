@@ -98,13 +98,13 @@ Settings:
     General Settings: 'Genel Ayarlar'
     Check for Updates: 'Güncellemeleri Denetle'
     Check for Latest Blog Posts: 'En Yeni Blog Gönderilerini Denetle'
-    Fallback to Non-Preferred Backend on Failure: 'Hata Zamanında Tercih Edilmeyen
-      Backend''e Geç'
+    Fallback to Non-Preferred Backend on Failure: 'Hata Durumunda Tercih Edilmeyen
+      Arka Uca Geç'
     Enable Search Suggestions: 'Arama Önerilerini Etkinleştir'
     Default Landing Page: 'Varsayılan Açılış Ekranı'
     Locale Preference: 'Tercih Edilen Yerel Ayar'
     Preferred API Backend:
-      Preferred API Backend: 'Tercih Edilen API Backend'
+      Preferred API Backend: 'Tercih Edilen API Arka Ucu'
       Local API: 'Yerel API'
       Invidious API: 'Invidious API'
     Video View Type:
@@ -154,7 +154,7 @@ Settings:
     Disable Smooth Scrolling: Düzgün Kaydırmayı Devre Dışı Bırak
   Player Settings:
     Player Settings: 'Oynatıcı Ayarları'
-    Force Local Backend for Legacy Formats: 'Legacy Biçimler için Yerel Backend Kullanmaya
+    Force Local Backend for Legacy Formats: 'Eski Biçimler için Yerel Arka Ucu Kullanmaya
       Zorla'
     Play Next Video: 'Sonraki Videoyu Oynat'
     Turn on Subtitles by Default: 'Altyazıyı Varsayılan Olarak Aç'
@@ -167,7 +167,7 @@ Settings:
     Default Video Format:
       Default Video Format: 'Varsayılan Video Biçimi'
       Dash Formats: 'Dash Biçimi'
-      Legacy Formats: 'Legacy Biçimi'
+      Legacy Formats: 'Eski Biçimler'
       Audio Formats: 'Ses Biçimi'
     Default Quality:
       Default Quality: 'Varsayılan Kalite'
@@ -199,7 +199,7 @@ Settings:
   Subscription Settings:
     Subscription Settings: 'Abonelik Ayarları'
     Hide Videos on Watch: 'İzlenmiş Videoları Gizle'
-    Fetch Feeds from RSS: 'Akışı RSS''den Getir'
+    Fetch Feeds from RSS: 'Akışları RSS''den Getir'
     Manage Subscriptions: 'Abonelikleri Yönet'
   Data Settings:
     Data Settings: 'Veri Ayarları'
@@ -488,7 +488,7 @@ Toggle Theatre Mode: 'Tiyatro Modunu Aç/Kapat'
 Change Format:
   Change Video Formats: 'Video Biçimini Değiştir'
   Use Dash Formats: 'Dash Biçimi Kullan'
-  Use Legacy Formats: 'Legacy Biçimi Kullan'
+  Use Legacy Formats: 'Eski Biçimleri Kullan'
   Use Audio Formats: 'Ses Biçimi Kullan'
   Dash formats are not available for this video: 'Dash biçimi bu video için kullanılabilir
     değil'
@@ -553,3 +553,33 @@ No: 'Hayır'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Eksik
   biçimler nedeniyle bu video kullanılamıyor. Bu durum, ülke kullanılamazlığı nedeniyle
   gerçekleşebilir.
+Tooltips:
+  Subscription Settings:
+    Fetch Feeds from RSS: Etkinleştirildiğinde, FreeTube abonelik akışınızı almak
+      için öntanımlı yöntem yerine RSS'yi kullanır. RSS daha hızlıdır ve IP engellemesinin
+      önüne geçer, ancak video süresi veya canlı yayın durumu gibi belirli bilgileri
+      sağlamaz
+  Player Settings:
+    Default Video Format: Bir video oynatılırken kullanılan biçimleri ayarlayın. Dash
+      biçimleri daha yüksek kalitelerde oynatabilir. Eski biçimler en fazla 720p ile
+      sınırlıdır ancak daha az bant genişliği kullanır. Ses biçimleri yalnızca ses
+      akışlarıdır
+    Proxy Videos Through Invidious: Videoları sunmak için YouTube ile doğrudan bağlantı
+      kurmak yerine Invidious'a bağlanılacak. API tercihini geçersiz kılar
+    Force Local Backend for Legacy Formats: Yalnızca Invidious API'si öntanımlı seçeneğiniz
+      olduğunda çalışır. Etkinleştirildiğinde, yerel API çalışacak ve Invidious tarafından
+      döndürülen biçimler yerine onun döndürdüğü eski biçimler kullanılacaktır. Invidious
+      tarafından döndürülen videolar ülke kısıtlamaları nedeniyle oynatılmadığında
+      yardımcı olur
+  General Settings:
+    Invidious Instance: FreeTube'un API çağrıları için bağlanacağı Invidious sunucusu.
+      Aralarından seçim yapabileceğiniz herkese açık sunucuların bir listesini görmek
+      için geçerli sunucuyu temizleyin
+    Thumbnail Preference: FreeTube'daki tüm küçük resimler, öntanımlı küçük resim
+      yerine videonun bir karesiyle değiştirilecektir
+    Fallback to Non-Preferred Backend on Failure: Etkinleştirildiğinde, tercih ettiğiniz
+      API'de bir sorun olduğunda FreeTube otomatik olarak tercih edilmeyen API'nizi
+      yedek yöntem olarak kullanmaya çalışır
+    Preferred API Backend: FreeTube'un veri almak için kullandığı arka ucu seçin.
+      Yerel API yerleşik bir çıkarıcıdır. Invidious API'si, bağlanmak için bir Invidious
+      sunucusu gerektirir
