@@ -42,7 +42,7 @@ jobs:
       run: sudo apt -y install libarchive-tools
       
     - name: Build x64 with Node.js ${{ matrix.node-version}}
-      if: startsWith(matrix.runtime, !'linux-arm64')
+      if: contains(matrix.runtime, 'x64')
       run: npm run build --if-present
       
     - name: Build ARM64 with Node.js ${{ matrix.node-version}}
