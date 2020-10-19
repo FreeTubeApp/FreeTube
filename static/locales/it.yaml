@@ -575,3 +575,25 @@ Tooltips:
       predefinita. Quando abilitato mostra i formati legacy recuperati dall'API Locale
       al posto di quelli di Invidious. Consigliato quando i video di Invidious non
       vengono riprodotti a causa di restrizioni geografiche
+    Default Video Format: Imposta i formati usati quando un video viene riprodotto.
+      I formati dash possono riprodurre qualità maggiori. I formati legacy sono limitati
+      ad un massimo di 720p ma usano meno banda. I formati audio risproducono solo
+      l'audio (non l'avrei mai detto XD)
+    Proxy Videos Through Invidious: Mi connetterò a Invidious per mostrare i video
+      invece di connettermi direttamente a YouTube. Sostituisco le preferenze API
+  Subscription Settings:
+    Fetch Feeds from RSS: Quando abilitato, FreeTube userà gli RSS invece del metodo
+      standard per leggere la tua lista istrizioni. Gli RSS sono più veloci e impediscono
+      il blocco dell'IP ma non mostrano informazioni come la durata video o lo stato
+      delle live
+  General Settings:
+    Invidious Instance: L'istanza Invidious che FreeTube usa per le chiamate API.
+      Pulisci l'istanza attuale per vedere una lista di istanze pubbliche da cui scegliere
+    Thumbnail Preference: Tutte le copertine attraverso FreeTube verranno sostituite
+      da un frame del video al posto della copertina originale
+    Fallback to Non-Preferred Backend on Failure: Quanto le tue API preferite hanno
+      un problema, FreeTube userà automaticamente le API secondarie come ripiego quando
+      abilitate
+    Preferred API Backend: Scegli il back-end che FreeTube utilizza per ottenere i
+      dati. L' API locale è l'estrattore dell'app. Le API Invidious richiedono un
+      server Invidious dove connettersi
