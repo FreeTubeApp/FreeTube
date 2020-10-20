@@ -140,7 +140,7 @@ Settings:
       Deep Orange: '濃いオレンジ'
     Secondary Color Theme: '配色2'
         #* Main Color Theme
-    UI Scale: UI の拡大率
+    UI Scale: UI の縮尺率
     Expand Side Bar by Default: サイドバーを展開して起動
     Disable Smooth Scrolling: 滑らかなスクロールの無効化
   Player Settings:
