@@ -50,6 +50,10 @@ export default Vue.extend({
       return `https://www.youtube.com/watch?v=${this.id}`
     },
 
+    youtubeShareURL() {
+      return `https://youtu.be/${this.id}`
+    },
+
     youtubeEmbedURL() {
       return `https://www.youtube-nocookie.com/embed/${this.id}`
     }
@@ -88,7 +92,7 @@ export default Vue.extend({
       this.showToast({
         message: this.$t('Share.YouTube URL copied to clipboard')
       })
-      this.copy(this.getFinalUrl(this.youtubeURL))
+      this.copy(this.getFinalUrl(this.youtubeShareURL))
       this.$refs.iconButton.focusOut()
     },
 

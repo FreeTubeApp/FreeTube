@@ -19,6 +19,7 @@
           :label="$t('Settings.General Settings.Fallback to Non-Preferred Backend on Failure')"
           :default-value="backendFallback"
           :compact="true"
+          :tooltip="$t('Tooltips.General Settings.Fallback to Non-Preferred Backend on Failure')"
           @change="updateBackendFallback"
         />
       </div>
@@ -43,7 +44,8 @@
         :value="backendPreference"
         :select-names="backendNames"
         :select-values="backendValues"
-        @change="updateBackendPreference"
+        :tooltip="$t('Tooltips.General Settings.Preferred API Backend')"
+        @change="handlePreferredApiBackend"
       />
       <ft-select
         v-if="false"
@@ -73,6 +75,7 @@
         :value="thumbnailPreference"
         :select-names="thumbnailTypeNames"
         :select-values="thumbnailTypeValues"
+        :tooltip="$t('Tooltips.General Settings.Thumbnail Preference')"
         @change="updateThumbnailPreference"
       />
       <ft-select
@@ -90,6 +93,7 @@
         :show-label="true"
         :value="invidiousInstance"
         :data-list="instanceValues"
+        :tooltip="$t('Tooltips.General Settings.Invidious Instance')"
         @input="handleInvidiousInstanceInput"
       />
     </ft-flex-box>

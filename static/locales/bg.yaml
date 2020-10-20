@@ -34,7 +34,7 @@ Version $ is now available!  Click for more details: 'Вече е налична
   за повече детайли'
 Download From Site: 'Сваляне от сайта'
 A new blog is now available, $. Click to view more: 'Налична е нова публикация в блога,
-  $. Щракнете за я видите'
+  $. Щракнете за да я видите'
 
 # Search Bar
 Search / Go to URL: 'Търсене / Отиване на адрес'
@@ -125,7 +125,8 @@ Settings:
         #! List countries
   Theme Settings:
     Theme Settings: 'Настройки на облик'
-    Match Top Bar with Main Color: 'Съвпадане на горната лента с основния цвят'
+    Match Top Bar with Main Color: 'Съвпадане на горната лента с основната цветова
+      тема'
     Base Theme:
       Base Theme: 'Основна тема'
       Black: 'Черна'
@@ -149,7 +150,7 @@ Settings:
       Amber: 'Кехлибарено'
       Orange: 'Оранжево'
       Deep Orange: 'Наситено оранжево'
-    Secondary Color Theme: 'Втора цветова тема'
+    Secondary Color Theme: 'Вторична цветова тема'
         #* Main Color Theme
     UI Scale: Мащаб на интерфейса
     Disable Smooth Scrolling: Изключване на плавното превъртане
@@ -277,7 +278,7 @@ Settings:
     Hide Comment Likes: Скриване оценките на коментарите
     Hide Channel Subscribers: Скриване броя на абонатите на канали
     Hide Video Likes And Dislikes: Скриване оценките на видеата
-    Hide Video Views: Скриване броя показвания на видеото
+    Hide Video Views: Скриване броя показвания на видеата
     Distraction Free Settings: Настройки за неразсейване
   The app needs to restart for changes to take effect. Restart and apply change?: Приложението
     трябва да се рестартира за да се приложат промените. Рестартиране?
@@ -364,7 +365,7 @@ Channel:
   Removed subscription from $ other channel(s): 'Премахнат абонамент от $ друг(и)
     канал(и)'
   Added channel to your subscriptions: 'Добавен канал към вашите абонаменти'
-  Search Channel: 'Търсене в канал'
+  Search Channel: 'Търсене в канала'
   Your search results have returned 0 results: 'Вашето търсене върна 0 резултата'
   Sort By: 'Сортиране по'
   Videos:

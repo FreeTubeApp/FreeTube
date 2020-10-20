@@ -1,7 +1,11 @@
 import Vue from 'vue'
+import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
 
 export default Vue.extend({
   name: 'FtToggleSwitch',
+  components: {
+    'ft-tooltip': FtTooltip
+  },
   props: {
     label: {
       type: String,
@@ -18,6 +22,10 @@ export default Vue.extend({
     disabled: {
       type: Boolean,
       default: false
+    },
+    tooltip: {
+      type: String,
+      default: ''
     }
   },
   data: function () {

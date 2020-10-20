@@ -1,7 +1,11 @@
 import Vue from 'vue'
+import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
 
 export default Vue.extend({
   name: 'FtInput',
+  components: {
+    'ft-tooltip': FtTooltip
+  },
   props: {
     placeholder: {
       type: String,
@@ -30,6 +34,10 @@ export default Vue.extend({
     dataList: {
       type: Array,
       default: () => { return [] }
+    },
+    tooltip: {
+      type: String,
+      default: ''
     }
   },
   data: function () {

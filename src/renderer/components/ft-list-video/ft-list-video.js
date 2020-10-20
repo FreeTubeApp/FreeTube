@@ -93,6 +93,10 @@ export default Vue.extend({
       return `https://www.youtube.com/watch?v=${this.id}`
     },
 
+    youtubeShareUrl: function () {
+      return `https://youtu.be/${this.id}`
+    },
+
     youtubeEmbedUrl: function () {
       return `https://www.youtube-nocookie.com/embed/${this.id}`
     },
@@ -168,7 +172,7 @@ export default Vue.extend({
           }
           break
         case 'copyYoutube':
-          navigator.clipboard.writeText(this.youtubeUrl)
+          navigator.clipboard.writeText(this.youtubeShareUrl)
           this.showToast({
             message: this.$t('Share.YouTube URL copied to clipboard')
           })

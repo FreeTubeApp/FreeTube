@@ -34,6 +34,10 @@ export default Vue.extend({
     }
   },
   computed: {
+    backendPreference: function () {
+      return this.$store.getters.getBackendPreference
+    },
+
     autoplayVideos: function () {
       return this.$store.getters.getAutoplayVideos
     },

@@ -20,6 +20,10 @@ export default Vue.extend({
     id: {
       type: String,
       required: true
+    },
+    channelThumbnail: {
+      type: String,
+      required: true
     }
   },
   data: function () {

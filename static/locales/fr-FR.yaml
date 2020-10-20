@@ -578,3 +578,34 @@ Version $ is now available!  Click for more details: La version $ est maintenant
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Cette
   vidéo est indisponible car elle n'est pas dans un format valide. Cela peut arriver
   en raison de restrictions d'accès dans certains pays.
+Tooltips:
+  Subscription Settings:
+    Fetch Feeds from RSS: Lorsqu'il est activé, FreeTube utilisera le RSS au lieu
+      de sa méthode par défaut pour récupérer votre flux d'abonnement. Le RSS est
+      plus rapide et empêche le blocage d'IP, mais ne fournit pas certaines informations
+      comme la durée de la vidéo ou le statut en direct
+  Player Settings:
+    Default Video Format: Définir les formats utilisés lors de la lecture d'une vidéo.
+      Les formats Dash peuvent être lus en qualité supérieure. Les formats Legacy
+      sont limités à un maximum de 720p mais utilisent moins de bande passante. Les
+      formats audio sont des flux audio uniquement
+    Proxy Videos Through Invidious: Se connectera à Invidious pour lire des vidéos
+      au lieu d'établir une connexion directe avec YouTube. Remplace les préférences
+      de l'API
+    Force Local Backend for Legacy Formats: Ne fonctionne que lorsque l'API Invidious
+      est activée par défaut. Lorsqu'elle est activée, l'API locale s'exécute et utilise
+      les formats Legacy renvoyés par celle-ci au lieu de ceux renvoyés par Invidious.
+      Utile lorsque les vidéos renvoyées par Invidious ne sont pas lues en raison
+      de restrictions pays
+  General Settings:
+    Invidious Instance: L'instance Invidious à laquelle FreeTube se connectera pour
+      les appels d'API. Effacez l'instance actuelle pour voir une liste d'instances
+      publiques parmi lesquelles choisir
+    Thumbnail Preference: Toutes les miniatures de FreeTube seront remplacées par
+      une image de la vidéo au lieu de la vignette par défaut
+    Fallback to Non-Preferred Backend on Failure: Lorsque votre API préférée a un
+      problème, FreeTube tentera automatiquement d'utiliser votre API non préférée
+      comme méthode de secours lorsqu'elle est activée
+    Preferred API Backend: Choisissez le backend que FreeTube utilise pour obtenir
+      les données. L'API locale est un extracteur intégré. L'API Invidious nécessite
+      un serveur Invidious pour se connecter à

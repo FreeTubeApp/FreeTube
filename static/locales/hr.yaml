@@ -92,7 +92,7 @@ Settings:
   Settings: 'Postavke'
   General Settings:
     General Settings: 'Opće postavke'
-    Fallback to Non-Preferred Backend on Failure: 'U slučaju neuspjeha koristi sekundarni
+    Fallback to Non-Preferred Backend on Failure: 'U slučaju problema koristi sekundarni
       pozadinski sustav'
     Enable Search Suggestions: 'Aktiviraj prijedloge pretraživanja'
     Default Landing Page: 'Standardna odredišna stranica'
@@ -264,8 +264,8 @@ Settings:
     Select Import Type: Odaberi vrstu uvoza
     Data Settings: Postavke podataka
     How do I import my subscriptions?: Kako uvesti pretplate?
-    One or more subscriptions were unable to be imported: Nije moguće uvesti jednu
-      ili više pretplata
+    One or more subscriptions were unable to be imported: Neuspio uvoz jedne ili više
+      pretplata
     Check for Legacy Subscriptions: Potraži stare pretplate
   Distraction Free Settings:
     Hide Trending Videos: Sakrij videozapise u trendu
@@ -521,7 +521,7 @@ Comments:
   Replies: 'Odgovori'
   Reply: 'Odgovor'
   There are no comments available for this video: 'Nema komentara za ovaj videozapis'
-  Load More Comments: 'Učitaj više komentara'
+  Load More Comments: 'Učitaj još komentara'
   There are no more comments for this video: Nema daljnjih komentara za ovaj videozapis
   No more comments available: Nema daljnjih komentara
   Newest first: Najprije najnovije
@@ -558,3 +558,31 @@ Version $ is now available!  Click for more details: Dostupna je verzija $! Prit
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Ovaj
   videozapis nije dostupan zbog nedostajućih formata. Uzrok tome može biti nedostupnost
   zemlje.
+Tooltips:
+  Player Settings:
+    Default Video Format: Postavi formate za reprodukciju videozapisa. Dash formati
+      mogu reproducirati višu kvalitetu slike. Stari formati su ograničeni na 720
+      p, ali su zato brži. Audio formati emitiraju samo audiosnimke
+    Proxy Videos Through Invidious: Za slanje videozapisa povezat će se s Invidiousom
+      umjesto izravnog povezivanja s YouTubeom. Zanemaruje postavke sučelja
+    Force Local Backend for Legacy Formats: Radi samo, kad postaviš Invidious kao
+      standardno sučelje. Kad je aktivirano, lokalno sučelje će pokretati i koristiti
+      stare formate umjesto onih koje dostavlja Invidious. Pomaže u slučajevima, kad
+      je reprodukcija videozapisa koje dostavlja Invidious u zemlji zabranjena/ograničena
+  General Settings:
+    Invidious Instance: Invidious primjerak na koji će se FreeTube povezati za pozive
+      sučelja. Isprazni trenutačni primjerak za prikaz popisa javnih primjeraka koje
+      možeš odabrati
+    Thumbnail Preference: U FreeTubeu će se sve minijature zamijeniti s jednim kadrom
+      videozapisa umjesto standardne minijature
+    Fallback to Non-Preferred Backend on Failure: Ako primarno odabrano sučelje ima
+      problema, FreeTube će automatski pokušati koristiti sekundarno sučelje kao zamjensku
+      metodu, ako je aktivirano
+    Preferred API Backend: Odaberi pozadinski sustav koji FreeTube koristi za dobivanje
+      podataka. Lokalno sučelje je ugrađeni sustav. Invidious sučelje zahtijeva Invidious
+      poslužitelja na koji će se povezati
+  Subscription Settings:
+    Fetch Feeds from RSS: Kad je aktivirano, FreeTube će koristiti RSS umjesto standardne
+      metode za dohvaćanje tvog feeda pretplate. RSS je brži i sprečava blokiranje
+      IP adresa, ali ne pruža određene podatke kao što su trajanje videozapisa ili
+      stanja „uživo”

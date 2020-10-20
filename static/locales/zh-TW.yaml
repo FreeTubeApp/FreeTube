@@ -512,3 +512,19 @@ A new blog is now available, $. Click to view more: 已有新的部落格文章�
 Download From Site: 從網站下載
 Version $ is now available!  Click for more details: 版本$已可使用！ 點擊以取得更多資訊
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 沒有這個影片因為缺少格式。這個可能發生由於國家不可用。
+Tooltips:
+  Subscription Settings:
+    Fetch Feeds from RSS: 啟用後，FreeTube 將會使用 RSS 而非預設的方式來取得您的訂閱 feed。RSS 較快而且可避免 IP
+      封鎖，但不提供某些訊息，如影片長度與即時狀態
+  Player Settings:
+    Default Video Format: 設定要用於影片播放的格式。Dash 格式有較高的品質。舊版格式會限制在 720p 但頻寬需求較低。音訊格式為僅有音訊的串流
+    Proxy Videos Through Invidious: 將會連線到 Invidious 而非直接連線到 YouTube 來提供影片。覆寫 API 偏好設定
+    Force Local Backend for Legacy Formats: 僅當 Invidious API 是您的預設 API 時才有效。啟用後，本地的
+      API 將會執行並使用由其回傳的的舊格式，而非 Invidious 回傳的格式。對因為國家地區限制而無法播放 Invidious 回傳的影片時很有用
+  General Settings:
+    Invidious Instance: FreeTube 連線到的 Invidious 站台將會提供 API 呼叫。清除目前的站台以檢視可供選擇的公開站台清單
+    Thumbnail Preference: FreeTube 中所有的畫面都會被替換為影片畫面而非預設的縮圖
+    Fallback to Non-Preferred Backend on Failure: 當您偏好的 API 有問題的時候，FreeTube 將會自動嘗試使用您非偏好的
+      API 作為汰退方案
+    Preferred API Backend: 選擇 FreeTube 要用於取得資料的後端。本地的 API 是內建的擷取器。Invidious API 需要
+      Invidious 伺服器才能連線

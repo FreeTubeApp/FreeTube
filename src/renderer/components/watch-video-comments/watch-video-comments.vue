@@ -66,6 +66,23 @@
           />
           {{ comment.likes }}
           <span
+            v-if="comment.isHearted"
+            class="commentHeartBadge"
+          >
+            <img
+              :src="channelThumbnail"
+              class="commentHeartBadgeImg"
+            >
+            <font-awesome-icon
+              icon="heart"
+              class="commentHeartBadgeWhite"
+            />
+            <font-awesome-icon
+              icon="heart"
+              class="commentHeartBadgeRed"
+            />
+          </span>
+          <span
             v-if="comment.numReplies > 0"
             class="commentMoreReplies"
             @click="getCommentReplies(index)"
