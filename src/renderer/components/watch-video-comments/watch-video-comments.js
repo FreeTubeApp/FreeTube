@@ -137,8 +137,7 @@ export default Vue.extend({
       // we need the path from the working directory to fork correctly
       if (this.commentProcess === null) {
         this.commentProcess = fork('./src/process/comment-module-controller.js', ['args'], {
-          stdio: 'pipe',
-          cwd: path.join(__dirname, '../../')
+          stdio: ['pipe', 'pipe', 'pipe', 'ipc']
         })
         this.commentProcess.on('message', (msg) => {
           if (msg.error === null) {

@@ -3,7 +3,7 @@ const fs = require('fs')
 let scraper = null
 let currentSort = null
 let currentVideoId = null
-//fs.writeFileSync('D:/Workspace/textELEC.txt', 'hallololol')
+
 process.on('message', (msg) => {
   if (msg === 'end') {
     process.exit(0)
