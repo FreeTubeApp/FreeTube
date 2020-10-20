@@ -194,7 +194,7 @@ Settings:
     Use Tor / Proxy for API calls: 'API 呼び出しに Tor/Proxy を使用'
     TEST PROXY: 'プロキシのテスト'
     #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: '公開インスタンスを参照してください'
+    See Public Instances: '公開インスタンスを参照'
     Clear History:
       Clear History: '履歴の削除'
       # On Click
@@ -275,7 +275,7 @@ About:
     を実現させてくれている人々とプロジェクトに感謝！'
 
   'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'チャットが必要なら私たちの
-    Element / Matrix にご参加ください。参加前にルールの確認をお願いします。'
+    Element / Matrix に参加してください。参加前にルールの確認をお願いします。'
 
   'Looking for help? Check out our Wiki page.': 'ヘルプが必要なら私たちの Wiki をご覧ください。'
 
@@ -303,7 +303,7 @@ Channel:
     Sort Types:
       Newest: '新しい'
       Oldest: '古い'
-      Most Popular: '最も人気'
+      Most Popular: '人気'
   Playlists:
     Playlists: '再生リスト'
     This channel does not currently have any playlists: 'このチャンネルには再生リストがありません'
@@ -316,8 +316,8 @@ Channel:
     Channel Description: 'チャンネルの説明'
     Featured Channels: '注目のチャンネル'
   Added channel to your subscriptions: 登録にチャンネルを追加しました
-  Channel has been removed from your subscriptions: チャンネルを登録から削除しました
-  Removed subscription from $ other channel(s): 他の $ チャンネルから登録を削除しました
+  Channel has been removed from your subscriptions: 登録からチャンネルを削除しました
+  Removed subscription from $ other channel(s): ほかの $ チャンネルから登録を削除しました
 Video:
   Open in YouTube: 'YouTube で開く'
   Copy YouTube Link: 'YouTube のリンクをコピー'
@@ -371,7 +371,7 @@ Video:
     Minute: 分
   Published on: '公開日'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % 前'
+  Publicationtemplate: '$ %前'
 #& Videos
   Video has been removed from your history: 動画を履歴から削除しました
   Remove From History: 履歴から削除
@@ -416,7 +416,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: 'シアターモードに切替'
+Toggle Theatre Mode: 'シアターモードの切替'
 Change Format:
   Change Video Formats: '動画形式の変更'
   Use Dash Formats: 'DASH 形式の使用'
@@ -515,7 +515,7 @@ The playlist has been reversed: 再生リストを逆順にしました
 A new blog is now available, $. Click to view more: '新着のブログ記事があります。$ クリックでブログを開く'
 Download From Site: サイトからダウンロード
 Version $ is now available!  Click for more details: 最新バージョン $ が利用可能です！クリックで詳細表示
-This video is unavailable because of missing formats. This can happen due to country unavailability.: この動画は、形式の情報が利用できないため再生できません。再生が許可されていない国で発生します。
+This video is unavailable because of missing formats. This can happen due to country unavailability.: この動画は、動画形式の情報が利用できないため再生できません。再生許可のない国で発生します。
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 有効にすると、FreeTube は、登録チャンネルの情報取得時に、通常の方法の代わりに RSS を使います。RSS
