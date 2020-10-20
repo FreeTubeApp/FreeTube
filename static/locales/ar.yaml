@@ -72,6 +72,9 @@ Subscriptions:
     اشتراكاتك فارغة حالياً. ابدأ بإضافة الاشتراكات لتراهم هنا.'
   'Getting Subscriptions. Please wait.': 'جاري تحميل الاشتراكات. يرجى الانتظار.'
   Refresh Subscriptions: 'تحديث الاشتراكات'
+  Load More Videos: حمّل المزيد من الفيديوهات
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: لدى
+    هذا الملف الشخصي عدد كبير من الاشتراكات. يتم فرض وضع RSS لتجنب تقييد الوصول  للاشتراكات
 Trending: 'المحتوى الرائج'
 Most Popular: 'الأكثر شعبية'
 Playlists: 'قوائم التشغيل'
@@ -140,6 +143,9 @@ Settings:
       Deep Orange: 'برتقالي داكن'
     Secondary Color Theme: 'لون السِمة الثانوي'
         #* Main Color Theme
+    UI Scale: مقياس واجهة المستخدم
+    Disable Smooth Scrolling: عطّل التمرير المتجانس
+    Expand Side Bar by Default: كبّر الشريط الجانبي بشكل افتراضي
   Player Settings:
     Player Settings: 'إعدادات المشغل'
     Force Local Backend for Legacy Formats: 'فرض الواجهة الخلفية المحلية للتنسيقات
@@ -259,6 +265,16 @@ Settings:
     Data Settings: إعدادات البيانات
     One or more subscriptions were unable to be imported: تعذر استيراد واحد أو أكثر
       من الاشتراكات
+  Distraction Free Settings:
+    Hide Live Chat: اخفي الدردشة المباشرة
+    Hide Popular Videos: اخفي الفيديوهات الأكثر شعبية
+    Hide Trending Videos: اخفي الفيديوهات الرائجة
+    Hide Recommended Videos: اخفي الفيديوهات الموصّى بها
+    Hide Comment Likes: اخفي اعجابات التعليقات
+    Hide Channel Subscribers: اخفي اشتراكات القنوات
+    Hide Video Views: اخفي عدد مشاهدات الفيديوهات
+  The app needs to restart for changes to take effect. Restart and apply change?: البرنامج
+    يحتاج لإعادة التشغيل كي يسري مفعول التغييرات. هل تريد إعادة التشغيل و تطبيق التغييرات؟
 About:
   #On About page
   About: 'حول'
@@ -420,7 +436,7 @@ Video:
     Year: 'سنة'
     Years: 'سنوات'
     Ago: 'منذ'
-    Upcoming: 'العرض الأول قريباً'
+    Upcoming: 'العرض الأول في'
   Published on: 'نُشر في'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'قبل $ %'
@@ -433,6 +449,14 @@ Video:
   Loop Playlist: تكرار قائمة التشغيل
   Starting soon, please refresh the page to check again: سيبدأ قريباً ، يرجى تحديث
     الصفحة للتحقق مرة أخرى
+  Audio:
+    Best: الأفضل
+    High: عالٍ
+    Medium: متوسط
+    Low: منخفض
+  audio only: صوت فقط
+  video only: فيديو فقط
+  Download Video: نزّل الفيديو
 Videos:
   #& Sort By
   Sort By:
@@ -492,6 +516,10 @@ Comments:
   There are no comments available for this video: 'لا يتوفر تعليقات لهذا الفيديو'
   Load More Comments: 'تحميل المزيد من التعليقات'
   There are no more comments for this video: لا يوجد المزيد من التعليقات لهذا الفيديو
+  No more comments available: لا يتوفر المزيد من التعليقات
+  Newest first: الأحدث أولاً
+  Top comments: أهم التعليقات
+  Sort by: الترتيب حسب
 Up Next: 'التالي'
 
 # Toast Messages
@@ -520,3 +548,10 @@ A new blog is now available, $. Click to view more: مدوّنة جديدة مت
 Download From Site: تنزيل من الموقع
 Version $ is now available!  Click for more details: الإصدار $ متاح الآن! انقر للحصول
   على المزيد من التفاصيل
+Tooltips:
+  General Settings:
+    Thumbnail Preference: كلّ الصّور المصغّرة في FreeTube سيتمّ استبدالها بإيطار من
+      الفيديو بدل من الصّورة المصغّرة الافتراضيّة
+    Preferred API Backend: اختر الواجهة الخلفية التي يستخدمها FreeTube لجلب البيانات.
+      الAPI المحلي هو مستخرج محلي. الAPI التابع لInvidious يتطلب التواصل مع خادم شبكة
+      Invidious
