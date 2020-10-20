@@ -74,7 +74,7 @@ Subscriptions:
     RSS にします
   Load More Videos: さらに動画を読み込む
 Trending: '急上昇'
-Most Popular: '最も人気'
+Most Popular: '人気'
 Playlists: '再生リスト'
 User Playlists:
   Your Playlists: 'あなたの再生リスト'
@@ -88,7 +88,7 @@ Settings:
   Settings: '設定'
   General Settings:
     General Settings: '一般設定'
-    Fallback to Non-Preferred Backend on Failure: '失敗時に非優先の代替バックエンドに接続'
+    Fallback to Non-Preferred Backend on Failure: '失敗時に非優先の代替サービスに接続'
     Enable Search Suggestions: '検索候補の有効化'
     Default Landing Page: '起動時の表示'
     Locale Preference: '言語設定'
