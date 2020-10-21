@@ -106,7 +106,7 @@ Settings:
       Beginning: '開始'
       Middle: '中間'
       End: '終了'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious のインスタンス
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious の実体
       (初期値は https://invidious.snopyta.org)'
     Region for Trending: '地域内の急上昇'
         #! List countries
