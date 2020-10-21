@@ -1,7 +1,7 @@
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  アプリのこの部分は未完成です。完成後に再びここを開いてください。
+  アプリのこの部分は未完成です。完成後に実行してください。
 
 # Webkit Menu Bar
 File: 'ファイル'
@@ -88,7 +88,7 @@ Settings:
   Settings: '設定'
   General Settings:
     General Settings: '一般設定'
-    Fallback to Non-Preferred Backend on Failure: '失敗時に非優先の代替サービスに接続'
+    Fallback to Non-Preferred Backend on Failure: '取得に問題があれば、選択していない方法に切り替えて接続'
     Enable Search Suggestions: '検索候補の有効化'
     Default Landing Page: '起動時の表示'
     Locale Preference: '言語設定'
@@ -106,7 +106,7 @@ Settings:
       Beginning: '開始'
       Middle: '中間'
       End: '終了'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious の実体
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious のインスタンス
       (初期値は https://invidious.snopyta.org)'
     Region for Trending: '地域内の急上昇'
         #! List countries
@@ -263,10 +263,10 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
 About:
   #On About page
-  About: 'このソフト'
+  About: 'このソフトについて'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'このコピーレフトのソフトウェアは、AGPL-3.0
-    の自由なライセンスです。'
+  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'このソフトウェアは、コピーレフトであり
+    AGPL-3.0 に準拠したライセンス フリーです。'
 
   'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
     バグの報告や機能要望、サポートが必要であれば、私たちの GitHub をご覧ください。プルリクエストも歓迎します。
@@ -519,9 +519,9 @@ This video is unavailable because of missing formats. This can happen due to cou
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 有効にすると、FreeTube は、登録チャンネルの情報取得時に、通常の方法の代わりに RSS を使います。RSS
-      は高速かつ IP 制限を回避できますが、動画の再生時間やライブ配信の状態のような詳細情報はありません
+      は高速かつ IP 制限を回避できますが、動画の長さやライブ配信の状態などの詳細情報は提供されていません
   Player Settings:
-    Default Video Format: 再生に使う動画形式を設定します。DASH 形式がより高品質で再生します。旧形式は、最大 720p に制限されますが、使用する帯域幅を減らせます。音声形式は音声のみです
+    Default Video Format: 動画再生で使用する形式を設定します。DASH 形式であれば高品質で再生できます。旧形式は、最大 720p に制限されますが、使用する帯域幅を減らせます。音声形式は音声のみです
     Force Local Backend for Legacy Formats: Invidious API 優先時にのみ機能します。有効にすると、Invidious
       から取得した動画ではなく、内部 API で取得した旧形式を使用します。その国での再生許可がないため、Invidious からの動画が再生できない場合に利用できます
     Proxy Videos Through Invidious: 動画の取得のため、YouTube に直接接続する代わりに Invidious に接続します。API
