@@ -652,8 +652,8 @@ export default Vue.extend({
 
     this.currentLocale = this.$i18n.locale
     this.currentGeoLocation = this.$i18n.geoLocation
-    if (this.currentGeoLocation === undefined) {
-      this.updateGeoLocationNames(this.currentLocale)
+    this.updateGeoLocationNames(this.currentLocale)
+    if (this.currentGeoLocation === undefined || this.currentGeoLocation === null) {
       this.currentGeoLocation = 'us'
     }
   },
