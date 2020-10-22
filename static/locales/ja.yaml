@@ -1,7 +1,7 @@
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  アプリのこの部分は未完成です。完成後に操作してください。
+  アプリのこの部分は未完成です。完成後に再びここを開いてください。
 
 # Webkit Menu Bar
 File: 'ファイル'
@@ -16,11 +16,11 @@ Delete: '削除'
 Select all: 'すべて選択'
 Reload: '再読み込み'
 Force Reload: '強制的に再読み込み'
-Toggle Developer Tools: '開発者ツールに変更'
+Toggle Developer Tools: '開発者ツールに切替'
 Actual size: '実際のサイズ'
 Zoom in: '拡大'
 Zoom out: '縮小'
-Toggle fullscreen: '全画面に変更'
+Toggle fullscreen: '全画面の切替'
 Window: 'ウィンドウ'
 Minimize: '最小化'
 Close: '閉じる'
@@ -55,12 +55,12 @@ Search Filters:
   Duration:
     Duration: '長さ'
     All Durations: 'すべての長さ'
-    Short (< 4 minutes): '短編（4 分未満）'
-    Long (> 20 minutes): '長編（20 分以上）'
+    Short (< 4 minutes): '短編 (4 分未満)'
+    Long (> 20 minutes): '長編 (20 分以上)'
   # On Search Page
   Search Results: '検索結果'
   Fetching results. Please wait: '結果の取得中。お待ちください'
-  Fetch more results: 'もっと見る'
+  Fetch more results: 'さらに結果を取得'
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
@@ -68,13 +68,13 @@ Subscriptions:
   Latest Subscriptions: '最近の登録'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'まだチャンネル登録がありません。登録するとここに表示されます。'
   'Getting Subscriptions.  Please wait.': '登録を取得中。お待ちください...'
-  Refresh Subscriptions: 登録から更新
-  Getting Subscriptions. Please wait.: youtube から登録情報の取得中。しばらくお待ちください。
+  Refresh Subscriptions: 登録チャンネルの更新
+  Getting Subscriptions. Please wait.: 登録チャンネルの内容を取得中。お待ちください。
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: このプロファイルはチャンネル登録が多くなっています。接続制限の回避のため強制的な
     RSS にします
-  Load More Videos: もっと見る
+  Load More Videos: さらに動画を読み込む
 Trending: '急上昇'
-Most Popular: '最も人気'
+Most Popular: '人気'
 Playlists: '再生リスト'
 User Playlists:
   Your Playlists: 'あなたの再生リスト'
@@ -88,12 +88,12 @@ Settings:
   Settings: '設定'
   General Settings:
     General Settings: '一般設定'
-    Fallback to Non-Preferred Backend on Failure: '問題の発生時には選択していない方法に切り替えて接続'
+    Fallback to Non-Preferred Backend on Failure: '失敗時に非優先の代替サービスに接続'
     Enable Search Suggestions: '検索候補の有効化'
     Default Landing Page: '起動時の表示'
     Locale Preference: '言語設定'
     Preferred API Backend:
-      Preferred API Backend: '取得方法の選択'
+      Preferred API Backend: '優先する API サービス'
       Local API: '内部 API'
       Invidious API: 'Invidious API'
     Video View Type:
@@ -106,7 +106,7 @@ Settings:
       Beginning: '開始'
       Middle: '中間'
       End: '終了'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious のインスタンス
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious の実体
       (初期値は https://invidious.snopyta.org)'
     Region for Trending: '地域内の急上昇'
         #! List countries
@@ -114,14 +114,14 @@ Settings:
     Check for Updates: 最新版の確認
   Theme Settings:
     Theme Settings: 'テーマの設定'
-    Match Top Bar with Main Color: '上部のバーを第一配色に調和'
+    Match Top Bar with Main Color: '上部のバーを配色1に調和'
     Base Theme:
       Base Theme: 'テーマ'
       Black: '黒'
       Dark: 'ダーク'
       Light: 'ライト'
     Main Color Theme:
-      Main Color Theme: '第一配色'
+      Main Color Theme: '配色1'
       Red: '赤'
       Pink: '桃'
       Purple: '紫'
@@ -138,16 +138,16 @@ Settings:
       Amber: '琥珀'
       Orange: 'オレンジ'
       Deep Orange: '濃いオレンジ'
-    Secondary Color Theme: '第二配色'
+    Secondary Color Theme: '配色2'
         #* Main Color Theme
-    UI Scale: UI の拡大率
+    UI Scale: UI の縮尺率
     Expand Side Bar by Default: サイドバーを展開して起動
     Disable Smooth Scrolling: 滑らかなスクロールの無効化
   Player Settings:
     Player Settings: 'プレイヤーの設定'
-    Force Local Backend for Legacy Formats: '旧形式は内部 API の強制使用'
+    Force Local Backend for Legacy Formats: '旧形式には内部 API を強制的に使用'
     Remember History: '履歴を記憶'
-    Play Next Video: '次の動画の自動再生'
+    Play Next Video: '次の動画を再生'
     Turn on Subtitles by Default: '最初から字幕を有効化'
     Autoplay Videos: '動画の自動再生'
     Proxy Videos Through Invidious: 'Invidious 経由で動画にプロキシを使用'
@@ -184,7 +184,7 @@ Settings:
     Import Subscriptions: '登録のインポート'
     Export Subscriptions: '登録のエクスポート'
     How do I import my subscriptions?: 'どうやってインポートするのですか？'
-    Fetch Feeds from RSS: RSS から概要の取得
+    Fetch Feeds from RSS: RSS から情報を取得
   Advanced Settings:
     Advanced Settings: '高度な設定'
     Enable Debug Mode (Prints data to the console): 'デバッグモードの有効化 (コンソールにデータを出力)'
@@ -194,7 +194,7 @@ Settings:
     Use Tor / Proxy for API calls: 'API 呼び出しに Tor/Proxy を使用'
     TEST PROXY: 'プロキシのテスト'
     #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: '公開インスタンスを参照してください'
+    See Public Instances: '公開インスタンスを参照'
     Clear History:
       Clear History: '履歴の削除'
       # On Click
@@ -252,7 +252,7 @@ Settings:
     Check for Legacy Subscriptions: 古い登録形式の確認
   Distraction Free Settings:
     Hide Live Chat: ライブチャットを非表示
-    Hide Popular Videos: 最も人気を非表示
+    Hide Popular Videos: 人気の動画を非表示
     Hide Trending Videos: 急上昇の動画を非表示
     Hide Recommended Videos: おすすめ動画を非表示
     Hide Comment Likes: コメントの評価を非表示
@@ -263,7 +263,7 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
 About:
   #On About page
-  About: 'FreeTube について'
+  About: 'このソフト'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'このコピーレフトのソフトウェアは、AGPL-3.0
     の自由なライセンスです。'
@@ -275,14 +275,14 @@ About:
     を実現させてくれている人々とプロジェクトに感謝！'
 
   'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'チャットが必要なら私たちの
-    Element / Matrix に参加ください。参加前にルールの確認をお願いします。'
+    Element / Matrix に参加してください。参加前にルールの確認をお願いします。'
 
   'Looking for help? Check out our Wiki page.': 'ヘルプが必要なら私たちの Wiki をご覧ください。'
 
   Check out our Firefox extension!: 'Firefox 拡張機能をご覧ください！'
 
   'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'FreeTube
-    をお楽しみの方は、Liberapay か Bitcoin アドレスを通じて寄付をお願いします。'
+    を気に入っていただけていれば、ぜひ Liberapay かビットコインの寄付をお願いします。'
 
   #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
 
@@ -303,7 +303,7 @@ Channel:
     Sort Types:
       Newest: '新しい'
       Oldest: '古い'
-      Most Popular: '最も人気'
+      Most Popular: '人気'
   Playlists:
     Playlists: '再生リスト'
     This channel does not currently have any playlists: 'このチャンネルには再生リストがありません'
@@ -316,8 +316,8 @@ Channel:
     Channel Description: 'チャンネルの説明'
     Featured Channels: '注目のチャンネル'
   Added channel to your subscriptions: 登録にチャンネルを追加しました
-  Channel has been removed from your subscriptions: チャンネルを登録から削除しました
-  Removed subscription from $ other channel(s): 他の $ チャンネルから登録を削除しました
+  Channel has been removed from your subscriptions: 登録からチャンネルを削除しました
+  Removed subscription from $ other channel(s): ほかの $ チャンネルから登録を削除しました
 Video:
   Open in YouTube: 'YouTube で開く'
   Copy YouTube Link: 'YouTube のリンクをコピー'
@@ -351,8 +351,8 @@ Video:
     Aug: '8月'
     Sep: '9月'
     Oct: '10月'
-    Nov: '11 月'
-    Dec: '12 月'
+    Nov: '11月'
+    Dec: '12月'
     Second: '秒'
     Seconds: '秒'
     Hour: '時間'
@@ -371,7 +371,7 @@ Video:
     Minute: 分
   Published on: '公開日'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % 前'
+  Publicationtemplate: '$ %前'
 #& Videos
   Video has been removed from your history: 動画を履歴から削除しました
   Remove From History: 履歴から削除
@@ -383,7 +383,7 @@ Video:
   Reverse Playlist: 再生リストを逆順に
   Shuffle Playlist: 再生リストのシャッフル
   Loop Playlist: 再生リストのループ
-  Starting soon, please refresh the page to check again: まもなく開始されます。再読み込みしご確認ください
+  Starting soon, please refresh the page to check again: すぐに再生されます、ページを再読み込みしてお待ちください
   Audio:
     Best: 最適
     High: 高
@@ -402,7 +402,7 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: '完全な再生リストの表示'
-  Videos: '動画'
+  Videos: '本の動画'
   View: '回視聴'
   Views: '回視聴'
   Last Updated On: '最終更新日'
@@ -416,7 +416,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: 'シアターモードに切替'
+Toggle Theatre Mode: 'シアターモードの切替'
 Change Format:
   Change Video Formats: '動画形式の変更'
   Use Dash Formats: 'DASH 形式の使用'
@@ -440,7 +440,7 @@ Mini Player: 'ミニプレーヤー'
 Comments:
   Comments: 'コメント'
   Click to View Comments: 'クリックしてコメント表示'
-  Getting comment replies, please wait: 'コメント返信の取得中。お待ちください'
+  Getting comment replies, please wait: 'コメント返信を取得中。お待ちください'
   Show Comments: 'コメントの表示'
   Hide Comments: 'コメントを非表示'
   # Context: View 10 Replies, View 1 Reply
@@ -449,7 +449,7 @@ Comments:
   Replies: '返信'
   Reply: '返信'
   There are no comments available for this video: 'この動画へのコメントはありません'
-  Load More Comments: 'もっと見る'
+  Load More Comments: 'さらにコメントを読み込む'
   There are no more comments for this video: この動画へのコメントはまだありません
   Top comments: 評価順
   Newest first: 新しい順
@@ -515,21 +515,20 @@ The playlist has been reversed: 再生リストを逆順にしました
 A new blog is now available, $. Click to view more: '新着のブログ記事があります。$ クリックでブログを開く'
 Download From Site: サイトからダウンロード
 Version $ is now available!  Click for more details: 最新バージョン $ が利用可能です！クリックで詳細表示
-This video is unavailable because of missing formats. This can happen due to country unavailability.: この動画は、形式の情報が利用できないため再生できません。再生が許可されていない国で発生します。
+This video is unavailable because of missing formats. This can happen due to country unavailability.: この動画は、動画形式の情報が利用できないため再生できません。再生許可のない国で発生します。
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: 有効にすると、FreeTube は登録情報の取得を通常の方法ではなく RSS から取得します。RSS は高速であり、
-      IP 制限を回避しますが、動画の公開期間や詳細情報などは提供されていません
+    Fetch Feeds from RSS: 有効にすると、FreeTube は、登録チャンネルの情報を、通常の方法の代わりに RSS で取得します。RSS
+      は高速かつ IP 制限を回避できますが、動画の長さやライブ配信の状態などの詳細情報はありません
   Player Settings:
-    Default Video Format: 動画を再生するファイル形式を設定します。DASH 形式の方が品質が高くなります。旧形式では最大 720p に制限されますが、使用する帯域幅は狭くなります。音声形式とは音声のみの配信です
-    Force Local Backend for Legacy Formats: Invidious API の選択時にのみ機能します。有効にすると、Invidious
-      サーバーから取得したファイル形式の代わりに、内部 API で取得した旧形式を使用します。Invidious サーバーから取得した情報が、再生が許可されていない国の場合に便利です
-    Proxy Videos Through Invidious: YouTube に直接接続する代わりに、Invidious に接続して動画を取得します。API
-      設定の書き換え
+    Default Video Format: 再生に使う動画形式を設定します。DASH 形式がより高品質で再生します。旧形式は、最大 720p に制限されますが、使用する帯域幅を減らせます。音声形式は音声のみです
+    Force Local Backend for Legacy Formats: Invidious API 優先時にのみ機能します。有効にすると、Invidious
+      から取得した動画ではなく、内部 API で取得した旧形式を使用します。その国での再生許可がないため、Invidious からの動画が再生できない場合に利用できます
+    Proxy Videos Through Invidious: 動画を取得するため、YouTube ではなく Invidious に接続します。API 設定を書き換える
   General Settings:
-    Invidious Instance: FreeTube が Invidious サーバーの API に接続するための Invidious インスタンス。選択する公開インスタンスの一覧を表示するために、現在のインスタンスを破棄する
-    Preferred API Backend: FreeTube が youtube からデータを取得する方法を選択します。内部 API は搭載している取得プログラムです。Invidious
-      API は、Invidious サーバーに接続して取得します
-    Thumbnail Preference: FreeTube のすべてのサムネイルを、元のサムネイルの代わりに動画の 1 コマに置き換える
-    Fallback to Non-Preferred Backend on Failure: 選択した API に問題があれば、FreeTube は自動的に選択していない
-      API に切り替えて実行します
+    Invidious Instance: FreeTube が、API 呼び出しのために接続するInvidious のサーバーの実体です。指定されている実体を消去すると、選択用の公開インスタンスの一覧が表示されます
+    Preferred API Backend: FreeTube がデータの取得に使うサービスを選択します。内部 API はアプリ内蔵の機能です。Invidious
+      API は、Invidious のサーバーに接続する必要があります
+    Thumbnail Preference: FreeTube のすべてのサムネイルを、元のサムネイルの代わりに動画の 1 コマに置き換えます
+    Fallback to Non-Preferred Backend on Failure: 有効にすると、優先する API に問題が生じたら、 FreeTube
+      は代替手段として非優先の API の使用を自動で試みます

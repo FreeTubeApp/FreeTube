@@ -421,7 +421,7 @@ Video:
 #& Videos
   Play Previous Video: Lire la vidéo précédente
   Play Next Video: Lire la vidéo suivante
-  Autoplay: Lecture Automatique
+  Autoplay: Lecture Auto
   Reverse Playlist: Inverser la Playlist
   Shuffle Playlist: Mélanger la Playlist
   Loop Playlist: Playlist en boucle
@@ -608,4 +608,4 @@ Tooltips:
       comme méthode de secours lorsqu'elle est activée
     Preferred API Backend: Choisissez le backend que FreeTube utilise pour obtenir
       les données. L'API locale est un extracteur intégré. L'API Invidious nécessite
-      un serveur Invidious pour se connecter à
+      un serveur Invidious pour se connecter

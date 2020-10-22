@@ -49,6 +49,9 @@ const actions = {
           }).finally(() => {
             commit('toggleIsYtSearchRunning')
           })
+        }).catch((err) => {
+          console.log(err)
+          reject(err)
         })
       } else {
         ytsr(payload.query, payload.options).then((result) => {
@@ -66,7 +69,7 @@ const actions = {
   },
 
   ytSearchGetFilters ({ rootState }, payload) {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       let filter = payload.query
       let searchSettings = payload.searchSettings
 
@@ -108,6 +111,8 @@ const actions = {
             })
           })
         })
+      }).catch((err) => {
+        reject(err)
       })
     })
   },

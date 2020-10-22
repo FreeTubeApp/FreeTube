@@ -15,6 +15,7 @@
         :data="shownResults"
       />
       <div
+        v-if="nextPageRef !== null && nextPageRef !== ''"
         class="getNextPage"
         @click="nextPage"
       >
