@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import $ from 'jquery'
+import FS from 'fs'
 import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
 import FtSelect from '../ft-select/ft-select.vue'
@@ -24,6 +25,8 @@ export default Vue.extend({
       instanceNames: [],
       instanceValues: [],
       currentLocale: '',
+      currentGeoLocation: '',
+      geoLocationArray: [],
       backendValues: [
         'invidious',
         'local'
@@ -535,6 +538,9 @@ export default Vue.extend({
     }
   },
   computed: {
+    isDev: function () {
+      return process.env.NODE_ENV === 'development'
+    },
     invidiousInstance: function () {
       return this.$store.getters.getInvidiousInstance
     },
@@ -583,6 +589,12 @@ export default Vue.extend({
       })
 
       return names
+    },
+    geoLocationOptions: function () {
+      return this.geoLocationArray.map((entry) => { return entry.code })
+    },
+    geoLocationNames: function () {
+      return this.geoLocationArray.map((entry) => { return entry.name })
     },
 
     backendNames: function () {
@@ -639,6 +651,8 @@ export default Vue.extend({
     this.updateInvidiousInstanceBounce = debounce(this.updateInvidiousInstance, 500)
 
     this.currentLocale = this.$i18n.locale
+    this.currentGeoLocation = this.$i18n.geoLocation
+    this.updateGeoLocationNames(this.currentLocale)
   },
   beforeDestroy: function () {
     if (this.invidiousInstance === '') {
@@ -664,6 +678,26 @@ export default Vue.extend({
       this.$i18n.locale = locale
       this.currentLocale = locale
       localStorage.setItem('locale', locale)
+      this.updateGeoLocationNames(locale)
+    },
+
+    updateGeoLocation: function (location) {
+      this.$i18n.geoLocation = location
+      this.currentGeoLocation = location
+      localStorage.setItem('geoLocation', location)
+    },
+
+    updateGeoLocationNames: function (locale) {
+      let fileData
+      const fileLocation = this.isDev ? '.' : `${__dirname}`
+      if (FS.existsSync(`${fileLocation}/static/geolocations/${locale}`)) {
+        fileData = FS.readFileSync(`${fileLocation}/static/geolocations/${locale}/countries.json`)
+      } else {
+        fileData = FS.readFileSync(`${fileLocation}/static/geolocations/en-US/countries.json`)
+      }
+      const countries = JSON.parse(fileData).map((entry) => { return { id: entry.id, name: entry.name, code: entry.alpha2 } })
+      countries.sort((a, b) => { return a.id - b.id })
+      this.geoLocationArray = countries
     },
 
     ...mapActions([

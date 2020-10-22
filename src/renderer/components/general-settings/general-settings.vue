@@ -85,6 +85,13 @@
         :select-values="localeOptions"
         @change="updateLocale"
       />
+      <ft-select
+        :placeholder="$t('Settings.General Settings.Region for Trending')"
+        :value="currentGeoLocation"
+        :select-names="geoLocationNames"
+        :select-values="geoLocationOptions"
+        @change="updateGeoLocation"
+      />
     </div>
     <ft-flex-box class="generalSettingsFlexBox">
       <ft-input
