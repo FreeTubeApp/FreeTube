@@ -34,6 +34,9 @@ export default Vue.extend({
     invidiousInstance: function () {
       return this.$store.getters.getInvidiousInstance
     },
+    region: function () {
+      return this.$store.getters.getRegion.toUpperCase()
+    },
     trendingCache () {
       return this.$store.getters.getTrendingCache
     }
@@ -65,8 +68,7 @@ export default Vue.extend({
       this.isLoading = true
 
       console.log('getting local trending')
-      console.log(localStorage.geoLocation)
-      ytrend.scrape_trending_page(localStorage.geoLocation.toUpperCase()).then((result) => {
+      ytrend.scrape_trending_page(this.region).then((result) => {
         const returnData = result.filter((item) => {
           return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
         })

@@ -53,6 +53,9 @@ export default Vue.extend({
     }
   },
   computed: {
+    isDev: function () {
+      return process.env.NODE_ENV === 'development'
+    },
     isOpen: function () {
       return this.$store.getters.getIsSideNavOpen
     },
@@ -112,6 +115,12 @@ export default Vue.extend({
       } else {
         this.$i18n.locale = locale
       }
+      const payload = {
+        isDev: this.isDev,
+        locale: this.$i18n.locale
+      }
+
+      this.$store.dispatch('getRegionData', payload)
     },
 
     checkThemeSettings: function () {
