@@ -652,7 +652,10 @@ export default Vue.extend({
 
     this.currentLocale = this.$i18n.locale
     this.currentGeoLocation = this.$i18n.geoLocation
-    this.updateGeoLocationNames(this.currentLocale)
+    if (this.currentGeoLocation === undefined) {
+      this.updateGeoLocationNames(this.currentLocale)
+      this.currentGeoLocation = 'us'
+    }
   },
   beforeDestroy: function () {
     if (this.invidiousInstance === '') {
@@ -697,7 +700,7 @@ export default Vue.extend({
       }
       const countries = JSON.parse(fileData).map((entry) => { return { id: entry.id, name: entry.name, code: entry.alpha2 } })
       countries.sort((a, b) => { return a.id - b.id })
-      this.geoLocationArray = countries
+      this.geoLocationArray = countriess
     },
 
     ...mapActions([
