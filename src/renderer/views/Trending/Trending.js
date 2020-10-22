@@ -103,7 +103,7 @@ export default Vue.extend({
       const trendingPayload = {
         resource: 'trending',
         id: '',
-        params: {}
+        params: { region: this.region }
       }
 
       this.$store.dispatch('invidiousAPICall', trendingPayload).then((result) => {
