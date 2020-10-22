@@ -90,6 +90,7 @@
         :value="currentGeoLocation"
         :select-names="geoLocationNames"
         :select-values="geoLocationOptions"
+        :tooltip="$t('Tooltips.General Settings.Geo Location')"
         @change="updateGeoLocation"
       />
     </div>

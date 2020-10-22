@@ -700,7 +700,7 @@ export default Vue.extend({
       }
       const countries = JSON.parse(fileData).map((entry) => { return { id: entry.id, name: entry.name, code: entry.alpha2 } })
       countries.sort((a, b) => { return a.id - b.id })
-      this.geoLocationArray = countriess
+      this.geoLocationArray = countries
     },
 
     ...mapActions([
