@@ -452,7 +452,7 @@ Playlist:
 #& Views
 Toggle Theatre Mode: 'Schakel Theatermodus In'
 Change Format:
-  Change Video Formats: 'Verander Video-indeling'
+  Change Video Formats: 'Verander Video indeling'
   Use Dash Formats: 'Gebruik Dash Indelingen'
   Use Legacy Formats: 'Gebruik Legacy Indelingen'
   Use Audio Formats: 'Gebruik Audio Indelingen'
@@ -563,5 +563,36 @@ Download From Site: Download Van Website
 Version $ is now available!  Click for more details: Versie $ is nu beschikbaar! Klik
   voor meer informatie
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Deze
-  video is niet beschikbaar vanwege ontbrekende video-indelingen. Dit kan gebeuren
+  video is niet beschikbaar vanwege ontbrekende video indelingen. Dit kan gebeuren
   als de video niet in uw land beschikbaar is.
+Tooltips:
+  Player Settings:
+    Default Video Format: Selecteer de video indeling dat word gebruikt wanneer een
+      video afspeelt. Dash kan video's afspelen met hogere kwaliteit instellingen.
+      Legacy gaat niet hoger dan 720p maar gebruikt minder bandbreedte. Audio zal
+      alleen het geluid streamen
+    Force Local Backend for Legacy Formats: Dit zal alleen werken wanneer de Invidious
+      API is geselecteerd als standaard. Wanneer ingeschakeld zal de lokale API legacy
+      video indelingen verzamelen in plaats van de videoformaten die worden teruggegeven
+      door Invidious. Dit kan helpen wanneer een video die verzameld word via Invidious
+      niet afspeelt in verband met regio restricties
+    Proxy Videos Through Invidious: FreeTube zal verbinden met Invidious en daar de
+      video's weg halen in de plaats van ze zelf bij YouTube te halen. Dit overschrijft
+      de API voorkeur
+  Subscription Settings:
+    Fetch Feeds from RSS: Wanneer ingeschakeld zal FreeTube RSS gebruiken on de plaats
+      van de standaard methode om videolijsten van je abonnementen te verzamelen.
+      RSS is sneller en voorkomt dat je IP word geblokkeerd maar geeft geen toegang
+      tot sommige informatie zoals de videoduur en live status
+  General Settings:
+    Invidious Instance: Dit is de Invidious instantie waar FreeTube mee zal verbinden
+      om API calls te maken. Verwijder de momenteel geselecteerd instantie om een
+      lijst van publieke instanties te tonen
+    Thumbnail Preference: Alle thumbnails in FreeTube zullen worden vervangen met
+      een momentopname in plaats van de standaard thumbnail
+    Fallback to Non-Preferred Backend on Failure: Wanneer het API geselecteerd als
+      voorkeur problemen heeft dan zal FreeTube automatisch terugvallen op het alternatieve
+      niet-voorkeur API als dit is ingeschakeld
+    Preferred API Backend: Kies de backend die FreeTube gebruikt om data te verzamelen.
+      De lokale API is een ingebouwde extractor. De Invidious API moet worden verbonden
+      met een Invidious server

@@ -396,7 +396,7 @@ export default Vue.extend({
           console.log(err)
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
           this.showToast({
-            message: `${errorMessage}: ${err.responseText}`,
+            message: `${errorMessage}: ${err}`,
             time: 10000,
             action: () => {
               navigator.clipboard.writeText(err)

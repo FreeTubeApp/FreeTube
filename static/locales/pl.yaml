@@ -296,7 +296,7 @@ About:
     naszą stronę GitHub. Mile widziane pull requesty.
 
   Thank you very much to the People and Projects that make FreeTube possible!: 'Wielkie
-    dzięki za wszystkich ludzi i projekty dzięki którym istnienie FreeTube jest możliwe!'
+    dzięki za wszystkich ludzi i projekty, dzięki którym istnienie FreeTube jest możliwe!'
 
   'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'Chcesz
     pogadać? Dołącz do naszej społeczności Element (serwer Matrix). Przejrzyj proszę
@@ -419,7 +419,7 @@ Video:
   Shuffle Playlist: Losuj z playlisty
   Loop Playlist: Zapętl playlistę
   Starting soon, please refresh the page to check again: Wkrótce się zacznie, proszę
-    odświeżyć stronę , aby ponownie sprawdzić
+    odświeżyć stronę, aby ponownie sprawdzić
   Audio:
     Best: Najlepsza
     High: Wysoka
@@ -568,3 +568,16 @@ Version $ is now available!  Click for more details: Wersja $ jest już dostępn
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Ten
   film jest niedostępny z powodu brakujących formatów. Przyczyną może być blokada
   regionalna.
+Tooltips:
+  Subscription Settings:
+    Fetch Feeds from RSS: Po włączeniu FreeTube będzie używać RSS zamiast domyślnej
+      metody pobierania subskrypcji. RSS jest szybszy i zapobiega blokadzie IP, ale
+      nie dostarcza informacji, takich jak czas trwania filmu czy status transmisji
+      na żywo
+  General Settings:
+    Fallback to Non-Preferred Backend on Failure: Po włączeniu, kiedy twój preferowany
+      API napotka problem, FreeTube samoczynnie spróbuje użyć niepreferowanego API
+      jako metody zapasowej
+    Preferred API Backend: Wybierz back-end , który FreeTube użyje do uzyskiwania
+      danych. Lokalne API jest wbudowanym ekstraktorem. API Invidious wymaga połączenia
+      z serwerem Invidious.

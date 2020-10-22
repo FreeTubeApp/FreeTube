@@ -122,7 +122,9 @@ export default Vue.extend({
         }
 
         const returnData = result.items.filter((item) => {
-          return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
+          if (typeof item !== 'undefined') {
+            return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
+          }
         })
 
         const returnDataInvidious = []
