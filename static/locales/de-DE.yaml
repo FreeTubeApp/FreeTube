@@ -579,3 +579,32 @@ A new blog is now available, $. Click to view more: Ein neuer Blogeintrag ist ve
 Download From Site: Von der Seite herunterladen
 Version $ is now available!  Click for more details: Version $ ist jetzt verfügbar!  Für
   mehr Details klicken
+Tooltips:
+  General Settings:
+    Thumbnail Preference: Alle Videovoransichten in FreeTube werden durch ein Einzelbild
+      aus dem Video ersetzt und entsprechen somit nicht mehr der Standardvoransicht.
+    Invidious Instance: Die Invidious-Instanz, welche FreeTube für API-Aufrufe verwendet.
+      Leere die aktuelle Instanz, um eine vollständige Liste der verfügbaren Server
+      anzuzeigen.
+    Fallback to Non-Preferred Backend on Failure: Erlaube FreeTube, falls die bevorzugte
+      API nicht verfügbar sein sollte, automatisch die nicht bevorzugte Alternative
+      zu nutzen.
+    Preferred API Backend: Wähle das Backend, welches FreeTube zum Laden der Daten
+      nutzen soll. Die lokale API ist ein integrierter Extrahierer. Die Invidious
+      API dagegen verwendet einen externen Server
+  Subscription Settings:
+    Fetch Feeds from RSS: Mit dieser Option nutzt FreeTube einen RSS-Feed von Youtube
+      um deine Abonnements zu aktualisieren. RSS ist sowohl schneller als auch sicherer,
+      wenn du oft temporär von YouTube geblockt wirst(Error 429). Allerdings sind
+      nicht alle Videoinformationen, wie Videodauer oder Live-Status, verfügbar.
+  Player Settings:
+    Default Video Format: Auswahl der Formate bei der Videowiedergabe. Dash-Formate
+      bieten eine höhere Qualität, Legacy-Formate sind auf 720p begrenzt, benötigen
+      dafür aber auch weniger Bandbreite. Audioformate umfassen reine Audiostreams.
+    Proxy Videos Through Invidious: Zu Invidious verbinden, um Videos abzurufen, anstatt
+      eine direkten Verbindung zu YouTube aufzubauen. Überschreibt die API-Präferenz.
+    Force Local Backend for Legacy Formats: Dies funktioniert nur wenn du die Invidious
+      API als Standard ausgewählt hast. Die lokale API wird bei der Verwendung von
+      Legacy Formaten diese verwenden, anstatt auf Invidious zurückzugreifen. Dies
+      hilft dann, wenn Videos von Invidious nicht abspielbar sind. Zum Beispiel aufgrund
+      von Landesrestiktionen.
