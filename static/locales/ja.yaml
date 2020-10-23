@@ -1,7 +1,7 @@
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  アプリのこの部分は未完成です。完成後に実行してください。
+  アプリのこの部分は未完成です。完成後に再びここを開いてください。
 
 # Webkit Menu Bar
 File: 'ファイル'
@@ -88,7 +88,7 @@ Settings:
   Settings: '設定'
   General Settings:
     General Settings: '一般設定'
-    Fallback to Non-Preferred Backend on Failure: '取得に問題があれば、選択していない方法に切り替えて接続'
+    Fallback to Non-Preferred Backend on Failure: '失敗時に非優先の代替サービスに接続'
     Enable Search Suggestions: '検索候補の有効化'
     Default Landing Page: '起動時の表示'
     Locale Preference: '言語設定'
@@ -263,10 +263,10 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
 About:
   #On About page
-  About: 'このソフトについて'
+  About: 'このソフト'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'このソフトウェアは、コピーレフトであり
-    AGPL-3.0 に準拠したライセンス フリーです。'
+  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'このコピーレフトのソフトウェアは、AGPL-3.0
+    の自由なライセンスです。'
 
   'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
     バグの報告や機能要望、サポートが必要であれば、私たちの GitHub をご覧ください。プルリクエストも歓迎します。
@@ -282,7 +282,7 @@ About:
   Check out our Firefox extension!: 'Firefox 拡張機能をご覧ください！'
 
   'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'FreeTube
-    をお楽しみの方は、Liberapay か Bitcoin アドレスを通じて寄付をお願いします。'
+    を気に入っていただけていれば、ぜひ Liberapay かビットコインの寄付をお願いします。'
 
   #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
 
@@ -416,7 +416,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: 'シアターモードに変更'
+Toggle Theatre Mode: 'シアターモードの切替'
 Change Format:
   Change Video Formats: '動画形式の変更'
   Use Dash Formats: 'DASH 形式の使用'
