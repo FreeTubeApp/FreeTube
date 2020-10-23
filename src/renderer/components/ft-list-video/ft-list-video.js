@@ -50,7 +50,9 @@ export default Vue.extend({
         'openYoutubeEmbed',
         'copyYoutubeEmbed',
         'openInvidious',
-        'copyInvidious'
+        'copyInvidious',
+        'openYoutubeChannel',
+        'copyYoutubeChannel'
       ]
     }
   },
@@ -97,6 +99,10 @@ export default Vue.extend({
       return `https://youtu.be/${this.id}`
     },
 
+    youtubeChannelUrl: function () {
+      return `https://youtube.com/channel/${this.channelId}`
+    },
+
     youtubeEmbedUrl: function () {
       return `https://www.youtube-nocookie.com/embed/${this.id}`
     },
@@ -112,7 +118,9 @@ export default Vue.extend({
         this.$t('Video.Open YouTube Embedded Player'),
         this.$t('Video.Copy YouTube Embedded Player Link'),
         this.$t('Video.Open in Invidious'),
-        this.$t('Video.Copy Invidious Link')
+        this.$t('Video.Copy Invidious Link'),
+        this.$t('Video.Open Channel in YouTube'),
+        this.$t('Video.Copy YouTube Channel Link')
       ]
 
       if (this.watched) {
@@ -206,6 +214,18 @@ export default Vue.extend({
             console.log('using electron')
             const shell = require('electron').shell
             shell.openExternal(this.invidiousUrl)
+          }
+          break
+        case 'copyYoutubeChannel':
+          navigator.clipboard.writeText(this.youtubeChannelUrl)
+          this.showToast({
+            message: this.$t('Share.YouTube Channel URL copied to clipboard')
+          })
+          break
+        case 'openYoutubeChannel':
+          if (this.usingElectron) {
+            const shell = require('electron').shell
+            shell.openExternal(this.youtubeChannelUrl)
           }
           break
       }

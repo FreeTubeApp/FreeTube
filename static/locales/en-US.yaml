@@ -394,6 +394,8 @@ Video:
   Copy YouTube Embedded Player Link: Copy YouTube Embedded Player Link
   Open in Invidious: Open in Invidious
   Copy Invidious Link: Copy Invidious Link
+  Open Channel in YouTube: Open Channel in YouTube
+  Copy YouTube Channel Link: Copy YouTube Channel Link
   View: View
   Views: Views
   Loop Playlist: Loop Playlist
@@ -508,6 +510,8 @@ Share:
   Invidious Embed URL copied to clipboard: Invidious Embed URL copied to clipboard
   YouTube URL copied to clipboard: YouTube URL copied to clipboard
   YouTube Embed URL copied to clipboard: YouTube Embed URL copied to clipboard
+  YouTube Channel URL copied to clipboard: YouTube Channel URL copied to clipboard
+
 Mini Player: Mini Player
 Comments:
   Comments: Comments
