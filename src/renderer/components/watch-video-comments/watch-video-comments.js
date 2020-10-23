@@ -7,6 +7,8 @@ import FtTimestampCatcher from '../../components/ft-timestamp-catcher/ft-timesta
 import autolinker from 'autolinker'
 import { fork } from 'child_process'
 import path from 'path'
+// eslint-disable-next-line
+import commentControllerRelativePath from 'file-loader!../../../process/comment-module-controller.js'
 
 export default Vue.extend({
   name: 'WatchVideoComments',
@@ -39,6 +41,10 @@ export default Vue.extend({
     }
   },
   computed: {
+    isDev: function () {
+      return process.env.NODE_ENV === 'development'
+    },
+
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
@@ -140,9 +146,17 @@ export default Vue.extend({
     getCommentDataLocal: function () {
       // we need the path from the working directory to fork correctly
       if (this.commentProcess === null) {
-        this.commentProcess = fork('./src/process/comment-module-controller.js', ['args'], {
+        let modulePath
+        if (this.isDev) {
+          modulePath = '../../../process/comment-module-controller.js'
+        } else {
+          modulePath = commentControllerRelativePath
+        }
+
+        this.commentProcess = fork(path.join(__dirname, modulePath), ['args'], {
           stdio: ['pipe', 'pipe', 'pipe', 'ipc']
         })
+
         this.commentProcess.on('message', (msg) => {
           if (msg.error === null) {
             const commentJSON = JSON.parse(msg.comments)
@@ -212,6 +226,7 @@ export default Vue.extend({
           }
         })
       }
+
       this.commentProcess.send({ id: this.id, sortNewest: this.sortNewest })
     },
 

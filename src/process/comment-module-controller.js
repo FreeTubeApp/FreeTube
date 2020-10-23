@@ -1,5 +1,4 @@
 const ModuleScraper = require('yt-comment-scraper')
-const fs = require('fs')
 let scraper = null
 let currentSort = null
 let currentVideoId = null
