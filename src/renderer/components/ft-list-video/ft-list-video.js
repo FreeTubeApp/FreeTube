@@ -52,7 +52,9 @@ export default Vue.extend({
         'openInvidious',
         'copyInvidious',
         'openYoutubeChannel',
-        'copyYoutubeChannel'
+        'copyYoutubeChannel',
+        'openInvidiousChannel',
+        'copyInvidiousChannel'
       ]
     }
   },
@@ -91,6 +93,10 @@ export default Vue.extend({
       return `${this.invidiousInstance}/watch?v=${this.id}`
     },
 
+    invidiousChannelUrl: function () {
+      return `${this.invidiousInstance}/channel/${this.channelId}`
+    },
+
     youtubeUrl: function () {
       return `https://www.youtube.com/watch?v=${this.id}`
     },
@@ -120,7 +126,9 @@ export default Vue.extend({
         this.$t('Video.Open in Invidious'),
         this.$t('Video.Copy Invidious Link'),
         this.$t('Video.Open Channel in YouTube'),
-        this.$t('Video.Copy YouTube Channel Link')
+        this.$t('Video.Copy YouTube Channel Link'),
+        this.$t('Video.Open Channel in Invidious'),
+        this.$t('Video.Copy Invidious Channel Link')
       ]
 
       if (this.watched) {
@@ -226,6 +234,18 @@ export default Vue.extend({
           if (this.usingElectron) {
             const shell = require('electron').shell
             shell.openExternal(this.youtubeChannelUrl)
+          }
+          break
+        case 'copyInvidiousChannel':
+          navigator.clipboard.writeText(this.invidiousChannelUrl)
+          this.showToast({
+            message: this.$t('Share.Invidious Channel URL copied to clipboard')
+          })
+          break
+        case 'openInvidiousChannel':
+          if (this.usingElectron) {
+            const shell = require('electron').shell
+            shell.openExternal(this.invidiousChannelUrl)
           }
           break
       }
