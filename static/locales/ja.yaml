@@ -20,7 +20,7 @@ Toggle Developer Tools: '開発者ツールに切替'
 Actual size: '実際のサイズ'
 Zoom in: '拡大'
 Zoom out: '縮小'
-Toggle fullscreen: '全画面に変更'
+Toggle fullscreen: '全画面の切替'
 Window: 'ウィンドウ'
 Minimize: '最小化'
 Close: '閉じる'
@@ -528,8 +528,8 @@ Tooltips:
     Proxy Videos Through Invidious: 動画を取得するため、YouTube ではなく Invidious に接続します。API 設定を書き換えます
   General Settings:
     Invidious Instance: FreeTube が Invidious サーバーの API への接続用の Invidious インスタンスです。現在のインスタンスを破棄し、選択用の公開インスタンス一覧を表示します
-    Preferred API Backend: FreeTube が youtube からデータを取得する方法を選択します。「内部 API」とはアプリの機能の取得方法です。「Invidious
-      API」とは、Invidious サーバーに接続する取得方法です
+    Preferred API Backend: FreeTube がデータの取得に使うサービスを選択します。内部 API はアプリ内蔵の機能です。Invidious
+      API は、Invidious のサーバーに接続する必要があります
     Thumbnail Preference: FreeTube のすべてのサムネイルを、元のサムネイルの代わりに動画の 1 コマに置き換える
     Fallback to Non-Preferred Backend on Failure: 有効にすると、選択した API に問題があれば、FreeTube
       は自動的に選択していない API に切り替えて実行します
