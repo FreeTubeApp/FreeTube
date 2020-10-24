@@ -195,7 +195,7 @@ Settings:
   Subscription Settings:
     Subscription Settings: 'Postavke pretplata'
     Hide Videos on Watch: 'Sakrij video nakon gledanja'
-    Fetch Feeds from RSS: 'Dohvati feedove s RSS-a'
+    Fetch Feeds from RSS: 'Dohvati podatke putem RSS-a'
     Subscriptions Export Format:
       Subscriptions Export Format: 'Format izvoza pretplata'
       #& Freetube
@@ -582,7 +582,7 @@ Tooltips:
       podataka. Lokalno sučelje je ugrađeni sustav. Invidious sučelje zahtijeva Invidious
       poslužitelja na koji će se povezati
   Subscription Settings:
-    Fetch Feeds from RSS: Kad je aktivirano, FreeTube će koristiti RSS umjesto standardne
-      metode za dohvaćanje tvog feeda pretplate. RSS je brži i sprečava blokiranje
-      IP adresa, ali ne pruža određene podatke kao što su trajanje videa ili stanja
-      „uživo”
+    Fetch Feeds from RSS: Kad je aktivirano, FreeTube će koristiti RSS umjesto vlastite
+      standardne metode za dohvaćanje podataka tvoje pretplate. RSS je brži i sprečava
+      blokiranje IP adresa, ali ne pruža određene podatke kao što su trajanje videa
+      ili stanja „uživo”
