@@ -609,3 +609,6 @@ Tooltips:
     Preferred API Backend: Choisissez le backend que FreeTube utilise pour obtenir
       les données. L'API locale est un extracteur intégré. L'API Invidious nécessite
       un serveur Invidious pour se connecter
+    Region for Trending: La région des tendances vous permet de choisir les vidéos
+      tendance du pays que vous souhaitez afficher. Attention, certains pays affichés
+      ne sont pas pris en charge par YouTube
