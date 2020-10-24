@@ -20,7 +20,7 @@ Toggle Developer Tools: '開発者ツールに切替'
 Actual size: '実際のサイズ'
 Zoom in: '拡大'
 Zoom out: '縮小'
-Toggle fullscreen: '全画面の切替'
+Toggle fullscreen: '全画面に変更'
 Window: 'ウィンドウ'
 Minimize: '最小化'
 Close: '閉じる'
@@ -518,8 +518,8 @@ Version $ is now available!  Click for more details: 最新の Ver. $ 登場！�
 This video is unavailable because of missing formats. This can happen due to country unavailability.: この動画は、動画形式の情報が利用できないため再生できません。再生許可のない国で発生します。
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: 有効にすると、FreeTube は、登録チャンネルの情報を、通常の方法の代わりに RSS で取得します。RSS
-      は高速かつ IP 制限を回避できますが、動画の長さやライブ配信の状態などの詳細情報は提供されません
+    Fetch Feeds from RSS: 有効にすると、FreeTube は、登録チャンネルの情報を、通常の方法の代わりに RSS から取得します。RSS
+      は高速であり IP 制限も回避できますが、動画の長さやライブ配信の状態などの詳細情報は提供されていません
   Player Settings:
     Default Video Format: 動画再生で使用する形式の設定。DASH 形式であれば高品質で再生できます。旧形式は、最大 720p に制限されますが、使用する帯域幅を減らせます。音声形式は音声のみです
     Force Local Backend for Legacy Formats: Invidious API の選択時にのみ機能します。有効にすると、Invidious
@@ -528,8 +528,9 @@ Tooltips:
     Proxy Videos Through Invidious: 動画を取得するため、YouTube ではなく Invidious に接続します。API 設定を書き換えます
   General Settings:
     Invidious Instance: FreeTube が Invidious サーバーの API への接続用の Invidious インスタンスです。現在のインスタンスを破棄し、選択用の公開インスタンス一覧を表示します
-    Preferred API Backend: FreeTube がデータの取得に使うサービスを選択します。内部 API はアプリ内蔵の機能です。Invidious
-      API は、Invidious のサーバーに接続する必要があります
+    Preferred API Backend: FreeTube が youtube からデータを取得する方法を選択します。「内部 API」とはアプリから取得する方法です。「Invidious
+      API」とは、Invidious サーバーに接続して取得する方法です
     Thumbnail Preference: FreeTube のすべてのサムネイルを、元のサムネイルの代わりに動画の 1 コマに置き換える
     Fallback to Non-Preferred Backend on Failure: 有効にすると、選択した API に問題があれば、FreeTube
       は自動的に選択していない API に切り替えて実行します
+    Region for Trending: 地域の急上昇では、急上昇動画を表示する国を選択できます。YouTube は、一覧に記載のすべての国に対応してるとは限りません
