@@ -34,6 +34,9 @@ export default Vue.extend({
     invidiousInstance: function () {
       return this.$store.getters.getInvidiousInstance
     },
+    region: function () {
+      return this.$store.getters.getRegion.toUpperCase()
+    },
     trendingCache () {
       return this.$store.getters.getTrendingCache
     }
@@ -65,8 +68,7 @@ export default Vue.extend({
       this.isLoading = true
 
       console.log('getting local trending')
-
-      ytrend.scrape_trending_page().then((result) => {
+      ytrend.scrape_trending_page(this.region).then((result) => {
         const returnData = result.filter((item) => {
           return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
         })
@@ -101,7 +103,7 @@ export default Vue.extend({
       const trendingPayload = {
         resource: 'trending',
         id: '',
-        params: {}
+        params: { region: this.region }
       }
 
       this.$store.dispatch('invidiousAPICall', trendingPayload).then((result) => {
