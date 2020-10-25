@@ -467,6 +467,10 @@ Video:
   audio only: csak hang
   video only: csak videó
   Download Video: Videó letöltése
+  Copy Invidious Channel Link: Invidious csatorna hivatkozása másolása
+  Copy YouTube Channel Link: YouTube csatorna hivatkozása másolása
+  Open Channel in YouTube: Csatorna megnyitása a YouTube oldalon
+  Open Channel in Invidious: Csatorna megnyitása az Invidious oldalán
 Videos:
   #& Sort By
   Sort By:
@@ -514,6 +518,9 @@ Share:
     másolva'
   YouTube URL copied to clipboard: 'YouTube URL-címe vágólapra másolva'
   YouTube Embed URL copied to clipboard: 'YouTube beágyazott URL-címe vágólapra másolva'
+  YouTube Channel URL copied to clipboard: YouTube csatorna URL-címe vágólapra másolva
+  Invidious Channel URL copied to clipboard: Invidious csatorna URL-címe vágólapra
+    másolva
 Mini Player: 'Minilejátszó'
 Comments:
   Comments: 'Megjegyzések'
@@ -561,3 +568,8 @@ Canceled next video autoplay: 'Következő videó önműködő lejátszása megs
 
 Yes: 'Igen'
 No: 'Nem'
+Tooltips:
+  General Settings:
+    Preferred API Backend: Válassza ki a háttéralkalmazást, amelyet a FreeTube használ
+      az adatok megszerzéséhez. A helyi-API egy beépített kinyerő. Az Invidious-API
+      használatához Invidious-kiszolgáló szükséges.
