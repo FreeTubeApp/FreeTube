@@ -435,6 +435,10 @@ Video:
   audio only: Audio uniquement
   video only: Vidéo uniquement
   Download Video: Télécharger la vidéo
+  Copy Invidious Channel Link: Copier le lien Invidious de la chaîne
+  Open Channel in Invidious: Ouvrir la chaîne sur Invidious
+  Copy YouTube Channel Link: Copier le lien de la chaîne YouTube
+  Open Channel in YouTube: Ouvrir la chaîne sur YouTube
 Videos:
   #& Sort By
   Sort By:
@@ -483,6 +487,10 @@ Share:
   YouTube Embed URL copied to clipboard: 'URL d''intégration Youtube copié dans le
     presse-papiers'
   Include Timestamp: Inclure l'horodatage
+  YouTube Channel URL copied to clipboard: L'URL YouTube de la chaîne est copiée dans
+    le presse-papiers
+  Invidious Channel URL copied to clipboard: L'URL Invidious de la chaîne est copiée
+    dans le presse-papiers
 Mini Player: 'Mini Lecteur'
 Comments:
   Comments: 'Commentaires'
