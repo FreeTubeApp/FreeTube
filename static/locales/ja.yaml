@@ -20,7 +20,7 @@ Toggle Developer Tools: '開発者ツールに切替'
 Actual size: '実際のサイズ'
 Zoom in: '拡大'
 Zoom out: '縮小'
-Toggle fullscreen: '全画面の切替'
+Toggle fullscreen: '全画面に変更'
 Window: 'ウィンドウ'
 Minimize: '最小化'
 Close: '閉じる'
@@ -60,7 +60,7 @@ Search Filters:
   # On Search Page
   Search Results: '検索結果'
   Fetching results. Please wait: '結果の取得中。お待ちください'
-  Fetch more results: 'さらに結果を取得'
+  Fetch more results: 'もっと見る'
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
@@ -72,7 +72,7 @@ Subscriptions:
   Getting Subscriptions. Please wait.: 登録チャンネルの内容を取得中。お待ちください。
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: このプロファイルはチャンネル登録が多くなっています。接続制限の回避のため強制的な
     RSS にします
-  Load More Videos: さらに動画を読み込む
+  Load More Videos: もっと見る
 Trending: '急上昇'
 Most Popular: '人気'
 Playlists: '再生リスト'
@@ -93,7 +93,7 @@ Settings:
     Default Landing Page: '起動時の表示'
     Locale Preference: '言語設定'
     Preferred API Backend:
-      Preferred API Backend: '優先する API サービス'
+      Preferred API Backend: '取得方法の選択'
       Local API: '内部 API'
       Invidious API: 'Invidious API'
     Video View Type:
@@ -145,7 +145,7 @@ Settings:
     Disable Smooth Scrolling: 滑らかなスクロールの無効化
   Player Settings:
     Player Settings: 'プレイヤーの設定'
-    Force Local Backend for Legacy Formats: '旧形式には内部 API を強制的に使用'
+    Force Local Backend for Legacy Formats: '旧形式であれば内部 API の強制使用'
     Remember History: '履歴を記憶'
     Play Next Video: '次の動画を再生'
     Turn on Subtitles by Default: '最初から字幕を有効化'
@@ -187,7 +187,7 @@ Settings:
     Fetch Feeds from RSS: RSS から情報を取得
   Advanced Settings:
     Advanced Settings: '高度な設定'
-    Enable Debug Mode (Prints data to the console): 'デバッグモードの有効化 (コンソールにデータを出力)'
+    Enable Debug Mode (Prints data to the console): 'デバッグ モードの有効化（コンソールにデータ出力）'
     'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'プロキシのアドレス (例: SOCKS5://127.0.0.1:9050)'
     'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': '「プロキシのテスト」ボタンをクリックすると、https://ipinfo.io/json
       へリクエストを送信します'
@@ -449,7 +449,7 @@ Comments:
   Replies: '返信'
   Reply: '返信'
   There are no comments available for this video: 'この動画へのコメントはありません'
-  Load More Comments: 'さらにコメントを読み込む'
+  Load More Comments: 'もっと見る'
   There are no more comments for this video: この動画へのコメントはまだありません
   Top comments: 評価順
   Newest first: 新しい順
@@ -458,8 +458,8 @@ Comments:
 Up Next: '次の動画'
 
 # Toast Messages
-Local API Error (Click to copy): '内部 API エラー (クリックでコピー)'
-Invidious API Error (Click to copy): 'Invidious API エラー (クリックでコピー)'
+Local API Error (Click to copy): '内部 API エラー（クリックでコピー）'
+Invidious API Error (Click to copy): 'Invidious API エラー（クリックでコピー）'
 Falling back to Invidious API: '代替の Invidious API に切替'
 Falling back to the local API: '代替の内部 API に切替'
 Subscriptions have not yet been implemented: 'チャンネル登録は未実装です'
@@ -514,21 +514,23 @@ Profile:
 The playlist has been reversed: 再生リストを逆順にしました
 A new blog is now available, $. Click to view more: '新着のブログ記事があります。$ クリックでブログを開く'
 Download From Site: サイトからダウンロード
-Version $ is now available!  Click for more details: 最新バージョン $ が利用可能です！クリックで詳細表示
+Version $ is now available!  Click for more details: 最新の Ver. $ 登場！　詳細はクリックでご覧ください
 This video is unavailable because of missing formats. This can happen due to country unavailability.: この動画は、動画形式の情報が利用できないため再生できません。再生許可のない国で発生します。
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: 有効にすると、FreeTube は、登録チャンネルの情報を、通常の方法の代わりに RSS で取得します。RSS
-      は高速かつ IP 制限を回避できますが、動画の長さやライブ配信の状態などの詳細情報はありません
+    Fetch Feeds from RSS: 有効にすると、FreeTube は、登録チャンネルの情報を、通常の方法の代わりに RSS から取得します。RSS
+      は高速であり IP 制限も回避できますが、動画の長さやライブ配信の状態などの詳細情報は提供されていません
   Player Settings:
-    Default Video Format: 再生に使う動画形式を設定します。DASH 形式がより高品質で再生します。旧形式は、最大 720p に制限されますが、使用する帯域幅を減らせます。音声形式は音声のみです
-    Force Local Backend for Legacy Formats: Invidious API 優先時にのみ機能します。有効にすると、Invidious
-      から取得した動画ではなく、内部 API で取得した旧形式を使用します。その国での再生許可がないため、Invidious からの動画が再生できない場合に利用できます
-    Proxy Videos Through Invidious: 動画を取得するため、YouTube ではなく Invidious に接続します。API 設定を書き換える
+    Default Video Format: 動画再生で使用する形式の設定。DASH 形式であれば高品質で再生できます。旧形式は、最大 720p に制限されますが、使用する帯域幅を減らせます。音声形式は音声のみです
+    Force Local Backend for Legacy Formats: Invidious API の選択時にのみ機能します。有効にすると、Invidious
+      サーバーから取得した動画形式ではなく、内部 API で取得した旧形式を使用します。Invidious から取得した情報では再生できないことがあります。あなたが現在
+      FreeTube を実行している国が、再生が許可されていない国の場合です
+    Proxy Videos Through Invidious: 動画を取得するため、YouTube ではなく Invidious に接続します。API 設定を書き換えます
   General Settings:
-    Invidious Instance: FreeTube が、API 呼び出しのために接続するInvidious のサーバーの実体です。指定されている実体を消去すると、選択用の公開インスタンスの一覧が表示されます
-    Preferred API Backend: FreeTube がデータの取得に使うサービスを選択します。内部 API はアプリ内蔵の機能です。Invidious
-      API は、Invidious のサーバーに接続する必要があります
-    Thumbnail Preference: FreeTube のすべてのサムネイルを、元のサムネイルの代わりに動画の 1 コマに置き換えます
-    Fallback to Non-Preferred Backend on Failure: 有効にすると、優先する API に問題が生じたら、 FreeTube
-      は代替手段として非優先の API の使用を自動で試みます
+    Invidious Instance: FreeTube が Invidious サーバーの API への接続用の Invidious インスタンスです。現在のインスタンスを破棄し、選択用の公開インスタンス一覧を表示します
+    Preferred API Backend: FreeTube が youtube からデータを取得する方法を選択します。「内部 API」とはアプリから取得する方法です。「Invidious
+      API」とは、Invidious サーバーに接続して取得する方法です
+    Thumbnail Preference: FreeTube のすべてのサムネイルを、元のサムネイルの代わりに動画の 1 コマに置き換える
+    Fallback to Non-Preferred Backend on Failure: 有効にすると、選択した API に問題があれば、FreeTube
+      は自動的に選択していない API に切り替えて実行します
+    Region for Trending: 地域の急上昇では、急上昇動画を表示する国を選択できます。YouTube は、一覧に記載のすべての国に対応してるとは限りません

@@ -387,6 +387,10 @@ Video:
   audio only: 僅音訊
   video only: 僅影片
   Download Video: 下載影片
+  Copy Invidious Channel Link: 複製 Invidious 連結
+  Open Channel in Invidious: 在 Invidious 開啟頻道
+  Copy YouTube Channel Link: 複製 YouTube 頻道連結
+  Open Channel in YouTube: 在 YouTube 開啟頻道
 Videos:
   #& Sort By
   Sort By:
@@ -431,6 +435,8 @@ Share:
   YouTube URL copied to clipboard: '複製YouTube URL到剪下板'
   YouTube Embed URL copied to clipboard: '複製YouTube內嵌URL到剪下板'
   Include Timestamp: 包含時間戳
+  YouTube Channel URL copied to clipboard: YouTube 連結已複製到剪貼簿
+  Invidious Channel URL copied to clipboard: Invidious 頻道連結 URL 已複製到剪貼簿
 Mini Player: '迷你播放器'
 Comments:
   Comments: '評論'
@@ -514,7 +520,7 @@ Version $ is now available!  Click for more details: 版本$已可使用！ 點�
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 沒有這個影片因為缺少格式。這個可能發生由於國家不可用。
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: 啟用後，FreeTube將使用RSS而非預設方式來取得您的訂閱推送。RSS更快而且可避免IP封鎖，但不提供某些訊息，如影片長度與即時狀態
+    Fetch Feeds from RSS: 啟用後，FreeTube 將使用 RSS 而非預設方式來取得您的訂閱推送。RSS 更快而且可避免 IP 封鎖，但不提供某些訊息，如影片長度與即時狀態
   Player Settings:
     Default Video Format: 設定要用於影片播放的格式。Dash格式有更高的品質。傳統格式會限制在 720p但頻寬需求更低。音訊格式為僅有音訊的串流
     Proxy Videos Through Invidious: 將連線到 Invidious而非直接連線到 YouTube 來提供影片。覆寫 API 偏好
@@ -526,3 +532,4 @@ Tooltips:
     Fallback to Non-Preferred Backend on Failure: 當您的偏好API 有問題時，FreeTube將自動嘗試使用您的非偏好API
       作為汰退方案
     Preferred API Backend: 選擇FreeTube 要用於取得資料的後端。本地API 是內建擷取器。Invidious API需要 Invidious伺服器才能連線
+    Region for Trending: 區域趨勢讓您可以挑選您想要顯示哪個國家的熱門影片。並非所有顯示的國家都被 YouTube 支援
