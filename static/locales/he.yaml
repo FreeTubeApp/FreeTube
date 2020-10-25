@@ -451,6 +451,10 @@ Video:
   audio only: שמע בלבד
   video only: סרטון בלבד
   Download Video: להוריד סרטון
+  Copy Invidious Channel Link: העתקת קישור ערוץ ה־Invidious
+  Open Channel in Invidious: פתיחת הערוץ ב־Invidious
+  Copy YouTube Channel Link: העתקת קישור ערוץ ה־YouTube
+  Open Channel in YouTube: פתיחת הערוץ ב־YouTube
 Videos:
   #& Sort By
   Sort By:
@@ -495,6 +499,8 @@ Share:
   Invidious Embed URL copied to clipboard: 'קישור הטמעה של Invidious הועתק'
   YouTube URL copied to clipboard: 'קישור ל-YouTube הועתק'
   YouTube Embed URL copied to clipboard: 'קישור הטמעה של YouTube הועתק'
+  YouTube Channel URL copied to clipboard: כתובת ערוץ ה־YouTube הועתקה ללוח הגזירים
+  Invidious Channel URL copied to clipboard: כתובת ערוץ ה־Invidious הועתק ללוח הגזירים
 Mini Player: 'נגן מיני'
 Comments:
   Comments: 'תגובות'
