@@ -587,7 +587,7 @@ Tooltips:
       jako metody zapasowej
     Preferred API Backend: Wybierz back-end , który FreeTube użyje do uzyskiwania
       danych. Lokalne API jest wbudowanym ekstraktorem. API Invidious wymaga połączenia
-      z serwerem Invidious.
+      z serwerem Invidious
     Region for Trending: Obszar filmów „Na czasie” pozwala wybrać kraj, z którego
       chciałbyś zobaczyć filmy zdobywające popularność. Nie wszystkie wyświetlone
       kraje są obsługiwane przez YouTube
@@ -600,3 +600,8 @@ Tooltips:
       ustawiony jako domyślny. Gdy opcja jest włączona, do odtwarzania starych formaty
       zostanie użyty lokalny API, zamiast API Invidious. Pomaga w przypadkach, gdy
       filmy zwracane przez Invidious nie odtwarzają się z powodu blokady regionalnej
+    Default Video Format: Ustaw formaty, które zostaną użyte do odtwarzania filmów.
+      Formaty Dash obsługują wyższe rozdzielczości. Stare formaty są ograniczone do
+      720p, ale zużywają mniej przepustowości. Formaty audio odtwarzają tylko dźwięk
+    Proxy Videos Through Invidious: Będzie dostarczał filmy, łącząc się z Invidious,
+      a nie bezpośrednio z YouTube. Nadpisuje ustawienia API
