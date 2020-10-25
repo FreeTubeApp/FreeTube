@@ -432,6 +432,10 @@ Video:
   audio only: nur Audio
   video only: nur Video
   Download Video: Video herunterladen
+  Copy Invidious Channel Link: Kopiere Invidious Kanallink
+  Open Channel in Invidious: Öffne Kanal auf Invidious
+  Copy YouTube Channel Link: Kopiere YouTube Kanallink
+  Open Channel in YouTube: Öffne Kanal auf YouTube
 Videos:
   #& Sort By
   Sort By:
@@ -487,6 +491,10 @@ Share:
   YouTube Embed URL copied to clipboard: YouTubes eingebettete URL in die Zwischenablage
     kopiert
   Include Timestamp: Zeitstempel einfügen
+  YouTube Channel URL copied to clipboard: YouTube Kanallink in die Zwischenablage
+    kopiert
+  Invidious Channel URL copied to clipboard: Invidious Kanallink in die Zwischenablage
+    kopiert
 Mini Player: Mini-Abspieler
 Comments:
   Comments: Kommentare
@@ -592,6 +600,9 @@ Tooltips:
     Preferred API Backend: Wähle das Backend, welches FreeTube zum Laden der Daten
       nutzen soll. Die lokale API ist ein integrierter Extrahierer. Die Invidious
       API dagegen verwendet einen externen Server
+    Region for Trending: Die Trendregion erlaubt es dir auszuwählen, aus welchem Land
+      die Trends angezeigt werden sollen. Nicht alle Optionen werden auch von YouTube
+      unterstützt
   Subscription Settings:
     Fetch Feeds from RSS: Mit dieser Option nutzt FreeTube einen RSS-Feed von Youtube
       um deine Abonnements zu aktualisieren. RSS ist sowohl schneller als auch sicherer,
