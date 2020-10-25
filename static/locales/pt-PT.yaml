@@ -79,6 +79,7 @@ Subscriptions:
     sua lista de subscrições está vazia. Adicione algumas para as ver aqui.
   'Getting Subscriptions. Please wait.': A carregar subscrições. Por favor aguarde.
   Refresh Subscriptions: Actualizar Subscrições
+  Load More Videos: Carregar Mais Vídeos
 Trending: Tendências
 Most Popular: Mais Populares
 Playlists: Listas de Reprodução
@@ -92,17 +93,19 @@ History:
 Settings:
   # On Settings Page
   Settings: Definições
+  The app needs to restart for changes to take effect. Restart and apply change?: A
+    aplicação precisa de reiniciar para que as mudanças façam efeito. Reiniciar e aplicar mudanças?
   General Settings:
     General Settings: Definições Gerais
     Check for Updates: Verificar se há Actualizações
     Check for Latest Blog Posts: Verificar se há Novas Publicações no Blogue
-    Fallback to Non-Preferred Backend on Failure: Utilizar Motor de Pesquisa Não Preferido
+    Fallback to Non-Preferred Backend on Failure: Utilizar Sistema de Ligação Não Preferido
       em Caso de Falha
     Enable Search Suggestions: Activar Sugestões de Pesquisa
     Default Landing Page: Página Inicial
     Locale Preference: Localização
     Preferred API Backend:
-      Preferred API Backend: Motor de Pesquisa Preferido
+      Preferred API Backend: Sistema de Ligação Favorito
       Local API: API Local
       Invidious API: API Invidious
     Video View Type:
@@ -122,6 +125,9 @@ Settings:
   Theme Settings:
     Theme Settings: Definições de Tema
     Match Top Bar with Main Color: Utilizar Cor Principal Para Barra Superior
+    Expand Side Bar by Default: Expandir barra lateral por omissão
+    Disable Smooth Scrolling: Desligar Deslocação Suavizada
+    UI Scale: Mudança de Escala da Interface
     Base Theme:
       Base Theme: Tema Base
       Black: Preto
@@ -149,7 +155,7 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: Definições do reprodutor
-    Force Local Backend for Legacy Formats: Forçar Motor de Pesquisa Local para Formatos
+    Force Local Backend for Legacy Formats: Forçar Sistema de Ligação Local para Formatos
       Antigos
     Remember History: Lembrar Histórico
     Play Next Video: Passar ao Próximo Vídeo
@@ -221,6 +227,7 @@ Settings:
     Import FreeTube: Importar FreeTube
     Import YouTube: Importar YouTube
     Import NewPipe: Importar NewPipe
+    Check for Legacy Subscriptions: Verificar se há Subscrições em Formato Pré-v0.8.0
     Export Subscriptions: Exportar Subscrições
     Export FreeTube: Exportar FreeTube
     Export YouTube: Exportar YouTube
@@ -395,6 +402,10 @@ Video:
   Copy YouTube Embedded Player Link: Copiar Ligação para Reprodutor Youtube Embutido
   Open in Invidious: Abrir no Invidious
   Copy Invidious Link: Copiar Ligação para Invidious
+  Open Channel in YouTube: Abrir Canal no Youtube
+  Copy YouTube Channel Link: Copiar Ligação para Youtube
+  Open Channel in Invidious: Abrir Calan no Invidious
+  Copy Invidious Channel Link: Copiar Ligação para Invidious
   View: Visualização
   Views: Visualizações
   # Context is "X People Watching"
@@ -416,6 +427,9 @@ Video:
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': Chat
     ao vivo não se encontra a funcionar com o API Invividious. Uma ligação directa
     ao Youtube é necessária.
+  Download Video: Descarregar Vídeo
+  video only: apenas vídeo
+  audio only: apenas áudio
   Audio:
     Low: Baixa
     Medium: Média
@@ -504,9 +518,12 @@ Share:
   Invidious URL copied to clipboard: URL Invidious copiado para área de transferência
   Invidious Embed URL copied to clipboard: URL Invidious embutido copiado para área
     de tranferência
+  Invidious Channel URL copied to clipboard: URL do Canal Invidious copiado para área de transferência
   YouTube URL copied to clipboard: URL Youtube copiado para área de transferência
   YouTube Embed URL copied to clipboard: URL Youtube embutido copiado para área de
     transferência
+  YouTube Channel URL copied to clipboard: URL do Canal Youtube copiado para área de transferência
+  
 Mini Player: Mini Reprodutor
 Comments:
   Comments: Comentários
@@ -528,6 +545,21 @@ Comments:
   Load More Comments: Carregar Mais Comentários
   No more comments available: Não existem mais comentários
 Up Next: A Seguir
+
+#Tooltips
+Tooltips:
+  General Settings:
+    Preferred API Backend: O sistema que FreeTube utilizará para se ligar ao Youtube. O API local existe como parte do FreeTube e faz ligações directas ao Youtube. O API Invidious necessita de uma ligação a um servidor Invidious
+    Fallback to Non-Preferred Backend on Failure: Quando o seu sistema preferido encontrar um erro, o FreeTube vai automaticamente tentar usar o sistema não preferido como uma salvaguarda, caso esta opção esteja activada
+    Thumbnail Preference: Todas as antevisões dos vídeos no FreeTube vão ser substituidas por um fotograma do vídeo
+    Invidious Instance: A instância Invidious à qual o FreeTube irá ligar-se para ir buscar dados. Apague o que está escrito para ver uma lista de instâncias públicas disponíveis
+    Region for Trending: A região permite-lhe escolher de qual país quer que seja utilizado pela secção das tendências. Nem todos os países apresentados estão de facto a funcionar devido ao Youtube
+  Player Settings:
+    Force Local Backend for Legacy Formats: Apenas funciona quando o API Invidious é o seu sistema preferido. Quando activado, o API local irá ser usado para ir buscar os formatos antigos, invés daqueles devolvidos pelo Invidious. Útil quando os vídeos dados pelo Invidious não funcionam devido a restrições geográficas
+    Proxy Videos Through Invidious: O FreeTube irá ligar-se ao Invidious para apresentar vídeos em vez de fazer uma ligação directa ao Youtube. Ignora a escolha de sistema preferido
+    Default Video Format: Define o formato utilizado quando um vídeo é reproduzido. O formato DASH consegue reproduzir melhor qualidades. O formato antigo está limitado a 720p, mas utiliza menos rede. Formatos áudio são para transmissões sem vídeo
+  Subscription Settings:
+    Fetch Feeds from RSS: Quando activado, o FreeTube irá buscar as suas subscrições através de RSS em vez do método normal. RSS é mais rápido e previne ser limitado por fazer demasiadas ligações ao Youtube, mas não disponibiliza informação tal como a duração de um vídeo ou se este é ao vivo
 
 # Toast Messages
 Local API Error (Click to copy): API local encontrou um erro (Clique para copiar)
