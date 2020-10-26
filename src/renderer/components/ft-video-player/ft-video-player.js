@@ -227,7 +227,7 @@ export default Vue.extend({
           this.player.volume(0)
         }
 
-        if (!this.player.muted()){
+        if (!this.player.muted()) {
           if (event.wheelDelta > 0) {
             this.changeVolume(0.05)
           } else if (event.wheelDelta < 0) {
