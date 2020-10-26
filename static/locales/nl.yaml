@@ -426,6 +426,10 @@ Video:
   audio only: alleen audio
   video only: alleen video
   Download Video: Download Video
+  Copy Invidious Channel Link: Kopieer Invidious Kanaal-Link
+  Open Channel in Invidious: Open Kanaal op Invidious
+  Copy YouTube Channel Link: Kopieer YouTube Kanaal-Link
+  Open Channel in YouTube: Open Kanaal op YouTube
 Videos:
   #& Sort By
   Sort By:
@@ -474,6 +478,9 @@ Share:
   YouTube Embed URL copied to clipboard: 'YouTube Insluitlink is gekopieerd naar het
     klemboard'
   Include Timestamp: Begrijp Tijdstempel In
+  YouTube Channel URL copied to clipboard: YouTube URL is gekopieerd naar het klembord
+  Invidious Channel URL copied to clipboard: Invidious Kanaal URL is gekopieerd naar
+    het klembord
 Mini Player: 'Minispeler'
 Comments:
   Comments: 'Reacties'
@@ -595,4 +602,7 @@ Tooltips:
       niet-voorkeur API als dit is ingeschakeld
     Preferred API Backend: Kies de backend die FreeTube gebruikt om data te verzamelen.
       De lokale API is een ingebouwde extractor. De Invidious API moet worden verbonden
-      met een Invidious server
+      met een Invidious server.
+    Region for Trending: Met trend regio kan je instellen uit welk land je trending
+      video's je wil zien. Niet alle weergegeven landen worden ook daadwerkelijk ondersteund
+      door YouTube
