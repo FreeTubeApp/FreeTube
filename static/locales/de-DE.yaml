@@ -599,7 +599,7 @@ Tooltips:
       zu nutzen.
     Preferred API Backend: Wähle das Backend, welches FreeTube zum Laden der Daten
       nutzen soll. Die lokale API ist ein integrierter Extrahierer. Die Invidious
-      API dagegen verwendet einen externen Server
+      API dagegen verwendet einen externen Server.
     Region for Trending: Die Trendregion erlaubt es dir auszuwählen, aus welchem Land
       die Trends angezeigt werden sollen. Nicht alle Optionen werden auch von YouTube
       unterstützt
