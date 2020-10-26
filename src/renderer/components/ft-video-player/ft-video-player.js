@@ -222,10 +222,17 @@ export default Vue.extend({
       if (event.target) {
         event.preventDefault()
 
-        if (event.wheelDelta > 0) {
-          this.changeVolume(0.05)
-        } else if (event.wheelDelta < 0) {
-          this.changeVolume(-0.05)
+        if (this.player.muted() && event.wheelDelta > 0) {
+          this.player.muted(false)
+          this.player.volume(0)
+        }
+
+        if (!this.player.muted()){
+          if (event.wheelDelta > 0) {
+            this.changeVolume(0.05)
+          } else if (event.wheelDelta < 0) {
+            this.changeVolume(-0.05)
+          }
         }
       }
     },
