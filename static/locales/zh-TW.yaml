@@ -531,5 +531,6 @@ Tooltips:
     Thumbnail Preference: FreeTube中所有缩略图都會被替換為影片畫面而非預設缩略图
     Fallback to Non-Preferred Backend on Failure: 當您的偏好API 有問題時，FreeTube將自動嘗試使用您的非偏好API
       作為汰退方案
-    Preferred API Backend: 選擇FreeTube 要用於取得資料的後端。本地API 是內建擷取器。Invidious API需要 Invidious伺服器才能連線
+    Preferred API Backend: 選擇 FreeTube 要用於取得資料的後端。本地 API 是內建擷取器。Invidious API 需要 Invidious
+      伺服器才能連線。
     Region for Trending: 區域趨勢讓您可以挑選您想要顯示哪個國家的熱門影片。並非所有顯示的國家都被 YouTube 支援
