@@ -111,6 +111,7 @@ const config = {
     fs: 'empty',
     net: 'empty',
     tls: 'empty',
+    child_process: 'empty'
   },
   plugins: [
     // new WriteFilePlugin(),

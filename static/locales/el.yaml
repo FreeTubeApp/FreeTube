@@ -474,6 +474,8 @@ Video:
   audio only: μόνο Ήχος
   video only: μόνο Βίντεο
   Download Video: Λήψη Βίντεο
+  Copy Invidious Channel Link: Αντιγραφή συνδέσμου καναλιού Invidious
+  Copy YouTube Channel Link: Αντιγραφή συνδέσμου καναλιού
 Videos:
   #& Sort By
   Sort By:
@@ -522,6 +524,10 @@ Share:
   YouTube URL copied to clipboard: 'Η διεύθυνση YouTube αντιγράφηκε στο πρόχειρο'
   YouTube Embed URL copied to clipboard: 'Η ενσωματωμένη διεύθυνση Youtube αντιγράφηκε
     στο πρόχειρο'
+  YouTube Channel URL copied to clipboard: Ο σύνδεσμος καναλιού Youtube αντιγράφηκε
+    στο πρόχειρο
+  Invidious Channel URL copied to clipboard: Ο σύνδεσμος καναλιού Invidious αντιγράφηκε
+    στο πρόχειρο
 Mini Player: 'Μικρή πλατφόρμα αναπαραγωγής'
 Comments:
   Comments: 'Σχόλια'
@@ -577,3 +583,33 @@ Version $ is now available!  Click for more details: Η έκδοση $ είνα�
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Αυτό
   το βίντεο δεν είναι διαθέσιμο λόγω έλλειψης μορφών. Αυτό μπορεί να συμβαίνει λόγω
   μη διαθεσιμότητας του βίντεο στη χώρα σας.
+Tooltips:
+  Subscription Settings:
+    Fetch Feeds from RSS: Όταν ενεργοποιηθεί, το FreeTube θα χρησιμοποιήσει RSS αντί
+      για την προεπιλεγμένη μέθοδο για την ανανέωση της τροφοδοσίας των συνδρομών
+      σας. Η RSS είναι ταχύτερη και εμποδίζει το κλείδωμα IP, αλλά δεν παρέχει ορισμένες
+      πληροφορίες, όπως η διάρκεια του βίντεο ή την κατάσταση αυτών
+  Player Settings:
+    Default Video Format: Ορίστε τις μορφές που χρησιμοποιούνται κατά την αναπαραγωγή
+      ενός βίντεο. Οι μορφές DASH μπορούν να παίξουν υψηλότερη ποιότητα. Οι παλαιότερες
+      μορφές περιορίζονται σε μέγιστο ανάλυσγς 720p αλλά χρησιμοποιούν λιγότερους
+      πόρους. Οι μορφές ήχου περιλαμβάνουν ροές μόνο ήχου
+    Proxy Videos Through Invidious: Θα συνδεθεί με το Invidious για να σερβίρει τα
+      βίντεο αντί να κάνει μια άμεση σύνδεση με το YouTube. Παράκαμψη προτίμησης API
+    Force Local Backend for Legacy Formats: Λειτουργεί μόνο όταν το Invidious API
+      είναι η προεπιλογή σας. Όταν ενεργοποιηθεί, το τοπικό API θα χρησιμοποιήσει
+      τις μορφές παλαιού τύπου που επιστρέφονται από αυτό αντί για αυτές που επιστρέφονται
+      από το Invidious. Βοηθά όταν τα βίντεο που επιστρέφονται από το Invidious δεν
+      αναπαράγονται λόγω περιορισμών χώρας
+  General Settings:
+    Region for Trending: Η περιοχή των τάσεων σάς επιτρέπει να επιλέξετε τα δημοφιλή
+      βίντεο της χώρας που θέλετε να εμφανίζονται. Δεν υποστηρίζονται όλες οι χώρες
+      που προβάλλονται από το YouTube
+    Thumbnail Preference: Όλες οι μικρογραφίες του FreeTube θα αντικατασταθούν με
+      ένα πλαίσιο του βίντεο αντί για την προεπιλεγμένη μικρογραφία
+    Fallback to Non-Preferred Backend on Failure: Όταν το προτιμώμενο API αντιμετωπίζει
+      πρόβλημα, το FreeTube θα προσπαθήσει να χρησιμοποιήσει το μη προτιμώμενο API
+      ως εναλλακτική μέθοδο όταν ενεργοποιηθεί
+    Preferred API Backend: Επέλεξε το σύστημα με το οποίο το Freetube θα συλλέγει
+      δεδομένα. Το τοπικό API είναι ένα ενσωματομένο εργαλείο. Ενώ το Invidious API
+      απαιτεί έναν Invidious server για σύνδεση.

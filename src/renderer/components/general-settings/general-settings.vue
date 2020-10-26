@@ -56,14 +56,6 @@
         @change="updateLandingPage"
       />
       <ft-select
-        v-if="false"
-        :placeholder="$t('Settings.General Settings.Region for Trending')"
-        :value="region"
-        :select-names="regionNames"
-        :select-values="regionValues"
-        @change="updateRegion"
-      />
-      <ft-select
         :placeholder="$t('Settings.General Settings.Video View Type.Video View Type')"
         :value="listType"
         :select-names="viewTypeNames"
@@ -84,6 +76,14 @@
         :select-names="localeNames"
         :select-values="localeOptions"
         @change="updateLocale"
+      />
+      <ft-select
+        :placeholder="$t('Settings.General Settings.Region for Trending')"
+        :value="region"
+        :select-names="regionNames"
+        :select-values="regionValues"
+        :tooltip="$t('Tooltips.General Settings.Region for Trending')"
+        @change="updateRegion"
       />
     </div>
     <ft-flex-box class="generalSettingsFlexBox">

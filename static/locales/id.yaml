@@ -462,6 +462,10 @@ Video:
   Download Video: Unduh Video
   Starting soon, please refresh the page to check again: Segera dimulai, silakan segarkan
     halaman untuk mengeceknya lagi
+  Copy Invidious Channel Link: Salin Tautan Kanal Invidious
+  Open Channel in Invidious: Buka Kanal di Invidious
+  Copy YouTube Channel Link: Salin Tautan Kanal YouTube
+  Open Channel in YouTube: Buka Kanal di YouTube
 Videos:
   #& Sort By
   Sort By:
@@ -509,6 +513,9 @@ Share:
     klip'
   YouTube URL copied to clipboard: 'URL YouTube tersalin ke papan clip'
   YouTube Embed URL copied to clipboard: 'URL Tersemat YouTube tersalin ke papan klip'
+  YouTube Channel URL copied to clipboard: URL Kanal YouTube disalin ke papan klip
+  Invidious Channel URL copied to clipboard: URL Kanal Invidious disalin ke papan
+    klip
 Mini Player: 'Pemutar Kecil'
 Comments:
   Comments: 'Komentar'

@@ -394,6 +394,10 @@ Video:
   Copy YouTube Embedded Player Link: Copy YouTube Embedded Player Link
   Open in Invidious: Open in Invidious
   Copy Invidious Link: Copy Invidious Link
+  Open Channel in YouTube: Open Channel in YouTube
+  Copy YouTube Channel Link: Copy YouTube Channel Link
+  Open Channel in Invidious: Open Channel in Invidious
+  Copy Invidious Channel Link: Copy Invidious Channel Link
   View: View
   Views: Views
   Loop Playlist: Loop Playlist
@@ -506,8 +510,11 @@ Share:
   # On Click
   Invidious URL copied to clipboard: Invidious URL copied to clipboard
   Invidious Embed URL copied to clipboard: Invidious Embed URL copied to clipboard
+  Invidious Channel URL copied to clipboard: Invidious Channel URL copied to clipboard
   YouTube URL copied to clipboard: YouTube URL copied to clipboard
   YouTube Embed URL copied to clipboard: YouTube Embed URL copied to clipboard
+  YouTube Channel URL copied to clipboard: YouTube Channel URL copied to clipboard
+
 Mini Player: Mini Player
 Comments:
   Comments: Comments
@@ -533,16 +540,34 @@ Up Next: Up Next
 #Tooltips
 Tooltips:
   General Settings:
-    Preferred API Backend: Choose the backend that FreeTube uses to obtain data. The local API is a built in extractor. The Invidious API requires an Invidious server to connect to
-    Fallback to Non-Preferred Backend on Failure: When your preferred API has a problem, FreeTube will automatically attempt to use your non-preferred API as a fallback method when enabled
-    Thumbnail Preference: All thumbnails throughout FreeTube will be replaced with a frame of the video instead of the default thumbnail
-    Invidious Instance: The Invidious instance that FreeTube will connect to for API calls. Clear the current instance to see a list of public instances to choose from
+    Preferred API Backend: Choose the backend that FreeTube uses to obtain data. The
+      local API is a built-in extractor. The Invidious API requires an Invidious server
+      to connect to.
+    Fallback to Non-Preferred Backend on Failure: When your preferred API has a problem,
+      FreeTube will automatically attempt to use your non-preferred API as a fallback
+      method when enabled
+    Thumbnail Preference: All thumbnails throughout FreeTube will be replaced with
+      a frame of the video instead of the default thumbnail
+    Invidious Instance: The Invidious instance that FreeTube will connect to for API
+      calls. Clear the current instance to see a list of public instances to choose
+      from
+    Region for Trending: The region of trends allows you to pick which country's trending
+      videos you want to have displayed. Not all countries displayed are actually
+      supported by YouTube
   Player Settings:
-    Force Local Backend for Legacy Formats: Only works when the Invidious API is your default. When enabled, the local API will run and use the legacy formats returned by that instead of the ones returned by Invidious. Helps when the videos returned by Invidious don't play due to country restrictions
-    Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead of making a direct connection to YouTube. Overrides API preference
-    Default Video Format: Set the formats used when a video plays. Dash formats can play higher qualities. Legacy formats are limited to a max of 720p but use less bandwidth. Audio formats are audio only streams
+    Force Local Backend for Legacy Formats: Only works when the Invidious API is your
+      default. When enabled, the local API will run and use the legacy formats returned
+      by that instead of the ones returned by Invidious. Helps when the videos returned
+      by Invidious don't play due to country restrictions
+    Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead
+      of making a direct connection to YouTube. Overrides API preference
+    Default Video Format: Set the formats used when a video plays. Dash formats can
+      play higher qualities. Legacy formats are limited to a max of 720p but use less
+      bandwidth. Audio formats are audio only streams
   Subscription Settings:
-    Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of it's default method for grabbing your subscription feed. RSS is faster and prevents IP blocking, but doesn't provide certain information like video duration or live status
+    Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of it's default
+      method for grabbing your subscription feed. RSS is faster and prevents IP blocking,
+      but doesn't provide certain information like video duration or live status
 
 # Toast Messages
 Local API Error (Click to copy): Local API Error (Click to copy)

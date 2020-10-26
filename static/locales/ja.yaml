@@ -55,8 +55,8 @@ Search Filters:
   Duration:
     Duration: '長さ'
     All Durations: 'すべての長さ'
-    Short (< 4 minutes): '短編 (4 分未満)'
-    Long (> 20 minutes): '長編 (20 分以上)'
+    Short (< 4 minutes): '短編（4 分未満）'
+    Long (> 20 minutes): '長編（20 分以上）'
   # On Search Page
   Search Results: '検索結果'
   Fetching results. Please wait: '結果の取得中。お待ちください'
@@ -70,8 +70,8 @@ Subscriptions:
   'Getting Subscriptions.  Please wait.': '登録を取得中。お待ちください...'
   Refresh Subscriptions: 登録チャンネルの更新
   Getting Subscriptions. Please wait.: 登録チャンネルの内容を取得中。お待ちください。
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: このプロファイルはチャンネル登録が多くなっています。接続制限の回避のため強制的な
-    RSS にします
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: このプロファイルはチャンネル登録が多くなっています。接続制限を回避するため
+    RSS を使用します
   Load More Videos: もっと見る
 Trending: '急上昇'
 Most Popular: '人気'
@@ -174,7 +174,7 @@ Settings:
       8k: '8K'
   Subscription Settings:
     Subscription Settings: 'チャンネル登録の設定'
-    Hide Videos on Watch: '視聴済みの動画は非表示'
+    Hide Videos on Watch: '視聴済み動画の非表示'
     Subscriptions Export Format:
       Subscriptions Export Format: '登録のエクスポート形式'
       #& Freetube
@@ -184,7 +184,7 @@ Settings:
     Import Subscriptions: '登録のインポート'
     Export Subscriptions: '登録のエクスポート'
     How do I import my subscriptions?: 'どうやってインポートするのですか？'
-    Fetch Feeds from RSS: RSS から情報を取得
+    Fetch Feeds from RSS: RSS から情報取得
   Advanced Settings:
     Advanced Settings: '高度な設定'
     Enable Debug Mode (Prints data to the console): 'デバッグ モードの有効化（コンソールにデータ出力）'
@@ -263,7 +263,7 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
 About:
   #On About page
-  About: 'このソフト'
+  About: 'About'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'このコピーレフトのソフトウェアは、AGPL-3.0
     の自由なライセンスです。'
@@ -375,8 +375,8 @@ Video:
 #& Videos
   Video has been removed from your history: 動画を履歴から削除しました
   Remove From History: 履歴から削除
-  Video has been marked as watched: 視聴済みにしました
-  Mark As Watched: 視聴済みにする
+  Video has been marked as watched: 視聴済みに変更しました
+  Mark As Watched: 視聴済みに変更
   Autoplay: 自動再生
   Play Previous Video: 前の動画を再生
   Play Next Video: 次の動画を再生
@@ -392,6 +392,10 @@ Video:
   audio only: '音声のみ'
   video only: '映像のみ'
   Download Video: '動画のダウンロード'
+  Copy Invidious Channel Link: Invidious チャンネルへのリンクをコピー
+  Open Channel in Invidious: Invidious でチャンネルを開く
+  Copy YouTube Channel Link: YouTube チャンネルへのリンクをコピー
+  Open Channel in YouTube: YouTube でチャンネルを開く
 Videos:
   #& Sort By
   Sort By:
@@ -416,7 +420,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: 'シアターモードの切替'
+Toggle Theatre Mode: 'サイズ変更'
 Change Format:
   Change Video Formats: '動画形式の変更'
   Use Dash Formats: 'DASH 形式の使用'
@@ -436,6 +440,8 @@ Share:
   YouTube URL copied to clipboard: 'YouTube の URL をコピーしました'
   YouTube Embed URL copied to clipboard: 'YouTube の埋め込み URL をコピーしました'
   Include Timestamp: 時間情報を追加
+  YouTube Channel URL copied to clipboard: クリップボードにコピーした YouTube チャンネルの URL
+  Invidious Channel URL copied to clipboard: クリップボードにコピーした Invidious チャンネルの URL
 Mini Player: 'ミニプレーヤー'
 Comments:
   Comments: 'コメント'
@@ -518,8 +524,8 @@ Version $ is now available!  Click for more details: 最新の Ver. $ 登場！�
 This video is unavailable because of missing formats. This can happen due to country unavailability.: この動画は、動画形式の情報が利用できないため再生できません。再生許可のない国で発生します。
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: 有効にすると、FreeTube は、登録チャンネルの情報を、通常の方法の代わりに RSS で取得します。RSS
-      は高速かつ IP 制限を回避できますが、動画の長さやライブ配信の状態などの詳細情報は提供されません
+    Fetch Feeds from RSS: 有効にすると、FreeTube は、登録チャンネルの情報を、通常の方法の代わりに RSS から取得します。RSS
+      は高速であり IP 制限も回避できますが、動画の長さやライブ配信の状態などの詳細情報は提供されていません
   Player Settings:
     Default Video Format: 動画再生で使用する形式の設定。DASH 形式であれば高品質で再生できます。旧形式は、最大 720p に制限されますが、使用する帯域幅を減らせます。音声形式は音声のみです
     Force Local Backend for Legacy Formats: Invidious API の選択時にのみ機能します。有効にすると、Invidious
@@ -528,8 +534,9 @@ Tooltips:
     Proxy Videos Through Invidious: 動画を取得するため、YouTube ではなく Invidious に接続します。API 設定を書き換えます
   General Settings:
     Invidious Instance: FreeTube が Invidious サーバーの API への接続用の Invidious インスタンスです。現在のインスタンスを破棄し、選択用の公開インスタンス一覧を表示します
-    Preferred API Backend: FreeTube が youtube からデータを取得する方法を選択します。「内部 API」とはアプリの機能の取得方法です。「Invidious
-      API」とは、Invidious サーバーに接続する取得方法です
+    Preferred API Backend: FreeTube が youtube からデータを取得する方法を選択します。「内部 API」とはアプリから取得する方法です。「Invidious
+      API」とは、Invidious サーバーに接続して取得する方法です。
     Thumbnail Preference: FreeTube のすべてのサムネイルを、元のサムネイルの代わりに動画の 1 コマに置き換える
     Fallback to Non-Preferred Backend on Failure: 有効にすると、選択した API に問題があれば、FreeTube
       は自動的に選択していない API に切り替えて実行します
+    Region for Trending: 地域の急上昇では、急上昇動画を表示する国を選択できます。YouTube は、一覧に記載のすべての国に対応してるとは限りません

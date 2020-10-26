@@ -428,6 +428,10 @@ Video:
   audio only: tylko audio
   video only: tylko wideo
   Download Video: Pobierz film
+  Copy Invidious Channel Link: Skopiuj link do kanału na stronie Invidious
+  Open Channel in Invidious: Otwórz kanał na stronie Invidious
+  Copy YouTube Channel Link: Skopiuj link do kanału na stronie YouTube
+  Open Channel in YouTube: Otwórz kanał na stronie YouTube
 Videos:
   #& Sort By
   Sort By:
@@ -475,6 +479,9 @@ Share:
   YouTube URL copied to clipboard: 'Skopiowano URL YouTube do schowka'
   YouTube Embed URL copied to clipboard: 'Skopiowano URL odtwarzacza YouTube do schowka'
   Include Timestamp: Dołącz znacznik czasu
+  YouTube Channel URL copied to clipboard: Skopiowano URL kanału na YouTube do schowka
+  Invidious Channel URL copied to clipboard: Skopiowano URL kanału na Invidious do
+    schowka
 Mini Player: 'Mini odtwarzacz'
 Comments:
   Comments: 'Komentarze'
@@ -580,4 +587,21 @@ Tooltips:
       jako metody zapasowej
     Preferred API Backend: Wybierz back-end , który FreeTube użyje do uzyskiwania
       danych. Lokalne API jest wbudowanym ekstraktorem. API Invidious wymaga połączenia
-      z serwerem Invidious.
+      z serwerem Invidious
+    Region for Trending: Obszar filmów „Na czasie” pozwala wybrać kraj, z którego
+      chciałbyś zobaczyć filmy zdobywające popularność. Nie wszystkie wyświetlone
+      kraje są obsługiwane przez YouTube
+    Invidious Instance: Serwer Invidious, którym FreeTube będzie się łączył do wywołań
+      API. Wyczyść pole z serwerem, by zobaczyć listę publicznych serwerów do wyboru
+    Thumbnail Preference: Wszystkie miniaturki na FreeTube zostaną zastąpione klatką
+      z filmu zamiast miniaturki domyślnej
+  Player Settings:
+    Force Local Backend for Legacy Formats: Działa tylko, kiedy API Invidious jest
+      ustawiony jako domyślny. Gdy opcja jest włączona, do odtwarzania starych formaty
+      zostanie użyty lokalny API, zamiast API Invidious. Pomaga w przypadkach, gdy
+      filmy zwracane przez Invidious nie odtwarzają się z powodu blokady regionalnej
+    Default Video Format: Ustaw formaty, które zostaną użyte do odtwarzania filmów.
+      Formaty Dash obsługują wyższe rozdzielczości. Stare formaty są ograniczone do
+      720p, ale zużywają mniej przepustowości. Formaty audio odtwarzają tylko dźwięk
+    Proxy Videos Through Invidious: Będzie dostarczał filmy, łącząc się z Invidious,
+      a nie bezpośrednio z YouTube. Nadpisuje ustawienia API

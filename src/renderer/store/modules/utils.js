@@ -1,5 +1,6 @@
 import IsEqual from 'lodash.isequal'
 import FtToastEvents from '../../components/ft-toast/ft-toast-events'
+import fs from 'fs'
 const state = {
   isSideNavOpen: false,
   sessionSearchHistory: [],
@@ -7,6 +8,8 @@ const state = {
   trendingCache: null,
   showProgressBar: false,
   progressBarPercentage: 0,
+  regionNames: [],
+  regionValues: [],
   recentBlogPosts: [],
   searchSettings: {
     sortBy: 'relevance',
@@ -89,6 +92,14 @@ const getters = {
     return state.progressBarPercentage
   },
 
+  getRegionNames () {
+    return state.regionNames
+  },
+
+  getRegionValues () {
+    return state.regionValues
+  },
+
   getRecentBlogPosts () {
     return state.recentBlogPosts
   }
@@ -107,6 +118,24 @@ const actions = {
   getRandomColor () {
     const randomInt = Math.floor(Math.random() * state.colorValues.length)
     return state.colorValues[randomInt]
+  },
+
+  getRegionData ({ commit }, payload) {
+    let fileData
+    const fileLocation = payload.isDev ? './static/geolocations/' : `${__dirname}/static/geolocations/`
+    if (fs.existsSync(`${fileLocation}${payload.locale}`)) {
+      fileData = fs.readFileSync(`${fileLocation}${payload.locale}/countries.json`)
+    } else {
+      fileData = fs.readFileSync(`${fileLocation}en-US/countries.json`)
+    }
+    const countries = JSON.parse(fileData).map((entry) => { return { id: entry.id, name: entry.name, code: entry.alpha2 } })
+    countries.sort((a, b) => { return a.id - b.id })
+
+    const regionNames = countries.map((entry) => { return entry.name })
+    const regionValues = countries.map((entry) => { return entry.code })
+
+    commit('setRegionNames', regionNames)
+    commit('setRegionValues', regionValues)
   },
 
   calculateColorLuminance (_, colorValue) {
@@ -404,6 +433,14 @@ const mutations = {
 
   setSearchDuration (state, value) {
     state.searchSettings.duration = value
+  },
+
+  setRegionNames (state, value) {
+    state.regionNames = value
+  },
+
+  setRegionValues (state, value) {
+    state.regionValues = value
   },
 
   setRecentBlogPosts (state, value) {
