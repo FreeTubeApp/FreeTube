@@ -618,6 +618,7 @@ export default Vue.extend({
         type: 'video'
       }
 
+      this.updateTitle()
       this.updateHistory(videoData)
     },
 
@@ -986,6 +987,18 @@ export default Vue.extend({
 
     getTimestamp: function () {
       return Math.floor(this.getWatchedProgress())
+    },
+
+    updateTitle: function () {
+      document.title = `${this.videoTitle} - FreeTube`
+
+      // simulates a reload to update the title after fetching it
+      this.$router.go({
+        path: this.$router.path,
+        query: {
+          t: +new Date()
+        }
+      })
     },
 
     ...mapActions([
