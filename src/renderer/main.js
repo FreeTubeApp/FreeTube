@@ -25,6 +25,7 @@ Vue.use(VueI18n)
 // List of locales approved for use
 const activeLocales = ['en-US', 'en_GB', 'ar', 'bg', 'da', 'de-DE', 'el', 'es', 'es-MX', 'fi', 'fr-FR', 'he', 'hu', 'hr', 'id', 'it', 'ja', 'nl', 'pl', 'pt', 'pt-BR', 'pt-PT', 'ru', 'sl', 'sv', 'tr', 'vi', 'zh-CN', 'zh-TW']
 const messages = {}
+/* eslint-disable-next-line */
 const fileLocation = isDev ? 'static/locales/' : `${__dirname}/static/locales/`
 
 // Take active locales and load respective YAML file
