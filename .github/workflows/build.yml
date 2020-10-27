@@ -123,7 +123,7 @@ jobs:
       uses: actions/upload-artifact@v2
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
       with:
-        name: freetube_0.9.1_pacman_arm64.pacman
+        name: freetube_0.9.1_pacman_amd64.pacman
         path: build/freetube-0.9.1.pacman
 
     - name: Upload Web Build
