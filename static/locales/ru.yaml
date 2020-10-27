@@ -425,6 +425,10 @@ Video:
   audio only: только аудио
   video only: только видео
   Download Video: Скачать видео
+  Copy Invidious Channel Link: Скопировать ссылку на канал Invidious
+  Open Channel in Invidious: Открыть канал в Invidious
+  Copy YouTube Channel Link: Скопировать ссылку на канал YouTube
+  Open Channel in YouTube: Открыть канал в YouTube
 Videos:
   #& Sort By
   Sort By:
@@ -473,6 +477,10 @@ Share:
   YouTube Embed URL copied to clipboard: 'YouTube Встраиваемый URL скопирован в буфер
     обмена'
   Include Timestamp: Включить отметку времени
+  YouTube Channel URL copied to clipboard: URL-адрес канала YouTube скопирован в буфер
+    обмена
+  Invidious Channel URL copied to clipboard: URL-адрес канала Invidious скопирован
+    в буфер обмена
 Mini Player: 'Мини-плеер'
 Comments:
   Comments: 'Комментарии'
@@ -577,8 +585,8 @@ Tooltips:
       API есть проблема, FreeTube автоматически попытается использовать ваш нежелательный
       API в качестве резервного метода, если он включен
     Preferred API Backend: Выберите серверную часть, которую FreeTube использует для
-      получения данных. Локальный API - это встроенный экстрактор. Invidious API требует,
-      чтобы сервер Invidious подключался к
+      получения данных. Локальный API - это встроенный экстрактор. Invidious API требует
+      подключения к Invidious серверу.
     Region for Trending: Область тенденций позволяет вам выбрать популярные видео
       из страны, которые вы хотите отображать. Не все отображаемые страны на самом
       деле поддерживаются YouTube
