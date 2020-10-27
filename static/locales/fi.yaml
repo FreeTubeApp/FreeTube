@@ -274,7 +274,7 @@ Settings:
     Hide Channel Subscribers: Piilota kanavan tilaajat
     Hide Video Likes And Dislikes: Piilota videon tykkäykset
     Distraction Free Settings: Häiriöttömän tilan asetukset
-    Hide Video Views: Piilota videonäkymät
+    Hide Video Views: Piilota videon katselukerrat
   The app needs to restart for changes to take effect. Restart and apply change?: Sovellus
     on käynnistettävä uudelleen, jotta sovellukset tulevat voimaan. Käynnistetäänkö
     uudelleen?
@@ -416,6 +416,10 @@ Video:
   audio only: vain ääni
   video only: vain video
   Download Video: Lataa video
+  Copy Invidious Channel Link: Kopio kanavan Invidious-linkki
+  Open Channel in Invidious: Avaa kanava Invidiousissa
+  Copy YouTube Channel Link: Kopioi YouTube-kanavan linkki
+  Open Channel in YouTube: Avaa kanava YouTubessa
 Videos:
   #& Sort By
   Sort By:
@@ -462,6 +466,8 @@ Share:
   YouTube URL copied to clipboard: 'YouTube-osoite kopioitu leikepöydälle'
   YouTube Embed URL copied to clipboard: 'YouTube-upotteen osoite kopioitu leikepöydälle'
   Include Timestamp: Sisällytä aikaleima
+  YouTube Channel URL copied to clipboard: Kanavan Youtube URL kopioitu leikepöydälle
+  Invidious Channel URL copied to clipboard: Kanavan Invidious URL kopioutu leikepöydälle
 Mini Player: 'Pieni soitin'
 Comments:
   Comments: 'Kommentit'
@@ -551,3 +557,6 @@ This video is unavailable because of missing formats. This can happen due to cou
 A new blog is now available, $. Click to view more: Uusi blogi on saatavilla , $.
   Klikkaa nähdäksesi lisää
 Download From Site: Lataa sivustolta
+Tooltips:
+  General Settings:
+    Preferred API Backend: Valitsse taustaohjelma, jota Freetube käyttää
