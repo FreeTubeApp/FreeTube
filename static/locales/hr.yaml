@@ -460,6 +460,10 @@ Video:
   audio only: samo audiosnimku
   video only: samo video
   Download Video: Preuzmi video
+  Copy Invidious Channel Link: ''
+  Open Channel in Invidious: ''
+  Copy YouTube Channel Link: ''
+  Open Channel in YouTube: ''
 Videos:
   #& Sort By
   Sort By:
@@ -508,6 +512,8 @@ Share:
   YouTube Embed URL copied to clipboard: 'YouTube URL ugrađene verzije kopiran je
     u međuspremnik'
   Include Timestamp: Uključi vremensku oznaku
+  YouTube Channel URL copied to clipboard: ''
+  Invidious Channel URL copied to clipboard: ''
 Mini Player: 'Mali player'
 Comments:
   Comments: 'Komentari'
@@ -581,6 +587,7 @@ Tooltips:
     Preferred API Backend: Odaberi pozadinski sustav koji FreeTube koristi za dobivanje
       podataka. Lokalno sučelje je ugrađeni sustav. Invidious sučelje zahtijeva Invidious
       poslužitelja na koji će se povezati
+    Region for Trending: ''
   Subscription Settings:
     Fetch Feeds from RSS: Kad je aktivirano, FreeTube će koristiti RSS umjesto vlastite
       standardne metode za dohvaćanje podataka tvoje pretplate. RSS je brži i sprečava
