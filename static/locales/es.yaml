@@ -457,6 +457,10 @@ Video:
   audio only: Solo audio
   video only: Solo video
   Download Video: Descargar video
+  Copy Invidious Channel Link: Copiar enlace Invidious del canal
+  Open Channel in Invidious: Abrir video en Invidious
+  Copy YouTube Channel Link: Copiar enlace Youtube del canal
+  Open Channel in YouTube: Abrir canal en Youtube
 Videos:
   #& Sort By
   Sort By:
@@ -505,6 +509,8 @@ Share:
   YouTube Embed URL copied to clipboard: 'El enlace encrustado de Youtube ha sido
     copiado al portapapeles'
   Include Timestamp: Incluir marcas de tiempo
+  YouTube Channel URL copied to clipboard: Enlace youtube copiado
+  Invidious Channel URL copied to clipboard: Enlace Invidious copiado
 Mini Player: 'Reproductor Mini'
 Comments:
   Comments: 'Comentarios'
@@ -556,3 +562,32 @@ The playlist has been reversed: Orden invertido
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
   video no está disponible por no tener un formato válido. Esto puede suceder por
   la falta de acceso de este formato a tu región.
+Tooltips:
+  Subscription Settings:
+    Fetch Feeds from RSS: Si lo habilitas, FreeTube usará RSS por defecto para obtener
+      tus suscripciones. RSS es más rápido e impide el bloqueo de IP, pero no podrá
+      obtener cierta información como la duración de videos o si un video es en directo
+  Player Settings:
+    Default Video Format: Selecciona el formato usado para reproducir videos. El formato
+      Dash proporciona resoluciones más altas. El formato Legacy está limitado a 720p,
+      pero requiere menos ancho de banda. El formato audio se limita a reproducir
+      solo audio
+    Proxy Videos Through Invidious: Se conectará a Invidious para obtener videos en
+      lugar de recurrir directamente a YouTube. Sobreescribirá la preferencia de API
+    Force Local Backend for Legacy Formats: Solo funcionará si la API de invidious
+      es la preferente. Si lo activas, la API local usará el formato Legacy en lugar
+      de Invidious. Ayudará cuando Invidious no pueda reproducir un video por restricciones
+      regionales
+  General Settings:
+    Region for Trending: La región de las tendencias te permite elegir los videos
+      más populares en un país. No todos los países que aparecen tienen soporte de
+      YouTube
+    Invidious Instance: La instancia de Invidious por defecto a la que se conectará.
+      Borra la instancia actual para ver una lista de instancias públicas
+    Thumbnail Preference: Todas las miniaturas en FreeTube serán reemplazadas por
+      un fotograma del video
+    Fallback to Non-Preferred Backend on Failure: Si la API primaria falla, FreeTube
+      utilizará automáticamente la API secundara si se habilita
+    Preferred API Backend: Elige la interfaz para obtener datos. La API local es un
+      extractor integrado en FreeTube. La API de Invidious depende del servidor de
+      Invidious para conectarse.
