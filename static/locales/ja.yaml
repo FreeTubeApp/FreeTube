@@ -150,7 +150,7 @@ Settings:
     Play Next Video: '次の動画を再生'
     Turn on Subtitles by Default: '最初から字幕を有効化'
     Autoplay Videos: '動画の自動再生'
-    Proxy Videos Through Invidious: '動画を Invidious プロキシーから取得'
+    Proxy Videos Through Invidious: '動画を Invidious プロキシーを経由して取得'
     Autoplay Playlists: '再生リストの自動再生'
     Enable Theatre Mode by Default: '最初からシアターモードで開く'
     Default Volume: '音量の初期値'
