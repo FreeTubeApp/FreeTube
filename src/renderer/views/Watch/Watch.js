@@ -413,6 +413,7 @@ export default Vue.extend({
           }
 
           this.isLoading = false
+          this.updateTitle()
         })
         .catch(err => {
           const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -578,6 +579,7 @@ export default Vue.extend({
           }
 
           this.isLoading = false
+          this.updateTitle()
         })
         .catch(err => {
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
@@ -618,7 +620,6 @@ export default Vue.extend({
         type: 'video'
       }
 
-      this.updateTitle()
       this.updateHistory(videoData)
     },
 
