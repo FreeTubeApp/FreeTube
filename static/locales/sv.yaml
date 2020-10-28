@@ -459,6 +459,10 @@ Video:
   audio only: endast ljud
   video only: endast video
   Download Video: Ladda ner video
+  Copy Invidious Channel Link: Kopiera Invidious Kanal Länk
+  Open Channel in Invidious: Öppna kanalen i Invidious
+  Copy YouTube Channel Link: Kopiera YouTube-kanallänk
+  Open Channel in YouTube: Öppna kanal i YouTube
 Videos:
   #& Sort By
   Sort By:
@@ -505,6 +509,8 @@ Share:
   Invidious Embed URL copied to clipboard: 'URL kopierad till urklipp'
   YouTube URL copied to clipboard: 'URL kopierad till urklipp'
   YouTube Embed URL copied to clipboard: 'URL kopierad till urklipp'
+  YouTube Channel URL copied to clipboard: YouTube Channel URL kopieras till urklipp
+  Invidious Channel URL copied to clipboard: Invidious Kanal-URL kopierad till urklipp
 Mini Player: 'Minispelare'
 Comments:
   Comments: 'Kommentarer'
@@ -550,3 +556,35 @@ Canceled next video autoplay: 'Avbröts nästa autoplay'
 
 Yes: 'Ja'
 No: 'Nej'
+Tooltips:
+  Subscription Settings:
+    Fetch Feeds from RSS: När det är aktiverat kommer FreeTube att använda RSS istället
+      för att det är standardmetod för att ta tag i ditt prenumerationsflöde. RSS
+      är snabbare och förhindrar IP-blockering, men ger inte viss information som
+      video varaktighet eller live status
+  Player Settings:
+    Default Video Format: Ställ in de format som används när en video spelas upp.
+      Dash-format kan spela högre kvaliteter. Legacy-format är begränsade till ett
+      max på 720p men använder mindre bandbredd. Ljudformat är ljud bara strömmar
+    Proxy Videos Through Invidious: Kommer att ansluta till Invidious för att hämta
+      videor istället för att göra en direkt anslutning till YouTube. Åsidosätter
+      API-preferens
+    Force Local Backend for Legacy Formats: Fungerar bara när Invidious API är din
+      standard. När det är aktiverat kommer det lokala API:et att köras och använda
+      de äldre formaten som returneras av det i stället för de som returneras av Invidious.
+      Hjälper när videorna som returneras av Invidious inte spelas upp på grund av
+      landsbegränsningar
+  General Settings:
+    Region for Trending: Med trenderegionen kan du välja vilket lands trendiga videor
+      du vill ska visas. Inte alla länder som visas stöds faktiskt av YouTube
+    Invidious Instance: Invidious-instansen som FreeTube kommer att ansluta till för
+      API-anrop. Rensa den aktuella instansen om du vill se en lista över offentliga
+      instanser att välja mellan
+    Thumbnail Preference: Alla miniatyrer i hela FreeTube kommer att ersättas med
+      en bildruta av videon i stället för standardminiatyr
+    Fallback to Non-Preferred Backend on Failure: När ditt föredragna API har ett
+      problem, kommer FreeTube automatiskt att försöka använda ditt icke-föredragna
+      API som reservmetod när det är aktiverat
+    Preferred API Backend: Välj den backend som FreeTube använder för att få fram
+      data. Det lokala API:et är en inbyggd utdragare. Invidious API kräver en Invidious
+      server att ansluta till.
