@@ -559,4 +559,27 @@ A new blog is now available, $. Click to view more: Uusi blogi on saatavilla , $
 Download From Site: Lataa sivustolta
 Tooltips:
   General Settings:
-    Preferred API Backend: Valitsse taustaohjelma, jota Freetube käyttää
+    Preferred API Backend: Valitse taustaohjelma, jota Freetube käyttää datan noutamiseen.
+      Paikallinen API on ohjelmiston sisäinen. Invidious API vaatii yhteyden Invidious-palvelimeen.
+    Region for Trending: Valinta sallii sinun valita minkä maan Nousevat videot sinulle
+      näytetään. Kaikki listatut maat eivät ole YouTuben tukemia
+    Invidious Instance: Invidious instanssi jota Freetube käyttää. Tyhjennä kenttä
+      nähdäksesi listan julkisista instansseista
+    Thumbnail Preference: Kaikki pikkukuvat Freetubessa korvataan ruudulla videosta
+      alkuperäisen pikkukuvan sijaan
+    Fallback to Non-Preferred Backend on Failure: Kun valitsemasi API kohtaa ongelman,
+      Freetube yrittää automaattisestia käyttää toissijaista vaihtoehtoa
+  Subscription Settings:
+    Fetch Feeds from RSS: Kun valittuna, FreeTube käyttää RSS-syötettä oletusmetodin
+      sijaan tilauslistasi hakemisessa. RSS on nopeampi ja ehkäisee IP-estoa, mutta
+      ei anna tietoja kuten videon kesto tai livetila
+  Player Settings:
+    Default Video Format: Aseta videon toistamisessa käytätettävä formaatti. Dash-formaatit
+      toistavat korkealaatuisempia videoita. Legacy-formaatit ovvat rajoitettu 720p-resoluutioon,
+      mutta kkäyttävät väheämmän kaistaa. Audioformaatit ovat vain äänistriimeihin
+    Proxy Videos Through Invidious: Yhdistää Invidious-palvelimeen suoran YouTuben-yhteyden
+      sijaan. Ohittaa API-valinnan
+    Force Local Backend for Legacy Formats: Toimii vain kun Invidious API on oletuksena.
+      Kun valittuna, paikallinen API käyttää vanhoja formaatteja Invidiousin käyttämien
+      sijaan. Tämä auttaa, jos Invidiousin palauttamat videot eivät toimi maarajoituksien
+      takia
