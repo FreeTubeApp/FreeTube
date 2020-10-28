@@ -88,7 +88,7 @@ Settings:
   Settings: '設定'
   General Settings:
     General Settings: '一般設定'
-    Fallback to Non-Preferred Backend on Failure: '失敗時に非優先の代替サービスに接続'
+    Fallback to Non-Preferred Backend on Failure: '情報取得の問題発生時には取得方法を自動変更'
     Enable Search Suggestions: '検索候補の有効化'
     Default Landing Page: '起動時の表示'
     Locale Preference: '言語設定'
@@ -272,7 +272,7 @@ About:
     バグの報告や機能要望、サポートが必要であれば、私たちの GitHub をご覧ください。プルリクエストも歓迎します。
 
   Thank you very much to the People and Projects that make FreeTube possible!: 'FreeTube
-    を実現させてくれている人々とプロジェクトに感謝！'
+    の実現のために努力している人々とプロジェクトに感謝します！'
 
   'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'チャットが必要なら私たちの
     Element / Matrix に参加してください。参加前にルールの確認をお願いします。'
@@ -282,7 +282,7 @@ About:
   Check out our Firefox extension!: 'Firefox 拡張機能をご覧ください！'
 
   'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'FreeTube
-    を気に入っていただけていれば、ぜひ Liberapay かビットコインの寄付をお願いします。'
+    をお楽しみの方は、Liberapay か Bitcoin アドレスを通じて寄付をお願いします。'
 
   #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
 
@@ -446,7 +446,7 @@ Mini Player: 'ミニプレーヤー'
 Comments:
   Comments: 'コメント'
   Click to View Comments: 'コメントの表示'
-  Getting comment replies, please wait: 'コメント返信を取得中。お待ちください'
+  Getting comment replies, please wait: 'コメント返信の取得中。お待ちください'
   Show Comments: 'コメントの表示'
   Hide Comments: 'コメントを非表示'
   # Context: View 10 Replies, View 1 Reply
@@ -525,18 +525,17 @@ This video is unavailable because of missing formats. This can happen due to cou
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 有効にすると、FreeTube は、登録チャンネルの情報を、通常の方法の代わりに RSS から取得します。RSS
-      は高速であり IP 制限も回避できますが、動画の長さやライブ配信の状態などの詳細情報は提供されていません
+      は高速であり IP 制限も回避できますが、動画の長さやライブ配信の状態などの詳細情報は提供されていません。
   Player Settings:
-    Default Video Format: 動画再生で使用する形式の設定。DASH 形式であれば高品質で再生できます。旧形式は、最大 720p に制限されますが、使用する帯域幅を減らせます。音声形式は音声のみです
-    Force Local Backend for Legacy Formats: Invidious API の選択時にのみ機能します。有効にすると、Invidious
-      サーバーから取得した動画形式ではなく、内部 API で取得した旧形式を使用します。Invidious から取得した情報では再生できないことがあります。あなたが現在
-      FreeTube を実行している国が、youtube から視聴が許可されていないなどです
+    Default Video Format: 動画再生で使用する形式の設定です。DASH 形式であれば高品質で再生できます。旧形式だと、最大 720p に制限されますが、使用する帯域幅を減らせます。音声形式は音声のみです。
+    Force Local Backend for Legacy Formats: Invidious API の選択時にのみ実行します。有効にすると、Invidious
+      サーバーから取得した動画形式ではなく、内部 API で取得した旧形式を使用します。Invidious サーバーから取得する動画が、youtube の視聴制限国に該当して再生できないことがあり回避するため。
     Proxy Videos Through Invidious: 動画を取得するため、YouTube ではなく Invidious に接続します。API 設定を書き換えます
   General Settings:
-    Invidious Instance: FreeTube が Invidious サーバーの API への接続用の Invidious インスタンスです。現在のインスタンスを破棄し、選択用の公開インスタンス一覧を表示します
+    Invidious Instance: FreeTube が使用する Invidious API の接続先サーバーです。接続先を削除すると、接続先一覧が表示されますので選択してくさい。
     Preferred API Backend: FreeTube が youtube からデータを取得する方法を選択します。「内部 API」とはアプリから取得する方法です。「Invidious
       API」とは、Invidious を用いたサーバーに接続して取得する方法です。
-    Thumbnail Preference: FreeTube のすべてのサムネイルを、元のサムネイルの代わりに動画の 1 コマに置き換える
-    Fallback to Non-Preferred Backend on Failure: 有効にすると、選択した API に問題があれば、FreeTube
-      は自動的に選択していない API に切り替えて実行します
-    Region for Trending: 地域の急上昇では、急上昇動画を表示する国を選択できます。YouTube は、一覧に記載のすべての国に対応してるとは限りません
+    Thumbnail Preference: FreeTube のすべてのサムネイルを、元のサムネイルの代わりに動画の 1 コマに置き換えます。
+    Fallback to Non-Preferred Backend on Failure: 有効にすると、選択した API で取得できなければ、FreeTube
+      は自動的に他の API での取得を試みます。
+    Region for Trending: 地域の急上昇では、急上昇動画を表示する国を選択できます。YouTube は、すべての国に対応していません。
