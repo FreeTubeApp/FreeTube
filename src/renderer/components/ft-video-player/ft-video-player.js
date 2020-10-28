@@ -159,7 +159,13 @@ export default Vue.extend({
           await this.determineDefaultQualityLegacy()
         }
 
-        this.player = videojs(videoPlayer)
+        this.player = videojs(videoPlayer, {
+          html5: {
+            vhs: {
+              limitRenditionByPlayerDimensions: false
+            }
+          }
+        })
 
         this.player.volume(this.volume)
         this.player.playbackRate(this.defaultPlayback)
