@@ -31,6 +31,7 @@ If applicable, please add screenshots to help explain your problem. Especially c
  - OS: [e.g. iOS]
  - OS Version: [e.g. 22]
  - FreeTube version: [e.g. 0.8]
+ - FreeTube build: [Nightly or Release]
 
 
 **Additional context**
