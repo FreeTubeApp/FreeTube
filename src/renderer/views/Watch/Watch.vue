@@ -74,6 +74,8 @@
         :dislike-count="videoDislikeCount"
         :view-count="videoViewCount"
         :get-timestamp="getTimestamp"
+        :is-live-content="isLiveContent"
+        :is-live="isLive"
         :is-upcoming="isUpcoming"
         :download-links="downloadLinks"
         class="watchVideo"

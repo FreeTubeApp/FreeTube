@@ -63,6 +63,14 @@ export default Vue.extend({
       type: Function,
       required: true
     },
+    isLive: {
+      type: Boolean,
+      required: false
+    },
+    isLiveContent: {
+      type: Boolean,
+      required: true
+    },
     isUpcoming: {
       type: Boolean,
       required: true
@@ -177,6 +185,16 @@ export default Vue.extend({
       const dateSplit = date.toDateString().split(' ')
       const localeDateString = `Video.Published.${dateSplit[1]}`
       return `${this.$t(localeDateString)} ${dateSplit[2]}, ${dateSplit[3]}`
+    },
+
+    publishedString() {
+      if (this.isLiveContent && this.isLive) {
+        return this.$t('Video.Started streaming on')
+      } else if (this.isLiveContent && !this.isLive) {
+        return this.$t('Video.Streamed on')
+      } else {
+        return this.$t('Video.Published on')
+      }
     }
   },
   methods: {

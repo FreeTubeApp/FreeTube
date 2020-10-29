@@ -44,6 +44,7 @@ export default Vue.extend({
       showYouTubeNoCookieEmbed: false,
       hidePlayer: false,
       isLive: false,
+      isLiveContent: false,
       isUpcoming: false,
       upcomingTimestamp: null,
       activeFormat: 'legacy',
@@ -235,6 +236,7 @@ export default Vue.extend({
             this.videoDislikeCount = result.videoDetails.dislikes
           }
           this.isLive = result.player_response.videoDetails.isLive
+          this.isLiveContent = result.player_response.videoDetails.isLiveContent
           this.isUpcoming = result.player_response.videoDetails.isUpcoming ? result.player_response.videoDetails.isUpcoming : false
 
           if (!this.isLive && !this.isUpcoming) {
