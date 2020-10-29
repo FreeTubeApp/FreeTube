@@ -992,14 +992,6 @@ export default Vue.extend({
 
     updateTitle: function () {
       document.title = `${this.videoTitle} - FreeTube`
-
-      // simulates a reload to update the title after fetching it
-      this.$router.go({
-        path: this.$router.path,
-        query: {
-          t: +new Date()
-        }
-      })
     },
 
     ...mapActions([
