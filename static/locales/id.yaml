@@ -99,7 +99,7 @@ Settings:
     General Settings: 'Pengaturan Umum'
     Check for Updates: 'Cek Pembaruan'
     Check for Latest Blog Posts: 'Cek Kiriman Blog Terbaru'
-    Fallback to Non-Preferred Backend on Failure: 'Beralih ke Backend Cadangan saat
+    Fallback to Non-Preferred Backend on Failure: 'Beralih ke Layanan Cadangan saat
       terjadi Kegagalan'
     Enable Search Suggestions: 'Aktifkan Saran Pencarian'
     Default Landing Page: 'Halaman Awal Baku'
@@ -155,7 +155,7 @@ Settings:
     Disable Smooth Scrolling: Nonaktifkan Gulir Halus
   Player Settings:
     Player Settings: 'Pengaturan Pemutar'
-    Force Local Backend for Legacy Formats: 'Paksa Backend Lokal untuk Format Lama'
+    Force Local Backend for Legacy Formats: 'Paksa Layanan Lokal untuk Format Lama'
     Play Next Video: 'Putar Video Selanjutnya'
     Turn on Subtitles by Default: 'Nyalakan Takarir'
     Autoplay Videos: 'Putar-Otomatis Video'
@@ -562,3 +562,30 @@ No: 'Tidak'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Video
   ini tidak tersedia karena format hilang. Ini bisa terjadi karena dibatasi berdasarkan
   wilayah.
+Tooltips:
+  Subscription Settings:
+    Fetch Feeds from RSS: Ketika diaktifkan, FreeTube akan menggunakan RSS untuk mengambil
+      feed langganan anda. RSS lebih cepat dan terhindar dari pemblokiran berbasis
+      IP, tetapi tidak menyediakan informasi tertentu seperti durasi video atau status
+      siaran langsung
+  Player Settings:
+    Default Video Format: Atur format yang digunakan ketika video diputar. Format
+      dash bisa memutar kualitas yang lebih tinggi. Format lama terbatas ke maks 720p
+      tetapi dengan bandwidth yang lebih rendah. Format audio hanya berisi stream
+      audio
+    Proxy Videos Through Invidious: Akan menyambung ke Invidious daripada YouTube.
+      Menimpa preferensi API
+  General Settings:
+    Region for Trending: Wilayah tren memungkinkan anda memilih video yang sedang
+      ngetren dari negara tersebut untuk ditampilkan. Tidak semua daftar negara didukung
+      oleh YouTube
+    Invidious Instance: Situs Invidious yang akan tersambung dengan FreeTube untuk
+      panggilan API. Hapus situs saat ini untuk melihat daftar situs publik yang didukung
+    Thumbnail Preference: Semua thumbnail di dalam aplikasi FreeTube akan diganti
+      dengan frame dari video
+    Fallback to Non-Preferred Backend on Failure: Ketika API yang anda pilih memiliki
+      masalah, FreeTube akan secara otomatis menggunakan layanan API lainnya sebagai
+      cadangan jika diaktifkan
+    Preferred API Backend: Pilih layanan yang digunakan oleh FreeTube untuk mengambil
+      data. API lokal adalah ekstraktor bawaan. API Invidious membutuhkan sambungan
+      ke server Invidious.
