@@ -130,7 +130,7 @@ const actions = {
       fileData = fs.readFileSync(`${fileLocation}en-US/countries.json`)
     }
     const countries = JSON.parse(fileData).map((entry) => { return { id: entry.id, name: entry.name, code: entry.alpha2 } })
-    countries.sort((a, b) => { return a.id - b.id })
+    countries.sort((a, b) => { return a.name - b.name })
 
     const regionNames = countries.map((entry) => { return entry.name })
     const regionValues = countries.map((entry) => { return entry.code })
