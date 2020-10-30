@@ -1,7 +1,7 @@
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  アプリのこの部分は未完成です。完成後に再びここを開いてください。
+  この部分のアプリは未完成です。完成後に実行してください。
 
 # Webkit Menu Bar
 File: 'ファイル'
@@ -65,11 +65,11 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: '登録チャンネル'
-  Latest Subscriptions: '最近の登録'
+  Latest Subscriptions: '最新の登録'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '登録チャンネルはありません。登録するとここに表示されます。'
   'Getting Subscriptions.  Please wait.': '登録を取得中。お待ちください...'
   Refresh Subscriptions: 登録チャンネルの更新
-  Getting Subscriptions. Please wait.: 登録チャンネルの内容を取得中。お待ちください。
+  Getting Subscriptions. Please wait.: 登録チャンネルの内容を取得中。しばらくお待ちください。
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: このプロファイルは登録チャンネルが多くなっています。接続制限を回避するため
     RSS を使用します
   Load More Videos: もっと見る
@@ -106,9 +106,9 @@ Settings:
       Beginning: '開始'
       Middle: '中間'
       End: '終了'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious サーバーの接続先（初期値は
-      https://invidious.snopyta.org）'
-    Region for Trending: '地域内の急上昇'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': '接続先の Invidious
+      サーバー（初期値は https://invidious.snopyta.org）'
+    Region for Trending: '地域別の急上昇'
         #! List countries
     Check for Latest Blog Posts: 新着ブログの確認
     Check for Updates: 最新版の確認
@@ -446,7 +446,7 @@ Mini Player: 'ミニプレーヤー'
 Comments:
   Comments: 'コメント'
   Click to View Comments: 'コメントの表示'
-  Getting comment replies, please wait: 'コメント返信の取得中。お待ちください'
+  Getting comment replies, please wait: 'コメント返信の取得中。しばらくお待ちください'
   Show Comments: 'コメントの表示'
   Hide Comments: 'コメントを非表示'
   # Context: View 10 Replies, View 1 Reply
@@ -538,4 +538,4 @@ Tooltips:
     Thumbnail Preference: FreeTube のすべてのサムネイルを、元のサムネイルの代わりに動画の 1 コマに置き換えます。
     Fallback to Non-Preferred Backend on Failure: 有効にすると、選択した API で取得できなければ、FreeTube
       は自動的に他の API での取得を試みます。
-    Region for Trending: 地域の急上昇では、急上昇動画を表示する国を選択できます。YouTube は、すべての国に対応していません。
+    Region for Trending: 地域別の急上昇では、急上昇動画を表示する国を選択できます。YouTube は、すべての国に対応していません。
