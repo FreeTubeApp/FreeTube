@@ -60,6 +60,7 @@
 
 .navLabel {
   margin-left: 5px;
+  margin-bottom: 0;
   display: inline-block;
 }
 
@@ -106,7 +107,7 @@
 
 .closed .navOption {
   width: 100%;
-  height: 40px;
+  min-height: 40px;
   padding: 0px;
   padding-top: 10px;
   padding-bottom: 10px;
