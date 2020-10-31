@@ -28,16 +28,6 @@ const actions = {
     })
   },
 
-  /* eslint-disable-next-line */
-  invidiousDefaultErrorHandler({}, xhr) {
-    if (typeof (xhr.responseJSON.error) !== 'undefined') {
-      console.log('Invidious API Error: ' + xhr.responseJSON.error)
-    } else {
-      console.log('There was an error calling the Invidious API')
-      console.log(xhr)
-    }
-  },
-
   invidiousGetChannelInfo ({ commit, dispatch }, channelId) {
     return new Promise((resolve, reject) => {
       commit('toggleIsGetChannelInfoRunning')
@@ -53,7 +43,6 @@ const actions = {
       }).catch((xhr) => {
         console.log('found an error')
         console.log(xhr)
-        dispatch('invidiousDefaultErrorHandler', xhr)
         commit('toggleIsGetChannelInfoRunning')
         reject(xhr)
       })
@@ -67,7 +56,6 @@ const actions = {
       }).catch((xhr) => {
         console.log('found an error')
         console.log(xhr)
-        dispatch('invidiousDefaultErrorHandler', xhr)
         commit('toggleIsGetChannelInfoRunning')
         reject(xhr)
       })
@@ -87,7 +75,6 @@ const actions = {
       }).catch((xhr) => {
         console.log('found an error')
         console.log(xhr)
-        dispatch('invidiousDefaultErrorHandler', xhr)
         reject(xhr)
       })
     })
