@@ -562,7 +562,7 @@ This video is unavailable because of missing formats. This can happen due to cou
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Etkinleştirildiğinde, FreeTube abonelik akışınızı almak
-      için öntanımlı yöntem yerine RSS'yi kullanır. RSS daha hızlıdır ve IP engellemesinin
+      için öntanımlı yönteminin yerine RSS'yi kullanır. RSS daha hızlıdır ve IP engellemesinin
       önüne geçer, ancak video süresi veya canlı yayın durumu gibi belirli bilgileri
       sağlamaz
   Player Settings:
@@ -589,3 +589,6 @@ Tooltips:
     Preferred API Backend: FreeTube'un veri elde etmek için kullandığı arka ucu seçin.
       Yerel API yerleşik bir çıkarıcıdır. Invidious API'si, bağlanmak için bir Invidious
       sunucusu gerektirir.
+    Region for Trending: Trendlerin bölgesi, hangi ülkenin trend videolarını görüntülemek
+      istediğinizi seçmenize olanak tanır. Görüntülenen ülkelerden bazıları YouTube
+      tarafından desteklenmemektedir
