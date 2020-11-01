@@ -42,7 +42,7 @@ Search / Go to URL: 'Търсене / Отиване на адрес'
 Search Filters:
   Search Filters: 'Филтри на търсенето'
   Sort By:
-    Sort By: 'Подреждане по'
+    Sort By: 'Сортиране по'
     Most Relevant: 'Най-уместно'
     Rating: 'Оценки'
     Upload Date: 'Дата на качване'
@@ -121,7 +121,7 @@ Settings:
       End: 'Край на видео'
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Излед на Invidious
       (по подразбиране е https://invidious.snopyta.org)'
-    Region for Trending: 'Регион за Набиращи популярност'
+    Region for Trending: 'Регион за набиращи популярност'
         #! List countries
   Theme Settings:
     Theme Settings: 'Настройки на изгледа на приложението'
@@ -210,9 +210,9 @@ Settings:
     Select Import Type: 'Избор на тип за внасяне'
     Select Export Type: 'Избор на тип за изнасяне'
     Import Subscriptions: 'Внасяне на абонаменти'
-    Import FreeTube: 'Внасяне на FreeTube формат'
-    Import YouTube: 'Внасяне на YouTube формат'
-    Import NewPipe: 'Внасяне на NewPipe формат'
+    Import FreeTube: 'Внасяне от FreeTube формат'
+    Import YouTube: 'Внасяне от YouTube формат'
+    Import NewPipe: 'Внасяне от NewPipe формат'
     Export Subscriptions: 'Изнасяне на абонаменти'
     Export FreeTube: 'Изнасяне във FreeTube формат'
     Export YouTube: 'Изнасяне в YouTube формат'
@@ -366,7 +366,7 @@ Channel:
     канал(и)'
   Added channel to your subscriptions: 'Добавен канал към вашите абонаменти'
   Search Channel: 'Търсене в канала'
-  Your search results have returned 0 results: 'Вашето търсене върна 0 резултата'
+  Your search results have returned 0 results: 'Търсенето върна 0 резултата'
   Sort By: 'Сортиране по'
   Videos:
     Videos: 'Видеа'
@@ -389,13 +389,13 @@ Channel:
     Channel Description: 'Описание на канала'
     Featured Channels: 'Препоръчани канали'
 Video:
-  Mark As Watched: 'Отбелезване като гледано'
+  Mark As Watched: 'Отбелязване като гледано'
   Remove From History: 'Премахване от историята'
   Video has been marked as watched: 'Видеото беше отбелязано като гледано'
   Video has been removed from your history: 'Видеото беше премахнато от историята'
-  Open in YouTube: 'Отворяне в YouTube'
+  Open in YouTube: 'Отваряне в YouTube'
   Copy YouTube Link: 'Копиране на връзка за YouTube'
-  Open YouTube Embedded Player: 'Отворяне на вградения YouTube плейър'
+  Open YouTube Embedded Player: 'Отваряне на вградения YouTube плейър'
   Copy YouTube Embedded Player Link: 'Копиране на връзка за вградения YouTube плейър'
   Open in Invidious: 'Отваряне в Invidious'
   Copy Invidious Link: 'Копиране на връзка за Invidious'
@@ -467,10 +467,12 @@ Video:
   audio only: само аудио
   video only: само видео
   Download Video: Сваляне на видео
-  Copy Invidious Channel Link: Копирай линка на Invidious канала
-  Open Channel in Invidious: Отвори канала в Invidious
-  Copy YouTube Channel Link: Копирай линка на YouTube канала
-  Open Channel in YouTube: Отвори канал в YouTube
+  Copy Invidious Channel Link: Копиране на връзка за канала в Invidious
+  Open Channel in Invidious: Отваряне на канала в Invidious
+  Copy YouTube Channel Link: Копиране на връзка за канала в YouTube
+  Open Channel in YouTube: Отваряне на канала в YouTube
+  Started streaming on: Начало на излъчването
+  Streamed on: Излъчване
 Videos:
   #& Sort By
   Sort By:
@@ -517,9 +519,8 @@ Share:
   Invidious Embed URL copied to clipboard: 'Адреса на Invidious за вграждане е копиран'
   YouTube URL copied to clipboard: 'Адреса за YouTube е копиран'
   YouTube Embed URL copied to clipboard: 'Адреса на YouTube за вграждане е копиран'
-  YouTube Channel URL copied to clipboard: URL-а на YouTube канала е копиран в клипборда
-  Invidious Channel URL copied to clipboard: URL-а на Invidious канала е копиран в
-    клипборда
+  YouTube Channel URL copied to clipboard: Адреса на YouTube канала е копиран
+  Invidious Channel URL copied to clipboard: Адреса на Invidious канала е копиран
 Mini Player: 'Мини плейър'
 Comments:
   Comments: 'Коментари'
@@ -571,13 +572,13 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Когато е активирано, FreeTube ще използва RSS вместо метода
       по подразбиране за получаване на абонаментите. RSS е по-бърз метод и преодолява
-      блокиранията на IP адреса, но не получава някой съпътстващи данни, като прдължителност
+      блокиранията на IP адреса, но не получава някои съпътстващи данни, като продължителност
       на видеото или дали е на живо
   Player Settings:
     Default Video Format: Настройка на използваните формати. Dash форматите могат
       да показват видеа с по-високо качество. Старите формати са ограничени до макс.
       720р, но пък генерират по-малък трафик. Аудио форматите предават само звук
-    Proxy Videos Through Invidious: Ще се свърже с Invidious, за да изтеги видеото,
+    Proxy Videos Through Invidious: Ще се свърже с Invidious, за да изтегли видеото,
       вместо да прави дирекна връзка с YouTube. Пренебрегва настройките на локалния
       интерфейс
     Force Local Backend for Legacy Formats: Действа само когато по подразбиране е
@@ -585,16 +586,16 @@ Tooltips:
       старите формати вместо тези на Invidious. Това помага когато видеата, получавани
       от Invidious не вървят поради регионални ограничения
   General Settings:
-    Region for Trending: Регион на набиращите популярност ви дава възможност да изберете
-      страната, за която това се отнася. Обаче не всички страни показани тук се поддържат
+    Region for Trending: Регионът на набиращите популярност дава възможност да се
+      избере страната, за която това се отнася. Не всички страни показани тук се поддържат
       от YouTube
-    Invidious Instance: Сървъра на Invidious, към който FreeTube ще се свързва. Премахнере
-      настоящия избор, за да видите списък за избор с възможни сървъри
-    Thumbnail Preference: Всички мини изображения във FreeTube ще бъдат подменени
-      с кадър от клипа вместо тези по подразбиране
-    Fallback to Non-Preferred Backend on Failure: Когато избраният от вас интерфейс
-      срещне проблем, FreeTube ще опита автоматично да премине към друг метод, ако
-      има избран такъв
-    Preferred API Backend: Избери начина, по който FreeTube получава данните. Локалният
-      интерфейс има вграде екстрактор. Invidious интерфейсът изисква Invidious сървър,
-      към който да се свържеже.
+    Invidious Instance: Сървъра на Invidious, към който FreeTube ще се свързва. Премахнете
+      настоящия избор, за да видите списък с възможни сървъри
+    Thumbnail Preference: Всички миниатюри във FreeTube ще бъдат подменени с кадър
+      от клипа вместо тези по подразбиране
+    Fallback to Non-Preferred Backend on Failure: Когато избраният интерфейс срещне
+      проблем, FreeTube ще опита да премине автоматично към друг метод, ако има избран
+      такъв
+    Preferred API Backend: Избиране на начина, по който FreeTube получава данните.
+      Локалният интерфейс има вградено извличане. Invidious интерфейсът изисква Invidious
+      сървър, към който да се свърже.
