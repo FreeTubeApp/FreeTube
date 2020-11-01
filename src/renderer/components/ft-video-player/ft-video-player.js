@@ -254,14 +254,16 @@ export default Vue.extend({
     },
 
     determineMaxFramerate: function() {
-      fs.readFile(this.dashSrc[0].url, (err, data) => {
-        if (err) throw err
-        if (data.includes('frameRate="60"')) {
-          this.maxFramerate = 60
-        } else {
-          this.maxFramerate = 30
-        }
-      })
+      if (this.dashSrc[0] !== undefined) {
+        fs.readFile(this.dashSrc[0].url, (err, data) => {
+          if (err) throw err
+          if (data.includes('frameRate="60"')) {
+            this.maxFramerate = 60
+          } else {
+            this.maxFramerate = 30
+          }
+        })
+      }
     },
 
     determineDefaultQualityLegacy: function () {
@@ -448,7 +450,7 @@ export default Vue.extend({
       } else if (this.player.qualityLevels()[this.player.qualityLevels().selectedIndex].height <= 480) {
         fps = 30
       } else {
-        if (this.maxFramerate === 60) {
+        if (this.maxFramerate !== 30) {
           fps = 60
         } else {
           fps = 30
