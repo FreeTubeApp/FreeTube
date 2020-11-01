@@ -4,6 +4,7 @@ import FtCard from '../ft-card/ft-card.vue'
 import $ from 'jquery'
 import videojs from 'video.js'
 import qualitySelector from '@silvermine/videojs-quality-selector'
+import fs from 'fs'
 import 'videojs-vtt-thumbnails-freetube'
 import 'videojs-contrib-quality-levels'
 import 'videojs-http-source-selector'
@@ -142,6 +143,7 @@ export default Vue.extend({
     }
 
     this.determineFormatType()
+    this.determineMaxFramerate()
   },
   beforeDestroy: function () {
     if (this.player !== null && !this.player.isInPictureInPicture()) {
@@ -249,6 +251,17 @@ export default Vue.extend({
       } else {
         this.enableLegacyFormat()
       }
+    },
+
+    determineMaxFramerate: function() {
+      fs.readFile(this.dashSrc[0].url, (err, data) => {
+        if (err) throw err
+        if (data.includes('frameRate="60"')) {
+          this.maxFramerate = 60
+        } else {
+          this.maxFramerate = 30
+        }
+      })
     },
 
     determineDefaultQualityLegacy: function () {
@@ -424,6 +437,27 @@ export default Vue.extend({
       if (newPlaybackRate >= 0.25 && newPlaybackRate <= 3) {
         this.player.playbackRate(newPlaybackRate)
       }
+    },
+
+    framebyframe: function (step) {
+      this.player.pause()
+      let fps
+      // Non-Dash formats are 30fps only
+      if (!this.useDash) {
+        fps = 30
+      } else if (this.player.qualityLevels()[this.player.qualityLevels().selectedIndex].height <= 480) {
+        fps = 30
+      } else {
+        if (this.maxFramerate === 60) {
+          fps = 60
+        } else {
+          fps = 30
+        }
+      }
+      // The 3 lines below were taken from the videojs-framebyframe node module by Helena Rasche
+      const frameTime = 1 / fps
+      const dist = frameTime * step
+      this.player.currentTime(this.player.currentTime() + dist)
     },
 
     changeVolume: function (volume) {
@@ -636,6 +670,16 @@ export default Vue.extend({
             // Jump to 0% in the video (The beginning)
             event.preventDefault()
             this.changeDurationByPercentage(0)
+            break
+          case 90:
+            // Z Key
+            // Return to previous frame
+            this.framebyframe(-1)
+            break
+          case 88:
+            // X Key
+            // Advance to next frame
+            this.framebyframe(1)
             break
         }
       }
