@@ -671,12 +671,12 @@ export default Vue.extend({
             event.preventDefault()
             this.changeDurationByPercentage(0)
             break
-          case 90:
+          case 188:
             // Z Key
             // Return to previous frame
             this.framebyframe(-1)
             break
-          case 88:
+          case 190:
             // X Key
             // Advance to next frame
             this.framebyframe(1)
