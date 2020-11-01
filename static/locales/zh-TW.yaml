@@ -387,10 +387,12 @@ Video:
   audio only: 僅音訊
   video only: 僅影片
   Download Video: 下載影片
-  Copy Invidious Channel Link: 複製 Invidious 連結
-  Open Channel in Invidious: 在 Invidious 開啟頻道
-  Copy YouTube Channel Link: 複製 YouTube 頻道連結
-  Open Channel in YouTube: 在 YouTube 開啟頻道
+  Copy Invidious Channel Link: 複製Invidious頻道連結
+  Open Channel in Invidious: 在Invidious開啟頻道
+  Copy YouTube Channel Link: 複製YouTube頻道連結
+  Open Channel in YouTube: 在YouTube開啟頻道
+  Started streaming on: 開始在線直播於
+  Streamed on: 直播于
 Videos:
   #& Sort By
   Sort By:
@@ -430,13 +432,13 @@ Share:
   Copy Embed: '複製內嵌'
   Open Embed: '開啟內嵌'
   # On Click
-  Invidious URL copied to clipboard: '複製Invidious URL到剪下板'
-  Invidious Embed URL copied to clipboard: '複製Invidious內嵌URL到剪下板'
+  Invidious URL copied to clipboard: '複製Invidious URL到剪貼簿'
+  Invidious Embed URL copied to clipboard: '複製Invidious內嵌URL到剪貼簿'
   YouTube URL copied to clipboard: '複製YouTube URL到剪下板'
-  YouTube Embed URL copied to clipboard: '複製YouTube內嵌URL到剪下板'
+  YouTube Embed URL copied to clipboard: '複製YouTube內嵌URL到剪貼簿'
   Include Timestamp: 包含時間戳
-  YouTube Channel URL copied to clipboard: YouTube 連結已複製到剪貼簿
-  Invidious Channel URL copied to clipboard: Invidious 頻道連結 URL 已複製到剪貼簿
+  YouTube Channel URL copied to clipboard: YouTube頻道URL已複製到剪貼簿
+  Invidious Channel URL copied to clipboard: Invidious頻道URL已複製到剪貼簿
 Mini Player: '迷你播放器'
 Comments:
   Comments: '評論'
@@ -533,4 +535,4 @@ Tooltips:
       作為汰退方案
     Preferred API Backend: 選擇 FreeTube 要用於取得資料的後端。本地 API 是內建擷取器。Invidious API 需要 Invidious
       伺服器才能連線。
-    Region for Trending: 區域趨勢讓您可以挑選您想要顯示哪個國家的熱門影片。並非所有顯示的國家都被 YouTube 支援
+    Region for Trending: 熱門區域讓您挑選您想要顯示哪個國家的熱門影片。並非所有顯示的國家都被YouTube支援

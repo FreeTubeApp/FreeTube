@@ -387,6 +387,12 @@ Video:
   audio only: 仅音频
   video only: 仅视频
   Download Video: 下载视频
+  Copy Invidious Channel Link: 复制Invidious频道连结
+  Open Channel in Invidious: 在Invidious打开频道
+  Copy YouTube Channel Link: 复制YouTube频道链接
+  Open Channel in YouTube: 在YouTube打开频道
+  Started streaming on: 开始在线直播于
+  Streamed on: 在线直播于
 Videos:
   #& Sort By
   Sort By:
@@ -426,11 +432,13 @@ Share:
   Copy Embed: '复制内嵌'
   Open Embed: '打开内嵌'
   # On Click
-  Invidious URL copied to clipboard: '复制Invidious URL到剪切板'
-  Invidious Embed URL copied to clipboard: '复制Invidious内嵌URL到剪切板'
+  Invidious URL copied to clipboard: '复制Invidious URL到剪贴板'
+  Invidious Embed URL copied to clipboard: '复制Invidious内嵌URL到剪贴板'
   YouTube URL copied to clipboard: '复制YouTube URL到剪切板'
-  YouTube Embed URL copied to clipboard: '复制YouTube内嵌URL到剪切板'
+  YouTube Embed URL copied to clipboard: '复制YouTube内嵌URL到剪贴板'
   Include Timestamp: 包含时间戳
+  YouTube Channel URL copied to clipboard: YouTube频道URL已复制到剪贴板
+  Invidious Channel URL copied to clipboard: Invidious频道URL已复制到剪贴板
 Mini Player: '迷你播放器'
 Comments:
   Comments: '评论'
@@ -525,4 +533,5 @@ Tooltips:
     Thumbnail Preference: FreeTube中所有缩略图都会被替换为影片画面而非默认缩略图
     Fallback to Non-Preferred Backend on Failure: 当您的首选API有问题时，FreeTube将自动尝试使用您的非首选API
       作为后备方案
-    Preferred API Backend: 选择FreeTube 要用于取得数据的后端。本地API 是内置提取器。Invidious API需要Invidious服务器才能连接
+    Preferred API Backend: 选择FreeTube 要用于取得数据的后端。本地API 是内置提取器。Invidious API需要Invidious服务器才能连接。
+    Region for Trending: 热门区域让您挑选您想要显示哪个国家的热门视频。并非所有显示的国家都被YouTube支持

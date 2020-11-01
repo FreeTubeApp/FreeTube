@@ -386,7 +386,7 @@ Video:
   Remove From History: 'Ukloni iz povijesti'
   Video has been marked as watched: 'Video je označen kao pogledan'
   Video has been removed from your history: 'Video je uklonjen iz tvoje povijesti'
-  Open in YouTube: 'Otvori na YouTubeu'
+  Open in YouTube: 'Otvori na YouTube stranici'
   Copy YouTube Link: 'Kopiraj poveznicu na YouTube'
   Open YouTube Embedded Player: 'Otvori ugrađeni YouTube player'
   Copy YouTube Embedded Player Link: 'Kopiraj poveznicu na ugrađeni YouTube player'
@@ -460,6 +460,10 @@ Video:
   audio only: samo audiosnimku
   video only: samo video
   Download Video: Preuzmi video
+  Copy Invidious Channel Link: 'Kopiraj poveznicu na Invidious kanal'
+  Open Channel in Invidious: 'Otvori kanal na Invidious stranici'
+  Copy YouTube Channel Link: 'Kopiraj poveznicu na YouTube kanal'
+  Open Channel in YouTube: 'Otvori kanal na YouTube stranici'
 Videos:
   #& Sort By
   Sort By:
@@ -502,12 +506,14 @@ Share:
   Open Embed: 'Otvori ugrađenu verziju'
   # On Click
   Invidious URL copied to clipboard: 'Invidious URL je kopiran u međuspremnik'
-  Invidious Embed URL copied to clipboard: 'Invidious URL ugrađene verzije kopiran
+  Invidious Embed URL copied to clipboard: 'URL ugrađene Invidious verzije kopiran
     je u međuspremnik'
   YouTube URL copied to clipboard: 'YouTube URL je kopiran u međuspremnik'
-  YouTube Embed URL copied to clipboard: 'YouTube URL ugrađene verzije kopiran je
+  YouTube Embed URL copied to clipboard: 'URL ugrađene YouTube verzije kopiran je
     u međuspremnik'
   Include Timestamp: Uključi vremensku oznaku
+  YouTube Channel URL copied to clipboard: 'URL YouTube kanala kopiran je u međuspremnik'
+  Invidious Channel URL copied to clipboard: 'URL Invidious kanala kopiran je u međuspremnik'
 Mini Player: 'Mali player'
 Comments:
   Comments: 'Komentari'
@@ -580,7 +586,9 @@ Tooltips:
       metodu, ako je aktivirano
     Preferred API Backend: Odaberi pozadinski sustav koji FreeTube koristi za dobivanje
       podataka. Lokalno sučelje je ugrađeni sustav. Invidious sučelje zahtijeva Invidious
-      poslužitelja na koji će se povezati
+      poslužitelja na koji će se povezati.
+    Region for Trending: 'Regija trendova omogućuje biranje prikaza videa u trendu
+      za određenu zemlju. YouTube zapravo ne podržava sve prikazane zemlje'
   Subscription Settings:
     Fetch Feeds from RSS: Kad je aktivirano, FreeTube će koristiti RSS umjesto vlastite
       standardne metode za dohvaćanje podataka tvoje pretplate. RSS je brži i sprečava

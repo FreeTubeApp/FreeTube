@@ -463,6 +463,8 @@ Video:
     Ago: Ago
     Upcoming: Premieres on
   Published on: Published on
+  Streamed on: Streamed on
+  Started streaming on: Started streaming on
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: $ % ago
 #& Videos

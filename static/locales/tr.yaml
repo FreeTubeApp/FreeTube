@@ -460,6 +460,10 @@ Video:
   audio only: yalnızca ses
   video only: yalnızca video
   Download Video: Video İndir
+  Copy Invidious Channel Link: Invidious Kanalı Bağlantısını Kopyala
+  Open Channel in Invidious: İnvidious'da Kanal Aç
+  Copy YouTube Channel Link: Youtube Kanalı Bağlantısını Kopyala
+  Open Channel in YouTube: Youtube'da Kanal Açın
 Videos:
   #& Sort By
   Sort By:
@@ -508,6 +512,8 @@ Share:
   YouTube URL copied to clipboard: 'YouTube bağlantısı panoya kopyalandı'
   YouTube Embed URL copied to clipboard: 'YouTube bütünleşik oynatıcı bağlantısı panoya
     kopyalandı'
+  YouTube Channel URL copied to clipboard: Youtube Kanalı Adresi panoya kopyalandı
+  Invidious Channel URL copied to clipboard: Invidious Kanalı Adresi panoya kopyalandı
 Mini Player: 'Mini Oynatıcı'
 Comments:
   Comments: 'Yorumlar'
@@ -556,7 +562,7 @@ This video is unavailable because of missing formats. This can happen due to cou
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Etkinleştirildiğinde, FreeTube abonelik akışınızı almak
-      için öntanımlı yöntem yerine RSS'yi kullanır. RSS daha hızlıdır ve IP engellemesinin
+      için öntanımlı yönteminin yerine RSS'yi kullanır. RSS daha hızlıdır ve IP engellemesinin
       önüne geçer, ancak video süresi veya canlı yayın durumu gibi belirli bilgileri
       sağlamaz
   Player Settings:
@@ -580,6 +586,9 @@ Tooltips:
     Fallback to Non-Preferred Backend on Failure: Etkinleştirildiğinde, tercih ettiğiniz
       API'de bir sorun olduğunda FreeTube otomatik olarak tercih edilmeyen API'nizi
       yedek yöntem olarak kullanmaya çalışır
-    Preferred API Backend: FreeTube'un veri almak için kullandığı arka ucu seçin.
+    Preferred API Backend: FreeTube'un veri elde etmek için kullandığı arka ucu seçin.
       Yerel API yerleşik bir çıkarıcıdır. Invidious API'si, bağlanmak için bir Invidious
-      sunucusu gerektirir
+      sunucusu gerektirir.
+    Region for Trending: Trendlerin bölgesi, hangi ülkenin trend videolarını görüntülemek
+      istediğinizi seçmenize olanak tanır. Görüntülenen ülkelerden bazıları YouTube
+      tarafından desteklenmemektedir

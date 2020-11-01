@@ -39,7 +39,7 @@
     </div>
     <div>
       <div class="datePublished">
-        {{ $t("Video.Published on") }} {{ dateString }}
+        {{ publishedString }} {{ dateString }}
       </div>
       <div class="viewCount">
         {{ parsedViewCount }}

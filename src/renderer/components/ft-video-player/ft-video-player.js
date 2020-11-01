@@ -159,7 +159,13 @@ export default Vue.extend({
           await this.determineDefaultQualityLegacy()
         }
 
-        this.player = videojs(videoPlayer)
+        this.player = videojs(videoPlayer, {
+          html5: {
+            vhs: {
+              limitRenditionByPlayerDimensions: false
+            }
+          }
+        })
 
         this.player.volume(this.volume)
         this.player.playbackRate(this.defaultPlayback)
@@ -193,7 +199,9 @@ export default Vue.extend({
 
         this.player.on('mousemove', this.hideMouseTimeout)
         this.player.on('mouseleave', this.removeMouseTimeout)
+
         this.player.on('volumechange', this.updateVolume)
+        this.player.controlBar.getChild('volumePanel').on('mousewheel', this.mouseScrollVolume)
 
         const v = this
 
@@ -214,6 +222,25 @@ export default Vue.extend({
     updateVolume: function (event) {
       const volume = this.player.volume()
       sessionStorage.setItem('volume', volume)
+    },
+
+    mouseScrollVolume: function (event) {
+      if (event.target) {
+        event.preventDefault()
+
+        if (this.player.muted() && event.wheelDelta > 0) {
+          this.player.muted(false)
+          this.player.volume(0)
+        }
+
+        if (!this.player.muted()) {
+          if (event.wheelDelta > 0) {
+            this.changeVolume(0.05)
+          } else if (event.wheelDelta < 0) {
+            this.changeVolume(-0.05)
+          }
+        }
+      }
     },
 
     determineFormatType: function () {

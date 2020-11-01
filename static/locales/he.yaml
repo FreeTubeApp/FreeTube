@@ -455,6 +455,8 @@ Video:
   Open Channel in Invidious: פתיחת הערוץ ב־Invidious
   Copy YouTube Channel Link: העתקת קישור ערוץ ה־YouTube
   Open Channel in YouTube: פתיחת הערוץ ב־YouTube
+  Started streaming on: ההזרמה החלה ב־
+  Streamed on: הוזרם ב־
 Videos:
   #& Sort By
   Sort By:
@@ -551,7 +553,7 @@ Tooltips:
       FreeTube ינסה להשתמש ב־API בעדיפות הנמוכה יותר באופן אוטומטי כשיטת נסיגה כאשר
       האפשרות פעילה
     Preferred API Backend: נא לבחור את המנגנון בו ישתמש FreeTube כדי לקבל נתונים.
-      ה־API המקומי הוא מחלץ מובנה. ה־API של Invidious דורש התחברות לשרת Invidious
+      ה־API המקומי הוא מחלץ מובנה. ה־API של Invidious דורש התחברות לשרת Invidious.
     Region for Trending: מגמות אזוריות מאפשר לך לבחור סרטונים חמים של איזו מדינה מעניין
       אותך לראות. לא כל המדינות שמוצגות אכן נתמכות על ידי YouTube
     Invidious Instance: העותק של Invidious שאליו FreeTube יתחבר לפניות API. מחיקת

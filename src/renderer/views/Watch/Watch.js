@@ -44,6 +44,7 @@ export default Vue.extend({
       showYouTubeNoCookieEmbed: false,
       hidePlayer: false,
       isLive: false,
+      isLiveContent: false,
       isUpcoming: false,
       upcomingTimestamp: null,
       activeFormat: 'legacy',
@@ -234,7 +235,8 @@ export default Vue.extend({
             this.videoLikeCount = result.videoDetails.likes
             this.videoDislikeCount = result.videoDetails.dislikes
           }
-          this.isLive = result.player_response.videoDetails.isLiveContent || result.player_response.videoDetails.isLive
+          this.isLive = result.player_response.videoDetails.isLive
+          this.isLiveContent = result.player_response.videoDetails.isLiveContent
           this.isUpcoming = result.player_response.videoDetails.isUpcoming ? result.player_response.videoDetails.isUpcoming : false
 
           if (!this.isLive && !this.isUpcoming) {
@@ -413,6 +415,7 @@ export default Vue.extend({
           }
 
           this.isLoading = false
+          this.updateTitle()
         })
         .catch(err => {
           const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -424,7 +427,7 @@ export default Vue.extend({
             }
           })
           console.log(err)
-          if (!this.usingElectron || (this.backendPreference === 'local' && this.backendFallback && !err.includes('private'))) {
+          if (!this.usingElectron || (this.backendPreference === 'local' && this.backendFallback && !err.toString().includes('private'))) {
             this.showToast({
               message: this.$t('Falling back to Invidious API')
             })
@@ -577,15 +580,17 @@ export default Vue.extend({
             }
           }
 
+          this.updateTitle()
+
           this.isLoading = false
         })
         .catch(err => {
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
           this.showToast({
-            message: `${errorMessage}: ${err}`,
+            message: `${errorMessage}: ${err.responseText}`,
             time: 10000,
             action: () => {
-              navigator.clipboard.writeText(err)
+              navigator.clipboard.writeText(err.responseText)
             }
           })
           console.log(err)
@@ -596,7 +601,6 @@ export default Vue.extend({
             this.getVideoInformationLocal()
           } else {
             this.isLoading = false
-            // TODO: Show toast with error message
           }
         })
     },
@@ -986,6 +990,10 @@ export default Vue.extend({
 
     getTimestamp: function () {
       return Math.floor(this.getWatchedProgress())
+    },
+
+    updateTitle: function () {
+      document.title = `${this.videoTitle} - FreeTube`
     },
 
     ...mapActions([

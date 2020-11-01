@@ -1,7 +1,7 @@
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  アプリのこの部分は未完成です。完成後に再びここを開いてください。
+  この部分のアプリは未完成です。完成後に実行してください。
 
 # Webkit Menu Bar
 File: 'ファイル'
@@ -55,8 +55,8 @@ Search Filters:
   Duration:
     Duration: '長さ'
     All Durations: 'すべての長さ'
-    Short (< 4 minutes): '短編 (4 分未満)'
-    Long (> 20 minutes): '長編 (20 分以上)'
+    Short (< 4 minutes): '短編（4 分未満）'
+    Long (> 20 minutes): '長編（20 分以上）'
   # On Search Page
   Search Results: '検索結果'
   Fetching results. Please wait: '結果の取得中。お待ちください'
@@ -64,14 +64,14 @@ Search Filters:
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: '登録'
-  Latest Subscriptions: '最近の登録'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'まだチャンネル登録がありません。登録するとここに表示されます。'
+  Subscriptions: '登録チャンネル'
+  Latest Subscriptions: '最新の登録'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '登録チャンネルはありません。登録するとここに表示されます。'
   'Getting Subscriptions.  Please wait.': '登録を取得中。お待ちください...'
   Refresh Subscriptions: 登録チャンネルの更新
-  Getting Subscriptions. Please wait.: 登録チャンネルの内容を取得中。お待ちください。
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: このプロファイルはチャンネル登録が多くなっています。接続制限の回避のため強制的な
-    RSS にします
+  Getting Subscriptions. Please wait.: 登録チャンネルの内容を取得中。しばらくお待ちください。
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: このプロファイルは登録チャンネルが多くなっています。接続制限を回避するため
+    RSS を使用します
   Load More Videos: もっと見る
 Trending: '急上昇'
 Most Popular: '人気'
@@ -80,15 +80,15 @@ User Playlists:
   Your Playlists: 'あなたの再生リスト'
 History:
   # On History Page
-  History: '閲覧履歴'
-  Watch History: '履歴の表示'
-  Your history list is currently empty.: 閲覧履歴はありません。
+  History: '履歴'
+  Watch History: '視聴履歴'
+  Your history list is currently empty.: 履歴はありません。
 Settings:
   # On Settings Page
   Settings: '設定'
   General Settings:
     General Settings: '一般設定'
-    Fallback to Non-Preferred Backend on Failure: '失敗時に非優先の代替サービスに接続'
+    Fallback to Non-Preferred Backend on Failure: '情報取得の問題発生時には取得方法を自動変更'
     Enable Search Suggestions: '検索候補の有効化'
     Default Landing Page: '起動時の表示'
     Locale Preference: '言語設定'
@@ -106,9 +106,9 @@ Settings:
       Beginning: '開始'
       Middle: '中間'
       End: '終了'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious の実体
-      (初期値は https://invidious.snopyta.org)'
-    Region for Trending: '地域内の急上昇'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': '接続先の Invidious
+      サーバー（初期値は https://invidious.snopyta.org）'
+    Region for Trending: '地域別の急上昇'
         #! List countries
     Check for Latest Blog Posts: 新着ブログの確認
     Check for Updates: 最新版の確認
@@ -150,7 +150,7 @@ Settings:
     Play Next Video: '次の動画を再生'
     Turn on Subtitles by Default: '最初から字幕を有効化'
     Autoplay Videos: '動画の自動再生'
-    Proxy Videos Through Invidious: 'Invidious 経由で動画にプロキシを使用'
+    Proxy Videos Through Invidious: '動画を Invidious プロキシーを経由して取得'
     Autoplay Playlists: '再生リストの自動再生'
     Enable Theatre Mode by Default: '最初からシアターモードで開く'
     Default Volume: '音量の初期値'
@@ -173,8 +173,8 @@ Settings:
       4k: '4K'
       8k: '8K'
   Subscription Settings:
-    Subscription Settings: 'チャンネル登録の設定'
-    Hide Videos on Watch: '視聴済みの動画は非表示'
+    Subscription Settings: '登録チャンネルの設定'
+    Hide Videos on Watch: '視聴済み動画の非表示'
     Subscriptions Export Format:
       Subscriptions Export Format: '登録のエクスポート形式'
       #& Freetube
@@ -184,15 +184,15 @@ Settings:
     Import Subscriptions: '登録のインポート'
     Export Subscriptions: '登録のエクスポート'
     How do I import my subscriptions?: 'どうやってインポートするのですか？'
-    Fetch Feeds from RSS: RSS から情報を取得
+    Fetch Feeds from RSS: RSS から情報取得
   Advanced Settings:
-    Advanced Settings: '高度な設定'
+    Advanced Settings: '詳細設定'
     Enable Debug Mode (Prints data to the console): 'デバッグ モードの有効化（コンソールにデータ出力）'
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'プロキシのアドレス (例: SOCKS5://127.0.0.1:9050)'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': '「プロキシのテスト」ボタンをクリックすると、https://ipinfo.io/json
+    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'プロキシーのアドレス（例：SOCKS5://127.0.0.1:9050）'
+    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': '「プロキシーのテスト」ボタンをクリックすると、https://ipinfo.io/json
       へリクエストを送信します'
     Use Tor / Proxy for API calls: 'API 呼び出しに Tor/Proxy を使用'
-    TEST PROXY: 'プロキシのテスト'
+    TEST PROXY: 'プロキシーのテスト'
     #& Invidious Instance (Default is https://invidious.snopyta.org)
     See Public Instances: '公開インスタンスを参照'
     Clear History:
@@ -204,37 +204,37 @@ Settings:
     Clear Subscriptions:
       Clear Subscriptions: '登録の削除'
       # On Click
-      Are you sure you want to remove all subscriptions?: 'すべてのチャンネル登録を削除しますか？'
+      Are you sure you want to remove all subscriptions?: 'すべての登録チャンネルを削除しますか？'
       #& Yes
       #& No
 
   Privacy Settings:
     Save Watched Progress: 再生位置の保存
-    Remember History: 閲覧履歴の保存
-    Watch history has been cleared: 閲覧履歴を削除しました
-    Are you sure you want to remove your entire watch history?: 閲覧履歴をすべて削除しますか？
-    Remove Watch History: 閲覧履歴の削除
+    Remember History: 履歴の保存
+    Watch history has been cleared: 視聴履歴を削除しました
+    Are you sure you want to remove your entire watch history?: 視聴履歴をすべて削除しますか？
+    Remove Watch History: 視聴履歴の削除
     Search cache has been cleared: 検索キャッシュを削除しました
     Are you sure you want to clear out your search cache?: 検索キャッシュを削除しますか？
     Clear Search Cache: 検索キャッシュの削除
     Privacy Settings: 個人情報の設定
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: すべてのチャンネル登録とプロファイルを削除しますか？元に戻せません。
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: すべての登録チャンネルとプロファイルを削除しますか？元に戻せません。
     Remove All Subscriptions / Profiles: 登録とプロファイルをすべて削除
   Data Settings:
     How do I import my subscriptions?: 私の登録をインポートするには？
-    Unknown data key: 不明なデータキー
+    Unknown data key: 不明なデーター キー
     Unable to write file: ファイルに書き込めません
     Unable to read file: ファイルを読み込めません
     All watched history has been successfully exported: すべての視聴履歴を正常にエクスポートしました
     All watched history has been successfully imported: すべての視聴履歴を正常にインポートしました
-    Profile object has insufficient data, skipping item: プロファイルのデータが不完全なため、この項目の処理を省略します
-    History object has insufficient data, skipping item: 履歴のデータが不完全なため、この項目の処理を省略します
-    Subscriptions have been successfully exported: チャンネル登録を正常にエクスポートしました
+    Profile object has insufficient data, skipping item: プロファイルのデーターが不完全なため、この項目の処理を省略します
+    History object has insufficient data, skipping item: 履歴情報に問題があるので、破損したデータは除外して実行します
+    Subscriptions have been successfully exported: 登録チャンネルを正常にエクスポートしました
     Invalid history file: 無効な履歴ファイル
     This might take a while, please wait: 少し時間がかかります...お待ちください
-    Invalid subscriptions file: 無効なチャンネル登録ファイル
-    All subscriptions have been successfully imported: すべてのチャンネル登録を正常にインポートしました
-    All subscriptions and profiles have been successfully imported: すべてのチャンネル登録とプロファイルを正常にインポートしました
+    Invalid subscriptions file: 無効な登録チャンネルのファイル
+    All subscriptions have been successfully imported: すべての登録チャンネルを正常にインポートしました
+    All subscriptions and profiles have been successfully imported: すべての登録チャンネルとプロファイルを正常にインポートしました
     Export History: 履歴のエクスポート
     Import History: 履歴のインポート
     Export NewPipe: NewPipe エクスポート
@@ -248,22 +248,22 @@ Settings:
     Select Export Type: エクスポート形式の選択
     Select Import Type: インポート形式の選択
     Data Settings: データ設定
-    One or more subscriptions were unable to be imported: いくつかのチャンネル登録はインポートできませんでした
+    One or more subscriptions were unable to be imported: いくつかの登録チャンネルはインポートできませんでした
     Check for Legacy Subscriptions: 古い登録形式の確認
   Distraction Free Settings:
-    Hide Live Chat: ライブチャットを非表示
-    Hide Popular Videos: 人気の動画を非表示
-    Hide Trending Videos: 急上昇の動画を非表示
-    Hide Recommended Videos: おすすめ動画を非表示
-    Hide Comment Likes: コメントの評価を非表示
-    Hide Channel Subscribers: チャンネル登録者数を非表示
-    Hide Video Views: 再生数を非表示
-    Hide Video Likes And Dislikes: 評価を非表示
-    Distraction Free Settings: 不要な表示の設定
+    Hide Live Chat: ライブチャットの非表示
+    Hide Popular Videos: 人気動画の非表示
+    Hide Trending Videos: 急上昇動画の非表示
+    Hide Recommended Videos: おすすめ動画の非表示
+    Hide Comment Likes: コメント評価の非表示
+    Hide Channel Subscribers: チャンネル登録者数の非表示
+    Hide Video Views: 再生数の非表示
+    Hide Video Likes And Dislikes: 評価の非表示
+    Distraction Free Settings: 画面の表示設定
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
 About:
   #On About page
-  About: 'このソフト'
+  About: 'About'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'このコピーレフトのソフトウェアは、AGPL-3.0
     の自由なライセンスです。'
@@ -272,7 +272,7 @@ About:
     バグの報告や機能要望、サポートが必要であれば、私たちの GitHub をご覧ください。プルリクエストも歓迎します。
 
   Thank you very much to the People and Projects that make FreeTube possible!: 'FreeTube
-    を実現させてくれている人々とプロジェクトに感謝！'
+    の実現のために努力している人々とプロジェクトに感謝します！'
 
   'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'チャットが必要なら私たちの
     Element / Matrix に参加してください。参加前にルールの確認をお願いします。'
@@ -282,7 +282,7 @@ About:
   Check out our Firefox extension!: 'Firefox 拡張機能をご覧ください！'
 
   'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'FreeTube
-    を気に入っていただけていれば、ぜひ Liberapay かビットコインの寄付をお願いします。'
+    をお楽しみの方は、Liberapay か Bitcoin アドレスを通じて寄付をお願いします。'
 
   #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
 
@@ -292,9 +292,9 @@ About:
 Channel:
   Subscriber: '人の登録者'
   Subscribers: '人の登録者'
-  Subscribe: '登録'
+  Subscribe: 'チャンネル登録'
   Unsubscribe: '登録解除'
-  Search Channel: 'チャンネルの検索'
+  Search Channel: 'チャンネル検索'
   Your search results have returned 0 results: '検索結果はありません'
   Sort By: '並び替え'
   Videos:
@@ -375,8 +375,8 @@ Video:
 #& Videos
   Video has been removed from your history: 動画を履歴から削除しました
   Remove From History: 履歴から削除
-  Video has been marked as watched: 視聴済みにしました
-  Mark As Watched: 視聴済みにする
+  Video has been marked as watched: 視聴済みに変更しました
+  Mark As Watched: 視聴済みに変更
   Autoplay: 自動再生
   Play Previous Video: 前の動画を再生
   Play Next Video: 次の動画を再生
@@ -392,6 +392,12 @@ Video:
   audio only: '音声のみ'
   video only: '映像のみ'
   Download Video: '動画のダウンロード'
+  Copy Invidious Channel Link: Invidious チャンネルへのリンクをコピー
+  Open Channel in Invidious: Invidious でチャンネルを開く
+  Copy YouTube Channel Link: YouTube チャンネルへのリンクをコピー
+  Open Channel in YouTube: YouTube でチャンネルを開く
+  Started streaming on: ライブ視聴
+  Streamed on: ライブ
 Videos:
   #& Sort By
   Sort By:
@@ -416,7 +422,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: 'シアターモードの切替'
+Toggle Theatre Mode: 'サイズ変更'
 Change Format:
   Change Video Formats: '動画形式の変更'
   Use Dash Formats: 'DASH 形式の使用'
@@ -436,11 +442,13 @@ Share:
   YouTube URL copied to clipboard: 'YouTube の URL をコピーしました'
   YouTube Embed URL copied to clipboard: 'YouTube の埋め込み URL をコピーしました'
   Include Timestamp: 時間情報を追加
+  YouTube Channel URL copied to clipboard: クリップボードにコピーした YouTube チャンネルの URL
+  Invidious Channel URL copied to clipboard: クリップボードにコピーした Invidious チャンネルの URL
 Mini Player: 'ミニプレーヤー'
 Comments:
   Comments: 'コメント'
-  Click to View Comments: 'クリックしてコメント表示'
-  Getting comment replies, please wait: 'コメント返信を取得中。お待ちください'
+  Click to View Comments: 'コメントの表示'
+  Getting comment replies, please wait: 'コメント返信の取得中。しばらくお待ちください'
   Show Comments: 'コメントの表示'
   Hide Comments: 'コメントを非表示'
   # Context: View 10 Replies, View 1 Reply
@@ -458,18 +466,18 @@ Comments:
 Up Next: '次の動画'
 
 # Toast Messages
-Local API Error (Click to copy): '内部 API エラー（クリックでコピー）'
-Invidious API Error (Click to copy): 'Invidious API エラー（クリックでコピー）'
+Local API Error (Click to copy): '内部 API エラー（クリックするとコピー）'
+Invidious API Error (Click to copy): 'Invidious API エラー（クリックするとコピー）'
 Falling back to Invidious API: '代替の Invidious API に切替'
 Falling back to the local API: '代替の内部 API に切替'
-Subscriptions have not yet been implemented: 'チャンネル登録は未実装です'
+Subscriptions have not yet been implemented: '登録チャンネルは未実装です'
 Loop is now disabled: 'ループ再生を無効にしました'
 Loop is now enabled: 'ループ再生を有効にしました'
 Shuffle is now disabled: 'シャッフル再生を無効にしました'
 Shuffle is now enabled: 'シャッフル再生を有効にしました'
 Playing Next Video: '次の動画を再生'
 Playing Previous Video: '前の動画を再生'
-Playing next video in 5 seconds.  Click to cancel: '5 秒後に次の動画を再生。クリックでキャンセル。'
+Playing next video in 5 seconds.  Click to cancel: '5 秒後に次の動画を再生。クリックするとキャンセルします。'
 Canceled next video autoplay: '次の動画の自動再生をキャンセルしました'
 'The playlist has ended.  Enable loop to continue playing': '再生リストの最後に到達しました。再生を続けるにはループを有効にします'
 
@@ -485,7 +493,7 @@ Profile:
   Profile has been created: プロファイルを作成しました
   Your profile name cannot be empty: プロファイル名は空にできません
   Profile could not be found: プロファイルはありません
-  All subscriptions will also be deleted.: すべてのチャンネル登録も削除されます。
+  All subscriptions will also be deleted.: すべての登録チャンネルも削除されます。
   Are you sure you want to delete this profile?: このプロファイルを削除しますか？
   Delete Profile: プロファイルの削除
   Make Default Profile: 起動時のプロファイルに設定
@@ -505,32 +513,31 @@ Profile:
   Select None: 選択なし
   Select All: すべて選択
   Other Channels: ほかのチャンネル
-  Subscription List: チャンネル登録の一覧
+  Subscription List: 登録チャンネル一覧
   $ selected: $ 項目を選択
   Add Selected To Profile: 選択項目をプロファイルに追加
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
   : これは上位のプロファイルです。選択したチャンネルを削除しますか？同じチャンネルがほかのプロファイルにも登録されていれば削除されます。
 The playlist has been reversed: 再生リストを逆順にしました
-A new blog is now available, $. Click to view more: '新着のブログ記事があります。$ クリックでブログを開く'
+A new blog is now available, $. Click to view more: '新着ブログ公開、$。クリックしてブログを読む'
 Download From Site: サイトからダウンロード
-Version $ is now available!  Click for more details: 最新の Ver. $ 登場！　詳細はクリックでご覧ください
+Version $ is now available!  Click for more details: 最新の Ver. $ 登場！　詳細はクリックしてご覧ください
 This video is unavailable because of missing formats. This can happen due to country unavailability.: この動画は、動画形式の情報が利用できないため再生できません。再生許可のない国で発生します。
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 有効にすると、FreeTube は、登録チャンネルの情報を、通常の方法の代わりに RSS から取得します。RSS
-      は高速であり IP 制限も回避できますが、動画の長さやライブ配信の状態などの詳細情報は提供されていません
+      は高速であり IP 制限も回避できますが、動画の長さやライブ配信の状態などの詳細情報は提供されていません。
   Player Settings:
-    Default Video Format: 動画再生で使用する形式の設定。DASH 形式であれば高品質で再生できます。旧形式は、最大 720p に制限されますが、使用する帯域幅を減らせます。音声形式は音声のみです
-    Force Local Backend for Legacy Formats: Invidious API の選択時にのみ機能します。有効にすると、Invidious
-      サーバーから取得した動画形式ではなく、内部 API で取得した旧形式を使用します。Invidious から取得した情報では再生できないことがあります。あなたが現在
-      FreeTube を実行している国が、再生が許可されていない国の場合です
+    Default Video Format: 動画再生で使用する形式の設定です。DASH 形式であれば高品質で再生できます。旧形式だと、最大 720p に制限されますが、使用する帯域幅を減らせます。音声形式は音声のみです。
+    Force Local Backend for Legacy Formats: Invidious API の選択時にのみ実行します。有効にすると、Invidious
+      サーバーから取得した動画形式ではなく、内部 API で取得した旧形式を使用します。Invidious サーバーから取得する動画が、youtube の視聴制限国に該当して再生できないことがあり回避するため。
     Proxy Videos Through Invidious: 動画を取得するため、YouTube ではなく Invidious に接続します。API 設定を書き換えます
   General Settings:
-    Invidious Instance: FreeTube が Invidious サーバーの API への接続用の Invidious インスタンスです。現在のインスタンスを破棄し、選択用の公開インスタンス一覧を表示します
+    Invidious Instance: FreeTube が使用する Invidious API の接続先サーバーです。接続先を削除すると、接続先一覧が表示されますので選択してくさい。
     Preferred API Backend: FreeTube が youtube からデータを取得する方法を選択します。「内部 API」とはアプリから取得する方法です。「Invidious
-      API」とは、Invidious サーバーに接続して取得する方法です
-    Thumbnail Preference: FreeTube のすべてのサムネイルを、元のサムネイルの代わりに動画の 1 コマに置き換える
-    Fallback to Non-Preferred Backend on Failure: 有効にすると、選択した API に問題があれば、FreeTube
-      は自動的に選択していない API に切り替えて実行します
-    Region for Trending: 地域の急上昇では、急上昇動画を表示する国を選択できます。YouTube は、一覧に記載のすべての国に対応してるとは限りません
+      API」とは、Invidious を用いたサーバーに接続して取得する方法です。
+    Thumbnail Preference: FreeTube のすべてのサムネイルを、元のサムネイルの代わりに動画の 1 コマに置き換えます。
+    Fallback to Non-Preferred Backend on Failure: 有効にすると、選択した API で取得できなければ、FreeTube
+      は自動的に他の API での取得を試みます。
+    Region for Trending: 地域別の急上昇では、急上昇動画を表示する国を選択できます。YouTube は、すべての国に対応していません。

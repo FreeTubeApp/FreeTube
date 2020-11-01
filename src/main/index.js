@@ -145,6 +145,7 @@ function createWindow () {
     backgroundColor: '#fff',
     icon: isDev
       ? path.join(__dirname, '../../_icons/iconColor.png')
+      /* eslint-disable-next-line */
       : `${__dirname}/_icons/iconColor.png`,
     autoHideMenuBar: true,
     // useContentSize: true,
@@ -199,6 +200,7 @@ function createWindow () {
   if (isDev) {
     mainWindow.loadURL('http://localhost:9080')
   } else {
+    /* eslint-disable-next-line */
     mainWindow.loadFile(`${__dirname}/index.html`)
 
     global.__static = path

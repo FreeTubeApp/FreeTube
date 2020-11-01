@@ -122,6 +122,7 @@ const actions = {
 
   getRegionData ({ commit }, payload) {
     let fileData
+    /* eslint-disable-next-line */
     const fileLocation = payload.isDev ? './static/geolocations/' : `${__dirname}/static/geolocations/`
     if (fs.existsSync(`${fileLocation}${payload.locale}`)) {
       fileData = fs.readFileSync(`${fileLocation}${payload.locale}/countries.json`)

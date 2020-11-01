@@ -274,7 +274,7 @@ Settings:
     Hide Channel Subscribers: Piilota kanavan tilaajat
     Hide Video Likes And Dislikes: Piilota videon tykkäykset
     Distraction Free Settings: Häiriöttömän tilan asetukset
-    Hide Video Views: Piilota videonäkymät
+    Hide Video Views: Piilota videon katselukerrat
   The app needs to restart for changes to take effect. Restart and apply change?: Sovellus
     on käynnistettävä uudelleen, jotta sovellukset tulevat voimaan. Käynnistetäänkö
     uudelleen?
@@ -416,6 +416,10 @@ Video:
   audio only: vain ääni
   video only: vain video
   Download Video: Lataa video
+  Copy Invidious Channel Link: Kopio kanavan Invidious-linkki
+  Open Channel in Invidious: Avaa kanava Invidiousissa
+  Copy YouTube Channel Link: Kopioi YouTube-kanavan linkki
+  Open Channel in YouTube: Avaa kanava YouTubessa
 Videos:
   #& Sort By
   Sort By:
@@ -462,6 +466,8 @@ Share:
   YouTube URL copied to clipboard: 'YouTube-osoite kopioitu leikepöydälle'
   YouTube Embed URL copied to clipboard: 'YouTube-upotteen osoite kopioitu leikepöydälle'
   Include Timestamp: Sisällytä aikaleima
+  YouTube Channel URL copied to clipboard: Kanavan Youtube URL kopioitu leikepöydälle
+  Invidious Channel URL copied to clipboard: Kanavan Invidious URL kopioutu leikepöydälle
 Mini Player: 'Pieni soitin'
 Comments:
   Comments: 'Kommentit'
@@ -551,3 +557,29 @@ This video is unavailable because of missing formats. This can happen due to cou
 A new blog is now available, $. Click to view more: Uusi blogi on saatavilla , $.
   Klikkaa nähdäksesi lisää
 Download From Site: Lataa sivustolta
+Tooltips:
+  General Settings:
+    Preferred API Backend: Valitse taustaohjelma, jota Freetube käyttää datan noutamiseen.
+      Paikallinen API on ohjelmiston sisäinen. Invidious API vaatii yhteyden Invidious-palvelimeen.
+    Region for Trending: Valinta sallii sinun valita minkä maan Nousevat videot sinulle
+      näytetään. Kaikki listatut maat eivät ole YouTuben tukemia
+    Invidious Instance: Invidious instanssi jota Freetube käyttää. Tyhjennä kenttä
+      nähdäksesi listan julkisista instansseista
+    Thumbnail Preference: Kaikki pikkukuvat Freetubessa korvataan ruudulla videosta
+      alkuperäisen pikkukuvan sijaan
+    Fallback to Non-Preferred Backend on Failure: Kun valitsemasi API kohtaa ongelman,
+      Freetube yrittää automaattisestia käyttää toissijaista vaihtoehtoa
+  Subscription Settings:
+    Fetch Feeds from RSS: Kun valittuna, FreeTube käyttää RSS-syötettä oletusmetodin
+      sijaan tilauslistasi hakemisessa. RSS on nopeampi ja ehkäisee IP-estoa, mutta
+      ei anna tietoja kuten videon kesto tai livetila
+  Player Settings:
+    Default Video Format: Aseta videon toistamisessa käytätettävä formaatti. Dash-formaatit
+      toistavat korkealaatuisempia videoita. Legacy-formaatit ovvat rajoitettu 720p-resoluutioon,
+      mutta kkäyttävät väheämmän kaistaa. Audioformaatit ovat vain äänistriimeihin
+    Proxy Videos Through Invidious: Yhdistää Invidious-palvelimeen suoran YouTuben-yhteyden
+      sijaan. Ohittaa API-valinnan
+    Force Local Backend for Legacy Formats: Toimii vain kun Invidious API on oletuksena.
+      Kun valittuna, paikallinen API käyttää vanhoja formaatteja Invidiousin käyttämien
+      sijaan. Tämä auttaa, jos Invidiousin palauttamat videot eivät toimi maarajoituksien
+      takia
