@@ -7,7 +7,7 @@ FreeTube: 'فريتيوب'
 
 # Webkit Menu Bar
 File: 'ملف'
-Quit: 'مغادرة'
+Quit: 'إغلاق'
 Edit: 'تحرير'
 Undo: 'تراجع'
 Redo: 'إعادة'
@@ -18,11 +18,11 @@ Delete: 'حذف'
 Select all: 'تحديد الكل'
 Reload: 'إعادة تحميل'
 Force Reload: 'فرض إعادة التحميل'
-Toggle Developer Tools: 'تبديل إلى أدوات المطوّر'
+Toggle Developer Tools: 'تفعيل أدوات المطوّر'
 Actual size: 'الحجم الأصلي'
 Zoom in: 'تكبير'
 Zoom out: 'تصغير'
-Toggle fullscreen: 'ملء الشاشة'
+Toggle fullscreen: 'تفعيل وضع الشاشة الكاملة'
 Window: 'نافذة'
 Minimize: 'تصغير'
 Close: 'إغلاق'
@@ -83,7 +83,7 @@ User Playlists:
 History:
   # On History Page
   History: 'السجلّ'
-  Watch History: 'سجلّ المشاهدة'
+  Watch History: 'سجلّ المشاهدات'
   Your history list is currently empty.: 'قائمة سجلّك فارغة حالياً.'
 Settings:
   # On Settings Page
@@ -92,15 +92,15 @@ Settings:
     General Settings: 'الإعدادات العامة'
     Fallback to Non-Preferred Backend on Failure: 'الرجوع إلى الواجهة الخلفية الغير
       مفضلة عند الفشل'
-    Enable Search Suggestions: 'تفعيل إقتراحات البحث'
+    Enable Search Suggestions: 'تفعيل الإقتراحات عند البحث'
     Default Landing Page: 'الصفحة ‪المقصودة الافتراضية'
-    Locale Preference: 'تفضيل اللغة'
+    Locale Preference: 'اللغات المفضلة'
     Preferred API Backend:
-      Preferred API Backend: 'API الواجهة الخلفية المفضلة'
-      Local API: 'API المحلي'
-      Invidious API: 'Invidious API'
+      Preferred API Backend: 'الواجهة الخلفية المفضلة'
+      Local API: 'واجهة برمجة محلية'
+      Invidious API: 'واجهة برمجة "انفيديوس"'
     Video View Type:
-      Video View Type: 'نوع مشاهدة الفيديو'
+      Video View Type: 'شكل عرض الفيديو'
       Grid: 'شبكة'
       List: 'قائمة'
     Thumbnail Preference:
