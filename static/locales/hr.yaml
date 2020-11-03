@@ -464,6 +464,8 @@ Video:
   Open Channel in Invidious: 'Otvori kanal na Invidious stranici'
   Copy YouTube Channel Link: 'Kopiraj poveznicu na YouTube kanal'
   Open Channel in YouTube: 'Otvori kanal na YouTube stranici'
+  Started streaming on: Početak prijenosa
+  Streamed on: Prijenos
 Videos:
   #& Sort By
   Sort By:
@@ -568,7 +570,7 @@ Tooltips:
   Player Settings:
     Default Video Format: Postavi formate za reprodukciju videa. Dash formati mogu
       reproducirati višu kvalitetu slike. Stari formati su ograničeni na 720 p, ali
-      su zato brži. Audioformati sadrže samo audiosnimke
+      su zato brži. Prijenosi audioformata sadrže samo audiosnimke
     Proxy Videos Through Invidious: Za reprodukciju videa povezat će se s Invidiousom
       umjesto izravnog povezivanja s YouTubeom. Zanemaruje postavke sučelja
     Force Local Backend for Legacy Formats: Radi samo, kad postaviš Invidious kao
