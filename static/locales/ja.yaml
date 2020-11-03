@@ -116,12 +116,12 @@ Settings:
     Theme Settings: 'テーマの設定'
     Match Top Bar with Main Color: '上部のバーを配色1に調和'
     Base Theme:
-      Base Theme: 'テーマ'
+      Base Theme: 'テーマの選択'
       Black: '黒'
       Dark: 'ダーク'
       Light: 'ライト'
     Main Color Theme:
-      Main Color Theme: '配色1'
+      Main Color Theme: 'テーマのメイン カラー'
       Red: '赤'
       Pink: '桃'
       Purple: '紫'
@@ -138,7 +138,7 @@ Settings:
       Amber: '琥珀'
       Orange: 'オレンジ'
       Deep Orange: '濃いオレンジ'
-    Secondary Color Theme: '配色2'
+    Secondary Color Theme: 'テーマのアクセント カラー'
         #* Main Color Theme
     UI Scale: UI の縮尺率
     Expand Side Bar by Default: サイドバーを展開して起動
