@@ -185,7 +185,7 @@ Settings:
   Privacy Settings:
     Privacy Settings: 'Nastavení soukromí'
     Remember History: 'Zapamatovat historii'
-    Save Watched Progress: 'Uložit průběh videa'
+    Save Watched Progress: 'Uložit průběh zhlédnutých videa'
     Clear Search Cache: 'Vyčistit cache vyhledávání'
     Are you sure you want to clear out your search cache?: 'Jste si jisti, že chcete
       smazat cache vyhledávání?'
@@ -242,10 +242,10 @@ Settings:
       exportovány'
     History object has insufficient data, skipping item: 'Objekt historie má nedostatečná
       data, přeskakuji položku'
-    All watched history has been successfully imported: 'Historie viděných videí byla
-      úspěšně importována'
-    All watched history has been successfully exported: 'Historie viděných videí byla
-      úspěšně exportována'
+    All watched history has been successfully imported: 'Historie zhlédnutých videí
+      byla úspěšně importována'
+    All watched history has been successfully exported: 'Historie zhlédnutých videí
+      byla úspěšně exportována'
     Unable to read file: 'Nelze přečíst soubor'
     Unable to write file: 'Soubor nelze uložit'
     Unknown data key: 'Neznámý datový klíč'
@@ -378,9 +378,9 @@ Channel:
     Channel Description: 'Popis kanálu'
     Featured Channels: 'Doporučené kanály'
 Video:
-  Mark As Watched: 'Označit jako viděné'
+  Mark As Watched: 'Označit jako zhlédnuto'
   Remove From History: 'Odstranit z historie'
-  Video has been marked as watched: 'Video bylo označeno jako viděné'
+  Video has been marked as watched: 'Video bylo označeno jako zhlédnuté'
   Video has been removed from your history: 'Video bylo odstraněno z vaší historie'
   Open in YouTube: 'Otevřít v YouTube'
   Copy YouTube Link: 'Kopírovat YouTube odkaz'
