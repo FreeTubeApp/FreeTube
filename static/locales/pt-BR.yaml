@@ -72,6 +72,7 @@ Subscriptions:
   'Getting Subscriptions.  Please wait.': 'Buscando inscrições. Por favor, aguarde.'
   Refresh Subscriptions: Atualizar Inscrições
   'Getting Subscriptions. Please wait.': Obtendo Inscrições. Por favor aguarde.
+  Load More Videos: Carregar mais vídeos
 Trending: 'Em alta'
 Most Popular: 'Mais populares'
 Playlists: 'Listas'
@@ -110,6 +111,7 @@ Settings:
       Invidious (A padrão é https://invidious.snopyta.org)'
     Region for Trending: 'Região para o “Em alta”'
         #! List countries
+    Check for Updates: Checar por atualizações
   Theme Settings:
     Theme Settings: 'Configurações de aparência'
     Match Top Bar with Main Color: 'Usar a cor principal para a barra superior'
@@ -218,6 +220,23 @@ Settings:
     Save Watched Progress: Salvar progresso de visualização
     Remember History: Lembrar histórico
     Privacy Settings: Configurações de privacidade
+  Data Settings:
+    Subscriptions have been successfully exported: Inscrições foram exportadas com
+      sucesso
+    Invalid history file: Arquivo de histórico inválido
+    One or more subscriptions were unable to be imported: Uma ou mais inscrições não
+      foram possíveis serem importadas
+    All subscriptions have been successfully imported: Todas as inscrições foram importadas
+      com sucesso
+  Distraction Free Settings:
+    Hide Live Chat: Esconder chat ao vivo
+    Hide Popular Videos: Esconder vídeos populares
+    Hide Trending Videos: Esconder vídeos em alta
+    Hide Recommended Videos: Esconder vídeos recomendados
+    Hide Comment Likes: Esconder curtidas dos comentários
+  The app needs to restart for changes to take effect. Restart and apply change?: O
+    aplicativo necessita reiniciar para as mudanças fazerem efeito. Reiniciar e aplicar
+    mudança?
 About:
   #On About page
   About: 'Sobre'
@@ -429,3 +448,6 @@ Profile:
   All subscriptions will also be deleted.: Todas as inscrições serão também deletadas.
 Version $ is now available!  Click for more details: Versão $ está disponível agora!
   Clique para mais detalhes
+A new blog is now available, $. Click to view more: Um novo blog está disponível,
+  $. Clique para ver mais.
+Download From Site: Fazer download pelo site
