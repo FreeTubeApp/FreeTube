@@ -114,7 +114,7 @@ Settings:
     Check for Updates: 最新版の確認
   Theme Settings:
     Theme Settings: 'テーマの設定'
-    Match Top Bar with Main Color: '上部のバーを配色1に調和'
+    Match Top Bar with Main Color: '上部バーをメイン カラーにする'
     Base Theme:
       Base Theme: 'テーマの選択'
       Black: '黒'
@@ -141,8 +141,8 @@ Settings:
     Secondary Color Theme: 'テーマのアクセント カラー'
         #* Main Color Theme
     UI Scale: UI の縮尺率
-    Expand Side Bar by Default: サイドバーを展開して起動
-    Disable Smooth Scrolling: 滑らかなスクロールの無効化
+    Expand Side Bar by Default: 幅広のサイド バーで起動
+    Disable Smooth Scrolling: スムーズ スクロールの無効化
   Player Settings:
     Player Settings: 'プレイヤーの設定'
     Force Local Backend for Legacy Formats: '旧形式であれば内部 API の強制使用'
@@ -441,7 +441,7 @@ Share:
   Invidious Embed URL copied to clipboard: 'Invidious の埋め込み URL をコピーしました'
   YouTube URL copied to clipboard: 'YouTube の URL をコピーしました'
   YouTube Embed URL copied to clipboard: 'YouTube の埋め込み URL をコピーしました'
-  Include Timestamp: 時間情報を追加
+  Include Timestamp: 視聴中の位置から再生
   YouTube Channel URL copied to clipboard: クリップボードにコピーした YouTube チャンネルの URL
   Invidious Channel URL copied to clipboard: クリップボードにコピーした Invidious チャンネルの URL
 Mini Player: 'ミニプレーヤー'
