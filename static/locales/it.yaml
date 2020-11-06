@@ -429,6 +429,10 @@ Video:
   audio only: solo audio
   video only: solo video
   Download Video: Scarica Video
+  Copy Invidious Channel Link: Copia Link del Canale Invidious
+  Open Channel in Invidious: Apri Canale su Invidious
+  Copy YouTube Channel Link: Copia Link del Canale YouTube
+  Open Channel in YouTube: Apri Canale su Youtube
 Videos:
   #& Sort By
   Sort By:
@@ -477,6 +481,8 @@ Share:
   YouTube Embed URL copied to clipboard: 'URL di YouTube da incorporare copiato negli
     appunti'
   Include Timestamp: Includi Timestamp
+  YouTube Channel URL copied to clipboard: URL Canale YouTube copiato negli appunti
+  Invidious Channel URL copied to clipboard: URL Canale Invidous copiato negli appunti
 Mini Player: 'Visualizzatore Mini'
 Comments:
   Comments: 'Commenti'
@@ -595,5 +601,8 @@ Tooltips:
       un problema, FreeTube userà automaticamente le API secondarie come ripiego quando
       abilitate
     Preferred API Backend: Scegli il back-end che FreeTube utilizza per ottenere i
-      dati. L' API locale è l'estrattore dell'app. Le API Invidious richiedono un
-      server Invidious dove connettersi
+      dati. L'API locale è l'estrattore dell'app. Le API Invidious richiedono un server
+      Invidious dove connettersi.
+    Region for Trending: La regione delle tendenze permette di scegliere la nazione
+      di cui si vogliono vedere i video di tendenza. Non tutte le nazioni mostrate
+      sono ufficialmente supportate da YouTube
