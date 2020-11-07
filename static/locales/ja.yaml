@@ -108,7 +108,7 @@ Settings:
       End: '終了'
     'Invidious Instance (Default is https://invidious.snopyta.org)': '接続先の Invidious
       サーバー（初期値は https://invidious.snopyta.org）'
-    Region for Trending: '地域別の急上昇'
+    Region for Trending: '急上昇の地域設定'
         #! List countries
     Check for Latest Blog Posts: 新着ブログの確認
     Check for Updates: 最新版の確認
@@ -145,23 +145,23 @@ Settings:
     Disable Smooth Scrolling: スムーズ スクロールの無効化
   Player Settings:
     Player Settings: 'プレイヤーの設定'
-    Force Local Backend for Legacy Formats: '旧形式であれば内部 API の強制使用'
+    Force Local Backend for Legacy Formats: '旧形式であれば内部 API の適用'
     Remember History: '履歴を記憶'
     Play Next Video: '次の動画を再生'
     Turn on Subtitles by Default: '最初から字幕を有効化'
     Autoplay Videos: '動画の自動再生'
     Proxy Videos Through Invidious: '動画を Invidious プロキシーを経由して取得'
     Autoplay Playlists: '再生リストの自動再生'
-    Enable Theatre Mode by Default: '最初からシアターモードで開く'
-    Default Volume: '音量の初期値'
-    Default Playback Rate: '再生速度の初期値'
+    Enable Theatre Mode by Default: 'シアターモードで起動'
+    Default Volume: '音量の設定'
+    Default Playback Rate: '再生速度の設定'
     Default Video Format:
-      Default Video Format: '動画形式の初期値'
+      Default Video Format: '動画形式の設定'
       Dash Formats: 'DASH 形式'
       Legacy Formats: '旧形式'
       Audio Formats: '音声形式'
     Default Quality:
-      Default Quality: '動画品質の初期値'
+      Default Quality: '動画品質の設定'
       Auto: '自動'
       144p: '144p'
       240p: '240p'
