@@ -448,7 +448,7 @@ Video:
     Years: 'Yıl'
     Ago: 'Önce'
     Upcoming: 'İlk gösterim tarihi'
-  Published on: 'Yayınlandı'
+  Published on: 'Yayımlanma tarihi'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % önce'
 #& Videos
@@ -464,6 +464,8 @@ Video:
   Open Channel in Invidious: İnvidious'da Kanal Aç
   Copy YouTube Channel Link: Youtube Kanalı Bağlantısını Kopyala
   Open Channel in YouTube: Youtube'da Kanal Açın
+  Started streaming on: Yayına başlama tarihi
+  Streamed on: Yayınlanma tarihi
 Videos:
   #& Sort By
   Sort By:
