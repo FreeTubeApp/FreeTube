@@ -78,6 +78,9 @@ Subscriptions:
     Subscription list is currently empty. Start adding subscriptions to see them here.'
   'Getting Subscriptions. Please wait.': 'Getting Subscriptions. Please wait.'
   Refresh Subscriptions: 'Refresh Subscriptions'
+  Load More Videos: Load More Videos
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: This
+    profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting
 Trending: 'Trending'
 Most Popular: 'Most Popular'
 Playlists: 'Playlists'
@@ -146,6 +149,9 @@ Settings:
       Deep Orange: 'Deep Orange'
     Secondary Color Theme: 'Secondary Colour Theme'
         #* Main Color Theme
+    UI Scale: UI Scale
+    Disable Smooth Scrolling: Disable Smooth Scrolling
+    Expand Side Bar by Default: Expand Side Bar by Default
   Player Settings:
     Player Settings: 'Player Settings'
     Force Local Backend for Legacy Formats: 'Force Local Back-end for Legacy Formats'
@@ -232,6 +238,7 @@ Settings:
     Unable to write file: 'Unable to write file'
     Unknown data key: 'Unknown data key'
     How do I import my subscriptions?: 'How do I import my subscriptions?'
+    Check for Legacy Subscriptions: Check for Legacy Subscriptions
   Advanced Settings:
     Advanced Settings: 'Advanced Settings'
     Enable Debug Mode (Prints data to the console): 'Enable Debug Mode (Prints data
@@ -259,6 +266,19 @@ Settings:
       #& Yes
       #& No
 
+  Distraction Free Settings:
+    Hide Live Chat: Hide Live Chat
+    Hide Popular Videos: Hide Popular Videos
+    Hide Trending Videos: Hide Trending Videos
+    Hide Recommended Videos: Hide Recommended Videos
+    Hide Comment Likes: Hide Comment Likes
+    Hide Channel Subscribers: Hide Channel Subscribers
+    Hide Video Likes And Dislikes: Hide Video Likes And Dislikes
+    Hide Video Views: Hide Video Views
+    Distraction Free Settings: Distraction Free Settings
+  The app needs to restart for changes to take effect. Restart and apply change?: The
+    app needs to restart for changes to take effect. Do you want to restart and apply
+    the changes?
 About:
   #On About page
   About: 'About'
@@ -430,11 +450,25 @@ Video:
     Year: 'Year'
     Years: 'Years'
     Ago: 'Ago'
-    Upcoming: 'Premieres soon'
+    Upcoming: 'Premieres on'
   Published on: 'Published on'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % ago'
+  Publicationtemplate: '$ % ago'
 #& Videos
+  Started streaming on: Started streaming on
+  Streamed on: Streamed on
+  Audio:
+    Best: Best
+    High: High
+    Medium: Medium
+    Low: Low
+  audio only: audio only
+  video only: video only
+  Download Video: Download Video
+  Copy Invidious Channel Link: Copy the link of this Invidious Channel
+  Open Channel in Invidious: Open this Channel in Invidious
+  Copy YouTube Channel Link: Copy the Link of this YouTube Channel
+  Open Channel in YouTube: Open this Channel in YouTube
 Videos:
   #& Sort By
   Sort By:
@@ -481,6 +515,8 @@ Share:
   Invidious Embed URL copied to clipboard: 'Invidious Embed URL copied to clipboard'
   YouTube URL copied to clipboard: 'YouTube URL copied to clipboard'
   YouTube Embed URL copied to clipboard: 'YouTube Embed URL copied to clipboard'
+  YouTube Channel URL copied to clipboard: YouTube Channel URL copied to clipboard
+  Invidious Channel URL copied to clipboard: Invidious Channel URL copied to clipboard
 Mini Player: 'Mini Player'
 Comments:
   Comments: 'Comments'
@@ -498,6 +534,10 @@ Comments:
   There are no comments available for this video: 'There are no comments available
     for this video'
   Load More Comments: 'Load More Comments'
+  No more comments available: No more comments available
+  Newest first: Newest First
+  Top comments: Top comments
+  Sort by: Sort by
 Up Next: 'Up Next'
 
 # Toast Messages
@@ -524,3 +564,33 @@ No: 'No'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: This
   video is unavailable because of missing formats. This can happen due to country
   unavailability.
+Tooltips:
+  Subscription Settings:
+    Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
+      method to grab your subscription feed. RSS is faster and prevents IP blocking,
+      but it doesn't provide certain information like video duration, or live status
+  Player Settings:
+    Default Video Format: Set the formats used when a video plays. Dash formats can
+      play much higher qualities. Legacy formats are limited to a maximum of 720p,
+      but use less bandwidth. Audio formats stream only audio
+    Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead
+      of making a direct connection to YouTube. Overrides API preference
+    Force Local Backend for Legacy Formats: This only works when the Invidious API
+      is your default. When enabled, the local API will run and use the legacy formats
+      returned by that instead of the ones returned by Invidious. It helps when the
+      videos returned by Invidious can't play because of regional restrictions
+  General Settings:
+    Region for Trending: The region of trends allows you to pick which country's trending
+      videos you want to have displayed. Not all countries displayed are actually
+      supported by YouTube
+    Invidious Instance: The Invidious instance that FreeTube will connect to for API
+      calls. Clear the current instance to see a list of public instances to choose
+      from
+    Thumbnail Preference: All thumbnails throughout FreeTube will be replaced with
+      a frame of the video instead of the default thumbnail
+    Fallback to Non-Preferred Backend on Failure: When your preferred API has a problem,
+      FreeTube will automatically attempt to use your non-preferred API as a fallback
+      method when it's enabled
+    Preferred API Backend: Choose the back-end that FreeTube uses to obtain data.
+      The local API is a built-in extractor. The Invidious API requires an Invidious
+      server to connect to.
