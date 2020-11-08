@@ -433,6 +433,8 @@ Video:
   Open Channel in Invidious: Apri Canale su Invidious
   Copy YouTube Channel Link: Copia Link del Canale YouTube
   Open Channel in YouTube: Apri Canale su Youtube
+  Started streaming on: Stream iniziato il
+  Streamed on: Streaming il
 Videos:
   #& Sort By
   Sort By:
@@ -583,8 +585,8 @@ Tooltips:
       vengono riprodotti a causa di restrizioni geografiche
     Default Video Format: Imposta i formati usati quando un video viene riprodotto.
       I formati dash possono riprodurre qualità maggiori. I formati legacy sono limitati
-      ad un massimo di 720p ma usano meno banda. I formati audio risproducono solo
-      l'audio (non l'avrei mai detto XD)
+      ad un massimo di 720p ma usano meno banda. I formati audio riproducono solo
+      l'audio
     Proxy Videos Through Invidious: Mi connetterò a Invidious per mostrare i video
       invece di connettermi direttamente a YouTube. Sostituisco le preferenze API
   Subscription Settings:
