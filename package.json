@@ -30,6 +30,7 @@
     "videojs-abloop": "^1.2.0",
     "videojs-contrib-quality-levels": "^2.0.9",
     "videojs-http-source-selector": "^1.1.6",
+    "videojs-overlay": "^2.1.4",
     "videojs-replay": "^1.1.0",
     "videojs-vtt-thumbnails-freetube": "0.0.15",
     "vue": "^2.6.12",

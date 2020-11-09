@@ -2020,3 +2020,8 @@ video::-webkit-media-text-track-display {
   position: relative;
   top: -1px;
 }
+
+.vjs-overlay {
+  font-size: xx-large;
+  max-width: 100% !important;
+}
