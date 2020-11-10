@@ -73,6 +73,9 @@ Subscriptions:
   Refresh Subscriptions: Atualizar Inscrições
   'Getting Subscriptions. Please wait.': Obtendo Inscrições. Por favor aguarde.
   Load More Videos: Carregar mais vídeos
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
+    perfil tem um grande número de inscrições.  Forçando RSS para evitar limitação
+    de banda
 Trending: 'Em alta'
 Most Popular: 'Mais populares'
 Playlists: 'Listas'
@@ -112,6 +115,7 @@ Settings:
     Region for Trending: 'Região para o “Em alta”'
         #! List countries
     Check for Updates: Checar por atualizações
+    Check for Latest Blog Posts: Verificar se há Novas Postagens no Blog
   Theme Settings:
     Theme Settings: 'Configurações de aparência'
     Match Top Bar with Main Color: 'Usar a cor principal para a barra superior'
@@ -140,6 +144,9 @@ Settings:
       Deep Orange: 'Laranja escura'
     Secondary Color Theme: 'Cor secundária'
         #* Main Color Theme
+    UI Scale: Escala da Interface de Usuário
+    Disable Smooth Scrolling: Desativar Rolagem Suave
+    Expand Side Bar by Default: Expandir Barra Lateral por Padrão
   Player Settings:
     Player Settings: 'Configurações do vídeo'
     Force Local Backend for Legacy Formats: 'Forçar motor local para formatos legados'
@@ -181,6 +188,7 @@ Settings:
     Import Subscriptions: 'Importar inscrições'
     Export Subscriptions: 'Exportar inscrições'
     How do I import my subscriptions?: 'Como posso importar minhas inscrições?'
+    Fetch Feeds from RSS: Buscar Informações através de RSS
   Advanced Settings:
     Advanced Settings: 'Configurações avançadas'
     Enable Debug Mode (Prints data to the console): 'Habilitar modo de depuração (Mostra
@@ -220,6 +228,10 @@ Settings:
     Save Watched Progress: Salvar progresso de visualização
     Remember History: Lembrar histórico
     Privacy Settings: Configurações de privacidade
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Tem
+      certeza de que quer apagar todas as inscrições e perfis? Esta ação não pode
+      ser desfeita.
+    Remove All Subscriptions / Profiles: Remover Todas as Inscrições / Perfis
   Data Settings:
     Subscriptions have been successfully exported: Inscrições foram exportadas com
       sucesso
@@ -234,6 +246,7 @@ Settings:
     Hide Trending Videos: Esconder vídeos em alta
     Hide Recommended Videos: Esconder vídeos recomendados
     Hide Comment Likes: Esconder curtidas dos comentários
+    Distraction Free Settings: Configurações de Modo sem Distração
   The app needs to restart for changes to take effect. Restart and apply change?: O
     aplicativo necessita reiniciar para as mudanças fazerem efeito. Reiniciar e aplicar
     mudança?
