@@ -41,7 +41,7 @@ jobs:
       with:
         path: 'package.json'
     
-      env:
+    - env:
         VERSION_NUMBER: join([${{ env.PACKAGE_VERSION }},'-nightly-',${{ env.GITHUB_RUN_ID }}], '')
     
     - name: Update package.json version
@@ -49,7 +49,7 @@ jobs:
       with:
         file: package.json
         field: version
-        value: env.VERSION_NUMBER
+        value: ${{ env.VERSION_NUMBER }}
 
     - name: Install libarchive-tools
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
