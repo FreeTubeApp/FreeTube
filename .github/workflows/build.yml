@@ -174,4 +174,4 @@ jobs:
       if: startsWith(matrix.os, 'macos')
       with:
         name: freetube-${{ env.VERSION_NUMBER }}-mac.dmg
-        path: build/freetube-${{ steps.versionNumber.outputs.VERSION_NUMBER }}.dmg
+        path: build/freetube-${{ steps.versionNumber.env.VERSION_NUMBER }}.dmg
