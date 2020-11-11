@@ -49,7 +49,7 @@ jobs:
       with:
         file: package.json
         field: version
-        value: join([${{ env.PACKAGE_VERSION }},'-nightly-',${{ env.GITHUB_RUN_ID }}], '')
+        value: 0.9.3
 
     - name: Install libarchive-tools
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
