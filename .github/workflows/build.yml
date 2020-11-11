@@ -41,7 +41,8 @@ jobs:
       with:
         path: 'package.json'
     
-    - env:
+    - name: Set Version Variable
+      env:
         VERSION_NUMBER: join([${{ env.PACKAGE_VERSION }},'-nightly-',${{ env.GITHUB_RUN_ID }}], '')
     
     - name: Update package.json version
