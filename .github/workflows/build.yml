@@ -37,6 +37,7 @@ jobs:
     - run: npm ci
     - run: npm run lint
     - name: Get Version Number
+      id: versionNumber
       uses: nyaayaya/package-version@v1
       with:
         path: 'package.json'
@@ -48,7 +49,7 @@ jobs:
       with:
         file: package.json
         field: version
-        value: ${ VERSION_NUMBER }
+        value: ${{ steps.versionNumber.outputs.VERSION_NUMBER }} 
 
     - name: Install libarchive-tools
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
