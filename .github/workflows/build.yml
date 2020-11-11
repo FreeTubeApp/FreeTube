@@ -36,13 +36,12 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
     - run: npm run lint
-      env:
-        VERSION_NUMBER: join([${{ env.PACKAGE_VERSION }},'-nightly-',${{ env.GITHUB_RUN_ID }}], '')
-    
     - name: Get Version Number
       uses: nyaayaya/package-version@v1
       with:
         path: 'package.json'
+      env:
+        VERSION_NUMBER: join([${{ env.PACKAGE_VERSION }},'-nightly-',${{ env.GITHUB_RUN_ID }}], '')
     
     - name: Update package.json version
       uses: jossef/action-set-json-field@v1
