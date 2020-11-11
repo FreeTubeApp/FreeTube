@@ -41,7 +41,7 @@ jobs:
       with:
         path: 'package.json'
       env:
-        VERSION_NUMBER: join([${{ env.PACKAGE_VERSION }},'-nightly-',${{ env.GITHUB_RUN_ID }}], '')
+        VERSION_NUMBER: join(['0.9.2','-nightly-',${{ env.GITHUB_RUN_ID }}], '')
     
     - name: Update package.json version
       uses: jossef/action-set-json-field@v1
