@@ -40,8 +40,6 @@ jobs:
       uses: nyaayaya/package-version@v1
       with:
         path: 'package.json'
-    
-    - name: Set Version Variable
       env:
         VERSION_NUMBER: join([${{ env.PACKAGE_VERSION }},'-nightly-',${{ env.GITHUB_RUN_ID }}], '')
     
