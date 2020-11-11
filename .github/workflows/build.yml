@@ -37,7 +37,7 @@ jobs:
     - run: npm ci
     - run: npm run lint
       env:
-        VERSION_NUMBER: ${{ join([env.PACKAGE_VERSION,'-nightly-',env.GITHUB_RUN_ID]) }}
+        VERSION_NUMBER: ${{ join([ env.PACKAGE_VERSION, '-nightly-', env.GITHUB_RUN_ID ]) }}
     
     - name: Get Version Number
       uses: nyaayaya/package-version@v1
