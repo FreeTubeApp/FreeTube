@@ -50,7 +50,7 @@ jobs:
       with:
         file: package.json
         field: version
-        value: ${{ env.VERSION_NUMBER }}
+        value: ${ VERSION_NUMBER }
 
     - name: Install libarchive-tools
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
