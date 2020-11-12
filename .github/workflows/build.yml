@@ -52,10 +52,11 @@ jobs:
       with:
         result-encoding: string
         script: |
-          if (${{ env.IS_DEV }} {
+          if (${{ env.IS_DEV }}) {
             return ${{ env.VERSION_NUMBER_NIGHTLY }}
           } else {
            return ${{env.VERSION_NUMBER }}
+          }
         # script: if ${{ env.IS_DEV }} then echo "::set-output name=VERSION_NUMBER::${{ env.VERSION_NUMBER_NIGHTLY }}" else echo "::set-output name=VERSION_NUMBER::${{ env.VERSION_NUMBER }}" fi
     
     - name: Update package.json version
