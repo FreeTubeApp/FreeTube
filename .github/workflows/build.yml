@@ -48,10 +48,11 @@ jobs:
         IS_DEV: ${{ contains(github.ref, 'development') }}
         VERSION_NUMBER_NIGHTLY: ${{ env.PACKAGE_VERSION }}-nightly-${{ github.run_number }}
         VERSION_NUMBER: ${{ env.PACKAGE_VERSION }}
-      run: if ${{ env.IS_DEV }}
-        echo "::set-output name=VERSION_NUMBER::${{ env.VERSION_NUMBER_NIGHTLY }}"
+      run: if ${{ env.IS_DEV 
+        then
+          echo "::set-output name=VERSION_NUMBER::${{ env.VERSION_NUMBER_NIGHTLY }}"
         else
-        echo "::set-output name=VERSION_NUMBER::${{ env.VERSION_NUMBER }}"
+          echo "::set-output name=VERSION_NUMBER::${{ env.VERSION_NUMBER }}"
         fi
     
     - name: Update package.json version
