@@ -54,7 +54,7 @@ jobs:
 
     - name: Install libarchive-tools
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
-      run: sudo apt -y install libarchive-tools; echo "Version Number ${{ env.test }} ${{ env }} ${env.test}"
+      run: sudo apt -y install libarchive-tools; echo "Version Number ${{ toJson(env) }} ${{ toJson(steps) }}"
 
     - name: Build x64 with Node.js ${{ matrix.node-version}}
       if: contains(matrix.runtime, 'x64')
