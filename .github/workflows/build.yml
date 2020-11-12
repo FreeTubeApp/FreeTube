@@ -46,6 +46,7 @@ jobs:
       uses: jossef/action-set-json-field@v1
       env:
         VERSION_NUMBER: ${{ env.PACKAGE_VERSION }}-nightly-${{ github.run_number }} # env.GITHUB_RUN_ID
+        test: test
       with:
         file: package.json
         field: version
@@ -53,7 +54,7 @@ jobs:
 
     - name: Install libarchive-tools
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
-      run: sudo apt -y install libarchive-tools; echo "Version Number ${{ env.VERSION_NUMBER }}"
+      run: sudo apt -y install libarchive-tools; echo "Version Number ${{ env.test }}"
 
     - name: Build x64 with Node.js ${{ matrix.node-version}}
       if: contains(matrix.runtime, 'x64')
