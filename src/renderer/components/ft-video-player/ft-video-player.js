@@ -445,18 +445,13 @@ export default Vue.extend({
 
     framebyframe: function (step) {
       this.player.pause()
+      const qualityHeight = this.useDash ? this.player.qualityLevels()[this.player.qualityLevels().selectedIndex].height : 0
       let fps
       // Non-Dash formats are 30fps only
-      if (!this.useDash) {
-        fps = 30
-      } else if (this.player.qualityLevels()[this.player.qualityLevels().selectedIndex].height <= 480) {
-        fps = 30
+      if (qualityHeight >= 480 && this.maxFramerate === 60) {
+        fps = 60
       } else {
-        if (this.maxFramerate === 60) {
-          fps = 60
-        } else {
-          fps = 30
-        }
+        fps = 30
       }
       // The 3 lines below were taken from the videojs-framebyframe node module by Helena Rasche
       const frameTime = 1 / fps
