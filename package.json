@@ -46,7 +46,7 @@
     "yt-dash-manifest-generator": "^1.1.0",
     "yt-trending-scraper": "^1.0.4",
     "yt-xml2vtt": "^1.1.3",
-    "ytdl-core": "^4.0.2",
+    "ytdl-core": "^4.0.3",
     "ytpl": "^1.0.1",
     "ytsr": "github:TimeForANinja/node-ytsr#wip-api-adjustments"
   },
