@@ -1,18 +1,19 @@
 # Put the name of your locale in the same language
-Locale Name: ''
-FreeTube: ''
+Locale Name: 'English (US)'
+FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >
+'This part of the app is not ready yet. Come back later when progress has been made.': >-
+  ऐप का यह हिस्सा अभी तैयार नहीं है। बाद में वापस आएँ जब प्रगति हुई हो
 
 # Webkit Menu Bar
-File: ''
-Quit: ''
-Edit: ''
-Undo: ''
-Redo: ''
-Cut: ''
-Copy: ''
-Paste: ''
+File: 'फ़ाइल'
+Quit: 'छोड़ना'
+Edit: 'संपादित करें'
+Undo: 'पूर्ववत करें'
+Redo: 'फिर से करें'
+Cut: 'कट'
+Copy: 'प्रतिलिपि'
+Paste: 'पेस्ट करें'
 Delete: ''
 Select all: ''
 Reload: ''
