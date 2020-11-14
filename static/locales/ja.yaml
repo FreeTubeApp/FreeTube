@@ -88,12 +88,12 @@ Settings:
   Settings: '設定'
   General Settings:
     General Settings: '一般設定'
-    Fallback to Non-Preferred Backend on Failure: '情報取得の問題発生時には取得方法を自動変更'
+    Fallback to Non-Preferred Backend on Failure: 'データ取得の問題発生時には取得方法を自動変更'
     Enable Search Suggestions: '検索候補の有効化'
     Default Landing Page: '起動時の表示'
     Locale Preference: '言語設定'
     Preferred API Backend:
-      Preferred API Backend: '取得方法の選択'
+      Preferred API Backend: 'データ取得方法の選択'
       Local API: '内部 API'
       Invidious API: 'Invidious API'
     Video View Type:
@@ -140,7 +140,7 @@ Settings:
       Deep Orange: '濃いオレンジ'
     Secondary Color Theme: 'テーマのアクセント カラー'
         #* Main Color Theme
-    UI Scale: UI の縮尺率
+    UI Scale: UI 縮尺率
     Expand Side Bar by Default: 幅広のサイド バーで起動
     Disable Smooth Scrolling: スムーズ スクロールの無効化
   Player Settings:
@@ -222,12 +222,12 @@ Settings:
     Remove All Subscriptions / Profiles: 登録とプロファイルをすべて削除
   Data Settings:
     How do I import my subscriptions?: 私の登録情報を取り込むにはどうしたらいいですか？
-    Unknown data key: 不明なデーター キー
+    Unknown data key: 不明なデータ キー
     Unable to write file: ファイルに書き込めません
     Unable to read file: ファイルを読み込めません
     All watched history has been successfully exported: すべての視聴履歴を正常にエクスポートしました
     All watched history has been successfully imported: すべての視聴履歴を正常にインポートしました
-    Profile object has insufficient data, skipping item: プロファイルのデーターが不完全なため、この項目の処理を省略します
+    Profile object has insufficient data, skipping item: プロファイルのデータが不完全なため、この項目の処理を省略します
     History object has insufficient data, skipping item: 履歴情報に問題があるので、破損したデータは除外して実行します
     Subscriptions have been successfully exported: 登録チャンネルを正常にエクスポートしました
     Invalid history file: 無効な履歴ファイル
