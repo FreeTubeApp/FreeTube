@@ -127,6 +127,9 @@ export default Vue.extend({
     },
 
     getFinalUrl(url) {
+      if (url.indexOf('?') === -1) {
+        return this.includeTimestamp ? `${url}?t=${this.getTimestamp()}` : url
+      }
       return this.includeTimestamp ? `${url}&t=${this.getTimestamp()}` : url
     },
 

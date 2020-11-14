@@ -69,7 +69,6 @@ export default Vue.extend({
 
       console.log('getting local trending')
       ytrend.scrape_trending_page(this.region).then((result) => {
-        console.log(result)
         const returnData = result.filter((item) => {
           return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
         })
