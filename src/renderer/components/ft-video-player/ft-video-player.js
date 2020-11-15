@@ -255,8 +255,13 @@ export default Vue.extend({
     },
 
     determineMaxFramerate: function() {
+      if (this.dashSrc.length === 0) {
+        this.maxFramerate = 60
+        return
+      }
       fs.readFile(this.dashSrc[0].url, (err, data) => {
         if (err) {
+          console.log('caught the error')
           this.maxFramerate = 60
           return
         }
