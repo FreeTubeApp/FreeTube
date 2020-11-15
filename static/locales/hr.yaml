@@ -18,7 +18,7 @@ Delete: 'Izbriši'
 Select all: 'Odaberi sve'
 Reload: 'Učitaj ponovo'
 Force Reload: 'Prisili ponovno učitavanje'
-Toggle Developer Tools: 'Uključi/isključi alate za programere'
+Toggle Developer Tools: 'Uključi alate za programere'
 Actual size: 'Stvarna veličina'
 Zoom in: 'Uvećaj prikaz'
 Zoom out: 'Umanji prikaz'
@@ -330,7 +330,7 @@ Profile:
   Profile has been updated: 'Profil je aktualiziran'
   Your default profile has been set to $: 'Tvoj standardni profil je postavljen na
     $'
-  Removed $ from your profiles: '$ uklonjen iz tvojih profila'
+  Removed $ from your profiles: '$ je uklonjen iz tvojih profila'
   Your default profile has been changed to your primary profile: 'Tvoj standardni
     profil je promijenjen u tvoj primarni profil'
   $ is now the active profile: '$ je sada aktivni profil'
@@ -347,7 +347,7 @@ Profile:
   Delete Selected: Izbriši odabrano
   Select None: Odaberi ništa
   Select All: Odaberi sve
-  $ selected: $ odabran
+  $ selected: $ je odabran
   Other Channels: Ostali kanali
   Subscription List: Popis pretplata
 Channel:
