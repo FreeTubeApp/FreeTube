@@ -32,7 +32,8 @@ If applicable, please add screenshots to help explain your problem. Especially c
  - OS: [e.g. Windows, Mac, Ubuntu, Fedora, Arch, etc.]
  - OS Version: [e.g. Windows 10, Ubuntu 20.04]
  - FreeTube version: [e.g. 0.9.0, Nightly build?]
- - Installtion Method (If applicable): [e.g. Portable, .exe, .deb, .AppImage, FlatHub]
+ - Installation Method (If applicable): [e.g. Portable, .exe, .deb, .AppImage, FlatHub]
+ - Primary API Used: [Local API, Invidious API]
 
 
 **Additional context**
