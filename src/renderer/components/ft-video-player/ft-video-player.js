@@ -5,6 +5,8 @@ import $ from 'jquery'
 import videojs from 'video.js'
 import qualitySelector from '@silvermine/videojs-quality-selector'
 import fs from 'fs'
+import 'videojs-overlay/dist/videojs-overlay'
+import 'videojs-overlay/dist/videojs-overlay.css'
 import 'videojs-vtt-thumbnails-freetube'
 import 'videojs-contrib-quality-levels'
 import 'videojs-http-source-selector'
@@ -205,6 +207,8 @@ export default Vue.extend({
 
         this.player.on('volumechange', this.updateVolume)
         this.player.controlBar.getChild('volumePanel').on('mousewheel', this.mouseScrollVolume)
+
+        this.player.on('fullscreenchange', this.fullscreenOverlay)
 
         const v = this
 
@@ -526,6 +530,35 @@ export default Vue.extend({
       }
     },
 
+    fullscreenOverlay: function () {
+      const v = this
+      const title = document.title.replace('- FreeTube', '')
+
+      if (this.player.isFullscreen()) {
+        this.player.ready(function () {
+          v.player.overlay({
+            overlays: [{
+              showBackground: false,
+              content: title,
+              start: 'mousemove',
+              end: 'userinactive'
+            }]
+          })
+        })
+      } else {
+        this.player.ready(function () {
+          v.player.overlay({
+            overlays: [{
+              showBackground: false,
+              content: ' ',
+              start: 'play',
+              end: 'loadstart'
+            }]
+          })
+        })
+      }
+    },
+
     keyboardShortcutHandler: function (event) {
       const activeInputs = $('.ft-input')
 
@@ -599,7 +632,7 @@ export default Vue.extend({
             break
           case 40:
             // Down Arrow Key
-            // Descrease Volume
+            // Decrease Volume
             event.preventDefault()
             this.changeVolume(-0.05)
             break
@@ -611,7 +644,7 @@ export default Vue.extend({
             break
           case 39:
             // Right Arrow Key
-            // Fast Foward by 5 seconds
+            // Fast Forward by 5 seconds
             event.preventDefault()
             this.changeDurationBySeconds(5)
             break
