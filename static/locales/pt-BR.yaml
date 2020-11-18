@@ -365,7 +365,7 @@ Video:
     Year: 'ano'
     Years: 'anos'
     Ago: 'Atrás'
-    Upcoming: 'Futuramente'
+    Upcoming: 'Futuramente em'
   Published on: 'Publicado em'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Há $ %'
@@ -442,8 +442,8 @@ Shuffle is now disabled: 'Embaralhamento foi desativado'
 Shuffle is now enabled: 'Embaralhamento foi ativado'
 Playing Next Video: 'Reproduzindo próximo vídeo'
 Playing Previous Video: 'Reproduzindo vídeo anterior'
-Playing next video in 5 seconds.  Click to cancel: 'Reproduzindo o próximo vídeo em
-  5 segundos. Clique para cancelar'
+Playing next video in 5 seconds.  Click to cancel: 'O próximo vídeo será reproduzido
+  em 5 segundos. Clique para cancelar.'
 Canceled next video autoplay: 'Auto-reprodução foi cancelada para o próximo vídeo'
 'The playlist has ended.  Enable loop to continue playing': 'A lista acabou. Habilite
   o ciclo para continuar reproduzindo'
