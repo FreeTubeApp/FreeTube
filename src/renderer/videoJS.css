@@ -213,6 +213,7 @@
 }
 
 .vjs-icon-cancel, .video-js .vjs-control.vjs-close-button .vjs-icon-placeholder {
+  color: #fff;
   font-family: VideoJS;
   font-weight: normal;
   font-style: normal;
@@ -1550,7 +1551,7 @@ video::-webkit-media-text-track-display {
 .vjs-modal-dialog.vjs-text-track-settings {
   background-color: #2B333F;
   background-color: rgba(43, 51, 63, 0.75);
-  color: #fff;
+  color: #000;
   height: 70%;
 }
 
