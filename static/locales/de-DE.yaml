@@ -116,7 +116,7 @@ Settings:
       (Standard ist https://invidious.snopyta.org)
     Region for Trending: Region für Trends
         #! List countries
-    Check for Latest Blog Posts: Nach aktuellsten Blogeintrag suchen
+    Check for Latest Blog Posts: Nach aktuellstem Blogeintrag suchen
     Check for Updates: Nach Aktualisierungen suchen
   Theme Settings:
     Theme Settings: Thema Einstellungen
@@ -373,7 +373,7 @@ Video:
   Live Chat is currently not supported in this build.: Live-Chat ist in der aktuellen
     Version nicht unterstützt.
   'Chat is disabled or the Live Stream has ended.': Der Chat ist deaktiviert oder
-    der Livestream zuende.
+    der Livestream ist beendet.
   Live chat is enabled.  Chat messages will appear here once sent.: Der Live-Chat
     ist aktiviert.  Chatnachrichten tauchen hier auf, wenn sie abgesendet wurden.
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': Live-Chat
@@ -436,6 +436,8 @@ Video:
   Open Channel in Invidious: Öffne Kanal auf Invidious
   Copy YouTube Channel Link: Kopiere YouTube Kanallink
   Open Channel in YouTube: Öffne Kanal auf YouTube
+  Started streaming on: Streaming angefangen am
+  Streamed on: Gestreamt am
 Videos:
   #& Sort By
   Sort By:

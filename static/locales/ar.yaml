@@ -7,7 +7,7 @@ FreeTube: 'فريتيوب'
 
 # Webkit Menu Bar
 File: 'ملف'
-Quit: 'مغادرة'
+Quit: 'إغلاق'
 Edit: 'تحرير'
 Undo: 'تراجع'
 Redo: 'إعادة'
@@ -18,11 +18,11 @@ Delete: 'حذف'
 Select all: 'تحديد الكل'
 Reload: 'إعادة تحميل'
 Force Reload: 'فرض إعادة التحميل'
-Toggle Developer Tools: 'تبديل إلى أدوات المطوّر'
+Toggle Developer Tools: 'تفعيل أدوات المطوّر'
 Actual size: 'الحجم الأصلي'
 Zoom in: 'تكبير'
 Zoom out: 'تصغير'
-Toggle fullscreen: 'ملء الشاشة'
+Toggle fullscreen: 'تفعيل وضع الشاشة الكاملة'
 Window: 'نافذة'
 Minimize: 'تصغير'
 Close: 'إغلاق'
@@ -83,7 +83,7 @@ User Playlists:
 History:
   # On History Page
   History: 'السجلّ'
-  Watch History: 'سجلّ المشاهدة'
+  Watch History: 'سجلّ المشاهدات'
   Your history list is currently empty.: 'قائمة سجلّك فارغة حالياً.'
 Settings:
   # On Settings Page
@@ -92,15 +92,15 @@ Settings:
     General Settings: 'الإعدادات العامة'
     Fallback to Non-Preferred Backend on Failure: 'الرجوع إلى الواجهة الخلفية الغير
       مفضلة عند الفشل'
-    Enable Search Suggestions: 'تفعيل إقتراحات البحث'
+    Enable Search Suggestions: 'تفعيل الإقتراحات عند البحث'
     Default Landing Page: 'الصفحة ‪المقصودة الافتراضية'
-    Locale Preference: 'تفضيل اللغة'
+    Locale Preference: 'اللغات المفضلة'
     Preferred API Backend:
-      Preferred API Backend: 'API الواجهة الخلفية المفضلة'
-      Local API: 'API المحلي'
-      Invidious API: 'Invidious API'
+      Preferred API Backend: 'الواجهة الخلفية المفضلة'
+      Local API: 'واجهة برمجة محلية'
+      Invidious API: 'واجهة برمجة "انفيديوس"'
     Video View Type:
-      Video View Type: 'نوع مشاهدة الفيديو'
+      Video View Type: 'شكل عرض الفيديو'
       Grid: 'شبكة'
       List: 'قائمة'
     Thumbnail Preference:
@@ -265,6 +265,7 @@ Settings:
     Data Settings: إعدادات البيانات
     One or more subscriptions were unable to be imported: تعذر استيراد واحد أو أكثر
       من الاشتراكات
+    Check for Legacy Subscriptions: تحقق من وجود اشتراك قديم
   Distraction Free Settings:
     Hide Live Chat: اخفي الدردشة المباشرة
     Hide Popular Videos: اخفي الفيديوهات الأكثر شعبية
@@ -273,6 +274,8 @@ Settings:
     Hide Comment Likes: اخفي اعجابات التعليقات
     Hide Channel Subscribers: اخفي اشتراكات القنوات
     Hide Video Views: اخفي عدد مشاهدات الفيديوهات
+    Hide Video Likes And Dislikes: إخفاء الإعجاب وعدم الإعجاب للفيديو
+    Distraction Free Settings: إعدادات عدم الإزعاج
   The app needs to restart for changes to take effect. Restart and apply change?: البرنامج
     يحتاج لإعادة التشغيل كي يسري مفعول التغييرات. هل تريد إعادة التشغيل و تطبيق التغييرات؟
 About:
@@ -388,8 +391,8 @@ Video:
   Copy YouTube Link: '‫انسخ رابط اليوتيوب'
   Open YouTube Embedded Player: 'افتح في مشغّل اليوتيوب المُضمّن'
   Copy YouTube Embedded Player Link: 'انسخ رابط مشغل اليوتيوب المُضمّن'
-  Open in Invidious: 'فتح في Invidious'
-  Copy Invidious Link: 'انسخ رابط Invidious'
+  Open in Invidious: 'إفتح على انفيديوس'
+  Copy Invidious Link: 'انسخ رابط انفيديوس'
   View: 'عرض'
   Views: 'مشاهدات'
   # Context is "X People Watching"
@@ -457,6 +460,12 @@ Video:
   audio only: صوت فقط
   video only: فيديو فقط
   Download Video: نزّل الفيديو
+  Started streaming on: بدأ البث على
+  Streamed on: تبث على
+  Copy Invidious Channel Link: انسخ رابط قناة انفيديوس
+  Open Channel in Invidious: افتح القناة على انفيديوس
+  Copy YouTube Channel Link: انسخ رابط قناة اليوتيوب
+  Open Channel in YouTube: افتح القناة على يوتيوب
 Videos:
   #& Sort By
   Sort By:
@@ -501,6 +510,8 @@ Share:
   YouTube URL copied to clipboard: 'تم نسخ رابط اليوتيوب إلى الحافظة'
   YouTube Embed URL copied to clipboard: 'تم نسخ رابط يوتيوب المُضمّن إلى الحافظة'
   Include Timestamp: تضمين الختم الزمني
+  YouTube Channel URL copied to clipboard: تم نسخ رابط قناة اليوتيوب
+  Invidious Channel URL copied to clipboard: تم نسخ رابط قناة انفيديوس
 Mini Player: 'المشغل المصغّر'
 Comments:
   Comments: 'التعليقات'
@@ -555,3 +566,7 @@ Tooltips:
     Preferred API Backend: اختر الواجهة الخلفية التي يستخدمها FreeTube لجلب البيانات.
       الAPI المحلي هو مستخرج محلي. الAPI التابع لInvidious يتطلب التواصل مع خادم شبكة
       Invidious
+    Invidious Instance: واجهة انفيديوس البرمجية المستخدمة من قبل فريتيوب. امسح الواجهة
+      البرمجية الحالية للاختيار من قائمة الواجهات العلنية
+    Fallback to Non-Preferred Backend on Failure: عند تواجد مشكلة مع الواجهة البرمجية
+      المفضلة لك، سوف يقوم فريتيوب باستخدام الواجهات الأخرى عند تفعيل هذا الخيار

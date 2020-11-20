@@ -1,15 +1,16 @@
 ---
 name: Bug report
-about: Create a report to help us improve the application
+about: Report an issue or unexpected behavior that occurs within the application
 title: ''
 labels: bug
 assignees: ''
 
 ---
 
-**Important note**
-Please check other open and closed issues for a similar bug before reporting a new one. 
-Also please leave all headers except this one in the issue, so that it is clear what belongs where.
+**README: Before You Submit Your Issue**
+- Please check other open and closed issues for a similar bug before reporting a new one.
+- Make sure you are on the latest release of FreeTube before submitting an issue.
+- Remove this notice before posting.
 
 **Behavior of the program**
 Please write a clear and concise description of what the bug is.
@@ -27,11 +28,12 @@ Please add all steps to reproduce the behavior:
 **Screenshots**
 If applicable, please add screenshots to help explain your problem. Especially console logs from the development tools are very helpful.
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - OS Version: [e.g. 22]
- - FreeTube version: [e.g. 0.8]
- - FreeTube build: [Nightly or Release]
+**Environment Information (please complete the following information):**
+ - OS: [e.g. Windows, Mac, Ubuntu, Fedora, Arch, etc.]
+ - OS Version: [e.g. Windows 10, Ubuntu 20.04]
+ - FreeTube version: [e.g. 0.9.0, Nightly build?]
+ - Installation Method (If applicable): [e.g. Portable, .exe, .deb, .AppImage, FlatHub]
+ - Primary API Used: [Local API, Invidious API]
 
 
 **Additional context**

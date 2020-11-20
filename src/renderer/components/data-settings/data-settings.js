@@ -30,6 +30,7 @@ export default Vue.extend({
       subscriptionsPromptValues: [
         'freetube',
         'youtube',
+        'youtubeold',
         'newpipe'
       ]
     }
@@ -59,6 +60,7 @@ export default Vue.extend({
       const importNewPipe = this.$t('Settings.Data Settings.Import NewPipe')
       return [
         `${importFreeTube} (.db)`,
+        `${importYouTube} (.json)`,
         `${importYouTube} (.opml)`,
         `${importNewPipe} (.json)`
       ]
@@ -69,6 +71,7 @@ export default Vue.extend({
       const exportNewPipe = this.$t('Settings.Data Settings.Export NewPipe')
       return [
         `${exportFreeTube} (.db)`,
+        `${exportYouTube} (.json)`,
         `${exportYouTube} (.opml)`,
         `${exportNewPipe} (.json)`
       ]
@@ -88,6 +91,9 @@ export default Vue.extend({
           break
         case 'youtube':
           this.importYouTubeSubscriptions()
+          break
+        case 'youtubeold':
+          this.importOpmlYouTubeSubscriptions()
           break
         case 'newpipe':
           this.importNewPipeSubscriptions()
@@ -219,7 +225,102 @@ export default Vue.extend({
       })
     },
 
+    handleYoutubeImportFile: function (filePath) {
+      fs.readFile(filePath, async (err, data) => {
+        if (err) {
+          const message = this.$t('Settings.Data Settings.Unable to read file')
+          this.showToast({
+            message: `${message}: ${err}`
+          })
+          return
+        }
+
+        let textDecode = new TextDecoder('utf-8').decode(data)
+        textDecode = JSON.parse(textDecode)
+
+        console.log(textDecode)
+
+        const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
+        const subscriptions = []
+
+        this.updateShowProgressBar(true)
+        this.setProgressBarPercentage(0)
+
+        let count = 0
+
+        textDecode.forEach((channel) => {
+          const snippet = channel.snippet
+
+          if (typeof snippet === 'undefined') {
+            throw new Error('Unable to find channel data')
+          }
+
+          const subscription = {
+            id: snippet.resourceId.channelId,
+            name: snippet.title,
+            thumbnail: snippet.thumbnails.default.url
+          }
+
+          const subExists = primaryProfile.subscriptions.findIndex((sub) => {
+            return sub.id === subscription.id || sub.name === subscription.name
+          })
+
+          if (subExists === -1) {
+            subscriptions.push(subscription)
+          }
+
+          count++
+
+          const progressPercentage = (count / textDecode.length) * 100
+          this.setProgressBarPercentage(progressPercentage)
+
+          if (count === textDecode.length) {
+            primaryProfile.subscriptions = primaryProfile.subscriptions.concat(subscriptions)
+            this.updateProfile(primaryProfile)
+
+            if (subscriptions.length < count) {
+              this.showToast({
+                message: this.$t('Settings.Data Settings.One or more subscriptions were unable to be imported')
+              })
+            } else {
+              this.showToast({
+                message: this.$t('Settings.Data Settings.All subscriptions have been successfully imported')
+              })
+            }
+
+            this.updateShowProgressBar(false)
+          }
+        })
+      })
+    },
+
     importYouTubeSubscriptions: function () {
+      const options = {
+        properties: ['openFile'],
+        filters: [
+          {
+            name: 'Database File',
+            extensions: ['json']
+          }
+        ]
+      }
+
+      dialog.showOpenDialog(options).then(async (response) => {
+        if (response.canceled || response.filePaths.length === 0) {
+          return
+        }
+
+        const filePath = response.filePaths[0]
+
+        try {
+          this.handleYoutubeImportFile(filePath)
+        } catch (err) {
+          console.log(err)
+        }
+      })
+    },
+
+    importOpmlYouTubeSubscriptions: function () {
       const options = {
         properties: ['openFile'],
         filters: [
@@ -452,6 +553,9 @@ export default Vue.extend({
         case 'youtube':
           this.exportYouTubeSubscriptions()
           break
+        case 'youtubeold':
+          this.exportOpmlYouTubeSubscriptions()
+          break
         case 'newpipe':
           this.exportNewPipeSubscriptions()
           break
@@ -521,7 +625,94 @@ export default Vue.extend({
       })
     },
 
-    exportYouTubeSubscriptions: async function () {
+    exportYouTubeSubscriptions: function () {
+      const date = new Date()
+      let dateMonth = date.getMonth() + 1
+
+      if (dateMonth < 10) {
+        dateMonth = '0' + dateMonth
+      }
+
+      let dateDay = date.getDate()
+
+      if (dateDay < 10) {
+        dateDay = '0' + dateDay
+      }
+
+      const dateYear = date.getFullYear()
+      const exportFileName = 'youtube-subscriptions-' + dateYear + '-' + dateMonth + '-' + dateDay + '.json'
+
+      const options = {
+        defaultPath: exportFileName,
+        filters: [
+          {
+            name: 'Database File',
+            extensions: ['json']
+          }
+        ]
+      }
+
+      const subscriptionsObject = this.profileList[0].subscriptions.map((channel) => {
+        const object = {
+          contentDetails: {
+            activityType: 'all',
+            newItemCount: 0,
+            totalItemCount: 0
+          },
+          etag: '',
+          id: '',
+          kind: 'youtube#subscription',
+          snippet: {
+            channelId: channel.id,
+            description: '',
+            publishedAt: new Date(),
+            resourceId: {
+              channelId: channel.id,
+              kind: 'youtube#channel'
+            },
+            thumbnails: {
+              default: {
+                url: channel.thumbnail
+              },
+              high: {
+                url: channel.thumbnail
+              },
+              medium: {
+                url: channel.thumbnail
+              }
+            },
+            title: channel.name
+          }
+        }
+
+        return object
+      })
+
+      dialog.showSaveDialog(options).then((response) => {
+        if (response.canceled || response.filePath === '') {
+          // User canceled the save dialog
+          return
+        }
+
+        const filePath = response.filePath
+
+        fs.writeFile(filePath, JSON.stringify(subscriptionsObject), (writeErr) => {
+          if (writeErr) {
+            const message = this.$t('Settings.Data Settings.Unable to write file')
+            this.showToast({
+              message: `${message}: ${writeErr}`
+            })
+            return
+          }
+
+          this.showToast({
+            message: this.$t('Settings.Data Settings.Subscriptions have been successfully exported')
+          })
+        })
+      })
+    },
+
+    exportOpmlYouTubeSubscriptions: async function () {
       const date = new Date()
       let dateMonth = date.getMonth() + 1
 

@@ -4,6 +4,9 @@ import FtCard from '../ft-card/ft-card.vue'
 import $ from 'jquery'
 import videojs from 'video.js'
 import qualitySelector from '@silvermine/videojs-quality-selector'
+import fs from 'fs'
+import 'videojs-overlay/dist/videojs-overlay'
+import 'videojs-overlay/dist/videojs-overlay.css'
 import 'videojs-vtt-thumbnails-freetube'
 import 'videojs-contrib-quality-levels'
 import 'videojs-http-source-selector'
@@ -60,6 +63,7 @@ export default Vue.extend({
       useDash: false,
       useHls: false,
       selectedDefaultQuality: '',
+      maxFramerate: 0,
       activeSourceList: [],
       mouseTimeout: null,
       dataSetup: {
@@ -142,6 +146,7 @@ export default Vue.extend({
     }
 
     this.determineFormatType()
+    this.determineMaxFramerate()
   },
   beforeDestroy: function () {
     if (this.player !== null && !this.player.isInPictureInPicture()) {
@@ -203,6 +208,8 @@ export default Vue.extend({
         this.player.on('volumechange', this.updateVolume)
         this.player.controlBar.getChild('volumePanel').on('mousewheel', this.mouseScrollVolume)
 
+        this.player.on('fullscreenchange', this.fullscreenOverlay)
+
         const v = this
 
         this.player.on('ready', function () {
@@ -249,6 +256,25 @@ export default Vue.extend({
       } else {
         this.enableLegacyFormat()
       }
+    },
+
+    determineMaxFramerate: function() {
+      if (this.dashSrc.length === 0) {
+        this.maxFramerate = 60
+        return
+      }
+      fs.readFile(this.dashSrc[0].url, (err, data) => {
+        if (err) {
+          console.log('caught the error')
+          this.maxFramerate = 60
+          return
+        }
+        if (data.includes('frameRate="60"')) {
+          this.maxFramerate = 60
+        } else {
+          this.maxFramerate = 30
+        }
+      })
     },
 
     determineDefaultQualityLegacy: function () {
@@ -426,6 +452,22 @@ export default Vue.extend({
       }
     },
 
+    framebyframe: function (step) {
+      this.player.pause()
+      const qualityHeight = this.useDash ? this.player.qualityLevels()[this.player.qualityLevels().selectedIndex].height : 0
+      let fps
+      // Non-Dash formats are 30fps only
+      if (qualityHeight >= 480 && this.maxFramerate === 60) {
+        fps = 60
+      } else {
+        fps = 30
+      }
+      // The 3 lines below were taken from the videojs-framebyframe node module by Helena Rasche
+      const frameTime = 1 / fps
+      const dist = frameTime * step
+      this.player.currentTime(this.player.currentTime() + dist)
+    },
+
     changeVolume: function (volume) {
       const currentVolume = this.player.volume()
       const newVolume = currentVolume + volume
@@ -485,6 +527,35 @@ export default Vue.extend({
     removeMouseTimeout: function () {
       if (this.mouseTimeout !== null) {
         clearTimeout(this.mouseTimeout)
+      }
+    },
+
+    fullscreenOverlay: function () {
+      const v = this
+      const title = document.title.replace('- FreeTube', '')
+
+      if (this.player.isFullscreen()) {
+        this.player.ready(function () {
+          v.player.overlay({
+            overlays: [{
+              showBackground: false,
+              content: title,
+              start: 'mousemove',
+              end: 'userinactive'
+            }]
+          })
+        })
+      } else {
+        this.player.ready(function () {
+          v.player.overlay({
+            overlays: [{
+              showBackground: false,
+              content: ' ',
+              start: 'play',
+              end: 'loadstart'
+            }]
+          })
+        })
       }
     },
 
@@ -561,7 +632,7 @@ export default Vue.extend({
             break
           case 40:
             // Down Arrow Key
-            // Descrease Volume
+            // Decrease Volume
             event.preventDefault()
             this.changeVolume(-0.05)
             break
@@ -573,7 +644,7 @@ export default Vue.extend({
             break
           case 39:
             // Right Arrow Key
-            // Fast Foward by 5 seconds
+            // Fast Forward by 5 seconds
             event.preventDefault()
             this.changeDurationBySeconds(5)
             break
@@ -636,6 +707,16 @@ export default Vue.extend({
             // Jump to 0% in the video (The beginning)
             event.preventDefault()
             this.changeDurationByPercentage(0)
+            break
+          case 188:
+            // , Key
+            // Return to previous frame
+            this.framebyframe(-1)
+            break
+          case 190:
+            // . Key
+            // Advance to next frame
+            this.framebyframe(1)
             break
         }
       }

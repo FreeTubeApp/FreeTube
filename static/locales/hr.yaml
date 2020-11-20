@@ -18,7 +18,7 @@ Delete: 'Izbriši'
 Select all: 'Odaberi sve'
 Reload: 'Učitaj ponovo'
 Force Reload: 'Prisili ponovno učitavanje'
-Toggle Developer Tools: 'Uključi/isključi alate za programere'
+Toggle Developer Tools: 'Uključi alate za programere'
 Actual size: 'Stvarna veličina'
 Zoom in: 'Uvećaj prikaz'
 Zoom out: 'Umanji prikaz'
@@ -330,7 +330,7 @@ Profile:
   Profile has been updated: 'Profil je aktualiziran'
   Your default profile has been set to $: 'Tvoj standardni profil je postavljen na
     $'
-  Removed $ from your profiles: '$ uklonjen iz tvojih profila'
+  Removed $ from your profiles: '$ je uklonjen iz tvojih profila'
   Your default profile has been changed to your primary profile: 'Tvoj standardni
     profil je promijenjen u tvoj primarni profil'
   $ is now the active profile: '$ je sada aktivni profil'
@@ -347,7 +347,7 @@ Profile:
   Delete Selected: Izbriši odabrano
   Select None: Odaberi ništa
   Select All: Odaberi sve
-  $ selected: $ odabran
+  $ selected: $ je odabran
   Other Channels: Ostali kanali
   Subscription List: Popis pretplata
 Channel:
@@ -464,6 +464,8 @@ Video:
   Open Channel in Invidious: 'Otvori kanal na Invidious stranici'
   Copy YouTube Channel Link: 'Kopiraj poveznicu na YouTube kanal'
   Open Channel in YouTube: 'Otvori kanal na YouTube stranici'
+  Started streaming on: Početak prijenosa
+  Streamed on: Prijenos
 Videos:
   #& Sort By
   Sort By:
@@ -568,7 +570,7 @@ Tooltips:
   Player Settings:
     Default Video Format: Postavi formate za reprodukciju videa. Dash formati mogu
       reproducirati višu kvalitetu slike. Stari formati su ograničeni na 720 p, ali
-      su zato brži. Audioformati sadrže samo audiosnimke
+      su zato brži. Prijenosi audioformata sadrže samo audiosnimke
     Proxy Videos Through Invidious: Za reprodukciju videa povezat će se s Invidiousom
       umjesto izravnog povezivanja s YouTubeom. Zanemaruje postavke sučelja
     Force Local Backend for Legacy Formats: Radi samo, kad postaviš Invidious kao

@@ -72,6 +72,10 @@ Subscriptions:
   'Getting Subscriptions.  Please wait.': 'Buscando inscrições. Por favor, aguarde.'
   Refresh Subscriptions: Atualizar Inscrições
   'Getting Subscriptions. Please wait.': Obtendo Inscrições. Por favor aguarde.
+  Load More Videos: Carregar mais vídeos
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
+    perfil tem um grande número de inscrições.  Forçando RSS para evitar limitação
+    de banda
 Trending: 'Em alta'
 Most Popular: 'Mais populares'
 Playlists: 'Listas'
@@ -110,6 +114,8 @@ Settings:
       Invidious (A padrão é https://invidious.snopyta.org)'
     Region for Trending: 'Região para o “Em alta”'
         #! List countries
+    Check for Updates: Checar por atualizações
+    Check for Latest Blog Posts: Verificar se há Novas Postagens no Blog
   Theme Settings:
     Theme Settings: 'Configurações de aparência'
     Match Top Bar with Main Color: 'Usar a cor principal para a barra superior'
@@ -138,6 +144,9 @@ Settings:
       Deep Orange: 'Laranja escura'
     Secondary Color Theme: 'Cor secundária'
         #* Main Color Theme
+    UI Scale: Escala da Interface de Usuário
+    Disable Smooth Scrolling: Desativar Rolagem Suave
+    Expand Side Bar by Default: Expandir Barra Lateral por Padrão
   Player Settings:
     Player Settings: 'Configurações do vídeo'
     Force Local Backend for Legacy Formats: 'Forçar motor local para formatos legados'
@@ -179,6 +188,7 @@ Settings:
     Import Subscriptions: 'Importar inscrições'
     Export Subscriptions: 'Exportar inscrições'
     How do I import my subscriptions?: 'Como posso importar minhas inscrições?'
+    Fetch Feeds from RSS: Buscar Informações através de RSS
   Advanced Settings:
     Advanced Settings: 'Configurações avançadas'
     Enable Debug Mode (Prints data to the console): 'Habilitar modo de depuração (Mostra
@@ -218,6 +228,28 @@ Settings:
     Save Watched Progress: Salvar progresso de visualização
     Remember History: Lembrar histórico
     Privacy Settings: Configurações de privacidade
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Tem
+      certeza de que quer apagar todas as inscrições e perfis? Esta ação não pode
+      ser desfeita.
+    Remove All Subscriptions / Profiles: Remover Todas as Inscrições / Perfis
+  Data Settings:
+    Subscriptions have been successfully exported: Inscrições foram exportadas com
+      sucesso
+    Invalid history file: Arquivo de histórico inválido
+    One or more subscriptions were unable to be imported: Uma ou mais inscrições não
+      foram possíveis serem importadas
+    All subscriptions have been successfully imported: Todas as inscrições foram importadas
+      com sucesso
+  Distraction Free Settings:
+    Hide Live Chat: Esconder chat ao vivo
+    Hide Popular Videos: Esconder vídeos populares
+    Hide Trending Videos: Esconder vídeos em alta
+    Hide Recommended Videos: Esconder vídeos recomendados
+    Hide Comment Likes: Esconder curtidas dos comentários
+    Distraction Free Settings: Configurações de Modo sem Distração
+  The app needs to restart for changes to take effect. Restart and apply change?: O
+    aplicativo necessita reiniciar para as mudanças fazerem efeito. Reiniciar e aplicar
+    mudança?
 About:
   #On About page
   About: 'Sobre'
@@ -333,7 +365,7 @@ Video:
     Year: 'ano'
     Years: 'anos'
     Ago: 'Atrás'
-    Upcoming: 'Futuramente'
+    Upcoming: 'Futuramente em'
   Published on: 'Publicado em'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Há $ %'
@@ -410,8 +442,8 @@ Shuffle is now disabled: 'Embaralhamento foi desativado'
 Shuffle is now enabled: 'Embaralhamento foi ativado'
 Playing Next Video: 'Reproduzindo próximo vídeo'
 Playing Previous Video: 'Reproduzindo vídeo anterior'
-Playing next video in 5 seconds.  Click to cancel: 'Reproduzindo o próximo vídeo em
-  5 segundos. Clique para cancelar'
+Playing next video in 5 seconds.  Click to cancel: 'O próximo vídeo será reproduzido
+  em 5 segundos. Clique para cancelar.'
 Canceled next video autoplay: 'Auto-reprodução foi cancelada para o próximo vídeo'
 'The playlist has ended.  Enable loop to continue playing': 'A lista acabou. Habilite
   o ciclo para continuar reproduzindo'
@@ -429,3 +461,6 @@ Profile:
   All subscriptions will also be deleted.: Todas as inscrições serão também deletadas.
 Version $ is now available!  Click for more details: Versão $ está disponível agora!
   Clique para mais detalhes
+A new blog is now available, $. Click to view more: Um novo blog está disponível,
+  $. Clique para ver mais.
+Download From Site: Fazer download pelo site

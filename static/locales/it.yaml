@@ -429,6 +429,12 @@ Video:
   audio only: solo audio
   video only: solo video
   Download Video: Scarica Video
+  Copy Invidious Channel Link: Copia Link del Canale Invidious
+  Open Channel in Invidious: Apri Canale su Invidious
+  Copy YouTube Channel Link: Copia Link del Canale YouTube
+  Open Channel in YouTube: Apri Canale su Youtube
+  Started streaming on: Stream iniziato il
+  Streamed on: Streaming il
 Videos:
   #& Sort By
   Sort By:
@@ -477,6 +483,8 @@ Share:
   YouTube Embed URL copied to clipboard: 'URL di YouTube da incorporare copiato negli
     appunti'
   Include Timestamp: Includi Timestamp
+  YouTube Channel URL copied to clipboard: URL Canale YouTube copiato negli appunti
+  Invidious Channel URL copied to clipboard: URL Canale Invidous copiato negli appunti
 Mini Player: 'Visualizzatore Mini'
 Comments:
   Comments: 'Commenti'
@@ -577,8 +585,8 @@ Tooltips:
       vengono riprodotti a causa di restrizioni geografiche
     Default Video Format: Imposta i formati usati quando un video viene riprodotto.
       I formati dash possono riprodurre qualità maggiori. I formati legacy sono limitati
-      ad un massimo di 720p ma usano meno banda. I formati audio risproducono solo
-      l'audio (non l'avrei mai detto XD)
+      ad un massimo di 720p ma usano meno banda. I formati audio riproducono solo
+      l'audio
     Proxy Videos Through Invidious: Mi connetterò a Invidious per mostrare i video
       invece di connettermi direttamente a YouTube. Sostituisco le preferenze API
   Subscription Settings:
@@ -595,5 +603,8 @@ Tooltips:
       un problema, FreeTube userà automaticamente le API secondarie come ripiego quando
       abilitate
     Preferred API Backend: Scegli il back-end che FreeTube utilizza per ottenere i
-      dati. L' API locale è l'estrattore dell'app. Le API Invidious richiedono un
-      server Invidious dove connettersi
+      dati. L'API locale è l'estrattore dell'app. Le API Invidious richiedono un server
+      Invidious dove connettersi.
+    Region for Trending: La regione delle tendenze permette di scegliere la nazione
+      di cui si vogliono vedere i video di tendenza. Non tutte le nazioni mostrate
+      sono ufficialmente supportate da YouTube
