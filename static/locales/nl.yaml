@@ -1,10 +1,10 @@
 # Put the name of your locale in the same language
-Locale Name: 'Nederlands'
+Locale Name: 'Nederlands (NL)'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Dit deel van de applicatie is nog niet af. Kom later terug als er vooruitgang is
-  geboekt.
+  Dit gedeelte van de applicatie is nog niet klaar. Kom later terug als er vooruitgang
+  is geboekt.
 
 # Webkit Menu Bar
 File: 'Bestand'
@@ -18,8 +18,8 @@ Paste: 'Plakken'
 Delete: 'Verwijderen'
 Select all: 'Alles selecteren'
 Reload: 'Herladen'
-Force Reload: 'Forceer herladen'
-Toggle Developer Tools: 'Ontwikkelaarsmenu openen'
+Force Reload: 'Forceer Herladen'
+Toggle Developer Tools: 'Ontwikkelaarsmenu Openen'
 Actual size: 'Daadwerkelijke grootte'
 Zoom in: 'Inzoomen'
 Zoom out: 'Uitzoomen'
@@ -37,7 +37,7 @@ Search Filters:
   Search Filters: 'Zoekopdracht filteren'
   Sort By:
     Sort By: 'Sorteren op'
-    Most Relevant: 'Meest relevant'
+    Most Relevant: 'Meest Relevant'
     Rating: 'Beoordeling'
     Upload Date: 'Uploaddatum'
     View Count: 'Kijkcijfers'
@@ -79,7 +79,7 @@ Subscriptions:
     te voorkomen
   Load More Videos: Laad Meer Video's
 Trending: 'Trending'
-Most Popular: 'Meest Populair'
+Most Popular: 'Populair'
 Playlists: 'Afspeellijsten'
 User Playlists:
   Your Playlists: 'Uw afspeellijsten'
@@ -568,7 +568,7 @@ Profile:
   Subscription List: Abonnementen
 A new blog is now available, $. Click to view more: Een nieuwe blogpost is beschikbaar,
   $. Klik voor meer informatie
-Download From Site: Download Van Website
+Download From Site: Download van de Website
 Version $ is now available!  Click for more details: Versie $ is nu beschikbaar! Klik
   voor meer informatie
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Deze
@@ -585,12 +585,12 @@ Tooltips:
       video indelingen verzamelen in plaats van de videoformaten die worden teruggegeven
       door Invidious. Dit kan helpen wanneer een video die verzameld word via Invidious
       niet afspeelt in verband met regio restricties
-    Proxy Videos Through Invidious: FreeTube zal verbinden met Invidious en daar de
-      video's weg halen in de plaats van ze zelf bij YouTube te halen. Dit overschrijft
-      de API voorkeur
+    Proxy Videos Through Invidious: FreeTube zal verbinden met Invidious en via daar
+      de video's downloaden in de plaats van de video's rechstreeks bij YouTube vandaan
+      te halen. Dit overschrijft de ingestelde API voorkeur
   Subscription Settings:
-    Fetch Feeds from RSS: Wanneer ingeschakeld zal FreeTube RSS gebruiken on de plaats
-      van de standaard methode om videolijsten van je abonnementen te verzamelen.
+    Fetch Feeds from RSS: Wanneer ingeschakeld zal FreeTube RSS gebruiken in plaats
+      van de standaard methode om de videolijsten van je abonnementen te verzamelen.
       RSS is sneller en voorkomt dat je IP word geblokkeerd maar geeft geen toegang
       tot sommige informatie zoals de videoduur en live status
   General Settings:
