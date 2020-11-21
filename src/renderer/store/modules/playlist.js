@@ -16,48 +16,171 @@ if (window && window.process && window.process.type === 'renderer') {
   dbLocation = 'playlists.db'
 }
 
-const subDb = new Datastore({
+const playlistDb = new Datastore({
   filename: dbLocation,
   autoload: true
 })
 
 const state = {
-  activePlaylistId: '',
-  activePlaylistVideoList: [],
-  watchedVideosWithinPlaylist: []
+  playlists: [
+    {
+      _id: 'favorites',
+      protected: true,
+      videos: []
+    },
+    {
+      _id: 'watchLater',
+      protected: true,
+      videos: []
+    }
+  ]
 }
 
-const mutations = {
-  addSubscription (state, payload) {
-    state.subscriptions.push(payload)
-  },
-  setSubscriptions (state, payload) {
-    state.subscriptions = payload
-  }
+const getters = {
+  getAllPlaylists: () => state.playlists,
+  getFavorites: () => state.playlists[0],
+  getPlaylist: (playlistId) => state.playlists.find(playlist => playlist._id === playlistId),
+  getWatchLater: () => state.playlists[1]
 }
 
 const actions = {
-  addSubscriptions ({ commit }, payload) {
-    subDb.insert(payload, (err, payload) => {
-      if (!err) {
-        commit('addSubscription', payload)
+  addPlaylist ({ commit }, payload) {
+    playlistDb.insert(payload, (err, payload) => {
+      if (err) {
+        console.error(err)
+      } else {
+        commit('addPlaylist', payload)
       }
     })
   },
-  getSubscriptions ({ commit }, payload) {
-    subDb.find({}, (err, payload) => {
-      if (!err) {
-        commit('setSubscriptions', payload)
+  addPlaylists ({ commit }, payload) {
+    playlistDb.insert(payload, (err, payload) => {
+      if (err) {
+        console.error(err)
+      } else {
+        commit('addPlaylists', payload)
       }
     })
   },
-  removeSubscription ({ commit }, channelId) {
-    subDb.remove({ channelId: channelId }, {}, () => {
-      commit('setSubscriptions', this.state.subscriptions.filter(sub => sub.channelId !== channelId))
+  addVideo ({ commit }, payload) {
+    playlistDb.update({ _id: payload.playlistId }, { $push: { videos: payload.videoId } }, { upsert: true }, err => {
+      if (err) {
+        console.error(err)
+      } else {
+        commit('addVideo', payload)
+      }
+    })
+  },
+  addVideos ({ commit }, payload) {
+    playlistDb.update({ _id: payload.playlistId }, { $push: { videos: { $each: payload.videosIds } } }, { upsert: true }, err => {
+      if (err) {
+        console.error(err)
+      } else {
+        commit('addVideos', payload)
+      }
+    })
+  },
+  removeAllPlaylists ({ commit }) {
+    playlistDb.remove({ protected: { $ne: true } }, err => {
+      if (err) {
+        console.error(err)
+      } else {
+        commit('removeAllPlaylists')
+      }
+    })
+  },
+  removeAllVideos ({ commit }, playlistId) {
+    playlistDb.update({ _id: playlistId }, { $set: { videos: [] } }, { upsert: true }, err => {
+      if (err) {
+        console.error(err)
+      } else {
+        commit('removeAllVideos', playlistId)
+      }
+    })
+  },
+  removePlaylist ({ commit }, playlistId) {
+    playlistDb.remove({ _id: playlistId, protected: { $ne: true } }, (err, playlistId) => {
+      if (err) {
+        console.error(err)
+      } else {
+        commit('removePlaylist', playlistId)
+      }
+    })
+  },
+  removePlaylists ({ commit }, playlistIds) {
+    playlistDb.remove({ _id: { $in: playlistIds }, protected: { $ne: true } }, (err, playlistIds) => {
+      if (err) {
+        console.error(err)
+      } else {
+        commit('removePlaylists', playlistIds)
+      }
+    })
+  },
+  removeVideo ({ commit }, payload) {
+    playlistDb.update({ _id: payload.playlistId }, { $pull: { videos: payload.videoId } }, { upsert: true }, err => {
+      if (err) {
+        console.error(err)
+      } else {
+        commit('removeVideo', payload)
+      }
+    })
+  },
+  removeVideos ({ commit }, payload) {
+    playlistDb.update({ _id: payload.playlistId }, { $pull: { videos: { $in: payload.videoIds } } }, { upsert: true }, err => {
+      if (err) {
+        console.error(err)
+      } else {
+        commit('removeVideos', payload)
+      }
     })
   }
 }
-const getters = {}
+
+const mutations = {
+  addPlaylist (state, payload) {
+    state.playlists.push(payload)
+  },
+  addPlaylists (state, payload) {
+    state.playlists = state.playlists.concat(payload)
+  },
+  addVideo (state, payload) {
+    const playlist = state.playlists.find(playlist => playlist._id === payload.playlistId)
+    if (playlist) {
+      playlist.videos.push(payload.videoId)
+    }
+  },
+  addVideos (state, payload) {
+    const playlist = state.playlists.find(playlist => playlist._id === payload.playlistId)
+    if (playlist) {
+      playlist.videos = playlist.videos.concat(payload.playlistIds)
+    }
+  },
+  removeAllPlaylists (state) {
+    state.playlists = state.playlists.filter(playlist => playlist.protected !== true)
+  },
+  removeAllVideos (state, playlistId) {
+    const playlist = state.playlists.find(playlist => playlist._id === playlistId)
+    if (playlist) {
+      playlist.videos = []
+    }
+  },
+  removeVideo (state, payload) {
+    const playlist = state.playlists.find(playlist => playlist._id === payload.playlistId)
+    if (playlist) {
+      playlist.videos = playlist.videos.filter(video => video !== payload.videoId)
+    }
+  },
+  removeVideos (state, payload) {
+    const playlist = state.playlists.find(playlist => playlist._id === payload.playlistId)
+    if (playlist) {
+      playlist.videos = playlist.videos.filter(video => payload.videoIds.indexOf(video) === -1)
+    }
+  },
+  removePlaylist (state, playlistId) {
+    state.playlists = state.playlists.filter(playlist => playlist._id !== playlistId || playlist.protected)
+  }
+}
+
 export default {
   state,
   getters,
