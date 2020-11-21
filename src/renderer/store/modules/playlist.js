@@ -80,6 +80,15 @@ const actions = {
       }
     })
   },
+  grabAllPlaylists({ commit }) {
+    playlistDb.getAllData((err, payload) => {
+      if (err) {
+        console.error(err)
+      } else {
+        commit('setAllPlaylists', payload)
+      }
+    })
+  },
   removeAllPlaylists ({ commit }) {
     playlistDb.remove({ protected: { $ne: true } }, err => {
       if (err) {
@@ -178,6 +187,9 @@ const mutations = {
   },
   removePlaylist (state, playlistId) {
     state.playlists = state.playlists.filter(playlist => playlist._id !== playlistId || playlist.protected)
+  },
+  setAllPlaylists (state, payload) {
+    state.playlists = payload
   }
 }
 
