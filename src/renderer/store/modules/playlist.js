@@ -31,6 +31,7 @@ const state = {
     {
       _id: 'watchLater',
       protected: true,
+      removeOnWatched: true,
       videos: []
     }
   ]
