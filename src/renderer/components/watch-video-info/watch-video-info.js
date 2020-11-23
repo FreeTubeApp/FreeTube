@@ -140,16 +140,10 @@ export default Vue.extend({
     },
 
     totalLikeCount: function () {
-      if (this.hideVideoLikesAndDislikes) {
-        return null
-      }
       return this.likeCount + this.dislikeCount
     },
 
     likePercentageRatio: function () {
-      if (this.hideVideoLikesAndDislikes) {
-        return null
-      }
       return parseInt(this.likeCount / this.totalLikeCount * 100)
     },
 
