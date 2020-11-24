@@ -20,7 +20,29 @@ $thumbnail-overlay-opacity: 0.85
     .watchPlaylistItem#{&}, .recommendation#{&}
       @content
 
+@mixin low-contrast-when-watched($col)
+  color: $col
+
+  @at-root
+    .watched &, .watched#{&}
+      color: var(--tertiary-text-color)
+
+    .watched:hover &, .watched:hover#{&}
+      color: $col
+
 .ft-list-item
+  padding: 6px
+
+  &.watched
+    background-color: var(--bg-color)
+    @include low-contrast-when-watched(var(--primary-text-color))
+
+    .thumbnailImage
+      opacity: 0.3
+
+    &:hover .thumbnailImage
+      opacity: 1
+
   .videoThumbnail
     display: flex
     position: relative
@@ -43,7 +65,7 @@ $thumbnail-overlay-opacity: 0.85
       padding: 2px
       opacity: $thumbnail-overlay-opacity
       color: var(--primary-text-color)
-      background-color: var(--card-bg-color)
+      background-color: var(--bg-color)
       pointer-events: none
 
     .videoDuration
@@ -124,7 +146,7 @@ $thumbnail-overlay-opacity: 0.85
 
     .title
       font-size: 20px
-      color: var(--primary-text-color)
+      @include low-contrast-when-watched(var(--primary-text-color))
       text-decoration: none
       word-wrap: break-word
       word-break: break-word
@@ -139,12 +161,15 @@ $thumbnail-overlay-opacity: 0.85
       @include is-sidebar-item
         font-size: 12px
 
-      &, .channelName
-        color: var(--secondary-text-color)
+      &
+        @include low-contrast-when-watched(var(--secondary-text-color))
+
+      .channelName
+        @include low-contrast-when-watched(var(--secondary-text-color))
 
     .description
       font-size: 14px
-      color: var(--secondary-text-color)
+      @include low-contrast-when-watched(var(--secondary-text-color))
 
   &.list
     display: flex

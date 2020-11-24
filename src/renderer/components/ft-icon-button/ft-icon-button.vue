@@ -5,9 +5,7 @@
       :title="title"
       :icon="icon"
       :class="{
-        base: theme === 'base',
-        primary: theme === 'primary',
-        secondary: theme === 'secondary',
+        [theme]: true,
         shadow: useShadow
       }"
       :style="{
