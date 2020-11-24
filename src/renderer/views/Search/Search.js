@@ -125,6 +125,8 @@ export default Vue.extend({
           if (typeof item !== 'undefined') {
             return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
           }
+
+          return null
         })
 
         const returnDataInvidious = []

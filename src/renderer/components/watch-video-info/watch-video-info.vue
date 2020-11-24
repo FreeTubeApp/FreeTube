@@ -45,8 +45,8 @@
         {{ parsedViewCount }}
       </div>
       <div
-        class="likeBarContainer"
         v-if="!hideVideoLikesAndDislikes"
+        class="likeBarContainer"
       >
         <div
           class="likeSection"
