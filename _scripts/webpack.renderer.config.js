@@ -48,9 +48,7 @@ const config = {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: isDevMode,
-            },
+            options: {},
           },
           {
             loader: 'css-loader',
@@ -72,9 +70,7 @@ const config = {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: isDevMode,
-            },
+            options: {},
           },
           'css-loader',
         ],
@@ -122,8 +118,8 @@ const config = {
       'process.env.PRODUCT_NAME': JSON.stringify(productName),
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css',
+      filename: isDevMode ? '[name].css' : '[name].[contenthash].css',
+      chunkFilename: isDevMode ? '[id].css' : '[id].[contenthash].css',
     }),
   ],
   resolve: {
