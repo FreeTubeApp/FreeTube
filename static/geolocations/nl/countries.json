@@ -190,4 +190,6 @@
 {"id":410,"name":"Zuid-Korea","alpha2":"kr","alpha3":"kor"},
 {"id":728,"name":"Zuid-Soedan","alpha2":"ss","alpha3":"ssd"},
 {"id":752,"name":"Zweden","alpha2":"se","alpha3":"swe"},
-{"id":756,"name":"Zwitserland","alpha2":"ch","alpha3":"che"}]
+{"id":756,"name":"Zwitserland","alpha2":"ch","alpha3":"che"},
+{"id":158,"name":"Taiwan","alpha2":"tw","alpha3":"twn"}
+]

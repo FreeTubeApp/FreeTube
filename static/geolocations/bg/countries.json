@@ -190,4 +190,7 @@
 {"id":704,"name":"Виетнам","alpha2":"vn","alpha3":"vnm"},
 {"id":887,"name":"Йемен","alpha2":"ye","alpha3":"yem"},
 {"id":894,"name":"Замбия","alpha2":"zm","alpha3":"zmb"},
-{"id":716,"name":"Зимбабве","alpha2":"zw","alpha3":"zwe"}]
+{"id":716,"name":"Зимбабве","alpha2":"zw","alpha3":"zwe"},
+{"id":158,"name":"Тайван","alpha2":"tw","alpha3":"twn"}]
+
+

@@ -190,4 +190,6 @@
 {"id":887,"name":"Yemen","alpha2":"ye","alpha3":"yem"},
 {"id":262,"name":"Yibuti","alpha2":"dj","alpha3":"dji"},
 {"id":894,"name":"Zambia","alpha2":"zm","alpha3":"zmb"},
-{"id":716,"name":"Zimbabue","alpha2":"zw","alpha3":"zwe"}]
+{"id":716,"name":"Zimbabue","alpha2":"zw","alpha3":"zwe"},
+{"id":158,"name":"Taiwán","alpha2":"tw","alpha3":"twn"}
+]

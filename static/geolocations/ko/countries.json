@@ -190,4 +190,6 @@
 {"id":242,"name":"피지","alpha2":"fj","alpha3":"fji"},
 {"id":246,"name":"핀란드","alpha2":"fi","alpha3":"fin"},
 {"id":608,"name":"필리핀","alpha2":"ph","alpha3":"phl"},
-{"id":348,"name":"헝가리","alpha2":"hu","alpha3":"hun"}]
+{"id":348,"name":"헝가리","alpha2":"hu","alpha3":"hun"},
+{"id":158,"name":"타이완","alpha2":"tw","alpha3":"twn"}
+]

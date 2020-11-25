@@ -190,4 +190,6 @@
 {"id":233,"name":"Viro","alpha2":"ee","alpha3":"est"},
 {"id":826,"name":"Yhdistynyt kuningaskunta","alpha2":"gb","alpha3":"gbr"},
 {"id":840,"name":"Yhdysvallat","alpha2":"us","alpha3":"usa"},
-{"id":716,"name":"Zimbabwe","alpha2":"zw","alpha3":"zwe"}]
+{"id":716,"name":"Zimbabwe","alpha2":"zw","alpha3":"zwe"},
+{"id":158,"name":"Taiwan","alpha2":"tw","alpha3":"twn"}
+]

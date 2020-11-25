@@ -190,4 +190,6 @@
 {"id":716,"name":"Zimbabwe","alpha2":"zw","alpha3":"zwe"},
 {"id":226,"name":"Ækvatorialguinea","alpha2":"gq","alpha3":"gnq"},
 {"id":40,"name":"Østrig","alpha2":"at","alpha3":"aut"},
-{"id":626,"name":"Østtimor","alpha2":"tl","alpha3":"tls"}]
+{"id":626,"name":"Østtimor","alpha2":"tl","alpha3":"tls"},
+{"id":158,"name":"Taiwan","alpha2":"tw","alpha3":"twn"}
+]
