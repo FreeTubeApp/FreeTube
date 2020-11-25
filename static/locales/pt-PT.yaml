@@ -30,7 +30,7 @@ Back: Retroceder
 Forward: Avançar
 
 Version $ is now available!  Click for more details: Versão $ está agora disponível!
-  Clique aqui para ver mais detalhes.
+  Clique aqui para ver mais detalhes
 Download From Site: Descarregar Do Site
 A new blog is now available, $. Click to view more: Um novo blogue está disponível,
   $. Clique para ver mais
@@ -74,7 +74,9 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: Subscrições
   Latest Subscriptions: Subscrições Recentes
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este perfil contém um elevado número de subscrições. O uso de RSS vai ser obrigado para evitar que a sua rede seja bloqueada
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
+    perfil contém um elevado número de subscrições. O uso de RSS vai ser obrigado
+    para evitar que a sua rede seja bloqueada
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': A
     sua lista de subscrições está vazia. Adicione algumas para as ver aqui.
   'Getting Subscriptions. Please wait.': A carregar subscrições. Por favor aguarde.
@@ -94,13 +96,14 @@ Settings:
   # On Settings Page
   Settings: Definições
   The app needs to restart for changes to take effect. Restart and apply change?: A
-    aplicação precisa de reiniciar para que as mudanças façam efeito. Reiniciar e aplicar mudanças?
+    aplicação precisa de reiniciar para que as mudanças façam efeito. Reiniciar e
+    aplicar mudanças?
   General Settings:
     General Settings: Definições Gerais
     Check for Updates: Verificar se há Actualizações
     Check for Latest Blog Posts: Verificar se há Novas Publicações no Blogue
-    Fallback to Non-Preferred Backend on Failure: Utilizar Sistema de Ligação Não Preferido
-      em Caso de Falha
+    Fallback to Non-Preferred Backend on Failure: Utilizar Sistema de Ligação Não
+      Preferido em Caso de Falha
     Enable Search Suggestions: Activar Sugestões de Pesquisa
     Default Landing Page: Página Inicial
     Locale Preference: Localização
@@ -197,8 +200,8 @@ Settings:
     Watch history has been cleared: Histórico foi apagado
     Remove All Subscriptions / Profiles: Apagar Todas as Subscrições / Perfis
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Tem
-      a certeza de que quer apagar todas as suas subscrições e perfis? Esta acção não pode
-      ser revertida.
+      a certeza de que quer apagar todas as suas subscrições e perfis? Esta acção
+      não pode ser revertida.
   Subscription Settings:
     Subscription Settings: Definições de Subscrições
     Hide Videos on Watch: Esconder Vídeos Visualisados
@@ -412,7 +415,8 @@ Video:
   Watching: A Ver
   Watched: Visto
   Autoplay: Reprodução Automática
-  Starting soon, please refresh the page to check again: A começar em breve, recarregue a página para voltar a verificar
+  Starting soon, please refresh the page to check again: A começar em breve, recarregue
+    a página para voltar a verificar
 # As in a Live Video
   Live: Ao Vivo
   Live Now: Ao Vivo
@@ -518,12 +522,14 @@ Share:
   Invidious URL copied to clipboard: URL Invidious copiado para área de transferência
   Invidious Embed URL copied to clipboard: URL Invidious embutido copiado para área
     de tranferência
-  Invidious Channel URL copied to clipboard: URL do Canal Invidious copiado para área de transferência
+  Invidious Channel URL copied to clipboard: URL do Canal Invidious copiado para área
+    de transferência
   YouTube URL copied to clipboard: URL Youtube copiado para área de transferência
   YouTube Embed URL copied to clipboard: URL Youtube embutido copiado para área de
     transferência
-  YouTube Channel URL copied to clipboard: URL do Canal Youtube copiado para área de transferência
-  
+  YouTube Channel URL copied to clipboard: URL do Canal Youtube copiado para área
+    de transferência
+
 Mini Player: Mini Reprodutor
 Comments:
   Comments: Comentários
@@ -549,17 +555,37 @@ Up Next: A Seguir
 #Tooltips
 Tooltips:
   General Settings:
-    Preferred API Backend: O sistema que FreeTube utilizará para se ligar ao Youtube. O API local existe como parte do FreeTube e faz ligações directas ao Youtube. O API Invidious necessita de uma ligação a um servidor Invidious
-    Fallback to Non-Preferred Backend on Failure: Quando o seu sistema preferido encontrar um erro, o FreeTube vai automaticamente tentar usar o sistema não preferido como uma salvaguarda, caso esta opção esteja activada
-    Thumbnail Preference: Todas as antevisões dos vídeos no FreeTube vão ser substituidas por um fotograma do vídeo
-    Invidious Instance: A instância Invidious à qual o FreeTube irá ligar-se para ir buscar dados. Apague o que está escrito para ver uma lista de instâncias públicas disponíveis
-    Region for Trending: A região permite-lhe escolher de qual país quer que seja utilizado pela secção das tendências. Nem todos os países apresentados estão de facto a funcionar devido ao Youtube
+    Preferred API Backend: O sistema que FreeTube utilizará para se ligar ao Youtube.
+      O API local existe como parte do FreeTube e faz ligações directas ao Youtube.
+      O API Invidious necessita de uma ligação a um servidor Invidious
+    Fallback to Non-Preferred Backend on Failure: Quando o seu sistema preferido encontrar
+      um erro, o FreeTube vai automaticamente tentar usar o sistema não preferido
+      como uma salvaguarda, caso esta opção esteja activada
+    Thumbnail Preference: Todas as antevisões dos vídeos no FreeTube vão ser substituidas
+      por um fotograma do vídeo
+    Invidious Instance: A instância Invidious à qual o FreeTube irá ligar-se para
+      ir buscar dados. Apague o que está escrito para ver uma lista de instâncias
+      públicas disponíveis
+    Region for Trending: A região permite-lhe escolher de qual país quer que seja
+      utilizado pela secção das tendências. Nem todos os países apresentados estão
+      de facto a funcionar devido ao Youtube
   Player Settings:
-    Force Local Backend for Legacy Formats: Apenas funciona quando o API Invidious é o seu sistema preferido. Quando activado, o API local irá ser usado para ir buscar os formatos antigos, invés daqueles devolvidos pelo Invidious. Útil quando os vídeos dados pelo Invidious não funcionam devido a restrições geográficas
-    Proxy Videos Through Invidious: O FreeTube irá ligar-se ao Invidious para apresentar vídeos em vez de fazer uma ligação directa ao Youtube. Ignora a escolha de sistema preferido
-    Default Video Format: Define o formato utilizado quando um vídeo é reproduzido. O formato DASH consegue reproduzir melhor qualidades. O formato antigo está limitado a 720p, mas utiliza menos rede. Formatos áudio são para transmissões sem vídeo
+    Force Local Backend for Legacy Formats: Apenas funciona quando o API Invidious
+      é o seu sistema preferido. Quando activado, o API local irá ser usado para ir
+      buscar os formatos antigos, invés daqueles devolvidos pelo Invidious. Útil quando
+      os vídeos dados pelo Invidious não funcionam devido a restrições geográficas
+    Proxy Videos Through Invidious: O FreeTube irá ligar-se ao Invidious para apresentar
+      vídeos em vez de fazer uma ligação directa ao Youtube. Ignora a escolha de sistema
+      preferido
+    Default Video Format: Define o formato utilizado quando um vídeo é reproduzido.
+      O formato DASH consegue reproduzir melhor qualidades. O formato antigo está
+      limitado a 720p, mas utiliza menos rede. Formatos áudio são para transmissões
+      sem vídeo
   Subscription Settings:
-    Fetch Feeds from RSS: Quando activado, o FreeTube irá buscar as suas subscrições através de RSS em vez do método normal. RSS é mais rápido e previne ser limitado por fazer demasiadas ligações ao Youtube, mas não disponibiliza informação tal como a duração de um vídeo ou se este é ao vivo
+    Fetch Feeds from RSS: Quando activado, o FreeTube irá buscar as suas subscrições
+      através de RSS em vez do método normal. RSS é mais rápido e previne ser limitado
+      por fazer demasiadas ligações ao Youtube, mas não disponibiliza informação tal
+      como a duração de um vídeo ou se este é ao vivo
 
 # Toast Messages
 Local API Error (Click to copy): API local encontrou um erro (Clique para copiar)
@@ -567,7 +593,9 @@ Invidious API Error (Click to copy): API Invidious encontrou um erro (Clique par
   copiar)
 Falling back to Invidious API: Ocorreu uma falha, a mudar para o API Invidious
 Falling back to the local API: Ocorreu uma falha, a mudar para o API local
-This video is unavailable because of missing formats. This can happen due to country unavailability.: Este vídeo não está disponível devido a formatos em falta. Isto pode acontecer devido à sua indisponibilidade no seu país.
+This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
+  vídeo não está disponível devido a formatos em falta. Isto pode acontecer devido
+  à sua indisponibilidade no seu país.
 Subscriptions have not yet been implemented: Subscrições ainda não foram implementadas
 Loop is now disabled: Reprodução cíclica desactivada
 Loop is now enabled: Reprodução cíclica activada
