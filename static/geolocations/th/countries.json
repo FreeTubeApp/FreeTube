@@ -190,4 +190,6 @@
 {"id":704,"name":"เวียดนาม","alpha2":"vn","alpha3":"vnm"},
 {"id":887,"name":"เยเมน","alpha2":"ye","alpha3":"yem"},
 {"id":894,"name":"แซมเบีย","alpha2":"zm","alpha3":"zmb"},
-{"id":716,"name":"ซิมบับเว","alpha2":"zw","alpha3":"zwe"}]
+{"id":716,"name":"ซิมบับเว","alpha2":"zw","alpha3":"zwe"},
+{"id":158,"name":"ไต้หวัน","alpha2":"tw","alpha3":"twn"}
+]

@@ -190,4 +190,6 @@
 {"id":704,"name":"Vietnam","alpha2":"vn","alpha3":"vnm"},
 {"id":626,"name":"Východní Timor","alpha2":"tl","alpha3":"tls"},
 {"id":894,"name":"Zambie","alpha2":"zm","alpha3":"zmb"},
-{"id":716,"name":"Zimbabwe","alpha2":"zw","alpha3":"zwe"}]
+{"id":716,"name":"Zimbabwe","alpha2":"zw","alpha3":"zwe"},
+{"id":158,"name":"Tchaj-wan","alpha2":"tw","alpha3":"twn"}
+]

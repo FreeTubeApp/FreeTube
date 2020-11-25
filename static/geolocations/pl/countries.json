@@ -190,4 +190,6 @@
 {"id":678,"name":"Wyspy Świętego Tomasza i Książęca","alpha2":"st","alpha3":"stp"},
 {"id":894,"name":"Zambia","alpha2":"zm","alpha3":"zmb"},
 {"id":716,"name":"Zimbabwe","alpha2":"zw","alpha3":"zwe"},
-{"id":784,"name":"Zjednoczone Emiraty Arabskie","alpha2":"ae","alpha3":"are"}]
+{"id":784,"name":"Zjednoczone Emiraty Arabskie","alpha2":"ae","alpha3":"are"},
+{"id":158,"name":"Tajwan","alpha2":"tw","alpha3":"twn"}
+]

@@ -190,4 +190,6 @@
 {"id":608,"name":"Φιλιππίνες","alpha2":"ph","alpha3":"phl"},
 {"id":246,"name":"Φινλανδία","alpha2":"fi","alpha3":"fin"},
 {"id":242,"name":"Φίτζι","alpha2":"fj","alpha3":"fji"},
-{"id":152,"name":"Χιλή","alpha2":"cl","alpha3":"chl"}]
+{"id":152,"name":"Χιλή","alpha2":"cl","alpha3":"chl"},
+{"id":158,"name":"Ταϊβάν","alpha2":"tw","alpha3":"twn"}
+]

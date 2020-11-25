@@ -190,4 +190,6 @@
 {"id":887,"name":"Jemenas","alpha2":"ye","alpha3":"yem"},
 {"id":894,"name":"Zambija","alpha2":"zm","alpha3":"zmb"},
 {"id":716,"name":"Zimbabvė","alpha2":"zw","alpha3":"zwe"},
-{"id":132,"name":"Žaliasis Kyšulys","alpha2":"cv","alpha3":"cpv"}]
+{"id":132,"name":"Žaliasis Kyšulys","alpha2":"cv","alpha3":"cpv"},
+{"id":158,"name":"Taivanas","alpha2":"tw","alpha3":"twn"}
+]

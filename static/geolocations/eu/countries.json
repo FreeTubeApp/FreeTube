@@ -190,4 +190,6 @@
 {"id":894,"name":"Zambia","alpha2":"zm","alpha3":"zmb"},
 {"id":554,"name":"Zeelanda Berria","alpha2":"nz","alpha3":"nzl"},
 {"id":716,"name":"Zimbabwe","alpha2":"zw","alpha3":"zwe"},
-{"id":196,"name":"Zipre","alpha2":"cy","alpha3":"cyp"}]
+{"id":196,"name":"Zipre","alpha2":"cy","alpha3":"cyp"},
+{"id":158,"name":"Taiwan","alpha2":"tw","alpha3":"twn"}
+]

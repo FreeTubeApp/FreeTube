@@ -190,4 +190,6 @@
 {"id":710,"name":"ЮАР","alpha2":"za","alpha3":"zaf"},
 {"id":728,"name":"Южный Судан","alpha2":"ss","alpha3":"ssd"},
 {"id":388,"name":"Ямайка","alpha2":"jm","alpha3":"jam"},
-{"id":392,"name":"Япония","alpha2":"jp","alpha3":"jpn"}]
+{"id":392,"name":"Япония","alpha2":"jp","alpha3":"jpn"},
+{"id":158,"name":"Тайвань","alpha2":"tw","alpha3":"twn"}
+]

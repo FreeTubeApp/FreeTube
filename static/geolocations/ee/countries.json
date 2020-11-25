@@ -190,4 +190,6 @@
 {"id":548,"name":"Vanuatu","alpha2":"vu","alpha3":"vut"},
 {"id":643,"name":"Venemaa","alpha2":"ru","alpha3":"rus"},
 {"id":862,"name":"Venezuela","alpha2":"ve","alpha3":"ven"},
-{"id":704,"name":"Vietnam","alpha2":"vn","alpha3":"vnm"}]
+{"id":704,"name":"Vietnam","alpha2":"vn","alpha3":"vnm"},
+{"id":158,"name":"Taiwan","alpha2":"tw","alpha3":"twn"}
+]

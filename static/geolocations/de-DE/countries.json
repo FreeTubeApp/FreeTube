@@ -190,4 +190,6 @@
 {"id":826,"name":"Vereinigtes Königreich","alpha2":"gb","alpha3":"gbr"},
 {"id":704,"name":"Vietnam","alpha2":"vn","alpha3":"vnm"},
 {"id":140,"name":"Zentral­afrikanische Republik","alpha2":"cf","alpha3":"caf"},
-{"id":196,"name":"Zypern","alpha2":"cy","alpha3":"cyp"}]
+{"id":196,"name":"Zypern","alpha2":"cy","alpha3":"cyp"},
+{"id":158,"name":"Taiwan","alpha2":"tw","alpha3":"twn"}
+]
