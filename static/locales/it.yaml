@@ -587,8 +587,8 @@ Tooltips:
       I formati dash possono riprodurre qualità maggiori. I formati legacy sono limitati
       ad un massimo di 720p ma usano meno banda. I formati audio riproducono solo
       l'audio
-    Proxy Videos Through Invidious: Mi connetterò a Invidious per mostrare i video
-      invece di connettermi direttamente a YouTube. Sostituisco le preferenze API
+    Proxy Videos Through Invidious: Connessione a Invidious per riprodurre i video
+      invece di una connessione diretta a YouTube. Sovrascrive le preferenze API
   Subscription Settings:
     Fetch Feeds from RSS: Quando abilitato, FreeTube userà gli RSS invece del metodo
       standard per leggere la tua lista istrizioni. Gli RSS sono più veloci e impediscono
