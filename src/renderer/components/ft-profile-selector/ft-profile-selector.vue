@@ -32,7 +32,6 @@
           v-for="(profile, index) in profileList"
           :key="index"
           class="profile"
-          
         >
           <div
             class="colorOption"
@@ -44,20 +43,7 @@
               {{ profileInitials[index] }}
             </p>
           </div>
-          <p>
-          <span
-             class="profileName"
-            @click="setActiveProfile(profile)"
-            >
-            {{ profile.name }}
-            </span> 
-          <span 
-            class="profileEdit" 
-            @click = "goToProfile(profile)"
-          >
-            edit
-          </span>
-          </p>
+          <p><span class="profileName" @click="setActiveProfile(profile)">{{ profile.name }}</span><span class="profileEdit" @click="goToProfile(profile)">edit</span></p>
         </div>
       </div>
     </ft-card>
