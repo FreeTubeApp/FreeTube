@@ -354,10 +354,9 @@ Channel:
     entfernt
 Video:
   Open in YouTube: In YouTube öffnen
-  Copy YouTube Link: YouTube Link kopieren
+  Copy YouTube Link: YouTube-Link kopieren
   Open YouTube Embedded Player: Öffne eingebetteter Abspieler von YouTube
-  Copy YouTube Embedded Player Link: Kopiere Link des eingebetteten Abspieler von
-    YouTube
+  Copy YouTube Embedded Player Link: Link des eingebetteten YouTube-Abspieler kopieren
   Open in Invidious: In Invidious öffnen
   Copy Invidious Link: Invidious-Link kopieren
   View: Aufruf
@@ -432,10 +431,10 @@ Video:
   audio only: nur Audio
   video only: nur Video
   Download Video: Video herunterladen
-  Copy Invidious Channel Link: Kopiere Invidious Kanallink
-  Open Channel in Invidious: Öffne Kanal auf Invidious
-  Copy YouTube Channel Link: Kopiere YouTube Kanallink
-  Open Channel in YouTube: Öffne Kanal auf YouTube
+  Copy Invidious Channel Link: Invidious-Kanallink kopieren
+  Open Channel in Invidious: Kanal auf Invidious öffnen
+  Copy YouTube Channel Link: YouTube-Kanallink kopieren
+  Open Channel in YouTube: Kanal auf YouTube öffnen
   Started streaming on: Streaming angefangen am
   Streamed on: Gestreamt am
 Videos:
