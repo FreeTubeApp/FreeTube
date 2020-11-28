@@ -19,7 +19,7 @@ Delete: 'Elimina'
 Select all: 'Seleziona tutto'
 Reload: 'Ricarica'
 Force Reload: 'Forza Ricaricamento'
-Toggle Developer Tools: 'Abilita / Disattiva Strumenti Sviluppatore'
+Toggle Developer Tools: 'Abilita / Disattiva Strumenti sviluppatore'
 Actual size: 'Grandezza effettiva'
 Zoom in: 'Ingrandisci'
 Zoom out: 'Rimpicciolisci'
@@ -36,28 +36,28 @@ Search / Go to URL: 'Cerca / Vai a URL'
 Search Filters:
   Search Filters: 'Filtri di Ricerca'
   Sort By:
-    Sort By: 'Filtra Per'
-    Most Relevant: 'Più Rilevante'
+    Sort By: 'Filtra per'
+    Most Relevant: 'Più rilevante'
     Rating: 'Valutazione'
-    Upload Date: 'Data di Caricamento'
+    Upload Date: 'Data di caricamento'
     View Count: 'Visualizzazioni'
   Time:
     Time: 'Tempo'
     Any Time: 'Sempre'
-    Last Hour: 'Ultima Ora'
+    Last Hour: 'Ultima ora'
     Today: 'Oggi'
-    This Week: 'Questa Settimana'
-    This Month: 'Questo Mese'
+    This Week: 'Questa settimana'
+    This Month: 'Questo mese'
     This Year: 'Quest’anno'
   Type:
     Type: 'Tipologia'
-    All Types: 'Tutti i Tipi'
+    All Types: 'Tutti i tipi'
     Videos: 'Video'
     Channels: 'Canali'
     #& Playlists
   Duration:
     Duration: 'Durata'
-    All Durations: 'Ogni Durata'
+    All Durations: 'Ogni durata'
     Short (< 4 minutes): 'Corto (< 4 minuti)'
     Long (> 20 minutes): 'Lungo (> 20 minuti)'
   # On Search Page
@@ -68,21 +68,21 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Iscrizioni'
-  Latest Subscriptions: 'Ultime Iscrizioni'
+  Latest Subscriptions: 'Ultime iscrizioni'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'La
     lista delle tue iscrizioni è vuota. Aggiungi delle iscrizioni per visualizzarle
     qui.'
   'Getting Subscriptions.  Please wait.': 'Caricamento Iscrizioni. Attendi.'
-  Refresh Subscriptions: Ricarica le Iscrizioni
+  Refresh Subscriptions: Ricarica le iscrizioni
   'Getting Subscriptions. Please wait.': Scaricamento delle iscrizioni. Prego attendere.
   Load More Videos: Carica più video
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Questo
     profilo ha un grande numero di iscrizioni. Utilizzo RSS per evitare limitazioni
 Trending: 'Tendenze'
-Most Popular: 'Popolari'
+Most Popular: 'Più popolari'
 Playlists: 'Playlist'
 User Playlists:
-  Your Playlists: 'Le tue Playlist'
+  Your Playlists: 'Le tue playlist'
 History:
   # On History Page
   History: 'Cronologia'
@@ -93,11 +93,11 @@ Settings:
   Settings: 'Impostazioni'
   General Settings:
     General Settings: 'Impostazioni Generali'
-    Fallback to Non-Preferred Backend on Failure: 'Reimposta Back-end non Predefinito
-      in Caso di Errore'
-    Enable Search Suggestions: 'Abilita Suggerimenti di Ricerca'
-    Default Landing Page: 'Pagina Iniziale Predefinita'
-    Locale Preference: 'Lingua Predefinita'
+    Fallback to Non-Preferred Backend on Failure: 'Reimposta Back-end non predefinito
+      in caso di errore'
+    Enable Search Suggestions: 'Abilita suggerimenti di ricerca'
+    Default Landing Page: 'Pagina iniziale predefinita'
+    Locale Preference: 'Lingua predefinita'
     Preferred API Backend:
       Preferred API Backend: 'Back-end API Preferito'
       Local API: 'API Locali'
@@ -116,8 +116,8 @@ Settings:
       (La predefinita è https://invidious.snopyta.org)'
     Region for Trending: 'Regione per le Tendenze'
         #! List countries
-    Check for Latest Blog Posts: Controlla gli Ultimi Post del Blog
-    Check for Updates: Controlla gli Aggiornamenti
+    Check for Latest Blog Posts: Controlla gli ultimi post del blog
+    Check for Updates: Controlla gli aggiornamenti
   Theme Settings:
     Theme Settings: 'Impostazioni Tema'
     Match Top Bar with Main Color: 'Abbina la barra superiore con il colore principale'
@@ -156,7 +156,7 @@ Settings:
     Turn on Subtitles by Default: 'Abilita Sottotitoli di Default'
     Autoplay Videos: 'Riproduci Video Automaticamente'
     Proxy Videos Through Invidious: 'Proxy dei Video tramite Invidious'
-    Autoplay Playlists: 'Riproduci Playlist Automaticamente'
+    Autoplay Playlists: 'Riproduci le playlist automaticamente'
     Enable Theatre Mode by Default: 'Abilita Modalità Teatro di Default'
     Default Volume: 'Volume Predefinito'
     Default Playback Rate: 'Velocità di riproduzione predefinita'
@@ -182,19 +182,19 @@ Settings:
     Remember History: 'Salva la Cronologia'
     Save Watched Progress: 'Ricorda Avanzamento Video'
     Clear Search Cache: 'Pulisci la Cache di Ricerca'
-    Are you sure you want to clear out your search cache?: 'Sei sicuro di voler pulire
-      la cache di ricerca?'
+    Are you sure you want to clear out your search cache?: 'Sei sicuro/a di voler
+      pulire la cache di ricerca?'
     Search cache has been cleared: 'La cache di ricerca è stata pulita'
     Remove Watch History: 'Cancella Cronologia Visualizzazioni'
-    Are you sure you want to remove your entire watch history?: 'Sei sicuro di voler
+    Are you sure you want to remove your entire watch history?: 'Sei sicuro/a di voler
       cancellare l''intera cronologia di visualizzazione?'
     Watch history has been cleared: 'La cronologia di visualizzazioni è stata pulita'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Sei
-      sicuro di volere eliminare tutte le iscrizioni e profili? L'operazione non può
-      essere annullata.
+      sicuro/a di volere eliminare tutte le iscrizioni e profili? L'operazione non
+      può essere annullata.
     Remove All Subscriptions / Profiles: Elimina Tutte le Iscrizioni / Profili
   Subscription Settings:
-    Subscription Settings: 'Impostazioni Iscrizioni'
+    Subscription Settings: 'Impostazioni iscrizioni'
     Hide Videos on Watch: 'Nascondi Video durante la riproduzione'
     Subscriptions Export Format:
       Subscriptions Export Format: ''
@@ -221,14 +221,14 @@ Settings:
     Clear History:
       Clear History: 'Pulisci Cronologia'
       # On Click
-      Are you sure you want to delete your history?: 'Sei sicuro di voler eliminare
+      Are you sure you want to delete your history?: 'Sei sicuro/a di voler eliminare
         la cronologia?'
       #& Yes
       #& No
     Clear Subscriptions:
       Clear Subscriptions: 'Pulisci Iscrizioni'
       # On Click
-      Are you sure you want to remove all subscriptions?: 'Sei sicuro di voler rimuovere
+      Are you sure you want to remove all subscriptions?: 'Sei sicuro/a di voler rimuovere
         tutte le iscrizioni?'
       #& Yes
       #& No
@@ -356,11 +356,11 @@ Video:
   Video has been marked as watched: 'Il Video è stato contrassegnato come visualizzato'
   Video has been removed from your history: 'Il Video è stato rimosso dalla cronologia'
   Open in YouTube: 'Apri su YouTube'
-  Copy YouTube Link: 'Copia Link YouTube'
+  Copy YouTube Link: 'Copia collegamento YouTube'
   Open YouTube Embedded Player: 'Apri Lettore YouTube Incorporato'
-  Copy YouTube Embedded Player Link: 'Copia Link del Lettore YouTube Incorporato'
+  Copy YouTube Embedded Player Link: 'Copia collegamento del lettore YouTube incorporato'
   Open in Invidious: 'Apri in Invidious'
-  Copy Invidious Link: 'Copia Link Invidious'
+  Copy Invidious Link: 'Copia collegamento Invidious'
   View: 'Vista'
   Views: 'Visualizzazioni'
   # Context is "X People Watching"
@@ -415,9 +415,9 @@ Video:
 #& Videos
   Play Previous Video: Riproduci il Video Precedente
   Play Next Video: Riproduci il Prossimo Video
-  Reverse Playlist: Playlist Inversa
-  Shuffle Playlist: Playlist Riproduzione Casuale
-  Loop Playlist: Playlist Loop
+  Reverse Playlist: Playlist inversa
+  Shuffle Playlist: Riproduzione playlist casuale
+  Loop Playlist: Riproduzione senza sosta
   Autoplay: Riproduzione Automatica
   Starting soon, please refresh the page to check again: La riproduzione partirà a
     breve, refreshare la pagina per ricontrollare
@@ -429,10 +429,10 @@ Video:
   audio only: solo audio
   video only: solo video
   Download Video: Scarica Video
-  Copy Invidious Channel Link: Copia Link del Canale Invidious
-  Open Channel in Invidious: Apri Canale su Invidious
-  Copy YouTube Channel Link: Copia Link del Canale YouTube
-  Open Channel in YouTube: Apri Canale su Youtube
+  Copy Invidious Channel Link: Copia collegamento del canale Invidious
+  Open Channel in Invidious: Apri il canale su Invidious
+  Copy YouTube Channel Link: Copia collegamento del canale YouTube
+  Open Channel in YouTube: Apri il canale su YouTube
   Started streaming on: Stream iniziato il
   Streamed on: Streaming il
 Videos:
@@ -444,16 +444,16 @@ Videos:
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: 'Guarda Playlist Completa'
+  View Full Playlist: 'Guarda playlist completa'
   Videos: 'Video'
   View: 'Visualizzazione'
   Views: 'Visualizzazioni'
-  Last Updated On: 'Ultimo Caricamento Il'
+  Last Updated On: 'Ultimo aggiornamento il'
   Share Playlist:
-    Share Playlist: 'Condividi Playlist'
-    Copy YouTube Link: 'Copia Link YouTube'
+    Share Playlist: 'Condividi la playlist'
+    Copy YouTube Link: 'Copia collegamento YouTube'
     Open in YouTube: 'Apri su YouTube'
-    Copy Invidious Link: 'Copia Link Invidious'
+    Copy Invidious Link: 'Copia collegamento Invidious'
     Open in Invidious: 'Apri in Invidious'
 
 # On Video Watch Page
@@ -471,8 +471,8 @@ Change Format:
     questo video
 Share:
   Share Video: 'Condividi Video'
-  Copy Link: 'Copia Link'
-  Open Link: 'Apri Link'
+  Copy Link: 'Copia collegamento'
+  Open Link: 'Apri collegamento'
   Copy Embed: 'Copia Codice da Incorporare'
   Open Embed: 'Apri Codice da Incorporare'
   # On Click
@@ -519,14 +519,14 @@ Loop is now enabled: 'Il Loop è abilitato'
 Shuffle is now disabled: 'La riproduzione casuale è disabilitata'
 Shuffle is now enabled: 'La riproduzione casuale è abilitata'
 Playing Next Video: 'Riproduzione Prossimo Video'
-Playing Previous Video: 'Riproduzione Video Precedente'
+Playing Previous Video: 'Riproduzione video precedente'
 Playing next video in 5 seconds.  Click to cancel: 'Riproduzione del prossimo video
   in 5 secondi. Clicca per cancellare.'
 Canceled next video autoplay: 'Riproduzione automatica del prossimo video cancellata'
 'The playlist has ended.  Enable loop to continue playing': 'La playlist è terminata.
-  Abilita il loop per continuare la riproduzione'
+  Abilita la riproduzione senza sosta per continuare la riproduzione'
 
-Yes: 'Si'
+Yes: 'Sì'
 No: 'No'
 A new blog is now available, $. Click to view more: Un nuovo blog è ora disponibile,
   $. Clicca per saperne di più
@@ -536,11 +536,11 @@ Download From Site: Scarica Dal Sito
 The playlist has been reversed: La playlist è stata invertita
 Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Sei
-    sicuro di voler eliminare i canali selezionati? L'operazione non eliminerà i canali
-    da nessun altro profilo.
+    sicuro/a di voler eliminare i canali selezionati? L'operazione non eliminerà i
+    canali da nessun altro profilo.
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : Questo è il tuo profilo primario. Sei sicuro di voler eliminare i canali selezionati?
+  : Questo è il tuo profilo primario. Sei sicuro/a di voler eliminare i canali selezionati?
     Gli stessi canali saranno eliminati da ogni profilo in cui sono presenti.
   No channel(s) have been selected: Nessun canale è stato selezionato
   Add Selected To Profile: Aggiungi i selezionati al Profilo
@@ -560,11 +560,11 @@ Profile:
   Your profile name cannot be empty: Il tuo nome profilo non può essere vuoto
   Profile could not be found: Impossibile trovare il profilo
   All subscriptions will also be deleted.: Tutte le iscrizioni saranno eliminate.
-  Are you sure you want to delete this profile?: Sei sicuro di voler eliminare il
+  Are you sure you want to delete this profile?: Sei sicuro/a di voler eliminare il
     profilo?
-  Delete Profile: Elimina Profilo
-  Make Default Profile: Imposta come Profilo Predefinito
-  Update Profile: Aggiorna Profilo
+  Delete Profile: Elimina profilo
+  Make Default Profile: Imposta come profilo predefinito
+  Update Profile: Aggiorna profilo
   Create Profile: Crea un Profilo
   Profile Preview: Anteprima Profilo
   Custom Color: Colore Personalizzato
