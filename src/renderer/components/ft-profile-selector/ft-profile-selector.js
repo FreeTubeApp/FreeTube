@@ -72,6 +72,11 @@ export default Vue.extend({
       $('#profileList').focusout()
     },
 
+    goToProfile: function (profile) {
+      this.$router.push({
+        path: `/settings/profile/edit/${profile._id}`
+      })
+    },
     ...mapActions([
       'showToast',
       'updateActiveProfile'

@@ -32,7 +32,7 @@
           v-for="(profile, index) in profileList"
           :key="index"
           class="profile"
-          @click="setActiveProfile(profile)"
+          
         >
           <div
             class="colorOption"
@@ -44,10 +44,19 @@
               {{ profileInitials[index] }}
             </p>
           </div>
-          <p
-            class="profileName"
-          >
+          <p>
+          <span
+             class="profileName"
+            @click="setActiveProfile(profile)"
+            >
             {{ profile.name }}
+            </span> 
+          <span 
+            class="profileEdit" 
+            @click = "goToProfile(profile)"
+          >
+            edit
+          </span>
           </p>
         </div>
       </div>
