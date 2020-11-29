@@ -52,7 +52,11 @@ export default Vue.extend({
 
     currentVideoIndex: function () {
       const index = this.playlistItems.findIndex((item) => {
-        return item.id === this.videoId
+        if (typeof item.videoId !== 'undefined') {
+          return item.videoId === this.videoId
+        } else {
+          return item.id === this.videoId
+        }
       })
 
       return index + 1
@@ -280,14 +284,14 @@ export default Vue.extend({
         this.playlistTitle = result.title
         this.playlistItems = result.items
         this.videoCount = result.total_items
-        this.channelName = result.author.name
-        this.channelThumbnail = result.author.avatar
-        this.channelId = result.author.id
+        this.channelName = '' // result.author.name
+        this.channelThumbnail = '' // result.author.avatar
+        this.channelId = '' // result.author.id
 
         this.playlistItems = result.items.filter((video) => {
           return !(video.title === '[Private video]' || video.title === '[Deleted video]')
         }).map((video) => {
-          if (video.author !== null) {
+          if (typeof video.author !== 'undefined') {
             const channelName = video.author.name
             const channelId = video.author.ref.replace(/https:\/\/(www\.)?youtube\.com\/(user|channel)\//g, '')
             video.author = channelName

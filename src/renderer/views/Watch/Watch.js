@@ -202,7 +202,7 @@ export default Vue.extend({
           )
           this.channelId = result.videoDetails.author.id
           this.channelName = result.videoDetails.author.name
-          this.channelThumbnail = result.videoDetails.author.avatar
+          this.channelThumbnail = result.videoDetails.author.thumbnails[0].url
           this.videoPublished = new Date(result.videoDetails.publishDate.replace('-', '/')).getTime()
           this.videoDescription = result.player_response.videoDetails.shortDescription
 
@@ -223,9 +223,10 @@ export default Vue.extend({
 
           this.recommendedVideos = result.related_videos.map((video) => {
             video.videoId = video.id
-            video.authorId = video.ucid
+            video.authorId = video.author.id
             video.viewCount = video.view_count
             video.lengthSeconds = video.length_seconds
+            video.author = video.author.name
             return video
           })
           if (this.hideVideoLikesAndDislikes) {
