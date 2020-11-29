@@ -83,19 +83,19 @@ export default Vue.extend({
         this.infoData = {
           id: result.id,
           title: result.title,
-          description: result.description,
+          description: result.description ? result.description : '',
           randomVideoId: result.items[randomVideoIndex].id,
           viewCount: result.views,
-          videoCount: result.total_items,
-          lastUpdated: result.last_updated,
-          channelName: result.author.name,
-          channelThumbnail: result.author.avatar,
-          channelId: result.author.id,
+          videoCount: result.estimated_items,
+          // lastUpdated: result.last_updated ? result.last_updated : '',
+          // channelName: result.author ? result.author.name : '',
+          // channelThumbnail: result.author ? result.author.avatar : '',
+          // channelId: result.author ? result.author.id : '',
           infoSource: 'local'
         }
 
         this.playlistItems = result.items.map((video) => {
-          if (video.author !== null) {
+          if (typeof video.author !== 'undefined') {
             const channelName = video.author.name
             const channelId = video.author.ref.replace(/https:\/\/(www\.)?youtube\.com\/(user|channel)\//g, '')
             video.author = channelName
