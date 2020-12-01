@@ -433,6 +433,10 @@ body.vjs-full-window {
   padding-top: 0 !important;
 }
 
+.video-js.vjs-full-screen.vjs-user-inactive {
+  cursor: none;
+}
+
 .vjs-icon-fullwindow-enter, .video-js .vjs-fullwindow-control .vjs-icon-placeholder {
   text-decoration: none;
   color: white !important;

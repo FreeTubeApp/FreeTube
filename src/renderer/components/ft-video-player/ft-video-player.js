@@ -734,22 +734,24 @@ export default Vue.extend({
                   this.controlText("Fullwindow");
                  },
                  handleClick: function() {
-                  if(player.isFullscreen_ || player.isFullWindow) {
-                    player.removeClass('vjs-full-screen');
-                    player.isFullWindow = false;
-                    document.documentElement.style.overflow = player.docOrigOverflow;
-                    $('body').removeClass('vjs-full-window');
-                    player.trigger('exitFullWindow');
-                  } else {
-                    player.addClass('vjs-full-screen');
-                    player.isFullscreen_ = false;
-                    player.isFullWindow = true;
-                    player.docOrigOverflow = document.documentElement.style.overflow;
-                    document.documentElement.style.overflow = 'hidden';
-                    $('body').addClass('vjs-full-window');
-                    player.trigger('enterFullWindow');
-                  }
+                  if(!player.isFullscreen_){
+                    if(player.isFullWindow ) {
+                      player.removeClass('vjs-full-screen');
+                      player.isFullWindow = false;
+                      document.documentElement.style.overflow = player.docOrigOverflow;
+                      $('body').removeClass('vjs-full-window');
+                      player.trigger('exitFullWindow');
+                    } else {
+                      player.addClass('vjs-full-screen');
+                      player.isFullscreen_ = false;
+                      player.isFullWindow = true;
+                      player.docOrigOverflow = document.documentElement.style.overflow;
+                      document.documentElement.style.overflow = 'hidden';
+                      $('body').addClass('vjs-full-window');
+                      player.trigger('enterFullWindow');
+                    }
                  }
+                }
               });
 
       videojs.registerComponent("customButton", customButton);
