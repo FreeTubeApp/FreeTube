@@ -35,7 +35,7 @@ Search / Go to URL: 'Pretraži / Idi na URL'
 Search Filters:
   Search Filters: 'Filtri za pretraživanje'
   Sort By:
-    Sort By: 'Razvrstaj prema'
+    Sort By: 'Redoslijed'
     Most Relevant: 'Najrelevantniji'
     Rating: 'Ocjena'
     Upload Date: 'Datum prijenosa'
@@ -357,7 +357,7 @@ Channel:
   Unsubscribe: 'Otkaži pretplatu'
   Search Channel: 'Pretraži kanal'
   Your search results have returned 0 results: 'Pretraživanje je vratilo 0 rezultata'
-  Sort By: 'Razvrstaj po'
+  Sort By: 'Redoslijed'
   Videos:
     Videos: 'Videa'
     This channel does not currently have any videos: 'Na ovom kanalu trenutačno nema
@@ -534,7 +534,7 @@ Comments:
   No more comments available: Nema daljnjih komentara
   Newest first: Najprije najnovije
   Top comments: Najpopularniji komentari
-  Sort by: Razvrstaj po
+  Sort by: Redoslijed
 Up Next: 'Sljedeći'
 
 # Toast Messages
