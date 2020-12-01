@@ -172,6 +172,7 @@ export default Vue.extend({
           }
         })
 
+        this.newButtonToggle()
         this.player.volume(this.volume)
         this.player.playbackRate(this.defaultPlayback)
 
@@ -489,14 +490,6 @@ export default Vue.extend({
       }
     },
 
-    toggleFullscreen: function () {
-      if (this.player.isFullscreen()) {
-        this.player.exitFullscreen()
-      } else {
-        this.player.requestFullscreen()
-      }
-    },
-
     toggleCaptions: function () {
       const tracks = this.player.textTracks().tracks_
 
@@ -718,8 +711,75 @@ export default Vue.extend({
             // Advance to next frame
             this.framebyframe(1)
             break
+          case 27:
+            event.preventDefault()
+            this.exitFullWindow()
+            break
         }
       }
-    }
+    },
+
+
+
+
+
+    newButtonToggle: function() {
+
+      var player = this.player;
+      var VjsButton = videojs.getComponent("Button");
+
+      var customButton = videojs.extend(VjsButton, {
+                 constructor: function(player, options){
+                  VjsButton.call(this, player, options);
+                  this.controlText("Fullwindow");
+                 },
+                 handleClick: function() {
+                  if(player.isFullscreen_ || player.isFullWindow) {
+                    player.removeClass('vjs-full-screen');
+                    player.isFullWindow = false;
+                    document.documentElement.style.overflow = player.docOrigOverflow;
+                    $('body').removeClass('vjs-full-window');
+                    player.trigger('exitFullWindow');
+                  } else {
+                    player.addClass('vjs-full-screen');
+                    player.isFullscreen_ = false;
+                    player.isFullWindow = true;
+                    player.docOrigOverflow = document.documentElement.style.overflow;
+                    document.documentElement.style.overflow = 'hidden';
+                    $('body').addClass('vjs-full-window');
+                    player.trigger('enterFullWindow');
+                  }
+                 }
+              });
+
+      videojs.registerComponent("customButton", customButton);
+
+      var buttonMod = this.player.getChild('controlBar').addChild("customButton", {});
+
+      buttonMod.el().innerHTML = '<a class="vjs-icon-fullwindow-enter vjs-control-content vjs-button" href="#"></a>';
+    },
+    
+    exitFullWindow: function(){
+      if(this.player.isFullWindow){
+        this.player.exitFullWindow()
+      }
+    },
+
+    toggleFullwindowed: function() {
+      if(this.player.isFullWindow) {
+        this.player.exitFullWindow()
+      } else {
+        this.player.enterFullWindow()
+      }
+    },
+
+    toggleFullscreen: function () {
+      if (this.player.isFullscreen()) {
+        this.player.exitFullscreen()
+      } else {
+        this.player.requestFullscreen()
+      }
+    },
+
   }
 })

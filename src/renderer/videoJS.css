@@ -413,7 +413,44 @@
 body.vjs-full-window {
   padding: 0;
   margin: 0;
+  width: 100%;
   height: 100%;
+}
+
+.vjs-full-window .video-js.vjs-full-screen {
+  position: fixed;
+  overflow: hidden;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.video-js.vjs-full-screen {
+  width: 100% !important;
+  height: 100% !important;
+  padding-top: 0 !important;
+}
+
+.vjs-icon-fullwindow-enter, .video-js .vjs-fullwindow-control .vjs-icon-placeholder {
+  text-decoration: none;
+  color: white !important;
+  font-family: VideoJS;
+  font-weight: normal;
+  font-style: normal;
+}
+.vjs-icon-fullwindow-enter:before, .video-js .vjs-fullwindow-control .vjs-icon-placeholder:before {
+  content: "\f11f";
+}
+
+.vjs-icon-fullwindow-exit, .video-js.vjs-fullwindow .vjs-fullwindow-control .vjs-icon-placeholder {
+  font-family: VideoJS;
+  font-weight: normal;
+  font-style: normal;
+}
+.vjs-icon-fullwindow-exit:before, .video-js.vjs-fullwindow .vjs-fullwindow-control .vjs-icon-placeholder:before {
+  content: "\f109";
 }
 
 .vjs-full-window .video-js.vjs-fullscreen {
