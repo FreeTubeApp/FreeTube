@@ -7,6 +7,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  pointer-events: none;
 }
 
 .toast {
@@ -26,6 +27,7 @@
 }
 
 .open {
+  pointer-events: auto;
   visibility: visible;
   opacity: 1;
   transition: visibility 0s linear 0s, opacity 300ms;
@@ -33,6 +35,7 @@
 
 .closed {
   visibility: hidden;
+  pointer-events: none;
   opacity: 0;
   transition: visibility 0s linear 300ms, opacity 300ms;
 }
