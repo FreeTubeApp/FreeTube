@@ -589,7 +589,7 @@ Tooltips:
       jako metody zapasowej
     Preferred API Backend: Wybierz back-end , który FreeTube użyje do uzyskiwania
       danych. Lokalne API jest wbudowanym ekstraktorem. API Invidious wymaga połączenia
-      z serwerem Invidious
+      z serwerem Invidious.
     Region for Trending: Obszar filmów „Na czasie” pozwala wybrać kraj, z którego
       chciałbyś zobaczyć filmy zdobywające popularność. Nie wszystkie wyświetlone
       kraje są obsługiwane przez YouTube
@@ -599,7 +599,7 @@ Tooltips:
       z filmu zamiast miniaturki domyślnej
   Player Settings:
     Force Local Backend for Legacy Formats: Działa tylko, kiedy API Invidious jest
-      ustawiony jako domyślny. Gdy opcja jest włączona, do odtwarzania starych formaty
+      ustawiony jako domyślny. Gdy opcja jest włączona, do odtwarzania starych formatów
       zostanie użyty lokalny API, zamiast API Invidious. Pomaga w przypadkach, gdy
       filmy zwracane przez Invidious nie odtwarzają się z powodu blokady regionalnej
     Default Video Format: Ustaw formaty, które zostaną użyte do odtwarzania filmów.
