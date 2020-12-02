@@ -200,7 +200,7 @@ export default Vue.extend({
             result.player_response.videoDetails.viewCount,
             10
           )
-          if (result.videoDetails.author.hasOwnProperty('id')) {
+          if ('id' in result.videoDetails.author) {
             this.channelId = result.videoDetails.author.id
             this.channelName = result.videoDetails.author.name
             console.log(result)
@@ -344,20 +344,20 @@ export default Vue.extend({
 
                 return object
               })
-                let captionLinks = result.player_response.captions
-                if (typeof captionLinks !== 'undefined') {
-                  captionLinks = captionLinks.playerCaptionsTracklistRenderer.captionTracks.map((caption) => {
-                    const label = `${caption.name.simpleText} (${caption.languageCode}) - text/vtt`
-                    const object = {
-                      url: caption.baseUrl,
-                      label: label
-                    }
+              let captionLinks = result.player_response.captions
+              if (typeof captionLinks !== 'undefined') {
+                captionLinks = captionLinks.playerCaptionsTracklistRenderer.captionTracks.map((caption) => {
+                  const label = `${caption.name.simpleText} (${caption.languageCode}) - text/vtt`
+                  const object = {
+                    url: caption.baseUrl,
+                    label: label
+                  }
 
-                    return object
-                  })
+                  return object
+                })
 
-                  this.downloadLinks = this.downloadLinks.concat(captionLinks)
-                }
+                this.downloadLinks = this.downloadLinks.concat(captionLinks)
+              }
             } else {
               // video might be region locked or something else. This leads to no formats being available
               this.showToast({
