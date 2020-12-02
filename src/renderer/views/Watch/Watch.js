@@ -200,9 +200,16 @@ export default Vue.extend({
             result.player_response.videoDetails.viewCount,
             10
           )
-          this.channelId = result.videoDetails.author.id
-          this.channelName = result.videoDetails.author.name
-          this.channelThumbnail = result.videoDetails.author.thumbnails[0].url
+          if ('id' in result.videoDetails.author) {
+            this.channelId = result.videoDetails.author.id
+            this.channelName = result.videoDetails.author.name
+            console.log(result)
+            this.channelThumbnail = result.videoDetails.author.thumbnails[0].url
+          } else {
+            this.channelId = result.player_response.videoDetails.channelId
+            this.channelName = result.player_response.videoDetails.author
+            this.channelThumbnail = result.player_response.embedPreview.thumbnailPreviewRenderer.videoDetails.embeddedPlayerOverlayVideoDetailsRenderer.channelThumbnail.thumbnails[0].url
+          }
           this.videoPublished = new Date(result.videoDetails.publishDate.replace('-', '/')).getTime()
           this.videoDescription = result.player_response.videoDetails.shortDescription
 
@@ -337,9 +344,7 @@ export default Vue.extend({
 
                 return object
               })
-
-              let captionLinks = result.playerResponse.captions
-
+              let captionLinks = result.player_response.captions
               if (typeof captionLinks !== 'undefined') {
                 captionLinks = captionLinks.playerCaptionsTracklistRenderer.captionTracks.map((caption) => {
                   const label = `${caption.name.simpleText} (${caption.languageCode}) - text/vtt`
