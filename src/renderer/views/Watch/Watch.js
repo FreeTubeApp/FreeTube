@@ -208,7 +208,7 @@ export default Vue.extend({
           } else {
             this.channelId = result.player_response.videoDetails.channelId
             this.channelName = result.player_response.videoDetails.author
-            this.channelThumbnail = '~../../_icons/default-channel-pic.png'
+            this.channelThumbnail = result.player_response.embedPreview.thumbnailPreviewRenderer.videoDetails.embeddedPlayerOverlayVideoDetailsRenderer.channelThumbnail.thumbnails[0].url
           }
           this.videoPublished = new Date(result.videoDetails.publishDate.replace('-', '/')).getTime()
           this.videoDescription = result.player_response.videoDetails.shortDescription
