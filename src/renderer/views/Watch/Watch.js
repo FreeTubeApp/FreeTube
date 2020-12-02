@@ -200,9 +200,16 @@ export default Vue.extend({
             result.player_response.videoDetails.viewCount,
             10
           )
-          this.channelId = result.videoDetails.author.id
-          this.channelName = result.videoDetails.author.name
-          this.channelThumbnail = result.videoDetails.author.thumbnails[0].url
+          if (result.videoDetails.author.hasOwnProperty('id')) {
+            this.channelId = result.videoDetails.author.id
+            this.channelName = result.videoDetails.author.name
+            console.log(result)
+            this.channelThumbnail = result.videoDetails.author.thumbnails[0].url
+          } else {
+            this.channelId = result.player_response.videoDetails.channelId
+            this.channelName = result.player_response.videoDetails.author
+            this.channelThumbnail = '~../../_icons/default-channel-pic.png'
+          }
           this.videoPublished = new Date(result.videoDetails.publishDate.replace('-', '/')).getTime()
           this.videoDescription = result.player_response.videoDetails.shortDescription
 
@@ -337,22 +344,20 @@ export default Vue.extend({
 
                 return object
               })
+                let captionLinks = result.player_response.captions
+                if (typeof captionLinks !== 'undefined') {
+                  captionLinks = captionLinks.playerCaptionsTracklistRenderer.captionTracks.map((caption) => {
+                    const label = `${caption.name.simpleText} (${caption.languageCode}) - text/vtt`
+                    const object = {
+                      url: caption.baseUrl,
+                      label: label
+                    }
 
-              let captionLinks = result.playerResponse.captions
+                    return object
+                  })
 
-              if (typeof captionLinks !== 'undefined') {
-                captionLinks = captionLinks.playerCaptionsTracklistRenderer.captionTracks.map((caption) => {
-                  const label = `${caption.name.simpleText} (${caption.languageCode}) - text/vtt`
-                  const object = {
-                    url: caption.baseUrl,
-                    label: label
-                  }
-
-                  return object
-                })
-
-                this.downloadLinks = this.downloadLinks.concat(captionLinks)
-              }
+                  this.downloadLinks = this.downloadLinks.concat(captionLinks)
+                }
             } else {
               // video might be region locked or something else. This leads to no formats being available
               this.showToast({
