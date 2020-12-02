@@ -197,6 +197,10 @@ export default Vue.extend({
     },
 
     handleSubscription: function () {
+      if (this.channelId === '') {
+        return
+      }
+
       const currentProfile = JSON.parse(JSON.stringify(this.profileList[this.activeProfile]))
       const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
 

@@ -195,6 +195,30 @@ export default Vue.extend({
         .dispatch('ytGetVideoInformation', this.videoId)
         .then(async result => {
           console.log(result)
+
+          const playabilityStatus = result.player_response.playabilityStatus
+          if (playabilityStatus.status !== 'OK') {
+            const errorScreen = playabilityStatus.errorScreen.playerErrorMessageRenderer
+            const reason = errorScreen.reason.simpleText
+            let subReason
+            let skipIndex
+            errorScreen.subreason.runs.forEach((message, index) => {
+              if (index !== skipIndex) {
+                if (message.text.match(/<a.*>/)) {
+                  skipIndex = index + 1
+                } else if (!message.text.match(/<\/a>/)) {
+                  if (typeof subReason === 'undefined') {
+                    subReason = message.text
+                  } else {
+                    subReason = subReason + message.text
+                  }
+                }
+              }
+            })
+
+            throw new Error(`${reason}: ${subReason}`)
+          }
+
           this.videoTitle = result.videoDetails.title
           this.videoViewCount = parseInt(
             result.player_response.videoDetails.viewCount,
@@ -456,6 +480,10 @@ export default Vue.extend({
         .dispatch('invidiousGetVideoInformation', this.videoId)
         .then(result => {
           console.log(result)
+
+          if (result.error) {
+            throw new Error(result.error)
+          }
 
           this.videoTitle = result.title
           this.videoViewCount = result.viewCount

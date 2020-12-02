@@ -49,7 +49,7 @@
     "yt-xml2vtt": "^1.1.3",
     "ytdl-core": "^4.1.1",
     "ytpl": "^2.0.0-alpha.3",
-    "ytsr": "^2.0.0-alpha.3"
+    "ytsr": "^2.0.0-alpha.4"
   },
   "description": "A private YouTube client",
   "devDependencies": {
