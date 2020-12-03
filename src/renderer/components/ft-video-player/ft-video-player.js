@@ -501,45 +501,45 @@ export default Vue.extend({
         }
       }
     },
-    
+
     toggleFullWindowed: function() {
       const v = this
-      const VjsButton = videojs.getComponent("Button")
+      const VjsButton = videojs.getComponent('Button')
       const fullWindowButton = videojs.extend(VjsButton, {
-            constructor: function(player, options){
-              VjsButton.call(this, player, options)
-              this.controlText("Fullwindow")
-            },
-            handleClick: function(event) {
-              if(!v.player.isFullscreen_){
-                if(v.player.isFullWindow) {
-                  v.player.removeClass('vjs-full-screen')
-                  v.player.isFullWindow = false
-                  document.documentElement.style.overflow = v.player.docOrigOverflow
-                  $('body').removeClass('vjs-full-window')
-                  $('#fullwindow').removeClass('vjs-icon-fullwindow-exit')
-                  v.player.trigger('exitFullWindow')
-                } else {
-                    v.player.addClass('vjs-full-screen')
-                    v.player.isFullscreen_ = false
-                    v.player.isFullWindow = true
-                    v.player.docOrigOverflow = document.documentElement.style.overflow
-                    document.documentElement.style.overflow = 'hidden'
-                    $('body').addClass('vjs-full-window')
-                    $('#fullwindow').addClass('vjs-icon-fullwindow-exit')
-                    v.player.trigger('enterFullWindow')
-                  }
-              }
+        constructor: function(player, options) {
+          VjsButton.call(this, player, options)
+          this.controlText('Fullwindow')
+        },
+        handleClick: function(event) {
+          if (!v.player.isFullscreen_) {
+            if (v.player.isFullWindow) {
+              v.player.removeClass('vjs-full-screen')
+              v.player.isFullWindow = false
+              document.documentElement.style.overflow = v.player.docOrigOverflow
+              $('body').removeClass('vjs-full-window')
+              $('#fullwindow').removeClass('vjs-icon-fullwindow-exit')
+              v.player.trigger('exitFullWindow')
+            } else {
+              v.player.addClass('vjs-full-screen')
+              v.player.isFullscreen_ = false
+              v.player.isFullWindow = true
+              v.player.docOrigOverflow = document.documentElement.style.overflow
+              document.documentElement.style.overflow = 'hidden'
+              $('body').addClass('vjs-full-window')
+              $('#fullwindow').addClass('vjs-icon-fullwindow-exit')
+              v.player.trigger('enterFullWindow')
             }
-          });
+          }
+        }
+      })
       videojs.registerComponent('fullWindowButton', fullWindowButton)
-      v.player.getChild('controlBar').addChild("fullWindowButton", {})
-      .el().innerHTML = '<a class="vjs-icon-fullwindow-enter" id="fullwindow" vjs-control-content vjs-button" href="#"></a>'
+      v.player.getChild('controlBar').addChild('fullWindowButton', {})
+        .el().innerHTML = '<a class="vjs-icon-fullwindow-enter" id="fullwindow" vjs-control-content vjs-button" href="#"></a>'
     },
-    
-    exitFullWindow: function(){
+
+    exitFullWindow: function() {
       const v = this
-      if(v.player.isFullWindow) {
+      if (v.player.isFullWindow) {
         v.player.isFullWindow = false
         document.documentElement.style.overflow = v.player.docOrigOverflow
         v.player.removeClass('vjs-full-screen')
@@ -774,6 +774,6 @@ export default Vue.extend({
             break
         }
       }
-    },
+    }
   }
 })
