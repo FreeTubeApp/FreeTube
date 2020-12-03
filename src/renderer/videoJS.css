@@ -445,8 +445,9 @@ body.vjs-full-window {
   font-style: normal;
 }
 .vjs-icon-fullwindow-enter:before, .video-js .vjs-fullwindow-control .vjs-icon-placeholder:before {
-  content: "\f11f";
+  content: url('data:image/svg+xml;charset=UTF-8, <svg aria-hidden="true" focusable="false" data-prefix="fas" fill="white" width="18px" height="18px" data-icon="expand-alt"  role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M212.686 315.314L120 408l32.922 31.029c15.12 15.12 4.412 40.971-16.97 40.971h-112C10.697 480 0 469.255 0 456V344c0-21.382 25.803-32.09 40.922-16.971L72 360l92.686-92.686c6.248-6.248 16.379-6.248 22.627 0l25.373 25.373c6.249 6.248 6.249 16.378 0 22.627zm22.628-118.628L328 104l-32.922-31.029C279.958 57.851 290.666 32 312.048 32h112C437.303 32 448 42.745 448 56v112c0 21.382-25.803 32.09-40.922 16.971L376 152l-92.686 92.686c-6.248 6.248-16.379 6.248-22.627 0l-25.373-25.373c-6.249-6.248-6.249-16.378 0-22.627z"></path></svg>')
 }
+
 
 .vjs-icon-fullwindow-exit, .video-js.vjs-fullwindow .vjs-fullwindow-control .vjs-icon-placeholder {
   font-family: VideoJS;
@@ -454,7 +455,7 @@ body.vjs-full-window {
   font-style: normal;
 }
 .vjs-icon-fullwindow-exit:before, .video-js.vjs-fullwindow .vjs-fullwindow-control .vjs-icon-placeholder:before {
-  content: "\f109";
+  content: url('data:image/svg+xml;charset=UTF-8, <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24" fill="white" width="20px" height="20px"><rect fill="none" height="24" width="24"/><path d="M22,3.41l-5.29,5.29L20,12h-8V4l3.29,3.29L20.59,2L22,3.41z M3.41,22l5.29-5.29L12,20v-8H4l3.29,3.29L2,20.59L3.41,22z"/></svg>')  
 }
 
 .vjs-full-window .video-js.vjs-fullscreen {
