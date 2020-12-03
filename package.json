@@ -33,6 +33,7 @@
     "video.js": "7.10.2",
     "videojs-abloop": "^1.2.0",
     "videojs-contrib-quality-levels": "^2.0.9",
+    "videojs-hotkeys": "^0.2.27",
     "videojs-http-source-selector": "^1.1.6",
     "videojs-overlay": "^2.1.4",
     "videojs-replay": "^1.1.0",

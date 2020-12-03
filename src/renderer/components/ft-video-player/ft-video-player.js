@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
 
 import $ from 'jquery'
@@ -11,6 +10,7 @@ import 'videojs-overlay/dist/videojs-overlay.css'
 import 'videojs-vtt-thumbnails-freetube'
 import 'videojs-contrib-quality-levels'
 import 'videojs-http-source-selector'
+import 'videojs-hotkeys'
 
 export default Vue.extend({
   name: 'FtVideoPlayer',
@@ -740,194 +740,317 @@ export default Vue.extend({
     },
 
     keyboardShortcutHandler: function (event) {
-      const activeInputs = $('.ft-input')
+      const v = this
 
-      for (let i = 0; i < activeInputs.length; i++) {
-        if (activeInputs[i] === document.activeElement) {
-          return
-        }
-      }
+      this.player.ready(function () {
+        v.player.hotkeys({
+          volumeStep: 0.0005,
+          seekStep: 0.05,
+          // enableMute: false,
+          alwaysCaptureHotkeys: true,
+          captureDocumentHotkeys: true,
+          documentHotkeysFocusElementFilter: (event) => {
+            const tagName = event.tagName.toLowerCase()
+            return event.id === 'app' || tagName === 'videoarea' ||
+                                     tagName === 'infoarea' ||
+                                     tagName === 'vjs-overlay'
+                                     // Unsure about the above assignments
+          },
+          playPauseKey: (event) => {
+            event.preventDefault()
 
-      if (event.ctrlKey) {
-        return
-      }
+            // 'Space Bar' or 'k'
+            return event.which === 32 || event.which === 75
+          },
 
-      if (this.player !== null) {
-        switch (event.which) {
-          case 32:
-            // Space Bar
-            // Toggle Play/Pause
+          rewindKey: (event) => {
             event.preventDefault()
-            this.togglePlayPause()
-            break
-          case 74:
-            // J Key
-            // Rewind by 10 seconds
+
+            // 'j' or 'left arrow'
+            return event.which === 74 || event.which === 37
+          },
+
+          forwardKey: (event) => {
             event.preventDefault()
-            this.changeDurationBySeconds(-10)
-            break
-          case 75:
-            // K Key
-            // Toggle Play/Pause
+
+            // 'l' or 'right arrow'
+            return event.which === 76 || event.which === 39
+          },
+
+          muteKey: (event) => {
             event.preventDefault()
-            this.togglePlayPause()
-            break
-          case 76:
-            // L Key
-            // Fast Forward by 10 seconds
+
+            // 'm'
+            return event.which === 77
+          },
+
+          fullscreenKey: (event) => {
             event.preventDefault()
-            this.changeDurationBySeconds(10)
-            break
-          case 79:
-            // O Key
-            // Decrease playback rate by 0.25x
-            event.preventDefault()
-            this.changePlayBackRate(-0.25)
-            break
-          case 80:
-            // P Key
-            // Increase playback rate by 0.25x
-            event.preventDefault()
-            this.changePlayBackRate(0.25)
-            break
-          case 70:
-            // F Key
-            // Toggle Fullscreen Playback
-            event.preventDefault()
-            this.toggleFullscreen()
-            break
-          case 77:
-            // M Key
-            // Toggle Mute
-            event.preventDefault()
-            this.toggleMute()
-            break
-          case 67:
-            // C Key
-            // Toggle Captions
-            event.preventDefault()
-            this.toggleCaptions()
-            break
-          case 38:
-            // Up Arrow Key
-            // Increase volume
-            event.preventDefault()
-            this.changeVolume(0.05)
-            break
-          case 40:
-            // Down Arrow Key
-            // Decrease Volume
-            event.preventDefault()
-            this.changeVolume(-0.05)
-            break
-          case 37:
-            // Left Arrow Key
-            // Rewind by 5 seconds
-            event.preventDefault()
-            this.changeDurationBySeconds(-5)
-            break
-          case 39:
-            // Right Arrow Key
-            // Fast Forward by 5 seconds
-            event.preventDefault()
-            this.changeDurationBySeconds(5)
-            break
-          case 49:
-            // 1 Key
-            // Jump to 10% in the video
-            event.preventDefault()
-            this.changeDurationByPercentage(0.1)
-            break
-          case 50:
-            // 2 Key
-            // Jump to 20% in the video
-            event.preventDefault()
-            this.changeDurationByPercentage(0.2)
-            break
-          case 51:
-            // 3 Key
-            // Jump to 30% in the video
-            event.preventDefault()
-            this.changeDurationByPercentage(0.3)
-            break
-          case 52:
-            // 4 Key
-            // Jump to 40% in the video
-            event.preventDefault()
-            this.changeDurationByPercentage(0.4)
-            break
-          case 53:
-            // 5 Key
-            // Jump to 50% in the video
-            event.preventDefault()
-            this.changeDurationByPercentage(0.5)
-            break
-          case 54:
-            // 6 Key
-            // Jump to 60% in the video
-            event.preventDefault()
-            this.changeDurationByPercentage(0.6)
-            break
-          case 55:
-            // 7 Key
-            // Jump to 70% in the video
-            event.preventDefault()
-            this.changeDurationByPercentage(0.7)
-            break
-          case 56:
-            // 8 Key
-            // Jump to 80% in the video
-            event.preventDefault()
-            this.changeDurationByPercentage(0.8)
-            break
-          case 57:
-            // 9 Key
-            // Jump to 90% in the video
-            event.preventDefault()
-            this.changeDurationByPercentage(0.9)
-            break
-          case 48:
-            // 0 Key
-            // Jump to 0% in the video (The beginning)
-            event.preventDefault()
-            this.changeDurationByPercentage(0)
-            break
-          case 188:
-            // , Key
-            // Return to previous frame
-            this.framebyframe(-1)
-            break
-          case 190:
-            // . Key
-            // Advance to next frame
-            this.framebyframe(1)
-            break
-          case 68:
-            // D Key
-            // Toggle Picture in Picture Mode
-            if (!this.player.isInPictureInPicture()) {
-              this.player.requestPictureInPicture()
-            } else if (this.player.isInPictureInPicture()) {
-              this.player.exitPictureInPicture()
+
+            // 'f'
+            return event.which === 70
+          },
+
+          customKeys: {
+            // togglePlayPauseKey: {
+            //   key: (event) => {
+            //     event.preventDefault()
+            //     return event.key === 'k' || event.key === 'Space'
+            //   },
+            //   handler: () => {
+            //     event.preventDefault()
+            //     v.togglePlayPause()
+            //   }
+            // },
+
+            // toggleMuteKey: {
+            //   key: (event) => {
+            //     return event.key === 'm'
+            //   },
+            //   handler: () => {
+            //     event.preventDefault()
+            //     v.toggleMute()
+            //   }
+            // },
+
+            decreasePlaybackRateKey: {
+              key: (event) => {
+                return event.key === 'o'
+              },
+              handler: () => {
+                event.preventDefault()
+                v.changePlayBackRate(-0.25)
+              }
+            },
+
+            increasePlaybackRateKey: {
+              key: (event) => {
+                return event.key === 'p'
+              },
+              handler: () => {
+                event.preventDefault()
+                v.changePlayBackRate(0.25)
+              }
+            },
+
+            toggleCaptionsKey: {
+              key: (event) => {
+                return event.key === 'c'
+              },
+              handler: () => {
+                event.preventDefault()
+                v.toggleCaptions()
+              }
+            },
+
+            previousFrameKey: {
+              key: (event) => {
+                return event.key === ','
+              },
+              handler: () => {
+                event.preventDefault()
+                v.framebyframe(-1)
+              }
+            },
+
+            nextFrameKey: {
+              key: (event) => {
+                return event.key === '.'
+              },
+              handler: () => {
+                event.preventDefault()
+                v.framebyframe(1)
+              }
             }
-            break
-          case 27:
-            // esc Key
-            // Exit full window
-            event.preventDefault()
-            this.exitFullWindow()
-            break
-          case 83:
-            // S Key
-            // Toggle Full Window Mode
-            this.toggleFullWindow()
-            break
-        }
-      }
-    },
+          }
+        })
+      })
+    }
 
-    ...mapActions([
-      'calculateColorLuminance'
-    ])
+    // keyboardShortcutHandler: function (event) {
+    //   const activeInputs = $('.ft-input')
+
+    //   for (let i = 0; i < activeInputs.length; i++) {
+    //     if (activeInputs[i] === document.activeElement) {
+    //       return
+    //     }
+    //   }
+
+    //   if (this.player !== null) {
+    //     switch (event.which) {
+    //       case 32:
+    //         // Space Bar
+    //         // Toggle Play/Pause
+    //         event.preventDefault()
+    //         this.togglePlayPause()
+    //         break
+    //       case 74:
+    //         // J Key
+    //         // Rewind by 10 seconds
+    //         event.preventDefault()
+    //         this.changeDurationBySeconds(-10)
+    //         break
+    //       case 75:
+    //         // K Key
+    //         // Toggle Play/Pause
+    //         event.preventDefault()
+    //         this.togglePlayPause()
+    //         break
+    //       case 76:
+    //         // L Key
+    //         // Fast Forward by 10 seconds
+    //         event.preventDefault()
+    //         this.changeDurationBySeconds(10)
+    //         break
+    //       case 79:
+    //         // O Key
+    //         // Decrease playback rate by 0.25x
+    //         event.preventDefault()
+    //         this.changePlayBackRate(-0.25)
+    //         break
+    //       case 80:
+    //         // P Key
+    //         // Increase playback rate by 0.25x
+    //         event.preventDefault()
+    //         this.changePlayBackRate(0.25)
+    //         break
+    //       case 70:
+    //         // F Key
+    //         // Toggle Fullscreen Playback
+    //         event.preventDefault()
+    //         this.toggleFullscreen()
+    //         break
+    //       case 77:
+    //         // M Key
+    //         // Toggle Mute
+    //         event.preventDefault()
+    //         this.toggleMute()
+    //         break
+    //       case 67:
+    //         // C Key
+    //         // Toggle Captions
+    //         event.preventDefault()
+    //         this.toggleCaptions()
+    //         break
+    //       case 38:
+    //         // Up Arrow Key
+    //         // Increase volume
+    //         event.preventDefault()
+    //         this.changeVolume(0.05)
+    //         break
+    //       case 40:
+    //         // Down Arrow Key
+    //         // Decrease Volume
+    //         event.preventDefault()
+    //         this.changeVolume(-0.05)
+    //         break
+    //       case 37:
+    //         // Left Arrow Key
+    //         // Rewind by 5 seconds
+    //         event.preventDefault()
+    //         this.changeDurationBySeconds(-5)
+    //         break
+    //       case 39:
+    //         // Right Arrow Key
+    //         // Fast Forward by 5 seconds
+    //         event.preventDefault()
+    //         this.changeDurationBySeconds(5)
+    //         break
+    //       case 49:
+    //         // 1 Key
+    //         // Jump to 10% in the video
+    //         event.preventDefault()
+    //         this.changeDurationByPercentage(0.1)
+    //         break
+    //       case 50:
+    //         // 2 Key
+    //         // Jump to 20% in the video
+    //         event.preventDefault()
+    //         this.changeDurationByPercentage(0.2)
+    //         break
+    //       case 51:
+    //         // 3 Key
+    //         // Jump to 30% in the video
+    //         event.preventDefault()
+    //         this.changeDurationByPercentage(0.3)
+    //         break
+    //       case 52:
+    //         // 4 Key
+    //         // Jump to 40% in the video
+    //         event.preventDefault()
+    //         this.changeDurationByPercentage(0.4)
+    //         break
+    //       case 53:
+    //         // 5 Key
+    //         // Jump to 50% in the video
+    //         event.preventDefault()
+    //         this.changeDurationByPercentage(0.5)
+    //         break
+    //       case 54:
+    //         // 6 Key
+    //         // Jump to 60% in the video
+    //         event.preventDefault()
+    //         this.changeDurationByPercentage(0.6)
+    //         break
+    //       case 55:
+    //         // 7 Key
+    //         // Jump to 70% in the video
+    //         event.preventDefault()
+    //         this.changeDurationByPercentage(0.7)
+    //         break
+    //       case 56:
+    //         // 8 Key
+    //         // Jump to 80% in the video
+    //         event.preventDefault()
+    //         this.changeDurationByPercentage(0.8)
+    //         break
+    //       case 57:
+    //         // 9 Key
+    //         // Jump to 90% in the video
+    //         event.preventDefault()
+    //         this.changeDurationByPercentage(0.9)
+    //         break
+    //       case 48:
+    //         // 0 Key
+    //         // Jump to 0% in the video (The beginning)
+    //         event.preventDefault()
+    //         this.changeDurationByPercentage(0)
+    //         break
+    //       case 188:
+    //         // , Key
+    //         // Return to previous frame
+    //         this.framebyframe(-1)
+    //         break
+    //       case 190:
+    //         // . Key
+    //         // Advance to next frame
+    //         this.framebyframe(1)
+    //         break
+    //       case 68:
+    //        // D Key
+    //        // Toggle Picture in Picture Mode
+    //        if (!this.player.isInPictureInPicture()) {
+    //          this.player.requestPictureInPicture()
+    //        } else if (this.player.isInPictureInPicture()) {
+    //          this.player.exitPictureInPicture()
+    //        }
+    //        break
+    //      case 27:
+    //        // esc Key
+    //        // Exit full window
+    //        event.preventDefault()
+    //        this.exitFullWindow()
+    //        break
+    //      case 83:
+    //        // S Key
+    //        // Toggle Full Window Mode
+    //        this.toggleFullWindow()
+    //        break
+    //      }
+    //   }
+    //    ...mapActions([
+    //      'calculateColorLuminance'
+    //    ])
+    //  }
   }
 })
