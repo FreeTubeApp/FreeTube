@@ -57,6 +57,14 @@
   transform: translate(-50%, -1em);
 }
 
+.text.bottom-left {
+  margin-top: 1em;
+  top: 100%;
+  left: -50px;
+  -webkit-transform: translate(-50%, -1em);
+  transform: translate(-50%, -1em);
+}
+
 .text.left {
   margin-right:1em;
   right: 100%;
