@@ -208,14 +208,14 @@ Settings:
     Clear History:
       Clear History: 'Effacer l’historique'
       # On Click
-      Are you sure you want to delete your history?: 'Êtes-vous sûr·e de vouloir effacer
-        votre historique ?'
+      Are you sure you want to delete your history?: 'Êtes-vous sûr(e) de vouloir
+        effacer votre historique ?'
       #& Yes
       #& No
     Clear Subscriptions:
       Clear Subscriptions: 'Effacer les abonnements'
       # On Click
-      Are you sure you want to remove all subscriptions?: 'Êtes-vous sûr·e de vouloir
+      Are you sure you want to remove all subscriptions?: 'Êtes-vous sûr(e) de vouloir
         supprimer tous les abonnements ?'
       #& Yes
       #& No
@@ -224,16 +224,16 @@ Settings:
     Privacy Settings: Paramètres de confidentialité
     Remember History: Enregistrer l'historique
     Watch history has been cleared: L'historique a été effacé
-    Are you sure you want to remove your entire watch history?: Êtes-vous sûr·e de
+    Are you sure you want to remove your entire watch history?: Êtes-vous sûr(e) de
       vouloir supprimer tout votre historique ?
     Search cache has been cleared: L'historique de recherche a été effacé
-    Are you sure you want to clear out your search cache?: Êtes-vous sûr·e de vouloir
+    Are you sure you want to clear out your search cache?: Êtes-vous sûr(e) de vouloir
       effacer votre historique de recherche ?
     Clear Search Cache: Effacer l'historique de recherche
     Save Watched Progress: Garder la progression de la vidéo
     Remove Watch History: Effacer l'historique des vidéos regardées
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Êtes-vous
-      sûr·e de vouloir supprimer tous les abonnements et les profils ? Cette action
+      sûr(e) de vouloir supprimer tous les abonnements et les profils ? Cette action
       est définitive.
     Remove All Subscriptions / Profiles: Supprimer tous les Abonnements / Profils
   Data Settings:
@@ -364,7 +364,7 @@ Video:
   Open in YouTube: 'Ouvrir sur Youtube'
   Copy YouTube Link: 'Copier le lien Youtube'
   Open YouTube Embedded Player: 'Ouvrir sur Youtube-NoCookie'
-  Copy YouTube Embedded Player Link: 'Copier le lien du lecteur YouTube incorporé'
+  Copy YouTube Embedded Player Link: 'Copier le lien Youtube-NoCookie'
   Open in Invidious: 'Ouvrir sur Individious'
   Copy Invidious Link: 'Copier le lien Individious'
   View: 'Vue'
@@ -549,7 +549,7 @@ Profile:
   Your profile name cannot be empty: Le nom de votre profil ne peut pas être vide
   Profile could not be found: Le profil n'a pas pu être trouvé
   All subscriptions will also be deleted.: Tous les abonnements seront également supprimés.
-  Are you sure you want to delete this profile?: Êtes-vous sûr·e de vouloir supprimer
+  Are you sure you want to delete this profile?: Êtes-vous sûr(e) de vouloir supprimer
     ce profil ?
   Delete Profile: Supprimer le profil
   Make Default Profile: Établir un profil par défaut
@@ -564,12 +564,12 @@ Profile:
   All Channels: Tous les canaux
   Profile Select: Sélection du profil
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Êtes-vous
-    sûr·e de vouloir supprimer les chaînes sélectionnées ?  Ceci ne supprimera pas
+    sûr(e) de vouloir supprimer les chaînes sélectionnées ?  Ceci ne supprimera pas
     la chaîne de tout autre profil.
   Subscription List: Liste des abonnements
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : Ceci est votre profil principal.  Êtes-vous sûr·e de vouloir supprimer les chaînes
+  : Ceci est votre profil principal.  Êtes-vous sûr(e) de vouloir supprimer les chaînes
     sélectionnées ?  Les mêmes chaînes seront supprimées dans tous les profils où
     elles se trouvent.
   No channel(s) have been selected: Aucune chaîne(s) n'a été sélectionnée
