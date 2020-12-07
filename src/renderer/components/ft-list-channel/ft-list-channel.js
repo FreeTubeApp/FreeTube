@@ -44,6 +44,11 @@ export default Vue.extend({
   methods: {
     parseLocalData: function () {
       this.thumbnail = this.data.avatar
+
+      if (!this.thumbnail.includes('https:')) {
+        this.thumbnail = `https:${this.thumbnail}`
+      }
+
       this.channelName = this.data.name
       this.id = this.data.channel_id
       if (this.hideChannelSubscriptions) {
