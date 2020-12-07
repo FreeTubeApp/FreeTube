@@ -225,7 +225,7 @@ export default Vue.extend({
             10
           )
           if ('id' in result.videoDetails.author) {
-            this.channelId = result.videoDetails.author.id
+            this.channelId = result.player_response.videoDetails.channelId
             this.channelName = result.videoDetails.author.name
             console.log(result)
             this.channelThumbnail = result.videoDetails.author.thumbnails[0].url
