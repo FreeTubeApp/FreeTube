@@ -132,7 +132,9 @@ const actions = {
   ytGetVideoInformation (_, videoId) {
     return new Promise((resolve, reject) => {
       console.log('Getting video info please wait...')
-      ytdl.getInfo(videoId).then((result) => {
+      ytdl.getInfo(videoId, {
+        lang: localStorage.getItem('locale')
+      }).then((result) => {
         resolve(result)
       }).catch((err) => {
         reject(err)
