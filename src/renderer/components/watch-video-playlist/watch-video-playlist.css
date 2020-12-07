@@ -36,7 +36,7 @@
 
 .playlistItems {
   overflow-y: auto;
-  height: 380px;
+  height: 360px;
 }
 
 .playlistItem {
