@@ -1,107 +1,117 @@
 # Put the name of your locale in the same language
 Locale Name: ''
-FreeTube: ''
+FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >
+'This part of the app is not ready yet. Come back later when progress has been made.': >-
+  Aquesta secció de l'aplicació encara no està llesta. Torna més endavant quan s'hagin
+  fet progressos.
 
 # Webkit Menu Bar
-File: ''
-Quit: ''
-Edit: ''
-Undo: ''
-Redo: ''
-Cut: ''
-Copy: ''
-Paste: ''
-Delete: ''
-Select all: ''
-Reload: ''
-Force Reload: ''
-Toggle Developer Tools: ''
-Actual size: ''
-Zoom in: ''
-Zoom out: ''
-Toggle fullscreen: ''
-Window: ''
-Minimize: ''
-Close: ''
-Back: ''
-Forward: ''
+File: 'Archiu'
+Quit: 'Surt'
+Edit: 'Editar'
+Undo: 'Desfer'
+Redo: 'Refés'
+Cut: 'Retallar'
+Copy: 'Copiar'
+Paste: 'Enganxar'
+Delete: 'Esborrar'
+Select all: 'Seleccionar-ho tot'
+Reload: 'Tornar a carregar'
+Force Reload: 'Forçar la Recàrrega'
+Toggle Developer Tools: 'Acrivar les eines per a desenvolupadors'
+Actual size: 'Mida actual'
+Zoom in: 'Agrandar'
+Zoom out: 'Reduir'
+Toggle fullscreen: 'Commutar la pantalla completa'
+Window: 'Finestra'
+Minimize: 'Minimitzar'
+Close: 'Tancar'
+Back: 'Enrere'
+Forward: 'Endavant'
 
-Version $ is now available!  Click for more details: ''
-Download From Site: ''
-A new blog is now available, $. Click to view more: ''
+Version $ is now available!  Click for more details: 'La versió $ està disponible!
+  Fes clic per a més detalls'
+Download From Site: 'Descarrega des del web'
+A new blog is now available, $. Click to view more: 'Nova publicació al blog disponible,
+  $. Fes clic per saber-ne més'
 
 # Search Bar
-Search / Go to URL: ''
+Search / Go to URL: 'Cercar / Vés a l''enllaç'
   # In Filter Button
 Search Filters:
-  Search Filters: ''
+  Search Filters: 'Filtres de cerca'
   Sort By:
-    Sort By: ''
-    Most Relevant: ''
-    Rating: ''
-    Upload Date: ''
-    View Count: ''
+    Sort By: 'Ordena per'
+    Most Relevant: 'Més rellevant'
+    Rating: 'Valoració'
+    Upload Date: 'Data de pujada'
+    View Count: 'Visualitza el comptador'
   Time:
-    Time: ''
-    Any Time: ''
-    Last Hour: ''
-    Today: ''
-    This Week: ''
-    This Month: ''
-    This Year: ''
+    Time: 'Data'
+    Any Time: 'Qualsevol moment'
+    Last Hour: 'Última hora'
+    Today: 'Avui'
+    This Week: 'Aquesta setmana'
+    This Month: 'Aquest mes'
+    This Year: 'Aquest any'
   Type:
-    Type: ''
-    All Types: ''
-    Videos: ''
-    Channels: ''
+    Type: 'Tipus'
+    All Types: 'Qualsevol tipus'
+    Videos: 'Vídeos'
+    Channels: 'Canals'
     #& Playlists
   Duration:
-    Duration: ''
-    All Durations: ''
-    Short (< 4 minutes): ''
-    Long (> 20 minutes): ''
+    Duration: 'Duració'
+    All Durations: 'Qualsevol duració'
+    Short (< 4 minutes): 'Curts (< 4 minuts)'
+    Long (> 20 minutes): 'Llargs (> 20 minuts)'
   # On Search Page
-  Search Results: ''
-  Fetching results. Please wait: ''
-  Fetch more results: ''
+  Search Results: 'Resultats de la cerca'
+  Fetching results. Please wait: 'Obtenint resultats. Espera si us plau'
+  Fetch more results: 'Obtenir més resultats'
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: ''
-  Latest Subscriptions: ''
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
-  'Getting Subscriptions. Please wait.': ''
-  Refresh Subscriptions: ''
-Trending: ''
-Most Popular: ''
-Playlists: ''
+  Subscriptions: 'Subscripcions'
+  Latest Subscriptions: 'Últimes subscripcions'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'La
+    teva llista de subscripcions està buida. Afegeix subscripcions per veure-les aquí.'
+  'Getting Subscriptions. Please wait.': 'Obtenint subscripcions. Si us plau, espera.'
+  Refresh Subscriptions: 'Actualitzar subscripcions'
+  Load More Videos: Carregar més vídeos
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Aquest
+    perfil té un gran nombre de subscripcions. Forçant RSS per evitar la limitació
+    fixada
+Trending: 'Tendencies'
+Most Popular: 'Més populars'
+Playlists: 'Llistes de reproducció'
 User Playlists:
-  Your Playlists: ''
+  Your Playlists: 'Les teves llistes de reproducció'
 History:
   # On History Page
-  History: ''
-  Watch History: ''
-  Your history list is currently empty.: ''
+  History: 'Historial'
+  Watch History: 'Veure l''historial'
+  Your history list is currently empty.: 'El teu historial està actualment buit.'
 Settings:
   # On Settings Page
-  Settings: ''
+  Settings: 'Paràmetres'
   General Settings:
-    General Settings: ''
-    Check for Updates: ''
-    Check for Latest Blog Posts: ''
-    Fallback to Non-Preferred Backend on Failure: ''
-    Enable Search Suggestions: ''
-    Default Landing Page: ''
-    Locale Preference: ''
+    General Settings: 'Paràmetres generals'
+    Check for Updates: 'Comprovar si hi ha actualitzacions'
+    Check for Latest Blog Posts: 'Consultar les darreres entrades al blog'
+    Fallback to Non-Preferred Backend on Failure: 'Tornar al Backend no preferencial
+      en cas d''error'
+    Enable Search Suggestions: 'Habilitar els suggeriments de cerca'
+    Default Landing Page: 'Pàgina d''aterratge per defecte'
+    Locale Preference: 'Preferència de configuració regional'
     Preferred API Backend:
-      Preferred API Backend: ''
-      Local API: ''
-      Invidious API: ''
+      Preferred API Backend: 'Motor API principal'
+      Local API: 'API local'
+      Invidious API: 'API d''Invidious'
     Video View Type:
-      Video View Type: ''
-      Grid: ''
+      Video View Type: 'Tipus de vista de vídeo'
+      Grid: 'Quadrícula'
       List: ''
     Thumbnail Preference:
       Thumbnail Preference: ''
@@ -236,6 +246,9 @@ Settings:
       #& Yes
       #& No
 
+  The app needs to restart for changes to take effect. Restart and apply change?: Cal
+    reiniciar l'aplicació perquè els canvis tinguin efecte. Vols reiniciar i aplicar
+    els canvis?
 About:
   #On About page
   About: ''
