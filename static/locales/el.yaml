@@ -23,7 +23,7 @@ Toggle Developer Tools: 'Εμφάνιση Εργαλείων Προγραμμα�
 Actual size: 'Πραγματικό μέγεθος'
 Zoom in: 'Μεγέθυνση'
 Zoom out: 'Σμίκρυνση'
-Toggle fullscreen: 'Λειτουργεία πλήρους οθόνης'
+Toggle fullscreen: 'Πλήρης οθόνη'
 Window: 'Παράθυρο'
 Minimize: 'Ελαχιστοποίηση'
 Close: 'Κλείσιμο'
@@ -476,6 +476,10 @@ Video:
   Download Video: Λήψη Βίντεο
   Copy Invidious Channel Link: Αντιγραφή συνδέσμου καναλιού Invidious
   Copy YouTube Channel Link: Αντιγραφή συνδέσμου καναλιού
+  Started streaming on: Ξεκίνησε να μεταδίδει ζωντανά την
+  Streamed on: Μεταδίδεται ζωντανά σε
+  Open Channel in Invidious: Άνοιγμα καναλιού στο Invidious
+  Open Channel in YouTube: Άνοιγμα καναλιού στο YouTube
 Videos:
   #& Sort By
   Sort By:
@@ -575,9 +579,9 @@ Canceled next video autoplay: 'Η αναπαραγωγή του επόμενου
 
 Yes: 'Ναι'
 No: 'Όχι'
-A new blog is now available, $. Click to view more: Μία νέα ανακοίνωση έχει σημειωθεί
-  στο Blog, $. Κάντε κλικ για να δείτε περισσότερα
-Download From Site: Κάντε λήψη από την Ιστοσελίδα
+A new blog is now available, $. Click to view more: Ένα καινούριο ιστολόγιο είναι
+  πλέον διαθέσιμο, $. Για περισσότερες λεπτομέρειες κάντε κλικ εδώ
+Download From Site: Κάντε λήψη απο την Ιστοσελίδα
 Version $ is now available!  Click for more details: Η έκδοση $ είναι πλέον διαθέσιμη.
   Κάντε κλικ για περισσότερες λεπτομέρειες
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Αυτό
@@ -613,3 +617,6 @@ Tooltips:
     Preferred API Backend: Επέλεξε το σύστημα με το οποίο το Freetube θα συλλέγει
       δεδομένα. Το τοπικό API είναι ένα ενσωματομένο εργαλείο. Ενώ το Invidious API
       απαιτεί έναν Invidious server για σύνδεση.
+    Invidious Instance: Το στιγμιότυπο Invidious στο οποίο το FreeTube θα συνδεθεί
+      για κλήσεις διεπαφής. Καθαρίστε το παρόν στιγμιότυπο για να δείτε μια λίστα
+      δημόσιων στιγμιότυπων προς επιλογή
