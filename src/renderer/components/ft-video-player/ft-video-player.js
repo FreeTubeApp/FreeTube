@@ -87,9 +87,8 @@ export default Vue.extend({
             'descriptionsButton',
             'subsCapsButton',
             'audioTrackButton',
-            'QualitySelector',
-            'pictureInPictureToggle',
-            'fullscreenToggle'
+            'qualitySelector',
+            'pictureInPictureToggle'
           ]
         },
         playbackRates: [
@@ -171,8 +170,9 @@ export default Vue.extend({
             }
           }
         })
-
-        this.toggleFullWindowed()
+        
+        this.createFullWindowButton()
+        this.player.controlBar.addChild('fullscreenToggle')
         this.player.volume(this.volume)
         this.player.playbackRate(this.defaultPlayback)
 
@@ -502,50 +502,55 @@ export default Vue.extend({
       }
     },
 
-    toggleFullWindowed: function() {
+    createFullWindowButton: function() {
       const v = this
       const VjsButton = videojs.getComponent('Button')
       const fullWindowButton = videojs.extend(VjsButton, {
         constructor: function(player, options) {
           VjsButton.call(this, player, options)
-          this.controlText('Fullwindow')
         },
-        handleClick: function(event) {
-          if (!v.player.isFullscreen_) {
-            if (v.player.isFullWindow) {
-              v.player.removeClass('vjs-full-screen')
-              v.player.isFullWindow = false
-              document.documentElement.style.overflow = v.player.docOrigOverflow
-              $('body').removeClass('vjs-full-window')
-              $('#fullwindow').removeClass('vjs-icon-fullwindow-exit')
-              v.player.trigger('exitFullWindow')
-            } else {
-              v.player.addClass('vjs-full-screen')
-              v.player.isFullscreen_ = false
-              v.player.isFullWindow = true
-              v.player.docOrigOverflow = document.documentElement.style.overflow
-              document.documentElement.style.overflow = 'hidden'
-              $('body').addClass('vjs-full-window')
-              $('#fullwindow').addClass('vjs-icon-fullwindow-exit')
-              v.player.trigger('enterFullWindow')
-            }
-          }
+        handleClick: function() {
+          v.toggleFullWindow()
+        },
+        createControlTextEl: function (button) {
+          return $(button).html($('<div id="fullwindow" class="vjs-icon-fullwindow-enter vjs-button"></div>')
+            .attr('title', 'Fullwindow'))
         }
       })
       videojs.registerComponent('fullWindowButton', fullWindowButton)
-      v.player.getChild('controlBar').addChild('fullWindowButton', {})
-        .el().innerHTML = '<a class="vjs-icon-fullwindow-enter" id="fullwindow" vjs-control-content vjs-button" href="#"></a>'
+      v.player.controlBar.addChild('fullWindowButton', {})
+    },
+
+    toggleFullWindow: function() {
+      if (!this.player.isFullscreen_) {
+        if (this.player.isFullWindow) {
+          this.player.removeClass('vjs-full-screen')
+          this.player.isFullWindow = false
+          document.documentElement.style.overflow = this.player.docOrigOverflow
+          $('body').removeClass('vjs-full-window')
+          $('#fullwindow').removeClass('vjs-icon-fullwindow-exit')
+          this.player.trigger('exitFullWindow')
+        } else {
+          this.player.addClass('vjs-full-screen')
+          this.player.isFullscreen_ = false
+          this.player.isFullWindow = true
+          this.player.docOrigOverflow = document.documentElement.style.overflow
+          document.documentElement.style.overflow = 'hidden'
+          $('body').addClass('vjs-full-window')
+          $('#fullwindow').addClass('vjs-icon-fullwindow-exit')
+          this.player.trigger('enterFullWindow')
+        }
+      }
     },
 
     exitFullWindow: function() {
-      const v = this
-      if (v.player.isFullWindow) {
-        v.player.isFullWindow = false
-        document.documentElement.style.overflow = v.player.docOrigOverflow
-        v.player.removeClass('vjs-full-screen')
+      if (this.player.isFullWindow) {
+        this.player.isFullWindow = false
+        document.documentElement.style.overflow = this.player.docOrigOverflow
+        this.player.removeClass('vjs-full-screen')
         $('body').removeClass('vjs-full-window')
         $('#fullwindow').removeClass('vjs-icon-fullwindow-exit')
-        v.player.trigger('exitFullWindow')
+        this.player.trigger('exitFullWindow')
       }
     },
 
