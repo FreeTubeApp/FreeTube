@@ -170,7 +170,6 @@ export default Vue.extend({
             }
           }
         })
-        
         this.createFullWindowButton()
         this.player.controlBar.addChild('fullscreenToggle')
         this.player.volume(this.volume)
