@@ -104,7 +104,7 @@ Settings:
     Default Landing Page: 'דף נחיתה כבררת מחדל'
     Locale Preference: 'העדפת שפה'
     Preferred API Backend:
-      Preferred API Backend: 'ממשק API נסתר שמועדף'
+      Preferred API Backend: 'ממשק API נסתר מועדף'
       Local API: 'API מקומי'
       Invidious API: 'API של Invidious'
     Video View Type:
@@ -118,7 +118,7 @@ Settings:
       Middle: 'אמצע'
       End: 'סוף'
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'שרת Invidious
-      ( ברירת המחדל היא https://invidious.snopyta.org )'
+      (ברירת המחדל היא https://invidious.snopyta.org)'
     Region for Trending: 'אזור לסרטונים חמים'
         #! List countries
   Theme Settings:
@@ -158,7 +158,7 @@ Settings:
     Play Next Video: 'ניגון הסרטון הבא'
     Turn on Subtitles by Default: 'הפעלת כתוביות כברירת מחדל'
     Autoplay Videos: 'הפעלה אוטומטית לסרטונים'
-    Proxy Videos Through Invidious: 'שימוש בפרוקסי לניגון סרטונים דרך Invidious'
+    Proxy Videos Through Invidious: 'שימוש במתווך (פרוקסי) לניגון סרטונים דרך Invidious'
     Autoplay Playlists: 'הפעלה אוטומטית לפלייליסטים'
     Enable Theatre Mode by Default: 'הפעלת מצב קולנוע כברירת מחדל'
     Default Volume: 'ברירת המחדל לעצמת השמע'
