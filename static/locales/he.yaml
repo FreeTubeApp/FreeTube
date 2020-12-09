@@ -98,13 +98,13 @@ Settings:
     General Settings: 'הגדרות כלליות'
     Check for Updates: 'בדוק אם קיימים עדכונים'
     Check for Latest Blog Posts: 'בדוק אם קיימים פוסטים חדשים בבלוג'
-    Fallback to Non-Preferred Backend on Failure: 'לסגת לגישור חבוי שאינו מועדף בעת
+    Fallback to Non-Preferred Backend on Failure: 'לסגת לממשק נסתר שאינו מועדף בעת
       כשל'
     Enable Search Suggestions: 'אפשר הצעות לחיפוש'
     Default Landing Page: 'דף נחיתה כבררת מחדל'
     Locale Preference: 'העדפת שפה'
     Preferred API Backend:
-      Preferred API Backend: 'גישור חבוי מועדף של API'
+      Preferred API Backend: 'ממשק API נסתר שמועדף'
       Local API: 'API מקומי'
       Invidious API: 'API של Invidious'
     Video View Type:
@@ -154,20 +154,19 @@ Settings:
     Disable Smooth Scrolling: השבתת גלילה חלקה
   Player Settings:
     Player Settings: 'הגדרת נגן'
-    Force Local Backend for Legacy Formats: 'לכפות את הגישור החבוי המקומי לתצורות
-      ישנות'
+    Force Local Backend for Legacy Formats: 'לכפות את הממשק הנסתר המקומי לתצורות המיושנות'
     Play Next Video: 'ניגון הסרטון הבא'
-    Turn on Subtitles by Default: 'הפעל כתוביות כברירת מחדל'
+    Turn on Subtitles by Default: 'הפעלת כתוביות כברירת מחדל'
     Autoplay Videos: 'הפעלה אוטומטית לסרטונים'
-    Proxy Videos Through Invidious: 'השתמש בפרוקסי לסרטונים דרך Invidious'
+    Proxy Videos Through Invidious: 'שימוש בפרוקסי לניגון סרטונים דרך Invidious'
     Autoplay Playlists: 'הפעלה אוטומטית לפלייליסטים'
     Enable Theatre Mode by Default: 'הפעלת מצב קולנוע כברירת מחדל'
-    Default Volume: 'ווליום ברירת מחדל'
+    Default Volume: 'ברירת המחדל לעצמת השמע'
     Default Playback Rate: 'ברירת המחדל למהירות הצפייה'
     Default Video Format:
       Default Video Format: 'תצורת הסרטונים כברירת־המחדל'
       Dash Formats: 'תצורות Dash'
-      Legacy Formats: 'תצורות ישנות'
+      Legacy Formats: 'תצורות מיושנות'
       Audio Formats: 'תצורות שמע'
     Default Quality:
       Default Quality: 'איכות ברירת המחדל'
@@ -485,7 +484,7 @@ Toggle Theatre Mode: 'הפעלו / בטלו מצב קולנוע'
 Change Format:
   Change Video Formats: 'שינוי תצורות הסרטונים'
   Use Dash Formats: 'שימוש בתצורות Dash'
-  Use Legacy Formats: 'שימוש בתצורות ישנות'
+  Use Legacy Formats: 'שימוש בתצורות המיושנות'
   Use Audio Formats: 'שימוש בתצורות שמע'
   Dash formats are not available for this video: 'לא קיימות תצורות Dash לסרטון הזה'
   Audio formats are not available for this video: 'לא קיימות תצורות שמע לסרטון הזה'
@@ -567,6 +566,9 @@ Tooltips:
       ידי Invidious לא מתנגנים עקב מגבלות חוקיות במדינה
     Proxy Videos Through Invidious: יתבצע חיבור ל־Invidious כדי להגיש סרטונים במקום
       להתחבר ישירות ל־YouTube. דורס את העדפת ה־API
+    Default Video Format: קביעת התצורות בעת ניגון סרטונים. תצורות Dash יכולות לנגן
+      באיכויות גבוהות יותר. התצורות המיושנות מוגבלות ל־720 פיקסלים לכל היותר אך משתמשות
+      בפחות רוחב פס. תצורות שמע הן הזרמות של שמע בלבד
   Subscription Settings:
     Fetch Feeds from RSS: כאשר אפשרות זו פעילה. FreeTube ישתמש ב־RSS במקום בשיטת בררת
       המחדל ללכידת הזנת המינויים שלך. RSS זו שיטה מהירה יותר ומונעת חסימות IP אבל
