@@ -438,8 +438,9 @@ body.vjs-full-window {
 }
 
 .vjs-icon-fullwindow-enter, .video-js .vjs-fullwindow-control .vjs-icon-placeholder {
-  text-decoration: none;
   color: white !important;
+  margin-top: 10px !important;
+  cursor:pointer;
   font-family: VideoJS;
   font-weight: normal;
   font-style: normal;
