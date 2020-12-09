@@ -245,6 +245,7 @@ export default Vue.extend({
 
         const commentData = response.comments.map((comment) => {
           comment.showReplies = false
+          comment.authorLink = comment.authorLink[1]
           comment.authorThumb = comment.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`)
           if (this.hideCommentLikes) {
             comment.likes = null
@@ -313,6 +314,7 @@ export default Vue.extend({
 
         const commentData = response.comments.map((comment) => {
           comment.showReplies = false
+          comment.authorLink = comment.authorLink[1]
           comment.authorThumb = comment.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`)
           if (this.hideCommentLikes) {
             comment.likes = null
@@ -348,6 +350,9 @@ export default Vue.extend({
       })
     },
 
+    goToChannel: function (channelId) {
+      this.$router.push({ path: `${channelId}` })
+    },
     ...mapActions([
       'showToast',
       'toLocalePublicationString',

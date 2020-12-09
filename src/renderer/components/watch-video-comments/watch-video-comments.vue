@@ -48,6 +48,7 @@
         <img
           :src="comment.authorThumb"
           class="commentThumbnail"
+          @click="goToChannel(comment.authorLink)"
         >
         <p class="commentAuthor">
           {{ comment.author }}
