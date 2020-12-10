@@ -577,6 +577,11 @@ Tooltips:
       audio
     Proxy Videos Through Invidious: Akan menyambung ke Invidious daripada YouTube.
       Menimpa preferensi API
+    Force Local Backend for Legacy Formats: Hanya bekerja jika APi Invidious diatur
+      sebagai default. Ketika diaktifkan, API lokal akan berjalan dan menggunakan
+      format lama yang dihasilkan oleh API lokal daripada yang dihasilkan oleh API
+      Invidious. Membantu saat video yang ditampilkan oleh Invidious tidak bisa diputar
+      karena dibatasi oleh wilayah pemutaran
   General Settings:
     Region for Trending: Wilayah tren memungkinkan anda memilih video yang sedang
       ngetren dari negara tersebut untuk ditampilkan. Tidak semua daftar negara didukung
