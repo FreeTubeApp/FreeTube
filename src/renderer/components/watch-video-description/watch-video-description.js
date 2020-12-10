@@ -29,8 +29,10 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    if (this.descriptionHtml !== '') {
-      this.shownDescription = this.parseDescriptionHtml(this.descriptionHtml)
+    if (this.description !== '') {
+      this.shownDescription = autolinker.link(this.description)
+      this.shownDescription = this.parseDescriptionHtml(this.shownDescription)
+      
     } else {
       this.shownDescription = autolinker.link(this.description)
     }
@@ -55,12 +57,10 @@ export default Vue.extend({
       descriptionText = descriptionText.replace(/&v.+?(?=")/g, '')
       descriptionText = descriptionText.replace(/&redirect-token.+?(?=")/g, '')
       descriptionText = descriptionText.replace(/&redir_token.+?(?=")/g, '')
-      descriptionText = descriptionText.replace(/href="http(s)?:\/\/youtube\.com/g, 'href="freetube://https://youtube.com')
+      descriptionText = descriptionText.replace(/href="http(s)?:\/\/(www\.)?youtube\.com/g, 'href="freetube://https://youtube.com')
       descriptionText = descriptionText.replace(/href="\/watch/g, 'href="freetube://https://youtube.com')
-      descriptionText = descriptionText.replace(/(.*?)/,'testing')
       descriptionText = descriptionText.replace(/href="\/results\?search_query=/g, 'href="freetube://')
       descriptionText = descriptionText.replace(/yt\.www\.watch\.player\.seekTo/g, 'changeDuration')
-
       return descriptionText
     }
   }
