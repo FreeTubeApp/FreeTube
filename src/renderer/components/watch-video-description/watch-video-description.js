@@ -32,7 +32,6 @@ export default Vue.extend({
     if (this.description !== '') {
       this.shownDescription = autolinker.link(this.description)
       this.shownDescription = this.parseDescriptionHtml(this.shownDescription)
-      
     } else {
       this.shownDescription = autolinker.link(this.description)
     }
