@@ -89,7 +89,7 @@ User Playlists:
 History:
   # On History Page
   History: 'Historie'
-  Watch History: 'Shlédnout historii'
+  Watch History: 'Historie zhlédnutých videí'
   Your history list is currently empty.: 'Vaše historie je momentálně prázdná.'
 Settings:
   # On Settings Page
@@ -98,8 +98,8 @@ Settings:
     se změny projevily, je třeba aplikaci restartovat. Restartovat a použít změny?'
   General Settings:
     General Settings: 'Obecné nastavení'
-    Check for Updates: 'Zkontrolovat aktualizace'
-    Check for Latest Blog Posts: 'Zkontrolovat nejnovější příspěvky blogů'
+    Check for Updates: 'Kontrolovat aktualizace'
+    Check for Latest Blog Posts: 'Kontrolovat nejnovější příspěvky blogů'
     Fallback to Non-Preferred Backend on Failure: 'Přepnutí na nepreferovaný backend
       při chybě'
     Enable Search Suggestions: 'Zapnout návrhy vyhledávání'
@@ -185,7 +185,7 @@ Settings:
   Privacy Settings:
     Privacy Settings: 'Nastavení soukromí'
     Remember History: 'Zapamatovat historii'
-    Save Watched Progress: 'Uložit průběh zhlédnutých videa'
+    Save Watched Progress: 'Uložit průběh zhlédnutých videí'
     Clear Search Cache: 'Vyčistit cache vyhledávání'
     Are you sure you want to clear out your search cache?: 'Jste si jisti, že chcete
       smazat cache vyhledávání?'
@@ -220,7 +220,7 @@ Settings:
     Import FreeTube: 'Importovat FreeTube'
     Import YouTube: 'Importovat YouTube'
     Import NewPipe: 'Importovat NewPipe'
-    Check for Legacy Subscriptions: 'Zkontrolovat starší odebírání'
+    Check for Legacy Subscriptions: 'Zkontrolovat již odebírané kanály'
     Export Subscriptions: 'Exportovat odebírané kanály'
     Export FreeTube: 'Exportovat FreeTube'
     Export YouTube: 'Exportovat YouTube'
@@ -254,7 +254,7 @@ Settings:
     Advanced Settings: 'Rozšířené nastavení'
     Enable Debug Mode (Prints data to the console): 'Povolit režim ladění (výstup
       se zobrazuje do terminálu)'
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Adresy proxy (příklad: SOCKS5://127.0.0.1:9050
+    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Adresa proxy (příklad: SOCKS5://127.0.0.1:9050
       )'
     'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Kliknutím
       na tlačítko „OTESTOVAT PROXY“ odešlete požadavek na https://ipinfo.io/json'
@@ -278,7 +278,7 @@ Settings:
 
 About:
   #On About page
-  About: 'O'
+  About: 'O aplikaci'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Tento
     copyleftovaný software je zdarma licencován podle AGPL-3.0.'
