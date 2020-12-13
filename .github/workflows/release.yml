@@ -1,0 +1,163 @@
+# This is a basic workflow that is manually triggered
+
+name: Upload Release
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build:
+    strategy:
+      matrix:
+        node-version: [12.x]
+        runtime: [ linux-x64, linux-arm64, win-x64, osx-x64 ]
+        include:
+        - runtime: linux-x64
+          os: ubuntu-latest
+
+        - runtime: linux-arm64
+          os: ubuntu-latest
+
+        - runtime: osx-x64
+          os: macOS-latest
+
+        - runtime: win-x64
+          os: windows-latest
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm ci
+    - run: npm run lint
+
+    - name: Get Version Number
+      uses: nyaayaya/package-version@v1
+      with:
+        path: 'package.json'
+        follow-symlinks: false
+
+    - name: Build x64 with Node.js ${{ matrix.node-version}}
+      if: contains(matrix.runtime, 'x64')
+      run: npm run build --if-present
+
+    - name: Build ARM64 with Node.js ${{ matrix.node-version}}
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
+      run: npm run build:arm --if-present
+
+    - name: Upload AppImage x64 Release
+      uses: actions/upload-release-asset@v1
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: https://uploads.github.com/repos/PrestonN/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
+        asset_name: freetube_${{ env.PACKAGE_VERSION }}_amd64.AppImage
+        asset_path: build/FreeTube-${{ env.PACKAGE_VERSION }}.AppImage
+        asset_content_type: application/vnd.appimage
+
+    - name: Upload Linux .zip x64 Release
+      uses: actions/upload-release-asset@v1
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: https://uploads.github.com/repos/PrestonN/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
+        asset_name: freetube-${{ env.PACKAGE_VERSION }}-linux-portable-x64.zip
+        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}.zip
+        asset_content_type: application/zip
+
+    - name: Upload Linux .zip ARM Release
+      uses: actions/upload-release-asset@v1
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: https://uploads.github.com/repos/PrestonN/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
+        asset_name: freetube-${{ env.PACKAGE_VERSION }}-linux-portable-arm64.zip
+        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}-arm64.zip
+        asset_content_type: application/zip
+
+    - name: Upload Linux .deb x64 Release
+      uses: actions/upload-release-asset@v1
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: https://uploads.github.com/repos/PrestonN/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
+        asset_name: freetube_${{ env.PACKAGE_VERSION }}_amd64.deb
+        asset_path: build/freetube_${{ env.PACKAGE_VERSION }}_amd64.deb
+        asset_content_type: application/vnd.debian.binary-package
+
+    - name: Upload Linux .deb ARM Release
+      uses: actions/upload-release-asset@v1
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: https://uploads.github.com/repos/PrestonN/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
+        asset_name: freetube_${{ env.PACKAGE_VERSION }}_arm64.deb
+        asset_path: build/freetube_${{ env.PACKAGE_VERSION }}_arm64.deb
+        asset_content_type: application/vnd.debian.binary-package
+
+    - name: Upload Linux .rpm x64 Release
+      uses: actions/upload-release-asset@v1
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: https://uploads.github.com/repos/PrestonN/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
+        asset_name: freetube_${{ env.PACKAGE_VERSION }}_amd64.rpm
+        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}.x86_64.rpm
+        asset_content_type: application/x-rpm
+
+    - name: Upload Linux .rpm ARM Release
+      uses: actions/upload-release-asset@v1
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: https://uploads.github.com/repos/PrestonN/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
+        asset_name: freetube_${{ env.PACKAGE_VERSION }}_arm64.rpm
+        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}.arm64.rpm
+        asset_content_type: application/x-rpm
+
+    - name: Upload Windows .exe Release
+      uses: actions/upload-release-asset@v1
+      if: startsWith(matrix.os, 'windows')
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: https://uploads.github.com/repos/PrestonN/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
+        asset_name: freetube-${{ env.PACKAGE_VERSION }}-setup-x64.exe
+        asset_path: build/freetube Setup ${{ env.PACKAGE_VERSION }}.exe
+        asset_content_type: application/x-ms-dos-executable
+
+    - name: Upload Windows .zip Release
+      uses: actions/upload-release-asset@v1
+      if: startsWith(matrix.os, 'windows')
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: https://uploads.github.com/repos/PrestonN/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
+        asset_name: freetube-${{ env.PACKAGE_VERSION }}-win-x64-portable
+        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}-win.zip
+        asset_content_type: application/zip
+
+    - name: Upload Mac .dmg Release
+      uses: actions/upload-release-asset@v1
+      if: startsWith(matrix.os, 'macos')
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: https://uploads.github.com/repos/PrestonN/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
+        asset_name: freetube-${{ env.PACKAGE_VERSION }}-mac.dmg
+        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}.dmg
+        asset_content_type: application/x-apple-diskimage
