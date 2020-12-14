@@ -87,9 +87,8 @@ export default Vue.extend({
             'descriptionsButton',
             'subsCapsButton',
             'audioTrackButton',
-            'QualitySelector',
-            'pictureInPictureToggle',
-            'fullscreenToggle'
+            'qualitySelector',
+            'pictureInPictureToggle'
           ]
         },
         playbackRates: [
@@ -171,7 +170,8 @@ export default Vue.extend({
             }
           }
         })
-
+        this.createFullWindowButton()
+        this.player.controlBar.addChild('fullscreenToggle')
         this.player.volume(this.volume)
         this.player.playbackRate(this.defaultPlayback)
 
@@ -200,7 +200,7 @@ export default Vue.extend({
           }, 200)
         }
 
-        $(document).on('keydown', this.keyboardShortcutHandler)
+        $(document).on('keyup', this.keyboardShortcutHandler)
 
         this.player.on('mousemove', this.hideMouseTimeout)
         this.player.on('mouseleave', this.removeMouseTimeout)
@@ -489,14 +489,6 @@ export default Vue.extend({
       }
     },
 
-    toggleFullscreen: function () {
-      if (this.player.isFullscreen()) {
-        this.player.exitFullscreen()
-      } else {
-        this.player.requestFullscreen()
-      }
-    },
-
     toggleCaptions: function () {
       const tracks = this.player.textTracks().tracks_
 
@@ -506,6 +498,66 @@ export default Vue.extend({
         } else {
           tracks[1].mode = 'showing'
         }
+      }
+    },
+
+    createFullWindowButton: function() {
+      const v = this
+      const VjsButton = videojs.getComponent('Button')
+      const fullWindowButton = videojs.extend(VjsButton, {
+        constructor: function(player, options) {
+          VjsButton.call(this, player, options)
+        },
+        handleClick: function() {
+          v.toggleFullWindow()
+        },
+        createControlTextEl: function (button) {
+          return $(button).html($('<div id="fullwindow" class="vjs-icon-fullwindow-enter vjs-button"></div>')
+            .attr('title', 'Fullwindow'))
+        }
+      })
+      videojs.registerComponent('fullWindowButton', fullWindowButton)
+      v.player.controlBar.addChild('fullWindowButton', {})
+    },
+
+    toggleFullWindow: function() {
+      if (!this.player.isFullscreen_) {
+        if (this.player.isFullWindow) {
+          this.player.removeClass('vjs-full-screen')
+          this.player.isFullWindow = false
+          document.documentElement.style.overflow = this.player.docOrigOverflow
+          $('body').removeClass('vjs-full-window')
+          $('#fullwindow').removeClass('vjs-icon-fullwindow-exit')
+          this.player.trigger('exitFullWindow')
+        } else {
+          this.player.addClass('vjs-full-screen')
+          this.player.isFullscreen_ = false
+          this.player.isFullWindow = true
+          this.player.docOrigOverflow = document.documentElement.style.overflow
+          document.documentElement.style.overflow = 'hidden'
+          $('body').addClass('vjs-full-window')
+          $('#fullwindow').addClass('vjs-icon-fullwindow-exit')
+          this.player.trigger('enterFullWindow')
+        }
+      }
+    },
+
+    exitFullWindow: function() {
+      if (this.player.isFullWindow) {
+        this.player.isFullWindow = false
+        document.documentElement.style.overflow = this.player.docOrigOverflow
+        this.player.removeClass('vjs-full-screen')
+        $('body').removeClass('vjs-full-window')
+        $('#fullwindow').removeClass('vjs-icon-fullwindow-exit')
+        this.player.trigger('exitFullWindow')
+      }
+    },
+
+    toggleFullscreen: function () {
+      if (this.player.isFullscreen()) {
+        this.player.exitFullscreen()
+      } else {
+        this.player.requestFullscreen()
       }
     },
 
@@ -717,6 +769,12 @@ export default Vue.extend({
             // . Key
             // Advance to next frame
             this.framebyframe(1)
+            break
+          case 27:
+            // esc Key
+            // Exit full window
+            event.preventDefault()
+            this.exitFullWindow()
             break
         }
       }
