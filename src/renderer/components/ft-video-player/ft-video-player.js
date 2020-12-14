@@ -87,8 +87,10 @@ export default Vue.extend({
             'descriptionsButton',
             'subsCapsButton',
             'audioTrackButton',
+            'pictureInPictureToggle',
+            'fullWindowButton',
             'qualitySelector',
-            'pictureInPictureToggle'
+            'fullscreenToggle'
           ]
         },
         playbackRates: [
@@ -144,6 +146,7 @@ export default Vue.extend({
       this.volume = volume
     }
 
+    this.createFullWindowButton()
     this.determineFormatType()
     this.determineMaxFramerate()
   },
@@ -170,8 +173,7 @@ export default Vue.extend({
             }
           }
         })
-        this.createFullWindowButton()
-        this.player.controlBar.addChild('fullscreenToggle')
+
         this.player.volume(this.volume)
         this.player.playbackRate(this.defaultPlayback)
 
@@ -200,7 +202,7 @@ export default Vue.extend({
           }, 200)
         }
 
-        $(document).on('keyup', this.keyboardShortcutHandler)
+        $(document).on('keydown', this.keyboardShortcutHandler)
 
         this.player.on('mousemove', this.hideMouseTimeout)
         this.player.on('mouseleave', this.removeMouseTimeout)
@@ -517,7 +519,6 @@ export default Vue.extend({
         }
       })
       videojs.registerComponent('fullWindowButton', fullWindowButton)
-      v.player.controlBar.addChild('fullWindowButton', {})
     },
 
     toggleFullWindow: function() {
