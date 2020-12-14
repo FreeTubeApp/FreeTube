@@ -803,6 +803,8 @@ export default Vue.extend({
 =======
             break
           case 83:
+            // S Key
+            // Toggle Full Window Mode
             this.toggleFullWindow()
 >>>>>>> 7eec5df (Added (s) keybind to toggle Full Window)
             break
