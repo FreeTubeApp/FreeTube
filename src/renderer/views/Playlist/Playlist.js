@@ -78,7 +78,7 @@ export default Vue.extend({
         console.log('done')
         console.log(result)
 
-        const randomVideoIndex = Math.floor((Math.random() * result.items.length) + 1)
+        const randomVideoIndex = Math.floor((Math.random() * result.items.length))
 
         this.infoData = {
           id: result.id,
@@ -86,18 +86,18 @@ export default Vue.extend({
           description: result.description ? result.description : '',
           randomVideoId: result.items[randomVideoIndex].id,
           viewCount: result.views,
-          videoCount: result.estimated_items,
-          // lastUpdated: result.last_updated ? result.last_updated : '',
-          // channelName: result.author ? result.author.name : '',
-          // channelThumbnail: result.author ? result.author.avatar : '',
-          // channelId: result.author ? result.author.id : '',
+          videoCount: result.estimatedItemCount,
+          lastUpdated: result.lastUpdated ? result.lastUpdated : '',
+          channelName: result.author ? result.author.name : '',
+          channelThumbnail: result.author ? result.author.bestAvatar.url : '',
+          channelId: result.author ? result.author.channelID : '',
           infoSource: 'local'
         }
 
         this.playlistItems = result.items.map((video) => {
           if (typeof video.author !== 'undefined') {
             const channelName = video.author.name
-            const channelId = video.author.ref.replace(/https:\/\/(www\.)?youtube\.com\/(user|channel)\//g, '')
+            const channelId = video.author.channelID ? video.author.channelID : channelName
             video.author = channelName
             video.authorId = channelId
           } else {
@@ -117,7 +117,6 @@ export default Vue.extend({
           this.getPlaylistInvidious()
         } else {
           this.isLoading = false
-          // TODO: Show toast with error message
         }
       })
     },

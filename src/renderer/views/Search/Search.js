@@ -132,20 +132,13 @@ export default Vue.extend({
         const returnDataInvidious = []
         returnData.forEach((video) => {
           if (video.type === 'video') {
-            let authId = video.author.ref.match(/user(.)*/)
-            let publishDate = null
-            let videoDuration = null
-            const videoId = video.link.match(/\?v=(.)*/)[0].split('=')[1]
-            if (authId === null) {
-              authId = video.author.ref.match(/channel(.)*/)
-            }
-            if (video.uploaded_at !== null) {
-              publishDate = ytTrendScraper.calculate_published(video.uploaded_at, Date.now())
-            }
+            const authId = video.author.channelID
+            const publishDate = video.uploadedAt
+            let videoDuration = video.duration
+            const videoId = video.id
             if (video.duration !== null && video.duration !== '') {
               videoDuration = ytTrendScraper.calculate_length_in_seconds(video.duration)
             }
-            authId = authId[0].replace(/(user|channel)\//, '')
             returnDataInvidious.push(
               {
                 videoId: videoId,
@@ -153,12 +146,12 @@ export default Vue.extend({
                 type: 'video',
                 author: video.author.name,
                 authorId: authId,
-                authorUrl: video.author.ref,
+                authorUrl: video.author.url,
                 videoThumbnails: video.thumbnail,
                 description: video.description,
                 viewCount: video.views,
                 published: publishDate,
-                publishedText: video.uploaded_at,
+                publishedText: publishDate,
                 lengthSeconds: videoDuration,
                 liveNow: video.live,
                 paid: false,

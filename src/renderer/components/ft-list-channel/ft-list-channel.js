@@ -35,7 +35,7 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    if (typeof (this.data.avatar) !== 'undefined') {
+    if (typeof (this.data.avatars) !== 'undefined') {
       this.parseLocalData()
     } else {
       this.parseInvidiousData()
@@ -43,18 +43,18 @@ export default Vue.extend({
   },
   methods: {
     parseLocalData: function () {
-      this.thumbnail = this.data.avatar
+      this.thumbnail = this.data.bestAvatar.url
 
       if (!this.thumbnail.includes('https:')) {
         this.thumbnail = `https:${this.thumbnail}`
       }
 
       this.channelName = this.data.name
-      this.id = this.data.channel_id
+      this.id = this.data.channelID
       if (this.hideChannelSubscriptions) {
         this.subscriberCount = null
       } else {
-        this.subscriberCount = this.data.followers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+        this.subscriberCount = this.data.subscribers.replace(/ subscriber(s)?/, '')
       }
       this.videoCount = this.data.videos.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
       this.description = this.data.description_short

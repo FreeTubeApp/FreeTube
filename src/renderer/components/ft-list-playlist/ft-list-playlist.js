@@ -43,7 +43,7 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    if (typeof (this.data.author) === 'object') {
+    if (typeof (this.data.owner) === 'object') {
       this.parseLocalData()
     } else {
       this.parseInvidiousData()
@@ -61,11 +61,11 @@ export default Vue.extend({
 
     parseLocalData: function () {
       this.title = this.data.title
-      this.thumbnail = this.data.thumbnail
-      this.channelName = this.data.author.name
-      this.channelLink = this.data.author.ref
-      this.playlistLink = this.data.link
-      this.videoCount = parseInt(this.data.length.split(' ')[0])
+      this.thumbnail = this.data.firstVideo.bestThumbnail.url
+      this.channelName = this.data.owner.name
+      this.channelLink = this.data.owner.url
+      this.playlistLink = this.data.url
+      this.videoCount = this.data.length
     }
   }
 })
