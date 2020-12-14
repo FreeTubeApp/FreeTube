@@ -281,7 +281,7 @@ Settings:
     požaduje reštartovanie aby sa prejavili zmeny. Reštartovať a aplikovať zmeny?
 About:
   #On About page
-  About: 'O kanáli'
+  About: 'O FreeTube'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Tento
     softvér je voľne licencovaný pod AGPL-3.0.'
@@ -313,7 +313,7 @@ About:
 #On Channel Page
 Channel:
   Subscriber: 'Odberateľ'
-  Subscribers: 'Odberatelia'
+  Subscribers: 'Odberateľov'
   Subscribe: 'Odberať'
   Unsubscribe: 'Zrušiť odber'
   Search Channel: 'Vyhľadať v kanáli'
@@ -353,7 +353,7 @@ Video:
   Open in Invidious: 'Otvoriť v Invidious'
   Copy Invidious Link: 'Skopírovať Invidious linku'
   View: ''
-  Views: 'Zhliadnutia'
+  Views: 'Zhliadnutí'
   # Context is "X People Watching"
   Watching: 'Sleduje'
   Watched: 'Prehraté'
@@ -438,7 +438,7 @@ Playlist:
   View Full Playlist: 'Zobraziť celý zoznam videí'
   Videos: 'Videá'
   View: 'Pozrieť'
-  Views: 'zhliadnutí'
+  Views: 'Zhliadnutí'
   Last Updated On: 'Posledná aktualizácia'
   Share Playlist:
     Share Playlist: 'Zdieľať zoznam videí'
