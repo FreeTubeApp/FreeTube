@@ -771,11 +771,22 @@ export default Vue.extend({
             // Advance to next frame
             this.framebyframe(1)
             break
+<<<<<<< HEAD
           case 27:
             // esc Key
             // Exit full window
             event.preventDefault()
             this.exitFullWindow()
+=======
+          case 68:
+            // D Key
+            // Toggle Picture in Picture Mode
+            if (!this.player.isInPictureInPicture()) {
+            	this.player.requestPictureInPicture()
+            } else if (this.player.isInPictureInPicture()){
+            	this.player.exitPictureInPicture()
+            }
+>>>>>>> 1e4247a (Add Keybind (D) to Toggle Picture-In-Picture Mode)
             break
         }
       }
