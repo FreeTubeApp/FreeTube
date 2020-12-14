@@ -51,13 +51,18 @@ export default Vue.extend({
 
       this.channelName = this.data.name
       this.id = this.data.channelID
-      if (this.hideChannelSubscriptions) {
+      if (this.hideChannelSubscriptions || this.data.subscribers === null) {
         this.subscriberCount = null
       } else {
         this.subscriberCount = this.data.subscribers.replace(/ subscriber(s)?/, '')
       }
-      this.videoCount = this.data.videos.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-      this.description = this.data.description_short
+      if (this.data.videos === null) {
+        this.videoCount = 0
+      } else {
+        this.videoCount = this.data.videos.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+      }
+
+      this.description = this.data.descriptionShort
     },
 
     parseInvidiousData: function () {
