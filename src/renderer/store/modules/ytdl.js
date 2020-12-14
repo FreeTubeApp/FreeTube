@@ -24,6 +24,13 @@ const actions = {
         resolve(false)
       }
 
+      if (typeof payload.options.nextPageRef !== 'undefined') {
+        const continuation = payload.options.nextPageRef
+        const nextPageResults = ytsr.continueReq(continuation)
+        console.log(nextPageResults)
+        resolve(nextPageResults)
+      }
+
       const defaultFilters = {
         sortBy: 'relevance',
         time: '',
