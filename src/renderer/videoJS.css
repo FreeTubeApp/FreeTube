@@ -688,7 +688,7 @@ body.vjs-full-window {
   background-color: rgba(43, 51, 63, 0.7);
   position: absolute;
   bottom: 1.5em;
-  max-height: 15em;
+  max-height: 19em;
 }
 
 .vjs-layout-tiny .vjs-menu-button-popup .vjs-menu .vjs-menu-content,
