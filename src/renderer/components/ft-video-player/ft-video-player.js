@@ -771,11 +771,25 @@ export default Vue.extend({
             // Advance to next frame
             this.framebyframe(1)
             break
+          case 68:
+            // D Key
+            // Toggle Picture in Picture Mode
+            if (!this.player.isInPictureInPicture()) {
+              this.player.requestPictureInPicture()
+            } else if (this.player.isInPictureInPicture()) {
+              this.player.exitPictureInPicture()
+            }
+            break
           case 27:
             // esc Key
             // Exit full window
             event.preventDefault()
             this.exitFullWindow()
+            break
+          case 83:
+            // S Key
+            // Toggle Full Window Mode
+            this.toggleFullWindow()
             break
         }
       }
