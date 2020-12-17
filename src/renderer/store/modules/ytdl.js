@@ -24,11 +24,11 @@ const actions = {
         resolve(false)
       }
 
-      if (typeof payload.options.nextPageRef !== 'undefined') {
-        const continuation = payload.options.nextPageRef
+      if (typeof payload.options.nextpageRef !== 'undefined') {
+        const continuation = payload.options.nextpageRef
         const nextPageResults = ytsr.continueReq(continuation)
-        console.log(nextPageResults)
         resolve(nextPageResults)
+        return
       }
 
       const defaultFilters = {
