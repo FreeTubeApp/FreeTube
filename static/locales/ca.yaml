@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: ''
+Locale Name: 'Català'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -112,19 +112,20 @@ Settings:
     Video View Type:
       Video View Type: 'Tipus de vista de vídeo'
       Grid: 'Quadrícula'
-      List: ''
+      List: 'Llista'
     Thumbnail Preference:
-      Thumbnail Preference: ''
-      Default: ''
-      Beginning: ''
-      Middle: ''
-      End: ''
-    'Invidious Instance (Default is https://invidious.snopyta.org)': ''
-    Region for Trending: ''
+      Thumbnail Preference: 'Preferència de miniatura'
+      Default: 'Per defecte'
+      Beginning: 'Inici'
+      Middle: 'Mig'
+      End: 'Final'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instància Invidious
+      (https://invidious.snopyta.org per defecte)'
+    Region for Trending: 'Regió per a les tendències'
         #! List countries
   Theme Settings:
-    Theme Settings: ''
-    Match Top Bar with Main Color: ''
+    Theme Settings: 'Paràmetres del tema'
+    Match Top Bar with Main Color: 'Fer coincidir la barra superior amb el color principal'
     Base Theme:
       Base Theme: ''
       Black: ''
@@ -150,6 +151,7 @@ Settings:
       Deep Orange: ''
     Secondary Color Theme: ''
         #* Main Color Theme
+    Expand Side Bar by Default: Expandeix la barra lateral per defecte
   Player Settings:
     Player Settings: ''
     Force Local Backend for Legacy Formats: ''
