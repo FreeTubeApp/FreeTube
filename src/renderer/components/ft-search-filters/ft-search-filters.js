@@ -85,14 +85,32 @@ export default Vue.extend({
     },
 
     updateTime: function (value) {
+      if (this.searchSettings.type !== 'video') {
+        const typeRadio = this.$refs.typeRadio
+        typeRadio.updateSelectedValue('all')
+        this.updateType('all')
+      }
       this.$store.commit('setSearchTime', value)
     },
 
     updateType: function (value) {
+      if (value === 'channel' || value === 'playlist') {
+        const timeRadio = this.$refs.timeRadio
+        const durationRadio = this.$refs.durationRadio
+        timeRadio.updateSelectedValue('')
+        durationRadio.updateSelectedValue('')
+        this.updateTime('')
+        this.updateDuration('')
+      }
       this.$store.commit('setSearchType', value)
     },
 
     updateDuration: function (value) {
+      if (value !== '' && this.searchSettings.type !== 'video') {
+        const typeRadio = this.$refs.typeRadio
+        typeRadio.updateSelectedValue('all')
+        this.updateType('all')
+      }
       this.$store.commit('setSearchDuration', value)
     }
   }

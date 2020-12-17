@@ -9,6 +9,7 @@
         :labels="sortByLabels"
         :values="sortByValues"
         class="searchRadio"
+        ref="sortByRadio"
         @change="updateSortBy"
       />
       <ft-radio-button
@@ -16,6 +17,7 @@
         :labels="timeLabels"
         :values="timeValues"
         class="searchRadio"
+        ref="timeRadio"
         @change="updateTime"
       />
       <ft-radio-button
@@ -23,6 +25,7 @@
         :labels="typeLabels"
         :values="typeValues"
         class="searchRadio"
+        ref="typeRadio"
         @change="updateType"
       />
       <ft-radio-button
@@ -30,6 +33,7 @@
         :labels="durationLabels"
         :values="durationValues"
         class="searchRadio"
+        ref="durationRadio"
         @change="updateDuration"
       />
     </ft-flex-box>

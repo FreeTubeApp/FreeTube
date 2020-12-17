@@ -15,6 +15,7 @@
         :name="inputName"
         :value="values[index]"
         :checked="index === 0"
+        :disabled="disabled"
         class="radio"
         type="radio"
         @change="$emit('change', values[index])"

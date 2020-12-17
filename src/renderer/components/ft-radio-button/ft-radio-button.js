@@ -14,6 +14,10 @@ export default Vue.extend({
     values: {
       type: Array,
       required: true
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   data: function () {
@@ -31,5 +35,10 @@ export default Vue.extend({
   mounted: function () {
     this.id = this._uid
     this.selectedValue = this.values[0]
+  },
+  methods: {
+    updateSelectedValue: function (value) {
+      this.selectedValue = value
+    }
   }
 })
