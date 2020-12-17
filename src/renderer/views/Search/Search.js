@@ -113,7 +113,7 @@ export default Vue.extend({
     performSearchLocal: function (payload) {
       if (!payload.nextPage) {
         this.isLoading = true
-        // payload.options.pages = 1
+        payload.options.pages = 1
       }
 
       this.$store.dispatch('ytSearch', payload).then((result) => {
