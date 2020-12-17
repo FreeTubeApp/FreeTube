@@ -213,7 +213,8 @@ export default Vue.extend({
         liveChatComments.animate({ scrollTop: liveChatComments.prop('scrollHeight') })
       }
 
-      if (this.comments.length > 150) {
+      if (this.comments.length > 150 && this.stayAtBottom) {
+        console.log('user is not at bottom')
         this.comments = this.comments.splice(this.comments.length - 150, this.comments.length)
       }
     },
