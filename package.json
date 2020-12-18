@@ -47,7 +47,7 @@
     "yt-dash-manifest-generator": "^1.1.0",
     "yt-trending-scraper": "^1.0.4",
     "yt-xml2vtt": "^1.1.3",
-    "ytdl-core": "^4.1.7",
+    "ytdl-core": "^4.2.0",
     "ytpl": "^2.0.3",
     "ytsr": "^3.0.0"
   },

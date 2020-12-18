@@ -5,35 +5,35 @@
     </h2>
     <ft-flex-box class="radioFlexBox">
       <ft-radio-button
+        ref="sortByRadio"
         :title="$t('Search Filters.Sort By.Sort By')"
         :labels="sortByLabels"
         :values="sortByValues"
         class="searchRadio"
-        ref="sortByRadio"
         @change="updateSortBy"
       />
       <ft-radio-button
+        ref="timeRadio"
         :title="$t('Search Filters.Time.Time')"
         :labels="timeLabels"
         :values="timeValues"
         class="searchRadio"
-        ref="timeRadio"
         @change="updateTime"
       />
       <ft-radio-button
+        ref="typeRadio"
         :title="$t('Search Filters.Type.Type')"
         :labels="typeLabels"
         :values="typeValues"
         class="searchRadio"
-        ref="typeRadio"
         @change="updateType"
       />
       <ft-radio-button
+        ref="durationRadio"
         :title="$t('Search Filters.Duration.Duration')"
         :labels="durationLabels"
         :values="durationValues"
         class="searchRadio"
-        ref="durationRadio"
         @change="updateDuration"
       />
     </ft-flex-box>
