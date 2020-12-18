@@ -5,6 +5,7 @@ name: Create Flatpak PR
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
 on:
+  workflow_dispatch:
   release:
     types: [published]
 
@@ -26,7 +27,7 @@ jobs:
         command: repos.getRelease
         payload: >
             {
-              "owner": "PrestonN",
+              "owner": "FreeTubeApp",
               "repo": "FreeTube",
               "release_id": ${{ secrets.UPLOAD_ID }}
             }
