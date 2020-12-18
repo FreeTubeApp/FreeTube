@@ -306,7 +306,8 @@ app.on('open-url', (event, url) => {
 })
 
 /*
- * Check if we were passed a freetube:// URL on process startup (linux/win)
+ * Check if an argument was passed and send it over to the GUI (Linux / Windows).
+ * Remove freetube:// protocol if present
  */
 const url = getLinkUrl(process.argv)
 if (url) {
@@ -318,12 +319,11 @@ function baseUrl(arg) {
 }
 
 function getLinkUrl(argv) {
-  for (const arg of argv) {
-    if (arg.indexOf('freetube://') !== -1) {
-      return baseUrl(arg)
-    }
+  if (argv.length > 0) {
+    return baseUrl(argv[argv.length - 1])
+  } else {
+    return null
   }
-  return null
 }
 
 /**
