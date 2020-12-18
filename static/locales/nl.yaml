@@ -100,7 +100,7 @@ Settings:
     Locale Preference: 'Locale Voorkeur'
     Preferred API Backend:
       Preferred API Backend: 'Voorkeur API Backend'
-      Local API: 'Lokaal API'
+      Local API: 'Lokale API'
       Invidious API: 'Invidious API'
     Video View Type:
       Video View Type: 'Video Toontype'
@@ -116,7 +116,7 @@ Settings:
       (Standaard is https://invidious.snopyta.org)'
     Region for Trending: 'Regio voor Trending'
         #! List countries
-    Check for Latest Blog Posts: Controleer de Laatste Blogposts
+    Check for Latest Blog Posts: Controleer op nieuwe Blogposts
     Check for Updates: Controleer op Updates
   Theme Settings:
     Theme Settings: 'Thema Instellingen'
@@ -146,18 +146,18 @@ Settings:
       Deep Orange: 'Donker Oranje'
     Secondary Color Theme: 'Secundaire Themakleur'
         #* Main Color Theme
-    UI Scale: UI schaal
+    UI Scale: UI Schaal
     Expand Side Bar by Default: Zijbalk Standaard Uitschuiven
-    Disable Smooth Scrolling: Schakel Vloeiend Scrollen Uit
+    Disable Smooth Scrolling: Vloeiend Scrollen Uitschakelen
   Player Settings:
     Player Settings: 'Speler Instellingen'
     Force Local Backend for Legacy Formats: 'Forceer Lokale Backend Voor Legacy Indelingen'
-    Play Next Video: 'Speel Volgende Video af'
+    Play Next Video: 'Volgende Video Automatisch Afspelen'
     Turn on Subtitles by Default: 'Schakel Ondertiteling Standaard in'
-    Autoplay Videos: 'Autoplay Video''s'
+    Autoplay Videos: 'Video''s Automatisch Afspelen'
     Proxy Videos Through Invidious: 'Proxy Video''s Via Invidious'
-    Autoplay Playlists: 'Autoplay Afspeellijsten'
-    Enable Theatre Mode by Default: 'Schakel Theatermodus Standaard in'
+    Autoplay Playlists: 'Afspeellijsten Automatisch Afspelen'
+    Enable Theatre Mode by Default: 'Theatermodus Standaard Inschakelen'
     Default Volume: 'Standaard Volume'
     Default Playback Rate: 'Standaard Afspeelsnelheid'
     Default Video Format:
@@ -166,7 +166,7 @@ Settings:
       Legacy Formats: 'Legacy Indelingen'
       Audio Formats: 'Audio Indelingen'
     Default Quality:
-      Default Quality: 'Standaard Kwaliteit'
+      Default Quality: 'Standaard Videokwaliteit'
       Auto: 'Automatisch'
       144p: '144p'
       240p: '240p'
@@ -181,10 +181,10 @@ Settings:
     Privacy Settings: 'Privacy Instellingen'
     Remember History: 'Onthoud Geschiedenis'
     Save Watched Progress: 'Behoud Video Voortgang'
-    Clear Search Cache: 'Zoek Cache Opschonen'
+    Clear Search Cache: 'Verwijder Zoek-cache'
     Are you sure you want to clear out your search cache?: 'Weet u zeker dat u de
-      zoek cache wil opschonen?'
-    Search cache has been cleared: 'Zoek cache is opgeschoond'
+      zoek-cache wil verwijderen?'
+    Search cache has been cleared: 'De zoek-cache is verwijdert'
     Remove Watch History: 'Verwijder Kijkgeschiedenis'
     Are you sure you want to remove your entire watch history?: 'Weet u zeker dat
       u uw volledige kijkgeschiedenis wil verwijderen?'
@@ -410,9 +410,9 @@ Video:
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % geleden'
 #& Videos
-  Autoplay: Autoplay
+  Autoplay: Automatisch Afspelen
   Play Previous Video: Speel Vorige Video af
-  Play Next Video: Speel Volgende Video af
+  Play Next Video: Volgende Video Automatisch Afspelen
   Reverse Playlist: Playlist Omkeren
   Shuffle Playlist: Schuifelen Playlist
   Loop Playlist: Herhaal Playlist
@@ -519,7 +519,7 @@ Playing Next Video: 'Volgende Video Word Afgespeeld'
 Playing Previous Video: 'Vorige Video Word Afgespeeld'
 Playing next video in 5 seconds.  Click to cancel: 'Volgende Video Begint in 5 Seconden.
   Klik om te Annuleer.'
-Canceled next video autoplay: 'Autoplay is geannuleerd'
+Canceled next video autoplay: 'Automatisch afspelen is geannuleerd'
 'The playlist has ended.  Enable loop to continue playing': 'Het einde van de afspeellijst
   is bereikt.  Schakel herhalen in om de afspeellijst te blijven afspelen'
 
@@ -592,16 +592,16 @@ Tooltips:
     Fetch Feeds from RSS: Wanneer ingeschakeld zal FreeTube RSS gebruiken in plaats
       van de standaard methode om de videolijsten van je abonnementen te verzamelen.
       RSS is sneller en voorkomt dat je IP word geblokkeerd maar geeft geen toegang
-      tot sommige informatie zoals de videoduur en live status
+      tot sommige informatie zoals de videoduur en live-status
   General Settings:
     Invidious Instance: Dit is de Invidious instantie waar FreeTube mee zal verbinden
       om API calls te maken. Verwijder de momenteel geselecteerd instantie om een
       lijst van publieke instanties te tonen
     Thumbnail Preference: Alle thumbnails in FreeTube zullen worden vervangen met
       een momentopname in plaats van de standaard thumbnail
-    Fallback to Non-Preferred Backend on Failure: Wanneer het API geselecteerd als
-      voorkeur problemen heeft dan zal FreeTube automatisch terugvallen op het alternatieve
-      niet-voorkeur API als dit is ingeschakeld
+    Fallback to Non-Preferred Backend on Failure: Wanneer het API met voorkeur problemen
+      heeft dan zal FreeTube automatisch terugvallen op het alternatieve niet-voorkeur
+      API als deze instelling is ingeschakeld
     Preferred API Backend: Kies de backend die FreeTube gebruikt om data te verzamelen.
       De lokale API is een ingebouwde extractor. De Invidious API moet worden verbonden
       met een Invidious server.
