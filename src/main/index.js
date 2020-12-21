@@ -319,7 +319,7 @@ function baseUrl(arg) {
 }
 
 function getLinkUrl(argv) {
-  if (argv.length > 0) {
+  if (argv.length > 1) {
     return baseUrl(argv[argv.length - 1])
   } else {
     return null
