@@ -622,6 +622,10 @@ export default Vue.extend({
         }
       }
 
+      if (event.ctrlKey) {
+        return
+      }
+
       if (this.player !== null) {
         switch (event.which) {
           case 32:
