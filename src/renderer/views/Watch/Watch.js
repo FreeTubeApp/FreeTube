@@ -197,7 +197,7 @@ export default Vue.extend({
           console.log(result)
 
           const playabilityStatus = result.player_response.playabilityStatus
-          if (playabilityStatus.status !== 'OK') {
+          if (playabilityStatus.status === 'UNPLAYABLE') {
             const errorScreen = playabilityStatus.errorScreen.playerErrorMessageRenderer
             const reason = errorScreen.reason.simpleText
             let subReason
