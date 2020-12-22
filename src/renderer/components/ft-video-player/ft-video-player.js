@@ -17,6 +17,9 @@ export default Vue.extend({
     'ft-card': FtCard
   },
   beforeRouteLeave: function () {
+    if (this.player !== null) {
+      this.exitFullWindow()
+    }
     if (this.player !== null && !this.player.isInPictureInPicture()) {
       this.player.dispose()
       this.player = null
@@ -152,10 +155,14 @@ export default Vue.extend({
     this.determineMaxFramerate()
   },
   beforeDestroy: function () {
-    if (this.player !== null && !this.player.isInPictureInPicture()) {
-      this.player.dispose()
-      this.player = null
-      clearTimeout(this.mouseTimeout)
+    if (this.player !== null) {
+      this.exitFullWindow()
+
+      if (!this.player.isInPictureInPicture()) {
+        this.player.dispose()
+        this.player = null
+        clearTimeout(this.mouseTimeout)
+      }
     }
   },
   methods: {
