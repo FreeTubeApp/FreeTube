@@ -154,7 +154,7 @@ export default Vue.extend({
                 published: publishDate,
                 publishedText: publishDate,
                 lengthSeconds: videoDuration,
-                liveNow: video.live,
+                liveNow: video.isLive,
                 paid: false,
                 premium: false,
                 isUpcoming: false,

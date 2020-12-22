@@ -275,7 +275,6 @@ export default Vue.extend({
       }
       fs.readFile(this.dashSrc[0].url, (err, data) => {
         if (err) {
-          console.log('caught the error')
           this.maxFramerate = 60
           return
         }
