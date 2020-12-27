@@ -560,29 +560,43 @@ Tooltips:
       populares nun Estado. Non tódolos Estados que se amosan están soportados por
       YouTube'
   Player Settings:
-    Force Local Backend for Legacy Formats: ''
-    Proxy Videos Through Invidious: ''
-    Default Video Format: ''
+    Force Local Backend for Legacy Formats: 'Só funcionará se a API de Invidious está
+      escollida por defecto. Cando estea activa, a API local usará formatos antigos
+      (Legacy) no canto dos de Invidious. Axuda cando Invidious non pode reproducir
+      un vídeo por causa das restricións rexionais'
+    Proxy Videos Through Invidious: 'Conectarase a Invidious para obter vídeos no
+      canto de recorrer directamente a YouTube. Sobrescribirá a preferencia de API'
+    Default Video Format: 'Selecciona os formatos usados cando se reproduce un vídeo.
+      Os formatos Dash teñen resolucións máis altas. Os formatos antigos (Legacy)
+      están limitados a 720p pero utilizan menos largura de banda. Os formatos de
+      audio reproducen unicamente audio'
   Subscription Settings:
-    Fetch Feeds from RSS: ''
+    Fetch Feeds from RSS: 'Cando está activado, FreeTube usará RSS no canto do método
+      predeterminao para obter as subscricións. RSS é máis rápido e impide o bloqueo
+      da IP, pero non proporciona certa información como a duración dun vídeo ou se
+      é en vivo'
 
 # Toast Messages
-Local API Error (Click to copy): ''
-Invidious API Error (Click to copy): ''
-Falling back to Invidious API: ''
-Falling back to the local API: ''
-This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
-Subscriptions have not yet been implemented: ''
-Loop is now disabled: ''
-Loop is now enabled: ''
-Shuffle is now disabled: ''
-Shuffle is now enabled: ''
-The playlist has been reversed: ''
-Playing Next Video: ''
-Playing Previous Video: ''
-Playing next video in 5 seconds.  Click to cancel: ''
-Canceled next video autoplay: ''
-'The playlist has ended.  Enable loop to continue playing': ''
+Local API Error (Click to copy): 'Erro de API local (Preme para copiar)'
+Invidious API Error (Click to copy): 'Erro de API Invidious (Preme para copiar)'
+Falling back to Invidious API: 'Recorrendo á API Invidious'
+Falling back to the local API: 'Recorrendo á API local'
+This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Este
+  vídeo non está dispoñible por ter un formato inválido. Isto pode pasar pola non
+  dispoñibilidade rexional'
+Subscriptions have not yet been implemented: 'As subscricións aínda non foron implementadas'
+Loop is now disabled: 'Reprodución en bucle desactivada'
+Loop is now enabled: 'Reprodución en bucle activada'
+Shuffle is now disabled: 'Reprodución aleatoria desactivada'
+Shuffle is now enabled: 'Reprodución aleatoria activada'
+The playlist has been reversed: 'A listaxe de reprodución foi invertida'
+Playing Next Video: 'A reproducir próximo vídeo'
+Playing Previous Video: 'A reproducir vídeo anterior'
+Playing next video in 5 seconds.  Click to cancel: 'O próximo vídeo reproducirase
+  en 5 segundos. Preme para cancelar.'
+Canceled next video autoplay: 'Reprodución cancelada'
+'The playlist has ended.  Enable loop to continue playing': 'A listaxe de reprodución
+  rematou.  Activa a reprodución en bucle para continuar reproducindo'
 
-Yes: ''
-No: ''
+Yes: 'Si'
+No: 'Non'
