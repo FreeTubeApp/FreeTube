@@ -177,7 +177,9 @@ export default Vue.extend({
         this.player = videojs(videoPlayer, {
           html5: {
             vhs: {
-              limitRenditionByPlayerDimensions: false
+              limitRenditionByPlayerDimensions: false,
+              smoothQualityChange: false,
+              allowSeeksWithinUnsafeLiveWindow: true
             }
           }
         })
