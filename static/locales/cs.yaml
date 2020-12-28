@@ -132,7 +132,7 @@ Settings:
     Base Theme:
       Base Theme: 'Základní motiv'
       Black: 'Černý'
-      Dark: 'Temný'
+      Dark: 'Tmavý'
       Light: 'Světlý'
     Main Color Theme:
       Main Color Theme: 'Hlavní barevný motiv'
@@ -458,7 +458,7 @@ Video:
     Upcoming: 'Premiéra'
   Published on: 'Publikováno'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % před'
+  Publicationtemplate: 'před $ %'
 #& Videos
   Started streaming on: Začátek vysílání
   Streamed on: Vysíláno
