@@ -127,24 +127,24 @@ Settings:
       Dark: 'Scuro'
       Light: 'Chiaro'
     Main Color Theme:
-      Main Color Theme: 'Tema Colori Principale'
+      Main Color Theme: 'Tema colori principale'
       Red: 'Rosso'
       Pink: 'Rosa'
       Purple: 'Viola'
-      Deep Purple: 'Viola Scuro'
+      Deep Purple: 'Viola scuro'
       Indigo: 'Indaco'
       Blue: 'Blu'
       Light Blue: 'Azzurro'
       Cyan: 'Ciano'
       Teal: 'Verde acqua'
       Green: 'Verde'
-      Light Green: 'Verde Chiaro'
+      Light Green: 'Verde chiaro'
       Lime: 'Lime'
       Yellow: 'Giallo'
       Amber: 'Ambra'
       Orange: 'Arancione'
       Deep Orange: 'Arancione scuro'
-    Secondary Color Theme: 'Tema Colori Secondario'
+    Secondary Color Theme: 'Tema colori secondario'
         #* Main Color Theme
     UI Scale: Dimensioni Interfaccia
     Disable Smooth Scrolling: Disabilita Scorrimento Fluido
@@ -157,8 +157,8 @@ Settings:
     Autoplay Videos: 'Riproduci Video Automaticamente'
     Proxy Videos Through Invidious: 'Proxy dei Video tramite Invidious'
     Autoplay Playlists: 'Riproduci le playlist automaticamente'
-    Enable Theatre Mode by Default: 'Abilita Modalità Teatro di Default'
-    Default Volume: 'Volume Predefinito'
+    Enable Theatre Mode by Default: 'Abilita modalità teatro come predefinita'
+    Default Volume: 'Volume predefinito'
     Default Playback Rate: 'Velocità di riproduzione predefinita'
     Default Video Format:
       Default Video Format: 'Formato Video Predefinito'
@@ -166,7 +166,7 @@ Settings:
       Legacy Formats: 'Formati Legacy'
       Audio Formats: 'Formati Audio'
     Default Quality:
-      Default Quality: 'Qualità Predefinita'
+      Default Quality: 'Qualità predefinita'
       Auto: 'Auto'
       144p: '144p'
       240p: '240p'
@@ -178,14 +178,14 @@ Settings:
       4k: '4k'
       8k: '8k'
   Privacy Settings:
-    Privacy Settings: 'Impostazioni Privacy'
+    Privacy Settings: 'Impostazioni privacy'
     Remember History: 'Salva la Cronologia'
     Save Watched Progress: 'Ricorda Avanzamento Video'
     Clear Search Cache: 'Pulisci la Cache di Ricerca'
     Are you sure you want to clear out your search cache?: 'Sei sicuro/a di voler
       pulire la cache di ricerca?'
     Search cache has been cleared: 'La cache di ricerca è stata pulita'
-    Remove Watch History: 'Cancella Cronologia Visualizzazioni'
+    Remove Watch History: 'Cancella la cronologia visualizzazioni'
     Are you sure you want to remove your entire watch history?: 'Sei sicuro/a di voler
       cancellare l''intera cronologia di visualizzazione?'
     Watch history has been cleared: 'La cronologia di visualizzazioni è stata pulita'
