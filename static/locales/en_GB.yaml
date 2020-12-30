@@ -123,7 +123,7 @@ Settings:
         #! List countries
   Theme Settings:
     Theme Settings: 'Theme Settings'
-    Match Top Bar with Main Color: 'Match Top Bar with Main Colour'
+    Match Top Bar with Main Color: 'Match top bar with main colour'
     Base Theme:
       Base Theme: 'Base Theme'
       Black: 'Black'
@@ -246,7 +246,7 @@ Settings:
     'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Proxy Address (Example:
       SOCKS5://127.0.0.1:9050 )'
     'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Clicking
-      "TEST PROXY" button will send a request to https://ipinfo.io/json'
+      ‘TEST PROXY’ button will send a request to https://ipinfo.io/json'
     Use Tor / Proxy for API calls: 'Use Tor / Proxy for API calls'
     TEST PROXY: 'TEST PROXY'
     #& Invidious Instance (Default is https://invidious.snopyta.org)
