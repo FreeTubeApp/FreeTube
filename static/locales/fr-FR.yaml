@@ -200,7 +200,7 @@ Settings:
     'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Adresse Proxy (Exemple :
       SOCKS5://127.0.0.1:9050 )'
     'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Cliquer
-      sur le bouton "TEST PROXY" enverra une demande à https://ipinfo.io/json'
+      sur le bouton « TEST PROXY » enverra une demande à https://ipinfo.io/json'
     Use Tor / Proxy for API calls: 'Utiliser Tor / Proxy pour les appels de l''API'
     TEST PROXY: 'TESTER LE PROXY'
     #& Invidious Instance (Default is https://invidious.snopyta.org)
@@ -284,7 +284,7 @@ Settings:
     Hide Popular Videos: Masquer les vidéos populaires
     Hide Trending Videos: Masquer les tendances
     Hide Recommended Videos: Masquer les vidéos recommandées
-    Distraction Free Settings: Mode Sans Distraction
+    Distraction Free Settings: Mode sans distraction
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
@@ -296,9 +296,9 @@ About:
     logiciel est sous licence AGPL-3.0.'
 
   'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    Vous avez trouvé un bug ? Vous souhaitez suggérer une nouvelle fonctionnalité
-    ? Vous voulez aider de façon générale ? Rendez-vous sur la page GitHub. Les "Pull
-    requests" sont les bienvenues.
+    Vous avez trouvé une erreur ? Vous souhaitez suggérer une nouvelle fonctionnalité
+    ? Vous voulez aider de façon générale ? Rendez-vous sur la page GitHub. Les pull
+    requests sont les bienvenues.
 
   Thank you very much to the People and Projects that make FreeTube possible!: 'Un
     grand merci à toutes les personnes et à tous les projets qui ont rendu FreeTube
