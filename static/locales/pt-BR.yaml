@@ -240,6 +240,8 @@ Settings:
       foram possíveis serem importadas
     All subscriptions have been successfully imported: Todas as inscrições foram importadas
       com sucesso
+    Select Import Type: Selecione o Tipo de Importação
+    Data Settings: Configurações de Dados
   Distraction Free Settings:
     Hide Live Chat: Esconder chat ao vivo
     Hide Popular Videos: Esconder vídeos populares
@@ -247,6 +249,9 @@ Settings:
     Hide Recommended Videos: Esconder vídeos recomendados
     Hide Comment Likes: Esconder curtidas dos comentários
     Distraction Free Settings: Configurações de Modo sem Distração
+    Hide Channel Subscribers: Ocultar Assinantes do Canal
+    Hide Video Likes And Dislikes: Ocultar curtidas e desgostos do vídeo
+    Hide Video Views: Ocultar Visualizações de Vídeo
   The app needs to restart for changes to take effect. Restart and apply change?: O
     aplicativo necessita reiniciar para as mudanças fazerem efeito. Reiniciar e aplicar
     mudança?
