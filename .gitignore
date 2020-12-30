@@ -20,3 +20,4 @@ coverage
 __coverage__
 csak-timelog.json
 .idea/
+debug/

@@ -265,7 +265,11 @@ export default Vue.extend({
             return sub.id === subscription.id || sub.name === subscription.name
           })
 
-          if (subExists === -1) {
+          const subDuplicateExists = subscriptions.findIndex((sub) => {
+            return sub.id === subscription.id || sub.name === subscription.name
+          })
+
+          if (subExists === -1 && subDuplicateExists === -1) {
             subscriptions.push(subscription)
           }
 
