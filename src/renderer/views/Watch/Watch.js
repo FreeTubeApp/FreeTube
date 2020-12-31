@@ -264,8 +264,8 @@ export default Vue.extend({
             this.videoLikeCount = null
             this.videoDislikeCount = null
           } else {
-            this.videoLikeCount = result.videoDetails.likes
-            this.videoDislikeCount = result.videoDetails.dislikes
+            this.videoLikeCount = isNaN(result.videoDetails.likes) ? 0 : result.videoDetails.likes
+            this.videoDislikeCount = isNaN(result.videoDetails.dislikes) ? 0 : result.videoDetails.dislikes
           }
           this.isLive = result.player_response.videoDetails.isLive
           this.isLiveContent = result.player_response.videoDetails.isLiveContent
