@@ -54,7 +54,6 @@ const state = {
     '#DD2C00'
   ]
 }
-
 const getters = {
   getIsSideNavOpen () {
     return state.isSideNavOpen
@@ -106,6 +105,7 @@ const getters = {
 }
 
 const actions = {
+
   updateShowProgressBar ({ commit }, value) {
     commit('setShowProgressBar', value)
   },
@@ -379,6 +379,15 @@ const actions = {
 
   showToast (_, payload) {
     FtToastEvents.$emit('toast-open', payload.message, payload.action, payload.time)
+  },
+
+  writeFavoriteToIntermediateFile(_, videoData) {
+    if (process.env.NODE_ENV === 'development') {
+      fs.appendFileSync('./favorites.json', JSON.stringify(videoData) + '\n')
+    } else {
+      const electron = require('electron')
+      fs.appendFileSync(`${electron.remote.app.getPath('userData')}/favorites.json`, JSON.stringify(videoData) + '\n')
+    }
   }
 }
 

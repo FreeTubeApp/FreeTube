@@ -170,8 +170,9 @@ export default Vue.extend({
   methods: {
     toggleSave: function () {
       console.log('TODO: ft-list-video method toggleSave')
+      this.writeFavoriteToIntermediateFile({ id: this.data.videoId, title: this.data.title, channel: this.data.author, channelId: this.data.authorId, viewCount: this.data.viewCount, duration: this.data.lengthSeconds, uploadedTime: this.data.publishedDate })
       this.showToast({
-        message: this.$t('Saving videos are currently not available.  Please wait for a future update')
+        message: this.$t('Currently only saving is supported.')
       })
     },
 
@@ -396,7 +397,8 @@ export default Vue.extend({
       'showToast',
       'toLocalePublicationString',
       'updateHistory',
-      'removeFromHistory'
+      'removeFromHistory',
+      'writeFavoriteToIntermediateFile'
     ])
   }
 })
