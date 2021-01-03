@@ -122,7 +122,7 @@ Settings:
     Theme Settings: 'Thema Instellingen'
     Match Top Bar with Main Color: 'Paar Bovenste Balk met Primaire Kleur'
     Base Theme:
-      Base Theme: 'Basis Thema'
+      Base Theme: 'Basisthema'
       Black: 'Zwart'
       Dark: 'Donker'
       Light: 'Licht'
@@ -179,8 +179,8 @@ Settings:
       8k: '8k'
   Privacy Settings:
     Privacy Settings: 'Privacy Instellingen'
-    Remember History: 'Onthoud Geschiedenis'
-    Save Watched Progress: 'Behoud Video Voortgang'
+    Remember History: 'Herinner Geschiedenis'
+    Save Watched Progress: 'Herinner Video Voortgang'
     Clear Search Cache: 'Verwijder Zoek-cache'
     Are you sure you want to clear out your search cache?: 'Weet u zeker dat u de
       zoek-cache wil verwijderen?'
@@ -576,15 +576,15 @@ This video is unavailable because of missing formats. This can happen due to cou
   als de video niet in uw land beschikbaar is.
 Tooltips:
   Player Settings:
-    Default Video Format: Selecteer de video indeling dat word gebruikt wanneer een
-      video afspeelt. Dash kan video's afspelen met hogere kwaliteit instellingen.
+    Default Video Format: Selecteer de video indeling dat wordt gebruikt wanneer u
+      een video afspeelt. Dash kan video's afspelen met hogere kwaliteitsinstellingen.
       Legacy gaat niet hoger dan 720p maar gebruikt minder bandbreedte. Audio zal
       alleen het geluid streamen
-    Force Local Backend for Legacy Formats: Dit zal alleen werken wanneer de Invidious
-      API is geselecteerd als standaard. Wanneer ingeschakeld zal de lokale API legacy
-      video indelingen verzamelen in plaats van de videoformaten die worden teruggegeven
-      door Invidious. Dit kan helpen wanneer een video die verzameld word via Invidious
-      niet afspeelt in verband met regio restricties
+    Force Local Backend for Legacy Formats: Dit zal alleen werken wanneer Invidious
+      is geselecteerd als de standaard API. Wanneer ingeschakeld zal de lokale API
+      legacy video indelingen gebruiken in plaats van de video indeling die worden
+      teruggegeven door Invidious. Dit kan helpen wanneer een video die word gestreamed
+      via Invidious niet afspeelt in verband met regio restricties
     Proxy Videos Through Invidious: FreeTube zal verbinden met Invidious en via daar
       de video's downloaden in de plaats van de video's rechstreeks bij YouTube vandaan
       te halen. Dit overschrijft de ingestelde API voorkeur
