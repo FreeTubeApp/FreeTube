@@ -242,6 +242,18 @@ Settings:
       com sucesso
     Select Import Type: Selecione o Tipo de Importação
     Data Settings: Configurações de Dados
+    Export History: Exportar Histórico
+    Import History: Importar Histórico
+    Export NewPipe: Exportar NewPipe
+    Export YouTube: Exportar YouTube
+    Export FreeTube: Exportar FreeTube
+    Export Subscriptions: Exportar Inscrições
+    Check for Legacy Subscriptions: Verificar se há inscrições em formato antigo
+    Import NewPipe: Importar NewPipe
+    Import YouTube: Importar YouTube
+    Import FreeTube: Importar FreeTube
+    Import Subscriptions: Importar Inscrições
+    Select Export Type: Escolher Tipo de Exportação
   Distraction Free Settings:
     Hide Live Chat: Esconder chat ao vivo
     Hide Popular Videos: Esconder vídeos populares
