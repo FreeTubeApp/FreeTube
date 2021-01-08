@@ -254,6 +254,22 @@ Settings:
     Import FreeTube: Importar FreeTube
     Import Subscriptions: Importar Inscrições
     Select Export Type: Escolher Tipo de Exportação
+    How do I import my subscriptions?: Como importo minhas inscrições?
+    Unknown data key: Chave de dados desconhecida
+    Unable to write file: O arquivo não pôde ser escrito
+    Unable to read file: O arquivo não pôde ser lido
+    All watched history has been successfully exported: Todo o histórico de visualizações
+      foi exportado com sucesso
+    All watched history has been successfully imported: Todo o histórico de visualizações
+      foi importado com sucesso
+    History object has insufficient data, skipping item: O objeto Histórico tem dados
+      insuficientes, pulando item
+    This might take a while, please wait: Este processo pode demorar, por favor espere
+    Invalid subscriptions file: Arquivo de inscrições inválido
+    All subscriptions and profiles have been successfully imported: Todas as inscrições
+      e perfis foram importados com sucesso
+    Profile object has insufficient data, skipping item: O objeto Perfil possui dados
+      insuficientes, pulando item
   Distraction Free Settings:
     Hide Live Chat: Esconder chat ao vivo
     Hide Popular Videos: Esconder vídeos populares
@@ -476,6 +492,15 @@ Profile:
   Create New Profile: Criar um novo perfil
   All Channels: Todos os Canais
   All subscriptions will also be deleted.: Todas as inscrições serão também deletadas.
+  Profile could not be found: O perfil não pôde ser encontrado
+  Are you sure you want to delete this profile?: Tem certeza de que quer apagar este
+    perfil?
+  Make Default Profile: Tornar Perfil Padrão
+  Create Profile: Criar Perfil
+  Custom Color: Cor Personalizada
+  Edit Profile: Editar Perfil
+  Profile Manager: Gerenciador de Perfis
+  Profile Select: Seleção de Perfil
 Version $ is now available!  Click for more details: Versão $ está disponível agora!
   Clique para mais detalhes
 A new blog is now available, $. Click to view more: Um novo blog está disponível,
