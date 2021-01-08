@@ -342,6 +342,9 @@ Channel:
     About: 'Sobre'
     Channel Description: 'Descrição do canal'
     Featured Channels: 'Canais destacados'
+  Added channel to your subscriptions: Canal adicionado às suas inscrições
+  Removed subscription from $ other channel(s): Inscrição removida de outros $ canais
+  Channel has been removed from your subscriptions: O canal foi removido da suas inscrições
 Video:
   Mark As Watched: 'Marcar como assistido'
   Remove From History: 'Remover do histórico'
@@ -399,10 +402,34 @@ Video:
     Years: 'anos'
     Ago: 'Atrás'
     Upcoming: 'Futuramente em'
+    Minutes: Minutos
+    Minute: Minuto
   Published on: 'Publicado em'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'Há $ %'
+  Publicationtemplate: 'Há $ % atrás'
 #& Videos
+  Started streaming on: Transmissão iniciada em
+  Streamed on: Transmitido em
+  Audio:
+    Best: Máxima
+    Medium: Média
+    Low: Baixa
+    High: Alta
+  audio only: somente áudio
+  video only: somente vídeo
+  Download Video: Baixar Vídeo
+  Starting soon, please refresh the page to check again: Vai começar em breve, favor
+    atualizar a página para verificar novamente
+  Autoplay: Reprodução Automática
+  Play Previous Video: Reproduzir o Vídeo Anterior
+  Play Next Video: Reproduzir o Próximo Vídeo
+  Reverse Playlist: Inverter ordem da lista de reprodução
+  Shuffle Playlist: Lista de reprodução em modo aleatório
+  Loop Playlist: Repetir lista de reprodução
+  Copy Invidious Channel Link: Copiar link do canal no Invidious
+  Open Channel in Invidious: Abrir Canal no Invidious
+  Copy YouTube Channel Link: Copiar o link do canal no YouTube
+  Open Channel in YouTube: Abrir canal no YouTube
 Videos:
   #& Sort By
   Sort By:
@@ -433,6 +460,10 @@ Change Format:
   Use Dash Formats: 'Usar formatos DASH'
   Use Legacy Formats: 'Usar formatos legados'
   Use Audio Formats: 'Usar formato de áudio'
+  Audio formats are not available for this video: Formatos de áudio não disponíveis
+    para este vídeo
+  Dash formats are not available for this video: Formatos Dash não disponíveis para
+    este vídeo
 Share:
   Share Video: 'Compartilhar vídeo'
   Copy Link: 'Copiar link'
@@ -446,6 +477,11 @@ Share:
   YouTube URL copied to clipboard: 'O URL do YouTube está na área de transferência'
   YouTube Embed URL copied to clipboard: 'O URL incorporado do YouTube está na área
     de transferência'
+  YouTube Channel URL copied to clipboard: URL do Canal Youtube copiado para a área
+    de transferência
+  Invidious Channel URL copied to clipboard: URL do Canal Invidious copiado para a
+    área de transferência
+  Include Timestamp: Incluir Marcação de Tempo
 Mini Player: 'Visualizador Pequeno'
 Comments:
   Comments: 'Comentários'
@@ -461,6 +497,11 @@ Comments:
   There are no comments available for this video: 'Não há comentários disponíveis
     neste vídeo'
   Load More Comments: 'Buscar mais comentários'
+  No more comments available: Não existem mais comentários
+  Newest first: Mais recentes primeiro
+  Top comments: Melhores comentários
+  Sort by: Ordenar por
+  There are no more comments for this video: Não há mais comentários para este vídeo
 Up Next: 'Próximo'
 
 # Toast Messages
@@ -501,8 +542,68 @@ Profile:
   Edit Profile: Editar Perfil
   Profile Manager: Gerenciador de Perfis
   Profile Select: Seleção de Perfil
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Tem
+    certeza de que quer apagar os canais slecionados? Esta ação não vai apagar os
+    canais de nenhum outro perfil.
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
+    same channels will be deleted in any profile they are found in.
+  : Este é o seu perfil principal. Tem certeza de que quer apagar os canais selecionados?
+    Os mesmos vão ser apagados em qualquer perfil em que se encontrem.
+  No channel(s) have been selected: Nenhum canal foi selecionado
+  Add Selected To Profile: Adicionar Selecionado ao Perfil
+  Delete Selected: Apagar Selecionados
+  Select None: Selecionar Nenhum
+  Select All: Selecionar Todos
+  $ selected: $ selecionado
+  Other Channels: Outros Canais
+  Subscription List: Lista de Inscrições
+  $ is now the active profile: $ é agora o perfil ativo
+  Your default profile has been changed to your primary profile: Seu perfil padrão
+    foi mudado para o seu perfil principal
+  Removed $ from your profiles: $ foi removido dos seus perfis
+  Your default profile has been set to $: Seu perfil padrão foi definido como $
+  Profile has been updated: Perfil atualizado
+  Profile has been created: Perfil criado
+  Your profile name cannot be empty: Seu nome de perfil não pode ficar em branco
 Version $ is now available!  Click for more details: Versão $ está disponível agora!
   Clique para mais detalhes
 A new blog is now available, $. Click to view more: Um novo blog está disponível,
-  $. Clique para ver mais.
+  $. Clique para ver mais
 Download From Site: Fazer download pelo site
+The playlist has been reversed: A lista de reprodução foi invertida
+This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
+  vídeo não está disponível por causa de formatos faltantes. Isso pode acontecer devido
+  à indisponibilidade do país.
+Tooltips:
+  Subscription Settings:
+    Fetch Feeds from RSS: Quando ativado, o FreeTube usará RSS em vez de seu método
+      padrão para obter o feed de sua assinatura. O RSS é mais rápido e evita o bloqueio
+      de IP, mas não fornece certas informações como duração do vídeo ou status ao
+      vivo
+  Player Settings:
+    Default Video Format: Define os formatos usados quando um vídeo é reproduzido.
+      Formatos Dash podem reproduzir qualidades mais altas. Os formatos antigos são
+      limitados a um máximo de 720p, mas usam menos largura de banda. Formatos de
+      áudio são para transmissões sem vídeo
+    Proxy Videos Through Invidious: Conectar-se-á ao Invidious para obter vídeos em
+      vez de fazer uma conexão direta com o YouTube. Ignora a preferência da API
+    Force Local Backend for Legacy Formats: Só funciona quando a API do Invidious
+      é predefinida. Quando ativada, a API local será executada e usará os formatos
+      antigos retornados por ela em vez dos retornados pelo Invidious. É útil quando
+      os vídeos retornados pelo Invidious não são reproduzidos devido a restrições
+      de país
+  General Settings:
+    Region for Trending: A região de tendências permite escolher quais vídeos de tendências
+      do país você quer exibir. Nem todos os países exibidos são realmente suportados
+      pelo YouTube
+    Invidious Instance: A instância Invidious à qual o FreeTube se conectará para
+      chamadas de API. Limpe a instância atual para ver uma lista de instâncias públicas
+      para escolher
+    Thumbnail Preference: Todas as miniaturas do FreeTube serão substituídas por um
+      quadro do vídeo em vez da miniatura padrão
+    Fallback to Non-Preferred Backend on Failure: Quando a sua API preferida tiver
+      um problema, o FreeTube tentará automaticamente usar sua API não preferida como
+      um método substituto quando ativado
+    Preferred API Backend: Escolha o backend que o FreeTube usa para obter os dados.
+      A API local é um extrator integrado. A API Invidious requer um servidor Invidious
+      para se conectar.
