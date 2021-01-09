@@ -111,6 +111,10 @@ export default Vue.extend({
       return this.$store.getters.getHideRecommendedVideos
     },
 
+    hideLiveChat: function () {
+      return this.$store.getters.getHideLiveChat
+    },
+
     hideVideoLikesAndDislikes: function () {
       return this.$store.getters.getHideVideoLikesAndDislikes
     },

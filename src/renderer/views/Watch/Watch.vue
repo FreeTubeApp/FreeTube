@@ -3,7 +3,8 @@
     class="videoLayout"
     :class="{
       isLoading,
-      useTheatreMode
+      useTheatreMode,
+      noSidebar: hideRecommendedVideos && (hideLiveChat || !isLive)
     }"
   >
     <ft-loader
