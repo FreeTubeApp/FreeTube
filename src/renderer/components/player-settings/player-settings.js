@@ -86,6 +86,10 @@ export default Vue.extend({
       return this.$store.getters.getHideRecommendedVideos
     },
 
+    hideLiveChat: function () {
+      return this.$store.getters.getHideLiveChat
+    },
+
     formatNames: function () {
       return [
         this.$t('Settings.Player Settings.Default Video Format.Dash Formats'),

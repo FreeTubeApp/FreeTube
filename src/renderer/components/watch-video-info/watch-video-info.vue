@@ -63,7 +63,7 @@
       </div>
       <div class="videoOptions">
         <ft-icon-button
-          v-if="!hideRecommendedVideos"
+          v-if="!hideRecommendedVideos || (!hideLiveChat && isLive)"
           :title="$t('Toggle Theatre Mode')"
           class="theatreModeButton option"
           icon="expand-alt"
