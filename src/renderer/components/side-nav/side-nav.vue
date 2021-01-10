@@ -95,7 +95,6 @@
           {{ $t("About.About") }}
         </p>
       </div>
-      <hr>
       <div
         v-for="(channel, index) in activeSubscriptions"
         :key="index"
@@ -103,7 +102,12 @@
         :title="channel.name"
         @click="goToChannel(channel.id)"
       >
-        <div
+      <div
+        v-if="!hideActiveSubscriptions"
+        class="navChannel mobileHidden"
+        @click="goToChannel(channel.id)"
+        >
+         <div
           class="thumbnailContainer"
         >
           <img
@@ -119,6 +123,7 @@
         </p>
       </div>
     </div>
+  </div>
   </ft-flex-box>
 </template>
 
