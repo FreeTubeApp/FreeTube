@@ -112,19 +112,19 @@
             class="thumbnailContainer"
           >
             <img
-              class="channelThumbnail"
-              :src="channel.thumbnail"
-          >
+            class="channelThumbnail"
+            :src="channel.thumbnail"
+            >
         </div>
-        <p
-          v-if="isOpen"
-          class="navLabel"
-        >
-          {{ channel.name }}
-        </p>
+          <p
+            v-if="isOpen"
+            class="navLabel"
+          >
+            {{ channel.name }}
+          </p>
+        </div>
       </div>
     </div>
-  </div>
   </ft-flex-box>
 </template>
 
