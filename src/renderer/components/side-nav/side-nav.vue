@@ -95,6 +95,7 @@
           {{ $t("About.About") }}
         </p>
       </div>
+      <hr>
       <div
         v-for="(channel, index) in activeSubscriptions"
         :key="index"
