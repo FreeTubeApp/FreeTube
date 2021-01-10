@@ -97,25 +97,23 @@
       </div>
       <hr>
       <div
-        v-for="(channel, index) in activeSubscriptions"
-        :key="index"
-        class="navChannel mobileHidden"
-        :title="channel.name"
-        @click="goToChannel(channel.id)"
+        v-if="!hideActiveSubscriptions"
       >
         <div
-          v-if="!hideActiveSubscriptions"
+          v-for="(channel, index) in activeSubscriptions"
+          :key="index"
           class="navChannel mobileHidden"
+          :title="channel.name"
           @click="goToChannel(channel.id)"
         >
           <div
             class="thumbnailContainer"
           >
             <img
-            class="channelThumbnail"
-            :src="channel.thumbnail"
+              class="channelThumbnail"
+              :src="channel.thumbnail"
             >
-        </div>
+          </div>
           <p
             v-if="isOpen"
             class="navLabel"
