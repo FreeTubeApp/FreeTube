@@ -277,6 +277,7 @@ Settings:
     Hide Video Likes And Dislikes: Video Beğenmeleri Ve Beğenmemelerini Gizle
     Hide Video Views: Video Görüntülenme Sayılarını Gizle
     Distraction Free Settings: Dikkat Dağıtmama Ayarları
+    Hide Active Subscriptions: Etkin Abonelikleri Gizle
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin
     etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın
     ve değişiklikler uygulansın mı?
@@ -334,7 +335,7 @@ Profile:
   Removed $ from your profiles: '$ Profillerinizden kaldırıldı'
   Your default profile has been changed to your primary profile: 'Varsayılan profiliniz
     birincil profiliniz olarak değiştirildi'
-  $ is now the active profile: '$ artık aktif profil'
+  $ is now the active profile: '$ artık etkin profil'
   Subscription List: 'Abonelik Listesi'
   Other Channels: 'Diğer Kanallar'
   $ selected: '$ seçildi'
