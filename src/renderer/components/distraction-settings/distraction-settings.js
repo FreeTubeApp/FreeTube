@@ -13,7 +13,7 @@ export default Vue.extend({
     'ft-toggle-switch': FtToggleSwitch,
     'ft-button': FtButton,
     'ft-select': FtSelect,
-    'ft-flex-box': FtFlexBox,
+    'ft-flex-box': FtFlexBox
   },
   computed: {
     hideVideoViews: function () {
