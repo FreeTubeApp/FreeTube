@@ -5,7 +5,6 @@ import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtSelect from '../ft-select/ft-select.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
-import SideNav from '../../side-nav/side-nav.vue'
 
 export default Vue.extend({
   name: 'PlayerSettings',
@@ -15,7 +14,6 @@ export default Vue.extend({
     'ft-button': FtButton,
     'ft-select': FtSelect,
     'ft-flex-box': FtFlexBox,
-    'side-nav': SideNav
   },
   computed: {
     hideVideoViews: function () {
