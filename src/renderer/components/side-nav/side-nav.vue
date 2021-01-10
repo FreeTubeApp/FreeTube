@@ -103,17 +103,17 @@
         :title="channel.name"
         @click="goToChannel(channel.id)"
       >
-      <div
-        v-if="!hideActiveSubscriptions"
-        class="navChannel mobileHidden"
-        @click="goToChannel(channel.id)"
+        <div
+          v-if="!hideActiveSubscriptions"
+          class="navChannel mobileHidden"
+          @click="goToChannel(channel.id)"
         >
-         <div
-          class="thumbnailContainer"
-        >
-          <img
-            class="channelThumbnail"
-            :src="channel.thumbnail"
+          <div
+            class="thumbnailContainer"
+          >
+            <img
+              class="channelThumbnail"
+              :src="channel.thumbnail"
           >
         </div>
         <p
