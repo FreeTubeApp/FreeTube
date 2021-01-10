@@ -39,6 +39,9 @@ export default Vue.extend({
     },
     hideLiveChat: function () {
       return this.$store.getters.getHideLiveChat
+    },
+    hideActiveSubscriptions: function () {
+      return this.$store.getters.getHideActiveSubscriptions
     }
   },
   methods: {
@@ -60,6 +63,7 @@ export default Vue.extend({
       'updateHideTrendingVideos',
       'updateHidePopularVideos',
       'updateHideLiveChat',
+      'updateHideActiveSubscriptions',
       'updatePlayNextVideo',
       'updateDefaultTheatreMode'
     ])

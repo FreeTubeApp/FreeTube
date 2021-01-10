@@ -50,6 +50,9 @@ export default Vue.extend({
     },
     hideTrendingVideos: function () {
       return this.$store.getters.getHideTrendingVideos
+    },
+    hideActiveSubscriptions: function () {
+      return this.$store.getters.getHideActiveSubscriptions
     }
   },
   methods: {

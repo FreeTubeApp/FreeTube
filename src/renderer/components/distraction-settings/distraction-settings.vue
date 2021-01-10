@@ -33,6 +33,12 @@
           :default-value="hideCommentLikes"
           @change="updateHideCommentLikes"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Active Subscriptions')"
+          :compact="true"
+          :default-value="hideActiveSubscriptions"
+          @change="updateHideActiveSubscriptions"
+        />
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
