@@ -42,7 +42,7 @@ export default Vue.extend({
     hideLiveChat: function () {
       return this.$store.getters.getHideLiveChat
     },
-    hideactiveSubscriptions: function () {
+    hideActiveSubscriptions: function () {
       return this.$store.getters.getHideActiveSubscriptions
     }
   },
