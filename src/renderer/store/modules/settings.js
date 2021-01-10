@@ -661,7 +661,7 @@ const actions = {
       }
     })
   },
-  
+
   updateHideActiveSubscriptions ({ commit }, hideActiveSubscriptions) {
     settingsDb.update({ _id: 'hideActiveSubscriptions' }, { _id: 'hideActiveSubscriptions', value: hideActiveSubscriptions }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
@@ -669,7 +669,7 @@ const actions = {
       }
     })
   },
-  
+
   updateHideLiveChat ({ commit }, hideLiveChat) {
     settingsDb.update({ _id: 'hideLiveChat' }, { _id: 'hideLiveChat', value: hideLiveChat }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
@@ -812,7 +812,7 @@ const mutations = {
   setHideLiveChat (state, hideLiveChat) {
     state.hideLiveChat = hideLiveChat
   },
-    setHideActiveSubscriptions (state, hideActiveSubscriptions) {
+  setHideActiveSubscriptions (state, hideActiveSubscriptions) {
     state.hideActiveSubscriptions = hideActiveSubscriptions
   }
 }
