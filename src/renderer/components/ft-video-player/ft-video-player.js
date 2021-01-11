@@ -61,6 +61,7 @@ export default Vue.extend({
   data: function () {
     return {
       id: '',
+      powerSaveBlocker: null,
       volume: 1,
       player: null,
       useDash: false,
@@ -115,6 +116,10 @@ export default Vue.extend({
     }
   },
   computed: {
+    usingElectron: function () {
+      return this.$store.getters.getUsingElectron
+    },
+
     defaultPlayback: function () {
       return this.$store.getters.getDefaultPlayback
     },
@@ -234,6 +239,22 @@ export default Vue.extend({
 
         this.player.on('error', function (error, message) {
           v.$emit('error', error.target.player.error_)
+        })
+
+        this.player.on('play', function () {
+          if (this.usingElectron) {
+            const { powerSaveBlocker } = require('electron')
+
+            this.powerSaveBlocker = powerSaveBlocker.start('prevent-display-sleep')
+          }
+        })
+
+        this.player.on('pause', function () {
+          if (this.usingElectron && this.powerSaveBlocker !== null) {
+            const { powerSaveBlocker } = require('electron')
+            powerSaveBlocker.stop(this.powerSaveBlocker)
+            this.powerSaveBlocker = null
+          }
         })
       }
     },
