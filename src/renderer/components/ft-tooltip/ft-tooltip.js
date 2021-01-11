@@ -7,7 +7,7 @@ export default Vue.extend({
     position: {
       type: String,
       default: 'bottom',
-      validator: (value) => value === 'bottom' || value === 'left' || value === 'right' || value === 'top'
+      validator: (value) => value === 'bottom' || value === 'left' || value === 'right' || value === 'top' || value === 'bottom-left'
     },
     tooltip: {
       type: String,
