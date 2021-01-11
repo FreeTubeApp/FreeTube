@@ -179,7 +179,7 @@ export default Vue.extend({
           query: payload.query,
           data: this.shownResults,
           searchSettings: this.searchSettings,
-          nextPageRef: result.nextpageRef
+          nextPageRef: result.continuation
         }
 
         this.$store.commit('addToSessionSearchHistory', historyPayload)
@@ -200,7 +200,6 @@ export default Vue.extend({
           this.performSearchInvidious(payload)
         } else {
           this.isLoading = false
-          // TODO: Show toast with error message
         }
       })
     },
