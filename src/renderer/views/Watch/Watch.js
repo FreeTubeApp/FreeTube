@@ -248,7 +248,7 @@ export default Vue.extend({
               this.thumbnail = `https://i.ytimg.com/vi/${this.videoId}/maxres3.jpg`
               break
             default:
-              this.thumbnail = result.videoDetails.thumbnail.thumbnails[result.videoDetails.thumbnail.thumbnails.length - 1].url
+              this.thumbnail = result.videoDetails.thumbnails[result.videoDetails.thumbnails.length - 1].url
               break
           }
 

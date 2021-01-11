@@ -32,7 +32,7 @@ const fileLocation = isDev ? 'static/locales/' : `${__dirname}/static/locales/`
 activeLocales.forEach((locale) => {
   try {
     // File location when running in dev
-    const doc = yaml.safeLoad(fs.readFileSync(`${fileLocation}${locale}.yaml`))
+    const doc = yaml.load(fs.readFileSync(`${fileLocation}${locale}.yaml`))
     messages[locale] = doc
   } catch (e) {
     console.log(e)
