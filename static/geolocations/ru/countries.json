@@ -42,6 +42,7 @@
 {"id":624,"name":"Гвинея-Бисау","alpha2":"gw","alpha3":"gnb"},
 {"id":276,"name":"Германия","alpha2":"de","alpha3":"deu"},
 {"id":340,"name":"Гондурас","alpha2":"hn","alpha3":"hnd"},
+{"id":344,"name":"Гонконг","alpha2":"hk","alpha3":"hkg"},
 {"id":308,"name":"Гренада","alpha2":"gd","alpha3":"grd"},
 {"id":300,"name":"Греция","alpha2":"gr","alpha3":"grc"},
 {"id":268,"name":"Грузия","alpha2":"ge","alpha3":"geo"},

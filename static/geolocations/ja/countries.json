@@ -158,6 +158,7 @@
 {"id":68,"name":"ボリビア多民族国","alpha2":"bo","alpha3":"bol"},
 {"id":620,"name":"ポルトガル","alpha2":"pt","alpha3":"prt"},
 {"id":340,"name":"ホンジュラス","alpha2":"hn","alpha3":"hnd"},
+{"id":344,"name":"香港","alpha2":"hk","alpha3":"hkg"},
 {"id":584,"name":"マーシャル諸島","alpha2":"mh","alpha3":"mhl"},
 {"id":450,"name":"マダガスカル","alpha2":"mg","alpha3":"mdg"},
 {"id":454,"name":"マラウイ","alpha2":"mw","alpha3":"mwi"},
