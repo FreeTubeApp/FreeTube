@@ -6,6 +6,7 @@ import store from './store/index'
 // import 'material-design-icons/iconfont/material-icons.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import VueI18n from 'vue-i18n'
 import yaml from 'js-yaml'
@@ -18,6 +19,7 @@ Vue.config.performance = isDev
 Vue.config.productionTip = isDev
 
 library.add(fas)
+library.add(fab)
 
 Vue.component('FontAwesomeIcon', FontAwesomeIcon)
 Vue.use(VueI18n)
