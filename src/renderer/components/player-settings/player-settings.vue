@@ -34,7 +34,6 @@
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Enable Theatre Mode by Default')"
           :compact="true"
-          :disabled="hideRecommendedVideos && hideLiveChat"
           :default-value="defaultTheatreMode"
           @change="updateDefaultTheatreMode"
         />

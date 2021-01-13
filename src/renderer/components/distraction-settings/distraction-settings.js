@@ -45,20 +45,9 @@ export default Vue.extend({
     handleHideRecommendedVideos: function (value) {
       if (value) {
         this.updatePlayNextVideo(false)
-        if (this.hideLiveChat) {
-          this.updateDefaultTheatreMode(true)
-        }
       }
 
       this.updateHideRecommendedVideos(value)
-    },
-
-    handleHideLiveChat: function (value) {
-      if (value && this.hideRecommendedVideos) {
-        this.updateDefaultTheatreMode(true)
-      }
-
-      this.updateHideLiveChat(value)
     },
 
     ...mapActions([
