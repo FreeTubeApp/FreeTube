@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
 
 import $ from 'jquery'
@@ -87,6 +88,7 @@ export default Vue.extend({
             'remainingTimeDisplay',
             'customControlSpacer',
             'playbackRateMenuButton',
+            'loopButton',
             'chaptersButton',
             'descriptionsButton',
             'subsCapsButton',
@@ -156,6 +158,7 @@ export default Vue.extend({
     }
 
     this.createFullWindowButton()
+    this.createLoopButton()
     this.determineFormatType()
     this.determineMaxFramerate()
   },
@@ -533,7 +536,53 @@ export default Vue.extend({
       }
     },
 
-    createFullWindowButton: function() {
+    createLoopButton: function () {
+      const v = this
+      const VjsButton = videojs.getComponent('Button')
+      const loopButton = videojs.extend(VjsButton, {
+        constructor: function(player, options) {
+          VjsButton.call(this, player, options)
+        },
+        handleClick: function() {
+          v.toggleVideoLoop()
+        },
+        createControlTextEl: function (button) {
+          return $(button).html($('<div id="loopButton" class="vjs-icon-loop loop-white vjs-button loopWhite"></div>')
+            .attr('title', 'Toggle Loop'))
+        }
+      })
+      videojs.registerComponent('loopButton', loopButton)
+    },
+
+    toggleVideoLoop: async function () {
+      if (!this.player.loop()) {
+        const currentTheme = localStorage.getItem('mainColor')
+        const colorNames = this.$store.state.utils.colorClasses
+        const colorValues = this.$store.state.utils.colorValues
+
+        const nameIndex = colorNames.findIndex((color) => {
+          return color === currentTheme
+        })
+
+        const themeTextColor = await this.calculateColorLuminance(colorValues[nameIndex])
+
+        $('#loopButton').addClass('vjs-icon-loop-active')
+
+        if (themeTextColor === '#000000') {
+          $('#loopButton').addClass('loop-black')
+          $('#loopButton').removeClass('loop-white')
+        }
+
+        this.player.loop(true)
+      } else {
+        $('#loopButton').removeClass('vjs-icon-loop-active')
+        $('#loopButton').removeClass('loop-black')
+        $('#loopButton').addClass('loop-white')
+        this.player.loop(false)
+      }
+    },
+
+    createFullWindowButton: function () {
       const v = this
       const VjsButton = videojs.getComponent('Button')
       const fullWindowButton = videojs.extend(VjsButton, {
@@ -827,6 +876,10 @@ export default Vue.extend({
             break
         }
       }
-    }
+    },
+
+    ...mapActions([
+      'calculateColorLuminance'
+    ])
   }
 })
