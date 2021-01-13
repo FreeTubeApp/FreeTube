@@ -78,6 +78,14 @@ export default Vue.extend({
     downloadLinks: {
       type: Array,
       required: true
+    },
+    watchingPlaylist: {
+      type: Boolean,
+      required: true
+    },
+    theatrePossible: {
+      type: Boolean,
+      required: true
     }
   },
   data: function () {
@@ -109,6 +117,10 @@ export default Vue.extend({
 
     hideRecommendedVideos: function () {
       return this.$store.getters.getHideRecommendedVideos
+    },
+
+    hideLiveChat: function () {
+      return this.$store.getters.getHideLiveChat
     },
 
     hideVideoLikesAndDislikes: function () {

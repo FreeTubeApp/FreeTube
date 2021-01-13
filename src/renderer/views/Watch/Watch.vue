@@ -3,7 +3,8 @@
     class="videoLayout"
     :class="{
       isLoading,
-      useTheatreMode
+      useTheatreMode,
+      noSidebar: !theatrePossible
     }"
   >
     <ft-loader
@@ -78,6 +79,8 @@
         :is-live="isLive"
         :is-upcoming="isUpcoming"
         :download-links="downloadLinks"
+        :watching-playlist="watchingPlaylist"
+        :theatre-possible="theatrePossible"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
         @theatre-mode="toggleTheatreMode"

@@ -48,7 +48,6 @@ export default Vue.extend({
     handleHideRecommendedVideos: function (value) {
       if (value) {
         this.updatePlayNextVideo(false)
-        this.updateDefaultTheatreMode(true)
       }
 
       this.updateHideRecommendedVideos(value)

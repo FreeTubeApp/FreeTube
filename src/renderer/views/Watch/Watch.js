@@ -119,6 +119,12 @@ export default Vue.extend({
     playNextVideo: function () {
       return this.$store.getters.getPlayNextVideo
     },
+    hideRecommendedVideos: function () {
+      return this.$store.getters.getHideRecommendedVideos
+    },
+    hideLiveChat: function () {
+      return this.$store.getters.getHideLiveChat
+    },
 
     youtubeNoCookieEmbeddedFrame: function () {
       return `<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/${this.videoId}?rel=0' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>`
@@ -128,6 +134,9 @@ export default Vue.extend({
     },
     hideVideoLikesAndDislikes: function () {
       return this.$store.getters.getHideVideoLikesAndDislikes
+    },
+    theatrePossible: function() {
+      return !this.hideRecommendedVideos || (!this.hideLiveChat && this.isLive) || this.watchingPlaylist
     }
   },
   watch: {

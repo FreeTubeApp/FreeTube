@@ -34,7 +34,6 @@
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Enable Theatre Mode by Default')"
           :compact="true"
-          :disabled="hideRecommendedVideos"
           :default-value="defaultTheatreMode"
           @change="updateDefaultTheatreMode"
         />

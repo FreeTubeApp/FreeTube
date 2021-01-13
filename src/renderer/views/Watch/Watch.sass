@@ -22,7 +22,7 @@
   @media only screen and (max-width: 900px)
     +single-column-template
 
-  &.isLoading
+  &.isLoading, &.noSidebar
     +single-column-template
 
   .videoArea
@@ -72,6 +72,9 @@
 
     @media only screen and (min-width: 901px)
       min-width: 380px
+
+    @at-root .noSidebar#{&}
+      grid-area: auto
 
   .watchVideoPlaylist, .watchVideoSidebar, .theatrePlaylist
     margin: 0 8px 16px
