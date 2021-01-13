@@ -4,7 +4,7 @@
     :class="{
       isLoading,
       useTheatreMode,
-      noSidebar: hideRecommendedVideos && (hideLiveChat || !isLive)
+      noSidebar: !theatrePossible
     }"
   >
     <ft-loader
@@ -79,6 +79,8 @@
         :is-live="isLive"
         :is-upcoming="isUpcoming"
         :download-links="downloadLinks"
+        :watching-playlist="watchingPlaylist"
+        :theatre-possible="theatrePossible"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
         @theatre-mode="toggleTheatreMode"

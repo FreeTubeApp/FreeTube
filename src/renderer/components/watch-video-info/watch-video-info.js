@@ -78,6 +78,14 @@ export default Vue.extend({
     downloadLinks: {
       type: Array,
       required: true
+    },
+    watchingPlaylist: {
+      type: Boolean,
+      required: true
+    },
+    theatrePossible: {
+      type: Boolean,
+      required: true
     }
   },
   data: function () {
