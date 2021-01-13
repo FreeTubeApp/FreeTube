@@ -161,6 +161,10 @@ export default Vue.extend({
     },
     hideVideoViews: function () {
       return this.$store.getters.getHideVideoViews
+    },
+
+    addWatchedStyle: function () {
+      return this.watched && !this.inHistory
     }
   },
   mounted: function () {

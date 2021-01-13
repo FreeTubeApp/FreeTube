@@ -5,7 +5,7 @@
       list: (listType === 'list' || forceListType === 'list') && forceListType !== 'grid',
       grid: (listType === 'grid' || forceListType === 'list') && forceListType !== 'list',
       [appearance]: true,
-      watched: watched
+      watched: addWatchedStyle
     }"
   >
     <div
@@ -41,7 +41,7 @@
         @click="toggleSave(id)"
       />
       <div
-        v-if="watched"
+        v-if="addWatchedStyle"
         class="videoWatched"
       >
         {{ $t("Video.Watched") }}
