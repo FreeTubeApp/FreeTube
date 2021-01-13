@@ -28,6 +28,11 @@ export default Vue.extend({
     } else if (this.player.isInPictureInPicture()) {
       this.player.play()
     }
+
+    if (this.usingElectron && this.powerSaveBlocker !== null) {
+      const { powerSaveBlocker } = require('electron')
+      powerSaveBlocker.stop(this.powerSaveBlocker)
+    }
   },
   props: {
     format: {
@@ -171,6 +176,11 @@ export default Vue.extend({
         this.player = null
         clearTimeout(this.mouseTimeout)
       }
+    }
+
+    if (this.usingElectron && this.powerSaveBlocker !== null) {
+      const { powerSaveBlocker } = require('electron')
+      powerSaveBlocker.stop(this.powerSaveBlocker)
     }
   },
   methods: {
