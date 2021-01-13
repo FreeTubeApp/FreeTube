@@ -323,6 +323,23 @@ About:
   Latest FreeTube News: 'Les dernières actualités FreeTube'
 
 #On Channel Page
+  Channel Rules: Règles de la chaîne
+  Website: Site internet
+  Source Code: Code source
+  Release Notes: Notes de version
+  Email: Courriel
+  License: Licence
+  Help: Aide
+  Contact: Contact
+  Translate via Weblate: Traduire via Weblate
+  Blog: Blog
+  Credits: Crédits
+  FAQ: FAQ
+  Wiki: Wiki
+  Report an Issue: Signaler un problème
+  Beta: Bêta
+  Donate: Faire un don
+  Useful Links: Liens utiles
 Channel:
   Subscriber: 'Abonnement'
   Subscribers: 'Abonnements'
