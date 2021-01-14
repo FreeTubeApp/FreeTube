@@ -27,6 +27,22 @@
         @click="exportHistory"
       />
     </ft-flex-box>
+    <ft-flex-box>
+      <a
+        class="center"
+        href="https://github.com/FreeTubeApp/FreeTube/wiki/Importing-Your-YouTube-Subscriptions"
+      >
+        <p>
+          {{ $t("Settings.Data Settings.How do I import my subscriptions?") }}
+        </p>
+      </a>
+    </ft-flex-box>
+    <ft-flex-box>
+      <ft-button
+        :label="$t('Settings.Data Settings.Manage Subscriptions')"
+        @click="openProfileSettings"
+      />
+    </ft-flex-box>
     <ft-prompt
       v-if="showImportSubscriptionsPrompt"
       :label="$t('Settings.Data Settings.Select Import Type')"

@@ -1,0 +1,78 @@
+<template>
+  <ft-card
+    class="relative card"
+  >
+    <h3
+      class="videoTitle"
+    >
+      {{ $t("Settings.Proxy Settings.Proxy Settings") }}
+    </h3>
+    <ft-flex-box class="subscriptionSettingsFlexBox">
+      <ft-toggle-switch
+        :label="$t('Settings.Proxy Settings.Enable Tor / Proxy')"
+        :default-value="useProxy"
+        @change="handleUpdateProxy"
+      />
+    </ft-flex-box>
+    <ft-flex-box>
+      <ft-select
+        :placeholder="$t('Settings.Proxy Settings.Proxy Protocol')"
+        :value="proxyProtocol"
+        :select-names="protocolNames"
+        :select-values="protocolValues"
+        @change="handleUpdateProxyProtocol"
+      />
+    </ft-flex-box>
+    <ft-flex-box>
+      <ft-input
+        :placeholder="$t('Settings.Proxy Settings.Proxy Host')"
+        :show-arrow="false"
+        :show-label="true"
+        :value="proxyHostname"
+        @input="handleUpdateProxyHostname"
+      />
+      <ft-input
+        :placeholder="$t('Settings.Proxy Settings.Proxy Port Number')"
+        :show-arrow="false"
+        :show-label="true"
+        :value="proxyPort"
+        @input="handleUpdateProxyPort"
+      />
+    </ft-flex-box>
+    <p class="center">
+      {{ $t('Settings.Proxy Settings.Clicking on Test Proxy will send a request to') }} https://freegeoip.app/json/
+    </p>
+    <ft-flex-box>
+      <ft-button
+        :label="$t('Settings.Proxy Settings.Test Proxy')"
+        @click="testProxy"
+      />
+    </ft-flex-box>
+    <ft-loader
+      v-if="isLoading"
+    />
+    <div
+      v-if="!isLoading && dataAvailable"
+      class="center"
+    >
+      <h3>
+        {{ $t('Settings.Proxy Settings.Your Info') }}
+      </h3>
+      <p>
+        {{ $t('Settings.Proxy Settings.Ip') }}: {{ proxyIp }}
+      </p>
+      <p>
+        {{ $t('Settings.Proxy Settings.Country') }}: {{ proxyCountry }}
+      </p>
+      <p>
+        {{ $t('Settings.Proxy Settings.Region') }}: {{ proxyRegion }}
+      </p>
+      <p>
+        {{ $t('Settings.Proxy Settings.City') }}: {{ proxyCity }}
+      </p>
+    </div>
+  </ft-card>
+</template>
+
+<script src="./proxy-settings.js" />
+<style scoped src="./proxy-settings.css" />

@@ -78,6 +78,12 @@ export default Vue.extend({
     }
   },
   methods: {
+    openProfileSettings: function () {
+      this.$router.push({
+        path: '/settings/profile/'
+      })
+    },
+
     importSubscriptions: function (option) {
       this.showImportSubscriptionsPrompt = false
 

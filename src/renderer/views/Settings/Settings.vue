@@ -7,6 +7,7 @@
     <distraction-settings />
     <privacy-settings />
     <data-settings />
+    <proxy-settings />
   </div>
 </template>
 

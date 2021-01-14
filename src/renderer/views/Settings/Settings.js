@@ -8,6 +8,7 @@ import SubscriptionSettings from '../../components/subscription-settings/subscri
 import PrivacySettings from '../../components/privacy-settings/privacy-settings.vue'
 import DataSettings from '../../components/data-settings/data-settings.vue'
 import DistractionSettings from '../../components/distraction-settings/distraction-settings.vue'
+import ProxySettings from '../../components/proxy-settings/proxy-settings.vue'
 
 export default Vue.extend({
   name: 'Settings',
@@ -20,6 +21,7 @@ export default Vue.extend({
     'subscription-settings': SubscriptionSettings,
     'privacy-settings': PrivacySettings,
     'data-settings': DataSettings,
-    'distraction-settings': DistractionSettings
+    'distraction-settings': DistractionSettings,
+    'proxy-settings': ProxySettings
   }
 })

@@ -65,21 +65,57 @@ if (!isDev) {
     })
 
     app.on('ready', (event, commandLine, workingDirectory) => {
-      settingsDb.findOne({
-        _id: 'disableSmoothScrolling'
+      settingsDb.find({
+        $or: [
+          { _id: 'disableSmoothScrolling' },
+          { _id: 'useProxy' },
+          { _id: 'proxyProtocol' },
+          { _id: 'proxyHostname' },
+          { _id: 'proxyPort' }
+        ]
       }, function (err, doc) {
         if (err) {
           app.exit(0)
           return
         }
 
-        if (doc !== null && doc.value) {
+        let disableSmoothScrolling = false
+        let useProxy = false
+        let proxyProtocol = 'socks5'
+        let proxyHostname = '127.0.0.1'
+        let proxyPort = '9050'
+
+        if (typeof doc === 'object' && doc.length > 0) {
+          doc.forEach((dbItem) => {
+            switch (dbItem._id) {
+              case 'disableSmoothScrolling':
+                disableSmoothScrolling = dbItem.value
+                break
+              case 'useProxy':
+                useProxy = dbItem.value
+                break
+              case 'proxyProtocol':
+                proxyProtocol = dbItem.value
+                break
+              case 'proxyHostname':
+                proxyHostname = dbItem.value
+                break
+              case 'proxyPort':
+                proxyPort = dbItem.value
+                break
+            }
+          })
+        }
+
+        if (disableSmoothScrolling) {
           app.commandLine.appendSwitch('disable-smooth-scrolling')
         } else {
           app.commandLine.appendSwitch('enable-smooth-scrolling')
         }
 
-        createWindow()
+        const proxyUrl = `${proxyProtocol}://${proxyHostname}:${proxyPort}`
+
+        createWindow(useProxy, proxyUrl)
 
         if (isDev) {
           installDevTools()
@@ -99,21 +135,57 @@ if (!isDev) {
   })
 
   app.on('ready', () => {
-    settingsDb.findOne({
-      _id: 'disableSmoothScrolling'
+    settingsDb.find({
+      $or: [
+        { _id: 'disableSmoothScrolling' },
+        { _id: 'useProxy' },
+        { _id: 'proxyProtocol' },
+        { _id: 'proxyHostname' },
+        { _id: 'proxyPort' }
+      ]
     }, function (err, doc) {
       if (err) {
         app.exit(0)
         return
       }
 
-      if (doc !== null && doc.value) {
+      let disableSmoothScrolling = false
+      let useProxy = false
+      let proxyProtocol = 'socks5'
+      let proxyHostname = '127.0.0.1'
+      let proxyPort = '9050'
+
+      if (typeof doc === 'object' && doc.length > 0) {
+        doc.forEach((dbItem) => {
+          switch (dbItem._id) {
+            case 'disableSmoothScrolling':
+              disableSmoothScrolling = dbItem.value
+              break
+            case 'useProxy':
+              useProxy = dbItem.value
+              break
+            case 'proxyProtocol':
+              proxyProtocol = dbItem.value
+              break
+            case 'proxyHostname':
+              proxyHostname = dbItem.value
+              break
+            case 'proxyPort':
+              proxyPort = dbItem.value
+              break
+          }
+        })
+      }
+
+      if (disableSmoothScrolling) {
         app.commandLine.appendSwitch('disable-smooth-scrolling')
       } else {
         app.commandLine.appendSwitch('enable-smooth-scrolling')
       }
 
-      createWindow()
+      const proxyUrl = `${proxyProtocol}://${proxyHostname}:${proxyPort}`
+
+      createWindow(useProxy, proxyUrl)
 
       if (isDev) {
         installDevTools()
@@ -137,7 +209,7 @@ async function installDevTools () {
   }
 }
 
-function createWindow () {
+function createWindow (useProxy = false, proxyUrl = '') {
   /**
    * Initial window options
    */
@@ -163,6 +235,12 @@ function createWindow () {
     width: 1200,
     height: 800
   })
+
+  if (useProxy) {
+    mainWindow.webContents.session.setProxy({
+      proxyRules: proxyUrl
+    })
+  }
 
   settingsDb.findOne({
     _id: 'bounds'
@@ -263,6 +341,17 @@ function createWindow () {
     app.commandLine.appendSwitch('enable-smooth-scrolling')
     mainWindow.close()
     createWindow()
+  })
+
+  ipcMain.on('enableProxy', (event, url) => {
+    console.log(url)
+    mainWindow.webContents.session.setProxy({
+      proxyRules: url
+    })
+  })
+
+  ipcMain.on('disableProxy', () => {
+    mainWindow.webContents.session.setProxy({})
   })
 }
 
