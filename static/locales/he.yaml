@@ -236,6 +236,7 @@ Settings:
     Unknown data key: 'מפתח נתון לא ידוע'
     How do I import my subscriptions?: 'איך לייבא את המנויים שלי?'
     Check for Legacy Subscriptions: איתור מינויים מיושנים
+    Manage Subscriptions: ניהול מינויים
   Advanced Settings:
     Advanced Settings: 'הגדרות מתקדמות'
     Enable Debug Mode (Prints data to the console): 'הפעל מצב Debug ( מציג נתונים
@@ -276,6 +277,22 @@ Settings:
     Hide Active Subscriptions: הסתרת מינויים פעילים
   The app needs to restart for changes to take effect. Restart and apply change?: צריך
     להפעיל את היישומון מחדש כדי שהשינויים ייכנסו לתוקף. להפעיל מחדש ולהחיל את השינוי?
+  Proxy Settings:
+    Error getting network information. Is your proxy configured properly?: קבלת פרטי
+      הרשת נכשלה. המתווך שלך מוגדר כראוי?
+    City: עיר
+    Region: אזור
+    Country: מדינה
+    Ip: IP
+    Your Info: הפרטים שלך
+    Test Proxy: בדיקת המתווך
+    Clicking on Test Proxy will send a request to: לחיצה על בדיקת המתווך תשלח בקשה
+      אל
+    Proxy Port Number: מספר פתחת מתווך
+    Proxy Host: מארח מתווך
+    Proxy Protocol: פרוטוקול מתווך
+    Enable Tor / Proxy: הפעלת Tor / מתווך
+    Proxy Settings: הגדרות מתווך
 About:
   #On About page
   About: 'על אודות'
