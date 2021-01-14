@@ -88,6 +88,7 @@ export default Vue.extend({
     this.$store.dispatch('grabUserSettings')
     this.$store.dispatch('grabHistory')
     this.$store.dispatch('grabAllProfiles', this.$t('Profile.All Channels'))
+    this.$store.dispatch('grabAllPlaylists')
     this.$store.commit('setUsingElectron', useElectron)
     this.checkThemeSettings()
     this.checkLocale()

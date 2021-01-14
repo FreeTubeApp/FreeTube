@@ -32,13 +32,13 @@
       </div>
       <ft-icon-button
         v-if="!isLive"
+        :title="$t('Video.Save Video')"
         icon="star"
         class="favoritesIcon"
-        theme="base"
+        :theme="favoriteIconTheme"
         :padding="appearance === `watchPlaylistItem` ? 5 : 6"
         :size="appearance === `watchPlaylistItem` ? 14 : 18"
-        :class="{ favorited: isFavorited }"
-        @click="toggleSave(id)"
+        @click="toggleSave"
       />
       <div
         v-if="addWatchedStyle"

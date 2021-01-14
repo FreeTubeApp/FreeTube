@@ -63,6 +63,14 @@
       </div>
       <div class="videoOptions">
         <ft-icon-button
+          v-if="!isUpcoming"
+          :title="$t('Video.Save Video')"
+          icon="star"
+          class="option"
+          :theme="favoriteIconTheme"
+          @click="toggleSave"
+        />
+        <ft-icon-button
           v-if="theatrePossible"
           :title="$t('Toggle Theatre Mode')"
           class="theatreModeButton option"

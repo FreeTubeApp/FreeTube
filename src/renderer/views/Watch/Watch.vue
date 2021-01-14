@@ -81,6 +81,7 @@
         :download-links="downloadLinks"
         :watching-playlist="watchingPlaylist"
         :theatre-possible="theatrePossible"
+        :length-seconds="videoLengthSeconds"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
         @theatre-mode="toggleTheatreMode"

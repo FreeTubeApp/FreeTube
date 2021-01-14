@@ -86,6 +86,8 @@ Most Popular: Most Popular
 Playlists: Playlists
 User Playlists:
   Your Playlists: Your Playlists
+  Playlist Message: This page is not reflective of fully working playlists. It only lists videos that you have saved or favorited. When the work has finished, all videos currently here will be migrated to a 'Favorites' playlist.
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Your saved videos are empty. Click on the save button on the corner of a video to have it listed here
 History:
   # On History Page
   History: History
@@ -368,6 +370,9 @@ Video:
   Remove From History: Remove From History
   Video has been marked as watched: Video has been marked as watched
   Video has been removed from your history: Video has been removed from your history
+  Save Video: Save Video
+  Video has been saved: Video has been saved
+  Video has been removed from your saved list: Video has been removed from your saved list
   Open in YouTube: Open in YouTube
   Copy YouTube Link: Copy YouTube Link
   Open YouTube Embedded Player: Open YouTube Embedded Player
