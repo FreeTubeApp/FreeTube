@@ -277,6 +277,7 @@ Settings:
     Hide Video Likes And Dislikes: Sakrij ocjenjivanje videa
     Hide Video Views: Sakrij broj gledanja videa
     Distraction Free Settings: Postavke za nesmetan rad
+    Hide Active Subscriptions: Sakrij aktivne pretplate
   The app needs to restart for changes to take effect. Restart and apply change?: Za
     primjenu promjena, program se mora ponovo pokrenuti. Ponovo pokrenuti program?
 About:
@@ -310,6 +311,23 @@ About:
 
   Latest FreeTube News: 'Najnovije vijesti o programu FreeTube'
 
+  Translate via Weblate: Prevedi putem Weblatea
+  Website: Web-stranica
+  Source Code: Izvorni kod
+  Release Notes: Napomene uz izdanje
+  Blog: Blog
+  Credits: Zasluge
+  FAQ: Često postavljena pitanja
+  Wiki: Wiki
+  Report an Issue: Prijavi problem
+  Channel Rules: Pravila kanala
+  Email: E-adresa
+  License: Licenca
+  Beta: Beta
+  Donate: Doniraj
+  Useful Links: Korisne poveznice
+  Help: Pomoć
+  Contact: Kontakt
 Profile:
   All Channels: 'Svi kanali'
   Profile Manager: 'Upravljač profila'

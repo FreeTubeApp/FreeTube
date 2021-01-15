@@ -8,6 +8,7 @@
   --bg-color: #f1f1f1;
   --link-color: var(--accent-color);
   --link-visited-color: var(--accent-color-visited);
+  --favorite-icon-color: #FFD600;
   --card-bg-color: #FFFFFF;
   --secondary-card-bg-color: #eeeeee;
   --scrollbar-color: #CCCCCC;
@@ -32,6 +33,7 @@
   --bg-color: #212121;
   --link-color: var(--accent-color);
   --link-visited-color: var(--accent-color-visited);
+  --favorite-icon-color: #FFEA00;
   --card-bg-color: #303030;
   --secondary-card-bg-color: rgba(0, 0, 0, 0.75);
   --scrollbar-color: #414141;
@@ -55,6 +57,7 @@
     --bg-color: #000000;
     --link-color: var(--accent-color);
     --link-visited-color: var(--accent-color-visited);
+    --favorite-icon-color: #FFEA00;
     --card-bg-color: #000000;
     --secondary-card-bg-color: rgba(0, 0, 0, 0.75);
     --scrollbar-color: #515151;

@@ -161,6 +161,26 @@ export default Vue.extend({
     },
     hideVideoViews: function () {
       return this.$store.getters.getHideVideoViews
+    },
+
+    addWatchedStyle: function () {
+      return this.watched && !this.inHistory
+    },
+
+    favoritesPlaylist: function () {
+      return this.$store.getters.getFavorites
+    },
+
+    inFavoritesPlaylist: function () {
+      const index = this.favoritesPlaylist.videos.findIndex((video) => {
+        return video.videoId === this.id
+      })
+
+      return index !== -1
+    },
+
+    favoriteIconTheme: function () {
+      return this.inFavoritesPlaylist ? 'base favorite' : 'base'
     }
   },
   mounted: function () {
@@ -169,10 +189,11 @@ export default Vue.extend({
   },
   methods: {
     toggleSave: function () {
-      console.log('TODO: ft-list-video method toggleSave')
-      this.showToast({
-        message: this.$t('Saving videos are currently not available.  Please wait for a future update')
-      })
+      if (this.inFavoritesPlaylist) {
+        this.removeFromPlaylist()
+      } else {
+        this.addToPlaylist()
+      }
     },
 
     handleOptionsClick: function (option) {
@@ -392,11 +413,54 @@ export default Vue.extend({
       this.watched = false
     },
 
+    addToPlaylist: function () {
+      const videoData = {
+        videoId: this.id,
+        title: this.title,
+        author: this.channelName,
+        authorId: this.channelId,
+        published: '',
+        description: this.description,
+        viewCount: this.viewCount,
+        lengthSeconds: this.data.lengthSeconds,
+        timeAdded: new Date().getTime(),
+        isLive: false,
+        paid: false,
+        type: 'video'
+      }
+
+      const payload = {
+        playlistName: 'Favorites',
+        videoData: videoData
+      }
+
+      this.addVideo(payload)
+
+      this.showToast({
+        message: this.$t('Video.Video has been saved')
+      })
+    },
+
+    removeFromPlaylist: function () {
+      const payload = {
+        playlistName: 'Favorites',
+        videoId: this.id
+      }
+
+      this.removeVideo(payload)
+
+      this.showToast({
+        message: this.$t('Video.Video has been removed from your saved list')
+      })
+    },
+
     ...mapActions([
       'showToast',
       'toLocalePublicationString',
       'updateHistory',
-      'removeFromHistory'
+      'removeFromHistory',
+      'addVideo',
+      'removeVideo'
     ])
   }
 })

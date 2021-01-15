@@ -155,7 +155,7 @@ export default Vue.extend({
       comment.message.forEach((text) => {
         if (typeof (text.navigationEndpoint) !== 'undefined') {
           if (typeof (text.navigationEndpoint.watchEndpoint) !== 'undefined') {
-            const htmlRef = `<router-link to="/watch/${text.navigationEndpoint.watchEndpoint.videoId}">${text.text}</router-link>`
+            const htmlRef = `<a href="https://www.youtube.com/watch?v=${text.navigationEndpoint.watchEndpoint.videoId}">${text.text}</a>`
             comment.messageHtml = comment.messageHtml + htmlRef
           } else {
             comment.messageHtml = comment.messageHtml + text.text

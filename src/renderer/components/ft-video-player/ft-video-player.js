@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
 
 import $ from 'jquery'
@@ -17,12 +18,20 @@ export default Vue.extend({
     'ft-card': FtCard
   },
   beforeRouteLeave: function () {
+    if (this.player !== null) {
+      this.exitFullWindow()
+    }
     if (this.player !== null && !this.player.isInPictureInPicture()) {
       this.player.dispose()
       this.player = null
       clearTimeout(this.mouseTimeout)
     } else if (this.player.isInPictureInPicture()) {
       this.player.play()
+    }
+
+    if (this.usingElectron && this.powerSaveBlocker !== null) {
+      const { powerSaveBlocker } = require('electron')
+      powerSaveBlocker.stop(this.powerSaveBlocker)
     }
   },
   props: {
@@ -58,6 +67,7 @@ export default Vue.extend({
   data: function () {
     return {
       id: '',
+      powerSaveBlocker: null,
       volume: 1,
       player: null,
       useDash: false,
@@ -67,7 +77,7 @@ export default Vue.extend({
       activeSourceList: [],
       mouseTimeout: null,
       dataSetup: {
-        aspectRatio: '16:9',
+        fluid: true,
         nativeTextTracks: false,
         plugins: {},
         controlBar: {
@@ -83,6 +93,7 @@ export default Vue.extend({
             'remainingTimeDisplay',
             'customControlSpacer',
             'playbackRateMenuButton',
+            'loopButton',
             'chaptersButton',
             'descriptionsButton',
             'subsCapsButton',
@@ -112,6 +123,10 @@ export default Vue.extend({
     }
   },
   computed: {
+    usingElectron: function () {
+      return this.$store.getters.getUsingElectron
+    },
+
     defaultPlayback: function () {
       return this.$store.getters.getDefaultPlayback
     },
@@ -148,14 +163,24 @@ export default Vue.extend({
     }
 
     this.createFullWindowButton()
+    this.createLoopButton()
     this.determineFormatType()
     this.determineMaxFramerate()
   },
   beforeDestroy: function () {
-    if (this.player !== null && !this.player.isInPictureInPicture()) {
-      this.player.dispose()
-      this.player = null
-      clearTimeout(this.mouseTimeout)
+    if (this.player !== null) {
+      this.exitFullWindow()
+
+      if (!this.player.isInPictureInPicture()) {
+        this.player.dispose()
+        this.player = null
+        clearTimeout(this.mouseTimeout)
+      }
+    }
+
+    if (this.usingElectron && this.powerSaveBlocker !== null) {
+      const { powerSaveBlocker } = require('electron')
+      powerSaveBlocker.stop(this.powerSaveBlocker)
     }
   },
   methods: {
@@ -170,7 +195,9 @@ export default Vue.extend({
         this.player = videojs(videoPlayer, {
           html5: {
             vhs: {
-              limitRenditionByPlayerDimensions: false
+              limitRenditionByPlayerDimensions: false,
+              smoothQualityChange: false,
+              allowSeeksWithinUnsafeLiveWindow: true
             }
           }
         })
@@ -217,6 +244,7 @@ export default Vue.extend({
 
         this.player.on('ready', function () {
           v.$emit('ready')
+          v.checkAspectRatio()
         })
 
         this.player.on('ended', function () {
@@ -226,6 +254,39 @@ export default Vue.extend({
         this.player.on('error', function (error, message) {
           v.$emit('error', error.target.player.error_)
         })
+
+        this.player.on('play', function () {
+          if (this.usingElectron) {
+            const { powerSaveBlocker } = require('electron')
+
+            this.powerSaveBlocker = powerSaveBlocker.start('prevent-display-sleep')
+          }
+        })
+
+        this.player.on('pause', function () {
+          if (this.usingElectron && this.powerSaveBlocker !== null) {
+            const { powerSaveBlocker } = require('electron')
+            powerSaveBlocker.stop(this.powerSaveBlocker)
+            this.powerSaveBlocker = null
+          }
+        })
+      }
+    },
+
+    checkAspectRatio() {
+      const videoWidth = this.player.videoWidth()
+      const videoHeight = this.player.videoHeight()
+
+      if (videoWidth === 0 || videoHeight === 0) {
+        setTimeout(() => {
+          this.checkAspectRatio()
+        }, 200)
+        return
+      }
+
+      if (videoWidth < videoHeight) {
+        this.player.fluid(false)
+        this.player.aspectRatio('16:9')
       }
     },
 
@@ -268,7 +329,6 @@ export default Vue.extend({
       }
       fs.readFile(this.dashSrc[0].url, (err, data) => {
         if (err) {
-          console.log('caught the error')
           this.maxFramerate = 60
           return
         }
@@ -504,7 +564,53 @@ export default Vue.extend({
       }
     },
 
-    createFullWindowButton: function() {
+    createLoopButton: function () {
+      const v = this
+      const VjsButton = videojs.getComponent('Button')
+      const loopButton = videojs.extend(VjsButton, {
+        constructor: function(player, options) {
+          VjsButton.call(this, player, options)
+        },
+        handleClick: function() {
+          v.toggleVideoLoop()
+        },
+        createControlTextEl: function (button) {
+          return $(button).html($('<div id="loopButton" class="vjs-icon-loop loop-white vjs-button loopWhite"></div>')
+            .attr('title', 'Toggle Loop'))
+        }
+      })
+      videojs.registerComponent('loopButton', loopButton)
+    },
+
+    toggleVideoLoop: async function () {
+      if (!this.player.loop()) {
+        const currentTheme = localStorage.getItem('mainColor')
+        const colorNames = this.$store.state.utils.colorClasses
+        const colorValues = this.$store.state.utils.colorValues
+
+        const nameIndex = colorNames.findIndex((color) => {
+          return color === currentTheme
+        })
+
+        const themeTextColor = await this.calculateColorLuminance(colorValues[nameIndex])
+
+        $('#loopButton').addClass('vjs-icon-loop-active')
+
+        if (themeTextColor === '#000000') {
+          $('#loopButton').addClass('loop-black')
+          $('#loopButton').removeClass('loop-white')
+        }
+
+        this.player.loop(true)
+      } else {
+        $('#loopButton').removeClass('vjs-icon-loop-active')
+        $('#loopButton').removeClass('loop-black')
+        $('#loopButton').addClass('loop-white')
+        this.player.loop(false)
+      }
+    },
+
+    createFullWindowButton: function () {
       const v = this
       const VjsButton = videojs.getComponent('Button')
       const fullWindowButton = videojs.extend(VjsButton, {
@@ -620,6 +726,10 @@ export default Vue.extend({
         if (activeInputs[i] === document.activeElement) {
           return
         }
+      }
+
+      if (event.ctrlKey) {
+        return
       }
 
       if (this.player !== null) {
@@ -794,6 +904,10 @@ export default Vue.extend({
             break
         }
       }
-    }
+    },
+
+    ...mapActions([
+      'calculateColorLuminance'
+    ])
   }
 })

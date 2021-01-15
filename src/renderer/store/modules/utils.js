@@ -212,10 +212,37 @@ const actions = {
           return urlObject.pathname.slice(1)
         }
       },
+      // youtube.com/embed
+      function() {
+        if (urlObject.pathname.match(/^\/embed\/[A-Za-z0-9_-]+$/)) {
+          return urlObject.pathname.replace('/embed/', '')
+        }
+      },
       // cloudtube
       function() {
         if (urlObject.host.match(/^cadence\.(gq|moe)$/) && urlObject.pathname.match(/^\/cloudtube\/video\/[A-Za-z0-9_-]+$/)) {
           return urlObject.pathname.slice('/cloudtube/video/'.length)
+        }
+      }
+    ]
+
+    return extractors.reduce((a, c) => a || c(), null) || false
+  },
+
+  getPlaylistIdFromUrl (_, url) {
+    /** @type {URL} */
+    let urlObject
+    try {
+      urlObject = new URL(url)
+    } catch (e) {
+      return false
+    }
+
+    const extractors = [
+      // anything with /playlist?list=
+      function() {
+        if (urlObject.pathname === '/playlist' && urlObject.searchParams.has('list')) {
+          return urlObject.searchParams.get('list')
         }
       }
     ]

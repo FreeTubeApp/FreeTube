@@ -88,7 +88,7 @@ export default Vue.extend({
       if (this.searchSettings.type !== 'video') {
         const typeRadio = this.$refs.typeRadio
         typeRadio.updateSelectedValue('all')
-        this.updateType('all')
+        this.$store.commit('setSearchType', 'all')
       }
       this.$store.commit('setSearchTime', value)
     },
@@ -99,8 +99,8 @@ export default Vue.extend({
         const durationRadio = this.$refs.durationRadio
         timeRadio.updateSelectedValue('')
         durationRadio.updateSelectedValue('')
-        this.updateTime('')
-        this.updateDuration('')
+        this.$store.commit('setSearchTime', '')
+        this.$store.commit('setSearchDuration', '')
       }
       this.$store.commit('setSearchType', value)
     },

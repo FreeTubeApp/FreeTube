@@ -100,7 +100,7 @@ Settings:
     Locale Preference: 'Locale Voorkeur'
     Preferred API Backend:
       Preferred API Backend: 'Voorkeur API Backend'
-      Local API: 'Lokaal API'
+      Local API: 'Lokale API'
       Invidious API: 'Invidious API'
     Video View Type:
       Video View Type: 'Video Toontype'
@@ -116,13 +116,13 @@ Settings:
       (Standaard is https://invidious.snopyta.org)'
     Region for Trending: 'Regio voor Trending'
         #! List countries
-    Check for Latest Blog Posts: Controleer de Laatste Blogposts
+    Check for Latest Blog Posts: Controleer op nieuwe Blogposts
     Check for Updates: Controleer op Updates
   Theme Settings:
     Theme Settings: 'Thema Instellingen'
     Match Top Bar with Main Color: 'Paar Bovenste Balk met Primaire Kleur'
     Base Theme:
-      Base Theme: 'Basis Thema'
+      Base Theme: 'Basisthema'
       Black: 'Zwart'
       Dark: 'Donker'
       Light: 'Licht'
@@ -146,18 +146,18 @@ Settings:
       Deep Orange: 'Donker Oranje'
     Secondary Color Theme: 'Secundaire Themakleur'
         #* Main Color Theme
-    UI Scale: UI schaal
+    UI Scale: UI Schaal
     Expand Side Bar by Default: Zijbalk Standaard Uitschuiven
-    Disable Smooth Scrolling: Schakel Vloeiend Scrollen Uit
+    Disable Smooth Scrolling: Vloeiend Scrollen Uitschakelen
   Player Settings:
     Player Settings: 'Speler Instellingen'
     Force Local Backend for Legacy Formats: 'Forceer Lokale Backend Voor Legacy Indelingen'
-    Play Next Video: 'Speel Volgende Video af'
+    Play Next Video: 'Volgende Video Automatisch Afspelen'
     Turn on Subtitles by Default: 'Schakel Ondertiteling Standaard in'
-    Autoplay Videos: 'Autoplay Video''s'
+    Autoplay Videos: 'Video''s Automatisch Afspelen'
     Proxy Videos Through Invidious: 'Proxy Video''s Via Invidious'
-    Autoplay Playlists: 'Autoplay Afspeellijsten'
-    Enable Theatre Mode by Default: 'Schakel Theatermodus Standaard in'
+    Autoplay Playlists: 'Afspeellijsten Automatisch Afspelen'
+    Enable Theatre Mode by Default: 'Theatermodus Standaard Inschakelen'
     Default Volume: 'Standaard Volume'
     Default Playback Rate: 'Standaard Afspeelsnelheid'
     Default Video Format:
@@ -166,7 +166,7 @@ Settings:
       Legacy Formats: 'Legacy Indelingen'
       Audio Formats: 'Audio Indelingen'
     Default Quality:
-      Default Quality: 'Standaard Kwaliteit'
+      Default Quality: 'Standaard Videokwaliteit'
       Auto: 'Automatisch'
       144p: '144p'
       240p: '240p'
@@ -179,12 +179,12 @@ Settings:
       8k: '8k'
   Privacy Settings:
     Privacy Settings: 'Privacy Instellingen'
-    Remember History: 'Onthoud Geschiedenis'
-    Save Watched Progress: 'Behoud Video Voortgang'
-    Clear Search Cache: 'Zoek Cache Opschonen'
+    Remember History: 'Herinner Geschiedenis'
+    Save Watched Progress: 'Herinner Video Voortgang'
+    Clear Search Cache: 'Verwijder Zoek-cache'
     Are you sure you want to clear out your search cache?: 'Weet u zeker dat u de
-      zoek cache wil opschonen?'
-    Search cache has been cleared: 'Zoek cache is opgeschoond'
+      zoek-cache wil verwijderen?'
+    Search cache has been cleared: 'De zoek-cache is verwijdert'
     Remove Watch History: 'Verwijder Kijkgeschiedenis'
     Are you sure you want to remove your entire watch history?: 'Weet u zeker dat
       u uw volledige kijkgeschiedenis wil verwijderen?'
@@ -280,6 +280,7 @@ Settings:
     Hide Video Likes And Dislikes: Verberg Likes en Dislikes
     Hide Video Views: Verberg Weergaven
     Distraction Free Settings: Afleidingsvrije Instellingen
+    Hide Active Subscriptions: Verberg Actieve Abonnementen
   The app needs to restart for changes to take effect. Restart and apply change?: De
     applicatie moet opnieuw opstarten om de veranderingen aan te brengen. Wilt u opnieuw
     opstarten?
@@ -373,7 +374,7 @@ Video:
   'Chat is disabled or the Live Stream has ended.': 'Chat is uitgeschakeld of de Live
     Stream is beëindigd.'
   Live chat is enabled.  Chat messages will appear here once sent.: 'Live chat is
-    ingeschakeld. Chat berichten zullen hier verschijnen.'
+    ingeschakeld. Chats zullen hier verschijnen.'
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Live
     Chat wordt momenteel niet ondersteund door de Invidious API. Een directe verbinding
     met YouTube is nodig.'
@@ -410,9 +411,9 @@ Video:
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % geleden'
 #& Videos
-  Autoplay: Autoplay
+  Autoplay: Automatisch Afspelen
   Play Previous Video: Speel Vorige Video af
-  Play Next Video: Speel Volgende Video af
+  Play Next Video: Volgende Video Automatisch Afspelen
   Reverse Playlist: Playlist Omkeren
   Shuffle Playlist: Schuifelen Playlist
   Loop Playlist: Herhaal Playlist
@@ -519,7 +520,7 @@ Playing Next Video: 'Volgende Video Word Afgespeeld'
 Playing Previous Video: 'Vorige Video Word Afgespeeld'
 Playing next video in 5 seconds.  Click to cancel: 'Volgende Video Begint in 5 Seconden.
   Klik om te Annuleer.'
-Canceled next video autoplay: 'Autoplay is geannuleerd'
+Canceled next video autoplay: 'Automatisch afspelen is geannuleerd'
 'The playlist has ended.  Enable loop to continue playing': 'Het einde van de afspeellijst
   is bereikt.  Schakel herhalen in om de afspeellijst te blijven afspelen'
 
@@ -576,15 +577,15 @@ This video is unavailable because of missing formats. This can happen due to cou
   als de video niet in uw land beschikbaar is.
 Tooltips:
   Player Settings:
-    Default Video Format: Selecteer de video indeling dat word gebruikt wanneer een
-      video afspeelt. Dash kan video's afspelen met hogere kwaliteit instellingen.
+    Default Video Format: Selecteer de video indeling dat wordt gebruikt wanneer u
+      een video afspeelt. Dash kan video's afspelen met hogere kwaliteitsinstellingen.
       Legacy gaat niet hoger dan 720p maar gebruikt minder bandbreedte. Audio zal
       alleen het geluid streamen
-    Force Local Backend for Legacy Formats: Dit zal alleen werken wanneer de Invidious
-      API is geselecteerd als standaard. Wanneer ingeschakeld zal de lokale API legacy
-      video indelingen verzamelen in plaats van de videoformaten die worden teruggegeven
-      door Invidious. Dit kan helpen wanneer een video die verzameld word via Invidious
-      niet afspeelt in verband met regio restricties
+    Force Local Backend for Legacy Formats: Dit zal alleen werken wanneer Invidious
+      is geselecteerd als de standaard API. Wanneer ingeschakeld zal de lokale API
+      legacy video indelingen gebruiken in plaats van de video indeling die worden
+      teruggegeven door Invidious. Dit kan helpen wanneer een video die word gestreamed
+      via Invidious niet afspeelt in verband met regio restricties
     Proxy Videos Through Invidious: FreeTube zal verbinden met Invidious en via daar
       de video's downloaden in de plaats van de video's rechstreeks bij YouTube vandaan
       te halen. Dit overschrijft de ingestelde API voorkeur
@@ -592,16 +593,16 @@ Tooltips:
     Fetch Feeds from RSS: Wanneer ingeschakeld zal FreeTube RSS gebruiken in plaats
       van de standaard methode om de videolijsten van je abonnementen te verzamelen.
       RSS is sneller en voorkomt dat je IP word geblokkeerd maar geeft geen toegang
-      tot sommige informatie zoals de videoduur en live status
+      tot sommige informatie zoals de videoduur en live-status
   General Settings:
     Invidious Instance: Dit is de Invidious instantie waar FreeTube mee zal verbinden
       om API calls te maken. Verwijder de momenteel geselecteerd instantie om een
       lijst van publieke instanties te tonen
     Thumbnail Preference: Alle thumbnails in FreeTube zullen worden vervangen met
       een momentopname in plaats van de standaard thumbnail
-    Fallback to Non-Preferred Backend on Failure: Wanneer het API geselecteerd als
-      voorkeur problemen heeft dan zal FreeTube automatisch terugvallen op het alternatieve
-      niet-voorkeur API als dit is ingeschakeld
+    Fallback to Non-Preferred Backend on Failure: Wanneer het API met voorkeur problemen
+      heeft dan zal FreeTube automatisch terugvallen op het alternatieve niet-voorkeur
+      API als deze instelling is ingeschakeld
     Preferred API Backend: Kies de backend die FreeTube gebruikt om data te verzamelen.
       De lokale API is een ingebouwde extractor. De Invidious API moet worden verbonden
       met een Invidious server.

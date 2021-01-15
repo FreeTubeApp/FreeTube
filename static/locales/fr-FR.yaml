@@ -200,7 +200,7 @@ Settings:
     'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Adresse Proxy (Exemple :
       SOCKS5://127.0.0.1:9050 )'
     'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Cliquer
-      sur le bouton "TEST PROXY" enverra une demande à https://ipinfo.io/json'
+      sur le bouton « TEST PROXY » enverra une demande à https://ipinfo.io/json'
     Use Tor / Proxy for API calls: 'Utiliser Tor / Proxy pour les appels de l''API'
     TEST PROXY: 'TESTER LE PROXY'
     #& Invidious Instance (Default is https://invidious.snopyta.org)
@@ -275,6 +275,7 @@ Settings:
     One or more subscriptions were unable to be imported: Un ou plusieurs abonnements
       n’ont pas pu être importés
     Check for Legacy Subscriptions: Vérifier les abonnements Legacy
+    Manage Subscriptions: Gérer les abonnements
   Distraction Free Settings:
     Hide Video Likes And Dislikes: Masquer les J'aime et Je n'aime pas des vidéos
     Hide Comment Likes: Masquer les J'aime dans les commentaires
@@ -284,10 +285,28 @@ Settings:
     Hide Popular Videos: Masquer les vidéos populaires
     Hide Trending Videos: Masquer les tendances
     Hide Recommended Videos: Masquer les vidéos recommandées
-    Distraction Free Settings: Mode Sans Distraction
+    Distraction Free Settings: Mode sans distraction
+    Hide Active Subscriptions: Masquer les abonnements actifs
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
+  Proxy Settings:
+    Error getting network information. Is your proxy configured properly?: Erreur
+      lors de l'obtention des informations sur le réseau. Votre proxy est-il correctement
+      configuré ?
+    City: Ville
+    Region: Région
+    Country: Pays
+    Ip: Ip
+    Your Info: Vos informations
+    Test Proxy: Test du Proxy
+    Clicking on Test Proxy will send a request to: En cliquant sur Test Proxy, une
+      demande sera envoyée à
+    Proxy Port Number: Numéro de port du proxy
+    Proxy Host: Hôte du proxy
+    Proxy Protocol: Protocole du proxy
+    Enable Tor / Proxy: Activer Tor / Proxy
+    Proxy Settings: Paramètres du proxy
 About:
   #On About page
   About: 'À propos'
@@ -296,9 +315,9 @@ About:
     logiciel est sous licence AGPL-3.0.'
 
   'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    Vous avez trouvé un bug ? Vous souhaitez suggérer une nouvelle fonctionnalité
-    ? Vous voulez aider de façon générale ? Rendez-vous sur la page GitHub. Les "Pull
-    requests" sont les bienvenues.
+    Vous avez trouvé une erreur ? Vous souhaitez suggérer une nouvelle fonctionnalité
+    ? Vous voulez aider de façon générale ? Rendez-vous sur la page GitHub. Les pull
+    requests sont les bienvenues.
 
   Thank you very much to the People and Projects that make FreeTube possible!: 'Un
     grand merci à toutes les personnes et à tous les projets qui ont rendu FreeTube
@@ -322,6 +341,30 @@ About:
   Latest FreeTube News: 'Les dernières actualités FreeTube'
 
 #On Channel Page
+  Channel Rules: Règles du salon
+  Website: Site internet
+  Source Code: Code source
+  Release Notes: Notes de version
+  Email: Courriel
+  License: Licence
+  Help: Aide
+  Contact: Contacts
+  Translate via Weblate: Traduire via Weblate
+  Blog: Blog
+  Credits: Crédits
+  FAQ: FAQ
+  Wiki: Wiki
+  Report an Issue: Signaler un problème
+  Beta: Bêta
+  Donate: Faire un don
+  Useful Links: Liens utiles
+  Translate: Traduire
+  Chat on Matrix: Chatter sur Matrix
+  Mastodon: Mastodon
+  Report a problem: Signaler un problème
+  View License: Voir la license
+  Licensed under the AGPLv3: Sous licence AGPLv3
+  Source code: Code source
 Channel:
   Subscriber: 'Abonnement'
   Subscribers: 'Abonnements'

@@ -123,7 +123,7 @@ Settings:
         #! List countries
   Theme Settings:
     Theme Settings: 'Theme Settings'
-    Match Top Bar with Main Color: 'Match Top Bar with Main Colour'
+    Match Top Bar with Main Color: 'Match top bar with main colour'
     Base Theme:
       Base Theme: 'Base Theme'
       Black: 'Black'
@@ -246,7 +246,7 @@ Settings:
     'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Proxy Address (Example:
       SOCKS5://127.0.0.1:9050 )'
     'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Clicking
-      "TEST PROXY" button will send a request to https://ipinfo.io/json'
+      ‘TEST PROXY’ button will send a request to https://ipinfo.io/json'
     Use Tor / Proxy for API calls: 'Use Tor / Proxy for API calls'
     TEST PROXY: 'TEST PROXY'
     #& Invidious Instance (Default is https://invidious.snopyta.org)
@@ -275,39 +275,31 @@ Settings:
     Hide Channel Subscribers: Hide Channel Subscribers
     Hide Video Likes And Dislikes: Hide Video Likes And Dislikes
     Hide Video Views: Hide Video Views
+    Hide Active Subscriptions: Hide Active Subscriptions
     Distraction Free Settings: Distraction Free Settings
   The app needs to restart for changes to take effect. Restart and apply change?: The
     app needs to restart for changes to take effect. Do you want to restart and apply
     the changes?
 About:
   #On About page
-  About: 'About'
-  #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'This
-    copylefted software is freely licenced AGPL-3.0.'
-
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub
-    page. Pull requests welcome.
-
-  Thank you very much to the People and Projects that make FreeTube possible!: 'Thank
-    you very much to the People and Projects that make FreeTube possible!'
-
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'Want
-    to chat? Join our Element / Matrix Server . Please check the rules before joining.'
-
-  'Looking for help? Check out our Wiki page.': 'Looking for help? Check out our Wiki
-    page.'
-
-  Check out our Firefox extension!: 'Check out our Firefox extension!'
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'If
-    you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin
-    address.'
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
-  Latest FreeTube News: 'Latest FreeTube News'
+  About: About
+  Contact: Contact
+  Help: Help
+  Useful Links: Useful Links
+  Donate: Donate
+  Beta: Beta
+  License: License
+  Email: Email
+  Channel Rules: Channel Rules
+  Report an Issue: Report an Issue
+  Wiki: Wiki
+  FAQ: FAQ
+  Credits: Credits
+  Blog: Blog
+  Release Notes: Release Notes
+  Source Code: Source Code
+  Website: Website
+  Translate via Weblate: Translate via Weblate
 
 Profile:
   Profile Select: 'Profile Select'

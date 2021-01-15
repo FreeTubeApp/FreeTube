@@ -88,6 +88,7 @@ export default Vue.extend({
     this.$store.dispatch('grabUserSettings')
     this.$store.dispatch('grabHistory')
     this.$store.dispatch('grabAllProfiles', this.$t('Profile.All Channels'))
+    this.$store.dispatch('grabAllPlaylists')
     this.$store.commit('setUsingElectron', useElectron)
     this.checkThemeSettings()
     this.checkLocale()
@@ -172,7 +173,15 @@ export default Vue.extend({
 
           const message = this.$t('Version $ is now available!  Click for more details')
           this.updateBannerMessage = message.replace('$', versionNumber)
-          if (version < versionNumber) {
+
+          const appVersion = version.split('.')
+          const latestVersion = versionNumber.split('.')
+
+          if (parseInt(appVersion[0]) < parseInt(latestVersion[0])) {
+            this.showUpdatesBanner = true
+          } else if (parseInt(appVersion[1]) < parseInt(latestVersion[1])) {
+            this.showUpdatesBanner = true
+          } else if (parseInt(appVersion[2]) < parseInt(latestVersion[2])) {
             this.showUpdatesBanner = true
           }
         }).fail((xhr, textStatus, error) => {

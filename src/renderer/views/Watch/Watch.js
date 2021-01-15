@@ -119,6 +119,12 @@ export default Vue.extend({
     playNextVideo: function () {
       return this.$store.getters.getPlayNextVideo
     },
+    hideRecommendedVideos: function () {
+      return this.$store.getters.getHideRecommendedVideos
+    },
+    hideLiveChat: function () {
+      return this.$store.getters.getHideLiveChat
+    },
 
     youtubeNoCookieEmbeddedFrame: function () {
       return `<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/${this.videoId}?rel=0' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>`
@@ -128,6 +134,9 @@ export default Vue.extend({
     },
     hideVideoLikesAndDislikes: function () {
       return this.$store.getters.getHideVideoLikesAndDislikes
+    },
+    theatrePossible: function() {
+      return !this.hideRecommendedVideos || (!this.hideLiveChat && this.isLive) || this.watchingPlaylist
     }
   },
   watch: {
@@ -197,7 +206,7 @@ export default Vue.extend({
           console.log(result)
 
           const playabilityStatus = result.player_response.playabilityStatus
-          if (playabilityStatus.status !== 'OK') {
+          if (playabilityStatus.status === 'UNPLAYABLE') {
             const errorScreen = playabilityStatus.errorScreen.playerErrorMessageRenderer
             const reason = errorScreen.reason.simpleText
             let subReason
@@ -228,7 +237,9 @@ export default Vue.extend({
             this.channelId = result.player_response.videoDetails.channelId
             this.channelName = result.videoDetails.author.name
             console.log(result)
-            this.channelThumbnail = result.videoDetails.author.thumbnails[0].url
+            if (result.videoDetails.author.thumbnails.length > 0) {
+              this.channelThumbnail = result.videoDetails.author.thumbnails[0].url
+            }
           } else {
             this.channelId = result.player_response.videoDetails.channelId
             this.channelName = result.player_response.videoDetails.author
@@ -248,7 +259,7 @@ export default Vue.extend({
               this.thumbnail = `https://i.ytimg.com/vi/${this.videoId}/maxres3.jpg`
               break
             default:
-              this.thumbnail = result.videoDetails.thumbnail.thumbnails[result.videoDetails.thumbnail.thumbnails.length - 1].url
+              this.thumbnail = result.videoDetails.thumbnails[result.videoDetails.thumbnails.length - 1].url
               break
           }
 
@@ -264,8 +275,8 @@ export default Vue.extend({
             this.videoLikeCount = null
             this.videoDislikeCount = null
           } else {
-            this.videoLikeCount = result.videoDetails.likes
-            this.videoDislikeCount = result.videoDetails.dislikes
+            this.videoLikeCount = isNaN(result.videoDetails.likes) ? 0 : result.videoDetails.likes
+            this.videoDislikeCount = isNaN(result.videoDetails.dislikes) ? 0 : result.videoDetails.dislikes
           }
           this.isLive = result.player_response.videoDetails.isLive
           this.isLiveContent = result.player_response.videoDetails.isLiveContent

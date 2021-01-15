@@ -410,7 +410,10 @@ export default Vue.extend({
     getPlaylistsLocal: function () {
       ytch.getChannelPlaylistInfo(this.id, this.playlistSortBy).then((response) => {
         console.log(response)
-        this.latestPlaylists = response.items
+        this.latestPlaylists = response.items.map((item) => {
+          item.proxyThumbnail = false
+          return item
+        })
         this.playlistContinuationString = response.continuation
         this.isElementListLoading = false
       }).catch((err) => {

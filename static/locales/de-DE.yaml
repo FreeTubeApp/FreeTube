@@ -6,7 +6,7 @@ FreeTube: FreeTube
 
 # Webkit Menu Bar
 File: Datei
-Quit: Verlassen
+Quit: Beenden
 Edit: Bearbeiten
 Undo: Rückgängig
 Redo: Wiederherstellen
@@ -16,7 +16,7 @@ Paste: Einfügen
 Delete: Löschen
 Select all: Alles auswählen
 Reload: Aktualisieren
-Force Reload: Erzwinge Aktualisierung
+Force Reload: Aktualisierung erzwingen
 Toggle Developer Tools: Aktiviere Entwicklerwerkzeuge
 Actual size: Originalgröße
 Zoom in: Vergrößern
@@ -116,7 +116,7 @@ Settings:
       (Standard ist https://invidious.snopyta.org)
     Region for Trending: Region für Trends
         #! List countries
-    Check for Latest Blog Posts: Nach aktuellstem Blogeintrag suchen
+    Check for Latest Blog Posts: Nach aktuellsten Blogeinträgen suchen
     Check for Updates: Nach Aktualisierungen suchen
   Theme Settings:
     Theme Settings: Thema Einstellungen
@@ -151,7 +151,7 @@ Settings:
     Expand Side Bar by Default: Seitenleiste standardmäßig erweitern
   Player Settings:
     Player Settings: Videoabspieler-Einstellungen
-    Force Local Backend for Legacy Formats: Lokales System für Altformat erzwingen
+    Force Local Backend for Legacy Formats: Lokales System für Legacy Formate erzwingen
     Remember History: Verlauf speichern
     Play Next Video: Spiele nächstes Video
     Turn on Subtitles by Default: Untertitel standardmäßig aktivieren
@@ -282,6 +282,7 @@ Settings:
     Hide Video Likes And Dislikes: Videobewertungen verbergen
     Hide Video Views: Video-Aufrufe verbergen
     Distraction Free Settings: Einstellungen für ablenkungsfreien Modus
+    Hide Active Subscriptions: Aktive Abonnements ausblenden
   The app needs to restart for changes to take effect. Restart and apply change?: Um
     die Änderungen anzuwenden muss die Anwendung neustarten. Jetzt neustarten und
     Änderungen aktivieren?
@@ -320,6 +321,23 @@ About:
 #On Channel Page
   This software is FOSS and released under the GNU Affero General Public License v3.0.: Diese
     freie Software ist unter der AGPL-3.0 lizenziert.
+  Translate via Weblate: Auf Weblate übersetzen
+  Website: Webseite
+  Source Code: Quellcode
+  Release Notes: Versionshinweise
+  Blog: Blog
+  Credits: Beiträge
+  FAQ: Häufig gestellte Fragen
+  Wiki: Wiki
+  Report an Issue: Fehler melden
+  Channel Rules: Kanalregeln
+  Email: Email
+  License: Lizenz
+  Beta: Beta
+  Donate: Spenden
+  Useful Links: Nützliche Links
+  Help: Hilfe
+  Contact: Kontakt
 Channel:
   Subscriber: Abonnement
   Subscribers: Abonnements
@@ -468,7 +486,7 @@ Share Playlist:
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: Aktiviere Kinomodus
+Toggle Theatre Mode: Kinomodus umschalten
 Change Format:
   Change Video Formats: Ändere Videoformat
   Use Dash Formats: Nutze DASH-Format

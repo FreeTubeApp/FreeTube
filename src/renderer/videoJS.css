@@ -449,7 +449,6 @@ body.vjs-full-window {
   content: url(assets/img/open_fullwindow.svg);
 }
 
-
 .vjs-icon-fullwindow-exit, .video-js.vjs-fullwindow .vjs-fullwindow-control .vjs-icon-placeholder {
   font-family: VideoJS;
   font-weight: normal;
@@ -457,6 +456,30 @@ body.vjs-full-window {
 }
 .vjs-icon-fullwindow-exit:before, .video-js.vjs-fullwindow .vjs-fullwindow-control .vjs-icon-placeholder:before {
   content: url(assets/img/close_fullwindow.svg);
+}
+
+.vjs-icon-loop, .video-js .vjs-fullwindow-control .vjs-icon-placeholder {
+  color: white !important;
+  margin-top: 5px !important;
+  padding-top: 5px !important;
+  cursor: pointer;
+}
+
+.vjs-icon-loop-active {
+  background-color: var(--primary-color);
+}
+
+.vjs-icon-loop:before, .video-js.vjs-fullwindow .vjs-fullwindow-control .vjs-icon-placeholder:before {
+  content: url(assets/img/loop.svg);
+  /* filter: invert(1) drop-shadow(1px 0px 0px var(--primary-color)); */
+}
+
+.loop-black:before {
+  filter: brightness(0%);
+}
+
+.loop-white:before {
+  filter: none;
 }
 
 .vjs-full-window .video-js.vjs-fullscreen {

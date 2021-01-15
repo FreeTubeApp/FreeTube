@@ -6,6 +6,10 @@ import store from './store/index'
 // import 'material-design-icons/iconfont/material-icons.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
+import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub'
+import { faBitcoin } from '@fortawesome/free-brands-svg-icons/faBitcoin'
+import { faMonero } from '@fortawesome/free-brands-svg-icons/faMonero'
+import { faMastodon } from '@fortawesome/free-brands-svg-icons/faMastodon'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import VueI18n from 'vue-i18n'
 import yaml from 'js-yaml'
@@ -17,13 +21,13 @@ Vue.config.devtools = isDev
 Vue.config.performance = isDev
 Vue.config.productionTip = isDev
 
-library.add(fas)
+library.add(fas, faGithub, faBitcoin, faMonero, faMastodon)
 
 Vue.component('FontAwesomeIcon', FontAwesomeIcon)
 Vue.use(VueI18n)
 
 // List of locales approved for use
-const activeLocales = ['en-US', 'en_GB', 'ar', 'bg', 'cs', 'da', 'de-DE', 'el', 'es', 'es-MX', 'fi', 'fr-FR', 'he', 'hu', 'hr', 'id', 'it', 'ja', 'nl', 'pl', 'pt', 'pt-BR', 'pt-PT', 'ru', 'sk', 'sl', 'sv', 'tr', 'vi', 'zh-CN', 'zh-TW']
+const activeLocales = ['en-US', 'en_GB', 'ar', 'bg', 'cs', 'da', 'de-DE', 'el', 'es', 'es-MX', 'fi', 'fr-FR', 'gl', 'he', 'hu', 'hr', 'id', 'it', 'ja', 'nl', 'pl', 'pt', 'pt-BR', 'pt-PT', 'ru', 'sk', 'sl', 'sv', 'tr', 'vi', 'zh-CN', 'zh-TW']
 const messages = {}
 /* eslint-disable-next-line */
 const fileLocation = isDev ? 'static/locales/' : `${__dirname}/static/locales/`
@@ -32,7 +36,7 @@ const fileLocation = isDev ? 'static/locales/' : `${__dirname}/static/locales/`
 activeLocales.forEach((locale) => {
   try {
     // File location when running in dev
-    const doc = yaml.safeLoad(fs.readFileSync(`${fileLocation}${locale}.yaml`))
+    const doc = yaml.load(fs.readFileSync(`${fileLocation}${locale}.yaml`))
     messages[locale] = doc
   } catch (e) {
     console.log(e)

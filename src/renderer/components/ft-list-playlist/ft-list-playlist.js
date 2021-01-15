@@ -57,6 +57,10 @@ export default Vue.extend({
       this.channelLink = this.data.authorUrl
       this.playlistLink = this.data.playlistId
       this.videoCount = this.data.videoCount
+
+      if (this.data.proxyThumbnail === false) {
+        this.thumbnail = this.data.playlistThumbnail
+      }
     },
 
     parseLocalData: function () {

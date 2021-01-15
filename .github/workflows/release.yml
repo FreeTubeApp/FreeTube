@@ -147,7 +147,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-        asset_name: freetube-${{ env.PACKAGE_VERSION }}-win-x64-portable
+        asset_name: freetube-${{ env.PACKAGE_VERSION }}-win-x64-portable.zip
         asset_path: build/freetube-${{ env.PACKAGE_VERSION }}-win.zip
         asset_content_type: application/zip
 

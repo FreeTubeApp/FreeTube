@@ -14,11 +14,11 @@ addressed.
 
 ### Browser Extension
 
-Download our browser extension so that you can click on videos in your browser and have them automatically open up in FreeTube.
+FreeTube is supported by the [Privacy Redirect](https://github.com/SimonBrazell/privacy-redirect) extension, which will allow you to open YouTube links into FreeTube. You must enable the option within the advanced settings for it to work.
 
-[Download for Firefox](https://addons.mozilla.org/en-US/firefox/addon/freetube-redirect/)
+Download Privacy Redirect for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/privacy-redirect/) or [Google Chrome](https://chrome.google.com/webstore/detail/privacy-redirect/pmcmeagblkinmogikoikkdjiligflglb).
 
-[Instructions for Google Chrome](https://github.com/FreeTubeApp/FreeTube/wiki/Browser-Extension)
+If you have issues with the extension working with FreeTube, please create an issue in this repository instead of the extension repository.
 
 ## How does it work?
 FreeTube uses a built in extractor to grab and serve data / videos.  The [Invidious API](https://github.com/iv-org/invidious) can also optionally be used.  FreeTube does not use any official APIs to obtain data.  While YouTube can still see your video requests, it can no
@@ -34,6 +34,7 @@ to hide your IP while using FreeTube.
 * Two extractor APIs to choose from (Built in or Invidious)
 * Subscribe to channels without an account
 * Local subscriptions, history, and saved videos
+* Organize your subscriptions into "Profiles" to create a more focused feed
 * Export & import subscriptions
 * Open videos from your browser directly into FreeTube (with extension)
 * Mini Player
@@ -47,11 +48,11 @@ to hide your IP while using FreeTube.
 
 [FreeTube Website](https://freetubeapp.io/#download)
 
+Flatpak on Flathub: [Download](https://flathub.org/apps/details/io.freetubeapp.FreeTube) [Source](https://github.com/flathub/io.freetubeapp.FreeTube)
+
 ### Unofficial Downloads
 
 These builds are maintained by the community.  While they should be safe, download at your own risk.  There may be issues with using these versus the official builds.  Any issues specific with these builds should be sent to their respective maintainer.
-
-Flatpak on Flathub: [Download](https://flathub.org/apps/details/io.freetubeapp.FreeTube) [Source](https://github.com/flathub/io.freetubeapp.FreeTube)
 
 Arch User Repository (AUR): [Download](https://aur.archlinux.org/packages/freetube-bin/)
 
@@ -87,7 +88,7 @@ We are actively looking for translations!  We use Weblate to make it easy for tr
 
 ## Contact
 
-If you ever have any questions, feel free to make an issue here on GitHub.  Alternatively, you can email me at FreeTubeApp@protonmail.com or you can join our [Matrix Community](https://riot.im/app/#/group/+freetube:matrix.org).  Don't forget to check out the [rules](https://github.com/FreeTubeApp/FreeTube/wiki/Matrix-Server-Info-&-Rules) before joining.
+If you ever have any questions, feel free to make an issue here on GitHub.  Alternatively, you can email me at FreeTubeApp@protonmail.com or you can join our [Matrix Community](https://matrix.to/#/+freetube:matrix.org).  Don't forget to check out the [rules](https://github.com/FreeTubeApp/FreeTube/wiki/Matrix-Server-Info-&-Rules) before joining.
 
 You can also stay up to date by reading the [FreeTube Blog](https://write.as/freetube/).  [View the welcome blog](https://write.as/freetube/welcome-to-freetube-blogs).
 

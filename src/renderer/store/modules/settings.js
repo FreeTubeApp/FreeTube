@@ -57,8 +57,10 @@ const state = {
   defaultPlayback: 1,
   defaultVideoFormat: 'dash',
   defaultQuality: '720',
-  useTor: false,
-  proxy: 'SOCKS5://127.0.0.1:9050',
+  useProxy: false,
+  proxyProtocol: 'socks5',
+  proxyHostname: '127.0.0.1',
+  proxyPort: '9050',
   debugMode: false,
   disableSmoothScrolling: false,
   hideWatchedSubs: false,
@@ -71,7 +73,8 @@ const state = {
   hideRecommendedVideos: false,
   hideTrendingVideos: false,
   hidePopularVideos: false,
-  hideLiveChat: false
+  hideLiveChat: false,
+  hideActiveSubscriptions: false
 }
 
 const getters = {
@@ -159,6 +162,22 @@ const getters = {
     return state.proxyVideos
   },
 
+  getUseProxy: () => {
+    return state.useProxy
+  },
+
+  getProxyProtocol: () => {
+    return state.proxyProtocol
+  },
+
+  getProxyHostname: () => {
+    return state.proxyHostname
+  },
+
+  getProxyPort: () => {
+    return state.proxyPort
+  },
+
   getDefaultTheatreMode: () => {
     return state.defaultTheatreMode
   },
@@ -224,6 +243,9 @@ const getters = {
   },
   getHideLiveChat: () => {
     return state.hideLiveChat
+  },
+  getHideActiveSubscriptions: () => {
+    return state.hideActiveSubscriptions
   }
 }
 
@@ -311,6 +333,18 @@ const actions = {
             case 'proxyVideos':
               commit('setProxyVideos', result.value)
               break
+            case 'useProxy':
+              commit('setUseProxy', result.value)
+              break
+            case 'proxyProtocol':
+              commit('setProxyProtocol', result.value)
+              break
+            case 'proxyHostname':
+              commit('setProxyHostname', result.value)
+              break
+            case 'proxyPort':
+              commit('setProxyPort', result.value)
+              break
             case 'defaultTheatreMode':
               commit('setDefaultTheatreMode', result.value)
               break
@@ -350,6 +384,9 @@ const actions = {
               break
             case 'hideLiveChat':
               commit('setHideLiveChat', result.value)
+              break
+            case 'hideActiveSubscriptions':
+              commit('setHideActiveSubscriptions', result.value)
               break
           }
         })
@@ -583,10 +620,34 @@ const actions = {
     })
   },
 
-  updateUseTor ({ commit }, useTor) {
-    settingsDb.update({ _id: useTor }, { value: useTor }, { upsert: true }, (err, useTor) => {
+  updateUseProxy ({ commit }, useProxy) {
+    settingsDb.update({ _id: 'useProxy' }, { _id: 'useProxy', value: useProxy }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
-        commit('setUseTor', useTor)
+        commit('setUseProxy', useProxy)
+      }
+    })
+  },
+
+  updateProxyProtocol ({ commit }, proxyProtocol) {
+    settingsDb.update({ _id: 'proxyProtocol' }, { _id: 'proxyProtocol', value: proxyProtocol }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setProxyProtocol', proxyProtocol)
+      }
+    })
+  },
+
+  updateProxyHostname ({ commit }, proxyHostname) {
+    settingsDb.update({ _id: 'proxyHostname' }, { _id: 'proxyHostname', value: proxyHostname }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setProxyHostname', proxyHostname)
+      }
+    })
+  },
+
+  updateProxyPort ({ commit }, proxyPort) {
+    settingsDb.update({ _id: 'proxyPort' }, { _id: 'proxyPort', value: proxyPort }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setProxyPort', proxyPort)
       }
     })
   },
@@ -651,6 +712,14 @@ const actions = {
     settingsDb.update({ _id: 'hidePopularVideos' }, { _id: 'hidePopularVideos', value: hidePopularVideos }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
         commit('setHidePopularVideos', hidePopularVideos)
+      }
+    })
+  },
+
+  updateHideActiveSubscriptions ({ commit }, hideActiveSubscriptions) {
+    settingsDb.update({ _id: 'hideActiveSubscriptions' }, { _id: 'hideActiveSubscriptions', value: hideActiveSubscriptions }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setHideActiveSubscriptions', hideActiveSubscriptions)
       }
     })
   },
@@ -749,8 +818,17 @@ const mutations = {
   setDefaultTheatreMode (state, defaultTheatreMode) {
     state.defaultTheatreMode = defaultTheatreMode
   },
-  setUseTor (state, useTor) {
-    state.useTor = useTor
+  setUseProxy (state, useProxy) {
+    state.useProxy = useProxy
+  },
+  setProxyProtocol (state, proxyProtocol) {
+    state.proxyProtocol = proxyProtocol
+  },
+  setProxyHostname (state, proxyHostname) {
+    state.proxyHostname = proxyHostname
+  },
+  setProxyPort (state, proxyPort) {
+    state.proxyPort = proxyPort
   },
   setDebugMode (state, debugMode) {
     state.debugMode = debugMode
@@ -796,6 +874,9 @@ const mutations = {
   },
   setHideLiveChat (state, hideLiveChat) {
     state.hideLiveChat = hideLiveChat
+  },
+  setHideActiveSubscriptions (state, hideActiveSubscriptions) {
+    state.hideActiveSubscriptions = hideActiveSubscriptions
   }
 }
 
