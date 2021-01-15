@@ -86,6 +86,13 @@ Most Popular: 'Popüler Olanlar'
 Playlists: 'Oynatma Listeleri'
 User Playlists:
   Your Playlists: 'Oynatma Listelerin'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Kaydedilen
+    videolarınız boş. Burada listelenmesi için videonun köşesindeki kaydet düğmesine
+    tıklayın
+  Playlist Message: Bu sayfa, tam olarak çalışan oynatma listelerini yansıtmamaktadır.
+    Yalnızca kaydettiğiniz veya favorilerinize eklediğiniz videoları listeler. İş
+    bittiğinde, şu anda burada bulunan tüm videolar bir 'Favoriler' oynatma listesine
+    taşınacaktır.
 History:
   # On History Page
   History: 'Geçmiş'
@@ -501,6 +508,9 @@ Video:
   Open Channel in YouTube: Youtube'da Kanal Açın
   Started streaming on: Yayına başlama tarihi
   Streamed on: Yayınlanma tarihi
+  Video has been removed from your saved list: Video, kaydedilen listenizden kaldırıldı
+  Video has been saved: Video kaydedildi
+  Save Video: Videoyu Kaydet
 Videos:
   #& Sort By
   Sort By:
