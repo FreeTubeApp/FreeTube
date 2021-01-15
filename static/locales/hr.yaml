@@ -82,6 +82,9 @@ Most Popular: 'Najpopularniji'
 Playlists: 'Zbirke'
 User Playlists:
   Your Playlists: 'Tvoje zbirke'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Tvoji
+    spremljeni videi su prazni. Pritisni gumb za spremanje u kutu videa, kako bi se
+    ovdje naveli
 History:
   # On History Page
   History: 'Povijest'
@@ -267,11 +270,12 @@ Settings:
     One or more subscriptions were unable to be imported: Neuspio uvoz jedne ili više
       pretplata
     Check for Legacy Subscriptions: Potraži stare pretplate
+    Manage Subscriptions: Upravljaj pretplatama
   Distraction Free Settings:
     Hide Trending Videos: Sakrij videa u trendu
     Hide Recommended Videos: Sakrij preporučena videa
     Hide Channel Subscribers: Sakrij pretplatnike na kanal
-    Hide Live Chat: Sakrij chat u živo
+    Hide Live Chat: Sakrij razgovor uživo
     Hide Popular Videos: Sakrij popularna videa
     Hide Comment Likes: Sakrij ocjene komentara
     Hide Video Likes And Dislikes: Sakrij ocjenjivanje videa
@@ -280,6 +284,22 @@ Settings:
     Hide Active Subscriptions: Sakrij aktivne pretplate
   The app needs to restart for changes to take effect. Restart and apply change?: Za
     primjenu promjena, program se mora ponovo pokrenuti. Ponovo pokrenuti program?
+  Proxy Settings:
+    Country: Zemlja
+    Error getting network information. Is your proxy configured properly?: Greška
+      pri dohvaćanju mrežnih podataka. Je li tvoj posrednik pravilno konfiguriran?
+    City: Grad
+    Region: Regija
+    Ip: IP
+    Your Info: Tvoji podaci
+    Test Proxy: Provjeri posrednika
+    Clicking on Test Proxy will send a request to: Pritiskom gumba „Provjeri posrednika”
+      šalje se zahtjev na
+    Proxy Port Number: Broj priključka posrednika
+    Proxy Host: Računalo posrednika
+    Proxy Protocol: Protokol posrednika
+    Enable Tor / Proxy: Aktiviraj Tor/Posrednik
+    Proxy Settings: Postavke posrednika
 About:
   #On About page
   About: 'Informacije'
@@ -328,6 +348,23 @@ About:
   Useful Links: Korisne poveznice
   Help: Pomoć
   Contact: Kontakt
+  Chat on Matrix: Razgovaraj na Matrixu
+  Please check for duplicates before posting: Prije slanja greške, provjeri, je li
+    ista greška već prijavljena
+  these people and projects: ovi ljudi i projekti
+  FreeTube is made possible by: FreeTube omogućuju
+  Translate: Prevodi
+  room rules: pravila sobe
+  Please read the: Pročitaj
+  Mastodon: Mastodon
+  GitHub issues: GitHub problemi
+  Report a problem: Prijavi grešku
+  FreeTube Wiki: FreeTube Wiki
+  GitHub releases: GitHub izdanja
+  Downloads / Changelog: Preuzimanja/dnevnik promjena
+  View License: Pogledaj licencu
+  Licensed under the AGPLv3: AGPLv3 licenca
+  Source code: Izvorni kod
 Profile:
   All Channels: 'Svi kanali'
   Profile Manager: 'Upravljač profila'
@@ -418,15 +455,15 @@ Video:
   # As in a Live Video
   Live: 'Uživo'
   Live Now: 'Sada uživo'
-  Live Chat: 'Chat uživo'
-  Enable Live Chat: 'Aktiviraj chat uživo'
-  Live Chat is currently not supported in this build.: 'Chat uživo trenutačno nije
-    podržan u ovoj verziji.'
-  'Chat is disabled or the Live Stream has ended.': 'Chat je deaktiviran ili je prijenos
-    uživo završio.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Chat uživo je
-    aktiviran. Poruke chata pojavit će se ovdje nakon slanja.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Chat
+  Live Chat: 'Razgovor uživo'
+  Enable Live Chat: 'Aktiviraj razgovor uživo'
+  Live Chat is currently not supported in this build.: 'Razgovor uživo trenutačno
+    nije podržan u ovoj verziji.'
+  'Chat is disabled or the Live Stream has ended.': 'Razgovor je deaktiviran ili je
+    prijenos uživo završio.'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'Razgovor uživo
+    je aktiviran. Poruke razgovora pojavit će se ovdje nakon slanja.'
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Razgovor
     uživo trenutačno nije podržan s Invidious sučeljem. Potrebna je izravna veza s
     YouTubeom.'
   Published:
@@ -484,6 +521,10 @@ Video:
   Open Channel in YouTube: 'Otvori kanal na YouTube stranici'
   Started streaming on: Početak prijenosa
   Streamed on: Prijenos
+  Video has been removed from your saved list: Video je uklonjen iz tvojeg popisa
+    spremljenih
+  Video has been saved: Video je spremljen
+  Save Video: Spremi video
 Videos:
   #& Sort By
   Sort By:
