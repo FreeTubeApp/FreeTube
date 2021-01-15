@@ -121,4 +121,4 @@ jobs:
         echo ${{ secrets.PUSH_TOKEN }} >> auth.txt
         gh auth login --with-token < auth.txt
         rm auth.txt
-        gh pr create --title "Release v${{ steps.sub.outputs.result }}" --body "This is an automated PR for the v${{ steps.sub.outputs.result }} release. This PR will be updated and merge once testing is complete."
+        gh pr create --title "Release v${{ steps.sub.outputs.result }}" --body "This is an automated PR for the v${{ steps.sub.outputs.result }} release. This PR will be updated and merged once testing is complete."
