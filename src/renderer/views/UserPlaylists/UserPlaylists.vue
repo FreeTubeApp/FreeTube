@@ -1,11 +1,41 @@
 <template>
   <div>
-    <ft-card class="card">
-      <h3>{{ $t("User Playlists.Your Playlists") }}</h3>
-      <ft-flex-box>
+    <ft-loader
+      v-if="isLoading"
+      :fullscreen="true"
+    />
+    <ft-card
+      v-else
+      class="card"
+    >
+      <h3>
+        {{ $t("User Playlists.Your Playlists") }}
+        <ft-tooltip
+          class="selectTooltip"
+          position="bottom"
+          :tooltip="$t('User Playlists.Playlist Message')"
+        />
+      </h3>
+      <ft-flex-box
+        v-if="activeData.length === 0"
+      >
         <p class="message">
-          {{ $t("This part of the app is not ready yet. Come back later when progress has been made.") }}
+          {{ $t("User Playlists['Your saved videos are empty. Click on the save button on the corner of a video to have it listed here']") }}
         </p>
+      </ft-flex-box>
+      <ft-element-list
+        v-else
+        :data="activeData"
+      />
+      <ft-flex-box
+        v-if="activeData.length < favoritesPlaylist.videos.length"
+      >
+        <ft-button
+          label="Load More"
+          background-color="var(--primary-color)"
+          text-color="var(--text-with-main-color)"
+          @click="increaseLimit"
+        />
       </ft-flex-box>
     </ft-card>
   </div>

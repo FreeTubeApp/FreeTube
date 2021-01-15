@@ -124,6 +124,7 @@
 {"id":36,"name":"오스트레일리아","alpha2":"au","alpha3":"aus"},
 {"id":40,"name":"오스트리아","alpha2":"at","alpha3":"aut"},
 {"id":340,"name":"온두라스","alpha2":"hn","alpha3":"hnd"},
+{"id":344,"name":"홍콩","alpha2":"hk","alpha3":"hkg"},
 {"id":400,"name":"요르단","alpha2":"jo","alpha3":"jor"},
 {"id":800,"name":"우간다","alpha2":"ug","alpha3":"uga"},
 {"id":858,"name":"우루과이","alpha2":"uy","alpha3":"ury"},

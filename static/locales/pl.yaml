@@ -271,6 +271,7 @@ Settings:
     One or more subscriptions were unable to be imported: Nie można było zaimportować
       conajmniej jednej subskrypcji
     Check for Legacy Subscriptions: Sprawdź subskrypcje ze starej wersji
+    Manage Subscriptions: Zarządzaj subskrypcjami
   Distraction Free Settings:
     Distraction Free Settings: Ustawienia skupienia uwagi
     Hide Live Chat: Schowaj czat na żywo
@@ -281,9 +282,26 @@ Settings:
     Hide Channel Subscribers: Schowaj subskrybentów kanału
     Hide Video Likes And Dislikes: Schowaj łapki w górę i w dół
     Hide Video Views: Schowaj obejrzenia filmu
+    Hide Active Subscriptions: Schowaj aktywne subskrypcje
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
+  Proxy Settings:
+    Your Info: O Tobie
+    Error getting network information. Is your proxy configured properly?: Wystąpił
+      błąd przy pozyskiwaniu informacji o sieci. Czy Twoje proxy jest poprawnie ustawione?
+    City: Miasto
+    Region: Region
+    Country: Kraj
+    Ip: IP
+    Test Proxy: Sprawdź proxy
+    Clicking on Test Proxy will send a request to: Kliknięcie „Sprawdź proxy” wyśle
+      żądanie do
+    Proxy Port Number: Numer portu proxy
+    Proxy Host: Host proxy
+    Proxy Protocol: Protokół proxy
+    Enable Tor / Proxy: Włącz Tor / Proxy
+    Proxy Settings: Ustawienia proxy
 About:
   #On About page
   About: 'O projekcie'
@@ -316,6 +334,23 @@ About:
   Latest FreeTube News: 'Ostatnie wieści o FreeTube'
 
 #On Channel Page
+  Translate via Weblate: Przetłumaczone poprzez Weblate
+  Website: Strona internetowa
+  Source Code: Kod źródłowy
+  Release Notes: Informacje o wydaniu
+  Blog: Blog
+  Credits: Zasługi
+  FAQ: FAQ
+  Wiki: Wiki
+  Report an Issue: Zgłoś problem
+  Channel Rules: Zasady kanału
+  Email: Email
+  License: Licencja
+  Beta: Beta
+  Donate: Wesprzyj
+  Useful Links: Przydatne linki
+  Help: Pomoc
+  Contact: Kontakt
 Channel:
   Subscriber: 'Subskrybent/ka'
   Subscribers: 'subskrybentów'

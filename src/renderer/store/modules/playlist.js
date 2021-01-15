@@ -4,14 +4,19 @@ let dbLocation
 
 if (window && window.process && window.process.type === 'renderer') {
   // Electron is being used
-  let dbLocation = localStorage.getItem('dbLocation')
+  // let dbLocation = localStorage.getItem('dbLocation')
+  //
+  // if (dbLocation === null) {
+  //   const electron = require('electron')
+  //   dbLocation = electron.remote.app.getPath('userData')
+  // }
+  //
+  // dbLocation += '/playlists.db'
 
-  if (dbLocation === null) {
-    const electron = require('electron')
-    dbLocation = electron.remote.app.getPath('userData')
-  }
+  const electron = require('electron')
+  dbLocation = electron.remote.app.getPath('userData')
 
-  dbLocation += '/playlists.db'
+  dbLocation = dbLocation + '/playlists.db'
 } else {
   dbLocation = 'playlists.db'
 }
@@ -24,12 +29,12 @@ const playlistDb = new Datastore({
 const state = {
   playlists: [
     {
-      _id: 'favorites',
+      playlistName: 'Favorites',
       protected: true,
       videos: []
     },
     {
-      _id: 'watchLater',
+      playlistName: 'WatchLater',
       protected: true,
       removeOnWatched: true,
       videos: []
@@ -64,7 +69,7 @@ const actions = {
     })
   },
   addVideo ({ commit }, payload) {
-    playlistDb.update({ _id: payload.playlistId }, { $push: { videos: payload.videoId } }, { upsert: true }, err => {
+    playlistDb.update({ playlistName: payload.playlistName }, { $push: { videos: payload.videoData } }, { upsert: true }, err => {
       if (err) {
         console.error(err)
       } else {
@@ -81,12 +86,17 @@ const actions = {
       }
     })
   },
-  grabAllPlaylists({ commit }) {
-    playlistDb.getAllData((err, payload) => {
+  grabAllPlaylists({ commit, dispatch }) {
+    playlistDb.find({}, (err, payload) => {
       if (err) {
         console.error(err)
       } else {
-        commit('setAllPlaylists', payload)
+        if (payload.length === 0) {
+          commit('setAllPlaylists', state.playlists)
+          dispatch('addPlaylists', payload)
+        } else {
+          commit('setAllPlaylists', payload)
+        }
       }
     })
   },
@@ -99,12 +109,12 @@ const actions = {
       }
     })
   },
-  removeAllVideos ({ commit }, playlistId) {
-    playlistDb.update({ _id: playlistId }, { $set: { videos: [] } }, { upsert: true }, err => {
+  removeAllVideos ({ commit }, playlistName) {
+    playlistDb.update({ playlistName: playlistName }, { $set: { videos: [] } }, { upsert: true }, err => {
       if (err) {
         console.error(err)
       } else {
-        commit('removeAllVideos', playlistId)
+        commit('removeAllVideos', playlistName)
       }
     })
   },
@@ -127,7 +137,7 @@ const actions = {
     })
   },
   removeVideo ({ commit }, payload) {
-    playlistDb.update({ _id: payload.playlistId }, { $pull: { videos: payload.videoId } }, { upsert: true }, err => {
+    playlistDb.update({ playlistName: payload.playlistName }, { $pull: { videos: { videoId: payload.videoId } } }, { upsert: true }, (err, numRemoved) => {
       if (err) {
         console.error(err)
       } else {
@@ -136,7 +146,7 @@ const actions = {
     })
   },
   removeVideos ({ commit }, payload) {
-    playlistDb.update({ _id: payload.playlistId }, { $pull: { videos: { $in: payload.videoIds } } }, { upsert: true }, err => {
+    playlistDb.update({ _id: payload.playlistName }, { $pull: { videos: { $in: payload.videoId } } }, { upsert: true }, err => {
       if (err) {
         console.error(err)
       } else {
@@ -154,9 +164,9 @@ const mutations = {
     state.playlists = state.playlists.concat(payload)
   },
   addVideo (state, payload) {
-    const playlist = state.playlists.find(playlist => playlist._id === payload.playlistId)
+    const playlist = state.playlists.find(playlist => playlist.playlistName === payload.playlistName)
     if (playlist) {
-      playlist.videos.push(payload.videoId)
+      playlist.videos.push(payload.videoData)
     }
   },
   addVideos (state, payload) {
@@ -168,22 +178,22 @@ const mutations = {
   removeAllPlaylists (state) {
     state.playlists = state.playlists.filter(playlist => playlist.protected !== true)
   },
-  removeAllVideos (state, playlistId) {
-    const playlist = state.playlists.find(playlist => playlist._id === playlistId)
+  removeAllVideos (state, playlistName) {
+    const playlist = state.playlists.find(playlist => playlist.playlistName === playlistName)
     if (playlist) {
       playlist.videos = []
     }
   },
   removeVideo (state, payload) {
-    const playlist = state.playlists.find(playlist => playlist._id === payload.playlistId)
-    if (playlist) {
-      playlist.videos = playlist.videos.filter(video => video !== payload.videoId)
+    const playlist = state.playlists.findIndex(playlist => playlist.playlistName === payload.playlistName)
+    if (playlist !== -1) {
+      state.playlists[playlist].videos = state.playlists[playlist].videos.filter(video => video.videoId !== payload.videoId)
     }
   },
   removeVideos (state, payload) {
-    const playlist = state.playlists.find(playlist => playlist._id === payload.playlistId)
-    if (playlist) {
-      playlist.videos = playlist.videos.filter(video => payload.videoIds.indexOf(video) === -1)
+    const playlist = state.playlists.findIndex(playlist => playlist._id === payload.playlistId)
+    if (playlist !== -1) {
+      playlist.videos = playlist.videos.filter(video => payload.videoId.indexOf(video) === -1)
     }
   },
   removePlaylist (state, playlistId) {

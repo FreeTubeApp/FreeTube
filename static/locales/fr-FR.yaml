@@ -275,6 +275,7 @@ Settings:
     One or more subscriptions were unable to be imported: Un ou plusieurs abonnements
       n’ont pas pu être importés
     Check for Legacy Subscriptions: Vérifier les abonnements Legacy
+    Manage Subscriptions: Gérer les abonnements
   Distraction Free Settings:
     Hide Video Likes And Dislikes: Masquer les J'aime et Je n'aime pas des vidéos
     Hide Comment Likes: Masquer les J'aime dans les commentaires
@@ -289,6 +290,23 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
+  Proxy Settings:
+    Error getting network information. Is your proxy configured properly?: Erreur
+      lors de l'obtention des informations sur le réseau. Votre proxy est-il correctement
+      configuré ?
+    City: Ville
+    Region: Région
+    Country: Pays
+    Ip: Ip
+    Your Info: Vos informations
+    Test Proxy: Test du Proxy
+    Clicking on Test Proxy will send a request to: En cliquant sur Test Proxy, une
+      demande sera envoyée à
+    Proxy Port Number: Numéro de port du proxy
+    Proxy Host: Hôte du proxy
+    Proxy Protocol: Protocole du proxy
+    Enable Tor / Proxy: Activer Tor / Proxy
+    Proxy Settings: Paramètres du proxy
 About:
   #On About page
   About: 'À propos'
@@ -323,6 +341,23 @@ About:
   Latest FreeTube News: 'Les dernières actualités FreeTube'
 
 #On Channel Page
+  Channel Rules: Règles du salon
+  Website: Site internet
+  Source Code: Code source
+  Release Notes: Notes de version
+  Email: Courriel
+  License: Licence
+  Help: Aide
+  Contact: Contacts
+  Translate via Weblate: Traduire via Weblate
+  Blog: Blog
+  Credits: Crédits
+  FAQ: FAQ
+  Wiki: Wiki
+  Report an Issue: Signaler un problème
+  Beta: Bêta
+  Donate: Faire un don
+  Useful Links: Liens utiles
 Channel:
   Subscriber: 'Abonnement'
   Subscribers: 'Abonnements'

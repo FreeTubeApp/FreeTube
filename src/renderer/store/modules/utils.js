@@ -212,6 +212,12 @@ const actions = {
           return urlObject.pathname.slice(1)
         }
       },
+      // youtube.com/embed
+      function() {
+        if (urlObject.pathname.match(/^\/embed\/[A-Za-z0-9_-]+$/)) {
+          return urlObject.pathname.replace('/embed/', '')
+        }
+      },
       // cloudtube
       function() {
         if (urlObject.host.match(/^cadence\.(gq|moe)$/) && urlObject.pathname.match(/^\/cloudtube\/video\/[A-Za-z0-9_-]+$/)) {

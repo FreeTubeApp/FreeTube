@@ -78,6 +78,8 @@ Most Popular: '最流行'
 Playlists: '播放清單'
 User Playlists:
   Your Playlists: '您的播放清單'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 您已儲存的影片為空。點擊影片角落的儲存按鈕以將其列在此處
+  Playlist Message: 此頁面無法反映完整的播放清單。其僅列出您已儲存或加入最愛的影片。工作完成後，所有目前在此的影片都會轉移到「最愛」播放清單。
 History:
   # On History Page
   History: '歷史紀錄'
@@ -248,6 +250,7 @@ Settings:
     Data Settings: 資料設定
     One or more subscriptions were unable to be imported: 一個或者更多訂閱無法被導入
     Check for Legacy Subscriptions: 檢查傳統訂閱
+    Manage Subscriptions: 管理訂閱
   Distraction Free Settings:
     Hide Video Likes And Dislikes: 隱藏影片喜歡與不喜歡
     Distraction Free Settings: 零打擾設定
@@ -260,6 +263,20 @@ Settings:
     Hide Channel Subscribers: 隱藏頻道訂閱者
     Hide Active Subscriptions: 隱藏作用中的訂閱
   The app needs to restart for changes to take effect. Restart and apply change?: 應用需要重啟讓修改生效。重啟并且應用修改？
+  Proxy Settings:
+    Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
+    City: 城市
+    Region: 區域
+    Country: 國家
+    Ip: IP
+    Your Info: 您的資訊
+    Test Proxy: 測試代理伺服器
+    Clicking on Test Proxy will send a request to: 點擊測試代理伺服器將會傳送請求給
+    Proxy Port Number: 代理伺服器連接埠號
+    Proxy Host: 代理伺服器主機
+    Proxy Protocol: 代理伺服器協定
+    Enable Tor / Proxy: 啟用 Tor 或代理伺服器
+    Proxy Settings: 代理伺服器設定
 About:
   #On About page
   About: '關於'
@@ -285,6 +302,23 @@ About:
   Latest FreeTube News: '最新FreeTube新聞'
 
 #On Channel Page
+  Translate via Weblate: 透過 Weblate 翻譯
+  Website: 網站
+  Source Code: 原始碼
+  Release Notes: 版本註記
+  Blog: 部落格
+  Credits: 貢獻者
+  FAQ: FAQ
+  Wiki: Wiki
+  Report an Issue: 回報問題
+  Channel Rules: 頻道規則
+  Email: 電子郵件
+  License: 授權條款
+  Beta: 測試版
+  Donate: 捐款
+  Useful Links: 有用連結
+  Help: 說明
+  Contact: 聯絡
 Channel:
   Subscriber: '訂閱者'
   Subscribers: '訂閱者'
@@ -394,6 +428,9 @@ Video:
   Open Channel in YouTube: 在YouTube開啟頻道
   Started streaming on: 開始在線直播於
   Streamed on: 直播于
+  Video has been removed from your saved list: 影片已從您的已儲存列表移除
+  Video has been saved: 影片已儲存
+  Save Video: 儲存影片
 Videos:
   #& Sort By
   Sort By:
