@@ -355,7 +355,7 @@ export default Vue.extend({
       this.addVideo(payload)
 
       this.showToast({
-        message: this.$t('Video.Video has been marked as watched')
+        message: this.$t('Video.Video has been saved')
       })
     },
 
@@ -366,6 +366,10 @@ export default Vue.extend({
       }
 
       this.removeVideo(payload)
+
+      this.showToast({
+        message: this.$t('Video.Video has been removed from your saved list')
+      })
     },
 
     ...mapActions([
