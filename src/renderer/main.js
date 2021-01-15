@@ -8,6 +8,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub'
 import { faBitcoin } from '@fortawesome/free-brands-svg-icons/faBitcoin'
+import { faMastodon } from '@fortawesome/free-brands-svg-icons/faMastodon'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import VueI18n from 'vue-i18n'
 import yaml from 'js-yaml'
@@ -19,7 +20,7 @@ Vue.config.devtools = isDev
 Vue.config.performance = isDev
 Vue.config.productionTip = isDev
 
-library.add(fas, faGithub, faBitcoin)
+library.add(fas, faGithub, faBitcoin, faMastodon)
 
 Vue.component('FontAwesomeIcon', FontAwesomeIcon)
 Vue.use(VueI18n)
