@@ -1,21 +1,21 @@
 # Put the name of your locale in the same language
 Locale Name: ''
-FreeTube: ''
+FreeTube: 'ফ্রিটিউব'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >
 
 # Webkit Menu Bar
-File: ''
-Quit: ''
-Edit: ''
-Undo: ''
-Redo: ''
-Cut: ''
-Copy: ''
-Paste: ''
-Delete: ''
+File: 'ফাইল'
+Quit: 'প্রস্থান'
+Edit: 'সম্পাদনা'
+Undo: 'পূর্বাবস্থায় ফিরো'
+Redo: 'আবার করো'
+Cut: 'কাটো'
+Copy: 'অনুলিপি'
+Paste: 'লেপন'
+Delete: 'মুছো'
 Select all: ''
-Reload: ''
+Reload: 'পুনরায় লোড করো'
 Force Reload: ''
 Toggle Developer Tools: ''
 Actual size: ''
@@ -58,7 +58,7 @@ Search Filters:
     Channels: ''
     #& Playlists
   Duration:
-    Duration: ''
+    Duration: 'সময়কাল'
     All Durations: ''
     Short (< 4 minutes): ''
     Long (> 20 minutes): ''
