@@ -77,7 +77,7 @@ export default Vue.extend({
     this.debounceSearchResults = debounce(this.getSearchSuggestions, 200)
   },
   methods: {
-    goToSearch: function (query) {
+    goToSearch: async function (query) {
       const appWidth = $(window).width()
 
       if (appWidth <= 680) {
@@ -89,23 +89,30 @@ export default Vue.extend({
         searchInput.blur()
       }
 
-      this.$store.dispatch('getVideoIdFromUrl', query).then((result) => {
-        if (result) {
-          this.$router.push({
-            path: `/watch/${result}`
-          })
-        } else {
-          router.push({
-            path: `/search/${encodeURIComponent(query)}`,
-            query: {
-              sortBy: this.searchSettings.sortBy,
-              time: this.searchSettings.time,
-              type: this.searchSettings.type,
-              duration: this.searchSettings.duration
-            }
-          })
-        }
-      })
+      const videoId = await this.$store.dispatch('getVideoIdFromUrl', query)
+      const playlistId = await this.$store.dispatch('getPlaylistIdFromUrl', query)
+
+      console.log(playlistId)
+
+      if (videoId) {
+        this.$router.push({
+          path: `/watch/${videoId}`
+        })
+      } else if (playlistId) {
+        this.$router.push({
+          path: `/playlist/${playlistId}`
+        })
+      } else {
+        router.push({
+          path: `/search/${encodeURIComponent(query)}`,
+          query: {
+            sortBy: this.searchSettings.sortBy,
+            time: this.searchSettings.time,
+            type: this.searchSettings.type,
+            duration: this.searchSettings.duration
+          }
+        })
+      }
 
       this.showFilters = false
     },

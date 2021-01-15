@@ -229,6 +229,27 @@ const actions = {
     return extractors.reduce((a, c) => a || c(), null) || false
   },
 
+  getPlaylistIdFromUrl (_, url) {
+    /** @type {URL} */
+    let urlObject
+    try {
+      urlObject = new URL(url)
+    } catch (e) {
+      return false
+    }
+
+    const extractors = [
+      // anything with /playlist?list=
+      function() {
+        if (urlObject.pathname === '/playlist' && urlObject.searchParams.has('list')) {
+          return urlObject.searchParams.get('list')
+        }
+      }
+    ]
+
+    return extractors.reduce((a, c) => a || c(), null) || false
+  },
+
   padNumberWithLeadingZeros(_, payload) {
     let numberString = payload.number.toString()
     while (numberString.length < payload.length) {
