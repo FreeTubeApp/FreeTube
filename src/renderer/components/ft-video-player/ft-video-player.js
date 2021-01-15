@@ -77,7 +77,7 @@ export default Vue.extend({
       activeSourceList: [],
       mouseTimeout: null,
       dataSetup: {
-        aspectRatio: '16:9',
+        fluid: true,
         nativeTextTracks: false,
         plugins: {},
         controlBar: {
@@ -244,6 +244,7 @@ export default Vue.extend({
 
         this.player.on('ready', function () {
           v.$emit('ready')
+          v.checkAspectRatio()
         })
 
         this.player.on('ended', function () {
@@ -269,6 +270,23 @@ export default Vue.extend({
             this.powerSaveBlocker = null
           }
         })
+      }
+    },
+
+    checkAspectRatio() {
+      const videoWidth = this.player.videoWidth()
+      const videoHeight = this.player.videoHeight()
+
+      if (videoWidth === 0 || videoHeight === 0) {
+        setTimeout(() => {
+          this.checkAspectRatio()
+        }, 200)
+        return
+      }
+
+      if (videoWidth < videoHeight) {
+        this.player.fluid(false)
+        this.player.aspectRatio('16:9')
       }
     },
 
