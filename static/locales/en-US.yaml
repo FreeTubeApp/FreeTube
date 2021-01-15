@@ -272,23 +272,30 @@ Settings:
 About:
   #On About page
   About: About
-  Contact: Contact
-  Help: Help
-  Useful Links: Useful Links
-  Donate: Donate
   Beta: Beta
-  License: License
-  Email: Email
-  Channel Rules: Channel Rules
-  Report an Issue: Report an Issue
-  Wiki: Wiki
+  Source code: Source code
+  Licensed under the AGPLv3: Licensed under the AGPLv3
+  View License: View License
+  Downloads / Changelog: Downloads / Changelog
+  GitHub releases: GitHub releases
+  Help: Help
+  FreeTube Wiki: FreeTube Wiki
   FAQ: FAQ
-  Credits: Credits
-  Blog: Blog
-  Release Notes: Release Notes
-  Source Code: Source Code
+  Report a problem: Report a problem
+  GitHub issues: GitHub issues
+  Please check for duplicates before posting: Please check for duplicates before posting
   Website: Website
-  Translate via Weblate: Translate via Weblate
+  Blog: Blog
+  Email: Email
+  Mastodon: Mastodon
+  Chat on Matrix: Chat on Matrix
+  Please read the: Please read the
+  room rules: room rules
+  Translate: Translate
+  Credits: Credits
+  FreeTube is made possible by: FreeTube is made possible by
+  these people and projects: these people and projects
+  Donate: Donate
 
 Profile:
   Profile Select: Profile Select

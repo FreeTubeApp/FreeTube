@@ -6,7 +6,10 @@ import store from './store/index'
 // import 'material-design-icons/iconfont/material-icons.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
-import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub'
+import { faBitcoin } from '@fortawesome/free-brands-svg-icons/faBitcoin'
+import { faMonero } from '@fortawesome/free-brands-svg-icons/faMonero'
+import { faMastodon } from '@fortawesome/free-brands-svg-icons/faMastodon'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import VueI18n from 'vue-i18n'
 import yaml from 'js-yaml'
@@ -18,8 +21,7 @@ Vue.config.devtools = isDev
 Vue.config.performance = isDev
 Vue.config.productionTip = isDev
 
-library.add(fas)
-library.add(fab)
+library.add(fas, faGithub, faBitcoin, faMonero, faMastodon)
 
 Vue.component('FontAwesomeIcon', FontAwesomeIcon)
 Vue.use(VueI18n)
