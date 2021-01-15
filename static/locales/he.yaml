@@ -86,6 +86,11 @@ Most Popular: 'הכי פופולרי'
 Playlists: 'פלייליסטים'
 User Playlists:
   Your Playlists: 'הפלייליסטים שלך'
+  Playlist Message: העמוד הזה אינו משקף רשימות נגינה תקינות לחלוטין. הוא מציג רק סרטונים
+    ששמרת או הוספת כמועדפים. עם סיום העבודה, כל הסרטונים שכאן ייובאו אל רשימת הנגינה
+    ‚מועדפים’.
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: לא
+    שמרת סרטונים. יש ללחוץ על כפתור השמירה בפינת הסרטון כדי שיופיע כאן
 History:
   # On History Page
   History: 'היסטוריה'
@@ -491,6 +496,9 @@ Video:
   Open Channel in YouTube: פתיחת הערוץ ב־YouTube
   Started streaming on: ההזרמה החלה ב־
   Streamed on: הוזרם ב־
+  Video has been removed from your saved list: הסרטון הוסר מרשימת השמורים שלך
+  Video has been saved: סרטון נשמר
+  Save Video: שמירת סרטון
 Videos:
   #& Sort By
   Sort By:
