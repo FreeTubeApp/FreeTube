@@ -15,13 +15,21 @@
       </section>
       <section class="about-chunks">
         <figure
-          class="chunk"
           v-for="chunk in chunks"
           :key="chunk.title"
+          class="chunk"
         >
-          <font-awesome-icon class="icon" :icon="chunk.icon" />
-          <h3 class="title">{{ chunk.title }}</h3>
-          <div class="content" v-html="chunk.content" />
+          <font-awesome-icon
+            class="icon"
+            :icon="chunk.icon"
+          />
+          <h3 class="title">
+            {{ chunk.title }}
+          </h3>
+          <div
+            class="content"
+            v-html="chunk.content"
+          />
         </figure>
       </section>
     </ft-card>
