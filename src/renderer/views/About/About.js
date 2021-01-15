@@ -16,63 +16,73 @@ export default Vue.extend({
       chunks: [
         {
           icon: ['fab', 'github'],
-          title: 'Source code',
-          content: '<a href="https://github.com/FreeTubeApp/FreeTube">GitHub: FreeTubeApp/FreeTube</a><br>Licensed under the AGPL 3'
+          title: this.$t('About.Source code'),
+          content: `<a href="https://github.com/FreeTubeApp/FreeTube">GitHub: FreeTubeApp/FreeTube</a><br>${this.$t('About.Licensed under the AGPLv3')} <a href="#">${this.$t('About.View License')}</a>`
         },
         {
           icon: 'file-download',
-          title: 'Downloads',
-          content: '<a href="https://github.com/FreeTubeApp/FreeTube/releases">GitHub releases</a>'
+          title: this.$t('About.Downloads / Changelog'),
+          content: `<a href="https://github.com/FreeTubeApp/FreeTube/releases">${this.$t('About.GitHub releases')}</a>`
         },
         {
           icon: 'question-circle',
-          title: 'Help',
-          content: '<a href="https://github.com/FreeTubeApp/FreeTube/wiki">FreeTube Wiki</a> / <a href="https://github.com/FreeTubeApp/FreeTube/wiki/F.A.Q.">FAQ</a>'
+          title: this.$t('About.Help'),
+          content: `<a href="https://github.com/FreeTubeApp/FreeTube/wiki">${this.$t('About.FreeTube Wiki')}</a> / <a href="https://github.com/FreeTubeApp/FreeTube/wiki/F.A.Q.">${this.$t('About.FAQ')}</a>`
         },
         {
           icon: 'exclamation-circle',
-          title: 'Report a problem',
-          content: '<a href="https://github.com/FreeTubeApp/FreeTube/issues">GitHub issues</a><br>Please check for duplicates before posting'
+          title: this.$t('About.Report a problem'),
+          content: `<a href="https://github.com/FreeTubeApp/FreeTube/issues">${this.$t('About.GitHub issues')}</a><br>${this.$t('About.Please check for duplicates before posting')}`
         },
         {
           icon: 'globe',
-          title: 'Website',
+          title: this.$t('About.Website'),
           content: '<a href="https://freetubeapp.io/">https://freetubeapp.io/</a>'
         },
         {
           icon: 'newspaper',
-          title: 'Blog',
+          title: this.$t('About.Blog'),
           content: '<a href="https://freetube.writeas.com/">https://freetube.writeas.com/</a>'
         },
         {
           icon: 'envelope',
-          title: 'Email',
+          title: this.$t('About.Email'),
           content: '<a href="mailto:FreeTubeApp@protonmail.com">FreeTubeApp@protonmail.com</a>'
         },
         {
           icon: ['fab', 'mastodon'],
-          title: 'Mastodon',
+          title: this.$t('About.Mastodon'),
           content: '<a href="https://mastodon.technology/@FreeTube">@FreeTube@mastodon.technology</a>'
         },
         {
           icon: 'comment-dots',
-          title: 'Chat on Matrix',
-          content: '<a href="https://matrix.to/#/#freetube:matrix.org?via=matrix.org&via=privacytools.io&via=tchncs.de">#freetube:matrix.org</a><br>Please read the <a href="https://github.com/FreeTubeApp/FreeTube/wiki/Matrix-Channel-Info-&-Rules">room rules.</a>'
+          title: this.$t('About.Chat on Matrix'),
+          content: `<a href="https://matrix.to/#/#freetube:matrix.org?via=matrix.org&via=privacytools.io&via=tchncs.de">#freetube:matrix.org</a><br>${this.$t('About.Please read the')} <a href="https://github.com/FreeTubeApp/FreeTube/wiki/Matrix-Channel-Info-&-Rules">${this.$t('About.room rules')}</a>`
+        },
+        {
+          icon: 'language',
+          title: this.$t('About.Translate'),
+          content: '<a href="https://hosted.weblate.org/engage/free-tube/">https://hosted.weblate.org/engage/free-tube/</a>'
         },
         {
           icon: 'users',
-          title: 'Credits',
-          content: 'FreeTube is made possible by <a href="https://github.com/FreeTubeApp/FreeTube/wiki/Credits">these people and projects.</a>'
+          title: this.$t('About.Credits'),
+          content: `${this.$t('About.FreeTube is made possible by')} <a href="https://github.com/FreeTubeApp/FreeTube/wiki/Credits">${this.$t('About.these people and projects')}</a>`
         },
         {
           icon: 'heart',
-          title: 'Donate - Liberapay',
+          title: `${this.$t('About.Donate')} - Liberapay`,
           content: '<a href="https://liberapay.com/FreeTube">https://liberapay.com/FreeTube</a>'
         },
         {
           icon: ['fab', 'bitcoin'],
-          title: 'Donate - BTC',
+          title: `${this.$t('About.Donate')} - BTC`,
           content: '<a href="bitcoin:1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS">1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS</a>'
+        },
+        {
+          icon: ['fab', 'monero'],
+          title: `${this.$t('About.Donate')} - XMR`,
+          content: '<a href="monero:48WyAPdjwc6VokeXACxSZCFeKEXBiYPV6GjfvBsfg4CrUJ95LLCQSfpM9pvNKy5GE5H4hNaw99P8RZyzmaU9kb1pD7kzhCB">48WyAPdjwc6VokeXACxSZCFeKEXBiYPV6GjfvBsfg4CrUJ95LLCQSfpM9pvNKy5GE5H4hNaw99P8RZyzmaU9kb1pD7kzhCB</a>'
         }
       ]
     }

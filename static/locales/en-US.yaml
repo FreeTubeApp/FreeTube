@@ -282,32 +282,30 @@ Settings:
 About:
   #On About page
   About: About
-  #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': This
-    copylefted software is freely licensed AGPL-3.0.
-
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub
-    page. Pull requests welcome.
-
-  Thank you very much to the People and Projects that make FreeTube possible!: Thank
-    you very much to the People and Projects that make FreeTube possible!
-
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': Want
-    to chat? Join our Element / Matrix Server . Please check the rules before joining.
-
-  'Looking for help? Check out our Wiki page.': Looking for help? Check out our Wiki
-    page.
-
-  Check out our Firefox extension!: Check out our Firefox extension!
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': If
-    you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin
-    address.
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
-  Latest FreeTube News: Latest FreeTube News
+  Beta: Beta
+  Source code: Source code
+  Licensed under the AGPLv3: Licensed under the AGPLv3
+  View License: View License
+  Downloads / Changelog: Downloads / Changelog
+  GitHub releases: GitHub releases
+  Help: Help
+  FreeTube Wiki: FreeTube Wiki
+  FAQ: FAQ
+  Report a problem: Report a problem
+  GitHub issues: GitHub issues
+  Please check for duplicates before posting: Please check for duplicates before posting
+  Website: Website
+  Blog: Blog
+  Email: Email
+  Mastodon: Mastodon
+  Chat on Matrix: Chat on Matrix
+  Please read the: Please read the
+  room rules: room rules
+  Translate: Translate
+  Credits: Credits
+  FreeTube is made possible by: FreeTube is made possible by
+  these people and projects: these people and projects
+  Donate: Donate
 
 Profile:
   Profile Select: Profile Select

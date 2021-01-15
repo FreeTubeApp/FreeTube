@@ -2,7 +2,7 @@
   <div>
     <ft-card class="card">
       <h1>
-        About
+        {{ $t("About.About") }}
       </h1>
       <section class="brand">
         <img
@@ -10,7 +10,7 @@
           class="logo"
         >
         <div class="version">
-          {{ versionNumber }} Beta
+          {{ versionNumber }} {{ $t("About.Beta") }}
         </div>
       </section>
       <section class="about-chunks">
