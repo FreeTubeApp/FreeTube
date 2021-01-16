@@ -277,6 +277,8 @@ Settings:
       #& Yes
       #& No
 
+  Proxy Settings:
+    Proxy Settings: Nastavení proxy
 About:
   #On About page
   About: 'O aplikaci'
