@@ -329,7 +329,7 @@ About:
 
   Latest FreeTube News: 'Nejnovější zprávy z FreeTube'
 
-  Licensed under the AGPLv3: Licencováno licencí AGPLv3
+  Licensed under the AGPLv3: Licencováno pod licencí AGPLv3
   Source code: Zdrojový kód
   Beta: Beta
   Donate: Přispět
@@ -345,6 +345,7 @@ About:
   FreeTube Wiki: FreeTube Wiki
   Downloads / Changelog: Ke stažení / Seznam změn
   View License: Zobrazit licenci
+  Translate: Překlady
 Profile:
   Profile Select: 'Výběr profilu'
   All Channels: 'Všechny kanály'
@@ -478,10 +479,10 @@ Video:
     Oct: 'Říjen'
     Nov: 'Listopad'
     Dec: 'Prosinec'
-    Second: 'Sekunda'
-    Seconds: 'Sekundy'
-    Minute: 'Minuta'
-    Minutes: 'Minuty'
+    Second: 'sekundou'
+    Seconds: 'sekundami'
+    Minute: 'minutou'
+    Minutes: 'minutami'
     Hour: 'hodinou'
     Hours: 'hodinami'
     Day: 'dnem'
