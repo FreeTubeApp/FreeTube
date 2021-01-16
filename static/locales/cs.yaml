@@ -298,6 +298,8 @@ Settings:
     Proxy Port Number: Port proxy
     Proxy Host: Adresa proxy
     Proxy Protocol: Protokol proxy
+    Error getting network information. Is your proxy configured properly?: Chyba při
+      získávání informací o síti. Je vaše proxy správně nakonfigurována?
 About:
   #On About page
   About: 'O aplikaci'
@@ -337,7 +339,7 @@ About:
   room rules: pravidla místnosti
   Please read the: Prosím, přečtěte si
   Chat on Matrix: Chat na síti Matrix
-  Mastodon: Mastodon
+  Mastodon: mastodon
   Email: Email
   Blog: Blog
   Website: Webová stránka
@@ -346,6 +348,13 @@ About:
   Downloads / Changelog: Ke stažení / Seznam změn
   View License: Zobrazit licenci
   Translate: Překlady
+  these people and projects: těmto lidem a projektům
+  FreeTube is made possible by: FreeTube je možné udělat díky
+  Please check for duplicates before posting: Před odesláním zkontrolujte duplicity
+  GitHub issues: Chyby na GitHub
+  Report a problem: Nahlásit problém
+  Help: Pomoc
+  GitHub releases: Vydaní na GitHub
 Profile:
   Profile Select: 'Výběr profilu'
   All Channels: 'Všechny kanály'
@@ -503,6 +512,8 @@ Video:
   Streamed on: Vysíláno
   Video has been saved: Video bylo uloženo
   Save Video: Uložit video
+  Video has been removed from your saved list: Video bylo odstraněno z vašeho uloženého
+    seznamu
 Videos:
   #& Sort By
   Sort By:
