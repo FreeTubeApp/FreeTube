@@ -89,7 +89,7 @@ User Playlists:
   Playlist Message: Deze pagina is niet reflectief van volledig functionele afspeellijst.
     Er worden alleen video's weergegeven die jij hebt opgeslagen of gefavoriet. Wanneer
     we klaar zijn met de ontwikkeling van deze feature zullen al deze video's worden
-    gemigreerd de 'favorieten' afspeellijst.
+    gemigreerd naar de 'favorieten' afspeellijst.
 History:
   # On History Page
   History: 'Geschiedenis'
@@ -102,7 +102,7 @@ Settings:
     General Settings: 'Algemene instellingen'
     Fallback to Non-Preferred Backend on Failure: 'Val terug op een Niet-Voorkeur
       Backend bij falen'
-    Enable Search Suggestions: 'Zoek Suggesties Inschakelen'
+    Enable Search Suggestions: 'Zoeksuggesties Inschakelen'
     Default Landing Page: 'Standaard Landingspagina'
     Locale Preference: 'Locale Voorkeur'
     Preferred API Backend:
