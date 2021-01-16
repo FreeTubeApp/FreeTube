@@ -86,6 +86,12 @@ Most Popular: 'Nejpopulárnější'
 Playlists: 'Playlisty'
 User Playlists:
   Your Playlists: 'Vaše playlisty'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Vaše
+    uložená videa jsou prázdná. Kliknutím na tlačítko Uložit v rohu videa jej zobrazíte
+    zde
+  Playlist Message: Tato stránka neodráží plně funkční seznamy skladeb. Uvádí pouze
+    videa, která jste uložili nebo zařadili mezi oblíbená. Po dokončení práce budou
+    všechna aktuálně zde umístěná videa přenesena do seznamu „Oblíbené“.
 History:
   # On History Page
   History: 'Historie'
@@ -251,6 +257,7 @@ Settings:
     Unable to write file: 'Soubor nelze uložit'
     Unknown data key: 'Neznámý datový klíč'
     How do I import my subscriptions?: 'Jak mohu importovat své odebírané kanály?'
+    Manage Subscriptions: Spravovat odběry
   Advanced Settings:
     Advanced Settings: 'Rozšířené nastavení'
     Enable Debug Mode (Prints data to the console): 'Povolit režim ladění (výstup
@@ -279,6 +286,10 @@ Settings:
 
   Proxy Settings:
     Proxy Settings: Nastavení proxy
+    City: Město
+    Ip: IP
+    Your Info: Vaše informace
+    Enable Tor / Proxy: Zapnout Tor / Proxy
 About:
   #On About page
   About: 'O aplikaci'
