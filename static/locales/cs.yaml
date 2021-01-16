@@ -290,6 +290,14 @@ Settings:
     Ip: IP
     Your Info: Vaše informace
     Enable Tor / Proxy: Zapnout Tor / Proxy
+    Region: Region
+    Country: Země
+    Test Proxy: Otestovat proxy
+    Clicking on Test Proxy will send a request to: Kliknutím na Otestovat proxy se
+      odešle dotaz na
+    Proxy Port Number: Port proxy
+    Proxy Host: Adresa proxy
+    Proxy Protocol: Protokol proxy
 About:
   #On About page
   About: 'O aplikaci'
