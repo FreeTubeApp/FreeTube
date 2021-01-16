@@ -76,6 +76,8 @@ export default Vue.extend({
       maxFramerate: 0,
       activeSourceList: [],
       mouseTimeout: null,
+      touchTimeout: null,
+      lastTouchTime: null,
       dataSetup: {
         fluid: true,
         nativeTextTracks: false,
@@ -717,6 +719,25 @@ export default Vue.extend({
           })
         })
       }
+    },
+
+    handleTouchStart: function (event) {
+      const v = this
+      this.touchPauseTimeout = setTimeout(() => {
+        v.togglePlayPause()
+      }, 1000)
+
+      const touchTime = new Date()
+
+      if (this.lastTouchTime !== null && (touchTime.getTime() - this.lastTouchTime.getTime()) < 250) {
+        this.toggleFullscreen()
+      }
+
+      this.lastTouchTime = touchTime
+    },
+
+    handleTouchEnd: function (event) {
+      clearTimeout(this.touchPauseTimeout)
     },
 
     keyboardShortcutHandler: function (event) {

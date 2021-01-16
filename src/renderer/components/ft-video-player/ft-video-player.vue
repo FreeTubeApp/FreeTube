@@ -6,6 +6,8 @@
       :poster="thumbnail"
       controls
       preload="auto"
+      @touchstart="handleTouchStart"
+      @touchend="handleTouchEnd"
       :data-setup="JSON.stringify(dataSetup)"
     >
       <source
