@@ -332,6 +332,19 @@ About:
   Licensed under the AGPLv3: Licencováno licencí AGPLv3
   Source code: Zdrojový kód
   Beta: Beta
+  Donate: Přispět
+  Credits: Poděkování
+  room rules: pravidla místnosti
+  Please read the: Prosím, přečtěte si
+  Chat on Matrix: Chat na síti Matrix
+  Mastodon: Mastodon
+  Email: Email
+  Blog: Blog
+  Website: Webová stránka
+  FAQ: Často kladné dotazy
+  FreeTube Wiki: FreeTube Wiki
+  Downloads / Changelog: Ke stažení / Seznam změn
+  View License: Zobrazit licenci
 Profile:
   Profile Select: 'Výběr profilu'
   All Channels: 'Všechny kanály'
@@ -469,16 +482,16 @@ Video:
     Seconds: 'Sekundy'
     Minute: 'Minuta'
     Minutes: 'Minuty'
-    Hour: 'Hodina'
-    Hours: 'Hodiny'
-    Day: 'Den'
-    Days: 'Dny'
-    Week: 'Týden'
-    Weeks: 'Týdny'
-    Month: 'Měsíc'
-    Months: 'Měsíce'
-    Year: 'Rok'
-    Years: 'Roky'
+    Hour: 'hodinou'
+    Hours: 'hodinami'
+    Day: 'dnem'
+    Days: 'dny'
+    Week: 'týdnem'
+    Weeks: 'týdny'
+    Month: 'měsícem'
+    Months: 'měsíci'
+    Year: 'rokem'
+    Years: 'lety'
     Ago: 'Před'
     Upcoming: 'Premiéra'
   Published on: 'Publikováno'
@@ -487,6 +500,8 @@ Video:
 #& Videos
   Started streaming on: Začátek vysílání
   Streamed on: Vysíláno
+  Video has been saved: Video bylo uloženo
+  Save Video: Uložit video
 Videos:
   #& Sort By
   Sort By:
