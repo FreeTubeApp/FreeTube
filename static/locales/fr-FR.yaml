@@ -307,8 +307,8 @@ Settings:
     Ip: Ip
     Your Info: Vos informations
     Test Proxy: Test du Proxy
-    Clicking on Test Proxy will send a request to: En cliquant sur Test Proxy, une
-      demande sera envoyée à
+    Clicking on Test Proxy will send a request to: En cliquant sur Test du Proxy,
+      une demande sera envoyée à
     Proxy Port Number: Numéro de port du proxy
     Proxy Host: Hôte du proxy
     Proxy Protocol: Protocole du proxy
@@ -365,7 +365,7 @@ About:
   Beta: Bêta
   Donate: Faire un don
   Useful Links: Liens utiles
-  Translate: Traduire
+  Translate: Aidez-nous à traduire FreeTube
   Chat on Matrix: Chatter sur Matrix
   Mastodon: Mastodon
   Report a problem: Signaler un problème
@@ -375,12 +375,12 @@ About:
   these people and projects: ces personnes et projets
   FreeTube is made possible by: FreeTube est rendu possible par
   room rules: règles du salon
-  Please read the: Veuillez lire le
+  Please read the: Veuillez lire les
   Please check for duplicates before posting: Veuillez vérifier s'il y a des doublons
     avant de poster
-  GitHub issues: Problèmes GitHub
+  GitHub issues: Les problèmes identifiés par la communauté sur GitHub
   FreeTube Wiki: Wiki de FreeTube
-  GitHub releases: Versions sur GitHub
+  GitHub releases: Les différentes versions de FreeTube disponibles sur GitHub
   Downloads / Changelog: Téléchargements / Journal des modifications
 Channel:
   Subscriber: 'Abonnement'
