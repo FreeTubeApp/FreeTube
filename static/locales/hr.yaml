@@ -3,7 +3,7 @@ Locale Name: 'Hrvatski'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Ovaj dio programa još nije spreman. Navrati kasnije.
+  Ovaj dio programa još nije gotov. Navrati kasnije.
 
 # Webkit Menu Bar
 File: 'Datoteka'
@@ -33,7 +33,7 @@ Forward: 'Naprijed'
 Search / Go to URL: 'Pretraži / Idi na URL'
   # In Filter Button
 Search Filters:
-  Search Filters: 'Filtri za pretraživanje'
+  Search Filters: 'Filtri pretrage'
   Sort By:
     Sort By: 'Redoslijed'
     Most Relevant: 'Najrelevantniji'
@@ -60,7 +60,7 @@ Search Filters:
     Short (< 4 minutes): 'Kratko (< 4 min)'
     Long (> 20 minutes): 'Dugo (> 20 min)'
   # On Search Page
-  Search Results: 'Rezultati pretraživanja'
+  Search Results: 'Rezultati pretrage'
   Fetching results. Please wait: 'Rezultati se dohvaćaju. Pričekaj'
   Fetch more results: 'Dohvati još rezultata'
 # Sidebar
@@ -82,9 +82,12 @@ Most Popular: 'Najpopularniji'
 Playlists: 'Zbirke'
 User Playlists:
   Your Playlists: 'Tvoje zbirke'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Tvoji
-    spremljeni videi su prazni. Pritisni gumb za spremanje u kutu videa, kako bi se
-    ovdje naveli
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Nemaš
+    spremljenih videa. Pritisni gumb za spremanje u sličici videa, kako bi se video
+    ovdje prikazao
+  Playlist Message: Ova stranica ne odražava potpuno funkcionalne zbirke. Prikazuje
+    samo spremljena ili označena videa. Kad posao završi, svi trenutačno ovdje prisutni
+    videi premjestit će se u zbirku „Favoriti”.
 History:
   # On History Page
   History: 'Povijest'
@@ -97,7 +100,7 @@ Settings:
     General Settings: 'Opće postavke'
     Fallback to Non-Preferred Backend on Failure: 'U slučaju problema koristi sekundarni
       pozadinski sustav'
-    Enable Search Suggestions: 'Aktiviraj prijedloge pretraživanja'
+    Enable Search Suggestions: 'Aktiviraj prijedloge pretrage'
     Default Landing Page: 'Standardna odredišna stranica'
     Locale Preference: 'Jezik'
     Preferred API Backend:
@@ -148,7 +151,7 @@ Settings:
       Deep Orange: 'Tamnonarančasta'
     Secondary Color Theme: 'Sekundarna boja teme'
         #* Main Color Theme
-    UI Scale: Skaliranje korisničkog sučelja
+    UI Scale: Uvećanje korisničkog sučelja
     Disable Smooth Scrolling: Deaktiviraj neisprekidano klizanje
     Expand Side Bar by Default: Standardno proširi bočnu traku
   Player Settings:
@@ -184,10 +187,10 @@ Settings:
     Privacy Settings: 'Postavke privatnosti'
     Remember History: 'Zapamti povijest'
     Save Watched Progress: 'Spremi napredak gledanja'
-    Clear Search Cache: 'Isprazni predmemoriju pretraživanja'
+    Clear Search Cache: 'Isprazni predmemoriju pretrage'
     Are you sure you want to clear out your search cache?: 'Stvarno želiš isprazniti
-      predmemoriju pretraživanja?'
-    Search cache has been cleared: 'Predmemorija pretraživanja je ispražnjena'
+      predmemoriju pretrage?'
+    Search cache has been cleared: 'Predmemorija pretrage je ispražnjena'
     Remove Watch History: 'Ukloni povijest gledanja'
     Are you sure you want to remove your entire watch history?: 'Stvarno želiš ukloniti
       cijelu povijest gledanja?'
@@ -282,8 +285,8 @@ Settings:
     Hide Video Views: Sakrij broj gledanja videa
     Distraction Free Settings: Postavke za nesmetan rad
     Hide Active Subscriptions: Sakrij aktivne pretplate
-  The app needs to restart for changes to take effect. Restart and apply change?: Za
-    primjenu promjena, program se mora ponovo pokrenuti. Ponovo pokrenuti program?
+  The app needs to restart for changes to take effect. Restart and apply change?: Promjene
+    će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
     Country: Zemlja
     Error getting network information. Is your proxy configured properly?: Greška
@@ -629,10 +632,10 @@ Tooltips:
   Player Settings:
     Default Video Format: Postavi formate za reprodukciju videa. Dash formati mogu
       reproducirati višu kvalitetu slike. Stari formati su ograničeni na 720 p, ali
-      su zato brži. Prijenosi audioformata sadrže samo audiosnimke
+      su zato brži. Audioformati sadrže samo audiosnimke
     Proxy Videos Through Invidious: Za reprodukciju videa povezat će se s Invidiousom
       umjesto izravnog povezivanja s YouTubeom. Zanemaruje postavke sučelja
-    Force Local Backend for Legacy Formats: Radi samo, kad postaviš Invidious kao
+    Force Local Backend for Legacy Formats: Radi samo, kad se Invidious postavi kao
       standardno sučelje. Kad je aktivirano, lokalno sučelje će pokretati i koristiti
       stare formate umjesto onih koje dostavlja Invidious. Pomaže u slučajevima, kad
       je reprodukcija videa koje dostavlja Invidious u zemlji zabranjena/ograničena
