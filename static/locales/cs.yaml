@@ -289,7 +289,7 @@ Settings:
     City: Město
     Ip: IP
     Your Info: Vaše informace
-    Enable Tor / Proxy: Zapnout Tor / Proxy
+    Enable Tor / Proxy: Povolit Tor / Proxy
     Region: Region
     Country: Země
     Test Proxy: Otestovat proxy
@@ -329,6 +329,9 @@ About:
 
   Latest FreeTube News: 'Nejnovější zprávy z FreeTube'
 
+  Licensed under the AGPLv3: Licencováno licencí AGPLv3
+  Source code: Zdrojový kód
+  Beta: Beta
 Profile:
   Profile Select: 'Výběr profilu'
   All Channels: 'Všechny kanály'
