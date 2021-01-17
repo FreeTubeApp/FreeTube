@@ -41,7 +41,7 @@ const actions = {
         duration: ''
       }
 
-      let agent = null
+      let agent = {}
       const settings = rootState.settings
       const useProxy = settings.useProxy
 
@@ -161,10 +161,10 @@ const actions = {
           })
           break
       }
+    }
 
-      options = {
-        requestOptions: { agent }
-      }
+    options = {
+      requestOptions: { agent }
     }
 
     let filter = await ytsr.getFilters(payload.query, options)
