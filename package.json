@@ -49,7 +49,7 @@
     "yt-channel-info": "^1.2.0",
     "yt-comment-scraper": "^1.3.11",
     "yt-dash-manifest-generator": "^1.1.0",
-    "yt-trending-scraper": "1.0.4",
+    "yt-trending-scraper": "1.1.0",
     "yt-xml2vtt": "^1.2.0",
     "ytdl-core": "^4.4.3",
     "ytpl": "^2.0.4",
