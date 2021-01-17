@@ -86,8 +86,12 @@ Most Popular: Most Popular
 Playlists: Playlists
 User Playlists:
   Your Playlists: Your Playlists
-  Playlist Message: This page is not reflective of fully working playlists. It only lists videos that you have saved or favorited. When the work has finished, all videos currently here will be migrated to a 'Favorites' playlist.
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Your saved videos are empty. Click on the save button on the corner of a video to have it listed here
+  Playlist Message: This page is not reflective of fully working playlists. It only
+    lists videos that you have saved or favorited. When the work has finished, all
+    videos currently here will be migrated to a 'Favorites' playlist.
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Your
+    saved videos are empty. Click on the save button on the corner of a video to have
+    it listed here
 History:
   # On History Page
   History: History
@@ -261,14 +265,16 @@ Settings:
     Proxy Protocol: Proxy Protocol
     Proxy Host: Proxy Host
     Proxy Port Number: Proxy Port Number
-    Clicking on Test Proxy will send a request to: Clicking on Test Proxy will send a request to
+    Clicking on Test Proxy will send a request to: Clicking on Test Proxy will send
+      a request to
     Test Proxy: Test Proxy
     Your Info: Your Info
     Ip: Ip
     Country: Country
     Region: Region
     City: City
-    Error getting network information. Is your proxy configured properly?: Error getting network information. Is your proxy configured properly?
+    Error getting network information. Is your proxy configured properly?: Error getting
+      network information. Is your proxy configured properly?
 About:
   #On About page
   About: About
@@ -379,7 +385,8 @@ Video:
   Video has been removed from your history: Video has been removed from your history
   Save Video: Save Video
   Video has been saved: Video has been saved
-  Video has been removed from your saved list: Video has been removed from your saved list
+  Video has been removed from your saved list: Video has been removed from your saved
+    list
   Open in YouTube: Open in YouTube
   Copy YouTube Link: Copy YouTube Link
   Open YouTube Embedded Player: Open YouTube Embedded Player
