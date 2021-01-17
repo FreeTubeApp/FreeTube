@@ -153,9 +153,7 @@ export default Vue.extend({
           modulePath = commentControllerRelativePath
         }
 
-        this.commentProcess = fork(path.join(__dirname, modulePath), ['args'], {
-          stdio: ['pipe', 'pipe', 'pipe', 'ipc']
-        })
+        this.commentProcess = fork(path.join(__dirname, modulePath))
 
         this.commentProcess.on('message', (msg) => {
           if (msg.error === null) {
