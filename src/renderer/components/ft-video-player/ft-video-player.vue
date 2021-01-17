@@ -6,9 +6,9 @@
       :poster="thumbnail"
       controls
       preload="auto"
+      :data-setup="JSON.stringify(dataSetup)"
       @touchstart="handleTouchStart"
       @touchend="handleTouchEnd"
-      :data-setup="JSON.stringify(dataSetup)"
     >
       <source
         v-for="(source, index) in activeSourceList"
