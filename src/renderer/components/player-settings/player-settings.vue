@@ -37,6 +37,12 @@
           :default-value="defaultTheatreMode"
           @change="updateDefaultTheatreMode"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Player Settings.Enable FullScreen Mode by Default')"
+          :compact="true"
+          :default-value="defaultFullScreenMode"
+          @change="updateDefaultFullScreenMode"
+        />
       </div>
       <div class="switchColumn">
         <ft-toggle-switch

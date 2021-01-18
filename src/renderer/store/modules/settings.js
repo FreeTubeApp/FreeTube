@@ -53,6 +53,7 @@ const state = {
   forceLocalBackendForLegacy: false,
   proxyVideos: false,
   defaultTheatreMode: false,
+  defaultFullScreenMode: false,
   defaultVolume: 1,
   defaultPlayback: 1,
   defaultVideoFormat: 'dash',
@@ -180,6 +181,10 @@ const getters = {
 
   getDefaultTheatreMode: () => {
     return state.defaultTheatreMode
+  },
+
+  getDefaultFullScreenMode: ()=> {
+    return state.defaultFullScreenMode
   },
 
   getDefaultVolume: () => {
@@ -348,6 +353,8 @@ const actions = {
             case 'defaultTheatreMode':
               commit('setDefaultTheatreMode', result.value)
               break
+            case 'defaultFullScreenMode':
+              commit('setDefaultFullScreenMode', result.value)
             case 'defaultVolume':
               commit('setDefaultVolume', result.value)
               sessionStorage.setItem('volume', result.value)
@@ -587,6 +594,14 @@ const actions = {
     })
   },
 
+  updateDefaultFullScreenMode ({ commit }, defaultFullScreenMode) {
+    settingsDb.update({ _id: 'defaultFullScreenMode' }, { _id: 'defaultFullScreenMode', value: defaultFullScreenMode}, { upsert: true }, (err, numReplaced) => {
+      if(!err) {
+        commit('setDefaultFullScreenMode', defaultFullScreenMode)
+      }
+    })
+  },
+
   updateDefaultVolume ({ commit }, defaultVolume) {
     settingsDb.update({ _id: 'defaultVolume' }, { _id: 'defaultVolume', value: defaultVolume }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
@@ -817,6 +832,9 @@ const mutations = {
   },
   setDefaultTheatreMode (state, defaultTheatreMode) {
     state.defaultTheatreMode = defaultTheatreMode
+  },
+  setDefaultFullScreenMode(state, defaultFullScreenMode) {
+    state.defaultFullScreenMode = defaultFullScreenMode
   },
   setUseProxy (state, useProxy) {
     state.useProxy = useProxy

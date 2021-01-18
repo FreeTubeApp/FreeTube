@@ -141,6 +141,10 @@ export default Vue.extend({
       return this.$store.getters.getDefaultVideoFormat
     },
 
+    defaultFullScreenMode: function () {
+      return this.$store.getters.getDefaultFullScreenMode
+    },
+
     autoplayVideos: function () {
       return this.$store.getters.getAutoplayVideos
     }
@@ -203,6 +207,11 @@ export default Vue.extend({
             }
           }
         })
+
+        if(this.defaultFullScreenMode){
+          this.player.requestFullscreen();
+        }
+       
 
         this.player.volume(this.volume)
         this.player.playbackRate(this.defaultPlayback)
