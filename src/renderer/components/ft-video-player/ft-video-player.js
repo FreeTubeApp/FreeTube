@@ -208,10 +208,9 @@ export default Vue.extend({
           }
         })
 
-        if(this.defaultFullScreenMode){
-          this.player.requestFullscreen();
+        if (this.defaultFullScreenMode) {
+          this.player.requestFullscreen()
         }
-       
 
         this.player.volume(this.volume)
         this.player.playbackRate(this.defaultPlayback)

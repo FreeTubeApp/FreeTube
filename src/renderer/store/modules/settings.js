@@ -183,7 +183,7 @@ const getters = {
     return state.defaultTheatreMode
   },
 
-  getDefaultFullScreenMode: ()=> {
+  getDefaultFullScreenMode: () => {
     return state.defaultFullScreenMode
   },
 
@@ -355,6 +355,7 @@ const actions = {
               break
             case 'defaultFullScreenMode':
               commit('setDefaultFullScreenMode', result.value)
+              break
             case 'defaultVolume':
               commit('setDefaultVolume', result.value)
               sessionStorage.setItem('volume', result.value)
@@ -595,8 +596,8 @@ const actions = {
   },
 
   updateDefaultFullScreenMode ({ commit }, defaultFullScreenMode) {
-    settingsDb.update({ _id: 'defaultFullScreenMode' }, { _id: 'defaultFullScreenMode', value: defaultFullScreenMode}, { upsert: true }, (err, numReplaced) => {
-      if(!err) {
+    settingsDb.update({ _id: 'defaultFullScreenMode' }, { _id: 'defaultFullScreenMode', value: defaultFullScreenMode }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
         commit('setDefaultFullScreenMode', defaultFullScreenMode)
       }
     })
