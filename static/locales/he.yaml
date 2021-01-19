@@ -103,13 +103,12 @@ Settings:
     General Settings: 'הגדרות כלליות'
     Check for Updates: 'בדוק אם קיימים עדכונים'
     Check for Latest Blog Posts: 'בדוק אם קיימים פוסטים חדשים בבלוג'
-    Fallback to Non-Preferred Backend on Failure: 'נסיגה לקצה אחורי שאינו מועדף בעת
-      כשל'
+    Fallback to Non-Preferred Backend on Failure: 'נסיגה למנגנון שאינו מועדף בעת כשל'
     Enable Search Suggestions: 'אפשר הצעות לחיפוש'
     Default Landing Page: 'דף נחיתה כבררת מחדל'
     Locale Preference: 'העדפת שפה'
     Preferred API Backend:
-      Preferred API Backend: 'קצה API אחורי מועדף'
+      Preferred API Backend: 'מנגנון API מועדף'
       Local API: 'API מקומי'
       Invidious API: 'API של Invidious'
     Video View Type:
@@ -159,7 +158,7 @@ Settings:
     Disable Smooth Scrolling: השבתת גלילה חלקה
   Player Settings:
     Player Settings: 'הגדרת נגן'
-    Force Local Backend for Legacy Formats: 'כפיית הקצה האחורי לניגון בפורמטים ישנים'
+    Force Local Backend for Legacy Formats: 'כפיית המנגנון לניגון בפורמטים ישנים'
     Play Next Video: 'ניגון הסרטון הבא'
     Turn on Subtitles by Default: 'הפעלת כתוביות כברירת מחדל'
     Autoplay Videos: 'הפעלה אוטומטית לסרטונים'
@@ -610,8 +609,8 @@ Tooltips:
     Fallback to Non-Preferred Backend on Failure: כאשר ל־API המועדף עליך יש בעיה,
       FreeTube ינסה להשתמש ב־API בעדיפות הנמוכה יותר באופן אוטומטי כשיטת נסיגה כאשר
       האפשרות פעילה
-    Preferred API Backend: נא לבחור את הקצה האחורי לשימוש FreeTube כדי לקבל נתונים.
-      ה־API המקומי הוא מחלץ מובנה. ה־API של Invidious דורש התחברות לשרת Invidious.
+    Preferred API Backend: נא לבחור את המנגנון לשימוש FreeTube כדי לקבל נתונים. ה־API
+      המקומי הוא מחלץ מובנה. ה־API של Invidious דורש התחברות לשרת Invidious.
     Region for Trending: מגמות אזוריות מאפשר לך לבחור סרטונים חמים של איזו מדינה מעניין
       אותך לראות. לא כל המדינות שמוצגות אכן נתמכות על ידי YouTube
     Invidious Instance: העותק של Invidious שאליו FreeTube יתחבר לפניות API. מחיקת
