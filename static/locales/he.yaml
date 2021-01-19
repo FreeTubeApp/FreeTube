@@ -103,13 +103,13 @@ Settings:
     General Settings: 'הגדרות כלליות'
     Check for Updates: 'בדוק אם קיימים עדכונים'
     Check for Latest Blog Posts: 'בדוק אם קיימים פוסטים חדשים בבלוג'
-    Fallback to Non-Preferred Backend on Failure: 'לסגת לממשק נסתר שאינו מועדף בעת
+    Fallback to Non-Preferred Backend on Failure: 'נסיגה לקצה אחורי שאינו מועדף בעת
       כשל'
     Enable Search Suggestions: 'אפשר הצעות לחיפוש'
     Default Landing Page: 'דף נחיתה כבררת מחדל'
     Locale Preference: 'העדפת שפה'
     Preferred API Backend:
-      Preferred API Backend: 'ממשק API נסתר מועדף'
+      Preferred API Backend: 'קצה API אחורי מועדף'
       Local API: 'API מקומי'
       Invidious API: 'API של Invidious'
     Video View Type:
@@ -159,7 +159,7 @@ Settings:
     Disable Smooth Scrolling: השבתת גלילה חלקה
   Player Settings:
     Player Settings: 'הגדרת נגן'
-    Force Local Backend for Legacy Formats: 'לכפות את הממשק הנסתר המקומי לתצורות המיושנות'
+    Force Local Backend for Legacy Formats: 'כפיית הקצה האחורי לניגון בפורמטים ישנים'
     Play Next Video: 'ניגון הסרטון הבא'
     Turn on Subtitles by Default: 'הפעלת כתוביות כברירת מחדל'
     Autoplay Videos: 'הפעלה אוטומטית לסרטונים'
@@ -272,8 +272,8 @@ Settings:
   Distraction Free Settings:
     Hide Live Chat: הסתרת צ׳אט חי
     Hide Popular Videos: הסתרת סרטונים נפוצים
-    Hide Trending Videos: הסתרת סרטונים חמים
-    Hide Recommended Videos: הסתרת סרטונים מומלצים
+    Hide Trending Videos: הסתרת הסרטונים החמים
+    Hide Recommended Videos: הסתרת הסרטונים המומלצים
     Hide Comment Likes: הסתרת לייקים על תגובות
     Hide Channel Subscribers: הסתרת מנויי הערוץ
     Hide Video Likes And Dislikes: הסתרת לייקים ודיסלייקים לסרטון
@@ -460,7 +460,7 @@ Video:
   Enable Live Chat: 'אפשר צ''אט'
   Live Chat is currently not supported in this build.: 'הצ''אט כרגע לא נתמך בגרסה
     זו.'
-  'Chat is disabled or the Live Stream has ended.': 'הצ''אט נחסם או שהשידור החי נגמר.'
+  'Chat is disabled or the Live Stream has ended.': 'הצ׳אט נחסם או שהשידור החי נגמר.'
   Live chat is enabled.  Chat messages will appear here once sent.: 'הצ''אט מופעל.
     ההודעות יופיעו פה כאשר יישלחו.'
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'מנגנון
@@ -610,7 +610,7 @@ Tooltips:
     Fallback to Non-Preferred Backend on Failure: כאשר ל־API המועדף עליך יש בעיה,
       FreeTube ינסה להשתמש ב־API בעדיפות הנמוכה יותר באופן אוטומטי כשיטת נסיגה כאשר
       האפשרות פעילה
-    Preferred API Backend: נא לבחור את המנגנון בו ישתמש FreeTube כדי לקבל נתונים.
+    Preferred API Backend: נא לבחור את הקצה האחורי לשימוש FreeTube כדי לקבל נתונים.
       ה־API המקומי הוא מחלץ מובנה. ה־API של Invidious דורש התחברות לשרת Invidious.
     Region for Trending: מגמות אזוריות מאפשר לך לבחור סרטונים חמים של איזו מדינה מעניין
       אותך לראות. לא כל המדינות שמוצגות אכן נתמכות על ידי YouTube
@@ -619,7 +619,7 @@ Tooltips:
     Thumbnail Preference: כל התמונות הייצוגיות ברחבי FreeTube תוחלפנה בתמונית מתוך
       הסרטון במקום התמונה הייצוגית כבררת המחדל
   Player Settings:
-    Force Local Backend for Legacy Formats: עובד רק כאשר ה־API של Invidious הוא בררת
+    Force Local Backend for Legacy Formats: עובד רק כאשר ה־API של Invidious הוא ברירת
       המחדל שלך. כאשר האפשרות פעילה, ה־API המקומי יופעל וישתמש בתצורות המיושנות שהוחזרו
       על ידיו במקום באלו שהוחזרו על ידי Invidious. מועיל כאשר הסרטונים שמוחזרים על
       ידי Invidious לא מתנגנים עקב מגבלות חוקיות במדינה
