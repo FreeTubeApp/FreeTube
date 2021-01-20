@@ -286,7 +286,7 @@ export default Vue.extend({
         return
       }
 
-      if (videoWidth <= videoHeight) {
+      if ((videoHeight - videoWidth) <= 240) {
         this.player.fluid(false)
         this.player.aspectRatio('16:9')
       }
