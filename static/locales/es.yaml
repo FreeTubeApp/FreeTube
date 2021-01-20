@@ -80,6 +80,11 @@ Most Popular: 'Más populares'
 Playlists: 'Playlists'
 User Playlists:
   Your Playlists: 'Tus listas de reproducción'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Tus
+    favoritos están vacios. Haz click en la estrella de cada video para añadirlo aquí
+  Playlist Message: Esta página no refleja el estado final de las playlists, solo
+    muestra los videos guardados. En futuras actualizaciones, estos videos migrarán
+    a la playlist "Favoritos".
 History:
   # On History Page
   History: 'Historial'
@@ -233,6 +238,7 @@ Settings:
     One or more subscriptions were unable to be imported: Una o varias de las suscripciones
       no han podido ser importadas
     Check for Legacy Subscriptions: Comprobar suscripciones Legacy
+    Manage Subscriptions: Administrar suscripciones
   Advanced Settings:
     Advanced Settings: 'Ajustes avanzados'
     Enable Debug Mode (Prints data to the console): 'Activar modo de depuración (muestra
@@ -273,6 +279,22 @@ Settings:
     Hide Active Subscriptions: Ocultar suscripciones activas
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
     reiniciar FreeTube ahora para aplicar los cambios?
+  Proxy Settings:
+    Error getting network information. Is your proxy configured properly?: Error al
+      obtener información sobre la red. ¿Has configurado el Proxy correctamente?
+    City: Ciudad
+    Region: Región
+    Country: País
+    Ip: IP
+    Your Info: Tu información
+    Test Proxy: Probar Proxy
+    Clicking on Test Proxy will send a request to: Al cliquear en "Probar Proxy" se
+      enviará una solicitud a
+    Proxy Port Number: Número de puerto del Proxy
+    Proxy Host: Host del Proxy
+    Proxy Protocol: Protocolo Proxy
+    Enable Tor / Proxy: Habilitar Tor / Proxy
+    Proxy Settings: Proxy
 About:
   #On About page
   About: 'Acerca de'
@@ -304,6 +326,31 @@ About:
 
   Latest FreeTube News: 'Últimas noticias de FreeTube'
 
+  Donate: Donar
+  these people and projects: estas personas y proyectos
+  FreeTube is made possible by: FreeTube es posible gracias a
+  Credits: Créditos
+  Translate: Traducir
+  room rules: reglas de la sala
+  Please read the: Por favor, lee el
+  Chat on Matrix: Chat en Matrix
+  Mastodon: Mastodon
+  Email: Correo electrónico
+  Blog: Blog
+  Website: Página web
+  Please check for duplicates before posting: Por favor, antes de publicar asegúrate
+    de no duplicar temas
+  GitHub issues: Sugerencias en GitHub
+  Report a problem: Informar de un problema
+  FAQ: Preguntas frecuentes
+  FreeTube Wiki: Wiki de FreeTube
+  Help: Ayuda
+  GitHub releases: Lanzamientos de GitHub
+  Downloads / Changelog: Descargas / Changelog
+  View License: Ver licencia
+  Licensed under the AGPLv3: Licencia AGPLv3
+  Source code: Código fuente
+  Beta: Beta
 Profile:
   All Channels: 'Todos los canales'
   Profile Manager: 'Administrador de perfiles'
@@ -464,6 +511,10 @@ Video:
   Open Channel in YouTube: Visitar canal en YouTube
   Started streaming on: Comenzó a transmitir en
   Streamed on: Transmitido en
+  Video has been removed from your saved list: El video ha sido eliminado de tu lista
+    de guardados
+  Video has been saved: El video ha sido guardado
+  Save Video: Guardiar video
 Videos:
   #& Sort By
   Sort By:
