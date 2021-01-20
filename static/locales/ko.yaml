@@ -74,20 +74,22 @@ Subscriptions:
   Subscriptions: '구독'
   Latest Subscriptions: '최근 구독'
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: '이
-    프로필에서 너무 많이 구독했습니다. RSS가 제한을 피할 수 있게 강제합니다'
+    프로필에서 최대 구독 제한을 초과 하였습니다. RSS 피드 구독 수신으로 전환 합니다.'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '구독한
-    채널이 없습니다. 여기서 채널을 보려면 구독을 추가하세요.'
-  'Getting Subscriptions. Please wait.': '구독중입니다. 잠시만 기다려주세요.'
-  Refresh Subscriptions: '구독 새로고침'
+    채널이 없습니다. 구독 피드를 보려면 원하시는 채널을 구독하세요'
+  'Getting Subscriptions. Please wait.': '구독 목록을 가져오는 중입니다. 잠시만 기다려 주세요.'
+  Refresh Subscriptions: '구독 피드 새로 고침'
   Load More Videos: '더 많은 동영상 불러오기'
-Trending: '트렌드'
+Trending: '트렌딩'
 Most Popular: '인기 동영상'
-Playlists: '플레이리스트'
+Playlists: '재생 목록'
 User Playlists:
-  Your Playlists: '나의 플레이리스트'
+  Your Playlists: '나의 재생 목록'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 재생
+    목록이 없습니다. 영상의 오른쪽 아래에 있는 저장 버튼을 사용하여 재생 목록에 영상을 추가하세요
 History:
   # On History Page
-  History: '기록'
+  History: '재생 기록'
   Watch History: '시청 기록'
   Your history list is currently empty.: '기록이 없습니다.'
 Settings:
