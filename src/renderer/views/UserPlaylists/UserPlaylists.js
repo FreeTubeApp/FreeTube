@@ -28,10 +28,11 @@ export default Vue.extend({
     },
 
     activeData: function () {
+      const data = [].concat(this.favoritesPlaylist.videos).reverse()
       if (this.favoritesPlaylist.videos.length < this.dataLimit) {
-        return this.favoritesPlaylist.videos
+        return data
       } else {
-        return this.favoritesPlaylist.videos.slice(0, this.dataLimit)
+        return data.slice(0, this.dataLimit)
       }
     }
   },
