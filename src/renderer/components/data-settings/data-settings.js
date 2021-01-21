@@ -8,7 +8,7 @@ import FtPrompt from '../ft-prompt/ft-prompt.vue'
 
 import { remote } from 'electron'
 import fs from 'fs'
-import opmlToJson from 'opml-to-json'
+import { opmlToJSON } from 'opml-to-json'
 import ytch from 'yt-channel-info'
 
 const app = remote.app
@@ -357,17 +357,7 @@ export default Vue.extend({
             return
           }
 
-          opmlToJson(data, async (err, json) => {
-            if (err) {
-              console.log(err)
-              console.log('error reading')
-              const message = this.$t('Settings.Data Settings.Invalid subscriptions file')
-              this.showToast({
-                message: `${message}: ${err}`
-              })
-              return
-            }
-
+          opmlToJSON(data).then((json) => {
             let feedData = json.children[0].children
 
             if (typeof feedData === 'undefined') {
@@ -441,6 +431,13 @@ export default Vue.extend({
 
                 this.updateShowProgressBar(false)
               }
+            })
+          }).catch((err) => {
+            console.log(err)
+            console.log('error reading')
+            const message = this.$t('Settings.Data Settings.Invalid subscriptions file')
+            this.showToast({
+              message: `${message}: ${err}`
             })
           })
         })
