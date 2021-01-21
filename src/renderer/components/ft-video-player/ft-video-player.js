@@ -118,7 +118,6 @@ export default Vue.extend({
           2.25,
           2.5,
           2.75,
-          2.75,
           3
         ]
       }
