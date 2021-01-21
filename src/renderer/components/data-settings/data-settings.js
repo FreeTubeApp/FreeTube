@@ -8,7 +8,7 @@ import FtPrompt from '../ft-prompt/ft-prompt.vue'
 
 import { remote } from 'electron'
 import fs from 'fs'
-import { opmlToJSON } from "opml-to-json"
+import { opmlToJSON } from 'opml-to-json'
 import ytch from 'yt-channel-info'
 
 const app = remote.app
@@ -357,7 +357,7 @@ export default Vue.extend({
             return
           }
 
-          opmlToJSON(data).then((json)=> {
+          opmlToJSON(data).then((json) => {
             let feedData = json.children[0].children
 
             if (typeof feedData === 'undefined') {
@@ -439,7 +439,6 @@ export default Vue.extend({
             this.showToast({
               message: `${message}: ${err}`
             })
-            return
           })
         })
       })
