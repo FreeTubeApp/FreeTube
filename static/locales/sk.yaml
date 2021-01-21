@@ -63,6 +63,8 @@ Search Filters:
   Fetching results. Please wait: 'Načítavajú sa výsledky. Prosím čakajte'
   Fetch more results: 'Načítať viac výsledkov'
 # Sidebar
+  There are no more results for this search: Pre toto hľadanie nie sú k dispozícii
+    žiadne ďalšie výsledky
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Odbery'
@@ -342,6 +344,23 @@ About:
   Licensed under the AGPLv3: Na základe licencie AGPLv3
   Beta: Testovacia verzia
   Source code: Zdrojový kód
+  GitHub issues: Problémy z GitHubu
+  Report a problem: Nahlásiť problém
+  FAQ: Otázky a odpovede
+  Donate: Darujte
+  FreeTube is made possible by: FreeTube umožňujú
+  these people and projects: títo ľudia a projekty
+  Credits: Zásluhy
+  Translate: Preložiť
+  room rules: pravidlá miestností
+  Please read the: Prečítajte si
+  Chat on Matrix: Napíšte nám na Matrix-e
+  Mastodon: Mastodon
+  Email: Elektronická pošta
+  Blog: Blog
+  Website: Webstránka
+  Please check for duplicates before posting: Pred odoslaním prosím skontrolujte duplicitné
+    otázky
 Channel:
   Subscriber: 'Odberateľ'
   Subscribers: 'Odberateľov'
@@ -372,6 +391,7 @@ Channel:
   Added channel to your subscriptions: Kanál bol pridaný k vašim odberom
   Channel has been removed from your subscriptions: Kanál bol odstránený z vašich
     odberov
+  Removed subscription from $ other channel(s): Odstránené predplatné z $ iných kanálov
 Video:
   Mark As Watched: 'Označiť ako zhliadnuté'
   Remove From History: 'Vymazať z histórie'
@@ -383,7 +403,7 @@ Video:
   Copy YouTube Embedded Player Link: 'Skopírovať link na vložený prehrávač Youtube'
   Open in Invidious: 'Otvoriť v Invidious'
   Copy Invidious Link: 'Skopírovať Invidious linku'
-  View: ''
+  View: 'Pozrieť'
   Views: 'Zhliadnutí'
   # Context is "X People Watching"
   Watching: 'Sleduje'
@@ -457,6 +477,9 @@ Video:
   Open Channel in Invidious: Otvoriť kanál v Invidious
   Copy YouTube Channel Link: Skopírovať Youtube link na kanál
   Open Channel in YouTube: Otvoriť kanál v Youtube
+  Video has been removed from your saved list: Video odstránené z uložených
+  Video has been saved: Video uložené
+  Save Video: Uložiť Video
 Videos:
   #& Sort By
   Sort By:
