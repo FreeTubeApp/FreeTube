@@ -63,6 +63,8 @@ Search Filters:
   Fetching results. Please wait: 'Récupération des résultats. Veuillez patienter'
   Fetch more results: 'Montrer plus de résultats'
 # Sidebar
+  There are no more results for this search: Il n'y a plus de résultats pour cette
+    recherche
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnements'
