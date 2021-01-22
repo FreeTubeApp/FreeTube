@@ -70,6 +70,7 @@ Search Filters:
   Fetching results. Please wait: 'נאספות תוצאות. נא להמתין'
   Fetch more results: 'חיפוש תוצאות נוספות'
 # Sidebar
+  There are no more results for this search: אין תוצאות נוספות לחיפוש הזה
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'מינויים'
@@ -125,6 +126,7 @@ Settings:
       (ברירת המחדל היא https://invidious.snopyta.org)'
     Region for Trending: 'אזור לסרטונים חמים'
         #! List countries
+    View all Invidious instance information: הצגת כל פרטי העותק של Invidious
   Theme Settings:
     Theme Settings: 'הגדרת מראה'
     Match Top Bar with Main Color: 'התאמת האזור העליון לצבע הראשי'
