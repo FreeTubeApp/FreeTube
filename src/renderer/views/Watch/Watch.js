@@ -864,12 +864,16 @@ export default Vue.extend({
           console.log('update watch progress')
           this.updateWatchProgress(payload)
         }
+      }
+
+      if (!this.isUpcoming && !this.isLoading) {
+        const player = this.$refs.videoPlayer.player
 
         if (player !== null && !player.paused() && player.isInPictureInPicture()) {
           const playerId = this.videoId
           setTimeout(() => {
             player.play()
-            player.on('leavepictureinpicture', () => {
+            player.on('leavepictureinpicture', (event) => {
               const watchTime = player.currentTime()
               if (this.$route.fullPath.includes('/watch')) {
                 const routeId = this.$route.params.id

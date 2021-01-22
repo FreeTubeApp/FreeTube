@@ -83,6 +83,13 @@ Most Popular: 'Populair'
 Playlists: 'Afspeellijsten'
 User Playlists:
   Your Playlists: 'Uw afspeellijsten'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Je
+    opgeslagen video's is leeg. Klik op de video opslaan knop in de hoek van een video
+    om het hier in de lijst te plaatsen
+  Playlist Message: Deze pagina is niet reflectief van volledig functionele afspeellijst.
+    Er worden alleen video's weergegeven die jij hebt opgeslagen of gefavoriet. Wanneer
+    we klaar zijn met de ontwikkeling van deze feature zullen al deze video's worden
+    gemigreerd naar de 'favorieten' afspeellijst.
 History:
   # On History Page
   History: 'Geschiedenis'
@@ -95,7 +102,7 @@ Settings:
     General Settings: 'Algemene instellingen'
     Fallback to Non-Preferred Backend on Failure: 'Val terug op een Niet-Voorkeur
       Backend bij falen'
-    Enable Search Suggestions: 'Schakel Zoek Suggesties in'
+    Enable Search Suggestions: 'Zoeksuggesties Inschakelen'
     Default Landing Page: 'Standaard Landingspagina'
     Locale Preference: 'Locale Voorkeur'
     Preferred API Backend:
@@ -270,6 +277,7 @@ Settings:
     All watched history has been successfully imported: De bekeken geschiedenis is
       met succes geïmporteerd
     Check for Legacy Subscriptions: Controleer op Legacy Abonnementen
+    Manage Subscriptions: Beheer Abonnementen
   Distraction Free Settings:
     Hide Live Chat: Verberg Live Chat
     Hide Popular Videos: Verberg Populaire Video's
@@ -284,6 +292,22 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: De
     applicatie moet opnieuw opstarten om de veranderingen aan te brengen. Wilt u opnieuw
     opstarten?
+  Proxy Settings:
+    Error getting network information. Is your proxy configured properly?: Fout bij
+      het opvragen van netwerk informatie. Is uw proxy correct geconfigureerd?
+    City: Stad
+    Region: Regio
+    Country: Land
+    Ip: Ip
+    Your Info: Uw Informatie
+    Test Proxy: Test Proxy
+    Clicking on Test Proxy will send a request to: Door op Test Proxy te klikken zal
+      er een request worden verstuurd naar
+    Proxy Port Number: Proxy Poortnummer
+    Proxy Host: Proxy Host
+    Proxy Protocol: Proxy Protocol
+    Enable Tor / Proxy: Tor / Proxy Inschakelen
+    Proxy Settings: Proxy Instellingen
 About:
   #On About page
   About: 'Over'
@@ -316,6 +340,31 @@ About:
   Latest FreeTube News: 'Laatste FreeTube nieuws'
 
 #On Channel Page
+  Donate: Doneer
+  these people and projects: deze mensen en project
+  FreeTube is made possible by: FreeTube is mogelijk gemaakt door
+  Credits: Met dank aan
+  Translate: Vertalen
+  room rules: room regels
+  Please read the: Lees alstublieft de
+  Chat on Matrix: Chat op Matrix
+  Mastodon: Mastodon
+  Email: Email
+  Blog: Blog
+  Website: Website
+  Please check for duplicates before posting: Controleer op duplicaten voordat u een
+    issue post
+  GitHub issues: GitHub issues
+  Report a problem: Rapporteer een probleem
+  FAQ: Veelgestelde vragen
+  FreeTube Wiki: FreeTube Wiki
+  Help: Hulp
+  GitHub releases: GitHub releases
+  Downloads / Changelog: Downloads / Changelog
+  View License: Bekijk Licentie
+  Licensed under the AGPLv3: Vrijgegeven onder de AGPLv3 licentie
+  Source code: Broncode
+  Beta: Beta
 Channel:
   Subscriber: 'Abonnee'
   Subscribers: 'Abonnees'
@@ -433,6 +482,10 @@ Video:
   Open Channel in YouTube: Open Kanaal op YouTube
   Started streaming on: Gestart met streamen op
   Streamed on: Gestreamd op
+  Video has been removed from your saved list: Video is verwijderd uit uw opgeslagen
+    video's lijst
+  Video has been saved: Video is opgeslagen
+  Save Video: Video Opslaan
 Videos:
   #& Sort By
   Sort By:

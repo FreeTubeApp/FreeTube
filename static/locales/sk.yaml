@@ -63,6 +63,8 @@ Search Filters:
   Fetching results. Please wait: 'Načítavajú sa výsledky. Prosím čakajte'
   Fetch more results: 'Načítať viac výsledkov'
 # Sidebar
+  There are no more results for this search: Pre toto hľadanie nie sú k dispozícii
+    žiadne ďalšie výsledky
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Odbery'
@@ -80,6 +82,11 @@ Most Popular: 'Najpopulárnejšie'
 Playlists: 'Zoznamy'
 User Playlists:
   Your Playlists: 'Vaše zoznamy'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Vaše
+    uložené videá sú prázdne. Kliknutím na tlačidlo uložiť v rohu videa ho tu zobrazíte
+  Playlist Message: Táto stránka neodráža plne funkčné zoznamy videí. Uvádza iba zoznam
+    videí, ktoré ste uložili alebo zaradili medzi obľúbené. Po dokončení práce sa
+    všetky videá, ktoré sa tu nachádzajú, migrujú do zoznamu „Obľúbené“.
 History:
   # On History Page
   History: 'História'
@@ -252,6 +259,7 @@ Settings:
     Select Export Type: Vybrať typ exportu
     Select Import Type: Vybrať typ importu
     Data Settings: Nastavenia dát
+    Manage Subscriptions: Spravovať odbery
   Distraction Free Settings:
     Hide Live Chat: Skryť živý chat
     Hide Popular Videos: Skryť populárne videá
@@ -262,6 +270,7 @@ Settings:
     Hide Video Likes And Dislikes: Skryť palce hore a dolu na videách
     Hide Video Views: Skryť počet zhliadnutí
     Distraction Free Settings: Nastavenia nerušenia
+    Hide Active Subscriptions: Skryť aktívne odbery
   Privacy Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Naozaj
       chcete odstrániť všetky odbery a profily? Toto je nenávratná akcia.
@@ -279,6 +288,22 @@ Settings:
     Search cache has been cleared: Vyrovnávacia pamäť vyhľadávania bola vymazaná
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikácia
     požaduje reštartovanie aby sa prejavili zmeny. Reštartovať a aplikovať zmeny?
+  Proxy Settings:
+    Error getting network information. Is your proxy configured properly?: Chyba pri
+      získavaní informácií o sieti. Je váš server proxy správne nakonfigurovaný?
+    City: Mesto
+    Region: Región
+    Country: Krajina
+    Ip: Internetový Protokol
+    Your Info: Informácie o Vás
+    Test Proxy: Vyskúšať proxy
+    Clicking on Test Proxy will send a request to: Kliknutím na "Vyskúšať Proxy" pošlete
+      žiadosť do
+    Proxy Port Number: Číslo portu proxy servera
+    Proxy Host: Proxy Hosť
+    Proxy Protocol: Proxy Protokol
+    Enable Tor / Proxy: Povoliť Tor / server Proxy
+    Proxy Settings: Nastavenia servera proxy
 About:
   #On About page
   About: 'O FreeTube'
@@ -311,6 +336,31 @@ About:
   Latest FreeTube News: 'Najnovšie správy o FreeTube'
 
 #On Channel Page
+  FreeTube Wiki: Wiki FreeTube
+  Help: Pomoc
+  GitHub releases: Vydania na GitHube
+  Downloads / Changelog: Súbory na stiahnutie / Zoznam zmien
+  View License: Zobraziť licenciu
+  Licensed under the AGPLv3: Na základe licencie AGPLv3
+  Beta: Testovacia verzia
+  Source code: Zdrojový kód
+  GitHub issues: Problémy z GitHubu
+  Report a problem: Nahlásiť problém
+  FAQ: Otázky a odpovede
+  Donate: Darujte
+  FreeTube is made possible by: FreeTube umožňujú
+  these people and projects: títo ľudia a projekty
+  Credits: Zásluhy
+  Translate: Preložiť
+  room rules: pravidlá miestností
+  Please read the: Prečítajte si
+  Chat on Matrix: Napíšte nám na Matrix-e
+  Mastodon: Mastodon
+  Email: Elektronická pošta
+  Blog: Blog
+  Website: Webstránka
+  Please check for duplicates before posting: Pred odoslaním prosím skontrolujte duplicitné
+    otázky
 Channel:
   Subscriber: 'Odberateľ'
   Subscribers: 'Odberateľov'
@@ -341,6 +391,7 @@ Channel:
   Added channel to your subscriptions: Kanál bol pridaný k vašim odberom
   Channel has been removed from your subscriptions: Kanál bol odstránený z vašich
     odberov
+  Removed subscription from $ other channel(s): Odstránené predplatné z $ iných kanálov
 Video:
   Mark As Watched: 'Označiť ako zhliadnuté'
   Remove From History: 'Vymazať z histórie'
@@ -352,7 +403,7 @@ Video:
   Copy YouTube Embedded Player Link: 'Skopírovať link na vložený prehrávač Youtube'
   Open in Invidious: 'Otvoriť v Invidious'
   Copy Invidious Link: 'Skopírovať Invidious linku'
-  View: ''
+  View: 'Pozrieť'
   Views: 'Zhliadnutí'
   # Context is "X People Watching"
   Watching: 'Sleduje'
@@ -426,6 +477,9 @@ Video:
   Open Channel in Invidious: Otvoriť kanál v Invidious
   Copy YouTube Channel Link: Skopírovať Youtube link na kanál
   Open Channel in YouTube: Otvoriť kanál v Youtube
+  Video has been removed from your saved list: Video odstránené z uložených
+  Video has been saved: Video uložené
+  Save Video: Uložiť Video
 Videos:
   #& Sort By
   Sort By:

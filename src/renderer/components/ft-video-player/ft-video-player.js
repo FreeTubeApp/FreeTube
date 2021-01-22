@@ -76,6 +76,8 @@ export default Vue.extend({
       maxFramerate: 0,
       activeSourceList: [],
       mouseTimeout: null,
+      touchTimeout: null,
+      lastTouchTime: null,
       dataSetup: {
         fluid: true,
         nativeTextTracks: false,
@@ -115,7 +117,6 @@ export default Vue.extend({
           2,
           2.25,
           2.5,
-          2.75,
           2.75,
           3
         ]
@@ -284,7 +285,7 @@ export default Vue.extend({
         return
       }
 
-      if (videoWidth < videoHeight) {
+      if ((videoWidth - videoHeight) <= 240) {
         this.player.fluid(false)
         this.player.aspectRatio('16:9')
       }
@@ -717,6 +718,25 @@ export default Vue.extend({
           })
         })
       }
+    },
+
+    handleTouchStart: function (event) {
+      const v = this
+      this.touchPauseTimeout = setTimeout(() => {
+        v.togglePlayPause()
+      }, 1000)
+
+      const touchTime = new Date()
+
+      if (this.lastTouchTime !== null && (touchTime.getTime() - this.lastTouchTime.getTime()) < 250) {
+        this.toggleFullscreen()
+      }
+
+      this.lastTouchTime = touchTime
+    },
+
+    handleTouchEnd: function (event) {
+      clearTimeout(this.touchPauseTimeout)
     },
 
     keyboardShortcutHandler: function (event) {

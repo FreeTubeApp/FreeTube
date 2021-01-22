@@ -69,6 +69,7 @@ Search Filters:
   Search Results: Search Results
   Fetching results. Please wait: Fetching results. Please wait
   Fetch more results: Fetch more results
+  There are no more results for this search: There are no more results for this search
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
@@ -86,8 +87,11 @@ Most Popular: Most Popular
 Playlists: Playlists
 User Playlists:
   Your Playlists: Your Playlists
-  Playlist Message: This page is not reflective of fully working playlists. It only lists videos that you have saved or favorited. When the work has finished, all videos currently here will be migrated to a 'Favorites' playlist.
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Your saved videos are empty. Click on the save button on the corner of a video to have it listed here
+  Playlist Message: This page is not reflective of fully working playlists. It only
+    lists videos that you have saved or favorited. When the work has finished, all
+    videos currently here will be migrated to a 'Favorites' playlist.
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Your saved videos are empty. Click on the save button on the corner of a video to have
+    it listed here
 History:
   # On History Page
   History: History
@@ -123,6 +127,7 @@ Settings:
       End: End
     'Invidious Instance (Default is https://invidious.snopyta.org)': Invidious Instance
       (Default is https://invidious.snopyta.org)
+    View all Invidious instance information: View all Invidious instance information
     Region for Trending: Region for Trending
         #! List countries
   Theme Settings:

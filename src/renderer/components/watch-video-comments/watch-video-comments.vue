@@ -1,8 +1,5 @@
 <template>
   <ft-card>
-    <ft-loader
-      v-if="isLoading"
-    />
     <h4
       v-if="commentData.length === 0 && !isLoading"
       class="getCommentsTitle"
@@ -148,6 +145,9 @@
     >
       {{ $t("Comments.Load More Comments") }}
     </h4>
+    <ft-loader
+      v-if="isLoading"
+    />
   </ft-card>
 </template>
 

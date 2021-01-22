@@ -82,6 +82,13 @@ Most Popular: 'Popularne'
 Playlists: 'Playlisty'
 User Playlists:
   Your Playlists: 'Twoje playlisty'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Nie
+    masz zachowanych filmów. Kliknij przycisk „Zachowaj” w rogu filmu, aby został
+    tu wymieniony.
+  Playlist Message: Ta strona nie odzwierciedla w pełni działających playlist. Są
+    tu jedynie wymienione filmy, które zachowałeś lub oznaczyłeś jako ulubione. Kiedy
+    prace nad tą stroną zostaną zakończone, wszystkie filmy tu obecne zostaną przeniesione
+    do playlisty „Ulubione”.
 History:
   # On History Page
   History: 'Historia'
@@ -269,7 +276,7 @@ Settings:
     Select Import Type: Wybierz typ importu
     Data Settings: Ustawienia danych
     One or more subscriptions were unable to be imported: Nie można było zaimportować
-      conajmniej jednej subskrypcji
+      co najmniej jednej subskrypcji
     Check for Legacy Subscriptions: Sprawdź subskrypcje ze starej wersji
     Manage Subscriptions: Zarządzaj subskrypcjami
   Distraction Free Settings:
@@ -351,6 +358,22 @@ About:
   Useful Links: Przydatne linki
   Help: Pomoc
   Contact: Kontakt
+  these people and projects: tym ludziom i projektom
+  Translate: Przetłumacz
+  room rules: zasady pokoju
+  Chat on Matrix: Czat na Matrix
+  Mastodon: Mastodon
+  Please read the: Proszę przeczytać
+  Please check for duplicates before posting: Proszę poszukać duplikatów przed wysłaniem
+  GitHub issues: problemy na GitHub
+  Report a problem: Zgłoś problem
+  FreeTube Wiki: Wiki FreeTube
+  GitHub releases: wydania na GitHub
+  Downloads / Changelog: Wydania / Lista zmian
+  View License: Zobacz licencję
+  Licensed under the AGPLv3: Na licencji AGPLv3
+  Source code: Kod źródłowy
+  FreeTube is made possible by: FreeTube powstał dzięki
 Channel:
   Subscriber: 'Subskrybent/ka'
   Subscribers: 'subskrybentów'
@@ -469,6 +492,10 @@ Video:
   Open Channel in YouTube: Otwórz kanał na stronie YouTube
   Started streaming on: Rozpoczęto transmitowanie dnia
   Streamed on: Transmitowane dnia
+  Video has been removed from your saved list: Film został usunięty z twojej listy
+    zachowanych
+  Video has been saved: Film został zachowany
+  Save Video: Zachowaj film
 Videos:
   #& Sort By
   Sort By:

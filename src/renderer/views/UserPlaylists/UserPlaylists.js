@@ -3,6 +3,7 @@ import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtTooltip from '../../components/ft-tooltip/ft-tooltip.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
+import FtButton from '../../components/ft-button/ft-button.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 
 export default Vue.extend({
@@ -12,6 +13,7 @@ export default Vue.extend({
     'ft-flex-box': FtFlexBox,
     'ft-tooltip': FtTooltip,
     'ft-loader': FtLoader,
+    'ft-button': FtButton,
     'ft-element-list': FtElementList
   },
   data: function () {
@@ -26,10 +28,11 @@ export default Vue.extend({
     },
 
     activeData: function () {
+      const data = [].concat(this.favoritesPlaylist.videos).reverse()
       if (this.favoritesPlaylist.videos.length < this.dataLimit) {
-        return this.favoritesPlaylist.videos
+        return data
       } else {
-        return this.favoritesPlaylist.videos.slice(0, this.dataLimit)
+        return data.slice(0, this.dataLimit)
       }
     }
   },

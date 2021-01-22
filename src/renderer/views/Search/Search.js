@@ -16,6 +16,8 @@ export default Vue.extend({
   data: function () {
     return {
       isLoading: false,
+      apiUsed: 'local',
+      amountOfResults: 0,
       query: '',
       searchPage: 1,
       nextPageRef: '',
@@ -122,6 +124,10 @@ export default Vue.extend({
           return
         }
 
+        this.apiUsed = 'local'
+
+        this.amountOfResults = result.results
+
         const returnData = result.items.filter((item) => {
           if (typeof item !== 'undefined') {
             return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
@@ -179,7 +185,8 @@ export default Vue.extend({
           query: payload.query,
           data: this.shownResults,
           searchSettings: this.searchSettings,
-          nextPageRef: result.continuation
+          nextPageRef: result.continuation,
+          amountOfResults: result.results
         }
 
         this.$store.commit('addToSessionSearchHistory', historyPayload)
@@ -227,6 +234,8 @@ export default Vue.extend({
         if (!result) {
           return
         }
+
+        this.apiUsed = 'invidious'
 
         console.log(result)
 
@@ -287,13 +296,21 @@ export default Vue.extend({
 
       console.log(payload)
 
-      this.showToast({
-        message: this.$t('Search Filters["Fetching results. Please wait"]')
-      })
-
-      if (this.nextPageRef !== '') {
-        this.performSearchLocal(payload)
+      if (this.apiUsed === 'local') {
+        if (this.amountOfResults <= this.shownResults.length) {
+          this.showToast({
+            message: this.$t('Search Filters.There are no more results for this search')
+          })
+        } else {
+          this.showToast({
+            message: this.$t('Search Filters["Fetching results. Please wait"]')
+          })
+          this.performSearchLocal(payload)
+        }
       } else {
+        this.showToast({
+          message: this.$t('Search Filters["Fetching results. Please wait"]')
+        })
         this.performSearchInvidious(payload)
       }
     },
@@ -302,6 +319,7 @@ export default Vue.extend({
       this.query = history.query
       this.shownResults = history.data
       this.searchSettings = history.searchSettings
+      this.amountOfResults = history.amountOfResults
 
       if (typeof (history.nextPageRef) !== 'undefined') {
         this.nextPageRef = history.nextPageRef

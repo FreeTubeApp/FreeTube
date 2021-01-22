@@ -266,6 +266,7 @@ Settings:
     One or more subscriptions were unable to be imported: تعذر استيراد واحد أو أكثر
       من الاشتراكات
     Check for Legacy Subscriptions: تحقق من وجود اشتراك قديم
+    Manage Subscriptions: إدارة الإشتراكات
   Distraction Free Settings:
     Hide Live Chat: اخفي الدردشة المباشرة
     Hide Popular Videos: اخفي الفيديوهات الأكثر شعبية
@@ -278,6 +279,18 @@ Settings:
     Distraction Free Settings: إعدادات عدم الإزعاج
   The app needs to restart for changes to take effect. Restart and apply change?: البرنامج
     يحتاج لإعادة التشغيل كي يسري مفعول التغييرات. هل تريد إعادة التشغيل و تطبيق التغييرات؟
+  Proxy Settings:
+    City: المدينة
+    Region: المنطقة
+    Country: البلد
+    Ip: عنوان الإيبي
+    Your Info: معلوماتك
+    Test Proxy: اختبار البروكسي
+    Proxy Port Number: رقم منفذ البروكسي
+    Proxy Host: خادوم البروكسي
+    Proxy Protocol: بروتوكول البروكسي
+    Enable Tor / Proxy: تفعيل تور / البروكسي
+    Proxy Settings: خيارات البروكسي
 About:
   #On About page
   About: 'حول'
@@ -309,6 +322,19 @@ About:
 
   Latest FreeTube News: 'آخر أخبار FreeTube'
 
+  Donate: التبرع
+  Translate: ساعدنا في ترجمة Freetube
+  Chat on Matrix: الدردشة على ماتريكس
+  Mastodon: ماستدون
+  Email: البريد الإلكتروني
+  Blog: المدوّنة
+  Website: موقع الويب
+  Report a problem: الإبلاغ عن مشكلة
+  FAQ: الأسئلة المتداولة
+  Help: المساعدة
+  View License: اعرض الرخصة
+  Source code: الشفرة المصدرية
+  Beta: تجريبي
 Profile:
   All Channels: 'جميع القنوات'
   Profile Manager: 'مدير الملف الشخصي'
@@ -466,6 +492,8 @@ Video:
   Open Channel in Invidious: افتح القناة على انفيديوس
   Copy YouTube Channel Link: انسخ رابط قناة اليوتيوب
   Open Channel in YouTube: افتح القناة على يوتيوب
+  Video has been saved: تم حفظ الفيديو
+  Save Video: احفظ الفيديو
 Videos:
   #& Sort By
   Sort By:

@@ -82,6 +82,13 @@ Most Popular: Am beliebtesten
 Playlists: Wiedergabelisten
 User Playlists:
   Your Playlists: Deine Wiedergabelisten
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Deine
+    gespeicherten Videos sind leer. Klicken Sie auf die Schaltfläche "Speichern" in
+    der Ecke eines Videos, damit es hier aufgelistet wird
+  Playlist Message: Diese Seite spiegelt nicht die vollständig funktionierenden Wiedergabelisten
+    wider. Sie listet nur Videos auf, die Sie gespeichert oder favorisiert haben.
+    Wenn die Arbeiten abgeschlossen sind, werden alle Videos, die sich derzeit hier
+    befinden, in eine Wiedergabeliste "Favoriten" migriert.
 History:
   # On History Page
   History: Verlauf
@@ -272,6 +279,7 @@ Settings:
     Select Import Type: Wähle Importtyp
     Data Settings: Dateneinstellungen
     Check for Legacy Subscriptions: Prüfung auf Altabonnements
+    Manage Subscriptions: Abonnements verwalten
   Distraction Free Settings:
     Hide Live Chat: Live-Chat verbergen
     Hide Popular Videos: Beliebte Videos verbergen
@@ -286,6 +294,22 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: Um
     die Änderungen anzuwenden muss die Anwendung neustarten. Jetzt neustarten und
     Änderungen aktivieren?
+  Proxy Settings:
+    Ip: IP-Adresse
+    Error getting network information. Is your proxy configured properly?: Fehler
+      beim Abrufen von Netzwerkinformationen. Ist dein Proxy richtig konfiguriert?
+    City: Stadt
+    Region: Region / Bundesland
+    Country: Land / Nation
+    Your Info: Deine Info
+    Test Proxy: Proxy testen
+    Clicking on Test Proxy will send a request to: In dem du auf Proxy Testen klickst,
+      schickst du eine Anfrage an
+    Proxy Port Number: Proxy-Portnummer
+    Proxy Host: Proxy-Host
+    Proxy Protocol: Proxy-Protokoll
+    Enable Tor / Proxy: Tor / Proxy aktivieren
+    Proxy Settings: Proxy-Einstellungen
 About:
   #On About page
   About: Über
@@ -338,12 +362,29 @@ About:
   Useful Links: Nützliche Links
   Help: Hilfe
   Contact: Kontakt
+  these people and projects: diesen Menschen und Projekten
+  FreeTube is made possible by: FreeTube wird ermöglicht von
+  Translate: Übersetzen
+  room rules: Raum-Regeln
+  Please read the: Bitte lese die
+  Chat on Matrix: Chatten bei Matrix
+  Mastodon: Mastodon
+  Please check for duplicates before posting: Bitte überprüfe vor dem absenden, ob
+    es Duplikate gibt
+  GitHub issues: GitHub Issues
+  Report a problem: Problem melden
+  FreeTube Wiki: FreeTube Wiki
+  GitHub releases: GitHub Veröffentlichungen
+  Downloads / Changelog: Downloads / Änderungsverlauf
+  View License: Lizenz einsehen
+  Licensed under the AGPLv3: Lizensiert unter der AGPLv3
+  Source code: Quellcode
 Channel:
   Subscriber: Abonnement
   Subscribers: Abonnements
   Subscribe: Abonnieren
   Unsubscribe: Deabonnieren
-  Search Channel: Suche Kanal
+  Search Channel: Durchsuche Kanal
   Your search results have returned 0 results: Deine Suche hat 0 Ergebnisse geliefert
   Sort By: Sortiere nach
   Videos:
@@ -455,6 +496,10 @@ Video:
   Open Channel in YouTube: Kanal auf YouTube öffnen
   Started streaming on: Streaming angefangen am
   Streamed on: Gestreamt am
+  Video has been removed from your saved list: Video wurde aus der Liste der gespeicherten
+    Videos entfernt
+  Video has been saved: Video wurde gespeichert
+  Save Video: Video speichern
 Videos:
   #& Sort By
   Sort By:

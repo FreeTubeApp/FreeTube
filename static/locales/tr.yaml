@@ -70,6 +70,7 @@ Search Filters:
   Fetching results. Please wait: 'Sonuçlar yükleniyor. Lütfen bekleyin'
   Fetch more results: 'Daha fazla sonuç yükle'
 # Sidebar
+  There are no more results for this search: Bu arama için başka sonuç yok
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonelikler'
@@ -124,10 +125,11 @@ Settings:
       Beginning: 'Başlangıç'
       Middle: 'Orta'
       End: 'Bitiş'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious Oluşumu
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious Örneği
       (Varsayılan https://invidious.snopyta.org)'
-    Region for Trending: 'Trendler İçin Ülke Tercihi'
+    Region for Trending: 'Trendler İçin Bölge Tercihi'
         #! List countries
+    View all Invidious instance information: Tüm Invidious örnek bilgilerini görüntüle
   Theme Settings:
     Theme Settings: 'Tema Ayarları'
     Match Top Bar with Main Color: 'Üst Barı Ana Renk ile Eşleştir'
@@ -135,9 +137,9 @@ Settings:
       Base Theme: 'Uygulama Teması'
       Black: 'Siyah'
       Dark: 'Koyu'
-      Light: 'Aydınlık'
+      Light: 'Açık'
     Main Color Theme:
-      Main Color Theme: 'Ana Renk'
+      Main Color Theme: 'Ana Renk Teması'
       Red: 'Kırmızı'
       Pink: 'Pembe'
       Purple: 'Mor'
@@ -154,7 +156,7 @@ Settings:
       Amber: 'Kehribar Rengi'
       Orange: 'Turuncu'
       Deep Orange: 'Koyu Turuncu'
-    Secondary Color Theme: 'İkincil Renk'
+    Secondary Color Theme: 'İkincil Renk Teması'
         #* Main Color Theme
     UI Scale: Kullanıcı Arayüzü Ölçeği
     Expand Side Bar by Default: Yan Çubuğu Öntanımlı Olarak Genişlet
@@ -173,7 +175,7 @@ Settings:
     Default Playback Rate: 'Varsayılan Oynatma Hızı'
     Default Video Format:
       Default Video Format: 'Varsayılan Video Biçimi'
-      Dash Formats: 'Dash Biçimi'
+      Dash Formats: 'Dash Biçimleri'
       Legacy Formats: 'Eski Biçimler'
       Audio Formats: 'Ses Biçimi'
     Default Quality:
@@ -352,6 +354,23 @@ About:
   Useful Links: Faydalı Bağlantılar
   Help: Yardım
   Contact: İletişim
+  these people and projects: bu kişiler ve projeler
+  FreeTube is made possible by: FreeTube'e katkıda bulunanlar
+  Translate: Çevir
+  room rules: oda kuralları
+  Please read the: Lütfen okuyun
+  Chat on Matrix: Matrix'te sohbet et
+  Mastodon: Mastodon
+  Please check for duplicates before posting: Lütfen göndermeden önce yinelenmeleri
+    denetleyin
+  GitHub issues: GitHub sorunları
+  Report a problem: Sorun bildir
+  FreeTube Wiki: FreeTube Wiki
+  GitHub releases: GitHub yayınları
+  Downloads / Changelog: İndirmeler / Değişiklikler
+  View License: Lisansı Görüntüle
+  Licensed under the AGPLv3: AGPLv3 altında lisanslanmıştır
+  Source code: Kaynak kodları
 Profile:
   Profile Select: 'Profil Seçimi'
   All Channels: 'Tüm Kanallar'
@@ -625,9 +644,9 @@ Tooltips:
       tarafından döndürülen videolar ülke kısıtlamaları nedeniyle oynatılmadığında
       yardımcı olur
   General Settings:
-    Invidious Instance: FreeTube'un API çağrıları için bağlanacağı Invidious sunucusu.
-      Aralarından seçim yapabileceğiniz herkese açık sunucuların bir listesini görmek
-      için geçerli sunucuyu temizleyin
+    Invidious Instance: FreeTube'un API çağrıları için bağlanacağı Invidious örneği.
+      Aralarından seçim yapabileceğiniz herkese açık örneklerin bir listesini görmek
+      için geçerli örneği temizleyin
     Thumbnail Preference: FreeTube'daki tüm küçük resimler, öntanımlı küçük resim
       yerine videonun bir karesiyle değiştirilecektir
     Fallback to Non-Preferred Backend on Failure: Etkinleştirildiğinde, tercih ettiğiniz

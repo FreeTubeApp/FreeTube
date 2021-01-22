@@ -70,6 +70,8 @@ Search Filters:
   Fetching results. Please wait: 'Mengambil hasil. Silakan tunggu'
   Fetch more results: 'Ambil lebih banyak hasil'
 # Sidebar
+  There are no more results for this search: Tidak ada hasil lagi untuk pencarian
+    ini
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Langganan'
@@ -87,6 +89,8 @@ Most Popular: 'Paling Populer'
 Playlists: 'Daftar Putar'
 User Playlists:
   Your Playlists: 'Daftar Putar anda'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Penyimpanan
+    video Anda kosong. Klik tombol simpan pada pojok video untuk menyimpannya di sini
 History:
   # On History Page
   History: 'Riwayat'
@@ -122,6 +126,7 @@ Settings:
       (Bawaan: https://invidious.snopyta.org)'
     Region for Trending: 'Wilayah untuk Sedang Tren'
         #! List countries
+    View all Invidious instance information: Lihat semua informasi situs Invidious
   Theme Settings:
     Theme Settings: 'Pengaturan Tema'
     Match Top Bar with Main Color: 'Samakan Bilah Atas dengan Warna Utama'

@@ -62,6 +62,7 @@ Search Filters:
   Fetching results. Please wait: '結果の取得中。お待ちください'
   Fetch more results: 'もっと見る'
 # Sidebar
+  There are no more results for this search: 検索結果は、これ以上ありません
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: '登録チャンネル'
@@ -78,6 +79,8 @@ Most Popular: '人気'
 Playlists: '再生リスト'
 User Playlists:
   Your Playlists: 'あなたの再生リスト'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 保存した動画はありません。一覧に表示させるには、ビデオの角にある保存ボタンをクリックする
+  Playlist Message: このページは、完全に動作するプレイリストではありません。保存またはお気に入りと設定した動画のみが表示されます。操作が完了すると、現在ここにあるすべての動画は「お気に入り」のプレイリストに移動します。
 History:
   # On History Page
   History: '履歴'
@@ -112,6 +115,7 @@ Settings:
         #! List countries
     Check for Latest Blog Posts: 新着ブログの確認
     Check for Updates: 最新版の確認
+    View all Invidious instance information: すべての Invidious インスタンス情報の表示
   Theme Settings:
     Theme Settings: 'テーマの設定'
     Match Top Bar with Main Color: '上部バーをメイン カラーと同じにする'
@@ -250,6 +254,7 @@ Settings:
     Data Settings: データ設定
     One or more subscriptions were unable to be imported: いくつかの登録チャンネルはインポートできませんでした
     Check for Legacy Subscriptions: 旧型式の登録チャンネルの確認
+    Manage Subscriptions: 登録チャンネルの管理
   Distraction Free Settings:
     Hide Live Chat: ライブチャットの非表示
     Hide Popular Videos: 人気動画の非表示
@@ -262,6 +267,20 @@ Settings:
     Distraction Free Settings: 集中モード
     Hide Active Subscriptions: 使用中の登録チャンネルの非表示
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
+  Proxy Settings:
+    Error getting network information. Is your proxy configured properly?: ネットワーク情報の取得中にエラーが発生しました。プロキシーを正しく設定してますか?
+    City: 都市名
+    Region: 地域
+    Country: 国名
+    Ip: Ip
+    Your Info: あなたの情報
+    Test Proxy: テスト プロキシー
+    Clicking on Test Proxy will send a request to: テスト プロキシーをクリックして、送信するリクエスト先は
+    Proxy Port Number: プロキシーのポート番号
+    Proxy Host: プロキシーのホスト
+    Proxy Protocol: プロキシーのプロトコル
+    Enable Tor / Proxy: Tor / プロキシーの有効化
+    Proxy Settings: プロキシーの設定
 About:
   #On About page
   About: 'About'
@@ -290,6 +309,30 @@ About:
   Latest FreeTube News: 'FreeTube 新着情報'
 
 #On Channel Page
+  Donate: 寄付
+  FreeTube is made possible by: FreeTube が実現できているのは
+  these people and projects: これらの人々とプロジェクト
+  Credits: クレジット
+  Translate: 翻訳
+  room rules: ルームの規則
+  Please read the: ご覧ください
+  Chat on Matrix: Matrix でチャット
+  Mastodon: Mastodon
+  Email: メール アドレス
+  Blog: ブログ
+  Website: WEB サイト
+  Please check for duplicates before posting: 投稿する前に重複を確認してください
+  GitHub issues: GitHub の課題ツール
+  Report a problem: 問題の報告
+  FAQ: よくある質問
+  FreeTube Wiki: FreeTube の Wiki
+  Help: ヘルプ
+  GitHub releases: GitHub リリース
+  Downloads / Changelog: ダウンロード / 変更ログ
+  View License: ライセンスの表示
+  Licensed under the AGPLv3: AGPLv3 の下でライセンス供与
+  Source code: ソースコード
+  Beta: ベータ
 Channel:
   Subscriber: '人の登録者'
   Subscribers: '人の登録者'
@@ -399,6 +442,9 @@ Video:
   Open Channel in YouTube: YouTube でチャンネル表示
   Started streaming on: ライブ配信の開始
   Streamed on: ライブ配信
+  Video has been removed from your saved list: 動画を保存一覧から削除しました
+  Video has been saved: ビデオを保存しました
+  Save Video: 動画の保存
 Videos:
   #& Sort By
   Sort By:

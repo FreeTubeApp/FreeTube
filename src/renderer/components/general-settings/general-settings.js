@@ -138,7 +138,7 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    const requestUrl = 'https://instances.invidio.us/instances.json'
+    const requestUrl = 'https://api.invidious.io/instances.json'
     $.getJSON(requestUrl, (response) => {
       console.log(response)
       const instances = response.filter((instance) => {

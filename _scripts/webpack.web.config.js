@@ -107,7 +107,8 @@ const config = {
     fs: 'empty',
     net: 'empty',
     tls: 'empty',
-    child_process: 'empty'
+    child_process: 'empty',
+    dns: 'empty'
   },
   plugins: [
     // new WriteFilePlugin(),

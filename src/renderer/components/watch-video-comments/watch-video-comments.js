@@ -5,10 +5,7 @@ import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtTimestampCatcher from '../../components/ft-timestamp-catcher/ft-timestamp-catcher.vue'
 import autolinker from 'autolinker'
-import { fork } from 'child_process'
-import path from 'path'
-// eslint-disable-next-line
-import commentControllerRelativePath from 'file-loader!../../../process/comment-module-controller.js'
+import ytcm from 'yt-comment-scraper'
 
 export default Vue.extend({
   name: 'WatchVideoComments',
@@ -93,8 +90,9 @@ export default Vue.extend({
       this.sortNewest = !this.sortNewest
       switch (this.backendPreference) {
         case 'local':
-          console.log('In handle')
-          this.sortingChanged = true
+          this.isLoading = true
+          this.commentData = []
+          this.nextPageToken = undefined
           this.getCommentDataLocal()
           break
         case 'invidious':
@@ -122,7 +120,6 @@ export default Vue.extend({
         this.showToast({
           message: this.$t('Comments.There are no more comments for this video')
         })
-        this.getCommentData()
       } else {
         this.getCommentData()
       }
@@ -144,90 +141,72 @@ export default Vue.extend({
     },
 
     getCommentDataLocal: function () {
-      // we need the path from the working directory to fork correctly
-      if (this.commentProcess === null) {
-        let modulePath
-        if (this.isDev) {
-          modulePath = '../../../process/comment-module-controller.js'
-        } else {
-          modulePath = commentControllerRelativePath
-        }
-
-        this.commentProcess = fork(path.join(__dirname, modulePath), ['args'], {
-          stdio: ['pipe', 'pipe', 'pipe', 'ipc']
-        })
-
-        this.commentProcess.on('message', (msg) => {
-          if (msg.error === null) {
-            const commentJSON = JSON.parse(msg.comments)
-            if (commentJSON === null) {
-              this.showToast({
-                message: this.$t('Comments.No more comments available'),
-                time: 7000,
-                action: () => {
-                }
-              })
-              this.isLoading = false
-            } else {
-              // console.log(msg.comments)
-              const commentData = commentJSON.map((comment) => {
-                comment.showReplies = false
-                comment.dataType = 'local'
-                this.toLocalePublicationString({
-                  publishText: (comment.time + ' ago'),
-                  templateString: this.$t('Video.Publicationtemplate'),
-                  timeStrings: this.$t('Video.Published'),
-                  liveStreamString: this.$t('Video.Watching'),
-                  upcomingString: this.$t('Video.Published.Upcoming'),
-                  isLive: false,
-                  isUpcoming: false,
-                  isRSS: false
-                }).then((data) => {
-                  comment.time = data
-                }).catch((error) => {
-                  console.error(error)
-                })
-                if (this.hideCommentLikes) {
-                  comment.likes = null
-                }
-                comment.text = autolinker.link(comment.text)
-                comment.replies.forEach((reply) => {
-                  reply.text = autolinker.link(reply.text)
-                })
-                return comment
-              })
-              if (this.sortingChanged) {
-                this.commentData = []
-                this.sortingChanged = false
-              }
-              this.commentData = this.commentData.concat(commentData)
-              this.isLoading = false
-              this.showComments = true
-              this.nextPageToken = ''
-            }
-          } else {
-            console.log(msg.error)
-            const errorMessage = this.$t('Local API Error (Click to copy)')
-            this.showToast({
-              message: `${errorMessage}: ${msg.error}`,
-              time: 10000,
-              action: () => {
-                navigator.clipboard.writeText(msg.error)
-              }
-            })
-            if (this.backendFallback && this.backendPreference === 'local') {
-              this.showToast({
-                message: this.$t('Falling back to Invidious API')
-              })
-              this.getCommentDataInvidious()
-            } else {
-              this.isLoading = false
-            }
-          }
-        })
+      const payload = {
+        videoId: this.id,
+        setCookie: false,
+        sortByNewest: this.sortNewest,
+        continuation: this.nextPageToken ? this.nextPageToken : undefined
       }
 
-      this.commentProcess.send({ id: this.id, sortNewest: this.sortNewest })
+      ytcm.getComments(payload).then((response) => {
+        console.log(response)
+        const commentData = response.comments.map((comment) => {
+          comment.showReplies = false
+          comment.dataType = 'local'
+          this.toLocalePublicationString({
+            publishText: (comment.time + ' ago'),
+            templateString: this.$t('Video.Publicationtemplate'),
+            timeStrings: this.$t('Video.Published'),
+            liveStreamString: this.$t('Video.Watching'),
+            upcomingString: this.$t('Video.Published.Upcoming'),
+            isLive: false,
+            isUpcoming: false,
+            isRSS: false
+          }).then((data) => {
+            comment.time = data
+          }).catch((error) => {
+            console.error(error)
+          })
+          if (this.hideCommentLikes) {
+            comment.likes = null
+          }
+          comment.text = autolinker.link(comment.text)
+
+          if (comment.numReplies > 0) {
+            comment.replies.forEach((reply) => {
+              reply.text = autolinker.link(reply.text)
+            })
+          }
+
+          return comment
+        })
+        if (this.sortingChanged) {
+          this.commentData = []
+          this.sortingChanged = false
+        }
+        this.commentData = this.commentData.concat(commentData)
+        this.isLoading = false
+        this.showComments = true
+        this.nextPageToken = response.continuation
+      }).catch((err) => {
+        console.log(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        this.showToast({
+          message: `${errorMessage}: ${err}`,
+          time: 10000,
+          action: () => {
+            navigator.clipboard.writeText(err)
+          }
+        })
+        if (this.backendFallback && this.backendPreference === 'local') {
+          this.showToast({
+            message: this.$t('Falling back to Invidious API')
+          })
+          this.getCommentDataInvidious()
+        } else {
+          this.isLoading = false
+        }
+      })
     },
 
     getCommentDataInvidious: function () {
@@ -269,7 +248,6 @@ export default Vue.extend({
           return comment
         })
 
-        console.log(commentData)
         this.commentData = this.commentData.concat(commentData)
         this.nextPageToken = response.continuation
         this.isLoading = false
@@ -329,7 +307,6 @@ export default Vue.extend({
           return comment
         })
 
-        console.log(commentData)
         this.commentData[index].replies = commentData
         this.commentData[index].showReplies = true
         this.isLoading = false
