@@ -71,6 +71,7 @@ Search Filters:
   Fetching results. Please wait: 'Eredmények lekérése. Kis türelmet kérünk'
   Fetch more results: 'További eredmények lekérése'
 # Sidebar
+  There are no more results for this search: Nincs több találat erre a keresésre
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Feliratkozások'
@@ -90,6 +91,13 @@ Most Popular: 'Legnépszerűbbek'
 Playlists: 'Lejátszási listák'
 User Playlists:
   Your Playlists: 'A lejátszási listáid'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: A
+    mentett videók üresek. Kattintson a videó sarkában található mentés gombra, hogy
+    itt szerepeljen
+  Playlist Message: Ez az oldal nem tükrözi a teljesen működő lejátszási listákat.
+    Csak azokat a videókat sorolja fel, amelyeket Ön elmentett vagy a kedvencek közé
+    helyezett. A munka befejezése után az összes itt található videó átkerül a „Kedvencek”
+    lejátszási listára.
 History:
   # On History Page
   History: 'Előzmények'
@@ -125,6 +133,8 @@ Settings:
       (Alapértelmezés: https://invidious.snopyta.org)'
     Region for Trending: 'Népszerű területe'
         #! List countries
+    View all Invidious instance information: Az Invidious példány összes tájékoztatásának
+      megtekintése
   Theme Settings:
     Theme Settings: 'Téma beállítások'
     Match Top Bar with Main Color: 'Illessze a felső sávot a fő színnel'
@@ -242,6 +252,7 @@ Settings:
     Unknown data key: 'Ismeretlen adatkulcs'
     How do I import my subscriptions?: 'Hogyan lehet importálni feliratkozásaimmal?'
     Check for Legacy Subscriptions: Örökölt feliratkozások keresése
+    Manage Subscriptions: Feliratkozások kezelése
   Advanced Settings:
     Advanced Settings: 'További beállítások'
     Enable Debug Mode (Prints data to the console): 'Hibakeresési mód engedélyezése
@@ -284,6 +295,20 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: Az
     alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Indítsa
     újra és alkalmazza a módosítást?
+  Proxy Settings:
+    City: Helység
+    Region: Körzet
+    Country: Ország
+    Ip: IP-cím
+    Your Info: Az Ön adatai
+    Clicking on Test Proxy will send a request to: 'A Meghatalmazás-ellenőrzés gombra
+      kattintva kérést küld a következő címre:'
+    Test Proxy: Meghatalmazás-ellenőrzés
+    Proxy Port Number: Meghatalmazás kikötőszáma
+    Proxy Host: Meghatalmazás gazdaszámítógép
+    Proxy Protocol: Meghatalmazás protokoll
+    Enable Tor / Proxy: Tor/meghatalmazás engedélyezése
+    Proxy Settings: Meghatalmazás beállításai
 About:
   #On About page
   About: 'Névjegy'
