@@ -64,6 +64,7 @@ Search Filters:
   Fetching results. Please wait: 'Rezultati se dohvaćaju. Pričekaj'
   Fetch more results: 'Dohvati još rezultata'
 # Sidebar
+  There are no more results for this search: Nema daljnjih rezultata za ovu pretragu
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Pretplate'
@@ -123,6 +124,7 @@ Settings:
         #! List countries
     Check for Latest Blog Posts: Traži najnovije objave na blogu
     Check for Updates: Traži nove verzije
+    View all Invidious instance information: Prikaži sve podatke Invidious primjerka
   Theme Settings:
     Theme Settings: 'Postavke teme'
     Match Top Bar with Main Color: 'Koristi glavnu boju u gornjoj traci'
