@@ -73,6 +73,7 @@ const state = {
   hideRecommendedVideos: false,
   hideTrendingVideos: false,
   hidePopularVideos: false,
+  hidePlaylists: false,
   hideLiveChat: false,
   hideActiveSubscriptions: false
 }
@@ -241,9 +242,15 @@ const getters = {
   getHidePopularVideos: () => {
     return state.hidePopularVideos
   },
+
+  getHidePlaylists: () => {
+    return state.hidePlaylists
+  },
+
   getHideLiveChat: () => {
     return state.hideLiveChat
   },
+
   getHideActiveSubscriptions: () => {
     return state.hideActiveSubscriptions
   }
@@ -381,6 +388,9 @@ const actions = {
               break
             case 'hidePopularVideos':
               commit('setHidePopularVideos', result.value)
+              break
+            case 'hidePlaylists':
+              commit('setHidePlaylists', result.value)
               break
             case 'hideLiveChat':
               commit('setHideLiveChat', result.value)
@@ -716,6 +726,14 @@ const actions = {
     })
   },
 
+  updateHidePlaylists ({ commit }, hidePlaylists) {
+    settingsDb.update({ _id: 'hidePlaylists' }, { _id: 'hidePlaylists', value: hidePlaylists }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setHidePlaylists', hidePlaylists)
+      }
+    })
+  },
+
   updateHideActiveSubscriptions ({ commit }, hideActiveSubscriptions) {
     settingsDb.update({ _id: 'hideActiveSubscriptions' }, { _id: 'hideActiveSubscriptions', value: hideActiveSubscriptions }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
@@ -871,6 +889,9 @@ const mutations = {
   },
   setHidePopularVideos (state, hidePopularVideos) {
     state.hidePopularVideos = hidePopularVideos
+  },
+  setHidePlaylists (state, hidePlaylists) {
+    state.hidePlaylists = hidePlaylists
   },
   setHideLiveChat (state, hideLiveChat) {
     state.hideLiveChat = hideLiveChat
