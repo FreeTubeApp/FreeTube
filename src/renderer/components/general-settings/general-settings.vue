@@ -97,6 +97,13 @@
         @input="handleInvidiousInstanceInput"
       />
     </ft-flex-box>
+    <ft-flex-box>
+      <a
+        href="https://api.invidious.io"
+      >
+        {{ $t('Settings.General Settings.View all Invidious instance information') }}
+      </a>
+    </ft-flex-box>
   </ft-card>
 </template>
 
