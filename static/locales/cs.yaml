@@ -70,6 +70,8 @@ Search Filters:
   Fetching results. Please wait: 'Načítání výsledků. Prosím, čekejte'
   Fetch more results: 'Načíst více výsledků'
 # Sidebar
+  There are no more results for this search: Pro toto hledání nejsou k dispozici žádné
+    další výsledky
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Odběry'
@@ -129,6 +131,8 @@ Settings:
       instance (Výchozí je https://invidious.snopyta.org)'
     Region for Trending: 'Region pro trendy'
         #! List countries
+    View all Invidious instance information: Zobrazit všechny informace o instanci
+      Invidious
   Theme Settings:
     Theme Settings: 'Nastavení motivu'
     Match Top Bar with Main Color: 'Přizpůsobit hlavní lištu hlavní barvě'
