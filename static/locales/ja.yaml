@@ -62,6 +62,7 @@ Search Filters:
   Fetching results. Please wait: '結果の取得中。お待ちください'
   Fetch more results: 'もっと見る'
 # Sidebar
+  There are no more results for this search: 検索結果は、これ以上ありません
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: '登録チャンネル'
@@ -114,6 +115,7 @@ Settings:
         #! List countries
     Check for Latest Blog Posts: 新着ブログの確認
     Check for Updates: 最新版の確認
+    View all Invidious instance information: すべての Invidious インスタンス情報の表示
   Theme Settings:
     Theme Settings: 'テーマの設定'
     Match Top Bar with Main Color: '上部バーをメイン カラーと同じにする'
