@@ -1,8 +1,10 @@
 # Put the name of your locale in the same language
-Locale Name: 'Inglés'
+Locale Name: 'Español (Argentina)'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >
+'This part of the app is not ready yet. Come back later when progress has been made.': >-
+  Esta parte de la aplicación no esta lista por el momento. Vuelve después cuando
+  haya habido progreso.
 
 # Webkit Menu Bar
 File: 'Archivo'
@@ -26,7 +28,7 @@ Window: 'Ventana'
 Minimize: 'Minimizar'
 Close: 'Cerrar'
 Back: 'Volver'
-Forward: ''
+Forward: 'Adelante'
 
 # Search Bar
 Search / Go to URL: 'Buscar / Ir a URL'
@@ -63,6 +65,7 @@ Search Filters:
   Fetching results. Please wait: 'Obteniendo resultados. Por favor espere'
   Fetch more results: 'Obtener más resultados'
 # Sidebar
+  There are no more results for this search: No hay más resultados para esta búsqueda
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Suscripciones'
@@ -72,11 +75,21 @@ Subscriptions:
     para verlas aquí.'
   'Getting Subscriptions. Please wait.': 'Obtención de suscripciones. Por favor espere.'
   Refresh Subscriptions: 'Actualizar suscripciones'
+  Load More Videos: Cargar más videos
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
+    perfil tiene un gran número de suscriptores.  Forzando RSS para evitar límites
 Trending: 'Tendencias'
 Most Popular: 'Más popular'
 Playlists: 'Listas de reproducción'
 User Playlists:
   Your Playlists: 'Tus listas de reproducción'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Tu
+    lista de videos guardados está vacía. Hacé click en el botón de guardado en la
+    esquina de un video para que aparezca acá
+  Playlist Message: Está página no es un reflejo de listas de reproducción completamente
+    funcionales. Solo lista los videos que has guardado o marcado como favoritos.
+    Cuando el trabajo esté terminado, todos los videos que están actualmente acá serán
+    migrados a una lista de reproducción de 'Favoritos'.
 History:
   # On History Page
   History: 'Historial'
@@ -87,7 +100,8 @@ Settings:
   Settings: 'Configuraciones'
   General Settings:
     General Settings: 'Configuraciones generales'
-    Fallback to Non-Preferred Backend on Failure: ''
+    Fallback to Non-Preferred Backend on Failure: 'Recurrir a un backend no preferido
+      cuando suceda un fallo'
     Enable Search Suggestions: 'Habilitar sugerencias de búsqueda'
     Default Landing Page: 'Página de destino predeterminada'
     Locale Preference: 'Preferencia regional'
@@ -105,96 +119,110 @@ Settings:
       Beginning: 'Comenzando'
       Middle: 'Medio'
       End: 'Final'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': ''
-    Region for Trending: ''
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instancia de
+      Invidious (por defecto es https://invidious.snopyta.org)'
+    Region for Trending: 'Región para Tendencias'
         #! List countries
+    View all Invidious instance information: Ver toda la información sobre la instancia
+      de Invidious
+    Check for Latest Blog Posts: Buscar nuevas entradas de blogs
+    Check for Updates: Buscar actualizaciones
   Theme Settings:
-    Theme Settings: ''
-    Match Top Bar with Main Color: ''
+    Theme Settings: 'Configuraciones del tema'
+    Match Top Bar with Main Color: 'Igualar color de la barra superior con el color
+      principal'
     Base Theme:
-      Base Theme: ''
-      Black: ''
-      Dark: ''
-      Light: ''
+      Base Theme: 'Tema base'
+      Black: 'Negro'
+      Dark: 'Oscuro'
+      Light: 'Claro'
     Main Color Theme:
-      Main Color Theme: ''
-      Red: ''
-      Pink: ''
-      Purple: ''
-      Deep Purple: ''
+      Main Color Theme: 'Color principal del tema'
+      Red: 'Rojo'
+      Pink: 'Rosado'
+      Purple: 'Púrpura'
+      Deep Purple: 'Púrpura oscuro'
       Indigo: ''
-      Blue: ''
-      Light Blue: ''
-      Cyan: ''
-      Teal: ''
-      Green: ''
-      Light Green: ''
-      Lime: ''
-      Yellow: ''
-      Amber: ''
-      Orange: ''
-      Deep Orange: ''
-    Secondary Color Theme: ''
+      Blue: 'Azul'
+      Light Blue: 'Celeste'
+      Cyan: 'Cian'
+      Teal: 'Verde azulado'
+      Green: 'Verde'
+      Light Green: 'Verde claro'
+      Lime: 'Lima'
+      Yellow: 'Amarillo'
+      Amber: 'Ámbar'
+      Orange: 'Naranja'
+      Deep Orange: 'Naranja oscuro'
+    Secondary Color Theme: 'Color secundario del tema'
         #* Main Color Theme
+    UI Scale: Escala de la interfaz de usuario
+    Disable Smooth Scrolling: Desactivar desplazamiento suave
+    Expand Side Bar by Default: Expandir la barra lateral por defecto
   Player Settings:
-    Player Settings: ''
-    Force Local Backend for Legacy Formats: ''
-    Play Next Video: ''
-    Turn on Subtitles by Default: ''
-    Autoplay Videos: ''
-    Proxy Videos Through Invidious: ''
-    Autoplay Playlists: ''
-    Enable Theatre Mode by Default: ''
-    Default Volume: ''
-    Default Playback Rate: ''
+    Player Settings: 'Configuraciones del reproductor'
+    Force Local Backend for Legacy Formats: 'Forzar un backend local para los formatos
+      de legado'
+    Play Next Video: 'Reproducir siguiente video'
+    Turn on Subtitles by Default: 'Activar subtítulos por defecto'
+    Autoplay Videos: 'Autoreproducir videos'
+    Proxy Videos Through Invidious: 'Utilizar Invidious como proxy para los videos'
+    Autoplay Playlists: 'Autoreproducir listas de reproducción'
+    Enable Theatre Mode by Default: 'Habilitar modo cine por defecto'
+    Default Volume: 'Volumen por defecto'
+    Default Playback Rate: 'Velocidad de reproducción por defecto'
     Default Video Format:
-      Default Video Format: ''
-      Dash Formats: ''
-      Legacy Formats: ''
-      Audio Formats: ''
+      Default Video Format: 'Formato de video por defecto'
+      Dash Formats: 'Formatos del panel'
+      Legacy Formats: 'Formatos de legado'
+      Audio Formats: 'Formatos de audio'
     Default Quality:
-      Default Quality: ''
-      Auto: ''
-      144p: ''
-      240p: ''
-      360p: ''
-      480p: ''
-      720p: ''
+      Default Quality: 'Calidad de video por defecto'
+      Auto: 'Automática'
+      144p: '144p'
+      240p: '240p'
+      360p: '360p'
+      480p: '480p'
+      720p: '720p'
       1080p: ''
-      1440p: ''
-      4k: ''
-      8k: ''
+      1440p: '1440p'
+      4k: '4k'
+      8k: '8k'
   Privacy Settings:
-    Privacy Settings: ''
-    Remember History: ''
-    Save Watched Progress: ''
-    Clear Search Cache: ''
-    Are you sure you want to clear out your search cache?: ''
-    Search cache has been cleared: ''
-    Remove Watch History: ''
-    Are you sure you want to remove your entire watch history?: ''
-    Watch history has been cleared: ''
-    Remove All Subscriptions / Profiles: ''
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
+    Privacy Settings: 'Configuraciones de privacidad'
+    Remember History: 'Recordar historial'
+    Save Watched Progress: 'Recordar tiempo observado del video'
+    Clear Search Cache: 'Borrar la caché de búsqueda'
+    Are you sure you want to clear out your search cache?: '¿Estás seguro de querer
+      borrar tu caché de búsqueda?'
+    Search cache has been cleared: 'La caché de búsqueda ha sido borrada'
+    Remove Watch History: 'Borrar historial de videos vistos'
+    Are you sure you want to remove your entire watch history?: '¿Estás seguro de
+      querer borrar tu historial completo de videos vistos?'
+    Watch history has been cleared: 'El historial de videos vistos ha sido borrado'
+    Remove All Subscriptions / Profiles: 'Remover todas las suscripciones / perfiles'
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: '¿Estás
+      seguro de querer remover todas las suscripciones y perfiles? Esta acción no
+      puede deshacerse.'
   Subscription Settings:
-    Subscription Settings: ''
-    Hide Videos on Watch: ''
+    Subscription Settings: 'Configuraciones de suscripción'
+    Hide Videos on Watch: 'Ocultar videos para ver'
     Fetch Feeds from RSS: ''
-    Manage Subscriptions: ''
+    Manage Subscriptions: 'Administrar suscripciones'
   Data Settings:
-    Data Settings: ''
-    Select Import Type: ''
-    Select Export Type: ''
-    Import Subscriptions: ''
-    Import FreeTube: ''
-    Import YouTube: ''
-    Import NewPipe: ''
-    Export Subscriptions: ''
-    Export FreeTube: ''
-    Export YouTube: ''
-    Export NewPipe: ''
-    Import History: ''
-    Export History: ''
+    Data Settings: 'Configuraciones de datos'
+    Select Import Type: 'Seleccionar tipo para importar'
+    Select Export Type: 'Seleccionar tipo para exportar'
+    Import Subscriptions: 'Importar suscripciones'
+    Import FreeTube: 'Importar FreeTube'
+    Import YouTube: 'Importar Youtube'
+    Import NewPipe: 'Importar NewPipe'
+    Export Subscriptions: 'Exportar suscripciones'
+    Export FreeTube: 'Exportar Freetube'
+    Export YouTube: 'Exportar Youtube'
+    Export NewPipe: 'Exportar NewPipe'
+    Import History: 'Importar historial'
+    Export History: 'Exportar historial'
     Profile object has insufficient data, skipping item: ''
     All subscriptions and profiles have been successfully imported: ''
     All subscriptions have been successfully imported: ''
@@ -209,6 +237,7 @@ Settings:
     Unable to write file: ''
     Unknown data key: ''
     How do I import my subscriptions?: ''
+    Check for Legacy Subscriptions: Comprobar suscripciones de legado
   Advanced Settings:
     Advanced Settings: ''
     Enable Debug Mode (Prints data to the console): ''
@@ -231,6 +260,20 @@ Settings:
       #& Yes
       #& No
 
+  Distraction Free Settings:
+    Hide Active Subscriptions: Ocultar suscripciones activas
+    Hide Live Chat: Ocultar chat en vivo
+    Hide Popular Videos: Ocultar videos populares
+    Hide Trending Videos: Ocultar videos en tendencia
+    Hide Recommended Videos: Ocultar videos recomendados
+    Hide Comment Likes: Ocultar calificaciones de comentarios
+    Hide Channel Subscribers: Ocultar los suscriptores del canal
+    Hide Video Likes And Dislikes: Ocultar calificaciones del video
+    Hide Video Views: Ocultar las vistas del video
+    Distraction Free Settings: Configuraciones para evitar distraerse
+  The app needs to restart for changes to take effect. Restart and apply change?: Esta
+    aplicación necesita reiniciarse para que los cambios entren en efecto. ¿Reiniciar
+    y aplicar cambios?
 About:
   #On About page
   About: ''
@@ -436,3 +479,8 @@ Canceled next video autoplay: ''
 
 Yes: ''
 No: ''
+A new blog is now available, $. Click to view more: Un nuevo blog está disponible,
+  $. Hacé click para ver más
+Download From Site: Descargar desde el sitio
+Version $ is now available!  Click for more details: La versión $ ya está disponible.  Hacé
+  click acá para más detalles.
