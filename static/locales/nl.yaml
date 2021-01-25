@@ -65,6 +65,8 @@ Search Filters:
   Fetching results. Please wait: 'Resultaten verzamelen. Een momentje'
   Fetch more results: 'Meer resultaten laden'
 # Sidebar
+  There are no more results for this search: Er zijn geen verdere resultaten voor
+    deze zoekopdracht
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnementen'
@@ -125,6 +127,7 @@ Settings:
         #! List countries
     Check for Latest Blog Posts: Controleer op nieuwe Blogposts
     Check for Updates: Controleer op Updates
+    View all Invidious instance information: Bekijk alle Invidiousinstantiegegevens
   Theme Settings:
     Theme Settings: 'Thema Instellingen'
     Match Top Bar with Main Color: 'Paar Bovenste Balk met Primaire Kleur'
