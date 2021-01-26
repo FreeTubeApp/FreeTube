@@ -69,6 +69,7 @@ Search Filters:
   Fetching results. Please wait: '결과를 불러오는중입니다. 잠시만 기다려주세요'
   Fetch more results: '더보기'
 # Sidebar
+  There are no more results for this search: 이 검색 결과에 대한 항목이 더 없습니다
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: '구독'
@@ -87,6 +88,8 @@ User Playlists:
   Your Playlists: '나의 재생 목록'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 재생
     목록이 없습니다. 영상의 오른쪽 아래에 있는 저장 버튼을 사용하여 재생 목록에 영상을 추가하세요
+  Playlist Message: 지금 보시는 페이지는 완전한 플레이 리스트가 아닙니다. 이곳에는 저장되었거나 즐겨 찾기 표시가 된 항목만 표시
+    됩니다. 작업이 끝나면, 여기에 표시된 영상들은 '즐겨 찾기' 항목으로 옮겨집니다.
 History:
   # On History Page
   History: '재생 기록'
@@ -201,30 +204,30 @@ Settings:
     Fetch Feeds from RSS: 'RSS에서 피드 가져오기'
     Manage Subscriptions: '구독 관리'
   Distraction Free Settings:
-    Distraction Free Settings: ''
-    Hide Video Views: ''
-    Hide Video Likes And Dislikes: ''
-    Hide Channel Subscribers: ''
-    Hide Comment Likes: ''
-    Hide Recommended Videos: ''
-    Hide Trending Videos: ''
-    Hide Popular Videos: ''
-    Hide Live Chat: ''
+    Distraction Free Settings: '방해 금지 모드 설정'
+    Hide Video Views: '조회수 숨기기'
+    Hide Video Likes And Dislikes: '영상의 좋아요 및 싫어요 표시 숨기기'
+    Hide Channel Subscribers: '채널 구독자 숨기기'
+    Hide Comment Likes: '댓글의 좋아요 표시 숨기기'
+    Hide Recommended Videos: '추천 영상 숨기기'
+    Hide Trending Videos: '현재 트렌딩 영상 숨기기'
+    Hide Popular Videos: '인기 영상 숨기기'
+    Hide Live Chat: '실시간 댓글 숨기기'
   Data Settings:
-    Data Settings: ''
-    Select Import Type: ''
-    Select Export Type: ''
-    Import Subscriptions: ''
-    Import FreeTube: ''
-    Import YouTube: ''
-    Import NewPipe: ''
+    Data Settings: '데이터 설정'
+    Select Import Type: '구독 및 재생 목록 가져오기 형식 고르기'
+    Select Export Type: '구독 및 재생 목록 내보내기 형식 고르기'
+    Import Subscriptions: '구독 목록 가져오기'
+    Import FreeTube: '구독 목록 가져오기: 형식 Freetube'
+    Import YouTube: '구독 목록 가져오기 형식: 유투브'
+    Import NewPipe: '구독 목록 가져오기 형식: NewPipe'
     Check for Legacy Subscriptions: ''
-    Export Subscriptions: ''
-    Export FreeTube: ''
-    Export YouTube: ''
-    Export NewPipe: ''
-    Import History: ''
-    Export History: ''
+    Export Subscriptions: '구독 목록 내보내기'
+    Export FreeTube: '구독 목록 내보내기 형식: FreeTube'
+    Export YouTube: '구독 목록 내보내기 형식: 유투브'
+    Export NewPipe: '구독 목록 내보내기 형식: NewPipe'
+    Import History: '재생 기록 가져오기'
+    Export History: '재생 기록 내보내기'
     Profile object has insufficient data, skipping item: ''
     All subscriptions and profiles have been successfully imported: ''
     All subscriptions have been successfully imported: ''
