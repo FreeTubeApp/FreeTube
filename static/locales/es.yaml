@@ -64,6 +64,7 @@ Search Filters:
   Fetching results. Please wait: 'Obteniendo resultados. Por favor, espera'
   Fetch more results: 'Obtener más resultados'
 # Sidebar
+  There are no more results for this search: No hay más resultados para esta búsqueda
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Suscripciones'
@@ -120,6 +121,8 @@ Settings:
         #! List countries
     Check for Latest Blog Posts: Buscar últimas publicaciones del blog
     Check for Updates: Buscar actualizaciones
+    View all Invidious instance information: Ver toda la información sobre la instancia
+      de Invidious
   Theme Settings:
     Theme Settings: 'Apariencia'
     Match Top Bar with Main Color: 'Usar color principal para barra superior'
