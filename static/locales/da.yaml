@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'Dansk'
+Locale Name: 'Dansk (DK)'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -18,20 +18,20 @@ Delete: 'Slet'
 Select all: 'Vælg alt'
 Reload: 'Genindlæs'
 Force Reload: 'Tving Genindlæsning'
-Toggle Developer Tools: 'Slå Udviklingsværktøjer fra/til'
+Toggle Developer Tools: 'Slå Udviklerværktøjer til/fra'
 Actual size: 'Faktisk størrelse'
 Zoom in: 'Zoom ind'
 Zoom out: 'Zoom ud'
-Toggle fullscreen: 'Slå fuld skærm fra/til'
+Toggle fullscreen: 'Slå fuld skærm til/fra'
 Window: 'Vindue'
 Minimize: 'Minimér'
 Close: 'Luk'
 Back: 'Tilbage'
-Forward: 'Frem'
+Forward: 'Fremad'
 
 Version $ is now available!  Click for more details: 'Version $ er nu tilgængelig!  Klik
   for flere detaljer'
-Download From Site: 'Hent Fra Siden'
+Download From Site: 'Hent Fra Netsted'
 A new blog is now available, $. Click to view more: 'En ny blog er nu tilgængelig,
   $. Klik for at vise mere'
 
@@ -61,8 +61,8 @@ Search Filters:
     Channels: 'Kanaler'
     #& Playlists
   Duration:
-    Duration: 'Varighed'
-    All Durations: 'Alle Varigheder'
+    Duration: 'Længde'
+    All Durations: 'Alle Længder'
     Short (< 4 minutes): 'Kort (< 4 minutter)'
     Long (> 20 minutes): 'Lang (> 20 minutter)'
   # On Search Page
@@ -77,28 +77,28 @@ Subscriptions:
   Subscriptions: 'Abonnementer'
   Latest Subscriptions: 'Seneste Abonnementer'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Din
-    abonnementsliste er i øjeblikket tom. Begynd at tilføje abonnementer for at se
+    abonnementsliste er i øjeblikket tom. Begynd at tilføje abonnementer, for at se
     dem her.'
   'Getting Subscriptions. Please wait.': 'Henter Abonnementer. Vent venligst.'
   Refresh Subscriptions: 'Genopfrisk Abonnementer'
   Load More Videos: Indlæs Flere Videoer
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Denne
     profil har et stort antal abonnementer.  Tving RSS for at undgå adgangsbegrænsning
-Trending: 'Populære'
+Trending: 'På Mode'
 Most Popular: 'Mest Populære'
-Playlists: 'Afspilningslister'
+Playlists: 'Spillelister'
 User Playlists:
-  Your Playlists: 'Dine Afspilningslister'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Dine
-    gemte videoer er tom. Klik på gem-knappen i hjørnet af en video, for at få den
-    optegnet her
-  Playlist Message: Denne side afspejler ikke fuldt funktionelle afspilningslister.
-    Den optegner blot videoer, som du har gemt eller favoriseret. Når arbejdet er
-    færdigt, vil alle videoer her blive flyttede til en 'Favoritter'-afspilningsliste.
+  Your Playlists: 'Dine Spillelister'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Din
+    liste over gemte videoer er tom. Klik på gem-knappen i hjørnet af en video, for
+    at få den optegnet her
+  Playlist Message: Denne side afspejler ikke fuldt funktionelle spillelister. Den
+    optegner blot videoer, som du har gemt eller favoriseret. Når arbejdet er færdigt,
+    vil alle videoer her blive flyttet til en 'Favoritter'-spilleliste.
 History:
   # On History Page
   History: 'Historik'
-  Watch History: 'Se Historik'
+  Watch History: 'Set Historik'
   Your history list is currently empty.: 'Din historikliste er i øjeblikket tom.'
 Settings:
   # On Settings Page
@@ -107,7 +107,7 @@ Settings:
     General Settings: 'Generelle Indstillinger'
     Check for Updates: 'Kontrollér for Opdateringer'
     Check for Latest Blog Posts: 'Kontrollér for Seneste Blogindlæg'
-    Fallback to Non-Preferred Backend on Failure: 'Tilbageførsel til Ikke-Foretrukken
+    Fallback to Non-Preferred Backend on Failure: 'Tilbagefald til Ikke-Foretrukken
       Serverniveau ved Fejl'
     Enable Search Suggestions: 'Aktivér Søgeforslag'
     Default Landing Page: 'Standard Landingsside'
@@ -128,9 +128,9 @@ Settings:
       End: 'Slutningen'
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious-Instans
       (Standard er https://invidious.snopyta.org)'
-    Region for Trending: 'Område for Populære'
+    Region for Trending: 'Område for Mode'
         #! List countries
-    View all Invidious instance information: Vis alle Invidious-instans-information
+    View all Invidious instance information: Vis al Invidious-instans-information
   Theme Settings:
     Theme Settings: 'Temaindstillinger'
     Match Top Bar with Main Color: 'Tilpas Topbjælke til Primær Farve'
@@ -140,7 +140,7 @@ Settings:
       Dark: 'Mørkt'
       Light: 'Lyst'
     Main Color Theme:
-      Main Color Theme: 'Primær Farve Tema'
+      Main Color Theme: 'Primært Farvetema'
       Red: 'Rødt'
       Pink: 'Lyserødt'
       Purple: 'Lilla'
@@ -156,8 +156,8 @@ Settings:
       Yellow: 'Gult'
       Amber: 'Rav'
       Orange: 'Orange'
-      Deep Orange: 'Dyb Orange'
-    Secondary Color Theme: 'Sekundær Farve Tema'
+      Deep Orange: 'Dybt Orange'
+    Secondary Color Theme: 'Sekundært Farvetema'
         #* Main Color Theme
     UI Scale: Skalering af Brugerflade
     Disable Smooth Scrolling: Deaktivér Jævn Rulning
@@ -166,30 +166,30 @@ Settings:
     Player Settings: 'Afspilningsindstillinger'
     Force Local Backend for Legacy Formats: 'Tving Lokalt Serverniveau for Gamle Formater'
     Play Next Video: 'Afspil Næste Video'
-    Turn on Subtitles by Default: 'Aktivér Undertekster som Standard'
-    Autoplay Videos: 'Afspil Automatisk Videoer'
-    Proxy Videos Through Invidious: 'Kør Videoer Igennem Invidious'
-    Autoplay Playlists: 'Afspil Automatisk Afspilningslister'
+    Turn on Subtitles by Default: 'Slå Undertekster til som Standard'
+    Autoplay Videos: 'Autospil Videoer'
+    Proxy Videos Through Invidious: 'Kør Videoer Gennem Invidious-Proxy'
+    Autoplay Playlists: 'Autospil Spillelister'
     Enable Theatre Mode by Default: 'Aktivér Biograftilstand som Standard'
     Default Volume: 'Standard Lydstyrke'
     Default Playback Rate: 'Standard Afspilningshastighed'
     Default Video Format:
       Default Video Format: 'Standard Videoformat'
-      Dash Formats: 'Dash Formater'
+      Dash Formats: 'Dash-Formater'
       Legacy Formats: 'Gamle Formater'
       Audio Formats: 'Lydformater'
     Default Quality:
       Default Quality: 'Standardkvalitet'
       Auto: 'Automatisk'
-      144p: '144p'
-      240p: '240p'
-      360p: '360p'
-      480p: 'SD'
+      144p: 'qqVGA'
+      240p: 'QVGA'
+      360p: 'nHD'
+      480p: 'SD/VGA'
       720p: 'HD'
       1080p: 'Fuld HD'
-      1440p: '1440p'
-      4k: '4k'
-      8k: '8k'
+      1440p: 'QHD'
+      4k: 'UHD'
+      8k: '8K UHD'
   Privacy Settings:
     Privacy Settings: 'Privatlivsindstillinger'
     Remember History: 'Husk Historik'
@@ -210,11 +210,11 @@ Settings:
     Subscription Settings: 'Abonnementsindstillinger'
     Hide Videos on Watch: 'Skjul Videoer på Se'
     Fetch Feeds from RSS: 'Skaf Strømme fra RSS'
-    Manage Subscriptions: 'Administrér Abonnementer'
+    Manage Subscriptions: 'Abonnementshåndtering'
   Data Settings:
     Data Settings: 'Dataindstillinger'
-    Select Import Type: 'Vælg Import-Type'
-    Select Export Type: 'Vælg Eksport-Type'
+    Select Import Type: 'Vælg Importtype'
+    Select Export Type: 'Vælg Eksporttype'
     Import Subscriptions: 'Importér Abonnementer'
     Import FreeTube: 'Importér FreeTube'
     Import YouTube: 'Importér YouTube'
@@ -247,7 +247,7 @@ Settings:
     Unable to write file: 'Kan ikke skrive fil'
     Unknown data key: 'Ukendt datanøgle'
     How do I import my subscriptions?: 'Hvordan importerer jeg mine abonnementer?'
-    Manage Subscriptions: Administrér Abonnementer
+    Manage Subscriptions: Abonnementshåndtering
     Check for Legacy Subscriptions: Kontrolleŕ for Gamle Abonnementer
   Advanced Settings:
     Advanced Settings: 'Avancerede indstillinger'
@@ -278,7 +278,7 @@ Settings:
 
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Fejl ved
-      anskaffelse af netværksinformation. Er din proxy korrekt konfigureret?
+      anskaffelse af netværksinformation. Er din proxy konfigureret ordentligt?
     City: By
     Region: Område
     Country: Land
@@ -296,7 +296,7 @@ Settings:
     Hide Active Subscriptions: Skjul Aktive Abonnementer
     Hide Live Chat: Skjul Direkte Chat
     Hide Popular Videos: Skjul Populære Videoer
-    Hide Trending Videos: Skjul Populære Videoer
+    Hide Trending Videos: Skjul Videoer På Mode
     Hide Recommended Videos: Skjul Anbefalede Videoer
     Hide Comment Likes: Skjul Kommentar-Tilkendegivelser
     Hide Channel Subscribers: Skjul Kanal-Abonnenter
@@ -349,7 +349,7 @@ About:
   Email: E-post
   Blog: Blog
   Website: Netsted
-  Please check for duplicates before posting: Kontrollér venligst for dublikater før
+  Please check for duplicates before posting: Kontrollér venligst for duplikater før
     opslag
   GitHub issues: GitHub-problemer
   Report a problem: Rapportér et problem
@@ -359,7 +359,7 @@ About:
   GitHub releases: GitHub-udgivelser
   Downloads / Changelog: Overførsler / Ændringslog
   View License: Vis Licens
-  Licensed under the AGPLv3: Under AGPLv3-licensen
+  Licensed under the AGPLv3: Licenseret under AGPLv3
   Source code: Kildekode
   Beta: Beta
 Profile:
@@ -373,7 +373,7 @@ Profile:
   Profile Preview: 'Forhåndsvisning af Profil'
   Create Profile: 'Opret Profil'
   Update Profile: 'Opdatér Profil'
-  Make Default Profile: 'Lav Standardprofil'
+  Make Default Profile: 'Gør til Standardprofil'
   Delete Profile: 'Slet Profil'
   Are you sure you want to delete this profile?: 'Er du sikker på, at du vil slette
     denne profil?'
@@ -425,9 +425,9 @@ Channel:
       Oldest: 'Ældste'
       Most Popular: 'Mest Populære'
   Playlists:
-    Playlists: 'Afspilningslister'
+    Playlists: 'Spillelister'
     This channel does not currently have any playlists: 'Denne kanal har i øjeblikket
-      ingen afspilningslister'
+      ingen spillelister'
     Sort Types:
       Last Video Added: 'Sidste Tilføjede Video'
       Newest: 'Nyeste'
@@ -442,38 +442,38 @@ Video:
   Video has been marked as watched: 'Videoen er blevet markeret som set'
   Video has been removed from your history: 'Videoen er blevet fjernet fra din historik'
   Open in YouTube: 'Åbn i YouTube'
-  Copy YouTube Link: 'Kopiér YouTube Link'
+  Copy YouTube Link: 'Kopiér YouTube-Link'
   Open YouTube Embedded Player: 'Åbn YouTube i Indbygget Afspiller'
-  Copy YouTube Embedded Player Link: 'Kopiér YouTube Indbygget Afspiller Link'
+  Copy YouTube Embedded Player Link: 'Kopiér YouTube Indbygget Afspiller-Link'
   Open in Invidious: 'Åbn i Invidious'
   Copy Invidious Link: 'Kopiér Indvidious-Link'
   View: 'Vis'
   Views: 'Visninger'
-  Loop Playlist: 'Loop Afspilningsliste'
-  Shuffle Playlist: 'Bland Afspilningsliste'
-  Reverse Playlist: 'Vend Afspilningsliste Om'
+  Loop Playlist: 'Gentag Spilleliste'
+  Shuffle Playlist: 'Bland Spilleliste'
+  Reverse Playlist: 'Vend Spilleliste Om'
   Play Next Video: 'Afspil Næste Video'
   Play Previous Video: 'Afspil Forrige Video'
   # Context is "X People Watching"
   Watching: 'Ser'
   Watched: 'Set'
-  Autoplay: 'Afspil Automatisk'
+  Autoplay: 'Autospil'
   Starting soon, please refresh the page to check again: 'Begynder snart, genopfrisk
     venligst siden for at kontrollere igen'
   # As in a Live Video
   Live: 'Direkte'
   Live Now: 'Direkte Nu'
   Live Chat: 'Direkte Chat'
-  Enable Live Chat: 'Aktivér Live Chat'
-  Live Chat is currently not supported in this build.: 'Live chat understøttes i øjeblikket
-    ikke i denne version.'
-  'Chat is disabled or the Live Stream has ended.': 'Chat er deaktiveret, eller Live
-    Stream er afsluttet.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Live chat er
-    aktiveret. Chatbeskeder vises her, når de er sendt.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Live
-    Chat understøttes i øjeblikket ikke med Invidious API. En direkte forbindelse
-    til YouTube er påkrævet.'
+  Enable Live Chat: 'Aktivér Direkte Chat'
+  Live Chat is currently not supported in this build.: 'Direkte Chat understøttes
+    i øjeblikket ikke i dette build.'
+  'Chat is disabled or the Live Stream has ended.': 'Chat er deaktiveret, eller Direkte
+    Udsendelse er slut.'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'Direkte chat
+    er aktiveret.  Chatbeskeder vil fremgå her, når de er sendt.'
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Direkte
+    Chat understøttes i øjeblikket ikke med Invidious-APIen.  Direkte forbindelse
+    til YouTube kræves.'
   Published:
     Jan: 'Jan'
     Feb: 'Feb'
@@ -490,7 +490,7 @@ Video:
     Second: 'Sekund'
     Seconds: 'Sekunder'
     Minute: 'Minut'
-    Minutes: 'Minuter'
+    Minutes: 'Minutter'
     Hour: 'Time'
     Hours: 'Timer'
     Day: 'Dag'
@@ -500,12 +500,12 @@ Video:
     Month: 'Måned'
     Months: 'Måneder'
     Year: 'År'
-    Years: 'Flere år'
+    Years: 'År'
     Ago: 'Siden'
-    Upcoming: 'Premiere snart'
-  Published on: 'Udgivet den'
+    Upcoming: 'Har premiere'
+  Published on: 'Udgivet'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$% siden'
+  Publicationtemplate: '$ % siden'
 #& Videos
   Copy Invidious Channel Link: Kopiér Invidious Kanal-Link
   Open Channel in Invidious: Åbn Kanal i Invidious
@@ -515,6 +515,16 @@ Video:
     liste
   Video has been saved: Video er blevet gemt
   Save Video: Gem Video
+  Started streaming on: Begyndte at sende
+  Streamed on: Sendt
+  Audio:
+    Best: Bedst
+    High: Høj
+    Medium: Middel
+    Low: Lav
+  audio only: kun lyd
+  video only: kun video
+  Download Video: Hent Video
 Videos:
   #& Sort By
   Sort By:
@@ -524,84 +534,120 @@ Videos:
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: 'Se fuld Playliste'
+  View Full Playlist: 'Vis Hele Spilleliste'
   Videos: 'Videoer'
-  View: 'Visninger'
+  View: 'Visning'
   Views: 'Visninger'
-  Last Updated On: 'Sidst opdateret den'
+  Last Updated On: 'Sidst Opdateret'
   Share Playlist:
-    Share Playlist: 'Del Playliste'
-    Copy YouTube Link: 'Kopiér YouTube Link'
+    Share Playlist: 'Del Spilleliste'
+    Copy YouTube Link: 'Kopiér YouTube-Link'
     Open in YouTube: 'Åbn i YouTube'
-    Copy Invidious Link: 'Kopiér Indvidious Link'
+    Copy Invidious Link: 'Kopiér Indvidious-Link'
     Open in Invidious: 'Åbn i Invidious'
 
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: 'Skift Til og Fra Teatertilstand'
+Toggle Theatre Mode: 'Slå Biograftilstand til/fra'
 Change Format:
-  Change Video Formats: 'Skift videoformater'
-  Use Dash Formats: 'Brug Dash formater'
-  Use Legacy Formats: 'Brug Legacy Formater'
-  Use Audio Formats: 'Brug lydformater'
-  Dash formats are not available for this video: 'Dash formater er ikke tilgængelige
+  Change Video Formats: 'Skift Videoformater'
+  Use Dash Formats: 'Brug Dash-Formater'
+  Use Legacy Formats: 'Brug Gamle Formater'
+  Use Audio Formats: 'Brug Lydformater'
+  Dash formats are not available for this video: 'Dash-formater er ikke tilgængelige
     for denne video'
-  Audio formats are not available for this video: 'lydformater er ikke tilgængelige
+  Audio formats are not available for this video: 'Lydformater er ikke tilgængelige
     for denne video'
 Share:
-  Share Video: 'Del video'
-  Include Timestamp: 'Inkludér tidsstempel'
+  Share Video: 'Del Video'
+  Include Timestamp: 'Inkludér Tidsstempel'
   Copy Link: 'Kopiér Link'
-  Open Link: 'Åben link'
-  Copy Embed: 'Kopiér indlejring'
-  Open Embed: 'Åbn indlejring'
+  Open Link: 'Åbn Link'
+  Copy Embed: 'Kopiér Indlejring'
+  Open Embed: 'Åbn Indlejring'
   # On Click
-  Invidious URL copied to clipboard: 'Indvidious URL kopieret til udklipsholderen'
-  Invidious Embed URL copied to clipboard: 'Invidious Integreret URL kopieret til
-    udklipsholderen'
-  YouTube URL copied to clipboard: 'YouTube URL kopieret til udklipsholderen'
-  YouTube Embed URL copied to clipboard: 'YouTube Integrations URL kopieret til udklipsholderen'
-Mini Player: 'Mini afspiller'
+  Invidious URL copied to clipboard: 'Indvidious URL kopieret til udklipsholder'
+  Invidious Embed URL copied to clipboard: 'Invidious Indlejrings-URL kopieret til
+    udklipsholder'
+  YouTube URL copied to clipboard: 'YouTube-URL kopieret til udklipsholder'
+  YouTube Embed URL copied to clipboard: 'YouTube Indlejrings-URL kopieret til udklipsholder'
+  YouTube Channel URL copied to clipboard: YouTube Kanal-URL kopieret til udklipsholder
+  Invidious Channel URL copied to clipboard: Invidious Kanal-URL kopieret til udklipsholder
+Mini Player: 'Miniafspiller'
 Comments:
   Comments: 'Kommentarer'
-  Click to View Comments: 'Klik for at se kommentarer'
-  Getting comment replies, please wait: 'Få svar på kommentarer, vent venligst'
+  Click to View Comments: 'Klik for at Vise Kommentarer'
+  Getting comment replies, please wait: 'Får kommentarsvar, vent venligst'
   There are no more comments for this video: 'Der er ikke flere kommentarer til denne
     video'
-  Show Comments: 'Vis kommentarer'
-  Hide Comments: 'Skjul kommentarer'
+  Show Comments: 'Vis Kommentarer'
+  Hide Comments: 'Skjul Kommentarer'
   # Context: View 10 Replies, View 1 Reply
   View: 'Vis'
   Hide: 'Skjul'
   Replies: 'Svar'
-  Reply: 'Svar'
+  Reply: 'Besvar'
   There are no comments available for this video: 'Der er ingen kommentarer tilgængelige
     til denne video'
-  Load More Comments: 'Indlæs flere kommentarer'
-Up Next: 'Næste'
+  Load More Comments: 'Indlæs Flere Kommentarer'
+  No more comments available: Ikke flere kommentarer tilgængelige
+  Newest first: Nyeste Først
+  Top comments: Topkommentarer
+  Sort by: Sortér efter
+Up Next: 'Kommer Om Lidt'
 
 # Toast Messages
-Local API Error (Click to copy): 'Lokal API fejl (Klik for at kopiere)'
-Invidious API Error (Click to copy): 'Invidious API fejl (Klik for at kopiere)'
-Falling back to Invidious API: 'Falder tilbage til Invidious API'
+Local API Error (Click to copy): 'Lokal API-Fejl (Klik for at kopiere)'
+Invidious API Error (Click to copy): 'Invidious-API-Fejl (Klik for at kopiere)'
+Falling back to Invidious API: 'Falder tilbage til Invidious-API'
 Falling back to the local API: 'Falder tilbage til den lokale API'
-Subscriptions have not yet been implemented: 'Abonnementer er endnu ikke implementeret'
-Loop is now disabled: 'Loop er nu deaktiveret'
-Loop is now enabled: 'Loop er nu aktiveret'
+Subscriptions have not yet been implemented: 'Abonnementer er endnu ikke blevet implementerede'
+Loop is now disabled: 'Gentagelse er nu deaktiveret'
+Loop is now enabled: 'Gentagelse er nu aktiveret'
 Shuffle is now disabled: 'Bland er nu deaktiveret'
 Shuffle is now enabled: 'Bland er nu aktiveret'
-The playlist has been reversed: 'Playlisten er blevet vendt'
-Playing Next Video: 'Afspiller næste video'
-Playing Previous Video: 'Afspiller tidligere video'
-Playing next video in 5 seconds.  Click to cancel: 'Afspiller næste video på om 5
-  sekunder. Klik for at annullere.'
-Canceled next video autoplay: 'Annulleret næste video automatisk afspilning'
-'The playlist has ended.  Enable loop to continue playing': 'Playlisten er afsluttet.
-  Aktivér loop for at fortsætte med at spille'
+The playlist has been reversed: 'Spillelisten er blevet vendt om'
+Playing Next Video: 'Afspiller Næste Video'
+Playing Previous Video: 'Afspiller Forrige Video'
+Playing next video in 5 seconds.  Click to cancel: 'Afspiller næste video om 5 sekunder.
+  Klik for at afbryde.'
+Canceled next video autoplay: 'Afbrød næste videos autospilning'
+'The playlist has ended.  Enable loop to continue playing': 'Spillelisten er slut.  Aktivér
+  gentagelse, for at fortsætte afspilning'
 
 Yes: 'Ja'
 No: 'Nej'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Denne
-  video er ikke tilgængelig på grund af manglende formater. Dette kan ske på grund
-  af land utilgængelighed.
+  video er utilgængelig på grund af manglende formater. Dette kan ske ved landbaseret
+  utilgængelighed.
+Tooltips:
+  Subscription Settings:
+    Fetch Feeds from RSS: Når aktiveret, vil FreeTube bruge RSS, i stedet for dens
+      standard metoder, til at gribe din abonnementsstrøm. RSS er hurtigere og forhindrer
+      IP-blokering, men tilbyder ikke visse informationer, som videolængde eller direkte-status
+  Player Settings:
+    Default Video Format: Indstil formaterne, til brug ved afspilning af video. Dash-formater
+      kan afspille højere kvaliteter. Gamle formater er begrænsede til maks HD, men
+      bruger mindre båndbredde. Lydformater er blot lydudsendelser
+    Proxy Videos Through Invidious: Vil forbinde til Invidious, for at servere videoer,
+      i stedet for at oprette direkte forbindelse til YouTube. Overskriver API-indstilling
+    Force Local Backend for Legacy Formats: Virker kun, når Invidious-APIen er din
+      standard. Når aktiveret, vil den lokale API køre og bruge de gamle formater,
+      den giver, i stedet for dem Invidious giver. Hjælper når de videoer, der gives
+      af Invidious ikke spiller på grund af landerestriktioner
+  General Settings:
+    Region for Trending: Området for mode tillader dig, at vælge hvilket lands videoer
+      på mode, du ønsker at få vist. Ikke alle de viste lande understøttes faktisk
+      af YouTube
+    Preferred API Backend: Vælg det serverniveau, FreeTube bruger til at anskaffe
+      data. Den lokale API er et inbygget dekomprimeringsværktøj. Invidious-APIen
+      kræver en Invidious-server at forbinde til.
+    Invidious Instance: Den Invidious-instans, som FreeTube skal forbinde til for
+      API-opkald. Ryd den aktuelle instans, for at se en liste over offentlige instanser,
+      at vælge mellem
+    Thumbnail Preference: Alle forhåndsvisninger i FreeTube vil blive erstattet med
+      et billede af videoen, i stedet for standard-forhåndsvisningen
+    Fallback to Non-Preferred Backend on Failure: Når din foretrukne API oplever et
+      problem, vil FreeTube automatisk forsøge, at bruge din ikke-foretrukne API som
+      tilbagefaldsmetode, når aktiveret
