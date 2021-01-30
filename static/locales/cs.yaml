@@ -127,8 +127,8 @@ Settings:
       Beginning: 'Začátek'
       Middle: 'Střed'
       End: 'Konec'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidiousova
-      instance (Výchozí je https://invidious.snopyta.org)'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instance Invidious
+      (Výchozí je https://invidious.snopyta.org)'
     Region for Trending: 'Region pro trendy'
         #! List countries
     View all Invidious instance information: Zobrazit všechny informace o instanci
@@ -347,7 +347,7 @@ About:
   Email: Email
   Blog: Blog
   Website: Webová stránka
-  FAQ: Často kladné dotazy
+  FAQ: Často kladené dotazy
   FreeTube Wiki: FreeTube Wiki
   Downloads / Changelog: Ke stažení / Seznam změn
   View License: Zobrazit licenci
