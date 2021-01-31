@@ -3,34 +3,34 @@ Locale Name: 'Български'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Тази част от приложението все още не е готова. Върнете се по-късно когато може би
-  ще има напредък.
+  Тази част от приложението все още не е готова. Върнете се по-късно, когато може
+  би ще има напредък.
 
 # Webkit Menu Bar
 File: 'Файл'
 Quit: 'Изход'
 Edit: 'Редактиране'
-Undo: 'Върни'
-Redo: 'Възстанови'
-Cut: 'Изрежи'
-Copy: 'Копирай'
-Paste: 'Постави'
-Delete: 'Изтрий'
-Select all: 'Избери всичко'
-Reload: 'Презареди'
+Undo: 'Отмяна'
+Redo: 'Възстановяване'
+Cut: 'Изрязване'
+Copy: 'Копиране'
+Paste: 'Поставяне'
+Delete: 'Изтриване'
+Select all: 'Избиране на всичко'
+Reload: 'Презареждане'
 Force Reload: 'Принудително презареждане'
 Toggle Developer Tools: 'Показване на инструменти за разработчици'
 Actual size: 'Действителен размер'
-Zoom in: 'Увеличи'
-Zoom out: 'Намали'
-Toggle fullscreen: 'Превключи на цял екран'
+Zoom in: 'Увеличаване'
+Zoom out: 'Намаляване'
+Toggle fullscreen: 'Превключване на цял екран'
 Window: 'Прозорец'
-Minimize: 'Минимизирай'
-Close: 'Затвори'
+Minimize: 'Минимизиране'
+Close: 'Затваряне'
 Back: 'Назад'
 Forward: 'Напред'
 
-Version $ is now available!  Click for more details: 'Вече е налична версия $!  Кликнете
+Version $ is now available!  Click for more details: 'Версия $ е вече налична!  Кликнете
   за повече детайли'
 Download From Site: 'Сваляне от сайта'
 A new blog is now available, $. Click to view more: 'Налична е нова публикация в блога,
@@ -49,8 +49,8 @@ Search Filters:
     View Count: 'Брой показвания'
   Time:
     Time: 'Време'
-    Any Time: 'Всяко време'
-    Last Hour: 'От последния час'
+    Any Time: 'Независимо кога'
+    Last Hour: 'Последния час'
     Today: 'Днес'
     This Week: 'Тази седмица'
     This Month: 'Този месец'
@@ -71,6 +71,7 @@ Search Filters:
   Fetching results. Please wait: 'Събиране на резултати. Моля, изчакайте'
   Fetch more results: 'Намиране на още резултати'
 # Sidebar
+  There are no more results for this search: Няма повече резултати за това търсене
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Абонаменти'
@@ -98,7 +99,7 @@ User Playlists:
 History:
   # On History Page
   History: 'История'
-  Watch History: 'История на гледанията'
+  Watch History: 'История на гледане'
   Your history list is currently empty.: 'Списъкът с история на гледанията е празен.'
 Settings:
   # On Settings Page
@@ -362,6 +363,7 @@ About:
   Licensed under the AGPLv3: Лицензиран съгласно AGPLv3
   Source code: Програмен код
   Beta: Бета
+  Credits: Заслуги
 Profile:
   Profile Select: 'Избор на профил'
   All Channels: 'Всички канали'
@@ -449,15 +451,15 @@ Video:
   Open in Invidious: 'Отваряне в Invidious'
   Copy Invidious Link: 'Копиране на връзка за Invidious'
   View: 'показване'
-  Views: 'показвания'
+  Views: 'Показвания'
   Loop Playlist: 'Повтаряне на плейлиста'
   Shuffle Playlist: 'Разбъркване на плейлиста'
   Reverse Playlist: 'Обръщане на плейлиста'
   Play Next Video: 'Следващо видео'
   Play Previous Video: 'Предишно видео'
   # Context is "X People Watching"
-  Watching: 'Гледане'
-  Watched: 'Гледан'
+  Watching: 'Гледащи'
+  Watched: 'Гледано'
   Autoplay: 'Автоматично пускане'
   Starting soon, please refresh the page to check again: 'Започва скоро, моля опреснете
     страницата за актуализация'
@@ -538,7 +540,7 @@ Playlist:
   View Full Playlist: 'Преглед на пълен плейлист'
   Videos: 'Видеа'
   View: 'показване'
-  Views: 'показвания'
+  Views: 'Показвания'
   Last Updated On: 'Последна актуализиция на'
   Share Playlist:
     Share Playlist: 'Споделяне на плейлиста'
