@@ -1,8 +1,9 @@
 # Put the name of your locale in the same language
-Locale Name: ''
+Locale Name: 'বাংলা'
 FreeTube: 'ফ্রিটিউব'
 # Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >
+'This part of the app is not ready yet. Come back later when progress has been made.': >-
+  অ্যাপের এই অংশটি এখনও প্রস্তুত নয়। পরে ফিরে এসো যখন অগ্রগতি হয়েছে।
 
 # Webkit Menu Bar
 File: 'ফাইল'
@@ -14,13 +15,13 @@ Cut: 'কাটো'
 Copy: 'অনুলিপি'
 Paste: 'লেপন'
 Delete: 'মুছো'
-Select all: ''
+Select all: 'সব নির্বাচন করো'
 Reload: 'পুনরায় লোড করো'
-Force Reload: ''
-Toggle Developer Tools: ''
-Actual size: ''
-Zoom in: ''
-Zoom out: ''
+Force Reload: 'জোর করে লোড করো'
+Toggle Developer Tools: 'ডেভেলপার যন্ত্র টগল করো'
+Actual size: 'প্রকৃত আকার'
+Zoom in: 'সম্প্রসারিত করো (জুম)'
+Zoom out: 'সংকুচিত করো(জুম)'
 Toggle fullscreen: ''
 Window: 'উইন্ডো'
 Minimize: ''
