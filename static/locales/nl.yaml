@@ -72,7 +72,7 @@ Subscriptions:
   Subscriptions: 'Abonnementen'
   Latest Subscriptions: 'Nieuwste Van Abonnementen'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'U
-    heeft momenteel geen Abonnementen. Voeg abonnementen toe om ze hier te zien'
+    heeft nog geen Abonnementen. Voeg abonnementen toe om ze hier te zien'
   'Getting Subscriptions.  Please wait.': ''
   Refresh Subscriptions: Vernieuw abonnementen
   Getting Subscriptions. Please wait.: Abonnementen verzamelen. Een momentje.
@@ -378,16 +378,15 @@ Channel:
   Sort By: 'Sorteer Bij'
   Videos:
     Videos: 'Video''s'
-    This channel does not currently have any videos: 'Dit kanaal heeft momenteel geen
-      video''s'
+    This channel does not currently have any videos: 'Dit kanaal heeft nog geen video''s'
     Sort Types:
       Newest: 'Nieuwste'
       Oldest: 'Oudste'
       Most Popular: 'Meest Populair'
   Playlists:
     Playlists: 'Afspeellijsten'
-    This channel does not currently have any playlists: 'Dit kanaal heeft momenteel
-      geen afspeellijsten'
+    This channel does not currently have any playlists: 'Dit kanaal heeft nog geen
+      afspeellijsten'
     Sort Types:
       Last Video Added: 'Laatst Toegevoegd'
       Newest: 'Nieuwste'
