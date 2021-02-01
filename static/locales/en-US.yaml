@@ -170,6 +170,7 @@ Settings:
     Proxy Videos Through Invidious: Proxy Videos Through Invidious
     Autoplay Playlists: Autoplay Playlists
     Enable Theatre Mode by Default: Enable Theatre Mode by Default
+    Playlist Next Video Interval: Playlist Next Video Interval
     Default Volume: Default Volume
     Default Playback Rate: Default Playback Rate
     Default Video Format:
@@ -584,8 +585,7 @@ Shuffle is now enabled: Shuffle is now enabled
 The playlist has been reversed: The playlist has been reversed
 Playing Next Video: Playing Next Video
 Playing Previous Video: Playing Previous Video
-Playing next video in 5 seconds.  Click to cancel: Playing next video in 5 seconds.
-  Click to cancel.
+Playing Next Video Interval: Playing next video in no time. Click to cancel. | Playing next video in {nextVideoInterval} second. Click to cancel. | Playing next video in {nextVideoInterval} seconds. Click to cancel.
 Canceled next video autoplay: Canceled next video autoplay
 'The playlist has ended.  Enable loop to continue playing': 'The playlist has ended.  Enable
   loop to continue playing'

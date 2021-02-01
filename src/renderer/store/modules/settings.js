@@ -53,6 +53,7 @@ const state = {
   forceLocalBackendForLegacy: false,
   proxyVideos: false,
   defaultTheatreMode: false,
+  defaultInterval: 5,
   defaultVolume: 1,
   defaultPlayback: 1,
   defaultVideoFormat: 'dash',
@@ -180,6 +181,10 @@ const getters = {
 
   getDefaultTheatreMode: () => {
     return state.defaultTheatreMode
+  },
+
+  getDefaultInterval: () => {
+    return state.defaultInterval
   },
 
   getDefaultVolume: () => {
@@ -347,6 +352,9 @@ const actions = {
               break
             case 'defaultTheatreMode':
               commit('setDefaultTheatreMode', result.value)
+              break
+            case 'defaultInterval':
+              commit('setDefaultInterval', result.value)
               break
             case 'defaultVolume':
               commit('setDefaultVolume', result.value)
@@ -587,6 +595,14 @@ const actions = {
     })
   },
 
+  updateDefaultInterval ({ commit }, defaultInterval) {
+    settingsDb.update({ _id: 'defaultInterval' }, { _id: 'defaultInterval', value: defaultInterval }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setDefaultInterval', defaultInterval)
+      }
+    })
+  },
+
   updateDefaultVolume ({ commit }, defaultVolume) {
     settingsDb.update({ _id: 'defaultVolume' }, { _id: 'defaultVolume', value: defaultVolume }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
@@ -799,6 +815,9 @@ const mutations = {
   },
   setProxyVideos (state, proxyVideos) {
     state.proxyVideos = proxyVideos
+  },
+  setDefaultInterval (state, defaultInterval) {
+    state.defaultInterval = defaultInterval
   },
   setDefaultVolume (state, defaultVolume) {
     state.defaultVolume = defaultVolume
