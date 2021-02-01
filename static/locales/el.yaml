@@ -65,6 +65,8 @@ Search Filters:
   Fetching results. Please wait: 'Aνάκτηση αποτελεσμάτων. Παρακαλώ περιμένετε'
   Fetch more results: 'Λήψη περαιτέρω αποτελεσμάτων'
 # Sidebar
+  There are no more results for this search: Δεν υπάρχουν άλλα αποτελέσματα για αυτήν
+    την αναζήτηση
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Εγγραφές'
@@ -83,6 +85,12 @@ Most Popular: 'Πιο δημοφιλή'
 Playlists: 'Λίστες αναπαραγωγής'
 User Playlists:
   Your Playlists: 'Προσωπικές Λίστες αναπαραγωγής'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Τα
+    αποθηκευμένα βίντεο σας είναι κενά. Κάντε κλικ στο κουμπί αποθήκευσης στη γωνία
+    ενός βίντεο για να το εισάγετε εδώ
+  Playlist Message: Αυτή η σελίδα δεν αντικατοπτρίζει πλήρως λειτουργικές λίστες αναπαραγωγής.
+    Παραθέτει μόνο βίντεο που έχετε αποθηκεύσει ή αγαπήσει. Όταν ολοκληρωθεί η εργασία,
+    όλα τα βίντεο που βρίσκονται εδώ θα μεταφερθούν σε μια λίστα αναπαραγωγής «Αγαπημένα».
 History:
   # On History Page
   History: 'Ιστορικό'
@@ -120,6 +128,8 @@ Settings:
     Check for Latest Blog Posts: Ελέγξτε για τις τελευταίες δημοσιεύσεις ιστολογίου
       (Blogposts)
     Check for Updates: Έλεγχος για ενημερώσεις
+    View all Invidious instance information: Δείτε όλες τις πληροφορίες προσβλητικών
+      περιπτώσεων
   Theme Settings:
     Theme Settings: 'Ρυθμίσεις Θεμάτων'
     Match Top Bar with Main Color: 'Αντιστοίχηση Κύριου Χρώματος με την Μπάρα Κορυφής'
@@ -240,6 +250,7 @@ Settings:
     Unknown data key: 'Άγνωστο κλειδί δεδομένων'
     How do I import my subscriptions?: 'Πως γίνεται η εισαγωγή των συνδρομών μου;'
     Check for Legacy Subscriptions: Ελέγξτε για παλαιότερες εγγραφές
+    Manage Subscriptions: Διαχείριση συνδρομών
   Advanced Settings:
     Advanced Settings: 'Ρυθμίσεις για προχωρημένους'
     Enable Debug Mode (Prints data to the console): 'Ενεργοποίηση λειτουργίας εντοπισμού
@@ -278,9 +289,26 @@ Settings:
     Hide Video Likes And Dislikes: Απόκρυψη μπάρας "μου αρέσει/δεν μου αρέσει"
     Hide Channel Subscribers: Απόκρυψη συνδρομών καναλιού
     Hide Video Views: Απόκρυψη προβολών βίντεο
+    Hide Active Subscriptions: Απόκρυψη ενεργών συνδρομών
   The app needs to restart for changes to take effect. Restart and apply change?: Η
     εφαρμογή πρέπει να κάνει επανεκκίνηση για να εφαρμοστούν οι αλλαγές. Επανεκκίνηση
     και εφαρμογή αλλαγών;
+  Proxy Settings:
+    Error getting network information. Is your proxy configured properly?: Σφάλμα
+      κατά τη λήψη πληροφοριών δικτύου. Ο διακομιστής μεσολάβησης έχει ρυθμιστεί σωστά;
+    City: Πόλη
+    Region: Περιοχή
+    Country: Χώρα
+    Ip: Πρωτόκολλο Διαδικτύου (Ip)
+    Your Info: Τα στοιχεία σας
+    Test Proxy: Έλεγχος Διακομιστή Μεσολάβησης
+    Clicking on Test Proxy will send a request to: Κάνοντας κλικ στο Έλεγχος Διακομιστή
+      Μεσολάβησης θα στείλετε ένα αίτημα στο
+    Proxy Port Number: Αριθμός θύρας διακομιστή μεσολάβησης
+    Proxy Host: Κεντρικός υπολογιστής μεσολάβησης
+    Proxy Protocol: Πρωτόκολλο μεσολάβησης
+    Enable Tor / Proxy: Ενεργοποίηση Tor / Proxy
+    Proxy Settings: Ρυθμίσεις διακομιστή μεσολάβησης
 About:
   #On About page
   About: 'Σχετικά με'
@@ -315,29 +343,54 @@ About:
 
   Latest FreeTube News: 'Τελευταία νέα που αφορούν το FreeTube'
 
+  Donate: Δώρησε
+  these people and projects: αυτούς τους ανθρώπους και τα έργα
+  FreeTube is made possible by: Το FreeTube καθίσταται δυνατό από
+  Credits: Λίστα συντελεστών
+  Translate: Μεταφράστε
+  room rules: κανόνες δωματίου
+  Please read the: Παρακαλώ διαβάστε το
+  Chat on Matrix: Συνομιλία στο Matrix
+  Mastodon: Μάστοντον
+  Email: Ηλεκτρονική διεύθυνση
+  Blog: Ιστολόγιο
+  Website: Δικτυακός τόπος
+  Please check for duplicates before posting: Παρακαλώ ελέγξτε για διπλότυπα πριν
+    δημοσιεύσετε
+  GitHub issues: Προβλήματα GitHub
+  Report a problem: Αναφορά προβλήματος
+  FAQ: Συχνές ερωτήσεις
+  FreeTube Wiki: FreeTube βίκι
+  Help: Βοήθεια
+  GitHub releases: Κυκλοφορίες GitHub
+  Downloads / Changelog: Λήψεις / Αρχείο καταγραφής αλλαγών
+  View License: Προβολή άδειας
+  Licensed under the AGPLv3: Με άδεια βάσει του AGPLv3
+  Source code: Πηγαίος κώδικας
+  Beta: Βήτα
 Profile:
   Profile Select: 'Επιλογή Προφίλ'
   All Channels: 'Όλα τα κανάλια'
-  Profile Manager: 'Διαχείριση Προφίλ'
+  Profile Manager: 'Διαχειριστής Προφίλ'
   Create New Profile: 'Δημιουργία νέου Προφίλ'
   Edit Profile: 'Επεξεργασία προφίλ'
   Color Picker: 'Επιλογέας χρώματος'
   Custom Color: 'Προσαρμοσμένο Χρώμα'
   Profile Preview: 'Προεπισκόπηση προφίλ'
-  Create Profile: 'Δημιουργία νέου Προφίλ'
+  Create Profile: 'Δημιουργία Προφίλ'
   Update Profile: 'Ενημέρωση προφίλ'
   Make Default Profile: 'Επιλογή προεπιλεγμένου προφίλ'
   Delete Profile: 'Διαγραφή προφίλ'
   Are you sure you want to delete this profile?: 'Είστε βέβαιοι ότι θέλετε να διαγράψετε
     αυτό το προφίλ;'
   All subscriptions will also be deleted.: 'Επίσης θα διαγραφούν και όλες οι συνδρομές.'
-  Profile could not be found: 'Δεν ήταν δυνατή η εύρεση του Προφίλ'
+  Profile could not be found: 'Δεν ήταν δυνατή η εύρεση του προφίλ'
   Your profile name cannot be empty: 'Το όνομα του προφίλ σας δεν μπορεί να είναι
     άδειο'
   Profile has been created: 'Το προφίλ σας έχει δημιουργηθεί'
   Profile has been updated: 'Το προφίλ σας έχει ενημερωθεί'
   Your default profile has been set to $: 'Το $ έχει οριστεί ως το προεπιλεγμένο σας
-    Προφίλ'
+    προφίλ'
   Removed $ from your profiles: 'Το $ έχει αφαιρεθεί από τα προφίλ σας'
   Your default profile has been changed to your primary profile: 'Το κύριο προφίλ
     σας έχει οριστεί ως το προεπιλεγμένο'
@@ -355,7 +408,7 @@ Profile:
   : 'Αυτό είναι το κύριο προφίλ σας. Είστε βέβαιοι ότι θέλετε να διαγράψετε τα επιλεγμένα
     κανάλια; Αυτά τα κανάλια θα διαγραφούν και από τα υπόλοιπα προφίλ σας.'
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Είστε
-    βέβαιοι ότι θέλετε να διαγράψετε τα επιλεγμένα κανάλια;  Αυτό δεν θα διαγράψει
+    βέβαιοι ότι θέλετε να διαγράψετε τα επιλεγμένα κανάλια;  Αυτό δε θα διαγράψει
     το κανάλι από οποιοδήποτε άλλο προφίλ.'
 #On Channel Page
 Channel:
@@ -375,15 +428,15 @@ Channel:
   Sort By: 'Ταξινόμηση κατά'
   Videos:
     Videos: 'Βίντεο'
-    This channel does not currently have any videos: 'Αυτό το κανάλι δεν διαθέτει
-      προς το παρόν κάποιο βίντεο'
+    This channel does not currently have any videos: 'Αυτό το κανάλι δε διαθέτει προς
+      το παρόν κάποιο βίντεο'
     Sort Types:
       Newest: 'Νεότερο'
       Oldest: 'Παλαιότερο'
       Most Popular: 'Τα πιο δημοφιλή'
   Playlists:
     Playlists: 'Λίστες αναπαραγωγής'
-    This channel does not currently have any playlists: 'Αυτό το κανάλι δεν διαθέτει
+    This channel does not currently have any playlists: 'Αυτό το κανάλι δε διαθέτει
       προς το παρόν κάποια λίστα αναπαραγωγής'
     Sort Types:
       Last Video Added: 'Τελευταίο βίντεο που προστέθηκε'
@@ -399,12 +452,12 @@ Video:
   Video has been marked as watched: 'Το βίντεο έχει επισημανθεί ως παρακολουθημένο'
   Video has been removed from your history: 'Το βίντεο έχει καταργηθεί από το ιστορικό
     σας'
-  Open in YouTube: 'Εκκίνηση στο YouTube'
+  Open in YouTube: 'Άνοιγμα στο YouTube'
   Copy YouTube Link: 'Αντιγραφή συνδέσμου YouTube'
   Open YouTube Embedded Player: 'Άνοιγμα ενσωματωμένου προγράμματος αναπαραγωγής YouTube'
-  Copy YouTube Embedded Player Link: 'Αντιγραφή σύνδεσμου του ενσωματωμένου προγράμματος
+  Copy YouTube Embedded Player Link: 'Αντιγραφή συνδέσμου του ενσωματωμένου προγράμματος
     αναπαραγωγής από το YouTube'
-  Open in Invidious: 'Εκκίνηση στο Invidious'
+  Open in Invidious: 'Άνοιγμα στο Invidious'
   Copy Invidious Link: 'Αντιγραφή συνδέσμου Invidious'
   View: 'Προβολή'
   Views: 'Προβολές'
@@ -415,7 +468,7 @@ Video:
   Play Previous Video: 'Αναπαραγωγή προηγούμενου βίντεο'
   # Context is "X People Watching"
   Watching: 'Παρακολουθούν τώρα'
-  Watched: 'ΠΑΡΑΚΟΛΟΥΘΗΘΗΚΕ'
+  Watched: 'Παρακολουθήθηκε'
   Autoplay: 'Αυτόματη αναπαραγωγή'
   # As in a Live Video
   Live: 'Ζωντανά'
@@ -459,7 +512,7 @@ Video:
     Year: 'Έτος'
     Years: 'Χρόνια'
     Ago: 'Πριν'
-    Upcoming: 'Πρεμιέρες στις'
+    Upcoming: 'Κάνει πρεμιέρα στις'
   Published on: 'Δημοσιεύθηκε στις'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'δημοσιεύθηκε πριν από $ %'
@@ -469,17 +522,21 @@ Video:
     High: Υψηλή
     Medium: Μεσαία
     Low: Χαμηλή
-  Starting soon, please refresh the page to check again: Η εκκίνηση θα γίνει σύντομα,
-    παρακαλούμε κάντε ανανέωση της σελίδας και ελέγξτε ξανά
-  audio only: μόνο Ήχος
-  video only: μόνο Βίντεο
+  Starting soon, please refresh the page to check again: Έναρξη σύντομα, παρακαλούμε
+    κάντε ανανέωση της σελίδας για επανέλεγχο
+  audio only: μόνο ήχος
+  video only: μόνο βίντεο
   Download Video: Λήψη Βίντεο
   Copy Invidious Channel Link: Αντιγραφή συνδέσμου καναλιού Invidious
-  Copy YouTube Channel Link: Αντιγραφή συνδέσμου καναλιού
+  Copy YouTube Channel Link: Αντιγραφή συνδέσμου καναλιού YouTube
   Started streaming on: Ξεκίνησε να μεταδίδει ζωντανά την
   Streamed on: Μεταδίδεται ζωντανά σε
   Open Channel in Invidious: Άνοιγμα καναλιού στο Invidious
   Open Channel in YouTube: Άνοιγμα καναλιού στο YouTube
+  Video has been removed from your saved list: Το βίντεο καταργήθηκε από την αποθηκευμένη
+    λίστα σας
+  Video has been saved: Το βίντεο έχει αποθηκευτεί
+  Save Video: Αποθήκευση βίντεο
 Videos:
   #& Sort By
   Sort By:
@@ -497,9 +554,9 @@ Playlist:
   Share Playlist:
     Share Playlist: 'Κοινοποίηση λίστας αναπαραγωγής'
     Copy YouTube Link: 'Αντιγραφή συνδέσμου YouTube'
-    Open in YouTube: 'Εκκίνηση στο YouTube'
+    Open in YouTube: 'Άνοιγμα στο YouTube'
     Copy Invidious Link: 'Αντιγραφή συνδέσμου Invidious'
-    Open in Invidious: 'Εκκίνηση στο Invidious'
+    Open in Invidious: 'Άνοιγμα στο Invidious'
 
 # On Video Watch Page
 #* Published
@@ -507,12 +564,12 @@ Playlist:
 Toggle Theatre Mode: 'Εναλλαγή λειτουργίας θεάτρου'
 Change Format:
   Change Video Formats: 'Αλλαγή μορφής του βίντεο'
-  Use Dash Formats: 'Dash Μορφή'
-  Use Legacy Formats: 'Παλαιότερες Μορφές Αναπαρωγής'
-  Use Audio Formats: 'Μορφές Ήχου'
-  Dash formats are not available for this video: 'Η μορφή Dash δεν είναι διαθέσιμη
+  Use Dash Formats: 'Χρησιμοποίηση μορφών Dash'
+  Use Legacy Formats: 'Χρησιμοποίηση παλαιότερων μορφών'
+  Use Audio Formats: 'Χρησιμοποίηση Μορφών Ήχου'
+  Dash formats are not available for this video: 'Οι μορφές Dash δεν είναι διαθέσιμες
     για αυτό το βίντεο'
-  Audio formats are not available for this video: 'Δεν διατίθενται μορφές ήχου για
+  Audio formats are not available for this video: 'Δε διατίθενται μορφές ήχου για
     αυτό το βίντεο'
 Share:
   Share Video: 'Κοινοποίηση βίντεο'
@@ -522,7 +579,7 @@ Share:
   Copy Embed: 'Αντιγραφή ενσωματωμένης έκδοσης'
   Open Embed: 'Άνοιγμα ενσωματωμένης έκδοσης'
   # On Click
-  Invidious URL copied to clipboard: 'Η διεύθενση Invidious αντιγράφηκε στο Πρόχειρο'
+  Invidious URL copied to clipboard: 'Η διεύθυνση Invidious αντιγράφηκε στο πρόχειρο'
   Invidious Embed URL copied to clipboard: 'Η ενσωματωμένη διεύθυνση Invidious αντιγράφηκε
     στο πρόχειρο'
   YouTube URL copied to clipboard: 'Η διεύθυνση YouTube αντιγράφηκε στο πρόχειρο'
@@ -544,16 +601,16 @@ Comments:
   Hide: 'Απόκρυψη'
   Replies: 'Απαντήσεις'
   Reply: 'Απάντηση'
-  There are no comments available for this video: 'Δεν υπάρχουν διαθέσιμα σχόλια για
+  There are no comments available for this video: 'Δεν υπάρχουν διαθέσιμα σχόλια γι
     αυτό το βίντεο'
   Load More Comments: 'Φόρτωση περισσότερων σχολίων'
-  Newest first: Νεότερο πρώτο
+  Newest first: Νεότερο πρώτα
   No more comments available: Δεν υπάρχουν άλλα διαθέσιμα σχόλια
   Top comments: Κορυφαία σχόλια
   Sort by: Ταξινόμηση κατά
   There are no more comments for this video: Δεν υπάρχουν άλλα σχόλια για αυτό το
     βίντεο
-Up Next: 'Επόμενος τίτλος'
+Up Next: 'Επόμενο'
 
 # Toast Messages
 Local API Error (Click to copy): 'Τοπικό σφάλμα Διεπαφής προγραμματισμού εφαρμογής
@@ -606,7 +663,7 @@ Tooltips:
       από το Invidious. Βοηθά όταν τα βίντεο που επιστρέφονται από το Invidious δεν
       αναπαράγονται λόγω περιορισμών χώρας
   General Settings:
-    Region for Trending: Η περιοχή των τάσεων σάς επιτρέπει να επιλέξετε τα δημοφιλή
+    Region for Trending: Η περιοχή των τάσεων σας επιτρέπει να επιλέξετε τα δημοφιλή
       βίντεο της χώρας που θέλετε να εμφανίζονται. Δεν υποστηρίζονται όλες οι χώρες
       που προβάλλονται από το YouTube
     Thumbnail Preference: Όλες οι μικρογραφίες του FreeTube θα αντικατασταθούν με
@@ -615,8 +672,8 @@ Tooltips:
       πρόβλημα, το FreeTube θα προσπαθήσει να χρησιμοποιήσει το μη προτιμώμενο API
       ως εναλλακτική μέθοδο όταν ενεργοποιηθεί
     Preferred API Backend: Επέλεξε το σύστημα με το οποίο το Freetube θα συλλέγει
-      δεδομένα. Το τοπικό API είναι ένα ενσωματομένο εργαλείο. Ενώ το Invidious API
-      απαιτεί έναν Invidious server για σύνδεση.
+      δεδομένα. Το τοπικό API είναι ένα ενσωματωμένο εργαλείο. Ενώ το Invidious API
+      απαιτεί έναν Invidious server για να συνδεθεί.
     Invidious Instance: Το στιγμιότυπο Invidious στο οποίο το FreeTube θα συνδεθεί
       για κλήσεις διεπαφής. Καθαρίστε το παρόν στιγμιότυπο για να δείτε μια λίστα
       δημόσιων στιγμιότυπων προς επιλογή
