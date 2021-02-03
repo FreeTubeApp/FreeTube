@@ -3,7 +3,7 @@ Locale Name: 'Dansk (DK)'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Denne del af appen er ikke klar endnu. Kom tilbage senere, når der er gjort fremskridt.
+  Denne del af app'en er ikke klar endnu. Kom tilbage senere, når der er gjort fremskridt.
 
 # Webkit Menu Bar
 File: 'Fil'
@@ -50,10 +50,10 @@ Search Filters:
     Time: 'Tid'
     Any Time: 'Enhver Tid'
     Last Hour: 'Sidste Time'
-    Today: 'Idag'
+    Today: 'I Dag'
     This Week: 'Denne Uge'
     This Month: 'Denne Måned'
-    This Year: 'Dette År'
+    This Year: 'I År'
   Type:
     Type: 'Type'
     All Types: 'Alle Typer'
@@ -105,15 +105,15 @@ Settings:
   Settings: 'Indstillinger'
   General Settings:
     General Settings: 'Generelle Indstillinger'
-    Check for Updates: 'Kontrollér for Opdateringer'
-    Check for Latest Blog Posts: 'Kontrollér for Seneste Blogindlæg'
+    Check for Updates: 'Søg efter Opdateringer'
+    Check for Latest Blog Posts: 'Søg efter Seneste Blogindlæg'
     Fallback to Non-Preferred Backend on Failure: 'Tilbagefald til Ikke-Foretrukken
-      Serverniveau ved Fejl'
+      Server ved Fejl'
     Enable Search Suggestions: 'Aktivér Søgeforslag'
     Default Landing Page: 'Standard Landingsside'
     Locale Preference: 'Sprogindstilling'
     Preferred API Backend:
-      Preferred API Backend: 'Foretrukket API-Serverniveau'
+      Preferred API Backend: 'Foretrukket API-Server'
       Local API: 'Lokal API'
       Invidious API: 'Invidious-API'
     Video View Type:
@@ -164,7 +164,7 @@ Settings:
     Expand Side Bar by Default: Udvid Sidebjælke som Standard
   Player Settings:
     Player Settings: 'Afspilningsindstillinger'
-    Force Local Backend for Legacy Formats: 'Tving Lokalt Serverniveau for Gamle Formater'
+    Force Local Backend for Legacy Formats: 'Tving Lokal Server for Gamle Formater'
     Play Next Video: 'Afspil Næste Video'
     Turn on Subtitles by Default: 'Slå Undertekster til som Standard'
     Autoplay Videos: 'Autospil Videoer'
@@ -248,7 +248,7 @@ Settings:
     Unknown data key: 'Ukendt datanøgle'
     How do I import my subscriptions?: 'Hvordan importerer jeg mine abonnementer?'
     Manage Subscriptions: Abonnementshåndtering
-    Check for Legacy Subscriptions: Kontrolleŕ for Gamle Abonnementer
+    Check for Legacy Subscriptions: Søg efter Gamle Abonnementer
   Advanced Settings:
     Advanced Settings: 'Avancerede indstillinger'
     Enable Debug Mode (Prints data to the console): 'Aktivér fejlretningstilstand
@@ -303,7 +303,7 @@ Settings:
     Hide Video Likes And Dislikes: Skjul Video-Tilkendegivelser
     Hide Video Views: Skjul Videovisninger
     Distraction Free Settings: Distraktionsfri Indstillinger
-  The app needs to restart for changes to take effect. Restart and apply change?: Appen
+  The app needs to restart for changes to take effect. Restart and apply change?: App'en
     er nødt til at genstarte, for at ændringer kan træde i kraft. Genstart og anvend
     ændringer?
 About:
@@ -640,9 +640,9 @@ Tooltips:
     Region for Trending: Området for mode tillader dig, at vælge hvilket lands videoer
       på mode, du ønsker at få vist. Ikke alle de viste lande understøttes faktisk
       af YouTube
-    Preferred API Backend: Vælg det serverniveau, FreeTube bruger til at anskaffe
-      data. Den lokale API er et inbygget dekomprimeringsværktøj. Invidious-APIen
-      kræver en Invidious-server at forbinde til.
+    Preferred API Backend: Vælg den server, som FreeTube bruger til at anskaffe data.
+      Den lokale API er et inbygget dekomprimeringsværktøj. Invidious-APIen kræver
+      en Invidious-server at forbinde til.
     Invidious Instance: Den Invidious-instans, som FreeTube skal forbinde til for
       API-opkald. Ryd den aktuelle instans, for at se en liste over offentlige instanser,
       at vælge mellem
