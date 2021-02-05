@@ -136,8 +136,8 @@ Settings:
     Base Theme:
       Base Theme: 'Βασικό Θέμα'
       Black: 'Μαύρο'
-      Dark: 'Σκούρο'
-      Light: 'Ανοιχτό/φωτεινό'
+      Dark: 'Σκοτεινό'
+      Light: 'Φωτεινό'
     Main Color Theme:
       Main Color Theme: 'Κύριο Χρώμα Θέματος'
       Red: 'Κόκκινο'
@@ -146,7 +146,7 @@ Settings:
       Deep Purple: 'Βαθύ/Σκούρο Μωβ'
       Indigo: 'Μωβ-μπλε (Indigo)'
       Blue: 'Μπλε'
-      Light Blue: 'Ανοιχτό Μπλε'
+      Light Blue: 'Γαλάζιο'
       Cyan: 'Κυανό'
       Teal: 'Βαθύ Κυανό'
       Green: 'Πράσινο'
