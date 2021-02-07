@@ -62,6 +62,7 @@ Search Filters:
   Fetching results. Please wait: 'Получение результатов. Пожалуйста, подождите'
   Fetch more results: 'Получить больше результатов'
 # Sidebar
+  There are no more results for this search: Больше нет результатов по этому запросу
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Подписки'
@@ -81,6 +82,9 @@ Most Popular: 'Самые популярные'
 Playlists: 'Плейлисты'
 User Playlists:
   Your Playlists: 'Ваши плейлисты'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: У
+    вас нет сохранных видео. Нажмите на кнопку сохранения в углу видео, чтобы оно
+    появилось здесь
 History:
   # On History Page
   History: 'История'
@@ -116,6 +120,7 @@ Settings:
         #! List countries
     Check for Latest Blog Posts: Проверить последние сообщения в блоге
     Check for Updates: Проверить наличие обновлений
+    View all Invidious instance information: Показать все доступные экземпляры Invidious
   Theme Settings:
     Theme Settings: 'Настройки темы'
     Match Top Bar with Main Color: 'Совместить верхнюю панель с основным цветом'
@@ -269,6 +274,7 @@ Settings:
     One or more subscriptions were unable to be imported: Не удалось импортировать
       одну или несколько подписок
     Check for Legacy Subscriptions: Проверить устаревшие подписки
+    Manage Subscriptions: Управление подписками
   Distraction Free Settings:
     Hide Live Chat: Скрыть Live чат
     Hide Popular Videos: Скрыть популярные видео
@@ -283,6 +289,22 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: Чтобы
     изменения вступили в силу, необходимо перезапустить приложение. Перезапустить
     и применить изменения?
+  Proxy Settings:
+    Error getting network information. Is your proxy configured properly?: Ошибка
+      при получении информации о сети. Вы уверены, что прокси настроен правильно?
+    Your Info: Ваша информация
+    Clicking on Test Proxy will send a request to: Нажмите на rкнопку "Протестировать
+      соединение", чтобы отправить запрос на
+    Test Proxy: Протестировать соединение
+    Proxy Port Number: Порт прокси-сервера
+    Proxy Host: Адрес прокси-сервера
+    Proxy Protocol: Протокол прокси
+    City: Город
+    Region: Регион
+    Country: Страна
+    Ip: Ip
+    Enable Tor / Proxy: Включить Tor / Прокси
+    Proxy Settings: Настройки прокси
 About:
   #On About page
   About: 'О программе'
@@ -315,6 +337,28 @@ About:
   Latest FreeTube News: 'Последние новости FreeTube'
 
 #On Channel Page
+  Donate: Пожертвовать
+  these people and projects: этим людям и проектам
+  FreeTube is made possible by: FreeTube стал возможен благодаря
+  Credits: Команда проекта
+  Translate: Перевод
+  room rules: правила комнаты
+  Please read the: Пожалуйста прочитайте
+  Chat on Matrix: Чат Matrix
+  Mastodon: Mastodon
+  Email: Электронная почта
+  Blog: Блог
+  Website: Сайт
+  Report a problem: Сообщить о проблеме
+  FAQ: FAQ
+  FreeTube Wiki: Вики-сайт FreeTube
+  Help: Помощь
+  GitHub releases: Релизы на GitHub
+  Downloads / Changelog: Загрузки / Журнал изменений
+  View License: Посмотреть лицензию
+  Licensed under the AGPLv3: Лицензия AGPLv3
+  Source code: Исходный код
+  Beta: Бета
 Channel:
   Subscriber: 'Подписчик'
   Subscribers: 'Подписчиков'
@@ -432,6 +476,9 @@ Video:
   Open Channel in YouTube: Открыть канал в YouTube
   Streamed on: Транслировано
   Started streaming on: Трансляция начата на
+  Video has been removed from your saved list: Видео было удалено из списка сохраненных
+  Video has been saved: Видео было добавлено в сохраненные
+  Save Video: Добавить видео в сохраненные
 Videos:
   #& Sort By
   Sort By:
