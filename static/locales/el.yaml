@@ -117,7 +117,7 @@ Settings:
       List: 'Λίστα'
     Thumbnail Preference:
       Thumbnail Preference: 'Προτίμηση μικρογραφιών'
-      Default: 'Προκαθορισμένο'
+      Default: 'Προεπιλογή'
       Beginning: 'Αρχή'
       Middle: 'Μέση'
       End: 'Τέλος'
