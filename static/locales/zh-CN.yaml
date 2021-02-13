@@ -62,6 +62,7 @@ Search Filters:
   Fetching results. Please wait: '摘取结果中。请稍候'
   Fetch more results: '摘取更多结果'
 # Sidebar
+  There are no more results for this search: 对于本搜索没有更多结果
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: '订阅'
@@ -78,6 +79,8 @@ Most Popular: '最流行'
 Playlists: '播放列表'
 User Playlists:
   Your Playlists: '您的播放列表'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 您未保存视频。点击视频角落的“保存”按钮保存视频
+  Playlist Message: 本页面不代表功能完备的播放列表。它只列举您保存或喜爱的播放列表。当项目完成时，本页面的所有视频将会迁移到“最喜爱”播放列表。
 History:
   # On History Page
   History: '历史记录'
@@ -111,6 +114,7 @@ Settings:
         #! List countries
     Check for Updates: 检查更新
     Check for Latest Blog Posts: 检查最新的博客贴
+    View all Invidious instance information: 浏览所有Invidious实例
   Theme Settings:
     Theme Settings: '主题设置'
     Match Top Bar with Main Color: '顶部菜单栏对应主颜色'
@@ -220,7 +224,7 @@ Settings:
     Remove All Subscriptions / Profiles: 移除所有订阅 / 配置文件
   Data Settings:
     Subscriptions have been successfully exported: 订阅已成功导出
-    This might take a while, please wait: 这肯能需要一段时间，请稍候
+    This might take a while, please wait: 这可能需要一段时间，请稍候
     Invalid subscriptions file: 无效的订阅文件
     All subscriptions have been successfully imported: 所有订阅已成功导入
     All subscriptions and profiles have been successfully imported: 所有订阅和配置文件已成功导入
@@ -248,6 +252,7 @@ Settings:
     Data Settings: 数据设置
     One or more subscriptions were unable to be imported: 一个或者更多订阅无法被导入
     Check for Legacy Subscriptions: 检查传统订阅
+    Manage Subscriptions: 管理订阅
   Distraction Free Settings:
     Hide Popular Videos: 隐藏流行视频
     Hide Trending Videos: 隐藏热门视频
@@ -258,7 +263,12 @@ Settings:
     Hide Video Likes And Dislikes: 隐藏视频喜欢与不喜欢
     Hide Video Views: 隐藏视频观看数量
     Distraction Free Settings: 零打扰设置
+    Hide Active Subscriptions: 隐藏活跃的订阅
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
+  Proxy Settings:
+    Proxy Protocol: 代理协议
+    Enable Tor / Proxy: 使用Tor/代理
+    Proxy Settings: 代理设置
 About:
   #On About page
   About: '关于'
