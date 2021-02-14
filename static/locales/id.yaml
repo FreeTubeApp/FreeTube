@@ -3,14 +3,14 @@ Locale Name: 'Bahasa Indonesia'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Bagian aplikasi ini belum tersedia. Kembali lagi nanti saat perubahan telah dibuat.
+  Bagian aplikasi ini belum tersedia. Kembali lagi jika sudah ada kemajuan.
 
 # Webkit Menu Bar
 File: 'Berkas'
 Quit: 'Keluar'
 Edit: 'Sunting'
 Undo: 'Urungkan'
-Redo: ''
+Redo: 'Redo'
 Cut: 'Potong'
 Copy: 'Salin'
 Paste: 'Tempel'
@@ -91,6 +91,9 @@ User Playlists:
   Your Playlists: 'Daftar Putar Anda'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Penyimpanan
     video Anda kosong. Klik tombol simpan pada pojok video untuk menyimpannya di sini
+  Playlist Message: Halaman ini tidak mencerminkan playlist yang berfungsi sepenuhnya.
+    Ini hanya mencantumkan video yang telah Anda simpan atau favorit. Setelah selesai,
+    semua video yang ada di sini akan dipindahkan ke daftar putar 'Favorit'.
 History:
   # On History Page
   History: 'Riwayat'
@@ -244,7 +247,7 @@ Settings:
     Unable to write file: 'Tidak dapat menulis berkas'
     Unknown data key: 'Kunci data tidak diketahui'
     How do I import my subscriptions?: 'Bagaimana saya mengimpor langganan saya?'
-    Check for Legacy Subscriptions: Cek untuk Langganan Lama
+    Check for Legacy Subscriptions: Periksa langganan lawas
     Manage Subscriptions: Kelola Langganan
   Advanced Settings:
     Advanced Settings: 'Pengaturan Lanjutan'
