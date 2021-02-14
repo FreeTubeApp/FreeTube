@@ -30,11 +30,11 @@ Close: 'Затваряне'
 Back: 'Назад'
 Forward: 'Напред'
 
-Version $ is now available!  Click for more details: 'Версия $ е вече налична!  Кликнете
+Version $ is now available!  Click for more details: 'Версия $ е вече налична! Кликни
   за повече детайли'
 Download From Site: 'Сваляне от сайта'
-A new blog is now available, $. Click to view more: 'Налична е нова публикация в блога,
-  $. Кликнете, за да я видите'
+A new blog is now available, $. Click to view more: 'Нова публикация в блога, $. Кликни
+  за преглед'
 
 # Search Bar
 Search / Go to URL: 'Търсене / Отиване на адрес'
@@ -89,9 +89,8 @@ Most Popular: 'Най-популярни'
 Playlists: 'Плейлисти'
 User Playlists:
   Your Playlists: 'Вашите плейлисти'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Запазените
-    ви видеоклипове са празни. Кликнете върху бутона за запазване в ъгъла на видеоклипа,
-    за да го добавите тук
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Няма
+    запазени видеоклипове. За запазване кликни в ъгъла на видеоклипа
   Playlist Message: Тази страница не отразява напълно работещи плейлисти. В него са
     изброени само видеоклипове, които сте запазили или избрали за любими. Когато работата
     приключи, всички видеоклипове, които в момента са тук, ще бъдат мигрирани в плейлист
@@ -116,7 +115,7 @@ Settings:
     Preferred API Backend:
       Preferred API Backend: 'Предпочитан вътрешен интерфейс'
       Local API: 'Локален API'
-      Invidious API: 'Invidious API'
+      Invidious API: 'Invidious Интерфейс'
     Video View Type:
       Video View Type: 'Подредба на видеата'
       Grid: 'Решетка'
@@ -131,6 +130,7 @@ Settings:
       (по подразбиране е https://invidious.snopyta.org)'
     Region for Trending: 'Регион за набиращи популярност'
         #! List countries
+    View all Invidious instance information: Виж пълна информация за Invidious обекта
   Theme Settings:
     Theme Settings: 'Настройки на изгледа на приложението'
     Match Top Bar with Main Color: 'Съвпадане на горната лента с основната цветова
@@ -347,7 +347,7 @@ About:
   room rules: правилата за стаите
   Please read the: Моля, прочетете
   Chat on Matrix: Чат в Matrix
-  Mastodon: Mastodon
+  Mastodon: мастодонт
   Email: Имейл
   Blog: Блог
   Website: Уебсайт
@@ -355,7 +355,7 @@ About:
   GitHub issues: GitHub проблеми
   Report a problem: Съобщете за проблем
   FAQ: ЧЗВ
-  FreeTube Wiki: FreeTube Wiki
+  FreeTube Wiki: FreeTube Уики
   Help: Помощ
   GitHub releases: GitHub издания
   Downloads / Changelog: Изтегляния / Дневник с промени
@@ -579,7 +579,7 @@ Share:
 Mini Player: 'Мини плейър'
 Comments:
   Comments: 'Коментари'
-  Click to View Comments: 'Кликнете, за да видите коментарите'
+  Click to View Comments: 'Кликни, за да видиш коментарите'
   Getting comment replies, please wait: 'Получаване на отговори на коментара, моля
     изчакайте'
   There are no more comments for this video: 'Към това видео няма повече коментари'
@@ -599,9 +599,8 @@ Comments:
 Up Next: 'Следващ'
 
 # Toast Messages
-Local API Error (Click to copy): 'Грешка на локалния интерфейс (кликнете за копиране)'
-Invidious API Error (Click to copy): 'Грешка на Invidious интерфейса (кликнете за
-  копиране)'
+Local API Error (Click to copy): 'Грешка в локалния интерфейс (кликни за копиране)'
+Invidious API Error (Click to copy): 'Грешка в Invidious интерфейса (кликни за копиране)'
 Falling back to Invidious API: 'Връщане към Invidious интерфейса'
 Falling back to the local API: 'Връщане към локалния интерфейс'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Видеото
@@ -615,8 +614,8 @@ Shuffle is now enabled: 'Разбъркването е включено'
 The playlist has been reversed: 'Плейлистата е в обърнат ред'
 Playing Next Video: 'Пускане на следващото видео'
 Playing Previous Video: 'Пускане на предишното видео'
-Playing next video in 5 seconds.  Click to cancel: 'Следващото видео започва след
-  5 секунди. Кликнете за отказ.'
+Playing next video in 5 seconds.  Click to cancel: 'Следващо видео започва след 5
+  секунди. Кликни за отказ.'
 Canceled next video autoplay: 'Следващото видео е отказано'
 'The playlist has ended.  Enable loop to continue playing': 'Плейлиста приключи. Включете
   повторението за да продължи'
