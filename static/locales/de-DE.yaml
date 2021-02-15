@@ -63,6 +63,8 @@ Search Filters:
   Fetching results. Please wait: Lade Ergebnisse. Bitte warten
   Fetch more results: Lade mehr Ergebnisse
 # Sidebar
+  There are no more results for this search: Es gibt keine weiteren Ergebnisse für
+    diese Suche
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: Abonnement
@@ -125,6 +127,8 @@ Settings:
         #! List countries
     Check for Latest Blog Posts: Nach aktuellsten Blogeinträgen suchen
     Check for Updates: Nach Aktualisierungen suchen
+    View all Invidious instance information: Alle Informationen zur Invidious-Instanz
+      anzeigen
   Theme Settings:
     Theme Settings: Thema Einstellungen
     Match Top Bar with Main Color: Passe obere Leiste an Hauptfarbe an

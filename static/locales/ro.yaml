@@ -70,6 +70,8 @@ Search Filters:
   Fetching results. Please wait: 'Căutăm resultate. Te rog așteaptă'
   Fetch more results: 'Caută mai multe rezultate'
 # Sidebar
+  There are no more results for this search: Nu mai sunt rezultate pentru aceasta
+    cautare.
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonări'
@@ -78,11 +80,17 @@ Subscriptions:
     ta de abonări este momentan goală. Adaugă abonați ca să îi vezi aici'
   'Getting Subscriptions. Please wait.': 'Căutăm abonați. Te rog așteaptă.'
   Refresh Subscriptions: 'Reîncarcă Abonăriile'
+  Load More Videos: Incarca mai multe videouri
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Acest
+    profil are foarte multi urmaritori. Foloseste RSS pentru a evita limita fixata.
 Trending: 'Trend'
 Most Popular: 'Cel mai Popular'
 Playlists: 'Liste de videoclipuri'
 User Playlists:
   Your Playlists: 'Listele Tale'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Nu
+    ai salvat niciun video. Apasa pe butonul de salveaza pentru a adauga un video
+    aici
 History:
   # On History Page
   History: 'Istoric'
@@ -115,44 +123,47 @@ Settings:
       Middle: 'Mijloc'
       End: 'Sfârșit'
     'Invidious Instance (Default is https://invidious.snopyta.org)': ''
-    Region for Trending: ''
+    Region for Trending: 'Regiunea tendintelor'
         #! List countries
   Theme Settings:
-    Theme Settings: ''
-    Match Top Bar with Main Color: ''
+    Theme Settings: 'Setarile temelor'
+    Match Top Bar with Main Color: 'Potriveste bara superioară cu culoarea principală'
     Base Theme:
-      Base Theme: ''
-      Black: ''
-      Dark: ''
-      Light: ''
+      Base Theme: 'Temă de bază'
+      Black: 'Negru'
+      Dark: 'Intunecat'
+      Light: 'Deschis'
     Main Color Theme:
-      Main Color Theme: ''
-      Red: ''
-      Pink: ''
-      Purple: ''
-      Deep Purple: ''
-      Indigo: ''
-      Blue: ''
-      Light Blue: ''
-      Cyan: ''
-      Teal: ''
-      Green: ''
-      Light Green: ''
-      Lime: ''
-      Yellow: ''
-      Amber: ''
-      Orange: ''
-      Deep Orange: ''
-    Secondary Color Theme: ''
+      Main Color Theme: 'Culoarea temei principale'
+      Red: 'Roşu'
+      Pink: 'Roz'
+      Purple: 'Violet'
+      Deep Purple: 'Mov inchis'
+      Indigo: 'Indigo'
+      Blue: 'Albastru'
+      Light Blue: 'Albastru Deschis'
+      Cyan: 'Cyan'
+      Teal: 'Turcoaz'
+      Green: 'Verde'
+      Light Green: 'Verde deschis'
+      Lime: 'Verde lime'
+      Yellow: 'Galben'
+      Amber: 'Chihlimbar'
+      Orange: 'Portocaliu'
+      Deep Orange: 'Portocaliu inchis'
+    Secondary Color Theme: 'Culoare secundara'
         #* Main Color Theme
+    UI Scale: Scala UI
+    Disable Smooth Scrolling: Dezactivați derularea fără probleme
+    Expand Side Bar by Default: Extindeti bara laterala in mod implicit
   Player Settings:
-    Player Settings: ''
+    Player Settings: 'Setări player'
     Force Local Backend for Legacy Formats: ''
-    Play Next Video: ''
-    Turn on Subtitles by Default: ''
-    Autoplay Videos: ''
-    Proxy Videos Through Invidious: ''
-    Autoplay Playlists: ''
+    Play Next Video: 'Redați următorul videoclip'
+    Turn on Subtitles by Default: 'Activati subtitrarile in mod implicit'
+    Autoplay Videos: 'Redare automată de videoclipuri'
+    Proxy Videos Through Invidious: 'Proxy Videoclipuri prin Invidious'
+    Autoplay Playlists: 'Liste de redare automată'
     Enable Theatre Mode by Default: ''
     Default Volume: ''
     Default Playback Rate: ''
@@ -241,6 +252,9 @@ Settings:
       #& Yes
       #& No
 
+  The app needs to restart for changes to take effect. Restart and apply change?: Aplicatia
+    trebuie restartata pentru ca schimbarile sa aiba efect. Doresti sa restartezi
+    si sa aplici schimbarile?
 About:
   #On About page
   About: ''

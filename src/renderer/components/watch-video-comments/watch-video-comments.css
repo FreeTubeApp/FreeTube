@@ -110,6 +110,13 @@
   margin-left: 30px;
 }
 
+.showMoreReplies {
+  margin-left: 30px;
+  font-size: 15px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .getMoreComments {
   height: 10px;
   margin-top: 5px;

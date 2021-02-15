@@ -82,7 +82,7 @@
           <span
             v-if="comment.numReplies > 0"
             class="commentMoreReplies"
-            @click="getCommentReplies(index)"
+            @click="toggleCommentReplies(index)"
           >
             <span v-if="!comment.showReplies">{{ $t("Comments.View") }}</span>
             <span v-else>{{ $t("Comments.Hide") }}</span>
@@ -127,6 +127,13 @@
             >
               View {{ reply.numReplies }} replies
             </p>
+          </div>
+          <div
+            v-if="comment.replies.length < comment.numReplies"
+            class="showMoreReplies"
+            @click="getCommentReplies(index)"
+          >
+            <span>Show More Replies</span>
           </div>
         </div>
       </div>

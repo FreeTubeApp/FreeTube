@@ -3,14 +3,14 @@ Locale Name: 'Bahasa Indonesia'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Bagian aplikasi ini belum tersedia. Kembali lagi nanti saat perubahan telah dibuat.
+  Bagian aplikasi ini belum tersedia. Kembali lagi jika sudah ada kemajuan.
 
 # Webkit Menu Bar
 File: 'Berkas'
 Quit: 'Keluar'
 Edit: 'Sunting'
 Undo: 'Urungkan'
-Redo: ''
+Redo: 'Redo'
 Cut: 'Potong'
 Copy: 'Salin'
 Paste: 'Tempel'
@@ -77,7 +77,7 @@ Subscriptions:
   Subscriptions: 'Langganan'
   Latest Subscriptions: 'Langganan Terbaru'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Daftar
-    Langganan anda kosong. Mulai tambahkan langganan untuk melihatnya di sini.'
+    Langganan Anda kosong. Mulai tambahkan langganan untuk melihatnya di sini.'
   'Getting Subscriptions. Please wait.': 'Mengambil Langganan. Silakan tunggu.'
   Refresh Subscriptions: 'Segarkan Langganan'
   Load More Videos: Muat Lebih Banyak Video
@@ -88,14 +88,17 @@ Trending: 'Sedang Tren'
 Most Popular: 'Paling Populer'
 Playlists: 'Daftar Putar'
 User Playlists:
-  Your Playlists: 'Daftar Putar anda'
+  Your Playlists: 'Daftar Putar Anda'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Penyimpanan
     video Anda kosong. Klik tombol simpan pada pojok video untuk menyimpannya di sini
+  Playlist Message: Halaman ini tidak mencerminkan playlist yang berfungsi sepenuhnya.
+    Ini hanya mencantumkan video yang telah Anda simpan atau favorit. Setelah selesai,
+    semua video yang ada di sini akan dipindahkan ke daftar putar 'Favorit'.
 History:
   # On History Page
   History: 'Riwayat'
   Watch History: 'Riwayat Tontonan'
-  Your history list is currently empty.: 'Daftar riwayat anda kosong.'
+  Your history list is currently empty.: 'Daftar riwayat Anda kosong.'
 Settings:
   # On Settings Page
   Settings: 'Pengaturan'
@@ -191,16 +194,16 @@ Settings:
     Remember History: 'Ingat Riwayat'
     Save Watched Progress: 'Simpan Progres Tontonan'
     Clear Search Cache: 'Hapus Cache Pencarian'
-    Are you sure you want to clear out your search cache?: 'Apakah anda yakin ingin
-      menghapus cache pencarian anda?'
+    Are you sure you want to clear out your search cache?: 'Apakah Anda yakin ingin
+      menghapus cache pencarian Anda?'
     Search cache has been cleared: 'Cache pencarian telah dihapus'
     Remove Watch History: 'Hapus Riwayat Tontonan'
-    Are you sure you want to remove your entire watch history?: 'Apakah anda yakin
-      ingin menghapus seluruh riwayat tontonan anda?'
+    Are you sure you want to remove your entire watch history?: 'Apakah Anda yakin
+      ingin menghapus seluruh riwayat tontonan Anda?'
     Watch history has been cleared: 'Riwayat tontonan telah dihapus'
     Remove All Subscriptions / Profiles: 'Hapus Semua Langganan / Profil'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Apakah
-      anda yakin ingin menghapus semua langganan dan profil? Tindakan ini tidak bisa
+      Anda yakin ingin menghapus semua langganan dan profil? Tindakan ini tidak bisa
       diurungkan.'
   Subscription Settings:
     Subscription Settings: 'Pengaturan Langganan'
@@ -244,7 +247,7 @@ Settings:
     Unable to write file: 'Tidak dapat menulis berkas'
     Unknown data key: 'Kunci data tidak diketahui'
     How do I import my subscriptions?: 'Bagaimana saya mengimpor langganan saya?'
-    Check for Legacy Subscriptions: Cek untuk Langganan Lama
+    Check for Legacy Subscriptions: Periksa langganan lawas
     Manage Subscriptions: Kelola Langganan
   Advanced Settings:
     Advanced Settings: 'Pengaturan Lanjutan'
@@ -288,7 +291,7 @@ Settings:
     butuh dimulai ulang agar perbubahan diterapkan. Mulai ulang dan terapkan perubahan?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Galat mendapatkan
-      informasi jaringan. Apakah proksi anda dikonfigurasi dengan benar?
+      informasi jaringan. Apakah proksi Anda dikonfigurasi dengan benar?
     City: Kota
     Region: Wilayah
     Country: Negara
@@ -369,17 +372,17 @@ Profile:
   Update Profile: 'Perbarui Profil'
   Make Default Profile: 'Jadikan Profil Asali'
   Delete Profile: 'Hapus Profil'
-  Are you sure you want to delete this profile?: 'Apakah anda yakin ingin menghapus
+  Are you sure you want to delete this profile?: 'Apakah Anda yakin ingin menghapus
     profil ini?'
   All subscriptions will also be deleted.: 'Semua langganan juga akan terhapus.'
   Profile could not be found: 'Profil tidak dapat ditemukan'
-  Your profile name cannot be empty: 'Nama profil anda tidak boleh kosong'
+  Your profile name cannot be empty: 'Nama profil Anda tidak boleh kosong'
   Profile has been created: 'Profil telah dibuat'
   Profile has been updated: 'Profil telah diperbarui'
-  Your default profile has been set to $: 'Profil bawaan anda telah diatur ke $'
-  Removed $ from your profiles: '$ dihapus dari profil anda'
-  Your default profile has been changed to your primary profile: 'Profil bawaan anda
-    telah diubah ke profil utama anda'
+  Your default profile has been set to $: 'Profil bawaan Anda telah diatur ke $'
+  Removed $ from your profiles: '$ dihapus dari profil Anda'
+  Your default profile has been changed to your primary profile: 'Profil bawaan Anda
+    telah diubah ke profil utama Anda'
   $ is now the active profile: '$ sekarang adalah profil aktif'
   Subscription List: 'Daftar Langganan'
   Other Channels: 'Kanal Lain'
@@ -391,10 +394,10 @@ Profile:
   No channel(s) have been selected: 'Tidak ada kanal yang terpilih'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : 'Ini adalah profil utama anda. Apakah anda yakin ingin menghapus kanal yang terpilih?
+  : 'Ini adalah profil utama Anda. Apakah Anda yakin ingin menghapus kanal yang terpilih?
     Kanal yang sama juga akan dihapus dari semua profil.'
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Apakah
-    anda yakin ingin menghapus kanal yang terpilih? Tindakan ini tidak akan menghapus
+    Anda yakin ingin menghapus kanal yang terpilih? Tindakan ini tidak akan menghapus
     kanalnya dari profil lain.'
 #On Channel Page
 Channel:
@@ -403,11 +406,11 @@ Channel:
   Subscribe: 'Langganan'
   Unsubscribe: 'Berhenti Langganan'
   Channel has been removed from your subscriptions: 'Kanal telah dihapus dari langganan
-    anda'
+    Anda'
   Removed subscription from $ other channel(s): 'Langganan terhapus dari $ kanal lainnya'
-  Added channel to your subscriptions: 'Kanal ditambahkan ke langganan anda'
+  Added channel to your subscriptions: 'Kanal ditambahkan ke langganan Anda'
   Search Channel: 'Cari Kanal'
-  Your search results have returned 0 results: 'Hasil pencarian anda memberikan 0
+  Your search results have returned 0 results: 'Hasil pencarian Anda memberikan 0
     hasil'
   Sort By: 'Urutkan'
   Videos:
@@ -434,7 +437,7 @@ Video:
   Mark As Watched: 'Tandai Sudah Ditonton'
   Remove From History: 'Hapus dari Riwayat'
   Video has been marked as watched: 'Video telah ditandai sudah ditonton'
-  Video has been removed from your history: 'Video telah dihapus dari riwayat anda'
+  Video has been removed from your history: 'Video telah dihapus dari riwayat Anda'
   Open in YouTube: 'Buka di YouTube'
   Copy YouTube Link: 'Salin Tautan YouTube'
   Open YouTube Embedded Player: 'Buka di Pemutar Tersemat YouTube'
@@ -516,7 +519,7 @@ Video:
   Started streaming on: Siaran langsung dimulai pada
   Streamed on: Siaran langsung pada
   Video has been removed from your saved list: Video telah dihapus dari daftar simpan
-    anda
+    Anda
   Video has been saved: Video telah disimpan
   Save Video: Simpan Video
 Videos:
@@ -618,7 +621,7 @@ This video is unavailable because of missing formats. This can happen due to cou
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Ketika diaktifkan, FreeTube akan menggunakan RSS untuk mengambil
-      feed langganan anda. RSS lebih cepat dan terhindar dari pemblokiran berbasis
+      feed langganan Anda. RSS lebih cepat dan terhindar dari pemblokiran berbasis
       IP, tetapi tidak menyediakan informasi tertentu seperti durasi video atau status
       siaran langsung
   Player Settings:
@@ -634,14 +637,14 @@ Tooltips:
       Invidious. Membantu saat video yang ditampilkan oleh Invidious tidak bisa diputar
       karena dibatasi oleh wilayah pemutaran
   General Settings:
-    Region for Trending: Wilayah tren memungkinkan anda memilih video yang sedang
+    Region for Trending: Wilayah tren memungkinkan Anda memilih video yang sedang
       ngetren dari negara tersebut untuk ditampilkan. Tidak semua daftar negara didukung
       oleh YouTube
     Invidious Instance: Situs Invidious yang akan tersambung dengan FreeTube untuk
       panggilan API. Hapus situs saat ini untuk melihat daftar situs publik yang didukung
     Thumbnail Preference: Semua thumbnail di dalam aplikasi FreeTube akan diganti
       dengan frame dari video
-    Fallback to Non-Preferred Backend on Failure: Ketika API yang anda pilih memiliki
+    Fallback to Non-Preferred Backend on Failure: Ketika API yang Anda pilih memiliki
       masalah, FreeTube akan secara otomatis menggunakan layanan API lainnya sebagai
       cadangan jika diaktifkan
     Preferred API Backend: Pilih layanan yang digunakan oleh FreeTube untuk mengambil

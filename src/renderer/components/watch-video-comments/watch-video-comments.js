@@ -93,12 +93,24 @@ export default Vue.extend({
           this.isLoading = true
           this.commentData = []
           this.nextPageToken = undefined
-          this.getCommentDataLocal()
+          this.getCommentDataLocal({
+            videoId: this.id,
+            setCookie: false,
+            sortByNewest: this.sortNewest,
+            continuation: this.nextPageToken ? this.nextPageToken : undefined
+          })
           break
         case 'invidious':
           this.isLoading = true
           this.commentData = []
-          this.getCommentDataInvidious(null)
+          this.getCommentDataInvidious({
+            resource: 'comments',
+            id: this.id,
+            params: {
+              continuation: this.nextPageToken,
+              sort_by: this.sortNewest ? 'new' : 'top'
+            }
+          })
           break
       }
     },
@@ -107,10 +119,22 @@ export default Vue.extend({
       this.isLoading = true
       switch (this.backendPreference) {
         case 'local':
-          this.getCommentDataLocal()
+          this.getCommentDataLocal({
+            videoId: this.id,
+            setCookie: false,
+            sortByNewest: this.sortNewest,
+            continuation: this.nextPageToken ? this.nextPageToken : undefined
+          })
           break
         case 'invidious':
-          this.getCommentDataInvidious(this.nextPageToken)
+          this.getCommentDataInvidious({
+            resource: 'comments',
+            id: this.id,
+            params: {
+              continuation: this.nextPageToken,
+              sort_by: this.sortNewest ? 'new' : 'top'
+            }
+          })
           break
       }
     },
@@ -125,69 +149,34 @@ export default Vue.extend({
       }
     },
 
+    toggleCommentReplies: function (index) {
+      if (this.commentData[index].showReplies || this.commentData[index].replies.length > 0) {
+        this.commentData[index].showReplies = !this.commentData[index].showReplies
+      } else {
+        this.getCommentReplies(index)
+      }
+    },
+
     getCommentReplies: function (index) {
       switch (this.commentData[index].dataType) {
         case 'local':
-          this.commentData[index].showReplies = !this.commentData[index].showReplies
+          this.getCommentRepliesLocal({
+            videoId: this.id,
+            setCookie: false,
+            sortByNewest: this.sortNewest,
+            continuation: this.commentData[index].replyToken,
+            index: index
+          })
           break
         case 'invidious':
-          if (this.commentData[index].showReplies || this.commentData[index].replies.length > 0) {
-            this.commentData[index].showReplies = !this.commentData[index].showReplies
-          } else {
-            this.getCommentRepliesInvidious(index)
-          }
+          this.getCommentRepliesInvidious(index)
           break
       }
     },
 
-    getCommentDataLocal: function () {
-      const payload = {
-        videoId: this.id,
-        setCookie: false,
-        sortByNewest: this.sortNewest,
-        continuation: this.nextPageToken ? this.nextPageToken : undefined
-      }
-
+    getCommentDataLocal: function (payload) {
       ytcm.getComments(payload).then((response) => {
-        console.log(response)
-        const commentData = response.comments.map((comment) => {
-          comment.showReplies = false
-          comment.dataType = 'local'
-          this.toLocalePublicationString({
-            publishText: (comment.time + ' ago'),
-            templateString: this.$t('Video.Publicationtemplate'),
-            timeStrings: this.$t('Video.Published'),
-            liveStreamString: this.$t('Video.Watching'),
-            upcomingString: this.$t('Video.Published.Upcoming'),
-            isLive: false,
-            isUpcoming: false,
-            isRSS: false
-          }).then((data) => {
-            comment.time = data
-          }).catch((error) => {
-            console.error(error)
-          })
-          if (this.hideCommentLikes) {
-            comment.likes = null
-          }
-          comment.text = autolinker.link(comment.text)
-
-          if (comment.numReplies > 0) {
-            comment.replies.forEach((reply) => {
-              reply.text = autolinker.link(reply.text)
-            })
-          }
-
-          return comment
-        })
-        if (this.sortingChanged) {
-          this.commentData = []
-          this.sortingChanged = false
-        }
-        this.commentData = this.commentData.concat(commentData)
-        this.isLoading = false
-        this.showComments = true
-        this.nextPageToken = response.continuation
+        this.parseLocalCommentData(response, null)
       }).catch((err) => {
         console.log(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -209,19 +198,79 @@ export default Vue.extend({
       })
     },
 
-    getCommentDataInvidious: function () {
-      const payload = {
-        resource: 'comments',
-        id: this.id,
-        params: {
-          continuation: this.nextPageToken,
-          sort_by: this.sortNewest ? 'new' : 'top'
+    getCommentRepliesLocal: function (payload) {
+      this.showToast({
+        message: this.$t('Comments.Getting comment replies, please wait')
+      })
+      ytcm.getCommentReplies(payload.videoId, payload.continuation).then((response) => {
+        this.parseLocalCommentData(response, payload.index)
+      }).catch((err) => {
+        console.log(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        this.showToast({
+          message: `${errorMessage}: ${err}`,
+          time: 10000,
+          action: () => {
+            navigator.clipboard.writeText(err)
+          }
+        })
+        if (this.backendFallback && this.backendPreference === 'local') {
+          this.showToast({
+            message: this.$t('Falling back to Invidious API')
+          })
+          this.getCommentDataInvidious()
+        } else {
+          this.isLoading = false
         }
+      })
+    },
+
+    parseLocalCommentData: function (response, index = null) {
+      const commentData = response.comments.map((comment) => {
+        comment.showReplies = false
+        comment.authorThumb = comment.authorThumb[0].url
+        comment.replies = []
+        comment.dataType = 'local'
+        this.toLocalePublicationString({
+          publishText: (comment.time + ' ago'),
+          templateString: this.$t('Video.Publicationtemplate'),
+          timeStrings: this.$t('Video.Published'),
+          liveStreamString: this.$t('Video.Watching'),
+          upcomingString: this.$t('Video.Published.Upcoming'),
+          isLive: false,
+          isUpcoming: false,
+          isRSS: false
+        }).then((data) => {
+          comment.time = data
+        }).catch((error) => {
+          console.error(error)
+        })
+        if (this.hideCommentLikes) {
+          comment.likes = null
+        }
+        comment.text = autolinker.link(comment.text)
+
+        return comment
+      })
+
+      if (index !== null) {
+        this.commentData[index].replies = this.commentData[index].replies.concat(commentData)
+        this.commentData[index].replyToken = response.continuation
+        this.commentData[index].showReplies = true
+      } else {
+        if (this.sortingChanged) {
+          this.commentData = []
+          this.sortingChanged = false
+        }
+        this.commentData = this.commentData.concat(commentData)
+        this.isLoading = false
+        this.showComments = true
+        this.nextPageToken = response.continuation
       }
+    },
 
+    getCommentDataInvidious: function (payload) {
       this.invidiousAPICall(payload).then((response) => {
-        console.log(response)
-
         const commentData = response.comments.map((comment) => {
           comment.showReplies = false
           comment.authorThumb = comment.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`)
@@ -287,8 +336,6 @@ export default Vue.extend({
       }
 
       this.$store.dispatch('invidiousAPICall', payload).then((response) => {
-        console.log(response)
-
         const commentData = response.comments.map((comment) => {
           comment.showReplies = false
           comment.authorThumb = comment.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`)

@@ -136,7 +136,7 @@ export default Vue.extend({
     showFetchMoreButton: function () {
       switch (this.currentTab) {
         case 'videos':
-          if (this.videoContinuationString !== '' && this.videoContinuationString !== null) {
+          if (this.apiUsed === 'invidious' || (this.videoContinuationString !== '' && this.videoContinuationString !== null)) {
             return true
           }
           break
@@ -370,7 +370,7 @@ export default Vue.extend({
         console.log(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         this.showToast({
-          message: `${errorMessage}: ${err}`,
+          message: `${errorMessage}: ${err.responseJSON.error}`,
           time: 10000,
           action: () => {
             navigator.clipboard.writeText(err)
@@ -465,9 +465,12 @@ export default Vue.extend({
         resource: 'channels/playlists',
         id: this.id,
         params: {
-          sort_by: this.playlistSortBy,
-          continuation: this.playlistContinuationString
+          sort_by: this.playlistSortBy
         }
+      }
+
+      if (this.playlistContinuationString) {
+        payload.params.continuation = this.playlistContinuationString
       }
 
       this.$store.dispatch('invidiousAPICall', payload).then((response) => {
@@ -478,10 +481,10 @@ export default Vue.extend({
         console.log(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         this.showToast({
-          message: `${errorMessage}: ${err}`,
+          message: `${errorMessage}: ${err.responseJSON.error}`,
           time: 10000,
           action: () => {
-            navigator.clipboard.writeText(err)
+            navigator.clipboard.writeText(err.responseJSON.error)
           }
         })
         if (this.backendPreference === 'invidious' && this.backendFallback) {

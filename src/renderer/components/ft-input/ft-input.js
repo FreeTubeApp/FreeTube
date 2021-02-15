@@ -43,7 +43,12 @@ export default Vue.extend({
   data: function () {
     return {
       id: '',
-      inputData: ''
+      inputData: '',
+      searchState: {
+        showOptions: false,
+        selectedOption: -1,
+        isPointerInList: false
+      }
     }
   },
   computed: {
@@ -72,10 +77,15 @@ export default Vue.extend({
   },
   methods: {
     handleClick: function () {
+      this.searchState.showOptions = false
+      this.$emit('input', this.inputData)
       this.$emit('click', this.inputData)
     },
 
     handleInput: function () {
+      if (this.isSearch &&
+        this.searchState.selectedOption !== -1 &&
+        this.inputData === this.dataList[this.searchState.selectedOption]) { return }
       this.$emit('input', this.inputData)
     },
 
@@ -89,6 +99,37 @@ export default Vue.extend({
           }
         })
       }
+    },
+
+    handleOptionClick: function (index) {
+      this.searchState.showOptions = false
+      this.inputData = this.dataList[index]
+      this.$emit('input', this.inputData)
+      this.handleClick()
+    },
+
+    handleKeyDown: function (keyCode) {
+      if (this.dataList.length === 0) { return }
+
+      // Update selectedOption based on arrow key pressed
+      if (keyCode === 40) {
+        this.searchState.selectedOption = (this.searchState.selectedOption + 1) % this.dataList.length
+      } else if (keyCode === 38) {
+        if (this.searchState.selectedOption === -1) {
+          this.searchState.selectedOption = this.dataList.length - 1
+        } else {
+          this.searchState.selectedOption--
+        }
+      } else {
+        this.searchState.selectedOption = -1
+      }
+
+      // Update Input box value if arrow keys were pressed
+      if ((keyCode === 40 || keyCode === 38) && this.searchState.selectedOption !== -1) { this.inputData = this.dataList[this.searchState.selectedOption] }
+    },
+
+    handleInputBlur: function () {
+      if (!this.searchState.isPointerInList) { this.searchState.showOptions = false }
     }
   }
 })

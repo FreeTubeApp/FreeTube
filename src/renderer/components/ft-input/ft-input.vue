@@ -27,6 +27,9 @@
       :placeholder="placeholder"
       :disabled="disabled"
       @input="e => handleInput(e.target.value)"
+      @focus="searchState.showOptions = true"
+      @blur="handleInputBlur"
+      @keydown="e => handleKeyDown(e.keyCode)"
     >
     <font-awesome-icon
       v-if="showArrow"
@@ -34,16 +37,26 @@
       class="inputAction"
       @click="handleClick"
     />
-    <datalist
-      v-if="dataList.length > 0"
-      :id="idDataList"
-    >
-      <option
-        v-for="(list, index) in dataList"
-        :key="index"
-        :value="list"
-      />
-    </datalist>
+
+    <div class="options">
+      <ul
+        v-if="inputData !== '' && dataList.length > 0 && searchState.showOptions"
+        :id="idDataList"
+        class="list"
+        @mouseenter="searchState.isPointerInList = true"
+        @mouseleave="searchState.isPointerInList = false"
+      >
+        <li
+          v-for="(list, index) in dataList"
+          :key="index"
+          :class="searchState.selectedOption == index ? 'hover': ''"
+          @click="handleOptionClick(index)"
+          @mouseenter="searchState.selectedOption = index"
+        >
+          {{ list }}
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 

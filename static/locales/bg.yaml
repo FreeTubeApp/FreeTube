@@ -3,38 +3,38 @@ Locale Name: 'Български'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Тази част от приложението все още не е готова. Върнете се по-късно когато може би
-  ще има напредък.
+  Тази част от приложението все още не е готова. Върнете се по-късно, когато може
+  би ще има напредък.
 
 # Webkit Menu Bar
 File: 'Файл'
 Quit: 'Изход'
 Edit: 'Редактиране'
-Undo: 'Върни'
-Redo: 'Възстанови'
-Cut: 'Изрежи'
-Copy: 'Копирай'
-Paste: 'Постави'
-Delete: 'Изтрий'
-Select all: 'Избери всичко'
-Reload: 'Презареди'
+Undo: 'Отмяна'
+Redo: 'Възстановяване'
+Cut: 'Изрязване'
+Copy: 'Копиране'
+Paste: 'Поставяне'
+Delete: 'Изтриване'
+Select all: 'Избиране на всичко'
+Reload: 'Презареждане'
 Force Reload: 'Принудително презареждане'
 Toggle Developer Tools: 'Показване на инструменти за разработчици'
 Actual size: 'Действителен размер'
-Zoom in: 'Увеличи'
-Zoom out: 'Намали'
-Toggle fullscreen: 'Превключи на цял екран'
+Zoom in: 'Увеличаване'
+Zoom out: 'Намаляване'
+Toggle fullscreen: 'Превключване на цял екран'
 Window: 'Прозорец'
-Minimize: 'Минимизирай'
-Close: 'Затвори'
+Minimize: 'Минимизиране'
+Close: 'Затваряне'
 Back: 'Назад'
 Forward: 'Напред'
 
-Version $ is now available!  Click for more details: 'Вече е налична версия $!  Кликнете
+Version $ is now available!  Click for more details: 'Версия $ е вече налична! Кликни
   за повече детайли'
 Download From Site: 'Сваляне от сайта'
-A new blog is now available, $. Click to view more: 'Налична е нова публикация в блога,
-  $. Кликнете, за да я видите'
+A new blog is now available, $. Click to view more: 'Нова публикация в блога, $. Кликни
+  за преглед'
 
 # Search Bar
 Search / Go to URL: 'Търсене / Отиване на адрес'
@@ -49,8 +49,8 @@ Search Filters:
     View Count: 'Брой показвания'
   Time:
     Time: 'Време'
-    Any Time: 'Всяко време'
-    Last Hour: 'От последния час'
+    Any Time: 'Независимо кога'
+    Last Hour: 'Последния час'
     Today: 'Днес'
     This Week: 'Тази седмица'
     This Month: 'Този месец'
@@ -71,6 +71,7 @@ Search Filters:
   Fetching results. Please wait: 'Събиране на резултати. Моля, изчакайте'
   Fetch more results: 'Намиране на още резултати'
 # Sidebar
+  There are no more results for this search: Няма повече резултати за това търсене
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Абонаменти'
@@ -88,9 +89,8 @@ Most Popular: 'Най-популярни'
 Playlists: 'Плейлисти'
 User Playlists:
   Your Playlists: 'Вашите плейлисти'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Запазените
-    ви видеоклипове са празни. Кликнете върху бутона за запазване в ъгъла на видеоклипа,
-    за да го добавите тук
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Няма
+    запазени видеоклипове. За запазване кликни в ъгъла на видеоклипа
   Playlist Message: Тази страница не отразява напълно работещи плейлисти. В него са
     изброени само видеоклипове, които сте запазили или избрали за любими. Когато работата
     приключи, всички видеоклипове, които в момента са тук, ще бъдат мигрирани в плейлист
@@ -98,7 +98,7 @@ User Playlists:
 History:
   # On History Page
   History: 'История'
-  Watch History: 'История на гледанията'
+  Watch History: 'История на гледане'
   Your history list is currently empty.: 'Списъкът с история на гледанията е празен.'
 Settings:
   # On Settings Page
@@ -115,7 +115,7 @@ Settings:
     Preferred API Backend:
       Preferred API Backend: 'Предпочитан вътрешен интерфейс'
       Local API: 'Локален API'
-      Invidious API: 'Invidious API'
+      Invidious API: 'Invidious Интерфейс'
     Video View Type:
       Video View Type: 'Подредба на видеата'
       Grid: 'Решетка'
@@ -130,6 +130,7 @@ Settings:
       (по подразбиране е https://invidious.snopyta.org)'
     Region for Trending: 'Регион за набиращи популярност'
         #! List countries
+    View all Invidious instance information: Виж пълна информация за Invidious обекта
   Theme Settings:
     Theme Settings: 'Настройки на изгледа на приложението'
     Match Top Bar with Main Color: 'Съвпадане на горната лента с основната цветова
@@ -346,7 +347,7 @@ About:
   room rules: правилата за стаите
   Please read the: Моля, прочетете
   Chat on Matrix: Чат в Matrix
-  Mastodon: Mastodon
+  Mastodon: мастодонт
   Email: Имейл
   Blog: Блог
   Website: Уебсайт
@@ -354,7 +355,7 @@ About:
   GitHub issues: GitHub проблеми
   Report a problem: Съобщете за проблем
   FAQ: ЧЗВ
-  FreeTube Wiki: FreeTube Wiki
+  FreeTube Wiki: FreeTube Уики
   Help: Помощ
   GitHub releases: GitHub издания
   Downloads / Changelog: Изтегляния / Дневник с промени
@@ -362,6 +363,7 @@ About:
   Licensed under the AGPLv3: Лицензиран съгласно AGPLv3
   Source code: Програмен код
   Beta: Бета
+  Credits: Заслуги
 Profile:
   Profile Select: 'Избор на профил'
   All Channels: 'Всички канали'
@@ -449,15 +451,15 @@ Video:
   Open in Invidious: 'Отваряне в Invidious'
   Copy Invidious Link: 'Копиране на връзка за Invidious'
   View: 'показване'
-  Views: 'показвания'
+  Views: 'Показвания'
   Loop Playlist: 'Повтаряне на плейлиста'
   Shuffle Playlist: 'Разбъркване на плейлиста'
   Reverse Playlist: 'Обръщане на плейлиста'
   Play Next Video: 'Следващо видео'
   Play Previous Video: 'Предишно видео'
   # Context is "X People Watching"
-  Watching: 'Гледане'
-  Watched: 'Гледан'
+  Watching: 'Гледащи'
+  Watched: 'Гледано'
   Autoplay: 'Автоматично пускане'
   Starting soon, please refresh the page to check again: 'Започва скоро, моля опреснете
     страницата за актуализация'
@@ -538,7 +540,7 @@ Playlist:
   View Full Playlist: 'Преглед на пълен плейлист'
   Videos: 'Видеа'
   View: 'показване'
-  Views: 'показвания'
+  Views: 'Показвания'
   Last Updated On: 'Последна актуализиция на'
   Share Playlist:
     Share Playlist: 'Споделяне на плейлиста'
@@ -577,7 +579,7 @@ Share:
 Mini Player: 'Мини плейър'
 Comments:
   Comments: 'Коментари'
-  Click to View Comments: 'Кликнете, за да видите коментарите'
+  Click to View Comments: 'Кликни, за да видиш коментарите'
   Getting comment replies, please wait: 'Получаване на отговори на коментара, моля
     изчакайте'
   There are no more comments for this video: 'Към това видео няма повече коментари'
@@ -597,9 +599,8 @@ Comments:
 Up Next: 'Следващ'
 
 # Toast Messages
-Local API Error (Click to copy): 'Грешка на локалния интерфейс (кликнете за копиране)'
-Invidious API Error (Click to copy): 'Грешка на Invidious интерфейса (кликнете за
-  копиране)'
+Local API Error (Click to copy): 'Грешка в локалния интерфейс (кликни за копиране)'
+Invidious API Error (Click to copy): 'Грешка в Invidious интерфейса (кликни за копиране)'
 Falling back to Invidious API: 'Връщане към Invidious интерфейса'
 Falling back to the local API: 'Връщане към локалния интерфейс'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Видеото
@@ -613,8 +614,8 @@ Shuffle is now enabled: 'Разбъркването е включено'
 The playlist has been reversed: 'Плейлистата е в обърнат ред'
 Playing Next Video: 'Пускане на следващото видео'
 Playing Previous Video: 'Пускане на предишното видео'
-Playing next video in 5 seconds.  Click to cancel: 'Следващото видео започва след
-  5 секунди. Кликнете за отказ.'
+Playing next video in 5 seconds.  Click to cancel: 'Следващо видео започва след 5
+  секунди. Кликни за отказ.'
 Canceled next video autoplay: 'Следващото видео е отказано'
 'The playlist has ended.  Enable loop to continue playing': 'Плейлиста приключи. Включете
   повторението за да продължи'

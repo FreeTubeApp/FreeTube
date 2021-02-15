@@ -64,6 +64,7 @@ Search Filters:
   Fetching results. Please wait: 'Rezultati se dohvaćaju. Pričekaj'
   Fetch more results: 'Dohvati još rezultata'
 # Sidebar
+  There are no more results for this search: Nema daljnjih rezultata za ovu pretragu
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Pretplate'
@@ -104,7 +105,7 @@ Settings:
     Default Landing Page: 'Standardna odredišna stranica'
     Locale Preference: 'Jezik'
     Preferred API Backend:
-      Preferred API Backend: 'Primarni pozadinski sustav sučelja'
+      Preferred API Backend: 'Primarno sučelje'
       Local API: 'Lokalno sučelje'
       Invidious API: 'Invidious sučelje'
     Video View Type:
@@ -123,6 +124,7 @@ Settings:
         #! List countries
     Check for Latest Blog Posts: Traži najnovije objave na blogu
     Check for Updates: Traži nove verzije
+    View all Invidious instance information: Prikaži podatke svih Invidious primjeraka
   Theme Settings:
     Theme Settings: 'Postavke teme'
     Match Top Bar with Main Color: 'Koristi glavnu boju u gornjoj traci'

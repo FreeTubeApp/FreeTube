@@ -65,6 +65,8 @@ Search Filters:
   Fetching results. Please wait: 'Caricamento risultati. Attendi'
   Fetch more results: 'Carica più risultati'
 # Sidebar
+  There are no more results for this search: Non ci sono altri risultati per questa
+    ricerca
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Iscrizioni'
@@ -83,6 +85,12 @@ Most Popular: 'Più popolari'
 Playlists: 'Playlist'
 User Playlists:
   Your Playlists: 'Le tue playlist'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: La
+    lista preferiti è vuota. Clicca sul tasto salva in basso a destra di un video
+    per vederlo qui
+  Playlist Message: Questa pagina non è rappresentativa di una playlist completa.
+    Mostra solo video che hai salvato o aggiunti ai preferiti. A lavoro finito, tutti
+    i video attualmente qui verrano spostati in una playlist dei 'preferiti'.
 History:
   # On History Page
   History: 'Cronologia'
@@ -118,6 +126,7 @@ Settings:
         #! List countries
     Check for Latest Blog Posts: Controlla gli ultimi post del blog
     Check for Updates: Controlla gli aggiornamenti
+    View all Invidious instance information: Espandi informazioni delle istanze Invidious
   Theme Settings:
     Theme Settings: 'Impostazioni Tema'
     Match Top Bar with Main Color: 'Abbina la barra superiore con il colore principale'
@@ -272,6 +281,7 @@ Settings:
     Select Import Type: Seleziona Tipo di importazione
     Data Settings: Impostazioni Dati
     Check for Legacy Subscriptions: Cerca Iscrizioni in formato Legacy
+    Manage Subscriptions: Gestisci le tue iscrizioni
   Distraction Free Settings:
     Hide Popular Videos: Nascondi Video Popolari
     Hide Trending Videos: Nascondi Video in Tendenze
@@ -282,9 +292,27 @@ Settings:
     Distraction Free Settings: Impostazioni modalità "Senza Distrazioni"
     Hide Live Chat: Nascondi la chat live
     Hide Video Likes And Dislikes: Nascondi Mi piace e Non mi piace
+    Hide Active Subscriptions: Nascondi le iscrizioni attive
   The app needs to restart for changes to take effect. Restart and apply change?: L'applicazione
     deve essere riavviata per applicare i cambiamenti. Riavviare e applicare i cambiamenti
     ora?
+  Proxy Settings:
+    Proxy Protocol: Protocollo Proxy
+    Enable Tor / Proxy: Attiva Tor / Proxy
+    Proxy Settings: Impostazioni proxy
+    Error getting network information. Is your proxy configured properly?: C'è stato
+      un errore di acquisizione delle informazioni di rete. Il proxy è stato configurato
+      correttamente?
+    City: Città
+    Region: Regione
+    Country: Paese
+    Ip: Ip
+    Your Info: Le tue informazioni
+    Test Proxy: Test Proxy
+    Clicking on Test Proxy will send a request to: Cliccando su "Testa Proxy" verrà
+      inviata una richiesta a
+    Proxy Port Number: Numero di porta Proxy
+    Proxy Host: Host Proxy
 About:
   #On About page
   About: 'Informazioni'
@@ -317,6 +345,31 @@ About:
   Latest FreeTube News: 'Ultime Notizie di Freetube'
 
 #On Channel Page
+  Donate: Dona
+  Blog: Blog
+  GitHub issues: Segnalazioni GitHub
+  Report a problem: Segnala un problema
+  FAQ: Domande Frequenti
+  FreeTube Wiki: Wiki FreeTube
+  Help: Aiuto
+  Downloads / Changelog: Download / Changelog
+  GitHub releases: GitHub releases
+  these people and projects: queste persone e progetti
+  FreeTube is made possible by: FreeTube è reso possibile grazie a
+  Credits: Crediti
+  Translate: Traduci
+  room rules: Regole stanza
+  Please read the: Si prega di leggere
+  Chat on Matrix: Chat su Matrix
+  Mastodon: Mastodon
+  Email: Email
+  Website: Sito web
+  Please check for duplicates before posting: Perfavore controlla se ci sono duplicati
+    prima di pubblicare
+  View License: Vedi licenza
+  Licensed under the AGPLv3: Distribuito sotto la licenza AGPLv3
+  Source code: Codice sorgente
+  Beta: Beta
 Channel:
   Subscriber: 'Iscritto'
   Subscribers: 'Iscritti'
@@ -435,6 +488,10 @@ Video:
   Open Channel in YouTube: Apri il canale su YouTube
   Started streaming on: Stream iniziato il
   Streamed on: Streaming il
+  Video has been removed from your saved list: Il video è stato rimosso dalla lista
+    preferiti
+  Video has been saved: Il video è stato salvato
+  Save Video: Salva Video
 Videos:
   #& Sort By
   Sort By:

@@ -82,3 +82,27 @@
 .forceTextColor .inputAction:active {
   background-color: var(--primary-color-active);
 }
+
+.list {
+  position: absolute;
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 5px 0;
+  z-index: 10;
+  border-radius: 0 0 5px 5px;
+  border: 1px #ccc solid;
+  background-color: white;
+  color: black;
+}
+
+.list li {
+  display: block;
+  padding: 0px 15px;
+  line-height: 2rem;
+}
+
+.hover {
+  background-color: #ccc;
+/*   color: white; */
+}
