@@ -146,5 +146,5 @@
     "test": "run-s rebuild:node pack:workers jest",
     "test:watch": "run-s rebuild:node pack:workers jest:watch"
   },
-  "version": "0.11.2"
+  "version": "0.11.3"
 }
