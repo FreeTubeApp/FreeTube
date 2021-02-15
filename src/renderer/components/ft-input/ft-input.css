@@ -89,6 +89,7 @@
   list-style: none;
   margin: 0;
   padding: 5px 0;
+  z-index: 10;
   border-radius: 0 0 5px 5px;
   border: 1px #ccc solid;
   background-color: white;
