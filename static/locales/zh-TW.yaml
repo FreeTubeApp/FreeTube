@@ -11,16 +11,16 @@ Undo: '復原'
 Redo: '回復'
 Cut: '剪下'
 Copy: '複製'
-Paste: '黏貼'
+Paste: '貼上'
 Delete: '刪除'
 Select all: '全選'
 Reload: '重載'
-Force Reload: '強制重載'
+Force Reload: '強制重新載入'
 Toggle Developer Tools: '切換開發者工具'
 Actual size: '實際大小'
 Zoom in: '放大'
 Zoom out: '縮小'
-Toggle fullscreen: '切換全屏'
+Toggle fullscreen: '切換至全螢幕'
 Window: '視窗'
 Minimize: '最小化'
 Close: '關閉'
@@ -28,10 +28,10 @@ Back: '后退'
 Forward: '前進'
 
 # Search Bar
-Search / Go to URL: '搜索 / 前往URL'
+Search / Go to URL: '搜尋/ 前往URL'
   # In Filter Button
 Search Filters:
-  Search Filters: '搜索過濾'
+  Search Filters: '搜尋過濾器'
   Sort By:
     Sort By: '排序方式'
     Most Relevant: '最相關'
@@ -58,7 +58,7 @@ Search Filters:
     Short (< 4 minutes): '短（< 4分鐘）'
     Long (> 20 minutes): '長（> 20分鐘）'
   # On Search Page
-  Search Results: '搜索結果'
+  Search Results: '搜尋結果'
   Fetching results. Please wait: '擷取結果中。請稍候'
   Fetch more results: '擷取更多結果'
 # Sidebar
@@ -92,9 +92,9 @@ Settings:
   General Settings:
     General Settings: '常規設定'
     Fallback to Non-Preferred Backend on Failure: '失敗時回撤到非偏好后端'
-    Enable Search Suggestions: '允許搜索建議'
+    Enable Search Suggestions: '允許搜尋建議'
     Default Landing Page: '預設加載頁面'
-    Locale Preference: '地域偏好'
+    Locale Preference: '地區偏好'
     Preferred API Backend:
       Preferred API Backend: '偏好API后端'
       Local API: '區域API'
@@ -342,8 +342,8 @@ Channel:
   Subscribers: '訂閱者'
   Subscribe: '訂閱'
   Unsubscribe: '取消訂閱'
-  Search Channel: '搜索頻道'
-  Your search results have returned 0 results: '您的搜索結果是0結果'
+  Search Channel: '搜尋頻道'
+  Your search results have returned 0 results: '搜尋結果為零'
   Sort By: '排序方式'
   Videos:
     Videos: '影片'
@@ -445,7 +445,7 @@ Video:
   Copy YouTube Channel Link: 複製YouTube頻道連結
   Open Channel in YouTube: 在YouTube開啟頻道
   Started streaming on: 開始在線直播於
-  Streamed on: 直播于
+  Streamed on: 直播於
   Video has been removed from your saved list: 影片已從您的已儲存列表移除
   Video has been saved: 影片已儲存
   Save Video: 儲存影片
