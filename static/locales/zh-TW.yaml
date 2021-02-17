@@ -75,7 +75,7 @@ Subscriptions:
     強制RSS已防止速率限制
   Load More Videos: 載入更多影片
 Trending: '熱門'
-Most Popular: '最流行'
+Most Popular: '最熱門'
 Playlists: '播放清單'
 User Playlists:
   Your Playlists: '您的播放清單'
@@ -84,8 +84,8 @@ User Playlists:
 History:
   # On History Page
   History: '歷史紀錄'
-  Watch History: '觀看曆史紀錄'
-  Your history list is currently empty.: 您的曆史紀錄清單目前是空的。
+  Watch History: '觀看歷史紀錄'
+  Your history list is currently empty.: 您的歷史紀錄清單目前是空的。
 Settings:
   # On Settings Page
   Settings: '設定'
@@ -227,7 +227,7 @@ Settings:
     Unknown data key: 未知的資料金鑰
     Unable to write file: 無法寫入檔案
     Unable to read file: 無法讀取檔案
-    All watched history has been successfully exported: 所有觀看的曆史紀錄已成功匯出
+    All watched history has been successfully exported: 所有觀看的歷史紀錄已成功匯出
     All watched history has been successfully imported: 所有觀看的歷史紀錄已成功匯入
     History object has insufficient data, skipping item: 歷史紀錄物件資料不足，正在跳過項目
     Subscriptions have been successfully exported: 訂閱已成功匯出
@@ -350,7 +350,7 @@ Channel:
     This channel does not currently have any videos: '這個頻道目前沒有任何影片'
     Sort Types:
       Newest: '最新'
-      Oldest: '最老'
+      Oldest: '最舊'
       Most Popular: '最流行'
   Playlists:
     Playlists: '播放清單'
@@ -421,9 +421,9 @@ Video:
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ %前'
 #& Videos
-  Video has been removed from your history: 影片已從您的曆史紀錄中移除
+  Video has been removed from your history: 影片已從您的歷史紀錄中移除
   Video has been marked as watched: 影片已記號為已觀看
-  Remove From History: 從曆史紀錄中移除
+  Remove From History: 從歷史紀錄中移除
   Mark As Watched: 記號為已觀看
   Autoplay: 自動播放
   Play Previous Video: 播放前一影片
@@ -446,7 +446,7 @@ Video:
   Open Channel in YouTube: 在YouTube開啟頻道
   Started streaming on: 開始在線直播於
   Streamed on: 直播於
-  Video has been removed from your saved list: 影片已從您的已儲存列表移除
+  Video has been removed from your saved list: 影片已從您的播放清單移除
   Video has been saved: 影片已儲存
   Save Video: 儲存影片
 Videos:
