@@ -1,20 +1,20 @@
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  應用此部分尚未完成。有了進展再來。
+  此功能尚未製作完成。有更新再來喔。
 
 # Webkit Menu Bar
 File: '檔案'
 Quit: '結束'
 Edit: '編輯'
 Undo: '復原'
-Redo: '回復'
+Redo: '恢復'
 Cut: '剪下'
 Copy: '複製'
 Paste: '貼上'
 Delete: '刪除'
 Select all: '全選'
-Reload: '重載'
+Reload: '重新載入'
 Force Reload: '強制重新載入'
 Toggle Developer Tools: '切換開發者工具'
 Actual size: '實際大小'
@@ -24,11 +24,11 @@ Toggle fullscreen: '切換至全螢幕'
 Window: '視窗'
 Minimize: '最小化'
 Close: '關閉'
-Back: '后退'
+Back: '返回'
 Forward: '前進'
 
 # Search Bar
-Search / Go to URL: '搜尋/ 前往URL'
+Search / Go to URL: '搜尋/ 前往網址'
   # In Filter Button
 Search Filters:
   Search Filters: '搜尋過濾器'
@@ -37,11 +37,11 @@ Search Filters:
     Most Relevant: '最相關'
     Rating: '評分'
     Upload Date: '上傳日期'
-    View Count: '觀看數量'
+    View Count: '觀看次數'
   Time:
     Time: '時間'
     Any Time: '任何時間'
-    Last Hour: '上一小時'
+    Last Hour: '最近一小時'
     Today: '今天'
     This Week: '本周'
     This Month: '本月'
@@ -53,10 +53,10 @@ Search Filters:
     Channels: '頻道'
     #& Playlists
   Duration:
-    Duration: '時長'
-    All Durations: '所有時長'
-    Short (< 4 minutes): '短（< 4分鐘）'
-    Long (> 20 minutes): '長（> 20分鐘）'
+    Duration: '影片長度'
+    All Durations: '所有長度'
+    Short (< 4 minutes): '短（小於4分鐘）'
+    Long (> 20 minutes): '長（大於20分鐘）'
   # On Search Page
   Search Results: '搜尋結果'
   Fetching results. Please wait: '擷取結果中。請稍候'
@@ -74,12 +74,12 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 這個設定檔有大量訂閱。
     強制RSS已防止速率限制
   Load More Videos: 載入更多影片
-Trending: '熱門'
-Most Popular: '最熱門'
+Trending: '發燒影片'
+Most Popular: '最受歡迎'
 Playlists: '播放清單'
 User Playlists:
   Your Playlists: '您的播放清單'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 您已儲存的影片為空。點擊影片角落的儲存按鈕以將其列在此處
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 您播放清單的影片是空的。點擊影片角落的星星按鈕以將其列在此處
   Playlist Message: 此頁面無法反映完整的播放清單。其僅列出您已儲存或加入最愛的影片。工作完成後，所有目前在此的影片都會轉移到「最愛」播放清單。
 History:
   # On History Page
@@ -91,12 +91,12 @@ Settings:
   Settings: '設定'
   General Settings:
     General Settings: '常規設定'
-    Fallback to Non-Preferred Backend on Failure: '失敗時回撤到非偏好后端'
+    Fallback to Non-Preferred Backend on Failure: '連線失敗時連線到非預設伺服器'
     Enable Search Suggestions: '允許搜尋建議'
     Default Landing Page: '預設加載頁面'
     Locale Preference: '地區偏好'
     Preferred API Backend:
-      Preferred API Backend: '偏好API后端'
+      Preferred API Backend: '偏好API伺服器'
       Local API: '區域API'
       Invidious API: 'Invidious API'
     Video View Type:
@@ -104,13 +104,13 @@ Settings:
       Grid: '網格'
       List: '清單'
     Thumbnail Preference:
-      Thumbnail Preference: '縮略圖偏好'
+      Thumbnail Preference: '影片縮圖偏好'
       Default: '預設'
-      Beginning: '開始'
+      Beginning: '片頭'
       Middle: '中間'
       End: '結尾'
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious實例（預設https://invidious.snopyta.org）'
-    Region for Trending: '熱門區域'
+    Region for Trending: '發燒影片區域'
         #! List countries
     Check for Latest Blog Posts: 檢查最新的部落格貼文
     Check for Updates: 檢查更新
@@ -141,14 +141,14 @@ Settings:
       Amber: '黃褐'
       Orange: '橙'
       Deep Orange: '深橙'
-    Secondary Color Theme: '次主題色'
+    Secondary Color Theme: '次要主題色'
         #* Main Color Theme
     UI Scale: UI縮放
     Expand Side Bar by Default: 預設展開側邊欄
     Disable Smooth Scrolling: 禁用平滑捲動
   Player Settings:
     Player Settings: '播放器選項'
-    Force Local Backend for Legacy Formats: '強制區域后端給傳統格式'
+    Force Local Backend for Legacy Formats: '強制區域伺服器給傳統格式'
     Remember History: '記住曆史'
     Play Next Video: '播放下一影片'
     Turn on Subtitles by Default: '預設開啟字幕'
@@ -211,7 +211,7 @@ Settings:
       #& No
 
   Privacy Settings:
-    Watch history has been cleared: 觀看歷史紀錄已清除
+    Watch history has been cleared: 觀看紀錄已清除
     Are you sure you want to remove your entire watch history?: 您確定您想移除您全部的觀看歷史紀錄？
     Remove Watch History: 移除觀看歷史紀錄
     Search cache has been cleared: 搜尋快取已清除
@@ -227,8 +227,8 @@ Settings:
     Unknown data key: 未知的資料金鑰
     Unable to write file: 無法寫入檔案
     Unable to read file: 無法讀取檔案
-    All watched history has been successfully exported: 所有觀看的歷史紀錄已成功匯出
-    All watched history has been successfully imported: 所有觀看的歷史紀錄已成功匯入
+    All watched history has been successfully exported: 所有觀看紀錄已成功匯出
+    All watched history has been successfully imported: 所有觀看紀錄已成功匯入
     History object has insufficient data, skipping item: 歷史紀錄物件資料不足，正在跳過項目
     Subscriptions have been successfully exported: 訂閱已成功匯出
     Invalid history file: 無效的歷史紀錄檔案
@@ -259,7 +259,7 @@ Settings:
     Hide Video Views: 隱藏影片觀看數量
     Hide Popular Videos: 隱藏流行影片
     Hide Trending Videos: 隱藏熱門影片
-    Hide Live Chat: 隱藏在線聊天
+    Hide Live Chat: 隱藏直播聊天室
     Hide Comment Likes: 隱藏評論點讚
     Hide Recommended Videos: 隱藏推薦影片
     Hide Channel Subscribers: 隱藏頻道訂閱者
@@ -368,11 +368,11 @@ Channel:
   Channel has been removed from your subscriptions: 頻道已從您的訂閱中移除
 Video:
   Open in YouTube: '在YouTube中開啟'
-  Copy YouTube Link: '複製YouTube鏈結'
+  Copy YouTube Link: '複製YouTube連結'
   Open YouTube Embedded Player: '開啟YouTube內嵌播放器'
-  Copy YouTube Embedded Player Link: '複製YouTube內嵌播放器鏈結'
+  Copy YouTube Embedded Player Link: '複製YouTube內嵌播放器連結'
   Open in Invidious: '在Invidious中開啟'
-  Copy Invidious Link: '複製Invidious鏈結'
+  Copy Invidious Link: '複製Invidious連結'
   View: '觀看'
   Views: '觀看'
   # Context is "X People Watching"
@@ -381,12 +381,12 @@ Video:
   # As in a Live Video
   Live: '直播'
   Live Now: '現在直播'
-  Live Chat: '在線聊天'
-  Enable Live Chat: '允許在線聊天'
-  Live Chat is currently not supported in this build.: '在線聊天在此版本中目前不被支援。'
-  'Chat is disabled or the Live Stream has ended.': '聊天被禁用或者在線直播已結束。'
-  Live chat is enabled.  Chat messages will appear here once sent.: '在線聊天結束。 聊天資訊一旦傳送將出現在這裡。'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': '在線聊天目前不被Invidious
+  Live Chat: '直播聊天室'
+  Enable Live Chat: '允許直播聊天室'
+  Live Chat is currently not supported in this build.: '直播聊天室在此版本中目前不被支援。'
+  'Chat is disabled or the Live Stream has ended.': '直播聊天室功能被禁用或者直播已經結束。'
+  Live chat is enabled.  Chat messages will appear here once sent.: '直播聊天結束。 聊天訊息一旦傳送將出現在這裡。'
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': '直播聊天室目前不被Invidious
     API支援。 需要直接連線YouTube。'
   Published:
     Jan: '一月'
@@ -422,9 +422,9 @@ Video:
   Publicationtemplate: '$ %前'
 #& Videos
   Video has been removed from your history: 影片已從您的歷史紀錄中移除
-  Video has been marked as watched: 影片已記號為已觀看
+  Video has been marked as watched: 影片標記為已觀看
   Remove From History: 從歷史紀錄中移除
-  Mark As Watched: 記號為已觀看
+  Mark As Watched: 標記為已觀看
   Autoplay: 自動播放
   Play Previous Video: 播放前一影片
   Play Next Video: 播放下一影片
@@ -444,11 +444,11 @@ Video:
   Open Channel in Invidious: 在Invidious開啟頻道
   Copy YouTube Channel Link: 複製YouTube頻道連結
   Open Channel in YouTube: 在YouTube開啟頻道
-  Started streaming on: 開始在線直播於
+  Started streaming on: '開始直播時間:'
   Streamed on: 直播於
   Video has been removed from your saved list: 影片已從您的播放清單移除
   Video has been saved: 影片已儲存
-  Save Video: 儲存影片
+  Save Video: 儲存影片至播放清單
 Videos:
   #& Sort By
   Sort By:
@@ -465,9 +465,9 @@ Playlist:
   Last Updated On: '最后更新於'
   Share Playlist:
     Share Playlist: '分享播放清單'
-    Copy YouTube Link: '複製YouTube鏈結'
+    Copy YouTube Link: '複製YouTube連結'
     Open in YouTube: '在YouTube中開啟'
-    Copy Invidious Link: '複製Invidious鏈結'
+    Copy Invidious Link: '複製Invidious連結'
     Open in Invidious: '在Invidious中開啟'
 
 # On Video Watch Page
@@ -483,8 +483,8 @@ Change Format:
   Dash formats are not available for this video: 這個影片沒有Dash格式
 Share:
   Share Video: '分享影片'
-  Copy Link: '複製鏈結'
-  Open Link: '開啟鏈結'
+  Copy Link: '複製連結'
+  Open Link: '開啟連結'
   Copy Embed: '複製內嵌'
   Open Embed: '開啟內嵌'
   # On Click
@@ -534,7 +534,7 @@ Canceled next video autoplay: '取消的自動播放下一影片'
 
 Yes: '是'
 No: '否'
-Locale Name: 正體中文
+Locale Name: 繁體中文(正體中文)
 Profile:
   $ is now the active profile: $現在是作用中的設定檔
   Your default profile has been changed to your primary profile: 您的預設設定檔已變更為您的主要設定檔
@@ -574,7 +574,7 @@ Profile:
 The playlist has been reversed: 播放清單已反轉
 A new blog is now available, $. Click to view more: 已有新的部落格文章，$。點擊以檢視更多
 Download From Site: 從網站下載
-Version $ is now available!  Click for more details: 版本$已可使用！ 點擊以取得更多資訊
+Version $ is now available!  Click for more details: 版本更新囉! 最新版本 $ ! 點擊以取得更多資訊
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 沒有這個影片因為缺少格式。這個可能發生由於國家不可用。
 Tooltips:
   Subscription Settings:
@@ -586,9 +586,9 @@ Tooltips:
       將會執行並使用由其回傳的的傳統格式，而非 Invidious 回傳的格式。對因為國家地區限制而無法播放 Invidious回傳的影片時有幫助
   General Settings:
     Invidious Instance: FreeTube將連線為 API呼叫的Invidious實例。清除目前的實例以檢視可供選擇的公用實例清單
-    Thumbnail Preference: FreeTube中所有缩略图都會被替換為影片畫面而非預設缩略图
+    Thumbnail Preference: FreeTube中所有縮圖都會被替換為影片畫面而非預設縮圖
     Fallback to Non-Preferred Backend on Failure: 當您的偏好API 有問題時，FreeTube將自動嘗試使用您的非偏好API
       作為汰退方案
-    Preferred API Backend: 選擇 FreeTube 要用於取得資料的後端。本地 API 是內建擷取器。Invidious API 需要 Invidious
-      伺服器才能連線。
-    Region for Trending: 熱門區域讓您挑選您想要顯示哪個國家的熱門影片。並非所有顯示的國家都被YouTube支援
+    Preferred API Backend: 選擇 FreeTube 要用於取得YouTube資料的伺服器。本地 API 是內建擷取器。Invidious
+      API 需要 Invidious 伺服器才能連線。
+    Region for Trending: 發燒影片區域可以讓您選擇想要顯示哪個國家的發燒影片。請注意:並非所有國家都被YouTube支援
