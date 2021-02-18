@@ -45,7 +45,7 @@ Search Filters:
     Today: '今天'
     This Week: '本周'
     This Month: '本月'
-    This Year: '本年'
+    This Year: '今年'
   Type:
     Type: '類別'
     All Types: '所有類別'
@@ -530,7 +530,7 @@ Playing Next Video: '將播放下一影片'
 Playing Previous Video: '將播放上一影片'
 Playing next video in 5 seconds.  Click to cancel: '下一影片將在5秒后播放。點擊取消。'
 Canceled next video autoplay: '取消的自動播放下一影片'
-'The playlist has ended.  Enable loop to continue playing': '播放清單已結束。 允許循環播放以繼續播放'
+'The playlist has ended.  Enable loop to continue playing': '播放清單已結束。 開啟循環播放以繼續播放'
 
 Yes: '是'
 No: '否'
