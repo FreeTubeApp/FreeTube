@@ -70,6 +70,7 @@ Search Filters:
   Fetching results. Please wait: 'Завантажуються результати. Будь ласка, зачекайте'
   Fetch more results: 'Завантажити більше результатів'
 # Sidebar
+  There are no more results for this search: Більше результатів для цього пошуку немає
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Підписки'
@@ -126,6 +127,8 @@ Settings:
       (За замовчуванням https://invidious.snopyta.org)'
     Region for Trending: 'Регіон для Популярних'
         #! List countries
+    View all Invidious instance information: Перегляд усіх відомостей про екземпляр
+      Invidious
   Theme Settings:
     Theme Settings: 'Налаштування теми'
     Match Top Bar with Main Color: ''
