@@ -85,6 +85,10 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: У
     вас нет сохранных видео. Нажмите на кнопку сохранения в углу видео, чтобы оно
     появилось здесь
+  Playlist Message: Эта страница не отражает полную функциональность плейлистов. Она
+    показывает только видео которые вы сохранили или добавили в избранное. После переработки
+    этой страницы все видео, которые сейчас находятся здесь, переместятся в плейлист
+    "Избранное"
 History:
   # On History Page
   History: 'История'
@@ -359,6 +363,8 @@ About:
   Licensed under the AGPLv3: Лицензия AGPLv3
   Source code: Исходный код
   Beta: Бета
+  Please check for duplicates before posting: Пожалуйста проверьте наличие такого
+    же Issue перед публикацией
 Channel:
   Subscriber: 'Подписчик'
   Subscribers: 'Подписчиков'
