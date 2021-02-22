@@ -90,6 +90,10 @@ export default Vue.extend({
     lengthSeconds: {
       type: Number,
       required: true
+    },
+    videoThumbnail: {
+      type: String,
+      required: true
     }
   },
   data: function () {
@@ -222,6 +226,14 @@ export default Vue.extend({
         return this.$t('Video.Published on')
       }
     }
+  },
+  mounted: function () {
+    /* eslint-disable-next-line */
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: this.title,
+      artist: this.channelName,
+      artwork: this.videoThumbnail
+    })
   },
   methods: {
     goToChannel: function () {

@@ -82,6 +82,7 @@
         :watching-playlist="watchingPlaylist"
         :theatre-possible="theatrePossible"
         :length-seconds="videoLengthSeconds"
+        :video-thumbnail="thumbnail"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
         @theatre-mode="toggleTheatreMode"
