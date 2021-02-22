@@ -85,6 +85,9 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Os
     seus vídeos guardados estão vazios. Clique no botão salvar no canto de um vídeo
     para que ele seja listado aqui
+  Playlist Message: Esta página não reflete listas de reprodução totalmente funcionais.
+    Ele só lista vídeos que você salvou ou favoritos. Quando o trabalho estiver concluído,
+    todos os vídeos atualmente aqui serão migrados para uma playlist 'Favoritos'.
 History:
   # On History Page
   History: 'Histórico'
@@ -303,6 +306,10 @@ Settings:
     Proxy Protocol: Protocolo de Proxy
     Enable Tor / Proxy: Ativar Tor / Proxy
     Proxy Settings: Configurações de Proxy
+    Error getting network information. Is your proxy configured properly?: Erro ao
+      obter informações da rede. O seu proxy está configurado corretamente?
+    City: Cidade
+    Region: Região
 About:
   #On About page
   About: 'Sobre'
@@ -334,6 +341,17 @@ About:
   Latest FreeTube News: 'Ultimas notícias sobre o FreeTube'
 
 #On Channel Page
+  GitHub issues: Problemas com o GitHub
+  Report a problem: Reportar um problema
+  FAQ: FAQs
+  FreeTube Wiki: Wiki do Free Tube
+  Help: Ajuda
+  GitHub releases: Lançamentos do GitHub
+  Downloads / Changelog: Downloads / Modificações
+  View License: Ver Licença
+  Licensed under the AGPLv3: Licença AGPLv3
+  Source code: Código fonte
+  Beta: Beta
 Channel:
   Subscriber: 'Inscrito'
   Subscribers: 'Inscritos'
