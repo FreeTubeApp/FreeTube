@@ -63,8 +63,8 @@ Search Filters:
   Fetching results. Please wait: Lade Ergebnisse. Bitte warten
   Fetch more results: Lade mehr Ergebnisse
 # Sidebar
-  There are no more results for this search: Es gibt keine weiteren Ergebnisse für
-    diese Suche
+  There are no more results for this search: Keine weiteren Ergebnisse für diese Suche
+    vorhanden
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: Abonnement
@@ -76,7 +76,7 @@ Subscriptions:
   Refresh Subscriptions: Abonnements aktualisieren
   Getting Subscriptions. Please wait.: Lade Abonnements. Bitte warten.
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Dieses
-    Profil hat eine große Anzahl von Abonnementen.  RSS zur Vermeidung von Tarifbeschränkungen
+    Profil hat eine große Anzahl von Abonnenten.  RSS zur Vermeidung von Tarifbeschränkungen
     erzwingen
   Load More Videos: Lade mehr Videos
 Trending: Trends
@@ -373,7 +373,7 @@ About:
   Please read the: Bitte lese die
   Chat on Matrix: Chatten bei Matrix
   Mastodon: Mastodon
-  Please check for duplicates before posting: Bitte überprüfe vor dem absenden, ob
+  Please check for duplicates before posting: Bitte überprüfe vor dem Absenden, ob
     es Duplikate gibt
   GitHub issues: GitHub Issues
   Report a problem: Problem melden
@@ -567,7 +567,7 @@ Mini Player: Mini-Abspieler
 Comments:
   Comments: Kommentare
   Click to View Comments: Klicke um Kommentare anzuzeigen
-  Getting comment replies, please wait: Kommentare werden geledan, bitte warten
+  Getting comment replies, please wait: Kommentare werden geladen, bitte warten
   Show Comments: Zeige Kommentare
   Hide Comments: Verstecke Kommentare
   # Context: View 10 Replies, View 1 Reply
@@ -686,4 +686,4 @@ Tooltips:
       API als Standard ausgewählt hast. Die lokale API wird bei der Verwendung von
       Legacy Formaten diese verwenden, anstatt auf Invidious zurückzugreifen. Dies
       hilft dann, wenn Videos von Invidious nicht abspielbar sind. Zum Beispiel aufgrund
-      von Landesrestiktionen.
+      von Landesbeschränkungen.
