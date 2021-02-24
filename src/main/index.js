@@ -2,6 +2,20 @@ import { app, BrowserWindow, Menu, ipcMain, screen } from 'electron'
 import { productName } from '../../package.json'
 import Datastore from 'nedb'
 
+const path = require('path')
+
+// Set app directory before loading user modules
+if (process.env.FREETUBE_APPDATA_DIR != null) {
+  app.setPath('appData', process.env.FREETUBE_APPDATA_DIR)
+  app.setPath('userData', path.join(app.getPath('appData')))
+} else if (process.env.PORTABLE_EXECUTABLE_DIR != null) {
+  app.setPath('appData', process.env.PORTABLE_EXECUTABLE_DIR, `${app.name}AppData`)
+  app.setPath('userData', path.join(app.getPath('appData'), `${app.name}AppData`))
+} else if (process.platform === 'win32') {
+  app.setPath('appData', process.env.APPDATA)
+  app.setPath('userData', path.join(app.getPath('appData'), app.name))
+}
+
 require('electron-context-menu')({
   showSearchWithGoogle: false,
   showSaveImageAs: true,
@@ -21,7 +35,6 @@ app.setName(productName)
 
 // disable electron warning
 process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true'
-const path = require('path')
 const isDev = process.env.NODE_ENV === 'development'
 const isDebug = process.argv.includes('--debug')
 let mainWindow
