@@ -352,6 +352,20 @@ About:
   Licensed under the AGPLv3: Licença AGPLv3
   Source code: Código-fonte
   Beta: Beta
+  Donate: Doar
+  these people and projects: estas pessoas e projetos
+  FreeTube is made possible by: O FreeTube é possível graças a
+  Credits: Créditos
+  Translate: Traduzir
+  room rules: regras da sala
+  Please read the: Favor ler o
+  Chat on Matrix: Bate-papo na Matrix
+  Mastodon: Mastodon
+  Email: E-mail
+  Blog: Blog
+  Website: Site web
+  Please check for duplicates before posting: Verifique se há duplicatas antes de
+    postar
 Channel:
   Subscriber: 'Inscrito'
   Subscribers: 'Inscritos'
@@ -468,6 +482,10 @@ Video:
   Open Channel in Invidious: Abrir Canal no Invidious
   Copy YouTube Channel Link: Copiar o link do canal no YouTube
   Open Channel in YouTube: Abrir canal no YouTube
+  Video has been removed from your saved list: O vídeo foi removido da sua lista de
+    vídeos salvos
+  Video has been saved: O vídeo foi salvo
+  Save Video: Salvar vídeo
 Videos:
   #& Sort By
   Sort By:
