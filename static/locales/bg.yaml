@@ -303,7 +303,7 @@ Settings:
     Ip: Ip
     Your Info: Вашата информация
     Test Proxy: Тестване на прокси
-    Clicking on Test Proxy will send a request to: Кликването върху "Тестване на прокси"
+    Clicking on Test Proxy will send a request to: Щракването върху "Тестване на прокси"
       ще изпрати заявка до
     Proxy Port Number: Номер на прокси порта
     Proxy Host: Прокси хост
@@ -349,7 +349,7 @@ About:
   Please read the: Моля, прочетете
   Chat on Matrix: Чат в Matrix
   Mastodon: Mastodon
-  Email: Имейл
+  Email: Електронна поща
   Blog: Блог
   Website: Уебсайт
   Please check for duplicates before posting: Моля, проверете за дубликати преди публикуване
@@ -433,9 +433,9 @@ Channel:
     This channel does not currently have any playlists: 'В този канал по настоящем
       няма плейлисти'
     Sort Types:
-      Last Video Added: 'Последно добавено видео'
-      Newest: 'Най-ново'
-      Oldest: 'Най-старо'
+      Last Video Added: 'Последно добавени'
+      Newest: 'Най-нови'
+      Oldest: 'Най-стари'
   About:
     About: 'Относно'
     Channel Description: 'Описание на канала'
@@ -580,7 +580,7 @@ Share:
 Mini Player: 'Мини плейър'
 Comments:
   Comments: 'Коментари'
-  Click to View Comments: 'Кликнете, за да видите коментарите'
+  Click to View Comments: 'Щракнете, за да видите коментарите'
   Getting comment replies, please wait: 'Получаване на отговори на коментара, моля
     изчакайте'
   There are no more comments for this video: 'Към това видео няма повече коментари'
@@ -600,8 +600,8 @@ Comments:
 Up Next: 'Следващ'
 
 # Toast Messages
-Local API Error (Click to copy): 'Грешка в локалния интерфейс (кликнете за копиране)'
-Invidious API Error (Click to copy): 'Грешка в Invidious интерфейса (кликнете за копиране)'
+Local API Error (Click to copy): 'Грешка в локалния интерфейс (щракнете за копиране)'
+Invidious API Error (Click to copy): 'Грешка в Invidious интерфейса (щракнете за копиране)'
 Falling back to Invidious API: 'Връщане към Invidious интерфейса'
 Falling back to the local API: 'Връщане към локалния интерфейс'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Видеото
@@ -616,7 +616,7 @@ The playlist has been reversed: 'Плейлистата е в обърнат р�
 Playing Next Video: 'Пускане на следващото видео'
 Playing Previous Video: 'Пускане на предишното видео'
 Playing next video in 5 seconds.  Click to cancel: 'Следващо видео започва след 5
-  секунди. Кликнете за отказ.'
+  секунди. Щракнете за отказ.'
 Canceled next video autoplay: 'Следващото видео е отказано'
 'The playlist has ended.  Enable loop to continue playing': 'Плейлиста приключи. Включете
   повторението за да продължи'
