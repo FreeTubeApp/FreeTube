@@ -59,7 +59,7 @@ Search Filters:
     Long (> 20 minutes): '長（大於20分鐘）'
   # On Search Page
   Search Results: '搜尋結果'
-  Fetching results. Please wait: '擷取結果中。請稍候'
+  Fetching results. Please wait: '擷取結果中，請稍候...'
   Fetch more results: '擷取更多結果'
 # Sidebar
   There are no more results for this search: 此搜尋無更多結果
@@ -69,8 +69,8 @@ Subscriptions:
   Latest Subscriptions: '最新訂閱'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '您的訂閱清單目前是空的。在這裡開始添加訂閱。'
   'Getting Subscriptions.  Please wait.': '抓取訂閱中。請稍等。'
-  Refresh Subscriptions: 重新整理訂閱
-  Getting Subscriptions. Please wait.: 正在取得訂閱。請稍候。
+  Refresh Subscriptions: 重新整理訂閱內容的影片
+  Getting Subscriptions. Please wait.: 正在取得訂閱中，請稍候....
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 這個設定檔有大量訂閱。
     強制RSS已防止速率限制
   Load More Videos: 載入更多影片
@@ -80,7 +80,7 @@ Playlists: '播放清單'
 User Playlists:
   Your Playlists: '您的播放清單'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 您播放清單的影片是空的。點擊影片角落的星星按鈕以將其列在此處
-  Playlist Message: 此頁面無法反映完整的播放清單。其僅列出您已儲存或加入最愛的影片。工作完成後，所有目前在此的影片都會轉移到「最愛」播放清單。
+  Playlist Message: 此頁面無法列出完整的播放清單。其僅列出您已儲存或加入最愛的影片。工作完成後，所有目前在此的影片都會轉移到「最愛」播放清單。
 History:
   # On History Page
   History: '歷史紀錄'
@@ -90,15 +90,15 @@ Settings:
   # On Settings Page
   Settings: '設定'
   General Settings:
-    General Settings: '常規設定'
+    General Settings: '一般設定'
     Fallback to Non-Preferred Backend on Failure: '連線失敗時連線到非預設伺服器'
-    Enable Search Suggestions: '允許搜尋建議'
+    Enable Search Suggestions: '啟用搜尋建議'
     Default Landing Page: '預設加載頁面'
     Locale Preference: '地區偏好'
     Preferred API Backend:
       Preferred API Backend: '偏好API伺服器'
       Local API: '區域API'
-      Invidious API: 'Invidious API'
+      Invidious API: 'Invidious API(應用程式介面)'
     Video View Type:
       Video View Type: '影片觀看類別'
       Grid: '網格'
@@ -109,7 +109,8 @@ Settings:
       Beginning: '片頭'
       Middle: '中間'
       End: '結尾'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious實例（預設https://invidious.snopyta.org）'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious實例(預設為
+      https://invidious.snopyta.org )'
     Region for Trending: '發燒影片區域'
         #! List countries
     Check for Latest Blog Posts: 檢查最新的部落格貼文
@@ -148,23 +149,23 @@ Settings:
     Disable Smooth Scrolling: 禁用平滑捲動
   Player Settings:
     Player Settings: '播放器選項'
-    Force Local Backend for Legacy Formats: '強制區域伺服器給傳統格式'
+    Force Local Backend for Legacy Formats: '強制使用傳統格式的區域伺服器'
     Remember History: '記住曆史'
-    Play Next Video: '播放下一影片'
+    Play Next Video: '播放下一部影片'
     Turn on Subtitles by Default: '預設開啟字幕'
     Autoplay Videos: '自動播放影片'
-    Proxy Videos Through Invidious: '通過Invidious代理影片'
-    Autoplay Playlists: '自動播放清單'
-    Enable Theatre Mode by Default: '預設允許劇場型態'
+    Proxy Videos Through Invidious: '透過Invidious代理影片'
+    Autoplay Playlists: '自動播放 播放清單'
+    Enable Theatre Mode by Default: '預設開啟劇場模式'
     Default Volume: '預設音量'
-    Default Playback Rate: '預設重播速率'
+    Default Playback Rate: '預設播放速度'
     Default Video Format:
       Default Video Format: '預設影片格式'
       Dash Formats: 'Dash格式'
       Legacy Formats: '傳統格式'
       Audio Formats: '音訊格式'
     Default Quality:
-      Default Quality: '預設品質'
+      Default Quality: '預設畫質'
       Auto: '自動'
       144p: '144p'
       240p: '240p'
@@ -212,15 +213,15 @@ Settings:
 
   Privacy Settings:
     Watch history has been cleared: 觀看紀錄已清除
-    Are you sure you want to remove your entire watch history?: 您確定您想移除您全部的觀看歷史紀錄？
+    Are you sure you want to remove your entire watch history?: 您確定要移除全部的觀看歷史紀錄嗎？
     Remove Watch History: 移除觀看歷史紀錄
     Search cache has been cleared: 搜尋快取已清除
-    Are you sure you want to clear out your search cache?: 您確定您想清除您的搜尋快取？
+    Are you sure you want to clear out your search cache?: 您確定要清除搜尋快取嗎？
     Clear Search Cache: 清除搜尋快取
     Save Watched Progress: 儲存觀看進度
-    Remember History: 記住歷史紀錄
+    Remember History: 儲存歷史紀錄
     Privacy Settings: 隱私設定
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 您確定您想移除所有訂閱與設定檔嗎？這無法復原。
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 您確定要移除所有訂閱與設定檔嗎嗎?  注意:這無法復原。
     Remove All Subscriptions / Profiles: 移除所有訂閱／設定檔
   Data Settings:
     How do I import my subscriptions?: 我要如何匯入我的訂閱？
@@ -232,7 +233,7 @@ Settings:
     History object has insufficient data, skipping item: 歷史紀錄物件資料不足，正在跳過項目
     Subscriptions have been successfully exported: 訂閱已成功匯出
     Invalid history file: 無效的歷史紀錄檔案
-    This might take a while, please wait: 這可能需要一段時間，請稍候
+    This might take a while, please wait: 這可能需要一段時間，請稍候...
     Invalid subscriptions file: 無效的訂閱檔案
     All subscriptions have been successfully imported: 所有訂閱已成功匯入
     All subscriptions and profiles have been successfully imported: 所有訂閱與設定檔已成功匯入
@@ -250,21 +251,21 @@ Settings:
     Select Export Type: 選取匯出類型
     Select Import Type: 選取匯入類型
     Data Settings: 資料設定
-    One or more subscriptions were unable to be imported: 一個或者更多訂閱無法被導入
-    Check for Legacy Subscriptions: 檢查傳統訂閱
+    One or more subscriptions were unable to be imported: 一個或者更多訂閱無法被匯入
+    Check for Legacy Subscriptions: 檢查舊版訂閱
     Manage Subscriptions: 管理訂閱
   Distraction Free Settings:
     Hide Video Likes And Dislikes: 隱藏影片喜歡與不喜歡
-    Distraction Free Settings: 零打擾設定
-    Hide Video Views: 隱藏影片觀看數量
+    Distraction Free Settings: 勿擾設定
+    Hide Video Views: 隱藏影片觀看次數
     Hide Popular Videos: 隱藏流行影片
     Hide Trending Videos: 隱藏熱門影片
     Hide Live Chat: 隱藏直播聊天室
-    Hide Comment Likes: 隱藏評論點讚
+    Hide Comment Likes: 隱藏留言的按讚數量
     Hide Recommended Videos: 隱藏推薦影片
     Hide Channel Subscribers: 隱藏頻道訂閱者
     Hide Active Subscriptions: 隱藏作用中的訂閱
-  The app needs to restart for changes to take effect. Restart and apply change?: 應用需要重啟讓修改生效。重啟并且應用修改？
+  The app needs to restart for changes to take effect. Restart and apply change?: 此變更需要重啟讓修改生效。重啟並且套用變更?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
     City: 城市
@@ -310,7 +311,7 @@ About:
   Release Notes: 版本註記
   Blog: 部落格
   Credits: 貢獻者
-  FAQ: FAQ
+  FAQ: 常見問題
   Wiki: Wiki
   Report an Issue: 回報問題
   Channel Rules: 頻道規則
@@ -322,16 +323,16 @@ About:
   Help: 說明
   Contact: 聯絡
   these people and projects: 這些人與專案
-  FreeTube is made possible by: FreeTube 被做出來是因為
+  FreeTube is made possible by: FreeTube 誕生都要感謝這些人
   Translate: 翻譯
   room rules: 聊天室規則
   Please read the: 請閱讀
   Chat on Matrix: 在 Matrix 上聊天
   Mastodon: Mastodon
-  Please check for duplicates before posting: 張貼前請檢查有無重複
-  GitHub issues: GitHub 議題
+  Please check for duplicates before posting: 提交前請檢查有無重複的問題
+  GitHub issues: GitHub 問題追蹤器
   Report a problem: 回報問題
-  FreeTube Wiki: FreeTube Wiki
+  FreeTube Wiki: FreeTube 維基百科
   GitHub releases: GitHub 版本
   Downloads / Changelog: 下載 / 變更紀錄
   View License: 檢視授權條款
@@ -351,14 +352,14 @@ Channel:
     Sort Types:
       Newest: '最新'
       Oldest: '最舊'
-      Most Popular: '最流行'
+      Most Popular: '最熱門'
   Playlists:
     Playlists: '播放清單'
     This channel does not currently have any playlists: '這個頻道目前沒有任何播放清單'
     Sort Types:
-      Last Video Added: '最新添加的影片'
+      Last Video Added: '最新上傳的影片'
       Newest: '最新'
-      Oldest: '最老'
+      Oldest: '最舊'
   About:
     About: '關於'
     Channel Description: '頻道說明'
@@ -382,7 +383,7 @@ Video:
   Live: '直播'
   Live Now: '現在直播'
   Live Chat: '直播聊天室'
-  Enable Live Chat: '允許直播聊天室'
+  Enable Live Chat: '啟用直播聊天室'
   Live Chat is currently not supported in this build.: '直播聊天室在此版本中目前不被支援。'
   'Chat is disabled or the Live Stream has ended.': '直播聊天室功能被禁用或者直播已經結束。'
   Live chat is enabled.  Chat messages will appear here once sent.: '直播聊天結束。 聊天訊息一旦傳送將出現在這裡。'
@@ -414,7 +415,7 @@ Video:
     Year: '年'
     Years: '年'
     Ago: '前'
-    Upcoming: '首映於'
+    Upcoming: '首播於'
     Minutes: 分鐘
     Minute: 分鐘
   Published on: '發布於'
@@ -431,7 +432,7 @@ Video:
   Reverse Playlist: 反向播放清單
   Shuffle Playlist: 隨機播放清單
   Loop Playlist: 循環播放清單
-  Starting soon, please refresh the page to check again: 即將開始，請重新整理頁面以再次檢查
+  Starting soon, please refresh the page to check again: 影片即將開始，請重新整理頁面以再次檢查是否有更新
   Audio:
     Best: 最佳
     High: 高
@@ -453,7 +454,7 @@ Videos:
   #& Sort By
   Sort By:
     Newest: '最新'
-    Oldest: '最老'
+    Oldest: '最舊'
     #& Most Popular
 #& Playlists
 Playlist:
@@ -462,7 +463,7 @@ Playlist:
   Videos: '影片'
   View: '觀看'
   Views: '觀看'
-  Last Updated On: '最后更新於'
+  Last Updated On: '最後更新於'
   Share Playlist:
     Share Playlist: '分享播放清單'
     Copy YouTube Link: '複製YouTube連結'
@@ -473,9 +474,9 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: '切換劇場型態'
+Toggle Theatre Mode: '切換為劇院模式'
 Change Format:
-  Change Video Formats: '更換影片格式'
+  Change Video Formats: '變更影片格式'
   Use Dash Formats: '使用Dash格式'
   Use Legacy Formats: '使用傳統格式'
   Use Audio Formats: '使用音訊格式'
@@ -497,24 +498,24 @@ Share:
   Invidious Channel URL copied to clipboard: Invidious頻道URL已複製到剪貼簿
 Mini Player: '迷你播放器'
 Comments:
-  Comments: '評論'
-  Click to View Comments: '點擊觀看評論'
-  Getting comment replies, please wait: '抓取評論中，請稍候'
-  Show Comments: '察看評論'
-  Hide Comments: '隱藏評論'
+  Comments: '留言'
+  Click to View Comments: '點擊查看留言'
+  Getting comment replies, please wait: '獲取留言中，請稍候...'
+  Show Comments: '查看留言'
+  Hide Comments: '隱藏留言'
   # Context: View 10 Replies, View 1 Reply
   View: '觀看'
   Hide: '隱藏'
   Replies: '回覆'
   Reply: '回覆'
-  There are no comments available for this video: '這個影片沒有評論'
-  Load More Comments: '加載更多評論'
-  There are no more comments for this video: 此影片無更多評論
+  There are no comments available for this video: '這個影片沒有留言'
+  Load More Comments: '載入更多留言'
+  There are no more comments for this video: 此影片無更多留言
   Newest first: 最新優先
-  Top comments: 最熱評論
+  Top comments: 最熱門留言
   Sort by: 排序方式
-  No more comments available: 沒有更多評論
-Up Next: 'Up Next'
+  No more comments available: 沒有更多留言
+Up Next: '觀看其他類似影片'
 
 # Toast Messages
 Local API Error (Click to copy): '區域API錯誤（點擊複製）'
@@ -523,18 +524,18 @@ Falling back to Invidious API: '回退到Invidious API'
 Falling back to the local API: '回退到區域API'
 Subscriptions have not yet been implemented: '訂閱功能尚未被推行'
 Loop is now disabled: '循環播放現在被禁用'
-Loop is now enabled: '循環播放現在被允許'
+Loop is now enabled: '循環播放現在被啟用'
 Shuffle is now disabled: '隨機播放現在被禁用'
 Shuffle is now enabled: '隨機播放現在被禁用'
 Playing Next Video: '將播放下一影片'
 Playing Previous Video: '將播放上一影片'
-Playing next video in 5 seconds.  Click to cancel: '下一影片將在5秒后播放。點擊取消。'
-Canceled next video autoplay: '取消的自動播放下一影片'
-'The playlist has ended.  Enable loop to continue playing': '播放清單已結束。 開啟循環播放以繼續播放'
+Playing next video in 5 seconds.  Click to cancel: '下一部影片將在5秒後播放。點擊取消。'
+Canceled next video autoplay: '取消自動播放下一部影片'
+'The playlist has ended.  Enable loop to continue playing': '播放清單已播放完畢。 開啟循環播放來繼續播放'
 
 Yes: '是'
 No: '否'
-Locale Name: 繁體中文(正體中文)
+Locale Name: 繁體(正體)中文
 Profile:
   $ is now the active profile: $現在是作用中的設定檔
   Your default profile has been changed to your primary profile: 您的預設設定檔已變更為您的主要設定檔
@@ -562,7 +563,7 @@ Profile:
     這不會從其他設定檔中移除頻道。
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : 這是您的主設定檔。 您確定您想移除選取的頻道？ 相同的頻道中任何找到的設定檔會被移除。
+  : 這是您的主要設定檔。 您確定要移除選取的頻道？ 相同的頻道中任何找到的設定檔會被移除。
   No channel(s) have been selected: 無頻道已選取
   Add Selected To Profile: 添加選取的到設定檔
   Delete Selected: 移除選取的
@@ -582,7 +583,7 @@ Tooltips:
   Player Settings:
     Default Video Format: 設定要用於影片播放的格式。Dash格式有更高的品質。傳統格式會限制在 720p但頻寬需求更低。音訊格式為僅有音訊的串流
     Proxy Videos Through Invidious: 將連線到 Invidious而非直接連線到 YouTube 來提供影片。覆寫 API 偏好
-    Force Local Backend for Legacy Formats: 僅當 Invidious API是您預設 API 時才有效。啟用後，本地API
+    Force Local Backend for Legacy Formats: 僅當 Invidious API是您預設 API 時才有效。啟用後，區域 API
       將會執行並使用由其回傳的的傳統格式，而非 Invidious 回傳的格式。對因為國家地區限制而無法播放 Invidious回傳的影片時有幫助
   General Settings:
     Invidious Instance: FreeTube將連線為 API呼叫的Invidious實例。清除目前的實例以檢視可供選擇的公用實例清單
@@ -591,4 +592,4 @@ Tooltips:
       作為汰退方案
     Preferred API Backend: 選擇 FreeTube 要用於取得YouTube資料的伺服器。本地 API 是內建擷取器。Invidious
       API 需要 Invidious 伺服器才能連線。
-    Region for Trending: 發燒影片區域可以讓您選擇想要顯示哪個國家的發燒影片。請注意:並非所有國家都被YouTube支援
+    Region for Trending: 發燒影片區域可以讓您選擇想要顯示哪個國家的發燒影片。 注意:並非所有國家都被YouTube支援
