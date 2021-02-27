@@ -228,12 +228,20 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    /* eslint-disable-next-line */
-    navigator.mediaSession.metadata = new MediaMetadata({
-      title: this.title,
-      artist: this.channelName,
-      artwork: this.videoThumbnail
-    })
+    if ('mediaSession' in navigator) {
+      /* eslint-disable-next-line */
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: this.title,
+        artist: this.channelName,
+        artwork: [
+          {
+            src: this.videoThumbnail,
+            sizes: '128x128',
+            type: 'image/png'
+          }
+        ]
+      })
+    }
   },
   methods: {
     goToChannel: function () {
