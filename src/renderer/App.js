@@ -289,16 +289,6 @@ export default Vue.extend({
               v.$router.push({
                 path: `/watch/${result}`
               })
-            } else {
-              v.$router.push({
-                path: `/search/${encodeURIComponent(url)}`,
-                query: {
-                  sortBy: v.searchSettings.sortBy,
-                  time: v.searchSettings.time,
-                  type: v.searchSettings.type,
-                  duration: v.searchSettings.duration
-                }
-              })
             }
           })
         }
