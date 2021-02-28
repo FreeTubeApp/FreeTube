@@ -399,7 +399,8 @@ app.on('open-url', (event, url) => {
  * Remove freetube:// protocol if present
  */
 const url = getLinkUrl(process.argv)
-if (url) {
+if (url && (url.match(/https?:\/\/(www\.)?youtube\.com\/watch\?v=\S+/) ||
+    url.match(/https?:\/\/youtu\.be\/\S+/))) {
   startupUrl = url
 }
 
