@@ -16,7 +16,7 @@ Copy: 'Kopier'
 Paste: 'Lim inn'
 Delete: 'Slett'
 Select all: 'Velg alt'
-Reload: 'Gjeninnlast'
+Reload: 'Last inn på nytt'
 Force Reload: 'Tving gjeninnlasting'
 Toggle Developer Tools: 'Veksle utviklerverktøy'
 Actual size: 'Faktisk størrelse'
@@ -64,15 +64,18 @@ Search Filters:
   Fetching results. Please wait: 'Henter resultater. Vent.'
   Fetch more results: 'Hent flere resultater'
 # Sidebar
+  There are no more results for this search: Det er ikke flere resultat for dette
+    søket
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnementer'
   Latest Subscriptions: 'Siste abonnementer'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Din
-    abbonementsliste er for tiden tom. Legg til noen for å se dem her.'
+    abonnementsliste er for tiden tom. Legg til noen for å se dem her.'
   'Getting Subscriptions.  Please wait.': 'Henter abonnementer. Vent.'
-  Refresh Subscriptions: Gjenoppfrisk abonnementer
+  Refresh Subscriptions: Oppdater abonnementer
   Getting Subscriptions. Please wait.: Henter abonnementer. Vent.
+  Load More Videos: Last flere videoer
 Trending: 'Populært'
 Most Popular: 'Mest populært'
 Playlists: 'Spillelister'
@@ -243,13 +246,27 @@ About:
   Latest FreeTube News: ''
 
 #On Channel Page
+  FAQ: Ofte stilte spørsmål
+  Downloads / Changelog: Nedlastninger / Endringslogg
+  Licensed under the AGPLv3: Lisensiert under AGPLv3
+  Help: Hjelp
+  View License: Vis lisens
+  Donate: Doner
+  Website: Nettsted
+  Report a problem: Rapporter et problem
+  Source code: Kildekode
+  Please read the: Vennligst les
+  Mastodon: Mastodon
+  Email: E-post
+  Blog: Blogg
+  Translate: Oversett
 Channel:
   Subscriber: 'Abonnent'
   Subscribers: 'Abonnenter'
   Subscribe: 'Abonner'
   Unsubscribe: 'Opphev abonnement'
   Search Channel: 'Søk i kanal'
-  Your search results have returned 0 results: 'Resultatløst søk'
+  Your search results have returned 0 results: 'Søktet ditt ga 0 resultater'
   Sort By: 'Sorter etter'
   Videos:
     Videos: 'Videoer'
@@ -270,6 +287,10 @@ Channel:
     About: 'Om'
     Channel Description: 'Kanalbeskrivelse'
     Featured Channels: 'Framhevede kanaler'
+  Added channel to your subscriptions: Lagt til kanal til dine abonnenter
+  Removed subscription from $ other channel(s): Fjernet abonnement fra $ andre kanal(er)
+  Channel has been removed from your subscriptions: Kanalen har blitt fjernet fra
+    dine abonnement
 Video:
   Mark As Watched: 'Marker som sett'
   Remove From History: 'Fjern fra historikk'
@@ -285,7 +306,7 @@ Video:
   Views: 'Visninger'
   # Context is "X People Watching"
   Watching: ''
-  Watched: ''
+  Watched: 'Sett'
   # As in a Live Video
   Live: 'Direktesendt'
   Live Now: 'Direktesendt nå'
@@ -322,10 +343,22 @@ Video:
     Years: 'År'
     Ago: 'Siden'
     Upcoming: ''
+    Minutes: Minutter
+    Minute: Minutt
   Published on: ''
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % siden'
 #& Videos
+  Audio:
+    High: Høyt
+    Medium: Middels
+    Low: Lavt
+  audio only: Bare lyd
+  video only: Bare video
+  Download Video: Last ned video
+  Video has been saved: Videoen har blitt lagret
+  Save Video: Lagre video
+  Copy Invidious Channel Link: Kopier Invidious-kanallenke
 Videos:
   #& Sort By
   Sort By:
@@ -350,12 +383,12 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: ''
+Toggle Theatre Mode: 'Veksle teatermodus'
 Change Format:
   Change Video Formats: 'Endre videoformater'
   Use Dash Formats: ''
   Use Legacy Formats: ''
-  Use Audio Formats: ''
+  Use Audio Formats: 'Bruk lydformater'
 Share:
   Share Video: 'Del video'
   Copy Link: 'Kopier lenke'
@@ -369,6 +402,8 @@ Share:
   YouTube URL copied to clipboard: 'YouTube-nettadresse kopiert til utklippstavle'
   YouTube Embed URL copied to clipboard: 'Innebygd YouTube-nettadresse kopiert til
     utklippstavle'
+  YouTube Channel URL copied to clipboard: YouTube-kanalnettadresse kopiert til utklippstavle
+  Include Timestamp: Inkluder tidsstempel
 Mini Player: 'Minispiller'
 Comments:
   Comments: 'Kommentarer'
@@ -381,23 +416,32 @@ Comments:
   Hide: 'Skjul'
   Replies: 'Svar'
   Reply: 'Svar'
-  There are no comments available for this video: ''
+  There are no comments available for this video: 'Det finnes ingen tilgjengelige
+    kommentarer for denne videoen'
   Load More Comments: 'Last inn flere kommentarer'
-Up Next: ''
+  No more comments available: Ingen flere kommentarer tilgjengelig
+  Newest first: Nyeste først
+  There are no more comments for this video: Det finnes ingen kommentarer for denne
+    videoen
+  Sort by: Sorter etter
+  Top comments: Toppkommentarer
+Up Next: 'Neste'
 
 # Toast Messages
-Local API Error (Click to copy): ''
-Invidious API Error (Click to copy): ''
-Falling back to Invidious API: ''
-Falling back to the local API: ''
-Subscriptions have not yet been implemented: ''
+Local API Error (Click to copy): 'Lokal API-feil (Klikk for å kopiere)'
+Invidious API Error (Click to copy): 'Invidious-API-feil (Klikk for å kopiere)'
+Falling back to Invidious API: 'Faller tilbake til Invidious-API-et'
+Falling back to the local API: 'Faller tilbake til det lokale API-et'
+Subscriptions have not yet been implemented: 'Abonnement har ikke blitt implementert
+  enda'
 Loop is now disabled: ''
 Loop is now enabled: ''
 Shuffle is now disabled: ''
 Shuffle is now enabled: ''
-Playing Next Video: ''
-Playing Previous Video: ''
-Playing next video in 5 seconds.  Click to cancel: ''
+Playing Next Video: 'Spiller av neste video'
+Playing Previous Video: 'Spiller av forrige video'
+Playing next video in 5 seconds.  Click to cancel: 'Spiller av neste video om 5 sekunder.
+  Klikk for å avbryte.'
 Canceled next video autoplay: ''
 'The playlist has ended.  Enable loop to continue playing': ''
 
@@ -420,3 +464,32 @@ Profile:
   Delete Profile: Slett profil
   Make Default Profile: Gjør til forvalgt profil
   Update Profile: Oppdater profil
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Er
+    du sikker på at du vil fjerne de valgte kanalene? Disse vil ikke bli slettet fra
+    noen andre profiler.
+  No channel(s) have been selected: Ingen kanal(er) har blitt valgt
+  Select All: Velg alle
+  $ selected: $ valgt
+  Other Channels: Andre kanaler
+  Color Picker: Fargevelger
+  Profile Select: Velg profil
+  Create Profile: Lag profil
+  Edit Profile: Rediger profil
+  Create New Profile: Lag ny profil
+  Profile Manager: Profilbehandler
+  All Channels: Alle kanaler
+This video is unavailable because of missing formats. This can happen due to country unavailability.: Denne
+  videoen er utilgjengelig grunnet manglende formater. Dette kan skyldes tilgangbegrensninger
+  i ditt land.
+Tooltips:
+  General Settings:
+    Invidious Instance: Invidious-forekomsten som FreeTube vil koble til for API-kall.
+      Fjern den gjeldene forekomsten for å se en liste over offentlige forekomster
+      å velge mellom
+    Thumbnail Preference: Alle miniatyrbilder i FreeTube vil bli erstattet av et bilde
+      av videoen i stedet for standardminiatyrbildet
+    Fallback to Non-Preferred Backend on Failure: Når ditt foretrukne API har et problem,
+      vil FreeTube prøve å automatisk bruke ditt ikke-foretrukne API som en tilbakefallingsmetode
+      dersom det er aktivert
+A new blog is now available, $. Click to view more: En ny bloggpost er nå tilgjengelig,
+  $. Klikk for å se den
