@@ -269,6 +269,7 @@ export default Vue.extend({
             video.viewCount = video.view_count
             video.lengthSeconds = video.length_seconds
             video.author = video.author.name
+            video.publishedText = video.published
             return video
           })
           if (this.hideVideoLikesAndDislikes) {
