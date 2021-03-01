@@ -88,6 +88,12 @@ Most Popular: 'Найпопулярніші'
 Playlists: 'Списки відтворення'
 User Playlists:
   Your Playlists: 'Ваші списки відтворення'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Збережені
+    відео порожні. Клацніть на кнопку збереження у куті відео, щоб воно було перелічено
+    тут
+  Playlist Message: Ця сторінка не відображає повністю робочих списків відтворення.
+    На ній перелічено лише відео, які ви зберегли або вибрали. Коли робота закінчиться,
+    усі відео, які зараз знаходяться тут, буде переміщено до списку відтворення "Вибране".
 History:
   # On History Page
   History: 'Історія'
@@ -131,8 +137,8 @@ Settings:
       Invidious
   Theme Settings:
     Theme Settings: 'Налаштування теми'
-    Match Top Bar with Main Color: ''
-    Expand Side Bar by Default: ''
+    Match Top Bar with Main Color: 'Верхня панель основного кольору'
+    Expand Side Bar by Default: 'Усталено розгортати бічну панель'
     Disable Smooth Scrolling: 'Відключити плавну прокрутку'
     UI Scale: 'Масштаб інтерфейсу'
     Base Theme:
@@ -162,19 +168,20 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: 'Налаштування програвача'
-    Force Local Backend for Legacy Formats: ''
+    Force Local Backend for Legacy Formats: 'Примусово використовувати локальний сервер
+      для застарілих форматів'
     Play Next Video: 'Грати наступне відео'
     Turn on Subtitles by Default: 'Увімкнути субтитри за замовченням'
     Autoplay Videos: 'Автоматичне відтворення відео'
-    Proxy Videos Through Invidious: ''
+    Proxy Videos Through Invidious: 'Проксі-відео через Invidious'
     Autoplay Playlists: 'Автоматичне відтворення списків'
-    Enable Theatre Mode by Default: ''
+    Enable Theatre Mode by Default: 'Усталено увімкнений режим театру'
     Default Volume: 'Гучніть за замовченням'
-    Default Playback Rate: ''
+    Default Playback Rate: 'Усталена швидкість відтворення'
     Default Video Format:
       Default Video Format: 'Формат відео за замовченням'
-      Dash Formats: ''
-      Legacy Formats: ''
+      Dash Formats: 'Формати Dash'
+      Legacy Formats: 'Застарілі формати'
       Audio Formats: 'Аудіо формати'
     Default Quality:
       Default Quality: 'Якість за замовченням'
@@ -190,31 +197,35 @@ Settings:
       8k: '8k'
   Privacy Settings:
     Privacy Settings: 'Налаштування приватності'
-    Remember History: ''
+    Remember History: 'Збрігати історію'
     Save Watched Progress: 'Зберігати прогрес перегляду'
     Clear Search Cache: 'Очистити пошуковий кеш'
-    Are you sure you want to clear out your search cache?: ''
-    Search cache has been cleared: ''
+    Are you sure you want to clear out your search cache?: 'Дійсно бажаєте очистити
+      кеш пошуку?'
+    Search cache has been cleared: 'Кеш пошуку очищено'
     Remove Watch History: 'Видалити історію переглядів'
-    Are you sure you want to remove your entire watch history?: ''
+    Are you sure you want to remove your entire watch history?: 'Дійсно бажаєте вилучити
+      всю історію переглядів?'
     Watch history has been cleared: 'Історію переглядів було очищено'
     Remove All Subscriptions / Profiles: 'Видалити всі підписки / профілі'
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Справді
+      хочете вилучити всі підписки та профілі? Цю дію не можна скасувати.'
   Subscription Settings:
     Subscription Settings: 'Налаштування підписки'
     Hide Videos on Watch: 'Ховати відео при перегляді'
-    Fetch Feeds from RSS: ''
+    Fetch Feeds from RSS: 'Отримати канали з RSS'
     Manage Subscriptions: 'Керування підписками'
   Distraction Free Settings:
     Distraction Free Settings: ''
     Hide Video Views: 'Сховати перегляди відео'
-    Hide Video Likes And Dislikes: ''
+    Hide Video Likes And Dislikes: 'Приховати вподобайки до відео'
     Hide Channel Subscribers: 'Не показувати підписників каналу'
     Hide Comment Likes: 'Не показувати уподобання коментарів'
     Hide Recommended Videos: 'Не показувати рекомендовані відео'
     Hide Trending Videos: 'Не показувати тренди відео'
     Hide Popular Videos: 'Не показувати популярні відео'
     Hide Live Chat: 'Не показувати живий чат'
+    Hide Active Subscriptions: Сховати активні підписки
   Data Settings:
     Data Settings: 'Налаштування даних'
     Select Import Type: 'Оберіть тип імпорту'
@@ -223,21 +234,24 @@ Settings:
     Import FreeTube: 'Імпортувати FreeTube'
     Import YouTube: 'Імпортувати YouTube'
     Import NewPipe: 'Імпортувати NewPipe'
-    Check for Legacy Subscriptions: ''
+    Check for Legacy Subscriptions: 'Перевірка наявності застарілих підписок'
     Export Subscriptions: 'Експортувати підписки'
     Export FreeTube: 'Експортувати FreeTube'
     Export YouTube: 'Експортувати YouTube'
     Export NewPipe: 'Експортувати NewPipe'
     Import History: 'Імпортувати історію'
     Export History: 'Експортувати історію'
-    Profile object has insufficient data, skipping item: ''
-    All subscriptions and profiles have been successfully imported: ''
-    All subscriptions have been successfully imported: ''
-    One or more subscriptions were unable to be imported: ''
-    Invalid subscriptions file: ''
-    This might take a while, please wait: ''
-    Invalid history file: ''
-    Subscriptions have been successfully exported: ''
+    Profile object has insufficient data, skipping item: 'Об’єкт профілю має недостатньо
+      даних, пропуск елемента'
+    All subscriptions and profiles have been successfully imported: 'Усі підписки
+      та профілі успішно імпортовано'
+    All subscriptions have been successfully imported: 'Усі підписки успішно імпортовано'
+    One or more subscriptions were unable to be imported: 'Не вдалося імпортувати
+      одну або кілька підписок'
+    Invalid subscriptions file: 'Недійсний файл підписок'
+    This might take a while, please wait: 'Це може тривати деякий час, зачекайте'
+    Invalid history file: 'Недійсний файл історії'
+    Subscriptions have been successfully exported: 'Підписки успішно експортовано'
     History object has insufficient data, skipping item: ''
     All watched history has been successfully imported: ''
     All watched history has been successfully exported: ''
