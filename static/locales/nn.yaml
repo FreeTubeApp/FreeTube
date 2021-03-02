@@ -3,7 +3,8 @@ Locale Name: 'Norsk nynorsk'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Denne delen av applikasjonen er ikkje klar enda. Kom tilbake på eit seinare tidspunkt.
+  Denne delen av applikasjonen er ikkje klar enda. Ver venleg og kom tilbake på eit
+  seinare tidspunkt.
 
 # Webkit Menu Bar
 File: 'Fil'
@@ -21,22 +22,22 @@ Force Reload: 'Tving oppdatering'
 Toggle Developer Tools: 'Veksle utviklarverktøy'
 Actual size: 'Originalstorleik'
 Zoom in: 'Forstørr'
-Zoom out: 'Minsk'
+Zoom out: 'Forminsk'
 Toggle fullscreen: 'Veksle fullskjerm'
 Window: 'Vindauge'
-Minimize: 'Minimere'
+Minimize: 'Minimer'
 Close: 'Lukk'
 Back: 'Tilbake'
 Forward: 'Framover'
 
 Version $ is now available!  Click for more details: 'Versjon $ er no tilgjengeleg!
-  Trykk for meir informasjon'
+  Klikk for meir informasjon'
 Download From Site: 'Last ned frå nettstaden'
 A new blog is now available, $. Click to view more: 'Eit nytt blogginnlegg er tilgjengeleg,
-  $. Trykk for å opne det'
+  $. Klikk for å opne det'
 
 # Search Bar
-Search / Go to URL: 'Søk / Gå til URL'
+Search / Go to URL: 'Søk / Gå til nettadresse'
   # In Filter Button
 Search Filters:
   Search Filters: 'Søkfilter'
@@ -49,7 +50,7 @@ Search Filters:
   Time:
     Time: 'Tid'
     Any Time: 'Når som helst'
-    Last Hour: 'Siste time'
+    Last Hour: 'Den siste timen'
     Today: 'I dag'
     This Week: 'Denne veka'
     This Month: 'Denne månaden'
@@ -67,7 +68,7 @@ Search Filters:
     Long (> 20 minutes): 'Lang (> 20 minutt)'
   # On Search Page
   Search Results: 'Søkeresultat'
-  Fetching results. Please wait: 'Henter resultat. Vennleg vent'
+  Fetching results. Please wait: 'Henter resultat. Ver venleg og vent'
   Fetch more results: 'Hent fleire resultat'
   There are no more results for this search: 'Det er inga fleire resultat for dette
     søket'
@@ -80,7 +81,7 @@ Subscriptions:
     profilen har ei stor mengde abonnentar. Tvinger RSS til å unngå å avgrense hastigheita'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Abonnementlista
     di er tom. Start å legge til fleire abonnement for å sjå dei her.'
-  'Getting Subscriptions. Please wait.': 'Henter abonnement. Vennleg vent.'
+  'Getting Subscriptions. Please wait.': 'Henter abonnement. Ver venleg og vent.'
   Refresh Subscriptions: 'Oppdater abonnement'
   Load More Videos: 'Last inn fleire videoar'
 Trending: 'På veg opp'
@@ -90,8 +91,8 @@ User Playlists:
   Your Playlists: 'Dine spelelister'
   Playlist Message: ''
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Du
-    har ingen lagra videoar for augeblikket. Trykk på lagringsknappen i hjørnet av
-    ein video for å liste den her'
+    har ingen lagra videoar for augeblikket. Klikk på lagringsknappen i hjørnet av
+    ein video slik at den bli oppført her'
 History:
   # On History Page
   History: 'Historikk'
@@ -103,20 +104,21 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: 'Applikasjonen
     må restarte for at endringane skal tre i kraft. Start på nytt og ta i bruk endringane?'
   General Settings:
-    General Settings: ''
+    General Settings: 'Generelle innstillingar'
     Check for Updates: 'Sjå etter oppdateringar'
     Check for Latest Blog Posts: 'Sjå etter siste blogginnlegg'
-    Fallback to Non-Preferred Backend on Failure: ''
-    Enable Search Suggestions: 'Slå på søkeanbefalingar'
-    Default Landing Page: ''
-    Locale Preference: ''
+    Fallback to Non-Preferred Backend on Failure: 'Tilbakefall til ikkje-føretrekte
+      backend ved feil'
+    Enable Search Suggestions: 'Skru på søkeforslag'
+    Default Landing Page: 'Forvalt landingsside'
+    Locale Preference: 'Språkinnstilling'
     Preferred API Backend:
-      Preferred API Backend: ''
-      Local API: 'Lokal-API'
+      Preferred API Backend: 'Føretrekte API-backend'
+      Local API: 'Lokalt API'
       Invidious API: 'Invidious-API'
     Video View Type:
       Video View Type: 'Videovisingstype'
-      Grid: ''
+      Grid: 'Rutenett'
       List: 'Liste'
     Thumbnail Preference:
       Thumbnail Preference: 'Miniatyrbiletepreferanse'
@@ -126,8 +128,8 @@ Settings:
       End: 'Slutt'
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious-førekomst
       (Standard er https://invidious.snopyta.org)'
-    View all Invidious instance information: ''
-    Region for Trending: ''
+    View all Invidious instance information: 'Vis all Invidious-førekomstinformasjon'
+    Region for Trending: 'Region for På veg opp'
         #! List countries
   Theme Settings:
     Theme Settings: 'Temainnstillingar'
@@ -265,7 +267,7 @@ Settings:
     Your Info: 'Din informasjon'
     Ip: 'IP-adresse'
     Country: 'Land'
-    Region: 'Region / Fylke'
+    Region: 'Region'
     City: 'By'
     Error getting network information. Is your proxy configured properly?: ''
 About:
@@ -288,7 +290,7 @@ About:
   Email: 'E-post'
   Mastodon: 'Mastodon'
   Chat on Matrix: ''
-  Please read the: 'Vennleg les'
+  Please read the: 'Ver venleg og les'
   room rules: 'Romreglar'
   Translate: 'Omsetje'
   Credits: ''
@@ -389,7 +391,7 @@ Video:
   View: ''
   Views: 'Visingar'
   Loop Playlist: ''
-  Shuffle Playlist: ''
+  Shuffle Playlist: 'Spel av tilfeldig frå spelelista'
   Reverse Playlist: ''
   Play Next Video: 'Spel av neste video'
   Play Previous Video: 'Spel av førre video'
@@ -502,7 +504,7 @@ Share:
 Mini Player: 'Minispelar'
 Comments:
   Comments: 'Kommentarar'
-  Click to View Comments: 'Trykk for å sjå kommentarar'
+  Click to View Comments: 'Klikk for å sjå kommentarar'
   Getting comment replies, please wait: ''
   There are no more comments for this video: ''
   Show Comments: 'Vis kommentarar'
@@ -537,23 +539,27 @@ Tooltips:
     Fetch Feeds from RSS: ''
 
 # Toast Messages
-Local API Error (Click to copy): ''
-Invidious API Error (Click to copy): ''
+Local API Error (Click to copy): 'Lokal API-feil (Klikk for å kopiere)'
+Invidious API Error (Click to copy): 'Invidious-API-feil (Klikk for å kopiere)'
 Falling back to Invidious API: 'Faller tilbake til Invidious-API'
 Falling back to the local API: 'Faller tilbake til det lokale API-et'
-This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
-Subscriptions have not yet been implemented: ''
-Loop is now disabled: ''
-Loop is now enabled: ''
-Shuffle is now disabled: ''
-Shuffle is now enabled: ''
-The playlist has been reversed: ''
-Playing Next Video: 'Speler neste video'
-Playing Previous Video: 'Speler førre video'
-Playing next video in 5 seconds.  Click to cancel: 'Speler neste video om 5 sekund.
-  Trykk for å avbryte.'
-Canceled next video autoplay: ''
-'The playlist has ended.  Enable loop to continue playing': ''
+This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Denne
+  videoen er utilgjengeleg grunna manglande format. Dette kan skuldast tilgangsavgrensingar
+  i ditt land.'
+Subscriptions have not yet been implemented: 'Abonnement har ikkje blitt implementert
+  enda'
+Loop is now disabled: 'Gjenta er no deaktivert'
+Loop is now enabled: 'Gjenta er no aktivert'
+Shuffle is now disabled: 'Tilfeldig avspeling er no deaktivert'
+Shuffle is now enabled: 'Tilfeldig avspeling er no aktivert'
+The playlist has been reversed: 'Spelelista har blitt snudd'
+Playing Next Video: 'Speler av neste video'
+Playing Previous Video: 'Speler av førre video'
+Playing next video in 5 seconds.  Click to cancel: 'Speler av neste video om 5 sekund.
+  Klikk for å avbryte.'
+Canceled next video autoplay: 'Avbryt automatisk avspeling av neste video'
+'The playlist has ended.  Enable loop to continue playing': 'Spelelista har nådd si
+  ende. Klikk på gjenta for å fortsette spelinga'
 
 Yes: 'Ja'
 No: 'Nei'
