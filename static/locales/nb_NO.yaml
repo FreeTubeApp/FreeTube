@@ -43,7 +43,7 @@ Search Filters:
   Time:
     Time: 'Tid'
     Any Time: 'Når som helst'
-    Last Hour: 'Siste time'
+    Last Hour: 'Den siste timen'
     Today: 'I dag'
     This Week: 'Denne uken'
     This Month: 'Denne måneden'
@@ -76,7 +76,7 @@ Subscriptions:
   Refresh Subscriptions: Oppdater abonnementer
   Getting Subscriptions. Please wait.: Henter abonnementer. Vent.
   Load More Videos: Last flere videoer
-Trending: 'Populært'
+Trending: 'På vei opp'
 Most Popular: 'Mest populært'
 Playlists: 'Spillelister'
 User Playlists:
@@ -95,7 +95,7 @@ Settings:
       bakende ved feil'
     Enable Search Suggestions: 'Skru på søkeforslag'
     Default Landing Page: 'Forvalgt landingsside'
-    Locale Preference: 'Lokale-innstilling'
+    Locale Preference: 'Språkinnstilling'
     Preferred API Backend:
       Preferred API Backend: 'Foretrukket API-bakende'
       Local API: 'Lokalt API'
@@ -112,8 +112,9 @@ Settings:
       End: 'Slutten'
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Individious-instans
       (forvalget er https://invidious.snopyta.org)'
-    Region for Trending: 'Region for populære'
+    Region for Trending: 'Region for På vei opp'
         #! List countries
+    Check for Updates: Se etter oppdateringer
   Theme Settings:
     Theme Settings: 'Tema innstillinger'
     Match Top Bar with Main Color: ''
@@ -222,6 +223,10 @@ Settings:
     Unknown data key: Ukjent datanøkkel
     Unable to write file: Kunne ikke skrive fil
     Invalid history file: Ugyldig historikkfil
+  Proxy Settings:
+    Region: Region
+  Distraction Free Settings:
+    Hide Trending Videos: Gjem På vei opp
 About:
   #On About page
   About: 'Om'
@@ -434,16 +439,17 @@ Falling back to Invidious API: 'Faller tilbake til Invidious-API-et'
 Falling back to the local API: 'Faller tilbake til det lokale API-et'
 Subscriptions have not yet been implemented: 'Abonnement har ikke blitt implementert
   enda'
-Loop is now disabled: ''
-Loop is now enabled: ''
-Shuffle is now disabled: ''
-Shuffle is now enabled: ''
+Loop is now disabled: 'Gjenta er nå deaktivert'
+Loop is now enabled: 'Gjenta er nå aktivert'
+Shuffle is now disabled: 'Tilfeldig avspilling er nå deaktivert'
+Shuffle is now enabled: 'Tilfeldig avspilling er nå aktivert'
 Playing Next Video: 'Spiller av neste video'
 Playing Previous Video: 'Spiller av forrige video'
 Playing next video in 5 seconds.  Click to cancel: 'Spiller av neste video om 5 sekunder.
   Klikk for å avbryte.'
-Canceled next video autoplay: ''
-'The playlist has ended.  Enable loop to continue playing': ''
+Canceled next video autoplay: 'Avbryter automatisk avspilling av neste video'
+'The playlist has ended.  Enable loop to continue playing': 'Spillelisten har nådd
+  sin ende. Klikk på gjenta for å fortsette spillingen'
 
 Yes: 'Ja'
 No: 'Nei'
@@ -493,3 +499,4 @@ Tooltips:
       dersom det er aktivert
 A new blog is now available, $. Click to view more: En ny bloggpost er nå tilgjengelig,
   $. Klikk for å se den
+The playlist has been reversed: Spillelisten har blitt snudd
