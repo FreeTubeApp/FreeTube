@@ -58,6 +58,7 @@ export default Vue.extend({
       descriptionText = descriptionText.replace(/href="http(s)?:\/\/youtube\.com/g, 'href="freetube://https://youtube.com')
       descriptionText = descriptionText.replace(/href="\/watch/g, 'href="freetube://https://youtube.com')
       descriptionText = descriptionText.replace(/href="\/results\?search_query=/g, 'href="freetube://')
+      descriptionText = descriptionText.replace(/href="\/hashtag\//g, 'href="freetube://')
       descriptionText = descriptionText.replace(/yt\.www\.watch\.player\.seekTo/g, 'changeDuration')
 
       return descriptionText
