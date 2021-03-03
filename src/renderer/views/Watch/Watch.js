@@ -3,7 +3,6 @@ import { mapActions } from 'vuex'
 import xml2vtt from 'yt-xml2vtt'
 import $ from 'jquery'
 import fs from 'fs'
-import electron from 'electron'
 import ytDashGen from 'yt-dash-manifest-generator'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
@@ -15,6 +14,8 @@ import WatchVideoComments from '../../components/watch-video-comments/watch-vide
 import WatchVideoLiveChat from '../../components/watch-video-live-chat/watch-video-live-chat.vue'
 import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-video-playlist.vue'
 import WatchVideoRecommendations from '../../components/watch-video-recommendations/watch-video-recommendations.vue'
+
+const remote = require('@electron/remote')
 
 export default Vue.extend({
   name: 'Watch',
@@ -911,7 +912,7 @@ export default Vue.extend({
 
     createLocalDashManifest: function (formats) {
       const xmlData = ytDashGen.generate_dash_file_from_formats(formats, this.videoLengthSeconds)
-      const userData = electron.remote.app.getPath('userData')
+      const userData = remote.app.getPath('userData')
       let fileLocation
       let uriSchema
       if (this.isDev) {
@@ -982,7 +983,7 @@ export default Vue.extend({
       })
       // TODO: MAKE A VARIABLE WHICH CAN CHOOSE BETWEEN STROYBOARD ARRAY ELEMENTS
       this.buildVTTFileLocally(storyboardArray[1]).then((results) => {
-        const userData = electron.remote.app.getPath('userData')
+        const userData = remote.app.getPath('userData')
         let fileLocation
         let uriSchema
 

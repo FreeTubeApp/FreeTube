@@ -13,7 +13,7 @@ const isDevMode = process.env.NODE_ENV === 'development'
 const config = {
   name: 'workers',
   mode: process.env.NODE_ENV,
-  devtool: isDevMode ? '#cheap-module-eval-source-map' : false,
+  devtool: isDevMode ? 'eval-cheap-module-source-map' : false,
   entry: {
     workerSample: path.join(__dirname, '../src/utilities/workerSample.ts'),
   },
@@ -32,13 +32,14 @@ const config = {
       },
       {
         test: /\.node$/,
-        use: 'node-loader',
+        loader: 'node-loader',
       },
     ],
   },
   node: {
     __dirname: isDevMode,
     __filename: isDevMode,
+    global: isDevMode,
   },
   plugins: [
     // new WriteFilePlugin(),

@@ -15,7 +15,8 @@ if (window && window.process && window.process.type === 'renderer') {
 
   electron = require('electron')
   webframe = electron.webFrame
-  dbLocation = electron.remote.app.getPath('userData')
+  const remote = require('@electron/remote')
+  dbLocation = remote.app.getPath('userData')
 
   dbLocation = dbLocation + '/settings.db'
 } else {
