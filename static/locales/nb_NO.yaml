@@ -101,7 +101,7 @@ Settings:
     General Settings: 'Generelle innstillinger'
     Fallback to Non-Preferred Backend on Failure: 'Tilbakefall til ikke-foretrukken
       bakende ved feil'
-    Enable Search Suggestions: 'Skru på søkeforslag'
+    Enable Search Suggestions: 'Slå på søkeforslag'
     Default Landing Page: 'Forvalgt landingsside'
     Locale Preference: 'Språkinnstilling'
     Preferred API Backend:
@@ -159,12 +159,12 @@ Settings:
   Player Settings:
     Player Settings: 'Spillerinnstillinger'
     Force Local Backend for Legacy Formats: 'Påtving lokal bakende for forelede formater'
-    Play Next Video: 'Spill neste video'
-    Turn on Subtitles by Default: 'Skru på undertekster som forvalg'
+    Play Next Video: 'Spill av neste video'
+    Turn on Subtitles by Default: 'Slå på undertekster som standard'
     Autoplay Videos: 'Auto-spill videoer'
     Proxy Videos Through Invidious: 'Mellomtjen videoer gjennom Invidious'
     Autoplay Playlists: 'Autospillings-spillelister'
-    Enable Theatre Mode by Default: 'Kinomodus som forvalg'
+    Enable Theatre Mode by Default: 'Kinomodus som standardvalg'
     Default Volume: 'Standardvolum'
     Default Playback Rate: 'Forvalgt avspillingshastighet'
     Default Video Format:
@@ -299,6 +299,7 @@ Settings:
     Hide Channel Subscribers: Skjul kanalabonnementer
     Hide Popular Videos: Skjul populære videoer
     Hide Video Views: Skjul videovisninger
+    Hide Live Chat: Gjem direktechat
   The app needs to restart for changes to take effect. Restart and apply change?: Start
     programmet på ny for å bruke de nye endringene?
 About:
@@ -348,6 +349,7 @@ About:
   FreeTube Wiki: FreeTube-wiki
   GitHub releases: GitHub-utgivelser
   Beta: Beta
+  Chat on Matrix: Snakk med oss på Matrix
 Channel:
   Subscriber: 'Abonnent'
   Subscribers: 'Abonnenter'
@@ -383,7 +385,8 @@ Video:
   Mark As Watched: 'Marker som sett'
   Remove From History: 'Fjern fra historikk'
   Video has been marked as watched: 'Videoen har blitt markert som sett'
-  Video has been removed from your history: ''
+  Video has been removed from your history: 'Videoen har blitt fjernet fra historikken
+    din'
   Open in YouTube: 'Åpne i YouTube'
   Copy YouTube Link: 'Kopier YouTube-lenke'
   Open YouTube Embedded Player: 'Åpne innebygd YouTube-spiller'
@@ -393,16 +396,19 @@ Video:
   View: 'Vis'
   Views: 'Visninger'
   # Context is "X People Watching"
-  Watching: ''
+  Watching: 'Ser på'
   Watched: 'Sett'
   # As in a Live Video
   Live: 'Direktesendt'
   Live Now: 'Direktesendt nå'
-  Live Chat: 'Sanntidssludring'
-  Enable Live Chat: 'Skru på sanntidssludring'
-  Live Chat is currently not supported in this build.: ''
-  'Chat is disabled or the Live Stream has ended.': ''
-  Live chat is enabled.  Chat messages will appear here once sent.: ''
+  Live Chat: 'Direktechat'
+  Enable Live Chat: 'Slå på direktechat'
+  Live Chat is currently not supported in this build.: 'Direktechat er ikke støttet
+    i den nåværende versjonen.'
+  'Chat is disabled or the Live Stream has ended.': 'Chatten er slått av eller direktesendingen
+    er avsluttet.'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'Direktechat er
+    slått på. Chatmeldinger vil bli vist her når de er sendt.'
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Sanntidssludring
     støttes for tiden ikke med Invidious-API-et. En direkte tilkobling til YouTube
     kreves.'
@@ -453,6 +459,18 @@ Video:
   Reverse Playlist: Snu spillelisten
   Started streaming on: Startet strømming
   Streamed on: Strømmet
+  Starting soon, please refresh the page to check again: Starter snart, vennligst
+    oppdater siden for å sjekke igjen
+  Autoplay: Automatisk avspilling
+  Shuffle Playlist: Spill av tilfeldig fra spillelisten
+  Loop Playlist: Gjenta spilleliste
+  Open Channel in Invidious: Opne kanal i Invidious
+  Copy YouTube Channel Link: Kopier YouTube-kanallenke
+  Video has been removed from your saved list: Videoen har blitt fjernet fra din liste
+    over lagrede videoer
+  Open Channel in YouTube: Åpne kanal i YouTube
+  Play Previous Video: Spill av forrige video
+  Play Next Video: Spill av neste video
 Videos:
   #& Sort By
   Sort By:
