@@ -76,6 +76,8 @@ Subscriptions:
   Refresh Subscriptions: Oppdater abonnementer
   Getting Subscriptions. Please wait.: Henter abonnementer. Vent.
   Load More Videos: Last flere videoer
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Denne
+    profilen har mange abonnementer. Påtvinger RSS for å unngå adgangsbegrensning.
 Trending: 'På vei opp'
 Most Popular: 'Mest populært'
 Playlists: 'Spillelister'
@@ -115,9 +117,11 @@ Settings:
     Region for Trending: 'Region for På vei opp'
         #! List countries
     Check for Updates: Se etter oppdateringer
+    View all Invidious instance information: Vis info om alle Invidious-instanser
+    Check for Latest Blog Posts: Se etter nye bloggposter
   Theme Settings:
     Theme Settings: 'Tema innstillinger'
-    Match Top Bar with Main Color: ''
+    Match Top Bar with Main Color: 'Bruk hovedfarge i toppbjelke'
     Base Theme:
       Base Theme: 'Hovedtema'
       Black: 'Svart'
@@ -141,27 +145,30 @@ Settings:
       Amber: ''
       Orange: ''
       Deep Orange: ''
-    Secondary Color Theme: ''
+    Secondary Color Theme: 'Sekundær fargedrakt'
         #* Main Color Theme
+    UI Scale: Grensesnittskala
+    Disable Smooth Scrolling: Skru av myk rulling
+    Expand Side Bar by Default: Utvid sidestolpe som forvalg
   Player Settings:
     Player Settings: 'Spillerinnstillinger'
     Force Local Backend for Legacy Formats: ''
     Play Next Video: 'Spill neste video'
-    Turn on Subtitles by Default: ''
-    Autoplay Videos: ''
-    Proxy Videos Through Invidious: ''
-    Autoplay Playlists: ''
-    Enable Theatre Mode by Default: ''
+    Turn on Subtitles by Default: 'Skru på undertekster som forvalg'
+    Autoplay Videos: 'Auto-spill videoer'
+    Proxy Videos Through Invidious: 'Mellomtjen videoer gjennom Invidious'
+    Autoplay Playlists: 'Autospillings-spillelister'
+    Enable Theatre Mode by Default: 'Kinomodus som forvalg'
     Default Volume: 'Standardvolum'
-    Default Playback Rate: ''
+    Default Playback Rate: 'Forvalgt avspillingshastighet'
     Default Video Format:
-      Default Video Format: ''
-      Dash Formats: ''
-      Legacy Formats: ''
+      Default Video Format: 'Forvalgt videoformat'
+      Dash Formats: 'DASH-formater'
+      Legacy Formats: 'Gamle formater'
       Audio Formats: 'Lydformater'
     Default Quality:
       Default Quality: 'Forvalgt kvalitet'
-      Auto: ''
+      Auto: 'Auto'
       144p: '144p'
       240p: '240p'
       360p: '360p'
@@ -169,21 +176,22 @@ Settings:
       720p: '720p'
       1080p: '1080p'
       1440p: '1440p'
-      4k: ''
-      8k: ''
+      4k: 'UHD'
+      8k: '8k UHD'
   Privacy Settings:
     Privacy Settings: 'Personvernsinnstillinger'
     Remember History: 'Husk historikk'
     Save Watched Progress: 'Lagre framdriftsposisjon'
-    Clear Search Cache: ''
-    Are you sure you want to clear out your search cache?: ''
-    Search cache has been cleared: ''
-    Remove Watch History: ''
-    Are you sure you want to remove your entire watch history?: ''
-    Watch history has been cleared: ''
+    Clear Search Cache: 'Tøm søkehurtiglager'
+    Are you sure you want to clear out your search cache?: 'Tøm søkehurtiglager?'
+    Search cache has been cleared: 'Søkehurtiglager tømt'
+    Remove Watch History: 'Fjern visningshistorikk'
+    Are you sure you want to remove your entire watch history?: 'Fjern hele visningshistorikken?'
+    Watch history has been cleared: 'VIsningshistorikk fjernet'
+    Remove All Subscriptions / Profiles: Fjern alle abonnementer/profiler
   Subscription Settings:
-    Subscription Settings: ''
-    Hide Videos on Watch: ''
+    Subscription Settings: 'Abonnementsinnstillinger'
+    Hide Videos on Watch: 'Skjul sette videoer'
     Subscriptions Export Format:
       Subscriptions Export Format: ''
       #& Freetube
@@ -449,7 +457,7 @@ Playing next video in 5 seconds.  Click to cancel: 'Spiller av neste video om 5 
   Klikk for å avbryte.'
 Canceled next video autoplay: 'Avbryter automatisk avspilling av neste video'
 'The playlist has ended.  Enable loop to continue playing': 'Spillelisten har nådd
-  sin ende. Klikk på gjenta for å fortsette spillingen'
+  sin ende. Klikk på «Gjenta» for å fortsette spillingen'
 
 Yes: 'Ja'
 No: 'Nei'
@@ -500,3 +508,6 @@ Tooltips:
 A new blog is now available, $. Click to view more: En ny bloggpost er nå tilgjengelig,
   $. Klikk for å se den
 The playlist has been reversed: Spillelisten har blitt snudd
+Download From Site: Last ned fra nettsiden
+Version $ is now available!  Click for more details: Versjon $ er nå tilgjengelig.
+  Klikk for flere detaljer.
