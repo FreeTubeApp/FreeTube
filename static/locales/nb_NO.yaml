@@ -152,7 +152,7 @@ Settings:
     Proxy Videos Through Invidious: ''
     Autoplay Playlists: ''
     Enable Theatre Mode by Default: ''
-    Default Volume: 'Forvalgt lydstyrke'
+    Default Volume: 'Standardvolum'
     Default Playback Rate: ''
     Default Video Format:
       Default Video Format: ''
@@ -355,9 +355,9 @@ Video:
   Publicationtemplate: '$ % siden'
 #& Videos
   Audio:
-    High: Høyt
+    High: Høy
     Medium: Middels
-    Low: Lavt
+    Low: Lav
   audio only: Bare lyd
   video only: Bare video
   Download Video: Last ned video
@@ -426,8 +426,8 @@ Comments:
   Load More Comments: 'Last inn flere kommentarer'
   No more comments available: Ingen flere kommentarer tilgjengelig
   Newest first: Nyeste først
-  There are no more comments for this video: Det finnes ingen kommentarer for denne
-    videoen
+  There are no more comments for this video: Det finnes ingen flere kommentarer for
+    denne videoen
   Sort by: Sorter etter
   Top comments: Toppkommentarer
 Up Next: 'Neste'
