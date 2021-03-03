@@ -83,6 +83,12 @@ Most Popular: 'Mest populært'
 Playlists: 'Spillelister'
 User Playlists:
   Your Playlists: 'Dine spillelister'
+  Playlist Message: Denne siden reflekterer ikke fullstendig fungerende spillelister.
+    Den lister kun opp videoer du har lagret eller favorittmerket. Når arbeidet er
+    fullført, vil alle videoer som vises her bli flyttet til en «Favoritt»-spilleliste.
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Dine
+    lagrede videoer er tomme. klikk på "Lagre"-knappen i hjørnet av en video for å
+    liste den opp her.
 History:
   # On History Page
   History: 'Historikk'
@@ -136,15 +142,15 @@ Settings:
       Indigo: 'Indigo'
       Blue: 'Blå'
       Light Blue: 'Lyseblå'
-      Cyan: ''
-      Teal: ''
+      Cyan: 'Cyanblå'
+      Teal: 'Turkis'
       Green: 'Grønn'
       Light Green: 'Lysegrønn'
-      Lime: ''
+      Lime: 'Limegrønn'
       Yellow: 'Gul'
-      Amber: ''
-      Orange: ''
-      Deep Orange: ''
+      Amber: 'Rav'
+      Orange: 'Oransje'
+      Deep Orange: 'Dyp oransje'
     Secondary Color Theme: 'Sekundær fargedrakt'
         #* Main Color Theme
     UI Scale: Grensesnittskala
@@ -152,7 +158,7 @@ Settings:
     Expand Side Bar by Default: Utvid sidestolpe som forvalg
   Player Settings:
     Player Settings: 'Spillerinnstillinger'
-    Force Local Backend for Legacy Formats: ''
+    Force Local Backend for Legacy Formats: 'Påtving lokal bakende for forelede formater'
     Play Next Video: 'Spill neste video'
     Turn on Subtitles by Default: 'Skru på undertekster som forvalg'
     Autoplay Videos: 'Auto-spill videoer'
@@ -189,6 +195,9 @@ Settings:
     Are you sure you want to remove your entire watch history?: 'Fjern hele visningshistorikken?'
     Watch history has been cleared: 'VIsningshistorikk fjernet'
     Remove All Subscriptions / Profiles: Fjern alle abonnementer/profiler
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Er
+      du sikker på at du vil fjerne alle abonnementer og profiler? Dette kan ikke
+      angres.
   Subscription Settings:
     Subscription Settings: 'Abonnementsinnstillinger'
     Hide Videos on Watch: 'Skjul sette videoer'
@@ -201,6 +210,7 @@ Settings:
     Import Subscriptions: 'Importer abonnementer'
     Export Subscriptions: 'Eksporter abonnementer'
     How do I import my subscriptions?: 'Hvordan importerer jeg mine abonnementer?'
+    Fetch Feeds from RSS: Hent informasjonskanaler fra RSS
   Advanced Settings:
     Advanced Settings: 'Avanserte innstillinger'
     Enable Debug Mode (Prints data to the console): ''
@@ -231,10 +241,66 @@ Settings:
     Unknown data key: Ukjent datanøkkel
     Unable to write file: Kunne ikke skrive fil
     Invalid history file: Ugyldig historikkfil
+    All watched history has been successfully exported: All visningshistorikk har
+      blitt eksportert
+    All watched history has been successfully imported: All visningshistorikk importert
+    History object has insufficient data, skipping item: Hopper over historikkobjekt
+      med utilstrekkelig data
+    One or more subscriptions were unable to be imported: Ett eller flere abonnement
+      kunne ikke importeres
+    All subscriptions have been successfully imported: Alle abonnementer har blitt
+      importert
+    All subscriptions and profiles have been successfully imported: Importerte alle
+      abonnementer og profiler
+    Manage Subscriptions: Håndter abonnementer
+    Unable to read file: Kunne ikke lese fil
+    Invalid subscriptions file: Ugyldig abonnementsfil
+    Profile object has insufficient data, skipping item: Profilobjekt har utilstrekkelig
+      data. Hopper over element.
+    Check for Legacy Subscriptions: Se etter foreldede abonnementer
+    Subscriptions have been successfully exported: Abonnementer eksportert
+    This might take a while, please wait: Dette kan ta sin tid…
+    Export History: Historikk-eksport
+    Import History: Historikk-import
+    Export NewPipe: NewPipe-eksport
+    Export YouTube: YouTube-eksport
+    Export FreeTube: FreeTube-eksport
+    Export Subscriptions: Eksporter abonnementer
+    Import NewPipe: Importer NewPipe
+    Import YouTube: Importer YouTube
+    Import FreeTube: Importer FreeTube
+    Import Subscriptions: Importer abonnementer
+    Select Export Type: Velg eksporttype
+    Select Import Type: Velg importtype
+    Data Settings: Datainnstillinger
   Proxy Settings:
     Region: Region
+    Clicking on Test Proxy will send a request to: Klikk på «Test mellomtjener» for
+      å sende en forespørsel til
+    Error getting network information. Is your proxy configured properly?: Klarte
+      ikke å hente nettverksinfo. Er din mellomtjener satt opp riktig?
+    Test Proxy: Test mellomtjener
+    City: By
+    Country: Land
+    Ip: IP
+    Your Info: Din info
+    Proxy Port Number: Mellomtjener-portnummer
+    Proxy Host: Mellomtjenervert
+    Proxy Protocol: Mellomtjenerprotokoll
+    Enable Tor / Proxy: Skru på Tor/mellomtjener
+    Proxy Settings: Mellomtjenerinnstillinger
   Distraction Free Settings:
     Hide Trending Videos: Gjem På vei opp
+    Hide Video Likes And Dislikes: Skjul video-gunst
+    Distraction Free Settings: Distraksjonsfri-innstillinger
+    Hide Active Subscriptions: Skjul aktive abonnementer
+    Hide Recommended Videos: Skjul anbefalte videoer
+    Hide Comment Likes: Skjul kommentargunst
+    Hide Channel Subscribers: Skjul kanalabonnementer
+    Hide Popular Videos: Skjul populære videoer
+    Hide Video Views: Skjul videovisninger
+  The app needs to restart for changes to take effect. Restart and apply change?: Start
+    programmet på ny for å bruke de nye endringene?
 About:
   #On About page
   About: 'Om'
@@ -273,6 +339,15 @@ About:
   Email: E-post
   Blog: Blogg
   Translate: Oversett
+  Please check for duplicates before posting: Se etter duplikater før innsendelse
+  these people and projects: disse folkene og prosjektene
+  FreeTube is made possible by: FreeTube er gjort mulig av
+  Credits: Bidragsytere
+  room rules: romregler
+  GitHub issues: GitHub-problemsporer
+  FreeTube Wiki: FreeTube-wiki
+  GitHub releases: GitHub-utgivelser
+  Beta: Beta
 Channel:
   Subscriber: 'Abonnent'
   Subscribers: 'Abonnenter'
@@ -328,7 +403,9 @@ Video:
   Live Chat is currently not supported in this build.: ''
   'Chat is disabled or the Live Stream has ended.': ''
   Live chat is enabled.  Chat messages will appear here once sent.: ''
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Sanntidssludring
+    støttes for tiden ikke med Invidious-API-et. En direkte tilkobling til YouTube
+    kreves.'
   Published:
     Jan: 'Jan'
     Feb: 'Feb'
@@ -355,10 +432,10 @@ Video:
     Year: 'År'
     Years: 'År'
     Ago: 'Siden'
-    Upcoming: ''
+    Upcoming: 'Har premiere'
     Minutes: Minutter
     Minute: Minutt
-  Published on: ''
+  Published on: 'Publisert'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % siden'
 #& Videos
@@ -366,12 +443,16 @@ Video:
     High: Høy
     Medium: Middels
     Low: Lav
+    Best: Beste
   audio only: Bare lyd
   video only: Bare video
   Download Video: Last ned video
   Video has been saved: Videoen har blitt lagret
   Save Video: Lagre video
   Copy Invidious Channel Link: Kopier Invidious-kanallenke
+  Reverse Playlist: Snu spillelisten
+  Started streaming on: Startet strømming
+  Streamed on: Strømmet
 Videos:
   #& Sort By
   Sort By:
@@ -399,9 +480,13 @@ Playlist:
 Toggle Theatre Mode: 'Veksle teatermodus'
 Change Format:
   Change Video Formats: 'Endre videoformater'
-  Use Dash Formats: ''
-  Use Legacy Formats: ''
+  Use Dash Formats: 'Bruk DASH-formater'
+  Use Legacy Formats: 'Bruk foreldede formater'
   Use Audio Formats: 'Bruk lydformater'
+  Audio formats are not available for this video: Lydformater er ikke tilgjengelig
+    for denne videoen
+  Dash formats are not available for this video: DASH-formater er ikke tilgjengelig
+    for denne videoen
 Share:
   Share Video: 'Del video'
   Copy Link: 'Kopier lenke'
@@ -417,6 +502,8 @@ Share:
     utklippstavle'
   YouTube Channel URL copied to clipboard: YouTube-kanalnettadresse kopiert til utklippstavle
   Include Timestamp: Inkluder tidsstempel
+  Invidious Channel URL copied to clipboard: Ugyldig kanalnettadresse kopiert til
+    utklippstavle
 Mini Player: 'Minispiller'
 Comments:
   Comments: 'Kommentarer'
@@ -492,6 +579,16 @@ Profile:
   Create New Profile: Lag ny profil
   Profile Manager: Profilbehandler
   All Channels: Alle kanaler
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
+    same channels will be deleted in any profile they are found in.
+  : Dette er din hovedprofil. Er du sikker på at du ønsker å slette valgte kanaler?
+    De samme kanalene vil bli slettet i enhver profil de finnes i.
+  Select None: Fravelg alt
+  Delete Selected: Slett valgte
+  Add Selected To Profile: Legg til valgt i profil
+  Subscription List: Abonnementsliste
+  Profile Preview: Profilforhåndsvisning
+  Custom Color: Egendefinert farge
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Denne
   videoen er utilgjengelig grunnet manglende formater. Dette kan skyldes tilgangbegrensninger
   i ditt land.
@@ -505,6 +602,25 @@ Tooltips:
     Fallback to Non-Preferred Backend on Failure: Når ditt foretrukne API har et problem,
       vil FreeTube prøve å automatisk bruke ditt ikke-foretrukne API som en tilbakefallingsmetode
       dersom det er aktivert
+    Region for Trending: Trendregionen lar deg enkelt velge hvilkets lands populære
+      videoer du ønsker å vise. Ikke alle land som vises støttes for tiden av YouTube.
+    Preferred API Backend: Velg bakenden FreeTube bruker til å hente data. Det lokale
+      API-et er en innebygd utpakker. Invidious-API-et krever en Invidious-tjener
+      å koble til.
+  Subscription Settings:
+    Fetch Feeds from RSS: Når påskrudd, vil FreeTube bruke RSS istedenfor dens forvalgte
+      metode for å hente din abonnementsstrøm. RSS er raskere og forhindrer IP-blokkering,
+      men har ikke gitt info som videovarighet, eller sanntidsstatus.
+  Player Settings:
+    Default Video Format: Sett formater brukt når en video spilles. DASH-formater
+      kan spille høyere kvaliteter. Foreldede formater er begrenset til maks. 720p,
+      men bruker mindre båndbredde. Lydformater er kun lydstrømmer.
+    Force Local Backend for Legacy Formats: Fungerer kun når Invidious-API-et er satt
+      som forvalg. Når påslått vil det lokale API-et kjøre og bruke de foreldede formatene
+      som returneres derfra, istedenfor dem returnert av Invidious. Hjelper når videoer
+      returnert av Invidious ikke spilles som følge av regionsrestriksjoner.
+    Proxy Videos Through Invidious: Kobler til Invidious for å vertstjene videoer
+      istedenfor å gjøre direkte tilkoblinger til YouTube. (Overskriver API-preferanse.)
 A new blog is now available, $. Click to view more: En ny bloggpost er nå tilgjengelig,
   $. Klikk for å se den
 The playlist has been reversed: Spillelisten har blitt snudd
