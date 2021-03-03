@@ -223,20 +223,20 @@ Settings:
     Select Import Type: Select Import Type
     Select Export Type: Select Export Type
     Import Subscriptions: Import Subscriptions
-    Import FreeTube: Import FreeTube
-    Import YouTube: Import YouTube
-    Import NewPipe: Import NewPipe
+    Import FreeTube: FreeTube Import
+    Import YouTube: YouTube Import
+    Import NewPipe: NewPipe Import
     Check for Legacy Subscriptions: Check for Legacy Subscriptions
     Export Subscriptions: Export Subscriptions
     Export FreeTube: Export FreeTube
     Export YouTube: Export YouTube
-    Export NewPipe: Export NewPipe
+    Export NewPipe: NewPipe Export
     Import History: Import History
     Export History: Export History
     Profile object has insufficient data, skipping item: Profile object has insufficient
   data, skipping item
-    All subscriptions and profiles have been successfully imported: All subscriptions
-  and profiles have been successfully imported
+    All subscriptions and profiles have been successfully imported: Imported all
+  subscriptions and profiles
     All subscriptions have been successfully imported: All subscriptions have been
   imported
     One or more subscriptions were unable to be imported: One or more subscriptions
@@ -244,8 +244,7 @@ Settings:
     Invalid subscriptions file: Invalid subscriptions file
     This might take a while, please wait: This might take a while, please wait
     Invalid history file: Invalid history file
-    Subscriptions have been successfully exported: Subscriptions have been successfully
-  exported
+    Subscriptions have been successfully exported: Subscriptions exported
     History object has insufficient data, skipping item: History object has insufficient
   data, skipping item
     All watched history has been successfully imported: Imported all watching history
