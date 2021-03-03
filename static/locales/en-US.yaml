@@ -174,7 +174,7 @@ Settings:
     Default Playback Rate: Default Playback Rate
     Default Video Format:
       Default Video Format: Default Video Format
-      Dash Formats: Dash Formats
+      Dash Formats: DASH Formats
       Legacy Formats: Legacy Formats
       Audio Formats: Audio Formats
     Default Quality:
@@ -194,28 +194,25 @@ Settings:
     Remember History: Remember History
     Save Watched Progress: Save Watched Progress
     Clear Search Cache: Clear Search Cache
-    Are you sure you want to clear out your search cache?: Are you sure you want to
-  clear out your search cache?
-    Search cache has been cleared: Search cache has been cleared
+    Are you sure you want to clear out your search cache?: Clear search cache?
+    Search cache has been cleared: Search cache cleared
     Remove Watch History: Remove Watch History
-    Are you sure you want to remove your entire watch history?: Are you sure you want
-  to remove your entire watch history?
-    Watch history has been cleared: Watch history has been cleared
+    Are you sure you want to remove your entire watch history?: Remove entire watch history?
+    Watch history has been cleared: Watch history cleared
     Remove All Subscriptions / Profiles: Remove All Subscriptions / Profiles
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Are
-  you sure you want to remove all subscriptions and profiles? This cannot be
-  undone.
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Remove
+  all subscriptions and profiles forever?
   Subscription Settings:
     Subscription Settings: Subscription Settings
     Hide Videos on Watch: Hide Videos on Watch
     Fetch Feeds from RSS: Fetch Feeds from RSS
     Manage Subscriptions: Manage Subscriptions
   Distraction Free Settings:
-    Distraction Free Settings: Distraction Free Settings
+    Distraction Free Settings: Distraction-Free Settings
     Hide Video Views: Hide Video Views
-    Hide Video Likes And Dislikes: Hide Video Likes And Dislikes
+    Hide Video Likes And Dislikes: Hide Video 👍 / 👎
     Hide Channel Subscribers: Hide Channel Subscribers
-    Hide Comment Likes: Hide Comment Likes
+    Hide Comment Likes: Hide Comment 👍 / 👎
     Hide Recommended Videos: Hide Recommended Videos
     Hide Trending Videos: Hide Trending Videos
     Hide Popular Videos: Hide Popular Videos
@@ -243,7 +240,7 @@ Settings:
     All subscriptions have been successfully imported: All subscriptions have been
   imported
     One or more subscriptions were unable to be imported: One or more subscriptions
-  were unable to be imported
+  could not be imported
     Invalid subscriptions file: Invalid subscriptions file
     This might take a while, please wait: This might take a while, please wait
     Invalid history file: Invalid history file
@@ -251,10 +248,8 @@ Settings:
   exported
     History object has insufficient data, skipping item: History object has insufficient
   data, skipping item
-    All watched history has been successfully imported: All watched history has been
-  imported
-    All watched history has been successfully exported: All watched history has been
-  exported
+    All watched history has been successfully imported: Imported all watching history
+    All watched history has been successfully exported: Exported all watching history
     Unable to read file: Unable to read file
     Unable to write file: Unable to write file
     Unknown data key: Unknown data key
@@ -266,14 +261,14 @@ Settings:
     Proxy Protocol: Proxy Protocol
     Proxy Host: Proxy Host
     Proxy Port Number: Proxy Port Number
-    Clicking on Test Proxy will send a request to: Clicking on Test Proxy will send a request to
+    Clicking on Test Proxy will send a request to: Clicking on \"Test Proxy\" sends a request to
     Test Proxy: Test Proxy
     Your Info: Your Info
     Ip: IP
     Country: Country
     Region: Region
     City: City
-    Error getting network information. Is your proxy configured properly?: Error getting network info. Is your proxy configured properly?
+    Error getting network information. Is your proxy configured properly?: Could not fetch network info. Is your proxy configured properly?
 About:
   #On About page
   About: About
@@ -315,17 +310,16 @@ Profile:
   Update Profile: Update Profile
   Make Default Profile: Make Default Profile
   Delete Profile: Delete Profile
-  Are you sure you want to delete this profile?: Are you sure you want to delete this
-  profile?
+  Are you sure you want to delete this profile?: Really delete this profile?
   All subscriptions will also be deleted.: All subscriptions will also be deleted.
   Profile could not be found: Profile could not be found
   Your profile name cannot be empty: Your profile name cannot be empty
-  Profile has been created: Profile has been created
-  Profile has been updated: Profile has been updated
-  Your default profile has been set to $: Your default profile has been set to $
+  Profile has been created: Profile created
+  Profile has been updated: Profile updated
+  Your default profile has been set to $: Your default profile was set to $
   Removed $ from your profiles: Removed $ from your profiles
   Your default profile has been changed to your primary profile: Your default profile
-  has been changed to your primary profile
+  was changed to your primary profile
   $ is now the active profile: $ is now the active profile
   Subscription List: Subscription List
   Other Channels: Other Channels
@@ -335,12 +329,12 @@ Profile:
   Delete Selected: Delete Selected
   Add Selected To Profile: Add Selected To Profile
   No channel(s) have been selected: No channel(s) have been selected
-  ? This is your primary profile. Are you sure you want to delete the selected channels? The
+  ? This is your primary profile. Really delete selected channels? The
   same channels will be deleted in any profile they are found in.
-  : This is your primary profile. Are you sure you want to delete the selected channels? The
+  : This is your primary profile. Really delete selected channels? The
   same channels will be deleted in any profile they are found in.
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Are
-  you sure you want to delete the selected channels? This will not delete the channel
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Really
+  delete selected channels? This will not delete the channel
   from any other profile.
 #On Channel Page
 Channel:
@@ -348,7 +342,7 @@ Channel:
   Subscribers: Subscribers
   Subscribe: Subscribe
   Unsubscribe: Unsubscribe
-  Channel has been removed from your subscriptions: Channel has been removed from
+  Channel has been removed from your subscriptions: Channel removed from
   your subscriptions
   Removed subscription from $ other channel(s): Removed subscription from $ other
   channel(s)
@@ -380,11 +374,11 @@ Channel:
 Video:
   Mark As Watched: Mark As Watched
   Remove From History: Remove From History
-  Video has been marked as watched: Video has been marked as watched
-  Video has been removed from your history: Video has been removed from your history
+  Video has been marked as watched: Video marked as watched
+  Video has been removed from your history: Videoremoved from your history
   Save Video: Save Video
-  Video has been saved: Video has been saved
-  Video has been removed from your saved list: Video has been removed from your saved list
+  Video has been saved: Video saved
+  Video has been removed from your saved list: Video removed from your saved list
   Open in YouTube: Open in YouTube
   Copy YouTube Link: Copy YouTube Link
   Open YouTube Embedded Player: Open YouTube Embedded Player
@@ -492,10 +486,10 @@ Playlist:
 Toggle Theatre Mode: Toggle Theatre Mode
 Change Format:
   Change Video Formats: Change Video Formats
-  Use Dash Formats: Use Dash Formats
+  Use Dash Formats: Use DASH Formats
   Use Legacy Formats: Use Legacy Formats
   Use Audio Formats: Use Audio Formats
-  Dash formats are not available for this video: No dash formats available for
+  Dash formats are not available for this video: No DASH formats available for
   this video
   Audio formats are not available for this video: No audio formats available
   for this video
@@ -559,7 +553,7 @@ Tooltips:
   by Invidious don\'t play due to country restrictions.
     Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead
   of making a direct connection to YouTube. (Overrides API preference.)
-    Default Video Format: Set the formats used when a video plays. Dash formats can
+    Default Video Format: Set the formats used when a video plays. DASH formats can
   play higher qualities. Legacy formats are limited to a max of 720p but use less
   bandwidth. Audio formats are audio only streams.
   Subscription Settings:
@@ -579,7 +573,7 @@ Loop is now disabled: Loop is now disabled
 Loop is now enabled: Loop is now enabled
 Shuffle is now disabled: Shuffle is now disabled
 Shuffle is now enabled: Shuffle is now enabled
-The playlist has been reversed: The playlist has been reversed
+The playlist has been reversed: The playlist was reversed
 Playing Next Video: Playing Next Video
 Playing Previous Video: Playing Previous Video
 Playing next video in 5 seconds.  Click to cancel: Playing next video in 5 seconds.
