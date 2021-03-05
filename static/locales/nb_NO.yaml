@@ -399,8 +399,8 @@ Video:
   Watching: 'Ser på'
   Watched: 'Sett'
   # As in a Live Video
-  Live: 'Direktesendt'
-  Live Now: 'Direktesendt nå'
+  Live: 'Direkte'
+  Live Now: 'Direkte nå'
   Live Chat: 'Direktechat'
   Enable Live Chat: 'Slå på direktechat'
   Live Chat is currently not supported in this build.: 'Direktechat er ikke støttet

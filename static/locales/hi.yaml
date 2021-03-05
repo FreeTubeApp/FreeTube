@@ -67,23 +67,29 @@ Search Filters:
     Long (> 20 minutes): 'बड़े (>२० मिनट)'
   # On Search Page
   Search Results: 'खोजे परिणाम'
-  Fetching results. Please wait: ''
-  Fetch more results: ''
+  Fetching results. Please wait: 'परिणाम ला रहे है। कृपया प्रतीक्षा करे'
+  Fetch more results: 'ज़्यादा परिणाम लाए'
 # Sidebar
+  There are no more results for this search: इस सर्च के लिए और परिणाम नहो है।
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: ''
-  Latest Subscriptions: ''
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: ''
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
-  'Getting Subscriptions. Please wait.': ''
-  Refresh Subscriptions: ''
-  Load More Videos: ''
-Trending: ''
-Most Popular: ''
-Playlists: ''
+  Subscriptions: 'सब्सक्रिप्शन'
+  Latest Subscriptions: 'सबसे नए सब्सक्रिप्शन'
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 'यह
+    प्रोफ़ाइल (profile)के पास बहुत सारे सब्सक्रिप्शने है।  RSS को बल से रटे लिमिटिंग
+    (rate limiting) से बचाए'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'आपकेय
+    सब्सक्रिप्शन लिस्ट अब के लिए ख़ाली है। सब्सक्रिप्शन add करने से इधर देख सक्ते
+    है।'
+  'Getting Subscriptions. Please wait.': 'सब्सक्रिप्शने (subscriptions) ढूंड रहे है।
+    कृपया रुके।'
+  Refresh Subscriptions: 'सब्सक्रिप्शने Refresh करे'
+  Load More Videos: 'ज़्यादा विडीओए लोड करे'
+Trending: 'ट्रेनडिंग'
+Most Popular: 'सबसे ज़्यादा देखा हुआ'
+Playlists: 'प्लेलिस्टे (playlists)'
 User Playlists:
-  Your Playlists: ''
+  Your Playlists: 'आपके प्लेलिस्टे'
 History:
   # On History Page
   History: ''
