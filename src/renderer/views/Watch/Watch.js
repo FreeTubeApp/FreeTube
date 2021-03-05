@@ -810,7 +810,10 @@ export default Vue.extend({
     handleVideoEnded: function () {
       if (this.watchingPlaylist) {
         this.playNextTimeout = setTimeout(() => {
-          this.$refs.watchVideoPlaylist.playNextVideo()
+          const player = this.$refs.videoPlayer.player
+          if (player !== null && player.paused()) {
+            this.$refs.watchVideoPlaylist.playNextVideo()
+          }
         }, 5000)
 
         this.showToast({
@@ -825,15 +828,18 @@ export default Vue.extend({
         })
       } else if (this.playNextVideo) {
         this.playNextTimeout = setTimeout(() => {
-          const nextVideoId = this.recommendedVideos[0].videoId
-          this.$router.push(
-            {
-              path: `/watch/${nextVideoId}`
-            }
-          )
-          this.showToast({
-            message: this.$t('Playing Next Video')
-          })
+          const player = this.$refs.videoPlayer.player
+          if (player !== null && player.paused()) {
+            const nextVideoId = this.recommendedVideos[0].videoId
+            this.$router.push(
+              {
+                path: `/watch/${nextVideoId}`
+              }
+            )
+            this.showToast({
+              message: this.$t('Playing Next Video')
+            })
+          }
         }, 5000)
 
         this.showToast({
