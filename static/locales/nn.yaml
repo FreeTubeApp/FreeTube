@@ -412,8 +412,8 @@ Video:
   Starting soon, please refresh the page to check again: 'Starter snart, venleg oppdater
     sida for å sjekke igjen'
   # As in a Live Video
-  Live: 'Direktesendt'
-  Live Now: 'Direktesendt no'
+  Live: 'Direkte'
+  Live Now: 'Direkte no'
   Live Chat: 'Direktechat'
   Enable Live Chat: 'Slå på direktechat'
   Live Chat is currently not supported in this build.: 'Direktechat er ikkje støtta
