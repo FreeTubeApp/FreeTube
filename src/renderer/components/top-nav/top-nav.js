@@ -89,14 +89,15 @@ export default Vue.extend({
         searchInput.blur()
       }
 
-      const videoId = await this.$store.dispatch('getVideoIdFromUrl', query)
+      const { videoId, timestamp } = await this.$store.dispatch('getVideoParamsFromUrl', query)
       const playlistId = await this.$store.dispatch('getPlaylistIdFromUrl', query)
 
       console.log(playlistId)
 
       if (videoId) {
         this.$router.push({
-          path: `/watch/${videoId}`
+          path: `/watch/${videoId}`,
+          query: timestamp ? { timestamp } : {}
         })
       } else if (playlistId) {
         this.$router.push({
