@@ -82,6 +82,10 @@ export default Vue.extend({
       return this.$store.getters.getDefaultTheatreMode
     },
 
+    defaultFullScreenMode: function () {
+      return this.$store.getters.getDefaultFullScreenMode
+    },
+
     hideRecommendedVideos: function () {
       return this.$store.getters.getHideRecommendedVideos
     },
@@ -119,6 +123,7 @@ export default Vue.extend({
       'updateForceLocalBackendForLegacy',
       'updateProxyVideos',
       'updateDefaultTheatreMode',
+      'updateDefaultFullScreenMode',
       'updateDefaultVolume',
       'updateDefaultPlayback',
       'updateDefaultVideoFormat',
