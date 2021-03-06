@@ -44,7 +44,7 @@ const config = {
       ]
     }
   ],
-  files: ['_icons/iconColor.*', './dist/**/*', '!./dist/web/**/*'],
+  files: ['_icons/iconColor.*', 'icon.svg', './dist/**/*', '!./dist/web/**/*'],
   dmg: {
     contents: [
       {
@@ -66,7 +66,7 @@ const config = {
   },
   linux: {
     category: 'Network',
-    icon: '_icons/icon.png',
+    icon: '_icons/icon.svg',
     target: ['deb', 'zip', 'apk', 'rpm', 'AppImage', 'pacman'],
   },
   mac: {
@@ -84,7 +84,7 @@ const config = {
     }
   },
   win: {
-    icon: '_icons/iconColor.ico',
+    icon: '_icons/icon.ico',
     target: ['nsis', 'zip', 'portable', 'squirrel'],
   },
   nsis: {
