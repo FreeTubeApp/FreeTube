@@ -568,7 +568,7 @@ Tooltips:
       play higher qualities. Legacy formats are limited to a max of 720p but use less
       bandwidth. Audio formats are audio only streams
   Subscription Settings:
-    Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of it's default
+    Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
       method for grabbing your subscription feed. RSS is faster and prevents IP blocking,
       but doesn't provide certain information like video duration or live status
 
