@@ -9,7 +9,7 @@
         class="navIcon"
       />
       <p class="navLabel">
-        More
+        {{ $t("More") }}
       </p>
     </div>
     <div
@@ -25,7 +25,7 @@
           class="navIcon"
         />
         <p class="navLabel">
-          Trending
+          {{ $t("Trending") }}
         </p>
       </div>
       <div
@@ -37,7 +37,7 @@
           class="navIcon"
         />
         <p class="navLabel">
-          Most Popular
+          {{ $t("Most Popular") }}
         </p>
       </div>
       <div
@@ -49,7 +49,7 @@
           class="navIcon"
         />
         <p class="navLabel">
-          About
+          {{ $t("About.About") }}
         </p>
       </div>
     </div>
@@ -62,7 +62,7 @@
         class="navIcon"
       />
       <p class="navLabel">
-        History
+        {{ $t("History.History") }}
       </p>
     </div>
     <hr>
@@ -75,7 +75,7 @@
         class="navIcon"
       />
       <p class="navLabel">
-        Settings
+        {{ $t("Settings.Settings") }}
       </p>
     </div>
     <div
@@ -87,7 +87,7 @@
         class="navIcon"
       />
       <p class="navLabel">
-        About
+        {{ $t("About.About") }}
       </p>
     </div>
   </div>
