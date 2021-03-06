@@ -85,6 +85,9 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Os
     seus vídeos guardados estão vazios. Clique no botão salvar no canto de um vídeo
     para que ele seja listado aqui
+  Playlist Message: Esta página não reflete listas de reprodução totalmente funcionais.
+    Ele só lista vídeos que você salvou ou favoritos. Quando o trabalho estiver concluído,
+    todos os vídeos atualmente aqui serão migrados para uma playlist 'Favoritos'.
 History:
   # On History Page
   History: 'Histórico'
@@ -303,6 +306,10 @@ Settings:
     Proxy Protocol: Protocolo de Proxy
     Enable Tor / Proxy: Ativar Tor / Proxy
     Proxy Settings: Configurações de Proxy
+    Error getting network information. Is your proxy configured properly?: Erro ao
+      obter informações da rede. O seu proxy está configurado corretamente?
+    City: Cidade
+    Region: Região
 About:
   #On About page
   About: 'Sobre'
@@ -334,6 +341,31 @@ About:
   Latest FreeTube News: 'Ultimas notícias sobre o FreeTube'
 
 #On Channel Page
+  GitHub issues: Problemas com o GitHub
+  Report a problem: Reportar um problema
+  FAQ: FAQs
+  FreeTube Wiki: Wiki do FreeTube
+  Help: Ajuda
+  GitHub releases: Lançamentos do GitHub
+  Downloads / Changelog: Downloads / Modificações
+  View License: Ver Licença
+  Licensed under the AGPLv3: Licença AGPLv3
+  Source code: Código-fonte
+  Beta: Beta
+  Donate: Doar
+  these people and projects: estas pessoas e projetos
+  FreeTube is made possible by: O FreeTube é possível graças a
+  Credits: Créditos
+  Translate: Traduzir
+  room rules: regras da sala
+  Please read the: Favor ler o
+  Chat on Matrix: Bate-papo na Matrix
+  Mastodon: Mastodon
+  Email: E-mail
+  Blog: Blog
+  Website: Site web
+  Please check for duplicates before posting: Verifique se há duplicatas antes de
+    postar
 Channel:
   Subscriber: 'Inscrito'
   Subscribers: 'Inscritos'
@@ -450,6 +482,10 @@ Video:
   Open Channel in Invidious: Abrir Canal no Invidious
   Copy YouTube Channel Link: Copiar o link do canal no YouTube
   Open Channel in YouTube: Abrir canal no YouTube
+  Video has been removed from your saved list: O vídeo foi removido da sua lista de
+    vídeos salvos
+  Video has been saved: O vídeo foi salvo
+  Save Video: Salvar vídeo
 Videos:
   #& Sort By
   Sort By:
@@ -627,3 +663,4 @@ Tooltips:
     Preferred API Backend: Escolha o backend que o FreeTube usa para obter os dados.
       A API local é um extrator integrado. A API Invidious requer um servidor Invidious
       para se conectar.
+More: Mais

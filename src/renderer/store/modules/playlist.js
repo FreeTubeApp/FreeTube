@@ -13,8 +13,8 @@ if (window && window.process && window.process.type === 'renderer') {
   //
   // dbLocation += '/playlists.db'
 
-  const electron = require('electron')
-  dbLocation = electron.remote.app.getPath('userData')
+  const remote = require('@electron/remote')
+  dbLocation = remote.app.getPath('userData')
 
   dbLocation = dbLocation + '/playlists.db'
 } else {

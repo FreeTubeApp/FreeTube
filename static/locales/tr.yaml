@@ -190,6 +190,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Playlist Next Video Interval: Oynatma Listesi Sonraki Video Aralığı
   Privacy Settings:
     Privacy Settings: 'Gizlilik Ayarları'
     Remember History: 'Geçmişi Hatırla'
@@ -288,6 +289,7 @@ Settings:
     Hide Video Views: Video Görüntülenme Sayılarını Gizle
     Distraction Free Settings: Dikkat Dağıtmama Ayarları
     Hide Active Subscriptions: Etkin Abonelikleri Gizle
+    Hide Playlists: Oynatma Listelerini Gizle
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin
     etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın
     ve değişiklikler uygulansın mı?
@@ -412,6 +414,7 @@ Profile:
     kanalları silmek istediğinizden emin misiniz?  Bu, kanalı başka bir profilden
     silmez.'
 #On Channel Page
+  Profile Filter: Profil Filtresi
 Channel:
   Subscriber: 'Abone'
   Subscribers: 'Aboneler'
@@ -658,3 +661,8 @@ Tooltips:
     Region for Trending: Trendlerin bölgesi, hangi ülkenin trend videolarını görüntülemek
       istediğinizi seçmenize olanak tanır. Görüntülenen ülkelerden bazıları YouTube
       tarafından desteklenmemektedir
+Playing Next Video Interval: Sonraki video hemen oynatılıyor. İptal etmek için tıklayın.
+  | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek için
+  tıklayın. | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek
+  için tıklayın.
+More: Daha Fazla

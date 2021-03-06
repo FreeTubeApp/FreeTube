@@ -63,11 +63,11 @@ Search Filters:
   Fetching results. Please wait: Lade Ergebnisse. Bitte warten
   Fetch more results: Lade mehr Ergebnisse
 # Sidebar
-  There are no more results for this search: Es gibt keine weiteren Ergebnisse für
-    diese Suche
+  There are no more results for this search: Keine weiteren Ergebnisse für diese Suche
+    vorhanden
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: Abonnement
+  Subscriptions: Abonnements
   Latest Subscriptions: Neueste Abonnements
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Deine
     Abonnementliste ist aktuell leer. Beginne Abonnements hinzuzufügen um sie hier
@@ -76,7 +76,7 @@ Subscriptions:
   Refresh Subscriptions: Abonnements aktualisieren
   Getting Subscriptions. Please wait.: Lade Abonnements. Bitte warten.
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Dieses
-    Profil hat eine große Anzahl von Abonnementen.  RSS zur Vermeidung von Tarifbeschränkungen
+    Profil hat eine große Anzahl von Abonnenten.  RSS zur Vermeidung von Tarifbeschränkungen
     erzwingen
   Load More Videos: Lade mehr Videos
 Trending: Trends
@@ -110,7 +110,7 @@ Settings:
     Preferred API Backend:
       Preferred API Backend: Bevorzugtes API-System
       Local API: Lokale API
-      Invidious API: Invidious' API
+      Invidious API: Invidious API
     Video View Type:
       Video View Type: Videoansichtstyp
       Grid: Gitter
@@ -131,7 +131,7 @@ Settings:
       anzeigen
   Theme Settings:
     Theme Settings: Thema Einstellungen
-    Match Top Bar with Main Color: Passe obere Leiste an Hauptfarbe an
+    Match Top Bar with Main Color: Obere Leiste an Hauptfarbe anpassen
     Base Theme:
       Base Theme: Grundlegendes Thema
       Black: Schwarz
@@ -146,11 +146,11 @@ Settings:
       Indigo: Indigo
       Blue: Blau
       Light Blue: Hellblau
-      Cyan: Mittleres Zyan
-      Teal: Dunkles Türkis
+      Cyan: Türkis
+      Teal: Türkisblau
       Green: Grün
       Light Green: Hellgrün
-      Lime: Lindgrün
+      Lime: Limette
       Yellow: Gelb
       Amber: Bernsteingelb
       Orange: Orange
@@ -175,7 +175,7 @@ Settings:
     Default Video Format:
       Default Video Format: Standard-Videoformat
       Dash Formats: DASH-Formate
-      Legacy Formats: Altformate
+      Legacy Formats: Legacy Formate
       Audio Formats: Audioformate
     Default Quality:
       Default Quality: Standardqualität
@@ -197,7 +197,7 @@ Settings:
       #& Freetube
       Newpipe: Newpipe
       OPML: OPML
-    Manage Subscriptions: Verwalte Abonnements
+    Manage Subscriptions: Abonnements verwalten
     Import Subscriptions: Importiere Abonnements
     Export Subscriptions: Exportiere Abonnements
     How do I import my subscriptions?: Wie importiere ich meine Abonnements?
@@ -234,10 +234,10 @@ Settings:
     Are you sure you want to remove your entire watch history?: Bist du sicher, dass
       du deinen gesamten Verlauf löschen willst?
     Remove Watch History: Verlauf löschen
-    Search cache has been cleared: Suchzwischenspeicher wurde geleert
+    Search cache has been cleared: Suchanfragen wurden gelöscht
     Are you sure you want to clear out your search cache?: Bist du sicher, dass du
-      deinen Suchzwischenspeicher leeren möchtest?
-    Clear Search Cache: Suchzwischenspeicher löschen
+      deine Suchanfragen löschen möchtest?
+    Clear Search Cache: Suchanfragen löschen
     Save Watched Progress: Videofortschritt speichern
     Remember History: Verlauf speichern
     Privacy Settings: Datenschutzeinstellungen
@@ -274,15 +274,15 @@ Settings:
     Export NewPipe: Exportiere NewPipe
     Export YouTube: Exportiere YouTube
     Export FreeTube: Exportiere FreeTube
-    Export Subscriptions: Exportiere Abonnements
+    Export Subscriptions: Abonnements exportieren
     Import NewPipe: Importiere NewPipe
     Import YouTube: Importiere YouTube
     Import FreeTube: Importiere FreeTube
-    Import Subscriptions: Importiere Abonnements
+    Import Subscriptions: Abonnements importieren
     Select Export Type: Wähle Exporttyp
     Select Import Type: Wähle Importtyp
     Data Settings: Dateneinstellungen
-    Check for Legacy Subscriptions: Prüfung auf Altabonnements
+    Check for Legacy Subscriptions: Auf ältere Abonnements prüfen
     Manage Subscriptions: Abonnements verwalten
   Distraction Free Settings:
     Hide Live Chat: Live-Chat verbergen
@@ -373,7 +373,7 @@ About:
   Please read the: Bitte lese die
   Chat on Matrix: Chatten bei Matrix
   Mastodon: Mastodon
-  Please check for duplicates before posting: Bitte überprüfe vor dem absenden, ob
+  Please check for duplicates before posting: Bitte überprüfe vor dem Absenden, ob
     es Duplikate gibt
   GitHub issues: GitHub Issues
   Report a problem: Problem melden
@@ -567,7 +567,7 @@ Mini Player: Mini-Abspieler
 Comments:
   Comments: Kommentare
   Click to View Comments: Klicke um Kommentare anzuzeigen
-  Getting comment replies, please wait: Kommentare werden geledan, bitte warten
+  Getting comment replies, please wait: Kommentare werden geladen, bitte warten
   Show Comments: Zeige Kommentare
   Hide Comments: Verstecke Kommentare
   # Context: View 10 Replies, View 1 Reply
@@ -686,4 +686,4 @@ Tooltips:
       API als Standard ausgewählt hast. Die lokale API wird bei der Verwendung von
       Legacy Formaten diese verwenden, anstatt auf Invidious zurückzugreifen. Dies
       hilft dann, wenn Videos von Invidious nicht abspielbar sind. Zum Beispiel aufgrund
-      von Landesrestiktionen.
+      von Landesbeschränkungen.

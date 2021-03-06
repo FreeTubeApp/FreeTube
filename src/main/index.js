@@ -2,6 +2,8 @@ import { app, BrowserWindow, Menu, ipcMain, screen } from 'electron'
 import { productName } from '../../package.json'
 import Datastore from 'nedb'
 
+require('@electron/remote/main').initialize()
+
 require('electron-context-menu')({
   showSearchWithGoogle: false,
   showSaveImageAs: true,
@@ -31,6 +33,9 @@ let startupUrl
 // This line disables it.
 // This line can possible be removed if the issue is fixed upstream
 app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors')
+
+app.commandLine.appendSwitch('enable-accelerated-video-decode')
+app.commandLine.appendSwitch('ignore-gpu-blacklist')
 
 // See: https://stackoverflow.com/questions/45570589/electron-protocol-handler-not-working-on-windows
 // remove so we can register each time as we run the app.
@@ -226,7 +231,8 @@ function createWindow (useProxy = false, proxyUrl = '') {
       nodeIntegrationInWorker: false,
       webSecurity: false,
       backgroundThrottling: false,
-      enableRemoteModule: true
+      enableRemoteModule: true,
+      contextIsolation: false
     },
     show: false
   })

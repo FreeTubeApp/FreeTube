@@ -16,8 +16,12 @@ if (platform == 'darwin') {
 } else if (platform == 'linux') {
   let arch = Arch.x64
 
-  if (args[2] === 'arm') {
+  if (args[2] === 'arm64') {
     arch = Arch.arm64
+  }
+
+  if (args[3] === 'arm32') {
+    arch = Arch.armv7l
   }
 
   targets = Platform.LINUX.createTarget(['deb', 'zip', 'apk', 'rpm', 'AppImage', 'pacman'], arch)
@@ -40,7 +44,7 @@ const config = {
       ]
     }
   ],
-  files: ['_icons/iconColor.*', './dist/**/*', '!./dist/web/**/*'],
+  files: ['_icons/iconColor.*', 'icon.svg', './dist/**/*', '!./dist/web/**/*'],
   dmg: {
     contents: [
       {
@@ -62,7 +66,7 @@ const config = {
   },
   linux: {
     category: 'Network',
-    icon: '_icons/icon.png',
+    icon: '_icons/icon.svg',
     target: ['deb', 'zip', 'apk', 'rpm', 'AppImage', 'pacman'],
   },
   mac: {
@@ -80,7 +84,7 @@ const config = {
     }
   },
   win: {
-    icon: '_icons/iconColor.ico',
+    icon: '_icons/icon.ico',
     target: ['nsis', 'zip', 'portable', 'squirrel'],
   },
   nsis: {

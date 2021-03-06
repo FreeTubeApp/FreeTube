@@ -90,6 +90,10 @@ export default Vue.extend({
     lengthSeconds: {
       type: Number,
       required: true
+    },
+    videoThumbnail: {
+      type: String,
+      required: true
     }
   },
   data: function () {
@@ -221,6 +225,22 @@ export default Vue.extend({
       } else {
         return this.$t('Video.Published on')
       }
+    }
+  },
+  mounted: function () {
+    if ('mediaSession' in navigator) {
+      /* eslint-disable-next-line */
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: this.title,
+        artist: this.channelName,
+        artwork: [
+          {
+            src: this.videoThumbnail,
+            sizes: '128x128',
+            type: 'image/png'
+          }
+        ]
+      })
     }
   },
   methods: {

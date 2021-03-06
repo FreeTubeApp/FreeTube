@@ -56,8 +56,7 @@ export default Vue.extend({
       ],
       playlistSelectValues: [
         'last',
-        'newest',
-        'oldest'
+        'newest'
       ]
     }
   },
@@ -121,8 +120,7 @@ export default Vue.extend({
     playlistSelectNames: function () {
       return [
         this.$t('Channel.Playlists.Sort Types.Last Video Added'),
-        this.$t('Channel.Playlists.Sort Types.Newest'),
-        this.$t('Channel.Playlists.Sort Types.Oldest')
+        this.$t('Channel.Playlists.Sort Types.Newest')
       ]
     },
 

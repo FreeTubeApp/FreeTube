@@ -1,0 +1,17 @@
+.card {
+  width: 85%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.selected {
+  text-align: center;
+}
+
+::v-deep .select-label {
+  width: 95%;
+}
+
+::v-deep .select {
+  text-align-last: center;
+}

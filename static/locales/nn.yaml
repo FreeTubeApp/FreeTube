@@ -1,0 +1,588 @@
+# Put the name of your locale in the same language
+Locale Name: 'Norsk nynorsk'
+FreeTube: 'FreeTube'
+# Currently on Subscriptions, Playlists, and History
+'This part of the app is not ready yet. Come back later when progress has been made.': >-
+  Denne delen av applikasjonen er ikkje klar enda. Ver venleg og kom tilbake på eit
+  seinare tidspunkt.
+
+# Webkit Menu Bar
+File: 'Fil'
+Quit: 'Avslutt'
+Edit: 'Rediger'
+Undo: 'Angre'
+Redo: 'Gjenta'
+Cut: 'Klipp'
+Copy: 'Kopier'
+Paste: 'Lim'
+Delete: 'Fjern'
+Select all: 'Vel alle'
+Reload: 'Oppdater'
+Force Reload: 'Tving oppdatering'
+Toggle Developer Tools: 'Veksle utviklarverktøy'
+Actual size: 'Originalstorleik'
+Zoom in: 'Forstørr'
+Zoom out: 'Forminsk'
+Toggle fullscreen: 'Veksle fullskjerm'
+Window: 'Vindauge'
+Minimize: 'Minimer'
+Close: 'Lukk'
+Back: 'Tilbake'
+Forward: 'Framover'
+
+Version $ is now available!  Click for more details: 'Versjon $ er no tilgjengeleg!
+  Klikk for meir informasjon'
+Download From Site: 'Last ned frå nettstaden'
+A new blog is now available, $. Click to view more: 'Eit nytt blogginnlegg er tilgjengeleg,
+  $. Klikk for å opne det'
+
+# Search Bar
+Search / Go to URL: 'Søk / Gå til nettadresse'
+  # In Filter Button
+Search Filters:
+  Search Filters: 'Søkfilter'
+  Sort By:
+    Sort By: 'Sorter etter'
+    Most Relevant: 'Mest relevant'
+    Rating: 'Vurdering'
+    Upload Date: 'Opplastingsdato'
+    View Count: 'Sjåartal'
+  Time:
+    Time: 'Tid'
+    Any Time: 'Når som helst'
+    Last Hour: 'Den siste timen'
+    Today: 'I dag'
+    This Week: 'Denne veka'
+    This Month: 'Denne månaden'
+    This Year: 'Dette året'
+  Type:
+    Type: 'Type'
+    All Types: 'Alle typar'
+    Videos: 'Videoar'
+    Channels: 'Kanalar'
+    #& Playlists
+  Duration:
+    Duration: 'Varigheit'
+    All Durations: 'Alle varigheitene'
+    Short (< 4 minutes): 'Kort (< 4 minutt)'
+    Long (> 20 minutes): 'Lang (> 20 minutt)'
+  # On Search Page
+  Search Results: 'Søkeresultat'
+  Fetching results. Please wait: 'Henter resultat. Ver venleg og vent'
+  Fetch more results: 'Hent fleire resultat'
+  There are no more results for this search: 'Det er inga fleire resultat for dette
+    søket'
+# Sidebar
+Subscriptions:
+    # On Subscriptions Page
+  Subscriptions: 'Abonnement'
+  Latest Subscriptions: 'Siste abonnement'
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 'Denne
+    profilen har ei stor mengd abonnentar. Tvinger RSS til å unngå å avgrense hastigheita'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Di
+    abonnementliste er tom for augeblikket. Start å legge til fleire abonnement for
+    å sjå dei her.'
+  'Getting Subscriptions. Please wait.': 'Henter abonnement. Ver venleg og vent.'
+  Refresh Subscriptions: 'Oppdater abonnement'
+  Load More Videos: 'Last inn fleire videoar'
+Trending: 'På veg opp'
+Most Popular: 'Mest populært'
+Playlists: 'Spelelister'
+User Playlists:
+  Your Playlists: 'Dine spelelister'
+  Playlist Message: 'Denne sida reflekterer ikkje ei fullt fungerande speleliste.
+    Den viser berre videoar som du har lagra eller lagt til favorittar. Når arbeidet
+    er ferdig, blir alle videoane som for augeblikket er her overført til ei "favoritt"
+    speleliste.'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Du
+    har ingen lagra videoar for augeblikket. Klikk på lagringsknappen i hjørnet av
+    ein video slik at den bli oppført her'
+History:
+  # On History Page
+  History: 'Historikk'
+  Watch History: 'Sjåarhistorikk'
+  Your history list is currently empty.: 'Historikken din er tom for augeblikket.'
+Settings:
+  # On Settings Page
+  Settings: 'Innstillingar'
+  The app needs to restart for changes to take effect. Restart and apply change?: 'Applikasjonen
+    må restarte for at endringane skal tre i kraft. Start på nytt og ta i bruk endringane?'
+  General Settings:
+    General Settings: 'Generelle innstillingar'
+    Check for Updates: 'Sjå etter oppdateringar'
+    Check for Latest Blog Posts: 'Sjå etter siste blogginnlegg'
+    Fallback to Non-Preferred Backend on Failure: 'Tilbakefall til ikkje-føretrekte
+      backend ved feil'
+    Enable Search Suggestions: 'Slå på søkeforslag'
+    Default Landing Page: 'Forvalt landingsside'
+    Locale Preference: 'Språkinnstilling'
+    Preferred API Backend:
+      Preferred API Backend: 'Føretrekte API-backend'
+      Local API: 'Lokalt API'
+      Invidious API: 'Invidious-API'
+    Video View Type:
+      Video View Type: 'Videovisingstype'
+      Grid: 'Rutenett'
+      List: 'Liste'
+    Thumbnail Preference:
+      Thumbnail Preference: 'Miniatyrbiletepreferanse'
+      Default: 'Standard'
+      Beginning: 'Begynning'
+      Middle: 'Mellom'
+      End: 'Slutt'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious-førekomst
+      (Standard er https://invidious.snopyta.org)'
+    View all Invidious instance information: 'Vis all Invidious-førekomstinformasjon'
+    Region for Trending: 'Region for På veg opp'
+        #! List countries
+  Theme Settings:
+    Theme Settings: 'Temainnstillingar'
+    Match Top Bar with Main Color: ''
+    Expand Side Bar by Default: ''
+    Disable Smooth Scrolling: 'Deaktiver jevn rulling'
+    UI Scale: 'Skalering av brukargrensesnitt'
+    Base Theme:
+      Base Theme: 'Hovudtema'
+      Black: 'Svart'
+      Dark: 'Mørk'
+      Light: 'Lys'
+    Main Color Theme:
+      Main Color Theme: 'Hovudfargetema'
+      Red: 'Raud'
+      Pink: 'Rosa'
+      Purple: 'Lilla'
+      Deep Purple: 'Djuplilla'
+      Indigo: 'Indigo'
+      Blue: 'Blå'
+      Light Blue: 'Lyseblå'
+      Cyan: ''
+      Teal: 'Blågrøn'
+      Green: 'Grøn'
+      Light Green: 'Lysegrøn'
+      Lime: 'Lime'
+      Yellow: 'Gul'
+      Amber: 'Rav'
+      Orange: 'Oransje'
+      Deep Orange: 'Djuporansje'
+    Secondary Color Theme: 'Sekundærfargetema'
+        #* Main Color Theme
+  Player Settings:
+    Player Settings: 'Videospelarinnstillingar'
+    Force Local Backend for Legacy Formats: ''
+    Play Next Video: 'Spel av neste video'
+    Turn on Subtitles by Default: 'Slå på undertekst som standard'
+    Autoplay Videos: 'Spel av videoar automatisk'
+    Proxy Videos Through Invidious: ''
+    Autoplay Playlists: 'Spel av spelelister automatisk'
+    Enable Theatre Mode by Default: 'Kinomodus som standardval'
+    Default Volume: 'Standardvolum'
+    Default Playback Rate: 'Standard avspelingsfrekvens'
+    Default Video Format:
+      Default Video Format: 'Standard videoformat'
+      Dash Formats: 'DASH-format'
+      Legacy Formats: 'Eldre format'
+      Audio Formats: 'Lydformat'
+    Default Quality:
+      Default Quality: 'Standardkvalitet'
+      Auto: 'Automatisk'
+      144p: '144p'
+      240p: '240p'
+      360p: '360p'
+      480p: '480p'
+      720p: '720p'
+      1080p: '1080p'
+      1440p: '1440p'
+      4k: '4k'
+      8k: '8k'
+  Privacy Settings:
+    Privacy Settings: 'Personvernsinnstillingar'
+    Remember History: 'Husk historikk'
+    Save Watched Progress: ''
+    Clear Search Cache: 'Slett søkebuffer'
+    Are you sure you want to clear out your search cache?: 'Er du sikker på at du
+      vil slette søkebufferen?'
+    Search cache has been cleared: 'Søkebufferen har blitt sletta'
+    Remove Watch History: 'Slett sjåarhistorikk'
+    Are you sure you want to remove your entire watch history?: 'Er du sikker på at
+      du vil fjerne heile sjåarhistorikken din?'
+    Watch history has been cleared: 'Sjåarhistorikk har blitt fjerna'
+    Remove All Subscriptions / Profiles: ''
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
+  Subscription Settings:
+    Subscription Settings: 'Abonnementinnstillingar'
+    Hide Videos on Watch: ''
+    Fetch Feeds from RSS: 'Hent feedar frå RSS'
+    Manage Subscriptions: 'Behandle abonnement'
+  Distraction Free Settings:
+    Distraction Free Settings: ''
+    Hide Video Views: 'Gøym videovisingar'
+    Hide Video Likes And Dislikes: ''
+    Hide Channel Subscribers: 'Gøym kanalabonnement'
+    Hide Comment Likes: ''
+    Hide Recommended Videos: 'Gøym anbefalte videoar'
+    Hide Trending Videos: ''
+    Hide Popular Videos: 'Gøym populære videoar'
+    Hide Live Chat: 'Gøym direktechat'
+    Hide Active Subscriptions: 'Gøym aktive abonnement'
+  Data Settings:
+    Data Settings: 'Datainnstillingar'
+    Select Import Type: 'Vel importtype'
+    Select Export Type: 'Vel eksporttype'
+    Import Subscriptions: 'Importer abonnement'
+    Import FreeTube: 'Importer FreeTube'
+    Import YouTube: 'Importer YouTube'
+    Import NewPipe: 'Importer NewPipe'
+    Check for Legacy Subscriptions: ''
+    Export Subscriptions: 'Eksporter abonnement'
+    Export FreeTube: 'Eksporter FreeTube'
+    Export YouTube: 'Eksporter YouTube'
+    Export NewPipe: 'Eksporter NewPipe'
+    Import History: 'Importer historikk'
+    Export History: 'Eksporter historikk'
+    Profile object has insufficient data, skipping item: 'Eit profilobjekt manglar
+      data, hoppar over objektet'
+    All subscriptions and profiles have been successfully imported: 'Alle abonnement
+      og profila har blitt importert'
+    All subscriptions have been successfully imported: 'Alle abonnement har blitt
+      importert'
+    One or more subscriptions were unable to be imported: ''
+    Invalid subscriptions file: 'Ugyldig abonnementfil'
+    This might take a while, please wait: 'Dette kan ta ei stund, venleg vent'
+    Invalid history file: 'Ugyldig historiefil'
+    Subscriptions have been successfully exported: 'Abonnement har blitt importert'
+    History object has insufficient data, skipping item: 'Eit historieobjekt manglar
+      data, hoppar over objektet'
+    All watched history has been successfully imported: 'Visingshistorikken har blitt
+      importert'
+    All watched history has been successfully exported: 'Visingshistorikken har blitt
+      eksportert'
+    Unable to read file: 'Kan ikkje lese fil'
+    Unable to write file: 'Kan ikkje skrive til fil'
+    Unknown data key: 'Ukjent datanøkkel'
+    How do I import my subscriptions?: 'Korleis importerer eg abonnementa mine?'
+    Manage Subscriptions: 'Behandle abonnement'
+  Proxy Settings:
+    Proxy Settings: 'Proxyinnstillingar'
+    Enable Tor / Proxy: 'Aktiver Tor / Proxy'
+    Proxy Protocol: 'Proxyprotokoll'
+    Proxy Host: 'Proxyvert'
+    Proxy Port Number: 'Proxyportnummer'
+    Clicking on Test Proxy will send a request to: 'Klikk på testproxyen du vil sende
+      ein førespurnad til'
+    Test Proxy: 'Test proxy'
+    Your Info: 'Din informasjon'
+    Ip: 'IP-adresse'
+    Country: 'Land'
+    Region: 'Region'
+    City: 'By'
+    Error getting network information. Is your proxy configured properly?: 'Kunne
+      ikkje hente nettverksinformasjon. Er proxyen din konfigurert skikkeleg?'
+About:
+  #On About page
+  About: 'Om'
+  Beta: 'Beta'
+  Source code: 'Kjeldekode'
+  Licensed under the AGPLv3: 'Lisensiert under AGPLv3'
+  View License: 'Vis lisens'
+  Downloads / Changelog: 'Nedlastingar / Endringslogg'
+  GitHub releases: 'GitHub-utgjevingar'
+  Help: 'Hjelp'
+  FreeTube Wiki: 'FreeTube-wiki'
+  FAQ: 'Ofte stilte spørsmål'
+  Report a problem: 'Rapporter eit problem'
+  GitHub issues: 'GitHub issues'
+  Please check for duplicates before posting: 'Sjå etter duplikat før du poster noko'
+  Website: 'Nettstad'
+  Blog: 'Blogg'
+  Email: 'E-post'
+  Mastodon: 'Mastodon'
+  Chat on Matrix: 'Snakk med oss på Matrix'
+  Please read the: 'Ver venleg og les'
+  room rules: 'Romreglar'
+  Translate: 'Omsetje'
+  Credits: 'Bidrag'
+  FreeTube is made possible by: 'FreeTube er mogleggjort av'
+  these people and projects: 'desse folka og prosjekta'
+  Donate: 'Doner'
+
+Profile:
+  Profile Select: 'Profilval'
+  All Channels: 'Alle kanalar'
+  Profile Manager: 'Profilbehandlar'
+  Create New Profile: 'Lag ny profil'
+  Edit Profile: 'Rediger profil'
+  Color Picker: 'Fargeveljar'
+  Custom Color: ''
+  Profile Preview: 'Forhandsvising av profil'
+  Create Profile: 'Lag profil'
+  Update Profile: 'Oppdater profil'
+  Make Default Profile: 'Angi som standardprofil'
+  Delete Profile: 'Fjern profil'
+  Are you sure you want to delete this profile?: 'Er du sikker på at du vil fjerne
+    denne profilet?'
+  All subscriptions will also be deleted.: 'Alle abonnement vil òg bli sletta.'
+  Profile could not be found: 'Profil ikkje funne'
+  Your profile name cannot be empty: 'Profilnamnet ditt kan ikkje vere tomt'
+  Profile has been created: 'Profilet har blitt laga'
+  Profile has been updated: 'Profilet har blitt oppdatert'
+  Your default profile has been set to $: 'Standardprofilet ditt har blitt satt til
+    $'
+  Removed $ from your profiles: 'Fjerna $ frå profila dine'
+  Your default profile has been changed to your primary profile: 'Standardprofilet
+    ditt har blitt endra til primærprofilet ditt'
+  $ is now the active profile: '$ er no det aktive profilet'
+  Subscription List: 'Abonnementliste'
+  Other Channels: 'Andre kanalar'
+  $ selected: '$ valt'
+  Select All: 'Vel alle'
+  Select None: 'Vel ingen'
+  Delete Selected: 'Slett valte'
+  Add Selected To Profile: 'Legg til valt i profilen'
+  No channel(s) have been selected: 'Ingen kanal(ar) har blitt valt'
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
+    same channels will be deleted in any profile they are found in.
+  : 'Dette er primærprofilet ditt. Er du sikker på at du vil fjerne dei valte kanalane?
+    Dei same kanalane vil bli sletta i profila dei er funne i.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Er
+    du sikker på at du vil fjerne dei valte kanalane? Dette vil ikkje slette kanalane
+    frå andre profil.'
+#On Channel Page
+Channel:
+  Subscriber: 'Abonnent'
+  Subscribers: 'Abonnentar'
+  Subscribe: 'Abonner'
+  Unsubscribe: 'Opphev abonnement'
+  Channel has been removed from your subscriptions: 'Kanalen har blitt fjerna frå
+    dine abonnement'
+  Removed subscription from $ other channel(s): ''
+  Added channel to your subscriptions: 'Lagt til kanal til dine abonnentar'
+  Search Channel: 'Søk i kanal'
+  Your search results have returned 0 results: 'Søket gitt gav 0 resultat'
+  Sort By: 'Sorter etter'
+  Videos:
+    Videos: 'Videoar'
+    This channel does not currently have any videos: 'Kanalen har ingen videoar enda'
+    Sort Types:
+      Newest: 'Nyaste'
+      Oldest: 'Eldste'
+      Most Popular: 'Mest populære'
+  Playlists:
+    Playlists: 'Spelelister'
+    This channel does not currently have any playlists: 'Denne kanalen har ingen spelelister
+      enda'
+    Sort Types:
+      Last Video Added: 'Siste video lagt til'
+      Newest: 'Nyaste'
+      Oldest: 'Eldste'
+  About:
+    About: 'Om'
+    Channel Description: 'Kanalbeskriving'
+    Featured Channels: 'Utvalte kanalar'
+Video:
+  Mark As Watched: 'Marker som sett'
+  Remove From History: 'Fjern frå historikk'
+  Video has been marked as watched: 'Videoen har blitt markert som sett'
+  Video has been removed from your history: 'Videoen har blitt fjerna frå historikken
+    din'
+  Save Video: 'Lagre video'
+  Video has been saved: 'Videoen har blitt lagra'
+  Video has been removed from your saved list: 'Videoen har blitt fjerna frå di liste
+    over lagra videoar'
+  Open in YouTube: 'Opne i YouTube'
+  Copy YouTube Link: 'Kopier YouTube-lenke'
+  Open YouTube Embedded Player: ''
+  Copy YouTube Embedded Player Link: ''
+  Open in Invidious: 'Opne i Invidious'
+  Copy Invidious Link: 'Kopier Invidious-lenke'
+  Open Channel in YouTube: 'Opne kanal i YouTube'
+  Copy YouTube Channel Link: 'Kopier YouTube-kanallenke'
+  Open Channel in Invidious: 'Opne kanal i Invidious'
+  Copy Invidious Channel Link: 'Kopier Invidious-kanallenke'
+  View: 'Vis'
+  Views: 'Visingar'
+  Loop Playlist: 'Gjenta speleliste'
+  Shuffle Playlist: 'Spel av tilfeldig frå spelelista'
+  Reverse Playlist: ''
+  Play Next Video: 'Spel av neste video'
+  Play Previous Video: 'Spel av førre video'
+  # Context is "X People Watching"
+  Watching: 'Ser på'
+  Watched: 'Såg'
+  Autoplay: 'Automatisk avspeling'
+  Starting soon, please refresh the page to check again: 'Starter snart, venleg oppdater
+    sida for å sjekke igjen'
+  # As in a Live Video
+  Live: 'Direkte'
+  Live Now: 'Direkte no'
+  Live Chat: 'Direktechat'
+  Enable Live Chat: 'Slå på direktechat'
+  Live Chat is currently not supported in this build.: 'Direktechat er ikkje støtta
+    i den noverande versjonen.'
+  'Chat is disabled or the Live Stream has ended.': 'Chatten er slått av eller direktesendinga
+    er avslutta.'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'Direktechat er
+    slått på. Chatmeldingar vil bli vist her når dei er sendt.'
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
+  Download Video: 'Last ned video'
+  video only: 'berre video'
+  audio only: 'berre lyd'
+  Audio:
+    Low: 'Låg'
+    Medium: 'Middels'
+    High: 'Høg'
+    Best: 'Beste'
+  Published:
+    Jan: 'Jan'
+    Feb: 'Feb'
+    Mar: 'Mar'
+    Apr: 'Apr'
+    May: 'Mai'
+    Jun: 'Jun'
+    Jul: 'Jul'
+    Aug: 'Aug'
+    Sep: 'Sep'
+    Oct: 'Okt'
+    Nov: 'Nov'
+    Dec: 'Des'
+    Second: 'Sekund'
+    Seconds: 'Sekund'
+    Minute: 'Minutt'
+    Minutes: 'Minutt'
+    Hour: 'Time'
+    Hours: 'Timar'
+    Day: 'Dag'
+    Days: 'Dagar'
+    Week: 'Veke'
+    Weeks: 'Veke'
+    Month: 'Månad'
+    Months: 'Månadar'
+    Year: 'År'
+    Years: 'År'
+    Ago: 'Sidan'
+    Upcoming: 'Har premiere på'
+  Published on: 'Publisert på'
+  Streamed on: 'Strauma på'
+  Started streaming on: 'Begynte å straume på'
+  # $ is replaced with the number and % with the unit (days, hours, minutes...)
+  Publicationtemplate: '$ % sidan'
+#& Videos
+Videos:
+  #& Sort By
+  Sort By:
+    Newest: 'Nyaste'
+    Oldest: 'Eldste'
+    #& Most Popular
+#& Playlists
+Playlist:
+  #& About
+  View Full Playlist: 'Vis heile spelelista'
+  Videos: 'Videoar'
+  View: ''
+  Views: 'Visingar'
+  Last Updated On: 'Sist oppdatert'
+  Share Playlist:
+    Share Playlist: 'Del speleliste'
+    Copy YouTube Link: 'Kopier YouTube-lenke'
+    Open in YouTube: 'Opne i YouTube'
+    Copy Invidious Link: 'Kopier Invidious-lenke'
+    Open in Invidious: 'Opne i Invidious'
+
+# On Video Watch Page
+#* Published
+#& Views
+Toggle Theatre Mode: 'Veksle teatermodus'
+Change Format:
+  Change Video Formats: 'Endre videoformat'
+  Use Dash Formats: 'Bruk DASH-format'
+  Use Legacy Formats: 'Bruk gamle format'
+  Use Audio Formats: 'Bruk lydformat'
+  Dash formats are not available for this video: 'DASH-format er ikkje tilgjengeleg
+    for denne videoen'
+  Audio formats are not available for this video: 'Lydformat er ikkje tilgjengeleg
+    for denne videoen'
+Share:
+  Share Video: 'Del video'
+  Include Timestamp: 'Inkluder tidsstempel'
+  Copy Link: 'Kopier lenke'
+  Open Link: 'Opne lenke'
+  Copy Embed: 'Kopier innebygd versjon'
+  Open Embed: 'Opne innebygde versjon'
+  # On Click
+  Invidious URL copied to clipboard: 'Invidious-URL kopiert til utklippstavle'
+  Invidious Embed URL copied to clipboard: 'Innebygd Invidious-nettadresse kopiert
+    til utklippstavle'
+  Invidious Channel URL copied to clipboard: 'Invidious-kanalnettadresse kopiert til
+    utklippstavle'
+  YouTube URL copied to clipboard: 'YouTube-nettadresse kopiert til utklippstavle'
+  YouTube Embed URL copied to clipboard: 'Innebygd YouTube-nettadresse kopiert til
+    utklippstavle'
+  YouTube Channel URL copied to clipboard: 'YouTube-kanalnettadresse kopiert til utklippstavle'
+
+Mini Player: 'Minispelar'
+Comments:
+  Comments: 'Kommentarar'
+  Click to View Comments: 'Klikk for å sjå kommentarar'
+  Getting comment replies, please wait: 'Laster inn kommentarar, ver venleg og vent'
+  There are no more comments for this video: 'Det finst ingen fleire kommentarar for
+    denne videoen'
+  Show Comments: 'Vis kommentarar'
+  Hide Comments: 'Gøym kommentarar'
+  Sort by: 'Sorter etter'
+  Top comments: 'Toppkommentar'
+  Newest first: 'Nyaste først'
+  # Context: View 10 Replies, View 1 Reply
+  View: 'Vis'
+  Hide: 'Gøym'
+  Replies: 'Svar'
+  Reply: 'Svar'
+  There are no comments available for this video: 'Det er ingen kommentarar tilgjengeleg
+    for denne videoen'
+  Load More Comments: 'Last inn fleire kommentarar'
+  No more comments available: 'Ingen fleire kommentarar tilgjengeleg'
+Up Next: 'Neste'
+
+#Tooltips
+Tooltips:
+  General Settings:
+    Preferred API Backend: ''
+    Fallback to Non-Preferred Backend on Failure: 'Når ditt føretrekte API har eit
+      problem, vil FreeTube prøve å automatisk bruke ditt ikkje-føretrekte API som
+      ein tilbakefallingsmetode dersom det er aktivert'
+    Thumbnail Preference: 'Alle miniatyrbilete i FreeTube vil bli erstatta av eit
+      bilete av videoen i staden for standardminiatyrbiletet'
+    Invidious Instance: 'Invidious-førekomsten som FreeTube vil kople til for API-kall.
+      Fjern den gjeldene førekomsten for å sjå ei liste over offentlige førekomstar
+      å velje mellom'
+    Region for Trending: ''
+  Player Settings:
+    Force Local Backend for Legacy Formats: ''
+    Proxy Videos Through Invidious: ''
+    Default Video Format: ''
+  Subscription Settings:
+    Fetch Feeds from RSS: ''
+
+# Toast Messages
+Local API Error (Click to copy): 'Lokal API-feil (Klikk for å kopiere)'
+Invidious API Error (Click to copy): 'Invidious-API-feil (Klikk for å kopiere)'
+Falling back to Invidious API: 'Faller tilbake til Invidious-API'
+Falling back to the local API: 'Faller tilbake til det lokale API-et'
+This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Denne
+  videoen er utilgjengeleg grunna manglande format. Dette kan skuldast tilgangsavgrensingar
+  i ditt land.'
+Subscriptions have not yet been implemented: 'Abonnement har ikkje blitt implementert
+  enda'
+Loop is now disabled: 'Gjenta er no deaktivert'
+Loop is now enabled: 'Gjenta er no aktivert'
+Shuffle is now disabled: 'Tilfeldig avspeling er no deaktivert'
+Shuffle is now enabled: 'Tilfeldig avspeling er no aktivert'
+The playlist has been reversed: 'Spelelista har blitt snudd'
+Playing Next Video: 'Speler av neste video'
+Playing Previous Video: 'Speler av førre video'
+Playing next video in 5 seconds.  Click to cancel: 'Speler av neste video om 5 sekund.
+  Klikk for å avbryte.'
+Canceled next video autoplay: 'Avbryt automatisk avspeling av neste video'
+'The playlist has ended.  Enable loop to continue playing': 'Spelelista har nådd si
+  ende. Klikk på gjenta for å fortsette spelinga'
+
+Yes: 'Ja'
+No: 'Nei'

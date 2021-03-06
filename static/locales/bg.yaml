@@ -30,10 +30,10 @@ Close: 'Затваряне'
 Back: 'Назад'
 Forward: 'Напред'
 
-Version $ is now available!  Click for more details: 'Версия $ е вече налична! Кликни
+Version $ is now available!  Click for more details: 'Версия $ е вече налична! Щракнете
   за повече детайли'
 Download From Site: 'Сваляне от сайта'
-A new blog is now available, $. Click to view more: 'Нова публикация в блога, $. Кликни
+A new blog is now available, $. Click to view more: 'Нова публикация в блога, $. Щракнете
   за преглед'
 
 # Search Bar
@@ -90,7 +90,7 @@ Playlists: 'Плейлисти'
 User Playlists:
   Your Playlists: 'Вашите плейлисти'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Няма
-    запазени видеоклипове. За запазване кликни в ъгъла на видеоклипа
+    запазени видеоклипове. За запазване щракнете в ъгъла на видеоклипа
   Playlist Message: Тази страница не отразява напълно работещи плейлисти. В него са
     изброени само видеоклипове, които сте запазили или избрали за любими. Когато работата
     приключи, всички видеоклипове, които в момента са тук, ще бъдат мигрирани в плейлист
@@ -114,8 +114,8 @@ Settings:
     Locale Preference: 'Език'
     Preferred API Backend:
       Preferred API Backend: 'Предпочитан вътрешен интерфейс'
-      Local API: 'Локален API'
-      Invidious API: 'Invidious Интерфейс'
+      Local API: 'Локален'
+      Invidious API: 'Invidious'
     Video View Type:
       Video View Type: 'Подредба на видеата'
       Grid: 'Решетка'
@@ -130,7 +130,8 @@ Settings:
       (по подразбиране е https://invidious.snopyta.org)'
     Region for Trending: 'Регион за набиращи популярност'
         #! List countries
-    View all Invidious instance information: Виж пълна информация за Invidious обекта
+    View all Invidious instance information: Преглед на пълна информация за Invidious
+      обекта
   Theme Settings:
     Theme Settings: 'Настройки на изгледа на приложението'
     Match Top Bar with Main Color: 'Съвпадане на горната лента с основната цветова
@@ -192,6 +193,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Playlist Next Video Interval: Интервал за следващо видео в плейлист
   Privacy Settings:
     Privacy Settings: 'Настройки за поверителност'
     Remember History: 'Запазване на историята'
@@ -289,7 +291,8 @@ Settings:
     Hide Video Likes And Dislikes: Скриване оценките на видеата
     Hide Video Views: Скриване броя показвания на видеата
     Distraction Free Settings: Настройки за неразсейване
-    Hide Active Subscriptions: Скриване на активни абонаменти
+    Hide Active Subscriptions: Скриване на активните абонаменти
+    Hide Playlists: Скриване на плейлисти
   The app needs to restart for changes to take effect. Restart and apply change?: Приложението
     трябва да се рестартира за да се приложат промените. Рестартиране?
   Proxy Settings:
@@ -301,13 +304,13 @@ Settings:
     Country: Държава
     Ip: Ip
     Your Info: Вашата информация
-    Test Proxy: Тестово прокси
-    Clicking on Test Proxy will send a request to: Кликването върху тестово прокси
+    Test Proxy: Тестване на прокси
+    Clicking on Test Proxy will send a request to: Щракването върху "Тестване на прокси"
       ще изпрати заявка до
     Proxy Port Number: Номер на прокси порта
     Proxy Host: Прокси хост
     Proxy Protocol: Прокси протокол
-    Enable Tor / Proxy: Активирайте Tor / Proxy
+    Enable Tor / Proxy: Активиране на Tor / Proxy
     Proxy Settings: Настройки на прокси
 About:
   #On About page
@@ -342,20 +345,20 @@ About:
 
   Donate: Дарете
   these people and projects: тези хора и проекти
-  FreeTube is made possible by: FreeTube е възможен чрез
+  FreeTube is made possible by: FreeTube благодарение на
   Translate: Превод
-  room rules: правилата за стаите
+  room rules: Правилата за общуване
   Please read the: Моля, прочетете
   Chat on Matrix: Чат в Matrix
-  Mastodon: мастодонт
-  Email: Имейл
+  Mastodon: Mastodon
+  Email: Електронна поща
   Blog: Блог
   Website: Уебсайт
   Please check for duplicates before posting: Моля, проверете за дубликати преди публикуване
   GitHub issues: GitHub проблеми
   Report a problem: Съобщете за проблем
   FAQ: ЧЗВ
-  FreeTube Wiki: FreeTube Уики
+  FreeTube Wiki: FreeTube Wiki
   Help: Помощ
   GitHub releases: GitHub издания
   Downloads / Changelog: Изтегляния / Дневник с промени
@@ -392,7 +395,7 @@ Profile:
   $ is now the active profile: 'Активният профил сега е $'
   Subscription List: 'Списък с абонаменти'
   Other Channels: 'Други канали'
-  $ selected: '$ избран'
+  $ selected: '$ избран(и)'
   Select All: 'Избиране на всички'
   Select None: 'Без избиране'
   Delete Selected: 'Изтриване на избраните'
@@ -406,6 +409,7 @@ Profile:
     ли сте, че искате да изтриете избраните канали? Така каналът няма да бъде изтрит
     от другите профили.'
 #On Channel Page
+  Profile Filter: Профилен филтър
 Channel:
   Subscriber: 'Абонат'
   Subscribers: 'Абонати'
@@ -432,9 +436,9 @@ Channel:
     This channel does not currently have any playlists: 'В този канал по настоящем
       няма плейлисти'
     Sort Types:
-      Last Video Added: 'Последно добавено видео'
-      Newest: 'Най-ново'
-      Oldest: 'Най-старо'
+      Last Video Added: 'Последно добавени'
+      Newest: 'Най-нови'
+      Oldest: 'Най-стари'
   About:
     About: 'Относно'
     Channel Description: 'Описание на канала'
@@ -505,7 +509,7 @@ Video:
     Year: 'година'
     Years: 'години'
     Ago: 'преди'
-    Upcoming: 'Премиерата върви'
+    Upcoming: 'Премиера на'
   Published on: 'Публикуван на'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Преди $ %'
@@ -522,8 +526,8 @@ Video:
   Open Channel in Invidious: Отваряне на канала в Invidious
   Copy YouTube Channel Link: Копиране на връзка за канала в YouTube
   Open Channel in YouTube: Отваряне на канала в YouTube
-  Started streaming on: Начало на излъчването
-  Streamed on: Излъчване
+  Started streaming on: Начало на предаването
+  Streamed on: На живо на
   Video has been removed from your saved list: Видеоклипът е премахнат от вашия запазен
     списък
   Video has been saved: Видеото е запазено
@@ -552,7 +556,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: 'Режим "Театър"'
+Toggle Theatre Mode: 'Режим "Широк екран"'
 Change Format:
   Change Video Formats: 'Смяна видео формати'
   Use Dash Formats: 'Използване на Dash формати'
@@ -570,16 +574,16 @@ Share:
   Copy Embed: 'Копиране за вграждане'
   Open Embed: 'Отваряне на връзка за вграждане'
   # On Click
-  Invidious URL copied to clipboard: 'Адреса за Invidious е копиран'
-  Invidious Embed URL copied to clipboard: 'Адреса на Invidious за вграждане е копиран'
-  YouTube URL copied to clipboard: 'Адреса за YouTube е копиран'
-  YouTube Embed URL copied to clipboard: 'Адреса на YouTube за вграждане е копиран'
-  YouTube Channel URL copied to clipboard: Адреса на YouTube канала е копиран
-  Invidious Channel URL copied to clipboard: Адреса на Invidious канала е копиран
+  Invidious URL copied to clipboard: 'Invidious адресът е копиран'
+  Invidious Embed URL copied to clipboard: 'Invidious адресът за вграждане е копиран'
+  YouTube URL copied to clipboard: 'YouTube адресът е копиран'
+  YouTube Embed URL copied to clipboard: 'YouTube адресът за вграждане е копиран'
+  YouTube Channel URL copied to clipboard: YouTube адресът на канала е копиран
+  Invidious Channel URL copied to clipboard: Invidious адресът на канала е копиран
 Mini Player: 'Мини плейър'
 Comments:
   Comments: 'Коментари'
-  Click to View Comments: 'Кликни, за да видиш коментарите'
+  Click to View Comments: 'Щракнете, за да видите коментарите'
   Getting comment replies, please wait: 'Получаване на отговори на коментара, моля
     изчакайте'
   There are no more comments for this video: 'Към това видео няма повече коментари'
@@ -599,8 +603,8 @@ Comments:
 Up Next: 'Следващ'
 
 # Toast Messages
-Local API Error (Click to copy): 'Грешка в локалния интерфейс (кликни за копиране)'
-Invidious API Error (Click to copy): 'Грешка в Invidious интерфейса (кликни за копиране)'
+Local API Error (Click to copy): 'Грешка в локалния интерфейс (щракнете за копиране)'
+Invidious API Error (Click to copy): 'Грешка в Invidious интерфейса (щракнете за копиране)'
 Falling back to Invidious API: 'Връщане към Invidious интерфейса'
 Falling back to the local API: 'Връщане към локалния интерфейс'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Видеото
@@ -615,7 +619,7 @@ The playlist has been reversed: 'Плейлистата е в обърнат р�
 Playing Next Video: 'Пускане на следващото видео'
 Playing Previous Video: 'Пускане на предишното видео'
 Playing next video in 5 seconds.  Click to cancel: 'Следващо видео започва след 5
-  секунди. Кликни за отказ.'
+  секунди. Щракнете за отказ.'
 Canceled next video autoplay: 'Следващото видео е отказано'
 'The playlist has ended.  Enable loop to continue playing': 'Плейлиста приключи. Включете
   повторението за да продължи'
@@ -653,3 +657,7 @@ Tooltips:
     Preferred API Backend: Избиране на начина, по който FreeTube получава данните.
       Локалният интерфейс има вградено извличане. Invidious интерфейсът изисква Invidious
       сървър, към който да се свърже.
+More: Още
+Playing Next Video Interval: Пускане на следващото видео веднага. Щракнете за отказ.
+  | Пускане на следващото видео след {nextVideoInterval} секунда. Щракнете за отказl.
+  | Пускане на следващото видео след {nextVideoInterval} секунди. Щракнете за отказ.

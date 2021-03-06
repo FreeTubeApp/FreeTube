@@ -6,11 +6,11 @@ import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 
-import { remote } from 'electron'
 import fs from 'fs'
 import { opmlToJSON } from 'opml-to-json'
 import ytch from 'yt-channel-info'
 
+const remote = require('@electron/remote')
 const app = remote.app
 const dialog = remote.dialog
 

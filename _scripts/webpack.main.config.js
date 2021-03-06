@@ -15,7 +15,7 @@ const whiteListedModules = []
 const config = {
   name: 'main',
   mode: process.env.NODE_ENV,
-  devtool: isDevMode ? '#cheap-module-eval-source-map' : false,
+  devtool: isDevMode ? 'eval-cheap-module-source-map' : false,
   entry: {
     main: path.join(__dirname, '../src/main/index.js'),
   },
@@ -24,18 +24,19 @@ const config = {
     rules: [
       {
         test: /\.(j|t)s$/,
-        loader: ['babel-loader'],
+        use: 'babel-loader',
         exclude: /node_modules/,
       },
       {
         test: /\.node$/,
-        use: 'node-loader',
+        loader: 'node-loader',
       },
     ],
   },
   node: {
     __dirname: isDevMode,
     __filename: isDevMode,
+    global: isDevMode,
   },
   plugins: [
     new webpack.DefinePlugin({

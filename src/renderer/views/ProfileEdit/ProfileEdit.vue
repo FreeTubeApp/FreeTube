@@ -16,7 +16,7 @@
         :profile="profile"
         :is-main-profile="isMainProfile"
       />
-      <ft-profile-all-channels-list
+      <ft-profile-filter-channels-list
         v-if="!isNew && !isMainProfile"
         :profile="profile"
       />

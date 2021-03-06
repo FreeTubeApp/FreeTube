@@ -284,20 +284,11 @@ export default Vue.extend({
       const v = this
       electron.ipcRenderer.on('openUrl', function (event, url) {
         if (url) {
-          v.$store.dispatch('getVideoIdFromUrl', url).then((result) => {
-            if (result) {
+          v.$store.dispatch('getVideoParamsFromUrl', url).then(({ videoId, timestamp }) => {
+            if (videoId) {
               v.$router.push({
-                path: `/watch/${result}`
-              })
-            } else {
-              v.$router.push({
-                path: `/search/${encodeURIComponent(url)}`,
-                query: {
-                  sortBy: v.searchSettings.sortBy,
-                  time: v.searchSettings.time,
-                  type: v.searchSettings.type,
-                  duration: v.searchSettings.duration
-                }
+                path: `/watch/${videoId}`,
+                query: timestamp ? { timestamp } : {}
               })
             }
           })
