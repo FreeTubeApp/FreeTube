@@ -193,6 +193,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Playlist Next Video Interval: Интервал за следващо видео в плейлист
   Privacy Settings:
     Privacy Settings: 'Настройки за поверителност'
     Remember History: 'Запазване на историята'
@@ -290,7 +291,8 @@ Settings:
     Hide Video Likes And Dislikes: Скриване оценките на видеата
     Hide Video Views: Скриване броя показвания на видеата
     Distraction Free Settings: Настройки за неразсейване
-    Hide Active Subscriptions: Скриване на активни абонаменти
+    Hide Active Subscriptions: Скриване на активните абонаменти
+    Hide Playlists: Скриване на плейлисти
   The app needs to restart for changes to take effect. Restart and apply change?: Приложението
     трябва да се рестартира за да се приложат промените. Рестартиране?
   Proxy Settings:
@@ -393,7 +395,7 @@ Profile:
   $ is now the active profile: 'Активният профил сега е $'
   Subscription List: 'Списък с абонаменти'
   Other Channels: 'Други канали'
-  $ selected: '$ избран'
+  $ selected: '$ избран(и)'
   Select All: 'Избиране на всички'
   Select None: 'Без избиране'
   Delete Selected: 'Изтриване на избраните'
@@ -407,6 +409,7 @@ Profile:
     ли сте, че искате да изтриете избраните канали? Така каналът няма да бъде изтрит
     от другите профили.'
 #On Channel Page
+  Profile Filter: Профилен филтър
 Channel:
   Subscriber: 'Абонат'
   Subscribers: 'Абонати'
@@ -654,3 +657,7 @@ Tooltips:
     Preferred API Backend: Избиране на начина, по който FreeTube получава данните.
       Локалният интерфейс има вградено извличане. Invidious интерфейсът изисква Invidious
       сървър, към който да се свърже.
+More: Още
+Playing Next Video Interval: Пускане на следващото видео веднага. Щракнете за отказ.
+  | Пускане на следващото видео след {nextVideoInterval} секунда. Щракнете за отказl.
+  | Пускане на следващото видео след {nextVideoInterval} секунди. Щракнете за отказ.
