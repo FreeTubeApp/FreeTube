@@ -105,6 +105,9 @@ export default Vue.extend({
     proxyVideos: function () {
       return this.$store.getters.getProxyVideos
     },
+    defaultInterval: function () {
+      return this.$store.getters.getDefaultInterval
+    },
     defaultTheatreMode: function () {
       return this.$store.getters.getDefaultTheatreMode
     },
@@ -808,14 +811,15 @@ export default Vue.extend({
     },
 
     handleVideoEnded: function () {
+      const nextVideoInterval = this.defaultInterval
       if (this.watchingPlaylist) {
         this.playNextTimeout = setTimeout(() => {
           this.$refs.watchVideoPlaylist.playNextVideo()
-        }, 5000)
+        }, nextVideoInterval * 1000)
 
         this.showToast({
-          message: this.$t('Playing next video in 5 seconds.  Click to cancel'),
-          time: 5500,
+          message: this.$tc('Playing Next Video Interval', nextVideoInterval, { nextVideoInterval: nextVideoInterval }),
+          time: (nextVideoInterval * 1000) + 500,
           action: () => {
             clearTimeout(this.playNextTimeout)
             this.showToast({
