@@ -133,7 +133,7 @@ jobs:
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
       with:
         name: freetube_${{ steps.versionNumber.outputs.result }}_arm64.rpm
-        path: build/freetube-${{ steps.versionNumber.outputs.result }}.arm64.rpm
+        path: build/freetube-${{ steps.versionNumber.outputs.result }}.aarch64.rpm
 
     - name: Upload Alpine .apk x64 Artifact
       uses: actions/upload-artifact@v2
