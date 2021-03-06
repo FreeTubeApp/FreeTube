@@ -195,6 +195,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Playlist Next Video Interval: Інтервал відтворення наступного відео
   Privacy Settings:
     Privacy Settings: 'Налаштування приватності'
     Remember History: 'Збрігати історію'
@@ -226,6 +227,7 @@ Settings:
     Hide Popular Videos: 'Не показувати популярні відео'
     Hide Live Chat: 'Не показувати живий чат'
     Hide Active Subscriptions: Сховати активні підписки
+    Hide Playlists: Сховати списки відтворення
   Data Settings:
     Data Settings: 'Налаштування даних'
     Select Import Type: 'Оберіть тип імпорту'
@@ -637,3 +639,8 @@ Canceled next video autoplay: 'Скасовано автовідтворення
 
 Yes: 'Так'
 No: 'Ні'
+Playing Next Video Interval: Відтворення наступного відео в будь-який час. Клацніть,
+  щоб скасувати. | Відтворення наступного відео через {nextVideoInterval} секунду.
+  Клацніть, щоб скасувати. | Відтворення наступного відео через {nextVideoInterval}
+  секунд. Клацніть, щоб скасувати.
+More: Докладніше
