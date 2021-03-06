@@ -77,7 +77,7 @@ jobs:
 
     - name: Build ARM64 with Node.js ${{ matrix.node-version}}
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
-      run: npm run build:arm --if-present
+      run: npm run build:arm64 --if-present
 
     - name: Upload Linux .zip x64 Artifact
       uses: actions/upload-artifact@v2
