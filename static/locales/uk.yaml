@@ -389,6 +389,7 @@ Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Дійсно
     бажаєте видалити вибрані канали?  Канал не буде видалено з будь-якого іншого профілю.'
 #On Channel Page
+  Profile Filter: Фільтр профілю
 Channel:
   Subscriber: 'Підписник'
   Subscribers: 'Підписники'
