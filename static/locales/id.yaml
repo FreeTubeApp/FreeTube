@@ -190,6 +190,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Playlist Next Video Interval: Interval Video dalam Daftar Putar
   Privacy Settings:
     Privacy Settings: 'Pengaturan Privasi'
     Remember History: 'Ingat Riwayat'
@@ -288,6 +289,7 @@ Settings:
     Hide Video Likes And Dislikes: Sembunyikan Suka dan Tidak Suka Video
     Hide Video Views: Sembunyikan Tinjauan Video
     Hide Active Subscriptions: Sembunyikan Langganan Aktif
+    Hide Playlists: Sembunyikan Daftar Putar
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikasi
     butuh dimulai ulang agar perbubahan diterapkan. Mulai ulang dan terapkan perubahan?
   Proxy Settings:
@@ -651,3 +653,7 @@ Tooltips:
     Preferred API Backend: Pilih layanan yang digunakan oleh FreeTube untuk mengambil
       data. API lokal adalah ekstraktor bawaan. API Invidious membutuhkan sambungan
       ke server Invidious.
+Playing Next Video Interval: Langsung putar video berikutnya. Klik untuk batal. |
+  Putar video berikutnya dalam {nextVideoInterval} detik. Klik untuk batal. | Putar
+  video berikutnya dalam {nextVideoInterval} detik. Klik untuk batal.
+More: Lebih banyak

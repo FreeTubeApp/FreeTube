@@ -74,6 +74,7 @@ export default Vue.extend({
       downloadLinks: [],
       watchingPlaylist: false,
       playlistId: '',
+      timestamp: null,
       playNextTimeout: null
     }
   },
@@ -104,6 +105,9 @@ export default Vue.extend({
     },
     proxyVideos: function () {
       return this.$store.getters.getProxyVideos
+    },
+    defaultInterval: function () {
+      return this.$store.getters.getDefaultInterval
     },
     defaultTheatreMode: function () {
       return this.$store.getters.getDefaultTheatreMode
@@ -153,6 +157,7 @@ export default Vue.extend({
       this.downloadLinks = []
 
       this.checkIfPlaylist()
+      this.checkIfTimestamp()
 
       switch (this.backendPreference) {
         case 'local':
@@ -174,6 +179,7 @@ export default Vue.extend({
     this.useTheatreMode = this.defaultTheatreMode
 
     this.checkIfPlaylist()
+    this.checkIfTimestamp()
 
     if (!this.usingElectron) {
       this.getVideoInformationInvidious()
@@ -270,6 +276,7 @@ export default Vue.extend({
             video.viewCount = video.view_count
             video.lengthSeconds = video.length_seconds
             video.author = video.author.name
+            video.publishedText = video.published
             return video
           })
           if (this.hideVideoLikesAndDislikes) {
@@ -678,18 +685,32 @@ export default Vue.extend({
 
       console.log(historyIndex)
 
-      if (historyIndex !== -1 && !this.isLive) {
-        const watchProgress = this.historyCache[historyIndex].watchProgress
+      if (!this.isLive) {
+        if (this.timestamp) {
+          if (this.timestamp < 0) {
+            this.$refs.videoPlayer.player.currentTime(0)
+          } else if (this.timestamp > (this.videoLengthSeconds - 10)) {
+            this.$refs.videoPlayer.player.currentTime(this.videoLengthSeconds - 10)
+          } else {
+            this.$refs.videoPlayer.player.currentTime(this.timestamp)
+          }
+        } else if (historyIndex !== -1) {
+          const watchProgress = this.historyCache[historyIndex].watchProgress
 
-        if (watchProgress < (this.videoLengthSeconds - 10)) {
-          this.$refs.videoPlayer.player.currentTime(watchProgress)
+          if (watchProgress < (this.videoLengthSeconds - 10)) {
+            this.$refs.videoPlayer.player.currentTime(watchProgress)
+          }
         }
       }
 
-      if (this.rememberHistory && historyIndex !== -1) {
-        this.addToHistory(this.historyCache[historyIndex].watchProgress)
-      } else if (this.rememberHistory) {
-        this.addToHistory(0)
+      if (this.rememberHistory) {
+        if (this.timestamp) {
+          this.addToHistory(this.timestamp)
+        } else if (historyIndex !== -1) {
+          this.addToHistory(this.historyCache[historyIndex].watchProgress)
+        } else {
+          this.addToHistory(0)
+        }
       }
     },
 
@@ -704,6 +725,16 @@ export default Vue.extend({
         }
       } else {
         this.watchingPlaylist = false
+      }
+    },
+
+    checkIfTimestamp: function () {
+      if (typeof (this.$route.query) !== 'undefined') {
+        try {
+          this.timestamp = parseInt(this.$route.query.timestamp)
+        } catch {
+          this.timestamp = null
+        }
       }
     },
 
@@ -808,17 +839,18 @@ export default Vue.extend({
     },
 
     handleVideoEnded: function () {
+      const nextVideoInterval = this.defaultInterval
       if (this.watchingPlaylist) {
         this.playNextTimeout = setTimeout(() => {
           const player = this.$refs.videoPlayer.player
           if (player !== null && player.paused()) {
             this.$refs.watchVideoPlaylist.playNextVideo()
           }
-        }, 5000)
+        }, nextVideoInterval * 1000)
 
         this.showToast({
-          message: this.$t('Playing next video in 5 seconds.  Click to cancel'),
-          time: 5500,
+          message: this.$tc('Playing Next Video Interval', nextVideoInterval, { nextVideoInterval: nextVideoInterval }),
+          time: (nextVideoInterval * 1000) + 500,
           action: () => {
             clearTimeout(this.playNextTimeout)
             this.showToast({

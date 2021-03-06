@@ -37,6 +37,9 @@ export default Vue.extend({
     hidePopularVideos: function () {
       return this.$store.getters.getHidePopularVideos
     },
+    hidePlaylists: function () {
+      return this.$store.getters.getHidePlaylists
+    },
     hideLiveChat: function () {
       return this.$store.getters.getHideLiveChat
     },
@@ -61,6 +64,7 @@ export default Vue.extend({
       'updateHideRecommendedVideos',
       'updateHideTrendingVideos',
       'updateHidePopularVideos',
+      'updateHidePlaylists',
       'updateHideLiveChat',
       'updateHideActiveSubscriptions',
       'updatePlayNextVideo',

@@ -60,6 +60,12 @@
           @change="updateHidePopularVideos"
         />
         <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Playlists')"
+          :compact="true"
+          :default-value="hidePlaylists"
+          @change="updateHidePlaylists"
+        />
+        <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Live Chat')"
           :compact="true"
           :default-value="hideLiveChat"

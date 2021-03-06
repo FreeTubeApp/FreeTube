@@ -4,7 +4,16 @@
       <h2>
         {{ $t("Profile.Other Channels") }}
       </h2>
-      <p>
+      <ft-flex-box>
+        <ft-select
+          :placeholder="$t('Profile.Profile Filter')"
+          :value="profileNameList[0]"
+          :select-names="profileNameList"
+          :select-values="profileNameList"
+          @change="handleProfileFilterChange"
+        />
+      </ft-flex-box>
+      <p class="selected">
         {{ selectedText }}
       </p>
       <ft-flex-box>
@@ -38,5 +47,5 @@
   </div>
 </template>
 
-<script src="./ft-profile-all-channels-list.js" />
-<style scoped src="./ft-profile-all-channels-list.css" />
+<script src="./ft-profile-filter-channels-list.js" />
+<style scoped src="./ft-profile-filter-channels-list.css" />

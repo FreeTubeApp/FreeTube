@@ -54,6 +54,7 @@ const state = {
   forceLocalBackendForLegacy: false,
   proxyVideos: false,
   defaultTheatreMode: false,
+  defaultInterval: 5,
   defaultVolume: 1,
   defaultPlayback: 1,
   defaultVideoFormat: 'dash',
@@ -74,6 +75,7 @@ const state = {
   hideRecommendedVideos: false,
   hideTrendingVideos: false,
   hidePopularVideos: false,
+  hidePlaylists: false,
   hideLiveChat: false,
   hideActiveSubscriptions: false
 }
@@ -183,6 +185,10 @@ const getters = {
     return state.defaultTheatreMode
   },
 
+  getDefaultInterval: () => {
+    return state.defaultInterval
+  },
+
   getDefaultVolume: () => {
     return state.defaultVolume
   },
@@ -242,9 +248,15 @@ const getters = {
   getHidePopularVideos: () => {
     return state.hidePopularVideos
   },
+
+  getHidePlaylists: () => {
+    return state.hidePlaylists
+  },
+
   getHideLiveChat: () => {
     return state.hideLiveChat
   },
+
   getHideActiveSubscriptions: () => {
     return state.hideActiveSubscriptions
   }
@@ -349,6 +361,9 @@ const actions = {
             case 'defaultTheatreMode':
               commit('setDefaultTheatreMode', result.value)
               break
+            case 'defaultInterval':
+              commit('setDefaultInterval', result.value)
+              break
             case 'defaultVolume':
               commit('setDefaultVolume', result.value)
               sessionStorage.setItem('volume', result.value)
@@ -382,6 +397,9 @@ const actions = {
               break
             case 'hidePopularVideos':
               commit('setHidePopularVideos', result.value)
+              break
+            case 'hidePlaylists':
+              commit('setHidePlaylists', result.value)
               break
             case 'hideLiveChat':
               commit('setHideLiveChat', result.value)
@@ -588,6 +606,14 @@ const actions = {
     })
   },
 
+  updateDefaultInterval ({ commit }, defaultInterval) {
+    settingsDb.update({ _id: 'defaultInterval' }, { _id: 'defaultInterval', value: defaultInterval }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setDefaultInterval', defaultInterval)
+      }
+    })
+  },
+
   updateDefaultVolume ({ commit }, defaultVolume) {
     settingsDb.update({ _id: 'defaultVolume' }, { _id: 'defaultVolume', value: defaultVolume }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
@@ -717,6 +743,14 @@ const actions = {
     })
   },
 
+  updateHidePlaylists ({ commit }, hidePlaylists) {
+    settingsDb.update({ _id: 'hidePlaylists' }, { _id: 'hidePlaylists', value: hidePlaylists }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setHidePlaylists', hidePlaylists)
+      }
+    })
+  },
+
   updateHideActiveSubscriptions ({ commit }, hideActiveSubscriptions) {
     settingsDb.update({ _id: 'hideActiveSubscriptions' }, { _id: 'hideActiveSubscriptions', value: hideActiveSubscriptions }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
@@ -801,6 +835,9 @@ const mutations = {
   setProxyVideos (state, proxyVideos) {
     state.proxyVideos = proxyVideos
   },
+  setDefaultInterval (state, defaultInterval) {
+    state.defaultInterval = defaultInterval
+  },
   setDefaultVolume (state, defaultVolume) {
     state.defaultVolume = defaultVolume
   },
@@ -872,6 +909,9 @@ const mutations = {
   },
   setHidePopularVideos (state, hidePopularVideos) {
     state.hidePopularVideos = hidePopularVideos
+  },
+  setHidePlaylists (state, hidePlaylists) {
+    state.hidePlaylists = hidePlaylists
   },
   setHideLiveChat (state, hideLiveChat) {
     state.hideLiveChat = hideLiveChat

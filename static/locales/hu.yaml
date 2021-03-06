@@ -309,6 +309,8 @@ Settings:
     Proxy Protocol: Meghatalmazás protokoll
     Enable Tor / Proxy: Tor/meghatalmazás engedélyezése
     Proxy Settings: Meghatalmazás beállításai
+    Error getting network information. Is your proxy configured properly?: Hiba a
+      hálózati adatok lekérésekor. Megfelelő a meghatalmazás beállítása?
 About:
   #On About page
   About: 'Névjegy'
@@ -341,6 +343,32 @@ About:
 
   Latest FreeTube News: 'Legfrissebb FreeTube hírek'
 
+  these people and projects: ezek emberek és projektek
+  FreeTube is made possible by: 'A FreeTube engedélyezése:'
+  Donate: Hozzájárulás
+  Credits: Közreműködők
+  Translate: Fordítás
+  room rules: szobaszabályok
+  Please read the: Kérjük, olvassa el a(z)
+  Chat on Matrix: Matrix csevegése
+  Mastodon: Mastodon
+  Blog: Napló
+  Email: E-mail
+  Website: Honlap
+  Please check for duplicates before posting: Feladás előtt ellenőrizze, hogy vannak-e
+    másolatok
+  GitHub issues: GitHub kérdések
+  Help: Súgó
+  GitHub releases: GitHub kiadások
+  Downloads / Changelog: Letöltések/Változásnapló
+  View License: Licenc megtekintése
+  Licensed under the AGPLv3: Az AGPL (GNU Affero General Public License - GNU Affero
+    általános nyilvános licenc) 3. verziója alatt licencelt
+  FreeTube Wiki: FreeTube Wiki
+  Source code: Forráskód
+  Beta: Béta
+  FAQ: GyIK
+  Report a problem: Probléma jelentése
 Profile:
   Profile Select: 'Profil kiválasztása'
   All Channels: 'Összes csatorna'
@@ -499,6 +527,9 @@ Video:
   Open Channel in Invidious: Csatorna megnyitása az Invidious oldalán
   Started streaming on: Folyamatos átvitel indult
   Streamed on: Folyamatos átvitele
+  Video has been removed from your saved list: A videót eltávolítottuk a mentett listáról
+  Video has been saved: A videó mentve
+  Save Video: Videó mentése
 Videos:
   #& Sort By
   Sort By:

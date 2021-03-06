@@ -190,43 +190,53 @@ const actions = {
     return date.getTime() - timeSpan
   },
 
-  getVideoIdFromUrl (_, url) {
+  getVideoParamsFromUrl (_, url) {
     /** @type {URL} */
     let urlObject
+    const paramsObject = { videoId: null, timestamp: null }
     try {
       urlObject = new URL(url)
     } catch (e) {
-      return false
+      return paramsObject
+    }
+
+    function extractParams(videoId) {
+      paramsObject.videoId = videoId
+      paramsObject.timestamp = urlObject.searchParams.get('t')
     }
 
     const extractors = [
       // anything with /watch?v=
       function() {
         if (urlObject.pathname === '/watch' && urlObject.searchParams.has('v')) {
-          return urlObject.searchParams.get('v')
+          extractParams(urlObject.searchParams.get('v'))
+          return paramsObject
         }
       },
       // youtu.be
       function() {
         if (urlObject.host === 'youtu.be' && urlObject.pathname.match(/^\/[A-Za-z0-9_-]+$/)) {
-          return urlObject.pathname.slice(1)
+          extractParams(urlObject.pathname.slice(1))
+          return paramsObject
         }
       },
       // youtube.com/embed
       function() {
         if (urlObject.pathname.match(/^\/embed\/[A-Za-z0-9_-]+$/)) {
-          return urlObject.pathname.replace('/embed/', '')
+          extractParams(urlObject.pathname.replace('/embed/', ''))
+          return paramsObject
         }
       },
       // cloudtube
       function() {
         if (urlObject.host.match(/^cadence\.(gq|moe)$/) && urlObject.pathname.match(/^\/cloudtube\/video\/[A-Za-z0-9_-]+$/)) {
-          return urlObject.pathname.slice('/cloudtube/video/'.length)
+          extractParams(urlObject.pathname.slice('/cloudtube/video/'.length))
+          return paramsObject
         }
       }
     ]
 
-    return extractors.reduce((a, c) => a || c(), null) || false
+    return extractors.reduce((a, c) => a || c(), null) || paramsObject
   },
 
   getPlaylistIdFromUrl (_, url) {
