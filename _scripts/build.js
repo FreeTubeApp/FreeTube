@@ -16,8 +16,12 @@ if (platform == 'darwin') {
 } else if (platform == 'linux') {
   let arch = Arch.x64
 
-  if (args[2] === 'arm') {
+  if (args[2] === 'arm64') {
     arch = Arch.arm64
+  }
+
+  if (args[3] === 'arm32') {
+    arch = Arch.armv7l
   }
 
   targets = Platform.LINUX.createTarget(['deb', 'zip', 'apk', 'rpm', 'AppImage', 'pacman'], arch)
