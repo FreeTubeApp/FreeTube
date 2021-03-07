@@ -1,5 +1,4 @@
 import { app, BrowserWindow, Menu, ipcMain, screen } from 'electron'
-import { productName } from '../../package.json'
 import Datastore from 'nedb'
 
 if (process.argv.includes('--version')) {
@@ -25,9 +24,6 @@ function runApp() {
     filename: localDataStorage + '/settings.db',
     autoload: true
   })
-
-  // set app name
-  app.setName(productName)
 
   // disable electron warning
   process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true'
