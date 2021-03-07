@@ -192,7 +192,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Playlist Next Video Interval: Interval dalšího seznamu videí
+    Playlist Next Video Interval: Interval pro další video na playlistu
   Privacy Settings:
     Privacy Settings: 'Nastavení soukromí'
     Remember History: 'Zapamatovat historii'
@@ -653,7 +653,7 @@ Canceled next video autoplay: 'Automatické přehrávání dalšího videa bylo 
 
 Yes: 'Ano'
 No: 'Ne'
-Playing Next Video Interval: Přehrávání dalšího videa v žádném čase. Kliknutím zrušíte.
+Playing Next Video Interval: Přehrávání dalšího videa bez prodlevy Kliknutím zrušíte.
   | Přehrávání dalšího videa za {nextVideoInterval} s. Kliknutím zrušíte. | Přehrávání
   dalšího videa za {nextVideoInterval} s. Kliknutím zrušíte.
 More: Více
