@@ -187,7 +187,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Playlist Next Video Interval: Przerwa przed kolejną pozycją listy
+    Playlist Next Video Interval: Przerwa przed kolejną pozycją playlisty
   Subscription Settings:
     Subscription Settings: 'Ustawienia subskrypcji'
     Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
@@ -294,7 +294,7 @@ Settings:
     Hide Video Likes And Dislikes: Schowaj łapki w górę i w dół
     Hide Video Views: Schowaj obejrzenia filmu
     Hide Active Subscriptions: Schowaj aktywne subskrypcje
-    Hide Playlists: Ukryj listę
+    Hide Playlists: Ukryj playlistę
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
