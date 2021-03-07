@@ -176,6 +176,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Playlist Next Video Interval: 播放清單 下一個影片間隔時間
   Subscription Settings:
     Subscription Settings: '訂閱設定'
     Hide Videos on Watch: '觀看時隱藏影片'
@@ -265,6 +266,7 @@ Settings:
     Hide Recommended Videos: 隱藏推薦影片
     Hide Channel Subscribers: 隱藏頻道訂閱者
     Hide Active Subscriptions: 隱藏作用中的訂閱
+    Hide Playlists: 隱藏播放清單
   The app needs to restart for changes to take effect. Restart and apply change?: 此變更需要重啟讓修改生效。重啟並且套用變更?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
@@ -328,7 +330,7 @@ About:
   room rules: 聊天室規則
   Please read the: 請閱讀
   Chat on Matrix: 在 Matrix 上聊天
-  Mastodon: Mastodon
+  Mastodon: Mastodon(長毛象/萬象)
   Please check for duplicates before posting: 提交前請檢查有無重複的問題
   GitHub issues: GitHub 問題追蹤器
   Report a problem: 回報問題
@@ -445,7 +447,7 @@ Video:
   Open Channel in Invidious: 在Invidious開啟頻道
   Copy YouTube Channel Link: 複製YouTube頻道連結
   Open Channel in YouTube: 在YouTube開啟頻道
-  Started streaming on: '開始直播時間:'
+  Started streaming on: '開始直播時間'
   Streamed on: 直播於
   Video has been removed from your saved list: 影片已從您的播放清單移除
   Video has been saved: 影片已儲存
@@ -500,7 +502,7 @@ Mini Player: '迷你播放器'
 Comments:
   Comments: '留言'
   Click to View Comments: '點擊查看留言'
-  Getting comment replies, please wait: '獲取留言中，請稍候...'
+  Getting comment replies, please wait: '擷取留言中，請稍候...'
   Show Comments: '查看留言'
   Hide Comments: '隱藏留言'
   # Context: View 10 Replies, View 1 Reply
@@ -572,6 +574,7 @@ Profile:
   $ selected: $個選取的
   Other Channels: 其他頻道
   Subscription List: 訂閱清單
+  Profile Filter: 設定檔篩選器
 The playlist has been reversed: 播放清單已反轉
 A new blog is now available, $. Click to view more: 已有新的部落格文章，$。點擊以檢視更多
 Download From Site: 從網站下載
@@ -579,7 +582,7 @@ Version $ is now available!  Click for more details: 版本更新囉! 最新版�
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 沒有這個影片因為缺少格式。這個可能發生由於國家不可用。
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: 啟用後，FreeTube 將使用 RSS 而非預設方式來取得您的訂閱推送。RSS 更快而且可避免 IP 封鎖，但不提供某些訊息，如影片長度與即時狀態
+    Fetch Feeds from RSS: 啟用後，FreeTube將使用RSS代替它的預設方法來抓取您的訂閱來源。RSS的速度較快，而且可以防止IP封鎖，但它可能不會提供某些資訊，例如影片長度或是直播狀態。
   Player Settings:
     Default Video Format: 設定要用於影片播放的格式。Dash格式有更高的品質。傳統格式會限制在 720p但頻寬需求更低。音訊格式為僅有音訊的串流
     Proxy Videos Through Invidious: 將連線到 Invidious而非直接連線到 YouTube 來提供影片。覆寫 API 偏好
@@ -593,3 +596,6 @@ Tooltips:
     Preferred API Backend: 選擇 FreeTube 要用於取得YouTube資料的伺服器。本地 API 是內建擷取器。Invidious
       API 需要 Invidious 伺服器才能連線。
     Region for Trending: 發燒影片區域可以讓您選擇想要顯示哪個國家的發燒影片。 注意:並非所有國家都被YouTube支援
+Playing Next Video Interval: 馬上播放下一個影片。點擊取消。| 播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。|
+  播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。
+More: 更多
