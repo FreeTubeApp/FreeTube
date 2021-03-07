@@ -187,6 +187,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Playlist Next Video Interval: Afspeellijst Volgende Video Tussentijd
   Privacy Settings:
     Privacy Settings: 'Privacy Instellingen'
     Remember History: 'Herinner Geschiedenis'
@@ -292,6 +293,7 @@ Settings:
     Hide Video Views: Verberg Weergaven
     Distraction Free Settings: Afleidingsvrije Instellingen
     Hide Active Subscriptions: Verberg Actieve Abonnementen
+    Hide Playlists: Verberg Afspeellijst
   The app needs to restart for changes to take effect. Restart and apply change?: De
     applicatie moet opnieuw opstarten om de veranderingen aan te brengen. Wilt u opnieuw
     opstarten?
@@ -622,6 +624,7 @@ Profile:
   $ selected: $ is geselecteerd
   Other Channels: Andere Kanalen
   Subscription List: Abonnementen
+  Profile Filter: Profielfilter
 A new blog is now available, $. Click to view more: Een nieuwe blogpost is beschikbaar,
   $. Klik voor meer informatie
 Download From Site: Download van de Website
@@ -664,3 +667,7 @@ Tooltips:
     Region for Trending: Met trend regio kan je instellen uit welk land je trending
       video's je wil zien. Niet alle weergegeven landen worden ook daadwerkelijk ondersteund
       door YouTube
+Playing Next Video Interval: Volgende video wordt afgespeeld. Klik om te onderbreken.
+  | Volgende video wordt afgespeeld in {nextVideoInterval} seconde. Klik om te onderbreken.
+  | Volgende video wordt afgespeeld in {nextVideoInterval} seconden. Klik om te onderbreken.
+More: Meer
