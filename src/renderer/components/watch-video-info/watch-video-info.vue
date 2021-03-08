@@ -1,17 +1,11 @@
 <template>
   <ft-card class="watchVideoInfo">
     <div>
-      <p
-        class="videoTitle"
-      >
+      <p class="videoTitle">
         {{ title }}
       </p>
-      <div
-        class="channelInformation"
-      >
-        <div
-          class="profileRow"
-        >
+      <div class="channelInformation">
+        <div class="profileRow">
           <div>
             <img
               :src="channelThumbnail"
@@ -21,6 +15,15 @@
           </div>
           <div>
             <div
+              v-if="verified"
+              class="channelName"
+              @click="goToChannel"
+            >
+              {{ channelName }}
+              <font-awesome-icon icon="check-circle" />
+            </div>
+            <div
+              v-else
               class="channelName"
               @click="goToChannel"
             >
@@ -48,16 +51,20 @@
         v-if="!hideVideoLikesAndDislikes"
         class="likeBarContainer"
       >
-        <div
-          class="likeSection"
-        >
+        <div class="likeSection">
           <div
             class="likeBar"
-            :style="{ background: `linear-gradient(to right, var(--accent-color) ${likePercentageRatio}%, #9E9E9E ${likePercentageRatio}%` }"
+            :style="{
+              background: `linear-gradient(to right, var(--accent-color) ${likePercentageRatio}%, #9E9E9E ${likePercentageRatio}%`
+            }"
           />
           <div>
-            <span class="likeCount"><font-awesome-icon icon="thumbs-up" /> {{ likeCount }}</span>
-            <span class="dislikeCount"><font-awesome-icon icon="thumbs-down" /> {{ dislikeCount }}</span>
+            <span
+              class="likeCount"
+            ><font-awesome-icon icon="thumbs-up" /> {{ likeCount }}</span>
+            <span
+              class="dislikeCount"
+            ><font-awesome-icon icon="thumbs-down" /> {{ dislikeCount }}</span>
           </div>
         </div>
       </div>
