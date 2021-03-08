@@ -36,9 +36,7 @@
             :src="thumbnail"
             class="upcomingThumbnail"
           >
-          <div
-            class="premiereDate"
-          >
+          <div class="premiereDate">
             <font-awesome-icon
               icon="satellite-dish"
               class="premiereIcon"
@@ -55,7 +53,11 @@
               v-else
               class="premiereText"
             >
-              {{ $t("Video.Starting soon, please refresh the page to check again") }}
+              {{
+                $t(
+                  'Video.Starting soon, please refresh the page to check again'
+                )
+              }}
             </p>
           </div>
         </div>
@@ -68,6 +70,7 @@
         :title="videoTitle"
         :channel-id="channelId"
         :channel-name="channelName"
+        :verified="verified"
         :channel-thumbnail="channelThumbnail"
         :published="videoPublished"
         :subscription-count-text="channelSubscriptionCountText"
