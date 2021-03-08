@@ -40,7 +40,7 @@ export default Vue.extend({
     }
   },
   watch: {
-    $route () {
+    $route() {
       // react to route changes...
 
       const query = this.$route.params.query
@@ -86,7 +86,10 @@ export default Vue.extend({
   methods: {
     checkSearchCache: function (payload) {
       const sameSearch = this.sessionSearchHistory.filter((search) => {
-        return search.query === payload.query && IsEqual(payload.searchSettings, search.searchSettings)
+        return (
+          search.query === payload.query &&
+          IsEqual(payload.searchSettings, search.searchSettings)
+        )
       })
 
       this.shownResults = []
@@ -118,40 +121,48 @@ export default Vue.extend({
         payload.options.pages = 1
       }
 
-      this.$store.dispatch('ytSearch', payload).then((result) => {
-        console.log(result)
-        if (!result) {
-          return
-        }
-
-        this.apiUsed = 'local'
-
-        this.amountOfResults = result.results
-
-        const returnData = result.items.filter((item) => {
-          if (typeof item !== 'undefined') {
-            return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
+      this.$store
+        .dispatch('ytSearch', payload)
+        .then((result) => {
+          console.log(result)
+          if (!result) {
+            return
           }
 
-          return null
-        })
+          this.apiUsed = 'local'
 
-        const returnDataInvidious = []
-        returnData.forEach((video) => {
-          if (video.type === 'video') {
-            const authId = video.author.channelID
-            const publishDate = video.uploadedAt
-            let videoDuration = video.duration
-            const videoId = video.id
-            if (video.duration !== null && video.duration !== '') {
-              videoDuration = ytTrendScraper.calculate_length_in_seconds(video.duration)
+          this.amountOfResults = result.results
+
+          const returnData = result.items.filter((item) => {
+            if (typeof item !== 'undefined') {
+              return (
+                item.type === 'video' ||
+                item.type === 'channel' ||
+                item.type === 'playlist'
+              )
             }
-            returnDataInvidious.push(
-              {
+
+            return null
+          })
+
+          const returnDataInvidious = []
+          returnData.forEach((video) => {
+            if (video.type === 'video') {
+              const authId = video.author.channelID
+              const publishDate = video.uploadedAt
+              let videoDuration = video.duration
+              const videoId = video.id
+              if (video.duration !== null && video.duration !== '') {
+                videoDuration = ytTrendScraper.calculate_length_in_seconds(
+                  video.duration
+                )
+              }
+              returnDataInvidious.push({
                 videoId: videoId,
                 title: video.title,
                 type: 'video',
                 author: video.author.name,
+                verified: video.author.verified ?? false,
                 authorId: authId,
                 authorUrl: video.author.url,
                 videoThumbnails: video.thumbnail,
@@ -165,50 +176,50 @@ export default Vue.extend({
                 premium: false,
                 isUpcoming: false,
                 timeText: video.duration
-              }
-            )
-          } else {
-            returnDataInvidious.push(video)
-          }
-        })
-
-        if (payload.nextPage) {
-          this.shownResults = this.shownResults.concat(returnDataInvidious)
-        } else {
-          this.shownResults = returnDataInvidious
-        }
-
-        this.nextPageRef = result.continuation
-        this.isLoading = false
-
-        const historyPayload = {
-          query: payload.query,
-          data: this.shownResults,
-          searchSettings: this.searchSettings,
-          nextPageRef: result.continuation,
-          amountOfResults: result.results
-        }
-
-        this.$store.commit('addToSessionSearchHistory', historyPayload)
-      }).catch((err) => {
-        console.log(err)
-        const errorMessage = this.$t('Local API Error (Click to copy)')
-        this.showToast({
-          message: `${errorMessage}: ${err}`,
-          time: 10000,
-          action: () => {
-            navigator.clipboard.writeText(err)
-          }
-        })
-        if (this.backendPreference === 'local' && this.backendFallback) {
-          this.showToast({
-            message: this.$t('Falling back to Invidious API')
+              })
+            } else {
+              returnDataInvidious.push(video)
+            }
           })
-          this.performSearchInvidious(payload)
-        } else {
+
+          if (payload.nextPage) {
+            this.shownResults = this.shownResults.concat(returnDataInvidious)
+          } else {
+            this.shownResults = returnDataInvidious
+          }
+
+          this.nextPageRef = result.continuation
           this.isLoading = false
-        }
-      })
+
+          const historyPayload = {
+            query: payload.query,
+            data: this.shownResults,
+            searchSettings: this.searchSettings,
+            nextPageRef: result.continuation,
+            amountOfResults: result.results
+          }
+
+          this.$store.commit('addToSessionSearchHistory', historyPayload)
+        })
+        .catch((err) => {
+          console.log(err)
+          const errorMessage = this.$t('Local API Error (Click to copy)')
+          this.showToast({
+            message: `${errorMessage}: ${err}`,
+            time: 10000,
+            action: () => {
+              navigator.clipboard.writeText(err)
+            }
+          })
+          if (this.backendPreference === 'local' && this.backendFallback) {
+            this.showToast({
+              message: this.$t('Falling back to Invidious API')
+            })
+            this.performSearchInvidious(payload)
+          } else {
+            this.isLoading = false
+          }
+        })
     },
 
     performSearchInvidious: function (payload) {
@@ -230,58 +241,65 @@ export default Vue.extend({
         }
       }
 
-      this.$store.dispatch('invidiousAPICall', searchPayload).then((result) => {
-        if (!result) {
-          return
-        }
+      this.$store
+        .dispatch('invidiousAPICall', searchPayload)
+        .then((result) => {
+          if (!result) {
+            return
+          }
 
-        this.apiUsed = 'invidious'
+          this.apiUsed = 'invidious'
 
-        console.log(result)
+          console.log(result)
 
-        const returnData = result.filter((item) => {
-          return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
+          const returnData = result.filter((item) => {
+            return (
+              item.type === 'video' ||
+              item.type === 'channel' ||
+              item.type === 'playlist'
+            )
+          })
+
+          console.log(returnData)
+
+          if (this.searchPage !== 1) {
+            this.shownResults = this.shownResults.concat(returnData)
+          } else {
+            this.shownResults = returnData
+          }
+
+          this.searchPage++
+          this.isLoading = false
+
+          const historyPayload = {
+            query: payload.query,
+            data: this.shownResults,
+            searchSettings: this.searchSettings,
+            searchPage: this.searchPage
+          }
+
+          this.$store.commit('addToSessionSearchHistory', historyPayload)
         })
-
-        console.log(returnData)
-
-        if (this.searchPage !== 1) {
-          this.shownResults = this.shownResults.concat(returnData)
-        } else {
-          this.shownResults = returnData
-        }
-
-        this.searchPage++
-        this.isLoading = false
-
-        const historyPayload = {
-          query: payload.query,
-          data: this.shownResults,
-          searchSettings: this.searchSettings,
-          searchPage: this.searchPage
-        }
-
-        this.$store.commit('addToSessionSearchHistory', historyPayload)
-      }).catch((err) => {
-        console.log(err)
-        const errorMessage = this.$t('Invidious API Error (Click to copy)')
-        this.showToast({
-          message: `${errorMessage}: ${err}`,
-          time: 10000,
-          action: () => {
-            navigator.clipboard.writeText(err)
+        .catch((err) => {
+          console.log(err)
+          const errorMessage = this.$t('Invidious API Error (Click to copy)')
+          this.showToast({
+            message: `${errorMessage}: ${err}`,
+            time: 10000,
+            action: () => {
+              navigator.clipboard.writeText(err)
+            }
+          })
+          if (this.backendPreference === 'invidious' && this.backendFallback) {
+            this.showToast({
+              message: this.$t('Falling back to Local API')
+            })
+            this.performSearchLocal(payload)
+          } else {
+            this.isLoading = false
+            // TODO: Show toast with error message
           }
         })
-        if (this.backendPreference === 'invidious' && this.backendFallback) {
-          this.showToast({
-            message: this.$t('Falling back to Local API')
-          })
-          this.performSearchLocal(payload)
-        } else {
-          this.isLoading = false
-          // TODO: Show toast with error message
-        }
-      })
     },
 
     nextPage: function () {
@@ -299,7 +317,9 @@ export default Vue.extend({
       if (this.apiUsed === 'local') {
         if (this.amountOfResults <= this.shownResults.length) {
           this.showToast({
-            message: this.$t('Search Filters.There are no more results for this search')
+            message: this.$t(
+              'Search Filters.There are no more results for this search'
+            )
           })
         } else {
           this.showToast({
@@ -321,19 +341,17 @@ export default Vue.extend({
       this.searchSettings = history.searchSettings
       this.amountOfResults = history.amountOfResults
 
-      if (typeof (history.nextPageRef) !== 'undefined') {
+      if (typeof history.nextPageRef !== 'undefined') {
         this.nextPageRef = history.nextPageRef
       }
 
-      if (typeof (history.searchPage) !== 'undefined') {
+      if (typeof history.searchPage !== 'undefined') {
         this.searchPage = history.searchPage
       }
 
       this.isLoading = false
     },
 
-    ...mapActions([
-      'showToast'
-    ])
+    ...mapActions(['showToast'])
   }
 })
