@@ -304,10 +304,6 @@ export default Vue.extend({
     },
 
     getChannelVideosLocalRSS: function (channel, failedAttempts = 0) {
-      let verified = false
-      ytch.getChannelInfo(channel.id, 'latest').then((response) => {
-        verified = response.isVerified
-      })
       return new Promise((resolve, reject) => {
         const parser = new Parser()
         const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channel.id}`
@@ -318,7 +314,7 @@ export default Vue.extend({
             const items = await Promise.all(
               feed.items.map((video) => {
                 video.authorId = channel.id
-                video.verified = verified
+                video.verified = false
                 video.videoId = video.id.replace('yt:video:', '')
                 video.type = 'video'
                 video.lengthSeconds = '0:00'
