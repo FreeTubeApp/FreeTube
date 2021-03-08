@@ -30,6 +30,7 @@ export default Vue.extend({
       id: '',
       title: '',
       channelName: '',
+      verified: '',
       channelId: '',
       viewCount: 0,
       parsedViewCount: '',
@@ -317,19 +318,26 @@ export default Vue.extend({
 
       this.channelName = this.data.author
       this.channelId = this.data.authorId
+      this.verified = this.data.verified
       this.duration = this.calculateVideoDuration(this.data.lengthSeconds)
       this.description = this.data.description
       this.isLive = this.data.liveNow || this.data.lengthSeconds === 'undefined'
       this.isUpcoming = this.data.isUpcoming || this.data.premiere
       this.viewCount = this.data.viewCount
 
-      if (typeof (this.data.premiereTimestamp) !== 'undefined') {
-        this.publishedText = new Date(this.data.premiereTimestamp * 1000).toLocaleString()
+      if (typeof this.data.premiereTimestamp !== 'undefined') {
+        this.publishedText = new Date(
+          this.data.premiereTimestamp * 1000
+        ).toLocaleString()
       } else {
         this.publishedText = this.data.publishedText
       }
 
-      if (typeof (this.data.publishedText) !== 'undefined' && this.data.publishedText !== null && !this.isLive) {
+      if (
+        typeof this.data.publishedText !== 'undefined' &&
+        this.data.publishedText !== null &&
+        !this.isLive
+      ) {
         // produces a string according to the template in the locales string
         this.toLocalePublicationString({
           publishText: this.publishedText,
@@ -340,18 +348,25 @@ export default Vue.extend({
           isLive: this.isLive,
           isUpcoming: this.isUpcoming,
           isRSS: this.data.isRSS
-        }).then((data) => {
-          this.uploadedTime = data
-        }).catch((error) => {
-          console.error(error)
         })
+          .then((data) => {
+            this.uploadedTime = data
+          })
+          .catch((error) => {
+            console.error(error)
+          })
       }
 
       if (this.hideVideoViews) {
         this.hideViews = true
-      } else if (typeof (this.data.viewCount) !== 'undefined' && this.data.viewCount !== null) {
-        this.parsedViewCount = this.data.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-      } else if (typeof (this.data.viewCountText) !== 'undefined') {
+      } else if (
+        typeof this.data.viewCount !== 'undefined' &&
+        this.data.viewCount !== null
+      ) {
+        this.parsedViewCount = this.data.viewCount
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+      } else if (typeof this.data.viewCountText !== 'undefined') {
         this.parsedViewCount = this.data.viewCountText.replace(' views', '')
       } else {
         this.hideViews = true
@@ -382,6 +397,7 @@ export default Vue.extend({
         videoId: this.id,
         title: this.title,
         author: this.channelName,
+        verified: this.verified,
         authorId: this.channelId,
         published: '',
         description: this.description,
@@ -418,6 +434,7 @@ export default Vue.extend({
         videoId: this.id,
         title: this.title,
         author: this.channelName,
+        verified: this.verified,
         authorId: this.channelId,
         published: '',
         description: this.description,

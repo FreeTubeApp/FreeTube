@@ -2,20 +2,22 @@
   <div
     class="ft-list-video ft-list-item"
     :class="{
-      list: (listType === 'list' || forceListType === 'list') && forceListType !== 'grid',
-      grid: (listType === 'grid' || forceListType === 'list') && forceListType !== 'list',
+      list:
+        (listType === 'list' || forceListType === 'list') &&
+        forceListType !== 'grid',
+      grid:
+        (listType === 'grid' || forceListType === 'list') &&
+        forceListType !== 'list',
       [appearance]: true,
       watched: addWatchedStyle
     }"
   >
-    <div
-      class="videoThumbnail"
-    >
+    <div class="videoThumbnail">
       <router-link
         class="thumbnailLink"
         :to="{
           path: `/watch/${id}`,
-          query: playlistId ? {playlistId} : {}
+          query: playlistId ? { playlistId } : {}
         }"
       >
         <img
@@ -28,7 +30,7 @@
         class="videoDuration"
         :class="{ live: isLive }"
       >
-        {{ isLive ? $t("Video.Live") : duration }}
+        {{ isLive ? $t('Video.Live') : duration }}
       </div>
       <ft-icon-button
         v-if="!isLive"
@@ -44,12 +46,12 @@
         v-if="addWatchedStyle"
         class="videoWatched"
       >
-        {{ $t("Video.Watched") }}
+        {{ $t('Video.Watched') }}
       </div>
       <div
         v-if="watched"
         class="watchedProgressBar"
-        :style="{width: progressPercentage + '%'}"
+        :style="{ width: progressPercentage + '%' }"
       />
     </div>
     <div class="info">
@@ -68,22 +70,37 @@
         class="title"
         :to="{
           path: `/watch/${id}`,
-          query: playlistId ? {playlistId} : {}
+          query: playlistId ? { playlistId } : {}
         }"
       >
         {{ title }}
       </router-link>
       <div class="infoLine">
         <router-link
+          v-if="verified"
           class="channelName"
           :to="`/channel/${channelId}`"
         >
-          <span>{{ channelName }}</span>
+          <span>
+            {{ channelName }}
+            <font-awesome-icon icon="check-circle" />
+          </span>
+        </router-link>
+        <router-link
+          v-else
+          class="channelName"
+          :to="`/channel/${channelId}`"
+        >
+          <span>
+            {{ channelName }}
+          </span>
         </router-link>
         <template v-if="!isLive && !isUpcoming && !hideViews">
           <span class="viewCount">• {{ parsedViewCount }}</span>
-          <span v-if="viewCount === 1">{{ $t("Video.View").toLowerCase() }}</span>
-          <span v-else>{{ $t("Video.Views").toLowerCase() }}</span>
+          <span v-if="viewCount === 1">{{
+            $t('Video.View').toLowerCase()
+          }}</span>
+          <span v-else>{{ $t('Video.Views').toLowerCase() }}</span>
         </template>
         <span
           v-if="uploadedTime !== '' && !isLive && !inHistory"
@@ -96,7 +113,8 @@
         <span
           v-if="isLive && !hideViews"
           class="viewCount"
-        >• {{ parsedViewCount }} {{ $t("Video.Watching").toLowerCase() }}</span>
+        >• {{ parsedViewCount }}
+          {{ $t('Video.Watching').toLowerCase() }}</span>
       </div>
       <p
         v-if="listType !== 'grid' && appearance === 'result'"
