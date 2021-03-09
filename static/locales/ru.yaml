@@ -186,6 +186,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Playlist Next Video Interval: Задержка перед автовоспроизведением
   Subscription Settings:
     Subscription Settings: 'Настройки подписки'
     Hide Videos on Watch: 'Скрыть видео после просмотра'
@@ -290,7 +291,7 @@ Settings:
     Hide Video Likes And Dislikes: Скрыть лайки и дизлайки к видео
     Hide Video Views: Скрыть просмотры видео
     Hide Active Subscriptions: Скрыть активные подписки
-    Hide Playlists: Спрятать плейлисты
+    Hide Playlists: Скрыть плейлисты
   The app needs to restart for changes to take effect. Restart and apply change?: Чтобы
     изменения вступили в силу, необходимо перезапустить приложение. Перезапустить
     и применить изменения?
@@ -571,8 +572,8 @@ Loop is now disabled: 'Цикл теперь отключён'
 Loop is now enabled: 'Цикл теперь включён'
 Shuffle is now disabled: 'Перемешивание теперь отключено'
 Shuffle is now enabled: 'Перемешивание теперь включено'
-Playing Next Video: 'Воспроизвести следующее видео'
-Playing Previous Video: 'Воспроизвести предыдущее видео'
+Playing Next Video: 'Воспроизведение следующего видео'
+Playing Previous Video: 'Воспроизведение предыдущего видео'
 Playing next video in 5 seconds.  Click to cancel: 'Воспроизведение следующего видео
   через 5 секунд. Нажмите, чтобы отменить.'
 Canceled next video autoplay: 'Отменено автовоспроизведение следующего видео'
@@ -667,3 +668,7 @@ Tooltips:
       Помогает, когда видео, возвращенные Invidious, не воспроизводятся из-за ограничений
       страны
 More: Больше
+Playing Next Video Interval: Воспроизведение следующего видео без задержки. Нажмите
+  для отмены. | Воспроизведение следующего видео через {nextVideoInterval} сек. Нажмите
+  для отмены. | Воспроизведение следующего видео через {nextVideoInterval} сек. Нажмите
+  для отмены.
