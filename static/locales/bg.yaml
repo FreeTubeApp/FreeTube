@@ -30,10 +30,10 @@ Close: 'Затваряне'
 Back: 'Назад'
 Forward: 'Напред'
 
-Version $ is now available!  Click for more details: 'Версия $ е вече налична! Щракнете
+Version $ is now available!  Click for more details: 'Версия $ е вече налична! Кликнете
   за повече детайли'
 Download From Site: 'Сваляне от сайта'
-A new blog is now available, $. Click to view more: 'Нова публикация в блога, $. Щракнете
+A new blog is now available, $. Click to view more: 'Нова публикация в блога, $. Кликнете
   за преглед'
 
 # Search Bar
@@ -90,7 +90,7 @@ Playlists: 'Плейлисти'
 User Playlists:
   Your Playlists: 'Вашите плейлисти'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Няма
-    запазени видеоклипове. За запазване щракнете в ъгъла на видеоклипа
+    запазени видеоклипове. За запазване кликнете в ъгъла на видеоклипа
   Playlist Message: Тази страница не отразява напълно работещи плейлисти. В него са
     изброени само видеоклипове, които сте запазили или избрали за любими. Когато работата
     приключи, всички видеоклипове, които в момента са тук, ще бъдат мигрирани в плейлист
@@ -305,7 +305,7 @@ Settings:
     Ip: Ip
     Your Info: Вашата информация
     Test Proxy: Тестване на прокси
-    Clicking on Test Proxy will send a request to: Щракването върху "Тестване на прокси"
+    Clicking on Test Proxy will send a request to: Кликването върху "Тестване на прокси"
       ще изпрати заявка до
     Proxy Port Number: Номер на прокси порта
     Proxy Host: Прокси хост
@@ -583,7 +583,7 @@ Share:
 Mini Player: 'Мини плейър'
 Comments:
   Comments: 'Коментари'
-  Click to View Comments: 'Щракнете, за да видите коментарите'
+  Click to View Comments: 'Кликнете, за да видите коментарите'
   Getting comment replies, please wait: 'Получаване на отговори на коментара, моля
     изчакайте'
   There are no more comments for this video: 'Към това видео няма повече коментари'
@@ -603,8 +603,8 @@ Comments:
 Up Next: 'Следващ'
 
 # Toast Messages
-Local API Error (Click to copy): 'Грешка в локалния интерфейс (щракнете за копиране)'
-Invidious API Error (Click to copy): 'Грешка в Invidious интерфейса (щракнете за копиране)'
+Local API Error (Click to copy): 'Грешка в локалния интерфейс (кликни за копиране)'
+Invidious API Error (Click to copy): 'Грешка в Invidious интерфейса (кликнете за копиране)'
 Falling back to Invidious API: 'Връщане към Invidious интерфейса'
 Falling back to the local API: 'Връщане към локалния интерфейс'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Видеото
@@ -658,6 +658,6 @@ Tooltips:
       Локалният интерфейс има вградено извличане. Invidious интерфейсът изисква Invidious
       сървър, към който да се свърже.
 More: Още
-Playing Next Video Interval: Пускане на следващото видео веднага. Щракнете за отказ.
-  | Пускане на следващото видео след {nextVideoInterval} секунда. Щракнете за отказl.
-  | Пускане на следващото видео след {nextVideoInterval} секунди. Щракнете за отказ.
+Playing Next Video Interval: Пускане на следващото видео веднага. Кликнете за отказ.
+  | Пускане на следващото видео след {nextVideoInterval} секунда. Кликнете за отказl.
+  | Пускане на следващото видео след {nextVideoInterval} секунди. Кликнете за отказ.
