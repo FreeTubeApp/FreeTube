@@ -7,22 +7,34 @@
       <font-awesome-icon
         class="menuIcon navIcon"
         icon="bars"
+        role="button"
+        tabindex="0"
         @click="toggleSideNav"
+        @keypress="toggleSideNav"
       />
       <font-awesome-icon
         class="navBackIcon navIcon"
         icon="arrow-left"
+        role="button"
+        tabindex="0"
         @click="historyBack"
+        @keypress="historyBack"
       />
       <font-awesome-icon
         class="navForwardIcon navIcon"
         icon="arrow-right"
+        role="button"
+        tabindex="0"
         @click="historyForward"
+        @keypress="historyForward"
       />
       <font-awesome-icon
         class="navSearchIcon navIcon"
         icon="search"
+        role="button"
+        tabindex="0"
         @click="toggleSearchContainer"
+        @keypress="toggleSearchContainer"
       />
       <div class="logo">
         <div
@@ -46,7 +58,10 @@
         <font-awesome-icon
           class="navFilterIcon navIcon"
           icon="filter"
+          role="button"
+          tabindex="0"
           @click="showFilters = !showFilters"
+          @keypress="showFilters = !showFilters"
         />
       </div>
       <ft-search-filters
