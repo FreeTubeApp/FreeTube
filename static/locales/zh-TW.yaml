@@ -422,7 +422,7 @@ Video:
     Minute: 分鐘
   Published on: '發布於'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ %前'
+  Publicationtemplate: '$ % 前'
 #& Videos
   Video has been removed from your history: 影片已從您的歷史紀錄中移除
   Video has been marked as watched: 影片標記為已觀看
