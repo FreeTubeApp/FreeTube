@@ -126,6 +126,7 @@ Settings:
       (기본설정은 https://invidious.snopyta.org)'
     Region for Trending: '트렌드 국가'
         #! List countries
+    View all Invidious instance information: Indivious 서버의 전체 목록 보기
   Theme Settings:
     Theme Settings: '테마 설정'
     Match Top Bar with Main Color: '상단바를 메인컬러와 동기화'
