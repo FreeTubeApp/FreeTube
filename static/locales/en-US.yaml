@@ -170,6 +170,7 @@ Settings:
     Proxy Videos Through Invidious: Proxy Videos Through Invidious
     Autoplay Playlists: Autoplay Playlists
     Enable Theatre Mode by Default: Theatre Mode by Default
+    Playlist Next Video Interval: Interval for Next in Playlist
     Default Volume: Default Volume
     Default Playback Rate: Default Playback Rate
     Default Video Format:
@@ -210,9 +211,9 @@ Settings:
   Distraction Free Settings:
     Distraction Free Settings: Distraction-Free Settings
     Hide Video Views: Hide Video Views
-    Hide Video Likes And Dislikes: Hide Video 👍 / 👎
+    Hide Video Likes And Dislikes: No 👍 / 👎 for videos
     Hide Channel Subscribers: Hide Channel Subscribers
-    Hide Comment Likes: Hide Comment 👍 / 👎
+    Hide Comment Likes: No 👍 / 👎 for comments
     Hide Recommended Videos: Hide Recommended Videos
     Hide Trending Videos: Hide Trending Videos
     Hide Popular Videos: Hide Popular Videos
@@ -374,7 +375,7 @@ Video:
   Mark As Watched: Mark As Watched
   Remove From History: Remove From History
   Video has been marked as watched: Video marked as watched
-  Video has been removed from your history: Videoremoved from your history
+  Video has been removed from your history: Video removed from your history
   Save Video: Save Video
   Video has been saved: Video saved
   Video has been removed from your saved list: Video removed from your saved list
@@ -512,7 +513,7 @@ Comments:
   Comments: Comments
   Click to View Comments: Click to View Comments
   Getting comment replies, please wait: Getting comment replies, please wait
-  There are no more comments for this video: No comments for this video
+  There are no more comments for this video: No more comments for this video
   Show Comments: Show Comments
   Hide Comments: Hide Comments
   Sort by: Sort by
@@ -523,7 +524,7 @@ Comments:
   Hide: Hide
   Replies: Replies
   Reply: Reply
-  There are no comments available for this video: No comments for this video
+  There are no comments available for this video: No comments available for this video
   Load More Comments: Load More
   No more comments available: No more comments available
 Up Next: Up Next
@@ -540,7 +541,7 @@ Tooltips:
     Thumbnail Preference: All thumbnails throughout FreeTube will be replaced with
   a frame of the video instead of the default thumbnail.
     Invidious Instance: Invidious instance FreeTube connects to for API
-  calls. Clear the current selection see a list of public instances to choose
+  calls. Clear the current selection to see a list of public instances to choose
   from.
     Region for Trending: The region of trends allows you to pick which country\'s trending
   videos you want to have displayed. Not all countries displayed are actually
