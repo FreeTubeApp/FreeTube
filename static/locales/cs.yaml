@@ -192,6 +192,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Playlist Next Video Interval: Interval pro další video na playlistu
   Privacy Settings:
     Privacy Settings: 'Nastavení soukromí'
     Remember History: 'Zapamatovat historii'
@@ -223,6 +224,7 @@ Settings:
     Hide Popular Videos: 'Skrýt populární videa'
     Hide Live Chat: 'Skrýt chat'
     Hide Active Subscriptions: Skrýt aktivní odběry
+    Hide Playlists: Skrýt playlist
   Data Settings:
     Data Settings: 'Nastavení dat'
     Select Import Type: 'Vybrat typ importu'
@@ -399,6 +401,7 @@ Profile:
     chcete odstranit vybrané kanály?  Tím nebude kanál odstraněn z žádného jiného
     profilu.'
 #On Channel Page
+  Profile Filter: Filtr profilu
 Channel:
   Subscriber: 'Odběratel'
   Subscribers: 'Odběratelé'
@@ -650,3 +653,7 @@ Canceled next video autoplay: 'Automatické přehrávání dalšího videa bylo 
 
 Yes: 'Ano'
 No: 'Ne'
+Playing Next Video Interval: Přehrávání dalšího videa bez prodlevy Kliknutím zrušíte.
+  | Přehrávání dalšího videa za {nextVideoInterval} s. Kliknutím zrušíte. | Přehrávání
+  dalšího videa za {nextVideoInterval} s. Kliknutím zrušíte.
+More: Více

@@ -18,7 +18,7 @@ const whiteListedModules = ['vue']
 const config = {
   name: 'renderer',
   mode: process.env.NODE_ENV,
-  devtool: isDevMode ? '#cheap-module-eval-source-map' : false,
+  devtool: isDevMode ? 'eval-cheap-module-source-map' : false,
   entry: {
     renderer: path.join(__dirname, '../src/renderer/main.js'),
   },
@@ -37,7 +37,7 @@ const config = {
       },
       {
         test: /\.node$/,
-        use: 'node-loader',
+        loader: 'node-loader',
       },
       {
         test: /\.vue$/,
@@ -102,6 +102,7 @@ const config = {
   node: {
     __dirname: isDevMode,
     __filename: isDevMode,
+    global: isDevMode,
   },
   plugins: [
     // new WriteFilePlugin(),

@@ -6,15 +6,17 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubble.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
 import FtPrompt from '../../components/ft-prompt/ft-prompt.vue'
+import FtSelect from '../ft-select/ft-select.vue'
 
 export default Vue.extend({
-  name: 'FtProfileAllChannelsList',
+  name: 'FtProfileFilterChannelsList',
   components: {
     'ft-card': FtCard,
     'ft-flex-box': FtFlexBox,
     'ft-channel-bubble': FtChannelBubble,
     'ft-button': FtButton,
-    'ft-prompt': FtPrompt
+    'ft-prompt': FtPrompt,
+    'ft-select': FtSelect
   },
   props: {
     profile: {
@@ -25,7 +27,8 @@ export default Vue.extend({
   data: function () {
     return {
       channels: [],
-      selectedLength: 0
+      selectedLength: 0,
+      filteredProfileIndex: 0
     }
   },
   computed: {
@@ -38,44 +41,21 @@ export default Vue.extend({
     profileList: function () {
       return this.$store.getters.getProfileList
     },
+    profileNameList: function () {
+      return this.profileList.flatMap((profile) => profile.name !== this.profile.name ? [profile.name] : [])
+    },
     selectedText: function () {
       const localeText = this.$t('Profile.$ selected')
       return localeText.replace('$', this.selectedLength)
-    },
-    primaryProfile: function () {
-      return JSON.parse(JSON.stringify(this.profileList[0]))
     }
   },
   watch: {
-    profile: function () {
-      this.channels = JSON.parse(JSON.stringify(this.primaryProfile.subscriptions)).sort((a, b) => {
-        const nameA = a.name.toLowerCase()
-        const nameB = b.name.toLowerCase()
-        if (nameA < nameB) {
-          return -1
-        }
-        if (nameA > nameB) {
-          return 1
-        }
-        return 0
-      }).filter((channel) => {
-        const index = this.profile.subscriptions.findIndex((sub) => {
-          return sub.id === channel.id
-        })
-
-        return index === -1
-      }).map((channel) => {
-        if (this.backendPreference === 'invidious') {
-          channel.thumbnail = channel.thumbnail.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`)
-        }
-        channel.selected = false
-        return channel
-      })
-    }
+    profile: 'updateChannelList',
+    filteredProfileIndex: 'updateChannelList'
   },
   mounted: function () {
     if (typeof this.profile.subscriptions !== 'undefined') {
-      this.channels = JSON.parse(JSON.stringify(this.profileList[0].subscriptions)).sort((a, b) => {
+      this.channels = JSON.parse(JSON.stringify(this.profileList[this.filteredProfileIndex].subscriptions)).sort((a, b) => {
         const nameA = a.name.toLowerCase()
         const nameB = b.name.toLowerCase()
         if (nameA < nameB) {
@@ -101,11 +81,41 @@ export default Vue.extend({
     }
   },
   methods: {
+    updateChannelList () {
+      this.channels = JSON.parse(JSON.stringify(this.profileList[this.filteredProfileIndex].subscriptions)).sort((a, b) => {
+        const nameA = a.name.toLowerCase()
+        const nameB = b.name.toLowerCase()
+        if (nameA < nameB) {
+          return -1
+        }
+        if (nameA > nameB) {
+          return 1
+        }
+        return 0
+      }).filter((channel) => {
+        const index = this.profile.subscriptions.findIndex((sub) => {
+          return sub.id === channel.id
+        })
+
+        return index === -1
+      }).map((channel) => {
+        if (this.backendPreference === 'invidious') {
+          channel.thumbnail = channel.thumbnail.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`)
+        }
+        channel.selected = false
+        return channel
+      })
+    },
+
     handleChannelClick: function (index) {
       this.channels[index].selected = !this.channels[index].selected
       this.selectedLength = this.channels.filter((channel) => {
         return channel.selected
       }).length
+    },
+
+    handleProfileFilterChange: function (change) {
+      this.filteredProfileIndex = this.profileList.findIndex(profile => profile.name === change)
     },
 
     addChannelToProfile: function () {

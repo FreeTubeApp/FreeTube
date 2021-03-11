@@ -41,7 +41,7 @@ jobs:
       with:
         path: 'package.json'
         follow-symlinks: false
-        
+
     - name: Set Version Number Variable
       id: versionNumber
       uses: actions/github-script@v3
@@ -58,13 +58,13 @@ jobs:
            return "${{env.VERSION_NUMBER }}"
           }
         # script: if ${{ env.IS_DEV }} then echo "::set-output name=VERSION_NUMBER::${{ env.VERSION_NUMBER_NIGHTLY }}" else echo "::set-output name=VERSION_NUMBER::${{ env.VERSION_NUMBER }}" fi
-    
+
     - name: Update package.json version
       uses: jossef/action-set-json-field@v1
       with:
         file: package.json
         field: version
-        value: ${{ steps.versionNumber.outputs.result }} 
+        value: ${{ steps.versionNumber.outputs.result }}
 
 
     - name: Install libarchive-tools
@@ -77,7 +77,7 @@ jobs:
 
     - name: Build ARM64 with Node.js ${{ matrix.node-version}}
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
-      run: npm run build:arm --if-present
+      run: npm run build:arm64 --if-present
 
     - name: Upload Linux .zip x64 Artifact
       uses: actions/upload-artifact@v2
@@ -133,7 +133,7 @@ jobs:
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
       with:
         name: freetube_${{ steps.versionNumber.outputs.result }}_arm64.rpm
-        path: build/freetube-${{ steps.versionNumber.outputs.result }}.arm64.rpm
+        path: build/freetube-${{ steps.versionNumber.outputs.result }}.aarch64.rpm
 
     - name: Upload Alpine .apk x64 Artifact
       uses: actions/upload-artifact@v2
@@ -156,12 +156,12 @@ jobs:
         name: freetube_${{ steps.versionNumber.outputs.result }}_amd64.pacman
         path: build/freetube-${{ steps.versionNumber.outputs.result }}.pacman
 
-    - name: Upload Web Build
-      uses: actions/upload-artifact@v2
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
-      with:
-        name: freetube_${{ steps.versionNumber.outputs.result }}_static_web
-        path: dist/web
+    # - name: Upload Web Build
+      # uses: actions/upload-artifact@v2
+      # if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
+      # with:
+        # name: freetube_${{ steps.versionNumber.outputs.result }}_static_web
+        # path: dist/web
 
     - name: Upload Windows .exe Artifact
       uses: actions/upload-artifact@v2

@@ -185,6 +185,7 @@ Settings:
       1440p: '1440 p'
       4k: '4 k'
       8k: '8 k'
+    Playlist Next Video Interval: Interval sljedećeg videa zbirke
   Privacy Settings:
     Privacy Settings: 'Postavke privatnosti'
     Remember History: 'Zapamti povijest'
@@ -287,6 +288,7 @@ Settings:
     Hide Video Views: Sakrij broj gledanja videa
     Distraction Free Settings: Postavke za nesmetan rad
     Hide Active Subscriptions: Sakrij aktivne pretplate
+    Hide Playlists: Sakrij zbirke
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene
     će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
@@ -410,6 +412,7 @@ Profile:
   $ selected: $ je odabran
   Other Channels: Ostali kanali
   Subscription List: Popis pretplata
+  Profile Filter: Filtar profila
 Channel:
   Subscriber: 'Pretplatnik'
   Subscribers: 'Pretplatnici'
@@ -660,3 +663,7 @@ Tooltips:
       standardne metode za dohvaćanje podataka tvoje pretplate. RSS je brži i sprečava
       blokiranje IP adresa, ali ne pruža određene podatke kao što su trajanje videa
       ili stanja „uživo”
+Playing Next Video Interval: Trenutna reprodukcija sljedećeg videa. Pritisni za prekid.
+  | Reprodukcija sljedećeg videa za {nextVideoInterval} sekunde. Pritisni za prekid.
+  | Reprodukcija sljedećeg videa za {nextVideoInterval} sekundi. Pritisni za prekid.
+More: Još

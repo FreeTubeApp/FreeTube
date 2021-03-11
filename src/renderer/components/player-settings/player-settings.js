@@ -62,6 +62,10 @@ export default Vue.extend({
       return this.$store.getters.getProxyVideos
     },
 
+    defaultInterval: function () {
+      return parseInt(this.$store.getters.getDefaultInterval)
+    },
+
     defaultVolume: function () {
       return parseFloat(this.$store.getters.getDefaultVolume) * 100
     },
@@ -119,6 +123,7 @@ export default Vue.extend({
       'updateForceLocalBackendForLegacy',
       'updateProxyVideos',
       'updateDefaultTheatreMode',
+      'updateDefaultInterval',
       'updateDefaultVolume',
       'updateDefaultPlayback',
       'updateDefaultVideoFormat',

@@ -14,83 +14,100 @@ Redo: 'फिर से करें'
 Cut: 'कट'
 Copy: 'प्रतिलिपि'
 Paste: 'पेस्ट करें'
-Delete: ''
+Delete: 'निकाले'
 Select all: 'सबको चुनें'
-Reload: ''
-Force Reload: ''
-Toggle Developer Tools: ''
-Actual size: ''
-Zoom in: ''
-Zoom out: ''
-Toggle fullscreen: ''
-Window: ''
-Minimize: ''
-Close: ''
-Back: ''
-Forward: ''
+Reload: 'फिरसे लोड करे'
+Force Reload: 'फ़ोर्स से फिरसे लोड करे'
+Toggle Developer Tools: 'Developer tools टॉगल करे'
+Actual size: 'वास्तविक आकार'
+Zoom in: 'Zoom in'
+Zoom out: 'Zoom out'
+Toggle fullscreen: 'फ़ुलस्क्रीन टॉगल करे'
+Window: 'विंडो'
+Minimize: 'मिनिमाइज़ (Minimize) करे'
+Close: 'बंद करे'
+Back: 'पीछे'
+Forward: 'आगे'
 
-Version $ is now available!  Click for more details: ''
-Download From Site: ''
-A new blog is now available, $. Click to view more: ''
+Version $ is now available!  Click for more details: 'Version $ आ गया है! और details
+  के लिए इधर click करे।'
+Download From Site: 'साइट से डाउनलोड (download) करे'
+A new blog is now available, $. Click to view more: 'एक नया ब्लॉग है, $। और जानने
+  के लिए इधर click करिए'
 
 # Search Bar
-Search / Go to URL: ''
+Search / Go to URL: 'Search / URL पर जाए'
   # In Filter Button
 Search Filters:
-  Search Filters: ''
+  Search Filters: 'Search फ़िल्टर'
   Sort By:
-    Sort By: ''
-    Most Relevant: ''
-    Rating: ''
-    Upload Date: ''
-    View Count: ''
+    Sort By: 'सॉर्ट करे'
+    Most Relevant: 'सबसे प्रासंगिक'
+    Rating: 'रेटिंग'
+    Upload Date: 'अपलोड दिवस'
+    View Count: 'दृश्य गणना'
   Time:
-    Time: ''
-    Any Time: ''
-    Last Hour: ''
-    Today: ''
-    This Week: ''
-    This Month: ''
-    This Year: ''
+    Time: 'वक्त'
+    Any Time: 'किसी भी वक्त'
+    Last Hour: 'पिछले घंटे'
+    Today: 'आज'
+    This Week: 'इस हफ़्ते'
+    This Month: 'इस महीने'
+    This Year: 'इस साल'
   Type:
-    Type: ''
-    All Types: ''
-    Videos: ''
-    Channels: ''
+    Type: 'प्रकार'
+    All Types: 'सब प्रकार'
+    Videos: 'विडीयोज'
+    Channels: 'चैनले'
     #& Playlists
   Duration:
-    Duration: ''
-    All Durations: ''
-    Short (< 4 minutes): ''
-    Long (> 20 minutes): ''
+    Duration: 'अवधि'
+    All Durations: 'सब अवधि'
+    Short (< 4 minutes): 'छोटे (<४ मिनट)'
+    Long (> 20 minutes): 'बड़े (>२० मिनट)'
   # On Search Page
-  Search Results: ''
-  Fetching results. Please wait: ''
-  Fetch more results: ''
+  Search Results: 'खोजे परिणाम'
+  Fetching results. Please wait: 'परिणाम ला रहे है। कृपया प्रतीक्षा करे'
+  Fetch more results: 'ज़्यादा परिणाम लाए'
 # Sidebar
+  There are no more results for this search: इस सर्च के लिए और परिणाम नहो है।
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: ''
-  Latest Subscriptions: ''
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: ''
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
-  'Getting Subscriptions. Please wait.': ''
-  Refresh Subscriptions: ''
-  Load More Videos: ''
-Trending: ''
-Most Popular: ''
-Playlists: ''
+  Subscriptions: 'सब्सक्रिप्शन'
+  Latest Subscriptions: 'सबसे नए सब्सक्रिप्शन'
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 'यह
+    प्रोफ़ाइल (profile)के पास बहुत सारे सब्सक्रिप्शने है।  RSS को बल से रटे लिमिटिंग
+    (rate limiting) से बचाए'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'आपकेय
+    सब्सक्रिप्शन लिस्ट अब के लिए ख़ाली है। सब्सक्रिप्शन add करने से इधर देख सक्ते
+    है।'
+  'Getting Subscriptions. Please wait.': 'सब्सक्रिप्शने (subscriptions) ढूंड रहे है।
+    कृपया रुके।'
+  Refresh Subscriptions: 'सब्सक्रिप्शने Refresh करे'
+  Load More Videos: 'ज़्यादा विडीओए लोड करे'
+Trending: 'ट्रेनडिंग'
+Most Popular: 'सबसे ज़्यादा देखा हुआ'
+Playlists: 'प्लेलिस्टे (playlists)'
 User Playlists:
-  Your Playlists: ''
+  Your Playlists: 'आपके प्लेलिस्टे'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: आपके
+    पास बचाए गए वीडियोए नहीं हैं। एक वीडियो के कोने पर सेव बटन पर क्लिक (click) करें,
+    यहां लिस्ट पर वही आएगा
+  Playlist Message: यह पृष्ठ पूरी तरह से काम करने वाली प्लेलिस्ट को प्रतिबिंबित नहीं
+    करता है। यह केवल उन वीडियो को सूचीबद्ध करता है जिन्हें आपने सहेजा है या पसंदीदा
+    है। जब काम समाप्त हो जाता है, तो वर्तमान में यहां सभी वीडियो 'पसंदीदा' प्लेलिस्ट
+    में स्थानांतरित हो जाएंगे।
 History:
   # On History Page
-  History: ''
+  History: 'इतिहास'
   Watch History: ''
   Your history list is currently empty.: ''
 Settings:
   # On Settings Page
-  Settings: ''
-  The app needs to restart for changes to take effect. Restart and apply change?: ''
+  Settings: 'स्थापना'
+  The app needs to restart for changes to take effect. Restart and apply change?: 'ऐप
+    को प्रभावी होने वाले परिवर्तनों के लिए पुनः आरंभ करने की आवश्यकता है। Restart
+    और परिवर्तन लागू करें?'
   General Settings:
     General Settings: ''
     Check for Updates: ''
@@ -523,3 +540,4 @@ Canceled next video autoplay: ''
 
 Yes: ''
 No: ''
+More: ज़्यादा

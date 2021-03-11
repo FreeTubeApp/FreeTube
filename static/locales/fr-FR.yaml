@@ -191,6 +191,8 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Playlist Next Video Interval: Intervalle de la prochaine vidéo dans la liste de
+      lecture
   Subscription Settings:
     Subscription Settings: 'Paramètres des abonnements'
     Hide Videos on Watch: 'Masquer les vidéos visionnées'
@@ -298,6 +300,7 @@ Settings:
     Hide Recommended Videos: Masquer les vidéos recommandées
     Distraction Free Settings: Mode sans distraction
     Hide Active Subscriptions: Masquer les abonnements actifs
+    Hide Playlists: Masquer les listes de lecture
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
@@ -647,6 +650,7 @@ Profile:
   Select All: Tout sélectionner
   $ selected: $ sélectionné(s)
   Other Channels: Autres chaînes
+  Profile Filter: Filtre de profil
 The playlist has been reversed: La liste de lecture a été inversée
 A new blog is now available, $. Click to view more: Un nouveau billet est maintenant
   disponible, $. Cliquez pour en savoir plus
@@ -690,3 +694,8 @@ Tooltips:
     Region for Trending: Ceci vous permet de choisir les vidéos tendance du pays que
       vous souhaitez afficher. Attention, certains pays affichés ne sont pas pris
       en charge par YouTube
+More: Plus
+Playing Next Video Interval: Lecture de la prochaine vidéo en un rien de temps. Cliquez
+  pour annuler. | Lecture de la prochaine vidéo dans {nextVideoInterval} seconde.
+  Cliquer pour annuler. | Lecture de la vidéo suivante dans {l'intervalle vidéo suivant}
+  secondes. Cliquer pour annuler.

@@ -78,9 +78,10 @@ Subscriptions:
   Subscriptions: 'Abonnement'
   Latest Subscriptions: 'Siste abonnement'
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 'Denne
-    profilen har ei stor mengde abonnentar. Tvinger RSS til å unngå å avgrense hastigheita'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Abonnementlista
-    di er tom. Start å legge til fleire abonnement for å sjå dei her.'
+    profilen har ei stor mengd abonnentar. Tvinger RSS til å unngå å avgrense hastigheita'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Di
+    abonnementliste er tom for augeblikket. Start å legge til fleire abonnement for
+    å sjå dei her.'
   'Getting Subscriptions. Please wait.': 'Henter abonnement. Ver venleg og vent.'
   Refresh Subscriptions: 'Oppdater abonnement'
   Load More Videos: 'Last inn fleire videoar'
@@ -89,7 +90,10 @@ Most Popular: 'Mest populært'
 Playlists: 'Spelelister'
 User Playlists:
   Your Playlists: 'Dine spelelister'
-  Playlist Message: ''
+  Playlist Message: 'Denne sida reflekterer ikkje ei fullt fungerande speleliste.
+    Den viser berre videoar som du har lagra eller lagt til favorittar. Når arbeidet
+    er ferdig, blir alle videoane som for augeblikket er her overført til ei "favoritt"
+    speleliste.'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Du
     har ingen lagra videoar for augeblikket. Klikk på lagringsknappen i hjørnet av
     ein video slik at den bli oppført her'
@@ -109,7 +113,7 @@ Settings:
     Check for Latest Blog Posts: 'Sjå etter siste blogginnlegg'
     Fallback to Non-Preferred Backend on Failure: 'Tilbakefall til ikkje-føretrekte
       backend ved feil'
-    Enable Search Suggestions: 'Skru på søkeforslag'
+    Enable Search Suggestions: 'Slå på søkeforslag'
     Default Landing Page: 'Forvalt landingsside'
     Locale Preference: 'Språkinnstilling'
     Preferred API Backend:
@@ -135,10 +139,10 @@ Settings:
     Theme Settings: 'Temainnstillingar'
     Match Top Bar with Main Color: ''
     Expand Side Bar by Default: ''
-    Disable Smooth Scrolling: ''
-    UI Scale: ''
+    Disable Smooth Scrolling: 'Deaktiver jevn rulling'
+    UI Scale: 'Skalering av brukargrensesnitt'
     Base Theme:
-      Base Theme: ''
+      Base Theme: 'Hovudtema'
       Black: 'Svart'
       Dark: 'Mørk'
       Light: 'Lys'
@@ -165,18 +169,18 @@ Settings:
   Player Settings:
     Player Settings: 'Videospelarinnstillingar'
     Force Local Backend for Legacy Formats: ''
-    Play Next Video: 'Spel neste video'
-    Turn on Subtitles by Default: 'Slå på undertekst til vanleg'
-    Autoplay Videos: ''
+    Play Next Video: 'Spel av neste video'
+    Turn on Subtitles by Default: 'Slå på undertekst som standard'
+    Autoplay Videos: 'Spel av videoar automatisk'
     Proxy Videos Through Invidious: ''
-    Autoplay Playlists: ''
-    Enable Theatre Mode by Default: ''
+    Autoplay Playlists: 'Spel av spelelister automatisk'
+    Enable Theatre Mode by Default: 'Kinomodus som standardval'
     Default Volume: 'Standardvolum'
     Default Playback Rate: 'Standard avspelingsfrekvens'
     Default Video Format:
       Default Video Format: 'Standard videoformat'
-      Dash Formats: ''
-      Legacy Formats: ''
+      Dash Formats: 'DASH-format'
+      Legacy Formats: 'Eldre format'
       Audio Formats: 'Lydformat'
     Default Quality:
       Default Quality: 'Standardkvalitet'
@@ -194,9 +198,10 @@ Settings:
     Privacy Settings: 'Personvernsinnstillingar'
     Remember History: 'Husk historikk'
     Save Watched Progress: ''
-    Clear Search Cache: ''
-    Are you sure you want to clear out your search cache?: ''
-    Search cache has been cleared: ''
+    Clear Search Cache: 'Slett søkebuffer'
+    Are you sure you want to clear out your search cache?: 'Er du sikker på at du
+      vil slette søkebufferen?'
+    Search cache has been cleared: 'Søkebufferen har blitt sletta'
     Remove Watch History: 'Slett sjåarhistorikk'
     Are you sure you want to remove your entire watch history?: 'Er du sikker på at
       du vil fjerne heile sjåarhistorikken din?'
@@ -206,7 +211,7 @@ Settings:
   Subscription Settings:
     Subscription Settings: 'Abonnementinnstillingar'
     Hide Videos on Watch: ''
-    Fetch Feeds from RSS: ''
+    Fetch Feeds from RSS: 'Hent feedar frå RSS'
     Manage Subscriptions: 'Behandle abonnement'
   Distraction Free Settings:
     Distraction Free Settings: ''
@@ -217,7 +222,7 @@ Settings:
     Hide Recommended Videos: 'Gøym anbefalte videoar'
     Hide Trending Videos: ''
     Hide Popular Videos: 'Gøym populære videoar'
-    Hide Live Chat: ''
+    Hide Live Chat: 'Gøym direktechat'
     Hide Active Subscriptions: 'Gøym aktive abonnement'
   Data Settings:
     Data Settings: 'Datainnstillingar'
@@ -241,7 +246,7 @@ Settings:
     All subscriptions have been successfully imported: 'Alle abonnement har blitt
       importert'
     One or more subscriptions were unable to be imported: ''
-    Invalid subscriptions file: ''
+    Invalid subscriptions file: 'Ugyldig abonnementfil'
     This might take a while, please wait: 'Dette kan ta ei stund, venleg vent'
     Invalid history file: 'Ugyldig historiefil'
     Subscriptions have been successfully exported: 'Abonnement har blitt importert'
@@ -257,19 +262,21 @@ Settings:
     How do I import my subscriptions?: 'Korleis importerer eg abonnementa mine?'
     Manage Subscriptions: 'Behandle abonnement'
   Proxy Settings:
-    Proxy Settings: ''
-    Enable Tor / Proxy: ''
-    Proxy Protocol: ''
-    Proxy Host: ''
-    Proxy Port Number: ''
-    Clicking on Test Proxy will send a request to: ''
-    Test Proxy: ''
+    Proxy Settings: 'Proxyinnstillingar'
+    Enable Tor / Proxy: 'Aktiver Tor / Proxy'
+    Proxy Protocol: 'Proxyprotokoll'
+    Proxy Host: 'Proxyvert'
+    Proxy Port Number: 'Proxyportnummer'
+    Clicking on Test Proxy will send a request to: 'Klikk på testproxyen du vil sende
+      ein førespurnad til'
+    Test Proxy: 'Test proxy'
     Your Info: 'Din informasjon'
     Ip: 'IP-adresse'
     Country: 'Land'
     Region: 'Region'
     City: 'By'
-    Error getting network information. Is your proxy configured properly?: ''
+    Error getting network information. Is your proxy configured properly?: 'Kunne
+      ikkje hente nettverksinformasjon. Er proxyen din konfigurert skikkeleg?'
 About:
   #On About page
   About: 'Om'
@@ -278,22 +285,22 @@ About:
   Licensed under the AGPLv3: 'Lisensiert under AGPLv3'
   View License: 'Vis lisens'
   Downloads / Changelog: 'Nedlastingar / Endringslogg'
-  GitHub releases: ''
+  GitHub releases: 'GitHub-utgjevingar'
   Help: 'Hjelp'
-  FreeTube Wiki: ''
+  FreeTube Wiki: 'FreeTube-wiki'
   FAQ: 'Ofte stilte spørsmål'
   Report a problem: 'Rapporter eit problem'
-  GitHub issues: ''
+  GitHub issues: 'GitHub issues'
   Please check for duplicates before posting: 'Sjå etter duplikat før du poster noko'
   Website: 'Nettstad'
   Blog: 'Blogg'
   Email: 'E-post'
   Mastodon: 'Mastodon'
-  Chat on Matrix: ''
+  Chat on Matrix: 'Snakk med oss på Matrix'
   Please read the: 'Ver venleg og les'
   room rules: 'Romreglar'
   Translate: 'Omsetje'
-  Credits: ''
+  Credits: 'Bidrag'
   FreeTube is made possible by: 'FreeTube er mogleggjort av'
   these people and projects: 'desse folka og prosjekta'
   Donate: 'Doner'
@@ -342,27 +349,29 @@ Profile:
 #On Channel Page
 Channel:
   Subscriber: 'Abonnent'
-  Subscribers: ''
-  Subscribe: ''
-  Unsubscribe: ''
-  Channel has been removed from your subscriptions: ''
+  Subscribers: 'Abonnentar'
+  Subscribe: 'Abonner'
+  Unsubscribe: 'Opphev abonnement'
+  Channel has been removed from your subscriptions: 'Kanalen har blitt fjerna frå
+    dine abonnement'
   Removed subscription from $ other channel(s): ''
-  Added channel to your subscriptions: ''
-  Search Channel: ''
-  Your search results have returned 0 results: ''
-  Sort By: ''
+  Added channel to your subscriptions: 'Lagt til kanal til dine abonnentar'
+  Search Channel: 'Søk i kanal'
+  Your search results have returned 0 results: 'Søket gitt gav 0 resultat'
+  Sort By: 'Sorter etter'
   Videos:
-    Videos: ''
-    This channel does not currently have any videos: ''
+    Videos: 'Videoar'
+    This channel does not currently have any videos: 'Kanalen har ingen videoar enda'
     Sort Types:
       Newest: 'Nyaste'
       Oldest: 'Eldste'
       Most Popular: 'Mest populære'
   Playlists:
     Playlists: 'Spelelister'
-    This channel does not currently have any playlists: ''
+    This channel does not currently have any playlists: 'Denne kanalen har ingen spelelister
+      enda'
     Sort Types:
-      Last Video Added: ''
+      Last Video Added: 'Siste video lagt til'
       Newest: 'Nyaste'
       Oldest: 'Eldste'
   About:
@@ -377,7 +386,8 @@ Video:
     din'
   Save Video: 'Lagre video'
   Video has been saved: 'Videoen har blitt lagra'
-  Video has been removed from your saved list: ''
+  Video has been removed from your saved list: 'Videoen har blitt fjerna frå di liste
+    over lagra videoar'
   Open in YouTube: 'Opne i YouTube'
   Copy YouTube Link: 'Kopier YouTube-lenke'
   Open YouTube Embedded Player: ''
@@ -388,9 +398,9 @@ Video:
   Copy YouTube Channel Link: 'Kopier YouTube-kanallenke'
   Open Channel in Invidious: 'Opne kanal i Invidious'
   Copy Invidious Channel Link: 'Kopier Invidious-kanallenke'
-  View: ''
+  View: 'Vis'
   Views: 'Visingar'
-  Loop Playlist: ''
+  Loop Playlist: 'Gjenta speleliste'
   Shuffle Playlist: 'Spel av tilfeldig frå spelelista'
   Reverse Playlist: ''
   Play Next Video: 'Spel av neste video'
@@ -398,25 +408,28 @@ Video:
   # Context is "X People Watching"
   Watching: 'Ser på'
   Watched: 'Såg'
-  Autoplay: ''
+  Autoplay: 'Automatisk avspeling'
   Starting soon, please refresh the page to check again: 'Starter snart, venleg oppdater
     sida for å sjekke igjen'
   # As in a Live Video
   Live: 'Direkte'
   Live Now: 'Direkte no'
-  Live Chat: ''
-  Enable Live Chat: ''
-  Live Chat is currently not supported in this build.: ''
-  'Chat is disabled or the Live Stream has ended.': ''
-  Live chat is enabled.  Chat messages will appear here once sent.: ''
+  Live Chat: 'Direktechat'
+  Enable Live Chat: 'Slå på direktechat'
+  Live Chat is currently not supported in this build.: 'Direktechat er ikkje støtta
+    i den noverande versjonen.'
+  'Chat is disabled or the Live Stream has ended.': 'Chatten er slått av eller direktesendinga
+    er avslutta.'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'Direktechat er
+    slått på. Chatmeldingar vil bli vist her når dei er sendt.'
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
-  Download Video: ''
-  video only: ''
-  audio only: ''
+  Download Video: 'Last ned video'
+  video only: 'berre video'
+  audio only: 'berre lyd'
   Audio:
-    Low: ''
+    Low: 'Låg'
     Medium: 'Middels'
-    High: 'Høgt'
+    High: 'Høg'
     Best: 'Beste'
   Published:
     Jan: 'Jan'
@@ -446,7 +459,7 @@ Video:
     Year: 'År'
     Years: 'År'
     Ago: 'Sidan'
-    Upcoming: ''
+    Upcoming: 'Har premiere på'
   Published on: 'Publisert på'
   Streamed on: 'Strauma på'
   Started streaming on: 'Begynte å straume på'
@@ -465,14 +478,14 @@ Playlist:
   View Full Playlist: 'Vis heile spelelista'
   Videos: 'Videoar'
   View: ''
-  Views: ''
-  Last Updated On: ''
+  Views: 'Visingar'
+  Last Updated On: 'Sist oppdatert'
   Share Playlist:
-    Share Playlist: ''
-    Copy YouTube Link: ''
-    Open in YouTube: ''
-    Copy Invidious Link: ''
-    Open in Invidious: ''
+    Share Playlist: 'Del speleliste'
+    Copy YouTube Link: 'Kopier YouTube-lenke'
+    Open in YouTube: 'Opne i YouTube'
+    Copy Invidious Link: 'Kopier Invidious-lenke'
+    Open in Invidious: 'Opne i Invidious'
 
 # On Video Watch Page
 #* Published
@@ -480,10 +493,11 @@ Playlist:
 Toggle Theatre Mode: 'Veksle teatermodus'
 Change Format:
   Change Video Formats: 'Endre videoformat'
-  Use Dash Formats: ''
-  Use Legacy Formats: ''
+  Use Dash Formats: 'Bruk DASH-format'
+  Use Legacy Formats: 'Bruk gamle format'
   Use Audio Formats: 'Bruk lydformat'
-  Dash formats are not available for this video: ''
+  Dash formats are not available for this video: 'DASH-format er ikkje tilgjengeleg
+    for denne videoen'
   Audio formats are not available for this video: 'Lydformat er ikkje tilgjengeleg
     for denne videoen'
 Share:
@@ -495,18 +509,22 @@ Share:
   Open Embed: 'Opne innebygde versjon'
   # On Click
   Invidious URL copied to clipboard: 'Invidious-URL kopiert til utklippstavle'
-  Invidious Embed URL copied to clipboard: ''
-  Invidious Channel URL copied to clipboard: ''
-  YouTube URL copied to clipboard: 'YouTube-URL kopiert til utklippstavle'
-  YouTube Embed URL copied to clipboard: ''
-  YouTube Channel URL copied to clipboard: ''
+  Invidious Embed URL copied to clipboard: 'Innebygd Invidious-nettadresse kopiert
+    til utklippstavle'
+  Invidious Channel URL copied to clipboard: 'Invidious-kanalnettadresse kopiert til
+    utklippstavle'
+  YouTube URL copied to clipboard: 'YouTube-nettadresse kopiert til utklippstavle'
+  YouTube Embed URL copied to clipboard: 'Innebygd YouTube-nettadresse kopiert til
+    utklippstavle'
+  YouTube Channel URL copied to clipboard: 'YouTube-kanalnettadresse kopiert til utklippstavle'
 
 Mini Player: 'Minispelar'
 Comments:
   Comments: 'Kommentarar'
   Click to View Comments: 'Klikk for å sjå kommentarar'
-  Getting comment replies, please wait: ''
-  There are no more comments for this video: ''
+  Getting comment replies, please wait: 'Laster inn kommentarar, ver venleg og vent'
+  There are no more comments for this video: 'Det finst ingen fleire kommentarar for
+    denne videoen'
   Show Comments: 'Vis kommentarar'
   Hide Comments: 'Gøym kommentarar'
   Sort by: 'Sorter etter'
@@ -527,9 +545,14 @@ Up Next: 'Neste'
 Tooltips:
   General Settings:
     Preferred API Backend: ''
-    Fallback to Non-Preferred Backend on Failure: ''
-    Thumbnail Preference: ''
-    Invidious Instance: ''
+    Fallback to Non-Preferred Backend on Failure: 'Når ditt føretrekte API har eit
+      problem, vil FreeTube prøve å automatisk bruke ditt ikkje-føretrekte API som
+      ein tilbakefallingsmetode dersom det er aktivert'
+    Thumbnail Preference: 'Alle miniatyrbilete i FreeTube vil bli erstatta av eit
+      bilete av videoen i staden for standardminiatyrbiletet'
+    Invidious Instance: 'Invidious-førekomsten som FreeTube vil kople til for API-kall.
+      Fjern den gjeldene førekomsten for å sjå ei liste over offentlige førekomstar
+      å velje mellom'
     Region for Trending: ''
   Player Settings:
     Force Local Backend for Legacy Formats: ''

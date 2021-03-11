@@ -50,7 +50,7 @@ jobs:
 
     - name: Build ARM64 with Node.js ${{ matrix.node-version}}
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
-      run: npm run build:arm --if-present
+      run: npm run build:arm64 --if-present
 
     - name: Upload AppImage x64 Release
       uses: actions/upload-release-asset@v1
@@ -126,7 +126,7 @@ jobs:
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
         asset_name: freetube_${{ env.PACKAGE_VERSION }}_arm64.rpm
-        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}.arm64.rpm
+        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}.aarch64.rpm
         asset_content_type: application/x-rpm
 
     - name: Upload Windows .exe Release

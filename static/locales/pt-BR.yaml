@@ -663,3 +663,4 @@ Tooltips:
     Preferred API Backend: Escolha o backend que o FreeTube usa para obter os dados.
       A API local é um extrator integrado. A API Invidious requer um servidor Invidious
       para se conectar.
+More: Mais

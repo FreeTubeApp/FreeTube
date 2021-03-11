@@ -3,7 +3,7 @@ import { mapActions } from 'vuex'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtProfileEdit from '../../components/ft-profile-edit/ft-profile-edit.vue'
 import FtProfileChannelList from '../../components/ft-profile-channel-list/ft-profile-channel-list.vue'
-import FtProfileAllChannelsList from '../../components/ft-profile-all-channels-list/ft-profile-all-channels-list.vue'
+import FtProfileFilterChannelsList from '../../components/ft-profile-filter-channels-list/ft-profile-filter-channels-list.vue'
 
 export default Vue.extend({
   name: 'ProfileEdit',
@@ -11,7 +11,7 @@ export default Vue.extend({
     'ft-loader': FtLoader,
     'ft-profile-edit': FtProfileEdit,
     'ft-profile-channel-list': FtProfileChannelList,
-    'ft-profile-all-channels-list': FtProfileAllChannelsList
+    'ft-profile-filter-channels-list': FtProfileFilterChannelsList
   },
   data: function () {
     return {

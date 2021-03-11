@@ -105,7 +105,7 @@ Settings:
     Preferred API Backend:
       Preferred API Backend: 'Preferované API Backend'
       Local API: 'Lokálne API'
-      Invidious API: 'Invidious API'
+      Invidious API: 'API služby Invidious'
     Video View Type:
       Video View Type: 'Typ zobrazenia videa'
       Grid: 'Mriežka'
@@ -184,6 +184,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Playlist Next Video Interval: Čas spustenia nasledujúceho videa v zozname videí
   Subscription Settings:
     Subscription Settings: 'Nastavenia Odberov'
     Hide Videos on Watch: 'Skryť videá po zhliadnutí'
@@ -272,6 +273,7 @@ Settings:
     Hide Video Views: Skryť počet zhliadnutí
     Distraction Free Settings: Nastavenia nerušenia
     Hide Active Subscriptions: Skryť aktívne odbery
+    Hide Playlists: Skryť zoznamy videí
   Privacy Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Naozaj
       chcete odstrániť všetky odbery a profily? Toto je nenávratná akcia.
@@ -356,7 +358,7 @@ About:
   room rules: pravidlá miestností
   Please read the: Prečítajte si
   Chat on Matrix: Napíšte nám na Matrix-e
-  Mastodon: Mastodon
+  Mastodon: Komunikačná platforma Mastodon
   Email: Elektronická pošta
   Blog: Blog
   Website: Webstránka
@@ -649,9 +651,14 @@ Profile:
   Profile Manager: Správca profilov
   All Channels: Všetky kanály
   Profile Select: Vyberte profil
+  Profile Filter: Filter Profilov
 A new blog is now available, $. Click to view more: Nový príspevok na blogu je k dispozícií,
   $. Klikni pre viac informácií
 Download From Site: Stiahnuť zo stránky
 Version $ is now available!  Click for more details: Je k dispozícií verzia $ ! Klikni
   pre viac informácií
 Locale Name: Slovenčina
+Playing Next Video Interval: Prehrávanie ďalšieho videa za chvíľu. Kliknutím zrušíte.
+  | Prehráva sa ďalšie video o {nextVideoInterval} sekundu. Kliknutím zrušíte. | Prehráva
+  sa ďalšie video o {nextVideoInterval} sekúnd. Kliknutím zrušíte.
+More: Viac

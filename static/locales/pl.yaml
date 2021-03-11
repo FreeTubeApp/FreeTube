@@ -187,6 +187,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Playlist Next Video Interval: Przerwa przed kolejną pozycją playlisty
   Subscription Settings:
     Subscription Settings: 'Ustawienia subskrypcji'
     Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
@@ -293,6 +294,7 @@ Settings:
     Hide Video Likes And Dislikes: Schowaj łapki w górę i w dół
     Hide Video Views: Schowaj obejrzenia filmu
     Hide Active Subscriptions: Schowaj aktywne subskrypcje
+    Hide Playlists: Ukryj playlistę
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
@@ -633,6 +635,7 @@ Profile:
   $ selected: Wybrano $
   Other Channels: Inne kanały
   Subscription List: Lista subskrypcji
+  Profile Filter: Filtr profilu
 The playlist has been reversed: Playlista została odwrócona
 A new blog is now available, $. Click to view more: Nowy wpis na blogu jest dostępny,
   $. Kliknij, aby zobaczyć więcej
@@ -672,3 +675,8 @@ Tooltips:
       720p, ale zużywają mniej przepustowości. Formaty audio odtwarzają tylko dźwięk
     Proxy Videos Through Invidious: Będzie dostarczał filmy, łącząc się z Invidious,
       a nie bezpośrednio z YouTube. Nadpisuje ustawienia API
+Playing Next Video Interval: Odtwarzanie kolejnego filmu już za chwilę. Wciśnij aby
+  przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekundę. Wciśnij
+  aby przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekund. Wciśnij
+  aby przerwać.
+More: Więcej

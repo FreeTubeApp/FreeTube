@@ -32,7 +32,7 @@ Forward: Forward
 Version $ is now available!  Click for more details: Version $ is now available! Click
   for more details.
 Download From Site: Download From Site
-A new blog is now available, $. Click to view more: A new blog is now available, $.
+A new blog is now available, $. Click to view more: New blogpost available, $.
   Click to view more.
 
 # Search Bar
@@ -82,6 +82,7 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': Getting Subscriptions. Please wait.
   Refresh Subscriptions: Refresh Subscriptions
   Load More Videos: Load More Videos
+More: More
 Trending: Trending
 Most Popular: Most Popular
 Playlists: Playlists
@@ -217,6 +218,7 @@ Settings:
     Hide Recommended Videos: Hide Recommended Videos
     Hide Trending Videos: Hide Trending Videos
     Hide Popular Videos: Hide Popular Videos
+    Hide Playlists: Hide Playlists
     Hide Live Chat: Hide Live Chat
     Hide Active Subscriptions: Hide Active Subscriptions
   Data Settings:
@@ -299,6 +301,7 @@ About:
 
 Profile:
   Profile Select: Profile Select
+  Profile Filter: Profile Filter
   All Channels: All Channels
   Profile Manager: Profile Manager
   Create New Profile: Create New Profile
@@ -557,9 +560,9 @@ Tooltips:
   play higher qualities. Legacy formats are limited to a max of 720p but use less
   bandwidth. Audio formats are audio only streams.
   Subscription Settings:
-    Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of it\'s default
-  method for grabbing your subscription feed. RSS is faster and prevents IP blocking,
-  but doesn\'t provide certain info like video duration or live status.
+    Fetch Feeds from RSS: Uses RSS instead of the default method for grabbing
+      your subscription feed. Faster and prevents IP blocking, but doesn\'t provide
+      certain info like video duration or live status.
 
 # Toast Messages
 Local API Error (Click to copy): Local API Error (Click to copy)
@@ -576,10 +579,9 @@ Shuffle is now enabled: Shuffle is now enabled
 The playlist has been reversed: The playlist was reversed
 Playing Next Video: Playing Next Video
 Playing Previous Video: Playing Previous Video
-Playing next video in 5 seconds.  Click to cancel: Playing next video in 5 seconds.
-  Click to cancel.
+Playing Next Video Interval: Playing next video in no time. Click to cancel. | Playing next video in {nextVideoInterval} second. Click to cancel. | Playing next video in {nextVideoInterval} seconds. Click to cancel.
 Canceled next video autoplay: Canceled next video autoplay
-'The playlist has ended.  Enable loop to continue playing': 'The playlist has ended. Click
+'The playlist has ended.  Enable loop to continue playing': 'The playlist ended. Click
   \"Loop\" to keep playing'.
 
 Yes: Yes

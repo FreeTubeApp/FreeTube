@@ -44,6 +44,7 @@
         </p>
       </div>
       <div
+        v-if="!hidePlaylists"
         class="navOption mobileShow"
         @click="navigate('userplaylists')"
       >
