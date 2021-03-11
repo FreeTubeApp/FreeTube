@@ -304,7 +304,7 @@ function createWindow (useProxy = false, proxyUrl = '') {
 
   ipcMain.on('setBounds', (_e, data) => {
     const value = {
-      ...mainWindow.getBounds(),
+      ...mainWindow.getNormalBounds(),
       maximized: mainWindow.isMaximized()
     }
 
