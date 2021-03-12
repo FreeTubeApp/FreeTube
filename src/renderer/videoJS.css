@@ -643,6 +643,46 @@ body.vjs-full-window {
   display: none;
 }
 
+.vjs-quality-level-value {
+  width: 100%;
+  height: 100%;
+}
+
+.vjs-quality-level-value span {
+  line-height: 40px;
+}
+
+.vjs-quality-level-value:hover + .vjs-quality-level-menu {
+  display: block;
+}
+
+.vjs-quality-level-menu {
+  display: none;
+  position: absolute;
+  bottom: 30px;
+  left: -8px;
+  z-index: 5;
+  background-color: #151b17;
+  width: 50px;
+}
+
+.vjs-quality-level-menu:hover {
+  display: block;
+}
+
+.vjs-quality-level-menu .vjs-menu-item {
+  padding: 5px;
+}
+
+.quality-selected {
+  background-color: var(--primary-color);
+  color: var(--text-with-main-color);
+}
+
+.quality-selected:hover {
+  background-color: var(--primary-color-hover) !important;
+}
+
 .vjs-menu .vjs-menu-content {
   display: block;
   padding: 0;
