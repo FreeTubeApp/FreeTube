@@ -27,7 +27,7 @@ const profileDb = new Datastore({
 const state = {
   profileList: [{
     _id: 'allChannels',
-    name: 'All Channels',
+    name: 'Brudi Channels',
     bgColor: '#000000',
     textColor: '#FFFFFF',
     subscriptions: []
@@ -54,6 +54,7 @@ const actions = {
         } else {
           // We want the primary profile to always be first
           // So sort with that then sort alphabetically by profile name
+          console.log('PROFILE DB RESULTS', results)
           const profiles = results.sort((a, b) => {
             if (a._id === 'allChannels') {
               return -1
@@ -67,10 +68,13 @@ const actions = {
           })
 
           if (state.profileList.length < profiles.length) {
+            console.log("STATE LIST LESS RTHAN PROFILES LENGTH")
+            console.log(profiles, state.profileList)
+            console.log("ROOTSTATE:SETTINGDEFATL", rootState.settings.defaultProfile)
             const profileIndex = profiles.findIndex((profile) => {
               return profile._id === rootState.settings.defaultProfile
             })
-
+            console.log("INDEX", profileIndex)
             if (profileIndex !== -1) {
               dispatch('updateActiveProfile', profileIndex)
             }
@@ -103,7 +107,7 @@ const actions = {
       textColor: textColor,
       subscriptions: []
     }
-    console.log(defaultProfile)
+    console.log('DIS DEFAULT', defaultProfile)
     profileDb.update({ _id: 'allChannels' }, defaultProfile, { upsert: true }, (err, numReplaced) => {
       if (!err) {
         dispatch('grabAllProfiles')
