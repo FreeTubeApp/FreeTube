@@ -184,6 +184,7 @@ Settings:
       1440p: '1440p'
       4k: 'UHD'
       8k: '8k UHD'
+    Playlist Next Video Interval: Intervall for avspilling av neste i spilleliste
   Privacy Settings:
     Privacy Settings: 'Personvernsinnstillinger'
     Remember History: 'Husk historikk'
@@ -300,6 +301,7 @@ Settings:
     Hide Popular Videos: Skjul populære videoer
     Hide Video Views: Skjul videovisninger
     Hide Live Chat: Gjem direktechat
+    Hide Playlists: Skjul spillelister
   The app needs to restart for changes to take effect. Restart and apply change?: Start
     programmet på ny for å bruke de nye endringene?
 About:
@@ -607,6 +609,7 @@ Profile:
   Subscription List: Abonnementsliste
   Profile Preview: Profilforhåndsvisning
   Custom Color: Egendefinert farge
+  Profile Filter: Profilfilter
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Denne
   videoen er utilgjengelig grunnet manglende formater. Dette kan skyldes tilgangbegrensninger
   i ditt land.
@@ -645,3 +648,7 @@ The playlist has been reversed: Spillelisten har blitt snudd
 Download From Site: Last ned fra nettsiden
 Version $ is now available!  Click for more details: Versjon $ er nå tilgjengelig.
   Klikk for flere detaljer.
+Playing Next Video Interval: Spiller neste video nå. Klikk for å avbryte. | Spiller
+  neste video om {nextVideoInterval} sekund. Klikk for å avbryte. | Spiller neste
+  video om {nextVideoInterval} sekunder. Klikk for å avbryte.
+More: Mer

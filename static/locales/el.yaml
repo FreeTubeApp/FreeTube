@@ -190,6 +190,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Playlist Next Video Interval: Παύση μεταξύ Βίντεο στη λίστα αναπαραγωγής
   Privacy Settings:
     Privacy Settings: 'Ρυθμίσεις απορρήτου'
     Remember History: 'Διατήρηση ιστορικού'
@@ -290,6 +291,7 @@ Settings:
     Hide Channel Subscribers: Απόκρυψη συνδρομών καναλιού
     Hide Video Views: Απόκρυψη προβολών βίντεο
     Hide Active Subscriptions: Απόκρυψη ενεργών συνδρομών
+    Hide Playlists: Απόκρυψη λιστών αναπαραγωγής
   The app needs to restart for changes to take effect. Restart and apply change?: Η
     εφαρμογή πρέπει να κάνει επανεκκίνηση για να εφαρμοστούν οι αλλαγές. Επανεκκίνηση
     και εφαρμογή αλλαγών;
@@ -411,6 +413,7 @@ Profile:
     βέβαιοι ότι θέλετε να διαγράψετε τα επιλεγμένα κανάλια;  Αυτό δε θα διαγράψει
     το κανάλι από οποιοδήποτε άλλο προφίλ.'
 #On Channel Page
+  Profile Filter: Φίλτρο προφίλ
 Channel:
   Subscriber: 'Συνδρομητής'
   Subscribers: 'Συνδρομητές'
@@ -462,7 +465,7 @@ Video:
   View: 'Προβολή'
   Views: 'Προβολές'
   Loop Playlist: 'Επανάληψη λίστας αναπαραγωγής'
-  Shuffle Playlist: 'Τυχαία αναπαραγωγή'
+  Shuffle Playlist: 'Τυχαία σειρά στη λίστα αναπαραγωγής'
   Reverse Playlist: 'Αντιστροφή της λίστας αναπαραγωγής'
   Play Next Video: 'Αναπαραγωγή επόμενου βίντεο'
   Play Previous Video: 'Αναπαραγωγή προηγούμενου βίντεο'
@@ -677,3 +680,8 @@ Tooltips:
     Invidious Instance: Το στιγμιότυπο Invidious στο οποίο το FreeTube θα συνδεθεί
       για κλήσεις διεπαφής. Καθαρίστε το παρόν στιγμιότυπο για να δείτε μια λίστα
       δημόσιων στιγμιότυπων προς επιλογή
+Playing Next Video Interval: Αναπαραγωγή επόμενου βίντεο άμεσα. Κάντε κλικ για ακύρωση.
+  | Αναπαραγωγή επόμενου βίντεο σε {nextVideoInterval} δευτερόλεπτο. Κάντε κλικ για
+  ακύρωση. | Αναπαραγωγή επόμενου βίντεο σε {nextVideoInterval} δευτερόλεπτα. Κάντε
+  κλικ για ακύρωση.
+More: Περισσότερα

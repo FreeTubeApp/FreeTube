@@ -73,6 +73,7 @@ export default Vue.extend({
       useDash: false,
       useHls: false,
       selectedDefaultQuality: '',
+      selectedQuality: '',
       maxFramerate: 0,
       activeSourceList: [],
       mouseTimeout: null,
@@ -198,7 +199,8 @@ export default Vue.extend({
             vhs: {
               limitRenditionByPlayerDimensions: false,
               smoothQualityChange: false,
-              allowSeeksWithinUnsafeLiveWindow: true
+              allowSeeksWithinUnsafeLiveWindow: true,
+              handlePartialData: true
             }
           }
         })
@@ -214,14 +216,12 @@ export default Vue.extend({
         }
 
         if (this.useDash) {
-          this.dataSetup.plugins.httpSourceSelector = {
-            default: 'auto'
-          }
+          // this.dataSetup.plugins.httpSourceSelector = {
+          // default: 'auto'
+          // }
 
-          this.player.httpSourceSelector()
-          setTimeout(() => {
-            this.determineDefaultQualityDash()
-          }, 400)
+          // this.player.httpSourceSelector()
+          this.createDashQualitySelector(this.player.qualityLevels())
         }
 
         if (this.autoplayVideos) {
@@ -417,7 +417,7 @@ export default Vue.extend({
 
     determineDefaultQualityDash: function () {
       if (this.defaultQuality === 'auto') {
-        return
+        this.setDashQualityLevel('auto')
       }
 
       this.player.qualityLevels().levels_.sort((a, b) => {
@@ -433,25 +433,60 @@ export default Vue.extend({
         }
 
         if (this.defaultQuality === quality) {
-          ql.enabled = true
+          this.setDashQualityLevel(height)
         } else if (upperLevel !== null) {
           const upperHeight = upperLevel.height
           const upperWidth = upperLevel.width
           const upperQuality = upperWidth < upperHeight ? upperWidth : upperHeight
 
           if (this.defaultQuality >= quality && this.defaultQuality < upperQuality) {
-            ql.enabled = true
-          } else {
-            ql.enabled = false
+            this.setDashQualityLevel(height)
           }
         } else if (index === 0 && quality > this.defaultQuality) {
-          ql.enabled = true
+          this.setDashQualityLevel(height)
         } else if (index === (arr.length - 1) && quality < this.defaultQuality) {
-          ql.enabled = true
-        } else {
-          ql.enabled = false
+          this.setDashQualityLevel(height)
         }
       })
+    },
+
+    setDashQualityLevel: function (qualityLevel) {
+      if (this.selectedQuality === qualityLevel) {
+        return
+      }
+      this.player.qualityLevels().levels_.sort((a, b) => {
+        return a.height - b.height
+      }).forEach((ql, index, arr) => {
+        if (qualityLevel === 'auto' || ql.height === qualityLevel) {
+          ql.enabled = true
+          ql.enabled_(true)
+        } else {
+          ql.enabled = false
+          ql.enabled_(false)
+        }
+      })
+
+      const selectedQuality = qualityLevel === 'auto' ? 'auto' : qualityLevel + 'p'
+
+      const qualityElement = document.getElementById('vjs-current-quality')
+      qualityElement.innerText = selectedQuality
+      this.selectedQuality = qualityLevel
+
+      const qualityItems = $('.quality-item').get()
+
+      $('.quality-item').removeClass('quality-selected')
+
+      qualityItems.forEach((item) => {
+        const qualityText = $(item).find('.vjs-menu-item-text').get(0)
+        if (qualityText.innerText === selectedQuality) {
+          $(item).addClass('quality-selected')
+        }
+      })
+
+      // const currentTime = this.player.currentTime()
+
+      // this.player.currentTime(0)
+      // this.player.currentTime(currentTime)
     },
 
     enableDashFormat: function () {
@@ -627,6 +662,58 @@ export default Vue.extend({
         }
       })
       videojs.registerComponent('fullWindowButton', fullWindowButton)
+    },
+
+    createDashQualitySelector: function (levels) {
+      const v = this
+      if (levels.levels_.length === 0) {
+        setTimeout(() => {
+          this.createDashQualitySelector(this.player.qualityLevels())
+        }, 200)
+        return
+      }
+      const VjsButton = videojs.getComponent('Button')
+      const dashQualitySelector = videojs.extend(VjsButton, {
+        constructor: function(player, options) {
+          VjsButton.call(this, player, options)
+        },
+        handleClick: function(event) {
+          const selectedQuality = event.target.innerText
+          const quality = selectedQuality === 'auto' ? 'auto' : parseInt(selectedQuality.replace('p', ''))
+          v.setDashQualityLevel(quality)
+          // console.log(this.player().qualityLevels())
+        },
+        createControlTextEl: function (button) {
+          const beginningHtml = `<div class="vjs-quality-level-value">
+           <span id="vjs-current-quality">1080p</span>
+          </div>
+          <div class="vjs-quality-level-menu vjs-menu">
+             <ul class="vjs-menu-content" role="menu">`
+          const endingHtml = '</ul></div>'
+
+          let qualityHtml = `<li class="vjs-menu-item quality-item" role="menuitemradio" tabindex="-1" aria-checked="false aria-disabled="false">
+            <span class="vjs-menu-item-text">Auto</span>
+            <span class="vjs-control-text" aria-live="polite"></span>
+          </li>`
+
+          levels.levels_.sort((a, b) => {
+            return b.height - a.height
+          }).forEach((quality) => {
+            qualityHtml = qualityHtml + `<li class="vjs-menu-item quality-item" role="menuitemradio" tabindex="-1" aria-checked="false aria-disabled="false">
+              <span class="vjs-menu-item-text">${quality.height}p</span>
+              <span class="vjs-control-text" aria-live="polite"></span>
+            </li>`
+          })
+          return $(button).html(
+            $(beginningHtml + qualityHtml + endingHtml).attr(
+              'title',
+              'Select Quality'
+            ))
+        }
+      })
+      videojs.registerComponent('dashQualitySelector', dashQualitySelector)
+      this.player.controlBar.addChild('dashQualitySelector', {}, this.player.controlBar.children_.length - 1)
+      this.determineDefaultQualityDash()
     },
 
     toggleFullWindow: function() {
