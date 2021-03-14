@@ -280,6 +280,7 @@ const actions = {
               commit('setBackendFallback', result.value)
               break
             case 'defaultProfile':
+              console.log("IN SETTING DEFAULT:", result.value)
               commit('setDefaultProfile', result.value)
               break
             case 'checkForUpdates':
