@@ -161,7 +161,7 @@ export default Vue.extend({
             comment.messageHtml = comment.messageHtml + text.text
           }
         } else if (typeof (text.alt) !== 'undefined') {
-          const htmlImg = `<img src="${text.url}" alt="${text.alt}" height="15" width="15" />`
+          const htmlImg = `<img src="${text.url}" alt="${text.alt}" height="24" width="24" />`
           comment.messageHtml = comment.messageHtml + htmlImg
         } else {
           comment.messageHtml = comment.messageHtml + text.text
