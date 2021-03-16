@@ -208,10 +208,6 @@ export default Vue.extend({
           }
         })
 
-        if (this.defaultFullScreenMode) {
-          this.player.requestFullscreen()
-        }
-
         this.player.volume(this.volume)
         this.player.playbackRate(this.defaultPlayback)
 
@@ -259,6 +255,7 @@ export default Vue.extend({
 
         this.player.on('ended', function () {
           v.$emit('ended')
+          v.player.exitFullscreen()
         })
 
         this.player.on('error', function (error, message) {
@@ -266,6 +263,9 @@ export default Vue.extend({
         })
 
         this.player.on('play', function () {
+          if (v.defaultFullScreenMode) {
+            v.player.requestFullscreen()
+          }
           if (this.usingElectron) {
             const { powerSaveBlocker } = require('electron')
 

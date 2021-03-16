@@ -41,6 +41,7 @@
           :label="$t('Settings.Player Settings.Enable FullScreen Mode by Default')"
           :compact="true"
           :default-value="defaultFullScreenMode"
+          :tooltip="$t('Tooltips.Player Settings.Enable FullScreen Mode by Default')"
           @change="updateDefaultFullScreenMode"
         />
       </div>
