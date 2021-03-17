@@ -51,7 +51,7 @@ export default Vue.extend({
       type: Array,
       default: null
     },
-    captionList: {
+    captionHybridList: {
       type: Array,
       default: () => { return [] }
     },
@@ -196,6 +196,7 @@ export default Vue.extend({
 
         this.player = videojs(videoPlayer, {
           html5: {
+            preloadTextTracks: false,
             vhs: {
               limitRenditionByPlayerDimensions: false,
               smoothQualityChange: false,
@@ -246,6 +247,9 @@ export default Vue.extend({
         this.player.on('ready', function () {
           v.$emit('ready')
           v.checkAspectRatio()
+          if (v.captionHybridList.length !== 0) {
+            v.transformAndInsertCaptions()
+          }
         })
 
         this.player.on('ended', function () {
@@ -714,6 +718,26 @@ export default Vue.extend({
       videojs.registerComponent('dashQualitySelector', dashQualitySelector)
       this.player.controlBar.addChild('dashQualitySelector', {}, this.player.controlBar.children_.length - 1)
       this.determineDefaultQualityDash()
+    },
+
+    transformAndInsertCaptions: async function() {
+      let captionList
+      if (this.captionHybridList[0] instanceof Promise) {
+        captionList = await Promise.all(this.captionHybridList)
+        this.$emit('store-caption-list', captionList)
+      } else {
+        captionList = this.captionHybridList
+      }
+
+      for (const caption of captionList) {
+        this.player.addRemoteTextTrack({
+          kind: 'subtitles',
+          src: caption.baseUrl || caption.url,
+          srclang: caption.languageCode,
+          label: caption.label || caption.name.simpleText,
+          type: caption.type
+        }, true)
+      }
     },
 
     toggleFullWindow: function() {

@@ -69,7 +69,7 @@ export default Vue.extend({
       activeSourceList: [],
       videoSourceList: [],
       audioSourceList: [],
-      captionSourceList: [],
+      captionHybridList: [], // [] -> Promise[] -> string[] (URIs)
       recommendedVideos: [],
       downloadLinks: [],
       watchingPlaylist: false,
@@ -153,7 +153,7 @@ export default Vue.extend({
       this.firstLoad = true
       this.activeFormat = this.defaultVideoFormat
       this.videoStoryboardSrc = ''
-      this.captionSourceList = []
+      this.captionHybridList = []
       this.downloadLinks = []
 
       this.checkIfPlaylist()
@@ -290,17 +290,6 @@ export default Vue.extend({
           this.isLiveContent = result.player_response.videoDetails.isLiveContent
           this.isUpcoming = result.player_response.videoDetails.isUpcoming ? result.player_response.videoDetails.isUpcoming : false
 
-          if (!this.isLive && !this.isUpcoming) {
-            const captionTracks =
-              result.player_response.captions &&
-              result.player_response.captions.playerCaptionsTracklistRenderer
-                .captionTracks
-
-            if (typeof captionTracks !== 'undefined') {
-              await this.createCaptionUrls(captionTracks)
-            }
-          }
-
           if (this.videoDislikeCount === null && !this.hideVideoLikesAndDislikes) {
             this.videoDislikeCount = 0
           }
@@ -387,16 +376,22 @@ export default Vue.extend({
 
                 return object
               })
-              let captionLinks = result.player_response.captions
-              if (typeof captionLinks !== 'undefined') {
-                captionLinks = captionLinks.playerCaptionsTracklistRenderer.captionTracks.map((caption) => {
+
+              const captionTracks =
+                result.player_response.captions &&
+                result.player_response.captions.playerCaptionsTracklistRenderer
+                  .captionTracks
+
+              if (typeof captionTracks !== 'undefined') {
+                this.captionHybridList = this.createCaptionPromiseList(captionTracks)
+
+                const captionLinks = captionTracks.map((caption) => {
                   const label = `${caption.name.simpleText} (${caption.languageCode}) - text/vtt`
-                  const object = {
+
+                  return {
                     url: caption.baseUrl,
                     label: label
                   }
-
-                  return object
                 })
 
                 this.downloadLinks = this.downloadLinks.concat(captionLinks)
@@ -525,7 +520,7 @@ export default Vue.extend({
           this.videoDescriptionHtml = result.descriptionHtml
           this.recommendedVideos = result.recommendedVideos
           this.isLive = result.liveNow
-          this.captionSourceList = result.captions.map(caption => {
+          this.captionHybridList = result.captions.map(caption => {
             caption.url = this.invidiousInstance + caption.url
             caption.type = ''
             caption.dataSource = 'invidious'
@@ -1047,29 +1042,43 @@ export default Vue.extend({
       })
     },
 
-    createCaptionUrls: function (captionTracks) {
-      this.captionSourceList = captionTracks.map(caption => {
+    createCaptionPromiseList: function (captionTracks) {
+      return captionTracks.map(caption => new Promise((resolve, reject) => {
         caption.type = 'text/vtt'
         caption.charset = 'charset=utf-8'
         caption.dataSource = 'local'
+        caption.baseUrl += '&fmt=vtt'
 
         $.get(caption.baseUrl, response => {
-          xml2vtt
-            .Parse(new XMLSerializer().serializeToString(response))
-            .then(vtt => {
-              caption.baseUrl = `data:${caption.type};${caption.charset},${vtt}`
-            })
-            .catch(err =>
-              console.log(`Error while converting XML to VTT : ${err}`)
-            )
+          // The character '#' needs to be percent-encoded in a (data) URI
+          // because it signals an identifier, which means anything after it
+          // is automatically removed when the URI is used as a source
+          let vtt = response.replace(/#/g, '%23')
+
+          // A lot of videos have messed up caption positions that need to be removed
+          // This can be either because this format isn't really used by YouTube
+          // or because it's expected for the player to be able to somehow
+          // wrap the captions so that they won't step outside its boundaries
+          //
+          // Auto-generated captions are also all aligned to the start
+          // so those instances must also be removed
+          // In addition, all aligns seem to be fixed to "start" when they do pop up in normal captions
+          // If it's prominent enough that people start to notice, it can be removed then
+          if (caption.kind === 'asr') {
+            vtt = vtt.replace(/ align:start| position:\d{1,3}%/g, '')
+          } else {
+            vtt = vtt.replace(/ position:\d{1,3}%/g, '')
+          }
+
+          caption.baseUrl = `data:${caption.type};${caption.charset},${vtt}`
+          resolve(caption)
         }).fail((xhr, textStatus, error) => {
           console.log(xhr)
           console.log(textStatus)
           console.log(error)
+          reject(error)
         })
-
-        return caption
-      })
+      }))
     },
 
     getWatchedProgress: function () {
