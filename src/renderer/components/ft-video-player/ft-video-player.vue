@@ -18,15 +18,6 @@
         :label="source.qualityLabel"
         :selected="source.qualityLabel === selectedDefaultQuality"
       >
-      <track
-        v-for="(caption, index) in captionList"
-        :key="index + '_caption'"
-        kind="subtitles"
-        :src="caption.baseUrl || caption.url"
-        :srclang="caption.languageCode"
-        :label="caption.label || caption.name.simpleText"
-        :type="caption.type"
-      >
     </video>
   </div>
 </template>

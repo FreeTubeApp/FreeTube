@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import { mapActions } from 'vuex'
-import xml2vtt from 'yt-xml2vtt'
 import $ from 'jquery'
 import fs from 'fs'
 import ytDashGen from 'yt-dash-manifest-generator'
