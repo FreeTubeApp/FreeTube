@@ -45,8 +45,11 @@
         <img
           :src="comment.authorThumb"
           class="commentThumbnail"
+          @click="goToChannel(comment.authorLink)"
         >
-        <p class="commentAuthor">
+        <p class="commentAuthor"
+           @click="goToChannel(comment.authorLink)"
+        >
           {{ comment.author }}
           <span class="commentDate">
             {{ comment.time }}
