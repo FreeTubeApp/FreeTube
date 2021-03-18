@@ -189,6 +189,7 @@ Settings:
       1440p: 1440p
       4k: 4k
       8k: 8k
+    Playlist Next Video Interval: Zeit zwischen automatischer Playlist-Videowiedergabe
   Subscription Settings:
     Subscription Settings: Abonnement-Einstellungen
     Hide Videos on Watch: Verstecke Videos bei Wiedergabe
@@ -295,6 +296,7 @@ Settings:
     Hide Video Views: Video-Aufrufe verbergen
     Distraction Free Settings: Einstellungen für ablenkungsfreien Modus
     Hide Active Subscriptions: Aktive Abonnements ausblenden
+    Hide Playlists: Playlists ausblenden
   The app needs to restart for changes to take effect. Restart and apply change?: Um
     die Änderungen anzuwenden muss die Anwendung neustarten. Jetzt neustarten und
     Änderungen aktivieren?
@@ -649,6 +651,7 @@ Profile:
   Other Channels: Andere Kanäle
   Subscription List: Abonnement-Liste
   Profile Select: Profilauswahl
+  Profile Filter: Profilfilter
 The playlist has been reversed: Die Wiedergabeliste wurde umgedreht
 A new blog is now available, $. Click to view more: Ein neuer Blogeintrag ist verfügbar,
   $. Um ihn zu öffnen klicken
@@ -687,3 +690,8 @@ Tooltips:
       Legacy Formaten diese verwenden, anstatt auf Invidious zurückzugreifen. Dies
       hilft dann, wenn Videos von Invidious nicht abspielbar sind. Zum Beispiel aufgrund
       von Landesbeschränkungen.
+Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrechen
+  klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
+  klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
+  klicken.
+More: Weiteres
