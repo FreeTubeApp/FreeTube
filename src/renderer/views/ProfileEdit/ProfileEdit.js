@@ -4,6 +4,7 @@ import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtProfileEdit from '../../components/ft-profile-edit/ft-profile-edit.vue'
 import FtProfileChannelList from '../../components/ft-profile-channel-list/ft-profile-channel-list.vue'
 import FtProfileFilterChannelsList from '../../components/ft-profile-filter-channels-list/ft-profile-filter-channels-list.vue'
+import { calculateColorLuminance, getRandomColor } from '../../helpers'
 
 export default Vue.extend({
   name: 'ProfileEdit',
@@ -55,8 +56,8 @@ export default Vue.extend({
 
     if (profileType === 'newProfile') {
       this.isNew = true
-      const bgColor = await this.getRandomColor()
-      const textColor = await this.calculateColorLuminance(bgColor)
+      const bgColor = getRandomColor()
+      const textColor = calculateColorLuminance(bgColor)
       this.profile = {
         name: '',
         bgColor: bgColor,
@@ -85,9 +86,7 @@ export default Vue.extend({
   methods: {
     ...mapActions([
       'showToast',
-      'grabProfileInfo',
-      'getRandomColor',
-      'calculateColorLuminance'
+      'grabProfileInfo'
     ])
   }
 })

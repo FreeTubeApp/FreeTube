@@ -34,7 +34,10 @@
       </div>
     </div>
     <div class="middle">
-      <div class="searchContainer">
+      <div
+        v-show="showSearch"
+        class="searchContainer"
+      >
         <ft-input
           :placeholder="$t('Search / Go to URL')"
           class="searchInput"

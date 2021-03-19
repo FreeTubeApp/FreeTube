@@ -160,7 +160,7 @@ export default Vue.extend({
         if (this.playlistItems.length < result.videoCount) {
           console.log('getting next page')
           this.playlistPage++
-          this.getPlaylistInvidious()
+          return this.getPlaylistInidious()
         } else {
           this.isLoading = false
         }
@@ -168,7 +168,7 @@ export default Vue.extend({
         console.log(err)
         if (this.backendPreference === 'invidious' && this.backendFallback) {
           console.log('Error getting data with Invidious, falling back to local backend')
-          this.getPlaylistLocal()
+          return this.getPlaylistLocal()
         } else {
           this.isLoading = false
           // TODO: Show toast with error message

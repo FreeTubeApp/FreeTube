@@ -1,16 +1,15 @@
 import Vue from 'vue'
-import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
-
-import $ from 'jquery'
+import { on, off, addClass, removeClass } from 'shorter-js'
 import videojs from 'video.js'
 import qualitySelector from '@silvermine/videojs-quality-selector'
-import fs from 'fs'
+import fs from 'fs/promises'
 import 'videojs-overlay/dist/videojs-overlay'
 import 'videojs-overlay/dist/videojs-overlay.css'
 import 'videojs-vtt-thumbnails-freetube'
 import 'videojs-contrib-quality-levels'
 import 'videojs-http-source-selector'
+import { $, $$, calculateColorLuminance } from '../../helpers'
 
 export default Vue.extend({
   name: 'FtVideoPlayer',
@@ -30,8 +29,8 @@ export default Vue.extend({
     }
 
     if (this.usingElectron && this.powerSaveBlocker !== null) {
-      const { powerSaveBlocker } = require('electron')
-      powerSaveBlocker.stop(this.powerSaveBlocker)
+      const { ipcRenderer } = require('electron')
+      ipcRenderer.invoke('stop-prevent-sleep', this.powerSaveBlocker)
     }
   },
   props: {
@@ -121,7 +120,8 @@ export default Vue.extend({
           2.75,
           3
         ]
-      }
+      },
+      hideMouse: false
     }
   },
   computed: {
@@ -180,9 +180,11 @@ export default Vue.extend({
       }
     }
 
+    off(document, 'keydown', this.keyboardShortcutHandler)
+
     if (this.usingElectron && this.powerSaveBlocker !== null) {
-      const { powerSaveBlocker } = require('electron')
-      powerSaveBlocker.stop(this.powerSaveBlocker)
+      const { ipcRenderer } = require('electron')
+      ipcRenderer.invoke('stop-prevent-sleep', this.powerSaveBlocker)
     }
   },
   methods: {
@@ -224,14 +226,7 @@ export default Vue.extend({
           this.createDashQualitySelector(this.player.qualityLevels())
         }
 
-        if (this.autoplayVideos) {
-          // Calling play() won't happen right away, so a quick timeout will make it function properly.
-          setTimeout(() => {
-            this.player.play()
-          }, 200)
-        }
-
-        $(document).on('keydown', this.keyboardShortcutHandler)
+        on(document, 'keydown', this.keyboardShortcutHandler)
 
         this.player.on('mousemove', this.hideMouseTimeout)
         this.player.on('mouseleave', this.removeMouseTimeout)
@@ -243,9 +238,13 @@ export default Vue.extend({
 
         const v = this
 
-        this.player.on('ready', function () {
+        this.player.ready(() => {
           v.$emit('ready')
           v.checkAspectRatio()
+
+          if (this.autoplayVideos) {
+            this.player.play()
+          }
         })
 
         this.player.on('ended', function () {
@@ -258,16 +257,17 @@ export default Vue.extend({
 
         this.player.on('play', function () {
           if (this.usingElectron) {
-            const { powerSaveBlocker } = require('electron')
-
-            this.powerSaveBlocker = powerSaveBlocker.start('prevent-display-sleep')
+            const { ipcRenderer } = require('electron')
+            ipcRenderer.invoke('prevent-sleep').then(blocker => {
+              this.powerSaveBlocker = blocker
+            })
           }
         })
 
         this.player.on('pause', function () {
           if (this.usingElectron && this.powerSaveBlocker !== null) {
-            const { powerSaveBlocker } = require('electron')
-            powerSaveBlocker.stop(this.powerSaveBlocker)
+            const { ipcRenderer } = require('electron')
+            ipcRenderer.invoke('stop-prevent-sleep', this.powerSaveBlocker)
             this.powerSaveBlocker = null
           }
         })
@@ -275,6 +275,10 @@ export default Vue.extend({
     },
 
     checkAspectRatio() {
+      if (this.player === null) {
+        return
+      }
+
       const videoWidth = this.player.videoWidth()
       const videoHeight = this.player.videoHeight()
 
@@ -328,17 +332,15 @@ export default Vue.extend({
         this.maxFramerate = 60
         return
       }
-      fs.readFile(this.dashSrc[0].url, (err, data) => {
-        if (err) {
+      fs.readFile(this.dashSrc[0].url)
+        .then(data => {
+          this.maxFramerate = data.includes('frameRate="60"')
+            ? 60
+            : 30
+        })
+        .catch(() => {
           this.maxFramerate = 60
-          return
-        }
-        if (data.includes('frameRate="60"')) {
-          this.maxFramerate = 60
-        } else {
-          this.maxFramerate = 30
-        }
-      })
+        })
     },
 
     determineDefaultQualityLegacy: function () {
@@ -468,20 +470,16 @@ export default Vue.extend({
 
       const selectedQuality = qualityLevel === 'auto' ? 'auto' : qualityLevel + 'p'
 
-      const qualityElement = document.getElementById('vjs-current-quality')
-      qualityElement.innerText = selectedQuality
+      $('#vjs-current-quality').innerText = selectedQuality
       this.selectedQuality = qualityLevel
 
-      const qualityItems = $('.quality-item').get()
-
-      $('.quality-item').removeClass('quality-selected')
-
-      qualityItems.forEach((item) => {
-        const qualityText = $(item).find('.vjs-menu-item-text').get(0)
-        if (qualityText.innerText === selectedQuality) {
-          $(item).addClass('quality-selected')
+      for (const element in $$('.quality-item .vjs-menu-item-text')) {
+        if (element.innerText === selectedQuality) {
+          addClass(element, 'quality-selected')
+        } else {
+          removeClass(element, 'quality-selected')
         }
-      })
+      }
 
       // const currentTime = this.player.currentTime()
 
@@ -611,14 +609,15 @@ export default Vue.extend({
           v.toggleVideoLoop()
         },
         createControlTextEl: function (button) {
-          return $(button).html($('<div id="loopButton" class="vjs-icon-loop loop-white vjs-button loopWhite"></div>')
-            .attr('title', 'Toggle Loop'))
+          button.innerHTML = '<div title="Toggle Loop" id="loopButton" class="vjs-icon-loop loop-white vjs-button loopWhite"></div>'
         }
       })
       videojs.registerComponent('loopButton', loopButton)
     },
 
     toggleVideoLoop: async function () {
+      const loopButton = $('#loopButton')
+
       if (!this.player.loop()) {
         const currentTheme = localStorage.getItem('mainColor')
         const colorNames = this.$store.state.utils.colorClasses
@@ -628,20 +627,18 @@ export default Vue.extend({
           return color === currentTheme
         })
 
-        const themeTextColor = await this.calculateColorLuminance(colorValues[nameIndex])
-
-        $('#loopButton').addClass('vjs-icon-loop-active')
+        const themeTextColor = calculateColorLuminance(colorValues[nameIndex])
 
         if (themeTextColor === '#000000') {
-          $('#loopButton').addClass('loop-black')
-          $('#loopButton').removeClass('loop-white')
+          addClass(loopButton, 'loop-black', 'vjs-icon-loop-active')
+          removeClass(loopButton, 'loop-white')
+        } else {
+          addClass(loopButton, 'vjs-icon-loop-active')
         }
 
         this.player.loop(true)
       } else {
-        $('#loopButton').removeClass('vjs-icon-loop-active')
-        $('#loopButton').removeClass('loop-black')
-        $('#loopButton').addClass('loop-white')
+        removeClass(loopButton, 'vjs-icon-loop-active', 'loop-black', 'loop-white')
         this.player.loop(false)
       }
     },
@@ -656,9 +653,8 @@ export default Vue.extend({
         handleClick: function() {
           v.toggleFullWindow()
         },
-        createControlTextEl: function (button) {
-          return $(button).html($('<div id="fullwindow" class="vjs-icon-fullwindow-enter vjs-button"></div>')
-            .attr('title', 'Fullwindow'))
+        createControlTextEl(button) {
+          button.innerHTML = '<div title="Fullwindow" id="fullwindow" class="vjs-icon-fullwindow-enter vjs-button"></div>'
         }
       })
       videojs.registerComponent('fullWindowButton', fullWindowButton)
@@ -684,7 +680,7 @@ export default Vue.extend({
           // console.log(this.player().qualityLevels())
         },
         createControlTextEl: function (button) {
-          const beginningHtml = `<div class="vjs-quality-level-value">
+          const beginningHtml = `<div class="vjs-quality-level-value" title="Select Quality">
            <span id="vjs-current-quality">1080p</span>
           </div>
           <div class="vjs-quality-level-menu vjs-menu">
@@ -704,11 +700,7 @@ export default Vue.extend({
               <span class="vjs-control-text" aria-live="polite"></span>
             </li>`
           })
-          return $(button).html(
-            $(beginningHtml + qualityHtml + endingHtml).attr(
-              'title',
-              'Select Quality'
-            ))
+          button.innerHTML = `${beginningHtml}${qualityHtml}${endingHtml}`
         }
       })
       videojs.registerComponent('dashQualitySelector', dashQualitySelector)
@@ -718,12 +710,14 @@ export default Vue.extend({
 
     toggleFullWindow: function() {
       if (!this.player.isFullscreen_) {
+        const fullWindow = $('#fullwindow')
+
         if (this.player.isFullWindow) {
           this.player.removeClass('vjs-full-screen')
           this.player.isFullWindow = false
           document.documentElement.style.overflow = this.player.docOrigOverflow
-          $('body').removeClass('vjs-full-window')
-          $('#fullwindow').removeClass('vjs-icon-fullwindow-exit')
+          removeClass(document.body, 'vjs-full-window')
+          removeClass(fullWindow, 'vjs-icon-fullwindow-exit')
           this.player.trigger('exitFullWindow')
         } else {
           this.player.addClass('vjs-full-screen')
@@ -731,8 +725,8 @@ export default Vue.extend({
           this.player.isFullWindow = true
           this.player.docOrigOverflow = document.documentElement.style.overflow
           document.documentElement.style.overflow = 'hidden'
-          $('body').addClass('vjs-full-window')
-          $('#fullwindow').addClass('vjs-icon-fullwindow-exit')
+          addClass(document.body, 'vjs-full-window')
+          addClass(fullWindow, 'vjs-icon-fullwindow-exit')
           this.player.trigger('enterFullWindow')
         }
       }
@@ -743,8 +737,8 @@ export default Vue.extend({
         this.player.isFullWindow = false
         document.documentElement.style.overflow = this.player.docOrigOverflow
         this.player.removeClass('vjs-full-screen')
-        $('body').removeClass('vjs-full-window')
-        $('#fullwindow').removeClass('vjs-icon-fullwindow-exit')
+        removeClass(document.body, 'vjs-full-window')
+        removeClass($('#fullwindow'), 'vjs-icon-fullwindow-exit')
         this.player.trigger('exitFullWindow')
       }
     },
@@ -758,27 +752,20 @@ export default Vue.extend({
     },
 
     hideMouseTimeout: function () {
-      if (this.id === '') {
-        return
-      }
-
-      const videoPlayer = $(`#${this.id} video`).get(0)
-      if (typeof (videoPlayer) !== 'undefined') {
-        videoPlayer.style.cursor = 'default'
-        clearTimeout(this.mouseTimeout)
-        this.mouseTimeout = window.setTimeout(function () {
-          videoPlayer.style.cursor = 'none'
-        }, 2650)
-      }
+      this.hideMouse = false
+      clearTimeout(this.mouseTimeout)
+      this.mouseTimeout = window.setTimeout(() => {
+        this.hideMouse = true
+      }, 2650)
     },
 
-    removeMouseTimeout: function () {
+    removeMouseTimeout() {
       if (this.mouseTimeout !== null) {
         clearTimeout(this.mouseTimeout)
       }
     },
 
-    fullscreenOverlay: function () {
+    fullscreenOverlay() {
       const v = this
       const title = document.title.replace('- FreeTube', '')
 
@@ -827,194 +814,187 @@ export default Vue.extend({
     },
 
     keyboardShortcutHandler: function (event) {
-      const activeInputs = $('.ft-input')
+      const inputs = new Set(['input', 'select', 'button', 'textarea'])
+      const activeElement = document.activeElement
 
-      for (let i = 0; i < activeInputs.length; i++) {
-        if (activeInputs[i] === document.activeElement) {
-          return
-        }
-      }
-
-      if (event.ctrlKey) {
+      if (
+        (activeElement && inputs.has(activeElement.tagName.toLowerCase())) ||
+        event.ctrlKey ||
+        this.player === null
+      ) {
         return
       }
 
-      if (this.player !== null) {
-        switch (event.which) {
-          case 32:
-            // Space Bar
-            // Toggle Play/Pause
-            event.preventDefault()
-            this.togglePlayPause()
-            break
-          case 74:
-            // J Key
-            // Rewind by 10 seconds
-            event.preventDefault()
-            this.changeDurationBySeconds(-10)
-            break
-          case 75:
-            // K Key
-            // Toggle Play/Pause
-            event.preventDefault()
-            this.togglePlayPause()
-            break
-          case 76:
-            // L Key
-            // Fast Forward by 10 seconds
-            event.preventDefault()
-            this.changeDurationBySeconds(10)
-            break
-          case 79:
-            // O Key
-            // Decrease playback rate by 0.25x
-            event.preventDefault()
-            this.changePlayBackRate(-0.25)
-            break
-          case 80:
-            // P Key
-            // Increase playback rate by 0.25x
-            event.preventDefault()
-            this.changePlayBackRate(0.25)
-            break
-          case 70:
-            // F Key
-            // Toggle Fullscreen Playback
-            event.preventDefault()
-            this.toggleFullscreen()
-            break
-          case 77:
-            // M Key
-            // Toggle Mute
-            event.preventDefault()
-            this.toggleMute()
-            break
-          case 67:
-            // C Key
-            // Toggle Captions
-            event.preventDefault()
-            this.toggleCaptions()
-            break
-          case 38:
-            // Up Arrow Key
-            // Increase volume
-            event.preventDefault()
-            this.changeVolume(0.05)
-            break
-          case 40:
-            // Down Arrow Key
-            // Decrease Volume
-            event.preventDefault()
-            this.changeVolume(-0.05)
-            break
-          case 37:
-            // Left Arrow Key
-            // Rewind by 5 seconds
-            event.preventDefault()
-            this.changeDurationBySeconds(-5)
-            break
-          case 39:
-            // Right Arrow Key
-            // Fast Forward by 5 seconds
-            event.preventDefault()
-            this.changeDurationBySeconds(5)
-            break
-          case 49:
-            // 1 Key
-            // Jump to 10% in the video
-            event.preventDefault()
-            this.changeDurationByPercentage(0.1)
-            break
-          case 50:
-            // 2 Key
-            // Jump to 20% in the video
-            event.preventDefault()
-            this.changeDurationByPercentage(0.2)
-            break
-          case 51:
-            // 3 Key
-            // Jump to 30% in the video
-            event.preventDefault()
-            this.changeDurationByPercentage(0.3)
-            break
-          case 52:
-            // 4 Key
-            // Jump to 40% in the video
-            event.preventDefault()
-            this.changeDurationByPercentage(0.4)
-            break
-          case 53:
-            // 5 Key
-            // Jump to 50% in the video
-            event.preventDefault()
-            this.changeDurationByPercentage(0.5)
-            break
-          case 54:
-            // 6 Key
-            // Jump to 60% in the video
-            event.preventDefault()
-            this.changeDurationByPercentage(0.6)
-            break
-          case 55:
-            // 7 Key
-            // Jump to 70% in the video
-            event.preventDefault()
-            this.changeDurationByPercentage(0.7)
-            break
-          case 56:
-            // 8 Key
-            // Jump to 80% in the video
-            event.preventDefault()
-            this.changeDurationByPercentage(0.8)
-            break
-          case 57:
-            // 9 Key
-            // Jump to 90% in the video
-            event.preventDefault()
-            this.changeDurationByPercentage(0.9)
-            break
-          case 48:
-            // 0 Key
-            // Jump to 0% in the video (The beginning)
-            event.preventDefault()
-            this.changeDurationByPercentage(0)
-            break
-          case 188:
-            // , Key
-            // Return to previous frame
-            this.framebyframe(-1)
-            break
-          case 190:
-            // . Key
-            // Advance to next frame
-            this.framebyframe(1)
-            break
-          case 68:
-            // D Key
-            // Toggle Picture in Picture Mode
-            if (!this.player.isInPictureInPicture()) {
-              this.player.requestPictureInPicture()
-            } else if (this.player.isInPictureInPicture()) {
-              this.player.exitPictureInPicture()
-            }
-            break
-          case 27:
-            // esc Key
-            // Exit full window
-            event.preventDefault()
-            this.exitFullWindow()
-            break
-          case 83:
-            // S Key
-            // Toggle Full Window Mode
-            this.toggleFullWindow()
-            break
-        }
+      switch (event.which) {
+        case 32:
+          // Space Bar
+          // Toggle Play/Pause
+          event.preventDefault()
+          this.togglePlayPause()
+          break
+        case 74:
+          // J Key
+          // Rewind by 10 seconds
+          event.preventDefault()
+          this.changeDurationBySeconds(-10)
+          break
+        case 75:
+          // K Key
+          // Toggle Play/Pause
+          event.preventDefault()
+          this.togglePlayPause()
+          break
+        case 76:
+          // L Key
+          // Fast Forward by 10 seconds
+          event.preventDefault()
+          this.changeDurationBySeconds(10)
+          break
+        case 79:
+          // O Key
+          // Decrease playback rate by 0.25x
+          event.preventDefault()
+          this.changePlayBackRate(-0.25)
+          break
+        case 80:
+          // P Key
+          // Increase playback rate by 0.25x
+          event.preventDefault()
+          this.changePlayBackRate(0.25)
+          break
+        case 70:
+          // F Key
+          // Toggle Fullscreen Playback
+          event.preventDefault()
+          this.toggleFullscreen()
+          break
+        case 77:
+          // M Key
+          // Toggle Mute
+          event.preventDefault()
+          this.toggleMute()
+          break
+        case 67:
+          // C Key
+          // Toggle Captions
+          event.preventDefault()
+          this.toggleCaptions()
+          break
+        case 38:
+          // Up Arrow Key
+          // Increase volume
+          event.preventDefault()
+          this.changeVolume(0.05)
+          break
+        case 40:
+          // Down Arrow Key
+          // Decrease Volume
+          event.preventDefault()
+          this.changeVolume(-0.05)
+          break
+        case 37:
+          // Left Arrow Key
+          // Rewind by 5 seconds
+          event.preventDefault()
+          this.changeDurationBySeconds(-5)
+          break
+        case 39:
+          // Right Arrow Key
+          // Fast Forward by 5 seconds
+          event.preventDefault()
+          this.changeDurationBySeconds(5)
+          break
+        case 49:
+          // 1 Key
+          // Jump to 10% in the video
+          event.preventDefault()
+          this.changeDurationByPercentage(0.1)
+          break
+        case 50:
+          // 2 Key
+          // Jump to 20% in the video
+          event.preventDefault()
+          this.changeDurationByPercentage(0.2)
+          break
+        case 51:
+          // 3 Key
+          // Jump to 30% in the video
+          event.preventDefault()
+          this.changeDurationByPercentage(0.3)
+          break
+        case 52:
+          // 4 Key
+          // Jump to 40% in the video
+          event.preventDefault()
+          this.changeDurationByPercentage(0.4)
+          break
+        case 53:
+          // 5 Key
+          // Jump to 50% in the video
+          event.preventDefault()
+          this.changeDurationByPercentage(0.5)
+          break
+        case 54:
+          // 6 Key
+          // Jump to 60% in the video
+          event.preventDefault()
+          this.changeDurationByPercentage(0.6)
+          break
+        case 55:
+          // 7 Key
+          // Jump to 70% in the video
+          event.preventDefault()
+          this.changeDurationByPercentage(0.7)
+          break
+        case 56:
+          // 8 Key
+          // Jump to 80% in the video
+          event.preventDefault()
+          this.changeDurationByPercentage(0.8)
+          break
+        case 57:
+          // 9 Key
+          // Jump to 90% in the video
+          event.preventDefault()
+          this.changeDurationByPercentage(0.9)
+          break
+        case 48:
+          // 0 Key
+          // Jump to 0% in the video (The beginning)
+          event.preventDefault()
+          this.changeDurationByPercentage(0)
+          break
+        case 188:
+          // , Key
+          // Return to previous frame
+          this.framebyframe(-1)
+          break
+        case 190:
+          // . Key
+          // Advance to next frame
+          this.framebyframe(1)
+          break
+        case 68:
+          // D Key
+          // Toggle Picture in Picture Mode
+          if (!this.player.isInPictureInPicture()) {
+            this.player.requestPictureInPicture()
+          } else if (this.player.isInPictureInPicture()) {
+            this.player.exitPictureInPicture()
+          }
+          break
+        case 27:
+          // esc Key
+          // Exit full window
+          event.preventDefault()
+          this.exitFullWindow()
+          break
+        case 83:
+          // S Key
+          // Toggle Full Window Mode
+          this.toggleFullWindow()
+          break
       }
-    },
-
-    ...mapActions([
-      'calculateColorLuminance'
-    ])
+    }
   }
 })

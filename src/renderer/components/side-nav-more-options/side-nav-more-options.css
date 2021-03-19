@@ -10,15 +10,11 @@
 
 .navOption:hover {
   background-color: var(--side-nav-hover-color);
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 
 .navOption:active {
   background-color: var(--side-nav-active-color);
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 
@@ -28,8 +24,6 @@
   bottom: 60px;
   width: 70px;
   z-index: 0;
-  -webkit-box-shadow: 3px -3px 5px 0px rgba(0,0,0,0.2);
-  -moz-box-shadow: 3px -3px 5px 0px rgba(0,0,0,0.2);
   box-shadow: 3px -3px 5px 0px rgba(0,0,0,0.2);
 }
 

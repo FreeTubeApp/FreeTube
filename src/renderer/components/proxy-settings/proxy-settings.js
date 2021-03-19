@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import $ from 'jquery'
+import ky from 'ky/umd'
 import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
@@ -121,27 +121,30 @@ export default Vue.extend({
       if (!this.useProxy) {
         this.enableProxy()
       }
-      $.getJSON(this.proxyTestUrl1, (response) => {
-        console.log(response)
-        this.proxyIp = response.ip
-        this.proxyCountry = response.country_name
-        this.proxyRegion = response.region_name
-        this.proxyCity = response.city
-        this.dataAvailable = true
-      }).fail((xhr, textStatus, error) => {
-        console.log(xhr)
-        console.log(textStatus)
-        console.log(error)
-        this.showToast({
-          message: this.$t('Settings.Proxy Settings["Error getting network information. Is your proxy configured properly?"]')
+      ky(this.proxyTestUrl1).json()
+        .then(response => {
+          if (!this.useProxy) {
+            this.disableProxy()
+          }
+          this.isLoading = false
+          console.log(response)
+          this.proxyIp = response.ip
+          this.proxyCountry = response.country_name
+          this.proxyRegion = response.region_name
+          this.proxyCity = response.city
+          this.dataAvailable = true
         })
-        this.dataAvailable = false
-      }).always(() => {
-        if (!this.useProxy) {
-          this.disableProxy()
-        }
-        this.isLoading = false
-      })
+        .catch(error => {
+          if (!this.useProxy) {
+            this.disableProxy()
+          }
+          this.isLoading = false
+          console.log(error)
+          this.showToast({
+            message: this.$t('Settings.Proxy Settings["Error getting network information. Is your proxy configured properly?"]')
+          })
+          this.dataAvailable = false
+        })
     },
 
     ...mapActions([

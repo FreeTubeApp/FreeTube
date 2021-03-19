@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import { mapActions } from 'vuex'
 import xml2vtt from 'yt-xml2vtt'
-import $ from 'jquery'
-import fs from 'fs'
+import ky from 'ky/umd'
+import fs from 'fs/promises'
 import ytDashGen from 'yt-dash-manifest-generator'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
@@ -14,6 +14,7 @@ import WatchVideoComments from '../../components/watch-video-comments/watch-vide
 import WatchVideoLiveChat from '../../components/watch-video-live-chat/watch-video-live-chat.vue'
 import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-video-playlist.vue'
 import WatchVideoRecommendations from '../../components/watch-video-recommendations/watch-video-recommendations.vue'
+import { $ } from '../../helpers'
 
 const remote = require('@electron/remote')
 
@@ -778,15 +779,13 @@ export default Vue.extend({
       this.activeFormat = 'dash'
       this.hidePlayer = true
 
-      setTimeout(() => {
-        this.hidePlayer = false
-        setTimeout(() => {
-          const player = this.$refs.videoPlayer.player
-          if (player !== null) {
-            player.currentTime(watchedProgress)
-          }
-        }, 500)
-      }, 100)
+      const player = this.$refs.videoPlayer.player
+      if (player) {
+        player.ready(() => {
+          this.hidePlayer = false
+          player.currentTime(watchedProgress)
+        })
+      }
     },
 
     enableLegacyFormat: function () {
@@ -799,15 +798,13 @@ export default Vue.extend({
       this.activeSourceList = this.videoSourceList
       this.hidePlayer = true
 
-      setTimeout(() => {
-        this.hidePlayer = false
-        setTimeout(() => {
-          const player = this.$refs.videoPlayer.player
-          if (player !== null) {
-            player.currentTime(watchedProgress)
-          }
-        }, 500)
-      }, 100)
+      const player = this.$refs.videoPlayer.player
+      if (player) {
+        player.ready(() => {
+          this.hidePlayer = false
+          player.currentTime(watchedProgress)
+        })
+      }
     },
 
     enableAudioFormat: function () {
@@ -827,15 +824,13 @@ export default Vue.extend({
       this.activeSourceList = this.audioSourceList
       this.hidePlayer = true
 
-      setTimeout(() => {
-        this.hidePlayer = false
-        setTimeout(() => {
-          const player = this.$refs.videoPlayer.player
-          if (player !== null) {
-            player.currentTime(watchedProgress)
-          }
-        }, 500)
-      }, 100)
+      const player = this.$refs.videoPlayer.player
+      if (player) {
+        player.ready(() => {
+          this.hidePlayer = false
+          player.currentTime(watchedProgress)
+        })
+      }
     },
 
     handleVideoEnded: function () {
@@ -910,14 +905,17 @@ export default Vue.extend({
 
         if (player !== null && !player.paused() && player.isInPictureInPicture()) {
           const playerId = this.videoId
-          setTimeout(() => {
-            player.play()
+          if (player) {
+            player.ready(() => {
+              this.hidePlayer = false
+              player.play()
+            })
             player.on('leavepictureinpicture', (event) => {
               const watchTime = player.currentTime()
               if (this.$route.fullPath.includes('/watch')) {
                 const routeId = this.$route.params.id
                 if (routeId === playerId) {
-                  const activePlayer = $('.ftVideoPlayer video').get(0)
+                  const activePlayer = $('.ftVideoPlayer video')
                   activePlayer.currentTime = watchTime
                 }
               }
@@ -925,7 +923,7 @@ export default Vue.extend({
               player.pause()
               player.dispose()
             })
-          }, 200)
+          }
         }
       }
     },
@@ -951,39 +949,43 @@ export default Vue.extend({
     createLocalDashManifest: function (formats) {
       const xmlData = ytDashGen.generate_dash_file_from_formats(formats, this.videoLengthSeconds)
       const userData = remote.app.getPath('userData')
+      let dirLocation
       let fileLocation
       let uriSchema
-      if (this.isDev) {
-        fileLocation = `dashFiles/${this.videoId}.xml`
-        uriSchema = fileLocation
-        // if the location does not exist, writeFileSync will not create the directory, so we have to do that manually
-        if (!fs.existsSync('dashFiles/')) {
-          fs.mkdirSync('dashFiles/')
-        }
-      } else {
-        fileLocation = `${userData}/dashFiles/${this.videoId}.xml`
-        uriSchema = `file://${fileLocation}`
 
-        if (!fs.existsSync(`${userData}/dashFiles/`)) {
-          fs.mkdirSync(`${userData}/dashFiles/`)
-        }
+      if (this.isDev) {
+        dirLocation = 'dashFiles/'
+        fileLocation = `${dirLocation}${this.videoId}.xml`
+        uriSchema = fileLocation
+      } else {
+        dirLocation = `${userData}/dashFiles/`
+        fileLocation = `${dirLocation}${this.videoId}.xml`
+        uriSchema = `file://${fileLocation}`
       }
-      fs.writeFileSync(fileLocation, xmlData)
-      return [
-        {
-          url: uriSchema,
-          type: 'application/dash+xml',
-          label: 'Dash',
-          qualityLabel: 'Auto'
-        }
-      ]
+
+      return fs.mkdir(dirLocation)
+        .catch(error => {
+          if (error?.code === 'EEXIST') {
+            return Promise.resolve()
+          }
+          throw error
+        })
+        .then(() => fs.writeFile(fileLocation, xmlData))
+        .then(() => ([
+          {
+            url: uriSchema,
+            type: 'application/dash+xml',
+            label: 'Dash',
+            qualityLabel: 'Auto'
+          }
+        ]))
     },
 
     createInvidiousDashManifest: function () {
       let url = `${this.invidiousInstance}/api/manifest/dash/id/${this.videoId}.mpd`
 
       if (this.proxyVideos || !this.usingElectron) {
-        url = url + '?local=true'
+        url = `${url}?local=true`
       }
 
       return [
@@ -1020,60 +1022,60 @@ export default Vue.extend({
         })
       })
       // TODO: MAKE A VARIABLE WHICH CAN CHOOSE BETWEEN STROYBOARD ARRAY ELEMENTS
-      this.buildVTTFileLocally(storyboardArray[1]).then((results) => {
+      return this.buildVTTFileLocally(storyboardArray[1]).then((results) => {
         const userData = remote.app.getPath('userData')
         let fileLocation
+        let dirLocation
         let uriSchema
 
         // Dev mode doesn't have access to the file:// schema, so we access
         // storyboards differently when run in dev
         if (this.isDev) {
-          fileLocation = `storyboards/${this.videoId}.vtt`
+          dirLocation = 'storyboards/'
+          fileLocation = `${dirLocation}${this.videoId}.vtt`
           uriSchema = fileLocation
-          // if the location does not exist, writeFileSync will not create the directory, so we have to do that manually
-          if (!fs.existsSync('storyboards/')) {
-            fs.mkdirSync('storyboards/')
-          }
         } else {
-          if (!fs.existsSync(`${userData}/storyboards/`)) {
-            fs.mkdirSync(`${userData}/storyboards/`)
-          }
-          fileLocation = `${userData}/storyboards/${this.videoId}.vtt`
+          dirLocation = `${userData}/storyboards/`
+          fileLocation = `${dirLocation}${this.videoId}.vtt`
           uriSchema = `file://${fileLocation}`
         }
-        fs.writeFileSync(fileLocation, results)
 
-        this.videoStoryboardSrc = uriSchema
+        return fs.mkdir(dirLocation)
+          .catch(error => {
+            if (error?.code === 'EEXIST') {
+              return Promise.resolve()
+            }
+            throw error
+          })
+          .then(() => fs.writeFile(fileLocation, results))
+          .then(() => {
+            this.videoStoryboardSrc = uriSchema
+          })
       })
     },
 
-    createCaptionUrls: function (captionTracks) {
-      this.captionSourceList = captionTracks.map(caption => {
+    createCaptionUrls: async function (captionTracks) {
+      this.captionSourceList = await Promise.all(captionTracks.map(caption => {
         caption.type = 'text/vtt'
         caption.charset = 'charset=utf-8'
         caption.dataSource = 'local'
 
-        $.get(caption.baseUrl, response => {
-          xml2vtt
-            .Parse(new XMLSerializer().serializeToString(response))
-            .then(vtt => {
-              caption.baseUrl = `data:${caption.type};${caption.charset},${vtt}`
-            })
-            .catch(err =>
-              console.log(`Error while converting XML to VTT : ${err}`)
-            )
-        }).fail((xhr, textStatus, error) => {
-          console.log(xhr)
-          console.log(textStatus)
-          console.log(error)
-        })
-
-        return caption
-      })
+        return ky(caption.baseUrl).text()
+          .then(response => xml2vtt.Parse(response).catch(error => {
+            console.log(`Error while converting XML to VTT : ${error}`)
+            throw error
+          }))
+          .then(vtt => {
+            caption.baseUrl = `data:${caption.type};${caption.charset},${vtt}`
+            return caption
+          })
+      }))
     },
 
     getWatchedProgress: function () {
-      return this.$refs.videoPlayer && this.$refs.videoPlayer.player ? this.$refs.videoPlayer.player.currentTime() : 0
+      return this.$refs.videoPlayer && this.$refs.videoPlayer.player
+        ? this.$refs.videoPlayer.player.currentTime()
+        : 0
     },
 
     getTimestamp: function () {

@@ -1,9 +1,12 @@
 <template>
-  <div>
+  <div @focusout="showProfileList = false">
     <div
       class="colorOption"
       :style="{ background: profileList[activeProfile].bgColor, color: profileList[activeProfile].textColor }"
+      role="button"
+      tabindex="0"
       @click="toggleProfileList"
+      @keypress="toggleProfileList"
     >
       <p
         class="initial"
@@ -12,8 +15,9 @@
       </p>
     </div>
     <ft-card
+      v-show="showProfileList"
       id="profileList"
-      tabindex="-1"
+      tabindex="0"
     >
       <h3
         class="profileListTitle"

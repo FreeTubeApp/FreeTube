@@ -33,7 +33,6 @@
   width: 60px;
   height: 60px;
   border-radius: 200px 200px 200px 200px;
-  -webkit-border-radius: 200px 200px 200px 200px;
   cursor: pointer;
 }
 
@@ -78,7 +77,6 @@
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  -webkit-border-radius: 50%;
 }
 
 .commentHeartBadgeWhite {

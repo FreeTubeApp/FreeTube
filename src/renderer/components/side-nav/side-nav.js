@@ -60,7 +60,11 @@ export default Vue.extend({
   },
   methods: {
     navigate: function (route) {
-      router.push('/' + route)
+      const nextPath = `/${route}`
+      if (nextPath === this.$router.history.current.path) {
+        return
+      }
+      router.push(nextPath)
     },
 
     goToChannel: function (id) {

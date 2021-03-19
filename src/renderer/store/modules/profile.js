@@ -1,4 +1,5 @@
 import Datastore from 'nedb'
+import { calculateColorLuminance, getRandomColor } from '../../helpers'
 
 let dbLocation
 
@@ -94,8 +95,8 @@ const actions = {
   },
 
   async createDefaultProfile ({ dispatch }, defaultName) {
-    const randomColor = await dispatch('getRandomColor')
-    const textColor = await dispatch('calculateColorLuminance', randomColor)
+    const randomColor = getRandomColor()
+    const textColor = calculateColorLuminance(randomColor)
     const defaultProfile = {
       _id: 'allChannels',
       name: defaultName,

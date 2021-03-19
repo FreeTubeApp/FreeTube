@@ -303,15 +303,15 @@ export default Vue.extend({
         this.nextPageToken = response.continuation
         this.isLoading = false
         this.showComments = true
-      }).catch((xhr) => {
+      }).catch(error => {
         console.log('found an error')
-        console.log(xhr)
+        console.log(error)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         this.showToast({
-          message: `${errorMessage}: ${xhr.responseText}`,
+          message: `${errorMessage}: ${error}`,
           time: 10000,
           action: () => {
-            navigator.clipboard.writeText(xhr.responseText)
+            navigator.clipboard.writeText(error)
           }
         })
         if (this.backendFallback && this.backendPreference === 'invidious') {
@@ -360,15 +360,15 @@ export default Vue.extend({
         this.commentData[index].replies = commentData
         this.commentData[index].showReplies = true
         this.isLoading = false
-      }).catch((xhr) => {
+      }).catch(error => {
         console.log('found an error')
-        console.log(xhr)
+        console.log(error)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         this.showToast({
-          message: `${errorMessage}: ${xhr.responseText}`,
+          message: `${errorMessage}: ${error}`,
           time: 10000,
           action: () => {
-            navigator.clipboard.writeText(xhr.responseText)
+            navigator.clipboard.writeText(error)
           }
         })
         this.isLoading = false

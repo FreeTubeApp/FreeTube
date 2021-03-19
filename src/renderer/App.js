@@ -1,5 +1,9 @@
 import Vue from 'vue'
 import { ObserveVisibility } from 'vue-observe-visibility'
+import { markdown } from 'markdown'
+import Parser from 'rss-parser'
+import { on } from 'shorter-js'
+import ky from 'ky/umd'
 import FtFlexBox from './components/ft-flex-box/ft-flex-box.vue'
 import TopNav from './components/top-nav/top-nav.vue'
 import SideNav from './components/side-nav/side-nav.vue'
@@ -8,9 +12,6 @@ import FtPrompt from './components/ft-prompt/ft-prompt.vue'
 import FtButton from './components/ft-button/ft-button.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
 import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
-import $ from 'jquery'
-import { markdown } from 'markdown'
-import Parser from 'rss-parser'
 
 let useElectron
 let shell
@@ -165,7 +166,7 @@ export default Vue.extend({
         const { version } = require('../../package.json')
         const requestUrl = 'https://api.github.com/repos/freetubeapp/freetube/releases'
 
-        $.getJSON(requestUrl, (response) => {
+        ky(requestUrl).json().then(response => {
           const tagName = response[0].tag_name
           const versionNumber = tagName.replace('v', '').replace('-beta', '')
           this.updateChangelog = markdown.toHTML(response[0].body)
@@ -184,10 +185,7 @@ export default Vue.extend({
           } else if (parseInt(appVersion[2]) < parseInt(latestVersion[2])) {
             this.showUpdatesBanner = true
           }
-        }).fail((xhr, textStatus, error) => {
-          console.log(xhr)
-          console.log(textStatus)
-          console.log(requestUrl)
+        }).catch(error => {
           console.log(error)
         })
       }
@@ -243,8 +241,8 @@ export default Vue.extend({
     },
 
     activateKeyboardShortcuts: function () {
-      $(document).on('keydown', this.handleKeyboardShortcuts)
-      $(document).on('mousedown', () => {
+      on(document, 'keydown', this.handleKeyboardShortcuts)
+      on(document, 'mousedown', () => {
         this.hideOutlines = true
       })
     },
@@ -269,13 +267,18 @@ export default Vue.extend({
 
     openAllLinksExternally: function () {
       // Open links externally by default
-      $(document).on('click', 'a[href^="http"]', (event) => {
-        const el = event.currentTarget
-        console.log(useElectron)
-        console.log(el)
-        if (typeof (shell) !== 'undefined') {
-          event.preventDefault()
-          shell.openExternal(el.href)
+      on(document, 'click', event => {
+        if (
+          event.target.tagName.toLowerCase() === 'a' &&
+          event.target.href &&
+          !event.target.getAttribute('href').match(/^(\/|#|blob:|file:\/\/).*/)
+        ) {
+          console.log(useElectron)
+          console.log(event.target)
+          if (typeof shell !== 'undefined') {
+            event.preventDefault()
+            shell.openExternal(event.target.href)
+          }
         }
       })
     },

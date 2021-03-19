@@ -13,7 +13,7 @@ import { faMastodon } from '@fortawesome/free-brands-svg-icons/faMastodon'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import VueI18n from 'vue-i18n'
 import yaml from 'js-yaml'
-import fs from 'fs'
+import fs from 'fs/promises'
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -34,13 +34,15 @@ const fileLocation = isDev ? 'static/locales/' : `${__dirname}/static/locales/`
 
 // Take active locales and load respective YAML file
 activeLocales.forEach((locale) => {
-  try {
-    // File location when running in dev
-    const doc = yaml.load(fs.readFileSync(`${fileLocation}${locale}.yaml`))
-    messages[locale] = doc
-  } catch (e) {
-    console.log(e)
-  }
+  // File location when running in dev
+  fs.readFile(`${fileLocation}${locale}.yaml`)
+    .then(data => yaml.load(data))
+    .then(doc => {
+      messages[locale] = doc
+    })
+    .catch(error => {
+      console.log(error)
+    })
 })
 
 const i18n = new VueI18n({
