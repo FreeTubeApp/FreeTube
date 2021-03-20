@@ -30,8 +30,8 @@ Close: 'Zapri'
 Back: 'Nazaj'
 Forward: 'Naprej'
 
-Version $ is now available!  Click for more details: 'Na voljo je različica $!·· ··
-  Za več podrobnosti kliknite tukaj'
+Version $ is now available!  Click for more details: 'Na voljo je različica $!·  Za
+  več podrobnosti kliknite tukaj'
 Download From Site: 'Prenesi iz spletne strani'
 A new blog is now available, $. Click to view more: 'Na voljo je nov članek, $. Kliknite
   tukaj, če ga želite prebrati'
@@ -82,8 +82,8 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Pridobivamo naročnine. Prosimo, počakajte.'
   Refresh Subscriptions: 'Osveži naročnine'
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Ta
-    profil ima veliko količino naročnin.·· ·· Da bi se izognili omejitvi hitrosti,
-    bo uporabljen RSS
+    profil ima veliko količino naročnin.· Da bi se izognili omejitvi hitrosti, bo
+    uporabljen RSS
   Load More Videos: Naloži več videoposnetkov
 Trending: 'Priljubljeno'
 Most Popular: 'Najbolj popularno'
@@ -209,8 +209,8 @@ Settings:
     Watch history has been cleared: 'Zgodovina gledanj je bila izbrisana'
     Remove All Subscriptions / Profiles: 'Izbriši vse naročnine/profile'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Ste
-      prepričani, da želite izbrisati vse naročnine in profile?·· ·· Te odločitve
-      ni mogoče razveljaviti.'
+      prepričani, da želite izbrisati vse naročnine in profile?·  Te odločitve ni
+      mogoče razveljaviti.'
   Subscription Settings:
     Subscription Settings: 'Nastavitve naročnin'
     Hide Videos on Watch: 'Skrij gledane videoposnetke'
@@ -405,11 +405,12 @@ Profile:
   No channel(s) have been selected: 'Označili niste nobenih kanalov'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : 'To je vaš primarni profil.·· ·· Ste prepričani, da želite izbrisati označene
-    kanale?·· ·· Kanali bodo izbrisani v vseh profilih, kjer se nahajajo.'
+  : 'To je vaš primarni profil.·  Ste prepričani, da želite izbrisati označene kanale?·  Kanali
+    bodo izbrisani v vseh profilih, kjer se nahajajo.'
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Ste
-    prepričani, da želite izbrisati označene kanale?·· ·· Kanali ne bodo izbrisani
-    iz drugih profilov.'
+    prepričani, da želite izbrisati označene kanale?
+
+    ·  Kanali ne bodo izbrisani iz drugih profilov.'
 #On Channel Page
   Profile Filter: Filter profilov
 Channel:
@@ -481,8 +482,9 @@ Video:
   Live chat is enabled.  Chat messages will appear here once sent.: 'Pogovor v živo
     je vklopljen.'
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Pogovor
-    v živo trenutno ni podprt v Invidious APV.·· ·· Potrebna je neposredna povezava
-    z YouTube-om.'
+    v živo trenutno ni podprt v Invidious APV.
+
+    ·  Potrebna je neposredna povezava z YouTubom.'
   Published:
     Jan: 'jan.'
     Feb: 'feb.'
@@ -622,9 +624,14 @@ Playing Previous Video: 'Predvaja se prejšnji videoposnetek'
 Playing next video in 5 seconds.  Click to cancel: 'Naslednji videoposnetek čez 5
   sekund. Kliknite za preklic.'
 Canceled next video autoplay: 'Samodejno predvajanje preklicano'
-'The playlist has ended.  Enable loop to continue playing': 'Seznama predvajanja je
-  konec. ·· ·· Vklopite ponovno predvajanje, če želite nadaljevati'
+'The playlist has ended.  Enable loop to continue playing': "Seznama predvajanja je\
+  \ konec. \n·  Vklopite ponovno predvajanje, če želite nadaljevati"
 
 Yes: 'Da'
 No: 'Ne'
 More: Več
+Tooltips:
+  General Settings:
+    Preferred API Backend: Izberite zaledje, ki ga FreeTube uporablja za pridobivanje
+      podatkov. Lokalni APV je vgrajeni . Invidious APV za delovanje potrebuje Invidious
+      strežnik.
