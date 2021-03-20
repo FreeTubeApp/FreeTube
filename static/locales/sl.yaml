@@ -71,6 +71,7 @@ Search Filters:
   Fetching results. Please wait: 'Pridobivamo rezultate. Prosimo, počakajte'
   Fetch more results: 'Pridobi več rezultatov'
 # Sidebar
+  There are no more results for this search: Nič več rezultatov
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Naročnine'
@@ -89,6 +90,13 @@ Most Popular: 'Najbolj popularno'
 Playlists: 'Seznami predvajanja'
 User Playlists:
   Your Playlists: 'Vaši seznami predvajanja'
+  Playlist Message: Ta stran ne odraža stanja popolnoma delujočih seznamov predvajanja.
+    Na njej so prikazani zgolj videoposnetki, ki ste jih shranili ali označili kot
+    priljubljene. Ko bo delo končano, bodo ti videoposnetki preseljeni v Seznam priljubljenih
+    videoposnetkov.
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Nimate
+    shranjenih videoposnetkov. Kliknite na gumb Shrani v kotu videoposnetka, da bo
+    ta dodan tukaj
 History:
   # On History Page
   History: 'Zgodovina'
@@ -125,6 +133,7 @@ Settings:
       (prevzeta je https://invidious.snopyta.org)'
     Region for Trending: 'Regija za priljubljene videoposnetke'
         #! List countries
+    View all Invidious instance information: Prikaži vse podatke o Invidious domeni
   Theme Settings:
     Theme Settings: 'Nastavitve tem'
     Match Top Bar with Main Color: 'Uskladi zgornji trak z glavno barvo'
@@ -185,6 +194,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Playlist Next Video Interval: Razmik med videoposnetki v seznamu predvajanja
   Privacy Settings:
     Privacy Settings: 'Nastavitve zasebnosti'
     Remember History: 'Zapomni si zgodovino'
@@ -244,6 +254,7 @@ Settings:
     Unknown data key: 'Neznan podatkovni ključ'
     How do I import my subscriptions?: 'Kako lahko uvozim moje naročnine?'
     Check for Legacy Subscriptions: Poišči zapuščinske naročnine
+    Manage Subscriptions: Upravljaj z naročninami
   Advanced Settings:
     Advanced Settings: 'Napredne nastavitve'
     Enable Debug Mode (Prints data to the console): 'Vklopi razhroščevalni način (podatke
@@ -280,9 +291,28 @@ Settings:
     Hide Channel Subscribers: Skrij število naročnikov
     Hide Video Views: Skrij število ogledov
     Distraction Free Settings: Brezmotenjske nastavitve
+    Hide Active Subscriptions: Skrij aktivne naročnine
+    Hide Playlists: Skrij sezname predvajanja
   The app needs to restart for changes to take effect. Restart and apply change?: Program
     se mora ponovno zagnati, preden bodo spremembe uveljavljene. Ga želite ponovno
     zagnati zdaj?
+  Proxy Settings:
+    Error getting network information. Is your proxy configured properly?: Prišlo
+      je do napake pri pridobivanju informacij o omrežju. Ali je vaš namestnik pravilno
+      nastavljen?
+    City: Mesto
+    Region: Regija
+    Country: Država
+    Ip: IP naslov
+    Your Info: Vaši podatki
+    Test Proxy: Preizkusi namestnik
+    Clicking on Test Proxy will send a request to: Ko kliknete na Preizkusi namestnik,
+      bo poizvedba poslana na
+    Proxy Port Number: Številka vrat namestnika
+    Proxy Settings: Nastavitve namestnika
+    Proxy Host: Gostitelj namestnika
+    Proxy Protocol: Protokol namestnika
+    Enable Tor / Proxy: Vklopi Tor/namestnik
 About:
   #On About page
   About: 'O programu'
@@ -314,6 +344,31 @@ About:
 
   Latest FreeTube News: 'Najnovejše FreeTube novice'
 
+  Donate: Doniraj
+  these people and projects: teh ljudi in projektov
+  FreeTube is made possible by: FreeTube obstaja zaradi
+  Credits: Zahvale
+  Translate: Prevedi
+  room rules: sobna pravila
+  Please read the: Prosimo, preberite
+  Chat on Matrix: Klepetajte na Matrixu
+  Mastodon: Mastodon
+  Email: E-pošta
+  Blog: Blog
+  Website: Spletna stran
+  Please check for duplicates before posting: Prosimo, da pred pošiljanjem preverite,
+    da ni dvojnikov
+  GitHub issues: GitHub težave
+  Report a problem: Prijavi napako
+  FAQ: Pogosto zastavljena vprašanja
+  FreeTube Wiki: FreeTube wiki
+  Help: Pomoč
+  GitHub releases: Github izdaje
+  Downloads / Changelog: Prenosi in dnevnik sprememb
+  View License: Ogled licence
+  Licensed under the AGPLv3: Licencirano pod AGPLv3
+  Source code: Izvirna koda
+  Beta: Beta
 Profile:
   Profile Select: 'Izberi profil'
   All Channels: 'Vsi kanali'
@@ -356,6 +411,7 @@ Profile:
     prepričani, da želite izbrisati označene kanale?·· ·· Kanali ne bodo izbrisani
     iz drugih profilov.'
 #On Channel Page
+  Profile Filter: Filter profilov
 Channel:
   Subscriber: 'Naročnik'
   Subscribers: 'Naročnikov'
@@ -468,6 +524,16 @@ Video:
   audio only: Samo avdio
   video only: Samo video
   Download Video: Prenesi videoposnetek
+  Started streaming on: Pretok začet dne
+  Streamed on: Pretočeno dne
+  Copy Invidious Channel Link: Kopiraj povezavo Invidious kanala
+  Open Channel in Invidious: Odpri ta kanal v Invidiousu
+  Copy YouTube Channel Link: Kopiraj povezavo YouTube kanala
+  Open Channel in YouTube: Odpri ta kanal v YouTubu
+  Video has been removed from your saved list: Videoposnetek je bil odstranjen iz
+    seznama
+  Video has been saved: Videoposnetek je bil shranjen
+  Save Video: Shrani videoposnetek
 Videos:
   #& Sort By
   Sort By:
@@ -514,6 +580,8 @@ Share:
   Invidious Embed URL copied to clipboard: 'Invidious vložek URL kopiran'
   YouTube URL copied to clipboard: 'YouTube URL kopiran'
   YouTube Embed URL copied to clipboard: 'YouTube vložek URL kopiran'
+  YouTube Channel URL copied to clipboard: URL YouTube kanala je bil kopiran
+  Invidious Channel URL copied to clipboard: URL Invidious kanala je bil kopiran
 Mini Player: 'Mini predvajalnik'
 Comments:
   Comments: 'Komentarji'
@@ -559,3 +627,4 @@ Canceled next video autoplay: 'Samodejno predvajanje preklicano'
 
 Yes: 'Da'
 No: 'Ne'
+More: Več
