@@ -289,9 +289,12 @@ export default Vue.extend({
       if (this.useSponsorBlock) {
         this.$store.dispatch('sponsorBlockSkipSegments', {
           videoId: this.videoId,
-          categories: ['sponsor', 'intro']
-        }).then((response) => {
-          response.forEach(({
+          categories: ['sponsor']
+        }).then((skipSegments) => {
+          this.player.on('timeupdate', () => {
+            this.skipSponsorBlocks(skipSegments)
+          })
+          skipSegments.forEach(({
             category,
             segment: [startTime, endTime]
           }) => {
@@ -302,6 +305,19 @@ export default Vue.extend({
             })
           })
         })
+      }
+    },
+
+    skipSponsorBlocks(skipSegments) {
+      const currentTime = this.player.currentTime()
+      let newTime = null
+      skipSegments.forEach(({ segment: [startTime, endTime] }) => {
+        if (startTime <= currentTime && currentTime < endTime) {
+          newTime = endTime
+        }
+      })
+      if (newTime !== null) {
+        this.player.currentTime(newTime)
       }
     },
 
