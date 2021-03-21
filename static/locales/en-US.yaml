@@ -280,6 +280,10 @@ Settings:
     Region: Region
     City: City
     Error getting network information. Is your proxy configured properly?: Error getting network information. Is your proxy configured properly?
+  SponsorBlock Settings:
+    SponsorBlock Settings: SponsorBlock Settings
+    Enable SponsorBlock: Enable SponsorBlock
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app/api/)': SponsorBlock API Url (Default is https://sponsor.ajay.app/api/)
 About:
   #On About page
   About: About
