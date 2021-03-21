@@ -66,6 +66,10 @@ export default Vue.extend({
     thumbnail: {
       type: String,
       default: ''
+    },
+    videoId: {
+      type: String,
+      required: true
     }
   },
   data: function () {
@@ -149,6 +153,10 @@ export default Vue.extend({
 
     autoplayVideos: function () {
       return this.$store.getters.getAutoplayVideos
+    },
+
+    useSponsorBlock: function () {
+      return this.$store.getters.getUseSponsorBlock
     }
   },
   mounted: function () {
@@ -274,6 +282,61 @@ export default Vue.extend({
           }
         })
       }
+      setTimeout(() => { this.fetchSponsorBlockInfo() }, 100)
+    },
+
+    fetchSponsorBlockInfo() {
+      if (this.useSponsorBlock) {
+        this.$store.dispatch('sponsorBlockSkipSegments', {
+          videoId: this.videoId,
+          categories: ['sponsor', 'intro']
+        }).then((response) => {
+          response.forEach(({
+            category,
+            segment: [startTime, endTime]
+          }) => {
+            this.addSponsorBlockMarker({
+              time: startTime,
+              duration: endTime - startTime,
+              color: this.sponsorBlockCategoryColor(category)
+            })
+          })
+        })
+      }
+    },
+
+    sponsorBlockCategoryColor(category) {
+      // TODO: allow to set these colors in settings
+      switch (category) {
+        case 'sponsor':
+          return '#00d400'
+        case 'intro':
+          return '#00ffff'
+        case 'outro':
+          return '#0202ed'
+        case 'selfpromo':
+          return '#ffff00'
+        case 'interaction':
+          return '#cc00ff'
+        case 'music_offtopic':
+          return '#ff9900'
+        default:
+          console.error(`Unknown SponsorBlock category ${category}`)
+          return 'yellow'
+      }
+    },
+
+    addSponsorBlockMarker(marker) {
+      const markerDiv = videojs.dom.createEl('div', {}, {})
+
+      markerDiv.className = 'sponsorBlockMarker'
+      markerDiv.style.height = '100%'
+      markerDiv.style.position = 'absolute'
+      markerDiv.style['background-color'] = marker.color
+      markerDiv.style.width = (marker.duration / this.player.duration()) * 100 + '%'
+      markerDiv.style.marginLeft = (marker.time / this.player.duration()) * 100 + '%'
+
+      this.player.el().querySelector('.vjs-progress-holder').appendChild(markerDiv)
     },
 
     checkAspectRatio() {

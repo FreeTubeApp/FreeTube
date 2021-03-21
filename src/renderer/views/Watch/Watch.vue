@@ -23,6 +23,7 @@
           :storyboard-src="videoStoryboardSrc"
           :format="activeFormat"
           :thumbnail="thumbnail"
+          :video-id="videoId"
           class="videoPlayer"
           :class="{ theatrePlayer: useTheatreMode }"
           @ready="checkIfWatched"
