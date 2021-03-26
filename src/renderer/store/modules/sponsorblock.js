@@ -1,4 +1,5 @@
 import $ from 'jquery'
+import forge from 'node-forge'
 
 const state = {}
 const getters = {}
@@ -6,10 +7,16 @@ const getters = {}
 const actions = {
   sponsorBlockSkipSegments ({ rootState }, { videoId, categories }) {
     return new Promise((resolve, reject) => {
-      const requestUrl = `${rootState.settings.sponsorBlockUrl}skipSegments?videoID=${videoId}&categories=${JSON.stringify(categories)}`
+      const messageDigestSha256 = forge.md.sha256.create()
+      messageDigestSha256.update(videoId)
+      const videoIdHashPrefix = messageDigestSha256.digest().toHex().substring(0, 4)
+      const requestUrl = `${rootState.settings.sponsorBlockUrl}skipSegments/${videoIdHashPrefix}?categories=${JSON.stringify(categories)}`
 
       $.getJSON(requestUrl, (response) => {
-        resolve(response)
+        const segments = response
+          .filter((result) => result.videoID === videoId)
+          .flatMap((result) => result.segments)
+        resolve(segments)
       }).fail((xhr, textStatus, error) => {
         console.log(xhr)
         console.log(textStatus)
