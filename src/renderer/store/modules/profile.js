@@ -27,7 +27,7 @@ const profileDb = new Datastore({
 const state = {
   profileList: [{
     _id: 'allChannels',
-    name: 'Brudi Channels',
+    name: 'All Channels',
     bgColor: '#000000',
     textColor: '#FFFFFF',
     subscriptions: []

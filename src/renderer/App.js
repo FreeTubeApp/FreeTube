@@ -85,7 +85,8 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    this.$store.dispatch('grabUserSettings').then(() => {
+    this.$store.dispatch('grabUserSettings').then((result) => {
+      console.log('AFTER GRABBING', result)
       this.$store.dispatch('grabHistory')
       this.$store.dispatch('grabAllProfiles', this.$t('Profile.All Channels'))
       this.$store.dispatch('grabAllPlaylists')
