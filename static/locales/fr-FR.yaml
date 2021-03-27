@@ -91,7 +91,7 @@ User Playlists:
   Playlist Message: Cette page ne reflète pas les listes de lecture entièrement fonctionnelles.
     Elle ne répertorie que les vidéos que vous avez enregistrées ou mises en favoris.
     Une fois le travail terminé, toutes les vidéos actuellement présentes ici seront
-    migrées vers une liste de lecture «Favoris».
+    migrées vers une liste de lecture « Favoris ».
 History:
   # On History Page
   History: 'Historique'
@@ -294,7 +294,7 @@ Settings:
     Hide Comment Likes: Masquer les J'aime dans les commentaires
     Hide Channel Subscribers: Masquer le nombre d'abonnés des chaînes
     Hide Video Views: Masquer les vues des vidéos
-    Hide Live Chat: Masquer le chat en direct
+    Hide Live Chat: Masquer le tchat en direct
     Hide Popular Videos: Masquer les vidéos populaires
     Hide Trending Videos: Masquer les tendances
     Hide Recommended Videos: Masquer les vidéos recommandées
@@ -356,7 +356,7 @@ About:
 
 #On Channel Page
   Channel Rules: Règles du salon
-  Website: Site internet
+  Website: Site web
   Source Code: Code source
   Release Notes: Notes de version
   Email: Courriel
@@ -373,7 +373,7 @@ About:
   Donate: Faire un don
   Useful Links: Liens utiles
   Translate: Aidez-nous à traduire FreeTube
-  Chat on Matrix: Chatter sur Matrix
+  Chat on Matrix: Discuter sur Matrix
   Mastodon: Mastodon
   Report a problem: Signaler un problème
   View License: Voir la license
@@ -384,7 +384,7 @@ About:
   room rules: règles du salon
   Please read the: Veuillez lire les
   Please check for duplicates before posting: Veuillez vérifier s'il y a des doublons
-    avant de poster
+    avant de publier
   GitHub issues: Les problèmes identifiés par la communauté sur GitHub
   FreeTube Wiki: Wiki de FreeTube
   GitHub releases: Les différentes versions de FreeTube disponibles sur GitHub
