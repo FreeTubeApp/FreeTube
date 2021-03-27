@@ -67,7 +67,6 @@ const actions = {
           })
 
           if (state.profileList.length < profiles.length) {
-            console.log(profiles, state.profileList)
             const profileIndex = profiles.findIndex((profile) => {
               return profile._id === rootState.settings.defaultProfile
             })
