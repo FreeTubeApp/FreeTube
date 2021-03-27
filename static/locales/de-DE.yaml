@@ -85,12 +85,12 @@ Playlists: Wiedergabelisten
 User Playlists:
   Your Playlists: Deine Wiedergabelisten
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Deine
-    gespeicherten Videos sind leer. Klicken Sie auf die Schaltfläche "Speichern" in
+    gespeicherten Videos sind leer. Klicken Sie auf die Schaltfläche „Speichern“ in
     der Ecke eines Videos, damit es hier aufgelistet wird
   Playlist Message: Diese Seite spiegelt nicht die vollständig funktionierenden Wiedergabelisten
     wider. Sie listet nur Videos auf, die Sie gespeichert oder favorisiert haben.
     Wenn die Arbeiten abgeschlossen sind, werden alle Videos, die sich derzeit hier
-    befinden, in eine Wiedergabeliste "Favoriten" migriert.
+    befinden, in eine Wiedergabeliste „Favoriten“ migriert.
 History:
   # On History Page
   History: Verlauf
@@ -189,7 +189,7 @@ Settings:
       1440p: 1440p
       4k: 4k
       8k: 8k
-    Playlist Next Video Interval: Zeit zwischen automatischer Playlist-Videowiedergabe
+    Playlist Next Video Interval: Zeit zwischen automatischer Videowiedergabe
   Subscription Settings:
     Subscription Settings: Abonnement-Einstellungen
     Hide Videos on Watch: Verstecke Videos bei Wiedergabe
@@ -296,7 +296,7 @@ Settings:
     Hide Video Views: Video-Aufrufe verbergen
     Distraction Free Settings: Einstellungen für ablenkungsfreien Modus
     Hide Active Subscriptions: Aktive Abonnements ausblenden
-    Hide Playlists: Playlists ausblenden
+    Hide Playlists: Wiedergabelisten ausblenden
   The app needs to restart for changes to take effect. Restart and apply change?: Um
     die Änderungen anzuwenden muss die Anwendung neustarten. Jetzt neustarten und
     Änderungen aktivieren?
@@ -352,7 +352,7 @@ About:
   This software is FOSS and released under the GNU Affero General Public License v3.0.: Diese
     freie Software ist unter der AGPL-3.0 lizenziert.
   Translate via Weblate: Auf Weblate übersetzen
-  Website: Webseite
+  Website: Website
   Source Code: Quellcode
   Release Notes: Versionshinweise
   Blog: Blog
@@ -361,7 +361,7 @@ About:
   Wiki: Wiki
   Report an Issue: Fehler melden
   Channel Rules: Kanalregeln
-  Email: Email
+  Email: E-Mail
   License: Lizenz
   Beta: Beta
   Donate: Spenden
@@ -377,7 +377,7 @@ About:
   Mastodon: Mastodon
   Please check for duplicates before posting: Bitte überprüfe vor dem Absenden, ob
     es Duplikate gibt
-  GitHub issues: GitHub Issues
+  GitHub issues: GitHub-Probleme
   Report a problem: Problem melden
   FreeTube Wiki: FreeTube Wiki
   GitHub releases: GitHub Veröffentlichungen
@@ -675,9 +675,9 @@ Tooltips:
       die Trends angezeigt werden sollen. Nicht alle Optionen werden auch von YouTube
       unterstützt
   Subscription Settings:
-    Fetch Feeds from RSS: Mit dieser Option nutzt FreeTube einen RSS-Feed von Youtube
+    Fetch Feeds from RSS: Mit dieser Option nutzt FreeTube einen RSS-Feed von YouTube,
       um deine Abonnements zu aktualisieren. RSS ist sowohl schneller als auch sicherer,
-      wenn du oft temporär von YouTube geblockt wirst(Error 429). Allerdings sind
+      wenn du oft temporär von YouTube geblockt wirst (Error 429). Allerdings sind
       nicht alle Videoinformationen, wie Videodauer oder Live-Status, verfügbar.
   Player Settings:
     Default Video Format: Auswahl der Formate bei der Videowiedergabe. Dash-Formate

@@ -304,7 +304,7 @@ Settings:
     Ip: IP-cím
     Your Info: Az Ön adatai
     Clicking on Test Proxy will send a request to: 'A Meghatalmazás-ellenőrzés gombra
-      kattintva kérést küld a következő címre:'
+      kattintva kérést küld a következő címre'
     Test Proxy: Meghatalmazás-ellenőrzés
     Proxy Port Number: Meghatalmazás kikötőszáma
     Proxy Host: Meghatalmazás gazdaszámítógép
@@ -346,7 +346,7 @@ About:
   Latest FreeTube News: 'Legfrissebb FreeTube hírek'
 
   these people and projects: ezek emberek és projektek
-  FreeTube is made possible by: 'A FreeTube engedélyezése:'
+  FreeTube is made possible by: 'A FreeTube engedélyezése'
   Donate: Hozzájárulás
   Credits: Közreműködők
   Translate: Fordítás
@@ -546,7 +546,7 @@ Playlist:
   Videos: 'Videók'
   View: 'Megtekintés'
   Views: 'Megtekintések'
-  Last Updated On: 'Utoljára frissítve:'
+  Last Updated On: 'Utoljára frissítve'
   Share Playlist:
     Share Playlist: 'Lejátszási lista megosztása'
     Copy YouTube Link: 'YouTube hivatkozás másolása'

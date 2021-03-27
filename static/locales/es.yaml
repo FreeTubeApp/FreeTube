@@ -171,7 +171,7 @@ Settings:
       Legacy Formats: 'Legacy'
       Audio Formats: 'Solo audio'
     Default Quality:
-      Default Quality: 'Calidad predeterminada'
+      Default Quality: 'Calidad Predeterminada'
       Auto: 'Automático'
       144p: '144p'
       240p: '240p'
@@ -182,36 +182,37 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Playlist Next Video Interval: Intervalo de Siguiente Video en Playlist
   Privacy Settings:
-    Privacy Settings: 'Privacidad'
-    Remember History: 'Recordar historial'
+    Privacy Settings: 'Ajustes de Privacidad'
+    Remember History: 'Recordar Historial'
     Save Watched Progress: 'Guardar progreso reproducido'
-    Clear Search Cache: 'Borrar cache de búsqueda'
+    Clear Search Cache: 'Borrar Cache de Búsqueda'
     Are you sure you want to clear out your search cache?: '¿Seguro de que quieres
       borrar la cache de búsqueda?'
-    Search cache has been cleared: '¡Hecho!'
+    Search cache has been cleared: 'El cache de búsqueda ha sido eliminado'
     Remove Watch History: 'Borrar historial de reproducción'
     Are you sure you want to remove your entire watch history?: '¿Seguro de que quieres
       borrar el historial de reproducción?'
-    Watch history has been cleared: '¡Hecho!'
+    Watch history has been cleared: 'El Historial de Reproducción ha sido eliminado'
     Remove All Subscriptions / Profiles: 'Borrar todas las suscripciones y perfiles'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: '¿Estás
       seguro de que quieres borrar todas las suscripciones y perfiles? Esta operación
       será irreversible.'
   Subscription Settings:
-    Subscription Settings: 'Suscripciones'
+    Subscription Settings: 'Ajustes de Suscripciones'
     Hide Videos on Watch: 'Ocultar videos vistos'
     Fetch Feeds from RSS: 'Obtener suscripciones usando RSS'
-    Manage Subscriptions: 'Administrar suscripciones'
+    Manage Subscriptions: 'Administrar Suscripciones'
   Data Settings:
-    Data Settings: 'Datos locales'
-    Select Import Type: 'Tipo de importación'
-    Select Export Type: 'Tipo de exportación'
-    Import Subscriptions: 'Importar suscripciones'
+    Data Settings: 'Ajustes de Datos'
+    Select Import Type: 'Seleccionar Tipo de Importación'
+    Select Export Type: 'Seleccionar Tipo de Exportación'
+    Import Subscriptions: 'Importar Suscripciones'
     Import FreeTube: 'Importar FreeTube'
     Import YouTube: 'Importar YouTube'
     Import NewPipe: 'Importar NewPipe'
-    Export Subscriptions: 'Exportar suscripciones'
+    Export Subscriptions: 'Exportar Suscripciones'
     Export FreeTube: 'Exportar FreeTube'
     Export YouTube: 'Exportar YouTube'
     Export NewPipe: 'Exportar NewPipe'
@@ -270,16 +271,17 @@ Settings:
       #& No
 
   Distraction Free Settings:
-    Hide Video Likes And Dislikes: No mostrar likes/dislikes en videos
-    Hide Video Views: No mostrar visitas en videos
-    Hide Live Chat: No mostrar chat
-    Hide Popular Videos: No mostrar más populares
-    Hide Trending Videos: No mostrar tendencias
-    Hide Recommended Videos: No mostrar videos recomendados
-    Hide Comment Likes: No mostrar likes de comentarios
-    Hide Channel Subscribers: No mostrar suscriptores en canales
-    Distraction Free Settings: No distraer
-    Hide Active Subscriptions: Ocultar suscripciones activas
+    Hide Video Likes And Dislikes: Ocultar Likes/Dislikes del Video
+    Hide Video Views: Ocultar las Vistas del Video
+    Hide Live Chat: Ocultar Chat en Vivo
+    Hide Popular Videos: Ocultar Videos Populares
+    Hide Trending Videos: Ocultar Tendencias
+    Hide Recommended Videos: Ocultar Videos Recomendados
+    Hide Comment Likes: Ocultar Likes de Comentarios
+    Hide Channel Subscribers: Ocultar Suscriptores de Canales
+    Distraction Free Settings: Sin Distracción
+    Hide Active Subscriptions: Ocultar Suscripciones Activas
+    Hide Playlists: Ocultar las Playlists
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
     reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:
@@ -340,7 +342,7 @@ About:
   Mastodon: Mastodon
   Email: Correo electrónico
   Blog: Blog
-  Website: Página web
+  Website: Sitio web
   Please check for duplicates before posting: Por favor, antes de publicar asegúrate
     de no duplicar temas
   GitHub issues: Sugerencias en GitHub
@@ -396,6 +398,7 @@ Profile:
   Other Channels: Otros canales
   Subscription List: Lista de suscripciones
   Profile Select: Seleccionar perfil
+  Profile Filter: Filtro de Perfil
 Channel:
   Subscriber: 'Suscriptor'
   Subscribers: 'Suscriptores'
@@ -488,7 +491,7 @@ Video:
     Year: 'Año'
     Years: 'Años'
     Ago: 'Hace'
-    Upcoming: 'Comenzará el'
+    Upcoming: 'Se estrenará el'
   Published on: 'Publicado el'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Hace $ %'
@@ -529,20 +532,20 @@ Playlist:
   #& About
   View Full Playlist: 'Ver la lista de reproducción completa'
   Videos: 'Videos'
-  View: 'Vista'
+  View: 'Ver'
   Views: 'Vistas'
   Last Updated On: 'Se actualizó por última vez el'
   Share Playlist:
     Share Playlist: 'Compartir lista de reproducción'
     Copy YouTube Link: 'Copiar enlace YouTube'
     Open in YouTube: 'Abrir en YouTube'
-    Copy Invidious Link: 'Copiar enlace Invidious'
+    Copy Invidious Link: 'Copiar Enlace de Invidious'
     Open in Invidious: 'Abrir en Invidious'
 
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: 'Pasar al modo cine'
+Toggle Theatre Mode: 'Activar Modo Cine'
 Change Format:
   Change Video Formats: 'Cambiar formato de video'
   Use Dash Formats: 'Usar formato Dash'
@@ -553,41 +556,43 @@ Change Format:
   Dash formats are not available for this video: El formato Dash no está disponible
     para este video
 Share:
-  Share Video: 'Compartir video'
+  Share Video: 'Compartir Video'
   Copy Link: 'Copiar enlace'
   Open Link: 'Abrir enlace'
   Copy Embed: 'Copiar código encrustado'
   Open Embed: 'Abrir código encrustado'
   # On Click
-  Invidious URL copied to clipboard: 'El enlace de Invidious ha sido copiado al portapapeles'
-  Invidious Embed URL copied to clipboard: 'El enlace encrustada de Invidious ha sido
-    copiada al portapapeles'
-  YouTube URL copied to clipboard: 'El enlace de Youtube ha sido copiado al portapapeles'
-  YouTube Embed URL copied to clipboard: 'El enlace encrustado de Youtube ha sido
-    copiado al portapapeles'
+  Invidious URL copied to clipboard: 'Enlace de Invidious copiado al porta-papeles'
+  Invidious Embed URL copied to clipboard: 'Enlace Incrustado de Invidious copiado
+    al porta-papeles'
+  YouTube URL copied to clipboard: 'Enlace de YouTube copiado al porta-papeles'
+  YouTube Embed URL copied to clipboard: 'Enlace Incrustado de YouTube copiado al
+    porta-papeles'
   Include Timestamp: Incluir marcas de tiempo
-  YouTube Channel URL copied to clipboard: Enlace youtube copiado
-  Invidious Channel URL copied to clipboard: Enlace Invidious copiado
-Mini Player: 'Reproductor Mini'
+  YouTube Channel URL copied to clipboard: Enlace del Canal de YouTube copiado al
+    porta-papeles
+  Invidious Channel URL copied to clipboard: Enlace del Canal de Invidious copiado
+    al porta-papeles
+Mini Player: 'Mini Reproductor'
 Comments:
   Comments: 'Comentarios'
-  Click to View Comments: 'Ver comentarios'
-  Getting comment replies, please wait: 'Obteniendo las respuestas. Por favor, espera'
-  Show Comments: 'Ver comentarios'
-  Hide Comments: 'Esconder comentarios'
+  Click to View Comments: 'Ver Comentarios'
+  Getting comment replies, please wait: 'Obteniendo las respuestas. Por favor, espera...'
+  Show Comments: 'Ver Comentarios'
+  Hide Comments: 'Ocultar Comentarios'
   # Context: View 10 Replies, View 1 Reply
   View: 'Ver'
-  Hide: 'Esconder'
+  Hide: 'Ocultar'
   Replies: 'Respuestas'
-  Reply: 'Respuesta'
+  Reply: 'Responder'
   There are no comments available for this video: 'Aún no hay comentarios'
   Load More Comments: 'Más comentarios'
   There are no more comments for this video: No hay más comentarios en este video
-  Newest first: Comentarios más recientes
+  Newest first: Los más Recientes Primero
   Top comments: Mejores comentarios
   Sort by: Ordenar por
   No more comments available: No hay más comentarios
-Up Next: 'Siguientes'
+Up Next: 'A Continuación'
 
 # Toast Messages
 Local API Error (Click to copy): 'Error de la API local (Click para copiar el código)'
@@ -615,15 +620,16 @@ A new blog is now available, $. Click to view more: Nueva publicación del blog 
 Download From Site: Descargar de la web
 Version $ is now available!  Click for more details: La versión $ está disponible!
   Click para saber más
-The playlist has been reversed: Orden invertido
+The playlist has been reversed: Orden de Playlist invertido
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
   video no está disponible por no tener un formato válido. Esto puede suceder por
   la falta de acceso de este formato a tu región.
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Si lo habilitas, FreeTube usará RSS por defecto para obtener
-      tus suscripciones. RSS es más rápido e impide el bloqueo de IP, pero no podrá
-      obtener cierta información como la duración de videos o si un video es en directo
+    Fetch Feeds from RSS: Si lo habilitas, FreeTube usará RSS en lugar de su método
+      por defecto para obtener tus actualizaciones de suscripciones. RSS es más rápido
+      e impide el bloqueo de IP, pero no provee cierta información como la duración
+      de un video o si es en directo
   Player Settings:
     Default Video Format: Selecciona el formato usado para reproducir videos. El formato
       Dash proporciona resoluciones más altas. El formato Legacy está limitado a 720p,
@@ -648,3 +654,4 @@ Tooltips:
     Preferred API Backend: Elige el backend que FreeTube utiliza para obtener datos.
       La API local es un extractor incluido. La API Invidious requiere un servidor
       Invidious al que conectarse.
+More: Más
