@@ -252,7 +252,6 @@ const actions = {
   },
 
   ytGetPlaylistInfo ({ rootState }, playlistId) {
-    console.log("PALYLIST INTOFOF")
     return new Promise((resolve, reject) => {
       console.log(playlistId)
       console.log('Getting playlist info please wait...')
@@ -298,7 +297,6 @@ const actions = {
         limit: 'Infinity',
         requestOptions: { agent }
       }).then((result) => {
-        console.log("RESULT PLAYLIST", result)
         resolve(result)
       }).catch((err) => {
         reject(err)

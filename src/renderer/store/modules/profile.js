@@ -54,7 +54,6 @@ const actions = {
         } else {
           // We want the primary profile to always be first
           // So sort with that then sort alphabetically by profile name
-          console.log('PROFILE DB RESULTS', results)
           const profiles = results.sort((a, b) => {
             if (a._id === 'allChannels') {
               return -1
@@ -68,13 +67,10 @@ const actions = {
           })
 
           if (state.profileList.length < profiles.length) {
-            console.log("STATE LIST LESS RTHAN PROFILES LENGTH")
             console.log(profiles, state.profileList)
-            console.log("ROOTSTATE:SETTINGDEFATL", rootState.settings.defaultProfile)
             const profileIndex = profiles.findIndex((profile) => {
               return profile._id === rootState.settings.defaultProfile
             })
-            console.log("INDEX", profileIndex)
             if (profileIndex !== -1) {
               dispatch('updateActiveProfile', profileIndex)
             }
