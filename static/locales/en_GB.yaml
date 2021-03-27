@@ -44,7 +44,7 @@ Search Filters:
     Sort By: 'Sort By'
     Most Relevant: 'Most Relevant'
     Rating: 'Rating'
-    Upload Date: 'Upload Date'
+    Upload Date: 'Upload date'
     View Count: 'View Count'
   Time:
     Time: 'Time'
@@ -89,7 +89,7 @@ User Playlists:
   Your Playlists: 'Your Playlists'
   Playlist Message: This page is not reflective of fully working playlists. It only
     lists videos that you have saved or favourited. When the work has finished, all
-    videos currently here will be migrated to a 'Favourites' playlist.
+    videos currently here will be migrated to a ‘Favourites’ playlist.
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Your
     saved videos are empty. Click on the save button on the corner of a video to have
     it listed here
@@ -316,7 +316,7 @@ About:
   Donate: Donate
   Beta: Beta
   License: License
-  Email: Email
+  Email: E-mail
   Channel Rules: Channel Rules
   Report an Issue: Report an Issue
   Wiki: Wiki
@@ -608,19 +608,19 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
       method to grab your subscription feed. RSS is faster and prevents IP blocking,
-      but it doesn't provide certain information like video duration, or live status
+      but it doesn’t provide certain information like video duration, or live status
   Player Settings:
     Default Video Format: Set the formats used when a video plays. Dash formats can
       play much higher qualities. Legacy formats are limited to a maximum of 720p,
       but use less bandwidth. Audio formats stream only audio
     Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead
       of making a direct connection to YouTube. Overrides API preference
-    Force Local Backend for Legacy Formats: This only works when the Invidious API
-      is your default. When enabled, the local API will run and use the legacy formats
-      returned by that instead of the ones returned by Invidious. It helps when the
-      videos returned by Invidious can't play because of regional restrictions
+    Force Local Backend for Legacy Formats: Only works when the Invidious API is your
+      default. When enabled, the local API will run and use the legacy formats returned
+      by that instead of the ones returned by Invidious. Helps when the videos returned
+      by Invidious don’t play due to country restrictions
   General Settings:
-    Region for Trending: The region of trends allows you to pick which country's trending
+    Region for Trending: The region of trends allows you to pick which country’s trending
       videos you want to have displayed. Not all countries displayed are actually
       supported by YouTube
     Invidious Instance: The Invidious instance that FreeTube will connect to for API
@@ -630,7 +630,7 @@ Tooltips:
       a frame of the video instead of the default thumbnail
     Fallback to Non-Preferred Backend on Failure: When your preferred API has a problem,
       FreeTube will automatically attempt to use your non-preferred API as a fallback
-      method when it's enabled
+      method when enabled
     Preferred API Backend: Choose the back-end that FreeTube uses to obtain data.
       The local API is a built-in extractor. The Invidious API requires an Invidious
       server to connect to.
