@@ -28,6 +28,7 @@
     "markdown": "^0.5.0",
     "material-design-icons": "^3.0.1",
     "nedb": "^1.8.0",
+    "node-forge": "^0.10.0",
     "opml-to-json": "^1.0.1",
     "rss-parser": "^3.12.0",
     "socks-proxy-agent": "^5.0.0",
