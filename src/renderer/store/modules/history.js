@@ -13,7 +13,6 @@ if (window && window.process && window.process.type === 'renderer') {
 
   const remote = require('@electron/remote')
   dbLocation = remote.app.getPath('userData')
-
   dbLocation = dbLocation + '/history.db'
 } else {
   dbLocation = 'history.db'
