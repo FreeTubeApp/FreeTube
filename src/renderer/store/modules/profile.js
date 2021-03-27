@@ -71,6 +71,7 @@ const actions = {
             const profileIndex = profiles.findIndex((profile) => {
               return profile._id === rootState.settings.defaultProfile
             })
+
             if (profileIndex !== -1) {
               dispatch('updateActiveProfile', profileIndex)
             }
@@ -103,7 +104,7 @@ const actions = {
       textColor: textColor,
       subscriptions: []
     }
-    console.log('DIS DEFAULT', defaultProfile)
+
     profileDb.update({ _id: 'allChannels' }, defaultProfile, { upsert: true }, (err, numReplaced) => {
       if (!err) {
         dispatch('grabAllProfiles')
