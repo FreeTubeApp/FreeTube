@@ -19,7 +19,7 @@
 }
 
 @media only screen and (max-width: 500px) {
-  .subscriptionSettingsFlexBox {
+  .sponsorBlockSettingsFlexBox {
     justify-content: flex-start;
   }
 }

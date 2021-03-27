@@ -7,11 +7,18 @@
     >
       {{ $t("Settings.SponsorBlock Settings.SponsorBlock Settings") }}
     </h3>
-    <ft-flex-box class="subscriptionSettingsFlexBox">
+    <ft-flex-box class="sponsorBlockSettingsFlexBox">
       <ft-toggle-switch
         :label="$t('Settings.SponsorBlock Settings.Enable SponsorBlock')"
         :default-value="useSponsorBlock"
         @change="handleUpdateSponsorBlock"
+      />
+    </ft-flex-box>
+    <ft-flex-box class="sponsorBlockSettingsFlexBox">
+      <ft-toggle-switch
+        :label="$t('Settings.SponsorBlock Settings.Notify when sponsor segment is skipped')"
+        :default-value="sponsorBlockShowSkippedToast"
+        @change="handleUpdateSponsorBlockShowSkippedToast"
       />
     </ft-flex-box>
     <ft-flex-box>

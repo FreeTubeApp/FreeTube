@@ -157,6 +157,10 @@ export default Vue.extend({
 
     useSponsorBlock: function () {
       return this.$store.getters.getUseSponsorBlock
+    },
+
+    sponsorBlockShowSkippedToast: function () {
+      return this.$store.getters.getSponsorBlockShowSkippedToast
     }
   },
   mounted: function () {
@@ -311,13 +315,45 @@ export default Vue.extend({
     skipSponsorBlocks(skipSegments) {
       const currentTime = this.player.currentTime()
       let newTime = null
-      skipSegments.forEach(({ segment: [startTime, endTime] }) => {
+      let skippedCategory = null
+      skipSegments.forEach(({ category, segment: [startTime, endTime] }) => {
         if (startTime <= currentTime && currentTime < endTime) {
           newTime = endTime
+          skippedCategory = category
         }
       })
       if (newTime !== null) {
+        if (this.sponsorBlockShowSkippedToast) {
+          this.showSkippedSponsorSegmentInformation(skippedCategory)
+        }
         this.player.currentTime(newTime)
+      }
+    },
+
+    showSkippedSponsorSegmentInformation(category) {
+      const translatedCategory = this.sponsorBlockTranslatedCategory(category)
+      this.showToast({
+        message: `${this.$t('Video.Skipped segment')} ${translatedCategory}`
+      })
+    },
+
+    sponsorBlockTranslatedCategory(category) {
+      switch (category) {
+        case 'sponsor':
+          return this.$t('Video.Sponsor Block category.sponsor')
+        case 'intro':
+          return this.$t('Video.Sponsor Block category.intro')
+        case 'outro':
+          return this.$t('Video.Sponsor Block category.outro')
+        case 'selfpromo':
+          return this.$t('Video.Sponsor Block category.self-promotion')
+        case 'interaction':
+          return this.$t('Video.Sponsor Block category.interaction')
+        case 'music_offtopic':
+          return this.$t('Video.Sponsor Block category.music offtopic')
+        default:
+          console.error(`Unknown translation for SponsorBlock category ${category}`)
+          return category
       }
     },
 
@@ -1265,6 +1301,7 @@ export default Vue.extend({
     },
 
     ...mapActions([
+      'showToast',
       'calculateColorLuminance'
     ])
   }

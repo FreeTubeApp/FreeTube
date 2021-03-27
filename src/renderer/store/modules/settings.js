@@ -80,7 +80,8 @@ const state = {
   hideLiveChat: false,
   hideActiveSubscriptions: false,
   useSponsorBlock: false,
-  sponsorBlockUrl: 'https://sponsor.ajay.app/api/'
+  sponsorBlockUrl: 'https://sponsor.ajay.app/api/',
+  sponsorBlockShowSkippedToast: true
 }
 
 const getters = {
@@ -274,6 +275,10 @@ const getters = {
 
   getSponsorBlockUrl: () => {
     return state.sponsorBlockUrl
+  },
+
+  getSponsorBlockShowSkippedToast: () => {
+    return state.sponsorBlockShowSkippedToast
   }
 }
 
@@ -433,6 +438,8 @@ const actions = {
               case 'sponsorBlockUrl':
                 commit('setSponsorBlockUrl', result.value)
                 break
+              case 'sponsorBlockShowSkippedToast':
+                commit('setSponsorBlockShowSkippedToast', result.value)
             }
           })
           resolve()
@@ -818,6 +825,14 @@ const actions = {
         commit('setSponsorBlockUrl', sponsorBlockUrl)
       }
     })
+  },
+
+  updateSponsorBlockShowSkippedToast ({ commit }, sponsorBlockShowSkippedToast) {
+    settingsDb.update({ _id: 'sponsorBlockShowSkippedToast' }, { _id: 'sponsorBlockShowSkippedToast', value: sponsorBlockShowSkippedToast }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setSponsorBlockShowSkippedToast', sponsorBlockShowSkippedToast)
+      }
+    })
   }
 }
 
@@ -982,6 +997,9 @@ const mutations = {
   },
   setSponsorBlockUrl (state, sponsorBlockUrl) {
     state.sponsorBlockUrl = sponsorBlockUrl
+  },
+  setSponsorBlockShowSkippedToast (state, sponsorBlockShowSkippedToast) {
+    state.sponsorBlockShowSkippedToast = sponsorBlockShowSkippedToast
   }
 }
 

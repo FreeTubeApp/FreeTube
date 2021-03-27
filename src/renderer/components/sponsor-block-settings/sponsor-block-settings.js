@@ -19,6 +19,9 @@ export default Vue.extend({
     },
     sponsorBlockUrl: function () {
       return this.$store.getters.getSponsorBlockUrl
+    },
+    sponsorBlockShowSkippedToast: function () {
+      return this.$store.getters.getSponsorBlockShowSkippedToast
     }
   },
   methods: {
@@ -30,9 +33,14 @@ export default Vue.extend({
       this.updateSponsorBlockUrl(value)
     },
 
+    handleUpdateSponsorBlockShowSkippedToast: function (value) {
+      this.updateSponsorBlockShowSkippedToast(value)
+    },
+
     ...mapActions([
       'updateUseSponsorBlock',
-      'updateSponsorBlockUrl'
+      'updateSponsorBlockUrl',
+      'updateSponsorBlockShowSkippedToast'
     ])
   }
 })
