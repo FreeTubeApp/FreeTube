@@ -156,7 +156,7 @@
     "prepare": "npx simple-git-hooks",
     "prettier": "prettier --check \"{src,_scripts}/**/*.{js,ts,vue}\"",
     "prettier:fix": "prettier --write \"{src,_scripts}/**/*.{js,ts,vue}\"",
-    "prettier:local": "bash ./_bin/prettify.sh",
+    "prettier:local": "npx pretty-quick --pattern \"{src,_scripts}/**/*.{js,ts,vue}\" --no-restage",
     "rebuild:electron": "run-s electron-builder-install electron-rebuild",
     "rebuild:node": "npm rebuild",
     "release": "run-s test build",
