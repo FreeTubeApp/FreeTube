@@ -1,20 +1,8 @@
 <template>
-  <div
-    class="bubblePadding"
-    @click="handleClick"
-  >
-    <img
-      class="bubble"
-      :src="channelThumbnail"
-    >
-    <div
-      v-if="selected"
-      class="bubble selected"
-    >
-      <font-awesome-icon
-        icon="check"
-        class="icon"
-      />
+  <div class="bubblePadding" role="toggle-bubble" @click="handleClick">
+    <img data-testid="image" class="bubble" :src="channelThumbnail" />
+    <div v-if="selected" class="bubble selected">
+      <font-awesome-icon data-testid="font" icon="check" class="icon" />
     </div>
     <div class="channelName">
       {{ channelName }}
