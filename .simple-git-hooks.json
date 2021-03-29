@@ -1,0 +1,4 @@
+{
+  "pre-commit": "npx lint-staged",
+  "pre-push": "npm run jest"
+}
