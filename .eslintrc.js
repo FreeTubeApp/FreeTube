@@ -25,11 +25,12 @@ module.exports = {
     'prettier',
     'eslint:recommended',
     'plugin:vue/recommended',
+    'plugin:jest/recommended',
     'standard'
   ],
 
   // https://eslint.org/docs/user-guide/configuring#configuring-plugins
-  plugins: ['vue'],
+  plugins: ['vue', 'jest'],
 
   rules: {
     'space-before-function-paren': 0,
