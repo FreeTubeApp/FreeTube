@@ -176,7 +176,7 @@ Settings:
     Default Playback Rate: Default Playback Rate
     Default Video Format:
       Default Video Format: Default Video Format
-      Dash Formats: Dash Formats
+      Dash Formats: DASH Formats
       Legacy Formats: Legacy Formats
       Audio Formats: Audio Formats
     Default Quality:
@@ -467,7 +467,7 @@ Video:
   Streamed on: Streamed on
   Started streaming on: Started streaming on
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: $ % ago
+  Publicationtemplate: $ % ago
 #& Videos
 Videos:
   #& Sort By
@@ -496,10 +496,10 @@ Playlist:
 Toggle Theatre Mode: Toggle Theatre Mode
 Change Format:
   Change Video Formats: Change Video Formats
-  Use Dash Formats: Use Dash Formats
+  Use Dash Formats: Use DASH Formats
   Use Legacy Formats: Use Legacy Formats
   Use Audio Formats: Use Audio Formats
-  Dash formats are not available for this video: Dash formats are not available for
+  Dash formats are not available for this video: DASH formats are not available for
     this video
   Audio formats are not available for this video: Audio formats are not available
     for this video
@@ -548,29 +548,29 @@ Tooltips:
       to connect to.
     Fallback to Non-Preferred Backend on Failure: When your preferred API has a problem,
       FreeTube will automatically attempt to use your non-preferred API as a fallback
-      method when enabled
+      method when enabled.
     Thumbnail Preference: All thumbnails throughout FreeTube will be replaced with
-      a frame of the video instead of the default thumbnail
+      a frame of the video instead of the default thumbnail.
     Invidious Instance: The Invidious instance that FreeTube will connect to for API
       calls. Clear the current instance to see a list of public instances to choose
-      from
+      from.
     Region for Trending: The region of trends allows you to pick which country's trending
       videos you want to have displayed. Not all countries displayed are actually
-      supported by YouTube
+      supported by YouTube.
   Player Settings:
     Force Local Backend for Legacy Formats: Only works when the Invidious API is your
       default. When enabled, the local API will run and use the legacy formats returned
       by that instead of the ones returned by Invidious. Helps when the videos returned
-      by Invidious don't play due to country restrictions
+      by Invidious don't play due to country restrictions.
     Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead
-      of making a direct connection to YouTube. Overrides API preference
-    Default Video Format: Set the formats used when a video plays. Dash formats can
+      of making a direct connection to YouTube. Overrides API preference.
+    Default Video Format: Set the formats used when a video plays. DASH formats can
       play higher qualities. Legacy formats are limited to a max of 720p but use less
-      bandwidth. Audio formats are audio only streams
+      bandwidth. Audio formats are audio only streams.
   Subscription Settings:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
       method for grabbing your subscription feed. RSS is faster and prevents IP blocking,
-      but doesn't provide certain information like video duration or live status
+      but doesn't provide certain information like video duration or live status.
 
 # Toast Messages
 Local API Error (Click to copy): Local API Error (Click to copy)
