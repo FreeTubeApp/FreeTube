@@ -269,14 +269,128 @@ export default Vue.extend({
     },
 
     openAllLinksExternally: function () {
-      // Open links externally by default
       $(document).on('click', 'a[href^="http"]', (event) => {
         const el = event.currentTarget
         console.log(useElectron)
         console.log(el)
-        if (typeof (shell) !== 'undefined') {
-          event.preventDefault()
-          shell.openExternal(el.href)
+        event.preventDefault()
+
+        // Check if YouTube video, channel or playlist
+        const youtubeUrlPattern = /^https?:\/\/((www\.)?youtube\.com(\/embed)?|youtu\.be)\/.*$/
+        const isYoutubeLink = youtubeUrlPattern.test(el.href)
+
+        if (isYoutubeLink) {
+          this.handleYoutubeLink(el.href)
+        } else {
+          // Open links externally by default
+          if (typeof (shell) !== 'undefined') {
+            shell.openExternal(el.href)
+          }
+        }
+      })
+    },
+
+    handleYoutubeLink: function (href) {
+      const v = this
+
+      // Assume it's a video
+      this.$store.dispatch('getVideoParamsFromUrl', href).then(({ videoId, timestamp }) => {
+        if (videoId) {
+          v.$router.push({
+            path: `/watch/${videoId}`,
+            query: timestamp ? { timestamp } : {}
+          })
+        } else {
+          // Could be playlist, search, hashtag or channel
+          // For now, ignore hashtags
+
+          const url = new URL(href)
+
+          let urlType
+          const typePatterns = new Map([
+            ['playlist', /\/playlist$/],
+            ['search', /\/results$/],
+            // ['hashtag', /\/hashtag\/([^/?&#]+)/],
+            ['channel', /\/(?:c\/|channel\/)?([^/?&#]+).*$/]
+          ])
+
+          for (const [type, pattern] of typePatterns) {
+            const isAMatch = pattern.test(url.pathname)
+            if (isAMatch) {
+              urlType = type
+              break
+            }
+          }
+
+          switch (urlType) {
+            case 'playlist': {
+              if (!url.searchParams.has('list')) {
+                return
+              }
+
+              const playlistId = url.searchParams.get('list')
+              url.searchParams.delete('list')
+
+              const query = {}
+              for (const [param, value] of url.searchParams) {
+                query[param] = value
+              }
+
+              v.$router.push({
+                path: `/playlist/${playlistId}`,
+                query
+              })
+              break
+            }
+
+            case 'search': {
+              if (!url.searchParams.has('search_query')) {
+                return
+              }
+
+              const searchQuery = url.searchParams.get('search_query')
+              url.searchParams.delete('search_query')
+
+              const query = {
+                sortBy: this.searchSettings.sortBy,
+                time: this.searchSettings.time,
+                type: this.searchSettings.type,
+                duration: this.searchSettings.duration
+              }
+
+              for (const [param, value] of url.searchParams) {
+                query[param] = value
+              }
+
+              v.$router.push({
+                path: `/search/${encodeURIComponent(searchQuery)}`,
+                query
+              })
+              break
+            }
+            /* case 'hashtag': {
+              // placeholder
+              break
+            } */
+            case 'channel': {
+              const channelId = url.pathname.match(/\/(?:c\/|channel\/)?([^/?&#]+).*$/)[1]
+              if (!channelId) {
+                return
+              }
+
+              v.$router.push({
+                path: `/channel/${channelId}`
+              })
+              break
+            }
+
+            default: {
+              if (typeof (shell) !== 'undefined') {
+                shell.openExternal(href)
+              }
+              break
+            }
+          }
         }
       })
     },
