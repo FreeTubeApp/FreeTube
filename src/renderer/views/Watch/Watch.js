@@ -91,6 +91,9 @@ export default Vue.extend({
     rememberHistory: function () {
       return this.$store.getters.getRememberHistory
     },
+    removeVideoMetaFiles: function () {
+      return this.$store.getters.getRemoveVideoMetaFiles
+    },
     saveWatchedProgress: function () {
       return this.$store.getters.getSaveWatchedProgress
     },
@@ -899,8 +902,6 @@ export default Vue.extend({
             videoId: this.videoId,
             watchProgress: currentTime
           }
-
-          console.log('update watch progress')
           this.updateWatchProgress(payload)
         }
       }
@@ -926,6 +927,31 @@ export default Vue.extend({
               player.dispose()
             })
           }, 200)
+        }
+      }
+
+      if (this.removeVideoMetaFiles) {
+        const userData = remote.app.getPath('userData')
+        if (this.isDev) {
+          const dashFileLocation = `dashFiles/${this.videoId}.xml`
+          const vttFileLocation = `storyboards/${this.videoId}.vtt`
+          // only delete the file it actually exists
+          if (fs.existsSync('dashFiles/') && fs.existsSync(dashFileLocation)) {
+            fs.rmSync(dashFileLocation)
+          }
+          if (fs.existsSync('storyboards/') && fs.existsSync(vttFileLocation)) {
+            fs.rmSync(vttFileLocation)
+          }
+        } else {
+          const dashFileLocation = `${userData}/dashFiles/${this.videoId}.xml`
+          const vttFileLocation = `${userData}/storyboards/${this.videoId}.vtt`
+
+          if (fs.existsSync(`${userData}/dashFiles/`) && fs.existsSync(dashFileLocation)) {
+            fs.rmSync(dashFileLocation)
+          }
+          if (fs.existsSync(`${userData}/storyboards/`) && fs.existsSync(vttFileLocation)) {
+            fs.rmSync(vttFileLocation)
+          }
         }
       }
     },
@@ -1088,7 +1114,7 @@ export default Vue.extend({
       'showToast',
       'buildVTTFileLocally',
       'updateHistory',
-      'updateWatchProgress'
+      'updateWatchProgress',
     ])
   }
 })
