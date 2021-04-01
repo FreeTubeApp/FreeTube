@@ -246,6 +246,7 @@ Settings:
       du sicher, dass du alle Abonnements und Profile löschen möchtest?  Diese Aktion
       kann nicht rückgängig gemacht werden.
     Remove All Subscriptions / Profiles: Alle Abonnements / Profile löschen
+    Automatically Remove Video Meta Files: Meta-Dateien von Videos automatisch löschen
   Data Settings:
     How do I import my subscriptions?: Wie importiere ich meine Abonnements?
     Unknown data key: Unbekannter Datenschlüssel
@@ -690,6 +691,10 @@ Tooltips:
       Legacy Formaten diese verwenden, anstatt auf Invidious zurückzugreifen. Dies
       hilft dann, wenn Videos von Invidious nicht abspielbar sind. Zum Beispiel aufgrund
       von Landesbeschränkungen.
+  Privacy Settings:
+    Remove Video Meta Files: Bei Aktivierung löscht FreeTube alle Meta-Dateien die
+      während der Videowiedergabe erzeugt werden, sobald die Videoseite verlassen
+      wird.
 Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
