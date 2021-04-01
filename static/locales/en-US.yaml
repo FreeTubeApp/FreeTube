@@ -195,6 +195,7 @@ Settings:
     Privacy Settings: Privacy Settings
     Remember History: Remember History
     Save Watched Progress: Save Watched Progress
+    Automatically Remove Video Meta Files: Automatically Remove Video Meta Files
     Clear Search Cache: Clear Search Cache
     Are you sure you want to clear out your search cache?: Are you sure you want to
       clear out your search cache?
@@ -571,6 +572,9 @@ Tooltips:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
       method for grabbing your subscription feed. RSS is faster and prevents IP blocking,
       but doesn't provide certain information like video duration or live status
+  Privacy Settings:
+    Remove Video Meta Files: When enabled, FreeTube automatically deletes meta files created during video playback,
+      when the watch page is closed.
 
 # Toast Messages
 Local API Error (Click to copy): Local API Error (Click to copy)
