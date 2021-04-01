@@ -1114,7 +1114,7 @@ export default Vue.extend({
       'showToast',
       'buildVTTFileLocally',
       'updateHistory',
-      'updateWatchProgress',
+      'updateWatchProgress'
     ])
   }
 })
