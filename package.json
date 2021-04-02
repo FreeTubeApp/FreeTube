@@ -154,7 +154,6 @@
     "pack:web": "webpack --mode=production --node-env=production --config _scripts/webpack.web.config.js",
     "pack:workers": "webpack --mode=production --node-env=production --config _scripts/webpack.workers.config.js",
     "postinstall": "electron-rebuild",
-    "prepare": "npx simple-git-hooks",
     "prettier": "prettier --check \"{src,_scripts}/**/*.{js,ts,vue}\"",
     "prettier:fix": "prettier --write \"{src,_scripts}/**/*.{js,ts,vue}\"",
     "prettier:local": "npx pretty-quick --pattern \"{src,_scripts}/**/*.{js,ts,vue}\" --no-restage",
