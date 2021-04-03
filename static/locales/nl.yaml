@@ -79,7 +79,7 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Dit
     profiel heeft een groot aantal abonnementen. RSS wordt geforceerd om tariefbeperkingen
     te voorkomen
-  Load More Videos: Laad Meer Video's
+  Load More Videos: Meer Video's Laden
 Trending: 'Trending'
 Most Popular: 'Populair'
 Playlists: 'Afspeellijsten'
@@ -204,6 +204,7 @@ Settings:
       u zeker dat u alle abonnementen en profielen wil verwijderen? Dit kan niet worden
       ontdaan.
     Remove All Subscriptions / Profiles: Verwijder alle Abonnementen / Profielen
+    Automatically Remove Video Meta Files: Verwijder Video Meta-bestanden Automatisch
   Subscription Settings:
     Subscription Settings: 'Abonnement instellingen'
     Hide Videos on Watch: 'Verberg Video''s Zodra Bekeken'
@@ -554,7 +555,7 @@ Comments:
   Replies: 'Reacties'
   Reply: 'Reactie'
   There are no comments available for this video: 'Er zijn geen reacties op deze video'
-  Load More Comments: 'Laad Meer Reacties'
+  Load More Comments: 'Meer Reacties Laden'
   There are no more comments for this video: Er zijn geen verdere reacties op deze
     video
   No more comments available: Er zijn niet meer reacties beschikbaar
@@ -667,6 +668,10 @@ Tooltips:
     Region for Trending: Met trend regio kan je instellen uit welk land je trending
       video's je wil zien. Niet alle weergegeven landen worden ook daadwerkelijk ondersteund
       door YouTube
+  Privacy Settings:
+    Remove Video Meta Files: Wanneer ingeschakeld zal FreeTube automatisch meta bestanden
+      die worden gecreëerd tijdens het afspelen van video's verwijderen zodra de pagina
+      wordt gesloten.
 Playing Next Video Interval: Volgende video wordt afgespeeld. Klik om te onderbreken.
   | Volgende video wordt afgespeeld in {nextVideoInterval} seconde. Klik om te onderbreken.
   | Volgende video wordt afgespeeld in {nextVideoInterval} seconden. Klik om te onderbreken.
