@@ -1,7 +1,7 @@
 FreeTube: FreeTube
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Dieser Teil des Programms ist noch nicht fertig. Bitte komme zu einem späteren Zeitpunkt
+  Dieser Teil des Programms ist noch nicht fertig. Bitte komm zu einem späteren Zeitpunkt
   wieder.
 
 # Webkit Menu Bar
@@ -70,13 +70,13 @@ Subscriptions:
   Subscriptions: Abonnements
   Latest Subscriptions: Neueste Abonnements
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Deine
-    Abonnementliste ist aktuell leer. Beginne Abonnements hinzuzufügen um sie hier
+    Abonnementliste ist aktuell leer. Beginne Abonnements hinzuzufügen, um sie hier
     zu sehen.
   'Getting Subscriptions.  Please wait.': Rufe Abonnements ab. Bitte warten.
   Refresh Subscriptions: Abonnements aktualisieren
   Getting Subscriptions. Please wait.: Lade Abonnements. Bitte warten.
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Dieses
-    Profil hat eine große Anzahl von Abonnenten.  RSS zur Vermeidung von Tarifbeschränkungen
+    Profil hat eine große Anzahl von Abonnements.  RSS zur Vermeidung von Geschwindigkeitsbeschränkungen
     erzwingen
   Load More Videos: Lade mehr Videos
 Trending: Trends
@@ -85,12 +85,12 @@ Playlists: Wiedergabelisten
 User Playlists:
   Your Playlists: Deine Wiedergabelisten
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Deine
-    gespeicherten Videos sind leer. Klicken Sie auf die Schaltfläche „Speichern“ in
-    der Ecke eines Videos, damit es hier aufgelistet wird
+    gespeicherten Videos sind leer. Klicke auf die Schaltfläche „Speichern“ in der
+    Ecke eines Videos, damit es hier aufgelistet wird
   Playlist Message: Diese Seite spiegelt nicht die vollständig funktionierenden Wiedergabelisten
-    wider. Sie listet nur Videos auf, die Sie gespeichert oder favorisiert haben.
-    Wenn die Arbeiten abgeschlossen sind, werden alle Videos, die sich derzeit hier
-    befinden, in eine Wiedergabeliste „Favoriten“ migriert.
+    wider. Sie listet nur Videos auf, die Du gespeichert oder favorisiert hast. Wenn
+    die Arbeiten abgeschlossen sind, werden alle Videos, die sich derzeit hier befinden,
+    in eine Wiedergabeliste „Favoriten“ migriert.
 History:
   # On History Page
   History: Verlauf
@@ -110,7 +110,7 @@ Settings:
     Preferred API Backend:
       Preferred API Backend: Bevorzugtes API-System
       Local API: Lokale API
-      Invidious API: Invidious API
+      Invidious API: Invidious-API
     Video View Type:
       Video View Type: Videoansichtstyp
       Grid: Gitter
@@ -130,7 +130,7 @@ Settings:
     View all Invidious instance information: Alle Informationen zur Invidious-Instanz
       anzeigen
   Theme Settings:
-    Theme Settings: Thema Einstellungen
+    Theme Settings: Thema-Einstellungen
     Match Top Bar with Main Color: Obere Leiste an Hauptfarbe anpassen
     Base Theme:
       Base Theme: Grundlegendes Thema
@@ -670,8 +670,8 @@ Tooltips:
       API nicht verfügbar sein sollte, automatisch die nicht bevorzugte Alternative
       zu nutzen.
     Preferred API Backend: Wähle das Backend, welches FreeTube zum Laden der Daten
-      nutzen soll. Die lokale API ist ein integrierter Extrahierer. Die Invidious
-      API dagegen verwendet einen externen Server.
+      nutzen soll. Die lokale API ist ein integrierter Extrahierer. Die Invidious-API
+      dagegen verwendet einen externen Server.
     Region for Trending: Die Trendregion erlaubt es dir auszuwählen, aus welchem Land
       die Trends angezeigt werden sollen. Nicht alle Optionen werden auch von YouTube
       unterstützt
@@ -686,11 +686,10 @@ Tooltips:
       dafür aber auch weniger Bandbreite. Audioformate umfassen reine Audiostreams.
     Proxy Videos Through Invidious: Zu Invidious verbinden, um Videos abzurufen, anstatt
       eine direkten Verbindung zu YouTube aufzubauen. Überschreibt die API-Präferenz.
-    Force Local Backend for Legacy Formats: Dies funktioniert nur wenn du die Invidious
-      API als Standard ausgewählt hast. Die lokale API wird bei der Verwendung von
-      Legacy Formaten diese verwenden, anstatt auf Invidious zurückzugreifen. Dies
-      hilft dann, wenn Videos von Invidious nicht abspielbar sind. Zum Beispiel aufgrund
-      von Landesbeschränkungen.
+    Force Local Backend for Legacy Formats: Dies funktioniert nur, wenn du die Invidious-API
+      als Standard ausgewählt hast. Die lokale API wird bei der Verwendung von Legacy
+      -Formaten diese verwenden, anstatt auf Invidious zurückzugreifen. Dies hilft
+      dann, wenn Videos von Invidious nicht abspielbar sind aufgrund von Landesbeschränkungen.
   Privacy Settings:
     Remove Video Meta Files: Bei Aktivierung löscht FreeTube alle Meta-Dateien die
       während der Videowiedergabe erzeugt werden, sobald die Videoseite verlassen
