@@ -18,7 +18,7 @@ Delete: 'حذف'
 Select all: 'تحديد الكل'
 Reload: 'إعادة تحميل'
 Force Reload: 'فرض إعادة التحميل'
-Toggle Developer Tools: 'تفعيل أدوات المطوّر'
+Toggle Developer Tools: 'فتح أدوات المطوّر'
 Actual size: 'الحجم الأصلي'
 Zoom in: 'تكبير'
 Zoom out: 'تصغير'
@@ -64,6 +64,7 @@ Search Filters:
   Fetching results. Please wait: 'جاري إحضار النتائج. الرجاء الانتظار'
   Fetch more results: 'إحضار المزيد من النتائج'
 # Sidebar
+  There are no more results for this search: لم يتبقى المزيد من النتائج لهذا البحث
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'الاشتراكات'
@@ -80,6 +81,11 @@ Most Popular: 'الأكثر شعبية'
 Playlists: 'قوائم التشغيل'
 User Playlists:
   Your Playlists: 'قوائم التشغيل الخاصة بك'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: ليس
+    لديك أي فيديو محتفظ عليه. إضغط على زر "إحفظ" في زاوية الفيديو لكي يحفظ هنا.
+  Playlist Message: هذه الصفحة لا تظهر قائمات التشغيل بشكل كامل, وإنما تظهر فيديوات
+    إحتفضت عليها أو فضّلتها. عندما يكمل العمل بالكامل على هذه الصفحة, سترى كل فيديواتك
+    هنا تنتقل إلى قائمة تشغيل تسمى "المفضلة".
 History:
   # On History Page
   History: 'السجلّ'
@@ -115,6 +121,7 @@ Settings:
         #! List countries
     Check for Latest Blog Posts: تحقق من أحدث منشورات المدونة
     Check for Updates: تحقّق من وجود تحديثات
+    View all Invidious instance information: عرض جميع نماذج Invidious
   Theme Settings:
     Theme Settings: 'إعدادات السِمة'
     Match Top Bar with Main Color: 'طابق الشريط العلوي مع اللون الأساسي'
@@ -175,6 +182,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '‍8k'
+    Playlist Next Video Interval: الفاصل الزمني لتشغيل الفيديو التالي في قائمة التشغيل
   Privacy Settings:
     Privacy Settings: 'إعدادات الخصوصية'
     Remember History: 'تذّكر سجلّ المشاهدة'
@@ -191,6 +199,7 @@ Settings:
       أنت متأكد أنك تريد إزالة جميع الاشتراكات والملفات الشخصية؟ لا يمكن التراجع عن
       هذا.
     Remove All Subscriptions / Profiles: إزالة جميع الاشتراكات \ الملفات الشخصية
+    Automatically Remove Video Meta Files: إزالة ملفات تعريف الفيديو تلقائيًا
   Subscription Settings:
     Subscription Settings: 'إعدادات الاشتراك'
     Hide Videos on Watch: 'أخفِ الفيديوهات عند مشاهدتها'
@@ -273,10 +282,12 @@ Settings:
     Hide Trending Videos: اخفي الفيديوهات الرائجة
     Hide Recommended Videos: اخفي الفيديوهات الموصّى بها
     Hide Comment Likes: اخفي اعجابات التعليقات
-    Hide Channel Subscribers: اخفي اشتراكات القنوات
-    Hide Video Views: اخفي عدد مشاهدات الفيديوهات
+    Hide Channel Subscribers: اخف عدد اشتراكات القناة
+    Hide Video Views: اخف عدد مشاهدات الفيديو
     Hide Video Likes And Dislikes: إخفاء الإعجاب وعدم الإعجاب للفيديو
     Distraction Free Settings: إعدادات عدم الإزعاج
+    Hide Active Subscriptions: اخفي الإشتراكات الناشطة
+    Hide Playlists: إخفاء قوائم التشغيل
   The app needs to restart for changes to take effect. Restart and apply change?: البرنامج
     يحتاج لإعادة التشغيل كي يسري مفعول التغييرات. هل تريد إعادة التشغيل و تطبيق التغييرات؟
   Proxy Settings:
@@ -291,6 +302,10 @@ Settings:
     Proxy Protocol: بروتوكول البروكسي
     Enable Tor / Proxy: تفعيل تور / البروكسي
     Proxy Settings: خيارات البروكسي
+    Error getting network information. Is your proxy configured properly?: هنالك خطأ
+      في جلب معلومات الشبكة. هل ضبطت إعدادات وكيلك بصورة صحيحة؟
+    Clicking on Test Proxy will send a request to: النقر على اختبار البروكسي سيؤدي
+      إلى إرسال طلب إلى
 About:
   #On About page
   About: 'حول'
@@ -335,6 +350,17 @@ About:
   View License: اعرض الرخصة
   Source code: الشفرة المصدرية
   Beta: تجريبي
+  these people and projects: هؤلاء الناس والمشاريع
+  FreeTube is made possible by: Freetube أصبح ممكنا بواسطة
+  Credits: الاعتمادات
+  room rules: قواعد الغرفة
+  Please read the: يرجى قراءة
+  Please check for duplicates before posting: يرجى التحقق من التكرارات قبل النشر
+  GitHub issues: مشاكل GitHub
+  FreeTube Wiki: ويكي Freetube
+  GitHub releases: إصدارات GitHub
+  Downloads / Changelog: التحميلات\التغييرات
+  Licensed under the AGPLv3: مرخّص تحت رخصة أفيرو جيبيإل النسخة الثالثة
 Profile:
   All Channels: 'جميع القنوات'
   Profile Manager: 'مدير الملف الشخصي'
@@ -376,6 +402,7 @@ Profile:
   $ selected: $ تم اختياره
   Other Channels: قنوات أُخرى
   Subscription List: قائمة الاشتراكات
+  Profile Filter: مرشح الملف الشخصي
 Channel:
   Subscriber: 'مُشترِك'
   Subscribers: 'مُشترِكين'
@@ -465,7 +492,7 @@ Video:
     Year: 'سنة'
     Years: 'سنوات'
     Ago: 'منذ'
-    Upcoming: 'العرض الأول في'
+    Upcoming: 'يبدأ العرض'
   Published on: 'نُشر في'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'قبل $ %'
@@ -480,12 +507,12 @@ Video:
     الصفحة للتحقق مرة أخرى
   Audio:
     Best: الأفضل
-    High: عالٍ
+    High: عال
     Medium: متوسط
     Low: منخفض
-  audio only: صوت فقط
-  video only: فيديو فقط
-  Download Video: نزّل الفيديو
+  audio only: الصوت فقط
+  video only: الفيديو فقط
+  Download Video: تحميل الفيديو
   Started streaming on: بدأ البث على
   Streamed on: تبث على
   Copy Invidious Channel Link: انسخ رابط قناة انفيديوس
@@ -494,6 +521,7 @@ Video:
   Open Channel in YouTube: افتح القناة على يوتيوب
   Video has been saved: تم حفظ الفيديو
   Save Video: احفظ الفيديو
+  Video has been removed from your saved list: تمت إزالة الفيديو من قائمتك المحفوظة
 Videos:
   #& Sort By
   Sort By:
@@ -591,9 +619,9 @@ Tooltips:
   General Settings:
     Thumbnail Preference: كلّ الصّور المصغّرة في FreeTube سيتمّ استبدالها بإطار من
       الفيديو بدل من الصّورة المصغّرة الافتراضيّة
-    Preferred API Backend: اختر الواجهة الخلفية التي يستخدمها FreeTube لجلب البيانات
-      . الAPI المحلي هو مستخرج محلي . الAPI التابع لInvidious يتطلب التواصل مع خادم
-      شبكة Invidious .
+    Preferred API Backend: اختر الواجهة الخلفية التي يستخدمها FreeTube لجلب البيانات.
+      الواجهة البرمجية المحلية للتطبيق هي مستخرج محلي. الواجهة البرمجية للتطبيق التابعة
+      لInvidious (بديل لموقع يوتيوب) يتطلب التواصل مع خادم شبكة Invidious
     Invidious Instance: واجهة Invidious البرمجية المستخدمة من قبل FreeTube. امسح الواجهة
       البرمجية الحالية للاختيار من قائمة الواجهات
     Fallback to Non-Preferred Backend on Failure: عند تواجد مشكلة مع الواجهة البرمجية
@@ -608,3 +636,18 @@ Tooltips:
       باستخدام التنسيقات القديمة التي تم إرجاعها من قبلها بدلاً من أن تستخدم الصيغ
       التي تم إرجاعها من قبل Invidious . يساعد هذا الخيار عندما لا تعمل الفيديوهات
       التي تم إرجاعها من قبل Invidious بسبب قيود البلد
+    Default Video Format: حدّد التنسيقات المستخدمة عند تشغيل الفيديو. تنسيق داش (التدفق
+      الميكانيكي المتكيّف عبر بروتوكول نقل النص التشعبي) يمكنها أن تُشغِّل جودات أعلى.
+      التنسيقات القديمة محدودة بجودة 720p كحدّ أقصى لكنها تستخدم عرضًا أقل للنطاق.
+      التنسيقات الصوتية هي للتدفق الصوتي فقط
+  Privacy Settings:
+    Remove Video Meta Files: عندما يمكن، يحذف Freetube تلقائيًا ملفات التعريف التي
+      تم إنشاؤها أثناء تشغيل الفيديو ، عندما تكون صفحة المشاهدة مغلقة.
+  Subscription Settings:
+    Fetch Feeds from RSS: عند تفعيلها، سوف يستخدم فريتيوب طريقة RSS بدلًا من طريقته
+      المعتادة لجلب صفحة اشتراكاتك. طريقة RSS أسرع وتتخطى حجب الآي بي IP، لكنها لا
+      تقدّم معلومات معينة مثل مدّة الفيديو أو حالة البث المباشر.
+This video is unavailable because of missing formats. This can happen due to country unavailability.: هذا
+  الفيديو غير متوفر لفقدان بعض التنسيقات. من الممكن لهذا أن يحدث بسبب الحظر في دولة
+  معيّنة.
+More: المزيد
