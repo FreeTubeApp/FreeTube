@@ -118,7 +118,8 @@
     "vue-template-compiler": "^2.6.12",
     "webpack": "^5.24.3",
     "webpack-cli": "^4.5.0",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^3.11.2",
+    "xvfb-maybe": "^0.2.1"
   },
   "license": "AGPL-3.0-or-later",
   "main": "./dist/main.js",
@@ -169,6 +170,7 @@
     "test": "run-s pack:silent jest --silent",
     "test:unit": "run-s jest:unit --silent",
     "test:e2e": "run-s jest:e2e --silent",
+    "test:e2e-headless": "npm run pack:silent && xvfb-maybe --server-args=\"-screen 0 1024x768x24\" -- jest tests/e2e",
     "test:watch": "run-s pack:silent jest:watch --silent"
   },
   "version": "0.12.0"
