@@ -35,7 +35,7 @@ export default Vue.extend({
     this.handleRouteChange()
     next()
   },
-  data: function() {
+  data: function () {
     return {
       isLoading: false,
       firstLoad: true,
@@ -59,6 +59,7 @@ export default Vue.extend({
       videoDislikeCount: 0,
       videoLengthSeconds: 0,
       channelName: '',
+      verified: '',
       channelThumbnail: '',
       channelId: '',
       channelSubscriptionCountText: '',
@@ -143,8 +144,12 @@ export default Vue.extend({
     hideVideoLikesAndDislikes: function () {
       return this.$store.getters.getHideVideoLikesAndDislikes
     },
-    theatrePossible: function() {
-      return !this.hideRecommendedVideos || (!this.hideLiveChat && this.isLive) || this.watchingPlaylist
+    theatrePossible: function () {
+      return (
+        !this.hideRecommendedVideos ||
+        (!this.hideLiveChat && this.isLive) ||
+        this.watchingPlaylist
+      )
     }
   },
   watch: {
@@ -198,26 +203,27 @@ export default Vue.extend({
     }
   },
   methods: {
-    changeTimestamp: function(timestamp) {
+    changeTimestamp: function (timestamp) {
       this.$refs.videoPlayer.player.currentTime(timestamp)
     },
-    toggleTheatreMode: function() {
+    toggleTheatreMode: function () {
       this.useTheatreMode = !this.useTheatreMode
     },
 
-    getVideoInformationLocal: function() {
+    getVideoInformationLocal: function () {
       if (this.firstLoad) {
         this.isLoading = true
       }
 
       this.$store
         .dispatch('ytGetVideoInformation', this.videoId)
-        .then(async result => {
+        .then(async (result) => {
           console.log(result)
 
           const playabilityStatus = result.player_response.playabilityStatus
           if (playabilityStatus.status === 'UNPLAYABLE') {
-            const errorScreen = playabilityStatus.errorScreen.playerErrorMessageRenderer
+            const errorScreen =
+              playabilityStatus.errorScreen.playerErrorMessageRenderer
             const reason = errorScreen.reason.simpleText
             let subReason
             let skipIndex
@@ -246,17 +252,24 @@ export default Vue.extend({
           if ('id' in result.videoDetails.author) {
             this.channelId = result.player_response.videoDetails.channelId
             this.channelName = result.videoDetails.author.name
+            this.verified = result.videoDetails.author.verified
             console.log(result)
             if (result.videoDetails.author.thumbnails.length > 0) {
-              this.channelThumbnail = result.videoDetails.author.thumbnails[0].url
+              this.channelThumbnail =
+                result.videoDetails.author.thumbnails[0].url
             }
           } else {
             this.channelId = result.player_response.videoDetails.channelId
             this.channelName = result.player_response.videoDetails.author
-            this.channelThumbnail = result.player_response.embedPreview.thumbnailPreviewRenderer.videoDetails.embeddedPlayerOverlayVideoDetailsRenderer.channelThumbnail.thumbnails[0].url
+            this.verified = result.player_response.videoDetails.author.verified
+            this.channelThumbnail =
+              result.player_response.embedPreview.thumbnailPreviewRenderer.videoDetails.embeddedPlayerOverlayVideoDetailsRenderer.channelThumbnail.thumbnails[0].url
           }
-          this.videoPublished = new Date(result.videoDetails.publishDate.replace('-', '/')).getTime()
-          this.videoDescription = result.player_response.videoDetails.shortDescription
+          this.videoPublished = new Date(
+            result.videoDetails.publishDate.replace('-', '/')
+          ).getTime()
+          this.videoDescription =
+            result.player_response.videoDetails.shortDescription
 
           switch (this.thumbnailPreference) {
             case 'start':
@@ -269,13 +282,17 @@ export default Vue.extend({
               this.thumbnail = `https://i.ytimg.com/vi/${this.videoId}/maxres3.jpg`
               break
             default:
-              this.thumbnail = result.videoDetails.thumbnails[result.videoDetails.thumbnails.length - 1].url
+              this.thumbnail =
+                result.videoDetails.thumbnails[
+                  result.videoDetails.thumbnails.length - 1
+                ].url
               break
           }
 
           this.recommendedVideos = result.related_videos.map((video) => {
             video.videoId = video.id
             video.authorId = video.author.id
+            video.verified = video.author.verified
             video.viewCount = video.view_count
             video.lengthSeconds = video.length_seconds
             video.author = video.author.name
@@ -286,12 +303,18 @@ export default Vue.extend({
             this.videoLikeCount = null
             this.videoDislikeCount = null
           } else {
-            this.videoLikeCount = isNaN(result.videoDetails.likes) ? 0 : result.videoDetails.likes
-            this.videoDislikeCount = isNaN(result.videoDetails.dislikes) ? 0 : result.videoDetails.dislikes
+            this.videoLikeCount = isNaN(result.videoDetails.likes)
+              ? 0
+              : result.videoDetails.likes
+            this.videoDislikeCount = isNaN(result.videoDetails.dislikes)
+              ? 0
+              : result.videoDetails.dislikes
           }
           this.isLive = result.player_response.videoDetails.isLive
           this.isLiveContent = result.player_response.videoDetails.isLiveContent
-          this.isUpcoming = result.player_response.videoDetails.isUpcoming ? result.player_response.videoDetails.isUpcoming : false
+          this.isUpcoming = result.player_response.videoDetails.isUpcoming
+            ? result.player_response.videoDetails.isUpcoming
+            : false
 
           if (!this.isLive && !this.isUpcoming) {
             const captionTracks =
@@ -304,75 +327,93 @@ export default Vue.extend({
             }
           }
 
-          if (this.videoDislikeCount === null && !this.hideVideoLikesAndDislikes) {
+          if (
+            this.videoDislikeCount === null &&
+            !this.hideVideoLikesAndDislikes
+          ) {
             this.videoDislikeCount = 0
           }
 
           const subCount = result.videoDetails.author.subscriber_count
 
-          if (typeof (subCount) !== 'undefined' && !this.hideChannelSubscriptions) {
+          if (
+            typeof subCount !== 'undefined' &&
+            !this.hideChannelSubscriptions
+          ) {
             if (subCount >= 1000000) {
               this.channelSubscriptionCountText = `${subCount / 1000000}M`
             } else if (subCount >= 10000) {
               this.channelSubscriptionCountText = `${subCount / 1000}K`
             } else {
-              this.channelSubscriptionCountText = subCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+              this.channelSubscriptionCountText = subCount
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
             }
           }
 
           if (this.isLive && !this.isUpcoming) {
             this.enableLegacyFormat()
 
-            this.videoSourceList = result.formats.filter((format) => {
-              if (typeof (format.mimeType) !== 'undefined') {
-                return format.mimeType.includes('video/ts')
-              }
+            this.videoSourceList = result.formats
+              .filter((format) => {
+                if (typeof format.mimeType !== 'undefined') {
+                  return format.mimeType.includes('video/ts')
+                }
 
-              return format.itag === 300 || format.itag === 301
-            }).map((format) => {
-              let qualityLabel
+                return format.itag === 300 || format.itag === 301
+              })
+              .map((format) => {
+                let qualityLabel
 
-              if (format.itag === 300) {
-                qualityLabel = '720p'
-              } else if (format.itag === 301) {
-                qualityLabel = '1080p'
-              } else {
-                qualityLabel = format.qualityLabel
-              }
-              return {
-                url: format.url,
-                type: 'application/x-mpegURL',
-                label: 'Dash',
-                qualityLabel: qualityLabel
-              }
-            }).sort((a, b) => {
-              const qualityA = parseInt(a.qualityLabel.replace('p', ''))
-              const qualityB = parseInt(b.qualityLabel.replace('p', ''))
-              return qualityA - qualityB
-            }).reverse()
+                if (format.itag === 300) {
+                  qualityLabel = '720p'
+                } else if (format.itag === 301) {
+                  qualityLabel = '1080p'
+                } else {
+                  qualityLabel = format.qualityLabel
+                }
+                return {
+                  url: format.url,
+                  type: 'application/x-mpegURL',
+                  label: 'Dash',
+                  qualityLabel: qualityLabel
+                }
+              })
+              .sort((a, b) => {
+                const qualityA = parseInt(a.qualityLabel.replace('p', ''))
+                const qualityB = parseInt(b.qualityLabel.replace('p', ''))
+                return qualityA - qualityB
+              })
+              .reverse()
 
             if (this.videoSourceList.length === 0) {
-              this.activeSourceList = result.player_response.streamingData.formats
+              this.activeSourceList =
+                result.player_response.streamingData.formats
             } else {
               this.activeSourceList = this.videoSourceList
             }
           } else if (this.isUpcoming) {
-            const startTimestamp = result.videoDetails.liveBroadcastDetails.startTimestamp
+            const startTimestamp =
+              result.videoDetails.liveBroadcastDetails.startTimestamp
 
             if (typeof startTimestamp !== 'undefined') {
-              const upcomingTimestamp = new Date(result.videoDetails.liveBroadcastDetails.startTimestamp)
+              const upcomingTimestamp = new Date(
+                result.videoDetails.liveBroadcastDetails.startTimestamp
+              )
               this.upcomingTimestamp = upcomingTimestamp.toLocaleString()
             } else {
               this.upcomingTimestamp = null
             }
           } else {
-            this.videoLengthSeconds = parseInt(result.videoDetails.lengthSeconds)
+            this.videoLengthSeconds = parseInt(
+              result.videoDetails.lengthSeconds
+            )
             if (result.player_response.streamingData !== undefined) {
               this.videoSourceList = result.player_response.streamingData.formats.reverse()
               this.downloadLinks = result.formats.map((format) => {
                 const qualityLabel = format.qualityLabel || format.bitrate
                 const itag = format.itag
-                const fps = format.fps ? (format.fps + 'fps') : 'kbps'
+                const fps = format.fps ? format.fps + 'fps' : 'kbps'
                 const type = format.mimeType.match(/.*;/)[0].replace(';', '')
                 let label = `${qualityLabel} ${fps} - ${type}`
 
@@ -392,61 +433,74 @@ export default Vue.extend({
               })
               let captionLinks = result.player_response.captions
               if (typeof captionLinks !== 'undefined') {
-                captionLinks = captionLinks.playerCaptionsTracklistRenderer.captionTracks.map((caption) => {
-                  const label = `${caption.name.simpleText} (${caption.languageCode}) - text/vtt`
-                  const object = {
-                    url: caption.baseUrl,
-                    label: label
-                  }
+                captionLinks = captionLinks.playerCaptionsTracklistRenderer.captionTracks.map(
+                  (caption) => {
+                    const label = `${caption.name.simpleText} (${caption.languageCode}) - text/vtt`
+                    const object = {
+                      url: caption.baseUrl,
+                      label: label
+                    }
 
-                  return object
-                })
+                    return object
+                  }
+                )
 
                 this.downloadLinks = this.downloadLinks.concat(captionLinks)
               }
             } else {
               // video might be region locked or something else. This leads to no formats being available
               this.showToast({
-                message: this.$t('This video is unavailable because of missing formats. This can happen due to country unavailability.'),
+                message: this.$t(
+                  'This video is unavailable because of missing formats. This can happen due to country unavailability.'
+                ),
                 time: 7000
               })
               this.handleVideoEnded()
               return
             }
 
-            if (typeof result.player_response.streamingData.adaptiveFormats !== 'undefined') {
+            if (
+              typeof result.player_response.streamingData.adaptiveFormats !==
+              'undefined'
+            ) {
               if (this.proxyVideos) {
                 this.dashSrc = await this.createInvidiousDashManifest()
               } else {
-                this.dashSrc = await this.createLocalDashManifest(result.player_response.streamingData.adaptiveFormats)
+                this.dashSrc = await this.createLocalDashManifest(
+                  result.player_response.streamingData.adaptiveFormats
+                )
               }
 
-              this.audioSourceList = result.player_response.streamingData.adaptiveFormats.filter((format) => {
-                return format.mimeType.includes('audio')
-              }).sort((a, b) => {
-                return a.bitrate - b.bitrate
-              }).map((format, index) => {
-                const label = (x) => {
-                  switch (x) {
-                    case 0:
-                      return this.$t('Video.Audio.Low')
-                    case 1:
-                      return this.$t('Video.Audio.Medium')
-                    case 2:
-                      return this.$t('Video.Audio.High')
-                    case 3:
-                      return this.$t('Video.Audio.Best')
-                    default:
-                      return format.bitrate
+              this.audioSourceList = result.player_response.streamingData.adaptiveFormats
+                .filter((format) => {
+                  return format.mimeType.includes('audio')
+                })
+                .sort((a, b) => {
+                  return a.bitrate - b.bitrate
+                })
+                .map((format, index) => {
+                  const label = (x) => {
+                    switch (x) {
+                      case 0:
+                        return this.$t('Video.Audio.Low')
+                      case 1:
+                        return this.$t('Video.Audio.Medium')
+                      case 2:
+                        return this.$t('Video.Audio.High')
+                      case 3:
+                        return this.$t('Video.Audio.Best')
+                      default:
+                        return format.bitrate
+                    }
                   }
-                }
-                return {
-                  url: format.url,
-                  type: format.mimeType,
-                  label: 'Audio',
-                  qualityLabel: label(index)
-                }
-              }).reverse()
+                  return {
+                    url: format.url,
+                    type: format.mimeType,
+                    label: 'Audio',
+                    qualityLabel: label(index)
+                  }
+                })
+                .reverse()
 
               if (this.activeFormat === 'audio') {
                 this.activeSourceList = this.audioSourceList
@@ -461,7 +515,9 @@ export default Vue.extend({
             }
 
             if (typeof result.player_response.storyboards !== 'undefined') {
-              const templateUrl = result.player_response.storyboards.playerStoryboardSpecRenderer.spec
+              const templateUrl =
+                result.player_response.storyboards.playerStoryboardSpecRenderer
+                  .spec
               this.createLocalStoryboardUrls(templateUrl)
             }
           }
@@ -469,7 +525,7 @@ export default Vue.extend({
           this.isLoading = false
           this.updateTitle()
         })
-        .catch(err => {
+        .catch((err) => {
           const errorMessage = this.$t('Local API Error (Click to copy)')
           this.showToast({
             message: `${errorMessage}: ${err}`,
@@ -479,7 +535,12 @@ export default Vue.extend({
             }
           })
           console.log(err)
-          if (!this.usingElectron || (this.backendPreference === 'local' && this.backendFallback && !err.toString().includes('private'))) {
+          if (
+            !this.usingElectron ||
+            (this.backendPreference === 'local' &&
+              this.backendFallback &&
+              !err.toString().includes('private'))
+          ) {
             this.showToast({
               message: this.$t('Falling back to Invidious API')
             })
@@ -490,7 +551,7 @@ export default Vue.extend({
         })
     },
 
-    getVideoInformationInvidious: function() {
+    getVideoInformationInvidious: function () {
       if (this.firstLoad) {
         this.isLoading = true
       }
@@ -500,7 +561,7 @@ export default Vue.extend({
 
       this.$store
         .dispatch('invidiousGetVideoInformation', this.videoId)
-        .then(result => {
+        .then((result) => {
           console.log(result)
 
           if (result.error) {
@@ -523,12 +584,18 @@ export default Vue.extend({
           }
           this.channelId = result.authorId
           this.channelName = result.author
-          this.channelThumbnail = result.authorThumbnails[1] ? result.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`) : ''
+          this.verified = false
+          this.channelThumbnail = result.authorThumbnails[1]
+            ? result.authorThumbnails[1].url.replace(
+              'https://yt3.ggpht.com',
+                `${this.invidiousInstance}/ggpht/`
+            )
+            : ''
           this.videoPublished = result.published * 1000
           this.videoDescriptionHtml = result.descriptionHtml
           this.recommendedVideos = result.recommendedVideos
           this.isLive = result.liveNow
-          this.captionSourceList = result.captions.map(caption => {
+          this.captionSourceList = result.captions.map((caption) => {
             caption.url = this.invidiousInstance + caption.url
             caption.type = ''
             caption.dataSource = 'invidious'
@@ -586,48 +653,57 @@ export default Vue.extend({
             this.videoLengthSeconds = result.lengthSeconds
             this.videoSourceList = result.formatStreams.reverse()
 
-            this.downloadLinks = result.adaptiveFormats.concat(this.videoSourceList).map((format) => {
-              const qualityLabel = format.qualityLabel || format.bitrate
-              const itag = parseInt(format.itag)
-              const fps = format.fps ? (format.fps + 'fps') : 'kbps'
-              const type = format.type.match(/.*;/)[0].replace(';', '')
-              let label = `${qualityLabel} ${fps} - ${type}`
+            this.downloadLinks = result.adaptiveFormats
+              .concat(this.videoSourceList)
+              .map((format) => {
+                const qualityLabel = format.qualityLabel || format.bitrate
+                const itag = parseInt(format.itag)
+                const fps = format.fps ? format.fps + 'fps' : 'kbps'
+                const type = format.type.match(/.*;/)[0].replace(';', '')
+                let label = `${qualityLabel} ${fps} - ${type}`
 
-              if (itag !== 18 && itag !== 22) {
-                if (type.includes('video')) {
-                  label += ` ${this.$t('Video.video only')}`
-                } else {
-                  label += ` ${this.$t('Video.audio only')}`
+                if (itag !== 18 && itag !== 22) {
+                  if (type.includes('video')) {
+                    label += ` ${this.$t('Video.video only')}`
+                  } else {
+                    label += ` ${this.$t('Video.audio only')}`
+                  }
                 }
-              }
-              const object = {
-                url: format.url,
-                label: label
-              }
+                const object = {
+                  url: format.url,
+                  label: label
+                }
 
-              return object
-            }).reverse().concat(result.captions.map((caption) => {
-              const label = `${caption.label} (${caption.languageCode}) - text/vtt`
-              const object = {
-                url: caption.url,
-                label: label
-              }
+                return object
+              })
+              .reverse()
+              .concat(
+                result.captions.map((caption) => {
+                  const label = `${caption.label} (${caption.languageCode}) - text/vtt`
+                  const object = {
+                    url: caption.url,
+                    label: label
+                  }
 
-              return object
-            }))
+                  return object
+                })
+              )
 
-            this.audioSourceList = result.adaptiveFormats.filter((format) => {
-              return format.type.includes('audio')
-            }).map((format) => {
-              return {
-                url: format.url,
-                type: format.type,
-                label: 'Audio',
-                qualityLabel: parseInt(format.bitrate)
-              }
-            }).sort((a, b) => {
-              return a.qualityLabel - b.qualityLabel
-            })
+            this.audioSourceList = result.adaptiveFormats
+              .filter((format) => {
+                return format.type.includes('audio')
+              })
+              .map((format) => {
+                return {
+                  url: format.url,
+                  type: format.type,
+                  label: 'Audio',
+                  qualityLabel: parseInt(format.bitrate)
+                }
+              })
+              .sort((a, b) => {
+                return a.qualityLabel - b.qualityLabel
+              })
 
             if (this.activeFormat === 'audio') {
               this.activeSourceList = this.audioSourceList
@@ -640,7 +716,7 @@ export default Vue.extend({
 
           this.isLoading = false
         })
-        .catch(err => {
+        .catch((err) => {
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
           this.showToast({
             message: `${errorMessage}: ${err.responseText}`,
@@ -666,6 +742,7 @@ export default Vue.extend({
         videoId: this.videoId,
         title: this.videoTitle,
         author: this.channelName,
+        verified: this.verified,
         authorId: this.channelId,
         published: this.videoPublished,
         description: this.videoDescription,
@@ -692,15 +769,17 @@ export default Vue.extend({
         if (this.timestamp) {
           if (this.timestamp < 0) {
             this.$refs.videoPlayer.player.currentTime(0)
-          } else if (this.timestamp > (this.videoLengthSeconds - 10)) {
-            this.$refs.videoPlayer.player.currentTime(this.videoLengthSeconds - 10)
+          } else if (this.timestamp > this.videoLengthSeconds - 10) {
+            this.$refs.videoPlayer.player.currentTime(
+              this.videoLengthSeconds - 10
+            )
           } else {
             this.$refs.videoPlayer.player.currentTime(this.timestamp)
           }
         } else if (historyIndex !== -1) {
           const watchProgress = this.historyCache[historyIndex].watchProgress
 
-          if (watchProgress < (this.videoLengthSeconds - 10)) {
+          if (watchProgress < this.videoLengthSeconds - 10) {
             this.$refs.videoPlayer.player.currentTime(watchProgress)
           }
         }
@@ -718,10 +797,10 @@ export default Vue.extend({
     },
 
     checkIfPlaylist: function () {
-      if (typeof (this.$route.query) !== 'undefined') {
+      if (typeof this.$route.query !== 'undefined') {
         this.playlistId = this.$route.query.playlistId
 
-        if (typeof (this.playlistId) !== 'undefined') {
+        if (typeof this.playlistId !== 'undefined') {
           this.watchingPlaylist = true
         } else {
           this.watchingPlaylist = false
@@ -732,7 +811,7 @@ export default Vue.extend({
     },
 
     checkIfTimestamp: function () {
-      if (typeof (this.$route.query) !== 'undefined') {
+      if (typeof this.$route.query !== 'undefined') {
         try {
           this.timestamp = parseInt(this.$route.query.timestamp)
         } catch {
@@ -744,10 +823,10 @@ export default Vue.extend({
     getLegacyFormats: function () {
       this.$store
         .dispatch('ytGetVideoInformation', this.videoId)
-        .then(result => {
+        .then((result) => {
           this.videoSourceList = result.player_response.streamingData.formats
         })
-        .catch(err => {
+        .catch((err) => {
           const errorMessage = this.$t('Local API Error (Click to copy)')
           this.showToast({
             message: `${errorMessage}: ${err}`,
@@ -757,7 +836,10 @@ export default Vue.extend({
             }
           })
           console.log(err)
-          if (!this.usingElectron || (this.backendPreference === 'local' && this.backendFallback)) {
+          if (
+            !this.usingElectron ||
+            (this.backendPreference === 'local' && this.backendFallback)
+          ) {
             this.showToast({
               message: this.$t('Falling back to Invidious API')
             })
@@ -773,7 +855,9 @@ export default Vue.extend({
 
       if (this.dashSrc === null) {
         this.showToast({
-          message: this.$t('Change Format.Dash formats are not available for this video')
+          message: this.$t(
+            'Change Format.Dash formats are not available for this video'
+          )
         })
         return
       }
@@ -820,7 +904,9 @@ export default Vue.extend({
 
       if (this.audioSourceList === null) {
         this.showToast({
-          message: this.$t('Change Format.Audio formats are not available for this video')
+          message: this.$t(
+            'Change Format.Audio formats are not available for this video'
+          )
         })
         return
       }
@@ -852,8 +938,10 @@ export default Vue.extend({
         }, nextVideoInterval * 1000)
 
         this.showToast({
-          message: this.$tc('Playing Next Video Interval', nextVideoInterval, { nextVideoInterval: nextVideoInterval }),
-          time: (nextVideoInterval * 1000) + 500,
+          message: this.$tc('Playing Next Video Interval', nextVideoInterval, {
+            nextVideoInterval: nextVideoInterval
+          }),
+          time: nextVideoInterval * 1000 + 500,
           action: () => {
             clearTimeout(this.playNextTimeout)
             this.showToast({
@@ -866,11 +954,9 @@ export default Vue.extend({
           const player = this.$refs.videoPlayer.player
           if (player !== null && player.paused()) {
             const nextVideoId = this.recommendedVideos[0].videoId
-            this.$router.push(
-              {
-                path: `/watch/${nextVideoId}`
-              }
-            )
+            this.$router.push({
+              path: `/watch/${nextVideoId}`
+            })
             this.showToast({
               message: this.$t('Playing Next Video')
             })
@@ -893,7 +979,12 @@ export default Vue.extend({
     handleRouteChange: function () {
       clearTimeout(this.playNextTimeout)
 
-      if (this.rememberHistory && !this.isUpcoming && !this.isLoading && !this.isLive) {
+      if (
+        this.rememberHistory &&
+        !this.isUpcoming &&
+        !this.isLoading &&
+        !this.isLive
+      ) {
         const player = this.$refs.videoPlayer.player
 
         if (player !== null && this.saveWatchedProgress) {
@@ -909,7 +1000,11 @@ export default Vue.extend({
       if (!this.isUpcoming && !this.isLoading) {
         const player = this.$refs.videoPlayer.player
 
-        if (player !== null && !player.paused() && player.isInPictureInPicture()) {
+        if (
+          player !== null &&
+          !player.paused() &&
+          player.isInPictureInPicture()
+        ) {
           const playerId = this.videoId
           setTimeout(() => {
             player.play()
@@ -975,7 +1070,10 @@ export default Vue.extend({
     },
 
     createLocalDashManifest: function (formats) {
-      const xmlData = ytDashGen.generate_dash_file_from_formats(formats, this.videoLengthSeconds)
+      const xmlData = ytDashGen.generate_dash_file_from_formats(
+        formats,
+        this.videoLengthSeconds
+      )
       const userData = remote.app.getPath('userData')
       let fileLocation
       let uriSchema
@@ -1034,9 +1132,23 @@ export default Vue.extend({
         // Not sure why the _ variable is needed, but storyboards don't work unless we initialize it.
 
         /* eslint-disable-next-line */
-        const [width, height, count, sWidth, sHeight, interval, _, sigh] = storyboard.split('#')
+        const [
+          width,
+          height,
+          count,
+          sWidth,
+          sHeight,
+          interval,
+          sigh
+        ] = storyboard.split('#')
         storyboardArray.push({
-          url: baseUrl.replace('$L', i + 1).replace('$N', 'M0').replace(/<\/?sub>/g, '') + '&sigh=' + sigh,
+          url:
+            baseUrl
+              .replace('$L', i + 1)
+              .replace('$N', 'M0')
+              .replace(/<\/?sub>/g, '') +
+            '&sigh=' +
+            sigh,
           width: Number(width), // Width of one sub image
           height: Number(height), // Height of one sub image
           sWidth: Number(sWidth), // Number of images vertically  (if full)
@@ -1074,18 +1186,18 @@ export default Vue.extend({
     },
 
     createCaptionUrls: function (captionTracks) {
-      this.captionSourceList = captionTracks.map(caption => {
+      this.captionSourceList = captionTracks.map((caption) => {
         caption.type = 'text/vtt'
         caption.charset = 'charset=utf-8'
         caption.dataSource = 'local'
 
-        $.get(caption.baseUrl, response => {
+        $.get(caption.baseUrl, (response) => {
           xml2vtt
             .Parse(new XMLSerializer().serializeToString(response))
-            .then(vtt => {
+            .then((vtt) => {
               caption.baseUrl = `data:${caption.type};${caption.charset},${vtt}`
             })
-            .catch(err =>
+            .catch((err) =>
               console.log(`Error while converting XML to VTT : ${err}`)
             )
         }).fail((xhr, textStatus, error) => {
@@ -1099,7 +1211,9 @@ export default Vue.extend({
     },
 
     getWatchedProgress: function () {
-      return this.$refs.videoPlayer && this.$refs.videoPlayer.player ? this.$refs.videoPlayer.player.currentTime() : 0
+      return this.$refs.videoPlayer && this.$refs.videoPlayer.player
+        ? this.$refs.videoPlayer.player.currentTime()
+        : 0
     },
 
     getTimestamp: function () {

@@ -12,9 +12,7 @@
         :src="thumbnail"
         class="thumbnailImage"
       >
-      <div
-        class="videoCountContainer"
-      >
+      <div class="videoCountContainer">
         <div class="background" />
         <div class="inner">
           <div>{{ videoCount }}</div>
@@ -31,6 +29,15 @@
       </router-link>
       <div class="infoLine">
         <router-link
+          v-if="verified"
+          class="channelName"
+          :to="`/channel/${channelId}`"
+        >
+          {{ channelName }}
+          <font-awesome-icon icon="check-circle" />
+        </router-link>
+        <router-link
+          v-else
           class="channelName"
           :to="`/channel/${channelId}`"
         >

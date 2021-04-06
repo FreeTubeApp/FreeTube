@@ -20,7 +20,8 @@ export default Vue.extend({
       thumbnail: 'https://i.ytimg.com/vi/JGwWNGJdvx8/mqdefault.jpg',
       channelName: '#RedMusic: Just Hits',
       videoCount: 200,
-      description: ''
+      description: '',
+      verified: ''
     }
   },
   computed: {
@@ -33,7 +34,10 @@ export default Vue.extend({
     },
 
     playlistId: function () {
-      return this.playlistLink.replace('https://www.youtube.com/playlist?list=', '')
+      return this.playlistLink.replace(
+        'https://www.youtube.com/playlist?list=',
+        ''
+      )
     },
 
     channelId: function () {
@@ -43,7 +47,7 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    if (typeof (this.data.owner) === 'object') {
+    if (typeof this.data.owner === 'object') {
       this.parseLocalData()
     } else {
       this.parseInvidiousData()
@@ -52,8 +56,11 @@ export default Vue.extend({
   methods: {
     parseInvidiousData: function () {
       this.title = this.data.title
-      this.thumbnail = this.data.playlistThumbnail.replace('https://i.ytimg.com', this.invidiousInstance).replace('hqdefault', 'mqdefault')
+      this.thumbnail = this.data.playlistThumbnail
+        .replace('https://i.ytimg.com', this.invidiousInstance)
+        .replace('hqdefault', 'mqdefault')
       this.channelName = this.data.author
+      this.verified = false
       this.channelLink = this.data.authorUrl
       this.playlistLink = this.data.playlistId
       this.videoCount = this.data.videoCount
@@ -67,6 +74,7 @@ export default Vue.extend({
       this.title = this.data.title
       this.thumbnail = this.data.firstVideo.bestThumbnail.url
       this.channelName = this.data.owner.name
+      this.verified = this.data.owner.verified
       this.channelLink = this.data.owner.url
       this.playlistLink = this.data.url
       this.videoCount = this.data.length

@@ -8,9 +8,7 @@
     }"
   >
     <div class="channelThumbnail">
-      <router-link
-        :to="`/channel/${id}`"
-      >
+      <router-link :to="`/channel/${id}`">
         <img
           :src="thumbnail"
           class="channelImage"
@@ -19,6 +17,15 @@
     </div>
     <div class="info">
       <router-link
+        v-if="verified"
+        class="title"
+        :to="`/channel/${id}`"
+      >
+        {{ channelName }}
+        <font-awesome-icon icon="check-circle" />
+      </router-link>
+      <router-link
+        v-else
         class="title"
         :to="`/channel/${id}`"
       >
@@ -31,11 +38,7 @@
         >
           {{ subscriberCount }} subscribers -
         </span>
-        <span
-          class="videoCount"
-        >
-          {{ videoCount }} videos
-        </span>
+        <span class="videoCount"> {{ videoCount }} videos </span>
       </div>
       <p
         v-if="listType !== 'grid'"

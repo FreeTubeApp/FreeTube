@@ -1,7 +1,5 @@
 <template>
-  <div
-    ref="search"
-  >
+  <div ref="search">
     <ft-loader
       v-if="isLoading"
       :fullscreen="true"
@@ -26,6 +24,14 @@
             :src="thumbnailUrl"
           >
           <span
+            v-if="isVerified"
+            class="channelName"
+          >
+            {{ channelName }}
+            <font-awesome-icon icon="check-circle" />
+          </span>
+          <span
+            v-else
             class="channelName"
           >
             {{ channelName }}
@@ -36,8 +42,8 @@
             class="channelSubCount"
           >
             {{ formattedSubCount }}
-            <span v-if="subCount === 1">{{ $t("Channel.Subscriber") }}</span>
-            <span v-else>{{ $t("Channel.Subscribers") }}</span>
+            <span v-if="subCount === 1">{{ $t('Channel.Subscriber') }}</span>
+            <span v-else>{{ $t('Channel.Subscribers') }}</span>
           </span>
         </div>
         <ft-button
@@ -47,26 +53,24 @@
           class="subscribeButton"
           @click="handleSubscription"
         />
-        <ft-flex-box
-          class="channelInfoTabs"
-        >
+        <ft-flex-box class="channelInfoTabs">
           <div
             class="tab"
             @click="changeTab('videos')"
           >
-            {{ $t("Channel.Videos.Videos").toUpperCase() }}
+            {{ $t('Channel.Videos.Videos').toUpperCase() }}
           </div>
           <div
             class="tab"
             @click="changeTab('playlists')"
           >
-            {{ $t("Channel.Playlists.Playlists").toUpperCase() }}
+            {{ $t('Channel.Playlists.Playlists').toUpperCase() }}
           </div>
           <div
             class="tab"
             @click="changeTab('about')"
           >
-            {{ $t("Channel.About.About").toUpperCase() }}
+            {{ $t('Channel.About.About').toUpperCase() }}
           </div>
           <ft-input
             :placeholder="$t('Channel.Search Channel')"
@@ -103,34 +107,30 @@
         class="aboutTab"
       >
         <h2>
-          {{ $t("Channel.About.Channel Description") }}
+          {{ $t('Channel.About.Channel Description') }}
         </h2>
         <div
           class="aboutInfo"
           v-html="channelDescription"
         />
         <br>
-        <h2
-          v-if="relatedChannels.length > 0"
-        >
-          {{ $t("Channel.About.Featured Channels") }}
+        <h2 v-if="relatedChannels.length > 0">
+          {{ $t('Channel.About.Featured Channels') }}
         </h2>
-        <ft-flex-box
-          v-if="relatedChannels.length > 0"
-        >
+        <ft-flex-box v-if="relatedChannels.length > 0">
           <ft-channel-bubble
             v-for="(channel, index) in relatedChannels"
             :key="index"
             :channel-name="channel.author"
             :channel-id="channel.authorId"
-            :channel-thumbnail="channel.authorThumbnails[channel.authorThumbnails.length - 1].url"
+            :channel-thumbnail="
+              channel.authorThumbnails[channel.authorThumbnails.length - 1].url
+            "
             @click="goToChannel(channel.authorId)"
           />
         </ft-flex-box>
       </div>
-      <ft-loader
-        v-if="isElementListLoading"
-      />
+      <ft-loader v-if="isElementListLoading" />
       <div
         v-if="currentTab !== 'about' && !isElementListLoading"
         class="elementList"
@@ -143,7 +143,11 @@
           v-if="currentTab === 'videos' && latestVideos.length === 0"
         >
           <p class="message">
-            {{ $t("Channel.Videos.This channel does not currently have any videos") }}
+            {{
+              $t(
+                'Channel.Videos.This channel does not currently have any videos'
+              )
+            }}
           </p>
         </ft-flex-box>
         <ft-element-list
@@ -154,7 +158,11 @@
           v-if="currentTab === 'playlists' && latestPlaylists.length === 0"
         >
           <p class="message">
-            {{ $t("Channel.Playlists.This channel does not currently have any playlists") }}
+            {{
+              $t(
+                'Channel.Playlists.This channel does not currently have any playlists'
+              )
+            }}
           </p>
         </ft-flex-box>
         <ft-element-list
@@ -165,7 +173,7 @@
           v-if="currentTab === 'search' && searchResults.length === 0"
         >
           <p class="message">
-            {{ $t("Channel.Your search results have returned 0 results") }}
+            {{ $t('Channel.Your search results have returned 0 results') }}
           </p>
         </ft-flex-box>
         <div
@@ -173,7 +181,8 @@
           class="getNextPage"
           @click="handleFetchMore"
         >
-          <font-awesome-icon icon="search" /> {{ $t("Search Filters.Fetch more results") }}
+          <font-awesome-icon icon="search" />
+          {{ $t('Search Filters.Fetch more results') }}
         </div>
       </div>
     </ft-card>

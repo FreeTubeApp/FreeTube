@@ -17,6 +17,7 @@ export default Vue.extend({
       id: '',
       thumbnail: '',
       channelName: '',
+      verified: '',
       subscriberCount: 0,
       videoCount: '',
       uploadedTime: '',
@@ -35,7 +36,7 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    if (typeof (this.data.avatars) !== 'undefined') {
+    if (typeof this.data.avatars !== 'undefined') {
       this.parseLocalData()
     } else {
       this.parseInvidiousData()
@@ -50,31 +51,45 @@ export default Vue.extend({
       }
 
       this.channelName = this.data.name
+      this.verified = this.data.verified
       this.id = this.data.channelID
       if (this.hideChannelSubscriptions || this.data.subscribers === null) {
         this.subscriberCount = null
       } else {
-        this.subscriberCount = this.data.subscribers.replace(/ subscriber(s)?/, '')
+        this.subscriberCount = this.data.subscribers.replace(
+          / subscriber(s)?/,
+          ''
+        )
       }
       if (this.data.videos === null) {
         this.videoCount = 0
       } else {
-        this.videoCount = this.data.videos.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+        this.videoCount = this.data.videos
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
       }
 
       this.description = this.data.descriptionShort
     },
 
     parseInvidiousData: function () {
-      this.thumbnail = this.data.authorThumbnails[2].url.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`)
+      this.thumbnail = this.data.authorThumbnails[2].url.replace(
+        'https://yt3.ggpht.com',
+        `${this.invidiousInstance}/ggpht/`
+      )
       this.channelName = this.data.author
       this.id = this.data.authorId
+      this.verified = false
       if (this.hideChannelSubscriptions) {
         this.subscriberCount = null
       } else {
-        this.subscriberCount = this.data.subCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+        this.subscriberCount = this.data.subCount
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
       }
-      this.videoCount = this.data.videoCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+      this.videoCount = this.data.videoCount
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
       this.description = this.data.description
     }
   }

@@ -35,6 +35,10 @@ export default Vue.extend({
       type: String,
       required: true
     },
+    verified: {
+      type: Boolean,
+      required: true
+    },
     channelThumbnail: {
       type: String,
       required: true
@@ -99,11 +103,7 @@ export default Vue.extend({
   data: function () {
     return {
       formatTypeLabel: 'VIDEO FORMATS',
-      formatTypeValues: [
-        'dash',
-        'legacy',
-        'audio'
-      ]
+      formatTypeValues: ['dash', 'legacy', 'audio']
     }
   },
   computed: {
@@ -180,18 +180,23 @@ export default Vue.extend({
     },
 
     likePercentageRatio: function () {
-      return parseInt(this.likeCount / this.totalLikeCount * 100)
+      return parseInt((this.likeCount / this.totalLikeCount) * 100)
     },
 
     parsedViewCount: function () {
       if (this.hideVideoViews) {
         return null
       }
-      return this.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ` ${this.$t('Video.Views').toLowerCase()}`
+      return (
+        this.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') +
+        ` ${this.$t('Video.Views').toLowerCase()}`
+      )
     },
 
     isSubscribed: function () {
-      const subIndex = this.profileList[this.activeProfile].subscriptions.findIndex((channel) => {
+      const subIndex = this.profileList[
+        this.activeProfile
+      ].subscriptions.findIndex((channel) => {
         return channel.id === this.channelId
       })
 
@@ -204,9 +209,13 @@ export default Vue.extend({
 
     subscribedText: function () {
       if (this.isSubscribed) {
-        return `${this.$t('Channel.Unsubscribe').toUpperCase()} ${this.subscriptionCountText}`
+        return `${this.$t('Channel.Unsubscribe').toUpperCase()} ${
+          this.subscriptionCountText
+        }`
       } else {
-        return `${this.$t('Channel.Subscribe').toUpperCase()} ${this.subscriptionCountText}`
+        return `${this.$t('Channel.Subscribe').toUpperCase()} ${
+          this.subscriptionCountText
+        }`
       }
     },
 
@@ -261,17 +270,23 @@ export default Vue.extend({
         return
       }
 
-      const currentProfile = JSON.parse(JSON.stringify(this.profileList[this.activeProfile]))
+      const currentProfile = JSON.parse(
+        JSON.stringify(this.profileList[this.activeProfile])
+      )
       const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
 
       if (this.isSubscribed) {
-        currentProfile.subscriptions = currentProfile.subscriptions.filter((channel) => {
-          return channel.id !== this.channelId
-        })
+        currentProfile.subscriptions = currentProfile.subscriptions.filter(
+          (channel) => {
+            return channel.id !== this.channelId
+          }
+        )
 
         this.updateProfile(currentProfile)
         this.showToast({
-          message: this.$t('Channel.Channel has been removed from your subscriptions')
+          message: this.$t(
+            'Channel.Channel has been removed from your subscriptions'
+          )
         })
 
         if (this.activeProfile === 0) {
@@ -291,16 +306,20 @@ export default Vue.extend({
             if (index !== -1) {
               duplicateSubscriptions++
 
-              parsedProfile.subscriptions = parsedProfile.subscriptions.filter((x) => {
-                return x.id !== this.channelId
-              })
+              parsedProfile.subscriptions = parsedProfile.subscriptions.filter(
+                (x) => {
+                  return x.id !== this.channelId
+                }
+              )
 
               this.updateProfile(parsedProfile)
             }
           })
 
           if (duplicateSubscriptions > 0) {
-            const message = this.$t('Channel.Removed subscription from $ other channel(s)')
+            const message = this.$t(
+              'Channel.Removed subscription from $ other channel(s)'
+            )
             this.showToast({
               message: message.replace('$', duplicateSubscriptions)
             })
@@ -310,6 +329,7 @@ export default Vue.extend({
         const subscription = {
           id: this.channelId,
           name: this.channelName,
+          verified: this.verified,
           thumbnail: this.channelThumbnail
         }
         currentProfile.subscriptions.push(subscription)
@@ -356,6 +376,7 @@ export default Vue.extend({
         videoId: this.id,
         title: this.title,
         author: this.channelName,
+        verified: this.verified,
         authorId: this.channelId,
         published: '',
         description: this.description,
@@ -392,11 +413,6 @@ export default Vue.extend({
       })
     },
 
-    ...mapActions([
-      'showToast',
-      'updateProfile',
-      'addVideo',
-      'removeVideo'
-    ])
+    ...mapActions(['showToast', 'updateProfile', 'addVideo', 'removeVideo'])
   }
 })
