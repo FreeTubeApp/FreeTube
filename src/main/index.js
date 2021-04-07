@@ -35,6 +35,7 @@ let startupUrl
 app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors')
 
 app.commandLine.appendSwitch('enable-accelerated-video-decode')
+app.commandLine.appendSwitch('enable-file-cookies')
 app.commandLine.appendSwitch('ignore-gpu-blacklist')
 
 // See: https://stackoverflow.com/questions/45570589/electron-protocol-handler-not-working-on-windows
