@@ -1,7 +1,5 @@
 import Vue from 'vue'
 import { mapActions } from 'vuex'
-import $ from 'jquery'
-
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 
@@ -35,22 +33,18 @@ export default Vue.extend({
       })
     }
   },
-  mounted: function () {
-    $('#profileList').focusout(() => {
-      $('#profileList')[0].style.display = 'none'
-    })
-  },
   methods: {
     toggleProfileList: function () {
-      $('#profileList')[0].style.display = 'inline'
-      $('#profileList').focus()
+      this.showProfileList = !this.showProfileList
     },
 
     openProfileSettings: function () {
-      this.$router.push({
-        path: '/settings/profile/'
-      })
-      $('#profileList').focusout()
+      this.showProfileList = false
+      const nextPath = '/settings/profile/'
+      if (nextPath === this.$router.history.current.path) {
+        return
+      }
+      this.$router.push(nextPath)
     },
 
     setActiveProfile: function (profile) {
@@ -69,7 +63,7 @@ export default Vue.extend({
       this.showToast({
         message: message
       })
-      $('#profileList').focusout()
+      this.showProfileList = false
     },
 
     ...mapActions([

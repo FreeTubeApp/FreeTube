@@ -6,6 +6,7 @@
       :poster="thumbnail"
       controls
       preload="auto"
+      :style="{ cursor: hideMouse ? 'none' : 'default '}"
       :data-setup="JSON.stringify(dataSetup)"
       @touchstart="handleTouchStart"
       @touchend="handleTouchEnd"

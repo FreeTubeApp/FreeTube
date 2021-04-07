@@ -1,4 +1,4 @@
-import { app, BrowserWindow, Menu, ipcMain, screen } from 'electron'
+import { app, BrowserWindow, Menu, ipcMain, screen, powerSaveBlocker } from 'electron'
 import { productName } from '../../package.json'
 import Datastore from 'nedb'
 
@@ -358,6 +358,14 @@ function createWindow (useProxy = false, proxyUrl = '') {
 
   ipcMain.on('disableProxy', () => {
     mainWindow.webContents.session.setProxy({})
+  })
+
+  ipcMain.handle('prevent-sleep', () => {
+    return powerSaveBlocker.start('prevent-display-sleep')
+  })
+
+  ipcMain.handle('stop-prevent-sleep', (event, blocker) => {
+    return powerSaveBlocker.stop(blocker)
   })
 }
 

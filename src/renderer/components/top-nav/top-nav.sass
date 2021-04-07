@@ -12,7 +12,6 @@
   height: 60px
   line-height: 60px
   background-color: var(--card-bg-color)
-  -webkit-box-shadow: 0px 2px 1px 0px var(--primary-shadow-color)
   display: flex
   align-items: center
   align-content: center
@@ -104,8 +103,11 @@
   flex: 1
 
   .searchContainer
-    display: flex
+    display: none
     align-items: center
+
+    @media (min-width: 681px)
+      display: flex !important
 
     @media only screen and (max-width: 680px)
       position: fixed

@@ -52,7 +52,6 @@
   /* Use custom arrow */
 .select .select-text {
   appearance: none;
-  -webkit-appearance:none
 }
 
 .iconSelect {

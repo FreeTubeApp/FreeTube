@@ -4,8 +4,6 @@
 
 .ft-input {
     box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     outline: none;
     width: 100%;
     padding: 1rem;
@@ -30,8 +28,6 @@
 
 .forceTextColor .ft-input:focus {
   box-shadow: 0 0 1rem 0 var(--primary-input-color);
-  -moz-transition: box-shadow 0.2s ease-in-out;
-  -o-transition: box-shadow 0.2s ease-in-out;
   transition: box-shadow 0.2s ease-in-out;
 }
 
@@ -63,8 +59,6 @@
 
 .inputAction:hover {
   background-color: var(--side-nav-hover-color);
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 
@@ -74,8 +68,6 @@
 
 .inputAction:active {
   background-color: var(--tertiary-text-color);
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 

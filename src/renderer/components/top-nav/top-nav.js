@@ -1,11 +1,10 @@
 import Vue from 'vue'
+import debounce from 'lodash.debounce'
+import ytSuggest from 'youtube-suggest'
 import FtInput from '../ft-input/ft-input.vue'
 import FtSearchFilters from '../ft-search-filters/ft-search-filters.vue'
 import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
-import $ from 'jquery'
 import router from '../../router/index.js'
-import debounce from 'lodash.debounce'
-import ytSuggest from 'youtube-suggest'
 
 export default Vue.extend({
   name: 'TopNav',
@@ -19,6 +18,7 @@ export default Vue.extend({
       component: this,
       windowWidth: 0,
       showFilters: false,
+      showSearch: false,
       searchSuggestionsDataList: []
     }
   },
@@ -51,61 +51,44 @@ export default Vue.extend({
       return this.$store.getters.getBackendPreference
     }
   },
-  mounted: function () {
-    const appWidth = $(window).width()
-
-    if (appWidth <= 680) {
-      const searchContainer = $('.searchContainer').get(0)
-      searchContainer.style.display = 'none'
-    }
-
+  mounted() {
     if (localStorage.getItem('expandSideBar') === 'true') {
       this.toggleSideNav()
     }
-
-    window.addEventListener('resize', function (event) {
-      const width = event.srcElement.innerWidth
-      const searchContainer = $('.searchContainer').get(0)
-
-      if (width > 680) {
-        searchContainer.style.display = ''
-      } else {
-        searchContainer.style.display = 'none'
-      }
-    })
 
     this.debounceSearchResults = debounce(this.getSearchSuggestions, 200)
   },
   methods: {
     goToSearch: async function (query) {
-      const appWidth = $(window).width()
-
-      if (appWidth <= 680) {
-        const searchContainer = $('.searchContainer').get(0)
-        searchContainer.blur()
-        searchContainer.style.display = 'none'
-      } else {
-        const searchInput = $('.searchInput input').get(0)
-        searchInput.blur()
-      }
-
       const { videoId, timestamp } = await this.$store.dispatch('getVideoParamsFromUrl', query)
       const playlistId = await this.$store.dispatch('getPlaylistIdFromUrl', query)
 
       console.log(playlistId)
 
       if (videoId) {
+        const nextPath = `/watch/${videoId}`
+        if (nextPath === this.$router.history.current.path) {
+          return
+        }
         this.$router.push({
-          path: `/watch/${videoId}`,
+          path: nextPath,
           query: timestamp ? { timestamp } : {}
         })
       } else if (playlistId) {
+        const nextPath = `/playlist/${playlistId}`
+        if (nextPath === this.$router.history.current.path) {
+          return
+        }
         this.$router.push({
-          path: `/playlist/${playlistId}`
+          path: nextPath
         })
       } else {
+        const nextPath = `/search/${encodeURIComponent(query)}`
+        if (nextPath === this.$router.history.current.path) {
+          return
+        }
         router.push({
-          path: `/search/${encodeURIComponent(query)}`,
+          path: nextPath,
           query: {
             sortBy: this.searchSettings.sortBy,
             time: this.searchSettings.time,
@@ -127,21 +110,19 @@ export default Vue.extend({
     getSearchSuggestions: function (query) {
       switch (this.backendPreference) {
         case 'local':
-          this.getSearchSuggestionsLocal(query)
-          break
+          return this.getSearchSuggestionsLocal(query)
         case 'invidious':
-          this.getSearchSuggestionsInvidious(query)
-          break
+          return this.getSearchSuggestionsInvidious(query)
       }
     },
 
     getSearchSuggestionsLocal: function (query) {
       if (query === '') {
         this.searchSuggestionsDataList = []
-        return
+        return Promise.resolve()
       }
 
-      ytSuggest(query).then((results) => {
+      return ytSuggest(query).then((results) => {
         this.searchSuggestionsDataList = results
       })
     },
@@ -149,7 +130,7 @@ export default Vue.extend({
     getSearchSuggestionsInvidious: function (query) {
       if (query === '') {
         this.searchSuggestionsDataList = []
-        return
+        return Promise.resolve()
       }
 
       const searchPayload = {
@@ -160,29 +141,25 @@ export default Vue.extend({
         }
       }
 
-      this.$store.dispatch('invidiousAPICall', searchPayload).then((results) => {
-        this.searchSuggestionsDataList = results.suggestions
-      }).catch((err) => {
-        console.log(err)
-        if (this.backendFallback) {
-          console.log(
-            'Error gettings search suggestions.  Falling back to Local API'
-          )
-          this.getSearchSuggestionsLocal(query)
-        }
-      })
+      return this.$store.dispatch('invidiousAPICall', searchPayload)
+        .then((results) => {
+          this.searchSuggestionsDataList = results.suggestions
+        })
+        .catch((err) => {
+          console.log(err)
+          if (this.backendFallback) {
+            console.log(
+              'Error gettings search suggestions.  Falling back to Local API'
+            )
+            return this.getSearchSuggestionsLocal(query)
+          }
+          throw err
+        })
     },
 
     toggleSearchContainer: function () {
-      const searchContainer = $('.searchContainer').get(0)
-
-      if (searchContainer.style.display === 'none') {
-        searchContainer.style.display = ''
-      } else {
-        searchContainer.style.display = 'none'
-      }
-
-      this.showFilters = false
+      this.showSearch = !this.showSearch
+      this.showFilters = !this.showFilters
     },
 
     historyBack: function () {

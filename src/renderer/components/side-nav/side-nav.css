@@ -42,15 +42,11 @@
 
 .navOption:hover, .navChannel:hover {
   background-color: var(--side-nav-hover-color);
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 
 .navOption:active, .navChannel:active {
   background-color: var(--side-nav-active-color);
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 
@@ -141,7 +137,6 @@
   margin-left: 0px;
   margin: 0 auto;
   top: 0px;
-  -ms-transform: none;
   transform: none;
 }
 

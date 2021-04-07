@@ -4,15 +4,17 @@
       "@babel/env",
       {
         "targets": {
-          "chrome": "73",
-          "node": 12
-        }
+          "electron":  "12"
+        },
+        "corejs": 3,
+        "loose": true,
+        "bugfixes": true,
+        "useBuiltIns": "usage"
       }
     ],
     "@babel/typescript"
   ],
   "plugins": [
-    "@babel/proposal-class-properties",
-    "@babel/proposal-object-rest-spread"
+    "@babel/plugin-transform-runtime"
   ]
 }

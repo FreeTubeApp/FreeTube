@@ -1,7 +1,8 @@
 import IsEqual from 'lodash.isequal'
 import FtToastEvents from '../../components/ft-toast/ft-toast-events'
-import fs from 'fs'
-const state = {
+import fs from 'fs/promises'
+
+export const state = {
   isSideNavOpen: false,
   sessionSearchHistory: [],
   popularCache: null,
@@ -110,84 +111,28 @@ const actions = {
     commit('setShowProgressBar', value)
   },
 
-  getRandomColorClass () {
-    const randomInt = Math.floor(Math.random() * state.colorClasses.length)
-    return state.colorClasses[randomInt]
-  },
-
-  getRandomColor () {
-    const randomInt = Math.floor(Math.random() * state.colorValues.length)
-    return state.colorValues[randomInt]
-  },
-
   getRegionData ({ commit }, payload) {
-    let fileData
     /* eslint-disable-next-line */
     const fileLocation = payload.isDev ? './static/geolocations/' : `${__dirname}/static/geolocations/`
-    if (fs.existsSync(`${fileLocation}${payload.locale}`)) {
-      fileData = fs.readFileSync(`${fileLocation}${payload.locale}/countries.json`)
-    } else {
-      fileData = fs.readFileSync(`${fileLocation}en-US/countries.json`)
-    }
-    const countries = JSON.parse(fileData).map((entry) => { return { id: entry.id, name: entry.name, code: entry.alpha2 } })
-    countries.sort((a, b) => { return a.id - b.id })
-
-    const regionNames = countries.map((entry) => { return entry.name })
-    const regionValues = countries.map((entry) => { return entry.code })
-
-    commit('setRegionNames', regionNames)
-    commit('setRegionValues', regionValues)
-  },
-
-  calculateColorLuminance (_, colorValue) {
-    const cutHex = colorValue.substring(1, 7)
-    const colorValueR = parseInt(cutHex.substring(0, 2), 16)
-    const colorValueG = parseInt(cutHex.substring(2, 4), 16)
-    const colorValueB = parseInt(cutHex.substring(4, 6), 16)
-
-    const luminance = (0.299 * colorValueR + 0.587 * colorValueG + 0.114 * colorValueB) / 255
-
-    if (luminance > 0.5) {
-      return '#000000'
-    } else {
-      return '#FFFFFF'
-    }
-  },
-
-  calculatePublishedDate(_, publishedText) {
-    const date = new Date()
-
-    if (publishedText === 'Live') {
-      return publishedText
-    }
-
-    const textSplit = publishedText.split(' ')
-
-    if (textSplit[0].toLowerCase() === 'streamed') {
-      textSplit.shift()
-    }
-
-    const timeFrame = textSplit[1]
-    const timeAmount = parseInt(textSplit[0])
-    let timeSpan = null
-
-    if (timeFrame.indexOf('second') > -1) {
-      timeSpan = timeAmount * 1000
-    } else if (timeFrame.indexOf('minute') > -1) {
-      timeSpan = timeAmount * 60000
-    } else if (timeFrame.indexOf('hour') > -1) {
-      timeSpan = timeAmount * 3600000
-    } else if (timeFrame.indexOf('day') > -1) {
-      timeSpan = timeAmount * 86400000
-    } else if (timeFrame.indexOf('week') > -1) {
-      timeSpan = timeAmount * 604800000
-    } else if (timeFrame.indexOf('month') > -1) {
-      timeSpan = timeAmount * 2592000000
-    } else if (timeFrame.indexOf('year') > -1) {
-      timeSpan = timeAmount * 31556952000
-    }
-
-    return date.getTime() - timeSpan
+    return fs.readFile(`${fileLocation}${payload.locale}/countries.json`)
+      .catch(() => fs.readFile(`${fileLocation}en-US/countries.json`))
+      .then(fileData => {
+        const countries = JSON.parse(fileData).map((entry) => {
+          return {
+            id: entry.id,
+            name: entry.name,
+            code: entry.alpha2
+          }
+        })
+        countries.sort((a, b) => { return a.id - b.id })
+        const regionNames = countries.map((entry) => { return entry.name })
+        const regionValues = countries.map((entry) => { return entry.code })
+        commit('setRegionNames', regionNames)
+        commit('setRegionValues', regionValues)
+      })
+      .catch(error => {
+        console.error(error)
+      })
   },
 
   getVideoParamsFromUrl (_, url) {

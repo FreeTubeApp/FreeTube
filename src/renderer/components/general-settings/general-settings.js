@@ -1,6 +1,6 @@
 import Vue from 'vue'
-import $ from 'jquery'
 import { mapActions } from 'vuex'
+import ky from 'ky/umd'
 import FtCard from '../ft-card/ft-card.vue'
 import FtSelect from '../ft-select/ft-select.vue'
 import FtInput from '../ft-input/ft-input.vue'
@@ -139,7 +139,7 @@ export default Vue.extend({
   },
   mounted: function () {
     const requestUrl = 'https://api.invidious.io/instances.json'
-    $.getJSON(requestUrl, (response) => {
+    ky(requestUrl).json().then((response) => {
       console.log(response)
       const instances = response.filter((instance) => {
         if (instance[0].includes('.onion') || instance[0].includes('.i2p') || instance[0].includes('yewtu.be')) {
@@ -158,10 +158,7 @@ export default Vue.extend({
       })
 
       this.showInvidiousInstances = true
-    }).fail((xhr, textStatus, error) => {
-      console.log(xhr)
-      console.log(textStatus)
-      console.log(requestUrl)
+    }).catch(error => {
       console.log(error)
     })
 

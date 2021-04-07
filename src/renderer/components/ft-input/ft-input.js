@@ -72,8 +72,6 @@ export default Vue.extend({
   mounted: function () {
     this.id = this._uid
     this.inputData = this.value
-
-    setTimeout(this.addListener, 200)
   },
   methods: {
     handleClick: function () {
@@ -89,18 +87,6 @@ export default Vue.extend({
       this.$emit('input', this.inputData)
     },
 
-    addListener: function () {
-      const inputElement = document.getElementById(this.id)
-
-      if (inputElement !== null) {
-        inputElement.addEventListener('keydown', (event) => {
-          if (event.keyCode === 13) {
-            this.handleClick()
-          }
-        })
-      }
-    },
-
     handleOptionClick: function (index) {
       this.searchState.showOptions = false
       this.inputData = this.dataList[index]
@@ -109,10 +95,12 @@ export default Vue.extend({
     },
 
     handleKeyDown: function (keyCode) {
-      if (this.dataList.length === 0) { return }
-
-      // Update selectedOption based on arrow key pressed
-      if (keyCode === 40) {
+      if (this.dataList.length === 0) {
+        return
+      } else if (keyCode === 13) {
+        this.handleClick()
+      } else if (keyCode === 40) {
+        // Update selectedOption based on arrow key pressed
         this.searchState.selectedOption = (this.searchState.selectedOption + 1) % this.dataList.length
       } else if (keyCode === 38) {
         if (this.searchState.selectedOption === -1) {

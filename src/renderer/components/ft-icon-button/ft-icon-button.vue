@@ -2,6 +2,8 @@
   <div class="ftIconButton">
     <font-awesome-icon
       class="iconButton"
+      role="button"
+      tabindex="0"
       :title="title"
       :icon="icon"
       :class="{
@@ -13,8 +15,10 @@
         fontSize: size + 'px'
       }"
       @click="handleIconClick"
+      @keydown="handleIconClick"
     />
     <div
+      v-show="showDropdown"
       :id="id"
       tabindex="-1"
       class="iconDropdown"
@@ -25,6 +29,7 @@
         bottom: dropdownPositionY === 'bottom',
         top: dropdownPositionY === 'top'
       }"
+      @focusout.prevent="onFocusOut"
     >
       <slot>
         <ul

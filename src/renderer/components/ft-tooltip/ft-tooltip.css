@@ -19,7 +19,6 @@
 .button:hover + .text.bottom-left,
 .button:focus + .text.top,
 .button:hover + .text.top {
-  -webkit-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
 }
 
@@ -27,7 +26,6 @@
 .button:hover + .text.left,
 .button:focus + .text.right,
 .button:hover + .text.right {
-  -webkit-transform: translate(0, -50%);
   transform: translate(0, -50%);
 }
 
@@ -55,7 +53,6 @@
   margin-top: 1em;
   top: 100%;
   left: 50%;
-  -webkit-transform: translate(-50%, -1em);
   transform: translate(-50%, -1em);
 }
 
@@ -63,7 +60,6 @@
   margin-top: 1em;
   top: 100%;
   left: -100px;
-  -webkit-transform: translate(-50%, -1em);
   transform: translate(-50%, -1em);
 }
 
@@ -71,7 +67,6 @@
   margin-right:1em;
   right: 100%;
   top: 50%;
-  -webkit-transform: translate(1em, -50%);
   transform: translate(1em, -50%);
 }
 
@@ -79,7 +74,6 @@
   left: 100%;
   margin-left: 1em;
   top: 50%;
-  -webkit-transform: translate(-1em, -50%);
   transform: translate(-1em, -50%);
 }
 
@@ -87,7 +81,6 @@
   bottom: 100%;
   left: 50%;
   margin-bottom: 1em;
-  -webkit-transform: translate(-50%, 1em);
   transform: translate(-50%, 1em);
 }
 

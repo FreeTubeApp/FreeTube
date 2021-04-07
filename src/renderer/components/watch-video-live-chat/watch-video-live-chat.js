@@ -1,12 +1,11 @@
 import Vue from 'vue'
+import autolinker from 'autolinker'
+import { LiveChat } from 'youtube-chat'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
-
-import $ from 'jquery'
-import autolinker from 'autolinker'
-import { LiveChat } from 'youtube-chat'
+import { $, getRandomColorClass } from '../../helpers'
 
 export default Vue.extend({
   name: 'WatchVideoLiveChat',
@@ -173,7 +172,7 @@ export default Vue.extend({
       const liveChatComments = $('.liveChatComments')
       const liveChatMessage = $('.liveChatMessage')
 
-      if (typeof (liveChatComments.get(0)) === 'undefined' && typeof (liveChatMessage.get(0)) === 'undefined') {
+      if (!liveChatComments && !liveChatMessage) {
         console.log("Can't find chat object.  Stopping chat connection")
         this.liveChat.stop()
         return
@@ -183,30 +182,26 @@ export default Vue.extend({
       console.log(this.comments.length)
 
       if (typeof (comment.superchat) !== 'undefined') {
-        this.$store.dispatch('getRandomColorClass').then((data) => {
-          comment.superchat.colorClass = data
+        comment.superchat.colorClass = getRandomColorClass()
 
-          this.superChatComments.unshift(comment)
+        this.superChatComments.unshift(comment)
 
-          setTimeout(() => {
-            this.removeFromSuperChat(comment.id)
-          }, 120000)
-        })
+        setTimeout(() => {
+          this.removeFromSuperChat(comment.id)
+        }, 120000)
       }
 
       if (comment.author.name[0] === 'Ge' || comment.author.name[0] === 'Ne') {
-        this.$store.dispatch('getRandomColorClass').then((data) => {
-          comment.superChat = {
-            amount: '$5.00',
-            colorClass: data
-          }
+        comment.superChat = {
+          amount: '$5.00',
+          colorClass: getRandomColorClass()
+        }
 
-          this.superChatComments.unshift(comment)
+        this.superChatComments.unshift(comment)
 
-          setTimeout(() => {
-            this.removeFromSuperChat(comment.id)
-          }, 120000)
-        })
+        setTimeout(() => {
+          this.removeFromSuperChat(comment.id)
+        }, 120000)
       }
 
       if (this.stayAtBottom) {
@@ -235,9 +230,9 @@ export default Vue.extend({
     },
 
     onScroll: function (event) {
-      const liveChatComments = $('.liveChatComments').get(0)
+      const liveChatComments = $('.liveChatComments')
       if (event.wheelDelta >= 0 && this.stayAtBottom) {
-        $('.liveChatComments').data('animating', 0)
+        liveChatComments.dataset.animating = 0
         this.stayAtBottom = false
 
         if (liveChatComments.scrollHeight > liveChatComments.clientHeight) {
@@ -251,8 +246,11 @@ export default Vue.extend({
     },
 
     scrollToBottom: function () {
-      const liveChatComments = $('.liveChatComments')
-      liveChatComments.animate({ scrollTop: liveChatComments.prop('scrollHeight') })
+      $('.liveChatComments').scrollIntoView({
+        block: 'end',
+        inline: 'nearest',
+        behavior: 'smooth'
+      })
       this.stayAtBottom = true
       this.showScrollToBottom = false
     },

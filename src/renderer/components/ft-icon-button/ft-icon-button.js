@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import $ from 'jquery'
+import { $ } from '../../helpers'
 
 export default Vue.extend({
   name: 'FtIconButton',
@@ -60,27 +60,15 @@ export default Vue.extend({
   },
   methods: {
     toggleDropdown: function () {
-      $(`#${this.id}`)[0].style.display = 'inline'
+      this.showDropdown = !this.showDropdown
       $(`#${this.id}`).focus()
-
-      $(`#${this.id}`).focusout(() => {
-        const shareLinks = $(`#${this.id}`).find('.shareLinks')
-
-        if (shareLinks.length > 0) {
-          if (!shareLinks[0].parentNode.matches(':hover')) {
-            $(`#${this.id}`)[0].style.display = 'none'
-          }
-        } else {
-          $(`#${this.id}`)[0].style.display = 'none'
-        }
-      })
     },
-
-    focusOut: function () {
-      $(`#${this.id}`).focusout()
-      $(`#${this.id}`)[0].style.display = 'none'
+    onFocusOut: function () {
+      const shareLinksHovered = $(`#${this.id} *:hover .shareLinks`)
+      if (!shareLinksHovered) {
+        this.showDropdown = false
+      }
     },
-
     handleIconClick: function () {
       if (this.forceDropdown || (this.dropdownNames.length > 0 && this.dropdownValues.length > 0)) {
         this.toggleDropdown()
@@ -91,7 +79,7 @@ export default Vue.extend({
 
     handleDropdownClick: function (index) {
       this.$emit('click', this.dropdownValues[index])
-      this.focusOut()
+      this.showDropdown = false
     }
   }
 })
