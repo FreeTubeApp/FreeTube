@@ -253,7 +253,7 @@ function createWindow (useProxy = false, proxyUrl = '') {
     name: 'CONSENT',
     value: 'YES+'
   })
-  
+
   mainWindow.webContents.session.cookies.set({
     url: 'https://consent.youtube.com',
     name: 'CONSENT',
