@@ -1,4 +1,4 @@
-import { app, BrowserWindow, Menu, ipcMain, screen } from 'electron'
+import { app, BrowserWindow, Menu, ipcMain, session, screen } from 'electron'
 import { productName } from '../../package.json'
 import Datastore from 'nedb'
 
@@ -247,6 +247,12 @@ function createWindow (useProxy = false, proxyUrl = '') {
       proxyRules: proxyUrl
     })
   }
+
+  mainWindow.webContents.session.cookies.set({
+    url: 'https://www.youtube.com',
+    name: 'CONSENT',
+    value: 'YES+'
+  })
 
   settingsDb.findOne({
     _id: 'bounds'
