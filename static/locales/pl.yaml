@@ -244,6 +244,7 @@ Settings:
       jesteś pewny/a, że chcesz usunąć wszystkie subskrypcje i profile? Nie będzie
       można tego cofnąć.
     Remove All Subscriptions / Profiles: Usuń wszystkie subskrypcje / profile
+    Automatically Remove Video Meta Files: Samoczynnie usuwaj pliki metadanych filmu
   Data Settings:
     How do I import my subscriptions?: Jak mogę zaimportować swoje subskrypcje?
     Unknown data key: Nieznany klucz danych
@@ -675,6 +676,9 @@ Tooltips:
       720p, ale zużywają mniej przepustowości. Formaty audio odtwarzają tylko dźwięk
     Proxy Videos Through Invidious: Będzie dostarczał filmy, łącząc się z Invidious,
       a nie bezpośrednio z YouTube. Nadpisuje ustawienia API
+  Privacy Settings:
+    Remove Video Meta Files: Po włączeniu FreeTube samoczynnie usunie pliki metadanych
+      utworzone podczas odtwarzania filmu, gdy tylko strona odtwarzania zostanie zamknięta.
 Playing Next Video Interval: Odtwarzanie kolejnego filmu już za chwilę. Wciśnij aby
   przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekundę. Wciśnij
   aby przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekund. Wciśnij
