@@ -201,6 +201,8 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Stvarno
       želiš ukloniti sve pretplate i profile? Ovo je nepovratna radnja.
     Remove All Subscriptions / Profiles: Ukloni sve pretplate/profile
+    Automatically Remove Video Meta Files: Automatski ukloni datoteke metapodataka
+      videa
   Subscription Settings:
     Subscription Settings: 'Postavke pretplata'
     Hide Videos on Watch: 'Sakrij video nakon gledanja'
@@ -663,6 +665,10 @@ Tooltips:
       standardne metode za dohvaćanje podataka tvoje pretplate. RSS je brži i sprečava
       blokiranje IP adresa, ali ne pruža određene podatke kao što su trajanje videa
       ili stanja „uživo”
+  Privacy Settings:
+    Remove Video Meta Files: Kad je aktivirano, FreeTube automatski uklanja datoteke
+      metapodataka koji su stvoreni tijekom reprodukcije videa, kad se zatvori stranica
+      gledanja.
 Playing Next Video Interval: Trenutna reprodukcija sljedećeg videa. Pritisni za prekid.
   | Reprodukcija sljedećeg videa za {nextVideoInterval} sekunde. Pritisni za prekid.
   | Reprodukcija sljedećeg videa za {nextVideoInterval} sekundi. Pritisni za prekid.

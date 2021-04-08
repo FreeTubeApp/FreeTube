@@ -47,6 +47,7 @@ const state = {
   enableSearchSuggestions: true,
   rememberHistory: true,
   saveWatchedProgress: true,
+  removeVideoMetaFiles: true,
   autoplayVideos: true,
   autoplayPlaylists: true,
   playNextVideo: false,
@@ -139,6 +140,10 @@ const getters = {
 
   getSaveWatchedProgress: () => {
     return state.saveWatchedProgress
+  },
+
+  getRemoveVideoMetaFiles: () => {
+    return state.removeVideoMetaFiles
   },
 
   getAutoplayVideos: () => {
@@ -329,6 +334,9 @@ const actions = {
                 break
               case 'saveWatchedProgress':
                 commit('setSaveWatchedProgress', result.value)
+                break
+              case 'removeVideoMetaFiles':
+                commit('setRemoveVideoMetaFiles', result.value)
                 break
               case 'autoplayVideos':
                 commit('setAutoplayVideos', result.value)
@@ -551,6 +559,14 @@ const actions = {
     settingsDb.update({ _id: 'saveWatchedProgress' }, { _id: 'saveWatchedProgress', value: saveWatchedProgress }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
         commit('setSaveWatchedProgress', saveWatchedProgress)
+      }
+    })
+  },
+
+  updateRemoveVideoMetaFiles ({ commit }, removeVideoMetaFiles) {
+    settingsDb.update({ _id: 'removeVideoMetaFiles' }, { _id: 'removeVideoMetaFiles', value: removeVideoMetaFiles }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setRemoveVideoMetaFiles', removeVideoMetaFiles)
       }
     })
   },
@@ -822,6 +838,11 @@ const mutations = {
   setSaveWatchedProgress (state, saveWatchedProgress) {
     state.saveWatchedProgress = saveWatchedProgress
   },
+
+  setRemoveVideoMetaFiles (state, removeVideoMetaFiles) {
+    state.removeVideoMetaFiles = removeVideoMetaFiles
+  },
+
   setAutoplayVideos (state, autoplayVideos) {
     state.autoplayVideos = autoplayVideos
   },

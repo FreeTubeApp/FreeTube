@@ -214,6 +214,7 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Ertu
       viss um að þú viljir fjarlægja allar áskriftir og notkunarsnið? Ekki er hægt
       að afturkalla þetta.'
+    Automatically Remove Video Meta Files: Sjálfvirkt fjarlægja lýsigögn úr myndskeiðaskrám
   Subscription Settings:
     Subscription Settings: 'Stillingar áskrifta'
     Hide Videos on Watch: 'Fela myndskeið eftir áhorf'
@@ -588,6 +589,9 @@ Tooltips:
       á borð við tímalengd myndskeiða eða stöðu í beinni útsendingu'
 
 # Toast Messages
+  Privacy Settings:
+    Remove Video Meta Files: Þegar þetta er virkt, eyðir FreeTube sjálfkrafa lýsigagnaskrám
+      sem útbúnar eru við afspilun, þegar skoðunarsíðunni er lokað.
 Local API Error (Click to copy): 'Villa í staðværu API-kerfisviðmóti (smella til að
   afrita)'
 Invidious API Error (Click to copy): 'Villa í Invidious API-kerfisviðmóti (smella

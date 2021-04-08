@@ -211,6 +211,7 @@ Settings:
     Remove All Subscriptions / Profiles: 'Видалити всі підписки / профілі'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Справді
       хочете вилучити всі підписки та профілі? Цю дію не можна скасувати.'
+    Automatically Remove Video Meta Files: Автоматично вилучати метафайли відео
   Subscription Settings:
     Subscription Settings: 'Налаштування підписки'
     Hide Videos on Watch: 'Ховати відео при перегляді'
@@ -617,6 +618,9 @@ Tooltips:
       ІР, але не надає дані, як-от тривалість відео або стан трансляції'
 
 # Toast Messages
+  Privacy Settings:
+    Remove Video Meta Files: Якщо увімкнено, FreeTube автоматично видаляє метафайли,
+      створені під час відтворення відео, коли сторінку перегляду закрито.
 Local API Error (Click to copy): 'Помилка локального API (натисніть, щоб скопіювати)'
 Invidious API Error (Click to copy): 'Помилка Invidious API (натисніть, щоб скопіювати)'
 Falling back to Invidious API: 'Повернення до API Invidious'
