@@ -207,6 +207,7 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Apakah
       Anda yakin ingin menghapus semua langganan dan profil? Tindakan ini tidak bisa
       diurungkan.'
+    Automatically Remove Video Meta Files: Secara Otomatis Hapus File Meta Video
   Subscription Settings:
     Subscription Settings: 'Pengaturan Langganan'
     Hide Videos on Watch: 'Sembunyikan Video saat Menonton'
@@ -654,6 +655,9 @@ Tooltips:
     Preferred API Backend: Pilih layanan yang digunakan oleh FreeTube untuk mengambil
       data. API lokal adalah ekstraktor bawaan. API Invidious membutuhkan sambungan
       ke server Invidious.
+  Privacy Settings:
+    Remove Video Meta Files: Saat diaktifkan, FreeTube secara otomatis menghapus file
+      meta yang dibuat selama pemutaran video, saat halaman tonton ditutup.
 Playing Next Video Interval: Langsung putar video berikutnya. Klik untuk batal. |
   Putar video berikutnya dalam {nextVideoInterval} detik. Klik untuk batal. | Putar
   video berikutnya dalam {nextVideoInterval} detik. Klik untuk batal.

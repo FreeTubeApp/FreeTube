@@ -211,6 +211,7 @@ Settings:
     Remove All Subscriptions / Profiles: 'Összes feliratkozás és profil eltávolítása'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Biztosan
       törli az összes feliratkozást és profilt? A művelet nem vonható vissza.'
+    Automatically Remove Video Meta Files: Videométafájlok önműködő eltávolítása
   Subscription Settings:
     Subscription Settings: 'Feliratkozás beállításai'
     Hide Videos on Watch: 'Videók elrejtése megtekintés után'
@@ -304,7 +305,7 @@ Settings:
     Ip: IP-cím
     Your Info: Az Ön adatai
     Clicking on Test Proxy will send a request to: 'A Meghatalmazás-ellenőrzés gombra
-      kattintva kérést küld a következő címre:'
+      kattintva kérést küld a következő címre'
     Test Proxy: Meghatalmazás-ellenőrzés
     Proxy Port Number: Meghatalmazás kikötőszáma
     Proxy Host: Meghatalmazás gazdaszámítógép
@@ -346,7 +347,7 @@ About:
   Latest FreeTube News: 'Legfrissebb FreeTube hírek'
 
   these people and projects: ezek emberek és projektek
-  FreeTube is made possible by: 'A FreeTube engedélyezése:'
+  FreeTube is made possible by: 'A FreeTube engedélyezése'
   Donate: Hozzájárulás
   Credits: Közreműködők
   Translate: Fordítás
@@ -546,7 +547,7 @@ Playlist:
   Videos: 'Videók'
   View: 'Megtekintés'
   Views: 'Megtekintések'
-  Last Updated On: 'Utoljára frissítve:'
+  Last Updated On: 'Utoljára frissítve'
   Share Playlist:
     Share Playlist: 'Lejátszási lista megosztása'
     Copy YouTube Link: 'YouTube hivatkozás másolása'
@@ -664,6 +665,9 @@ Tooltips:
       visszaadott örökölt formátumokat fogja használni az Invidious által visszaadottak
       helyett. Segít, ha az Invidious által visszaküldött videókat nem lehet lejátszani
       az ország korlátozása miatt
+  Privacy Settings:
+    Remove Video Meta Files: Ha engedélyezve van, a FreeTube önműködőén törli a videolejátszás
+      során létrehozott métafájlokat, amikor a nézési oldal bezárul.
 Playing Next Video Interval: A következő videó lejátszása folyamatban van. Kattintson
   a törléshez. | A következő videó lejátszása {nextVideoInterval} másodperc múlva
   történik. Kattintson a törléshez. | A következő videó lejátszása {nextVideoInterval}

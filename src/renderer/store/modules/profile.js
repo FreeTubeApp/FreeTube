@@ -103,7 +103,7 @@ const actions = {
       textColor: textColor,
       subscriptions: []
     }
-    console.log(defaultProfile)
+
     profileDb.update({ _id: 'allChannels' }, defaultProfile, { upsert: true }, (err, numReplaced) => {
       if (!err) {
         dispatch('grabAllProfiles')

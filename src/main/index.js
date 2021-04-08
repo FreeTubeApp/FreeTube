@@ -1,4 +1,4 @@
-import { app, BrowserWindow, Menu, ipcMain, screen } from 'electron'
+import { app, BrowserWindow, Menu, ipcMain, session, screen } from 'electron'
 import Datastore from 'nedb'
 
 if (process.argv.includes('--version')) {
@@ -39,6 +39,7 @@ function runApp() {
   app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors')
 
   app.commandLine.appendSwitch('enable-accelerated-video-decode')
+  app.commandLine.appendSwitch('enable-file-cookies')
   app.commandLine.appendSwitch('ignore-gpu-blacklist')
 
   // See: https://stackoverflow.com/questions/45570589/electron-protocol-handler-not-working-on-windows
@@ -251,6 +252,20 @@ function runApp() {
         proxyRules: proxyUrl
       })
     }
+    
+    // Set CONSENT cookie on reasonable domains
+    [
+      'http://www.youtube.com',
+      'https://www.youtube.com',
+      'http://youtube.com',
+      'https://youtube.com'
+    ].forEach(url => {
+      mainWindow.webContents.session.cookies.set({
+        url: url,
+        name: 'CONSENT',
+        value: 'YES+'
+      })
+    })
 
     settingsDb.findOne({
       _id: 'bounds'

@@ -27,7 +27,7 @@ Vue.component('FontAwesomeIcon', FontAwesomeIcon)
 Vue.use(VueI18n)
 
 // List of locales approved for use
-const activeLocales = ['en-US', 'en_GB', 'ar', 'bg', 'cs', 'da', 'de-DE', 'el', 'es', 'es-MX', 'fi', 'fr-FR', 'gl', 'he', 'hu', 'hr', 'id', 'it', 'ja', 'nb_NO', 'nl', 'pl', 'pt', 'pt-BR', 'pt-PT', 'ru', 'sk', 'sl', 'sv', 'tr', 'uk', 'vi', 'zh-CN', 'zh-TW']
+const activeLocales = ['en-US', 'en_GB', 'ar', 'bg', 'cs', 'da', 'de-DE', 'el', 'es', 'es-MX', 'fi', 'fr-FR', 'gl', 'he', 'hu', 'hr', 'id', 'is', 'it', 'ja', 'nb_NO', 'nl', 'nn', 'pl', 'pt', 'pt-BR', 'pt-PT', 'ru', 'sk', 'sl', 'sv', 'tr', 'uk', 'vi', 'zh-CN', 'zh-TW']
 const messages = {}
 /* eslint-disable-next-line */
 const fileLocation = isDev ? 'static/locales/' : `${__dirname}/static/locales/`

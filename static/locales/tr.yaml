@@ -206,6 +206,8 @@ Settings:
     Remove All Subscriptions / Profiles: 'Tüm Abonelikler/Profilleri Temizle'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Tüm
       abonelikler/profilleri temizlemek istediğinizden emin misiniz?  Geri alınamaz.'
+    Automatically Remove Video Meta Files: Video Meta Dosyalarını Otomatik Olarak
+      Kaldır
   Subscription Settings:
     Subscription Settings: 'Abonelik Ayarları'
     Hide Videos on Watch: 'İzlenmiş Videoları Gizle'
@@ -661,6 +663,9 @@ Tooltips:
     Region for Trending: Trendlerin bölgesi, hangi ülkenin trend videolarını görüntülemek
       istediğinizi seçmenize olanak tanır. Görüntülenen ülkelerden bazıları YouTube
       tarafından desteklenmemektedir
+  Privacy Settings:
+    Remove Video Meta Files: Etkinleştirildiğinde, izleme sayfası kapatıldığında video
+      oynatma sırasında oluşturulan meta dosyaları otomatik olarak silinir.
 Playing Next Video Interval: Sonraki video hemen oynatılıyor. İptal etmek için tıklayın.
   | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek için
   tıklayın. | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek

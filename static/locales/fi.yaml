@@ -62,6 +62,7 @@ Search Filters:
   Fetching results. Please wait: 'Haetaan tuloksia. Odota hetki'
   Fetch more results: 'Hae lisää tuloksia'
 # Sidebar
+  There are no more results for this search: Ei lisää tuloksia tällä haulla
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Tilaukset'
@@ -79,6 +80,12 @@ Most Popular: 'Suosituimmat'
 Playlists: 'Soittolistat'
 User Playlists:
   Your Playlists: 'Omat soittolistat'
+  Playlist Message: Tämä sivu ei kuvasta täysin toimivia soittolistoja. Se listaa
+    vain tallentamasi tai tykkäämäsi videot. Kun tämä on valmis, kaikki täällä olevat
+    videot siirretään "Tykkäykset"soittolistaan.
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Et
+    ole tallentanut videoita. Paina "Tallenna" painiketta videon kulmassa tallentaaksesi
+    sen tänne
 History:
   # On History Page
   History: 'Historia'
@@ -276,7 +283,7 @@ Settings:
     Distraction Free Settings: Häiriöttömän tilan asetukset
     Hide Video Views: Piilota videon katselukerrat
   The app needs to restart for changes to take effect. Restart and apply change?: Sovellus
-    on käynnistettävä uudelleen, jotta sovellukset tulevat voimaan. Käynnistetäänkö
+    on käynnistettävä uudelleen, jotta muutokset tulevat voimaan. Käynnistetäänkö
     uudelleen?
 About:
   #On About page
@@ -307,6 +314,11 @@ About:
   Latest FreeTube News: 'Viimeisimmät Freetube-uutiset'
 
 #On Channel Page
+  GitHub issues: GitHub-ongelmat
+  Report a problem: Ilmoita ongelmasta
+  FAQ: UKK
+  Blog: Blogi
+  Email: Sähköposti
 Channel:
   Subscriber: 'Tilaaja'
   Subscribers: 'Tilaajat'
@@ -585,3 +597,4 @@ Tooltips:
       Kun valittuna, paikallinen API käyttää vanhoja formaatteja Invidiousin käyttämien
       sijaan. Tämä auttaa, jos Invidiousin palauttamat videot eivät toimi maarajoituksien
       takia
+More: Lisää

@@ -1,0 +1,621 @@
+# Put the name of your locale in the same language
+Locale Name: 'Íslenska'
+FreeTube: 'FreeTube'
+# Currently on Subscriptions, Playlists, and History
+'This part of the app is not ready yet. Come back later when progress has been made.': >-
+  Þessi hluti forritsins er ekki tilbúinn. Skoðaðu þetta seinna þegar meira hefur
+  verið unnið í þessu.
+
+# Webkit Menu Bar
+File: 'Skrá'
+Quit: 'Hætta'
+Edit: 'Breyta'
+Undo: 'Afturkalla'
+Redo: 'Endurtaka'
+Cut: 'Klippa'
+Copy: 'Afrita'
+Paste: 'Líma'
+Delete: 'Eyða'
+Select all: 'Velja allt'
+Reload: 'Endurlesa'
+Force Reload: 'Þvinga endurlestur'
+Toggle Developer Tools: 'Víxla forritaratólum af/á'
+Actual size: 'Raunstærð'
+Zoom in: 'Renna að'
+Zoom out: 'Renna frá'
+Toggle fullscreen: 'Víxla skjáfylli af/á'
+Window: 'Gluggi'
+Minimize: 'Lágmarka'
+Close: 'Loka'
+Back: 'Til baka'
+Forward: 'Áfram'
+
+Version $ is now available!  Click for more details: 'Útgáfa $ er tiltæk!  Smelltu
+  til að skoða nánar'
+Download From Site: 'Sækja af vefsvæði'
+A new blog is now available, $. Click to view more: 'Ný bloggfærsla er núna er tiltæk,
+  $. Smelltu til að skoða nánar'
+
+# Search Bar
+Search / Go to URL: 'Leita / Fara á slóð'
+  # In Filter Button
+Search Filters:
+  Search Filters: 'Leitarsíur'
+  Sort By:
+    Sort By: 'Raða eftir'
+    Most Relevant: 'Mest viðeigandi'
+    Rating: 'Einkunn'
+    Upload Date: 'Dags. innsendingar'
+    View Count: 'Fjöldi áhorfa'
+  Time:
+    Time: 'Tími'
+    Any Time: 'Hvenær sem er'
+    Last Hour: 'Síðustu klukkustund'
+    Today: 'Í dag'
+    This Week: 'Í þessari viku'
+    This Month: 'Í þessum mánuði'
+    This Year: 'Á þessu ári'
+  Type:
+    Type: 'Tegund'
+    All Types: 'Allar tegundir'
+    Videos: 'Myndskeið'
+    Channels: 'Rásir'
+    #& Playlists
+  Duration:
+    Duration: 'Tímalengd'
+    All Durations: 'Allar tímalengdir'
+    Short (< 4 minutes): 'Stutt (< 4 mínútur)'
+    Long (> 20 minutes): 'Langt (> 20 mínútur)'
+  # On Search Page
+  Search Results: 'Leitarniðurstöður'
+  Fetching results. Please wait: 'Sæki niðurstöður. Hinkraðu aðeins'
+  Fetch more results: 'Sækja fleiri niðurstöður'
+  There are no more results for this search: 'Engar fleiri niðurstöður samsvara leitinni
+    þinni'
+# Sidebar
+Subscriptions:
+    # On Subscriptions Page
+  Subscriptions: 'Áskriftir'
+  Latest Subscriptions: 'Síðustu áskriftir'
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 'Þetta
+    notkunarsnið er með mikinn fjölda áskrifta. Þvinga notkun á RSS til að forðast
+    takmarkanir á magni'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Listi
+    með áskriftum er tómur í augnablikinu. Gerstu áskrifandi að rásum og þær munu
+    birtast hér.'
+  'Getting Subscriptions. Please wait.': 'Sæki áskriftir. Hinkraðu aðeins.'
+  Refresh Subscriptions: 'Endurlesa áskriftir'
+  Load More Videos: 'Hlaða inn fleiri myndskeiðum'
+More: 'Meira'
+Trending: 'Í umræðunni'
+Most Popular: 'Vinsælast'
+Playlists: 'Spilunarlistar'
+User Playlists:
+  Your Playlists: 'Spilunarlistarnir þínir'
+  Playlist Message: 'Þessi síða endurspeglar ekki alveg fullvirka spilunarlista. Hún
+    telur aðeins upp þau myndskeið sem þú hefur vistað eða sett í eftirlæti. Þegar
+    verkinu er lokið munu öll þessi myndskeið færast yfir í ''Eftirlæti''-spilunarlista.'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Listinn
+    þinn yfir vistuð myndskeið er tómur. Smelltu á vistunarhnapp myndskeiðs til að
+    það birtist hér'
+History:
+  # On History Page
+  History: 'Vinnsluferill'
+  Watch History: 'Áhorfsferill'
+  Your history list is currently empty.: 'Listi með vinnsluferli er tómur í augnablikinu.'
+Settings:
+  # On Settings Page
+  Settings: 'Stillingar'
+  The app needs to restart for changes to take effect. Restart and apply change?: 'Þú
+    þarft að endurræsa forritið svo breytingarnar taki gildi. á að endurræsa og virkja
+    breytingar?'
+  General Settings:
+    General Settings: 'Almennar stillingar'
+    Check for Updates: 'Athuga með uppfærslur'
+    Check for Latest Blog Posts: 'Athuga með nýjustu bloggfærslur'
+    Fallback to Non-Preferred Backend on Failure: 'Nota varaleið um ekki-forgangsbakenda
+      þegar villa kemur upp'
+    Enable Search Suggestions: 'Virkja tillögur í leit'
+    Default Landing Page: 'Sjálfgefin upphafssíða'
+    Locale Preference: 'Umbeðin staðfærsla'
+    Preferred API Backend:
+      Preferred API Backend: 'Forgangsbakendi API-kerfisviðmóts'
+      Local API: 'Staðvært API-kerfisviðmót'
+      Invidious API: 'Invidious API-kerfisviðmót'
+    Video View Type:
+      Video View Type: 'Tegund myndskeiðsskoðunar'
+      Grid: 'Reitir'
+      List: 'Listi'
+    Thumbnail Preference:
+      Thumbnail Preference: 'Kjörstillingar smámynda'
+      Default: 'Sjálfgefið'
+      Beginning: 'Upphaf'
+      Middle: 'Miðja'
+      End: 'Endir'
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious-tilvik
+      (sjálfgefið er https://invidious.snopyta.org)'
+    View all Invidious instance information: 'Skoða allar upplýsingar um Invidious-tilvik'
+    Region for Trending: 'Landssvæði sem skal miða vinsældir við'
+        #! List countries
+  Theme Settings:
+    Theme Settings: 'Þemastillingar'
+    Match Top Bar with Main Color: 'Láta toppstiku samsvara aðallit'
+    Expand Side Bar by Default: 'Fletta sjálfgefið út hliðarstiku'
+    Disable Smooth Scrolling: 'Gera mjúkt skrun óvirkt'
+    UI Scale: 'Kvörðun viðmóts'
+    Base Theme:
+      Base Theme: 'Grunnþema'
+      Black: 'Svart'
+      Dark: 'Dökkt'
+      Light: 'Ljóst'
+    Main Color Theme:
+      Main Color Theme: 'Aðallitur þema'
+      Red: 'Rautt'
+      Pink: 'Bleikt'
+      Purple: 'Purpurablátt'
+      Deep Purple: 'Dökkpurpurablátt'
+      Indigo: 'Djúpfjólublátt'
+      Blue: 'Blátt'
+      Light Blue: 'Ljósblátt'
+      Cyan: 'Blágrænt'
+      Teal: 'Djúpblágrænt'
+      Green: 'Grænt'
+      Light Green: 'Ljósgrænt'
+      Lime: 'Límónugrænt'
+      Yellow: 'Gult'
+      Amber: 'Raflitt'
+      Orange: 'Appelsínugult'
+      Deep Orange: 'Dimmappelsínugult'
+    Secondary Color Theme: 'Aukalitur þema'
+        #* Main Color Theme
+  Player Settings:
+    Player Settings: 'Stillingar spilara'
+    Force Local Backend for Legacy Formats: 'Þvinga notkun staðværs bakenda fyrir
+      eldri skráasnið'
+    Play Next Video: 'Spila næsta myndskeið'
+    Turn on Subtitles by Default: 'Sjálfgefið kveikja á skjátextum'
+    Autoplay Videos: 'Spila myndskeið sjálfkrafa'
+    Proxy Videos Through Invidious: 'Beina myndskeiðum í gegnum Invidious-milliþjón'
+    Autoplay Playlists: 'Spila spilunarlista sjálfkrafa'
+    Enable Theatre Mode by Default: 'Sjálfgefið virkja bíóham (theater mode)'
+    Playlist Next Video Interval: 'Millibil afspilunar næsta myndskeiðs í spilunarlista'
+    Default Volume: 'Sjálfgefinn hljóðstyrkur'
+    Default Playback Rate: 'Sjálfgefinn afspilunarhraði'
+    Default Video Format:
+      Default Video Format: 'Sjálfgefið skráasnið myndskeiða'
+      Dash Formats: 'DASH-skráasnið'
+      Legacy Formats: 'Eldri skráasnið'
+      Audio Formats: 'Hljóðskráasnið'
+    Default Quality:
+      Default Quality: 'Sjálfgefin gæði'
+      Auto: 'Sjálfvirkt'
+      144p: '144p'
+      240p: '240p'
+      360p: '360p'
+      480p: '480p'
+      720p: '720p'
+      1080p: '1080p'
+      1440p: '1440p'
+      4k: '4k'
+      8k: '8k'
+  Privacy Settings:
+    Privacy Settings: 'Stillingar gagnaleyndar'
+    Remember History: 'Muna vinnsluferil'
+    Save Watched Progress: 'Vista framvindu áhorfs'
+    Clear Search Cache: 'Hreinsa skyndiminni leitar'
+    Are you sure you want to clear out your search cache?: 'Ertu viss um að þú viljir
+      eyða skyndiminni leitar?'
+    Search cache has been cleared: 'Skyndiminni leitar var hreinsað'
+    Remove Watch History: 'Fjarlægja áhorfsferil'
+    Are you sure you want to remove your entire watch history?: 'Ertu viss um að þú
+      viljir fjarlægja allan áhorfsferilinn þinn?'
+    Watch history has been cleared: 'Áhorfsferill var hreinsaður'
+    Remove All Subscriptions / Profiles: 'Fjarlægja allar áskriftir / notkunarsnið'
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Ertu
+      viss um að þú viljir fjarlægja allar áskriftir og notkunarsnið? Ekki er hægt
+      að afturkalla þetta.'
+    Automatically Remove Video Meta Files: Sjálfvirkt fjarlægja lýsigögn úr myndskeiðaskrám
+  Subscription Settings:
+    Subscription Settings: 'Stillingar áskrifta'
+    Hide Videos on Watch: 'Fela myndskeið eftir áhorf'
+    Fetch Feeds from RSS: 'Ná í streymi úr RSS'
+    Manage Subscriptions: 'Sýsla með áskriftir'
+  Distraction Free Settings:
+    Distraction Free Settings: 'Truflanaminnkandi stillingar'
+    Hide Video Views: 'Fela fjölda áhorfa á myndskeið'
+    Hide Video Likes And Dislikes: 'Fela hve mörgum líkar eða mislíkar myndskeið'
+    Hide Channel Subscribers: 'Fela fjölda áskrifenda myndskeiða'
+    Hide Comment Likes: 'Fela hve mörgum líkar athugasemdir'
+    Hide Recommended Videos: 'Fela myndskeið sem mælt er með'
+    Hide Trending Videos: 'Fela myndskeið í umræðunni'
+    Hide Popular Videos: 'Fela vinsæl myndskeið'
+    Hide Playlists: 'Fela spilunarlista'
+    Hide Live Chat: 'Fela spjall í beinni'
+    Hide Active Subscriptions: 'Fela virkar áskriftir'
+  Data Settings:
+    Data Settings: 'Stillingar gagna'
+    Select Import Type: 'Veldu tegund innflutnings'
+    Select Export Type: 'Veldu tegund útflutnings'
+    Import Subscriptions: 'Flytja inn áskriftir'
+    Import FreeTube: 'Flytja inn FreeTube'
+    Import YouTube: 'Flytja inn YouTube'
+    Import NewPipe: 'Flytja inn NewPipe'
+    Check for Legacy Subscriptions: 'Athuga með eldri áskriftir'
+    Export Subscriptions: 'Flytja út áskriftir'
+    Export FreeTube: 'Flytja út FreeTube'
+    Export YouTube: 'Flytja út YouTube'
+    Export NewPipe: 'Flytja út NewPipe'
+    Import History: 'Flytja inn vinnsluferil'
+    Export History: 'Flytja út vinnsluferil'
+    Profile object has insufficient data, skipping item: 'Atriði notkunarsniðs er
+      ekki með næg gögn, sleppi þessu'
+    All subscriptions and profiles have been successfully imported: 'Innflutningur
+      á öllum áskriftum og notkunarsniðum tókst'
+    All subscriptions have been successfully imported: 'Innflutningur á öllum áskriftum
+      tókst'
+    One or more subscriptions were unable to be imported: 'Ekki tókst að flytja inn
+      eina eða fleiri áskriftir'
+    Invalid subscriptions file: 'Ógild áskriftaskrá'
+    This might take a while, please wait: 'Þetta getur tekið dálítinn tíma, sýndu
+      smá þolinmæði'
+    Invalid history file: 'Ógild vinnsluferilskrá'
+    Subscriptions have been successfully exported: 'Úflutningur á áskriftum tókst'
+    History object has insufficient data, skipping item: 'Atriði vinnsluferils er
+      ekki með næg gögn, sleppi þessu'
+    All watched history has been successfully imported: 'Allur áhorfsferillinn var
+      fluttur inn'
+    All watched history has been successfully exported: 'Allur áhorfsferillinn var
+      fluttur út'
+    Unable to read file: 'Gat ekki lesið skrá'
+    Unable to write file: 'Gat ekki skrifað skrá'
+    Unknown data key: 'Óþekktur gagnalykill'
+    How do I import my subscriptions?: 'Hvernig flyt ég inn áskriftirnar mínar?'
+    Manage Subscriptions: 'Sýsla með áskriftir'
+  Proxy Settings:
+    Proxy Settings: 'Stillingar milliþjóns (proxy)'
+    Enable Tor / Proxy: 'Virkja Tor / milliþjón'
+    Proxy Protocol: 'Samskiptamáti milliþjóns'
+    Proxy Host: 'Hýsilvél milliþjóns'
+    Proxy Port Number: 'Númer á gátt milliþjóns'
+    Clicking on Test Proxy will send a request to: 'Ef smellt er á ''Prófa milliþjón''
+      verður send beiðni á'
+    Test Proxy: 'Prófa milliþjón'
+    Your Info: 'Upplýsingar um þig'
+    Ip: 'IP-vistfang'
+    Country: 'Land'
+    Region: 'Hérað'
+    City: 'Borg/Sveitarfélag'
+    Error getting network information. Is your proxy configured properly?: 'Það tókst
+      ekki að sækja upplýsingar um netkerfið. Er milliþjónninn rétt uppsettur?'
+About:
+  #On About page
+  About: 'Um hugbúnaðinn'
+  Beta: 'Beta-prófunarútgáfa'
+  Source code: 'Grunnkóði'
+  Licensed under the AGPLv3: 'Gefið út með AGPLv3-notkunarleyfi'
+  View License: 'Skoða notkunarleyfi'
+  Downloads / Changelog: 'Sóttar skrár / Breytingaskrá'
+  GitHub releases: 'Útgáfur af GitHub'
+  Help: 'Hjálp'
+  FreeTube Wiki: 'FreeTube wikivefur'
+  FAQ: 'FAQ / Algengar spurningar'
+  Report a problem: 'Tilkynna vandamál'
+  GitHub issues: 'GitHub verkbeiðnir'
+  Please check for duplicates before posting: 'Athugaðu hvort fyrir séu eins fyrirspurnir
+    áður en þú sendir nýja'
+  Website: 'Vefsvæði'
+  Blog: 'Blogg'
+  Email: 'Tölvupóstur'
+  Mastodon: 'Mastodon'
+  Chat on Matrix: 'Spjall á Matrix'
+  Please read the: 'Endilega lestu'
+  room rules: 'reglur spjallsins'
+  Translate: 'Þýða'
+  Credits: 'Framlög'
+  FreeTube is made possible by: 'FreeTube er gert mögulegt af'
+  these people and projects: 'þessu fólki og verkefnum'
+  Donate: 'Styrkja'
+
+Profile:
+  Profile Select: 'Val á notkunarsniði'
+  Profile Filter: 'Sía notkunarsnið'
+  All Channels: 'Allar rásir'
+  Profile Manager: 'Sýsla með notkunarsnið'
+  Create New Profile: 'Búa til nýtt notkunarsnið'
+  Edit Profile: 'Breyta notkunarsniði'
+  Color Picker: 'Litaplokkari'
+  Custom Color: 'Sérsniðinn litur'
+  Profile Preview: 'Forskoðun notkunarsniðs'
+  Create Profile: 'Búa til notkunarsnið'
+  Update Profile: 'Uppfæra notkunarsnið'
+  Make Default Profile: 'Gera að sjálfgefnu notkunarsniði'
+  Delete Profile: 'Eyða notkunarsniði'
+  Are you sure you want to delete this profile?: 'Ertu viss um að þú viljir eyða þessu
+    notkunarsniði?'
+  All subscriptions will also be deleted.: 'Öllum áskriftum verður einnig eytt.'
+  Profile could not be found: 'Notkunarsnið fannst ekki'
+  Your profile name cannot be empty: 'Nafn notkunarsniðsins má ekki vera tómt'
+  Profile has been created: 'Notkunarsnið hefur verið útbúið'
+  Profile has been updated: 'Notkunarsnið hefur verið uppfært'
+  Your default profile has been set to $: 'Sjálfgefið notandasnið þitt hefur stillt
+    sem $'
+  Removed $ from your profiles: 'Fjarlægði $ úr notkunarsniðunum þínum'
+  Your default profile has been changed to your primary profile: 'Sjálfgefið notandasnið
+    þitt hefur stillt á aðalnotkunarsniðið þitt'
+  $ is now the active profile: '$ er núna virka notkunarsniðið'
+  Subscription List: 'Áskriftalisti'
+  Other Channels: 'Aðrar rásir'
+  $ selected: '$ valið'
+  Select All: 'Velja allt'
+  Select None: 'Velja ekkert'
+  Delete Selected: 'Eyða völdu'
+  Add Selected To Profile: 'Breyta völdu við notkunarsnið'
+  No channel(s) have been selected: 'Engin rás hefur verið valin'
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
+    same channels will be deleted in any profile they are found in.
+  : 'Þetta er aðalnotkunarsnið þitt. Ertu viss um að þú viljir eyða völdu rásunum?
+    Þessum sömu rásum verður eytt úr öllum þeim notkunarsniðum þar sem þær finnast.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Ertu
+    viss um að þú viljir eyða völdu rásunum? Þetta mun ekki eyða rásunum úr öðrum
+    notkunarsniðum.'
+#On Channel Page
+Channel:
+  Subscriber: 'Áskrifandi'
+  Subscribers: 'Áskrifendur'
+  Subscribe: 'Gerast áskrifandi'
+  Unsubscribe: 'Segja upp áskrift'
+  Channel has been removed from your subscriptions: 'Rás var fjarlægð úr áskriftunum
+    þínum'
+  Removed subscription from $ other channel(s): 'Fjarlægði áskrift úr $ rás(um) til
+    viðbótar'
+  Added channel to your subscriptions: 'Bætti rás í áskriftirnar þínar'
+  Search Channel: 'Leita á rás'
+  Your search results have returned 0 results: 'Leitin skilaði 0 niðurstöðum'
+  Sort By: 'Raða eftir'
+  Videos:
+    Videos: 'Myndskeið'
+    This channel does not currently have any videos: 'Þessi rás er ekki með nein myndskeið'
+    Sort Types:
+      Newest: 'Nýjast'
+      Oldest: 'Elst'
+      Most Popular: 'Vinsælast'
+  Playlists:
+    Playlists: 'Spilunarlistar'
+    This channel does not currently have any playlists: 'Þessi rás er ekki með neina
+      spilunarlista'
+    Sort Types:
+      Last Video Added: 'Síðast viðbætta myndskeið'
+      Newest: 'Nýjast'
+      Oldest: 'Elst'
+  About:
+    About: 'Um rásina'
+    Channel Description: 'Lýsing á rás'
+    Featured Channels: 'Rásir í deiglunni'
+Video:
+  Mark As Watched: 'Merkja sem búið að horfa á'
+  Remove From History: 'Fjarlægja úr vinnsluferli'
+  Video has been marked as watched: 'Myndskeið hefur verið merkt sem skoðað'
+  Video has been removed from your history: 'Myndskeið hefur verið fjarlægt úr vinnsluferlinum
+    þínum'
+  Save Video: 'Vista myndskeið'
+  Video has been saved: 'Myndskeið hefur verið vistað'
+  Video has been removed from your saved list: 'Myndskeið hefur verið fjarlægt úr
+    listanum yfir vistað'
+  Open in YouTube: 'Opna í YouTube'
+  Copy YouTube Link: 'Afrita YouTube-tengil'
+  Open YouTube Embedded Player: 'Opna ívafinn YouTube-spilara'
+  Copy YouTube Embedded Player Link: 'Afrita tengil á ívafinn YouTube-spilara'
+  Open in Invidious: 'Opna í Invidious'
+  Copy Invidious Link: 'Afrita Invidious-tengil'
+  Open Channel in YouTube: 'Opna rás í YouTube'
+  Copy YouTube Channel Link: 'Afrita tengil YouTube-rásar'
+  Open Channel in Invidious: 'Opna rás í Invidious'
+  Copy Invidious Channel Link: 'Afrita tengil Invidious-rásar'
+  View: 'Áhorf'
+  Views: 'Áhorf'
+  Loop Playlist: 'Endurtaka spilunarlista endalaust'
+  Shuffle Playlist: 'Stokka spilunarlista'
+  Reverse Playlist: 'Snúa við spilunarlista'
+  Play Next Video: 'Spila næsta myndskeið'
+  Play Previous Video: 'Spila fyrra myndskeið'
+  # Context is "X People Watching"
+  Watching: 'Verið að horfa'
+  Watched: 'Búið að horfa'
+  Autoplay: 'Spila sjálfkrafa'
+  Starting soon, please refresh the page to check again: 'Byrjar bráðum, endurlestu
+    síðuna til að fylgjast með'
+  # As in a Live Video
+  Live: 'Beint'
+  Live Now: 'Í beinni útsendingu núna'
+  Live Chat: 'Spjall í beinni'
+  Enable Live Chat: 'Virkja spjall í beinni'
+  Live Chat is currently not supported in this build.: 'Spjall í beinni er ekki stutt
+    í þessari byggingarútgáfu.'
+  'Chat is disabled or the Live Stream has ended.': 'Spjall er óvirkt eða að beinu
+    streymi er lokið.'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'Beint spjall
+    er virkt. Skilaboð spjallsins munu birtast hér.'
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Spjall
+    í beinni er ekki stutt í Invidious API-kerfisviðmótinu. Nauðsynlegt er að vera
+    með beina tengingu við YouTube.'
+  Download Video: 'Sækja myndskeið'
+  video only: 'einungis myndmerki'
+  audio only: 'einungis hljóð'
+  Audio:
+    Low: 'Lág'
+    Medium: 'Miðlungs'
+    High: 'Há'
+    Best: 'Best'
+  Published:
+    Jan: 'Jan'
+    Feb: 'Feb'
+    Mar: 'Mar'
+    Apr: 'Apr'
+    May: 'Maí'
+    Jun: 'Jún'
+    Jul: 'Júl'
+    Aug: 'Ágú'
+    Sep: 'Sep'
+    Oct: 'Okt'
+    Nov: 'Nóv'
+    Dec: 'Des'
+    Second: 'sekúndu'
+    Seconds: 'sekúndum'
+    Minute: 'mínútu'
+    Minutes: 'mínútum'
+    Hour: 'klukkustund'
+    Hours: 'klukkustundum'
+    Day: 'degi'
+    Days: 'dögum'
+    Week: 'viku'
+    Weeks: 'vikum'
+    Month: 'mánuði'
+    Months: 'mánuðum'
+    Year: 'ári'
+    Years: 'árum'
+    Ago: 'síðan'
+    Upcoming: 'Frumsýnt'
+  Published on: 'Gefið út'
+  Streamed on: 'Streymt'
+  Started streaming on: 'Byrjaði streymi'
+  # $ is replaced with the number and % with the unit (days, hours, minutes...)
+  Publicationtemplate: '$ % síðan'
+#& Videos
+Videos:
+  #& Sort By
+  Sort By:
+    Newest: 'Nýjast'
+    Oldest: 'Elst'
+    #& Most Popular
+#& Playlists
+Playlist:
+  #& About
+  View Full Playlist: 'Sjá allan spilunarlistann'
+  Videos: 'Myndskeið'
+  View: 'Áhorf'
+  Views: 'Áhorf'
+  Last Updated On: 'Síðast uppfært'
+  Share Playlist:
+    Share Playlist: 'Deila spilunarlista'
+    Copy YouTube Link: 'Afrita YouTube-tengil'
+    Open in YouTube: 'Opna í YouTube'
+    Copy Invidious Link: 'Afrita Invidious-tengil'
+    Open in Invidious: 'Opna í Invidious'
+
+# On Video Watch Page
+#* Published
+#& Views
+Toggle Theatre Mode: 'Víxla bíóham af/á'
+Change Format:
+  Change Video Formats: 'Skipta um myndskeiðasnið'
+  Use Dash Formats: 'Nota DASH-skráasnið'
+  Use Legacy Formats: 'Nota eldri skráasnið'
+  Use Audio Formats: 'Nota hljóðskráasnið'
+  Dash formats are not available for this video: 'DASH-skráasnið eru ekki tiltæk fyrir
+    þetta myndskeið'
+  Audio formats are not available for this video: 'Hljóðskráasnið eru ekki tiltæk
+    fyrir þetta myndskeið'
+Share:
+  Share Video: 'Deila myndskeiði'
+  Include Timestamp: 'Hafa með tímamerki'
+  Copy Link: 'Afrita tengil'
+  Open Link: 'Opna tengil'
+  Copy Embed: 'Afrita ívafið'
+  Open Embed: 'Opna ívafið'
+  # On Click
+  Invidious URL copied to clipboard: 'Invidious-slóð afrituð á klippispjaldið'
+  Invidious Embed URL copied to clipboard: 'Ívafin Invidious-slóð afrituð á klippispjaldið'
+  Invidious Channel URL copied to clipboard: 'Slóð Invidious-rásar afrituð á klippispjaldið'
+  YouTube URL copied to clipboard: 'YouTube-slóð afrituð á klippispjaldið'
+  YouTube Embed URL copied to clipboard: 'Ívafin YouTube-slóð afrituð á klippispjaldið'
+  YouTube Channel URL copied to clipboard: 'Slóð YouTube-rásar afrituð á klippispjaldið'
+
+Mini Player: 'Smáspilari'
+Comments:
+  Comments: 'Athugasemdir'
+  Click to View Comments: 'Smelltu til að skoða athugasemdir'
+  Getting comment replies, please wait: 'Sæki svör við athugasemdum, bíddu aðeins'
+  There are no more comments for this video: 'Það eru engar fleiri athugasemdir við
+    þetta myndskeið'
+  Show Comments: 'Birta athugasemdir'
+  Hide Comments: 'Fela athugasemdir'
+  Sort by: 'Raða eftir'
+  Top comments: 'Efstu athugasemdir'
+  Newest first: 'Nýjasta fyrst'
+  # Context: View 10 Replies, View 1 Reply
+  View: 'Skoða'
+  Hide: 'Fela'
+  Replies: 'Svör'
+  Reply: 'Svara'
+  There are no comments available for this video: 'Engar athugasemdir eru tiltækar
+    fyrir þetta myndskeið'
+  Load More Comments: 'Hlaða inn fleiri athugasemdum'
+  No more comments available: 'Engar fleiri athugasemdir eru tiltækar'
+Up Next: 'Næst í spilun'
+
+#Tooltips
+Tooltips:
+  General Settings:
+    Preferred API Backend: 'Veldu bakendann sem FreeTube notar til að ná í gögn. Staðværa
+      API-kerfisviðmótið er innbyggður skrapari. Invidious API-kerfisviðmótið krefst
+      tengingar við Invidious-netþjón.'
+    Fallback to Non-Preferred Backend on Failure: 'Þegar forgangsbakendi API-kerfisviðmóts
+      á í vandræðum, mun FreeTube reyna sjálfkrafa að nota ekki-forgangsbakenda API-kerfisviðmóts
+      sem varaleið, þegar þetta er virkjað'
+    Thumbnail Preference: 'Öllum smámyndum í FreeTube verður skipt út fyrir ramma
+      með myndskeiðinu í stað sjálfgefinnar smámyndar'
+    Invidious Instance: 'Tilvik Invidious-netþjóns sem FreeTube mun tengjast fyrir
+      beðnir í API-kerfisviðmót. Hreinsaðu út fyrirliggjandi tilvik til að sjá lista
+      yfir opinber tilvik sem hægt er að velja um'
+    Region for Trending: 'Landssvæði sem skal miða vinsældir við gerir þér kleift
+      að velja í hvaða landi aukning á vinsældum í umræðunni skal miða við. Ekki eru
+      öll löndin sem birtast raunverulega studd af YouTube'
+  Player Settings:
+    Force Local Backend for Legacy Formats: 'Virkar bara þegar Invidious API-kerfisviðmótið
+      er sjálfgefið hjá þér. Þegar þetta er virkt, mun staðværa API-kerfisviðmótið
+      keyra og nota þau eldri skráasnið sem finnast í stað þeirra sem Invidious gefur
+      upp. Hjálpar til þegar myndskeið sem Invidious gefur upp spilast ekki vegna
+      landsháðra takmarkana'
+    Proxy Videos Through Invidious: 'Mun tengjast við Invidious til að miðla myndskeiðum
+      í stað þess að tengjast beint við YouTube. Tekur fram fyrir valin API-kerfisviðmót'
+    Default Video Format: 'Stillu skráasniðin sem notuð eru við afspilun myndskeiða.
+      DASH-snið (Dynamic Adaptive Streaming over HTTP) er hægt að spila í meiri gæðum.
+      Eldri snið takmarkast við 720p en nota minni bandbreidd. Hljóðsnið eru streymi
+      einungis með hljóði'
+  Subscription Settings:
+    Fetch Feeds from RSS: 'Þegar þetta er virkt, mun FreeTube nota RSS í stað sjálfgefinnar
+      aðferðar við að safna streymi áskriftarinnar þinnar. RSS er hraðvirkara og kemur
+      í veg fyrir útilokun IP-vistfanga, en nær ekki að birta ákveðnar upplýsingar
+      á borð við tímalengd myndskeiða eða stöðu í beinni útsendingu'
+
+# Toast Messages
+  Privacy Settings:
+    Remove Video Meta Files: Þegar þetta er virkt, eyðir FreeTube sjálfkrafa lýsigagnaskrám
+      sem útbúnar eru við afspilun, þegar skoðunarsíðunni er lokað.
+Local API Error (Click to copy): 'Villa í staðværu API-kerfisviðmóti (smella til að
+  afrita)'
+Invidious API Error (Click to copy): 'Villa í Invidious API-kerfisviðmóti (smella
+  til að afrita)'
+Falling back to Invidious API: 'Nota til vara Invidious API-kerfisviðmót'
+Falling back to the local API: 'Nota til vara staðvært API-kerfisviðmót'
+This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Þetta
+  myndskeiðer ekki tiltækt vegna þess að það vantar skráasnið. Þetta getur gest ef
+  þau eru ekki tiltæk í viðkomandi landi.'
+Subscriptions have not yet been implemented: 'Áskriftir eru enn ekki frágengnar'
+Loop is now disabled: 'Endurtekning er núna óvirk'
+Loop is now enabled: 'Endurtekning er núna virk'
+Shuffle is now disabled: 'Stokkun er núna óvirk'
+Shuffle is now enabled: 'Stokkun er núna virk'
+The playlist has been reversed: 'Spilunarlistanum hefur verið snúið'
+Playing Next Video: 'Spila næsta myndskeið'
+Playing Previous Video: 'Spila fyrra myndskeið'
+Playing Next Video Interval: 'Spila næsta myndskeið strax. Smelltu til að hætta við.
+  | Spila næsta myndskeið eftir {nextVideoInterval} sekúndu. Smelltu til að hætta
+  við. | Spila næsta myndskeið eftir {nextVideoInterval} sekúndur. Smelltu til að
+  hætta við.'
+Canceled next video autoplay: 'Hætti við sjálfvirka afspilun næsta myndskeiðs'
+'The playlist has ended.  Enable loop to continue playing': 'Spilunarlistinn er kominn
+  út á enda. Virkjaðu óendanlega endurtekningu til að halda afspilun áfram'
+
+Yes: 'Já'
+No: 'Nei'

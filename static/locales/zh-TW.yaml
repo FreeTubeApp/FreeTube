@@ -121,9 +121,9 @@ Settings:
     Match Top Bar with Main Color: '頂部功能表欄對應主色彩'
     Base Theme:
       Base Theme: '基本主題'
-      Black: '黑'
-      Dark: '深'
-      Light: '淺'
+      Black: '黑色'
+      Dark: '深色'
+      Light: '淺色'
     Main Color Theme:
       Main Color Theme: '主題色'
       Red: '紅'
@@ -161,7 +161,7 @@ Settings:
     Default Playback Rate: '預設播放速度'
     Default Video Format:
       Default Video Format: '預設影片格式'
-      Dash Formats: 'Dash格式'
+      Dash Formats: '儀錶盤格式'
       Legacy Formats: '傳統格式'
       Audio Formats: '音訊格式'
     Default Quality:
@@ -224,6 +224,7 @@ Settings:
     Privacy Settings: 隱私設定
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 您確定要移除所有訂閱與設定檔嗎嗎?  注意:這無法復原。
     Remove All Subscriptions / Profiles: 移除所有訂閱／設定檔
+    Automatically Remove Video Meta Files: 自動刪除影片元檔案
   Data Settings:
     How do I import my subscriptions?: 我要如何匯入我的訂閱？
     Unknown data key: 未知的資料金鑰
@@ -479,11 +480,11 @@ Playlist:
 Toggle Theatre Mode: '切換為劇院模式'
 Change Format:
   Change Video Formats: '變更影片格式'
-  Use Dash Formats: '使用Dash格式'
+  Use Dash Formats: '使用儀錶盤格式'
   Use Legacy Formats: '使用傳統格式'
   Use Audio Formats: '使用音訊格式'
   Audio formats are not available for this video: 這個影片沒有音訊格式
-  Dash formats are not available for this video: 這個影片沒有Dash格式
+  Dash formats are not available for this video: 這個影片沒有儀錶盤格式
 Share:
   Share Video: '分享影片'
   Copy Link: '複製連結'
@@ -584,7 +585,7 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 啟用後，FreeTube將使用RSS代替它的預設方法來抓取您的訂閱來源。RSS的速度較快，而且可以防止IP封鎖，但它可能不會提供某些資訊，例如影片長度或是直播狀態。
   Player Settings:
-    Default Video Format: 設定要用於影片播放的格式。Dash格式有更高的品質。傳統格式會限制在 720p但頻寬需求更低。音訊格式為僅有音訊的串流
+    Default Video Format: 設定要用於影片播放的格式。儀錶盤格式有更高的畫質。傳統格式會限制在 720p 但頻寬需求更低。音訊格式為僅有音訊的串流
     Proxy Videos Through Invidious: 將連線到 Invidious而非直接連線到 YouTube 來提供影片。覆寫 API 偏好
     Force Local Backend for Legacy Formats: 僅當 Invidious API是您預設 API 時才有效。啟用後，區域 API
       將會執行並使用由其回傳的的傳統格式，而非 Invidious 回傳的格式。對因為國家地區限制而無法播放 Invidious回傳的影片時有幫助
@@ -596,6 +597,8 @@ Tooltips:
     Preferred API Backend: 選擇 FreeTube 要用於取得YouTube資料的伺服器。本地 API 是內建擷取器。Invidious
       API 需要 Invidious 伺服器才能連線。
     Region for Trending: 發燒影片區域可以讓您選擇想要顯示哪個國家的發燒影片。 注意:並非所有國家都被YouTube支援
+  Privacy Settings:
+    Remove Video Meta Files: 如果啟用，FreeTube會在關閉觀看頁面時，自動刪除影片播放過程中建立的暫存檔案。
 Playing Next Video Interval: 馬上播放下一個影片。點擊取消。| 播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。|
   播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。
 More: 更多

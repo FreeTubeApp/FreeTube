@@ -85,26 +85,27 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    this.$store.dispatch('grabUserSettings')
-    this.$store.dispatch('grabHistory')
-    this.$store.dispatch('grabAllProfiles', this.$t('Profile.All Channels'))
-    this.$store.dispatch('grabAllPlaylists')
-    this.$store.commit('setUsingElectron', useElectron)
-    this.checkThemeSettings()
-    this.checkLocale()
+    this.$store.dispatch('grabUserSettings').then((result) => {
+      this.$store.dispatch('grabHistory')
+      this.$store.dispatch('grabAllProfiles', this.$t('Profile.All Channels'))
+      this.$store.dispatch('grabAllPlaylists')
+      this.$store.commit('setUsingElectron', useElectron)
+      this.checkThemeSettings()
+      this.checkLocale()
 
-    if (useElectron) {
-      console.log('User is using Electron')
-      this.activateKeyboardShortcuts()
-      this.openAllLinksExternally()
-      this.enableOpenUrl()
-      this.setBoundsOnClose()
-    }
+      if (useElectron) {
+        console.log('User is using Electron')
+        this.activateKeyboardShortcuts()
+        this.openAllLinksExternally()
+        this.enableOpenUrl()
+        this.setBoundsOnClose()
+      }
 
-    setTimeout(() => {
-      this.checkForNewUpdates()
-      this.checkForNewBlogPosts()
-    }, 500)
+      setTimeout(() => {
+        this.checkForNewUpdates()
+        this.checkForNewBlogPosts()
+      }, 500)
+    })
   },
   methods: {
     checkLocale: function () {

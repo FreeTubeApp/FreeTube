@@ -34,6 +34,7 @@
   height: 60px;
   border-radius: 200px 200px 200px 200px;
   -webkit-border-radius: 200px 200px 200px 200px;
+  cursor: pointer;
 }
 
 .commentAuthor {
@@ -41,6 +42,7 @@
   font-size: 14px;
   margin-left: 68px;
   margin-top: 0px;
+  cursor: pointer;
 }
 
 .commentText {

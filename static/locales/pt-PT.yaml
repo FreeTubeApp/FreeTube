@@ -88,11 +88,12 @@ Most Popular: Mais Populares
 Playlists: Listas de Reprodução
 User Playlists:
   Your Playlists: As suas Listas de Reprodução
-  Playlist Message: Esta página não é indicativa do resultado final. Apenas mostra 
-    vídeos que foram guardados ou marcados como favoritos. Quando estiver pronta, 
+  Playlist Message: Esta página não é indicativa do resultado final. Apenas mostra
+    vídeos que foram guardados ou marcados como favoritos. Quando estiver pronta,
     todos os vídeos que estiverem aqui serão postos numa lista chamada 'Favoritos'.
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: A sua lista está vazia. Carregue no botão com a estrela no canto de um vídeo para o 
-    guardar aqui.
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: A
+    sua lista está vazia. Carregue no botão com a estrela no canto de um vídeo para
+    o guardar aqui.
 History:
   # On History Page
   History: Histórico
@@ -129,7 +130,8 @@ Settings:
       End: Fim
     'Invidious Instance (Default is https://invidious.snopyta.org)': Instância Invidious
       (Por omissão é https://invidious.snopyta.org)
-    View all Invidious instance information: Mostrar toda a informação sobre esta instância Invidious
+    View all Invidious instance information: Mostrar toda a informação sobre esta
+      instância Invidious
     Region for Trending: Região para as tendências
         #! List countries
   Theme Settings:
@@ -275,14 +277,17 @@ Settings:
     Proxy Protocol: Protocolo do Intermediário
     Proxy Host: Endereço do Intermediário
     Proxy Port Number: Porto do Intermediário
-    Clicking on Test Proxy will send a request to: Carregar em Testar Intermediário irá enviar um pedido a
+    Clicking on Test Proxy will send a request to: Carregar em Testar Intermediário
+      irá enviar um pedido a
     Test Proxy: Testar Intermediário
     Your Info: A sua Informação
     Ip: Ip
     Country: País
     Region: Região
     City: Cidade
-    Error getting network information. Is your proxy configured properly?: Houve um erro a receber a informação sobre a sua rede. Verifique que o seu intermediário está configurado correctamente.
+    Error getting network information. Is your proxy configured properly?: Houve um
+      erro a receber a informação sobre a sua rede. Verifique que o seu intermediário
+      está configurado correctamente.
 About:
   #On About page
   About: Sobre
@@ -293,14 +298,15 @@ About:
   Downloads / Changelog: Descarregar / Mudanças
   GitHub releases: Lançamentos no GitHub
   Help: Ajuda
-  FreeTube Wiki: Wiki do FreeTube 
-  FAQ: Perguntas Frequentes
+  FreeTube Wiki: Wiki do FreeTube
+  FAQ: Perguntas frequentes
   Report a problem: Relatar um problema
   GitHub issues: Problemas no GitHub
-  Please check for duplicates before posting: É favor verificar se um problema já foi relatado
-  Website: Site
+  Please check for duplicates before posting: É favor verificar se um problema já
+    foi relatado
+  Website: Saite
   Blog: Blogue
-  Email: Email
+  Email: Correio eletrónico
   Mastodon: Mastodon
   Chat on Matrix: Chat no Matrix
   Please read the: Por favor leia as

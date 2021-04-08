@@ -65,7 +65,7 @@ Search Filters:
   Fetching results. Please wait: 'Caricamento risultati. Attendi'
   Fetch more results: 'Carica più risultati'
 # Sidebar
-  There are no more results for this search: Non ci sono altri risultati per questa
+  There are no more results for this search: Non ci sono più risultati per questa
     ricerca
 Subscriptions:
     # On Subscriptions Page
@@ -86,11 +86,11 @@ Playlists: 'Playlist'
 User Playlists:
   Your Playlists: 'Le tue playlist'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: La
-    lista preferiti è vuota. Clicca sul tasto salva in basso a destra di un video
+    lista preferiti è vuota. Clicca sul tasto Salva in basso a destra di un video
     per vederlo qui
   Playlist Message: Questa pagina non è rappresentativa di una playlist completa.
     Mostra solo video che hai salvato o aggiunti ai preferiti. A lavoro finito, tutti
-    i video attualmente qui verrano spostati in una playlist dei 'preferiti'.
+    i video attualmente qui verrano spostati in una playlist dei «Preferiti».
 History:
   # On History Page
   History: 'Cronologia'
@@ -126,7 +126,8 @@ Settings:
         #! List countries
     Check for Latest Blog Posts: Controlla gli ultimi post del blog
     Check for Updates: Controlla gli aggiornamenti
-    View all Invidious instance information: Espandi informazioni delle istanze Invidious
+    View all Invidious instance information: Visualizza tutti i dati della istanza
+      Invidious
   Theme Settings:
     Theme Settings: 'Impostazioni Tema'
     Match Top Bar with Main Color: 'Abbina la barra superiore con il colore principale'
@@ -186,6 +187,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Playlist Next Video Interval: Intervallo video successivo nella playlist
   Privacy Settings:
     Privacy Settings: 'Impostazioni privacy'
     Remember History: 'Salva la Cronologia'
@@ -293,6 +295,7 @@ Settings:
     Hide Live Chat: Nascondi la chat live
     Hide Video Likes And Dislikes: Nascondi Mi piace e Non mi piace
     Hide Active Subscriptions: Nascondi le iscrizioni attive
+    Hide Playlists: Nascondi le playlist
   The app needs to restart for changes to take effect. Restart and apply change?: L'applicazione
     deve essere riavviata per applicare i cambiamenti. Riavviare e applicare i cambiamenti
     ora?
@@ -308,8 +311,8 @@ Settings:
     Country: Paese
     Ip: Ip
     Your Info: Le tue informazioni
-    Test Proxy: Test Proxy
-    Clicking on Test Proxy will send a request to: Cliccando su "Testa Proxy" verrà
+    Test Proxy: Testa proxy
+    Clicking on Test Proxy will send a request to: Cliccando su «Testa proxy» verrà
       inviata una richiesta a
     Proxy Port Number: Numero di porta Proxy
     Proxy Host: Host Proxy
@@ -349,7 +352,7 @@ About:
   Blog: Blog
   GitHub issues: Segnalazioni GitHub
   Report a problem: Segnala un problema
-  FAQ: Domande Frequenti
+  FAQ: Domande frequenti
   FreeTube Wiki: Wiki FreeTube
   Help: Aiuto
   Downloads / Changelog: Download / Changelog
@@ -360,11 +363,11 @@ About:
   Translate: Traduci
   room rules: Regole stanza
   Please read the: Si prega di leggere
-  Chat on Matrix: Chat su Matrix
+  Chat on Matrix: Chatta su Matrix
   Mastodon: Mastodon
-  Email: Email
+  Email: E-mail
   Website: Sito web
-  Please check for duplicates before posting: Perfavore controlla se ci sono duplicati
+  Please check for duplicates before posting: Per favore controlla se ci sono duplicati
     prima di pubblicare
   View License: Vedi licenza
   Licensed under the AGPLv3: Distribuito sotto la licenza AGPLv3
@@ -631,6 +634,7 @@ Profile:
   Profile Manager: Gestione Profili
   All Channels: Tutti i Canali
   Profile Select: Seleziona il Profilo
+  Profile Filter: Filtro profilo
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Questo
   video non è disponibile a causa di alcuni formati mancanti. Questo può succedere
   in caso di mancata disponibilità del paese.
@@ -650,7 +654,7 @@ Tooltips:
     Fetch Feeds from RSS: Quando abilitato, FreeTube userà gli RSS invece del metodo
       standard per leggere la tua lista istrizioni. Gli RSS sono più veloci e impediscono
       il blocco dell'IP ma non mostrano informazioni come la durata video o lo stato
-      delle live
+      delle dirette
   General Settings:
     Invidious Instance: L'istanza Invidious che FreeTube usa per le chiamate API.
       Pulisci l'istanza attuale per vedere una lista di istanze pubbliche da cui scegliere
@@ -665,3 +669,8 @@ Tooltips:
     Region for Trending: La regione delle tendenze permette di scegliere la nazione
       di cui si vogliono vedere i video di tendenza. Non tutte le nazioni mostrate
       sono ufficialmente supportate da YouTube
+Playing Next Video Interval: Riproduzione del video successivo in pochissimo tempo.
+  Fare clic per annullare. | Riproduzione del video successivo tra {nextVideoInterval}
+  secondo. Fare clic per annullare. | Riproduzione del video successivo tra {nextVideoInterval}
+  secondi. Fare clic per annullare.
+More: Altro
