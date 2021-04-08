@@ -185,6 +185,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Playlist Next Video Interval: Intervalo do próximo vídeo da lista de reprodução
   Subscription Settings:
     Subscription Settings: 'Configurações de inscrições'
     Hide Videos on Watch: 'Esconder vídeos após assisti-los'
@@ -241,6 +242,8 @@ Settings:
       certeza de que quer apagar todas as inscrições e perfis? Esta ação não pode
       ser desfeita.
     Remove All Subscriptions / Profiles: Remover Todas as Inscrições / Perfis
+    Automatically Remove Video Meta Files: Remover automaticamente os metarquivos
+      de vídeo
   Data Settings:
     Subscriptions have been successfully exported: Inscrições foram exportadas com
       sucesso
@@ -291,6 +294,7 @@ Settings:
     Hide Video Likes And Dislikes: Ocultar curtidas e desgostos do vídeo
     Hide Video Views: Ocultar Visualizações de Vídeo
     Hide Active Subscriptions: Ocultar Inscrições Ativas
+    Hide Playlists: Ocultar listas de reprodução
   The app needs to restart for changes to take effect. Restart and apply change?: O
     aplicativo necessita reiniciar para as mudanças fazerem efeito. Reiniciar e aplicar
     mudança?
@@ -621,6 +625,7 @@ Profile:
   Profile has been updated: Perfil atualizado
   Profile has been created: Perfil criado
   Your profile name cannot be empty: Seu nome de perfil não pode ficar em branco
+  Profile Filter: Filtro de Perfil
 Version $ is now available!  Click for more details: Versão $ está disponível agora!
   Clique para mais detalhes
 A new blog is now available, $. Click to view more: Um novo blog está disponível,
@@ -633,7 +638,7 @@ This video is unavailable because of missing formats. This can happen due to cou
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Quando ativado, o FreeTube usará RSS em vez de seu método
-      padrão para obter o feed de sua assinatura. O RSS é mais rápido e evita o bloqueio
+      padrão para obter o feed de sua assinatura. O RSS é mais rápido e evita bloqueio
       de IP, mas não fornece certas informações como duração do vídeo ou status ao
       vivo
   Player Settings:
@@ -663,4 +668,12 @@ Tooltips:
     Preferred API Backend: Escolha o backend que o FreeTube usa para obter os dados.
       A API local é um extrator integrado. A API Invidious requer um servidor Invidious
       para se conectar.
+  Privacy Settings:
+    Remove Video Meta Files: Quando ativado, o FreeTube exclui automaticamente os
+      metarquivos criados durante a reprodução do vídeo quando a página de exibição
+      é fechada.
 More: Mais
+Playing Next Video Interval: Reproduzindo o próximo vídeo imediatamente. Clique para
+  cancelar. | Reproduzindo o próximo vídeo em {nextVideoInterval} segundo(s). Clique
+  para cancelar. | Reproduzindo o próximo vídeo em {nextVideoInterval} segundos. Clique
+  para cancelar.
