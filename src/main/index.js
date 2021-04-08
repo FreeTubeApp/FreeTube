@@ -1,4 +1,4 @@
-import { app, BrowserWindow, Menu, ipcMain, session, screen } from 'electron'
+import { app, BrowserWindow, Menu, ipcMain, screen } from 'electron'
 import Datastore from 'nedb'
 
 if (process.argv.includes('--version')) {
