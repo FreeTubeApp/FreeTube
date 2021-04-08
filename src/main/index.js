@@ -252,7 +252,7 @@ function runApp() {
         proxyRules: proxyUrl
       })
     }
-    
+
     // Set CONSENT cookie on reasonable domains
     [
       'http://www.youtube.com',
