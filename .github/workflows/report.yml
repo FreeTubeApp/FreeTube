@@ -10,7 +10,7 @@ jobs:
   assign-issues-to-projects:
     runs-on: ubuntu-latest
     steps:
-    
+
     # For bug reports
       - name: New bug issue
         uses: alex-page/github-project-automation-plus@v0.5.1
@@ -18,7 +18,7 @@ jobs:
         with:
           project: Bug Reports
           column: To assign
-          repo-token: ${{ secrets.MY_FORK_TOKEN }}
+          repo-token: ${{ secrets.PUSH_TOKEN }}
           action: update
 
       - name: Bug label removed
@@ -28,8 +28,8 @@ jobs:
           action: delete
           project: Bug Reports
           column: To assign
-          repo-token: ${{ secrets.MY_FORK_TOKEN }}
-          
+          repo-token: ${{ secrets.PUSH_TOKEN }}
+
       # For feature requests
       - name: New feature issue
         uses: alex-page/github-project-automation-plus@v0.5.1
@@ -37,7 +37,7 @@ jobs:
         with:
           project: Feature Requests
           column: To assign
-          repo-token: ${{ secrets.MY_FORK_TOKEN }}
+          repo-token: ${{ secrets.PUSH_TOKEN }}
           action: update
 
       - name: Feature request label removed
@@ -47,4 +47,4 @@ jobs:
           action: delete
           project: Feature Requests
           column: To assign
-          repo-token: ${{ secrets.MY_FORK_TOKEN }}
+          repo-token: ${{ secrets.PUSH_TOKEN }}
