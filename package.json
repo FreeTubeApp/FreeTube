@@ -46,7 +46,7 @@
     "vuex": "^3.6.2",
     "xml2json": "^0.12.0",
     "youtube-chat": "git+https://github.com/IcedCoffeee/youtube-chat.git",
-    "youtube-suggest": "^1.1.1",
+    "youtube-suggest": "^1.1.2",
     "yt-channel-info": "^2.0.0",
     "yt-comment-scraper": "^3.0.2",
     "yt-dash-manifest-generator": "1.1.0",
