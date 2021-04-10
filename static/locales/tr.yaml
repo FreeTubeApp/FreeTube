@@ -175,9 +175,9 @@ Settings:
     Default Playback Rate: 'Varsayılan Oynatma Hızı'
     Default Video Format:
       Default Video Format: 'Varsayılan Video Biçimi'
-      Dash Formats: 'Dash Biçimleri'
+      Dash Formats: 'DASH Biçimleri'
       Legacy Formats: 'Eski Biçimler'
-      Audio Formats: 'Ses Biçimi'
+      Audio Formats: 'Ses Biçimleri'
     Default Quality:
       Default Quality: 'Varsayılan Kalite'
       Auto: 'Otomatik'
@@ -516,7 +516,7 @@ Video:
     Upcoming: 'İlk gösterim tarihi'
   Published on: 'Yayımlanma tarihi'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % önce'
+  Publicationtemplate: '$ % önce'
 #& Videos
   Audio:
     Best: En iyi
@@ -561,13 +561,13 @@ Playlist:
 #& Views
 Toggle Theatre Mode: 'Tiyatro Modunu Aç/Kapat'
 Change Format:
-  Change Video Formats: 'Video Biçimini Değiştir'
-  Use Dash Formats: 'Dash Biçimi Kullan'
+  Change Video Formats: 'Video Biçimlerini Değiştir'
+  Use Dash Formats: 'DASH Biçimlerini Kullan'
   Use Legacy Formats: 'Eski Biçimleri Kullan'
-  Use Audio Formats: 'Ses Biçimi Kullan'
-  Dash formats are not available for this video: 'Dash biçimi bu video için kullanılabilir
+  Use Audio Formats: 'Ses Biçimlerini Kullan'
+  Dash formats are not available for this video: 'DASH biçimleri bu video için kullanılabilir
     değil'
-  Audio formats are not available for this video: 'Ses biçimi bu video için kullanılabilir
+  Audio formats are not available for this video: 'Ses biçimleri bu video için kullanılabilir
     değil'
 Share:
   Share Video: 'Videoyu Paylaş'
@@ -637,32 +637,32 @@ Tooltips:
       önüne geçer, ancak video süresi veya canlı yayın durumu gibi belirli bilgileri
       sağlamaz
   Player Settings:
-    Default Video Format: Bir video oynatılırken kullanılan biçimleri ayarlayın. Dash
+    Default Video Format: Bir video oynatılırken kullanılan biçimleri ayarlayın. DASH
       biçimleri daha yüksek kalitelerde oynatabilir. Eski biçimler en fazla 720p ile
       sınırlıdır ancak daha az bant genişliği kullanır. Ses biçimleri yalnızca ses
-      akışlarıdır
+      akışlarıdır.
     Proxy Videos Through Invidious: Videoları sunmak için YouTube ile doğrudan bağlantı
-      kurmak yerine Invidious'a bağlanılacak. API tercihini geçersiz kılar
+      kurmak yerine Invidious'a bağlanılacak. API tercihini geçersiz kılar.
     Force Local Backend for Legacy Formats: Yalnızca Invidious API'si öntanımlı seçeneğiniz
       olduğunda çalışır. Etkinleştirildiğinde, yerel API çalışacak ve Invidious tarafından
       döndürülen biçimler yerine onun döndürdüğü eski biçimler kullanılacaktır. Invidious
       tarafından döndürülen videolar ülke kısıtlamaları nedeniyle oynatılmadığında
-      yardımcı olur
+      yardımcı olur.
   General Settings:
     Invidious Instance: FreeTube'un API çağrıları için bağlanacağı Invidious örneği.
       Aralarından seçim yapabileceğiniz herkese açık örneklerin bir listesini görmek
-      için geçerli örneği temizleyin
+      için geçerli örneği temizleyin.
     Thumbnail Preference: FreeTube'daki tüm küçük resimler, öntanımlı küçük resim
-      yerine videonun bir karesiyle değiştirilecektir
+      yerine videonun bir karesiyle değiştirilecektir.
     Fallback to Non-Preferred Backend on Failure: Etkinleştirildiğinde, tercih ettiğiniz
       API'de bir sorun olduğunda FreeTube otomatik olarak tercih edilmeyen API'nizi
-      yedek yöntem olarak kullanmaya çalışır
+      yedek yöntem olarak kullanmaya çalışır.
     Preferred API Backend: FreeTube'un veri elde etmek için kullandığı arka ucu seçin.
       Yerel API yerleşik bir çıkarıcıdır. Invidious API'si, bağlanmak için bir Invidious
       sunucusu gerektirir.
     Region for Trending: Trendlerin bölgesi, hangi ülkenin trend videolarını görüntülemek
       istediğinizi seçmenize olanak tanır. Görüntülenen ülkelerden bazıları YouTube
-      tarafından desteklenmemektedir
+      tarafından desteklenmemektedir.
   Privacy Settings:
     Remove Video Meta Files: Etkinleştirildiğinde, izleme sayfası kapatıldığında video
       oynatma sırasında oluşturulan meta dosyaları otomatik olarak silinir.
