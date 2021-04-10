@@ -929,7 +929,7 @@ export default Vue.extend({
               }
             })
 
-            if (Object.keys(historyObject).length < requiredKeys.length) {
+            if (Object.keys(historyObject).length < (requiredKeys.length - 2)) {
               this.showToast({
                 message: this.$t('Settings.Data Settings.History object has insufficient data, skipping item')
               })

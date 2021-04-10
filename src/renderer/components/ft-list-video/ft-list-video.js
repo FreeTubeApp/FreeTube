@@ -383,7 +383,7 @@ export default Vue.extend({
         title: this.title,
         author: this.channelName,
         authorId: this.channelId,
-        published: '',
+        published: this.publishedText.split(',')[0],
         description: this.description,
         viewCount: this.viewCount,
         lengthSeconds: this.data.lengthSeconds,
@@ -393,9 +393,7 @@ export default Vue.extend({
         paid: false,
         type: 'video'
       }
-
       this.updateHistory(videoData)
-
       this.showToast({
         message: this.$t('Video.Video has been marked as watched')
       })
