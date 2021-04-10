@@ -176,7 +176,7 @@ Settings:
     Default Playback Rate: 'Vitesse de lecture par défaut'
     Default Video Format:
       Default Video Format: 'Format de vidéo par défaut'
-      Dash Formats: 'Format Dash'
+      Dash Formats: 'Format DASH'
       Legacy Formats: 'Format Legacy'
       Audio Formats: 'Format Audio'
     Default Quality:
@@ -249,6 +249,8 @@ Settings:
       sûr(e) de vouloir supprimer tous les abonnements et les profils ? Cette action
       est définitive.
     Remove All Subscriptions / Profiles: Supprimer tous les Abonnements / Profils
+    Automatically Remove Video Meta Files: Suppression automatique des MétaFichiers
+      vidéo
   Data Settings:
     How do I import my subscriptions?: Comment importer mes abonnements ?
     Subscriptions have been successfully exported: Les abonnements ont été exportés
@@ -512,6 +514,7 @@ Video:
     enregistrée
   Video has been saved: La vidéo a été enregistrée
   Save Video: Enregistrer la vidéo
+  translated from English: traduit de l’anglais
 Videos:
   #& Sort By
   Sort By:
@@ -539,12 +542,12 @@ Playlist:
 Toggle Theatre Mode: 'Mode Cinéma'
 Change Format:
   Change Video Formats: 'Changer le format de la vidéo'
-  Use Dash Formats: 'Utiliser le format Dash'
+  Use Dash Formats: 'Utiliser le format DASH'
   Use Legacy Formats: 'Utiliser le format Legacy'
   Use Audio Formats: 'Utiliser le format Audio'
   Audio formats are not available for this video: Le format Audio n'est pas disponible
     pour cette vidéo
-  Dash formats are not available for this video: Le format Dash n'est pas disponible
+  Dash formats are not available for this video: Le format DASH n'est pas disponible
     pour cette vidéo
 Share:
   Share Video: 'Partager la vidéo'
@@ -668,32 +671,36 @@ Tooltips:
       comme la durée de la vidéo ou le statut en direct
   Player Settings:
     Default Video Format: Définir les formats utilisés lors de la lecture d'une vidéo.
-      Les formats Dash peuvent être lus en qualité supérieure. Les formats Legacy
+      Les formats DASH peuvent être lus en qualité supérieure. Les formats Legacy
       sont limités à un maximum de 720p mais utilisent moins de bande passante. Les
-      formats audio sont des flux audio uniquement
+      formats audio sont des flux audio uniquement.
     Proxy Videos Through Invidious: Se connectera à Invidious pour lire des vidéos
       au lieu d'établir une connexion directe avec YouTube. Remplace les préférences
-      de l'API
+      de l'API.
     Force Local Backend for Legacy Formats: Ne fonctionne que lorsque l'API Invidious
       est activée par défaut. Lorsqu'elle est activée, l'API locale s'exécute et utilise
       les formats Legacy renvoyés par celle-ci au lieu de ceux renvoyés par Invidious.
       Utile lorsque les vidéos renvoyées par Invidious ne sont pas lues en raison
-      de restrictions pays
+      de restrictions pays.
   General Settings:
     Invidious Instance: L'instance Invidious à laquelle FreeTube se connectera pour
       les appels d'API. Effacez l'instance actuelle pour voir une liste d'instances
-      publiques parmi lesquelles choisir
+      publiques parmi lesquelles choisir.
     Thumbnail Preference: Toutes les miniatures de FreeTube seront remplacées par
-      une image de la vidéo au lieu de la vignette par défaut
+      une image de la vidéo au lieu de la vignette par défaut.
     Fallback to Non-Preferred Backend on Failure: Lorsque votre API préférée a un
       problème, FreeTube tentera automatiquement d'utiliser votre API non préférée
-      comme méthode de secours lorsqu'elle est activée
+      comme méthode de secours lorsqu'elle est activée.
     Preferred API Backend: Choisissez le backend que FreeTube utilise pour obtenir
       les données. L'API locale est un extracteur intégré. L'API Invidious nécessite
       un serveur Invidious pour se connecter.
     Region for Trending: Ceci vous permet de choisir les vidéos tendance du pays que
       vous souhaitez afficher. Attention, certains pays affichés ne sont pas pris
-      en charge par YouTube
+      en charge par YouTube.
+  Privacy Settings:
+    Remove Video Meta Files: Lorsqu'il est activé, FreeTube supprime automatiquement
+      les MétaFichiers créés pendant la lecture de la vidéo, dès que la page de la
+      vidéo est quittée.
 More: Plus
 Playing Next Video Interval: Lecture de la prochaine vidéo en un rien de temps. Cliquez
   pour annuler. | Lecture de la prochaine vidéo dans {nextVideoInterval} seconde.
