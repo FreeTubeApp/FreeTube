@@ -180,7 +180,7 @@ Settings:
     Default Playback Rate: 'Усталена швидкість відтворення'
     Default Video Format:
       Default Video Format: 'Формат відео за замовченням'
-      Dash Formats: 'Формати Dash'
+      Dash Formats: 'Формати DASH'
       Legacy Formats: 'Застарілі формати'
       Audio Formats: 'Аудіо формати'
     Default Quality:
@@ -510,6 +510,7 @@ Video:
   Video has been removed from your saved list: Відео вилучено зі списку збережених
   Video has been saved: Відео збережено
   Save Video: Зберегти відео
+  translated from English: перекладено з англійської
 Videos:
   #& Sort By
   Sort By:
@@ -537,10 +538,10 @@ Playlist:
 Toggle Theatre Mode: 'Перемкнути режим театру'
 Change Format:
   Change Video Formats: 'Зміна форматів відео'
-  Use Dash Formats: 'Використовувати формати Dash'
+  Use Dash Formats: 'Використовувати формати DASH'
   Use Legacy Formats: 'Використовувати застарілі формати'
   Use Audio Formats: 'Використовувати аудіоформати'
-  Dash formats are not available for this video: 'Формати Dash недоступні для цього
+  Dash formats are not available for this video: 'Формати DASH недоступні для цього
     відео'
   Audio formats are not available for this video: 'Аудіоформати недоступні для цього
     відео'
@@ -592,26 +593,26 @@ Tooltips:
       Invidious для з'' єднання.'
     Fallback to Non-Preferred Backend on Failure: 'Коли бажаний API має проблеми,
       FreeTube автоматично спробує використовувати ваш не вибраний API як запасний
-      метод, коли його увімкнено'
+      метод, коли його увімкнено.'
     Thumbnail Preference: 'Усі ескізи у FreeTube заміняться на кадр відео, а не на
-      типову мініатюру'
+      типову мініатюру.'
     Invidious Instance: 'Сервер Invidious, до якого FreeTube під''єднуватиметься для
       викликів API. Очистьте поточний сервер, щоб побачити список загальнодоступних
-      серверів на вибір'
+      серверів на вибір.'
     Region for Trending: 'Регіон популярного дозволяє вам вибрати популярні відео
       країни, які ви хочете бачити. Не всі показані країни насправді підтримуються
-      YouTube'
+      YouTube.'
   Player Settings:
     Force Local Backend for Legacy Formats: 'Працює, лише якщо API Invidious використовується
       типовим. Якщо увімкнено, локальний API буде запущено і використовуватиме застарілі
       формати, які було повернуто Invidious. Допомагає, коли відео, повернуті Invidious,
-      не відтворюються через обмеження в країні'
+      не відтворюються через обмеження в країні.'
     Proxy Videos Through Invidious: 'Під’єднається до Invidious, щоб дивитися відео,
-      а не встановлювати пряме з’єднання з YouTube. Замінює налаштування API'
+      а не встановлювати пряме з’єднання з YouTube. Замінює налаштування API.'
     Default Video Format: 'Встановіть формати, що використовуються під час відтворення
-      відео. Формати Dash можуть відтворюватися в кращій якості. Старі формати мають
+      відео. Формати DASH можуть відтворюватися в кращій якості. Старі формати мають
       обмеження у 720p, але використовують меншу пропускну здатність. Формати аудіо
-      — це лише аудіопотоки'
+      — це лише аудіопотоки.'
   Subscription Settings:
     Fetch Feeds from RSS: 'Якщо ввімкнено, FreeTube використовуватиме RSS замість
       стандартного способу захоплення каналу підписки. RSS швидше і запобігає блокуванню
