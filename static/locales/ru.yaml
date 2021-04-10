@@ -1,7 +1,7 @@
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Эта часть приложения еще не готова. Вернитесь позже, когда будет достигнут прогресс.
+  Эта часть приложения ещё не готова. Вернитесь позже, когда будет достигнут прогресс.
 
 # Webkit Menu Bar
 File: 'Файл'
@@ -127,21 +127,21 @@ Settings:
     View all Invidious instance information: Показать все доступные экземпляры Invidious
   Theme Settings:
     Theme Settings: 'Настройки темы'
-    Match Top Bar with Main Color: 'Совместить верхнюю панель с основным цветом'
+    Match Top Bar with Main Color: 'Верхняя панель основного цвета'
     Base Theme:
       Base Theme: 'Базовая тема'
       Black: 'Чёрная'
       Dark: 'Тёмная'
       Light: 'Светлая'
     Main Color Theme:
-      Main Color Theme: 'Основная цветовая тема'
+      Main Color Theme: 'Тема основного цвета'
       Red: 'Красная'
       Pink: 'Розовая'
       Purple: 'Фиолетовая'
       Deep Purple: 'Тёмно-фиолетовая'
       Indigo: 'Индиго'
-      Blue: 'Синия'
-      Light Blue: 'Светло-синия'
+      Blue: 'Синяя'
+      Light Blue: 'Светло-синяя'
       Cyan: 'Голубая'
       Teal: 'Бирюзовая'
       Green: 'Зелёная'
@@ -242,6 +242,7 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Вы
       уверены, что хотите удалить все подписки и профили?  Это нельзя отменить.
     Remove All Subscriptions / Profiles: Удалить все подписки/профили
+    Automatically Remove Video Meta Files: Автоматическое удаление мета-файлов видео
   Data Settings:
     How do I import my subscriptions?: Как мне импортировать свои подписки?
     Unknown data key: Неизвестный ключ данных
@@ -466,9 +467,9 @@ Video:
   Autoplay: Автовоспроизведение
   Play Previous Video: Воспроизвести предыдущее видео
   Play Next Video: Воспроизводить следующее видео
-  Reverse Playlist: Обратный плейлист
-  Shuffle Playlist: Перемешанный плейлист
-  Loop Playlist: Циклический плейлист
+  Reverse Playlist: Обратный порядок плейлиста
+  Shuffle Playlist: Перемешать плейлист
+  Loop Playlist: Зациклить плейлист
   Starting soon, please refresh the page to check again: Скоро начнётся, обновите
     страницу, чтобы проверить ещё раз
   Audio:
@@ -485,9 +486,9 @@ Video:
   Open Channel in YouTube: Открыть канал в YouTube
   Streamed on: Транслировано
   Started streaming on: Трансляция начата на
-  Video has been removed from your saved list: Видео было удалено из списка сохраненных
-  Video has been saved: Видео было добавлено в сохраненные
-  Save Video: Добавить видео в сохраненные
+  Video has been removed from your saved list: Видео было удалено из списка сохранённых
+  Video has been saved: Видео было добавлено в сохранённые
+  Save Video: Добавить видео в сохранённые
 Videos:
   #& Sort By
   Sort By:
@@ -568,8 +569,8 @@ Invidious API Error (Click to copy): 'Ошибка invidious API (Нажмите
 Falling back to Invidious API: 'Возврат к Invidious API'
 Falling back to the local API: 'Возврат к локальному API'
 Subscriptions have not yet been implemented: 'Подписки ещё не реализованы'
-Loop is now disabled: 'Цикл теперь отключён'
-Loop is now enabled: 'Цикл теперь включён'
+Loop is now disabled: 'Зацикливание теперь отключено'
+Loop is now enabled: 'Зацикливание теперь включено'
 Shuffle is now disabled: 'Перемешивание теперь отключено'
 Shuffle is now enabled: 'Перемешивание теперь включено'
 Playing Next Video: 'Воспроизведение следующего видео'
@@ -578,7 +579,7 @@ Playing next video in 5 seconds.  Click to cancel: 'Воспроизведени
   через 5 секунд. Нажмите, чтобы отменить.'
 Canceled next video autoplay: 'Отменено автовоспроизведение следующего видео'
 'The playlist has ended.  Enable loop to continue playing': 'Плейлист закончился.
-  Включите цикл, чтобы продолжить воспроизведение'
+  Включите зацикливание, чтобы продолжить воспроизведение'
 
 Yes: 'Да'
 No: 'Нет'
@@ -619,7 +620,7 @@ Profile:
   No channel(s) have been selected: Канал(ы) не были выбраны
   Add Selected To Profile: Добавить выбранное в профиль
   Delete Selected: Удалить выбранное
-  Select None: Выбрать ничего
+  Select None: Не выбрано
   Select All: Выбрать все
   $ selected: $ выбрано
   Other Channels: Другие каналы
@@ -632,7 +633,7 @@ Download From Site: Скачать с сайта
 Version $ is now available!  Click for more details: Версия $ уже доступна! Нажмите,
   чтобы узнать больше
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Это
-  видео недоступно из-за отсутствия форматов. Это может произойти из-за недоступности
+  видео недоступно из-за отсутствия форматов. Это может произойти из-за ограничений
   страны.
 Tooltips:
   General Settings:
@@ -647,9 +648,8 @@ Tooltips:
     Preferred API Backend: Выберите серверную часть, которую FreeTube использует для
       получения данных. Локальный API - это встроенный экстрактор. Invidious API требует
       подключения к Invidious серверу.
-    Region for Trending: Область тенденций позволяет вам выбрать популярные видео
-      из страны, которые вы хотите отображать. Не все отображаемые страны на самом
-      деле поддерживаются YouTube
+    Region for Trending: Регион трендов позволяет вам выбрать популярные видео из
+      выбранной страны. Не все отображаемые страны поддерживаются YouTube
   Subscription Settings:
     Fetch Feeds from RSS: Если этот параметр включен, FreeTube будет получать вашу
       ленту подписок с помощью RSS, а не как обычно. RSS работает быстрее и предотвращает
@@ -667,6 +667,10 @@ Tooltips:
       устаревшие форматы, возвращаемые им, вместо форматов, возвращаемых Invidious.
       Помогает, когда видео, возвращенные Invidious, не воспроизводятся из-за ограничений
       страны
+  Privacy Settings:
+    Remove Video Meta Files: Если этот параметр включен, FreeTube автоматически удаляет
+      метафайлы, созданные во время воспроизведения видео, когда страница просмотра
+      закрывается.
 More: Больше
 Playing Next Video Interval: Воспроизведение следующего видео без задержки. Нажмите
   для отмены. | Воспроизведение следующего видео через {nextVideoInterval} сек. Нажмите

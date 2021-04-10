@@ -189,9 +189,10 @@ Settings:
     Remember History: ''
     Save Watched Progress: ''
     Clear Search Cache: ''
-    Are you sure you want to clear out your search cache?: ''
-    Search cache has been cleared: ''
-    Remove Watch History: ''
+    Are you sure you want to clear out your search cache?: 'Sunteti siguri ca doriti
+      sa stergeti chache-ul cautarilor ?'
+    Search cache has been cleared: 'Cache-ul cautarilor a fost sters'
+    Remove Watch History: 'Sterge Istoricul Vizualizarilor'
     Are you sure you want to remove your entire watch history?: ''
     Watch history has been cleared: ''
     Remove All Subscriptions / Profiles: ''

@@ -211,6 +211,7 @@ Settings:
     Remove All Subscriptions / Profiles: 'Összes feliratkozás és profil eltávolítása'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Biztosan
       törli az összes feliratkozást és profilt? A művelet nem vonható vissza.'
+    Automatically Remove Video Meta Files: Videométafájlok önműködő eltávolítása
   Subscription Settings:
     Subscription Settings: 'Feliratkozás beállításai'
     Hide Videos on Watch: 'Videók elrejtése megtekintés után'
@@ -664,6 +665,9 @@ Tooltips:
       visszaadott örökölt formátumokat fogja használni az Invidious által visszaadottak
       helyett. Segít, ha az Invidious által visszaküldött videókat nem lehet lejátszani
       az ország korlátozása miatt
+  Privacy Settings:
+    Remove Video Meta Files: Ha engedélyezve van, a FreeTube önműködőén törli a videolejátszás
+      során létrehozott métafájlokat, amikor a nézési oldal bezárul.
 Playing Next Video Interval: A következő videó lejátszása folyamatban van. Kattintson
   a törléshez. | A következő videó lejátszása {nextVideoInterval} másodperc múlva
   történik. Kattintson a törléshez. | A következő videó lejátszása {nextVideoInterval}

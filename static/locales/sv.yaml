@@ -70,6 +70,8 @@ Search Filters:
   Fetching results. Please wait: 'Hämtar resultat. Snälla vänta'
   Fetch more results: 'Hämta fler resultat'
 # Sidebar
+  There are no more results for this search: Det finns inte fler resultat för den
+    här sökningen
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Prenumerationer'

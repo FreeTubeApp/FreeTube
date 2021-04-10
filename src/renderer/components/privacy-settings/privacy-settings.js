@@ -33,6 +33,10 @@ export default Vue.extend({
     saveWatchedProgress: function () {
       return this.$store.getters.getSaveWatchedProgress
     },
+    removeVideoMetaFiles: function () {
+      return this.$store.getters.getRemoveVideoMetaFiles
+    },
+
     profileList: function () {
       return this.$store.getters.getProfileList
     },
@@ -64,6 +68,13 @@ export default Vue.extend({
       }
 
       this.updateRememberHistory(value)
+    },
+
+    handleVideoMetaFiles: function (value) {
+      if (!value) {
+        this.updateRemoveVideoMetaFiles(false)
+      }
+      this.updateRemoveVideoMetaFiles(value)
     },
 
     handleRemoveHistory: function (option) {
@@ -102,6 +113,7 @@ export default Vue.extend({
 
     ...mapActions([
       'updateRememberHistory',
+      'updateRemoveVideoMetaFiles',
       'removeAllHistory',
       'updateSaveWatchedProgress',
       'clearSessionSearchHistory',
