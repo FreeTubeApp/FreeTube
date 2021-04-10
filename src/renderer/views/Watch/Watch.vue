@@ -18,7 +18,7 @@
           ref="videoPlayer"
           :dash-src="dashSrc"
           :source-list="activeSourceList"
-          :caption-list="captionSourceList"
+          :caption-hybrid-list="captionHybridList"
           :storyboard-src="videoStoryboardSrc"
           :format="activeFormat"
           :thumbnail="thumbnail"
@@ -27,6 +27,7 @@
           @ready="checkIfWatched"
           @ended="handleVideoEnded"
           @error="handleVideoError"
+          @store-caption-list="captionHybridList = $event"
         />
         <div
           v-if="!isLoading && isUpcoming"
