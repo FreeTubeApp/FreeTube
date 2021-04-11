@@ -178,7 +178,7 @@ Settings:
     Default Playback Rate: 'Скорост на възпроизвеждане'
     Default Video Format:
       Default Video Format: 'Видео формат'
-      Dash Formats: 'Dash формати'
+      Dash Formats: 'DASH формати'
       Legacy Formats: 'Стари формати'
       Audio Formats: 'Аудио формати'
     Default Quality:
@@ -533,6 +533,7 @@ Video:
     списък
   Video has been saved: Видеото е запазено
   Save Video: Запазване на видео
+  translated from English: преведено от английски
 Videos:
   #& Sort By
   Sort By:
@@ -560,10 +561,10 @@ Playlist:
 Toggle Theatre Mode: 'Режим "Широк екран"'
 Change Format:
   Change Video Formats: 'Смяна видео формати'
-  Use Dash Formats: 'Използване на Dash формати'
+  Use Dash Formats: 'Използване на DASH формати'
   Use Legacy Formats: 'Използване на стари формати'
   Use Audio Formats: 'Използване на аудио формати'
-  Dash formats are not available for this video: 'Dash форматите не са достъпни за
+  Dash formats are not available for this video: 'DASH форматите не са достъпни за
     това видео'
   Audio formats are not available for this video: 'Аудио форматите не са достъпни
     за това видео'
@@ -634,27 +635,27 @@ Tooltips:
       IP адреса, но не получава някои съпътстващи данни, като продължителност на видеото
       или дали е на живо
   Player Settings:
-    Default Video Format: Настройка на използваните формати. Dash форматите могат
+    Default Video Format: Настройка на използваните формати. DASH форматите могат
       да показват видеа с по-високо качество. Старите формати са ограничени до макс.
-      720р, но пък генерират по-малък трафик. Аудио форматите предават само звук
+      720р, но пък генерират по-малък трафик. Аудио форматите предават само звук.
     Proxy Videos Through Invidious: Ще се свърже с Invidious, за да изтегли видеото,
       вместо да прави дирекна връзка с YouTube. Пренебрегва настройките на локалния
-      интерфейс
+      интерфейс.
     Force Local Backend for Legacy Formats: Действа само когато по подразбиране е
       избран Invidious интерфейс. Когато е активиран, локалният интерфейс ще използва
       старите формати вместо тези на Invidious. Това помага когато видеата, получавани
-      от Invidious не вървят поради регионални ограничения
+      от Invidious не вървят поради регионални ограничения.
   General Settings:
     Region for Trending: Регионът на набиращите популярност дава възможност да се
       избере страната, за която това се отнася. Не всички страни показани тук се поддържат
-      от YouTube
+      от YouTube.
     Invidious Instance: Сървър на Invidious, към който FreeTube ще се свързва. Премахнете
-      настоящия избор, за да видите списък с други възможни сървъри
+      настоящия избор, за да видите списък с други възможни сървъри.
     Thumbnail Preference: Всички миниатюри във FreeTube ще бъдат подменени с кадър
-      от клипа вместо тези по подразбиране
+      от клипа вместо тези по подразбиране.
     Fallback to Non-Preferred Backend on Failure: Когато избраният интерфейс срещне
       проблем, FreeTube ще опита да премине автоматично към друг метод, ако има избран
-      такъв
+      такъв.
     Preferred API Backend: Избиране на начина, по който FreeTube получава данните.
       Локалният интерфейс има вградено извличане. Invidious интерфейсът изисква Invidious
       сървър, към който да се свърже.
