@@ -522,6 +522,7 @@ Video:
   Video has been saved: تم حفظ الفيديو
   Save Video: احفظ الفيديو
   Video has been removed from your saved list: تمت إزالة الفيديو من قائمتك المحفوظة
+  translated from English: مترجمة من الإنجليزية
 Videos:
   #& Sort By
   Sort By:
@@ -624,7 +625,7 @@ Tooltips:
       لInvidious (بديل لموقع يوتيوب) يتطلب التواصل مع خادم شبكة Invidious
     Invidious Instance: واجهة Invidious البرمجية المستخدمة من قبل FreeTube. امسح الواجهة
       البرمجية الحالية للاختيار من قائمة الواجهات
-    Fallback to Non-Preferred Backend on Failure: عند تواجد مشكلة مع الواجهة البرمجية
+    Fallback to Non-Preferred Backend on Failure: عند مواجهة مشكلة مع الواجهة البرمجية
       المفضلة لك، سوف يقوم فريتيوب باستخدام الواجهات الأخرى عند تفعيل هذا الخيار
     Region for Trending: يمكّنك اختيار الدولة من عرض الفيديوهات الشائعة التابعة للدولة
       التي تفضل . ليست كل البلدان المعروضة في هذه القائمة مدعومة من قبل يوتيوب
@@ -651,3 +652,6 @@ This video is unavailable because of missing formats. This can happen due to cou
   الفيديو غير متوفر لفقدان بعض التنسيقات. من الممكن لهذا أن يحدث بسبب الحظر في دولة
   معيّنة.
 More: المزيد
+Playing Next Video Interval: تشغيل الفيديو التالي في أي وقت من الأوقات. انقر للإلغاء.
+  | يتم تشغيل الفيديو التالي في غضون {nextVideoInterval} ثانية. انقر للإلغاء. | يتم
+  تشغيل الفيديو التالي بعد {nextVideoInterval} ثانية. انقر للإلغاء.
