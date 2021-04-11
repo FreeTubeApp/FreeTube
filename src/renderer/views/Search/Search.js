@@ -139,7 +139,6 @@ export default Vue.extend({
         const dataToShow = []
         returnData.forEach((video) => {
           if (video.type === 'video') {
-            console.log(video)
             const authId = video.author.channelID
             const publishDate = video.uploadedAt
             let videoDuration = video.duration
