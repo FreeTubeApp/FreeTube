@@ -170,7 +170,7 @@ Settings:
     Default Playback Rate: 'Standardna brzina reprodukcije'
     Default Video Format:
       Default Video Format: 'Standardni videoformat'
-      Dash Formats: 'Dash formati'
+      Dash Formats: 'DASH formati'
       Legacy Formats: 'Stari formati'
       Audio Formats: 'Audioformati'
     Default Quality:
@@ -507,7 +507,7 @@ Video:
     Upcoming: 'Premijera'
   Published on: 'Objavljeno'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'prije $ %'
+  Publicationtemplate: 'prije $ %'
 #& Videos
   Autoplay: Automatska reprodukcija
   Play Previous Video: Reproduciraj prethodni video
@@ -535,6 +535,7 @@ Video:
     spremljenih
   Video has been saved: Video je spremljen
   Save Video: Spremi video
+  translated from English: prevedeno iz engleskog
 Videos:
   #& Sort By
   Sort By:
@@ -562,12 +563,12 @@ Playlist:
 Toggle Theatre Mode: 'Uključi/isključi kazališni modus'
 Change Format:
   Change Video Formats: 'Promijeni videoformate'
-  Use Dash Formats: 'Koristi Dash-formate'
+  Use Dash Formats: 'Koristi DASH formate'
   Use Legacy Formats: 'Koristi stare formate'
   Use Audio Formats: 'Koristi audioformate'
   Audio formats are not available for this video: Audioformati nisu dostupni za ovaj
     video
-  Dash formats are not available for this video: Dash formati nisu dostupni za ovaj
+  Dash formats are not available for this video: DASH formati nisu dostupni za ovaj
     video
 Share:
   Share Video: 'Dijeli video'
@@ -637,29 +638,29 @@ This video is unavailable because of missing formats. This can happen due to cou
   u zemlji.
 Tooltips:
   Player Settings:
-    Default Video Format: Postavi formate za reprodukciju videa. Dash formati mogu
+    Default Video Format: Postavi formate za reprodukciju videa. DASH formati mogu
       reproducirati višu kvalitetu slike. Stari formati su ograničeni na 720 p, ali
-      su zato brži. Audioformati sadrže samo audiosnimke
+      su zato brži. Audioformati sadrže samo audiosnimke.
     Proxy Videos Through Invidious: Za reprodukciju videa povezat će se s Invidiousom
-      umjesto izravnog povezivanja s YouTubeom. Zanemaruje postavke sučelja
+      umjesto izravnog povezivanja s YouTubeom. Zanemaruje postavke sučelja.
     Force Local Backend for Legacy Formats: Radi samo, kad se Invidious postavi kao
       standardno sučelje. Kad je aktivirano, lokalno sučelje će pokretati i koristiti
       stare formate umjesto onih koje dostavlja Invidious. Pomaže u slučajevima, kad
-      je reprodukcija videa koje dostavlja Invidious u zemlji zabranjena/ograničena
+      je reprodukcija videa koje dostavlja Invidious u zemlji zabranjena/ograničena.
   General Settings:
     Invidious Instance: Invidious primjerak na koji će se FreeTube povezati za pozive
       sučelja. Isprazni trenutačni primjerak za prikaz popisa javnih primjeraka koje
-      možeš odabrati
+      možeš odabrati.
     Thumbnail Preference: U FreeTubeu će se sve minijature zamijeniti s jednim kadrom
-      videa umjesto standardne minijature
+      videa umjesto standardne minijature.
     Fallback to Non-Preferred Backend on Failure: Ako primarno odabrano sučelje ima
       problema, FreeTube će automatski pokušati koristiti sekundarno sučelje kao zamjensku
-      metodu, ako je aktivirano
+      metodu, ako je aktivirano.
     Preferred API Backend: Odaberi pozadinski sustav koji FreeTube koristi za dobivanje
       podataka. Lokalno sučelje je ugrađeni sustav. Invidious sučelje zahtijeva Invidious
       poslužitelja na koji će se povezati.
     Region for Trending: 'Regija trendova omogućuje biranje prikaza videa u trendu
-      za određenu zemlju. YouTube zapravo ne podržava sve prikazane zemlje'
+      za određenu zemlju. YouTube zapravo ne podržava sve prikazane zemlje.'
   Subscription Settings:
     Fetch Feeds from RSS: Kad je aktivirano, FreeTube će koristiti RSS umjesto vlastite
       standardne metode za dohvaćanje podataka tvoje pretplate. RSS je brži i sprečava
