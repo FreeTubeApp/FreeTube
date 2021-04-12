@@ -180,7 +180,8 @@ Settings:
     Default Playback Rate: 'Alapértelmezett lejátszási sebesség'
     Default Video Format:
       Default Video Format: 'Alapértelmezett videóformátum'
-      Dash Formats: 'Kötőjel formátumok'
+      Dash Formats: 'DASH (Dinamikus adaptív sávszélességű folyamatos átvitel HTTP-n
+        keresztül) formátumok'
       Legacy Formats: 'Örökölt formátumok'
       Audio Formats: 'Hangformátumok'
     Default Quality:
@@ -515,7 +516,7 @@ Video:
     Upcoming: 'Az első előadás hamarosan lesz'
   Published on: 'Megjelent'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % ezelőtt'
+  Publicationtemplate: '$ % ezelőtt'
 #& Videos
   Audio:
     Best: Legjobb
@@ -534,6 +535,7 @@ Video:
   Video has been removed from your saved list: A videót eltávolítottuk a mentett listáról
   Video has been saved: A videó mentve
   Save Video: Videó mentése
+  translated from English: angolról fordítva
 Videos:
   #& Sort By
   Sort By:
@@ -561,11 +563,13 @@ Playlist:
 Toggle Theatre Mode: 'Mozi mód be-/kikapcsolása'
 Change Format:
   Change Video Formats: 'Videoformátumok módosítása'
-  Use Dash Formats: 'Kötőjel formátumok használata'
+  Use Dash Formats: 'DASH (Dinamikus adaptív sávszélességű folyamatos átvitel HTTP-n
+    keresztül) formátumok használata'
   Use Legacy Formats: 'Örökölt formátumok használata'
   Use Audio Formats: 'Hangformátumok használata'
-  Dash formats are not available for this video: 'Kötőjel formátumok nem állnak rendelkezésre
-    ehhez a videóhoz'
+  Dash formats are not available for this video: 'DASH (Dinamikus adaptív sávszélességű
+    folyamatos átvitel HTTP-n keresztül) formátumok nem állnak rendelkezésre ehhez
+    a videóhoz'
   Audio formats are not available for this video: 'Hangformátumok nem érhetők el ehhez
     a videóhoz'
 Share:
@@ -638,15 +642,15 @@ Tooltips:
       használatához Invidious-kiszolgáló szükséges.
     Region for Trending: A népszerűk körzetével kiválaszthatja, mely ország népszerű
       videóit szeretné megjeleníteni. Nem minden megjelenített országot támogat a
-      YouTube
+      YouTube.
     Invidious Instance: Invidious példány, amelyhez a FreeTube csatlakozni fog az
       API-hívásokhoz. Törölje az aktuális példányt a nyilvános példányok listájának
-      megjelenítéséhez
+      megjelenítéséhez.
     Thumbnail Preference: A FreeTube összes miniatűrökét az alapértelmezett miniatűr
-      helyett egy képkocka váltja fel
+      helyett egy képkocka váltja fel.
     Fallback to Non-Preferred Backend on Failure: Ha az Ön által előnyben részesített
       API-val hibába merül fel, a FreeTube önműködően megpróbálja a nem előnyben API-t
-      tartalékként használni, ha engedélyezve van
+      tartalékként használni, ha engedélyezve van.
   Subscription Settings:
     Fetch Feeds from RSS: Ha engedélyezve van, a FreeTube az alapértelmezett módszer
       helyett RSS-t fog használni a feliratkozás hírcsatornájának megragadásához.
@@ -654,17 +658,18 @@ Tooltips:
       például a videó időtartamát vagy az élő állapotot
   Player Settings:
     Default Video Format: Állítsa be a videó lejátszásakor használt formátumokat.
-      A kötőjel formátumok magasabb minőséget játszhatnak le. Az örökölt formátumok
-      legfeljebb 720 képpontra korlátozódnak, de kevesebb sávszélességet használnak.
-      A hangformátumok csak hang-adatfolyamok
+      A DASH (dinamikus adaptív sávszélességű folyamatos átvitel HTTP-n keresztül)
+      formátumok magasabb minőséget játszhatnak le. Az örökölt formátumok legfeljebb
+      720 képpontra korlátozódnak, de kevesebb sávszélességet használnak. A hangformátumok
+      csak hang-adatfolyamok.
     Proxy Videos Through Invidious: Csatlakozik az Invidious szolgáltatáshoz, hogy
       videókat szolgáltasson, ahelyett, hogy közvetlen kapcsolatot létesítene a YouTube
-      szolgáltatással. Felülbírálja az API beállítást
+      szolgáltatással. Felülbírálja az API beállítást.
     Force Local Backend for Legacy Formats: Csak akkor működik, ha az Invidious API
       az alapértelmezett. Ha engedélyezve van, a helyi API futni fog, és az általa
       visszaadott örökölt formátumokat fogja használni az Invidious által visszaadottak
       helyett. Segít, ha az Invidious által visszaküldött videókat nem lehet lejátszani
-      az ország korlátozása miatt
+      az ország korlátozása miatt.
   Privacy Settings:
     Remove Video Meta Files: Ha engedélyezve van, a FreeTube önműködőén törli a videolejátszás
       során létrehozott métafájlokat, amikor a nézési oldal bezárul.
