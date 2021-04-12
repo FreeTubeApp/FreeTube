@@ -479,8 +479,9 @@ Video:
   Streamed on: 'Streymt'
   Started streaming on: 'Byrjaði streymi'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % síðan'
+  Publicationtemplate: 'Fyrir $ % síðan'
 #& Videos
+  translated from English: þýtt úr ensku
 Videos:
   #& Sort By
   Sort By:
@@ -561,27 +562,27 @@ Tooltips:
       tengingar við Invidious-netþjón.'
     Fallback to Non-Preferred Backend on Failure: 'Þegar forgangsbakendi API-kerfisviðmóts
       á í vandræðum, mun FreeTube reyna sjálfkrafa að nota ekki-forgangsbakenda API-kerfisviðmóts
-      sem varaleið, þegar þetta er virkjað'
+      sem varaleið, þegar þetta er virkjað.'
     Thumbnail Preference: 'Öllum smámyndum í FreeTube verður skipt út fyrir ramma
-      með myndskeiðinu í stað sjálfgefinnar smámyndar'
+      með myndskeiðinu í stað sjálfgefinnar smámyndar.'
     Invidious Instance: 'Tilvik Invidious-netþjóns sem FreeTube mun tengjast fyrir
       beðnir í API-kerfisviðmót. Hreinsaðu út fyrirliggjandi tilvik til að sjá lista
-      yfir opinber tilvik sem hægt er að velja um'
+      yfir opinber tilvik sem hægt er að velja um.'
     Region for Trending: 'Landssvæði sem skal miða vinsældir við gerir þér kleift
       að velja í hvaða landi aukning á vinsældum í umræðunni skal miða við. Ekki eru
-      öll löndin sem birtast raunverulega studd af YouTube'
+      öll löndin sem birtast raunverulega studd af YouTube.'
   Player Settings:
     Force Local Backend for Legacy Formats: 'Virkar bara þegar Invidious API-kerfisviðmótið
       er sjálfgefið hjá þér. Þegar þetta er virkt, mun staðværa API-kerfisviðmótið
       keyra og nota þau eldri skráasnið sem finnast í stað þeirra sem Invidious gefur
       upp. Hjálpar til þegar myndskeið sem Invidious gefur upp spilast ekki vegna
-      landsháðra takmarkana'
+      landsháðra takmarkana.'
     Proxy Videos Through Invidious: 'Mun tengjast við Invidious til að miðla myndskeiðum
-      í stað þess að tengjast beint við YouTube. Tekur fram fyrir valin API-kerfisviðmót'
+      í stað þess að tengjast beint við YouTube. Tekur fram fyrir valin API-kerfisviðmót.'
     Default Video Format: 'Stillu skráasniðin sem notuð eru við afspilun myndskeiða.
       DASH-snið (Dynamic Adaptive Streaming over HTTP) er hægt að spila í meiri gæðum.
       Eldri snið takmarkast við 720p en nota minni bandbreidd. Hljóðsnið eru streymi
-      einungis með hljóði'
+      einungis með hljóði.'
   Subscription Settings:
     Fetch Feeds from RSS: 'Þegar þetta er virkt, mun FreeTube nota RSS í stað sjálfgefinnar
       aðferðar við að safna streymi áskriftarinnar þinnar. RSS er hraðvirkara og kemur
