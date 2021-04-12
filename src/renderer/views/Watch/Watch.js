@@ -385,14 +385,17 @@ export default Vue.extend({
                   .captionTracks
 
               if (typeof captionTracks !== 'undefined') {
-                const standardLocale = localStorage.getItem('locale').replace('_', '-')
-                const noLocaleCaption = !captionTracks.some(track =>
-                  track.languageCode === standardLocale && track.kind !== 'asr'
-                )
+                const locale = localStorage.getItem('locale')
+                if (locale !== null) {
+                  const standardLocale = locale.replace('_', '-')
+                  const noLocaleCaption = !captionTracks.some(track =>
+                    track.languageCode === standardLocale && track.kind !== 'asr'
+                  )
 
-                if (!standardLocale.startsWith('en') && noLocaleCaption) {
-                  const baseUrl = result.player_response.captions.playerCaptionsRenderer.baseUrl
-                  this.tryAddingTranslatedLocaleCaption(captionTracks, standardLocale, baseUrl)
+                  if (!standardLocale.startsWith('en') && noLocaleCaption) {
+                    const baseUrl = result.player_response.captions.playerCaptionsRenderer.baseUrl
+                    this.tryAddingTranslatedLocaleCaption(captionTracks, standardLocale, baseUrl)
+                  }
                 }
 
                 this.captionHybridList = this.createCaptionPromiseList(captionTracks)
