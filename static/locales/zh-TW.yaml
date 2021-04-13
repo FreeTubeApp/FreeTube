@@ -161,7 +161,7 @@ Settings:
     Default Playback Rate: '預設播放速度'
     Default Video Format:
       Default Video Format: '預設影片格式'
-      Dash Formats: '儀錶盤格式'
+      Dash Formats: 'DASH 格式'
       Legacy Formats: '傳統格式'
       Audio Formats: '音訊格式'
     Default Quality:
@@ -453,6 +453,7 @@ Video:
   Video has been removed from your saved list: 影片已從您的播放清單移除
   Video has been saved: 影片已儲存
   Save Video: 儲存影片至播放清單
+  translated from English: 從英文翻譯
 Videos:
   #& Sort By
   Sort By:
@@ -480,11 +481,11 @@ Playlist:
 Toggle Theatre Mode: '切換為劇院模式'
 Change Format:
   Change Video Formats: '變更影片格式'
-  Use Dash Formats: '使用儀錶盤格式'
+  Use Dash Formats: '使用 DASH 格式'
   Use Legacy Formats: '使用傳統格式'
   Use Audio Formats: '使用音訊格式'
   Audio formats are not available for this video: 這個影片沒有音訊格式
-  Dash formats are not available for this video: 這個影片沒有儀錶盤格式
+  Dash formats are not available for this video: 這個影片沒有 DASH 格式
 Share:
   Share Video: '分享影片'
   Copy Link: '複製連結'
@@ -585,18 +586,18 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 啟用後，FreeTube將使用RSS代替它的預設方法來抓取您的訂閱來源。RSS的速度較快，而且可以防止IP封鎖，但它可能不會提供某些資訊，例如影片長度或是直播狀態。
   Player Settings:
-    Default Video Format: 設定要用於影片播放的格式。儀錶盤格式有更高的畫質。傳統格式會限制在 720p 但頻寬需求更低。音訊格式為僅有音訊的串流
-    Proxy Videos Through Invidious: 將連線到 Invidious而非直接連線到 YouTube 來提供影片。覆寫 API 偏好
-    Force Local Backend for Legacy Formats: 僅當 Invidious API是您預設 API 時才有效。啟用後，區域 API
-      將會執行並使用由其回傳的的傳統格式，而非 Invidious 回傳的格式。對因為國家地區限制而無法播放 Invidious回傳的影片時有幫助
+    Default Video Format: 設定要用於影片播放的格式。DASH 格式有更高的畫質。傳統格式會限制在 720p 但頻寬需求更低。音訊格式為僅有音訊的串流。
+    Proxy Videos Through Invidious: 將連線到 Invidious 而非直接連線到 YouTube 來提供影片。覆寫 API 偏好。
+    Force Local Backend for Legacy Formats: 僅當 Invidious API 是您預設 API 時才有效。啟用後，區域
+      API 將會執行並使用由其回傳的的傳統格式，而非 Invidious 回傳的格式。對因為國家地區限制而無法播放 Invidious 回傳的影片時有幫助。
   General Settings:
-    Invidious Instance: FreeTube將連線為 API呼叫的Invidious實例。清除目前的實例以檢視可供選擇的公用實例清單
-    Thumbnail Preference: FreeTube中所有縮圖都會被替換為影片畫面而非預設縮圖
-    Fallback to Non-Preferred Backend on Failure: 當您的偏好API 有問題時，FreeTube將自動嘗試使用您的非偏好API
-      作為汰退方案
+    Invidious Instance: FreeTube 將連線到 Invidious 站台進行 API 呼叫。清除目前的站台以檢視可供選擇的公開站台清單。
+    Thumbnail Preference: FreeTube 中所有縮圖都會被替換為影片畫面而非預設縮圖。
+    Fallback to Non-Preferred Backend on Failure: 當您的偏好 API 有問題時，FreeTube 將自動嘗試使用您的非偏好
+      API 作為汰退方案。
     Preferred API Backend: 選擇 FreeTube 要用於取得YouTube資料的伺服器。本地 API 是內建擷取器。Invidious
       API 需要 Invidious 伺服器才能連線。
-    Region for Trending: 發燒影片區域可以讓您選擇想要顯示哪個國家的發燒影片。 注意:並非所有國家都被YouTube支援
+    Region for Trending: 熱門影片區域可以讓您選擇想要顯示哪個國家的熱門影片。注意：並非所有國家都被 YouTube 支援。
   Privacy Settings:
     Remove Video Meta Files: 如果啟用，FreeTube會在關閉觀看頁面時，自動刪除影片播放過程中建立的暫存檔案。
 Playing Next Video Interval: 馬上播放下一個影片。點擊取消。| 播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。|
