@@ -46,6 +46,7 @@ export default Vue.extend({
       relatedChannels: [],
       latestVideos: [],
       latestPlaylists: [],
+      latestCommunityPosts: [],
       searchResults: [],
       shownElementList: [],
       apiUsed: '',
@@ -179,6 +180,7 @@ export default Vue.extend({
             this.getChannelInfoLocal()
             this.getChannelVideosLocal()
             this.getPlaylistsLocal()
+            this.getCommunityPostsLocal()
             break
           case 'invidious':
             this.getChannelInfoInvidious()
@@ -232,6 +234,7 @@ export default Vue.extend({
           this.getChannelInfoLocal()
           this.getChannelVideosLocal()
           this.getPlaylistsLocal()
+          this.getCommunityPostsLocal()
           break
         case 'invidious':
           this.getChannelInfoInvidious()
@@ -494,6 +497,16 @@ export default Vue.extend({
           this.isLoading = false
         }
       })
+    },
+
+    getCommunityPostsLocal: function () {
+      ytch.getChannelCommunityPosts(this.id).then((response) => {
+        console.log('Communitypage', response)
+      })
+    },
+
+    getCommunityPostsLocalMore: function () {
+
     },
 
     handleSubscription: function () {
