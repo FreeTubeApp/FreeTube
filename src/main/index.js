@@ -31,6 +31,7 @@ function runApp() {
   const isDev = process.env.NODE_ENV === 'development'
   const isDebug = process.argv.includes('--debug')
   let mainWindow
+  let openedWindows = []
   let startupUrl
 
   // CORS somehow gets re-enabled in Electron v9.0.4
@@ -219,11 +220,11 @@ function runApp() {
     }
   }
 
-  function createWindow (useProxy = false, proxyUrl = '') {
+  function createWindow (useProxy = false, proxyUrl = '', replaceMainWindow = true) {
     /**
      * Initial window options
      */
-    mainWindow = new BrowserWindow({
+    const newWindow = new BrowserWindow({
       backgroundColor: '#fff',
       icon: isDev
         ? path.join(__dirname, '../../_icons/iconColor.png')
@@ -241,14 +242,18 @@ function runApp() {
       },
       show: false
     })
+    openedWindows.push(newWindow)
+    if (replaceMainWindow) {
+      mainWindow = newWindow
+    }
 
-    mainWindow.setBounds({
+    newWindow.setBounds({
       width: 1200,
       height: 800
     })
 
     if (useProxy) {
-      mainWindow.webContents.session.setProxy({
+      newWindow.webContents.session.setProxy({
         proxyRules: proxyUrl
       })
     }
@@ -260,7 +265,7 @@ function runApp() {
       'http://youtube.com',
       'https://youtube.com'
     ].forEach(url => {
-      mainWindow.webContents.session.cookies.set({
+      newWindow.webContents.session.cookies.set({
         url: url,
         name: 'CONSENT',
         value: 'YES+'
@@ -284,7 +289,7 @@ function runApp() {
         .reduce((accumulator, { size: { width } }) => accumulator + width, 0)
 
       if (allDisplaysSummaryWidth >= bounds.x) {
-        mainWindow.setBounds({
+        newWindow.setBounds({
           x: bounds.x,
           y: bounds.y,
           width: bounds.width,
@@ -292,19 +297,23 @@ function runApp() {
         })
       }
       if (maximized) {
-        mainWindow.maximize()
+        newWindow.maximize()
       }
     })
 
-    // eslint-disable-next-line
-    setMenu()
+    // If called multiple times
+    // Duplicate menu items will be added
+    if (replaceMainWindow) {
+      // eslint-disable-next-line
+      setMenu()
+    }
 
     // load root file/url
     if (isDev) {
-      mainWindow.loadURL('http://localhost:9080')
+      newWindow.loadURL('http://localhost:9080')
     } else {
       /* eslint-disable-next-line */
-      mainWindow.loadFile(`${__dirname}/index.html`)
+      newWindow.loadFile(`${__dirname}/index.html`)
 
       global.__static = path
         .join(__dirname, '/static')
@@ -312,73 +321,86 @@ function runApp() {
     }
 
     // Show when loaded
-    mainWindow.on('ready-to-show', () => {
-      mainWindow.show()
-      mainWindow.focus()
+    newWindow.on('ready-to-show', () => {
+      newWindow.show()
+      newWindow.focus()
     })
 
-    mainWindow.on('closed', () => {
+    newWindow.on('closed', () => {
+      // Remove closed window
+      openedWindows = openedWindows.filter((window) => window !== newWindow)
+      if (newWindow === mainWindow) {
+        // Replace mainWindow to avoid accessing `mainWindow.webContents`
+        // Which raises "Object has been destroyed" error
+        mainWindow = openedWindows[0]
+      }
+
       console.log('closed')
     })
-
-    ipcMain.on('setBounds', (_e, data) => {
-      const value = {
-        ...mainWindow.getNormalBounds(),
-        maximized: mainWindow.isMaximized()
-      }
-
-      settingsDb.findOne({
-        _id: 'bounds'
-      }, function (err, doc) {
-        if (err) {
-          return
-        }
-        if (doc !== null) {
-          settingsDb.update({
-            _id: 'bounds'
-          }, {
-            $set: {
-              value
-            }
-          }, {})
-        } else {
-          settingsDb.insert({
-            _id: 'bounds',
-            value
-          })
-        }
-      })
-    })
-
-    ipcMain.on('appReady', () => {
-      if (startupUrl) {
-        mainWindow.webContents.send('openUrl', startupUrl)
-      }
-    })
-
-    ipcMain.on('disableSmoothScrolling', () => {
-      app.commandLine.appendSwitch('disable-smooth-scrolling')
-      mainWindow.close()
-      createWindow()
-    })
-
-    ipcMain.on('enableSmoothScrolling', () => {
-      app.commandLine.appendSwitch('enable-smooth-scrolling')
-      mainWindow.close()
-      createWindow()
-    })
-
-    ipcMain.on('enableProxy', (event, url) => {
-      console.log(url)
-      mainWindow.webContents.session.setProxy({
-        proxyRules: url
-      })
-    })
-
-    ipcMain.on('disableProxy', () => {
-      mainWindow.webContents.session.setProxy({})
-    })
   }
+
+  // Save closing window bounds & maximized status
+  ipcMain.on('setBounds', (_e, data) => {
+    const value = {
+      ...mainWindow.getNormalBounds(),
+      maximized: mainWindow.isMaximized()
+    }
+
+    settingsDb.findOne({
+      _id: 'bounds'
+    }, function (err, doc) {
+      if (err) {
+        return
+      }
+      if (doc !== null) {
+        settingsDb.update({
+          _id: 'bounds'
+        }, {
+          $set: {
+            value
+          }
+        }, {})
+      } else {
+        settingsDb.insert({
+          _id: 'bounds',
+          value
+        })
+      }
+    })
+  })
+
+  ipcMain.on('appReady', () => {
+    if (startupUrl) {
+      mainWindow.webContents.send('openUrl', startupUrl)
+    }
+  })
+
+  ipcMain.on('disableSmoothScrolling', () => {
+    app.commandLine.appendSwitch('disable-smooth-scrolling')
+    mainWindow.close()
+    createWindow()
+  })
+
+  ipcMain.on('enableSmoothScrolling', () => {
+    app.commandLine.appendSwitch('enable-smooth-scrolling')
+    mainWindow.close()
+    createWindow()
+  })
+
+  ipcMain.on('enableProxy', (event, url) => {
+    console.log(url)
+    mainWindow.webContents.session.setProxy({
+      proxyRules: url
+    })
+  })
+
+  ipcMain.on('disableProxy', () => {
+    mainWindow.webContents.session.setProxy({})
+  })
+
+  ipcMain.on('createNewWindow', () => {
+    createWindow(false, '', false)
+  })
 
   app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
