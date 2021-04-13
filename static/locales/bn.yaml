@@ -22,19 +22,21 @@ Toggle Developer Tools: 'ডেভেলপার যন্ত্র টগল �
 Actual size: 'প্রকৃত আকার'
 Zoom in: 'সম্প্রসারিত করো (জুম)'
 Zoom out: 'সংকুচিত করো(জুম)'
-Toggle fullscreen: ''
+Toggle fullscreen: 'পূর্ণ-স্ক্রিন'
 Window: 'উইন্ডো'
-Minimize: ''
-Close: ''
-Back: ''
-Forward: ''
+Minimize: 'ক্ষুদ্রকরণ'
+Close: 'বন্ধ'
+Back: 'পিছনে'
+Forward: 'সামনে'
 
-Version $ is now available!  Click for more details: ''
-Download From Site: ''
-A new blog is now available, $. Click to view more: ''
+Version $ is now available!  Click for more details: 'সংস্করণ $ এসে গেছে!  আরো জানতে
+  টিপ দাও'
+Download From Site: 'সাইট থেকে ডাউনলোড করো'
+A new blog is now available, $. Click to view more: 'নতুন ব্লগ আছে, $. আরো দেখতে টিপ
+  দাও'
 
 # Search Bar
-Search / Go to URL: ''
+Search / Go to URL: 'অনুসন্ধান / ইউআরএলে যাও'
   # In Filter Button
 Search Filters:
   Search Filters: ''
@@ -86,7 +88,7 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: ''
 History:
   # On History Page
-  History: ''
+  History: 'ইতিহাস'
   Watch History: ''
   Your history list is currently empty.: ''
 Settings:
