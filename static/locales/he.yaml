@@ -171,7 +171,7 @@ Settings:
     Default Playback Rate: 'ברירת המחדל למהירות הצפייה'
     Default Video Format:
       Default Video Format: 'תצורת הסרטונים כברירת־המחדל'
-      Dash Formats: 'תצורות Dash'
+      Dash Formats: 'תצורות DASH'
       Legacy Formats: 'תצורות מיושנות'
       Audio Formats: 'תצורות שמע'
     Default Quality:
@@ -186,6 +186,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Playlist Next Video Interval: מרווח זמן לפני ניגון הסרטון הבא בפלייליסט
   Privacy Settings:
     Privacy Settings: 'הגדרות פרטיות'
     Remember History: 'זכור את היסטוריית הצפייה'
@@ -281,6 +282,7 @@ Settings:
     Distraction Free Settings: הגדרות להשבתת הסחות
     Hide Video Views: הסתרת תצוגות סרטונים
     Hide Active Subscriptions: הסתרת מינויים פעילים
+    Hide Playlists: הסתרת פלייליסטים
   The app needs to restart for changes to take effect. Restart and apply change?: צריך
     להפעיל את היישומון מחדש כדי שהשינויים ייכנסו לתוקף. להפעיל מחדש ולהחיל את השינוי?
   Proxy Settings:
@@ -497,7 +499,7 @@ Video:
     Upcoming: 'שידור הבכורה ישודר ב־'
   Published on: 'פורסם'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'לפני $ %'
+  Publicationtemplate: 'לפני $ %'
 #& Videos
   Audio:
     Best: איכות הכי טובה
@@ -543,10 +545,10 @@ Playlist:
 Toggle Theatre Mode: 'הפעלו / בטלו מצב קולנוע'
 Change Format:
   Change Video Formats: 'שינוי תצורות הסרטונים'
-  Use Dash Formats: 'שימוש בתצורות Dash'
+  Use Dash Formats: 'שימוש בתצורות DASH'
   Use Legacy Formats: 'שימוש בתצורות המיושנות'
   Use Audio Formats: 'שימוש בתצורות שמע'
-  Dash formats are not available for this video: 'לא קיימות תצורות Dash לסרטון הזה'
+  Dash formats are not available for this video: 'לא קיימות תצורות DASH לסרטון הזה'
   Audio formats are not available for this video: 'לא קיימות תצורות שמע לסרטון הזה'
 Share:
   Share Video: 'שתפו את הסרטון'
@@ -610,15 +612,15 @@ Tooltips:
   General Settings:
     Fallback to Non-Preferred Backend on Failure: כאשר ל־API המועדף עליך יש בעיה,
       FreeTube ינסה להשתמש ב־API בעדיפות הנמוכה יותר באופן אוטומטי כשיטת נסיגה כאשר
-      האפשרות פעילה
+      האפשרות פעילה.
     Preferred API Backend: נא לבחור את המנגנון לשימוש FreeTube כדי לקבל נתונים. ה־API
       המקומי הוא מחלץ מובנה. ה־API של Invidious דורש התחברות לשרת Invidious.
     Region for Trending: מגמות אזוריות מאפשר לך לבחור סרטונים חמים של איזו מדינה מעניין
       אותך לראות. לא כל המדינות שמוצגות אכן נתמכות על ידי YouTube
     Invidious Instance: העותק של Invidious שאליו FreeTube יתחבר לפניות API. מחיקת
       העותק הנוכחי תעלה רשימה של עותקים ציבוריים לבחור מביניהם
-    Thumbnail Preference: כל התמונות הייצוגיות ברחבי FreeTube תוחלפנה בתמונית מתוך
-      הסרטון במקום התמונה הייצוגית כבררת המחדל
+    Thumbnail Preference: כל התמונות הממוזערות ברחבי FreeTube יוחלפו בפריים מתוך הסרטון
+      במקום התמונה הממוזערת כברירת המחדל.
   Player Settings:
     Force Local Backend for Legacy Formats: עובד רק כאשר ה־API של Invidious הוא ברירת
       המחדל שלך. כאשר האפשרות פעילה, ה־API המקומי יופעל וישתמש בתצורות המיושנות שהוחזרו
@@ -626,9 +628,9 @@ Tooltips:
       ידי Invidious לא מתנגנים עקב מגבלות חוקיות במדינה
     Proxy Videos Through Invidious: יתבצע חיבור ל־Invidious כדי להגיש סרטונים במקום
       להתחבר ישירות ל־YouTube. דורס את העדפת ה־API
-    Default Video Format: קביעת התצורות בעת ניגון סרטונים. תצורות Dash יכולות לנגן
+    Default Video Format: קביעת התצורות בעת ניגון סרטונים. תצורות DASH יכולות לנגן
       באיכויות גבוהות יותר. התצורות המיושנות מוגבלות ל־720 פיקסלים לכל היותר אך משתמשות
-      בפחות רוחב פס. תצורות שמע הן הזרמות של שמע בלבד
+      בפחות רוחב פס. תצורות שמע הן הזרמות של שמע בלבד.
   Subscription Settings:
     Fetch Feeds from RSS: כאשר אפשרות זו פעילה. FreeTube ישתמש ב־RSS במקום בשיטת ברירת
       המחדל לאיסוף הזנת המינויים שלך. RSS היא שיטה מהירה יותר ומונעת חסימת IP אבל
