@@ -177,7 +177,7 @@ Settings:
     Default Playback Rate: 'Výchozí rychlost přehrávání'
     Default Video Format:
       Default Video Format: 'Výchozí formát videa'
-      Dash Formats: 'Formát Dash'
+      Dash Formats: 'Formát DASH'
       Legacy Formats: 'Starší formáty'
       Audio Formats: 'Zvukové formáty'
     Default Quality:
@@ -514,7 +514,7 @@ Video:
     Upcoming: 'Premiéra'
   Published on: 'Publikováno'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'před $ %'
+  Publicationtemplate: 'před $ %'
 #& Videos
   Started streaming on: Začátek vysílání
   Streamed on: Vysíláno
@@ -522,6 +522,7 @@ Video:
   Save Video: Uložit video
   Video has been removed from your saved list: Video bylo odstraněno z vašeho uloženého
     seznamu
+  translated from English: přeloženo z angličtiny
 Videos:
   #& Sort By
   Sort By:
@@ -549,10 +550,10 @@ Playlist:
 Toggle Theatre Mode: 'Přepnout režim divadla'
 Change Format:
   Change Video Formats: 'Změnit formát videa'
-  Use Dash Formats: 'Použít Dash formáty'
+  Use Dash Formats: 'Použít DASH formáty'
   Use Legacy Formats: 'Použít starší formáty'
   Use Audio Formats: 'Použít zvukové formáty'
-  Dash formats are not available for this video: 'Dash formáty nejsou pro toto video
+  Dash formats are not available for this video: 'DASH formáty nejsou pro toto video
     dostupné'
   Audio formats are not available for this video: 'Zvukové formáty nejsou pro toto
     video dostupné'
@@ -606,25 +607,26 @@ Tooltips:
       Invidious.'
     Fallback to Non-Preferred Backend on Failure: 'Pokud má vaše preferované API problém,
       FreeTube se automaticky pokusí použít vaše nepreferované API jako záložní metodu,
-      pokud je povoleno'
-    Thumbnail Preference: 'Všechny miniatury v celém FreeTube budou nahrazeny rámečkem
-      videa namísto výchozí miniatury'
-    Invidious Instance: 'Invidious instance, ke které se FreeTube připojí pro volání
-      API. Smazáním aktuální instance zobrazíte seznam veřejných instancí, ze kterých
-      si můžete vybrat'
-    Region for Trending: 'Region trendů vám umožní vybrat si videa trendů jednotlivých
-      zemí, které chcete zobrazit. Ne všechny zobrazené země ale YouTube aktuálně
-      podporuje'
+      pokud je povoleno.'
+    Thumbnail Preference: 'Všechny miniatury v celém FreeTube budou nahrazeny snímkem
+      z videa namísto výchozí miniatury.'
+    Invidious Instance: 'Invidious instance, ke které se FreeTube připojí za účelem
+      volání API. Smazáním aktuální instance zobrazíte seznam veřejných instancí,
+      ze kterých si můžete vybrat.'
+    Region for Trending: 'Region trendů vám umožní vybrat si zemi, ze které si přejete
+      zobrazovat videa trendů. Ne všechny zobrazené země jsou ale službou YouTube
+      reálně podporovány.'
   Player Settings:
     Force Local Backend for Legacy Formats: 'Funguje pouze v případě, že je výchozím
       nastavením API Invidious. Je-li povoleno, spustí se místní API a použije starší
-      formáty místo těch, které vrátí Invidious. V některých zemích je zakázáno přehrání,
-      toto může překonat toto omezení'
+      formáty místo těch, které vrátí Invidious. Může pomoci, pokud videa z Invidious
+      nemohou být přehrána kvůli regionálnímu omezení.'
     Proxy Videos Through Invidious: 'Připojí se k Invidious, aby poskytoval videa
-      namísto přímého připojení k YouTube. Toto přepíše předvolby API'
+      namísto přímého připojení k YouTube. Toto přepíše předvolby API.'
     Default Video Format: 'Nastavte formáty použité při přehrávání videa. Formáty
-      Dash mohou hrát vyšší kvality. Starší formáty jsou omezeny na maximálně 720p,
-      ale používají menší šířku pásma. Zvukové formáty jsou pouze zvukové streamy'
+      DASH umožní přehrávat vyšší kvality. Starší formáty jsou omezeny na maximálně
+      720p, ale používají menší šířku pásma. Zvukové formáty jsou streamy obsahující
+      pouze audio.'
   Subscription Settings:
     Fetch Feeds from RSS: 'Je-li povoleno, FreeTube použije RSS místo své výchozí
       metody pro získání vašeho odebírání kanálů. RSS je rychlejší a brání blokování
