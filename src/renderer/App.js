@@ -41,6 +41,7 @@ export default Vue.extend({
   },
   data: function () {
     return {
+      dataReady: false,
       hideOutlines: true,
       showUpdatesBanner: false,
       showBlogBanner: false,
@@ -85,26 +86,30 @@ export default Vue.extend({
     }
   },
   mounted: function () {
+    const v = this
     this.$store.dispatch('grabUserSettings').then((result) => {
-      this.$store.dispatch('grabHistory')
-      this.$store.dispatch('grabAllProfiles', this.$t('Profile.All Channels'))
-      this.$store.dispatch('grabAllPlaylists')
-      this.$store.commit('setUsingElectron', useElectron)
-      this.checkThemeSettings()
-      this.checkLocale()
+      this.$store.dispatch('grabAllProfiles', this.$t('Profile.All Channels')).then(() => {
+        this.$store.dispatch('grabHistory')
+        this.$store.dispatch('grabAllPlaylists')
+        this.$store.commit('setUsingElectron', useElectron)
+        this.checkThemeSettings()
+        this.checkLocale()
 
-      if (useElectron) {
-        console.log('User is using Electron')
-        this.activateKeyboardShortcuts()
-        this.openAllLinksExternally()
-        this.enableOpenUrl()
-        this.setBoundsOnClose()
-      }
+        v.dataReady = true
 
-      setTimeout(() => {
-        this.checkForNewUpdates()
-        this.checkForNewBlogPosts()
-      }, 500)
+        if (useElectron) {
+          console.log('User is using Electron')
+          this.activateKeyboardShortcuts()
+          this.openAllLinksExternally()
+          this.enableOpenUrl()
+          this.setBoundsOnClose()
+        }
+
+        setTimeout(() => {
+          this.checkForNewUpdates()
+          this.checkForNewBlogPosts()
+        }, 500)
+      })
     })
   },
   methods: {

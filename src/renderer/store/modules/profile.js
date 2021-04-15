@@ -47,38 +47,44 @@ const getters = {
 
 const actions = {
   grabAllProfiles ({ rootState, dispatch, commit }, defaultName = null) {
-    profileDb.find({}, (err, results) => {
-      if (!err) {
-        if (results.length === 0) {
-          dispatch('createDefaultProfile', defaultName)
-        } else {
-          // We want the primary profile to always be first
-          // So sort with that then sort alphabetically by profile name
-          const profiles = results.sort((a, b) => {
-            if (a._id === 'allChannels') {
-              return -1
-            }
+    return new Promise((resolve, reject) => {
+      profileDb.find({}, (err, results) => {
+        if (!err) {
+          if (results.length === 0) {
+            dispatch('createDefaultProfile', defaultName)
+          } else {
+            // We want the primary profile to always be first
+            // So sort with that then sort alphabetically by profile name
+            const profiles = results.sort((a, b) => {
+              if (a._id === 'allChannels') {
+                return -1
+              }
 
-            if (b._id === 'allChannels') {
-              return 1
-            }
+              if (b._id === 'allChannels') {
+                return 1
+              }
 
-            return b.name - a.name
-          })
-
-          if (state.profileList.length < profiles.length) {
-            const profileIndex = profiles.findIndex((profile) => {
-              return profile._id === rootState.settings.defaultProfile
+              return b.name - a.name
             })
 
-            if (profileIndex !== -1) {
-              dispatch('updateActiveProfile', profileIndex)
+            if (state.profileList.length < profiles.length) {
+              const profileIndex = profiles.findIndex((profile) => {
+                return profile._id === rootState.settings.defaultProfile
+              })
+
+              if (profileIndex !== -1) {
+                commit('setActiveProfile', profileIndex)
+              }
             }
+
+            commit('setProfileList', profiles)
           }
 
-          commit('setProfileList', profiles)
+          resolve()
+        } else {
+          reject(err)
         }
-      }
+      })
     })
   },
 
