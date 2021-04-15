@@ -6,6 +6,7 @@ import $ from 'jquery'
 import router from '../../router/index.js'
 import debounce from 'lodash.debounce'
 import ytSuggest from 'youtube-suggest'
+const { ipcRenderer } = require('electron')
 
 export default Vue.extend({
   name: 'TopNav',
@@ -195,6 +196,10 @@ export default Vue.extend({
 
     toggleSideNav: function () {
       this.$store.commit('toggleSideNav')
+    },
+
+    createNewWindow: function () {
+      ipcRenderer.send('createNewWindow')
     }
   }
 })

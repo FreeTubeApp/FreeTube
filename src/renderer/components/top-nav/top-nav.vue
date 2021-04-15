@@ -24,6 +24,11 @@
         icon="search"
         @click="toggleSearchContainer"
       />
+      <font-awesome-icon
+        class="navNewWindowIcon navIcon"
+        icon="clone"
+        @click="createNewWindow"
+      />
       <div class="logo">
         <div
           class="logoIcon"
