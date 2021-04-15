@@ -27,7 +27,7 @@
       :placeholder="placeholder"
       :disabled="disabled"
       @input="e => handleInput(e.target.value)"
-      @focus="searchState.showOptions = true"
+      @focus="handleFocus"
       @blur="handleInputBlur"
       @keydown="e => handleKeyDown(e.keyCode)"
     >
