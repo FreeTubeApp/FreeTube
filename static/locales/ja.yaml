@@ -176,6 +176,7 @@ Settings:
       1440p: '1440p'
       4k: '4K'
       8k: '8K'
+    Playlist Next Video Interval: 次の再生リストを再生する間隔
   Subscription Settings:
     Subscription Settings: '登録チャンネルの設定'
     Hide Videos on Watch: '視聴済み動画の非表示'
@@ -224,6 +225,7 @@ Settings:
     Privacy Settings: 個人情報の設定
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: すべての登録チャンネルとプロファイルを削除しますか？元に戻せません。
     Remove All Subscriptions / Profiles: 登録とプロファイルをすべて削除
+    Automatically Remove Video Meta Files: 動画のメタファイルの自動削除
   Data Settings:
     How do I import my subscriptions?: 私の登録情報を取り込むにはどうしたらいいですか？
     Unknown data key: 不明なデータ キー
@@ -266,6 +268,7 @@ Settings:
     Hide Video Likes And Dislikes: 評価の非表示
     Distraction Free Settings: 集中モード
     Hide Active Subscriptions: 使用中の登録チャンネルの非表示
+    Hide Playlists: 再生リストの非表示
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: ネットワーク情報の取得中にエラーが発生しました。プロキシーを正しく設定してますか?
@@ -415,7 +418,7 @@ Video:
     Minute: 分
   Published on: '公開日'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ %前'
+  Publicationtemplate: '$ % 前'
 #& Videos
   Video has been removed from your history: 動画を履歴から削除しました
   Remove From History: 履歴から削除
@@ -445,6 +448,7 @@ Video:
   Video has been removed from your saved list: 動画を保存一覧から削除しました
   Video has been saved: ビデオを保存しました
   Save Video: 動画の保存
+  translated from English: 英語から翻訳
 Videos:
   #& Sort By
   Sort By:
@@ -566,6 +570,7 @@ Profile:
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
   : これは上位のプロファイルです。選択したチャンネルを削除しますか？同じチャンネルがほかのプロファイルにも登録されていれば削除されます。
+  Profile Filter: プロファイルのフィルター
 The playlist has been reversed: 再生リストを逆順にしました
 A new blog is now available, $. Click to view more: '新着ブログ公開、$。クリックしてブログを読む'
 Download From Site: サイトからダウンロード
@@ -588,3 +593,8 @@ Tooltips:
     Fallback to Non-Preferred Backend on Failure: 有効にすると、選択した API で取得できなければ、FreeTube
       は自動的に他の API での取得を試みます。
     Region for Trending: 急上昇の地域設定では、急上昇動画を表示する国を選択できます。YouTube は、すべての国に対応していません。
+  Privacy Settings:
+    Remove Video Meta Files: 有効にすると、FreeTube はビデオ再生中に作成したメタファイルは、再生ページを閉じるときに自動的に削除します。
+Playing Next Video Interval: すぐに次のビデオを再生します。クリックするとキャンセル。|次のビデオを {nextVideoInterval}
+  秒で再生します。クリックするとキャンセル。|次のビデオを {nextVideoInterval} 秒で再生します。クリックするとキャンセル。
+More: もっと見る
