@@ -172,7 +172,7 @@ Settings:
     Default Playback Rate: 'Standaard Afspeelsnelheid'
     Default Video Format:
       Default Video Format: 'Standaard Videoformaat'
-      Dash Formats: 'Dash Formaten'
+      Dash Formats: 'DASH Formaten'
       Legacy Formats: 'Verouderde formaten'
       Audio Formats: 'Audio Formaten'
     Default Quality:
@@ -492,6 +492,7 @@ Video:
     video's lijst
   Video has been saved: Video is opgeslagen
   Save Video: Video Opslaan
+  translated from English: vertaald vanuit het engels
 Videos:
   #& Sort By
   Sort By:
@@ -519,12 +520,12 @@ Playlist:
 Toggle Theatre Mode: 'Schakel Theatermodus In'
 Change Format:
   Change Video Formats: 'Verander Video Formaten'
-  Use Dash Formats: 'Gebruik Dash Formaten'
+  Use Dash Formats: 'Gebruik DASH Formaten'
   Use Legacy Formats: 'Gebruik Legacy Formaten'
   Use Audio Formats: 'Gebruik Audio Formaten'
   Audio formats are not available for this video: Audio formaten zijn niet beschikbaar
     voor deze video
-  Dash formats are not available for this video: Dash formaten zijn niet beschikbaar
+  Dash formats are not available for this video: DASH formaten zijn niet beschikbaar
     voor deze video
 Share:
   Share Video: 'Deel Video'
@@ -638,18 +639,18 @@ This video is unavailable because of missing formats. This can happen due to cou
   de video niet in uw land beschikbaar is.
 Tooltips:
   Player Settings:
-    Default Video Format: Selecteer de video indeling dat wordt gebruikt wanneer u
-      een video afspeelt. Dash kan video's afspelen met hogere kwaliteitsinstellingen.
+    Default Video Format: Selecteer de video indeling die wordt gebruikt wanneer u
+      een video afspeelt. DASH kan video's afspelen met hogere kwaliteitsinstellingen.
       Legacy gaat niet hoger dan 720p maar gebruikt minder bandbreedte. Audio zal
-      alleen het geluid streamen
+      alleen het geluid streamen.
     Force Local Backend for Legacy Formats: Dit zal alleen werken wanneer Invidious
       is geselecteerd als de standaard API. Wanneer ingeschakeld zal de lokale API
       legacy video indelingen gebruiken in plaats van de video indeling die worden
-      teruggegeven door Invidious. Dit kan helpen wanneer een video die word gestreamed
-      via Invidious niet afspeelt in verband met regio restricties
-    Proxy Videos Through Invidious: FreeTube zal verbinden met Invidious en via daar
-      de video's downloaden in de plaats van de video's rechstreeks bij YouTube vandaan
-      te halen. Dit overschrijft de ingestelde API voorkeur
+      teruggegeven door Invidious. Dit kan helpen wanneer een video die wordt gestreamed
+      via Invidious niet afspeelt in verband met regio restricties.
+    Proxy Videos Through Invidious: FreeTube zal verbinden met Invidious en daar de
+      video's downloaden in de plaats van de video's rechtstreeks bij YouTube vandaan
+      te halen. Dit overschrijft de ingestelde API voorkeur.
   Subscription Settings:
     Fetch Feeds from RSS: Wanneer ingeschakeld zal FreeTube RSS gebruiken in plaats
       van de standaard methode om de videolijsten van je abonnementen te verzamelen.
@@ -658,18 +659,18 @@ Tooltips:
   General Settings:
     Invidious Instance: Dit is de Invidious instantie waar FreeTube mee zal verbinden
       om API calls te maken. Verwijder de momenteel geselecteerd instantie om een
-      lijst van publieke instanties te tonen
+      lijst van publieke instanties te tonen.
     Thumbnail Preference: Alle thumbnails in FreeTube zullen worden vervangen met
-      een momentopname in plaats van de standaard thumbnail
+      een momentopname uit de video in plaats van de standaard thumbnail.
     Fallback to Non-Preferred Backend on Failure: Wanneer het API met voorkeur problemen
-      heeft dan zal FreeTube automatisch terugvallen op het alternatieve niet-voorkeur
-      API als deze instelling is ingeschakeld
+      geeft dan zal FreeTube automatisch terugvallen op het alternatieve niet-voorkeur
+      API wanneer deze instelling is ingeschakeld.
     Preferred API Backend: Kies de backend die FreeTube gebruikt om data te verzamelen.
       De lokale API is een ingebouwde extractor. De Invidious API moet worden verbonden
       met een Invidious server.
     Region for Trending: Met trend regio kan je instellen uit welk land je trending
       video's je wil zien. Niet alle weergegeven landen worden ook daadwerkelijk ondersteund
-      door YouTube
+      door YouTube.
   Privacy Settings:
     Remove Video Meta Files: Wanneer ingeschakeld zal FreeTube automatisch meta bestanden
       die worden gecreëerd tijdens het afspelen van video's verwijderen zodra de pagina
