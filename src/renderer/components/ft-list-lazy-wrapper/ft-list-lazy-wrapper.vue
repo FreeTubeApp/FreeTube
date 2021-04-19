@@ -24,6 +24,11 @@
       :appearance="appearance"
       :data="data"
     />
+    <ft-list-community
+      v-if="data.type === 'community' && visible"
+      :appearance="appearance"
+      :data="data"
+    />
   </div>
 </template>
 
