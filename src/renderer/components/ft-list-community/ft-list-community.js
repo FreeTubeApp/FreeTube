@@ -263,6 +263,8 @@ export default Vue.extend({
     parseVideoData: function () {
       this.id = '0'
       this.author = this.data.author
+      console.log("IMGLINK", this.data)
+      this.image = (this.data.postContent.type === 'image' ) ? this.data.postContent.content[0].url : ''
     },
 
     checkIfWatched: function () {
