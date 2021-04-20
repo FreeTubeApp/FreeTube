@@ -27,6 +27,7 @@
       />
     </ft-flex-box>
     <transition
+      v-if="dataReady"
       mode="out-in"
       name="fade"
     >
