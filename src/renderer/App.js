@@ -87,7 +87,7 @@ export default Vue.extend({
   },
   mounted: function () {
     const v = this
-    this.$store.dispatch('grabUserSettings').then((result) => {
+    this.$store.dispatch('grabUserSettings').then(() => {
       this.$store.dispatch('grabAllProfiles', this.$t('Profile.All Channels')).then(() => {
         this.$store.dispatch('grabHistory')
         this.$store.dispatch('grabAllPlaylists')
