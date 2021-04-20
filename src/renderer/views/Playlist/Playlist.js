@@ -7,7 +7,7 @@ import FtListVideo from '../../components/ft-list-video/ft-list-video.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 
 export default Vue.extend({
-  name: 'Search',
+  name: 'Playlist',
   components: {
     'ft-loader': FtLoader,
     'ft-card': FtCard,
@@ -40,37 +40,25 @@ export default Vue.extend({
   watch: {
     $route () {
       // react to route changes...
-      const payload = {
-        query: this.$route.params.query,
-        options: {},
-        nextPage: false
-      }
-
-      if (typeof (this.sessionSearchHistory[this.query]) !== 'undefined' && this.query !== this.$route.params.query) {
-        this.isLoading = true
-        this.shownResults = []
-        // Replacing the data right away causes a strange error where the data
-        // Shown is mixed from 2 different search results.  So we'll wait a moment
-        // Before showing the results.
-        setTimeout(this.replaceShownResults, 100, this.sessionSearchHistory[this.query])
-      } else {
-        this.performSearch(payload)
-      }
+      this.getPlaylist()
     }
   },
   mounted: function () {
-    this.playlistId = this.$route.params.id
-
-    switch (this.backendPreference) {
-      case 'local':
-        this.getPlaylistLocal()
-        break
-      case 'invidious':
-        this.getPlaylistInvidious()
-        break
-    }
+    this.getPlaylist()
   },
   methods: {
+    getPlaylist: function () {
+      this.playlistId = this.$route.params.id
+
+      switch (this.backendPreference) {
+        case 'local':
+          this.getPlaylistLocal()
+          break
+        case 'invidious':
+          this.getPlaylistInvidious()
+          break
+      }
+    },
     getPlaylistLocal: function () {
       this.isLoading = true
 
