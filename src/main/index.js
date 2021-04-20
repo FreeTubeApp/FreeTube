@@ -423,7 +423,7 @@ function runApp() {
   })
 
   app.on('activate', () => {
-    if (mainWindow === null) {
+    if (mainWindow === null || mainWindow === undefined) {
       createWindow()
     }
   })
