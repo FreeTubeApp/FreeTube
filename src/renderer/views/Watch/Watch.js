@@ -32,6 +32,7 @@ export default Vue.extend({
   },
   beforeRouteLeave: function (to, from, next) {
     this.handleRouteChange()
+    window.removeEventListener('beforeunload', this.handleWatchProgress)
     next()
   },
   data: function() {
@@ -195,6 +196,8 @@ export default Vue.extend({
           break
       }
     }
+
+    window.addEventListener('beforeunload', this.handleWatchProgress)
   },
   methods: {
     changeTimestamp: function(timestamp) {
@@ -688,6 +691,21 @@ export default Vue.extend({
       this.updateHistory(videoData)
     },
 
+    handleWatchProgress: function () {
+      if (this.rememberHistory && !this.isUpcoming && !this.isLoading && !this.isLive) {
+        const player = this.$refs.videoPlayer.player
+
+        if (player !== null && this.saveWatchedProgress) {
+          const currentTime = this.getWatchedProgress()
+          const payload = {
+            videoId: this.videoId,
+            watchProgress: currentTime
+          }
+          this.updateWatchProgress(payload)
+        }
+      }
+    },
+
     checkIfWatched: function () {
       const historyIndex = this.historyCache.findIndex((video) => {
         return video.videoId === this.videoId
@@ -900,18 +918,7 @@ export default Vue.extend({
     handleRouteChange: function () {
       clearTimeout(this.playNextTimeout)
 
-      if (this.rememberHistory && !this.isUpcoming && !this.isLoading && !this.isLive) {
-        const player = this.$refs.videoPlayer.player
-
-        if (player !== null && this.saveWatchedProgress) {
-          const currentTime = this.getWatchedProgress()
-          const payload = {
-            videoId: this.videoId,
-            watchProgress: currentTime
-          }
-          this.updateWatchProgress(payload)
-        }
-      }
+      this.handleWatchProgress()
 
       if (!this.isUpcoming && !this.isLoading) {
         const player = this.$refs.videoPlayer.player
