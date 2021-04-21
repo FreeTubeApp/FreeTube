@@ -249,6 +249,10 @@ export default Vue.extend({
         const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
         const subscriptions = []
 
+        this.showToast({
+          message: this.$t('Settings.Data Settings.This might take a while, please wait')
+        })
+
         this.updateShowProgressBar(true)
         this.setProgressBarPercentage(0)
 
@@ -258,6 +262,11 @@ export default Vue.extend({
           const snippet = channel.snippet
 
           if (typeof snippet === 'undefined') {
+            const message = this.$t('Settings.Data Settings.Invalid subscriptions file')
+            this.showToast({
+              message: message
+            })
+
             throw new Error('Unable to find channel data')
           }
 
@@ -321,12 +330,7 @@ export default Vue.extend({
         }
 
         const filePath = response.filePaths[0]
-
-        try {
-          this.handleYoutubeImportFile(filePath)
-        } catch (err) {
-          console.log(err)
-        }
+        this.handleYoutubeImportFile(filePath)
       })
     },
 
