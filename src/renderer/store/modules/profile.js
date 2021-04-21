@@ -141,6 +141,10 @@ const actions = {
     })
   },
 
+  compactProfiles (_) {
+    profileDb.persistence.compactDatafile()
+  },
+
   updateActiveProfile ({ commit }, index) {
     commit('setActiveProfile', index)
   }

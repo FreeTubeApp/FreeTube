@@ -573,7 +573,8 @@ export default Vue.extend({
       }
     },
 
-    exportFreeTubeSubscriptions: function () {
+    exportFreeTubeSubscriptions: async function () {
+      await this.compactProfiles()
       const userData = app.getPath('userData')
       const subscriptionsDb = `${userData}/profiles.db`
       const date = new Date()
@@ -949,7 +950,8 @@ export default Vue.extend({
       })
     },
 
-    exportHistory: function () {
+    exportHistory: async function () {
+      await this.compactHistory()
       const userData = app.getPath('userData')
       const historyDb = `${userData}/history.db`
       const date = new Date()
@@ -1106,8 +1108,10 @@ export default Vue.extend({
     ...mapActions([
       'invidiousAPICall',
       'updateProfile',
+      'compactProfiles',
       'updateShowProgressBar',
       'updateHistory',
+      'compactHistory',
       'showToast',
       'getRandomColor',
       'calculateColorLuminance'

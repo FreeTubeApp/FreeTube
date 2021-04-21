@@ -76,6 +76,10 @@ const actions = {
         dispatch('grabHistory')
       }
     })
+  },
+
+  compactHistory (_) {
+    historyDb.persistence.compactDatafile()
   }
 }
 
