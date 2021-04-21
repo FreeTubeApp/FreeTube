@@ -29,7 +29,14 @@ export default Vue.extend({
     return {
       id: '',
       image: '',
-      author: 'NonExistent'
+      type: '',
+      author: 'NonExistent',
+      watched: false,
+      description: '',
+      channelId: '',
+      hideViews: false, // TODO MUST BE COMPUTED
+      viewCount: '',
+      uploadedTime: ''
     }
   },
   computed: {
@@ -264,7 +271,15 @@ export default Vue.extend({
       this.id = '0'
       this.author = this.data.author
       console.log("IMGLINK", this.data)
-      this.image = (this.data.postContent.type === 'image' ) ? this.data.postContent.content[0].url : ''
+      this.type = this.data.postContent.type
+      this.image = (this.type === 'image') ? this.data.postContent.content[0].url : ''
+      this.channelId = this.data.channelId
+      if (this.type === 'video') {
+        this.image = this.data.postContent.content.thumbnails[0].url
+        this.description = this.data.postContent.content.description
+        this.viewCount = this.data.postContent.content.viewCountText
+        this.uploadedTime = this.data.postContent.content.viewCountText
+      }
     },
 
     checkIfWatched: function () {
