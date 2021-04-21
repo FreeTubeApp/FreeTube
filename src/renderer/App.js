@@ -404,14 +404,7 @@ export default Vue.extend({
       const v = this
       electron.ipcRenderer.on('openUrl', function (event, url) {
         if (url) {
-          v.$store.dispatch('getVideoParamsFromUrl', url).then(({ videoId, timestamp }) => {
-            if (videoId) {
-              v.$router.push({
-                path: `/watch/${videoId}`,
-                query: timestamp ? { timestamp } : {}
-              })
-            }
-          })
+          v.handleYoutubeLink(url)
         }
       })
 
