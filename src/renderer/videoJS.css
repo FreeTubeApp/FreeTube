@@ -448,6 +448,10 @@ body.vjs-full-window {
 .vjs-icon-fullwindow-enter:before, .video-js .vjs-fullwindow-control .vjs-icon-placeholder:before {
   content: url(assets/img/open_fullwindow.svg);
 }
+/* Hide button in full screen mode */
+.vjs--full-screen-enabled .vjs-button-fullwindow {
+  display: none;
+}
 
 .vjs-icon-fullwindow-exit, .video-js.vjs-fullwindow .vjs-fullwindow-control .vjs-icon-placeholder {
   font-family: VideoJS;
