@@ -341,6 +341,10 @@ export default Vue.extend({
       }
     },
 
+    reloadVideo: function () {
+      this.$router.go(this.$router.currentRoute)
+    },
+
     addToPlaylist: function () {
       const videoData = {
         videoId: this.id,

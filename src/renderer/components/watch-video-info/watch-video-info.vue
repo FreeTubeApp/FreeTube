@@ -103,6 +103,13 @@
           :get-timestamp="getTimestamp"
           class="option"
         />
+        <ft-icon-button
+          :title="$t('Video.Reload Video')"
+          class="theatreModeButton option"
+          icon="sync-alt"
+          theme="secondary"
+          @click="reloadVideo"
+        />
       </div>
     </div>
   </ft-card>
