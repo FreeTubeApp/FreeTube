@@ -876,16 +876,35 @@ export default Vue.extend({
           }
         }, nextVideoInterval * 1000)
 
-        this.showToast({
-          message: this.$tc('Playing Next Video Interval', nextVideoInterval, { nextVideoInterval: nextVideoInterval }),
-          time: (nextVideoInterval * 1000) + 500,
-          action: () => {
-            clearTimeout(this.playNextTimeout)
-            this.showToast({
-              message: this.$t('Canceled next video autoplay')
-            })
+        let countDownTimeLeftInSecond = nextVideoInterval
+        const showCountDownMessage = () => {
+          // Will not display "Playing next video in no time" as it's too late to cancel
+          // Also there is a separate message when playing next video
+          if (countDownTimeLeftInSecond <= 0) {
+            clearInterval(countDownIntervalId)
+            return
           }
-        })
+
+          this.showToast({
+            message: this.$tc('Playing Next Video Interval', countDownTimeLeftInSecond, { nextVideoInterval: countDownTimeLeftInSecond }),
+            // To avoid message flashing
+            // `time` is manually tested to be 700
+            time: 700,
+            action: () => {
+              clearTimeout(this.playNextTimeout)
+              clearInterval(countDownIntervalId)
+              this.showToast({
+                message: this.$t('Canceled next video autoplay')
+              })
+            }
+          })
+
+          // At least this var should be updated AFTER showing the message
+          countDownTimeLeftInSecond = countDownTimeLeftInSecond - 1
+        }
+        // Execute once before scheduling it
+        showCountDownMessage()
+        const countDownIntervalId = setInterval(showCountDownMessage, 1000)
       } else if (this.playNextVideo) {
         this.playNextTimeout = setTimeout(() => {
           const player = this.$refs.videoPlayer.player
