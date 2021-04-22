@@ -490,6 +490,7 @@ Video:
     vídeos salvos
   Video has been saved: O vídeo foi salvo
   Save Video: Salvar vídeo
+  translated from English: Traduzido do inglês
 Videos:
   #& Sort By
   Sort By:
@@ -522,7 +523,7 @@ Change Format:
   Use Audio Formats: 'Usar formato de áudio'
   Audio formats are not available for this video: Formatos de áudio não disponíveis
     para este vídeo
-  Dash formats are not available for this video: Formatos Dash não disponíveis para
+  Dash formats are not available for this video: Formatos DASH não disponíveis para
     este vídeo
 Share:
   Share Video: 'Compartilhar vídeo'
@@ -643,28 +644,28 @@ Tooltips:
       vivo
   Player Settings:
     Default Video Format: Define os formatos usados quando um vídeo é reproduzido.
-      Formatos Dash podem reproduzir qualidades mais altas. Os formatos antigos são
+      Formatos DASH podem reproduzir qualidades mais altas. Os formatos antigos são
       limitados a um máximo de 720p, mas usam menos largura de banda. Formatos de
-      áudio são para transmissões sem vídeo
+      áudio são para transmissões sem vídeo.
     Proxy Videos Through Invidious: Conectar-se-á ao Invidious para obter vídeos em
-      vez de fazer uma conexão direta com o YouTube. Ignora a preferência da API
+      vez de fazer uma conexão direta com o YouTube. Ignora a preferência da API.
     Force Local Backend for Legacy Formats: Só funciona quando a API do Invidious
       é predefinida. Quando ativada, a API local será executada e usará os formatos
       antigos retornados por ela em vez dos retornados pelo Invidious. É útil quando
       os vídeos retornados pelo Invidious não são reproduzidos devido a restrições
-      de país
+      de país.
   General Settings:
-    Region for Trending: A região de tendências permite escolher quais vídeos de tendências
-      do país você quer exibir. Nem todos os países exibidos são realmente suportados
-      pelo YouTube
+    Region for Trending: A região de tendências lhe permite de escolher quais vídeos
+      de tendências do país você quer exibir. Nem todos os países exibidos são realmente
+      suportados pelo YouTube.
     Invidious Instance: A instância Invidious à qual o FreeTube se conectará para
-      chamadas de API. Limpe a instância atual para ver uma lista de instâncias públicas
-      para escolher
+      chamadas de API. Apague a instância atual para ver uma lista de instâncias públicas
+      para escolher.
     Thumbnail Preference: Todas as miniaturas do FreeTube serão substituídas por um
-      quadro do vídeo em vez da miniatura padrão
+      quadro do vídeo em vez da miniatura padrão.
     Fallback to Non-Preferred Backend on Failure: Quando a sua API preferida tiver
-      um problema, o FreeTube tentará automaticamente usar sua API não preferida como
-      um método substituto quando ativado
+      um problema, o FreeTube tentará usar automaticamente sua API não preferida em
+      substituição quando ativado.
     Preferred API Backend: Escolha o backend que o FreeTube usa para obter os dados.
       A API local é um extrator integrado. A API Invidious requer um servidor Invidious
       para se conectar.
