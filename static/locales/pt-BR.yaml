@@ -462,7 +462,7 @@ Video:
     Minute: Minuto
   Published on: 'Publicado em'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'Há $ % atrás'
+  Publicationtemplate: 'Há $ %'
 #& Videos
   Started streaming on: Transmissão iniciada em
   Streamed on: Transmitido em
