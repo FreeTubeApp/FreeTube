@@ -622,7 +622,7 @@ Tooltips:
       الفيديو بدل من الصّورة المصغّرة الافتراضيّة
     Preferred API Backend: اختر الواجهة الخلفية التي يستخدمها FreeTube لجلب البيانات.
       الواجهة البرمجية المحلية للتطبيق هي مستخرج محلي. الواجهة البرمجية للتطبيق التابعة
-      لInvidious (بديل لموقع يوتيوب) يتطلب التواصل مع خادم شبكة Invidious
+      لInvidious (بديل لموقع يوتيوب) يتطلب التواصل مع خادم شبكة Invidious.
     Invidious Instance: واجهة Invidious البرمجية المستخدمة من قبل FreeTube. امسح الواجهة
       البرمجية الحالية للاختيار من قائمة الواجهات
     Fallback to Non-Preferred Backend on Failure: عند مواجهة مشكلة مع الواجهة البرمجية
@@ -650,7 +650,7 @@ Tooltips:
       تقدّم معلومات معينة مثل مدّة الفيديو أو حالة البث المباشر.
 This video is unavailable because of missing formats. This can happen due to country unavailability.: هذا
   الفيديو غير متاح الآن لعدم وجود ملفات فيديو . هذا قد يكون بسبب أن الفيديو غير متاح
-  في بلدك.
+  في بلدكز
 More: المزيد
 Playing Next Video Interval: سيتم تشغيل الفيديو التالي على الفور.| إضغط للإلغاء.|
   سيبدأ الفيديو التالي في {nextVideoInterval} ثانية.| إضغط للإلغاء.
