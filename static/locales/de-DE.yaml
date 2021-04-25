@@ -174,7 +174,7 @@ Settings:
     Default Playback Rate: Standard-Wiedergabegeschwindigkeit
     Default Video Format:
       Default Video Format: Standard-Videoformat
-      Dash Formats: DASH-Formate
+      Dash Formats: DASH-Format
       Legacy Formats: Legacy Formate
       Audio Formats: Audioformate
     Default Quality:
@@ -507,6 +507,7 @@ Video:
     Videos entfernt
   Video has been saved: Video wurde gespeichert
   Save Video: Video speichern
+  translated from English: Aus dem Englischen übersetzt
 Videos:
   #& Sort By
   Sort By:
@@ -541,12 +542,12 @@ Share Playlist:
 Toggle Theatre Mode: Kinomodus umschalten
 Change Format:
   Change Video Formats: Ändere Videoformat
-  Use Dash Formats: Nutze DASH-Format
+  Use Dash Formats: DASH-Format benutzen
   Use Legacy Formats: Nutze Altformat
   Use Audio Formats: Nutze Audioformat
   Audio formats are not available for this video: Es sind keine Audioformate für dieses
     Video verfügbar
-  Dash formats are not available for this video: Das DASH-Format ist für dieses Video
+  Dash formats are not available for this video: DASH-Formate sind für dieses Video
     nicht verfügbar
 Share:
   Share Video: Teile das Video
@@ -661,35 +662,35 @@ Version $ is now available!  Click for more details: Version $ ist jetzt verfüg
   mehr Details klicken
 Tooltips:
   General Settings:
-    Thumbnail Preference: Alle Videovoransichten in FreeTube werden durch ein Einzelbild
-      aus dem Video ersetzt und entsprechen somit nicht mehr der Standardvoransicht.
-    Invidious Instance: Die Invidious-Instanz, welche FreeTube für API-Aufrufe verwendet.
+    Thumbnail Preference: Alle Thumbnails in FreeTube werden durch ein Standbild aus
+      dem Video ersetzt und entsprechen somit nicht mehr dem Standart-Vorschaubild.
+    Invidious Instance: Die Invidious-Instanz, welche FreeTube für API-Calls verwendet.
       Leere die aktuelle Instanz, um eine vollständige Liste der verfügbaren Server
       anzuzeigen.
     Fallback to Non-Preferred Backend on Failure: Erlaube FreeTube, falls die bevorzugte
-      API nicht verfügbar sein sollte, automatisch die nicht bevorzugte Alternative
-      zu nutzen.
+      API nicht verfügbar sein sollte, automatisch eine alternative API zu nutzen.
     Preferred API Backend: Wähle das Backend, welches FreeTube zum Laden der Daten
       nutzen soll. Die lokale API ist ein integrierter Extrahierer. Die Invidious-API
       dagegen verwendet einen externen Server.
     Region for Trending: Die Trendregion erlaubt es dir auszuwählen, aus welchem Land
       die Trends angezeigt werden sollen. Nicht alle Optionen werden auch von YouTube
-      unterstützt
+      unterstützt.
   Subscription Settings:
-    Fetch Feeds from RSS: Mit dieser Option nutzt FreeTube einen RSS-Feed von YouTube,
-      um deine Abonnements zu aktualisieren. RSS ist sowohl schneller als auch sicherer,
-      wenn du oft temporär von YouTube geblockt wirst (Error 429). Allerdings sind
-      nicht alle Videoinformationen, wie Videodauer oder Live-Status, verfügbar.
+    Fetch Feeds from RSS: Sobald aktiviert wird FreeTube RSS anstatt der Standartmethode
+      nutzen, um deine Abos zu aktualisieren. RSS ist schneller und verhindert das
+      Blockieren deiner IP-Adresse, doch gewisse Informationen, wie z.B. die Dauer
+      des Videos oder der Status eines Livestreams, werden nicht mehr verfügbar sein
   Player Settings:
-    Default Video Format: Auswahl der Formate bei der Videowiedergabe. Dash-Formate
-      bieten eine höhere Qualität, Legacy-Formate sind auf 720p begrenzt, benötigen
-      dafür aber auch weniger Bandbreite. Audioformate umfassen reine Audiostreams.
+    Default Video Format: Auswahl der Formate bei der Videowiedergabe. DASH-Formate
+      bieten eine höhere Qualität, LEGACY-Formate sind auf 720p begrenzt, benötigen
+      dafür aber auch weniger Bandbreite. Audioformate beinhalten nur den Ton.
     Proxy Videos Through Invidious: Zu Invidious verbinden, um Videos abzurufen, anstatt
       eine direkten Verbindung zu YouTube aufzubauen. Überschreibt die API-Präferenz.
-    Force Local Backend for Legacy Formats: Dies funktioniert nur, wenn du die Invidious-API
-      als Standard ausgewählt hast. Die lokale API wird bei der Verwendung von Legacy
+    Force Local Backend for Legacy Formats: Funktioniert nur, wenn du die Invidious-API
+      als Standard ausgewählt hast. Die lokale API wird bei der Verwendung von "Legacy"
       -Formaten diese verwenden, anstatt auf Invidious zurückzugreifen. Dies hilft
-      dann, wenn Videos von Invidious nicht abspielbar sind aufgrund von Landesbeschränkungen.
+      dann, wenn Videos von Invidious aufgrund von Ländersperren nicht abspielbar
+      sind.
   Privacy Settings:
     Remove Video Meta Files: Bei Aktivierung löscht FreeTube alle Meta-Dateien die
       während der Videowiedergabe erzeugt werden, sobald die Videoseite verlassen
@@ -699,3 +700,7 @@ Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrech
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
   klicken.
 More: Weiteres
+Hashtags have not yet been implemented, try again later: Hashtags wurden noch nicht
+  implementiert, bitte versuche es später noch einmal
+Unknown YouTube url type, cannot be opened in app: Unbekannte YouTube-Adresse, kann
+  in FreeTube nicht geöffnet werden
