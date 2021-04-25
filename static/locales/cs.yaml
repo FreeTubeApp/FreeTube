@@ -663,3 +663,7 @@ Playing Next Video Interval: Přehrávání dalšího videa bez prodlevy Kliknut
   | Přehrávání dalšího videa za {nextVideoInterval} s. Kliknutím zrušíte. | Přehrávání
   dalšího videa za {nextVideoInterval} s. Kliknutím zrušíte.
 More: Více
+Hashtags have not yet been implemented, try again later: Hashtagy nebyly dosud implementovány,
+  zkuste to znovu později
+Unknown YouTube url type, cannot be opened in app: Neznámý typ adresy URL YouTube,
+  nelze v aplikaci otevřít
