@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { mapActions } from 'vuex'
 import { ObserveVisibility } from 'vue-observe-visibility'
 import FtFlexBox from './components/ft-flex-box/ft-flex-box.vue'
 import TopNav from './components/top-nav/top-nav.vue'
@@ -280,7 +281,7 @@ export default Vue.extend({
         console.log(el)
         event.preventDefault()
 
-        // Check if YouTube video, channel or playlist
+        // Check if it's a YouTube link
         const youtubeUrlPattern = /^https?:\/\/((www\.)?youtube\.com(\/embed)?|youtu\.be)\/.*$/
         const isYoutubeLink = youtubeUrlPattern.test(el.href)
 
@@ -306,22 +307,31 @@ export default Vue.extend({
             query: timestamp ? { timestamp } : {}
           })
         } else {
-          // Could be playlist, search, hashtag or channel
-          // For now, ignore hashtags
+          // Could be a playlist, channel, search query or hashtag
+          // If it's none of these, do nothing
+          //
+          // There's a limitation where some unknown URL types will be
+          // determined to be channels
+          // This is due to the ambiguity of some of the existing
+          // channel URL formats and there's not much that can be
+          // done to remedy it
 
           const url = new URL(href)
+          let urlType = 'unknown'
 
-          let urlType
+          const channelPattern =
+            /^\/(?:c\/|channel\/|user\/)?([^/]+)(?:\/join)?\/?$/
+
           const typePatterns = new Map([
-            ['playlist', /\/playlist$/],
-            ['search', /\/results$/],
-            // ['hashtag', /\/hashtag\/([^/?&#]+)/],
-            ['channel', /\/(?:c\/|channel\/)?([^/?&#]+).*$/]
+            ['playlist', /^\/playlist\/?$/],
+            ['search', /^\/results\/?$/],
+            ['hashtag', /^\/hashtag\/([^/?&#]+)$/],
+            ['channel', channelPattern]
           ])
 
           for (const [type, pattern] of typePatterns) {
-            const isAMatch = pattern.test(url.pathname)
-            if (isAMatch) {
+            const matchFound = pattern.test(url.pathname)
+            if (matchFound) {
               urlType = type
               break
             }
@@ -330,7 +340,7 @@ export default Vue.extend({
           switch (urlType) {
             case 'playlist': {
               if (!url.searchParams.has('list')) {
-                return
+                throw new Error('Playlist: "list" field not found')
               }
 
               const playlistId = url.searchParams.get('list')
@@ -350,7 +360,7 @@ export default Vue.extend({
 
             case 'search': {
               if (!url.searchParams.has('search_query')) {
-                return
+                throw new Error('Search: "search_query" field not found')
               }
 
               const searchQuery = url.searchParams.get('search_query')
@@ -373,14 +383,24 @@ export default Vue.extend({
               })
               break
             }
-            /* case 'hashtag': {
-              // placeholder
+
+            case 'hashtag': {
+              // TODO: Implement a hashtag related view
+              let message = 'Hashtags have not yet been implemented, try again later'
+              if (this.$te(message) && this.$t(message) !== '') {
+                message = this.$t(message)
+              }
+
+              this.showToast({
+                message: message
+              })
               break
-            } */
+            }
+
             case 'channel': {
-              const channelId = url.pathname.match(/\/(?:c\/|channel\/)?([^/?&#]+).*$/)[1]
+              const channelId = url.pathname.match(channelPattern)[1]
               if (!channelId) {
-                return
+                throw new Error('Channel: could not extract id')
               }
 
               v.$router.push({
@@ -390,10 +410,15 @@ export default Vue.extend({
             }
 
             default: {
-              if (typeof (shell) !== 'undefined') {
-                shell.openExternal(href)
+              // Unknown URL type
+              let message = 'Unknown YouTube url type, cannot be opened in app'
+              if (this.$te(message) && this.$t(message) !== '') {
+                message = this.$t(message)
               }
-              break
+
+              this.showToast({
+                message: message
+              })
             }
           }
         }
@@ -415,6 +440,10 @@ export default Vue.extend({
       window.onbeforeunload = (e) => {
         electron.ipcRenderer.send('setBounds')
       }
-    }
+    },
+
+    ...mapActions([
+      'showToast'
+    ])
   }
 })
