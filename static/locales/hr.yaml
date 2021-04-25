@@ -674,3 +674,7 @@ Playing Next Video Interval: Trenutna reprodukcija sljedećeg videa. Pritisni za
   | Reprodukcija sljedećeg videa za {nextVideoInterval} sekunde. Pritisni za prekid.
   | Reprodukcija sljedećeg videa za {nextVideoInterval} sekundi. Pritisni za prekid.
 More: Još
+Hashtags have not yet been implemented, try again later: Hashtagovi još nisu implementirani,
+  pokušaj kasnije ponovo
+Unknown YouTube url type, cannot be opened in app: Nepoznata vrsta URL adrese na YouTubeu,
+  ne može se otvoriti u programu
