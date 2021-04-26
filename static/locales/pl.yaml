@@ -685,3 +685,7 @@ Playing Next Video Interval: Odtwarzanie kolejnego filmu już za chwilę. Wciśn
   aby przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekund. Wciśnij
   aby przerwać.
 More: Więcej
+Unknown YouTube url type, cannot be opened in app: Nieznany typ adresu URL YouTube,
+  nie można go otworzyć w aplikacji
+Hashtags have not yet been implemented, try again later: Hashtagi nie zostały jeszcze
+  wprowadzone, spróbuj później
