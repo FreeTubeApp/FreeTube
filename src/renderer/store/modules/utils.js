@@ -239,27 +239,6 @@ const actions = {
     return extractors.reduce((a, c) => a || c(), null) || paramsObject
   },
 
-  getPlaylistIdFromUrl (_, url) {
-    /** @type {URL} */
-    let urlObject
-    try {
-      urlObject = new URL(url)
-    } catch (e) {
-      return false
-    }
-
-    const extractors = [
-      // anything with /playlist?list=
-      function() {
-        if (urlObject.pathname === '/playlist' && urlObject.searchParams.has('list')) {
-          return urlObject.searchParams.get('list')
-        }
-      }
-    ]
-
-    return extractors.reduce((a, c) => a || c(), null) || false
-  },
-
   getYoutubeUrlInfo (_, urlStr) {
     // Returns
     // - urlType [String] `video`, `playlist`
