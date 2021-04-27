@@ -13,6 +13,7 @@
     >
       <router-link
         class="thumbnailLink"
+        tabindex="-1"
         :to="{
           path: `/watch/${id}`,
           query: playlistId ? {playlistId} : {}

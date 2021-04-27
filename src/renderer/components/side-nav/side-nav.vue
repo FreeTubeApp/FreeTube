@@ -7,6 +7,8 @@
     <div class="inner">
       <div
         class="navOption topNavOption mobileShow"
+        role="button"
+        tabindex="0"
         @click="navigate('subscriptions')"
       >
         <font-awesome-icon
@@ -21,7 +23,10 @@
       <div
         v-if="!hideTrendingVideos"
         class="navOption mobileHidden"
+        role="button"
+        tabindex="0"
         @click="navigate('trending')"
+        @keypress="navigate('trending')"
       >
         <font-awesome-icon
           icon="fire"
@@ -35,7 +40,10 @@
       <div
         v-if="!hidePopularVideos"
         class="navOption mobileHidden"
+        role="button"
+        tabindex="0"
         @click="navigate('popular')"
+        @keypress="navigate('popular')"
       >
         <font-awesome-icon
           icon="users"
@@ -49,7 +57,10 @@
       <div
         v-if="!hidePlaylists"
         class="navOption mobileShow"
+        role="button"
+        tabindex="0"
         @click="navigate('userplaylists')"
+        @keypress="navigate('userplaylists')"
       >
         <font-awesome-icon
           icon="bookmark"
@@ -65,7 +76,10 @@
       />
       <div
         class="navOption mobileShow"
+        role="button"
+        tabindex="0"
         @click="navigate('history')"
+        @keypress="navigate('history')"
       >
         <font-awesome-icon
           icon="history"
@@ -79,7 +93,10 @@
       <hr>
       <div
         class="navOption mobileShow"
+        role="button"
+        tabindex="0"
         @click="navigate('settings')"
+        @keypress="navigate('settings')"
       >
         <font-awesome-icon
           icon="sliders-h"
@@ -92,7 +109,10 @@
       </div>
       <div
         class="navOption mobileHidden"
+        role="button"
+        tabindex="0"
         @click="navigate('about')"
+        @keypress="navigate('about')"
       >
         <font-awesome-icon
           icon="info-circle"
@@ -112,7 +132,10 @@
           :key="index"
           class="navChannel mobileHidden"
           :title="channel.name"
+          role="button"
+          tabindex="0"
           @click="goToChannel(channel.id)"
+          @keypress="goToChannel(channel.id)"
         >
           <div
             class="thumbnailContainer"
