@@ -207,6 +207,7 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Είστε
       βέβαιοι ότι θέλετε να καταργήσετε όλες τις συνδρομές και τα προφίλ; Αυτό δεν
       μπορεί να αναιρεθεί.'
+    Automatically Remove Video Meta Files: Αυτόματη αφαίρεση μετα-αρχείων βίντεο
   Subscription Settings:
     Subscription Settings: 'Ρυθμίσεις Συνδρομών'
     Hide Videos on Watch: 'Απόκρυψη των βίντεο κατά την αναπαραγωγή'
@@ -540,6 +541,7 @@ Video:
     λίστα σας
   Video has been saved: Το βίντεο έχει αποθηκευτεί
   Save Video: Αποθήκευση βίντεο
+  translated from English: μεταφράστηκε από τα Αγγλικά
 Videos:
   #& Sort By
   Sort By:
