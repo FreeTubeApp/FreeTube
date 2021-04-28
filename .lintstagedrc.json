@@ -1,0 +1,4 @@
+{
+  "*.{js,ts,vue}": "eslint --cache",
+  "{src,_scripts}/**/*.{js,ts,vue}": "prettier --check"
+}

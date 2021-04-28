@@ -15,6 +15,7 @@ data/tmp/
 .tmp/
 tmp/
 .cache
+.eslintcache
 dist
 coverage
 __coverage__

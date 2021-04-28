@@ -25,11 +25,12 @@ module.exports = {
     'prettier',
     'eslint:recommended',
     'plugin:vue/recommended',
+    'plugin:jest/recommended',
     'standard'
   ],
 
   // https://eslint.org/docs/user-guide/configuring#configuring-plugins
-  plugins: ['vue'],
+  plugins: ['vue', 'jest', 'simple-import-sort', 'import'],
 
   rules: {
     'space-before-function-paren': 0,
@@ -38,6 +39,11 @@ module.exports = {
     'no-console': 0,
     'no-unused-vars': 1,
     'no-undef': 1,
-    'vue/no-template-key': 1
+    'vue/no-template-key': 1,
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
+    'import/first': 'error',
+    'import/newline-after-import': 'error',
+    'import/no-duplicates': 'error'
   }
 }
