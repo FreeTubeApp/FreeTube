@@ -489,7 +489,7 @@ Video:
   Video has been removed from your saved list: Видео было удалено из списка сохранённых
   Video has been saved: Видео было добавлено в сохранённые
   Save Video: Добавить видео в сохранённые
-  translated from English: переведено с английского
+  translated from English: переведен с Английского
 Videos:
   #& Sort By
   Sort By:
@@ -677,3 +677,7 @@ Playing Next Video Interval: Воспроизведение следующего
   для отмены. | Воспроизведение следующего видео через {nextVideoInterval} сек. Нажмите
   для отмены. | Воспроизведение следующего видео через {nextVideoInterval} сек. Нажмите
   для отмены.
+Hashtags have not yet been implemented, try again later: Хештеги еще не реализованы,
+  попробуйте позже
+Unknown YouTube url type, cannot be opened in app: Неизвестный тип URL-адреса YouTube,
+  не может быть открыт в приложении
