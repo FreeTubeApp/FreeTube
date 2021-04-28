@@ -297,129 +297,75 @@ export default Vue.extend({
     },
 
     handleYoutubeLink: function (href) {
-      const v = this
+      this.$store.dispatch('getYoutubeUrlInfo', href).then((result) => {
+        switch (result.urlType) {
+          case 'video': {
+            const { videoId, timestamp } = result
 
-      // Assume it's a video
-      this.$store.dispatch('getVideoParamsFromUrl', href).then(({ videoId, timestamp }) => {
-        if (videoId) {
-          v.$router.push({
-            path: `/watch/${videoId}`,
-            query: timestamp ? { timestamp } : {}
-          })
-        } else {
-          // Could be a playlist, channel, search query or hashtag
-          // If it's none of these, do nothing
-          //
-          // There's a limitation where some unknown URL types will be
-          // determined to be channels
-          // This is due to the ambiguity of some of the existing
-          // channel URL formats and there's not much that can be
-          // done to remedy it
-
-          const url = new URL(href)
-          let urlType = 'unknown'
-
-          const channelPattern =
-            /^\/(?:c\/|channel\/|user\/)?([^/]+)(?:\/join)?\/?$/
-
-          const typePatterns = new Map([
-            ['playlist', /^\/playlist\/?$/],
-            ['search', /^\/results\/?$/],
-            ['hashtag', /^\/hashtag\/([^/?&#]+)$/],
-            ['channel', channelPattern]
-          ])
-
-          for (const [type, pattern] of typePatterns) {
-            const matchFound = pattern.test(url.pathname)
-            if (matchFound) {
-              urlType = type
-              break
-            }
+            this.$router.push({
+              path: `/watch/${videoId}`,
+              query: timestamp ? { timestamp } : {}
+            })
+            break
           }
 
-          switch (urlType) {
-            case 'playlist': {
-              if (!url.searchParams.has('list')) {
-                throw new Error('Playlist: "list" field not found')
-              }
+          case 'playlist': {
+            const { playlistId, query } = result
 
-              const playlistId = url.searchParams.get('list')
-              url.searchParams.delete('list')
+            this.$router.push({
+              path: `/playlist/${playlistId}`,
+              query
+            })
+            break
+          }
 
-              const query = {}
-              for (const [param, value] of url.searchParams) {
-                query[param] = value
-              }
+          case 'search': {
+            const { searchQuery, query } = result
 
-              v.$router.push({
-                path: `/playlist/${playlistId}`,
-                query
-              })
-              break
+            this.$router.push({
+              path: `/search/${encodeURIComponent(searchQuery)}`,
+              query
+            })
+            break
+          }
+
+          case 'hashtag': {
+            // TODO: Implement a hashtag related view
+            let message = 'Hashtags have not yet been implemented, try again later'
+            if (this.$te(message) && this.$t(message) !== '') {
+              message = this.$t(message)
             }
 
-            case 'search': {
-              if (!url.searchParams.has('search_query')) {
-                throw new Error('Search: "search_query" field not found')
-              }
+            this.showToast({
+              message: message
+            })
+            break
+          }
 
-              const searchQuery = url.searchParams.get('search_query')
-              url.searchParams.delete('search_query')
+          case 'channel': {
+            const { channelId } = result
 
-              const query = {
-                sortBy: this.searchSettings.sortBy,
-                time: this.searchSettings.time,
-                type: this.searchSettings.type,
-                duration: this.searchSettings.duration
-              }
+            this.$router.push({
+              path: `/channel/${channelId}`
+            })
+            break
+          }
 
-              for (const [param, value] of url.searchParams) {
-                query[param] = value
-              }
+          case 'invalid_url': {
+            // Do nothing
+            break
+          }
 
-              v.$router.push({
-                path: `/search/${encodeURIComponent(searchQuery)}`,
-                query
-              })
-              break
+          default: {
+            // Unknown URL type
+            let message = 'Unknown YouTube url type, cannot be opened in app'
+            if (this.$te(message) && this.$t(message) !== '') {
+              message = this.$t(message)
             }
 
-            case 'hashtag': {
-              // TODO: Implement a hashtag related view
-              let message = 'Hashtags have not yet been implemented, try again later'
-              if (this.$te(message) && this.$t(message) !== '') {
-                message = this.$t(message)
-              }
-
-              this.showToast({
-                message: message
-              })
-              break
-            }
-
-            case 'channel': {
-              const channelId = url.pathname.match(channelPattern)[1]
-              if (!channelId) {
-                throw new Error('Channel: could not extract id')
-              }
-
-              v.$router.push({
-                path: `/channel/${channelId}`
-              })
-              break
-            }
-
-            default: {
-              // Unknown URL type
-              let message = 'Unknown YouTube url type, cannot be opened in app'
-              if (this.$te(message) && this.$t(message) !== '') {
-                message = this.$t(message)
-              }
-
-              this.showToast({
-                message: message
-              })
-            }
+            this.showToast({
+              message: message
+            })
           }
         }
       })

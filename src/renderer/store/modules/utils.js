@@ -239,25 +239,142 @@ const actions = {
     return extractors.reduce((a, c) => a || c(), null) || paramsObject
   },
 
-  getPlaylistIdFromUrl (_, url) {
-    /** @type {URL} */
-    let urlObject
-    try {
-      urlObject = new URL(url)
-    } catch (e) {
-      return false
+  getYoutubeUrlInfo (_, urlStr) {
+    // Returns
+    // - urlType [String] `video`, `playlist`
+    //
+    // If `urlType` is "video"
+    // - videoId [String]
+    // - timestamp [String]
+    //
+    // If `urlType` is "playlist"
+    // - playlistId [String]
+    // - query [Object]
+    //
+    // If `urlType` is "search"
+    // - searchQuery [String]
+    // - query [Object]
+    //
+    // If `urlType` is "hashtag"
+    // Nothing else
+    //
+    // If `urlType` is "channel"
+    // - channelId [String]
+    //
+    // If `urlType` is "unknown"
+    // Nothing else
+    //
+    // If `urlType` is "invalid_url"
+    // Nothing else
+    const { videoId, timestamp } = actions.getVideoParamsFromUrl(null, urlStr)
+    if (videoId) {
+      return {
+        urlType: 'video',
+        videoId,
+        timestamp
+      }
     }
 
-    const extractors = [
-      // anything with /playlist?list=
-      function() {
-        if (urlObject.pathname === '/playlist' && urlObject.searchParams.has('list')) {
-          return urlObject.searchParams.get('list')
+    let url
+    try {
+      url = new URL(urlStr)
+    } catch {
+      return {
+        urlType: 'invalid_url'
+      }
+    }
+    let urlType = 'unknown'
+
+    const channelPattern =
+      /^\/(?:c\/|channel\/|user\/)?([^/]+)(?:\/join)?\/?$/
+
+    const typePatterns = new Map([
+      ['playlist', /^\/playlist\/?$/],
+      ['search', /^\/results\/?$/],
+      ['hashtag', /^\/hashtag\/([^/?&#]+)$/],
+      ['channel', channelPattern]
+    ])
+
+    for (const [type, pattern] of typePatterns) {
+      const matchFound = pattern.test(url.pathname)
+      if (matchFound) {
+        urlType = type
+        break
+      }
+    }
+
+    switch (urlType) {
+      case 'playlist': {
+        if (!url.searchParams.has('list')) {
+          throw new Error('Playlist: "list" field not found')
+        }
+
+        const playlistId = url.searchParams.get('list')
+        url.searchParams.delete('list')
+
+        const query = {}
+        for (const [param, value] of url.searchParams) {
+          query[param] = value
+        }
+
+        return {
+          urlType: 'playlist',
+          playlistId,
+          query
         }
       }
-    ]
 
-    return extractors.reduce((a, c) => a || c(), null) || false
+      case 'search': {
+        if (!url.searchParams.has('search_query')) {
+          throw new Error('Search: "search_query" field not found')
+        }
+
+        const searchQuery = url.searchParams.get('search_query')
+        url.searchParams.delete('search_query')
+
+        const query = {
+          sortBy: this.searchSettings.sortBy,
+          time: this.searchSettings.time,
+          type: this.searchSettings.type,
+          duration: this.searchSettings.duration
+        }
+
+        for (const [param, value] of url.searchParams) {
+          query[param] = value
+        }
+
+        return {
+          urlType: 'search',
+          searchQuery,
+          query
+        }
+      }
+
+      case 'hashtag': {
+        return {
+          urlType: 'hashtag'
+        }
+      }
+
+      case 'channel': {
+        const channelId = url.pathname.match(channelPattern)[1]
+        if (!channelId) {
+          throw new Error('Channel: could not extract id')
+        }
+
+        return {
+          urlType: 'channel',
+          channelId
+        }
+      }
+
+      default: {
+        // Unknown URL type
+        return {
+          urlType: 'unknown'
+        }
+      }
+    }
   },
 
   padNumberWithLeadingZeros(_, payload) {
