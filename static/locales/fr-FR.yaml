@@ -193,6 +193,7 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Intervalle de la prochaine vidéo dans la liste de
       lecture
+    Next Video Interval: Intervalle vidéo suivante
   Subscription Settings:
     Subscription Settings: 'Paramètres des abonnements'
     Hide Videos on Watch: 'Masquer les vidéos visionnées'
