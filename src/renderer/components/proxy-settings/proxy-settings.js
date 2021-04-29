@@ -67,6 +67,14 @@ export default Vue.extend({
   },
   mounted: function () {
     this.debounceEnableProxy = debounce(this.enableProxy, 200)
+
+    electron.ipcRenderer.on('settings.update.updateUseProxy', (_e, value) => {
+      // Update this window's state, without sending the event again
+      this.updateUseProxy({
+        useProxy: value,
+        commitOnly: true
+      })
+    })
   },
   beforeDestroy: function () {
     if (this.proxyHostname === '') {
@@ -84,7 +92,9 @@ export default Vue.extend({
       } else {
         this.disableProxy()
       }
-      this.updateUseProxy(value)
+      this.updateUseProxy({
+        useProxy: value
+      })
     },
 
     handleUpdateProxyProtocol: function (value) {

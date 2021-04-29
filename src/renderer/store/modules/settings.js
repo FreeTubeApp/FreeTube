@@ -1,4 +1,5 @@
 import Datastore from 'nedb'
+const { remote } = require('electron')
 
 let dbLocation
 let electron = null
@@ -668,10 +669,23 @@ const actions = {
     })
   },
 
-  updateUseProxy ({ commit }, useProxy) {
+  updateUseProxy ({ commit }, { useProxy, commitOnly }) {
+    if (commitOnly) {
+      commit('setUseProxy', useProxy)
+      return
+    }
+
     settingsDb.update({ _id: 'useProxy' }, { _id: 'useProxy', value: useProxy }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
         commit('setUseProxy', useProxy)
+
+        // Send event to other windows to notify about setting value update
+        const currentWebContents = remote.getCurrentWebContents()
+        remote.webContents.getAllWebContents().forEach((item) => {
+          if (item !== currentWebContents) {
+            item.send('settings.update.updateUseProxy', useProxy) // notify other renderer process
+          }
+        })
       }
     })
   },
