@@ -175,16 +175,16 @@ Settings:
     Autoplay Videos: 'Автоматичне відтворення відео'
     Proxy Videos Through Invidious: 'Проксі-відео через Invidious'
     Autoplay Playlists: 'Автоматичне відтворення списків'
-    Enable Theatre Mode by Default: 'Усталено увімкнений режим театру'
-    Default Volume: 'Гучніть за замовченням'
-    Default Playback Rate: 'Усталена швидкість відтворення'
+    Enable Theatre Mode by Default: 'Типово увімкнути режим театру'
+    Default Volume: 'Типова гучність'
+    Default Playback Rate: 'Типова швидкість відтворення'
     Default Video Format:
-      Default Video Format: 'Формат відео за замовченням'
+      Default Video Format: 'Типовий формат відео'
       Dash Formats: 'Формати DASH'
       Legacy Formats: 'Застарілі формати'
       Audio Formats: 'Аудіо формати'
     Default Quality:
-      Default Quality: 'Якість за замовченням'
+      Default Quality: 'Типова якість'
       Auto: 'Автоматично'
       144p: '144p'
       240p: '240p'
@@ -196,6 +196,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Інтервал відтворення наступного відео
+    Next Video Interval: Інтервал до наступного відео
   Privacy Settings:
     Privacy Settings: 'Налаштування приватності'
     Remember History: 'Збрігати історію'
