@@ -655,3 +655,7 @@ This video is unavailable because of missing formats. This can happen due to cou
 More: المزيد
 Playing Next Video Interval: سيتم تشغيل الفيديو التالي على الفور.| إضغط للإلغاء.|
   سيبدأ الفيديو التالي في {nextVideoInterval} ثانية.| إضغط للإلغاء.
+Hashtags have not yet been implemented, try again later: لم يتم تنفيذ علامات التصنيف
+  بعد، حاول مرة أخرى لاحقا
+Unknown YouTube url type, cannot be opened in app: نوع URL غير معروف على YouTube،
+  لا يمكن فتحه في التطبيق
