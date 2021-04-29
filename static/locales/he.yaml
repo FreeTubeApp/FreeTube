@@ -187,6 +187,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: מרווח זמן לפני ניגון הסרטון הבא בפלייליסט
+    Next Video Interval: משך הסרטון הבא
   Privacy Settings:
     Privacy Settings: 'הגדרות פרטיות'
     Remember History: 'זכור את היסטוריית הצפייה'
@@ -202,6 +203,7 @@ Settings:
     Remove All Subscriptions / Profiles: 'מחק את כל המנויים / פרופילים'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'האם
       אתם בטוחים שאתם רוצים למחוק כל את המנויים והפרופילים? פעולה זו היא לא הפיכה.'
+    Automatically Remove Video Meta Files: להסיר אוטומטית קובצי נתוני על של הסרטון
   Subscription Settings:
     Subscription Settings: 'הגדרות מנויים'
     Hide Videos on Watch: 'הסתר סרטונים לאחר הצפייה'
@@ -403,6 +405,7 @@ Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'האם
     אתם בטוחים שאתם רוצים למחוק את הערוצים שבחרתם? הערוצים לא יימחקו משאר הפרופילים.'
 #On Channel Page
+  Profile Filter: מסנן פרופילים
 Channel:
   Subscriber: 'מנוי'
   Subscribers: 'מנויים'
@@ -518,6 +521,7 @@ Video:
   Video has been removed from your saved list: הסרטון הוסר מרשימת השמורים שלך
   Video has been saved: סרטון נשמר
   Save Video: שמירת סרטון
+  translated from English: תורגם מאנגלית
 Videos:
   #& Sort By
   Sort By:
@@ -616,18 +620,18 @@ Tooltips:
     Preferred API Backend: נא לבחור את המנגנון לשימוש FreeTube כדי לקבל נתונים. ה־API
       המקומי הוא מחלץ מובנה. ה־API של Invidious דורש התחברות לשרת Invidious.
     Region for Trending: מגמות אזוריות מאפשר לך לבחור סרטונים חמים של איזו מדינה מעניין
-      אותך לראות. לא כל המדינות שמוצגות אכן נתמכות על ידי YouTube
+      אותך לראות. לא כל המדינות שמוצגות אכן נתמכות על ידי YouTube.
     Invidious Instance: העותק של Invidious שאליו FreeTube יתחבר לפניות API. מחיקת
-      העותק הנוכחי תעלה רשימה של עותקים ציבוריים לבחור מביניהם
+      העותק הנוכחי תעלה רשימה של עותקים ציבוריים לבחור מביניהם.
     Thumbnail Preference: כל התמונות הממוזערות ברחבי FreeTube יוחלפו בפריים מתוך הסרטון
       במקום התמונה הממוזערת כברירת המחדל.
   Player Settings:
     Force Local Backend for Legacy Formats: עובד רק כאשר ה־API של Invidious הוא ברירת
       המחדל שלך. כאשר האפשרות פעילה, ה־API המקומי יופעל וישתמש בתצורות המיושנות שהוחזרו
       על ידיו במקום באלו שהוחזרו על ידי Invidious. מועיל כאשר הסרטונים שמוחזרים על
-      ידי Invidious לא מתנגנים עקב מגבלות חוקיות במדינה
+      ידי Invidious לא מתנגנים עקב מגבלות חוקיות במדינה.
     Proxy Videos Through Invidious: יתבצע חיבור ל־Invidious כדי להגיש סרטונים במקום
-      להתחבר ישירות ל־YouTube. דורס את העדפת ה־API
+      להתחבר ישירות ל־YouTube. דורס את העדפת ה־API.
     Default Video Format: קביעת התצורות בעת ניגון סרטונים. תצורות DASH יכולות לנגן
       באיכויות גבוהות יותר. התצורות המיושנות מוגבלות ל־720 פיקסלים לכל היותר אך משתמשות
       בפחות רוחב פס. תצורות שמע הן הזרמות של שמע בלבד.
