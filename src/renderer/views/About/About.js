@@ -69,7 +69,7 @@ export default Vue.extend({
         {
           icon: 'users',
           title: this.$t('About.Credits'),
-          content: `${this.$t('About.FreeTube is made possible by')} <a href="https://github.com/FreeTubeApp/FreeTube/wiki/Credits">${this.$t('About.these people and projects')}</a>`
+          content: `${this.$t('About.FreeTube is made possible by')} <a href="https://docs.freetubeapp.io/credits/">${this.$t('About.these people and projects')}</a>`
         },
         {
           icon: 'heart',

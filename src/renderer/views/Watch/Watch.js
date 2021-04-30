@@ -291,7 +291,7 @@ export default Vue.extend({
             this.videoLikeCount = isNaN(result.videoDetails.likes) ? 0 : result.videoDetails.likes
             this.videoDislikeCount = isNaN(result.videoDetails.dislikes) ? 0 : result.videoDetails.dislikes
           }
-          this.isLive = result.player_response.videoDetails.isLive
+          this.isLive = result.player_response.videoDetails.isLive || result.player_response.videoDetails.isLiveContent
           this.isLiveContent = result.player_response.videoDetails.isLiveContent
           this.isUpcoming = result.player_response.videoDetails.isUpcoming ? result.player_response.videoDetails.isUpcoming : false
 
@@ -359,8 +359,14 @@ export default Vue.extend({
           } else {
             this.videoLengthSeconds = parseInt(result.videoDetails.lengthSeconds)
             if (result.player_response.streamingData !== undefined) {
-              this.videoSourceList = result.player_response.streamingData.formats.reverse()
-              this.downloadLinks = result.formats.map((format) => {
+              if (typeof (result.player_response.streamingData.formats) !== 'undefined') {
+                this.videoSourceList = result.player_response.streamingData.formats.reverse()
+              } else {
+                this.videoSourceList = result.player_response.streamingData.adaptiveFormats.reverse()
+              }
+              this.downloadLinks = result.formats.filter((format) => {
+                return typeof format.mimeType !== 'undefined'
+              }).map((format) => {
                 const qualityLabel = format.qualityLabel || format.bitrate
                 const itag = format.itag
                 const fps = format.fps ? (format.fps + 'fps') : 'kbps'
