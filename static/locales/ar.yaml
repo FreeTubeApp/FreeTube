@@ -183,6 +183,7 @@ Settings:
       4k: '4k'
       8k: '‍8k'
     Playlist Next Video Interval: الفاصل الزمني لتشغيل الفيديو التالي في قائمة التشغيل
+    Next Video Interval: الفاصل الزمني للفيديو التالي
   Privacy Settings:
     Privacy Settings: 'إعدادات الخصوصية'
     Remember History: 'تذّكر سجلّ المشاهدة'
