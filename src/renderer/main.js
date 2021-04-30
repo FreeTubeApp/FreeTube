@@ -27,26 +27,40 @@ Vue.component('FontAwesomeIcon', FontAwesomeIcon)
 Vue.use(VueI18n)
 
 // List of locales approved for use
-const activeLocales = ['en-US', 'en_GB', 'ar', 'bg', 'cs', 'da', 'de-DE', 'el', 'es', 'es-MX', 'fi', 'fr-FR', 'gl', 'he', 'hu', 'hr', 'id', 'is', 'it', 'ja', 'nb_NO', 'nl', 'nn', 'pl', 'pt', 'pt-BR', 'pt-PT', 'ru', 'sk', 'sl', 'sv', 'tr', 'uk', 'vi', 'zh-CN', 'zh-TW']
+const activeLocales = ['system', 'en-US', 'en_GB', 'ar', 'bg', 'cs', 'da', 'de-DE', 'el', 'es', 'es-MX', 'fi', 'fr-FR', 'gl', 'he', 'hu', 'hr', 'id', 'is', 'it', 'ja', 'nb_NO', 'nl', 'nn', 'pl', 'pt', 'pt-BR', 'pt-PT', 'ru', 'sk', 'sl', 'sv', 'tr', 'uk', 'vi', 'zh-CN', 'zh-TW']
 const messages = {}
 /* eslint-disable-next-line */
 const fileLocation = isDev ? 'static/locales/' : `${__dirname}/static/locales/`
 
 // Take active locales and load respective YAML file
 activeLocales.forEach((locale) => {
+  // Import elctrons app object to access getLocale function  
+  const { remote } = require('electron')
+  const { app } = remote
   try {
     // File location when running in dev
-    const doc = yaml.load(fs.readFileSync(`${fileLocation}${locale}.yaml`))
-    messages[locale] = doc
+    if (locale === "system") {
+      // trying to find the corresponding .yaml file to systems locale   
+      try {
+        const doc = yaml.load(fs.readFileSync(`${fileLocation}${app.getLocale()}.yaml`))
+        messages[locale] = doc
+      } catch (e) {
+        console.log(e)
+      }
+    }
+    else {
+      const doc = yaml.load(fs.readFileSync(`${fileLocation}${locale}.yaml`))
+      messages[locale] = doc
+    }
   } catch (e) {
     console.log(e)
   }
 })
 
 const i18n = new VueI18n({
-  locale: 'en-US', // set locale
+  locale: 'system', // set locale standard is to follow the systems locale
   fallbackLocale: {
-    default: 'en-US'
+    default: 'en-US' // for the case systems locale has no corresponding .yaml file en-US gets set 
   },
   messages // set locale messages
 })
