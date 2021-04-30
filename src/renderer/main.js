@@ -34,21 +34,20 @@ const fileLocation = isDev ? 'static/locales/' : `${__dirname}/static/locales/`
 
 // Take active locales and load respective YAML file
 activeLocales.forEach((locale) => {
-  // Import elctrons app object to access getLocale function  
+  // Import elctrons app object to access getLocale function
   const { remote } = require('electron')
   const { app } = remote
   try {
     // File location when running in dev
-    if (locale === "system") {
-      // trying to find the corresponding .yaml file to systems locale   
+    if (locale === 'system') {
+      // trying to find the corresponding .yaml file to systems locale
       try {
         const doc = yaml.load(fs.readFileSync(`${fileLocation}${app.getLocale()}.yaml`))
         messages[locale] = doc
       } catch (e) {
         console.log(e)
       }
-    }
-    else {
+    } else {
       const doc = yaml.load(fs.readFileSync(`${fileLocation}${locale}.yaml`))
       messages[locale] = doc
     }
@@ -60,7 +59,7 @@ activeLocales.forEach((locale) => {
 const i18n = new VueI18n({
   locale: 'system', // set locale standard is to follow the systems locale
   fallbackLocale: {
-    default: 'en-US' // for the case systems locale has no corresponding .yaml file en-US gets set 
+    default: 'en-US' // for the case systems locale has no corresponding .yaml file en-US gets set
   },
   messages // set locale messages
 })
