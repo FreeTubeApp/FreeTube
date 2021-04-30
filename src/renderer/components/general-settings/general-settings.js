@@ -106,7 +106,7 @@ export default Vue.extend({
         const localeName = this.$i18n.messages[locale]['Locale Name']
         if (typeof localeName !== 'undefined' && locale !== 'system') {
           names.push(localeName)
-        } else if (typeof localeName !== 'undefined' && locale === 'system') { // adds Follow System to localeNames if system locale was found
+        } else if (typeof localeName !== 'undefined' && locale === 'system') {
           names.push('Follow System')
         } else {
           names.push(locale)
