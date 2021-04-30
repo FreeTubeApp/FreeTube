@@ -177,6 +177,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: 播放清單 下一個影片間隔時間
+    Next Video Interval: 下一個影片區段
   Subscription Settings:
     Subscription Settings: '訂閱設定'
     Hide Videos on Watch: '觀看時隱藏影片'
