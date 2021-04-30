@@ -19,6 +19,7 @@
         tabindex="0"
         @click="historyBack"
         @keypress="historyBack"
+        :title="forwardText"
       />
       <font-awesome-icon
         class="navForwardIcon navIcon"
@@ -27,6 +28,7 @@
         tabindex="0"
         @click="historyForward"
         @keypress="historyForward"
+        :title="forwardText"
       />
       <font-awesome-icon
         class="navSearchIcon navIcon"
@@ -40,6 +42,7 @@
         class="navNewWindowIcon navIcon"
         icon="clone"
         @click="createNewWindow"
+        :title="newWindowText"
       />
       <div class="logo">
         <div

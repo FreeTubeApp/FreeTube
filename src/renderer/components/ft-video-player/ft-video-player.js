@@ -74,6 +74,7 @@ export default Vue.extend({
       useHls: false,
       selectedDefaultQuality: '',
       selectedQuality: '',
+      using60Fps: false,
       maxFramerate: 0,
       activeSourceList: [],
       mouseTimeout: null,
@@ -416,7 +417,11 @@ export default Vue.extend({
       }
 
       this.player.qualityLevels().levels_.sort((a, b) => {
-        return a.height - b.height
+        if (a.height === b.height) {
+          return a.bitrate - b.bitrate
+        } else {
+          return a.height - b.height
+        }
       }).forEach((ql, index, arr) => {
         const height = ql.height
         const width = ql.width
@@ -427,14 +432,16 @@ export default Vue.extend({
           upperLevel = arr[index + 1]
         }
 
-        if (this.defaultQuality === quality) {
-          this.setDashQualityLevel(height)
+        if (this.defaultQuality === quality && upperLevel === null) {
+          this.setDashQualityLevel(height, true)
         } else if (upperLevel !== null) {
           const upperHeight = upperLevel.height
           const upperWidth = upperLevel.width
           const upperQuality = upperWidth < upperHeight ? upperWidth : upperHeight
 
-          if (this.defaultQuality >= quality && this.defaultQuality < upperQuality) {
+          if (this.defaultQuality >= quality && this.defaultQuality === upperQuality) {
+            this.setDashQualityLevel(height, true)
+          } else if (this.defaultQuality >= quality && this.defaultQuality < upperQuality) {
             this.setDashQualityLevel(height)
           }
         } else if (index === 0 && quality > this.defaultQuality) {
@@ -445,23 +452,65 @@ export default Vue.extend({
       })
     },
 
-    setDashQualityLevel: function (qualityLevel) {
-      if (this.selectedQuality === qualityLevel) {
+    setDashQualityLevel: function (qualityLevel, is60Fps = false) {
+      if (this.selectedQuality === qualityLevel && this.using60Fps === is60Fps) {
         return
       }
+      let foundSelectedQuality = false
+      this.using60Fps = is60Fps
       this.player.qualityLevels().levels_.sort((a, b) => {
-        return a.height - b.height
+        if (a.height === b.height) {
+          return a.bitrate - b.bitrate
+        } else {
+          return a.height - b.height
+        }
       }).forEach((ql, index, arr) => {
-        if (qualityLevel === 'auto' || ql.height === qualityLevel) {
+        if (foundSelectedQuality) {
+          ql.enabled = false
+          ql.enabled_(false)
+        } else if (qualityLevel === 'auto') {
           ql.enabled = true
           ql.enabled_(true)
+        } else if (ql.height === qualityLevel) {
+          ql.enabled = true
+          ql.enabled_(true)
+          foundSelectedQuality = true
+
+          let lowerQuality
+          let higherQuality
+
+          if ((index - 1) !== -1) {
+            lowerQuality = arr[index - 1]
+          }
+
+          if ((index + 1) < arr.length) {
+            higherQuality = arr[index + 1]
+          }
+
+          if (typeof (lowerQuality) !== 'undefined' && lowerQuality.height === ql.height && lowerQuality.bitrate < ql.bitrate && !is60Fps) {
+            ql.enabled = false
+            ql.enabled_(false)
+            foundSelectedQuality = false
+          }
+
+          if (typeof (higherQuality) !== 'undefined' && higherQuality.height === ql.height && higherQuality.bitrate > ql.bitrate && is60Fps) {
+            ql.enabled = false
+            ql.enabled_(false)
+            foundSelectedQuality = false
+          }
         } else {
           ql.enabled = false
           ql.enabled_(false)
         }
       })
 
-      const selectedQuality = qualityLevel === 'auto' ? 'auto' : qualityLevel + 'p'
+      let selectedQuality = qualityLevel
+
+      if (selectedQuality !== 'auto' && is60Fps) {
+        selectedQuality = selectedQuality + 'p60'
+      } else if (selectedQuality !== 'auto') {
+        selectedQuality = selectedQuality + 'p'
+      }
 
       const qualityElement = document.getElementById('vjs-current-quality')
       qualityElement.innerText = selectedQuality
@@ -677,9 +726,9 @@ export default Vue.extend({
         },
         handleClick: function(event) {
           const selectedQuality = event.target.innerText
-          const quality = selectedQuality === 'auto' ? 'auto' : parseInt(selectedQuality.replace('p', ''))
-          v.setDashQualityLevel(quality)
-          // console.log(this.player().qualityLevels())
+          const quality = selectedQuality === 'auto' ? 'auto' : parseInt(selectedQuality.replace('p(60)?', ''))
+          const is60Fps = selectedQuality.includes('p60')
+          v.setDashQualityLevel(quality, is60Fps)
         },
         createControlTextEl: function (button) {
           const beginningHtml = `<div class="vjs-quality-level-value">
@@ -695,10 +744,21 @@ export default Vue.extend({
           </li>`
 
           levels.levels_.sort((a, b) => {
-            return b.height - a.height
-          }).forEach((quality) => {
+            if (b.height === a.height) {
+              return b.bitrate - a.bitrate
+            } else {
+              return b.height - a.height
+            }
+          }).forEach((quality, index, array) => {
+            let is60Fps = false
+            if (index < array.length - 1 && array[index + 1].height === quality.height) {
+              if (array[index + 1].bitrate < quality.bitrate) {
+                is60Fps = true
+              }
+            }
+            const qualityText = is60Fps ? quality.height + 'p60' : quality.height + 'p'
             qualityHtml = qualityHtml + `<li class="vjs-menu-item quality-item" role="menuitemradio" tabindex="-1" aria-checked="false aria-disabled="false">
-              <span class="vjs-menu-item-text">${quality.height}p</span>
+              <span class="vjs-menu-item-text">${qualityText}</span>
               <span class="vjs-control-text" aria-live="polite"></span>
             </li>`
           })

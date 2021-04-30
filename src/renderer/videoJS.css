@@ -664,10 +664,12 @@ body.vjs-full-window {
   display: none;
   position: absolute;
   bottom: 30px;
-  left: -8px;
+  left: -15px;
   z-index: 5;
   background-color: #151b17;
-  width: 50px;
+  width: 70px;
+  max-height: 225px;
+  overflow-y: auto;
 }
 
 .vjs-quality-level-menu:hover {

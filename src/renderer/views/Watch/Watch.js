@@ -428,7 +428,14 @@ export default Vue.extend({
               if (this.proxyVideos) {
                 this.dashSrc = await this.createInvidiousDashManifest()
               } else {
-                this.dashSrc = await this.createLocalDashManifest(result.player_response.streamingData.adaptiveFormats)
+                const adaptiveFormats = result.player_response.streamingData.adaptiveFormats.filter((video) => {
+                  if (typeof (video.qualityLabel) !== 'undefined') {
+                    return !video.qualityLabel.includes('HDR')
+                  } else {
+                    return true
+                  }
+                })
+                this.dashSrc = await this.createLocalDashManifest(adaptiveFormats)
               }
 
               this.audioSourceList = result.player_response.streamingData.adaptiveFormats.filter((format) => {

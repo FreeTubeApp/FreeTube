@@ -42,6 +42,7 @@ export default Vue.extend({
       isLive: false,
       isFavorited: false,
       isUpcoming: false,
+      isPremium: false,
       hideViews: false,
       optionsValues: [
         'history',
@@ -321,6 +322,7 @@ export default Vue.extend({
       this.description = this.data.description
       this.isLive = this.data.liveNow || this.data.lengthSeconds === 'undefined'
       this.isUpcoming = this.data.isUpcoming || this.data.premiere
+      this.isPremium = this.data.premium || false
       this.viewCount = this.data.viewCount
 
       if (typeof (this.data.premiereTimestamp) !== 'undefined') {
