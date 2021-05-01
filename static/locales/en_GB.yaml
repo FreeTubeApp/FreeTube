@@ -189,6 +189,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Playlist Next Video Interval
+    Next Video Interval: Next Video Interval
   Privacy Settings:
     Privacy Settings: 'Privacy Settings'
     Remember History: 'Remember History'
@@ -647,3 +648,4 @@ Hashtags have not yet been implemented, try again later: Hashtags have not yet b
   implemented, try again later
 Unknown YouTube url type, cannot be opened in app: Unknown YouTube url type, cannot
   be opened in app
+Open New Window: Open New Window
