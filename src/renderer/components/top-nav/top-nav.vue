@@ -17,18 +17,18 @@
         icon="arrow-left"
         role="button"
         tabindex="0"
+        :title="forwardText"
         @click="historyBack"
         @keypress="historyBack"
-        :title="forwardText"
       />
       <font-awesome-icon
         class="navForwardIcon navIcon"
         icon="arrow-right"
         role="button"
         tabindex="0"
+        :title="forwardText"
         @click="historyForward"
         @keypress="historyForward"
-        :title="forwardText"
       />
       <font-awesome-icon
         class="navSearchIcon navIcon"
@@ -41,8 +41,8 @@
       <font-awesome-icon
         class="navNewWindowIcon navIcon"
         icon="clone"
-        @click="createNewWindow"
         :title="newWindowText"
+        @click="createNewWindow"
       />
       <div class="logo">
         <div
