@@ -188,6 +188,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Afspeellijst Volgende Video Tussentijd
+    Next Video Interval: Volgende Video Tussenpauze Duur
   Privacy Settings:
     Privacy Settings: 'Privacy Instellingen'
     Remember History: 'Onthoud Geschiedenis'
@@ -679,3 +680,8 @@ Playing Next Video Interval: Volgende video wordt afgespeeld. Klik om te onderbr
   | Volgende video wordt afgespeeld in {nextVideoInterval} seconde. Klik om te onderbreken.
   | Volgende video wordt afgespeeld in {nextVideoInterval} seconden. Klik om te onderbreken.
 More: Meer
+Hashtags have not yet been implemented, try again later: Hastags zijn nog niet geïmplementeerd,
+  probeer het later nogmaals
+Unknown YouTube url type, cannot be opened in app: Onbekende YouTube url type, de
+  url kan niet worden geopend in de app
+Open New Window: Open Nieuw Venster
