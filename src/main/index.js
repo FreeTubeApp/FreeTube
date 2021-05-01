@@ -326,6 +326,22 @@ function runApp() {
       newWindow.focus()
     })
 
+    newWindow.on('close', () => {
+      newWindow.webContents.session.clearCache()
+      newWindow.webContents.session.clearStorageData({
+        storages: [
+          'appcache',
+          'cookies',
+          'filesystem',
+          'indexdb',
+          'shadercache',
+          'websql',
+          'serviceworkers',
+          'cachestorage'
+        ]
+      })
+    })
+
     newWindow.on('closed', () => {
       // Remove closed window
       openedWindows = openedWindows.filter((window) => window !== newWindow)
@@ -406,20 +422,6 @@ function runApp() {
     if (process.platform !== 'darwin') {
       app.quit()
     }
-
-    mainWindow.webContents.session.clearCache()
-    mainWindow.webContents.session.clearStorageData({
-      storages: [
-        'appcache',
-        'cookies',
-        'filesystem',
-        'indexdb',
-        'shadercache',
-        'websql',
-        'serviceworkers',
-        'cachestorage'
-      ]
-    })
   })
 
   app.on('activate', () => {
