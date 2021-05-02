@@ -35,8 +35,7 @@ const fileLocation = isDev ? 'static/locales/' : `${__dirname}/static/locales/`
 // Take active locales and load respective YAML file
 activeLocales.forEach((locale) => {
   // Import elctrons app object to access getLocale function
-  const { remote } = require('electron')
-  const { app } = remote
+  const { app } = require('@electron/remote')
   try {
     // File location when running in dev
     if (locale === 'system') {
