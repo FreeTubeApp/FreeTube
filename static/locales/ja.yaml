@@ -177,6 +177,7 @@ Settings:
       4k: '4K'
       8k: '8K'
     Playlist Next Video Interval: 次の再生リストを再生する間隔
+    Next Video Interval: 次のビデオまでの間隔
   Subscription Settings:
     Subscription Settings: '登録チャンネルの設定'
     Hide Videos on Watch: '視聴済み動画の非表示'
@@ -598,3 +599,6 @@ Tooltips:
 Playing Next Video Interval: すぐに次のビデオを再生します。クリックするとキャンセル。|次のビデオを {nextVideoInterval}
   秒で再生します。クリックするとキャンセル。|次のビデオを {nextVideoInterval} 秒で再生します。クリックするとキャンセル。
 More: もっと見る
+Hashtags have not yet been implemented, try again later: ハッシュタグは未実装です。実装後に実行してください
+Unknown YouTube url type, cannot be opened in app: 不明な YouTube URL の種類、アプリで実行できません
+Open New Window: 新しいウィンドウを開く
