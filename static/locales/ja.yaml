@@ -594,7 +594,7 @@ Tooltips:
       は自動的に他の API での取得を試みます。
     Region for Trending: 急上昇の地域設定では、急上昇動画を表示する国を選択できます。YouTube は、すべての国に対応していません。
   Privacy Settings:
-    Remove Video Meta Files: 有効にすると、FreeTube はビデオ再生中に作成したメタファイルは、再生ページを閉じるときに自動的に削除します。
+    Remove Video Meta Files: 有効にすると、FreeTube はビデオ再生中に作成したメタファイルは、再生ページを閉じるときに自動的に削除されます。
 Playing Next Video Interval: すぐに次のビデオを再生します。クリックするとキャンセル。|次のビデオを {nextVideoInterval}
   秒で再生します。クリックするとキャンセル。|次のビデオを {nextVideoInterval} 秒で再生します。クリックするとキャンセル。
 More: もっと見る
