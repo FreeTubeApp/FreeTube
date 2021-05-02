@@ -1,6 +1,6 @@
 # Put the name of your locale in the same language
 Locale Name: 'Türkçe'
-FreeTube: 'Freetube'
+FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Uygulamanın bu bölümü henüz hazır değil. Tamamlanınca geri gel.
@@ -76,7 +76,7 @@ Subscriptions:
   Subscriptions: 'Abonelikler'
   Latest Subscriptions: 'En Yeni'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Abonelik
-    listeniz şu anda boş. Burada görmek için abone olmaya başlayın.'
+    listeniz şu anda boş. Aboneliklerinizi görebilmek için abone olmaya başlayın.'
   'Getting Subscriptions. Please wait.': 'Abonelikler yükleniyor. Lütfen bekleyin.'
   Refresh Subscriptions: 'Abonelikleri Yenile'
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Bu
@@ -88,8 +88,8 @@ Playlists: 'Oynatma Listeleri'
 User Playlists:
   Your Playlists: 'Oynatma Listelerin'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Kaydedilen
-    videolarınız boş. Burada listelenmesi için videonun köşesindeki kaydet düğmesine
-    tıklayın
+    videolarınız boş. Kaydedilen videolarınızın burada listelenmesi için videonun
+    köşesindeki kaydet düğmesine tıklayın
   Playlist Message: Bu sayfa, tam olarak çalışan oynatma listelerini yansıtmamaktadır.
     Yalnızca kaydettiğiniz veya favorilerinize eklediğiniz videoları listeler. İş
     bittiğinde, şu anda burada bulunan tüm videolar bir 'Favoriler' oynatma listesine
@@ -343,7 +343,7 @@ About:
   Latest FreeTube News: 'En Yeni FreeTube Haberleri'
 
   Translate via Weblate: Weblate'de Çevir
-  Website: Web Sitesi
+  Website: İnternet Sitesi
   Source Code: Kaynak Kodları
   Release Notes: Sürüm Notları
   Blog: Blog
@@ -366,8 +366,8 @@ About:
   Please read the: Lütfen okuyun
   Chat on Matrix: Matrix'te sohbet et
   Mastodon: Mastodon
-  Please check for duplicates before posting: Lütfen göndermeden önce yinelenmeleri
-    denetleyin
+  Please check for duplicates before posting: Lütfen bildirmeden önce bildirilmiş
+    olup olmadığını kontrol edin
   GitHub issues: GitHub sorunları
   Report a problem: Sorun bildir
   FreeTube Wiki: FreeTube Wiki
