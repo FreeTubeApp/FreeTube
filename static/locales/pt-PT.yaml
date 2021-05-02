@@ -91,9 +91,9 @@ User Playlists:
   Playlist Message: Esta página não é indicativa do resultado final. Apenas mostra
     vídeos que foram guardados ou marcados como favoritos. Quando estiver pronta,
     todos os vídeos que estiverem aqui serão postos numa lista chamada 'Favoritos'.
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: A
-    sua lista está vazia. Carregue no botão com a estrela no canto de um vídeo para
-    o guardar aqui.
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Os
+    seus vídeos guardados estão vazios. Clique no botão gravar no canto de um vídeo
+    para ser listado aqui
 History:
   # On History Page
   History: Histórico
@@ -195,6 +195,7 @@ Settings:
       1440p: 1440p
       4k: 4k
       8k: 8k
+    Next Video Interval: Próximo intervalo de vídeo
   Privacy Settings:
     Privacy Settings: Definições de Privacidade
     Remember History: Lembrar Histórico
@@ -288,9 +289,8 @@ Settings:
     Country: País
     Region: Região
     City: Cidade
-    Error getting network information. Is your proxy configured properly?: Houve um
-      erro a receber a informação sobre a sua rede. Verifique que o seu intermediário
-      está configurado correctamente.
+    Error getting network information. Is your proxy configured properly?: Erro ao
+      obter informações da rede. O seu proxy está configurado corretamente?
 About:
   #On About page
   About: Sobre
@@ -560,9 +560,9 @@ Up Next: A Seguir
 #Tooltips
 Tooltips:
   General Settings:
-    Preferred API Backend: O sistema que FreeTube utilizará para se ligar ao Youtube.
-      O API local existe como parte do FreeTube e faz ligações directas ao Youtube.
-      O API Invidious necessita de uma ligação a um servidor Invidious
+    Preferred API Backend: Escolha o backend que o FreeTube usa para obter os dados.
+      O API local é um extrator incorporado. A API Invidious requer um servidor Invidious
+      para se conectar.
     Fallback to Non-Preferred Backend on Failure: Quando a sua API preferida tiver
       um problema, o FreeTube tentará usar automaticamente a sua API não preferida
       em substituição quando ativado.
@@ -626,3 +626,8 @@ Playing Next Video Interval: Reproduzindo o próximo vídeo imediatamente. Cliqu
   para cancelar. | Reproduzindo o próximo vídeo em {nextVideoInterval} segundos. Clique
   para cancelar.
 More: Mais
+Hashtags have not yet been implemented, try again later: Os Hashtags ainda não foram
+  implementados, tente novamente mais tarde
+Unknown YouTube url type, cannot be opened in app: Tipo de url do YouTube desconhecido,
+  não pode ser aberto numa app
+Open New Window: Abrir uma nova janela
