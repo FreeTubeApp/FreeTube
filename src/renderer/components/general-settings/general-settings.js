@@ -103,12 +103,15 @@ export default Vue.extend({
       const names = []
 
       Object.keys(this.$i18n.messages).forEach((locale) => {
-        const localeName = this.$i18n.messages[locale]['Locale Name']
-        if (typeof localeName !== 'undefined' && locale !== 'system') {
-          names.push(localeName)
-        } else if (typeof localeName !== 'undefined' && locale === 'system') {
+        if (locale === 'system') {
           names.push('Follow System')
-        } else {
+          return
+        }
+        const localeName = this.$i18n.messages[locale]['Locale Name']
+        if (typeof localeName !== 'undefined') {
+          names.push(localeName)
+        }
+        else {
           names.push(locale)
         }
       })
