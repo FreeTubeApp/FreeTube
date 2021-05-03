@@ -39,12 +39,14 @@ activeLocales.forEach((locale) => {
   try {
     // File location when running in dev
     if (locale === 'system') {
-      // trying to find the corresponding .yaml file to systems locale
-      try {
-        const doc = yaml.load(fs.readFileSync(`${fileLocation}${app.getLocale()}.yaml`))
+      const systemsLocale = app.getLocale()
+      if (activeLocales.indexOf(systemsLocale) !== -1) {
+        const doc = yaml.load(fs.readFileSync(`${fileLocation}${systemsLocale}.yaml`))
         messages[locale] = doc
-      } catch (e) {
-        console.log(e)
+      } else {
+        const regex = new RegExp(`${systemsLocale}-\\w+`, 'g')
+        const doc = yaml.load(fs.readFileSync(`${fileLocation}${activeLocales.join(' ').match(regex)[0]}.yaml`))
+        messages[locale] = doc
       }
     } else {
       const doc = yaml.load(fs.readFileSync(`${fileLocation}${locale}.yaml`))
