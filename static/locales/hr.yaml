@@ -186,6 +186,7 @@ Settings:
       4k: '4 k'
       8k: '8 k'
     Playlist Next Video Interval: Interval sljedećeg videa zbirke
+    Next Video Interval: Interval za sljedeći video
   Privacy Settings:
     Privacy Settings: 'Postavke privatnosti'
     Remember History: 'Zapamti povijest'
@@ -678,3 +679,4 @@ Hashtags have not yet been implemented, try again later: Hashtagovi još nisu im
   pokušaj kasnije ponovo
 Unknown YouTube url type, cannot be opened in app: Nepoznata vrsta URL adrese na YouTubeu,
   ne može se otvoriti u programu
+Open New Window: Otvori novi prozor
