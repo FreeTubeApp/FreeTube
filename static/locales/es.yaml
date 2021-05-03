@@ -650,8 +650,11 @@ Tooltips:
     Thumbnail Preference: Todas las miniaturas en FreeTube serán reemplazadas con
       un frame del vídeo en lugar de la miniatura por defecto
     Fallback to Non-Preferred Backend on Failure: Si la API primaria falla, FreeTube
-      utilizará automáticamente la API secundara si se habilita
+      utilizará automáticamente la API secundara si se habilita.
     Preferred API Backend: Elige el backend que FreeTube utiliza para obtener datos.
       La API local es un extractor incluido. La API Invidious requiere un servidor
       Invidious al que conectarse.
 More: Más
+Unknown YouTube url type, cannot be opened in app: Tipo de LRU desconocido. No se
+  puede abrir en applicación
+Open New Window: Abrir ventana nueva
