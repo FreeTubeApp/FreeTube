@@ -110,8 +110,7 @@ export default Vue.extend({
         const localeName = this.$i18n.messages[locale]['Locale Name']
         if (typeof localeName !== 'undefined') {
           names.push(localeName)
-        }
-        else {
+        } else {
           names.push(locale)
         }
       })
