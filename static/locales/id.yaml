@@ -191,6 +191,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Interval Video dalam Daftar Putar
+    Next Video Interval: Interval Video Selanjutnya
   Privacy Settings:
     Privacy Settings: 'Pengaturan Privasi'
     Remember History: 'Ingat Riwayat'
@@ -666,3 +667,4 @@ Hashtags have not yet been implemented, try again later: Hashtag belum diimpleme
   silakan coba lagi nanti
 Unknown YouTube url type, cannot be opened in app: Tipe URL YouTube tidak dikenal,
   tidak bisa dibuka di aplikasi
+Open New Window: Buka Jendela Baru
