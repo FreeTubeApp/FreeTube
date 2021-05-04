@@ -690,10 +690,23 @@ const actions = {
     })
   },
 
-  updateProxyProtocol ({ commit }, proxyProtocol) {
+  updateProxyProtocol ({ commit }, { proxyProtocol, commitOnly }) {
+    if (commitOnly) {
+      commit('setProxyProtocol', proxyProtocol)
+      return
+    }
+
     settingsDb.update({ _id: 'proxyProtocol' }, { _id: 'proxyProtocol', value: proxyProtocol }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
         commit('setProxyProtocol', proxyProtocol)
+
+        // Send event to other windows to notify about setting value update
+        const currentWebContents = remote.getCurrentWebContents()
+        remote.webContents.getAllWebContents().forEach((item) => {
+          if (item !== currentWebContents) {
+            item.send('settings.update.updateProxyProtocol', proxyProtocol) // notify other renderer process
+          }
+        })
       }
     })
   },

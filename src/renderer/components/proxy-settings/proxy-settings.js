@@ -75,6 +75,13 @@ export default Vue.extend({
         commitOnly: true
       })
     })
+    electron.ipcRenderer.on('settings.update.updateProxyProtocol', (_e, value) => {
+      // Update this window's state, without sending the event again
+      this.updateProxyProtocol({
+        proxyProtocol: value,
+        commitOnly: true
+      })
+    })
   },
   beforeDestroy: function () {
     if (this.proxyHostname === '') {
@@ -101,7 +108,9 @@ export default Vue.extend({
       if (this.useProxy) {
         this.enableProxy()
       }
-      this.updateProxyProtocol(value)
+      this.updateProxyProtocol({
+        proxyProtocol: value
+      })
     },
 
     handleUpdateProxyHostname: function (value) {
