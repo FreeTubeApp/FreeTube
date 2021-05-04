@@ -194,6 +194,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Интервал за следващо видео в плейлист
+    Next Video Interval: Интервал за следващо видео
   Privacy Settings:
     Privacy Settings: 'Настройки за поверителност'
     Remember History: 'Запазване на историята'
@@ -667,3 +668,8 @@ More: Още
 Playing Next Video Interval: Пускане на следващото видео веднага. Щракнете за отказ.
   | Пускане на следващото видео след {nextVideoInterval} секунда. Щракнете за отказ.
   | Пускане на следващото видео след {nextVideoInterval} секунди. Щракнете за отказ.
+Hashtags have not yet been implemented, try again later: Хаштаговете все още не са
+  реализирани, опитайте отново по-късно
+Unknown YouTube url type, cannot be opened in app: Неизвестен тип URL адрес за YouTube,
+  не може да се отвори в приложението
+Open New Window: Отваряне на нов прозорец
