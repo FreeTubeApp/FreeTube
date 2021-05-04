@@ -193,6 +193,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Interval pro další video na playlistu
+    Next Video Interval: Další interval videa
   Privacy Settings:
     Privacy Settings: 'Nastavení soukromí'
     Remember History: 'Zapamatovat historii'
@@ -411,7 +412,7 @@ Channel:
   Channel has been removed from your subscriptions: 'Kanál byl odebrán z vašich odběrů'
   Removed subscription from $ other channel(s): 'Odběr odebrán z $ jiných kanálů'
   Added channel to your subscriptions: 'K vašim odběrům byl přidán kanál'
-  Search Channel: 'Hledat kanál'
+  Search Channel: 'Hledat v kanálu'
   Your search results have returned 0 results: 'Vaše vyhledávání přineslo 0 výsledků'
   Sort By: 'Seřadit podle'
   Videos:
@@ -667,3 +668,4 @@ Hashtags have not yet been implemented, try again later: Hashtagy nebyly dosud i
   zkuste to znovu později
 Unknown YouTube url type, cannot be opened in app: Neznámý typ adresy URL YouTube,
   nelze v aplikaci otevřít
+Open New Window: Otevřít nové okno
