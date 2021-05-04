@@ -711,18 +711,44 @@ const actions = {
     })
   },
 
-  updateProxyHostname ({ commit }, proxyHostname) {
+  updateProxyHostname ({ commit }, { proxyHostname, commitOnly }) {
+    if (commitOnly) {
+      commit('setProxyHostname', proxyHostname)
+      return
+    }
+
     settingsDb.update({ _id: 'proxyHostname' }, { _id: 'proxyHostname', value: proxyHostname }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
         commit('setProxyHostname', proxyHostname)
+
+        // Send event to other windows to notify about setting value update
+        const currentWebContents = remote.getCurrentWebContents()
+        remote.webContents.getAllWebContents().forEach((item) => {
+          if (item !== currentWebContents) {
+            item.send('settings.update.updateProxyHostname', proxyHostname) // notify other renderer process
+          }
+        })
       }
     })
   },
 
-  updateProxyPort ({ commit }, proxyPort) {
+  updateProxyPort ({ commit }, { proxyPort, commitOnly }) {
+    if (commitOnly) {
+      commit('setProxyPort', proxyPort)
+      return
+    }
+
     settingsDb.update({ _id: 'proxyPort' }, { _id: 'proxyPort', value: proxyPort }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
         commit('setProxyPort', proxyPort)
+
+        // Send event to other windows to notify about setting value update
+        const currentWebContents = remote.getCurrentWebContents()
+        remote.webContents.getAllWebContents().forEach((item) => {
+          if (item !== currentWebContents) {
+            item.send('settings.update.updateProxyPort', proxyPort) // notify other renderer process
+          }
+        })
       }
     })
   },

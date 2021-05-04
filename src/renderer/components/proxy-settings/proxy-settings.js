@@ -82,6 +82,20 @@ export default Vue.extend({
         commitOnly: true
       })
     })
+    electron.ipcRenderer.on('settings.update.updateProxyHostname', (_e, value) => {
+      // Update this window's state, without sending the event again
+      this.updateProxyHostname({
+        proxyHostname: value,
+        commitOnly: true
+      })
+    })
+    electron.ipcRenderer.on('settings.update.updateProxyPort', (_e, value) => {
+      // Update this window's state, without sending the event again
+      this.updateProxyPort({
+        proxyPort: value,
+        commitOnly: true
+      })
+    })
   },
   beforeDestroy: function () {
     if (this.proxyHostname === '') {
@@ -117,14 +131,18 @@ export default Vue.extend({
       if (this.useProxy) {
         this.debounceEnableProxy()
       }
-      this.updateProxyHostname(value)
+      this.updateProxyHostname({
+        proxyHostname: value
+      })
     },
 
     handleUpdateProxyPort: function (value) {
       if (this.useProxy) {
         this.debounceEnableProxy()
       }
-      this.updateProxyPort(value)
+      this.updateProxyPort({
+        proxyPort: value
+      })
     },
 
     enableProxy: function () {
