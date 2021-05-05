@@ -188,6 +188,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Przerwa przed kolejną pozycją playlisty
+    Next Video Interval: Czas do następnego filmu
   Subscription Settings:
     Subscription Settings: 'Ustawienia subskrypcji'
     Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
@@ -689,3 +690,4 @@ Unknown YouTube url type, cannot be opened in app: Nieznany typ adresu URL YouTu
   nie można go otworzyć w aplikacji
 Hashtags have not yet been implemented, try again later: Hashtagi nie zostały jeszcze
   wprowadzone, spróbuj później
+Open New Window: Otwórz nowe okno
