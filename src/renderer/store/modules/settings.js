@@ -78,7 +78,9 @@ const state = {
   hidePopularVideos: false,
   hidePlaylists: false,
   hideLiveChat: false,
-  hideActiveSubscriptions: false
+  hideActiveSubscriptions: false,
+  videoVolumeMouseScroll: false
+
 }
 
 const getters = {
@@ -264,6 +266,9 @@ const getters = {
 
   getHideActiveSubscriptions: () => {
     return state.hideActiveSubscriptions
+  },
+  getVideoVolumeMouseScroll: () => {
+    return state.videoVolumeMouseScroll
   }
 }
 
@@ -416,6 +421,9 @@ const actions = {
                 break
               case 'hideActiveSubscriptions':
                 commit('setHideActiveSubscriptions', result.value)
+                break
+              case 'videoVolumeMouseScroll':
+                commit('setVideoVolumeMouseScroll', result.value)
                 break
             }
           })
@@ -786,6 +794,14 @@ const actions = {
         commit('setHideLiveChat', hideLiveChat)
       }
     })
+  },
+
+  updateVideoVolumeMouseScroll ({ commit }, videoVolumeMouseScroll) {
+    settingsDb.update({ _id: 'videoVolumeMouseScroll' }, { _id: 'videoVolumeMouseScroll', value: videoVolumeMouseScroll }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setVideoVolumeMouseScroll', videoVolumeMouseScroll)
+      }
+    })
   }
 }
 
@@ -944,6 +960,9 @@ const mutations = {
   },
   setHideActiveSubscriptions (state, hideActiveSubscriptions) {
     state.hideActiveSubscriptions = hideActiveSubscriptions
+  },
+  setVideoVolumeMouseScroll (state, videoVolumeMouseScroll) {
+    state.videoVolumeMouseScroll = videoVolumeMouseScroll
   }
 }
 

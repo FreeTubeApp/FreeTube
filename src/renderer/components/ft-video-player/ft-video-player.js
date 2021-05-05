@@ -144,6 +144,10 @@ export default Vue.extend({
 
     autoplayVideos: function () {
       return this.$store.getters.getAutoplayVideos
+    },
+
+    videoVolumeMouseScroll: function () {
+      return this.$store.getters.getVideoVolumeMouseScroll
     }
   },
   mounted: function () {
@@ -229,7 +233,11 @@ export default Vue.extend({
         this.player.on('mouseleave', this.removeMouseTimeout)
 
         this.player.on('volumechange', this.updateVolume)
-        this.player.controlBar.getChild('volumePanel').on('mousewheel', this.mouseScrollVolume)
+        if (this.videoVolumeMouseScroll) {
+          this.player.on('mousewheel', this.mouseScrollVolume)
+        } else {
+          this.player.controlBar.getChild('volumePanel').on('mousewheel', this.mouseScrollVolume)
+        }
 
         this.player.on('fullscreenchange', this.fullscreenOverlay)
         this.player.on('fullscreenchange', this.toggleFullscreenClass)
