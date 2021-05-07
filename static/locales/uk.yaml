@@ -113,8 +113,8 @@ Settings:
       проблема, FreeTube спробує автоматично використати допоміжний API у якості резервного,
       якщо він увімкнений'
     Enable Search Suggestions: 'Увімкнути рекомендації пошуку'
-    Default Landing Page: 'Головна сторінка за замовчуванням'
-    Locale Preference: 'Локальні преференції'
+    Default Landing Page: 'Типова головна сторінка'
+    Locale Preference: 'Локальні налаштування'
     Preferred API Backend:
       Preferred API Backend: 'Головний API бекенд'
       Local API: 'Локальний API'
@@ -135,6 +135,7 @@ Settings:
         #! List countries
     View all Invidious instance information: Перегляд усіх відомостей про екземпляр
       Invidious
+    System Default: За системними налаштуваннями
   Theme Settings:
     Theme Settings: 'Налаштування теми'
     Match Top Bar with Main Color: 'Верхня панель основного кольору'
