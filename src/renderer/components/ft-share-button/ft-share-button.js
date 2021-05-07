@@ -19,6 +19,10 @@ export default Vue.extend({
       type: String,
       required: true
     },
+    playlistId: {
+      type: String,
+      required: true
+    },
     getTimestamp: {
       type: Function,
       required: true
@@ -35,7 +39,13 @@ export default Vue.extend({
     },
 
     invidiousURL() {
-      return `${this.invidiousInstance}/watch?v=${this.id}`
+      let videoUrl = `${this.invidiousInstance}/watch?v=${this.id}`
+      // `playlistId` can be undefined
+      if (this.playlistId && this.playlistId.length !== 0) {
+        // `index` seems can be ignored
+        videoUrl += `&list=${this.playlistId}`
+      }
+      return videoUrl
     },
 
     invidiousEmbedURL() {
@@ -43,10 +53,21 @@ export default Vue.extend({
     },
 
     youtubeURL() {
-      return `https://www.youtube.com/watch?v=${this.id}`
+      let videoUrl = `https://www.youtube.com/watch?v=${this.id}`
+      // `playlistId` can be undefined
+      if (this.playlistId && this.playlistId.length !== 0) {
+        // `index` seems can be ignored
+        videoUrl += `&list=${this.playlistId}`
+      }
+      return videoUrl
     },
 
     youtubeShareURL() {
+      // `playlistId` can be undefined
+      if (this.playlistId && this.playlistId.length !== 0) {
+        // `index` seems can be ignored
+        return `https://www.youtube.com/watch?v=${this.id}&list=${this.playlistId}`
+      }
       return `https://youtu.be/${this.id}`
     },
 
