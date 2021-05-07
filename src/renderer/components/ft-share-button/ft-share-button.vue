@@ -12,7 +12,7 @@
         :label="$t('Share.Include Timestamp')"
         :compact="true"
         :default-value="includeTimestamp"
-        @change="updateincludeTimestamp"
+        @change="updateIncludeTimestamp"
       />
     </ft-flex-box>
     <div class="shareLinks">

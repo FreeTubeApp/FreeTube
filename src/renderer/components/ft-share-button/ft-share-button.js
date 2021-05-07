@@ -111,7 +111,7 @@ export default Vue.extend({
       this.$refs.iconButton.focusOut()
     },
 
-    updateincludeTimestamp() {
+    updateIncludeTimestamp() {
       this.includeTimestamp = !this.includeTimestamp
     },
 
