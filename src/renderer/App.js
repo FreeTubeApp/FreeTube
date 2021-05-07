@@ -130,7 +130,6 @@ export default Vue.extend({
           localStorage.setItem('locale', 'system')
         } else {
           this.$i18n.locale = 'en-US'
-          this.currentLocale = 'en-US'
           localStorage.setItem('locale', 'en-US')
         }
       } else {
