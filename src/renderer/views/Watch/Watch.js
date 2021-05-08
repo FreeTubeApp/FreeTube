@@ -54,6 +54,7 @@ export default Vue.extend({
       videoTitle: '',
       videoDescription: '',
       videoDescriptionHtml: '',
+      videoUrl: window.location.href,
       videoViewCount: 0,
       videoLikeCount: 0,
       videoDislikeCount: 0,
@@ -940,24 +941,43 @@ export default Vue.extend({
 
       if (!this.isUpcoming && !this.isLoading) {
         const player = this.$refs.videoPlayer.player
+        const videoUrl = this.videoUrl
 
         if (player !== null && !player.paused() && player.isInPictureInPicture()) {
           const playerId = this.videoId
           setTimeout(() => {
-            player.play()
-            player.on('leavepictureinpicture', (event) => {
-              const watchTime = player.currentTime()
-              if (this.$route.fullPath.includes('/watch')) {
-                const routeId = this.$route.params.id
-                if (routeId === playerId) {
-                  const activePlayer = $('.ftVideoPlayer video').get(0)
-                  activePlayer.currentTime = watchTime
-                }
-              }
+            try {
+              player.play()
+              player.on('leavepictureinpicture', (event) => {
+                const videoPaused = player.paused()
+                const watchTime = player.currentTime()
 
-              player.pause()
-              player.dispose()
-            })
+                // Update watch progress of Picture In Picture video
+                if (this.rememberHistory && !this.isUpcoming && !this.isLoading && !this.isLive) {
+                  if (this.saveWatchedProgress) {
+                    const payload = {
+                      videoId: playerId,
+                      watchProgress: watchTime
+                    }
+                    this.updateWatchProgress(payload)
+                  }
+                }
+
+                player.pause()
+                player.dispose()
+
+                if (!videoPaused) {
+                  if (window.location.href !== videoUrl) {
+                    window.location.assign(videoUrl)
+                  } else {
+                    const activePlayer = $('.ftVideoPlayer video').get(0)
+                    activePlayer.currentTime = watchTime
+                  }
+                }
+              })
+            } catch (e) {
+              console.log(e)
+            }
           }, 200)
         }
       }
