@@ -54,7 +54,6 @@ export default Vue.extend({
       videoTitle: '',
       videoDescription: '',
       videoDescriptionHtml: '',
-      videoUrl: window.location.href,
       videoViewCount: 0,
       videoLikeCount: 0,
       videoDislikeCount: 0,
@@ -941,7 +940,7 @@ export default Vue.extend({
 
       if (!this.isUpcoming && !this.isLoading) {
         const player = this.$refs.videoPlayer.player
-        const videoUrl = this.videoUrl
+        const videoUrl = window.location.href
 
         if (player !== null && !player.paused() && player.isInPictureInPicture()) {
           const playerId = this.videoId
