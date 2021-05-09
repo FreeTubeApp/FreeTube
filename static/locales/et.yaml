@@ -70,6 +70,7 @@ Search Filters:
   Fetching results. Please wait: 'Laen tulemusi. Palun oota üks hetk'
   Fetch more results: 'Lae veel andmeid'
 # Sidebar
+  There are no more results for this search: Sellel otsingul pole rohkem vastuseid
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Tellimused'
@@ -94,11 +95,11 @@ Settings:
   General Settings:
     General Settings: 'Üldised seadistused'
     Check for Updates: 'Kontrolli uuendusi'
-    Check for Latest Blog Posts: ''
+    Check for Latest Blog Posts: 'Vaata viimaseid blogipostitusi'
     Fallback to Non-Preferred Backend on Failure: ''
-    Enable Search Suggestions: ''
-    Default Landing Page: ''
-    Locale Preference: ''
+    Enable Search Suggestions: 'Kasuta otsingusoovitusi'
+    Default Landing Page: 'Vaikimisi avaleht'
+    Locale Preference: 'Lokaadi eelistus'
     Preferred API Backend:
       Preferred API Backend: ''
       Local API: ''
