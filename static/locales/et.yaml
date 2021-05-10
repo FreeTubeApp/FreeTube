@@ -409,40 +409,41 @@ Channel:
     Sort Types:
       Newest: 'Uusimad'
       Oldest: 'Vanimad'
-      Most Popular: ''
+      Most Popular: 'Kõike populaarsemad'
   Playlists:
-    Playlists: ''
-    This channel does not currently have any playlists: ''
+    Playlists: 'Esitusloendid'
+    This channel does not currently have any playlists: 'Sellel kanalil pole hetkel
+      ühtegi esitusloendit'
     Sort Types:
-      Last Video Added: ''
-      Newest: ''
-      Oldest: ''
+      Last Video Added: 'Viimati lisatud video'
+      Newest: 'Uusimad'
+      Oldest: 'Vanimad'
   About:
-    About: ''
-    Channel Description: ''
-    Featured Channels: ''
+    About: 'Kanali teave'
+    Channel Description: 'Kanali kirjeldus'
+    Featured Channels: 'Soovitatud kanalid'
 Video:
-  Mark As Watched: ''
-  Remove From History: ''
-  Video has been marked as watched: ''
-  Video has been removed from your history: ''
-  Open in YouTube: ''
-  Copy YouTube Link: ''
-  Open YouTube Embedded Player: ''
-  Copy YouTube Embedded Player Link: ''
-  Open in Invidious: ''
-  Copy Invidious Link: ''
-  View: ''
-  Views: ''
-  Loop Playlist: ''
-  Shuffle Playlist: ''
-  Reverse Playlist: ''
-  Play Next Video: ''
-  Play Previous Video: ''
+  Mark As Watched: 'Märgi vaadatuks'
+  Remove From History: 'Kustuta ajaloost'
+  Video has been marked as watched: 'Video on märgitud vaadatuks'
+  Video has been removed from your history: 'Video on kustutatud sinu vaatamiste ajaloost'
+  Open in YouTube: 'Ava YouTube''is'
+  Copy YouTube Link: 'Kopeeri YouTube''i link'
+  Open YouTube Embedded Player: 'Ava YouTube''i lõimitud meediamängija'
+  Copy YouTube Embedded Player Link: 'Kopeeri YouTube''i lõimitud meediamängija link'
+  Open in Invidious: 'Ava Invidious''e veebirakenduses'
+  Copy Invidious Link: 'Kopeeri Invidious''e veebirakenduse link'
+  View: 'Vaatamine'
+  Views: 'Vaatamist'
+  Loop Playlist: 'Korda esitusloendit'
+  Shuffle Playlist: 'Sega esitusloend'
+  Reverse Playlist: 'Pööra esitusloend tagurpidi'
+  Play Next Video: 'Esita järgmist videot'
+  Play Previous Video: 'Esita eelmist videot'
   # Context is "X People Watching"
-  Watching: ''
-  Watched: ''
-  Autoplay: ''
+  Watching: 'Vaatan'
+  Watched: 'Vaadatud'
+  Autoplay: 'Automaatne esitus'
   Starting soon, please refresh the page to check again: ''
   # As in a Live Video
   Live: ''
@@ -486,6 +487,14 @@ Video:
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: ''
 #& Videos
+  Copy Invidious Channel Link: Kopeeri kanali link Invidious'e veebirakenduses
+  Open Channel in Invidious: Ava kanal Invidious'e veebirakenduses
+  Copy YouTube Channel Link: Kopeeri YouTube'i kanali link
+  Open Channel in YouTube: Ava kanal YouTube'is
+  Video has been removed from your saved list: Video on kustutatud sinu salvestatud
+    videote loendist
+  Video has been saved: Video on salvestatud
+  Save Video: Salvesta video
 Videos:
   #& Sort By
   Sort By:
