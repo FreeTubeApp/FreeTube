@@ -137,6 +137,7 @@ Settings:
     View all Invidious instance information: 'Skoða allar upplýsingar um Invidious-tilvik'
     Region for Trending: 'Landssvæði sem skal miða vinsældir við'
         #! List countries
+    System Default: Sjálfgefið í kerfinu
   Theme Settings:
     Theme Settings: 'Þemastillingar'
     Match Top Bar with Main Color: 'Láta toppstiku samsvara aðallit'
@@ -446,7 +447,7 @@ Video:
     Low: 'Lág'
     Medium: 'Miðlungs'
     High: 'Há'
-    Best: 'Best'
+    Best: 'Besta'
   Published:
     Jan: 'Jan'
     Feb: 'Feb'
