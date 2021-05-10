@@ -1,0 +1,19 @@
+{
+	// See https://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "dev",
+			"problemMatcher": []
+		},
+		{
+			"type": "npm",
+			"script": "dev-runner",
+			"problemMatcher": [],
+			"label": "npm: dev-runner",
+			"detail": "node _scripts/dev-runner.js"
+		}
+	]
+}
