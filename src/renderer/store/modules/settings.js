@@ -60,6 +60,7 @@ const state = {
   defaultPlayback: 1,
   defaultVideoFormat: 'dash',
   defaultQuality: '720',
+  defaultCaptionSettings: '{"backgroundColor":"#000","backgroundOpacity":"1","color":"#FFF","fontFamily":"proportionalSansSerif","textOpacity":"1","windowColor":"#000","windowOpacity":"0"}',
   useProxy: false,
   proxyProtocol: 'socks5',
   proxyHostname: '127.0.0.1',
@@ -208,6 +209,10 @@ const getters = {
 
   getDefaultQuality: () => {
     return state.defaultQuality
+  },
+
+  getDefaultCaptionSettings: () => {
+    return state.defaultCaptionSettings
   },
 
   getHideWatchedSubs: () => {
@@ -386,6 +391,9 @@ const actions = {
                 break
               case 'defaultQuality':
                 commit('setDefaultQuality', result.value)
+                break
+              case 'defaultCaptionSettings':
+                commit('setDefaultCaptionSettings', result.value)
                 break
               case 'hideVideoViews':
                 commit('setHideVideoViews', result.value)
@@ -668,6 +676,14 @@ const actions = {
     })
   },
 
+  updateDefaultCaptionSettings ({ commit }, defaultCaptionSettings) {
+    settingsDb.update({ _id: 'defaultCaptionSettings' }, { _id: 'defaultCaptionSettings', value: defaultCaptionSettings }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setDefaultCaptionSettings', defaultCaptionSettings)
+      }
+    })
+  },
+
   updateUseProxy ({ commit }, useProxy) {
     settingsDb.update({ _id: 'useProxy' }, { _id: 'useProxy', value: useProxy }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
@@ -875,6 +891,9 @@ const mutations = {
   },
   setDefaultQuality (state, defaultQuality) {
     state.defaultQuality = defaultQuality
+  },
+  setDefaultCaptionSettings (state, defaultCaptionSettings) {
+    state.defaultCaptionSettings = defaultCaptionSettings
   },
   setProxy (state, proxy) {
     state.proxy = proxy
