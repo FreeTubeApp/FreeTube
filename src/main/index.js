@@ -212,7 +212,6 @@ function runApp() {
   async function installDevTools () {
     try {
       /* eslint-disable */
-      require('devtron').install()
       require('vue-devtools').install()
       /* eslint-enable */
     } catch (err) {
