@@ -138,6 +138,10 @@ export default Vue.extend({
       return parseInt(this.$store.getters.getDefaultQuality)
     },
 
+    defaultCaptionSettings: function () {
+      return JSON.parse(this.$store.getters.getDefaultCaptionSettings)
+    },
+
     defaultVideoFormat: function () {
       return this.$store.getters.getDefaultVideoFormat
     },
@@ -199,6 +203,7 @@ export default Vue.extend({
 
         this.player.volume(this.volume)
         this.player.playbackRate(this.defaultPlayback)
+        this.player.textTrackSettings.setValues(this.defaultCaptionSettings)
 
         if (this.storyboardSrc !== '') {
           this.player.vttThumbnails({
@@ -266,6 +271,11 @@ export default Vue.extend({
             powerSaveBlocker.stop(this.powerSaveBlocker)
             this.powerSaveBlocker = null
           }
+        })
+
+        this.player.textTrackSettings.on('modalclose', function () {
+          const settings = this.getValues()
+          v.updateDefaultCaptionSettings(JSON.stringify(settings))
         })
       }
     },
@@ -910,6 +920,10 @@ export default Vue.extend({
 
     handleTouchEnd: function (event) {
       clearTimeout(this.touchPauseTimeout)
+    },
+
+    updateDefaultCaptionSettings: function (value) {
+      this.$store.commit('setDefaultCaptionSettings', value)
     },
 
     keyboardShortcutHandler: function (event) {

@@ -60,7 +60,7 @@ const state = {
   defaultPlayback: 1,
   defaultVideoFormat: 'dash',
   defaultQuality: '720',
-  defaultCaptionSettings: '{"backgroundColor":"#000","backgroundOpacity":"1","color":"#FFF","fontFamily":"proportionalSansSerif","textOpacity":"1","windowColor":"#000","windowOpacity":"0"}',
+  defaultCaptionSettings: '{}',
   useProxy: false,
   proxyProtocol: 'socks5',
   proxyHostname: '127.0.0.1',
