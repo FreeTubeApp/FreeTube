@@ -444,48 +444,54 @@ Video:
   Watching: 'Vaatan'
   Watched: 'Vaadatud'
   Autoplay: 'Automaatne esitus'
-  Starting soon, please refresh the page to check again: ''
+  Starting soon, please refresh the page to check again: 'Kuvamine algab varsti, vajadusel
+    värskenda uuesti kontrollimiseks lehte'
   # As in a Live Video
-  Live: ''
-  Live Now: ''
-  Live Chat: ''
-  Enable Live Chat: ''
-  Live Chat is currently not supported in this build.: ''
-  'Chat is disabled or the Live Stream has ended.': ''
-  Live chat is enabled.  Chat messages will appear here once sent.: ''
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
+  Live: 'Otse eetris'
+  Live Now: 'Otse eetris'
+  Live Chat: 'Vestlus reaalajas'
+  Enable Live Chat: 'Luba reaalajas vestlust'
+  Live Chat is currently not supported in this build.: 'Reaalajas vestlus ei ole selles
+    versioonis toetatud.'
+  'Chat is disabled or the Live Stream has ended.': 'Reaalajas vestlus kas ei ole
+    toetatud või on otseetris edastus lõppenud.'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'Reaalajas vestlus
+    on kasutusel. Sõnumid on nähtaval kohe pärast saatmist.'
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Kui
+    kasutad Invidious''e veebiteenuse-põhist API''t, siis reaalajas vestlus ei ole
+    toetatud. Selleks on vajalik otseliidestus YouTube''ga.'
   Published:
-    Jan: ''
-    Feb: ''
-    Mar: ''
-    Apr: ''
-    May: ''
-    Jun: ''
-    Jul: ''
-    Aug: ''
-    Sep: ''
-    Oct: ''
-    Nov: ''
-    Dec: ''
-    Second: ''
-    Seconds: ''
-    Minute: ''
-    Minutes: ''
-    Hour: ''
-    Hours: ''
-    Day: ''
-    Days: ''
-    Week: ''
-    Weeks: ''
-    Month: ''
-    Months: ''
-    Year: ''
-    Years: ''
-    Ago: ''
-    Upcoming: ''
-  Published on: ''
+    Jan: 'Jaan'
+    Feb: 'Veeb'
+    Mar: 'Mar'
+    Apr: 'Apr'
+    May: 'Mai'
+    Jun: 'Juuni'
+    Jul: 'Juuli'
+    Aug: 'Aug'
+    Sep: 'Sep'
+    Oct: 'Okt'
+    Nov: 'Nov'
+    Dec: 'Dets'
+    Second: 'Sekund'
+    Seconds: 'Sekundit'
+    Minute: 'Minut'
+    Minutes: 'Minutit'
+    Hour: 'Tund'
+    Hours: 'Tundi'
+    Day: 'Päev'
+    Days: 'Päeva'
+    Week: 'Nädal'
+    Weeks: 'Nädalat'
+    Month: 'Kuu'
+    Months: 'Kuud'
+    Year: 'Aasta'
+    Years: 'Aastat'
+    Ago: 'tagasi'
+    Upcoming: 'Esilinastus'
+  Published on: 'Avaldatud'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: ''
+  Publicationtemplate: '$ % tagasi'
 #& Videos
   Copy Invidious Channel Link: Kopeeri kanali link Invidious'e veebirakenduses
   Open Channel in Invidious: Ava kanal Invidious'e veebirakenduses
@@ -495,26 +501,37 @@ Video:
     videote loendist
   Video has been saved: Video on salvestatud
   Save Video: Salvesta video
+  translated from English: tõlgitud inglise keelest
+  Started streaming on: Voogedastus algas
+  Streamed on: Voogedastatud
+  Audio:
+    High: Kõrge kvaliteet
+    Medium: Keskmine kvaliteet
+    Low: Madal kvaliteet
+    Best: Parim kvaliteet
+  audio only: vaid helivoog
+  video only: vaid videovoog
+  Download Video: Laadi video alla
 Videos:
   #& Sort By
   Sort By:
-    Newest: ''
-    Oldest: ''
+    Newest: 'Uusim'
+    Oldest: 'Vanim'
     #& Most Popular
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: ''
-  Videos: ''
-  View: ''
-  Views: ''
-  Last Updated On: ''
+  View Full Playlist: 'Näita kogu esitusloendit'
+  Videos: 'Videod'
+  View: 'Vaata'
+  Views: 'vaatamist'
+  Last Updated On: 'Viimati uuendatud'
   Share Playlist:
-    Share Playlist: ''
-    Copy YouTube Link: ''
-    Open in YouTube: ''
-    Copy Invidious Link: ''
-    Open in Invidious: ''
+    Share Playlist: 'Jaga esitusloendit'
+    Copy YouTube Link: 'Kopeeri YouTube''i link'
+    Open in YouTube: 'Ava YouTube''is'
+    Copy Invidious Link: 'Kopeeri Invidious''e veebirakenduse link'
+    Open in Invidious: 'Ava Invidious''e veebirakenduses'
 
 # On Video Watch Page
 #* Published
