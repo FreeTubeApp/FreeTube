@@ -61,11 +61,10 @@ Search Filters:
     Long (> 20 minutes): 'Lang (> 20 minutter)'
   # On Search Page
   Search Results: 'Søkeresultater'
-  Fetching results. Please wait: 'Henter resultater. Vent.'
+  Fetching results. Please wait: 'Henter resultater. Vennligst Vent'
   Fetch more results: 'Hent flere resultater'
 # Sidebar
-  There are no more results for this search: Det er ikke flere resultat for dette
-    søket
+  There are no more results for this search: Søket ga ingen flere resultater
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnementer'
@@ -77,18 +76,18 @@ Subscriptions:
   Getting Subscriptions. Please wait.: Henter abonnementer. Vent.
   Load More Videos: Last flere videoer
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Denne
-    profilen har mange abonnementer. Påtvinger RSS for å unngå adgangsbegrensning.
+    profilen har mange abonnementer. Påtvinger RSS for å unngå adgangsbegrensning
 Trending: 'På vei opp'
 Most Popular: 'Mest populært'
 Playlists: 'Spillelister'
 User Playlists:
   Your Playlists: 'Dine spillelister'
   Playlist Message: Denne siden reflekterer ikke fullstendig fungerende spillelister.
-    Den lister kun opp videoer du har lagret eller favorittmerket. Når arbeidet er
-    fullført, vil alle videoer som vises her bli flyttet til en «Favoritt»-spilleliste.
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Dine
-    lagrede videoer er tomme. klikk på "Lagre"-knappen i hjørnet av en video for å
-    liste den opp her.
+    Den viser kun videoer du har lagret eller favorittmerket. Når arbeidet er fullført,
+    vil alle videoer som vises her bli flyttet til en «Favoritt»-spilleliste.
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Du
+    har ikke lagret noen videoer enda. Trykk på Lagre-knappen i hjørnet av en video
+    for å sende den hit
 History:
   # On History Page
   History: 'Historikk'
@@ -125,6 +124,7 @@ Settings:
     Check for Updates: Se etter oppdateringer
     View all Invidious instance information: Vis informasjon om alle Invidious-forekomster
     Check for Latest Blog Posts: Se etter nye bloggposter
+    System Default: Systemets standardverdi
   Theme Settings:
     Theme Settings: 'Tema innstillinger'
     Match Top Bar with Main Color: 'Bruk hovedfarge i toppbjelke'
@@ -142,13 +142,13 @@ Settings:
       Indigo: 'Indigo'
       Blue: 'Blå'
       Light Blue: 'Lyseblå'
-      Cyan: 'Cyanblå'
-      Teal: 'Turkis'
+      Cyan: 'Turkis'
+      Teal: 'Blågrønn'
       Green: 'Grønn'
       Light Green: 'Lysegrønn'
-      Lime: 'Limegrønn'
+      Lime: 'Lime'
       Yellow: 'Gul'
-      Amber: 'Rav'
+      Amber: 'Ravgult'
       Orange: 'Oransje'
       Deep Orange: 'Dyp oransje'
     Secondary Color Theme: 'Sekundær fargedrakt'
@@ -185,6 +185,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Intervall for avspilling av neste i spilleliste
+    Next Video Interval: Intervall mellom videoer
   Privacy Settings:
     Privacy Settings: 'Personvernsinnstillinger'
     Remember History: 'Husk historikk'
@@ -258,10 +259,10 @@ Settings:
     Unable to read file: Kunne ikke lese fil
     Invalid subscriptions file: Ugyldig abonnementsfil
     Profile object has insufficient data, skipping item: Profilobjekt har utilstrekkelig
-      data. Hopper over element.
+      data, hopper over element
     Check for Legacy Subscriptions: Se etter foreldede abonnementer
     Subscriptions have been successfully exported: Abonnementer eksportert
-    This might take a while, please wait: Dette kan ta sin tid…
+    This might take a while, please wait: Dette kan ta litt tid, vennligst vent
     Export History: Historikk-eksport
     Import History: Historikk-import
     Export NewPipe: NewPipe-eksport
@@ -277,8 +278,8 @@ Settings:
     Data Settings: Datainnstillinger
   Proxy Settings:
     Region: Region
-    Clicking on Test Proxy will send a request to: Klikk på «Test mellomtjener» for
-      å sende en forespørsel til
+    Clicking on Test Proxy will send a request to: Hvis du trykker på «Test mellomtjener»
+      sender vi en forespørsel til
     Error getting network information. Is your proxy configured properly?: Klarte
       ikke å hente nettverksinfo. Er din mellomtjener satt opp riktig?
     Test Proxy: Test mellomtjener
@@ -303,8 +304,8 @@ Settings:
     Hide Video Views: Skjul videovisninger
     Hide Live Chat: Gjem direktechat
     Hide Playlists: Skjul spillelister
-  The app needs to restart for changes to take effect. Restart and apply change?: Start
-    programmet på ny for å bruke de nye endringene?
+  The app needs to restart for changes to take effect. Restart and apply change?: Appen
+    trenger en omstart for å bruke de nye endringene. Start på nytt?
 About:
   #On About page
   About: 'Om'
@@ -412,8 +413,8 @@ Video:
     er avsluttet.'
   Live chat is enabled.  Chat messages will appear here once sent.: 'Direktechat er
     slått på. Chatmeldinger vil bli vist her når de er sendt.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Sanntidssludring
-    støttes for tiden ikke med Invidious-API-et. En direkte tilkobling til YouTube
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Live
+    Chat støttes for tiden ikke med Invidious API-et. En direkte tilkobling til YouTube
     kreves.'
   Published:
     Jan: 'Jan'
@@ -499,7 +500,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: 'Veksle teatermodus'
+Toggle Theatre Mode: 'Teatermodus'
 Change Format:
   Change Video Formats: 'Endre videoformater'
   Use Dash Formats: 'Bruk DASH-formater'
@@ -513,24 +514,24 @@ Share:
   Share Video: 'Del video'
   Copy Link: 'Kopier lenke'
   Open Link: 'Åpne lenke'
-  Copy Embed: 'Kopier innebygd'
-  Open Embed: 'Åpne innebygd'
+  Copy Embed: 'Kopier innebyggingslenke'
+  Open Embed: 'Åpne innebyggingslenke'
   # On Click
   Invidious URL copied to clipboard: 'Invidious-nettadresse kopiert til utklippstavle'
-  Invidious Embed URL copied to clipboard: 'Innebygd Invidious-nettadresse kopiert
+  Invidious Embed URL copied to clipboard: 'Innebyggingslenke for Invidious kopiert
     til utklippstavle'
   YouTube URL copied to clipboard: 'YouTube-nettadresse kopiert til utklippstavle'
   YouTube Embed URL copied to clipboard: 'Innebygd YouTube-nettadresse kopiert til
     utklippstavle'
   YouTube Channel URL copied to clipboard: YouTube-kanalnettadresse kopiert til utklippstavle
   Include Timestamp: Inkluder tidsstempel
-  Invidious Channel URL copied to clipboard: Ugyldig kanalnettadresse kopiert til
+  Invidious Channel URL copied to clipboard: Invidious kanalnettadresse kopiert til
     utklippstavle
 Mini Player: 'Miniavspiller'
 Comments:
   Comments: 'Kommentarer'
   Click to View Comments: 'Klikk for å vise kommentarer'
-  Getting comment replies, please wait: 'Henter kommentarsvar, vent.'
+  Getting comment replies, please wait: 'Henter svar til kommentar, vennligst vent'
   Show Comments: 'Vis kommentarer'
   Hide Comments: 'Skjul kommentarer'
   # Context: View 10 Replies, View 1 Reply
@@ -538,8 +539,8 @@ Comments:
   Hide: 'Skjul'
   Replies: 'Svar'
   Reply: 'Svar'
-  There are no comments available for this video: 'Det finnes ingen tilgjengelige
-    kommentarer for denne videoen'
+  There are no comments available for this video: 'Det er ingen kommentarer tilgjengelige
+    på denne videoen'
   Load More Comments: 'Last inn flere kommentarer'
   No more comments available: Ingen flere kommentarer tilgjengelig
   Newest first: Nyeste først
@@ -602,9 +603,9 @@ Profile:
   All Channels: Alle kanaler
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : Dette er din hovedprofil. Er du sikker på at du ønsker å slette valgte kanaler?
+  : Dette er din hovedprofil. Er du sikker på at du ønsker å slette de valgte kanalene?
     De samme kanalene vil bli slettet i enhver profil de finnes i.
-  Select None: Fravelg alt
+  Select None: Velg ingen
   Delete Selected: Slett valgte
   Add Selected To Profile: Legg til valgt i profil
   Subscription List: Abonnementsliste
@@ -618,40 +619,46 @@ Tooltips:
   General Settings:
     Invidious Instance: Invidious-forekomsten som FreeTube vil koble til for API-kall.
       Fjern den gjeldene forekomsten for å se en liste over offentlige forekomster
-      å velge mellom
+      å velge mellom.
     Thumbnail Preference: Alle miniatyrbilder i FreeTube vil bli erstattet av et bilde
-      av videoen i stedet for standardminiatyrbildet
+      av videoen i stedet for standardminiatyrbildet.
     Fallback to Non-Preferred Backend on Failure: Når ditt foretrukne API har et problem,
       vil FreeTube automatisk prøve å bruke ditt ikke-foretrukne API som en tilbakefallingsmetode
-      dersom det er aktivert
+      dersom det er aktivert.
     Region for Trending: Trendregionen lar deg enkelt velge hvilkets lands populære
-      videoer du ønsker å vise. Ikke alle land som vises støttes for tiden av YouTube.
-    Preferred API Backend: Velg bakenden FreeTube bruker til å hente data. Det lokale
+      videoer du ønsker å vise. Ikke alle land som vises støttes faktisk av YouTube.
+    Preferred API Backend: Velg metoden FreeTube bruker til å hente data. Det lokale
       API-et er en innebygd utpakker. Invidious-API-et krever en Invidious-tjener
       å koble til.
   Subscription Settings:
-    Fetch Feeds from RSS: Når påskrudd, vil FreeTube bruke RSS istedenfor dens forvalgte
+    Fetch Feeds from RSS: Når påskrudd vil FreeTube bruke RSS istedenfor dens forvalgte
       metode for å hente din abonnementsstrøm. RSS er raskere og forhindrer IP-blokkering,
-      men har ikke gitt info som videovarighet, eller sanntidsstatus.
+      men mangler noe info som videovarighet og sanntidsstatus
   Player Settings:
     Default Video Format: Sett formater brukt når en video spilles. DASH-formater
       kan spille høyere kvaliteter. Foreldede formater er begrenset til maks. 720p,
       men bruker mindre båndbredde. Lydformater er kun lydstrømmer.
     Force Local Backend for Legacy Formats: Fungerer kun når Invidious-API-et er satt
-      som forvalg. Når påslått vil det lokale API-et kjøre og bruke de foreldede formatene
-      som returneres derfra, istedenfor dem returnert av Invidious. Hjelper når videoer
-      returnert av Invidious ikke spilles som følge av regionsrestriksjoner.
-    Proxy Videos Through Invidious: Kobler til Invidious for å vertstjene videoer
-      istedenfor å gjøre direkte tilkoblinger til YouTube. (Overskriver API-preferanse.)
-A new blog is now available, $. Click to view more: En ny bloggpost er nå tilgjengelig,
-  $. Klikk for å se den
+      som standardvalg. Når påslått vil det lokale API-et kjøre og bruke de foreldede
+      formatene som returneres derfra, istedenfor dem returnert av Invidious. Hjelper
+      når videoer returnert av Invidious ikke spilles som følge av regionsrestriksjoner.
+    Proxy Videos Through Invidious: Kobler til Invidious for å servere videoer istedenfor
+      å koble direkte til YouTube. Overskriver API-preferanse.
+  Privacy Settings:
+    Remove Video Meta Files: Hvis denne instillingen er på, vil FreeTube automatisk
+      slette metadata generert under videoavspilling når du lukker avspillingsiden.
+A new blog is now available, $. Click to view more: Et nytt blogginnlegg er nå tilgjengelig,
+  $. Trykk her for å se mer
 The playlist has been reversed: Spillelisten har blitt snudd
-Download From Site: Last ned fra nettsiden
-Version $ is now available!  Click for more details: Versjon $ er nå tilgjengelig.
-  Klikk for flere detaljer.
+Download From Site: Last ned fra nettside
+Version $ is now available!  Click for more details: Versjon $ er nå tilgjengelig!
+  Trykk her for detaljer
 Playing Next Video Interval: Spiller av neste video nå. Klikk for å avbryte. | Spiller
   av neste video om {nextVideoInterval} sekund. Klikk for å avbryte. | Spiller av
   neste video om {nextVideoInterval} sekunder. Klikk for å avbryte.
 More: Mer
 Unknown YouTube url type, cannot be opened in app: Ukjent type YouTube-nettaddresse,
   kan ikke åpnes i applikasjonen
+Hashtags have not yet been implemented, try again later: Hashtags er ikke implementert
+  enda, prøv igjen senere
+Open New Window: Åpne et nytt vindu
