@@ -143,12 +143,12 @@ Settings:
       Blue: 'Blå'
       Light Blue: 'Lyseblå'
       Cyan: 'Cyanblå'
-      Teal: 'Turkis'
+      Teal: 'Blågrønn'
       Green: 'Grønn'
       Light Green: 'Lysegrønn'
-      Lime: 'Limegrønn'
+      Lime: 'Lime'
       Yellow: 'Gul'
-      Amber: 'Rav'
+      Amber: 'Ravgult'
       Orange: 'Oransje'
       Deep Orange: 'Dyp oransje'
     Secondary Color Theme: 'Sekundær fargedrakt'
@@ -643,10 +643,10 @@ Tooltips:
       returnert av Invidious ikke spilles som følge av regionsrestriksjoner.
     Proxy Videos Through Invidious: Kobler til Invidious for å vertstjene videoer
       istedenfor å gjøre direkte tilkoblinger til YouTube. (Overskriver API-preferanse.)
-A new blog is now available, $. Click to view more: En ny bloggpost er nå tilgjengelig,
-  $. Klikk for å se den
+A new blog is now available, $. Click to view more: Et nytt blogginnlegg er nå tilgjengelig,
+  $. Trykk her for å se mer
 The playlist has been reversed: Spillelisten har blitt snudd
-Download From Site: Last ned fra nettsiden
+Download From Site: Last ned fra nettside
 Version $ is now available!  Click for more details: Versjon $ er nå tilgjengelig.
   Klikk for flere detaljer.
 Playing Next Video Interval: Spiller av neste video nå. Klikk for å avbryte. | Spiller
