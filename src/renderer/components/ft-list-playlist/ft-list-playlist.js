@@ -61,6 +61,10 @@ export default Vue.extend({
 
     externalPlayerCmdArguments: function () {
       return this.$store.state.utils.externalPlayerCmdArguments[this.externalPlayer]
+    },
+
+    externalPlayerIgnoreWarnings: function () {
+      return this.$store.getters.getExternalPlayerIgnoreWarnings
     }
   },
   mounted: function () {
@@ -78,13 +82,25 @@ export default Vue.extend({
       if (cmdArguments.playlistUrl !== null) {
         args.push(`${cmdArguments.playlistUrl}https://youtube.com/playlist?list=${this.playlistId}`)
 
-        console.log(`Opening playlist in ${this.externalPlayer}:`, this.externalPlayerExecutable, args)
+        const openingString = this.$t('Video.External Player.OpeningTemplate').replace('$', 'playlist')
+        const toastMessage = `${openingString} ${this.externalPlayer}...`
+        this.showToast({
+          message: toastMessage
+        })
+
+        console.log(this.externalPlayerExecutable, args)
         const child = cp.spawn(this.externalPlayerExecutable, args, { detached: true, stdio: 'ignore' })
         child.unref()
+      } else if (!this.externalPlayerIgnoreWarnings) {
+        let templateString = this.$t('Video.External Player.UnsupportedActionTemplate')
+        templateString = templateString.replace('$', this.externalPlayer)
+        templateString = templateString.replace('%', this.$t('Video.External Player.Unsupported Actions.opening playlists'))
+        this.showToast({
+          message: templateString
+        })
       }
-
-      return false
     },
+
     parseInvidiousData: function () {
       this.title = this.data.title
       this.thumbnail = this.data.playlistThumbnail.replace('https://i.ytimg.com', this.invidiousInstance).replace('hqdefault', 'mqdefault')

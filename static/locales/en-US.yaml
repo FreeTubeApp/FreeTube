@@ -133,8 +133,6 @@ Settings:
     View all Invidious instance information: View all Invidious instance information
     Region for Trending: Region for Trending
         #! List countries
-    External Player: External Player
-    External Player Executable: Custom External Player Executable
   Theme Settings:
     Theme Settings: Theme Settings
     Match Top Bar with Main Color: Match Top Bar with Main Color
@@ -195,6 +193,11 @@ Settings:
       1440p: 1440p
       4k: 4k
       8k: 8k
+  External Player Settings:
+    External Player Settings: External Player Settings
+    External Player: External Player
+    Ignore Unsupported Action Warnings: Ignore Unsupported Action Warnings
+    External Player Executable: Custom External Player Executable
   Privacy Settings:
     Privacy Settings: Privacy Settings
     Remember History: Remember History
@@ -392,7 +395,6 @@ Video:
   Video has been marked as watched: Video has been marked as watched
   Video has been removed from your history: Video has been removed from your history
   Save Video: Save Video
-  Open in: Open in
   Video has been saved: Video has been saved
   Video has been removed from your saved list: Video has been removed from your saved list
   Open in YouTube: Open in YouTube
@@ -475,6 +477,18 @@ Video:
   translated from English: translated from English
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: $ % ago
+  External Player:
+    Open in: Open in
+    # $ will be replaced with the external player setting
+    OpeningTemplate: Opening $ in
+    # $ is replaced with the external player and % with the unsupported action
+    UnsupportedActionTemplate: '$ does not support: %'
+    Unsupported Actions:
+      opening playlists: opening playlists
+      opening specific video in a playlist (falling back to opening the video): opening specific video in a playlist (falling back to opening the video)
+      reversing playlists: reversing playlists
+      shuffling playlists: shuffling playlists
+      looping playlists: looping playlists
 #& Videos
 Videos:
   #& Sort By
@@ -564,11 +578,6 @@ Tooltips:
     Region for Trending: The region of trends allows you to pick which country's trending
       videos you want to have displayed. Not all countries displayed are actually
       supported by YouTube.
-    External Player: Choosing an external player will display an icon, for opening the
-      video (playlist if supported) in the external player, on the thumnail.
-    External Player Executable: By default, FreeTube will assume that the chosen external
-      player can be found via the PATH environment variable. If needed, a custom path can
-      be set here.
   Player Settings:
     Force Local Backend for Legacy Formats: Only works when the Invidious API is your
       default. When enabled, the local API will run and use the legacy formats returned
@@ -579,6 +588,14 @@ Tooltips:
     Default Video Format: Set the formats used when a video plays. DASH formats can
       play higher qualities. Legacy formats are limited to a max of 720p but use less
       bandwidth. Audio formats are audio only streams.
+  External Player Settings:
+    External Player: Choosing an external player will display an icon, for opening the
+      video (playlist if supported) in the external player, on the thumnail.
+    External Player Executable: By default, FreeTube will assume that the chosen external
+      player can be found via the PATH environment variable. If needed, a custom path can
+      be set here.
+    Ignore Warnings: Supress warnings for when the current external player does not support
+      the current action (e.g. reversing playlists, etc.).
   Subscription Settings:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
       method for grabbing your subscription feed. RSS is faster and prevents IP blocking,

@@ -215,6 +215,10 @@ export default Vue.extend({
 
     externalPlayerCmdArguments: function () {
       return this.$store.state.utils.externalPlayerCmdArguments[this.externalPlayer]
+    },
+
+    externalPlayerIgnoreWarnings: function () {
+      return this.$store.getters.getExternalPlayerIgnoreWarnings
     }
   },
   mounted: function () {
@@ -222,6 +226,17 @@ export default Vue.extend({
     this.checkIfWatched()
   },
   methods: {
+    externalPlayerUnsupportedActionToast: function (action) {
+      if (!this.externalPlayerIgnoreWarnings) {
+        let templateString = this.$t('Video.External Player.UnsupportedActionTemplate')
+        templateString = templateString.replace('$', this.externalPlayer)
+        templateString = templateString.replace('%', action)
+        this.showToast({
+          message: templateString
+        })
+      }
+    },
+
     openExternalPlayer: function () {
       let context = 'video'
       const cmdArguments = this.externalPlayerCmdArguments
@@ -237,34 +252,56 @@ export default Vue.extend({
 
         if (cmdArguments.playlistIndex !== null) {
           args.push(`${cmdArguments.playlistIndex}${this.playlistIndex}`)
+        } else {
+          this.externalPlayerUnsupportedActionToast(this.$t('Video.External Player.Unsupported Actions.pening specific video in a playlist (falling back to opening the video)'))
         }
 
-        if (cmdArguments.reverse !== null && this.reverse) {
-          args.push(cmdArguments.reverse)
+        if (this.playlistReverse) {
+          if (cmdArguments.reverse !== null) {
+            args.push(cmdArguments.reverse)
+          } else {
+            this.externalPlayerUnsupportedActionToast(this.$t('Video.External Player.Unsupported Actions.reversing playlists'))
+          }
         }
 
-        if (cmdArguments.shuffle !== null && this.playlistShuffle) {
-          args.push(cmdArguments.shuffle)
+        if (this.playlistShuffle) {
+          if (cmdArguments.shuffle !== null) {
+            args.push(cmdArguments.shuffle)
+          } else {
+            this.externalPlayerUnsupportedActionToast(this.$t('Video.External Player.Unsupported Actions.shuffling playlists'))
+          }
         }
 
-        if (cmdArguments.loopPlaylist !== null && this.playlistLoop) {
-          args.push(cmdArguments.loopPlaylist)
+        if (this.playlistLoop) {
+          if (cmdArguments.loopPlaylist !== null) {
+            args.push(cmdArguments.loopPlaylist)
+          } else {
+            this.externalPlayerUnsupportedActionToast(this.$t('Video.External Player.Unsupported Actions.looping playlists'))
+          }
         }
 
         args.push(`${cmdArguments.playlistUrl}https://youtube.com/playlist?list=${this.playlistId}`)
       } else {
+        if (this.playlistId !== null) {
+          this.externalPlayerUnsupportedActionToast(this.$t('Video.External Player.Unsupported Actions.opening playlists'))
+        }
+
         args.push(`${cmdArguments.videoUrl}${this.youtubeUrl}`)
       }
 
-      console.log(`Opening ${context} in ${this.externalPlayer}:`, this.externalPlayerExecutable, args)
+      const openingString = this.$t('Video.External Player.OpeningTemplate').replace('$', context)
+      const toastMessage = `${openingString} ${this.externalPlayer}...`
+      this.showToast({
+        message: toastMessage
+      })
+
+      console.log(this.externalPlayerExecutable, args)
       const child = cp.spawn(this.externalPlayerExecutable, args, { detached: true, stdio: 'ignore' })
       child.unref()
 
       if (!this.watched) {
         this.markAsWatched()
       }
-
-      return false
     },
 
     toggleSave: function () {

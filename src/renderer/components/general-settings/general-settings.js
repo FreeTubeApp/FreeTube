@@ -52,14 +52,6 @@ export default Vue.extend({
         'start',
         'middle',
         'end'
-      ],
-      externalPlayerNames: [
-        'None',
-        'mpv'
-      ],
-      externalPlayerValues: [
-        '',
-        'mpv'
       ]
     }
   },
@@ -96,12 +88,6 @@ export default Vue.extend({
     },
     thumbnailPreference: function () {
       return this.$store.getters.getThumbnailPreference
-    },
-    externalPlayer: function () {
-      return this.$store.getters.getExternalPlayer
-    },
-    externalPlayerExecutable: function () {
-      return this.$store.getters.getExternalPlayerExecutable
     },
     regionNames: function () {
       return this.$store.getters.getRegionNames
@@ -240,10 +226,6 @@ export default Vue.extend({
       this.getRegionData(payload)
     },
 
-    handleUpdateExternalPlayerExecutable: function (value) {
-      this.updateExternalPlayerExecutable(value)
-    },
-
     ...mapActions([
       'showToast',
       'updateEnableSearchSuggestions',
@@ -256,8 +238,6 @@ export default Vue.extend({
       'updateRegion',
       'updateListType',
       'updateThumbnailPreference',
-      'updateExternalPlayer',
-      'updateExternalPlayerExecutable',
       'updateInvidiousInstance',
       'updateForceLocalBackendForLegacy',
       'getRegionData'

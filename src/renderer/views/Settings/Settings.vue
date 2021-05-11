@@ -3,6 +3,7 @@
     <general-settings />
     <theme-settings />
     <player-settings />
+    <external-player-settings />
     <subscription-settings />
     <distraction-settings />
     <privacy-settings />

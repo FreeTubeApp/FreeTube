@@ -41,8 +41,6 @@ const state = {
   region: 'US',
   listType: 'grid',
   thumbnailPreference: '',
-  externalPlayer: '',
-  externalPlayerExecutable: '',
   invidiousInstance: 'https://invidious.snopyta.org',
   defaultProfile: 'allChannels',
   barColor: false,
@@ -62,6 +60,9 @@ const state = {
   defaultPlayback: 1,
   defaultVideoFormat: 'dash',
   defaultQuality: '720',
+  externalPlayer: '',
+  externalPlayerExecutable: '',
+  externalPlayerIgnoreWarnings: false,
   useProxy: false,
   proxyProtocol: 'socks5',
   proxyHostname: '127.0.0.1',
@@ -134,6 +135,10 @@ const getters = {
 
   getExternalPlayerExecutable: () => {
     return state.externalPlayerExecutable
+  },
+
+  getExternalPlayerIgnoreWarnings: () => {
+    return state.externalPlayerIgnoreWarnings
   },
 
   getInvidiousInstance: () => {
@@ -328,6 +333,9 @@ const actions = {
                 break
               case 'externalPlayerExecutable':
                 commit('setExternalPlayerExecutable', result.value)
+                break
+              case 'externalPlayerIgnoreWarnings':
+                commit('setExternalPlayerIgnoreWarnings', result.value)
                 break
               case 'barColor':
                 commit('setBarColor', result.value)
@@ -543,6 +551,14 @@ const actions = {
     settingsDb.update({ _id: 'externalPlayerExecutable' }, { _id: 'externalPlayerExecutable', value: externalPlayerExecutable }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
         commit('setExternalPlayerExecutable', externalPlayerExecutable)
+      }
+    })
+  },
+
+  updateExternalPlayerIgnoreWarnings ({ commit }, externalPlayerIgnoreWarnings) {
+    settingsDb.update({ _id: 'externalPlayerIgnoreWarnings' }, { _id: 'externalPlayerIgnoreWarnings', value: externalPlayerIgnoreWarnings }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setExternalPlayerIgnoreWarnings', externalPlayerIgnoreWarnings)
       }
     })
   },
@@ -860,6 +876,9 @@ const mutations = {
   },
   setExternalPlayerExecutable (state, externalPlayerExecutable) {
     state.externalPlayerExecutable = externalPlayerExecutable
+  },
+  setExternalPlayerIgnoreWarnings (state, externalPlayerIgnoreWarnings) {
+    state.externalPlayerIgnoreWarnings = externalPlayerIgnoreWarnings
   },
   setBarColor (state, barColor) {
     state.barColor = barColor

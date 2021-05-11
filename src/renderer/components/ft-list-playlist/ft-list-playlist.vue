@@ -25,7 +25,7 @@
     <div class="info">
       <ft-icon-button
         v-if="externalPlayer !== ''"
-        :title="`${$t('Video.Open in')} ${externalPlayer}`"
+        :title="`${$t('Video.External Player.Open in')} ${externalPlayer}`"
         icon="external-link-alt"
         class="externalPlayerButton"
         theme="base-no-default"
