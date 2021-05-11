@@ -394,7 +394,7 @@ export default Vue.extend({
                   .captionTracks
 
               if (typeof captionTracks !== 'undefined') {
-                const locale = localStorage.getItem('locale')
+                const locale = this.$i18n.locale
                 if (locale !== null) {
                   const standardLocale = locale.replace('_', '-')
                   const noLocaleCaption = !captionTracks.some(track =>
