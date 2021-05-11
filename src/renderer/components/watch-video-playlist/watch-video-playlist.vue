@@ -83,6 +83,10 @@
           <ft-list-video
             :data="item"
             :playlist-id="playlistId"
+            :playlist-index="reversePlaylist ? playlistItems.length - index - 1 : index"
+            :playlist-reverse="reversePlaylist"
+            :playlist-shuffle="shuffleEnabled"
+            :playlist-loop="loopEnabled"
             appearance="watchPlaylistItem"
             force-list-type="list"
           />

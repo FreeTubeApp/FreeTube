@@ -23,6 +23,16 @@
       </div>
     </router-link>
     <div class="info">
+      <ft-icon-button
+        v-if="externalPlayer !== ''"
+        :title="`${$t('Video.Open in')} ${externalPlayer}`"
+        icon="external-link-alt"
+        class="externalPlayerButton"
+        theme="base-no-default"
+        :size="16"
+        :use-shadow="false"
+        @click="openExternalPlayer"
+      />
       <router-link
         class="title"
         :to="`/playlist/${playlistId}`"

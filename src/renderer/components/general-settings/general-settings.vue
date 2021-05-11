@@ -85,8 +85,25 @@
         :tooltip="$t('Tooltips.General Settings.Region for Trending')"
         @change="updateRegion"
       />
+      <ft-select
+        :placeholder="$t('Settings.General Settings.External Player')"
+        :value="externalPlayer"
+        :select-names="externalPlayerNames"
+        :select-values="externalPlayerValues"
+        :tooltip="$t('Tooltips.General Settings.External Player')"
+        @change="updateExternalPlayer"
+      />
     </div>
     <ft-flex-box class="generalSettingsFlexBox">
+      <ft-input
+        v-if="externalPlayer !== ''"
+        :placeholder="$t('Settings.General Settings.External Player Executable')"
+        :show-arrow="false"
+        :show-label="true"
+        :value="externalPlayerExecutable"
+        :tooltip="$t('Tooltips.General Settings.External Player Executable')"
+        @input="handleUpdateExternalPlayerExecutable"
+      />
       <ft-input
         :placeholder="$t('Settings.General Settings[\'Invidious Instance (Default is https://invidious.snopyta.org)\']')"
         :show-arrow="false"

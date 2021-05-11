@@ -1,7 +1,12 @@
 import Vue from 'vue'
+import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import cp from 'child_process'
 
 export default Vue.extend({
   name: 'FtListVideo',
+  components: {
+    'ft-icon-button': FtIconButton
+  },
   props: {
     data: {
       type: Object,
@@ -40,6 +45,22 @@ export default Vue.extend({
       let id = this.channelLink.replace('https://www.youtube.com/user/', '')
       id = id.replace('https://www.youtube.com/channel/', '')
       return id
+    },
+
+    externalPlayer: function () {
+      return this.$store.getters.getExternalPlayer
+    },
+
+    externalPlayerExecutable: function () {
+      if (this.$store.getters.getExternalPlayerExecutable !== '') {
+        return this.$store.getters.getExternalPlayerExecutable
+      }
+
+      return this.externalPlayerCmdArguments.defaultExecutable
+    },
+
+    externalPlayerCmdArguments: function () {
+      return this.$store.state.utils.externalPlayerCmdArguments[this.externalPlayer]
     }
   },
   mounted: function () {
@@ -50,6 +71,20 @@ export default Vue.extend({
     }
   },
   methods: {
+    openExternalPlayer: function () {
+      const cmdArguments = this.externalPlayerCmdArguments
+      const args = []
+
+      if (cmdArguments.playlistUrl !== null) {
+        args.push(`${cmdArguments.playlistUrl}https://youtube.com/playlist?list=${this.playlistId}`)
+
+        console.log(`Opening playlist in ${this.externalPlayer}:`, this.externalPlayerExecutable, args)
+        const child = cp.spawn(this.externalPlayerExecutable, args, { detached: true, stdio: 'ignore' })
+        child.unref()
+      }
+
+      return false
+    },
     parseInvidiousData: function () {
       this.title = this.data.title
       this.thumbnail = this.data.playlistThumbnail.replace('https://i.ytimg.com', this.invidiousInstance).replace('hqdefault', 'mqdefault')

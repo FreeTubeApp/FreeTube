@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import { mapActions } from 'vuex'
+import cp from 'child_process'
 
 export default Vue.extend({
   name: 'FtListVideo',
@@ -15,6 +16,22 @@ export default Vue.extend({
     playlistId: {
       type: String,
       default: null
+    },
+    playlistIndex: {
+      type: Number,
+      default: null
+    },
+    playlistReverse: {
+      type: Boolean,
+      default: false
+    },
+    playlistShuffle: {
+      type: Boolean,
+      default: false
+    },
+    playlistLoop: {
+      type: Boolean,
+      default: false
     },
     forceListType: {
       type: String,
@@ -182,6 +199,22 @@ export default Vue.extend({
 
     favoriteIconTheme: function () {
       return this.inFavoritesPlaylist ? 'base favorite' : 'base'
+    },
+
+    externalPlayer: function () {
+      return this.$store.getters.getExternalPlayer
+    },
+
+    externalPlayerExecutable: function () {
+      if (this.$store.getters.getExternalPlayerExecutable !== '') {
+        return this.$store.getters.getExternalPlayerExecutable
+      }
+
+      return this.externalPlayerCmdArguments.defaultExecutable
+    },
+
+    externalPlayerCmdArguments: function () {
+      return this.$store.state.utils.externalPlayerCmdArguments[this.externalPlayer]
     }
   },
   mounted: function () {
@@ -189,6 +222,51 @@ export default Vue.extend({
     this.checkIfWatched()
   },
   methods: {
+    openExternalPlayer: function () {
+      let context = 'video'
+      const cmdArguments = this.externalPlayerCmdArguments
+      const args = []
+
+      if (cmdArguments.startOffset !== null && this.watched) {
+        args.push(`${cmdArguments.startOffset}${this.watchProgress}`)
+      }
+
+      // Check whether the video is in a playlist
+      if (cmdArguments.playlistUrl !== null && this.playlistId !== null && this.playlistIndex !== null) {
+        context = 'playlist'
+
+        if (cmdArguments.playlistIndex !== null) {
+          args.push(`${cmdArguments.playlistIndex}${this.playlistIndex}`)
+        }
+
+        if (cmdArguments.reverse !== null && this.reverse) {
+          args.push(cmdArguments.reverse)
+        }
+
+        if (cmdArguments.shuffle !== null && this.playlistShuffle) {
+          args.push(cmdArguments.shuffle)
+        }
+
+        if (cmdArguments.loopPlaylist !== null && this.playlistLoop) {
+          args.push(cmdArguments.loopPlaylist)
+        }
+
+        args.push(`${cmdArguments.playlistUrl}https://youtube.com/playlist?list=${this.playlistId}`)
+      } else {
+        args.push(`${cmdArguments.videoUrl}${this.youtubeUrl}`)
+      }
+
+      console.log(`Opening ${context} in ${this.externalPlayer}:`, this.externalPlayerExecutable, args)
+      const child = cp.spawn(this.externalPlayerExecutable, args, { detached: true, stdio: 'ignore' })
+      child.unref()
+
+      if (!this.watched) {
+        this.markAsWatched()
+      }
+
+      return false
+    },
+
     toggleSave: function () {
       if (this.inFavoritesPlaylist) {
         this.removeFromPlaylist()
@@ -385,7 +463,7 @@ export default Vue.extend({
         title: this.title,
         author: this.channelName,
         authorId: this.channelId,
-        published: this.publishedText.split(',')[0],
+        published: this.publishedText ? this.publishedText.split(',')[0] : this.publishedText,
         description: this.description,
         viewCount: this.viewCount,
         lengthSeconds: this.data.lengthSeconds,

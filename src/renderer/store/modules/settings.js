@@ -41,6 +41,8 @@ const state = {
   region: 'US',
   listType: 'grid',
   thumbnailPreference: '',
+  externalPlayer: '',
+  externalPlayerExecutable: '',
   invidiousInstance: 'https://invidious.snopyta.org',
   defaultProfile: 'allChannels',
   barColor: false,
@@ -124,6 +126,14 @@ const getters = {
 
   getThumbnailPreference: () => {
     return state.thumbnailPreference
+  },
+
+  getExternalPlayer: () => {
+    return state.externalPlayer
+  },
+
+  getExternalPlayerExecutable: () => {
+    return state.externalPlayerExecutable
   },
 
   getInvidiousInstance: () => {
@@ -312,6 +322,12 @@ const actions = {
                 break
               case 'thumbnailPreference':
                 commit('setThumbnailPreference', result.value)
+                break
+              case 'externalPlayer':
+                commit('setExternalPlayer', result.value)
+                break
+              case 'externalPlayerExecutable':
+                commit('setExternalPlayerExecutable', result.value)
                 break
               case 'barColor':
                 commit('setBarColor', result.value)
@@ -511,6 +527,22 @@ const actions = {
     settingsDb.update({ _id: 'thumbnailPreference' }, { _id: 'thumbnailPreference', value: thumbnailPreference }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
         commit('setThumbnailPreference', thumbnailPreference)
+      }
+    })
+  },
+
+  updateExternalPlayer ({ commit }, externalPlayer) {
+    settingsDb.update({ _id: 'externalPlayer' }, { _id: 'externalPlayer', value: externalPlayer }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setExternalPlayer', externalPlayer)
+      }
+    })
+  },
+
+  updateExternalPlayerExecutable ({ commit }, externalPlayerExecutable) {
+    settingsDb.update({ _id: 'externalPlayerExecutable' }, { _id: 'externalPlayerExecutable', value: externalPlayerExecutable }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setExternalPlayerExecutable', externalPlayerExecutable)
       }
     })
   },
@@ -822,6 +854,12 @@ const mutations = {
   },
   setThumbnailPreference (state, thumbnailPreference) {
     state.thumbnailPreference = thumbnailPreference
+  },
+  setExternalPlayer (state, externalPlayer) {
+    state.externalPlayer = externalPlayer
+  },
+  setExternalPlayerExecutable (state, externalPlayerExecutable) {
+    state.externalPlayerExecutable = externalPlayerExecutable
   },
   setBarColor (state, barColor) {
     state.barColor = barColor

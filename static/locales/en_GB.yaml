@@ -130,6 +130,8 @@ Settings:
         #! List countries
     View all Invidious instance information: View all Invidious instance information
     System Default: System Default
+    External Player: External Player
+    External Player Executable: Custom External Player Executable
   Theme Settings:
     Theme Settings: 'Theme Settings'
     Match Top Bar with Main Color: 'Match top bar with main colour'
@@ -512,6 +514,7 @@ Video:
     list
   Video has been saved: Video has been saved
   Save Video: Save Video
+  Open in: Open in
   translated from English: translated from English
 Videos:
   #& Sort By
@@ -638,6 +641,11 @@ Tooltips:
     Preferred API Backend: Choose the back-end that FreeTube uses to obtain data.
       The local API is a built-in extractor. The Invidious API requires an Invidious
       server to connect to.
+    External Player: Choosing an external player will display an icon, for opening the
+      video (playlist if supported) in the external player, on the thumnail.
+    External Player Executable: By default, FreeTube will assume that the chosen external
+      player can be found via the PATH environment variable. If needed, a custom path can
+      be set here.
   Privacy Settings:
     Remove Video Meta Files: When enabled, FreeTube automatically deletes meta files
       created during video playback, when the watch page is closed.

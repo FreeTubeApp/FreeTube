@@ -133,6 +133,8 @@ Settings:
     View all Invidious instance information: View all Invidious instance information
     Region for Trending: Region for Trending
         #! List countries
+    External Player: External Player
+    External Player Executable: Custom External Player Executable
   Theme Settings:
     Theme Settings: Theme Settings
     Match Top Bar with Main Color: Match Top Bar with Main Color
@@ -390,6 +392,7 @@ Video:
   Video has been marked as watched: Video has been marked as watched
   Video has been removed from your history: Video has been removed from your history
   Save Video: Save Video
+  Open in: Open in
   Video has been saved: Video has been saved
   Video has been removed from your saved list: Video has been removed from your saved list
   Open in YouTube: Open in YouTube
@@ -561,6 +564,11 @@ Tooltips:
     Region for Trending: The region of trends allows you to pick which country's trending
       videos you want to have displayed. Not all countries displayed are actually
       supported by YouTube.
+    External Player: Choosing an external player will display an icon, for opening the
+      video (playlist if supported) in the external player, on the thumnail.
+    External Player Executable: By default, FreeTube will assume that the chosen external
+      player can be found via the PATH environment variable. If needed, a custom path can
+      be set here.
   Player Settings:
     Force Local Backend for Legacy Formats: Only works when the Invidious API is your
       default. When enabled, the local API will run and use the legacy formats returned

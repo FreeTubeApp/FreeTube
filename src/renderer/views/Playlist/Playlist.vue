@@ -18,6 +18,7 @@
         :key="index"
         :data="item"
         :playlist-id="playlistId"
+        :playlist-index="index"
         appearance="result"
         force-list-type="list"
       />

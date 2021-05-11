@@ -52,7 +52,20 @@ const state = {
     '#FFAB00',
     '#FF6D00',
     '#DD2C00'
-  ]
+  ],
+  externalPlayerCmdArguments: {
+    '': null,
+    mpv: {
+      defaultExecutable: 'mpv',
+      videoUrl: '',
+      playlistUrl: '',
+      startOffset: '--start=',
+      playlistIndex: '--playlist-start=',
+      reverse: null,
+      shuffle: '--shuffle',
+      loopPlaylist: '--loop-playlist'
+    }
+  }
 }
 
 const getters = {
@@ -102,6 +115,10 @@ const getters = {
 
   getRecentBlogPosts () {
     return state.recentBlogPosts
+  },
+
+  getExternalPlayerCmdArguments () {
+    return state.externalPlayerCmdArguments
   }
 }
 
