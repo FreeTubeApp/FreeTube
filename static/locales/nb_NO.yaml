@@ -30,7 +30,7 @@ Back: 'Tilbake'
 Forward: 'Framover'
 
 # Search Bar
-Search / Go to URL: 'Søk / Gå til nettadresse'
+Search / Go to URL: 'Søk / gå til nettadresse'
   # In Filter Button
 Search Filters:
   Search Filters: 'Søkefiltre'
@@ -123,10 +123,10 @@ Settings:
         #! List countries
     Check for Updates: Se etter oppdateringer
     View all Invidious instance information: Vis informasjon om alle Invidious-forekomster
-    Check for Latest Blog Posts: Se etter nye bloggposter
+    Check for Latest Blog Posts: Se etter nye blogginnlegg
     System Default: Systemets standardverdi
   Theme Settings:
-    Theme Settings: 'Tema innstillinger'
+    Theme Settings: 'Instillinger for fargetema'
     Match Top Bar with Main Color: 'Bruk hovedfarge i toppbjelke'
     Base Theme:
       Base Theme: 'Hovedtema'
@@ -134,7 +134,7 @@ Settings:
       Dark: 'Mørk'
       Light: 'Lys'
     Main Color Theme:
-      Main Color Theme: 'Hovedfargedrakt'
+      Main Color Theme: 'Hovedfarge'
       Red: 'Rød'
       Pink: 'Rosa'
       Purple: 'Lilla'
@@ -148,7 +148,7 @@ Settings:
       Light Green: 'Lysegrønn'
       Lime: 'Lime'
       Yellow: 'Gul'
-      Amber: 'Ravgult'
+      Amber: 'Ravgul'
       Orange: 'Oransje'
       Deep Orange: 'Dyp oransje'
     Secondary Color Theme: 'Sekundær fargedrakt'
