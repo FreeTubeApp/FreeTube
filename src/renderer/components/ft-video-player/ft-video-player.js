@@ -139,7 +139,12 @@ export default Vue.extend({
     },
 
     defaultCaptionSettings: function () {
-      return JSON.parse(this.$store.getters.getDefaultCaptionSettings)
+      try {
+        return JSON.parse(this.$store.getters.getDefaultCaptionSettings)
+      } catch (e) {
+        console.log(e)
+        return {}
+      }
     },
 
     defaultVideoFormat: function () {
@@ -922,10 +927,6 @@ export default Vue.extend({
       clearTimeout(this.touchPauseTimeout)
     },
 
-    updateDefaultCaptionSettings: function (value) {
-      this.$store.commit('setDefaultCaptionSettings', value)
-    },
-
     keyboardShortcutHandler: function (event) {
       const activeInputs = $('.ft-input')
 
@@ -1114,7 +1115,8 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'calculateColorLuminance'
+      'calculateColorLuminance',
+      'updateDefaultCaptionSettings'
     ])
   }
 })
