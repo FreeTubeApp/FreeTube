@@ -242,7 +242,7 @@ export default Vue.extend({
       const cmdArguments = this.externalPlayerCmdArguments
       const args = []
 
-      if (cmdArguments.startOffset !== null && this.watched) {
+      if (cmdArguments.startOffset !== null && this.watched && this.watchProgress !== 0) {
         args.push(`${cmdArguments.startOffset}${this.watchProgress}`)
       }
 
