@@ -85,15 +85,15 @@ Subscriptions:
   Load More Videos: 'Завантажити більше відео'
 Trending: 'Популярне'
 Most Popular: 'Найпопулярніші'
-Playlists: 'Списки відтворення'
+Playlists: 'Добірки'
 User Playlists:
-  Your Playlists: 'Ваші списки відтворення'
+  Your Playlists: 'Ваші добірки'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Збережені
     відео порожні. Клацніть на кнопку збереження у куті відео, щоб воно було перелічено
     тут
-  Playlist Message: Ця сторінка не відображає повністю робочих списків відтворення.
-    На ній перелічено лише відео, які ви зберегли або вибрали. Коли робота закінчиться,
-    усі відео, які зараз знаходяться тут, буде переміщено до списку відтворення "Вибране".
+  Playlist Message: Ця сторінка не показує повністю робочих добірок. На ній перелічено
+    лише відео, які ви зберегли або вибрали. Коли робота завершиться, усі відео, які
+    зараз знаходяться тут, буде переміщено до добірки "Вибране".
 History:
   # On History Page
   History: 'Історія'
@@ -113,8 +113,8 @@ Settings:
       проблема, FreeTube спробує автоматично використати допоміжний API у якості резервного,
       якщо він увімкнений'
     Enable Search Suggestions: 'Увімкнути рекомендації пошуку'
-    Default Landing Page: 'Головна сторінка за замовчуванням'
-    Locale Preference: 'Локальні преференції'
+    Default Landing Page: 'Типова головна сторінка'
+    Locale Preference: 'Локальні налаштування'
     Preferred API Backend:
       Preferred API Backend: 'Головний API бекенд'
       Local API: 'Локальний API'
@@ -135,6 +135,7 @@ Settings:
         #! List countries
     View all Invidious instance information: Перегляд усіх відомостей про екземпляр
       Invidious
+    System Default: За системними налаштуваннями
   Theme Settings:
     Theme Settings: 'Налаштування теми'
     Match Top Bar with Main Color: 'Верхня панель основного кольору'
@@ -174,7 +175,7 @@ Settings:
     Turn on Subtitles by Default: 'Увімкнути субтитри за замовченням'
     Autoplay Videos: 'Автоматичне відтворення відео'
     Proxy Videos Through Invidious: 'Проксі-відео через Invidious'
-    Autoplay Playlists: 'Автоматичне відтворення списків'
+    Autoplay Playlists: 'Автоматичне відтворення добірок'
     Enable Theatre Mode by Default: 'Типово увімкнути режим театру'
     Default Volume: 'Типова гучність'
     Default Playback Rate: 'Типова швидкість відтворення'
@@ -229,7 +230,7 @@ Settings:
     Hide Popular Videos: 'Не показувати популярні відео'
     Hide Live Chat: 'Не показувати живий чат'
     Hide Active Subscriptions: Сховати активні підписки
-    Hide Playlists: Сховати списки відтворення
+    Hide Playlists: Сховати добірки
   Data Settings:
     Data Settings: 'Налаштування даних'
     Select Import Type: 'Оберіть тип імпорту'
@@ -412,9 +413,8 @@ Channel:
       Oldest: 'Найдавніші'
       Most Popular: 'Найпопулярніші'
   Playlists:
-    Playlists: 'Списки відтворення'
-    This channel does not currently have any playlists: 'Цей канал наразі не має списків
-      відтворення'
+    Playlists: 'Добірки'
+    This channel does not currently have any playlists: 'Цей канал наразі не має добірок'
     Sort Types:
       Last Video Added: 'Останнє додане відео'
       Newest: 'Найновіші'
@@ -440,9 +440,9 @@ Video:
   Copy Invidious Channel Link: 'Копіювати посилання на канал Invidious'
   View: 'Перегляд'
   Views: 'Перегляди'
-  Loop Playlist: 'Циклічний список відтворення'
-  Shuffle Playlist: 'Перемішати список відтворення'
-  Reverse Playlist: 'Змінити напрямок списку відтворення'
+  Loop Playlist: 'Зациклити добірку'
+  Shuffle Playlist: 'Перемішати добірку'
+  Reverse Playlist: 'Змінити напрямок добірки'
   Play Next Video: 'Відтворити наступне відео'
   Play Previous Video: 'Відтворити попереднє відео'
   # Context is "X People Watching"
@@ -521,13 +521,13 @@ Videos:
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: 'Переглянути повний список відтворення'
+  View Full Playlist: 'Переглянути всю добірку'
   Videos: 'Відео'
   View: 'Перегляд'
   Views: 'Переглядів'
   Last Updated On: 'Востаннє оновлено'
   Share Playlist:
-    Share Playlist: 'Поділитися списком відтворення'
+    Share Playlist: 'Поділитися добіркою'
     Copy YouTube Link: 'Копіювати посилання youTube'
     Open in YouTube: 'Відкрити в YouTube'
     Copy Invidious Link: 'Копіювати посилання Invidious'
@@ -590,7 +590,7 @@ Up Next: 'Далі вгору'
 Tooltips:
   General Settings:
     Preferred API Backend: 'Виберіть сервер, який FreeTube використовує для отримання
-      даних. Локальний API є вбудованим витягувачем. Для API Invidious потрібен сервер
+      даних. Локальний API є вбудованим видобувачем. Для API Invidious потрібен сервер
       Invidious для з'' єднання.'
     Fallback to Non-Preferred Backend on Failure: 'Коли бажаний API має проблеми,
       FreeTube автоматично спробує використовувати ваш не вибраний API як запасний
@@ -635,13 +635,13 @@ Loop is now disabled: 'Цикл вимкнено'
 Loop is now enabled: 'Цикл увімкнено'
 Shuffle is now disabled: 'Випадковий порядок вимкнено'
 Shuffle is now enabled: 'Випадковий порядок увімкнено'
-The playlist has been reversed: 'Список відтворення обернено'
+The playlist has been reversed: 'Добірку обернено'
 Playing Next Video: 'Відтворення наступного відео'
 Playing Previous Video: 'Відтворення попереднього відео'
 Playing next video in 5 seconds.  Click to cancel: 'Відтворення наступного відео за
   5 секунд. Клацніть, щоб скасувати операцію.'
 Canceled next video autoplay: 'Скасовано автовідтворення наступного відео'
-'The playlist has ended.  Enable loop to continue playing': 'Список відтворення закінчився.
+'The playlist has ended.  Enable loop to continue playing': 'Добірка завершилася.
   Увімкніть цикл, щоб продовжити відтворення'
 
 Yes: 'Так'

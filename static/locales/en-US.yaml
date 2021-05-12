@@ -113,6 +113,7 @@ Settings:
     Enable Search Suggestions: Enable Search Suggestions
     Default Landing Page: Default Landing Page
     Locale Preference: Locale Preference
+    System Default: System Default
     Preferred API Backend:
       Preferred API Backend: Preferred API Backend
       Local API: Local API

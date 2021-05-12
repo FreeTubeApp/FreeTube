@@ -10,6 +10,7 @@ import FtButton from './components/ft-button/ft-button.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
 import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
 import $ from 'jquery'
+import { app } from '@electron/remote'
 import { markdown } from 'markdown'
 import Parser from 'rss-parser'
 
@@ -117,9 +118,20 @@ export default Vue.extend({
     checkLocale: function () {
       const locale = localStorage.getItem('locale')
 
-      if (locale === null) {
-        // TODO: Get User default locale
-        this.$i18n.locale = 'en-US'
+      if (locale === null || locale === 'system') {
+        const systemLocale = app.getLocale().replace(/-|_/, '_')
+        const findLocale = Object.keys(this.$i18n.messages).find((locale) => {
+          const localeName = locale.replace(/-|_/, '_')
+          return localeName.includes(systemLocale)
+        })
+
+        if (typeof findLocale !== 'undefined') {
+          this.$i18n.locale = findLocale
+          localStorage.setItem('locale', 'system')
+        } else {
+          this.$i18n.locale = 'en-US'
+          localStorage.setItem('locale', 'en-US')
+        }
       } else {
         this.$i18n.locale = locale
       }

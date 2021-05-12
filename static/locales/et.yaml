@@ -70,6 +70,7 @@ Search Filters:
   Fetching results. Please wait: 'Laen tulemusi. Palun oota üks hetk'
   Fetch more results: 'Lae veel andmeid'
 # Sidebar
+  There are no more results for this search: Sellel otsingul pole rohkem vastuseid
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Tellimused'
@@ -78,11 +79,18 @@ Subscriptions:
     tellimuste loend on hetkel tühi. Telli kanaleid ja sa näed neid siin loendis.'
   'Getting Subscriptions. Please wait.': 'Laen tellimusi, palun oota.'
   Refresh Subscriptions: 'Värskenda tellimusi'
-Trending: ''
+  Load More Videos: Laadi veel videosid
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Sellel
+    profiilil on väga palju tellimusi. Vältimaks serveripoolseid piiranguid teen RSS-voo
+    päringud harvemini
+Trending: 'Populaarsed videod'
 Most Popular: 'Populaarseimad'
 Playlists: 'Esitusloendid'
 User Playlists:
   Your Playlists: 'Sinu esitusloendid'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Sa
+    pole veel videosid siia salvestanud. Selleks palun vajuta video nurgas asuvat
+    salvestusnuppu
 History:
   # On History Page
   History: 'Ajalugu'
@@ -94,17 +102,18 @@ Settings:
   General Settings:
     General Settings: 'Üldised seadistused'
     Check for Updates: 'Kontrolli uuendusi'
-    Check for Latest Blog Posts: ''
-    Fallback to Non-Preferred Backend on Failure: ''
-    Enable Search Suggestions: ''
-    Default Landing Page: ''
-    Locale Preference: ''
+    Check for Latest Blog Posts: 'Vaata viimaseid blogipostitusi'
+    Fallback to Non-Preferred Backend on Failure: 'Luba vigade korral kasutada teist
+      taustateenust'
+    Enable Search Suggestions: 'Kasuta otsingusoovitusi'
+    Default Landing Page: 'Vaikimisi avaleht'
+    Locale Preference: 'Lokaadi eelistus'
     Preferred API Backend:
-      Preferred API Backend: ''
-      Local API: ''
-      Invidious API: ''
+      Preferred API Backend: 'Eelistatud taustateenuste API'
+      Local API: 'API kohalikus arvutis'
+      Invidious API: 'API Invidious''e veebirakenduses'
     Video View Type:
-      Video View Type: ''
+      Video View Type: 'Kasutatav videote vaade'
       Grid: 'Võrgustik'
       List: 'Loend'
     Thumbnail Preference:
@@ -113,99 +122,115 @@ Settings:
       Beginning: 'Alguses'
       Middle: 'Keskel'
       End: 'Lõpus'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': ''
-    Region for Trending: ''
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious''e
+      veebirakendus (vaikimisi kasutatav sait on https://invidious.snopyta.org)'
+    Region for Trending: 'Mis geograafia alusel tuvastame populaarsemad videod'
         #! List countries
+    System Default: Arvuti vaikeseadistused
+    View all Invidious instance information: Vaata kõike teavet kasutatava Invidious'e
+      veebirakenduse kohta
   Theme Settings:
-    Theme Settings: ''
-    Match Top Bar with Main Color: ''
+    Theme Settings: 'Välimuse seadistused'
+    Match Top Bar with Main Color: 'Kasuta ülaribal põhivärvi'
     Base Theme:
-      Base Theme: ''
-      Black: ''
-      Dark: ''
-      Light: ''
+      Base Theme: 'Põhiteema'
+      Black: 'Must'
+      Dark: 'Tume'
+      Light: 'Hele'
     Main Color Theme:
-      Main Color Theme: ''
-      Red: ''
-      Pink: ''
-      Purple: ''
-      Deep Purple: ''
-      Indigo: ''
-      Blue: ''
-      Light Blue: ''
-      Cyan: ''
-      Teal: ''
-      Green: ''
-      Light Green: ''
-      Lime: ''
-      Yellow: ''
-      Amber: ''
-      Orange: ''
-      Deep Orange: ''
-    Secondary Color Theme: ''
+      Main Color Theme: 'Põhiline värviteema'
+      Red: 'Punane'
+      Pink: 'Roosa'
+      Purple: 'Purpurpunane'
+      Deep Purple: 'Sügavpurpurpunane'
+      Indigo: 'Indigosinine'
+      Blue: 'Sinine'
+      Light Blue: 'Helesinine'
+      Cyan: 'Rohekassinine'
+      Teal: 'Sinakasroheline'
+      Green: 'Roheline'
+      Light Green: 'Heleroheline'
+      Lime: 'Kollakasroheline'
+      Yellow: 'Kollane'
+      Amber: 'Merevaigukollane'
+      Orange: 'Oranž'
+      Deep Orange: 'Sügavoranž'
+    Secondary Color Theme: 'Värvide alamteema'
         #* Main Color Theme
+    UI Scale: Kasutajaliidese suurus
+    Disable Smooth Scrolling: Ära kasuta sujuvat kerimist
+    Expand Side Bar by Default: Vaikimis näita külgriba laiana
   Player Settings:
-    Player Settings: ''
-    Force Local Backend for Legacy Formats: ''
-    Play Next Video: ''
-    Turn on Subtitles by Default: ''
+    Player Settings: 'Videomängija seadistused'
+    Force Local Backend for Legacy Formats: 'Pärandvormingute puhul kasuta sundkorras
+      kohalikku taustateenust'
+    Play Next Video: 'Esita ka järgmist videot'
+    Turn on Subtitles by Default: 'Vaikimisi näita subtiitreid'
     Autoplay Videos: 'Esita videod automaatselt'
-    Proxy Videos Through Invidious: ''
-    Autoplay Playlists: ''
-    Enable Theatre Mode by Default: ''
-    Default Volume: ''
-    Default Playback Rate: ''
+    Proxy Videos Through Invidious: 'Puhverda videosid Invidious''e veebiteenuse kaudu'
+    Autoplay Playlists: 'Automaatselt mängi esitusloendit'
+    Enable Theatre Mode by Default: 'Vaikimisi kasuta teatrivaadet (laia vaadet)'
+    Default Volume: 'Vaikimisi helivaljus'
+    Default Playback Rate: 'Vaikimisi videoesituse kiirus'
     Default Video Format:
-      Default Video Format: ''
-      Dash Formats: ''
-      Legacy Formats: ''
-      Audio Formats: ''
+      Default Video Format: 'Vaikimisi videovorming'
+      Dash Formats: 'DASH-vormingud'
+      Legacy Formats: 'Pärandvormingud'
+      Audio Formats: 'Helivormingud'
     Default Quality:
-      Default Quality: ''
-      Auto: ''
-      144p: ''
-      240p: ''
-      360p: ''
-      480p: ''
-      720p: ''
-      1080p: ''
-      1440p: ''
-      4k: ''
-      8k: ''
+      Default Quality: 'Vaikimisi videokvaliteet'
+      Auto: 'Vali automaatselt'
+      144p: '144p'
+      240p: '240p'
+      360p: '360p'
+      480p: '480p'
+      720p: '720p'
+      1080p: '1080p'
+      1440p: '1440p'
+      4k: '4k'
+      8k: '8k'
+    Next Video Interval: Viivitus järgmise video esitamisel
   Privacy Settings:
-    Privacy Settings: ''
-    Remember History: ''
-    Save Watched Progress: ''
-    Clear Search Cache: ''
-    Are you sure you want to clear out your search cache?: ''
-    Search cache has been cleared: ''
-    Remove Watch History: ''
-    Are you sure you want to remove your entire watch history?: ''
-    Watch history has been cleared: ''
-    Remove All Subscriptions / Profiles: ''
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
+    Privacy Settings: 'Privaatsuse seadistused'
+    Remember History: 'Jäta ajalugu meelde'
+    Save Watched Progress: 'Salvesta vaatamise olek'
+    Clear Search Cache: 'Kustuta otsingute ajalugu'
+    Are you sure you want to clear out your search cache?: 'Kas sa oled kindel, et
+      soovid kustutada sinu otsingute ajaloo?'
+    Search cache has been cleared: 'Otsingute ajalugu on nüüd kustutatud'
+    Remove Watch History: 'Kustuta vaatamiste ajalugu'
+    Are you sure you want to remove your entire watch history?: 'Kas sa oled kindel,
+      et soovid kustutada kogu sinu vaatamiste ajaloo?'
+    Watch history has been cleared: 'Vaatamiste ajalugu on nüüd kustutatud'
+    Remove All Subscriptions / Profiles: 'Kustuta kõik tellimused / profiilid'
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Kas
+      sa oled kindel, et soovid kustutada kõik tellimused/profiilid? Seda tegevust
+      ei saa tagasi pöörata.'
+    Automatically Remove Video Meta Files: Automaatselt kustuta videote metateave
   Subscription Settings:
-    Subscription Settings: ''
-    Hide Videos on Watch: ''
-    Fetch Feeds from RSS: ''
-    Manage Subscriptions: ''
+    Subscription Settings: 'Tellimuste seadistused'
+    Hide Videos on Watch: 'Vaatamisel peida videod'
+    Fetch Feeds from RSS: 'Laadi RSS-uudisvood'
+    Manage Subscriptions: 'Halda tellimusi'
   Data Settings:
-    Data Settings: ''
-    Select Import Type: ''
-    Select Export Type: ''
-    Import Subscriptions: ''
-    Import FreeTube: ''
-    Import YouTube: ''
-    Import NewPipe: ''
-    Export Subscriptions: ''
-    Export FreeTube: ''
-    Export YouTube: ''
-    Export NewPipe: ''
-    Import History: ''
-    Export History: ''
-    Profile object has insufficient data, skipping item: ''
-    All subscriptions and profiles have been successfully imported: ''
-    All subscriptions have been successfully imported: ''
+    Data Settings: 'Andmehaldus'
+    Select Import Type: 'Vali imporditava faili vorming'
+    Select Export Type: 'Vali eksporditava faili vorming'
+    Import Subscriptions: 'Impordi tellimused'
+    Import FreeTube: 'Kasuta FreeTube vormingut'
+    Import YouTube: 'Kasuta YouTube vormingut'
+    Import NewPipe: 'Kasuta NewPipe vormingut'
+    Export Subscriptions: 'Ekspordi tellimused'
+    Export FreeTube: 'Ekspordi FreeTube vormingus'
+    Export YouTube: 'Ekspordi YouTube vormingus'
+    Export NewPipe: 'Ekspordi NewPipe vormingus'
+    Import History: 'Impordi ajalugu'
+    Export History: 'Ekspordi ajalugu'
+    Profile object has insufficient data, skipping item: 'Osal profiilis pole piisavalt
+      andmeid ja selle jätan vahele'
+    All subscriptions and profiles have been successfully imported: 'Kõikide tellimuste
+      ja profiilide import õnnestus'
+    All subscriptions have been successfully imported: 'Kõikide tellimuste õnnestus'
     One or more subscriptions were unable to be imported: 'Ühte või enamat tellimust
       ei õnnestunud importida'
     Invalid subscriptions file: 'Vigane tellimuste fail'
@@ -220,8 +245,10 @@ Settings:
       edukalt eksporditud'
     Unable to read file: 'Faili lugemine ei õnnestu'
     Unable to write file: 'Faili kirjutamine ei õnnestu'
-    Unknown data key: ''
-    How do I import my subscriptions?: ''
+    Unknown data key: 'Tundmatu andmevõti'
+    How do I import my subscriptions?: 'Kuidas ma saan oma tellimusi importida?'
+    Manage Subscriptions: Halda tellimusi
+    Check for Legacy Subscriptions: Kontrolli pärandvormingus tellimuste olemasolu
   Advanced Settings:
     Advanced Settings: ''
     Enable Debug Mode (Prints data to the console): ''
@@ -244,9 +271,39 @@ Settings:
       #& Yes
       #& No
 
+  Distraction Free Settings:
+    Hide Active Subscriptions: Peida aktiivsed tellimused
+    Hide Live Chat: Peida veebivestlused
+    Hide Playlists: Peida esitusloendid
+    Hide Popular Videos: Peida enimvaadatud videod
+    Hide Trending Videos: Peida populaarsust koguvad videod
+    Hide Recommended Videos: Peida soovitatud videod
+    Hide Comment Likes: Peida kommentaaride meeldimised
+    Hide Channel Subscribers: Peida kanalite tellijad
+    Hide Video Likes And Dislikes: Peida videote meeldimiste ja mittemeeldimiste arvud
+    Hide Video Views: Peida videote vaatamiskordade arv
+    Distraction Free Settings: Seadista endale võimalikult rahulik videote vaatamine
+  Proxy Settings:
+    Error getting network information. Is your proxy configured properly?: Võrguteavet
+      ei õnnestu leida. Kas sa oled puhverserveri ikka korralikult seadistanud?
+    City: Linn
+    Region: Piirkond
+    Country: Riik
+    Ip: IP-aadress
+    Your Info: Sinu andmed
+    Clicking on Test Proxy will send a request to: Puhverserveri testimisel saadame
+      päringu aadressile
+    Test Proxy: Testi puhverserverit
+    Proxy Port Number: Puhverserveri pordi number
+    Proxy Host: Puhverserveri aadress
+    Proxy Protocol: Puhverserveri protokoll
+    Enable Tor / Proxy: Kasuta Tor'i või puhverserverit
+    Proxy Settings: Puhverserveri seadistused
+  The app needs to restart for changes to take effect. Restart and apply change?: See
+    rakendus vajab muudatuste jõustamiseks uuesti käivitamist. Kas teeme seda nüüd?
 About:
   #On About page
-  About: ''
+  About: 'Rakenduse teave'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
 
@@ -267,156 +324,214 @@ About:
   Latest FreeTube News: ''
 
   Email: E-post
+  Donate: Toeta meid
+  these people and projects: tänu nendele inimestele ja projektidele
+  FreeTube is made possible by: FreeTube loomine ja arendamine on olnud võimalik
+  Credits: Tänuavaldused
+  Translate: Tõlked
+  room rules: jututoa reeglitega
+  Please read the: Palun kindlasti tutvu
+  Chat on Matrix: Vestle meiega Matrix'i võrgus
+  Mastodon: Mikroblogiteenus Mastodon
+  Blog: Ajaveeb
+  Website: Veebisait
+  Please check for duplicates before posting: Enne uue veateate tegemist palun kontrolli,
+    kas sellest on juba meile teada antud
+  GitHub issues: Teata vigadest GitHub'i vahendusel
+  Report a problem: Vead ja probleemid
+  FAQ: KKK
+  FreeTube Wiki: FreeTube viki
+  Help: Abiteave
+  GitHub releases: Avaldatud versioonid leiad GitHub'ist
+  Downloads / Changelog: Allalaadimised ja muudatuste logi
+  View License: Vaata litsentsiteavet inglise keeles
+  Licensed under the AGPLv3: Avaldatud AGPLv3 litsentsi alusel
+  Source code: Lähtekood
+  Beta: beetaversioon
 Profile:
-  Profile Select: ''
-  All Channels: ''
-  Profile Manager: ''
-  Create New Profile: ''
-  Edit Profile: ''
-  Color Picker: ''
-  Custom Color: ''
-  Profile Preview: ''
-  Create Profile: ''
-  Update Profile: ''
-  Make Default Profile: ''
-  Delete Profile: ''
-  Are you sure you want to delete this profile?: ''
-  All subscriptions will also be deleted.: ''
-  Profile could not be found: ''
-  Your profile name cannot be empty: ''
-  Profile has been created: ''
-  Profile has been updated: ''
-  Your default profile has been set to $: ''
-  Removed $ from your profiles: ''
-  Your default profile has been changed to your primary profile: ''
-  $ is now the active profile: ''
-  Subscription List: ''
-  Other Channels: ''
-  $ selected: ''
-  Select All: ''
-  Select None: ''
-  Delete Selected: ''
-  Add Selected To Profile: ''
-  No channel(s) have been selected: ''
+  Profile Select: 'Vali profiil'
+  All Channels: 'Kõik kanalid'
+  Profile Manager: 'Profiilihaldur'
+  Create New Profile: 'Loo uus profiil'
+  Edit Profile: 'Muuda profiili'
+  Color Picker: 'Vali värv'
+  Custom Color: 'Vali täpne värv'
+  Profile Preview: 'Profiili eelvaade'
+  Create Profile: 'Loo profiil'
+  Update Profile: 'Uuenda profiili'
+  Make Default Profile: 'Määra vaikimisi profiiliks'
+  Delete Profile: 'Kustuta profiil'
+  Are you sure you want to delete this profile?: 'Kas sa kindlasti soovid selle profiili
+    kustutada?'
+  All subscriptions will also be deleted.: 'Samaga kustutame ka kõik tellimused.'
+  Profile could not be found: 'Profiili ei leidunud'
+  Your profile name cannot be empty: 'Profiilil peab olema nimi'
+  Profile has been created: 'Profiili loomine õnnestus'
+  Profile has been updated: 'Profiili uuendamine õnnestus'
+  Your default profile has been set to $: 'Määrasin $ sinu vaikimisi profiiliks'
+  Removed $ from your profiles: 'Kustutasin $ sinu profiilide loendist'
+  Your default profile has been changed to your primary profile: 'Muutsin sinu esmase
+    profiili vaikimisi kasutatavaks profiiliks'
+  $ is now the active profile: '$ on nüüd kasutusel olev profiil'
+  Subscription List: 'Tellimuste loend'
+  Other Channels: 'Muud kanalid'
+  $ selected: '$ on valitud'
+  Select All: 'Vali kõik'
+  Select None: 'Ära vali mitte midagi'
+  Delete Selected: 'Kustuta valik'
+  Add Selected To Profile: 'Lisa valik profiilile'
+  No channel(s) have been selected: 'Sa pole kanaleid valinud'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : ''
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
+  : 'See on sinu algne profiil. Kas sa kindlasti soovid kustutada valitud kanalid?
+    Me kustutame nad sel juhul ka kõikidest profiilidest.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Kas
+    sa kindlasti soovid kustutada valitud kanalid? Sellega me ei kustuta neid teistest
+    profiilidest.'
 #On Channel Page
+  Profile Filter: Sirvi profiile
 Channel:
-  Subscriber: ''
-  Subscribers: ''
-  Subscribe: ''
-  Unsubscribe: ''
-  Channel has been removed from your subscriptions: ''
-  Removed subscription from $ other channel(s): ''
-  Added channel to your subscriptions: ''
-  Search Channel: ''
-  Your search results have returned 0 results: ''
-  Sort By: ''
+  Subscriber: 'Tellija'
+  Subscribers: 'Tellijad'
+  Subscribe: 'Telli'
+  Unsubscribe: 'Lõpeta tellimus'
+  Channel has been removed from your subscriptions: 'Kustutasin kanali sinu tellimustest'
+  Removed subscription from $ other channel(s): 'Kustutasin tellimuse ka $''st must
+    kanalist'
+  Added channel to your subscriptions: 'Lisasin kanali sinu tellimuste hulka'
+  Search Channel: 'Otsi kanalit'
+  Your search results have returned 0 results: 'Otsingul on 0 tulemust'
+  Sort By: 'Sortimise alus'
   Videos:
-    Videos: ''
-    This channel does not currently have any videos: ''
+    Videos: 'Videod'
+    This channel does not currently have any videos: 'Sellel kanalik pole hetkel ühtegi
+      videot'
     Sort Types:
-      Newest: ''
-      Oldest: ''
-      Most Popular: ''
+      Newest: 'Uusimad'
+      Oldest: 'Vanimad'
+      Most Popular: 'Kõike populaarsemad'
   Playlists:
-    Playlists: ''
-    This channel does not currently have any playlists: ''
+    Playlists: 'Esitusloendid'
+    This channel does not currently have any playlists: 'Sellel kanalil pole hetkel
+      ühtegi esitusloendit'
     Sort Types:
-      Last Video Added: ''
-      Newest: ''
-      Oldest: ''
+      Last Video Added: 'Viimati lisatud video'
+      Newest: 'Uusimad'
+      Oldest: 'Vanimad'
   About:
-    About: ''
-    Channel Description: ''
-    Featured Channels: ''
+    About: 'Kanali teave'
+    Channel Description: 'Kanali kirjeldus'
+    Featured Channels: 'Soovitatud kanalid'
 Video:
-  Mark As Watched: ''
-  Remove From History: ''
-  Video has been marked as watched: ''
-  Video has been removed from your history: ''
-  Open in YouTube: ''
-  Copy YouTube Link: ''
-  Open YouTube Embedded Player: ''
-  Copy YouTube Embedded Player Link: ''
-  Open in Invidious: ''
-  Copy Invidious Link: ''
-  View: ''
-  Views: ''
-  Loop Playlist: ''
-  Shuffle Playlist: ''
-  Reverse Playlist: ''
-  Play Next Video: ''
-  Play Previous Video: ''
+  Mark As Watched: 'Märgi vaadatuks'
+  Remove From History: 'Kustuta ajaloost'
+  Video has been marked as watched: 'Video on märgitud vaadatuks'
+  Video has been removed from your history: 'Video on kustutatud sinu vaatamiste ajaloost'
+  Open in YouTube: 'Ava YouTube''is'
+  Copy YouTube Link: 'Kopeeri YouTube''i link'
+  Open YouTube Embedded Player: 'Ava YouTube''i lõimitud meediamängija'
+  Copy YouTube Embedded Player Link: 'Kopeeri YouTube''i lõimitud meediamängija link'
+  Open in Invidious: 'Ava Invidious''e veebirakenduses'
+  Copy Invidious Link: 'Kopeeri Invidious''e veebirakenduse link'
+  View: 'Vaatamine'
+  Views: 'Vaatamist'
+  Loop Playlist: 'Korda esitusloendit'
+  Shuffle Playlist: 'Sega esitusloend'
+  Reverse Playlist: 'Pööra esitusloend tagurpidi'
+  Play Next Video: 'Esita järgmist videot'
+  Play Previous Video: 'Esita eelmist videot'
   # Context is "X People Watching"
-  Watching: ''
-  Watched: ''
-  Autoplay: ''
-  Starting soon, please refresh the page to check again: ''
+  Watching: 'Vaatan'
+  Watched: 'Vaadatud'
+  Autoplay: 'Automaatne esitus'
+  Starting soon, please refresh the page to check again: 'Kuvamine algab varsti, vajadusel
+    värskenda uuesti kontrollimiseks lehte'
   # As in a Live Video
-  Live: ''
-  Live Now: ''
-  Live Chat: ''
-  Enable Live Chat: ''
-  Live Chat is currently not supported in this build.: ''
-  'Chat is disabled or the Live Stream has ended.': ''
-  Live chat is enabled.  Chat messages will appear here once sent.: ''
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
+  Live: 'Otse eetris'
+  Live Now: 'Otse eetris'
+  Live Chat: 'Vestlus reaalajas'
+  Enable Live Chat: 'Luba reaalajas vestlust'
+  Live Chat is currently not supported in this build.: 'Reaalajas vestlus ei ole selles
+    versioonis toetatud.'
+  'Chat is disabled or the Live Stream has ended.': 'Reaalajas vestlus kas ei ole
+    toetatud või on otseetris edastus lõppenud.'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'Reaalajas vestlus
+    on kasutusel. Sõnumid on nähtaval kohe pärast saatmist.'
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Kui
+    kasutad Invidious''e veebiteenuse-põhist API''t, siis reaalajas vestlus ei ole
+    toetatud. Selleks on vajalik otseliidestus YouTube''ga.'
   Published:
-    Jan: ''
-    Feb: ''
-    Mar: ''
-    Apr: ''
-    May: ''
-    Jun: ''
-    Jul: ''
-    Aug: ''
-    Sep: ''
-    Oct: ''
-    Nov: ''
-    Dec: ''
-    Second: ''
-    Seconds: ''
-    Minute: ''
-    Minutes: ''
-    Hour: ''
-    Hours: ''
-    Day: ''
-    Days: ''
-    Week: ''
-    Weeks: ''
-    Month: ''
-    Months: ''
-    Year: ''
-    Years: ''
-    Ago: ''
-    Upcoming: ''
-  Published on: ''
+    Jan: 'Jaan'
+    Feb: 'Veeb'
+    Mar: 'Mar'
+    Apr: 'Apr'
+    May: 'Mai'
+    Jun: 'Juuni'
+    Jul: 'Juuli'
+    Aug: 'Aug'
+    Sep: 'Sep'
+    Oct: 'Okt'
+    Nov: 'Nov'
+    Dec: 'Dets'
+    Second: 'Sekund'
+    Seconds: 'Sekundit'
+    Minute: 'Minut'
+    Minutes: 'Minutit'
+    Hour: 'Tund'
+    Hours: 'Tundi'
+    Day: 'Päev'
+    Days: 'Päeva'
+    Week: 'Nädal'
+    Weeks: 'Nädalat'
+    Month: 'Kuu'
+    Months: 'Kuud'
+    Year: 'Aasta'
+    Years: 'Aastat'
+    Ago: 'tagasi'
+    Upcoming: 'Esilinastus'
+  Published on: 'Avaldatud'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: ''
+  Publicationtemplate: '$ % tagasi'
 #& Videos
+  Copy Invidious Channel Link: Kopeeri kanali link Invidious'e veebirakenduses
+  Open Channel in Invidious: Ava kanal Invidious'e veebirakenduses
+  Copy YouTube Channel Link: Kopeeri YouTube'i kanali link
+  Open Channel in YouTube: Ava kanal YouTube'is
+  Video has been removed from your saved list: Video on kustutatud sinu salvestatud
+    videote loendist
+  Video has been saved: Video on salvestatud
+  Save Video: Salvesta video
+  translated from English: tõlgitud inglise keelest
+  Started streaming on: Voogedastus algas
+  Streamed on: Voogedastatud
+  Audio:
+    High: Kõrge kvaliteet
+    Medium: Keskmine kvaliteet
+    Low: Madal kvaliteet
+    Best: Parim kvaliteet
+  audio only: vaid helivoog
+  video only: vaid videovoog
+  Download Video: Laadi video alla
 Videos:
   #& Sort By
   Sort By:
-    Newest: ''
-    Oldest: ''
+    Newest: 'Uusim'
+    Oldest: 'Vanim'
     #& Most Popular
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: ''
-  Videos: ''
-  View: ''
-  Views: ''
-  Last Updated On: ''
+  View Full Playlist: 'Näita kogu esitusloendit'
+  Videos: 'Videod'
+  View: 'Vaata'
+  Views: 'vaatamist'
+  Last Updated On: 'Viimati uuendatud'
   Share Playlist:
-    Share Playlist: ''
-    Copy YouTube Link: ''
-    Open in YouTube: ''
-    Copy Invidious Link: ''
-    Open in Invidious: ''
+    Share Playlist: 'Jaga esitusloendit'
+    Copy YouTube Link: 'Kopeeri YouTube''i link'
+    Open in YouTube: 'Ava YouTube''is'
+    Copy Invidious Link: 'Kopeeri Invidious''e veebirakenduse link'
+    Open in Invidious: 'Ava Invidious''e veebirakenduses'
 
 # On Video Watch Page
 #* Published
@@ -480,3 +595,5 @@ Canceled next video autoplay: 'Tühistasin järgmise video automaatse esituse'
 
 Yes: 'Jah'
 No: 'Ei'
+More: Veel
+Open New Window: Ava uus aken

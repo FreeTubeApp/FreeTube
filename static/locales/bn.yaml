@@ -39,47 +39,48 @@ A new blog is now available, $. Click to view more: 'নতুন ব্লগ �
 Search / Go to URL: 'অনুসন্ধান / ইউআরএলে যাও'
   # In Filter Button
 Search Filters:
-  Search Filters: ''
+  Search Filters: 'অনুসন্ধান ছাঁকনি'
   Sort By:
-    Sort By: ''
-    Most Relevant: ''
+    Sort By: 'সাজানোর পদ্ধতি'
+    Most Relevant: 'সবচেয়ে প্রাসঙ্গিক'
     Rating: ''
-    Upload Date: ''
-    View Count: ''
+    Upload Date: 'ছাপানোর তারিখ'
+    View Count: 'দৃশ্য সংখ্যা'
   Time:
-    Time: ''
-    Any Time: ''
-    Last Hour: ''
-    Today: ''
-    This Week: ''
-    This Month: ''
-    This Year: ''
+    Time: 'সময়'
+    Any Time: 'যেকোনো সময়'
+    Last Hour: 'শেষ ঘণ্টা'
+    Today: 'আজকে'
+    This Week: 'এই সপ্তাহে'
+    This Month: 'এই মাসে'
+    This Year: 'এই বছর'
   Type:
-    Type: ''
-    All Types: ''
-    Videos: ''
-    Channels: ''
+    Type: 'ধরণ'
+    All Types: 'সব ধরণ'
+    Videos: 'ভিডিও'
+    Channels: 'চ্যানেল'
     #& Playlists
   Duration:
     Duration: 'সময়কাল'
-    All Durations: ''
-    Short (< 4 minutes): ''
-    Long (> 20 minutes): ''
+    All Durations: 'সকল দৈর্ঘ্যের'
+    Short (< 4 minutes): 'ছোট (<৪ মিনিট)'
+    Long (> 20 minutes): 'লম্বা (> ২০ মিনিট)'
   # On Search Page
-  Search Results: ''
-  Fetching results. Please wait: ''
-  Fetch more results: ''
+  Search Results: 'অনুসন্ধান ফলাফল'
+  Fetching results. Please wait: 'ফলাফল আনা হচ্ছে, একটু অপেক্ষা করো'
+  Fetch more results: 'আরো ফলাফল আনো'
 # Sidebar
+  There are no more results for this search: এই অনুসন্ধানের আর কোনো ফলাফল নেই
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: ''
-  Latest Subscriptions: ''
+  Subscriptions: 'সদস্যতা'
+  Latest Subscriptions: 'শেষ সদস্যতা'
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: ''
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
   'Getting Subscriptions. Please wait.': ''
   Refresh Subscriptions: ''
   Load More Videos: ''
-Trending: ''
+Trending: 'চলছে'
 Most Popular: ''
 Playlists: ''
 User Playlists:
@@ -523,3 +524,4 @@ Canceled next video autoplay: ''
 
 Yes: ''
 No: ''
+Open New Window: নতুন জানালা খুলো

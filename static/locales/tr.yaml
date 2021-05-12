@@ -109,7 +109,7 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: 'Hata Durumunda Tercih Edilmeyen
       Arka Uca Geç'
     Enable Search Suggestions: 'Arama Önerilerini Etkinleştir'
-    Default Landing Page: 'Varsayılan Açılış Ekranı'
+    Default Landing Page: 'Öntanımlı Açılış Ekranı'
     Locale Preference: 'Tercih Edilen Yerel Ayar'
     Preferred API Backend:
       Preferred API Backend: 'Tercih Edilen API Arka Ucu'
@@ -121,15 +121,16 @@ Settings:
       List: 'Liste'
     Thumbnail Preference:
       Thumbnail Preference: 'Küçük Resim Tercihi'
-      Default: 'Varsayılan'
+      Default: 'Öntanımlı'
       Beginning: 'Başlangıç'
       Middle: 'Orta'
       End: 'Bitiş'
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious Örneği
-      (Varsayılan https://invidious.snopyta.org)'
+      (Öntanımlı olarak https://invidious.snopyta.org)'
     Region for Trending: 'Trendler İçin Bölge Tercihi'
         #! List countries
     View all Invidious instance information: Tüm Invidious örnek bilgilerini görüntüle
+    System Default: Sistem Öntanımlı Değeri
   Theme Settings:
     Theme Settings: 'Tema Ayarları'
     Match Top Bar with Main Color: 'Üst Barı Ana Renk ile Eşleştir'
@@ -166,20 +167,20 @@ Settings:
     Force Local Backend for Legacy Formats: 'Eski Biçimler için Yerel Arka Ucu Kullanmaya
       Zorla'
     Play Next Video: 'Sonraki Videoyu Oynat'
-    Turn on Subtitles by Default: 'Altyazıyı Varsayılan Olarak Aç'
+    Turn on Subtitles by Default: 'Alt Yazıları Öntanımlı Olarak Aç'
     Autoplay Videos: 'Videoları Otomatik Başlat'
     Proxy Videos Through Invidious: 'Videolari Invidious Üzerinden Aktar'
     Autoplay Playlists: 'Oytma Listelerini Otomatik Başlat'
-    Enable Theatre Mode by Default: 'Sinema Modunu Varsayılan Olarak Etkinleştir'
-    Default Volume: 'Varsayılan Ses Düzeyi'
-    Default Playback Rate: 'Varsayılan Oynatma Hızı'
+    Enable Theatre Mode by Default: 'Sinema Modunu Öntanımlı Olarak Etkinleştir'
+    Default Volume: 'Öntanımlı Ses Düzeyi'
+    Default Playback Rate: 'Öntanımlı Oynatma Hızı'
     Default Video Format:
-      Default Video Format: 'Varsayılan Video Biçimi'
+      Default Video Format: 'Öntanımlı Video Biçimi'
       Dash Formats: 'DASH Biçimleri'
       Legacy Formats: 'Eski Biçimler'
       Audio Formats: 'Ses Biçimleri'
     Default Quality:
-      Default Quality: 'Varsayılan Kalite'
+      Default Quality: 'Öntanımlı Kalite'
       Auto: 'Otomatik'
       144p: '144p'
       240p: '240p'
@@ -387,7 +388,7 @@ Profile:
   Profile Preview: 'Profil Önizleme'
   Create Profile: 'Profil Oluştur'
   Update Profile: 'Profili Güncelle'
-  Make Default Profile: 'Varsayılan Profil Yap'
+  Make Default Profile: 'Öntanımlı Profil Yap'
   Delete Profile: 'Profili Sil'
   Are you sure you want to delete this profile?: 'Bu profili silmek istediğinizden
     emin misiniz?'
@@ -396,9 +397,9 @@ Profile:
   Your profile name cannot be empty: 'Profil adı boş bırakılamaz'
   Profile has been created: 'Profil oluşturuldu'
   Profile has been updated: 'Profil güncellendi'
-  Your default profile has been set to $: 'Varsayılan profiliniz $ olarak ayarlandı'
+  Your default profile has been set to $: 'Öntanımlı profiliniz $ olarak ayarlandı'
   Removed $ from your profiles: '$ Profillerinizden kaldırıldı'
-  Your default profile has been changed to your primary profile: 'Varsayılan profiliniz
+  Your default profile has been changed to your primary profile: 'Öntanımlı profiliniz
     birincil profiliniz olarak değiştirildi'
   $ is now the active profile: '$ artık etkin profil'
   Subscription List: 'Abonelik Listesi'

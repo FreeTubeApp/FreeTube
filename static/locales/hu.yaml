@@ -135,6 +135,7 @@ Settings:
         #! List countries
     View all Invidious instance information: Az Invidious példány összes tájékoztatásának
       megtekintése
+    System Default: Rendszer alapértelmezett
   Theme Settings:
     Theme Settings: 'Téma beállítások'
     Match Top Bar with Main Color: 'Illessze a felső sávot a fő színnel'
