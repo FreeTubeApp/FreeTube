@@ -887,12 +887,9 @@ export default Vue.extend({
       const nextVideoInterval = this.defaultInterval
       this.playNextTimeout = setTimeout(async () => {
         const player = this.$refs.videoPlayer.player
-        const playerInPictureInPicture = player.isInPictureInPicture()
         if (player !== null && player.paused()) {
-          if (playerInPictureInPicture) {
+          if (player.isInPictureInPicture()) {
             this.updateLastPlayedAsPip(true)
-          } else {
-            this.updateLastPlayedAsPip(false)
           }
           if (this.watchingPlaylist) {
             this.$refs.watchVideoPlaylist.playNextVideo()
