@@ -33,13 +33,13 @@
       </div>
       <ft-icon-button
         v-if="externalPlayer !== ''"
-        :title="`${$t('Video.External Player.Open in')} ${externalPlayer}`"
+        :title="$t('Video.External Player.OpenInTemplate').replace('$', externalPlayer)"
         icon="external-link-alt"
         class="externalPlayerIcon"
         theme="base"
         :padding="appearance === `watchPlaylistItem` ? 6 : 7"
         :size="appearance === `watchPlaylistItem` ? 12 : 16"
-        @click="openExternalPlayer"
+        @click="handleExternalPlayer"
       />
       <ft-icon-button
         v-if="!isLive"

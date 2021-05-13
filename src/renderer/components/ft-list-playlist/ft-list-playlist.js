@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import { mapActions } from 'vuex'
-import cp from 'child_process'
 
 export default Vue.extend({
   name: 'FtListVideo',
@@ -76,30 +75,22 @@ export default Vue.extend({
     }
   },
   methods: {
-    openExternalPlayer: function () {
-      const cmdArguments = this.externalPlayerCmdArguments
-      const args = []
+    handleExternalPlayer: function () {
+      this.openInExternalPlayer({
+        externalPlayer: this.externalPlayer,
+        externalPlayerExecutable: this.externalPlayerExecutable,
+        cmdArgs: this.externalPlayerCmdArguments,
+        externalPlayerIgnoreWarnings: this.externalPlayerIgnoreWarnings,
+        strings: this.$t('Video.External Player'),
 
-      if (cmdArguments.playlistUrl !== null) {
-        args.push(`${cmdArguments.playlistUrl}https://youtube.com/playlist?list=${this.playlistId}`)
-
-        const openingString = this.$t('Video.External Player.OpeningTemplate').replace('$', 'playlist')
-        const toastMessage = `${openingString} ${this.externalPlayer}...`
-        this.showToast({
-          message: toastMessage
-        })
-
-        console.log(this.externalPlayerExecutable, args)
-        const child = cp.spawn(this.externalPlayerExecutable, args, { detached: true, stdio: 'ignore' })
-        child.unref()
-      } else if (!this.externalPlayerIgnoreWarnings) {
-        let templateString = this.$t('Video.External Player.UnsupportedActionTemplate')
-        templateString = templateString.replace('$', this.externalPlayer)
-        templateString = templateString.replace('%', this.$t('Video.External Player.Unsupported Actions.opening playlists'))
-        this.showToast({
-          message: templateString
-        })
-      }
+        watchProgress: 0,
+        videoId: null,
+        playlistId: this.playlistId,
+        playlistIndex: null,
+        playlistReverse: null,
+        playlistShuffle: null,
+        playlistLoop: null
+      })
     },
 
     parseInvidiousData: function () {
@@ -125,7 +116,7 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'showToast'
+      'openInExternalPlayer'
     ])
   }
 })

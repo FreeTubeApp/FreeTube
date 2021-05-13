@@ -1189,6 +1189,22 @@ export default Vue.extend({
       return Math.floor(this.getWatchedProgress())
     },
 
+    getPlaylistIndex: function () {
+      return this.$refs.watchVideoPlaylist ? this.$refs.watchVideoPlaylist.currentVideoIndex - 1 : -1
+    },
+
+    getPlaylistReverse: function () {
+      return this.$refs.watchVideoPlaylist ? this.$refs.watchVideoPlaylist.reversePlaylist : false
+    },
+
+    getPlaylistShuffle: function () {
+      return this.$refs.watchVideoPlaylist ? this.$refs.watchVideoPlaylist.shuffleEnabled : false
+    },
+
+    getPlaylistLoop: function () {
+      return this.$refs.watchVideoPlaylist ? this.$refs.watchVideoPlaylist.loopEnabled : false
+    },
+
     updateTitle: function () {
       document.title = `${this.videoTitle} - FreeTube`
     },

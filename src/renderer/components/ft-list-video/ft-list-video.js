@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import { mapActions } from 'vuex'
-import cp from 'child_process'
 
 export default Vue.extend({
   name: 'FtListVideo',
@@ -226,78 +225,22 @@ export default Vue.extend({
     this.checkIfWatched()
   },
   methods: {
-    externalPlayerUnsupportedActionToast: function (action) {
-      if (!this.externalPlayerIgnoreWarnings) {
-        let templateString = this.$t('Video.External Player.UnsupportedActionTemplate')
-        templateString = templateString.replace('$', this.externalPlayer)
-        templateString = templateString.replace('%', action)
-        this.showToast({
-          message: templateString
-        })
-      }
-    },
+    handleExternalPlayer: function () {
+      this.openInExternalPlayer({
+        externalPlayer: this.externalPlayer,
+        externalPlayerExecutable: this.externalPlayerExecutable,
+        cmdArgs: this.externalPlayerCmdArguments,
+        externalPlayerIgnoreWarnings: this.externalPlayerIgnoreWarnings,
+        strings: this.$t('Video.External Player'),
 
-    openExternalPlayer: function () {
-      let context = 'video'
-      const cmdArguments = this.externalPlayerCmdArguments
-      const args = []
-
-      if (cmdArguments.startOffset !== null && this.watched && this.watchProgress !== 0) {
-        args.push(`${cmdArguments.startOffset}${this.watchProgress}`)
-      }
-
-      // Check whether the video is in a playlist
-      if (cmdArguments.playlistUrl !== null && this.playlistId !== null && this.playlistIndex !== null) {
-        context = 'playlist'
-
-        if (cmdArguments.playlistIndex !== null) {
-          args.push(`${cmdArguments.playlistIndex}${this.playlistIndex}`)
-        } else {
-          this.externalPlayerUnsupportedActionToast(this.$t('Video.External Player.Unsupported Actions.pening specific video in a playlist (falling back to opening the video)'))
-        }
-
-        if (this.playlistReverse) {
-          if (cmdArguments.reverse !== null) {
-            args.push(cmdArguments.reverse)
-          } else {
-            this.externalPlayerUnsupportedActionToast(this.$t('Video.External Player.Unsupported Actions.reversing playlists'))
-          }
-        }
-
-        if (this.playlistShuffle) {
-          if (cmdArguments.shuffle !== null) {
-            args.push(cmdArguments.shuffle)
-          } else {
-            this.externalPlayerUnsupportedActionToast(this.$t('Video.External Player.Unsupported Actions.shuffling playlists'))
-          }
-        }
-
-        if (this.playlistLoop) {
-          if (cmdArguments.loopPlaylist !== null) {
-            args.push(cmdArguments.loopPlaylist)
-          } else {
-            this.externalPlayerUnsupportedActionToast(this.$t('Video.External Player.Unsupported Actions.looping playlists'))
-          }
-        }
-
-        args.push(`${cmdArguments.playlistUrl}https://youtube.com/playlist?list=${this.playlistId}`)
-      } else {
-        if (this.playlistId !== null) {
-          this.externalPlayerUnsupportedActionToast(this.$t('Video.External Player.Unsupported Actions.opening playlists'))
-        }
-
-        args.push(`${cmdArguments.videoUrl}${this.youtubeUrl}`)
-      }
-
-      const openingString = this.$t('Video.External Player.OpeningTemplate').replace('$', context)
-      const toastMessage = `${openingString} ${this.externalPlayer}...`
-      this.showToast({
-        message: toastMessage
+        watchProgress: this.watchProgress,
+        videoId: this.id,
+        playlistId: this.playlistId,
+        playlistIndex: this.playlistIndex,
+        playlistReverse: this.playlistReverse,
+        playlistShuffle: this.playlistShuffle,
+        playlistLoop: this.playlistLoop
       })
-
-      console.log(this.externalPlayerExecutable, args)
-      const child = cp.spawn(this.externalPlayerExecutable, args, { detached: true, stdio: 'ignore' })
-      child.unref()
 
       if (!this.watched) {
         this.markAsWatched()
@@ -572,6 +515,7 @@ export default Vue.extend({
     ...mapActions([
       'showToast',
       'toLocalePublicationString',
+      'openInExternalPlayer',
       'updateHistory',
       'removeFromHistory',
       'addVideo',

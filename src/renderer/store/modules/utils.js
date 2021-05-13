@@ -1,6 +1,7 @@
 import IsEqual from 'lodash.isequal'
 import FtToastEvents from '../../components/ft-toast/ft-toast-events'
 import fs from 'fs'
+import cp from 'child_process'
 const state = {
   isSideNavOpen: false,
   sessionSearchHistory: [],
@@ -551,6 +552,97 @@ const actions = {
 
   showToast (_, payload) {
     FtToastEvents.$emit('toast-open', payload.message, payload.action, payload.time)
+  },
+
+  showExternalPlayerUnsupportedActionToast: function (_, payload) {
+    if (!payload.externalPlayerIgnoreWarnings) {
+      const toastMessage = payload.strings.UnsupportedActionTemplate
+        .replace('$', payload.externalPlayer)
+        .replace('%', payload.action)
+        actions.showToast(null, {
+        message: toastMessage
+      })
+    }
+  },
+
+  openInExternalPlayer (_, payload) {
+    const args = []
+
+    if (payload.cmdArgs.startOffset !== null && payload.watchProgress > 0) {
+      args.push(`${payload.cmdArgs.startOffset}${payload.watchProgress}`)
+    }
+
+    // Check whether the video is in a playlist
+    if (payload.cmdArgs.playlistUrl !== null && payload.playlistId !== null) {
+      if (payload.playlistIndex !== null) {
+        if (payload.cmdArgs.playlistIndex !== null) {
+          args.push(`${payload.cmdArgs.playlistIndex}${payload.playlistIndex}`)
+        } else {
+          actions.showExternalPlayerUnsupportedActionToast(null, {
+            ...payload,
+            action: payload.strings['Unsupported Actions']['opening specific video in a playlist (falling back to opening the video)']
+          })
+        }
+      }
+
+      if (payload.playlistReverse) {
+        if (payload.cmdArgs.reverse !== null) {
+          args.push(payload.cmdArgs.reverse)
+        } else {
+          actions.showExternalPlayerUnsupportedActionToast(null, {
+            ...payload,
+            action: payload.strings['Unsupported Actions']['reversing playlists']
+          })
+        }
+      }
+
+      if (payload.playlistShuffle) {
+        if (payload.cmdArgs.shuffle !== null) {
+          args.push(payload.cmdArgs.shuffle)
+        } else {
+          actions.showExternalPlayerUnsupportedActionToast(null, {
+            ...payload,
+            action: payload.strings['Unsupported Actions']['shuffling playlists']
+          })
+        }
+      }
+
+      if (payload.playlistLoop) {
+        if (payload.cmdArgs.loopPlaylist !== null) {
+          args.push(payload.cmdArgs.loopPlaylist)
+        } else {
+          actions.showExternalPlayerUnsupportedActionToast(null, {
+            ...payload,
+            action: payload.strings['Unsupported Actions']['looping playlists']
+          })
+        }
+      }
+
+      args.push(`${payload.cmdArgs.playlistUrl}https://youtube.com/playlist?list=${payload.playlistId}`)
+    } else {
+      if (payload.playlistId !== null) {
+        actions.showExternalPlayerUnsupportedActionToast(null, {
+          ...payload,
+          action: payload.strings['Unsupported Actions']['opening playlists']
+        })
+      }
+      if (payload.videoId !== null) {
+        args.push(`${payload.cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
+      }
+    }
+
+    const openingToast = payload.strings.OpeningTemplate
+      .replace('$', payload.playlistId === null
+        ? payload.strings.video
+        : payload.strings.playlist)
+      .replace('%', payload.externalPlayer)
+    actions.showToast(null, {
+      message: openingToast
+    })
+
+    console.log(payload.externalPlayerExecutable, args)
+    const child = cp.spawn(payload.externalPlayerExecutable, args, { detached: true, stdio: 'ignore' })
+    child.unref()
   }
 }
 

@@ -79,8 +79,28 @@ export default Vue.extend({
       type: Array,
       required: true
     },
+    playlistId: {
+      type: String,
+      default: null
+    },
     watchingPlaylist: {
       type: Boolean,
+      required: true
+    },
+    getPlaylistIndex: {
+      type: Function,
+      required: true
+    },
+    getPlaylistReverse: {
+      type: Function,
+      required: true
+    },
+    getPlaylistShuffle: {
+      type: Function,
+      required: true
+    },
+    getPlaylistLoop: {
+      type: Function,
       required: true
     },
     theatrePossible: {
@@ -225,6 +245,26 @@ export default Vue.extend({
       } else {
         return this.$t('Video.Published on')
       }
+    },
+
+    externalPlayer: function () {
+      return this.$store.getters.getExternalPlayer
+    },
+
+    externalPlayerExecutable: function () {
+      if (this.$store.getters.getExternalPlayerExecutable !== '') {
+        return this.$store.getters.getExternalPlayerExecutable
+      }
+
+      return this.externalPlayerCmdArguments.defaultExecutable
+    },
+
+    externalPlayerCmdArguments: function () {
+      return this.$store.state.utils.externalPlayerCmdArguments[this.externalPlayer]
+    },
+
+    externalPlayerIgnoreWarnings: function () {
+      return this.$store.getters.getExternalPlayerIgnoreWarnings
     }
   },
   mounted: function () {
@@ -244,6 +284,24 @@ export default Vue.extend({
     }
   },
   methods: {
+    handleExternalPlayer: function () {
+      this.openInExternalPlayer({
+        externalPlayer: this.externalPlayer,
+        externalPlayerExecutable: this.externalPlayerExecutable,
+        cmdArgs: this.externalPlayerCmdArguments,
+        externalPlayerIgnoreWarnings: this.externalPlayerIgnoreWarnings,
+        strings: this.$t('Video.External Player'),
+
+        watchProgress: this.getTimestamp(),
+        videoId: this.id,
+        playlistId: this.playlistId,
+        playlistIndex: this.getPlaylistIndex(),
+        playlistReverse: this.getPlaylistReverse(),
+        playlistShuffle: this.getPlaylistShuffle(),
+        playlistLoop: this.getPlaylistLoop()
+      })
+    },
+
     goToChannel: function () {
       this.$router.push({ path: `/channel/${this.channelId}` })
     },
@@ -394,6 +452,7 @@ export default Vue.extend({
 
     ...mapActions([
       'showToast',
+      'openInExternalPlayer',
       'updateProfile',
       'addVideo',
       'removeVideo'

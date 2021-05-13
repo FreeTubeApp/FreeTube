@@ -25,13 +25,13 @@
     <div class="info">
       <ft-icon-button
         v-if="externalPlayer !== ''"
-        :title="`${$t('Video.External Player.Open in')} ${externalPlayer}`"
+        :title="$t('Video.External Player.OpenInTemplate').replace('$', externalPlayer)"
         icon="external-link-alt"
         class="externalPlayerButton"
         theme="base-no-default"
         :size="16"
         :use-shadow="false"
-        @click="openExternalPlayer"
+        @click="handleExternalPlayer"
       />
       <router-link
         class="title"

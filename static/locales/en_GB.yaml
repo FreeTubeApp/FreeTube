@@ -521,9 +521,12 @@ Video:
   Save Video: Save Video
   translated from English: translated from English
   External Player:
-    Open in: Open in
-    # $ will be replaced with the external player setting
-    OpeningTemplate: Opening $ in
+    # $ is replaced with the external player
+    OpenInTemplate: Open in $
+    video: video
+    playlist: playlist
+    # $ is replaced with the current context (see video/playlist above) and % the external player setting
+    OpeningTemplate: Opening $ in %...
     # $ is replaced with the external player and % with the unsupported action
     UnsupportedActionTemplate: '$ does not support: %'
     Unsupported Actions:
