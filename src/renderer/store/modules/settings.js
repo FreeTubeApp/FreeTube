@@ -51,6 +51,7 @@ const state = {
   autoplayVideos: true,
   autoplayPlaylists: true,
   playNextVideo: false,
+  lastPlayedAsPip: false,
   enableSubtitles: true,
   forceLocalBackendForLegacy: false,
   proxyVideos: false,
@@ -156,6 +157,10 @@ const getters = {
 
   getPlayNextVideo: () => {
     return state.playNextVideo
+  },
+
+  getLastPlayedAsPip: () => {
+    return state.lastPlayedAsPip
   },
 
   getEnableSubtitles: () => {
@@ -346,6 +351,9 @@ const actions = {
                 break
               case 'playNextVideo':
                 commit('setPlayNextVideo', result.value)
+                break
+              case 'lastPlayedAsPip':
+                commit('setLastPlayedAsPip', result.value)
                 break
               case 'enableSubtitles':
                 commit('setEnableSubtitles', result.value)
@@ -591,6 +599,14 @@ const actions = {
     settingsDb.update({ _id: 'playNextVideo' }, { _id: 'playNextVideo', value: playNextVideo }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
         commit('setPlayNextVideo', playNextVideo)
+      }
+    })
+  },
+
+  updateLastPlayedAsPip ({ commit }, lastPlayedAsPip) {
+    settingsDb.update({ _id: 'lastPlayedAsPip' }, { _id: 'lastPlayedAsPip', value: lastPlayedAsPip }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setLastPlayedAsPip', lastPlayedAsPip)
       }
     })
   },
@@ -851,6 +867,9 @@ const mutations = {
   },
   setPlayNextVideo (state, playNextVideo) {
     state.playNextVideo = playNextVideo
+  },
+  setLastPlayedAsPip (state, lastPlayedAsPip) {
+    state.lastPlayedAsPip = lastPlayedAsPip
   },
   setEnableSubtitles (state, enableSubtitles) {
     state.enableSubtitles = enableSubtitles

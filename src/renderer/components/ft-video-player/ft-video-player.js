@@ -144,6 +144,10 @@ export default Vue.extend({
 
     autoplayVideos: function () {
       return this.$store.getters.getAutoplayVideos
+    },
+
+    lastPlayedAsPip: function() {
+      return this.$store.getters.getLastPlayedAsPip
     }
   },
   mounted: function () {
@@ -267,6 +271,10 @@ export default Vue.extend({
             this.powerSaveBlocker = null
           }
         })
+
+        this.player.on('loadedmetadata', function () {
+          v.checkPipAutoplay()
+        })
       }
     },
 
@@ -285,6 +293,13 @@ export default Vue.extend({
         this.player.fluid(false)
         this.player.aspectRatio('16:9')
       }
+    },
+
+    checkPipAutoplay() {
+      if (this.lastPlayedAsPip && !this.player.isInPictureInPicture()) {
+        this.player.requestPictureInPicture()
+      }
+      this.updateLastPlayedAsPip(false)
     },
 
     updateVolume: function (event) {
@@ -1100,7 +1115,8 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'calculateColorLuminance'
+      'calculateColorLuminance',
+      'updateLastPlayedAsPip'
     ])
   }
 })

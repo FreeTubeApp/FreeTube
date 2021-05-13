@@ -885,9 +885,15 @@ export default Vue.extend({
       }
 
       const nextVideoInterval = this.defaultInterval
-      this.playNextTimeout = setTimeout(() => {
+      this.playNextTimeout = setTimeout(async () => {
         const player = this.$refs.videoPlayer.player
+        const playerInPictureInPicture = player.isInPictureInPicture()
         if (player !== null && player.paused()) {
+          if (playerInPictureInPicture) {
+            this.updateLastPlayedAsPip(true)
+          } else {
+            this.updateLastPlayedAsPip(false)
+          }
           if (this.watchingPlaylist) {
             this.$refs.watchVideoPlaylist.playNextVideo()
           } else {
@@ -1197,7 +1203,8 @@ export default Vue.extend({
       'showToast',
       'buildVTTFileLocally',
       'updateHistory',
-      'updateWatchProgress'
+      'updateWatchProgress',
+      'updateLastPlayedAsPip'
     ])
   }
 })
