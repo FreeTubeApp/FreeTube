@@ -36,7 +36,8 @@ export default Vue.extend({
       channelId: '',
       hideViews: false, // TODO MUST BE COMPUTED
       viewCount: '',
-      uploadedTime: ''
+      uploadedTime: '',
+      text: ''
     }
   },
   computed: {
@@ -271,9 +272,10 @@ export default Vue.extend({
       this.id = '0'
       this.author = this.data.author
       console.log("IMGLINK", this.data)
-      this.type = this.data.postContent.type
+      this.type = (this.data.postContent !== null) ? this.data.postContent.type : 'text'
       this.image = (this.type === 'image') ? this.data.postContent.content[0].url : ''
       this.channelId = this.data.channelId
+      this.text = this.data.postText
       if (this.type === 'video') {
         this.image = this.data.postContent.content.thumbnails[0].url
         this.description = this.data.postContent.content.description

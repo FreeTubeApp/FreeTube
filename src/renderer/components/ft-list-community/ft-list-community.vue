@@ -11,6 +11,7 @@
   >
     <div
     >
+      {{ text }}
       <img
         :src="image"
       >
@@ -115,6 +116,18 @@
         {{ description }}
       </p>
     </div>
+  </div>
+  <div
+    v-else-if="type==='text'"
+    class="ft-list-community ft-list-item ft-list-text"
+    :class="{
+      list: (listType === 'list' || forceListType === 'list') && forceListType !== 'grid',
+      grid: (listType === 'grid' || forceListType === 'list') && forceListType !== 'list',
+      [appearance]: true,
+      watched: addWatchedStyle
+    }"
+  >
+    {{ text }}
   </div>
 </template>
 
