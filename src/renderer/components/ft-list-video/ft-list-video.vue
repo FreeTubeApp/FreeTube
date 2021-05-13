@@ -13,6 +13,7 @@
     >
       <router-link
         class="thumbnailLink"
+        tabindex="-1"
         :to="{
           path: `/watch/${id}`,
           query: playlistId ? {playlistId} : {}
@@ -80,7 +81,7 @@
         >
           <span>{{ channelName }}</span>
         </router-link>
-        <template v-if="!isLive && !isUpcoming && !hideViews">
+        <template v-if="!isLive && !isUpcoming && !isPremium && !hideViews">
           <span class="viewCount">• {{ parsedViewCount }}</span>
           <span v-if="viewCount === 1">{{ $t("Video.View").toLowerCase() }}</span>
           <span v-else>{{ $t("Video.Views").toLowerCase() }}</span>

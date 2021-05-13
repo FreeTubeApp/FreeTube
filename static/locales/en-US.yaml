@@ -28,12 +28,13 @@ Minimize: Minimize
 Close: Close
 Back: Back
 Forward: Forward
+Open New Window: Open New Window
 
 Version $ is now available!  Click for more details: Version $ is now available! Click
-  for more details.
+  for details.
 Download From Site: Download From Site
 A new blog is now available, $. Click to view more: New blogpost available, $.
-  Click to view more.
+  Click to view.
 
 # Search Bar
 Search / Go to URL: Search / Go to URL
@@ -62,12 +63,12 @@ Search Filters:
     #& Playlists
   Duration:
     Duration: Duration
-    All Durations: All Durations
+    All Durations: All
     Short (< 4 minutes): Short (under 4 min.)
     Long (> 20 minutes): Long (over 20 min.)
   # On the Search Page
   Search Results: Search Results
-  Fetching results. Please wait: Fetching results. Please wait…
+  Fetching results. Please wait: Fetching results…
   Fetch more results: Fetch more results
   There are no more results for this search: There are no more results for this search
 # Sidebar
@@ -79,7 +80,7 @@ Subscriptions:
   profile has a large number of subscriptions. Forcing RSS to avoid rate limiting
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Your
   Subscription list is currently empty. Start adding subscriptions to see them here.
-  'Getting Subscriptions. Please wait.': Getting Subscriptions. Please wait.
+  'Getting Subscriptions. Please wait.': Getting Subscriptions…
   Refresh Subscriptions: Refresh Subscriptions
   Load More Videos: Load More Videos
 More: More
@@ -112,6 +113,7 @@ Settings:
     Enable Search Suggestions: Enable Search Suggestions
     Default Landing Page: Default Landing Page
     Locale Preference: Locale Preference
+    System Default: System Default
     Preferred API Backend:
       Preferred API Backend: Preferred API Backend
       Local API: Local API
@@ -135,7 +137,7 @@ Settings:
     Theme Settings: Theme Settings
     Match Top Bar with Main Color: Match Top Bar with Main Color
     Expand Side Bar by Default: Expand Side Bar by Default
-    Disable Smooth Scrolling: Disable Smooth Scrolling
+    Disable Smooth Scrolling: No Smooth Scrolling
     UI Scale: UI Scale
     Base Theme:
       Base Theme: Base Theme
@@ -180,7 +182,7 @@ Settings:
       Legacy Formats: Legacy Formats
       Audio Formats: Audio Formats
     Default Quality:
-      Default Quality: Default Quality
+      Default Quality: Quality
       Auto: Auto
       144p: 144p
       240p: 240p
@@ -195,6 +197,7 @@ Settings:
     Privacy Settings: Privacy Settings
     Remember History: Remember History
     Save Watched Progress: Save Watched Progress
+    Automatically Remove Video Meta Files: Automatically Remove Video Meta Files
     Clear Search Cache: Clear Search Cache
     Are you sure you want to clear out your search cache?: Clear search cache?
     Search cache has been cleared: Search cache cleared
@@ -245,7 +248,7 @@ Settings:
     One or more subscriptions were unable to be imported: One or more subscriptions
   could not be imported
     Invalid subscriptions file: Invalid subscriptions file
-    This might take a while, please wait: This might take a while, please wait
+    This might take a while, please wait: This might take a while…
     Invalid history file: Invalid history file
     Subscriptions have been successfully exported: Subscriptions exported
     History object has insufficient data, skipping item: History object has insufficient
@@ -455,12 +458,13 @@ Video:
     Year: Year
     Years: Years
     Ago: Ago
-    Upcoming: Premieres on
-  Published on: Published on
-  Streamed on: Streamed on
-  Started streaming on: Started streaming on
+    Upcoming: Premieres on 
+  Published on: Published on 
+  Streamed on: Streamed on 
+  Started streaming on: Started streaming on 
+  translated from English: translated from English
   # $ is replaced with the number and % with the unit (days, hours, minutes…)
-  Publicationtemplate: $ % ago
+  Publicationtemplate: $ % ago
 #& Videos
 Videos:
   #& Sort By
@@ -475,7 +479,7 @@ Playlist:
   Videos: Videos
   View: View
   Views: Views
-  Last Updated On: Last Updated On
+  Last Updated On: Last Updated On 
   Share Playlist:
     Share Playlist: Share Playlist
     Copy YouTube Link: Copy YouTube Link
@@ -515,7 +519,7 @@ Mini Player: Mini Player
 Comments:
   Comments: Comments
   Click to View Comments: Click to View Comments
-  Getting comment replies, please wait: Getting comment replies, please wait
+  Getting comment replies, please wait: Fetching replies…
   There are no more comments for this video: No more comments for this video
   Show Comments: Show Comments
   Hide Comments: Hide Comments
@@ -535,47 +539,51 @@ Up Next: Up Next
 #Tooltips
 Tooltips:
   General Settings:
-    Preferred API Backend: Choose the backend that FreeTube uses to obtain data. The
+    Preferred API Backend: Choose how FreeTube fetches data. The
   local API is a built-in extractor. The Invidious API requires an Invidious server
   to connect to.
     Fallback to Non-Preferred Backend on Failure: When your preferred API has a problem,
-  FreeTube will automatically attempt to use your non-preferred API as a fallback
-  method when enabled.
+      FreeTube will automatically attempt to use your non-preferred API as a fallback
+      method when enabled.
     Thumbnail Preference: All thumbnails throughout FreeTube will be replaced with
-  a frame of the video instead of the default thumbnail.
-    Invidious Instance: Invidious instance FreeTube connects to for API
-  calls. Clear the current selection to see a list of public instances to choose
-  from.
-    Region for Trending: The region of trends allows you to pick which country\'s trending
-  videos you want to have displayed. Not all countries displayed are actually
-  supported by YouTube.
+      a frame of the video instead of the default thumbnail.
+    Invidious Instance: The Invidious instance that FreeTube will connect to for API
+      calls. Clear the current selection to see a list of public instances to choose
+      from.
+    Region for Trending: The region of trends allows you to pick which country's trending
+      videos you want to have displayed. Not all countries displayed are actually
+      supported by YouTube.
   Player Settings:
     Force Local Backend for Legacy Formats: Only works when the Invidious API is your
-  default. When enabled, the local API will run and use the legacy formats returned
-  by that instead of the ones returned by Invidious. Helps when the videos returned
-  by Invidious don\'t play due to country restrictions.
+      default. When enabled, the local API will run and use the legacy formats returned
+      by that instead of the ones returned by Invidious. Helps when the videos returned
+      by Invidious don't play due to country restrictions.
     Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead
-  of making a direct connection to YouTube. (Overrides API preference.)
+      of making a direct connection to YouTube. (Overrides API preference.)
     Default Video Format: Set the formats used when a video plays. DASH formats can
-  play higher qualities. Legacy formats are limited to a max of 720p but use less
-  bandwidth. Audio formats are audio only streams.
+      play higher qualities. Legacy formats are limited to a max of 720p but use less
+      bandwidth. Audio formats are audio only streams.
   Subscription Settings:
-    Fetch Feeds from RSS: Uses RSS instead of the default method for grabbing
-      your subscription feed. Faster and prevents IP blocking, but doesn\'t provide
-      certain info like video duration or live status.
+    Fetch Feeds from RSS: Uses RSS to fetch your subscriptions. Faster and prevents
+    IP blocking, but doesn\'t provide certain info like video duration or live status.
+  Privacy Settings:
+    Remove Video Meta Files: Automatically deletes metafiles created during video playback,
+      when the watch page is closed.
 
 # Toast Messages
-Local API Error (Click to copy): Local API Error (Click to copy)
-Invidious API Error (Click to copy): Invidious API Error (Click to copy)
+Local API Error (Click to copy): Local API Error (click to copy)
+Invidious API Error (Click to copy): Invidious API Error (click to copy)
 Falling back to Invidious API: Falling back to Invidious API
 Falling back to the local API: Falling back to the local API
 This video is unavailable because of missing formats. This can happen due to country unavailability.: This
   video is unavailable because of missing formats. This can happen in blocked regions.
-Subscriptions have not yet been implemented: Subscriptions have not yet been implemented
-Loop is now disabled: Loop is now disabled
-Loop is now enabled: Loop is now enabled
-Shuffle is now disabled: Shuffle is now disabled
-Shuffle is now enabled: Shuffle is now enabled
+Subscriptions have not yet been implemented: Subscriptions are not implemented
+Unknown YouTube url type, cannot be opened in app: Could not open this YouTube URL
+Hashtags have not yet been implemented, try again later: Hashtags are not implemented, try again later
+Loop is now disabled: Looping is off
+Loop is now enabled: Looping is on
+Shuffle is now disabled: Shuffle is off
+Shuffle is now enabled: Shuffle is on
 The playlist has been reversed: The playlist was reversed
 Playing Next Video: Playing Next Video
 Playing Previous Video: Playing Previous Video

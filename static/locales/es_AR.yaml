@@ -273,7 +273,7 @@ Settings:
     Distraction Free Settings: Configuraciones para evitar distraerse
   The app needs to restart for changes to take effect. Restart and apply change?: Esta
     aplicación necesita reiniciarse para que los cambios entren en efecto. ¿Reiniciar
-    y aplicar cambios?
+    y aplicar el cambio?
 About:
   #On About page
   About: ''
@@ -296,6 +296,9 @@ About:
 
   Latest FreeTube News: ''
 
+  Website: Sitio web
+  Email: Correo electrónico
+  Blog: Blog
 Profile:
   All Channels: ''
   Profile Manager: ''
@@ -477,8 +480,8 @@ Playing next video in 5 seconds.  Click to cancel: ''
 Canceled next video autoplay: ''
 'The playlist has ended.  Enable loop to continue playing': ''
 
-Yes: ''
-No: ''
+Yes: 'Sí'
+No: 'No'
 A new blog is now available, $. Click to view more: Un nuevo blog está disponible,
   $. Hacé click para ver más
 Download From Site: Descargar desde el sitio

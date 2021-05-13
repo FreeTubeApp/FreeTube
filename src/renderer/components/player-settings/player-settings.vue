@@ -62,7 +62,7 @@
     </div>
     <ft-flex-box>
       <ft-slider
-        :label="$t('Settings.Player Settings.Playlist Next Video Interval')"
+        :label="$t('Settings.Player Settings.Next Video Interval')"
         :default-value="defaultInterval"
         :min-value="0"
         :max-value="60"

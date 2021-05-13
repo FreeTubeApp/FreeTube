@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import $ from 'jquery'
 import { mapActions } from 'vuex'
+import { app } from '@electron/remote'
 import FtCard from '../ft-card/ft-card.vue'
 import FtSelect from '../ft-select/ft-select.vue'
 import FtInput from '../ft-input/ft-input.vue'
@@ -96,11 +97,13 @@ export default Vue.extend({
     },
 
     localeOptions: function () {
-      return Object.keys(this.$i18n.messages)
+      return ['system'].concat(Object.keys(this.$i18n.messages))
     },
 
     localeNames: function () {
-      const names = []
+      const names = [
+        this.$t('Settings.General Settings.System Default')
+      ]
 
       Object.keys(this.$i18n.messages).forEach((locale) => {
         const localeName = this.$i18n.messages[locale]['Locale Name']
@@ -167,7 +170,7 @@ export default Vue.extend({
 
     this.updateInvidiousInstanceBounce = debounce(this.updateInvidiousInstance, 500)
 
-    this.currentLocale = this.$i18n.locale
+    this.currentLocale = localStorage.getItem('locale')
   },
   beforeDestroy: function () {
     if (this.invidiousInstance === '') {
@@ -190,18 +193,41 @@ export default Vue.extend({
     },
 
     updateLocale: function (locale) {
-      this.$i18n.locale = locale
-      this.currentLocale = locale
-      localStorage.setItem('locale', locale)
+      if (locale === 'system') {
+        const systemLocale = app.getLocale().replace(/-|_/, '_')
+        const findLocale = Object.keys(this.$i18n.messages).find((locale) => {
+          const localeName = locale.replace(/-|_/, '_')
+          return localeName.includes(systemLocale)
+        })
+
+        if (typeof findLocale !== 'undefined') {
+          this.$i18n.locale = findLocale
+          this.currentLocale = 'system'
+          localStorage.setItem('locale', 'system')
+        } else {
+          // Translating this string isn't needed because the user will always see it in English
+          this.showToast({
+            message: 'Locale not found, defaulting to English (US)'
+          })
+          this.$i18n.locale = 'en-US'
+          this.currentLocale = 'en-US'
+          localStorage.setItem('locale', 'en-US')
+        }
+      } else {
+        this.$i18n.locale = locale
+        this.currentLocale = locale
+        localStorage.setItem('locale', locale)
+      }
 
       const payload = {
         isDev: this.isDev,
-        locale: locale
+        locale: this.currentLocale
       }
       this.getRegionData(payload)
     },
 
     ...mapActions([
+      'showToast',
       'updateEnableSearchSuggestions',
       'updateBackendFallback',
       'updateCheckForUpdates',

@@ -74,7 +74,7 @@
           v-if="theatrePossible"
           :title="$t('Toggle Theatre Mode')"
           class="theatreModeButton option"
-          icon="expand-alt"
+          icon="tv"
           theme="secondary"
           @click="$emit('theatre-mode')"
         />

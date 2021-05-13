@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { mapActions } from 'vuex'
 import { ObserveVisibility } from 'vue-observe-visibility'
 import FtFlexBox from './components/ft-flex-box/ft-flex-box.vue'
 import TopNav from './components/top-nav/top-nav.vue'
@@ -9,6 +10,7 @@ import FtButton from './components/ft-button/ft-button.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
 import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
 import $ from 'jquery'
+import { app } from '@electron/remote'
 import { markdown } from 'markdown'
 import Parser from 'rss-parser'
 
@@ -41,6 +43,7 @@ export default Vue.extend({
   },
   data: function () {
     return {
+      dataReady: false,
       hideOutlines: true,
       showUpdatesBanner: false,
       showBlogBanner: false,
@@ -85,34 +88,50 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    this.$store.dispatch('grabUserSettings')
-    this.$store.dispatch('grabHistory')
-    this.$store.dispatch('grabAllProfiles', this.$t('Profile.All Channels'))
-    this.$store.dispatch('grabAllPlaylists')
-    this.$store.commit('setUsingElectron', useElectron)
-    this.checkThemeSettings()
-    this.checkLocale()
+    const v = this
+    this.$store.dispatch('grabUserSettings').then(() => {
+      this.$store.dispatch('grabAllProfiles', this.$t('Profile.All Channels')).then(() => {
+        this.$store.dispatch('grabHistory')
+        this.$store.dispatch('grabAllPlaylists')
+        this.$store.commit('setUsingElectron', useElectron)
+        this.checkThemeSettings()
+        this.checkLocale()
 
-    if (useElectron) {
-      console.log('User is using Electron')
-      this.activateKeyboardShortcuts()
-      this.openAllLinksExternally()
-      this.enableOpenUrl()
-      this.setBoundsOnClose()
-    }
+        v.dataReady = true
 
-    setTimeout(() => {
-      this.checkForNewUpdates()
-      this.checkForNewBlogPosts()
-    }, 500)
+        if (useElectron) {
+          console.log('User is using Electron')
+          this.activateKeyboardShortcuts()
+          this.openAllLinksExternally()
+          this.enableOpenUrl()
+          this.setBoundsOnClose()
+        }
+
+        setTimeout(() => {
+          this.checkForNewUpdates()
+          this.checkForNewBlogPosts()
+        }, 500)
+      })
+    })
   },
   methods: {
     checkLocale: function () {
       const locale = localStorage.getItem('locale')
 
-      if (locale === null) {
-        // TODO: Get User default locale
-        this.$i18n.locale = 'en-US'
+      if (locale === null || locale === 'system') {
+        const systemLocale = app.getLocale().replace(/-|_/, '_')
+        const findLocale = Object.keys(this.$i18n.messages).find((locale) => {
+          const localeName = locale.replace(/-|_/, '_')
+          return localeName.includes(systemLocale)
+        })
+
+        if (typeof findLocale !== 'undefined') {
+          this.$i18n.locale = findLocale
+          localStorage.setItem('locale', 'system')
+        } else {
+          this.$i18n.locale = 'en-US'
+          localStorage.setItem('locale', 'en-US')
+        }
       } else {
         this.$i18n.locale = locale
       }
@@ -268,14 +287,98 @@ export default Vue.extend({
     },
 
     openAllLinksExternally: function () {
-      // Open links externally by default
       $(document).on('click', 'a[href^="http"]', (event) => {
         const el = event.currentTarget
         console.log(useElectron)
         console.log(el)
-        if (typeof (shell) !== 'undefined') {
-          event.preventDefault()
-          shell.openExternal(el.href)
+        event.preventDefault()
+
+        // Check if it's a YouTube link
+        const youtubeUrlPattern = /^https?:\/\/((www\.)?youtube\.com(\/embed)?|youtu\.be)\/.*$/
+        const isYoutubeLink = youtubeUrlPattern.test(el.href)
+
+        if (isYoutubeLink) {
+          this.handleYoutubeLink(el.href)
+        } else {
+          // Open links externally by default
+          if (typeof (shell) !== 'undefined') {
+            shell.openExternal(el.href)
+          }
+        }
+      })
+    },
+
+    handleYoutubeLink: function (href) {
+      this.$store.dispatch('getYoutubeUrlInfo', href).then((result) => {
+        switch (result.urlType) {
+          case 'video': {
+            const { videoId, timestamp } = result
+
+            this.$router.push({
+              path: `/watch/${videoId}`,
+              query: timestamp ? { timestamp } : {}
+            })
+            break
+          }
+
+          case 'playlist': {
+            const { playlistId, query } = result
+
+            this.$router.push({
+              path: `/playlist/${playlistId}`,
+              query
+            })
+            break
+          }
+
+          case 'search': {
+            const { searchQuery, query } = result
+
+            this.$router.push({
+              path: `/search/${encodeURIComponent(searchQuery)}`,
+              query
+            })
+            break
+          }
+
+          case 'hashtag': {
+            // TODO: Implement a hashtag related view
+            let message = 'Hashtags have not yet been implemented, try again later'
+            if (this.$te(message) && this.$t(message) !== '') {
+              message = this.$t(message)
+            }
+
+            this.showToast({
+              message: message
+            })
+            break
+          }
+
+          case 'channel': {
+            const { channelId } = result
+
+            this.$router.push({
+              path: `/channel/${channelId}`
+            })
+            break
+          }
+
+          case 'invalid_url': {
+            // Do nothing
+            break
+          }
+
+          default: {
+            // Unknown URL type
+            let message = 'Unknown YouTube url type, cannot be opened in app'
+            if (this.$te(message) && this.$t(message) !== '') {
+              message = this.$t(message)
+            }
+
+            this.showToast({
+              message: message
+            })
+          }
         }
       })
     },
@@ -284,14 +387,7 @@ export default Vue.extend({
       const v = this
       electron.ipcRenderer.on('openUrl', function (event, url) {
         if (url) {
-          v.$store.dispatch('getVideoParamsFromUrl', url).then(({ videoId, timestamp }) => {
-            if (videoId) {
-              v.$router.push({
-                path: `/watch/${videoId}`,
-                query: timestamp ? { timestamp } : {}
-              })
-            }
-          })
+          v.handleYoutubeLink(url)
         }
       })
 
@@ -302,6 +398,10 @@ export default Vue.extend({
       window.onbeforeunload = (e) => {
         electron.ipcRenderer.send('setBounds')
       }
-    }
+    },
+
+    ...mapActions([
+      'showToast'
+    ])
   }
 })

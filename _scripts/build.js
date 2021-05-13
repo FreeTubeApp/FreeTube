@@ -20,7 +20,7 @@ if (platform == 'darwin') {
     arch = Arch.arm64
   }
 
-  if (args[3] === 'arm32') {
+  if (args[2] === 'arm32') {
     arch = Arch.armv7l
   }
 
@@ -68,6 +68,19 @@ const config = {
     category: 'Network',
     icon: '_icons/icon.svg',
     target: ['deb', 'zip', 'apk', 'rpm', 'AppImage', 'pacman'],
+  },
+  deb: {
+    depends: [
+      "libgtk-3-0",
+      "libnotify4",
+      "libnss3",
+      "libxss1",
+      "libxtst6",
+      "xdg-utils",
+      "libatspi2.0-0",
+      "libuuid1",
+      "libsecret-1-0"
+    ]
   },
   mac: {
     category: 'public.app-category.utilities',

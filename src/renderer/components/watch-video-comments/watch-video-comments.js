@@ -227,6 +227,7 @@ export default Vue.extend({
 
     parseLocalCommentData: function (response, index = null) {
       const commentData = response.comments.map((comment) => {
+        comment.authorLink = comment.authorId
         comment.showReplies = false
         comment.authorThumb = comment.authorThumb[0].url
         comment.replies = []
@@ -273,6 +274,7 @@ export default Vue.extend({
       this.invidiousAPICall(payload).then((response) => {
         const commentData = response.comments.map((comment) => {
           comment.showReplies = false
+          comment.authorLink = comment.authorId
           comment.authorThumb = comment.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`)
           if (this.hideCommentLikes) {
             comment.likes = null
@@ -338,6 +340,7 @@ export default Vue.extend({
       this.$store.dispatch('invidiousAPICall', payload).then((response) => {
         const commentData = response.comments.map((comment) => {
           comment.showReplies = false
+          comment.authorLink = comment.authorId
           comment.authorThumb = comment.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`)
           if (this.hideCommentLikes) {
             comment.likes = null
@@ -370,6 +373,10 @@ export default Vue.extend({
         })
         this.isLoading = false
       })
+    },
+
+    goToChannel: function (channelId) {
+      this.$router.push({ path: `/channel/${channelId}` })
     },
 
     ...mapActions([

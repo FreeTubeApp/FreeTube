@@ -1,170 +1,167 @@
 # Put the name of your locale in the same language
-Locale Name: ''
+Locale Name: 'Euskera'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Această parte a aplicației nu este gata încă. Revino mai târziu când este gata.
+  Zati hau ez dago prest oraindik. Itzuli aurrerago aurrerapenak egin direnean.
 
 # Webkit Menu Bar
-File: 'Filă'
-Quit: 'Ieșire'
-Edit: 'Editare'
-Undo: 'Desfă'
-Redo: 'Refă'
-Cut: 'Taie'
-Copy: 'Copiază'
-Paste: 'Lipește'
-Delete: 'Șterge'
-Select all: 'Selectează tot'
-Reload: 'Reîncarcă'
-Force Reload: 'Fortează Reîncărcarea'
-Toggle Developer Tools: 'Schimbă la Uneltele de Develeloper'
-Actual size: 'Mărimea actuală'
-Zoom in: 'Mărește'
-Zoom out: 'Micșorează'
-Toggle fullscreen: 'Măreste videoul'
-Window: 'Fereastră'
-Minimize: 'Minimaliziază'
-Close: 'Închide'
-Back: 'Înapoi'
-Forward: 'Înainte'
+File: ''
+Quit: ''
+Edit: ''
+Undo: ''
+Redo: ''
+Cut: ''
+Copy: ''
+Paste: ''
+Delete: ''
+Select all: ''
+Reload: ''
+Force Reload: ''
+Toggle Developer Tools: ''
+Actual size: ''
+Zoom in: ''
+Zoom out: ''
+Toggle fullscreen: ''
+Window: ''
+Minimize: ''
+Close: ''
+Back: ''
+Forward: ''
 
-Version $ is now available!  Click for more details: 'Versiunea $ este acum valavilă!
-  Dă click aici pentru mai multe informații'
-Download From Site: 'Descarcă de pe Site'
-A new blog is now available, $. Click to view more: 'Un nou blog este acum valabil,
-  $. Dă click aici să vezi mai mult'
+Version $ is now available!  Click for more details: ''
+Download From Site: ''
+A new blog is now available, $. Click to view more: ''
 
 # Search Bar
-Search / Go to URL: 'Caută / Mergi la URL'
+Search / Go to URL: ''
   # In Filter Button
 Search Filters:
-  Search Filters: 'Caută Filtre'
+  Search Filters: ''
   Sort By:
-    Sort By: 'Sortează după'
-    Most Relevant: 'Cel mai Relevant'
-    Rating: 'Evaluare'
-    Upload Date: 'Data de postare'
-    View Count: 'Număr Vizionări'
+    Sort By: ''
+    Most Relevant: ''
+    Rating: ''
+    Upload Date: ''
+    View Count: ''
   Time:
-    Time: 'Timp'
-    Any Time: 'Orice Timp'
-    Last Hour: 'Ultima Oră'
-    Today: 'Astăzi'
-    This Week: 'Această Saptămână'
-    This Month: 'Această Lună'
-    This Year: 'Acest An'
+    Time: ''
+    Any Time: ''
+    Last Hour: ''
+    Today: ''
+    This Week: ''
+    This Month: ''
+    This Year: ''
   Type:
-    Type: 'Tip'
-    All Types: 'Toate Tipurile'
-    Videos: 'Videouri'
-    Channels: 'Canale'
+    Type: ''
+    All Types: ''
+    Videos: ''
+    Channels: ''
     #& Playlists
   Duration:
-    Duration: 'Durație'
-    All Durations: 'Toate Durațiile'
-    Short (< 4 minutes): 'Mic (< 4 minute)'
-    Long (> 20 minutes): 'Lung (> 20 minute)'
+    Duration: ''
+    All Durations: ''
+    Short (< 4 minutes): ''
+    Long (> 20 minutes): ''
   # On Search Page
-  Search Results: 'Rezultate Căutare'
-  Fetching results. Please wait: 'Căutăm resultate. Te rog așteaptă'
-  Fetch more results: 'Caută mai multe rezultate'
+  Search Results: ''
+  Fetching results. Please wait: ''
+  Fetch more results: ''
+  There are no more results for this search: ''
 # Sidebar
-  There are no more results for this search: Nu mai sunt rezultate pentru aceasta
-    cautare.
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: 'Abonări'
-  Latest Subscriptions: 'Cele mai noi Abonări'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Lista
-    ta de abonări este momentan goală. Adaugă abonați ca să îi vezi aici'
-  'Getting Subscriptions. Please wait.': 'Căutăm abonați. Te rog așteaptă.'
-  Refresh Subscriptions: 'Reîncarcă Abonăriile'
-  Load More Videos: Incarca mai multe videouri
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Acest
-    profil are foarte multi urmaritori. Foloseste RSS pentru a evita limita fixata.
-Trending: 'Trend'
-Most Popular: 'Cel mai Popular'
-Playlists: 'Liste de videoclipuri'
+  Subscriptions: ''
+  Latest Subscriptions: ''
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: ''
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
+  'Getting Subscriptions. Please wait.': ''
+  Refresh Subscriptions: ''
+  Load More Videos: ''
+More: ''
+Trending: ''
+Most Popular: ''
+Playlists: ''
 User Playlists:
-  Your Playlists: 'Listele Tale'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Nu
-    ai salvat niciun video. Apasa pe butonul de salveaza pentru a adauga un video
-    aici
+  Your Playlists: ''
+  Playlist Message: ''
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: ''
 History:
   # On History Page
-  History: 'Istoric'
-  Watch History: 'Vezi Istoricul'
-  Your history list is currently empty.: 'Lista ta din istoric este goală momentan.'
+  History: ''
+  Watch History: ''
+  Your history list is currently empty.: ''
 Settings:
   # On Settings Page
-  Settings: 'Setări'
+  Settings: ''
+  The app needs to restart for changes to take effect. Restart and apply change?: ''
   General Settings:
-    General Settings: 'Setări Generale'
-    Check for Updates: 'Caută pentru actualizări'
-    Check for Latest Blog Posts: 'Caută pentru cele mai recente Posturi din Blog'
-    Fallback to Non-Preferred Backend on Failure: 'Treci la API nepreferat în caz
-      de eroare'
-    Enable Search Suggestions: 'Activează Sugesti in Căutare'
-    Default Landing Page: 'Pagina de Pornire'
-    Locale Preference: 'Localizare Preferată'
+    General Settings: ''
+    Check for Updates: ''
+    Check for Latest Blog Posts: ''
+    Fallback to Non-Preferred Backend on Failure: ''
+    Enable Search Suggestions: ''
+    Default Landing Page: ''
+    Locale Preference: ''
     Preferred API Backend:
-      Preferred API Backend: 'API Preferat'
-      Local API: 'API Local'
-      Invidious API: 'Invidious API'
+      Preferred API Backend: ''
+      Local API: ''
+      Invidious API: ''
     Video View Type:
-      Video View Type: 'Mod de organizare'
-      Grid: 'Grilă'
-      List: 'Listă'
+      Video View Type: ''
+      Grid: ''
+      List: ''
     Thumbnail Preference:
-      Thumbnail Preference: 'Preferintă de imagine'
-      Default: 'Mod Implicit'
-      Beginning: 'Început'
-      Middle: 'Mijloc'
-      End: 'Sfârșit'
+      Thumbnail Preference: ''
+      Default: ''
+      Beginning: ''
+      Middle: ''
+      End: ''
     'Invidious Instance (Default is https://invidious.snopyta.org)': ''
-    Region for Trending: 'Regiunea tendintelor'
+    View all Invidious instance information: ''
+    Region for Trending: ''
         #! List countries
   Theme Settings:
-    Theme Settings: 'Setarile temelor'
-    Match Top Bar with Main Color: 'Potriveste bara superioară cu culoarea principală'
+    Theme Settings: ''
+    Match Top Bar with Main Color: ''
+    Expand Side Bar by Default: ''
+    Disable Smooth Scrolling: ''
+    UI Scale: ''
     Base Theme:
-      Base Theme: 'Temă de bază'
-      Black: 'Negru'
-      Dark: 'Intunecat'
-      Light: 'Deschis'
+      Base Theme: ''
+      Black: ''
+      Dark: ''
+      Light: ''
     Main Color Theme:
-      Main Color Theme: 'Culoarea temei principale'
-      Red: 'Roşu'
-      Pink: 'Roz'
-      Purple: 'Violet'
-      Deep Purple: 'Mov inchis'
-      Indigo: 'Indigo'
-      Blue: 'Albastru'
-      Light Blue: 'Albastru Deschis'
-      Cyan: 'Cyan'
-      Teal: 'Turcoaz'
-      Green: 'Verde'
-      Light Green: 'Verde deschis'
-      Lime: 'Verde lime'
-      Yellow: 'Galben'
-      Amber: 'Chihlimbar'
-      Orange: 'Portocaliu'
-      Deep Orange: 'Portocaliu inchis'
-    Secondary Color Theme: 'Culoare secundara'
+      Main Color Theme: ''
+      Red: ''
+      Pink: ''
+      Purple: ''
+      Deep Purple: ''
+      Indigo: ''
+      Blue: ''
+      Light Blue: ''
+      Cyan: ''
+      Teal: ''
+      Green: ''
+      Light Green: ''
+      Lime: ''
+      Yellow: ''
+      Amber: ''
+      Orange: ''
+      Deep Orange: ''
+    Secondary Color Theme: ''
         #* Main Color Theme
-    UI Scale: Scala UI
-    Disable Smooth Scrolling: Dezactivați derularea fără probleme
-    Expand Side Bar by Default: Extindeti bara laterala in mod implicit
   Player Settings:
-    Player Settings: 'Setări player'
+    Player Settings: ''
     Force Local Backend for Legacy Formats: ''
-    Play Next Video: 'Redați următorul videoclip'
-    Turn on Subtitles by Default: 'Activati subtitrarile in mod implicit'
-    Autoplay Videos: 'Redare automată de videoclipuri'
-    Proxy Videos Through Invidious: 'Proxy Videoclipuri prin Invidious'
-    Autoplay Playlists: 'Liste de redare automată'
+    Play Next Video: ''
+    Turn on Subtitles by Default: ''
+    Autoplay Videos: ''
+    Proxy Videos Through Invidious: ''
+    Autoplay Playlists: ''
     Enable Theatre Mode by Default: ''
+    Playlist Next Video Interval: ''
     Default Volume: ''
     Default Playback Rate: ''
     Default Video Format:
@@ -188,11 +185,11 @@ Settings:
     Privacy Settings: ''
     Remember History: ''
     Save Watched Progress: ''
+    Automatically Remove Video Meta Files: ''
     Clear Search Cache: ''
-    Are you sure you want to clear out your search cache?: 'Sunteti siguri ca doriti
-      sa stergeti chache-ul cautarilor ?'
-    Search cache has been cleared: 'Cache-ul cautarilor a fost sters'
-    Remove Watch History: 'Sterge Istoricul Vizualizarilor'
+    Are you sure you want to clear out your search cache?: ''
+    Search cache has been cleared: ''
+    Remove Watch History: ''
     Are you sure you want to remove your entire watch history?: ''
     Watch history has been cleared: ''
     Remove All Subscriptions / Profiles: ''
@@ -202,6 +199,18 @@ Settings:
     Hide Videos on Watch: ''
     Fetch Feeds from RSS: ''
     Manage Subscriptions: ''
+  Distraction Free Settings:
+    Distraction Free Settings: ''
+    Hide Video Views: ''
+    Hide Video Likes And Dislikes: ''
+    Hide Channel Subscribers: ''
+    Hide Comment Likes: ''
+    Hide Recommended Videos: ''
+    Hide Trending Videos: ''
+    Hide Popular Videos: ''
+    Hide Playlists: ''
+    Hide Live Chat: ''
+    Hide Active Subscriptions: ''
   Data Settings:
     Data Settings: ''
     Select Import Type: ''
@@ -210,6 +219,7 @@ Settings:
     Import FreeTube: ''
     Import YouTube: ''
     Import NewPipe: ''
+    Check for Legacy Subscriptions: ''
     Export Subscriptions: ''
     Export FreeTube: ''
     Export YouTube: ''
@@ -231,55 +241,52 @@ Settings:
     Unable to write file: ''
     Unknown data key: ''
     How do I import my subscriptions?: ''
-  Advanced Settings:
-    Advanced Settings: ''
-    Enable Debug Mode (Prints data to the console): ''
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': ''
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': ''
-    Use Tor / Proxy for API calls: ''
-    TEST PROXY: ''
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: ''
-    Clear History:
-      Clear History: ''
-      # On Click
-      Are you sure you want to delete your history?: ''
-      #& Yes
-      #& No
-    Clear Subscriptions:
-      Clear Subscriptions: ''
-      # On Click
-      Are you sure you want to remove all subscriptions?: ''
-      #& Yes
-      #& No
-
-  The app needs to restart for changes to take effect. Restart and apply change?: Aplicatia
-    trebuie restartata pentru ca schimbarile sa aiba efect. Doresti sa restartezi
-    si sa aplici schimbarile?
+    Manage Subscriptions: ''
+  Proxy Settings:
+    Proxy Settings: ''
+    Enable Tor / Proxy: ''
+    Proxy Protocol: ''
+    Proxy Host: ''
+    Proxy Port Number: ''
+    Clicking on Test Proxy will send a request to: ''
+    Test Proxy: ''
+    Your Info: ''
+    Ip: ''
+    Country: ''
+    Region: ''
+    City: ''
+    Error getting network information. Is your proxy configured properly?: ''
 About:
   #On About page
   About: ''
-  #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
-
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >
-
-  Thank you very much to the People and Projects that make FreeTube possible!: ''
-
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': ''
-
-  'Looking for help? Check out our Wiki page.': ''
-
-  Check out our Firefox extension!: ''
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': ''
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
-  Latest FreeTube News: ''
+  Beta: ''
+  Source code: ''
+  Licensed under the AGPLv3: ''
+  View License: ''
+  Downloads / Changelog: ''
+  GitHub releases: ''
+  Help: ''
+  FreeTube Wiki: ''
+  FAQ: ''
+  Report a problem: ''
+  GitHub issues: ''
+  Please check for duplicates before posting: ''
+  Website: ''
+  Blog: ''
+  Email: ''
+  Mastodon: ''
+  Chat on Matrix: ''
+  Please read the: ''
+  room rules: ''
+  Translate: ''
+  Credits: ''
+  FreeTube is made possible by: ''
+  these people and projects: ''
+  Donate: ''
 
 Profile:
   Profile Select: ''
+  Profile Filter: ''
   All Channels: ''
   Profile Manager: ''
   Create New Profile: ''
@@ -348,12 +355,19 @@ Video:
   Remove From History: ''
   Video has been marked as watched: ''
   Video has been removed from your history: ''
+  Save Video: ''
+  Video has been saved: ''
+  Video has been removed from your saved list: ''
   Open in YouTube: ''
   Copy YouTube Link: ''
   Open YouTube Embedded Player: ''
   Copy YouTube Embedded Player Link: ''
   Open in Invidious: ''
   Copy Invidious Link: ''
+  Open Channel in YouTube: ''
+  Copy YouTube Channel Link: ''
+  Open Channel in Invidious: ''
+  Copy Invidious Channel Link: ''
   View: ''
   Views: ''
   Loop Playlist: ''
@@ -375,6 +389,14 @@ Video:
   'Chat is disabled or the Live Stream has ended.': ''
   Live chat is enabled.  Chat messages will appear here once sent.: ''
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
+  Download Video: ''
+  video only: ''
+  audio only: ''
+  Audio:
+    Low: ''
+    Medium: ''
+    High: ''
+    Best: ''
   Published:
     Jan: ''
     Feb: ''
@@ -405,6 +427,9 @@ Video:
     Ago: ''
     Upcoming: ''
   Published on: ''
+  Streamed on: ''
+  Started streaming on: ''
+  translated from English: ''
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: ''
 #& Videos
@@ -450,8 +475,11 @@ Share:
   # On Click
   Invidious URL copied to clipboard: ''
   Invidious Embed URL copied to clipboard: ''
+  Invidious Channel URL copied to clipboard: ''
   YouTube URL copied to clipboard: ''
   YouTube Embed URL copied to clipboard: ''
+  YouTube Channel URL copied to clipboard: ''
+
 Mini Player: ''
 Comments:
   Comments: ''
@@ -460,6 +488,9 @@ Comments:
   There are no more comments for this video: ''
   Show Comments: ''
   Hide Comments: ''
+  Sort by: ''
+  Top comments: ''
+  Newest first: ''
   # Context: View 10 Replies, View 1 Reply
   View: ''
   Hide: ''
@@ -467,7 +498,25 @@ Comments:
   Reply: ''
   There are no comments available for this video: ''
   Load More Comments: ''
+  No more comments available: ''
 Up Next: ''
+
+#Tooltips
+Tooltips:
+  General Settings:
+    Preferred API Backend: ''
+    Fallback to Non-Preferred Backend on Failure: ''
+    Thumbnail Preference: ''
+    Invidious Instance: ''
+    Region for Trending: ''
+  Player Settings:
+    Force Local Backend for Legacy Formats: ''
+    Proxy Videos Through Invidious: ''
+    Default Video Format: ''
+  Subscription Settings:
+    Fetch Feeds from RSS: ''
+  Privacy Settings:
+    Remove Video Meta Files: ''
 
 # Toast Messages
 Local API Error (Click to copy): ''
@@ -483,7 +532,7 @@ Shuffle is now enabled: ''
 The playlist has been reversed: ''
 Playing Next Video: ''
 Playing Previous Video: ''
-Playing next video in 5 seconds.  Click to cancel: ''
+Playing Next Video Interval: ''
 Canceled next video autoplay: ''
 'The playlist has ended.  Enable loop to continue playing': ''
 

@@ -347,7 +347,7 @@ const actions = {
       }
 
       ytdl.getInfo(videoId, {
-        lang: localStorage.getItem('locale'),
+        lang: 'en-US',
         requestOptions: { agent }
       }).then((result) => {
         resolve(result)

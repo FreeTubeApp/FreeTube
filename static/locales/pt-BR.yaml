@@ -185,6 +185,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Playlist Next Video Interval: Intervalo do próximo vídeo da lista de reprodução
   Subscription Settings:
     Subscription Settings: 'Configurações de inscrições'
     Hide Videos on Watch: 'Esconder vídeos após assisti-los'
@@ -241,6 +242,8 @@ Settings:
       certeza de que quer apagar todas as inscrições e perfis? Esta ação não pode
       ser desfeita.
     Remove All Subscriptions / Profiles: Remover Todas as Inscrições / Perfis
+    Automatically Remove Video Meta Files: Remover automaticamente os metarquivos
+      de vídeo
   Data Settings:
     Subscriptions have been successfully exported: Inscrições foram exportadas com
       sucesso
@@ -291,6 +294,7 @@ Settings:
     Hide Video Likes And Dislikes: Ocultar curtidas e desgostos do vídeo
     Hide Video Views: Ocultar Visualizações de Vídeo
     Hide Active Subscriptions: Ocultar Inscrições Ativas
+    Hide Playlists: Ocultar listas de reprodução
   The app needs to restart for changes to take effect. Restart and apply change?: O
     aplicativo necessita reiniciar para as mudanças fazerem efeito. Reiniciar e aplicar
     mudança?
@@ -343,7 +347,7 @@ About:
 #On Channel Page
   GitHub issues: Problemas com o GitHub
   Report a problem: Reportar um problema
-  FAQ: FAQs
+  FAQ: Perguntas frequentes
   FreeTube Wiki: Wiki do FreeTube
   Help: Ajuda
   GitHub releases: Lançamentos do GitHub
@@ -458,7 +462,7 @@ Video:
     Minute: Minuto
   Published on: 'Publicado em'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'Há $ % atrás'
+  Publicationtemplate: 'Há $ %'
 #& Videos
   Started streaming on: Transmissão iniciada em
   Streamed on: Transmitido em
@@ -486,6 +490,7 @@ Video:
     vídeos salvos
   Video has been saved: O vídeo foi salvo
   Save Video: Salvar vídeo
+  translated from English: Traduzido do inglês
 Videos:
   #& Sort By
   Sort By:
@@ -518,7 +523,7 @@ Change Format:
   Use Audio Formats: 'Usar formato de áudio'
   Audio formats are not available for this video: Formatos de áudio não disponíveis
     para este vídeo
-  Dash formats are not available for this video: Formatos Dash não disponíveis para
+  Dash formats are not available for this video: Formatos DASH não disponíveis para
     este vídeo
 Share:
   Share Video: 'Compartilhar vídeo'
@@ -621,6 +626,7 @@ Profile:
   Profile has been updated: Perfil atualizado
   Profile has been created: Perfil criado
   Your profile name cannot be empty: Seu nome de perfil não pode ficar em branco
+  Profile Filter: Filtro de Perfil
 Version $ is now available!  Click for more details: Versão $ está disponível agora!
   Clique para mais detalhes
 A new blog is now available, $. Click to view more: Um novo blog está disponível,
@@ -633,34 +639,42 @@ This video is unavailable because of missing formats. This can happen due to cou
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Quando ativado, o FreeTube usará RSS em vez de seu método
-      padrão para obter o feed de sua assinatura. O RSS é mais rápido e evita o bloqueio
+      padrão para obter o feed de sua assinatura. O RSS é mais rápido e evita bloqueio
       de IP, mas não fornece certas informações como duração do vídeo ou status ao
       vivo
   Player Settings:
     Default Video Format: Define os formatos usados quando um vídeo é reproduzido.
-      Formatos Dash podem reproduzir qualidades mais altas. Os formatos antigos são
+      Formatos DASH podem reproduzir qualidades mais altas. Os formatos antigos são
       limitados a um máximo de 720p, mas usam menos largura de banda. Formatos de
-      áudio são para transmissões sem vídeo
+      áudio são para transmissões sem vídeo.
     Proxy Videos Through Invidious: Conectar-se-á ao Invidious para obter vídeos em
-      vez de fazer uma conexão direta com o YouTube. Ignora a preferência da API
+      vez de fazer uma conexão direta com o YouTube. Ignora a preferência da API.
     Force Local Backend for Legacy Formats: Só funciona quando a API do Invidious
       é predefinida. Quando ativada, a API local será executada e usará os formatos
       antigos retornados por ela em vez dos retornados pelo Invidious. É útil quando
       os vídeos retornados pelo Invidious não são reproduzidos devido a restrições
-      de país
+      de país.
   General Settings:
-    Region for Trending: A região de tendências permite escolher quais vídeos de tendências
-      do país você quer exibir. Nem todos os países exibidos são realmente suportados
-      pelo YouTube
+    Region for Trending: A região de tendências lhe permite de escolher quais vídeos
+      de tendências do país você quer exibir. Nem todos os países exibidos são realmente
+      suportados pelo YouTube.
     Invidious Instance: A instância Invidious à qual o FreeTube se conectará para
-      chamadas de API. Limpe a instância atual para ver uma lista de instâncias públicas
-      para escolher
+      chamadas de API. Apague a instância atual para ver uma lista de instâncias públicas
+      para escolher.
     Thumbnail Preference: Todas as miniaturas do FreeTube serão substituídas por um
-      quadro do vídeo em vez da miniatura padrão
+      quadro do vídeo em vez da miniatura padrão.
     Fallback to Non-Preferred Backend on Failure: Quando a sua API preferida tiver
-      um problema, o FreeTube tentará automaticamente usar sua API não preferida como
-      um método substituto quando ativado
+      um problema, o FreeTube tentará usar automaticamente sua API não preferida em
+      substituição quando ativado.
     Preferred API Backend: Escolha o backend que o FreeTube usa para obter os dados.
       A API local é um extrator integrado. A API Invidious requer um servidor Invidious
       para se conectar.
+  Privacy Settings:
+    Remove Video Meta Files: Quando ativado, o FreeTube exclui automaticamente os
+      metarquivos criados durante a reprodução do vídeo quando a página de exibição
+      é fechada.
 More: Mais
+Playing Next Video Interval: Reproduzindo o próximo vídeo imediatamente. Clique para
+  cancelar. | Reproduzindo o próximo vídeo em {nextVideoInterval} segundo(s). Clique
+  para cancelar. | Reproduzindo o próximo vídeo em {nextVideoInterval} segundos. Clique
+  para cancelar.

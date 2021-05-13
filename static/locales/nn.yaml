@@ -132,13 +132,13 @@ Settings:
       End: 'Slutt'
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious-førekomst
       (Standard er https://invidious.snopyta.org)'
-    View all Invidious instance information: 'Vis all Invidious-førekomstinformasjon'
+    View all Invidious instance information: 'Vis informasjon om alle Invidious-førekomstar'
     Region for Trending: 'Region for På veg opp'
         #! List countries
   Theme Settings:
     Theme Settings: 'Temainnstillingar'
-    Match Top Bar with Main Color: ''
-    Expand Side Bar by Default: ''
+    Match Top Bar with Main Color: 'Match topplinja med hovudfargen.'
+    Expand Side Bar by Default: 'Utvid sidefeltet som forval'
     Disable Smooth Scrolling: 'Deaktiver jevn rulling'
     UI Scale: 'Skalering av brukargrensesnitt'
     Base Theme:
@@ -155,7 +155,7 @@ Settings:
       Indigo: 'Indigo'
       Blue: 'Blå'
       Light Blue: 'Lyseblå'
-      Cyan: ''
+      Cyan: 'Turkis'
       Teal: 'Blågrøn'
       Green: 'Grøn'
       Light Green: 'Lysegrøn'
@@ -167,12 +167,12 @@ Settings:
     Secondary Color Theme: 'Sekundærfargetema'
         #* Main Color Theme
   Player Settings:
-    Player Settings: 'Videospelarinnstillingar'
+    Player Settings: 'Videoavspelingsinnstillingar'
     Force Local Backend for Legacy Formats: ''
     Play Next Video: 'Spel av neste video'
-    Turn on Subtitles by Default: 'Slå på undertekst som standard'
+    Turn on Subtitles by Default: 'Slå på undertekst som standardval'
     Autoplay Videos: 'Spel av videoar automatisk'
-    Proxy Videos Through Invidious: ''
+    Proxy Videos Through Invidious: 'Mellomtjen videoar gjennom Invidious'
     Autoplay Playlists: 'Spel av spelelister automatisk'
     Enable Theatre Mode by Default: 'Kinomodus som standardval'
     Default Volume: 'Standardvolum'
@@ -197,7 +197,7 @@ Settings:
   Privacy Settings:
     Privacy Settings: 'Personvernsinnstillingar'
     Remember History: 'Husk historikk'
-    Save Watched Progress: ''
+    Save Watched Progress: 'Lagre framgangsdrift'
     Clear Search Cache: 'Slett søkebuffer'
     Are you sure you want to clear out your search cache?: 'Er du sikker på at du
       vil slette søkebufferen?'
@@ -206,24 +206,28 @@ Settings:
     Are you sure you want to remove your entire watch history?: 'Er du sikker på at
       du vil fjerne heile sjåarhistorikken din?'
     Watch history has been cleared: 'Sjåarhistorikk har blitt fjerna'
-    Remove All Subscriptions / Profiles: ''
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
+    Remove All Subscriptions / Profiles: 'Fjern alle abonnentar / profil'
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Er
+      du sikker på at du vil fjerne alle abonnentar og profil? Dette kan ikkje bli
+      ugjort.'
+    Automatically Remove Video Meta Files: Fjern metadata automatisk frå videoar
   Subscription Settings:
     Subscription Settings: 'Abonnementinnstillingar'
-    Hide Videos on Watch: ''
+    Hide Videos on Watch: 'Skjul sette videoar'
     Fetch Feeds from RSS: 'Hent feedar frå RSS'
     Manage Subscriptions: 'Behandle abonnement'
   Distraction Free Settings:
-    Distraction Free Settings: ''
+    Distraction Free Settings: 'Distraksjonsfri-instillingar'
     Hide Video Views: 'Gøym videovisingar'
     Hide Video Likes And Dislikes: ''
     Hide Channel Subscribers: 'Gøym kanalabonnement'
     Hide Comment Likes: ''
     Hide Recommended Videos: 'Gøym anbefalte videoar'
-    Hide Trending Videos: ''
+    Hide Trending Videos: 'Gøym På veg opp'
     Hide Popular Videos: 'Gøym populære videoar'
     Hide Live Chat: 'Gøym direktechat'
     Hide Active Subscriptions: 'Gøym aktive abonnement'
+    Hide Playlists: Skjul spelelister
   Data Settings:
     Data Settings: 'Datainnstillingar'
     Select Import Type: 'Vel importtype'
@@ -245,7 +249,8 @@ Settings:
       og profila har blitt importert'
     All subscriptions have been successfully imported: 'Alle abonnement har blitt
       importert'
-    One or more subscriptions were unable to be imported: ''
+    One or more subscriptions were unable to be imported: 'Eit eller fleire abonnentar
+      kunne ikkje importerast'
     Invalid subscriptions file: 'Ugyldig abonnementfil'
     This might take a while, please wait: 'Dette kan ta ei stund, venleg vent'
     Invalid history file: 'Ugyldig historiefil'
@@ -262,14 +267,14 @@ Settings:
     How do I import my subscriptions?: 'Korleis importerer eg abonnementa mine?'
     Manage Subscriptions: 'Behandle abonnement'
   Proxy Settings:
-    Proxy Settings: 'Proxyinnstillingar'
-    Enable Tor / Proxy: 'Aktiver Tor / Proxy'
-    Proxy Protocol: 'Proxyprotokoll'
-    Proxy Host: 'Proxyvert'
-    Proxy Port Number: 'Proxyportnummer'
-    Clicking on Test Proxy will send a request to: 'Klikk på testproxyen du vil sende
+    Proxy Settings: 'Mellomtenarinnstillingar'
+    Enable Tor / Proxy: 'Skru på Tor / Mellomtenar'
+    Proxy Protocol: 'Mellomtenarprotokoll'
+    Proxy Host: 'Mellomtenarvert'
+    Proxy Port Number: 'Mellomtenar-portnummer'
+    Clicking on Test Proxy will send a request to: 'Klikk på testtenaren du vil sende
       ein førespurnad til'
-    Test Proxy: 'Test proxy'
+    Test Proxy: 'Test mellomtenar'
     Your Info: 'Din informasjon'
     Ip: 'IP-adresse'
     Country: 'Land'
@@ -312,7 +317,7 @@ Profile:
   Create New Profile: 'Lag ny profil'
   Edit Profile: 'Rediger profil'
   Color Picker: 'Fargeveljar'
-  Custom Color: ''
+  Custom Color: 'Eigendefinert farge'
   Profile Preview: 'Forhandsvising av profil'
   Create Profile: 'Lag profil'
   Update Profile: 'Oppdater profil'
@@ -325,11 +330,11 @@ Profile:
   Your profile name cannot be empty: 'Profilnamnet ditt kan ikkje vere tomt'
   Profile has been created: 'Profilet har blitt laga'
   Profile has been updated: 'Profilet har blitt oppdatert'
-  Your default profile has been set to $: 'Standardprofilet ditt har blitt satt til
+  Your default profile has been set to $: 'Ditt standardprofil har blitt satt til
     $'
   Removed $ from your profiles: 'Fjerna $ frå profila dine'
   Your default profile has been changed to your primary profile: 'Standardprofilet
-    ditt har blitt endra til primærprofilet ditt'
+    ditt har blitt endra til ditt hovudprofil'
   $ is now the active profile: '$ er no det aktive profilet'
   Subscription List: 'Abonnementliste'
   Other Channels: 'Andre kanalar'
@@ -347,6 +352,7 @@ Profile:
     du sikker på at du vil fjerne dei valte kanalane? Dette vil ikkje slette kanalane
     frå andre profil.'
 #On Channel Page
+  Profile Filter: Profilfilter
 Channel:
   Subscriber: 'Abonnent'
   Subscribers: 'Abonnentar'
@@ -354,7 +360,7 @@ Channel:
   Unsubscribe: 'Opphev abonnement'
   Channel has been removed from your subscriptions: 'Kanalen har blitt fjerna frå
     dine abonnement'
-  Removed subscription from $ other channel(s): ''
+  Removed subscription from $ other channel(s): 'Fjerna abonnement frå $ kanal(ar)'
   Added channel to your subscriptions: 'Lagt til kanal til dine abonnentar'
   Search Channel: 'Søk i kanal'
   Your search results have returned 0 results: 'Søket gitt gav 0 resultat'
@@ -390,8 +396,8 @@ Video:
     over lagra videoar'
   Open in YouTube: 'Opne i YouTube'
   Copy YouTube Link: 'Kopier YouTube-lenke'
-  Open YouTube Embedded Player: ''
-  Copy YouTube Embedded Player Link: ''
+  Open YouTube Embedded Player: 'Opne innebygd YouTube-spelar'
+  Copy YouTube Embedded Player Link: 'Kopier lenke til innebygd YouTube-spelar'
   Open in Invidious: 'Opne i Invidious'
   Copy Invidious Link: 'Kopier Invidious-lenke'
   Open Channel in YouTube: 'Opne kanal i YouTube'
@@ -402,7 +408,7 @@ Video:
   Views: 'Visingar'
   Loop Playlist: 'Gjenta speleliste'
   Shuffle Playlist: 'Spel av tilfeldig frå spelelista'
-  Reverse Playlist: ''
+  Reverse Playlist: 'Snu spelelista'
   Play Next Video: 'Spel av neste video'
   Play Previous Video: 'Spel av førre video'
   # Context is "X People Watching"
@@ -422,7 +428,9 @@ Video:
     er avslutta.'
   Live chat is enabled.  Chat messages will appear here once sent.: 'Direktechat er
     slått på. Chatmeldingar vil bli vist her når dei er sendt.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Direktechat
+    er førebels ikkje støtta av Invidious-API-et. Ei direkte tilkopling til YouTube
+    er krevja.'
   Download Video: 'Last ned video'
   video only: 'berre video'
   audio only: 'berre lyd'
@@ -466,6 +474,7 @@ Video:
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % sidan'
 #& Videos
+  translated from English: omsett frå englesk
 Videos:
   #& Sort By
   Sort By:
@@ -477,7 +486,7 @@ Playlist:
   #& About
   View Full Playlist: 'Vis heile spelelista'
   Videos: 'Videoar'
-  View: ''
+  View: 'Vising'
   Views: 'Visingar'
   Last Updated On: 'Sist oppdatert'
   Share Playlist:
@@ -551,7 +560,7 @@ Tooltips:
     Thumbnail Preference: 'Alle miniatyrbilete i FreeTube vil bli erstatta av eit
       bilete av videoen i staden for standardminiatyrbiletet'
     Invidious Instance: 'Invidious-førekomsten som FreeTube vil kople til for API-kall.
-      Fjern den gjeldene førekomsten for å sjå ei liste over offentlige førekomstar
+      Fjern den gjeldene førekomsten for å sjå ei liste over offentlege førekomstar
       å velje mellom'
     Region for Trending: ''
   Player Settings:
@@ -586,3 +595,10 @@ Canceled next video autoplay: 'Avbryt automatisk avspeling av neste video'
 
 Yes: 'Ja'
 No: 'Nei'
+Unknown YouTube url type, cannot be opened in app: Ukjent type YouTube-nettadresse,
+  kan ikkje opnast i applikasjonen
+Playing Next Video Interval: Speler av neste video no. Klikk for å avbryte. | Speler
+  av neste video om {nextVideoInterval} sekund. Klikk for å avbryte. | Speler av neste
+  video om {nextVideoInterval} sekund. Klikk for å avbryte.
+More: Meir
+Open New Window: Opne nytt vindauge

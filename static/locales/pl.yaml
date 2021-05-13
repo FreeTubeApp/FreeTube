@@ -172,7 +172,7 @@ Settings:
     Default Playback Rate: 'Domyślna szybkość odtwarzania'
     Default Video Format:
       Default Video Format: 'Domyślny format filmów'
-      Dash Formats: 'Formaty Dash'
+      Dash Formats: 'Formaty DASH'
       Legacy Formats: 'Stare formaty'
       Audio Formats: 'Formaty audio'
     Default Quality:
@@ -188,6 +188,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Przerwa przed kolejną pozycją playlisty
+    Next Video Interval: Czas do następnego filmu
   Subscription Settings:
     Subscription Settings: 'Ustawienia subskrypcji'
     Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
@@ -244,6 +245,7 @@ Settings:
       jesteś pewny/a, że chcesz usunąć wszystkie subskrypcje i profile? Nie będzie
       można tego cofnąć.
     Remove All Subscriptions / Profiles: Usuń wszystkie subskrypcje / profile
+    Automatically Remove Video Meta Files: Samoczynnie usuwaj pliki metadanych filmu
   Data Settings:
     How do I import my subscriptions?: Jak mogę zaimportować swoje subskrypcje?
     Unknown data key: Nieznany klucz danych
@@ -356,7 +358,7 @@ About:
   Wiki: Wiki
   Report an Issue: Zgłoś problem
   Channel Rules: Zasady kanału
-  Email: Email
+  Email: E-mail
   License: Licencja
   Beta: Beta
   Donate: Wesprzyj
@@ -501,6 +503,7 @@ Video:
     zachowanych
   Video has been saved: Film został zachowany
   Save Video: Zachowaj film
+  translated from English: przetłumaczone z angielskiego
 Videos:
   #& Sort By
   Sort By:
@@ -528,12 +531,12 @@ Playlist:
 Toggle Theatre Mode: 'Aktywuj tryb kinowy'
 Change Format:
   Change Video Formats: 'Zmień formaty wideo'
-  Use Dash Formats: 'Użyj formatów Dash'
+  Use Dash Formats: 'Użyj formatów DASH'
   Use Legacy Formats: 'Użyj starych formatów'
   Use Audio Formats: 'Użyj formatów audio'
   Audio formats are not available for this video: Formaty audio nie są dostępne dla
     tego filmu
-  Dash formats are not available for this video: Formaty Dash nie są dostępne dla
+  Dash formats are not available for this video: Formaty DASH nie są dostępne dla
     tego filmu
 Share:
   Share Video: 'Podziel się filmem'
@@ -654,29 +657,37 @@ Tooltips:
   General Settings:
     Fallback to Non-Preferred Backend on Failure: Po włączeniu, kiedy twój preferowany
       API napotka problem, FreeTube samoczynnie spróbuje użyć niepreferowanego API
-      jako metody zapasowej
+      jako metody zapasowej.
     Preferred API Backend: Wybierz back-end , który FreeTube użyje do uzyskiwania
       danych. Lokalne API jest wbudowanym ekstraktorem. API Invidious wymaga połączenia
       z serwerem Invidious.
     Region for Trending: Obszar filmów „Na czasie” pozwala wybrać kraj, z którego
       chciałbyś zobaczyć filmy zdobywające popularność. Nie wszystkie wyświetlone
-      kraje są obsługiwane przez YouTube
+      kraje są obsługiwane przez YouTube.
     Invidious Instance: Serwer Invidious, którym FreeTube będzie się łączył do wywołań
-      API. Wyczyść pole z serwerem, by zobaczyć listę publicznych serwerów do wyboru
+      API. Wyczyść pole z serwerem, by zobaczyć listę publicznych serwerów do wyboru.
     Thumbnail Preference: Wszystkie miniaturki na FreeTube zostaną zastąpione klatką
-      z filmu zamiast miniaturki domyślnej
+      z filmu zamiast miniaturki domyślnej.
   Player Settings:
     Force Local Backend for Legacy Formats: Działa tylko, kiedy API Invidious jest
       ustawiony jako domyślny. Gdy opcja jest włączona, do odtwarzania starych formatów
       zostanie użyty lokalny API, zamiast API Invidious. Pomaga w przypadkach, gdy
-      filmy zwracane przez Invidious nie odtwarzają się z powodu blokady regionalnej
+      filmy zwracane przez Invidious nie odtwarzają się z powodu blokady regionalnej.
     Default Video Format: Ustaw formaty, które zostaną użyte do odtwarzania filmów.
-      Formaty Dash obsługują wyższe rozdzielczości. Stare formaty są ograniczone do
-      720p, ale zużywają mniej przepustowości. Formaty audio odtwarzają tylko dźwięk
+      Formaty DASH obsługują wyższe rozdzielczości. Stare formaty są ograniczone do
+      720p, ale zużywają mniej przepustowości. Formaty audio odtwarzają tylko dźwięk.
     Proxy Videos Through Invidious: Będzie dostarczał filmy, łącząc się z Invidious,
-      a nie bezpośrednio z YouTube. Nadpisuje ustawienia API
+      a nie bezpośrednio z YouTube. Nadpisuje ustawienia API.
+  Privacy Settings:
+    Remove Video Meta Files: Po włączeniu FreeTube samoczynnie usunie pliki metadanych
+      utworzone podczas odtwarzania filmu, gdy tylko strona odtwarzania zostanie zamknięta.
 Playing Next Video Interval: Odtwarzanie kolejnego filmu już za chwilę. Wciśnij aby
   przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekundę. Wciśnij
   aby przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekund. Wciśnij
   aby przerwać.
 More: Więcej
+Unknown YouTube url type, cannot be opened in app: Nieznany typ adresu URL YouTube,
+  nie można go otworzyć w aplikacji
+Hashtags have not yet been implemented, try again later: Hashtagi nie zostały jeszcze
+  wprowadzone, spróbuj później
+Open New Window: Otwórz nowe okno

@@ -175,6 +175,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Playlist Next Video Interval: 播放列表 下一个影片时间间隔
   Subscription Settings:
     Subscription Settings: '订阅设置'
     Hide Videos on Watch: '观看时隐藏视频'
@@ -222,6 +223,7 @@ Settings:
     Clear Search Cache: 清除搜索缓存
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 您确定您想移除所有订阅和配置文件吗？这无法撤销。
     Remove All Subscriptions / Profiles: 移除所有订阅 / 配置文件
+    Automatically Remove Video Meta Files: 自动删除硬盘元数据文件
   Data Settings:
     Subscriptions have been successfully exported: 订阅已成功导出
     This might take a while, please wait: 这可能需要一段时间，请稍候
@@ -264,6 +266,7 @@ Settings:
     Hide Video Views: 隐藏视频观看数量
     Distraction Free Settings: 零打扰设置
     Hide Active Subscriptions: 隐藏活跃的订阅
+    Hide Playlists: 隐藏播放列表
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议
@@ -278,6 +281,7 @@ Settings:
     Test Proxy: 测试代理
     Clicking on Test Proxy will send a request to: 点击测试代理将会发送一个请求给
     Proxy Port Number: 代理端口号
+    Proxy Host: 代理主机
 About:
   #On About page
   About: '关于'
@@ -305,6 +309,21 @@ About:
 #On Channel Page
   Source code: 源代码
   Beta: 测试版
+  Website: 网站
+  Blog: 博客
+  Email: 电子邮件
+  Donate: 捐款
+  Credits: 贡献者
+  Translate: 翻译
+  Please read the: 请阅读
+  Chat on Matrix: 在 Matrix 上聊天
+  Mastodon: Mastodon
+  FAQ: 常见问题
+  FreeTube Wiki: FreeTube维基
+  Help: 说明
+  GitHub releases: GitHub 版本
+  View License: 查看授权
+  Licensed under the AGPLv3: 以 AGPLv3 协议授权
 Channel:
   Subscriber: '订阅者'
   Subscribers: '订阅者'
@@ -414,6 +433,9 @@ Video:
   Open Channel in YouTube: 在YouTube打开频道
   Started streaming on: 开始在线直播于
   Streamed on: 在线直播于
+  Video has been removed from your saved list: 视频已从你的播放列表移除
+  Video has been saved: 视频已保存
+  Save Video: 保存视频到播放列表
 Videos:
   #& Sort By
   Sort By:

@@ -136,17 +136,17 @@ export default Vue.extend({
           return null
         })
 
-        const returnDataInvidious = []
+        const dataToShow = []
         returnData.forEach((video) => {
           if (video.type === 'video') {
             const authId = video.author.channelID
             const publishDate = video.uploadedAt
             let videoDuration = video.duration
             const videoId = video.id
-            if (video.duration !== null && video.duration !== '') {
+            if (videoDuration !== null && videoDuration !== '' && videoDuration !== 'LIVE') {
               videoDuration = ytTrendScraper.calculate_length_in_seconds(video.duration)
             }
-            returnDataInvidious.push(
+            dataToShow.push(
               {
                 videoId: videoId,
                 title: video.title,
@@ -160,22 +160,22 @@ export default Vue.extend({
                 published: publishDate,
                 publishedText: publishDate,
                 lengthSeconds: videoDuration,
-                liveNow: video.isLive,
+                liveNow: video.isLive || videoDuration === 'LIVE',
                 paid: false,
                 premium: false,
                 isUpcoming: false,
-                timeText: video.duration
+                timeText: videoDuration
               }
             )
           } else {
-            returnDataInvidious.push(video)
+            dataToShow.push(video)
           }
         })
 
         if (payload.nextPage) {
-          this.shownResults = this.shownResults.concat(returnDataInvidious)
+          this.shownResults = this.shownResults.concat(dataToShow)
         } else {
-          this.shownResults = returnDataInvidious
+          this.shownResults = dataToShow
         }
 
         this.nextPageRef = result.continuation

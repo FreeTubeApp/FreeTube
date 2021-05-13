@@ -51,7 +51,7 @@ export default Vue.extend({
       type: Array,
       default: null
     },
-    captionList: {
+    captionHybridList: {
       type: Array,
       default: () => { return [] }
     },
@@ -73,6 +73,8 @@ export default Vue.extend({
       useDash: false,
       useHls: false,
       selectedDefaultQuality: '',
+      selectedQuality: '',
+      using60Fps: false,
       maxFramerate: 0,
       activeSourceList: [],
       mouseTimeout: null,
@@ -144,16 +146,6 @@ export default Vue.extend({
       return this.$store.getters.getAutoplayVideos
     }
   },
-  watch: {
-    sourceList: function () {
-      this.determineFormatType()
-    },
-    captionList: function () {
-      this.player.caption({
-        data: this.captionList
-      })
-    }
-  },
   mounted: function () {
     this.id = this._uid
 
@@ -195,10 +187,12 @@ export default Vue.extend({
 
         this.player = videojs(videoPlayer, {
           html5: {
+            preloadTextTracks: false,
             vhs: {
               limitRenditionByPlayerDimensions: false,
               smoothQualityChange: false,
-              allowSeeksWithinUnsafeLiveWindow: true
+              allowSeeksWithinUnsafeLiveWindow: true,
+              handlePartialData: true
             }
           }
         })
@@ -214,14 +208,12 @@ export default Vue.extend({
         }
 
         if (this.useDash) {
-          this.dataSetup.plugins.httpSourceSelector = {
-            default: 'auto'
-          }
+          // this.dataSetup.plugins.httpSourceSelector = {
+          // default: 'auto'
+          // }
 
-          this.player.httpSourceSelector()
-          setTimeout(() => {
-            this.determineDefaultQualityDash()
-          }, 400)
+          // this.player.httpSourceSelector()
+          this.createDashQualitySelector(this.player.qualityLevels())
         }
 
         if (this.autoplayVideos) {
@@ -240,12 +232,16 @@ export default Vue.extend({
         this.player.controlBar.getChild('volumePanel').on('mousewheel', this.mouseScrollVolume)
 
         this.player.on('fullscreenchange', this.fullscreenOverlay)
+        this.player.on('fullscreenchange', this.toggleFullscreenClass)
 
         const v = this
 
         this.player.on('ready', function () {
           v.$emit('ready')
           v.checkAspectRatio()
+          if (v.captionHybridList.length !== 0) {
+            v.transformAndInsertCaptions()
+          }
         })
 
         this.player.on('ended', function () {
@@ -417,11 +413,15 @@ export default Vue.extend({
 
     determineDefaultQualityDash: function () {
       if (this.defaultQuality === 'auto') {
-        return
+        this.setDashQualityLevel('auto')
       }
 
       this.player.qualityLevels().levels_.sort((a, b) => {
-        return a.height - b.height
+        if (a.height === b.height) {
+          return a.bitrate - b.bitrate
+        } else {
+          return a.height - b.height
+        }
       }).forEach((ql, index, arr) => {
         const height = ql.height
         const width = ql.width
@@ -432,26 +432,105 @@ export default Vue.extend({
           upperLevel = arr[index + 1]
         }
 
-        if (this.defaultQuality === quality) {
-          ql.enabled = true
+        if (this.defaultQuality === quality && upperLevel === null) {
+          this.setDashQualityLevel(height, true)
         } else if (upperLevel !== null) {
           const upperHeight = upperLevel.height
           const upperWidth = upperLevel.width
           const upperQuality = upperWidth < upperHeight ? upperWidth : upperHeight
 
-          if (this.defaultQuality >= quality && this.defaultQuality < upperQuality) {
-            ql.enabled = true
-          } else {
-            ql.enabled = false
+          if (this.defaultQuality >= quality && this.defaultQuality === upperQuality) {
+            this.setDashQualityLevel(height, true)
+          } else if (this.defaultQuality >= quality && this.defaultQuality < upperQuality) {
+            this.setDashQualityLevel(height)
           }
         } else if (index === 0 && quality > this.defaultQuality) {
-          ql.enabled = true
+          this.setDashQualityLevel(height)
         } else if (index === (arr.length - 1) && quality < this.defaultQuality) {
-          ql.enabled = true
-        } else {
-          ql.enabled = false
+          this.setDashQualityLevel(height)
         }
       })
+    },
+
+    setDashQualityLevel: function (qualityLevel, is60Fps = false) {
+      if (this.selectedQuality === qualityLevel && this.using60Fps === is60Fps) {
+        return
+      }
+      let foundSelectedQuality = false
+      this.using60Fps = is60Fps
+      this.player.qualityLevels().levels_.sort((a, b) => {
+        if (a.height === b.height) {
+          return a.bitrate - b.bitrate
+        } else {
+          return a.height - b.height
+        }
+      }).forEach((ql, index, arr) => {
+        if (foundSelectedQuality) {
+          ql.enabled = false
+          ql.enabled_(false)
+        } else if (qualityLevel === 'auto') {
+          ql.enabled = true
+          ql.enabled_(true)
+        } else if (ql.height === qualityLevel) {
+          ql.enabled = true
+          ql.enabled_(true)
+          foundSelectedQuality = true
+
+          let lowerQuality
+          let higherQuality
+
+          if ((index - 1) !== -1) {
+            lowerQuality = arr[index - 1]
+          }
+
+          if ((index + 1) < arr.length) {
+            higherQuality = arr[index + 1]
+          }
+
+          if (typeof (lowerQuality) !== 'undefined' && lowerQuality.height === ql.height && lowerQuality.bitrate < ql.bitrate && !is60Fps) {
+            ql.enabled = false
+            ql.enabled_(false)
+            foundSelectedQuality = false
+          }
+
+          if (typeof (higherQuality) !== 'undefined' && higherQuality.height === ql.height && higherQuality.bitrate > ql.bitrate && is60Fps) {
+            ql.enabled = false
+            ql.enabled_(false)
+            foundSelectedQuality = false
+          }
+        } else {
+          ql.enabled = false
+          ql.enabled_(false)
+        }
+      })
+
+      let selectedQuality = qualityLevel
+
+      if (selectedQuality !== 'auto' && is60Fps) {
+        selectedQuality = selectedQuality + 'p60'
+      } else if (selectedQuality !== 'auto') {
+        selectedQuality = selectedQuality + 'p'
+      }
+
+      const qualityElement = document.getElementById('vjs-current-quality')
+      qualityElement.innerText = selectedQuality
+      this.selectedQuality = qualityLevel
+
+      const qualityItems = $('.quality-item').get()
+
+      $('.quality-item').removeClass('quality-selected')
+
+      qualityItems.forEach((item) => {
+        const qualityText = $(item).find('.vjs-menu-item-text').get(0)
+        if (qualityText.innerText === selectedQuality) {
+          $(item).addClass('quality-selected')
+        }
+      })
+
+      // const currentTime = this.player.currentTime()
+
+      // this.player.currentTime(0)
+      // this.player.currentTime(currentTime)
     },
 
     enableDashFormat: function () {
@@ -622,11 +701,97 @@ export default Vue.extend({
           v.toggleFullWindow()
         },
         createControlTextEl: function (button) {
-          return $(button).html($('<div id="fullwindow" class="vjs-icon-fullwindow-enter vjs-button"></div>')
-            .attr('title', 'Fullwindow'))
+          // Add class name to button to be able to target it with CSS selector
+          return $(button)
+            .addClass('vjs-button-fullwindow')
+            .html($('<div id="fullwindow" class="vjs-icon-fullwindow-enter vjs-button"></div>')
+              .attr('title', 'Full Window'))
         }
       })
       videojs.registerComponent('fullWindowButton', fullWindowButton)
+    },
+
+    createDashQualitySelector: function (levels) {
+      const v = this
+      if (levels.levels_.length === 0) {
+        setTimeout(() => {
+          this.createDashQualitySelector(this.player.qualityLevels())
+        }, 200)
+        return
+      }
+      const VjsButton = videojs.getComponent('Button')
+      const dashQualitySelector = videojs.extend(VjsButton, {
+        constructor: function(player, options) {
+          VjsButton.call(this, player, options)
+        },
+        handleClick: function(event) {
+          const selectedQuality = event.target.innerText
+          const quality = selectedQuality === 'auto' ? 'auto' : parseInt(selectedQuality.replace('p(60)?', ''))
+          const is60Fps = selectedQuality.includes('p60')
+          v.setDashQualityLevel(quality, is60Fps)
+        },
+        createControlTextEl: function (button) {
+          const beginningHtml = `<div class="vjs-quality-level-value">
+           <span id="vjs-current-quality">1080p</span>
+          </div>
+          <div class="vjs-quality-level-menu vjs-menu">
+             <ul class="vjs-menu-content" role="menu">`
+          const endingHtml = '</ul></div>'
+
+          let qualityHtml = `<li class="vjs-menu-item quality-item" role="menuitemradio" tabindex="-1" aria-checked="false aria-disabled="false">
+            <span class="vjs-menu-item-text">Auto</span>
+            <span class="vjs-control-text" aria-live="polite"></span>
+          </li>`
+
+          levels.levels_.sort((a, b) => {
+            if (b.height === a.height) {
+              return b.bitrate - a.bitrate
+            } else {
+              return b.height - a.height
+            }
+          }).forEach((quality, index, array) => {
+            let is60Fps = false
+            if (index < array.length - 1 && array[index + 1].height === quality.height) {
+              if (array[index + 1].bitrate < quality.bitrate) {
+                is60Fps = true
+              }
+            }
+            const qualityText = is60Fps ? quality.height + 'p60' : quality.height + 'p'
+            qualityHtml = qualityHtml + `<li class="vjs-menu-item quality-item" role="menuitemradio" tabindex="-1" aria-checked="false aria-disabled="false">
+              <span class="vjs-menu-item-text">${qualityText}</span>
+              <span class="vjs-control-text" aria-live="polite"></span>
+            </li>`
+          })
+          return $(button).html(
+            $(beginningHtml + qualityHtml + endingHtml).attr(
+              'title',
+              'Select Quality'
+            ))
+        }
+      })
+      videojs.registerComponent('dashQualitySelector', dashQualitySelector)
+      this.player.controlBar.addChild('dashQualitySelector', {}, this.player.controlBar.children_.length - 1)
+      this.determineDefaultQualityDash()
+    },
+
+    transformAndInsertCaptions: async function() {
+      let captionList
+      if (this.captionHybridList[0] instanceof Promise) {
+        captionList = await Promise.all(this.captionHybridList)
+        this.$emit('store-caption-list', captionList)
+      } else {
+        captionList = this.captionHybridList
+      }
+
+      for (const caption of captionList) {
+        this.player.addRemoteTextTrack({
+          kind: 'subtitles',
+          src: caption.baseUrl || caption.url,
+          srclang: caption.languageCode,
+          label: caption.label || caption.name.simpleText,
+          type: caption.type
+        }, true)
+      }
     },
 
     toggleFullWindow: function() {
@@ -717,6 +882,14 @@ export default Vue.extend({
             }]
           })
         })
+      }
+    },
+
+    toggleFullscreenClass: function () {
+      if (this.player.isFullscreen()) {
+        $('body').addClass('vjs--full-screen-enabled')
+      } else {
+        $('body').removeClass('vjs--full-screen-enabled')
       }
     },
 
