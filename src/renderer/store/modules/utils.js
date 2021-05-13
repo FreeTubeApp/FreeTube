@@ -58,6 +58,7 @@ const state = {
     '': null,
     mpv: {
       defaultExecutable: 'mpv',
+      supportsYtdlProtocol: true,
       videoUrl: '',
       playlistUrl: '',
       startOffset: '--start=',
@@ -559,7 +560,7 @@ const actions = {
       const toastMessage = payload.strings.UnsupportedActionTemplate
         .replace('$', payload.externalPlayer)
         .replace('%', payload.action)
-        actions.showToast(null, {
+      actions.showToast(null, {
         message: toastMessage
       })
     }
@@ -617,8 +618,11 @@ const actions = {
           })
         }
       }
-
-      args.push(`${payload.cmdArgs.playlistUrl}https://youtube.com/playlist?list=${payload.playlistId}`)
+      if (payload.cmdArgs.supportsYtdlProtocol) {
+        args.push(`${payload.cmdArgs.playlistUrl}ytdl://${payload.playlistId}`)
+      } else {
+        args.push(`${payload.cmdArgs.playlistUrl}https://youtube.com/playlist?list=${payload.playlistId}`)
+      }
     } else {
       if (payload.playlistId !== null) {
         actions.showExternalPlayerUnsupportedActionToast(null, {
@@ -627,7 +631,11 @@ const actions = {
         })
       }
       if (payload.videoId !== null) {
-        args.push(`${payload.cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
+        if (payload.cmdArgs.supportsYtdlProtocol) {
+          args.push(`${payload.cmdArgs.videoUrl}ytdl://${payload.videoId}`)
+        } else {
+          args.push(`${payload.cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
+        }
       }
     }
 
