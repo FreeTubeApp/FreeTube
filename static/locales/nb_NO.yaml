@@ -18,11 +18,11 @@ Delete: 'Slett'
 Select all: 'Velg alt'
 Reload: 'Last inn på nytt'
 Force Reload: 'Tving gjeninnlasting'
-Toggle Developer Tools: 'Veksle utviklerverktøy'
+Toggle Developer Tools: 'Utviklerverktøy'
 Actual size: 'Faktisk størrelse'
 Zoom in: 'Forstørr'
 Zoom out: 'Forminsk'
-Toggle fullscreen: 'Veksle fullskjermsvisning'
+Toggle fullscreen: 'Fullskjermsvisning'
 Window: 'Vindu'
 Minimize: 'Minimer'
 Close: 'Lukk'
@@ -154,7 +154,7 @@ Settings:
     Secondary Color Theme: 'Sekundærfarge'
         #* Main Color Theme
     UI Scale: Grensesnittskala
-    Disable Smooth Scrolling: Ingen myk rulling
+    Disable Smooth Scrolling: Slå av myk rulling
     Expand Side Bar by Default: Utvidet sidefelt som forvalg
   Player Settings:
     Player Settings: 'Videoavspillingsinnstillinger'
@@ -293,7 +293,7 @@ Settings:
     Enable Tor / Proxy: Skru på Tor/mellomtjener
     Proxy Settings: Mellomtjenerinnstillinger
   Distraction Free Settings:
-    Hide Trending Videos: Gjem På vei opp
+    Hide Trending Videos: Skjul På vei opp
     Hide Video Likes And Dislikes: Skjul video-gunst
     Distraction Free Settings: Distraksjonsfri-innstillinger
     Hide Active Subscriptions: Skjul aktive abonnementer
@@ -302,7 +302,7 @@ Settings:
     Hide Channel Subscribers: Skjul kanalabonnementer
     Hide Popular Videos: Skjul populære videoer
     Hide Video Views: Skjul videovisninger
-    Hide Live Chat: Gjem sanntidssludring
+    Hide Live Chat: Skjul sanntidssludring
     Hide Playlists: Skjul spillelister
   The app needs to restart for changes to take effect. Restart and apply change?: Start
     programmet på ny for å ta i bruk endringene?
@@ -446,7 +446,7 @@ Video:
     Minute: Minutt
   Published on: 'Publisert'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % siden'
+  Publicationtemplate: '$ % siden'
 #& Videos
   Audio:
     High: Høy
@@ -631,9 +631,9 @@ Tooltips:
       API-et er en innebygd utpakker. Invidious-API-et krever en Invidious-tjener
       å koble til.
   Subscription Settings:
-    Fetch Feeds from RSS: Bruker RSS istedenfor FreeTube sin forvalgte metode for
-      innhenting av din abonnementsstrøm. RSS er raskere og forhindrer IP-blokkering,
-      men mangler noe info som videovarighet og sanntidsstatus.
+    Fetch Feeds from RSS: Bruk RSS istedenfor FreeTube sin forvalgte metode for innhenting
+      av din abonnementsstrøm. RSS er raskere og forhindrer IP-blokkering, men mangler
+      noe info som videovarighet og sanntidsstatus.
   Player Settings:
     Default Video Format: Sett formater brukt når en video spilles. DASH-formater
       kan spille høyere kvaliteter. Foreldede formater er begrenset til maks. 720p,
@@ -659,6 +659,6 @@ Playing Next Video Interval: Spiller av neste video nå. Klikk for å avbryte. |
 More: Mer
 Unknown YouTube url type, cannot be opened in app: Ukjent YouTube-nettadressetype,
   kan ikke åpnes i programmet
-Hashtags have not yet been implemented, try again later: Emneknapper er ikke implementert
-  enda, prøv igjen senere.
+Hashtags have not yet been implemented, try again later: Emneknagger er ikke implementert
+  enda, prøv igjen senere
 Open New Window: Åpne et nytt vindu
