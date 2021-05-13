@@ -1,6 +1,6 @@
 <template>
   <ft-auto-grid
-    :grid="false"
+    :grid="listType !== 'list'"
   >
     <ft-list-lazy-wrapper
       v-for="(result, index) in data"
