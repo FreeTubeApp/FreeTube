@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import { mapActions } from 'vuex'
 import cp from 'child_process'
 
 export default Vue.extend({
@@ -121,6 +122,10 @@ export default Vue.extend({
       this.channelLink = this.data.owner.url
       this.playlistLink = this.data.url
       this.videoCount = this.data.length
-    }
+    },
+
+    ...mapActions([
+      'showToast'
+    ])
   }
 })
