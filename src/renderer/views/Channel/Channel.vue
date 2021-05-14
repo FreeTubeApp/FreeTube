@@ -103,7 +103,7 @@
       </div>
     </ft-card>
     <ft-card
-      v-if="!isLoading"
+      v-if="!isLoading && currentTab !== 'community'"
       class="card"
     >
       <div
@@ -169,13 +169,13 @@
           v-show="currentTab === 'community'"
           :data="latestCommunityPosts"
         />
-        <ft-flex-box
-          v-if="currentTab === 'community' && latestCommunityPosts.length === 0"
-        >
-          <p class="message">
-            {{ $t("Channel.Community.This channel currently does not have any posts ") }}
-          </p>
-        </ft-flex-box>
+<!--        <ft-flex-box-->
+<!--          v-if="currentTab === 'community' && latestCommunityPosts.length === 0"-->
+<!--        >-->
+<!--          <p class="message">-->
+<!--            {{ $t("Channel.Community.This channel currently does not have any posts ") }}-->
+<!--          </p>-->
+<!--        </ft-flex-box>-->
         <ft-element-list
           v-show="currentTab === 'search'"
           :data="searchResults"
@@ -196,6 +196,24 @@
         </div>
       </div>
     </ft-card>
+    <div v-if="!isLoading && currentTab === 'community'">
+      <ft-card
+        v-for="(post, index) in latestCommunityPosts"
+        :key="index"
+        class="card"
+      >
+        <img
+          :src="thumbnailUrl"
+          class="communityThumbnail"
+        />
+        <p v-html="post.postText" />
+        <img
+          v-if="post.postContent !== null && post.postContent.type === 'image'"
+          :src="post.postContent.content[0].url"
+          class="ft-community-image"
+        />
+      </ft-card>
+    </div>
   </div>
 </template>
 

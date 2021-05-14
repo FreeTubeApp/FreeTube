@@ -139,3 +139,9 @@
   cursor: pointer;
   margin-top: 16px;
 }
+
+.ft-community-image {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}

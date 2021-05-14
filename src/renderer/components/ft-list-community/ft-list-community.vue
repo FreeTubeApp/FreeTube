@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="type==='image'"
-    class="ft-list-community ft-list-item"
+    class="ft-list-community ft-list-item ft-community-image"
     :class="{
       list: (listType === 'list' || forceListType === 'list') && forceListType !== 'grid',
       grid: (listType === 'grid' || forceListType === 'list') && forceListType !== 'list',
