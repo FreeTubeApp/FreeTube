@@ -62,10 +62,11 @@ const state = {
       videoUrl: '',
       playlistUrl: '',
       startOffset: '--start=',
+      playbackRate: '--speed=',
       playlistIndex: '--playlist-start=',
-      reverse: null,
-      shuffle: '--shuffle',
-      loopPlaylist: '--loop-playlist'
+      plyalistReverse: null,
+      playlistShuffle: '--shuffle',
+      playlistLoop: '--loop-playlist'
     }
   }
 }
@@ -569,8 +570,26 @@ const actions = {
   openInExternalPlayer (_, payload) {
     const args = []
 
-    if (payload.cmdArgs.startOffset !== null && payload.watchProgress > 0) {
-      args.push(`${payload.cmdArgs.startOffset}${payload.watchProgress}`)
+    if (payload.watchProgress > 0) {
+      if (payload.cmdArgs.startOffset !== null) {
+        args.push(`${payload.cmdArgs.startOffset}${payload.watchProgress}`)
+      } else {
+        actions.showExternalPlayerUnsupportedActionToast(null, {
+          ...payload,
+          action: payload.strings['Unsupported Actions']['starting video at offset']
+        })
+      }
+    }
+
+    if (payload.playbackRate !== null) {
+      if (payload.cmdArgs.playbackRate !== null) {
+        args.push(`${payload.cmdArgs.playbackRate}${payload.playbackRate}`)
+      } else {
+        actions.showExternalPlayerUnsupportedActionToast(null, {
+          ...payload,
+          action: payload.strings['Unsupported Actions']['setting a playback rate']
+        })
+      }
     }
 
     // Check whether the video is in a playlist
@@ -587,8 +606,8 @@ const actions = {
       }
 
       if (payload.playlistReverse) {
-        if (payload.cmdArgs.reverse !== null) {
-          args.push(payload.cmdArgs.reverse)
+        if (payload.cmdArgs.playlistReverse !== null) {
+          args.push(payload.cmdArgs.playlistReverse)
         } else {
           actions.showExternalPlayerUnsupportedActionToast(null, {
             ...payload,
@@ -598,8 +617,8 @@ const actions = {
       }
 
       if (payload.playlistShuffle) {
-        if (payload.cmdArgs.shuffle !== null) {
-          args.push(payload.cmdArgs.shuffle)
+        if (payload.cmdArgs.playlistShuffle !== null) {
+          args.push(payload.cmdArgs.playlistShuffle)
         } else {
           actions.showExternalPlayerUnsupportedActionToast(null, {
             ...payload,
@@ -609,8 +628,8 @@ const actions = {
       }
 
       if (payload.playlistLoop) {
-        if (payload.cmdArgs.loopPlaylist !== null) {
-          args.push(payload.cmdArgs.loopPlaylist)
+        if (payload.cmdArgs.playlistLoop !== null) {
+          args.push(payload.cmdArgs.playlistLoop)
         } else {
           actions.showExternalPlayerUnsupportedActionToast(null, {
             ...payload,

@@ -218,6 +218,10 @@ export default Vue.extend({
 
     externalPlayerIgnoreWarnings: function () {
       return this.$store.getters.getExternalPlayerIgnoreWarnings
+    },
+
+    defaultPlayback: function () {
+      return this.$store.getters.getDefaultPlayback
     }
   },
   mounted: function () {
@@ -234,6 +238,7 @@ export default Vue.extend({
         strings: this.$t('Video.External Player'),
 
         watchProgress: this.watchProgress,
+        playbackRate: this.defaultPlayback,
         videoId: this.id,
         playlistId: this.playlistId,
         playlistIndex: this.playlistIndex,

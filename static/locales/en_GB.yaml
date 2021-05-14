@@ -530,6 +530,8 @@ Video:
     # $ is replaced with the external player and % with the unsupported action
     UnsupportedActionTemplate: '$ does not support: %'
     Unsupported Actions:
+      starting video at offset: starting video at offset
+      setting a playback rate: setting a playback rate
       opening playlists: opening playlists
       opening specific video in a playlist (falling back to opening the video): opening specific video in a playlist (falling back to opening the video)
       reversing playlists: reversing playlists
