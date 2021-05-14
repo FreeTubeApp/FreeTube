@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="type==='image'"
-    class="ft-list-community ft-list-item ft-community-image"
+    class="ft-community-post ft-list-item ft-community-image"
     :class="{
       list: (listType === 'list' || forceListType === 'list') && forceListType !== 'grid',
       grid: (listType === 'grid' || forceListType === 'list') && forceListType !== 'list',
@@ -119,7 +119,7 @@
   </div>
   <div
     v-else-if="type==='text'"
-    class="ft-list-community ft-list-item ft-list-text"
+    class="ft-community-post ft-list-item ft-list-text"
     :class="{
       list: (listType === 'list' || forceListType === 'list') && forceListType !== 'grid',
       grid: (listType === 'grid' || forceListType === 'list') && forceListType !== 'list',

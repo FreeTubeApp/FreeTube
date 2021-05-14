@@ -8,6 +8,7 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubble.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
+import FtCommunityPost from '../../components/ft-community-post/ft-community-post.vue'
 
 import ytch from 'yt-channel-info'
 import autolinker from 'autolinker'
@@ -22,7 +23,8 @@ export default Vue.extend({
     'ft-flex-box': FtFlexBox,
     'ft-channel-bubble': FtChannelBubble,
     'ft-loader': FtLoader,
-    'ft-element-list': FtElementList
+    'ft-element-list': FtElementList,
+    'ft-community-post': FtCommunityPost
   },
   data: function () {
     return {
@@ -39,6 +41,8 @@ export default Vue.extend({
       videoContinuationString: '',
       playlistContinuationString: '',
       searchContinuationString: '',
+      communityContinuationString: '',
+      communityContinuationAPIString: '',
       channelDescription: '',
       videoSortBy: 'newest',
       playlistSortBy: 'last',
@@ -146,6 +150,11 @@ export default Vue.extend({
           break
         case 'search':
           if (this.searchContinuationString !== '' && this.searchContinuationString !== null) {
+            return true
+          }
+          break
+        case 'community':
+          if (this.commu !== '' && this.searchContinuationString !== null) {
             return true
           }
           break
@@ -502,6 +511,8 @@ export default Vue.extend({
     getCommunityPostsLocal: function () {
       ytch.getChannelCommunityPosts(this.id).then((response) => {
         console.log('Communitypage', response)
+        this.communityContinuationString = response.continuation
+        this.communityContinuationAPIString = response.innerTubeApi
         this.latestCommunityPosts = response.items.map((element) => {
           element.type = 'community'
           return element
@@ -511,7 +522,12 @@ export default Vue.extend({
     },
 
     getCommunityPostsLocalMore: function () {
-
+      ytch.getChannelCommunityPostsMore(this.communityContinuationString, this.communityContinuationAPIString).then((response) => {
+        console.log('Communitypage More', response)
+        this.communityContinuationString = response.continuation
+        this.communityContinuationAPIString = response.innerTubeApi
+        this.latestCommunityPosts = this.latestCommunityPosts.concat(response.items)
+      })
     },
 
     handleSubscription: function () {
@@ -617,6 +633,9 @@ export default Vue.extend({
               this.searchChannelInvidious()
               break
           }
+          break
+        case 'community':
+          this.getCommunityPostsLocalMore()
           break
       }
     },

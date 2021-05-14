@@ -140,8 +140,20 @@
   margin-top: 16px;
 }
 
+.communityThumbnail {
+  height: 12%;
+  width: 12%;
+  border-radius: 200px 200px 200px 200px;
+  -webkit-border-radius: 200px 200px 200px 200px;
+}
+
 .ft-community-image {
   margin-left: auto;
   margin-right: auto;
   display: block;
+}
+
+.community-post-container {
+  padding-left: 30%;
+  padding-right: 30%;
 }

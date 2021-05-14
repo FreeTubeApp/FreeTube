@@ -202,17 +202,22 @@
         :key="index"
         class="card"
       >
-        <img
-          :src="thumbnailUrl"
-          class="communityThumbnail"
-        />
-        <p v-html="post.postText" />
-        <img
-          v-if="post.postContent !== null && post.postContent.type === 'image'"
-          :src="post.postContent.content[0].url"
-          class="ft-community-image"
-        />
+        <div
+          class="community-post-container"
+        >
+          <ft-community-post
+            :data="post"
+            appearance=""
+          />
+        </div>
       </ft-card>
+      <div
+        v-if="showFetchMoreButton"
+        class="getNextPage"
+        @click="handleFetchMore"
+      >
+        <font-awesome-icon icon="search" /> {{ $t("Search Filters.Fetch more results") }}
+      </div>
     </div>
   </div>
 </template>
