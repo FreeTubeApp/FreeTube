@@ -119,7 +119,7 @@ Settings:
       End: 'Slutten'
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Individious-forekomst
       (forvalget er https://invidious.snopyta.org)'
-    Region for Trending: 'Region for På vei opp'
+    Region for Trending: 'Region for «På vei opp»'
         #! List countries
     Check for Updates: Se etter oppdateringer
     View all Invidious instance information: Vis info om alle Invidious-forekomster
@@ -293,7 +293,7 @@ Settings:
     Enable Tor / Proxy: Skru på Tor/mellomtjener
     Proxy Settings: Mellomtjenerinnstillinger
   Distraction Free Settings:
-    Hide Trending Videos: Skjul På vei opp
+    Hide Trending Videos: Skjul «På vei opp»
     Hide Video Likes And Dislikes: Skjul video-gunst
     Distraction Free Settings: Distraksjonsfri-innstillinger
     Hide Active Subscriptions: Skjul aktive abonnementer
@@ -626,7 +626,7 @@ Tooltips:
       vil FreeTube automatisk prøve å bruke ditt ikke-foretrukne API som en tilbakefallsmetode
       dersom det er aktivert.
     Region for Trending: Trendregionen lar deg enkelt velge hvilkets lands populære
-      videoer du ønsker å vise. Ikke alle land som vises støttes faktisk av YouTube.
+      videoer du ønsker å vise. Ikke alle land som vises støttes av YouTube.
     Preferred API Backend: Velg metoden FreeTube bruker til å hente data. Det lokale
       API-et er en innebygd utpakker. Invidious-API-et krever en Invidious-tjener
       å koble til.
