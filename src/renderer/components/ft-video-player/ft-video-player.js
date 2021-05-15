@@ -440,6 +440,8 @@ export default Vue.extend({
         }
       })
 
+      // TODO: Test formats to determine if HDR / 60 FPS and skip them based on
+      // User settings
       this.setDashQualityLevel(formatsToTest[0].bitrate)
 
       // Old logic. Revert if needed
