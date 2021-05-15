@@ -89,12 +89,16 @@ $thumbnail-overlay-opacity: 0.85
       @include is-watch-playlist-item
         font-size: 12px
 
-    .favoritesIcon
-      position: absolute
-      top: 3px
-      right: 3px
-      font-size: 17px
-      opacity: $thumbnail-overlay-opacity
+  .favoritesIcon
+    display: none
+
+  &:hover .favoritesIcon
+    display: inline-block
+    position: absolute
+    top: 3px
+    right: 3px
+    font-size: 17px
+    opacity: $thumbnail-overlay-opacity
 
     .watchedProgressBar
       height: 2px
