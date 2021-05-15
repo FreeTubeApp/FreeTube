@@ -146,8 +146,8 @@ export default Vue.extend({
       return this.$store.getters.getAutoplayVideos
     },
 
-    lastPlayedAsPip: function() {
-      return this.$store.getters.getLastPlayedAsPip
+    lastPlayedVideoMode: function() {
+      return this.$store.getters.getLastPlayedVideoMode
     }
   },
   mounted: function () {
@@ -273,7 +273,7 @@ export default Vue.extend({
         })
 
         this.player.on('loadedmetadata', function () {
-          v.checkPipAutoplay()
+          v.checkLastPlayedVideoMode()
         })
       }
     },
@@ -295,11 +295,13 @@ export default Vue.extend({
       }
     },
 
-    checkPipAutoplay() {
-      if (this.lastPlayedAsPip && !this.player.isInPictureInPicture()) {
+    checkLastPlayedVideoMode() {
+      if (this.lastPlayedVideoMode === 'pip' && !this.player.isInPictureInPicture()) {
         this.player.requestPictureInPicture()
+      } else if (this.lastPlayedVideoMode === 'fullwindow' && !this.player.isFullwindow) {
+        this.toggleFullWindow()
       }
-      this.updateLastPlayedAsPip(false)
+      this.updateLastPlayedVideoMode('')
     },
 
     updateVolume: function (event) {
@@ -1116,7 +1118,7 @@ export default Vue.extend({
 
     ...mapActions([
       'calculateColorLuminance',
-      'updateLastPlayedAsPip'
+      'updateLastPlayedVideoMode'
     ])
   }
 })

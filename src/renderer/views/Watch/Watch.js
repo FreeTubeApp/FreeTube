@@ -889,7 +889,11 @@ export default Vue.extend({
         const player = this.$refs.videoPlayer.player
         if (player !== null && player.paused()) {
           if (player.isInPictureInPicture()) {
-            this.updateLastPlayedAsPip(true)
+            this.updateLastPlayedVideoMode('pip')
+          } else if (player.isFullscreen()) {
+            this.updateLastPlayedVideoMode('fullscreen')
+          } else if (player.isFullWindow) {
+            this.updateLastPlayedVideoMode('fullwindow')
           }
           if (this.watchingPlaylist) {
             this.$refs.watchVideoPlaylist.playNextVideo()
@@ -1201,7 +1205,7 @@ export default Vue.extend({
       'buildVTTFileLocally',
       'updateHistory',
       'updateWatchProgress',
-      'updateLastPlayedAsPip'
+      'updateLastPlayedVideoMode'
     ])
   }
 })
