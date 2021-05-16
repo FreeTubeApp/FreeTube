@@ -78,7 +78,10 @@ const state = {
   hidePopularVideos: false,
   hidePlaylists: false,
   hideLiveChat: false,
-  hideActiveSubscriptions: false
+  hideActiveSubscriptions: false,
+  useSponsorBlock: false,
+  sponsorBlockUrl: 'https://sponsor.ajay.app',
+  sponsorBlockShowSkippedToast: true
 }
 
 const getters = {
@@ -264,6 +267,18 @@ const getters = {
 
   getHideActiveSubscriptions: () => {
     return state.hideActiveSubscriptions
+  },
+
+  getUseSponsorBlock: () => {
+    return state.useSponsorBlock
+  },
+
+  getSponsorBlockUrl: () => {
+    return state.sponsorBlockUrl
+  },
+
+  getSponsorBlockShowSkippedToast: () => {
+    return state.sponsorBlockShowSkippedToast
   }
 }
 
@@ -417,6 +432,14 @@ const actions = {
               case 'hideActiveSubscriptions':
                 commit('setHideActiveSubscriptions', result.value)
                 break
+              case 'useSponsorBlock':
+                commit('setUseSponsorBlock', result.value)
+                break
+              case 'sponsorBlockUrl':
+                commit('setSponsorBlockUrl', result.value)
+                break
+              case 'sponsorBlockShowSkippedToast':
+                commit('setSponsorBlockShowSkippedToast', result.value)
             }
           })
           resolve()
@@ -786,6 +809,30 @@ const actions = {
         commit('setHideLiveChat', hideLiveChat)
       }
     })
+  },
+
+  updateUseSponsorBlock ({ commit }, useSponsorBlock) {
+    settingsDb.update({ _id: 'useSponsorBlock' }, { _id: 'useSponsorBlock', value: useSponsorBlock }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setUseSponsorBlock', useSponsorBlock)
+      }
+    })
+  },
+
+  updateSponsorBlockUrl ({ commit }, sponsorBlockUrl) {
+    settingsDb.update({ _id: 'sponsorBlockUrl' }, { _id: 'sponsorBlockUrl', value: sponsorBlockUrl }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setSponsorBlockUrl', sponsorBlockUrl)
+      }
+    })
+  },
+
+  updateSponsorBlockShowSkippedToast ({ commit }, sponsorBlockShowSkippedToast) {
+    settingsDb.update({ _id: 'sponsorBlockShowSkippedToast' }, { _id: 'sponsorBlockShowSkippedToast', value: sponsorBlockShowSkippedToast }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setSponsorBlockShowSkippedToast', sponsorBlockShowSkippedToast)
+      }
+    })
   }
 }
 
@@ -944,6 +991,15 @@ const mutations = {
   },
   setHideActiveSubscriptions (state, hideActiveSubscriptions) {
     state.hideActiveSubscriptions = hideActiveSubscriptions
+  },
+  setUseSponsorBlock (state, useSponsorBlock) {
+    state.useSponsorBlock = useSponsorBlock
+  },
+  setSponsorBlockUrl (state, sponsorBlockUrl) {
+    state.sponsorBlockUrl = sponsorBlockUrl
+  },
+  setSponsorBlockShowSkippedToast (state, sponsorBlockShowSkippedToast) {
+    state.sponsorBlockShowSkippedToast = sponsorBlockShowSkippedToast
   }
 }
 

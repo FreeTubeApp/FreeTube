@@ -66,6 +66,10 @@ export default Vue.extend({
     thumbnail: {
       type: String,
       default: ''
+    },
+    videoId: {
+      type: String,
+      required: true
     }
   },
   data: function () {
@@ -149,6 +153,14 @@ export default Vue.extend({
 
     autoplayVideos: function () {
       return this.$store.getters.getAutoplayVideos
+    },
+
+    useSponsorBlock: function () {
+      return this.$store.getters.getUseSponsorBlock
+    },
+
+    sponsorBlockShowSkippedToast: function () {
+      return this.$store.getters.getSponsorBlockShowSkippedToast
     }
   },
   mounted: function () {
@@ -274,6 +286,109 @@ export default Vue.extend({
           }
         })
       }
+      setTimeout(() => { this.fetchSponsorBlockInfo() }, 100)
+    },
+
+    fetchSponsorBlockInfo() {
+      if (this.useSponsorBlock) {
+        this.$store.dispatch('sponsorBlockSkipSegments', {
+          videoId: this.videoId,
+          categories: ['sponsor']
+        }).then((skipSegments) => {
+          this.player.on('timeupdate', () => {
+            this.skipSponsorBlocks(skipSegments)
+          })
+          skipSegments.forEach(({
+            category,
+            segment: [startTime, endTime]
+          }) => {
+            this.addSponsorBlockMarker({
+              time: startTime,
+              duration: endTime - startTime,
+              color: this.sponsorBlockCategoryColor(category)
+            })
+          })
+        })
+      }
+    },
+
+    skipSponsorBlocks(skipSegments) {
+      const currentTime = this.player.currentTime()
+      let newTime = null
+      let skippedCategory = null
+      skipSegments.forEach(({ category, segment: [startTime, endTime] }) => {
+        if (startTime <= currentTime && currentTime < endTime) {
+          newTime = endTime
+          skippedCategory = category
+        }
+      })
+      if (newTime !== null) {
+        if (this.sponsorBlockShowSkippedToast) {
+          this.showSkippedSponsorSegmentInformation(skippedCategory)
+        }
+        this.player.currentTime(newTime)
+      }
+    },
+
+    showSkippedSponsorSegmentInformation(category) {
+      const translatedCategory = this.sponsorBlockTranslatedCategory(category)
+      this.showToast({
+        message: `${this.$t('Video.Skipped segment')} ${translatedCategory}`
+      })
+    },
+
+    sponsorBlockTranslatedCategory(category) {
+      switch (category) {
+        case 'sponsor':
+          return this.$t('Video.Sponsor Block category.sponsor')
+        case 'intro':
+          return this.$t('Video.Sponsor Block category.intro')
+        case 'outro':
+          return this.$t('Video.Sponsor Block category.outro')
+        case 'selfpromo':
+          return this.$t('Video.Sponsor Block category.self-promotion')
+        case 'interaction':
+          return this.$t('Video.Sponsor Block category.interaction')
+        case 'music_offtopic':
+          return this.$t('Video.Sponsor Block category.music offtopic')
+        default:
+          console.error(`Unknown translation for SponsorBlock category ${category}`)
+          return category
+      }
+    },
+
+    sponsorBlockCategoryColor(category) {
+      // TODO: allow to set these colors in settings
+      switch (category) {
+        case 'sponsor':
+          return '#00d400'
+        case 'intro':
+          return '#00ffff'
+        case 'outro':
+          return '#0202ed'
+        case 'selfpromo':
+          return '#ffff00'
+        case 'interaction':
+          return '#cc00ff'
+        case 'music_offtopic':
+          return '#ff9900'
+        default:
+          console.error(`Unknown SponsorBlock category ${category}`)
+          return 'yellow'
+      }
+    },
+
+    addSponsorBlockMarker(marker) {
+      const markerDiv = videojs.dom.createEl('div', {}, {})
+
+      markerDiv.className = 'sponsorBlockMarker'
+      markerDiv.style.height = '100%'
+      markerDiv.style.position = 'absolute'
+      markerDiv.style['background-color'] = marker.color
+      markerDiv.style.width = (marker.duration / this.player.duration()) * 100 + '%'
+      markerDiv.style.marginLeft = (marker.time / this.player.duration()) * 100 + '%'
+
+      this.player.el().querySelector('.vjs-progress-holder').appendChild(markerDiv)
     },
 
     checkAspectRatio() {
@@ -1186,6 +1301,7 @@ export default Vue.extend({
     },
 
     ...mapActions([
+      'showToast',
       'calculateColorLuminance'
     ])
   }
