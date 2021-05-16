@@ -43,6 +43,10 @@ export default Vue.extend({
       type: Array,
       default: () => { return [] }
     },
+    adaptiveFormats: {
+      type: Array,
+      default: () => { return [] }
+    },
     dashSrc: {
       type: Array,
       default: null
@@ -77,6 +81,7 @@ export default Vue.extend({
       using60Fps: false,
       maxFramerate: 0,
       activeSourceList: [],
+      activeAdaptiveFormats: [],
       mouseTimeout: null,
       touchTimeout: null,
       lastTouchTime: null,
@@ -178,6 +183,7 @@ export default Vue.extend({
   },
   methods: {
     initializePlayer: async function () {
+      console.log(this.adaptiveFormats)
       const videoPlayer = document.getElementById(this.id)
       if (videoPlayer !== null) {
         if (!this.useDash) {
@@ -416,7 +422,30 @@ export default Vue.extend({
         this.setDashQualityLevel('auto')
       }
 
-      this.player.qualityLevels().levels_.sort((a, b) => {
+      let formatsToTest = this.activeAdaptiveFormats.filter((format) => {
+        return format.height === this.defaultQuality
+      })
+
+      if (formatsToTest.length === 0) {
+        formatsToTest = this.activeAdaptiveFormats.filter((format) => {
+          return format.height < this.defaultQuality
+        })
+      }
+
+      formatsToTest = formatsToTest.sort((a, b) => {
+        if (a.height === b.height) {
+          return b.bitrate - a.bitrate
+        } else {
+          return b.height - a.height
+        }
+      })
+
+      // TODO: Test formats to determine if HDR / 60 FPS and skip them based on
+      // User settings
+      this.setDashQualityLevel(formatsToTest[0].bitrate)
+
+      // Old logic. Revert if needed
+      /* this.player.qualityLevels().levels_.sort((a, b) => {
         if (a.height === b.height) {
           return a.bitrate - b.bitrate
         } else {
@@ -449,11 +478,52 @@ export default Vue.extend({
         } else if (index === (arr.length - 1) && quality < this.defaultQuality) {
           this.setDashQualityLevel(height)
         }
-      })
+      }) */
     },
 
-    setDashQualityLevel: function (qualityLevel, is60Fps = false) {
-      if (this.selectedQuality === qualityLevel && this.using60Fps === is60Fps) {
+    setDashQualityLevel: function (bitrate) {
+      let adaptiveFormat = null
+
+      if (bitrate !== 'auto') {
+        adaptiveFormat = this.activeAdaptiveFormats.find((format) => {
+          return format.bitrate === bitrate
+        })
+      }
+
+      this.player.qualityLevels().levels_.sort((a, b) => {
+        if (a.height === b.height) {
+          return a.bitrate - b.bitrate
+        } else {
+          return a.height - b.height
+        }
+      }).forEach((ql, index, arr) => {
+        if (bitrate === 'auto' || bitrate === ql.bitrate) {
+          ql.enabled = true
+          ql.enabled_(true)
+        } else {
+          ql.enabled = false
+          ql.enabled_(false)
+        }
+      })
+
+      const selectedQuality = bitrate === 'auto' ? 'auto' : adaptiveFormat.qualityLabel
+
+      const qualityElement = document.getElementById('vjs-current-quality')
+      qualityElement.innerText = selectedQuality
+      this.selectedQuality = selectedQuality
+
+      const qualityItems = $('.quality-item').get()
+
+      $('.quality-item').removeClass('quality-selected')
+
+      qualityItems.forEach((item) => {
+        const qualityText = $(item).find('.vjs-menu-item-text').get(0)
+        if (qualityText.innerText === selectedQuality.toLowerCase()) {
+          $(item).addClass('quality-selected')
+        }
+      })
+
+      /* if (this.selectedQuality === qualityLevel && this.using60Fps === is60Fps) {
         return
       }
       let foundSelectedQuality = false
@@ -530,7 +600,7 @@ export default Vue.extend({
       // const currentTime = this.player.currentTime()
 
       // this.player.currentTime(0)
-      // this.player.currentTime(currentTime)
+      // this.player.currentTime(currentTime) */
     },
 
     enableDashFormat: function () {
@@ -725,10 +795,10 @@ export default Vue.extend({
           VjsButton.call(this, player, options)
         },
         handleClick: function(event) {
+          console.log(event)
           const selectedQuality = event.target.innerText
-          const quality = selectedQuality === 'auto' ? 'auto' : parseInt(selectedQuality.replace('p(60)?', ''))
-          const is60Fps = selectedQuality.includes('p60')
-          v.setDashQualityLevel(quality, is60Fps)
+          const bitrate = selectedQuality === 'auto' ? 'auto' : parseInt(event.target.attributes.bitrate.value)
+          v.setDashQualityLevel(bitrate)
         },
         createControlTextEl: function (button) {
           const beginningHtml = `<div class="vjs-quality-level-value">
@@ -738,7 +808,7 @@ export default Vue.extend({
              <ul class="vjs-menu-content" role="menu">`
           const endingHtml = '</ul></div>'
 
-          let qualityHtml = `<li class="vjs-menu-item quality-item" role="menuitemradio" tabindex="-1" aria-checked="false aria-disabled="false">
+          let qualityHtml = `<li class="vjs-menu-item quality-item" role="menuitemradio" tabindex="-1" aria-checked="false" aria-disabled="false">
             <span class="vjs-menu-item-text">Auto</span>
             <span class="vjs-control-text" aria-live="polite"></span>
           </li>`
@@ -750,7 +820,23 @@ export default Vue.extend({
               return b.height - a.height
             }
           }).forEach((quality, index, array) => {
-            let is60Fps = false
+            const adaptiveFormat = v.adaptiveFormats.find((format) => {
+              return format.bitrate === quality.bitrate
+            })
+
+            v.activeAdaptiveFormats.push(adaptiveFormat)
+
+            const fps = adaptiveFormat.fps
+            const qualityLabel = adaptiveFormat.qualityLabel
+            const bitrate = quality.bitrate
+
+            qualityHtml = qualityHtml + `<li class="vjs-menu-item quality-item" role="menuitemradio" tabindex="-1" aria-checked="false" aria-disabled="false" fps="${fps}" bitrate="${bitrate}">
+              <span class="vjs-menu-item-text" fps="${fps}" bitrate="${bitrate}">${qualityLabel}</span>
+              <span class="vjs-control-text" aria-live="polite"></span>
+            </li>`
+
+            // Old logic, revert if needed.
+            /* let is60Fps = false
             if (index < array.length - 1 && array[index + 1].height === quality.height) {
               if (array[index + 1].bitrate < quality.bitrate) {
                 is60Fps = true
@@ -760,7 +846,7 @@ export default Vue.extend({
             qualityHtml = qualityHtml + `<li class="vjs-menu-item quality-item" role="menuitemradio" tabindex="-1" aria-checked="false aria-disabled="false">
               <span class="vjs-menu-item-text">${qualityText}</span>
               <span class="vjs-control-text" aria-live="polite"></span>
-            </li>`
+            </li>` */
           })
           return $(button).html(
             $(beginningHtml + qualityHtml + endingHtml).attr(

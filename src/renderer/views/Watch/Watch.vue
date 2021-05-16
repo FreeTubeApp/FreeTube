@@ -18,6 +18,7 @@
           ref="videoPlayer"
           :dash-src="dashSrc"
           :source-list="activeSourceList"
+          :adaptive-formats="adaptiveFormats"
           :caption-hybrid-list="captionHybridList"
           :storyboard-src="videoStoryboardSrc"
           :format="activeFormat"
