@@ -80,7 +80,7 @@ const state = {
   hideLiveChat: false,
   hideActiveSubscriptions: false,
   useSponsorBlock: false,
-  sponsorBlockUrl: 'https://sponsor.ajay.app/api/',
+  sponsorBlockUrl: 'https://sponsor.ajay.app',
   sponsorBlockShowSkippedToast: true
 }
 

@@ -23,7 +23,7 @@
     </ft-flex-box>
     <ft-flex-box>
       <ft-input
-        :placeholder="$t('Settings.SponsorBlock Settings[\'SponsorBlock API Url (Default is https://sponsor.ajay.app/api/)\']')"
+        :placeholder="$t('Settings.SponsorBlock Settings[\'SponsorBlock API Url (Default is https://sponsor.ajay.app)\']')"
         :show-arrow="false"
         :show-label="true"
         :value="sponsorBlockUrl"

@@ -30,7 +30,9 @@ export default Vue.extend({
     },
 
     handleUpdateSponsorBlockUrl: function (value) {
-      this.updateSponsorBlockUrl(value)
+      const sponsorBlockUrlWithoutTrailingSlash = value.replace(/\/$/, '')
+      const sponsorBlockUrlWithoutApiSuffix = sponsorBlockUrlWithoutTrailingSlash.replace(/\/api$/, '')
+      this.updateSponsorBlockUrl(sponsorBlockUrlWithoutApiSuffix)
     },
 
     handleUpdateSponsorBlockShowSkippedToast: function (value) {

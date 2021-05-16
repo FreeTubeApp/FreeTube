@@ -10,7 +10,7 @@ const actions = {
       const messageDigestSha256 = forge.md.sha256.create()
       messageDigestSha256.update(videoId)
       const videoIdHashPrefix = messageDigestSha256.digest().toHex().substring(0, 4)
-      const requestUrl = `${rootState.settings.sponsorBlockUrl}skipSegments/${videoIdHashPrefix}?categories=${JSON.stringify(categories)}`
+      const requestUrl = `${rootState.settings.sponsorBlockUrl}/api/skipSegments/${videoIdHashPrefix}?categories=${JSON.stringify(categories)}`
 
       $.getJSON(requestUrl, (response) => {
         const segments = response
