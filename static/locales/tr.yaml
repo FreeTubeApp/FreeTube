@@ -313,6 +313,12 @@ Settings:
     Proxy Protocol: Vekil Sunucu Protokolü
     Enable Tor / Proxy: Tor / Vekil Sunucu Etkinleştir
     Proxy Settings: Vekil Sunucu Ayarları
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Sponsor bölümü atlandığında bildir
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
+      URL'si (Öntanımlı olarak https://sponsor.ajay.app)
+    Enable SponsorBlock: SponsorBlock'u Etkinleştir
+    SponsorBlock Settings: SponsorBlock Ayarları
 About:
   #On About page
   About: 'Hakkında'
@@ -538,6 +544,14 @@ Video:
   Video has been saved: Video kaydedildi
   Save Video: Videoyu Kaydet
   translated from English: İngilizceden çevrildi
+  Sponsor Block category:
+    music offtopic: müzik konu dışı
+    interaction: etkileşim
+    self-promotion: kendini tanıtma
+    outro: çıkış
+    intro: giriş
+    sponsor: sponsor
+  Skipped segment: Atlanan bölüm
 Videos:
   #& Sort By
   Sort By:
