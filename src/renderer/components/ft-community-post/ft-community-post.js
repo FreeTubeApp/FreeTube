@@ -1,11 +1,11 @@
 import Vue from 'vue'
-import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import FtListVideo from '../ft-list-video/ft-list-video.vue'
 import { mapActions } from 'vuex'
 
 export default Vue.extend({
   name: 'FtCommunityPost',
   components: {
-    'ft-icon-button': FtIconButton
+    'ft-list-video': FtListVideo,
   },
   props: {
     data: {
