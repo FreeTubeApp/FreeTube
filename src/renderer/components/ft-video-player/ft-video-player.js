@@ -966,7 +966,7 @@ export default Vue.extend({
             let qualityLabel
             let bitrate
 
-            if (typeof v.adaptiveFormats !== 'undefined' && v.adaptiveFormats > 0) {
+            if (typeof v.adaptiveFormats !== 'undefined' && v.adaptiveFormats.length > 0) {
               const adaptiveFormat = v.adaptiveFormats.find((format) => {
                 return format.bitrate === quality.bitrate
               })
