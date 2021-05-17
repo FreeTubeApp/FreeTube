@@ -116,14 +116,15 @@ Settings:
     Check for Latest Blog Posts: 檢查最新的部落格貼文
     Check for Updates: 檢查更新
     View all Invidious instance information: 檢視所有 Invidious 站台的資訊
+    System Default: 系統預設值
   Theme Settings:
     Theme Settings: '主題設定'
     Match Top Bar with Main Color: '頂部功能表欄對應主色彩'
     Base Theme:
       Base Theme: '基本主題'
-      Black: '黑'
-      Dark: '深'
-      Light: '淺'
+      Black: '黑色'
+      Dark: '深色'
+      Light: '淺色'
     Main Color Theme:
       Main Color Theme: '主題色'
       Red: '紅'
@@ -161,7 +162,7 @@ Settings:
     Default Playback Rate: '預設播放速度'
     Default Video Format:
       Default Video Format: '預設影片格式'
-      Dash Formats: 'Dash格式'
+      Dash Formats: 'DASH 格式'
       Legacy Formats: '傳統格式'
       Audio Formats: '音訊格式'
     Default Quality:
@@ -176,6 +177,8 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Playlist Next Video Interval: 播放清單 下一個影片間隔時間
+    Next Video Interval: 下一個影片區段
   Subscription Settings:
     Subscription Settings: '訂閱設定'
     Hide Videos on Watch: '觀看時隱藏影片'
@@ -223,6 +226,7 @@ Settings:
     Privacy Settings: 隱私設定
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 您確定要移除所有訂閱與設定檔嗎嗎?  注意:這無法復原。
     Remove All Subscriptions / Profiles: 移除所有訂閱／設定檔
+    Automatically Remove Video Meta Files: 自動刪除影片元檔案
   Data Settings:
     How do I import my subscriptions?: 我要如何匯入我的訂閱？
     Unknown data key: 未知的資料金鑰
@@ -265,6 +269,7 @@ Settings:
     Hide Recommended Videos: 隱藏推薦影片
     Hide Channel Subscribers: 隱藏頻道訂閱者
     Hide Active Subscriptions: 隱藏作用中的訂閱
+    Hide Playlists: 隱藏播放清單
   The app needs to restart for changes to take effect. Restart and apply change?: 此變更需要重啟讓修改生效。重啟並且套用變更?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
@@ -280,6 +285,12 @@ Settings:
     Proxy Protocol: 代理伺服器協定
     Enable Tor / Proxy: 啟用 Tor 或代理伺服器
     Proxy Settings: 代理伺服器設定
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: 當贊助商片段被跳過時通知
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
+      網址（預設為 https://sponsor.ajay.app）
+    Enable SponsorBlock: 啟用 SponsorBlock
+    SponsorBlock Settings: SponsorBlock 設定
 About:
   #On About page
   About: '關於'
@@ -328,7 +339,7 @@ About:
   room rules: 聊天室規則
   Please read the: 請閱讀
   Chat on Matrix: 在 Matrix 上聊天
-  Mastodon: Mastodon
+  Mastodon: Mastodon(長毛象/萬象)
   Please check for duplicates before posting: 提交前請檢查有無重複的問題
   GitHub issues: GitHub 問題追蹤器
   Report a problem: 回報問題
@@ -363,7 +374,7 @@ Channel:
   About:
     About: '關於'
     Channel Description: '頻道說明'
-    Featured Channels: '列出頻道'
+    Featured Channels: '推薦頻道'
   Added channel to your subscriptions: 已新增頻道至您的訂閱
   Removed subscription from $ other channel(s): 從$個其他頻道移除訂閱
   Channel has been removed from your subscriptions: 頻道已從您的訂閱中移除
@@ -420,7 +431,7 @@ Video:
     Minute: 分鐘
   Published on: '發布於'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ %前'
+  Publicationtemplate: '$ % 前'
 #& Videos
   Video has been removed from your history: 影片已從您的歷史紀錄中移除
   Video has been marked as watched: 影片標記為已觀看
@@ -445,11 +456,20 @@ Video:
   Open Channel in Invidious: 在Invidious開啟頻道
   Copy YouTube Channel Link: 複製YouTube頻道連結
   Open Channel in YouTube: 在YouTube開啟頻道
-  Started streaming on: '開始直播時間:'
+  Started streaming on: '開始直播時間'
   Streamed on: 直播於
   Video has been removed from your saved list: 影片已從您的播放清單移除
   Video has been saved: 影片已儲存
   Save Video: 儲存影片至播放清單
+  translated from English: 從英文翻譯
+  Sponsor Block category:
+    music offtopic: 音樂離題
+    interaction: 互動
+    self-promotion: 自我推廣
+    outro: 其他
+    intro: 介紹
+    sponsor: 贊助商
+  Skipped segment: 已跳過的片段
 Videos:
   #& Sort By
   Sort By:
@@ -477,11 +497,11 @@ Playlist:
 Toggle Theatre Mode: '切換為劇院模式'
 Change Format:
   Change Video Formats: '變更影片格式'
-  Use Dash Formats: '使用Dash格式'
+  Use Dash Formats: '使用 DASH 格式'
   Use Legacy Formats: '使用傳統格式'
   Use Audio Formats: '使用音訊格式'
   Audio formats are not available for this video: 這個影片沒有音訊格式
-  Dash formats are not available for this video: 這個影片沒有Dash格式
+  Dash formats are not available for this video: 這個影片沒有 DASH 格式
 Share:
   Share Video: '分享影片'
   Copy Link: '複製連結'
@@ -500,7 +520,7 @@ Mini Player: '迷你播放器'
 Comments:
   Comments: '留言'
   Click to View Comments: '點擊查看留言'
-  Getting comment replies, please wait: '獲取留言中，請稍候...'
+  Getting comment replies, please wait: '擷取留言中，請稍候...'
   Show Comments: '查看留言'
   Hide Comments: '隱藏留言'
   # Context: View 10 Replies, View 1 Reply
@@ -572,6 +592,7 @@ Profile:
   $ selected: $個選取的
   Other Channels: 其他頻道
   Subscription List: 訂閱清單
+  Profile Filter: 設定檔篩選器
 The playlist has been reversed: 播放清單已反轉
 A new blog is now available, $. Click to view more: 已有新的部落格文章，$。點擊以檢視更多
 Download From Site: 從網站下載
@@ -579,17 +600,25 @@ Version $ is now available!  Click for more details: 版本更新囉! 最新版�
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 沒有這個影片因為缺少格式。這個可能發生由於國家不可用。
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: 啟用後，FreeTube 將使用 RSS 而非預設方式來取得您的訂閱推送。RSS 更快而且可避免 IP 封鎖，但不提供某些訊息，如影片長度與即時狀態
+    Fetch Feeds from RSS: 啟用後，FreeTube將使用RSS代替它的預設方法來抓取您的訂閱來源。RSS的速度較快，而且可以防止IP封鎖，但它可能不會提供某些資訊，例如影片長度或是直播狀態。
   Player Settings:
-    Default Video Format: 設定要用於影片播放的格式。Dash格式有更高的品質。傳統格式會限制在 720p但頻寬需求更低。音訊格式為僅有音訊的串流
-    Proxy Videos Through Invidious: 將連線到 Invidious而非直接連線到 YouTube 來提供影片。覆寫 API 偏好
-    Force Local Backend for Legacy Formats: 僅當 Invidious API是您預設 API 時才有效。啟用後，區域 API
-      將會執行並使用由其回傳的的傳統格式，而非 Invidious 回傳的格式。對因為國家地區限制而無法播放 Invidious回傳的影片時有幫助
+    Default Video Format: 設定要用於影片播放的格式。DASH 格式有更高的畫質。傳統格式會限制在 720p 但頻寬需求更低。音訊格式為僅有音訊的串流。
+    Proxy Videos Through Invidious: 將連線到 Invidious 而非直接連線到 YouTube 來提供影片。覆寫 API 偏好。
+    Force Local Backend for Legacy Formats: 僅當 Invidious API 是您預設 API 時才有效。啟用後，區域
+      API 將會執行並使用由其回傳的的傳統格式，而非 Invidious 回傳的格式。對因為國家地區限制而無法播放 Invidious 回傳的影片時有幫助。
   General Settings:
-    Invidious Instance: FreeTube將連線為 API呼叫的Invidious實例。清除目前的實例以檢視可供選擇的公用實例清單
-    Thumbnail Preference: FreeTube中所有縮圖都會被替換為影片畫面而非預設縮圖
-    Fallback to Non-Preferred Backend on Failure: 當您的偏好API 有問題時，FreeTube將自動嘗試使用您的非偏好API
-      作為汰退方案
+    Invidious Instance: FreeTube 將連線到 Invidious 站台進行 API 呼叫。清除目前的站台以檢視可供選擇的公開站台清單。
+    Thumbnail Preference: FreeTube 中所有縮圖都會被替換為影片畫面而非預設縮圖。
+    Fallback to Non-Preferred Backend on Failure: 當您的偏好 API 有問題時，FreeTube 將自動嘗試使用您的非偏好
+      API 作為汰退方案。
     Preferred API Backend: 選擇 FreeTube 要用於取得YouTube資料的伺服器。本地 API 是內建擷取器。Invidious
       API 需要 Invidious 伺服器才能連線。
-    Region for Trending: 發燒影片區域可以讓您選擇想要顯示哪個國家的發燒影片。 注意:並非所有國家都被YouTube支援
+    Region for Trending: 熱門影片區域可以讓您選擇想要顯示哪個國家的熱門影片。注意：並非所有國家都被 YouTube 支援。
+  Privacy Settings:
+    Remove Video Meta Files: 如果啟用，FreeTube會在關閉觀看頁面時，自動刪除影片播放過程中建立的暫存檔案。
+Playing Next Video Interval: 馬上播放下一個影片。點擊取消。| 播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。|
+  播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。
+More: 更多
+Hashtags have not yet been implemented, try again later: 尚未實作主題標籤，請稍後再試
+Unknown YouTube url type, cannot be opened in app: 未知的 YouTube url 類型，無法在應用程式開啟
+Open New Window: 開啟新視窗

@@ -249,6 +249,10 @@ export default Vue.extend({
         const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
         const subscriptions = []
 
+        this.showToast({
+          message: this.$t('Settings.Data Settings.This might take a while, please wait')
+        })
+
         this.updateShowProgressBar(true)
         this.setProgressBarPercentage(0)
 
@@ -258,6 +262,11 @@ export default Vue.extend({
           const snippet = channel.snippet
 
           if (typeof snippet === 'undefined') {
+            const message = this.$t('Settings.Data Settings.Invalid subscriptions file')
+            this.showToast({
+              message: message
+            })
+
             throw new Error('Unable to find channel data')
           }
 
@@ -321,12 +330,7 @@ export default Vue.extend({
         }
 
         const filePath = response.filePaths[0]
-
-        try {
-          this.handleYoutubeImportFile(filePath)
-        } catch (err) {
-          console.log(err)
-        }
+        this.handleYoutubeImportFile(filePath)
       })
     },
 
@@ -569,7 +573,8 @@ export default Vue.extend({
       }
     },
 
-    exportFreeTubeSubscriptions: function () {
+    exportFreeTubeSubscriptions: async function () {
+      await this.compactProfiles()
       const userData = app.getPath('userData')
       const subscriptionsDb = `${userData}/profiles.db`
       const date = new Date()
@@ -929,7 +934,7 @@ export default Vue.extend({
               }
             })
 
-            if (Object.keys(historyObject).length < requiredKeys.length) {
+            if (Object.keys(historyObject).length < (requiredKeys.length - 2)) {
               this.showToast({
                 message: this.$t('Settings.Data Settings.History object has insufficient data, skipping item')
               })
@@ -945,7 +950,8 @@ export default Vue.extend({
       })
     },
 
-    exportHistory: function () {
+    exportHistory: async function () {
+      await this.compactHistory()
       const userData = app.getPath('userData')
       const historyDb = `${userData}/history.db`
       const date = new Date()
@@ -1102,8 +1108,10 @@ export default Vue.extend({
     ...mapActions([
       'invidiousAPICall',
       'updateProfile',
+      'compactProfiles',
       'updateShowProgressBar',
       'updateHistory',
+      'compactHistory',
       'showToast',
       'getRandomColor',
       'calculateColorLuminance'

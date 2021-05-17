@@ -44,7 +44,7 @@ Search Filters:
     Sort By: 'Sort By'
     Most Relevant: 'Most Relevant'
     Rating: 'Rating'
-    Upload Date: 'Upload Date'
+    Upload Date: 'Upload date'
     View Count: 'View Count'
   Time:
     Time: 'Time'
@@ -70,6 +70,7 @@ Search Filters:
   Fetching results. Please wait: 'Fetching results. Please wait'
   Fetch more results: 'Fetch more results'
 # Sidebar
+  There are no more results for this search: There are no more results for this search
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Subscriptions'
@@ -86,6 +87,12 @@ Most Popular: 'Most Popular'
 Playlists: 'Playlists'
 User Playlists:
   Your Playlists: 'Your Playlists'
+  Playlist Message: This page is not reflective of fully working playlists. It only
+    lists videos that you have saved or favourited. When the work has finished, all
+    videos currently here will be migrated to a ‘Favourites’ playlist.
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Your
+    saved videos are empty. Click on the save button on the corner of a video to have
+    it listed here
 History:
   # On History Page
   History: 'History'
@@ -121,6 +128,8 @@ Settings:
       (Default is https://invidious.snopyta.org)'
     Region for Trending: 'Region for Trending'
         #! List countries
+    View all Invidious instance information: View all Invidious instance information
+    System Default: System Default
   Theme Settings:
     Theme Settings: 'Theme Settings'
     Match Top Bar with Main Color: 'Match top bar with main colour'
@@ -165,7 +174,7 @@ Settings:
     Default Playback Rate: 'Default Playback Rate'
     Default Video Format:
       Default Video Format: 'Default Video Format'
-      Dash Formats: 'Dash Formats'
+      Dash Formats: 'DASH Formats'
       Legacy Formats: 'Legacy Formats'
       Audio Formats: 'Audio Formats'
     Default Quality:
@@ -180,6 +189,8 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Playlist Next Video Interval: Playlist Next Video Interval
+    Next Video Interval: Next Video Interval
   Privacy Settings:
     Privacy Settings: 'Privacy Settings'
     Remember History: 'Remember History'
@@ -196,6 +207,7 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Are
       you sure you want to remove all subscriptions and profiles?  This cannot be
       undone.'
+    Automatically Remove Video Meta Files: Automatically Remove Video Meta Files
   Subscription Settings:
     Subscription Settings: 'Subscription Settings'
     Hide Videos on Watch: 'Hide Videos on Watch'
@@ -239,6 +251,7 @@ Settings:
     Unknown data key: 'Unknown data key'
     How do I import my subscriptions?: 'How do I import my subscriptions?'
     Check for Legacy Subscriptions: Check for Legacy Subscriptions
+    Manage Subscriptions: Manage Subscriptions
   Advanced Settings:
     Advanced Settings: 'Advanced Settings'
     Enable Debug Mode (Prints data to the console): 'Enable Debug Mode (Prints data
@@ -277,9 +290,32 @@ Settings:
     Hide Video Views: Hide Video Views
     Hide Active Subscriptions: Hide Active Subscriptions
     Distraction Free Settings: Distraction Free Settings
+    Hide Playlists: Hide Playlists
   The app needs to restart for changes to take effect. Restart and apply change?: The
     app needs to restart for changes to take effect. Do you want to restart and apply
     the changes?
+  Proxy Settings:
+    Error getting network information. Is your proxy configured properly?: Error getting
+      network information. Is your proxy configured properly?
+    City: City
+    Region: Region
+    Country: Country
+    Ip: Ip
+    Your Info: Your Info
+    Test Proxy: Test Proxy
+    Clicking on Test Proxy will send a request to: Clicking on Test Proxy will send
+      a request to
+    Proxy Port Number: Proxy Port Number
+    Proxy Host: Proxy Host
+    Proxy Protocol: Proxy Protocol
+    Enable Tor / Proxy: Enable Tor / Proxy
+    Proxy Settings: Proxy Settings
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Notify when sponsor segment is skipped
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
+      Url (Default is https://sponsor.ajay.app)
+    Enable SponsorBlock: Enable SponsorBlock
+    SponsorBlock Settings: SponsorBlock Settings
 About:
   #On About page
   About: About
@@ -289,7 +325,7 @@ About:
   Donate: Donate
   Beta: Beta
   License: License
-  Email: Email
+  Email: E-mail
   Channel Rules: Channel Rules
   Report an Issue: Report an Issue
   Wiki: Wiki
@@ -301,6 +337,22 @@ About:
   Website: Website
   Translate via Weblate: Translate via Weblate
 
+  these people and projects: these people and projects
+  FreeTube is made possible by: FreeTube is made possible by
+  Translate: Translate
+  room rules: room rules
+  Please read the: Please read the
+  Chat on Matrix: Chat on Matrix
+  Mastodon: Mastodon
+  Please check for duplicates before posting: Please check for duplicates before posting
+  GitHub issues: GitHub issues
+  Report a problem: Report a problem
+  FreeTube Wiki: FreeTube Wiki
+  GitHub releases: GitHub releases
+  Downloads / Changelog: Downloads / Changelog
+  View License: View Licence
+  Licensed under the AGPLv3: Licensed under the AGPLv3
+  Source code: Source code
 Profile:
   Profile Select: 'Profile Select'
   All Channels: 'All Channels'
@@ -342,6 +394,7 @@ Profile:
     you sure you want to delete the selected channels?  This will not delete the channel
     from any other profile.'
 #On Channel Page
+  Profile Filter: Profile Filter
 Channel:
   Subscriber: 'Subscriber'
   Subscribers: 'Subscribers'
@@ -461,6 +514,19 @@ Video:
   Open Channel in Invidious: Open this Channel in Invidious
   Copy YouTube Channel Link: Copy the Link of this YouTube Channel
   Open Channel in YouTube: Open this Channel in YouTube
+  Video has been removed from your saved list: Video has been removed from your saved
+    list
+  Video has been saved: Video has been saved
+  Save Video: Save Video
+  translated from English: translated from English
+  Sponsor Block category:
+    music offtopic: music offtopic
+    interaction: interaction
+    self-promotion: self-promotion
+    outro: outro
+    intro: intro
+    sponsor: sponsor
+  Skipped segment: Skipped segment
 Videos:
   #& Sort By
   Sort By:
@@ -488,10 +554,10 @@ Playlist:
 Toggle Theatre Mode: 'Toggle Theatre Mode'
 Change Format:
   Change Video Formats: 'Change Video Formats'
-  Use Dash Formats: 'Use Dash Formats'
+  Use Dash Formats: 'Use DASH Formats'
   Use Legacy Formats: 'Use Legacy Formats'
   Use Audio Formats: 'Use Audio Formats'
-  Dash formats are not available for this video: 'Dash formats are not available for
+  Dash formats are not available for this video: 'DASH formats are not available for
     this video'
   Audio formats are not available for this video: 'Audio formats are not available
     for this video'
@@ -560,29 +626,41 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
       method to grab your subscription feed. RSS is faster and prevents IP blocking,
-      but it doesn't provide certain information like video duration, or live status
+      but it doesn’t provide certain information like video duration, or live status
   Player Settings:
-    Default Video Format: Set the formats used when a video plays. Dash formats can
-      play much higher qualities. Legacy formats are limited to a maximum of 720p,
-      but use less bandwidth. Audio formats stream only audio
+    Default Video Format: Set the formats used when a video plays. DASH formats can
+      play higher qualities. Legacy formats are limited to a max of 720p but use less
+      bandwidth. Audio formats are audio only streams.
     Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead
-      of making a direct connection to YouTube. Overrides API preference
-    Force Local Backend for Legacy Formats: This only works when the Invidious API
-      is your default. When enabled, the local API will run and use the legacy formats
-      returned by that instead of the ones returned by Invidious. It helps when the
-      videos returned by Invidious can't play because of regional restrictions
+      of making a direct connection to YouTube. Overrides API preference.
+    Force Local Backend for Legacy Formats: Only works when the Invidious API is your
+      default. When enabled, the local API will run and use the legacy formats returned
+      by that instead of the ones returned by Invidious. Helps when the videos returned
+      by Invidious don’t play due to country restrictions.
   General Settings:
-    Region for Trending: The region of trends allows you to pick which country's trending
+    Region for Trending: The region of trends allows you to pick which country’s trending
       videos you want to have displayed. Not all countries displayed are actually
-      supported by YouTube
+      supported by YouTube.
     Invidious Instance: The Invidious instance that FreeTube will connect to for API
       calls. Clear the current instance to see a list of public instances to choose
-      from
+      from.
     Thumbnail Preference: All thumbnails throughout FreeTube will be replaced with
-      a frame of the video instead of the default thumbnail
+      a frame of the video instead of the default thumbnail.
     Fallback to Non-Preferred Backend on Failure: When your preferred API has a problem,
       FreeTube will automatically attempt to use your non-preferred API as a fallback
-      method when it's enabled
+      method when enabled.
     Preferred API Backend: Choose the back-end that FreeTube uses to obtain data.
       The local API is a built-in extractor. The Invidious API requires an Invidious
       server to connect to.
+  Privacy Settings:
+    Remove Video Meta Files: When enabled, FreeTube automatically deletes meta files
+      created during video playback, when the watch page is closed.
+Playing Next Video Interval: Playing next video in no time. Click to cancel. | Playing
+  next video in {nextVideoInterval} second. Click to cancel. | Playing next video
+  in {nextVideoInterval} seconds. Click to cancel.
+More: More
+Hashtags have not yet been implemented, try again later: Hashtags have not yet been
+  implemented, try again later
+Unknown YouTube url type, cannot be opened in app: Unknown YouTube url type, cannot
+  be opened in app
+Open New Window: Open New Window

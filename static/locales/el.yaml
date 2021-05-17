@@ -47,7 +47,7 @@ Search Filters:
     Last Hour: 'Τελευταίας ώρας'
     Today: 'Σήμερα'
     This Week: 'Τρέχουσα Εβδομάδα'
-    This Month: 'Αυτό το μήνα'
+    This Month: 'Τρέχων μήνα'
     This Year: 'Τρέχων έτος'
   Type:
     Type: 'Είδος'
@@ -170,7 +170,7 @@ Settings:
     Autoplay Videos: 'Αυτόματη αναπαραγωγή βίντεο'
     Proxy Videos Through Invidious: 'Βίντεο μέσω του διακομιστή μεσολάβησης Invidious'
     Autoplay Playlists: 'Αυτόματη αναπαραγωγή της λίστας αναπαραγωγής'
-    Enable Theatre Mode by Default: 'Ενεργοποίση λειτουργίας κινηματογράφου από προεπιλογή'
+    Enable Theatre Mode by Default: 'Ενεργοποίηση λειτουργίας κινηματογράφου από προεπιλογή'
     Default Volume: 'Προεπιλεγμένο επίπεδο έντασης'
     Default Playback Rate: 'Προεπιλεγμένη ταχύτητα αναπαραγωγής'
     Default Video Format:
@@ -190,6 +190,8 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Playlist Next Video Interval: Παύση μεταξύ Βίντεο στη λίστα αναπαραγωγής
+    Next Video Interval: Επόμενο διάστημα του βίντεο
   Privacy Settings:
     Privacy Settings: 'Ρυθμίσεις απορρήτου'
     Remember History: 'Διατήρηση ιστορικού'
@@ -206,6 +208,7 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Είστε
       βέβαιοι ότι θέλετε να καταργήσετε όλες τις συνδρομές και τα προφίλ; Αυτό δεν
       μπορεί να αναιρεθεί.'
+    Automatically Remove Video Meta Files: Αυτόματη αφαίρεση μετα-αρχείων βίντεο
   Subscription Settings:
     Subscription Settings: 'Ρυθμίσεις Συνδρομών'
     Hide Videos on Watch: 'Απόκρυψη των βίντεο κατά την αναπαραγωγή'
@@ -290,6 +293,7 @@ Settings:
     Hide Channel Subscribers: Απόκρυψη συνδρομών καναλιού
     Hide Video Views: Απόκρυψη προβολών βίντεο
     Hide Active Subscriptions: Απόκρυψη ενεργών συνδρομών
+    Hide Playlists: Απόκρυψη λιστών αναπαραγωγής
   The app needs to restart for changes to take effect. Restart and apply change?: Η
     εφαρμογή πρέπει να κάνει επανεκκίνηση για να εφαρμοστούν οι αλλαγές. Επανεκκίνηση
     και εφαρμογή αλλαγών;
@@ -411,6 +415,7 @@ Profile:
     βέβαιοι ότι θέλετε να διαγράψετε τα επιλεγμένα κανάλια;  Αυτό δε θα διαγράψει
     το κανάλι από οποιοδήποτε άλλο προφίλ.'
 #On Channel Page
+  Profile Filter: Φίλτρο προφίλ
 Channel:
   Subscriber: 'Συνδρομητής'
   Subscribers: 'Συνδρομητές'
@@ -462,7 +467,7 @@ Video:
   View: 'Προβολή'
   Views: 'Προβολές'
   Loop Playlist: 'Επανάληψη λίστας αναπαραγωγής'
-  Shuffle Playlist: 'Τυχαία αναπαραγωγή'
+  Shuffle Playlist: 'Τυχαία σειρά στη λίστα αναπαραγωγής'
   Reverse Playlist: 'Αντιστροφή της λίστας αναπαραγωγής'
   Play Next Video: 'Αναπαραγωγή επόμενου βίντεο'
   Play Previous Video: 'Αναπαραγωγή προηγούμενου βίντεο'
@@ -537,6 +542,7 @@ Video:
     λίστα σας
   Video has been saved: Το βίντεο έχει αποθηκευτεί
   Save Video: Αποθήκευση βίντεο
+  translated from English: μεταφράστηκε από τα Αγγλικά
 Videos:
   #& Sort By
   Sort By:
@@ -653,27 +659,41 @@ Tooltips:
   Player Settings:
     Default Video Format: Ορίστε τις μορφές που χρησιμοποιούνται κατά την αναπαραγωγή
       ενός βίντεο. Οι μορφές DASH μπορούν να παίξουν υψηλότερη ποιότητα. Οι παλαιότερες
-      μορφές περιορίζονται σε μέγιστο ανάλυσγς 720p αλλά χρησιμοποιούν λιγότερους
-      πόρους. Οι μορφές ήχου περιλαμβάνουν ροές μόνο ήχου
-    Proxy Videos Through Invidious: Θα συνδεθεί με το Invidious για να σερβίρει τα
-      βίντεο αντί να κάνει μια άμεση σύνδεση με το YouTube. Παράκαμψη προτίμησης API
+      μορφές περιορίζονται σε μέγιστο ανάλυσης 720p αλλά χρησιμοποιούν λιγότερους
+      πόρους. Οι μορφές ήχου περιλαμβάνουν ροές μόνο ήχου.
+    Proxy Videos Through Invidious: Θα συνδεθεί με το Invidious για να εξυπηρετήσει
+      τα βίντεο αντί να κάνει μια άμεση σύνδεση με το YouTube. Παράκαμψη προτίμησης
+      API.
     Force Local Backend for Legacy Formats: Λειτουργεί μόνο όταν το Invidious API
       είναι η προεπιλογή σας. Όταν ενεργοποιηθεί, το τοπικό API θα χρησιμοποιήσει
       τις μορφές παλαιού τύπου που επιστρέφονται από αυτό αντί για αυτές που επιστρέφονται
       από το Invidious. Βοηθά όταν τα βίντεο που επιστρέφονται από το Invidious δεν
-      αναπαράγονται λόγω περιορισμών χώρας
+      αναπαράγονται λόγω περιορισμών χώρας.
   General Settings:
     Region for Trending: Η περιοχή των τάσεων σας επιτρέπει να επιλέξετε τα δημοφιλή
       βίντεο της χώρας που θέλετε να εμφανίζονται. Δεν υποστηρίζονται όλες οι χώρες
-      που προβάλλονται από το YouTube
+      που προβάλλονται από το YouTube.
     Thumbnail Preference: Όλες οι μικρογραφίες του FreeTube θα αντικατασταθούν με
-      ένα πλαίσιο του βίντεο αντί για την προεπιλεγμένη μικρογραφία
+      ένα πλαίσιο του βίντεο αντί για την προεπιλεγμένη μικρογραφία.
     Fallback to Non-Preferred Backend on Failure: Όταν το προτιμώμενο API αντιμετωπίζει
       πρόβλημα, το FreeTube θα προσπαθήσει να χρησιμοποιήσει το μη προτιμώμενο API
-      ως εναλλακτική μέθοδο όταν ενεργοποιηθεί
+      ως εναλλακτική μέθοδο όταν ενεργοποιηθεί.
     Preferred API Backend: Επέλεξε το σύστημα με το οποίο το Freetube θα συλλέγει
       δεδομένα. Το τοπικό API είναι ένα ενσωματωμένο εργαλείο. Ενώ το Invidious API
       απαιτεί έναν Invidious server για να συνδεθεί.
     Invidious Instance: Το στιγμιότυπο Invidious στο οποίο το FreeTube θα συνδεθεί
       για κλήσεις διεπαφής. Καθαρίστε το παρόν στιγμιότυπο για να δείτε μια λίστα
-      δημόσιων στιγμιότυπων προς επιλογή
+      δημόσιων στιγμιότυπων προς επιλογή.
+  Privacy Settings:
+    Remove Video Meta Files: Όταν είναι ενεργοποιημένο, το FreeTube διαγράφει αυτόματα
+      τα μετα-αρχεία που δημιουργήθηκαν κατά την αναπαραγωγή βίντεο, όταν η σελίδα
+      παρακολούθησης είναι κλειστή.
+Playing Next Video Interval: Αναπαραγωγή επόμενου βίντεο άμεσα. Κάντε κλικ για ακύρωση.
+  | Αναπαραγωγή επόμενου βίντεο σε {nextVideoInterval} δευτερόλεπτο. Κάντε κλικ για
+  ακύρωση. | Αναπαραγωγή επόμενου βίντεο σε {nextVideoInterval} δευτερόλεπτα. Κάντε
+  κλικ για ακύρωση.
+More: Περισσότερα
+Hashtags have not yet been implemented, try again later: Τα Hashtags δεν έχουν ακόμη
+  εφαρμοστεί, δοκιμάστε ξανά αργότερα
+Unknown YouTube url type, cannot be opened in app: Άγνωστος τύπος διεύθυνσης URL YouTube,
+  δεν είναι δυνατό να ανοίξει στην εφαρμογή

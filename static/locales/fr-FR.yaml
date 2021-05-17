@@ -91,7 +91,7 @@ User Playlists:
   Playlist Message: Cette page ne reflète pas les listes de lecture entièrement fonctionnelles.
     Elle ne répertorie que les vidéos que vous avez enregistrées ou mises en favoris.
     Une fois le travail terminé, toutes les vidéos actuellement présentes ici seront
-    migrées vers une liste de lecture «Favoris».
+    migrées vers une liste de lecture « Favoris ».
 History:
   # On History Page
   History: 'Historique'
@@ -129,6 +129,7 @@ Settings:
     Check for Updates: Vérifier les mises à jour
     View all Invidious instance information: Voir les informations de toutes les instances
       Invidious
+    System Default: Valeur par défaut du système
   Theme Settings:
     Theme Settings: 'Paramètres du thème'
     Match Top Bar with Main Color: 'Faire correspondre la barre supérieure à la couleur
@@ -176,7 +177,7 @@ Settings:
     Default Playback Rate: 'Vitesse de lecture par défaut'
     Default Video Format:
       Default Video Format: 'Format de vidéo par défaut'
-      Dash Formats: 'Format Dash'
+      Dash Formats: 'Format DASH'
       Legacy Formats: 'Format Legacy'
       Audio Formats: 'Format Audio'
     Default Quality:
@@ -191,6 +192,9 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Playlist Next Video Interval: Intervalle de la prochaine vidéo dans la liste de
+      lecture
+    Next Video Interval: Intervalle vidéo suivante
   Subscription Settings:
     Subscription Settings: 'Paramètres des abonnements'
     Hide Videos on Watch: 'Masquer les vidéos visionnées'
@@ -247,6 +251,8 @@ Settings:
       sûr(e) de vouloir supprimer tous les abonnements et les profils ? Cette action
       est définitive.
     Remove All Subscriptions / Profiles: Supprimer tous les Abonnements / Profils
+    Automatically Remove Video Meta Files: Suppression automatique des MétaFichiers
+      vidéo
   Data Settings:
     How do I import my subscriptions?: Comment importer mes abonnements ?
     Subscriptions have been successfully exported: Les abonnements ont été exportés
@@ -292,12 +298,13 @@ Settings:
     Hide Comment Likes: Masquer les J'aime dans les commentaires
     Hide Channel Subscribers: Masquer le nombre d'abonnés des chaînes
     Hide Video Views: Masquer les vues des vidéos
-    Hide Live Chat: Masquer le chat en direct
+    Hide Live Chat: Masquer le tchat en direct
     Hide Popular Videos: Masquer les vidéos populaires
     Hide Trending Videos: Masquer les tendances
     Hide Recommended Videos: Masquer les vidéos recommandées
     Distraction Free Settings: Mode sans distraction
     Hide Active Subscriptions: Masquer les abonnements actifs
+    Hide Playlists: Masquer les listes de lecture
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
@@ -318,6 +325,13 @@ Settings:
     Proxy Protocol: Protocole du proxy
     Enable Tor / Proxy: Activer Tor / Proxy
     Proxy Settings: Paramètres du proxy
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Notification lorsqu'un segment sponsorisé
+      est ignoré
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL de l'API SponsorBlock
+      (la valeur par défaut est https://sponsor.ajay.app)
+    Enable SponsorBlock: Activer SponsorBlock
+    SponsorBlock Settings: Paramètres de SponsorBlock
 About:
   #On About page
   About: 'À propos'
@@ -353,7 +367,7 @@ About:
 
 #On Channel Page
   Channel Rules: Règles du salon
-  Website: Site internet
+  Website: Site web
   Source Code: Code source
   Release Notes: Notes de version
   Email: Courriel
@@ -370,7 +384,7 @@ About:
   Donate: Faire un don
   Useful Links: Liens utiles
   Translate: Aidez-nous à traduire FreeTube
-  Chat on Matrix: Chatter sur Matrix
+  Chat on Matrix: Discuter sur Matrix
   Mastodon: Mastodon
   Report a problem: Signaler un problème
   View License: Voir la license
@@ -381,7 +395,7 @@ About:
   room rules: règles du salon
   Please read the: Veuillez lire les
   Please check for duplicates before posting: Veuillez vérifier s'il y a des doublons
-    avant de poster
+    avant de publier
   GitHub issues: Les problèmes identifiés par la communauté sur GitHub
   FreeTube Wiki: Wiki de FreeTube
   GitHub releases: Les différentes versions de FreeTube disponibles sur GitHub
@@ -509,6 +523,15 @@ Video:
     enregistrée
   Video has been saved: La vidéo a été enregistrée
   Save Video: Enregistrer la vidéo
+  translated from English: traduit de l’anglais
+  Sponsor Block category:
+    music offtopic: musique hors sujet
+    interaction: interaction
+    sponsor: sponsor
+    self-promotion: autopromotion
+    outro: outro
+    intro: intro
+  Skipped segment: Segment ignoré
 Videos:
   #& Sort By
   Sort By:
@@ -536,12 +559,12 @@ Playlist:
 Toggle Theatre Mode: 'Mode Cinéma'
 Change Format:
   Change Video Formats: 'Changer le format de la vidéo'
-  Use Dash Formats: 'Utiliser le format Dash'
+  Use Dash Formats: 'Utiliser le format DASH'
   Use Legacy Formats: 'Utiliser le format Legacy'
   Use Audio Formats: 'Utiliser le format Audio'
   Audio formats are not available for this video: Le format Audio n'est pas disponible
     pour cette vidéo
-  Dash formats are not available for this video: Le format Dash n'est pas disponible
+  Dash formats are not available for this video: Le format DASH n'est pas disponible
     pour cette vidéo
 Share:
   Share Video: 'Partager la vidéo'
@@ -647,6 +670,7 @@ Profile:
   Select All: Tout sélectionner
   $ selected: $ sélectionné(s)
   Other Channels: Autres chaînes
+  Profile Filter: Filtre de profil
 The playlist has been reversed: La liste de lecture a été inversée
 A new blog is now available, $. Click to view more: Un nouveau billet est maintenant
   disponible, $. Cliquez pour en savoir plus
@@ -664,29 +688,43 @@ Tooltips:
       comme la durée de la vidéo ou le statut en direct
   Player Settings:
     Default Video Format: Définir les formats utilisés lors de la lecture d'une vidéo.
-      Les formats Dash peuvent être lus en qualité supérieure. Les formats Legacy
+      Les formats DASH peuvent être lus en qualité supérieure. Les formats Legacy
       sont limités à un maximum de 720p mais utilisent moins de bande passante. Les
-      formats audio sont des flux audio uniquement
+      formats audio sont des flux audio uniquement.
     Proxy Videos Through Invidious: Se connectera à Invidious pour lire des vidéos
       au lieu d'établir une connexion directe avec YouTube. Remplace les préférences
-      de l'API
+      de l'API.
     Force Local Backend for Legacy Formats: Ne fonctionne que lorsque l'API Invidious
       est activée par défaut. Lorsqu'elle est activée, l'API locale s'exécute et utilise
       les formats Legacy renvoyés par celle-ci au lieu de ceux renvoyés par Invidious.
       Utile lorsque les vidéos renvoyées par Invidious ne sont pas lues en raison
-      de restrictions pays
+      de restrictions pays.
   General Settings:
     Invidious Instance: L'instance Invidious à laquelle FreeTube se connectera pour
       les appels d'API. Effacez l'instance actuelle pour voir une liste d'instances
-      publiques parmi lesquelles choisir
+      publiques parmi lesquelles choisir.
     Thumbnail Preference: Toutes les miniatures de FreeTube seront remplacées par
-      une image de la vidéo au lieu de la vignette par défaut
+      une image de la vidéo au lieu de la vignette par défaut.
     Fallback to Non-Preferred Backend on Failure: Lorsque votre API préférée a un
       problème, FreeTube tentera automatiquement d'utiliser votre API non préférée
-      comme méthode de secours lorsqu'elle est activée
+      comme méthode de secours lorsqu'elle est activée.
     Preferred API Backend: Choisissez le backend que FreeTube utilise pour obtenir
       les données. L'API locale est un extracteur intégré. L'API Invidious nécessite
       un serveur Invidious pour se connecter.
     Region for Trending: Ceci vous permet de choisir les vidéos tendance du pays que
       vous souhaitez afficher. Attention, certains pays affichés ne sont pas pris
-      en charge par YouTube
+      en charge par YouTube.
+  Privacy Settings:
+    Remove Video Meta Files: Lorsqu'il est activé, FreeTube supprime automatiquement
+      les MétaFichiers créés pendant la lecture de la vidéo, dès que la page de la
+      vidéo est quittée.
+More: Plus
+Playing Next Video Interval: Lecture de la prochaine vidéo en un rien de temps. Cliquez
+  pour annuler. | Lecture de la prochaine vidéo dans {nextVideoInterval} seconde.
+  Cliquer pour annuler. | Lecture de la vidéo suivante dans {l'intervalle vidéo suivant}
+  secondes. Cliquer pour annuler.
+Hashtags have not yet been implemented, try again later: Les hashtags n'ont pas encore
+  été implémentés, réessayez plus tard
+Unknown YouTube url type, cannot be opened in app: Type d’url YouTube inconnu, ne
+  peut pas être ouvert dans l’application
+Open New Window: Ouvrir une nouvelle fenêtre

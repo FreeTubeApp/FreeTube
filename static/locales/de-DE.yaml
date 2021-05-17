@@ -1,7 +1,7 @@
 FreeTube: FreeTube
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Dieser Teil des Programms ist noch nicht fertig. Bitte komme zu einem späteren Zeitpunkt
+  Dieser Teil des Programms ist noch nicht fertig. Bitte komm zu einem späteren Zeitpunkt
   wieder.
 
 # Webkit Menu Bar
@@ -70,13 +70,13 @@ Subscriptions:
   Subscriptions: Abonnements
   Latest Subscriptions: Neueste Abonnements
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Deine
-    Abonnementliste ist aktuell leer. Beginne Abonnements hinzuzufügen um sie hier
+    Abonnementliste ist aktuell leer. Beginne Abonnements hinzuzufügen, um sie hier
     zu sehen.
   'Getting Subscriptions.  Please wait.': Rufe Abonnements ab. Bitte warten.
   Refresh Subscriptions: Abonnements aktualisieren
   Getting Subscriptions. Please wait.: Lade Abonnements. Bitte warten.
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Dieses
-    Profil hat eine große Anzahl von Abonnenten.  RSS zur Vermeidung von Tarifbeschränkungen
+    Profil hat eine große Anzahl von Abonnements.  RSS zur Vermeidung von Geschwindigkeitsbeschränkungen
     erzwingen
   Load More Videos: Lade mehr Videos
 Trending: Trends
@@ -85,12 +85,12 @@ Playlists: Wiedergabelisten
 User Playlists:
   Your Playlists: Deine Wiedergabelisten
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Deine
-    gespeicherten Videos sind leer. Klicken Sie auf die Schaltfläche "Speichern" in
-    der Ecke eines Videos, damit es hier aufgelistet wird
+    gespeicherten Videos sind leer. Klicke auf die Schaltfläche „Speichern“ in der
+    Ecke eines Videos, damit es hier aufgelistet wird
   Playlist Message: Diese Seite spiegelt nicht die vollständig funktionierenden Wiedergabelisten
-    wider. Sie listet nur Videos auf, die Sie gespeichert oder favorisiert haben.
-    Wenn die Arbeiten abgeschlossen sind, werden alle Videos, die sich derzeit hier
-    befinden, in eine Wiedergabeliste "Favoriten" migriert.
+    wider. Sie listet nur Videos auf, die Du gespeichert oder favorisiert hast. Wenn
+    die Arbeiten abgeschlossen sind, werden alle Videos, die sich derzeit hier befinden,
+    in eine Wiedergabeliste „Favoriten“ migriert.
 History:
   # On History Page
   History: Verlauf
@@ -110,7 +110,7 @@ Settings:
     Preferred API Backend:
       Preferred API Backend: Bevorzugtes API-System
       Local API: Lokale API
-      Invidious API: Invidious API
+      Invidious API: Invidious-API
     Video View Type:
       Video View Type: Videoansichtstyp
       Grid: Gitter
@@ -130,7 +130,7 @@ Settings:
     View all Invidious instance information: Alle Informationen zur Invidious-Instanz
       anzeigen
   Theme Settings:
-    Theme Settings: Thema Einstellungen
+    Theme Settings: Thema-Einstellungen
     Match Top Bar with Main Color: Obere Leiste an Hauptfarbe anpassen
     Base Theme:
       Base Theme: Grundlegendes Thema
@@ -174,7 +174,7 @@ Settings:
     Default Playback Rate: Standard-Wiedergabegeschwindigkeit
     Default Video Format:
       Default Video Format: Standard-Videoformat
-      Dash Formats: DASH-Formate
+      Dash Formats: DASH-Format
       Legacy Formats: Legacy Formate
       Audio Formats: Audioformate
     Default Quality:
@@ -189,6 +189,7 @@ Settings:
       1440p: 1440p
       4k: 4k
       8k: 8k
+    Playlist Next Video Interval: Zeit zwischen automatischer Videowiedergabe
   Subscription Settings:
     Subscription Settings: Abonnement-Einstellungen
     Hide Videos on Watch: Verstecke Videos bei Wiedergabe
@@ -245,6 +246,7 @@ Settings:
       du sicher, dass du alle Abonnements und Profile löschen möchtest?  Diese Aktion
       kann nicht rückgängig gemacht werden.
     Remove All Subscriptions / Profiles: Alle Abonnements / Profile löschen
+    Automatically Remove Video Meta Files: Meta-Dateien von Videos automatisch löschen
   Data Settings:
     How do I import my subscriptions?: Wie importiere ich meine Abonnements?
     Unknown data key: Unbekannter Datenschlüssel
@@ -295,6 +297,7 @@ Settings:
     Hide Video Views: Video-Aufrufe verbergen
     Distraction Free Settings: Einstellungen für ablenkungsfreien Modus
     Hide Active Subscriptions: Aktive Abonnements ausblenden
+    Hide Playlists: Wiedergabelisten ausblenden
   The app needs to restart for changes to take effect. Restart and apply change?: Um
     die Änderungen anzuwenden muss die Anwendung neustarten. Jetzt neustarten und
     Änderungen aktivieren?
@@ -350,7 +353,7 @@ About:
   This software is FOSS and released under the GNU Affero General Public License v3.0.: Diese
     freie Software ist unter der AGPL-3.0 lizenziert.
   Translate via Weblate: Auf Weblate übersetzen
-  Website: Webseite
+  Website: Website
   Source Code: Quellcode
   Release Notes: Versionshinweise
   Blog: Blog
@@ -359,7 +362,7 @@ About:
   Wiki: Wiki
   Report an Issue: Fehler melden
   Channel Rules: Kanalregeln
-  Email: Email
+  Email: E-Mail
   License: Lizenz
   Beta: Beta
   Donate: Spenden
@@ -375,7 +378,7 @@ About:
   Mastodon: Mastodon
   Please check for duplicates before posting: Bitte überprüfe vor dem Absenden, ob
     es Duplikate gibt
-  GitHub issues: GitHub Issues
+  GitHub issues: GitHub-Probleme
   Report a problem: Problem melden
   FreeTube Wiki: FreeTube Wiki
   GitHub releases: GitHub Veröffentlichungen
@@ -504,6 +507,7 @@ Video:
     Videos entfernt
   Video has been saved: Video wurde gespeichert
   Save Video: Video speichern
+  translated from English: Aus dem Englischen übersetzt
 Videos:
   #& Sort By
   Sort By:
@@ -538,12 +542,12 @@ Share Playlist:
 Toggle Theatre Mode: Kinomodus umschalten
 Change Format:
   Change Video Formats: Ändere Videoformat
-  Use Dash Formats: Nutze DASH-Format
+  Use Dash Formats: DASH-Format benutzen
   Use Legacy Formats: Nutze Altformat
   Use Audio Formats: Nutze Audioformat
   Audio formats are not available for this video: Es sind keine Audioformate für dieses
     Video verfügbar
-  Dash formats are not available for this video: Das DASH-Format ist für dieses Video
+  Dash formats are not available for this video: DASH-Formate sind für dieses Video
     nicht verfügbar
 Share:
   Share Video: Teile das Video
@@ -649,6 +653,7 @@ Profile:
   Other Channels: Andere Kanäle
   Subscription List: Abonnement-Liste
   Profile Select: Profilauswahl
+  Profile Filter: Profilfilter
 The playlist has been reversed: Die Wiedergabeliste wurde umgedreht
 A new blog is now available, $. Click to view more: Ein neuer Blogeintrag ist verfügbar,
   $. Um ihn zu öffnen klicken
@@ -657,33 +662,45 @@ Version $ is now available!  Click for more details: Version $ ist jetzt verfüg
   mehr Details klicken
 Tooltips:
   General Settings:
-    Thumbnail Preference: Alle Videovoransichten in FreeTube werden durch ein Einzelbild
-      aus dem Video ersetzt und entsprechen somit nicht mehr der Standardvoransicht.
-    Invidious Instance: Die Invidious-Instanz, welche FreeTube für API-Aufrufe verwendet.
+    Thumbnail Preference: Alle Thumbnails in FreeTube werden durch ein Standbild aus
+      dem Video ersetzt und entsprechen somit nicht mehr dem Standart-Vorschaubild.
+    Invidious Instance: Die Invidious-Instanz, welche FreeTube für API-Calls verwendet.
       Leere die aktuelle Instanz, um eine vollständige Liste der verfügbaren Server
       anzuzeigen.
     Fallback to Non-Preferred Backend on Failure: Erlaube FreeTube, falls die bevorzugte
-      API nicht verfügbar sein sollte, automatisch die nicht bevorzugte Alternative
-      zu nutzen.
+      API nicht verfügbar sein sollte, automatisch eine alternative API zu nutzen.
     Preferred API Backend: Wähle das Backend, welches FreeTube zum Laden der Daten
-      nutzen soll. Die lokale API ist ein integrierter Extrahierer. Die Invidious
-      API dagegen verwendet einen externen Server.
+      nutzen soll. Die lokale API ist ein integrierter Extrahierer. Die Invidious-API
+      dagegen verwendet einen externen Server.
     Region for Trending: Die Trendregion erlaubt es dir auszuwählen, aus welchem Land
       die Trends angezeigt werden sollen. Nicht alle Optionen werden auch von YouTube
-      unterstützt
+      unterstützt.
   Subscription Settings:
-    Fetch Feeds from RSS: Mit dieser Option nutzt FreeTube einen RSS-Feed von Youtube
-      um deine Abonnements zu aktualisieren. RSS ist sowohl schneller als auch sicherer,
-      wenn du oft temporär von YouTube geblockt wirst(Error 429). Allerdings sind
-      nicht alle Videoinformationen, wie Videodauer oder Live-Status, verfügbar.
+    Fetch Feeds from RSS: Sobald aktiviert wird FreeTube RSS anstatt der Standartmethode
+      nutzen, um deine Abos zu aktualisieren. RSS ist schneller und verhindert das
+      Blockieren deiner IP-Adresse, doch gewisse Informationen, wie z.B. die Dauer
+      des Videos oder der Status eines Livestreams, werden nicht mehr verfügbar sein
   Player Settings:
-    Default Video Format: Auswahl der Formate bei der Videowiedergabe. Dash-Formate
-      bieten eine höhere Qualität, Legacy-Formate sind auf 720p begrenzt, benötigen
-      dafür aber auch weniger Bandbreite. Audioformate umfassen reine Audiostreams.
+    Default Video Format: Auswahl der Formate bei der Videowiedergabe. DASH-Formate
+      bieten eine höhere Qualität, LEGACY-Formate sind auf 720p begrenzt, benötigen
+      dafür aber auch weniger Bandbreite. Audioformate beinhalten nur den Ton.
     Proxy Videos Through Invidious: Zu Invidious verbinden, um Videos abzurufen, anstatt
       eine direkten Verbindung zu YouTube aufzubauen. Überschreibt die API-Präferenz.
-    Force Local Backend for Legacy Formats: Dies funktioniert nur wenn du die Invidious
-      API als Standard ausgewählt hast. Die lokale API wird bei der Verwendung von
-      Legacy Formaten diese verwenden, anstatt auf Invidious zurückzugreifen. Dies
-      hilft dann, wenn Videos von Invidious nicht abspielbar sind. Zum Beispiel aufgrund
-      von Landesbeschränkungen.
+    Force Local Backend for Legacy Formats: Funktioniert nur, wenn du die Invidious-API
+      als Standard ausgewählt hast. Die lokale API wird bei der Verwendung von "Legacy"
+      -Formaten diese verwenden, anstatt auf Invidious zurückzugreifen. Dies hilft
+      dann, wenn Videos von Invidious aufgrund von Ländersperren nicht abspielbar
+      sind.
+  Privacy Settings:
+    Remove Video Meta Files: Bei Aktivierung löscht FreeTube alle Meta-Dateien die
+      während der Videowiedergabe erzeugt werden, sobald die Videoseite verlassen
+      wird.
+Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrechen
+  klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
+  klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
+  klicken.
+More: Weiteres
+Hashtags have not yet been implemented, try again later: Hashtags wurden noch nicht
+  implementiert, bitte versuche es später noch einmal
+Unknown YouTube url type, cannot be opened in app: Unbekannte YouTube-Adresse, kann
+  in FreeTube nicht geöffnet werden

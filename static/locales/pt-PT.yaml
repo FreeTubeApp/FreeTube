@@ -88,11 +88,12 @@ Most Popular: Mais Populares
 Playlists: Listas de Reprodução
 User Playlists:
   Your Playlists: As suas Listas de Reprodução
-  Playlist Message: Esta página não é indicativa do resultado final. Apenas mostra 
-    vídeos que foram guardados ou marcados como favoritos. Quando estiver pronta, 
+  Playlist Message: Esta página não é indicativa do resultado final. Apenas mostra
+    vídeos que foram guardados ou marcados como favoritos. Quando estiver pronta,
     todos os vídeos que estiverem aqui serão postos numa lista chamada 'Favoritos'.
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: A sua lista está vazia. Carregue no botão com a estrela no canto de um vídeo para o 
-    guardar aqui.
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Os
+    seus vídeos guardados estão vazios. Clique no botão gravar no canto de um vídeo
+    para ser listado aqui
 History:
   # On History Page
   History: Histórico
@@ -112,7 +113,7 @@ Settings:
       Preferido em Caso de Falha
     Enable Search Suggestions: Activar Sugestões de Pesquisa
     Default Landing Page: Página Inicial
-    Locale Preference: Localização
+    Locale Preference: Idioma
     Preferred API Backend:
       Preferred API Backend: Sistema de Ligação Favorito
       Local API: API Local
@@ -129,9 +130,11 @@ Settings:
       End: Fim
     'Invidious Instance (Default is https://invidious.snopyta.org)': Instância Invidious
       (Por omissão é https://invidious.snopyta.org)
-    View all Invidious instance information: Mostrar toda a informação sobre esta instância Invidious
+    View all Invidious instance information: Mostrar toda a informação sobre esta
+      instância Invidious
     Region for Trending: Região para as tendências
         #! List countries
+    System Default: Definições do sistema
   Theme Settings:
     Theme Settings: Definições de Tema
     Match Top Bar with Main Color: Utilizar Cor Principal Para Barra Superior
@@ -178,7 +181,7 @@ Settings:
     Default Playback Rate: Velocidade de Reprodução
     Default Video Format:
       Default Video Format: Formato de Vídeo
-      Dash Formats: Formato Dash
+      Dash Formats: Formatos DASH
       Legacy Formats: Formato Antigo
       Audio Formats: Formato de Áudio
     Default Quality:
@@ -193,6 +196,7 @@ Settings:
       1440p: 1440p
       4k: 4k
       8k: 8k
+    Next Video Interval: Próximo intervalo de vídeo
   Privacy Settings:
     Privacy Settings: Definições de Privacidade
     Remember History: Lembrar Histórico
@@ -209,6 +213,8 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Tem
       a certeza de que quer apagar todas as suas subscrições e perfis? Esta acção
       não pode ser revertida.
+    Automatically Remove Video Meta Files: Remover automaticamente os metficheiros
+      de vídeo
   Subscription Settings:
     Subscription Settings: Definições de Subscrições
     Hide Videos on Watch: Esconder Vídeos Visualisados
@@ -230,6 +236,7 @@ Settings:
     Hide Popular Videos: Esconder Mais Populares
     Hide Live Chat: Esconder Chat ao Vivo
     Hide Active Subscriptions: Esconder Subscrições da barra lateral
+    Hide Playlists: Ocultar listas de reprodução
   Data Settings:
     Data Settings: Definições de dados
     Select Import Type: Escolher tipo de importação
@@ -275,14 +282,16 @@ Settings:
     Proxy Protocol: Protocolo do Intermediário
     Proxy Host: Endereço do Intermediário
     Proxy Port Number: Porto do Intermediário
-    Clicking on Test Proxy will send a request to: Carregar em Testar Intermediário irá enviar um pedido a
+    Clicking on Test Proxy will send a request to: Carregar em Testar Intermediário
+      irá enviar um pedido a
     Test Proxy: Testar Intermediário
     Your Info: A sua Informação
     Ip: Ip
     Country: País
     Region: Região
     City: Cidade
-    Error getting network information. Is your proxy configured properly?: Houve um erro a receber a informação sobre a sua rede. Verifique que o seu intermediário está configurado correctamente.
+    Error getting network information. Is your proxy configured properly?: Erro ao
+      obter informações da rede. O seu proxy está configurado corretamente?
 About:
   #On About page
   About: Sobre
@@ -293,14 +302,15 @@ About:
   Downloads / Changelog: Descarregar / Mudanças
   GitHub releases: Lançamentos no GitHub
   Help: Ajuda
-  FreeTube Wiki: Wiki do FreeTube 
-  FAQ: Perguntas Frequentes
+  FreeTube Wiki: Wiki do FreeTube
+  FAQ: Perguntas frequentes
   Report a problem: Relatar um problema
   GitHub issues: Problemas no GitHub
-  Please check for duplicates before posting: É favor verificar se um problema já foi relatado
-  Website: Site
+  Please check for duplicates before posting: É favor verificar se um problema já
+    foi relatado
+  Website: Saite
   Blog: Blogue
-  Email: Email
+  Email: Correio eletrónico
   Mastodon: Mastodon
   Chat on Matrix: Chat no Matrix
   Please read the: Por favor leia as
@@ -352,6 +362,7 @@ Profile:
     os canais em mais nenhum perfil.
 #On Channel Page
   Profile Select: Selecção de perfil
+  Profile Filter: Filtro de Perfil
 Channel:
   Subscriber: Subscritor
   Subscribers: Subscritores
@@ -399,7 +410,7 @@ Video:
   Copy Invidious Link: Copiar Ligação para Invidious
   Open Channel in YouTube: Abrir Canal no Youtube
   Copy YouTube Channel Link: Copiar Ligação para Youtube
-  Open Channel in Invidious: Abrir Calan no Invidious
+  Open Channel in Invidious: Abrir Canal no Invidious
   Copy Invidious Channel Link: Copiar Ligação para Invidious
   View: Visualização
   Views: Visualizações
@@ -459,7 +470,7 @@ Video:
     Year: Ano
     Years: Anos
     Ago: Há
-    Upcoming: Estreia em breve
+    Upcoming: Futuramente em
   Published on: Publicado a
   Streamed on: Transmitido a
   Started streaming on: Transmissão iniciada a
@@ -471,6 +482,7 @@ Video:
   Reverse Playlist: Inverter lista de reprodução
   Shuffle Playlist: Baralhar lista de reprodução
   Loop Playlist: Repetir lista de reprodução
+  translated from English: Traduzido do inglês
 Videos:
   #& Sort By
   Sort By:
@@ -498,10 +510,10 @@ Playlist:
 Toggle Theatre Mode: Alternar Modo Cinema
 Change Format:
   Change Video Formats: Mudar Formato do Vídeo
-  Use Dash Formats: Utilizar Formato Dash
+  Use Dash Formats: Usar formatos DASH
   Use Legacy Formats: Utilizar Formato Antigo
   Use Audio Formats: Utilizar Formatos de Áudio
-  Dash formats are not available for this video: Formato DASH não disponível para
+  Dash formats are not available for this video: Formatos DASH não disponíveis para
     este vídeo
   Audio formats are not available for this video: Formato áudio não disponível para
     este vídeo
@@ -549,39 +561,43 @@ Up Next: A Seguir
 #Tooltips
 Tooltips:
   General Settings:
-    Preferred API Backend: O sistema que FreeTube utilizará para se ligar ao Youtube.
-      O API local existe como parte do FreeTube e faz ligações directas ao Youtube.
-      O API Invidious necessita de uma ligação a um servidor Invidious
-    Fallback to Non-Preferred Backend on Failure: Quando o seu sistema preferido encontrar
-      um erro, o FreeTube vai automaticamente tentar usar o sistema não preferido
-      como uma salvaguarda, caso esta opção esteja activada
-    Thumbnail Preference: Todas as antevisões dos vídeos no FreeTube vão ser substituidas
-      por um fotograma do vídeo
-    Invidious Instance: A instância Invidious à qual o FreeTube irá ligar-se para
-      ir buscar dados. Apague o que está escrito para ver uma lista de instâncias
-      públicas disponíveis
-    Region for Trending: A região permite-lhe escolher de qual país quer que seja
-      utilizado pela secção das tendências. Nem todos os países apresentados estão
-      de facto a funcionar devido ao Youtube
+    Preferred API Backend: Escolha o backend que o FreeTube usa para obter os dados.
+      O API local é um extrator incorporado. A API Invidious requer um servidor Invidious
+      para se conectar.
+    Fallback to Non-Preferred Backend on Failure: Quando a sua API preferida tiver
+      um problema, o FreeTube tentará usar automaticamente a sua API não preferida
+      em substituição quando ativado.
+    Thumbnail Preference: Todas as miniaturas do FreeTube serão substituídas por um
+      quadro do vídeo em vez da miniatura padrão.
+    Invidious Instance: A instância Invidious à qual o FreeTube se conectará para
+      chamadas de API. Apague a instância atual para ver uma lista de instâncias públicas
+      para escolher.
+    Region for Trending: A região de tendências permite-lhe de escolher quais vídeos
+      de tendências do país que quer exibir. Nem todos os países exibidos são realmente
+      suportados pelo YouTube.
   Player Settings:
-    Force Local Backend for Legacy Formats: Apenas funciona quando o API Invidious
-      é o seu sistema preferido. Quando activado, o API local irá ser usado para ir
-      buscar os formatos antigos, invés daqueles devolvidos pelo Invidious. Útil quando
-      os vídeos dados pelo Invidious não funcionam devido a restrições geográficas
-    Proxy Videos Through Invidious: O FreeTube irá ligar-se ao Invidious para apresentar
-      vídeos em vez de fazer uma ligação directa ao Youtube. Ignora a escolha de sistema
-      preferido
-    Default Video Format: Define o formato utilizado quando um vídeo é reproduzido.
-      O formato DASH consegue reproduzir melhor qualidades. O formato antigo está
-      limitado a 720p, mas utiliza menos rede. Formatos áudio são para transmissões
-      sem vídeo
+    Force Local Backend for Legacy Formats: Só funciona quando a API do Invidious
+      é predefinida. Quando ativada, a API local será executada e usará os formatos
+      antigos retornados por ela em vez dos retornados pelo Invidious. É útil quando
+      os vídeos retornados pelo Invidious não são reproduzidos devido a restrições
+      de país.
+    Proxy Videos Through Invidious: Conectar-se-á ao Invidious para obter vídeos em
+      vez de fazer uma conexão direta com o YouTube. Ignora a preferência da API.
+    Default Video Format: Define os formatos usados quando um vídeo é reproduzido.
+      Formatos DASH podem reproduzir qualidades mais altas. Os formatos antigos são
+      limitados a um máximo de 720p, mas usam menos largura de banda. Formatos de
+      áudio são para transmissões sem vídeo.
   Subscription Settings:
-    Fetch Feeds from RSS: Quando activado, o FreeTube irá buscar as suas subscrições
-      através de RSS em vez do método normal. RSS é mais rápido e previne ser limitado
-      por fazer demasiadas ligações ao Youtube, mas não disponibiliza informação tal
-      como a duração de um vídeo ou se este é ao vivo
+    Fetch Feeds from RSS: Quando ativado, o FreeTube usará RSS em vez do método padrão
+      dele para obter o feed da sua assinatura. O RSS é mais rápido e evita bloqueio
+      de IP, mas não fornece certas informações como duração do vídeo ou estado ao
+      vivo
 
 # Toast Messages
+  Privacy Settings:
+    Remove Video Meta Files: Quando ativado, o FreeTube exclui automaticamente os
+      metficheiros criados durante a reprodução do vídeo quando a página de exibição
+      é fechada.
 Local API Error (Click to copy): API local encontrou um erro (Clique para copiar)
 Invidious API Error (Click to copy): API Invidious encontrou um erro (Clique para
   copiar)
@@ -606,3 +622,13 @@ Canceled next video autoplay: Reprodução automática cancelada
 Yes: Sim
 No: Não
 The playlist has been reversed: A lista de reprodução foi invertida
+Playing Next Video Interval: Reproduzindo o próximo vídeo imediatamente. Clique para
+  cancelar. | Reproduzindo o próximo vídeo em {nextVideoInterval} segundo(s). Clique
+  para cancelar. | Reproduzindo o próximo vídeo em {nextVideoInterval} segundos. Clique
+  para cancelar.
+More: Mais
+Hashtags have not yet been implemented, try again later: Os Hashtags ainda não foram
+  implementados, tente novamente mais tarde
+Unknown YouTube url type, cannot be opened in app: Tipo de url do YouTube desconhecido,
+  não pode ser aberto numa app
+Open New Window: Abrir uma nova janela

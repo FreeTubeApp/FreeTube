@@ -90,15 +90,24 @@ Most Popular: 'सबसे ज़्यादा देखा हुआ'
 Playlists: 'प्लेलिस्टे (playlists)'
 User Playlists:
   Your Playlists: 'आपके प्लेलिस्टे'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: आपके
+    पास बचाए गए वीडियोए नहीं हैं। एक वीडियो के कोने पर सेव बटन पर क्लिक (click) करें,
+    यहां लिस्ट पर वही आएगा
+  Playlist Message: यह पृष्ठ पूरी तरह से काम करने वाली प्लेलिस्ट को प्रतिबिंबित नहीं
+    करता है। यह केवल उन वीडियो को सूचीबद्ध करता है जिन्हें आपने सहेजा है या पसंदीदा
+    है। जब काम समाप्त हो जाता है, तो वर्तमान में यहां सभी वीडियो 'पसंदीदा' प्लेलिस्ट
+    में स्थानांतरित हो जाएंगे।
 History:
   # On History Page
-  History: ''
+  History: 'इतिहास'
   Watch History: ''
   Your history list is currently empty.: ''
 Settings:
   # On Settings Page
-  Settings: ''
-  The app needs to restart for changes to take effect. Restart and apply change?: ''
+  Settings: 'स्थापना'
+  The app needs to restart for changes to take effect. Restart and apply change?: 'ऐप
+    को प्रभावी होने वाले परिवर्तनों के लिए पुनः आरंभ करने की आवश्यकता है। Restart
+    और परिवर्तन लागू करें?'
   General Settings:
     General Settings: ''
     Check for Updates: ''
@@ -284,6 +293,7 @@ About:
 
   Latest FreeTube News: ''
 
+  Email: ईमेल
 Profile:
   Profile Select: ''
   All Channels: ''
@@ -531,3 +541,4 @@ Canceled next video autoplay: ''
 
 Yes: ''
 No: ''
+More: ज़्यादा

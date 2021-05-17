@@ -131,6 +131,7 @@ Settings:
     Region for Trending: 'Wilayah untuk Sedang Tren'
         #! List countries
     View all Invidious instance information: Lihat semua informasi situs Invidious
+    System Default: Sistem standar
   Theme Settings:
     Theme Settings: 'Pengaturan Tema'
     Match Top Bar with Main Color: 'Samakan Bilah Atas dengan Warna Utama'
@@ -175,7 +176,7 @@ Settings:
     Default Playback Rate: 'Laju Pemutaran Bawaan'
     Default Video Format:
       Default Video Format: 'Format Video Bawaan'
-      Dash Formats: 'Format Dash'
+      Dash Formats: 'Format DASH'
       Legacy Formats: 'Format Lama'
       Audio Formats: 'Format Audio'
     Default Quality:
@@ -191,6 +192,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Interval Video dalam Daftar Putar
+    Next Video Interval: Interval Video Selanjutnya
   Privacy Settings:
     Privacy Settings: 'Pengaturan Privasi'
     Remember History: 'Ingat Riwayat'
@@ -207,6 +209,7 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Apakah
       Anda yakin ingin menghapus semua langganan dan profil? Tindakan ini tidak bisa
       diurungkan.'
+    Automatically Remove Video Meta Files: Secara Otomatis Hapus File Meta Video
   Subscription Settings:
     Subscription Settings: 'Pengaturan Langganan'
     Hide Videos on Watch: 'Sembunyikan Video saat Menonton'
@@ -403,6 +406,7 @@ Profile:
     Anda yakin ingin menghapus kanal yang terpilih? Tindakan ini tidak akan menghapus
     kanalnya dari profil lain.'
 #On Channel Page
+  Profile Filter: Filter Profil
 Channel:
   Subscriber: 'Pelanggan'
   Subscribers: 'Pelanggan'
@@ -503,7 +507,7 @@ Video:
     Upcoming: 'Segera tayang di'
   Published on: 'Dipublikasi pada'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % yang lalu'
+  Publicationtemplate: '$ % yang lalu'
 #& Videos
   Audio:
     Best: Terbaik
@@ -525,6 +529,7 @@ Video:
     Anda
   Video has been saved: Video telah disimpan
   Save Video: Simpan Video
+  translated from English: diterjemahkan dari Bahasa Inggris
 Videos:
   #& Sort By
   Sort By:
@@ -552,10 +557,10 @@ Playlist:
 Toggle Theatre Mode: 'Mode Teater'
 Change Format:
   Change Video Formats: 'Ubah Format Video'
-  Use Dash Formats: 'Gunakan Format Dash'
+  Use Dash Formats: 'Gunakan Format DASH'
   Use Legacy Formats: 'Gunakan Format Legasi'
   Use Audio Formats: 'Gunakan Format Audio'
-  Dash formats are not available for this video: 'Format dash tidak tersedia untuk
+  Dash formats are not available for this video: 'Format DASH tidak tersedia untuk
     video ini'
   Audio formats are not available for this video: 'Format audio tidak tersedia untuk
     video ini'
@@ -628,32 +633,39 @@ Tooltips:
       IP, tetapi tidak menyediakan informasi tertentu seperti durasi video atau status
       siaran langsung
   Player Settings:
-    Default Video Format: Atur format yang digunakan ketika video diputar. Format
-      dash bisa memutar kualitas yang lebih tinggi. Format lama terbatas ke maks 720p
-      tetapi dengan bandwidth yang lebih rendah. Format audio hanya berisi stream
-      audio
+    Default Video Format: Atur format video. Format DASH bisa memutar kualitas yang
+      lebih tinggi. Format lama terbatas ke maks 720p tetapi dengan bandwidth yang
+      lebih rendah. Format audio hanya berisi stream audio.
     Proxy Videos Through Invidious: Akan menyambung ke Invidious daripada YouTube.
-      Menimpa preferensi API
+      Menimpa preferensi API.
     Force Local Backend for Legacy Formats: Hanya bekerja jika APi Invidious diatur
       sebagai default. Ketika diaktifkan, API lokal akan berjalan dan menggunakan
       format lama yang dihasilkan oleh API lokal daripada yang dihasilkan oleh API
       Invidious. Membantu saat video yang ditampilkan oleh Invidious tidak bisa diputar
-      karena dibatasi oleh wilayah pemutaran
+      karena dibatasi oleh wilayah pemutaran.
   General Settings:
     Region for Trending: Wilayah tren memungkinkan Anda memilih video yang sedang
       ngetren dari negara tersebut untuk ditampilkan. Tidak semua daftar negara didukung
-      oleh YouTube
+      oleh YouTube.
     Invidious Instance: Situs Invidious yang akan tersambung dengan FreeTube untuk
-      panggilan API. Hapus situs saat ini untuk melihat daftar situs publik yang didukung
+      panggilan API. Hapus situs saat ini untuk melihat daftar situs publik yang didukung.
     Thumbnail Preference: Semua thumbnail di dalam aplikasi FreeTube akan diganti
-      dengan frame dari video
+      dengan frame dari video.
     Fallback to Non-Preferred Backend on Failure: Ketika API yang Anda pilih memiliki
       masalah, FreeTube akan secara otomatis menggunakan layanan API lainnya sebagai
-      cadangan jika diaktifkan
+      cadangan jika diaktifkan.
     Preferred API Backend: Pilih layanan yang digunakan oleh FreeTube untuk mengambil
       data. API lokal adalah ekstraktor bawaan. API Invidious membutuhkan sambungan
       ke server Invidious.
+  Privacy Settings:
+    Remove Video Meta Files: Saat diaktifkan, FreeTube secara otomatis menghapus file
+      meta yang dibuat selama pemutaran video, saat halaman tonton ditutup.
 Playing Next Video Interval: Langsung putar video berikutnya. Klik untuk batal. |
   Putar video berikutnya dalam {nextVideoInterval} detik. Klik untuk batal. | Putar
   video berikutnya dalam {nextVideoInterval} detik. Klik untuk batal.
 More: Lebih banyak
+Hashtags have not yet been implemented, try again later: Hashtag belum diimplementasikan,
+  silakan coba lagi nanti
+Unknown YouTube url type, cannot be opened in app: Tipe URL YouTube tidak dikenal,
+  tidak bisa dibuka di aplikasi
+Open New Window: Buka Jendela Baru

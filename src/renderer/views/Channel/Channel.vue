@@ -70,6 +70,7 @@
           </div>
           <ft-input
             :placeholder="$t('Channel.Search Channel')"
+            :select-on-focus="true"
             class="channelSearch"
             @click="newSearch"
           />

@@ -257,7 +257,7 @@ export default Vue.extend({
         }
         this.thumbnailUrl = response.authorThumbnails[2].url
         this.channelDescription = autolinker.link(response.description)
-        this.relatedChannels = response.relatedChannels
+        this.relatedChannels = response.relatedChannels.items
 
         if (response.authorBanners !== null) {
           const bannerUrl = response.authorBanners[response.authorBanners.length - 1].url

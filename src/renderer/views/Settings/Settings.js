@@ -9,6 +9,7 @@ import PrivacySettings from '../../components/privacy-settings/privacy-settings.
 import DataSettings from '../../components/data-settings/data-settings.vue'
 import DistractionSettings from '../../components/distraction-settings/distraction-settings.vue'
 import ProxySettings from '../../components/proxy-settings/proxy-settings.vue'
+import SponsorBlockSettings from '../../components/sponsor-block-settings/sponsor-block-settings.vue'
 
 export default Vue.extend({
   name: 'Settings',
@@ -22,6 +23,7 @@ export default Vue.extend({
     'privacy-settings': PrivacySettings,
     'data-settings': DataSettings,
     'distraction-settings': DistractionSettings,
-    'proxy-settings': ProxySettings
+    'proxy-settings': ProxySettings,
+    'sponsor-block-settings': SponsorBlockSettings
   }
 })

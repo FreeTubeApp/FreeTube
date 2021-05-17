@@ -7,11 +7,14 @@
     <div class="inner">
       <div
         class="navOption topNavOption mobileShow"
+        role="button"
+        tabindex="0"
         @click="navigate('subscriptions')"
       >
         <font-awesome-icon
           icon="rss"
           class="navIcon"
+          fixed-width
         />
         <p class="navLabel">
           {{ $t("Subscriptions.Subscriptions") }}
@@ -20,11 +23,15 @@
       <div
         v-if="!hideTrendingVideos"
         class="navOption mobileHidden"
+        role="button"
+        tabindex="0"
         @click="navigate('trending')"
+        @keypress="navigate('trending')"
       >
         <font-awesome-icon
           icon="fire"
           class="navIcon"
+          fixed-width
         />
         <p class="navLabel">
           {{ $t("Trending") }}
@@ -33,11 +40,15 @@
       <div
         v-if="!hidePopularVideos"
         class="navOption mobileHidden"
+        role="button"
+        tabindex="0"
         @click="navigate('popular')"
+        @keypress="navigate('popular')"
       >
         <font-awesome-icon
           icon="users"
           class="navIcon"
+          fixed-width
         />
         <p class="navLabel">
           {{ $t("Most Popular") }}
@@ -46,11 +57,15 @@
       <div
         v-if="!hidePlaylists"
         class="navOption mobileShow"
+        role="button"
+        tabindex="0"
         @click="navigate('userplaylists')"
+        @keypress="navigate('userplaylists')"
       >
         <font-awesome-icon
           icon="bookmark"
           class="navIcon"
+          fixed-width
         />
         <p class="navLabel">
           {{ $t("Playlists") }}
@@ -61,11 +76,15 @@
       />
       <div
         class="navOption mobileShow"
+        role="button"
+        tabindex="0"
         @click="navigate('history')"
+        @keypress="navigate('history')"
       >
         <font-awesome-icon
           icon="history"
           class="navIcon"
+          fixed-width
         />
         <p class="navLabel">
           {{ $t("History.History") }}
@@ -74,11 +93,15 @@
       <hr>
       <div
         class="navOption mobileShow"
+        role="button"
+        tabindex="0"
         @click="navigate('settings')"
+        @keypress="navigate('settings')"
       >
         <font-awesome-icon
           icon="sliders-h"
           class="navIcon"
+          fixed-width
         />
         <p class="navLabel">
           {{ $t("Settings.Settings") }}
@@ -86,11 +109,15 @@
       </div>
       <div
         class="navOption mobileHidden"
+        role="button"
+        tabindex="0"
         @click="navigate('about')"
+        @keypress="navigate('about')"
       >
         <font-awesome-icon
           icon="info-circle"
           class="navIcon"
+          fixed-width
         />
         <p class="navLabel">
           {{ $t("About.About") }}
@@ -105,7 +132,10 @@
           :key="index"
           class="navChannel mobileHidden"
           :title="channel.name"
+          role="button"
+          tabindex="0"
           @click="goToChannel(channel.id)"
+          @keypress="goToChannel(channel.id)"
         >
           <div
             class="thumbnailContainer"
