@@ -1110,6 +1110,10 @@ body.vjs-full-window {
   margin-left: -1px;
 }
 
+.video-js .vjs-volume-tooltip {
+  display: none;
+}
+
 .video-js .vjs-volume-panel {
   transition: width 1s;
 }

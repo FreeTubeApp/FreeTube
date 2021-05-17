@@ -9,6 +9,7 @@
     <privacy-settings />
     <data-settings />
     <proxy-settings />
+    <sponsor-block-settings />
   </div>
 </template>
 
