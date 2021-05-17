@@ -154,7 +154,7 @@ export default Vue.extend({
           }
           break
         case 'community':
-          if (this.commu !== '' && this.searchContinuationString !== null) {
+          if (this.communityContinuationString !== '' && this.searchContinuationString !== null) {
             return true
           }
           break

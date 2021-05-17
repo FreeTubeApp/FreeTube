@@ -3,15 +3,33 @@
     v-if="!isLoading"
     class="outside"
   >
-    <img
-      :src="authorThumbnails[1].url"
-      class="communityThumbnail"
+    <div
+      class="author-div"
     >
+      <img
+        :src="authorThumbnails[1].url"
+        class="communityThumbnail"
+      >
+      <p
+        id="authorName"
+      >
+        Aviva
+      </p>
+      <p
+      id="publishedText"
+      >
+        {{ publishedText }}
+      </p>
+    </div>
     <p v-html="postText" />
-    <img
+    <div
       v-if="type === 'image'"
-      :src="postContent.content[2].url"
     >
+      <img
+        :src="postContent.content[2].url"
+        class="communityImage"
+      >
+    </div>
     <div
       v-if="type === 'video'"
     >
@@ -27,7 +45,6 @@
         class="poll-count"
       >
         {{ postContent.content.totalVotes }}
-
       </div>
       <div
         v-for="(poll, index) in postContent.content.choices"
@@ -46,6 +63,15 @@
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="bottomSection"
+    >
+      <span class="likeCount"><font-awesome-icon icon="thumbs-up" /> {{ voteCount }}</span>
+      <span class="dislikeCount"><font-awesome-icon id="thumbs-down-icon" icon="thumbs-down" /></span>
+      <span class="commentCount"><font-awesome-icon id="comment-count-icon" icon="comment" /> {{ commentCount }}</span>
+
+
     </div>
   </div>
 </template>

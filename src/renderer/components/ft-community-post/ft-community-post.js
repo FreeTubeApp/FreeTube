@@ -140,7 +140,6 @@ export default Vue.extend({
   },
   mounted: function () {
     this.parseVideoData()
-    console.log("MOUNTED")
   },
   methods: {
     toggleSave: function () {
