@@ -74,7 +74,8 @@ export default Vue.extend({
       watchingPlaylist: false,
       playlistId: '',
       timestamp: null,
-      playNextTimeout: null
+      playNextTimeout: null,
+      playNextCountDownIntervalId: null
     }
   },
   computed: {
@@ -900,7 +901,7 @@ export default Vue.extend({
         // Will not display "Playing next video in no time" as it's too late to cancel
         // Also there is a separate message when playing next video
         if (countDownTimeLeftInSecond <= 0) {
-          clearInterval(countDownIntervalId)
+          clearInterval(this.playNextCountDownIntervalId)
           return
         }
 
@@ -911,7 +912,7 @@ export default Vue.extend({
           time: 700,
           action: () => {
             clearTimeout(this.playNextTimeout)
-            clearInterval(countDownIntervalId)
+            clearInterval(this.playNextCountDownIntervalId)
             this.showToast({
               message: this.$t('Canceled next video autoplay')
             })
@@ -923,11 +924,12 @@ export default Vue.extend({
       }
       // Execute once before scheduling it
       showCountDownMessage()
-      const countDownIntervalId = setInterval(showCountDownMessage, 1000)
+      this.playNextCountDownIntervalId = setInterval(showCountDownMessage, 1000)
     },
 
     handleRouteChange: async function () {
       clearTimeout(this.playNextTimeout)
+      clearInterval(this.playNextCountDownIntervalId)
 
       this.handleWatchProgress()
 
