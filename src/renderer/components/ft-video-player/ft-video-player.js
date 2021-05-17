@@ -537,23 +537,45 @@ export default Vue.extend({
         this.setDashQualityLevel('auto')
       }
 
-      let formatsToTest = this.activeAdaptiveFormats.filter((format) => {
-        return format.height === this.defaultQuality
-      })
+      let formatsToTest
 
-      if (formatsToTest.length === 0) {
+      if (typeof this.activeAdaptiveFormats !== 'undefined' && this.activeAdaptiveFormats.length > 0) {
         formatsToTest = this.activeAdaptiveFormats.filter((format) => {
-          return format.height < this.defaultQuality
+          return format.height === this.defaultQuality
+        })
+
+        if (formatsToTest.length === 0) {
+          formatsToTest = this.activeAdaptiveFormats.filter((format) => {
+            return format.height < this.defaultQuality
+          })
+        }
+
+        formatsToTest = formatsToTest.sort((a, b) => {
+          if (a.height === b.height) {
+            return b.bitrate - a.bitrate
+          } else {
+            return b.height - a.height
+          }
+        })
+      } else {
+        formatsToTest = this.player.qualityLevels().levels_.filter((format) => {
+          return format.height === this.defaultQuality
+        })
+
+        if (formatsToTest.length === 0) {
+          formatsToTest = this.player.qualityLevels().levels_.filter((format) => {
+            return format.height < this.defaultQuality
+          })
+        }
+
+        formatsToTest = formatsToTest.sort((a, b) => {
+          if (a.height === b.height) {
+            return b.bitrate - a.bitrate
+          } else {
+            return b.height - a.height
+          }
         })
       }
-
-      formatsToTest = formatsToTest.sort((a, b) => {
-        if (a.height === b.height) {
-          return b.bitrate - a.bitrate
-        } else {
-          return b.height - a.height
-        }
-      })
 
       // TODO: Test formats to determine if HDR / 60 FPS and skip them based on
       // User settings
@@ -605,6 +627,8 @@ export default Vue.extend({
         })
       }
 
+      let qualityLabel = adaptiveFormat ? adaptiveFormat.qualityLabel : ''
+
       this.player.qualityLevels().levels_.sort((a, b) => {
         if (a.height === b.height) {
           return a.bitrate - b.bitrate
@@ -615,13 +639,16 @@ export default Vue.extend({
         if (bitrate === 'auto' || bitrate === ql.bitrate) {
           ql.enabled = true
           ql.enabled_(true)
+          if (bitrate !== 'auto' && qualityLabel === '') {
+            qualityLabel = ql.height + 'p'
+          }
         } else {
           ql.enabled = false
           ql.enabled_(false)
         }
       })
 
-      const selectedQuality = bitrate === 'auto' ? 'auto' : adaptiveFormat.qualityLabel
+      const selectedQuality = bitrate === 'auto' ? 'auto' : qualityLabel
 
       const qualityElement = document.getElementById('vjs-current-quality')
       qualityElement.innerText = selectedQuality
@@ -935,15 +962,25 @@ export default Vue.extend({
               return b.height - a.height
             }
           }).forEach((quality, index, array) => {
-            const adaptiveFormat = v.adaptiveFormats.find((format) => {
-              return format.bitrate === quality.bitrate
-            })
+            let fps
+            let qualityLabel
+            let bitrate
 
-            v.activeAdaptiveFormats.push(adaptiveFormat)
+            if (typeof v.adaptiveFormats !== 'undefined' && v.adaptiveFormats > 0) {
+              const adaptiveFormat = v.adaptiveFormats.find((format) => {
+                return format.bitrate === quality.bitrate
+              })
 
-            const fps = adaptiveFormat.fps
-            const qualityLabel = adaptiveFormat.qualityLabel
-            const bitrate = quality.bitrate
+              v.activeAdaptiveFormats.push(adaptiveFormat)
+
+              fps = adaptiveFormat.fps
+              qualityLabel = adaptiveFormat.qualityLabel ? adaptiveFormat.qualityLabel : quality.height + 'p'
+              bitrate = quality.bitrate
+            } else {
+              fps = 30
+              qualityLabel = quality.height + 'p'
+              bitrate = quality.bitrate
+            }
 
             qualityHtml = qualityHtml + `<li class="vjs-menu-item quality-item" role="menuitemradio" tabindex="-1" aria-checked="false" aria-disabled="false" fps="${fps}" bitrate="${bitrate}">
               <span class="vjs-menu-item-text" fps="${fps}" bitrate="${bitrate}">${qualityLabel}</span>

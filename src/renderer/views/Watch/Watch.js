@@ -547,6 +547,7 @@ export default Vue.extend({
           this.videoPublished = result.published * 1000
           this.videoDescriptionHtml = result.descriptionHtml
           this.recommendedVideos = result.recommendedVideos
+          this.adaptiveFormats = result.adaptiveFormats
           this.isLive = result.liveNow
           this.captionHybridList = result.captions.map(caption => {
             caption.url = this.invidiousInstance + caption.url
