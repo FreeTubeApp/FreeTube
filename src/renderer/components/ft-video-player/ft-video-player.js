@@ -361,17 +361,17 @@ export default Vue.extend({
       // TODO: allow to set these colors in settings
       switch (category) {
         case 'sponsor':
-          return '#00d400'
+          return 'var(--accent-color)'
         case 'intro':
-          return '#00ffff'
+          return 'var(--accent-color)'
         case 'outro':
-          return '#0202ed'
+          return 'var(--accent-color)'
         case 'selfpromo':
-          return '#ffff00'
+          return 'var(--accent-color)'
         case 'interaction':
-          return '#cc00ff'
+          return 'var(--accent-color)'
         case 'music_offtopic':
-          return '#ff9900'
+          return 'var(--accent-color)'
         default:
           console.error(`Unknown SponsorBlock category ${category}`)
           return 'yellow'
