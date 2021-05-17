@@ -374,7 +374,7 @@ export default Vue.extend({
           return 'var(--accent-color)'
         default:
           console.error(`Unknown SponsorBlock category ${category}`)
-          return 'yellow'
+          return 'var(--accent-color)'
       }
     },
 
