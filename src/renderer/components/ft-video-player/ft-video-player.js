@@ -222,6 +222,18 @@ export default Vue.extend({
         this.player.volume(this.volume)
         this.player.playbackRate(this.defaultPlayback)
 
+        // region playback rate menu focus hack
+        // Makes the playback rate menu focus on last item on  mouse hover
+        // last item is "0.25x" (video.js put lowest rate at last)
+        // This ensures "1x" is visible on menu open
+        const playbackRateMenuButton = this.player.controlBar.getChild('playbackRateMenuButton')
+        playbackRateMenuButton.on(playbackRateMenuButton.menuButton_, 'mouseenter', () => {
+          // Assuming this happens after original hover event handler
+          // Which shows the menu
+          playbackRateMenuButton.menu.focus(999)
+        })
+        // endregion playback rate menu focus hack
+
         if (this.storyboardSrc !== '') {
           this.player.vttThumbnails({
             src: this.storyboardSrc,
