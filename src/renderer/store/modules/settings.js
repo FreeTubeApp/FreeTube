@@ -63,6 +63,7 @@ const state = {
   externalPlayer: '',
   externalPlayerExecutable: '',
   externalPlayerIgnoreWarnings: false,
+  externalPlayerCustomArgs: '',
   useProxy: false,
   proxyProtocol: 'socks5',
   proxyHostname: '127.0.0.1',
@@ -142,6 +143,10 @@ const getters = {
 
   getExternalPlayerIgnoreWarnings: () => {
     return state.externalPlayerIgnoreWarnings
+  },
+
+  getExternalPlayerCustomArgs: () => {
+    return state.externalPlayerCustomArgs
   },
 
   getInvidiousInstance: () => {
@@ -352,6 +357,9 @@ const actions = {
               case 'externalPlayerIgnoreWarnings':
                 commit('setExternalPlayerIgnoreWarnings', result.value)
                 break
+              case 'externalPlayerCustomArgs':
+                  commit('setExternalPlayerCustomArgs', result.value)
+                  break
               case 'barColor':
                 commit('setBarColor', result.value)
                 break
@@ -582,6 +590,14 @@ const actions = {
     settingsDb.update({ _id: 'externalPlayerIgnoreWarnings' }, { _id: 'externalPlayerIgnoreWarnings', value: externalPlayerIgnoreWarnings }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
         commit('setExternalPlayerIgnoreWarnings', externalPlayerIgnoreWarnings)
+      }
+    })
+  },
+
+  updateExternalPlayerCustomArgs ({ commit }, externalPlayerCustomArgs) {
+    settingsDb.update({ _id: 'externalPlayerCustomArgs' }, { _id: 'externalPlayerCustomArgs', value: externalPlayerCustomArgs }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setExternalPlayerCustomArgs', externalPlayerCustomArgs)
       }
     })
   },
@@ -926,6 +942,9 @@ const mutations = {
   },
   setExternalPlayerIgnoreWarnings (state, externalPlayerIgnoreWarnings) {
     state.externalPlayerIgnoreWarnings = externalPlayerIgnoreWarnings
+  },
+  setExternalPlayerCustomArgs (state, externalPlayerCustomArgs) {
+    state.externalPlayerCustomArgs = externalPlayerCustomArgs
   },
   setBarColor (state, barColor) {
     state.barColor = barColor

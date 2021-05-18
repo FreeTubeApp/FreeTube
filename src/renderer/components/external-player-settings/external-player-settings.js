@@ -36,6 +36,9 @@ export default Vue.extend({
     },
     externalPlayerIgnoreWarnings: function () {
       return this.$store.getters.getExternalPlayerIgnoreWarnings
+    },
+    externalPlayerCustomArgs: function () {
+      return this.$store.getters.getExternalPlayerCustomArgs
     }
   },
   methods: {
@@ -43,10 +46,15 @@ export default Vue.extend({
       this.updateExternalPlayerExecutable(value)
     },
 
+    handleUpdateExternalPlayerCustomArgs: function (value) {
+      this.updateExternalPlayerCustomArgs(value)
+    },
+
     ...mapActions([
       'updateExternalPlayer',
       'updateExternalPlayerExecutable',
-      'updateExternalPlayerIgnoreWarnings'
+      'updateExternalPlayerIgnoreWarnings',
+      'updateExternalPlayerCustomArgs'
     ])
   }
 })

@@ -658,6 +658,12 @@ const actions = {
       }
     }
 
+    // Append custom user-defined arguments
+    if (payload.externalPlayerCustomArgs !== null) {
+      const customArgs = payload.externalPlayerCustomArgs.split(';')
+      args.push(...customArgs)
+    }
+
     const openingToast = payload.strings.OpeningTemplate
       .replace('$', payload.playlistId === null
         ? payload.strings.video

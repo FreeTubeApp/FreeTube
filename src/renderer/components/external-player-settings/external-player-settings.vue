@@ -31,12 +31,21 @@
     <ft-flex-box class="externalPlayerSettingsFlexBox">
       <ft-input
         v-if="externalPlayer !== ''"
-        :placeholder="$t('Settings.External Player Settings.External Player Executable')"
+        :placeholder="$t('Settings.External Player Settings.Custom External Player Executable')"
         :show-arrow="false"
         :show-label="true"
         :value="externalPlayerExecutable"
-        :tooltip="$t('Tooltips.External Player Settings.External Player Executable')"
+        :tooltip="$t('Tooltips.External Player Settings.Custom External Player Executable')"
         @input="handleUpdateExternalPlayerExecutable"
+      />
+      <ft-input
+        v-if="externalPlayer !== ''"
+        :placeholder="$t('Settings.External Player Settings.Custom External Player Arguments')"
+        :show-arrow="false"
+        :show-label="true"
+        :value="externalPlayerCustomArgs"
+        :tooltip="$t('Tooltips.External Player Settings.Custom External Player Arguments')"
+        @input="handleUpdateExternalPlayerCustomArgs"
       />
     </ft-flex-box>
   </ft-card>

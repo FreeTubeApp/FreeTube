@@ -220,6 +220,10 @@ export default Vue.extend({
       return this.$store.getters.getExternalPlayerIgnoreWarnings
     },
 
+    externalPlayerCustomArgs: function () {
+      return this.$store.getters.getExternalPlayerCustomArgs
+    },
+
     defaultPlayback: function () {
       return this.$store.getters.getDefaultPlayback
     }
@@ -235,6 +239,7 @@ export default Vue.extend({
         externalPlayerExecutable: this.externalPlayerExecutable,
         cmdArgs: this.externalPlayerCmdArguments,
         externalPlayerIgnoreWarnings: this.externalPlayerIgnoreWarnings,
+        externalPlayerCustomArgs: this.externalPlayerCustomArgs,
         strings: this.$t('Video.External Player'),
 
         watchProgress: this.watchProgress,
