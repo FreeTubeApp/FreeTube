@@ -358,8 +358,8 @@ const actions = {
                 commit('setExternalPlayerIgnoreWarnings', result.value)
                 break
               case 'externalPlayerCustomArgs':
-                  commit('setExternalPlayerCustomArgs', result.value)
-                  break
+                commit('setExternalPlayerCustomArgs', result.value)
+                break
               case 'barColor':
                 commit('setBarColor', result.value)
                 break
