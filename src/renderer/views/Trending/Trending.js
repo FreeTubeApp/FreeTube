@@ -68,7 +68,13 @@ export default Vue.extend({
       this.isLoading = true
 
       console.log('getting local trending')
-      ytrend.scrape_trending_page(this.region).then((result) => {
+      const param = {
+        parseCreatorOnRise: false,
+        page: 'default',
+        geoLocation: this.region
+      }
+
+      ytrend.scrape_trending_page(param).then((result) => {
         const returnData = result.filter((item) => {
           return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
         })
