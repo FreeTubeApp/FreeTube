@@ -102,8 +102,8 @@ Settings:
   Settings: 'Instellingen'
   General Settings:
     General Settings: 'Algemene instellingen'
-    Fallback to Non-Preferred Backend on Failure: 'Val terug op een Niet-Voorkeur
-      Backend bij falen'
+    Fallback to Non-Preferred Backend on Failure: 'Val Terug op Niet-Voorkeur Backend
+      bij falen'
     Enable Search Suggestions: 'Zoeksuggesties Inschakelen'
     Default Landing Page: 'Standaard Landingspagina'
     Locale Preference: 'Locale Voorkeur'
@@ -112,7 +112,7 @@ Settings:
       Local API: 'Lokale API'
       Invidious API: 'Invidious API'
     Video View Type:
-      Video View Type: 'Type Videoweergave'
+      Video View Type: 'Videoweergave Type'
       Grid: 'Raster'
       List: 'Lijst'
     Thumbnail Preference:
@@ -125,9 +125,10 @@ Settings:
       (Standaard is https://invidious.snopyta.org)'
     Region for Trending: 'Regio voor Trending'
         #! List countries
-    Check for Latest Blog Posts: Controleer op nieuwe Blogposts
+    Check for Latest Blog Posts: Controleer op Nieuwe Blogposts
     Check for Updates: Controleer op Updates
     View all Invidious instance information: Bekijk alle Invidious-instantiegegevens
+    System Default: Systeem Standaardinstellingen
   Theme Settings:
     Theme Settings: 'Thema Instellingen'
     Match Top Bar with Main Color: 'Laat de bovenste balk overeenkomen met de hoofdkleur'
@@ -192,7 +193,7 @@ Settings:
   Privacy Settings:
     Privacy Settings: 'Privacy Instellingen'
     Remember History: 'Onthoud Geschiedenis'
-    Save Watched Progress: 'Bewaar Bekeken Voortgang'
+    Save Watched Progress: 'Bewaar Video Voortgang'
     Clear Search Cache: 'Verwijder Zoek-Cache'
     Are you sure you want to clear out your search cache?: 'Weet u zeker dat u de
       zoek-cache wil verwijderen?'
@@ -315,6 +316,13 @@ Settings:
     Proxy Protocol: Proxy Protocol
     Enable Tor / Proxy: Tor / Proxy Inschakelen
     Proxy Settings: Proxy Instellingen
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Informeer mij wanneer een gesponsord segment
+      wordt overgeslagen
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
+      Url (Standaard is https://sponsor.ajay.app)
+    Enable SponsorBlock: SponsorBlock Inschakelen
+    SponsorBlock Settings: SponsorBlock Instellingen
 About:
   #On About page
   About: 'Over'
@@ -494,6 +502,14 @@ Video:
   Video has been saved: Video is opgeslagen
   Save Video: Video Opslaan
   translated from English: vertaald vanuit het engels
+  Sponsor Block category:
+    music offtopic: off-topic muziek
+    interaction: interactie
+    self-promotion: zelfpromotie
+    outro: uitbreng
+    intro: introductie
+    sponsor: sponsor
+  Skipped segment: Overgeslagen segment
 Videos:
   #& Sort By
   Sort By:
