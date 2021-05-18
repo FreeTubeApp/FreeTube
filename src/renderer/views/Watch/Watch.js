@@ -69,6 +69,7 @@ export default Vue.extend({
       activeSourceList: [],
       videoSourceList: [],
       audioSourceList: [],
+      adaptiveFormats: [],
       captionHybridList: [], // [] -> Promise[] -> string[] (URIs)
       recommendedVideos: [],
       downloadLinks: [],
@@ -291,7 +292,7 @@ export default Vue.extend({
             this.videoLikeCount = isNaN(result.videoDetails.likes) ? 0 : result.videoDetails.likes
             this.videoDislikeCount = isNaN(result.videoDetails.dislikes) ? 0 : result.videoDetails.dislikes
           }
-          this.isLive = result.player_response.videoDetails.isLive || result.player_response.videoDetails.isLiveContent
+          this.isLive = result.player_response.videoDetails.isLive
           this.isLiveContent = result.player_response.videoDetails.isLiveContent
           this.isUpcoming = result.player_response.videoDetails.isUpcoming ? result.player_response.videoDetails.isUpcoming : false
 
@@ -311,7 +312,7 @@ export default Vue.extend({
             }
           }
 
-          if (this.isLive && !this.isUpcoming) {
+          if ((this.isLive || this.isLiveContent) && !this.isUpcoming) {
             this.enableLegacyFormat()
 
             this.videoSourceList = result.formats.filter((format) => {
@@ -364,6 +365,7 @@ export default Vue.extend({
               } else {
                 this.videoSourceList = result.player_response.streamingData.adaptiveFormats.reverse()
               }
+              this.adaptiveFormats = this.videoSourceList
               this.downloadLinks = result.formats.filter((format) => {
                 return typeof format.mimeType !== 'undefined'
               }).map((format) => {
@@ -394,7 +396,7 @@ export default Vue.extend({
                   .captionTracks
 
               if (typeof captionTracks !== 'undefined') {
-                const locale = localStorage.getItem('locale')
+                const locale = this.$i18n.locale
                 if (locale !== null) {
                   const standardLocale = locale.replace('_', '-')
                   const noLocaleCaption = !captionTracks.some(track =>
@@ -434,14 +436,9 @@ export default Vue.extend({
               if (this.proxyVideos) {
                 this.dashSrc = await this.createInvidiousDashManifest()
               } else {
-                const adaptiveFormats = result.player_response.streamingData.adaptiveFormats.filter((video) => {
-                  if (typeof (video.qualityLabel) !== 'undefined') {
-                    return !video.qualityLabel.includes('HDR')
-                  } else {
-                    return true
-                  }
-                })
+                const adaptiveFormats = result.player_response.streamingData.adaptiveFormats
                 this.dashSrc = await this.createLocalDashManifest(adaptiveFormats)
+                this.adaptiveFormats = adaptiveFormats
               }
 
               this.audioSourceList = result.player_response.streamingData.adaptiveFormats.filter((format) => {
@@ -550,6 +547,7 @@ export default Vue.extend({
           this.videoPublished = result.published * 1000
           this.videoDescriptionHtml = result.descriptionHtml
           this.recommendedVideos = result.recommendedVideos
+          this.adaptiveFormats = result.adaptiveFormats
           this.isLive = result.liveNow
           this.captionHybridList = result.captions.map(caption => {
             caption.url = this.invidiousInstance + caption.url

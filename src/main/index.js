@@ -212,7 +212,6 @@ function runApp() {
   async function installDevTools () {
     try {
       /* eslint-disable */
-      require('devtron').install()
       require('vue-devtools').install()
       /* eslint-enable */
     } catch (err) {
@@ -327,19 +326,22 @@ function runApp() {
     })
 
     newWindow.on('close', () => {
-      newWindow.webContents.session.clearCache()
-      newWindow.webContents.session.clearStorageData({
-        storages: [
-          'appcache',
-          'cookies',
-          'filesystem',
-          'indexdb',
-          'shadercache',
-          'websql',
-          'serviceworkers',
-          'cachestorage'
-        ]
-      })
+      // Clear cache and storage if it's the last window
+      if (openedWindows.length === 1) {
+        newWindow.webContents.session.clearCache()
+        newWindow.webContents.session.clearStorageData({
+          storages: [
+            'appcache',
+            'cookies',
+            'filesystem',
+            'indexdb',
+            'shadercache',
+            'websql',
+            'serviceworkers',
+            'cachestorage'
+          ]
+        })
+      }
     })
 
     newWindow.on('closed', () => {

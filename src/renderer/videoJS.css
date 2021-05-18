@@ -664,10 +664,10 @@ body.vjs-full-window {
   display: none;
   position: absolute;
   bottom: 30px;
-  left: -15px;
+  left: -33px;
   z-index: 5;
   background-color: #151b17;
-  width: 70px;
+  width: 100px;
   max-height: 225px;
   overflow-y: auto;
 }
@@ -1108,6 +1108,10 @@ body.vjs-full-window {
   width: 1px;
   height: 1px;
   margin-left: -1px;
+}
+
+.video-js .vjs-volume-tooltip {
+  display: none;
 }
 
 .video-js .vjs-volume-panel {

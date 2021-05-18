@@ -239,7 +239,7 @@ const actions = {
     return extractors.reduce((a, c) => a || c(), null) || paramsObject
   },
 
-  getYoutubeUrlInfo (_, urlStr) {
+  getYoutubeUrlInfo ({ state }, urlStr) {
     // Returns
     // - urlType [String] `video`, `playlist`
     //
@@ -332,11 +332,12 @@ const actions = {
         const searchQuery = url.searchParams.get('search_query')
         url.searchParams.delete('search_query')
 
+        const searchSettings = state.searchSettings
         const query = {
-          sortBy: this.searchSettings.sortBy,
-          time: this.searchSettings.time,
-          type: this.searchSettings.type,
-          duration: this.searchSettings.duration
+          sortBy: searchSettings.sortBy,
+          time: searchSettings.time,
+          type: searchSettings.type,
+          duration: searchSettings.duration
         }
 
         for (const [param, value] of url.searchParams) {

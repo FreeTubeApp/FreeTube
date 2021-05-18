@@ -113,7 +113,7 @@ Settings:
       Preferido em Caso de Falha
     Enable Search Suggestions: Activar Sugestões de Pesquisa
     Default Landing Page: Página Inicial
-    Locale Preference: Localização
+    Locale Preference: Idioma
     Preferred API Backend:
       Preferred API Backend: Sistema de Ligação Favorito
       Local API: API Local
@@ -134,6 +134,7 @@ Settings:
       instância Invidious
     Region for Trending: Região para as tendências
         #! List countries
+    System Default: Definições do sistema
   Theme Settings:
     Theme Settings: Definições de Tema
     Match Top Bar with Main Color: Utilizar Cor Principal Para Barra Superior
@@ -409,7 +410,7 @@ Video:
   Copy Invidious Link: Copiar Ligação para Invidious
   Open Channel in YouTube: Abrir Canal no Youtube
   Copy YouTube Channel Link: Copiar Ligação para Youtube
-  Open Channel in Invidious: Abrir Calan no Invidious
+  Open Channel in Invidious: Abrir Canal no Invidious
   Copy Invidious Channel Link: Copiar Ligação para Invidious
   View: Visualização
   Views: Visualizações
