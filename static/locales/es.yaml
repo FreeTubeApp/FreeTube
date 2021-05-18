@@ -650,7 +650,7 @@ Tooltips:
       heredados están limitados a un máximo de 720p pero utilizan menos ancho de banda.
       Los formatos de audio son flujos sólo de audio.
     Proxy Videos Through Invidious: Se conectará a Invidious para obtener videos en
-      lugar de recurrir directamente a YouTube. Sobreescribirá la preferencia de API
+      lugar de recurrir directamente a YouTube. Redefinirá la preferencia de API.
     Force Local Backend for Legacy Formats: Sólo funciona cuando la API de Invidious
       es la predeterminada. Cuando está activada, la API local se ejecutará y utilizará
       los formatos heredados devueltos por ella en lugar de los devueltos por Invidious.
