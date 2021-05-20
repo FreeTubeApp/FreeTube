@@ -241,6 +241,10 @@ export default Vue.extend({
           }, 200)
         }
 
+        if (this.useSponsorBlock) {
+          this.initializeSponsorBlock()
+        }
+
         $(document).on('keydown', this.keyboardShortcutHandler)
 
         this.player.on('mousemove', this.hideMouseTimeout)
@@ -286,18 +290,22 @@ export default Vue.extend({
           }
         })
       }
-      setTimeout(() => { this.fetchSponsorBlockInfo() }, 100)
     },
 
-    fetchSponsorBlockInfo() {
-      if (this.useSponsorBlock) {
-        this.$store.dispatch('sponsorBlockSkipSegments', {
-          videoId: this.videoId,
-          categories: ['sponsor']
-        }).then((skipSegments) => {
+    initializeSponsorBlock() {
+      this.$store.dispatch('sponsorBlockSkipSegments', {
+        videoId: this.videoId,
+        categories: ['sponsor']
+      }).then((skipSegments) => {
+        if (skipSegments.length === 0) {
+          return
+        }
+
+        this.player.ready(() => {
           this.player.on('timeupdate', () => {
             this.skipSponsorBlocks(skipSegments)
           })
+
           skipSegments.forEach(({
             category,
             segment: [startTime, endTime]
@@ -309,11 +317,12 @@ export default Vue.extend({
             })
           })
         })
-      }
+      })
     },
 
     skipSponsorBlocks(skipSegments) {
       const currentTime = this.player.currentTime()
+      const duration = this.player.duration()
       let newTime = null
       let skippedCategory = null
       skipSegments.forEach(({ category, segment: [startTime, endTime] }) => {
@@ -322,7 +331,7 @@ export default Vue.extend({
           skippedCategory = category
         }
       })
-      if (newTime !== null) {
+      if (newTime !== null && Math.abs(duration - currentTime) > 0.500) {
         if (this.sponsorBlockShowSkippedToast) {
           this.showSkippedSponsorSegmentInformation(skippedCategory)
         }
