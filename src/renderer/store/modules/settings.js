@@ -51,6 +51,7 @@ const state = {
   autoplayVideos: true,
   autoplayPlaylists: true,
   playNextVideo: false,
+  lastPlayedVideoMode: '',
   enableSubtitles: true,
   forceLocalBackendForLegacy: false,
   proxyVideos: false,
@@ -159,6 +160,10 @@ const getters = {
 
   getPlayNextVideo: () => {
     return state.playNextVideo
+  },
+
+  getLastPlayedVideoMode: () => {
+    return state.lastPlayedVideoMode
   },
 
   getEnableSubtitles: () => {
@@ -361,6 +366,9 @@ const actions = {
                 break
               case 'playNextVideo':
                 commit('setPlayNextVideo', result.value)
+                break
+              case 'lastPlayedVideoMode':
+                commit('setLastPlayedVideoMode', result.value)
                 break
               case 'enableSubtitles':
                 commit('setEnableSubtitles', result.value)
@@ -614,6 +622,14 @@ const actions = {
     settingsDb.update({ _id: 'playNextVideo' }, { _id: 'playNextVideo', value: playNextVideo }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
         commit('setPlayNextVideo', playNextVideo)
+      }
+    })
+  },
+
+  updateLastPlayedVideoMode ({ commit }, lastPlayedVideoMode) {
+    settingsDb.update({ _id: 'lastPlayedVideoMode' }, { _id: 'lastPlayedVideoMode', value: lastPlayedVideoMode }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setLastPlayedVideoMode', lastPlayedVideoMode)
       }
     })
   },
@@ -898,6 +914,9 @@ const mutations = {
   },
   setPlayNextVideo (state, playNextVideo) {
     state.playNextVideo = playNextVideo
+  },
+  setLastPlayedVideoMode (state, lastPlayedVideoMode) {
+    state.lastPlayedVideoMode = lastPlayedVideoMode
   },
   setEnableSubtitles (state, enableSubtitles) {
     state.enableSubtitles = enableSubtitles

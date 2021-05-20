@@ -155,6 +155,8 @@ export default Vue.extend({
       return this.$store.getters.getAutoplayVideos
     },
 
+    lastPlayedVideoMode: function() {
+      return this.$store.getters.getLastPlayedVideoMode
     useSponsorBlock: function () {
       return this.$store.getters.getUseSponsorBlock
     },
@@ -289,6 +291,10 @@ export default Vue.extend({
             this.powerSaveBlocker = null
           }
         })
+
+        this.player.on('loadedmetadata', function () {
+          v.checkLastPlayedVideoMode()
+        })
       }
     },
 
@@ -415,6 +421,15 @@ export default Vue.extend({
         this.player.fluid(false)
         this.player.aspectRatio('16:9')
       }
+    },
+
+    checkLastPlayedVideoMode() {
+      if (this.lastPlayedVideoMode === 'pip' && !this.player.isInPictureInPicture()) {
+        this.player.requestPictureInPicture()
+      } else if (this.lastPlayedVideoMode === 'fullwindow' && !this.player.isFullwindow) {
+        this.toggleFullWindow()
+      }
+      this.updateLastPlayedVideoMode('')
     },
 
     updateVolume: function (event) {
@@ -1347,6 +1362,8 @@ export default Vue.extend({
     },
 
     ...mapActions([
+      'calculateColorLuminance',
+      'updateLastPlayedVideoMode'
       'showToast',
       'calculateColorLuminance'
     ])
