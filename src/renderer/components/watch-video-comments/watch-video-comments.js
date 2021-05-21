@@ -7,6 +7,14 @@ import FtTimestampCatcher from '../../components/ft-timestamp-catcher/ft-timesta
 import autolinker from 'autolinker'
 import ytcm from 'yt-comment-scraper'
 
+const SYMBOLS = {
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&#039;'
+}
+
 export default Vue.extend({
   name: 'WatchVideoComments',
   components: {
@@ -249,7 +257,9 @@ export default Vue.extend({
         if (this.hideCommentLikes) {
           comment.likes = null
         }
-        comment.text = autolinker.link(comment.text)
+        comment.text = autolinker.link(comment.text.replace(/[&<>"']/g, function(index) {
+          return SYMBOLS[index]
+        }))
 
         return comment
       })
@@ -281,7 +291,9 @@ export default Vue.extend({
           } else {
             comment.likes = comment.likeCount
           }
-          comment.text = autolinker.link(comment.content)
+          comment.text = autolinker.link(comment.content.replace(/[&<>"']/g, function(index) {
+            return SYMBOLS[index]
+          }))
           comment.dataType = 'invidious'
 
           if (typeof (comment.replies) !== 'undefined' && typeof (comment.replies.replyCount) !== 'undefined') {
@@ -347,7 +359,9 @@ export default Vue.extend({
           } else {
             comment.likes = comment.likeCount
           }
-          comment.text = autolinker.link(comment.content)
+          comment.text = autolinker.link(comment.content.replace(/[&<>"']/g, function(index) {
+            return SYMBOLS[index]
+          }))
           comment.time = comment.publishedText
           comment.dataType = 'invidious'
           comment.numReplies = 0
