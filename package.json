@@ -8,7 +8,6 @@
     "url": "https://github.com/FreeTubeApp/FreeTube/issues"
   },
   "dependencies": {
-    "@electron/remote": "^1.1.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
