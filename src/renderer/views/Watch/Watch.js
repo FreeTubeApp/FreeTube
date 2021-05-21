@@ -14,8 +14,6 @@ import WatchVideoLiveChat from '../../components/watch-video-live-chat/watch-vid
 import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-video-playlist.vue'
 import WatchVideoRecommendations from '../../components/watch-video-recommendations/watch-video-recommendations.vue'
 
-const remote = require('@electron/remote')
-
 export default Vue.extend({
   name: 'Watch',
   components: {
@@ -931,7 +929,7 @@ export default Vue.extend({
       const countDownIntervalId = setInterval(showCountDownMessage, 1000)
     },
 
-    handleRouteChange: function () {
+    handleRouteChange: async function () {
       clearTimeout(this.playNextTimeout)
 
       this.handleWatchProgress()
@@ -961,7 +959,7 @@ export default Vue.extend({
       }
 
       if (this.removeVideoMetaFiles) {
-        const userData = remote.app.getPath('userData')
+        const userData = await this.getUserDataPath()
         if (this.isDev) {
           const dashFileLocation = `dashFiles/${this.videoId}.xml`
           const vttFileLocation = `storyboards/${this.videoId}.vtt`
@@ -1004,9 +1002,9 @@ export default Vue.extend({
       }
     },
 
-    createLocalDashManifest: function (formats) {
+    createLocalDashManifest: async function (formats) {
       const xmlData = ytDashGen.generate_dash_file_from_formats(formats, this.videoLengthSeconds)
-      const userData = remote.app.getPath('userData')
+      const userData = await this.getUserDataPath()
       let fileLocation
       let uriSchema
       if (this.isDev) {
@@ -1076,8 +1074,8 @@ export default Vue.extend({
         })
       })
       // TODO: MAKE A VARIABLE WHICH CAN CHOOSE BETWEEN STROYBOARD ARRAY ELEMENTS
-      this.buildVTTFileLocally(storyboardArray[1]).then((results) => {
-        const userData = remote.app.getPath('userData')
+      this.buildVTTFileLocally(storyboardArray[1]).then(async (results) => {
+        const userData = await this.getUserDataPath()
         let fileLocation
         let uriSchema
 
@@ -1195,7 +1193,8 @@ export default Vue.extend({
       'showToast',
       'buildVTTFileLocally',
       'updateHistory',
-      'updateWatchProgress'
+      'updateWatchProgress',
+      'getUserDataPath'
     ])
   }
 })

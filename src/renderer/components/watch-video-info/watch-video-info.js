@@ -6,7 +6,6 @@ import FtListDropdown from '../ft-list-dropdown/ft-list-dropdown.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtShareButton from '../ft-share-button/ft-share-button.vue'
-// import { shell } from 'electron'
 
 export default Vue.extend({
   name: 'WatchVideoInfo',
@@ -109,10 +108,6 @@ export default Vue.extend({
   computed: {
     invidiousInstance: function () {
       return this.$store.getters.getInvidiousInstance
-    },
-
-    usingElectron: function () {
-      return this.$store.getters.getUsingElectron
     },
 
     profileList: function () {
@@ -346,11 +341,6 @@ export default Vue.extend({
       }
     },
 
-    handleDownloadLink: function (url) {
-      const shell = require('electron').shell
-      shell.openExternal(url)
-    },
-
     addToPlaylist: function () {
       const videoData = {
         videoId: this.id,
@@ -396,7 +386,8 @@ export default Vue.extend({
       'showToast',
       'updateProfile',
       'addVideo',
-      'removeVideo'
+      'removeVideo',
+      'openExternalLink'
     ])
   }
 })

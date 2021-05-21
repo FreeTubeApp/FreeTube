@@ -60,10 +60,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    usingElectron: function () {
-      return this.$store.getters.getUsingElectron
-    },
-
     historyCache: function () {
       return this.$store.getters.getHistoryCache
     },
@@ -216,10 +212,7 @@ export default Vue.extend({
           })
           break
         case 'openYoutube':
-          if (this.usingElectron) {
-            const shell = require('electron').shell
-            shell.openExternal(this.youtubeUrl)
-          }
+          this.openExternalLink(this.youtubeUrl)
           break
         case 'copyYoutubeEmbed':
           navigator.clipboard.writeText(this.youtubeEmbedUrl)
@@ -228,10 +221,7 @@ export default Vue.extend({
           })
           break
         case 'openYoutubeEmbed':
-          if (this.usingElectron) {
-            const shell = require('electron').shell
-            shell.openExternal(this.youtubeEmbedUrl)
-          }
+          this.openExternalLink(this.youtubeEmbedUrl)
           break
         case 'copyInvidious':
           navigator.clipboard.writeText(this.invidiousUrl)
@@ -240,11 +230,7 @@ export default Vue.extend({
           })
           break
         case 'openInvidious':
-          if (this.usingElectron) {
-            console.log('using electron')
-            const shell = require('electron').shell
-            shell.openExternal(this.invidiousUrl)
-          }
+          this.openExternalLink(this.invidiousUrl)
           break
         case 'copyYoutubeChannel':
           navigator.clipboard.writeText(this.youtubeChannelUrl)
@@ -253,10 +239,7 @@ export default Vue.extend({
           })
           break
         case 'openYoutubeChannel':
-          if (this.usingElectron) {
-            const shell = require('electron').shell
-            shell.openExternal(this.youtubeChannelUrl)
-          }
+          this.openExternalLink(this.youtubeChannelUrl)
           break
         case 'copyInvidiousChannel':
           navigator.clipboard.writeText(this.invidiousChannelUrl)
@@ -265,10 +248,7 @@ export default Vue.extend({
           })
           break
         case 'openInvidiousChannel':
-          if (this.usingElectron) {
-            const shell = require('electron').shell
-            shell.openExternal(this.invidiousChannelUrl)
-          }
+          this.openExternalLink(this.invidiousChannelUrl)
           break
       }
     },
@@ -460,7 +440,8 @@ export default Vue.extend({
       'updateHistory',
       'removeFromHistory',
       'addVideo',
-      'removeVideo'
+      'removeVideo',
+      'openExternalLink'
     ])
   }
 })

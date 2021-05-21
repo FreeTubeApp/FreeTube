@@ -30,8 +30,8 @@ export default Vue.extend({
     }
 
     if (this.usingElectron && this.powerSaveBlocker !== null) {
-      const { powerSaveBlocker } = require('electron')
-      powerSaveBlocker.stop(this.powerSaveBlocker)
+      const { ipcRenderer } = require('electron')
+      ipcRenderer.send('stopPowerSaveBlocker', this.powerSaveBlocker)
     }
   },
   props: {
@@ -189,8 +189,8 @@ export default Vue.extend({
     }
 
     if (this.usingElectron && this.powerSaveBlocker !== null) {
-      const { powerSaveBlocker } = require('electron')
-      powerSaveBlocker.stop(this.powerSaveBlocker)
+      const { ipcRenderer } = require('electron')
+      ipcRenderer.send('stopPowerSaveBlocker', this.powerSaveBlocker)
     }
   },
   methods: {
@@ -274,18 +274,18 @@ export default Vue.extend({
           v.$emit('error', error.target.player.error_)
         })
 
-        this.player.on('play', function () {
+        this.player.on('play', async function () {
           if (this.usingElectron) {
-            const { powerSaveBlocker } = require('electron')
-
-            this.powerSaveBlocker = powerSaveBlocker.start('prevent-display-sleep')
+            const { ipcRenderer } = require('electron')
+            this.powerSaveBlocker =
+              await ipcRenderer.invoke('startPowerSaveBlocker', 'prevent-display-sleep')
           }
         })
 
         this.player.on('pause', function () {
           if (this.usingElectron && this.powerSaveBlocker !== null) {
-            const { powerSaveBlocker } = require('electron')
-            powerSaveBlocker.stop(this.powerSaveBlocker)
+            const { ipcRenderer } = require('electron')
+            ipcRenderer.send('stopPowerSaveBlocker', this.powerSaveBlocker)
             this.powerSaveBlocker = null
           }
         })

@@ -10,23 +10,17 @@ import FtButton from './components/ft-button/ft-button.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
 import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
 import $ from 'jquery'
-import { app } from '@electron/remote'
 import { markdown } from 'markdown'
 import Parser from 'rss-parser'
 
-let useElectron
-let shell
-let electron
+let useElectron = false
+let ipcRenderer = null
 
 Vue.directive('observe-visibility', ObserveVisibility)
 
 if (window && window.process && window.process.type === 'renderer') {
-  /* eslint-disable-next-line */
-  electron = require('electron')
-  shell = electron.shell
   useElectron = true
-} else {
-  useElectron = false
+  ipcRenderer = require('electron').ipcRenderer
 }
 
 export default Vue.extend({
@@ -90,12 +84,12 @@ export default Vue.extend({
   mounted: function () {
     const v = this
     this.$store.dispatch('grabUserSettings').then(() => {
-      this.$store.dispatch('grabAllProfiles', this.$t('Profile.All Channels')).then(() => {
+      this.$store.dispatch('grabAllProfiles', this.$t('Profile.All Channels')).then(async () => {
         this.$store.dispatch('grabHistory')
         this.$store.dispatch('grabAllPlaylists')
         this.$store.commit('setUsingElectron', useElectron)
         this.checkThemeSettings()
-        this.checkLocale()
+        await this.checkLocale()
 
         v.dataReady = true
 
@@ -115,14 +109,15 @@ export default Vue.extend({
     })
   },
   methods: {
-    checkLocale: function () {
+    checkLocale: async function () {
       const locale = localStorage.getItem('locale')
 
       if (locale === null || locale === 'system') {
-        const systemLocale = app.getLocale().replace(/-|_/, '_')
+        const systemLocale = await this.getLocale()
+
         const findLocale = Object.keys(this.$i18n.messages).find((locale) => {
-          const localeName = locale.replace(/-|_/, '_')
-          return localeName.includes(systemLocale)
+          const localeName = locale.replace('-', '_')
+          return localeName.includes(systemLocale.replace('-', '_'))
         })
 
         if (typeof findLocale !== 'undefined') {
@@ -248,7 +243,7 @@ export default Vue.extend({
 
     handleNewBlogBannerClick: function (response) {
       if (response) {
-        shell.openExternal(this.latestBlogUrl)
+        this.openExternalLink(this.latestBlogUrl)
       }
 
       this.showBlogBanner = false
@@ -256,7 +251,7 @@ export default Vue.extend({
 
     openDownloadsPage: function () {
       const url = 'https://freetubeapp.io#download'
-      shell.openExternal(url)
+      this.openExternalLink(url)
       this.showReleaseNotes = false
       this.showUpdatesBanner = false
     },
@@ -301,9 +296,7 @@ export default Vue.extend({
           this.handleYoutubeLink(el.href)
         } else {
           // Open links externally by default
-          if (typeof (shell) !== 'undefined') {
-            shell.openExternal(el.href)
-          }
+          this.openExternalLink(el.href)
         }
       })
     },
@@ -385,23 +378,24 @@ export default Vue.extend({
 
     enableOpenUrl: function () {
       const v = this
-      electron.ipcRenderer.on('openUrl', function (event, url) {
+      ipcRenderer.on('openUrl', function (event, url) {
         if (url) {
           v.handleYoutubeLink(url)
         }
       })
 
-      electron.ipcRenderer.send('appReady')
+      ipcRenderer.send('appReady')
     },
 
     setBoundsOnClose: function () {
       window.onbeforeunload = (e) => {
-        electron.ipcRenderer.send('setBounds')
+        ipcRenderer.send('setBounds')
       }
     },
 
     ...mapActions([
-      'showToast'
+      'showToast',
+      'openExternalLink'
     ])
   }
 })

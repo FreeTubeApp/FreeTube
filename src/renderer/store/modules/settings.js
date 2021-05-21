@@ -1,7 +1,6 @@
 import Datastore from 'nedb'
 
 let dbLocation
-let electron = null
 let webframe = null
 
 if (window && window.process && window.process.type === 'renderer') {
@@ -13,12 +12,11 @@ if (window && window.process && window.process.type === 'renderer') {
     dbLocation = electron.remote.app.getPath('userData')
   } */
 
-  electron = require('electron')
-  webframe = electron.webFrame
-  const remote = require('@electron/remote')
-  dbLocation = remote.app.getPath('userData')
-
+  const electron = require('electron')
+  const ipcRenderer = electron.ipcRenderer
+  dbLocation = ipcRenderer.sendSync('getUserDataPathSync')
   dbLocation = dbLocation + '/settings.db'
+  webframe = electron.webframe
 } else {
   dbLocation = 'settings.db'
 }
@@ -332,7 +330,9 @@ const actions = {
                 commit('setBarColor', result.value)
                 break
               case 'uiScale':
-                webframe.setZoomFactor(parseInt(result.value) / 100)
+                if (webframe) {
+                  webframe.setZoomFactor(parseInt(result.value) / 100)
+                }
                 commit('setUiScale', result.value)
                 break
               case 'disableSmoothScrolling':
