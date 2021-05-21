@@ -8,6 +8,14 @@ import $ from 'jquery'
 import autolinker from 'autolinker'
 import { LiveChat } from 'youtube-chat'
 
+const SYMBOLS = {
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&#039;'
+}
+
 export default Vue.extend({
   name: 'WatchVideoLiveChat',
   components: {
@@ -168,7 +176,9 @@ export default Vue.extend({
         }
       })
 
-      comment.messageHtml = autolinker.link(comment.messageHtml)
+      comment.messageHtml = autolinker.link(comment.messageHtml.replace(/[&<>"']/g, function(index) {
+        return SYMBOLS[index]
+      }))
 
       const liveChatComments = $('.liveChatComments')
       const liveChatMessage = $('.liveChatMessage')
