@@ -82,7 +82,6 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    const v = this
     this.$store.dispatch('grabUserSettings').then(() => {
       this.$store.dispatch('grabAllProfiles', this.$t('Profile.All Channels')).then(async () => {
         this.$store.dispatch('grabHistory')
@@ -91,7 +90,7 @@ export default Vue.extend({
         this.checkThemeSettings()
         await this.checkLocale()
 
-        v.dataReady = true
+        this.dataReady = true
 
         if (useElectron) {
           console.log('User is using Electron')
@@ -377,10 +376,9 @@ export default Vue.extend({
     },
 
     enableOpenUrl: function () {
-      const v = this
-      ipcRenderer.on('openUrl', function (event, url) {
+      ipcRenderer.on('openUrl', (event, url) => {
         if (url) {
-          v.handleYoutubeLink(url)
+          this.handleYoutubeLink(url)
         }
       })
 

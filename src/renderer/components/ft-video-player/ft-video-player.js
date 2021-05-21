@@ -256,22 +256,20 @@ export default Vue.extend({
         this.player.on('fullscreenchange', this.fullscreenOverlay)
         this.player.on('fullscreenchange', this.toggleFullscreenClass)
 
-        const v = this
-
-        this.player.on('ready', function () {
-          v.$emit('ready')
-          v.checkAspectRatio()
-          if (v.captionHybridList.length !== 0) {
-            v.transformAndInsertCaptions()
+        this.player.on('ready', () => {
+          this.$emit('ready')
+          this.checkAspectRatio()
+          if (this.captionHybridList.length !== 0) {
+            this.transformAndInsertCaptions()
           }
         })
 
-        this.player.on('ended', function () {
-          v.$emit('ended')
+        this.player.on('ended', () => {
+          this.$emit('ended')
         })
 
-        this.player.on('error', function (error, message) {
-          v.$emit('error', error.target.player.error_)
+        this.player.on('error', (error, message) => {
+          this.$emit('error', error.target.player.error_)
         })
 
         this.player.on('play', async function () {
@@ -866,14 +864,13 @@ export default Vue.extend({
     },
 
     createLoopButton: function () {
-      const v = this
       const VjsButton = videojs.getComponent('Button')
       const loopButton = videojs.extend(VjsButton, {
         constructor: function(player, options) {
           VjsButton.call(this, player, options)
         },
-        handleClick: function() {
-          v.toggleVideoLoop()
+        handleClick: () => {
+          this.toggleVideoLoop()
         },
         createControlTextEl: function (button) {
           return $(button).html($('<div id="loopButton" class="vjs-icon-loop loop-white vjs-button loopWhite"></div>')
@@ -912,14 +909,13 @@ export default Vue.extend({
     },
 
     createFullWindowButton: function () {
-      const v = this
       const VjsButton = videojs.getComponent('Button')
       const fullWindowButton = videojs.extend(VjsButton, {
         constructor: function(player, options) {
           VjsButton.call(this, player, options)
         },
-        handleClick: function() {
-          v.toggleFullWindow()
+        handleClick: () => {
+          this.toggleFullWindow()
         },
         createControlTextEl: function (button) {
           // Add class name to button to be able to target it with CSS selector
@@ -933,7 +929,6 @@ export default Vue.extend({
     },
 
     createDashQualitySelector: function (levels) {
-      const v = this
       if (levels.levels_.length === 0) {
         setTimeout(() => {
           this.createDashQualitySelector(this.player.qualityLevels())
@@ -945,13 +940,13 @@ export default Vue.extend({
         constructor: function(player, options) {
           VjsButton.call(this, player, options)
         },
-        handleClick: function(event) {
+        handleClick: (event) => {
           console.log(event)
           const selectedQuality = event.target.innerText
           const bitrate = selectedQuality === 'auto' ? 'auto' : parseInt(event.target.attributes.bitrate.value)
-          v.setDashQualityLevel(bitrate)
+          this.setDashQualityLevel(bitrate)
         },
-        createControlTextEl: function (button) {
+        createControlTextEl: (button) => {
           const beginningHtml = `<div class="vjs-quality-level-value">
            <span id="vjs-current-quality">1080p</span>
           </div>
@@ -975,12 +970,12 @@ export default Vue.extend({
             let qualityLabel
             let bitrate
 
-            if (typeof v.adaptiveFormats !== 'undefined' && v.adaptiveFormats.length > 0) {
-              const adaptiveFormat = v.adaptiveFormats.find((format) => {
+            if (typeof this.adaptiveFormats !== 'undefined' && this.adaptiveFormats.length > 0) {
+              const adaptiveFormat = this.adaptiveFormats.find((format) => {
                 return format.bitrate === quality.bitrate
               })
 
-              v.activeAdaptiveFormats.push(adaptiveFormat)
+              this.activeAdaptiveFormats.push(adaptiveFormat)
 
               fps = adaptiveFormat.fps
               qualityLabel = adaptiveFormat.qualityLabel ? adaptiveFormat.qualityLabel : quality.height + 'p'
@@ -1104,12 +1099,11 @@ export default Vue.extend({
     },
 
     fullscreenOverlay: function () {
-      const v = this
       const title = document.title.replace('- FreeTube', '')
 
       if (this.player.isFullscreen()) {
-        this.player.ready(function () {
-          v.player.overlay({
+        this.player.ready(() => {
+          this.player.overlay({
             overlays: [{
               showBackground: false,
               content: title,
@@ -1119,8 +1113,8 @@ export default Vue.extend({
           })
         })
       } else {
-        this.player.ready(function () {
-          v.player.overlay({
+        this.player.ready(() => {
+          this.player.overlay({
             overlays: [{
               showBackground: false,
               content: ' ',
@@ -1141,9 +1135,8 @@ export default Vue.extend({
     },
 
     handleTouchStart: function (event) {
-      const v = this
       this.touchPauseTimeout = setTimeout(() => {
-        v.togglePlayPause()
+        this.togglePlayPause()
       }, 1000)
 
       const touchTime = new Date()
