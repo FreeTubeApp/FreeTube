@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { mapActions } from 'vuex'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtButton from '../ft-button/ft-button.vue'
@@ -183,7 +184,7 @@ export default Vue.extend({
       console.log(this.comments.length)
 
       if (typeof (comment.superchat) !== 'undefined') {
-        this.$store.dispatch('getRandomColorClass').then((data) => {
+        this.getRandomColorClass().then((data) => {
           comment.superchat.colorClass = data
 
           this.superChatComments.unshift(comment)
@@ -195,7 +196,7 @@ export default Vue.extend({
       }
 
       if (comment.author.name[0] === 'Ge' || comment.author.name[0] === 'Ne') {
-        this.$store.dispatch('getRandomColorClass').then((data) => {
+        this.getRandomColorClass().then((data) => {
           comment.superChat = {
             amount: '$5.00',
             colorClass: data
@@ -260,6 +261,10 @@ export default Vue.extend({
     preventDefault: function (event) {
       event.stopPropagation()
       event.preventDefault()
-    }
+    },
+
+    ...mapActions([
+      'getRandomColorClass'
+    ])
   }
 })

@@ -112,7 +112,7 @@ export default Vue.extend({
         params: { region: this.region }
       }
 
-      this.$store.dispatch('invidiousAPICall', trendingPayload).then((result) => {
+      this.invidiousAPICall(trendingPayload).then((result) => {
         if (!result) {
           return
         }
@@ -149,7 +149,8 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'showToast'
+      'showToast',
+      'invidiousAPICall'
     ])
   }
 })

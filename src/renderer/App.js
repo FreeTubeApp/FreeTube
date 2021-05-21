@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { mapActions } from 'vuex'
+import { mapActions, mapMutations } from 'vuex'
 import { ObserveVisibility } from 'vue-observe-visibility'
 import FtFlexBox from './components/ft-flex-box/ft-flex-box.vue'
 import TopNav from './components/top-nav/top-nav.vue'
@@ -82,11 +82,11 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    this.$store.dispatch('grabUserSettings').then(() => {
-      this.$store.dispatch('grabAllProfiles', this.$t('Profile.All Channels')).then(async () => {
-        this.$store.dispatch('grabHistory')
-        this.$store.dispatch('grabAllPlaylists')
-        this.$store.commit('setUsingElectron', useElectron)
+    this.grabUserSettings().then(() => {
+      this.grabAllProfiles(this.$t('Profile.All Channels')).then(async () => {
+        this.grabHistory()
+        this.grabAllPlaylists()
+        this.setUsingElectron(useElectron)
         this.checkThemeSettings()
         await this.checkLocale()
 
@@ -134,7 +134,7 @@ export default Vue.extend({
         locale: this.$i18n.locale
       }
 
-      this.$store.dispatch('getRegionData', payload)
+      this.getRegionData(payload)
     },
 
     checkThemeSettings: function () {
@@ -301,7 +301,7 @@ export default Vue.extend({
     },
 
     handleYoutubeLink: function (href) {
-      this.$store.dispatch('getYoutubeUrlInfo', href).then((result) => {
+      this.getYoutubeUrlInfo(href).then((result) => {
         switch (result.urlType) {
           case 'video': {
             const { videoId, timestamp } = result
@@ -393,7 +393,17 @@ export default Vue.extend({
 
     ...mapActions([
       'showToast',
-      'openExternalLink'
+      'openExternalLink',
+      'grabUserSettings',
+      'grabAllProfiles',
+      'grabHistory',
+      'grabAllPlaylists',
+      'getRegionData',
+      'getYoutubeUrlInfo'
+    ]),
+
+    ...mapMutations([
+      'setUsingElectron'
     ])
   }
 })

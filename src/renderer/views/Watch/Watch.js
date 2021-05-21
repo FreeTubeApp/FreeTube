@@ -211,8 +211,7 @@ export default Vue.extend({
         this.isLoading = true
       }
 
-      this.$store
-        .dispatch('ytGetVideoInformation', this.videoId)
+      this.ytGetVideoInformation(this.videoId)
         .then(async result => {
           console.log(result)
 
@@ -516,8 +515,7 @@ export default Vue.extend({
       this.dashSrc = this.createInvidiousDashManifest()
       this.videoStoryboardSrc = `${this.invidiousInstance}/api/v1/storyboards/${this.videoId}?height=90`
 
-      this.$store
-        .dispatch('invidiousGetVideoInformation', this.videoId)
+      this.invidiousGetVideoInformation(this.videoId)
         .then(result => {
           console.log(result)
 
@@ -776,8 +774,7 @@ export default Vue.extend({
     },
 
     getLegacyFormats: function () {
-      this.$store
-        .dispatch('ytGetVideoInformation', this.videoId)
+      this.ytGetVideoInformation(this.videoId)
         .then(result => {
           this.videoSourceList = result.player_response.streamingData.formats
         })
@@ -1194,7 +1191,9 @@ export default Vue.extend({
       'buildVTTFileLocally',
       'updateHistory',
       'updateWatchProgress',
-      'getUserDataPath'
+      'getUserDataPath',
+      'ytGetVideoInformation',
+      'invidiousGetVideoInformation'
     ])
   }
 })

@@ -291,7 +291,7 @@ export default Vue.extend({
     },
 
     initializeSponsorBlock() {
-      this.$store.dispatch('sponsorBlockSkipSegments', {
+      this.sponsorBlockSkipSegments({
         videoId: this.videoId,
         categories: ['sponsor']
       }).then((skipSegments) => {
@@ -1341,7 +1341,8 @@ export default Vue.extend({
 
     ...mapActions([
       'showToast',
-      'calculateColorLuminance'
+      'calculateColorLuminance',
+      'sponsorBlockSkipSegments'
     ])
   }
 })
