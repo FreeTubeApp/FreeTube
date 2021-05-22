@@ -281,6 +281,11 @@ Settings:
     Region: Region
     City: City
     Error getting network information. Is your proxy configured properly?: Error getting network information. Is your proxy configured properly?
+  SponsorBlock Settings:
+    SponsorBlock Settings: SponsorBlock Settings
+    Enable SponsorBlock: Enable SponsorBlock
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API Url (Default is https://sponsor.ajay.app)
+    Notify when sponsor segment is skipped: Notify when sponsor segment is skipped
 About:
   #On About page
   About: About
@@ -473,6 +478,14 @@ Video:
   translated from English: translated from English
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: $ % ago
+  Skipped segment: Skipped segment
+  Sponsor Block category:
+    sponsor: sponsor
+    intro: intro
+    outro: outro
+    self-promotion: self-promotion
+    interaction: interaction
+    music offtopic: music offtopic
 #& Videos
 Videos:
   #& Sort By

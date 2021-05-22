@@ -13,9 +13,8 @@ if (window && window.process && window.process.type === 'renderer') {
   //
   // dbLocation += '/playlists.db'
 
-  const remote = require('@electron/remote')
-  dbLocation = remote.app.getPath('userData')
-
+  const { ipcRenderer } = require('electron')
+  dbLocation = ipcRenderer.sendSync('getUserDataPathSync')
   dbLocation = dbLocation + '/playlists.db'
 } else {
   dbLocation = 'playlists.db'

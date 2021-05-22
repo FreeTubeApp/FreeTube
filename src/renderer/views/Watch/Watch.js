@@ -14,8 +14,6 @@ import WatchVideoLiveChat from '../../components/watch-video-live-chat/watch-vid
 import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-video-playlist.vue'
 import WatchVideoRecommendations from '../../components/watch-video-recommendations/watch-video-recommendations.vue'
 
-const remote = require('@electron/remote')
-
 export default Vue.extend({
   name: 'Watch',
   components: {
@@ -69,6 +67,7 @@ export default Vue.extend({
       activeSourceList: [],
       videoSourceList: [],
       audioSourceList: [],
+      adaptiveFormats: [],
       captionHybridList: [], // [] -> Promise[] -> string[] (URIs)
       recommendedVideos: [],
       downloadLinks: [],
@@ -212,8 +211,7 @@ export default Vue.extend({
         this.isLoading = true
       }
 
-      this.$store
-        .dispatch('ytGetVideoInformation', this.videoId)
+      this.ytGetVideoInformation(this.videoId)
         .then(async result => {
           console.log(result)
 
@@ -291,7 +289,7 @@ export default Vue.extend({
             this.videoLikeCount = isNaN(result.videoDetails.likes) ? 0 : result.videoDetails.likes
             this.videoDislikeCount = isNaN(result.videoDetails.dislikes) ? 0 : result.videoDetails.dislikes
           }
-          this.isLive = result.player_response.videoDetails.isLive || result.player_response.videoDetails.isLiveContent
+          this.isLive = result.player_response.videoDetails.isLive
           this.isLiveContent = result.player_response.videoDetails.isLiveContent
           this.isUpcoming = result.player_response.videoDetails.isUpcoming ? result.player_response.videoDetails.isUpcoming : false
 
@@ -311,7 +309,7 @@ export default Vue.extend({
             }
           }
 
-          if (this.isLive && !this.isUpcoming) {
+          if ((this.isLive || this.isLiveContent) && !this.isUpcoming) {
             this.enableLegacyFormat()
 
             this.videoSourceList = result.formats.filter((format) => {
@@ -364,6 +362,7 @@ export default Vue.extend({
               } else {
                 this.videoSourceList = result.player_response.streamingData.adaptiveFormats.reverse()
               }
+              this.adaptiveFormats = this.videoSourceList
               this.downloadLinks = result.formats.filter((format) => {
                 return typeof format.mimeType !== 'undefined'
               }).map((format) => {
@@ -434,14 +433,9 @@ export default Vue.extend({
               if (this.proxyVideos) {
                 this.dashSrc = await this.createInvidiousDashManifest()
               } else {
-                const adaptiveFormats = result.player_response.streamingData.adaptiveFormats.filter((video) => {
-                  if (typeof (video.qualityLabel) !== 'undefined') {
-                    return !video.qualityLabel.includes('HDR')
-                  } else {
-                    return true
-                  }
-                })
+                const adaptiveFormats = result.player_response.streamingData.adaptiveFormats
                 this.dashSrc = await this.createLocalDashManifest(adaptiveFormats)
+                this.adaptiveFormats = adaptiveFormats
               }
 
               this.audioSourceList = result.player_response.streamingData.adaptiveFormats.filter((format) => {
@@ -521,8 +515,7 @@ export default Vue.extend({
       this.dashSrc = this.createInvidiousDashManifest()
       this.videoStoryboardSrc = `${this.invidiousInstance}/api/v1/storyboards/${this.videoId}?height=90`
 
-      this.$store
-        .dispatch('invidiousGetVideoInformation', this.videoId)
+      this.invidiousGetVideoInformation(this.videoId)
         .then(result => {
           console.log(result)
 
@@ -550,6 +543,7 @@ export default Vue.extend({
           this.videoPublished = result.published * 1000
           this.videoDescriptionHtml = result.descriptionHtml
           this.recommendedVideos = result.recommendedVideos
+          this.adaptiveFormats = result.adaptiveFormats
           this.isLive = result.liveNow
           this.captionHybridList = result.captions.map(caption => {
             caption.url = this.invidiousInstance + caption.url
@@ -780,8 +774,7 @@ export default Vue.extend({
     },
 
     getLegacyFormats: function () {
-      this.$store
-        .dispatch('ytGetVideoInformation', this.videoId)
+      this.ytGetVideoInformation(this.videoId)
         .then(result => {
           this.videoSourceList = result.player_response.streamingData.formats
         })
@@ -933,7 +926,7 @@ export default Vue.extend({
       const countDownIntervalId = setInterval(showCountDownMessage, 1000)
     },
 
-    handleRouteChange: function () {
+    handleRouteChange: async function () {
       clearTimeout(this.playNextTimeout)
 
       this.handleWatchProgress()
@@ -963,7 +956,7 @@ export default Vue.extend({
       }
 
       if (this.removeVideoMetaFiles) {
-        const userData = remote.app.getPath('userData')
+        const userData = await this.getUserDataPath()
         if (this.isDev) {
           const dashFileLocation = `dashFiles/${this.videoId}.xml`
           const vttFileLocation = `storyboards/${this.videoId}.vtt`
@@ -1006,9 +999,9 @@ export default Vue.extend({
       }
     },
 
-    createLocalDashManifest: function (formats) {
+    createLocalDashManifest: async function (formats) {
       const xmlData = ytDashGen.generate_dash_file_from_formats(formats, this.videoLengthSeconds)
-      const userData = remote.app.getPath('userData')
+      const userData = await this.getUserDataPath()
       let fileLocation
       let uriSchema
       if (this.isDev) {
@@ -1078,8 +1071,8 @@ export default Vue.extend({
         })
       })
       // TODO: MAKE A VARIABLE WHICH CAN CHOOSE BETWEEN STROYBOARD ARRAY ELEMENTS
-      this.buildVTTFileLocally(storyboardArray[1]).then((results) => {
-        const userData = remote.app.getPath('userData')
+      this.buildVTTFileLocally(storyboardArray[1]).then(async (results) => {
+        const userData = await this.getUserDataPath()
         let fileLocation
         let uriSchema
 
@@ -1197,7 +1190,10 @@ export default Vue.extend({
       'showToast',
       'buildVTTFileLocally',
       'updateHistory',
-      'updateWatchProgress'
+      'updateWatchProgress',
+      'getUserDataPath',
+      'ytGetVideoInformation',
+      'invidiousGetVideoInformation'
     ])
   }
 })

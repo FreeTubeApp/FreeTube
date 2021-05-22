@@ -123,6 +123,7 @@ Settings:
     Check for Updates: Buscar actualizaciones
     View all Invidious instance information: Ver toda la información sobre la instancia
       de Invidious
+    System Default: Por defecto del sistema
   Theme Settings:
     Theme Settings: 'Apariencia'
     Match Top Bar with Main Color: 'Usar color principal para barra superior'
@@ -183,6 +184,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Intervalo de Siguiente Video en Playlist
+    Next Video Interval: Intervalo del próximo vídeo
   Privacy Settings:
     Privacy Settings: 'Ajustes de Privacidad'
     Remember History: 'Recordar Historial'
@@ -199,6 +201,8 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: '¿Estás
       seguro de que quieres borrar todas las suscripciones y perfiles? Esta operación
       será irreversible.'
+    Automatically Remove Video Meta Files: Eliminar automáticamente los meta archivos
+      de vídeo
   Subscription Settings:
     Subscription Settings: 'Ajustes de Suscripciones'
     Hide Videos on Watch: 'Ocultar videos vistos'
@@ -300,6 +304,13 @@ Settings:
     Proxy Protocol: Protocolo Proxy
     Enable Tor / Proxy: Habilitar Tor / Proxy
     Proxy Settings: Proxy
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Notificar cuando se salta un segmento
+      de patrocinio
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Url de la API de
+      SponsorBlock (Por defecto https://sponsor.ajay.app)
+    Enable SponsorBlock: Activar SponsorBlock
+    SponsorBlock Settings: Ajustes de SponsorBlock
 About:
   #On About page
   About: 'Acerca de'
@@ -522,6 +533,14 @@ Video:
   Video has been saved: El video ha sido guardado
   Save Video: Guardiar video
   translated from English: traducido del Inglés
+  Sponsor Block category:
+    music offtopic: música fuera de tema
+    interaction: interacción
+    self-promotion: autopromoción
+    outro: epílogo
+    intro: introducción
+    sponsor: patrocinador
+  Skipped segment: Segmento saltado
 Videos:
   #& Sort By
   Sort By:
@@ -549,12 +568,12 @@ Playlist:
 Toggle Theatre Mode: 'Activar Modo Cine'
 Change Format:
   Change Video Formats: 'Cambiar formato de video'
-  Use Dash Formats: 'Usar formato Dash'
+  Use Dash Formats: 'Usar formatos DASH'
   Use Legacy Formats: 'Usar formato Legacy'
   Use Audio Formats: 'Usar formato solo audio'
   Audio formats are not available for this video: El formato solo audio no está disponible
     para este video
-  Dash formats are not available for this video: El formato Dash no está disponible
+  Dash formats are not available for this video: Los formatos DASH no están disponible
     para este video
 Share:
   Share Video: 'Compartir Video'
@@ -632,30 +651,43 @@ Tooltips:
       e impide el bloqueo de IP, pero no provee cierta información como la duración
       de un video o si es en directo
   Player Settings:
-    Default Video Format: Selecciona el formato usado para reproducir videos. El formato
-      Dash proporciona resoluciones más altas. El formato Legacy está limitado a 720p,
-      pero requiere menos ancho de banda. El formato audio se limita a reproducir
-      solo audio
+    Default Video Format: Establezca los formatos utilizados cuando se reproduce un
+      vídeo. Los formatos DASH pueden reproducir calidades superiores. Los formatos
+      heredados están limitados a un máximo de 720p pero utilizan menos ancho de banda.
+      Los formatos de audio son flujos sólo de audio.
     Proxy Videos Through Invidious: Se conectará a Invidious para obtener videos en
-      lugar de recurrir directamente a YouTube. Sobreescribirá la preferencia de API
-    Force Local Backend for Legacy Formats: Solo funcionará si la API de invidious
-      es la preferente. Si lo activas, la API local usará el formato Legacy en lugar
-      de Invidious. Ayudará cuando Invidious no pueda reproducir un video por restricciones
-      regionales
+      lugar de conectar directamente con YouTube. Sobreescribirá la preferencia de
+      API.
+    Force Local Backend for Legacy Formats: Sólo funciona cuando la API de Invidious
+      es la predeterminada. Cuando está activada, la API local se ejecutará y utilizará
+      los formatos heredados devueltos por ella en lugar de los devueltos por Invidious.
+      Ayuda cuando los vídeos devueltos por Invidious no se reproducen debido a las
+      restricciones del país.
   General Settings:
     Region for Trending: La región de las tendencias te permite elegir los videos
       más populares en un país. No todos los países que aparecen tienen soporte de
-      YouTube
-    Invidious Instance: La instancia de Invidious por defecto a la que se conectará.
-      Borra la instancia actual para ver una lista de instancias públicas
+      YouTube.
+    Invidious Instance: La instancia de Invidious por defecto a la que FreeTube se
+      conectará para las llamadas a la API. Borra la instancia actual para ver una
+      lista de instancias públicas
     Thumbnail Preference: Todas las miniaturas en FreeTube serán reemplazadas con
-      un frame del vídeo en lugar de la miniatura por defecto
+      un frame del vídeo en lugar de la miniatura por defecto.
     Fallback to Non-Preferred Backend on Failure: Si la API primaria falla, FreeTube
-      utilizará automáticamente la API secundara si se habilita.
+      utilizará automáticamente la API secundara cuando esté habilitada
     Preferred API Backend: Elige el backend que FreeTube utiliza para obtener datos.
       La API local es un extractor incluido. La API Invidious requiere un servidor
       Invidious al que conectarse.
+  Privacy Settings:
+    Remove Video Meta Files: Cuando se active, FreeTube eliminará de forma automática
+      meta-archivos creados durante la reproducción de vídeo cuando se cierre la página
+      de visualizado.
 More: Más
 Unknown YouTube url type, cannot be opened in app: Tipo de LRU desconocido. No se
   puede abrir en applicación
 Open New Window: Abrir ventana nueva
+Hashtags have not yet been implemented, try again later: Los hashtags no se han implementado
+  todavía, inténtalo más adelante
+Playing Next Video Interval: Reproduciendo el vídeo a continuación. Haz clic para
+  cancelar. | El siguiente vídeo se reproducirá en {nextVideoInterval} segundos. Haz
+  clic para cancelar. | El siguiente vídeo se reproducirá en {nextVideoInterval} segundos.
+  Haz clic para cancelar.

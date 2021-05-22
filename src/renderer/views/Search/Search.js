@@ -118,7 +118,7 @@ export default Vue.extend({
         payload.options.pages = 1
       }
 
-      this.$store.dispatch('ytSearch', payload).then((result) => {
+      this.ytSearch(payload).then((result) => {
         console.log(result)
         if (!result) {
           return
@@ -230,7 +230,7 @@ export default Vue.extend({
         }
       }
 
-      this.$store.dispatch('invidiousAPICall', searchPayload).then((result) => {
+      this.invidiousAPICall(searchPayload).then((result) => {
         if (!result) {
           return
         }
@@ -333,7 +333,9 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'showToast'
+      'showToast',
+      'ytSearch',
+      'invidiousAPICall'
     ])
   }
 })

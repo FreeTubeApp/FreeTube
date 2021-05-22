@@ -306,6 +306,12 @@ Settings:
     Proxy Protocol: Проксі-протокол
     Enable Tor / Proxy: Увімкнути Tor / Проксі
     Proxy Settings: Налаштування проксі
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Сповіщати про пропуск спонсорованого відтинка
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL-адреса API SponsorBlock
+      (типово https://sponsor.ajay.app)
+    Enable SponsorBlock: Увімкнути SponsorBlock
+    SponsorBlock Settings: Налаштування SponsorBlock
 About:
   #On About page
   About: 'Про'
@@ -512,6 +518,14 @@ Video:
   Video has been saved: Відео збережено
   Save Video: Зберегти відео
   translated from English: перекладено з англійської
+  Sponsor Block category:
+    music offtopic: музика по за темою
+    interaction: взаємодія
+    self-promotion: самореклама
+    outro: кінцівка
+    intro: вступ
+    sponsor: спонсор
+  Skipped segment: Пропущений відтинок
 Videos:
   #& Sort By
   Sort By:

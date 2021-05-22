@@ -311,6 +311,12 @@ Settings:
     Proxy Protocol: Protokol posrednika
     Enable Tor / Proxy: Aktiviraj Tor/Posrednik
     Proxy Settings: Postavke posrednika
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Obavijesti kad se preskoči segment sponzora
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL API-a za blokiranja
+      sponzora (standardno je https://sponsor.ajay.app)
+    Enable SponsorBlock: Aktiviraj blokiranja sponzora
+    SponsorBlock Settings: Postavke blokiranja sponzora
 About:
   #On About page
   About: 'Informacije'
@@ -538,6 +544,14 @@ Video:
   Video has been saved: Video je spremljen
   Save Video: Spremi video
   translated from English: prevedeno iz engleskog
+  Sponsor Block category:
+    music offtopic: druga vrsta glazbe
+    interaction: interakcija
+    self-promotion: samopromocija
+    outro: kraj
+    intro: uvod
+    sponsor: sponzor
+  Skipped segment: Preskočeni segment
 Videos:
   #& Sort By
   Sort By:

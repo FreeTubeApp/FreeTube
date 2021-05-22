@@ -146,6 +146,7 @@ export default Vue.extend({
     },
 
     handleUiScale: function (value) {
+      // FIXME: No electron safeguard
       const { webFrame } = require('electron')
       const zoomFactor = value / 100
       webFrame.setZoomFactor(zoomFactor)
@@ -167,12 +168,13 @@ export default Vue.extend({
 
       this.updateDisableSmoothScrolling(this.disableSmoothScrollingToggleValue)
 
-      const electron = require('electron')
+      // FIXME: No electron safeguard
+      const { ipcRenderer } = require('electron')
 
       if (this.disableSmoothScrollingToggleValue) {
-        electron.ipcRenderer.send('disableSmoothScrolling')
+        ipcRenderer.send('disableSmoothScrolling')
       } else {
-        electron.ipcRenderer.send('enableSmoothScrolling')
+        ipcRenderer.send('enableSmoothScrolling')
       }
     },
 

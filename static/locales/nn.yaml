@@ -31,16 +31,16 @@ Back: 'Tilbake'
 Forward: 'Framover'
 
 Version $ is now available!  Click for more details: 'Versjon $ er no tilgjengeleg!
-  Klikk for meir informasjon'
+  Trykk for meir informasjon'
 Download From Site: 'Last ned frå nettstaden'
 A new blog is now available, $. Click to view more: 'Eit nytt blogginnlegg er tilgjengeleg,
-  $. Klikk for å opne det'
+  $. Trykk her for å sjå meir'
 
 # Search Bar
-Search / Go to URL: 'Søk / Gå til nettadresse'
+Search / Go to URL: 'Søk/gå til nettadresse'
   # In Filter Button
 Search Filters:
-  Search Filters: 'Søkfilter'
+  Search Filters: 'Søkefilter'
   Sort By:
     Sort By: 'Sorter etter'
     Most Relevant: 'Mest relevant'
@@ -90,12 +90,11 @@ Most Popular: 'Mest populært'
 Playlists: 'Spelelister'
 User Playlists:
   Your Playlists: 'Dine spelelister'
-  Playlist Message: 'Denne sida reflekterer ikkje ei fullt fungerande speleliste.
-    Den viser berre videoar som du har lagra eller lagt til favorittar. Når arbeidet
-    er ferdig, blir alle videoane som for augeblikket er her overført til ei "favoritt"
-    speleliste.'
+  Playlist Message: 'Denne sida reflekterer ikkje fullt fungerande spelelister. Den
+    viser berre videoar som du har lagra eller lagt til favorittar. Når arbeidet er
+    ferdig, blir alle videoane som for augeblikket er her overført til ei "Favoritt"-speleliste.'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Du
-    har ingen lagra videoar for augeblikket. Klikk på lagringsknappen i hjørnet av
+    har ingen lagra videoar for augeblikket. Trykk på "Lagre"-knappen i hjørnet av
     ein video slik at den bli oppført her'
 History:
   # On History Page
@@ -110,7 +109,7 @@ Settings:
   General Settings:
     General Settings: 'Generelle innstillingar'
     Check for Updates: 'Sjå etter oppdateringar'
-    Check for Latest Blog Posts: 'Sjå etter siste blogginnlegg'
+    Check for Latest Blog Posts: 'Sjå etter nye blogginnlegg'
     Fallback to Non-Preferred Backend on Failure: 'Tilbakefall til ikkje-føretrekte
       backend ved feil'
     Enable Search Suggestions: 'Slå på søkeforslag'
@@ -133,13 +132,15 @@ Settings:
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious-førekomst
       (Standard er https://invidious.snopyta.org)'
     View all Invidious instance information: 'Vis informasjon om alle Invidious-førekomstar'
-    Region for Trending: 'Region for På veg opp'
+    Region for Trending: 'Region for "På veg opp"'
         #! List countries
+    System Default: Systemstandard
   Theme Settings:
     Theme Settings: 'Temainnstillingar'
-    Match Top Bar with Main Color: 'Match topplinja med hovudfargen.'
+    Match Top Bar with Main Color: 'Tilpass topplinja slik at den har same farge som
+      hovudfargen'
     Expand Side Bar by Default: 'Utvid sidefeltet som forval'
-    Disable Smooth Scrolling: 'Deaktiver jevn rulling'
+    Disable Smooth Scrolling: 'Slå av jamn rulling'
     UI Scale: 'Skalering av brukargrensesnitt'
     Base Theme:
       Base Theme: 'Hovudtema'
@@ -168,11 +169,11 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: 'Videoavspelingsinnstillingar'
-    Force Local Backend for Legacy Formats: ''
+    Force Local Backend for Legacy Formats: 'Påtving lokal bakende for forelda format'
     Play Next Video: 'Spel av neste video'
     Turn on Subtitles by Default: 'Slå på undertekst som standardval'
     Autoplay Videos: 'Spel av videoar automatisk'
-    Proxy Videos Through Invidious: 'Mellomtjen videoar gjennom Invidious'
+    Proxy Videos Through Invidious: 'Mellomten videoar gjennom Invidious'
     Autoplay Playlists: 'Spel av spelelister automatisk'
     Enable Theatre Mode by Default: 'Kinomodus som standardval'
     Default Volume: 'Standardvolum'
@@ -194,6 +195,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Next Video Interval: Tid mellom videoar
   Privacy Settings:
     Privacy Settings: 'Personvernsinnstillingar'
     Remember History: 'Husk historikk'
@@ -206,7 +208,7 @@ Settings:
     Are you sure you want to remove your entire watch history?: 'Er du sikker på at
       du vil fjerne heile sjåarhistorikken din?'
     Watch history has been cleared: 'Sjåarhistorikk har blitt fjerna'
-    Remove All Subscriptions / Profiles: 'Fjern alle abonnentar / profil'
+    Remove All Subscriptions / Profiles: 'Fjern alle abonnentar/profil'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Er
       du sikker på at du vil fjerne alle abonnentar og profil? Dette kan ikkje bli
       ugjort.'
@@ -214,19 +216,19 @@ Settings:
   Subscription Settings:
     Subscription Settings: 'Abonnementinnstillingar'
     Hide Videos on Watch: 'Skjul sette videoar'
-    Fetch Feeds from RSS: 'Hent feedar frå RSS'
+    Fetch Feeds from RSS: 'Hent informasjonskanalar frå RSS'
     Manage Subscriptions: 'Behandle abonnement'
   Distraction Free Settings:
     Distraction Free Settings: 'Distraksjonsfri-instillingar'
-    Hide Video Views: 'Gøym videovisingar'
-    Hide Video Likes And Dislikes: ''
-    Hide Channel Subscribers: 'Gøym kanalabonnement'
-    Hide Comment Likes: ''
-    Hide Recommended Videos: 'Gøym anbefalte videoar'
-    Hide Trending Videos: 'Gøym På veg opp'
-    Hide Popular Videos: 'Gøym populære videoar'
-    Hide Live Chat: 'Gøym direktechat'
-    Hide Active Subscriptions: 'Gøym aktive abonnement'
+    Hide Video Views: 'Skjul videovisingar'
+    Hide Video Likes And Dislikes: 'Skjul videogunst'
+    Hide Channel Subscribers: 'Skjul kanalabonnement'
+    Hide Comment Likes: 'Skjul kommentargunst'
+    Hide Recommended Videos: 'Skjul anbefalte videoar'
+    Hide Trending Videos: 'Skjul "På veg opp"'
+    Hide Popular Videos: 'Skjul "Mest populært"'
+    Hide Live Chat: 'Skjul direktechat'
+    Hide Active Subscriptions: 'Skjul aktive abonnement'
     Hide Playlists: Skjul spelelister
   Data Settings:
     Data Settings: 'Datainnstillingar'
@@ -236,7 +238,7 @@ Settings:
     Import FreeTube: 'Importer FreeTube'
     Import YouTube: 'Importer YouTube'
     Import NewPipe: 'Importer NewPipe'
-    Check for Legacy Subscriptions: ''
+    Check for Legacy Subscriptions: 'Sjå etter forelda abonnement'
     Export Subscriptions: 'Eksporter abonnement'
     Export FreeTube: 'Eksporter FreeTube'
     Export YouTube: 'Eksporter YouTube'
@@ -268,12 +270,12 @@ Settings:
     Manage Subscriptions: 'Behandle abonnement'
   Proxy Settings:
     Proxy Settings: 'Mellomtenarinnstillingar'
-    Enable Tor / Proxy: 'Skru på Tor / Mellomtenar'
+    Enable Tor / Proxy: 'Skru på Tor/mellomtenar'
     Proxy Protocol: 'Mellomtenarprotokoll'
     Proxy Host: 'Mellomtenarvert'
     Proxy Port Number: 'Mellomtenar-portnummer'
-    Clicking on Test Proxy will send a request to: 'Klikk på testtenaren du vil sende
-      ein førespurnad til'
+    Clicking on Test Proxy will send a request to: 'Viss du trykker på "Test mellomtenar"
+      sender me ein førespurnad til'
     Test Proxy: 'Test mellomtenar'
     Your Info: 'Din informasjon'
     Ip: 'IP-adresse'
@@ -282,6 +284,13 @@ Settings:
     City: 'By'
     Error getting network information. Is your proxy configured properly?: 'Kunne
       ikkje hente nettverksinformasjon. Er proxyen din konfigurert skikkeleg?'
+  SponsorBlock Settings:
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock-API-nettadresse
+      (standardvalet er https://sponsor.ajay.app)
+    Enable SponsorBlock: Skru på SponsorBlock
+    SponsorBlock Settings: SponsorBlock-innstillingar
+    Notify when sponsor segment is skipped: Gi beskjed når sponsordelen blir hoppa
+      over
 About:
   #On About page
   About: 'Om'
@@ -475,6 +484,12 @@ Video:
   Publicationtemplate: '$ % sidan'
 #& Videos
   translated from English: omsett frå englesk
+  Sponsor Block category:
+    outro: utgang
+    interaction: samhandling
+    intro: introduksjon
+    sponsor: sponsor
+  Skipped segment: Overhoppa del
 Videos:
   #& Sort By
   Sort By:
@@ -503,7 +518,7 @@ Toggle Theatre Mode: 'Veksle teatermodus'
 Change Format:
   Change Video Formats: 'Endre videoformat'
   Use Dash Formats: 'Bruk DASH-format'
-  Use Legacy Formats: 'Bruk gamle format'
+  Use Legacy Formats: 'Bruk forelda format'
   Use Audio Formats: 'Bruk lydformat'
   Dash formats are not available for this video: 'DASH-format er ikkje tilgjengeleg
     for denne videoen'
@@ -514,7 +529,7 @@ Share:
   Include Timestamp: 'Inkluder tidsstempel'
   Copy Link: 'Kopier lenke'
   Open Link: 'Opne lenke'
-  Copy Embed: 'Kopier innebygd versjon'
+  Copy Embed: 'Kopier innebyggingslenke'
   Open Embed: 'Opne innebygde versjon'
   # On Click
   Invidious URL copied to clipboard: 'Invidious-URL kopiert til utklippstavle'
@@ -530,18 +545,18 @@ Share:
 Mini Player: 'Minispelar'
 Comments:
   Comments: 'Kommentarar'
-  Click to View Comments: 'Klikk for å sjå kommentarar'
+  Click to View Comments: 'Trykk her for å vise kommentarar'
   Getting comment replies, please wait: 'Laster inn kommentarar, ver venleg og vent'
   There are no more comments for this video: 'Det finst ingen fleire kommentarar for
     denne videoen'
   Show Comments: 'Vis kommentarar'
-  Hide Comments: 'Gøym kommentarar'
+  Hide Comments: 'Skjul kommentarar'
   Sort by: 'Sorter etter'
-  Top comments: 'Toppkommentar'
+  Top comments: 'Toppkommentarar'
   Newest first: 'Nyaste først'
   # Context: View 10 Replies, View 1 Reply
   View: 'Vis'
-  Hide: 'Gøym'
+  Hide: 'Skjul'
   Replies: 'Svar'
   Reply: 'Svar'
   There are no comments available for this video: 'Det er ingen kommentarar tilgjengeleg
@@ -553,27 +568,36 @@ Up Next: 'Neste'
 #Tooltips
 Tooltips:
   General Settings:
-    Preferred API Backend: ''
+    Preferred API Backend: 'Vel metoden FreeTube bruker for å hente data. Det lokale
+      API-et er ein innebygd utpakkar. Invidious-API-et krev ein Invidious-tenar å
+      kople til.'
     Fallback to Non-Preferred Backend on Failure: 'Når ditt føretrekte API har eit
       problem, vil FreeTube prøve å automatisk bruke ditt ikkje-føretrekte API som
-      ein tilbakefallingsmetode dersom det er aktivert'
+      ein tilbakefallingsmetode dersom det er aktivert.'
     Thumbnail Preference: 'Alle miniatyrbilete i FreeTube vil bli erstatta av eit
       bilete av videoen i staden for standardminiatyrbiletet'
     Invidious Instance: 'Invidious-førekomsten som FreeTube vil kople til for API-kall.
       Fjern den gjeldene førekomsten for å sjå ei liste over offentlege førekomstar
       å velje mellom'
-    Region for Trending: ''
+    Region for Trending: 'Trendsregionen lar deg enkelt velje kva lands populære videoar
+      du ynskjer å vise. Ikkje alle land som visast støttast av YouTube.'
   Player Settings:
     Force Local Backend for Legacy Formats: ''
-    Proxy Videos Through Invidious: ''
-    Default Video Format: ''
+    Proxy Videos Through Invidious: 'Koplar til Invidious for å servere videoar i
+      staden for å kople direkte til YouTube. Overstyrar API-innstillingar.'
+    Default Video Format: 'Sett format som blir brukt når ein video spelast. DASH-format
+      kan spele høgare kvalitet. Forelda format er avgrensa til maks 720p, men bruker
+      mindre bandbreidde. Lydformat er berre for lydstraumar.'
   Subscription Settings:
     Fetch Feeds from RSS: ''
 
 # Toast Messages
-Local API Error (Click to copy): 'Lokal API-feil (Klikk for å kopiere)'
-Invidious API Error (Click to copy): 'Invidious-API-feil (Klikk for å kopiere)'
-Falling back to Invidious API: 'Faller tilbake til Invidious-API'
+  Privacy Settings:
+    Remove Video Meta Files: Viss denne innstillinga er på, vil FreeTube automatisk
+      slette metadata generert under videoavspeling når du lukker avspelingsida.
+Local API Error (Click to copy): 'Lokal API-feil (Klikk her for å kopiere)'
+Invidious API Error (Click to copy): 'Invidious-API-feil (Klikk her for å kopiere)'
+Falling back to Invidious API: 'Faller tilbake til Invidious-API-et'
 Falling back to the local API: 'Faller tilbake til det lokale API-et'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Denne
   videoen er utilgjengeleg grunna manglande format. Dette kan skuldast tilgangsavgrensingar
@@ -591,14 +615,16 @@ Playing next video in 5 seconds.  Click to cancel: 'Speler av neste video om 5 s
   Klikk for å avbryte.'
 Canceled next video autoplay: 'Avbryt automatisk avspeling av neste video'
 'The playlist has ended.  Enable loop to continue playing': 'Spelelista har nådd si
-  ende. Klikk på gjenta for å fortsette spelinga'
+  ende. Klikk på "Gjenta" for å fortsette avspelinga'
 
 Yes: 'Ja'
 No: 'Nei'
 Unknown YouTube url type, cannot be opened in app: Ukjent type YouTube-nettadresse,
   kan ikkje opnast i applikasjonen
-Playing Next Video Interval: Speler av neste video no. Klikk for å avbryte. | Speler
-  av neste video om {nextVideoInterval} sekund. Klikk for å avbryte. | Speler av neste
-  video om {nextVideoInterval} sekund. Klikk for å avbryte.
+Playing Next Video Interval: Speler av neste video no. Klikk her for å avbryte. |
+  Speler av neste video om {nextVideoInterval} sekund. Klikk her for å avbryte. |
+  Speler av neste video om {nextVideoInterval} sekund. Klikk her for å avbryte.
 More: Meir
 Open New Window: Opne nytt vindauge
+Hashtags have not yet been implemented, try again later: Emneknaggar er ikkje implementert
+  enda, ver venleg og prøv igjen seinare
