@@ -237,7 +237,6 @@ function runApp() {
         nodeIntegrationInWorker: false,
         webSecurity: false,
         backgroundThrottling: false,
-        enableRemoteModule: true,
         contextIsolation: false
       },
       show: false
