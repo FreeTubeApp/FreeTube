@@ -480,7 +480,9 @@ export default Vue.extend({
           return
         }
 
-        const newPipeSubscriptions = newPipeData.subscriptions
+        const newPipeSubscriptions = newPipeData.subscriptions.filter((channel, index) => {
+          return channel.service_id === 0
+        })
 
         const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
         const subscriptions = []
