@@ -257,7 +257,15 @@ export default Vue.extend({
         }
         this.thumbnailUrl = response.authorThumbnails[2].url
         this.channelDescription = autolinker.link(response.description)
-        this.relatedChannels = response.relatedChannels.items
+        this.relatedChannels = response.relatedChannels.items.map((channel) => {
+          let curThumb= channel.authorThumbnails[channel.authorThumbnails.length - 1]
+          if (curThumb.url.substring(0,2) === '//') {
+            curThumb.url = 'https:'+curThumb.url
+          } else {
+            curThumb.url = curThumb.url.replace('file://', 'https://')
+          }
+          return channel
+        })
 
         if (response.authorBanners !== null) {
           const bannerUrl = response.authorBanners[response.authorBanners.length - 1].url
