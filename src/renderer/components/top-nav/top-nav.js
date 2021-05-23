@@ -247,10 +247,12 @@ export default Vue.extend({
 
     historyBack: function () {
       window.history.back()
+      document.title = `${this.$t(this.$route.meta.title)} - ${process.env.PRODUCT_NAME}`
     },
 
     historyForward: function () {
       window.history.forward()
+      document.title = `${this.$t(this.$route.meta.title)} - ${process.env.PRODUCT_NAME}`
     },
 
     toggleSideNav: function () {
