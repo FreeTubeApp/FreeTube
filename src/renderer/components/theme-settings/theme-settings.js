@@ -22,6 +22,7 @@ export default Vue.extend({
       currentBaseTheme: '',
       currentMainColor: '',
       currentSecColor: '',
+      currentSetTheme: '',
       expandSideBar: false,
       minUiScale: 50,
       maxUiScale: 300,
@@ -35,7 +36,8 @@ export default Vue.extend({
       baseThemeValues: [
         'light',
         'dark',
-        'black'
+        'black',
+        'system'
       ],
       colorValues: [
         'Red',
@@ -89,7 +91,8 @@ export default Vue.extend({
       return [
         this.$t('Settings.Theme Settings.Base Theme.Light'),
         this.$t('Settings.Theme Settings.Base Theme.Dark'),
-        this.$t('Settings.Theme Settings.Base Theme.Black')
+        this.$t('Settings.Theme Settings.Base Theme.Black'),
+        this.$t('System')
       ]
     },
 
@@ -118,6 +121,7 @@ export default Vue.extend({
     this.currentBaseTheme = localStorage.getItem('baseTheme')
     this.currentMainColor = localStorage.getItem('mainColor').replace('main', '')
     this.currentSecColor = localStorage.getItem('secColor').replace('sec', '')
+    this.currentSetTheme = localStorage.getItem('setTheme').replace('sec', '')
     this.expandSideBar = localStorage.getItem('expandSideBar') === 'true'
     this.disableSmoothScrollingToggleValue = this.disableSmoothScrolling
   },
@@ -126,14 +130,26 @@ export default Vue.extend({
       const mainColor = `main${this.currentMainColor}`
       const secColor = `sec${this.currentSecColor}`
 
+      const setTheme = theme
+
+      const electron = require("electron")
+
+      this.theme = setTheme
+      
+      if (setTheme == 'system') {
+        this.theme = (electron.remote.nativeTheme.shouldUseDarkColors ? "dark" : "light")
+      }
+
       const payload = {
-        baseTheme: theme,
+        baseTheme: this.theme,
         mainColor: mainColor,
-        secColor: secColor
+        secColor: secColor,
+        setTheme: setTheme
       }
 
       this.$parent.$parent.updateTheme(payload)
-      this.currentBaseTheme = theme
+      this.currentBaseTheme = this.theme
+      this.currentSetTheme = setTheme
     },
 
     handleExpandSideBar: function (value) {
@@ -183,7 +199,8 @@ export default Vue.extend({
       const payload = {
         baseTheme: this.currentBaseTheme,
         mainColor: mainColor,
-        secColor: secColor
+        secColor: secColor,
+        setTheme: this.currentSetTheme
       }
 
       this.$parent.$parent.updateTheme(payload)
@@ -197,7 +214,8 @@ export default Vue.extend({
       const payload = {
         baseTheme: this.currentBaseTheme,
         mainColor: mainColor,
-        secColor: secColor
+        secColor: secColor,
+        setTheme: this.currentSetTheme
       }
 
       this.$parent.$parent.updateTheme(payload)

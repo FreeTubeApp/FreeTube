@@ -147,11 +147,12 @@ export default Vue.extend({
       let baseTheme = localStorage.getItem('baseTheme')
       let mainColor = localStorage.getItem('mainColor')
       let secColor = localStorage.getItem('secColor')
-
+      let setTheme = localStorage.getItem('setTheme')
+      
       if (baseTheme === null) {
         baseTheme = 'light'
       }
-
+      
       if (mainColor === null) {
         mainColor = 'mainRed'
       }
@@ -160,10 +161,23 @@ export default Vue.extend({
         secColor = 'secBlue'
       }
 
+      if (setTheme === null) {
+        setTheme = 'light'
+      }
+
+      const electron = require("electron")
+
+      this.baseTheme = setTheme
+      
+      if (setTheme == 'system') {
+        this.baseTheme = (electron.remote.nativeTheme.shouldUseDarkColors ? "dark" : "light")
+      }
+
       const theme = {
-        baseTheme: baseTheme,
+        baseTheme: this.baseTheme,
         mainColor: mainColor,
-        secColor: secColor
+        secColor: secColor,
+        setTheme: setTheme
       }
 
       this.updateTheme(theme)
@@ -177,6 +191,7 @@ export default Vue.extend({
       localStorage.setItem('baseTheme', theme.baseTheme)
       localStorage.setItem('mainColor', theme.mainColor)
       localStorage.setItem('secColor', theme.secColor)
+      localStorage.setItem('setTheme', theme.setTheme)
     },
 
     checkForNewUpdates: function () {

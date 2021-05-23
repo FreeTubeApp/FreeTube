@@ -37,7 +37,7 @@
     <ft-flex-box>
       <ft-select
         :placeholder="$t('Settings.Theme Settings.Base Theme.Base Theme')"
-        :value="currentBaseTheme"
+        :value="currentSetTheme"
         :select-names="baseThemeNames"
         :select-values="baseThemeValues"
         @change="updateBaseTheme"
