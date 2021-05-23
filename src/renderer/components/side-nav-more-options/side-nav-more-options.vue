@@ -17,6 +17,7 @@
       class="moreOptionContainer"
     >
       <div
+        v-if="!hideTrendingVideos"
         class="navOption"
         @click="navigate('trending')"
       >
@@ -29,6 +30,7 @@
         </p>
       </div>
       <div
+        v-if="!hidePopularVideos"
         class="navOption"
         @click="navigate('popular')"
       >
