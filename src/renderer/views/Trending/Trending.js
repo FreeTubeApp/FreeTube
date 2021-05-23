@@ -16,6 +16,7 @@ export default Vue.extend({
     'ft-icon-button': FtIconButton
   },
   data: function () {
+    document.title = `${this.$t(this.$route.meta.title)} - ${process.env.PRODUCT_NAME}`
     return {
       isLoading: false,
       shownResults: []

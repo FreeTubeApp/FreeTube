@@ -14,6 +14,7 @@ export default Vue.extend({
     'ft-profile-filter-channels-list': FtProfileFilterChannelsList
   },
   data: function () {
+    document.title = `${this.$t(this.$route.meta.title)} - ${process.env.PRODUCT_NAME}`
     return {
       isLoading: false,
       isNew: false,

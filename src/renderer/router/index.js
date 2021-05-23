@@ -21,7 +21,7 @@ const router = new Router({
     {
       path: '/',
       meta: {
-        title: 'Subscriptions',
+        title: 'Subscriptions.Subscriptions',
         icon: 'fa-home'
       },
       component: Subscriptions
@@ -29,7 +29,7 @@ const router = new Router({
     {
       path: '/subscriptions',
       meta: {
-        title: 'Subscriptions',
+        title: 'Subscriptions.Subscriptions',
         icon: 'fa-home'
       },
       component: Subscriptions
@@ -37,7 +37,7 @@ const router = new Router({
     {
       path: '/settings/profile',
       meta: {
-        title: 'Profile Settings',
+        title: 'Profile.Profile Settings',
         icon: 'fa-home'
       },
       component: ProfileSettings
@@ -46,7 +46,7 @@ const router = new Router({
       path: '/settings/profile/new',
       name: 'newProfile',
       meta: {
-        title: 'New Profile',
+        title: 'Profile.Create New Profile',
         icon: 'fa-home'
       },
       component: ProfileEdit
@@ -55,7 +55,7 @@ const router = new Router({
       path: '/settings/profile/edit/:id',
       name: 'editProfile',
       meta: {
-        title: 'Edit Profile',
+        title: 'ProfileEdit',
         icon: 'fa-home'
       },
       component: ProfileEdit
@@ -79,7 +79,7 @@ const router = new Router({
     {
       path: '/userplaylists',
       meta: {
-        title: 'User Playlists',
+        title: 'User Playlists.Your Playlists',
         icon: 'fa-home'
       },
       component: UserPlaylists
@@ -88,7 +88,7 @@ const router = new Router({
       path: '/history',
       name: 'history',
       meta: {
-        title: 'History',
+        title: 'History.History',
         icon: 'fa-home'
       },
       component: History
@@ -96,7 +96,7 @@ const router = new Router({
     {
       path: '/settings',
       meta: {
-        title: 'Settings',
+        title: 'Settings.Settings',
         icon: 'fa-home'
       },
       component: Settings
@@ -104,7 +104,7 @@ const router = new Router({
     {
       path: '/about',
       meta: {
-        title: 'About',
+        title: 'About.About',
         icon: 'fa-home'
       },
       component: About
@@ -112,7 +112,7 @@ const router = new Router({
     {
       path: '/search/:query',
       meta: {
-        title: 'Search',
+        title: 'Search Filters.Search Results',
         icon: 'fa-home'
       },
       component: Search
@@ -163,10 +163,11 @@ router.afterEach(to => {
       : `${to.meta.title} - ${process.env.PRODUCT_NAME}`
 
   if (!title) {
-    title = 'Home'
+    title = process.env.PRODUCT_NAME
   }
-
-  document.title = title
+  if (title === process.env.PRODUCT_NAME) {
+    document.title = title
+  }
 })
 
 export default router

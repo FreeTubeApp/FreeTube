@@ -15,6 +15,7 @@ export default Vue.extend({
     'ft-button': FtButton
   },
   data: function () {
+    document.title = `${this.$t(this.$route.meta.title)} - ${process.env.PRODUCT_NAME}`
     return {
       isLoading: false,
       dataLimit: 100

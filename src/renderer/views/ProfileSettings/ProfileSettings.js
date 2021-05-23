@@ -14,6 +14,7 @@ export default Vue.extend({
   },
   computed: {
     profileList: function () {
+      document.title = `${this.$t(this.$route.meta.title)} - ${process.env.PRODUCT_NAME}`
       return this.$store.getters.getProfileList
     }
   },
