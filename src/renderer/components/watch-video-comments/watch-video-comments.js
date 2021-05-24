@@ -337,7 +337,7 @@ export default Vue.extend({
         }
       }
 
-      this.$store.dispatch('invidiousAPICall', payload).then((response) => {
+      this.invidiousAPICall(payload).then((response) => {
         const commentData = response.comments.map((comment) => {
           comment.showReplies = false
           comment.authorLink = comment.authorId

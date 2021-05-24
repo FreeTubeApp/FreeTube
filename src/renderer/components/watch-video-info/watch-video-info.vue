@@ -94,7 +94,7 @@
           icon="download"
           :dropdown-names="downloadLinkNames"
           :dropdown-values="downloadLinkValues"
-          @click="handleDownloadLink"
+          @click="openExternalLink"
         />
         <ft-icon-button
           v-if="!isUpcoming"

@@ -6,7 +6,6 @@ import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
 import $ from 'jquery'
 import debounce from 'lodash.debounce'
 import ytSuggest from 'youtube-suggest'
-const { ipcRenderer } = require('electron')
 
 export default Vue.extend({
   name: 'TopNav',
@@ -24,6 +23,10 @@ export default Vue.extend({
     }
   },
   computed: {
+    usingElectron: function () {
+      return this.$store.getters.getUsingElectron
+    },
+
     enableSearchSuggestions: function () {
       return this.$store.getters.getEnableSearchSuggestions
     },
@@ -102,7 +105,7 @@ export default Vue.extend({
         searchInput.blur()
       }
 
-      this.$store.dispatch('getYoutubeUrlInfo', query).then((result) => {
+      this.getYoutubeUrlInfo(query).then((result) => {
         switch (result.urlType) {
           case 'video': {
             const { videoId, timestamp } = result
@@ -217,7 +220,7 @@ export default Vue.extend({
         }
       }
 
-      this.$store.dispatch('invidiousAPICall', searchPayload).then((results) => {
+      this.invidiousAPICall(searchPayload).then((results) => {
         this.searchSuggestionsDataList = results.suggestions
       }).catch((err) => {
         console.log(err)
@@ -255,11 +258,18 @@ export default Vue.extend({
     },
 
     createNewWindow: function () {
-      ipcRenderer.send('createNewWindow')
+      if (this.usingElectron) {
+        const { ipcRenderer } = require('electron')
+        ipcRenderer.send('createNewWindow')
+      } else {
+        // Web placeholder
+      }
     },
 
     ...mapActions([
-      'showToast'
+      'showToast',
+      'getYoutubeUrlInfo',
+      'invidiousAPICall'
     ])
   }
 })

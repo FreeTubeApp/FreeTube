@@ -48,10 +48,14 @@
           @click="goToChannel(comment.authorLink)"
         >
         <p
-          class="commentAuthor"
-          @click="goToChannel(comment.authorLink)"
+          class="commentAuthorWrapper"
         >
-          {{ comment.author }}
+          <span
+            class="commentAuthor"
+            @click="goToChannel(comment.authorLink)"
+          >
+            {{ comment.author }}
+          </span>
           <span class="commentDate">
             {{ comment.time }}
           </span>
@@ -108,8 +112,13 @@
               :src="reply.authorThumb"
               class="commentThumbnail"
             >
-            <p class="commentAuthor">
-              {{ reply.author }}
+            <p class="commentAuthorWrapper">
+              <span
+                class="commentAuthor"
+                @click="goToChannel(reply.authorLink)"
+              >
+                {{ reply.author }}
+              </span>
               <span class="commentDate">
                 {{ reply.time }}
               </span>

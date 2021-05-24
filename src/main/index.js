@@ -1,4 +1,7 @@
-import { app, BrowserWindow, Menu, ipcMain, screen } from 'electron'
+import {
+  app, BrowserWindow, dialog, Menu,
+  ipcMain, powerSaveBlocker, screen, shell
+} from 'electron'
 import Datastore from 'nedb'
 
 if (process.argv.includes('--version')) {
@@ -9,8 +12,6 @@ if (process.argv.includes('--version')) {
 }
 
 function runApp() {
-  require('@electron/remote/main').initialize()
-
   require('electron-context-menu')({
     showSearchWithGoogle: false,
     showSaveImageAs: true,
@@ -236,7 +237,6 @@ function runApp() {
         nodeIntegrationInWorker: false,
         webSecurity: false,
         backgroundThrottling: false,
-        enableRemoteModule: true,
         contextIsolation: false
       },
       show: false
@@ -414,6 +414,38 @@ function runApp() {
 
   ipcMain.on('disableProxy', () => {
     mainWindow.webContents.session.setProxy({})
+  })
+
+  ipcMain.on('openExternalLink', (_, url) => {
+    if (typeof url === 'string') shell.openExternal(url)
+  })
+
+  ipcMain.handle('getLocale', () => {
+    return app.getLocale()
+  })
+
+  ipcMain.handle('getUserDataPath', () => {
+    return app.getPath('userData')
+  })
+
+  ipcMain.on('getUserDataPathSync', (event) => {
+    event.returnValue = app.getPath('userData')
+  })
+
+  ipcMain.handle('showOpenDialog', async (_, options) => {
+    return await dialog.showOpenDialog(options)
+  })
+
+  ipcMain.handle('showSaveDialog', async (_, options) => {
+    return await dialog.showSaveDialog(options)
+  })
+
+  ipcMain.on('stopPowerSaveBlocker', (_, id) => {
+    powerSaveBlocker.stop(id)
+  })
+
+  ipcMain.handle('startPowerSaveBlocker', (_, type) => {
+    return powerSaveBlocker.start(type)
   })
 
   ipcMain.on('createNewWindow', () => {

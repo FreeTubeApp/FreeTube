@@ -556,23 +556,29 @@ Playlist:
 Toggle Theatre Mode: 'Lülita lai vaade sisse/välja'
 Change Format:
   Change Video Formats: 'Muuda videovorminguid'
-  Use Dash Formats: ''
-  Use Legacy Formats: ''
-  Use Audio Formats: ''
-  Dash formats are not available for this video: ''
-  Audio formats are not available for this video: ''
+  Use Dash Formats: 'Kasuta DASH-vorminguid'
+  Use Legacy Formats: 'Kasuta pärandvorminguid'
+  Use Audio Formats: 'Kasuta helivorminguid'
+  Dash formats are not available for this video: 'DASH-vormingud ei ole selle video
+    jaoks saadaval'
+  Audio formats are not available for this video: 'Helivormingud ei ole selle video
+    jaoks saadaval'
 Share:
-  Share Video: ''
-  Include Timestamp: ''
-  Copy Link: ''
-  Open Link: ''
-  Copy Embed: ''
-  Open Embed: ''
+  Share Video: 'Jaga videot'
+  Include Timestamp: 'Lisa ajale järjehoidja'
+  Copy Link: 'Kopeeri link'
+  Open Link: 'Ava link'
+  Copy Embed: 'Kopeeri lõiming'
+  Open Embed: 'Ava lõiming'
   # On Click
-  Invidious URL copied to clipboard: ''
-  Invidious Embed URL copied to clipboard: ''
-  YouTube URL copied to clipboard: ''
-  YouTube Embed URL copied to clipboard: ''
+  Invidious URL copied to clipboard: 'Kopeerisin Invidious''e API aadressi lõikelauale'
+  Invidious Embed URL copied to clipboard: 'Kopeerisin Invidious''e API aadressi lõikelauale'
+  YouTube URL copied to clipboard: 'Kopeerisin YouTube''i aadressi lõikelauale'
+  YouTube Embed URL copied to clipboard: 'Kopeerisin YouTube''i lõimingu aadressi
+    lõikelauale'
+  YouTube Channel URL copied to clipboard: Kopeerisin YouTube'i kanali aadressi lõikelauale
+  Invidious Channel URL copied to clipboard: Kopeerisin kanali aadressi Invidious'e
+    API'st lõikelauale
 Mini Player: ''
 Comments:
   Comments: ''

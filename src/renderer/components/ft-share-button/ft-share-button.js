@@ -34,10 +34,6 @@ export default Vue.extend({
       return this.$store.getters.getInvidiousInstance
     },
 
-    usingElectron: function () {
-      return this.$store.getters.getUsingElectron
-    },
-
     invidiousURL() {
       return `${this.invidiousInstance}/watch?v=${this.id}`
     },
@@ -63,15 +59,8 @@ export default Vue.extend({
       navigator.clipboard.writeText(text)
     },
 
-    open(url) {
-      if (this.usingElectron) {
-        const shell = require('electron').shell
-        shell.openExternal(url)
-      }
-    },
-
     openInvidious() {
-      this.open(this.getFinalUrl(this.invidiousURL))
+      this.openExternalLink(this.getFinalUrl(this.invidiousURL))
       this.$refs.iconButton.focusOut()
     },
 
@@ -84,7 +73,7 @@ export default Vue.extend({
     },
 
     openYoutube() {
-      this.open(this.getFinalUrl(this.youtubeURL))
+      this.openExternalLink(this.getFinalUrl(this.youtubeURL))
       this.$refs.iconButton.focusOut()
     },
 
@@ -97,7 +86,7 @@ export default Vue.extend({
     },
 
     openYoutubeEmbed() {
-      this.open(this.getFinalUrl(this.youtubeEmbedURL))
+      this.openExternalLink(this.getFinalUrl(this.youtubeEmbedURL))
       this.$refs.iconButton.focusOut()
     },
 
@@ -110,7 +99,7 @@ export default Vue.extend({
     },
 
     openInvidiousEmbed() {
-      this.open(this.getFinalUrl(this.invidiousEmbedURL))
+      this.openExternalLink(this.getFinalUrl(this.invidiousEmbedURL))
       this.$refs.iconButton.focusOut()
     },
 
@@ -134,7 +123,8 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'showToast'
+      'showToast',
+      'openExternalLink'
     ])
   }
 })

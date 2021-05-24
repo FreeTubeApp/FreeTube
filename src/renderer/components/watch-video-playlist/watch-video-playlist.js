@@ -277,7 +277,7 @@ export default Vue.extend({
     getPlaylistInformationLocal: function () {
       this.isLoading = true
 
-      this.$store.dispatch('ytGetPlaylistInfo', this.playlistId).then((result) => {
+      this.ytGetPlaylistInfo(this.playlistId).then((result) => {
         console.log('done')
         console.log(result)
 
@@ -338,7 +338,7 @@ export default Vue.extend({
         }
       }
 
-      this.$store.dispatch('invidiousGetPlaylistInfo', payload).then((result) => {
+      this.invidiousGetPlaylistInfo(payload).then((result) => {
         console.log('done')
         console.log(result)
 
@@ -399,7 +399,9 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'showToast'
+      'showToast',
+      'ytGetPlaylistInfo',
+      'invidiousGetPlaylistInfo'
     ])
   }
 })

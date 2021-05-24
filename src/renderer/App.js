@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { mapActions } from 'vuex'
+import { mapActions, mapMutations } from 'vuex'
 import { ObserveVisibility } from 'vue-observe-visibility'
 import FtFlexBox from './components/ft-flex-box/ft-flex-box.vue'
 import TopNav from './components/top-nav/top-nav.vue'
@@ -10,23 +10,17 @@ import FtButton from './components/ft-button/ft-button.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
 import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
 import $ from 'jquery'
-import { app } from '@electron/remote'
 import { markdown } from 'markdown'
 import Parser from 'rss-parser'
 
-let useElectron
-let shell
-let electron
+let useElectron = false
+let ipcRenderer = null
 
 Vue.directive('observe-visibility', ObserveVisibility)
 
 if (window && window.process && window.process.type === 'renderer') {
-  /* eslint-disable-next-line */
-  electron = require('electron')
-  shell = electron.shell
   useElectron = true
-} else {
-  useElectron = false
+  ipcRenderer = require('electron').ipcRenderer
 }
 
 export default Vue.extend({
@@ -88,16 +82,15 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    const v = this
-    this.$store.dispatch('grabUserSettings').then(() => {
-      this.$store.dispatch('grabAllProfiles', this.$t('Profile.All Channels')).then(() => {
-        this.$store.dispatch('grabHistory')
-        this.$store.dispatch('grabAllPlaylists')
-        this.$store.commit('setUsingElectron', useElectron)
+    this.grabUserSettings().then(() => {
+      this.grabAllProfiles(this.$t('Profile.All Channels')).then(async () => {
+        this.grabHistory()
+        this.grabAllPlaylists()
+        this.setUsingElectron(useElectron)
         this.checkThemeSettings()
-        this.checkLocale()
+        await this.checkLocale()
 
-        v.dataReady = true
+        this.dataReady = true
 
         if (useElectron) {
           console.log('User is using Electron')
@@ -115,14 +108,15 @@ export default Vue.extend({
     })
   },
   methods: {
-    checkLocale: function () {
+    checkLocale: async function () {
       const locale = localStorage.getItem('locale')
 
       if (locale === null || locale === 'system') {
-        const systemLocale = app.getLocale().replace(/-|_/, '_')
+        const systemLocale = await this.getLocale()
+
         const findLocale = Object.keys(this.$i18n.messages).find((locale) => {
-          const localeName = locale.replace(/-|_/, '_')
-          return localeName.includes(systemLocale)
+          const localeName = locale.replace('-', '_')
+          return localeName.includes(systemLocale.replace('-', '_'))
         })
 
         if (typeof findLocale !== 'undefined') {
@@ -140,7 +134,7 @@ export default Vue.extend({
         locale: this.$i18n.locale
       }
 
-      this.$store.dispatch('getRegionData', payload)
+      this.getRegionData(payload)
     },
 
     checkThemeSettings: function () {
@@ -248,7 +242,7 @@ export default Vue.extend({
 
     handleNewBlogBannerClick: function (response) {
       if (response) {
-        shell.openExternal(this.latestBlogUrl)
+        this.openExternalLink(this.latestBlogUrl)
       }
 
       this.showBlogBanner = false
@@ -256,7 +250,7 @@ export default Vue.extend({
 
     openDownloadsPage: function () {
       const url = 'https://freetubeapp.io#download'
-      shell.openExternal(url)
+      this.openExternalLink(url)
       this.showReleaseNotes = false
       this.showUpdatesBanner = false
     },
@@ -301,15 +295,13 @@ export default Vue.extend({
           this.handleYoutubeLink(el.href)
         } else {
           // Open links externally by default
-          if (typeof (shell) !== 'undefined') {
-            shell.openExternal(el.href)
-          }
+          this.openExternalLink(el.href)
         }
       })
     },
 
     handleYoutubeLink: function (href) {
-      this.$store.dispatch('getYoutubeUrlInfo', href).then((result) => {
+      this.getYoutubeUrlInfo(href).then((result) => {
         switch (result.urlType) {
           case 'video': {
             const { videoId, timestamp } = result
@@ -384,24 +376,34 @@ export default Vue.extend({
     },
 
     enableOpenUrl: function () {
-      const v = this
-      electron.ipcRenderer.on('openUrl', function (event, url) {
+      ipcRenderer.on('openUrl', (event, url) => {
         if (url) {
-          v.handleYoutubeLink(url)
+          this.handleYoutubeLink(url)
         }
       })
 
-      electron.ipcRenderer.send('appReady')
+      ipcRenderer.send('appReady')
     },
 
     setBoundsOnClose: function () {
       window.onbeforeunload = (e) => {
-        electron.ipcRenderer.send('setBounds')
+        ipcRenderer.send('setBounds')
       }
     },
 
     ...mapActions([
-      'showToast'
+      'showToast',
+      'openExternalLink',
+      'grabUserSettings',
+      'grabAllProfiles',
+      'grabHistory',
+      'grabAllPlaylists',
+      'getRegionData',
+      'getYoutubeUrlInfo'
+    ]),
+
+    ...mapMutations([
+      'setUsingElectron'
     ])
   }
 })

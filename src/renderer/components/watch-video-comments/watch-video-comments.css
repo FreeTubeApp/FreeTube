@@ -37,11 +37,15 @@
   cursor: pointer;
 }
 
-.commentAuthor {
+.commentAuthorWrapper {
   font-weight: bold;
   font-size: 14px;
   margin-left: 68px;
   margin-top: 0px;
+}
+
+
+.commentAuthor {
   cursor: pointer;
 }
 
