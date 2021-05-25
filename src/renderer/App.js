@@ -399,7 +399,8 @@ export default Vue.extend({
       'grabHistory',
       'grabAllPlaylists',
       'getRegionData',
-      'getYoutubeUrlInfo'
+      'getYoutubeUrlInfo',
+      'getLocale'
     ]),
 
     ...mapMutations([
