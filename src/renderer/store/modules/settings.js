@@ -267,7 +267,7 @@ const getters = {
   getHideActiveSubscriptions: () => {
     return state.hideActiveSubscriptions
   },
-  
+
   getVideoVolumeMouseScroll: () => {
     return state.videoVolumeMouseScroll
   },
@@ -448,7 +448,6 @@ const actions = {
                 break
               case 'sponsorBlockShowSkippedToast':
                 commit('setSponsorBlockShowSkippedToast', result.value)
-
             }
           })
           resolve()
@@ -819,7 +818,6 @@ const actions = {
       }
     })
   },
-
 
   updateVideoVolumeMouseScroll ({ commit }, videoVolumeMouseScroll) {
     settingsDb.update({ _id: 'videoVolumeMouseScroll' }, { _id: 'videoVolumeMouseScroll', value: videoVolumeMouseScroll }, { upsert: true }, (err, numReplaced) => {
