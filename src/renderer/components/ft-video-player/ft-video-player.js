@@ -155,6 +155,10 @@ export default Vue.extend({
       return this.$store.getters.getAutoplayVideos
     },
 
+    videoVolumeMouseScroll: function () {
+      return this.$store.getters.getVideoVolumeMouseScroll
+    },
+
     useSponsorBlock: function () {
       return this.$store.getters.getUseSponsorBlock
     },
@@ -251,7 +255,11 @@ export default Vue.extend({
         this.player.on('mouseleave', this.removeMouseTimeout)
 
         this.player.on('volumechange', this.updateVolume)
-        this.player.controlBar.getChild('volumePanel').on('mousewheel', this.mouseScrollVolume)
+        if (this.videoVolumeMouseScroll) {
+          this.player.on('wheel', this.mouseScrollVolume)
+        } else {
+          this.player.controlBar.getChild('volumePanel').on('wheel', this.mouseScrollVolume)
+        }
 
         this.player.on('fullscreenchange', this.fullscreenOverlay)
         this.player.on('fullscreenchange', this.toggleFullscreenClass)
