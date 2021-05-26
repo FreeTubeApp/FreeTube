@@ -249,7 +249,7 @@ export default Vue.extend({
         if (this.hideCommentLikes) {
           comment.likes = null
         }
-        comment.text = autolinker.link(comment.text.replace(/\<.*\>/g, ''))
+        comment.text = autolinker.link(comment.text.replace(/(<([^>]+)>)/ig, ''))
 
         return comment
       })
@@ -281,7 +281,7 @@ export default Vue.extend({
           } else {
             comment.likes = comment.likeCount
           }
-          comment.text = autolinker.link(comment.content.replace(/\<.*\>/g, ''))
+          comment.text = autolinker.link(comment.content.replace(/(<([^>]+)>)/ig, ''))
           comment.dataType = 'invidious'
 
           if (typeof (comment.replies) !== 'undefined' && typeof (comment.replies.replyCount) !== 'undefined') {
@@ -347,7 +347,7 @@ export default Vue.extend({
           } else {
             comment.likes = comment.likeCount
           }
-          comment.text = autolinker.link(comment.content.replace(/\<.*\>/g, ''))
+          comment.text = autolinker.link(comment.content.replace(/(<([^>]+)>)/ig, ''))
           comment.time = comment.publishedText
           comment.dataType = 'invidious'
           comment.numReplies = 0
