@@ -157,15 +157,15 @@ export default Vue.extend({
         if (typeof (text.navigationEndpoint) !== 'undefined') {
           if (typeof (text.navigationEndpoint.watchEndpoint) !== 'undefined') {
             const htmlRef = `<a href="https://www.youtube.com/watch?v=${text.navigationEndpoint.watchEndpoint.videoId}">${text.text}</a>`
-            comment.messageHtml = comment.messageHtml + htmlRef
+            comment.messageHtml = comment.messageHtml.replace(/\<.*\>/g, '') + htmlRef
           } else {
-            comment.messageHtml = comment.messageHtml + text.text
+            comment.messageHtml = (comment.messageHtml + text.text).replace(/\<.*\>/g, '')
           }
         } else if (typeof (text.alt) !== 'undefined') {
           const htmlImg = `<img src="${text.url}" alt="${text.alt}" height="24" width="24" />`
-          comment.messageHtml = comment.messageHtml + htmlImg
+          comment.messageHtml = comment.messageHtml.replace(/\<.*\>/g, '') + htmlImg
         } else {
-          comment.messageHtml = comment.messageHtml + text.text
+          comment.messageHtml = (comment.messageHtml + text.text).replace(/\<.*\>/g, '')
         }
       })
 
