@@ -188,6 +188,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Задержка перед автовоспроизведением
+    Scroll Volume Over Video Player: Прокрутка громкости над видеоплеером
   Subscription Settings:
     Subscription Settings: 'Настройки подписки'
     Hide Videos on Watch: 'Скрыть видео после просмотра'
@@ -313,6 +314,8 @@ Settings:
     Ip: Ip
     Enable Tor / Proxy: Включить Tor / Прокси
     Proxy Settings: Настройки прокси
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Уведомление о пропуске спонсорского сегмента
 About:
   #On About page
   About: 'О программе'
