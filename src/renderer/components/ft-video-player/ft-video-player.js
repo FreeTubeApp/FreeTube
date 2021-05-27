@@ -432,8 +432,10 @@ export default Vue.extend({
       }
     },
 
-    updateVolume: function (event) {
-      const volume = this.player.volume()
+    updateVolume: function (_event) {
+      // 0 means muted
+      // https://docs.videojs.com/html5#volume
+      const volume = this.player.muted() ? 0 : this.player.volume()
       sessionStorage.setItem('volume', volume)
     },
 
