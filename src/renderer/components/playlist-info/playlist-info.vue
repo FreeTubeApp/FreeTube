@@ -18,7 +18,9 @@
       </span>
       {{ lastUpdated }}
     </p>
-    <p>
+    <p
+      class="playlistDescription"
+    >
       {{ description }}
     </p>
     <hr>
@@ -47,4 +49,4 @@
 </template>
 
 <script src="./playlist-info.js" />
-<style scoped src="./playlist-info.css" />
+<style scoped lang="sass" src="./playlist-info.sass" />
