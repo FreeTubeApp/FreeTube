@@ -56,6 +56,7 @@
 
 .navIcon {
   margin-left: 10px;
+  height: 1.3em;
 }
 
 .navOption .navLabel {
@@ -125,18 +126,15 @@
 }
 
 .closed .navLabel {
-  margin-left: 0px;
-  width: 100%;
-  text-align: center;
-  left: 0px;
-  font-size: 11px;
+  display:none;
 }
 
 .closed .navChannel {
   width: 100%;
+  height: 45px;
   padding: 0px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .closed .thumbnailContainer {
@@ -148,6 +146,8 @@
   top: 0px;
   -ms-transform: none;
   transform: none;
+  margin-block-start: 0.3em;
+  margin-block-end: 0.3em;
 }
 
 @media only screen and (max-width: 680px) {
@@ -192,13 +192,6 @@
     text-align: center;
     left: 0px;
     font-size: 11px;
-  }
-
-  .navIcon {
-    margin-left: 0px;
-    width: 100%;
-    display: block;
-    margin-bottom: 0px;
   }
 
   .moreOption {
