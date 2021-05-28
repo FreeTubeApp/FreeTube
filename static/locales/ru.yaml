@@ -189,6 +189,7 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Задержка перед автовоспроизведением
     Scroll Volume Over Video Player: Прокрутка громкости над видеоплеером
+    Next Video Interval: Интервал следующего видео
   Subscription Settings:
     Subscription Settings: 'Настройки подписки'
     Hide Videos on Watch: 'Скрыть видео после просмотра'
@@ -316,6 +317,10 @@ Settings:
     Proxy Settings: Настройки прокси
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Уведомление о пропуске спонсорского сегмента
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
+      Url (По умолчанию https://sponsor.ajay.app)
+    Enable SponsorBlock: Включить SponsorBlock
+    SponsorBlock Settings: Настройки SponsorBlock
 About:
   #On About page
   About: 'О программе'
@@ -494,6 +499,14 @@ Video:
   Video has been saved: Видео было добавлено в сохранённые
   Save Video: Добавить видео в сохранённые
   translated from English: переведен с Английского
+  Sponsor Block category:
+    music offtopic: сегмент без музыки
+    interaction: напоминание о подписке (взаимодействие)
+    self-promotion: самореклама
+    outro: концовка
+    intro: вступление
+    sponsor: спонсор
+  Skipped segment: Пропущенный сегмент
 Videos:
   #& Sort By
   Sort By:
