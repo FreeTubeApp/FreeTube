@@ -15,14 +15,14 @@
   cursor: pointer;
 }
 
-.playlistChannel img {
+.channelThumbnail {
   width: 70px;
   float: left;
   border-radius: 200px 200px 200px 200px;
   -webkit-border-radius: 200px 200px 200px 200px;
 }
 
-.playlistChannel h3 {
+.channelName {
   float: left;
   position: relative;
   width: 200px;

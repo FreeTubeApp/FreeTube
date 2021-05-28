@@ -26,8 +26,13 @@
       class="playlistChannel"
       @click="goToChannel"
     >
-      <img :src="channelThumbnail">
-      <h3>
+      <img
+        class="channelThumbnail"
+        :src="channelThumbnail"
+      >
+      <h3
+        class="channelName"
+      >
         {{ channelName }}
       </h3>
     </div>
