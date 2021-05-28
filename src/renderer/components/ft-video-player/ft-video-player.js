@@ -221,6 +221,9 @@ export default Vue.extend({
 
         this.player.volume(this.volume)
         this.player.playbackRate(this.defaultPlayback)
+        // Remove big play button
+        // https://github.com/videojs/video.js/blob/v7.12.1/docs/guides/components.md#basic-example
+        this.player.removeChild('BigPlayButton')
 
         if (this.storyboardSrc !== '') {
           this.player.vttThumbnails({
