@@ -170,6 +170,7 @@ Settings:
     Proxy Videos Through Invidious: 'Proxy Videos Through Invidious'
     Autoplay Playlists: 'Autoplay Playlists'
     Enable Theatre Mode by Default: 'Enable Theatre Mode by Default'
+    Scroll Volume Over Video Player: 'Scroll Volume Over Video Player'
     Default Volume: 'Default Volume'
     Default Playback Rate: 'Default Playback Rate'
     Default Video Format:
@@ -354,6 +355,7 @@ About:
   Licensed under the AGPLv3: Licensed under the AGPLv3
   Source code: Source code
 Profile:
+  Profile Settings: Profile Settings
   Profile Select: 'Profile Select'
   All Channels: 'All Channels'
   Profile Manager: 'Profile Manager'
@@ -536,6 +538,7 @@ Videos:
 #& Playlists
 Playlist:
   #& About
+  Playlist: Playlist
   View Full Playlist: 'View Full Playlist'
   Videos: 'Videos'
   View: 'View'

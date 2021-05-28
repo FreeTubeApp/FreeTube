@@ -83,6 +83,7 @@
         :is-upcoming="isUpcoming"
         :download-links="downloadLinks"
         :watching-playlist="watchingPlaylist"
+        :playlist-id="playlistId"
         :theatre-possible="theatrePossible"
         :length-seconds="videoLengthSeconds"
         :video-thumbnail="thumbnail"

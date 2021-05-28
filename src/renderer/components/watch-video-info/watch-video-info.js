@@ -82,6 +82,10 @@ export default Vue.extend({
       type: Boolean,
       required: true
     },
+    playlistId: {
+      type: String,
+      required: true
+    },
     theatrePossible: {
       type: Boolean,
       required: true

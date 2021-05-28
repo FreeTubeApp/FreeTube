@@ -74,12 +74,32 @@ export default Vue.extend({
     profileList: function () {
       return this.$store.getters.getProfileList
     },
+    windowTitle: function () {
+      if (this.$route.meta.title !== 'Channel' && this.$route.meta.title !== 'Watch') {
+        let title =
+        this.$route.meta.path === '/home'
+          ? process.env.PRODUCT_NAME
+          : `${this.$t(this.$route.meta.title)} - ${process.env.PRODUCT_NAME}`
+        if (!title) {
+          title = process.env.PRODUCT_NAME
+        }
+        return title
+      } else {
+        return null
+      }
+    },
     activeProfile: function () {
       return this.$store.getters.getActiveProfile
     },
     defaultProfile: function () {
       return this.$store.getters.getDefaultProfile
     }
+  },
+  watch: {
+    windowTitle: 'setWindowTitle'
+  },
+  created () {
+    this.setWindowTitle()
   },
   mounted: function () {
     this.grabUserSettings().then(() => {
@@ -391,6 +411,11 @@ export default Vue.extend({
       }
     },
 
+    setWindowTitle: function() {
+      if (this.windowTitle !== null) {
+        document.title = this.windowTitle
+      }
+    },
     ...mapActions([
       'showToast',
       'openExternalLink',
@@ -399,7 +424,8 @@ export default Vue.extend({
       'grabHistory',
       'grabAllPlaylists',
       'getRegionData',
-      'getYoutubeUrlInfo'
+      'getYoutubeUrlInfo',
+      'getLocale'
     ]),
 
     ...mapMutations([

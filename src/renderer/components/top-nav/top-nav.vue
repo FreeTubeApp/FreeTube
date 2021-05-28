@@ -66,6 +66,7 @@
         />
         <font-awesome-icon
           class="navFilterIcon navIcon"
+          :class="{ filterChanged: searchFilterValueChanged }"
           icon="filter"
           role="button"
           tabindex="0"
@@ -77,6 +78,7 @@
         v-show="showFilters"
         class="searchFilters"
         :class="{ expand: !isSideNavOpen }"
+        @filterValueUpdated="handleSearchFilterValueChanged"
       />
     </div>
     <ft-profile-selector class="side profiles" />

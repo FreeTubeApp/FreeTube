@@ -311,6 +311,12 @@ Settings:
     Proxy Protocol: Protokol Proksi
     Enable Tor / Proxy: Aktifkan Tor / Proksi
     Proxy Settings: Pengaturan Proksi
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Beri tahu saat segmen sponsor dilewati
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Url SponsorBlock
+      API (Default is https://sponsor.ajay.app)
+    Enable SponsorBlock: Aktifkan SponsorBlock
+    SponsorBlock Settings: Pengaturan SponsorBlock
 About:
   #On About page
   About: 'Ihwal'
@@ -532,6 +538,12 @@ Video:
   translated from English: diterjemahkan dari Bahasa Inggris
   Sponsor Block category:
     interaction: interaksi
+    music offtopic: musik non-topik
+    self-promotion: promosi diri sendiri
+    outro: outro
+    intro: intro
+    sponsor: sponsor
+  Skipped segment: Segmen yang dilewati
 Videos:
   #& Sort By
   Sort By:

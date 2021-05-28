@@ -127,6 +127,7 @@ Settings:
     Check for Updates: Szukaj aktualizacji
     View all Invidious instance information: Pokaż informacje o wszystkich instancjach
       Invidious
+    System Default: Ustawienie systemowe
   Theme Settings:
     Theme Settings: 'Ustawienia wyglądu'
     Match Top Bar with Main Color: 'Dopasuj górną belkę do głównego koloru'
@@ -189,6 +190,8 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Przerwa przed kolejną pozycją playlisty
     Next Video Interval: Czas do następnego filmu
+    Scroll Volume Over Video Player: Kontroluj głośność kółkiem myszy na obszarze
+      odtwarzacza
   Subscription Settings:
     Subscription Settings: 'Ustawienia subskrypcji'
     Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'

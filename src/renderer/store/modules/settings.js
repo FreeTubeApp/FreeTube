@@ -77,6 +77,7 @@ const state = {
   hidePlaylists: false,
   hideLiveChat: false,
   hideActiveSubscriptions: false,
+  videoVolumeMouseScroll: false,
   useSponsorBlock: false,
   sponsorBlockUrl: 'https://sponsor.ajay.app',
   sponsorBlockShowSkippedToast: true
@@ -267,6 +268,10 @@ const getters = {
     return state.hideActiveSubscriptions
   },
 
+  getVideoVolumeMouseScroll: () => {
+    return state.videoVolumeMouseScroll
+  },
+
   getUseSponsorBlock: () => {
     return state.useSponsorBlock
   },
@@ -431,6 +436,9 @@ const actions = {
                 break
               case 'hideActiveSubscriptions':
                 commit('setHideActiveSubscriptions', result.value)
+                break
+              case 'videoVolumeMouseScroll':
+                commit('setVideoVolumeMouseScroll', result.value)
                 break
               case 'useSponsorBlock':
                 commit('setUseSponsorBlock', result.value)
@@ -811,6 +819,14 @@ const actions = {
     })
   },
 
+  updateVideoVolumeMouseScroll ({ commit }, videoVolumeMouseScroll) {
+    settingsDb.update({ _id: 'videoVolumeMouseScroll' }, { _id: 'videoVolumeMouseScroll', value: videoVolumeMouseScroll }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setVideoVolumeMouseScroll', videoVolumeMouseScroll)
+      }
+    })
+  },
+
   updateUseSponsorBlock ({ commit }, useSponsorBlock) {
     settingsDb.update({ _id: 'useSponsorBlock' }, { _id: 'useSponsorBlock', value: useSponsorBlock }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
@@ -991,6 +1007,9 @@ const mutations = {
   },
   setHideActiveSubscriptions (state, hideActiveSubscriptions) {
     state.hideActiveSubscriptions = hideActiveSubscriptions
+  },
+  setVideoVolumeMouseScroll (state, videoVolumeMouseScroll) {
+    state.videoVolumeMouseScroll = videoVolumeMouseScroll
   },
   setUseSponsorBlock (state, useSponsorBlock) {
     state.useSponsorBlock = useSponsorBlock

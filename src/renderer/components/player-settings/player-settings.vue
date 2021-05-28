@@ -37,6 +37,12 @@
           :default-value="defaultTheatreMode"
           @change="updateDefaultTheatreMode"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Player Settings.Scroll Volume Over Video Player')"
+          :compact="true"
+          :default-value="videoVolumeMouseScroll"
+          @change="updateVideoVolumeMouseScroll"
+        />
       </div>
       <div class="switchColumn">
         <ft-toggle-switch

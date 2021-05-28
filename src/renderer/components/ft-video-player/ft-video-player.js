@@ -155,6 +155,10 @@ export default Vue.extend({
       return this.$store.getters.getAutoplayVideos
     },
 
+    videoVolumeMouseScroll: function () {
+      return this.$store.getters.getVideoVolumeMouseScroll
+    },
+
     useSponsorBlock: function () {
       return this.$store.getters.getUseSponsorBlock
     },
@@ -217,6 +221,9 @@ export default Vue.extend({
 
         this.player.volume(this.volume)
         this.player.playbackRate(this.defaultPlayback)
+        // Remove big play button
+        // https://github.com/videojs/video.js/blob/v7.12.1/docs/guides/components.md#basic-example
+        this.player.removeChild('BigPlayButton')
 
         if (this.storyboardSrc !== '') {
           this.player.vttThumbnails({
@@ -251,7 +258,11 @@ export default Vue.extend({
         this.player.on('mouseleave', this.removeMouseTimeout)
 
         this.player.on('volumechange', this.updateVolume)
-        this.player.controlBar.getChild('volumePanel').on('mousewheel', this.mouseScrollVolume)
+        if (this.videoVolumeMouseScroll) {
+          this.player.on('wheel', this.mouseScrollVolume)
+        } else {
+          this.player.controlBar.getChild('volumePanel').on('wheel', this.mouseScrollVolume)
+        }
 
         this.player.on('fullscreenchange', this.fullscreenOverlay)
         this.player.on('fullscreenchange', this.toggleFullscreenClass)
