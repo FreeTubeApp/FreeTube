@@ -19,7 +19,6 @@ export default Vue.extend({
     'ft-flex-box': FtFlexBox
   },
   data: function () {
-    document.title = `${this.$t('Settings.Settings')} - ${process.env.PRODUCT_NAME}`
     return {
       showInvidiousInstances: false,
       instanceNames: [],
@@ -230,7 +229,6 @@ export default Vue.extend({
         locale: this.currentLocale
       }
       this.getRegionData(payload)
-      document.title = `${this.$t('Settings.Settings')} - ${process.env.PRODUCT_NAME}`
     },
 
     ...mapActions([

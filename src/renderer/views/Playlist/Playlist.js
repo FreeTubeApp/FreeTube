@@ -17,7 +17,6 @@ export default Vue.extend({
     'ft-flex-box': FtFlexBox
   },
   data: function () {
-    document.title = `${this.$t(this.$route.meta.title)} - ${process.env.PRODUCT_NAME}`
     return {
       isLoading: false,
       playlistId: null,
