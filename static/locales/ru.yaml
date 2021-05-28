@@ -172,7 +172,7 @@ Settings:
     Default Playback Rate: 'Скорость воспроизведения по умолчанию'
     Default Video Format:
       Default Video Format: 'Формат видео по умолчанию'
-      Dash Formats: 'Dash форматы'
+      Dash Formats: 'DASH форматы'
       Legacy Formats: 'Устаревшие форматы'
       Audio Formats: 'Аудио форматы'
     Default Quality:
