@@ -129,7 +129,7 @@ Settings:
     Check for Updates: Nach Aktualisierungen suchen
     View all Invidious instance information: Alle Informationen zur Invidious-Instanz
       anzeigen
-    System Default: Systemstandart
+    System Default: Systemstandard
   Theme Settings:
     Theme Settings: Thema-Einstellungen
     Match Top Bar with Main Color: Obere Leiste an Hauptfarbe anpassen
@@ -679,8 +679,8 @@ Version $ is now available!  Click for more details: Version $ ist jetzt verfüg
   mehr Details klicken
 Tooltips:
   General Settings:
-    Thumbnail Preference: Alle Thumbnails in FreeTube werden durch ein Standbild aus
-      dem Video ersetzt und entsprechen somit nicht mehr dem Standart-Vorschaubild.
+    Thumbnail Preference: Alle Vorschaubilder in FreeTube werden durch ein Standbild
+      aus dem Video ersetzt und entsprechen somit nicht mehr dem Standard-Vorschaubild.
     Invidious Instance: Die Invidious-Instanz, welche FreeTube für API-Calls verwendet.
       Leere die aktuelle Instanz, um eine vollständige Liste der verfügbaren Server
       anzuzeigen.
@@ -693,9 +693,9 @@ Tooltips:
       die Trends angezeigt werden sollen. Nicht alle Optionen werden auch von YouTube
       unterstützt.
   Subscription Settings:
-    Fetch Feeds from RSS: Sobald aktiviert wird FreeTube RSS anstatt der Standartmethode
+    Fetch Feeds from RSS: Sobald aktiviert, wird FreeTube RSS anstatt der Standardmethode
       nutzen, um deine Abos zu aktualisieren. RSS ist schneller und verhindert das
-      Blockieren deiner IP-Adresse, doch gewisse Informationen, wie z.B. die Dauer
+      Blockieren deiner IP-Adresse, doch gewisse Informationen, wie z. B. die Dauer
       des Videos oder der Status eines Livestreams, werden nicht mehr verfügbar sein
   Player Settings:
     Default Video Format: Auswahl der Formate bei der Videowiedergabe. DASH-Formate

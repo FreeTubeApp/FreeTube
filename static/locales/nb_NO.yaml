@@ -187,6 +187,7 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Intervall for avspilling av neste i spilleliste
     Next Video Interval: Tid mellom videoer
+    Scroll Volume Over Video Player: Lydstyrkerulling over videospiller
   Privacy Settings:
     Privacy Settings: 'Personvernsinnstillinger'
     Remember History: 'Husk historikk'
@@ -488,6 +489,8 @@ Video:
     outro: utgang
     intro: introduksjon
     sponsor: sponsor
+    music offtopic: musikk (utenfor tema)
+    self-promotion: egenpromotering
   Skipped segment: Overhoppet del
 Videos:
   #& Sort By

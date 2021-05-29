@@ -42,6 +42,15 @@ export default Vue.extend({
       return this.$store.getters.getSearchSettings
     },
 
+    filterValueChanged: function() {
+      return [
+        this.$refs.sortByRadio.selectedValue !== this.sortByValues[0],
+        this.$refs.timeRadio.selectedValue !== this.timeValues[0],
+        this.$refs.typeRadio.selectedValue !== this.typeValues[0],
+        this.$refs.durationRadio.selectedValue !== this.durationValues[0]
+      ].some((bool) => bool === true)
+    },
+
     sortByLabels: function () {
       return [
         this.$t('Search Filters.Sort By.Most Relevant'),
@@ -82,6 +91,7 @@ export default Vue.extend({
   methods: {
     updateSortBy: function (value) {
       this.$store.commit('setSearchSortBy', value)
+      this.$emit('filterValueUpdated', this.filterValueChanged)
     },
 
     updateTime: function (value) {
@@ -91,6 +101,7 @@ export default Vue.extend({
         this.$store.commit('setSearchType', 'all')
       }
       this.$store.commit('setSearchTime', value)
+      this.$emit('filterValueUpdated', this.filterValueChanged)
     },
 
     updateType: function (value) {
@@ -103,6 +114,7 @@ export default Vue.extend({
         this.$store.commit('setSearchDuration', '')
       }
       this.$store.commit('setSearchType', value)
+      this.$emit('filterValueUpdated', this.filterValueChanged)
     },
 
     updateDuration: function (value) {
@@ -112,6 +124,7 @@ export default Vue.extend({
         this.updateType('all')
       }
       this.$store.commit('setSearchDuration', value)
+      this.$emit('filterValueUpdated', this.filterValueChanged)
     }
   }
 })

@@ -185,6 +185,7 @@ Settings:
       8k: '‍8k'
     Playlist Next Video Interval: الفاصل الزمني لتشغيل الفيديو التالي في قائمة التشغيل
     Next Video Interval: الفاصل الزمني للفيديو التالي
+    Scroll Volume Over Video Player: تمرير مستوى الصوت عبر مشغل الفيديو
   Privacy Settings:
     Privacy Settings: 'إعدادات الخصوصية'
     Remember History: 'تذّكر سجلّ المشاهدة'

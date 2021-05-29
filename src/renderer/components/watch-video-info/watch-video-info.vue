@@ -109,6 +109,7 @@
         <ft-share-button
           :id="id"
           :get-timestamp="getTimestamp"
+          :playlist-id="playlistId"
           class="option"
         />
       </div>

@@ -19,6 +19,7 @@ export default Vue.extend({
       component: this,
       windowWidth: 0,
       showFilters: false,
+      searchFilterValueChanged: false,
       searchSuggestionsDataList: []
     }
   },
@@ -243,6 +244,10 @@ export default Vue.extend({
       }
 
       this.showFilters = false
+    },
+
+    handleSearchFilterValueChanged: function(filterValueChanged) {
+      this.searchFilterValueChanged = filterValueChanged
     },
 
     historyBack: function () {
