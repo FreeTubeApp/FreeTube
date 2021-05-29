@@ -227,7 +227,7 @@ export default Vue.extend({
         this.player.playbackRate(this.defaultPlayback)
         // Remove big play button
         // https://github.com/videojs/video.js/blob/v7.12.1/docs/guides/components.md#basic-example
-        if (this.displayVideoPlayButton) {
+        if (!this.displayVideoPlayButton) {
           this.player.removeChild('BigPlayButton')
         }
 
