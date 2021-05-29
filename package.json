@@ -52,7 +52,7 @@
     "yt-comment-scraper": "^4.0.3",
     "yt-dash-manifest-generator": "1.1.0",
     "yt-trending-scraper": "^2.0.0",
-    "ytdl-core": "^4.8.1",
+    "ytdl-core": "^4.8.2",
     "ytpl": "^2.2.1",
     "ytsr": "^3.5.0"
   },
@@ -148,5 +148,5 @@
     "test": "run-s rebuild:node pack:workers jest",
     "test:watch": "run-s rebuild:node pack:workers jest:watch"
   },
-  "version": "0.13.0"
+  "version": "0.13.1"
 }
