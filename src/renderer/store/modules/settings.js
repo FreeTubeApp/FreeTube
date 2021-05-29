@@ -452,6 +452,9 @@ const actions = {
                 break
               case 'sponsorBlockShowSkippedToast':
                 commit('setSponsorBlockShowSkippedToast', result.value)
+                break
+              case 'displayVideoPlayButton':
+                commit('setDisplayVideoPlayButton', result.value)
             }
           })
           resolve()
