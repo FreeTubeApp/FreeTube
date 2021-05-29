@@ -48,11 +48,11 @@
     "xml2json": "^0.12.0",
     "youtube-chat": "git+https://github.com/IcedCoffeee/youtube-chat.git",
     "youtube-suggest": "^1.1.2",
-    "yt-channel-info": "^2.1.1",
-    "yt-comment-scraper": "^4.0.1",
+    "yt-channel-info": "^2.2.0",
+    "yt-comment-scraper": "^4.0.3",
     "yt-dash-manifest-generator": "1.1.0",
     "yt-trending-scraper": "^2.0.0",
-    "ytdl-core": "^4.8.0",
+    "ytdl-core": "^4.8.2",
     "ytpl": "^2.2.1",
     "ytsr": "^3.5.0"
   },
@@ -148,5 +148,5 @@
     "test": "run-s rebuild:node pack:workers jest",
     "test:watch": "run-s rebuild:node pack:workers jest:watch"
   },
-  "version": "0.13.0"
+  "version": "0.13.1"
 }

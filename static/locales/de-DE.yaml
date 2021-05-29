@@ -129,6 +129,7 @@ Settings:
     Check for Updates: Nach Aktualisierungen suchen
     View all Invidious instance information: Alle Informationen zur Invidious-Instanz
       anzeigen
+    System Default: Systemstandart
   Theme Settings:
     Theme Settings: Thema-Einstellungen
     Match Top Bar with Main Color: Obere Leiste an Hauptfarbe anpassen
@@ -190,6 +191,7 @@ Settings:
       4k: 4k
       8k: 8k
     Playlist Next Video Interval: Zeit zwischen automatischer Videowiedergabe
+    Next Video Interval: Zeit bis zum nächsten Video
   Subscription Settings:
     Subscription Settings: Abonnement-Einstellungen
     Hide Videos on Watch: Verstecke Videos bei Wiedergabe
@@ -317,6 +319,13 @@ Settings:
     Proxy Protocol: Proxy-Protokoll
     Enable Tor / Proxy: Tor / Proxy aktivieren
     Proxy Settings: Proxy-Einstellungen
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Melden, falls ein Sponsorsegment übersprungen
+      wird
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
+      URL (Standard ist https://sponsor.ajay.app)
+    Enable SponsorBlock: Aktiviere SponsorBlock
+    SponsorBlock Settings: SponsorBlock-Einstellungen
 About:
   #On About page
   About: Über
@@ -508,6 +517,14 @@ Video:
   Video has been saved: Video wurde gespeichert
   Save Video: Video speichern
   translated from English: Aus dem Englischen übersetzt
+  Sponsor Block category:
+    music offtopic: Musik (Offtopic)
+    interaction: Interaktion
+    self-promotion: Eigenwerbung
+    outro: Outro
+    intro: Intro
+    sponsor: Sponsor
+  Skipped segment: Segment übersprungen
 Videos:
   #& Sort By
   Sort By:
@@ -704,3 +721,4 @@ Hashtags have not yet been implemented, try again later: Hashtags wurden noch ni
   implementiert, bitte versuche es später noch einmal
 Unknown YouTube url type, cannot be opened in app: Unbekannte YouTube-Adresse, kann
   in FreeTube nicht geöffnet werden
+Open New Window: Neues Fenster öffnen
