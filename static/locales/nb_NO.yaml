@@ -61,7 +61,7 @@ Search Filters:
     Long (> 20 minutes): 'Lang (> 20 minutter)'
   # On Search Page
   Search Results: 'Søkeresultater'
-  Fetching results. Please wait: 'Henter resultater …'
+  Fetching results. Please wait: 'Henter resultater. Vennligst vent'
   Fetch more results: 'Hent flere resultater'
 # Sidebar
   There are no more results for this search: Søket ga ingen flere resultater
@@ -70,10 +70,11 @@ Subscriptions:
   Subscriptions: 'Abonnementer'
   Latest Subscriptions: 'Siste abonnementer'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Din
-    abonnementsliste er for tiden tom. Legg til noen for å se dem her.'
+    abonnementsliste er for tiden tom. Start å legge til flere abonnement for å se
+    dem her.'
   'Getting Subscriptions.  Please wait.': 'Henter abonnementer. Vent.'
   Refresh Subscriptions: Oppdater abonnementer
-  Getting Subscriptions. Please wait.: Henter abonnementer. Vent.
+  Getting Subscriptions. Please wait.: Henter abonnementer. Vennligst vent.
   Load More Videos: Last flere videoer
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Denne
     profilen har mange abonnementer. Påtvinger RSS for å unngå adgangsbegrensning
@@ -165,7 +166,7 @@ Settings:
     Autoplay Videos: 'Spill av videoer automatisk'
     Proxy Videos Through Invidious: 'Mellomtjen videoer gjennom Invidious'
     Autoplay Playlists: 'Spill av spillelister automatisk'
-    Enable Theatre Mode by Default: 'Kinomodus som standardvalg'
+    Enable Theatre Mode by Default: 'Kinomodus som forvalg'
     Default Volume: 'Standardvolum'
     Default Playback Rate: 'Avspillingshastighet'
     Default Video Format:
@@ -188,6 +189,7 @@ Settings:
     Playlist Next Video Interval: Intervall for avspilling av neste i spilleliste
     Next Video Interval: Tid mellom videoer
     Scroll Volume Over Video Player: Lydstyrkerulling over videospiller
+    Display Play Button In Video Player: Vis avspillingsknappen i videoavspilleren
   Privacy Settings:
     Privacy Settings: 'Personvernsinnstillinger'
     Remember History: 'Husk historikk'
@@ -196,8 +198,9 @@ Settings:
     Are you sure you want to clear out your search cache?: 'Tøm søkehurtiglager?'
     Search cache has been cleared: 'Søkehurtiglager tømt'
     Remove Watch History: 'Fjern visningshistorikk'
-    Are you sure you want to remove your entire watch history?: 'Fjern hele visningshistorikken?'
-    Watch history has been cleared: 'VIsningshistorikk fjernet'
+    Are you sure you want to remove your entire watch history?: 'Er du sikker på at
+      du vil fjerne hele visningshistorikken din?'
+    Watch history has been cleared: 'VIsningshistorikk har blitt fjernet'
     Remove All Subscriptions / Profiles: Fjern alle abonnementer/profiler
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Er
       du sikker på at du vil fjerne alle abonnementer og profiler? Dette kan ikke
@@ -246,9 +249,10 @@ Settings:
     Unknown data key: Ukjent datanøkkel
     Unable to write file: Kunne ikke skrive fil
     Invalid history file: Ugyldig historikkfil
-    All watched history has been successfully exported: All visningshistorikk har
-      blitt eksportert
-    All watched history has been successfully imported: All visningshistorikk importert
+    All watched history has been successfully exported: Visningshistorikken har blitt
+      eksportert
+    All watched history has been successfully imported: Visningshistorikken har blitt
+      importert
     History object has insufficient data, skipping item: Hopper over historikkobjekt
       med utilstrekkelig data
     One or more subscriptions were unable to be imported: Ett eller flere abonnement
@@ -265,8 +269,8 @@ Settings:
     Check for Legacy Subscriptions: Se etter foreldede abonnementer
     Subscriptions have been successfully exported: Abonnementer eksportert
     This might take a while, please wait: Dette kan ta litt tid …
-    Export History: Historikk-eksport
-    Import History: Historikk-import
+    Export History: Eksporter historikk
+    Import History: Importer historikk
     Export NewPipe: NewPipe-eksport
     Export YouTube: YouTube-eksport
     Export FreeTube: FreeTube-eksport
@@ -312,7 +316,7 @@ Settings:
     Notify when sponsor segment is skipped: Gi beskjed når sponsordelen blir hoppet
       over
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock-API-nettadresse
-      (standardvalget er https://sponsor.ajay.app)
+      (forvalget er https://sponsor.ajay.app)
     Enable SponsorBlock: Skru på SponsorBlock
     SponsorBlock Settings: SponsorBlock-innstillinger
 About:
@@ -656,9 +660,10 @@ Tooltips:
       kan spille høyere kvaliteter. Foreldede formater er begrenset til maks. 720p,
       men bruker mindre båndbredde. Lydformater er kun lydstrømmer.
     Force Local Backend for Legacy Formats: Fungerer kun med Invidious-API-et som
-      forvalg. Når påslått vil det lokale API-et kjøre og bruke de foreldede formatene
-      som returneres derfra, istedenfor dem returnert av Invidious. Hjelper når videoer
-      returnert av Invidious ikke spilles som følge av regionsrestriksjoner.
+      forvalg. Når det er påslått, vil det lokale API-et kjøre og bruke de foreldede
+      formatene som returneres derfra, istedenfor dem som blir returnert av Invidious.
+      Dette hjelper når videoer som blir returnert av Invidious, ikke kan spilles
+      av som følge av regionsbegrensninger.
     Proxy Videos Through Invidious: Kobler til Invidious for å servere videoer istedenfor
       å koble direkte til YouTube. Overstyrer API-innstillinger.
   Privacy Settings:
