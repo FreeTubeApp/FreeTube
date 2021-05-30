@@ -125,7 +125,7 @@ Settings:
     Check for Latest Blog Posts: Проверить последние сообщения в блоге
     Check for Updates: Проверить наличие обновлений
     View all Invidious instance information: Показать все доступные экземпляры Invidious
-    System Default: По умолчанию (Система)
+    System Default: Системные установки по умолчанию
   Theme Settings:
     Theme Settings: 'Настройки темы'
     Match Top Bar with Main Color: 'Верхняя панель основного цвета'
@@ -190,6 +190,7 @@ Settings:
     Playlist Next Video Interval: Задержка перед автовоспроизведением
     Scroll Volume Over Video Player: Прокрутка громкости над видеоплеером
     Next Video Interval: Интервал следующего видео
+    Display Play Button In Video Player: Отображение кнопки воспроизведения в видеопроигрывателе
   Subscription Settings:
     Subscription Settings: 'Настройки подписки'
     Hide Videos on Watch: 'Скрыть видео после просмотра'
@@ -427,7 +428,7 @@ Video:
   Watching: 'Смотреть'
   Watched: 'Просмотрено'
   # As in a Live Video
-  Live: 'Live'
+  Live: 'Трансляция'
   Live Now: 'Прямой эфир'
   Live Chat: 'Живой чат'
   Enable Live Chat: 'Включить живой чат'
@@ -534,12 +535,12 @@ Playlist:
 Toggle Theatre Mode: 'Переключить режим театра'
 Change Format:
   Change Video Formats: 'Изменить форматы видео'
-  Use Dash Formats: 'Использовать форматы Dash'
+  Use Dash Formats: 'Использовать Dash форматы'
   Use Legacy Formats: 'Использовать устаревшие форматы'
   Use Audio Formats: 'Использовать аудио форматы'
   Audio formats are not available for this video: Аудио форматы недоступны для этого
     видео
-  Dash formats are not available for this video: Формат dash недоступен для этого
+  Dash formats are not available for this video: DASH форматы недоступены для этого
     видео
 Share:
   Share Video: 'Поделиться видео'
@@ -601,7 +602,7 @@ Canceled next video autoplay: 'Отменено автовоспроизведе
 
 Yes: 'Да'
 No: 'Нет'
-Locale Name: Русский
+Locale Name: Английский (США)
 Profile:
   $ is now the active profile: $ теперь активный профиль
   Your default profile has been changed to your primary profile: Ваш профиль по умолчанию
@@ -666,8 +667,8 @@ Tooltips:
     Preferred API Backend: Выберите серверную часть, которую FreeTube использует для
       получения данных. Локальный API - это встроенный экстрактор. Invidious API требует
       подключения к Invidious серверу.
-    Region for Trending: Регион трендов позволяет вам выбрать популярные видео из
-      выбранной страны. Не все отображаемые страны поддерживаются YouTube
+    Region for Trending: Область тенденций позволяет выбрать популярные видео из понравившейся
+      вам страны. Не во всех отображаемых странах на самом деле поддерживается YouTube.
   Subscription Settings:
     Fetch Feeds from RSS: Если этот параметр включен, FreeTube будет получать вашу
       ленту подписок с помощью RSS, а не как обычно. RSS работает быстрее и предотвращает
@@ -682,9 +683,8 @@ Tooltips:
       вместо прямого подключения к YouTube. Переопределяет предпочтение API
     Force Local Backend for Legacy Formats: Работает, только если по умолчанию используется
       Invidious API. Если этот параметр включен, локальный API будет работать и использовать
-      устаревшие форматы, возвращаемые им, вместо форматов, возвращаемых Invidious.
-      Помогает, когда видео, возвращенные Invidious, не воспроизводятся из-за ограничений
-      страны
+      устаревшие форматы вместо форматов Invidious. Помогает, когда видео, возвращенные
+      Invidious, не воспроизводятся из-за ограничений страны
   Privacy Settings:
     Remove Video Meta Files: Если этот параметр включен, FreeTube автоматически удаляет
       метафайлы, созданные во время воспроизведения видео, когда страница просмотра
