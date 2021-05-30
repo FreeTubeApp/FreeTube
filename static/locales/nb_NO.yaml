@@ -61,7 +61,7 @@ Search Filters:
     Long (> 20 minutes): 'Lang (> 20 minutter)'
   # On Search Page
   Search Results: 'Søkeresultater'
-  Fetching results. Please wait: 'Henter resultater. Vennligst vent'
+  Fetching results. Please wait: 'Henter resultater. Vent.'
   Fetch more results: 'Hent flere resultater'
 # Sidebar
   There are no more results for this search: Søket ga ingen flere resultater
@@ -69,12 +69,11 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnementer'
   Latest Subscriptions: 'Siste abonnementer'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Din
-    abonnementsliste er for tiden tom. Start å legge til flere abonnement for å se
-    dem her.'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Du
+    har ikke lagt til noen abonnementer i listen din. Legg til noen for å se dem her.'
   'Getting Subscriptions.  Please wait.': 'Henter abonnementer. Vent.'
   Refresh Subscriptions: Oppdater abonnementer
-  Getting Subscriptions. Please wait.: Henter abonnementer. Vennligst vent.
+  Getting Subscriptions. Please wait.: Henter abonnementer. Vent.
   Load More Videos: Last flere videoer
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Denne
     profilen har mange abonnementer. Påtvinger RSS for å unngå adgangsbegrensning
@@ -345,14 +344,14 @@ About:
 #On Channel Page
   FAQ: Ofte stilte spørsmål
   Downloads / Changelog: Nedlastninger / Endringslogg
-  Licensed under the AGPLv3: Lisensiert under AGPLv3
+  Licensed under the AGPLv3: Lisensiert AGPLv3.
   Help: Hjelp
   View License: Vis lisens
   Donate: Doner
   Website: Nettsted
   Report a problem: Rapporter et problem
   Source code: Kildekode
-  Please read the: Vennligst les
+  Please read the: Les
   Mastodon: Mastodon
   Email: E-post
   Blog: Blogg
@@ -475,8 +474,8 @@ Video:
   Reverse Playlist: Snu spillelisten
   Started streaming on: Startet strømming
   Streamed on: Strømmet
-  Starting soon, please refresh the page to check again: Starter snart, vennligst
-    oppdater siden for å sjekke igjen
+  Starting soon, please refresh the page to check again: Starter snart. Oppdater siden
+    for å sjekke igjen.
   Autoplay: Automatisk avspilling
   Shuffle Playlist: Spill av tilfeldig fra spillelisten
   Loop Playlist: Gjenta spilleliste
