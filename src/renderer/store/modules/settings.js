@@ -84,7 +84,8 @@ const state = {
   videoVolumeMouseScroll: false,
   useSponsorBlock: false,
   sponsorBlockUrl: 'https://sponsor.ajay.app',
-  sponsorBlockShowSkippedToast: true
+  sponsorBlockShowSkippedToast: true,
+  displayVideoPlayButton: true
 }
 
 const getters = {
@@ -292,6 +293,10 @@ const getters = {
     return state.videoVolumeMouseScroll
   },
 
+  getDisplayVideoPlayButton: () => {
+    return state.displayVideoPlayButton
+  },
+
   getUseSponsorBlock: () => {
     return state.useSponsorBlock
   },
@@ -324,7 +329,6 @@ const actions = {
                 commit('setBackendFallback', result.value)
                 break
               case 'defaultProfile':
-                console.log('IN SETTING DEFAULT:', result.value)
                 commit('setDefaultProfile', result.value)
                 break
               case 'checkForUpdates':
@@ -480,6 +484,9 @@ const actions = {
                 break
               case 'sponsorBlockShowSkippedToast':
                 commit('setSponsorBlockShowSkippedToast', result.value)
+                break
+              case 'displayVideoPlayButton':
+                commit('setDisplayVideoPlayButton', result.value)
             }
           })
           resolve()
@@ -891,6 +898,14 @@ const actions = {
     })
   },
 
+  updateDisplayVideoPlayButton ({ commit }, displayVideoPlayButton) {
+    settingsDb.update({ _id: 'displayVideoPlayButton' }, { _id: 'displayVideoPlayButton', value: displayVideoPlayButton }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setDisplayVideoPlayButton', displayVideoPlayButton)
+      }
+    })
+  },
+
   updateUseSponsorBlock ({ commit }, useSponsorBlock) {
     settingsDb.update({ _id: 'useSponsorBlock' }, { _id: 'useSponsorBlock', value: useSponsorBlock }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
@@ -1086,6 +1101,9 @@ const mutations = {
   },
   setVideoVolumeMouseScroll (state, videoVolumeMouseScroll) {
     state.videoVolumeMouseScroll = videoVolumeMouseScroll
+  },
+  setDisplayVideoPlayButton (state, displayVideoPlayButton) {
+    state.displayVideoPlayButton = displayVideoPlayButton
   },
   setUseSponsorBlock (state, useSponsorBlock) {
     state.useSponsorBlock = useSponsorBlock

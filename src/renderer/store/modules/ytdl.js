@@ -200,9 +200,9 @@ const actions = {
     if (searchSettings.duration !== '') {
       let filterValue = null
       if (searchSettings.duration === 'short') {
-        filterValue = 'Short (< 4 minutes)'
+        filterValue = 'Under 4 minutes'
       } else if (searchSettings.duration === 'long') {
-        filterValue = 'Long (> 20 minutes)'
+        filterValue = 'Over 20 minutes'
       }
 
       filterUrl = filter.get('Duration').get(filterValue).url
@@ -216,7 +216,7 @@ const actions = {
 
       switch (searchSettings.time) {
         case 'hour':
-          filterValue = 'Last Hour'
+          filterValue = 'Last hour'
           break
         case 'today':
           filterValue = 'Today'

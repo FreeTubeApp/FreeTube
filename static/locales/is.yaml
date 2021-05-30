@@ -200,6 +200,8 @@ Settings:
       4k: '4k'
       8k: '8k'
     Next Video Interval: Bil í næsta myndskeið
+    Display Play Button In Video Player: Birta afspilunarhnapp í myndspilara
+    Scroll Volume Over Video Player: Skrun hljóðstyrks ofan á myndspilara
   Privacy Settings:
     Privacy Settings: 'Stillingar gagnaleyndar'
     Remember History: 'Muna vinnsluferil'
@@ -496,6 +498,7 @@ Video:
     self-promotion: sjálfskynning
     intro: kynning
     sponsor: kostunaraðili
+    outro: afkynning
   Skipped segment: Búti sleppt
 Videos:
   #& Sort By

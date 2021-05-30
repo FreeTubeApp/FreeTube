@@ -99,7 +99,7 @@ User Playlists:
 History:
   # On History Page
   History: 'Historikk'
-  Watch History: 'Sjåarhistorikk'
+  Watch History: 'Visingshistorikk'
   Your history list is currently empty.: 'Historikken din er tom for augeblikket.'
 Settings:
   # On Settings Page
@@ -125,16 +125,16 @@ Settings:
       List: 'Liste'
     Thumbnail Preference:
       Thumbnail Preference: 'Miniatyrbiletepreferanse'
-      Default: 'Standard'
+      Default: 'Forval'
       Beginning: 'Begynning'
       Middle: 'Mellom'
       End: 'Slutt'
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious-førekomst
-      (Standard er https://invidious.snopyta.org)'
+      (forvalet er https://invidious.snopyta.org)'
     View all Invidious instance information: 'Vis informasjon om alle Invidious-førekomstar'
     Region for Trending: 'Region for "På veg opp"'
         #! List countries
-    System Default: Systemstandard
+    System Default: Systemforval
   Theme Settings:
     Theme Settings: 'Temainnstillingar'
     Match Top Bar with Main Color: 'Tilpass topplinja slik at den har same farge som
@@ -171,20 +171,20 @@ Settings:
     Player Settings: 'Videoavspelingsinnstillingar'
     Force Local Backend for Legacy Formats: 'Påtving lokal bakende for forelda format'
     Play Next Video: 'Spel av neste video'
-    Turn on Subtitles by Default: 'Slå på undertekst som standardval'
+    Turn on Subtitles by Default: 'Slå på undertekst som forval'
     Autoplay Videos: 'Spel av videoar automatisk'
     Proxy Videos Through Invidious: 'Mellomten videoar gjennom Invidious'
     Autoplay Playlists: 'Spel av spelelister automatisk'
-    Enable Theatre Mode by Default: 'Kinomodus som standardval'
+    Enable Theatre Mode by Default: 'Kinomodus som forval'
     Default Volume: 'Standardvolum'
-    Default Playback Rate: 'Standard avspelingsfrekvens'
+    Default Playback Rate: 'Avspelingshastigheit'
     Default Video Format:
-      Default Video Format: 'Standard videoformat'
+      Default Video Format: 'Videoformat'
       Dash Formats: 'DASH-format'
       Legacy Formats: 'Eldre format'
       Audio Formats: 'Lydformat'
     Default Quality:
-      Default Quality: 'Standardkvalitet'
+      Default Quality: 'Kvalitetsinnstilling'
       Auto: 'Automatisk'
       144p: '144p'
       240p: '240p'
@@ -196,6 +196,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Next Video Interval: Tid mellom videoar
+    Display Play Button In Video Player: Vis videoavspelingsknappen i videoavspelaren
   Privacy Settings:
     Privacy Settings: 'Personvernsinnstillingar'
     Remember History: 'Husk historikk'
@@ -204,10 +205,10 @@ Settings:
     Are you sure you want to clear out your search cache?: 'Er du sikker på at du
       vil slette søkebufferen?'
     Search cache has been cleared: 'Søkebufferen har blitt sletta'
-    Remove Watch History: 'Slett sjåarhistorikk'
+    Remove Watch History: 'Slett visingshistorikk'
     Are you sure you want to remove your entire watch history?: 'Er du sikker på at
-      du vil fjerne heile sjåarhistorikken din?'
-    Watch history has been cleared: 'Sjåarhistorikk har blitt fjerna'
+      du vil fjerne heile visingshistorikken din?'
+    Watch history has been cleared: 'Visingshistorikk har blitt fjerna'
     Remove All Subscriptions / Profiles: 'Fjern alle abonnentar/profil'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Er
       du sikker på at du vil fjerne alle abonnentar og profil? Dette kan ikkje bli
@@ -255,9 +256,9 @@ Settings:
       kunne ikkje importerast'
     Invalid subscriptions file: 'Ugyldig abonnementfil'
     This might take a while, please wait: 'Dette kan ta ei stund, venleg vent'
-    Invalid history file: 'Ugyldig historiefil'
+    Invalid history file: 'Ugyldig historikkfil'
     Subscriptions have been successfully exported: 'Abonnement har blitt importert'
-    History object has insufficient data, skipping item: 'Eit historieobjekt manglar
+    History object has insufficient data, skipping item: 'Eit historikkobjekt manglar
       data, hoppar over objektet'
     All watched history has been successfully imported: 'Visingshistorikken har blitt
       importert'
@@ -286,7 +287,7 @@ Settings:
       ikkje hente nettverksinformasjon. Er proxyen din konfigurert skikkeleg?'
   SponsorBlock Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock-API-nettadresse
-      (standardvalet er https://sponsor.ajay.app)
+      (forvalet er https://sponsor.ajay.app)
     Enable SponsorBlock: Skru på SponsorBlock
     SponsorBlock Settings: SponsorBlock-innstillingar
     Notify when sponsor segment is skipped: Gi beskjed når sponsordelen blir hoppa
@@ -330,7 +331,7 @@ Profile:
   Profile Preview: 'Forhandsvising av profil'
   Create Profile: 'Lag profil'
   Update Profile: 'Oppdater profil'
-  Make Default Profile: 'Angi som standardprofil'
+  Make Default Profile: 'Angi som forvalt profil'
   Delete Profile: 'Fjern profil'
   Are you sure you want to delete this profile?: 'Er du sikker på at du vil fjerne
     denne profilet?'
@@ -339,11 +340,11 @@ Profile:
   Your profile name cannot be empty: 'Profilnamnet ditt kan ikkje vere tomt'
   Profile has been created: 'Profilet har blitt laga'
   Profile has been updated: 'Profilet har blitt oppdatert'
-  Your default profile has been set to $: 'Ditt standardprofil har blitt satt til
+  Your default profile has been set to $: 'Ditt forvalte profil har blitt satt til
     $'
   Removed $ from your profiles: 'Fjerna $ frå profila dine'
-  Your default profile has been changed to your primary profile: 'Standardprofilet
-    ditt har blitt endra til ditt hovudprofil'
+  Your default profile has been changed to your primary profile: 'Ditt forvalte profil
+    har blitt endra til ditt hovudprofil'
   $ is now the active profile: '$ er no det aktive profilet'
   Subscription List: 'Abonnementliste'
   Other Channels: 'Andre kanalar'
@@ -422,7 +423,7 @@ Video:
   Play Previous Video: 'Spel av førre video'
   # Context is "X People Watching"
   Watching: 'Ser på'
-  Watched: 'Såg'
+  Watched: 'Sett'
   Autoplay: 'Automatisk avspeling'
   Starting soon, please refresh the page to check again: 'Starter snart, venleg oppdater
     sida for å sjekke igjen'
@@ -489,6 +490,8 @@ Video:
     interaction: samhandling
     intro: introduksjon
     sponsor: sponsor
+    music offtopic: musikk (utanfor tema)
+    self-promotion: eigenpromotering
   Skipped segment: Overhoppa del
 Videos:
   #& Sort By
@@ -575,21 +578,27 @@ Tooltips:
       problem, vil FreeTube prøve å automatisk bruke ditt ikkje-føretrekte API som
       ein tilbakefallingsmetode dersom det er aktivert.'
     Thumbnail Preference: 'Alle miniatyrbilete i FreeTube vil bli erstatta av eit
-      bilete av videoen i staden for standardminiatyrbiletet'
+      bilete av videoen i staden for forvalt miniatyrbiletet'
     Invidious Instance: 'Invidious-førekomsten som FreeTube vil kople til for API-kall.
       Fjern den gjeldene førekomsten for å sjå ei liste over offentlege førekomstar
       å velje mellom'
     Region for Trending: 'Trendsregionen lar deg enkelt velje kva lands populære videoar
       du ynskjer å vise. Ikkje alle land som visast støttast av YouTube.'
   Player Settings:
-    Force Local Backend for Legacy Formats: ''
+    Force Local Backend for Legacy Formats: 'Fungerer berre med Invidious-API-et som
+      forval. Når det er påslått, vil det lokale API-et køyre og bruke dei forelda
+      formata som returnerast derifrå, i staden for dei som blir returnert av Invidious.
+      Dette hjelper når videoar som blir returnert av Invidious, ikkje kan spelast
+      av som følgje av regionsavgrensingar.'
     Proxy Videos Through Invidious: 'Koplar til Invidious for å servere videoar i
       staden for å kople direkte til YouTube. Overstyrar API-innstillingar.'
     Default Video Format: 'Sett format som blir brukt når ein video spelast. DASH-format
       kan spele høgare kvalitet. Forelda format er avgrensa til maks 720p, men bruker
       mindre bandbreidde. Lydformat er berre for lydstraumar.'
   Subscription Settings:
-    Fetch Feeds from RSS: ''
+    Fetch Feeds from RSS: 'Bruk RSS i staden for FreeTube sin forvalte metode for
+      innhenting av din abonnementsstraum. RSS er raskaren og forhindrar IP-blokkering,
+      men manglar noko informasjon som videovarigheit og sanntidsstatus.'
 
 # Toast Messages
   Privacy Settings:
