@@ -967,7 +967,7 @@ export default Vue.extend({
 
                 if (!videoPaused) {
                   if (window.location.href !== videoUrl) {
-                    window.location.assign(videoUrl)
+                    this.$router.push({ path: `/watch/${this.videoId}` })
                   } else {
                     const activePlayer = $('.ftVideoPlayer video').get(0)
                     activePlayer.currentTime = watchTime
