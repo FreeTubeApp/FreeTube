@@ -47,7 +47,7 @@
     "xml2json": "^0.12.0",
     "youtube-chat": "git+https://github.com/IcedCoffeee/youtube-chat.git",
     "youtube-suggest": "^1.1.2",
-    "yt-channel-info": "^2.1.0",
+    "yt-channel-info": "^2.2.0",
     "yt-comment-scraper": "^4.0.1",
     "yt-dash-manifest-generator": "1.1.0",
     "yt-trending-scraper": "^1.1.1",

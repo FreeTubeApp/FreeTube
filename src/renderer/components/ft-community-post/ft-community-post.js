@@ -34,7 +34,8 @@ export default Vue.extend({
       voteCount: '',
       postContent: '',
       commentCount: '',
-      isLoading: true
+      isLoading: true,
+      author: '',
     }
   },
   computed: {
@@ -265,15 +266,24 @@ export default Vue.extend({
     },
 
     parseVideoData: function () {
-      console.log("DATAT AERRIVED:", this.data)
-      this.authorThumbnails = this.data.authorThumbnails
+      if('backstagePostThreadRenderer' in this.data) {
+        this.postText = 'Shared post'
+        this.type = 'text'
+        this.authorThumbnails = ['', 'https://yt3.ggpht.com/ytc/AAUvwnjm-0qglHJkAHqLFsCQQO97G7cCNDuDLldsrn25Lg=s88-c-k-c0x00ffffff-no-rj']
+        return
+      }
       this.postText = this.data.postText
+      this.authorThumbnails = this.data.authorThumbnails
       this.postContent = this.data.postContent
       this.postId = this.data.postId
       this.publishedText = this.data.publishedText
       this.voteCount = this.data.voteCount
       this.commentCount = this.data.commentCount
-      this.type = (this.data.postContent !== null) ? this.data.postContent.type : 'text'
+      this.type = (this.data.postContent !== null && this.data.postContent !== undefined) ? this.data.postContent.type : 'text'
+      if (this.type === 'image') {
+        console.log("IMAGE NUM PICS:", this.postContent.content.length)
+      }
+      this.author = this.data.author
       this.isLoading = false
     },
 
