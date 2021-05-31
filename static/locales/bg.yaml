@@ -315,6 +315,11 @@ Settings:
     Proxy Protocol: Прокси протокол
     Enable Tor / Proxy: Активиране на Tor / Proxy
     Proxy Settings: Настройки на прокси
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Уведомление при пропускане на спонсориран
+      сегмент
+    Enable SponsorBlock: Включване на SponsorBlock
+    SponsorBlock Settings: SponsorBlock настройки
 About:
   #On About page
   About: 'Относно'
@@ -536,6 +541,13 @@ Video:
   Video has been saved: Видеото е запазено
   Save Video: Запазване на видео
   translated from English: преведено от английски
+  Sponsor Block category:
+    interaction: взаимодействие
+    self-promotion: самореклама
+    outro: епилог
+    intro: въведение
+    sponsor: спонсор
+  Skipped segment: Пропуснат сегмент
 Videos:
   #& Sort By
   Sort By:
