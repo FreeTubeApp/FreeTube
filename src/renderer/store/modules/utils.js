@@ -253,7 +253,7 @@ const actions = {
   getVideoParamsFromUrl (_, url) {
     /** @type {URL} */
     let urlObject
-    const paramsObject = { videoId: null, timestamp: null }
+    const paramsObject = { videoId: null, timestamp: null, playlistId: null }
     try {
       urlObject = new URL(url)
     } catch (e) {
@@ -270,6 +270,7 @@ const actions = {
       function() {
         if (urlObject.pathname === '/watch' && urlObject.searchParams.has('v')) {
           extractParams(urlObject.searchParams.get('v'))
+          paramsObject.playlistId = urlObject.searchParams.get('list')
           return paramsObject
         }
       },
@@ -326,11 +327,12 @@ const actions = {
     //
     // If `urlType` is "invalid_url"
     // Nothing else
-    const { videoId, timestamp } = actions.getVideoParamsFromUrl(null, urlStr)
+    const { videoId, timestamp, playlistId } = actions.getVideoParamsFromUrl(null, urlStr)
     if (videoId) {
       return {
         urlType: 'video',
         videoId,
+        playlistId,
         timestamp
       }
     }
