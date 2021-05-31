@@ -319,10 +319,12 @@ Settings:
     Enable Tor / Proxy: Активиране на Tor / Proxy
     Proxy Settings: Настройки на прокси
   SponsorBlock Settings:
-    Notify when sponsor segment is skipped: Уведомление при пропускане на спонсориран
+    Notify when sponsor segment is skipped: Известие при пропускане на спонсориран
       сегмент
-    Enable SponsorBlock: Включване на SponsorBlock
+    Enable SponsorBlock: Активиране на SponsorBlock
     SponsorBlock Settings: SponsorBlock настройки
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
+      адрес (по подразбиране е https://sponsor.ajay.app)
 About:
   #On About page
   About: 'Относно'
@@ -354,7 +356,7 @@ About:
 
   Latest FreeTube News: 'Последни FreeTube новини'
 
-  Donate: Дарете
+  Donate: Дарение
   these people and projects: тези хора и проекти
   FreeTube is made possible by: FreeTube благодарение на
   Translate: Превод
@@ -367,7 +369,7 @@ About:
   Website: Уебсайт
   Please check for duplicates before posting: Моля, проверете за дубликати преди публикуване
   GitHub issues: GitHub проблеми
-  Report a problem: Съобщете за проблем
+  Report a problem: Съобщаване за проблем
   FAQ: ЧЗВ
   FreeTube Wiki: FreeTube Wiki
   Help: Помощ
@@ -550,6 +552,7 @@ Video:
     outro: епилог
     intro: въведение
     sponsor: спонсор
+    music offtopic: музика извън темата
   Skipped segment: Пропуснат сегмент
 Videos:
   #& Sort By
