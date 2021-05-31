@@ -196,6 +196,9 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Интервал за следващо видео в плейлист
     Next Video Interval: Интервал за следващо видео
+    Display Play Button In Video Player: Показване на бутона за възпроизвеждане във
+      видео плейъра
+    Scroll Volume Over Video Player: Промяна на звука при превъртане над видео плейъра
   Privacy Settings:
     Privacy Settings: 'Настройки за поверителност'
     Remember History: 'Запазване на историята'
