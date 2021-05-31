@@ -192,6 +192,8 @@ Settings:
       8k: 8k
     Playlist Next Video Interval: Zeit zwischen automatischer Videowiedergabe
     Next Video Interval: Zeit bis zum nächsten Video
+    Display Play Button In Video Player: Abspielbutton im Videoplayer anzeigen
+    Scroll Volume Over Video Player: Lautstärke durch Scrollen auf Video ändern
   Subscription Settings:
     Subscription Settings: Abonnement-Einstellungen
     Hide Videos on Watch: Verstecke Videos bei Wiedergabe
