@@ -77,35 +77,41 @@
 
 .playlistWrapper
   display: flex
-  .playlistThumbnail
-    padding-right: 5px
-    width: 50px
-    height: 100%
-    .playlistImage
-      width: 100%
-      height: 100%
-    .videoCountContainer
-      position: relative
-      right: -160px
-      top: -105px
-      width: 60px
-      font-size: 20px
-  .playlistText
+  .videoThumbnail
     width: 50%
+    display: flex
+    position: relative
+    margin-top: auto
+    margin-bottom: auto
+    .thumbnailImage
+      width: auto
+      height: auto
+      display: block
+      max-width: 100%
+
+
+  .playlistText
+    word-wrap: break-word
+    width: 50%
+    margin-left: 10px
     .playlistAuthor
+      font-size: small
       .playlistVideoCount
         font-size: smaller
 
     .playlistTitle
-      font-weight: bold
+      color: var(--primary-text-color)
 
     .playlistPreviewVideos
       font-size: small
       width: 100%
       display: flex
+      color: var(--primary-text-color)
+      padding-top: 10px
+      text-decoration-line: none
 
     .playlistPreviewVideoTitle
-      width: 50%
+      width: 100%
       display: block
       overflow: hidden
       white-space: nowrap

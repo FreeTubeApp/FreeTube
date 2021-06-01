@@ -5,7 +5,7 @@ import { mapActions } from 'vuex'
 export default Vue.extend({
   name: 'FtCommunityPost',
   components: {
-    'ft-list-video': FtListVideo,
+    'ft-list-video': FtListVideo
   },
   props: {
     data: {

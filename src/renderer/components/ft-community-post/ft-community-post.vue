@@ -7,7 +7,7 @@
       class="author-div"
     >
       <img
-        :src="authorThumbnails[Math.max(0, authorThumbnails.length-2)].url"
+        :src="'https://'+authorThumbnails[Math.max(0, authorThumbnails.length-1)].url"
         class="communityThumbnail"
       >
       <p
@@ -68,48 +68,46 @@
       v-if="type === 'playlist'"
       class="playlistWrapper"
     >
-      <div
-      class="playlistThumbnail"
+      <router-link
+        class="videoThumbnail"
+        :to="`/playlist/${postContent.content.playlistId}`"
       >
-        <img
-          :src="postContent.content.thumbnails[0].thumbnails[0].url"
-          class="playlistImage"
+        <div
+          class="imageWrapper"
         >
-<!--        <div-->
-<!--          class="videoCountContainer"-->
-<!--        >-->
-<!--          <div class="background" />-->
-<!--          <div class="inner">-->
-<!--            <div>{{ postContent.content.videoCountText.text }}</div>-->
-<!--            <div><font-awesome-icon icon="list" /></div>-->
-<!--          </div>-->
-<!--        </div>-->
-      </div>
+          <img
+            :src="postContent.content.thumbnails[0].thumbnails[0].url"
+            class="thumbnailImage"
+          >
+        </div>
+      </router-link>
       <div
-      class="playlistText"
+        class="playlistText"
       >
-        <span
+        <router-link
           class="playlistTitle"
+          :to="`/playlist/${playlistId}`"
         >
           {{ postContent.content.title }}
-        </span>
+        </router-link>
         <br>
         <span
           class="playlistAuthor"
         >
           {{ postContent.content.author }}
           -
-                    <span
-                    class="playlistVideoCount"
-                    >
-                      {{ postContent.content.videoCountText.text }}
-                      Videos
-                    </span>
+          <span
+            class="playlistVideoCount"
+          >
+            {{ postContent.content.videoCountText.text }}
+            Videos
+          </span>
           <br>
         </span>
-        <p
+        <router-link
           v-for="(video) in postContent.content.playlistVideoRenderer"
           class="playlistPreviewVideos"
+          :to="`/watch/${video.videoId}`"
         >
           <span
             class="playlistPreviewVideoTitle"
@@ -125,7 +123,7 @@
             {{ video.lengthText }}
           </span>
           <br>
-        </p>
+        </router-link>
       </div>
     </div>
     <div
