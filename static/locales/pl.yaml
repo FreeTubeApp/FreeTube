@@ -486,7 +486,7 @@ Video:
     Minute: minutę
   Published on: 'Opublikowano'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % temu'
+  Publicationtemplate: '$ % temu'
 #& Videos
   Autoplay: Odtwarzaj
   Play Previous Video: Odtwórz poprzedni film
