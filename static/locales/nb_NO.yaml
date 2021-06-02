@@ -61,7 +61,7 @@ Search Filters:
     Long (> 20 minutes): 'Lang (> 20 minutter)'
   # On Search Page
   Search Results: 'Søkeresultater'
-  Fetching results. Please wait: 'Henter resultater. Vent.'
+  Fetching results. Please wait: 'Henter resultater. Vennligst vent.'
   Fetch more results: 'Hent flere resultater'
 # Sidebar
   There are no more results for this search: Søket ga ingen flere resultater
@@ -73,7 +73,7 @@ Subscriptions:
     har ikke lagt til noen abonnementer i listen din. Legg til noen for å se dem her.'
   'Getting Subscriptions.  Please wait.': 'Henter abonnementer. Vent.'
   Refresh Subscriptions: Oppdater abonnementer
-  Getting Subscriptions. Please wait.: Henter abonnementer. Vent.
+  Getting Subscriptions. Please wait.: Henter abonnementer. Vennligst vent.
   Load More Videos: Last flere videoer
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Denne
     profilen har mange abonnementer. Påtvinger RSS for å unngå adgangsbegrensning
@@ -267,7 +267,7 @@ Settings:
       siden det har utilstrekkelig data.
     Check for Legacy Subscriptions: Se etter foreldede abonnementer
     Subscriptions have been successfully exported: Abonnementer eksportert
-    This might take a while, please wait: Dette kan ta litt tid …
+    This might take a while, please wait: Dette kan ta litt tid, vennligst vent
     Export History: Eksporter historikk
     Import History: Importer historikk
     Export NewPipe: NewPipe-eksport
@@ -351,7 +351,7 @@ About:
   Website: Nettsted
   Report a problem: Rapporter et problem
   Source code: Kildekode
-  Please read the: Les
+  Please read the: Vennligst les
   Mastodon: Mastodon
   Email: E-post
   Blog: Blogg
@@ -474,8 +474,8 @@ Video:
   Reverse Playlist: Snu spillelisten
   Started streaming on: Startet strømming
   Streamed on: Strømmet
-  Starting soon, please refresh the page to check again: Starter snart. Oppdater siden
-    for å sjekke igjen.
+  Starting soon, please refresh the page to check again: Starter snart. Vennligst
+    oppdater siden for å sjekke igjen.
   Autoplay: Automatisk avspilling
   Shuffle Playlist: Spill av tilfeldig fra spillelisten
   Loop Playlist: Gjenta spilleliste
@@ -550,7 +550,7 @@ Mini Player: 'Miniavspiller'
 Comments:
   Comments: 'Kommentarer'
   Click to View Comments: 'Trykk her for å vise kommentarer'
-  Getting comment replies, please wait: 'Henter kommentarsvar …'
+  Getting comment replies, please wait: 'Laster inn kommentarer. Vennligst vent.'
   Show Comments: 'Vis kommentarer'
   Hide Comments: 'Skjul kommentarer'
   # Context: View 10 Replies, View 1 Reply
