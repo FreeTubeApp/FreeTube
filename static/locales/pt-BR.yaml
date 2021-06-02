@@ -188,6 +188,9 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Intervalo do próximo vídeo da lista de reprodução
     Next Video Interval: Próximo intervalo de vídeo
+    Display Play Button In Video Player: Exibir botão de reprodução no tocador de
+      vídeo
+    Scroll Volume Over Video Player: Rolar volume sobre o reprodutor de vídeo
   Subscription Settings:
     Subscription Settings: 'Configurações de inscrições'
     Hide Videos on Watch: 'Esconder vídeos após assisti-los'
