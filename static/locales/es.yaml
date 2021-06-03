@@ -185,6 +185,10 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Intervalo de Siguiente Video en Playlist
     Next Video Interval: Intervalo del próximo vídeo
+    Display Play Button In Video Player: Mostrar el botón de reproducción en el reproductor
+      de vídeo
+    Scroll Volume Over Video Player: Desplazar el volumen sobre el reproductor de
+      vídeo
   Privacy Settings:
     Privacy Settings: 'Ajustes de Privacidad'
     Remember History: 'Recordar Historial'
@@ -669,11 +673,11 @@ Tooltips:
       YouTube.
     Invidious Instance: La instancia de Invidious por defecto a la que FreeTube se
       conectará para las llamadas a la API. Borra la instancia actual para ver una
-      lista de instancias públicas
+      lista de instancias públicas.
     Thumbnail Preference: Todas las miniaturas en FreeTube serán reemplazadas con
       un frame del vídeo en lugar de la miniatura por defecto.
     Fallback to Non-Preferred Backend on Failure: Si la API primaria falla, FreeTube
-      utilizará automáticamente la API secundara cuando esté habilitada
+      utilizará automáticamente la API secundara cuando esté habilitada.
     Preferred API Backend: Elige el backend que FreeTube utiliza para obtener datos.
       La API local es un extractor incluido. La API Invidious requiere un servidor
       Invidious al que conectarse.

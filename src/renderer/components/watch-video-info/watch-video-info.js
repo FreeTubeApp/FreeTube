@@ -78,13 +78,13 @@ export default Vue.extend({
       type: Array,
       required: true
     },
-    playlistId: {
-      type: String,
-      default: null
-    },
     watchingPlaylist: {
       type: Boolean,
       required: true
+    },
+    playlistId: {
+      type: String,
+      default: ''
     },
     getPlaylistIndex: {
       type: Function,
@@ -101,7 +101,6 @@ export default Vue.extend({
     getPlaylistLoop: {
       type: Function,
       required: true
-    },
     theatrePossible: {
       type: Boolean,
       required: true

@@ -255,7 +255,7 @@ Settings:
     One or more subscriptions were unable to be imported: 'Eit eller fleire abonnentar
       kunne ikkje importerast'
     Invalid subscriptions file: 'Ugyldig abonnementfil'
-    This might take a while, please wait: 'Dette kan ta ei stund, venleg vent'
+    This might take a while, please wait: 'Dette kan ta ei stund. Ver venleg og vent'
     Invalid history file: 'Ugyldig historikkfil'
     Subscriptions have been successfully exported: 'Abonnement har blitt importert'
     History object has insufficient data, skipping item: 'Eit historikkobjekt manglar
@@ -306,7 +306,8 @@ About:
   FAQ: 'Ofte stilte spørsmål'
   Report a problem: 'Rapporter eit problem'
   GitHub issues: 'GitHub issues'
-  Please check for duplicates before posting: 'Sjå etter duplikat før du poster noko'
+  Please check for duplicates before posting: 'Ver venleg og sjå etter duplikat før
+    du poster noko'
   Website: 'Nettstad'
   Blog: 'Blogg'
   Email: 'E-post'
@@ -425,8 +426,8 @@ Video:
   Watching: 'Ser på'
   Watched: 'Sett'
   Autoplay: 'Automatisk avspeling'
-  Starting soon, please refresh the page to check again: 'Starter snart, venleg oppdater
-    sida for å sjekke igjen'
+  Starting soon, please refresh the page to check again: 'Starter snart. Ver venleg
+    og oppdater sida for å sjekke igjen'
   # As in a Live Video
   Live: 'Direkte'
   Live Now: 'Direkte no'
@@ -549,7 +550,7 @@ Mini Player: 'Minispelar'
 Comments:
   Comments: 'Kommentarar'
   Click to View Comments: 'Trykk her for å vise kommentarar'
-  Getting comment replies, please wait: 'Laster inn kommentarar, ver venleg og vent'
+  Getting comment replies, please wait: 'Laster inn kommentarar. Ver venleg og vent'
   There are no more comments for this video: 'Det finst ingen fleire kommentarar for
     denne videoen'
   Show Comments: 'Vis kommentarar'
