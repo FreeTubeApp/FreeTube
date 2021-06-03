@@ -53,6 +53,7 @@ const state = {
   forceLocalBackendForLegacy: false,
   proxyVideos: false,
   defaultTheatreMode: false,
+  defaultSkipInterval: 5,
   defaultInterval: 5,
   defaultVolume: 1,
   defaultPlayback: 1,
@@ -191,6 +192,10 @@ const getters = {
 
   getDefaultTheatreMode: () => {
     return state.defaultTheatreMode
+  },
+
+  getDefaultSkipInterval: () => {
+    return state.defaultSkipInterval
   },
 
   getDefaultInterval: () => {
@@ -394,6 +399,9 @@ const actions = {
                 break
               case 'defaultTheatreMode':
                 commit('setDefaultTheatreMode', result.value)
+                break
+              case 'defaultSkipInterval':
+                commit('setDefaultSkipInterval', result.value)
                 break
               case 'defaultInterval':
                 commit('setDefaultInterval', result.value)
@@ -661,6 +669,14 @@ const actions = {
     settingsDb.update({ _id: 'defaultTheatreMode' }, { _id: 'defaultTheatreMode', value: defaultTheatreMode }, { upsert: true }, (err, numReplaced) => {
       if (!err) {
         commit('setDefaultTheatreMode', defaultTheatreMode)
+      }
+    })
+  },
+
+  updateDefaultSkipInterval ({ commit }, defaultSkipInterval) {
+    settingsDb.update({ _id: 'defaultSkipInterval' }, { _id: 'defaultSkipInterval', value: defaultSkipInterval }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setDefaultSkipInterval', defaultSkipInterval)
       }
     })
   },
@@ -938,6 +954,9 @@ const mutations = {
   },
   setProxyVideos (state, proxyVideos) {
     state.proxyVideos = proxyVideos
+  },
+  setDefaultSkipInterval (state, defaultSkipInterval) {
+    state.defaultSkipInterval = defaultSkipInterval
   },
   setDefaultInterval (state, defaultInterval) {
     state.defaultInterval = defaultInterval

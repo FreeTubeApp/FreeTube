@@ -143,6 +143,10 @@ export default Vue.extend({
       return this.$store.getters.getDefaultPlayback
     },
 
+    defaultSkipInterval: function () {
+      return this.$store.getters.getDefaultSkipInterval
+    },
+
     defaultQuality: function () {
       return parseInt(this.$store.getters.getDefaultQuality)
     },
@@ -1192,9 +1196,9 @@ export default Vue.extend({
             break
           case 74:
             // J Key
-            // Rewind by 10 seconds
+            // Rewind by 2x the time-skip interval (in seconds)
             event.preventDefault()
-            this.changeDurationBySeconds(-10)
+            this.changeDurationBySeconds(-this.defaultSkipInterval * 2)
             break
           case 75:
             // K Key
@@ -1204,9 +1208,9 @@ export default Vue.extend({
             break
           case 76:
             // L Key
-            // Fast Forward by 10 seconds
+            // Fast-Forward by 2x the time-skip interval (in seconds)
             event.preventDefault()
-            this.changeDurationBySeconds(10)
+            this.changeDurationBySeconds(this.defaultSkipInterval * 2)
             break
           case 79:
             // O Key
@@ -1252,15 +1256,15 @@ export default Vue.extend({
             break
           case 37:
             // Left Arrow Key
-            // Rewind by 5 seconds
+            // Rewind by the time-skip interval (in seconds)
             event.preventDefault()
-            this.changeDurationBySeconds(-5)
+            this.changeDurationBySeconds(-this.defaultSkipInterval * 1)
             break
           case 39:
             // Right Arrow Key
-            // Fast Forward by 5 seconds
+            // Fast-Forward by the time-skip interval (in seconds)
             event.preventDefault()
-            this.changeDurationBySeconds(5)
+            this.changeDurationBySeconds(this.defaultSkipInterval * 1)
             break
           case 49:
             // 1 Key
