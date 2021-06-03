@@ -193,6 +193,8 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Interval Video dalam Daftar Putar
     Next Video Interval: Interval Video Selanjutnya
+    Display Play Button In Video Player: Tampil tombol Putar dlm Pemutar Video
+    Scroll Volume Over Video Player: Gulir Volume di atas Pemutar Video
   Privacy Settings:
     Privacy Settings: 'Pengaturan Privasi'
     Remember History: 'Ingat Riwayat'
