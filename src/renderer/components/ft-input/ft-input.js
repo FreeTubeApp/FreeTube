@@ -19,6 +19,10 @@ export default Vue.extend({
       type: Boolean,
       default: true
     },
+    showClearTextButton: {
+      type: Boolean,
+      default: false
+    },
     showLabel: {
       type: Boolean,
       default: false

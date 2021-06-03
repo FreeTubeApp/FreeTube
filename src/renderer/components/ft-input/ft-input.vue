@@ -3,7 +3,8 @@
     class="ft-input-component"
     :class="{
       search: isSearch,
-      forceTextColor: forceTextColor
+      forceTextColor: forceTextColor,
+      showArrow: showArrow
     }"
   >
     <label
