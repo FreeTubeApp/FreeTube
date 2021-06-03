@@ -655,7 +655,7 @@ const actions = {
     }
 
     // Check whether the video is in a playlist
-    if (payload.cmdArgs.playlistUrl !== null && payload.playlistId !== null) {
+    if (payload.cmdArgs.playlistUrl !== null && payload.playlistId !== null && payload.playlistId !== '') {
       if (payload.playlistIndex !== null) {
         if (payload.cmdArgs.playlistIndex !== null) {
           args.push(`${payload.cmdArgs.playlistIndex}${payload.playlistIndex}`)
@@ -705,7 +705,7 @@ const actions = {
         args.push(`${payload.cmdArgs.playlistUrl}https://youtube.com/playlist?list=${payload.playlistId}`)
       }
     } else {
-      if (payload.playlistId !== null) {
+      if (payload.playlistId !== null && payload.playlistId !== '') {
         actions.showExternalPlayerUnsupportedActionToast(null, {
           ...payload,
           action: payload.strings['Unsupported Actions']['opening playlists']
@@ -727,7 +727,7 @@ const actions = {
     }
 
     const openingToast = payload.strings.OpeningTemplate
-      .replace('$', payload.playlistId === null
+      .replace('$', payload.playlistId === null || payload.playlistId === ''
         ? payload.strings.video
         : payload.strings.playlist)
       .replace('%', payload.externalPlayer)
