@@ -61,6 +61,14 @@
   color: #EEEEEE;
 }
 
+.ft-input-component.showArrow .ft-input {
+  /*
+  With arrow present means
+  the text might get under the arrow with normal padding
+   */
+  padding-right: 2em;
+}
+
 .inputAction:hover {
   background-color: var(--side-nav-hover-color);
   -moz-transition: background 0.2s ease-in;
