@@ -54,8 +54,6 @@ Flatpak on Flathub: [Download](https://flathub.org/apps/details/io.freetubeapp.F
 
 These builds are maintained by the community.  While they should be safe, download at your own risk.  There may be issues with using these versus the official builds.  Any issues specific with these builds should be sent to their respective maintainer.
 
-APT Repository: [Download](https://julianfairfax.gitlab.io/apt-repo)
-
 Arch User Repository (AUR): [Download](https://aur.archlinux.org/packages/freetube-bin/)
 
 Chocolatey: [Download](https://chocolatey.org/packages/freetube/)
