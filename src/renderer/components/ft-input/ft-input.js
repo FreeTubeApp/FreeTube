@@ -101,6 +101,11 @@ export default Vue.extend({
       this.$emit('input', this.inputData)
     },
 
+    handleClearTextClick: function () {
+      this.inputData = ''
+      this.$emit('input', this.inputData)
+    },
+
     addListener: function () {
       const inputElement = document.getElementById(this.id)
 

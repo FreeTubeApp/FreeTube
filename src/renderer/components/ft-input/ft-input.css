@@ -2,13 +2,53 @@
   position: relative;
 }
 
+.clearInputTextButton {
+  position: absolute;
+  padding: 10px 5px;
+  top: 5px;
+  left: 0;
+  cursor: pointer;
+  border-radius: 200px 200px 200px 200px;
+  color: var(--primary-text-color);
+}
+
+.clearInputTextButton:hover {
+  background-color: var(--side-nav-hover-color);
+  -moz-transition: background 0.2s ease-in;
+  -o-transition: background 0.2s ease-in;
+  transition: background 0.2s ease-in;
+}
+
+.forceTextColor .clearInputTextButton:hover {
+  background-color: var(--primary-color-hover);
+}
+
+.clearInputTextButton:active {
+  background-color: var(--tertiary-text-color);
+  -moz-transition: background 0.2s ease-in;
+  -o-transition: background 0.2s ease-in;
+  transition: background 0.2s ease-in;
+}
+
+.search .clearInputTextButton {
+  top: 12px;
+}
+
+.forceTextColor .clearInputTextButton {
+  color: #EEEEEE;
+}
+
+.forceTextColor .clearInputTextButton:active {
+  background-color: var(--primary-color-active);
+}
+
 .ft-input {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     outline: none;
     width: 100%;
-    padding: 1rem;
+    padding: 1rem 1rem 1rem 2rem;
     border: none;
     background: transparent;
     margin-bottom: 10px;
