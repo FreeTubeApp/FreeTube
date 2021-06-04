@@ -19,6 +19,11 @@
         :tooltip="tooltip"
       />
     </label>
+    <font-awesome-icon
+      icon="backspace"
+      class="clearInputTextButton"
+      @click="handleClearTextClick"
+    />
     <input
       :id="id"
       v-model="inputData"
