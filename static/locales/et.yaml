@@ -579,13 +579,13 @@ Share:
   YouTube Channel URL copied to clipboard: Kopeerisin YouTube'i kanali aadressi lõikelauale
   Invidious Channel URL copied to clipboard: Kopeerisin kanali aadressi Invidious'e
     API'st lõikelauale
-Mini Player: ''
+Mini Player: 'Kompaktne vaade'
 Comments:
-  Comments: ''
-  Click to View Comments: ''
-  Getting comment replies, please wait: ''
-  There are no more comments for this video: ''
-  Show Comments: ''
+  Comments: 'Kommentaarid'
+  Click to View Comments: 'Kommentaaride vaatamiseks klõpsi'
+  Getting comment replies, please wait: 'Laadin kommentaari vastuseid, palun oota'
+  There are no more comments for this video: 'Sellel videol ei ole rohkem kommentaare'
+  Show Comments: 'Näita kommentaare'
   Hide Comments: ''
   # Context: View 10 Replies, View 1 Reply
   View: ''
