@@ -131,6 +131,7 @@ Settings:
     Region for Trending: 'Wilayah untuk Sedang Tren'
         #! List countries
     View all Invidious instance information: Lihat semua informasi situs Invidious
+    System Default: Sistem standar
   Theme Settings:
     Theme Settings: 'Pengaturan Tema'
     Match Top Bar with Main Color: 'Samakan Bilah Atas dengan Warna Utama'
@@ -192,6 +193,8 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Interval Video dalam Daftar Putar
     Next Video Interval: Interval Video Selanjutnya
+    Display Play Button In Video Player: Tampilkan Tombol Putar di Dalam Pemutar Video
+    Scroll Volume Over Video Player: Gulir Volume di atas Pemutar Video
   Privacy Settings:
     Privacy Settings: 'Pengaturan Privasi'
     Remember History: 'Ingat Riwayat'
@@ -310,6 +313,12 @@ Settings:
     Proxy Protocol: Protokol Proksi
     Enable Tor / Proxy: Aktifkan Tor / Proksi
     Proxy Settings: Pengaturan Proksi
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Beri tahu saat segmen sponsor dilewati
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Url SponsorBlock
+      API (Default is https://sponsor.ajay.app)
+    Enable SponsorBlock: Aktifkan SponsorBlock
+    SponsorBlock Settings: Pengaturan SponsorBlock
 About:
   #On About page
   About: 'Ihwal'
@@ -529,6 +538,14 @@ Video:
   Video has been saved: Video telah disimpan
   Save Video: Simpan Video
   translated from English: diterjemahkan dari Bahasa Inggris
+  Sponsor Block category:
+    interaction: interaksi
+    music offtopic: musik non-topik
+    self-promotion: promosi diri sendiri
+    outro: outro
+    intro: intro
+    sponsor: sponsor
+  Skipped segment: Segmen yang dilewati
 Videos:
   #& Sort By
   Sort By:

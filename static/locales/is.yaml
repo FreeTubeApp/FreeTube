@@ -137,6 +137,7 @@ Settings:
     View all Invidious instance information: 'Skoða allar upplýsingar um Invidious-tilvik'
     Region for Trending: 'Landssvæði sem skal miða vinsældir við'
         #! List countries
+    System Default: Sjálfgefið í kerfinu
   Theme Settings:
     Theme Settings: 'Þemastillingar'
     Match Top Bar with Main Color: 'Láta toppstiku samsvara aðallit'
@@ -199,6 +200,8 @@ Settings:
       4k: '4k'
       8k: '8k'
     Next Video Interval: Bil í næsta myndskeið
+    Display Play Button In Video Player: Birta afspilunarhnapp í myndspilara
+    Scroll Volume Over Video Player: Skrun hljóðstyrks ofan á myndspilara
   Privacy Settings:
     Privacy Settings: 'Stillingar gagnaleyndar'
     Remember History: 'Muna vinnsluferil'
@@ -288,6 +291,12 @@ Settings:
     City: 'Borg/Sveitarfélag'
     Error getting network information. Is your proxy configured properly?: 'Það tókst
       ekki að sækja upplýsingar um netkerfið. Er milliþjónninn rétt uppsettur?'
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Láta vita þegar kostaður bútur er hunsaður
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API-slóð
+      (sjálfgefið er https://sponsor.ajay.app)
+    Enable SponsorBlock: Virkja SponsorBlock
+    SponsorBlock Settings: Stillingar SponsorBlock
 About:
   #On About page
   About: 'Um hugbúnaðinn'
@@ -446,7 +455,7 @@ Video:
     Low: 'Lág'
     Medium: 'Miðlungs'
     High: 'Há'
-    Best: 'Best'
+    Best: 'Besta'
   Published:
     Jan: 'Jan'
     Feb: 'Feb'
@@ -483,6 +492,14 @@ Video:
   Publicationtemplate: 'Fyrir $ % síðan'
 #& Videos
   translated from English: þýtt úr ensku
+  Sponsor Block category:
+    music offtopic: tónlist óskyld efni
+    interaction: gagnvirkni
+    self-promotion: sjálfskynning
+    intro: kynning
+    sponsor: kostunaraðili
+    outro: afkynning
+  Skipped segment: Búti sleppt
 Videos:
   #& Sort By
   Sort By:

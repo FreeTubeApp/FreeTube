@@ -133,6 +133,7 @@ Settings:
         #! List countries
     View all Invidious instance information: Zobrazit všechny informace o instanci
       Invidious
+    System Default: Výchozí nastavení systému
   Theme Settings:
     Theme Settings: 'Nastavení motivu'
     Match Top Bar with Main Color: 'Přizpůsobit hlavní lištu hlavní barvě'
@@ -308,6 +309,13 @@ Settings:
     Proxy Protocol: Protokol proxy
     Error getting network information. Is your proxy configured properly?: Chyba při
       získávání informací o síti. Je vaše proxy správně nakonfigurována?
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Upozornit, když je sponzorový segment
+      přeskočen
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Url SponsorBlock
+      API (Výchozí je https://sponsor.ajay.app)
+    Enable SponsorBlock: Zapnout SponsorBlock
+    SponsorBlock Settings: Nastavení SponsorBlock
 About:
   #On About page
   About: 'O aplikaci'
@@ -524,6 +532,14 @@ Video:
   Video has been removed from your saved list: Video bylo odstraněno z vašeho uloženého
     seznamu
   translated from English: přeloženo z angličtiny
+  Sponsor Block category:
+    music offtopic: hudební offtopic
+    interaction: interakce
+    self-promotion: self-promotion
+    outro: závěr
+    intro: úvod
+    sponsor: sponzor
+  Skipped segment: Přeskočený segment
 Videos:
   #& Sort By
   Sort By:

@@ -122,6 +122,7 @@ Settings:
     Check for Latest Blog Posts: تحقق من أحدث منشورات المدونة
     Check for Updates: تحقّق من وجود تحديثات
     View all Invidious instance information: عرض جميع نماذج Invidious
+    System Default: افتراضي النظام
   Theme Settings:
     Theme Settings: 'إعدادات السِمة'
     Match Top Bar with Main Color: 'طابق الشريط العلوي مع اللون الأساسي'
@@ -184,6 +185,8 @@ Settings:
       8k: '‍8k'
     Playlist Next Video Interval: الفاصل الزمني لتشغيل الفيديو التالي في قائمة التشغيل
     Next Video Interval: الفاصل الزمني للفيديو التالي
+    Scroll Volume Over Video Player: تمرير مستوى الصوت عبر مشغل الفيديو
+    Display Play Button In Video Player: عرض زر التشغيل في مشغل الفيديو
   Privacy Settings:
     Privacy Settings: 'إعدادات الخصوصية'
     Remember History: 'تذّكر سجلّ المشاهدة'
@@ -307,6 +310,12 @@ Settings:
       في جلب معلومات الشبكة. هل ضبطت إعدادات وكيلك بصورة صحيحة؟
     Clicking on Test Proxy will send a request to: النقر على اختبار البروكسي سيؤدي
       إلى إرسال طلب إلى
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: تنبيه عندما يتم تخطي شريحة الراعي
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
+      عنوان (الافتراضي هو https://sponsor.ajay.app)
+    Enable SponsorBlock: تفعيل حجب الرعاة
+    SponsorBlock Settings: إعدادات حظر الرعاة
 About:
   #On About page
   About: 'حول'
@@ -524,6 +533,14 @@ Video:
   Save Video: احفظ الفيديو
   Video has been removed from your saved list: تمت إزالة الفيديو من قائمتك المحفوظة
   translated from English: مترجمة من الإنجليزية
+  Sponsor Block category:
+    music offtopic: موسيقى خارجة عن المألوف
+    interaction: تفاعل
+    self-promotion: الترويج الذاتي
+    outro: الخاتمة
+    intro: المقدمة
+    sponsor: الراعي
+  Skipped segment: تم تخطي المقطع
 Videos:
   #& Sort By
   Sort By:

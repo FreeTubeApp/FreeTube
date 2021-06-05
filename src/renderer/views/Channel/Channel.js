@@ -341,7 +341,7 @@ export default Vue.extend({
       this.isLoading = true
       this.apiUsed = 'invidious'
 
-      this.$store.dispatch('invidiousGetChannelInfo', this.id).then((response) => {
+      this.invidiousGetChannelInfo(this.id).then((response) => {
         console.log(response)
         this.channelName = response.author
         this.id = response.authorId
@@ -388,7 +388,7 @@ export default Vue.extend({
         }
       }
 
-      this.$store.dispatch('invidiousAPICall', payload).then((response) => {
+      this.invidiousAPICall(payload).then((response) => {
         this.latestVideos = this.latestVideos.concat(response)
         this.latestVideosPage++
         this.isElementListLoading = false
@@ -471,7 +471,7 @@ export default Vue.extend({
         payload.params.continuation = this.playlistContinuationString
       }
 
-      this.$store.dispatch('invidiousAPICall', payload).then((response) => {
+      this.invidiousAPICall(payload).then((response) => {
         this.playlistContinuationString = response.continuation
         this.latestPlaylists = this.latestPlaylists.concat(response.playlists)
         this.isElementListLoading = false
@@ -680,7 +680,7 @@ export default Vue.extend({
         }
       }
 
-      this.$store.dispatch('invidiousAPICall', payload).then((response) => {
+      this.invidiousAPICall(payload).then((response) => {
         this.searchResults = this.searchResults.concat(response)
         this.isElementListLoading = false
         this.searchPage++
@@ -707,7 +707,9 @@ export default Vue.extend({
 
     ...mapActions([
       'showToast',
-      'updateProfile'
+      'updateProfile',
+      'invidiousGetChannelInfo',
+      'invidiousAPICall'
     ])
   }
 })

@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import $ from 'jquery'
 import { mapActions } from 'vuex'
-import { app } from '@electron/remote'
 import FtCard from '../ft-card/ft-card.vue'
 import FtSelect from '../ft-select/ft-select.vue'
 import FtInput from '../ft-input/ft-input.vue'
@@ -59,6 +58,11 @@ export default Vue.extend({
     isDev: function () {
       return process.env.NODE_ENV === 'development'
     },
+
+    usingElectron: function () {
+      return this.$store.getters.getUsingElectron
+    },
+
     invidiousInstance: function () {
       return this.$store.getters.getInvidiousInstance
     },
@@ -192,12 +196,13 @@ export default Vue.extend({
       }
     },
 
-    updateLocale: function (locale) {
+    updateLocale: async function (locale) {
       if (locale === 'system') {
-        const systemLocale = app.getLocale().replace(/-|_/, '_')
+        const systemLocale = await this.getLocale()
+
         const findLocale = Object.keys(this.$i18n.messages).find((locale) => {
-          const localeName = locale.replace(/-|_/, '_')
-          return localeName.includes(systemLocale)
+          const localeName = locale.replace('-', '_')
+          return localeName.includes(systemLocale.replace('-', '_'))
         })
 
         if (typeof findLocale !== 'undefined') {
@@ -240,7 +245,8 @@ export default Vue.extend({
       'updateThumbnailPreference',
       'updateInvidiousInstance',
       'updateForceLocalBackendForLegacy',
-      'getRegionData'
+      'getRegionData',
+      'getLocale'
     ])
   }
 })

@@ -127,6 +127,7 @@ Settings:
     Check for Updates: Szukaj aktualizacji
     View all Invidious instance information: Pokaż informacje o wszystkich instancjach
       Invidious
+    System Default: Ustawienie systemowe
   Theme Settings:
     Theme Settings: 'Ustawienia wyglądu'
     Match Top Bar with Main Color: 'Dopasuj górną belkę do głównego koloru'
@@ -189,6 +190,9 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Przerwa przed kolejną pozycją playlisty
     Next Video Interval: Czas do następnego filmu
+    Scroll Volume Over Video Player: Kontroluj głośność kółkiem myszy na obszarze
+      odtwarzacza
+    Display Play Button In Video Player: Pokaż przycisk odtwarzania na odtwarzaczu
   Subscription Settings:
     Subscription Settings: 'Ustawienia subskrypcji'
     Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
@@ -316,6 +320,13 @@ Settings:
     Proxy Protocol: Protokół proxy
     Enable Tor / Proxy: Włącz Tor / Proxy
     Proxy Settings: Ustawienia proxy
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Powiadamiaj, kiedy segment sponsorowany
+      zostanie pominięty
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Adres URL interfejsu
+      API SponsorBlock (Domyślnie jest https://sponsor.ajay.app)
+    Enable SponsorBlock: Włącz SponsorBlock
+    SponsorBlock Settings: Ustawienia SponsorBlock
 About:
   #On About page
   About: 'O projekcie'
@@ -475,7 +486,7 @@ Video:
     Minute: minutę
   Published on: 'Opublikowano'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % temu'
+  Publicationtemplate: '$ % temu'
 #& Videos
   Autoplay: Odtwarzaj
   Play Previous Video: Odtwórz poprzedni film
@@ -504,6 +515,14 @@ Video:
   Video has been saved: Film został zachowany
   Save Video: Zachowaj film
   translated from English: przetłumaczone z angielskiego
+  Sponsor Block category:
+    music offtopic: niemuzyczny
+    interaction: o interakcji
+    self-promotion: z własną promocją
+    outro: z ekranem końcowym
+    intro: z intrem
+    sponsor: sponsorowany
+  Skipped segment: Pominięto segment
 Videos:
   #& Sort By
   Sort By:

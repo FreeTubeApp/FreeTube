@@ -132,6 +132,7 @@ Settings:
         #! List countries
     View all Invidious instance information: Преглед на пълна информация за Invidious
       обекта
+    System Default: Стандартен за системата
   Theme Settings:
     Theme Settings: 'Настройки на изгледа на приложението'
     Match Top Bar with Main Color: 'Съвпадане на горната лента с основната цветова
@@ -195,6 +196,9 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Интервал за следващо видео в плейлист
     Next Video Interval: Интервал за следващо видео
+    Display Play Button In Video Player: Показване на бутона за възпроизвеждане във
+      видео плейъра
+    Scroll Volume Over Video Player: Промяна на звука при превъртане над видео плейъра
   Privacy Settings:
     Privacy Settings: 'Настройки за поверителност'
     Remember History: 'Запазване на историята'
@@ -314,6 +318,13 @@ Settings:
     Proxy Protocol: Прокси протокол
     Enable Tor / Proxy: Активиране на Tor / Proxy
     Proxy Settings: Настройки на прокси
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Известие при пропускане на спонсориран
+      сегмент
+    Enable SponsorBlock: Активиране на SponsorBlock
+    SponsorBlock Settings: SponsorBlock настройки
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
+      адрес (по подразбиране е https://sponsor.ajay.app)
 About:
   #On About page
   About: 'Относно'
@@ -345,7 +356,7 @@ About:
 
   Latest FreeTube News: 'Последни FreeTube новини'
 
-  Donate: Дарете
+  Donate: Дарение
   these people and projects: тези хора и проекти
   FreeTube is made possible by: FreeTube благодарение на
   Translate: Превод
@@ -358,7 +369,7 @@ About:
   Website: Уебсайт
   Please check for duplicates before posting: Моля, проверете за дубликати преди публикуване
   GitHub issues: GitHub проблеми
-  Report a problem: Съобщете за проблем
+  Report a problem: Съобщаване за проблем
   FAQ: ЧЗВ
   FreeTube Wiki: FreeTube Wiki
   Help: Помощ
@@ -535,6 +546,14 @@ Video:
   Video has been saved: Видеото е запазено
   Save Video: Запазване на видео
   translated from English: преведено от английски
+  Sponsor Block category:
+    interaction: взаимодействие
+    self-promotion: самореклама
+    outro: епилог
+    intro: въведение
+    sponsor: спонсор
+    music offtopic: музика извън темата
+  Skipped segment: Пропуснат сегмент
 Videos:
   #& Sort By
   Sort By:

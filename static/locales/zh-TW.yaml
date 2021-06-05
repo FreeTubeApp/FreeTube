@@ -116,6 +116,7 @@ Settings:
     Check for Latest Blog Posts: 檢查最新的部落格貼文
     Check for Updates: 檢查更新
     View all Invidious instance information: 檢視所有 Invidious 站台的資訊
+    System Default: 系統預設值
   Theme Settings:
     Theme Settings: '主題設定'
     Match Top Bar with Main Color: '頂部功能表欄對應主色彩'
@@ -178,6 +179,8 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: 播放清單 下一個影片間隔時間
     Next Video Interval: 下一個影片區段
+    Scroll Volume Over Video Player: 在影片播放器上捲動以變更音量
+    Display Play Button In Video Player: 在影片播放器中顯示播放按鈕
   Subscription Settings:
     Subscription Settings: '訂閱設定'
     Hide Videos on Watch: '觀看時隱藏影片'
@@ -284,6 +287,12 @@ Settings:
     Proxy Protocol: 代理伺服器協定
     Enable Tor / Proxy: 啟用 Tor 或代理伺服器
     Proxy Settings: 代理伺服器設定
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: 當贊助商片段被跳過時通知
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
+      網址（預設為 https://sponsor.ajay.app）
+    Enable SponsorBlock: 啟用 SponsorBlock
+    SponsorBlock Settings: SponsorBlock 設定
 About:
   #On About page
   About: '關於'
@@ -455,6 +464,14 @@ Video:
   Video has been saved: 影片已儲存
   Save Video: 儲存影片至播放清單
   translated from English: 從英文翻譯
+  Sponsor Block category:
+    music offtopic: 音樂離題
+    interaction: 互動
+    self-promotion: 自我推廣
+    outro: 其他
+    intro: 介紹
+    sponsor: 贊助商
+  Skipped segment: 已跳過的片段
 Videos:
   #& Sort By
   Sort By:

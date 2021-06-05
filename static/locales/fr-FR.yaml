@@ -195,6 +195,10 @@ Settings:
     Playlist Next Video Interval: Intervalle de la prochaine vidéo dans la liste de
       lecture
     Next Video Interval: Intervalle vidéo suivante
+    Scroll Volume Over Video Player: Contrôler le niveau du volume avec la molette
+      au dessus du lecteur vidéo
+    Display Play Button In Video Player: Afficher le bouton de lecture dans le lecteur
+      vidéo
   Subscription Settings:
     Subscription Settings: 'Paramètres des abonnements'
     Hide Videos on Watch: 'Masquer les vidéos visionnées'
@@ -325,6 +329,13 @@ Settings:
     Proxy Protocol: Protocole du proxy
     Enable Tor / Proxy: Activer Tor / Proxy
     Proxy Settings: Paramètres du proxy
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Notification lorsqu'un segment sponsorisé
+      est ignoré
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL de l'API SponsorBlock
+      (la valeur par défaut est https://sponsor.ajay.app)
+    Enable SponsorBlock: Activer SponsorBlock
+    SponsorBlock Settings: Paramètres de SponsorBlock
 About:
   #On About page
   About: 'À propos'
@@ -517,6 +528,14 @@ Video:
   Video has been saved: La vidéo a été enregistrée
   Save Video: Enregistrer la vidéo
   translated from English: traduit de l’anglais
+  Sponsor Block category:
+    music offtopic: musique hors sujet
+    interaction: interaction
+    sponsor: sponsor
+    self-promotion: autopromotion
+    outro: outro
+    intro: intro
+  Skipped segment: Segment ignoré
 Videos:
   #& Sort By
   Sort By:

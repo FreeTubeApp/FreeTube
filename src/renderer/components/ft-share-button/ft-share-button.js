@@ -19,6 +19,10 @@ export default Vue.extend({
       type: String,
       required: true
     },
+    playlistId: {
+      type: String,
+      default: ''
+    },
     getTimestamp: {
       type: Function,
       required: true
@@ -34,12 +38,14 @@ export default Vue.extend({
       return this.$store.getters.getInvidiousInstance
     },
 
-    usingElectron: function () {
-      return this.$store.getters.getUsingElectron
-    },
-
     invidiousURL() {
-      return `${this.invidiousInstance}/watch?v=${this.id}`
+      let videoUrl = `${this.invidiousInstance}/watch?v=${this.id}`
+      // `playlistId` can be undefined
+      if (this.playlistId && this.playlistId.length !== 0) {
+        // `index` seems can be ignored
+        videoUrl += `&list=${this.playlistId}`
+      }
+      return videoUrl
     },
 
     invidiousEmbedURL() {
@@ -47,10 +53,21 @@ export default Vue.extend({
     },
 
     youtubeURL() {
-      return `https://www.youtube.com/watch?v=${this.id}`
+      let videoUrl = `https://www.youtube.com/watch?v=${this.id}`
+      // `playlistId` can be undefined
+      if (this.playlistId && this.playlistId.length !== 0) {
+        // `index` seems can be ignored
+        videoUrl += `&list=${this.playlistId}`
+      }
+      return videoUrl
     },
 
     youtubeShareURL() {
+      // `playlistId` can be undefined
+      if (this.playlistId && this.playlistId.length !== 0) {
+        // `index` seems can be ignored
+        return `https://www.youtube.com/watch?v=${this.id}&list=${this.playlistId}`
+      }
       return `https://youtu.be/${this.id}`
     },
 
@@ -63,15 +80,8 @@ export default Vue.extend({
       navigator.clipboard.writeText(text)
     },
 
-    open(url) {
-      if (this.usingElectron) {
-        const shell = require('electron').shell
-        shell.openExternal(url)
-      }
-    },
-
     openInvidious() {
-      this.open(this.getFinalUrl(this.invidiousURL))
+      this.openExternalLink(this.getFinalUrl(this.invidiousURL))
       this.$refs.iconButton.focusOut()
     },
 
@@ -84,7 +94,7 @@ export default Vue.extend({
     },
 
     openYoutube() {
-      this.open(this.getFinalUrl(this.youtubeURL))
+      this.openExternalLink(this.getFinalUrl(this.youtubeURL))
       this.$refs.iconButton.focusOut()
     },
 
@@ -97,7 +107,7 @@ export default Vue.extend({
     },
 
     openYoutubeEmbed() {
-      this.open(this.getFinalUrl(this.youtubeEmbedURL))
+      this.openExternalLink(this.getFinalUrl(this.youtubeEmbedURL))
       this.$refs.iconButton.focusOut()
     },
 
@@ -110,7 +120,7 @@ export default Vue.extend({
     },
 
     openInvidiousEmbed() {
-      this.open(this.getFinalUrl(this.invidiousEmbedURL))
+      this.openExternalLink(this.getFinalUrl(this.invidiousEmbedURL))
       this.$refs.iconButton.focusOut()
     },
 
@@ -122,7 +132,7 @@ export default Vue.extend({
       this.$refs.iconButton.focusOut()
     },
 
-    updateincludeTimestamp() {
+    updateIncludeTimestamp() {
       this.includeTimestamp = !this.includeTimestamp
     },
 
@@ -134,7 +144,8 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'showToast'
+      'showToast',
+      'openExternalLink'
     ])
   }
 })

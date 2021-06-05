@@ -199,6 +199,9 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Lejátszási lista következő videó intervalluma
     Next Video Interval: Következő videó időköze
+    Scroll Volume Over Video Player: A hangerő szintjét a videolejátszó fölötti kerékkel
+      szabályozhatja
+    Display Play Button In Video Player: Lejátszás gomb megjelenítése a videolejátszóban
   Privacy Settings:
     Privacy Settings: 'Adatvédelmi beállítások'
     Remember History: 'Előzmények megjegyzése'
@@ -317,6 +320,12 @@ Settings:
     Proxy Settings: Meghatalmazás beállításai
     Error getting network information. Is your proxy configured properly?: Hiba a
       hálózati adatok lekérésekor. Megfelelő a meghatalmazás beállítása?
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Értesítés a szponzorált szegmens kihagyásáról
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 'SponsorBlock API
+      URL címe (Alapértelmezés: https://sponsor.ajay.app)'
+    Enable SponsorBlock: SponsorBlock engedélyezése
+    SponsorBlock Settings: SponsorBlock beállításai
 About:
   #On About page
   About: 'Névjegy'
@@ -538,6 +547,14 @@ Video:
   Video has been saved: A videó mentve
   Save Video: Videó mentése
   translated from English: angolról fordítva
+  Sponsor Block category:
+    music offtopic: témán kívüli zene
+    interaction: kölcsönhatás
+    self-promotion: önreklám
+    outro: kivezetés
+    intro: bevezetés
+    sponsor: szponzor
+  Skipped segment: Szegmens kihagyva
 Videos:
   #& Sort By
   Sort By:

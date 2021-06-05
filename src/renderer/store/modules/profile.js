@@ -11,9 +11,8 @@ if (window && window.process && window.process.type === 'renderer') {
     dbLocation = electron.remote.app.getPath('userData')
   } */
 
-  const remote = require('@electron/remote')
-  dbLocation = remote.app.getPath('userData')
-
+  const { ipcRenderer } = require('electron')
+  dbLocation = ipcRenderer.sendSync('getUserDataPathSync')
   dbLocation = dbLocation + '/profiles.db'
 } else {
   dbLocation = 'profiles.db'

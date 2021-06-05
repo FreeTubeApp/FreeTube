@@ -170,6 +170,7 @@ Settings:
     Proxy Videos Through Invidious: 'Proxy Videos Through Invidious'
     Autoplay Playlists: 'Autoplay Playlists'
     Enable Theatre Mode by Default: 'Enable Theatre Mode by Default'
+    Scroll Volume Over Video Player: 'Scroll Volume Over Video Player'
     Default Volume: 'Default Volume'
     Default Playback Rate: 'Default Playback Rate'
     Default Video Format:
@@ -191,6 +192,7 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Playlist Next Video Interval
     Next Video Interval: Next Video Interval
+    Display Play Button In Video Player: Display Play Button In Video Player
   Privacy Settings:
     Privacy Settings: 'Privacy Settings'
     Remember History: 'Remember History'
@@ -310,6 +312,12 @@ Settings:
     Proxy Protocol: Proxy Protocol
     Enable Tor / Proxy: Enable Tor / Proxy
     Proxy Settings: Proxy Settings
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Notify when sponsor segment is skipped
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
+      Url (Default is https://sponsor.ajay.app)
+    Enable SponsorBlock: Enable SponsorBlock
+    SponsorBlock Settings: SponsorBlock Settings
 About:
   #On About page
   About: About
@@ -513,6 +521,14 @@ Video:
   Video has been saved: Video has been saved
   Save Video: Save Video
   translated from English: translated from English
+  Sponsor Block category:
+    music offtopic: music offtopic
+    interaction: interaction
+    self-promotion: self-promotion
+    outro: outro
+    intro: intro
+    sponsor: sponsor
+  Skipped segment: Skipped segment
 Videos:
   #& Sort By
   Sort By:

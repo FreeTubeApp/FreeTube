@@ -90,6 +90,14 @@ export default Vue.extend({
       return this.$store.getters.getHideRecommendedVideos
     },
 
+    videoVolumeMouseScroll: function () {
+      return this.$store.getters.getVideoVolumeMouseScroll
+    },
+
+    displayVideoPlayButton: function () {
+      return this.$store.getters.getDisplayVideoPlayButton
+    },
+
     formatNames: function () {
       return [
         this.$t('Settings.Player Settings.Default Video Format.Dash Formats'),
@@ -127,7 +135,9 @@ export default Vue.extend({
       'updateDefaultVolume',
       'updateDefaultPlayback',
       'updateDefaultVideoFormat',
-      'updateDefaultQuality'
+      'updateDefaultQuality',
+      'updateVideoVolumeMouseScroll',
+      'updateDisplayVideoPlayButton'
     ])
   }
 })

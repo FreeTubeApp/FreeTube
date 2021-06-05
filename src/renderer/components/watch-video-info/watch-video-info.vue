@@ -86,7 +86,7 @@
           icon="download"
           :dropdown-names="downloadLinkNames"
           :dropdown-values="downloadLinkValues"
-          @click="handleDownloadLink"
+          @click="openExternalLink"
         />
         <ft-icon-button
           v-if="!isUpcoming"
@@ -101,6 +101,7 @@
         <ft-share-button
           :id="id"
           :get-timestamp="getTimestamp"
+          :playlist-id="playlistId"
           class="option"
         />
       </div>

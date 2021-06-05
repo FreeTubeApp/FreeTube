@@ -125,6 +125,7 @@ Settings:
     Check for Latest Blog Posts: Verificar se há Novas Postagens no Blog
     View all Invidious instance information: Ver todas as informações da instância
       Invidious
+    System Default: Padrão do Sistema
   Theme Settings:
     Theme Settings: 'Configurações de aparência'
     Match Top Bar with Main Color: 'Usar a cor principal para a barra superior'
@@ -186,6 +187,10 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Intervalo do próximo vídeo da lista de reprodução
+    Next Video Interval: Próximo intervalo de vídeo
+    Display Play Button In Video Player: Exibir botão de reprodução no tocador de
+      vídeo
+    Scroll Volume Over Video Player: Rolar volume sobre o reprodutor de vídeo
   Subscription Settings:
     Subscription Settings: 'Configurações de inscrições'
     Hide Videos on Watch: 'Esconder vídeos após assisti-los'
@@ -314,6 +319,13 @@ Settings:
       obter informações da rede. O seu proxy está configurado corretamente?
     City: Cidade
     Region: Região
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Notificar quando vídeos publicitários
+      são pulados
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL da API SponsorBlock
+      (o padrão é https://sponsor.ajay.app)
+    Enable SponsorBlock: Ativar o Bloqueio de Patrocinadores
+    SponsorBlock Settings: Configurações de Bloqueio de Patrocinadores
 About:
   #On About page
   About: 'Sobre'
@@ -491,6 +503,14 @@ Video:
   Video has been saved: O vídeo foi salvo
   Save Video: Salvar vídeo
   translated from English: Traduzido do inglês
+  Sponsor Block category:
+    music offtopic: música fora do contexto
+    interaction: interação
+    self-promotion: autopromoção
+    outro: epílogo
+    intro: introdução
+    sponsor: patrocinador
+  Skipped segment: Segmentos pulados
 Videos:
   #& Sort By
   Sort By:
@@ -678,3 +698,8 @@ Playing Next Video Interval: Reproduzindo o próximo vídeo imediatamente. Cliqu
   cancelar. | Reproduzindo o próximo vídeo em {nextVideoInterval} segundo(s). Clique
   para cancelar. | Reproduzindo o próximo vídeo em {nextVideoInterval} segundos. Clique
   para cancelar.
+Hashtags have not yet been implemented, try again later: Hashtags ainda não foram
+  implementadas, tente novamente mais tarde
+Unknown YouTube url type, cannot be opened in app: Tipo de URL do YouTube desconhecida,
+  não pode ser aberta no aplicativo
+Open New Window: Abrir Uma Nova Janela

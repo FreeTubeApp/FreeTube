@@ -123,6 +123,7 @@ Settings:
     Check for Latest Blog Posts: Skontrolovať najnovšie príspevky na blogu
     Check for Updates: Skontrolovať aktualizácie
     View all Invidious instance information: Zobraziť všetko info o Invidious inštancií
+    System Default: Určené Systémom
   Theme Settings:
     Theme Settings: 'Nastavenie motívu'
     Match Top Bar with Main Color: 'Prispôsobiť hornú lištu s hlavnou farbou'
@@ -185,6 +186,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Čas spustenia nasledujúceho videa v zozname videí
+    Next Video Interval: Interval Nasledujúceho Videa
   Subscription Settings:
     Subscription Settings: 'Nastavenia Odberov'
     Hide Videos on Watch: 'Skryť videá po zhliadnutí'
@@ -289,6 +291,7 @@ Settings:
     Are you sure you want to remove your entire watch history?: Naozaj chcete odstrániť
       celú históriu pozerania?
     Search cache has been cleared: Vyrovnávacia pamäť vyhľadávania bola vymazaná
+    Automatically Remove Video Meta Files: Automaticky Odstrániť Metasúbory Videa
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikácia
     požaduje reštartovanie aby sa prejavili zmeny. Reštartovať a aplikovať zmeny?
   Proxy Settings:
@@ -307,6 +310,12 @@ Settings:
     Proxy Protocol: Proxy Protokol
     Enable Tor / Proxy: Povoliť Tor / server Proxy
     Proxy Settings: Nastavenia servera proxy
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Upozorniť, keď bude segment sponzora preskočený
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Adresa volaná službou
+      SponsorBlock (Predvolená je https://sponsor.ajay.app)
+    Enable SponsorBlock: Povoliť SponsorBlock
+    SponsorBlock Settings: Nastavenia Služby SponsorBlock
 About:
   #On About page
   About: 'O FreeTube'
@@ -483,6 +492,15 @@ Video:
   Video has been removed from your saved list: Video odstránené z uložených
   Video has been saved: Video uložené
   Save Video: Uložiť Video
+  Sponsor Block category:
+    music offtopic: hudba ostatné
+    interaction: interakcia
+    self-promotion: samopropagácia
+    outro: záver
+    intro: úvod
+    sponsor: sponzor
+  Skipped segment: Preskočený segment
+  translated from English: preložené z angličtiny
 Videos:
   #& Sort By
   Sort By:
@@ -589,30 +607,33 @@ Tooltips:
       adries IP, ale neposkytuje určité informácie, ako je trvanie videa alebo stav
       živých prenosov
   Player Settings:
-    Default Video Format: Nastavte formáty použité pri prehrávaní videa. Formáty Dash
+    Default Video Format: Nastavte formáty použité pri prehrávaní videa. Formáty DASH
       môžu hrať vyššiu kvalitu. Staršie formáty sú obmedzené na maximum 720p, ale
-      využívajú menej dát. Zvukové formáty sú iba zvukové streamy
+      využívajú menej dát. Zvukové formáty sú iba zvukové streamy.
     Proxy Videos Through Invidious: Namiesto priameho pripojenia k YouTube sa pripojí
-      k Invidious, aby poskytoval videá. Prepíše preferenciu API
+      k Invidious, aby poskytoval videá. Prepíše preferenciu API.
     Force Local Backend for Legacy Formats: Funguje, iba ak je predvoleným nastavením
       rozhranie Invidious API. Ak je povolené, miestne API sa spustí a bude používať
       pôvodné formáty, ktoré vráti, namiesto tých, ktoré vráti Invidious. Pomáha,
-      keď sa videá vrátené Invidious neprehrajú z dôvodu obmedzení krajín
+      keď sa videá vrátené Invidious neprehrajú z dôvodu obmedzení krajín.
   General Settings:
     Region for Trending: Región trendov vám umožňuje zvoliť si trendové videá z krajiny,
       ktoré chcete zobraziť. Nie všetky zobrazené krajiny sú v skutočnosti podporované
-      službou YouTube
+      službou YouTube.
     Invidious Instance: Invidious inštancia, ku ktorej sa FreeTube pripojí pre volania
       API. Vymazaním aktuálnej inštancie zobrazíte zoznam verejných inštancií, z ktorých
-      si môžete vybrať
+      si môžete vybrať.
     Thumbnail Preference: Všetky miniatúry v rámci služby FreeTube budú nahradené
-      obrázkom z videa namiesto predvolenej miniatúry
+      obrázkom z videa namiesto predvolenej miniatúry.
     Fallback to Non-Preferred Backend on Failure: Ak má vaše preferované rozhranie
       API problém, služba FreeTube sa po zapnutí automaticky pokúsi použiť vaše nepreferované
-      rozhranie API ako záložnú metódu
+      rozhranie API ako záložnú metódu.
     Preferred API Backend: Vyberte backend, ktorý FreeTube používa na získavanie údajov.
       Lokálne API je zabudovaný extraktor. Invidious API vyžaduje na pripojenie server
       Invidious.
+  Privacy Settings:
+    Remove Video Meta Files: Ak je povolené, FreeTube po zatvorení stránky prezerania
+      automaticky odstráni metasúbory vytvorené počas prehrávania videa.
 Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Naozaj
     chcete odstrániť vybraté kanály?  Týmto sa neodstráni kanál z iného profilu.
@@ -662,3 +683,8 @@ Playing Next Video Interval: Prehrávanie ďalšieho videa za chvíľu. Kliknut�
   | Prehráva sa ďalšie video o {nextVideoInterval} sekundu. Kliknutím zrušíte. | Prehráva
   sa ďalšie video o {nextVideoInterval} sekúnd. Kliknutím zrušíte.
 More: Viac
+Hashtags have not yet been implemented, try again later: Neznámy typ adresy URL YouTube,
+  v aplikácii sa nedá otvoriť
+Unknown YouTube url type, cannot be opened in app: Neznámy typ adresy URL YouTube,
+  v aplikácii sa nedá otvoriť
+Open New Window: Otvoriť Nové Okno

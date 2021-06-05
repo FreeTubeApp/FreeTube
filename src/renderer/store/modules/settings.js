@@ -1,7 +1,6 @@
 import Datastore from 'nedb'
 
 let dbLocation
-let electron = null
 let webframe = null
 
 if (window && window.process && window.process.type === 'renderer') {
@@ -13,12 +12,11 @@ if (window && window.process && window.process.type === 'renderer') {
     dbLocation = electron.remote.app.getPath('userData')
   } */
 
-  electron = require('electron')
-  webframe = electron.webFrame
-  const remote = require('@electron/remote')
-  dbLocation = remote.app.getPath('userData')
-
+  const electron = require('electron')
+  const ipcRenderer = electron.ipcRenderer
+  dbLocation = ipcRenderer.sendSync('getUserDataPathSync')
   dbLocation = dbLocation + '/settings.db'
+  webframe = electron.webframe
 } else {
   dbLocation = 'settings.db'
 }
@@ -79,7 +77,12 @@ const state = {
   hidePopularVideos: false,
   hidePlaylists: false,
   hideLiveChat: false,
-  hideActiveSubscriptions: false
+  hideActiveSubscriptions: false,
+  videoVolumeMouseScroll: false,
+  useSponsorBlock: false,
+  sponsorBlockUrl: 'https://sponsor.ajay.app',
+  sponsorBlockShowSkippedToast: true,
+  displayVideoPlayButton: true
 }
 
 const getters = {
@@ -269,6 +272,26 @@ const getters = {
 
   getHideActiveSubscriptions: () => {
     return state.hideActiveSubscriptions
+  },
+
+  getVideoVolumeMouseScroll: () => {
+    return state.videoVolumeMouseScroll
+  },
+
+  getDisplayVideoPlayButton: () => {
+    return state.displayVideoPlayButton
+  },
+
+  getUseSponsorBlock: () => {
+    return state.useSponsorBlock
+  },
+
+  getSponsorBlockUrl: () => {
+    return state.sponsorBlockUrl
+  },
+
+  getSponsorBlockShowSkippedToast: () => {
+    return state.sponsorBlockShowSkippedToast
   }
 }
 
@@ -291,7 +314,6 @@ const actions = {
                 commit('setBackendFallback', result.value)
                 break
               case 'defaultProfile':
-                console.log('IN SETTING DEFAULT:', result.value)
                 commit('setDefaultProfile', result.value)
                 break
               case 'checkForUpdates':
@@ -322,7 +344,9 @@ const actions = {
                 commit('setBarColor', result.value)
                 break
               case 'uiScale':
-                webframe.setZoomFactor(parseInt(result.value) / 100)
+                if (webframe) {
+                  webframe.setZoomFactor(parseInt(result.value) / 100)
+                }
                 commit('setUiScale', result.value)
                 break
               case 'disableSmoothScrolling':
@@ -425,6 +449,20 @@ const actions = {
               case 'hideActiveSubscriptions':
                 commit('setHideActiveSubscriptions', result.value)
                 break
+              case 'videoVolumeMouseScroll':
+                commit('setVideoVolumeMouseScroll', result.value)
+                break
+              case 'useSponsorBlock':
+                commit('setUseSponsorBlock', result.value)
+                break
+              case 'sponsorBlockUrl':
+                commit('setSponsorBlockUrl', result.value)
+                break
+              case 'sponsorBlockShowSkippedToast':
+                commit('setSponsorBlockShowSkippedToast', result.value)
+                break
+              case 'displayVideoPlayButton':
+                commit('setDisplayVideoPlayButton', result.value)
             }
           })
           resolve()
@@ -802,6 +840,46 @@ const actions = {
         commit('setHideLiveChat', hideLiveChat)
       }
     })
+  },
+
+  updateVideoVolumeMouseScroll ({ commit }, videoVolumeMouseScroll) {
+    settingsDb.update({ _id: 'videoVolumeMouseScroll' }, { _id: 'videoVolumeMouseScroll', value: videoVolumeMouseScroll }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setVideoVolumeMouseScroll', videoVolumeMouseScroll)
+      }
+    })
+  },
+
+  updateDisplayVideoPlayButton ({ commit }, displayVideoPlayButton) {
+    settingsDb.update({ _id: 'displayVideoPlayButton' }, { _id: 'displayVideoPlayButton', value: displayVideoPlayButton }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setDisplayVideoPlayButton', displayVideoPlayButton)
+      }
+    })
+  },
+
+  updateUseSponsorBlock ({ commit }, useSponsorBlock) {
+    settingsDb.update({ _id: 'useSponsorBlock' }, { _id: 'useSponsorBlock', value: useSponsorBlock }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setUseSponsorBlock', useSponsorBlock)
+      }
+    })
+  },
+
+  updateSponsorBlockUrl ({ commit }, sponsorBlockUrl) {
+    settingsDb.update({ _id: 'sponsorBlockUrl' }, { _id: 'sponsorBlockUrl', value: sponsorBlockUrl }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setSponsorBlockUrl', sponsorBlockUrl)
+      }
+    })
+  },
+
+  updateSponsorBlockShowSkippedToast ({ commit }, sponsorBlockShowSkippedToast) {
+    settingsDb.update({ _id: 'sponsorBlockShowSkippedToast' }, { _id: 'sponsorBlockShowSkippedToast', value: sponsorBlockShowSkippedToast }, { upsert: true }, (err, numReplaced) => {
+      if (!err) {
+        commit('setSponsorBlockShowSkippedToast', sponsorBlockShowSkippedToast)
+      }
+    })
   }
 }
 
@@ -963,6 +1041,21 @@ const mutations = {
   },
   setHideActiveSubscriptions (state, hideActiveSubscriptions) {
     state.hideActiveSubscriptions = hideActiveSubscriptions
+  },
+  setVideoVolumeMouseScroll (state, videoVolumeMouseScroll) {
+    state.videoVolumeMouseScroll = videoVolumeMouseScroll
+  },
+  setDisplayVideoPlayButton (state, displayVideoPlayButton) {
+    state.displayVideoPlayButton = displayVideoPlayButton
+  },
+  setUseSponsorBlock (state, useSponsorBlock) {
+    state.useSponsorBlock = useSponsorBlock
+  },
+  setSponsorBlockUrl (state, sponsorBlockUrl) {
+    state.sponsorBlockUrl = sponsorBlockUrl
+  },
+  setSponsorBlockShowSkippedToast (state, sponsorBlockShowSkippedToast) {
+    state.sponsorBlockShowSkippedToast = sponsorBlockShowSkippedToast
   }
 }
 
