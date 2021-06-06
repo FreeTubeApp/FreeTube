@@ -171,7 +171,7 @@ Object.assign(getters, {
 // Custom actions
 Object.assign(actions, {
   // Add `grabUserSettings` to actions
-  grabUserSettings: ({ dispatch, commit }) => {
+  grabUserSettings: ({ commit }) => {
     return new Promise((resolve, reject) => {
       settingsDb.find({}, (err, results) => {
         if (!err) {
@@ -179,14 +179,7 @@ Object.assign(actions, {
           results.forEach((result) => {
             switch (result._id) {
               case 'invidiousInstance':
-                if (result.value === '') {
-                  dispatch(
-                    'updateInvidiousInstance',
-                    'https://invidious.snopyta.org'
-                  )
-                } else {
-                  commit('setInvidiousInstance', result.value)
-                }
+                commit('setInvidiousInstance', result.value)
                 break
               case 'backendFallback':
                 commit('setBackendFallback', result.value)
