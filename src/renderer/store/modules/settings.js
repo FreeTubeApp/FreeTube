@@ -173,171 +173,48 @@ Object.assign(actions, {
   // Add `grabUserSettings` to actions
   grabUserSettings: ({ commit }) => {
     return new Promise((resolve, reject) => {
-      settingsDb.find({}, (err, results) => {
-        if (!err) {
-          console.log(results)
-          results.forEach((result) => {
-            switch (result._id) {
-              case 'invidiousInstance':
-                commit('setInvidiousInstance', result.value)
-                break
-              case 'backendFallback':
-                commit('setBackendFallback', result.value)
-                break
-              case 'defaultProfile':
-                commit('setDefaultProfile', result.value)
-                break
-              case 'checkForUpdates':
-                commit('setCheckForUpdates', result.value)
-                break
-              case 'checkForBlogPosts':
-                commit('setCheckForBlogPosts', result.value)
-                break
-              case 'enableSearchSuggestions':
-                commit('setEnableSearchSuggestions', result.value)
-                break
-              case 'backendPreference':
-                commit('setBackendPreference', result.value)
-                break
-              case 'landingPage':
-                commit('setLandingPage', result.value)
-                break
-              case 'region':
-                commit('setRegion', result.value)
-                break
-              case 'listType':
-                commit('setListType', result.value)
-                break
-              case 'thumbnailPreference':
-                commit('setThumbnailPreference', result.value)
-                break
-              case 'barColor':
-                commit('setBarColor', result.value)
-                break
-              case 'uiScale':
+      settingsDb.find(
+        { _id: { $ne: 'bounds' } },
+        (err, userSettings) => {
+          if (err) {
+            reject(err)
+            return
+          }
+
+          const specialSettings = new Map([
+            ['uiScale',
+              (value) => {
                 if (usingElectron) {
                   const { webFrame } = require('electron')
-                  webFrame.setZoomFactor(parseInt(result.value) / 100)
+                  webFrame.setZoomFactor(parseInt(value) / 100)
                 }
-                commit('setUiScale', result.value)
-                break
-              case 'disableSmoothScrolling':
-                commit('setDisableSmoothScrolling', result.value)
-                break
-              case 'hideWatchedSubs':
-                commit('setHideWatchedSubs', result.value)
-                break
-              case 'useRssFeeds':
-                commit('setUseRssFeeds', result.value)
-                break
-              case 'rememberHistory':
-                commit('setRememberHistory', result.value)
-                break
-              case 'saveWatchedProgress':
-                commit('setSaveWatchedProgress', result.value)
-                break
-              case 'removeVideoMetaFiles':
-                commit('setRemoveVideoMetaFiles', result.value)
-                break
-              case 'autoplayVideos':
-                commit('setAutoplayVideos', result.value)
-                break
-              case 'autoplayPlaylists':
-                commit('setAutoplayPlaylists', result.value)
-                break
-              case 'playNextVideo':
-                commit('setPlayNextVideo', result.value)
-                break
-              case 'enableSubtitles':
-                commit('setEnableSubtitles', result.value)
-                break
-              case 'forceLocalBackendForLegacy':
-                commit('setForceLocalBackendForLegacy', result.value)
-                break
-              case 'proxyVideos':
-                commit('setProxyVideos', result.value)
-                break
-              case 'useProxy':
-                commit('setUseProxy', result.value)
-                break
-              case 'proxyProtocol':
-                commit('setProxyProtocol', result.value)
-                break
-              case 'proxyHostname':
-                commit('setProxyHostname', result.value)
-                break
-              case 'proxyPort':
-                commit('setProxyPort', result.value)
-                break
-              case 'defaultTheatreMode':
-                commit('setDefaultTheatreMode', result.value)
-                break
-              case 'defaultInterval':
-                commit('setDefaultInterval', result.value)
-                break
-              case 'defaultVolume':
-                commit('setDefaultVolume', result.value)
-                sessionStorage.setItem('volume', result.value)
-                break
-              case 'defaultPlayback':
-                commit('setDefaultPlayback', result.value)
-                break
-              case 'defaultVideoFormat':
-                commit('setDefaultVideoFormat', result.value)
-                break
-              case 'defaultQuality':
-                commit('setDefaultQuality', result.value)
-                break
-              case 'hideVideoViews':
-                commit('setHideVideoViews', result.value)
-                break
-              case 'hideVideoLikesAndDislikes':
-                commit('setHideVideoLikesAndDislikes', result.value)
-                break
-              case 'hideChannelSubscriptions':
-                commit('setHideChannelSubscriptions', result.value)
-                break
-              case 'hideCommentLikes':
-                commit('setHideCommentLikes', result.value)
-                break
-              case 'hideRecommendedVideos':
-                commit('setHideRecommendedVideos', result.value)
-                break
-              case 'hideTrendingVideos':
-                commit('setHideTrendingVideos', result.value)
-                break
-              case 'hidePopularVideos':
-                commit('setHidePopularVideos', result.value)
-                break
-              case 'hidePlaylists':
-                commit('setHidePlaylists', result.value)
-                break
-              case 'hideLiveChat':
-                commit('setHideLiveChat', result.value)
-                break
-              case 'hideActiveSubscriptions':
-                commit('setHideActiveSubscriptions', result.value)
-                break
-              case 'videoVolumeMouseScroll':
-                commit('setVideoVolumeMouseScroll', result.value)
-                break
-              case 'useSponsorBlock':
-                commit('setUseSponsorBlock', result.value)
-                break
-              case 'sponsorBlockUrl':
-                commit('setSponsorBlockUrl', result.value)
-                break
-              case 'sponsorBlockShowSkippedToast':
-                commit('setSponsorBlockShowSkippedToast', result.value)
-                break
-              case 'displayVideoPlayButton':
-                commit('setDisplayVideoPlayButton', result.value)
+                commit('setUiScale', value)
+              }
+            ],
+            ['defaultVolume',
+              (value) => {
+                sessionStorage.setItem('volume', value)
+                commit('setDefaultVolume', value)
+              }
+            ]
+          ])
+
+          for (const setting of userSettings) {
+            if (specialSettings.has(setting._id)) {
+              const specialSettingHandler = specialSettings.get(setting._id)
+              specialSettingHandler(setting.value)
+              continue
             }
-          })
+
+            const capitalizedSettingId =
+              setting._id.replace(/^\w/, (c) => c.toUpperCase())
+
+            commit('set' + capitalizedSettingId, setting.value)
+          }
+
           resolve()
         }
-        reject(err)
-      })
+      )
     })
   }
 })
