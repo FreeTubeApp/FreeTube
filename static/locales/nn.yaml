@@ -3,8 +3,8 @@ Locale Name: 'Norsk nynorsk'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Denne delen av applikasjonen er ikkje klar enda. Ver venleg og kom tilbake på eit
-  seinare tidspunkt.
+  Denne delen av programmet er ikkje klar enda. Ver venleg og kom tilbake på eit seinare
+  tidspunkt.
 
 # Webkit Menu Bar
 File: 'Fil'
@@ -104,8 +104,9 @@ History:
 Settings:
   # On Settings Page
   Settings: 'Innstillingar'
-  The app needs to restart for changes to take effect. Restart and apply change?: 'Applikasjonen
-    må restarte for at endringane skal tre i kraft. Start på nytt og ta i bruk endringane?'
+  The app needs to restart for changes to take effect. Restart and apply change?: 'Programmet
+    må starte på nytt for at endringane skal tre i kraft. Start på nytt og ta i bruk
+    endringane?'
   General Settings:
     General Settings: 'Generelle innstillingar'
     Check for Updates: 'Sjå etter oppdateringar'
@@ -631,7 +632,7 @@ Canceled next video autoplay: 'Avbryt automatisk avspeling av neste video'
 Yes: 'Ja'
 No: 'Nei'
 Unknown YouTube url type, cannot be opened in app: Ukjent type YouTube-nettadresse,
-  kan ikkje opnast i applikasjonen
+  kan ikkje opnast i programmet
 Playing Next Video Interval: Speler av neste video no. Klikk her for å avbryte. |
   Speler av neste video om {nextVideoInterval} sekund. Klikk her for å avbryte. |
   Speler av neste video om {nextVideoInterval} sekund. Klikk her for å avbryte.
