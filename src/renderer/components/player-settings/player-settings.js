@@ -67,7 +67,7 @@ export default Vue.extend({
     },
 
     defaultVolume: function () {
-      return parseFloat(this.$store.getters.getDefaultVolume) * 100
+      return Math.round(parseFloat(this.$store.getters.getDefaultVolume) * 100)
     },
 
     defaultPlayback: function () {
