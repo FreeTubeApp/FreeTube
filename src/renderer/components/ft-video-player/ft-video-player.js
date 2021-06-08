@@ -315,9 +315,10 @@ export default Vue.extend({
           }
         })
 
+        const _this = this
         this.player.textTrackSettings.on('modalclose', function () {
           const settings = this.getValues()
-          v.updateDefaultCaptionSettings(JSON.stringify(settings))
+          _this.updateDefaultCaptionSettings(JSON.stringify(settings))
         })
       }
     },
@@ -1373,9 +1374,8 @@ export default Vue.extend({
 
     ...mapActions([
       'calculateColorLuminance',
-      'updateDefaultCaptionSettings'
+      'updateDefaultCaptionSettings',
       'showToast',
-      'calculateColorLuminance',
       'sponsorBlockSkipSegments'
     ])
   }
