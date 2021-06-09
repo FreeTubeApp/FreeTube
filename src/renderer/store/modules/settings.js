@@ -1,31 +1,4 @@
-import Datastore from 'nedb'
-
-let dbLocation
-
-const usingElectron = window?.process?.type === 'renderer'
-
-if (usingElectron) {
-  // Electron is being used
-  /* let dbLocation = localStorage.getItem('dbLocation')
-
-  if (dbLocation === null) {
-    const electron = require('electron')
-    dbLocation = electron.remote.app.getPath('userData')
-  } */
-
-  const { ipcRenderer } = require('electron')
-  dbLocation = ipcRenderer.sendSync('getUserDataPathSync')
-  dbLocation = dbLocation + '/settings.db'
-} else {
-  dbLocation = 'settings.db'
-}
-
-console.log(dbLocation)
-
-const settingsDb = new Datastore({
-  filename: dbLocation,
-  autoload: true
-})
+import { settingsDb } from '../datastores'
 
 /**
  * NOTE: If someone wants to add a new setting to the app,
@@ -157,7 +130,7 @@ for (const settingId of Object.keys(state)) {
 // Custom state
 Object.assign(state, {
   // Add `usingElectron` to the state
-  usingElectron: usingElectron
+  usingElectron: window?.process?.type === 'renderer'
 })
 
 // Custom getters
@@ -172,7 +145,7 @@ Object.assign(getters, {
 // Custom actions
 Object.assign(actions, {
   // Add `grabUserSettings` to actions
-  grabUserSettings: ({ commit }) => {
+  grabUserSettings: ({ commit, getters }) => {
     return new Promise((resolve, reject) => {
       settingsDb.find(
         { _id: { $ne: 'bounds' } },
@@ -185,7 +158,7 @@ Object.assign(actions, {
           const specialSettings = new Map([
             ['uiScale',
               (value) => {
-                if (usingElectron) {
+                if (getters.getUsingElectron) {
                   const { webFrame } = require('electron')
                   webFrame.setZoomFactor(parseInt(value) / 100)
                 }

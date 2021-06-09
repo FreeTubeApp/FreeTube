@@ -1,27 +1,4 @@
-import Datastore from 'nedb'
-
-let dbLocation
-
-if (window && window.process && window.process.type === 'renderer') {
-  // Electron is being used
-  /* let dbLocation = localStorage.getItem('dbLocation')
-
-  if (dbLocation === null) {
-    const electron = require('electron')
-    dbLocation = electron.remote.app.getPath('userData')
-  } */
-
-  const { ipcRenderer } = require('electron')
-  dbLocation = ipcRenderer.sendSync('getUserDataPathSync')
-  dbLocation = dbLocation + '/history.db'
-} else {
-  dbLocation = 'history.db'
-}
-
-const historyDb = new Datastore({
-  filename: dbLocation,
-  autoload: true
-})
+import { historyDb } from '../datastores'
 
 const state = {
   historyCache: []
