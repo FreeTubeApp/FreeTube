@@ -119,10 +119,6 @@ export default Vue.extend({
     }
   },
   methods: {
-    parseVolumeBeforeUpdate: function (volume) {
-      this.updateDefaultVolume(volume / 100)
-    },
-
     ...mapActions([
       'updateAutoplayVideos',
       'updateAutoplayPlaylists',
