@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { mapActions, mapMutations } from 'vuex'
+import { mapActions } from 'vuex'
 import { ObserveVisibility } from 'vue-observe-visibility'
 import FtFlexBox from './components/ft-flex-box/ft-flex-box.vue'
 import TopNav from './components/top-nav/top-nav.vue'
@@ -405,10 +405,6 @@ export default Vue.extend({
       'getRegionData',
       'getYoutubeUrlInfo',
       'getLocale'
-    ]),
-
-    ...mapMutations([
-      'setUsingElectron'
     ])
   }
 })
