@@ -121,6 +121,13 @@ for (const settingId of Object.keys(state)) {
       (err, _) => {
         if (!err) {
           commit(mutationId, value)
+          if (getters.getUsingElectron) {
+            const { ipcRenderer } = require('electron')
+            // Propagate setting values to all other existing windows
+            ipcRenderer.send('syncSetting', {
+              _id: settingId, value: value
+            })
+          }
         }
       }
     )
@@ -190,6 +197,18 @@ Object.assign(actions, {
         }
       )
     })
+  },
+
+  setUpListenerToSyncSettings: ({ commit, getters }) => {
+    if (getters.getUsingElectron) {
+      const { ipcRenderer } = require('electron')
+      ipcRenderer.on('syncSetting', (_, setting) => {
+        const capitalizedSettingId =
+          setting._id.replace(/^\w/, (c) => c.toUpperCase())
+
+        commit('set' + capitalizedSettingId, setting.value)
+      })
+    }
   }
 })
 

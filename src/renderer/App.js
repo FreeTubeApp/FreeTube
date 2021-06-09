@@ -80,6 +80,7 @@ export default Vue.extend({
   },
   mounted: function () {
     this.grabUserSettings().then(() => {
+      this.setUpListenerToSyncSettings()
       this.grabAllProfiles(this.$t('Profile.All Channels')).then(async () => {
         this.grabHistory()
         this.grabAllPlaylists()
@@ -404,7 +405,8 @@ export default Vue.extend({
       'grabAllPlaylists',
       'getRegionData',
       'getYoutubeUrlInfo',
-      'getLocale'
+      'getLocale',
+      'setUpListenerToSyncSettings'
     ])
   }
 })
