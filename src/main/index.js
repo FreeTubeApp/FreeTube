@@ -3,10 +3,11 @@ import {
   ipcMain, powerSaveBlocker, screen, shell
 } from 'electron'
 import Datastore from 'nedb'
+import path from 'path'
 
 if (process.argv.includes('--version')) {
   console.log(`v${app.getVersion()}`)
-  app.exit(0)
+  app.exit()
 } else {
   runApp()
 }
@@ -28,7 +29,6 @@ function runApp() {
 
   // disable electron warning
   process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true'
-  const path = require('path')
   const isDev = process.env.NODE_ENV === 'development'
   const isDebug = process.argv.includes('--debug')
   let mainWindow
@@ -57,160 +57,95 @@ function runApp() {
     app.setAsDefaultProtocolClient('freetube')
   }
 
-  // TODO: Uncomment if needed
-  // only allow single instance of application
   if (!isDev) {
+    // Only allow single instance of the application
     const gotTheLock = app.requestSingleInstanceLock()
-
-    if (gotTheLock) {
-      app.on('second-instance', (event, commandLine, workingDirectory) => {
-        // Someone tried to run a second instance, we should focus our window.
-        if (mainWindow && typeof (commandLine) !== 'undefined') {
-          if (mainWindow.isMinimized()) mainWindow.restore()
-          mainWindow.focus()
-
-          const url = getLinkUrl(commandLine)
-          if (url) {
-            mainWindow.webContents.send('openUrl', url)
-          }
-        }
-      })
-
-      app.on('ready', (event, commandLine, workingDirectory) => {
-        settingsDb.find({
-          $or: [
-            { _id: 'disableSmoothScrolling' },
-            { _id: 'useProxy' },
-            { _id: 'proxyProtocol' },
-            { _id: 'proxyHostname' },
-            { _id: 'proxyPort' }
-          ]
-        }, function (err, doc) {
-          if (err) {
-            app.exit(0)
-            return
-          }
-
-          let disableSmoothScrolling = false
-          let useProxy = false
-          let proxyProtocol = 'socks5'
-          let proxyHostname = '127.0.0.1'
-          let proxyPort = '9050'
-
-          if (typeof doc === 'object' && doc.length > 0) {
-            doc.forEach((dbItem) => {
-              switch (dbItem._id) {
-                case 'disableSmoothScrolling':
-                  disableSmoothScrolling = dbItem.value
-                  break
-                case 'useProxy':
-                  useProxy = dbItem.value
-                  break
-                case 'proxyProtocol':
-                  proxyProtocol = dbItem.value
-                  break
-                case 'proxyHostname':
-                  proxyHostname = dbItem.value
-                  break
-                case 'proxyPort':
-                  proxyPort = dbItem.value
-                  break
-              }
-            })
-          }
-
-          if (disableSmoothScrolling) {
-            app.commandLine.appendSwitch('disable-smooth-scrolling')
-          } else {
-            app.commandLine.appendSwitch('enable-smooth-scrolling')
-          }
-
-          const proxyUrl = `${proxyProtocol}://${proxyHostname}:${proxyPort}`
-
-          createWindow(useProxy, proxyUrl)
-
-          if (isDev) {
-            installDevTools()
-          }
-
-          if (isDebug) {
-            mainWindow.webContents.openDevTools()
-          }
-        })
-      })
-    } else {
+    if (!gotTheLock) {
       app.quit()
     }
+
+    app.on('second-instance', (_, commandLine, __) => {
+      // Someone tried to run a second instance, we should focus our window
+      if (mainWindow && typeof commandLine !== 'undefined') {
+        if (mainWindow.isMinimized()) mainWindow.restore()
+        mainWindow.focus()
+
+        const url = getLinkUrl(commandLine)
+        if (url) {
+          mainWindow.webContents.send('openUrl', url)
+        }
+      }
+    })
   } else {
     require('electron-debug')({
       showDevTools: !(process.env.RENDERER_REMOTE_DEBUGGING === 'true')
     })
-
-    app.on('ready', () => {
-      settingsDb.find({
-        $or: [
-          { _id: 'disableSmoothScrolling' },
-          { _id: 'useProxy' },
-          { _id: 'proxyProtocol' },
-          { _id: 'proxyHostname' },
-          { _id: 'proxyPort' }
-        ]
-      }, function (err, doc) {
-        if (err) {
-          app.exit(0)
-          return
-        }
-
-        let disableSmoothScrolling = false
-        let useProxy = false
-        let proxyProtocol = 'socks5'
-        let proxyHostname = '127.0.0.1'
-        let proxyPort = '9050'
-
-        if (typeof doc === 'object' && doc.length > 0) {
-          doc.forEach((dbItem) => {
-            switch (dbItem._id) {
-              case 'disableSmoothScrolling':
-                disableSmoothScrolling = dbItem.value
-                break
-              case 'useProxy':
-                useProxy = dbItem.value
-                break
-              case 'proxyProtocol':
-                proxyProtocol = dbItem.value
-                break
-              case 'proxyHostname':
-                proxyHostname = dbItem.value
-                break
-              case 'proxyPort':
-                proxyPort = dbItem.value
-                break
-            }
-          })
-        }
-
-        if (disableSmoothScrolling) {
-          app.commandLine.appendSwitch('disable-smooth-scrolling')
-        } else {
-          app.commandLine.appendSwitch('enable-smooth-scrolling')
-        }
-
-        const proxyUrl = `${proxyProtocol}://${proxyHostname}:${proxyPort}`
-
-        createWindow(useProxy, proxyUrl)
-
-        if (isDev) {
-          installDevTools()
-        }
-
-        if (isDebug) {
-          mainWindow.webContents.openDevTools()
-        }
-      })
-    })
   }
 
-  async function installDevTools () {
+  app.on('ready', (_, __) => {
+    settingsDb.find({
+      $or: [
+        { _id: 'disableSmoothScrolling' },
+        { _id: 'useProxy' },
+        { _id: 'proxyProtocol' },
+        { _id: 'proxyHostname' },
+        { _id: 'proxyPort' }
+      ]
+    }, function (err, doc) {
+      if (err) {
+        app.exit()
+        return
+      }
+
+      let disableSmoothScrolling = false
+      let useProxy = false
+      let proxyProtocol = 'socks5'
+      let proxyHostname = '127.0.0.1'
+      let proxyPort = '9050'
+
+      if (typeof doc === 'object' && doc.length > 0) {
+        doc.forEach((dbItem) => {
+          switch (dbItem._id) {
+            case 'disableSmoothScrolling':
+              disableSmoothScrolling = dbItem.value
+              break
+            case 'useProxy':
+              useProxy = dbItem.value
+              break
+            case 'proxyProtocol':
+              proxyProtocol = dbItem.value
+              break
+            case 'proxyHostname':
+              proxyHostname = dbItem.value
+              break
+            case 'proxyPort':
+              proxyPort = dbItem.value
+              break
+          }
+        })
+      }
+
+      if (disableSmoothScrolling) {
+        app.commandLine.appendSwitch('disable-smooth-scrolling')
+      } else {
+        app.commandLine.appendSwitch('enable-smooth-scrolling')
+      }
+
+      const proxyUrl = `${proxyProtocol}://${proxyHostname}:${proxyPort}`
+
+      createWindow(useProxy, proxyUrl)
+
+      if (isDev) {
+        installDevTools()
+      }
+
+      if (isDebug) {
+        mainWindow.webContents.openDevTools()
+      }
+    })
+  })
+
+  async function installDevTools() {
     try {
       /* eslint-disable */
       require('vue-devtools').install()
@@ -220,7 +155,7 @@ function runApp() {
     }
   }
 
-  function createWindow (useProxy = false, proxyUrl = '', replaceMainWindow = true) {
+  function createWindow(useProxy = false, proxyUrl = '', replaceMainWindow = true) {
     /**
      * Initial window options
      */
@@ -522,85 +457,57 @@ function runApp() {
     mainWindow.webContents.send('change-view', data)
   }
 
-  const template = [{
-    label: 'File',
-    submenu: [
+  function setMenu() {
+    const template = [
       {
-        role: 'quit'
+        label: 'File',
+        submenu: [{ role: 'quit' }]
+      },
+      {
+        label: 'Edit',
+        submenu: [
+          { role: 'cut' },
+          {
+            role: 'copy',
+            accelerator: 'CmdOrCtrl+C',
+            selector: 'copy:'
+          },
+          {
+            role: 'paste',
+            accelerator: 'CmdOrCtrl+V',
+            selector: 'paste:'
+          },
+          { role: 'pasteandmatchstyle' },
+          { role: 'delete' },
+          { role: 'selectall' }
+        ]
+      },
+      {
+        label: 'View',
+        submenu: [
+          { role: 'reload' },
+          {
+            role: 'forcereload',
+            accelerator: 'CmdOrCtrl+Shift+R'
+          },
+          { role: 'toggledevtools' },
+          { type: 'separator' },
+          { role: 'resetzoom' },
+          { role: 'zoomin' },
+          { role: 'zoomout' },
+          { type: 'separator' },
+          { role: 'togglefullscreen' }
+        ]
+      },
+      {
+        role: 'window',
+        submenu: [
+          { role: 'minimize' },
+          { role: 'close' }
+        ]
       }
     ]
-  },
-  {
-    label: 'Edit',
-    submenu: [{
-      role: 'cut'
-    },
-    {
-      role: 'copy',
-      accelerator: 'CmdOrCtrl+C',
-      selector: 'copy:'
-    },
-    {
-      role: 'paste',
-      accelerator: 'CmdOrCtrl+V',
-      selector: 'paste:'
-    },
-    {
-      role: 'pasteandmatchstyle'
-    },
-    {
-      role: 'delete'
-    },
-    {
-      role: 'selectall'
-    }
-    ]
-  },
-  {
-    label: 'View',
-    submenu: [{
-      role: 'reload'
-    },
-    {
-      role: 'forcereload',
-      accelerator: 'CmdOrCtrl+Shift+R'
-    },
-    {
-      role: 'toggledevtools'
-    },
-    {
-      type: 'separator'
-    },
-    {
-      role: 'resetzoom'
-    },
-    {
-      role: 'zoomin'
-    },
-    {
-      role: 'zoomout'
-    },
-    {
-      type: 'separator'
-    },
-    {
-      role: 'togglefullscreen'
-    }
-    ]
-  },
-  {
-    role: 'window',
-    submenu: [{
-      role: 'minimize'
-    },
-    {
-      role: 'close'
-    }
-    ]
-  }
-  ]
 
-  function setMenu () {
     if (process.platform === 'darwin') {
       template.unshift({
         label: app.getName(),
@@ -617,15 +524,11 @@ function runApp() {
         ]
       })
 
-      template.push({
-        role: 'window'
-      })
-
-      template.push({
-        role: 'help'
-      })
-
-      template.push({ role: 'services' })
+      template.push(
+        { role: 'window' },
+        { role: 'help' },
+        { role: 'services' }
+      )
     }
 
     const menu = Menu.buildFromTemplate(template)

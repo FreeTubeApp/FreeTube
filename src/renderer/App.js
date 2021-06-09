@@ -13,15 +13,9 @@ import $ from 'jquery'
 import { markdown } from 'markdown'
 import Parser from 'rss-parser'
 
-let useElectron = false
 let ipcRenderer = null
 
 Vue.directive('observe-visibility', ObserveVisibility)
-
-if (window && window.process && window.process.type === 'renderer') {
-  useElectron = true
-  ipcRenderer = require('electron').ipcRenderer
-}
 
 export default Vue.extend({
   name: 'App',
@@ -56,6 +50,9 @@ export default Vue.extend({
     isOpen: function () {
       return this.$store.getters.getIsSideNavOpen
     },
+    usingElectron: function() {
+      return this.$store.getters.getUsingElectron
+    },
     showProgressBar: function () {
       return this.$store.getters.getShowProgressBar
     },
@@ -86,14 +83,14 @@ export default Vue.extend({
       this.grabAllProfiles(this.$t('Profile.All Channels')).then(async () => {
         this.grabHistory()
         this.grabAllPlaylists()
-        this.setUsingElectron(useElectron)
         this.checkThemeSettings()
         await this.checkLocale()
 
         this.dataReady = true
 
-        if (useElectron) {
+        if (this.usingElectron) {
           console.log('User is using Electron')
+          ipcRenderer = require('electron').ipcRenderer
           this.activateKeyboardShortcuts()
           this.openAllLinksExternally()
           this.enableOpenUrl()
@@ -283,7 +280,7 @@ export default Vue.extend({
     openAllLinksExternally: function () {
       $(document).on('click', 'a[href^="http"]', (event) => {
         const el = event.currentTarget
-        console.log(useElectron)
+        console.log(this.usingElectron)
         console.log(el)
         event.preventDefault()
 
