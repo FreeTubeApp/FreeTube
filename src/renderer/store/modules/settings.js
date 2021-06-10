@@ -81,6 +81,7 @@ const state = {
   defaultPlayback: 1,
   defaultVideoFormat: 'dash',
   defaultQuality: '720',
+  defaultCaptionSettings: '{}',
   useProxy: false,
   proxyProtocol: 'socks5',
   proxyHostname: '127.0.0.1',
