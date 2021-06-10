@@ -81,6 +81,7 @@ const state = {
   defaultPlayback: 1,
   defaultVideoFormat: 'dash',
   defaultQuality: '720',
+  defaultCaptionSettings: '{}',
   externalPlayer: '',
   externalPlayerExecutable: '',
   externalPlayerIgnoreWarnings: false,

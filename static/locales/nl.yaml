@@ -101,7 +101,7 @@ Settings:
   # On Settings Page
   Settings: 'Instellingen'
   General Settings:
-    General Settings: 'Algemene instellingen'
+    General Settings: 'Algemene Instellingen'
     Fallback to Non-Preferred Backend on Failure: 'Val Terug op Niet-Voorkeur Backend
       bij falen'
     Enable Search Suggestions: 'Zoeksuggesties Inschakelen'
@@ -128,9 +128,9 @@ Settings:
     Check for Latest Blog Posts: Controleer op Nieuwe Blogposts
     Check for Updates: Controleer op Updates
     View all Invidious instance information: Bekijk alle Invidious-instantiegegevens
-    System Default: Systeem Standaardinstellingen
+    System Default: Standaard Systeeminstellingen
   Theme Settings:
-    Theme Settings: 'Thema Instellingen'
+    Theme Settings: 'Thema-instellingen'
     Match Top Bar with Main Color: 'Laat de bovenste balk overeenkomen met de hoofdkleur'
     Base Theme:
       Base Theme: 'Basisthema'
@@ -161,7 +161,7 @@ Settings:
     Expand Side Bar by Default: Zijbalk Standaard Uitschuiven
     Disable Smooth Scrolling: Vloeiend Scrollen Uitschakelen
   Player Settings:
-    Player Settings: 'Speler Instellingen'
+    Player Settings: 'Videospelerinstellingen'
     Force Local Backend for Legacy Formats: 'Lokale Backend Forceren voor Oudere Formaten'
     Play Next Video: 'Volgende Video Automatisch Afspelen'
     Turn on Subtitles by Default: 'Schakel Ondertiteling Standaard in'
@@ -193,7 +193,7 @@ Settings:
     Display Play Button In Video Player: Afspeelknop weergeven in Videokader
     Scroll Volume Over Video Player: Volume Veranderen Door in het Videokader te Scrollen
   Privacy Settings:
-    Privacy Settings: 'Privacy Instellingen'
+    Privacy Settings: 'Privacyinstellingen'
     Remember History: 'Onthoud Geschiedenis'
     Save Watched Progress: 'Bewaar Video Voortgang'
     Clear Search Cache: 'Verwijder Zoek-Cache'
@@ -210,7 +210,7 @@ Settings:
     Remove All Subscriptions / Profiles: Verwijder alle Abonnementen / Profielen
     Automatically Remove Video Meta Files: Video-Metabestanden Automatisch Verwijderen
   Subscription Settings:
-    Subscription Settings: 'Abonnement instellingen'
+    Subscription Settings: 'Abonnementsinstellingen'
     Hide Videos on Watch: 'Verberg Video''s Zodra Bekeken'
     Subscriptions Export Format:
       Subscriptions Export Format: ''
@@ -276,7 +276,7 @@ Settings:
     Import Subscriptions: Importeer Abonnementen
     Select Export Type: Select Exporteer Type
     Select Import Type: Selecteer Importeer Type
-    Data Settings: Data Instellingen
+    Data Settings: Data-instellingen
     How do I import my subscriptions?: Hoe importeer ik mijn abonnementen?
     Unknown data key: Onbekende datasleutel
     Unable to write file: Bestand kan niet worden geschreven
@@ -317,14 +317,14 @@ Settings:
     Proxy Host: Proxy Host
     Proxy Protocol: Proxy Protocol
     Enable Tor / Proxy: Tor / Proxy Inschakelen
-    Proxy Settings: Proxy Instellingen
+    Proxy Settings: Proxyinstellingen
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Informeer mij wanneer een gesponsord segment
       wordt overgeslagen
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
       Url (Standaard is https://sponsor.ajay.app)
     Enable SponsorBlock: SponsorBlock Inschakelen
-    SponsorBlock Settings: SponsorBlock Instellingen
+    SponsorBlock Settings: SponsorBlock-instellingen
 About:
   #On About page
   About: 'Over'
