@@ -315,10 +315,9 @@ export default Vue.extend({
           }
         })
 
-        const _this = this
-        this.player.textTrackSettings.on('modalclose', function () {
-          const settings = this.getValues()
-          _this.updateDefaultCaptionSettings(JSON.stringify(settings))
+        this.player.textTrackSettings.on('modalclose', (_) => {
+          const settings = this.player.textTrackSettings.getValues()
+          this.updateDefaultCaptionSettings(JSON.stringify(settings))
         })
       }
     },
