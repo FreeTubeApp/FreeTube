@@ -158,7 +158,6 @@ const defaultSideEffectsTriggerId = settingId =>
 /*****/
 
 const state = {
-  // currentTheme: 'lightRed',
   autoplayPlaylists: true,
   autoplayVideos: true,
   backendFallback: true,
