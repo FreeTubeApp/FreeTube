@@ -158,7 +158,7 @@ const defaultSideEffectsTriggerId = settingId =>
 /*****/
 
 const state = {
-  currentTheme: 'lightRed',
+  // currentTheme: 'lightRed',
   backendFallback: true,
   checkForUpdates: true,
   checkForBlogPosts: true,
@@ -190,7 +190,6 @@ const state = {
   proxyProtocol: 'socks5',
   proxyHostname: '127.0.0.1',
   proxyPort: '9050',
-  debugMode: false,
   disableSmoothScrolling: false,
   hideWatchedSubs: false,
   useRssFeeds: false,
