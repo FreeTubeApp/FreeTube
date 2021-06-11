@@ -261,7 +261,7 @@ Object.assign(customGetters, {
 /**********/
 
 const customActions = {
-  grabUserSettings: ({ commit, getters }) => {
+  grabUserSettings: ({ commit, dispatch, getters }) => {
     return new Promise((resolve, reject) => {
       settingsDb.find(
         { _id: { $ne: 'bounds' } },
@@ -271,30 +271,10 @@ const customActions = {
             return
           }
 
-          const specialSettings = new Map([
-            ['uiScale',
-              (value) => {
-                if (getters.getUsingElectron) {
-                  const { webFrame } = require('electron')
-                  webFrame.setZoomFactor(parseInt(value) / 100)
-                }
-                commit('setUiScale', value)
-              }
-            ],
-            ['defaultVolume',
-              (value) => {
-                sessionStorage.setItem('volume', value)
-                commit('setDefaultVolume', value)
-              }
-            ]
-          ])
-
           for (const setting of userSettings) {
             const { _id, value } = setting
-            if (specialSettings.has(_id)) {
-              const specialSettingHandler = specialSettings.get(_id)
-              specialSettingHandler(value)
-              continue
+            if (getters.settingHasSideEffects(_id)) {
+              dispatch(defaultSideEffectsTriggerId(_id), value)
             }
 
             commit(defaultMutationId(_id), value)
