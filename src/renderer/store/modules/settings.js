@@ -286,11 +286,20 @@ const customActions = {
     })
   },
 
-  setUpListenerToSyncSettings: ({ commit, getters }) => {
-    if (getters.getUsingElectron) {
+  setUpListenerToSyncSettings: ({ commit, dispatch, getters }) => {
+    const {
+      getUsingElectron: usingElectron,
+      settingHasSideEffects
+    } = getters
+
+    if (usingElectron) {
       const { ipcRenderer } = require('electron')
       ipcRenderer.on('syncSetting', (_, setting) => {
         const { _id, value } = setting
+        if (settingHasSideEffects(_id)) {
+          dispatch(defaultSideEffectsTriggerId(_id), value)
+        }
+
         commit(defaultMutationId(_id), value)
       })
     }
