@@ -159,7 +159,6 @@ const defaultSideEffectsTriggerId = settingId =>
 
 const state = {
   currentTheme: 'lightRed',
-  uiScale: 100,
   backendFallback: true,
   checkForUpdates: true,
   checkForBlogPosts: true,
@@ -214,12 +213,15 @@ const state = {
 }
 
 const stateWithSideEffects = {
-  /*
-  setting: {
-    defaultValue: any,
-    sideEffectsHandler: (store, settingValue) => void
+  uiScale: {
+    defaultValue: 100,
+    sideEffectsHandler: ({ state: { usingElectron } }, value) => {
+      if (usingElectron) {
+        const { webFrame } = require('electron')
+        webFrame.setZoomFactor(value / 100)
+      }
+    }
   }
-  */
 }
 
 const customState = {
