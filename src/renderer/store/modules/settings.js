@@ -182,7 +182,6 @@ const state = {
   proxyVideos: false,
   defaultTheatreMode: false,
   defaultInterval: 5,
-  defaultVolume: 1,
   defaultPlayback: 1,
   defaultVideoFormat: 'dash',
   defaultQuality: '720',
@@ -213,6 +212,13 @@ const state = {
 }
 
 const stateWithSideEffects = {
+  defaultVolume: {
+    defaultValue: 1,
+    sideEffectsHandler: (_, value) => {
+      sessionStorage.setItem('volume', value)
+    }
+  },
+
   uiScale: {
     defaultValue: 100,
     sideEffectsHandler: ({ state: { usingElectron } }, value) => {
