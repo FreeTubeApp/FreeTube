@@ -89,7 +89,7 @@
         :max-value="100"
         :step="1"
         value-extension="%"
-        @change="parseVolumeBeforeUpdate"
+        @change="updateDefaultVolume($event / 100)"
       />
       <ft-slider
         :label="$t('Settings.Player Settings.Default Playback Rate')"

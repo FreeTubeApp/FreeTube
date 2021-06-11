@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { mapActions, mapMutations } from 'vuex'
+import { mapActions } from 'vuex'
 import { ObserveVisibility } from 'vue-observe-visibility'
 import FtFlexBox from './components/ft-flex-box/ft-flex-box.vue'
 import TopNav from './components/top-nav/top-nav.vue'
@@ -80,6 +80,7 @@ export default Vue.extend({
   },
   mounted: function () {
     this.grabUserSettings().then(() => {
+      this.setUpListenerToSyncSettings()
       this.grabAllProfiles(this.$t('Profile.All Channels')).then(async () => {
         this.grabHistory()
         this.grabAllPlaylists()
@@ -404,11 +405,8 @@ export default Vue.extend({
       'grabAllPlaylists',
       'getRegionData',
       'getYoutubeUrlInfo',
-      'getLocale'
-    ]),
-
-    ...mapMutations([
-      'setUsingElectron'
+      'getLocale',
+      'setUpListenerToSyncSettings'
     ])
   }
 })

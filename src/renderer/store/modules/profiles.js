@@ -1,27 +1,4 @@
-import Datastore from 'nedb'
-
-let dbLocation
-
-if (window && window.process && window.process.type === 'renderer') {
-  // Electron is being used
-  /* let dbLocation = localStorage.getItem('dbLocation')
-
-  if (dbLocation === null) {
-    const electron = require('electron')
-    dbLocation = electron.remote.app.getPath('userData')
-  } */
-
-  const { ipcRenderer } = require('electron')
-  dbLocation = ipcRenderer.sendSync('getUserDataPathSync')
-  dbLocation = dbLocation + '/profiles.db'
-} else {
-  dbLocation = 'profiles.db'
-}
-
-const profileDb = new Datastore({
-  filename: dbLocation,
-  autoload: true
-})
+import { profilesDb } from '../datastores'
 
 const state = {
   profileList: [{
@@ -47,7 +24,7 @@ const getters = {
 const actions = {
   grabAllProfiles ({ rootState, dispatch, commit }, defaultName = null) {
     return new Promise((resolve, reject) => {
-      profileDb.find({}, (err, results) => {
+      profilesDb.find({}, (err, results) => {
         if (!err) {
           if (results.length === 0) {
             dispatch('createDefaultProfile', defaultName)
@@ -90,7 +67,7 @@ const actions = {
   grabProfileInfo (_, profileId) {
     return new Promise((resolve, reject) => {
       console.log(profileId)
-      profileDb.findOne({ _id: profileId }, (err, results) => {
+      profilesDb.findOne({ _id: profileId }, (err, results) => {
         if (!err) {
           resolve(results)
         }
@@ -109,7 +86,7 @@ const actions = {
       subscriptions: []
     }
 
-    profileDb.update({ _id: 'allChannels' }, defaultProfile, { upsert: true }, (err, numReplaced) => {
+    profilesDb.update({ _id: 'allChannels' }, defaultProfile, { upsert: true }, (err, numReplaced) => {
       if (!err) {
         dispatch('grabAllProfiles')
       }
@@ -117,7 +94,7 @@ const actions = {
   },
 
   updateProfile ({ dispatch }, profile) {
-    profileDb.update({ _id: profile._id }, profile, { upsert: true }, (err, numReplaced) => {
+    profilesDb.update({ _id: profile._id }, profile, { upsert: true }, (err, numReplaced) => {
       if (!err) {
         dispatch('grabAllProfiles')
       }
@@ -125,7 +102,7 @@ const actions = {
   },
 
   insertProfile ({ dispatch }, profile) {
-    profileDb.insert(profile, (err, newDocs) => {
+    profilesDb.insert(profile, (err, newDocs) => {
       if (!err) {
         dispatch('grabAllProfiles')
       }
@@ -133,7 +110,7 @@ const actions = {
   },
 
   removeProfile ({ dispatch }, profileId) {
-    profileDb.remove({ _id: profileId }, (err, numReplaced) => {
+    profilesDb.remove({ _id: profileId }, (err, numReplaced) => {
       if (!err) {
         dispatch('grabAllProfiles')
       }
@@ -141,7 +118,7 @@ const actions = {
   },
 
   compactProfiles (_) {
-    profileDb.persistence.compactDatafile()
+    profilesDb.persistence.compactDatafile()
   },
 
   updateActiveProfile ({ commit }, index) {

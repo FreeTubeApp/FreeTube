@@ -30,7 +30,7 @@
         :max-value="maxUiScale"
         :step="uiScaleStep"
         value-extension="%"
-        @change="handleUiScale"
+        @change="updateUiScale(parseInt($event))"
       />
     </ft-flex-box>
     <br>

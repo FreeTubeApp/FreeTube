@@ -145,14 +145,6 @@ export default Vue.extend({
       localStorage.setItem('expandSideBar', value)
     },
 
-    handleUiScale: function (value) {
-      // FIXME: No electron safeguard
-      const { webFrame } = require('electron')
-      const zoomFactor = value / 100
-      webFrame.setZoomFactor(zoomFactor)
-      this.updateUiScale(parseInt(value))
-    },
-
     handleRestartPrompt: function (value) {
       this.disableSmoothScrollingToggleValue = value
       this.showRestartPrompt = true
