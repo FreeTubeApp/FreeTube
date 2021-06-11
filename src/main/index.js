@@ -387,6 +387,16 @@ function runApp() {
     createWindow(false, '', false)
   })
 
+  ipcMain.on('syncSetting', (event, setting) => {
+    const otherWindows = openedWindows.filter((window) => {
+      return window.webContents.id !== event.sender.id
+    })
+
+    for (const window of otherWindows) {
+      window.webContents.send('syncSetting', setting)
+    }
+  })
+
   app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
       app.quit()

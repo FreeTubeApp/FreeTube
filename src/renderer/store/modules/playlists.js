@@ -1,29 +1,4 @@
-import Datastore from 'nedb'
-
-let dbLocation
-
-if (window && window.process && window.process.type === 'renderer') {
-  // Electron is being used
-  // let dbLocation = localStorage.getItem('dbLocation')
-  //
-  // if (dbLocation === null) {
-  //   const electron = require('electron')
-  //   dbLocation = electron.remote.app.getPath('userData')
-  // }
-  //
-  // dbLocation += '/playlists.db'
-
-  const { ipcRenderer } = require('electron')
-  dbLocation = ipcRenderer.sendSync('getUserDataPathSync')
-  dbLocation = dbLocation + '/playlists.db'
-} else {
-  dbLocation = 'playlists.db'
-}
-
-const playlistDb = new Datastore({
-  filename: dbLocation,
-  autoload: true
-})
+import { playlistsDb } from '../datastores'
 
 const state = {
   playlists: [
@@ -50,7 +25,7 @@ const getters = {
 
 const actions = {
   addPlaylist ({ commit }, payload) {
-    playlistDb.insert(payload, (err, payload) => {
+    playlistsDb.insert(payload, (err, payload) => {
       if (err) {
         console.error(err)
       } else {
@@ -59,7 +34,7 @@ const actions = {
     })
   },
   addPlaylists ({ commit }, payload) {
-    playlistDb.insert(payload, (err, payload) => {
+    playlistsDb.insert(payload, (err, payload) => {
       if (err) {
         console.error(err)
       } else {
@@ -68,7 +43,7 @@ const actions = {
     })
   },
   addVideo ({ commit }, payload) {
-    playlistDb.update({ playlistName: payload.playlistName }, { $push: { videos: payload.videoData } }, { upsert: true }, err => {
+    playlistsDb.update({ playlistName: payload.playlistName }, { $push: { videos: payload.videoData } }, { upsert: true }, err => {
       if (err) {
         console.error(err)
       } else {
@@ -77,7 +52,7 @@ const actions = {
     })
   },
   addVideos ({ commit }, payload) {
-    playlistDb.update({ _id: payload.playlistId }, { $push: { videos: { $each: payload.videosIds } } }, { upsert: true }, err => {
+    playlistsDb.update({ _id: payload.playlistId }, { $push: { videos: { $each: payload.videosIds } } }, { upsert: true }, err => {
       if (err) {
         console.error(err)
       } else {
@@ -86,7 +61,7 @@ const actions = {
     })
   },
   grabAllPlaylists({ commit, dispatch }) {
-    playlistDb.find({}, (err, payload) => {
+    playlistsDb.find({}, (err, payload) => {
       if (err) {
         console.error(err)
       } else {
@@ -100,7 +75,7 @@ const actions = {
     })
   },
   removeAllPlaylists ({ commit }) {
-    playlistDb.remove({ protected: { $ne: true } }, err => {
+    playlistsDb.remove({ protected: { $ne: true } }, err => {
       if (err) {
         console.error(err)
       } else {
@@ -109,7 +84,7 @@ const actions = {
     })
   },
   removeAllVideos ({ commit }, playlistName) {
-    playlistDb.update({ playlistName: playlistName }, { $set: { videos: [] } }, { upsert: true }, err => {
+    playlistsDb.update({ playlistName: playlistName }, { $set: { videos: [] } }, { upsert: true }, err => {
       if (err) {
         console.error(err)
       } else {
@@ -118,7 +93,7 @@ const actions = {
     })
   },
   removePlaylist ({ commit }, playlistId) {
-    playlistDb.remove({ _id: playlistId, protected: { $ne: true } }, (err, playlistId) => {
+    playlistsDb.remove({ _id: playlistId, protected: { $ne: true } }, (err, playlistId) => {
       if (err) {
         console.error(err)
       } else {
@@ -127,7 +102,7 @@ const actions = {
     })
   },
   removePlaylists ({ commit }, playlistIds) {
-    playlistDb.remove({ _id: { $in: playlistIds }, protected: { $ne: true } }, (err, playlistIds) => {
+    playlistsDb.remove({ _id: { $in: playlistIds }, protected: { $ne: true } }, (err, playlistIds) => {
       if (err) {
         console.error(err)
       } else {
@@ -136,7 +111,7 @@ const actions = {
     })
   },
   removeVideo ({ commit }, payload) {
-    playlistDb.update({ playlistName: payload.playlistName }, { $pull: { videos: { videoId: payload.videoId } } }, { upsert: true }, (err, numRemoved) => {
+    playlistsDb.update({ playlistName: payload.playlistName }, { $pull: { videos: { videoId: payload.videoId } } }, { upsert: true }, (err, numRemoved) => {
       if (err) {
         console.error(err)
       } else {
@@ -145,7 +120,7 @@ const actions = {
     })
   },
   removeVideos ({ commit }, payload) {
-    playlistDb.update({ _id: payload.playlistName }, { $pull: { videos: { $in: payload.videoId } } }, { upsert: true }, err => {
+    playlistsDb.update({ _id: payload.playlistName }, { $pull: { videos: { $in: payload.videoId } } }, { upsert: true }, err => {
       if (err) {
         console.error(err)
       } else {

@@ -151,6 +151,15 @@ export default Vue.extend({
       return parseInt(this.$store.getters.getDefaultQuality)
     },
 
+    defaultCaptionSettings: function () {
+      try {
+        return JSON.parse(this.$store.getters.getDefaultCaptionSettings)
+      } catch (e) {
+        console.log(e)
+        return {}
+      }
+    },
+
     defaultVideoFormat: function () {
       return this.$store.getters.getDefaultVideoFormat
     },
@@ -229,6 +238,7 @@ export default Vue.extend({
 
         this.player.volume(this.volume)
         this.player.playbackRate(this.defaultPlayback)
+        this.player.textTrackSettings.setValues(this.defaultCaptionSettings)
         // Remove big play button
         // https://github.com/videojs/video.js/blob/v7.12.1/docs/guides/components.md#basic-example
         if (!this.displayVideoPlayButton) {
@@ -307,6 +317,11 @@ export default Vue.extend({
             ipcRenderer.send('stopPowerSaveBlocker', this.powerSaveBlocker)
             this.powerSaveBlocker = null
           }
+        })
+
+        this.player.textTrackSettings.on('modalclose', (_) => {
+          const settings = this.player.textTrackSettings.getValues()
+          this.updateDefaultCaptionSettings(JSON.stringify(settings))
         })
       }
     },
@@ -1361,8 +1376,9 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'showToast',
       'calculateColorLuminance',
+      'updateDefaultCaptionSettings',
+      'showToast',
       'sponsorBlockSkipSegments'
     ])
   }
