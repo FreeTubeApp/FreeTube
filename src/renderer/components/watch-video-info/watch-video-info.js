@@ -102,6 +102,10 @@ export default Vue.extend({
       type: Function,
       required: true
     },
+    pausePlayerCallback: {
+      type: Function,
+      default: null
+    },
     theatrePossible: {
       type: Boolean,
       required: true
@@ -296,6 +300,7 @@ export default Vue.extend({
         externalPlayerCustomArgs: this.externalPlayerCustomArgs,
         strings: this.$t('Video.External Player'),
 
+        pausePlayerCallback: this.pausePlayerCallback,
         watchProgress: this.getTimestamp(),
         playbackRate: this.defaultPlayback,
         videoId: this.id,

@@ -87,6 +87,7 @@
             :playlist-reverse="reversePlaylist"
             :playlist-shuffle="shuffleEnabled"
             :playlist-loop="loopEnabled"
+            :pause-player-callback="pausePlayerCallback"
             appearance="watchPlaylistItem"
             force-list-type="list"
           />

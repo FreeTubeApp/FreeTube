@@ -21,6 +21,10 @@ export default Vue.extend({
     videoId: {
       type: String,
       required: true
+    },
+    pausePlayerCallback: {
+      type: Function,
+      default: null
     }
   },
   data: function () {

@@ -18,6 +18,7 @@
       v-for="(video, index) in data"
       :key="index"
       :data="video"
+      :pause-player-callback="pausePlayerCallback"
       appearance="recommendation"
       force-list-type="list"
     />
