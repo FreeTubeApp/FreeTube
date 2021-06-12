@@ -1183,7 +1183,11 @@ export default Vue.extend({
     },
 
     getPlaylistIndex: function () {
-      return this.$refs.watchVideoPlaylist ? this.$refs.watchVideoPlaylist.currentVideoIndex - 1 : -1
+      return this.$refs.watchVideoPlaylist
+        ? this.getPlaylistReverse()
+          ? this.$refs.watchVideoPlaylist.playlistItems.length - this.$refs.watchVideoPlaylist.currentVideoIndex
+          : this.$refs.watchVideoPlaylist.currentVideoIndex - 1
+        : -1
     },
 
     getPlaylistReverse: function () {

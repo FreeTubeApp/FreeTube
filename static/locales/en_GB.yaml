@@ -681,11 +681,11 @@ Tooltips:
       server to connect to.
   External Player Settings:
     External Player: Choosing an external player will display an icon, for opening the
-      video (playlist if supported) in the external player, on the thumnail.
+      video (playlist if supported) in the external player, on the thumbnail.
     Custom External Player Executable: By default, FreeTube will assume that the chosen external
       player can be found via the PATH environment variable. If needed, a custom path can
       be set here.
-    Ignore Warnings: Supress warnings for when the current external player does not support
+    Ignore Warnings: Suppress warnings for when the current external player does not support
       the current action (e.g. reversing playlists, etc.).
     Custom External Player Arguments: Any custom command line arguments, separated by semicolons (';'),
       you want to be passed to the external player.

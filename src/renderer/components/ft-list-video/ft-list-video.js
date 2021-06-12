@@ -222,7 +222,11 @@ export default Vue.extend({
 
     defaultPlayback: function () {
       return this.$store.getters.getDefaultPlayback
-    }
+    },
+
+    saveWatchedProgress: function () {
+      return this.$store.getters.getSaveWatchedProgress
+    },
   },
   mounted: function () {
     this.parseVideoData()
@@ -248,7 +252,7 @@ export default Vue.extend({
         playlistLoop: this.playlistLoop
       })
 
-      if (!this.watched) {
+      if (this.saveWatchedProgress && !this.watched) {
         this.markAsWatched()
       }
     },
