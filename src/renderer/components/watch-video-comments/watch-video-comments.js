@@ -164,7 +164,7 @@ export default Vue.extend({
             videoId: this.id,
             setCookie: false,
             sortByNewest: this.sortNewest,
-            continuation: this.commentData[index].replyToken,
+            replyToken: this.commentData[index].replyToken,
             index: index
           })
           break
@@ -202,7 +202,8 @@ export default Vue.extend({
       this.showToast({
         message: this.$t('Comments.Getting comment replies, please wait')
       })
-      ytcm.getCommentReplies(payload.videoId, payload.continuation).then((response) => {
+
+      ytcm.getCommentReplies(payload).then((response) => {
         this.parseLocalCommentData(response, payload.index)
       }).catch((err) => {
         console.log(err)
