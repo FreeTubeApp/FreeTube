@@ -1174,6 +1174,13 @@ export default Vue.extend({
       }))
     },
 
+    pausePlayer: function () {
+      const player = this.$refs.videoPlayer.player
+      if (player && !player.paused()) {
+        player.pause()
+      }
+    },
+
     getWatchedProgress: function () {
       return this.$refs.videoPlayer && this.$refs.videoPlayer.player ? this.$refs.videoPlayer.player.currentTime() : 0
     },

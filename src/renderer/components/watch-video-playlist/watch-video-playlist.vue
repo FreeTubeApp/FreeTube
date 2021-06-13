@@ -89,6 +89,7 @@
             :playlist-loop="loopEnabled"
             appearance="watchPlaylistItem"
             force-list-type="list"
+            @pause-player="$emit('pause-player')"
           />
         </div>
       </div>

@@ -234,6 +234,8 @@ export default Vue.extend({
   },
   methods: {
     handleExternalPlayer: function () {
+      this.$emit('pause-player')
+
       this.openInExternalPlayer({
         externalPlayer: this.externalPlayer,
         externalPlayerExecutable: this.externalPlayerExecutable,

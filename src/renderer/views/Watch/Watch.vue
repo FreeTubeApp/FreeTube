@@ -94,6 +94,7 @@
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
         @theatre-mode="toggleTheatreMode"
+        @pause-player="pausePlayer"
       />
       <watch-video-description
         v-if="!isLoading"
@@ -129,6 +130,7 @@
         :video-id="videoId"
         class="watchVideoSideBar watchVideoPlaylist"
         :class="{ theatrePlaylist: useTheatreMode }"
+        @pause-player="pausePlayer"
       />
       <watch-video-recommendations
         v-if="!isLoading"
