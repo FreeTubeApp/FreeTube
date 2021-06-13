@@ -336,6 +336,11 @@ Settings:
       (la valeur par défaut est https://sponsor.ajay.app)
     Enable SponsorBlock: Activer SponsorBlock
     SponsorBlock Settings: Paramètres de SponsorBlock
+  External Player Settings:
+    Ignore Unsupported Action Warnings: Ignorer les avertissements concernant les
+      actions non prises en charge
+    External Player: Lecteur externe
+    External Player Settings: Paramètres du lecteur externe
 About:
   #On About page
   About: 'À propos'
@@ -536,6 +541,9 @@ Video:
     outro: outro
     intro: intro
   Skipped segment: Segment ignoré
+  External Player:
+    playlist: liste de lecture
+    video: vidéo
 Videos:
   #& Sort By
   Sort By:
