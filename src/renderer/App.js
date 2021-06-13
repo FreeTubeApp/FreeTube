@@ -76,7 +76,10 @@ export default Vue.extend({
     },
     defaultProfile: function () {
       return this.$store.getters.getDefaultProfile
-    }
+    },
+    externalPlayer: function () {
+      return this.$store.getters.getExternalPlayer
+    },
   },
   mounted: function () {
     this.grabUserSettings().then(() => {
@@ -86,6 +89,7 @@ export default Vue.extend({
         this.grabAllPlaylists()
         this.checkThemeSettings()
         await this.checkLocale()
+        await this.checkExternalPlayer()
 
         this.dataReady = true
 
@@ -228,6 +232,14 @@ export default Vue.extend({
           localStorage.setItem('lastAppWasRunning', new Date())
         })
       }
+    },
+
+    checkExternalPlayer: async function () {
+      const payload = {
+        isDev: this.isDev,
+        externalPlayer: this.externalPlayer
+      }
+      this.getExternalPlayerCmdArgumentsData(payload)
     },
 
     handleUpdateBannerClick: function (response) {
@@ -406,6 +418,7 @@ export default Vue.extend({
       'getRegionData',
       'getYoutubeUrlInfo',
       'getLocale',
+      'getExternalPlayerCmdArgumentsData',
       'setUpListenerToSyncSettings'
     ])
   }

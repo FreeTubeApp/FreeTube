@@ -213,7 +213,7 @@ export default Vue.extend({
     },
 
     externalPlayerCmdArguments: function () {
-      return this.$store.state.utils.externalPlayerCmdArguments[this.externalPlayer]
+      return this.$store.getters.getExternalPlayerCmdArguments
     },
 
     externalPlayerIgnoreWarnings: function () {
@@ -230,7 +230,7 @@ export default Vue.extend({
 
     saveWatchedProgress: function () {
       return this.$store.getters.getSaveWatchedProgress
-    },
+    }
   },
   mounted: function () {
     this.parseVideoData()

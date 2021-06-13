@@ -54,21 +54,9 @@ const state = {
     '#FF6D00',
     '#DD2C00'
   ],
-  externalPlayerCmdArguments: {
-    '': null,
-    mpv: {
-      defaultExecutable: 'mpv',
-      supportsYtdlProtocol: true,
-      videoUrl: '',
-      playlistUrl: '',
-      startOffset: '--start=',
-      playbackRate: '--speed=',
-      playlistIndex: '--playlist-start=',
-      playlistReverse: null,
-      playlistShuffle: '--shuffle',
-      playlistLoop: '--loop-playlist'
-    }
-  }
+  externalPlayerNames: [],
+  externalPlayerValues: [],
+  externalPlayerCmdArguments: {}
 }
 
 const getters = {
@@ -118,6 +106,14 @@ const getters = {
 
   getRecentBlogPosts () {
     return state.recentBlogPosts
+  },
+
+  getExternalPlayerNames () {
+    return state.externalPlayerNames
+  },
+
+  getExternalPlayerValues () {
+    return state.externalPlayerValues
   },
 
   getExternalPlayerCmdArguments () {
@@ -629,6 +625,31 @@ const actions = {
     }
   },
 
+  getExternalPlayerCmdArgumentsData ({ commit }, payload) {
+    const fileName = 'external-player-map.json'
+    let fileData
+    /* eslint-disable-next-line */
+    const fileLocation = payload.isDev ? './static/' : `${__dirname}/static/`
+
+    if (fs.existsSync(`${fileLocation}${fileName}`)) {
+      fileData = fs.readFileSync(`${fileLocation}${fileName}`)
+    } else {
+      fileData = '[{"name":"None","value":"","cmdArguments":null}]'
+    }
+
+    const externalPlayerMap = JSON.parse(fileData).map((entry) => {
+      return { name: entry.name, value: entry.value, cmdArguments: entry.cmdArguments }
+    })
+
+    const externalPlayerNames = externalPlayerMap.map((entry) => { return entry.name })
+    const externalPlayerValues = externalPlayerMap.map((entry) => { return entry.value })
+    const externalPlayerCmdArguments = externalPlayerMap.find((entry) => entry.value === payload.externalPlayer)
+
+    commit('setExternalPlayerNames', externalPlayerNames)
+    commit('setExternalPlayerValues', externalPlayerValues)
+    commit('setExternalPlayerCmdArguments', externalPlayerCmdArguments ? externalPlayerCmdArguments.cmdArguments : null)
+  },
+
   openInExternalPlayer (_, payload) {
     const args = []
 
@@ -809,6 +830,18 @@ const mutations = {
 
   setRecentBlogPosts (state, value) {
     state.recentBlogPosts = value
+  },
+
+  setExternalPlayerNames (state, value) {
+    state.externalPlayerNames = value
+  },
+
+  setExternalPlayerValues (state, value) {
+    state.externalPlayerValues = value
+  },
+
+  setExternalPlayerCmdArguments (state, value) {
+    state.externalPlayerCmdArguments = value
   }
 }
 

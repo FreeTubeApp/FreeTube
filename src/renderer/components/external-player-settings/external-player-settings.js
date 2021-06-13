@@ -16,18 +16,19 @@ export default Vue.extend({
     'ft-flex-box': FtFlexBox
   },
   data: function () {
-    return {
-      externalPlayerNames: [
-        'None',
-        'mpv'
-      ],
-      externalPlayerValues: [
-        '',
-        'mpv'
-      ]
-    }
+    return {}
   },
   computed: {
+    isDev: function () {
+      return process.env.NODE_ENV === 'development'
+    },
+
+    externalPlayerNames: function () {
+      return this.$store.getters.getExternalPlayerNames
+    },
+    externalPlayerValues: function () {
+      return this.$store.getters.getExternalPlayerValues
+    },
     externalPlayer: function () {
       return this.$store.getters.getExternalPlayer
     },
@@ -42,6 +43,15 @@ export default Vue.extend({
     }
   },
   methods: {
+    handleUpdateExternalPlayer: async function (externalPlayer) {
+      const payload = {
+        isDev: this.isDev,
+        externalPlayer: externalPlayer
+      }
+      this.getExternalPlayerCmdArgumentsData(payload)
+      this.updateExternalPlayer(externalPlayer)
+    },
+
     handleUpdateExternalPlayerExecutable: function (value) {
       this.updateExternalPlayerExecutable(value)
     },
@@ -54,7 +64,8 @@ export default Vue.extend({
       'updateExternalPlayer',
       'updateExternalPlayerExecutable',
       'updateExternalPlayerIgnoreWarnings',
-      'updateExternalPlayerCustomArgs'
+      'updateExternalPlayerCustomArgs',
+      'getExternalPlayerCmdArgumentsData'
     ])
   }
 })

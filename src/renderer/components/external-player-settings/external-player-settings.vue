@@ -15,7 +15,7 @@
           :select-names="externalPlayerNames"
           :select-values="externalPlayerValues"
           :tooltip="$t('Tooltips.External Player Settings.External Player')"
-          @change="updateExternalPlayer"
+          @change="handleUpdateExternalPlayer"
         />
       </div>
       <div class="switchColumn">

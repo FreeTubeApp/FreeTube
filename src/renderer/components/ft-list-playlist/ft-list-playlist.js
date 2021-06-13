@@ -60,7 +60,7 @@ export default Vue.extend({
     },
 
     externalPlayerCmdArguments: function () {
-      return this.$store.state.utils.externalPlayerCmdArguments[this.externalPlayer]
+      return this.$store.getters.getExternalPlayerCmdArguments
     },
 
     externalPlayerIgnoreWarnings: function () {
