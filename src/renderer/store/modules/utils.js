@@ -615,7 +615,7 @@ const actions = {
 
   showExternalPlayerUnsupportedActionToast: function ({ dispatch }, payload) {
     if (!payload.externalPlayerIgnoreWarnings) {
-      const toastMessage = payload.strings.UnsupportedActionTemplate
+      const toastMessage = payload.template
         .replace('$', payload.externalPlayer)
         .replace('%', payload.action)
       dispatch('showToast', {
