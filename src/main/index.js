@@ -4,6 +4,7 @@ import {
 } from 'electron'
 import Datastore from 'nedb'
 import path from 'path'
+import cp from 'child_process'
 
 if (process.argv.includes('--version')) {
   console.log(`v${app.getVersion()}`)
@@ -395,6 +396,11 @@ function runApp() {
     for (const window of otherWindows) {
       window.webContents.send('syncSetting', setting)
     }
+  })
+
+  ipcMain.on('openInExternalPlayer', (_, payload) => {
+    const child = cp.spawn(payload.executable, payload.args, { detached: true, stdio: 'ignore' })
+    child.unref()
   })
 
   app.on('window-all-closed', () => {

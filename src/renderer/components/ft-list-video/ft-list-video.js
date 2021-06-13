@@ -16,6 +16,22 @@ export default Vue.extend({
       type: String,
       default: null
     },
+    playlistIndex: {
+      type: Number,
+      default: null
+    },
+    playlistReverse: {
+      type: Boolean,
+      default: false
+    },
+    playlistShuffle: {
+      type: Boolean,
+      default: false
+    },
+    playlistLoop: {
+      type: Boolean,
+      default: false
+    },
     forceListType: {
       type: String,
       default: null
@@ -178,6 +194,18 @@ export default Vue.extend({
 
     favoriteIconTheme: function () {
       return this.inFavoritesPlaylist ? 'base favorite' : 'base'
+    },
+
+    externalPlayer: function () {
+      return this.$store.getters.getExternalPlayer
+    },
+
+    defaultPlayback: function () {
+      return this.$store.getters.getDefaultPlayback
+    },
+
+    saveWatchedProgress: function () {
+      return this.$store.getters.getSaveWatchedProgress
     }
   },
   mounted: function () {
@@ -185,6 +213,26 @@ export default Vue.extend({
     this.checkIfWatched()
   },
   methods: {
+    handleExternalPlayer: function () {
+      this.$emit('pause-player')
+
+      this.openInExternalPlayer({
+        strings: this.$t('Video.External Player'),
+        watchProgress: this.watchProgress,
+        playbackRate: this.defaultPlayback,
+        videoId: this.id,
+        playlistId: this.playlistId,
+        playlistIndex: this.playlistIndex,
+        playlistReverse: this.playlistReverse,
+        playlistShuffle: this.playlistShuffle,
+        playlistLoop: this.playlistLoop
+      })
+
+      if (this.saveWatchedProgress && !this.watched) {
+        this.markAsWatched()
+      }
+    },
+
     toggleSave: function () {
       if (this.inFavoritesPlaylist) {
         this.removeFromPlaylist()
@@ -365,7 +413,7 @@ export default Vue.extend({
         title: this.title,
         author: this.channelName,
         authorId: this.channelId,
-        published: this.publishedText.split(',')[0],
+        published: this.publishedText ? this.publishedText.split(',')[0] : this.publishedText,
         description: this.description,
         viewCount: this.viewCount,
         lengthSeconds: this.data.lengthSeconds,
@@ -437,6 +485,7 @@ export default Vue.extend({
     ...mapActions([
       'showToast',
       'toLocalePublicationString',
+      'openInExternalPlayer',
       'updateHistory',
       'removeFromHistory',
       'addVideo',

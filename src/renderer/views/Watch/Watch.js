@@ -1174,12 +1174,39 @@ export default Vue.extend({
       }))
     },
 
+    pausePlayer: function () {
+      const player = this.$refs.videoPlayer.player
+      if (player && !player.paused()) {
+        player.pause()
+      }
+    },
+
     getWatchedProgress: function () {
       return this.$refs.videoPlayer && this.$refs.videoPlayer.player ? this.$refs.videoPlayer.player.currentTime() : 0
     },
 
     getTimestamp: function () {
       return Math.floor(this.getWatchedProgress())
+    },
+
+    getPlaylistIndex: function () {
+      return this.$refs.watchVideoPlaylist
+        ? this.getPlaylistReverse()
+          ? this.$refs.watchVideoPlaylist.playlistItems.length - this.$refs.watchVideoPlaylist.currentVideoIndex
+          : this.$refs.watchVideoPlaylist.currentVideoIndex - 1
+        : -1
+    },
+
+    getPlaylistReverse: function () {
+      return this.$refs.watchVideoPlaylist ? this.$refs.watchVideoPlaylist.reversePlaylist : false
+    },
+
+    getPlaylistShuffle: function () {
+      return this.$refs.watchVideoPlaylist ? this.$refs.watchVideoPlaylist.shuffleEnabled : false
+    },
+
+    getPlaylistLoop: function () {
+      return this.$refs.watchVideoPlaylist ? this.$refs.watchVideoPlaylist.loopEnabled : false
     },
 
     updateTitle: function () {

@@ -1,0 +1,23 @@
+[
+    {
+        "name": "None",
+        "value": "",
+        "cmdArguments": null
+    },
+    {
+        "name": "mpv",
+        "value": "mpv",
+        "cmdArguments": {
+            "defaultExecutable": "mpv",
+            "supportsYtdlProtocol": true,
+            "videoUrl": "",
+            "playlistUrl": "",
+            "startOffset": "--start=",
+            "playbackRate": "--speed=",
+            "playlistIndex": "--playlist-start=",
+            "playlistReverse": null,
+            "playlistShuffle": "--shuffle",
+            "playlistLoop": "--loop-playlist"
+        }
+    }
+]
