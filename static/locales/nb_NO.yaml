@@ -318,6 +318,12 @@ Settings:
       (forvalget er https://sponsor.ajay.app)
     Enable SponsorBlock: Skru på SponsorBlock
     SponsorBlock Settings: SponsorBlock-innstillinger
+  External Player Settings:
+    Custom External Player Arguments: Egendefinerte argumenter for ekstern spiller
+    Custom External Player Executable: Egendefinert kjørbar fil for ekstern avspiller
+    Ignore Unsupported Action Warnings: Ignorer advarsler om ustøttede handlinger
+    External Player Settings: Innstillinger for ekstern avspiller
+    External Player: Ekstern avspiller
 About:
   #On About page
   About: 'Om'
@@ -495,6 +501,21 @@ Video:
     music offtopic: musikk (utenfor tema)
     self-promotion: egenpromotering
   Skipped segment: Overhoppet del
+  External Player:
+    Unsupported Actions:
+      shuffling playlists: omstokking av spillelister
+      opening specific video in a playlist (falling back to opening the video): åpning
+        av spesifikk video i en spilleliste (faller tilbake til åpning av videoen)
+      opening playlists: åpning av spillelister
+      setting a playback rate: setting av avspillingstakt
+      starting video at offset: starting av video med forskyvning
+      looping playlists: gjentakelse av spillelister
+      reversing playlists: reversering av spillelister
+    UnsupportedActionTemplate: '$ støtter ikke: %'
+    OpeningTemplate: Åpner $ om % …
+    playlist: spilleliste
+    video: video
+    OpenInTemplate: Åpne i $
 Videos:
   #& Sort By
   Sort By:
@@ -667,6 +688,16 @@ Tooltips:
   Privacy Settings:
     Remove Video Meta Files: Hvis denne instillingen er på, vil FreeTube automatisk
       slette metadata generert under videoavspilling når du lukker avspillingsiden.
+  External Player Settings:
+    Custom External Player Arguments: Alle egendefinerte kommandolinjeargumenter,
+      semikoloninndelt («;») du ønsker å sende til den eksterne avspilleren.
+    Ignore Warnings: Undertrykker advarsler når nåværende ekstern avspiller ikke støtter
+      nåværende handling (f.eks. reversering av spillelister, osv.).
+    Custom External Player Executable: Som forvalg vil FreeTube anta at valgt ekstern
+      spiller er tilgjengelig via PATH-miljøvariabelen. Hvis det trengs kan en egendefinert
+      sti settes her.
+    External Player: Valg av ekstern avspiller viser et ikon for åpning av video (spilleliste
+      hvis det støttes) i den eksterne avspilleren, på miniatyrbildet.
 A new blog is now available, $. Click to view more: Et nytt blogginnlegg er tilgjengelig,
   $. Klikk her for å se mer
 The playlist has been reversed: Spillelisten har blitt snudd
