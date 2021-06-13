@@ -32,10 +32,6 @@ export default Vue.extend({
       type: Boolean,
       default: false
     },
-    pausePlayerCallback: {
-      type: Function,
-      default: null
-    },
     forceListType: {
       type: String,
       default: null
@@ -246,7 +242,6 @@ export default Vue.extend({
         externalPlayerCustomArgs: this.externalPlayerCustomArgs,
         strings: this.$t('Video.External Player'),
 
-        pausePlayerCallback: this.pausePlayerCallback,
         watchProgress: this.watchProgress,
         playbackRate: this.defaultPlayback,
         videoId: this.id,

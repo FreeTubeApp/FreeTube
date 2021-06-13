@@ -653,10 +653,6 @@ const actions = {
   openInExternalPlayer (_, payload) {
     const args = []
 
-    if (payload.pausePlayerCallback !== null) {
-      payload.pausePlayerCallback()
-    }
-
     if (payload.watchProgress > 0) {
       if (typeof payload.cmdArgs.startOffset === 'string') {
         args.push(`${payload.cmdArgs.startOffset}${payload.watchProgress}`)

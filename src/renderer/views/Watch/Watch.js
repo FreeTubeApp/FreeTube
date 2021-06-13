@@ -1202,14 +1202,6 @@ export default Vue.extend({
       return this.$refs.watchVideoPlaylist ? this.$refs.watchVideoPlaylist.loopEnabled : false
     },
 
-    pausePlayer: function () {
-      console.log('pausePlayer called')
-      const player = this.$refs.videoPlayer.player
-      if (player !== null && !player.paused()) {
-        player.pause()
-      }
-    },
-
     updateTitle: function () {
       document.title = `${this.videoTitle} - FreeTube`
     },

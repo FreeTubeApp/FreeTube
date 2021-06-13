@@ -92,7 +92,6 @@ export default Vue.extend({
         externalPlayerCustomArgs: this.externalPlayerCustomArgs,
         strings: this.$t('Video.External Player'),
 
-        pausePlayerCallback: null,
         watchProgress: 0,
         playbackRate: this.defaultPlayback,
         videoId: null,

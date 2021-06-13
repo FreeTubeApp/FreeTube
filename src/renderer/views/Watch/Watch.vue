@@ -88,7 +88,6 @@
         :get-playlist-reverse="getPlaylistReverse"
         :get-playlist-shuffle="getPlaylistShuffle"
         :get-playlist-loop="getPlaylistLoop"
-        :pause-player-callback="pausePlayer"
         :theatre-possible="theatrePossible"
         :length-seconds="videoLengthSeconds"
         :video-thumbnail="thumbnail"
@@ -128,7 +127,6 @@
         ref="watchVideoPlaylist"
         :playlist-id="playlistId"
         :video-id="videoId"
-        :pause-player-callback="pausePlayer"
         class="watchVideoSideBar watchVideoPlaylist"
         :class="{ theatrePlaylist: useTheatreMode }"
       />
@@ -136,7 +134,6 @@
         v-if="!isLoading"
         :show-autoplay="!watchingPlaylist"
         :data="recommendedVideos"
-        :pause-player-callback="pausePlayer"
         class="watchVideoSideBar watchVideoRecommendations"
         :class="{
           theatreRecommendations: useTheatreMode,

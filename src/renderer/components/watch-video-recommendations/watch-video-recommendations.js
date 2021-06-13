@@ -19,10 +19,6 @@ export default Vue.extend({
     showAutoplay: {
       type: Boolean,
       default: false
-    },
-    pausePlayerCallback: {
-      type: Function,
-      default: null
     }
   },
   computed: {
