@@ -614,7 +614,7 @@ const actions = {
   },
 
   showExternalPlayerUnsupportedActionToast: function ({ dispatch }, payload) {
-    if (!payload.externalPlayerIgnoreWarnings) {
+    if (!payload.ignoreWarnings) {
       const toastMessage = payload.template
         .replace('$', payload.externalPlayer)
         .replace('%', payload.action)
@@ -652,7 +652,7 @@ const actions = {
     commit('setExternalPlayerCmdArguments', externalPlayerCmdArguments)
   },
 
-  openInExternalPlayer ({ dispatch, rootState }, payload) {
+  openInExternalPlayer ({ dispatch, state, rootState }, payload) {
     const args = []
     const externalPlayer = rootState.settings.externalPlayer
     const cmdArgs = state.externalPlayerCmdArguments[externalPlayer]
