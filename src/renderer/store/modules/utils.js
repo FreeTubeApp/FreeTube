@@ -1,7 +1,6 @@
 import IsEqual from 'lodash.isequal'
 import FtToastEvents from '../../components/ft-toast/ft-toast-events'
 import fs from 'fs'
-import cp from 'child_process'
 const state = {
   isSideNavOpen: false,
   sessionSearchHistory: [],
@@ -614,12 +613,12 @@ const actions = {
     FtToastEvents.$emit('toast-open', payload.message, payload.action, payload.time)
   },
 
-  showExternalPlayerUnsupportedActionToast: function (_, payload) {
+  showExternalPlayerUnsupportedActionToast: function ({ dispatch }, payload) {
     if (!payload.externalPlayerIgnoreWarnings) {
       const toastMessage = payload.strings.UnsupportedActionTemplate
         .replace('$', payload.externalPlayer)
         .replace('%', payload.action)
-      actions.showToast(null, {
+      dispatch('showToast', {
         message: toastMessage
       })
     }
@@ -643,122 +642,150 @@ const actions = {
 
     const externalPlayerNames = externalPlayerMap.map((entry) => { return entry.name })
     const externalPlayerValues = externalPlayerMap.map((entry) => { return entry.value })
-    const externalPlayerCmdArguments = externalPlayerMap.find((entry) => entry.value === payload.externalPlayer)
+    const externalPlayerCmdArguments = externalPlayerMap.reduce((result, item) => {
+      result[item.value] = item.cmdArguments
+      return result
+    }, {})
 
     commit('setExternalPlayerNames', externalPlayerNames)
     commit('setExternalPlayerValues', externalPlayerValues)
-    commit('setExternalPlayerCmdArguments', externalPlayerCmdArguments ? externalPlayerCmdArguments.cmdArguments : null)
+    commit('setExternalPlayerCmdArguments', externalPlayerCmdArguments)
   },
 
-  openInExternalPlayer (_, payload) {
+  openInExternalPlayer ({ dispatch, rootState }, payload) {
     const args = []
+    const externalPlayer = rootState.settings.externalPlayer
+    const cmdArgs = state.externalPlayerCmdArguments[externalPlayer]
+    const executable = rootState.settings.externalPlayerExecutable !== ''
+      ? rootState.settings.externalPlayerExecutable
+      : cmdArgs.defaultExecutable
+    const ignoreWarnings = rootState.settings.externalPlayerIgnoreWarnings
+    const customArgs = rootState.settings.externalPlayerCustomArgs
 
     if (payload.watchProgress > 0) {
-      if (typeof payload.cmdArgs.startOffset === 'string') {
-        args.push(`${payload.cmdArgs.startOffset}${payload.watchProgress}`)
+      if (typeof cmdArgs.startOffset === 'string') {
+        args.push(`${cmdArgs.startOffset}${payload.watchProgress}`)
       } else {
-        actions.showExternalPlayerUnsupportedActionToast(null, {
-          ...payload,
+        dispatch('showExternalPlayerUnsupportedActionToast', {
+          ignoreWarnings,
+          externalPlayer,
+          template: payload.strings.UnsupportedActionTemplate,
           action: payload.strings['Unsupported Actions']['starting video at offset']
         })
       }
     }
 
     if (payload.playbackRate !== null) {
-      if (typeof payload.cmdArgs.playbackRate === 'string') {
-        args.push(`${payload.cmdArgs.playbackRate}${payload.playbackRate}`)
+      if (typeof cmdArgs.playbackRate === 'string') {
+        args.push(`${cmdArgs.playbackRate}${payload.playbackRate}`)
       } else {
-        actions.showExternalPlayerUnsupportedActionToast(null, {
-          ...payload,
+        dispatch('showExternalPlayerUnsupportedActionToast', {
+          ignoreWarnings,
+          externalPlayer,
+          template: payload.strings.UnsupportedActionTemplate,
           action: payload.strings['Unsupported Actions']['setting a playback rate']
         })
       }
     }
 
     // Check whether the video is in a playlist
-    if (typeof payload.cmdArgs.playlistUrl === 'string' && payload.playlistId !== null && payload.playlistId !== '') {
+    if (typeof cmdArgs.playlistUrl === 'string' && payload.playlistId !== null && payload.playlistId !== '') {
       if (payload.playlistIndex !== null) {
-        if (typeof payload.cmdArgs.playlistIndex === 'string') {
-          args.push(`${payload.cmdArgs.playlistIndex}${payload.playlistIndex}`)
+        if (typeof cmdArgs.playlistIndex === 'string') {
+          args.push(`${cmdArgs.playlistIndex}${payload.playlistIndex}`)
         } else {
-          actions.showExternalPlayerUnsupportedActionToast(null, {
-            ...payload,
+          dispatch('showExternalPlayerUnsupportedActionToast', {
+            ignoreWarnings,
+            externalPlayer,
+            template: payload.strings.UnsupportedActionTemplate,
             action: payload.strings['Unsupported Actions']['opening specific video in a playlist (falling back to opening the video)']
           })
         }
       }
 
       if (payload.playlistReverse) {
-        if (typeof payload.cmdArgs.playlistReverse === 'string') {
-          args.push(payload.cmdArgs.playlistReverse)
+        if (typeof cmdArgs.playlistReverse === 'string') {
+          args.push(cmdArgs.playlistReverse)
         } else {
-          actions.showExternalPlayerUnsupportedActionToast(null, {
-            ...payload,
+          dispatch('showExternalPlayerUnsupportedActionToast', {
+            ignoreWarnings,
+            externalPlayer,
+            template: payload.strings.UnsupportedActionTemplate,
             action: payload.strings['Unsupported Actions']['reversing playlists']
           })
         }
       }
 
       if (payload.playlistShuffle) {
-        if (typeof payload.cmdArgs.playlistShuffle === 'string') {
-          args.push(payload.cmdArgs.playlistShuffle)
+        if (typeof cmdArgs.playlistShuffle === 'string') {
+          args.push(cmdArgs.playlistShuffle)
         } else {
-          actions.showExternalPlayerUnsupportedActionToast(null, {
-            ...payload,
+          dispatch('showExternalPlayerUnsupportedActionToast', {
+            ignoreWarnings,
+            externalPlayer,
+            template: payload.strings.UnsupportedActionTemplate,
             action: payload.strings['Unsupported Actions']['shuffling playlists']
           })
         }
       }
 
       if (payload.playlistLoop) {
-        if (typeof payload.cmdArgs.playlistLoop === 'string') {
-          args.push(payload.cmdArgs.playlistLoop)
+        if (typeof cmdArgs.playlistLoop === 'string') {
+          args.push(cmdArgs.playlistLoop)
         } else {
-          actions.showExternalPlayerUnsupportedActionToast(null, {
-            ...payload,
+          dispatch('showExternalPlayerUnsupportedActionToast', {
+            ignoreWarnings,
+            externalPlayer,
+            template: payload.strings.UnsupportedActionTemplate,
             action: payload.strings['Unsupported Actions']['looping playlists']
           })
         }
       }
-      if (payload.cmdArgs.supportsYtdlProtocol) {
-        args.push(`${payload.cmdArgs.playlistUrl}ytdl://${payload.playlistId}`)
+      if (cmdArgs.supportsYtdlProtocol) {
+        args.push(`${cmdArgs.playlistUrl}ytdl://${payload.playlistId}`)
       } else {
-        args.push(`${payload.cmdArgs.playlistUrl}https://youtube.com/playlist?list=${payload.playlistId}`)
+        args.push(`${cmdArgs.playlistUrl}https://youtube.com/playlist?list=${payload.playlistId}`)
       }
     } else {
       if (payload.playlistId !== null && payload.playlistId !== '') {
-        actions.showExternalPlayerUnsupportedActionToast(null, {
-          ...payload,
+        dispatch('showExternalPlayerUnsupportedActionToast', {
+          ignoreWarnings,
+          externalPlayer,
+          template: payload.strings.UnsupportedActionTemplate,
           action: payload.strings['Unsupported Actions']['opening playlists']
         })
       }
       if (payload.videoId !== null) {
-        if (payload.cmdArgs.supportsYtdlProtocol) {
-          args.push(`${payload.cmdArgs.videoUrl}ytdl://${payload.videoId}`)
+        if (cmdArgs.supportsYtdlProtocol) {
+          args.push(`${cmdArgs.videoUrl}ytdl://${payload.videoId}`)
         } else {
-          args.push(`${payload.cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
+          args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
         }
       }
     }
 
     // Append custom user-defined arguments
-    if (payload.externalPlayerCustomArgs !== null) {
-      const customArgs = payload.externalPlayerCustomArgs.split(';')
-      args.push(...customArgs)
+    if (customArgs !== null) {
+      const custom = customArgs.split(';')
+      args.push(...custom)
     }
 
     const openingToast = payload.strings.OpeningTemplate
       .replace('$', payload.playlistId === null || payload.playlistId === ''
         ? payload.strings.video
         : payload.strings.playlist)
-      .replace('%', payload.externalPlayer)
-    actions.showToast(null, {
+      .replace('%', externalPlayer)
+    dispatch('showToast', {
       message: openingToast
     })
 
-    console.log(payload.externalPlayerExecutable, args)
-    const child = cp.spawn(payload.externalPlayerExecutable, args, { detached: true, stdio: 'ignore' })
-    child.unref()
+    console.log(executable, args)
+
+    const { ipcRenderer } = require('electron')
+    ipcRenderer.send('openInExternalPlayer', {
+      executable,
+      args
+    })
   }
 }
 

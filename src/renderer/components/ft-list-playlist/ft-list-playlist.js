@@ -3,7 +3,7 @@ import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import { mapActions } from 'vuex'
 
 export default Vue.extend({
-  name: 'FtListVideo',
+  name: 'FtListPlaylist',
   components: {
     'ft-icon-button': FtIconButton
   },
@@ -51,26 +51,6 @@ export default Vue.extend({
       return this.$store.getters.getExternalPlayer
     },
 
-    externalPlayerExecutable: function () {
-      if (this.$store.getters.getExternalPlayerExecutable !== '') {
-        return this.$store.getters.getExternalPlayerExecutable
-      }
-
-      return this.externalPlayerCmdArguments.defaultExecutable
-    },
-
-    externalPlayerCmdArguments: function () {
-      return this.$store.getters.getExternalPlayerCmdArguments
-    },
-
-    externalPlayerIgnoreWarnings: function () {
-      return this.$store.getters.getExternalPlayerIgnoreWarnings
-    },
-
-    externalPlayerCustomArgs: function () {
-      return this.$store.getters.getExternalPlayerCustomArgs
-    },
-
     defaultPlayback: function () {
       return this.$store.getters.getDefaultPlayback
     }
@@ -85,13 +65,7 @@ export default Vue.extend({
   methods: {
     handleExternalPlayer: function () {
       this.openInExternalPlayer({
-        externalPlayer: this.externalPlayer,
-        externalPlayerExecutable: this.externalPlayerExecutable,
-        cmdArgs: this.externalPlayerCmdArguments,
-        externalPlayerIgnoreWarnings: this.externalPlayerIgnoreWarnings,
-        externalPlayerCustomArgs: this.externalPlayerCustomArgs,
         strings: this.$t('Video.External Player'),
-
         watchProgress: 0,
         playbackRate: this.defaultPlayback,
         videoId: null,

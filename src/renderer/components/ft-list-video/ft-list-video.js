@@ -200,26 +200,6 @@ export default Vue.extend({
       return this.$store.getters.getExternalPlayer
     },
 
-    externalPlayerExecutable: function () {
-      if (this.$store.getters.getExternalPlayerExecutable !== '') {
-        return this.$store.getters.getExternalPlayerExecutable
-      }
-
-      return this.externalPlayerCmdArguments.defaultExecutable
-    },
-
-    externalPlayerCmdArguments: function () {
-      return this.$store.getters.getExternalPlayerCmdArguments
-    },
-
-    externalPlayerIgnoreWarnings: function () {
-      return this.$store.getters.getExternalPlayerIgnoreWarnings
-    },
-
-    externalPlayerCustomArgs: function () {
-      return this.$store.getters.getExternalPlayerCustomArgs
-    },
-
     defaultPlayback: function () {
       return this.$store.getters.getDefaultPlayback
     },
@@ -237,13 +217,7 @@ export default Vue.extend({
       this.$emit('pause-player')
 
       this.openInExternalPlayer({
-        externalPlayer: this.externalPlayer,
-        externalPlayerExecutable: this.externalPlayerExecutable,
-        cmdArgs: this.externalPlayerCmdArguments,
-        externalPlayerIgnoreWarnings: this.externalPlayerIgnoreWarnings,
-        externalPlayerCustomArgs: this.externalPlayerCustomArgs,
         strings: this.$t('Video.External Player'),
-
         watchProgress: this.watchProgress,
         playbackRate: this.defaultPlayback,
         videoId: this.id,

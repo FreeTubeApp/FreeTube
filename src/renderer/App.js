@@ -79,7 +79,7 @@ export default Vue.extend({
     },
     externalPlayer: function () {
       return this.$store.getters.getExternalPlayer
-    },
+    }
   },
   mounted: function () {
     this.grabUserSettings().then(() => {
@@ -89,9 +89,6 @@ export default Vue.extend({
         this.grabAllPlaylists()
         this.checkThemeSettings()
         await this.checkLocale()
-        await this.checkExternalPlayer()
-
-        this.dataReady = true
 
         if (this.usingElectron) {
           console.log('User is using Electron')
@@ -100,7 +97,10 @@ export default Vue.extend({
           this.openAllLinksExternally()
           this.enableOpenUrl()
           this.setBoundsOnClose()
+          await this.checkExternalPlayer()
         }
+
+        this.dataReady = true
 
         setTimeout(() => {
           this.checkForNewUpdates()

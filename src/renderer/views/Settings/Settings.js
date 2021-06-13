@@ -27,5 +27,10 @@ export default Vue.extend({
     'distraction-settings': DistractionSettings,
     'proxy-settings': ProxySettings,
     'sponsor-block-settings': SponsorBlockSettings
+  },
+  computed: {
+    usingElectron: function () {
+      return this.$store.getters.getUsingElectron
+    }
   }
 })

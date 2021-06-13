@@ -43,29 +43,11 @@ export default Vue.extend({
     }
   },
   methods: {
-    handleUpdateExternalPlayer: async function (externalPlayer) {
-      const payload = {
-        isDev: this.isDev,
-        externalPlayer: externalPlayer
-      }
-      this.getExternalPlayerCmdArgumentsData(payload)
-      this.updateExternalPlayer(externalPlayer)
-    },
-
-    handleUpdateExternalPlayerExecutable: function (value) {
-      this.updateExternalPlayerExecutable(value)
-    },
-
-    handleUpdateExternalPlayerCustomArgs: function (value) {
-      this.updateExternalPlayerCustomArgs(value)
-    },
-
     ...mapActions([
       'updateExternalPlayer',
       'updateExternalPlayerExecutable',
       'updateExternalPlayerIgnoreWarnings',
-      'updateExternalPlayerCustomArgs',
-      'getExternalPlayerCmdArgumentsData'
+      'updateExternalPlayerCustomArgs'
     ])
   }
 })

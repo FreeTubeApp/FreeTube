@@ -15,7 +15,7 @@
           :select-names="externalPlayerNames"
           :select-values="externalPlayerValues"
           :tooltip="$t('Tooltips.External Player Settings.External Player')"
-          @change="handleUpdateExternalPlayer"
+          @change="updateExternalPlayer"
         />
       </div>
       <div class="switchColumn">
@@ -28,24 +28,25 @@
         />
       </div>
     </div>
-    <ft-flex-box class="externalPlayerSettingsFlexBox">
+    <ft-flex-box
+      v-if="externalPlayer !== ''"
+      class="externalPlayerSettingsFlexBox"
+    >
       <ft-input
-        v-if="externalPlayer !== ''"
         :placeholder="$t('Settings.External Player Settings.Custom External Player Executable')"
         :show-arrow="false"
         :show-label="true"
         :value="externalPlayerExecutable"
         :tooltip="$t('Tooltips.External Player Settings.Custom External Player Executable')"
-        @input="handleUpdateExternalPlayerExecutable"
+        @input="updateExternalPlayerExecutable"
       />
       <ft-input
-        v-if="externalPlayer !== ''"
         :placeholder="$t('Settings.External Player Settings.Custom External Player Arguments')"
         :show-arrow="false"
         :show-label="true"
         :value="externalPlayerCustomArgs"
         :tooltip="$t('Tooltips.External Player Settings.Custom External Player Arguments')"
-        @input="handleUpdateExternalPlayerCustomArgs"
+        @input="updateExternalPlayerCustomArgs"
       />
     </ft-flex-box>
   </ft-card>
