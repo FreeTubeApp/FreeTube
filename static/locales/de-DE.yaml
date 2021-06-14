@@ -328,6 +328,10 @@ Settings:
       URL (Standard ist https://sponsor.ajay.app)
     Enable SponsorBlock: Aktiviere SponsorBlock
     SponsorBlock Settings: SponsorBlock-Einstellungen
+  External Player Settings:
+    Ignore Unsupported Action Warnings: Nicht unterstützte Aktionswarnungen ignorieren
+    External Player: Externer Player
+    External Player Settings: Externe Player-Einstellungen
 About:
   #On About page
   About: Über
@@ -527,6 +531,8 @@ Video:
     intro: Intro
     sponsor: Sponsor
   Skipped segment: Segment übersprungen
+  External Player:
+    OpenInTemplate: In $ öffnen
 Videos:
   #& Sort By
   Sort By:
