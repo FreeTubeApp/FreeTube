@@ -193,6 +193,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Next Video Interval: Viivitus järgmise video esitamisel
+    Display Play Button In Video Player: Kuva videomängijas esitamise nuppu
   Privacy Settings:
     Privacy Settings: 'Privaatsuse seadistused'
     Remember History: 'Jäta ajalugu meelde'
@@ -310,6 +311,9 @@ Settings:
       API aadress (vaikimisi on see https://sponsor.ajay.app)
     Enable SponsorBlock: Kasuta toetajate vaadet
     SponsorBlock Settings: Toetajate vaate seadistused
+  External Player Settings:
+    External Player: Väline meediamängija
+    External Player Settings: Välise meediamängija seadistused
 About:
   #On About page
   About: 'Rakenduse teave'
@@ -529,6 +533,12 @@ Video:
     outro: väljajuhatus
     sponsor: toetaja
   Skipped segment: Vahelejäetud lõik
+  External Player:
+    UnsupportedActionTemplate: 'Rakenduses $ puudub tugi: %'
+    OpeningTemplate: Avan $ % rakendusega...
+    playlist: esitusloend
+    video: video
+    OpenInTemplate: Ava rakendusega $
 Videos:
   #& Sort By
   Sort By:
@@ -586,27 +596,33 @@ Comments:
   Getting comment replies, please wait: 'Laadin kommentaari vastuseid, palun oota'
   There are no more comments for this video: 'Sellel videol ei ole rohkem kommentaare'
   Show Comments: 'Näita kommentaare'
-  Hide Comments: ''
+  Hide Comments: 'Peida kommentaarid'
   # Context: View 10 Replies, View 1 Reply
-  View: ''
-  Hide: ''
-  Replies: ''
-  Reply: ''
-  There are no comments available for this video: ''
-  Load More Comments: ''
-Up Next: ''
+  View: 'Näita'
+  Hide: 'Peida'
+  Replies: 'Vastused'
+  Reply: 'Vasta'
+  There are no comments available for this video: 'Seda videot pole veel kommenteeritud'
+  Load More Comments: 'Laadi veel kommentaare'
+  Sort by: Sortimise alus
+  No more comments available: Rohkem kommentaare pole
+  Newest first: Esmalt kõige uuemad
+  Top comments: Populaarsemad kommentaarid
+Up Next: 'Järgmisena'
 
 # Toast Messages
-Local API Error (Click to copy): ''
-Invidious API Error (Click to copy): ''
-Falling back to Invidious API: ''
-Falling back to the local API: ''
-This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
-Subscriptions have not yet been implemented: ''
-Loop is now disabled: ''
-Loop is now enabled: ''
-Shuffle is now disabled: ''
-Shuffle is now enabled: ''
+Local API Error (Click to copy): 'Kohaliku API viga (kopeerimiseks klõpsi)'
+Invidious API Error (Click to copy): 'Invidious''e API viga (kopeerimiseks klõpsi)'
+Falling back to Invidious API: 'Varuvariandina kasutan Invidious''e API''t'
+Falling back to the local API: 'Varuvariandina kasutan kohalikku API''t'
+This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Kuna
+  vajalikke vorminguid ei leidu, siis see video pole saadaval. Niisugune viga võib
+  juhtuda ka maapiirangute tõttu.'
+Subscriptions have not yet been implemented: 'Tellimuste kasutamine pole veel implementeeritud'
+Loop is now disabled: 'Esituse kordamine ei ole nüüd kasutusel'
+Loop is now enabled: 'Esituse kordamine on nüüd kasutusel'
+Shuffle is now disabled: 'Juhuslik esitus ei ole nüüd kasutusel'
+Shuffle is now enabled: 'Juhuslik esitus on nüüd kasutusel'
 The playlist has been reversed: 'Esitusloendi järjekord on nüüd teistpidi'
 Playing Next Video: 'Esitan järgmist videot'
 Playing Previous Video: 'Esitan eelmist videot'
@@ -620,3 +636,7 @@ Yes: 'Jah'
 No: 'Ei'
 More: Veel
 Open New Window: Ava uus aken
+Hashtags have not yet been implemented, try again later: Teemaviiteid ei saa veel
+  kasutada, palun proovi hiljem uuesti
+Unknown YouTube url type, cannot be opened in app: Tundmatu YouTube'i urli tüüp, mida
+  ei saa rakenduses avada
