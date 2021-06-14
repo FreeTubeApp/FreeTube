@@ -157,6 +157,8 @@ export default Vue.extend({
 
     lastPlayedVideoMode: function() {
       return this.$store.getters.getLastPlayedVideoMode
+    },
+
     useSponsorBlock: function () {
       return this.$store.getters.getUseSponsorBlock
     },
@@ -1354,9 +1356,8 @@ export default Vue.extend({
 
     ...mapActions([
       'calculateColorLuminance',
-      'updateLastPlayedVideoMode'
-      'showToast',
-      'calculateColorLuminance'
+      'updateLastPlayedVideoMode',
+      'showToast'
     ])
   }
 })
