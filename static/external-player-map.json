@@ -9,6 +9,7 @@
         "value": "mpv",
         "cmdArguments": {
             "defaultExecutable": "mpv",
+            "defaultCustomArguments": null,
             "supportsYtdlProtocol": true,
             "videoUrl": "",
             "playlistUrl": "",
