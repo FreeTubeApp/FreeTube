@@ -120,7 +120,7 @@ const router = new Router({
     {
       path: '/playlist/:id',
       meta: {
-        title: 'Playlist',
+        title: 'Playlist.Playlist',
         icon: 'fa-home'
       },
       component: Playlist
