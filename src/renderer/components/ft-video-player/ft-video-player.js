@@ -854,10 +854,8 @@ export default Vue.extend({
       if (quality.height >= 480 && this.maxFramerate === 60) {
         for (let i = 0; i < this.adaptiveFormats.length; i++) {
           if (this.adaptiveFormats[i].bitrate === quality.bitrate) {
-            if (this.adaptiveFormats[i].fps === 60) {
-              fps = 60
-              break
-            }
+            fps = this.adaptiveFormats[i].fps
+            break
           }
         }
       }
