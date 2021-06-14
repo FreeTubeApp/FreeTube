@@ -7,6 +7,14 @@ export default Vue.extend({
       openMoreOptions: false
     }
   },
+  computed: {
+    hidePopularVideos: function () {
+      return this.$store.getters.getHidePopularVideos
+    },
+    hideTrendingVideos: function () {
+      return this.$store.getters.getHideTrendingVideos
+    }
+  },
   methods: {
     navigate: function (route) {
       this.openMoreOptions = false
