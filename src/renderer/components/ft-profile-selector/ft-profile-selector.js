@@ -27,21 +27,11 @@ export default Vue.extend({
       return this.$store.getters.getDefaultProfile
     },
     activeProfileInitial: function () {
-      if (this.activeProfile.name !== undefined) {
-        if (this.activeProfile.name.length > 0) {
-          return Array.from(this.activeProfile.name)[0].toUpperCase()
-        }
-      }
-      return ''
+      return this?.activeProfile?.name?.length > 0 ? Array.from(this.activeProfile.name)[0].toUpperCase() : ''
     },
     profileInitials: function () {
       return this.profileList.map((profile) => {
-        if (profile.name !== undefined) {
-          if (profile.name.length > 0) {
-            return Array.from(profile.name)[0].toUpperCase()
-          }
-        }
-        return ''
+        return profile?.name?.length > 0 ? Array.from(profile.name)[0].toUpperCase() : ''
       })
     }
   },

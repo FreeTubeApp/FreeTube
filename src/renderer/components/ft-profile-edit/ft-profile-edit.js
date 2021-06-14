@@ -44,12 +44,7 @@ export default Vue.extend({
       return this.$store.getters.getColorValues
     },
     profileInitial: function () {
-      if (this.profileName !== undefined) {
-        if (this.profileName.length > 0) {
-          return Array.from(this.profileName)[0].toUpperCase()
-        }
-      }
-      return ''
+      return this?.profileName?.length > 0 ? Array.from(this.profileName)[0].toUpperCase() : ''
     },
     profileList: function () {
       return this.$store.getters.getProfileList
