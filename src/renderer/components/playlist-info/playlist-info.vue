@@ -5,6 +5,7 @@
     >
       <img
         :src="thumbnail"
+        @click="playFirstVideo"
       >
     </div>
     <h2>
