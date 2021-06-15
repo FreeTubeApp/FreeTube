@@ -76,6 +76,7 @@ export default Vue.extend({
     this.title = this.data.title
     this.channelName = this.data.channelName
     this.channelThumbnail = this.data.channelThumbnail
+    this.channelId = this.data.channelId
     this.uploadedTime = this.data.uploaded_at
     this.description = this.data.description
     this.infoSource = this.data.infoSource
@@ -110,6 +111,10 @@ export default Vue.extend({
           this.openExternalLink(invidiousUrl)
           break
       }
+    },
+
+    goToChannel: function () {
+      this.$router.push({ path: `/channel/${this.channelId}` })
     },
 
     ...mapActions([
