@@ -558,7 +558,7 @@ Video:
       starting video at offset: démarrer la vidéo avec un décalage
     UnsupportedActionTemplate: '$ non pris en charge : %'
     OpeningTemplate: Ouverture de $ en %...
-    OpenInTemplate: Ouvert en $
+    OpenInTemplate: Ouvrir en $
 Videos:
   #& Sort By
   Sort By:

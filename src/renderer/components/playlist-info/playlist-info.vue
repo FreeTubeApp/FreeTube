@@ -24,6 +24,7 @@
     <hr>
     <div
       class="playlistChannel"
+      @click="goToChannel"
     >
       <img :src="channelThumbnail">
       <h3>

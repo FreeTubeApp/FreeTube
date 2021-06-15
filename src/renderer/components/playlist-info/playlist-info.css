@@ -10,12 +10,14 @@
 
 .playlistChannel {
   height: 70px;
+
+  /* Indicates the box can be clicked to navigate */
+  cursor: pointer;
 }
 
 .playlistChannel img {
   width: 70px;
   float: left;
-  cursor: pointer;
   border-radius: 200px 200px 200px 200px;
   -webkit-border-radius: 200px 200px 200px 200px;
 }
@@ -23,7 +25,6 @@
 .playlistChannel h3 {
   float: left;
   position: relative;
-  cursor: pointer;
   width: 200px;
   margin-left: 10px;
   top: 5px;
