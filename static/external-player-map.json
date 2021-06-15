@@ -20,5 +20,21 @@
             "playlistShuffle": "--shuffle",
             "playlistLoop": "--loop-playlist"
         }
+    },
+    {
+        "name": "VLC",
+        "value": "vlc",
+        "cmdArguments": {
+            "defaultExecutable": "vlc",
+            "supportsYtdlProtocol": false,
+            "videoUrl": "",
+            "playlistUrl": null,
+            "startOffset": "--start-time=",
+            "playbackRate": "--rate=",
+            "playlistIndex": null,
+            "playlistReverse": null,
+            "playlistShuffle": "--random",
+            "playlistLoop": "--loop"
+        }
     }
 ]
