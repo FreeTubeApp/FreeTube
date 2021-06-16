@@ -132,9 +132,28 @@ function runApp() {
         app.commandLine.appendSwitch('enable-smooth-scrolling')
       }
 
-      const proxyUrl = `${proxyProtocol}://${proxyHostname}:${proxyPort}`
+      if (useProxy) {
+        session.defaultSession.setProxy({
+          proxyRules: `${proxyProtocol}://${proxyHostname}:${proxyPort}`
+        })
+      }
 
-      createWindow(useProxy, proxyUrl)
+      // Set CONSENT cookie on reasonable domains
+      const consentCookieDomains = [
+        'http://www.youtube.com',
+        'https://www.youtube.com',
+        'http://youtube.com',
+        'https://youtube.com'
+      ]
+      consentCookieDomains.forEach(url => {
+        session.defaultSession.cookies.set({
+          url: url,
+          name: 'CONSENT',
+          value: 'YES+'
+        })
+      })
+
+      createWindow()
 
       if (isDev) {
         installDevTools()
@@ -156,7 +175,7 @@ function runApp() {
     }
   }
 
-  function createWindow(useProxy = false, proxyUrl = '', replaceMainWindow = true) {
+  function createWindow(replaceMainWindow = true) {
     /**
      * Initial window options
      */
@@ -185,27 +204,6 @@ function runApp() {
     newWindow.setBounds({
       width: 1200,
       height: 800
-    })
-
-    if (useProxy) {
-      session.defaultSession.setProxy({
-        proxyRules: proxyUrl
-      })
-    }
-
-    // Set CONSENT cookie on reasonable domains
-    const consentCookieDomains = [
-      'http://www.youtube.com',
-      'https://www.youtube.com',
-      'http://youtube.com',
-      'https://youtube.com'
-    ]
-    consentCookieDomains.forEach(url => {
-      session.defaultSession.cookies.set({
-        url: url,
-        name: 'CONSENT',
-        value: 'YES+'
-      })
     })
 
     settingsDb.findOne({
@@ -371,7 +369,7 @@ function runApp() {
   })
 
   ipcMain.on('createNewWindow', () => {
-    createWindow(false, '', false)
+    createWindow(false)
   })
 
   ipcMain.on('syncSetting', (event, setting) => {
