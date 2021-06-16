@@ -403,8 +403,8 @@ export default Vue.extend({
     },
 
     setBoundsOnClose: function () {
-      window.onbeforeunload = (e) => {
-        ipcRenderer.send('setBounds')
+      window.onbeforeunload = () => {
+        ipcRenderer.sendSync('setBounds')
       }
     },
 

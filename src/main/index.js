@@ -294,33 +294,18 @@ function runApp() {
   }
 
   // Save closing window bounds & maximized status
-  ipcMain.on('setBounds', (_e, data) => {
+  ipcMain.on('setBounds', (event) => {
     const value = {
       ...mainWindow.getNormalBounds(),
       maximized: mainWindow.isMaximized()
     }
 
-    settingsDb.findOne({
-      _id: 'bounds'
-    }, function (err, doc) {
-      if (err) {
-        return
-      }
-      if (doc !== null) {
-        settingsDb.update({
-          _id: 'bounds'
-        }, {
-          $set: {
-            value
-          }
-        }, {})
-      } else {
-        settingsDb.insert({
-          _id: 'bounds',
-          value
-        })
-      }
-    })
+    settingsDb.update(
+      { _id: 'bounds' },
+      { _id: 'bounds', value },
+      { upsert: true },
+      () => { event.returnValue = 0 }
+    )
   })
 
   ipcMain.on('appReady', () => {
