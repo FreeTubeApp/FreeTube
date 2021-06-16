@@ -1,6 +1,6 @@
 import {
-  app, BrowserWindow, dialog, Menu,
-  ipcMain, powerSaveBlocker, screen, shell
+  app, BrowserWindow, dialog, Menu, ipcMain,
+  powerSaveBlocker, screen, session, shell
 } from 'electron'
 import Datastore from 'nedb'
 import path from 'path'
@@ -188,19 +188,20 @@ function runApp() {
     })
 
     if (useProxy) {
-      newWindow.webContents.session.setProxy({
+      session.defaultSession.setProxy({
         proxyRules: proxyUrl
       })
     }
 
     // Set CONSENT cookie on reasonable domains
-    [
+    const consentCookieDomains = [
       'http://www.youtube.com',
       'https://www.youtube.com',
       'http://youtube.com',
       'https://youtube.com'
-    ].forEach(url => {
-      newWindow.webContents.session.cookies.set({
+    ]
+    consentCookieDomains.forEach(url => {
+      session.defaultSession.cookies.set({
         url: url,
         name: 'CONSENT',
         value: 'YES+'
@@ -264,8 +265,8 @@ function runApp() {
     newWindow.on('close', () => {
       // Clear cache and storage if it's the last window
       if (openedWindows.length === 1) {
-        newWindow.webContents.session.clearCache()
-        newWindow.webContents.session.clearStorageData({
+        session.defaultSession.clearCache()
+        session.defaultSession.clearStorageData({
           storages: [
             'appcache',
             'cookies',
@@ -326,15 +327,15 @@ function runApp() {
     createWindow()
   })
 
-  ipcMain.on('enableProxy', (event, url) => {
+  ipcMain.on('enableProxy', (_, url) => {
     console.log(url)
-    mainWindow.webContents.session.setProxy({
+    session.defaultSession.setProxy({
       proxyRules: url
     })
   })
 
   ipcMain.on('disableProxy', () => {
-    mainWindow.webContents.session.setProxy({})
+    session.defaultSession.setProxy({})
   })
 
   ipcMain.on('openExternalLink', (_, url) => {
