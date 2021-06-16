@@ -294,16 +294,36 @@ function runApp() {
     }
   })
 
-  ipcMain.on('disableSmoothScrolling', () => {
-    app.commandLine.appendSwitch('disable-smooth-scrolling')
-    mainWindow.close()
-    createWindow()
-  })
+  ipcMain.on('relaunchRequest', () => {
+    if (isDev) {
+      app.exit(parseInt(process.env.FREETUBE_RELAUNCH_EXIT_CODE))
+      return
+    }
 
-  ipcMain.on('enableSmoothScrolling', () => {
-    app.commandLine.appendSwitch('enable-smooth-scrolling')
-    mainWindow.close()
-    createWindow()
+    // The AppImage and Windows portable formats must be accounted for
+    // because `process.execPath` points at the temporarily extracted
+    // executables, not the executables themselves
+    //
+    // It's possible to detect these formats and identify their
+    // executables' paths by checking the environmental variables
+    const { env: { APPIMAGE, PORTABLE_EXECUTABLE_FILE } } = process
+
+    if (!APPIMAGE) {
+      // If it's a Windows portable, PORTABLE_EXECUTABLE_FILE will
+      // hold a value.
+      // Otherwise, `process.execPath` should be used instead.
+      app.relaunch({
+        args: process.argv.slice(1),
+        execPath: PORTABLE_EXECUTABLE_FILE || process.execPath
+      })
+    } else {
+      // If it's an AppImage, things must be done the "hard way"
+      // `app.relaunch` doesn't work because of FUSE limitations
+      // Spawn a new process using the APPIMAGE env variable
+      cp.spawn(APPIMAGE, { detached: true, stdio: 'ignore' })
+    }
+
+    app.quit()
   })
 
   ipcMain.on('enableProxy', (_, url) => {

@@ -158,16 +158,14 @@ export default Vue.extend({
         return
       }
 
-      this.updateDisableSmoothScrolling(this.disableSmoothScrollingToggleValue)
+      this.updateDisableSmoothScrolling(
+        this.disableSmoothScrollingToggleValue
+      ).then(() => {
+        // FIXME: No electron safeguard
+        const { ipcRenderer } = require('electron')
 
-      // FIXME: No electron safeguard
-      const { ipcRenderer } = require('electron')
-
-      if (this.disableSmoothScrollingToggleValue) {
-        ipcRenderer.send('disableSmoothScrolling')
-      } else {
-        ipcRenderer.send('enableSmoothScrolling')
-      }
+        ipcRenderer.send('relaunchRequest')
+      })
     },
 
     updateMainColor: function (color) {
