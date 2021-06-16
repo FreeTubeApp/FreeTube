@@ -260,25 +260,6 @@ function runApp() {
       newWindow.focus()
     })
 
-    newWindow.on('close', () => {
-      // Clear cache and storage if it's the last window
-      if (openedWindows.length === 1) {
-        session.defaultSession.clearCache()
-        session.defaultSession.clearStorageData({
-          storages: [
-            'appcache',
-            'cookies',
-            'filesystem',
-            'indexdb',
-            'shadercache',
-            'websql',
-            'serviceworkers',
-            'cachestorage'
-          ]
-        })
-      }
-    })
-
     newWindow.on('closed', () => {
       // Remove closed window
       openedWindows = openedWindows.filter((window) => window !== newWindow)
@@ -388,6 +369,21 @@ function runApp() {
   })
 
   app.on('window-all-closed', () => {
+    // Clear cache and storage if it's the last window
+    session.defaultSession.clearCache()
+    session.defaultSession.clearStorageData({
+      storages: [
+        'appcache',
+        'cookies',
+        'filesystem',
+        'indexdb',
+        'shadercache',
+        'websql',
+        'serviceworkers',
+        'cachestorage'
+      ]
+    })
+
     if (process.platform !== 'darwin') {
       app.quit()
     }
