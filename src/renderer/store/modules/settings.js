@@ -264,29 +264,19 @@ Object.assign(customGetters, {
 /**********/
 
 const customActions = {
-  grabUserSettings: ({ commit, dispatch, getters }) => {
-    return new Promise((resolve, reject) => {
-      settingsDb.find(
-        { _id: { $ne: 'bounds' } },
-        (err, userSettings) => {
-          if (err) {
-            reject(err)
-            return
-          }
-
-          for (const setting of userSettings) {
-            const { _id, value } = setting
-            if (getters.settingHasSideEffects(_id)) {
-              dispatch(defaultSideEffectsTriggerId(_id), value)
-            }
-
-            commit(defaultMutationId(_id), value)
-          }
-
-          resolve()
-        }
-      )
+  grabUserSettings: async ({ commit, dispatch, getters }) => {
+    const userSettings = await settingsDb.find({
+      _id: { $ne: 'bounds' }
     })
+
+    for (const setting of userSettings) {
+      const { _id, value } = setting
+      if (getters.settingHasSideEffects(_id)) {
+        dispatch(defaultSideEffectsTriggerId(_id), value)
+      }
+
+      commit(defaultMutationId(_id), value)
+    }
   },
 
   setUpListenerToSyncSettings: ({ commit, dispatch, getters }) => {
@@ -347,34 +337,31 @@ for (const settingId of Object.keys(state)) {
     actions[triggerId] = stateWithSideEffects[settingId].sideEffectsHandler
   }
 
-  actions[updaterId] = ({ commit, dispatch, getters }, value) => {
-    settingsDb.update(
+  actions[updaterId] = async ({ commit, dispatch, getters }, value) => {
+    await settingsDb.update(
       { _id: settingId },
       { _id: settingId, value: value },
-      { upsert: true },
-      (err, _) => {
-        if (err) return
-
-        const {
-          getUsingElectron: usingElectron,
-          settingHasSideEffects
-        } = getters
-
-        if (settingHasSideEffects(settingId)) {
-          dispatch(triggerId, value)
-        }
-        commit(mutationId, value)
-
-        if (usingElectron) {
-          const { ipcRenderer } = require('electron')
-
-          // Propagate settings to all other existing windows
-          ipcRenderer.send('syncSetting', {
-            _id: settingId, value: value
-          })
-        }
-      }
+      { upsert: true }
     )
+
+    const {
+      getUsingElectron: usingElectron,
+      settingHasSideEffects
+    } = getters
+
+    if (settingHasSideEffects(settingId)) {
+      dispatch(triggerId, value)
+    }
+    commit(mutationId, value)
+
+    if (usingElectron) {
+      const { ipcRenderer } = require('electron')
+
+      // Propagate settings to all other existing windows
+      ipcRenderer.send('syncSetting', {
+        _id: settingId, value: value
+      })
+    }
   }
 }
 

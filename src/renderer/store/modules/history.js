@@ -11,57 +11,46 @@ const getters = {
 }
 
 const actions = {
-  grabHistory ({ commit }) {
-    historyDb.find({}).sort({
-      timeWatched: -1
-    }).exec((err, results) => {
-      if (err) {
-        console.log(err)
-        return
-      }
-      commit('setHistoryCache', results)
-    })
+  async grabHistory({ commit }) {
+    const results = await historyDb.find({}).sort({ timeWatched: -1 })
+    commit('setHistoryCache', results)
   },
 
-  updateHistory ({ dispatch }, videoData) {
-    historyDb.update({ videoId: videoData.videoId }, videoData, { upsert: true }, (err, numReplaced) => {
-      if (!err) {
-        dispatch('grabHistory')
-      }
-    })
+  async updateHistory({ dispatch }, videoData) {
+    await historyDb.update(
+      { videoId: videoData.videoId },
+      videoData,
+      { upsert: true }
+    )
+    dispatch('grabHistory')
   },
 
-  removeFromHistory ({ dispatch }, videoId) {
-    historyDb.remove({ videoId: videoId }, (err, numReplaced) => {
-      if (!err) {
-        dispatch('grabHistory')
-      }
-    })
+  async removeFromHistory({ dispatch }, videoId) {
+    await historyDb.remove({ videoId: videoId })
+    dispatch('grabHistory')
   },
 
-  removeAllHistory ({ dispatch }) {
-    historyDb.remove({}, { multi: true }, (err, numReplaced) => {
-      if (!err) {
-        dispatch('grabHistory')
-      }
-    })
+  async removeAllHistory({ dispatch }) {
+    await historyDb.remove({}, { multi: true })
+    dispatch('grabHistory')
   },
 
-  updateWatchProgress ({ dispatch }, videoData) {
-    historyDb.update({ videoId: videoData.videoId }, { $set: { watchProgress: videoData.watchProgress } }, { upsert: true }, (err, numReplaced) => {
-      if (!err) {
-        dispatch('grabHistory')
-      }
-    })
+  async updateWatchProgress({ dispatch }, videoData) {
+    await historyDb.update(
+      { videoId: videoData.videoId },
+      { $set: { watchProgress: videoData.watchProgress } },
+      { upsert: true }
+    )
+    dispatch('grabHistory')
   },
 
-  compactHistory (_) {
+  compactHistory(_) {
     historyDb.persistence.compactDatafile()
   }
 }
 
 const mutations = {
-  setHistoryCache (state, historyCache) {
+  setHistoryCache(state, historyCache) {
     state.historyCache = historyCache
   }
 }
