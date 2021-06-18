@@ -175,6 +175,7 @@ const state = {
   defaultSkipInterval: 5,
   defaultTheatreMode: false,
   defaultVideoFormat: 'dash',
+  disableExternalLinkOpening: false,
   disableSmoothScrolling: false,
   displayVideoPlayButton: true,
   enableSearchSuggestions: true,
