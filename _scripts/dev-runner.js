@@ -27,6 +27,8 @@ if (remoteDebugging) {
 const relaunchExitCode = 69
 process.env.FREETUBE_RELAUNCH_EXIT_CODE = relaunchExitCode
 
+const port = 9080
+
 async function killElectron(pid) {
   return new Promise((resolve, reject) => {
     if (pid) {
@@ -114,13 +116,11 @@ function startRenderer(callback) {
   })
 
   const server = new WebpackDevServer(compiler, {
-    contentBase: path.join(__dirname, '../'),
-    hot: true,
-    overlay: true,
-    clientLogLevel: 'warning'
+    static: path.join(process.cwd(), 'static'),
+    port
   })
 
-  server.listen(9080, '', err => {
+  server.listen(port, '', err => {
     if (err) console.error(err)
 
     callback()
