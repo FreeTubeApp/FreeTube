@@ -16,7 +16,7 @@ const actions = {
     commit('setHistoryCache', results)
   },
 
-  async updateHistory({ commit, state }, entry) {
+  async updateHistory({ commit, dispatch, state }, entry) {
     await historyDb.update(
       { videoId: entry.videoId },
       entry,
@@ -33,9 +33,11 @@ const actions = {
         currentIndex: entryIndex,
         updatedEntry: entry
       })
+
+    dispatch('propagateHistory')
   },
 
-  async removeFromHistory({ commit }, videoId) {
+  async removeFromHistory({ commit, dispatch }, videoId) {
     await historyDb.remove({ videoId: videoId })
 
     const updatedCache = state.historyCache.filter((entry) => {
@@ -43,14 +45,17 @@ const actions = {
     })
 
     commit('setHistoryCache', updatedCache)
+
+    dispatch('propagateHistory')
   },
 
-  async removeAllHistory({ commit }) {
+  async removeAllHistory({ commit, dispatch }) {
     await historyDb.remove({}, { multi: true })
     commit('setHistoryCache', [])
+    dispatch('propagateHistory')
   },
 
-  async updateWatchProgress({ commit }, entry) {
+  async updateWatchProgress({ commit, dispatch }, entry) {
     await historyDb.update(
       { videoId: entry.videoId },
       { $set: { watchProgress: entry.watchProgress } },
@@ -65,6 +70,18 @@ const actions = {
       index: entryIndex,
       value: entry.watchProgress
     })
+
+    dispatch('propagateHistory')
+  },
+
+  propagateHistory({ getters: { getUsingElectron: usingElectron } }) {
+    if (usingElectron) {
+      const { ipcRenderer } = require('electron')
+      ipcRenderer.send('syncWindows', {
+        type: 'history',
+        data: state.historyCache
+      })
+    }
   },
 
   compactHistory(_) {

@@ -331,7 +331,8 @@ const customActions = {
           break
 
         case 'history':
-          // TODO: Not implemented
+          // `data` is the whole history => Array of history entries
+          commit('setHistoryCache', data)
           break
 
         case 'playlist':
