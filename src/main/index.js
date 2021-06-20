@@ -367,13 +367,13 @@ function runApp() {
     createWindow(false)
   })
 
-  ipcMain.on('syncSetting', (event, setting) => {
+  ipcMain.on('syncWindows', (event, payload) => {
     const otherWindows = openedWindows.filter((window) => {
       return window.webContents.id !== event.sender.id
     })
 
     for (const window of otherWindows) {
-      window.webContents.send('syncSetting', setting)
+      window.webContents.send('syncWindows', payload)
     }
   })
 

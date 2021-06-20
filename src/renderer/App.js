@@ -83,7 +83,6 @@ export default Vue.extend({
   },
   mounted: function () {
     this.grabUserSettings().then(() => {
-      this.setUpListenerToSyncSettings()
       this.grabAllProfiles(this.$t('Profile.All Channels')).then(async () => {
         this.grabHistory()
         this.grabAllPlaylists()
@@ -92,6 +91,7 @@ export default Vue.extend({
         if (this.usingElectron) {
           console.log('User is using Electron')
           ipcRenderer = require('electron').ipcRenderer
+          this.setupListenerToSyncWindows()
           this.activateKeyboardShortcuts()
           this.openAllLinksExternally()
           this.enableOpenUrl()
@@ -387,7 +387,7 @@ export default Vue.extend({
       'grabAllPlaylists',
       'getYoutubeUrlInfo',
       'getExternalPlayerCmdArgumentsData',
-      'setUpListenerToSyncSettings'
+      'setupListenerToSyncWindows'
     ])
   }
 })
