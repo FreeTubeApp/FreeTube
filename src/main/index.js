@@ -335,7 +335,7 @@ function runApp() {
     if (typeof url === 'string') shell.openExternal(url)
   })
 
-  ipcMain.handle('getLocale', () => {
+  ipcMain.handle('getSystemLocale', () => {
     return app.getLocale()
   })
 
