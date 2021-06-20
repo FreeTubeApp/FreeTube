@@ -75,7 +75,7 @@
         :value="currentLocale"
         :select-names="localeNames"
         :select-values="localeOptions"
-        @change="updateLocale"
+        @change="updateCurrentLocale"
       />
       <ft-select
         :placeholder="$t('Settings.General Settings.Region for Trending')"

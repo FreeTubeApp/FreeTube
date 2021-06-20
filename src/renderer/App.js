@@ -88,7 +88,6 @@ export default Vue.extend({
         this.grabHistory()
         this.grabAllPlaylists()
         this.checkThemeSettings()
-        await this.checkLocale()
 
         if (this.usingElectron) {
           console.log('User is using Electron')
@@ -110,35 +109,6 @@ export default Vue.extend({
     })
   },
   methods: {
-    checkLocale: async function () {
-      const locale = localStorage.getItem('locale')
-
-      if (locale === null || locale === 'system') {
-        const systemLocale = await this.getLocale()
-
-        const findLocale = Object.keys(this.$i18n.messages).find((locale) => {
-          const localeName = locale.replace('-', '_')
-          return localeName.includes(systemLocale.replace('-', '_'))
-        })
-
-        if (typeof findLocale !== 'undefined') {
-          this.$i18n.locale = findLocale
-          localStorage.setItem('locale', 'system')
-        } else {
-          this.$i18n.locale = 'en-US'
-          localStorage.setItem('locale', 'en-US')
-        }
-      } else {
-        this.$i18n.locale = locale
-      }
-      const payload = {
-        isDev: this.isDev,
-        locale: this.$i18n.locale
-      }
-
-      this.getRegionData(payload)
-    },
-
     checkThemeSettings: function () {
       let baseTheme = localStorage.getItem('baseTheme')
       let mainColor = localStorage.getItem('mainColor')
@@ -415,9 +385,7 @@ export default Vue.extend({
       'grabAllProfiles',
       'grabHistory',
       'grabAllPlaylists',
-      'getRegionData',
       'getYoutubeUrlInfo',
-      'getLocale',
       'getExternalPlayerCmdArgumentsData',
       'setUpListenerToSyncSettings'
     ])

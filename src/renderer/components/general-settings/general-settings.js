@@ -23,7 +23,6 @@ export default Vue.extend({
       showInvidiousInstances: false,
       instanceNames: [],
       instanceValues: [],
-      currentLocale: '',
       backendValues: [
         'invidious',
         'local'
@@ -92,6 +91,9 @@ export default Vue.extend({
     },
     thumbnailPreference: function () {
       return this.$store.getters.getThumbnailPreference
+    },
+    currentLocale: function () {
+      return this.$store.getters.getCurrentLocale
     },
     regionNames: function () {
       return this.$store.getters.getRegionNames
@@ -173,8 +175,6 @@ export default Vue.extend({
     })
 
     this.updateInvidiousInstanceBounce = debounce(this.updateInvidiousInstance, 500)
-
-    this.currentLocale = localStorage.getItem('locale')
   },
   beforeDestroy: function () {
     if (this.invidiousInstance === '') {
@@ -196,41 +196,6 @@ export default Vue.extend({
       }
     },
 
-    updateLocale: async function (locale) {
-      if (locale === 'system') {
-        const systemLocale = await this.getLocale()
-
-        const findLocale = Object.keys(this.$i18n.messages).find((locale) => {
-          const localeName = locale.replace('-', '_')
-          return localeName.includes(systemLocale.replace('-', '_'))
-        })
-
-        if (typeof findLocale !== 'undefined') {
-          this.$i18n.locale = findLocale
-          this.currentLocale = 'system'
-          localStorage.setItem('locale', 'system')
-        } else {
-          // Translating this string isn't needed because the user will always see it in English
-          this.showToast({
-            message: 'Locale not found, defaulting to English (US)'
-          })
-          this.$i18n.locale = 'en-US'
-          this.currentLocale = 'en-US'
-          localStorage.setItem('locale', 'en-US')
-        }
-      } else {
-        this.$i18n.locale = locale
-        this.currentLocale = locale
-        localStorage.setItem('locale', locale)
-      }
-
-      const payload = {
-        isDev: this.isDev,
-        locale: this.currentLocale
-      }
-      this.getRegionData(payload)
-    },
-
     ...mapActions([
       'showToast',
       'updateEnableSearchSuggestions',
@@ -245,8 +210,7 @@ export default Vue.extend({
       'updateThumbnailPreference',
       'updateInvidiousInstance',
       'updateForceLocalBackendForLegacy',
-      'getRegionData',
-      'getLocale'
+      'updateCurrentLocale'
     ])
   }
 })

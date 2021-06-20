@@ -1,4 +1,5 @@
 import { settingsDb } from '../datastores'
+import i18n from '../../i18n/index'
 
 /*
  * Due to the complexity of the settings module in FreeTube, a more
@@ -215,6 +216,40 @@ const state = {
 }
 
 const stateWithSideEffects = {
+  currentLocale: {
+    defaultValue: 'en-US',
+    sideEffectsHandler: async function ({ dispatch }, value) {
+      const defaultLocale = 'en-US'
+
+      let targetLocale = value
+      if (value === 'system') {
+        const systemLocale = await dispatch('getSystemLocale')
+
+        targetLocale = Object.keys(i18n.messages).find((locale) => {
+          const localeName = locale.replace('-', '_')
+          return localeName.includes(systemLocale.replace('-', '_'))
+        })
+
+        // Go back to default value if locale is unavailable
+        if (!targetLocale) {
+          targetLocale = defaultLocale
+          // Translating this string isn't necessary
+          // because the user will always see it in the default locale
+          // (in this case, English (US))
+          dispatch('showToast',
+            { message: `Locale not found, defaulting to ${defaultLocale}` }
+          )
+        }
+      }
+
+      i18n.locale = targetLocale
+      dispatch('getRegionData', {
+        isDev: process.env.NODE_ENV === 'development',
+        locale: targetLocale
+      })
+    }
+  },
+
   defaultVolume: {
     defaultValue: 1,
     sideEffectsHandler: (_, value) => {
