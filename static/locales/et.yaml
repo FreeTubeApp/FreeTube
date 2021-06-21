@@ -662,6 +662,8 @@ Tooltips:
       järjekorra pööramine) ei toeta siis ära näita hoiatusi.
     Custom External Player Arguments: Semikoolonitega (;) eraldatud käsurea argumendid,
       mida sa soovid välisele meediamängijale saata.
+    External Player: Seadistades välise meediamängija kuvame pisipildil ikooni video
+      (või esitusloendi) esitamiseks välises meediamängijas.
   Subscription Settings:
     Fetch Feeds from RSS: Selle valiku kasutamisel FreeTube pruugib tellimuste andmete
       laadimisel vaikimisi meetodi asemel RSS-uudisvoogu. RSS on kiirem ja välistab
@@ -678,6 +680,19 @@ Tooltips:
     Preferred API Backend: Vali taustateenus, mida FreeTube kasutab andmete laadimisel.
       Kohalik API on rakenduses olemas ja Invidious'e API eeldab välise teenuseserveri
       kasutamist.
+    Invidious Instance: Invidious'e teenuse server, mida FreeTube Invidious'e API
+      jaoks kasutab. Kui tahad näha kõiki valikuid, siis kustuta hetkel kehtiv väärtus.
+  Player Settings:
+    Default Video Format: Vali kasutatavad videovormingud. DASH-vormingutel on üldjuhul
+      parem kvaliteet. Pärandvormingute kvaliteedi ülempiir on 720p ja seetõttu kasutavad
+      nad vähem ribalaiust. Helivormingud kehtivad vaid helifailide jaoks.
+    Proxy Videos Through Invidious: Kasutab videote esitamiseks Invidious'e teenust
+      ega tee päringuid otse YouTube serveri pihta. Asendab API eelistuse.
+    Force Local Backend for Legacy Formats: See lahendus toimib, kui Invidious'e API
+      on esimene eelistus. Kui see väärtus on sisselülitatud, siis toimib ka kohalik
+      API ning kasutab pärandvorminguid ning ei kasuta neid mida Invidious'e server
+      võimaldab kasutada. See seadistus on kasulik siis, kui Invidious'e API alusel
+      laaditud videote esitamine riigipiirangute tõttu ei toimi.
 Playing Next Video Interval: Kohe esitan järgmist videot. Tühistamiseks klõpsi. |
   {nextVideoInterval} sekundi möödumisel esitan järgmist videot. Tühistamiseks klõpsi.
   | {nextVideoInterval} sekundi möödumisel esitan järgmist videot. Tühistamiseks klõpsi.
