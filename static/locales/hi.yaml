@@ -100,8 +100,8 @@ User Playlists:
 History:
   # On History Page
   History: 'इतिहास'
-  Watch History: ''
-  Your history list is currently empty.: ''
+  Watch History: 'देखने का इतिहास'
+  Your history list is currently empty.: 'आपके देखे गए वीडियो की सूची खली है।'
 Settings:
   # On Settings Page
   Settings: 'स्थापना'
@@ -109,7 +109,7 @@ Settings:
     को प्रभावी होने वाले परिवर्तनों के लिए पुनः आरंभ करने की आवश्यकता है। Restart
     और परिवर्तन लागू करें?'
   General Settings:
-    General Settings: ''
+    General Settings: 'सामान्य सेटिंग्स'
     Check for Updates: ''
     Check for Latest Blog Posts: ''
     Fallback to Non-Preferred Backend on Failure: ''
