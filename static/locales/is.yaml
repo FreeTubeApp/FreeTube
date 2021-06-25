@@ -297,6 +297,12 @@ Settings:
       (sjálfgefið er https://sponsor.ajay.app)
     Enable SponsorBlock: Virkja SponsorBlock
     SponsorBlock Settings: Stillingar SponsorBlock
+  External Player Settings:
+    Custom External Player Arguments: Sérsniðin viðföng fyrir utanaðkomandi spilara
+    Custom External Player Executable: Sérsniðin skipun fyrir utanaðkomandi spilara
+    Ignore Unsupported Action Warnings: Hunsa aðvarinir vegna óstuddra aðgerða
+    External Player: Utanaðkomandi spilari
+    External Player Settings: Stillingar utanaðkomandi spilara
 About:
   #On About page
   About: 'Um hugbúnaðinn'
@@ -500,6 +506,19 @@ Video:
     sponsor: kostunaraðili
     outro: afkynning
   Skipped segment: Búti sleppt
+  External Player:
+    Unsupported Actions:
+      looping playlists: endurtaka spilunarlista
+      shuffling playlists: stokka spilunarlista
+      reversing playlists: snúa við spilunarlistum
+      opening playlists: opna spilunarlista
+      setting a playback rate: stilla hraða afspilunar
+      starting video at offset: byrja myndskeið á hliðrun
+    UnsupportedActionTemplate: '$ styður ekki: %'
+    OpeningTemplate: Opna $ eftir %...
+    playlist: spilunarlisti
+    video: myndskeið
+    OpenInTemplate: Opna í $
 Videos:
   #& Sort By
   Sort By:
