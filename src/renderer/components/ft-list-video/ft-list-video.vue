@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="(!isLive && duration !== '0:00') || ((isLive || duration === null) && !hideLiveStreams)"
+    v-if="(!isLive && duration !== '0:00') || (!hideLiveStreams)"
     class="ft-list-video ft-list-item"
     :class="{
       list: (listType === 'list' || forceListType === 'list') && forceListType !== 'grid',
