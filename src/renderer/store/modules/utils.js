@@ -363,7 +363,7 @@ const actions = {
     let urlType = 'unknown'
 
     const channelPattern =
-      /^\/(?:c\/|channel\/|user\/)?([^/]+)(?:\/join)?\/?$/
+      /^\/(?:c\/|channel\/|user\/)?([^/]+)(?:\/join|\/featured|\/videos|\/playlists|\/about|\/community|\/channels)?\/?$/
 
     const typePatterns = new Map([
       ['playlist', /^\/playlist\/?$/],
