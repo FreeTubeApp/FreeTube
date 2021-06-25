@@ -71,6 +71,8 @@
           :default-value="hideLiveChat"
           @change="updateHideLiveChat"
         />
+      </div>
+      <div>
         <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Comments')"
           :compact="true"
@@ -89,6 +91,8 @@
           :default-value="hideLiveStreams"
           @change="updateHideLiveStreams"
         />
+      </div>
+      <div>
         <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Search Bar')"
           :compact="true"

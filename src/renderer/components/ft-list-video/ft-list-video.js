@@ -59,20 +59,7 @@ export default Vue.extend({
       isFavorited: false,
       isUpcoming: false,
       isPremium: false,
-      hideViews: false,
-      optionsValues: [
-        'history',
-        'openYoutube',
-        'copyYoutube',
-        'openYoutubeEmbed',
-        'copyYoutubeEmbed',
-        'openInvidious',
-        'copyInvidious',
-        'openYoutubeChannel',
-        'copyYoutubeChannel',
-        'openInvidiousChannel',
-        'copyInvidiousChannel'
-      ]
+      hideViews: false
     }
   },
   computed: {
@@ -129,20 +116,39 @@ export default Vue.extend({
     progressPercentage: function () {
       return (this.watchProgress / this.data.lengthSeconds) * 100
     },
+    optionsValues: function() {
+      const values = ['history']
+      if (!this.$store.getters.getHideShare) {
+        values.push('openYoutube')
+        values.push('copyYoutube')
+        values.push('openYoutubeEmbed')
+        values.push('copyYoutubeEmbed')
+        values.push('openInvidious')
+        values.push('copyInvidious')
+        values.push('openYoutubeChannel')
+        values.push('copyYoutubeChannel')
+        values.push('openInvidiousChannel')
+        values.push('copyInvidiousChannel')
+      }
+      return values
+    },
 
     optionsNames: function () {
-      const names = [
-        this.$t('Video.Open in YouTube'),
-        this.$t('Video.Copy YouTube Link'),
-        this.$t('Video.Open YouTube Embedded Player'),
-        this.$t('Video.Copy YouTube Embedded Player Link'),
-        this.$t('Video.Open in Invidious'),
-        this.$t('Video.Copy Invidious Link'),
-        this.$t('Video.Open Channel in YouTube'),
-        this.$t('Video.Copy YouTube Channel Link'),
-        this.$t('Video.Open Channel in Invidious'),
-        this.$t('Video.Copy Invidious Channel Link')
-      ]
+      let names = []
+      if (!this.$store.getters.getHideShare) {
+        names = [
+          this.$t('Video.Open in YouTube'),
+          this.$t('Video.Copy YouTube Link'),
+          this.$t('Video.Open YouTube Embedded Player'),
+          this.$t('Video.Copy YouTube Embedded Player Link'),
+          this.$t('Video.Open in Invidious'),
+          this.$t('Video.Copy Invidious Link'),
+          this.$t('Video.Open Channel in YouTube'),
+          this.$t('Video.Copy YouTube Channel Link'),
+          this.$t('Video.Open Channel in Invidious'),
+          this.$t('Video.Copy Invidious Channel Link')
+        ]
+      }
 
       if (this.watched) {
         names.unshift(this.$t('Video.Remove From History'))

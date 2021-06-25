@@ -33,6 +33,7 @@
     </div>
     <br>
     <ft-list-dropdown
+      v-if="!hideShare"
       :title="$t('Playlist.Share Playlist.Share Playlist')"
       :label-names="shareHeaders"
       :label-values="shareValues"

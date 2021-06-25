@@ -73,6 +73,10 @@ export default Vue.extend({
       return this.$store.getters.getBackendFallback
     },
 
+    hideUnsubscribe: function() {
+      return this.$store.getters.getHideUnsubscribe
+    },
+
     invidiousInstance: function () {
       return this.$store.getters.getInvidiousInstance
     },
