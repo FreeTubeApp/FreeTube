@@ -325,6 +325,12 @@ Settings:
       Url (Standaard is https://sponsor.ajay.app)
     Enable SponsorBlock: SponsorBlock Inschakelen
     SponsorBlock Settings: SponsorBlock-instellingen
+  External Player Settings:
+    Custom External Player Arguments: Eigen Externe Speler Argumenten
+    Custom External Player Executable: Eigen Externe Speler Uitvoerbaar Bestand
+    Ignore Unsupported Action Warnings: Negeer Niet Ondersteunde Actie Waarschuuwingen
+    External Player: Externe Speler
+    External Player Settings: Externe Speler Instellingen
 About:
   #On About page
   About: 'Over'
@@ -512,6 +518,19 @@ Video:
     intro: introductie
     sponsor: sponsor
   Skipped segment: Overgeslagen segment
+  External Player:
+    Unsupported Actions:
+      shuffling playlists: playlist shuffelen
+      reversing playlists: afspeellijst omkeren
+      opening specific video in a playlist (falling back to opening the video): specifieke
+        video in afspeellijst openen (terugvallen op de video openen)
+      opening playlists: afspeellijst openen
+      setting a playback rate: afspeelsnelheid instellen
+    UnsupportedActionTemplate: '$ ondersteund niet: %'
+    OpeningTemplate: $ Openen in %...
+    playlist: afspeellijst
+    video: video
+    OpenInTemplate: Open in $
 Videos:
   #& Sort By
   Sort By:
