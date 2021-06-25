@@ -39,6 +39,24 @@
           :default-value="hideActiveSubscriptions"
           @change="updateHideActiveSubscriptions"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Comments')"
+          :compact="true"
+          :default-value="hideComments"
+          @change="updateHideComments"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Description')"
+          :compact="true"
+          :default-value="hideDescription"
+          @change="updateHideDescription"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Live Streams')"
+          :compact="true"
+          :default-value="hideLiveStreams"
+          @change="updateHideLiveStreams"
+        />
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
@@ -71,28 +89,6 @@
           :default-value="hideLiveChat"
           @change="updateHideLiveChat"
         />
-      </div>
-      <div>
-        <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Comments')"
-          :compact="true"
-          :default-value="hideComments"
-          @change="updateHideComments"
-        />
-        <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Description')"
-          :compact="true"
-          :default-value="hideDescription"
-          @change="updateHideDescription"
-        />
-        <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Live Streams')"
-          :compact="true"
-          :default-value="hideLiveStreams"
-          @change="updateHideLiveStreams"
-        />
-      </div>
-      <div>
         <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Search Bar')"
           :compact="true"

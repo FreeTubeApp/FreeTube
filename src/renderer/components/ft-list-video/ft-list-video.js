@@ -178,6 +178,11 @@ export default Vue.extend({
           return `${baseUrl}/vi/${this.id}/mqdefault.jpg`
       }
     },
+
+    hideLiveStreams: function() {
+      return this.$store.getters.getHideLiveStreams
+    },
+
     hideVideoViews: function () {
       return this.$store.getters.getHideVideoViews
     },
