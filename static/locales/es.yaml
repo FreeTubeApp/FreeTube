@@ -190,30 +190,28 @@ Settings:
     Scroll Volume Over Video Player: Desplazar el volumen sobre el reproductor de
       vídeo
   Privacy Settings:
-    Privacy Settings: 'Ajustes de Privacidad'
-    Remember History: 'Recordar Historial'
+    Privacy Settings: 'Configuración de privacidad'
+    Remember History: 'Recordar historial'
     Save Watched Progress: 'Guardar progreso reproducido'
-    Clear Search Cache: 'Borrar Cache de Búsqueda'
-    Are you sure you want to clear out your search cache?: '¿Seguro de que quieres
-      borrar la cache de búsqueda?'
-    Search cache has been cleared: 'El cache de búsqueda ha sido eliminado'
-    Remove Watch History: 'Borrar historial de reproducción'
-    Are you sure you want to remove your entire watch history?: '¿Seguro de que quieres
-      borrar el historial de reproducción?'
-    Watch history has been cleared: 'El Historial de Reproducción ha sido eliminado'
+    Clear Search Cache: 'Vaciar antememoria de búsquedas'
+    Are you sure you want to clear out your search cache?: '¿Confirma que quiere vaciar
+      la antememoria de búsquedas?'
+    Search cache has been cleared: 'Se vació la antememoria de búsquedas'
+    Remove Watch History: 'Vaciar historial de reproducciones'
+    Are you sure you want to remove your entire watch history?: '¿Confirma que quiere
+      vaciar el historial de reproducciones?'
+    Watch history has been cleared: 'Se vació el historial de reproducciones'
     Remove All Subscriptions / Profiles: 'Borrar todas las suscripciones y perfiles'
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: '¿Estás
-      seguro de que quieres borrar todas las suscripciones y perfiles? Esta operación
-      será irreversible.'
-    Automatically Remove Video Meta Files: Eliminar automáticamente los meta archivos
-      de vídeo
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: '¿Confirma
+      que quiere borrar todas las suscripciones y perfiles? Esta operación es irreversible.'
+    Automatically Remove Video Meta Files: Eliminar metarchivos de vídeo automáticamente
   Subscription Settings:
-    Subscription Settings: 'Ajustes de Suscripciones'
+    Subscription Settings: 'Configuración de suscripciones'
     Hide Videos on Watch: 'Ocultar videos vistos'
-    Fetch Feeds from RSS: 'Obtener suscripciones usando RSS'
-    Manage Subscriptions: 'Administrar Suscripciones'
+    Fetch Feeds from RSS: 'Recuperar suministros desde RSS'
+    Manage Subscriptions: 'Gestionar suscripciones'
   Data Settings:
-    Data Settings: 'Ajustes de Datos'
+    Data Settings: 'Configuración de datos'
     Select Import Type: 'Seleccionar Tipo de Importación'
     Select Export Type: 'Seleccionar Tipo de Exportación'
     Import Subscriptions: 'Importar Suscripciones'
@@ -249,7 +247,7 @@ Settings:
     How do I import my subscriptions?: '¿Cómo puedo importar mis suscripciones?'
     One or more subscriptions were unable to be imported: Una o varias de las suscripciones
       no han podido ser importadas
-    Check for Legacy Subscriptions: Comprobar suscripciones Legacy
+    Check for Legacy Subscriptions: Comprobar suscripciones heredadas
     Manage Subscriptions: Administrar suscripciones
   Advanced Settings:
     Advanced Settings: 'Ajustes avanzados'
@@ -281,15 +279,15 @@ Settings:
   Distraction Free Settings:
     Hide Video Likes And Dislikes: Ocultar Likes/Dislikes del Video
     Hide Video Views: Ocultar las Vistas del Video
-    Hide Live Chat: Ocultar Chat en Vivo
-    Hide Popular Videos: Ocultar Videos Populares
-    Hide Trending Videos: Ocultar Tendencias
+    Hide Live Chat: Ocultar chat en directo
+    Hide Popular Videos: Ocultar vídeos populares
+    Hide Trending Videos: Ocultar vídeos en tendencia
     Hide Recommended Videos: Ocultar Videos Recomendados
     Hide Comment Likes: Ocultar Likes de Comentarios
     Hide Channel Subscribers: Ocultar Suscriptores de Canales
-    Distraction Free Settings: Sin Distracción
-    Hide Active Subscriptions: Ocultar Suscripciones Activas
-    Hide Playlists: Ocultar las Playlists
+    Distraction Free Settings: Configuración de modo sin distracciones
+    Hide Active Subscriptions: Ocultar suscripciones activas
+    Hide Playlists: Ocultar listas de reproducción
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
     reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:
@@ -306,7 +304,7 @@ Settings:
     Proxy Port Number: Número de puerto del Proxy
     Proxy Host: Host del Proxy
     Proxy Protocol: Protocolo Proxy
-    Enable Tor / Proxy: Habilitar Tor / Proxy
+    Enable Tor / Proxy: Activar Tor o «proxy»
     Proxy Settings: Proxy
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notificar cuando se salta un segmento
@@ -315,6 +313,12 @@ Settings:
       SponsorBlock (Por defecto https://sponsor.ajay.app)
     Enable SponsorBlock: Activar SponsorBlock
     SponsorBlock Settings: Ajustes de SponsorBlock
+  External Player Settings:
+    Custom External Player Arguments: Argumentos personalizados de reprod. externo
+    Custom External Player Executable: Ejecutable personalizado de reprod. externo
+    Ignore Unsupported Action Warnings: Pasar por alto alertas de acciones no admitidas
+    External Player: Reproductor externo
+    External Player Settings: Configuración de reproductor externo
 About:
   #On About page
   About: 'Acerca de'
@@ -471,10 +475,10 @@ Video:
   Enable Live Chat: 'Activar chat en directo'
   Live Chat is currently not supported in this build.: 'El chat en directo no está
     soportado de momento en esta build.'
-  'Chat is disabled or the Live Stream has ended.': 'El chat está deshabilitado o
-    la emisión ha acabado.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'El chat está
-    habilitado. Tus mensajes aparecerán aquí cuando los envíes.'
+  'Chat is disabled or the Live Stream has ended.': 'El chat está desactivado o la
+    emisión ha acabado.'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'El chat en directo
+    está activado. Los mensajes aparecerán aquí en cuanto se envíen.'
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Actualmente
     el chat no funciona con la API de Invidious. Se requiere una conexión directa
     con YouTube.'
@@ -523,9 +527,9 @@ Video:
     High: Alta
     Medium: Media
     Low: Baja
-  audio only: Solo audio
-  video only: Solo video
-  Download Video: Descargar video
+  audio only: audio únicamente
+  video only: video únicamente
+  Download Video: Descargar vídeo
   Copy Invidious Channel Link: Copiar enlace Invidious del canal
   Open Channel in Invidious: Abrir video en Invidious
   Copy YouTube Channel Link: Copiar enlace Youtube del canal
@@ -545,6 +549,10 @@ Video:
     intro: introducción
     sponsor: patrocinador
   Skipped segment: Segmento saltado
+  External Player:
+    playlist: lista de reproducción
+    video: vídeo
+    OpenInTemplate: Abrir en $
 Videos:
   #& Sort By
   Sort By:
@@ -561,7 +569,7 @@ Playlist:
   Last Updated On: 'Se actualizó por última vez el'
   Share Playlist:
     Share Playlist: 'Compartir lista de reproducción'
-    Copy YouTube Link: 'Copiar enlace YouTube'
+    Copy YouTube Link: 'Copiar enlace de YouTube'
     Open in YouTube: 'Abrir en YouTube'
     Copy Invidious Link: 'Copiar Enlace de Invidious'
     Open in Invidious: 'Abrir en Invidious'
@@ -572,37 +580,37 @@ Playlist:
 Toggle Theatre Mode: 'Activar Modo Cine'
 Change Format:
   Change Video Formats: 'Cambiar formato de video'
-  Use Dash Formats: 'Usar formatos DASH'
-  Use Legacy Formats: 'Usar formato Legacy'
-  Use Audio Formats: 'Usar formato solo audio'
+  Use Dash Formats: 'Utilizar formatos DASH'
+  Use Legacy Formats: 'Utilizar formatos heredados'
+  Use Audio Formats: 'Utilizar formatos de audio'
   Audio formats are not available for this video: El formato solo audio no está disponible
     para este video
   Dash formats are not available for this video: Los formatos DASH no están disponible
     para este video
 Share:
-  Share Video: 'Compartir Video'
+  Share Video: 'Compartir vídeo'
   Copy Link: 'Copiar enlace'
   Open Link: 'Abrir enlace'
-  Copy Embed: 'Copiar código encrustado'
-  Open Embed: 'Abrir código encrustado'
+  Copy Embed: 'Copiar código de incrustación'
+  Open Embed: 'Abrir código de incrustación'
   # On Click
-  Invidious URL copied to clipboard: 'Enlace de Invidious copiado al porta-papeles'
-  Invidious Embed URL copied to clipboard: 'Enlace Incrustado de Invidious copiado
-    al porta-papeles'
-  YouTube URL copied to clipboard: 'Enlace de YouTube copiado al porta-papeles'
-  YouTube Embed URL copied to clipboard: 'Enlace Incrustado de YouTube copiado al
-    porta-papeles'
-  Include Timestamp: Incluir marcas de tiempo
-  YouTube Channel URL copied to clipboard: Enlace del Canal de YouTube copiado al
-    porta-papeles
-  Invidious Channel URL copied to clipboard: Enlace del Canal de Invidious copiado
-    al porta-papeles
-Mini Player: 'Mini Reproductor'
+  Invidious URL copied to clipboard: 'Se copió el URL de Invidious en el portapapeles'
+  Invidious Embed URL copied to clipboard: 'Se copió el URL de incrustación de Invidious
+    en el portapapeles'
+  YouTube URL copied to clipboard: 'Se copió el URL de YouTube en el portapapeles'
+  YouTube Embed URL copied to clipboard: 'Se copió el URL de incrustación de YouTube
+    en el portapapeles'
+  Include Timestamp: Incluir cronomarcador
+  YouTube Channel URL copied to clipboard: Se copió el URL del canal de YouTube en
+    el portapapeles
+  Invidious Channel URL copied to clipboard: Se copió el URL al canal de Invidious
+    en el portapapeles
+Mini Player: 'Minirreproductor'
 Comments:
   Comments: 'Comentarios'
-  Click to View Comments: 'Ver Comentarios'
-  Getting comment replies, please wait: 'Obteniendo las respuestas. Por favor, espera...'
-  Show Comments: 'Ver Comentarios'
+  Click to View Comments: 'Pulse para ver comentarios'
+  Getting comment replies, please wait: 'Obteniendo las respuestas. Espere'
+  Show Comments: 'Mostrar comentarios'
   Hide Comments: 'Ocultar Comentarios'
   # Context: View 10 Replies, View 1 Reply
   View: 'Ver'
@@ -610,13 +618,13 @@ Comments:
   Replies: 'Respuestas'
   Reply: 'Responder'
   There are no comments available for this video: 'Aún no hay comentarios'
-  Load More Comments: 'Más comentarios'
+  Load More Comments: 'Cargar más comentarios'
   There are no more comments for this video: No hay más comentarios en este video
   Newest first: Los más Recientes Primero
   Top comments: Mejores comentarios
   Sort by: Ordenar por
   No more comments available: No hay más comentarios
-Up Next: 'A Continuación'
+Up Next: 'A continuación'
 
 # Toast Messages
 Local API Error (Click to copy): 'Error de la API local (Click para copiar el código)'
@@ -624,7 +632,7 @@ Invidious API Error (Click to copy): 'Error de la API de Invidious (Click para c
   el código)'
 Falling back to Invidious API: 'Recurriendo a la API de Invidious'
 Falling back to the local API: 'Recurriendo a la API local'
-Subscriptions have not yet been implemented: 'Este sección está en desarrollo'
+Subscriptions have not yet been implemented: 'Todavía no se han implementado las suscripciones'
 Loop is now disabled: 'Reproducción en bucle desactivada'
 Loop is now enabled: 'Reproducción en bucle activada'
 Shuffle is now disabled: 'Reproducción aleatoria desactivada'
@@ -650,10 +658,10 @@ This video is unavailable because of missing formats. This can happen due to cou
   la falta de acceso de este formato a tu región.
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Si lo habilitas, FreeTube usará RSS en lugar de su método
-      por defecto para obtener tus actualizaciones de suscripciones. RSS es más rápido
-      e impide el bloqueo de IP, pero no provee cierta información como la duración
-      de un video o si es en directo
+    Fetch Feeds from RSS: Al activarse, FreeTube utilizará RSS en lugar de su método
+      predeterminado para recuperar el suministro de suscripciones. RSS es más rápido
+      y previene los bloqueos por IP, pero carece de ciertos datos, como la duración
+      de los vídeos o el estado de transmisión en directo
   Player Settings:
     Default Video Format: Establezca los formatos utilizados cuando se reproduce un
       vídeo. Los formatos DASH pueden reproducir calidades superiores. Los formatos
@@ -668,23 +676,29 @@ Tooltips:
       Ayuda cuando los vídeos devueltos por Invidious no se reproducen debido a las
       restricciones del país.
   General Settings:
-    Region for Trending: La región de las tendencias te permite elegir los videos
-      más populares en un país. No todos los países que aparecen tienen soporte de
-      YouTube.
+    Region for Trending: La región de las tendencias permite ver los videos más populares
+      en un país determinado. YouTube no admite todos los países mostrados.
     Invidious Instance: La instancia de Invidious por defecto a la que FreeTube se
       conectará para las llamadas a la API. Borra la instancia actual para ver una
       lista de instancias públicas.
-    Thumbnail Preference: Todas las miniaturas en FreeTube serán reemplazadas con
-      un frame del vídeo en lugar de la miniatura por defecto.
+    Thumbnail Preference: Todas las miniaturas en FreeTube se reemplazarán con un
+      fotograma del vídeo en lugar de la miniatura predeterminada.
     Fallback to Non-Preferred Backend on Failure: Si la API primaria falla, FreeTube
-      utilizará automáticamente la API secundara cuando esté habilitada.
-    Preferred API Backend: Elige el backend que FreeTube utiliza para obtener datos.
-      La API local es un extractor incluido. La API Invidious requiere un servidor
-      Invidious al que conectarse.
+      utilizará automáticamente la API secundaria cuando esté activada.
+    Preferred API Backend: Elija el motor que debe utilizar FreeTube para obtener
+      datos. La API local es un extractor incorporado. La API de Invidious requiere
+      de un servidor Invidious al cual conectarse.
   Privacy Settings:
     Remove Video Meta Files: Cuando se active, FreeTube eliminará de forma automática
       meta-archivos creados durante la reproducción de vídeo cuando se cierre la página
       de visualizado.
+  External Player Settings:
+    Custom External Player Executable: De manera predeterminada, FreeTube supondrá
+      que el reproductor externo seleccionado puede hallarse mediante la variable
+      de entorno PATH. Si fuera necesario, se puede especificar una ruta personalizada
+      aquí.
+    Custom External Player Arguments: Cualesquier argumentos de orden de consola personalizados,
+      separados por punto y coma (;) que deberán transmitirse al reproductor externo.
 More: Más
 Unknown YouTube url type, cannot be opened in app: Tipo de LRU desconocido. No se
   puede abrir en applicación
