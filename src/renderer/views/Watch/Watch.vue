@@ -97,7 +97,7 @@
         @pause-player="pausePlayer"
       />
       <watch-video-description
-        v-if="!isLoading"
+        v-if="!isLoading && !hideDescription"
         :published="videoPublished"
         :description="videoDescription"
         :description-html="videoDescriptionHtml"
@@ -106,7 +106,7 @@
         @timestamp-event="changeTimestamp"
       />
       <watch-video-comments
-        v-if="!isLoading && !isLive"
+        v-if="!isLoading && !isLive && !hideComments"
         :id="videoId"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"

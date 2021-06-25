@@ -71,6 +71,42 @@
           :default-value="hideLiveChat"
           @change="updateHideLiveChat"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Comments')"
+          :compact="true"
+          :default-value="hideComments"
+          @change="updateHideComments"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Description')"
+          :compact="true"
+          :default-value="hideDescription"
+          @change="updateHideDescription"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Live Streams')"
+          :compact="true"
+          :default-value="hideLiveStreams"
+          @change="updateHideLiveStreams"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Search Bar')"
+          :compact="true"
+          :default-value="hideSearchBar"
+          @change="updateHideSearchBar"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Share')"
+          :compact="true"
+          :default-value="hideShare"
+          @change="updateHideShare"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Unsubscribe')"
+          :compact="true"
+          :default-value="hideUnsubscribe"
+          @change="updateHideUnsubscribe"
+        />
       </div>
     </div>
     <br>
