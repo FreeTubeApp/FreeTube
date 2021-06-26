@@ -51,7 +51,7 @@
     "yt-comment-scraper": "^5.0.1",
     "yt-dash-manifest-generator": "1.1.0",
     "yt-trending-scraper": "^2.0.1",
-    "ytdl-core": "^4.8.2",
+    "ytdl-core": "^4.8.3",
     "ytpl": "^2.2.1",
     "ytsr": "^3.5.0"
   },
