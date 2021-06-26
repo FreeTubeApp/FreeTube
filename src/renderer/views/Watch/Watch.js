@@ -42,6 +42,8 @@ export default Vue.extend({
       showLegacyPlayer: false,
       showYouTubeNoCookieEmbed: false,
       hidePlayer: false,
+      isAgeRestricted: false,
+      isFamilyFriendly: false,
       isLive: false,
       isLiveContent: false,
       isUpcoming: false,
@@ -138,6 +140,12 @@ export default Vue.extend({
     },
     hideDescription: function () {
       return this.$store.getters.getHideDescription
+    },
+    hideAgeRestricted: function() {
+      return this.$store.getters.hideAgeRestrictedVideos
+    },
+    showFamilyFriendlyOnly: function() {
+      return this.$store.getters.showFamilyFriendlyOnly
     },
 
     youtubeNoCookieEmbeddedFrame: function () {
@@ -279,7 +287,8 @@ export default Vue.extend({
               this.thumbnail = result.videoDetails.thumbnails[result.videoDetails.thumbnails.length - 1].url
               break
           }
-
+          this.isFamilyFriendly = result.microformat.playerMicroformatRenderer.isFamilySafe
+          this.isAgeRestricted = result.videoDetails.age_restricted
           this.recommendedVideos = result.related_videos.map((video) => {
             video.videoId = video.id
             video.authorId = video.author.id
@@ -525,7 +534,6 @@ export default Vue.extend({
       this.invidiousGetVideoInformation(this.videoId)
         .then(result => {
           console.log(result)
-
           if (result.error) {
             throw new Error(result.error)
           }
@@ -552,6 +560,7 @@ export default Vue.extend({
           this.recommendedVideos = result.recommendedVideos
           this.adaptiveFormats = result.adaptiveFormats
           this.isLive = result.liveNow
+          this.isFamilyFriendly = result.isFamilyFriendly
           this.captionHybridList = result.captions.map(caption => {
             caption.url = this.invidiousInstance + caption.url
             caption.type = ''

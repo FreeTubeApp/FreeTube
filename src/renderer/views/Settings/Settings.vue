@@ -10,6 +10,7 @@
     <data-settings />
     <proxy-settings />
     <sponsor-block-settings />
+    <parental-control-settings/>
   </div>
 </template>
 

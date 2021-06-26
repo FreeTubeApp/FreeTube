@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="(isAgeRestricted==false || !hideAgeRestricted) && (isFamilyFriendly==true || !showFamilyFriendlyOnly)"
     class="videoLayout"
     :class="{
       isLoading,

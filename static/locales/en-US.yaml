@@ -235,12 +235,8 @@ Settings:
     Hide Playlists: Hide Playlists
     Hide Live Chat: Hide Live Chat
     Hide Active Subscriptions: Hide Active Subscriptions
-    Hide Comments: Hide Comments
     Hide Description: Hide Description
-    Hide Live Streams: Hide Live Streams
     Hide Search Bar: Hide Search Bar
-    Hide Share: Hide Share
-    Hide Unsubscribe: Hide Unsubscribe
   Data Settings:
     Data Settings: Data Settings
     Select Import Type: Select Import Type
@@ -299,6 +295,14 @@ Settings:
     Enable SponsorBlock: Enable SponsorBlock
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API Url (Default is https://sponsor.ajay.app)
     Notify when sponsor segment is skipped: Notify when sponsor segment is skipped
+  Parental Control Settings:
+    Parental Control Settings: Parental Control Settings
+    Hide Comments: Hide Comments
+    Hide Live Streams: Hide Live Streams
+    Hide Share: Hide Share
+    Hide Unsubscribe: Hide Unsubscribe
+    Show Family Friendly Only: Show Family Friendly Only
+    Hide Age Restricted: Hide Age Restricted
 About:
   #On About page
   About: About
