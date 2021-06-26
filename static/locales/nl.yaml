@@ -131,14 +131,14 @@ Settings:
     System Default: Standaard Systeeminstellingen
   Theme Settings:
     Theme Settings: 'Thema-instellingen'
-    Match Top Bar with Main Color: 'Laat de bovenste balk overeenkomen met de hoofdkleur'
+    Match Top Bar with Main Color: 'Zet Bovenste Balk Gelijk aan Primaire Themakleur'
     Base Theme:
       Base Theme: 'Basisthema'
       Black: 'Zwart'
       Dark: 'Donker'
       Light: 'Licht'
     Main Color Theme:
-      Main Color Theme: 'Hoofdkleur Thema'
+      Main Color Theme: 'Primaire Themakleur'
       Red: 'Rood'
       Pink: 'Roze'
       Purple: 'Paars'
@@ -161,7 +161,7 @@ Settings:
     Expand Side Bar by Default: Zijbalk Standaard Uitschuiven
     Disable Smooth Scrolling: Vloeiend Scrollen Uitschakelen
   Player Settings:
-    Player Settings: 'Videospelerinstellingen'
+    Player Settings: 'Videospeler-instellingen'
     Force Local Backend for Legacy Formats: 'Lokale Backend Forceren voor Oudere Formaten'
     Play Next Video: 'Volgende Video Automatisch Afspelen'
     Turn on Subtitles by Default: 'Schakel Ondertiteling Standaard in'
@@ -193,9 +193,9 @@ Settings:
     Display Play Button In Video Player: Afspeelknop weergeven in Videokader
     Scroll Volume Over Video Player: Volume Veranderen Door in het Videokader te Scrollen
   Privacy Settings:
-    Privacy Settings: 'Privacyinstellingen'
-    Remember History: 'Onthoud Geschiedenis'
-    Save Watched Progress: 'Bewaar Video Voortgang'
+    Privacy Settings: 'Privacy-instellingen'
+    Remember History: 'Kijkgeschiedenis Onthouden'
+    Save Watched Progress: 'Bewaar Videovoortgang'
     Clear Search Cache: 'Verwijder Zoek-Cache'
     Are you sure you want to clear out your search cache?: 'Weet u zeker dat u de
       zoek-cache wil verwijderen?'
@@ -296,7 +296,7 @@ Settings:
     Hide Channel Subscribers: Verberg Abonnee Aantal
     Hide Video Likes And Dislikes: Verberg Likes en Dislikes
     Hide Video Views: Verberg Weergaven
-    Distraction Free Settings: Afleidingsvrije Instellingen
+    Distraction Free Settings: Afleidingsvrije-instellingen
     Hide Active Subscriptions: Verberg Actieve Abonnementen
     Hide Playlists: Verberg Afspeellijst
   The app needs to restart for changes to take effect. Restart and apply change?: De
@@ -317,7 +317,7 @@ Settings:
     Proxy Host: Proxy Host
     Proxy Protocol: Proxy Protocol
     Enable Tor / Proxy: Tor / Proxy Inschakelen
-    Proxy Settings: Proxyinstellingen
+    Proxy Settings: Proxy-instellingen
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Informeer mij wanneer een gesponsord segment
       wordt overgeslagen
@@ -326,11 +326,12 @@ Settings:
     Enable SponsorBlock: SponsorBlock Inschakelen
     SponsorBlock Settings: SponsorBlock-instellingen
   External Player Settings:
-    Custom External Player Arguments: Eigen Externe Speler Argumenten
-    Custom External Player Executable: Eigen Externe Speler Uitvoerbaar Bestand
-    Ignore Unsupported Action Warnings: Negeer Niet Ondersteunde Actie Waarschuuwingen
-    External Player: Externe Speler
-    External Player Settings: Externe Speler Instellingen
+    Custom External Player Arguments: Aangepaste Argumenten voor Externe Videospeler
+    Custom External Player Executable: Aangepast Uitvoerbaar Bestand van Externe Videospeler
+    Ignore Unsupported Action Warnings: Negeer Waarschuwingen Voor Niet Ondersteunde
+      Acties
+    External Player: Externe Videospeler
+    External Player Settings: Externe Videospeler-instellingen
 About:
   #On About page
   About: 'Over'
@@ -427,7 +428,7 @@ Video:
   Video has been removed from your history: 'Video is verwijdert uit uw geschiedenis'
   Open in YouTube: 'Open op YouTube'
   Copy YouTube Link: 'Kopieer YouTube Link'
-  Open YouTube Embedded Player: 'Open Ingebedde YouTube Videospeler'
+  Open YouTube Embedded Player: 'Open Embedded YouTube Videospeler'
   Copy YouTube Embedded Player Link: 'Kopieer Insluitlink YouTube Videospeler'
   Open in Invidious: 'Open op Invidious'
   Copy Invidious Link: 'Kopieer Invidious Link'
@@ -520,12 +521,14 @@ Video:
   Skipped segment: Overgeslagen segment
   External Player:
     Unsupported Actions:
-      shuffling playlists: playlist shuffelen
-      reversing playlists: afspeellijst omkeren
+      shuffling playlists: afspeellijsten door elkaar schuiven
+      reversing playlists: afspeellijsten omkeren
       opening specific video in a playlist (falling back to opening the video): specifieke
-        video in afspeellijst openen (terugvallen op de video openen)
-      opening playlists: afspeellijst openen
+        video in een afspeellijst openen (terugvallen tot het openen van de video)
+      opening playlists: afspeellijsten worden geopend
       setting a playback rate: afspeelsnelheid instellen
+      looping playlists: afspeellijsten herhalen
+      starting video at offset: begin afspelen video bij offset
     UnsupportedActionTemplate: '$ ondersteund niet: %'
     OpeningTemplate: $ Openen in %...
     playlist: afspeellijst
@@ -582,7 +585,7 @@ Share:
   YouTube Channel URL copied to clipboard: YouTube URL is gekopieerd naar het klembord
   Invidious Channel URL copied to clipboard: Invidious Kanaal URL is gekopieerd naar
     het klembord
-Mini Player: 'Minispeler'
+Mini Player: 'Mini Videospeler'
 Comments:
   Comments: 'Reacties'
   Click to View Comments: 'Klik om Reacties Te Tonen'
@@ -692,7 +695,7 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Wanneer ingeschakeld zal FreeTube RSS gebruiken in plaats
       van de standaard methode om de videolijsten van je abonnementen te verzamelen.
-      RSS is sneller en voorkomt dat je IP word geblokkeerd maar geeft geen toegang
+      RSS is sneller en voorkomt dat je IP wordt geblokkeerd maar geeft geen toegang
       tot sommige informatie zoals de videoduur en live-status
   General Settings:
     Invidious Instance: Dit is de Invidious instantie waar FreeTube mee zal verbinden
@@ -713,6 +716,17 @@ Tooltips:
     Remove Video Meta Files: Wanneer ingeschakeld zal FreeTube automatisch meta bestanden
       die worden gecreëerd tijdens het afspelen van video's verwijderen zodra de pagina
       wordt gesloten.
+  External Player Settings:
+    Custom External Player Arguments: Aangepaste opdrachtregelargumenten, gescheiden
+      door puntkomma's (';'), die je wil doorgeven aan de externe videospeler.
+    Ignore Warnings: Onderdruk waarschuwingen wanneer de geselecteerde videospeler
+      een opgegeven actie niet ondersteund (bijv. afspeellijsten omkeren, etc.).
+    Custom External Player Executable: Standaard gaat FreeTube er vanuit dat de gekozen
+      videospeler kan worden benaderd via het PATH omgevingsvariabele. Wanneer nodig
+      kan er hier een aangepast pad worden ingevoerd.
+    External Player: Door het kiezen van een externe videospeler zal er een icoontje
+      verschijnen op het thumbnail waarmee de video (Of afspeellijst wanneer ondersteund)
+      in deze externe videospeler kan worden geopend.
 Playing Next Video Interval: Volgende video wordt afgespeeld. Klik om te onderbreken.
   | Volgende video wordt afgespeeld in {nextVideoInterval} seconde. Klik om te onderbreken.
   | Volgende video wordt afgespeeld in {nextVideoInterval} seconden. Klik om te onderbreken.
