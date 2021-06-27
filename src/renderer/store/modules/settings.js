@@ -184,7 +184,6 @@ const state = {
   externalPlayerCustomArgs: '',
   forceLocalBackendForLegacy: false,
   hideActiveSubscriptions: false,
-  hideAgeRestrictedVideos: false,
   hideChannelSubscriptions: false,
   hideCommentLikes: false,
   hideComments: false,

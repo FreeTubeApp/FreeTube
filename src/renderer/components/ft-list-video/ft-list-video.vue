@@ -118,6 +118,11 @@
       </p>
     </div>
   </div>
+  <div
+    v-else
+  >
+    Live Streams are hidden
+  </div>
 </template>
 
 <script src="./ft-list-video.js" />

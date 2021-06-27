@@ -37,6 +37,10 @@ export default Vue.extend({
 
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
+    },
+
+    hideLiveStreams: function() {
+      return this.$store.getters.getHideLiveStreams
     }
   },
   watch: {
@@ -94,6 +98,11 @@ export default Vue.extend({
 
       if (sameSearch.length > 0) {
         console.log(sameSearch)
+        if (this.hideLiveStreams) {
+          sameSearch[0].data = sameSearch[0].data.filter((obj) => {
+            return (!obj.liveNow && !obj.isUpcoming)
+          })
+        }
         // Replacing the data right away causes a strange error where the data
         // Shown is mixed from 2 different search results.  So we'll wait a moment
         // Before showing the results.

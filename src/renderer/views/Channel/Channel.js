@@ -8,6 +8,7 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubble.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
+import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
 
 import ytch from 'yt-channel-info'
 import autolinker from 'autolinker'
@@ -22,7 +23,8 @@ export default Vue.extend({
     'ft-flex-box': FtFlexBox,
     'ft-channel-bubble': FtChannelBubble,
     'ft-loader': FtLoader,
-    'ft-element-list': FtElementList
+    'ft-element-list': FtElementList,
+    'ft-age-restricted': FtAgeRestricted
   },
   data: function () {
     return {
@@ -49,6 +51,7 @@ export default Vue.extend({
       searchResults: [],
       shownElementList: [],
       apiUsed: '',
+      isFamilyFriendly: true,
       videoSelectValues: [
         'newest',
         'oldest',
@@ -75,6 +78,10 @@ export default Vue.extend({
 
     hideUnsubscribe: function() {
       return this.$store.getters.getHideUnsubscribe
+    },
+
+    showFamilyFriendlyOnly: function() {
+      return this.$store.getters.getShowFamilyFriendlyOnly
     },
 
     invidiousInstance: function () {
@@ -254,6 +261,7 @@ export default Vue.extend({
       ytch.getChannelInfo(this.id).then((response) => {
         this.id = response.authorId
         this.channelName = response.author
+        this.isFamilyFriendly = response.isFamilyFriendly
         if (this.hideChannelSubscriptions || response.subscriberCount === 0) {
           this.subCount = null
         } else {
@@ -349,6 +357,7 @@ export default Vue.extend({
         console.log(response)
         this.channelName = response.author
         this.id = response.authorId
+        this.isFamilyFriendly = response.isFamilyFriendly
         if (this.hideChannelSubscriptions) {
           this.subCount = null
         } else {

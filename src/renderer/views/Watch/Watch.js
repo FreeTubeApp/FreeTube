@@ -13,6 +13,7 @@ import WatchVideoComments from '../../components/watch-video-comments/watch-vide
 import WatchVideoLiveChat from '../../components/watch-video-live-chat/watch-video-live-chat.vue'
 import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-video-playlist.vue'
 import WatchVideoRecommendations from '../../components/watch-video-recommendations/watch-video-recommendations.vue'
+import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
 
 export default Vue.extend({
   name: 'Watch',
@@ -26,7 +27,8 @@ export default Vue.extend({
     'watch-video-comments': WatchVideoComments,
     'watch-video-live-chat': WatchVideoLiveChat,
     'watch-video-playlist': WatchVideoPlaylist,
-    'watch-video-recommendations': WatchVideoRecommendations
+    'watch-video-recommendations': WatchVideoRecommendations,
+    'ft-age-restricted': FtAgeRestricted
   },
   beforeRouteLeave: function (to, from, next) {
     this.handleRouteChange()
@@ -42,7 +44,6 @@ export default Vue.extend({
       showLegacyPlayer: false,
       showYouTubeNoCookieEmbed: false,
       hidePlayer: false,
-      isAgeRestricted: false,
       isFamilyFriendly: false,
       isLive: false,
       isLiveContent: false,
@@ -141,11 +142,8 @@ export default Vue.extend({
     hideDescription: function () {
       return this.$store.getters.getHideDescription
     },
-    hideAgeRestricted: function() {
-      return this.$store.getters.hideAgeRestrictedVideos
-    },
     showFamilyFriendlyOnly: function() {
-      return this.$store.getters.showFamilyFriendlyOnly
+      return this.$store.getters.getShowFamilyFriendlyOnly
     },
 
     youtubeNoCookieEmbeddedFrame: function () {
@@ -287,8 +285,7 @@ export default Vue.extend({
               this.thumbnail = result.videoDetails.thumbnails[result.videoDetails.thumbnails.length - 1].url
               break
           }
-          this.isFamilyFriendly = result.microformat.playerMicroformatRenderer.isFamilySafe
-          this.isAgeRestricted = result.videoDetails.age_restricted
+          this.isFamilyFriendly = result.videoDetails.isFamilySafe
           this.recommendedVideos = result.related_videos.map((video) => {
             video.videoId = video.id
             video.authorId = video.author.id
@@ -715,7 +712,7 @@ export default Vue.extend({
     },
 
     handleWatchProgress: function () {
-      if (this.rememberHistory && !this.isUpcoming && !this.isLoading && !this.isLive) {
+      if (this.rememberHistory && !this.isUpcoming && !this.isLoading && !this.isLive && this.$refs.videoPlayer !== undefined) {
         const player = this.$refs.videoPlayer.player
 
         if (player !== null && this.saveWatchedProgress) {
@@ -735,7 +732,9 @@ export default Vue.extend({
       })
 
       console.log(historyIndex)
-
+      if (this.$refs.videoPlayer === undefined) {
+        return false
+      }
       if (!this.isLive) {
         if (this.timestamp) {
           if (this.timestamp < 0) {
@@ -948,7 +947,7 @@ export default Vue.extend({
 
       this.handleWatchProgress()
 
-      if (!this.isUpcoming && !this.isLoading) {
+      if (!this.isUpcoming && !this.isLoading && this.$refs.videoPlayer !== undefined) {
         const player = this.$refs.videoPlayer.player
 
         if (player !== null && !player.paused() && player.isInPictureInPicture()) {

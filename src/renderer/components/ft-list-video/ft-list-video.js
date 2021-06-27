@@ -179,10 +179,6 @@ export default Vue.extend({
       }
     },
 
-    hideAgeRestricted: function() {
-      return this.$store.getters.getHideLiveStreams
-    },
-
     hideLiveStreams: function() {
       return this.$store.getters.getHideLiveStreams
     },

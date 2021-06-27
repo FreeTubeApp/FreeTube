@@ -3,11 +3,11 @@
     ref="search"
   >
     <ft-loader
-      v-if="isLoading"
+      v-if="isLoading && (isFamilyFriendly==true || !showFamilyFriendlyOnly)"
       :fullscreen="true"
     />
     <ft-card
-      v-else
+      v-else-if="(isFamilyFriendly==true || !showFamilyFriendlyOnly)"
       class="card"
     >
       <img
@@ -97,7 +97,7 @@
       </div>
     </ft-card>
     <ft-card
-      v-if="!isLoading"
+      v-if="!isLoading && (isFamilyFriendly==true || !showFamilyFriendlyOnly)"
       class="card"
     >
       <div
@@ -179,6 +179,11 @@
         </div>
       </div>
     </ft-card>
+    <ft-age-restricted
+      v-if="(isFamilyFriendly==false && showFamilyFriendlyOnly)"
+      class="ageRestricted"
+      :content-type-string="'channel'"
+    />
   </div>
 </template>
 

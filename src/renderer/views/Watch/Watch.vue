@@ -1,6 +1,5 @@
 <template>
   <div
-    v-if="(isAgeRestricted==false || !hideAgeRestricted) && (isFamilyFriendly==true || !showFamilyFriendlyOnly)"
     class="videoLayout"
     :class="{
       isLoading,
@@ -9,10 +8,13 @@
     }"
   >
     <ft-loader
-      v-if="isLoading"
+      v-if="isLoading && !(isFamilyFriendly==false && showFamilyFriendlyOnly)"
       :fullscreen="true"
     />
-    <div class="videoArea">
+    <div
+      v-if="(isFamilyFriendly==true || !showFamilyFriendlyOnly)"
+      class="videoArea"
+    >
       <div class="videoAreaMargin">
         <ft-video-player
           v-if="!isLoading && !hidePlayer && !isUpcoming"
@@ -65,7 +67,15 @@
         </div>
       </div>
     </div>
-    <div class="infoArea">
+    <ft-age-restricted
+      v-if="(isFamilyFriendly==false && showFamilyFriendlyOnly)"
+      class="ageRestricted"
+      :content-type-string="'video'"
+    />
+    <div
+      v-if="(isFamilyFriendly==true || !showFamilyFriendlyOnly)"
+      class="infoArea"
+    >
       <watch-video-info
         v-if="!isLoading"
         :id="videoId"
@@ -115,7 +125,10 @@
         @timestamp-event="changeTimestamp"
       />
     </div>
-    <div class="sidebarArea">
+    <div
+      v-if="(isFamilyFriendly==true || !showFamilyFriendlyOnly)"
+      class="sidebarArea"
+    >
       <watch-video-live-chat
         v-if="!isLoading && isLive"
         :video-id="videoId"

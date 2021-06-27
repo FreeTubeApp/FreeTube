@@ -22,10 +22,10 @@
           @change="updateHideLiveStreams"
         />
         <ft-toggle-switch
-          :label="$t('Settings.Parental Control Settings.Hide Age Restricted')"
+          :label="$t('Settings.Parental Control Settings.Show Family Friendly Only')"
           :compact="true"
-          :default-value="hideAgeRestricted"
-          @change="updateAgeRestricted"
+          :default-value="showFamilyFriendlyOnly"
+          @change="updateShowFamilyFriendlyOnly"
         />
       </div>
       <div class="switchColumn">
@@ -40,12 +40,6 @@
           :compact="true"
           :default-value="hideShare"
           @change="updateHideShare"
-        />
-        <ft-toggle-switch
-          :label="$t('Settings.Parental Control Settings.Show Family Friendly Only')"
-          :compact="true"
-          :default-value="showFamilyFriendlyOnly"
-          @change="updateShowFamilyFriendlyOnly"
         />
       </div>
     </div>

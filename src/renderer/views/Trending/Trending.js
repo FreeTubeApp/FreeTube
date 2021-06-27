@@ -39,6 +39,9 @@ export default Vue.extend({
     },
     trendingCache () {
       return this.$store.getters.getTrendingCache
+    },
+    hideLiveStreams: function() {
+      return this.$store.getters.getHideLiveStreams
     }
   },
   mounted: function () {
@@ -76,7 +79,8 @@ export default Vue.extend({
 
       ytrend.scrape_trending_page(param).then((result) => {
         const returnData = result.filter((item) => {
-          return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
+          return (item.type === 'video' && ((!item.liveNow && !item.isUpcoming) || !this.hideLiveStreams)) ||
+            item.type === 'channel' || item.type === 'playlist'
         })
 
         this.shownResults = returnData
@@ -120,7 +124,8 @@ export default Vue.extend({
         console.log(result)
 
         const returnData = result.filter((item) => {
-          return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
+          return (item.type === 'video' && ((!item.liveNow && !item.isUpcoming) || !this.hideLiveStreams)) ||
+            item.type === 'channel' || item.type === 'playlist'
         })
 
         this.shownResults = returnData

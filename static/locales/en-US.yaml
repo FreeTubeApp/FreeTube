@@ -659,6 +659,8 @@ Playing Next Video Interval: Playing next video in no time. Click to cancel. | P
 Canceled next video autoplay: Canceled next video autoplay
 'The playlist has ended.  Enable loop to continue playing': 'The playlist has ended.  Enable
   loop to continue playing'
-
+Age Restricted:
+  This video is age restricted: This video is age restricted
+  This channel is age restricted: This channel is age restricted
 Yes: Yes
 No: No

@@ -16,9 +16,6 @@ export default Vue.extend({
     'ft-flex-box': FtFlexBox
   },
   computed: {
-    hideAgeRestricted: function() {
-      return this.$store.getters.hideAgeRestrictedVideos
-    },
     hideComments: function () {
       return this.$store.getters.getHideComments
     },
@@ -32,7 +29,7 @@ export default Vue.extend({
       return this.$store.getters.getHideUnsubscribe
     },
     showFamilyFriendlyOnly: function() {
-      return this.$store.getters.showFamilyFriendlyOnly
+      return this.$store.getters.getShowFamilyFriendlyOnly
     }
   },
   methods: {
@@ -40,7 +37,8 @@ export default Vue.extend({
       'updateHideComments',
       'updateHideLiveStreams',
       'updateHideShare',
-      'updateHideUnsubscribe'
+      'updateHideUnsubscribe',
+      'updateShowFamilyFriendlyOnly'
     ])
   }
 })
