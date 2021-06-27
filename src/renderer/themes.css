@@ -481,3 +481,7 @@ a:visited {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--scrollbar-color-hover);
 }
+
+:root {
+  --main-border-radius: 10px;
+}
