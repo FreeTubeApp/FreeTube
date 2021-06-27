@@ -5,3 +5,7 @@
 .ftVideoPlayer {
   width:100%;
 }
+
+.ftVideoPlayer:not(.vjs-fullscreen){
+  border-radius: var(--main-border-radius);
+}
