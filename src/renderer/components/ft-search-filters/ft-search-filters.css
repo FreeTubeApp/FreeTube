@@ -2,7 +2,7 @@
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
-
+  border-radius: var(--main-border-radius);
   padding: 20px 20px 70px 20px;
   max-height: 410px;
   overflow-y: auto;
