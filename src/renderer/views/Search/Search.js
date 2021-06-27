@@ -98,11 +98,7 @@ export default Vue.extend({
 
       if (sameSearch.length > 0) {
         console.log(sameSearch)
-        if (this.hideLiveStreams) {
-          sameSearch[0].data = sameSearch[0].data.filter((obj) => {
-            return (!obj.liveNow && !obj.isUpcoming)
-          })
-        }
+
         // Replacing the data right away causes a strange error where the data
         // Shown is mixed from 2 different search results.  So we'll wait a moment
         // Before showing the results.
@@ -139,7 +135,8 @@ export default Vue.extend({
 
         const returnData = result.items.filter((item) => {
           if (typeof item !== 'undefined') {
-            return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
+            return (item.type === 'video' && ((!item.isLive && !item.isUpcoming) || !this.hideLiveStreams)) ||
+              item.type === 'channel' || item.type === 'playlist'
           }
 
           return null
@@ -249,7 +246,8 @@ export default Vue.extend({
         console.log(result)
 
         const returnData = result.filter((item) => {
-          return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
+          return (item.type === 'video' && ((!item.liveNow && !item.isUpcoming) || !this.hideLiveStreams)) ||
+            item.type === 'channel' || item.type === 'playlist'
         })
 
         console.log(returnData)
