@@ -112,7 +112,8 @@ Settings:
     General Settings: 'Bendrieji nustatymai'
     Check for Updates: 'Ieškoti atnaujinimų'
     Check for Latest Blog Posts: 'Ieškoti naujų tinklaraščio įrašų'
-    Fallback to Non-Preferred Backend on Failure: ''
+    Fallback to Non-Preferred Backend on Failure: 'Nepavykus grįžti prie nepagrindinio
+      šaltinio'
     Enable Search Suggestions: 'Įjungti paieškos pasiūlymus'
     Default Landing Page: 'Numatytasis pradinis puslapis'
     Locale Preference: 'Vietovės pasirinkimas'
@@ -169,7 +170,8 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: 'Grotuvo nustatymai'
-    Force Local Backend for Legacy Formats: ''
+    Force Local Backend for Legacy Formats: 'Priverstinai naudoti vietinį šaltinį
+      Legacy formatams'
     Play Next Video: 'Leisti sekanti vaizdo įrašą'
     Turn on Subtitles by Default: 'Įjungti subtitrus automatiškai'
     Autoplay Videos: 'Automatinis vaizdo įrašų paleidimas'
@@ -228,7 +230,7 @@ Settings:
     Fetch Feeds from RSS: 'Gaukite kanalus iš RSS'
     Manage Subscriptions: 'Valdyti prenumeratas'
   Distraction Free Settings:
-    Distraction Free Settings: ''
+    Distraction Free Settings: 'Blaškančių elementų nustatymai'
     Hide Video Views: 'Slėpti vaizdo įrašų peržiūrų skaičių'
     Hide Video Likes And Dislikes: 'Slėpti vaizdo įrašų įvertinimus'
     Hide Channel Subscribers: 'Slėpti kanalo prenumeratorių skaičių'
@@ -247,74 +249,86 @@ Settings:
     Import FreeTube: 'Importuoti FreeTube'
     Import YouTube: 'Importuot YouTube'
     Import NewPipe: 'Importuoti NewPipe'
-    Check for Legacy Subscriptions: ''
+    Check for Legacy Subscriptions: 'Patikrinkite, ar nėra Legacy prenumeratų'
     Export Subscriptions: 'Eksportuoti prenumeratas'
     Export FreeTube: 'Eksportuoti FreeTube'
     Export YouTube: 'Eksportuoti YouTube'
     Export NewPipe: 'Eksportuoti NewPipe'
     Import History: 'Importuoti istoriją'
     Export History: 'Eksportuoti istoriją'
-    Profile object has insufficient data, skipping item: ''
-    All subscriptions and profiles have been successfully imported: ''
-    All subscriptions have been successfully imported: ''
-    One or more subscriptions were unable to be imported: ''
+    Profile object has insufficient data, skipping item: 'Profilio objekte nėra pakankamai
+      duomenų, elementas praleidžiamas'
+    All subscriptions and profiles have been successfully imported: 'Visos prenumeratos
+      ir profiliai sėkmingai importuoti'
+    All subscriptions have been successfully imported: 'Visos prenumeratos sėkmingai
+      importuotos'
+    One or more subscriptions were unable to be imported: 'Nepavyko importuoti vienos
+      ar daugiau prenumeratų'
     Invalid subscriptions file: 'Netinkamas prenumeratų failas'
-    This might take a while, please wait: ''
+    This might take a while, please wait: 'Tai gali užtrukti, palaukite'
     Invalid history file: 'Netinkamas žiūrėjimo istorijos failas'
-    Subscriptions have been successfully exported: ''
-    History object has insufficient data, skipping item: ''
-    All watched history has been successfully imported: ''
-    All watched history has been successfully exported: ''
-    Unable to read file: ''
-    Unable to write file: ''
+    Subscriptions have been successfully exported: 'Prenumeratos sėkmingai eksportuotos'
+    History object has insufficient data, skipping item: 'Žiūrėjimo istorijos objektas
+      neturi pakankamai duomenų, elementas praleidžiamas'
+    All watched history has been successfully imported: 'Visa žiūrėjimo istorija buvo
+      sėkmingai importuota'
+    All watched history has been successfully exported: 'Visa žiūrėjimo istorija buvo
+      sėkmingai eksportuota'
+    Unable to read file: 'Nepavyko nuskaityti failo'
+    Unable to write file: 'Nepavyksta rašyti failo'
     Unknown data key: 'Nežinomas duomenų raktas'
-    How do I import my subscriptions?: ''
+    How do I import my subscriptions?: 'Kaip aš galiu importuoti prenumeratas?'
     Manage Subscriptions: 'Valdyti prenumeratas'
   Proxy Settings:
     Proxy Settings: 'Proxy nustatymai'
-    Enable Tor / Proxy: ''
+    Enable Tor / Proxy: 'Įgalinti Tor / Proxy'
     Proxy Protocol: 'Proxy protokolas'
     Proxy Host: 'Proxy Host'
     Proxy Port Number: 'Proxy prievado numeris'
-    Clicking on Test Proxy will send a request to: ''
+    Clicking on Test Proxy will send a request to: 'Spustelėjus Test Proxy bus išsiųsta
+      užklausa'
     Test Proxy: 'Testuoti Proxy'
     Your Info: 'Tavo informacija'
     Ip: 'IP'
     Country: 'Šalis'
     Region: 'Regionas'
     City: 'Miestas'
-    Error getting network information. Is your proxy configured properly?: ''
+    Error getting network information. Is your proxy configured properly?: 'Gaunant
+      tinklo informaciją įvyko klaida. Ar jūsų proxy sukonfigūruotas tinkamai?'
   SponsorBlock Settings:
     SponsorBlock Settings: 'SponsorBlock nustatymai'
     Enable SponsorBlock: 'Įjungti SponsorBlock'
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': ''
-    Notify when sponsor segment is skipped: ''
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 'SponsorBlock API
+      URL (numatytasis yra https://sponsor.ajay.app)'
+    Notify when sponsor segment is skipped: 'Pranešti, kuomet praleidžiamas rėmėjų
+      segmentas'
 About:
   #On About page
   About: 'Apie'
   Beta: 'Beta'
   Source code: 'Pirminis kodas'
-  Licensed under the AGPLv3: ''
+  Licensed under the AGPLv3: 'Licencijuota pagal AGPLv3'
   View License: 'Žiūrėti licenciją'
   Downloads / Changelog: 'Atsisiuntimai / pakeitimų žurnalas'
-  GitHub releases: 'GitHub releases'
+  GitHub releases: 'Versijos GitHub'
   Help: 'Pagalba'
   FreeTube Wiki: 'FreeTube Wiki'
   FAQ: 'DUK'
   Report a problem: 'Pranešti apie problemą'
   GitHub issues: 'GitHub problemos'
-  Please check for duplicates before posting: ''
+  Please check for duplicates before posting: 'Prieš paskelbdami patikrinkite, ar
+    nėra dublikatų'
   Website: 'Tinklalapis'
   Blog: 'Tinklaraštis'
   Email: 'El. Paštas'
   Mastodon: 'Mastodon'
-  Chat on Matrix: ''
+  Chat on Matrix: 'Pokalbis Matrix'
   Please read the: 'Prašome perskaityti'
   room rules: 'kambario taisyklės'
   Translate: 'Versti'
   Credits: 'Projekto komanda'
-  FreeTube is made possible by: ''
-  these people and projects: ''
+  FreeTube is made possible by: 'FreeTube sukurta dėka'
+  these people and projects: 'šių žmonių ir projektų'
   Donate: 'Paremti'
 
 Profile:
@@ -331,24 +345,25 @@ Profile:
   Update Profile: 'Atnaujinti profilį'
   Make Default Profile: 'Padaryti kaip numatytąjį profilį'
   Delete Profile: 'Ištrinti profilį'
-  Are you sure you want to delete this profile?: ''
-  All subscriptions will also be deleted.: ''
-  Profile could not be found: ''
-  Your profile name cannot be empty: ''
-  Profile has been created: ''
-  Profile has been updated: ''
-  Your default profile has been set to $: ''
-  Removed $ from your profiles: ''
-  Your default profile has been changed to your primary profile: ''
-  $ is now the active profile: ''
+  Are you sure you want to delete this profile?: 'Ar tikrai norite ištrinti šį profilį?'
+  All subscriptions will also be deleted.: 'Taip pat bus ištrintos visos prenumeratos.'
+  Profile could not be found: 'Nepavyko rasti profilio'
+  Your profile name cannot be empty: 'Jūsų profilio vardas negali būti tuščias'
+  Profile has been created: 'Profilis sukurtas'
+  Profile has been updated: 'Profilis atnaujintas'
+  Your default profile has been set to $: '$ buvo nustatytas kaip numatytasis profilis'
+  Removed $ from your profiles: '$ buvo pašalintas iš tavo profilių'
+  Your default profile has been changed to your primary profile: 'Numatytasis profilis
+    buvo nustatytas kaip pagrindinis'
+  $ is now the active profile: '$ yra dabar aktyvus profilis'
   Subscription List: 'Prenumeratų sąrašas'
   Other Channels: 'Kiti kanalai'
   $ selected: '$ pasirinktas'
   Select All: 'Pasirinkti visus'
   Select None: 'Nesirinkti nieko'
   Delete Selected: 'Pašalinti pasirinktus'
-  Add Selected To Profile: ''
-  No channel(s) have been selected: ''
+  Add Selected To Profile: 'Pridėti dabar pasirinktą prie profilio'
+  No channel(s) have been selected: 'Nepasirinktas nė vienas kanalas(-ai)'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
   : 'Tai yra jūsų pagrindinis profilis. Ar tikrai norite ištrinti pasirinktus kanalus?
@@ -361,22 +376,25 @@ Channel:
   Subscribers: 'Prenumeratoriai'
   Subscribe: 'Prenumeruoti'
   Unsubscribe: 'Atšaukti prenumeratą'
-  Channel has been removed from your subscriptions: ''
-  Removed subscription from $ other channel(s): ''
-  Added channel to your subscriptions: ''
+  Channel has been removed from your subscriptions: 'Kanalas pašalintas iš jūsų prenumeratų'
+  Removed subscription from $ other channel(s): 'Prenumerata pašalinta iš $ kito(-ų)
+    kanalo(-ų)'
+  Added channel to your subscriptions: 'Prie jūsų prenumeratų pridėtas kanalas'
   Search Channel: 'Ieškoti kanalų'
-  Your search results have returned 0 results: ''
+  Your search results have returned 0 results: 'Paieškos rezultatai gražino 0 rezultatų'
   Sort By: 'Rūšiuoti pagal'
   Videos:
     Videos: 'Vaizdo įrašai'
-    This channel does not currently have any videos: ''
+    This channel does not currently have any videos: 'Šiuo metu šiame kanale nėra
+      vaizdo įrašų'
     Sort Types:
       Newest: 'Naujausi'
       Oldest: 'Seniausi'
       Most Popular: 'Populiariausi'
   Playlists:
     Playlists: 'Grojaraščiai'
-    This channel does not currently have any playlists: ''
+    This channel does not currently have any playlists: 'Šiuo metu šiame kanale nėra
+      grojaraščių'
     Sort Types:
       Last Video Added: 'Paskutinis vaizdo įrašas pridėtas'
       Newest: 'Naujausi'
@@ -388,41 +406,47 @@ Channel:
 Video:
   Mark As Watched: 'Pažymėti kaip peržiūrėtą'
   Remove From History: 'Pašalinti iš žiūrėjimo istorijos'
-  Video has been marked as watched: ''
-  Video has been removed from your history: ''
+  Video has been marked as watched: 'Vaizdo įrašas pažymėtas kaip žiūrėtas'
+  Video has been removed from your history: 'Vaizdo įrašas pašalintas iš jūsų žiūrėjimo
+    istorijos'
   Save Video: 'Išsaugoti vaizdo įrašą'
-  Video has been saved: ''
-  Video has been removed from your saved list: ''
-  Open in YouTube: ''
-  Copy YouTube Link: ''
-  Open YouTube Embedded Player: ''
-  Copy YouTube Embedded Player Link: ''
-  Open in Invidious: ''
-  Copy Invidious Link: ''
-  Open Channel in YouTube: ''
-  Copy YouTube Channel Link: ''
-  Open Channel in Invidious: ''
-  Copy Invidious Channel Link: ''
+  Video has been saved: 'Vaizdo įrašas išsaugotas'
+  Video has been removed from your saved list: 'Vaizdo įrašas pašalintas iš jūsų išsaugotų
+    įrašų sąrašo'
+  Open in YouTube: 'Atidaryti YouTube'
+  Copy YouTube Link: 'Kopijuoti YouTube nuorodą'
+  Open YouTube Embedded Player: 'Atidaryti YouTube įterptąjį leistuvą'
+  Copy YouTube Embedded Player Link: 'Kopijuoti YouTube įterptojo grotuvo nuorodą'
+  Open in Invidious: 'Atidaryti Invidious'
+  Copy Invidious Link: 'Kopijuoti Invidious nuorodą'
+  Open Channel in YouTube: 'Atidaryti kanalą YouTube'
+  Copy YouTube Channel Link: 'Kopijuoti YouTube kanalo nuorodą'
+  Open Channel in Invidious: 'Atidaryti kanalą Invidious'
+  Copy Invidious Channel Link: 'Kopijuoti Invidious kanalo nuorodą'
   View: 'Žiūrėti'
   Views: 'Peržiūros'
   Loop Playlist: 'Sukti grojaraštį ciklu'
   Shuffle Playlist: 'Maišyti grojaraštį'
   Reverse Playlist: 'Apsukti grojaraštį'
-  Play Next Video: ''
-  Play Previous Video: ''
+  Play Next Video: 'Groti sekantį vaizdo įrašą'
+  Play Previous Video: 'Groti ankstesnį vaizdo įrašą'
   # Context is "X People Watching"
   Watching: 'Žiūri'
   Watched: 'Žiūrėta'
   Autoplay: 'Paleisti automatiškai'
-  Starting soon, please refresh the page to check again: ''
+  Starting soon, please refresh the page to check again: 'Greitai prasidės, atnaujinkite
+    puslapį, kad galėtumėte patikrinti dar kartą'
   # As in a Live Video
   Live: 'Tiesiogiai'
   Live Now: 'Tiesiogiai dabar'
   Live Chat: 'Tiesioginė diskusija'
-  Enable Live Chat: ''
-  Live Chat is currently not supported in this build.: ''
-  'Chat is disabled or the Live Stream has ended.': ''
-  Live chat is enabled.  Chat messages will appear here once sent.: ''
+  Enable Live Chat: 'Įgalinti tiesioginę diskusiją'
+  Live Chat is currently not supported in this build.: 'Šioje versijoje tiesioginė
+    diskusija kol kas nepalaikoma.'
+  'Chat is disabled or the Live Stream has ended.': 'Pokalbiai yra išjungti arba tiesioginė
+    transliacija baigta.'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'Tiesioginė diskusija
+    yra įgalinta.  Čia bus rodomi pokalbio pranešimai.'
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Tiesioginis
     pokalbis šiuo metu nepalaikomas naudojant „Invidious“ API. Būtinas tiesioginis
     ryšys su YouTube.'
@@ -465,8 +489,8 @@ Video:
     Upcoming: 'Premjera'
   Published on: 'Publikuota'
   Streamed on: 'Transliuota'
-  Started streaming on: ''
-  translated from English: ''
+  Started streaming on: 'Transliaciją pradėjo'
+  translated from English: 'išversta iš anglų kalbos'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % prieš'
   Skipped segment: 'Praleistas segmentas'
@@ -479,16 +503,16 @@ Video:
     music offtopic: 'nesusijusi muzika'
   External Player:
     # $ is replaced with the external player
-    OpenInTemplate: ''
+    OpenInTemplate: 'Atidaryti $'
     video: 'vaizdo įrašas'
     playlist: 'grojaraštis'
     # $ is replaced with the current context (see video/playlist above) and % the external player setting
-    OpeningTemplate: ''
+    OpeningTemplate: 'Atidaroma $ per %...'
     # $ is replaced with the external player and % with the unsupported action
     UnsupportedActionTemplate: '$ nepalaiko: %'
     Unsupported Actions:
-      starting video at offset: ''
-      setting a playback rate: ''
+      starting video at offset: 'Pradedant vaizdo įrašą kompensuojant'
+      setting a playback rate: 'nustatomas atkūrimo dažnis'
       opening playlists: 'atidaromi grojaraščiai'
       opening specific video in a playlist (falling back to opening the video): 'konkretaus
         vaizdo įrašo atidarymas grojaraštyje (grįžtant prie vaizdo įrašo atidarymo)'
@@ -505,29 +529,31 @@ Videos:
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: ''
+  View Full Playlist: 'Peržiūrėti visą grojaraštį'
   Videos: 'Vaizdo įrašai'
   View: 'Žiūrėti'
   Views: 'Peržiūros'
-  Last Updated On: ''
+  Last Updated On: 'Paskutinį kartą atnaujinta'
   Share Playlist:
     Share Playlist: 'Dalintis grojaraščiu'
-    Copy YouTube Link: ''
-    Open in YouTube: ''
-    Copy Invidious Link: ''
-    Open in Invidious: ''
+    Copy YouTube Link: 'Kopijuoti YouTube nuorodą'
+    Open in YouTube: 'Atidaryti Youtube'
+    Copy Invidious Link: 'Kopijuoti Invidious nuorodą'
+    Open in Invidious: 'Atidaryti Invidious'
 
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: ''
+Toggle Theatre Mode: 'Įjungti teatro rėžimą'
 Change Format:
-  Change Video Formats: ''
-  Use Dash Formats: ''
-  Use Legacy Formats: ''
-  Use Audio Formats: ''
-  Dash formats are not available for this video: ''
-  Audio formats are not available for this video: ''
+  Change Video Formats: 'Keisti vaizdo įrašo formatus'
+  Use Dash Formats: 'Naudoti DASH formatus'
+  Use Legacy Formats: 'Naudoti Legacy formatus'
+  Use Audio Formats: 'Naudoti audio formatus'
+  Dash formats are not available for this video: 'DASH formatai šiam vaizdo įrašui
+    negalimi'
+  Audio formats are not available for this video: 'Šiam vaizdo įrašui garso formatai
+    negalimi'
 Share:
   Share Video: 'Dalintis vaizdo įrašu'
   Include Timestamp: 'Pridėti laiko žymą'
@@ -536,19 +562,21 @@ Share:
   Copy Embed: 'Kopijuoti įterptąjį'
   Open Embed: 'Atidaryti įterptąjį'
   # On Click
-  Invidious URL copied to clipboard: ''
-  Invidious Embed URL copied to clipboard: ''
-  Invidious Channel URL copied to clipboard: ''
-  YouTube URL copied to clipboard: ''
-  YouTube Embed URL copied to clipboard: ''
-  YouTube Channel URL copied to clipboard: ''
+  Invidious URL copied to clipboard: 'Invidious URL nukopijuotas į iškarpinę'
+  Invidious Embed URL copied to clipboard: 'Invidious įterpinio URL nukopijuotas į
+    iškarpinę'
+  Invidious Channel URL copied to clipboard: 'Invidious kanalo URL nukopijuotas į
+    iškarpinę'
+  YouTube URL copied to clipboard: 'YouTube URL nukopijuotas į iškarpinę'
+  YouTube Embed URL copied to clipboard: 'YouTube įterpinio URL nukopijuotas į iškarpinę'
+  YouTube Channel URL copied to clipboard: 'YouTube kanalo URL nukopijuotas į iškarpinę'
 
 Mini Player: 'Mini grotuvas'
 Comments:
   Comments: 'Komentarai'
-  Click to View Comments: ''
-  Getting comment replies, please wait: ''
-  There are no more comments for this video: ''
+  Click to View Comments: 'Spustelėkite norėdami peržiūrėti komentarus'
+  Getting comment replies, please wait: 'Gaunami atsakymai į komentarus, palaukite'
+  There are no more comments for this video: 'Šiame vaizdo įraše nėra daugiau komentarų'
   Show Comments: 'Rodyti komentarus'
   Hide Comments: 'Slėpti komentarus'
   Sort by: 'Rūšiuoti pagal'
@@ -559,9 +587,10 @@ Comments:
   Hide: 'Slėpti'
   Replies: 'Atsakymai'
   Reply: 'Atsakyti'
-  There are no comments available for this video: ''
-  Load More Comments: ''
-  No more comments available: ''
+  There are no comments available for this video: 'Šiam vaizdo įrašui nėra parašytų
+    komentarų'
+  Load More Comments: 'Pakrauti daugiau komentarų'
+  No more comments available: 'Daugiau komentarų nėra'
 Up Next: 'Sekantis'
 
 #Tooltips
@@ -613,29 +642,33 @@ Tooltips:
       ištrinami meta failai, sukurti vaizdo atkūrimo metu.'
 
 # Toast Messages
-Local API Error (Click to copy): ''
-Invidious API Error (Click to copy): ''
-Falling back to Invidious API: ''
-Falling back to the local API: ''
+Local API Error (Click to copy): 'Vietinė API klaida (spustelėkite, jei norite kopijuoti)'
+Invidious API Error (Click to copy): 'Invidious API Vietinė API klaida (spustelėkite,
+  jei norite kopijuoti)'
+Falling back to Invidious API: 'Grįžtama prie Invidious API'
+Falling back to the local API: 'Grįžtama prie vietinio API'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Šis
   vaizdo įrašas nepasiekiamas, nes trūksta formatų. Tai gali nutikti dėl to, kad šalis
   yra nepasiekiama.'
-Subscriptions have not yet been implemented: ''
-Unknown YouTube url type, cannot be opened in app: ''
-Hashtags have not yet been implemented, try again later: ''
-Loop is now disabled: ''
-Loop is now enabled: ''
-Shuffle is now disabled: ''
-Shuffle is now enabled: ''
-The playlist has been reversed: ''
-Playing Next Video: ''
-Playing Previous Video: ''
+Subscriptions have not yet been implemented: 'Prenumeratos dar nėra įgyvendintos'
+Unknown YouTube url type, cannot be opened in app: 'Nežinomas YouTube URL tipas, nėra
+  galimybės jo atidaryti programoje'
+Hashtags have not yet been implemented, try again later: 'Grotažymės dar neveikia,
+  bandykite dar kartą vėliau'
+Loop is now disabled: 'Sukimas ciklu išjungtas'
+Loop is now enabled: 'Sukimas ciklu dabar įjungtas'
+Shuffle is now disabled: 'Maišymas dabar išjungtas'
+Shuffle is now enabled: 'Maišymas dabar įjungtas'
+The playlist has been reversed: 'Grojaraštis buvo apsuktas'
+Playing Next Video: 'Leidžiamas sekantis vaizdo įrašas'
+Playing Previous Video: 'Leidžiamas ankstesnis vaizdo įrašas'
 Playing Next Video Interval: 'Greitai paleisite kitą vaizdo įrašą. Spustelėkite norėdami
   atšaukti. | Kitas vaizdo įrašas leidžiamas po {nextVideoInterval} sekundės. Spustelėkite,
   jei norite atšaukti. | Kitas vaizdo įrašas bus leidžiamas po {nextVideoInterval}
   sekundės. Spustelėkite norėdami atšaukti.'
-Canceled next video autoplay: ''
-'The playlist has ended.  Enable loop to continue playing': ''
+Canceled next video autoplay: 'Atšauktas sekančio vaizdo įrašo automatinis paleidimas'
+'The playlist has ended.  Enable loop to continue playing': 'Grojaraštis baigėsi.  Įgalinkite
+  grojimą ciklu, kad galėtumėte žiūrėti toliau'
 
 Yes: 'Taip'
 No: 'Ne'
