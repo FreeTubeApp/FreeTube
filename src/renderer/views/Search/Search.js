@@ -238,7 +238,8 @@ export default Vue.extend({
           date: payload.searchSettings.time,
           duration: payload.searchSettings.duration,
           type: payload.searchSettings.type,
-          region: this.searchRegion
+          region: this.searchRegion,
+          language: this.searchLanguage
         }
       }
 
