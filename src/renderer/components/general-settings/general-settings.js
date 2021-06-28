@@ -83,6 +83,12 @@ export default Vue.extend({
     landingPage: function () {
       return this.$store.getters.getLandingPage
     },
+    languageNames: function () {
+      return this.$store.getters.getLanguageNames
+    },
+    languageValues: function () {
+      return this.$store.getters.getLanguageValues
+    },
     region: function () {
       return this.$store.getters.getRegion
     },
@@ -94,6 +100,12 @@ export default Vue.extend({
     },
     currentLocale: function () {
       return this.$store.getters.getCurrentLocale
+    },
+    searchLanguage: function () {
+      return this.$store.getters.getSearchLanguage
+    },
+    searchRegion: function () {
+      return this.$store.getters.getSearchRegion
     },
     regionNames: function () {
       return this.$store.getters.getRegionNames
@@ -210,7 +222,9 @@ export default Vue.extend({
       'updateThumbnailPreference',
       'updateInvidiousInstance',
       'updateForceLocalBackendForLegacy',
-      'updateCurrentLocale'
+      'updateCurrentLocale',
+      'updateSearchLanguage',
+      'updateSearchRegion'
     ])
   }
 })

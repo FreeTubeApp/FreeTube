@@ -37,6 +37,14 @@ export default Vue.extend({
 
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
+    },
+
+    searchLanguage: function () {
+      return this.$store.getters.getSearchLanguage
+    },
+
+    searchRegion: function () {
+      return this.$store.getters.getSearchRegion.toUpperCase()
     }
   },
   watch: {
@@ -117,6 +125,9 @@ export default Vue.extend({
         this.isLoading = true
         payload.options.pages = 1
       }
+
+      payload.options.gl = this.searchRegion
+      payload.options.hl = this.searchLanguage
 
       this.ytSearch(payload).then((result) => {
         console.log(result)
@@ -226,7 +237,8 @@ export default Vue.extend({
           sort_by: payload.searchSettings.sortBy,
           date: payload.searchSettings.time,
           duration: payload.searchSettings.duration,
-          type: payload.searchSettings.type
+          type: payload.searchSettings.type,
+          region: this.searchRegion
         }
       }
 
