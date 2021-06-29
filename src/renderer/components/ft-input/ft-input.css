@@ -16,6 +16,7 @@
     height: 45px;
     color: var(--secondary-text-color);
     border-radius: 5px;
+    background-color: var(--search-bar-color);
 }
 
 .ft-input-component ::-webkit-input-placeholder {
