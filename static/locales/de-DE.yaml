@@ -533,6 +533,12 @@ Video:
   Skipped segment: Segment übersprungen
   External Player:
     OpenInTemplate: In $ öffnen
+    Unsupported Actions:
+      setting a playback rate: Setzt eine Widergaberate
+    UnsupportedActionTemplate: '$ unterstützt das nicht: %'
+    OpeningTemplate: $ wird in % geöffnet...
+    playlist: Wiedergabeliste
+    video: video
 Videos:
   #& Sort By
   Sort By:
