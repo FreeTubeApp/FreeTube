@@ -179,6 +179,8 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: 播放清單 下一個影片間隔時間
     Next Video Interval: 下一個影片區段
+    Scroll Volume Over Video Player: 在影片播放器上捲動以變更音量
+    Display Play Button In Video Player: 在影片播放器中顯示播放按鈕
   Subscription Settings:
     Subscription Settings: '訂閱設定'
     Hide Videos on Watch: '觀看時隱藏影片'
@@ -291,6 +293,12 @@ Settings:
       網址（預設為 https://sponsor.ajay.app）
     Enable SponsorBlock: 啟用 SponsorBlock
     SponsorBlock Settings: SponsorBlock 設定
+  External Player Settings:
+    Custom External Player Arguments: 自訂外部播放程式參數
+    Custom External Player Executable: 自訂外部播放程式可執行檔
+    Ignore Unsupported Action Warnings: 忽略不支援的動作警告
+    External Player: 外部播放程式
+    External Player Settings: 外部播放程式設定
 About:
   #On About page
   About: '關於'
@@ -470,6 +478,20 @@ Video:
     intro: 介紹
     sponsor: 贊助商
   Skipped segment: 已跳過的片段
+  External Player:
+    Unsupported Actions:
+      looping playlists: 循環播放清單
+      shuffling playlists: 隨機播放清單
+      reversing playlists: 反向播放清單
+      opening specific video in a playlist (falling back to opening the video): 在播放清單中開啟特定影片（汰退至開啟影片）
+      opening playlists: 正在開啟播放清單
+      setting a playback rate: 正在設定播放速度
+      starting video at offset: 在偏移處開始影片
+    UnsupportedActionTemplate: $ 不支援：%
+    OpeningTemplate: 正於 % 中開啟 $……
+    playlist: 播放清單
+    video: 視訊
+    OpenInTemplate: 在 $ 中開啟
 Videos:
   #& Sort By
   Sort By:
@@ -616,6 +638,11 @@ Tooltips:
     Region for Trending: 熱門影片區域可以讓您選擇想要顯示哪個國家的熱門影片。注意：並非所有國家都被 YouTube 支援。
   Privacy Settings:
     Remove Video Meta Files: 如果啟用，FreeTube會在關閉觀看頁面時，自動刪除影片播放過程中建立的暫存檔案。
+  External Player Settings:
+    Custom External Player Arguments: 任何您想要傳遞給外部播放程式的自訂命令列參數，以半形冒號分隔 (';')。
+    Ignore Warnings: 當目前的外部播放程式不支援目前動作時（例如反向播放清單等等），消除警告。
+    Custom External Player Executable: 預設情況下，FreeTube 會假設選定的外部播放程式可以透過 PATH 環境變數找到。如果需要的話，請在此設定自訂路徑。
+    External Player: 選擇外部播放程式將會在縮圖上顯示圖示，用來在外部播放程式中開啟影片（若支援的話，播放清單也可以）。
 Playing Next Video Interval: 馬上播放下一個影片。點擊取消。| 播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。|
   播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。
 More: 更多

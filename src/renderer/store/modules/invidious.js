@@ -1,12 +1,11 @@
 import $ from 'jquery'
 
 const state = {
-  main: 0,
   isGetChannelInfoRunning: false
 }
 
 const getters = {
-  getIsGetChannelInfoRunning ({ state }) {
+  getIsGetChannelInfoRunning (state) {
     return state.isGetChannelInfoRunning
   }
 }

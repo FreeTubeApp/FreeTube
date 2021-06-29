@@ -67,7 +67,7 @@ export default Vue.extend({
     },
 
     defaultVolume: function () {
-      return parseFloat(this.$store.getters.getDefaultVolume) * 100
+      return Math.round(parseFloat(this.$store.getters.getDefaultVolume) * 100)
     },
 
     defaultPlayback: function () {
@@ -88,6 +88,14 @@ export default Vue.extend({
 
     hideRecommendedVideos: function () {
       return this.$store.getters.getHideRecommendedVideos
+    },
+
+    videoVolumeMouseScroll: function () {
+      return this.$store.getters.getVideoVolumeMouseScroll
+    },
+
+    displayVideoPlayButton: function () {
+      return this.$store.getters.getDisplayVideoPlayButton
     },
 
     formatNames: function () {
@@ -111,10 +119,6 @@ export default Vue.extend({
     }
   },
   methods: {
-    parseVolumeBeforeUpdate: function (volume) {
-      this.updateDefaultVolume(volume / 100)
-    },
-
     ...mapActions([
       'updateAutoplayVideos',
       'updateAutoplayPlaylists',
@@ -127,7 +131,9 @@ export default Vue.extend({
       'updateDefaultVolume',
       'updateDefaultPlayback',
       'updateDefaultVideoFormat',
-      'updateDefaultQuality'
+      'updateDefaultQuality',
+      'updateVideoVolumeMouseScroll',
+      'updateDisplayVideoPlayButton'
     ])
   }
 })

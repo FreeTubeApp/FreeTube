@@ -195,6 +195,8 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Interval pro další video na playlistu
     Next Video Interval: Další interval videa
+    Display Play Button In Video Player: Zobrazit tlačítko 'přehrát' ve video přehrávači
+    Scroll Volume Over Video Player: Změnit hlasitost posouváním na videu
   Privacy Settings:
     Privacy Settings: 'Nastavení soukromí'
     Remember History: 'Zapamatovat historii'
@@ -316,6 +318,12 @@ Settings:
       API (Výchozí je https://sponsor.ajay.app)
     Enable SponsorBlock: Zapnout SponsorBlock
     SponsorBlock Settings: Nastavení SponsorBlock
+  External Player Settings:
+    Custom External Player Arguments: Argumenty vlastního externího přehrávače
+    Custom External Player Executable: Spustitelný vlastní externí přehrávač
+    Ignore Unsupported Action Warnings: Ignorovat varování u nepodporovaných akcích
+    External Player: Externí přehrávač
+    External Player Settings: Nastavení externího přehrávače
 About:
   #On About page
   About: 'O aplikaci'
@@ -540,6 +548,21 @@ Video:
     intro: úvod
     sponsor: sponzor
   Skipped segment: Přeskočený segment
+  External Player:
+    Unsupported Actions:
+      opening specific video in a playlist (falling back to opening the video): Otevření
+        specifického videa v seznamu skladeb
+      opening playlists: otevřít seznamy skladeb
+      starting video at offset: spuštění videa v určitém úseku
+      looping playlists: opakovaní seznamů skladeb
+      shuffling playlists: míchání seznamů skladeb
+      reversing playlists: obrácení seznamů skladeb
+      setting a playback rate: nastavení rychlosti přehrávání
+    playlist: seznam skladeb
+    UnsupportedActionTemplate: '$ nepodporuje: %'
+    OpeningTemplate: Otevřít $ v %...
+    video: video
+    OpenInTemplate: Otevřít v $
 Videos:
   #& Sort By
   Sort By:
@@ -653,6 +676,16 @@ Tooltips:
   Privacy Settings:
     Remove Video Meta Files: Pokud je povoleno, FreeTube automaticky odstraní meta
       soubory vytvořené během přehrávání videa, když se stránka sledování zavře.
+  External Player Settings:
+    Ignore Warnings: Potlačuje varování, kdy současný externí přehrávač nepodporuje
+      aktuální akci (např. obrácení seznamů skladeb apod.).
+    External Player: Volba externího přehrávače zobrazí ikonu, pro otevření videa
+      (pokud je podporován seznam skladeb) v externím přehrávači, zobrazí na náhledu.
+    Custom External Player Arguments: Jakékoliv vlastní argumenty příkazové řádky,
+      oddělené středníkem (';'), které chcete předávat externímu přehrávač.
+    Custom External Player Executable: Ve výchozím nastavení Freetube předpokládá,
+      že vybraný externí přehrávač lze nalézt přes proměnnou prostředí cesty PATH.
+      V případě potřeby zde lze nastavit vlastní cestu.
 Local API Error (Click to copy): 'Chyba lokálního API (kliknutím zkopírujete)'
 Invidious API Error (Click to copy): 'Chyba Invidious API (kliknutím zkopírujete)'
 Falling back to Invidious API: 'Přepínám na Invidious API'

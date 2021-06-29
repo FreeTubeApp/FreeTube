@@ -147,6 +147,15 @@ export default Vue.extend({
       return parseInt(this.$store.getters.getDefaultQuality)
     },
 
+    defaultCaptionSettings: function () {
+      try {
+        return JSON.parse(this.$store.getters.getDefaultCaptionSettings)
+      } catch (e) {
+        console.log(e)
+        return {}
+      }
+    },
+
     defaultVideoFormat: function () {
       return this.$store.getters.getDefaultVideoFormat
     },
@@ -155,12 +164,20 @@ export default Vue.extend({
       return this.$store.getters.getAutoplayVideos
     },
 
+    videoVolumeMouseScroll: function () {
+      return this.$store.getters.getVideoVolumeMouseScroll
+    },
+
     useSponsorBlock: function () {
       return this.$store.getters.getUseSponsorBlock
     },
 
     sponsorBlockShowSkippedToast: function () {
       return this.$store.getters.getSponsorBlockShowSkippedToast
+    },
+
+    displayVideoPlayButton: function() {
+      return this.$store.getters.getDisplayVideoPlayButton
     }
   },
   mounted: function () {
@@ -217,6 +234,12 @@ export default Vue.extend({
 
         this.player.volume(this.volume)
         this.player.playbackRate(this.defaultPlayback)
+        this.player.textTrackSettings.setValues(this.defaultCaptionSettings)
+        // Remove big play button
+        // https://github.com/videojs/video.js/blob/v7.12.1/docs/guides/components.md#basic-example
+        if (!this.displayVideoPlayButton) {
+          this.player.removeChild('BigPlayButton')
+        }
 
         if (this.storyboardSrc !== '') {
           this.player.vttThumbnails({
@@ -251,7 +274,11 @@ export default Vue.extend({
         this.player.on('mouseleave', this.removeMouseTimeout)
 
         this.player.on('volumechange', this.updateVolume)
-        this.player.controlBar.getChild('volumePanel').on('mousewheel', this.mouseScrollVolume)
+        if (this.videoVolumeMouseScroll) {
+          this.player.on('wheel', this.mouseScrollVolume)
+        } else {
+          this.player.controlBar.getChild('volumePanel').on('wheel', this.mouseScrollVolume)
+        }
 
         this.player.on('fullscreenchange', this.fullscreenOverlay)
         this.player.on('fullscreenchange', this.toggleFullscreenClass)
@@ -286,6 +313,11 @@ export default Vue.extend({
             ipcRenderer.send('stopPowerSaveBlocker', this.powerSaveBlocker)
             this.powerSaveBlocker = null
           }
+        })
+
+        this.player.textTrackSettings.on('modalclose', (_) => {
+          const settings = this.player.textTrackSettings.getValues()
+          this.updateDefaultCaptionSettings(JSON.stringify(settings))
         })
       }
     },
@@ -415,8 +447,10 @@ export default Vue.extend({
       }
     },
 
-    updateVolume: function (event) {
-      const volume = this.player.volume()
+    updateVolume: function (_event) {
+      // 0 means muted
+      // https://docs.videojs.com/html5#volume
+      const volume = this.player.muted() ? 0 : this.player.volume()
       sessionStorage.setItem('volume', volume)
     },
 
@@ -1340,8 +1374,9 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'showToast',
       'calculateColorLuminance',
+      'updateDefaultCaptionSettings',
+      'showToast',
       'sponsorBlockSkipSegments'
     ])
   }

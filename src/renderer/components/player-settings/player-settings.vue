@@ -37,6 +37,18 @@
           :default-value="defaultTheatreMode"
           @change="updateDefaultTheatreMode"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Player Settings.Scroll Volume Over Video Player')"
+          :compact="true"
+          :default-value="videoVolumeMouseScroll"
+          @change="updateVideoVolumeMouseScroll"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Player Settings.Display Play Button In Video Player')"
+          :compact="true"
+          :default-value="displayVideoPlayButton"
+          @change="updateDisplayVideoPlayButton"
+        />
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
@@ -77,7 +89,7 @@
         :max-value="100"
         :step="1"
         value-extension="%"
-        @change="parseVolumeBeforeUpdate"
+        @change="updateDefaultVolume($event / 100)"
       />
       <ft-slider
         :label="$t('Settings.Player Settings.Default Playback Rate')"

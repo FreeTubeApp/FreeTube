@@ -3,15 +3,15 @@
   height: 40px;
   margin: 10px;
   cursor: pointer;
-  border-radius: 200px 200px 200px 200px;
-  -webkit-border-radius: 200px 200px 200px 200px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
 }
 
 .initial {
   font-size: 20px;
+  line-height: 1em;
   text-align: center;
-  position: relative;
-  bottom: 30px;
+  padding: 10px 0;
 }
 
 #profileList {

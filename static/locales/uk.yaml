@@ -164,7 +164,7 @@ Settings:
       Yellow: 'Жовта'
       Amber: 'Бурштинова'
       Orange: 'Жовтогаряча'
-      Deep Orange: 'Червоножовта'
+      Deep Orange: 'Насичена жовтогаряча'
     Secondary Color Theme: 'Другорядна кольорова тема'
         #* Main Color Theme
   Player Settings:
@@ -175,7 +175,7 @@ Settings:
     Turn on Subtitles by Default: 'Увімкнути субтитри за замовченням'
     Autoplay Videos: 'Автоматичне відтворення відео'
     Proxy Videos Through Invidious: 'Проксі-відео через Invidious'
-    Autoplay Playlists: 'Автоматичне відтворення добірок'
+    Autoplay Playlists: 'Автовідтворення добірок'
     Enable Theatre Mode by Default: 'Типово увімкнути режим театру'
     Default Volume: 'Типова гучність'
     Default Playback Rate: 'Типова швидкість відтворення'
@@ -198,6 +198,8 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Інтервал відтворення наступного відео
     Next Video Interval: Інтервал до наступного відео
+    Scroll Volume Over Video Player: Прокручування гучності на відеопрогравачі
+    Display Play Button In Video Player: Показувати кнопку відтворення у відеопрогравачі
   Privacy Settings:
     Privacy Settings: 'Налаштування приватності'
     Remember History: 'Збрігати історію'
@@ -312,6 +314,13 @@ Settings:
       (типово https://sponsor.ajay.app)
     Enable SponsorBlock: Увімкнути SponsorBlock
     SponsorBlock Settings: Налаштування SponsorBlock
+  External Player Settings:
+    Custom External Player Arguments: Власні аргументи зовнішнього програвача
+    Custom External Player Executable: Власний виконуваний зовнішній програвач
+    Ignore Unsupported Action Warnings: Нехтувати попередженнями про непідтримувані
+      дії
+    External Player: Зовнішній програвач
+    External Player Settings: Параметри зовнішнього програвача
 About:
   #On About page
   About: 'Про'
@@ -526,6 +535,21 @@ Video:
     intro: вступ
     sponsor: спонсор
   Skipped segment: Пропущений відтинок
+  External Player:
+    Unsupported Actions:
+      looping playlists: зациклювання добірок
+      shuffling playlists: перемішування добірок
+      reversing playlists: зміна добірок
+      opening specific video in a playlist (falling back to opening the video): відкриття
+        певного відео у добірці (повернення до відкриття відео)
+      opening playlists: відкриття добірок
+      setting a playback rate: встановлення швидкості відтворення
+      starting video at offset: запуск відео зі зміщенням
+    UnsupportedActionTemplate: '$ не підтримує: %'
+    OpeningTemplate: Відкриття $ у %...
+    playlist: добірка
+    video: відео
+    OpenInTemplate: Відкрити у $
 Videos:
   #& Sort By
   Sort By:
@@ -542,7 +566,7 @@ Playlist:
   Last Updated On: 'Востаннє оновлено'
   Share Playlist:
     Share Playlist: 'Поділитися добіркою'
-    Copy YouTube Link: 'Копіювати посилання youTube'
+    Copy YouTube Link: 'Копіювати посилання YouTube'
     Open in YouTube: 'Відкрити в YouTube'
     Copy Invidious Link: 'Копіювати посилання Invidious'
     Open in Invidious: 'Відкрити в Invidious'
@@ -637,6 +661,18 @@ Tooltips:
   Privacy Settings:
     Remove Video Meta Files: Якщо увімкнено, FreeTube автоматично видаляє метафайли,
       створені під час відтворення відео, коли сторінку перегляду закрито.
+  External Player Settings:
+    Custom External Player Arguments: Будь-які нетипові аргументи командного рядка
+      розділяються (';') крапкою з комою, ви бажаєте, щоб вас було перенаправлено
+      до зовнішнього програвача.
+    Ignore Warnings: Заборонити попередження, якщо поточний зовнішній програвач не
+      підтримує поточну дію (наприклад, зворотна почерговість відтворення добірок
+      тощо).
+    Custom External Player Executable: Усталено FreeTube вважатиме, що вибраний зовнішній
+      програвач можна знайти за допомогою змінної середовища PATH. Якщо потрібно,
+      тут можна призначити нетиповий шлях.
+    External Player: Якщо обрано зовнішній програвач, з'явиться піктограма для відкриття
+      відео (добірка, якщо підтримується) у зовнішньому програвачі, на мініатюрі.
 Local API Error (Click to copy): 'Помилка локального API (натисніть, щоб скопіювати)'
 Invidious API Error (Click to copy): 'Помилка Invidious API (натисніть, щоб скопіювати)'
 Falling back to Invidious API: 'Повернення до API Invidious'

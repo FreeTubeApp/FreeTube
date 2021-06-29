@@ -1,27 +1,4 @@
-import Datastore from 'nedb'
-
-let dbLocation
-
-if (window && window.process && window.process.type === 'renderer') {
-  // Electron is being used
-  /* let dbLocation = localStorage.getItem('dbLocation')
-
-  if (dbLocation === null) {
-    const electron = require('electron')
-    dbLocation = electron.remote.app.getPath('userData')
-  } */
-
-  const { ipcRenderer } = require('electron')
-  dbLocation = ipcRenderer.sendSync('getUserDataPathSync')
-  dbLocation = dbLocation + '/history.db'
-} else {
-  dbLocation = 'history.db'
-}
-
-const historyDb = new Datastore({
-  filename: dbLocation,
-  autoload: true
-})
+import { historyDb } from '../datastores'
 
 const state = {
   historyCache: []
@@ -34,58 +11,100 @@ const getters = {
 }
 
 const actions = {
-  grabHistory ({ commit }) {
-    historyDb.find({}).sort({
-      timeWatched: -1
-    }).exec((err, results) => {
-      if (err) {
-        console.log(err)
-        return
-      }
-      commit('setHistoryCache', results)
-    })
+  async grabHistory({ commit }) {
+    const results = await historyDb.find({}).sort({ timeWatched: -1 })
+    commit('setHistoryCache', results)
   },
 
-  updateHistory ({ dispatch }, videoData) {
-    historyDb.update({ videoId: videoData.videoId }, videoData, { upsert: true }, (err, numReplaced) => {
-      if (!err) {
-        dispatch('grabHistory')
-      }
+  async updateHistory({ commit, dispatch, state }, entry) {
+    await historyDb.update(
+      { videoId: entry.videoId },
+      entry,
+      { upsert: true }
+    )
+
+    const entryIndex = state.historyCache.findIndex((currentEntry) => {
+      return entry.videoId === currentEntry.videoId
     })
+
+    entryIndex === -1
+      ? commit('insertNewEntryToHistoryCache', entry)
+      : commit('hoistEntryToTopOfHistoryCache', {
+        currentIndex: entryIndex,
+        updatedEntry: entry
+      })
+
+    dispatch('propagateHistory')
   },
 
-  removeFromHistory ({ dispatch }, videoId) {
-    historyDb.remove({ videoId: videoId }, (err, numReplaced) => {
-      if (!err) {
-        dispatch('grabHistory')
-      }
+  async removeFromHistory({ commit, dispatch }, videoId) {
+    await historyDb.remove({ videoId: videoId })
+
+    const updatedCache = state.historyCache.filter((entry) => {
+      return entry.videoId !== videoId
     })
+
+    commit('setHistoryCache', updatedCache)
+
+    dispatch('propagateHistory')
   },
 
-  removeAllHistory ({ dispatch }) {
-    historyDb.remove({}, { multi: true }, (err, numReplaced) => {
-      if (!err) {
-        dispatch('grabHistory')
-      }
-    })
+  async removeAllHistory({ commit, dispatch }) {
+    await historyDb.remove({}, { multi: true })
+    commit('setHistoryCache', [])
+    dispatch('propagateHistory')
   },
 
-  updateWatchProgress ({ dispatch }, videoData) {
-    historyDb.update({ videoId: videoData.videoId }, { $set: { watchProgress: videoData.watchProgress } }, { upsert: true }, (err, numReplaced) => {
-      if (!err) {
-        dispatch('grabHistory')
-      }
+  async updateWatchProgress({ commit, dispatch }, entry) {
+    await historyDb.update(
+      { videoId: entry.videoId },
+      { $set: { watchProgress: entry.watchProgress } },
+      { upsert: true }
+    )
+
+    const entryIndex = state.historyCache.findIndex((currentEntry) => {
+      return entry.videoId === currentEntry.videoId
     })
+
+    commit('updateEntryWatchProgressInHistoryCache', {
+      index: entryIndex,
+      value: entry.watchProgress
+    })
+
+    dispatch('propagateHistory')
   },
 
-  compactHistory (_) {
+  propagateHistory({ getters: { getUsingElectron: usingElectron } }) {
+    if (usingElectron) {
+      const { ipcRenderer } = require('electron')
+      ipcRenderer.send('syncWindows', {
+        type: 'history',
+        data: state.historyCache
+      })
+    }
+  },
+
+  compactHistory(_) {
     historyDb.persistence.compactDatafile()
   }
 }
 
 const mutations = {
-  setHistoryCache (state, historyCache) {
+  setHistoryCache(state, historyCache) {
     state.historyCache = historyCache
+  },
+
+  insertNewEntryToHistoryCache(state, entry) {
+    state.historyCache.unshift(entry)
+  },
+
+  hoistEntryToTopOfHistoryCache(state, { currentIndex, updatedEntry }) {
+    state.historyCache.splice(currentIndex, 1)
+    state.historyCache.unshift(updatedEntry)
+  },
+
+  updateEntryWatchProgressInHistoryCache(state, { index, value }) {
+    state.historyCache[index].watchProgress = value
   }
 }
 

@@ -193,6 +193,8 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Interval Video dalam Daftar Putar
     Next Video Interval: Interval Video Selanjutnya
+    Display Play Button In Video Player: Tampilkan Tombol Putar di Dalam Pemutar Video
+    Scroll Volume Over Video Player: Gulir Volume di Atas Pemutar Video
   Privacy Settings:
     Privacy Settings: 'Pengaturan Privasi'
     Remember History: 'Ingat Riwayat'
@@ -311,6 +313,18 @@ Settings:
     Proxy Protocol: Protokol Proksi
     Enable Tor / Proxy: Aktifkan Tor / Proksi
     Proxy Settings: Pengaturan Proksi
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Beri tahu saat segmen sponsor dilewati
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Url SponsorBlock
+      API (Default is https://sponsor.ajay.app)
+    Enable SponsorBlock: Aktifkan SponsorBlock
+    SponsorBlock Settings: Pengaturan SponsorBlock
+  External Player Settings:
+    Custom External Player Arguments: Argumen Pemutar Eksternal
+    Custom External Player Executable: Aplikasi Pemutar Eksternal
+    Ignore Unsupported Action Warnings: Abaikan Peringatan Tindakan yang Tidak Didukung
+    External Player: Pemutar Eksternal
+    External Player Settings: Pengaturan Pemutar Eksternal
 About:
   #On About page
   About: 'Ihwal'
@@ -532,6 +546,28 @@ Video:
   translated from English: diterjemahkan dari Bahasa Inggris
   Sponsor Block category:
     interaction: interaksi
+    music offtopic: musik non-topik
+    self-promotion: promosi diri sendiri
+    outro: outro
+    intro: intro
+    sponsor: sponsor
+  Skipped segment: Segmen yang dilewati
+  External Player:
+    Unsupported Actions:
+      starting video at offset: memulai video pada offset
+      looping playlists: memutar berulang-ulang daftar putar
+      shuffling playlists: menshuffle daftar putar
+      reversing playlists: membalik urutan daftar putar
+      opening specific video in a playlist (falling back to opening the video): membuka
+        video yang spesifik di dalam daftar putar (dengan cadangan untuk membuka langsung
+        video)
+      opening playlists: membuka daftar putar
+      setting a playback rate: menetapkan laju pemutaran
+    UnsupportedActionTemplate: '$ tidak mendukung: %'
+    OpeningTemplate: Membuka $ dalam %...
+    playlist: daftar putar
+    video: video
+    OpenInTemplate: Buka di $
 Videos:
   #& Sort By
   Sort By:
@@ -662,6 +698,17 @@ Tooltips:
   Privacy Settings:
     Remove Video Meta Files: Saat diaktifkan, FreeTube secara otomatis menghapus file
       meta yang dibuat selama pemutaran video, saat halaman tonton ditutup.
+  External Player Settings:
+    Custom External Player Arguments: Semua argumen perintah khusus, dipisahkan dengan
+      titik koma (';'), yang Anda ingin gunakan dengan pemutar eksternal.
+    Ignore Warnings: Jangan tampilkan peringatan saat pemutar eksternal saat ini tidak
+      mendukung tindakan yang ada (mis. membalik urutan daftar putar, dsb.).
+    Custom External Player Executable: Secara bawaan, FreeTube akan berasumsi bahwa
+      pemutar eksternal yang dipilih bisa diitemukan via variabel lingkungan PATH.
+      Jika diperlukan, bisa menggunakan jalur khusus di sini.
+    External Player: Memilih pemutar eksternal akan menampilkan ikon khusus, untuk
+      membuka video (daftar putar jika didukung) di dalam pemutar eksternal, pada
+      thumbnail.
 Playing Next Video Interval: Langsung putar video berikutnya. Klik untuk batal. |
   Putar video berikutnya dalam {nextVideoInterval} detik. Klik untuk batal. | Putar
   video berikutnya dalam {nextVideoInterval} detik. Klik untuk batal.

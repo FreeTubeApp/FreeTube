@@ -193,6 +193,8 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Oynatma Listesi Sonraki Video Aralığı
     Next Video Interval: Sonraki Video Aralığı
+    Scroll Volume Over Video Player: Ses Düzeyini Video Oynatıcı Üzerinden Kaydır
+    Display Play Button In Video Player: Video Oynatıcıda Oynatma Düğmesini Göster
   Privacy Settings:
     Privacy Settings: 'Gizlilik Ayarları'
     Remember History: 'Geçmişi Hatırla'

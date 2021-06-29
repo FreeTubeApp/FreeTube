@@ -127,6 +127,7 @@ Settings:
     Check for Updates: Szukaj aktualizacji
     View all Invidious instance information: Pokaż informacje o wszystkich instancjach
       Invidious
+    System Default: Ustawienie systemowe
   Theme Settings:
     Theme Settings: 'Ustawienia wyglądu'
     Match Top Bar with Main Color: 'Dopasuj górną belkę do głównego koloru'
@@ -189,6 +190,9 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Przerwa przed kolejną pozycją playlisty
     Next Video Interval: Czas do następnego filmu
+    Scroll Volume Over Video Player: Kontroluj głośność kółkiem myszy na obszarze
+      odtwarzacza
+    Display Play Button In Video Player: Pokaż przycisk odtwarzania na odtwarzaczu
   Subscription Settings:
     Subscription Settings: 'Ustawienia subskrypcji'
     Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
@@ -323,6 +327,13 @@ Settings:
       API SponsorBlock (Domyślnie jest https://sponsor.ajay.app)
     Enable SponsorBlock: Włącz SponsorBlock
     SponsorBlock Settings: Ustawienia SponsorBlock
+  External Player Settings:
+    Custom External Player Arguments: Niestandardowe argumenty zewnętrznego odtwarzacza
+    Custom External Player Executable: Niestandardowy plik wykonywalny zewnętrznego
+      odtwarzacza
+    Ignore Unsupported Action Warnings: Ignoruj ostrzeżenia o nieobsługiwanych działaniach
+    External Player: Zewnętrzny odtwarzacz
+    External Player Settings: Ustawienia zewnętrznego odtwarzacza
 About:
   #On About page
   About: 'O projekcie'
@@ -482,7 +493,7 @@ Video:
     Minute: minutę
   Published on: 'Opublikowano'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % temu'
+  Publicationtemplate: '$ % temu'
 #& Videos
   Autoplay: Odtwarzaj
   Play Previous Video: Odtwórz poprzedni film
@@ -519,6 +530,21 @@ Video:
     intro: z intrem
     sponsor: sponsorowany
   Skipped segment: Pominięto segment
+  External Player:
+    Unsupported Actions:
+      reversing playlists: odwracania playlist
+      shuffling playlists: losowania z playlist
+      looping playlists: zapętlania playlist
+      opening specific video in a playlist (falling back to opening the video): otwierania
+        wskazanego filmu na playliście (zamiast tego nastąpi otwarcie filmu)
+      opening playlists: otwierania playlist
+      setting a playback rate: ustawienia prędkości odtwarzania
+      starting video at offset: rozpoczynania filmu z przesunięciem
+    UnsupportedActionTemplate: '$ nie obsługuje: %'
+    OpeningTemplate: Otwieranie $ w %...
+    playlist: playlisty
+    video: filmu
+    OpenInTemplate: Otwórz w $
 Videos:
   #& Sort By
   Sort By:
@@ -696,6 +722,16 @@ Tooltips:
   Privacy Settings:
     Remove Video Meta Files: Po włączeniu FreeTube samoczynnie usunie pliki metadanych
       utworzone podczas odtwarzania filmu, gdy tylko strona odtwarzania zostanie zamknięta.
+  External Player Settings:
+    Ignore Warnings: Nie wyświetlaj ostrzeżeń o nieobsługiwanych akcjach przez zewnętrzny
+      odtwarzacz (n.p. odwracanie playlist, itp.).
+    External Player: Wybranie zewnętrznego odtwarzacza spowoduje wyświetlenie na miniaturkach
+      ikony, która otworzy film (playlistę, jeśli są obsługiwane) w zewnętrznym odtwarzaczu.
+    Custom External Player Arguments: Wszelkie niestandardowe argumenty wiersza poleceń,
+      oddzielone średnikami (';'), które chcesz przekazać do zewnętrznego odtwarzacza.
+    Custom External Player Executable: FreeTube domyślnie przyjmie, że wybrany odtwarzacz
+      jest do znalezienia za pomocą zmiennej środowiskowej PATH. Jeśli trzeba, można
+      tutaj ustawić niestandardową ścieżkę.
 Playing Next Video Interval: Odtwarzanie kolejnego filmu już za chwilę. Wciśnij aby
   przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekundę. Wciśnij
   aby przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekund. Wciśnij
