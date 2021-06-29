@@ -45,7 +45,7 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    if (this.trendingCache && this.trendingCache.length > 0) {
+    if (this.trendingCache[this.currentTab] && this.trendingCache[this.currentTab].length > 0) {
       this.shownResults = this.trendingCache
     } else {
       this.getTrendingInfo()
@@ -89,7 +89,7 @@ export default Vue.extend({
 
         this.shownResults = returnData
         this.isLoading = false
-        this.$store.commit('setTrendingCache', this.shownResults)
+        this.$store.commit('setTrendingCache', this.shownResults, this.currentTab)
       }).catch((err) => {
         console.log(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -137,7 +137,7 @@ export default Vue.extend({
 
         this.shownResults = returnData
         this.isLoading = false
-        this.$store.commit('setTrendingCache', this.shownResults)
+        this.$store.commit('setTrendingCache', this.shownResults, this.trendingCache)
       }).catch((err) => {
         console.log(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
