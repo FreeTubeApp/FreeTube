@@ -16,7 +16,6 @@
     height: 45px;
     color: var(--secondary-text-color);
     border-radius: 5px;
-    background-color: var(--search-bar-color);
 }
 
 .ft-input-component ::-webkit-input-placeholder {
@@ -91,9 +90,9 @@
   padding: 5px 0;
   z-index: 10;
   border-radius: 0 0 5px 5px;
-  border: 1px #ccc solid;
-  background-color: white;
-  color: black;
+  border: 1px var(--tertiary-text-color) solid;
+  color: var(--secondary-text-color);
+  background-color: var(--search-bar-color);
 }
 
 .list li {
@@ -103,6 +102,6 @@
 }
 
 .hover {
-  background-color: #ccc;
+  background-color: var(--scrollbar-color-hover);
 /*   color: white; */
 }
