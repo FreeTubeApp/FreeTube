@@ -61,6 +61,7 @@
           :is-search="true"
           :select-on-focus="true"
           :data-list="searchSuggestionsDataList"
+          :spellcheck="false"
           @input="getSearchSuggestionsDebounce"
           @click="goToSearch"
         />

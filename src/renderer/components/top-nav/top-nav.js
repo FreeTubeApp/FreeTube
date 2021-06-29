@@ -109,11 +109,18 @@ export default Vue.extend({
       this.getYoutubeUrlInfo(query).then((result) => {
         switch (result.urlType) {
           case 'video': {
-            const { videoId, timestamp } = result
+            const { videoId, timestamp, playlistId } = result
 
+            const query = {}
+            if (timestamp) {
+              query.timestamp = timestamp
+            }
+            if (playlistId && playlistId.length > 0) {
+              query.playlistId = playlistId
+            }
             this.$router.push({
               path: `/watch/${videoId}`,
-              query: timestamp ? { timestamp } : {}
+              query: query
             })
             break
           }

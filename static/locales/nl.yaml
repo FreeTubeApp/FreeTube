@@ -101,7 +101,7 @@ Settings:
   # On Settings Page
   Settings: 'Instellingen'
   General Settings:
-    General Settings: 'Algemene instellingen'
+    General Settings: 'Algemene Instellingen'
     Fallback to Non-Preferred Backend on Failure: 'Val Terug op Niet-Voorkeur Backend
       bij falen'
     Enable Search Suggestions: 'Zoeksuggesties Inschakelen'
@@ -128,17 +128,17 @@ Settings:
     Check for Latest Blog Posts: Controleer op Nieuwe Blogposts
     Check for Updates: Controleer op Updates
     View all Invidious instance information: Bekijk alle Invidious-instantiegegevens
-    System Default: Systeem Standaardinstellingen
+    System Default: Standaard Systeeminstellingen
   Theme Settings:
-    Theme Settings: 'Thema Instellingen'
-    Match Top Bar with Main Color: 'Laat de bovenste balk overeenkomen met de hoofdkleur'
+    Theme Settings: 'Thema-instellingen'
+    Match Top Bar with Main Color: 'Zet Bovenste Balk Gelijk aan Primaire Themakleur'
     Base Theme:
       Base Theme: 'Basisthema'
       Black: 'Zwart'
       Dark: 'Donker'
       Light: 'Licht'
     Main Color Theme:
-      Main Color Theme: 'Hoofdkleur Thema'
+      Main Color Theme: 'Primaire Themakleur'
       Red: 'Rood'
       Pink: 'Roze'
       Purple: 'Paars'
@@ -161,7 +161,7 @@ Settings:
     Expand Side Bar by Default: Zijbalk Standaard Uitschuiven
     Disable Smooth Scrolling: Vloeiend Scrollen Uitschakelen
   Player Settings:
-    Player Settings: 'Speler Instellingen'
+    Player Settings: 'Videospeler-instellingen'
     Force Local Backend for Legacy Formats: 'Lokale Backend Forceren voor Oudere Formaten'
     Play Next Video: 'Volgende Video Automatisch Afspelen'
     Turn on Subtitles by Default: 'Schakel Ondertiteling Standaard in'
@@ -190,10 +190,12 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Afspeellijst Volgende Video Tussentijd
     Next Video Interval: Volgende Video Tussenpauze Duur
+    Display Play Button In Video Player: Afspeelknop weergeven in Videokader
+    Scroll Volume Over Video Player: Volume Veranderen Door in het Videokader te Scrollen
   Privacy Settings:
-    Privacy Settings: 'Privacy Instellingen'
-    Remember History: 'Onthoud Geschiedenis'
-    Save Watched Progress: 'Bewaar Video Voortgang'
+    Privacy Settings: 'Privacy-instellingen'
+    Remember History: 'Kijkgeschiedenis Onthouden'
+    Save Watched Progress: 'Bewaar Videovoortgang'
     Clear Search Cache: 'Verwijder Zoek-Cache'
     Are you sure you want to clear out your search cache?: 'Weet u zeker dat u de
       zoek-cache wil verwijderen?'
@@ -208,7 +210,7 @@ Settings:
     Remove All Subscriptions / Profiles: Verwijder alle Abonnementen / Profielen
     Automatically Remove Video Meta Files: Video-Metabestanden Automatisch Verwijderen
   Subscription Settings:
-    Subscription Settings: 'Abonnement instellingen'
+    Subscription Settings: 'Abonnementsinstellingen'
     Hide Videos on Watch: 'Verberg Video''s Zodra Bekeken'
     Subscriptions Export Format:
       Subscriptions Export Format: ''
@@ -249,7 +251,7 @@ Settings:
 
   Data Settings:
     History object has insufficient data, skipping item: Geschiedenis object heeft
-      niet genoeg data, item word overgeslagen
+      niet genoeg data, item wordt overgeslagen
     Subscriptions have been successfully exported: Abonnementen zijn met succes geïmporteerd
     Invalid history file: Ongeldig geschiedenisbestand
     This might take a while, please wait: Dit kan eventjes duren, even geduld aub
@@ -261,7 +263,7 @@ Settings:
     All subscriptions and profiles have been successfully imported: Alle abonnementen
       en profielen zijn succesvol geïmporteerd
     Profile object has insufficient data, skipping item: Profiel heeft niet genoeg
-      data, item word overgeslagen
+      data, item wordt overgeslagen
     Export History: Exporteer Geschiedenis
     Import History: Importeer Geschiedenis
     Export NewPipe: Exporteer NewPipe
@@ -274,7 +276,7 @@ Settings:
     Import Subscriptions: Importeer Abonnementen
     Select Export Type: Select Exporteer Type
     Select Import Type: Selecteer Importeer Type
-    Data Settings: Data Instellingen
+    Data Settings: Data-instellingen
     How do I import my subscriptions?: Hoe importeer ik mijn abonnementen?
     Unknown data key: Onbekende datasleutel
     Unable to write file: Bestand kan niet worden geschreven
@@ -294,7 +296,7 @@ Settings:
     Hide Channel Subscribers: Verberg Abonnee Aantal
     Hide Video Likes And Dislikes: Verberg Likes en Dislikes
     Hide Video Views: Verberg Weergaven
-    Distraction Free Settings: Afleidingsvrije Instellingen
+    Distraction Free Settings: Afleidingsvrije-instellingen
     Hide Active Subscriptions: Verberg Actieve Abonnementen
     Hide Playlists: Verberg Afspeellijst
   The app needs to restart for changes to take effect. Restart and apply change?: De
@@ -315,14 +317,21 @@ Settings:
     Proxy Host: Proxy Host
     Proxy Protocol: Proxy Protocol
     Enable Tor / Proxy: Tor / Proxy Inschakelen
-    Proxy Settings: Proxy Instellingen
+    Proxy Settings: Proxy-instellingen
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Informeer mij wanneer een gesponsord segment
       wordt overgeslagen
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
       Url (Standaard is https://sponsor.ajay.app)
     Enable SponsorBlock: SponsorBlock Inschakelen
-    SponsorBlock Settings: SponsorBlock Instellingen
+    SponsorBlock Settings: SponsorBlock-instellingen
+  External Player Settings:
+    Custom External Player Arguments: Aangepaste Argumenten voor Externe Videospeler
+    Custom External Player Executable: Aangepast Uitvoerbaar Bestand van Externe Videospeler
+    Ignore Unsupported Action Warnings: Negeer Waarschuwingen Voor Niet Ondersteunde
+      Acties
+    External Player: Externe Videospeler
+    External Player Settings: Externe Videospeler-instellingen
 About:
   #On About page
   About: 'Over'
@@ -419,7 +428,7 @@ Video:
   Video has been removed from your history: 'Video is verwijdert uit uw geschiedenis'
   Open in YouTube: 'Open op YouTube'
   Copy YouTube Link: 'Kopieer YouTube Link'
-  Open YouTube Embedded Player: 'Open Ingebedde YouTube Videospeler'
+  Open YouTube Embedded Player: 'Open Embedded YouTube Videospeler'
   Copy YouTube Embedded Player Link: 'Kopieer Insluitlink YouTube Videospeler'
   Open in Invidious: 'Open op Invidious'
   Copy Invidious Link: 'Kopieer Invidious Link'
@@ -433,7 +442,7 @@ Video:
   Live Now: 'Nu Live'
   Live Chat: 'Live Chat'
   Enable Live Chat: 'Schakel Live Chat in'
-  Live Chat is currently not supported in this build.: 'Live chat wordt momenteel
+  Live Chat is currently not supported in this build.: 'Live Chat wordt momenteel
     niet ondersteunt in deze versie.'
   'Chat is disabled or the Live Stream has ended.': 'Chat is uitgeschakeld of de Live
     Stream is beëindigd.'
@@ -503,13 +512,28 @@ Video:
   Save Video: Video Opslaan
   translated from English: vertaald vanuit het engels
   Sponsor Block category:
-    music offtopic: off-topic muziek
+    music offtopic: ongerelateerde muziek
     interaction: interactie
     self-promotion: zelfpromotie
     outro: uitbreng
     intro: introductie
     sponsor: sponsor
   Skipped segment: Overgeslagen segment
+  External Player:
+    Unsupported Actions:
+      shuffling playlists: afspeellijsten door elkaar schuiven
+      reversing playlists: afspeellijsten omkeren
+      opening specific video in a playlist (falling back to opening the video): specifieke
+        video in een afspeellijst openen (terugvallen tot het openen van de video)
+      opening playlists: afspeellijsten worden geopend
+      setting a playback rate: afspeelsnelheid instellen
+      looping playlists: afspeellijsten herhalen
+      starting video at offset: begin afspelen video bij offset
+    UnsupportedActionTemplate: '$ ondersteund niet: %'
+    OpeningTemplate: $ Openen in %...
+    playlist: afspeellijst
+    video: video
+    OpenInTemplate: Open in $
 Videos:
   #& Sort By
   Sort By:
@@ -561,7 +585,7 @@ Share:
   YouTube Channel URL copied to clipboard: YouTube URL is gekopieerd naar het klembord
   Invidious Channel URL copied to clipboard: Invidious Kanaal URL is gekopieerd naar
     het klembord
-Mini Player: 'Minispeler'
+Mini Player: 'Mini Videospeler'
 Comments:
   Comments: 'Reacties'
   Click to View Comments: 'Klik om Reacties Te Tonen'
@@ -614,7 +638,7 @@ Profile:
   Profile has been updated: Profiel is geüpdate
   Profile has been created: Profiel is aangemaakt
   Your profile name cannot be empty: Uw profielnaam mag niet leeg zijn
-  Profile could not be found: Profiel kon niet worden gevonden
+  Profile could not be found: Profiel kan niet worden gevonden
   All subscriptions will also be deleted.: Alle abonnementen zullen ook worden verwijderd.
   Are you sure you want to delete this profile?: Weet u zeker dat u dit profiel wilt
     verwijderen?
@@ -671,7 +695,7 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Wanneer ingeschakeld zal FreeTube RSS gebruiken in plaats
       van de standaard methode om de videolijsten van je abonnementen te verzamelen.
-      RSS is sneller en voorkomt dat je IP word geblokkeerd maar geeft geen toegang
+      RSS is sneller en voorkomt dat je IP wordt geblokkeerd maar geeft geen toegang
       tot sommige informatie zoals de videoduur en live-status
   General Settings:
     Invidious Instance: Dit is de Invidious instantie waar FreeTube mee zal verbinden
@@ -683,8 +707,8 @@ Tooltips:
       geeft dan zal FreeTube automatisch terugvallen op het alternatieve niet-voorkeur
       API wanneer deze instelling is ingeschakeld.
     Preferred API Backend: Kies de backend die FreeTube gebruikt om data te verzamelen.
-      De lokale API is een ingebouwde extractor. De Invidious API moet worden verbonden
-      met een Invidious server.
+      De lokale API is een ingebouwde inhoudsverzamelaar. De Invidious API moet worden
+      verbonden met een Invidious server.
     Region for Trending: Met trend regio kan je instellen uit welk land je trending
       video's je wil zien. Niet alle weergegeven landen worden ook daadwerkelijk ondersteund
       door YouTube.
@@ -692,6 +716,17 @@ Tooltips:
     Remove Video Meta Files: Wanneer ingeschakeld zal FreeTube automatisch meta bestanden
       die worden gecreëerd tijdens het afspelen van video's verwijderen zodra de pagina
       wordt gesloten.
+  External Player Settings:
+    Custom External Player Arguments: Aangepaste opdrachtregelargumenten, gescheiden
+      door puntkomma's (';'), die je wil doorgeven aan de externe videospeler.
+    Ignore Warnings: Onderdruk waarschuwingen wanneer de geselecteerde videospeler
+      een opgegeven actie niet ondersteund (bijv. afspeellijsten omkeren, etc.).
+    Custom External Player Executable: Standaard gaat FreeTube er vanuit dat de gekozen
+      videospeler kan worden benaderd via het PATH omgevingsvariabele. Wanneer nodig
+      kan er hier een aangepast pad worden ingevoerd.
+    External Player: Door het kiezen van een externe videospeler zal er een icoontje
+      verschijnen op het thumbnail waarmee de video (Of afspeellijst wanneer ondersteund)
+      in deze externe videospeler kan worden geopend.
 Playing Next Video Interval: Volgende video wordt afgespeeld. Klik om te onderbreken.
   | Volgende video wordt afgespeeld in {nextVideoInterval} seconde. Klik om te onderbreken.
   | Volgende video wordt afgespeeld in {nextVideoInterval} seconden. Klik om te onderbreken.

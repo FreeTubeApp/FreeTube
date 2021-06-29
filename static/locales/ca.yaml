@@ -71,6 +71,8 @@ Search Filters:
   Fetching results. Please wait: 'Obtenint resultats. Espera si us plau'
   Fetch more results: 'Obtenir més resultats'
 # Sidebar
+  There are no more results for this search: No hi ha més resultats per a aquesta
+    cerca
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Subscripcions'
@@ -88,6 +90,13 @@ Most Popular: 'Més populars'
 Playlists: 'Llistes de reproducció'
 User Playlists:
   Your Playlists: 'Les teves llistes de reproducció'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Els
+    vostres vídeos desats són buits. Feu clic al botó de desar a la cantonada d'un
+    vídeo per tenir-lo llistat aquí
+  Playlist Message: Aquesta pàgina no reflecteix les llistes de reproducció plenament
+    actives. Només llista els vídeos que heu desat o preferit. Quan la tasca hagi
+    acabat, tots els vídeos que hi ha actualment es migraran a una llista de reproducció
+    de "favorites".
 History:
   # On History Page
   History: 'Historial'
@@ -123,37 +132,42 @@ Settings:
       (https://invidious.snopyta.org per defecte)'
     Region for Trending: 'Regió per a les tendències'
         #! List countries
+    View all Invidious instance information: Mostra tota la informació de la instància
+      Invidious
+    System Default: Per defecte del sistema
   Theme Settings:
     Theme Settings: 'Paràmetres del tema'
     Match Top Bar with Main Color: 'Fer coincidir la barra superior amb el color principal'
     Base Theme:
-      Base Theme: ''
-      Black: ''
-      Dark: ''
-      Light: ''
+      Base Theme: 'Tema de base'
+      Black: 'Negre'
+      Dark: 'Fosc'
+      Light: 'Clar'
     Main Color Theme:
-      Main Color Theme: ''
-      Red: ''
-      Pink: ''
-      Purple: ''
-      Deep Purple: ''
-      Indigo: ''
-      Blue: ''
-      Light Blue: ''
-      Cyan: ''
-      Teal: ''
-      Green: ''
-      Light Green: ''
-      Lime: ''
-      Yellow: ''
-      Amber: ''
-      Orange: ''
-      Deep Orange: ''
-    Secondary Color Theme: ''
+      Main Color Theme: 'Tema principal del color'
+      Red: 'Vermell'
+      Pink: 'Rosa'
+      Purple: 'Porpra'
+      Deep Purple: 'Porpra profunda'
+      Indigo: 'Indi'
+      Blue: 'Blau'
+      Light Blue: 'Blau clar'
+      Cyan: 'Cian'
+      Teal: 'Blau xarxet'
+      Green: 'Verd'
+      Light Green: 'Verd clar'
+      Lime: 'Llima'
+      Yellow: 'Groc'
+      Amber: 'Ambre'
+      Orange: 'Taronja'
+      Deep Orange: 'Taronja fosc'
+    Secondary Color Theme: 'Tema de color secundari'
         #* Main Color Theme
     Expand Side Bar by Default: Expandeix la barra lateral per defecte
+    UI Scale: Escala de la interfície gràfica
+    Disable Smooth Scrolling: Desactiva el desplaçament suau
   Player Settings:
-    Player Settings: ''
+    Player Settings: 'Configuració del reproductor'
     Force Local Backend for Legacy Formats: ''
     Play Next Video: ''
     Turn on Subtitles by Default: ''
@@ -484,3 +498,5 @@ Canceled next video autoplay: ''
 
 Yes: ''
 No: ''
+More: Més
+Open New Window: Obre una finestra nova

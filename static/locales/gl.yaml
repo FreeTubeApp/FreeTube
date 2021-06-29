@@ -71,6 +71,7 @@ Search Filters:
   Fetching results. Please wait: 'Buscando resultados. Por favor, agarda'
   Fetch more results: 'Buscar máis resultados'
 # Sidebar
+  There are no more results for this search: Non hai máis resultados nesta busca
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Subscricións'
@@ -87,6 +88,13 @@ Most Popular: 'Máis populares'
 Playlists: 'Listaxes de reprodución'
 User Playlists:
   Your Playlists: 'As túas listaxes de reprodución'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Os
+    teus vídeos gardados están baleiros. Prema no botón Gardar na esquina dun vídeo
+    para que apareza aquí
+  Playlist Message: Esta páxina non reflicte as listas de reprodución que funcionan
+    completamente. Só lista os vídeos que gardaches ou marcaches como favoritos. Cando
+    remate o traballo, todos os vídeos que hai aquí migraranse a unha lista de reprodución
+    "Favoritos".
 History:
   # On History Page
   History: 'Histórico'
@@ -124,6 +132,8 @@ Settings:
       Invidious (por defecto é https://invidious.snopyta.org)'
     Region for Trending: 'Rexión para as tendencias'
         #! List countries
+    View all Invidious instance information: Ver toda a información da instancia Invidious
+    System Default: Sistema predeterminado
   Theme Settings:
     Theme Settings: 'Axustes de tema'
     Match Top Bar with Main Color: 'Combinar cor principal coa barra superior'
@@ -184,6 +194,10 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Next Video Interval: Seguinte intervalo do vídeo
+    Display Play Button In Video Player: Amosar o botón de Reprodución no reprodutor
+      de vídeo
+    Scroll Volume Over Video Player: Desprazar o volume do reprodutor de vídeo
   Privacy Settings:
     Privacy Settings: 'Axustes de privacidade'
     Remember History: 'Lembrar histórico'
@@ -199,10 +213,12 @@ Settings:
     Remove All Subscriptions / Profiles: 'Limpar tódalas subscricións / perfís'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Estás
       seguro de querer limpar tódalas subscricións e perfís? Esta acción é irreversible.'
+    Automatically Remove Video Meta Files: Elimina automaticamente os ficheiros meta
+      de vídeo
   Subscription Settings:
     Subscription Settings: 'Axustes de subscricións'
     Hide Videos on Watch: 'Agochar vídeos visualizados'
-    Fetch Feeds from RSS: 'Obter subscricións através de RSS'
+    Fetch Feeds from RSS: 'Obter subscricións a través de RSS'
     Manage Subscriptions: 'Xestionar subscricións'
   Distraction Free Settings:
     Distraction Free Settings: 'Sen distraccións'
@@ -213,7 +229,9 @@ Settings:
     Hide Recommended Videos: 'Agochar vídeos recomendados'
     Hide Trending Videos: 'Agochar vídeos en tendencias'
     Hide Popular Videos: 'Agochar vídeos populares'
-    Hide Live Chat: 'Agochar chat en vivo'
+    Hide Live Chat: 'Agochar conversa en vivo'
+    Hide Active Subscriptions: Agochar subscricións activas
+    Hide Playlists: Agochar listas de reprodución
   Data Settings:
     Data Settings: 'Axustes dos datos'
     Select Import Type: 'Escoller tipo de importación'
@@ -230,7 +248,7 @@ Settings:
     Import History: 'Importar histórico'
     Export History: 'Exportar histórico'
     Profile object has insufficient data, skipping item: 'Este perfil ten datos insuficientes,
-      omitindo'
+      omitindo o elemento'
     All subscriptions and profiles have been successfully imported: 'Tódalas subscricións
       e perfís foron importados correctamente'
     All subscriptions have been successfully imported: 'Tódalas subscricións foron
@@ -242,8 +260,8 @@ Settings:
     Invalid history file: 'Ficheiro de histórico inválido'
     Subscriptions have been successfully exported: 'As subscricións foron exportadas
       correctamente'
-    History object has insufficient data, skipping item: 'O histórico ten datos insuficientes,
-      omitindo'
+    History object has insufficient data, skipping item: 'O historial ten datos insuficientes,
+      omitindo o elemento'
     All watched history has been successfully imported: 'O histórico de visualizacións
       foi importado correctamente'
     All watched history has been successfully exported: 'O histórico de visualizacións
@@ -252,6 +270,7 @@ Settings:
     Unable to write file: 'Imposible escribir o ficheiro'
     Unknown data key: 'Chave de datos descoñecida'
     How do I import my subscriptions?: 'Como podo importar as subscricións?'
+    Manage Subscriptions: Xestionar subscricións
   Advanced Settings:
     Advanced Settings: ''
     Enable Debug Mode (Prints data to the console): 'Activar modo de depuración (escribe
@@ -279,6 +298,35 @@ Settings:
       #& Yes
       #& No
 
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Notificar cando se omita o segmento do
+      patrocinador
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL API SponsorBlock
+      (O predeterminado é https://sponsor.ajay.app)
+    Enable SponsorBlock: Activar SponsorBlock
+    SponsorBlock Settings: Configuración do SponsorBlock
+  Proxy Settings:
+    Error getting network information. Is your proxy configured properly?: Erro ao
+      obter información de rede. O teu proxy está configurado correctamente?
+    City: Cidade
+    Region: Rexión
+    Country: País
+    Ip: IP
+    Your Info: A túa información
+    Test Proxy: Probar Proxy
+    Clicking on Test Proxy will send a request to: Ao premer en Probar Proxy, enviarase
+      unha solicitude a
+    Proxy Port Number: Número do porto de Proxy
+    Proxy Host: Anfitrión de Proxy
+    Proxy Protocol: Protocolo de Proxy
+    Enable Tor / Proxy: Activar Tor / Proxy
+    Proxy Settings: Configuración do Proxy
+  External Player Settings:
+    Custom External Player Arguments: Argumentos do reprodutor externo personalizado
+    Custom External Player Executable: Reprodutor externo personalizado executable
+    Ignore Unsupported Action Warnings: Ignorar as advertencias de accións non soportadas
+    External Player: Reprodutor externo
+    External Player Settings: Configuración do reprodutor externo
 About:
   #On About page
   About: 'Sobre'
@@ -310,6 +358,31 @@ About:
 
   Latest FreeTube News: 'Noticias recentes sobre FreeTube'
 
+  Donate: Doar
+  these people and projects: aquelas persoas e proxectos
+  FreeTube is made possible by: FreeTube é posible grazas a
+  Credits: Créditos
+  Translate: Traducir
+  room rules: normas do cuarto
+  Please read the: Por favor, le as
+  Chat on Matrix: Conversa en Matrix
+  Mastodon: Mastodon
+  Email: Correo electrónico
+  Blog: Blog
+  Website: Páxina web
+  Please check for duplicates before posting: Comprobe se hai duplicados antes de
+    publicar
+  GitHub issues: Problemas de GitHub
+  Report a problem: Informar dun problema
+  FAQ: Cuestións frecuentes
+  FreeTube Wiki: Wiki de FreeTube
+  Help: Axuda
+  GitHub releases: Lanzamentos de GitHub
+  Downloads / Changelog: Descargas / Rexistro de cambios
+  View License: Ver licenza
+  Licensed under the AGPLv3: Licenza baixo o AGPLv3
+  Source code: Código fonte
+  Beta: Beta
 Profile:
   Profile Select: 'Selección de perfil'
   All Channels: 'Tódalas canles'
@@ -351,6 +424,7 @@ Profile:
     seguro de querer eliminar as canles seleccionadas?  Esta acción non as eliminará
     de ningún outro perfil.'
 #On Channel Page
+  Profile Filter: Filtro por perfís
 Channel:
   Subscriber: 'Subscritor'
   Subscribers: 'Subscritores'
@@ -358,7 +432,8 @@ Channel:
   Unsubscribe: 'Desubscribirse'
   Channel has been removed from your subscriptions: 'Esta canle foi eliminada das
     túas subscricións'
-  Removed subscription from $ other channel(s): ''
+  Removed subscription from $ other channel(s): 'Eliminouse a subscrición de $ a outra(s)
+    canle(s)'
   Added channel to your subscriptions: 'Canle engadida ás túas subscricións'
   Search Channel: 'Buscar na canle'
   Your search results have returned 0 results: 'A busca non atopou resultados'
@@ -391,14 +466,14 @@ Video:
   Open in YouTube: 'Abrir no YouTube'
   Copy YouTube Link: 'Copiar ligazón de YouTube'
   Open YouTube Embedded Player: 'Abrir reprodutor integrado de YouTube'
-  Copy YouTube Embedded Player Link: 'Copiar ligazón do preprodutor integrado de YouTube'
+  Copy YouTube Embedded Player Link: 'Copiar ligazón do reprodutor integrado de YouTube'
   Open in Invidious: 'Abrir no Invidious'
   Copy Invidious Link: 'Copiar ligazón de Invidious'
   Open Channel in YouTube: 'Abrir canle no YouTube'
   Copy YouTube Channel Link: 'Copiar ligazón de YouTube da canle'
   Open Channel in Invidious: 'Abrir canle no Invidious'
   Copy Invidious Channel Link: 'Copiar ligazón de Invidious da canle'
-  View: ''
+  View: 'Ver'
   Views: 'Visualizacións'
   Loop Playlist: 'Reprodución en bucle'
   Shuffle Playlist: 'Reprodución aleatoria'
@@ -446,7 +521,7 @@ Video:
     Oct: 'Out'
     Nov: 'Nov'
     Dec: 'Dec'
-    Second: ''
+    Second: 'Segundo'
     Seconds: 'Segundos'
     Minute: 'Minuto'
     Minutes: 'Minutos'
@@ -466,8 +541,35 @@ Video:
   Streamed on: 'Transmitido'
   Started streaming on: 'A transmisión comezou'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'Hai $ %'
+  Publicationtemplate: 'Fai $ %'
 #& Videos
+  External Player:
+    Unsupported Actions:
+      looping playlists: listas de reprodución en bucle
+      shuffling playlists: Listas de reprodución en aleatorio
+      reversing playlists: inverter as listas de reprodución
+      opening specific video in a playlist (falling back to opening the video): abrir
+        vídeo específico nunha lista de reprodución (volvendo a abrir o vídeo)
+      opening playlists: abrindo as listas de reprodución
+      setting a playback rate: axustar unha taxa de reprodución
+      starting video at offset: vídeo de inicio en compensado
+    UnsupportedActionTemplate: '$ non admite: %'
+    OpeningTemplate: Abrindo $ en %...
+    playlist: lista de reprodución
+    video: vídeo
+    OpenInTemplate: Aberto en $
+  Sponsor Block category:
+    music offtopic: música fóra de tema
+    interaction: interacción
+    self-promotion: autopromoción
+    outro: outro
+    intro: intro
+    sponsor: patrocinador
+  Skipped segment: Segmento omitido
+  translated from English: traducido do Inglés
+  Video has been removed from your saved list: Eliminouse este vídeo da lista de gardados
+  Video has been saved: Gardouse o vídeo
+  Save Video: Gardar vídeo
 Videos:
   #& Sort By
   Sort By:
@@ -534,7 +636,7 @@ Comments:
   Top comments: 'Comentarios destacados'
   Newest first: 'Máis recentes'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Amosar'
+  View: 'Ver'
   Hide: 'Agochar'
   Replies: 'Respostas'
   Reply: 'Resposta'
@@ -550,7 +652,7 @@ Tooltips:
       datos. A API local é un extractor incluído. A API de Invidious require un servidor
       Invidious ao que se conectar.'
     Fallback to Non-Preferred Backend on Failure: 'Cando a túa API primaria falla,
-      FreeTube tentará utilizar a API secundaria automaticamente se se habilita'
+      FreeTube tentará utilizar a API secundaria automaticamente se é habilitado'
     Thumbnail Preference: 'Tódalas miniaturas en FreeTube serán remplazadas cunha
       imaxe do vídeo no canto da miniatura predeterminada'
     Invidious Instance: 'A instancia de Invidious á que FreeTube se conectará para
@@ -558,14 +660,14 @@ Tooltips:
       públicas'
     Region for Trending: 'A rexión das tendencias permíteche escoller os vídeos máis
       populares nun Estado. Non tódolos Estados que se amosan están soportados por
-      YouTube'
+      YouTube.'
   Player Settings:
     Force Local Backend for Legacy Formats: 'Só funcionará se a API de Invidious está
       escollida por defecto. Cando estea activa, a API local usará formatos antigos
       (Legacy) no canto dos de Invidious. Axuda cando Invidious non pode reproducir
-      un vídeo por causa das restricións rexionais'
+      un vídeo por causa das restricións rexionais.'
     Proxy Videos Through Invidious: 'Conectarase a Invidious para obter vídeos no
-      canto de recorrer directamente a YouTube. Sobrescribirá a preferencia de API'
+      canto de recorrer directamente a YouTube. Sobrescribirá a preferencia de API.'
     Default Video Format: 'Selecciona os formatos usados cando se reproduce un vídeo.
       Os formatos Dash teñen resolucións máis altas. Os formatos antigos (Legacy)
       están limitados a 720p pero utilizan menos largura de banda. Os formatos de
@@ -577,6 +679,21 @@ Tooltips:
       é en vivo'
 
 # Toast Messages
+  Privacy Settings:
+    Remove Video Meta Files: Cando está activado, FreeTube elimina automaticamente
+      os ficheiros meta creados durante a reprodución de vídeo cando a páxina de visualización
+      está pechada.
+  External Player Settings:
+    Custom External Player Arguments: Calquera argumento de liña de comandos personalizado,
+      separado por puntos e coma (';'), que desexa que se pase ao reprodutor externo.
+    Ignore Warnings: Suprime avisos para cando os reprodutores externos actuais non
+      apoian a acción actual (e.g. Invertendo listas de reprodución, etc.).
+    Custom External Player Executable: Por defecto, FreeTube asumirá que o reprodutor
+      externo elixido pode atoparse a través da variable de entorno PATH. Se é necesario,
+      pódese establecer un camiño personalizado aquí.
+    External Player: Se escolle un reprodutor externo, amosarase unha icona para abrir
+      o vídeo (unha lista de reprodución se é compatible) no reprodutor externo, na
+      miniatura.
 Local API Error (Click to copy): 'Erro de API local (Preme para copiar)'
 Invidious API Error (Click to copy): 'Erro de API Invidious (Preme para copiar)'
 Falling back to Invidious API: 'Recorrendo á API Invidious'
@@ -600,3 +717,13 @@ Canceled next video autoplay: 'Reprodución cancelada'
 
 Yes: 'Si'
 No: 'Non'
+Playing Next Video Interval: Reproducindo o seguinte vídeo en pouco tempo. Prema para
+  cancelar. | Reproducindo o seguinte vídeo en {nextVideoInterval} segundo. Prema
+  para cancelar. | Reproducindo o seguinte vídeo en {nextVideoInterval} segundos.
+  Prema para cancelar.
+Hashtags have not yet been implemented, try again later: Os cancelos non foron aínda
+  aplicados. Inténtao outra vez máis tarde
+Unknown YouTube url type, cannot be opened in app: O tipo de URL de YouTube descoñecido
+  non se pode abrir no aplicativo
+More: Máis
+Open New Window: Abrir nova xanela

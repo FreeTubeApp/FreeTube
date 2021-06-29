@@ -7,7 +7,7 @@ import FtListVideo from '../ft-list-video/ft-list-video.vue'
 
 import $ from 'jquery'
 import autolinker from 'autolinker'
-import { LiveChat } from 'youtube-chat'
+import { LiveChat } from '@freetube/youtube-chat'
 
 export default Vue.extend({
   name: 'WatchVideoLiveChat',

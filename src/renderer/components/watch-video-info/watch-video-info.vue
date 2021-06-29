@@ -71,6 +71,14 @@
           @click="toggleSave"
         />
         <ft-icon-button
+          v-if="externalPlayer !== ''"
+          :title="$t('Video.External Player.OpenInTemplate').replace('$', externalPlayer)"
+          icon="external-link-alt"
+          class="option"
+          theme="secondary"
+          @click="handleExternalPlayer"
+        />
+        <ft-icon-button
           v-if="theatrePossible"
           :title="$t('Toggle Theatre Mode')"
           class="theatreModeButton option"

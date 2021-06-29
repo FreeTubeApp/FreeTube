@@ -21,7 +21,7 @@ export default Vue.extend({
     },
     playlistId: {
       type: String,
-      required: true
+      default: ''
     },
     getTimestamp: {
       type: Function,
