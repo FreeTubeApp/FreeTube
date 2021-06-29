@@ -27,6 +27,14 @@
   background-color: var(--primary-input-color);
 }
 
+.forceTextColor .list {
+  background-color: var(--primary-color) ;
+  color: var(--text-with-main-color)
+}
+
+.forceTextColor .hover {
+  background-color: var(--primary-color-hover);
+}
 .forceTextColor .ft-input:focus {
   box-shadow: 0 0 1rem 0 var(--primary-input-color);
   -moz-transition: box-shadow 0.2s ease-in-out;
@@ -90,9 +98,8 @@
   padding: 5px 0;
   z-index: 10;
   border-radius: 0 0 5px 5px;
-  border: 1px var(--tertiary-text-color) solid;
-  color: var(--secondary-text-color);
-  background-color: var(--search-bar-color);
+  border: 1px var(--scrollbar-color-hover) solid;
+  background-color: var(--card-bg-color);
 }
 
 .list li {

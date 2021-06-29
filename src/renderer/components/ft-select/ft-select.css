@@ -42,7 +42,7 @@
 
 .select option {
   color: var(--secondary-text-color);
-  background-color: var(--search-bar-color);
+  background-color: var(--card-bg-color);
 }
 
 /* Remove focus */
