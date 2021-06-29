@@ -52,18 +52,21 @@
         >
           <div
             class="tab"
+            :class="(currentTab==='videos')?'selectedTab':''"
             @click="changeTab('videos')"
           >
             {{ $t("Channel.Videos.Videos").toUpperCase() }}
           </div>
           <div
             class="tab"
+            :class="(currentTab==='playlists')?'selectedTab':''"
             @click="changeTab('playlists')"
           >
             {{ $t("Channel.Playlists.Playlists").toUpperCase() }}
           </div>
           <div
             class="tab"
+            :class="(currentTab==='about')?'selectedTab':''"
             @click="changeTab('about')"
           >
             {{ $t("Channel.About.About").toUpperCase() }}

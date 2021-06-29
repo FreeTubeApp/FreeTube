@@ -16,12 +16,15 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
+.selectedTab {
+  text-decoration: underline;
+}
+
 .tab {
   text-align: center;
   padding: 15px;
   font-size: 15px;
   cursor: pointer;
-  text-decoration: underline;
   align-self: flex-end;
   -webkit-transition: background 0.2s ease-out;
   -moz-transition: background 0.2s ease-out;

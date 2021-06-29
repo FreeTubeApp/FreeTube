@@ -14,24 +14,28 @@
       >
         <div
           class="tab"
+          :class="(currentTab=='default')?'selectedTab':''"
           @click="changeTab('default')"
         >
           {{ $t("Trending.Default").toUpperCase() }}
         </div>
         <div
           class="tab"
+          :class="(currentTab=='music')?'selectedTab':''"
           @click="changeTab('music')"
         >
           {{ $t("Trending.Music").toUpperCase() }}
         </div>
         <div
           class="tab"
+          :class="(currentTab=='gaming')?'selectedTab':''"
           @click="changeTab('gaming')"
         >
           {{ $t("Trending.Gaming").toUpperCase() }}
         </div>
         <div
           class="tab"
+          :class="(currentTab=='movies')?'selectedTab':''"
           @click="changeTab('movies')"
         >
           {{ $t("Trending.Movies").toUpperCase() }}
