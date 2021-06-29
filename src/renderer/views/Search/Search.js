@@ -239,7 +239,7 @@ export default Vue.extend({
           duration: payload.searchSettings.duration,
           type: payload.searchSettings.type,
           region: this.searchRegion,
-          language: this.searchLanguage
+          hl: this.searchLanguage
         }
       }
 
