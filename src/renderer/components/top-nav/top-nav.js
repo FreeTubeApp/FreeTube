@@ -278,6 +278,10 @@ export default Vue.extend({
       }
     },
 
+    hideFilters: function () {
+      this.showFilters = false
+    },
+
     ...mapActions([
       'showToast',
       'getYoutubeUrlInfo',
