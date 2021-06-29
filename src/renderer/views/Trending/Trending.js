@@ -4,6 +4,7 @@ import FtCard from '../../components/ft-card/ft-card.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
+import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 
 import ytrend from 'yt-trending-scraper'
 
@@ -13,12 +14,14 @@ export default Vue.extend({
     'ft-card': FtCard,
     'ft-loader': FtLoader,
     'ft-element-list': FtElementList,
-    'ft-icon-button': FtIconButton
+    'ft-icon-button': FtIconButton,
+    'ft-flex-box': FtFlexBox
   },
   data: function () {
     return {
       isLoading: false,
-      shownResults: []
+      shownResults: [],
+      currentTab: 'default'
     }
   },
   computed: {
@@ -49,6 +52,11 @@ export default Vue.extend({
     }
   },
   methods: {
+    changeTab: function (tab) {
+      this.currentTab = tab
+      this.getTrendingInfo()
+    },
+
     getTrendingInfo () {
       if (!this.usingElectron) {
         this.getVideoInformationInvidious()
@@ -70,7 +78,7 @@ export default Vue.extend({
       console.log('getting local trending')
       const param = {
         parseCreatorOnRise: false,
-        page: 'default',
+        page: this.currentTab,
         geoLocation: this.region
       }
 
@@ -110,6 +118,10 @@ export default Vue.extend({
         resource: 'trending',
         id: '',
         params: { region: this.region }
+      }
+
+      if (this.currentTab !== 'default') {
+        trendingPayload.params.type = this.currentTab.charAt(0).toUpperCase() + this.currentTab.slice(1)
       }
 
       this.invidiousAPICall(trendingPayload).then((result) => {

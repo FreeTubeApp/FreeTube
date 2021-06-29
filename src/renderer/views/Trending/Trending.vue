@@ -8,7 +8,35 @@
       v-else
       class="card"
     >
-      <h3>{{ $t("Trending") }}</h3>
+      <h3>{{ $t("Trending.Trending") }}</h3>
+      <ft-flex-box
+        class="trendingInfoTabs"
+      >
+        <div
+          class="tab"
+          @click="changeTab('default')"
+        >
+          {{ $t("Trending.Default").toUpperCase() }}
+        </div>
+        <div
+          class="tab"
+          @click="changeTab('music')"
+        >
+          {{ $t("Trending.Music").toUpperCase() }}
+        </div>
+        <div
+          class="tab"
+          @click="changeTab('gaming')"
+        >
+          {{ $t("Trending.Gaming").toUpperCase() }}
+        </div>
+        <div
+          class="tab"
+          @click="changeTab('movies')"
+        >
+          {{ $t("Trending.Movies").toUpperCase() }}
+        </div>
+      </ft-flex-box>
       <ft-element-list
         :data="shownResults"
       />
