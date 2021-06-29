@@ -66,7 +66,13 @@ export default Vue.extend({
     },
 
     parseInvidiousData: function () {
-      this.thumbnail = this.data.authorThumbnails[2].url.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`)
+      this.thumbnail = this.data.authorThumbnails[2].url
+
+      if (!this.thumbnail.includes('https:')) {
+        this.thumbnail = `https:${this.thumbnail}`
+      }
+
+      this.thumbnail = this.thumbnail.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`)
       this.channelName = this.data.author
       this.id = this.data.authorId
       if (this.hideChannelSubscriptions) {
