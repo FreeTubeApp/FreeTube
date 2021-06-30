@@ -30,7 +30,7 @@
 
 .forceTextColor .list {
   background-color: var(--primary-color) ;
-  color: var(--text-with-main-color)
+  color: var(--text-with-main-color);
 }
 
 .forceTextColor .hover {
@@ -99,8 +99,8 @@
   padding: 5px 0;
   z-index: 10;
   border-radius: 0 0 5px 5px;
-  border: 1px var(--scrollbar-color-hover) solid;
-  background-color: var(--card-bg-color);
+  box-shadow: 0 0 10px var(--scrollbar-color-hover);
+  background-color: var(--search-bar-color);
 }
 
 .list li {
