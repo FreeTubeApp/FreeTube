@@ -41,6 +41,9 @@ export default Vue.extend({
 
     hideLiveStreams: function() {
       return this.$store.getters.getHideLiveStreams
+    },
+    showFamilyFriendlyOnly: function() {
+      return this.$store.getters.getShowFamilyFriendlyOnly
     }
   },
   watch: {
@@ -122,6 +125,8 @@ export default Vue.extend({
         this.isLoading = true
         payload.options.pages = 1
       }
+
+      payload.options.safeSearch = this.showFamilyFriendlyOnly
 
       this.ytSearch(payload).then((result) => {
         console.log(result)
