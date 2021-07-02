@@ -69,8 +69,6 @@ export default Vue.extend({
   watch: {
     videoId: function (newId, oldId) {
       // Check if next video is from the shuffled list or if the user clicked a different video
-      console.log(newId)
-      console.log(oldId)
       if (this.shuffleEnabled) {
         const newVideoIndex = this.randomizedPlaylistItems.findIndex((item) => {
           return item === newId
@@ -159,7 +157,7 @@ export default Vue.extend({
 
       if (this.shuffleEnabled) {
         const videoIndex = this.randomizedPlaylistItems.findIndex((item) => {
-          return item === this.videoId || item === this.id
+          return item === this.videoId
         })
 
         if (videoIndex === this.randomizedPlaylistItems.length - 1) {
@@ -192,7 +190,7 @@ export default Vue.extend({
         }
       } else {
         const videoIndex = this.playlistItems.findIndex((item) => {
-          return item.id === this.videoId || item.videoId === this.videoId
+          return (item.id ?? item.videoId) === this.videoId
         })
 
         if (videoIndex === this.playlistItems.length - 1) {
@@ -234,9 +232,8 @@ export default Vue.extend({
       }
 
       if (this.shuffleEnabled) {
-        console.log('shuffle')
         const videoIndex = this.randomizedPlaylistItems.findIndex((item) => {
-          return item.id === this.videoId || item.videoId === this.videoId
+          return item === this.videoId
         })
 
         if (videoIndex === 0) {
@@ -256,7 +253,7 @@ export default Vue.extend({
         }
       } else {
         const videoIndex = this.playlistItems.findIndex((item) => {
-          return item.id === this.videoId || item.videoId === this.videoId
+          return (item.id ?? item.videoId) === this.videoId
         })
 
         if (videoIndex === 0) {
