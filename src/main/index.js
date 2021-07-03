@@ -247,7 +247,7 @@ function runApp() {
     }
 
     // Show when loaded
-    newWindow.on('ready-to-show', () => {
+    newWindow.once('ready-to-show', () => {
       newWindow.show()
       newWindow.focus()
     })
@@ -281,13 +281,13 @@ function runApp() {
     })
   }
 
-  ipcMain.on('appReady', () => {
+  ipcMain.once('appReady', () => {
     if (startupUrl) {
       mainWindow.webContents.send('openUrl', startupUrl)
     }
   })
 
-  ipcMain.on('relaunchRequest', () => {
+  ipcMain.once('relaunchRequest', () => {
     if (isDev) {
       app.exit(parseInt(process.env.FREETUBE_RELAUNCH_EXIT_CODE))
       return
@@ -383,7 +383,7 @@ function runApp() {
     child.unref()
   })
 
-  app.on('window-all-closed', () => {
+  app.once('window-all-closed', () => {
     // Clear cache and storage if it's the last window
     session.defaultSession.clearCache()
     session.defaultSession.clearStorageData({
@@ -405,7 +405,7 @@ function runApp() {
   })
 
   app.on('activate', () => {
-    if (mainWindow === null || mainWindow === undefined) {
+    if (BrowserWindow.getAllWindows().length === 0) {
       createWindow()
     }
   })
