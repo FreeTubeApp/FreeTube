@@ -33,7 +33,6 @@ function runApp() {
   const isDev = process.env.NODE_ENV === 'development'
   const isDebug = process.argv.includes('--debug')
   let mainWindow
-  let openedWindows = []
   let startupUrl
 
   // CORS somehow gets re-enabled in Electron v9.0.4
@@ -198,7 +197,7 @@ function runApp() {
       },
       show: false
     })
-    openedWindows.push(newWindow)
+
     if (replaceMainWindow) {
       mainWindow = newWindow
     }
@@ -253,13 +252,12 @@ function runApp() {
       newWindow.focus()
     })
 
-    newWindow.on('closed', () => {
-      // Remove closed window
-      openedWindows = openedWindows.filter((window) => window !== newWindow)
-      if (newWindow === mainWindow) {
+    newWindow.once('closed', () => {
+      const allWindows = BrowserWindow.getAllWindows()
+      if (allWindows.length !== 0 && newWindow === mainWindow) {
         // Replace mainWindow to avoid accessing `mainWindow.webContents`
         // Which raises "Object has been destroyed" error
-        mainWindow = openedWindows[0]
+        mainWindow = allWindows[0]
       }
 
       console.log('closed')
@@ -368,9 +366,11 @@ function runApp() {
   })
 
   ipcMain.on('syncWindows', (event, payload) => {
-    const otherWindows = openedWindows.filter((window) => {
-      return window.webContents.id !== event.sender.id
-    })
+    const otherWindows = BrowserWindow.getAllWindows().filter(
+      (window) => {
+        return window.webContents.id !== event.sender.id
+      }
+    )
 
     for (const window of otherWindows) {
       window.webContents.send('syncWindows', payload)
