@@ -127,6 +127,8 @@ Settings:
     Region for Trending: 'אזור לסרטונים חמים'
         #! List countries
     View all Invidious instance information: הצגת כל פרטי העותק של Invidious
+    Current Invidious Instance: עותק נוכחי של Invidious
+    System Default: בררת המחדל של המערכת
   Theme Settings:
     Theme Settings: 'הגדרת מראה'
     Match Top Bar with Main Color: 'התאמת האזור העליון לצבע הראשי'
