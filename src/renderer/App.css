@@ -54,3 +54,32 @@ body {
     margin-bottom: -75px;
   }
 }
+
+
+/* Design Tweaks Theme */ :root {--main-border-radius: 10px;}
+
+/* Rounded Corners */ .btn, .ft-card, .ft-input, .list, .ftNotificationBanner, .bubblePadding, .searchFilterInner, .ftVideoPlayer:not(.vjs-fullscreen), .ft-list-item, .thumbnailImage, .iconButton, .channelThumbnail, .commentThumbnail {border-radius: var(--main-border-radius)!important;}
+
+/* Colors */ .dark { --bg-color: #111!important; --card-bg-color: #222!important; --side-nav-color: #222!important; --side-nav-hover-color: #333!important; --search-bar-color: #333!important; --favorite-icon-color: var(--accent-color)!important; }
+
+/* Secondary Buttons */ .iconButton.secondary {background-color: #444!important; color: var(--primary-text-color)!important; border-radius: var(--main-border-radius)!important; margin-left: 5px!important;} .iconButton {box-shadow:none!important;}
+
+/* Favorite Button */ .iconButton.base {background-color: #444!important;} .iconButton.favorite {color: var(--accent-color)!important; background: var(--accent-color-opacity4)!important;}
+
+/* Subscribe */ .subscribeButton {font-weight: bold!important; color: var(--accent-color)!important; background: var(--accent-color-opacity4)!important; border-color: transparent!important;}
+
+/* Profile Switcher */ .colorOption {background: var(--accent-color-opacity4)!important; color: var(--accent-color)!important; border-radius: 10px!important; font-weight:bold!important;} #profileList {box-shadow: 0 0 30px #000!important;}
+
+/* Hide elements */ .sideNav hr, .closed .navLabel, .side .menuIcon, .side .navForwardIcon, .side .logo .logoText {display:none!important;}
+
+/* Left Sidebar */ .closed .navIcon {margin-left: 10%; width: 52px!important; background: var(--search-bar-color)!important; height: 25px!important; padding: 14px 0!important; margin: -10px 0 0 10%!important; border-radius: var(--main-border-radius)!important;}
+
+.closed .inner, .closed {width: 70px!important;} .expand{margin-left:70px!important;} .closed .thumbnailContainer { background: var(--search-bar-color)!important; border-radius: var(--main-border-radius)!important; padding: 5px 8px 2px 8px!important; margin: -9px 0 0px 7px!important;} .channelThumbnail:not(.channelInformation .channelThumbnail) { border-radius: var(--main-border-radius)!important; width: 39px!important; margin: 0 0 0 -2px!important;} .closed .navOption {padding: 9px 0!important;}
+
+/* Comments */ .commentThumbnail{width:52px!important; height:52px!important;}
+
+/* Video Player */ .video-js .vjs-progress-control {left: 0.8%!important; width: 98.2%!important; height: 8px!important; top: -5px!important;} .video-js .vjs-slider {border-radius: var(--main-border-radius)!important; background-color: #fff5!important;} .video-js .vjs-load-progress {background: #fff8!important; border-radius: var(--main-border-radius)!important;} .video-js .vjs-control-bar {background: linear-gradient(#0000, #0005)!important; font-size: 14px!important;} .video-js .vjs-time-control {font-size: 16px!important; top: -8px!important;} .video-js .vjs-vtt-thumbnail-display {border-radius: var(--main-border-radius)!important;} .video-js .vjs-play-progress, .video-js .vjs-volume-level {background-color: var(--primary-color)!important; border-radius: var(--main-border-radius)!important;} .video-js .vjs-progress-control .vjs-load-progress, .video-js .vjs-progress-control .vjs-play-progress, .video-js .vjs-progress-control .vjs-progress-holder {height: 100%!important;} .video-js .vjs-big-play-button {backdrop-filter: blur(20px)!important;} .video-js:hover .vjs-big-play-button, .video-js .vjs-big-play-button:focus, .video-js .vjs-big-play-button:active{color:#000!important;} .video-js.vjs-has-started.vjs-playing.vjs-user-inactive .vjs-control-bar {transform: translateY(4em)!important;transition: transform 0.3s!important;}
+
+/* Channels */ .channelInfoContainer .channelInfo .channelThumbnail {width: 100px!important;} .channelBanner{border-radius: 10px 10px 0 0!important;}
+
+/* FreeTube Logo */ .side .logo .logoIcon {width: 130px!important; background-position: 0px 8px!important; height: 40px!important;background-size: 130px!important;}
