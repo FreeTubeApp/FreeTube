@@ -252,6 +252,23 @@ function runApp() {
       newWindow.focus()
     })
 
+    newWindow.once('close', async () => {
+      if (BrowserWindow.getAllWindows().length !== 1) {
+        return
+      }
+
+      const value = {
+        ...newWindow.getNormalBounds(),
+        maximized: newWindow.isMaximized()
+      }
+
+      await settingsDb.update(
+        { _id: 'bounds' },
+        { _id: 'bounds', value },
+        { upsert: true }
+      )
+    })
+
     newWindow.once('closed', () => {
       const allWindows = BrowserWindow.getAllWindows()
       if (allWindows.length !== 0 && newWindow === mainWindow) {
@@ -263,22 +280,6 @@ function runApp() {
       console.log('closed')
     })
   }
-
-  // Save closing window bounds & maximized status
-  ipcMain.on('setBounds', async (event) => {
-    const value = {
-      ...mainWindow.getNormalBounds(),
-      maximized: mainWindow.isMaximized()
-    }
-
-    await settingsDb.update(
-      { _id: 'bounds' },
-      { _id: 'bounds', value },
-      { upsert: true }
-    )
-
-    event.returnValue = 0
-  })
 
   ipcMain.on('appReady', () => {
     if (startupUrl) {

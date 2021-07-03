@@ -103,7 +103,6 @@ export default Vue.extend({
           this.activateKeyboardShortcuts()
           this.openAllLinksExternally()
           this.enableOpenUrl()
-          this.setBoundsOnClose()
           await this.checkExternalPlayer()
         }
 
@@ -378,12 +377,6 @@ export default Vue.extend({
       })
 
       ipcRenderer.send('appReady')
-    },
-
-    setBoundsOnClose: function () {
-      window.onbeforeunload = () => {
-        ipcRenderer.sendSync('setBounds')
-      }
     },
 
     ...mapMutations([
