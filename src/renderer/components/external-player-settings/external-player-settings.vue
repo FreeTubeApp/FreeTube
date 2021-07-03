@@ -45,7 +45,7 @@
         :show-arrow="false"
         :show-label="true"
         :value="externalPlayerCustomArgs"
-        :tooltip="$t('Tooltips.External Player Settings.Custom External Player Arguments')"
+        :tooltip="externalPlayerCustomArgsTooltip"
         @input="updateExternalPlayerCustomArgs"
       />
     </ft-flex-box>

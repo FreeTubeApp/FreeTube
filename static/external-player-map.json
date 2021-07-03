@@ -9,6 +9,7 @@
         "value": "mpv",
         "cmdArguments": {
             "defaultExecutable": "mpv",
+            "defaultCustomArguments": null,
             "supportsYtdlProtocol": true,
             "videoUrl": "",
             "playlistUrl": "",
@@ -25,6 +26,7 @@
         "value": "vlc",
         "cmdArguments": {
             "defaultExecutable": "vlc",
+            "defaultCustomArguments": null,
             "supportsYtdlProtocol": false,
             "videoUrl": "",
             "playlistUrl": null,
