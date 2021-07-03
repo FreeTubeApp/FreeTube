@@ -326,6 +326,12 @@ Settings:
       (o padrão é https://sponsor.ajay.app)
     Enable SponsorBlock: Ativar o Bloqueio de Patrocinadores
     SponsorBlock Settings: Configurações de Bloqueio de Patrocinadores
+  External Player Settings:
+    Custom External Player Arguments: Argumentos de player externo personalizados
+    External Player: Player externo
+    Ignore Unsupported Action Warnings: Ignorar avisos de ação não suportada
+    External Player Settings: Configurações do player externo
+    Custom External Player Executable: Executável de player externo personalizado
 About:
   #On About page
   About: 'Sobre'
@@ -511,6 +517,20 @@ Video:
     intro: introdução
     sponsor: patrocinador
   Skipped segment: Segmentos pulados
+  External Player:
+    Unsupported Actions:
+      shuffling playlists: embaralhar playlists
+      opening specific video in a playlist (falling back to opening the video): abrir
+        um vídeo específico em uma lista de reprodução (voltar a abrir o vídeo)
+      reversing playlists: revertendo playlists
+      opening playlists: abrindo playlists
+      starting video at offset: começando vídeo em deslocamento
+      setting a playback rate: definindo uma taxa de reprodução
+    UnsupportedActionTemplate: '$ não suporta: %'
+    playlist: playlist
+    OpeningTemplate: Abrindo $ em %...
+    OpenInTemplate: Aberto em $
+    video: vídeo
 Videos:
   #& Sort By
   Sort By:
@@ -693,6 +713,17 @@ Tooltips:
     Remove Video Meta Files: Quando ativado, o FreeTube exclui automaticamente os
       metarquivos criados durante a reprodução do vídeo quando a página de exibição
       é fechada.
+  External Player Settings:
+    Custom External Player Arguments: Quaisquer argumentos de linha de comando personalizados,
+      separados por ponto e vírgula (';'), você deseja que seja passado para o reprodutor
+      externo.
+    Ignore Warnings: Suprime os avisos para quando o player externo atual não suporta
+      a ação atual (por exemplo, reverter listas de reprodução, etc.).
+    Custom External Player Executable: Por padrão, o FreeTube assumirá que o player
+      externo escolhido pode ser encontrado por meio da variável de ambiente PATH.
+      Se necessário, um caminho personalizado pode ser definido aqui.
+    External Player: A escolha de um reprodutor externo exibirá um ícone para abrir
+      o vídeo (lista de reprodução, se houver suporte) no reprodutor externo, na miniatura.
 More: Mais
 Playing Next Video Interval: Reproduzindo o próximo vídeo imediatamente. Clique para
   cancelar. | Reproduzindo o próximo vídeo em {nextVideoInterval} segundo(s). Clique

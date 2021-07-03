@@ -106,8 +106,8 @@ export default Vue.extend({
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
     },
     proxyVideos: function () {
       return this.$store.getters.getProxyVideos
@@ -526,7 +526,7 @@ export default Vue.extend({
       }
 
       this.dashSrc = this.createInvidiousDashManifest()
-      this.videoStoryboardSrc = `${this.invidiousInstance}/api/v1/storyboards/${this.videoId}?height=90`
+      this.videoStoryboardSrc = `${this.currentInvidiousInstance}/api/v1/storyboards/${this.videoId}?height=90`
 
       this.invidiousGetVideoInformation(this.videoId)
         .then(result => {
@@ -551,7 +551,7 @@ export default Vue.extend({
           }
           this.channelId = result.authorId
           this.channelName = result.author
-          this.channelThumbnail = result.authorThumbnails[1] ? result.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`) : ''
+          this.channelThumbnail = result.authorThumbnails[1] ? result.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`) : ''
           this.videoPublished = result.published * 1000
           this.videoDescriptionHtml = result.descriptionHtml
           this.recommendedVideos = result.recommendedVideos
@@ -559,7 +559,7 @@ export default Vue.extend({
           this.isLive = result.liveNow
           this.isFamilyFriendly = result.isFamilyFriendly
           this.captionHybridList = result.captions.map(caption => {
-            caption.url = this.invidiousInstance + caption.url
+            caption.url = this.currentInvidiousInstance + caption.url
             caption.type = ''
             caption.dataSource = 'invidious'
             return caption
@@ -567,13 +567,13 @@ export default Vue.extend({
 
           switch (this.thumbnailPreference) {
             case 'start':
-              this.thumbnail = `${this.invidiousInstance}/vi/${this.videoId}/maxres1.jpg`
+              this.thumbnail = `${this.currentInvidiousInstance}/vi/${this.videoId}/maxres1.jpg`
               break
             case 'middle':
-              this.thumbnail = `${this.invidiousInstance}/vi/${this.videoId}/maxres2.jpg`
+              this.thumbnail = `${this.currentInvidiousInstance}/vi/${this.videoId}/maxres2.jpg`
               break
             case 'end':
-              this.thumbnail = `${this.invidiousInstance}/vi/${this.videoId}/maxres3.jpg`
+              this.thumbnail = `${this.currentInvidiousInstance}/vi/${this.videoId}/maxres3.jpg`
               break
             default:
               this.thumbnail = result.videoThumbnails[0].url
@@ -1047,7 +1047,7 @@ export default Vue.extend({
     },
 
     createInvidiousDashManifest: function () {
-      let url = `${this.invidiousInstance}/api/manifest/dash/id/${this.videoId}.mpd`
+      let url = `${this.currentInvidiousInstance}/api/manifest/dash/id/${this.videoId}.mpd`
 
       if (this.proxyVideos || !this.usingElectron) {
         url = url + '?local=true'

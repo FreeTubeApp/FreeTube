@@ -39,8 +39,8 @@ export default Vue.extend({
       return this.$store.getters.getHideShare
     },
 
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
     },
 
     listType: function () {
@@ -99,7 +99,7 @@ export default Vue.extend({
   methods: {
     sharePlaylist: function (method) {
       const youtubeUrl = `https://youtube.com/playlist?list=${this.id}`
-      const invidiousUrl = `${this.invidiousInstance}/playlist?list=${this.id}`
+      const invidiousUrl = `${this.currentInvidiousInstance}/playlist?list=${this.id}`
 
       switch (method) {
         case 'copyYoutube':

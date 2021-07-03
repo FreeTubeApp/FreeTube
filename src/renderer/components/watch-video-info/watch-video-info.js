@@ -126,8 +126,8 @@ export default Vue.extend({
     }
   },
   computed: {
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
     },
 
     hideShare: function() {
