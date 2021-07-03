@@ -133,6 +133,14 @@ Settings:
     View all Invidious instance information: Преглед на пълна информация за Invidious
       обекта
     System Default: Стандартен за системата
+    Clear Default Instance: Изчистване на сървъра по подразбиране
+    Set Current Instance as Default: Задаване на текущият сървър като по подразбиране
+    Current instance will be randomized on startup: Текущият сървър при стартиране
+      ще бъде случаен
+    No default instance has been set: Няма зададен сървър по подразбиране
+    The currently set default instance is $: Текущо зададеният сървър по подразбиране
+      е $
+    Current Invidious Instance: Текущ Invidious сървър
   Theme Settings:
     Theme Settings: 'Настройки на изгледа на приложението'
     Match Top Bar with Main Color: 'Съвпадане на горната лента с основната цветова
@@ -572,10 +580,10 @@ Video:
       setting a playback rate: задаване на скорост за възпроизвеждане
       starting video at offset: стартиране на видео при отместване
     UnsupportedActionTemplate: '$ не поддържа: %'
-    OpeningTemplate: Отваряне на $ в %...
+    OpeningTemplate: Отваряне на $ във %...
     playlist: плейлист
     video: видео
-    OpenInTemplate: Отваряне в $
+    OpenInTemplate: Отваряне във $
 Videos:
   #& Sort By
   Sort By:
@@ -725,3 +733,7 @@ Hashtags have not yet been implemented, try again later: Хаштаговете 
 Unknown YouTube url type, cannot be opened in app: Неизвестен тип URL адрес за YouTube,
   не може да се отвори в приложението
 Open New Window: Отваряне на нов прозорец
+Default Invidious instance has been cleared: Сървъра по подразбиране за Invidious
+  е изчистен
+Default Invidious instance has been set to $: Сървъра по подразбиране за Invidious
+  е зададен на $
