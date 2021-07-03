@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { mapActions } from 'vuex'
+import { mapActions, mapMutations } from 'vuex'
 import { ObserveVisibility } from 'vue-observe-visibility'
 import FtFlexBox from './components/ft-flex-box/ft-flex-box.vue'
 import TopNav from './components/top-nav/top-nav.vue'
@@ -79,10 +79,18 @@ export default Vue.extend({
     },
     externalPlayer: function () {
       return this.$store.getters.getExternalPlayer
+    },
+    defaultInvidiousInstance: function () {
+      return this.$store.getters.getDefaultInvidiousInstance
     }
   },
   mounted: function () {
-    this.grabUserSettings().then(() => {
+    this.grabUserSettings().then(async () => {
+      await this.fetchInvidiousInstances()
+      if (this.defaultInvidiousInstance === '') {
+        await this.setRandomCurrentInvidiousInstance()
+      }
+
       this.grabAllProfiles(this.$t('Profile.All Channels')).then(async () => {
         this.grabHistory()
         this.grabAllPlaylists()
@@ -378,6 +386,10 @@ export default Vue.extend({
       }
     },
 
+    ...mapMutations([
+      'setInvidiousInstancesList'
+    ]),
+
     ...mapActions([
       'showToast',
       'openExternalLink',
@@ -387,6 +399,8 @@ export default Vue.extend({
       'grabAllPlaylists',
       'getYoutubeUrlInfo',
       'getExternalPlayerCmdArgumentsData',
+      'fetchInvidiousInstances',
+      'setRandomCurrentInvidiousInstance',
       'setupListenerToSyncWindows'
     ])
   }

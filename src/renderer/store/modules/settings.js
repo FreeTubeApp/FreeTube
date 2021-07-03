@@ -194,7 +194,6 @@ const state = {
   hideVideoLikesAndDislikes: false,
   hideVideoViews: false,
   hideWatchedSubs: false,
-  invidiousInstance: 'https://invidious.snopyta.org',
   landingPage: 'subscriptions',
   listType: 'grid',
   playNextVideo: false,
@@ -247,6 +246,15 @@ const stateWithSideEffects = {
         isDev: process.env.NODE_ENV === 'development',
         locale: targetLocale
       })
+    }
+  },
+
+  defaultInvidiousInstance: {
+    defaultValue: '',
+    sideEffectsHandler: ({ commit, getters }, value) => {
+      if (value !== '' && getters.getCurrentInvidiousInstance !== value) {
+        commit('setCurrentInvidiousInstance', value)
+      }
     }
   },
 

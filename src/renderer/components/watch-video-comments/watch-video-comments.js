@@ -50,8 +50,8 @@ export default Vue.extend({
       return this.$store.getters.getBackendFallback
     },
 
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
     },
     hideCommentLikes: function () {
       return this.$store.getters.getHideCommentLikes
@@ -276,7 +276,7 @@ export default Vue.extend({
         const commentData = response.comments.map((comment) => {
           comment.showReplies = false
           comment.authorLink = comment.authorId
-          comment.authorThumb = comment.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`)
+          comment.authorThumb = comment.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
           if (this.hideCommentLikes) {
             comment.likes = null
           } else {
@@ -342,7 +342,7 @@ export default Vue.extend({
         const commentData = response.comments.map((comment) => {
           comment.showReplies = false
           comment.authorLink = comment.authorId
-          comment.authorThumb = comment.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`)
+          comment.authorThumb = comment.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
           if (this.hideCommentLikes) {
             comment.likes = null
           } else {
