@@ -92,8 +92,8 @@ export default Vue.extend({
       return this.$store.getters.getBackendPreference
     },
 
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
     },
 
     inHistory: function () {
@@ -103,11 +103,11 @@ export default Vue.extend({
     },
 
     invidiousUrl: function () {
-      return `${this.invidiousInstance}/watch?v=${this.id}`
+      return `${this.currentInvidiousInstance}/watch?v=${this.id}`
     },
 
     invidiousChannelUrl: function () {
-      return `${this.invidiousInstance}/channel/${this.channelId}`
+      return `${this.currentInvidiousInstance}/channel/${this.channelId}`
     },
 
     youtubeUrl: function () {
@@ -156,7 +156,7 @@ export default Vue.extend({
     thumbnail: function () {
       let baseUrl
       if (this.backendPreference === 'invidious') {
-        baseUrl = this.invidiousInstance
+        baseUrl = this.currentInvidiousInstance
       } else {
         baseUrl = 'https://i.ytimg.com'
       }
