@@ -19,11 +19,12 @@ The same [FreeTube](https://github.com/FreeTubeApp/FreeTube) you know & love, bu
 * The video player menus look out of place and are not rounded
 * Some buttons in the top left corner are not shown
 * Not good for accesibility, since this version is focusing on design
-* Feature updates should have a version number
 
 ## Installation
 
-Build it... I guess?? I still don't know how to make it work yet, but I'll update this part once I do
+A. [Download the latest appimage](https://github.com/dragosnfy/FreeTube/releases) (make sure that ```allow executing file as program``` is checked when you right click on it)
+
+B. Build it on your own with ```npm install```, ```npm run build``` or ```npm run dev``` (which means you need to install nodejs & npm)
 
 ## Wanna contribute?
 
