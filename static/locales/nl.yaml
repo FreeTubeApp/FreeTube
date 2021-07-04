@@ -128,7 +128,16 @@ Settings:
     Check for Latest Blog Posts: Controleer op Nieuwe Blogposts
     Check for Updates: Controleer op Updates
     View all Invidious instance information: Bekijk alle Invidious-instantiegegevens
-    System Default: Standaard Systeeminstellingen
+    System Default: Systeemtaal
+    Current Invidious Instance: Momenteel Gebruikte Invidious-instantie
+    Clear Default Instance: Standaardinstantie wissen
+    Set Current Instance as Default: Stel momenteel geselecteerde instantie in als
+      standaard
+    Current instance will be randomized on startup: Momenteel gebruikte instantie
+      zal willekeurig worden gekozen wanneer de applicatie start
+    No default instance has been set: Er is geen standaard instantie ingesteld
+    The currently set default instance is $: De momenteel als standaard ingestelde
+      instantie is $
   Theme Settings:
     Theme Settings: 'Thema-instellingen'
     Match Top Bar with Main Color: 'Zet Bovenste Balk Gelijk aan Primaire Themakleur'
@@ -440,7 +449,7 @@ Video:
   # As in a Live Video
   Live: 'Live'
   Live Now: 'Nu Live'
-  Live Chat: 'Live Chat'
+  Live Chat: 'Livechat'
   Enable Live Chat: 'Schakel Live Chat in'
   Live Chat is currently not supported in this build.: 'Live Chat wordt momenteel
     niet ondersteunt in deze versie.'
@@ -698,7 +707,7 @@ Tooltips:
       RSS is sneller en voorkomt dat je IP wordt geblokkeerd maar geeft geen toegang
       tot sommige informatie zoals de videoduur en live-status
   General Settings:
-    Invidious Instance: Dit is de Invidious instantie waar FreeTube mee zal verbinden
+    Invidious Instance: Dit is de Invidious-instantie waar FreeTube mee zal verbinden
       om API calls te maken. Verwijder de momenteel geselecteerd instantie om een
       lijst van publieke instanties te tonen.
     Thumbnail Preference: Alle thumbnails in FreeTube zullen worden vervangen met
@@ -736,3 +745,6 @@ Hashtags have not yet been implemented, try again later: Hastags zijn nog niet g
 Unknown YouTube url type, cannot be opened in app: Onbekende YouTube url type, de
   url kan niet worden geopend in de app
 Open New Window: Open Nieuw Venster
+Default Invidious instance has been cleared: Standaard Invidious-instantie is verwijderd
+Default Invidious instance has been set to $: Standaard Invidious-instantie is ingesteld
+  op $
