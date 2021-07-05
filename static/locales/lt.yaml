@@ -610,8 +610,8 @@ Tooltips:
     Fallback to Non-Preferred Backend on Failure: 'Kai jūsų pageidaujamoje API kyla
       problemų, FreeTube automatiškai bandys naudoti jūsų nepasirinktą API kaip atsarginį
       metodą, kai tai yra įgalinta.'
-    Thumbnail Preference: 'Visos FreeTube miniatiūros bus pakeistos vaizdo įrašo rėmeliu
-      vietoj numatytosios miniatiūros.'
+    Thumbnail Preference: 'Visos FreeTube vaizdo įrašų miniatiūros vietoje numatytosios
+      bus pakeistos atitinkamu vaizdo įrašo stop kardu.'
     Invidious Instance: 'Nepakankama instancija, prie kurio FreeTube prisijungs, kad
       gautų API skambučius. Išvalykite esamą instanciją, kad pamatytumėte viešų egzempliorių,
       iš kurių galite pasirinkti, sąrašą.'
