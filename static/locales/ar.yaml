@@ -123,6 +123,12 @@ Settings:
     Check for Updates: تحقّق من وجود تحديثات
     View all Invidious instance information: عرض جميع نماذج Invidious
     System Default: افتراضي النظام
+    Set Current Instance as Default: قم بتعيين المثيل الحالي كافتراضي
+    Current instance will be randomized on startup: سيتم عشوائية المثيل الحالي عند
+      بدء التشغيل
+    No default instance has been set: لم يتم تعيين مثيل افتراضي
+    The currently set default instance is $: المثيل الافتراضي المحدد حاليا هو $
+    Current Invidious Instance: المثيل الحالي Invidious
   Theme Settings:
     Theme Settings: 'إعدادات السِمة'
     Match Top Bar with Main Color: 'طابق الشريط العلوي مع اللون الأساسي'
