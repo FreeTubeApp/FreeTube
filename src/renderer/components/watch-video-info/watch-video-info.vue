@@ -27,7 +27,7 @@
               {{ channelName }}
             </div>
             <ft-button
-              v-if="!hideUnsubscribe"
+              v-if="!hideUnsubscribeButton"
               :label="subscribedText"
               class="subscribeButton"
               background-color="var(--primary-color)"

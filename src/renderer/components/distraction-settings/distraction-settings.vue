@@ -45,6 +45,12 @@
           :default-value="hideDescription"
           @change="updateHideDescription"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Share')"
+          :compact="true"
+          :default-value="hideShare"
+          @change="updateHideShare"
+        />
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
@@ -78,10 +84,16 @@
           @change="updateHideLiveChat"
         />
         <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Search Bar')"
+          :label="$t('Settings.Distraction Free Settings.Hide Live Streams')"
           :compact="true"
-          :default-value="hideSearchBar"
-          @change="updateHideSearchBar"
+          :default-value="hideLiveStreams"
+          @change="updateHideLiveStreams"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Comments')"
+          :compact="true"
+          :default-value="hideComments"
+          @change="updateHideComments"
         />
       </div>
     </div>

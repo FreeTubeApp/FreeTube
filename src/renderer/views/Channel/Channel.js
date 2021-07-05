@@ -76,8 +76,8 @@ export default Vue.extend({
       return this.$store.getters.getBackendFallback
     },
 
-    hideUnsubscribe: function() {
-      return this.$store.getters.getHideUnsubscribe
+    hideUnsubscribeButton: function() {
+      return this.$store.getters.getHideUnsubscribeButton
     },
 
     showFamilyFriendlyOnly: function() {

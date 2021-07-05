@@ -49,8 +49,14 @@ export default Vue.extend({
     hideDescription: function () {
       return this.$store.getters.getHideDescription
     },
-    hideSearchBar: function () {
-      return this.$store.getters.getHideSearchBar
+    hideComments: function () {
+      return this.$store.getters.getHideComments
+    },
+    hideLiveStreams: function() {
+      return this.$store.getters.getHideLiveStreams
+    },
+    hideShare: function() {
+      return this.$store.getters.getHideShare
     }
   },
   methods: {
@@ -76,7 +82,9 @@ export default Vue.extend({
       'updatePlayNextVideo',
       'updateDefaultTheatreMode',
       'updateHideDescription',
-      'updateHideSearchBar'
+      'updateHideComments',
+      'updateHideLiveStreams',
+      'updateHideShare'
     ])
   }
 })

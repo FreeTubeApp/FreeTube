@@ -41,7 +41,7 @@
           </span>
         </div>
         <ft-button
-          v-if="!hideUnsubscribe"
+          v-if="!hideUnsubscribeButton"
           :label="subscribedText"
           background-color="var(--primary-color)"
           text-color="var(--text-with-main-color)"

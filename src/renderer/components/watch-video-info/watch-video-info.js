@@ -134,8 +134,8 @@ export default Vue.extend({
       return this.$store.getters.getHideShare
     },
 
-    hideUnsubscribe: function() {
-      return this.$store.getters.getHideUnsubscribe
+    hideUnsubscribeButton: function() {
+      return this.$store.getters.getHideUnsubscribeButton
     },
 
     profileList: function () {

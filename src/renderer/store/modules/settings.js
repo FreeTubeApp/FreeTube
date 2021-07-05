@@ -196,7 +196,7 @@ const state = {
   hideSearchBar: false,
   hideShare: false,
   hideTrendingVideos: false,
-  hideUnsubscribe: false,
+  hideUnsubscribeButton: false,
   hideVideoLikesAndDislikes: false,
   hideVideoViews: false,
   hideWatchedSubs: false,

@@ -16,17 +16,11 @@ export default Vue.extend({
     'ft-flex-box': FtFlexBox
   },
   computed: {
-    hideComments: function () {
-      return this.$store.getters.getHideComments
+    hideSearchBar: function () {
+      return this.$store.getters.getHideSearchBar
     },
-    hideLiveStreams: function() {
-      return this.$store.getters.getHideLiveStreams
-    },
-    hideShare: function() {
-      return this.$store.getters.getHideShare
-    },
-    hideUnsubscribe: function() {
-      return this.$store.getters.getHideUnsubscribe
+    hideUnsubscribeButton: function() {
+      return this.$store.getters.getHideUnsubscribeButton
     },
     showFamilyFriendlyOnly: function() {
       return this.$store.getters.getShowFamilyFriendlyOnly
@@ -34,10 +28,8 @@ export default Vue.extend({
   },
   methods: {
     ...mapActions([
-      'updateHideComments',
-      'updateHideLiveStreams',
-      'updateHideShare',
-      'updateHideUnsubscribe',
+      'updateHideSearchBar',
+      'updateHideUnsubscribeButton',
       'updateShowFamilyFriendlyOnly'
     ])
   }

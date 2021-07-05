@@ -10,16 +10,10 @@
     <div class="switchColumnGrid">
       <div class="switchColumn">
         <ft-toggle-switch
-          :label="$t('Settings.Parental Control Settings.Hide Unsubscribe')"
+          :label="$t('Settings.Parental Control Settings.Hide Unsubscribe Button')"
           :compact="true"
-          :default-value="hideUnsubscribe"
-          @change="updateHideUnsubscribe"
-        />
-        <ft-toggle-switch
-          :label="$t('Settings.Parental Control Settings.Hide Live Streams')"
-          :compact="true"
-          :default-value="hideLiveStreams"
-          @change="updateHideLiveStreams"
+          :default-value="hideUnsubscribeButton"
+          @change="updateHideUnsubscribeButton"
         />
         <ft-toggle-switch
           :label="$t('Settings.Parental Control Settings.Show Family Friendly Only')"
@@ -30,16 +24,10 @@
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
-          :label="$t('Settings.Parental Control Settings.Hide Comments')"
+          :label="$t('Settings.Parental Control Settings.Hide Search Bar')"
           :compact="true"
-          :default-value="hideComments"
-          @change="updateHideComments"
-        />
-        <ft-toggle-switch
-          :label="$t('Settings.Parental Control Settings.Hide Share')"
-          :compact="true"
-          :default-value="hideShare"
-          @change="updateHideShare"
+          :default-value="hideSearchBar"
+          @change="updateHideSearchBar"
         />
       </div>
     </div>
