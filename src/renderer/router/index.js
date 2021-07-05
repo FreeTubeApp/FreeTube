@@ -126,7 +126,7 @@ const router = new Router({
       component: Playlist
     },
     {
-      path: '/channel/:id',
+      path: '/channel/:id/:currentTab?',
       meta: {
         title: 'Channel',
         icon: 'fa-user'
