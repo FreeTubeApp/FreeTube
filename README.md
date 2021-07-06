@@ -2,20 +2,24 @@
 
 The same [FreeTube](https://github.com/FreeTubeApp/FreeTube) you know & love, but with **edgy design tweaks** that won't necesarily become part of the official version because functionally some things will suck. Keep in mind that **I don't have a lot of time to fix things quickly** and that it's not completely stable.
 
-![Img1](https://user-images.githubusercontent.com/86549690/124390466-718b0800-dcf4-11eb-82dd-22bd4f164a66.png)
-
-![Img2](https://user-images.githubusercontent.com/86549690/124330699-a6814880-db96-11eb-9bbe-4699d5c50216.png)
-
-
+<img src="https://user-images.githubusercontent.com/86549690/124601555-a45a0b00-de70-11eb-8e36-e82f287797dd.png" width="100%">
+<table border="0" width="100%" border-color="red">
+<tr><td><img src="https://user-images.githubusercontent.com/86549690/124601437-7e346b00-de70-11eb-951b-bda66cbc1271.png" width="100%"></td>
+<td><img src="https://user-images.githubusercontent.com/86549690/124330699-a6814880-db96-11eb-9bbe-4699d5c50216.png" width="100%"></td></tr>
+</table>
 
 ## Features (tell me if you want more things)
 
 - [x] New logo that changes the color dynamically
+- [x] Rounded corners
+- [x] Blur on some elements
 - [x] No text on the left sidebar
-- [ ] Partial Mobile support
-- [x] Dark mode becomes darker
-- [ ] Light mode support
+- [x] Partial Mobile support (the sidebar is broken now tho)
+- [x] Hybrid between black and dark mode
+- [x] Light mode support
 - [x] Redesigned video player
+- [ ] Channel page (my current implementation is pretty bad because there's no specific css selector for the banner)
+- [ ] Refined small details
 
 ## Known Bugs (let me know about yours)
 
@@ -23,10 +27,13 @@ The same [FreeTube](https://github.com/FreeTubeApp/FreeTube) you know & love, bu
 * The video player menus look out of place and are not rounded
 * Some buttons in the top left corner are not shown
 * Not good for accesibility, since this version is focusing on design
+* The channel panel only displays the banner properly sometimes which also creates errors in the console
+* Dark & black mode and also Primary & Secondary colors are the same now, so it can confuse some people
+
 
 ## Installation
 
-A. [Download the latest appimage](https://github.com/dragosnfy/FreeTube/releases) (make sure that ```allow executing file as program``` is checked when you right click on it)
+A. [Download the latest appimage, deb, rpm etc.](https://github.com/dragosnfy/FreeTube/releases) (for appimage make sure that ```allow executing file as program``` is checked when you right click on it)
 
 B. Build it on your own with ```npm install```, ```npm run build``` or ```npm run dev``` (which means you need to install nodejs & npm)
 
