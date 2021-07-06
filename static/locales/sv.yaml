@@ -132,6 +132,13 @@ Settings:
         #! List countries
     View all Invidious instance information: Visa all Invidious instansinformation
     System Default: Standard inställningar
+    Clear Default Instance: Rensa standrad instansen
+    Set Current Instance as Default: Välj den nuvarande instansen som standard
+    Current instance will be randomized on startup: Instansen kommer att väljas slumpmässigt
+      vid start
+    No default instance has been set: Ingen standard instans är vald
+    The currently set default instance is $: Den nuvarande aktiva instansen är $
+    Current Invidious Instance: Aktiva Invidious Instansen
   Theme Settings:
     Theme Settings: 'Tema inställningar'
     Match Top Bar with Main Color: 'Matcha toppfältet med huvudfärgen'
@@ -315,6 +322,10 @@ Settings:
       (Standard är https://sponsor.ajay.app)
     Enable SponsorBlock: Använd Sponsorblockering
     SponsorBlock Settings: Inställningar för Sponsorblockering
+  External Player Settings:
+    Ignore Unsupported Action Warnings: Ignorera händelsevarningar som inte stöds
+    External Player: Extern spelare
+    External Player Settings: Inställningar för extern spelare
 About:
   #On About page
   About: 'Om'

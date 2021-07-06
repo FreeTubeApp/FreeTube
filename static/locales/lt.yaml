@@ -17,7 +17,7 @@ Paste: 'Įklijuoti'
 Delete: 'Ištrinti'
 Select all: 'Pažymėti viską'
 Reload: 'Perkrauti'
-Force Reload: 'Priversti perkrauti'
+Force Reload: 'Priverstinai perkrauti'
 Toggle Developer Tools: 'Įjungti kūrėjo įrankius'
 Actual size: 'Tikrasis dydis'
 Zoom in: 'Pritraukti'
@@ -28,7 +28,7 @@ Minimize: 'Nuleisti'
 Close: 'Uždaryti'
 Back: 'Atgal'
 Forward: 'Pirmyn'
-Open New Window: 'Atidaryti naujame lange'
+Open New Window: 'Atidaryti naują langą'
 
 Version $ is now available!  Click for more details: 'Versija $ jau prieinama!  Spustelėkite,
   jei norite gauti daugiau informacijos'
@@ -79,10 +79,10 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 'Šiame
     profilyje yra daug prenumeratų.   Vengiant ribojimų RSS bus naudojamas priverstinai'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Jūsų
-    prenumeratų sąrašas šiuo metu tuščias. Pridėti prenumeratas, kad jas pamatytumėte
+    prenumeratų sąrašas šiuo metu tuščias. Pridėkite prenumeratas, kad jas pamatytumėte
     čia.'
   'Getting Subscriptions. Please wait.': 'Gaunamos prenumeratos. Prašome luktelėti.'
-  Refresh Subscriptions: 'Atjauninti prenumeratas'
+  Refresh Subscriptions: 'Atnaujinti prenumeratas'
   Load More Videos: 'Pakrauti daugiau vaizdo įrašų'
 More: 'Daugiau'
 Trending: 'Dabar populiaru'
@@ -96,7 +96,7 @@ User Playlists:
     grojaraštį.'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Jūsų
     išsaugotų vaizdo įrašų skiltis tuščia. Spustelėkite vaizdo įrašo kampe esantį
-    išsaugojimo mygtuką, kad jis būtų pateiktas čia'
+    išsaugojimo mygtuką, kad jis būtų pateikiamas čia'
 History:
   # On History Page
   History: 'Istorija'
@@ -107,36 +107,44 @@ Settings:
   Settings: 'Nustatymai'
   The app needs to restart for changes to take effect. Restart and apply change?: 'Kad
     pakeitimai įsigaliotų, programą reikia paleisti iš naujo. Paleisti iš naujo ir
-    pritaikyti pakeitimą?'
+    pritaikyti pakeitimus?'
   General Settings:
     General Settings: 'Bendrieji nustatymai'
-    Check for Updates: 'Ieškoti atnaujinimų'
-    Check for Latest Blog Posts: 'Ieškoti naujų tinklaraščio įrašų'
-    Fallback to Non-Preferred Backend on Failure: 'Nepavykus grįžti prie nepagrindinio
-      šaltinio'
+    Check for Updates: 'Tikrinti ar yra atnaujinimų'
+    Check for Latest Blog Posts: 'Tikrinti ar yra naujų tinklaraščio įrašų'
+    Fallback to Non-Preferred Backend on Failure: 'Nepavykus rinktis alternatyvią
+      posistemę'
     Enable Search Suggestions: 'Įjungti paieškos pasiūlymus'
     Default Landing Page: 'Numatytasis pradinis puslapis'
-    Locale Preference: 'Vietovės pasirinkimas'
+    Locale Preference: 'Kalbos pasirinkimas'
     System Default: 'Sistemos numatytieji'
     Preferred API Backend:
-      Preferred API Backend: 'Pageidaujamas API Backend'
+      Preferred API Backend: 'Pageidaujamas API posistemė'
       Local API: 'Vietinis API'
       Invidious API: 'Invidious API'
     Video View Type:
-      Video View Type: 'Vaizdo įrašo peržiūros tipas'
+      Video View Type: 'Vaizdo įrašų atvaizdavimo tipas'
       Grid: 'Tinklelis'
       List: 'Sąrašas'
     Thumbnail Preference:
       Thumbnail Preference: 'Miniatiūrų pasirinkimas'
       Default: 'Numatytas'
-      Beginning: 'Pradžia'
-      Middle: 'Vidurys'
-      End: 'Pabaiga'
+      Beginning: 'Vaizdo įrašo pradžia'
+      Middle: 'Vaizdo įrašo vidurys'
+      End: 'Vaizdo įrašo pabaiga'
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious Instance
       (Numatytoji yra https://invidious.snopyta.org)'
-    View all Invidious instance information: 'Žiūrėti visą Invidious instance informaciją'
+    View all Invidious instance information: 'Žiūrėti visą Invidious instancijos informaciją'
     Region for Trending: 'Dabar populiaru regionas'
         #! List countries
+    Clear Default Instance: Išvalyti numatytąją instanciją
+    Current Invidious Instance: Esama Invidious instancija
+    Set Current Instance as Default: Nustatyti esamą instanciją kaip numatytąją
+    Current instance will be randomized on startup: Esama instancija bus atsitiktinai
+      parinkta paleidimo metu
+    No default instance has been set: Nenustatytas jokia numatytoji instancija
+    The currently set default instance is $: Šiuo metu nustatyta numatytoji instancija
+      yra $
   Theme Settings:
     Theme Settings: 'Temos nustatymai'
     Match Top Bar with Main Color: 'Derinti viršutinė juosta prie pagrindinės spalvos'
@@ -170,8 +178,8 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: 'Grotuvo nustatymai'
-    Force Local Backend for Legacy Formats: 'Priverstinai naudoti vietinį šaltinį
-      Legacy formatams'
+    Force Local Backend for Legacy Formats: 'Priverstinai naudoti vietinę posistemę
+      Seniesiems formatams'
     Play Next Video: 'Leisti sekanti vaizdo įrašą'
     Turn on Subtitles by Default: 'Įjungti subtitrus automatiškai'
     Autoplay Videos: 'Automatinis vaizdo įrašų paleidimas'
@@ -181,17 +189,17 @@ Settings:
     Scroll Volume Over Video Player: 'Slinkite per vaizdo grotuvą, kad pakeistumėte
       garsumą'
     Display Play Button In Video Player: 'Rodyti grojimo mygtuką vaizdo grotuve'
-    Next Video Interval: 'Sekantis vaizdo įrašo intervalas'
+    Next Video Interval: 'Sekantis vaizdo įrašas bus paleistas po'
     Default Volume: 'Numatytasis garsumas'
-    Default Playback Rate: 'Numatytasis atkūrimo dažnis'
+    Default Playback Rate: 'Numatytasis atkūrimo greitis'
     Default Video Format:
       Default Video Format: 'Numatytasis vaizdo įrašo formatas'
       Dash Formats: 'DASH formatai'
       Legacy Formats: 'Senieji formatai'
-      Audio Formats: 'Garso formatai'
+      Audio Formats: 'Audio formatai'
     Default Quality:
       Default Quality: 'Numatytoji kokybė'
-      Auto: 'Auto'
+      Auto: 'Automatinė'
       144p: '144p'
       240p: '240p'
       360p: '360p'
@@ -204,12 +212,12 @@ Settings:
   External Player Settings:
     External Player Settings: 'Išorinio grotuvo nustatymai'
     External Player: 'Išorinis grotuvas'
-    Ignore Unsupported Action Warnings: 'Nepaisykite nepalaikomų veiksmų įspėjimų'
+    Ignore Unsupported Action Warnings: 'Nepaisykite ''nepalaikomas veiksmas'' įspėjimų'
     Custom External Player Executable: 'Pasirinktinis išorinio grotuvo vykdymas'
     Custom External Player Arguments: 'Pasirinktiniai išorinio grotuvo argumentai'
   Privacy Settings:
     Privacy Settings: 'Privatumo nustatymai'
-    Remember History: 'Atsiminti istoriją'
+    Remember History: 'Įsiminti istoriją'
     Save Watched Progress: 'Išsaugoti peržiūros progresą'
     Automatically Remove Video Meta Files: 'Automatiškai pašalinti vaizdo įrašų meta
       failus'
@@ -223,7 +231,7 @@ Settings:
     Watch history has been cleared: 'Žiūrėjimo istorija buvo išvalyta'
     Remove All Subscriptions / Profiles: 'Pašalinti visas prenumeratas / profilius'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Ar
-      tikrai norite pašalinti visas prenumeratas ir profilius? To nebus galima anuliuoti.'
+      tikrai norite pašalinti visas prenumeratas ir profilius? To nebus galima atšaukti.'
   Subscription Settings:
     Subscription Settings: 'Prenumeratų nustatymai'
     Hide Videos on Watch: 'Slėpti vaizdo įrašus po peržiūros'
@@ -240,7 +248,7 @@ Settings:
     Hide Popular Videos: 'Slėpti populiarius vaizdo įrašus'
     Hide Playlists: 'Slėpti grojaraščius'
     Hide Live Chat: 'Slėpti tiesioginę diskusiją'
-    Hide Active Subscriptions: 'Slėpti aktyvius prenumeratorius'
+    Hide Active Subscriptions: 'Slėpti aktyvias prenumeratas'
   Data Settings:
     Data Settings: 'Duomenų nustatymai'
     Select Import Type: 'Pasirinkite importavimo tipą'
@@ -249,7 +257,7 @@ Settings:
     Import FreeTube: 'Importuoti FreeTube'
     Import YouTube: 'Importuot YouTube'
     Import NewPipe: 'Importuoti NewPipe'
-    Check for Legacy Subscriptions: 'Patikrinkite, ar nėra Legacy prenumeratų'
+    Check for Legacy Subscriptions: 'Patikrinti, ar nėra Senojo formato prenumeratų'
     Export Subscriptions: 'Eksportuoti prenumeratas'
     Export FreeTube: 'Eksportuoti FreeTube'
     Export YouTube: 'Eksportuoti YouTube'
@@ -274,19 +282,19 @@ Settings:
       sėkmingai importuota'
     All watched history has been successfully exported: 'Visa žiūrėjimo istorija buvo
       sėkmingai eksportuota'
-    Unable to read file: 'Nepavyko nuskaityti failo'
+    Unable to read file: 'Nepavyksta nuskaityti failo'
     Unable to write file: 'Nepavyksta rašyti failo'
     Unknown data key: 'Nežinomas duomenų raktas'
-    How do I import my subscriptions?: 'Kaip aš galiu importuoti prenumeratas?'
+    How do I import my subscriptions?: 'Kaip aš galiu importuoti savo prenumeratas?'
     Manage Subscriptions: 'Valdyti prenumeratas'
   Proxy Settings:
     Proxy Settings: 'Proxy nustatymai'
     Enable Tor / Proxy: 'Įgalinti Tor / Proxy'
     Proxy Protocol: 'Proxy protokolas'
-    Proxy Host: 'Proxy Host'
+    Proxy Host: 'Proxy serveris'
     Proxy Port Number: 'Proxy prievado numeris'
-    Clicking on Test Proxy will send a request to: 'Spustelėjus Test Proxy bus išsiųsta
-      užklausa'
+    Clicking on Test Proxy will send a request to: 'Spustelėjus Testuoti Proxy bus
+      išsiųsta užklausa į'
     Test Proxy: 'Testuoti Proxy'
     Your Info: 'Tavo informacija'
     Ip: 'IP'
@@ -316,16 +324,16 @@ About:
   FAQ: 'DUK'
   Report a problem: 'Pranešti apie problemą'
   GitHub issues: 'GitHub problemos'
-  Please check for duplicates before posting: 'Prieš paskelbdami patikrinkite, ar
-    nėra dublikatų'
+  Please check for duplicates before posting: 'Prieš pranešdami patikrinkite, ar užklausa
+    nesidubliuos su jau esančia'
   Website: 'Tinklalapis'
   Blog: 'Tinklaraštis'
   Email: 'El. Paštas'
   Mastodon: 'Mastodon'
   Chat on Matrix: 'Pokalbis Matrix'
   Please read the: 'Prašome perskaityti'
-  room rules: 'kambario taisyklės'
-  Translate: 'Versti'
+  room rules: 'kambario taisykles'
+  Translate: 'Vertimai'
   Credits: 'Projekto komanda'
   FreeTube is made possible by: 'FreeTube sukurta dėka'
   these people and projects: 'šių žmonių ir projektų'
@@ -396,9 +404,9 @@ Channel:
     This channel does not currently have any playlists: 'Šiuo metu šiame kanale nėra
       grojaraščių'
     Sort Types:
-      Last Video Added: 'Paskutinis vaizdo įrašas pridėtas'
-      Newest: 'Naujausi'
-      Oldest: 'Seniausi'
+      Last Video Added: 'Paskutinis pridėtas vaizdo įrašas'
+      Newest: 'Naujausias'
+      Oldest: 'Seniausias'
   About:
     About: 'Apie'
     Channel Description: 'Kanalo aprašymas'
@@ -415,7 +423,7 @@ Video:
     įrašų sąrašo'
   Open in YouTube: 'Atidaryti YouTube'
   Copy YouTube Link: 'Kopijuoti YouTube nuorodą'
-  Open YouTube Embedded Player: 'Atidaryti YouTube įterptąjį leistuvą'
+  Open YouTube Embedded Player: 'Atidaryti YouTube įterptąjį grotuvą'
   Copy YouTube Embedded Player Link: 'Kopijuoti YouTube įterptojo grotuvo nuorodą'
   Open in Invidious: 'Atidaryti Invidious'
   Copy Invidious Link: 'Kopijuoti Invidious nuorodą'
@@ -423,7 +431,7 @@ Video:
   Copy YouTube Channel Link: 'Kopijuoti YouTube kanalo nuorodą'
   Open Channel in Invidious: 'Atidaryti kanalą Invidious'
   Copy Invidious Channel Link: 'Kopijuoti Invidious kanalo nuorodą'
-  View: 'Žiūrėti'
+  View: 'Peržiūra'
   Views: 'Peržiūros'
   Loop Playlist: 'Sukti grojaraštį ciklu'
   Shuffle Playlist: 'Maišyti grojaraštį'
@@ -432,7 +440,7 @@ Video:
   Play Previous Video: 'Groti ankstesnį vaizdo įrašą'
   # Context is "X People Watching"
   Watching: 'Žiūri'
-  Watched: 'Žiūrėta'
+  Watched: 'Žiūrėjo'
   Autoplay: 'Paleisti automatiškai'
   Starting soon, please refresh the page to check again: 'Greitai prasidės, atnaujinkite
     puslapį, kad galėtumėte patikrinti dar kartą'
@@ -447,9 +455,9 @@ Video:
     transliacija baigta.'
   Live chat is enabled.  Chat messages will appear here once sent.: 'Tiesioginė diskusija
     yra įgalinta.  Čia bus rodomi pokalbio pranešimai.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Tiesioginis
-    pokalbis šiuo metu nepalaikomas naudojant „Invidious“ API. Būtinas tiesioginis
-    ryšys su YouTube.'
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Tiesioginė
+    diskusija šiuo metu nepalaikoma naudojant Invidious API. Būtinas tiesioginis ryšys
+    su YouTube.'
   Download Video: 'Atsisiųsti vaizdo įrašą'
   video only: 'tik video'
   audio only: 'tik audio'
@@ -457,7 +465,7 @@ Video:
     Low: 'Žemiausia'
     Medium: 'Vidutinė'
     High: 'Aukščiausia'
-    Best: 'Geriausia'
+    Best: 'Pati geriausia'
   Published:
     Jan: 'Sau'
     Feb: 'Vas'
@@ -602,8 +610,8 @@ Tooltips:
     Fallback to Non-Preferred Backend on Failure: 'Kai jūsų pageidaujamoje API kyla
       problemų, FreeTube automatiškai bandys naudoti jūsų nepasirinktą API kaip atsarginį
       metodą, kai tai yra įgalinta.'
-    Thumbnail Preference: 'Visos FreeTube miniatiūros bus pakeistos vaizdo įrašo rėmeliu
-      vietoj numatytosios miniatiūros.'
+    Thumbnail Preference: 'Visos FreeTube vaizdo įrašų miniatiūros vietoje numatytosios
+      bus pakeistos atitinkamu vaizdo įrašo stop kardu.'
     Invidious Instance: 'Nepakankama instancija, prie kurio FreeTube prisijungs, kad
       gautų API skambučius. Išvalykite esamą instanciją, kad pamatytumėte viešų egzempliorių,
       iš kurių galite pasirinkti, sąrašą.'
@@ -672,3 +680,6 @@ Canceled next video autoplay: 'Atšauktas sekančio vaizdo įrašo automatinis p
 
 Yes: 'Taip'
 No: 'Ne'
+Default Invidious instance has been cleared: Numatytoji Invidious instancija išvalyta
+Default Invidious instance has been set to $: Numatytoji Invidious instancija buvo
+  nustatyta į $
