@@ -24,20 +24,17 @@ The same [FreeTube](https://github.com/FreeTubeApp/FreeTube) you know & love, bu
 ## Known Bugs (let me know about yours)
 
 * Left side items look weird on hover
-* The video player menus look out of place and are not rounded
-* Some buttons in the top left corner are not shown
 * Not good for accesibility, since this version is focusing on design
 * The channel panel only displays the banner properly sometimes which also creates errors in the console
 * Dark & black mode and also Primary & Secondary colors are the same now, so it can confuse some people
 
-
 ## Installation
 
-A. [Download the latest appimage, deb, rpm etc.](https://github.com/dragosnfy/FreeTube/releases) (for appimage make sure that ```allow executing file as program``` is checked when you right click on it)
+A. [Get the latest release here](https://github.com/dragosnfy/FreeTube/actions) (for appimage make sure that ```allow executing file as program``` is checked when you right click on it)
 
 B. Build it on your own with ```npm install```, ```npm run build``` or ```npm run dev``` (which means you need to install nodejs & npm)
 
 ## Wanna contribute?
 
 * You can support the [original FreeTube project here](https://github.com/FreeTubeApp/FreeTube), [donate](https://liberapay.com/FreeTube) or join the [Matrix Community](https://matrix.to/#/+freetube:matrix.org)
-* To help this repo specifically, feel free to add your own suggestions or ask things, I'm open, but I don't promise I will include everything, because I don't wanna deviate too much from the original project in terms of functionality. However if it's related to design & it respects ui/ux rules, then we can go wild as long as it looks good! Oh and try adding screenshots when you suggest things!
+* To help this repo specifically, feel free to add your own suggestions, issues or ask things, I'm open, but I don't promise I will include everything, because I don't wanna deviate too much from the original project in terms of functionality. However if it's related to design & it respects ui/ux rules, then we can go wild as long as it looks good! Oh and try adding screenshots when you suggest things!
