@@ -2,10 +2,11 @@
 
 The same [FreeTube](https://github.com/FreeTubeApp/FreeTube) you know & love, but with **edgy design tweaks** that won't necesarily become part of the official version because functionally some things will suck. Keep in mind that **I don't have a lot of time to fix things quickly** and that it's not completely stable.
 
-<img src="https://user-images.githubusercontent.com/86549690/124601555-a45a0b00-de70-11eb-8e36-e82f287797dd.png" width="100%">
+<img src="https://user-images.githubusercontent.com/86549690/124601437-7e346b00-de70-11eb-951b-bda66cbc1271.png" width="100%">
+
 <table border="0" width="100%" border-color="red">
-<tr><td><img src="https://user-images.githubusercontent.com/86549690/124601437-7e346b00-de70-11eb-951b-bda66cbc1271.png" width="100%"></td>
-<td><img src="https://user-images.githubusercontent.com/86549690/124330699-a6814880-db96-11eb-9bbe-4699d5c50216.png" width="100%"></td></tr>
+<tr><td width="50%"><img src="https://user-images.githubusercontent.com/86549690/124822451-92fc2600-df78-11eb-9ecd-601853e090fa.jpg" width="100%"></td>
+<td><img src="https://user-images.githubusercontent.com/86549690/124601555-a45a0b00-de70-11eb-8e36-e82f287797dd.png" width="100%"><img src="https://user-images.githubusercontent.com/86549690/124330699-a6814880-db96-11eb-9bbe-4699d5c50216.png" width="100%"></td></tr>
 </table>
 
 ## Features (tell me if you want more things)
