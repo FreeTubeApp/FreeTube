@@ -4,8 +4,7 @@
 name: Build
 
 on:
-  push:
-    branches: [ Design-Tweaks, development ]
+  workflow_dispatch:
 
 jobs:
   build:
