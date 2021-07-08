@@ -363,7 +363,7 @@ const actions = {
     let urlType = 'unknown'
 
     const channelPattern =
-      /^\/(?:c\/|channel\/|user\/)?([^/]+)(?:\/join)?\/?$/
+      /^\/(?:c\/|channel\/|user\/)?([^/]+)(?:\/join|\/featured|\/videos|\/playlists|\/about|\/community|\/channels)?\/?$/
 
     const typePatterns = new Map([
       ['playlist', /^\/playlist\/?$/],
@@ -440,9 +440,24 @@ const actions = {
           throw new Error('Channel: could not extract id')
         }
 
+        let subPath = null
+        switch (url.pathname.split('/').filter(i => i)[2]) {
+          case 'playlists':
+            subPath = 'playlists'
+            break
+          case 'channels':
+          case 'about':
+            subPath = 'about'
+            break
+          case 'community':
+          default:
+            subPath = 'videos'
+            break
+        }
         return {
           urlType: 'channel',
-          channelId
+          channelId,
+          subPath
         }
       }
 

@@ -160,7 +160,7 @@ export default Vue.extend({
     $route() {
       // react to route changes...
       this.id = this.$route.params.id
-      this.currentTab = 'videos'
+      this.currentTab = this.$route.params.currentTab ?? 'videos'
       this.latestVideosPage = 2
       this.searchPage = 2
       this.relatedChannels = []
@@ -222,6 +222,7 @@ export default Vue.extend({
   },
   mounted: function () {
     this.id = this.$route.params.id
+    this.currentTab = this.$route.params.currentTab ?? 'videos'
     this.isLoading = true
 
     if (!this.usingElectron) {
