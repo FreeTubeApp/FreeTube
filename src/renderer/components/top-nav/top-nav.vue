@@ -44,7 +44,10 @@
         :title="newWindowText"
         @click="createNewWindow"
       />
-      <div class="logo">
+      <div
+        class="logo"
+        @click="navigate('subscriptions')"
+      >
         <div
           class="logoIcon"
         />
