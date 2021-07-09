@@ -128,6 +128,13 @@ Settings:
     View all Invidious instance information: Pokaż informacje o wszystkich instancjach
       Invidious
     System Default: Ustawienie systemowe
+    Clear Default Instance: Wyczyść domyślną instancję
+    Set Current Instance as Default: Ustaw obecną instancję jako domyślną
+    Current instance will be randomized on startup: Obecna instancja będzie losowana
+      przy uruchamianiu
+    No default instance has been set: Nie ustawiono domyślnej instancji
+    The currently set default instance is $: Obecnie domyślną instancją jest $
+    Current Invidious Instance: Obecna instancja Invidious
   Theme Settings:
     Theme Settings: 'Ustawienia wyglądu'
     Match Top Bar with Main Color: 'Dopasuj górną belkę do głównego koloru'
@@ -742,3 +749,7 @@ Unknown YouTube url type, cannot be opened in app: Nieznany typ adresu URL YouTu
 Hashtags have not yet been implemented, try again later: Hashtagi nie zostały jeszcze
   wprowadzone, spróbuj później
 Open New Window: Otwórz nowe okno
+Default Invidious instance has been cleared: Domyślna instancja Invidious została
+  wyczyszczona
+Default Invidious instance has been set to $: Domyślna instancja Invidious została
+  ustawiona na $
