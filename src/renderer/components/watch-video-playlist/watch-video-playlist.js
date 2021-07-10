@@ -100,15 +100,27 @@ export default Vue.extend({
     }
   },
   methods: {
-    goToPlaylist: function () {
+    goToPlaylist: function (event) {
+      if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
+        return
+      }
+
       this.$router.push({ path: `/playlist/${this.playlistId}` })
     },
 
-    goToChannel: function () {
+    goToChannel: function (event) {
+      if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
+        return
+      }
+
       this.$router.push({ path: `/channel/${this.channelId}` })
     },
 
-    toggleLoop: function () {
+    toggleLoop: function (event) {
+      if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
+        return
+      }
+
       if (this.loopEnabled) {
         this.loopEnabled = false
         this.showToast({
@@ -122,7 +134,11 @@ export default Vue.extend({
       }
     },
 
-    toggleShuffle: function () {
+    toggleShuffle: function (event) {
+      if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
+        return
+      }
+
       if (this.shuffleEnabled) {
         this.shuffleEnabled = false
         this.showToast({
@@ -137,7 +153,11 @@ export default Vue.extend({
       }
     },
 
-    toggleReversePlaylist: function () {
+    toggleReversePlaylist: function (event) {
+      if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
+        return
+      }
+
       this.isLoading = true
       this.showToast({
         message: this.$t('The playlist has been reversed')
@@ -150,7 +170,11 @@ export default Vue.extend({
       }, 1)
     },
 
-    playNextVideo: function () {
+    playNextVideo: function (event) {
+      if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
+        return
+      }
+
       const playlistInfo = {
         playlistId: this.playlistId
       }
@@ -222,7 +246,11 @@ export default Vue.extend({
       }
     },
 
-    playPreviousVideo: function () {
+    playPreviousVideo: function (event) {
+      if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
+        return
+      }
+
       this.showToast({
         message: 'Playing previous video'
       })

@@ -8,13 +8,19 @@
     >
       <h3
         class="pointer"
+        role="link"
+        tabindex="0"
         @click="goToPlaylist"
+        @keydown="goToPlaylist($event)"
       >
         {{ playlistTitle }}
       </h3>
       <span
         class="channelName"
+        role="link"
+        tabindex="0"
         @click="goToChannel"
+        @keydown="goToChannel($event)"
       >
         {{ channelName }}
       </span>
@@ -29,33 +35,48 @@
           :class="{ playlistIconActive: loopEnabled }"
           icon="retweet"
           :title="$t('Video.Loop Playlist')"
+          role="button"
+          tabindex="0"
           @click="toggleLoop"
+          @keydown="toggleLoop($event)"
         />
         <font-awesome-icon
           class="playlistIcon"
           :class="{ playlistIconActive: shuffleEnabled }"
           icon="random"
           :title="$t('Video.Shuffle Playlist')"
+          role="button"
+          tabindex="0"
           @click="toggleShuffle"
+          @keydown="toggleShuffle($event)"
         />
         <font-awesome-icon
           class="playlistIcon"
           :class="{ playlistIconActive: reversePlaylist }"
           icon="exchange-alt"
           :title="$t('Video.Reverse Playlist')"
+          role="button"
+          tabindex="0"
           @click="toggleReversePlaylist"
+          @keydown="toggleReversePlaylist($event)"
         />
         <font-awesome-icon
           class="playlistIcon"
           icon="step-backward"
           :title="$t('Video.Play Previous Video')"
+          role="link"
+          tabindex="0"
           @click="playPreviousVideo"
+          @keydown="playPreviousVideo($event)"
         />
         <font-awesome-icon
           class="playlistIcon"
           icon="step-forward"
           :title="$t('Video.Play Next Video')"
+          role="link"
+          tabindex="0"
           @click="playNextVideo"
+          @keydown="playNextVideo($event)"
         />
       </p>
       <div
