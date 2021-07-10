@@ -115,7 +115,11 @@ export default Vue.extend({
       }
     },
 
-    getCommentData: function () {
+    getCommentData: function (event) {
+      if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
+        return
+      }
+
       this.isLoading = true
       switch (this.backendPreference) {
         case 'local':
@@ -139,7 +143,11 @@ export default Vue.extend({
       }
     },
 
-    getMoreComments: function () {
+    getMoreComments: function (event) {
+      if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
+        return
+      }
+
       if (this.commentData.length === 0 || this.nextPageToken === null || typeof this.nextPageToken === 'undefined') {
         this.showToast({
           message: this.$t('Comments.There are no more comments for this video')
@@ -149,15 +157,23 @@ export default Vue.extend({
       }
     },
 
-    toggleCommentReplies: function (index) {
+    toggleCommentReplies: function (event, index) {
+      if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
+        return
+      }
+
       if (this.commentData[index].showReplies || this.commentData[index].replies.length > 0) {
         this.commentData[index].showReplies = !this.commentData[index].showReplies
       } else {
-        this.getCommentReplies(index)
+        this.getCommentReplies(null, index)
       }
     },
 
-    getCommentReplies: function (index) {
+    getCommentReplies: function (event, index) {
+      if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
+        return
+      }
+
       switch (this.commentData[index].dataType) {
         case 'local':
           this.getCommentRepliesLocal({
@@ -376,7 +392,11 @@ export default Vue.extend({
       })
     },
 
-    goToChannel: function (channelId) {
+    goToChannel: function (event, channelId) {
+      if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
+        return
+      }
+
       this.$router.push({ path: `/channel/${channelId}` })
     },
 
