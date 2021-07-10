@@ -14,6 +14,7 @@
         >
           <div>
             <img
+              tabindex="-1"
               :src="channelThumbnail"
               class="channelThumbnail"
               @click="goToChannel"
@@ -22,7 +23,10 @@
           <div>
             <div
               class="channelName"
+              role="link"
+              tabindex="0"
               @click="goToChannel"
+              @keydown="goToChannel($event)"
             >
               {{ channelName }}
             </div>
