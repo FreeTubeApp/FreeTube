@@ -53,9 +53,10 @@
       >
         <img
           :src="comment.authorThumb"
-          class="commentThumbnail"
-          role="button"
+          :alt="comment.author"
+          role="link"
           tabindex="0"
+          class="commentThumbnail"
           @click="goToChannel(null, comment.authorLink)"
           @keydown="goToChannel($event, comment.authorLink)"
         >
@@ -64,7 +65,7 @@
         >
           <span
             class="commentAuthor"
-            role="button"
+            role="link"
             tabindex="0"
             @click="goToChannel(null, comment.authorLink)"
             @keydown="goToChannel($event, comment.authorLink)"
@@ -133,7 +134,7 @@
             <p class="commentAuthorWrapper">
               <span
                 class="commentAuthor"
-                role="button"
+                role="link"
                 tabindex="0"
                 @click="goToChannel(null, reply.authorLink)"
                 @keydown="goToChannel($event, reply.authorLink)"
