@@ -157,7 +157,7 @@ export default Vue.extend({
       }
     },
 
-    toggleCommentReplies: function (event, index) {
+    toggleCommentReplies: function (index, event) {
       if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
         return
       }
@@ -165,11 +165,11 @@ export default Vue.extend({
       if (this.commentData[index].showReplies || this.commentData[index].replies.length > 0) {
         this.commentData[index].showReplies = !this.commentData[index].showReplies
       } else {
-        this.getCommentReplies(null, index)
+        this.getCommentReplies(index)
       }
     },
 
-    getCommentReplies: function (event, index) {
+    getCommentReplies: function (index, event) {
       if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
         return
       }
@@ -392,8 +392,8 @@ export default Vue.extend({
       })
     },
 
-    goToChannel: function (event, channelId) {
-      if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
+    goToChannel: function (channelId, event) {
+      if (event instanceof KeyboardEvent && event.key !== 'Enter') {
         return
       }
 

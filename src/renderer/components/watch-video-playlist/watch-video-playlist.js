@@ -101,7 +101,7 @@ export default Vue.extend({
   },
   methods: {
     goToPlaylist: function (event) {
-      if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
+      if (event instanceof KeyboardEvent && event.key !== 'Enter') {
         return
       }
 
@@ -109,7 +109,7 @@ export default Vue.extend({
     },
 
     goToChannel: function (event) {
-      if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
+      if (event instanceof KeyboardEvent && event.key !== 'Enter') {
         return
       }
 
@@ -171,7 +171,7 @@ export default Vue.extend({
     },
 
     playNextVideo: function (event) {
-      if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
+      if (event instanceof KeyboardEvent && event.key !== 'Enter') {
         return
       }
 
@@ -247,7 +247,7 @@ export default Vue.extend({
     },
 
     playPreviousVideo: function (event) {
-      if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
+      if (event instanceof KeyboardEvent && event.key !== 'Enter') {
         return
       }
 

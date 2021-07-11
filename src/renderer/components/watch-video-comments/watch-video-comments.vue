@@ -57,8 +57,8 @@
           role="link"
           tabindex="0"
           class="commentThumbnail"
-          @click="goToChannel(null, comment.authorLink)"
-          @keydown="goToChannel($event, comment.authorLink)"
+          @click="goToChannel(comment.authorLink)"
+          @keydown="goToChannel(comment.authorLink, $event)"
         >
         <p
           class="commentAuthorWrapper"
@@ -67,8 +67,8 @@
             class="commentAuthor"
             role="link"
             tabindex="0"
-            @click="goToChannel(null, comment.authorLink)"
-            @keydown="goToChannel($event, comment.authorLink)"
+            @click="goToChannel(comment.authorLink)"
+            @keydown="goToChannel(comment.authorLink, $event)"
           >
             {{ comment.author }}
           </span>
@@ -108,8 +108,8 @@
             class="commentMoreReplies"
             role="button"
             tabindex="0"
-            @click="toggleCommentReplies(null, index)"
-            @keydown="toggleCommentReplies($event, index)"
+            @click="toggleCommentReplies(index)"
+            @keydown="toggleCommentReplies(index, $event)"
           >
             <span v-if="!comment.showReplies">{{ $t("Comments.View") }}</span>
             <span v-else>{{ $t("Comments.Hide") }}</span>
@@ -136,8 +136,8 @@
                 class="commentAuthor"
                 role="link"
                 tabindex="0"
-                @click="goToChannel(null, reply.authorLink)"
-                @keydown="goToChannel($event, reply.authorLink)"
+                @click="goToChannel(reply.authorLink)"
+                @keydown="goToChannel(reply.authorLink, $event)"
               >
                 {{ reply.author }}
               </span>
@@ -168,8 +168,8 @@
             class="showMoreReplies"
             role="button"
             tabindex="0"
-            @click="getCommentReplies(null, index)"
-            @keydown="getCommentReplies($event, index)"
+            @click="getCommentReplies(index)"
+            @keydown="getCommentReplies(index, $event)"
           >
             <span>Show More Replies</span>
           </div>
