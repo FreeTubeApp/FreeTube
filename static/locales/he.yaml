@@ -305,6 +305,9 @@ Settings:
     Proxy Protocol: פרוטוקול מתווך
     Enable Tor / Proxy: הפעלת Tor / מתווך
     Proxy Settings: הגדרות מתווך
+  External Player Settings:
+    External Player: נגן חיצוני
+    External Player Settings: הגדרות נגן חיצוני
 About:
   #On About page
   About: 'על אודות'
