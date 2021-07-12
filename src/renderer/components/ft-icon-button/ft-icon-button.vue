@@ -13,6 +13,8 @@
         fontSize: size + 'px'
       }"
       @click="handleIconClick"
+      @keydown="handleIconClick($event)"
+      tabindex="0"
     />
     <div
       :id="id"
@@ -30,12 +32,16 @@
         <ul
           v-if="dropdownNames.length > 0"
           class="list"
+          role="listbox"
+          tabindex="0"
         >
           <li
             v-for="(label, index) in dropdownNames"
             :key="index"
             class="listItem"
+            role="option"
             @click="handleDropdownClick(index)"
+            @keydown="handleDropdownClick(index, $event)"
           >
             {{ label }}
           </li>

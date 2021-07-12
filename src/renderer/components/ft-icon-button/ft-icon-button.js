@@ -81,7 +81,11 @@ export default Vue.extend({
       $(`#${this.id}`)[0].style.display = 'none'
     },
 
-    handleIconClick: function () {
+    handleIconClick: function (event) {
+      if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
+          return
+      }
+
       if (this.forceDropdown || (this.dropdownNames.length > 0 && this.dropdownValues.length > 0)) {
         this.toggleDropdown()
       } else {
