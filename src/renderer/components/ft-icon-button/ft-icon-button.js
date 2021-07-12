@@ -51,7 +51,7 @@ export default Vue.extend({
   },
   data: function () {
     return {
-      showDropdown: false,
+      dropdownShown: false,
       id: ''
     }
   },
@@ -60,25 +60,48 @@ export default Vue.extend({
   },
   methods: {
     toggleDropdown: function () {
-      $(`#${this.id}`)[0].style.display = 'inline'
-      $(`#${this.id}`).focus()
+      const $el = $(`#${this.id}`)
+      const el = $el[0]
 
-      $(`#${this.id}`).focusout(() => {
-        const shareLinks = $(`#${this.id}`).find('.shareLinks')
+      if (this.dropdownShown) {
+        el.style.display = 'none'
+        this.dropdownShown = false
+      } else {
+        el.style.display = 'inline'
+        $el.focus()
+        this.dropdownShown = true
 
-        if (shareLinks.length > 0) {
-          if (!shareLinks[0].parentNode.matches(':hover')) {
-            $(`#${this.id}`)[0].style.display = 'none'
+        $el.focusout(() => {
+          const shareLinks = $el.find('.shareLinks')
+
+          if (shareLinks.length > 0) {
+            if (!shareLinks[0].parentNode.matches(':hover')) {
+              el.style.display = 'none'
+              // When pressing the profile button
+              // It will make the menu reappear if we set `dropdownShown` immediately
+              setTimeout(() => {
+                this.dropdownShown = false
+              }, 100)
+            }
+          } else {
+            el.style.display = 'none'
+            // When pressing the profile button
+            // It will make the menu reappear if we set `dropdownShown` immediately
+            setTimeout(() => {
+              this.dropdownShown = false
+            }, 100)
           }
-        } else {
-          $(`#${this.id}`)[0].style.display = 'none'
-        }
-      })
+        })
+      }
     },
 
     focusOut: function () {
-      $(`#${this.id}`).focusout()
-      $(`#${this.id}`)[0].style.display = 'none'
+      const $el = $(`#${this.id}`)
+      const el = $el[0]
+
+      $el.focusout()
+      el.style.display = 'none'
+      this.dropdownShown = false
     },
 
     handleIconClick: function () {
