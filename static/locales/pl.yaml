@@ -29,7 +29,7 @@ Back: 'Wstecz'
 Forward: 'Naprzód'
 
 # Search Bar
-Search / Go to URL: 'Wyszukaj / Przejdź do URL'
+Search / Go to URL: 'Szukaj / Przejdź do adresu URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtry wyszukiwania'
@@ -38,7 +38,7 @@ Search Filters:
     Most Relevant: 'Trafność'
     Rating: 'Ocena'
     Upload Date: 'Data przesłania'
-    View Count: 'Liczba obejrzeń'
+    View Count: 'Liczba wyświetleń'
   Time:
     Time: 'Czas przesłania'
     Any Time: 'Kiedykolwiek'
@@ -84,8 +84,8 @@ Playlists: 'Playlisty'
 User Playlists:
   Your Playlists: 'Twoje playlisty'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Nie
-    masz zachowanych filmów. Kliknij przycisk „Zachowaj” w rogu filmu, aby został
-    tu wymieniony.
+    masz żadnych zapisanych filmów. Kliknij przycisk „Zapisz film” w rogu filmu, aby
+    został on wymieniony na tej liście.
   Playlist Message: Ta strona nie odzwierciedla w pełni działających playlist. Są
     tu jedynie wymienione filmy, które zachowałeś lub oznaczyłeś jako ulubione. Kiedy
     prace nad tą stroną zostaną zakończone, wszystkie filmy tu obecne zostaną przeniesione
@@ -115,7 +115,7 @@ Settings:
       List: 'Lista'
     Thumbnail Preference:
       Thumbnail Preference: 'Ustawienia miniaturek'
-      Default: 'Domyślnie'
+      Default: 'Domyślne'
       Beginning: 'Początek'
       Middle: 'Środek'
       End: 'Koniec'
@@ -305,9 +305,9 @@ Settings:
     Hide Comment Likes: Schowaj polubienia komentarzy
     Hide Channel Subscribers: Schowaj subskrybentów kanału
     Hide Video Likes And Dislikes: Schowaj łapki w górę i w dół
-    Hide Video Views: Schowaj obejrzenia filmu
+    Hide Video Views: Schowaj wyświetlenia filmów
     Hide Active Subscriptions: Schowaj aktywne subskrypcje
-    Hide Playlists: Ukryj playlistę
+    Hide Playlists: Schowaj playlistę
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
@@ -450,8 +450,8 @@ Video:
   Copy YouTube Embedded Player Link: 'Skopiuj link do odtwarzacza YouTube'
   Open in Invidious: 'Otwórz na stronie Invidious'
   Copy Invidious Link: 'Skopiuj link do strony Invidious'
-  View: 'obejrzenie'
-  Views: 'obejrzeń'
+  View: 'wyświetlenie'
+  Views: 'wyświetleń'
   # Context is "X People Watching"
   Watching: 'ogląda'
   Watched: 'Obejrzany'
@@ -524,10 +524,10 @@ Video:
   Open Channel in YouTube: Otwórz kanał na stronie YouTube
   Started streaming on: Rozpoczęto transmitowanie dnia
   Streamed on: Transmitowane dnia
-  Video has been removed from your saved list: Film został usunięty z twojej listy
-    zachowanych
-  Video has been saved: Film został zachowany
-  Save Video: Zachowaj film
+  Video has been removed from your saved list: Film został usunięty z Twojej listy
+    zapisanych
+  Video has been saved: Film został zapisany
+  Save Video: Zapisz film
   translated from English: przetłumaczone z angielskiego
   Sponsor Block category:
     music offtopic: niemuzyczny
@@ -563,8 +563,8 @@ Playlist:
   #& About
   View Full Playlist: 'Zobacz całą playlistę'
   Videos: 'filmów'
-  View: 'obejrzenie'
-  Views: 'obejrzeń'
+  View: 'wyświetlenie'
+  Views: 'wyświetleń'
   Last Updated On: 'Ostatnio zaktualizowano'
   Share Playlist:
     Share Playlist: 'Podziel się playlistą'
@@ -605,13 +605,13 @@ Share:
 Mini Player: 'Mini odtwarzacz'
 Comments:
   Comments: 'Komentarze'
-  Click to View Comments: 'Kliknij by zobaczyć komentarze'
+  Click to View Comments: 'Kliknij, aby wyświetlić komentarze'
   Getting comment replies, please wait: 'Pobieranie odpowiedzi do komentarza, proszę
     poczekać'
   Show Comments: 'Pokaż komentarze'
   Hide Comments: 'Schowaj komentarze'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Zobacz'
+  View: 'Wyświetl'
   Hide: 'Schowaj'
   Replies: 'odpowiedzi'
   Reply: 'odpowiedź'
@@ -727,8 +727,8 @@ Tooltips:
     Proxy Videos Through Invidious: Będzie dostarczał filmy, łącząc się z Invidious,
       a nie bezpośrednio z YouTube. Nadpisuje ustawienia API.
   Privacy Settings:
-    Remove Video Meta Files: Po włączeniu FreeTube samoczynnie usunie pliki metadanych
-      utworzone podczas odtwarzania filmu, gdy tylko strona odtwarzania zostanie zamknięta.
+    Remove Video Meta Files: Jeśli włączone, FreeTube automatycznie usuwa pliki metadanych
+      utworzone podczas odtwarzania filmu, gdy strona oglądania jest zamknięta.
   External Player Settings:
     Ignore Warnings: Nie wyświetlaj ostrzeżeń o nieobsługiwanych akcjach przez zewnętrzny
       odtwarzacz (n.p. odwracanie playlist, itp.).
