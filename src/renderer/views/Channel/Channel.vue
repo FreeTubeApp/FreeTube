@@ -49,22 +49,42 @@
         />
         <ft-flex-box
           class="channelInfoTabs"
+          role="tablist"
+          aria-label="Channel Tabs"
         >
           <div
             class="tab"
             @click="changeTab('videos')"
+            @keydown="changeTab('videos', $event)"
+            role="tab"
+            aria-selected="true"
+            aria-controls="videoPanel"
+            id="videosTab"
+            tabindex="0"
           >
-            {{ $t("Channel.Videos.Videos").toUpperCase() }}
+            {{ $t('Channel.Videos.Videos').toUpperCase() }}
           </div>
           <div
             class="tab"
             @click="changeTab('playlists')"
+            @keydown="changeTab('playlists', $event)"
+            role="tab"
+            aria-selected="false"
+            aria-controls="playlistPanel"
+            id="playlistsTab"
+            tabindex="-1"
           >
-            {{ $t("Channel.Playlists.Playlists").toUpperCase() }}
+            {{ $t('Channel.Playlists.Playlists').toUpperCase() }}
           </div>
           <div
             class="tab"
             @click="changeTab('about')"
+            @keydown="changeTab('about', $event)"
+            role="tab"
+            aria-selected="false"
+            aria-controls="aboutPanel"
+            id="aboutTab"
+            tabindex="-1"
           >
             {{ $t("Channel.About.About").toUpperCase() }}
           </div>
@@ -102,6 +122,9 @@
       <div
         v-if="currentTab === 'about'"
         class="aboutTab"
+        id="aboutPanel"
+        role="tabpanel"
+        aria-labelledby="aboutTab"
       >
         <h2>
           {{ $t("Channel.About.Channel Description") }}
@@ -126,6 +149,8 @@
             :channel-id="channel.authorId"
             :channel-thumbnail="channel.authorThumbnails[channel.authorThumbnails.length - 1].url"
             @click="goToChannel(channel.authorId)"
+            @keydown="goToChannel(channel.authorId, $event)"
+            role="link"
           />
         </ft-flex-box>
       </div>
@@ -139,6 +164,9 @@
         <ft-element-list
           v-show="currentTab === 'videos'"
           :data="latestVideos"
+          id="videoPanel"
+          role="tabpanel"
+          aria-labelledby="videosTab"
         />
         <ft-flex-box
           v-if="currentTab === 'videos' && latestVideos.length === 0"
@@ -150,6 +178,9 @@
         <ft-element-list
           v-show="currentTab === 'playlists'"
           :data="latestPlaylists"
+          id="playlistPanel"
+          role="tabpanel"
+          aria-labelledby="playlistsTab"
         />
         <ft-flex-box
           v-if="currentTab === 'playlists' && latestPlaylists.length === 0"
@@ -173,6 +204,9 @@
           v-if="showFetchMoreButton"
           class="getNextPage"
           @click="handleFetchMore"
+          @keydown="handleFetchMore($event)"
+          role="button"
+          tabindex="0"
         >
           <font-awesome-icon icon="search" /> {{ $t("Search Filters.Fetch more results") }}
         </div>
