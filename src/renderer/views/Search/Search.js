@@ -37,6 +37,13 @@ export default Vue.extend({
 
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
+    },
+
+    hideLiveStreams: function() {
+      return this.$store.getters.getHideLiveStreams
+    },
+    showFamilyFriendlyOnly: function() {
+      return this.$store.getters.getShowFamilyFriendlyOnly
     }
   },
   watch: {
@@ -94,6 +101,7 @@ export default Vue.extend({
 
       if (sameSearch.length > 0) {
         console.log(sameSearch)
+
         // Replacing the data right away causes a strange error where the data
         // Shown is mixed from 2 different search results.  So we'll wait a moment
         // Before showing the results.
@@ -118,6 +126,8 @@ export default Vue.extend({
         payload.options.pages = 1
       }
 
+      payload.options.safeSearch = this.showFamilyFriendlyOnly
+
       this.ytSearch(payload).then((result) => {
         console.log(result)
         if (!result) {
@@ -130,7 +140,8 @@ export default Vue.extend({
 
         const returnData = result.items.filter((item) => {
           if (typeof item !== 'undefined') {
-            return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
+            return (item.type === 'video' && ((!item.isLive && !item.isUpcoming) || !this.hideLiveStreams)) ||
+              item.type === 'channel' || item.type === 'playlist'
           }
 
           return null
@@ -240,7 +251,8 @@ export default Vue.extend({
         console.log(result)
 
         const returnData = result.filter((item) => {
-          return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
+          return (item.type === 'video' && ((!item.liveNow && !item.isUpcoming) || !this.hideLiveStreams)) ||
+            item.type === 'channel' || item.type === 'playlist'
         })
 
         console.log(returnData)

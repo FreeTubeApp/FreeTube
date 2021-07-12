@@ -35,6 +35,10 @@ export default Vue.extend({
     }
   },
   computed: {
+    hideShare: function() {
+      return this.$store.getters.getHideShare
+    },
+
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
     },

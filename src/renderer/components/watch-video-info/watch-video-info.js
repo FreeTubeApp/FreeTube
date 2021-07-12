@@ -130,6 +130,14 @@ export default Vue.extend({
       return this.$store.getters.getCurrentInvidiousInstance
     },
 
+    hideShare: function() {
+      return this.$store.getters.getHideShare
+    },
+
+    hideUnsubscribeButton: function() {
+      return this.$store.getters.getHideUnsubscribeButton
+    },
+
     profileList: function () {
       return this.$store.getters.getProfileList
     },

@@ -82,6 +82,10 @@ export default Vue.extend({
 
     activeSubscriptionList: function () {
       return this.profileList[this.activeProfile].subscriptions
+    },
+
+    hideLiveStreams: function() {
+      return this.$store.getters.getHideLiveStreams
     }
   },
   watch: {
@@ -170,7 +174,9 @@ export default Vue.extend({
           videoList = await Promise.all(videoList.sort((a, b) => {
             return b.publishedDate - a.publishedDate
           }))
-
+          videoList = videoList.filter(item => {
+            return (!item.liveNow && !item.isUpcoming) || !this.hideLiveStreams
+          })
           const profileSubscriptions = {
             activeProfile: this.activeProfile,
             videoList: videoList

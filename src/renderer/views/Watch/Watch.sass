@@ -6,6 +6,12 @@
 
 =single-column-template
   grid-template: "video" auto "info" auto "sidebar" auto / auto
+.ageRestricted 
+  max-width: calc(80vh * 1.78)
+  display: inline-block
+  +single-column-template
+  @media only screen and (min-width: 901px)
+    width: 300%
 
 .videoLayout
   display: grid

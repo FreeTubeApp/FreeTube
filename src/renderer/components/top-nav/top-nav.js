@@ -28,6 +28,10 @@ export default Vue.extend({
       return this.$store.getters.getUsingElectron
     },
 
+    hideSearchBar: function () {
+      return this.$store.getters.getHideSearchBar
+    },
+
     enableSearchSuggestions: function () {
       return this.$store.getters.getEnableSearchSuggestions
     },

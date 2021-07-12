@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="data.type !== undefined"
     v-observe-visibility="firstScreen ? false : {
       callback: onVisibilityChanged,
       once: true,
