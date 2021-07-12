@@ -4,6 +4,9 @@
       class="colorOption"
       :style="{ background: profileList[activeProfile].bgColor, color: profileList[activeProfile].textColor }"
       @click="toggleProfileList"
+      @keydown="toggleProfileList($event)"
+      tabindex="0"
+      role="button"
     >
       <div
         class="initial"
@@ -20,11 +23,6 @@
       >
         {{ $t("Profile.Profile Select") }}
       </h3>
-      <ft-icon-button
-        class="profileSettings"
-        icon="sliders-h"
-        @click="openProfileSettings"
-      />
       <div
         class="profileWrapper"
       >
@@ -33,6 +31,9 @@
           :key="index"
           class="profile"
           @click="setActiveProfile(profile)"
+          @keydown="setActiveProfile(profile, $event)"
+          tabindex="-1"
+          role="button"
         >
           <div
             class="colorOption"
@@ -50,6 +51,12 @@
             {{ profile.name }}
           </p>
         </div>
+        <ft-icon-button
+          class="profileSettings"
+          icon="sliders-h"
+          @click="openProfileSettings"
+          role="link"
+        />
       </div>
     </ft-card>
   </div>

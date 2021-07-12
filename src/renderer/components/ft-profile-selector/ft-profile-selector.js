@@ -36,14 +36,29 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    $('#profileList').focusout(() => {
+    $('#profileList').focusout((e) => {
+      // do not focus out if the element is a descendant of the profile list
+      if ($('#profileList').has(e.relatedTarget).length) {
+        return
+      }
+
       $('#profileList')[0].style.display = 'none'
     })
   },
   methods: {
-    toggleProfileList: function () {
-      $('#profileList')[0].style.display = 'inline'
-      $('#profileList').focus()
+    toggleProfileList: function (event) {
+      if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
+        return
+      } else if (event) {
+        event.preventDefault()
+      }
+
+      let profileList = $('#profileList')
+      profileList.get(0).style.display = 'inline'
+
+      let firstProfile = profileList.find('.profile:first')
+      firstProfile.attr('tabindex', '0')
+      firstProfile.focus()
     },
 
     openProfileSettings: function () {
@@ -53,7 +68,32 @@ export default Vue.extend({
       $('#profileList').focusout()
     },
 
-    setActiveProfile: function (profile) {
+    setActiveProfile: function (profile, event) {
+      if (event instanceof KeyboardEvent) {
+        if (event.key === 'Tab') { // navigate to profile settings on tab
+          let settings = $('.profileSettings').first()
+          settings.attr('tabindex', '0')
+          settings.focus()
+          return
+        } else if (event.key.indexOf('Arrow') != -1) { // arrow navigate to prev/next profile
+          event.preventDefault()
+          let adjacentSibling = (event.key === 'ArrowUp' || event.key === 'ArrowLeft')
+            ? event.target.previousElementSibling
+              : event.target.nextElementSibling
+
+          if (adjacentSibling) {
+            event.target.setAttribute('tabindex', '-1')
+            adjacentSibling.setAttribute('tabindex', '0')
+            adjacentSibling.focus()
+          }
+
+          return
+        } else if (event.key !== 'Enter' && event.key !== ' ') {
+          event.preventDefault()
+          return
+        }
+      }
+
       if (this.profileList[this.activeProfile]._id === profile._id) {
         return
       }
@@ -64,6 +104,7 @@ export default Vue.extend({
       if (index === -1) {
         return
       }
+
       this.updateActiveProfile(index)
       const message = this.$t('Profile.$ is now the active profile').replace('$', profile.name)
       this.showToast({
