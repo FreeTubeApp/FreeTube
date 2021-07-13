@@ -16,7 +16,7 @@
       role="button"
       tabindex="0"
       @click="showComments = true"
-      @keydown="showComments = $event instanceof KeyboardEvent && $event.key !== ' ' && $event.key !== 'Enter'"
+      @keydown="showComments = $event.key === ' ' || $event.key === 'Enter'"
     >
       {{ $t("Comments.Click to View Comments") }}
     </h4>
@@ -54,11 +54,9 @@
         <img
           :src="comment.authorThumb"
           :alt="comment.author"
-          role="link"
-          tabindex="0"
           class="commentThumbnail"
+          tabindex="-1"
           @click="goToChannel(comment.authorLink)"
-          @keydown="goToChannel(comment.authorLink, $event)"
         >
         <p
           class="commentAuthorWrapper"

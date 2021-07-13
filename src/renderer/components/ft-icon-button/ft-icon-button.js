@@ -60,9 +60,9 @@ export default Vue.extend({
   },
   methods: {
     toggleDropdown: function () {
-      let thisButton = $(`#${this.id}`)
+      const thisButton = $(`#${this.id}`)
       thisButton.get(0).style.display = 'inline'
-      let firstItem = thisButton.find('.listItem').first()
+      const firstItem = thisButton.find('.listItem').first()
       firstItem.attr('tabindex', '0')
       firstItem.attr('aria-selected', true)
       thisButton.attr('aria-activedescendant', firstItem.attr('id'))
@@ -90,8 +90,16 @@ export default Vue.extend({
     },
 
     handleIconClick: function (event) {
-      if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
-        return
+      if (event instanceof KeyboardEvent) {
+        if (event.key === 'Tab') {
+          return
+        }
+
+        event.preventDefault()
+
+        if (event.key !== 'Enter' && event.key !== ' ') {
+          return
+        }
       }
 
       if (this.forceDropdown || (this.dropdownNames.length > 0 && this.dropdownValues.length > 0)) {

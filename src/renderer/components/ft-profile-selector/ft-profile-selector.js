@@ -53,10 +53,10 @@ export default Vue.extend({
         event.preventDefault()
       }
 
-      let profileList = $('#profileList')
+      const profileList = $('#profileList')
       profileList.get(0).style.display = 'inline'
 
-      let firstProfile = profileList.find('.profile').first()
+      const firstProfile = profileList.find('.profile').first()
       firstProfile.attr('tabindex', '0')
       firstProfile.attr('aria-selected', true)
       profileList.attr('aria-activedescendant', firstProfile.attr('id'))
@@ -74,7 +74,7 @@ export default Vue.extend({
       if (event instanceof KeyboardEvent) {
         let nextElement = null
         if (event.key === 'Tab') { // navigate to profile settings on tab
-          let settings = $('.profileSettings').first()
+          const settings = $('.profileSettings').first()
           settings.attr('tabindex', '0')
           settings.focus()
           return

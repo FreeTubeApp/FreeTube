@@ -2,11 +2,12 @@
   <div>
     <div
       class="colorOption"
+      :aria-label="$t('Profile.Toggle Profile List')"
       :style="{ background: profileList[activeProfile].bgColor, color: profileList[activeProfile].textColor }"
-      @click="toggleProfileList"
-      @keydown="toggleProfileList($event)"
       tabindex="0"
       role="button"
+      @click="toggleProfileList"
+      @keydown="toggleProfileList($event)"
     >
       <div
         class="initial"
@@ -19,8 +20,8 @@
       tabindex="-1"
     >
       <h3
-        class="profileListTitle"
         id="profileListTitle"
+        class="profileListTitle"
       >
         {{ $t("Profile.Profile Select") }}
       </h3>
@@ -31,14 +32,15 @@
       >
         <div
           v-for="(profile, index) in profileList"
-          :key="index"
           :id="'profile-' + index"
+          :key="index"
           class="profile"
-          @click="setActiveProfile(profile)"
-          @keydown="setActiveProfile(profile, $event)"
+          aria-labelledby="profileName"
           aria-selected="false"
           tabindex="-1"
           role="option"
+          @click="setActiveProfile(profile)"
+          @keydown="setActiveProfile(profile, $event)"
         >
           <div
             class="colorOption"
@@ -51,6 +53,7 @@
             </div>
           </div>
           <p
+            id="profileName"
             class="profileName"
           >
             {{ profile.name }}
@@ -58,9 +61,10 @@
         </div>
         <ft-icon-button
           class="profileSettings"
+          :aria-label="$t('Profile.Open Profile Settings')"
           icon="sliders-h"
-          @click="openProfileSettings"
           role="link"
+          @click="openProfileSettings"
         />
       </div>
     </ft-card>

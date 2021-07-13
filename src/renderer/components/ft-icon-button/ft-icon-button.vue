@@ -3,6 +3,7 @@
     <font-awesome-icon
       class="iconButton"
       :title="title"
+      :aria-label="title"
       :icon="icon"
       :class="{
         [theme]: true,
@@ -12,9 +13,10 @@
         padding: padding + 'px',
         fontSize: size + 'px'
       }"
+      tabindex="0"
+      role="button"
       @click="handleIconClick"
       @keydown="handleIconClick($event)"
-      tabindex="0"
     />
     <div
       :id="id"
@@ -36,8 +38,8 @@
         >
           <li
             v-for="(label, index) in dropdownNames"
-            :key="index"
             :id="title + '-' + index"
+            :key="index"
             class="listItem"
             role="option"
             aria-selected="false"
