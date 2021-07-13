@@ -113,7 +113,19 @@ export default Vue.extend({
       }
     },
 
-    playFirstVideo() {
+    playFirstVideo(event) {
+      if (event instanceof KeyboardEvent) {
+        if (event.key === 'Tab') {
+          return
+        }
+
+        event.preventDefault()
+
+        if (event.key !== 'Enter') {
+          return
+        }
+      }
+
       const playlistInfo = {
         playlistId: this.id
       }
@@ -126,7 +138,19 @@ export default Vue.extend({
       )
     },
 
-    goToChannel: function () {
+    goToChannel: function (event) {
+      if (event instanceof KeyboardEvent) {
+        if (event.key === 'Tab') {
+          return
+        }
+
+        event.preventDefault()
+
+        if (event.key !== 'Enter') {
+          return
+        }
+      }
+
       this.$router.push({ path: `/channel/${this.channelId}` })
     },
 
