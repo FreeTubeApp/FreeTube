@@ -30,7 +30,6 @@ export default Vue.extend({
       isLoading: false,
       isElementListLoading: false,
       currentTab: 'videos',
-      currentTabNode: $('#videosTab'),
       id: '',
       channelName: '',
       bannerUrl: '',
@@ -168,7 +167,6 @@ export default Vue.extend({
       // react to route changes...
       this.id = this.$route.params.id
       this.currentTab = 'videos'
-      this.currentTabNode = $('#videosTab'),
       this.latestVideosPage = 2
       this.searchPage = 2
       this.relatedChannels = []
@@ -620,37 +618,40 @@ export default Vue.extend({
     },
 
     changeTab: function (tab, event) {
-      // whether tab will switch
-      let isChanging = true
-      // navigate channel tabs with arrow keys
       if (event instanceof KeyboardEvent) {
-        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
-          isChanging = false
-          let index = this.tabInfoValues.indexOf(tab)
-          // tabs wrap around from leftmost to rightmost, and vice versa
-          tab = (event.key === 'ArrowLeft') ?
-            this.tabInfoValues[(index > 0 ? index : this.tabInfoValues.length) - 1] :
-            this.tabInfoValues[(index + 1) % this.tabInfoValues.length]
-        } else if (event.key !== 'Enter' && event.key !== ' ') {
+        if (event.key === 'Tab') {
           return
+        } else if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+          // navigate channel tabs with arrow keys
+          const index = this.tabInfoValues.indexOf(tab)
+          // tabs wrap around from leftmost to rightmost, and vice versa
+          tab = (event.key === 'ArrowLeft')
+            ? this.tabInfoValues[(index > 0 ? index : this.tabInfoValues.length) - 1]
+            : this.tabInfoValues[(index + 1) % this.tabInfoValues.length]
+
+          const tabNode = $(`#${tab}Tab`)
+          event.target.setAttribute('tabindex', '-1')
+          tabNode.attr('tabindex', '0')
+          tabNode.focus()
         }
 
         event.preventDefault()
+        if (event.key !== 'Enter' && event.key !== ' ') {
+          return
+        }
       }
 
-      this.currentTabNode.attr('tabindex', '-1')
+      const currentTabNode = $('.channelInfoTabs > .tab[aria-selected="true"]')
+      const newTabNode = $(`#${tab}Tab`)
 
-      let newTabNode = $(`#${tab}Tab`)
+      // switch selectability from currently focused tab to new tab
+      $('.channelInfoTabs > .tab[tabindex="0"]').attr('tabindex', '-1')
       newTabNode.attr('tabindex', '0')
 
-      if (isChanging) {
-        this.currentTabNode.attr('aria-selected', 'false')
-        newTabNode.attr('aria-selected', 'true')
-        this.currentTab = tab
-      }
-
-      this.currentTabNode = newTabNode
-      this.currentTabNode.focus()
+      currentTabNode.attr('aria-selected', 'false')
+      newTabNode.attr('aria-selected', 'true')
+      this.currentTab = tab
+      newTabNode.focus()
     },
 
     newSearch: function (query) {
@@ -659,7 +660,7 @@ export default Vue.extend({
       this.isElementListLoading = true
       this.searchPage = 1
       this.searchResults = []
-      this.currentTab = "search"
+      this.currentTab = 'search'
       switch (this.apiUsed) {
         case 'local':
           this.searchChannelLocal()
