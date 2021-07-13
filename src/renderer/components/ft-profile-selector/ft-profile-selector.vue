@@ -20,20 +20,25 @@
     >
       <h3
         class="profileListTitle"
+        id="profileListTitle"
       >
         {{ $t("Profile.Profile Select") }}
       </h3>
       <div
         class="profileWrapper"
+        role="listbox"
+        aria-labelledby="profileListTitle"
       >
         <div
           v-for="(profile, index) in profileList"
           :key="index"
+          :id="'profile-' + index"
           class="profile"
           @click="setActiveProfile(profile)"
           @keydown="setActiveProfile(profile, $event)"
+          aria-selected="false"
           tabindex="-1"
-          role="button"
+          role="option"
         >
           <div
             class="colorOption"

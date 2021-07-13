@@ -56,8 +56,10 @@ export default Vue.extend({
       let profileList = $('#profileList')
       profileList.get(0).style.display = 'inline'
 
-      let firstProfile = profileList.find('.profile:first')
+      let firstProfile = profileList.find('.profile').first()
       firstProfile.attr('tabindex', '0')
+      firstProfile.attr('aria-selected', true)
+      profileList.attr('aria-activedescendant', firstProfile.attr('id'))
       firstProfile.focus()
     },
 
@@ -70,26 +72,34 @@ export default Vue.extend({
 
     setActiveProfile: function (profile, event) {
       if (event instanceof KeyboardEvent) {
+        let nextElement = null
         if (event.key === 'Tab') { // navigate to profile settings on tab
           let settings = $('.profileSettings').first()
           settings.attr('tabindex', '0')
           settings.focus()
           return
-        } else if (event.key.indexOf('Arrow') != -1) { // arrow navigate to prev/next profile
-          event.preventDefault()
-          let adjacentSibling = (event.key === 'ArrowUp' || event.key === 'ArrowLeft')
-            ? event.target.previousElementSibling
-              : event.target.nextElementSibling
+        } else if (event.key === 'ArrowUp') {
+          nextElement = event.target.previousElementSibling
+        } else if (event.key === 'ArrowDown') {
+          nextElement = event.target.nextElementSibling
+        } else if (event.key === 'Home') {
+          nextElement = $('.profile').first()
+        } else if (event.key === 'End') {
+          nextElement = $('profile').last()
+        }
 
-          if (adjacentSibling) {
-            event.target.setAttribute('tabindex', '-1')
-            adjacentSibling.setAttribute('tabindex', '0')
-            adjacentSibling.focus()
-          }
+        event.preventDefault()
 
-          return
-        } else if (event.key !== 'Enter' && event.key !== ' ') {
-          event.preventDefault()
+        if (nextElement) {
+          event.target.setAttribute('tabindex', '-1')
+          event.target.setAttribute('aria-selected', 'false')
+          nextElement.setAttribute('tabindex', '0')
+          nextElement.setAttribute('aria-selected', 'true')
+          $('#profileList').attr('aria-activedescendant', nextElement.id)
+          nextElement.focus()
+        }
+
+        if (event.key !== 'Enter' && event.key !== ' ') {
           return
         }
       }
