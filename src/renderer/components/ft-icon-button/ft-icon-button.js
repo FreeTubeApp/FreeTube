@@ -60,10 +60,19 @@ export default Vue.extend({
   },
   methods: {
     toggleDropdown: function () {
-      $(`#${this.id}`)[0].style.display = 'inline'
-      $(`#${this.id}`).focus()
+      let thisButton = $(`#${this.id}`)
+      thisButton.get(0).style.display = 'inline'
+      let firstItem = thisButton.find('.listItem').first()
+      firstItem.attr('tabindex', '0')
+      firstItem.attr('aria-selected', true)
+      thisButton.attr('aria-activedescendant', firstItem.attr('id'))
+      firstItem.focus()
 
-      $(`#${this.id}`).focusout(() => {
+      $(`#${this.id}`).focusout((e) => {
+        if ($(`#${this.id}`).has(e.relatedTarget).length) {
+          return
+        }
+
         const shareLinks = $(`#${this.id}`).find('.shareLinks')
 
         if (shareLinks.length > 0) {
@@ -76,14 +85,13 @@ export default Vue.extend({
       })
     },
 
-    focusOut: function () {
+    focusOut: function() {
       $(`#${this.id}`).focusout()
-      $(`#${this.id}`)[0].style.display = 'none'
     },
 
     handleIconClick: function (event) {
       if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
-          return
+        return
       }
 
       if (this.forceDropdown || (this.dropdownNames.length > 0 && this.dropdownValues.length > 0)) {
@@ -93,9 +101,39 @@ export default Vue.extend({
       }
     },
 
-    handleDropdownClick: function (index) {
+    handleDropdownClick: function (index, event) {
+      if (event instanceof KeyboardEvent) {
+        let nextElement = null
+        if (event.key === 'Tab') {
+          return
+        } if (event.key === 'ArrowUp') {
+          nextElement = event.target.previousElementSibling
+        } else if (event.key === 'ArrowDown') {
+          nextElement = event.target.nextElementSibling
+        } else if (event.key === 'Home') {
+          nextElement = $(`#${this.id} > .listItem`).first()
+        } else if (event.key === 'End') {
+          nextElement = $(`#${this.id} > .listItem`).last()
+        }
+
+        event.preventDefault()
+
+        if (nextElement) {
+          event.target.setAttribute('tabindex', '-1')
+          event.target.setAttribute('aria-selected', 'false')
+          nextElement.setAttribute('tabindex', '0')
+          nextElement.setAttribute('aria-selected', 'true')
+          $(`#${this.id}`).attr('aria-activedescendant', nextElement.id)
+          nextElement.focus()
+        }
+
+        if (event.key !== 'Enter' && event.key !== ' ') {
+          return
+        }
+      }
+
       this.$emit('click', this.dropdownValues[index])
-      this.focusOut()
+      $(`#${this.id}`).focusout()
     }
   }
 })
