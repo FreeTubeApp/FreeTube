@@ -5,21 +5,23 @@
   >
     <div class="side">
       <font-awesome-icon
+        :aria-label="$t('Toggle Side Bar')"
         class="menuIcon navIcon"
         icon="bars"
         role="button"
         tabindex="0"
         @click="toggleSideNav"
-        @keypress="toggleSideNav"
+        @keydown="toggleSideNav($event)"
       />
       <font-awesome-icon
+        :aria-label="forwardText"
         class="navBackIcon navIcon"
         icon="arrow-left"
         role="button"
         tabindex="0"
         :title="forwardText"
         @click="historyBack"
-        @keypress="historyBack"
+        @keydown="historyBack($event)"
       />
       <font-awesome-icon
         class="navForwardIcon navIcon"
@@ -28,21 +30,26 @@
         tabindex="0"
         :title="forwardText"
         @click="historyForward"
-        @keypress="historyForward"
+        @keydown="historyForward($event)"
       />
       <font-awesome-icon
+        :aria-label="$t('Search / Go to URL')"
         class="navSearchIcon navIcon"
         icon="search"
         role="button"
         tabindex="0"
         @click="toggleSearchContainer"
-        @keypress="toggleSearchContainer"
+        @keydown="toggleSearchContainer($event)"
       />
       <font-awesome-icon
+        :aria-label="newWindowText"
         class="navNewWindowIcon navIcon"
         icon="clone"
+        role="link"
+        tabindex="0"
         :title="newWindowText"
         @click="createNewWindow"
+        @keydown="createNewWindow($event)"
       />
       <div class="logo">
         <div
@@ -72,7 +79,9 @@
           role="button"
           tabindex="0"
           @click="showFilters = !showFilters"
-          @keypress="showFilters = !showFilters"
+          @keydown="showFilters =
+            ($event.key !== 'Enter' && $event.key !== ' ')
+              ? showFilters : !showFilters"
         />
       </div>
       <ft-search-filters

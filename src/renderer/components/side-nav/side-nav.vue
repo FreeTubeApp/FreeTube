@@ -7,9 +7,11 @@
     <div class="inner">
       <div
         class="navOption topNavOption mobileShow"
-        role="button"
+        :aria-label="$t('Subscriptions.Subscriptions')"
+        role="link"
         tabindex="0"
         @click="navigate('subscriptions')"
+        @keydown="navigate('subscriptions', $event)"
       >
         <font-awesome-icon
           icon="rss"
@@ -22,11 +24,12 @@
       </div>
       <div
         v-if="!hideTrendingVideos"
+        :aria-label="$t('Trending')"
         class="navOption mobileHidden"
-        role="button"
+        role="link"
         tabindex="0"
         @click="navigate('trending')"
-        @keypress="navigate('trending')"
+        @keydown="navigate('trending', $event)"
       >
         <font-awesome-icon
           icon="fire"
@@ -40,10 +43,11 @@
       <div
         v-if="!hidePopularVideos"
         class="navOption mobileHidden"
-        role="button"
+        :aria-label="$t(&quot;Most Popular&quot;)"
+        role="link"
         tabindex="0"
         @click="navigate('popular')"
-        @keypress="navigate('popular')"
+        @keydown="navigate('popular', $event)"
       >
         <font-awesome-icon
           icon="users"
@@ -56,11 +60,12 @@
       </div>
       <div
         v-if="!hidePlaylists"
+        :aria-label="$t(&quot;Playlists&quot;)"
         class="navOption mobileShow"
-        role="button"
+        role="link"
         tabindex="0"
         @click="navigate('userplaylists')"
-        @keypress="navigate('userplaylists')"
+        @keydown="navigate('userplaylists', $event)"
       >
         <font-awesome-icon
           icon="bookmark"
@@ -76,10 +81,11 @@
       />
       <div
         class="navOption mobileShow"
-        role="button"
+        :aria-label="$t(&quot;History.History&quot;)"
+        role="link"
         tabindex="0"
         @click="navigate('history')"
-        @keypress="navigate('history')"
+        @keydown="navigate('history', $event)"
       >
         <font-awesome-icon
           icon="history"
@@ -93,10 +99,11 @@
       <hr>
       <div
         class="navOption mobileShow"
-        role="button"
+        role="link"
         tabindex="0"
+        :aria-label="$t(&quot;Settings.Settings&quot;)"
         @click="navigate('settings')"
-        @keypress="navigate('settings')"
+        @keydown="navigate('settings', $event)"
       >
         <font-awesome-icon
           icon="sliders-h"
@@ -109,10 +116,11 @@
       </div>
       <div
         class="navOption mobileHidden"
-        role="button"
+        role="link"
         tabindex="0"
+        :aria-label="$t(&quot;About.About&quot;)"
         @click="navigate('about')"
-        @keypress="navigate('about')"
+        @keydown="navigate('about', $event)"
       >
         <font-awesome-icon
           icon="info-circle"
@@ -132,10 +140,11 @@
           :key="index"
           class="navChannel mobileHidden"
           :title="channel.name"
-          role="button"
+          :aria-label="channel.name"
+          role="link"
           tabindex="0"
           @click="goToChannel(channel.id)"
-          @keypress="goToChannel(channel.id)"
+          @keydown="goToChannel(channel.id, $event)"
         >
           <div
             class="thumbnailContainer"
@@ -147,6 +156,7 @@
           </div>
           <p
             v-if="isOpen"
+            id="navLabelChannel"
             class="navLabel"
           >
             {{ channel.name }}
