@@ -28,6 +28,7 @@ Minimize: Minimize
 Close: Close
 Back: Back
 Forward: Forward
+Toggle Side Bar: Toggle Side Bar
 Open New Window: Open New Window
 
 Version $ is now available!  Click for more details: Version $ is now available!  Click
@@ -327,9 +328,11 @@ About:
   Donate: Donate
 
 Profile:
+  Toggle Profile List: Toggle Profile List
   Profile Select: Profile Select
   Profile Filter: Profile Filter
   All Channels: All Channels
+  Open Profile Settings: Open Profile Settings
   Profile Manager: Profile Manager
   Create New Profile: Create New Profile
   Edit Profile: Edit Profile
@@ -382,6 +385,7 @@ Channel:
   Your search results have returned 0 results: Your search results have returned 0
     results
   Sort By: Sort By
+  Channel Tabs: Channel Tabs
   Videos:
     Videos: Videos
     This channel does not currently have any videos: This channel does not currently
@@ -447,6 +451,8 @@ Video:
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': Live
     Chat is currently not supported with the Invidious API.  A direct connection to
     YouTube is required.
+  Show Super Chat Comment: Show Super Chat Comment
+  Scroll to Bottom: Scroll to Bottom
   Download Video: Download Video
   video only: video only
   audio only: audio only
@@ -526,6 +532,7 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: View Full Playlist
+  Play First Video: Play First Video
   Videos: Videos
   View: View
   Views: Views
