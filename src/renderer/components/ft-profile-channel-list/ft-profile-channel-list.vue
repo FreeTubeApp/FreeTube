@@ -13,8 +13,10 @@
           :key="index"
           :ref="`channel-${index}`"
           :channel-name="channel.name"
+          :aria-label="channel.name"
           :channel-thumbnail="channel.thumbnail"
           :show-selected="true"
+          role="button"
           @click="handleChannelClick(index)"
         />
       </ft-flex-box>

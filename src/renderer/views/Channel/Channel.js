@@ -247,11 +247,7 @@ export default Vue.extend({
     }
   },
   methods: {
-    goToChannel: function (id, event) {
-      if (event instanceof KeyboardEvent && event.key !== 'Enter') {
-        return
-      }
-
+    goToChannel: function (id) {
       this.$router.push({ path: `/channel/${id}` })
     },
 

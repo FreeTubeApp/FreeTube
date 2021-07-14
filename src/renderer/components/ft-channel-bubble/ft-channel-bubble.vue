@@ -1,7 +1,9 @@
 <template>
   <div
     class="bubblePadding"
+    tabindex="0"
     @click="handleClick"
+    @keydown="handleClick($event)"
   >
     <img
       class="bubble"

@@ -147,10 +147,10 @@
             :key="index"
             :channel-name="channel.author"
             :channel-id="channel.authorId"
+            :aria-label="channel.author"
             :channel-thumbnail="channel.authorThumbnails[channel.authorThumbnails.length - 1].url"
             role="link"
             @click="goToChannel(channel.authorId)"
-            @keydown="goToChannel(channel.authorId, $event)"
           />
         </ft-flex-box>
       </div>
