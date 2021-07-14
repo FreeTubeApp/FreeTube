@@ -1,7 +1,10 @@
 <template>
   <div
     class="bubblePadding"
+    :aria-label="profileName"
+    tabindex="0"
     @click="goToProfile"
+    @keydown="goToProfile($event)"
   >
     <div
       class="bubble"

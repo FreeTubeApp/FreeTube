@@ -26,7 +26,19 @@ export default Vue.extend({
     }
   },
   methods: {
-    goToProfile: function () {
+    goToProfile: function (event) {
+      if (event instanceof KeyboardEvent) {
+        if (event.key === 'Tab') {
+          return
+        }
+
+        if (event.target.getAttribute('role') === 'link' && event.key !== 'Enter') {
+          return
+        } else if (event.key !== 'Enter' && event.key !== ' ') {
+          return
+        }
+      }
+
       this.$router.push({
         path: `/settings/profile/edit/${this.profileId}`
       })
