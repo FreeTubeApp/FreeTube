@@ -60,7 +60,7 @@
   transition: background 0.2s ease-out;
 }
 
-.buttonOption:hover {
+.buttonOption:hover, .buttonOption:focus {
   background-color: var(--card-bg-color);
   -moz-transition: background 0.2s ease-in;
   -o-transition: background 0.2s ease-in;
