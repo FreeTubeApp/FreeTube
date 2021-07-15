@@ -2,6 +2,9 @@
   <div
     class="ftNotificationBanner"
     @click="handleClick(true)"
+    @keydown="handleClick(true, $event)"
+    tabindex="0"
+    role="link"
   >
     <div
       class="message"
@@ -16,6 +19,8 @@
       class="bannerIcon"
       icon="times"
       @click="handleClose"
+      @keydown="handleClose($event)"
+      tabindex="0"
     />
   </div>
 </template>
