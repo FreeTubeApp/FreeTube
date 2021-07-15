@@ -87,6 +87,7 @@ export default Vue.extend({
 
     focusOut: function() {
       $(`#${this.id}`).focusout()
+      $(`#${this.id}`)[0].style.display = 'none'
     },
 
     handleIconClick: function (event) {
