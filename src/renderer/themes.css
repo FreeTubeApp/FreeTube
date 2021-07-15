@@ -461,7 +461,11 @@ body {
 }
 
 a:link {
-    color: var(--link-color);
+  color: var(--link-color);
+}
+
+a:link:hover, a:link:focus {
+  color: var(--primary-color)
 }
 
 a:visited {
