@@ -6,16 +6,21 @@
   >
     <div class="inner">
       <div
-        class="navOption topNavOption mobileShow"
+        class="navOption topNavOption mobileShow "
         role="button"
         tabindex="0"
+        :title="$t('Subscriptions.Subscriptions')"
         @click="navigate('subscriptions')"
       >
-        <font-awesome-icon
-          icon="rss"
-          class="navIcon"
-          fixed-width
-        />
+        <div
+          class="thumbnailContainer"
+        >
+          <font-awesome-icon
+            icon="rss"
+            class="navIcon"
+            fixed-width
+          />
+        </div>
         <p class="navLabel">
           {{ $t("Subscriptions.Subscriptions") }}
         </p>
@@ -25,14 +30,19 @@
         class="navOption mobileHidden"
         role="button"
         tabindex="0"
+        :title="$t('Trending')"
         @click="navigate('trending')"
         @keypress="navigate('trending')"
       >
-        <font-awesome-icon
-          icon="fire"
-          class="navIcon"
-          fixed-width
-        />
+        <div
+          class="thumbnailContainer"
+        >
+          <font-awesome-icon
+            icon="fire"
+            class="navIcon"
+            fixed-width
+          />
+        </div>
         <p class="navLabel">
           {{ $t("Trending") }}
         </p>
@@ -42,14 +52,19 @@
         class="navOption mobileHidden"
         role="button"
         tabindex="0"
+        :title="$t('Most Popular')"
         @click="navigate('popular')"
         @keypress="navigate('popular')"
       >
-        <font-awesome-icon
-          icon="users"
-          class="navIcon"
-          fixed-width
-        />
+        <div
+          class="thumbnailContainer"
+        >
+          <font-awesome-icon
+            icon="users"
+            class="navIcon"
+            fixed-width
+          />
+        </div>
         <p class="navLabel">
           {{ $t("Most Popular") }}
         </p>
@@ -59,14 +74,19 @@
         class="navOption mobileShow"
         role="button"
         tabindex="0"
+        :title="$t('Playlists')"
         @click="navigate('userplaylists')"
         @keypress="navigate('userplaylists')"
       >
-        <font-awesome-icon
-          icon="bookmark"
-          class="navIcon"
-          fixed-width
-        />
+        <div
+          class="thumbnailContainer"
+        >
+          <font-awesome-icon
+            icon="bookmark"
+            class="navIcon"
+            fixed-width
+          />
+        </div>
         <p class="navLabel">
           {{ $t("Playlists") }}
         </p>
@@ -78,14 +98,19 @@
         class="navOption mobileShow"
         role="button"
         tabindex="0"
+        :title="$t('History.History')"
         @click="navigate('history')"
         @keypress="navigate('history')"
       >
-        <font-awesome-icon
-          icon="history"
-          class="navIcon"
-          fixed-width
-        />
+        <div
+          class="thumbnailContainer"
+        >
+          <font-awesome-icon
+            icon="history"
+            class="navIcon"
+            fixed-width
+          />
+        </div>
         <p class="navLabel">
           {{ $t("History.History") }}
         </p>
@@ -95,30 +120,40 @@
         class="navOption mobileShow"
         role="button"
         tabindex="0"
+        :title="$t('Settings.Settings')"
         @click="navigate('settings')"
         @keypress="navigate('settings')"
       >
-        <font-awesome-icon
-          icon="sliders-h"
-          class="navIcon"
-          fixed-width
-        />
+        <div
+          class="thumbnailContainer"
+        >
+          <font-awesome-icon
+            icon="sliders-h"
+            class="navIcon"
+            fixed-width
+          />
+        </div>
         <p class="navLabel">
-          {{ $t("Settings.Settings") }}
+          {{ $t('Settings.Settings') }}
         </p>
       </div>
       <div
         class="navOption mobileHidden"
         role="button"
         tabindex="0"
+        :title="$t('About.About')"
         @click="navigate('about')"
         @keypress="navigate('about')"
       >
-        <font-awesome-icon
-          icon="info-circle"
-          class="navIcon"
-          fixed-width
-        />
+        <div
+          class="thumbnailContainer"
+        >
+          <font-awesome-icon
+            icon="info-circle"
+            class="navIcon"
+            fixed-width
+          />
+        </div>
         <p class="navLabel">
           {{ $t("About.About") }}
         </p>
