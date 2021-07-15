@@ -65,7 +65,7 @@ export default Vue.extend({
       const firstItem = thisButton.find('.listItem').first()
       firstItem.attr('tabindex', '0')
       firstItem.attr('aria-selected', true)
-      thisButton.attr('aria-activedescendant', firstItem.attr('id'))
+      thisButton.attr('aria-expanded', 'true')
       firstItem.focus()
 
       $(`#${this.id}`).focusout((e) => {
@@ -88,6 +88,7 @@ export default Vue.extend({
     focusOut: function() {
       $(`#${this.id}`).focusout()
       $(`#${this.id}`)[0].style.display = 'none'
+      $(`#${this.id}`).attr('aria-expanded', 'false')
     },
 
     handleIconClick: function (event) {
@@ -120,19 +121,16 @@ export default Vue.extend({
         } else if (event.key === 'ArrowDown') {
           nextElement = event.target.nextElementSibling
         } else if (event.key === 'Home') {
-          nextElement = $(`#${this.id} > .listItem`).first()
+          nextElement = $(`#${this.id} > .listItem`).first()[0]
         } else if (event.key === 'End') {
-          nextElement = $(`#${this.id} > .listItem`).last()
+          nextElement = $(`#${this.id} > .listItem`).last()[0]
         }
 
         event.preventDefault()
 
         if (nextElement) {
           event.target.setAttribute('tabindex', '-1')
-          event.target.setAttribute('aria-selected', 'false')
           nextElement.setAttribute('tabindex', '0')
-          nextElement.setAttribute('aria-selected', 'true')
-          $(`#${this.id}`).attr('aria-activedescendant', nextElement.id)
           nextElement.focus()
         }
 
@@ -141,8 +139,16 @@ export default Vue.extend({
         }
       }
 
+      const listbox = $(`#${this.id}`)
+      const allOptions = listbox.children()
+
+      allOptions.attr('aria-selected', 'false')
+      allOptions.attr('tabindex', '-1')
+      event.target.setAttribute('aria-selected', 'true')
+      event.target.setAttribute('tabindex', '0')
+
       this.$emit('click', this.dropdownValues[index])
-      $(`#${this.id}`).focusout()
+      this.focusOut()
     }
   }
 })

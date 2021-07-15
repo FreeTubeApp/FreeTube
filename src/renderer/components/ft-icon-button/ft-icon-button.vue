@@ -35,6 +35,7 @@
           v-if="dropdownNames.length > 0"
           class="list"
           role="listbox"
+          aria-expanded="false"
         >
           <li
             v-for="(label, index) in dropdownNames"
@@ -44,7 +45,7 @@
             role="option"
             aria-selected="false"
             tabindex="-1"
-            @click="handleDropdownClick(index)"
+            @click="handleDropdownClick(index, $event)"
             @keydown="handleDropdownClick(index, $event)"
           >
             {{ label }}
