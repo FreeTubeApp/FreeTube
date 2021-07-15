@@ -456,7 +456,7 @@ body {
   outline: none;
 }
 
-.rightAligned: {
+.rightAligned {
   text-align: right;
 }
 
@@ -465,11 +465,11 @@ a:link {
 }
 
 a:link:hover, a:link:focus {
-  color: var(--primary-color)
+  color: var(--primary-color);
 }
 
 a:visited {
-    color: var(--link-visited-color);
+  color: var(--link-visited-color);
 }
 
 ::-webkit-scrollbar {
