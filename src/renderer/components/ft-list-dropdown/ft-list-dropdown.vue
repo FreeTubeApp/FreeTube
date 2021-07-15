@@ -1,11 +1,10 @@
 <template>
-  <div class="dropDown">
+  <div class="dropdown">
     <div
       :id="title"
       class="buttonTitle"
       tabindex="0"
       role="listbox"
-      aria-expanded="false"
       @keydown="handleIconKeyPress($event)"
     >
       {{ title }}

@@ -1,11 +1,11 @@
-.dropDown {
+.dropdown {
   position: relative;
   text-align: center;
   text-transform: uppercase;
   margin: 0 5px;
 }
 
-.dropDown ul {
+.dropdown ul {
     display: none;
     position: absolute;
     list-style: none;
@@ -15,17 +15,17 @@
     z-index: 100;
 }
 
-.dropDown ul li {
+.dropdown ul li.buttonOption {
     width: 100%;
     float: none;
     box-sizing: border-box;
 }
 
-.dropDown:hover ul {
+.dropdown:hover ul, .dropdown:focus-within ul {
     display: block;
 }
 
-.dropDown ul li a {
+.dropdown ul li a {
     text-decoration: none;
     color: inherit;
 }
