@@ -16,10 +16,10 @@
       />
       <div
         class="getNextPage"
-        @click="nextPage"
-        @keydown="nextPage($event)"
         role="button"
         tabindex="0"
+        @click="nextPage"
+        @keydown="nextPage($event)"
       >
         <font-awesome-icon icon="search" /> {{ $t("Search Filters.Fetch more results") }}
       </div>

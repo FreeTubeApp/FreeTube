@@ -1,10 +1,10 @@
 <template>
   <div
     class="ftNotificationBanner"
-    @click="handleClick(true)"
-    @keydown="handleClick(true, $event)"
     tabindex="0"
     role="link"
+    @click="handleClick(true)"
+    @keydown="handleClick(true, $event)"
   >
     <div
       class="message"
@@ -18,9 +18,9 @@
     <font-awesome-icon
       class="bannerIcon"
       icon="times"
+      tabindex="0"
       @click="handleClose"
       @keydown="handleClose($event)"
-      tabindex="0"
     />
   </div>
 </template>
