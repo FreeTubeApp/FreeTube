@@ -10,6 +10,8 @@ const state = {
   progressBarPercentage: 0,
   regionNames: [],
   regionValues: [],
+  languageNames: [],
+  languageValues: [],
   recentBlogPosts: [],
   searchSettings: {
     sortBy: 'relevance',
@@ -101,6 +103,14 @@ const getters = {
 
   getRegionValues () {
     return state.regionValues
+  },
+
+  getLanguageNames () {
+    return state.languageNames
+  },
+
+  getLanguageValues () {
+    return state.languageValues
   },
 
   getRecentBlogPosts () {
@@ -212,6 +222,20 @@ const actions = {
 
     commit('setRegionNames', regionNames)
     commit('setRegionValues', regionValues)
+  },
+
+  getLanguageData ({ commit }, payload) {
+    /* eslint-disable-next-line */
+    const fileLocation = payload.isDev ? './static/languages.json' : `${__dirname}/static/languages.json`
+    const fileData = fs.readFileSync(`${fileLocation}`)
+    const languages = JSON.parse(fileData).map((entry) => { return { nativename: entry.nativename, h1: entry.h1 } })
+    languages.sort((a, b) => { return a.nativename.localeCompare(b.nativename) })
+
+    const languageNames = languages.map((entry) => { return entry.nativename })
+    const languageValues = languages.map((entry) => { return entry.h1 })
+
+    commit('setLanguageNames', languageNames)
+    commit('setLanguageValues', languageValues)
   },
 
   calculateColorLuminance (_, colorValue) {
@@ -817,6 +841,14 @@ const mutations = {
     } else {
       state.sessionSearchHistory.push(payload)
     }
+  },
+
+  setLanguageNames (state, value) {
+    state.languageNames = value
+  },
+
+  setLanguageValues (state, value) {
+    state.languageValues = value
   },
 
   setPopularCache (state, value) {

@@ -205,6 +205,8 @@ const state = {
   rememberHistory: true,
   removeVideoMetaFiles: true,
   saveWatchedProgress: true,
+  searchLanguage: 'en',
+  searchRegion: 'US',
   sponsorBlockShowSkippedToast: true,
   sponsorBlockUrl: 'https://sponsor.ajay.app',
   thumbnailPreference: '',
@@ -245,6 +247,9 @@ const stateWithSideEffects = {
       dispatch('getRegionData', {
         isDev: process.env.NODE_ENV === 'development',
         locale: targetLocale
+      })
+      dispatch('getLanguageData', {
+        isDev: process.env.NODE_ENV === 'development'
       })
     }
   },

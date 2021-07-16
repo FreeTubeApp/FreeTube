@@ -85,6 +85,22 @@
         :tooltip="$t('Tooltips.General Settings.Region for Trending')"
         @change="updateRegion"
       />
+      <ft-select
+        :placeholder="$t('Settings.General Settings.Region for Searching')"
+        :value="searchRegion"
+        :select-names="regionNames"
+        :select-values="regionValues"
+        :tooltip="$t('Tooltips.General Settings.Region for Searching')"
+        @change="updateSearchRegion"
+      />
+      <ft-select
+        :placeholder="$t('Settings.General Settings.Search Language Preference')"
+        :value="searchLanguage"
+        :select-names="languageNames"
+        :select-values="languageValues"
+        :tooltip="$t('Tooltips.General Settings.Search Language Preference')"
+        @change="updateSearchLanguage"
+      />
     </div>
     <ft-flex-box class="generalSettingsFlexBox">
       <ft-input
