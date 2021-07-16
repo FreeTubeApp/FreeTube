@@ -53,7 +53,7 @@
             </div>
           </div>
           <p
-            id="profileName"
+            :id="profile.name"
             class="profileName"
           >
             {{ profile.name }}

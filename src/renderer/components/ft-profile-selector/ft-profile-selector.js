@@ -56,11 +56,10 @@ export default Vue.extend({
       const profileList = $('#profileList')
       profileList.get(0).style.display = 'inline'
 
-      const firstProfile = profileList.find('.profile').first()
-      firstProfile.attr('tabindex', '0')
-      firstProfile.attr('aria-selected', true)
-      profileList.attr('aria-activedescendant', firstProfile.attr('id'))
-      firstProfile.focus()
+      const openProfile = $(`#profile-${this.activeProfile}`)
+      openProfile.attr('tabindex', '0')
+      openProfile.attr('aria-selected', true)
+      openProfile.focus()
     },
 
     openProfileSettings: function () {
@@ -95,7 +94,6 @@ export default Vue.extend({
           event.target.setAttribute('aria-selected', 'false')
           nextElement.setAttribute('tabindex', '0')
           nextElement.setAttribute('aria-selected', 'true')
-          $('#profileList').attr('aria-activedescendant', nextElement.id)
           nextElement.focus()
         }
 
