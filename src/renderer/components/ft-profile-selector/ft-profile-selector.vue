@@ -35,7 +35,7 @@
           :id="'profile-' + index"
           :key="index"
           class="profile"
-          aria-labelledby="profileName"
+          :aria-labelledby="'profile' + profile.name"
           aria-selected="false"
           tabindex="-1"
           role="option"
@@ -53,7 +53,7 @@
             </div>
           </div>
           <p
-            :id="profile.name"
+            :id="'profile' + profile.name"
             class="profileName"
           >
             {{ profile.name }}
