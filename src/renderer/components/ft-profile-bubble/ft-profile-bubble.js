@@ -32,6 +32,8 @@ export default Vue.extend({
           return
         }
 
+        event.preventDefault()
+
         if (event.target.getAttribute('role') === 'link' && event.key !== 'Enter') {
           return
         } else if (event.key !== 'Enter' && event.key !== ' ') {
