@@ -150,6 +150,10 @@ export default Vue.extend({
         this.$t('Settings.General Settings.Thumbnail Preference.Middle'),
         this.$t('Settings.General Settings.Thumbnail Preference.End')
       ]
+    },
+
+    disableExternalLinkOpening: function () {
+      return this.$store.getters.getDisableExternalLinkOpening
     }
   },
   mounted: function () {
@@ -218,7 +222,8 @@ export default Vue.extend({
       'updateListType',
       'updateThumbnailPreference',
       'updateForceLocalBackendForLegacy',
-      'updateCurrentLocale'
+      'updateCurrentLocale',
+      'updateDisableExternalLinkOpening'
     ])
   }
 })
