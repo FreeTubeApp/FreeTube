@@ -21,7 +21,6 @@
           v-for="(channel, index) in channels"
           :key="index"
           :ref="`all-channels-${index}`"
-          :aria-label="channel.name"
           :channel-name="channel.name"
           :channel-thumbnail="channel.thumbnail"
           :show-selected="true"

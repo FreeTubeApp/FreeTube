@@ -61,7 +61,7 @@
         </div>
         <ft-icon-button
           class="profileSettings"
-          :aria-label="$t('Profile.Open Profile Settings')"
+          :title="$t('Profile.Open Profile Settings')"
           icon="sliders-h"
           role="link"
           @click="openProfileSettings"

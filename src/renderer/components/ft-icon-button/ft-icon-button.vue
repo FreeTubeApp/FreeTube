@@ -3,7 +3,6 @@
     <font-awesome-icon
       class="iconButton"
       :title="title"
-      :aria-label="title"
       :icon="icon"
       :class="{
         [theme]: true,

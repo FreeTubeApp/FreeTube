@@ -37,7 +37,6 @@
           :title="$t('Video.Loop Playlist')"
           role="button"
           tabindex="0"
-          :aria-label="$t('Video.Loop Playlist')"
           @click="toggleLoop"
           @keydown="toggleLoop($event)"
         />
@@ -48,7 +47,6 @@
           :title="$t('Video.Shuffle Playlist')"
           role="button"
           tabindex="0"
-          :aria-label="$t('Video.Shuffle Playlist')"
           @click="toggleShuffle"
           @keydown="toggleShuffle($event)"
         />
@@ -59,7 +57,6 @@
           :title="$t('Video.Reverse Playlist')"
           role="button"
           tabindex="0"
-          :aria-label="$t('Video.Reverse Playlist')"
           @click="toggleReversePlaylist"
           @keydown="toggleReversePlaylist($event)"
         />
@@ -69,7 +66,6 @@
           :title="$t('Video.Play Previous Video')"
           role="link"
           tabindex="0"
-          :aria-label="$t('Video.Play Previous Video')"
           @click="playPreviousVideo"
           @keydown="playPreviousVideo($event)"
         />
@@ -79,7 +75,6 @@
           :title="$t('Video.Play Next Video')"
           role="link"
           tabindex="0"
-          :aria-label="$t('Video.Play Next Video')"
           @click="playNextVideo"
           @keydown="playNextVideo($event)"
         />

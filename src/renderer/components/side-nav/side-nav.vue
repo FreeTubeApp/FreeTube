@@ -43,7 +43,7 @@
       <div
         v-if="!hidePopularVideos"
         class="navOption mobileHidden"
-        :aria-label="$t(&quot;Most Popular&quot;)"
+        :aria-label="$t('Most Popular')"
         role="link"
         tabindex="0"
         @click="navigate('popular')"
@@ -60,7 +60,7 @@
       </div>
       <div
         v-if="!hidePlaylists"
-        :aria-label="$t(&quot;Playlists&quot;)"
+        :aria-label="$t('Playlists')"
         class="navOption mobileShow"
         role="link"
         tabindex="0"
@@ -81,7 +81,7 @@
       />
       <div
         class="navOption mobileShow"
-        :aria-label="$t(&quot;History.History&quot;)"
+        :aria-label="$t('History.History')"
         role="link"
         tabindex="0"
         @click="navigate('history')"
@@ -101,7 +101,7 @@
         class="navOption mobileShow"
         role="link"
         tabindex="0"
-        :aria-label="$t(&quot;Settings.Settings&quot;)"
+        :aria-label="$t('Settings.Settings')"
         @click="navigate('settings')"
         @keydown="navigate('settings', $event)"
       >
@@ -118,7 +118,7 @@
         class="navOption mobileHidden"
         role="link"
         tabindex="0"
-        :aria-label="$t(&quot;About.About&quot;)"
+        :aria-label="$t('About.About')"
         @click="navigate('about')"
         @keydown="navigate('about', $event)"
       >

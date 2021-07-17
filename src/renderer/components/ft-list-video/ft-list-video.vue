@@ -66,7 +66,7 @@
     <div class="info">
       <ft-icon-button
         class="optionsButton"
-        title="More Options"
+        :title="$t('Video.Show Options')"
         theme="base-no-default"
         :size="16"
         :use-shadow="false"

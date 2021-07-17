@@ -34,7 +34,7 @@
       v-if="!isLoading"
       icon="sync"
       class="floatingTopButton"
-      :title="$t('Subscriptions.Refresh Subscriptions')"
+      :title="$t('Refresh Tab')"
       :size="12"
       theme="primary"
       @click="getSubscriptions"
