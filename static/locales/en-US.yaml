@@ -26,9 +26,11 @@ Toggle fullscreen: Toggle fullscreen
 Window: Window
 Minimize: Minimize
 Close: Close
+Close Banner: Close Banner
 Back: Back
 Forward: Forward
 Toggle Side Bar: Toggle Side Bar
+Refresh Tab: Refresh Tab
 Open New Window: Open New Window
 
 Version $ is now available!  Click for more details: Version $ is now available!  Click
@@ -42,6 +44,7 @@ Search / Go to URL: Search / Go to URL
   # In Filter Button
 Search Filters:
   Search Filters: Search Filters
+  Show Search Filters: Show Search Filters
   Sort By:
     Sort By: Sort By
     Most Relevant: Most Relevant
@@ -82,7 +85,6 @@ Subscriptions:
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Your
     Subscription list is currently empty. Start adding subscriptions to see them here.
   'Getting Subscriptions. Please wait.': Getting Subscriptions. Please wait.
-  Refresh Subscriptions: Refresh Subscriptions
   Load More Videos: Load More Videos
 More: More
 Trending: Trending
@@ -414,6 +416,7 @@ Video:
   Save Video: Save Video
   Video has been saved: Video has been saved
   Video has been removed from your saved list: Video has been removed from your saved list
+  Show Options: Show Options
   Open in YouTube: Open in YouTube
   Copy YouTube Link: Copy YouTube Link
   Open YouTube Embedded Player: Open YouTube Embedded Player
