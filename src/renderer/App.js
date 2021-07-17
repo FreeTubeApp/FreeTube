@@ -84,6 +84,13 @@ export default Vue.extend({
       return this.$store.getters.getDefaultInvidiousInstance
     }
   },
+  watch: {
+    $route () {
+      // react to route changes...
+      // Hide top nav filter panel on page change
+      this.$refs.topNav.hideFilters()
+    }
+  },
   mounted: function () {
     this.grabUserSettings().then(async () => {
       await this.fetchInvidiousInstances()
