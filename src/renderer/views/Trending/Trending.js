@@ -4,6 +4,7 @@ import FtCard from '../../components/ft-card/ft-card.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
+import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 
 import ytrend from 'yt-trending-scraper'
 
@@ -13,12 +14,14 @@ export default Vue.extend({
     'ft-card': FtCard,
     'ft-loader': FtLoader,
     'ft-element-list': FtElementList,
-    'ft-icon-button': FtIconButton
+    'ft-icon-button': FtIconButton,
+    'ft-flex-box': FtFlexBox
   },
   data: function () {
     return {
       isLoading: false,
-      shownResults: []
+      shownResults: [],
+      currentTab: 'default'
     }
   },
   computed: {
@@ -42,13 +45,18 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    if (this.trendingCache && this.trendingCache.length > 0) {
+    if (this.trendingCache[this.currentTab] && this.trendingCache[this.currentTab].length > 0) {
       this.shownResults = this.trendingCache
     } else {
       this.getTrendingInfo()
     }
   },
   methods: {
+    changeTab: function (tab) {
+      this.currentTab = tab
+      this.getTrendingInfo()
+    },
+
     getTrendingInfo () {
       if (!this.usingElectron) {
         this.getVideoInformationInvidious()
@@ -70,7 +78,7 @@ export default Vue.extend({
       console.log('getting local trending')
       const param = {
         parseCreatorOnRise: false,
-        page: 'default',
+        page: this.currentTab,
         geoLocation: this.region
       }
 
@@ -81,7 +89,7 @@ export default Vue.extend({
 
         this.shownResults = returnData
         this.isLoading = false
-        this.$store.commit('setTrendingCache', this.shownResults)
+        this.$store.commit('setTrendingCache', this.shownResults, this.currentTab)
       }).catch((err) => {
         console.log(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -112,6 +120,10 @@ export default Vue.extend({
         params: { region: this.region }
       }
 
+      if (this.currentTab !== 'default') {
+        trendingPayload.params.type = this.currentTab.charAt(0).toUpperCase() + this.currentTab.slice(1)
+      }
+
       this.invidiousAPICall(trendingPayload).then((result) => {
         if (!result) {
           return
@@ -125,7 +137,7 @@ export default Vue.extend({
 
         this.shownResults = returnData
         this.isLoading = false
-        this.$store.commit('setTrendingCache', this.shownResults)
+        this.$store.commit('setTrendingCache', this.shownResults, this.trendingCache)
       }).catch((err) => {
         console.log(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
