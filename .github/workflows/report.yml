@@ -3,8 +3,7 @@
 name: Project Board Automation
 
 on:
-  issues:
-    types: [labeled, unlabeled, closed, deleted]
+  workflow_dispatch:
 
 jobs:
   assign-issues-to-projects:
