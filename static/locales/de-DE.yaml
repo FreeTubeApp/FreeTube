@@ -130,6 +130,11 @@ Settings:
     View all Invidious instance information: Alle Informationen zur Invidious-Instanz
       anzeigen
     System Default: Systemstandard
+    Current instance will be randomized on startup: Aktuelle Instanz wird beim Starten
+      zufällig ausgewählt
+    No default instance has been set: Es wurde keine Standardinstanz gesetzt
+    The currently set default instance is $: Die aktuelle Standardinstanz ist $
+    Current Invidious Instance: Aktuelle Invidious-Instanz
   Theme Settings:
     Theme Settings: Thema-Einstellungen
     Match Top Bar with Main Color: Obere Leiste an Hauptfarbe anpassen
