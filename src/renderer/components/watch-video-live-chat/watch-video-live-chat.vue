@@ -48,10 +48,14 @@
         <div
           v-for="(comment, index) in superChatComments"
           :key="index"
+          :aria-label="$t('Video.Show Super Chat Comment')"
           :style="{ backgroundColor: 'var(--primary-color)' }"
           class="superChat"
           :class="comment.superchat.colorClass"
+          role="button"
+          tabindex="0"
           @click="showSuperChatComment(comment)"
+          @keydown="showSuperChatComment(comment, $event)"
         >
           <img
             :src="comment.author.thumbnail.url"
@@ -73,7 +77,10 @@
         v-if="showSuperChat"
         class="openedSuperChat"
         :class="superChat.superchat.colorClass"
+        role="button"
+        tabindex="0"
         @click="showSuperChat = false"
+        @keydown="showSuperChat = ($event.key !== 'Enter' && $event.key !== ' ')"
       >
         <div
           class="superChatMessage"
@@ -186,7 +193,11 @@
       <div
         v-if="showScrollToBottom"
         class="scrollToBottom"
+        :aria-label="$t('Video.Scroll to Bottom')"
+        role="button"
+        tabindex="0"
         @click="scrollToBottom"
+        @keydown="scrollToBottom($event)"
       >
         <font-awesome-icon
           class="icon"

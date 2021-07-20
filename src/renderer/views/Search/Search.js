@@ -284,7 +284,19 @@ export default Vue.extend({
       })
     },
 
-    nextPage: function () {
+    nextPage: function (event) {
+      if (event instanceof KeyboardEvent) {
+        if (event.key === 'Tab') {
+          return
+        }
+
+        event.preventDefault()
+
+        if (event.key !== 'Enter' && event.key !== ' ') {
+          return
+        }
+      }
+
       const payload = {
         query: this.query,
         nextPage: true,

@@ -58,11 +58,35 @@ export default Vue.extend({
     }
   },
   methods: {
-    navigate: function (route) {
+    navigate: function (route, event) {
+      if (event instanceof KeyboardEvent) {
+        if (event.key === 'Tab') {
+          return
+        }
+
+        event.preventDefault()
+
+        if (event.key !== 'Enter') {
+          return
+        }
+      }
+
       this.$router.push('/' + route)
     },
 
-    goToChannel: function (id) {
+    goToChannel: function (id, event) {
+      if (event instanceof KeyboardEvent) {
+        if (event.key === 'Tab') {
+          return
+        }
+
+        event.preventDefault()
+
+        if (event.key !== 'Enter') {
+          return
+        }
+      }
+
       this.$router.push({ path: `/channel/${id}` })
     }
   }

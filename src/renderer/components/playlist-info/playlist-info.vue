@@ -5,7 +5,11 @@
     >
       <img
         :src="thumbnail"
+        :aria-label="$t('Playlist.Play First Video')"
+        role="link"
+        tabindex="0"
         @click="playFirstVideo"
+        @keydown="playFirstVideo($event)"
       >
     </div>
     <h2>
@@ -24,10 +28,15 @@
     <hr>
     <div
       class="playlistChannel"
+      :title="channelName"
+      aria-labelledby="channelNameInfo"
+      role="link"
+      tabindex="0"
       @click="goToChannel"
+      @keydown="goToChannel($event)"
     >
       <img :src="channelThumbnail">
-      <h3>
+      <h3 id="channelNameInfo">
         {{ channelName }}
       </h3>
     </div>

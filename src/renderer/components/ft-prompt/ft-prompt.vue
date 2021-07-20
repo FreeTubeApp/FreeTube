@@ -3,9 +3,15 @@
     class="prompt"
     @click="handleHide"
   >
-    <ft-card class="promptCard">
+    <ft-card
+      class="promptCard"
+      :aria-labelledby="'dialog-' + label"
+    >
       <slot>
-        <h2 class="center">
+        <h2
+          :id="'dialog-' + label"
+          class="center"
+        >
           {{ label }}
         </h2>
         <ft-flex-box>

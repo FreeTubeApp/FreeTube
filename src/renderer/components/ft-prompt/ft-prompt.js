@@ -26,7 +26,7 @@ export default Vue.extend({
   },
   methods: {
     handleHide: function (event) {
-      if (event.target.className === 'prompt') {
+      if (event.target.getAttribute('role') === 'button' || event.target.className === 'prompt') {
         this.$emit('click', null)
       }
     }

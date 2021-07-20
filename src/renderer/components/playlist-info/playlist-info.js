@@ -99,12 +99,18 @@ export default Vue.extend({
 
       switch (method) {
         case 'copyYoutube':
+          this.showToast({
+            message: this.$t('Share.YouTube URL copied to clipboard')
+          })
           navigator.clipboard.writeText(youtubeUrl)
           break
         case 'openYoutube':
           this.openExternalLink(youtubeUrl)
           break
         case 'copyInvidious':
+          this.showToast({
+            message: this.$t('Share.Invidious URL copied to clipboard')
+          })
           navigator.clipboard.writeText(invidiousUrl)
           break
         case 'openInvidious':
@@ -113,7 +119,19 @@ export default Vue.extend({
       }
     },
 
-    playFirstVideo() {
+    playFirstVideo(event) {
+      if (event instanceof KeyboardEvent) {
+        if (event.key === 'Tab') {
+          return
+        }
+
+        event.preventDefault()
+
+        if (event.key !== 'Enter') {
+          return
+        }
+      }
+
       const playlistInfo = {
         playlistId: this.id
       }
@@ -126,11 +144,24 @@ export default Vue.extend({
       )
     },
 
-    goToChannel: function () {
+    goToChannel: function (event) {
+      if (event instanceof KeyboardEvent) {
+        if (event.key === 'Tab') {
+          return
+        }
+
+        event.preventDefault()
+
+        if (event.key !== 'Enter') {
+          return
+        }
+      }
+
       this.$router.push({ path: `/channel/${this.channelId}` })
     },
 
     ...mapActions([
+      'showToast',
       'openExternalLink'
     ])
   }

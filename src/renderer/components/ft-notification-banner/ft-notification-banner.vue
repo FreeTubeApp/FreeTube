@@ -1,7 +1,12 @@
 <template>
   <div
     class="ftNotificationBanner"
+    tabindex="0"
+    role="link"
+    :title="message"
+    :aria-describedby="message"
     @click="handleClick(true)"
+    @keydown="handleClick(true, $event)"
   >
     <div
       class="message"
@@ -15,7 +20,10 @@
     <font-awesome-icon
       class="bannerIcon"
       icon="times"
+      tabindex="0"
+      :title="$('Close Banner')"
       @click="handleClose"
+      @keydown="handleClose($event)"
     />
   </div>
 </template>

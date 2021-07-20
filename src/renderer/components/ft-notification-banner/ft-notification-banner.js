@@ -14,11 +14,35 @@ export default Vue.extend({
     }
   },
   methods: {
-    handleClick: function (response) {
+    handleClick: function (response, event) {
+      if (event instanceof KeyboardEvent) {
+        if (event.key === 'Tab') {
+          return
+        }
+
+        event.preventDefault()
+
+        if (event.key !== 'Enter') {
+          return
+        }
+      }
+
       this.$emit('click', response)
     },
 
     handleClose: function (event) {
+      if (event instanceof KeyboardEvent) {
+        if (event.key === 'Tab') {
+          return
+        }
+
+        event.preventDefault()
+
+        if (event.key !== 'Enter') {
+          return
+        }
+      }
+
       event.stopPropagation()
       this.handleClick(false)
     }

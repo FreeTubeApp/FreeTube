@@ -36,14 +36,30 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    $('#profileList').focusout(() => {
+    $('#profileList').focusout((e) => {
+      // do not focus out if the element is a descendant of the profile list
+      if ($('#profileList').has(e.relatedTarget).length) {
+        return
+      }
+
       $('#profileList')[0].style.display = 'none'
     })
   },
   methods: {
-    toggleProfileList: function () {
-      $('#profileList')[0].style.display = 'inline'
-      $('#profileList').focus()
+    toggleProfileList: function (event) {
+      if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
+        return
+      } else if (event) {
+        event.preventDefault()
+      }
+
+      const profileList = $('#profileList')
+      profileList.get(0).style.display = 'inline'
+
+      const openProfile = $(`#profile-${this.activeProfile}`)
+      openProfile.attr('tabindex', '0')
+      openProfile.attr('aria-selected', true)
+      openProfile.focus()
     },
 
     openProfileSettings: function () {
@@ -53,7 +69,39 @@ export default Vue.extend({
       $('#profileList').focusout()
     },
 
-    setActiveProfile: function (profile) {
+    setActiveProfile: function (profile, event) {
+      if (event instanceof KeyboardEvent) {
+        let nextElement = null
+        if (event.key === 'Tab') { // navigate to profile settings on tab
+          const settings = $('.profileSettings').first()
+          settings.attr('tabindex', '0')
+          settings.focus()
+          return
+        } else if (event.key === 'ArrowUp') {
+          nextElement = event.target.previousElementSibling
+        } else if (event.key === 'ArrowDown') {
+          nextElement = event.target.nextElementSibling
+        } else if (event.key === 'Home') {
+          nextElement = $('.profile').first()
+        } else if (event.key === 'End') {
+          nextElement = $('profile').last()
+        }
+
+        event.preventDefault()
+
+        if (nextElement) {
+          event.target.setAttribute('tabindex', '-1')
+          event.target.setAttribute('aria-selected', 'false')
+          nextElement.setAttribute('tabindex', '0')
+          nextElement.setAttribute('aria-selected', 'true')
+          nextElement.focus()
+        }
+
+        if (event.key !== 'Enter' && event.key !== ' ') {
+          return
+        }
+      }
+
       if (this.profileList[this.activeProfile]._id === profile._id) {
         return
       }
@@ -64,6 +112,7 @@ export default Vue.extend({
       if (index === -1) {
         return
       }
+
       this.updateActiveProfile(index)
       const message = this.$t('Profile.$ is now the active profile').replace('$', profile.name)
       this.showToast({

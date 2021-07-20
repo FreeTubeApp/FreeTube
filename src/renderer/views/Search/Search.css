@@ -19,3 +19,7 @@
     width: 90%;
   }
 }
+
+.getNextPage:hover, .getNextPage:focus {
+  background-color: var(--side-nav-hover-color);
+}

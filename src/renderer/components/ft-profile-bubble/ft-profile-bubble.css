@@ -9,7 +9,7 @@
   transition: background 0.2s ease-out;
 }
 
-.bubblePadding:hover {
+.bubblePadding:hover, .bubblePadding:focus  {
   background-color: var(--side-nav-hover-color);
   -moz-transition: background 0.2s ease-in;
   -o-transition: background 0.2s ease-in;

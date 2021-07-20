@@ -9,6 +9,7 @@ import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubbl
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 
+import $ from 'jquery'
 import ytch from 'yt-channel-info'
 import autolinker from 'autolinker'
 
@@ -57,6 +58,11 @@ export default Vue.extend({
       playlistSelectValues: [
         'last',
         'newest'
+      ],
+      tabInfoValues: [
+        'videos',
+        'playlists',
+        'about'
       ]
     }
   },
@@ -568,7 +574,11 @@ export default Vue.extend({
       }
     },
 
-    handleFetchMore: function () {
+    handleFetchMore: function (event) {
+      if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
+        return
+      }
+
       switch (this.currentTab) {
         case 'videos':
           switch (this.apiUsed) {
@@ -603,8 +613,41 @@ export default Vue.extend({
       }
     },
 
-    changeTab: function (tab) {
+    changeTab: function (tab, event) {
+      if (event instanceof KeyboardEvent) {
+        if (event.key === 'Tab') {
+          return
+        } else if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+          // navigate channel tabs with arrow keys
+          const index = this.tabInfoValues.indexOf(tab)
+          // tabs wrap around from leftmost to rightmost, and vice versa
+          tab = (event.key === 'ArrowLeft')
+            ? this.tabInfoValues[(index > 0 ? index : this.tabInfoValues.length) - 1]
+            : this.tabInfoValues[(index + 1) % this.tabInfoValues.length]
+
+          const tabNode = $(`#${tab}Tab`)
+          event.target.setAttribute('tabindex', '-1')
+          tabNode.attr('tabindex', '0')
+          tabNode.focus()
+        }
+
+        event.preventDefault()
+        if (event.key !== 'Enter' && event.key !== ' ') {
+          return
+        }
+      }
+
+      const currentTabNode = $('.channelInfoTabs > .tab[aria-selected="true"]')
+      const newTabNode = $(`#${tab}Tab`)
+
+      // switch selectability from currently focused tab to new tab
+      $('.channelInfoTabs > .tab[tabindex="0"]').attr('tabindex', '-1')
+      newTabNode.attr('tabindex', '0')
+
+      currentTabNode.attr('aria-selected', 'false')
+      newTabNode.attr('aria-selected', 'true')
       this.currentTab = tab
+      newTabNode.focus()
     },
 
     newSearch: function (query) {
@@ -613,7 +656,7 @@ export default Vue.extend({
       this.isElementListLoading = true
       this.searchPage = 1
       this.searchResults = []
-      this.changeTab('search')
+      this.currentTab = 'search'
       switch (this.apiUsed) {
         case 'local':
           this.searchChannelLocal()

@@ -3,14 +3,20 @@
     <h4
       v-if="commentData.length === 0 && !isLoading"
       class="getCommentsTitle"
-      @click="getCommentData"
+      role="button"
+      tabindex="0"
+      @click="getCommentData()"
+      @keydown="getCommentData($event)"
     >
       {{ $t("Comments.Click to View Comments") }}
     </h4>
     <h4
       v-if="commentData.length > 0 && !isLoading && !showComments"
       class="getCommentsTitle"
+      role="button"
+      tabindex="0"
       @click="showComments = true"
+      @keydown="showComments = $event.key === ' ' || $event.key === 'Enter'"
     >
       {{ $t("Comments.Click to View Comments") }}
     </h4>
@@ -29,7 +35,10 @@
       {{ $t("Comments.Comments") }}
       <span
         class="hideComments"
+        role="button"
+        tabindex="0"
         @click="showComments = false"
+        @keydown="showComments = $event.key !== ' ' && $event.key !== 'Enter'"
       >
         {{ $t("Comments.Hide Comments") }}
       </span>
@@ -44,7 +53,9 @@
       >
         <img
           :src="comment.authorThumb"
+          :alt="comment.author"
           class="commentThumbnail"
+          tabindex="-1"
           @click="goToChannel(comment.authorLink)"
         >
         <p
@@ -52,7 +63,10 @@
         >
           <span
             class="commentAuthor"
+            role="link"
+            tabindex="0"
             @click="goToChannel(comment.authorLink)"
+            @keydown="goToChannel(comment.authorLink, $event)"
           >
             {{ comment.author }}
           </span>
@@ -90,7 +104,10 @@
           <span
             v-if="comment.numReplies > 0"
             class="commentMoreReplies"
+            role="button"
+            tabindex="0"
             @click="toggleCommentReplies(index)"
+            @keydown="toggleCommentReplies(index, $event)"
           >
             <span v-if="!comment.showReplies">{{ $t("Comments.View") }}</span>
             <span v-else>{{ $t("Comments.Hide") }}</span>
@@ -115,7 +132,10 @@
             <p class="commentAuthorWrapper">
               <span
                 class="commentAuthor"
+                role="link"
+                tabindex="0"
                 @click="goToChannel(reply.authorLink)"
+                @keydown="goToChannel(reply.authorLink, $event)"
               >
                 {{ reply.author }}
               </span>
@@ -144,7 +164,10 @@
           <div
             v-if="comment.replies.length < comment.numReplies"
             class="showMoreReplies"
+            role="button"
+            tabindex="0"
             @click="getCommentReplies(index)"
+            @keydown="getCommentReplies(index, $event)"
           >
             <span>Show More Replies</span>
           </div>
@@ -161,7 +184,10 @@
     <h4
       v-if="commentData.length > 0 && !isLoading && showComments"
       class="getMoreComments"
+      role="button"
+      tabindex="0"
       @click="getMoreComments"
+      @keydown="getMoreComments($event)"
     >
       {{ $t("Comments.Load More Comments") }}
     </h4>

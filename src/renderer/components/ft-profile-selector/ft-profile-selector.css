@@ -46,7 +46,7 @@
   transition: background 0.2s ease-out;
 }
 
-.profile:hover {
+.profile:hover, .profile:focus {
   background-color: var(--side-nav-hover-color);
   -moz-transition: background 0.2s ease-in;
   -o-transition: background 0.2s ease-in;

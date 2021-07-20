@@ -26,8 +26,11 @@ Toggle fullscreen: Toggle fullscreen
 Window: Window
 Minimize: Minimize
 Close: Close
+Close Banner: Close Banner
 Back: Back
 Forward: Forward
+Toggle Side Bar: Toggle Side Bar
+Refresh Tab: Refresh Tab
 Open New Window: Open New Window
 
 Version $ is now available!  Click for more details: Version $ is now available!  Click
@@ -41,6 +44,7 @@ Search / Go to URL: Search / Go to URL
   # In Filter Button
 Search Filters:
   Search Filters: Search Filters
+  Show Search Filters: Show Search Filters
   Sort By:
     Sort By: Sort By
     Most Relevant: Most Relevant
@@ -81,7 +85,6 @@ Subscriptions:
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Your
     Subscription list is currently empty. Start adding subscriptions to see them here.
   'Getting Subscriptions. Please wait.': Getting Subscriptions. Please wait.
-  Refresh Subscriptions: Refresh Subscriptions
   Load More Videos: Load More Videos
 More: More
 Trending: Trending
@@ -327,9 +330,11 @@ About:
   Donate: Donate
 
 Profile:
+  Toggle Profile List: Toggle Profile List
   Profile Select: Profile Select
   Profile Filter: Profile Filter
   All Channels: All Channels
+  Open Profile Settings: Open Profile Settings
   Profile Manager: Profile Manager
   Create New Profile: Create New Profile
   Edit Profile: Edit Profile
@@ -382,6 +387,7 @@ Channel:
   Your search results have returned 0 results: Your search results have returned 0
     results
   Sort By: Sort By
+  Channel Tabs: Channel Tabs
   Videos:
     Videos: Videos
     This channel does not currently have any videos: This channel does not currently
@@ -410,6 +416,7 @@ Video:
   Save Video: Save Video
   Video has been saved: Video has been saved
   Video has been removed from your saved list: Video has been removed from your saved list
+  Show Options: Show Options
   Open in YouTube: Open in YouTube
   Copy YouTube Link: Copy YouTube Link
   Open YouTube Embedded Player: Open YouTube Embedded Player
@@ -447,6 +454,8 @@ Video:
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': Live
     Chat is currently not supported with the Invidious API.  A direct connection to
     YouTube is required.
+  Show Super Chat Comment: Show Super Chat Comment
+  Scroll to Bottom: Scroll to Bottom
   Download Video: Download Video
   video only: video only
   audio only: audio only
@@ -526,6 +535,7 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: View Full Playlist
+  Play First Video: Play First Video
   Videos: Videos
   View: View
   Views: Views

@@ -15,6 +15,7 @@
     </ft-card>
     <ft-icon-button
       v-if="!isLoading"
+      :title="$t('Refresh Tab')"
       icon="sync"
       class="floatingTopButton"
       :size="12"

@@ -8,6 +8,10 @@
   color: var(--title-color);
 }
 
+.getCommentsTitle:hover, .getCommentsTitle:focus {
+  color: var(--primary-color);
+}
+
 .center {
   text-align: center;
 }
@@ -131,4 +135,8 @@
   text-decoration: underline;
   cursor: pointer;
   color: var(--title-color);
+}
+
+.getMoreComments:hover, .getMoreComments:focus {
+  background-color: var(--primary-color);
 }
