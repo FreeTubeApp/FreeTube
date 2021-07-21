@@ -439,6 +439,7 @@ Profile:
     törli a kijelölt csatornákat? Ez nem törli a csatornát más profilokból.'
 #On Channel Page
   Profile Filter: Profilszűrő
+  Profile Settings: Profilbeállítások
 Channel:
   Subscriber: 'Feliratkozó'
   Subscribers: 'Feliratkozók'
@@ -608,6 +609,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Lejátszási lista
 Toggle Theatre Mode: 'Mozi mód be-/kikapcsolása'
 Change Format:
   Change Video Formats: 'Videoformátumok módosítása'
