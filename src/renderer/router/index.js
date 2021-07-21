@@ -55,7 +55,7 @@ const router = new Router({
       path: '/settings/profile/edit/:id',
       name: 'editProfile',
       meta: {
-        title: 'ProfileEdit',
+        title: 'Profile.Edit Profile',
         icon: 'fa-home'
       },
       component: ProfileEdit
