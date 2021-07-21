@@ -331,6 +331,7 @@ About:
 
 Profile:
   Toggle Profile List: Toggle Profile List
+  Profile Settings: Profile Settings
   Profile Select: Profile Select
   Profile Filter: Profile Filter
   All Channels: All Channels
@@ -534,6 +535,7 @@ Videos:
 #& Playlists
 Playlist:
   #& About
+  Playlist: Playlist
   View Full Playlist: View Full Playlist
   Play First Video: Play First Video
   Videos: Videos
