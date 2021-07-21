@@ -592,6 +592,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Liste de lecture
 Toggle Theatre Mode: 'Mode Cinéma'
 Change Format:
   Change Video Formats: 'Changer le format de la vidéo'
@@ -707,6 +708,7 @@ Profile:
   $ selected: $ sélectionné(s)
   Other Channels: Autres chaînes
   Profile Filter: Filtre de profil
+  Profile Settings: Paramètres du profil
 The playlist has been reversed: La liste de lecture a été inversée
 A new blog is now available, $. Click to view more: Un nouveau billet est maintenant
   disponible, $. Cliquez pour en savoir plus
