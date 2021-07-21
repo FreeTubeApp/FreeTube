@@ -440,6 +440,7 @@ Profile:
     silmez.'
 #On Channel Page
   Profile Filter: Profil Filtresi
+  Profile Settings: Profil Ayarları
 Channel:
   Subscriber: 'Abone'
   Subscribers: 'Abone'
@@ -606,6 +607,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Oynatma Listesi
 Toggle Theatre Mode: 'Tiyatro Modunu Aç/Kapat'
 Change Format:
   Change Video Formats: 'Video Biçimlerini Değiştir'
