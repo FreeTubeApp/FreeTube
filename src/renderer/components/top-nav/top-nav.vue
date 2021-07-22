@@ -76,7 +76,7 @@
           icon="filter"
           role="button"
           tabindex="0"
-          :title="$t('Show Search Filters')"
+          :title="$t('Search Filters.Show Search Filters')"
           @click="showFilters = !showFilters"
           @keydown="showFilters =
             ($event.key !== 'Enter' && $event.key !== ' ')
