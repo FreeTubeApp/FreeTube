@@ -191,7 +191,14 @@ export default Vue.extend({
           this.showToast({
             message: this.$t('Falling back to Invidious API')
           })
-          this.getCommentDataInvidious()
+          this.getCommentDataInvidious({
+            resource: 'comments',
+            id: this.id,
+            params: {
+              continuation: this.nextPageToken,
+              sort_by: this.sortNewest ? 'new' : 'top'
+            }
+          })
         } else {
           this.isLoading = false
         }
@@ -219,7 +226,14 @@ export default Vue.extend({
           this.showToast({
             message: this.$t('Falling back to Invidious API')
           })
-          this.getCommentDataInvidious()
+          this.getCommentDataInvidious({
+            resource: 'comments',
+            id: this.id,
+            params: {
+              continuation: this.nextPageToken,
+              sort_by: this.sortNewest ? 'new' : 'top'
+            }
+          })
         } else {
           this.isLoading = false
         }
