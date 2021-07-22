@@ -33,12 +33,14 @@
         :use-shadow="false"
         @click="handleExternalPlayer"
       />
-      <router-link
-        class="title"
-        :to="`/playlist/${playlistId}`"
-      >
-        {{ title }}
-      </router-link>
+      <h2>
+        <router-link
+          class="title"
+          :to="`/playlist/${playlistId}`"
+        >
+          {{ title }}
+        </router-link>
+      </h2>
       <div class="infoLine">
         <router-link
           class="channelName"
