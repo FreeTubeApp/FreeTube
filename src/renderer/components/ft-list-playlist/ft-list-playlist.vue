@@ -33,7 +33,7 @@
         :use-shadow="false"
         @click="handleExternalPlayer"
       />
-      <h2>
+      <h2 class="resultHeading">
         <router-link
           class="title"
           :to="`/playlist/${playlistId}`"

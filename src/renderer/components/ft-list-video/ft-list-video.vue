@@ -75,7 +75,7 @@
         :dropdown-values="optionsValues"
         @click="handleOptionsClick"
       />
-      <h2>
+      <h2 class="resultHeading">
         <router-link
           class="title"
           :to="{

@@ -19,7 +19,7 @@
       </router-link>
     </div>
     <div class="info">
-      <h2>
+      <h2 class="resultHeading">
         <router-link
           class="title"
           :to="`/channel/${id}`"
