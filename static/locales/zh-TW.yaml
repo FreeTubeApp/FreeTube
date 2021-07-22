@@ -522,6 +522,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: 播放清單
 Toggle Theatre Mode: '切換為劇院模式'
 Change Format:
   Change Video Formats: '變更影片格式'
@@ -621,6 +622,7 @@ Profile:
   Other Channels: 其他頻道
   Subscription List: 訂閱清單
   Profile Filter: 設定檔篩選器
+  Profile Settings: 設定檔設定
 The playlist has been reversed: 播放清單已反轉
 A new blog is now available, $. Click to view more: 已有新的部落格文章，$。點擊以檢視更多
 Download From Site: 從網站下載
