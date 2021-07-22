@@ -7,6 +7,7 @@
     <router-link
       class="videoThumbnail"
       :to="`/playlist/${playlistId}`"
+      tabindex="-1"
     >
       <img
         :src="thumbnail"

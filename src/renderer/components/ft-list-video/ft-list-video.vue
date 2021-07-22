@@ -8,61 +8,6 @@
       watched: addWatchedStyle
     }"
   >
-    <div
-      class="videoThumbnail"
-    >
-      <router-link
-        class="thumbnailLink"
-        tabindex="-1"
-        :to="{
-          path: `/watch/${id}`,
-          query: playlistId ? {playlistId} : {}
-        }"
-      >
-        <img
-          :src="thumbnail"
-          class="thumbnailImage"
-        >
-      </router-link>
-      <div
-        v-if="isLive || duration !== '0:00'"
-        class="videoDuration"
-        :class="{ live: isLive }"
-      >
-        {{ isLive ? $t("Video.Live") : duration }}
-      </div>
-      <ft-icon-button
-        v-if="externalPlayer !== ''"
-        :title="$t('Video.External Player.OpenInTemplate').replace('$', externalPlayer)"
-        icon="external-link-alt"
-        class="externalPlayerIcon"
-        theme="base"
-        :padding="appearance === `watchPlaylistItem` ? 6 : 7"
-        :size="appearance === `watchPlaylistItem` ? 12 : 16"
-        @click="handleExternalPlayer"
-      />
-      <ft-icon-button
-        v-if="!isLive"
-        :title="$t('Video.Save Video')"
-        icon="star"
-        class="favoritesIcon"
-        :theme="favoriteIconTheme"
-        :padding="appearance === `watchPlaylistItem` ? 5 : 6"
-        :size="appearance === `watchPlaylistItem` ? 14 : 18"
-        @click="toggleSave"
-      />
-      <div
-        v-if="addWatchedStyle"
-        class="videoWatched"
-      >
-        {{ $t("Video.Watched") }}
-      </div>
-      <div
-        v-if="watched"
-        class="watchedProgressBar"
-        :style="{width: progressPercentage + '%'}"
-      />
-    </div>
     <div class="info">
       <ft-icon-button
         class="optionsButton"
@@ -117,6 +62,61 @@
       >
         {{ description }}
       </p>
+    </div>
+    <div
+      class="videoThumbnail"
+    >
+      <router-link
+        class="thumbnailLink"
+        tabindex="-1"
+        :to="{
+          path: `/watch/${id}`,
+          query: playlistId ? {playlistId} : {}
+        }"
+      >
+        <img
+          :src="thumbnail"
+          class="thumbnailImage"
+        >
+      </router-link>
+      <div
+        v-if="isLive || duration !== '0:00'"
+        class="videoDuration"
+        :class="{ live: isLive }"
+      >
+        {{ isLive ? $t("Video.Live") : duration }}
+      </div>
+      <ft-icon-button
+        v-if="externalPlayer !== ''"
+        :title="$t('Video.External Player.OpenInTemplate').replace('$', externalPlayer)"
+        icon="external-link-alt"
+        class="externalPlayerIcon"
+        theme="base"
+        :padding="appearance === `watchPlaylistItem` ? 6 : 7"
+        :size="appearance === `watchPlaylistItem` ? 12 : 16"
+        @click="handleExternalPlayer"
+      />
+      <ft-icon-button
+        v-if="!isLive"
+        :title="$t('Video.Save Video')"
+        icon="star"
+        class="favoritesIcon"
+        :theme="favoriteIconTheme"
+        :padding="appearance === `watchPlaylistItem` ? 5 : 6"
+        :size="appearance === `watchPlaylistItem` ? 14 : 18"
+        @click="toggleSave"
+      />
+      <div
+        v-if="addWatchedStyle"
+        class="videoWatched"
+      >
+        {{ $t("Video.Watched") }}
+      </div>
+      <div
+        v-if="watched"
+        class="watchedProgressBar"
+        :style="{width: progressPercentage + '%'}"
+      />
     </div>
   </div>
 </template>
