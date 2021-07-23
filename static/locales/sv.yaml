@@ -6,7 +6,7 @@ FreeTube: 'FreeTube'
   Den här delen av appen är inte klar än. Kom tillbaka senare när framsteg har gjorts.
 
 # Webkit Menu Bar
-File: 'Arkiv'
+File: 'Fil'
 Quit: 'Avsluta'
 Edit: 'Redigera'
 Undo: 'Ångra'
@@ -132,6 +132,13 @@ Settings:
         #! List countries
     View all Invidious instance information: Visa all Invidious instansinformation
     System Default: Standard inställningar
+    Clear Default Instance: Rensa standrad instansen
+    Set Current Instance as Default: Välj den nuvarande instansen som standard
+    Current instance will be randomized on startup: Instansen kommer att väljas slumpmässigt
+      vid start
+    No default instance has been set: Ingen standard instans är vald
+    The currently set default instance is $: Den nuvarande aktiva instansen är $
+    Current Invidious Instance: Aktiva Invidious Instansen
   Theme Settings:
     Theme Settings: 'Tema inställningar'
     Match Top Bar with Main Color: 'Matcha toppfältet med huvudfärgen'
@@ -315,6 +322,12 @@ Settings:
       (Standard är https://sponsor.ajay.app)
     Enable SponsorBlock: Använd Sponsorblockering
     SponsorBlock Settings: Inställningar för Sponsorblockering
+  External Player Settings:
+    Ignore Unsupported Action Warnings: Ignorera händelsevarningar som inte stöds
+    External Player: Extern spelare
+    External Player Settings: Inställningar för extern spelare
+    Custom External Player Arguments: Anpassade externa spelargument
+    Custom External Player Executable: Anpassad extern spelare körbar
 About:
   #On About page
   About: 'Om'
@@ -543,6 +556,20 @@ Video:
     sponsor: sponsor
   Skipped segment: Skippat segment
   translated from English: översatt från Engelska
+  External Player:
+    Unsupported Actions:
+      shuffling playlists: blandar spellistor
+      reversing playlists: vända spellistor
+      opening specific video in a playlist (falling back to opening the video): öppna
+        specifik video i en spellista (faller tillbaka till att öppna videon)
+      opening playlists: öppnar spellistor
+      setting a playback rate: ställer in en uppspelningshastighet
+      starting video at offset: startar video vid offset
+    UnsupportedActionTemplate: $ stöder inte :%
+    OpeningTemplate: Öppnar $ i %...
+    playlist: spellista
+    video: video
+    OpenInTemplate: Öppna i $
 Videos:
   #& Sort By
   Sort By:
@@ -672,6 +699,16 @@ Tooltips:
   Privacy Settings:
     Remove Video Meta Files: Om vald, kommer FreeTube automatiskt att kasta metadata
       filer som skapades under uppspelning, när sidan stängs.
+  External Player Settings:
+    Custom External Player Arguments: Alla anpassade kommandoradsargument, åtskilda
+      av semikolon (';'), ska skickas till den externa spelaren.
+    Ignore Warnings: Dämpa varningar för när den aktuella externa spelaren inte stöder
+      den aktuella åtgärden (t.ex. backning av spellistor, etc.).
+    Custom External Player Executable: Som standard antar FreeTube att den valda externa
+      spelaren kan hittas via PATH-miljövariabeln. Om det behövs kan en anpassad sökväg
+      ställas in här.
+    External Player: Att välja en extern spelare visar en ikon för att öppna videon
+      (spellista om den stöds) i den externa spelaren på miniatyrbilden.
 More: Mer
 Open New Window: Öppna nytt fönster
 Playing Next Video Interval: Spelar strax nästa video. Klicka för att stoppa. | Spelar
@@ -681,3 +718,6 @@ Hashtags have not yet been implemented, try again later: Hashtaggar har inte imp
   än, försök vid ett senare tillfälle
 Unknown YouTube url type, cannot be opened in app: Okänd YouTube URL, kan inte öppnas
   i programmet
+Default Invidious instance has been cleared: Standard Invidious-instans har rensats
+Default Invidious instance has been set to $: Standard Invidious-instans har ställts
+  in på $

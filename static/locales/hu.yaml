@@ -136,6 +136,13 @@ Settings:
     View all Invidious instance information: Az Invidious példány összes tájékoztatásának
       megtekintése
     System Default: Rendszer alapértelmezett
+    Current Invidious Instance: Jelenlegi Invidious-példány
+    Clear Default Instance: Alapértelmezett példány eltávolítása
+    Set Current Instance as Default: Állítsa be a jelenlegi példányt alapértelmezettként
+    Current instance will be randomized on startup: Jelenlegi példány indításkor véletlenszerűsített
+    No default instance has been set: Az alapértelmezett példány nincs beállítva
+    The currently set default instance is $: A jelenleg beállított alapértelmezett
+      példány $
   Theme Settings:
     Theme Settings: 'Téma beállítások'
     Match Top Bar with Main Color: 'Illessze a felső sávot a fő színnel'
@@ -432,6 +439,7 @@ Profile:
     törli a kijelölt csatornákat? Ez nem törli a csatornát más profilokból.'
 #On Channel Page
   Profile Filter: Profilszűrő
+  Profile Settings: Profilbeállítások
 Channel:
   Subscriber: 'Feliratkozó'
   Subscribers: 'Feliratkozók'
@@ -601,6 +609,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Lejátszási lista
 Toggle Theatre Mode: 'Mozi mód be-/kikapcsolása'
 Change Format:
   Change Video Formats: 'Videoformátumok módosítása'
@@ -734,3 +743,7 @@ Hashtags have not yet been implemented, try again later: A kettőskeresztescímk
 Unknown YouTube url type, cannot be opened in app: Ismeretlen YouTube URL-típusa,
   nem nyitható meg az alkalmazásban
 Open New Window: Új ablak megnyitása
+Default Invidious instance has been cleared: Az alapértelmezett Invidious-példányt
+  eltávolítva
+Default Invidious instance has been set to $: Az alapértelmezett Invidious-példány
+  $ beállítva

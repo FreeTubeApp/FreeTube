@@ -132,6 +132,14 @@ Settings:
     System Default: System Default
     External Player: External Player
     External Player Executable: Custom External Player Executable
+    Clear Default Instance: Clear Default Instance
+    Set Current Instance as Default: Set Current Instance as Default
+    Current instance will be randomized on startup: Current instance will be randomised
+      on startup
+    No default instance has been set: No default instance has been set
+    The currently set default instance is $: The currently set default instance is
+      $
+    Current Invidious Instance: Current Invidious Instance
   Theme Settings:
     Theme Settings: 'Theme Settings'
     Match Top Bar with Main Color: 'Match top bar with main colour'
@@ -364,6 +372,7 @@ About:
   Licensed under the AGPLv3: Licensed under the AGPLv3
   Source code: Source code
 Profile:
+  Profile Settings: Profile Settings
   Profile Select: 'Profile Select'
   All Channels: 'All Channels'
   Profile Manager: 'Profile Manager'
@@ -550,7 +559,8 @@ Video:
       starting video at offset: starting video at offset
       setting a playback rate: setting a playback rate
       opening playlists: opening playlists
-      opening specific video in a playlist (falling back to opening the video): opening specific video in a playlist (falling back to opening the video)
+      opening specific video in a playlist (falling back to opening the video): opening
+        specific video in a playlist (falling back to opening the video)
       reversing playlists: reversing playlists
       shuffling playlists: shuffling playlists
       looping playlists: looping playlists
@@ -563,6 +573,7 @@ Videos:
 #& Playlists
 Playlist:
   #& About
+  Playlist: Playlist
   View Full Playlist: 'View Full Playlist'
   Videos: 'Videos'
   View: 'View'
@@ -680,15 +691,15 @@ Tooltips:
       The local API is a built-in extractor. The Invidious API requires an Invidious
       server to connect to.
   External Player Settings:
-    External Player: Choosing an external player will display an icon, for opening the
-      video (playlist if supported) in the external player, on the thumbnail.
-    Custom External Player Executable: By default, FreeTube will assume that the chosen external
-      player can be found via the PATH environment variable. If needed, a custom path can
-      be set here.
-    Ignore Warnings: Suppress warnings for when the current external player does not support
-      the current action (e.g. reversing playlists, etc.).
-    Custom External Player Arguments: Any custom command line arguments, separated by semicolons (';'),
-      you want to be passed to the external player.
+    External Player: Choosing an external player will display an icon, for opening
+      the video (playlist if supported) in the external player, on the thumbnail.
+    Custom External Player Executable: By default, FreeTube will assume that the chosen
+      external player can be found via the PATH environment variable. If needed, a
+      custom path can be set here.
+    Ignore Warnings: Suppress warnings for when the current external player does not
+      support the current action (e.g. reversing playlists, etc.).
+    Custom External Player Arguments: Any custom command line arguments, separated
+      by semicolons (';'), you want to be passed to the external player.
   Privacy Settings:
     Remove Video Meta Files: When enabled, FreeTube automatically deletes meta files
       created during video playback, when the watch page is closed.
@@ -701,3 +712,6 @@ Hashtags have not yet been implemented, try again later: Hashtags have not yet b
 Unknown YouTube url type, cannot be opened in app: Unknown YouTube url type, cannot
   be opened in app
 Open New Window: Open New Window
+Default Invidious instance has been cleared: Default Invidious instance has been cleared
+Default Invidious instance has been set to $: Default Invidious instance has been
+  set to $

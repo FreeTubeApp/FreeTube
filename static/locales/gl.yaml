@@ -134,6 +134,14 @@ Settings:
         #! List countries
     View all Invidious instance information: Ver toda a información da instancia Invidious
     System Default: Sistema predeterminado
+    Clear Default Instance: Borrar a instancia por defecto
+    Set Current Instance as Default: Definir a instancia actual como predeterminada
+    Current instance will be randomized on startup: A instancia actual será aleatoria
+      no arranque
+    No default instance has been set: Ningunha instancia foi habilitada por defecto
+    The currently set default instance is $: A Instancia Actualmente Habilitada Por
+      Defecto é $
+    Current Invidious Instance: Instancia Actual de Invidious
   Theme Settings:
     Theme Settings: 'Axustes de tema'
     Match Top Bar with Main Color: 'Combinar cor principal coa barra superior'
