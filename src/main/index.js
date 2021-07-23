@@ -33,7 +33,6 @@ function runApp() {
   const isDev = process.env.NODE_ENV === 'development'
   const isDebug = process.argv.includes('--debug')
   let mainWindow
-  let openedWindows = []
   let startupUrl
 
   // CORS somehow gets re-enabled in Electron v9.0.4
@@ -198,7 +197,7 @@ function runApp() {
       },
       show: false
     })
-    openedWindows.push(newWindow)
+
     if (replaceMainWindow) {
       mainWindow = newWindow
     }
@@ -248,47 +247,47 @@ function runApp() {
     }
 
     // Show when loaded
-    newWindow.on('ready-to-show', () => {
+    newWindow.once('ready-to-show', () => {
       newWindow.show()
       newWindow.focus()
     })
 
-    newWindow.on('closed', () => {
-      // Remove closed window
-      openedWindows = openedWindows.filter((window) => window !== newWindow)
-      if (newWindow === mainWindow) {
+    newWindow.once('close', async () => {
+      if (BrowserWindow.getAllWindows().length !== 1) {
+        return
+      }
+
+      const value = {
+        ...newWindow.getNormalBounds(),
+        maximized: newWindow.isMaximized()
+      }
+
+      await settingsDb.update(
+        { _id: 'bounds' },
+        { _id: 'bounds', value },
+        { upsert: true }
+      )
+    })
+
+    newWindow.once('closed', () => {
+      const allWindows = BrowserWindow.getAllWindows()
+      if (allWindows.length !== 0 && newWindow === mainWindow) {
         // Replace mainWindow to avoid accessing `mainWindow.webContents`
         // Which raises "Object has been destroyed" error
-        mainWindow = openedWindows[0]
+        mainWindow = allWindows[0]
       }
 
       console.log('closed')
     })
   }
 
-  // Save closing window bounds & maximized status
-  ipcMain.on('setBounds', async (event) => {
-    const value = {
-      ...mainWindow.getNormalBounds(),
-      maximized: mainWindow.isMaximized()
-    }
-
-    await settingsDb.update(
-      { _id: 'bounds' },
-      { _id: 'bounds', value },
-      { upsert: true }
-    )
-
-    event.returnValue = 0
-  })
-
-  ipcMain.on('appReady', () => {
+  ipcMain.once('appReady', () => {
     if (startupUrl) {
       mainWindow.webContents.send('openUrl', startupUrl)
     }
   })
 
-  ipcMain.on('relaunchRequest', () => {
+  ipcMain.once('relaunchRequest', () => {
     if (isDev) {
       app.exit(parseInt(process.env.FREETUBE_RELAUNCH_EXIT_CODE))
       return
@@ -368,9 +367,11 @@ function runApp() {
   })
 
   ipcMain.on('syncWindows', (event, payload) => {
-    const otherWindows = openedWindows.filter((window) => {
-      return window.webContents.id !== event.sender.id
-    })
+    const otherWindows = BrowserWindow.getAllWindows().filter(
+      (window) => {
+        return window.webContents.id !== event.sender.id
+      }
+    )
 
     for (const window of otherWindows) {
       window.webContents.send('syncWindows', payload)
@@ -382,7 +383,7 @@ function runApp() {
     child.unref()
   })
 
-  app.on('window-all-closed', () => {
+  app.once('window-all-closed', () => {
     // Clear cache and storage if it's the last window
     session.defaultSession.clearCache()
     session.defaultSession.clearStorageData({
@@ -404,7 +405,7 @@ function runApp() {
   })
 
   app.on('activate', () => {
-    if (mainWindow === null || mainWindow === undefined) {
+    if (BrowserWindow.getAllWindows().length === 0) {
       createWindow()
     }
   })

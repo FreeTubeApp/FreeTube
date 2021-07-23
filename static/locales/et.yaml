@@ -132,6 +132,13 @@ Settings:
     System Default: Arvuti vaikeseadistused
     View all Invidious instance information: Vaata kõike teavet kasutatava Invidious'e
       veebirakenduse kohta
+    Clear Default Instance: Eemalda vaikimisi teenus
+    Set Current Instance as Default: Vali praegune teenus vaikimisi teenuseks
+    Current instance will be randomized on startup: Hetkel kasutatav vaikimisi teenus
+      valitakse rakenduse käivitamisel juhuslikult
+    No default instance has been set: Vaikimisi kasutatav teenus on seadistamata
+    The currently set default instance is $: Hetkel kehtiv vaikimisi teenus on $
+    Current Invidious Instance: Hetkel kasutusel olev Invidious'e teenuse server
   Theme Settings:
     Theme Settings: 'Välimuse seadistused'
     Match Top Bar with Main Color: 'Kasuta ülaribal põhivärvi'
@@ -696,3 +703,7 @@ Tooltips:
 Playing Next Video Interval: Kohe esitan järgmist videot. Tühistamiseks klõpsi. |
   {nextVideoInterval} sekundi möödumisel esitan järgmist videot. Tühistamiseks klõpsi.
   | {nextVideoInterval} sekundi möödumisel esitan järgmist videot. Tühistamiseks klõpsi.
+Default Invidious instance has been cleared: Vaikimisi kasutatav Invidious'e teenus
+  on kustutatud
+Default Invidious instance has been set to $: Vaikimisi kasutatav Invidious'e teenus
+  on $

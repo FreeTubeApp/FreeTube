@@ -32,7 +32,7 @@ const actions = {
     }
 
     const instances = response.filter((instance) => {
-      if (instance[0].includes('.onion') || instance[0].includes('.i2p') || instance[0].includes('yewtu.be')) {
+      if (instance[0].includes('.onion') || instance[0].includes('.i2p')) {
         return false
       } else {
         return true

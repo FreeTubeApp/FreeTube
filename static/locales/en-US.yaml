@@ -327,6 +327,7 @@ About:
   Donate: Donate
 
 Profile:
+  Profile Settings: Profile Settings
   Profile Select: Profile Select
   Profile Filter: Profile Filter
   All Channels: All Channels
@@ -525,6 +526,7 @@ Videos:
 #& Playlists
 Playlist:
   #& About
+  Playlist: Playlist
   View Full Playlist: View Full Playlist
   Videos: Videos
   View: View

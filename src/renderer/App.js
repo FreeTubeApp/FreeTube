@@ -71,6 +71,20 @@ export default Vue.extend({
     profileList: function () {
       return this.$store.getters.getProfileList
     },
+    windowTitle: function () {
+      if (this.$route.meta.title !== 'Channel' && this.$route.meta.title !== 'Watch') {
+        let title =
+        this.$route.meta.path === '/home'
+          ? process.env.PRODUCT_NAME
+          : `${this.$t(this.$route.meta.title)} - ${process.env.PRODUCT_NAME}`
+        if (!title) {
+          title = process.env.PRODUCT_NAME
+        }
+        return title
+      } else {
+        return null
+      }
+    },
     activeProfile: function () {
       return this.$store.getters.getActiveProfile
     },
@@ -83,6 +97,12 @@ export default Vue.extend({
     defaultInvidiousInstance: function () {
       return this.$store.getters.getDefaultInvidiousInstance
     }
+  },
+  watch: {
+    windowTitle: 'setWindowTitle'
+  },
+  created () {
+    this.setWindowTitle()
   },
   mounted: function () {
     this.grabUserSettings().then(async () => {
@@ -103,7 +123,6 @@ export default Vue.extend({
           this.activateKeyboardShortcuts()
           this.openAllLinksExternally()
           this.enableOpenUrl()
-          this.setBoundsOnClose()
           await this.checkExternalPlayer()
         }
 
@@ -380,16 +399,15 @@ export default Vue.extend({
       ipcRenderer.send('appReady')
     },
 
-    setBoundsOnClose: function () {
-      window.onbeforeunload = () => {
-        ipcRenderer.sendSync('setBounds')
-      }
-    },
-
     ...mapMutations([
       'setInvidiousInstancesList'
     ]),
 
+    setWindowTitle: function() {
+      if (this.windowTitle !== null) {
+        document.title = this.windowTitle
+      }
+    },
     ...mapActions([
       'showToast',
       'openExternalLink',
