@@ -115,6 +115,7 @@ Settings:
     Check for Updates: 检查更新
     Check for Latest Blog Posts: 检查最新的博客贴
     View all Invidious instance information: 浏览所有Invidious实例
+    System Default: 系统默认
   Theme Settings:
     Theme Settings: '主题设置'
     Match Top Bar with Main Color: '顶部菜单栏对应主颜色'
@@ -176,6 +177,9 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: 播放列表 下一个影片时间间隔
+    Next Video Interval: 下个视频的间隔时间
+    Display Play Button In Video Player: 在视频播放器上显示播放按钮
+    Scroll Volume Over Video Player: 在视频播放器上滑动音量
   Subscription Settings:
     Subscription Settings: '订阅设置'
     Hide Videos on Watch: '观看时隐藏视频'
@@ -282,6 +286,18 @@ Settings:
     Clicking on Test Proxy will send a request to: 点击测试代理将会发送一个请求给
     Proxy Port Number: 代理端口号
     Proxy Host: 代理主机
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: 当赞助商时间被跳过时通知
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 赞助商区域调用的API地址（默认是
+      https://sponsor.ajay.app）
+    Enable SponsorBlock: 开启赞助商区域
+    SponsorBlock Settings: 赞助商区域设置
+  External Player Settings:
+    Custom External Player Arguments: 定制外部播放器的参数
+    Custom External Player Executable: 自定义外部播放器的可执行文件
+    Ignore Unsupported Action Warnings: 忽略不支持的行为的警告
+    External Player: 外部播放器
+    External Player Settings: 外部播放器设置
 About:
   #On About page
   About: '关于'
@@ -324,6 +340,10 @@ About:
   GitHub releases: GitHub 版本
   View License: 查看授权
   Licensed under the AGPLv3: 以 AGPLv3 协议授权
+  Please check for duplicates before posting: 请在发布前检查是否与现有问题重复
+  GitHub issues: Github 问题
+  Report a problem: 报告问题
+  Downloads / Changelog: 下载 / 更新日志
 Channel:
   Subscriber: '订阅者'
   Subscribers: '订阅者'
@@ -579,3 +599,5 @@ Tooltips:
       作为后备方案。
     Preferred API Backend: 选择FreeTube 要用于取得数据的后端。本地API 是内置提取器。Invidious API需要Invidious服务器才能连接。
     Region for Trending: 热门区域让您挑选您想要显示哪个国家的热门视频。并非所有显示的国家都被YouTube支持。
+More: 更多
+Open New Window: 打开新窗口
