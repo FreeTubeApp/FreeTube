@@ -262,6 +262,7 @@ export default Vue.extend({
         this.id = response.authorId
         this.channelName = response.author
         this.isFamilyFriendly = response.isFamilyFriendly
+        document.title = `${this.channelName} - ${process.env.PRODUCT_NAME}`
         if (this.hideChannelSubscriptions || response.subscriberCount === 0) {
           this.subCount = null
         } else {
@@ -356,6 +357,7 @@ export default Vue.extend({
       this.invidiousGetChannelInfo(this.id).then((response) => {
         console.log(response)
         this.channelName = response.author
+        document.title = `${this.channelName} - ${process.env.PRODUCT_NAME}`
         this.id = response.authorId
         this.isFamilyFriendly = response.isFamilyFriendly
         if (this.hideChannelSubscriptions) {
