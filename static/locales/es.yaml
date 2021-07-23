@@ -124,6 +124,12 @@ Settings:
     View all Invidious instance information: Ver toda la información sobre la instancia
       de Invidious
     System Default: Por defecto del sistema
+    Current instance will be randomized on startup: La instancia actual será elegida
+      aleatoriamente al inicio
+    No default instance has been set: No se ha especificado una instancia por defecto
+    The currently set default instance is $: La instancia por defecto actualmente
+      es $
+    Current Invidious Instance: Instancia actual de Invidious
   Theme Settings:
     Theme Settings: 'Apariencia'
     Match Top Bar with Main Color: 'Usar color principal para barra superior'

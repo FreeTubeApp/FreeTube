@@ -194,7 +194,6 @@ const state = {
   hideVideoLikesAndDislikes: false,
   hideVideoViews: false,
   hideWatchedSubs: false,
-  invidiousInstance: 'https://invidious.snopyta.org',
   landingPage: 'subscriptions',
   listType: 'grid',
   playNextVideo: false,
@@ -247,6 +246,15 @@ const stateWithSideEffects = {
         isDev: process.env.NODE_ENV === 'development',
         locale: targetLocale
       })
+    }
+  },
+
+  defaultInvidiousInstance: {
+    defaultValue: '',
+    sideEffectsHandler: ({ commit, getters }, value) => {
+      if (value !== '' && getters.getCurrentInvidiousInstance !== value) {
+        commit('setCurrentInvidiousInstance', value)
+      }
     }
   },
 
@@ -314,23 +322,36 @@ const customActions = {
     }
   },
 
-  setUpListenerToSyncSettings: ({ commit, dispatch, getters }) => {
-    const {
-      getUsingElectron: usingElectron,
-      settingHasSideEffects
-    } = getters
+  // Should be a root action, but we'll tolerate
+  setupListenerToSyncWindows: ({ commit, dispatch, getters }) => {
+    // Already known to be Electron, no need to check
+    const { ipcRenderer } = require('electron')
+    ipcRenderer.on('syncWindows', (_, payload) => {
+      const { type, data } = payload
+      switch (type) {
+        case 'setting':
+          // `data` is a single setting => { _id, value }
+          if (getters.settingHasSideEffects(data._id)) {
+            dispatch(defaultSideEffectsTriggerId(data._id), data.value)
+          }
 
-    if (usingElectron) {
-      const { ipcRenderer } = require('electron')
-      ipcRenderer.on('syncSetting', (_, setting) => {
-        const { _id, value } = setting
-        if (settingHasSideEffects(_id)) {
-          dispatch(defaultSideEffectsTriggerId(_id), value)
-        }
+          commit(defaultMutationId(data._id), data.value)
+          break
 
-        commit(defaultMutationId(_id), value)
-      })
-    }
+        case 'history':
+          // `data` is the whole history => Array of history entries
+          commit('setHistoryCache', data)
+          break
+
+        case 'playlist':
+          // TODO: Not implemented
+          break
+
+        case 'profile':
+          // TODO: Not implemented
+          break
+      }
+    })
   }
 }
 
@@ -393,8 +414,9 @@ for (const settingId of Object.keys(state)) {
       const { ipcRenderer } = require('electron')
 
       // Propagate settings to all other existing windows
-      ipcRenderer.send('syncSetting', {
-        _id: settingId, value: value
+      ipcRenderer.send('syncWindows', {
+        type: 'setting',
+        data: { _id: settingId, value: value }
       })
     }
   }

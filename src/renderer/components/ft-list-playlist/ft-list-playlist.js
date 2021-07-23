@@ -29,8 +29,8 @@ export default Vue.extend({
     }
   },
   computed: {
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
     },
 
     listType: function () {
@@ -79,7 +79,7 @@ export default Vue.extend({
 
     parseInvidiousData: function () {
       this.title = this.data.title
-      this.thumbnail = this.data.playlistThumbnail.replace('https://i.ytimg.com', this.invidiousInstance).replace('hqdefault', 'mqdefault')
+      this.thumbnail = this.data.playlistThumbnail.replace('https://i.ytimg.com', this.currentInvidiousInstance).replace('hqdefault', 'mqdefault')
       this.channelName = this.data.author
       this.channelLink = this.data.authorUrl
       this.playlistLink = this.data.playlistId
