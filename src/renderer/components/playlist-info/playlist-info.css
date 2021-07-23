@@ -15,7 +15,7 @@
   cursor: pointer;
 }
 
-.playlistChannel img, .playlistChannel img:hover {
+.playlistChannel img {
   width: 70px;
   float: left;
   border-radius: 200px 200px 200px 200px;
