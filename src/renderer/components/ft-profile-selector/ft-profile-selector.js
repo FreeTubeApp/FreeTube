@@ -84,7 +84,7 @@ export default Vue.extend({
         } else if (event.key === 'Home') {
           nextElement = $('.profile').first()
         } else if (event.key === 'End') {
-          nextElement = $('profile').last()
+          nextElement = $('.profile').last()
         }
 
         event.preventDefault()
