@@ -125,6 +125,13 @@ Settings:
     View all Invidious instance information: Vis informasjon om alle Invidious-forekomster
     Check for Latest Blog Posts: Se etter nye blogginnlegg
     System Default: Systemforvalg
+    Clear Default Instance: Fjern instansforvalg
+    Set Current Instance as Default: Bruk nåværende instans som forvalg
+    Current instance will be randomized on startup: Valgt instans vil bli plukket
+      tilfeldig ved oppstart
+    No default instance has been set: Ingen forvalgt instans satt
+    The currently set default instance is $: Valgt instans er $
+    Current Invidious Instance: Nåværende Invidious-instans
   Theme Settings:
     Theme Settings: 'Draktvalg'
     Match Top Bar with Main Color: 'Tilpass topplinjen slik at den har samme farge
@@ -713,3 +720,6 @@ Unknown YouTube url type, cannot be opened in app: Ukjent YouTube-nettadressetyp
 Hashtags have not yet been implemented, try again later: Emneknagger er ikke implementert
   enda, prøv igjen senere
 Open New Window: Åpne et nytt vindu
+Default Invidious instance has been cleared: Fjernet forvalgt Invidious-instans
+Default Invidious instance has been set to $: Forvalgt Invidious-instans satt til
+  $

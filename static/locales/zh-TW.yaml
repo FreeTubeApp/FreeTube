@@ -117,6 +117,12 @@ Settings:
     Check for Updates: 檢查更新
     View all Invidious instance information: 檢視所有 Invidious 站台的資訊
     System Default: 系統預設值
+    Clear Default Instance: 清除預設站台
+    Set Current Instance as Default: 設定目前站台為預設值
+    Current instance will be randomized on startup: 目前站台將在啟動時隨機選擇
+    No default instance has been set: 未設定預設的站台
+    The currently set default instance is $: 目前設定的預設站台為 $
+    Current Invidious Instance: 目前的 Invidious 站台
   Theme Settings:
     Theme Settings: '主題設定'
     Match Top Bar with Main Color: '頂部功能表欄對應主色彩'
@@ -516,6 +522,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: 播放清單
 Toggle Theatre Mode: '切換為劇院模式'
 Change Format:
   Change Video Formats: '變更影片格式'
@@ -615,6 +622,7 @@ Profile:
   Other Channels: 其他頻道
   Subscription List: 訂閱清單
   Profile Filter: 設定檔篩選器
+  Profile Settings: 設定檔設定
 The playlist has been reversed: 播放清單已反轉
 A new blog is now available, $. Click to view more: 已有新的部落格文章，$。點擊以檢視更多
 Download From Site: 從網站下載
@@ -649,3 +657,5 @@ More: 更多
 Hashtags have not yet been implemented, try again later: 尚未實作主題標籤，請稍後再試
 Unknown YouTube url type, cannot be opened in app: 未知的 YouTube url 類型，無法在應用程式開啟
 Open New Window: 開啟新視窗
+Default Invidious instance has been cleared: 預設 Invidious 站台已被清除
+Default Invidious instance has been set to $: 預設 Invidious 站台已被設定為 $

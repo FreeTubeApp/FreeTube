@@ -126,6 +126,13 @@ Settings:
     View all Invidious instance information: Ver todas as informações da instância
       Invidious
     System Default: Padrão do Sistema
+    No default instance has been set: Nenhuma instância padrão foi definida
+    The currently set default instance is $: A instância padrão atualmente definida
+      é $
+    Current instance will be randomized on startup: A instância atual será randomizada
+      na inicialização
+    Set Current Instance as Default: Definir instância atual como padrão
+    Clear Default Instance: Limpar instância padrão
   Theme Settings:
     Theme Settings: 'Configurações de aparência'
     Match Top Bar with Main Color: 'Usar a cor principal para a barra superior'

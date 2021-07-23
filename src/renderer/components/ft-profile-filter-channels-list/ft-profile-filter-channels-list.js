@@ -35,8 +35,8 @@ export default Vue.extend({
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
     },
     profileList: function () {
       return this.$store.getters.getProfileList
@@ -73,7 +73,7 @@ export default Vue.extend({
         return index === -1
       }).map((channel) => {
         if (this.backendPreference === 'invidious') {
-          channel.thumbnail = channel.thumbnail.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`)
+          channel.thumbnail = channel.thumbnail.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
         }
         channel.selected = false
         return channel
@@ -100,7 +100,7 @@ export default Vue.extend({
         return index === -1
       }).map((channel) => {
         if (this.backendPreference === 'invidious') {
-          channel.thumbnail = channel.thumbnail.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`)
+          channel.thumbnail = channel.thumbnail.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
         }
         channel.selected = false
         return channel

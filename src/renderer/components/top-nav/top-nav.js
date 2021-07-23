@@ -44,8 +44,8 @@ export default Vue.extend({
       return this.$store.getters.getBarColor
     },
 
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
     },
 
     backendFallback: function () {
