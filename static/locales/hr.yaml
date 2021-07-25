@@ -439,6 +439,7 @@ Profile:
   Other Channels: Ostali kanali
   Subscription List: Popis pretplata
   Profile Filter: Filtar profila
+  Profile Settings: Postavke profila
 Channel:
   Subscriber: 'Pretplatnik'
   Subscribers: 'Pretplatnici'
@@ -607,6 +608,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Zbirka
 Toggle Theatre Mode: 'Uključi/isključi kazališni modus'
 Change Format:
   Change Video Formats: 'Promijeni videoformate'
