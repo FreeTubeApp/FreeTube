@@ -438,6 +438,7 @@ Profile:
     от другите профили.'
 #On Channel Page
   Profile Filter: Профилен филтър
+  Profile Settings: Настройки на профил
 Channel:
   Subscriber: 'Абонат'
   Subscribers: 'Абонати'
@@ -608,6 +609,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Плейлист
 Toggle Theatre Mode: 'Режим "Широк екран"'
 Change Format:
   Change Video Formats: 'Смяна видео формати'
