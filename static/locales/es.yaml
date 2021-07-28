@@ -130,6 +130,8 @@ Settings:
     The currently set default instance is $: La instancia por defecto actualmente
       es $
     Current Invidious Instance: Instancia actual de Invidious
+    Clear Default Instance: Borrar Instancia Predeterminada
+    Set Current Instance as Default: Establecer la Instancia Actual como Predeterminada
   Theme Settings:
     Theme Settings: 'Apariencia'
     Match Top Bar with Main Color: 'Usar color principal para barra superior'
@@ -424,6 +426,7 @@ Profile:
   Subscription List: Lista de suscripciones
   Profile Select: Seleccionar perfil
   Profile Filter: Filtro de Perfil
+  Profile Settings: Ajustes del Perfil
 Channel:
   Subscriber: 'Suscriptor'
   Subscribers: 'Suscriptores'
@@ -559,6 +562,17 @@ Video:
     playlist: lista de reproducción
     video: vídeo
     OpenInTemplate: Abrir en $
+    Unsupported Actions:
+      looping playlists: reproducir en bucle las listas de reproducción
+      shuffling playlists: aleatorizar las listas de reproducción
+      reversing playlists: invertir las listas de reproducción
+      opening specific video in a playlist (falling back to opening the video): abrir
+        un vídeo específico en una lista de reproducción (regresando a abrir el vídeo)
+      opening playlists: abrir listas de reproducción
+      setting a playback rate: establecer una velocidad de reproducción
+      starting video at offset: iniciar el video en un punto dado
+    UnsupportedActionTemplate: '$ no soporta: %'
+    OpeningTemplate: Abriendo $ en %...
 Videos:
   #& Sort By
   Sort By:
@@ -583,6 +597,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Lista de reproducción
 Toggle Theatre Mode: 'Activar Modo Cine'
 Change Format:
   Change Video Formats: 'Cambiar formato de video'
@@ -705,6 +720,12 @@ Tooltips:
       aquí.
     Custom External Player Arguments: Cualesquier argumentos de orden de consola personalizados,
       separados por punto y coma (;) que deberán transmitirse al reproductor externo.
+    Ignore Warnings: Suprimir las advertencias para cuando el reproductor externo
+      actual no admite la acción actual (por ejemplo, invertir listas de reproducción,
+      etc.).
+    External Player: Elegir un reproductor externo mostrará un icono para abrir el
+      vídeo (o lista de reproducción si esta es compatible) en el reproductor externo,
+      en la miniatura.
 More: Más
 Unknown YouTube url type, cannot be opened in app: Tipo de LRU desconocido. No se
   puede abrir en applicación
@@ -715,3 +736,7 @@ Playing Next Video Interval: Reproduciendo el vídeo a continuación. Haz clic p
   cancelar. | El siguiente vídeo se reproducirá en {nextVideoInterval} segundos. Haz
   clic para cancelar. | El siguiente vídeo se reproducirá en {nextVideoInterval} segundos.
   Haz clic para cancelar.
+Default Invidious instance has been cleared: La Instancia de Invidious Por Defecto
+  ha sido borrada
+Default Invidious instance has been set to $: La Instancia de Invidious Predeterminada
+  ha sido establecida como $
