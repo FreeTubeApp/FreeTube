@@ -672,21 +672,8 @@ export default Vue.extend({
       await this.compactProfiles()
       const userData = await this.getUserDataPath()
       const subscriptionsDb = `${userData}/profiles.db`
-      const date = new Date()
-      let dateMonth = date.getMonth() + 1
-
-      if (dateMonth < 10) {
-        dateMonth = '0' + dateMonth
-      }
-
-      let dateDay = date.getDate()
-
-      if (dateDay < 10) {
-        dateDay = '0' + dateDay
-      }
-
-      const dateYear = date.getFullYear()
-      const exportFileName = 'freetube-subscriptions-' + dateYear + '-' + dateMonth + '-' + dateDay + '.db'
+      const date = new Date().toISOString().split('T')[0]
+      const exportFileName = 'freetube-subscriptions-' + date + '.db'
 
       const options = {
         defaultPath: exportFileName,
@@ -732,21 +719,8 @@ export default Vue.extend({
     },
 
     exportYouTubeSubscriptions: async function () {
-      const date = new Date()
-      let dateMonth = date.getMonth() + 1
-
-      if (dateMonth < 10) {
-        dateMonth = '0' + dateMonth
-      }
-
-      let dateDay = date.getDate()
-
-      if (dateDay < 10) {
-        dateDay = '0' + dateDay
-      }
-
-      const dateYear = date.getFullYear()
-      const exportFileName = 'youtube-subscriptions-' + dateYear + '-' + dateMonth + '-' + dateDay + '.json'
+      const date = new Date().toISOString().split('T')[0]
+      const exportFileName = 'youtube-subscriptions-' + date + '.json'
 
       const options = {
         defaultPath: exportFileName,
@@ -818,21 +792,8 @@ export default Vue.extend({
     },
 
     exportOpmlYouTubeSubscriptions: async function () {
-      const date = new Date()
-      let dateMonth = date.getMonth() + 1
-
-      if (dateMonth < 10) {
-        dateMonth = '0' + dateMonth
-      }
-
-      let dateDay = date.getDate()
-
-      if (dateDay < 10) {
-        dateDay = '0' + dateDay
-      }
-
-      const dateYear = date.getFullYear()
-      const exportFileName = 'youtube-subscriptions-' + dateYear + '-' + dateMonth + '-' + dateDay + '.opml'
+      const date = new Date().toISOString().split('T')[0]
+      const exportFileName = 'youtube-subscriptions-' + date + '.opml'
 
       const options = {
         defaultPath: exportFileName,
@@ -883,21 +844,8 @@ export default Vue.extend({
     },
 
     exportCsvYouTubeSubscriptions: async function () {
-      const date = new Date()
-      let dateMonth = date.getMonth() + 1
-
-      if (dateMonth < 10) {
-        dateMonth = '0' + dateMonth
-      }
-
-      let dateDay = date.getDate()
-
-      if (dateDay < 10) {
-        dateDay = '0' + dateDay
-      }
-
-      const dateYear = date.getFullYear()
-      const exportFileName = 'youtube-subscriptions-' + dateYear + '-' + dateMonth + '-' + dateDay + '.csv'
+      const date = new Date().toISOString().split('T')[0]
+      const exportFileName = 'youtube-subscriptions-' + date + '.csv'
 
       const options = {
         defaultPath: exportFileName,
@@ -937,21 +885,8 @@ export default Vue.extend({
     },
 
     exportNewPipeSubscriptions: async function () {
-      const date = new Date()
-      let dateMonth = date.getMonth() + 1
-
-      if (dateMonth < 10) {
-        dateMonth = '0' + dateMonth
-      }
-
-      let dateDay = date.getDate()
-
-      if (dateDay < 10) {
-        dateDay = '0' + dateDay
-      }
-
-      const dateYear = date.getFullYear()
-      const exportFileName = 'newpipe-subscriptions-' + dateYear + '-' + dateMonth + '-' + dateDay + '.json'
+      const date = new Date().toISOString().split('T')[0]
+      const exportFileName = 'newpipe-subscriptions-' + date + '.json'
 
       const options = {
         defaultPath: exportFileName,
@@ -1098,21 +1033,8 @@ export default Vue.extend({
       await this.compactHistory()
       const userData = await this.getUserDataPath()
       const historyDb = `${userData}/history.db`
-      const date = new Date()
-      let dateMonth = date.getMonth() + 1
-
-      if (dateMonth < 10) {
-        dateMonth = '0' + dateMonth
-      }
-
-      let dateDay = date.getDate()
-
-      if (dateDay < 10) {
-        dateDay = '0' + dateDay
-      }
-
-      const dateYear = date.getFullYear()
-      const exportFileName = 'freetube-history-' + dateYear + '-' + dateMonth + '-' + dateDay + '.db'
+      const date = new Date().toISOString().split('T')[0]
+      const exportFileName = 'freetube-history-' + date + '.db'
 
       const options = {
         defaultPath: exportFileName,
