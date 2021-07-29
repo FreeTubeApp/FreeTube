@@ -722,8 +722,7 @@ Tooltips:
     Custom External Player Arguments: Cualesquier argumentos de orden de consola personalizados,
       separados por punto y coma (;) que deberán transmitirse al reproductor externo.
     Ignore Warnings: Suprimir las advertencias para cuando el reproductor externo
-      actual no admite la acción actual (por ejemplo, invertir listas de reproducción,
-      etc.).
+      actual no admite la acción actual (ej. invertir listas de reproducción, etc.).
     External Player: Elegir un reproductor externo mostrará un icono para abrir el
       vídeo (o lista de reproducción si esta es compatible) en el reproductor externo,
       en la miniatura.
