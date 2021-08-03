@@ -33,8 +33,14 @@
       @keydown="e => handleKeyDown(e.keyCode)"
     >
     <font-awesome-icon
-      v-if="showArrow"
+      v-if="showArrow && ltr"
       icon="arrow-right"
+      class="inputAction"
+      @click="handleClick"
+    />
+    <font-awesome-icon
+      v-if="showArrow && !ltr"
+      icon="arrow-left"
       class="inputAction"
       @click="handleClick"
     />

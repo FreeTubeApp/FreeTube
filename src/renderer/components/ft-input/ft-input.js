@@ -73,6 +73,10 @@ export default Vue.extend({
     }
   },
   watch: {
+    ltr: function() {
+      return document.querySelector('body').dir === 'ltr'
+    },
+
     value: function (val) {
       this.inputData = val
     }

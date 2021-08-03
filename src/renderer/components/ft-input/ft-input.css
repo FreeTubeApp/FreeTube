@@ -43,12 +43,17 @@
   position: absolute;
   padding: 10px;
   top: 5px;
-  right: 0px;
   cursor: pointer;
   border-radius: 200px 200px 200px 200px;
   color: var(--primary-text-color);
 }
 
+body[dir='ltr'] .inputAction {
+  right: 0px;
+}
+body[dir='rtl'] .inputAction {
+  left: 0;
+}
 .search ::-webkit-calendar-picker-indicator {
   display: none;
 }

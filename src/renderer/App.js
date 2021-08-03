@@ -410,6 +410,8 @@ export default Vue.extend({
         document.querySelector('html').lang = locale
         if (locale === 'ar' || locale === 'fa' || locale === 'he' || locale === 'ur' || locale === 'yi') {
           document.querySelector('body').dir = 'rtl'
+        } else {
+          document.querySelector('body').dir = 'ltr'
         }
       }
     },

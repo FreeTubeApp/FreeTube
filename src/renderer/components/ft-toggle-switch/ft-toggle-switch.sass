@@ -69,3 +69,16 @@
 
     .switch-input:disabled + &
       background-color: #BDBDBD
+
+body[dir='rtl']
+  .switch-label
+    padding: 12px 44px 12px 0
+    &:before
+      right:0
+    &:after
+      right:1px
+
+      .switch-input:checked + &
+        -ms-transform: translate(-80%, -50%)
+        -webkit-transform: translate(-80%, -50%)
+        transform: translate(-80%, -50%)
