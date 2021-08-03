@@ -258,25 +258,23 @@ export default Vue.extend({
         let count = 0
         for (let i = 1; i < (youtubeSubscriptions.length - 1); i++) {
           const channelId = youtubeSubscriptions[i].split(',')[0]
-          let channelInfo
-          if (this.backendPreference === 'invidious') { // only needed for thumbnail
-            channelInfo = await this.getChannelInfoInvidious(channelId)
-          } else {
-            channelInfo = await this.getChannelInfoLocal(channelId)
-          }
-
-          if (typeof channelInfo.author !== 'undefined') {
-            const subscription = {
-              id: channelId,
-              name: channelInfo.author,
-              thumbnail: channelInfo.authorThumbnails[1].url
+          const subExists = primaryProfile.subscriptions.findIndex((sub) => {
+            return sub.id === channelId
+          })
+          if (subExists === -1) {
+            let channelInfo
+            if (this.backendPreference === 'invidious') { // only needed for thumbnail
+              channelInfo = await this.getChannelInfoInvidious(channelId)
+            } else {
+              channelInfo = await this.getChannelInfoLocal(channelId)
             }
 
-            const subExists = primaryProfile.subscriptions.findIndex((sub) => {
-              return sub.id === subscription.id || sub.name === subscription.name
-            })
-
-            if (subExists === -1) {
+            if (typeof channelInfo.author !== 'undefined') {
+              const subscription = {
+                id: channelId,
+                name: channelInfo.author,
+                thumbnail: channelInfo.authorThumbnails[1].url
+              }
               subscriptions.push(subscription)
             }
           }
@@ -483,25 +481,23 @@ export default Vue.extend({
 
           feedData.forEach(async (channel, index) => {
             const channelId = channel.xmlurl.replace('https://www.youtube.com/feeds/videos.xml?channel_id=', '')
-            let channelInfo
-            if (this.backendPreference === 'invidious') {
-              channelInfo = await this.getChannelInfoInvidious(channelId)
-            } else {
-              channelInfo = await this.getChannelInfoLocal(channelId)
-            }
-
-            if (typeof channelInfo.author !== 'undefined') {
-              const subscription = {
-                id: channelId,
-                name: channelInfo.author,
-                thumbnail: channelInfo.authorThumbnails[1].url
+            const subExists = primaryProfile.subscriptions.findIndex((sub) => {
+              return sub.id === channelId
+            })
+            if (subExists === -1) {
+              let channelInfo
+              if (this.backendPreference === 'invidious') {
+                channelInfo = await this.getChannelInfoInvidious(channelId)
+              } else {
+                channelInfo = await this.getChannelInfoLocal(channelId)
               }
 
-              const subExists = primaryProfile.subscriptions.findIndex((sub) => {
-                return sub.id === subscription.id || sub.name === subscription.name
-              })
-
-              if (subExists === -1) {
+              if (typeof channelInfo.author !== 'undefined') {
+                const subscription = {
+                  id: channelId,
+                  name: channelInfo.author,
+                  thumbnail: channelInfo.authorThumbnails[1].url
+                }
                 subscriptions.push(subscription)
               }
             }
@@ -594,25 +590,24 @@ export default Vue.extend({
 
         newPipeSubscriptions.forEach(async (channel, index) => {
           const channelId = channel.url.replace(/https:\/\/(www\.)?youtube\.com\/channel\//, '')
-          let channelInfo
-          if (this.backendPreference === 'invidious') {
-            channelInfo = await this.getChannelInfoInvidious(channelId)
-          } else {
-            channelInfo = await this.getChannelInfoLocal(channelId)
-          }
+          const subExists = primaryProfile.subscriptions.findIndex((sub) => {
+            return sub.id === channelId
+          })
 
-          if (typeof channelInfo.author !== 'undefined') {
-            const subscription = {
-              id: channelId,
-              name: channelInfo.author,
-              thumbnail: channelInfo.authorThumbnails[1].url
+          if (subExists === -1) {
+            let channelInfo
+            if (this.backendPreference === 'invidious') {
+              channelInfo = await this.getChannelInfoInvidious(channelId)
+            } else {
+              channelInfo = await this.getChannelInfoLocal(channelId)
             }
 
-            const subExists = primaryProfile.subscriptions.findIndex((sub) => {
-              return sub.id === subscription.id || sub.name === subscription.name
-            })
-
-            if (subExists === -1) {
+            if (typeof channelInfo.author !== 'undefined') {
+              const subscription = {
+                id: channelId,
+                name: channelInfo.author,
+                thumbnail: channelInfo.authorThumbnails[1].url
+              }
               subscriptions.push(subscription)
             }
           }
