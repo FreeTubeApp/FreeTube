@@ -135,6 +135,11 @@ Settings:
     Region for Trending: Região para as tendências
         #! List countries
     System Default: Definições do sistema
+    Current instance will be randomized on startup: A instância atual irá ser aleatorizada
+      quando o programa iniciar
+    No default instance has been set: Nenhuma instância foi predefinida
+    The currently set default instance is $: A instância atualmente definida é $
+    Current Invidious Instance: Instância atual do Invidious
   Theme Settings:
     Theme Settings: Definições de Tema
     Match Top Bar with Main Color: Utilizar Cor Principal Para Barra Superior
