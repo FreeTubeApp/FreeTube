@@ -199,7 +199,7 @@ Settings:
   Privacy Settings:
     Privacy Settings: 'Personvernsinnstillinger'
     Remember History: 'Husk historikk'
-    Save Watched Progress: 'Lagre visningsposisjon'
+    Save Watched Progress: 'Husk avspillingsposisjon'
     Clear Search Cache: 'Tøm søkehurtiglager'
     Are you sure you want to clear out your search cache?: 'Tøm søkehurtiglager?'
     Search cache has been cleared: 'Søkehurtiglager tømt'
