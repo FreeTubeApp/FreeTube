@@ -22,7 +22,9 @@
       </span>
       {{ lastUpdated }}
     </p>
-    <p>
+    <p
+      class="playlistDescription"
+    >
       {{ description }}
     </p>
     <hr>
@@ -35,8 +37,14 @@
       @click="goToChannel"
       @keydown="goToChannel($event)"
     >
-      <img :src="channelThumbnail">
-      <h3 id="channelNameInfo">
+      <img
+        class="channelThumbnail"
+        :src="channelThumbnail"
+      >
+      <h3
+        class="channelName"
+        id="channelNameInfo"
+      >
         {{ channelName }}
       </h3>
     </div>
@@ -51,4 +59,4 @@
 </template>
 
 <script src="./playlist-info.js" />
-<style scoped src="./playlist-info.css" />
+<style scoped lang="sass" src="./playlist-info.sass" />

@@ -5,7 +5,7 @@ import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtTimestampCatcher from '../../components/ft-timestamp-catcher/ft-timestamp-catcher.vue'
 import autolinker from 'autolinker'
-import ytcm from 'yt-comment-scraper'
+import ytcm from '@freetube/yt-comment-scraper'
 
 export default Vue.extend({
   name: 'WatchVideoComments',

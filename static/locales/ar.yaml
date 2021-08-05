@@ -426,6 +426,7 @@ Profile:
   Other Channels: قنوات أُخرى
   Subscription List: قائمة الاشتراكات
   Profile Filter: مرشح الملف الشخصي
+  Profile Settings: إعدادات الملف الشخصي
 Channel:
   Subscriber: 'مُشترِك'
   Subscribers: 'مُشترِكين'
@@ -593,6 +594,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: قائمة التشغيل
 Toggle Theatre Mode: 'تمكين وضع المسرح'
 Change Format:
   Change Video Formats: 'تغيير تنسيقات الفيديو'

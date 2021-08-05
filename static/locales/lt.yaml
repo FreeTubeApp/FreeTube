@@ -379,6 +379,7 @@ Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Ar
     tikrai norite ištrinti pasirinktus kanalus? Tai kanalo neištrins iš kito profilio.'
 #On Channel Page
+  Profile Settings: Profilio nustatymai
 Channel:
   Subscriber: 'Prenumeratorius'
   Subscribers: 'Prenumeratoriai'
@@ -552,6 +553,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Grojaraštis
 Toggle Theatre Mode: 'Įjungti teatro rėžimą'
 Change Format:
   Change Video Formats: 'Keisti vaizdo įrašo formatus'

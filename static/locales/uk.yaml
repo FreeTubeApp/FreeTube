@@ -416,6 +416,7 @@ Profile:
     бажаєте видалити вибрані канали?  Канал не буде видалено з будь-якого іншого профілю.'
 #On Channel Page
   Profile Filter: Фільтр профілю
+  Profile Settings: Налаштування профілю
 Channel:
   Subscriber: 'Підписник'
   Subscribers: 'Підписники'
@@ -582,6 +583,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Добірка
 Toggle Theatre Mode: 'Перемкнути режим театру'
 Change Format:
   Change Video Formats: 'Зміна форматів відео'
