@@ -174,13 +174,6 @@
         </div>
       </div>
     </div>
-    <div
-      v-else-if="showComments && !isLoading"
-    >
-      <h3 class="center">
-        {{ $t("There are no comments available for this video") }}
-      </h3>
-    </div>
     <h4
       v-if="commentData.length > 0 && !isLoading && showComments"
       class="getMoreComments"
@@ -191,6 +184,13 @@
     >
       {{ $t("Comments.Load More Comments") }}
     </h4>
+    <div
+      v-else-if="showComments && !isLoading"
+    >
+      <h3 class="center">
+        {{ $t("Comments.There are no comments available for this video") }}
+      </h3>
+    </div>
     <ft-loader
       v-if="isLoading"
     />

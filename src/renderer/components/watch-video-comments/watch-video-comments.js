@@ -116,8 +116,16 @@ export default Vue.extend({
     },
 
     getCommentData: function (event) {
-      if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
-        return
+      if (event instanceof KeyboardEvent) {
+        if (event.key === 'Tab') {
+          return
+        }
+
+        event.preventDefault()
+
+        if (event.key !== 'Enter' && event.key !== ' ') {
+          return
+        }
       }
 
       this.isLoading = true
@@ -144,8 +152,16 @@ export default Vue.extend({
     },
 
     getMoreComments: function (event) {
-      if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
-        return
+      if (event instanceof KeyboardEvent) {
+        if (event.key === 'Tab') {
+          return
+        }
+
+        event.preventDefault()
+
+        if (event.key !== 'Enter' && event.key !== ' ') {
+          return
+        }
       }
 
       if (this.commentData.length === 0 || this.nextPageToken === null || typeof this.nextPageToken === 'undefined') {
@@ -158,8 +174,16 @@ export default Vue.extend({
     },
 
     toggleCommentReplies: function (index, event) {
-      if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
-        return
+      if (event instanceof KeyboardEvent) {
+        if (event.key === 'Tab') {
+          return
+        }
+
+        event.preventDefault()
+
+        if (event.key !== 'Enter' && event.key !== ' ') {
+          return
+        }
       }
 
       if (this.commentData[index].showReplies || this.commentData[index].replies.length > 0) {
@@ -170,8 +194,16 @@ export default Vue.extend({
     },
 
     getCommentReplies: function (index, event) {
-      if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
-        return
+      if (event instanceof KeyboardEvent) {
+        if (event.key === 'Tab') {
+          return
+        }
+
+        event.preventDefault()
+
+        if (event.key !== 'Enter' && event.key !== ' ') {
+          return
+        }
       }
 
       switch (this.commentData[index].dataType) {
