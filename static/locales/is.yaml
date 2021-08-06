@@ -210,6 +210,7 @@ Settings:
     Next Video Interval: Bil í næsta myndskeið
     Display Play Button In Video Player: Birta afspilunarhnapp í myndspilara
     Scroll Volume Over Video Player: Skrun hljóðstyrks ofan á myndspilara
+    Fast-Forward / Rewind Interval: Millibil hraðspólunar / spóla til baka
   Privacy Settings:
     Privacy Settings: 'Stillingar gagnaleyndar'
     Remember History: 'Muna vinnsluferil'
@@ -383,6 +384,7 @@ Profile:
     viss um að þú viljir eyða völdu rásunum? Þetta mun ekki eyða rásunum úr öðrum
     notkunarsniðum.'
 #On Channel Page
+  Profile Settings: Stillingar notkunarsniðs
 Channel:
   Subscriber: 'Áskrifandi'
   Subscribers: 'Áskrifendur'
@@ -553,6 +555,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Spilunarlisti
 Toggle Theatre Mode: 'Víxla bíóham af/á'
 Change Format:
   Change Video Formats: 'Skipta um myndskeiðasnið'
