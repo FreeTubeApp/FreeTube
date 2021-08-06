@@ -37,6 +37,18 @@
           :default-value="defaultTheatreMode"
           @change="updateDefaultTheatreMode"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Player Settings.Scroll Volume Over Video Player')"
+          :compact="true"
+          :default-value="videoVolumeMouseScroll"
+          @change="updateVideoVolumeMouseScroll"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Player Settings.Display Play Button In Video Player')"
+          :compact="true"
+          :default-value="displayVideoPlayButton"
+          @change="updateDisplayVideoPlayButton"
+        />
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
@@ -62,7 +74,16 @@
     </div>
     <ft-flex-box>
       <ft-slider
-        :label="$t('Settings.Player Settings.Playlist Next Video Interval')"
+        :label="$t('Settings.Player Settings.Fast-Forward / Rewind Interval')"
+        :default-value="defaultSkipInterval"
+        :min-value="1"
+        :max-value="70"
+        :step="1"
+        value-extension="s"
+        @change="updateDefaultSkipInterval"
+      />
+      <ft-slider
+        :label="$t('Settings.Player Settings.Next Video Interval')"
         :default-value="defaultInterval"
         :min-value="0"
         :max-value="60"
@@ -77,7 +98,7 @@
         :max-value="100"
         :step="1"
         value-extension="%"
-        @change="parseVolumeBeforeUpdate"
+        @change="updateDefaultVolume($event / 100)"
       />
       <ft-slider
         :label="$t('Settings.Player Settings.Default Playback Rate')"

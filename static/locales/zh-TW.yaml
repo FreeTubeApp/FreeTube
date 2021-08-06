@@ -116,6 +116,13 @@ Settings:
     Check for Latest Blog Posts: 檢查最新的部落格貼文
     Check for Updates: 檢查更新
     View all Invidious instance information: 檢視所有 Invidious 站台的資訊
+    System Default: 系統預設值
+    Clear Default Instance: 清除預設站台
+    Set Current Instance as Default: 設定目前站台為預設值
+    Current instance will be randomized on startup: 目前站台將在啟動時隨機選擇
+    No default instance has been set: 未設定預設的站台
+    The currently set default instance is $: 目前設定的預設站台為 $
+    Current Invidious Instance: 目前的 Invidious 站台
   Theme Settings:
     Theme Settings: '主題設定'
     Match Top Bar with Main Color: '頂部功能表欄對應主色彩'
@@ -177,6 +184,9 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: 播放清單 下一個影片間隔時間
+    Next Video Interval: 下一個影片區段
+    Scroll Volume Over Video Player: 在影片播放器上捲動以變更音量
+    Display Play Button In Video Player: 在影片播放器中顯示播放按鈕
   Subscription Settings:
     Subscription Settings: '訂閱設定'
     Hide Videos on Watch: '觀看時隱藏影片'
@@ -283,6 +293,18 @@ Settings:
     Proxy Protocol: 代理伺服器協定
     Enable Tor / Proxy: 啟用 Tor 或代理伺服器
     Proxy Settings: 代理伺服器設定
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: 當贊助商片段被跳過時通知
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
+      網址（預設為 https://sponsor.ajay.app）
+    Enable SponsorBlock: 啟用 SponsorBlock
+    SponsorBlock Settings: SponsorBlock 設定
+  External Player Settings:
+    Custom External Player Arguments: 自訂外部播放程式參數
+    Custom External Player Executable: 自訂外部播放程式可執行檔
+    Ignore Unsupported Action Warnings: 忽略不支援的動作警告
+    External Player: 外部播放程式
+    External Player Settings: 外部播放程式設定
 About:
   #On About page
   About: '關於'
@@ -454,6 +476,28 @@ Video:
   Video has been saved: 影片已儲存
   Save Video: 儲存影片至播放清單
   translated from English: 從英文翻譯
+  Sponsor Block category:
+    music offtopic: 音樂離題
+    interaction: 互動
+    self-promotion: 自我推廣
+    outro: 其他
+    intro: 介紹
+    sponsor: 贊助商
+  Skipped segment: 已跳過的片段
+  External Player:
+    Unsupported Actions:
+      looping playlists: 循環播放清單
+      shuffling playlists: 隨機播放清單
+      reversing playlists: 反向播放清單
+      opening specific video in a playlist (falling back to opening the video): 在播放清單中開啟特定影片（汰退至開啟影片）
+      opening playlists: 正在開啟播放清單
+      setting a playback rate: 正在設定播放速度
+      starting video at offset: 在偏移處開始影片
+    UnsupportedActionTemplate: $ 不支援：%
+    OpeningTemplate: 正於 % 中開啟 $……
+    playlist: 播放清單
+    video: 視訊
+    OpenInTemplate: 在 $ 中開啟
 Videos:
   #& Sort By
   Sort By:
@@ -478,6 +522,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: 播放清單
 Toggle Theatre Mode: '切換為劇院模式'
 Change Format:
   Change Video Formats: '變更影片格式'
@@ -577,6 +622,7 @@ Profile:
   Other Channels: 其他頻道
   Subscription List: 訂閱清單
   Profile Filter: 設定檔篩選器
+  Profile Settings: 設定檔設定
 The playlist has been reversed: 播放清單已反轉
 A new blog is now available, $. Click to view more: 已有新的部落格文章，$。點擊以檢視更多
 Download From Site: 從網站下載
@@ -600,6 +646,16 @@ Tooltips:
     Region for Trending: 熱門影片區域可以讓您選擇想要顯示哪個國家的熱門影片。注意：並非所有國家都被 YouTube 支援。
   Privacy Settings:
     Remove Video Meta Files: 如果啟用，FreeTube會在關閉觀看頁面時，自動刪除影片播放過程中建立的暫存檔案。
+  External Player Settings:
+    Custom External Player Arguments: 任何您想要傳遞給外部播放程式的自訂命令列參數，以半形冒號分隔 (';')。
+    Ignore Warnings: 當目前的外部播放程式不支援目前動作時（例如反向播放清單等等），消除警告。
+    Custom External Player Executable: 預設情況下，FreeTube 會假設選定的外部播放程式可以透過 PATH 環境變數找到。如果需要的話，請在此設定自訂路徑。
+    External Player: 選擇外部播放程式將會在縮圖上顯示圖示，用來在外部播放程式中開啟影片（若支援的話，播放清單也可以）。
 Playing Next Video Interval: 馬上播放下一個影片。點擊取消。| 播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。|
   播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。
 More: 更多
+Hashtags have not yet been implemented, try again later: 尚未實作主題標籤，請稍後再試
+Unknown YouTube url type, cannot be opened in app: 未知的 YouTube url 類型，無法在應用程式開啟
+Open New Window: 開啟新視窗
+Default Invidious instance has been cleared: 預設 Invidious 站台已被清除
+Default Invidious instance has been set to $: 預設 Invidious 站台已被設定為 $

@@ -27,15 +27,15 @@
   height: 100px;
   margin: 10px;
   cursor: pointer;
-  border-radius: 200px 200px 200px 200px;
-  -webkit-border-radius: 200px 200px 200px 200px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
 }
 
 .initial {
   font-size: 50px;
+  line-height: 1em;
   text-align: center;
-  position: relative;
-  bottom: 27px;
+  padding: 25px 0;
 }
 
 @media only screen and (max-width: 680px) {

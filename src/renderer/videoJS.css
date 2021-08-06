@@ -448,6 +448,10 @@ body.vjs-full-window {
 .vjs-icon-fullwindow-enter:before, .video-js .vjs-fullwindow-control .vjs-icon-placeholder:before {
   content: url(assets/img/open_fullwindow.svg);
 }
+/* Hide button in full screen mode */
+.vjs--full-screen-enabled .vjs-button-fullwindow {
+  display: none;
+}
 
 .vjs-icon-fullwindow-exit, .video-js.vjs-fullwindow .vjs-fullwindow-control .vjs-icon-placeholder {
   font-family: VideoJS;
@@ -660,10 +664,12 @@ body.vjs-full-window {
   display: none;
   position: absolute;
   bottom: 30px;
-  left: -8px;
+  left: -33px;
   z-index: 5;
   background-color: #151b17;
-  width: 50px;
+  width: 100px;
+  max-height: 225px;
+  overflow-y: auto;
 }
 
 .vjs-quality-level-menu:hover {
@@ -1102,6 +1108,10 @@ body.vjs-full-window {
   width: 1px;
   height: 1px;
   margin-left: -1px;
+}
+
+.video-js .vjs-volume-tooltip {
+  display: none;
 }
 
 .video-js .vjs-volume-panel {

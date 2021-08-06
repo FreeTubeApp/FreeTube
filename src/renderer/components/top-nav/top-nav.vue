@@ -7,26 +7,41 @@
       <font-awesome-icon
         class="menuIcon navIcon"
         icon="bars"
+        role="button"
+        tabindex="0"
         @click="toggleSideNav"
+        @keypress="toggleSideNav"
       />
       <font-awesome-icon
         class="navBackIcon navIcon"
         icon="arrow-left"
+        role="button"
+        tabindex="0"
+        :title="forwardText"
         @click="historyBack"
+        @keypress="historyBack"
       />
       <font-awesome-icon
         class="navForwardIcon navIcon"
         icon="arrow-right"
+        role="button"
+        tabindex="0"
+        :title="forwardText"
         @click="historyForward"
+        @keypress="historyForward"
       />
       <font-awesome-icon
         class="navSearchIcon navIcon"
         icon="search"
+        role="button"
+        tabindex="0"
         @click="toggleSearchContainer"
+        @keypress="toggleSearchContainer"
       />
       <font-awesome-icon
         class="navNewWindowIcon navIcon"
         icon="clone"
+        :title="newWindowText"
         @click="createNewWindow"
       />
       <div class="logo">
@@ -46,19 +61,25 @@
           :is-search="true"
           :select-on-focus="true"
           :data-list="searchSuggestionsDataList"
+          :spellcheck="false"
           @input="getSearchSuggestionsDebounce"
           @click="goToSearch"
         />
         <font-awesome-icon
           class="navFilterIcon navIcon"
+          :class="{ filterChanged: searchFilterValueChanged }"
           icon="filter"
+          role="button"
+          tabindex="0"
           @click="showFilters = !showFilters"
+          @keypress="showFilters = !showFilters"
         />
       </div>
       <ft-search-filters
         v-show="showFilters"
         class="searchFilters"
         :class="{ expand: !isSideNavOpen }"
+        @filterValueUpdated="handleSearchFilterValueChanged"
       />
     </div>
     <ft-profile-selector class="side profiles" />

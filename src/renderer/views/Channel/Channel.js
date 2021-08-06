@@ -78,8 +78,8 @@ export default Vue.extend({
       return this.$store.getters.getBackendFallback
     },
 
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
     },
 
     sessionSearchHistory: function () {
@@ -262,6 +262,7 @@ export default Vue.extend({
       ytch.getChannelInfo(this.id).then((response) => {
         this.id = response.authorId
         this.channelName = response.author
+        document.title = `${this.channelName} - ${process.env.PRODUCT_NAME}`
         if (this.hideChannelSubscriptions || response.subscriberCount === 0) {
           this.subCount = null
         } else {
@@ -269,7 +270,7 @@ export default Vue.extend({
         }
         this.thumbnailUrl = response.authorThumbnails[2].url
         this.channelDescription = autolinker.link(response.description)
-        this.relatedChannels = response.relatedChannels
+        this.relatedChannels = response.relatedChannels.items
 
         if (response.authorBanners !== null) {
           const bannerUrl = response.authorBanners[response.authorBanners.length - 1].url
@@ -353,26 +354,27 @@ export default Vue.extend({
       this.isLoading = true
       this.apiUsed = 'invidious'
 
-      this.$store.dispatch('invidiousGetChannelInfo', this.id).then((response) => {
+      this.invidiousGetChannelInfo(this.id).then((response) => {
         console.log(response)
         this.channelName = response.author
+        document.title = `${this.channelName} - ${process.env.PRODUCT_NAME}`
         this.id = response.authorId
         if (this.hideChannelSubscriptions) {
           this.subCount = null
         } else {
           this.subCount = response.subCount
         }
-        this.thumbnailUrl = response.authorThumbnails[3].url.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`)
+        this.thumbnailUrl = response.authorThumbnails[3].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
         this.channelDescription = autolinker.link(response.description)
         this.relatedChannels = response.relatedChannels.map((channel) => {
-          channel.authorThumbnails[channel.authorThumbnails.length - 1].url = channel.authorThumbnails[channel.authorThumbnails.length - 1].url.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`)
+          channel.authorThumbnails[channel.authorThumbnails.length - 1].url = channel.authorThumbnails[channel.authorThumbnails.length - 1].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
 
           return channel
         })
         this.latestVideos = response.latestVideos
 
         if (typeof (response.authorBanners) !== 'undefined') {
-          this.bannerUrl = response.authorBanners[0].url.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`)
+          this.bannerUrl = response.authorBanners[0].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
         }
 
         this.isLoading = false
@@ -400,7 +402,7 @@ export default Vue.extend({
         }
       }
 
-      this.$store.dispatch('invidiousAPICall', payload).then((response) => {
+      this.invidiousAPICall(payload).then((response) => {
         this.latestVideos = this.latestVideos.concat(response)
         this.latestVideosPage++
         this.isElementListLoading = false
@@ -483,7 +485,7 @@ export default Vue.extend({
         payload.params.continuation = this.playlistContinuationString
       }
 
-      this.$store.dispatch('invidiousAPICall', payload).then((response) => {
+      this.invidiousAPICall(payload).then((response) => {
         this.playlistContinuationString = response.continuation
         this.latestPlaylists = this.latestPlaylists.concat(response.playlists)
         this.isElementListLoading = false
@@ -717,7 +719,7 @@ export default Vue.extend({
         }
       }
 
-      this.$store.dispatch('invidiousAPICall', payload).then((response) => {
+      this.invidiousAPICall(payload).then((response) => {
         this.searchResults = this.searchResults.concat(response)
         this.isElementListLoading = false
         this.searchPage++
@@ -744,7 +746,9 @@ export default Vue.extend({
 
     ...mapActions([
       'showToast',
-      'updateProfile'
+      'updateProfile',
+      'invidiousGetChannelInfo',
+      'invidiousAPICall'
     ])
   }
 })

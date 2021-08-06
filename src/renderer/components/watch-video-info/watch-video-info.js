@@ -6,7 +6,6 @@ import FtListDropdown from '../ft-list-dropdown/ft-list-dropdown.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtShareButton from '../ft-share-button/ft-share-button.vue'
-// import { shell } from 'electron'
 
 export default Vue.extend({
   name: 'WatchVideoInfo',
@@ -83,6 +82,26 @@ export default Vue.extend({
       type: Boolean,
       required: true
     },
+    playlistId: {
+      type: String,
+      default: null
+    },
+    getPlaylistIndex: {
+      type: Function,
+      required: true
+    },
+    getPlaylistReverse: {
+      type: Function,
+      required: true
+    },
+    getPlaylistShuffle: {
+      type: Function,
+      required: true
+    },
+    getPlaylistLoop: {
+      type: Function,
+      required: true
+    },
     theatrePossible: {
       type: Boolean,
       required: true
@@ -107,12 +126,8 @@ export default Vue.extend({
     }
   },
   computed: {
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
-    },
-
-    usingElectron: function () {
-      return this.$store.getters.getUsingElectron
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
     },
 
     profileList: function () {
@@ -225,6 +240,14 @@ export default Vue.extend({
       } else {
         return this.$t('Video.Published on')
       }
+    },
+
+    externalPlayer: function () {
+      return this.$store.getters.getExternalPlayer
+    },
+
+    defaultPlayback: function () {
+      return this.$store.getters.getDefaultPlayback
     }
   },
   mounted: function () {
@@ -244,6 +267,22 @@ export default Vue.extend({
     }
   },
   methods: {
+    handleExternalPlayer: function () {
+      this.$emit('pause-player')
+
+      this.openInExternalPlayer({
+        strings: this.$t('Video.External Player'),
+        watchProgress: this.getTimestamp(),
+        playbackRate: this.defaultPlayback,
+        videoId: this.id,
+        playlistId: this.playlistId,
+        playlistIndex: this.getPlaylistIndex(),
+        playlistReverse: this.getPlaylistReverse(),
+        playlistShuffle: this.getPlaylistShuffle(),
+        playlistLoop: this.getPlaylistLoop()
+      })
+    },
+
     goToChannel: function () {
       this.$router.push({ path: `/channel/${this.channelId}` })
     },
@@ -346,11 +385,6 @@ export default Vue.extend({
       }
     },
 
-    handleDownloadLink: function (url) {
-      const shell = require('electron').shell
-      shell.openExternal(url)
-    },
-
     addToPlaylist: function () {
       const videoData = {
         videoId: this.id,
@@ -394,9 +428,11 @@ export default Vue.extend({
 
     ...mapActions([
       'showToast',
+      'openInExternalPlayer',
       'updateProfile',
       'addVideo',
-      'removeVideo'
+      'removeVideo',
+      'openExternalLink'
     ])
   }
 })

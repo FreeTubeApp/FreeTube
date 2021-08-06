@@ -129,6 +129,16 @@ Settings:
     Check for Updates: Vérifier les mises à jour
     View all Invidious instance information: Voir les informations de toutes les instances
       Invidious
+    System Default: Valeur par défaut du système
+    Clear Default Instance: Effacer l'instance par défaut
+    Set Current Instance as Default: Définir l'instance actuelle comme valeur par
+      défaut
+    Current instance will be randomized on startup: L'instance actuelle sera choisie
+      au hasard au démarrage
+    No default instance has been set: Aucune instance par défaut n'a été définie
+    The currently set default instance is $: L'instance par défaut actuellement définie
+      est $
+    Current Invidious Instance: Instance Invidious actuelle
   Theme Settings:
     Theme Settings: 'Paramètres du thème'
     Match Top Bar with Main Color: 'Faire correspondre la barre supérieure à la couleur
@@ -193,6 +203,11 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Intervalle de la prochaine vidéo dans la liste de
       lecture
+    Next Video Interval: Intervalle vidéo suivante
+    Scroll Volume Over Video Player: Contrôler le niveau du volume avec la molette
+      au dessus du lecteur vidéo
+    Display Play Button In Video Player: Afficher le bouton de lecture dans le lecteur
+      vidéo
   Subscription Settings:
     Subscription Settings: 'Paramètres des abonnements'
     Hide Videos on Watch: 'Masquer les vidéos visionnées'
@@ -323,6 +338,20 @@ Settings:
     Proxy Protocol: Protocole du proxy
     Enable Tor / Proxy: Activer Tor / Proxy
     Proxy Settings: Paramètres du proxy
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Notification lorsqu'un segment sponsorisé
+      est ignoré
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL de l'API SponsorBlock
+      (la valeur par défaut est https://sponsor.ajay.app)
+    Enable SponsorBlock: Activer SponsorBlock
+    SponsorBlock Settings: Paramètres de SponsorBlock
+  External Player Settings:
+    Ignore Unsupported Action Warnings: Ignorer les avertissements concernant les
+      actions non prises en charge
+    External Player: Lecteur externe
+    External Player Settings: Paramètres du lecteur externe
+    Custom External Player Arguments: Arguments personnalisés du lecteur externe
+    Custom External Player Executable: Exécutable de lecteur externe personnalisé
 About:
   #On About page
   About: 'À propos'
@@ -515,6 +544,30 @@ Video:
   Video has been saved: La vidéo a été enregistrée
   Save Video: Enregistrer la vidéo
   translated from English: traduit de l’anglais
+  Sponsor Block category:
+    music offtopic: musique hors sujet
+    interaction: interaction
+    sponsor: sponsor
+    self-promotion: autopromotion
+    outro: outro
+    intro: intro
+  Skipped segment: Segment ignoré
+  External Player:
+    playlist: liste de lecture
+    video: vidéo
+    Unsupported Actions:
+      looping playlists: listes de lecture en boucle
+      shuffling playlists: lecture aléatoire des listes de lecture
+      reversing playlists: inverser l'ordre des listes de lecture
+      opening specific video in a playlist (falling back to opening the video): ouvrir
+        la vidéo sélectionnée dans la liste de lecture (retour à l'ouverture de la
+        vidéo)
+      opening playlists: ouvrir des listes de lecture
+      setting a playback rate: régler la vitesse de lecture
+      starting video at offset: démarrer la vidéo avec un décalage
+    UnsupportedActionTemplate: '$ non pris en charge : %'
+    OpeningTemplate: Ouverture de $ en %...
+    OpenInTemplate: Ouvrir avec $
 Videos:
   #& Sort By
   Sort By:
@@ -539,6 +592,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Liste de lecture
 Toggle Theatre Mode: 'Mode Cinéma'
 Change Format:
   Change Video Formats: 'Changer le format de la vidéo'
@@ -578,7 +632,7 @@ Comments:
   View: 'Voir'
   Hide: 'Masquer'
   Replies: 'Réponses'
-  Reply: 'Répondre'
+  Reply: 'Réponse'
   There are no comments available for this video: 'Il n''y a aucun commentaire pour
     cette vidéo'
   Load More Comments: 'Charger plus de commentaires'
@@ -654,6 +708,7 @@ Profile:
   $ selected: $ sélectionné(s)
   Other Channels: Autres chaînes
   Profile Filter: Filtre de profil
+  Profile Settings: Paramètres du profil
 The playlist has been reversed: La liste de lecture a été inversée
 A new blog is now available, $. Click to view more: Un nouveau billet est maintenant
   disponible, $. Cliquez pour en savoir plus
@@ -701,8 +756,30 @@ Tooltips:
     Remove Video Meta Files: Lorsqu'il est activé, FreeTube supprime automatiquement
       les MétaFichiers créés pendant la lecture de la vidéo, dès que la page de la
       vidéo est quittée.
+  External Player Settings:
+    Custom External Player Arguments: Tous les arguments de ligne de commande personnalisés,
+      séparés par des points-virgules (';'), que vous souhaitez transmettre au lecteur
+      externe.
+    Ignore Warnings: Suppression des avertissements lorsque le lecteur externe actuel
+      ne prend pas en charge l'action en cours (par exemple, inversion des listes
+      de lecture, etc.).
+    Custom External Player Executable: Par défaut, FreeTube suppose que le lecteur
+      externe choisi peut être trouvé via la variable d'environnement PATH. Si nécessaire,
+      un chemin personnalisé peut être défini ici.
+    External Player: La sélection du lecteur externe affichera une icône sur la miniature
+      qui ouvrira la vidéo (liste de lecture, si prise en charge) dans le lecteur
+      externe.
 More: Plus
 Playing Next Video Interval: Lecture de la prochaine vidéo en un rien de temps. Cliquez
   pour annuler. | Lecture de la prochaine vidéo dans {nextVideoInterval} seconde.
   Cliquer pour annuler. | Lecture de la vidéo suivante dans {l'intervalle vidéo suivant}
   secondes. Cliquer pour annuler.
+Hashtags have not yet been implemented, try again later: Les hashtags n'ont pas encore
+  été implémentés, réessayez plus tard
+Unknown YouTube url type, cannot be opened in app: Type d’url YouTube inconnu, ne
+  peut pas être ouvert dans l’application
+Open New Window: Ouvrir une nouvelle fenêtre
+Default Invidious instance has been cleared: L'instance Invidious par défaut a été
+  effacée
+Default Invidious instance has been set to $: L’instance Invidious par défaut a été
+  définie sur $

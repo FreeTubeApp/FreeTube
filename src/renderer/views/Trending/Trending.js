@@ -31,8 +31,8 @@ export default Vue.extend({
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
     },
     region: function () {
       return this.$store.getters.getRegion.toUpperCase()
@@ -68,7 +68,13 @@ export default Vue.extend({
       this.isLoading = true
 
       console.log('getting local trending')
-      ytrend.scrape_trending_page(this.region).then((result) => {
+      const param = {
+        parseCreatorOnRise: false,
+        page: 'default',
+        geoLocation: this.region
+      }
+
+      ytrend.scrape_trending_page(param).then((result) => {
         const returnData = result.filter((item) => {
           return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
         })
@@ -106,7 +112,7 @@ export default Vue.extend({
         params: { region: this.region }
       }
 
-      this.$store.dispatch('invidiousAPICall', trendingPayload).then((result) => {
+      this.invidiousAPICall(trendingPayload).then((result) => {
         if (!result) {
           return
         }
@@ -143,7 +149,8 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'showToast'
+      'showToast',
+      'invidiousAPICall'
     ])
   }
 })

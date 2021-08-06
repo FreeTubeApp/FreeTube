@@ -1,12 +1,11 @@
 import Vue from 'vue'
+import { mapActions } from 'vuex'
 import FtInput from '../ft-input/ft-input.vue'
 import FtSearchFilters from '../ft-search-filters/ft-search-filters.vue'
 import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
 import $ from 'jquery'
-import router from '../../router/index.js'
 import debounce from 'lodash.debounce'
 import ytSuggest from 'youtube-suggest'
-const { ipcRenderer } = require('electron')
 
 export default Vue.extend({
   name: 'TopNav',
@@ -20,10 +19,15 @@ export default Vue.extend({
       component: this,
       windowWidth: 0,
       showFilters: false,
+      searchFilterValueChanged: false,
       searchSuggestionsDataList: []
     }
   },
   computed: {
+    usingElectron: function () {
+      return this.$store.getters.getUsingElectron
+    },
+
     enableSearchSuggestions: function () {
       return this.$store.getters.getEnableSearchSuggestions
     },
@@ -40,8 +44,8 @@ export default Vue.extend({
       return this.$store.getters.getBarColor
     },
 
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
     },
 
     backendFallback: function () {
@@ -50,6 +54,18 @@ export default Vue.extend({
 
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
+    },
+
+    forwardText: function () {
+      return this.$t('Forward')
+    },
+
+    backwardText: function () {
+      return this.$t('Backward')
+    },
+
+    newWindowText: function () {
+      return this.$t('Open New Window')
     }
   },
   mounted: function () {
@@ -90,32 +106,83 @@ export default Vue.extend({
         searchInput.blur()
       }
 
-      const { videoId, timestamp } = await this.$store.dispatch('getVideoParamsFromUrl', query)
-      const playlistId = await this.$store.dispatch('getPlaylistIdFromUrl', query)
+      this.getYoutubeUrlInfo(query).then((result) => {
+        switch (result.urlType) {
+          case 'video': {
+            const { videoId, timestamp, playlistId } = result
 
-      console.log(playlistId)
-
-      if (videoId) {
-        this.$router.push({
-          path: `/watch/${videoId}`,
-          query: timestamp ? { timestamp } : {}
-        })
-      } else if (playlistId) {
-        this.$router.push({
-          path: `/playlist/${playlistId}`
-        })
-      } else {
-        router.push({
-          path: `/search/${encodeURIComponent(query)}`,
-          query: {
-            sortBy: this.searchSettings.sortBy,
-            time: this.searchSettings.time,
-            type: this.searchSettings.type,
-            duration: this.searchSettings.duration
+            const query = {}
+            if (timestamp) {
+              query.timestamp = timestamp
+            }
+            if (playlistId && playlistId.length > 0) {
+              query.playlistId = playlistId
+            }
+            this.$router.push({
+              path: `/watch/${videoId}`,
+              query: query
+            })
+            break
           }
-        })
-      }
 
+          case 'playlist': {
+            const { playlistId, query } = result
+
+            this.$router.push({
+              path: `/playlist/${playlistId}`,
+              query
+            })
+            break
+          }
+
+          case 'search': {
+            const { searchQuery, query } = result
+
+            this.$router.push({
+              path: `/search/${encodeURIComponent(searchQuery)}`,
+              query
+            })
+            break
+          }
+
+          case 'hashtag': {
+            // TODO: Implement a hashtag related view
+            let message = 'Hashtags have not yet been implemented, try again later'
+            if (this.$t(message) && this.$t(message) !== '') {
+              message = this.$t(message)
+            }
+
+            this.showToast({
+              message: message
+            })
+            break
+          }
+
+          case 'channel': {
+            const { channelId } = result
+
+            this.$router.push({
+              path: `/channel/${channelId}`
+            })
+            break
+          }
+
+          case 'invalid_url':
+          default: {
+            this.$router.push({
+              path: `/search/${encodeURIComponent(query)}`,
+              query: {
+                sortBy: this.searchSettings.sortBy,
+                time: this.searchSettings.time,
+                type: this.searchSettings.type,
+                duration: this.searchSettings.duration
+              }
+            })
+          }
+        }
+      })
+
+      // Close the filter panel
       this.showFilters = false
     },
 
@@ -161,7 +228,7 @@ export default Vue.extend({
         }
       }
 
-      this.$store.dispatch('invidiousAPICall', searchPayload).then((results) => {
+      this.invidiousAPICall(searchPayload).then((results) => {
         this.searchSuggestionsDataList = results.suggestions
       }).catch((err) => {
         console.log(err)
@@ -186,6 +253,10 @@ export default Vue.extend({
       this.showFilters = false
     },
 
+    handleSearchFilterValueChanged: function(filterValueChanged) {
+      this.searchFilterValueChanged = filterValueChanged
+    },
+
     historyBack: function () {
       window.history.back()
     },
@@ -199,7 +270,18 @@ export default Vue.extend({
     },
 
     createNewWindow: function () {
-      ipcRenderer.send('createNewWindow')
-    }
+      if (this.usingElectron) {
+        const { ipcRenderer } = require('electron')
+        ipcRenderer.send('createNewWindow')
+      } else {
+        // Web placeholder
+      }
+    },
+
+    ...mapActions([
+      'showToast',
+      'getYoutubeUrlInfo',
+      'invidiousAPICall'
+    ])
   }
 })

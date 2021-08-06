@@ -29,7 +29,7 @@ export default Vue.extend({
         {
           icon: 'question-circle',
           title: this.$t('About.Help'),
-          content: `<a href="https://github.com/FreeTubeApp/FreeTube/wiki">${this.$t('About.FreeTube Wiki')}</a> / <a href="https://github.com/FreeTubeApp/FreeTube/wiki/F.A.Q.">${this.$t('About.FAQ')}</a>`
+          content: `<a href="https://docs.freetubeapp.io/">${this.$t('About.FreeTube Wiki')}</a> / <a href="https://docs.freetubeapp.io/faq/">${this.$t('About.FAQ')}</a>`
         },
         {
           icon: 'exclamation-circle',
@@ -44,7 +44,7 @@ export default Vue.extend({
         {
           icon: 'newspaper',
           title: this.$t('About.Blog'),
-          content: '<a href="https://freetube.writeas.com/">https://freetube.writeas.com/</a>'
+          content: '<a href="https://blog.freetubeapp.io">https://blog.freetubeapp.io</a>'
         },
         {
           icon: 'envelope',
@@ -69,7 +69,7 @@ export default Vue.extend({
         {
           icon: 'users',
           title: this.$t('About.Credits'),
-          content: `${this.$t('About.FreeTube is made possible by')} <a href="https://github.com/FreeTubeApp/FreeTube/wiki/Credits">${this.$t('About.these people and projects')}</a>`
+          content: `${this.$t('About.FreeTube is made possible by')} <a href="https://docs.freetubeapp.io/credits/">${this.$t('About.these people and projects')}</a>`
         },
         {
           icon: 'heart',
@@ -87,19 +87,6 @@ export default Vue.extend({
           content: '<a href="monero:48WyAPdjwc6VokeXACxSZCFeKEXBiYPV6GjfvBsfg4CrUJ95LLCQSfpM9pvNKy5GE5H4hNaw99P8RZyzmaU9kb1pD7kzhCB">48WyAPdjwc6VokeXACxSZCFeKEXBiYPV6GjfvBsfg4CrUJ95LLCQSfpM9pvNKy5GE5H4hNaw99P8RZyzmaU9kb1pD7kzhCB</a>'
         }
       ]
-    }
-  },
-  computed: {
-    usingElectron: function () {
-      return this.$store.getters.getUsingElectron
-    }
-  },
-  methods: {
-    openUrl: function (url) {
-      if (this.usingElectron) {
-        const shell = require('electron').shell
-        shell.openExternal(url)
-      }
     }
   }
 })

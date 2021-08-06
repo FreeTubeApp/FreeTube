@@ -101,7 +101,7 @@ User Playlists:
 History:
   # On History Page
   History: 'Előzmények'
-  Watch History: 'Előzmények figyelése'
+  Watch History: 'Korábbi megtekintések'
   Your history list is currently empty.: 'Az előzmények listája jelenleg üres.'
 Settings:
   # On Settings Page
@@ -135,6 +135,14 @@ Settings:
         #! List countries
     View all Invidious instance information: Az Invidious példány összes tájékoztatásának
       megtekintése
+    System Default: Rendszer alapértelmezett
+    Current Invidious Instance: Jelenlegi Invidious-példány
+    Clear Default Instance: Alapértelmezett példány eltávolítása
+    Set Current Instance as Default: Állítsa be a jelenlegi példányt alapértelmezettként
+    Current instance will be randomized on startup: Jelenlegi példány indításkor véletlenszerűsített
+    No default instance has been set: Az alapértelmezett példány nincs beállítva
+    The currently set default instance is $: A jelenleg beállított alapértelmezett
+      példány $
   Theme Settings:
     Theme Settings: 'Téma beállítások'
     Match Top Bar with Main Color: 'Illessze a felső sávot a fő színnel'
@@ -197,6 +205,11 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Lejátszási lista következő videó intervalluma
+    Next Video Interval: Következő videó időköze
+    Scroll Volume Over Video Player: A hangerő szintjét a videolejátszó fölötti kerékkel
+      szabályozhatja
+    Display Play Button In Video Player: Lejátszás gomb megjelenítése a videolejátszóban
+    Fast-Forward / Rewind Interval: Gyors előre- és visszatekerési időköz
   Privacy Settings:
     Privacy Settings: 'Adatvédelmi beállítások'
     Remember History: 'Előzmények megjegyzése'
@@ -315,6 +328,19 @@ Settings:
     Proxy Settings: Meghatalmazás beállításai
     Error getting network information. Is your proxy configured properly?: Hiba a
       hálózati adatok lekérésekor. Megfelelő a meghatalmazás beállítása?
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Értesítés a szponzorált szegmens kihagyásáról
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 'SponsorBlock API
+      URL címe (Alapértelmezés: https://sponsor.ajay.app)'
+    Enable SponsorBlock: SponsorBlock engedélyezése
+    SponsorBlock Settings: SponsorBlock beállításai
+  External Player Settings:
+    Ignore Unsupported Action Warnings: Nem támogatott műveleti figyelmeztetések figyelmen
+      kívül hagyva
+    Custom External Player Arguments: Egyéni külső lejátszó érvek
+    Custom External Player Executable: Egyedi külső lejátszó végrehajthatója
+    External Player: Külső lejátszó
+    External Player Settings: Külső lejátszó beállításai
 About:
   #On About page
   About: 'Névjegy'
@@ -414,6 +440,7 @@ Profile:
     törli a kijelölt csatornákat? Ez nem törli a csatornát más profilokból.'
 #On Channel Page
   Profile Filter: Profilszűrő
+  Profile Settings: Profilbeállítások
 Channel:
   Subscriber: 'Feliratkozó'
   Subscribers: 'Feliratkozók'
@@ -536,6 +563,29 @@ Video:
   Video has been saved: A videó mentve
   Save Video: Videó mentése
   translated from English: angolról fordítva
+  Sponsor Block category:
+    music offtopic: témán kívüli zene
+    interaction: kölcsönhatás
+    self-promotion: önreklám
+    outro: kivezetés
+    intro: bevezetés
+    sponsor: szponzor
+  Skipped segment: Szegmens kihagyva
+  External Player:
+    Unsupported Actions:
+      looping playlists: lejátszási lista folyamatos lejátszása
+      shuffling playlists: véletlen sorrendű lejátszási listák
+      reversing playlists: visszirányú lejátszási listák
+      opening specific video in a playlist (falling back to opening the video): adott
+        videó megnyitása a lejátszási listában (visszatérve a videó megnyitására)
+      opening playlists: lejátszási listák megnyitása
+      setting a playback rate: lejátszási sebesség beállítása
+      starting video at offset: Videó kezdése eltolás
+    UnsupportedActionTemplate: 'A(z) $ külső lejátszó nem támogatja: %'
+    OpeningTemplate: A(z) $ videó megnyitása a(z) % külső lejátszóban…
+    playlist: lejátszási lista
+    video: videó
+    OpenInTemplate: $ megnyításaban
 Videos:
   #& Sort By
   Sort By:
@@ -560,6 +610,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Lejátszási lista
 Toggle Theatre Mode: 'Mozi mód be-/kikapcsolása'
 Change Format:
   Change Video Formats: 'Videoformátumok módosítása'
@@ -673,8 +724,27 @@ Tooltips:
   Privacy Settings:
     Remove Video Meta Files: Ha engedélyezve van, a FreeTube önműködőén törli a videolejátszás
       során létrehozott métafájlokat, amikor a nézési oldal bezárul.
+  External Player Settings:
+    Custom External Player Executable: Alapértelmezés szerint a FreeTube feltételezi,
+      hogy a kiválasztott külső lejátszó megtalálható a PATH (ÚTVONAL) környezeti
+      változón keresztül. Szükség esetén itt egyéni útvonal állítható be.
+    Ignore Warnings: A figyelmeztetések elvetése, ha a jelenlegi külső lejátszó nem
+      támogatja a jelenlegi műveletet (pl. lejátszási listák megfordítása stb.).
+    Custom External Player Arguments: Bármely egyéni parancssori pontosvesszővel (;)
+      elválasztott argumentumot át kell adni a külső lejátszónak.
+    External Player: Külső lejátszó kiválasztása esetén megjelenik egy ikon a videó
+      (lejátszási lista, ha támogatott) megnyitásához a külső lejátszóban, az indexképen.
 Playing Next Video Interval: A következő videó lejátszása folyamatban van. Kattintson
   a törléshez. | A következő videó lejátszása {nextVideoInterval} másodperc múlva
   történik. Kattintson a törléshez. | A következő videó lejátszása {nextVideoInterval}
   másodperc múlva történik. Kattintson a törléshez.
 More: Több
+Hashtags have not yet been implemented, try again later: A kettőskeresztescímke még
+  nincs megvalósítva. Próbálkozzon később.
+Unknown YouTube url type, cannot be opened in app: Ismeretlen YouTube URL-típusa,
+  nem nyitható meg az alkalmazásban
+Open New Window: Új ablak megnyitása
+Default Invidious instance has been cleared: Az alapértelmezett Invidious-példányt
+  eltávolítva
+Default Invidious instance has been set to $: Az alapértelmezett Invidious-példány
+  $ beállítva

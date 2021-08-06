@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { mapActions } from 'vuex'
 import dateFormat from 'dateformat'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
@@ -7,7 +8,7 @@ import FtListVideo from '../../components/ft-list-video/ft-list-video.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 
 export default Vue.extend({
-  name: 'Search',
+  name: 'Playlist',
   components: {
     'ft-loader': FtLoader,
     'ft-card': FtCard,
@@ -33,58 +34,44 @@ export default Vue.extend({
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
     }
   },
   watch: {
     $route () {
       // react to route changes...
-      const payload = {
-        query: this.$route.params.query,
-        options: {},
-        nextPage: false
-      }
-
-      if (typeof (this.sessionSearchHistory[this.query]) !== 'undefined' && this.query !== this.$route.params.query) {
-        this.isLoading = true
-        this.shownResults = []
-        // Replacing the data right away causes a strange error where the data
-        // Shown is mixed from 2 different search results.  So we'll wait a moment
-        // Before showing the results.
-        setTimeout(this.replaceShownResults, 100, this.sessionSearchHistory[this.query])
-      } else {
-        this.performSearch(payload)
-      }
+      this.getPlaylist()
     }
   },
   mounted: function () {
-    this.playlistId = this.$route.params.id
-
-    switch (this.backendPreference) {
-      case 'local':
-        this.getPlaylistLocal()
-        break
-      case 'invidious':
-        this.getPlaylistInvidious()
-        break
-    }
+    this.getPlaylist()
   },
   methods: {
+    getPlaylist: function () {
+      this.playlistId = this.$route.params.id
+
+      switch (this.backendPreference) {
+        case 'local':
+          this.getPlaylistLocal()
+          break
+        case 'invidious':
+          this.getPlaylistInvidious()
+          break
+      }
+    },
     getPlaylistLocal: function () {
       this.isLoading = true
 
-      this.$store.dispatch('ytGetPlaylistInfo', this.playlistId).then((result) => {
+      this.ytGetPlaylistInfo(this.playlistId).then((result) => {
         console.log('done')
         console.log(result)
-
-        const randomVideoIndex = Math.floor((Math.random() * result.items.length))
 
         this.infoData = {
           id: result.id,
           title: result.title,
           description: result.description ? result.description : '',
-          randomVideoId: result.items[randomVideoIndex].id,
+          firstVideoId: result.items[0].id,
           viewCount: result.views,
           videoCount: result.estimatedItemCount,
           lastUpdated: result.lastUpdated ? result.lastUpdated : '',
@@ -132,21 +119,19 @@ export default Vue.extend({
         }
       }
 
-      this.$store.dispatch('invidiousGetPlaylistInfo', payload).then((result) => {
+      this.invidiousGetPlaylistInfo(payload).then((result) => {
         console.log('done')
         console.log(result)
-
-        const randomVideoIndex = Math.floor((Math.random() * result.videos.length) + 1)
 
         this.infoData = {
           id: result.playlistId,
           title: result.title,
           description: result.description,
-          randomVideoId: result.videos[randomVideoIndex].videoId,
+          firstVideoId: result.videos[0].videoId,
           viewCount: result.viewCount,
           videoCount: result.videoCount,
           channelName: result.author,
-          channelThumbnail: result.authorThumbnails[2].url.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`),
+          channelThumbnail: result.authorThumbnails[2].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`),
           channelId: result.authorId,
           infoSource: 'invidious'
         }
@@ -192,6 +177,11 @@ export default Vue.extend({
       this.shownResults = history.data
       this.nextPageRef = history.nextPageRef
       this.isLoading = false
-    }
+    },
+
+    ...mapActions([
+      'ytGetPlaylistInfo',
+      'invidiousGetPlaylistInfo'
+    ])
   }
 })

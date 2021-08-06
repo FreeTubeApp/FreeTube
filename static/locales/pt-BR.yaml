@@ -125,6 +125,14 @@ Settings:
     Check for Latest Blog Posts: Verificar se há Novas Postagens no Blog
     View all Invidious instance information: Ver todas as informações da instância
       Invidious
+    System Default: Padrão do Sistema
+    No default instance has been set: Nenhuma instância padrão foi definida
+    The currently set default instance is $: A instância padrão atualmente definida
+      é $
+    Current instance will be randomized on startup: A instância atual será randomizada
+      na inicialização
+    Set Current Instance as Default: Definir instância atual como padrão
+    Clear Default Instance: Limpar instância padrão
   Theme Settings:
     Theme Settings: 'Configurações de aparência'
     Match Top Bar with Main Color: 'Usar a cor principal para a barra superior'
@@ -186,6 +194,10 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Intervalo do próximo vídeo da lista de reprodução
+    Next Video Interval: Próximo intervalo de vídeo
+    Display Play Button In Video Player: Exibir botão de reprodução no tocador de
+      vídeo
+    Scroll Volume Over Video Player: Rolar volume sobre o reprodutor de vídeo
   Subscription Settings:
     Subscription Settings: 'Configurações de inscrições'
     Hide Videos on Watch: 'Esconder vídeos após assisti-los'
@@ -314,6 +326,19 @@ Settings:
       obter informações da rede. O seu proxy está configurado corretamente?
     City: Cidade
     Region: Região
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Notificar quando vídeos publicitários
+      são pulados
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL da API SponsorBlock
+      (o padrão é https://sponsor.ajay.app)
+    Enable SponsorBlock: Ativar o Bloqueio de Patrocinadores
+    SponsorBlock Settings: Configurações de Bloqueio de Patrocinadores
+  External Player Settings:
+    Custom External Player Arguments: Argumentos de player externo personalizados
+    External Player: Player externo
+    Ignore Unsupported Action Warnings: Ignorar avisos de ação não suportada
+    External Player Settings: Configurações do player externo
+    Custom External Player Executable: Executável de player externo personalizado
 About:
   #On About page
   About: 'Sobre'
@@ -462,7 +487,7 @@ Video:
     Minute: Minuto
   Published on: 'Publicado em'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'Há $ % atrás'
+  Publicationtemplate: 'Há $ %'
 #& Videos
   Started streaming on: Transmissão iniciada em
   Streamed on: Transmitido em
@@ -490,6 +515,29 @@ Video:
     vídeos salvos
   Video has been saved: O vídeo foi salvo
   Save Video: Salvar vídeo
+  translated from English: Traduzido do inglês
+  Sponsor Block category:
+    music offtopic: música fora do contexto
+    interaction: interação
+    self-promotion: autopromoção
+    outro: epílogo
+    intro: introdução
+    sponsor: patrocinador
+  Skipped segment: Segmentos pulados
+  External Player:
+    Unsupported Actions:
+      shuffling playlists: embaralhar playlists
+      opening specific video in a playlist (falling back to opening the video): abrir
+        um vídeo específico em uma lista de reprodução (voltar a abrir o vídeo)
+      reversing playlists: revertendo playlists
+      opening playlists: abrindo playlists
+      starting video at offset: começando vídeo em deslocamento
+      setting a playback rate: definindo uma taxa de reprodução
+    UnsupportedActionTemplate: '$ não suporta: %'
+    playlist: playlist
+    OpeningTemplate: Abrindo $ em %...
+    OpenInTemplate: Aberto em $
+    video: vídeo
 Videos:
   #& Sort By
   Sort By:
@@ -522,7 +570,7 @@ Change Format:
   Use Audio Formats: 'Usar formato de áudio'
   Audio formats are not available for this video: Formatos de áudio não disponíveis
     para este vídeo
-  Dash formats are not available for this video: Formatos Dash não disponíveis para
+  Dash formats are not available for this video: Formatos DASH não disponíveis para
     este vídeo
 Share:
   Share Video: 'Compartilhar vídeo'
@@ -643,28 +691,28 @@ Tooltips:
       vivo
   Player Settings:
     Default Video Format: Define os formatos usados quando um vídeo é reproduzido.
-      Formatos Dash podem reproduzir qualidades mais altas. Os formatos antigos são
+      Formatos DASH podem reproduzir qualidades mais altas. Os formatos antigos são
       limitados a um máximo de 720p, mas usam menos largura de banda. Formatos de
-      áudio são para transmissões sem vídeo
+      áudio são para transmissões sem vídeo.
     Proxy Videos Through Invidious: Conectar-se-á ao Invidious para obter vídeos em
-      vez de fazer uma conexão direta com o YouTube. Ignora a preferência da API
+      vez de fazer uma conexão direta com o YouTube. Ignora a preferência da API.
     Force Local Backend for Legacy Formats: Só funciona quando a API do Invidious
       é predefinida. Quando ativada, a API local será executada e usará os formatos
       antigos retornados por ela em vez dos retornados pelo Invidious. É útil quando
       os vídeos retornados pelo Invidious não são reproduzidos devido a restrições
-      de país
+      de país.
   General Settings:
-    Region for Trending: A região de tendências permite escolher quais vídeos de tendências
-      do país você quer exibir. Nem todos os países exibidos são realmente suportados
-      pelo YouTube
+    Region for Trending: A região de tendências lhe permite de escolher quais vídeos
+      de tendências do país você quer exibir. Nem todos os países exibidos são realmente
+      suportados pelo YouTube.
     Invidious Instance: A instância Invidious à qual o FreeTube se conectará para
-      chamadas de API. Limpe a instância atual para ver uma lista de instâncias públicas
-      para escolher
+      chamadas de API. Apague a instância atual para ver uma lista de instâncias públicas
+      para escolher.
     Thumbnail Preference: Todas as miniaturas do FreeTube serão substituídas por um
-      quadro do vídeo em vez da miniatura padrão
+      quadro do vídeo em vez da miniatura padrão.
     Fallback to Non-Preferred Backend on Failure: Quando a sua API preferida tiver
-      um problema, o FreeTube tentará automaticamente usar sua API não preferida como
-      um método substituto quando ativado
+      um problema, o FreeTube tentará usar automaticamente sua API não preferida em
+      substituição quando ativado.
     Preferred API Backend: Escolha o backend que o FreeTube usa para obter os dados.
       A API local é um extrator integrado. A API Invidious requer um servidor Invidious
       para se conectar.
@@ -672,8 +720,24 @@ Tooltips:
     Remove Video Meta Files: Quando ativado, o FreeTube exclui automaticamente os
       metarquivos criados durante a reprodução do vídeo quando a página de exibição
       é fechada.
+  External Player Settings:
+    Custom External Player Arguments: Quaisquer argumentos de linha de comando personalizados,
+      separados por ponto e vírgula (';'), você deseja que seja passado para o reprodutor
+      externo.
+    Ignore Warnings: Suprime os avisos para quando o player externo atual não suporta
+      a ação atual (por exemplo, reverter listas de reprodução, etc.).
+    Custom External Player Executable: Por padrão, o FreeTube assumirá que o player
+      externo escolhido pode ser encontrado por meio da variável de ambiente PATH.
+      Se necessário, um caminho personalizado pode ser definido aqui.
+    External Player: A escolha de um reprodutor externo exibirá um ícone para abrir
+      o vídeo (lista de reprodução, se houver suporte) no reprodutor externo, na miniatura.
 More: Mais
 Playing Next Video Interval: Reproduzindo o próximo vídeo imediatamente. Clique para
   cancelar. | Reproduzindo o próximo vídeo em {nextVideoInterval} segundo(s). Clique
   para cancelar. | Reproduzindo o próximo vídeo em {nextVideoInterval} segundos. Clique
   para cancelar.
+Hashtags have not yet been implemented, try again later: Hashtags ainda não foram
+  implementadas, tente novamente mais tarde
+Unknown YouTube url type, cannot be opened in app: Tipo de URL do YouTube desconhecida,
+  não pode ser aberta no aplicativo
+Open New Window: Abrir Uma Nova Janela

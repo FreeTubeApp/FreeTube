@@ -1,7 +1,12 @@
 import Vue from 'vue'
+import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import { mapActions } from 'vuex'
 
 export default Vue.extend({
-  name: 'FtListVideo',
+  name: 'FtListPlaylist',
+  components: {
+    'ft-icon-button': FtIconButton
+  },
   props: {
     data: {
       type: Object,
@@ -24,8 +29,8 @@ export default Vue.extend({
     }
   },
   computed: {
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
     },
 
     listType: function () {
@@ -40,6 +45,14 @@ export default Vue.extend({
       let id = this.channelLink.replace('https://www.youtube.com/user/', '')
       id = id.replace('https://www.youtube.com/channel/', '')
       return id
+    },
+
+    externalPlayer: function () {
+      return this.$store.getters.getExternalPlayer
+    },
+
+    defaultPlayback: function () {
+      return this.$store.getters.getDefaultPlayback
     }
   },
   mounted: function () {
@@ -50,9 +63,23 @@ export default Vue.extend({
     }
   },
   methods: {
+    handleExternalPlayer: function () {
+      this.openInExternalPlayer({
+        strings: this.$t('Video.External Player'),
+        watchProgress: 0,
+        playbackRate: this.defaultPlayback,
+        videoId: null,
+        playlistId: this.playlistId,
+        playlistIndex: null,
+        playlistReverse: null,
+        playlistShuffle: null,
+        playlistLoop: null
+      })
+    },
+
     parseInvidiousData: function () {
       this.title = this.data.title
-      this.thumbnail = this.data.playlistThumbnail.replace('https://i.ytimg.com', this.invidiousInstance).replace('hqdefault', 'mqdefault')
+      this.thumbnail = this.data.playlistThumbnail.replace('https://i.ytimg.com', this.currentInvidiousInstance).replace('hqdefault', 'mqdefault')
       this.channelName = this.data.author
       this.channelLink = this.data.authorUrl
       this.playlistLink = this.data.playlistId
@@ -70,6 +97,10 @@ export default Vue.extend({
       this.channelLink = this.data.owner.url
       this.playlistLink = this.data.url
       this.videoCount = this.data.length
-    }
+    },
+
+    ...mapActions([
+      'openInExternalPlayer'
+    ])
   }
 })

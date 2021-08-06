@@ -55,6 +55,17 @@
     @include top-nav-is-colored
       background-color: var(--primary-color-active)
 
+.navFilterIcon // Filter icon
+  $effect-distance: 10px
+
+  margin-left: $effect-distance
+
+  &.filterChanged // When filter value changed from default
+    box-shadow: 0 0 $effect-distance var(--primary-color)
+
+    @include top-nav-is-colored
+      box-shadow: 0 0 $effect-distance var(--text-with-main-color)
+
 .side // parts of the top nav either side of the search bar
   display: flex
   align-items: center
@@ -67,8 +78,7 @@
       display: none
 
   .navNewWindowIcon
-    // Hidden when "History" menu item also hidden
-    @media only screen and (max-width: 279px)
+    @media only screen and (max-width: 680px)
       display: none
 
   .logo // parts that make up the logo

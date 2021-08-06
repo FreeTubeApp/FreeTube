@@ -116,6 +116,7 @@ Settings:
     Check for Latest Blog Posts: 新着ブログの確認
     Check for Updates: 最新版の確認
     View all Invidious instance information: すべての Invidious インスタンス情報の表示
+    System Default: システムのデフォルト
   Theme Settings:
     Theme Settings: 'テーマの設定'
     Match Top Bar with Main Color: '上部バーをメイン カラーと同じにする'
@@ -177,6 +178,7 @@ Settings:
       4k: '4K'
       8k: '8K'
     Playlist Next Video Interval: 次の再生リストを再生する間隔
+    Next Video Interval: 次のビデオまでの間隔
   Subscription Settings:
     Subscription Settings: '登録チャンネルの設定'
     Hide Videos on Watch: '視聴済み動画の非表示'
@@ -284,6 +286,12 @@ Settings:
     Proxy Protocol: プロキシーのプロトコル
     Enable Tor / Proxy: Tor / プロキシーの有効化
     Proxy Settings: プロキシーの設定
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: 広告セグメントがスキップされたときに通知する
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 広告ブロック API URL（デフォルト
+      https://sponsor.ajay.app）
+    Enable SponsorBlock: 広告ブロック有効
+    SponsorBlock Settings: 広告ブロック設定
 About:
   #On About page
   About: 'About'
@@ -449,6 +457,14 @@ Video:
   Video has been saved: ビデオを保存しました
   Save Video: 動画の保存
   translated from English: 英語から翻訳
+  Sponsor Block category:
+    sponsor: 広告
+    music offtopic: 話題外の音楽
+    interaction: 相互作用
+    self-promotion: 自己宣伝
+    outro: その他
+    intro: イントロ
+  Skipped segment: スキップされたセグメント
 Videos:
   #& Sort By
   Sort By:
@@ -594,7 +610,10 @@ Tooltips:
       は自動的に他の API での取得を試みます。
     Region for Trending: 急上昇の地域設定では、急上昇動画を表示する国を選択できます。YouTube は、すべての国に対応していません。
   Privacy Settings:
-    Remove Video Meta Files: 有効にすると、FreeTube はビデオ再生中に作成したメタファイルは、再生ページを閉じるときに自動的に削除します。
+    Remove Video Meta Files: 有効にすると、FreeTube はビデオ再生中に作成したメタファイルは、再生ページを閉じるときに自動的に削除されます。
 Playing Next Video Interval: すぐに次のビデオを再生します。クリックするとキャンセル。|次のビデオを {nextVideoInterval}
   秒で再生します。クリックするとキャンセル。|次のビデオを {nextVideoInterval} 秒で再生します。クリックするとキャンセル。
 More: もっと見る
+Hashtags have not yet been implemented, try again later: ハッシュタグは未実装です。実装後に実行してください
+Unknown YouTube url type, cannot be opened in app: 不明な YouTube URL の種類、アプリで実行できません
+Open New Window: 新しいウィンドウを開く
