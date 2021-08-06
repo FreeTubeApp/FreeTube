@@ -105,7 +105,8 @@
           <br>
         </span>
         <router-link
-          v-for="(video) in postContent.content.playlistVideoRenderer"
+          v-for="video in postContent.content.playlistVideoRenderer "
+          :key="video.videoId"
           class="playlistPreviewVideos"
           :to="`/watch/${video.videoId}`"
         >
