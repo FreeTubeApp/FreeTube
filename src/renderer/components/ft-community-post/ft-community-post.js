@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
 import { mapActions } from 'vuex'
+import autolinker from 'autolinker'
 
 export default Vue.extend({
   name: 'FtCommunityPost',
@@ -35,7 +36,7 @@ export default Vue.extend({
       postContent: '',
       commentCount: '',
       isLoading: true,
-      author: '',
+      author: ''
     }
   },
   computed: {
@@ -266,23 +267,33 @@ export default Vue.extend({
     },
 
     parseVideoData: function () {
-      if('backstagePostThreadRenderer' in this.data) {
+      if ('backstagePostThreadRenderer' in this.data) {
         this.postText = 'Shared post'
         this.type = 'text'
         this.authorThumbnails = ['', 'https://yt3.ggpht.com/ytc/AAUvwnjm-0qglHJkAHqLFsCQQO97G7cCNDuDLldsrn25Lg=s88-c-k-c0x00ffffff-no-rj']
         return
       }
-      this.postText = this.data.postText
+      this.postText = autolinker.link(this.data.postText)
       this.authorThumbnails = this.data.authorThumbnails
       this.postContent = this.data.postContent
       this.postId = this.data.postId
-      this.publishedText = this.data.publishedText
+      this.toLocalePublicationString({
+        publishText: this.data.publishedText,
+        templateString: this.$t('Video.Publicationtemplate'),
+        timeStrings: this.$t('Video.Published'),
+        liveStreamString: this.$t('Video.Watching'),
+        upcomingString: this.$t('Video.Published.Upcoming'),
+        isLive: this.isLive,
+        isUpcoming: this.isUpcoming,
+        isRSS: this.data.isRSS
+      }).then((data) => {
+        this.publishedText = data
+      }).catch((error) => {
+        console.error(error)
+      })
       this.voteCount = this.data.voteCount
       this.commentCount = this.data.commentCount
       this.type = (this.data.postContent !== null && this.data.postContent !== undefined) ? this.data.postContent.type : 'text'
-      if (this.type === 'image') {
-        console.log("IMAGE NUM PICS:", this.postContent.content.length)
-      }
       this.author = this.data.author
       this.isLoading = false
     },
