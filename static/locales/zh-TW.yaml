@@ -59,7 +59,7 @@ Search Filters:
     Long (> 20 minutes): '長（大於20分鐘）'
   # On Search Page
   Search Results: '搜尋結果'
-  Fetching results. Please wait: '擷取結果中，請稍候...'
+  Fetching results. Please wait: '正在擷取結果。請稍候'
   Fetch more results: '擷取更多結果'
 # Sidebar
   There are no more results for this search: 此搜尋無更多結果
@@ -187,6 +187,7 @@ Settings:
     Next Video Interval: 下一個影片區段
     Scroll Volume Over Video Player: 在影片播放器上捲動以變更音量
     Display Play Button In Video Player: 在影片播放器中顯示播放按鈕
+    Fast-Forward / Rewind Interval: 快轉／倒帶間隔
   Subscription Settings:
     Subscription Settings: '訂閱設定'
     Hide Videos on Watch: '觀看時隱藏影片'
@@ -245,7 +246,7 @@ Settings:
     History object has insufficient data, skipping item: 歷史紀錄物件資料不足，正在跳過項目
     Subscriptions have been successfully exported: 訂閱已成功匯出
     Invalid history file: 無效的歷史紀錄檔案
-    This might take a while, please wait: 這可能需要一段時間，請稍候...
+    This might take a while, please wait: 這可能需要一段時間，請稍候
     Invalid subscriptions file: 無效的訂閱檔案
     All subscriptions have been successfully imported: 所有訂閱已成功匯入
     All subscriptions and profiles have been successfully imported: 所有訂閱與設定檔已成功匯入
@@ -549,7 +550,7 @@ Mini Player: '迷你播放器'
 Comments:
   Comments: '留言'
   Click to View Comments: '點擊查看留言'
-  Getting comment replies, please wait: '擷取留言中，請稍候...'
+  Getting comment replies, please wait: '正在取得留言回覆，請稍候'
   Show Comments: '查看留言'
   Hide Comments: '隱藏留言'
   # Context: View 10 Replies, View 1 Reply
@@ -630,7 +631,8 @@ Version $ is now available!  Click for more details: 版本更新囉! 最新版�
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 沒有這個影片因為缺少格式。這個可能發生由於國家不可用。
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: 啟用後，FreeTube將使用RSS代替它的預設方法來抓取您的訂閱來源。RSS的速度較快，而且可以防止IP封鎖，但它可能不會提供某些資訊，例如影片長度或是直播狀態。
+    Fetch Feeds from RSS: 啟用後，FreeTube 將使用 RSS 替代其預設方法來擷取您的訂閱 feed。RSS 的速度較快，而且可以防止
+      IP 封鎖，但它可能不會提供某些資訊，例如影片長度或是直播狀態
   Player Settings:
     Default Video Format: 設定要用於影片播放的格式。DASH 格式有更高的畫質。傳統格式會限制在 720p 但頻寬需求更低。音訊格式為僅有音訊的串流。
     Proxy Videos Through Invidious: 將連線到 Invidious 而非直接連線到 YouTube 來提供影片。覆寫 API 偏好。
