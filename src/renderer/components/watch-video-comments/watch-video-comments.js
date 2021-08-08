@@ -6,6 +6,7 @@ import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtTimestampCatcher from '../../components/ft-timestamp-catcher/ft-timestamp-catcher.vue'
 import autolinker from 'autolinker'
 import ytcm from '@freetube/yt-comment-scraper'
+import $ from 'jquery'
 
 export default Vue.extend({
   name: 'WatchVideoComments',
@@ -34,7 +35,8 @@ export default Vue.extend({
       commentData: [],
       sortNewest: false,
       commentProcess: null,
-      sortingChanged: false
+      sortingChanged: false,
+      idToFocus: null
     }
   },
   computed: {
@@ -87,6 +89,7 @@ export default Vue.extend({
     },
 
     handleSortChange: function (sortType) {
+      this.idToFocus = '0'
       this.sortNewest = !this.sortNewest
       switch (this.backendPreference) {
         case 'local':
@@ -164,6 +167,9 @@ export default Vue.extend({
         }
       }
 
+      // focus on the first newly loaded comment
+      this.idToFocus = this.commentData.length.toString()
+
       if (this.commentData.length === 0 || this.nextPageToken === null || typeof this.nextPageToken === 'undefined') {
         this.showToast({
           message: this.$t('Comments.There are no more comments for this video')
@@ -186,6 +192,9 @@ export default Vue.extend({
         }
       }
 
+      // focus on the first reply
+      this.idToFocus = `${index}-0`
+
       if (this.commentData[index].showReplies || this.commentData[index].replies.length > 0) {
         this.commentData[index].showReplies = !this.commentData[index].showReplies
       } else {
@@ -193,7 +202,7 @@ export default Vue.extend({
       }
     },
 
-    getCommentReplies: function (index, event) {
+    getCommentReplies: function (index, seenReplies, event) {
       if (event instanceof KeyboardEvent) {
         if (event.key === 'Tab') {
           return
@@ -204,6 +213,11 @@ export default Vue.extend({
         if (event.key !== 'Enter' && event.key !== ' ') {
           return
         }
+      }
+
+      // focus on the first newly loaded reply
+      if (seenReplies) {
+        this.idToFocus = `${index}-${seenReplies}`
       }
 
       switch (this.commentData[index].dataType) {
@@ -225,6 +239,10 @@ export default Vue.extend({
     getCommentDataLocal: function (payload) {
       ytcm.getComments(payload).then((response) => {
         this.parseLocalCommentData(response, null)
+      }).then(() => {
+        if (this.idToFocus) {
+          $(`#comment${this.idToFocus} .commentAuthor`).focus()
+        }
       }).catch((err) => {
         console.log(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -253,6 +271,10 @@ export default Vue.extend({
 
       ytcm.getCommentReplies(payload).then((response) => {
         this.parseLocalCommentData(response, payload.index)
+      }).then(() => {
+        if (this.idToFocus) {
+          $(`#comment${this.idToFocus} .commentAuthor`).focus()
+        }
       }).catch((err) => {
         console.log(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -352,6 +374,10 @@ export default Vue.extend({
         this.nextPageToken = response.continuation
         this.isLoading = false
         this.showComments = true
+      }).then(() => {
+        if (this.idToFocus) {
+          $(`#comment${this.idToFocus} .commentAuthor`).focus()
+        }
       }).catch((xhr) => {
         console.log('found an error')
         console.log(xhr)
@@ -409,6 +435,10 @@ export default Vue.extend({
         this.commentData[index].replies = commentData
         this.commentData[index].showReplies = true
         this.isLoading = false
+      }).then(() => {
+        if (this.idToFocus) {
+          $(`#comment${this.idToFocus} .commentAuthor`).focus()
+        }
       }).catch((xhr) => {
         console.log('found an error')
         console.log(xhr)

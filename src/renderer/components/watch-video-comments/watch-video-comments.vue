@@ -48,6 +48,7 @@
     >
       <div
         v-for="(comment, index) in commentData"
+        :id="'comment' + index"
         :key="index"
         class="comment"
       >
@@ -122,6 +123,7 @@
         >
           <div
             v-for="(reply, replyIndex) in comment.replies"
+            :id="'comment' + index + '-' + replyIndex"
             :key="replyIndex"
             class="comment"
           >
@@ -166,8 +168,8 @@
             class="showMoreReplies"
             role="button"
             tabindex="0"
-            @click="getCommentReplies(index)"
-            @keydown="getCommentReplies(index, $event)"
+            @click="getCommentReplies(index, comment.replies.length)"
+            @keydown="getCommentReplies(index, comment.replies.length, $event)"
           >
             <span>Show More Replies</span>
           </div>

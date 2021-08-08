@@ -42,8 +42,8 @@
         :src="channelThumbnail"
       >
       <h3
-        class="channelName"
         id="channelNameInfo"
+        class="channelName"
       >
         {{ channelName }}
       </h3>
