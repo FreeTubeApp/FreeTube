@@ -8,7 +8,7 @@
   color: var(--title-color);
 }
 
-.getCommentsTitle:hover, .getCommentsTitle:focus {
+.getCommentsTitle:hover, .getCommentsTitle:focus, .getMoreComments:hover, .getMoreComments:focus, .showMoreReplies:hover, .showMoreReplies:focus, .commentMoreReplies:focus, .commentMoreReplies:hover {
   color: var(--primary-color);
 }
 
@@ -135,8 +135,4 @@
   text-decoration: underline;
   cursor: pointer;
   color: var(--title-color);
-}
-
-.getMoreComments:hover, .getMoreComments:focus {
-  background-color: var(--primary-color);
 }
