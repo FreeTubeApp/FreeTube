@@ -20,6 +20,8 @@ export default Vue.extend({
       windowWidth: 0,
       showFilters: false,
       searchFilterValueChanged: false,
+      historyIndex: 1,
+      isForwardOrBack: false,
       searchSuggestionsDataList: []
     }
   },
@@ -257,12 +259,41 @@ export default Vue.extend({
       this.searchFilterValueChanged = filterValueChanged
     },
 
+    navigateHistory: function() {
+      if (!this.isForwardOrBack) {
+        this.historyIndex = window.history.length
+        $('#historyArrowBack').removeClass('fa-arrow-left')
+        $('#historyArrowForward').addClass('fa-arrow-right')
+      } else {
+        this.isForwardOrBack = false
+      }
+    },
+
     historyBack: function () {
+      this.isForwardOrBack = true
       window.history.back()
+
+      if (this.historyIndex > 1) {
+        this.historyIndex--
+        $('#historyArrowForward').removeClass('fa-arrow-right')
+        if (this.historyIndex === 1) {
+          $('#historyArrowBack').addClass('fa-arrow-left')
+        }
+      }
     },
 
     historyForward: function () {
+      this.isForwardOrBack = true
       window.history.forward()
+
+      if (this.historyIndex < window.history.length) {
+        this.historyIndex++
+        $('#historyArrowBack').removeClass('fa-arrow-left')
+
+        if (this.historyIndex === window.history.length) {
+          $('#historyArrowForward').addClass('fa-arrow-right')
+        }
+      }
     },
 
     toggleSideNav: function () {

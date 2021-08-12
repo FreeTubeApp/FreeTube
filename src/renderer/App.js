@@ -133,6 +133,10 @@ export default Vue.extend({
           this.checkForNewBlogPosts()
         }, 500)
       })
+
+      this.$router.afterEach((to, from) => {
+        this.$refs.topNav.navigateHistory()
+      })
     })
   },
   methods: {
@@ -273,10 +277,10 @@ export default Vue.extend({
       if (event.altKey) {
         switch (event.code) {
           case 'ArrowRight':
-            window.history.forward()
+            this.$refs.topNav.historyForward()
             break
           case 'ArrowLeft':
-            window.history.back()
+            this.$refs.topNav.historyBack()
             break
         }
       }
