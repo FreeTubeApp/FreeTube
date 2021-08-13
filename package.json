@@ -120,6 +120,7 @@
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-standard": "^5.0.0",
     "eslint-plugin-vue": "^7.15.1",
+    "eslint-plugin-vuejs-accessibility": "^0.7.1",
     "fast-glob": "^3.2.7",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.2",
