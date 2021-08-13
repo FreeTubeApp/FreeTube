@@ -2,8 +2,8 @@
   <div
     class="prompt"
     @click="handleHide"
-    @keydown.enter.prevent="handleHide"
-    @keydown.space.prevent="handleHide"
+    @keydown.enter="handleHide"
+    tabindex="-1"
   >
     <ft-card
       class="promptCard"

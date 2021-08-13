@@ -21,7 +21,7 @@
       class="bannerIcon"
       icon="times"
       tabindex="0"
-      :title="$('Close Banner')"
+      :title="$t('Close Banner')"
       @click="handleClose"
       @keydown="handleClose($event)"
     />
