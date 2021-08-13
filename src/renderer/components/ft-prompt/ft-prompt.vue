@@ -1,9 +1,9 @@
 <template>
   <div
     class="prompt"
+    tabindex="-1"
     @click="handleHide"
     @keydown.enter="handleHide"
-    tabindex="-1"
   >
     <ft-card
       class="promptCard"
