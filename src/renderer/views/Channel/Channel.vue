@@ -14,16 +14,19 @@
         v-if="bannerUrl !== null"
         class="channelBanner"
         :src="bannerUrl"
+        alt=""
       >
       <img
         v-else
         class="defaultChannelBanner"
+        alt=""
       >
       <div class="channelInfoContainer">
         <div class="channelInfo">
           <img
             class="channelThumbnail"
             :src="thumbnailUrl"
+            alt=""
           >
           <span
             class="channelName"

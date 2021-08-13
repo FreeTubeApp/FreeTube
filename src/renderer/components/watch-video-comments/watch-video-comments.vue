@@ -58,6 +58,7 @@
           class="commentThumbnail"
           tabindex="-1"
           @click="goToChannel(comment.authorLink)"
+          @keydown.enter.prevent="goToChannel(comment.authorLink)"
         >
         <p
           class="commentAuthorWrapper"
@@ -92,6 +93,7 @@
             <img
               :src="channelThumbnail"
               class="commentHeartBadgeImg"
+              alt=""
             >
             <font-awesome-icon
               icon="heart"
@@ -130,6 +132,7 @@
             <img
               :src="reply.authorThumb"
               class="commentThumbnail"
+              alt=""
             >
             <p class="commentAuthorWrapper">
               <span

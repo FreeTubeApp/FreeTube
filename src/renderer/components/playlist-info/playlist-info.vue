@@ -5,7 +5,7 @@
     >
       <img
         :src="thumbnail"
-        :aria-label="$t('Playlist.Play First Video')"
+        :alt="$t('Playlist.Play First Video')"
         role="link"
         tabindex="0"
         @click="playFirstVideo"
@@ -40,6 +40,7 @@
       <img
         class="channelThumbnail"
         :src="channelThumbnail"
+        alt=""
       >
       <h3
         id="channelNameInfo"

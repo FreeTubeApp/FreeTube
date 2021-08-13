@@ -282,11 +282,6 @@ export default Vue.extend({
       this.showScrollToBottom = false
     },
 
-    preventDefault: function (event) {
-      event.stopPropagation()
-      event.preventDefault()
-    },
-
     ...mapActions([
       'getRandomColorClass'
     ])

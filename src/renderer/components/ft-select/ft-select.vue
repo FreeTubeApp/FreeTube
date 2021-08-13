@@ -3,7 +3,7 @@
     <select
       class="select-text"
       :value="value"
-      @change="$emit('change', $event.target.value)"
+      @blur="$emit('change', $event.target.value)"
     >
       <option
         v-for="(name, index) in selectNames"
@@ -19,9 +19,9 @@
     />
     <span class="select-highlight" />
     <span class="select-bar" />
-    <label class="select-label">
+    <p class="select-label">
       {{ placeholder }}
-    </label>
+    </p>
     <ft-tooltip
       v-if="tooltip !== ''"
       class="selectTooltip"

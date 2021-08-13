@@ -6,6 +6,8 @@
       class="toast"
       :class="{ closed: !toast.isOpen, open: toast.isOpen }"
       @click="performAction(index)"
+      @keydown.enter.prevent="performAction(index)"
+      @keydown.space.prevent="performAction(index)"
     >
       <p class="message">
         {{ toast.message }}

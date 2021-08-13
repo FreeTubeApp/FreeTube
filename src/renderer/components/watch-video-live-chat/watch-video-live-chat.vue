@@ -60,6 +60,7 @@
           <img
             :src="comment.author.thumbnail.url"
             class="channelThumbnail"
+            alt=""
           >
           <p
             class="superChatContent"
@@ -84,7 +85,7 @@
       >
         <div
           class="superChatMessage"
-          @click="e => preventDefault(e)"
+          @click.stop.prevent
         >
           <div
             class="upperSuperChatMessage"
@@ -92,6 +93,7 @@
             <img
               :src="superChat.author.thumbnail.url"
               class="channelThumbnail"
+              alt=""
             >
             <p
               class="channelName"
@@ -132,6 +134,7 @@
               <img
                 :src="comment.author.thumbnail.url"
                 class="channelThumbnail"
+                alt=""
               >
               <p
                 class="channelName"
@@ -156,6 +159,7 @@
             <img
               :src="comment.author.thumbnail.url"
               class="channelThumbnail"
+              alt=""
             >
             <p
               class="chatContent"
@@ -176,7 +180,7 @@
               >
                 <img
                   :src="comment.author.badge.thumbnail.url"
-                  :alt="comment.author.badge.thumbnail.alt"
+                  alt=""
                   :title="comment.author.badge.thumbnail.alt"
                   class="badgeImage"
                 >

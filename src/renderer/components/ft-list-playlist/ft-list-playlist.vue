@@ -12,6 +12,7 @@
       <img
         :src="thumbnail"
         class="thumbnailImage"
+        alt=""
       >
       <div
         class="videoCountContainer"

@@ -15,6 +15,7 @@
         <img
           :src="thumbnail"
           class="channelImage"
+          alt=""
         >
       </router-link>
     </div>

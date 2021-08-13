@@ -152,6 +152,7 @@
             <img
               class="channelThumbnail"
               :src="channel.thumbnail"
+              alt=""
             >
           </div>
           <p

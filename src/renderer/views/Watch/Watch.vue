@@ -38,6 +38,7 @@
           <img
             :src="thumbnail"
             class="upcomingThumbnail"
+            alt=""
           >
           <div
             class="premiereDate"

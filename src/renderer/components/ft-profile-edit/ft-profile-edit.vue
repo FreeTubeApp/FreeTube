@@ -21,6 +21,8 @@
           class="colorOption"
           :style="{ background: color }"
           @click="profileBgColor = color"
+          @keydown.space.prevent="profileBgColor = color"
+          @keydown.enter.prevent="profileBgColor = color"
         />
       </ft-flex-box>
       <ft-flex-box

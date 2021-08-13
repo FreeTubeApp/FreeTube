@@ -17,7 +17,9 @@
               tabindex="-1"
               :src="channelThumbnail"
               class="channelThumbnail"
+              :alt="channelName"
               @click="goToChannel"
+              @keydown.enter.prevent="goToChannel"
             >
           </div>
           <div>

@@ -1,3 +1,4 @@
+<!-- eslint-disable vuejs-accessibility/media-has-caption -->
 <template>
   <div class="relative">
     <video
