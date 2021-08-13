@@ -25,11 +25,14 @@ module.exports = {
     'prettier',
     'eslint:recommended',
     'plugin:vue/recommended',
-    'standard'
+    'standard',
+    'plugin:vuejs-accessibility/recommended'
   ],
 
   // https://eslint.org/docs/user-guide/configuring#configuring-plugins
-  plugins: ['vue'],
+  plugins: [
+    'vue',
+    'vuejs-accessibility'],
 
   rules: {
     'space-before-function-paren': 0,
@@ -38,6 +41,11 @@ module.exports = {
     'no-console': 0,
     'no-unused-vars': 1,
     'no-undef': 1,
-    'vue/no-template-key': 1
+    'vue/no-template-key': 1,
+    'vuejs-accessibility/label-has-for': ['error', {
+      required: {
+        some: ['nesting', 'id']
+      }
+    }]
   }
 }
