@@ -247,10 +247,6 @@ export default Vue.extend({
     }
   },
   methods: {
-    goToChannel: function (id) {
-      this.$router.push({ path: `/channel/${id}` })
-    },
-
     getChannelInfoLocal: function () {
       this.apiUsed = 'local'
       ytch.getChannelInfo(this.id).then((response) => {

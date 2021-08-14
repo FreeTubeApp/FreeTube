@@ -63,9 +63,6 @@ export default Vue.extend({
 
       event.target.setAttribute('tabindex', '0')
       this.$emit('click', this.labelValues[index])
-    },
-    goToChannel: function () {
-      console.log('TODO: ft-list-channel method goToChannel')
     }
   }
 })

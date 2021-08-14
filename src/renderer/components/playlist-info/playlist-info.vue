@@ -35,8 +35,8 @@
       aria-labelledby="channelNameInfo"
       role="link"
       tabindex="0"
-      @click="goToChannel"
-      @keydown="goToChannel($event)"
+      @click="$goToChannel(channelId)"
+      @keydown.enter.prevent="$goToChannel(channelId)"
     >
       <img
         class="channelThumbnail"

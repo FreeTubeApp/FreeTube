@@ -132,22 +132,6 @@ export default Vue.extend({
       )
     },
 
-    goToChannel: function (event) {
-      if (event instanceof KeyboardEvent) {
-        if (event.key === 'Tab') {
-          return
-        }
-
-        event.preventDefault()
-
-        if (event.key !== 'Enter') {
-          return
-        }
-      }
-
-      this.$router.push({ path: `/channel/${this.channelId}` })
-    },
-
     ...mapActions([
       'showToast',
       'openExternalLink'

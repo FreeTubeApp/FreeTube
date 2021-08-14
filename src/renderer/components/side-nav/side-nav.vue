@@ -150,8 +150,8 @@
           :aria-label="channel.name"
           role="link"
           tabindex="0"
-          @click="goToChannel(channel.id)"
-          @keydown.enter.prevent="goToChannel(channel.id)"
+          @click="$goToChannel(channel.id)"
+          @keydown.enter.prevent="$goToChannel(channel.id)"
         >
           <div
             class="thumbnailContainer"

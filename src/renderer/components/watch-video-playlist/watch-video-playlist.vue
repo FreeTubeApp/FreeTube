@@ -19,8 +19,8 @@
         class="channelName"
         role="link"
         tabindex="0"
-        @click="goToChannel"
-        @keydown.enter.prevent="goToChannel"
+        @click="$goToChannel(channelId)"
+        @keydown.enter.prevent="$goToChannel(channelId)"
       >
         {{ channelName }}
       </span>

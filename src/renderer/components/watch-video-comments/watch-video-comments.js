@@ -406,10 +406,6 @@ export default Vue.extend({
       })
     },
 
-    goToChannel: function (channelId) {
-      this.$router.push({ path: `/channel/${channelId}` })
-    },
-
     ...mapActions([
       'showToast',
       'toLocalePublicationString',

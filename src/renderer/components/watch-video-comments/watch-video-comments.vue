@@ -60,8 +60,8 @@
           :alt="comment.author"
           class="commentThumbnail"
           tabindex="-1"
-          @click="goToChannel(comment.authorLink)"
-          @keydown.enter.prevent="goToChannel(comment.authorLink)"
+          @click="$goToChannel(comment.authorLink)"
+          @keydown.enter.prevent="$goToChannel(comment.authorLink)"
         >
         <p
           class="commentAuthorWrapper"
@@ -70,8 +70,8 @@
             class="commentAuthor"
             role="link"
             tabindex="0"
-            @click="goToChannel(comment.authorLink)"
-            @keydown.enter.prevent="goToChannel(comment.authorLink)"
+            @click="$goToChannel(comment.authorLink)"
+            @keydown.enter.prevent="$goToChannel(comment.authorLink)"
           >
             {{ comment.author }}
           </span>
@@ -143,7 +143,7 @@
                 class="commentAuthor"
                 role="link"
                 tabindex="0"
-                @keydown.enter.prevent="goToChannel(comment.authorLink)"
+                @keydown.enter.prevent="$goToChannel(comment.authorLink)"
               >
                 {{ reply.author }}
               </span>

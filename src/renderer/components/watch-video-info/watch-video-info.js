@@ -283,10 +283,6 @@ export default Vue.extend({
       })
     },
 
-    goToChannel: function () {
-      this.$router.push({ path: `/channel/${this.channelId}` })
-    },
-
     toggleSave: function () {
       if (this.inFavoritesPlaylist) {
         this.removeFromPlaylist()
