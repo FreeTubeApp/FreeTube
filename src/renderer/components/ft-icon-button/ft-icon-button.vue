@@ -15,7 +15,8 @@
       tabindex="0"
       role="button"
       @click="handleIconClick"
-      @keydown="handleIconClick($event)"
+      @keydown.enter.prevent="handleIconClick"
+      @keydown.space.prevent="handleIconClick"
     />
     <div
       :id="id"

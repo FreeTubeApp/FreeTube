@@ -46,19 +46,13 @@ export default Vue.extend({
     })
   },
   methods: {
-    toggleProfileList: function (event) {
-      if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
-        return
-      } else if (event) {
-        event.preventDefault()
-      }
-
+    toggleProfileList: function () {
       const profileList = $('#profileList')
       profileList.get(0).style.display = 'inline'
 
       const openProfile = $(`#profile-${this.activeProfile}`)
       openProfile.attr('tabindex', '0')
-      openProfile.attr('aria-selected', true)
+      openProfile.attr('aria-selected', 'true')
       openProfile.focus()
     },
 
@@ -70,37 +64,11 @@ export default Vue.extend({
     },
 
     setActiveProfile: function (profile, event) {
-      if (event instanceof KeyboardEvent) {
-        let nextElement = null
-        if (event.key === 'Tab') { // navigate to profile settings on tab
-          const settings = $('.profileSettings').first()
-          settings.attr('tabindex', '0')
-          settings.focus()
-          return
-        } else if (event.key === 'ArrowUp') {
-          nextElement = event.target.previousElementSibling
-        } else if (event.key === 'ArrowDown') {
-          nextElement = event.target.nextElementSibling
-        } else if (event.key === 'Home') {
-          nextElement = $('.profile').first()
-        } else if (event.key === 'End') {
-          nextElement = $('.profile').last()
-        }
-
-        event.preventDefault()
-
-        if (nextElement) {
-          event.target.setAttribute('tabindex', '-1')
-          event.target.setAttribute('aria-selected', 'false')
-          nextElement.setAttribute('tabindex', '0')
-          nextElement.setAttribute('aria-selected', 'true')
-          nextElement.focus()
-        }
-
-        if (event.key !== 'Enter' && event.key !== ' ') {
-          return
-        }
+      if (!this.$handleDropdownKeyboardEvent(event, $('.profileSettings').first())) {
+        return
       }
+
+      $(`#profile-${this.activeProfile}`).attr('aria-selected', 'false')
 
       if (this.profileList[this.activeProfile]._id === profile._id) {
         return

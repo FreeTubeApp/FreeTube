@@ -64,7 +64,7 @@ export default Vue.extend({
       thisButton.get(0).style.display = 'inline'
       const firstItem = thisButton.find('.listItem').first()
       firstItem.attr('tabindex', '0')
-      firstItem.attr('aria-selected', true)
+      firstItem.attr('aria-selected', 'true')
       thisButton.attr('aria-expanded', 'true')
       firstItem.focus()
 
@@ -72,6 +72,9 @@ export default Vue.extend({
         if ($(`#${this.id}`).has(e.relatedTarget).length) {
           return
         }
+
+        $(`#${this.id}`)[0].style.display = 'none'
+        $(`#${this.id}`).attr('aria-expanded', 'false')
 
         const shareLinks = $(`#${this.id}`).find('.shareLinks')
 
@@ -87,23 +90,9 @@ export default Vue.extend({
 
     focusOut: function() {
       $(`#${this.id}`).focusout()
-      $(`#${this.id}`)[0].style.display = 'none'
-      $(`#${this.id}`).attr('aria-expanded', 'false')
     },
 
-    handleIconClick: function (event) {
-      if (event instanceof KeyboardEvent) {
-        if (event.key === 'Tab') {
-          return
-        }
-
-        event.preventDefault()
-
-        if (event.key !== 'Enter' && event.key !== ' ') {
-          return
-        }
-      }
-
+    handleIconClick: function () {
       if (this.forceDropdown || (this.dropdownNames.length > 0 && this.dropdownValues.length > 0)) {
         this.toggleDropdown()
       } else {
@@ -112,31 +101,8 @@ export default Vue.extend({
     },
 
     handleDropdownClick: function (index, event) {
-      if (event instanceof KeyboardEvent) {
-        let nextElement = null
-        if (event.key === 'Tab') {
-          return
-        } if (event.key === 'ArrowUp') {
-          nextElement = event.target.previousElementSibling
-        } else if (event.key === 'ArrowDown') {
-          nextElement = event.target.nextElementSibling
-        } else if (event.key === 'Home') {
-          nextElement = $(`#${this.id} > .listItem`).first()[0]
-        } else if (event.key === 'End') {
-          nextElement = $(`#${this.id} > .listItem`).last()[0]
-        }
-
-        event.preventDefault()
-
-        if (nextElement) {
-          event.target.setAttribute('tabindex', '-1')
-          nextElement.setAttribute('tabindex', '0')
-          nextElement.focus()
-        }
-
-        if (event.key !== 'Enter' && event.key !== ' ') {
-          return
-        }
+      if (!this.$handleDropdownKeyboardEvent(event)) {
+        return
       }
 
       const listbox = $(`#${this.id}`)

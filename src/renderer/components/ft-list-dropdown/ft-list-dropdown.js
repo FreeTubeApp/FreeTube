@@ -52,40 +52,15 @@ export default Vue.extend({
       firstOption.focus()
     },
     handleDropdownClick: function(index, event) {
-      if (event instanceof KeyboardEvent) {
-        let nextElement = null
-        if (event.key === 'Tab') {
-          return
-        } if (event.key === 'ArrowUp') {
-          nextElement = event.target.previousElementSibling
-        } else if (event.key === 'ArrowDown') {
-          nextElement = event.target.nextElementSibling
-        } else if (event.key === 'Home') {
-          nextElement = event.target.parentNode.firstElementChild
-        } else if (event.key === 'End') {
-          nextElement = event.target.parentNode.lastElementChild
-        }
-
-        event.preventDefault()
-
-        if (nextElement) {
-          event.target.setAttribute('tabindex', '-1')
-          nextElement.setAttribute('tabindex', '0')
-          nextElement.focus()
-        }
-
-        if (event.key !== 'Enter' && event.key !== ' ') {
-          return
-        }
+      if (!this.$handleDropdownKeyboardEvent(event)) {
+        return
       }
 
       const listbox = $(`#${this.title}`)
       const allOptions = listbox.find('ul')
 
-      allOptions.attr('aria-selected', 'false')
       allOptions.attr('tabindex', '-1')
 
-      event.target.setAttribute('aria-selected', 'true')
       event.target.setAttribute('tabindex', '0')
       this.$emit('click', this.labelValues[index])
     },

@@ -7,7 +7,8 @@
       tabindex="0"
       role="button"
       @click="toggleProfileList"
-      @keydown="toggleProfileList($event)"
+      @keydown.space.prevent="toggleProfileList"
+      @keydown.enter.prevent="toggleProfileList"
     >
       <div
         class="initial"
@@ -59,14 +60,14 @@
             {{ profile.name }}
           </p>
         </div>
-        <ft-icon-button
-          class="profileSettings"
-          :title="$t('Profile.Open Profile Settings')"
-          icon="sliders-h"
-          role="link"
-          @click="openProfileSettings"
-        />
       </div>
+      <ft-icon-button
+        class="profileSettings"
+        :title="$t('Profile.Open Profile Settings')"
+        icon="sliders-h"
+        role="link"
+        @click="openProfileSettings"
+      />
     </ft-card>
   </div>
 </template>
