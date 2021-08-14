@@ -118,19 +118,7 @@ export default Vue.extend({
       }
     },
 
-    getCommentData: function (event) {
-      if (event instanceof KeyboardEvent) {
-        if (event.key === 'Tab') {
-          return
-        }
-
-        event.preventDefault()
-
-        if (event.key !== 'Enter' && event.key !== ' ') {
-          return
-        }
-      }
-
+    getCommentData: function () {
       this.isLoading = true
       switch (this.backendPreference) {
         case 'local':
@@ -154,19 +142,7 @@ export default Vue.extend({
       }
     },
 
-    getMoreComments: function (event) {
-      if (event instanceof KeyboardEvent) {
-        if (event.key === 'Tab') {
-          return
-        }
-
-        event.preventDefault()
-
-        if (event.key !== 'Enter' && event.key !== ' ') {
-          return
-        }
-      }
-
+    getMoreComments: function () {
       // focus on the first newly loaded comment
       this.idToFocus = this.commentData.length.toString()
 
@@ -179,19 +155,7 @@ export default Vue.extend({
       }
     },
 
-    toggleCommentReplies: function (index, event) {
-      if (event instanceof KeyboardEvent) {
-        if (event.key === 'Tab') {
-          return
-        }
-
-        event.preventDefault()
-
-        if (event.key !== 'Enter' && event.key !== ' ') {
-          return
-        }
-      }
-
+    toggleCommentReplies: function (index) {
       // focus on the first reply
       this.idToFocus = `${index}-0`
 
@@ -202,19 +166,7 @@ export default Vue.extend({
       }
     },
 
-    getCommentReplies: function (index, seenReplies, event) {
-      if (event instanceof KeyboardEvent) {
-        if (event.key === 'Tab') {
-          return
-        }
-
-        event.preventDefault()
-
-        if (event.key !== 'Enter' && event.key !== ' ') {
-          return
-        }
-      }
-
+    getCommentReplies: function (index, seenReplies) {
       // focus on the first newly loaded reply
       if (seenReplies) {
         this.idToFocus = `${index}-${seenReplies}`
@@ -454,11 +406,7 @@ export default Vue.extend({
       })
     },
 
-    goToChannel: function (channelId, event) {
-      if (event instanceof KeyboardEvent && event.key !== 'Enter') {
-        return
-      }
-
+    goToChannel: function (channelId) {
       this.$router.push({ path: `/channel/${channelId}` })
     },
 

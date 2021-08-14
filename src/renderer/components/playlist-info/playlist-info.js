@@ -119,19 +119,7 @@ export default Vue.extend({
       }
     },
 
-    playFirstVideo(event) {
-      if (event instanceof KeyboardEvent) {
-        if (event.key === 'Tab') {
-          return
-        }
-
-        event.preventDefault()
-
-        if (event.key !== 'Enter') {
-          return
-        }
-      }
-
+    playFirstVideo() {
       const playlistInfo = {
         playlistId: this.id
       }

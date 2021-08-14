@@ -55,7 +55,8 @@
           role="button"
           tabindex="0"
           @click="showSuperChatComment(comment)"
-          @keydown="showSuperChatComment(comment, $event)"
+          @keydown.space.prevent="showSuperChatComment(comment)"
+          @keydown.enter.prevent="showSuperChatComment(comment)"
         >
           <img
             :src="comment.author.thumbnail.url"
@@ -81,7 +82,8 @@
         role="button"
         tabindex="0"
         @click="showSuperChat = false"
-        @keydown="showSuperChat = ($event.key !== 'Enter' && $event.key !== ' ')"
+        @keydown.space.prevent="showSuperChat = false"
+        @keydown.enter.prevent="showSuperChat = false"
       >
         <div
           class="superChatMessage"
@@ -201,7 +203,8 @@
         role="button"
         tabindex="0"
         @click="scrollToBottom"
-        @keydown="scrollToBottom($event)"
+        @keydown.space.prevent="scrollToBottom"
+        @keydown.enter.prevent="scrollToBottom"
       >
         <font-awesome-icon
           class="icon"

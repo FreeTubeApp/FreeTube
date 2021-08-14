@@ -226,19 +226,7 @@ export default Vue.extend({
       })
     },
 
-    showSuperChatComment: function (comment, event) {
-      if (event instanceof KeyboardEvent) {
-        if (event.key === 'Tab') {
-          return
-        }
-
-        event.preventDefault()
-
-        if (event.key !== 'Enter' && event.key !== ' ') {
-          return
-        }
-      }
-
+    showSuperChatComment: function (comment) {
       if (this.superChat.id === comment.id && this.showSuperChat) {
         this.showSuperChat = false
       } else {
@@ -263,19 +251,7 @@ export default Vue.extend({
       }
     },
 
-    scrollToBottom: function (event) {
-      if (event instanceof KeyboardEvent) {
-        if (event.key === 'Tab') {
-          return
-        }
-
-        event.preventDefault()
-
-        if (event.key !== 'Enter' && event.key !== ' ') {
-          return
-        }
-      }
-
+    scrollToBottom: function () {
       const liveChatComments = $('.liveChatComments')
       liveChatComments.animate({ scrollTop: liveChatComments.prop('scrollHeight') })
       this.stayAtBottom = true

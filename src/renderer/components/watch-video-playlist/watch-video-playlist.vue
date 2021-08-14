@@ -11,7 +11,7 @@
         role="link"
         tabindex="0"
         @click="goToPlaylist"
-        @keydown="goToPlaylist($event)"
+        @keydown.enter.prevent="goToPlaylist"
       >
         {{ playlistTitle }}
       </h3>
@@ -20,7 +20,7 @@
         role="link"
         tabindex="0"
         @click="goToChannel"
-        @keydown="goToChannel($event)"
+        @keydown.enter.prevent="goToChannel"
       >
         {{ channelName }}
       </span>
@@ -38,7 +38,8 @@
           role="button"
           tabindex="0"
           @click="toggleLoop"
-          @keydown="toggleLoop($event)"
+          @keydown.enter.prevent="toggleLoop"
+          @keydown.space.prevent="toggleLoop"
         />
         <font-awesome-icon
           class="playlistIcon"
@@ -48,7 +49,8 @@
           role="button"
           tabindex="0"
           @click="toggleShuffle"
-          @keydown="toggleShuffle($event)"
+          @keydown.space.prevent="toggleShuffle"
+          @keydown.enter.prevent="toggleShuffle"
         />
         <font-awesome-icon
           class="playlistIcon"
@@ -58,7 +60,8 @@
           role="button"
           tabindex="0"
           @click="toggleReversePlaylist"
-          @keydown="toggleReversePlaylist($event)"
+          @keydown.space.prevent="toggleReversePlaylist"
+          @keydown.enter.prevent="toggleReversePlaylist"
         />
         <font-awesome-icon
           class="playlistIcon"
@@ -67,7 +70,7 @@
           role="link"
           tabindex="0"
           @click="playPreviousVideo"
-          @keydown="playPreviousVideo($event)"
+          @keydown.enter.prevent="playPreviousVideo"
         />
         <font-awesome-icon
           class="playlistIcon"
@@ -76,7 +79,7 @@
           role="link"
           tabindex="0"
           @click="playNextVideo"
-          @keydown="playNextVideo($event)"
+          @keydown.enter.prevent="playNextVideo"
         />
       </p>
       <div

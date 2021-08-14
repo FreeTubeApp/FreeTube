@@ -6,8 +6,8 @@
       role="button"
       aria-labelledby="moreNavLabel"
       @click="openMoreOptions = !openMoreOptions"
-      @keydown="openMoreOptions = ($event.key !== 'Enter' && $event.key !== ' ')
-        ? openMoreOptions : !openMoreOptions"
+      @keydown.space.prevent="openMoreOptions = !openMoreOptions"
+      @keydown.enter.prevent="openMoreOptions = !openMoreOptions"
     >
       <font-awesome-icon
         icon="ellipsis-h"
@@ -31,7 +31,8 @@
         tabindex="0"
         aria-labelledby="trendingNavLabel"
         @click="navigate('trending')"
-        @keydown="navigate('trending', $event)"
+        @keydown.space.prevent="navigate('trending')"
+        @keydown.enter.prevent="navigate('trending')"
       >
         <font-awesome-icon
           icon="fire"
@@ -51,7 +52,8 @@
         tabindex="0"
         aria-labelledby="usersNavLabel"
         @click="navigate('popular')"
-        @keydown="navigate('popular', $event)"
+        @keydown.space.prevent="navigate('popular')"
+        @keydown.enter.prevent="navigate('popular')"
       >
         <font-awesome-icon
           icon="users"
@@ -70,7 +72,8 @@
         tabindex="0"
         aria-labelledby="aboutNavLabel"
         @click="navigate('about')"
-        @keydown="navigate('about', $event)"
+        @keydown.space.prevent="navigate('about')"
+        @keydown.enter.prevent="navigate('about')"
       >
         <font-awesome-icon
           icon="info-circle"
@@ -90,7 +93,8 @@
       tabindex="0"
       aria-labelledby="historyNavLabel"
       @click="navigate('history')"
-      @keydown="navigate('history', $event)"
+      @keydown.space.prevent="navigate('history')"
+      @keydown.enter.prevent="navigate('history')"
     >
       <font-awesome-icon
         icon="history"
@@ -110,7 +114,8 @@
       tabindex="0"
       aria-labelledby="settingsNavLabel"
       @click="navigate('settings')"
-      @keydown="navigate('settings', $event)"
+      @keydown.space.prevent="navigate('settings')"
+      @keydown.enter.prevent="navigate('settings')"
     >
       >
       <font-awesome-icon
@@ -130,7 +135,8 @@
       role="link"
       aria-labelledby="aboutNavLabel"
       @click="navigate('about')"
-      @keydown="navigate('about', $event)"
+      @keydown.space.prevent="navigate('about')"
+      @keydown.enter.prevent="navigate('about')"
     >
       <font-awesome-icon
         icon="info-circle"

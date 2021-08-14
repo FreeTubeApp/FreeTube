@@ -6,7 +6,8 @@
     :title="message"
     :aria-describedby="message"
     @click="handleClick(true)"
-    @keydown="handleClick(true, $event)"
+    @keydown.enter.prevent="handleClick(true)"
+    @keydown.space.prevent="handleClick(true)"
   >
     <div
       class="message"
@@ -23,7 +24,7 @@
       tabindex="0"
       :title="$t('Close Banner')"
       @click="handleClose"
-      @keydown="handleClose($event)"
+      @keydown.enter.stop.prevent="handleClose"
     />
   </div>
 </template>

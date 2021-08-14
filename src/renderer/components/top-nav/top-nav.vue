@@ -11,7 +11,8 @@
         tabindex="0"
         :title="$t('Toggle Side Bar')"
         @click="toggleSideNav"
-        @keydown="toggleSideNav($event)"
+        @keydown.space.prevent="toggleSideNav"
+        @keydown.enter.prevent="toggleSideNav"
       />
       <font-awesome-icon
         class="navBackIcon navIcon"
@@ -20,7 +21,8 @@
         tabindex="0"
         :title="backwardText"
         @click="historyBack"
-        @keydown="historyBack($event)"
+        @keydown.space.prevent="historyBack"
+        @keydown.enter.prevent="historyBack"
       />
       <font-awesome-icon
         class="navForwardIcon navIcon"
@@ -29,7 +31,8 @@
         tabindex="0"
         :title="forwardText"
         @click="historyForward"
-        @keydown="historyForward($event)"
+        @keydown.space.prevent="historyForward"
+        @keydown.enter.prevent="historyForward"
       />
       <font-awesome-icon
         class="navSearchIcon navIcon"
@@ -38,7 +41,8 @@
         tabindex="0"
         :title="$t('Search / Go to URL')"
         @click="toggleSearchContainer"
-        @keydown="toggleSearchContainer($event)"
+        @keydown.space.prevent="toggleSearchContainer"
+        @keydown.enter.prevent="toggleSearchContainer"
       />
       <font-awesome-icon
         class="navNewWindowIcon navIcon"
@@ -47,7 +51,8 @@
         tabindex="0"
         :title="newWindowText"
         @click="createNewWindow"
-        @keydown="createNewWindow($event)"
+        @keydown.space.prevent="createNewWindow"
+        @keydown.enter.prevent="createNewWindow"
       />
       <div class="logo">
         <div
@@ -78,9 +83,8 @@
           tabindex="0"
           :title="$t('Search Filters.Show Search Filters')"
           @click="showFilters = !showFilters"
-          @keydown="showFilters =
-            ($event.key !== 'Enter' && $event.key !== ' ')
-              ? showFilters : !showFilters"
+          @keydown.space.prevent="showFilters = !showFilters"
+          @keydown.enter.prevent="showFilters = !showFilters"
         />
       </div>
       <ft-search-filters

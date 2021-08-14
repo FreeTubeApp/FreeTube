@@ -241,19 +241,7 @@ export default Vue.extend({
       })
     },
 
-    toggleSearchContainer: function (event) {
-      if (event instanceof KeyboardEvent) {
-        if (event.key === 'Tab') {
-          return
-        }
-
-        event.preventDefault()
-
-        if (event.key !== 'Enter' && event.key !== ' ') {
-          return
-        }
-      }
-
+    toggleSearchContainer: function () {
       const searchContainer = $('.searchContainer').get(0)
 
       if (searchContainer.style.display === 'none') {
@@ -269,67 +257,19 @@ export default Vue.extend({
       this.searchFilterValueChanged = filterValueChanged
     },
 
-    historyBack: function (event) {
-      if (event instanceof KeyboardEvent) {
-        if (event.key === 'Tab') {
-          return
-        }
-
-        event.preventDefault()
-
-        if (event.key !== 'Enter' && event.key !== ' ') {
-          return
-        }
-      }
-
+    historyBack: function () {
       window.history.back()
     },
 
-    historyForward: function (event) {
-      if (event instanceof KeyboardEvent) {
-        if (event.key === 'Tab') {
-          return
-        }
-
-        event.preventDefault()
-
-        if (event.key !== 'Enter' && event.key !== ' ') {
-          return
-        }
-      }
-
+    historyForward: function () {
       window.history.forward()
     },
 
-    toggleSideNav: function (event) {
-      if (event instanceof KeyboardEvent) {
-        if (event.key === 'Tab') {
-          return
-        }
-
-        event.preventDefault()
-
-        if (event.key !== 'Enter' && event.key !== ' ') {
-          return
-        }
-      }
-
+    toggleSideNav: function () {
       this.$store.commit('toggleSideNav')
     },
 
-    createNewWindow: function (event) {
-      if (event instanceof KeyboardEvent) {
-        if (event.key === 'Tab') {
-          return
-        }
-
-        event.preventDefault()
-
-        if (event.key !== 'Enter') {
-          return
-        }
-      }
-
+    createNewWindow: function () {
       if (this.usingElectron) {
         const { ipcRenderer } = require('electron')
         ipcRenderer.send('createNewWindow')

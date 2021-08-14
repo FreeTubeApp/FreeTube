@@ -11,7 +11,8 @@
         role="link"
         tabindex="0"
         @click="navigate('subscriptions')"
-        @keydown="navigate('subscriptions', $event)"
+        @keydown.enter.prevent="navigate('subscriptions')"
+        @keydown.space.prevent="navigate('subscriptions')"
       >
         <font-awesome-icon
           icon="rss"
@@ -29,7 +30,8 @@
         role="link"
         tabindex="0"
         @click="navigate('trending')"
-        @keydown="navigate('trending', $event)"
+        @keydown.enter.prevent="navigate('trending')"
+        @keydown.space.prevent="navigate('trending')"
       >
         <font-awesome-icon
           icon="fire"
@@ -47,7 +49,8 @@
         role="link"
         tabindex="0"
         @click="navigate('popular')"
-        @keydown="navigate('popular', $event)"
+        @keydown.enter.prevent="navigate('popular')"
+        @keydown.space.prevent="navigate('popular')"
       >
         <font-awesome-icon
           icon="users"
@@ -65,7 +68,8 @@
         role="link"
         tabindex="0"
         @click="navigate('userplaylists')"
-        @keydown="navigate('userplaylists', $event)"
+        @keydown.enter.prevent="navigate('userplaylists')"
+        @keydown.space.prevent="navigate('userplaylists')"
       >
         <font-awesome-icon
           icon="bookmark"
@@ -85,7 +89,8 @@
         role="link"
         tabindex="0"
         @click="navigate('history')"
-        @keydown="navigate('history', $event)"
+        @keydown.enter.prevent="navigate('history')"
+        @keydown.space.prevent="navigate('history')"
       >
         <font-awesome-icon
           icon="history"
@@ -103,7 +108,8 @@
         tabindex="0"
         :aria-label="$t('Settings.Settings')"
         @click="navigate('settings')"
-        @keydown="navigate('settings', $event)"
+        @keydown.enter.prevent="navigate('settings')"
+        @keydown.space.prevent="navigate('settings')"
       >
         <font-awesome-icon
           icon="sliders-h"
@@ -120,7 +126,8 @@
         tabindex="0"
         :aria-label="$t('About.About')"
         @click="navigate('about')"
-        @keydown="navigate('about', $event)"
+        @keydown.enter.prevent="navigate('about')"
+        @keydown.space.prevent="navigate('about')"
       >
         <font-awesome-icon
           icon="info-circle"
@@ -144,7 +151,7 @@
           role="link"
           tabindex="0"
           @click="goToChannel(channel.id)"
-          @keydown="goToChannel(channel.id, $event)"
+          @keydown.enter.prevent="goToChannel(channel.id)"
         >
           <div
             class="thumbnailContainer"

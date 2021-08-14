@@ -5,8 +5,9 @@
       class="getCommentsTitle"
       role="button"
       tabindex="0"
-      @click="getCommentData()"
-      @keydown="getCommentData($event)"
+      @click="getCommentData"
+      @keydown.space.prevent="getCommentData"
+      @keydown.enter.prevent="getCommentData"
     >
       {{ $t("Comments.Click to View Comments") }}
     </h4>
@@ -16,7 +17,8 @@
       role="button"
       tabindex="0"
       @click="showComments = true"
-      @keydown="showComments = $event.key === ' ' || $event.key === 'Enter'"
+      @keydown.space.prevent="showComments = true"
+      @keydown.enter.prevent="showComments = true"
     >
       {{ $t("Comments.Click to View Comments") }}
     </h4>
@@ -38,7 +40,8 @@
         role="button"
         tabindex="0"
         @click="showComments = false"
-        @keydown="showComments = $event.key !== ' ' && $event.key !== 'Enter'"
+        @keydown.space.prevent="showComments = false"
+        @keydown.enter.prevent="showComments = false"
       >
         {{ $t("Comments.Hide Comments") }}
       </span>
@@ -68,7 +71,7 @@
             role="link"
             tabindex="0"
             @click="goToChannel(comment.authorLink)"
-            @keydown="goToChannel(comment.authorLink, $event)"
+            @keydown.enter.prevent="goToChannel(comment.authorLink)"
           >
             {{ comment.author }}
           </span>
@@ -110,7 +113,8 @@
             role="button"
             tabindex="0"
             @click="toggleCommentReplies(index)"
-            @keydown="toggleCommentReplies(index, $event)"
+            @keydown.space.prevent="toggleCommentReplies(index)"
+            @keydown.enter.prevent="toggleCommentReplies(index)"
           >
             <span v-if="!comment.showReplies">{{ $t("Comments.View") }}</span>
             <span v-else>{{ $t("Comments.Hide") }}</span>
@@ -139,8 +143,7 @@
                 class="commentAuthor"
                 role="link"
                 tabindex="0"
-                @click="goToChannel(reply.authorLink)"
-                @keydown="goToChannel(reply.authorLink, $event)"
+                @keydown.enter.prevent="goToChannel(comment.authorLink)"
               >
                 {{ reply.author }}
               </span>
@@ -172,7 +175,8 @@
             role="button"
             tabindex="0"
             @click="getCommentReplies(index, comment.replies.length)"
-            @keydown="getCommentReplies(index, comment.replies.length, $event)"
+            @keydown.space.prevent="getCommentReplies(index, comment.replies.length)"
+            @keydown.enter.prevent="getCommentReplies(index, comment.replies.length)"
           >
             <span>Show More Replies</span>
           </div>
@@ -185,7 +189,8 @@
       role="button"
       tabindex="0"
       @click="getMoreComments"
-      @keydown="getMoreComments($event)"
+      @keydown.space.prevent="getMoreComments"
+      @keydown.enter.prevent="getMoreComments"
     >
       {{ $t("Comments.Load More Comments") }}
     </h4>

@@ -576,11 +576,7 @@ export default Vue.extend({
       }
     },
 
-    handleFetchMore: function (event) {
-      if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
-        return
-      }
-
+    handleFetchMore: function () {
       switch (this.currentTab) {
         case 'videos':
           switch (this.apiUsed) {

@@ -9,7 +9,8 @@
         role="link"
         tabindex="0"
         @click="playFirstVideo"
-        @keydown="playFirstVideo($event)"
+        @keydown.enter.prevent="playFirstVideo"
+        @keydown.space.prevent="playFirstVideo"
       >
     </div>
     <h2>

@@ -16,19 +16,7 @@ export default Vue.extend({
     }
   },
   methods: {
-    navigate: function (route, event) {
-      if (event instanceof KeyboardEvent) {
-        if (event.key === 'Tab') {
-          return
-        }
-
-        event.preventDefault()
-
-        if (event.key !== 'Enter' && event.key !== ' ') {
-          return
-        }
-      }
-
+    navigate: function (route) {
       this.openMoreOptions = false
       this.$emit('navigate', route)
     }

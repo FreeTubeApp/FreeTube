@@ -19,7 +19,8 @@
         role="button"
         tabindex="0"
         @click="nextPage"
-        @keydown="nextPage($event)"
+        @keydown.enter.prevent="nextPage"
+        @keydown.space.prevent="nextPage"
       >
         <font-awesome-icon icon="search" /> {{ $t("Search Filters.Fetch more results") }}
       </div>

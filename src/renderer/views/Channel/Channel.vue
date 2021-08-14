@@ -208,7 +208,8 @@
           role="button"
           tabindex="0"
           @click="handleFetchMore"
-          @keydown="handleFetchMore($event)"
+          @keydown.space.prevent="handleFetchMore"
+          @keydown.enter.prevent="handleFetchMore"
         >
           <font-awesome-icon icon="search" /> {{ $t("Search Filters.Fetch more results") }}
         </div>

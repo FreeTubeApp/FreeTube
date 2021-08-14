@@ -284,19 +284,7 @@ export default Vue.extend({
       })
     },
 
-    nextPage: function (event) {
-      if (event instanceof KeyboardEvent) {
-        if (event.key === 'Tab') {
-          return
-        }
-
-        event.preventDefault()
-
-        if (event.key !== 'Enter' && event.key !== ' ') {
-          return
-        }
-      }
-
+    nextPage: function () {
       const payload = {
         query: this.query,
         nextPage: true,

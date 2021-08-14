@@ -28,7 +28,7 @@
               role="link"
               tabindex="0"
               @click="goToChannel"
-              @keydown="goToChannel($event)"
+              @keydown.enter.prevent="goToChannel"
             >
               {{ channelName }}
             </div>
