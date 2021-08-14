@@ -3,7 +3,7 @@
     <select
       class="select-text"
       :value="value"
-      @blur="$emit('change', $event.target.value)"
+      @change="$emit('change', $event.target.value)"
     >
       <option
         v-for="(name, index) in selectNames"

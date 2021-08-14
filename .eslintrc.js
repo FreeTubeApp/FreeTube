@@ -32,7 +32,8 @@ module.exports = {
   // https://eslint.org/docs/user-guide/configuring#configuring-plugins
   plugins: [
     'vue',
-    'vuejs-accessibility'],
+    'vuejs-accessibility'
+  ],
 
   rules: {
     'space-before-function-paren': 0,
@@ -42,6 +43,7 @@ module.exports = {
     'no-unused-vars': 1,
     'no-undef': 1,
     'vue/no-template-key': 1,
+    'vuejs-accessibility/no-onchange': 0,
     'vuejs-accessibility/label-has-for': ['error', {
       required: {
         some: ['nesting', 'id']
