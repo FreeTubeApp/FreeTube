@@ -2,6 +2,7 @@ import Vue from 'vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
+import $ from 'jquery'
 
 export default Vue.extend({
   name: 'FtPrompt',
@@ -23,6 +24,9 @@ export default Vue.extend({
       type: Array,
       default: () => { return [] }
     }
+  },
+  mounted: function() {
+    $('.prompt').find('button')[0].focus()
   },
   methods: {
     handleHide: function (event) {
