@@ -165,6 +165,10 @@ export default Vue.extend({
       return this.$store.getters.getDefaultVideoFormat
     },
 
+    defaultTheatreMode: function () {
+      return this.$store.getters.getDefaultTheatreMode
+    },
+
     autoplayVideos: function () {
       return this.$store.getters.getAutoplayVideos
     },
@@ -969,10 +973,11 @@ export default Vue.extend({
     },
 
     createTheatreModeButton: function() {
-      console.log('possible:' + this.$parent.theatrePossible)
       if (!this.$parent.theatrePossible) {
         return
       }
+
+      const theatreModeActive = this.defaultTheatreMode ? ' vjs-icon-theatre-active' : ''
 
       const VjsButton = videojs.getComponent('Button')
       const theatreModeButton = videojs.extend(VjsButton, {
@@ -985,7 +990,7 @@ export default Vue.extend({
         createControlTextEl: function (button) {
           return $(button)
             .addClass('vjs-button-theatre')
-            .html($('<div id="theatreModeButton" class="vjs-icon-theatre-inactive vjs-button"></div>'))
+            .html($(`<div id="theatreModeButton" class="vjs-icon-theatre-inactive${theatreModeActive} vjs-button"></div>`))
             .attr('title', 'Toggle Theatre Mode')
         }
       })
