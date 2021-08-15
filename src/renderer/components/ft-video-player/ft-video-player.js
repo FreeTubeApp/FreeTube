@@ -112,6 +112,7 @@ export default Vue.extend({
             'subsCapsButton',
             'audioTrackButton',
             'pictureInPictureToggle',
+            'theatreModeButton',
             'fullWindowButton',
             'qualitySelector',
             'fullscreenToggle'
@@ -195,6 +196,7 @@ export default Vue.extend({
 
     this.createFullWindowButton()
     this.createLoopButton()
+    this.createTheatreModeButton()
     this.determineFormatType()
     this.determineMaxFramerate()
   },
@@ -964,6 +966,64 @@ export default Vue.extend({
         }
       })
       videojs.registerComponent('fullWindowButton', fullWindowButton)
+    },
+
+    createTheatreModeButton: function() {
+      console.log('possible:' + this.$parent.theatrePossible)
+      if (!this.$parent.theatrePossible) {
+        return
+      }
+
+      const VjsButton = videojs.getComponent('Button')
+      const theatreModeButton = videojs.extend(VjsButton, {
+        constructor: function(player, options) {
+          VjsButton.call(this, player, options)
+        },
+        handleClick: () => {
+          this.toggleTheatreMode()
+        },
+        createControlTextEl: function (button) {
+          return $(button)
+            .addClass('vjs-button-theatre')
+            .html($('<div id="theatreModeButton" class="vjs-icon-theatre-inactive vjs-button"></div>'))
+            .attr('title', 'Toggle Theatre Mode')
+        }
+      })
+
+      videojs.registerComponent('theatreModeButton', theatreModeButton)
+    },
+
+    toggleTheatreMode: function() {
+      if (!this.player.isFullscreen_) {
+        const theatreModeButton = $('#theatreModeButton')
+        if (!this.$parent.useTheatreMode) {
+          theatreModeButton.addClass('vjs-icon-theatre-active')
+        } else {
+          theatreModeButton.removeClass('vjs-icon-theatre-active')
+        }
+      }
+
+      this.$parent.toggleTheatreMode()
+
+      // if (!this.player.isFullscreen_) {
+      //   if (this.player.isFullWindow) {
+      //     this.player.removeClass('vjs-full-screen')
+      //     this.player.isFullWindow = false
+      //     document.documentElement.style.overflow = this.player.docOrigOverflow
+      //     $('body').removeClass('vjs-full-window')
+      //     $('#fullwindow').removeClass('vjs-icon-fullwindow-exit')
+      //     this.player.trigger('exitFullWindow')
+      //   } else {
+      //     this.player.addClass('vjs-full-screen')
+      //     this.player.isFullscreen_ = false
+      //     this.player.isFullWindow = true
+      //     this.player.docOrigOverflow = document.documentElement.style.overflow
+      //     document.documentElement.style.overflow = 'hidden'
+      //     $('body').addClass('vjs-full-window')
+      //     $('#fullwindow').addClass('vjs-icon-fullwindow-exit')
+      //     this.player.trigger('enterFullWindow')
+      //   }
+      // }
     },
 
     createDashQualitySelector: function (levels) {
