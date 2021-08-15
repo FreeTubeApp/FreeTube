@@ -1009,26 +1009,6 @@ export default Vue.extend({
       }
 
       this.$parent.toggleTheatreMode()
-
-      // if (!this.player.isFullscreen_) {
-      //   if (this.player.isFullWindow) {
-      //     this.player.removeClass('vjs-full-screen')
-      //     this.player.isFullWindow = false
-      //     document.documentElement.style.overflow = this.player.docOrigOverflow
-      //     $('body').removeClass('vjs-full-window')
-      //     $('#fullwindow').removeClass('vjs-icon-fullwindow-exit')
-      //     this.player.trigger('exitFullWindow')
-      //   } else {
-      //     this.player.addClass('vjs-full-screen')
-      //     this.player.isFullscreen_ = false
-      //     this.player.isFullWindow = true
-      //     this.player.docOrigOverflow = document.documentElement.style.overflow
-      //     document.documentElement.style.overflow = 'hidden'
-      //     $('body').addClass('vjs-full-window')
-      //     $('#fullwindow').addClass('vjs-icon-fullwindow-exit')
-      //     this.player.trigger('enterFullWindow')
-      //   }
-      // }
     },
 
     createDashQualitySelector: function (levels) {
