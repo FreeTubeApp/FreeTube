@@ -104,21 +104,47 @@
     </div>
     <ft-flex-box class="generalSettingsFlexBox">
       <ft-input
-        :placeholder="$t('Settings.General Settings[\'Invidious Instance (Default is https://invidious.snopyta.org)\']')"
+        :placeholder="$t('Settings.General Settings.Current Invidious Instance')"
         :show-arrow="false"
         :show-label="true"
-        :value="invidiousInstance"
-        :data-list="instanceValues"
+        :value="currentInvidiousInstance"
+        :data-list="invidiousInstancesList"
         :tooltip="$t('Tooltips.General Settings.Invidious Instance')"
         @input="handleInvidiousInstanceInput"
       />
     </ft-flex-box>
     <ft-flex-box>
-      <a
-        href="https://api.invidious.io"
-      >
-        {{ $t('Settings.General Settings.View all Invidious instance information') }}
-      </a>
+      <div>
+        <a
+          href="https://api.invidious.io"
+        >
+          {{ $t('Settings.General Settings.View all Invidious instance information') }}
+        </a>
+      </div>
+    </ft-flex-box>
+    <p
+      v-if="defaultInvidiousInstance !== ''"
+      class="center"
+    >
+      {{ $t('Settings.General Settings.The currently set default instance is $').replace('$', defaultInvidiousInstance) }}
+    </p>
+    <template v-else>
+      <p class="center">
+        {{ $t('Settings.General Settings.No default instance has been set') }}
+      </p>
+      <p class="center">
+        {{ $t('Settings.General Settings.Current instance will be randomized on startup') }}
+      </p>
+    </template>
+    <ft-flex-box>
+      <ft-button
+        :label="$t('Settings.General Settings.Set Current Instance as Default')"
+        @click="handleSetDefaultInstanceClick"
+      />
+      <ft-button
+        :label="$t('Settings.General Settings.Clear Default Instance')"
+        @click="handleClearDefaultInstanceClick"
+      />
     </ft-flex-box>
   </ft-card>
 </template>

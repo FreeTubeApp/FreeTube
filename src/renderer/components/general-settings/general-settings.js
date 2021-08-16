@@ -1,11 +1,11 @@
 import Vue from 'vue'
-import $ from 'jquery'
-import { mapActions } from 'vuex'
+import { mapActions, mapMutations } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
 import FtSelect from '../ft-select/ft-select.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
+import FtButton from '../ft-button/ft-button.vue'
 
 import debounce from 'lodash.debounce'
 
@@ -16,11 +16,11 @@ export default Vue.extend({
     'ft-select': FtSelect,
     'ft-input': FtInput,
     'ft-toggle-switch': FtToggleSwitch,
-    'ft-flex-box': FtFlexBox
+    'ft-flex-box': FtFlexBox,
+    'ft-button': FtButton
   },
   data: function () {
     return {
-      showInvidiousInstances: false,
       instanceNames: [],
       instanceValues: [],
       backendValues: [
@@ -62,8 +62,8 @@ export default Vue.extend({
       return this.$store.getters.getUsingElectron
     },
 
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
     },
     enableSearchSuggestions: function () {
       return this.$store.getters.getEnableSearchSuggestions
@@ -113,6 +113,12 @@ export default Vue.extend({
     regionValues: function () {
       return this.$store.getters.getRegionValues
     },
+    invidiousInstancesList: function () {
+      return this.$store.getters.getInvidiousInstancesList
+    },
+    defaultInvidiousInstance: function () {
+      return this.$store.getters.getDefaultInvidiousInstance
+    },
 
     localeOptions: function () {
       return ['system'].concat(Object.keys(this.$i18n.messages))
@@ -159,44 +165,42 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    const requestUrl = 'https://api.invidious.io/instances.json'
-    $.getJSON(requestUrl, (response) => {
-      console.log(response)
-      const instances = response.filter((instance) => {
-        if (instance[0].includes('.onion') || instance[0].includes('.i2p') || instance[0].includes('yewtu.be')) {
-          return false
-        } else {
-          return true
-        }
-      })
-
-      this.instanceNames = instances.map((instance) => {
-        return instance[0]
-      })
-
-      this.instanceValues = instances.map((instance) => {
-        return instance[1].uri.replace(/\/$/, '')
-      })
-
-      this.showInvidiousInstances = true
-    }).fail((xhr, textStatus, error) => {
-      console.log(xhr)
-      console.log(textStatus)
-      console.log(requestUrl)
-      console.log(error)
-    })
-
-    this.updateInvidiousInstanceBounce = debounce(this.updateInvidiousInstance, 500)
+    this.setCurrentInvidiousInstanceBounce =
+      debounce(this.setCurrentInvidiousInstance, 500)
   },
   beforeDestroy: function () {
-    if (this.invidiousInstance === '') {
-      this.updateInvidiousInstance('https://invidious.snopyta.org')
+    if (this.currentInvidiousInstance === '') {
+      // FIXME: If we call an action from here, there's no guarantee it will finish
+      // before the component is destroyed, which could bring up some problems
+      // Since I can't see any way to await it (because lifecycle hooks must be
+      // synchronous), unfortunately, we have to copy/paste the logic
+      // from the `setRandomCurrentInvidiousInstance` action onto here
+      const instanceList = this.invidiousInstancesList
+      const randomIndex = Math.floor(Math.random() * instanceList.length)
+      this.setCurrentInvidiousInstance(instanceList[randomIndex])
     }
   },
   methods: {
     handleInvidiousInstanceInput: function (input) {
-      const invidiousInstance = input.replace(/\/$/, '')
-      this.updateInvidiousInstanceBounce(invidiousInstance)
+      const instance = input.replace(/\/$/, '')
+      this.setCurrentInvidiousInstanceBounce(instance)
+    },
+
+    handleSetDefaultInstanceClick: function () {
+      const instance = this.currentInvidiousInstance
+      this.updateDefaultInvidiousInstance(instance)
+
+      const message = this.$t('Default Invidious instance has been set to $')
+      this.showToast({
+        message: message.replace('$', instance)
+      })
+    },
+
+    handleClearDefaultInstanceClick: function () {
+      this.updateDefaultInvidiousInstance('')
+      this.showToast({
+        message: this.$t('Default Invidious instance has been cleared')
+      })
     },
 
     handlePreferredApiBackend: function (backend) {
@@ -208,6 +212,10 @@ export default Vue.extend({
       }
     },
 
+    ...mapMutations([
+      'setCurrentInvidiousInstance'
+    ]),
+
     ...mapActions([
       'showToast',
       'updateEnableSearchSuggestions',
@@ -216,11 +224,11 @@ export default Vue.extend({
       'updateCheckForBlogPosts',
       'updateBarColor',
       'updateBackendPreference',
+      'updateDefaultInvidiousInstance',
       'updateLandingPage',
       'updateRegion',
       'updateListType',
       'updateThumbnailPreference',
-      'updateInvidiousInstance',
       'updateForceLocalBackendForLegacy',
       'updateCurrentLocale',
       'updateSearchLanguage',

@@ -18,9 +18,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js 12.X
+    - name: Use Node.js 14.x
       uses: actions/setup-node@v1
       with:
-        node-version: 12.X
+        node-version: 14.x
     - run: npm ci
     - run: npm run lint

@@ -138,6 +138,14 @@ Settings:
     Region for Trending: 'Landssvæði sem skal miða vinsældir við'
         #! List countries
     System Default: Sjálfgefið í kerfinu
+    Clear Default Instance: Hreinsa út sjálfgefið tilvik
+    Set Current Instance as Default: Stilla fyrirliggjandi tilvik sem sjálfgefið
+    Current instance will be randomized on startup: Fyrirliggjandi tilvik verður tilgreint
+      af handahófi í ræsingu
+    No default instance has been set: Ekkert sjálfgefið tilvik hefur verið stillt
+    The currently set default instance is $: Fyrirliggjandi sjálfgefna tilvikið er
+      $
+    Current Invidious Instance: Fyrirliggjandi Invidious-tilvik
   Theme Settings:
     Theme Settings: 'Þemastillingar'
     Match Top Bar with Main Color: 'Láta toppstiku samsvara aðallit'
@@ -202,6 +210,7 @@ Settings:
     Next Video Interval: Bil í næsta myndskeið
     Display Play Button In Video Player: Birta afspilunarhnapp í myndspilara
     Scroll Volume Over Video Player: Skrun hljóðstyrks ofan á myndspilara
+    Fast-Forward / Rewind Interval: Millibil hraðspólunar / spóla til baka
   Privacy Settings:
     Privacy Settings: 'Stillingar gagnaleyndar'
     Remember History: 'Muna vinnsluferil'
@@ -375,6 +384,7 @@ Profile:
     viss um að þú viljir eyða völdu rásunum? Þetta mun ekki eyða rásunum úr öðrum
     notkunarsniðum.'
 #On Channel Page
+  Profile Settings: Stillingar notkunarsniðs
 Channel:
   Subscriber: 'Áskrifandi'
   Subscribers: 'Áskrifendur'
@@ -545,6 +555,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Spilunarlisti
 Toggle Theatre Mode: 'Víxla bíóham af/á'
 Change Format:
   Change Video Formats: 'Skipta um myndskeiðasnið'
@@ -675,3 +686,7 @@ Hashtags have not yet been implemented, try again later: Ekki er ennþá stuðni
 Unknown YouTube url type, cannot be opened in app: Óþekkt gerð YouTube-slóðar, er
   ekki hægt að opna í forritinu
 Open New Window: Opna í nýjum glugga
+Default Invidious instance has been cleared: Sjálfgefið Invidious-tilvik hefur verið
+  hreinsað út
+Default Invidious instance has been set to $: Sjálfgefið Invidious-tilvik hefur verið
+  stillt sem $
