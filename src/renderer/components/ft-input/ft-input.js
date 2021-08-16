@@ -35,6 +35,10 @@ export default Vue.extend({
       type: Boolean,
       default: false
     },
+    spellcheck: {
+      type: Boolean,
+      default: true
+    },
     dataList: {
       type: Array,
       default: () => { return [] }

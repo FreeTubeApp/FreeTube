@@ -123,6 +123,13 @@ Settings:
     Check for Updates: تحقّق من وجود تحديثات
     View all Invidious instance information: عرض جميع نماذج Invidious
     System Default: افتراضي النظام
+    Set Current Instance as Default: قم بتعيين المثيل الحالي كافتراضي
+    Current instance will be randomized on startup: سيتم عشوائية المثيل الحالي عند
+      بدء التشغيل
+    No default instance has been set: لم يتم تعيين مثيل افتراضي
+    The currently set default instance is $: المثيل الافتراضي المحدد حاليا هو $
+    Current Invidious Instance: المثيل الحالي Invidious
+    Clear Default Instance: مسح المثيل الافتراضي
   Theme Settings:
     Theme Settings: 'إعدادات السِمة'
     Match Top Bar with Main Color: 'طابق الشريط العلوي مع اللون الأساسي'
@@ -185,6 +192,9 @@ Settings:
       8k: '‍8k'
     Playlist Next Video Interval: الفاصل الزمني لتشغيل الفيديو التالي في قائمة التشغيل
     Next Video Interval: الفاصل الزمني للفيديو التالي
+    Scroll Volume Over Video Player: تمرير مستوى الصوت عبر مشغل الفيديو
+    Display Play Button In Video Player: عرض زر التشغيل في مشغل الفيديو
+    Fast-Forward / Rewind Interval: الفاصل الزمني السريع للأمام / الترجيع
   Privacy Settings:
     Privacy Settings: 'إعدادات الخصوصية'
     Remember History: 'تذّكر سجلّ المشاهدة'
@@ -308,6 +318,18 @@ Settings:
       في جلب معلومات الشبكة. هل ضبطت إعدادات وكيلك بصورة صحيحة؟
     Clicking on Test Proxy will send a request to: النقر على اختبار البروكسي سيؤدي
       إلى إرسال طلب إلى
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: تنبيه عندما يتم تخطي شريحة الراعي
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
+      عنوان (الافتراضي هو https://sponsor.ajay.app)
+    Enable SponsorBlock: تفعيل حجب الرعاة
+    SponsorBlock Settings: إعدادات حظر الرعاة
+  External Player Settings:
+    External Player: المشغل الخارجي
+    Custom External Player Arguments: وسيطات المشغل الخارجي المخصصة
+    Custom External Player Executable: مشغل خارجي مخصص قابل للتنفيذ
+    Ignore Unsupported Action Warnings: تجاهل تحذيرات الإجراءات غير المدعومة
+    External Player Settings: إعدادات المشغل الخارجي
 About:
   #On About page
   About: 'حول'
@@ -405,6 +427,7 @@ Profile:
   Other Channels: قنوات أُخرى
   Subscription List: قائمة الاشتراكات
   Profile Filter: مرشح الملف الشخصي
+  Profile Settings: إعدادات الملف الشخصي
 Channel:
   Subscriber: 'مُشترِك'
   Subscribers: 'مُشترِكين'
@@ -525,6 +548,29 @@ Video:
   Save Video: احفظ الفيديو
   Video has been removed from your saved list: تمت إزالة الفيديو من قائمتك المحفوظة
   translated from English: مترجمة من الإنجليزية
+  Sponsor Block category:
+    music offtopic: موسيقى خارجة عن المألوف
+    interaction: تفاعل
+    self-promotion: الترويج الذاتي
+    outro: الخاتمة
+    intro: المقدمة
+    sponsor: الراعي
+  Skipped segment: تم تخطي المقطع
+  External Player:
+    Unsupported Actions:
+      looping playlists: تكرار قوائم التشغيل
+      shuffling playlists: خلط قوائم التشغيل
+      reversing playlists: عكس قوائم التشغيل
+      opening specific video in a playlist (falling back to opening the video): فتح
+        فيديو محدد في قائمة التشغيل (العودة إلى فتح الفيديو)
+      opening playlists: فتح قوائم التشغيل
+      setting a playback rate: ضبط معدل التشغيل
+      starting video at offset: بدء تشغيل الفيديو عند الإزاحة
+    UnsupportedActionTemplate: '$ لا يدعم: ٪'
+    OpeningTemplate: فتح $ في ٪...
+    playlist: قائمة التشغيل
+    video: فيديو
+    OpenInTemplate: فتح في $
 Videos:
   #& Sort By
   Sort By:
@@ -549,6 +595,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: قائمة التشغيل
 Toggle Theatre Mode: 'تمكين وضع المسرح'
 Change Format:
   Change Video Formats: 'تغيير تنسيقات الفيديو'
@@ -651,6 +698,16 @@ Tooltips:
     Fetch Feeds from RSS: عند تفعيلها، سوف يستخدم فريتيوب طريقة RSS بدلًا من طريقته
       المعتادة لجلب صفحة اشتراكاتك. طريقة RSS أسرع وتتخطى حجب الآي بي IP، لكنها لا
       تقدّم معلومات معينة مثل مدّة الفيديو أو حالة البث المباشر
+  External Player Settings:
+    Custom External Player Arguments: أي وسيطات سطر أوامر مخصصة مفصولة بفواصل منقوطة
+      (';')، تريد تمريرها إلى المشغل الخارجي.
+    Ignore Warnings: منع التحذيرات عندما لا يدعم اللاعب الخارجي الحالي الإجراء الحالي
+      (على سبيل المثال، عكس قوائم التشغيل، وما إلى ذلك).
+    Custom External Player Executable: بشكل افتراضي ، ستفترض FreeTube أنه يمكن العثور
+      على المشغل الخارجي المختار عبر متغير بيئة PATH. إذا لزم الأمر ، يمكن تعيين مسار
+      مخصص هنا.
+    External Player: سيؤدي اختيار مشغل خارجي إلى عرض رمز لفتح الفيديو (قائمة التشغيل
+      إذا كان مدعوما) في المشغل الخارجي، على الصورة المصغرة.
 This video is unavailable because of missing formats. This can happen due to country unavailability.: هذا
   الفيديو غير متاح الآن لعدم وجود ملفات فيديو . هذا قد يكون بسبب أن الفيديو غير متاح
   في بلدك.
@@ -662,3 +719,6 @@ Hashtags have not yet been implemented, try again later: لم يتم تنفيذ 
 Unknown YouTube url type, cannot be opened in app: نوع URL غير معروف على YouTube،
   لا يمكن فتحه في التطبيق
 Open New Window: افتح نافذة جديدة
+Default Invidious instance has been cleared: تم مسح مثيل Invidious الافتراضي
+Default Invidious instance has been set to $: تم تعيين المثيل الافتراضي Invidious
+  إلى $

@@ -29,7 +29,7 @@ if (platform == 'darwin') {
 
 const config = {
   appId: `io.freetubeapp.${name}`,
-  copyright: 'Copyleft © 2020 freetubeapp@protonmail.com',
+  copyright: 'Copyleft © 2020-2021 freetubeapp@protonmail.com',
   // asar: false,
   // compression: 'store',
   productName,
@@ -68,6 +68,12 @@ const config = {
     category: 'Network',
     icon: '_icons/icon.svg',
     target: ['deb', 'zip', 'apk', 'rpm', 'AppImage', 'pacman'],
+  },
+  // See the following issues for more information
+  // https://github.com/jordansissel/fpm/issues/1503
+  // https://github.com/jgraph/drawio-desktop/issues/259
+  rpm: {
+    fpm: [`--rpm-rpmbuild-define=_build_id_links none`]
   },
   deb: {
     depends: [

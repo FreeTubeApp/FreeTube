@@ -27,11 +27,11 @@ export default Vue.extend({
       return this.$store.getters.getDefaultProfile
     },
     activeProfileInitial: function () {
-      return this.activeProfile.name.slice(0, 1).toUpperCase()
+      return this?.activeProfile?.name?.length > 0 ? Array.from(this.activeProfile.name)[0].toUpperCase() : ''
     },
     profileInitials: function () {
       return this.profileList.map((profile) => {
-        return profile.name.slice(0, 1).toUpperCase()
+        return profile?.name?.length > 0 ? Array.from(profile.name)[0].toUpperCase() : ''
       })
     }
   },

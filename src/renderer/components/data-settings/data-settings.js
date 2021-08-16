@@ -10,9 +10,7 @@ import fs from 'fs'
 import { opmlToJSON } from 'opml-to-json'
 import ytch from 'yt-channel-info'
 
-const remote = require('@electron/remote')
-const app = remote.app
-const dialog = remote.dialog
+// FIXME: Missing web logic branching
 
 export default Vue.extend({
   name: 'DataSettings',
@@ -48,8 +46,8 @@ export default Vue.extend({
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
     },
     profileList: function () {
       return this.$store.getters.getProfileList
@@ -210,7 +208,7 @@ export default Vue.extend({
       })
     },
 
-    importFreeTubeSubscriptions: function () {
+    importFreeTubeSubscriptions: async function () {
       const options = {
         properties: ['openFile'],
         filters: [
@@ -221,14 +219,13 @@ export default Vue.extend({
         ]
       }
 
-      dialog.showOpenDialog(options).then((response) => {
-        if (response.canceled || response.filePaths.length === 0) {
-          return
-        }
+      const response = await this.showOpenDialog(options)
+      if (response.canceled || response.filePaths.length === 0) {
+        return
+      }
 
-        const filePath = response.filePaths[0]
-        this.handleFreetubeImportFile(filePath)
-      })
+      const filePath = response.filePaths[0]
+      this.handleFreetubeImportFile(filePath)
     },
 
     handleYoutubeImportFile: function (filePath) {
@@ -313,7 +310,7 @@ export default Vue.extend({
       })
     },
 
-    importYouTubeSubscriptions: function () {
+    importYouTubeSubscriptions: async function () {
       const options = {
         properties: ['openFile'],
         filters: [
@@ -324,17 +321,16 @@ export default Vue.extend({
         ]
       }
 
-      dialog.showOpenDialog(options).then(async (response) => {
-        if (response.canceled || response.filePaths.length === 0) {
-          return
-        }
+      const response = await this.showOpenDialog(options)
+      if (response.canceled || response.filePaths.length === 0) {
+        return
+      }
 
-        const filePath = response.filePaths[0]
-        this.handleYoutubeImportFile(filePath)
-      })
+      const filePath = response.filePaths[0]
+      this.handleYoutubeImportFile(filePath)
     },
 
-    importOpmlYouTubeSubscriptions: function () {
+    importOpmlYouTubeSubscriptions: async function () {
       const options = {
         properties: ['openFile'],
         filters: [
@@ -345,147 +341,37 @@ export default Vue.extend({
         ]
       }
 
-      dialog.showOpenDialog(options).then(async (response) => {
-        if (response.canceled || response.filePaths.length === 0) {
-          return
-        }
-
-        const filePath = response.filePaths[0]
-
-        fs.readFile(filePath, async (err, data) => {
-          if (err) {
-            const message = this.$t('Settings.Data Settings.Unable to read file')
-            this.showToast({
-              message: `${message}: ${err}`
-            })
-            return
-          }
-
-          opmlToJSON(data).then((json) => {
-            let feedData = json.children[0].children
-
-            if (typeof feedData === 'undefined') {
-              if (json.title.includes('gPodder')) {
-                feedData = json.children
-              } else {
-                const message = this.$t('Settings.Data Settings.Invalid subscriptions file')
-                this.showToast({
-                  message: message
-                })
-
-                return
-              }
-            }
-
-            const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
-            const subscriptions = []
-
-            this.showToast({
-              message: this.$t('Settings.Data Settings.This might take a while, please wait')
-            })
-
-            this.updateShowProgressBar(true)
-            this.setProgressBarPercentage(0)
-
-            let count = 0
-
-            feedData.forEach(async (channel, index) => {
-              const channelId = channel.xmlurl.replace('https://www.youtube.com/feeds/videos.xml?channel_id=', '')
-              let channelInfo
-              if (this.backendPreference === 'invidious') {
-                channelInfo = await this.getChannelInfoInvidious(channelId)
-              } else {
-                channelInfo = await this.getChannelInfoLocal(channelId)
-              }
-
-              if (typeof channelInfo.author !== 'undefined') {
-                const subscription = {
-                  id: channelId,
-                  name: channelInfo.author,
-                  thumbnail: channelInfo.authorThumbnails[1].url
-                }
-
-                const subExists = primaryProfile.subscriptions.findIndex((sub) => {
-                  return sub.id === subscription.id || sub.name === subscription.name
-                })
-
-                if (subExists === -1) {
-                  subscriptions.push(subscription)
-                }
-              }
-
-              count++
-
-              const progressPercentage = (count / feedData.length) * 100
-              this.setProgressBarPercentage(progressPercentage)
-
-              if (count === feedData.length) {
-                primaryProfile.subscriptions = primaryProfile.subscriptions.concat(subscriptions)
-                this.updateProfile(primaryProfile)
-
-                if (subscriptions.length < count) {
-                  this.showToast({
-                    message: this.$t('Settings.Data Settings.One or more subscriptions were unable to be imported')
-                  })
-                } else {
-                  this.showToast({
-                    message: this.$t('Settings.Data Settings.All subscriptions have been successfully imported')
-                  })
-                }
-
-                this.updateShowProgressBar(false)
-              }
-            })
-          }).catch((err) => {
-            console.log(err)
-            console.log('error reading')
-            const message = this.$t('Settings.Data Settings.Invalid subscriptions file')
-            this.showToast({
-              message: `${message}: ${err}`
-            })
-          })
-        })
-      })
-    },
-
-    importNewPipeSubscriptions: function () {
-      const options = {
-        properties: ['openFile'],
-        filters: [
-          {
-            name: 'Database File',
-            extensions: ['json']
-          }
-        ]
+      const response = await this.showOpenDialog(options)
+      if (response.canceled || response.filePaths.length === 0) {
+        return
       }
 
-      dialog.showOpenDialog(options).then(async (response) => {
-        if (response.canceled || response.filePaths.length === 0) {
+      const filePath = response.filePaths[0]
+
+      fs.readFile(filePath, async (err, data) => {
+        if (err) {
+          const message = this.$t('Settings.Data Settings.Unable to read file')
+          this.showToast({
+            message: `${message}: ${err}`
+          })
           return
         }
 
-        const filePath = response.filePaths[0]
+        opmlToJSON(data).then((json) => {
+          let feedData = json.children[0].children
 
-        fs.readFile(filePath, async (err, data) => {
-          if (err) {
-            const message = this.$t('Settings.Data Settings.Unable to read file')
-            this.showToast({
-              message: `${message}: ${err}`
-            })
-            return
+          if (typeof feedData === 'undefined') {
+            if (json.title.includes('gPodder')) {
+              feedData = json.children
+            } else {
+              const message = this.$t('Settings.Data Settings.Invalid subscriptions file')
+              this.showToast({
+                message: message
+              })
+
+              return
+            }
           }
-
-          const newPipeData = JSON.parse(data)
-
-          if (typeof newPipeData.subscriptions === 'undefined') {
-            this.showToast({
-              message: this.$t('Settings.Data Settings.Invalid subscriptions file')
-            })
-
-            return
-          }
-
-          const newPipeSubscriptions = newPipeData.subscriptions
 
           const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
           const subscriptions = []
@@ -499,8 +385,8 @@ export default Vue.extend({
 
           let count = 0
 
-          newPipeSubscriptions.forEach(async (channel, index) => {
-            const channelId = channel.url.replace(/https:\/\/(www\.)?youtube\.com\/channel\//, '')
+          feedData.forEach(async (channel, index) => {
+            const channelId = channel.xmlurl.replace('https://www.youtube.com/feeds/videos.xml?channel_id=', '')
             let channelInfo
             if (this.backendPreference === 'invidious') {
               channelInfo = await this.getChannelInfoInvidious(channelId)
@@ -526,10 +412,10 @@ export default Vue.extend({
 
             count++
 
-            const progressPercentage = (count / newPipeSubscriptions.length) * 100
+            const progressPercentage = (count / feedData.length) * 100
             this.setProgressBarPercentage(progressPercentage)
 
-            if (count === newPipeSubscriptions.length) {
+            if (count === feedData.length) {
               primaryProfile.subscriptions = primaryProfile.subscriptions.concat(subscriptions)
               this.updateProfile(primaryProfile)
 
@@ -546,6 +432,116 @@ export default Vue.extend({
               this.updateShowProgressBar(false)
             }
           })
+        }).catch((err) => {
+          console.log(err)
+          console.log('error reading')
+          const message = this.$t('Settings.Data Settings.Invalid subscriptions file')
+          this.showToast({
+            message: `${message}: ${err}`
+          })
+        })
+      })
+    },
+
+    importNewPipeSubscriptions: async function () {
+      const options = {
+        properties: ['openFile'],
+        filters: [
+          {
+            name: 'Database File',
+            extensions: ['json']
+          }
+        ]
+      }
+
+      const response = await this.showOpenDialog(options)
+      if (response.canceled || response.filePaths.length === 0) {
+        return
+      }
+
+      const filePath = response.filePaths[0]
+
+      fs.readFile(filePath, async (err, data) => {
+        if (err) {
+          const message = this.$t('Settings.Data Settings.Unable to read file')
+          this.showToast({
+            message: `${message}: ${err}`
+          })
+          return
+        }
+
+        const newPipeData = JSON.parse(data)
+
+        if (typeof newPipeData.subscriptions === 'undefined') {
+          this.showToast({
+            message: this.$t('Settings.Data Settings.Invalid subscriptions file')
+          })
+
+          return
+        }
+
+        const newPipeSubscriptions = newPipeData.subscriptions.filter((channel, index) => {
+          return channel.service_id === 0
+        })
+
+        const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
+        const subscriptions = []
+
+        this.showToast({
+          message: this.$t('Settings.Data Settings.This might take a while, please wait')
+        })
+
+        this.updateShowProgressBar(true)
+        this.setProgressBarPercentage(0)
+
+        let count = 0
+
+        newPipeSubscriptions.forEach(async (channel, index) => {
+          const channelId = channel.url.replace(/https:\/\/(www\.)?youtube\.com\/channel\//, '')
+          let channelInfo
+          if (this.backendPreference === 'invidious') {
+            channelInfo = await this.getChannelInfoInvidious(channelId)
+          } else {
+            channelInfo = await this.getChannelInfoLocal(channelId)
+          }
+
+          if (typeof channelInfo.author !== 'undefined') {
+            const subscription = {
+              id: channelId,
+              name: channelInfo.author,
+              thumbnail: channelInfo.authorThumbnails[1].url
+            }
+
+            const subExists = primaryProfile.subscriptions.findIndex((sub) => {
+              return sub.id === subscription.id || sub.name === subscription.name
+            })
+
+            if (subExists === -1) {
+              subscriptions.push(subscription)
+            }
+          }
+
+          count++
+
+          const progressPercentage = (count / newPipeSubscriptions.length) * 100
+          this.setProgressBarPercentage(progressPercentage)
+
+          if (count === newPipeSubscriptions.length) {
+            primaryProfile.subscriptions = primaryProfile.subscriptions.concat(subscriptions)
+            this.updateProfile(primaryProfile)
+
+            if (subscriptions.length < count) {
+              this.showToast({
+                message: this.$t('Settings.Data Settings.One or more subscriptions were unable to be imported')
+              })
+            } else {
+              this.showToast({
+                message: this.$t('Settings.Data Settings.All subscriptions have been successfully imported')
+              })
+            }
+
+            this.updateShowProgressBar(false)
+          }
         })
       })
     },
@@ -575,7 +571,7 @@ export default Vue.extend({
 
     exportFreeTubeSubscriptions: async function () {
       await this.compactProfiles()
-      const userData = app.getPath('userData')
+      const userData = await this.getUserDataPath()
       const subscriptionsDb = `${userData}/profiles.db`
       const date = new Date()
       let dateMonth = date.getMonth() + 1
@@ -603,41 +599,40 @@ export default Vue.extend({
         ]
       }
 
-      dialog.showSaveDialog(options).then((response) => {
-        if (response.canceled || response.filePath === '') {
-          // User canceled the save dialog
+      const response = await this.showSaveDialog(options)
+      if (response.canceled || response.filePath === '') {
+        // User canceled the save dialog
+        return
+      }
+
+      const filePath = response.filePath
+
+      fs.readFile(subscriptionsDb, (readErr, data) => {
+        if (readErr) {
+          const message = this.$t('Settings.Data Settings.Unable to read file')
+          this.showToast({
+            message: `${message}: ${readErr}`
+          })
           return
         }
 
-        const filePath = response.filePath
-
-        fs.readFile(subscriptionsDb, (readErr, data) => {
-          if (readErr) {
-            const message = this.$t('Settings.Data Settings.Unable to read file')
+        fs.writeFile(filePath, data, (writeErr) => {
+          if (writeErr) {
+            const message = this.$t('Settings.Data Settings.Unable to write file')
             this.showToast({
-              message: `${message}: ${readErr}`
+              message: `${message}: ${writeErr}`
             })
             return
           }
 
-          fs.writeFile(filePath, data, (writeErr) => {
-            if (writeErr) {
-              const message = this.$t('Settings.Data Settings.Unable to write file')
-              this.showToast({
-                message: `${message}: ${writeErr}`
-              })
-              return
-            }
-
-            this.showToast({
-              message: this.$t('Settings.Data Settings.Subscriptions have been successfully exported')
-            })
+          this.showToast({
+            message: this.$t('Settings.Data Settings.Subscriptions have been successfully exported')
           })
         })
       })
     },
 
-    exportYouTubeSubscriptions: function () {
+    exportYouTubeSubscriptions: async function () {
       const date = new Date()
       let dateMonth = date.getMonth() + 1
 
@@ -700,26 +695,25 @@ export default Vue.extend({
         return object
       })
 
-      dialog.showSaveDialog(options).then((response) => {
-        if (response.canceled || response.filePath === '') {
-          // User canceled the save dialog
+      const response = await this.showSaveDialog(options)
+      if (response.canceled || response.filePath === '') {
+        // User canceled the save dialog
+        return
+      }
+
+      const filePath = response.filePath
+
+      fs.writeFile(filePath, JSON.stringify(subscriptionsObject), (writeErr) => {
+        if (writeErr) {
+          const message = this.$t('Settings.Data Settings.Unable to write file')
+          this.showToast({
+            message: `${message}: ${writeErr}`
+          })
           return
         }
 
-        const filePath = response.filePath
-
-        fs.writeFile(filePath, JSON.stringify(subscriptionsObject), (writeErr) => {
-          if (writeErr) {
-            const message = this.$t('Settings.Data Settings.Unable to write file')
-            this.showToast({
-              message: `${message}: ${writeErr}`
-            })
-            return
-          }
-
-          this.showToast({
-            message: this.$t('Settings.Data Settings.Subscriptions have been successfully exported')
-          })
+        this.showToast({
+          message: this.$t('Settings.Data Settings.Subscriptions have been successfully exported')
         })
       })
     },
@@ -766,31 +760,30 @@ export default Vue.extend({
         }
       })
 
-      dialog.showSaveDialog(options).then((response) => {
-        if (response.canceled || response.filePath === '') {
-          // User canceled the save dialog
+      const response = await this.showSaveDialog(options)
+      if (response.canceled || response.filePath === '') {
+        // User canceled the save dialog
+        return
+      }
+
+      const filePath = response.filePath
+
+      fs.writeFile(filePath, opmlData, (writeErr) => {
+        if (writeErr) {
+          const message = this.$t('Settings.Data Settings.Unable to write file')
+          this.showToast({
+            message: `${message}: ${writeErr}`
+          })
           return
         }
 
-        const filePath = response.filePath
-
-        fs.writeFile(filePath, opmlData, (writeErr) => {
-          if (writeErr) {
-            const message = this.$t('Settings.Data Settings.Unable to write file')
-            this.showToast({
-              message: `${message}: ${writeErr}`
-            })
-            return
-          }
-
-          this.showToast({
-            message: this.$t('Settings.Data Settings.Subscriptions have been successfully exported')
-          })
+        this.showToast({
+          message: this.$t('Settings.Data Settings.Subscriptions have been successfully exported')
         })
       })
     },
 
-    exportNewPipeSubscriptions: function () {
+    exportNewPipeSubscriptions: async function () {
       const date = new Date()
       let dateMonth = date.getMonth() + 1
 
@@ -834,32 +827,31 @@ export default Vue.extend({
         newPipeObject.subscriptions.push(subscription)
       })
 
-      dialog.showSaveDialog(options).then((response) => {
-        if (response.canceled || response.filePath === '') {
-          // User canceled the save dialog
+      const response = await this.showSaveDialog(options)
+      if (response.canceled || response.filePath === '') {
+        // User canceled the save dialog
+        return
+      }
+
+      const filePath = response.filePath
+
+      fs.writeFile(filePath, JSON.stringify(newPipeObject), (writeErr) => {
+        if (writeErr) {
+          const message = this.$t('Settings.Data Settings.Unable to write file')
+          this.showToast({
+            message: `${message}: ${writeErr}`
+          })
           return
         }
 
-        const filePath = response.filePath
-
-        fs.writeFile(filePath, JSON.stringify(newPipeObject), (writeErr) => {
-          if (writeErr) {
-            const message = this.$t('Settings.Data Settings.Unable to write file')
-            this.showToast({
-              message: `${message}: ${writeErr}`
-            })
-            return
-          }
-
-          this.showToast({
-            message: this.$t('Settings.Data Settings.Subscriptions have been successfully exported')
-          })
+        this.showToast({
+          message: this.$t('Settings.Data Settings.Subscriptions have been successfully exported')
         })
       })
     },
 
-    checkForLegacySubscriptions: function () {
-      let dbLocation = app.getPath('userData')
+    checkForLegacySubscriptions: async function () {
+      let dbLocation = await this.getUserDataPath()
       dbLocation = dbLocation + '/subscriptions.db'
       this.handleFreetubeImportFile(dbLocation)
       fs.unlink(dbLocation, (err) => {
@@ -869,7 +861,7 @@ export default Vue.extend({
       })
     },
 
-    importHistory: function () {
+    importHistory: async function () {
       const options = {
         properties: ['openFile'],
         filters: [
@@ -880,79 +872,78 @@ export default Vue.extend({
         ]
       }
 
-      dialog.showOpenDialog(options).then((response) => {
-        if (response.canceled || response.filePaths.length === 0) {
+      const response = await this.showOpenDialog(options)
+      if (response.canceled || response.filePaths.length === 0) {
+        return
+      }
+
+      const filePath = response.filePaths[0]
+
+      fs.readFile(filePath, async (err, data) => {
+        if (err) {
+          const message = this.$t('Settings.Data Settings.Unable to read file')
+          this.showToast({
+            message: `${message}: ${err}`
+          })
           return
         }
 
-        const filePath = response.filePaths[0]
+        let textDecode = new TextDecoder('utf-8').decode(data)
+        textDecode = textDecode.split('\n')
+        textDecode.pop()
 
-        fs.readFile(filePath, async (err, data) => {
-          if (err) {
-            const message = this.$t('Settings.Data Settings.Unable to read file')
-            this.showToast({
-              message: `${message}: ${err}`
-            })
-            return
-          }
+        textDecode.forEach((history) => {
+          const historyData = JSON.parse(history)
+          // We would technically already be done by the time the data is parsed,
+          // however we want to limit the possibility of malicious data being sent
+          // to the app, so we'll only grab the data we need here.
+          const requiredKeys = [
+            '_id',
+            'author',
+            'authorId',
+            'description',
+            'isLive',
+            'lengthSeconds',
+            'paid',
+            'published',
+            'timeWatched',
+            'title',
+            'type',
+            'videoId',
+            'viewCount',
+            'watchProgress'
+          ]
 
-          let textDecode = new TextDecoder('utf-8').decode(data)
-          textDecode = textDecode.split('\n')
-          textDecode.pop()
+          const historyObject = {}
 
-          textDecode.forEach((history) => {
-            const historyData = JSON.parse(history)
-            // We would technically already be done by the time the data is parsed,
-            // however we want to limit the possibility of malicious data being sent
-            // to the app, so we'll only grab the data we need here.
-            const requiredKeys = [
-              '_id',
-              'author',
-              'authorId',
-              'description',
-              'isLive',
-              'lengthSeconds',
-              'paid',
-              'published',
-              'timeWatched',
-              'title',
-              'type',
-              'videoId',
-              'viewCount',
-              'watchProgress'
-            ]
-
-            const historyObject = {}
-
-            Object.keys(historyData).forEach((key) => {
-              if (!requiredKeys.includes(key)) {
-                this.showToast({
-                  message: `Unknown data key: ${key}`
-                })
-              } else {
-                historyObject[key] = historyData[key]
-              }
-            })
-
-            if (Object.keys(historyObject).length < (requiredKeys.length - 2)) {
+          Object.keys(historyData).forEach((key) => {
+            if (!requiredKeys.includes(key)) {
               this.showToast({
-                message: this.$t('Settings.Data Settings.History object has insufficient data, skipping item')
+                message: `Unknown data key: ${key}`
               })
             } else {
-              this.updateHistory(historyObject)
+              historyObject[key] = historyData[key]
             }
           })
 
-          this.showToast({
-            message: this.$t('Settings.Data Settings.All watched history has been successfully imported')
-          })
+          if (Object.keys(historyObject).length < (requiredKeys.length - 2)) {
+            this.showToast({
+              message: this.$t('Settings.Data Settings.History object has insufficient data, skipping item')
+            })
+          } else {
+            this.updateHistory(historyObject)
+          }
+        })
+
+        this.showToast({
+          message: this.$t('Settings.Data Settings.All watched history has been successfully imported')
         })
       })
     },
 
     exportHistory: async function () {
       await this.compactHistory()
-      const userData = app.getPath('userData')
+      const userData = await this.getUserDataPath()
       const historyDb = `${userData}/history.db`
       const date = new Date()
       let dateMonth = date.getMonth() + 1
@@ -980,35 +971,34 @@ export default Vue.extend({
         ]
       }
 
-      dialog.showSaveDialog(options).then((response) => {
-        if (response.canceled || response.filePath === '') {
-          // User canceled the save dialog
+      const response = await this.showSaveDialog(options)
+      if (response.canceled || response.filePath === '') {
+        // User canceled the save dialog
+        return
+      }
+
+      const filePath = response.filePath
+
+      fs.readFile(historyDb, (readErr, data) => {
+        if (readErr) {
+          const message = this.$t('Settings.Data Settings.Unable to read file')
+          this.showToast({
+            message: `${message}: ${readErr}`
+          })
           return
         }
 
-        const filePath = response.filePath
-
-        fs.readFile(historyDb, (readErr, data) => {
-          if (readErr) {
-            const message = this.$t('Settings.Data Settings.Unable to read file')
+        fs.writeFile(filePath, data, (writeErr) => {
+          if (writeErr) {
+            const message = this.$t('Settings.Data Settings.Unable to write file')
             this.showToast({
-              message: `${message}: ${readErr}`
+              message: `${message}: ${writeErr}`
             })
             return
           }
 
-          fs.writeFile(filePath, data, (writeErr) => {
-            if (writeErr) {
-              const message = this.$t('Settings.Data Settings.Unable to write file')
-              this.showToast({
-                message: `${message}: ${writeErr}`
-              })
-              return
-            }
-
-            this.showToast({
-              message: this.$t('Settings.Data Settings.All watched history has been successfully exported')
-            })
+          this.showToast({
+            message: this.$t('Settings.Data Settings.All watched history has been successfully exported')
           })
         })
       })
@@ -1114,7 +1104,10 @@ export default Vue.extend({
       'compactHistory',
       'showToast',
       'getRandomColor',
-      'calculateColorLuminance'
+      'calculateColorLuminance',
+      'showOpenDialog',
+      'showSaveDialog',
+      'getUserDataPath'
     ]),
 
     ...mapMutations([
