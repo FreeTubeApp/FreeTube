@@ -209,6 +209,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Fast-Forward / Rewind Interval: Greito persukimo pirmyn / atgal intervalas
   External Player Settings:
     External Player Settings: 'Išorinio grotuvo nustatymai'
     External Player: 'Išorinis grotuvas'
