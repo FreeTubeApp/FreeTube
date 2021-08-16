@@ -201,6 +201,7 @@ Settings:
     Next Video Interval: Zeit bis zum nächsten Video
     Display Play Button In Video Player: Abspielbutton im Videoplayer anzeigen
     Scroll Volume Over Video Player: Lautstärke durch Scrollen auf Video ändern
+    Fast-Forward / Rewind Interval: Intervall für schnelles Vor-/Zurückspulen
   Subscription Settings:
     Subscription Settings: Abonnement-Einstellungen
     Hide Videos on Watch: Verstecke Videos bei Wiedergabe
@@ -577,6 +578,7 @@ Playlist:
     Open in YouTube: In YouTube öffnen
     Copy YouTube Link: YouTube-Link kopieren
     Share Playlist: Wiedergabeliste teilen
+  Playlist: Wiedergabeliste
 Share Playlist:
   Share Playlist: Teile Playlist
   Copy YouTube Link: Kopiere YouTube Link
@@ -702,6 +704,7 @@ Profile:
   Subscription List: Abonnement-Liste
   Profile Select: Profilauswahl
   Profile Filter: Profilfilter
+  Profile Settings: Profileinstellungen
 The playlist has been reversed: Die Wiedergabeliste wurde umgedreht
 A new blog is now available, $. Click to view more: Ein neuer Blogeintrag ist verfügbar,
   $. Um ihn zu öffnen klicken
