@@ -172,6 +172,7 @@ const state = {
   defaultPlayback: 1,
   defaultProfile: 'allChannels',
   defaultQuality: '720',
+  defaultSkipInterval: 5,
   defaultTheatreMode: false,
   defaultVideoFormat: 'dash',
   disableSmoothScrolling: false,
