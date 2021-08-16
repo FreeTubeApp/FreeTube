@@ -91,9 +91,9 @@ User Playlists:
   Playlist Message: Esta página não é indicativa do resultado final. Apenas mostra
     vídeos que foram guardados ou marcados como favoritos. Quando estiver pronta,
     todos os vídeos que estiverem aqui serão postos numa lista chamada 'Favoritos'.
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Os
-    seus vídeos guardados estão vazios. Clique no botão gravar no canto de um vídeo
-    para ser listado aqui
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: A
+    sua lista está vazia. Carregue no botão guardar no canto de um vídeo para o mostrar
+    aqui
 History:
   # On History Page
   History: Histórico
@@ -130,11 +130,19 @@ Settings:
       End: Fim
     'Invidious Instance (Default is https://invidious.snopyta.org)': Instância Invidious
       (Por omissão é https://invidious.snopyta.org)
-    View all Invidious instance information: Mostrar toda a informação sobre esta
-      instância Invidious
+    View all Invidious instance information: Mostrar toda a informação sobre este
+      servidor
     Region for Trending: Região para as tendências
         #! List countries
     System Default: Definições do sistema
+    Current instance will be randomized on startup: Servidor irá ser escolhido aleatoriamente
+      ao iniciar
+    No default instance has been set: Nenhum servidor foi predefinido
+    The currently set default instance is $: Servidor escolhido como predefinição
+      é $
+    Current Invidious Instance: Servidor Invidious em Utilização
+    Clear Default Instance: Apagar predefinição
+    Set Current Instance as Default: Escolher o servidor actual como a predefinição
   Theme Settings:
     Theme Settings: Definições de Tema
     Match Top Bar with Main Color: Utilizar Cor Principal Para Barra Superior
@@ -167,11 +175,11 @@ Settings:
     Secondary Color Theme: Cor Secundária
         #* Main Color Theme
   Player Settings:
-    Player Settings: Definições do reprodutor
+    Player Settings: Definições do leitor de vídeo
     Force Local Backend for Legacy Formats: Forçar Sistema de Ligação Local para Formatos
       Antigos
     Remember History: Lembrar Histórico
-    Play Next Video: Passar ao Próximo Vídeo
+    Play Next Video: Reproduzir Vídeo Seguinte
     Turn on Subtitles by Default: Ligar Legendas Automaticamente
     Autoplay Videos: Reproduzir Vídeos Automaticamente
     Proxy Videos Through Invidious: Utilizar Invidious Como Intermediário
@@ -182,8 +190,8 @@ Settings:
     Default Video Format:
       Default Video Format: Formato de Vídeo
       Dash Formats: Formatos DASH
-      Legacy Formats: Formato Antigo
-      Audio Formats: Formato de Áudio
+      Legacy Formats: Formatos Antigos
+      Audio Formats: Formatos de Áudio
     Default Quality:
       Default Quality: Qualidade
       Auto: Auto
@@ -196,7 +204,11 @@ Settings:
       1440p: 1440p
       4k: 4k
       8k: 8k
-    Next Video Interval: Próximo intervalo de vídeo
+    Next Video Interval: Intervalo entre vídeos
+    Fast-Forward / Rewind Interval: Tempo para Avançar / Voltar Atrás
+    Display Play Button In Video Player: Mostrar botão sobre vídeo quando em pausa
+    Scroll Volume Over Video Player: Utilizar roda do rato sobre vídeo para mudar
+      volume
   Privacy Settings:
     Privacy Settings: Definições de Privacidade
     Remember History: Lembrar Histórico
@@ -213,8 +225,8 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Tem
       a certeza de que quer apagar todas as suas subscrições e perfis? Esta acção
       não pode ser revertida.
-    Automatically Remove Video Meta Files: Remover automaticamente os metficheiros
-      de vídeo
+    Automatically Remove Video Meta Files: Remover automaticamente os metaficheiros
+      dos vídeo
   Subscription Settings:
     Subscription Settings: Definições de Subscrições
     Hide Videos on Watch: Esconder Vídeos Visualisados
@@ -236,7 +248,7 @@ Settings:
     Hide Popular Videos: Esconder Mais Populares
     Hide Live Chat: Esconder Chat ao Vivo
     Hide Active Subscriptions: Esconder Subscrições da barra lateral
-    Hide Playlists: Ocultar listas de reprodução
+    Hide Playlists: Esconder listas de reprodução
   Data Settings:
     Data Settings: Definições de dados
     Select Import Type: Escolher tipo de importação
@@ -292,6 +304,19 @@ Settings:
     City: Cidade
     Error getting network information. Is your proxy configured properly?: Erro ao
       obter informações da rede. O seu proxy está configurado corretamente?
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Avisar quando um patrocínio foi passado
+      à frente
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL da API SponsorBlock
+      (Por omissão é https://sponsor.ajay.app)
+    Enable SponsorBlock: Ligar SponsorBlock
+    SponsorBlock Settings: Definições SponsorBlock
+  External Player Settings:
+    Custom External Player Arguments: Opções Próprias
+    Custom External Player Executable: Executável Próprio
+    Ignore Unsupported Action Warnings: Ignorar avisos sobre opções inválidas
+    External Player: Leitor externo
+    External Player Settings: Definições para leitores de vídeo externos
 About:
   #On About page
   About: Sobre
@@ -363,6 +388,7 @@ Profile:
 #On Channel Page
   Profile Select: Selecção de perfil
   Profile Filter: Filtro de Perfil
+  Profile Settings: Definições de Perfil
 Channel:
   Subscriber: Subscritor
   Subscribers: Subscritores
@@ -432,7 +458,7 @@ Video:
   Live chat is enabled.  Chat messages will appear here once sent.: Chat ao vivo activado.
     Mensagens vão aparecer aqui ao serem enviadas.
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': Chat
-    ao vivo não se encontra a funcionar com o API Invividious. Uma ligação directa
+    ao vivo não se encontra a funcionar com a API Invividious. Uma ligação directa
     ao Youtube é necessária.
   Download Video: Descarregar Vídeo
   video only: apenas vídeo
@@ -482,7 +508,30 @@ Video:
   Reverse Playlist: Inverter lista de reprodução
   Shuffle Playlist: Baralhar lista de reprodução
   Loop Playlist: Repetir lista de reprodução
-  translated from English: Traduzido do inglês
+  translated from English: traduzido do Inglês
+  External Player:
+    Unsupported Actions:
+      looping playlists: repetir lista de reprodução
+      shuffling playlists: baralhar lista de reprodução
+      reversing playlists: inverter lista de reprodução
+      opening specific video in a playlist (falling back to opening the video): abrir
+        um vídeo específico numa lista (vai apenas abrir o vídeo)
+      opening playlists: abrir listas de reprodução
+      setting a playback rate: mudar velocidade de reprodução
+      starting video at offset: iniciar vídeo num tempo específico
+    UnsupportedActionTemplate: '$ não suporta: %'
+    OpeningTemplate: A abrir $ em %...
+    playlist: lista de reprodução
+    video: vídeo
+    OpenInTemplate: Abrir com $
+  Sponsor Block category:
+    music offtopic: música fora de tópico
+    interaction: interacção
+    self-promotion: autopromoção
+    outro: fim
+    intro: início
+    sponsor: patrocínio
+  Skipped segment: Secção passada à frente
 Videos:
   #& Sort By
   Sort By:
@@ -507,11 +556,12 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Lista de Reprodução
 Toggle Theatre Mode: Alternar Modo Cinema
 Change Format:
-  Change Video Formats: Mudar Formato do Vídeo
-  Use Dash Formats: Usar formatos DASH
-  Use Legacy Formats: Utilizar Formato Antigo
+  Change Video Formats: Mudar Formatos do Vídeo
+  Use Dash Formats: Utilizar formatos DASH
+  Use Legacy Formats: Utilizar Formatos Antigos
   Use Audio Formats: Utilizar Formatos de Áudio
   Dash formats are not available for this video: Formatos DASH não disponíveis para
     este vídeo
@@ -536,7 +586,7 @@ Share:
   YouTube Channel URL copied to clipboard: URL do Canal Youtube copiado para área
     de transferência
 
-Mini Player: Mini Reprodutor
+Mini Player: Mini Leitor
 Comments:
   Comments: Comentários
   Click to View Comments: Clicar para Ver Comentários
@@ -561,48 +611,57 @@ Up Next: A Seguir
 #Tooltips
 Tooltips:
   General Settings:
-    Preferred API Backend: Escolha o backend que o FreeTube usa para obter os dados.
-      O API local é um extrator incorporado. A API Invidious requer um servidor Invidious
-      para se conectar.
+    Preferred API Backend: Escolha o sistema que o FreeTube usa para se ligar ao Youtube.
+      A API local é um extractor incorporado. A API Invidious requer um servidor Invidious
+      para se ligar.
     Fallback to Non-Preferred Backend on Failure: Quando a sua API preferida tiver
       um problema, o FreeTube tentará usar automaticamente a sua API não preferida
-      em substituição quando ativado.
-    Thumbnail Preference: Todas as miniaturas do FreeTube serão substituídas por um
-      quadro do vídeo em vez da miniatura padrão.
-    Invidious Instance: A instância Invidious à qual o FreeTube se conectará para
-      chamadas de API. Apague a instância atual para ver uma lista de instâncias públicas
-      para escolher.
-    Region for Trending: A região de tendências permite-lhe de escolher quais vídeos
-      de tendências do país que quer exibir. Nem todos os países exibidos são realmente
-      suportados pelo YouTube.
+      como substituição caso esta opção esteja ativada.
+    Thumbnail Preference: Todas as antevisões dos vídeos no FreeTube serão substituídas
+      por um quadro do vídeo em vez da imagem padrão.
+    Invidious Instance: O servidor Invidious ao qual o FreeTube se irá ligar para
+      fazer chamadas através da API. Apague o servidor atual para ver uma lista de
+      servidores públicos.
+    Region for Trending: A região de tendências permite-lhe escolher de que país virão
+      os vídeos na secção das tendências. Nem todos os países apresentados estão de
+      facto a funcionar devido ao Youtube.
   Player Settings:
-    Force Local Backend for Legacy Formats: Só funciona quando a API do Invidious
-      é predefinida. Quando ativada, a API local será executada e usará os formatos
-      antigos retornados por ela em vez dos retornados pelo Invidious. É útil quando
-      os vídeos retornados pelo Invidious não são reproduzidos devido a restrições
-      de país.
+    Force Local Backend for Legacy Formats: Apenas funciona quando a API Invidious
+      é o seu sistema preferido. Quando activada, a API local irá ser usada para ir
+      buscar os formatos antigos, invés daqueles devolvidos pelo Invidious. Útil quando
+      os vídeos dados pelo Invidious não funcionam devido a restrições geográficas.
     Proxy Videos Through Invidious: Conectar-se-á ao Invidious para obter vídeos em
-      vez de fazer uma conexão direta com o YouTube. Ignora a preferência da API.
+      vez de fazer uma ligação directa com o YouTube. Ignora a preferência de API.
     Default Video Format: Define os formatos usados quando um vídeo é reproduzido.
       Formatos DASH podem reproduzir qualidades mais altas. Os formatos antigos são
       limitados a um máximo de 720p, mas usam menos largura de banda. Formatos de
       áudio são para transmissões sem vídeo.
   Subscription Settings:
-    Fetch Feeds from RSS: Quando ativado, o FreeTube usará RSS em vez do método padrão
-      dele para obter o feed da sua assinatura. O RSS é mais rápido e evita bloqueio
-      de IP, mas não fornece certas informações como duração do vídeo ou estado ao
-      vivo
+    Fetch Feeds from RSS: Quando activado, o FreeTube irá buscar as suas subscrições
+      através de RSS em vez do método normal. RSS é mais rápido e previne ser bloqueado
+      pelo Youtube, mas não disponibiliza informações como a duração de um vídeo ou
+      se este é ao vivo
 
 # Toast Messages
   Privacy Settings:
-    Remove Video Meta Files: Quando ativado, o FreeTube exclui automaticamente os
-      metficheiros criados durante a reprodução do vídeo quando a página de exibição
-      é fechada.
+    Remove Video Meta Files: Quando activado, ao fechar uma página o Freetube apagará
+      automaticamente os metaficheiros criados durante a reprodução de um vídeo.
+  External Player Settings:
+    Custom External Player Arguments: Quaisquer argumentos de linha de comando, separados
+      por ponto e vírgula (';'), que quiser dar ao leitor externo.
+    Ignore Warnings: Ignorar avisos quando o leitor externo escolhido não suporta
+      uma acção (por exemplo inverter listas de reprodução).
+    Custom External Player Executable: Por omissão, o FreeTube assume que o leitor
+      externo escolhido pode ser encontrado através da variável PATH. Se for preciso,
+      um caminho personalizado pode ser escolhido aqui.
+    External Player: Escolher um leitor externo irá fazer um ícone, para abrir o vídeo
+      (lista de reprodução se possível) nesse leitor, aparecer nas antevisões dos
+      vídeos.
 Local API Error (Click to copy): API local encontrou um erro (Clique para copiar)
 Invidious API Error (Click to copy): API Invidious encontrou um erro (Clique para
   copiar)
 Falling back to Invidious API: Ocorreu uma falha, a mudar para o API Invidious
-Falling back to the local API: Ocorreu uma falha, a mudar para o API local
+Falling back to the local API: Ocorreu uma falha, a mudar para a API local
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
   vídeo não está disponível devido a formatos em falta. Isto pode acontecer devido
   à sua indisponibilidade no seu país.
@@ -622,9 +681,9 @@ Canceled next video autoplay: Reprodução automática cancelada
 Yes: Sim
 No: Não
 The playlist has been reversed: A lista de reprodução foi invertida
-Playing Next Video Interval: Reproduzindo o próximo vídeo imediatamente. Clique para
-  cancelar. | Reproduzindo o próximo vídeo em {nextVideoInterval} segundo(s). Clique
-  para cancelar. | Reproduzindo o próximo vídeo em {nextVideoInterval} segundos. Clique
+Playing Next Video Interval: A reproduzir o vídeo seguinte imediatamente. Clique para
+  cancelar. | A reproduzir o vídeo seguinte em {nextVideoInterval} segundo. Clique
+  para cancelar. | A reproduzir o vídeo seguint em {nextVideoInterval} segundos. Clique
   para cancelar.
 More: Mais
 Hashtags have not yet been implemented, try again later: Os Hashtags ainda não foram
@@ -632,3 +691,6 @@ Hashtags have not yet been implemented, try again later: Os Hashtags ainda não 
 Unknown YouTube url type, cannot be opened in app: Tipo de url do YouTube desconhecido,
   não pode ser aberto numa app
 Open New Window: Abrir uma nova janela
+Default Invidious instance has been cleared: Predefinição apagada
+Default Invidious instance has been set to $: Servidor Invidious $ foi estabelecido
+  como predefenição
