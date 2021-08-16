@@ -209,6 +209,7 @@ Settings:
     Scroll Volume Over Video Player: A hangerő szintjét a videolejátszó fölötti kerékkel
       szabályozhatja
     Display Play Button In Video Player: Lejátszás gomb megjelenítése a videolejátszóban
+    Fast-Forward / Rewind Interval: Gyors előre- és visszatekerési időköz
   Privacy Settings:
     Privacy Settings: 'Adatvédelmi beállítások'
     Remember History: 'Előzmények megjegyzése'
@@ -439,6 +440,7 @@ Profile:
     törli a kijelölt csatornákat? Ez nem törli a csatornát más profilokból.'
 #On Channel Page
   Profile Filter: Profilszűrő
+  Profile Settings: Profilbeállítások
 Channel:
   Subscriber: 'Feliratkozó'
   Subscribers: 'Feliratkozók'
@@ -608,6 +610,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Lejátszási lista
 Toggle Theatre Mode: 'Mozi mód be-/kikapcsolása'
 Change Format:
   Change Video Formats: 'Videoformátumok módosítása'

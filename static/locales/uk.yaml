@@ -9,7 +9,7 @@ FreeTube: 'FreeTube'
 File: 'Файл'
 Quit: 'Вийти'
 Edit: 'Редагувати'
-Undo: 'Відміна'
+Undo: 'Повернути'
 Redo: 'Повторити'
 Cut: 'Вирізати'
 Copy: 'Скопіювати'
@@ -208,6 +208,7 @@ Settings:
     Next Video Interval: Інтервал до наступного відео
     Scroll Volume Over Video Player: Прокручування гучності на відеопрогравачі
     Display Play Button In Video Player: Показувати кнопку відтворення у відеопрогравачі
+    Fast-Forward / Rewind Interval: Інтервал перемотування вперед/назад
   Privacy Settings:
     Privacy Settings: 'Налаштування приватності'
     Remember History: 'Збрігати історію'
@@ -416,6 +417,7 @@ Profile:
     бажаєте видалити вибрані канали?  Канал не буде видалено з будь-якого іншого профілю.'
 #On Channel Page
   Profile Filter: Фільтр профілю
+  Profile Settings: Налаштування профілю
 Channel:
   Subscriber: 'Підписник'
   Subscribers: 'Підписники'
@@ -582,6 +584,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Добірка
 Toggle Theatre Mode: 'Перемкнути режим театру'
 Change Format:
   Change Video Formats: 'Зміна форматів відео'

@@ -130,6 +130,13 @@ Settings:
     View all Invidious instance information: Alle Informationen zur Invidious-Instanz
       anzeigen
     System Default: Systemstandard
+    Current instance will be randomized on startup: Aktuelle Instanz wird beim Starten
+      zufällig ausgewählt
+    No default instance has been set: Es wurde keine Standardinstanz gesetzt
+    The currently set default instance is $: Die aktuelle Standardinstanz ist $
+    Current Invidious Instance: Aktuelle Invidious-Instanz
+    Clear Default Instance: Standardinstanz zurücksetzen
+    Set Current Instance as Default: Aktuelle Instanz als Standard setzen
   Theme Settings:
     Theme Settings: Thema-Einstellungen
     Match Top Bar with Main Color: Obere Leiste an Hauptfarbe anpassen
@@ -194,6 +201,7 @@ Settings:
     Next Video Interval: Zeit bis zum nächsten Video
     Display Play Button In Video Player: Abspielbutton im Videoplayer anzeigen
     Scroll Volume Over Video Player: Lautstärke durch Scrollen auf Video ändern
+    Fast-Forward / Rewind Interval: Intervall für schnelles Vor-/Zurückspulen
   Subscription Settings:
     Subscription Settings: Abonnement-Einstellungen
     Hide Videos on Watch: Verstecke Videos bei Wiedergabe
@@ -332,6 +340,8 @@ Settings:
     Ignore Unsupported Action Warnings: Nicht unterstützte Aktionswarnungen ignorieren
     External Player: Externer Player
     External Player Settings: Externe Player-Einstellungen
+    Custom External Player Executable: Ausführbares, externes Player-Programm
+    Custom External Player Arguments: Argumente für angepassten, externen Player
 About:
   #On About page
   About: Über
@@ -535,6 +545,14 @@ Video:
     OpenInTemplate: In $ öffnen
     Unsupported Actions:
       setting a playback rate: Setzt eine Widergaberate
+      starting video at offset: Starte Video an Stelle
+      looping playlists: Wiedergabeliste wiederholen
+      shuffling playlists: Wiedergabeliste durcheinandermischen
+      reversing playlists: Wiedergabeliste umkehren
+      opening specific video in a playlist (falling back to opening the video): Öffne
+        gewähltes Video aus einer Wiedergabeliste (Falle zurück auf normales Öffnen
+        des Videos)
+      opening playlists: Wiedergabeliste öffnen
     UnsupportedActionTemplate: '$ unterstützt das nicht: %'
     OpeningTemplate: $ wird in % geöffnet...
     playlist: Wiedergabeliste
@@ -560,6 +578,7 @@ Playlist:
     Open in YouTube: In YouTube öffnen
     Copy YouTube Link: YouTube-Link kopieren
     Share Playlist: Wiedergabeliste teilen
+  Playlist: Wiedergabeliste
 Share Playlist:
   Share Playlist: Teile Playlist
   Copy YouTube Link: Kopiere YouTube Link
@@ -685,6 +704,7 @@ Profile:
   Subscription List: Abonnement-Liste
   Profile Select: Profilauswahl
   Profile Filter: Profilfilter
+  Profile Settings: Profileinstellungen
 The playlist has been reversed: Die Wiedergabeliste wurde umgedreht
 A new blog is now available, $. Click to view more: Ein neuer Blogeintrag ist verfügbar,
   $. Um ihn zu öffnen klicken
@@ -726,6 +746,17 @@ Tooltips:
     Remove Video Meta Files: Bei Aktivierung löscht FreeTube alle Meta-Dateien die
       während der Videowiedergabe erzeugt werden, sobald die Videoseite verlassen
       wird.
+  External Player Settings:
+    Custom External Player Arguments: Alle Kommandozeilen Argumente, getrennt durch
+      Semikolons (';'), die an den externen Player weitergegeben werden sollen.
+    Ignore Warnings: Unterdrücke Warnungen, wenn der aktuell gewählte externe Player
+      die gewählte Aktion nicht unterstützt (z.B. Wiedergabeliste umkehren, etc.).
+    Custom External Player Executable: Standardmäßig wird FreeTube annehmen, dass
+      der gewählte externe Player unter der PATH Umgebungsvariable gefunden werden
+      kann. Falls nötig, kann ein benutzerdefinierter Pfad hier gewählt werden.
+    External Player: Wenn ein externer Player gewählt wird, wird ein Icon auf dem
+      Thumbnail gezeigt, um das Video (Wiedergabelisten falls unterstützt) darin zu
+      öffnen.
 Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
@@ -736,3 +767,6 @@ Hashtags have not yet been implemented, try again later: Hashtags wurden noch ni
 Unknown YouTube url type, cannot be opened in app: Unbekannte YouTube-Adresse, kann
   in FreeTube nicht geöffnet werden
 Open New Window: Neues Fenster öffnen
+Default Invidious instance has been cleared: Standard-Invidious-Instanz wurde zurückgesetzt
+Default Invidious instance has been set to $: Standard-Invidious-Instanz wurde auf
+  $ gesetzt
