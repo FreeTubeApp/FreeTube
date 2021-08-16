@@ -134,6 +134,13 @@ Settings:
     View all Invidious instance information: Zobrazit všechny informace o instanci
       Invidious
     System Default: Výchozí nastavení systému
+    Clear Default Instance: Vymazat výchozí instanci
+    Set Current Instance as Default: Nastavit současnou instanci jako výchozí
+    Current instance will be randomized on startup: Při startu bude vybrána náhodná
+      instance
+    Current Invidious Instance: Současná instance Invidious
+    No default instance has been set: Není nastavena žádný výchozí instance
+    The currently set default instance is $: Současné výchozí instance je $
   Theme Settings:
     Theme Settings: 'Nastavení motivu'
     Match Top Bar with Main Color: 'Přizpůsobit hlavní lištu hlavní barvě'
@@ -420,6 +427,7 @@ Profile:
     profilu.'
 #On Channel Page
   Profile Filter: Filtr profilu
+  Profile Settings: Nastavení profilu
 Channel:
   Subscriber: 'Odběratel'
   Subscribers: 'Odběratelé'
@@ -587,6 +595,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Playlist
 Toggle Theatre Mode: 'Přepnout režim divadla'
 Change Format:
   Change Video Formats: 'Změnit formát videa'
@@ -718,3 +727,6 @@ Hashtags have not yet been implemented, try again later: Hashtagy nebyly dosud i
 Unknown YouTube url type, cannot be opened in app: Neznámý typ adresy URL YouTube,
   nelze v aplikaci otevřít
 Open New Window: Otevřít nové okno
+Default Invidious instance has been cleared: Výchozí Invidious instance byla vymazána
+Default Invidious instance has been set to $: Výchozí Invidious instance byla nastavena
+  na $

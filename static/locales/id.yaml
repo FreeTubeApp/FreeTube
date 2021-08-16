@@ -132,6 +132,9 @@ Settings:
         #! List countries
     View all Invidious instance information: Lihat semua informasi situs Invidious
     System Default: Sistem standar
+    Current instance will be randomized on startup: Situs akan diacak saat aplikasi
+      dijalankan
+    Current Invidious Instance: Situs Invidious Saat Ini
   Theme Settings:
     Theme Settings: 'Pengaturan Tema'
     Match Top Bar with Main Color: 'Samakan Bilah Atas dengan Warna Utama'

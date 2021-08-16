@@ -34,12 +34,12 @@ export default Vue.extend({
     }
   },
   computed: {
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
     },
 
     invidiousURL() {
-      let videoUrl = `${this.invidiousInstance}/watch?v=${this.id}`
+      let videoUrl = `${this.currentInvidiousInstance}/watch?v=${this.id}`
       // `playlistId` can be undefined
       if (this.playlistId && this.playlistId.length !== 0) {
         // `index` seems can be ignored
@@ -49,7 +49,7 @@ export default Vue.extend({
     },
 
     invidiousEmbedURL() {
-      return `${this.invidiousInstance}/embed/${this.id}`
+      return `${this.currentInvidiousInstance}/embed/${this.id}`
     },
 
     youtubeURL() {

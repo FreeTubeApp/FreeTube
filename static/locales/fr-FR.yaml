@@ -130,6 +130,15 @@ Settings:
     View all Invidious instance information: Voir les informations de toutes les instances
       Invidious
     System Default: Valeur par défaut du système
+    Clear Default Instance: Effacer l'instance par défaut
+    Set Current Instance as Default: Définir l'instance actuelle comme valeur par
+      défaut
+    Current instance will be randomized on startup: L'instance actuelle sera choisie
+      au hasard au démarrage
+    No default instance has been set: Aucune instance par défaut n'a été définie
+    The currently set default instance is $: L'instance par défaut actuellement définie
+      est $
+    Current Invidious Instance: Instance Invidious actuelle
   Theme Settings:
     Theme Settings: 'Paramètres du thème'
     Match Top Bar with Main Color: 'Faire correspondre la barre supérieure à la couleur
@@ -199,6 +208,7 @@ Settings:
       au dessus du lecteur vidéo
     Display Play Button In Video Player: Afficher le bouton de lecture dans le lecteur
       vidéo
+    Fast-Forward / Rewind Interval: Intervalle d'avance/de recul rapide
   Subscription Settings:
     Subscription Settings: 'Paramètres des abonnements'
     Hide Videos on Watch: 'Masquer les vidéos visionnées'
@@ -583,6 +593,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Liste de lecture
 Toggle Theatre Mode: 'Mode Cinéma'
 Change Format:
   Change Video Formats: 'Changer le format de la vidéo'
@@ -698,6 +709,7 @@ Profile:
   $ selected: $ sélectionné(s)
   Other Channels: Autres chaînes
   Profile Filter: Filtre de profil
+  Profile Settings: Paramètres du profil
 The playlist has been reversed: La liste de lecture a été inversée
 A new blog is now available, $. Click to view more: Un nouveau billet est maintenant
   disponible, $. Cliquez pour en savoir plus
@@ -768,3 +780,7 @@ Hashtags have not yet been implemented, try again later: Les hashtags n'ont pas 
 Unknown YouTube url type, cannot be opened in app: Type d’url YouTube inconnu, ne
   peut pas être ouvert dans l’application
 Open New Window: Ouvrir une nouvelle fenêtre
+Default Invidious instance has been cleared: L'instance Invidious par défaut a été
+  effacée
+Default Invidious instance has been set to $: L’instance Invidious par défaut a été
+  définie sur $

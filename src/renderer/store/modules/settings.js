@@ -172,6 +172,7 @@ const state = {
   defaultPlayback: 1,
   defaultProfile: 'allChannels',
   defaultQuality: '720',
+  defaultSkipInterval: 5,
   defaultTheatreMode: false,
   defaultVideoFormat: 'dash',
   disableSmoothScrolling: false,
@@ -194,7 +195,6 @@ const state = {
   hideVideoLikesAndDislikes: false,
   hideVideoViews: false,
   hideWatchedSubs: false,
-  invidiousInstance: 'https://invidious.snopyta.org',
   landingPage: 'subscriptions',
   listType: 'grid',
   playNextVideo: false,
@@ -247,6 +247,15 @@ const stateWithSideEffects = {
         isDev: process.env.NODE_ENV === 'development',
         locale: targetLocale
       })
+    }
+  },
+
+  defaultInvidiousInstance: {
+    defaultValue: '',
+    sideEffectsHandler: ({ commit, getters }, value) => {
+      if (value !== '' && getters.getCurrentInvidiousInstance !== value) {
+        commit('setCurrentInvidiousInstance', value)
+      }
     }
   },
 
