@@ -126,6 +126,14 @@ Settings:
     Check for Updates: Traži nove verzije
     View all Invidious instance information: Prikaži podatke svih Invidious primjeraka
     System Default: Standard sustava
+    Clear Default Instance: Izbriši standardnu instancu
+    Set Current Instance as Default: Postavi trenutačnu instancu kao standardnu
+    Current instance will be randomized on startup: Trenutačna instanca će se slučajno
+      odrediti nakon pokretanja računala
+    No default instance has been set: Nema standardno postavljene instance
+    The currently set default instance is $: Trenutačno postavljena standardna instanca
+      je $
+    Current Invidious Instance: Trenutačna Invidious instanca
   Theme Settings:
     Theme Settings: 'Postavke teme'
     Match Top Bar with Main Color: 'Koristi glavnu boju u gornjoj traci'
@@ -431,6 +439,7 @@ Profile:
   Other Channels: Ostali kanali
   Subscription List: Popis pretplata
   Profile Filter: Filtar profila
+  Profile Settings: Postavke profila
 Channel:
   Subscriber: 'Pretplatnik'
   Subscribers: 'Pretplatnici'
@@ -599,6 +608,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Zbirka
 Toggle Theatre Mode: 'Uključi/isključi kazališni modus'
 Change Format:
   Change Video Formats: 'Promijeni videoformate'
@@ -728,3 +738,6 @@ Hashtags have not yet been implemented, try again later: Hashtagovi još nisu im
 Unknown YouTube url type, cannot be opened in app: Nepoznata vrsta URL adrese na YouTubeu,
   ne može se otvoriti u programu
 Open New Window: Otvori novi prozor
+Default Invidious instance has been cleared: Standardna Invidious instanca je izbrisana
+Default Invidious instance has been set to $: Standardna Invidious instanca je postavljena
+  na $

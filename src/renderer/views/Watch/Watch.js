@@ -1007,12 +1007,16 @@ export default Vue.extend({
       let fileLocation
       let uriSchema
       if (this.isDev) {
-        fileLocation = `dashFiles/${this.videoId}.xml`
-        uriSchema = fileLocation
+        fileLocation = `static/dashFiles/${this.videoId}.xml`
+        uriSchema = `dashFiles/${this.videoId}.xml`
         // if the location does not exist, writeFileSync will not create the directory, so we have to do that manually
-        if (!fs.existsSync('dashFiles/')) {
-          fs.mkdirSync('dashFiles/')
+        if (!fs.existsSync('static/dashFiles/')) {
+          fs.mkdirSync('static/dashFiles/')
         }
+
+        fs.rm(fileLocation, () => {
+          fs.writeFileSync(fileLocation, xmlData)
+        })
       } else {
         fileLocation = `${userData}/dashFiles/${this.videoId}.xml`
         uriSchema = `file://${fileLocation}`
@@ -1020,8 +1024,10 @@ export default Vue.extend({
         if (!fs.existsSync(`${userData}/dashFiles/`)) {
           fs.mkdirSync(`${userData}/dashFiles/`)
         }
+
+        fs.writeFileSync(fileLocation, xmlData)
       }
-      fs.writeFileSync(fileLocation, xmlData)
+
       return [
         {
           url: uriSchema,
@@ -1081,20 +1087,25 @@ export default Vue.extend({
         // Dev mode doesn't have access to the file:// schema, so we access
         // storyboards differently when run in dev
         if (this.isDev) {
-          fileLocation = `storyboards/${this.videoId}.vtt`
-          uriSchema = fileLocation
+          fileLocation = `static/storyboards/${this.videoId}.vtt`
+          uriSchema = `storyboards/${this.videoId}.vtt`
           // if the location does not exist, writeFileSync will not create the directory, so we have to do that manually
-          if (!fs.existsSync('storyboards/')) {
-            fs.mkdirSync('storyboards/')
+          if (!fs.existsSync('static/storyboards/')) {
+            fs.mkdirSync('static/storyboards/')
           }
+
+          fs.rm(fileLocation, () => {
+            fs.writeFileSync(fileLocation, results)
+          })
         } else {
           if (!fs.existsSync(`${userData}/storyboards/`)) {
             fs.mkdirSync(`${userData}/storyboards/`)
           }
           fileLocation = `${userData}/storyboards/${this.videoId}.vtt`
           uriSchema = `file://${fileLocation}`
+
+          fs.writeFileSync(fileLocation, results)
         }
-        fs.writeFileSync(fileLocation, results)
 
         this.videoStoryboardSrc = uriSchema
       })

@@ -128,6 +128,14 @@ Settings:
     Check for Updates: Controlla gli aggiornamenti
     View all Invidious instance information: Visualizza tutti i dati della istanza
       Invidious
+    Clear Default Instance: Cancella l'Istanza Predefinita
+    Set Current Instance as Default: Imposta l'Istanza Corrente come Default
+    Current instance will be randomized on startup: L'istanza corrente sarà randomizzata
+      all'avvio
+    No default instance has been set: Non è stata impostata nessuna istanza di default
+    The currently set default instance is $: L'attuale istanza di default è $
+    Current Invidious Instance: Istanza attuale di Invidious
+    System Default: Impostazioni predefinite di sistema
   Theme Settings:
     Theme Settings: 'Impostazioni Tema'
     Match Top Bar with Main Color: 'Abbina la barra superiore con il colore principale'
@@ -674,3 +682,4 @@ Playing Next Video Interval: Riproduzione del video successivo in pochissimo tem
   secondo. Fare clic per annullare. | Riproduzione del video successivo tra {nextVideoInterval}
   secondi. Fare clic per annullare.
 More: Altro
+Open New Window: Apri Nuova Finestra

@@ -207,6 +207,7 @@ Settings:
     Display Play Button In Video Player: Показване на бутона за възпроизвеждане във
       видео плейъра
     Scroll Volume Over Video Player: Промяна на звука при превъртане над видео плейъра
+    Fast-Forward / Rewind Interval: Интервал за бързо превъртане напред / назад
   Privacy Settings:
     Privacy Settings: 'Настройки за поверителност'
     Remember History: 'Запазване на историята'
@@ -438,6 +439,7 @@ Profile:
     от другите профили.'
 #On Channel Page
   Profile Filter: Профилен филтър
+  Profile Settings: Настройки на профил
 Channel:
   Subscriber: 'Абонат'
   Subscribers: 'Абонати'
@@ -608,6 +610,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Плейлист
 Toggle Theatre Mode: 'Режим "Широк екран"'
 Change Format:
   Change Video Formats: 'Смяна видео формати'

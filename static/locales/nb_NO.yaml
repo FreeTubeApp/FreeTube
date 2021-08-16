@@ -176,7 +176,7 @@ Settings:
     Default Volume: 'Standardvolum'
     Default Playback Rate: 'Avspillingshastighet'
     Default Video Format:
-      Default Video Format: 'Videoformat'
+      Default Video Format: 'Forvalgt videoformat'
       Dash Formats: 'DASH-formater'
       Legacy Formats: 'Gamle formater'
       Audio Formats: 'Lydformater'
@@ -196,10 +196,11 @@ Settings:
     Next Video Interval: Tid mellom videoer
     Scroll Volume Over Video Player: Rullelydstyrkejustering i videospilleren
     Display Play Button In Video Player: Vis avspillingsknappen i videoavspilleren
+    Fast-Forward / Rewind Interval: Intervall for spoling frem og tilbake
   Privacy Settings:
     Privacy Settings: 'Personvernsinnstillinger'
     Remember History: 'Husk historikk'
-    Save Watched Progress: 'Lagre visningsposisjon'
+    Save Watched Progress: 'Husk avspillingsposisjon'
     Clear Search Cache: 'Tøm søkehurtiglager'
     Are you sure you want to clear out your search cache?: 'Tøm søkehurtiglager?'
     Search cache has been cleared: 'Søkehurtiglager tømt'
@@ -547,6 +548,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Spilleliste
 Toggle Theatre Mode: 'Teatermodus'
 Change Format:
   Change Video Formats: 'Endre videoformater'
@@ -659,6 +661,7 @@ Profile:
   Profile Preview: Profilforhåndsvisning
   Custom Color: Egendefinert farge
   Profile Filter: Profilfilter
+  Profile Settings: Profilinnstillinger
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Denne
   videoen er utilgjengelig grunnet manglende formater. Dette kan skyldes tilgangbegrensninger
   i ditt land.

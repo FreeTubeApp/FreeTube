@@ -203,6 +203,7 @@ Settings:
     Playlist Next Video Interval: Playlist Next Video Interval
     Next Video Interval: Next Video Interval
     Display Play Button In Video Player: Display Play Button In Video Player
+    Fast-Forward / Rewind Interval: Fast-Forward / Rewind Interval
   External Player Settings:
     External Player Settings: External Player Settings
     External Player: External Player
@@ -372,6 +373,7 @@ About:
   Licensed under the AGPLv3: Licensed under the AGPLv3
   Source code: Source code
 Profile:
+  Profile Settings: Profile Settings
   Profile Select: 'Profile Select'
   All Channels: 'All Channels'
   Profile Manager: 'Profile Manager'
@@ -572,6 +574,7 @@ Videos:
 #& Playlists
 Playlist:
   #& About
+  Playlist: Playlist
   View Full Playlist: 'View Full Playlist'
   Videos: 'Videos'
   View: 'View'
