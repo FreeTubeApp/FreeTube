@@ -1,6 +1,4 @@
-# This is a basic workflow to help you get started with Actions
-
-name: CI
+name: Auto Merge PR
 
 # Controls when the workflow will run
 on:
