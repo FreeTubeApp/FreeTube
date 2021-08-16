@@ -3,17 +3,11 @@ name: Auto Merge PR
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the development branch
-  push: {} # update PR when base branch is updated
-  status: {} # try to merge when other checks are completed
   pull_request_review: # try to merge after review
     types:
       - submitted
       - edited
       - dismissed
-  pull_request: # try to merge if labels have changed (white/black list)
-    types:
-      - labeled
-      - unlabeled
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -34,4 +28,3 @@ jobs:
         with:
           # Token to perform api calls
           token: ${{ secrets.PUSH_TOKEN }}
-          method: squash
