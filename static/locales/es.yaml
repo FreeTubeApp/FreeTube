@@ -99,7 +99,7 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: 'Usar motor API secundario en caso
       de fallo'
     Enable Search Suggestions: 'Activar sugerencias de búsqueda'
-    Default Landing Page: 'Sección de inicio por defecto'
+    Default Landing Page: 'Página de Destino Predeterminada'
     Locale Preference: 'Idioma'
     Preferred API Backend:
       Preferred API Backend: 'Motor API principal'
@@ -123,13 +123,15 @@ Settings:
     Check for Updates: Buscar actualizaciones
     View all Invidious instance information: Ver toda la información sobre la instancia
       de Invidious
-    System Default: Por defecto del sistema
+    System Default: Predeterminado del Sistema
     Current instance will be randomized on startup: La instancia actual será elegida
       aleatoriamente al inicio
-    No default instance has been set: No se ha especificado una instancia por defecto
-    The currently set default instance is $: La instancia por defecto actualmente
-      es $
+    No default instance has been set: No se ha especificado una instancia predeterminada
+    The currently set default instance is $: La instancia predeterminada actual es
+      $
     Current Invidious Instance: Instancia actual de Invidious
+    Clear Default Instance: Borrar Instancia Predeterminada
+    Set Current Instance as Default: Establecer la Instancia Actual como Predeterminada
   Theme Settings:
     Theme Settings: 'Apariencia'
     Match Top Bar with Main Color: 'Usar color principal para barra superior'
@@ -159,24 +161,24 @@ Settings:
     Secondary Color Theme: 'Color secundario'
         #* Main Color Theme
     UI Scale: Escala de interfaz gráfica
-    Expand Side Bar by Default: Expandir barra lateral por defecto
+    Expand Side Bar by Default: Expandir Barra Lateral por defecto
     Disable Smooth Scrolling: Desactivar desplazamiento suave
   Player Settings:
     Player Settings: 'Reproductor'
-    Force Local Backend for Legacy Formats: 'Forzar API local para formato Legacy'
+    Force Local Backend for Legacy Formats: 'Forzar Backend Local para Formatos Heredados'
     Play Next Video: 'Reproducción continua'
-    Turn on Subtitles by Default: 'Activar subtítulos por defecto'
+    Turn on Subtitles by Default: 'Activar Subtítulos por defecto'
     Autoplay Videos: 'Reproducción automática de videos'
     Proxy Videos Through Invidious: 'Enmascarar videos a través de invidious'
     Autoplay Playlists: 'Reproducción automática de listas de reproducción'
-    Enable Theatre Mode by Default: 'Activar modo cine por defecto'
-    Default Volume: 'Volumen predeterminado'
-    Default Playback Rate: 'Velocidad de reproducción predeterminada'
+    Enable Theatre Mode by Default: 'Activar el Modo Cine por defecto'
+    Default Volume: 'Volumen Predeterminado'
+    Default Playback Rate: 'Velocidad de Reproducción Predeterminada'
     Default Video Format:
-      Default Video Format: 'Formato de video'
-      Dash Formats: 'Dash'
-      Legacy Formats: 'Legacy'
-      Audio Formats: 'Solo audio'
+      Default Video Format: 'Formato de Video Predeterminado'
+      Dash Formats: 'Formatos DASH'
+      Legacy Formats: 'Formatos Heredados'
+      Audio Formats: 'Formatos de Audio'
     Default Quality:
       Default Quality: 'Calidad Predeterminada'
       Auto: 'Automático'
@@ -199,10 +201,10 @@ Settings:
     Privacy Settings: 'Configuración de privacidad'
     Remember History: 'Recordar historial'
     Save Watched Progress: 'Guardar progreso reproducido'
-    Clear Search Cache: 'Vaciar antememoria de búsquedas'
+    Clear Search Cache: 'Vaciar Caché de Búsquedas'
     Are you sure you want to clear out your search cache?: '¿Confirma que quiere vaciar
-      la antememoria de búsquedas?'
-    Search cache has been cleared: 'Se vació la antememoria de búsquedas'
+      el Caché de Búsquedas?'
+    Search cache has been cleared: 'Se vació el Caché de Búsquedas'
     Remove Watch History: 'Vaciar historial de reproducciones'
     Are you sure you want to remove your entire watch history?: '¿Confirma que quiere
       vaciar el historial de reproducciones?'
@@ -210,7 +212,8 @@ Settings:
     Remove All Subscriptions / Profiles: 'Borrar todas las suscripciones y perfiles'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: '¿Confirma
       que quiere borrar todas las suscripciones y perfiles? Esta operación es irreversible.'
-    Automatically Remove Video Meta Files: Eliminar metarchivos de vídeo automáticamente
+    Automatically Remove Video Meta Files: Eliminar Automáticamente los Meta-Archivos
+      de Vídeo
   Subscription Settings:
     Subscription Settings: 'Configuración de suscripciones'
     Hide Videos on Watch: 'Ocultar videos vistos'
@@ -315,8 +318,8 @@ Settings:
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notificar cuando se salta un segmento
       de patrocinio
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Url de la API de
-      SponsorBlock (Por defecto https://sponsor.ajay.app)
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL de la API de
+      SponsorBlock (La predeterminada es https://sponsor.ajay.app)
     Enable SponsorBlock: Activar SponsorBlock
     SponsorBlock Settings: Ajustes de SponsorBlock
   External Player Settings:
@@ -391,7 +394,7 @@ Profile:
   Profile Preview: 'Vista previa del perfil'
   Create Profile: 'Crear perfil'
   Update Profile: 'Actualizar perfil'
-  Make Default Profile: 'Haz este perfil por defecto'
+  Make Default Profile: 'Hacer a este Perfil el Predeterminado'
   Delete Profile: 'Borrar perfil'
   Are you sure you want to delete this profile?: '¿Seguro de que quieres borrar este
     perfil?'
@@ -401,10 +404,10 @@ Profile:
   Profile has been created: 'Se ha creado el perfil'
   Profile has been updated: 'El perfil se ha actualizado'
   Your default profile has been set to $: 'Tu perfil predeterminado se ha establecido
-    en $'
+    como $'
   Removed $ from your profiles: 'Eliminado $ de tus perfiles'
   Your default profile has been changed to your primary profile: 'Tu perfil predeterminado
-    se ha cambiado a tu perfil principal'
+    ha sido cambiado a tu perfil principal'
   $ is now the active profile: '$ es ahora el perfil activo'
 #On Channel Page
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ¿Está
@@ -424,6 +427,7 @@ Profile:
   Subscription List: Lista de suscripciones
   Profile Select: Seleccionar perfil
   Profile Filter: Filtro de Perfil
+  Profile Settings: Ajustes del Perfil
 Channel:
   Subscriber: 'Suscriptor'
   Subscribers: 'Suscriptores'
@@ -559,6 +563,17 @@ Video:
     playlist: lista de reproducción
     video: vídeo
     OpenInTemplate: Abrir en $
+    Unsupported Actions:
+      looping playlists: reproducir en bucle las listas de reproducción
+      shuffling playlists: aleatorizar las listas de reproducción
+      reversing playlists: invertir las listas de reproducción
+      opening specific video in a playlist (falling back to opening the video): abrir
+        un vídeo específico en una lista de reproducción (regresando a abrir el vídeo)
+      opening playlists: abrir listas de reproducción
+      setting a playback rate: establecer una velocidad de reproducción
+      starting video at offset: iniciar el video en un punto dado
+    UnsupportedActionTemplate: '$ no soporta: %'
+    OpeningTemplate: Abriendo $ en %...
 Videos:
   #& Sort By
   Sort By:
@@ -583,6 +598,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Lista de reproducción
 Toggle Theatre Mode: 'Activar Modo Cine'
 Change Format:
   Change Video Formats: 'Cambiar formato de video'
@@ -665,8 +681,8 @@ This video is unavailable because of missing formats. This can happen due to cou
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Al activarse, FreeTube utilizará RSS en lugar de su método
-      predeterminado para recuperar el suministro de suscripciones. RSS es más rápido
-      y previene los bloqueos por IP, pero carece de ciertos datos, como la duración
+      predeterminado para recuperar el feed de suscripciones. RSS es más rápido y
+      previene los bloqueos por IP, pero carece de ciertos datos, como la duración
       de los vídeos o el estado de transmisión en directo
   Player Settings:
     Default Video Format: Establezca los formatos utilizados cuando se reproduce un
@@ -695,9 +711,9 @@ Tooltips:
       datos. La API local es un extractor incorporado. La API de Invidious requiere
       de un servidor Invidious al cual conectarse.
   Privacy Settings:
-    Remove Video Meta Files: Cuando se active, FreeTube eliminará de forma automática
-      meta-archivos creados durante la reproducción de vídeo cuando se cierre la página
-      de visualizado.
+    Remove Video Meta Files: Cuando está activado, FreeTube elimina automáticamente
+      los meta-archivos creados durante la reproducción de vídeo cuando se cierre
+      la página de visualizado.
   External Player Settings:
     Custom External Player Executable: De manera predeterminada, FreeTube supondrá
       que el reproductor externo seleccionado puede hallarse mediante la variable
@@ -705,6 +721,11 @@ Tooltips:
       aquí.
     Custom External Player Arguments: Cualesquier argumentos de orden de consola personalizados,
       separados por punto y coma (;) que deberán transmitirse al reproductor externo.
+    Ignore Warnings: Suprimir las advertencias para cuando el reproductor externo
+      actual no admite la acción actual (ej. invertir listas de reproducción, etc.).
+    External Player: Elegir un reproductor externo mostrará un icono para abrir el
+      vídeo (o lista de reproducción si esta es compatible) en el reproductor externo,
+      en la miniatura.
 More: Más
 Unknown YouTube url type, cannot be opened in app: Tipo de LRU desconocido. No se
   puede abrir en applicación
@@ -715,3 +736,7 @@ Playing Next Video Interval: Reproduciendo el vídeo a continuación. Haz clic p
   cancelar. | El siguiente vídeo se reproducirá en {nextVideoInterval} segundos. Haz
   clic para cancelar. | El siguiente vídeo se reproducirá en {nextVideoInterval} segundos.
   Haz clic para cancelar.
+Default Invidious instance has been cleared: La Instancia de Invidious Predeterminada
+  ha sido borrada
+Default Invidious instance has been set to $: La Instancia de Invidious Predeterminada
+  ha sido establecida como $

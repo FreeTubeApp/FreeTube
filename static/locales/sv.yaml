@@ -201,6 +201,7 @@ Settings:
     Next Video Interval: Intervall till nästa video
     Display Play Button In Video Player: Visa Spela knapp i videospelaren
     Scroll Volume Over Video Player: Rullvolym i videospelaren
+    Fast-Forward / Rewind Interval: Spola fram / spola bak intervall
   Privacy Settings:
     Privacy Settings: 'Integritets inställningar'
     Remember History: 'Aktivera visningshistorik'
@@ -425,6 +426,7 @@ Profile:
     kanalen från någon annan profil.'
 #On Channel Page
   Profile Filter: Profil-filter
+  Profile Settings: Profil inställningar
 Channel:
   Subscriber: 'Prenumerant'
   Subscribers: 'Prenumeranter'
@@ -594,6 +596,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Spellista
 Toggle Theatre Mode: 'Aktivera Bioläge'
 Change Format:
   Change Video Formats: 'Ändra videoformat'
