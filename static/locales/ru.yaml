@@ -126,6 +126,14 @@ Settings:
     Check for Updates: Проверить наличие обновлений
     View all Invidious instance information: Показать все доступные экземпляры Invidious
     System Default: Системные установки по умолчанию
+    Clear Default Instance: Очистить экземпляр по умолчанию
+    Set Current Instance as Default: Установить текущий экземпляр по умолчанию
+    Current instance will be randomized on startup: Текущий экземпляр будет рандомизирован
+      при запуске
+    No default instance has been set: Экземпляр по умолчанию не установлен
+    The currently set default instance is $: В настоящее время по умолчанию установлен
+      экземпляр $
+    Current Invidious Instance: Текущий экземпляр Invidious
   Theme Settings:
     Theme Settings: 'Настройки темы'
     Match Top Bar with Main Color: 'Верхняя панель основного цвета'
@@ -191,6 +199,7 @@ Settings:
     Scroll Volume Over Video Player: Прокрутка громкости над видеоплеером
     Next Video Interval: Интервал следующего видео
     Display Play Button In Video Player: Отображение кнопки воспроизведения в видеопроигрывателе
+    Fast-Forward / Rewind Interval: Интервал перемотки вперед/назад
   Subscription Settings:
     Subscription Settings: 'Настройки подписки'
     Hide Videos on Watch: 'Скрыть видео после просмотра'
@@ -555,6 +564,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Плейлист
 Toggle Theatre Mode: 'Переключить режим театра'
 Change Format:
   Change Video Formats: 'Изменить форматы видео'
@@ -668,6 +678,7 @@ Profile:
   Other Channels: Другие каналы
   Subscription List: Список подписок
   Profile Filter: Фильтры профилей
+  Profile Settings: Настройки профиля
 The playlist has been reversed: Плейлист был перевернут
 A new blog is now available, $. Click to view more: Теперь доступен новый блог $.
   Нажмите, чтобы увидеть больше
@@ -732,3 +743,6 @@ Hashtags have not yet been implemented, try again later: Хештеги еще �
 Unknown YouTube url type, cannot be opened in app: Неизвестный тип URL-адреса YouTube,
   не может быть открыт в приложении
 Open New Window: Открыть новое окно
+Default Invidious instance has been cleared: Экземпляр Invidious по умолчанию очищен
+Default Invidious instance has been set to $: Экземпляр Invidious по умолчанию установлен
+  на $

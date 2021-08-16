@@ -128,7 +128,7 @@ Settings:
       List: 'Sąrašas'
     Thumbnail Preference:
       Thumbnail Preference: 'Miniatiūrų pasirinkimas'
-      Default: 'Numatytas'
+      Default: 'Numatytasis'
       Beginning: 'Vaizdo įrašo pradžia'
       Middle: 'Vaizdo įrašo vidurys'
       End: 'Vaizdo įrašo pabaiga'
@@ -209,6 +209,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Fast-Forward / Rewind Interval: Greito persukimo pirmyn / atgal intervalas
   External Player Settings:
     External Player Settings: 'Išorinio grotuvo nustatymai'
     External Player: 'Išorinis grotuvas'
@@ -379,6 +380,7 @@ Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Ar
     tikrai norite ištrinti pasirinktus kanalus? Tai kanalo neištrins iš kito profilio.'
 #On Channel Page
+  Profile Settings: Profilio nustatymai
 Channel:
   Subscriber: 'Prenumeratorius'
   Subscribers: 'Prenumeratoriai'
@@ -552,6 +554,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Grojaraštis
 Toggle Theatre Mode: 'Įjungti teatro rėžimą'
 Change Format:
   Change Video Formats: 'Keisti vaizdo įrašo formatus'

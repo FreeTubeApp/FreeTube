@@ -200,6 +200,7 @@ Settings:
     Scroll Volume Over Video Player: Kontroluj głośność kółkiem myszy na obszarze
       odtwarzacza
     Display Play Button In Video Player: Pokaż przycisk odtwarzania na odtwarzaczu
+    Fast-Forward / Rewind Interval: Interwał przewijania
   Subscription Settings:
     Subscription Settings: 'Ustawienia subskrypcji'
     Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
@@ -470,18 +471,18 @@ Video:
     na żywo nie wspiera obecnie API Invidious. Konieczne jest połączenie bezpośrednie
     z YouTube.'
   Published:
-    Jan: 'sty'
-    Feb: 'lut'
-    Mar: 'mar'
-    Apr: 'kwi'
+    Jan: 'sty.'
+    Feb: 'lut.'
+    Mar: 'mar.'
+    Apr: 'kwi.'
     May: 'maj'
-    Jun: 'cze'
-    Jul: 'lip'
-    Aug: 'sie'
-    Sep: 'wrz'
-    Oct: 'paź'
-    Nov: 'lis'
-    Dec: 'gru'
+    Jun: 'cze.'
+    Jul: 'lip.'
+    Aug: 'sie.'
+    Sep: 'wrz.'
+    Oct: 'paź.'
+    Nov: 'lis.'
+    Dec: 'gru.'
     Second: 'sekundę'
     Seconds: 'sekund/y'
     Hour: 'godzinę'
@@ -576,6 +577,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Playlista
 Toggle Theatre Mode: 'Aktywuj tryb kinowy'
 Change Format:
   Change Video Formats: 'Zmień formaty wideo'
@@ -687,6 +689,7 @@ Profile:
   Other Channels: Inne kanały
   Subscription List: Lista subskrypcji
   Profile Filter: Filtr profilu
+  Profile Settings: Ustawienia profilu
 The playlist has been reversed: Playlista została odwrócona
 A new blog is now available, $. Click to view more: Nowy wpis na blogu jest dostępny,
   $. Kliknij, aby zobaczyć więcej
