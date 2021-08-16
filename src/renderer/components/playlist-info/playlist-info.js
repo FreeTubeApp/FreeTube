@@ -1,9 +1,9 @@
 import Vue from 'vue'
+import { mapActions } from 'vuex'
 import FtListDropdown from '../ft-list-dropdown/ft-list-dropdown.vue'
-import { shell } from 'electron'
 
 export default Vue.extend({
-  name: 'FtElementList',
+  name: 'PlaylistInfo',
   components: {
     'ft-list-dropdown': FtListDropdown
   },
@@ -16,7 +16,7 @@ export default Vue.extend({
   data: function () {
     return {
       id: '',
-      randomVideoId: '',
+      firstVideoId: '',
       title: '',
       channelThumbnail: '',
       channelName: '',
@@ -35,8 +35,8 @@ export default Vue.extend({
     }
   },
   computed: {
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
     },
 
     listType: function () {
@@ -59,23 +59,24 @@ export default Vue.extend({
     thumbnail: function () {
       switch (this.thumbnailPreference) {
         case 'start':
-          return `https://i.ytimg.com/vi/${this.randomVideoId}/mq1.jpg`
+          return `https://i.ytimg.com/vi/${this.firstVideoId}/mq1.jpg`
         case 'middle':
-          return `https://i.ytimg.com/vi/${this.randomVideoId}/mq2.jpg`
+          return `https://i.ytimg.com/vi/${this.firstVideoId}/mq2.jpg`
         case 'end':
-          return `https://i.ytimg.com/vi/${this.randomVideoId}/mq3.jpg`
+          return `https://i.ytimg.com/vi/${this.firstVideoId}/mq3.jpg`
         default:
-          return `https://i.ytimg.com/vi/${this.randomVideoId}/mqdefault.jpg`
+          return `https://i.ytimg.com/vi/${this.firstVideoId}/mqdefault.jpg`
       }
     }
   },
   mounted: function () {
     console.log(this.data)
     this.id = this.data.id
-    this.randomVideoId = this.data.randomVideoId
+    this.firstVideoId = this.data.firstVideoId
     this.title = this.data.title
     this.channelName = this.data.channelName
     this.channelThumbnail = this.data.channelThumbnail
+    this.channelId = this.data.channelId
     this.uploadedTime = this.data.uploaded_at
     this.description = this.data.description
     this.infoSource = this.data.infoSource
@@ -94,22 +95,43 @@ export default Vue.extend({
   methods: {
     sharePlaylist: function (method) {
       const youtubeUrl = `https://youtube.com/playlist?list=${this.id}`
-      const invidiousUrl = `${this.invidiousInstance}/playlist?list=${this.id}`
+      const invidiousUrl = `${this.currentInvidiousInstance}/playlist?list=${this.id}`
 
       switch (method) {
         case 'copyYoutube':
           navigator.clipboard.writeText(youtubeUrl)
           break
         case 'openYoutube':
-          shell.openExternal(youtubeUrl)
+          this.openExternalLink(youtubeUrl)
           break
         case 'copyInvidious':
           navigator.clipboard.writeText(invidiousUrl)
           break
         case 'openInvidious':
-          shell.openExternal(invidiousUrl)
+          this.openExternalLink(invidiousUrl)
           break
       }
-    }
+    },
+
+    playFirstVideo() {
+      const playlistInfo = {
+        playlistId: this.id
+      }
+
+      this.$router.push(
+        {
+          path: `/watch/${this.firstVideoId}`,
+          query: playlistInfo
+        }
+      )
+    },
+
+    goToChannel: function () {
+      this.$router.push({ path: `/channel/${this.channelId}` })
+    },
+
+    ...mapActions([
+      'openExternalLink'
+    ])
   }
 })

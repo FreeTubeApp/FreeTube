@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { mapActions } from 'vuex'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
@@ -38,9 +39,10 @@ export default Vue.extend({
       }
 
       this.isLoading = true
-      const result = await this.$store.dispatch('invidiousAPICall', searchPayload).catch((err) => {
-        console.log(err)
-      })
+      const result = await this.invidiousAPICall(searchPayload)
+        .catch((err) => {
+          console.log(err)
+        })
 
       if (!result) {
         this.isLoading = false
@@ -54,6 +56,10 @@ export default Vue.extend({
       })
       this.isLoading = false
       this.$store.commit('setPopularCache', this.shownResults)
-    }
+    },
+
+    ...mapActions([
+      'invidiousAPICall'
+    ])
   }
 })

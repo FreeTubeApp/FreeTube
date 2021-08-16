@@ -71,6 +71,14 @@
           @click="toggleSave"
         />
         <ft-icon-button
+          v-if="externalPlayer !== ''"
+          :title="$t('Video.External Player.OpenInTemplate').replace('$', externalPlayer)"
+          icon="external-link-alt"
+          class="option"
+          theme="secondary"
+          @click="handleExternalPlayer"
+        />
+        <ft-icon-button
           v-if="theatrePossible"
           :title="$t('Toggle Theatre Mode')"
           class="theatreModeButton option"
@@ -86,7 +94,7 @@
           icon="download"
           :dropdown-names="downloadLinkNames"
           :dropdown-values="downloadLinkValues"
-          @click="handleDownloadLink"
+          @click="openExternalLink"
         />
         <ft-icon-button
           v-if="!isUpcoming"
@@ -101,6 +109,7 @@
         <ft-share-button
           :id="id"
           :get-timestamp="getTimestamp"
+          :playlist-id="playlistId"
           class="option"
         />
       </div>

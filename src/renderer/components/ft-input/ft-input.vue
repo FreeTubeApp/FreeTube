@@ -26,6 +26,7 @@
       type="text"
       :placeholder="placeholder"
       :disabled="disabled"
+      :spellcheck="spellcheck"
       @input="e => handleInput(e.target.value)"
       @focus="handleFocus"
       @blur="handleInputBlur"

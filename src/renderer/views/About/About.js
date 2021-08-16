@@ -88,18 +88,5 @@ export default Vue.extend({
         }
       ]
     }
-  },
-  computed: {
-    usingElectron: function () {
-      return this.$store.getters.getUsingElectron
-    }
-  },
-  methods: {
-    openUrl: function (url) {
-      if (this.usingElectron) {
-        const shell = require('electron').shell
-        shell.openExternal(url)
-      }
-    }
   }
 })

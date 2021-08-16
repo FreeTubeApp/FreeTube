@@ -89,6 +89,13 @@ $thumbnail-overlay-opacity: 0.85
       @include is-watch-playlist-item
         font-size: 12px
 
+    .externalPlayerIcon
+      position: absolute
+      bottom: 4px
+      left: 4px
+      font-size: 17px
+      opacity: $thumbnail-overlay-opacity
+
     .favoritesIcon
       position: absolute
       top: 3px
@@ -143,6 +150,9 @@ $thumbnail-overlay-opacity: 0.85
 
     .optionsButton
       float: right // ohhhh man, float was finally the right choice for something
+
+    .externalPlayerButton
+      float: right
 
     .title
       font-size: 20px

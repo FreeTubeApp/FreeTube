@@ -22,7 +22,7 @@ export default Vue.extend({
   },
   computed: {
     profileInitial: function () {
-      return this.profileName.slice(0, 1).toUpperCase()
+      return this?.profileName?.length > 0 ? Array.from(this.profileName)[0].toUpperCase() : ''
     }
   },
   methods: {

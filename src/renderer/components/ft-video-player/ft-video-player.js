@@ -30,8 +30,8 @@ export default Vue.extend({
     }
 
     if (this.usingElectron && this.powerSaveBlocker !== null) {
-      const { powerSaveBlocker } = require('electron')
-      powerSaveBlocker.stop(this.powerSaveBlocker)
+      const { ipcRenderer } = require('electron')
+      ipcRenderer.send('stopPowerSaveBlocker', this.powerSaveBlocker)
     }
   },
   props: {
@@ -143,8 +143,21 @@ export default Vue.extend({
       return this.$store.getters.getDefaultPlayback
     },
 
+    defaultSkipInterval: function () {
+      return this.$store.getters.getDefaultSkipInterval
+    },
+
     defaultQuality: function () {
       return parseInt(this.$store.getters.getDefaultQuality)
+    },
+
+    defaultCaptionSettings: function () {
+      try {
+        return JSON.parse(this.$store.getters.getDefaultCaptionSettings)
+      } catch (e) {
+        console.log(e)
+        return {}
+      }
     },
 
     defaultVideoFormat: function () {
@@ -155,12 +168,20 @@ export default Vue.extend({
       return this.$store.getters.getAutoplayVideos
     },
 
+    videoVolumeMouseScroll: function () {
+      return this.$store.getters.getVideoVolumeMouseScroll
+    },
+
     useSponsorBlock: function () {
       return this.$store.getters.getUseSponsorBlock
     },
 
     sponsorBlockShowSkippedToast: function () {
       return this.$store.getters.getSponsorBlockShowSkippedToast
+    },
+
+    displayVideoPlayButton: function() {
+      return this.$store.getters.getDisplayVideoPlayButton
     }
   },
   mounted: function () {
@@ -189,8 +210,8 @@ export default Vue.extend({
     }
 
     if (this.usingElectron && this.powerSaveBlocker !== null) {
-      const { powerSaveBlocker } = require('electron')
-      powerSaveBlocker.stop(this.powerSaveBlocker)
+      const { ipcRenderer } = require('electron')
+      ipcRenderer.send('stopPowerSaveBlocker', this.powerSaveBlocker)
     }
   },
   methods: {
@@ -217,6 +238,12 @@ export default Vue.extend({
 
         this.player.volume(this.volume)
         this.player.playbackRate(this.defaultPlayback)
+        this.player.textTrackSettings.setValues(this.defaultCaptionSettings)
+        // Remove big play button
+        // https://github.com/videojs/video.js/blob/v7.12.1/docs/guides/components.md#basic-example
+        if (!this.displayVideoPlayButton) {
+          this.player.removeChild('BigPlayButton')
+        }
 
         if (this.storyboardSrc !== '') {
           this.player.vttThumbnails({
@@ -251,49 +278,56 @@ export default Vue.extend({
         this.player.on('mouseleave', this.removeMouseTimeout)
 
         this.player.on('volumechange', this.updateVolume)
-        this.player.controlBar.getChild('volumePanel').on('mousewheel', this.mouseScrollVolume)
+        if (this.videoVolumeMouseScroll) {
+          this.player.on('wheel', this.mouseScrollVolume)
+        } else {
+          this.player.controlBar.getChild('volumePanel').on('wheel', this.mouseScrollVolume)
+        }
 
         this.player.on('fullscreenchange', this.fullscreenOverlay)
         this.player.on('fullscreenchange', this.toggleFullscreenClass)
 
-        const v = this
-
-        this.player.on('ready', function () {
-          v.$emit('ready')
-          v.checkAspectRatio()
-          if (v.captionHybridList.length !== 0) {
-            v.transformAndInsertCaptions()
+        this.player.on('ready', () => {
+          this.$emit('ready')
+          this.checkAspectRatio()
+          if (this.captionHybridList.length !== 0) {
+            this.transformAndInsertCaptions()
           }
         })
 
-        this.player.on('ended', function () {
-          v.$emit('ended')
+        this.player.on('ended', () => {
+          this.$emit('ended')
         })
 
-        this.player.on('error', function (error, message) {
-          v.$emit('error', error.target.player.error_)
+        this.player.on('error', (error, message) => {
+          this.$emit('error', error.target.player.error_)
         })
 
-        this.player.on('play', function () {
+        this.player.on('play', async function () {
           if (this.usingElectron) {
-            const { powerSaveBlocker } = require('electron')
-
-            this.powerSaveBlocker = powerSaveBlocker.start('prevent-display-sleep')
+            const { ipcRenderer } = require('electron')
+            this.powerSaveBlocker =
+              await ipcRenderer.invoke('startPowerSaveBlocker', 'prevent-display-sleep')
           }
         })
 
         this.player.on('pause', function () {
           if (this.usingElectron && this.powerSaveBlocker !== null) {
-            const { powerSaveBlocker } = require('electron')
-            powerSaveBlocker.stop(this.powerSaveBlocker)
+            const { ipcRenderer } = require('electron')
+            ipcRenderer.send('stopPowerSaveBlocker', this.powerSaveBlocker)
             this.powerSaveBlocker = null
           }
+        })
+
+        this.player.textTrackSettings.on('modalclose', (_) => {
+          const settings = this.player.textTrackSettings.getValues()
+          this.updateDefaultCaptionSettings(JSON.stringify(settings))
         })
       }
     },
 
     initializeSponsorBlock() {
-      this.$store.dispatch('sponsorBlockSkipSegments', {
+      this.sponsorBlockSkipSegments({
         videoId: this.videoId,
         categories: ['sponsor']
       }).then((skipSegments) => {
@@ -417,8 +451,10 @@ export default Vue.extend({
       }
     },
 
-    updateVolume: function (event) {
-      const volume = this.player.volume()
+    updateVolume: function (_event) {
+      // 0 means muted
+      // https://docs.videojs.com/html5#volume
+      const volume = this.player.muted() ? 0 : this.player.volume()
       sessionStorage.setItem('volume', volume)
     },
 
@@ -866,14 +902,13 @@ export default Vue.extend({
     },
 
     createLoopButton: function () {
-      const v = this
       const VjsButton = videojs.getComponent('Button')
       const loopButton = videojs.extend(VjsButton, {
         constructor: function(player, options) {
           VjsButton.call(this, player, options)
         },
-        handleClick: function() {
-          v.toggleVideoLoop()
+        handleClick: () => {
+          this.toggleVideoLoop()
         },
         createControlTextEl: function (button) {
           return $(button).html($('<div id="loopButton" class="vjs-icon-loop loop-white vjs-button loopWhite"></div>')
@@ -912,14 +947,13 @@ export default Vue.extend({
     },
 
     createFullWindowButton: function () {
-      const v = this
       const VjsButton = videojs.getComponent('Button')
       const fullWindowButton = videojs.extend(VjsButton, {
         constructor: function(player, options) {
           VjsButton.call(this, player, options)
         },
-        handleClick: function() {
-          v.toggleFullWindow()
+        handleClick: () => {
+          this.toggleFullWindow()
         },
         createControlTextEl: function (button) {
           // Add class name to button to be able to target it with CSS selector
@@ -933,7 +967,6 @@ export default Vue.extend({
     },
 
     createDashQualitySelector: function (levels) {
-      const v = this
       if (levels.levels_.length === 0) {
         setTimeout(() => {
           this.createDashQualitySelector(this.player.qualityLevels())
@@ -945,13 +978,13 @@ export default Vue.extend({
         constructor: function(player, options) {
           VjsButton.call(this, player, options)
         },
-        handleClick: function(event) {
+        handleClick: (event) => {
           console.log(event)
           const selectedQuality = event.target.innerText
           const bitrate = selectedQuality === 'auto' ? 'auto' : parseInt(event.target.attributes.bitrate.value)
-          v.setDashQualityLevel(bitrate)
+          this.setDashQualityLevel(bitrate)
         },
-        createControlTextEl: function (button) {
+        createControlTextEl: (button) => {
           const beginningHtml = `<div class="vjs-quality-level-value">
            <span id="vjs-current-quality">1080p</span>
           </div>
@@ -975,12 +1008,12 @@ export default Vue.extend({
             let qualityLabel
             let bitrate
 
-            if (typeof v.adaptiveFormats !== 'undefined' && v.adaptiveFormats.length > 0) {
-              const adaptiveFormat = v.adaptiveFormats.find((format) => {
+            if (typeof this.adaptiveFormats !== 'undefined' && this.adaptiveFormats.length > 0) {
+              const adaptiveFormat = this.adaptiveFormats.find((format) => {
                 return format.bitrate === quality.bitrate
               })
 
-              v.activeAdaptiveFormats.push(adaptiveFormat)
+              this.activeAdaptiveFormats.push(adaptiveFormat)
 
               fps = adaptiveFormat.fps
               qualityLabel = adaptiveFormat.qualityLabel ? adaptiveFormat.qualityLabel : quality.height + 'p'
@@ -1104,12 +1137,11 @@ export default Vue.extend({
     },
 
     fullscreenOverlay: function () {
-      const v = this
       const title = document.title.replace('- FreeTube', '')
 
       if (this.player.isFullscreen()) {
-        this.player.ready(function () {
-          v.player.overlay({
+        this.player.ready(() => {
+          this.player.overlay({
             overlays: [{
               showBackground: false,
               content: title,
@@ -1119,8 +1151,8 @@ export default Vue.extend({
           })
         })
       } else {
-        this.player.ready(function () {
-          v.player.overlay({
+        this.player.ready(() => {
+          this.player.overlay({
             overlays: [{
               showBackground: false,
               content: ' ',
@@ -1141,9 +1173,8 @@ export default Vue.extend({
     },
 
     handleTouchStart: function (event) {
-      const v = this
       this.touchPauseTimeout = setTimeout(() => {
-        v.togglePlayPause()
+        this.togglePlayPause()
       }, 1000)
 
       const touchTime = new Date()
@@ -1182,9 +1213,9 @@ export default Vue.extend({
             break
           case 74:
             // J Key
-            // Rewind by 10 seconds
+            // Rewind by 2x the time-skip interval (in seconds)
             event.preventDefault()
-            this.changeDurationBySeconds(-10)
+            this.changeDurationBySeconds(-this.defaultSkipInterval * 2)
             break
           case 75:
             // K Key
@@ -1194,9 +1225,9 @@ export default Vue.extend({
             break
           case 76:
             // L Key
-            // Fast Forward by 10 seconds
+            // Fast-Forward by 2x the time-skip interval (in seconds)
             event.preventDefault()
-            this.changeDurationBySeconds(10)
+            this.changeDurationBySeconds(this.defaultSkipInterval * 2)
             break
           case 79:
             // O Key
@@ -1242,15 +1273,15 @@ export default Vue.extend({
             break
           case 37:
             // Left Arrow Key
-            // Rewind by 5 seconds
+            // Rewind by the time-skip interval (in seconds)
             event.preventDefault()
-            this.changeDurationBySeconds(-5)
+            this.changeDurationBySeconds(-this.defaultSkipInterval * 1)
             break
           case 39:
             // Right Arrow Key
-            // Fast Forward by 5 seconds
+            // Fast-Forward by the time-skip interval (in seconds)
             event.preventDefault()
-            this.changeDurationBySeconds(5)
+            this.changeDurationBySeconds(this.defaultSkipInterval * 1)
             break
           case 49:
             // 1 Key
@@ -1347,8 +1378,10 @@ export default Vue.extend({
     },
 
     ...mapActions([
+      'calculateColorLuminance',
+      'updateDefaultCaptionSettings',
       'showToast',
-      'calculateColorLuminance'
+      'sponsorBlockSkipSegments'
     ])
   }
 })

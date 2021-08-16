@@ -52,7 +52,10 @@ const state = {
     '#FFAB00',
     '#FF6D00',
     '#DD2C00'
-  ]
+  ],
+  externalPlayerNames: [],
+  externalPlayerValues: [],
+  externalPlayerCmdArguments: {}
 }
 
 const getters = {
@@ -102,10 +105,82 @@ const getters = {
 
   getRecentBlogPosts () {
     return state.recentBlogPosts
+  },
+
+  getExternalPlayerNames () {
+    return state.externalPlayerNames
+  },
+
+  getExternalPlayerValues () {
+    return state.externalPlayerValues
+  },
+
+  getExternalPlayerCmdArguments () {
+    return state.externalPlayerCmdArguments
   }
 }
 
+/**
+ * Wrapper function that calls `ipcRenderer.invoke(IRCtype, payload)` if the user is
+ * using Electron or a provided custom callback otherwise.
+ * @param {Object} context Object
+ * @param {String} IRCtype String
+ * @param {Function} webCbk Function
+ * @param {Object} payload any (default: null)
+*/
+
+async function invokeIRC(context, IRCtype, webCbk, payload = null) {
+  let response = null
+  const usingElectron = context.rootState.settings.usingElectron
+  if (usingElectron) {
+    const { ipcRenderer } = require('electron')
+    response = await ipcRenderer.invoke(IRCtype, payload)
+  } else if (webCbk) {
+    response = await webCbk()
+  }
+
+  return response
+}
+
 const actions = {
+  openExternalLink ({ rootState }, url) {
+    const usingElectron = rootState.settings.usingElectron
+    if (usingElectron) {
+      const ipcRenderer = require('electron').ipcRenderer
+      ipcRenderer.send('openExternalLink', url)
+    } else {
+      // Web placeholder
+    }
+  },
+
+  async getSystemLocale (context) {
+    const webCbk = () => {
+      if (navigator && navigator.language) {
+        return navigator.language
+      }
+    }
+
+    return (await invokeIRC(context, 'getSystemLocale', webCbk)) || 'en-US'
+  },
+
+  async showOpenDialog (context, options) {
+    // TODO: implement showOpenDialog web compatible callback
+    const webCbk = () => null
+    return await invokeIRC(context, 'showOpenDialog', webCbk, options)
+  },
+
+  async showSaveDialog (context, options) {
+    // TODO: implement showSaveDialog web compatible callback
+    const webCbk = () => null
+    return await invokeIRC(context, 'showSaveDialog', webCbk, options)
+  },
+
+  async getUserDataPath (context) {
+    // TODO: implement getUserDataPath web compatible callback
+    const webCbk = () => null
+    return await invokeIRC(context, 'getUserDataPath', webCbk)
+  },
+
   updateShowProgressBar ({ commit }, value) {
     commit('setShowProgressBar', value)
   },
@@ -193,7 +268,7 @@ const actions = {
   getVideoParamsFromUrl (_, url) {
     /** @type {URL} */
     let urlObject
-    const paramsObject = { videoId: null, timestamp: null }
+    const paramsObject = { videoId: null, timestamp: null, playlistId: null }
     try {
       urlObject = new URL(url)
     } catch (e) {
@@ -210,6 +285,7 @@ const actions = {
       function() {
         if (urlObject.pathname === '/watch' && urlObject.searchParams.has('v')) {
           extractParams(urlObject.searchParams.get('v'))
+          paramsObject.playlistId = urlObject.searchParams.get('list')
           return paramsObject
         }
       },
@@ -266,11 +342,12 @@ const actions = {
     //
     // If `urlType` is "invalid_url"
     // Nothing else
-    const { videoId, timestamp } = actions.getVideoParamsFromUrl(null, urlStr)
+    const { videoId, timestamp, playlistId } = actions.getVideoParamsFromUrl(null, urlStr)
     if (videoId) {
       return {
         urlType: 'video',
         videoId,
+        playlistId,
         timestamp
       }
     }
@@ -534,6 +611,181 @@ const actions = {
 
   showToast (_, payload) {
     FtToastEvents.$emit('toast-open', payload.message, payload.action, payload.time)
+  },
+
+  showExternalPlayerUnsupportedActionToast: function ({ dispatch }, payload) {
+    if (!payload.ignoreWarnings) {
+      const toastMessage = payload.template
+        .replace('$', payload.externalPlayer)
+        .replace('%', payload.action)
+      dispatch('showToast', {
+        message: toastMessage
+      })
+    }
+  },
+
+  getExternalPlayerCmdArgumentsData ({ commit }, payload) {
+    const fileName = 'external-player-map.json'
+    let fileData
+    /* eslint-disable-next-line */
+    const fileLocation = payload.isDev ? './static/' : `${__dirname}/static/`
+
+    if (fs.existsSync(`${fileLocation}${fileName}`)) {
+      fileData = fs.readFileSync(`${fileLocation}${fileName}`)
+    } else {
+      fileData = '[{"name":"None","value":"","cmdArguments":null}]'
+    }
+
+    const externalPlayerMap = JSON.parse(fileData).map((entry) => {
+      return { name: entry.name, value: entry.value, cmdArguments: entry.cmdArguments }
+    })
+
+    const externalPlayerNames = externalPlayerMap.map((entry) => { return entry.name })
+    const externalPlayerValues = externalPlayerMap.map((entry) => { return entry.value })
+    const externalPlayerCmdArguments = externalPlayerMap.reduce((result, item) => {
+      result[item.value] = item.cmdArguments
+      return result
+    }, {})
+
+    commit('setExternalPlayerNames', externalPlayerNames)
+    commit('setExternalPlayerValues', externalPlayerValues)
+    commit('setExternalPlayerCmdArguments', externalPlayerCmdArguments)
+  },
+
+  openInExternalPlayer ({ dispatch, state, rootState }, payload) {
+    const args = []
+    const externalPlayer = rootState.settings.externalPlayer
+    const cmdArgs = state.externalPlayerCmdArguments[externalPlayer]
+    const executable = rootState.settings.externalPlayerExecutable !== ''
+      ? rootState.settings.externalPlayerExecutable
+      : cmdArgs.defaultExecutable
+    const ignoreWarnings = rootState.settings.externalPlayerIgnoreWarnings
+    const customArgs = rootState.settings.externalPlayerCustomArgs
+
+    if (payload.watchProgress > 0) {
+      if (typeof cmdArgs.startOffset === 'string') {
+        args.push(`${cmdArgs.startOffset}${payload.watchProgress}`)
+      } else {
+        dispatch('showExternalPlayerUnsupportedActionToast', {
+          ignoreWarnings,
+          externalPlayer,
+          template: payload.strings.UnsupportedActionTemplate,
+          action: payload.strings['Unsupported Actions']['starting video at offset']
+        })
+      }
+    }
+
+    if (payload.playbackRate !== null) {
+      if (typeof cmdArgs.playbackRate === 'string') {
+        args.push(`${cmdArgs.playbackRate}${payload.playbackRate}`)
+      } else {
+        dispatch('showExternalPlayerUnsupportedActionToast', {
+          ignoreWarnings,
+          externalPlayer,
+          template: payload.strings.UnsupportedActionTemplate,
+          action: payload.strings['Unsupported Actions']['setting a playback rate']
+        })
+      }
+    }
+
+    // Check whether the video is in a playlist
+    if (typeof cmdArgs.playlistUrl === 'string' && payload.playlistId !== null && payload.playlistId !== '') {
+      if (payload.playlistIndex !== null) {
+        if (typeof cmdArgs.playlistIndex === 'string') {
+          args.push(`${cmdArgs.playlistIndex}${payload.playlistIndex}`)
+        } else {
+          dispatch('showExternalPlayerUnsupportedActionToast', {
+            ignoreWarnings,
+            externalPlayer,
+            template: payload.strings.UnsupportedActionTemplate,
+            action: payload.strings['Unsupported Actions']['opening specific video in a playlist (falling back to opening the video)']
+          })
+        }
+      }
+
+      if (payload.playlistReverse) {
+        if (typeof cmdArgs.playlistReverse === 'string') {
+          args.push(cmdArgs.playlistReverse)
+        } else {
+          dispatch('showExternalPlayerUnsupportedActionToast', {
+            ignoreWarnings,
+            externalPlayer,
+            template: payload.strings.UnsupportedActionTemplate,
+            action: payload.strings['Unsupported Actions']['reversing playlists']
+          })
+        }
+      }
+
+      if (payload.playlistShuffle) {
+        if (typeof cmdArgs.playlistShuffle === 'string') {
+          args.push(cmdArgs.playlistShuffle)
+        } else {
+          dispatch('showExternalPlayerUnsupportedActionToast', {
+            ignoreWarnings,
+            externalPlayer,
+            template: payload.strings.UnsupportedActionTemplate,
+            action: payload.strings['Unsupported Actions']['shuffling playlists']
+          })
+        }
+      }
+
+      if (payload.playlistLoop) {
+        if (typeof cmdArgs.playlistLoop === 'string') {
+          args.push(cmdArgs.playlistLoop)
+        } else {
+          dispatch('showExternalPlayerUnsupportedActionToast', {
+            ignoreWarnings,
+            externalPlayer,
+            template: payload.strings.UnsupportedActionTemplate,
+            action: payload.strings['Unsupported Actions']['looping playlists']
+          })
+        }
+      }
+      if (cmdArgs.supportsYtdlProtocol) {
+        args.push(`${cmdArgs.playlistUrl}ytdl://${payload.playlistId}`)
+      } else {
+        args.push(`${cmdArgs.playlistUrl}https://youtube.com/playlist?list=${payload.playlistId}`)
+      }
+    } else {
+      if (payload.playlistId !== null && payload.playlistId !== '') {
+        dispatch('showExternalPlayerUnsupportedActionToast', {
+          ignoreWarnings,
+          externalPlayer,
+          template: payload.strings.UnsupportedActionTemplate,
+          action: payload.strings['Unsupported Actions']['opening playlists']
+        })
+      }
+      if (payload.videoId !== null) {
+        if (cmdArgs.supportsYtdlProtocol) {
+          args.push(`${cmdArgs.videoUrl}ytdl://${payload.videoId}`)
+        } else {
+          args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
+        }
+      }
+    }
+
+    // Append custom user-defined arguments
+    if (customArgs !== null) {
+      const custom = customArgs.split(';')
+      args.push(...custom)
+    }
+
+    const openingToast = payload.strings.OpeningTemplate
+      .replace('$', payload.playlistId === null || payload.playlistId === ''
+        ? payload.strings.video
+        : payload.strings.playlist)
+      .replace('%', externalPlayer)
+    dispatch('showToast', {
+      message: openingToast
+    })
+
+    console.log(executable, args)
+
+    const { ipcRenderer } = require('electron')
+    ipcRenderer.send('openInExternalPlayer', {
+      executable,
+      args
+    })
   }
 }
 
@@ -601,6 +853,18 @@ const mutations = {
 
   setRecentBlogPosts (state, value) {
     state.recentBlogPosts = value
+  },
+
+  setExternalPlayerNames (state, value) {
+    state.externalPlayerNames = value
+  },
+
+  setExternalPlayerValues (state, value) {
+    state.externalPlayerValues = value
+  },
+
+  setExternalPlayerCmdArguments (state, value) {
+    state.externalPlayerCmdArguments = value
   }
 }
 
