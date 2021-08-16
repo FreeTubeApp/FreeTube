@@ -16,32 +16,72 @@ const actions = {
     commit('setHistoryCache', results)
   },
 
-  async updateHistory({ dispatch }, videoData) {
+  async updateHistory({ commit, dispatch, state }, entry) {
     await historyDb.update(
-      { videoId: videoData.videoId },
-      videoData,
+      { videoId: entry.videoId },
+      entry,
       { upsert: true }
     )
-    dispatch('grabHistory')
+
+    const entryIndex = state.historyCache.findIndex((currentEntry) => {
+      return entry.videoId === currentEntry.videoId
+    })
+
+    entryIndex === -1
+      ? commit('insertNewEntryToHistoryCache', entry)
+      : commit('hoistEntryToTopOfHistoryCache', {
+        currentIndex: entryIndex,
+        updatedEntry: entry
+      })
+
+    dispatch('propagateHistory')
   },
 
-  async removeFromHistory({ dispatch }, videoId) {
+  async removeFromHistory({ commit, dispatch }, videoId) {
     await historyDb.remove({ videoId: videoId })
-    dispatch('grabHistory')
+
+    const updatedCache = state.historyCache.filter((entry) => {
+      return entry.videoId !== videoId
+    })
+
+    commit('setHistoryCache', updatedCache)
+
+    dispatch('propagateHistory')
   },
 
-  async removeAllHistory({ dispatch }) {
+  async removeAllHistory({ commit, dispatch }) {
     await historyDb.remove({}, { multi: true })
-    dispatch('grabHistory')
+    commit('setHistoryCache', [])
+    dispatch('propagateHistory')
   },
 
-  async updateWatchProgress({ dispatch }, videoData) {
+  async updateWatchProgress({ commit, dispatch }, entry) {
     await historyDb.update(
-      { videoId: videoData.videoId },
-      { $set: { watchProgress: videoData.watchProgress } },
+      { videoId: entry.videoId },
+      { $set: { watchProgress: entry.watchProgress } },
       { upsert: true }
     )
-    dispatch('grabHistory')
+
+    const entryIndex = state.historyCache.findIndex((currentEntry) => {
+      return entry.videoId === currentEntry.videoId
+    })
+
+    commit('updateEntryWatchProgressInHistoryCache', {
+      index: entryIndex,
+      value: entry.watchProgress
+    })
+
+    dispatch('propagateHistory')
+  },
+
+  propagateHistory({ getters: { getUsingElectron: usingElectron } }) {
+    if (usingElectron) {
+      const { ipcRenderer } = require('electron')
+      ipcRenderer.send('syncWindows', {
+        type: 'history',
+        data: state.historyCache
+      })
+    }
   },
 
   compactHistory(_) {
@@ -52,6 +92,19 @@ const actions = {
 const mutations = {
   setHistoryCache(state, historyCache) {
     state.historyCache = historyCache
+  },
+
+  insertNewEntryToHistoryCache(state, entry) {
+    state.historyCache.unshift(entry)
+  },
+
+  hoistEntryToTopOfHistoryCache(state, { currentIndex, updatedEntry }) {
+    state.historyCache.splice(currentIndex, 1)
+    state.historyCache.unshift(updatedEntry)
+  },
+
+  updateEntryWatchProgressInHistoryCache(state, { index, value }) {
+    state.historyCache[index].watchProgress = value
   }
 }
 

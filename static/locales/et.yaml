@@ -132,6 +132,13 @@ Settings:
     System Default: Arvuti vaikeseadistused
     View all Invidious instance information: Vaata kõike teavet kasutatava Invidious'e
       veebirakenduse kohta
+    Clear Default Instance: Eemalda vaikimisi teenus
+    Set Current Instance as Default: Vali praegune teenus vaikimisi teenuseks
+    Current instance will be randomized on startup: Hetkel kasutatav vaikimisi teenus
+      valitakse rakenduse käivitamisel juhuslikult
+    No default instance has been set: Vaikimisi kasutatav teenus on seadistamata
+    The currently set default instance is $: Hetkel kehtiv vaikimisi teenus on $
+    Current Invidious Instance: Hetkel kasutusel olev Invidious'e teenuse server
   Theme Settings:
     Theme Settings: 'Välimuse seadistused'
     Match Top Bar with Main Color: 'Kasuta ülaribal põhivärvi'
@@ -194,6 +201,7 @@ Settings:
       8k: '8k'
     Next Video Interval: Viivitus järgmise video esitamisel
     Display Play Button In Video Player: Kuva videomängijas esitamise nuppu
+    Scroll Volume Over Video Player: Muuda helivaljust videovaate kohal kerides
   Privacy Settings:
     Privacy Settings: 'Privaatsuse seadistused'
     Remember History: 'Jäta ajalugu meelde'
@@ -314,6 +322,9 @@ Settings:
   External Player Settings:
     External Player: Väline meediamängija
     External Player Settings: Välise meediamängija seadistused
+    Custom External Player Arguments: Välise meediamängija rakenduse argumendid
+    Custom External Player Executable: Välise meediamängija rakenduse asukoht
+    Ignore Unsupported Action Warnings: Eira mittetoetatud toimingute hoiatusi
 About:
   #On About page
   About: 'Rakenduse teave'
@@ -539,6 +550,15 @@ Video:
     playlist: esitusloend
     video: video
     OpenInTemplate: Ava rakendusega $
+    Unsupported Actions:
+      looping playlists: esitusloendi kordamine
+      shuffling playlists: esitusloendi segamine
+      reversing playlists: esitusloendi järjekorra pööramine
+      opening specific video in a playlist (falling back to opening the video): esitusloendis
+        asuva video avamine (või selle asemel video avamine)
+      opening playlists: esitusloendite avamine
+      setting a playback rate: taasesituskiiruse määramine
+      starting video at offset: video esitamine ajanihkega
 Videos:
   #& Sort By
   Sort By:
@@ -606,7 +626,7 @@ Comments:
   Load More Comments: 'Laadi veel kommentaare'
   Sort by: Sortimise alus
   No more comments available: Rohkem kommentaare pole
-  Newest first: Esmalt kõige uuemad
+  Newest first: Uuemad esimesena
   Top comments: Populaarsemad kommentaarid
 Up Next: 'Järgmisena'
 
@@ -640,3 +660,50 @@ Hashtags have not yet been implemented, try again later: Teemaviiteid ei saa vee
   kasutada, palun proovi hiljem uuesti
 Unknown YouTube url type, cannot be opened in app: Tundmatu YouTube'i urli tüüp, mida
   ei saa rakenduses avada
+Tooltips:
+  External Player Settings:
+    Custom External Player Executable: Vaikimisi eeldab FreeTube, et väline meediamängija
+      on leitav PATH keskkonnamuutuja alusel. Aga kui vaja, siis saad siin seadistada
+      muu asukoha.
+    Ignore Warnings: Kui väline meediamängija antud funktsionaalsust (näiteks esitusloendi
+      järjekorra pööramine) ei toeta siis ära näita hoiatusi.
+    Custom External Player Arguments: Semikoolonitega (;) eraldatud käsurea argumendid,
+      mida sa soovid välisele meediamängijale saata.
+    External Player: Seadistades välise meediamängija kuvame pisipildil ikooni video
+      (või esitusloendi) esitamiseks välises meediamängijas.
+  Subscription Settings:
+    Fetch Feeds from RSS: Selle valiku kasutamisel FreeTube pruugib tellimuste andmete
+      laadimisel vaikimisi meetodi asemel RSS-uudisvoogu. RSS on kiirem ja välistab
+      IP-aadressi blokeerimise, kuid ei sisalda video kestust ja otseesituse olekut
+  Privacy Settings:
+    Remove Video Meta Files: Selle valiku kasutamisel FreeTube automaatselt kustutab
+      peale video esitamist kogu metateabe.
+  General Settings:
+    Region for Trending: Piirkond, mille alusel kuvame populaarsust koguvad videod.
+      Kõik siinloetletud riigid ei pruugi olla YouTube'is toetatud.
+    Thumbnail Preference: Vaikimisi pisipildi asemel kuvab FreeTube kaadrit videost.
+    Fallback to Non-Preferred Backend on Failure: Kui sinu eelistatud APi ei toimi,
+      siis kui vähegi võimalik, FreeTube üritab kasutada alternatiivi.
+    Preferred API Backend: Vali taustateenus, mida FreeTube kasutab andmete laadimisel.
+      Kohalik API on rakenduses olemas ja Invidious'e API eeldab välise teenuseserveri
+      kasutamist.
+    Invidious Instance: Invidious'e teenuse server, mida FreeTube Invidious'e API
+      jaoks kasutab. Kui tahad näha kõiki valikuid, siis kustuta hetkel kehtiv väärtus.
+  Player Settings:
+    Default Video Format: Vali kasutatavad videovormingud. DASH-vormingutel on üldjuhul
+      parem kvaliteet. Pärandvormingute kvaliteedi ülempiir on 720p ja seetõttu kasutavad
+      nad vähem ribalaiust. Helivormingud kehtivad vaid helifailide jaoks.
+    Proxy Videos Through Invidious: Kasutab videote esitamiseks Invidious'e teenust
+      ega tee päringuid otse YouTube serveri pihta. Asendab API eelistuse.
+    Force Local Backend for Legacy Formats: See lahendus toimib, kui Invidious'e API
+      on esimene eelistus. Kui see väärtus on sisselülitatud, siis toimib ka kohalik
+      API ning kasutab pärandvorminguid ning ei kasuta neid mida Invidious'e server
+      võimaldab kasutada. See seadistus on kasulik siis, kui Invidious'e API alusel
+      laaditud videote esitamine riigipiirangute tõttu ei toimi.
+Playing Next Video Interval: Kohe esitan järgmist videot. Tühistamiseks klõpsi. |
+  {nextVideoInterval} sekundi möödumisel esitan järgmist videot. Tühistamiseks klõpsi.
+  | {nextVideoInterval} sekundi möödumisel esitan järgmist videot. Tühistamiseks klõpsi.
+Default Invidious instance has been cleared: Vaikimisi kasutatav Invidious'e teenus
+  on kustutatud
+Default Invidious instance has been set to $: Vaikimisi kasutatav Invidious'e teenus
+  on $

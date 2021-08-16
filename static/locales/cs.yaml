@@ -134,6 +134,13 @@ Settings:
     View all Invidious instance information: Zobrazit všechny informace o instanci
       Invidious
     System Default: Výchozí nastavení systému
+    Clear Default Instance: Vymazat výchozí instanci
+    Set Current Instance as Default: Nastavit současnou instanci jako výchozí
+    Current instance will be randomized on startup: Při startu bude vybrána náhodná
+      instance
+    Current Invidious Instance: Současná instance Invidious
+    No default instance has been set: Není nastavena žádný výchozí instance
+    The currently set default instance is $: Současné výchozí instance je $
   Theme Settings:
     Theme Settings: 'Nastavení motivu'
     Match Top Bar with Main Color: 'Přizpůsobit hlavní lištu hlavní barvě'
@@ -318,6 +325,12 @@ Settings:
       API (Výchozí je https://sponsor.ajay.app)
     Enable SponsorBlock: Zapnout SponsorBlock
     SponsorBlock Settings: Nastavení SponsorBlock
+  External Player Settings:
+    Custom External Player Arguments: Argumenty vlastního externího přehrávače
+    Custom External Player Executable: Spustitelný vlastní externí přehrávač
+    Ignore Unsupported Action Warnings: Ignorovat varování u nepodporovaných akcích
+    External Player: Externí přehrávač
+    External Player Settings: Nastavení externího přehrávače
 About:
   #On About page
   About: 'O aplikaci'
@@ -414,6 +427,7 @@ Profile:
     profilu.'
 #On Channel Page
   Profile Filter: Filtr profilu
+  Profile Settings: Nastavení profilu
 Channel:
   Subscriber: 'Odběratel'
   Subscribers: 'Odběratelé'
@@ -542,6 +556,21 @@ Video:
     intro: úvod
     sponsor: sponzor
   Skipped segment: Přeskočený segment
+  External Player:
+    Unsupported Actions:
+      opening specific video in a playlist (falling back to opening the video): Otevření
+        specifického videa v seznamu skladeb
+      opening playlists: otevřít seznamy skladeb
+      starting video at offset: spuštění videa v určitém úseku
+      looping playlists: opakovaní seznamů skladeb
+      shuffling playlists: míchání seznamů skladeb
+      reversing playlists: obrácení seznamů skladeb
+      setting a playback rate: nastavení rychlosti přehrávání
+    playlist: seznam skladeb
+    UnsupportedActionTemplate: '$ nepodporuje: %'
+    OpeningTemplate: Otevřít $ v %...
+    video: video
+    OpenInTemplate: Otevřít v $
 Videos:
   #& Sort By
   Sort By:
@@ -566,6 +595,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Playlist
 Toggle Theatre Mode: 'Přepnout režim divadla'
 Change Format:
   Change Video Formats: 'Změnit formát videa'
@@ -655,6 +685,16 @@ Tooltips:
   Privacy Settings:
     Remove Video Meta Files: Pokud je povoleno, FreeTube automaticky odstraní meta
       soubory vytvořené během přehrávání videa, když se stránka sledování zavře.
+  External Player Settings:
+    Ignore Warnings: Potlačuje varování, kdy současný externí přehrávač nepodporuje
+      aktuální akci (např. obrácení seznamů skladeb apod.).
+    External Player: Volba externího přehrávače zobrazí ikonu, pro otevření videa
+      (pokud je podporován seznam skladeb) v externím přehrávači, zobrazí na náhledu.
+    Custom External Player Arguments: Jakékoliv vlastní argumenty příkazové řádky,
+      oddělené středníkem (';'), které chcete předávat externímu přehrávač.
+    Custom External Player Executable: Ve výchozím nastavení Freetube předpokládá,
+      že vybraný externí přehrávač lze nalézt přes proměnnou prostředí cesty PATH.
+      V případě potřeby zde lze nastavit vlastní cestu.
 Local API Error (Click to copy): 'Chyba lokálního API (kliknutím zkopírujete)'
 Invidious API Error (Click to copy): 'Chyba Invidious API (kliknutím zkopírujete)'
 Falling back to Invidious API: 'Přepínám na Invidious API'
@@ -687,3 +727,6 @@ Hashtags have not yet been implemented, try again later: Hashtagy nebyly dosud i
 Unknown YouTube url type, cannot be opened in app: Neznámý typ adresy URL YouTube,
   nelze v aplikaci otevřít
 Open New Window: Otevřít nové okno
+Default Invidious instance has been cleared: Výchozí Invidious instance byla vymazána
+Default Invidious instance has been set to $: Výchozí Invidious instance byla nastavena
+  na $

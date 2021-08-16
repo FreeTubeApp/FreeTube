@@ -153,14 +153,14 @@ const actions = {
     }
   },
 
-  async getLocale (context) {
+  async getSystemLocale (context) {
     const webCbk = () => {
       if (navigator && navigator.language) {
         return navigator.language
       }
     }
 
-    return await invokeIRC(context, 'getLocale', webCbk) || 'en-US'
+    return (await invokeIRC(context, 'getSystemLocale', webCbk)) || 'en-US'
   },
 
   async showOpenDialog (context, options) {
