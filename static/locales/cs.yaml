@@ -427,6 +427,7 @@ Profile:
     profilu.'
 #On Channel Page
   Profile Filter: Filtr profilu
+  Profile Settings: Nastavení profilu
 Channel:
   Subscriber: 'Odběratel'
   Subscribers: 'Odběratelé'
@@ -594,6 +595,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Playlist
 Toggle Theatre Mode: 'Přepnout režim divadla'
 Change Format:
   Change Video Formats: 'Změnit formát videa'
