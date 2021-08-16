@@ -77,7 +77,8 @@ Subscriptions:
   Load More Videos: Last flere videoer
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Denne
     profilen har mange abonnementer. Påtvinger RSS for å unngå adgangsbegrensning
-Trending: 'På vei opp'
+Trending:
+  Trending: 'På vei opp'
 Most Popular: 'Mest populært'
 Playlists: 'Spillelister'
 User Playlists:

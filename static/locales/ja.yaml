@@ -74,7 +74,8 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: このプロファイルは登録チャンネルが多くなっています。接続制限を回避するため
     RSS を使用します
   Load More Videos: もっと見る
-Trending: '急上昇'
+Trending:
+  Trending: '急上昇'
 Most Popular: '人気'
 Playlists: '再生リスト'
 User Playlists:

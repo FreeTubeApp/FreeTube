@@ -75,7 +75,8 @@ Subscriptions:
   Refresh Subscriptions: Refresh đăng ký
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Kênh
     này có nhiều người đăng ký. Buộc RSS để tránh bị giới hạn
-Trending: 'Xu hướng'
+Trending:
+  Trending: 'Xu hướng'
 Most Popular: 'Phổ biến nhất'
 Playlists: 'Danh sách phát'
 User Playlists:
