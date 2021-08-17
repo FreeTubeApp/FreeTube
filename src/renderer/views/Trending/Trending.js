@@ -93,7 +93,6 @@ export default Vue.extend({
       newTabNode.attr('aria-selected', 'true')
       this.currentTab = tab
       this.getTrendingInfo()
-      newTabNode[0].focus()
     },
 
     getTrendingInfo () {
@@ -129,6 +128,8 @@ export default Vue.extend({
         this.shownResults = returnData
         this.isLoading = false
         this.$store.commit('setTrendingCache', this.shownResults, this.currentTab)
+      }).then(() => {
+        document.querySelector(`#${this.currentTab}Tab`).focus()
       }).catch((err) => {
         console.log(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -177,6 +178,8 @@ export default Vue.extend({
         this.shownResults = returnData
         this.isLoading = false
         this.$store.commit('setTrendingCache', this.shownResults, this.trendingCache)
+      }).then(() => {
+        document.querySelector(`#${this.currentTab}Tab`).focus()
       }).catch((err) => {
         console.log(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
