@@ -1,0 +1,52 @@
+name: Feature request
+description: Suggest an idea for this project which you would like to see in a future release
+labels: "enhancement"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Important note**
+        Please check other open and closed issues for a similar feature request before proposing a new one. 
+        Also please leave all headers except this one in the issue, so that it is clear what belongs where.
+  - type: checkboxes
+    id: guidelines
+    attributes:
+      label: Guidelines
+      description: By submitting this issue, you agree with the checkboxes below
+      options:
+        - label: This feature request is not a duplicate
+          required: true
+  - type: textarea
+    id: relatedToProblem
+    attributes: 
+      label: Is your feature request related to a usage problem (not a bug)? Please describe.
+      description: Please describe clear and concise of what the problem is.
+      placeholder: I'm always frustrated when [...]
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes: 
+      label: Describe the solution you'd like to see implemented
+      description: Please give a clear and concise description of what you want to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes: 
+      label: Describe alternatives you've considered
+      description: Are there other ways to solve the problem? Please give a clear and concise description of any alternative solutions or features you might have considered.
+    validations:
+      required: false
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots (if applicable)
+      description: If applicable, please add screenshots to help explain your problem. Especially console logs from the development tools are very helpful.
+  - type: textarea
+    id: additional
+    attributes: 
+      label: Additional context
+      description: Add any other context about the problem here.
+    validations:
+      required: false
