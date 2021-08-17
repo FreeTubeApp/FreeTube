@@ -622,7 +622,7 @@ export default Vue.extend({
           const tabNode = $(`#${tab}Tab`)
           event.target.setAttribute('tabindex', '-1')
           tabNode.attr('tabindex', '0')
-          tabNode.focus()
+          tabNode[0].focus()
         }
 
         event.preventDefault()
@@ -641,7 +641,7 @@ export default Vue.extend({
       currentTabNode.attr('aria-selected', 'false')
       newTabNode.attr('aria-selected', 'true')
       this.currentTab = tab
-      newTabNode.focus()
+      newTabNode[0].focus()
     },
 
     newSearch: function (query) {

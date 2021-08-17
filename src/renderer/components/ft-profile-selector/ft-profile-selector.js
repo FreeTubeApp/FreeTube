@@ -53,7 +53,7 @@ export default Vue.extend({
       const openProfile = $(`#profile-${this.activeProfile}`)
       openProfile.attr('tabindex', '0')
       openProfile.attr('aria-selected', 'true')
-      openProfile.focus()
+      openProfile[0].focus()
     },
 
     openProfileSettings: function () {

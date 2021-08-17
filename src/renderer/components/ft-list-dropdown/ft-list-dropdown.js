@@ -49,7 +49,7 @@ export default Vue.extend({
 
       const firstOption = $('#buttonOption0')
       firstOption.attr('tabindex', 0)
-      firstOption.focus()
+      firstOption[0].focus()
     },
     handleDropdownClick: function(index, event) {
       if (!this.$handleDropdownKeyboardEvent(event)) {

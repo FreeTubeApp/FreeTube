@@ -193,7 +193,7 @@ export default Vue.extend({
         this.parseLocalCommentData(response, null)
       }).then(() => {
         if (this.idToFocus) {
-          $(`#comment${this.idToFocus} .commentAuthor`).focus()
+          $(`#comment${this.idToFocus} .commentAuthor`)[0].focus()
         }
       }).catch((err) => {
         console.log(err)
@@ -225,7 +225,7 @@ export default Vue.extend({
         this.parseLocalCommentData(response, payload.index)
       }).then(() => {
         if (this.idToFocus) {
-          $(`#comment${this.idToFocus} .commentAuthor`).focus()
+          $(`#comment${this.idToFocus} .commentAuthor`)[0].focus()
         }
       }).catch((err) => {
         console.log(err)
@@ -328,7 +328,7 @@ export default Vue.extend({
         this.showComments = true
       }).then(() => {
         if (this.idToFocus) {
-          $(`#comment${this.idToFocus} .commentAuthor`).focus()
+          $(`#comment${this.idToFocus} .commentAuthor`)[0].focus()
         }
       }).catch((xhr) => {
         console.log('found an error')
@@ -389,7 +389,7 @@ export default Vue.extend({
         this.isLoading = false
       }).then(() => {
         if (this.idToFocus) {
-          $(`#comment${this.idToFocus} .commentAuthor`).focus()
+          $(`#comment${this.idToFocus} .commentAuthor`)[0].focus()
         }
       }).catch((xhr) => {
         console.log('found an error')
