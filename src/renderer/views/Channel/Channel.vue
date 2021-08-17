@@ -25,12 +25,16 @@
         <div
           class="channelInfo"
         >
-          <div style="display:flex">
+          <div
+            class="thumbnailContainer"
+          >
             <img
               class="channelThumbnail"
               :src="thumbnailUrl"
             >
-            <div style="display: flex;justify-content: center;flex-direction: column;padding-left: 1em;">
+            <div
+              class="channelLineContainer"
+            >
               <span
                 class="channelName"
               >
@@ -52,7 +56,6 @@
             background-color="var(--primary-color)"
             text-color="var(--text-with-main-color)"
             class="subscribeButton"
-            style="align-self: center"
             @click="handleSubscription"
           />
         </div>
