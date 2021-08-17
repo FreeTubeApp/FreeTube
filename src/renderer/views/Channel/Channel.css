@@ -123,3 +123,14 @@
   cursor: pointer;
   margin-top: 16px;
 }
+
+.thumbnailContainer {
+  display:flex
+}
+
+.channelLineContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 1em;
+}
