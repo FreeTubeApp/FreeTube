@@ -52,6 +52,7 @@
 .subscribeButton {
   height: 50px;
   min-width: 150px;
+  align-self: center
 }
 
 .channelSearch {
