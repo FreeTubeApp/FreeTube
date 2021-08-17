@@ -1,0 +1,32 @@
+name: Discussion
+description: Open up a new discussion about anything related to the project.
+labels: "Discussion"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Important note**
+        Please check other open and closed issues for a similar discussion or a question relating to your discussion before posting a new one. 
+  - type: checkboxes
+    id: topic
+    attributes:
+      label: Topic
+      description: Please select what topic your discussion is about.
+      options:
+        - label: Coding
+          required: false
+        - label: Contribution
+          required: false
+        - label: Languages
+          required: false
+        - label: Setup
+          required: false
+        - label: Other
+          required: false
+  - type: textarea
+    id: discussion
+    attributes: 
+      label: Discussion
+      description: Please write down whatever you want to discuss.
+    validations:
+      required: true
