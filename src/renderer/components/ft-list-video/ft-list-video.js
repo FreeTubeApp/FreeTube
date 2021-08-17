@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import { mapActions } from 'vuex'
+import $ from 'jquery'
 
 export default Vue.extend({
   name: 'FtListVideo',
@@ -238,6 +239,19 @@ export default Vue.extend({
         this.removeFromPlaylist()
       } else {
         this.addToPlaylist()
+      }
+    },
+
+    arrowKeyNavigate(event) {
+      if (event instanceof KeyboardEvent && (event.key === 'ArrowLeft' || event.key === 'ArrowRight')) {
+        event.preventDefault()
+
+        const direction = (event.key === 'ArrowLeft') ? -1 : 1
+        const thisIndex = $('.ft-list-video').index(event.currentTarget)
+        if (thisIndex + direction >= 0) {
+          // select the next ft-list-video in the DOM, if any
+          $('.ft-list-video').eq($('.ft-list-video').index(event.currentTarget) + direction)?.find('.resultHeading > a').focus()
+        }
       }
     },
 

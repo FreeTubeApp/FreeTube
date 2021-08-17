@@ -7,6 +7,7 @@
       [appearance]: true,
       watched: addWatchedStyle
     }"
+    @keydown="arrowKeyNavigate($event)"
   >
     <div class="info">
       <ft-icon-button
