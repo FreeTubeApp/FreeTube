@@ -18,13 +18,9 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
-      - name: Merge Pal
-        # You may pin to the exact commit or the version.
-        # uses: maxkomarychev/merge-pal-action@7a3bca37e260865d9e9a259212c1d13ef4da7f41
-        uses: maxkomarychev/merge-pal-action@v0.5.1
+      - name: Merge
+        uses: KeisukeYamashita/auto-pull-request-merge@v1
         with:
-          # Token to perform api calls
-          token: ${{ secrets.PUSH_TOKEN }}
+          failStep: false
+          intervalSeconds: 10
+          timeoutSeconds: 30
