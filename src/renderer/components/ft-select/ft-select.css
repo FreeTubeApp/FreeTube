@@ -58,7 +58,6 @@
 .iconSelect {
   position: absolute;
   top: 10px;
-  right: 15px;
   /* Styling the down arrow */
   padding: 0;
   content: '';
@@ -67,13 +66,24 @@
   pointer-events: none;
   color: var(--tertiary-text-color);
 }
-
+body[dir='ltr'] .iconSelect {
+  right: 15px;
+}
+body[dir='rtl'] .iconSelect {
+  left: 15px;
+}
 .selectTooltip {
   position: absolute;
   top: -20px;
+}
+
+body[dir='ltr'] .selectTooltip {
   right: 17px;
 }
 
+body[dir='rtl'] .selectTooltip {
+  left: 0;
+}
 
 /* LABEL ======================================= */
 .select-label {
@@ -81,10 +91,17 @@
   font-weight: normal;
   position: absolute;
   pointer-events: none;
-  left: 0;
   top: 10px;
   transition: 0.2s ease all;
   color: var(--tertiary-text-color);
+}
+
+body[dir='ltr'] .select-label {
+  left: 0;
+}
+
+body[dir='rtl'] .select-label {
+  right: 17px;
 }
 
 /* active state */

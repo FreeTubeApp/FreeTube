@@ -4,7 +4,6 @@
   width: 200px;
   overflow-x: hidden;
   position: fixed;
-  left: 0px;
   top: 0px;
   z-index: 1;
   margin-top: 60px;
@@ -15,6 +14,13 @@
   transition-timing-function: ease-in-out;
 }
 
+body[dir='ltr'] .sideNav {
+  left: 0;
+}
+
+body[dir='ltr'] .sideNav {
+  right: 0;
+}
 .inner {
   height: 100%;
   width: 200px;
@@ -63,12 +69,24 @@
   display: inline-block;
 }
 
+body[dir='ltr'] .navLabel {
+  margin-left: 5px;
+}
+body[dir='rtl'] .navLabel {
+  margin-right: 5px;
+}
 .navChannel .navLabel {
   font-size: 11px;
   width: 150px;
+}
+
+body[dir='ltr'] .navChannel .navLabel {
   margin-left: 40px;
 }
 
+body[dir='rtl'] .navChannel .navLabel {
+  margin-right: 40px;
+}
 .thumbnailContainer {
   width: 35px;
   margin: 0;

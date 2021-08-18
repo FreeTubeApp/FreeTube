@@ -11,5 +11,11 @@
 	width: 120px;
 	position: absolute;
 	top: 10px;
-	right: 0px;
+}
+
+body[dir='rtl'] .autoPlayToggle {
+	left: 0;
+}
+body[dir='ltr'] .autoPlayToggle {
+	right: 0;
 }

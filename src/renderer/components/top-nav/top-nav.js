@@ -69,12 +69,6 @@ export default Vue.extend({
     }
   },
 
-  watch: {
-    ltr: function() {
-      return document.querySelector('body').dir === 'ltr'
-    }
-  },
-
   mounted: function () {
     const appWidth = $(window).width()
 

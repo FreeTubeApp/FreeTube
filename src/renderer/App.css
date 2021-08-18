@@ -12,15 +12,26 @@ body {
 }
 
 .routerView {
-  margin-left: 200px;
   margin-top: 80px;
   transition-property: margin;
   transition-duration: 150ms;
   transition-timing-function: ease-in-out;
 }
 
-.expand {
+body[dir='ltr'] .routerView {
+  margin-left: 200px;
+}
+
+body[dir='rtl'] .routerView {
+  margin-right: 200px;
+}
+
+body[dir='ltr'] .expand {
   margin-left: 80px;
+}
+
+body[dir='rtl'] .expand {
+  margin-right: 80px;
 }
 
 .banner {

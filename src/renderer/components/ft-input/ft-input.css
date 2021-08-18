@@ -48,10 +48,16 @@
   color: var(--primary-text-color);
 }
 
-body[dir='ltr'] .inputAction {
+body[dir='ltr'] .arrowRight {
   right: 0px;
 }
-body[dir='rtl'] .inputAction {
+body[dir='rtl'] .arrowRight {
+  display: none;
+}
+body[dir='ltr'] .arrowLeft {
+  display: none;
+}
+body[dir='rtl'] .arrowLeft {
   left: 0;
 }
 .search ::-webkit-calendar-picker-indicator {

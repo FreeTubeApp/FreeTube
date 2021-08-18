@@ -13,7 +13,6 @@
         @keypress="toggleSideNav"
       />
       <font-awesome-icon
-        v-if="ltr"
         class="navBackIcon navIcon"
         icon="arrow-left"
         role="button"
@@ -23,29 +22,8 @@
         @keypress="historyBack"
       />
       <font-awesome-icon
-        v-else
-        class="navBackIcon navIcon"
-        icon="arrow-right"
-        role="button"
-        tabindex="0"
-        :title="forwardText"
-        @click="historyBack"
-        @keypress="historyBack"
-      />
-      <font-awesome-icon
-        v-if="ltr"
         class="navForwardIcon navIcon"
         icon="arrow-right"
-        role="button"
-        tabindex="0"
-        :title="forwardText"
-        @click="historyForward"
-        @keypress="historyForward"
-      />
-      <font-awesome-icon
-        v-else
-        class="navForwardIcon navIcon"
-        icon="arrow-left"
         role="button"
         tabindex="0"
         :title="forwardText"

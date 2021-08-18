@@ -187,15 +187,8 @@ $thumbnail-overlay-opacity: 0.85
     display: flex
     align-items: flex-start
 
-    .videoThumbnail, .channelThumbnail
-      margin-right: 20px
-
     .channelThumbnail
       width: 231px
-
-    @include is-sidebar-item
-      .videoThumbnail
-        margin-right: 10px
 
   &.grid
     display: flex
@@ -218,3 +211,19 @@ $thumbnail-overlay-opacity: 0.85
 
 .videoWatched, .live
   text-transform: uppercase
+
+body[dir=ltr] .ft-list-item
+  &.list
+    .videoThumbnail, .channelThumbnail
+      margin-right: 20px
+    @include is-sidebar-item
+      .videoThumbnail
+        margin-right: 10px
+
+body[dir=rtl] .ft-list-item
+  &.list
+    .videoThumbnail, .channelThumbnail
+      margin-left: 20px
+    @include is-sidebar-item
+      .videoThumbnail
+        margin-left: 10px
