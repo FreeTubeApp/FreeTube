@@ -27,4 +27,4 @@ jobs:
         uses: maxkomarychev/merge-pal-action@v0.5.1
         with:
           # Token to perform api calls
-          token: ${{ secrets.PUSH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
