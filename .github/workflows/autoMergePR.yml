@@ -18,9 +18,11 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Merge
-        uses: KeisukeYamashita/auto-pull-request-merge@v1
+      - name: Dependabot Auto Merge
+        # You may pin to the exact commit or the version.
+        # uses: ahmadnassri/action-dependabot-auto-merge@c0e574b9d8c2e0e029e8e8d1d44b13ffbfd14f0a
+        uses: ahmadnassri/action-dependabot-auto-merge@v2.3.1
         with:
-          failStep: false
-          intervalSeconds: 10
-          timeoutSeconds: 30
+          # The GitHub token used to merge the pull-request
+          github-token: ${{ secrets.PUSH_TOKEN }}
+          approve: false
