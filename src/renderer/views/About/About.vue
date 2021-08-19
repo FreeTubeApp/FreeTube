@@ -9,7 +9,10 @@
           src="_icons/logoColor.png"
           class="logo"
         >
-        <div class="version">
+        <div
+          class="version"
+          dir="auto"
+        >
           {{ versionNumber }} {{ $t("About.Beta") }}
         </div>
       </section>

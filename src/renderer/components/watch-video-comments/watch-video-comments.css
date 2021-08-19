@@ -12,10 +12,12 @@
   text-align: center;
 }
 
-.commentSort {
+body[dir='ltr'] .commentSort {
   float: right;
 }
-
+body[dir='rtl'] .commentSort {
+  float: left;
+}
 .comment {
   padding: 15px;
   position: relative;
@@ -29,21 +31,31 @@
 }
 
 .commentThumbnail {
-  float: left;
   width: 60px;
   height: 60px;
   border-radius: 200px 200px 200px 200px;
   -webkit-border-radius: 200px 200px 200px 200px;
   cursor: pointer;
 }
-
+body[dir='ltr'] .commentThumbnail {
+  float: left;
+}
+body[dir='rtl'] .commentThumbnail {
+  float: right;
+}
 .commentAuthorWrapper {
   font-weight: bold;
   font-size: 14px;
-  margin-left: 68px;
   margin-top: 0px;
 }
 
+body[dir='ltr'] .commentAuthorWrapper {
+  margin-left: 68px;
+}
+
+body[dir='rtl'] .commentAuthorWrapper {
+  margin-right: 68px;
+}
 
 .commentAuthor {
   cursor: pointer;
@@ -52,19 +64,40 @@
 .commentText {
   font-size: 14px;
   margin-top: -10px;
+}
+
+body[dir='ltr'] .commentText {
   margin-left: 70px;
+}
+
+body[dir='rtl'] .commentText {
+  margin-right: 70px;
 }
 
 .commentDate {
   font-weight: normal;
-  margin-left: 5px;
   font-size: 12px;
 }
 
+body[dir='ltr'] .commentDate {
+  margin-left: 5px;
+}
+
+body[dir='rtl'] .commentDate {
+  margin-right: 5px;
+}
 .commentLikeCount {
   font-size: 11px;
   margin-left: 70px;
   margin-top: 0px;
+}
+
+body[dir='ltr'] .commentLikeCount {
+  margin-left: 70px;
+}
+
+body[dir='rtl'] .commentLikeCount {
+  margin-right: 70px;
 }
 
 .commentHeartBadge {
@@ -72,55 +105,101 @@
   position: relative;
   width: 25px;
   height: 20px;
-  margin-left: 10px;
   margin-bottom: -7px;
+}
+
+body[dir='ltr'] .commentHeartBadge {
+  margin-left: 10px;
+}
+
+body[dir='rtl'] .commentHeartBadge {
+  margin-right: 10px;
 }
 
 .commentHeartBadgeImg {
   position: absolute;
-  left: 0;
   width: 15px;
   height: 15px;
   border-radius: 50%;
   -webkit-border-radius: 50%;
 }
 
+body[dir='ltr'] .commentHeartBadgeImg {
+  left: 0;
+}
+
+body[dir='rtl'] .commentHeartBadgeImg {
+  right: 0;
+}
+
 .commentHeartBadgeWhite {
   position: absolute;
-  left: 9px;
   bottom: 1px;
   width: 11px;
   height: 11px;
   z-index: 1;
 }
 
+body[dir='ltr'] .commentHeartBadgeWhite {
+  left: 9px;
+}
+
+body[dir='rtl'] .commentHeartBadgeWhite {
+  right: 9px;
+}
+
 .commentHeartBadgeRed {
   position: absolute;
   color: var(--red-500);
-  left: 10px;
   bottom: 2px;
   width: 9px;
   height: 9px;
   z-index: 2;
 }
 
+body[dir='ltr'] .commentHeartBadgeRed {
+  left: 10px;
+}
+
+body[dir='rtl'] .commentHeartBadgeRed {
+  right: 10px;
+}
+
 .commentMoreReplies {
   font-size: 11px;
-  margin-left: 5px;
   text-decoration: underline;
   cursor: pointer;
   color: var(--title-color);
 }
 
-.commentReplies {
+body[dir='ltr'] .commentMoreReplies {
+  margin-left: 5px;
+}
+
+body[dir='rtl'] .commentMoreReplies {
+  margin-right: 5px;
+}
+
+body[dir='ltr'] .commentReplies {
   margin-left: 30px;
 }
 
+body[dir='rtl'] .commentReplies {
+  margin-right: 30px;
+}
+
 .showMoreReplies {
-  margin-left: 30px;
   font-size: 15px;
   cursor: pointer;
   text-decoration: underline;
+}
+
+body[dir='ltr'] .showMoreReplies {
+  margin-left: 30px;
+}
+
+body[dir='rtl'] .showMoreReplies {
+  margin-right: 30px;
 }
 
 .getMoreComments {

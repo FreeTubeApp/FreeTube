@@ -58,9 +58,16 @@ body[dir='rtl'] #profileList {
 }
 
 .profile .colorOption {
-  float: left;
   position: relative;
   bottom: 5px;
+}
+
+body[dir='rtl'] .profile .colorOption {
+  float: right;
+}
+
+body[dir='ltr'] .profile .colorOption {
+  float: left;
 }
 
 .profileName {
@@ -73,9 +80,22 @@ body[dir='rtl'] #profileList {
   left: 10px;
 }
 
+body[dir='ltr']  .profileListTitle {
+  left: 10px;
+}
+
+body[dir='rtl']  .profileListTitle {
+  right: 10px;
+}
 .profileSettings {
-  float: right;
+  float: left;
   position: absolute;
   top: 10px;
+}
+body[dir='ltr']  .profileSettings {
   right: 5px;
+}
+
+body[dir='rtl']  .profileSettings {
+  left: 5px;
 }

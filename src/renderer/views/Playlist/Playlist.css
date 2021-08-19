@@ -1,7 +1,6 @@
 .playlistInfo {
   background-color: var(--card-bg-color);
   padding: 10px;
-  float: left;
   position: fixed;
   top: 60px;
   width: 30%;
@@ -10,9 +9,16 @@
 }
 
 .playlistItems {
-  float: right;
   width: 60%;
   padding: 10px;
   display: grid;
   grid-gap: 10px;
+}
+
+body[dir='ltr']  .playlistInfo, body[dir='rtl'] .playlistItems  {
+  float: left;
+}
+
+body[dir='rtl']  .playlistInfo, body[dir='ltr'] .playlistItems  {
+  float: right;
 }
