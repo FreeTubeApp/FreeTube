@@ -1,0 +1,25 @@
+name: Auto Merge PR
+
+# Controls when the workflow will run
+on:
+  pull_request_review: # try to merge after review
+    types:
+      - submitted
+      - edited
+      - dismissed
+
+jobs:
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    - name: Auto-Merge Pull Request
+      # You may pin to the exact commit or the version.
+      # uses: reitermarkus/automerge@72bc1353d0a084c84034be23424b124d900d1658
+      uses: reitermarkus/automerge@v1.5.2
+      with:
+          token: ${{ secrets.PUSH_TOKEN }}
+          # Specify which merge method to use. By default, will select the first one available in this order: `merge`, `squash`, `rebase`
+          merge-method: squash
