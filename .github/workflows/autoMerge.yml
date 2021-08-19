@@ -1,4 +1,4 @@
-name: Auto Merge PR
+name: Auto Merge Pull Request
 
 # Controls when the workflow will run
 on:
