@@ -1,8 +1,9 @@
 minApprovals:
-    COLLABORATOR: 3
+    COLLABORATOR: 2
 maxRequestedChanges:
   COLLABORATOR: 0
 mergeMethod: squash
 requiredBaseBranches:
 - development
+- test
 reportStatus: true
