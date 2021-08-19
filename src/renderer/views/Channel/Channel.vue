@@ -3,7 +3,7 @@
     ref="search"
   >
     <ft-loader
-      v-if="isLoading && (isFamilyFriendly==true || !showFamilyFriendlyOnly)"
+      v-if="isLoading"
       :fullscreen="true"
     />
     <ft-card
@@ -180,7 +180,7 @@
       </div>
     </ft-card>
     <ft-age-restricted
-      v-if="(isFamilyFriendly==false && showFamilyFriendlyOnly)"
+      v-if="!isLoading && (isFamilyFriendly==false && showFamilyFriendlyOnly)"
       class="ageRestricted"
       :content-type-string="'channel'"
     />

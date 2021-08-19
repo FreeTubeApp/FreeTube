@@ -51,7 +51,7 @@ export default Vue.extend({
       searchResults: [],
       shownElementList: [],
       apiUsed: '',
-      isFamilyFriendly: true,
+      isFamilyFriendly: false,
       videoSelectValues: [
         'newest',
         'oldest',
