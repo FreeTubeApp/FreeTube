@@ -18,8 +18,6 @@ jobs:
     - name: Auto-Merge Pull Request
       # You may pin to the exact commit or the version.
       # uses: reitermarkus/automerge@72bc1353d0a084c84034be23424b124d900d1658
-      uses: reitermarkus/automerge@v1.5.2
+      uses: reitermarkus/automerge@72bc1353d0a084c84034be23424b124d900d1658
       with:
         token: ${{ secrets.PUSH_TOKEN }}
-        merge-method: squash
-        pull-request: ${{ github.event.inputs.pull-request }}
