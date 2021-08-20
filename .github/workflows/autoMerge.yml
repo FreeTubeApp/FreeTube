@@ -20,4 +20,4 @@ jobs:
         env:
           PUSHTOKEN: ${{ secrets.MERGE_TOKEN }}
         run: |
-          echo $PUSHTOKEN >> auth.txt && gh auth login --with-token < auth.txt && rm auth.txt && gh pr merge https://github.com/FreeTubeApp/FreeTube/pull/${{ github.event.pull_request.number }} --auto
+          echo ${{ env.PUSHTOKEN }} >> auth.txt && gh auth login --with-token < auth.txt && rm auth.txt && gh pr merge https://github.com/FreeTubeApp/FreeTube/pull/${{ github.event.pull_request.number }} --auto
