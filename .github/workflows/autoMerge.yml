@@ -1,24 +1,16 @@
-name: Auto Merge PR
-
-# Controls when the workflow will run
+name: Create Flatpak PR
 on:
-  # Triggers the workflow on push or pull request events but only for the development branch
   pull_request:
     types: [opened, synchronize, reopened]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    environment: workflow_env
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Enable Auto Merge
-        run: |
-            echo ${{ secrets.MERGE_TOKEN }} >> auth.txt
-            gh auth login --with-token < auth.txt
-            rm auth.txt
-            gh pr merge https://github.com/FreeTubeApp/FreeTube/pull/${{ github.event.pull_request.number }} --auto
+    - name: Auto Merge PR
+      run: |
+        echo ${{ secrets.PUSH_TOKEN }} >> auth.txt
+        gh auth login --with-token < auth.txt
+        rm auth.txt
+        gh pr merge https://github.com/FreeTubeApp/FreeTube/pull/${{ github.event.pull_request.number }} --auto
