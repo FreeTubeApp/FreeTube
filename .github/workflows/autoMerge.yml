@@ -20,6 +20,6 @@ jobs:
         # uses: poad/github-pull-request-auto-merge-enable-action@89573fd0a329b987282e63d3a81b1c2d260c6648
         uses: poad/github-pull-request-auto-merge-enable-action@v1.0.0
         with:
-          github_token: ${{ secrets.MERGE_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           owner: FreeTubeApp
           repository: FreeTube
