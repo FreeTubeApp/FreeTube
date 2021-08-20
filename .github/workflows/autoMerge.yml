@@ -11,19 +11,14 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Create auth.txt
         run: |
           echo ${{ secrets.PUSH_TOKEN }} >> auth.txt
-      - name: Login GH CLI
-        run: |
-          gh auth login --with-token < ${{ secrets.PUSH_TOKEN }}
-      - name: rm auth.txt
-        run: |
+          gh auth login --with-token < auth.txt
           rm auth.txt
-      - name: Enable Auto Merge PR
-        run: |
           gh pr merge https://github.com/FreeTubeApp/FreeTube/pull/${{ github.event.pull_request.number }} --auto
+          
