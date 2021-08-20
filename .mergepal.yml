@@ -1,0 +1,5 @@
+whitelist:
+blacklist:
+  - wip
+  - do-not-merge
+method: squash

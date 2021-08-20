@@ -1,25 +1,16 @@
 name: Auto Merge
-
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the development branch
   pull_request:
     types: [opened, synchronize, reopened]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Enable GitHub Pull Reaquest Auto Merge Action
-        # You may pin to the exact commit or the version.
-        # uses: poad/github-pull-request-auto-merge-enable-action@89573fd0a329b987282e63d3a81b1c2d260c6648
-        uses: poad/github-pull-request-auto-merge-enable-action@v1.0.0
-        with:
-          github_token: ${{ secrets.PUSH_TOKEN }}
-          owner: FreeTubeApp
-          repository: FreeTube
+    - name: Auto Merge PR
+      run: |
+        echo ${{ secrets.PUSH_TOKEN }} >> auth.txt
+        gh auth login --with-token < auth.txt
+        rm auth.txt
+        gh pr merge https://github.com/FreeTubeApp/FreeTube/pull/${{ github.event.pull_request.number }} --auto
