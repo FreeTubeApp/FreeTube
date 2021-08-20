@@ -10,7 +10,7 @@ jobs:
     steps:
     - name: Auto Merge PR
       run: |
-        echo ${{ secrets.GITHUB_TOKEN }} >> auth.txt
+        echo ${{ secrets.GH_TOKEN }} >> auth.txt
         gh auth login --with-token < auth.txt
         rm auth.txt
         gh pr merge https://github.com/FreeTubeApp/FreeTube/pull/${{ github.event.pull_request.number }} --auto --squash
