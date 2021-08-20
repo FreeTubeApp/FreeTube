@@ -20,4 +20,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PUSH_TOKEN }}
         run: |
-          echo ${{ secrets.PUSH_TOKEN }} >> auth.txt && gh auth login --with-token < auth.txt && rm auth.txt && gh pr merge https://github.com/FreeTubeApp/FreeTube/pull/${{ github.event.pull_request.number }} --auto
+          echo test >> auth.txt && gh auth login --with-token < auth.txt && rm auth.txt && gh pr merge https://github.com/FreeTubeApp/FreeTube/pull/${{ github.event.pull_request.number }} --auto
