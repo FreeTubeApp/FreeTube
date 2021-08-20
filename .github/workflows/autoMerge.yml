@@ -16,9 +16,8 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Enable Auto Merge
+        env:
+          GITHUB_TOKEN: ${{ secrets.PUSH_TOKEN }}
         run: |
-          echo ${{ secrets.PUSH_TOKEN }} >> auth.txt
-          ls -l
-          gh auth login --with-token < ./auth.txt
-          rm auth.txt
+          gh auth login --with-token
           gh pr merge https://github.com/FreeTubeApp/FreeTube/pull/${{ github.event.pull_request.number }} --auto
