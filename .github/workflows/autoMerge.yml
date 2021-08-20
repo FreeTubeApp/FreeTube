@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: Enable Auto Merge
         run: |
-            echo ${{ secret.PUSH_TOKEN }} >> auth.txt
+            echo ${{ secrets.PUSH_TOKEN }} >> auth.txt
             gh auth login --with-token < auth.txt
             rm auth.txt
             gh pr merge https://github.com/FreeTubeApp/FreeTube/pull/${{ github.event.pull_request.number }} --auto
