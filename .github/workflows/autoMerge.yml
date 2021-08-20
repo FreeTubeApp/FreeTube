@@ -3,11 +3,8 @@ name: Auto Merge PR
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the development branch
-  pull_request_review: # try to merge after review
-    types:
-      - submitted
-      - edited
-      - dismissed
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -18,10 +15,13 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Merge Pal
+      - name: Enable GitHub Pull Reaquest Auto Merge Action
         # You may pin to the exact commit or the version.
-        # uses: maxkomarychev/merge-pal-action@7a3bca37e260865d9e9a259212c1d13ef4da7f41
-        uses: maxkomarychev/merge-pal-action@v0.5.1
+        # uses: poad/github-pull-request-auto-merge-enable-action@89573fd0a329b987282e63d3a81b1c2d260c6648
+        uses: poad/github-pull-request-auto-merge-enable-action@v1.0.0
         with:
-          # Token to perform api calls
-          token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          pull_request_id: ${{ github.event.inputs.pull-request.node_id }}
+          pull_request_number: ${{ github.event.inputs.pull-request.number }}
+          owner: FreeTubeApp
+          repository: FreeTube
