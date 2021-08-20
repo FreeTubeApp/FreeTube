@@ -20,7 +20,7 @@ jobs:
           echo ${{ secrets.PUSH_TOKEN }} >> auth.txt
       - name: Login GH CLI
         run: |
-          gh auth login --with-token < auth.txt
+          gh auth login --with-token < ${{ secrets.PUSH_TOKEN }}
       - name: rm auth.txt
         run: |
           rm auth.txt
