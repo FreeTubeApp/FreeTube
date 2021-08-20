@@ -15,6 +15,8 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Echo Node ID
+        run: echo ${{ github.event.pull-request.node_id }}
       - name: Enable GitHub Pull Reaquest Auto Merge Action
         # You may pin to the exact commit or the version.
         # uses: poad/github-pull-request-auto-merge-enable-action@89573fd0a329b987282e63d3a81b1c2d260c6648
