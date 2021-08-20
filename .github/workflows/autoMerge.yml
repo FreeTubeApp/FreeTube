@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: Create auth.txt
         run: |
-          echo ${{ secrets.PUSH_TOKEN }} >> auth.txt
+          echo ${{ secrets.MERGE_TOKEN }} >> auth.txt
           ls -l
           gh auth login --with-token < auth.txt
           rm auth.txt
