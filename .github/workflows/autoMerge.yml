@@ -11,13 +11,12 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v2
       - name: Enable Auto Merge
-        env:
-          PUSHTOKEN: ${{ secrets.MERGE_TOKEN }}
         run: |
-          echo ${{ env.PUSHTOKEN }} >> auth.txt && gh auth login --with-token < auth.txt && rm auth.txt && gh pr merge https://github.com/FreeTubeApp/FreeTube/pull/${{ github.event.pull_request.number }} --auto
+            echo ${{ secrets.PUSH_TOKEN }} >> auth.txt
+            gh auth login --with-token < auth.txt
+            rm auth.txtgh pr merge https://github.com/FreeTubeApp/FreeTube/pull/${{ github.event.pull_request.number }} --auto
