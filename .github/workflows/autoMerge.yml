@@ -16,14 +16,14 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Echo Node ID
-        run: echo ${{ github.event.pull_request }}
+        run: echo ${{ github.event.pull_request.node_id }}
       - name: Enable GitHub Pull Reaquest Auto Merge Action
         # You may pin to the exact commit or the version.
         # uses: poad/github-pull-request-auto-merge-enable-action@89573fd0a329b987282e63d3a81b1c2d260c6648
         uses: poad/github-pull-request-auto-merge-enable-action@v1.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          pull_request_id: ${{ github.event.pull-request.node-id }}
-          pull_request_number: ${{ github.event.pull-request.number }}
+          pull_request_id: ${{ github.event.pull_request.node_id }}
+          pull_request_number: ${{ github.event.pull_request.number }}
           owner: FreeTubeApp
           repository: FreeTube
