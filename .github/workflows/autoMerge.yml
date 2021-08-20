@@ -15,9 +15,15 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Merge PR
+      - name: Create auth.txt
         run: |
           echo ${{ secrets.PUSH_TOKEN }} >> auth.txt
+      - name: Login GH CLI
+        run: |
           gh auth login --with-token < auth.txt
+      - name: rm auth.txt
+        run: |
           rm auth.txt
+      - name: Enable Auto Merge PR
+        run: |
           gh pr merge https://github.com/FreeTubeApp/FreeTube/pull/${{ github.event.pull_request.number }} --auto
