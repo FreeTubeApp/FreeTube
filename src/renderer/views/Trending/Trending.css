@@ -5,7 +5,7 @@
 }
 
 .floatingTopButton {
-  position: absolute;
+  position: fixed;
   top: 70px;
   right: 10px;
 }
@@ -38,6 +38,13 @@
   -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
+
+@media only screen and (max-width: 350px) {
+  .floatingTopButton {
+    position: absolute
+  }
+}
+
 @media only screen and (max-width: 680px) {
   .card {
     width: 90%;
