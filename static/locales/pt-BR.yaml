@@ -77,7 +77,8 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
     perfil tem um grande número de inscrições.  Forçando RSS para evitar limitação
     de banda
-Trending: 'Em alta'
+Trending:
+  Trending: 'Em alta'
 Most Popular: 'Mais populares'
 Playlists: 'Listas'
 User Playlists:

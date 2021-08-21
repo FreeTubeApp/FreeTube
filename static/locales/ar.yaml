@@ -76,7 +76,8 @@ Subscriptions:
   Load More Videos: حمّل المزيد من الفيديوهات
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: لدى
     هذا الملف الشخصي عدد كبير من الاشتراكات. يتم فرض وضع RSS لتجنب تقييد الوصول  للاشتراكات
-Trending: 'المحتوى الرائج'
+Trending:
+  Trending: 'المحتوى الرائج'
 Most Popular: 'الأكثر شعبية'
 Playlists: 'قوائم التشغيل'
 User Playlists:

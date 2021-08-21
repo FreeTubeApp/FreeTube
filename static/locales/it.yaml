@@ -80,7 +80,8 @@ Subscriptions:
   Load More Videos: Carica più video
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Questo
     profilo ha un grande numero di iscrizioni. Utilizzo RSS per evitare limitazioni
-Trending: 'Tendenze'
+Trending:
+  Trending: 'Tendenze'
 Most Popular: 'Più popolari'
 Playlists: 'Playlist'
 User Playlists:

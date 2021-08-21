@@ -82,7 +82,8 @@ Subscriptions:
   Load More Videos: Load More Videos
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: This
     profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting
-Trending: 'Trending'
+Trending:
+  Trending: 'Trending'
 Most Popular: 'Most Popular'
 Playlists: 'Playlists'
 User Playlists:

@@ -85,7 +85,8 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Profil
     ini berlangganan ke banyak kanal. Beralih ke RSS untuk menghindari pembatasan
     akses
-Trending: 'Sedang Tren'
+Trending:
+  Trending: 'Sedang Tren'
 Most Popular: 'Paling Populer'
 Playlists: 'Daftar Putar'
 User Playlists:

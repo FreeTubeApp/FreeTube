@@ -77,7 +77,8 @@ Subscriptions:
     sua lista de subscrições está vazia. Adicione algumas para as ver aqui.'
   'Getting Subscriptions. Please wait.': 'A carregar subscrições. Por favor aguarde.'
   Refresh Subscriptions: 'Atualizar Subscrições'
-Trending: 'Tendências'
+Trending:
+  Trending: 'Tendências'
 Most Popular: 'Mais Populares'
 Playlists: 'Listas de Reprodução'
 User Playlists:

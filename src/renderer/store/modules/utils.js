@@ -5,7 +5,12 @@ const state = {
   isSideNavOpen: false,
   sessionSearchHistory: [],
   popularCache: null,
-  trendingCache: null,
+  trendingCache: {
+    default: null,
+    music: null,
+    gaming: null,
+    movies: null
+  },
   showProgressBar: false,
   progressBarPercentage: 0,
   regionNames: [],
@@ -823,8 +828,8 @@ const mutations = {
     state.popularCache = value
   },
 
-  setTrendingCache (state, value) {
-    state.trendingCache = value
+  setTrendingCache (state, value, page) {
+    state.trendingCache[page] = value
   },
 
   setSearchSortBy (state, value) {

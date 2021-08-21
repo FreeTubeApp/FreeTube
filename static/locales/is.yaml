@@ -87,7 +87,8 @@ Subscriptions:
   Refresh Subscriptions: 'Endurlesa áskriftir'
   Load More Videos: 'Hlaða inn fleiri myndskeiðum'
 More: 'Meira'
-Trending: 'Í umræðunni'
+Trending:
+  Trending: 'Í umræðunni'
 Most Popular: 'Vinsælast'
 Playlists: 'Spilunarlistar'
 User Playlists:
