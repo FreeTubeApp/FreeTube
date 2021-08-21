@@ -4,8 +4,6 @@
 
 **Copylefted libre software desktop YouTube player** (with privacy).
 
-No advertisements or local Google claws tracking you with cookies and JavaScript.
-
 Available for Linux, Windows and macOS thanks to Electron.
 
 Should work for most users, but there are still bugs and missing features.
@@ -16,13 +14,13 @@ Should work for most users, but there are still bugs and missing features.
 
 FreeTube is supported by the [Privacy Redirect](https://github.com/SimonBrazell/privacy-redirect), on [Firefox](https://addons.mozilla.org/en-US/firefox/addon/privacy-redirect/) or [Google Chrome](https://chrome.google.com/webstore/detail/privacy-redirect/pmcmeagblkinmogikoikkdjiligflglb), \
 which allows you to open YouTube links into FreeTube from your web browser. \
-Turn it on from the advanced settings in the extention.
+Turn it on from the advanced settings in the extension.
 
 Only report issues getting FreeTube to work with the extension here.
 
 ## How does it work?
-A built in extractor or the [Invidious API](https://github.com/iv-org/invidious) is used to grab and serve data/videos. \
-FreeTube does not use any official APIs to obtain data. \
+Data/video is served using either a built in extractor, or the [Invidious API](https://github.com/iv-org/invidious). \
+FreeTube does not use any official APIs, cookies, or JavaScript to obtain data. \
 YouTube can still see your video requests, but can no longer track you using cookies or JavaScript. \
 Your subscriptions and history are stored locally on your computer and never sent out. \
 Using a VPN or Tor is highly recommended to hide your IP while using FreeTube.
@@ -31,15 +29,15 @@ Using a VPN or Tor is highly recommended to hide your IP while using FreeTube.
 <img src="https://i.imgur.com/zFgZUUV.png" width=300> <img src="https://i.imgur.com/9evYHgN.png" width=300> <img src="https://i.imgur.com/yT2UzPa.png" width=300> <img src="https://i.imgur.com/47zIEt4.png" width=300> <img src="https://i.imgur.com/hFB2fKC.png" width=300>
 
 ## Features
-* Videos without ads
-* No Google tracking you using cookies and JavaScript
+* No ads
+* Lots of tracking removed
 * Two extractor APIs to choose from (built-in or Invidious)
 * Subscribe to channels without an account
 * Local subscriptions, history, and saved videos
 * Organize subscriptions into "profiles" to create a more focused feed
 * Export and import subscriptions
 * Open videos from your browser directly into FreeTube (with the Privacy Redirect extension)
-* Mini player
+* Mini-player
 * Full theme support
 
 ## Downloads
@@ -49,6 +47,14 @@ Using a VPN or Tor is highly recommended to hide your IP while using FreeTube.
 [From the FreeTube website](https://freetubeapp.io/#download)
 
 [Flatpak on Flathub](https://flathub.org/apps/details/io.freetubeapp.FreeTube) [Source](https://github.com/flathub/io.freetubeapp.FreeTube)
+
+## Documentation
+
+[Usage](https://docs.freetubeapp.io/usage/)
+
+[FAQ](https://docs.freetubeapp.io/faq/)
+
+[Development](https://docs.freetubeapp.io/development/)
 
 ### Unofficial
 
@@ -103,8 +109,7 @@ Bitcoin address: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS
 
 Monero address: 48WyAPdjwc6VokeXACxSZCFeKEXBiYPV6GjfvBsfg4CrUJ95LLCQSfpM9pvNKy5GE5H4hNaw99P8RZyzmaU9kb1pD7kzhCB
 
-We hope you enjoy using FreeTube and if you want to support us, donate using one of the methods. \
-Donations keep the website up and running and eventual code signing costs.
+Enjoy using FreeTube. Contribute if you want to help the program and its developers.
 
 ## License
 [![GNU AGPLv3 Image](https://www.gnu.org/graphics/agplv3-155x51.png)](https://www.gnu.org/licenses/agpl-3.0.html)  
