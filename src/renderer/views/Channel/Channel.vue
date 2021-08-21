@@ -21,35 +21,48 @@
         class="defaultChannelBanner"
         alt=""
       >
-      <div class="channelInfoContainer">
-        <div class="channelInfo">
-          <img
-            class="channelThumbnail"
-            :src="thumbnailUrl"
-            alt=""
+      <div
+        class="channelInfoContainer"
+      >
+        <div
+          class="channelInfo"
+        >
+          <div
+            class="thumbnailContainer"
           >
-          <span
-            class="channelName"
-          >
-            {{ channelName }}
-          </span>
-          <br>
-          <span
-            v-if="subCount !== null"
-            class="channelSubCount"
-          >
-            {{ formattedSubCount }}
-            <span v-if="subCount === 1">{{ $t("Channel.Subscriber") }}</span>
-            <span v-else>{{ $t("Channel.Subscribers") }}</span>
-          </span>
+            <img
+              class="channelThumbnail"
+              :src="thumbnailUrl"
+              alt=""
+            >
+            <div
+              class="channelLineContainer"
+            >
+              <span
+                class="channelName"
+              >
+                {{ channelName }}
+              </span>
+              <span
+                v-if="subCount !== null"
+                class="channelSubCount"
+              >
+                {{ formattedSubCount }}
+                <span v-if="subCount === 1">{{ $t("Channel.Subscriber") }}</span>
+                <span v-else>{{ $t("Channel.Subscribers") }}</span>
+              </span>
+            </div>
+          </div>
+
+          <ft-button
+            :label="subscribedText"
+            background-color="var(--primary-color)"
+            text-color="var(--text-with-main-color)"
+            class="subscribeButton"
+            @click="handleSubscription"
+          />
         </div>
-        <ft-button
-          :label="subscribedText"
-          background-color="var(--primary-color)"
-          text-color="var(--text-with-main-color)"
-          class="subscribeButton"
-          @click="handleSubscription"
-        />
+
         <ft-flex-box
           class="channelInfoTabs"
           role="tablist"

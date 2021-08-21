@@ -261,6 +261,14 @@ export default Vue.extend({
         this.thumbnailUrl = response.authorThumbnails[2].url
         this.channelDescription = autolinker.link(response.description)
         this.relatedChannels = response.relatedChannels.items
+        this.relatedChannels.forEach(relatedChannel => {
+          relatedChannel.authorThumbnails.map(thumbnail => {
+            if (!thumbnail.url.includes('https')) {
+              thumbnail.url = `https:${thumbnail.url}`
+            }
+            return thumbnail
+          })
+        })
 
         if (response.authorBanners !== null) {
           const bannerUrl = response.authorBanners[response.authorBanners.length - 1].url
