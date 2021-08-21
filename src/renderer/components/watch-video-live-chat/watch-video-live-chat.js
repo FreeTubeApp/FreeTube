@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { mapActions } from 'vuex'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtButton from '../ft-button/ft-button.vue'
@@ -6,7 +7,7 @@ import FtListVideo from '../ft-list-video/ft-list-video.vue'
 
 import $ from 'jquery'
 import autolinker from 'autolinker'
-import { LiveChat } from 'youtube-chat'
+import { LiveChat } from '@freetube/youtube-chat'
 
 export default Vue.extend({
   name: 'WatchVideoLiveChat',
@@ -156,15 +157,15 @@ export default Vue.extend({
         if (typeof (text.navigationEndpoint) !== 'undefined') {
           if (typeof (text.navigationEndpoint.watchEndpoint) !== 'undefined') {
             const htmlRef = `<a href="https://www.youtube.com/watch?v=${text.navigationEndpoint.watchEndpoint.videoId}">${text.text}</a>`
-            comment.messageHtml = comment.messageHtml + htmlRef
+            comment.messageHtml = comment.messageHtml.replace(/(<([^>]+)>)/ig, '') + htmlRef
           } else {
-            comment.messageHtml = comment.messageHtml + text.text
+            comment.messageHtml = (comment.messageHtml + text.text).replace(/(<([^>]+)>)/ig, '')
           }
         } else if (typeof (text.alt) !== 'undefined') {
           const htmlImg = `<img src="${text.url}" alt="${text.alt}" height="24" width="24" />`
-          comment.messageHtml = comment.messageHtml + htmlImg
+          comment.messageHtml = comment.messageHtml.replace(/(<([^>]+)>)/ig, '') + htmlImg
         } else {
-          comment.messageHtml = comment.messageHtml + text.text
+          comment.messageHtml = (comment.messageHtml + text.text).replace(/(<([^>]+)>)/ig, '')
         }
       })
 
@@ -183,7 +184,7 @@ export default Vue.extend({
       console.log(this.comments.length)
 
       if (typeof (comment.superchat) !== 'undefined') {
-        this.$store.dispatch('getRandomColorClass').then((data) => {
+        this.getRandomColorClass().then((data) => {
           comment.superchat.colorClass = data
 
           this.superChatComments.unshift(comment)
@@ -195,7 +196,7 @@ export default Vue.extend({
       }
 
       if (comment.author.name[0] === 'Ge' || comment.author.name[0] === 'Ne') {
-        this.$store.dispatch('getRandomColorClass').then((data) => {
+        this.getRandomColorClass().then((data) => {
           comment.superChat = {
             amount: '$5.00',
             colorClass: data
@@ -260,6 +261,10 @@ export default Vue.extend({
     preventDefault: function (event) {
       event.stopPropagation()
       event.preventDefault()
-    }
+    },
+
+    ...mapActions([
+      'getRandomColorClass'
+    ])
   }
 })

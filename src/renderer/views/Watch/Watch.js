@@ -14,8 +14,6 @@ import WatchVideoLiveChat from '../../components/watch-video-live-chat/watch-vid
 import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-video-playlist.vue'
 import WatchVideoRecommendations from '../../components/watch-video-recommendations/watch-video-recommendations.vue'
 
-const remote = require('@electron/remote')
-
 export default Vue.extend({
   name: 'Watch',
   components: {
@@ -69,13 +67,15 @@ export default Vue.extend({
       activeSourceList: [],
       videoSourceList: [],
       audioSourceList: [],
+      adaptiveFormats: [],
       captionHybridList: [], // [] -> Promise[] -> string[] (URIs)
       recommendedVideos: [],
       downloadLinks: [],
       watchingPlaylist: false,
       playlistId: '',
       timestamp: null,
-      playNextTimeout: null
+      playNextTimeout: null,
+      playNextCountDownIntervalId: null
     }
   },
   computed: {
@@ -103,8 +103,8 @@ export default Vue.extend({
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
     },
     proxyVideos: function () {
       return this.$store.getters.getProxyVideos
@@ -212,8 +212,7 @@ export default Vue.extend({
         this.isLoading = true
       }
 
-      this.$store
-        .dispatch('ytGetVideoInformation', this.videoId)
+      this.ytGetVideoInformation(this.videoId)
         .then(async result => {
           console.log(result)
 
@@ -291,7 +290,7 @@ export default Vue.extend({
             this.videoLikeCount = isNaN(result.videoDetails.likes) ? 0 : result.videoDetails.likes
             this.videoDislikeCount = isNaN(result.videoDetails.dislikes) ? 0 : result.videoDetails.dislikes
           }
-          this.isLive = result.player_response.videoDetails.isLive || result.player_response.videoDetails.isLiveContent
+          this.isLive = result.player_response.videoDetails.isLive
           this.isLiveContent = result.player_response.videoDetails.isLiveContent
           this.isUpcoming = result.player_response.videoDetails.isUpcoming ? result.player_response.videoDetails.isUpcoming : false
 
@@ -311,7 +310,7 @@ export default Vue.extend({
             }
           }
 
-          if (this.isLive && !this.isUpcoming) {
+          if ((this.isLive || this.isLiveContent) && !this.isUpcoming) {
             this.enableLegacyFormat()
 
             this.videoSourceList = result.formats.filter((format) => {
@@ -364,6 +363,7 @@ export default Vue.extend({
               } else {
                 this.videoSourceList = result.player_response.streamingData.adaptiveFormats.reverse()
               }
+              this.adaptiveFormats = this.videoSourceList
               this.downloadLinks = result.formats.filter((format) => {
                 return typeof format.mimeType !== 'undefined'
               }).map((format) => {
@@ -434,14 +434,9 @@ export default Vue.extend({
               if (this.proxyVideos) {
                 this.dashSrc = await this.createInvidiousDashManifest()
               } else {
-                const adaptiveFormats = result.player_response.streamingData.adaptiveFormats.filter((video) => {
-                  if (typeof (video.qualityLabel) !== 'undefined') {
-                    return !video.qualityLabel.includes('HDR')
-                  } else {
-                    return true
-                  }
-                })
+                const adaptiveFormats = result.player_response.streamingData.adaptiveFormats
                 this.dashSrc = await this.createLocalDashManifest(adaptiveFormats)
+                this.adaptiveFormats = adaptiveFormats
               }
 
               this.audioSourceList = result.player_response.streamingData.adaptiveFormats.filter((format) => {
@@ -519,10 +514,9 @@ export default Vue.extend({
       }
 
       this.dashSrc = this.createInvidiousDashManifest()
-      this.videoStoryboardSrc = `${this.invidiousInstance}/api/v1/storyboards/${this.videoId}?height=90`
+      this.videoStoryboardSrc = `${this.currentInvidiousInstance}/api/v1/storyboards/${this.videoId}?height=90`
 
-      this.$store
-        .dispatch('invidiousGetVideoInformation', this.videoId)
+      this.invidiousGetVideoInformation(this.videoId)
         .then(result => {
           console.log(result)
 
@@ -546,13 +540,14 @@ export default Vue.extend({
           }
           this.channelId = result.authorId
           this.channelName = result.author
-          this.channelThumbnail = result.authorThumbnails[1] ? result.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`) : ''
+          this.channelThumbnail = result.authorThumbnails[1] ? result.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`) : ''
           this.videoPublished = result.published * 1000
           this.videoDescriptionHtml = result.descriptionHtml
           this.recommendedVideos = result.recommendedVideos
+          this.adaptiveFormats = result.adaptiveFormats
           this.isLive = result.liveNow
           this.captionHybridList = result.captions.map(caption => {
-            caption.url = this.invidiousInstance + caption.url
+            caption.url = this.currentInvidiousInstance + caption.url
             caption.type = ''
             caption.dataSource = 'invidious'
             return caption
@@ -560,13 +555,13 @@ export default Vue.extend({
 
           switch (this.thumbnailPreference) {
             case 'start':
-              this.thumbnail = `${this.invidiousInstance}/vi/${this.videoId}/maxres1.jpg`
+              this.thumbnail = `${this.currentInvidiousInstance}/vi/${this.videoId}/maxres1.jpg`
               break
             case 'middle':
-              this.thumbnail = `${this.invidiousInstance}/vi/${this.videoId}/maxres2.jpg`
+              this.thumbnail = `${this.currentInvidiousInstance}/vi/${this.videoId}/maxres2.jpg`
               break
             case 'end':
-              this.thumbnail = `${this.invidiousInstance}/vi/${this.videoId}/maxres3.jpg`
+              this.thumbnail = `${this.currentInvidiousInstance}/vi/${this.videoId}/maxres3.jpg`
               break
             default:
               this.thumbnail = result.videoThumbnails[0].url
@@ -780,8 +775,7 @@ export default Vue.extend({
     },
 
     getLegacyFormats: function () {
-      this.$store
-        .dispatch('ytGetVideoInformation', this.videoId)
+      this.ytGetVideoInformation(this.videoId)
         .then(result => {
           this.videoSourceList = result.player_response.streamingData.formats
         })
@@ -907,7 +901,7 @@ export default Vue.extend({
         // Will not display "Playing next video in no time" as it's too late to cancel
         // Also there is a separate message when playing next video
         if (countDownTimeLeftInSecond <= 0) {
-          clearInterval(countDownIntervalId)
+          clearInterval(this.playNextCountDownIntervalId)
           return
         }
 
@@ -918,7 +912,7 @@ export default Vue.extend({
           time: 700,
           action: () => {
             clearTimeout(this.playNextTimeout)
-            clearInterval(countDownIntervalId)
+            clearInterval(this.playNextCountDownIntervalId)
             this.showToast({
               message: this.$t('Canceled next video autoplay')
             })
@@ -930,11 +924,12 @@ export default Vue.extend({
       }
       // Execute once before scheduling it
       showCountDownMessage()
-      const countDownIntervalId = setInterval(showCountDownMessage, 1000)
+      this.playNextCountDownIntervalId = setInterval(showCountDownMessage, 1000)
     },
 
-    handleRouteChange: function () {
+    handleRouteChange: async function () {
       clearTimeout(this.playNextTimeout)
+      clearInterval(this.playNextCountDownIntervalId)
 
       this.handleWatchProgress()
 
@@ -963,7 +958,7 @@ export default Vue.extend({
       }
 
       if (this.removeVideoMetaFiles) {
-        const userData = remote.app.getPath('userData')
+        const userData = await this.getUserDataPath()
         if (this.isDev) {
           const dashFileLocation = `dashFiles/${this.videoId}.xml`
           const vttFileLocation = `storyboards/${this.videoId}.vtt`
@@ -1006,18 +1001,22 @@ export default Vue.extend({
       }
     },
 
-    createLocalDashManifest: function (formats) {
+    createLocalDashManifest: async function (formats) {
       const xmlData = ytDashGen.generate_dash_file_from_formats(formats, this.videoLengthSeconds)
-      const userData = remote.app.getPath('userData')
+      const userData = await this.getUserDataPath()
       let fileLocation
       let uriSchema
       if (this.isDev) {
-        fileLocation = `dashFiles/${this.videoId}.xml`
-        uriSchema = fileLocation
+        fileLocation = `static/dashFiles/${this.videoId}.xml`
+        uriSchema = `dashFiles/${this.videoId}.xml`
         // if the location does not exist, writeFileSync will not create the directory, so we have to do that manually
-        if (!fs.existsSync('dashFiles/')) {
-          fs.mkdirSync('dashFiles/')
+        if (!fs.existsSync('static/dashFiles/')) {
+          fs.mkdirSync('static/dashFiles/')
         }
+
+        fs.rm(fileLocation, () => {
+          fs.writeFileSync(fileLocation, xmlData)
+        })
       } else {
         fileLocation = `${userData}/dashFiles/${this.videoId}.xml`
         uriSchema = `file://${fileLocation}`
@@ -1025,8 +1024,10 @@ export default Vue.extend({
         if (!fs.existsSync(`${userData}/dashFiles/`)) {
           fs.mkdirSync(`${userData}/dashFiles/`)
         }
+
+        fs.writeFileSync(fileLocation, xmlData)
       }
-      fs.writeFileSync(fileLocation, xmlData)
+
       return [
         {
           url: uriSchema,
@@ -1038,7 +1039,7 @@ export default Vue.extend({
     },
 
     createInvidiousDashManifest: function () {
-      let url = `${this.invidiousInstance}/api/manifest/dash/id/${this.videoId}.mpd`
+      let url = `${this.currentInvidiousInstance}/api/manifest/dash/id/${this.videoId}.mpd`
 
       if (this.proxyVideos || !this.usingElectron) {
         url = url + '?local=true'
@@ -1078,28 +1079,33 @@ export default Vue.extend({
         })
       })
       // TODO: MAKE A VARIABLE WHICH CAN CHOOSE BETWEEN STROYBOARD ARRAY ELEMENTS
-      this.buildVTTFileLocally(storyboardArray[1]).then((results) => {
-        const userData = remote.app.getPath('userData')
+      this.buildVTTFileLocally(storyboardArray[1]).then(async (results) => {
+        const userData = await this.getUserDataPath()
         let fileLocation
         let uriSchema
 
         // Dev mode doesn't have access to the file:// schema, so we access
         // storyboards differently when run in dev
         if (this.isDev) {
-          fileLocation = `storyboards/${this.videoId}.vtt`
-          uriSchema = fileLocation
+          fileLocation = `static/storyboards/${this.videoId}.vtt`
+          uriSchema = `storyboards/${this.videoId}.vtt`
           // if the location does not exist, writeFileSync will not create the directory, so we have to do that manually
-          if (!fs.existsSync('storyboards/')) {
-            fs.mkdirSync('storyboards/')
+          if (!fs.existsSync('static/storyboards/')) {
+            fs.mkdirSync('static/storyboards/')
           }
+
+          fs.rm(fileLocation, () => {
+            fs.writeFileSync(fileLocation, results)
+          })
         } else {
           if (!fs.existsSync(`${userData}/storyboards/`)) {
             fs.mkdirSync(`${userData}/storyboards/`)
           }
           fileLocation = `${userData}/storyboards/${this.videoId}.vtt`
           uriSchema = `file://${fileLocation}`
+
+          fs.writeFileSync(fileLocation, results)
         }
-        fs.writeFileSync(fileLocation, results)
 
         this.videoStoryboardSrc = uriSchema
       })
@@ -1181,12 +1187,39 @@ export default Vue.extend({
       }))
     },
 
+    pausePlayer: function () {
+      const player = this.$refs.videoPlayer.player
+      if (player && !player.paused()) {
+        player.pause()
+      }
+    },
+
     getWatchedProgress: function () {
       return this.$refs.videoPlayer && this.$refs.videoPlayer.player ? this.$refs.videoPlayer.player.currentTime() : 0
     },
 
     getTimestamp: function () {
       return Math.floor(this.getWatchedProgress())
+    },
+
+    getPlaylistIndex: function () {
+      return this.$refs.watchVideoPlaylist
+        ? this.getPlaylistReverse()
+          ? this.$refs.watchVideoPlaylist.playlistItems.length - this.$refs.watchVideoPlaylist.currentVideoIndex
+          : this.$refs.watchVideoPlaylist.currentVideoIndex - 1
+        : -1
+    },
+
+    getPlaylistReverse: function () {
+      return this.$refs.watchVideoPlaylist ? this.$refs.watchVideoPlaylist.reversePlaylist : false
+    },
+
+    getPlaylistShuffle: function () {
+      return this.$refs.watchVideoPlaylist ? this.$refs.watchVideoPlaylist.shuffleEnabled : false
+    },
+
+    getPlaylistLoop: function () {
+      return this.$refs.watchVideoPlaylist ? this.$refs.watchVideoPlaylist.loopEnabled : false
     },
 
     updateTitle: function () {
@@ -1197,7 +1230,10 @@ export default Vue.extend({
       'showToast',
       'buildVTTFileLocally',
       'updateHistory',
-      'updateWatchProgress'
+      'updateWatchProgress',
+      'getUserDataPath',
+      'ytGetVideoInformation',
+      'invidiousGetVideoInformation'
     ])
   }
 })

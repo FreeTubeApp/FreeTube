@@ -125,6 +125,15 @@ Settings:
     Check for Latest Blog Posts: Verificar se há Novas Postagens no Blog
     View all Invidious instance information: Ver todas as informações da instância
       Invidious
+    System Default: Padrão do Sistema
+    No default instance has been set: Nenhuma instância padrão foi definida
+    The currently set default instance is $: A instância padrão atualmente definida
+      é $
+    Current instance will be randomized on startup: A instância atual será randomizada
+      na inicialização
+    Set Current Instance as Default: Definir instância atual como padrão
+    Clear Default Instance: Limpar instância padrão
+    Current Invidious Instance: Instância do Invidious atual
   Theme Settings:
     Theme Settings: 'Configurações de aparência'
     Match Top Bar with Main Color: 'Usar a cor principal para a barra superior'
@@ -186,6 +195,11 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Intervalo do próximo vídeo da lista de reprodução
+    Next Video Interval: Próximo intervalo de vídeo
+    Display Play Button In Video Player: Exibir botão de reprodução no tocador de
+      vídeo
+    Scroll Volume Over Video Player: Rolar volume sobre o reprodutor de vídeo
+    Fast-Forward / Rewind Interval: Intervalo de avanço / retrocesso rápido
   Subscription Settings:
     Subscription Settings: 'Configurações de inscrições'
     Hide Videos on Watch: 'Esconder vídeos após assisti-los'
@@ -314,6 +328,19 @@ Settings:
       obter informações da rede. O seu proxy está configurado corretamente?
     City: Cidade
     Region: Região
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Notificar quando vídeos publicitários
+      são pulados
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL da API SponsorBlock
+      (o padrão é https://sponsor.ajay.app)
+    Enable SponsorBlock: Ativar o Bloqueio de Patrocinadores
+    SponsorBlock Settings: Configurações de Bloqueio de Patrocinadores
+  External Player Settings:
+    Custom External Player Arguments: Argumentos de player externo personalizados
+    External Player: Player externo
+    Ignore Unsupported Action Warnings: Ignorar avisos de ação não suportada
+    External Player Settings: Configurações do player externo
+    Custom External Player Executable: Executável de player externo personalizado
 About:
   #On About page
   About: 'Sobre'
@@ -491,6 +518,29 @@ Video:
   Video has been saved: O vídeo foi salvo
   Save Video: Salvar vídeo
   translated from English: Traduzido do inglês
+  Sponsor Block category:
+    music offtopic: música fora do contexto
+    interaction: interação
+    self-promotion: autopromoção
+    outro: epílogo
+    intro: introdução
+    sponsor: patrocinador
+  Skipped segment: Segmentos pulados
+  External Player:
+    Unsupported Actions:
+      shuffling playlists: embaralhar playlists
+      opening specific video in a playlist (falling back to opening the video): abrir
+        um vídeo específico em uma lista de reprodução (voltar a abrir o vídeo)
+      reversing playlists: revertendo playlists
+      opening playlists: abrindo playlists
+      starting video at offset: começando vídeo em deslocamento
+      setting a playback rate: definindo uma taxa de reprodução
+      looping playlists: Listas de reprodução em loop
+    UnsupportedActionTemplate: '$ não suporta: %'
+    playlist: playlist
+    OpeningTemplate: Abrindo $ em %...
+    OpenInTemplate: Aberto em $
+    video: vídeo
 Videos:
   #& Sort By
   Sort By:
@@ -515,6 +565,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Lista de reprodução
 Toggle Theatre Mode: 'Alternar Modo Teatro'
 Change Format:
   Change Video Formats: 'Mudar formato do vídeo'
@@ -591,7 +642,7 @@ Profile:
   Update Profile: Atualizar Perfil
   Profile Preview: Visualização do Perfil
   Color Picker: Selecionador de Cores
-  Create New Profile: Criar um novo perfil
+  Create New Profile: Criar novo Perfil
   All Channels: Todos os Canais
   All subscriptions will also be deleted.: Todas as inscrições serão também deletadas.
   Profile could not be found: O perfil não pôde ser encontrado
@@ -627,8 +678,9 @@ Profile:
   Profile has been created: Perfil criado
   Your profile name cannot be empty: Seu nome de perfil não pode ficar em branco
   Profile Filter: Filtro de Perfil
-Version $ is now available!  Click for more details: Versão $ está disponível agora!
-  Clique para mais detalhes
+  Profile Settings: Configurações de Perfil
+Version $ is now available!  Click for more details: Versão $ está disponível agora!  Clique
+  para mais detalhes
 A new blog is now available, $. Click to view more: Um novo blog está disponível,
   $. Clique para ver mais
 Download From Site: Fazer download pelo site
@@ -673,8 +725,27 @@ Tooltips:
     Remove Video Meta Files: Quando ativado, o FreeTube exclui automaticamente os
       metarquivos criados durante a reprodução do vídeo quando a página de exibição
       é fechada.
+  External Player Settings:
+    Custom External Player Arguments: Quaisquer argumentos de linha de comando personalizados,
+      separados por ponto e vírgula (';'), você deseja que seja passado para o reprodutor
+      externo.
+    Ignore Warnings: Suprime os avisos para quando o player externo atual não suporta
+      a ação atual (por exemplo, reverter listas de reprodução, etc.).
+    Custom External Player Executable: Por padrão, o FreeTube assumirá que o player
+      externo escolhido pode ser encontrado por meio da variável de ambiente PATH.
+      Se necessário, um caminho personalizado pode ser definido aqui.
+    External Player: A escolha de um reprodutor externo exibirá um ícone para abrir
+      o vídeo (lista de reprodução, se houver suporte) no reprodutor externo, na miniatura.
 More: Mais
 Playing Next Video Interval: Reproduzindo o próximo vídeo imediatamente. Clique para
   cancelar. | Reproduzindo o próximo vídeo em {nextVideoInterval} segundo(s). Clique
   para cancelar. | Reproduzindo o próximo vídeo em {nextVideoInterval} segundos. Clique
   para cancelar.
+Hashtags have not yet been implemented, try again later: Hashtags ainda não foram
+  implementadas, tente novamente mais tarde
+Unknown YouTube url type, cannot be opened in app: Tipo de URL do YouTube desconhecida,
+  não pode ser aberta no aplicativo
+Open New Window: Abrir Uma Nova Janela
+Default Invidious instance has been cleared: A instância padrão Invidious foi limpa
+Default Invidious instance has been set to $: A instância padrão Invidious foi definida
+  para $

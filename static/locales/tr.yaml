@@ -131,6 +131,13 @@ Settings:
         #! List countries
     View all Invidious instance information: Tüm Invidious örnek bilgilerini görüntüle
     System Default: Sistem Öntanımlı Değeri
+    Clear Default Instance: Öntanımlı Örneği Temizle
+    Set Current Instance as Default: Geçerli Örneği Öntanımlı Olarak Ayarla
+    Current instance will be randomized on startup: Geçerli örnek başlangıçta rastgele
+      olacak
+    No default instance has been set: Öntanımlı örnek ayarlanmadı
+    The currently set default instance is $: Şu anda ayarlanan öntanımlı örnek $
+    Current Invidious Instance: Geçerli Invidious Örneği
   Theme Settings:
     Theme Settings: 'Tema Ayarları'
     Match Top Bar with Main Color: 'Üst Barı Ana Renk ile Eşleştir'
@@ -193,6 +200,9 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Oynatma Listesi Sonraki Video Aralığı
     Next Video Interval: Sonraki Video Aralığı
+    Scroll Volume Over Video Player: Ses Düzeyini Video Oynatıcı Üzerinden Kaydır
+    Display Play Button In Video Player: Video Oynatıcıda Oynatma Düğmesini Göster
+    Fast-Forward / Rewind Interval: Hızlı İleri / Geri Sarma Aralığı
   Privacy Settings:
     Privacy Settings: 'Gizlilik Ayarları'
     Remember History: 'Geçmişi Hatırla'
@@ -313,6 +323,18 @@ Settings:
     Proxy Protocol: Vekil Sunucu Protokolü
     Enable Tor / Proxy: Tor / Vekil Sunucu Etkinleştir
     Proxy Settings: Vekil Sunucu Ayarları
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Sponsor bölümü atlandığında bildir
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
+      URL'si (Öntanımlı olarak https://sponsor.ajay.app)
+    Enable SponsorBlock: SponsorBlock'u Etkinleştir
+    SponsorBlock Settings: SponsorBlock Ayarları
+  External Player Settings:
+    Custom External Player Arguments: Özel Harici Oynatıcı Argümanları
+    Custom External Player Executable: Özel Harici Oynatıcı Çalıştırılabilir Dosyası
+    Ignore Unsupported Action Warnings: Desteklenmeyen Eylem Uyarılarını Yok Say
+    External Player: Harici Oynatıcı
+    External Player Settings: Harici Oynatıcı Ayarları
 About:
   #On About page
   About: 'Hakkında'
@@ -419,6 +441,7 @@ Profile:
     silmez.'
 #On Channel Page
   Profile Filter: Profil Filtresi
+  Profile Settings: Profil Ayarları
 Channel:
   Subscriber: 'Abone'
   Subscribers: 'Abone'
@@ -538,6 +561,29 @@ Video:
   Video has been saved: Video kaydedildi
   Save Video: Videoyu Kaydet
   translated from English: İngilizceden çevrildi
+  Sponsor Block category:
+    music offtopic: müzik konu dışı
+    interaction: etkileşim
+    self-promotion: kendini tanıtma
+    outro: çıkış
+    intro: giriş
+    sponsor: sponsor
+  Skipped segment: Atlanan bölüm
+  External Player:
+    Unsupported Actions:
+      looping playlists: oynatma listelerini döngüye alma
+      shuffling playlists: oynatma listelerini karıştırma
+      reversing playlists: çalma listelerini ters çevirme
+      opening specific video in a playlist (falling back to opening the video): oynatma
+        listesinde belirli bir videoyu açma (yedek olarak videoyu açma)
+      opening playlists: çalma listelerini açma
+      setting a playback rate: oynatma hızı ayarlama
+      starting video at offset: belirli bir konumda video başlatma
+    UnsupportedActionTemplate: '$ desteklemiyor: %'
+    OpeningTemplate: $, % içinde açılıyor...
+    playlist: oynatma listesi
+    video: video
+    OpenInTemplate: $ içinde aç
 Videos:
   #& Sort By
   Sort By:
@@ -562,6 +608,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Oynatma Listesi
 Toggle Theatre Mode: 'Tiyatro Modunu Aç/Kapat'
 Change Format:
   Change Video Formats: 'Video Biçimlerini Değiştir'
@@ -669,6 +716,16 @@ Tooltips:
   Privacy Settings:
     Remove Video Meta Files: Etkinleştirildiğinde, izleme sayfası kapatıldığında video
       oynatma sırasında oluşturulan meta dosyaları otomatik olarak silinir.
+  External Player Settings:
+    Custom External Player Arguments: Harici oynatıcıya iletmek isteyeceğiniz, noktalı
+      virgülle (';') ayrılmış özel komut satırı argümanları.
+    Ignore Warnings: Geçerli harici oynatıcının geçerli eylemi desteklemediği durumlar
+      için uyarıları bastır (örn. çalma listelerini ters çevirme vb.).
+    Custom External Player Executable: Öntanımlı olarak FreeTube, seçilen harici oynatıcının
+      PATH ortam değişkeni aracılığıyla bulunabileceğini varsayacaktır. Gerekirse,
+      burada özel bir yol ayarlanabilir.
+    External Player: Harici bir oynatıcı seçmek, videoyu (destekleniyorsa oynatma
+      listesini) harici oynatıcıda açmak için küçük resimde bir simge görüntüleyecektir.
 Playing Next Video Interval: Sonraki video hemen oynatılıyor. İptal etmek için tıklayın.
   | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek için
   tıklayın. | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek
@@ -679,3 +736,6 @@ Hashtags have not yet been implemented, try again later: Hashtag'ler henüz uygu
 Unknown YouTube url type, cannot be opened in app: Bilinmeyen YouTube URL türü, uygulamada
   açılamıyor
 Open New Window: Yeni Pencere Aç
+Default Invidious instance has been cleared: Öntanımlı Invidious örneği temizlendi
+Default Invidious instance has been set to $: Öntanımlı Invidious örneği $ olarak
+  ayarlandı

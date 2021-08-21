@@ -23,6 +23,12 @@ if (remoteDebugging) {
   process.env.RENDERER_REMOTE_DEBUGGING = true
 }
 
+// Define exit code for relaunch and set it in the environment
+const relaunchExitCode = 69
+process.env.FREETUBE_RELAUNCH_EXIT_CODE = relaunchExitCode
+
+const port = 9080
+
 async function killElectron(pid) {
   return new Promise((resolve, reject) => {
     if (pid) {
@@ -50,7 +56,13 @@ async function restartElectron() {
     remoteDebugging ? '--remote-debugging-port=9223' : '',
   ])
 
-  electronProcess.on('exit', (code, signal) => {
+  electronProcess.on('exit', (code, _) => {
+    if (code === relaunchExitCode) {
+      electronProcess = null
+      restartElectron()
+      return
+    }
+
     if (!manualRestart) process.exit(0)
   })
 }
@@ -104,13 +116,11 @@ function startRenderer(callback) {
   })
 
   const server = new WebpackDevServer(compiler, {
-    contentBase: path.join(__dirname, '../'),
-    hot: true,
-    overlay: true,
-    clientLogLevel: 'warning'
+    static: path.join(process.cwd(), 'static'),
+    port
   })
 
-  server.listen(9080, '', err => {
+  server.listen(port, '', err => {
     if (err) console.error(err)
 
     callback()

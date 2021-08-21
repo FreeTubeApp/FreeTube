@@ -6,7 +6,7 @@ FreeTube: 'FreeTube'
   Den här delen av appen är inte klar än. Kom tillbaka senare när framsteg har gjorts.
 
 # Webkit Menu Bar
-File: 'Arkiv'
+File: 'Fil'
 Quit: 'Avsluta'
 Edit: 'Redigera'
 Undo: 'Ångra'
@@ -70,8 +70,8 @@ Search Filters:
   Fetching results. Please wait: 'Hämtar resultat. Snälla vänta'
   Fetch more results: 'Hämta fler resultat'
 # Sidebar
-  There are no more results for this search: Det finns inte fler resultat för den
-    här sökningen
+  There are no more results for this search: Det finns inga mer resultat för denna
+    sökning
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Prenumerationer'
@@ -115,7 +115,7 @@ Settings:
     Preferred API Backend:
       Preferred API Backend: 'Föredragen API-backend'
       Local API: 'Lokalt API'
-      Invidious API: 'Invidious API'
+      Invidious API: 'Invidious API:er'
     Video View Type:
       Video View Type: 'Video visningtypen'
       Grid: 'Rutnät'
@@ -130,11 +130,20 @@ Settings:
       (Standard är https://invidious.snopyta.org)'
     Region for Trending: 'Region för Trender'
         #! List countries
+    View all Invidious instance information: Visa all Invidious instansinformation
+    System Default: Standard inställningar
+    Clear Default Instance: Rensa standrad instansen
+    Set Current Instance as Default: Välj den nuvarande instansen som standard
+    Current instance will be randomized on startup: Instansen kommer att väljas slumpmässigt
+      vid start
+    No default instance has been set: Ingen standard instans är vald
+    The currently set default instance is $: Den nuvarande aktiva instansen är $
+    Current Invidious Instance: Aktiva Invidious Instansen
   Theme Settings:
-    Theme Settings: 'Tema'
+    Theme Settings: 'Tema inställningar'
     Match Top Bar with Main Color: 'Matcha toppfältet med huvudfärgen'
     Base Theme:
-      Base Theme: 'Tema'
+      Base Theme: 'Grund Tema'
       Black: 'Svart'
       Dark: 'Mörkt'
       Light: 'Ljust'
@@ -147,13 +156,13 @@ Settings:
       Indigo: 'Indigo'
       Blue: 'Blå'
       Light Blue: 'Ljusblå'
-      Cyan: 'Cyan'
-      Teal: 'Teal'
+      Cyan: 'Cyan (Mintgrön)'
+      Teal: 'Teal (cyan-grön)'
       Green: 'Grön'
       Light Green: 'Ljusgrön'
       Lime: 'Limegrön'
       Yellow: 'Gul'
-      Amber: 'Amber'
+      Amber: 'Bärnsten'
       Orange: 'Orange'
       Deep Orange: 'Djup Orange'
     Secondary Color Theme: 'Sekundärfärg'
@@ -162,11 +171,11 @@ Settings:
     Expand Side Bar by Default: Expandera sidpanelen som standard
     Disable Smooth Scrolling: Inaktivera mjuk rullning
   Player Settings:
-    Player Settings: 'Spelare'
-    Force Local Backend for Legacy Formats: 'Tvinga lokal backend för Legacy format'
+    Player Settings: 'Spelarinställningar'
+    Force Local Backend for Legacy Formats: 'Tvinga lokal resurser för äldre format'
     Play Next Video: 'Spela nästa video'
     Turn on Subtitles by Default: 'Aktivera undertexter som standard'
-    Autoplay Videos: 'Video autospelning'
+    Autoplay Videos: 'Autospela video'
     Proxy Videos Through Invidious: 'Proxy Videos Genom Invidious'
     Autoplay Playlists: 'Autospela spellistor'
     Enable Theatre Mode by Default: 'Aktivera Bioläge som standard'
@@ -174,9 +183,9 @@ Settings:
     Default Playback Rate: 'Standard uppspelningshastighet'
     Default Video Format:
       Default Video Format: 'Standard videoformat'
-      Dash Formats: 'Dash'
-      Legacy Formats: 'Legacy'
-      Audio Formats: 'Endast ljud'
+      Dash Formats: 'DASH format'
+      Legacy Formats: 'Äldre format'
+      Audio Formats: 'Ljud format'
     Default Quality:
       Default Quality: 'Standardkvalitet'
       Auto: 'Auto'
@@ -189,28 +198,33 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Next Video Interval: Intervall till nästa video
+    Display Play Button In Video Player: Visa Spela knapp i videospelaren
+    Scroll Volume Over Video Player: Rullvolym i videospelaren
+    Fast-Forward / Rewind Interval: Spola fram / spola bak intervall
   Privacy Settings:
-    Privacy Settings: 'Dataintegritet'
+    Privacy Settings: 'Integritets inställningar'
     Remember History: 'Aktivera visningshistorik'
     Save Watched Progress: 'Spara sedd framsteg'
     Clear Search Cache: 'Rensa sökcache'
     Are you sure you want to clear out your search cache?: 'Vill du verkligen rensa
       din sökcache?'
-    Search cache has been cleared: 'Färdig!'
+    Search cache has been cleared: 'Sök cachen har blivit rensad'
     Remove Watch History: 'Rensa hela visningshistoriken'
     Are you sure you want to remove your entire watch history?: 'Vill du verkligen
       rensa hela visningshistoriken?'
-    Watch history has been cleared: 'Färdig!'
+    Watch history has been cleared: 'Visningshistoriken är rensad'
     Remove All Subscriptions / Profiles: 'Ta bort alla prenumerationer och profiler'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Vill
       du verkligen ta bort alla prenumerationer och profiler? Detta kan inte ångras.'
+    Automatically Remove Video Meta Files: Ta automatiskt bort videons metafiler
   Subscription Settings:
-    Subscription Settings: 'Prenumerationer'
-    Hide Videos on Watch: 'Dölj videor på sett'
+    Subscription Settings: 'Prenumerations inställningar'
+    Hide Videos on Watch: 'Dölj video under visning'
     Fetch Feeds from RSS: 'Hämta prenumerationer från RSS'
     Manage Subscriptions: 'Hantera prenumerationer'
   Data Settings:
-    Data Settings: 'Lokala datorer'
+    Data Settings: 'Data inställningar'
     Select Import Type: 'Välj import-typen'
     Select Export Type: 'Välj export-typen'
     Import Subscriptions: 'Importera prenumerationer'
@@ -231,7 +245,7 @@ Settings:
     One or more subscriptions were unable to be imported: 'En eller flera prenumerationer
       kunde inte importeras'
     Invalid subscriptions file: 'Ogiltigt prenumerationsarkiv'
-    This might take a while, please wait: 'Detta kan ta ett tag. Snälla vänta'
+    This might take a while, please wait: 'Detta kan ta ett tag, vänligen vänta'
     Invalid history file: 'Ogiltigt historikarkiv'
     Subscriptions have been successfully exported: 'Alla prenumerationer har exporterats'
     History object has insufficient data, skipping item: 'Historikarkivet har otillräcklig
@@ -241,10 +255,10 @@ Settings:
     All watched history has been successfully exported: 'Hela visningshistoriken har
       exporterats'
     Unable to read file: 'Kan inte läsa arkivet'
-    Unable to write file: 'kan inte skriva arkivet'
+    Unable to write file: 'Kunde inte skriva filen'
     Unknown data key: 'Okänd datanyckel'
     How do I import my subscriptions?: 'Hur importerar jag mina prenumerationer?'
-    Check for Legacy Subscriptions: Sök efter Legacy prenumerationer
+    Check for Legacy Subscriptions: Sök efter äldre prenumerationer
     Manage Subscriptions: Hantera prenumerationer
   Advanced Settings:
     Advanced Settings: 'Avancerade inställningar'
@@ -282,13 +296,14 @@ Settings:
     Hide Video Likes And Dislikes: Dölj video gillar/ogillar
     Hide Channel Subscribers: Dölj kanalprenumeranter
     Hide Video Views: Dölj videovisningar
-    Distraction Free Settings: Distraktionsfri
+    Distraction Free Settings: Inställningar för distraktioner
     Hide Active Subscriptions: Dölj aktiva prenumerationer
+    Hide Playlists: Göm spellistor
   The app needs to restart for changes to take effect. Restart and apply change?: Starta
     om FreeTube nu för att tillämpa ändringarna?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Fel uppstod
-      när nätverksinformationen skulle komma. Är din proxy konfigurerad på rätt sätt?
+      vid hämtning av nätverksinformationen. Är din proxy korrekt konfigurerad?
     City: Stad
     Region: Område
     Country: Land
@@ -301,7 +316,19 @@ Settings:
     Proxy Host: Proxy Host
     Proxy Protocol: Proxy-protokoll
     Enable Tor / Proxy: Aktivera Tor / Proxy
-    Proxy Settings: Proxy
+    Proxy Settings: Proxy Inställningar
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Notifikation när sponsorsegmentet är åsidosatt
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': API Url för Sponsorblockering
+      (Standard är https://sponsor.ajay.app)
+    Enable SponsorBlock: Använd Sponsorblockering
+    SponsorBlock Settings: Inställningar för Sponsorblockering
+  External Player Settings:
+    Ignore Unsupported Action Warnings: Ignorera händelsevarningar som inte stöds
+    External Player: Extern spelare
+    External Player Settings: Inställningar för extern spelare
+    Custom External Player Arguments: Anpassade externa spelargument
+    Custom External Player Executable: Anpassad extern spelare körbar
 About:
   #On About page
   About: 'Om'
@@ -338,10 +365,10 @@ About:
   FreeTube is made possible by: FreeTube möjliggörs av
   Credits: Krediter
   Translate: Översätta
-  room rules: rumsregler
+  room rules: Rumsregler
   Please read the: Vänligen läs
   Chat on Matrix: Chatta på Matrix
-  Mastodon: Mastodon
+  Mastodon: Mastodon (Mastodon)
   Email: E-post
   Blog: Blogg
   Website: Webbplats
@@ -352,11 +379,11 @@ About:
   FAQ: Frågor och svar
   FreeTube Wiki: FreeTube Wiki
   Help: Hjälp
-  GitHub releases: GitHub releases
-  Downloads / Changelog: Nedladdningar / Changelog
+  GitHub releases: GitHub släpp
+  Downloads / Changelog: Nedladdningar / Ändringslogg
   View License: Visa licens
   Licensed under the AGPLv3: Licensierad under AGPLv3
-  Source code: källkod
+  Source code: Källkod
   Beta: Beta
 Profile:
   Profile Select: 'Välj profil'
@@ -392,12 +419,14 @@ Profile:
   No channel(s) have been selected: 'Ingen kanal(er) har markerats'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : 'Det här är din primära profil.  Vill du ta bort de markerade kanalerna?  Samma
-    kanaler kommer att raderas i någon profil som de hittas i.'
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Vill
-    du ta bort de markerade kanalerna?  Detta kommer inte att radera kanalen från
-    någon annan profil.'
+  : 'Det här är din primära profil. Vill du ta bort de markerade kanalerna? Samma
+    kanaler kommer att raderas i alla profil där de hittas.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Är
+    du säker på att du ta bort de markerade kanalerna?  Detta kommer inte att radera
+    kanalen från någon annan profil.'
 #On Channel Page
+  Profile Filter: Profil-filter
+  Profile Settings: Profil inställningar
 Channel:
   Subscriber: 'Prenumerant'
   Subscribers: 'Prenumeranter'
@@ -407,9 +436,9 @@ Channel:
     dina prenumerationer'
   Removed subscription from $ other channel(s): 'Borttagen prenumeration från $ annan
     kanal(er)'
-  Added channel to your subscriptions: 'Lade till kanal i dina prenumerationer'
+  Added channel to your subscriptions: 'Kanal tillagd i dina prenumerationer'
   Search Channel: 'Sök i kanal'
-  Your search results have returned 0 results: 'Din sökning har inget resultat'
+  Your search results have returned 0 results: 'Din sökning gav inget resultat'
   Sort By: 'Sortera efter'
   Videos:
     Videos: 'Videor'
@@ -434,12 +463,12 @@ Channel:
 Video:
   Mark As Watched: 'Markera som sedd'
   Remove From History: 'Ta bort från historik'
-  Video has been marked as watched: 'Video har markerats som sedd'
+  Video has been marked as watched: 'Videon har markerats som sedd'
   Video has been removed from your history: 'Videon har tagits bort från din visningshistorik'
   Open in YouTube: 'Öppna på YouTube'
   Copy YouTube Link: 'Kopiera YouTube-länk'
-  Open YouTube Embedded Player: 'Öppna YouTube embedded spelaren'
-  Copy YouTube Embedded Player Link: 'Kopiera YouTube embedded spelare länk'
+  Open YouTube Embedded Player: 'Öppna den interna YouTube spelaren'
+  Copy YouTube Embedded Player Link: 'Kopiera länk till den interna YouTube-spelaren'
   Open in Invidious: 'Öppna på Invidious'
   Copy Invidious Link: 'Kopiera Invidious-länk'
   View: 'Visa'
@@ -448,22 +477,22 @@ Video:
   Shuffle Playlist: 'Blanda spellista'
   Reverse Playlist: 'Omvänd spellista'
   Play Next Video: 'Spela nästa video'
-  Play Previous Video: 'Spela tidigare video'
+  Play Previous Video: 'Spela föregående video'
   # Context is "X People Watching"
   Watching: 'Tittar på'
-  Watched: 'Sedd'
+  Watched: 'Visad'
   Autoplay: 'Autospelning'
   Starting soon, please refresh the page to check again: 'Börjar snart, vänligen uppdatera
     sidan för att kontrollera igen'
   # As in a Live Video
-  Live: 'Live'
+  Live: 'Live-visning'
   Live Now: 'Live nu'
   Live Chat: 'Livechatt'
   Enable Live Chat: 'Aktivera livechatt'
   Live Chat is currently not supported in this build.: 'Livechatt stöds för närvarande
     inte i denna version.'
   'Chat is disabled or the Live Stream has ended.': 'Chatten är inaktiverad eller
-    så har Live Stream avslutats.'
+    så har Live strömmen avslutats.'
   Live chat is enabled.  Chat messages will appear here once sent.: 'Livechatt är
     aktiverat. Meddelanden visas här när de har skickats.'
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Livechatt
@@ -520,6 +549,29 @@ Video:
     lista
   Video has been saved: Videon har sparats
   Save Video: Spara video
+  Sponsor Block category:
+    music offtopic: musik utanför ämnet
+    interaction: interaktion
+    self-promotion: självbefordran
+    outro: avslut
+    intro: intro
+    sponsor: sponsor
+  Skipped segment: Skippat segment
+  translated from English: översatt från Engelska
+  External Player:
+    Unsupported Actions:
+      shuffling playlists: blandar spellistor
+      reversing playlists: vända spellistor
+      opening specific video in a playlist (falling back to opening the video): öppna
+        specifik video i en spellista (faller tillbaka till att öppna videon)
+      opening playlists: öppnar spellistor
+      setting a playback rate: ställer in en uppspelningshastighet
+      starting video at offset: startar video vid offset
+    UnsupportedActionTemplate: $ stöder inte :%
+    OpeningTemplate: Öppnar $ i %...
+    playlist: spellista
+    video: video
+    OpenInTemplate: Öppna i $
 Videos:
   #& Sort By
   Sort By:
@@ -544,13 +596,14 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Spellista
 Toggle Theatre Mode: 'Aktivera Bioläge'
 Change Format:
   Change Video Formats: 'Ändra videoformat'
-  Use Dash Formats: 'Dash'
-  Use Legacy Formats: 'Legacy'
+  Use Dash Formats: 'Använd DASH-format'
+  Use Legacy Formats: 'Använd äldre format'
   Use Audio Formats: 'Endast ljud'
-  Dash formats are not available for this video: 'Dash-format är inte tillgängliga
+  Dash formats are not available for this video: 'DASH-format är inte tillgängliga
     för den här videon'
   Audio formats are not available for this video: 'Ljudformat är inte tillgängliga
     för den här videon'
@@ -559,21 +612,22 @@ Share:
   Include Timestamp: 'Inkludera tidsstämpel'
   Copy Link: 'Kopiera länk'
   Open Link: 'Öppna länk'
-  Copy Embed: 'Kopiera Embed'
-  Open Embed: 'Öppna Embed'
+  Copy Embed: 'Kopiera inbyggd'
+  Open Embed: 'Öppna inbyggd'
   # On Click
-  Invidious URL copied to clipboard: 'URL kopierad till urklipp'
-  Invidious Embed URL copied to clipboard: 'URL kopierad till urklipp'
-  YouTube URL copied to clipboard: 'URL kopierad till urklipp'
-  YouTube Embed URL copied to clipboard: 'URL kopierad till urklipp'
-  YouTube Channel URL copied to clipboard: YouTube Channel URL kopieras till urklipp
+  Invidious URL copied to clipboard: 'Kopiera Invidious URL till urklipp'
+  Invidious Embed URL copied to clipboard: 'Kopiera inbyggd Invidious URL till urklipp'
+  YouTube URL copied to clipboard: 'Youtube URL kopierad till urklipp'
+  YouTube Embed URL copied to clipboard: 'Inbyggd Youtube URL kopierad till urklipp'
+  YouTube Channel URL copied to clipboard: URL till Youtubekanal kopieras till urklipp
   Invidious Channel URL copied to clipboard: Invidious Kanal-URL kopierad till urklipp
 Mini Player: 'Minispelare'
 Comments:
   Comments: 'Kommentarer'
   Click to View Comments: 'Visa kommentarer'
-  Getting comment replies, please wait: 'Hämtar kommentar svar. Snälla vänta'
-  There are no more comments for this video: 'Det finns inga fler kommentarer'
+  Getting comment replies, please wait: 'Hämtar kommentar svar, vänligen vänta'
+  There are no more comments for this video: 'Det finns inga fler kommentarer för
+    videon'
   Show Comments: 'Visa kommentarer'
   Hide Comments: 'Dölj kommentarer'
   # Context: View 10 Replies, View 1 Reply
@@ -581,19 +635,20 @@ Comments:
   Hide: 'Dölja'
   Replies: 'Svar'
   Reply: 'Svar'
-  There are no comments available for this video: 'Det finns inga kommentarer'
+  There are no comments available for this video: 'Det finns inga kommentarer tillgängliga
+    för videon'
   Load More Comments: 'Fler kommentarer'
   Newest first: Nyaste först
-  Top comments: Top kommentarer
+  Top comments: Toppkommentarer
   Sort by: Sortera efter
-  No more comments available: Det finns Inga fler kommentarer
+  No more comments available: Det finns inga fler kommentarer
 Up Next: 'Kommer härnäst'
 
 # Toast Messages
 Local API Error (Click to copy): 'Lokalt API-fel (Klicka för att kopiera koden)'
 Invidious API Error (Click to copy): 'Invidious API-fel (Klicka för att kopiera koden)'
 Falling back to Invidious API: 'Faller tillbaka till Invidious API'
-Falling back to the local API: 'Faller tillbaka till den lokala API'
+Falling back to the local API: 'Faller tillbaka till lokal API'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Den
   här videon är inte tillgänglig på grund av format som saknas. Detta kan hända på
   grund av landets otillgänglighet.'
@@ -604,7 +659,7 @@ Shuffle is now disabled: 'Blandning är nu inaktiverad'
 Shuffle is now enabled: 'Blandning är nu aktiverad'
 The playlist has been reversed: 'Spellistan är omvänd'
 Playing Next Video: 'Spelar video'
-Playing Previous Video: 'Spelar video'
+Playing Previous Video: 'Spelar föregående video'
 Playing next video in 5 seconds.  Click to cancel: 'Spelar upp nästa video på 5 sekunder.
   Klicka för att avbryta.'
 Canceled next video autoplay: 'Avbröts nästa autoplay'
@@ -616,32 +671,56 @@ No: 'Nej'
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: När det är aktiverat kommer FreeTube att använda RSS istället
-      för att det är standardmetod för att ta tag i ditt prenumerationsflöde. RSS
-      är snabbare och förhindrar IP-blockering, men ger inte viss information som
-      video varaktighet eller live status
+      för standardmetoden för ditt prenumerationsflöde. RSS är snabbare och förhindrar
+      IP-blockering, men saknarviss information som video varaktighet eller live status
   Player Settings:
     Default Video Format: Ställ in de format som används när en video spelas upp.
-      Dash-format kan spela högre kvaliteter. Legacy-format är begränsade till ett
-      max på 720p men använder mindre bandbredd. Ljudformat är ljud bara strömmar
+      DASH-format kan spela högre kvaliteter. Äldre format är begränsade till max
+      720p men använder mindre bandbredd. Ljudformat är ljud bara strömmar.
     Proxy Videos Through Invidious: Kommer att ansluta till Invidious för att hämta
       videor istället för att göra en direkt anslutning till YouTube. Åsidosätter
-      API-preferens
+      API-preferens.
     Force Local Backend for Legacy Formats: Fungerar bara när Invidious API är din
       standard. När det är aktiverat kommer det lokala API:et att köras och använda
       de äldre formaten som returneras av det i stället för de som returneras av Invidious.
       Hjälper när videorna som returneras av Invidious inte spelas upp på grund av
-      landsbegränsningar
+      landsbegränsningar.
   General Settings:
     Region for Trending: Med trenderegionen kan du välja vilket lands trendiga videor
-      du vill ska visas. Inte alla länder som visas stöds faktiskt av YouTube
+      du vill ska visas. Inte alla länder som visas stöds faktiskt av YouTube.
     Invidious Instance: Invidious-instansen som FreeTube kommer att ansluta till för
       API-anrop. Rensa den aktuella instansen om du vill se en lista över offentliga
-      instanser att välja mellan
+      instanser att välja mellan.
     Thumbnail Preference: Alla miniatyrer i hela FreeTube kommer att ersättas med
-      en bildruta av videon i stället för standardminiatyr
+      en bildruta av videon i stället för standardminiatyr.
     Fallback to Non-Preferred Backend on Failure: När ditt föredragna API har ett
       problem, kommer FreeTube automatiskt att försöka använda ditt icke-föredragna
-      API som reservmetod när det är aktiverat
-    Preferred API Backend: Välj den backend som FreeTube använder för att få fram
-      data. Det lokala API:et är en inbyggd utdragare. Invidious API kräver en Invidious
+      API som reservmetod när det är aktiverat.
+    Preferred API Backend: Välj den resurs som FreeTube använder för att få fram data.
+      Det lokala API:et är en inbyggd utdragare. Invidious API kräver en Invidious
       server att ansluta till.
+  Privacy Settings:
+    Remove Video Meta Files: Om vald, kommer FreeTube automatiskt att kasta metadata
+      filer som skapades under uppspelning, när sidan stängs.
+  External Player Settings:
+    Custom External Player Arguments: Alla anpassade kommandoradsargument, åtskilda
+      av semikolon (';'), ska skickas till den externa spelaren.
+    Ignore Warnings: Dämpa varningar för när den aktuella externa spelaren inte stöder
+      den aktuella åtgärden (t.ex. backning av spellistor, etc.).
+    Custom External Player Executable: Som standard antar FreeTube att den valda externa
+      spelaren kan hittas via PATH-miljövariabeln. Om det behövs kan en anpassad sökväg
+      ställas in här.
+    External Player: Att välja en extern spelare visar en ikon för att öppna videon
+      (spellista om den stöds) i den externa spelaren på miniatyrbilden.
+More: Mer
+Open New Window: Öppna nytt fönster
+Playing Next Video Interval: Spelar strax nästa video. Klicka för att stoppa. | Spelar
+  nästa video om {nextVideoInterval} sekunder. Klicka för att stoppa. | Spelar nästa
+  video om {nextVideoInterval} sekunder. Klicka för att stoppa.
+Hashtags have not yet been implemented, try again later: Hashtaggar har inte implementerats
+  än, försök vid ett senare tillfälle
+Unknown YouTube url type, cannot be opened in app: Okänd YouTube URL, kan inte öppnas
+  i programmet
+Default Invidious instance has been cleared: Standard Invidious-instans har rensats
+Default Invidious instance has been set to $: Standard Invidious-instans har ställts
+  in på $

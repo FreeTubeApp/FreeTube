@@ -129,6 +129,14 @@ Settings:
     Check for Updates: Nach Aktualisierungen suchen
     View all Invidious instance information: Alle Informationen zur Invidious-Instanz
       anzeigen
+    System Default: Systemstandard
+    Current instance will be randomized on startup: Aktuelle Instanz wird beim Starten
+      zufällig ausgewählt
+    No default instance has been set: Es wurde keine Standardinstanz gesetzt
+    The currently set default instance is $: Die aktuelle Standardinstanz ist $
+    Current Invidious Instance: Aktuelle Invidious-Instanz
+    Clear Default Instance: Standardinstanz zurücksetzen
+    Set Current Instance as Default: Aktuelle Instanz als Standard setzen
   Theme Settings:
     Theme Settings: Thema-Einstellungen
     Match Top Bar with Main Color: Obere Leiste an Hauptfarbe anpassen
@@ -190,6 +198,10 @@ Settings:
       4k: 4k
       8k: 8k
     Playlist Next Video Interval: Zeit zwischen automatischer Videowiedergabe
+    Next Video Interval: Zeit bis zum nächsten Video
+    Display Play Button In Video Player: Abspielbutton im Videoplayer anzeigen
+    Scroll Volume Over Video Player: Lautstärke durch Scrollen auf Video ändern
+    Fast-Forward / Rewind Interval: Intervall für schnelles Vor-/Zurückspulen
   Subscription Settings:
     Subscription Settings: Abonnement-Einstellungen
     Hide Videos on Watch: Verstecke Videos bei Wiedergabe
@@ -317,6 +329,19 @@ Settings:
     Proxy Protocol: Proxy-Protokoll
     Enable Tor / Proxy: Tor / Proxy aktivieren
     Proxy Settings: Proxy-Einstellungen
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Melden, falls ein Sponsorsegment übersprungen
+      wird
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
+      URL (Standard ist https://sponsor.ajay.app)
+    Enable SponsorBlock: Aktiviere SponsorBlock
+    SponsorBlock Settings: SponsorBlock-Einstellungen
+  External Player Settings:
+    Ignore Unsupported Action Warnings: Nicht unterstützte Aktionswarnungen ignorieren
+    External Player: Externer Player
+    External Player Settings: Externe Player-Einstellungen
+    Custom External Player Executable: Ausführbares, externes Player-Programm
+    Custom External Player Arguments: Argumente für angepassten, externen Player
 About:
   #On About page
   About: Über
@@ -508,6 +533,30 @@ Video:
   Video has been saved: Video wurde gespeichert
   Save Video: Video speichern
   translated from English: Aus dem Englischen übersetzt
+  Sponsor Block category:
+    music offtopic: Musik (Offtopic)
+    interaction: Interaktion
+    self-promotion: Eigenwerbung
+    outro: Outro
+    intro: Intro
+    sponsor: Sponsor
+  Skipped segment: Segment übersprungen
+  External Player:
+    OpenInTemplate: In $ öffnen
+    Unsupported Actions:
+      setting a playback rate: Setzt eine Widergaberate
+      starting video at offset: Starte Video an Stelle
+      looping playlists: Wiedergabeliste wiederholen
+      shuffling playlists: Wiedergabeliste durcheinandermischen
+      reversing playlists: Wiedergabeliste umkehren
+      opening specific video in a playlist (falling back to opening the video): Öffne
+        gewähltes Video aus einer Wiedergabeliste (Falle zurück auf normales Öffnen
+        des Videos)
+      opening playlists: Wiedergabeliste öffnen
+    UnsupportedActionTemplate: '$ unterstützt das nicht: %'
+    OpeningTemplate: $ wird in % geöffnet...
+    playlist: Wiedergabeliste
+    video: video
 Videos:
   #& Sort By
   Sort By:
@@ -529,6 +578,7 @@ Playlist:
     Open in YouTube: In YouTube öffnen
     Copy YouTube Link: YouTube-Link kopieren
     Share Playlist: Wiedergabeliste teilen
+  Playlist: Wiedergabeliste
 Share Playlist:
   Share Playlist: Teile Playlist
   Copy YouTube Link: Kopiere YouTube Link
@@ -654,6 +704,7 @@ Profile:
   Subscription List: Abonnement-Liste
   Profile Select: Profilauswahl
   Profile Filter: Profilfilter
+  Profile Settings: Profileinstellungen
 The playlist has been reversed: Die Wiedergabeliste wurde umgedreht
 A new blog is now available, $. Click to view more: Ein neuer Blogeintrag ist verfügbar,
   $. Um ihn zu öffnen klicken
@@ -662,8 +713,8 @@ Version $ is now available!  Click for more details: Version $ ist jetzt verfüg
   mehr Details klicken
 Tooltips:
   General Settings:
-    Thumbnail Preference: Alle Thumbnails in FreeTube werden durch ein Standbild aus
-      dem Video ersetzt und entsprechen somit nicht mehr dem Standart-Vorschaubild.
+    Thumbnail Preference: Alle Vorschaubilder in FreeTube werden durch ein Standbild
+      aus dem Video ersetzt und entsprechen somit nicht mehr dem Standard-Vorschaubild.
     Invidious Instance: Die Invidious-Instanz, welche FreeTube für API-Calls verwendet.
       Leere die aktuelle Instanz, um eine vollständige Liste der verfügbaren Server
       anzuzeigen.
@@ -676,9 +727,9 @@ Tooltips:
       die Trends angezeigt werden sollen. Nicht alle Optionen werden auch von YouTube
       unterstützt.
   Subscription Settings:
-    Fetch Feeds from RSS: Sobald aktiviert wird FreeTube RSS anstatt der Standartmethode
+    Fetch Feeds from RSS: Sobald aktiviert, wird FreeTube RSS anstatt der Standardmethode
       nutzen, um deine Abos zu aktualisieren. RSS ist schneller und verhindert das
-      Blockieren deiner IP-Adresse, doch gewisse Informationen, wie z.B. die Dauer
+      Blockieren deiner IP-Adresse, doch gewisse Informationen, wie z. B. die Dauer
       des Videos oder der Status eines Livestreams, werden nicht mehr verfügbar sein
   Player Settings:
     Default Video Format: Auswahl der Formate bei der Videowiedergabe. DASH-Formate
@@ -695,6 +746,17 @@ Tooltips:
     Remove Video Meta Files: Bei Aktivierung löscht FreeTube alle Meta-Dateien die
       während der Videowiedergabe erzeugt werden, sobald die Videoseite verlassen
       wird.
+  External Player Settings:
+    Custom External Player Arguments: Alle Kommandozeilen Argumente, getrennt durch
+      Semikolons (';'), die an den externen Player weitergegeben werden sollen.
+    Ignore Warnings: Unterdrücke Warnungen, wenn der aktuell gewählte externe Player
+      die gewählte Aktion nicht unterstützt (z.B. Wiedergabeliste umkehren, etc.).
+    Custom External Player Executable: Standardmäßig wird FreeTube annehmen, dass
+      der gewählte externe Player unter der PATH Umgebungsvariable gefunden werden
+      kann. Falls nötig, kann ein benutzerdefinierter Pfad hier gewählt werden.
+    External Player: Wenn ein externer Player gewählt wird, wird ein Icon auf dem
+      Thumbnail gezeigt, um das Video (Wiedergabelisten falls unterstützt) darin zu
+      öffnen.
 Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
@@ -704,3 +766,7 @@ Hashtags have not yet been implemented, try again later: Hashtags wurden noch ni
   implementiert, bitte versuche es später noch einmal
 Unknown YouTube url type, cannot be opened in app: Unbekannte YouTube-Adresse, kann
   in FreeTube nicht geöffnet werden
+Open New Window: Neues Fenster öffnen
+Default Invidious instance has been cleared: Standard-Invidious-Instanz wurde zurückgesetzt
+Default Invidious instance has been set to $: Standard-Invidious-Instanz wurde auf
+  $ gesetzt

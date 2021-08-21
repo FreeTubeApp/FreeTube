@@ -9,7 +9,9 @@ import FtInput from '../ft-input/ft-input.vue'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 
-import electron from 'electron'
+// FIXME: Missing web logic branching
+
+import { ipcRenderer } from 'electron'
 import debounce from 'lodash.debounce'
 
 export default Vue.extend({
@@ -109,11 +111,11 @@ export default Vue.extend({
     },
 
     enableProxy: function () {
-      electron.ipcRenderer.send('enableProxy', this.proxyUrl)
+      ipcRenderer.send('enableProxy', this.proxyUrl)
     },
 
     disableProxy: function () {
-      electron.ipcRenderer.send('disableProxy')
+      ipcRenderer.send('disableProxy')
     },
 
     testProxy: function () {

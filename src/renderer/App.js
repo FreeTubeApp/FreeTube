@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { mapActions } from 'vuex'
+import { mapActions, mapMutations } from 'vuex'
 import { ObserveVisibility } from 'vue-observe-visibility'
 import FtFlexBox from './components/ft-flex-box/ft-flex-box.vue'
 import TopNav from './components/top-nav/top-nav.vue'
@@ -10,24 +10,12 @@ import FtButton from './components/ft-button/ft-button.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
 import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
 import $ from 'jquery'
-import { app } from '@electron/remote'
-import { markdown } from 'markdown'
+import marked from 'marked'
 import Parser from 'rss-parser'
 
-let useElectron
-let shell
-let electron
+let ipcRenderer = null
 
 Vue.directive('observe-visibility', ObserveVisibility)
-
-if (window && window.process && window.process.type === 'renderer') {
-  /* eslint-disable-next-line */
-  electron = require('electron')
-  shell = electron.shell
-  useElectron = true
-} else {
-  useElectron = false
-}
 
 export default Vue.extend({
   name: 'App',
@@ -62,6 +50,9 @@ export default Vue.extend({
     isOpen: function () {
       return this.$store.getters.getIsSideNavOpen
     },
+    usingElectron: function() {
+      return this.$store.getters.getUsingElectron
+    },
     showProgressBar: function () {
       return this.$store.getters.getShowProgressBar
     },
@@ -80,32 +71,62 @@ export default Vue.extend({
     profileList: function () {
       return this.$store.getters.getProfileList
     },
+    windowTitle: function () {
+      if (this.$route.meta.title !== 'Channel' && this.$route.meta.title !== 'Watch') {
+        let title =
+        this.$route.meta.path === '/home'
+          ? process.env.PRODUCT_NAME
+          : `${this.$t(this.$route.meta.title)} - ${process.env.PRODUCT_NAME}`
+        if (!title) {
+          title = process.env.PRODUCT_NAME
+        }
+        return title
+      } else {
+        return null
+      }
+    },
     activeProfile: function () {
       return this.$store.getters.getActiveProfile
     },
     defaultProfile: function () {
       return this.$store.getters.getDefaultProfile
+    },
+    externalPlayer: function () {
+      return this.$store.getters.getExternalPlayer
+    },
+    defaultInvidiousInstance: function () {
+      return this.$store.getters.getDefaultInvidiousInstance
     }
   },
+  watch: {
+    windowTitle: 'setWindowTitle'
+  },
+  created () {
+    this.setWindowTitle()
+  },
   mounted: function () {
-    const v = this
-    this.$store.dispatch('grabUserSettings').then(() => {
-      this.$store.dispatch('grabAllProfiles', this.$t('Profile.All Channels')).then(() => {
-        this.$store.dispatch('grabHistory')
-        this.$store.dispatch('grabAllPlaylists')
-        this.$store.commit('setUsingElectron', useElectron)
+    this.grabUserSettings().then(async () => {
+      await this.fetchInvidiousInstances()
+      if (this.defaultInvidiousInstance === '') {
+        await this.setRandomCurrentInvidiousInstance()
+      }
+
+      this.grabAllProfiles(this.$t('Profile.All Channels')).then(async () => {
+        this.grabHistory()
+        this.grabAllPlaylists()
         this.checkThemeSettings()
-        this.checkLocale()
 
-        v.dataReady = true
-
-        if (useElectron) {
+        if (this.usingElectron) {
           console.log('User is using Electron')
+          ipcRenderer = require('electron').ipcRenderer
+          this.setupListenerToSyncWindows()
           this.activateKeyboardShortcuts()
           this.openAllLinksExternally()
           this.enableOpenUrl()
-          this.setBoundsOnClose()
+          await this.checkExternalPlayer()
         }
+
+        this.dataReady = true
 
         setTimeout(() => {
           this.checkForNewUpdates()
@@ -115,34 +136,6 @@ export default Vue.extend({
     })
   },
   methods: {
-    checkLocale: function () {
-      const locale = localStorage.getItem('locale')
-
-      if (locale === null || locale === 'system') {
-        const systemLocale = app.getLocale().replace(/-|_/, '_')
-        const findLocale = Object.keys(this.$i18n.messages).find((locale) => {
-          const localeName = locale.replace(/-|_/, '_')
-          return localeName.includes(systemLocale)
-        })
-
-        if (typeof findLocale !== 'undefined') {
-          this.$i18n.locale = findLocale
-          localStorage.setItem('locale', 'system')
-        } else {
-          this.$i18n.locale = 'en-US'
-          localStorage.setItem('locale', 'en-US')
-        }
-      } else {
-        this.$i18n.locale = locale
-      }
-      const payload = {
-        isDev: this.isDev,
-        locale: this.$i18n.locale
-      }
-
-      this.$store.dispatch('getRegionData', payload)
-    },
-
     checkThemeSettings: function () {
       let baseTheme = localStorage.getItem('baseTheme')
       let mainColor = localStorage.getItem('mainColor')
@@ -187,7 +180,7 @@ export default Vue.extend({
         $.getJSON(requestUrl, (response) => {
           const tagName = response[0].tag_name
           const versionNumber = tagName.replace('v', '').replace('-beta', '')
-          this.updateChangelog = markdown.toHTML(response[0].body)
+          this.updateChangelog = marked(response[0].body)
           this.changeLogTitle = response[0].name
 
           const message = this.$t('Version $ is now available!  Click for more details')
@@ -238,6 +231,14 @@ export default Vue.extend({
       }
     },
 
+    checkExternalPlayer: async function () {
+      const payload = {
+        isDev: this.isDev,
+        externalPlayer: this.externalPlayer
+      }
+      this.getExternalPlayerCmdArgumentsData(payload)
+    },
+
     handleUpdateBannerClick: function (response) {
       if (response !== false) {
         this.showReleaseNotes = true
@@ -248,7 +249,7 @@ export default Vue.extend({
 
     handleNewBlogBannerClick: function (response) {
       if (response) {
-        shell.openExternal(this.latestBlogUrl)
+        this.openExternalLink(this.latestBlogUrl)
       }
 
       this.showBlogBanner = false
@@ -256,7 +257,7 @@ export default Vue.extend({
 
     openDownloadsPage: function () {
       const url = 'https://freetubeapp.io#download'
-      shell.openExternal(url)
+      this.openExternalLink(url)
       this.showReleaseNotes = false
       this.showUpdatesBanner = false
     },
@@ -289,7 +290,7 @@ export default Vue.extend({
     openAllLinksExternally: function () {
       $(document).on('click', 'a[href^="http"]', (event) => {
         const el = event.currentTarget
-        console.log(useElectron)
+        console.log(this.usingElectron)
         console.log(el)
         event.preventDefault()
 
@@ -301,22 +302,27 @@ export default Vue.extend({
           this.handleYoutubeLink(el.href)
         } else {
           // Open links externally by default
-          if (typeof (shell) !== 'undefined') {
-            shell.openExternal(el.href)
-          }
+          this.openExternalLink(el.href)
         }
       })
     },
 
     handleYoutubeLink: function (href) {
-      this.$store.dispatch('getYoutubeUrlInfo', href).then((result) => {
+      this.getYoutubeUrlInfo(href).then((result) => {
         switch (result.urlType) {
           case 'video': {
-            const { videoId, timestamp } = result
+            const { videoId, timestamp, playlistId } = result
 
+            const query = {}
+            if (timestamp) {
+              query.timestamp = timestamp
+            }
+            if (playlistId && playlistId.length > 0) {
+              query.playlistId = playlistId
+            }
             this.$router.push({
               path: `/watch/${videoId}`,
-              query: timestamp ? { timestamp } : {}
+              query: query
             })
             break
           }
@@ -384,24 +390,36 @@ export default Vue.extend({
     },
 
     enableOpenUrl: function () {
-      const v = this
-      electron.ipcRenderer.on('openUrl', function (event, url) {
+      ipcRenderer.on('openUrl', (event, url) => {
         if (url) {
-          v.handleYoutubeLink(url)
+          this.handleYoutubeLink(url)
         }
       })
 
-      electron.ipcRenderer.send('appReady')
+      ipcRenderer.send('appReady')
     },
 
-    setBoundsOnClose: function () {
-      window.onbeforeunload = (e) => {
-        electron.ipcRenderer.send('setBounds')
+    ...mapMutations([
+      'setInvidiousInstancesList'
+    ]),
+
+    setWindowTitle: function() {
+      if (this.windowTitle !== null) {
+        document.title = this.windowTitle
       }
     },
-
     ...mapActions([
-      'showToast'
+      'showToast',
+      'openExternalLink',
+      'grabUserSettings',
+      'grabAllProfiles',
+      'grabHistory',
+      'grabAllPlaylists',
+      'getYoutubeUrlInfo',
+      'getExternalPlayerCmdArgumentsData',
+      'fetchInvidiousInstances',
+      'setRandomCurrentInvidiousInstance',
+      'setupListenerToSyncWindows'
     ])
   }
 })
