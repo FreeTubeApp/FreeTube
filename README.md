@@ -18,7 +18,7 @@ FreeTube is supported by the [Privacy Redirect](https://github.com/SimonBrazell/
 which allows you to open YouTube links into FreeTube from your web browser. \
 Turn it on from the advanced settings in the extention.
 
-Only report issues getting FreeTube to work with the extention here.
+Only report issues getting FreeTube to work with the extension here.
 
 ## How does it work?
 A built in extractor or the [Invidious API](https://github.com/iv-org/invidious) is used to grab and serve data/videos. \
@@ -103,8 +103,7 @@ Bitcoin address: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS
 
 Monero address: 48WyAPdjwc6VokeXACxSZCFeKEXBiYPV6GjfvBsfg4CrUJ95LLCQSfpM9pvNKy5GE5H4hNaw99P8RZyzmaU9kb1pD7kzhCB
 
-You will enjoy using FreeTube and hopefully donate using one of the methods. \
-While much appreciated, only donate if you really want to. \
+We hope you enjoy using FreeTube and if you want to support us, donate using one of the methods. \
 Donations keep the website up and running and eventual code signing costs.
 
 ## License
