@@ -33,7 +33,7 @@ Open New Window: Open New Window
 Version $ is now available!  Click for more details: Version $ is now available! Click
   for details.
 Download From Site: Download From Site
-A new blog is now available, $. Click to view more: New blogpost available, $.
+A new blog is now available, $. Click to view more: New blog post available, $.
   Click to view.
 
 # Search Bar
@@ -130,7 +130,7 @@ Settings:
     Current Invidious Instance: Current Invidious Instance
     # $ is replaced with the default Invidious instance
     The currently set default instance is $: The currently set default instance is $
-    No default instance has been set: No default instance  set
+    No default instance has been set: No default instance set
     Current instance will be randomized on startup: Current instance will be randomized upon startup
     Set Current Instance as Default: Set Current Instance as Default
     Clear Default Instance: Clear Default Instance
