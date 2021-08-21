@@ -7,9 +7,9 @@
       class="bubble"
       :style="{ background: backgroundColor, color: textColor }"
     >
-      <p class="initial">
+      <div class="initial">
         {{ profileInitial }}
-      </p>
+      </div>
     </div>
     <div class="profileName">
       {{ profileName }}

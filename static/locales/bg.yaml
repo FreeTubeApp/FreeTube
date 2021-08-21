@@ -9,7 +9,7 @@ FreeTube: 'FreeTube'
 # Webkit Menu Bar
 File: 'Файл'
 Quit: 'Изход'
-Edit: 'Редактиране'
+Edit: 'Редакция'
 Undo: 'Отмяна'
 Redo: 'Възстановяване'
 Cut: 'Изрязване'
@@ -133,6 +133,14 @@ Settings:
     View all Invidious instance information: Преглед на пълна информация за Invidious
       обекта
     System Default: Стандартен за системата
+    Clear Default Instance: Изчистване на сървъра по подразбиране
+    Set Current Instance as Default: Задаване на текущият сървър като по подразбиране
+    Current instance will be randomized on startup: Текущият сървър при стартиране
+      ще бъде случаен
+    No default instance has been set: Няма зададен сървър по подразбиране
+    The currently set default instance is $: Текущо зададеният сървър по подразбиране
+      е $
+    Current Invidious Instance: Текущ Invidious сървър
   Theme Settings:
     Theme Settings: 'Настройки на изгледа на приложението'
     Match Top Bar with Main Color: 'Съвпадане на горната лента с основната цветова
@@ -199,6 +207,7 @@ Settings:
     Display Play Button In Video Player: Показване на бутона за възпроизвеждане във
       видео плейъра
     Scroll Volume Over Video Player: Промяна на звука при превъртане над видео плейъра
+    Fast-Forward / Rewind Interval: Интервал за бързо превъртане напред / назад
   Privacy Settings:
     Privacy Settings: 'Настройки за поверителност'
     Remember History: 'Запазване на историята'
@@ -325,6 +334,13 @@ Settings:
     SponsorBlock Settings: SponsorBlock настройки
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
       адрес (по подразбиране е https://sponsor.ajay.app)
+  External Player Settings:
+    Custom External Player Arguments: Персонализирани аргументи за външен плейър
+    Custom External Player Executable: Персонализирано изпълнение на външен плейър
+    Ignore Unsupported Action Warnings: Игнориране на предупрежденията за неподдържани
+      действия
+    External Player: Външен плейър
+    External Player Settings: Настройки за външен плейър
 About:
   #On About page
   About: 'Относно'
@@ -423,6 +439,7 @@ Profile:
     от другите профили.'
 #On Channel Page
   Profile Filter: Профилен филтър
+  Profile Settings: Настройки на профил
 Channel:
   Subscriber: 'Абонат'
   Subscribers: 'Абонати'
@@ -437,7 +454,7 @@ Channel:
   Your search results have returned 0 results: 'Търсенето върна 0 резултата'
   Sort By: 'Сортиране по'
   Videos:
-    Videos: 'Видеа'
+    Videos: 'видеа'
     This channel does not currently have any videos: 'В този канал по настоящем няма
       видеа'
     Sort Types:
@@ -468,7 +485,7 @@ Video:
   Open in Invidious: 'Отваряне в Invidious'
   Copy Invidious Link: 'Копиране на връзка за Invidious'
   View: 'показване'
-  Views: 'Показвания'
+  Views: 'показвания'
   Loop Playlist: 'Повтаряне на плейлиста'
   Shuffle Playlist: 'Разбъркване на плейлиста'
   Reverse Playlist: 'Обръщане на плейлиста'
@@ -554,6 +571,21 @@ Video:
     sponsor: спонсор
     music offtopic: музика извън темата
   Skipped segment: Пропуснат сегмент
+  External Player:
+    Unsupported Actions:
+      looping playlists: повтаряне на плейлисти
+      shuffling playlists: разбъркване на плейлисти
+      reversing playlists: обръщане на плейлист
+      opening specific video in a playlist (falling back to opening the video): отваряне
+        на определено видео в плейлист (връщане към отваряне на видеото)
+      opening playlists: отваряне на плейлист
+      setting a playback rate: задаване на скорост за възпроизвеждане
+      starting video at offset: стартиране на видео при отместване
+    UnsupportedActionTemplate: '$ не поддържа: %'
+    OpeningTemplate: Отваряне на $ във %...
+    playlist: плейлист
+    video: видео
+    OpenInTemplate: Отваряне във $
 Videos:
   #& Sort By
   Sort By:
@@ -578,6 +610,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Плейлист
 Toggle Theatre Mode: 'Режим "Широк екран"'
 Change Format:
   Change Video Formats: 'Смяна видео формати'
@@ -683,6 +716,17 @@ Tooltips:
     Remove Video Meta Files: Когато страницата за гледане бъде затворена, FreeTube
       автоматично ще изтрива метафайловете, създадени по време на възпроизвеждане
       на видеото.
+  External Player Settings:
+    Custom External Player Arguments: Всички персонализирани аргументи от командния
+      ред, разделени с точка и запетая (";"), които искате да бъдат предадени на външния
+      плейър.
+    Ignore Warnings: Премахване на предупрежденията, когато текущият външен плейър
+      не поддържа текущото действие (напр. обръщане на плейлисти и др.).
+    Custom External Player Executable: По подразбиране FreeTube предполага, че избраният
+      външен плейър може да бъде намерен чрез променливата на средата 'PATH'. Ако
+      е необходимо, тук може да се зададе потребителски път.
+    External Player: При избора на външен плейър, върху миниатюрата ще се покаже икона
+      за отваряне на видеото (плейлиста, ако се поддържа) във външния плейър.
 More: Още
 Playing Next Video Interval: Пускане на следващото видео веднага. Щракнете за отказ.
   | Пускане на следващото видео след {nextVideoInterval} секунда. Щракнете за отказ.
@@ -692,3 +736,7 @@ Hashtags have not yet been implemented, try again later: Хаштаговете 
 Unknown YouTube url type, cannot be opened in app: Неизвестен тип URL адрес за YouTube,
   не може да се отвори в приложението
 Open New Window: Отваряне на нов прозорец
+Default Invidious instance has been cleared: Сървъра по подразбиране за Invidious
+  е изчистен
+Default Invidious instance has been set to $: Сървъра по подразбиране за Invidious
+  е зададен на $

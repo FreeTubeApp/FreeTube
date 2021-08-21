@@ -8,15 +8,10 @@ import { HttpsProxyAgent } from 'https-proxy-agent'
 import { HttpProxyAgent } from 'http-proxy-agent'
 
 const state = {
-  main: 0,
   isYtSearchRunning: false
 }
 
-const getters = {
-  getMain ({ state }) {
-    return state.main
-  }
-}
+const getters = {}
 
 const actions = {
   ytSearch ({ commit, dispatch, rootState }, payload) {

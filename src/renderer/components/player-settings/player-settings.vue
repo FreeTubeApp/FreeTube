@@ -74,6 +74,15 @@
     </div>
     <ft-flex-box>
       <ft-slider
+        :label="$t('Settings.Player Settings.Fast-Forward / Rewind Interval')"
+        :default-value="defaultSkipInterval"
+        :min-value="1"
+        :max-value="70"
+        :step="1"
+        value-extension="s"
+        @change="updateDefaultSkipInterval"
+      />
+      <ft-slider
         :label="$t('Settings.Player Settings.Next Video Interval')"
         :default-value="defaultInterval"
         :min-value="0"
@@ -89,7 +98,7 @@
         :max-value="100"
         :step="1"
         value-extension="%"
-        @change="parseVolumeBeforeUpdate"
+        @change="updateDefaultVolume($event / 100)"
       />
       <ft-slider
         :label="$t('Settings.Player Settings.Default Playback Rate')"

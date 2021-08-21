@@ -143,8 +143,21 @@ export default Vue.extend({
       return this.$store.getters.getDefaultPlayback
     },
 
+    defaultSkipInterval: function () {
+      return this.$store.getters.getDefaultSkipInterval
+    },
+
     defaultQuality: function () {
       return parseInt(this.$store.getters.getDefaultQuality)
+    },
+
+    defaultCaptionSettings: function () {
+      try {
+        return JSON.parse(this.$store.getters.getDefaultCaptionSettings)
+      } catch (e) {
+        console.log(e)
+        return {}
+      }
     },
 
     defaultVideoFormat: function () {
@@ -225,6 +238,7 @@ export default Vue.extend({
 
         this.player.volume(this.volume)
         this.player.playbackRate(this.defaultPlayback)
+        this.player.textTrackSettings.setValues(this.defaultCaptionSettings)
         // Remove big play button
         // https://github.com/videojs/video.js/blob/v7.12.1/docs/guides/components.md#basic-example
         if (!this.displayVideoPlayButton) {
@@ -303,6 +317,11 @@ export default Vue.extend({
             ipcRenderer.send('stopPowerSaveBlocker', this.powerSaveBlocker)
             this.powerSaveBlocker = null
           }
+        })
+
+        this.player.textTrackSettings.on('modalclose', (_) => {
+          const settings = this.player.textTrackSettings.getValues()
+          this.updateDefaultCaptionSettings(JSON.stringify(settings))
         })
       }
     },
@@ -432,8 +451,10 @@ export default Vue.extend({
       }
     },
 
-    updateVolume: function (event) {
-      const volume = this.player.volume()
+    updateVolume: function (_event) {
+      // 0 means muted
+      // https://docs.videojs.com/html5#volume
+      const volume = this.player.muted() ? 0 : this.player.volume()
       sessionStorage.setItem('volume', volume)
     },
 
@@ -1192,9 +1213,9 @@ export default Vue.extend({
             break
           case 74:
             // J Key
-            // Rewind by 10 seconds
+            // Rewind by 2x the time-skip interval (in seconds)
             event.preventDefault()
-            this.changeDurationBySeconds(-10)
+            this.changeDurationBySeconds(-this.defaultSkipInterval * 2)
             break
           case 75:
             // K Key
@@ -1204,9 +1225,9 @@ export default Vue.extend({
             break
           case 76:
             // L Key
-            // Fast Forward by 10 seconds
+            // Fast-Forward by 2x the time-skip interval (in seconds)
             event.preventDefault()
-            this.changeDurationBySeconds(10)
+            this.changeDurationBySeconds(this.defaultSkipInterval * 2)
             break
           case 79:
             // O Key
@@ -1252,15 +1273,15 @@ export default Vue.extend({
             break
           case 37:
             // Left Arrow Key
-            // Rewind by 5 seconds
+            // Rewind by the time-skip interval (in seconds)
             event.preventDefault()
-            this.changeDurationBySeconds(-5)
+            this.changeDurationBySeconds(-this.defaultSkipInterval * 1)
             break
           case 39:
             // Right Arrow Key
-            // Fast Forward by 5 seconds
+            // Fast-Forward by the time-skip interval (in seconds)
             event.preventDefault()
-            this.changeDurationBySeconds(5)
+            this.changeDurationBySeconds(this.defaultSkipInterval * 1)
             break
           case 49:
             // 1 Key
@@ -1357,8 +1378,9 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'showToast',
       'calculateColorLuminance',
+      'updateDefaultCaptionSettings',
+      'showToast',
       'sponsorBlockSkipSegments'
     ])
   }

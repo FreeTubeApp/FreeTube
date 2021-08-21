@@ -3,8 +3,8 @@ Locale Name: 'Norsk nynorsk'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Denne delen av applikasjonen er ikkje klar enda. Ver venleg og kom tilbake på eit
-  seinare tidspunkt.
+  Denne delen av programmet er ikkje klar enda. Ver venleg og kom tilbake på eit seinare
+  tidspunkt.
 
 # Webkit Menu Bar
 File: 'Fil'
@@ -31,10 +31,10 @@ Back: 'Tilbake'
 Forward: 'Framover'
 
 Version $ is now available!  Click for more details: 'Versjon $ er no tilgjengeleg!
-  Trykk for meir informasjon'
+  Klikk for meir informasjon'
 Download From Site: 'Last ned frå nettstaden'
 A new blog is now available, $. Click to view more: 'Eit nytt blogginnlegg er tilgjengeleg,
-  $. Trykk her for å sjå meir'
+  $. Klikk her for å sjå meir'
 
 # Search Bar
 Search / Go to URL: 'Søk/gå til nettadresse'
@@ -94,7 +94,7 @@ User Playlists:
     viser berre videoar som du har lagra eller lagt til favorittar. Når arbeidet er
     ferdig, blir alle videoane som for augeblikket er her overført til ei "Favoritt"-speleliste.'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Du
-    har ingen lagra videoar for augeblikket. Trykk på "Lagre"-knappen i hjørnet av
+    har ingen lagra videoar for augeblikket. Klikk på "Lagre"-knappen i hjørnet av
     ein video slik at den bli oppført her'
 History:
   # On History Page
@@ -104,8 +104,9 @@ History:
 Settings:
   # On Settings Page
   Settings: 'Innstillingar'
-  The app needs to restart for changes to take effect. Restart and apply change?: 'Applikasjonen
-    må restarte for at endringane skal tre i kraft. Start på nytt og ta i bruk endringane?'
+  The app needs to restart for changes to take effect. Restart and apply change?: 'Programmet
+    må starte på nytt for at endringane skal tre i kraft. Start på nytt og ta i bruk
+    endringane?'
   General Settings:
     General Settings: 'Generelle innstillingar'
     Check for Updates: 'Sjå etter oppdateringar'
@@ -197,6 +198,7 @@ Settings:
       8k: '8k'
     Next Video Interval: Tid mellom videoar
     Display Play Button In Video Player: Vis videoavspelingsknappen i videoavspelaren
+    Scroll Volume Over Video Player: Juster volum ved å bla på video
   Privacy Settings:
     Privacy Settings: 'Personvernsinnstillingar'
     Remember History: 'Husk historikk'
@@ -275,7 +277,7 @@ Settings:
     Proxy Protocol: 'Mellomtenarprotokoll'
     Proxy Host: 'Mellomtenarvert'
     Proxy Port Number: 'Mellomtenar-portnummer'
-    Clicking on Test Proxy will send a request to: 'Viss du trykker på "Test mellomtenar"
+    Clicking on Test Proxy will send a request to: 'Viss du klikker på "Test mellomtenar"
       sender me ein førespurnad til'
     Test Proxy: 'Test mellomtenar'
     Your Info: 'Din informasjon'
@@ -284,7 +286,7 @@ Settings:
     Region: 'Region'
     City: 'By'
     Error getting network information. Is your proxy configured properly?: 'Kunne
-      ikkje hente nettverksinformasjon. Er proxyen din konfigurert skikkeleg?'
+      ikkje hente nettverksinformasjon. Er mellomtenaren din konfigurert skikkeleg?'
   SponsorBlock Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock-API-nettadresse
       (forvalet er https://sponsor.ajay.app)
@@ -305,7 +307,7 @@ About:
   FreeTube Wiki: 'FreeTube-wiki'
   FAQ: 'Ofte stilte spørsmål'
   Report a problem: 'Rapporter eit problem'
-  GitHub issues: 'GitHub issues'
+  GitHub issues: 'GitHub-problemsporar'
   Please check for duplicates before posting: 'Ver venleg og sjå etter duplikat før
     du poster noko'
   Website: 'Nettstad'
@@ -472,7 +474,7 @@ Video:
     Day: 'Dag'
     Days: 'Dagar'
     Week: 'Veke'
-    Weeks: 'Veke'
+    Weeks: 'Veker'
     Month: 'Månad'
     Months: 'Månadar'
     Year: 'År'
@@ -485,7 +487,7 @@ Video:
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % sidan'
 #& Videos
-  translated from English: omsett frå englesk
+  translated from English: omsett frå engelsk
   Sponsor Block category:
     outro: utgang
     interaction: samhandling
@@ -549,7 +551,7 @@ Share:
 Mini Player: 'Minispelar'
 Comments:
   Comments: 'Kommentarar'
-  Click to View Comments: 'Trykk her for å vise kommentarar'
+  Click to View Comments: 'Klikk her for å vise kommentarar'
   Getting comment replies, please wait: 'Laster inn kommentarar. Ver venleg og vent'
   There are no more comments for this video: 'Det finst ingen fleire kommentarar for
     denne videoen'
@@ -630,7 +632,7 @@ Canceled next video autoplay: 'Avbryt automatisk avspeling av neste video'
 Yes: 'Ja'
 No: 'Nei'
 Unknown YouTube url type, cannot be opened in app: Ukjent type YouTube-nettadresse,
-  kan ikkje opnast i applikasjonen
+  kan ikkje opnast i programmet
 Playing Next Video Interval: Speler av neste video no. Klikk her for å avbryte. |
   Speler av neste video om {nextVideoInterval} sekund. Klikk her for å avbryte. |
   Speler av neste video om {nextVideoInterval} sekund. Klikk her for å avbryte.

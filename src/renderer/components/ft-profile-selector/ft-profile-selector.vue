@@ -5,11 +5,11 @@
       :style="{ background: profileList[activeProfile].bgColor, color: profileList[activeProfile].textColor }"
       @click="toggleProfileList"
     >
-      <p
+      <div
         class="initial"
       >
         {{ profileInitials[activeProfile] }}
-      </p>
+      </div>
     </div>
     <ft-card
       id="profileList"
@@ -38,11 +38,11 @@
             class="colorOption"
             :style="{ background: profile.bgColor, color: profile.textColor }"
           >
-            <p
+            <div
               class="initial"
             >
               {{ profileInitials[index] }}
-            </p>
+            </div>
           </div>
           <p
             class="profileName"

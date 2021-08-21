@@ -1,0 +1,39 @@
+[
+    {
+        "name": "None",
+        "value": "",
+        "cmdArguments": null
+    },
+    {
+        "name": "mpv",
+        "value": "mpv",
+        "cmdArguments": {
+            "defaultExecutable": "mpv",
+            "supportsYtdlProtocol": true,
+            "videoUrl": "",
+            "playlistUrl": "",
+            "startOffset": "--start=",
+            "playbackRate": "--speed=",
+            "playlistIndex": "--playlist-start=",
+            "playlistReverse": null,
+            "playlistShuffle": "--shuffle",
+            "playlistLoop": "--loop-playlist"
+        }
+    },
+    {
+        "name": "VLC",
+        "value": "vlc",
+        "cmdArguments": {
+            "defaultExecutable": "vlc",
+            "supportsYtdlProtocol": false,
+            "videoUrl": "",
+            "playlistUrl": null,
+            "startOffset": "--start-time=",
+            "playbackRate": "--rate=",
+            "playlistIndex": null,
+            "playlistReverse": null,
+            "playlistShuffle": "--random",
+            "playlistLoop": "--loop"
+        }
+    }
+]

@@ -185,6 +185,9 @@ Settings:
       4k: '4K'
       8k: '8K'
     Next Video Interval: Seuraavan videon väli
+    Display Play Button In Video Player: Näytä toista-nappula videotoistimessa
+    Scroll Volume Over Video Player: Säädä äänenvoimakkuutta vierittämällä videon
+      päällä
   Subscription Settings:
     Subscription Settings: 'Tilausasetukset'
     Hide Videos on Watch: 'Piilota katsotut videot'
@@ -264,13 +267,13 @@ Settings:
       puutteelliset, ohitetaan kohde
     Export History: Vie historia
     Import History: Tuo historia
-    Export NewPipe: Vie NewPipe
-    Export YouTube: Vie YouTube
-    Export FreeTube: Vie FreeTube
+    Export NewPipe: Vie NewPipe-tilaukset
+    Export YouTube: Vie YouTube-tilaukset
+    Export FreeTube: Vie FreeTube-tilaukset
     Export Subscriptions: Vie tilaukset
-    Import NewPipe: Tuo NewPipe
-    Import YouTube: Tuo YouTube
-    Import FreeTube: Vie tilaukset
+    Import NewPipe: Tuo NewPipe-tilaukset
+    Import YouTube: Tuo YouTube-tilaukset
+    Import FreeTube: Tuo FreeTube-tilaukset
     Import Subscriptions: Tuo tilaukset
     Select Export Type: Valitse Viennin tyyppi
     Select Import Type: Valitse Tuonnin tyyppi
@@ -306,6 +309,21 @@ Settings:
     Proxy Settings: Välityspalvelimen asetukset
     Enable Tor / Proxy: Ota käyttöön Tor/välityspalvelin
     Proxy Protocol: Välityspalvelimen protokolla
+    Clicking on Test Proxy will send a request to: Napsauttamalla testaa välityspalvelinta
+      lähettää pyynnön kohteeseen
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Ilmoita sponsoriosuuden yli hypättäessä
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock-sponsorieston
+      API-ohjelmointirajapinnan Url-osoite (vakio-osoite on https://sponsor.ajay.app)
+    Enable SponsorBlock: Kytke SponsorBlock-sponsoriesto päälle
+    SponsorBlock Settings: SponsorBlock-sponsorieston asetukset
+  External Player Settings:
+    Custom External Player Arguments: Omavalintaisen ulkoisen toisto-ohjelman määritykset
+    Custom External Player Executable: Omavalintaisen ulkoisen toisto-ohjelman ajettava
+      tiedosto
+    Ignore Unsupported Action Warnings: Sivuuta ei-tuettujen toimintojen varoitukset
+    External Player: Ulkoinen toisto-ohjelma
+    External Player Settings: Ulkoisen videontoisto-ohjelman asetukset
 About:
   #On About page
   About: 'Tietoja'
@@ -474,6 +492,34 @@ Video:
   Open Channel in YouTube: Avaa kanava YouTubessa
   Started streaming on: Lähetys alkanut
   Streamed on: Lähetetty
+  External Player:
+    Unsupported Actions:
+      looping playlists: toistetaan soittoluettelot uudelleen jatkuvasti
+      shuffling playlists: sekoitetaan soittoluettelot
+      reversing playlists: käänteistetään soittoluettelot
+      opening specific video in a playlist (falling back to opening the video): avataan
+        tietty video soittoluettelossa (avataan video taaksepäin mallintaen)
+      opening playlists: avataan soittoluettelot
+      setting a playback rate: asetetaan toiston suhde
+      starting video at offset: aloitetaan video poikkeamassa
+    UnsupportedActionTemplate: '$ ei tue: %'
+    OpeningTemplate: Avataan $ täten %...
+    playlist: soittoluettelo
+    video: video
+    OpenInTemplate: Avaa täten $
+  Sponsor Block category:
+    music offtopic: musiikki aihepiirin ulkopuolelta
+    interaction: kanssakäyminen
+    self-promotion: itsepromootio
+    outro: loppu
+    intro: alku
+    sponsor: sponsori
+  Skipped segment: Ylihypätty osio
+  translated from English: käännetty englanninkielestä
+  Video has been removed from your saved list: Video poistettiin tallennettujen videoiden
+    luettelostasi
+  Video has been saved: Video on tallennettu
+  Save Video: Tallenna video
 Videos:
   #& Sort By
   Sort By:
@@ -638,6 +684,20 @@ Tooltips:
       Kun valittuna, paikallinen API käyttää vanhoja formaatteja Invidiousin käyttämien
       sijaan. Tämä auttaa, jos Invidiousin palauttamat videot eivät toimi maarajoituksien
       takia.
+  Privacy Settings:
+    Remove Video Meta Files: Kun tämä on kytkettynä päälle, FreeTube poistaa automaattisesti
+      meta-tiedostot jotka luotiin videon toiston aikana, katselusivu suljettaessa.
+  External Player Settings:
+    Custom External Player Arguments: Kaikki ne omavalintaiset komentorivin määreet,
+      puolipisteillä eroteltuina (';'), jotka haluat siirtää eteenpäin ulkoiselle
+      toisto-ohjelmalle.
+    Ignore Warnings: Estä varoitukset, kun käytetty ulkoinen toisto-ohjelma ei tue
+      määrättyä toimintamallia (kuten käänteiset soittoluettelot, jne.).
+    Custom External Player Executable: Vakiollisesti FreeTube olettaa, että valittu
+      ulkoinen toisto-ohjelma voidaan löytää PATH-polkuympäristömuuttujan kautta.
+      Mikäli tarvetta ilmenee, voidaan asettaa omavalintainen polku tähän.
+    External Player: Ulkoisen toisto-ohjelman valinta tuottaa kuvakkeen videon avaamiseksi
+      (soittoluettelon mikäli sellainen on tuettu) ulkoisessa toisto-ohjelmassa, pikkukuvana.
 More: Lisää
 Playing Next Video Interval: Seuraava video alkaa. Klikkaa peruuttaaksesi. |Seuraava
   video alkaa {nextVideoInterval} sekunnin kuluttua. Klikkaa peruuttaaksesi. | Seuraava
@@ -645,3 +705,5 @@ Playing Next Video Interval: Seuraava video alkaa. Klikkaa peruuttaaksesi. |Seur
 Hashtags have not yet been implemented, try again later: Hashtageja ei vielä ole lisätty,
   yritä uudelleen myöhemmin.
 Open New Window: Avaa uusi ikkuna
+Unknown YouTube url type, cannot be opened in app: Tuntematon YouTube-videon osoitemuoto,
+  ei voida avata sovelluksessa

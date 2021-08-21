@@ -128,8 +128,13 @@ Settings:
       Beginning: Beginning
       Middle: Middle
       End: End
-    'Invidious Instance (Default is https://invidious.snopyta.org)': Invidious Instance
-      (Default is https://invidious.snopyta.org)
+    Current Invidious Instance: Current Invidious Instance
+    # $ is replaced with the default Invidious instance
+    The currently set default instance is $: The currently set default instance is $
+    No default instance has been set: No default instance has been set
+    Current instance will be randomized on startup: Current instance will be randomized on startup
+    Set Current Instance as Default: Set Current Instance as Default
+    Clear Default Instance: Clear Default Instance
     View all Invidious instance information: View all Invidious instance information
     Region for Trending: Region for Trending
         #! List countries
@@ -176,6 +181,7 @@ Settings:
     Scroll Volume Over Video Player: Scroll Volume Over Video Player
     Display Play Button In Video Player: Display Play Button In Video Player
     Next Video Interval: Next Video Interval
+    Fast-Forward / Rewind Interval: Fast-Forward / Rewind Interval
     Default Volume: Default Volume
     Default Playback Rate: Default Playback Rate
     Default Video Format:
@@ -195,6 +201,12 @@ Settings:
       1440p: 1440p
       4k: 4k
       8k: 8k
+  External Player Settings:
+    External Player Settings: External Player Settings
+    External Player: External Player
+    Ignore Unsupported Action Warnings: Ignore Unsupported Action Warnings
+    Custom External Player Executable: Custom External Player Executable
+    Custom External Player Arguments: Custom External Player Arguments
   Privacy Settings:
     Privacy Settings: Privacy Settings
     Remember History: Remember History
@@ -316,6 +328,7 @@ About:
   Donate: Donate
 
 Profile:
+  Profile Settings: Profile Settings
   Profile Select: Profile Select
   Profile Filter: Profile Filter
   All Channels: All Channels
@@ -487,6 +500,23 @@ Video:
     self-promotion: self-promotion
     interaction: interaction
     music offtopic: music offtopic
+  External Player:
+    # $ is replaced with the external player
+    OpenInTemplate: Open in $
+    video: video
+    playlist: playlist
+    # $ is replaced with the current context (see video/playlist above) and % the external player setting
+    OpeningTemplate: Opening $ in %...
+    # $ is replaced with the external player and % with the unsupported action
+    UnsupportedActionTemplate: '$ does not support: %'
+    Unsupported Actions:
+      starting video at offset: starting video at offset
+      setting a playback rate: setting a playback rate
+      opening playlists: opening playlists
+      opening specific video in a playlist (falling back to opening the video): opening specific video in a playlist (falling back to opening the video)
+      reversing playlists: reversing playlists
+      shuffling playlists: shuffling playlists
+      looping playlists: looping playlists
 #& Videos
 Videos:
   #& Sort By
@@ -497,6 +527,7 @@ Videos:
 #& Playlists
 Playlist:
   #& About
+  Playlist: Playlist
   View Full Playlist: View Full Playlist
   Videos: Videos
   View: View
@@ -552,6 +583,7 @@ Comments:
   View: View
   Hide: Hide
   Replies: Replies
+  Show More Replies: Show More Replies
   Reply: Reply
   There are no comments available for this video: There are no comments available
     for this video
@@ -586,6 +618,16 @@ Tooltips:
     Default Video Format: Set the formats used when a video plays. DASH formats can
       play higher qualities. Legacy formats are limited to a max of 720p but use less
       bandwidth. Audio formats are audio only streams.
+  External Player Settings:
+    External Player: Choosing an external player will display an icon, for opening the
+      video (playlist if supported) in the external player, on the thumbnail.
+    Custom External Player Executable: By default, FreeTube will assume that the chosen external
+      player can be found via the PATH environment variable. If needed, a custom path can
+      be set here.
+    Ignore Warnings: Suppress warnings for when the current external player does not support
+      the current action (e.g. reversing playlists, etc.).
+    Custom External Player Arguments: Any custom command line arguments, separated by semicolons (';'),
+      you want to be passed to the external player.
   Subscription Settings:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
       method for grabbing your subscription feed. RSS is faster and prevents IP blocking,
@@ -614,6 +656,9 @@ Playing Next Video: Playing Next Video
 Playing Previous Video: Playing Previous Video
 Playing Next Video Interval: Playing next video in no time. Click to cancel. | Playing next video in {nextVideoInterval} second. Click to cancel. | Playing next video in {nextVideoInterval} seconds. Click to cancel.
 Canceled next video autoplay: Canceled next video autoplay
+# $ is replaced with the default Invidious instance
+Default Invidious instance has been set to $: Default Invidious instance has been set to $
+Default Invidious instance has been cleared: Default Invidious instance has been cleared
 'The playlist has ended.  Enable loop to continue playing': 'The playlist has ended.  Enable
   loop to continue playing'
 

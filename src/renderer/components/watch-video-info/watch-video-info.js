@@ -84,7 +84,23 @@ export default Vue.extend({
     },
     playlistId: {
       type: String,
-      default: ''
+      default: null
+    },
+    getPlaylistIndex: {
+      type: Function,
+      required: true
+    },
+    getPlaylistReverse: {
+      type: Function,
+      required: true
+    },
+    getPlaylistShuffle: {
+      type: Function,
+      required: true
+    },
+    getPlaylistLoop: {
+      type: Function,
+      required: true
     },
     theatrePossible: {
       type: Boolean,
@@ -110,8 +126,8 @@ export default Vue.extend({
     }
   },
   computed: {
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
     },
 
     profileList: function () {
@@ -224,6 +240,14 @@ export default Vue.extend({
       } else {
         return this.$t('Video.Published on')
       }
+    },
+
+    externalPlayer: function () {
+      return this.$store.getters.getExternalPlayer
+    },
+
+    defaultPlayback: function () {
+      return this.$store.getters.getDefaultPlayback
     }
   },
   mounted: function () {
@@ -243,6 +267,22 @@ export default Vue.extend({
     }
   },
   methods: {
+    handleExternalPlayer: function () {
+      this.$emit('pause-player')
+
+      this.openInExternalPlayer({
+        strings: this.$t('Video.External Player'),
+        watchProgress: this.getTimestamp(),
+        playbackRate: this.defaultPlayback,
+        videoId: this.id,
+        playlistId: this.playlistId,
+        playlistIndex: this.getPlaylistIndex(),
+        playlistReverse: this.getPlaylistReverse(),
+        playlistShuffle: this.getPlaylistShuffle(),
+        playlistLoop: this.getPlaylistLoop()
+      })
+    },
+
     goToChannel: function () {
       this.$router.push({ path: `/channel/${this.channelId}` })
     },
@@ -388,6 +428,7 @@ export default Vue.extend({
 
     ...mapActions([
       'showToast',
+      'openInExternalPlayer',
       'updateProfile',
       'addVideo',
       'removeVideo',
