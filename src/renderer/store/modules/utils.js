@@ -308,6 +308,13 @@ const actions = {
           return paramsObject
         }
       },
+      // youtube.com/shorts
+      function() {
+        if (urlObject.pathname.match(/^\/shorts\/[A-Za-z0-9_-]+$/)) {
+          extractParams(urlObject.pathname.replace('/shorts/', ''))
+          return paramsObject
+        }
+      },
       // cloudtube
       function() {
         if (urlObject.host.match(/^cadence\.(gq|moe)$/) && urlObject.pathname.match(/^\/cloudtube\/video\/[A-Za-z0-9_-]+$/)) {
