@@ -995,7 +995,7 @@ export default Vue.extend({
         }
       })
 
-      videojs.registerComponent('theatreModeButton', theatreModeButton)
+      videojs.registerComponent('toggleTheatreModeButton', toggleTheatreModeButton)
     },
 
     toggleTheatreMode: function() {
