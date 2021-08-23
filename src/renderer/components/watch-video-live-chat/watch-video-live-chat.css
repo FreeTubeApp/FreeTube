@@ -146,13 +146,25 @@
 
 .channelThumbnail {
   width: 25px;
-  float: left;
   border-radius: 200px 200px 200px 200px;
   -webkit-border-radius: 200px 200px 200px 200px;
 }
-
-.chatContent {
+body[dir='ltr'] .channelThumbnail {
+  float: left;
+}
+body[dir='rtl'] .channelThumbnail {
+  float: right;
+}
+body[dir='ltr'] .chatContent {
   margin-left: 30px;
+}
+body[dir='rtl'] .chatContent {
+  margin-right: 30px;
+}
+body[dir='rtl'] .channelName {
+  float: right;
+}
+.chatContent {
   margin-top: 5px;
   margin-bottom: 2px;
   font-size: 12px;

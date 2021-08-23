@@ -132,5 +132,12 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+
+body[dir='ltr'] .channelLineContainer  {
   padding-left: 1em;
+}
+
+body[dir='rtl'] .channelLineContainer  {
+  padding-right: 1em;
 }

@@ -138,11 +138,17 @@ body[dir='rtl'] .navChannel .navLabel {
 }
 
 .closed .navLabel {
-  margin-left: 0px;
   width: 100%;
   text-align: center;
   left: 0px;
   font-size: 11px;
+}
+
+body[dir='ltr'] .closed .navLabel {
+  margin-left: 0px;
+}
+body[dir='rtl'] .closed .navLabel {
+  margin-right: 0px;
 }
 
 .closed .navChannel {

@@ -148,12 +148,6 @@ $thumbnail-overlay-opacity: 0.85
     flex: 1
     position: relative
 
-    .optionsButton
-      float: right // ohhhh man, float was finally the right choice for something
-
-    .externalPlayerButton
-      float: right
-
     .title
       font-size: 20px
       @include low-contrast-when-watched(var(--primary-text-color))
@@ -213,6 +207,11 @@ $thumbnail-overlay-opacity: 0.85
   text-transform: uppercase
 
 body[dir=ltr] .ft-list-item
+  .info
+    .optionsButton
+      float: right
+    .externalPlayerButton
+      float: right
   &.list
     .videoThumbnail, .channelThumbnail
       margin-right: 20px
@@ -221,6 +220,11 @@ body[dir=ltr] .ft-list-item
         margin-right: 10px
 
 body[dir=rtl] .ft-list-item
+  .info
+    .optionsButton
+      float: left
+    .externalPlayerButton
+      float: left
   &.list
     .videoThumbnail, .channelThumbnail
       margin-left: 20px

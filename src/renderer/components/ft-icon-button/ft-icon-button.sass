@@ -71,12 +71,6 @@
   &:focus
     display: inline
 
-  &.left
-    right: calc(50% - 10px)
-
-  &.right
-    left: calc(50% - 10px)
-
   .list
     margin: 0
     padding: 0
@@ -96,3 +90,19 @@
     &:active
       background-color: var(--side-nav-active-color)
       transition: background 0.1s ease-in
+
+body[dir=ltr] 
+  .iconDropdown
+    &.left
+      right: calc(50% - 10px)
+
+  &.right
+    left: calc(50% - 10px)
+
+body[dir=rtl] 
+  .iconDropdown
+    &.left
+      left: calc(50% - 10px)
+
+  &.right
+    right: calc(50% - 10px)

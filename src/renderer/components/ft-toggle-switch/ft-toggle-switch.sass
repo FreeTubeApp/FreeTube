@@ -15,9 +15,6 @@
   left: -3px
   position: absolute
   top: calc(50% - 3px)
-  -ms-transform: translate(0, (-50%))
-  -webkit-transform: translate(0, -50%)
-  transform: translate(0, -50%)
   width: 34px
 
 .switch-label
@@ -25,7 +22,6 @@
   display: inline-block
   cursor: pointer
   font-weight: 500
-  text-align: left
   padding: 12px 0 12px 44px
 
   &:before, &:after
@@ -63,21 +59,36 @@
 
     .switch-input:checked + &
       background-color: var(--accent-color)
-      -ms-transform: translate(80%, -50%)
-      -webkit-transform: translate(80%, -50%)
       transform: translate(80%, -50%)
 
     .switch-input:disabled + &
       background-color: #BDBDBD
 
-body[dir='rtl']
+body[dir='ltr']
+  .switch-input
+    -ms-transform: translate(0, (-50%))
+    -webkit-transform: translate(0, -50%)
+    transform: translate(0, -50%)
   .switch-label
+    text-align: left
+    &:after
+      .switch-input:checked + &
+        -ms-transform: translate(80%, -50%)
+        -webkit-transform: translate(80%, -50%)
+        transform: translate(80%, -50%)
+
+body[dir='rtl']
+  .switch-input
+      -ms-transform: translate(0, (-50%))
+      -webkit-transform: translate(0, -50%)
+      transform: translate(0, -50%)
+  .switch-label
+    text-align: right
     padding: 12px 44px 12px 0
     &:before
       right:0
     &:after
-      right:1px
-
+      right: 1px
       .switch-input:checked + &
         -ms-transform: translate(-80%, -50%)
         -webkit-transform: translate(-80%, -50%)
