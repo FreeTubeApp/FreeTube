@@ -112,7 +112,7 @@ export default Vue.extend({
             'subsCapsButton',
             'audioTrackButton',
             'pictureInPictureToggle',
-            'theatreModeButton',
+            'toggleTheatreModeButton',
             'fullWindowButton',
             'qualitySelector',
             'fullscreenToggle'
@@ -200,7 +200,7 @@ export default Vue.extend({
 
     this.createFullWindowButton()
     this.createLoopButton()
-    this.createTheatreModeButton()
+    this.createToggleTheatreModeButton()
     this.determineFormatType()
     this.determineMaxFramerate()
   },
@@ -972,15 +972,15 @@ export default Vue.extend({
       videojs.registerComponent('fullWindowButton', fullWindowButton)
     },
 
-    createTheatreModeButton: function() {
+    createToggleTheatreModeButton: function() {
       if (!this.$parent.theatrePossible) {
         return
       }
 
-      const theatreModeActive = this.defaultTheatreMode ? ' vjs-icon-theatre-active' : ''
+      const theatreModeActive = this.defaultTheatreModeActive ? ' vjs-icon-theatre-active' : ''
 
       const VjsButton = videojs.getComponent('Button')
-      const theatreModeButton = videojs.extend(VjsButton, {
+      const toggleTheatreModeButton = videojs.extend(VjsButton, {
         constructor: function(player, options) {
           VjsButton.call(this, player, options)
         },
@@ -990,7 +990,7 @@ export default Vue.extend({
         createControlTextEl: function (button) {
           return $(button)
             .addClass('vjs-button-theatre')
-            .html($(`<div id="theatreModeButton" class="vjs-icon-theatre-inactive${theatreModeActive} vjs-button"></div>`))
+            .html($(`<div id="toggleTheatreModeButton" class="vjs-icon-theatre-inactive${theatreModeActive} vjs-button"></div>`))
             .attr('title', 'Toggle Theatre Mode')
         }
       })
@@ -1000,11 +1000,11 @@ export default Vue.extend({
 
     toggleTheatreMode: function() {
       if (!this.player.isFullscreen_) {
-        const theatreModeButton = $('#theatreModeButton')
+        const toggleTheatreModeButton = $('#toggleTheatreModeButton')
         if (!this.$parent.useTheatreMode) {
-          theatreModeButton.addClass('vjs-icon-theatre-active')
+          toggleTheatreModeButton.addClass('vjs-icon-theatre-active')
         } else {
-          theatreModeButton.removeClass('vjs-icon-theatre-active')
+          toggleTheatreModeButton.removeClass('vjs-icon-theatre-active')
         }
       }
 
