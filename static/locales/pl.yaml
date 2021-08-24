@@ -78,7 +78,8 @@ Subscriptions:
     profil posiada dużą liczbę subskrypcji. Wymuszenie RSS w celu uniknięcia ograniczenia
     dostępu
   Load More Videos: Załaduj więcej filmów
-Trending: 'Na czasie'
+Trending:
+  Trending: 'Na czasie'
 Most Popular: 'Popularne'
 Playlists: 'Playlisty'
 User Playlists:

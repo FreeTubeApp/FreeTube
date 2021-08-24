@@ -86,7 +86,8 @@ Subscriptions:
     a profil nagyszámú feliratkozást tartalmaz. RSS kényszerítése a sebességkorlátozás
     elkerülésére
   Load More Videos: További videók betöltése
-Trending: 'Népszerű'
+Trending:
+  Trending: 'Népszerű'
 Most Popular: 'Legnépszerűbbek'
 Playlists: 'Lejátszási listák'
 User Playlists:

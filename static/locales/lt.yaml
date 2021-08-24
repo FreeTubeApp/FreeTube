@@ -85,7 +85,8 @@ Subscriptions:
   Refresh Subscriptions: 'Atnaujinti prenumeratas'
   Load More Videos: 'Pakrauti daugiau vaizdo įrašų'
 More: 'Daugiau'
-Trending: 'Dabar populiaru'
+Trending:
+  Trending: 'Dabar populiaru'
 Most Popular: 'Populiariausia'
 Playlists: 'Grojaraščiai'
 User Playlists:

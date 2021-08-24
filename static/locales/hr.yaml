@@ -78,7 +78,8 @@ Subscriptions:
     profil sadrži velik broj pretplata. Za izbjegavanje ograničenja stope koristit
     će se RSS
   Load More Videos: Učitaj još videa
-Trending: 'U trendu'
+Trending:
+  Trending: 'U trendu'
 Most Popular: 'Najpopularniji'
 Playlists: 'Zbirke'
 User Playlists:

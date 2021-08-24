@@ -39,7 +39,7 @@
           fixed-width
         />
         <p class="navLabel">
-          {{ $t("Trending") }}
+          {{ $t("Trending.Trending") }}
         </p>
       </div>
       <div

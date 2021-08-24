@@ -94,7 +94,6 @@
         :video-thumbnail="thumbnail"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
-        @theatre-mode="toggleTheatreMode"
         @pause-player="pausePlayer"
       />
       <watch-video-description

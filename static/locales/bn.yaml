@@ -80,7 +80,8 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': ''
   Refresh Subscriptions: ''
   Load More Videos: ''
-Trending: 'চলছে'
+Trending:
+  Trending: 'চলছে'
 Most Popular: ''
 Playlists: ''
 User Playlists:

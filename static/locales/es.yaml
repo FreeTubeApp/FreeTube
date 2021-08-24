@@ -76,7 +76,8 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
     perfil tiene muchas suscripciones. Para eludir este límite, usaremos RSS.
   Load More Videos: Ver más
-Trending: 'Tendencias'
+Trending:
+  Trending: 'Tendencias'
 Most Popular: 'Más populares'
 Playlists: 'Playlists'
 User Playlists:

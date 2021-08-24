@@ -83,7 +83,8 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Obtendo subscricións. Por favor, agarda.'
   Refresh Subscriptions: 'Actualizar subscricións'
   Load More Videos: 'Cargar máis vídeos'
-Trending: 'Tendencias'
+Trending:
+  Trending: 'Tendencias'
 Most Popular: 'Máis populares'
 Playlists: 'Listaxes de reprodución'
 User Playlists:

@@ -75,6 +75,7 @@
             aria-selected="true"
             aria-controls="videoPanel"
             tabindex="0"
+            :class="(currentTab==='videos')?'selectedTab':''"
             @click="changeTab('videos')"
             @keydown="changeTab('videos', $event)"
           >
@@ -87,6 +88,7 @@
             aria-selected="false"
             aria-controls="playlistPanel"
             tabindex="-1"
+            :class="(currentTab==='playlists')?'selectedTab':''"
             @click="changeTab('playlists')"
             @keydown="changeTab('playlists', $event)"
           >
@@ -99,6 +101,7 @@
             aria-selected="false"
             aria-controls="aboutPanel"
             tabindex="-1"
+            :class="(currentTab==='about')?'selectedTab':''"
             @click="changeTab('about')"
             @keydown="changeTab('about', $event)"
           >

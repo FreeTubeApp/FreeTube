@@ -83,7 +83,8 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Získávám odběry. Prosím čekejte.'
   Refresh Subscriptions: 'Obnovit odběry'
   Load More Videos: 'Načíst více videí'
-Trending: 'Trendy'
+Trending: 
+  Trending: 'Trendy'
 Most Popular: 'Nejpopulárnější'
 Playlists: 'Playlisty'
 User Playlists:

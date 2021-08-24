@@ -84,7 +84,8 @@ Subscriptions:
     профил има голям брой абонаменти. Принудително използване на RSS за заобикаляне
     на ограниченията
   Load More Videos: Зареждане на още видеа
-Trending: 'Набиращи популярност'
+Trending:
+  Trending: 'Набиращи популярност'
 Most Popular: 'Най-популярни'
 Playlists: 'Плейлисти'
 User Playlists:

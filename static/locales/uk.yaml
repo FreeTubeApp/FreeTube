@@ -83,7 +83,8 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Отримання Підписок. Будь ласка, зачекайте.'
   Refresh Subscriptions: 'Оновити Підписки'
   Load More Videos: 'Завантажити більше відео'
-Trending: 'Популярне'
+Trending: 
+  Trending: 'Популярне'
 Most Popular: 'Найпопулярніші'
 Playlists: 'Добірки'
 User Playlists:
