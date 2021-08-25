@@ -78,6 +78,11 @@ Subscriptions:
     هذا الملف الشخصي عدد كبير من الاشتراكات. يتم فرض وضع RSS لتجنب تقييد الوصول  للاشتراكات
 Trending:
   Trending: 'المحتوى الرائج'
+  Trending Tabs: علامات التبويب الشائعة
+  Movies: أفلام
+  Gaming: الالعاب
+  Music: الموسيقى
+  Default: الإفتراضي
 Most Popular: 'الأكثر شعبية'
 Playlists: 'قوائم التشغيل'
 User Playlists:
@@ -638,6 +643,7 @@ Comments:
   Newest first: الأحدث أولاً
   Top comments: أهم التعليقات
   Sort by: الترتيب حسب
+  Show More Replies: إظهار المزيد من الردود
 Up Next: 'التالي'
 
 # Toast Messages
