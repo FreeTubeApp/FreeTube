@@ -32,7 +32,7 @@
   transition: background 0.2s ease-out;
 }
 
-.tab:hover, .tab:focus {
+.tab:hover {
   background-color: var(--side-nav-hover-color);
   -moz-transition: background 0.2s ease-in;
   -o-transition: background 0.2s ease-in;
