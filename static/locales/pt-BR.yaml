@@ -79,6 +79,11 @@ Subscriptions:
     de banda
 Trending:
   Trending: 'Em alta'
+  Trending Tabs: Abas de Tendências
+  Movies: Filmes
+  Gaming: Jogos
+  Music: Música
+  Default: Padrão
 Most Popular: 'Mais populares'
 Playlists: 'Listas'
 User Playlists:
@@ -615,6 +620,7 @@ Comments:
   Top comments: Melhores comentários
   Sort by: Ordenar por
   There are no more comments for this video: Não há mais comentários para este vídeo
+  Show More Replies: Mostrar Mais Respostas
 Up Next: 'Próximo'
 
 # Toast Messages
