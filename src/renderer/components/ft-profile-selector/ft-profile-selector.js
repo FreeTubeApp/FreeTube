@@ -4,7 +4,6 @@ import $ from 'jquery'
 
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
-import { faBullseye } from '@fortawesome/free-solid-svg-icons'
 
 export default Vue.extend({
   name: 'FtProfileSelector',

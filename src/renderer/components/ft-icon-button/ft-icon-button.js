@@ -69,7 +69,7 @@ export default Vue.extend({
 
       dropdownBox[0].style.display = 'inline'
       this.dropdownShown = true
-      
+
       const firstItem = dropdownBox.find('.listItem')[0]
       if (firstItem) {
         firstItem.tabindex = 0
