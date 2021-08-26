@@ -99,7 +99,12 @@ export default Vue.extend({
     }
   },
   watch: {
-    windowTitle: 'setWindowTitle'
+    windowTitle: 'setWindowTitle',
+    $route () {
+      // react to route changes...
+      // Hide top nav filter panel on page change
+      this.$refs.topNav.hideFilters()
+    }
   },
   created () {
     this.setWindowTitle()
