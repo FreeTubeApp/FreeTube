@@ -83,7 +83,12 @@ Subscriptions:
     profilin çok sayıda abonesi var.  Hız sınırlamalarından kaçınmak için RSS zorlanıyor
   Load More Videos: Daha Fazla Video Yükle
 Trending:
-  Trending: 'Trendler'
+  Trending: 'Öne Çıkanlar'
+  Trending Tabs: Öne Çıkanlar Sekmeleri
+  Movies: Film
+  Gaming: Oyun
+  Music: Müzik
+  Default: Öntanımlı
 Most Popular: 'Popüler Olanlar'
 Playlists: 'Oynatma Listeleri'
 User Playlists:
@@ -128,7 +133,7 @@ Settings:
       End: 'Bitiş'
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious Örneği
       (Öntanımlı olarak https://invidious.snopyta.org)'
-    Region for Trending: 'Trendler İçin Bölge Tercihi'
+    Region for Trending: 'Öne Çıkanlar İçin Bölge Tercihi'
         #! List countries
     View all Invidious instance information: Tüm Invidious örnek bilgilerini görüntüle
     System Default: Sistem Öntanımlı Değeri
@@ -296,7 +301,7 @@ Settings:
   Distraction Free Settings:
     Hide Live Chat: Canlı Sohbeti Gizle
     Hide Popular Videos: Popüler Videoları Gizle
-    Hide Trending Videos: Trend Olan Videoları Gizle
+    Hide Trending Videos: Öne Çıkan Videoları Gizle
     Hide Recommended Videos: Tavsiye Edilen Videoları Gizle
     Hide Comment Likes: Yorum Beğenmelerini Gizle
     Hide Channel Subscribers: Kanal Abonelerini Gizle
@@ -712,9 +717,9 @@ Tooltips:
     Preferred API Backend: FreeTube'un veri elde etmek için kullandığı arka ucu seçin.
       Yerel API yerleşik bir çıkarıcıdır. Invidious API'si, bağlanmak için bir Invidious
       sunucusu gerektirir.
-    Region for Trending: Trendlerin bölgesi, hangi ülkenin trend videolarını görüntülemek
-      istediğinizi seçmenize olanak tanır. Görüntülenen ülkelerden bazıları YouTube
-      tarafından desteklenmemektedir.
+    Region for Trending: Öne çıkanların bölgesi, hangi ülkenin öne çıkan videolarını
+      görüntülemek istediğinizi seçmenize olanak tanır. Görüntülenen ülkelerden bazıları
+      YouTube tarafından desteklenmemektedir.
   Privacy Settings:
     Remove Video Meta Files: Etkinleştirildiğinde, izleme sayfası kapatıldığında video
       oynatma sırasında oluşturulan meta dosyaları otomatik olarak silinir.
