@@ -82,6 +82,11 @@ Subscriptions:
   Load More Videos: Charger plus de vidéos
 Trending:
   Trending: 'Tendance'
+  Trending Tabs: Onglets des Tendances
+  Movies: Films
+  Gaming: Jeux Vidéo
+  Music: Musique
+  Default: Par Défaut
 Most Popular: 'Les plus populaires'
 Playlists: 'Listes de lecture'
 User Playlists:
@@ -644,6 +649,7 @@ Comments:
   Top comments: Top des commentaires
   Sort by: Trier par
   No more comments available: Pas d'autres commentaires disponibles
+  Show More Replies: Afficher plus de réponses
 Up Next: 'À suivre'
 
 # Toast Messages

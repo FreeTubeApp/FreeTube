@@ -88,6 +88,11 @@ Subscriptions:
   Load More Videos: További videók betöltése
 Trending:
   Trending: 'Népszerű'
+  Trending Tabs: Népszerű lapok
+  Movies: Film
+  Gaming: Játék
+  Music: Zene
+  Default: Alapértelmezett
 Most Popular: 'Legnépszerűbbek'
 Playlists: 'Lejátszási listák'
 User Playlists:
@@ -661,6 +666,7 @@ Comments:
   Newest first: Legújabb először
   Top comments: Legnépszerűbb megjegyzések
   Sort by: Rendezés alapja
+  Show More Replies: További válaszok megjelenítése
 Up Next: 'Következő'
 
 # Toast Messages

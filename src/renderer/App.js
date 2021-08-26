@@ -426,34 +426,36 @@ export default Vue.extend({
 
 // return true if it is a selection event, false if it is a navigation event
 Vue.prototype.$handleDropdownKeyboardEvent = function(event, afterElement) {
-  if (event instanceof KeyboardEvent) {
-    let nextElement = null
-    if (event.key === 'Tab') {
-      if (afterElement) {
-        afterElement.tabindex = 0
-        afterElement.focus()
-      }
-      return false
-    } if (event.key === 'ArrowUp') {
-      nextElement = event.target.previousElementSibling ?? event.target.parentNode.lastElementChild
-    } else if (event.key === 'ArrowDown') {
-      nextElement = event.target.nextElementSibling ?? event.target.parentNode.firstElementChild
-    } else if (event.key === 'Home') {
-      nextElement = event.target.parentNode.firstElementChild
-    } else if (event.key === 'End') {
-      nextElement = event.target.parentNode.lastElementChild
-    }
-
-    event.preventDefault()
-
-    if (nextElement) {
-      event.target.setAttribute('tabindex', '-1')
-      nextElement.setAttribute('tabindex', '0')
-      nextElement.focus()
-    }
-
-    return event.key === 'Enter' || event.key === ' '
+  if (!event || !(event instanceof KeyboardEvent)) {
+    return true
   }
+
+  let nextElement = null
+  if (event.key === 'Tab') {
+    if (afterElement) {
+      afterElement.tabindex = 0
+      afterElement.focus()
+    }
+    return false
+  } if (event.key === 'ArrowUp') {
+    nextElement = event.target.previousElementSibling ?? event.target.parentNode.lastElementChild
+  } else if (event.key === 'ArrowDown') {
+    nextElement = event.target.nextElementSibling ?? event.target.parentNode.firstElementChild
+  } else if (event.key === 'Home') {
+    nextElement = event.target.parentNode.firstElementChild
+  } else if (event.key === 'End') {
+    nextElement = event.target.parentNode.lastElementChild
+  }
+
+  event.preventDefault()
+
+  if (nextElement) {
+    event.target.setAttribute('tabindex', '-1')
+    nextElement.setAttribute('tabindex', '0')
+    nextElement.focus()
+  }
+
+  return event.key === 'Enter' || event.key === ' '
 }
 
 Vue.prototype.$goToChannel = function(id) {

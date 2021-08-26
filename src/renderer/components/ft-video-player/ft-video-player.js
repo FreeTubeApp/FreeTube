@@ -274,6 +274,11 @@ export default Vue.extend({
           }, 200)
         }
 
+        // Remove built-in progress bar mouse over current time display
+        // `MouseTimeDisplay` in
+        // https://github.com/videojs/video.js/blob/v7.13.3/docs/guides/components.md#default-component-tree
+        this.player.controlBar.progressControl.seekBar.playProgressBar.removeChild('timeTooltip')
+
         if (this.useSponsorBlock) {
           this.initializeSponsorBlock()
         }

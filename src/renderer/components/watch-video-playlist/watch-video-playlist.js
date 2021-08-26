@@ -186,14 +186,14 @@ export default Vue.extend({
         }
       } else {
         const videoIndex = this.playlistItems.findIndex((item) => {
-          return item.id === this.videoId
+          return (item.id ?? item.videoId) === this.videoId
         })
 
         if (videoIndex === this.playlistItems.length - 1) {
           if (this.loopEnabled) {
             this.$router.push(
               {
-                path: `/watch/${this.playlistItems[0].id}`,
+                path: `/watch/${this.playlistItems[0].id ?? this.playlistItems[0].videoId}`,
                 query: playlistInfo
               }
             )
@@ -207,7 +207,7 @@ export default Vue.extend({
         } else {
           this.$router.push(
             {
-              path: `/watch/${this.playlistItems[videoIndex + 1].id}`,
+              path: `/watch/${this.playlistItems[videoIndex + 1].id ?? this.playlistItems[videoIndex + 1].videoId}`,
               query: playlistInfo
             }
           )
@@ -249,20 +249,20 @@ export default Vue.extend({
         }
       } else {
         const videoIndex = this.playlistItems.findIndex((item) => {
-          return item.id === this.videoId
+          return (item.id ?? item.videoId) === this.videoId
         })
 
         if (videoIndex === 0) {
           this.$router.push(
             {
-              path: `/watch/${this.playlistItems[this.randomizedPlaylistItems.length - 1].id}`,
+              path: `/watch/${this.playlistItems[this.randomizedPlaylistItems.length - 1].id ?? this.playlistItems[this.randomizedPlaylistItems.length - 1].videoId}`,
               query: playlistInfo
             }
           )
         } else {
           this.$router.push(
             {
-              path: `/watch/${this.playlistItems[videoIndex - 1].id}`,
+              path: `/watch/${this.playlistItems[videoIndex - 1].id ?? this.playlistItems[videoIndex - 1].videoId}`,
               query: playlistInfo
             }
           )
@@ -384,8 +384,8 @@ export default Vue.extend({
       this.playlistItems.forEach((item) => {
         const randomInt = Math.floor(Math.random() * remainingItems.length)
 
-        if (remainingItems[randomInt].id !== this.videoId) {
-          items.push(remainingItems[randomInt].id)
+        if ((remainingItems[randomInt].id ?? remainingItems[randomInt].videoId) !== this.videoId) {
+          items.push(remainingItems[randomInt].id ?? remainingItems[randomInt].videoId)
         }
 
         remainingItems.splice(randomInt, 1)

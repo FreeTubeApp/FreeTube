@@ -4,6 +4,7 @@ import $ from 'jquery'
 
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
+import { faBullseye } from '@fortawesome/free-solid-svg-icons'
 
 export default Vue.extend({
   name: 'FtProfileSelector',
@@ -13,7 +14,7 @@ export default Vue.extend({
   },
   data: function () {
     return {
-      showProfileList: false
+      profileListShown: false
     }
   },
   computed: {
@@ -36,19 +37,31 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    $('#profileList').focusout((e) => {
+    $('#profileList').on('focusout', (e) => {
       // do not focus out if the element is a descendant of the profile list
       if ($('#profileList').has(e.relatedTarget).length) {
         return
       }
 
       $('#profileList')[0].style.display = 'none'
+      // When pressing the profile button
+      // It will make the menu reappear if we set `profileListShown` immediately
+      setTimeout(() => {
+        this.profileListShown = false
+      }, 100)
     })
   },
   methods: {
     toggleProfileList: function () {
       const profileList = $('#profileList')
-      profileList.get(0).style.display = 'inline'
+      if (this.profileListShown) {
+        profileList[0].style.display = 'none'
+        this.profileListShown = false
+        return
+      }
+
+      profileList[0].style.display = 'inline'
+      this.profileListShown = true
 
       const openProfile = $(`#profile-${this.activeProfile}`)
       openProfile.attr('tabindex', '0')
@@ -60,11 +73,11 @@ export default Vue.extend({
       this.$router.push({
         path: '/settings/profile/'
       })
-      $('#profileList').focusout()
+      $('#profileList').trigger('focusout')
     },
 
     setActiveProfile: function (profile, event) {
-      if (!this.$handleDropdownKeyboardEvent(event, $('.profileSettings').first())) {
+      if (!this.$handleDropdownKeyboardEvent(event, $('.profileSettings')[0])) {
         return
       }
 
@@ -86,7 +99,8 @@ export default Vue.extend({
       this.showToast({
         message: message
       })
-      $('#profileList').focusout()
+
+      $('#profileList').trigger('focusout')
     },
 
     ...mapActions([

@@ -51,7 +51,7 @@ export default Vue.extend({
   },
   data: function () {
     return {
-      showDropdown: false,
+      dropdownShown: false,
       id: ''
     }
   },
@@ -60,36 +60,58 @@ export default Vue.extend({
   },
   methods: {
     toggleDropdown: function () {
-      const thisButton = $(`#${this.id}`)
-      thisButton.get(0).style.display = 'inline'
-      const firstItem = thisButton.find('.listItem').first()
-      firstItem.attr('tabindex', '0')
-      firstItem.attr('aria-selected', 'true')
-      thisButton.attr('aria-expanded', 'true')
-      firstItem.focus()
+      const dropdownBox = $(`#${this.id}`)
+      if (this.dropdownShown) {
+        dropdownBox[0].style.display = 'none'
+        this.dropdownShown = false
+        return
+      }
 
-      $(`#${this.id}`).focusout((e) => {
-        if ($(`#${this.id}`).has(e.relatedTarget).length) {
+      dropdownBox[0].style.display = 'inline'
+      this.dropdownShown = true
+      
+      const firstItem = dropdownBox.find('.listItem')[0]
+      if (firstItem) {
+        firstItem.tabindex = 0
+        firstItem.setAttribute('aria-selected', 'true')
+        dropdownBox.attr('aria-expanded', 'true')
+        firstItem.focus()
+      }
+
+      dropdownBox.on('focusout', (e) => {
+        if (dropdownBox.has(e.relatedTarget).length) {
           return
         }
 
-        $(`#${this.id}`)[0].style.display = 'none'
-        $(`#${this.id}`).attr('aria-expanded', 'false')
+        dropdownBox[0].style.display = 'none'
+        dropdownBox.attr('aria-expanded', 'false')
 
-        const shareLinks = $(`#${this.id}`).find('.shareLinks')
-
+        const shareLinks = dropdownBox.find('.shareLinks')
         if (shareLinks.length > 0) {
           if (!shareLinks[0].parentNode.matches(':hover')) {
-            $(`#${this.id}`)[0].style.display = 'none'
+            dropdownBox.get(0).style.display = 'none'
+            // When pressing the profile button
+            // It will make the menu reappear if we set `dropdownShown` immediately
+            setTimeout(() => {
+              this.dropdownShown = false
+            }, 100)
           }
         } else {
-          $(`#${this.id}`)[0].style.display = 'none'
+          dropdownBox.get(0).style.display = 'none'
+          // When pressing the profile button
+          // It will make the menu reappear if we set `dropdownShown` immediately
+          setTimeout(() => {
+            this.dropdownShown = false
+          }, 100)
         }
       })
     },
 
     focusOut: function() {
-      $(`#${this.id}`).focusout()
+      const dropdownBox = $(`#${this.id}`)
+      dropdownBox.trigger('focusout')
+      dropdownBox[0].style.display = 'none'
+      this.dropdownShown = false
     },
 
     handleIconClick: function () {
