@@ -84,9 +84,9 @@ Trending:
   Trending: 'Tendance'
   Trending Tabs: Onglets des Tendances
   Movies: Films
-  Gaming: Jeux Vidéo
+  Gaming: Jeux vidéo
   Music: Musique
-  Default: Par Défaut
+  Default: Par défaut
 Most Popular: 'Les plus populaires'
 Playlists: 'Listes de lecture'
 User Playlists:
@@ -101,7 +101,7 @@ User Playlists:
 History:
   # On History Page
   History: 'Historique'
-  Watch History: 'Voir l''historique'
+  Watch History: 'Historique de visionnage'
   Your history list is currently empty.: 'Votre historique est vide.'
 Settings:
   # On Settings Page
@@ -271,7 +271,7 @@ Settings:
       sûr(e) de vouloir supprimer tous les abonnements et les profils ? Cette action
       est définitive.
     Remove All Subscriptions / Profiles: Supprimer tous les Abonnements / Profils
-    Automatically Remove Video Meta Files: Suppression automatique des MétaFichiers
+    Automatically Remove Video Meta Files: Retirer automatiquement les métafichiers
       vidéo
   Data Settings:
     How do I import my subscriptions?: Comment importer mes abonnements ?
@@ -414,10 +414,10 @@ About:
   Chat on Matrix: Discuter sur Matrix
   Mastodon: Mastodon
   Report a problem: Signaler un problème
-  View License: Voir la license
+  View License: Voir la licence
   Licensed under the AGPLv3: Sous licence AGPLv3
   Source code: Code source
-  these people and projects: ces personnes et projets
+  these people and projects: ces personnes et ces projets
   FreeTube is made possible by: FreeTube est rendu possible par
   room rules: règles du salon
   Please read the: Veuillez lire les
@@ -453,7 +453,7 @@ Channel:
       Newest: 'Les plus récentes'
       Oldest: 'Les plus anciennes'
   About:
-    About: 'A propos'
+    About: 'À propos'
     Channel Description: 'Description de la chaîne'
     Featured Channels: 'Chaînes en vedette'
   Added channel to your subscriptions: Chaîne ajoutée à vos abonnements
@@ -480,46 +480,46 @@ Video:
   # As in a Live Video
   Live: 'En direct'
   Live Now: 'En direct maintenant'
-  Live Chat: 'Chat en direct'
-  Enable Live Chat: 'Activer le chat en direct'
-  Live Chat is currently not supported in this build.: 'Le chat en direct n''est actuellement
-    pas pris en charge dans cette version.'
-  'Chat is disabled or the Live Stream has ended.': 'Le chat est désactivé ou la diffusion
-    en direct est terminée.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Le chat en direct
-    est activé. Les messages de chat apparaîtront ici une fois envoyés.'
+  Live Chat: 'Tchat en direct'
+  Enable Live Chat: 'Activer le tchat en direct'
+  Live Chat is currently not supported in this build.: 'Le tchat en direct n''est
+    actuellement pas pris en charge dans cette version.'
+  'Chat is disabled or the Live Stream has ended.': 'Le tchat est désactivé ou la
+    diffusion en direct est terminée.'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'Le tchat en direct
+    est activé. Les messages de tchat apparaîtront ici une fois envoyés.'
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Le
-    chat en direct n''est actuellement pas pris en charge avec l''API Invidious. Une
-    connexion directe à YouTube est requise.'
+    tchat en direct n''est actuellement pas pris en charge avec l''API Invidious.
+    Une connexion directe à YouTube est requise.'
   Published:
-    Jan: 'Jan'
-    Feb: 'Fév'
-    Mar: 'Mar'
-    Apr: 'Avr'
-    May: 'Mai'
-    Jun: 'Juin'
-    Jul: 'Jui'
-    Aug: 'Août'
-    Sep: 'Sep'
-    Oct: 'Oct'
-    Nov: 'Nov'
-    Dec: 'Déc'
-    Second: 'Seconde'
-    Seconds: 'Secondes'
-    Hour: 'Heure'
-    Hours: 'Heures'
-    Day: 'Jour'
-    Days: 'Jours'
-    Week: 'Semaine'
-    Weeks: 'Semaines'
-    Month: 'Mois'
-    Months: 'Mois'
-    Year: 'Année'
-    Years: 'Années'
+    Jan: 'jan'
+    Feb: 'fév'
+    Mar: 'mar'
+    Apr: 'avr'
+    May: 'mai'
+    Jun: 'juin'
+    Jul: 'juil'
+    Aug: 'août'
+    Sep: 'sep'
+    Oct: 'oct'
+    Nov: 'nov'
+    Dec: 'déc'
+    Second: 'seconde'
+    Seconds: 'secondes'
+    Hour: 'heure'
+    Hours: 'heures'
+    Day: 'jour'
+    Days: 'jours'
+    Week: 'semaine'
+    Weeks: 'semaines'
+    Month: 'mois'
+    Months: 'mois'
+    Year: 'année'
+    Years: 'années'
     Ago: 'Il y a'
     Upcoming: 'Avant-première le'
-    Minutes: Minutes
-    Minute: Minute
+    Minutes: minutes
+    Minute: minute
   Published on: 'Mise en ligne le'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Il y a $ %'
@@ -537,8 +537,8 @@ Video:
     Medium: Normale
     Low: Basse
     High: Haute
-  audio only: Audio uniquement
-  video only: Vidéo uniquement
+  audio only: audio uniquement
+  video only: vidéo uniquement
   Download Video: Télécharger la vidéo
   Copy Invidious Channel Link: Copier le lien Invidious de la chaîne
   Open Channel in Invidious: Ouvrir la chaîne sur Invidious
@@ -573,7 +573,7 @@ Video:
       setting a playback rate: régler la vitesse de lecture
       starting video at offset: démarrer la vidéo avec un décalage
     UnsupportedActionTemplate: '$ non pris en charge : %'
-    OpeningTemplate: Ouverture de $ en %...
+    OpeningTemplate: Ouverture de $ en %…
     OpenInTemplate: Ouvrir avec $
 Videos:
   #& Sort By
@@ -639,7 +639,7 @@ Comments:
   View: 'Voir'
   Hide: 'Masquer'
   Replies: 'Réponses'
-  Reply: 'Réponse'
+  Reply: 'Répondre'
   There are no comments available for this video: 'Il n''y a aucun commentaire pour
     cette vidéo'
   Load More Comments: 'Charger plus de commentaires'
@@ -667,7 +667,7 @@ Playing Next Video: 'Lire la vidéo suivante'
 Playing Previous Video: 'Lecture de la vidéo précédente'
 Playing next video in 5 seconds.  Click to cancel: 'Lecture de la vidéo suivante dans
   5 secondes. Cliquer pour annuler.'
-Canceled next video autoplay: 'Annuler la lecture automatique'
+Canceled next video autoplay: 'Lecture automatique annulée'
 'The playlist has ended.  Enable loop to continue playing': 'Fin de la liste de lecture.
   Activer la lecture en boucle pour continuer'
 
@@ -694,7 +694,7 @@ Profile:
   Profile Preview: Aperçu du profil
   Custom Color: Couleur personnalisée
   Color Picker: Sélecteur de couleurs
-  Edit Profile: Éditer le profil
+  Edit Profile: Modifier le profil
   Create New Profile: Créer un nouveau profil
   Profile Manager: Gestionnaire de profil
   All Channels: Tous les canaux
@@ -783,7 +783,7 @@ Playing Next Video Interval: Lecture de la prochaine vidéo en un rien de temps.
   Cliquer pour annuler. | Lecture de la vidéo suivante dans {l'intervalle vidéo suivant}
   secondes. Cliquer pour annuler.
 Hashtags have not yet been implemented, try again later: Les hashtags n'ont pas encore
-  été implémentés, réessayez plus tard
+  été mis en place, réessayez plus tard
 Unknown YouTube url type, cannot be opened in app: Type d’url YouTube inconnu, ne
   peut pas être ouvert dans l’application
 Open New Window: Ouvrir une nouvelle fenêtre

@@ -17,7 +17,7 @@ Delete: Löschen
 Select all: Alles auswählen
 Reload: Aktualisieren
 Force Reload: Aktualisierung erzwingen
-Toggle Developer Tools: Aktiviere Entwicklerwerkzeuge
+Toggle Developer Tools: Entwicklerwerkzeuge aktivieren/deaktivieren
 Actual size: Originalgröße
 Zoom in: Vergrößern
 Zoom out: Verkleinern
@@ -81,6 +81,11 @@ Subscriptions:
   Load More Videos: Lade mehr Videos
 Trending:
   Trending: Trends
+  Trending Tabs: Trendtabs
+  Movies: Filme
+  Gaming: Computerspielen
+  Music: Musik
+  Default: Standard
 Most Popular: Am beliebtesten
 Playlists: Wiedergabelisten
 User Playlists:
@@ -95,7 +100,7 @@ User Playlists:
 History:
   # On History Page
   History: Verlauf
-  Watch History: Verlauf anschauen
+  Watch History: Wiedergabeverlauf
   Your history list is currently empty.: Dein Verlauf ist aktuell leer.
 Settings:
   # On Settings Page
@@ -131,13 +136,13 @@ Settings:
     View all Invidious instance information: Alle Informationen zur Invidious-Instanz
       anzeigen
     System Default: Systemstandard
-    Current instance will be randomized on startup: Aktuelle Instanz wird beim Starten
-      zufällig ausgewählt
+    Current instance will be randomized on startup: Beim Start wird eine zufällige
+      Instanz festgelegt
     No default instance has been set: Es wurde keine Standardinstanz gesetzt
     The currently set default instance is $: Die aktuelle Standardinstanz ist $
     Current Invidious Instance: Aktuelle Invidious-Instanz
     Clear Default Instance: Standardinstanz zurücksetzen
-    Set Current Instance as Default: Aktuelle Instanz als Standard setzen
+    Set Current Instance as Default: Derzeitige Instanz als Standard festlegen
   Theme Settings:
     Theme Settings: Thema-Einstellungen
     Match Top Bar with Main Color: Obere Leiste an Hauptfarbe anpassen
@@ -342,7 +347,7 @@ Settings:
     External Player: Externer Player
     External Player Settings: Externe Player-Einstellungen
     Custom External Player Executable: Ausführbares, externes Player-Programm
-    Custom External Player Arguments: Argumente für angepassten, externen Player
+    Custom External Player Arguments: Gewählte Einstellungen für externen Player
 About:
   #On About page
   About: Über
@@ -458,7 +463,7 @@ Video:
   Watched: Gesehen
   # As in a Live Video
   Live: Live
-  Live Now: Jetzt Live
+  Live Now: Jetzt live
   Live Chat: Live-Chat
   Enable Live Chat: Aktiviere Live-Chat
   Live Chat is currently not supported in this build.: Live-Chat ist in der aktuellen
@@ -495,7 +500,7 @@ Video:
     Months: Monaten
     Year: Jahr
     Years: Jahren
-    Ago: Vor
+    Ago: vor
     Upcoming: Premiere am
     Minutes: Minuten
     Minute: Minute
@@ -545,7 +550,7 @@ Video:
   External Player:
     OpenInTemplate: In $ öffnen
     Unsupported Actions:
-      setting a playback rate: Setzt eine Widergaberate
+      setting a playback rate: Wiedergabegeschwindigkeit festlegen
       starting video at offset: Starte Video an Stelle
       looping playlists: Wiedergabeliste wiederholen
       shuffling playlists: Wiedergabeliste durcheinandermischen
@@ -553,11 +558,11 @@ Video:
       opening specific video in a playlist (falling back to opening the video): Öffne
         gewähltes Video aus einer Wiedergabeliste (Falle zurück auf normales Öffnen
         des Videos)
-      opening playlists: Wiedergabeliste öffnen
+      opening playlists: Wiedergabelisten öffnen
     UnsupportedActionTemplate: '$ unterstützt das nicht: %'
-    OpeningTemplate: $ wird in % geöffnet...
+    OpeningTemplate: $ wird in % geöffnet …
     playlist: Wiedergabeliste
-    video: video
+    video: Video
 Videos:
   #& Sort By
   Sort By:
@@ -629,7 +634,7 @@ Comments:
   View: Zeige
   Hide: Verstecke
   Replies: Antworten
-  Reply: Antworte
+  Reply: Antworten
   There are no comments available for this video: Für dieses Video gibt es keine Kommentare
   Load More Comments: Lade mehr Kommentare
   There are no more comments for this video: Es gibt keine weiteren Kommentare zu
@@ -638,6 +643,7 @@ Comments:
   Newest first: Neuste zuerst
   Top comments: Top-Kommentare
   Sort by: Sortiert nach
+  Show More Replies: Mehr Antworten zeigen
 Up Next: Nächster Titel
 
 # Toast Messages
@@ -728,7 +734,7 @@ Tooltips:
       die Trends angezeigt werden sollen. Nicht alle Optionen werden auch von YouTube
       unterstützt.
   Subscription Settings:
-    Fetch Feeds from RSS: Sobald aktiviert, wird FreeTube RSS anstatt der Standardmethode
+    Fetch Feeds from RSS: Sobald aktiviert wird FreeTube RSS anstatt der Standardmethode
       nutzen, um deine Abos zu aktualisieren. RSS ist schneller und verhindert das
       Blockieren deiner IP-Adresse, doch gewisse Informationen, wie z. B. die Dauer
       des Videos oder der Status eines Livestreams, werden nicht mehr verfügbar sein
@@ -751,13 +757,13 @@ Tooltips:
     Custom External Player Arguments: Alle Kommandozeilen Argumente, getrennt durch
       Semikolons (';'), die an den externen Player weitergegeben werden sollen.
     Ignore Warnings: Unterdrücke Warnungen, wenn der aktuell gewählte externe Player
-      die gewählte Aktion nicht unterstützt (z.B. Wiedergabeliste umkehren, etc.).
+      die gewählte Aktion nicht unterstützt (z.B. Wiedergabeliste umkehren, usw.).
     Custom External Player Executable: Standardmäßig wird FreeTube annehmen, dass
       der gewählte externe Player unter der PATH Umgebungsvariable gefunden werden
       kann. Falls nötig, kann ein benutzerdefinierter Pfad hier gewählt werden.
-    External Player: Wenn ein externer Player gewählt wird, wird ein Icon auf dem
-      Thumbnail gezeigt, um das Video (Wiedergabelisten falls unterstützt) darin zu
-      öffnen.
+    External Player: Wenn ein externer Player gewählt wird, wird ein Symbol auf der
+      Vorschaubild gezeigt, um das Video (Wiedergabelisten falls unterstützt) darin
+      zu öffnen.
 Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
