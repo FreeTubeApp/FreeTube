@@ -271,7 +271,7 @@ Settings:
       sûr(e) de vouloir supprimer tous les abonnements et les profils ? Cette action
       est définitive.
     Remove All Subscriptions / Profiles: Supprimer tous les Abonnements / Profils
-    Automatically Remove Video Meta Files: Suppression automatique des MétaFichiers
+    Automatically Remove Video Meta Files: Retirer automatiquement les métafichiers
       vidéo
   Data Settings:
     How do I import my subscriptions?: Comment importer mes abonnements ?
@@ -667,7 +667,7 @@ Playing Next Video: 'Lire la vidéo suivante'
 Playing Previous Video: 'Lecture de la vidéo précédente'
 Playing next video in 5 seconds.  Click to cancel: 'Lecture de la vidéo suivante dans
   5 secondes. Cliquer pour annuler.'
-Canceled next video autoplay: 'Annuler la lecture automatique'
+Canceled next video autoplay: 'Lecture automatique annulée'
 'The playlist has ended.  Enable loop to continue playing': 'Fin de la liste de lecture.
   Activer la lecture en boucle pour continuer'
 
@@ -694,7 +694,7 @@ Profile:
   Profile Preview: Aperçu du profil
   Custom Color: Couleur personnalisée
   Color Picker: Sélecteur de couleurs
-  Edit Profile: Éditer le profil
+  Edit Profile: Modifier le profil
   Create New Profile: Créer un nouveau profil
   Profile Manager: Gestionnaire de profil
   All Channels: Tous les canaux
@@ -783,7 +783,7 @@ Playing Next Video Interval: Lecture de la prochaine vidéo en un rien de temps.
   Cliquer pour annuler. | Lecture de la vidéo suivante dans {l'intervalle vidéo suivant}
   secondes. Cliquer pour annuler.
 Hashtags have not yet been implemented, try again later: Les hashtags n'ont pas encore
-  été implémentés, réessayez plus tard
+  été mis en place, réessayez plus tard
 Unknown YouTube url type, cannot be opened in app: Type d’url YouTube inconnu, ne
   peut pas être ouvert dans l’application
 Open New Window: Ouvrir une nouvelle fenêtre
