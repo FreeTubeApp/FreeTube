@@ -573,7 +573,7 @@ Video:
       setting a playback rate: régler la vitesse de lecture
       starting video at offset: démarrer la vidéo avec un décalage
     UnsupportedActionTemplate: '$ non pris en charge : %'
-    OpeningTemplate: Ouverture de $ en %…
+    OpeningTemplate: Ouverture de $ en %...
     OpenInTemplate: Ouvrir avec $
 Videos:
   #& Sort By
@@ -667,7 +667,7 @@ Playing Next Video: 'Lire la vidéo suivante'
 Playing Previous Video: 'Lecture de la vidéo précédente'
 Playing next video in 5 seconds.  Click to cancel: 'Lecture de la vidéo suivante dans
   5 secondes. Cliquer pour annuler.'
-Canceled next video autoplay: 'Lecture automatique annulée'
+Canceled next video autoplay: 'Annuler la lecture automatique'
 'The playlist has ended.  Enable loop to continue playing': 'Fin de la liste de lecture.
   Activer la lecture en boucle pour continuer'
 
@@ -783,7 +783,7 @@ Playing Next Video Interval: Lecture de la prochaine vidéo en un rien de temps.
   Cliquer pour annuler. | Lecture de la vidéo suivante dans {l'intervalle vidéo suivant}
   secondes. Cliquer pour annuler.
 Hashtags have not yet been implemented, try again later: Les hashtags n'ont pas encore
-  été mis en place, réessayez plus tard
+  été implémentés, réessayez plus tard
 Unknown YouTube url type, cannot be opened in app: Type d’url YouTube inconnu, ne
   peut pas être ouvert dans l’application
 Open New Window: Ouvrir une nouvelle fenêtre
