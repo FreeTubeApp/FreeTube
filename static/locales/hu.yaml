@@ -311,7 +311,7 @@ Settings:
     Hide Comment Likes: Megjegyzés-kedvelések elrejtése
     Hide Channel Subscribers: Csatorna feliratkozók elrejtése
     Hide Video Likes And Dislikes: Videó kedvelések és nemtetszések elrejtése
-    Hide Video Views: Videó nézetek elrejtése
+    Hide Video Views: Videónézettség elrejtése
     Distraction Free Settings: Zavartalan beállítások
     Hide Active Subscriptions: Elérhető feliratkozások elrejtése
     Hide Playlists: Lejátszási listák elrejtése
@@ -492,7 +492,7 @@ Video:
   Open in Invidious: 'Invidious megnyitása'
   Copy Invidious Link: 'Invidious hivatkozás másolása'
   View: 'Nézet'
-  Views: 'Nézetek'
+  Views: 'Megtekintés'
   Loop Playlist: 'Lejátszási lista folyamatos lejátszása'
   Shuffle Playlist: 'Véletlen sorrendű lejátszás'
   Reverse Playlist: 'Fordított lejátszási lista'
@@ -531,20 +531,20 @@ Video:
     Oct: 'október'
     Nov: 'november'
     Dec: 'december'
-    Second: 'másodperc'
-    Seconds: 'másodperc'
-    Minute: 'perc'
-    Minutes: 'perc'
-    Hour: 'óra'
-    Hours: 'óra'
-    Day: 'nap'
-    Days: 'nap'
-    Week: 'hét'
-    Weeks: 'hét'
-    Month: 'hónap'
-    Months: 'hónap'
-    Year: 'év'
-    Years: 'év'
+    Second: 'másodperccel'
+    Seconds: 'másodperccel'
+    Minute: 'perccel'
+    Minutes: 'perccel'
+    Hour: 'órával'
+    Hours: 'órával'
+    Day: 'nappal'
+    Days: 'nappal'
+    Week: 'héttel'
+    Weeks: 'héttel'
+    Month: 'hónappal'
+    Months: 'hónappal'
+    Year: 'évvel'
+    Years: 'évvel'
     Ago: 'ezelőtt'
     Upcoming: 'Az első előadás hamarosan lesz'
   Published on: 'Megjelent'
