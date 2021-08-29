@@ -327,34 +327,35 @@ const customActions = {
   },
 
   // Should be a root action, but we'll tolerate
-  setupListenerToSyncWindows: ({ commit, dispatch, getters }) => {
+  setupListenersToSyncWindows: ({ commit, dispatch, getters }) => {
     // Already known to be Electron, no need to check
     const { ipcRenderer } = require('electron')
-    ipcRenderer.on(IpcChannels.SYNC_WINDOWS, (_, payload) => {
-      const { type, data } = payload
-      switch (type) {
-        case 'setting':
-          // `data` is a single setting => { _id, value }
-          if (getters.settingHasSideEffects(data._id)) {
-            dispatch(defaultSideEffectsTriggerId(data._id), data.value)
-          }
 
-          commit(defaultMutationId(data._id), data.value)
-          break
-
-        case 'history':
-          // `data` is the whole history => Array of history entries
-          commit('setHistoryCache', data)
-          break
-
-        case 'playlist':
-          // TODO: Not implemented
-          break
-
-        case 'profile':
-          // TODO: Not implemented
-          break
+    ipcRenderer.on(IpcChannels.SYNC_SETTINGS, (_, payload) => {
+      // Payload is a single setting => { _id, value }
+      if (getters.settingHasSideEffects(payload._id)) {
+        dispatch(defaultSideEffectsTriggerId(payload._id), payload.value)
       }
+
+      commit(defaultMutationId(payload._id), payload.value)
+    })
+
+    ipcRenderer.on(IpcChannels.SYNC_HISTORY, (_, payload) => {
+      // Payload is the entire history => array of history entries
+      /*
+       * FIXME: Depending on how big the history size is, this could
+       * potentially become slow. While I'm sure there isn't a problem
+       * with this approach, I believe this can be done better.
+       */
+      commit('setHistoryCache', payload)
+    })
+
+    ipcRenderer.on(IpcChannels.SYNC_PROFILES, (_, __) => {
+      // TODO: Not implemented
+    })
+
+    ipcRenderer.on(IpcChannels.SYNC_PLAYLISTS, (_, __) => {
+      // TODO: Not implemented
     })
   }
 }
@@ -418,10 +419,7 @@ for (const settingId of Object.keys(state)) {
       const { ipcRenderer } = require('electron')
 
       // Propagate settings to all other existing windows
-      ipcRenderer.send(IpcChannels.SYNC_WINDOWS, {
-        type: 'setting',
-        data: { _id: settingId, value: value }
-      })
+      ipcRenderer.send(IpcChannels.SYNC_SETTINGS, { _id: settingId, value: value })
     }
   }
 }

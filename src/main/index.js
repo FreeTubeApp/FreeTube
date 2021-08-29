@@ -368,17 +368,31 @@ function runApp() {
     createWindow(false)
   })
 
-  ipcMain.on(IpcChannels.SYNC_WINDOWS, (event, payload) => {
-    const otherWindows = BrowserWindow.getAllWindows().filter(
-      (window) => {
-        return window.webContents.id !== event.sender.id
-      }
-    )
-
-    for (const window of otherWindows) {
-      window.webContents.send(IpcChannels.SYNC_WINDOWS, payload)
-    }
+  ipcMain.on(IpcChannels.SYNC_SETTINGS, (event, payload) => {
+    passOntoSiblingWindows(IpcChannels.SYNC_SETTINGS, event, payload)
   })
+
+  ipcMain.on(IpcChannels.SYNC_HISTORY, (event, payload) => {
+    passOntoSiblingWindows(IpcChannels.SYNC_HISTORY, event, payload)
+  })
+
+  ipcMain.on(IpcChannels.SYNC_PROFILES, (event, payload) => {
+    passOntoSiblingWindows(IpcChannels.SYNC_PROFILES, event, payload)
+  })
+
+  ipcMain.on(IpcChannels.SYNC_PLAYLISTS, (event, payload) => {
+    passOntoSiblingWindows(IpcChannels.SYNC_PLAYLISTS, event, payload)
+  })
+
+  function passOntoSiblingWindows(channel, event, payload) {
+    const siblingWindows = BrowserWindow.getAllWindows().filter((window) => {
+      return window.webContents.id !== event.sender.id
+    })
+
+    for (const window of siblingWindows) {
+      window.webContents.send(channel, payload)
+    }
+  }
 
   ipcMain.on(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, (_, payload) => {
     const child = cp.spawn(payload.executable, payload.args, { detached: true, stdio: 'ignore' })

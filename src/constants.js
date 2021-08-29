@@ -11,7 +11,10 @@ const IpcChannels = {
   STOP_POWER_SAVE_BLOCKER: 'stop-power-save-blocker',
   START_POWER_SAVE_BLOCKER: 'start-power-save-blocker',
   CREATE_NEW_WINDOW: 'create-new-window',
-  SYNC_WINDOWS: 'sync-windows',
+  SYNC_SETTINGS: 'sync-settings',
+  SYNC_HISTORY: 'sync-history',
+  SYNC_PROFILES: 'sync-profiles',
+  SYNC_PLAYLISTS: 'sync-playlists',
   OPEN_IN_EXTERNAL_PLAYER: 'open-in-external-player'
 }
 

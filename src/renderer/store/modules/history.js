@@ -50,10 +50,7 @@ const actions = {
   propagateHistory({ getters: { getUsingElectron: usingElectron } }) {
     if (usingElectron) {
       const { ipcRenderer } = require('electron')
-      ipcRenderer.send(IpcChannels.SYNC_WINDOWS, {
-        type: 'history',
-        data: state.historyCache
-      })
+      ipcRenderer.send(IpcChannels.SYNC_HISTORY, state.historyCache)
     }
   },
 
