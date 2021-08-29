@@ -12,6 +12,8 @@ import 'videojs-vtt-thumbnails-freetube'
 import 'videojs-contrib-quality-levels'
 import 'videojs-http-source-selector'
 
+import { IpcChannels } from '../../../constants'
+
 export default Vue.extend({
   name: 'FtVideoPlayer',
   components: {
@@ -31,7 +33,7 @@ export default Vue.extend({
 
     if (this.usingElectron && this.powerSaveBlocker !== null) {
       const { ipcRenderer } = require('electron')
-      ipcRenderer.send('stopPowerSaveBlocker', this.powerSaveBlocker)
+      ipcRenderer.send(IpcChannels.STOP_POWER_SAVE_BLOCKER, this.powerSaveBlocker)
     }
   },
   props: {
@@ -217,7 +219,7 @@ export default Vue.extend({
 
     if (this.usingElectron && this.powerSaveBlocker !== null) {
       const { ipcRenderer } = require('electron')
-      ipcRenderer.send('stopPowerSaveBlocker', this.powerSaveBlocker)
+      ipcRenderer.send(IpcChannels.STOP_POWER_SAVE_BLOCKER, this.powerSaveBlocker)
     }
   },
   methods: {
@@ -318,14 +320,14 @@ export default Vue.extend({
           if (this.usingElectron) {
             const { ipcRenderer } = require('electron')
             this.powerSaveBlocker =
-              await ipcRenderer.invoke('startPowerSaveBlocker', 'prevent-display-sleep')
+              await ipcRenderer.invoke(IpcChannels.START_POWER_SAVE_BLOCKER)
           }
         })
 
         this.player.on('pause', function () {
           if (this.usingElectron && this.powerSaveBlocker !== null) {
             const { ipcRenderer } = require('electron')
-            ipcRenderer.send('stopPowerSaveBlocker', this.powerSaveBlocker)
+            ipcRenderer.send(IpcChannels.STOP_POWER_SAVE_BLOCKER, this.powerSaveBlocker)
             this.powerSaveBlocker = null
           }
         })

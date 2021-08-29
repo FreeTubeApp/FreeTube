@@ -1,5 +1,7 @@
 import Datastore from 'nedb-promises'
 
+import { IpcChannels } from '../../constants'
+
 // Initialize all datastores and export their references
 // Current dbs:
 // `settings.db`
@@ -13,7 +15,7 @@ let buildFileName = null
 const usingElectron = window?.process?.type === 'renderer'
 if (usingElectron) {
   const { ipcRenderer } = require('electron')
-  const userDataPath = ipcRenderer.sendSync('getUserDataPathSync')
+  const userDataPath = ipcRenderer.sendSync(IpcChannels.GET_USER_DATA_PATH_SYNC)
   buildFileName = (dbName) => userDataPath + '/' + dbName + '.db'
 } else {
   buildFileName = (dbName) => dbName + '.db'

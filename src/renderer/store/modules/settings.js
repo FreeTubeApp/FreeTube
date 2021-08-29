@@ -1,5 +1,6 @@
 import { settingsDb } from '../datastores'
 import i18n from '../../i18n/index'
+import { IpcChannels } from '../../../constants'
 
 /*
  * Due to the complexity of the settings module in FreeTube, a more
@@ -329,7 +330,7 @@ const customActions = {
   setupListenerToSyncWindows: ({ commit, dispatch, getters }) => {
     // Already known to be Electron, no need to check
     const { ipcRenderer } = require('electron')
-    ipcRenderer.on('syncWindows', (_, payload) => {
+    ipcRenderer.on(IpcChannels.SYNC_WINDOWS, (_, payload) => {
       const { type, data } = payload
       switch (type) {
         case 'setting':
@@ -417,7 +418,7 @@ for (const settingId of Object.keys(state)) {
       const { ipcRenderer } = require('electron')
 
       // Propagate settings to all other existing windows
-      ipcRenderer.send('syncWindows', {
+      ipcRenderer.send(IpcChannels.SYNC_WINDOWS, {
         type: 'setting',
         data: { _id: settingId, value: value }
       })

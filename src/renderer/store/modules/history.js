@@ -1,5 +1,7 @@
 import { historyDb } from '../datastores'
 
+import { IpcChannels } from '../../../constants'
+
 const state = {
   historyCache: []
 }
@@ -48,7 +50,7 @@ const actions = {
   propagateHistory({ getters: { getUsingElectron: usingElectron } }) {
     if (usingElectron) {
       const { ipcRenderer } = require('electron')
-      ipcRenderer.send('syncWindows', {
+      ipcRenderer.send(IpcChannels.SYNC_WINDOWS, {
         type: 'history',
         data: state.historyCache
       })

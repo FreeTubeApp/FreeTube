@@ -6,6 +6,8 @@ import Datastore from 'nedb-promises'
 import path from 'path'
 import cp from 'child_process'
 
+import { IpcChannels } from '../constants'
+
 if (process.argv.includes('--version')) {
   console.log(`v${app.getVersion()}`)
   app.exit()
@@ -319,54 +321,54 @@ function runApp() {
     app.quit()
   })
 
-  ipcMain.on('enableProxy', (_, url) => {
+  ipcMain.on(IpcChannels.ENABLE_PROXY, (_, url) => {
     console.log(url)
     session.defaultSession.setProxy({
       proxyRules: url
     })
   })
 
-  ipcMain.on('disableProxy', () => {
+  ipcMain.on(IpcChannels.DISABLE_PROXY, () => {
     session.defaultSession.setProxy({})
   })
 
-  ipcMain.on('openExternalLink', (_, url) => {
+  ipcMain.on(IpcChannels.OPEN_EXTERNAL_LINK, (_, url) => {
     if (typeof url === 'string') shell.openExternal(url)
   })
 
-  ipcMain.handle('getSystemLocale', () => {
+  ipcMain.handle(IpcChannels.GET_SYSTEM_LOCALE, () => {
     return app.getLocale()
   })
 
-  ipcMain.handle('getUserDataPath', () => {
+  ipcMain.handle(IpcChannels.GET_USER_DATA_PATH, () => {
     return app.getPath('userData')
   })
 
-  ipcMain.on('getUserDataPathSync', (event) => {
+  ipcMain.on(IpcChannels.GET_USER_DATA_PATH_SYNC, (event) => {
     event.returnValue = app.getPath('userData')
   })
 
-  ipcMain.handle('showOpenDialog', async (_, options) => {
+  ipcMain.handle(IpcChannels.SHOW_OPEN_DIALOG, async (_, options) => {
     return await dialog.showOpenDialog(options)
   })
 
-  ipcMain.handle('showSaveDialog', async (_, options) => {
+  ipcMain.handle(IpcChannels.SHOW_SAVE_DIALOG, async (_, options) => {
     return await dialog.showSaveDialog(options)
   })
 
-  ipcMain.on('stopPowerSaveBlocker', (_, id) => {
+  ipcMain.on(IpcChannels.STOP_POWER_SAVE_BLOCKER, (_, id) => {
     powerSaveBlocker.stop(id)
   })
 
-  ipcMain.handle('startPowerSaveBlocker', (_, type) => {
-    return powerSaveBlocker.start(type)
+  ipcMain.handle(IpcChannels.START_POWER_SAVE_BLOCKER, (_) => {
+    return powerSaveBlocker.start('prevent-display-sleep')
   })
 
-  ipcMain.on('createNewWindow', () => {
+  ipcMain.on(IpcChannels.CREATE_NEW_WINDOW, () => {
     createWindow(false)
   })
 
-  ipcMain.on('syncWindows', (event, payload) => {
+  ipcMain.on(IpcChannels.SYNC_WINDOWS, (event, payload) => {
     const otherWindows = BrowserWindow.getAllWindows().filter(
       (window) => {
         return window.webContents.id !== event.sender.id
@@ -374,11 +376,11 @@ function runApp() {
     )
 
     for (const window of otherWindows) {
-      window.webContents.send('syncWindows', payload)
+      window.webContents.send(IpcChannels.SYNC_WINDOWS, payload)
     }
   })
 
-  ipcMain.on('openInExternalPlayer', (_, payload) => {
+  ipcMain.on(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, (_, payload) => {
     const child = cp.spawn(payload.executable, payload.args, { detached: true, stdio: 'ignore' })
     child.unref()
   })
