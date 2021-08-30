@@ -4,7 +4,8 @@
     :class="{
       search: isSearch,
       forceTextColor: forceTextColor,
-      showArrow: showArrow
+      showArrow: showArrow,
+      showClearTextButton: showClearTextButton
     }"
   >
     <label
@@ -20,6 +21,7 @@
       />
     </label>
     <font-awesome-icon
+      v-if="showClearTextButton"
       icon="backspace"
       class="clearInputTextButton"
       @click="handleClearTextClick"
