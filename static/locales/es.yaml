@@ -74,7 +74,7 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Obteniendo suscripciones. Por favor, espera.'
   Refresh Subscriptions: 'Recargar suscripciones'
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
-    perfil tiene muchas suscripciones. Para eludir este límite, usaremos RSS.
+    perfil tiene muchas suscripciones. Para eludir este límite, usaremos RSS
   Load More Videos: Ver más
 Trending:
   Trending: 'Tendencias'
@@ -84,7 +84,7 @@ Trending:
   Gaming: Videojuegos
   Music: Música
 Most Popular: 'Más populares'
-Playlists: 'Playlists'
+Playlists: 'Listas de reproducción'
 User Playlists:
   Your Playlists: 'Tus listas de reproducción'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Tus
@@ -501,32 +501,32 @@ Video:
     el chat no funciona con la API de Invidious. Se requiere una conexión directa
     con YouTube.'
   Published:
-    Jan: 'Ene'
-    Feb: 'Feb'
-    Mar: 'Mar'
-    Apr: 'Abr'
-    May: 'May'
-    Jun: 'Jun'
-    Jul: 'Jul'
-    Aug: 'Ago'
-    Sep: 'Sep'
-    Oct: 'Oct'
-    Nov: 'Nov'
-    Dec: 'Dic'
-    Second: 'Segundo'
-    Seconds: 'Segundos'
-    Minute: 'Minuto'
-    Minutes: 'Minutos'
-    Hour: 'Hora'
-    Hours: 'Horas'
-    Day: 'Día'
-    Days: 'Días'
-    Week: 'Semana'
-    Weeks: 'Semanas'
-    Month: 'Mes'
-    Months: 'Meses'
-    Year: 'Año'
-    Years: 'Años'
+    Jan: 'ene'
+    Feb: 'feb'
+    Mar: 'mar'
+    Apr: 'abr'
+    May: 'mayo'
+    Jun: 'jun'
+    Jul: 'jul'
+    Aug: 'ago'
+    Sep: 'sep'
+    Oct: 'oct'
+    Nov: 'nov'
+    Dec: 'dic'
+    Second: 'segundo'
+    Seconds: 'segundos'
+    Minute: 'minuto'
+    Minutes: 'minutos'
+    Hour: 'hora'
+    Hours: 'horas'
+    Day: 'día'
+    Days: 'días'
+    Week: 'semana'
+    Weeks: 'semanas'
+    Month: 'mes'
+    Months: 'meses'
+    Year: 'año'
+    Years: 'años'
     Ago: 'Hace'
     Upcoming: 'Se estrenará el'
   Published on: 'Publicado el'
@@ -558,7 +558,7 @@ Video:
     de guardados
   Video has been saved: El vídeo ha sido guardado
   Save Video: Guardiar el vídeo
-  translated from English: traducido del Inglés
+  translated from English: traducido del inglés
   Sponsor Block category:
     music offtopic: música fuera de tema
     interaction: interacción
@@ -668,11 +668,11 @@ Loop is now disabled: 'Reproducción en bucle desactivada'
 Loop is now enabled: 'Reproducción en bucle activada'
 Shuffle is now disabled: 'Reproducción aleatoria desactivada'
 Shuffle is now enabled: 'Reproducción aleatoria activada'
-Playing Next Video: 'Reproduciendo video'
-Playing Previous Video: 'Reproduciendo el video anterior'
+Playing Next Video: 'Reproduciendo el vídeo siguiente'
+Playing Previous Video: 'Reproduciendo el vídeo anterior'
 Playing next video in 5 seconds.  Click to cancel: 'El video siguiente comenzará en
   5 segundos. Click para cancelar.'
-Canceled next video autoplay: 'La reproducción del video siguiente se ha cancelado'
+Canceled next video autoplay: 'La reproducción del vídeo siguiente se ha cancelado'
 'The playlist has ended.  Enable loop to continue playing': 'Esta lista de reproducción
   ha finalizado. Activa la reproducción en bucle para continuar con ella'
 
@@ -685,7 +685,7 @@ Version $ is now available!  Click for more details: La versión $ está disponi
   Click para saber más
 The playlist has been reversed: Orden de Playlist invertido
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
-  video no está disponible por no tener un formato válido. Esto puede suceder por
+  vídeo no está disponible por no tener un formato válido. Esto puede suceder por
   la falta de acceso de este formato a tu región.
 Tooltips:
   Subscription Settings:
@@ -721,7 +721,7 @@ Tooltips:
       de un servidor Invidious al cual conectarse.
   Privacy Settings:
     Remove Video Meta Files: Cuando se active, FreeTube eliminará automáticamente
-      meta-archivos creados durante la reproducción del video una vez se cierre la
+      meta-archivos creados durante la reproducción del vídeo una vez se cierre la
       página de visualizado.
   External Player Settings:
     Custom External Player Executable: De manera predeterminada, FreeTube supondrá
