@@ -135,7 +135,7 @@ Settings:
     Check for Updates: Vérifier les mises à jour
     View all Invidious instance information: Voir les informations de toutes les instances
       Invidious
-    System Default: Selon le système
+    System Default: Système par défaut
     Clear Default Instance: Effacer l'instance par défaut
     Set Current Instance as Default: Définir l'instance actuelle comme valeur par
       défaut
@@ -174,7 +174,7 @@ Settings:
       Deep Orange: 'Orange foncé'
     Secondary Color Theme: 'Couleur secondaire du thème'
         #* Main Color Theme
-    UI Scale: Échelle de l'interface
+    UI Scale: Échelle de l'interface utilisateur
     Expand Side Bar by Default: Développer la barre latérale par défaut
     Disable Smooth Scrolling: Désactiver le défilement fluide
   Player Settings:
@@ -209,7 +209,7 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Intervalle de la prochaine vidéo dans la liste de
       lecture
-    Next Video Interval: Intervalle vidéo suivant
+    Next Video Interval: Intervalle vidéo suivante
     Scroll Volume Over Video Player: Contrôler le niveau du volume avec la molette
       au dessus du lecteur vidéo
     Display Play Button In Video Player: Afficher le bouton de lecture dans le lecteur
