@@ -80,7 +80,13 @@ Subscriptions:
     profil comporte un grand nombre d'abonnements.  Le flux RSS outrepassera la limite
     fixée
   Load More Videos: Charger plus de vidéos
-Trending: 'Tendance'
+Trending:
+  Trending: 'Tendance'
+  Trending Tabs: Onglets des Tendances
+  Movies: Films
+  Gaming: Jeux vidéo
+  Music: Musique
+  Default: Par défaut
 Most Popular: 'Les plus populaires'
 Playlists: 'Listes de lecture'
 User Playlists:
@@ -95,7 +101,7 @@ User Playlists:
 History:
   # On History Page
   History: 'Historique'
-  Watch History: 'Voir l''historique'
+  Watch History: 'Historique de visionnage'
   Your history list is currently empty.: 'Votre historique est vide.'
 Settings:
   # On Settings Page
@@ -109,7 +115,7 @@ Settings:
     Locale Preference: 'Préférence locale'
     Preferred API Backend:
       Preferred API Backend: 'API Backend préférée'
-      Local API: 'API Locale'
+      Local API: 'API locale'
       Invidious API: 'API Invidious'
     Video View Type:
       Video View Type: 'Type d''affichage des vidéos'
@@ -129,7 +135,16 @@ Settings:
     Check for Updates: Vérifier les mises à jour
     View all Invidious instance information: Voir les informations de toutes les instances
       Invidious
-    System Default: Valeur par défaut du système
+    System Default: Selon le système
+    Clear Default Instance: Effacer l'instance par défaut
+    Set Current Instance as Default: Définir l'instance actuelle comme valeur par
+      défaut
+    Current instance will be randomized on startup: L'instance actuelle sera choisie
+      au hasard au démarrage
+    No default instance has been set: Aucune instance par défaut n'a été définie
+    The currently set default instance is $: L'instance par défaut actuellement définie
+      est $
+    Current Invidious Instance: Instance Invidious actuelle
   Theme Settings:
     Theme Settings: 'Paramètres du thème'
     Match Top Bar with Main Color: 'Faire correspondre la barre supérieure à la couleur
@@ -159,12 +174,12 @@ Settings:
       Deep Orange: 'Orange foncé'
     Secondary Color Theme: 'Couleur secondaire du thème'
         #* Main Color Theme
-    UI Scale: Échelle de l'IU
+    UI Scale: Échelle de l'interface
     Expand Side Bar by Default: Développer la barre latérale par défaut
     Disable Smooth Scrolling: Désactiver le défilement fluide
   Player Settings:
     Player Settings: 'Paramètres du lecteur'
-    Force Local Backend for Legacy Formats: 'Forcer le Backend local pour le format
+    Force Local Backend for Legacy Formats: 'Forcer le backend local pour le format
       Legacy'
     Remember History: 'Se souvenir de l''historique'
     Play Next Video: 'Lire la vidéo suivante'
@@ -194,11 +209,12 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Intervalle de la prochaine vidéo dans la liste de
       lecture
-    Next Video Interval: Intervalle vidéo suivante
+    Next Video Interval: Intervalle vidéo suivant
     Scroll Volume Over Video Player: Contrôler le niveau du volume avec la molette
       au dessus du lecteur vidéo
     Display Play Button In Video Player: Afficher le bouton de lecture dans le lecteur
       vidéo
+    Fast-Forward / Rewind Interval: Intervalle d'avance / de recul rapide
   Subscription Settings:
     Subscription Settings: 'Paramètres des abonnements'
     Hide Videos on Watch: 'Masquer les vidéos visionnées'
@@ -255,7 +271,7 @@ Settings:
       sûr(e) de vouloir supprimer tous les abonnements et les profils ? Cette action
       est définitive.
     Remove All Subscriptions / Profiles: Supprimer tous les Abonnements / Profils
-    Automatically Remove Video Meta Files: Suppression automatique des MétaFichiers
+    Automatically Remove Video Meta Files: Retirer automatiquement les métafichiers
       vidéo
   Data Settings:
     How do I import my subscriptions?: Comment importer mes abonnements ?
@@ -398,10 +414,10 @@ About:
   Chat on Matrix: Discuter sur Matrix
   Mastodon: Mastodon
   Report a problem: Signaler un problème
-  View License: Voir la license
+  View License: Voir la licence
   Licensed under the AGPLv3: Sous licence AGPLv3
   Source code: Code source
-  these people and projects: ces personnes et projets
+  these people and projects: ces personnes et ces projets
   FreeTube is made possible by: FreeTube est rendu possible par
   room rules: règles du salon
   Please read the: Veuillez lire les
@@ -437,7 +453,7 @@ Channel:
       Newest: 'Les plus récentes'
       Oldest: 'Les plus anciennes'
   About:
-    About: 'A propos'
+    About: 'À propos'
     Channel Description: 'Description de la chaîne'
     Featured Channels: 'Chaînes en vedette'
   Added channel to your subscriptions: Chaîne ajoutée à vos abonnements
@@ -446,7 +462,7 @@ Channel:
   Channel has been removed from your subscriptions: La chaîne a été retirée de vos
     abonnements
 Video:
-  Mark As Watched: 'Marquer comme Vu'
+  Mark As Watched: 'Marquer comme vu'
   Remove From History: 'Retirer de l''historique'
   Video has been marked as watched: 'La vidéo a été marqué comme Vu'
   Video has been removed from your history: 'La vidéo a été retiré de votre historique'
@@ -464,46 +480,46 @@ Video:
   # As in a Live Video
   Live: 'En direct'
   Live Now: 'En direct maintenant'
-  Live Chat: 'Chat en direct'
-  Enable Live Chat: 'Activer le chat en direct'
-  Live Chat is currently not supported in this build.: 'Le chat en direct n''est actuellement
-    pas pris en charge dans cette version.'
-  'Chat is disabled or the Live Stream has ended.': 'Le chat est désactivé ou la diffusion
-    en direct est terminée.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Le chat en direct
-    est activé. Les messages de chat apparaîtront ici une fois envoyés.'
+  Live Chat: 'Tchat en direct'
+  Enable Live Chat: 'Activer le tchat en direct'
+  Live Chat is currently not supported in this build.: 'Le tchat en direct n''est
+    actuellement pas pris en charge dans cette version.'
+  'Chat is disabled or the Live Stream has ended.': 'Le tchat est désactivé ou la
+    diffusion en direct est terminée.'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'Le tchat en direct
+    est activé. Les messages de tchat apparaîtront ici une fois envoyés.'
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Le
-    chat en direct n''est actuellement pas pris en charge avec l''API Invidious. Une
-    connexion directe à YouTube est requise.'
+    tchat en direct n''est actuellement pas pris en charge avec l''API Invidious.
+    Une connexion directe à YouTube est requise.'
   Published:
-    Jan: 'Jan'
-    Feb: 'Fév'
-    Mar: 'Mar'
-    Apr: 'Avr'
-    May: 'Mai'
-    Jun: 'Juin'
-    Jul: 'Jui'
-    Aug: 'Août'
-    Sep: 'Sep'
-    Oct: 'Oct'
-    Nov: 'Nov'
-    Dec: 'Déc'
-    Second: 'Seconde'
-    Seconds: 'Secondes'
-    Hour: 'Heure'
-    Hours: 'Heures'
-    Day: 'Jour'
-    Days: 'Jours'
-    Week: 'Semaine'
-    Weeks: 'Semaines'
-    Month: 'Mois'
-    Months: 'Mois'
-    Year: 'Année'
-    Years: 'Années'
+    Jan: 'jan'
+    Feb: 'fév'
+    Mar: 'mar'
+    Apr: 'avr'
+    May: 'mai'
+    Jun: 'juin'
+    Jul: 'juil'
+    Aug: 'août'
+    Sep: 'sep'
+    Oct: 'oct'
+    Nov: 'nov'
+    Dec: 'déc'
+    Second: 'seconde'
+    Seconds: 'secondes'
+    Hour: 'heure'
+    Hours: 'heures'
+    Day: 'jour'
+    Days: 'jours'
+    Week: 'semaine'
+    Weeks: 'semaines'
+    Month: 'mois'
+    Months: 'mois'
+    Year: 'année'
+    Years: 'années'
     Ago: 'Il y a'
     Upcoming: 'Avant-première le'
-    Minutes: Minutes
-    Minute: Minute
+    Minutes: minutes
+    Minute: minute
   Published on: 'Mise en ligne le'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Il y a $ %'
@@ -521,8 +537,8 @@ Video:
     Medium: Normale
     Low: Basse
     High: Haute
-  audio only: Audio uniquement
-  video only: Vidéo uniquement
+  audio only: audio uniquement
+  video only: vidéo uniquement
   Download Video: Télécharger la vidéo
   Copy Invidious Channel Link: Copier le lien Invidious de la chaîne
   Open Channel in Invidious: Ouvrir la chaîne sur Invidious
@@ -557,8 +573,8 @@ Video:
       setting a playback rate: régler la vitesse de lecture
       starting video at offset: démarrer la vidéo avec un décalage
     UnsupportedActionTemplate: '$ non pris en charge : %'
-    OpeningTemplate: Ouverture de $ en %...
-    OpenInTemplate: Ouvrir en $
+    OpeningTemplate: Ouverture de $ en %…
+    OpenInTemplate: Ouvrir avec $
 Videos:
   #& Sort By
   Sort By:
@@ -583,6 +599,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Liste de lecture
 Toggle Theatre Mode: 'Mode Cinéma'
 Change Format:
   Change Video Formats: 'Changer le format de la vidéo'
@@ -632,6 +649,7 @@ Comments:
   Top comments: Top des commentaires
   Sort by: Trier par
   No more comments available: Pas d'autres commentaires disponibles
+  Show More Replies: Afficher plus de réponses
 Up Next: 'À suivre'
 
 # Toast Messages
@@ -645,7 +663,7 @@ Loop is now disabled: 'La boucle est maintenant désactivée'
 Loop is now enabled: 'La boucle est maintenant activée'
 Shuffle is now disabled: 'Mode aléatoire désactivé'
 Shuffle is now enabled: 'Mode aléatoire activé'
-Playing Next Video: 'Lire la vidéo suivante'
+Playing Next Video: 'Lecture de la vidéo suivante'
 Playing Previous Video: 'Lecture de la vidéo précédente'
 Playing next video in 5 seconds.  Click to cancel: 'Lecture de la vidéo suivante dans
   5 secondes. Cliquer pour annuler.'
@@ -676,7 +694,7 @@ Profile:
   Profile Preview: Aperçu du profil
   Custom Color: Couleur personnalisée
   Color Picker: Sélecteur de couleurs
-  Edit Profile: Éditer le profil
+  Edit Profile: Modifier le profil
   Create New Profile: Créer un nouveau profil
   Profile Manager: Gestionnaire de profil
   All Channels: Tous les canaux
@@ -698,6 +716,7 @@ Profile:
   $ selected: $ sélectionné(s)
   Other Channels: Autres chaînes
   Profile Filter: Filtre de profil
+  Profile Settings: Paramètres du profil
 The playlist has been reversed: La liste de lecture a été inversée
 A new blog is now available, $. Click to view more: Un nouveau billet est maintenant
   disponible, $. Cliquez pour en savoir plus
@@ -761,10 +780,14 @@ Tooltips:
 More: Plus
 Playing Next Video Interval: Lecture de la prochaine vidéo en un rien de temps. Cliquez
   pour annuler. | Lecture de la prochaine vidéo dans {nextVideoInterval} seconde.
-  Cliquer pour annuler. | Lecture de la vidéo suivante dans {l'intervalle vidéo suivant}
-  secondes. Cliquer pour annuler.
+  Cliquer pour annuler. | Lecture de la vidéo suivante dans {nextVideoInterval} secondes.
+  Cliquer pour annuler.
 Hashtags have not yet been implemented, try again later: Les hashtags n'ont pas encore
   été implémentés, réessayez plus tard
 Unknown YouTube url type, cannot be opened in app: Type d’url YouTube inconnu, ne
   peut pas être ouvert dans l’application
 Open New Window: Ouvrir une nouvelle fenêtre
+Default Invidious instance has been cleared: L'instance Invidious par défaut a été
+  effacée
+Default Invidious instance has been set to $: L’instance Invidious par défaut a été
+  définie sur $

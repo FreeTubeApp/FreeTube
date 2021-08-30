@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'ඉංග්‍රීසි'
+Locale Name: 'සිංහල'
 FreeTube: 'ෆ්‍රීටියුබ්'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -19,25 +19,26 @@ Select all: 'සියල්ල තෝරන්න'
 Reload: 'පූරණය'
 Force Reload: 'බලාත්මක පූරණය'
 Toggle Developer Tools: ''
-Actual size: ''
-Zoom in: ''
-Zoom out: ''
+Actual size: 'සැබෑ ප්‍රමාණය'
+Zoom in: 'විශාලනය'
+Zoom out: 'කුඩාලනය'
 Toggle fullscreen: ''
 Window: ''
-Minimize: ''
+Minimize: 'හකුලන්න'
 Close: 'වසන්න'
 Back: 'ආපසු'
 Forward: ''
 
-Version $ is now available!  Click for more details: ''
+Version $ is now available!  Click for more details: '$ අනුවාදය දැන් ලබා ගත හැකිය!  වැඩි
+  විස්තර සඳහා ඔබන්න'
 Download From Site: 'අඩවියෙන් බාගන්න'
 A new blog is now available, $. Click to view more: ''
 
 # Search Bar
-Search / Go to URL: ''
+Search / Go to URL: 'සොයන්න / ඒ.ස.නි.(URL) වෙත යන්න'
   # In Filter Button
 Search Filters:
-  Search Filters: ''
+  Search Filters: 'පෙරහන් සොයන්න'
   Sort By:
     Sort By: ''
     Most Relevant: ''
@@ -48,26 +49,27 @@ Search Filters:
     Time: ''
     Any Time: ''
     Last Hour: ''
-    Today: ''
-    This Week: ''
-    This Month: ''
-    This Year: ''
+    Today: 'අද'
+    This Week: 'මෙම සතිය'
+    This Month: 'මෙම මාසය'
+    This Year: 'මෙම අවුරුද්ද'
   Type:
-    Type: ''
-    All Types: ''
-    Videos: ''
-    Channels: ''
+    Type: 'වර්ගය'
+    All Types: 'සියලුම වර්ග'
+    Videos: 'දෘශ්‍යක'
+    Channels: 'නාලිකා'
     #& Playlists
   Duration:
-    Duration: ''
-    All Durations: ''
-    Short (< 4 minutes): ''
-    Long (> 20 minutes): ''
+    Duration: 'කාල සීමාව'
+    All Durations: 'සියලුම කාල සීමාවන්'
+    Short (< 4 minutes): 'කෙටි (විනාඩි <4)'
+    Long (> 20 minutes): 'දීර්ඝ (විනාඩි > 20)'
   # On Search Page
-  Search Results: ''
-  Fetching results. Please wait: ''
-  Fetch more results: ''
+  Search Results: 'සෙවුම් ප්‍රතිඵල'
+  Fetching results. Please wait: 'ප්‍රතිඵල ගෙනෙමින්. කරුණාකර රැඳී සිටින්න'
+  Fetch more results: 'තවත් ප්‍රතිඵල ගෙනෙන්න'
 # Sidebar
+  There are no more results for this search: මෙම සෙවීම සඳහා තවත් ප්‍රතිඵල නැත
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: ''
@@ -76,23 +78,25 @@ Subscriptions:
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
   'Getting Subscriptions. Please wait.': ''
   Refresh Subscriptions: ''
-Trending: ''
+  Load More Videos: තව දෘශ්‍යක පූරනය කරන්න
+Trending: 
+  Trending: ''
 Most Popular: ''
 Playlists: ''
 User Playlists:
   Your Playlists: ''
 History:
   # On History Page
-  History: ''
-  Watch History: ''
+  History: 'ඉතිහාසය'
+  Watch History: 'නැරඹීම් ඉතිහාසය'
   Your history list is currently empty.: ''
 Settings:
   # On Settings Page
-  Settings: ''
+  Settings: 'සැකසුම්'
   The app needs to restart for changes to take effect. Restart and apply change?: ''
   General Settings:
-    General Settings: ''
-    Check for Updates: ''
+    General Settings: 'සාමාන්‍ය සැකසුම්'
+    Check for Updates: 'යාවත්කාල සඳහා පරීක්ෂා කරන්න'
     Check for Latest Blog Posts: ''
     Fallback to Non-Preferred Backend on Failure: ''
     Enable Search Suggestions: ''
@@ -100,8 +104,8 @@ Settings:
     Locale Preference: ''
     Preferred API Backend:
       Preferred API Backend: ''
-      Local API: ''
-      Invidious API: ''
+      Local API: 'ස්ථානීය යෙ.ක්‍ර. අ.මු. (API)'
+      Invidious API: 'ඉන්වීඩියස් යෙ.ක්‍ර. අ.මු. (API)'
     Video View Type:
       Video View Type: ''
       Grid: ''
@@ -123,8 +127,8 @@ Settings:
     UI Scale: ''
     Base Theme:
       Base Theme: ''
-      Black: ''
-      Dark: ''
+      Black: 'කළු'
+      Dark: 'අඳුරු'
       Light: ''
     Main Color Theme:
       Main Color Theme: ''
@@ -494,3 +498,5 @@ Canceled next video autoplay: ''
 
 Yes: ''
 No: ''
+More: තව
+Open New Window: නව කවුළුව විවෘත කරන්න

@@ -103,8 +103,8 @@ export default Vue.extend({
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
     },
     proxyVideos: function () {
       return this.$store.getters.getProxyVideos
@@ -514,7 +514,7 @@ export default Vue.extend({
       }
 
       this.dashSrc = this.createInvidiousDashManifest()
-      this.videoStoryboardSrc = `${this.invidiousInstance}/api/v1/storyboards/${this.videoId}?height=90`
+      this.videoStoryboardSrc = `${this.currentInvidiousInstance}/api/v1/storyboards/${this.videoId}?height=90`
 
       this.invidiousGetVideoInformation(this.videoId)
         .then(result => {
@@ -540,14 +540,14 @@ export default Vue.extend({
           }
           this.channelId = result.authorId
           this.channelName = result.author
-          this.channelThumbnail = result.authorThumbnails[1] ? result.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`) : ''
+          this.channelThumbnail = result.authorThumbnails[1] ? result.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`) : ''
           this.videoPublished = result.published * 1000
           this.videoDescriptionHtml = result.descriptionHtml
           this.recommendedVideos = result.recommendedVideos
           this.adaptiveFormats = result.adaptiveFormats
           this.isLive = result.liveNow
           this.captionHybridList = result.captions.map(caption => {
-            caption.url = this.invidiousInstance + caption.url
+            caption.url = this.currentInvidiousInstance + caption.url
             caption.type = ''
             caption.dataSource = 'invidious'
             return caption
@@ -555,13 +555,13 @@ export default Vue.extend({
 
           switch (this.thumbnailPreference) {
             case 'start':
-              this.thumbnail = `${this.invidiousInstance}/vi/${this.videoId}/maxres1.jpg`
+              this.thumbnail = `${this.currentInvidiousInstance}/vi/${this.videoId}/maxres1.jpg`
               break
             case 'middle':
-              this.thumbnail = `${this.invidiousInstance}/vi/${this.videoId}/maxres2.jpg`
+              this.thumbnail = `${this.currentInvidiousInstance}/vi/${this.videoId}/maxres2.jpg`
               break
             case 'end':
-              this.thumbnail = `${this.invidiousInstance}/vi/${this.videoId}/maxres3.jpg`
+              this.thumbnail = `${this.currentInvidiousInstance}/vi/${this.videoId}/maxres3.jpg`
               break
             default:
               this.thumbnail = result.videoThumbnails[0].url
@@ -1007,12 +1007,16 @@ export default Vue.extend({
       let fileLocation
       let uriSchema
       if (this.isDev) {
-        fileLocation = `dashFiles/${this.videoId}.xml`
-        uriSchema = fileLocation
+        fileLocation = `static/dashFiles/${this.videoId}.xml`
+        uriSchema = `dashFiles/${this.videoId}.xml`
         // if the location does not exist, writeFileSync will not create the directory, so we have to do that manually
-        if (!fs.existsSync('dashFiles/')) {
-          fs.mkdirSync('dashFiles/')
+        if (!fs.existsSync('static/dashFiles/')) {
+          fs.mkdirSync('static/dashFiles/')
         }
+
+        fs.rm(fileLocation, () => {
+          fs.writeFileSync(fileLocation, xmlData)
+        })
       } else {
         fileLocation = `${userData}/dashFiles/${this.videoId}.xml`
         uriSchema = `file://${fileLocation}`
@@ -1020,8 +1024,10 @@ export default Vue.extend({
         if (!fs.existsSync(`${userData}/dashFiles/`)) {
           fs.mkdirSync(`${userData}/dashFiles/`)
         }
+
+        fs.writeFileSync(fileLocation, xmlData)
       }
-      fs.writeFileSync(fileLocation, xmlData)
+
       return [
         {
           url: uriSchema,
@@ -1033,7 +1039,7 @@ export default Vue.extend({
     },
 
     createInvidiousDashManifest: function () {
-      let url = `${this.invidiousInstance}/api/manifest/dash/id/${this.videoId}.mpd`
+      let url = `${this.currentInvidiousInstance}/api/manifest/dash/id/${this.videoId}.mpd`
 
       if (this.proxyVideos || !this.usingElectron) {
         url = url + '?local=true'
@@ -1081,20 +1087,25 @@ export default Vue.extend({
         // Dev mode doesn't have access to the file:// schema, so we access
         // storyboards differently when run in dev
         if (this.isDev) {
-          fileLocation = `storyboards/${this.videoId}.vtt`
-          uriSchema = fileLocation
+          fileLocation = `static/storyboards/${this.videoId}.vtt`
+          uriSchema = `storyboards/${this.videoId}.vtt`
           // if the location does not exist, writeFileSync will not create the directory, so we have to do that manually
-          if (!fs.existsSync('storyboards/')) {
-            fs.mkdirSync('storyboards/')
+          if (!fs.existsSync('static/storyboards/')) {
+            fs.mkdirSync('static/storyboards/')
           }
+
+          fs.rm(fileLocation, () => {
+            fs.writeFileSync(fileLocation, results)
+          })
         } else {
           if (!fs.existsSync(`${userData}/storyboards/`)) {
             fs.mkdirSync(`${userData}/storyboards/`)
           }
           fileLocation = `${userData}/storyboards/${this.videoId}.vtt`
           uriSchema = `file://${fileLocation}`
+
+          fs.writeFileSync(fileLocation, results)
         }
-        fs.writeFileSync(fileLocation, results)
 
         this.videoStoryboardSrc = uriSchema
       })

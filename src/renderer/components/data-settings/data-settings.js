@@ -27,6 +27,7 @@ export default Vue.extend({
       showExportSubscriptionsPrompt: false,
       subscriptionsPromptValues: [
         'freetube',
+        'youtubenew',
         'youtube',
         'youtubeold',
         'newpipe'
@@ -46,8 +47,8 @@ export default Vue.extend({
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
     },
     profileList: function () {
       return this.$store.getters.getProfileList
@@ -58,6 +59,7 @@ export default Vue.extend({
       const importNewPipe = this.$t('Settings.Data Settings.Import NewPipe')
       return [
         `${importFreeTube} (.db)`,
+        `${importYouTube} (.csv)`,
         `${importYouTube} (.json)`,
         `${importYouTube} (.opml)`,
         `${importNewPipe} (.json)`
@@ -69,6 +71,7 @@ export default Vue.extend({
       const exportNewPipe = this.$t('Settings.Data Settings.Export NewPipe')
       return [
         `${exportFreeTube} (.db)`,
+        `${exportYouTube} (.csv)`,
         `${exportYouTube} (.json)`,
         `${exportYouTube} (.opml)`,
         `${exportNewPipe} (.json)`
@@ -92,6 +95,9 @@ export default Vue.extend({
       switch (option) {
         case 'freetube':
           this.importFreeTubeSubscriptions()
+          break
+        case 'youtubenew':
+          this.importCsvYouTubeSubscriptions()
           break
         case 'youtube':
           this.importYouTubeSubscriptions()
@@ -228,6 +234,75 @@ export default Vue.extend({
       this.handleFreetubeImportFile(filePath)
     },
 
+    handleYoutubeCsvImportFile: function(filePath) { // first row = header, last row = empty
+      fs.readFile(filePath, async (err, data) => {
+        if (err) {
+          const message = this.$t('Settings.Data Settings.Unable to read file')
+          this.showToast({
+            message: `${message}: ${err}`
+          })
+          return
+        }
+        const textDecode = new TextDecoder('utf-8').decode(data)
+        console.log(textDecode)
+        const youtubeSubscriptions = textDecode.split('\n')
+        const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
+        const subscriptions = []
+
+        this.showToast({
+          message: this.$t('Settings.Data Settings.This might take a while, please wait')
+        })
+
+        this.updateShowProgressBar(true)
+        this.setProgressBarPercentage(0)
+        let count = 0
+        for (let i = 1; i < (youtubeSubscriptions.length - 1); i++) {
+          const channelId = youtubeSubscriptions[i].split(',')[0]
+          const subExists = primaryProfile.subscriptions.findIndex((sub) => {
+            return sub.id === channelId
+          })
+          if (subExists === -1) {
+            let channelInfo
+            if (this.backendPreference === 'invidious') { // only needed for thumbnail
+              channelInfo = await this.getChannelInfoInvidious(channelId)
+            } else {
+              channelInfo = await this.getChannelInfoLocal(channelId)
+            }
+
+            if (typeof channelInfo.author !== 'undefined') {
+              const subscription = {
+                id: channelId,
+                name: channelInfo.author,
+                thumbnail: channelInfo.authorThumbnails[1].url
+              }
+              subscriptions.push(subscription)
+            }
+          }
+
+          count++
+
+          const progressPercentage = (count / (youtubeSubscriptions.length - 1)) * 100
+          this.setProgressBarPercentage(progressPercentage)
+          if (count + 1 === (youtubeSubscriptions.length - 1)) {
+            primaryProfile.subscriptions = primaryProfile.subscriptions.concat(subscriptions)
+            this.updateProfile(primaryProfile)
+
+            if (subscriptions.length < count + 2) {
+              this.showToast({
+                message: this.$t('Settings.Data Settings.One or more subscriptions were unable to be imported')
+              })
+            } else {
+              this.showToast({
+                message: this.$t('Settings.Data Settings.All subscriptions have been successfully imported')
+              })
+            }
+
+            this.updateShowProgressBar(false)
+          }
+        }
+      })
+    },
+
     handleYoutubeImportFile: function (filePath) {
       fs.readFile(filePath, async (err, data) => {
         if (err) {
@@ -310,6 +385,25 @@ export default Vue.extend({
       })
     },
 
+    importCsvYouTubeSubscriptions: async function () {
+      const options = {
+        properties: ['openFile'],
+        filters: [
+          {
+            name: 'Database File',
+            extensions: ['csv']
+          }
+        ]
+      }
+      const response = await this.showOpenDialog(options)
+      if (response.canceled || response.filePaths.length === 0) {
+        return
+      }
+
+      const filePath = response.filePaths[0]
+      this.handleYoutubeCsvImportFile(filePath)
+    },
+
     importYouTubeSubscriptions: async function () {
       const options = {
         properties: ['openFile'],
@@ -387,25 +481,23 @@ export default Vue.extend({
 
           feedData.forEach(async (channel, index) => {
             const channelId = channel.xmlurl.replace('https://www.youtube.com/feeds/videos.xml?channel_id=', '')
-            let channelInfo
-            if (this.backendPreference === 'invidious') {
-              channelInfo = await this.getChannelInfoInvidious(channelId)
-            } else {
-              channelInfo = await this.getChannelInfoLocal(channelId)
-            }
-
-            if (typeof channelInfo.author !== 'undefined') {
-              const subscription = {
-                id: channelId,
-                name: channelInfo.author,
-                thumbnail: channelInfo.authorThumbnails[1].url
+            const subExists = primaryProfile.subscriptions.findIndex((sub) => {
+              return sub.id === channelId
+            })
+            if (subExists === -1) {
+              let channelInfo
+              if (this.backendPreference === 'invidious') {
+                channelInfo = await this.getChannelInfoInvidious(channelId)
+              } else {
+                channelInfo = await this.getChannelInfoLocal(channelId)
               }
 
-              const subExists = primaryProfile.subscriptions.findIndex((sub) => {
-                return sub.id === subscription.id || sub.name === subscription.name
-              })
-
-              if (subExists === -1) {
+              if (typeof channelInfo.author !== 'undefined') {
+                const subscription = {
+                  id: channelId,
+                  name: channelInfo.author,
+                  thumbnail: channelInfo.authorThumbnails[1].url
+                }
                 subscriptions.push(subscription)
               }
             }
@@ -498,25 +590,24 @@ export default Vue.extend({
 
         newPipeSubscriptions.forEach(async (channel, index) => {
           const channelId = channel.url.replace(/https:\/\/(www\.)?youtube\.com\/channel\//, '')
-          let channelInfo
-          if (this.backendPreference === 'invidious') {
-            channelInfo = await this.getChannelInfoInvidious(channelId)
-          } else {
-            channelInfo = await this.getChannelInfoLocal(channelId)
-          }
+          const subExists = primaryProfile.subscriptions.findIndex((sub) => {
+            return sub.id === channelId
+          })
 
-          if (typeof channelInfo.author !== 'undefined') {
-            const subscription = {
-              id: channelId,
-              name: channelInfo.author,
-              thumbnail: channelInfo.authorThumbnails[1].url
+          if (subExists === -1) {
+            let channelInfo
+            if (this.backendPreference === 'invidious') {
+              channelInfo = await this.getChannelInfoInvidious(channelId)
+            } else {
+              channelInfo = await this.getChannelInfoLocal(channelId)
             }
 
-            const subExists = primaryProfile.subscriptions.findIndex((sub) => {
-              return sub.id === subscription.id || sub.name === subscription.name
-            })
-
-            if (subExists === -1) {
+            if (typeof channelInfo.author !== 'undefined') {
+              const subscription = {
+                id: channelId,
+                name: channelInfo.author,
+                thumbnail: channelInfo.authorThumbnails[1].url
+              }
               subscriptions.push(subscription)
             }
           }
@@ -557,6 +648,9 @@ export default Vue.extend({
         case 'freetube':
           this.exportFreeTubeSubscriptions()
           break
+        case 'youtubenew':
+          this.exportCsvYouTubeSubscriptions()
+          break
         case 'youtube':
           this.exportYouTubeSubscriptions()
           break
@@ -573,21 +667,8 @@ export default Vue.extend({
       await this.compactProfiles()
       const userData = await this.getUserDataPath()
       const subscriptionsDb = `${userData}/profiles.db`
-      const date = new Date()
-      let dateMonth = date.getMonth() + 1
-
-      if (dateMonth < 10) {
-        dateMonth = '0' + dateMonth
-      }
-
-      let dateDay = date.getDate()
-
-      if (dateDay < 10) {
-        dateDay = '0' + dateDay
-      }
-
-      const dateYear = date.getFullYear()
-      const exportFileName = 'freetube-subscriptions-' + dateYear + '-' + dateMonth + '-' + dateDay + '.db'
+      const date = new Date().toISOString().split('T')[0]
+      const exportFileName = 'freetube-subscriptions-' + date + '.db'
 
       const options = {
         defaultPath: exportFileName,
@@ -633,21 +714,8 @@ export default Vue.extend({
     },
 
     exportYouTubeSubscriptions: async function () {
-      const date = new Date()
-      let dateMonth = date.getMonth() + 1
-
-      if (dateMonth < 10) {
-        dateMonth = '0' + dateMonth
-      }
-
-      let dateDay = date.getDate()
-
-      if (dateDay < 10) {
-        dateDay = '0' + dateDay
-      }
-
-      const dateYear = date.getFullYear()
-      const exportFileName = 'youtube-subscriptions-' + dateYear + '-' + dateMonth + '-' + dateDay + '.json'
+      const date = new Date().toISOString().split('T')[0]
+      const exportFileName = 'youtube-subscriptions-' + date + '.json'
 
       const options = {
         defaultPath: exportFileName,
@@ -719,21 +787,8 @@ export default Vue.extend({
     },
 
     exportOpmlYouTubeSubscriptions: async function () {
-      const date = new Date()
-      let dateMonth = date.getMonth() + 1
-
-      if (dateMonth < 10) {
-        dateMonth = '0' + dateMonth
-      }
-
-      let dateDay = date.getDate()
-
-      if (dateDay < 10) {
-        dateDay = '0' + dateDay
-      }
-
-      const dateYear = date.getFullYear()
-      const exportFileName = 'youtube-subscriptions-' + dateYear + '-' + dateMonth + '-' + dateDay + '.opml'
+      const date = new Date().toISOString().split('T')[0]
+      const exportFileName = 'youtube-subscriptions-' + date + '.opml'
 
       const options = {
         defaultPath: exportFileName,
@@ -783,22 +838,50 @@ export default Vue.extend({
       })
     },
 
+    exportCsvYouTubeSubscriptions: async function () {
+      const date = new Date().toISOString().split('T')[0]
+      const exportFileName = 'youtube-subscriptions-' + date + '.csv'
+
+      const options = {
+        defaultPath: exportFileName,
+        filters: [
+          {
+            name: 'Database File',
+            extensions: ['csv']
+          }
+        ]
+      }
+      let exportText = 'Channel ID,Channel URL,Channel title\n'
+      this.profileList[0].subscriptions.forEach((channel) => {
+        const channelUrl = `https://www.youtube.com/channel/${channel.id}`
+        exportText += `${channel.id},${channelUrl},${channel.name}\n`
+      })
+      exportText += '\n'
+      const response = await this.showSaveDialog(options)
+      if (response.canceled || response.filePath === '') {
+        // User canceled the save dialog
+        return
+      }
+
+      const filePath = response.filePath
+      fs.writeFile(filePath, exportText, (writeErr) => {
+        if (writeErr) {
+          const message = this.$t('Settings.Data Settings.Unable to write file')
+          this.showToast({
+            message: `${message}: ${writeErr}`
+          })
+          return
+        }
+
+        this.showToast({
+          message: this.$t('Settings.Data Settings.Subscriptions have been successfully exported')
+        })
+      })
+    },
+
     exportNewPipeSubscriptions: async function () {
-      const date = new Date()
-      let dateMonth = date.getMonth() + 1
-
-      if (dateMonth < 10) {
-        dateMonth = '0' + dateMonth
-      }
-
-      let dateDay = date.getDate()
-
-      if (dateDay < 10) {
-        dateDay = '0' + dateDay
-      }
-
-      const dateYear = date.getFullYear()
-      const exportFileName = 'newpipe-subscriptions-' + dateYear + '-' + dateMonth + '-' + dateDay + '.json'
+      const date = new Date().toISOString().split('T')[0]
+      const exportFileName = 'newpipe-subscriptions-' + date + '.json'
 
       const options = {
         defaultPath: exportFileName,
@@ -945,21 +1028,8 @@ export default Vue.extend({
       await this.compactHistory()
       const userData = await this.getUserDataPath()
       const historyDb = `${userData}/history.db`
-      const date = new Date()
-      let dateMonth = date.getMonth() + 1
-
-      if (dateMonth < 10) {
-        dateMonth = '0' + dateMonth
-      }
-
-      let dateDay = date.getDate()
-
-      if (dateDay < 10) {
-        dateDay = '0' + dateDay
-      }
-
-      const dateYear = date.getFullYear()
-      const exportFileName = 'freetube-history-' + dateYear + '-' + dateMonth + '-' + dateDay + '.db'
+      const date = new Date().toISOString().split('T')[0]
+      const exportFileName = 'freetube-history-' + date + '.db'
 
       const options = {
         defaultPath: exportFileName,

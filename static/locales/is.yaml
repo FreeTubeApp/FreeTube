@@ -87,7 +87,13 @@ Subscriptions:
   Refresh Subscriptions: 'Endurlesa áskriftir'
   Load More Videos: 'Hlaða inn fleiri myndskeiðum'
 More: 'Meira'
-Trending: 'Í umræðunni'
+Trending:
+  Trending: 'Í umræðunni'
+  Trending Tabs: Vinsælir flipar
+  Movies: Kvikmyndir
+  Gaming: Leikir
+  Music: Tónlist
+  Default: Sjálfgefið
 Most Popular: 'Vinsælast'
 Playlists: 'Spilunarlistar'
 User Playlists:
@@ -138,6 +144,14 @@ Settings:
     Region for Trending: 'Landssvæði sem skal miða vinsældir við'
         #! List countries
     System Default: Sjálfgefið í kerfinu
+    Clear Default Instance: Hreinsa út sjálfgefið tilvik
+    Set Current Instance as Default: Stilla fyrirliggjandi tilvik sem sjálfgefið
+    Current instance will be randomized on startup: Fyrirliggjandi tilvik verður tilgreint
+      af handahófi í ræsingu
+    No default instance has been set: Ekkert sjálfgefið tilvik hefur verið stillt
+    The currently set default instance is $: Fyrirliggjandi sjálfgefna tilvikið er
+      $
+    Current Invidious Instance: Fyrirliggjandi Invidious-tilvik
   Theme Settings:
     Theme Settings: 'Þemastillingar'
     Match Top Bar with Main Color: 'Láta toppstiku samsvara aðallit'
@@ -202,6 +216,7 @@ Settings:
     Next Video Interval: Bil í næsta myndskeið
     Display Play Button In Video Player: Birta afspilunarhnapp í myndspilara
     Scroll Volume Over Video Player: Skrun hljóðstyrks ofan á myndspilara
+    Fast-Forward / Rewind Interval: Millibil hraðspólunar / spóla til baka
   Privacy Settings:
     Privacy Settings: 'Stillingar gagnaleyndar'
     Remember History: 'Muna vinnsluferil'
@@ -297,6 +312,12 @@ Settings:
       (sjálfgefið er https://sponsor.ajay.app)
     Enable SponsorBlock: Virkja SponsorBlock
     SponsorBlock Settings: Stillingar SponsorBlock
+  External Player Settings:
+    Custom External Player Arguments: Sérsniðin viðföng fyrir utanaðkomandi spilara
+    Custom External Player Executable: Sérsniðin skipun fyrir utanaðkomandi spilara
+    Ignore Unsupported Action Warnings: Hunsa aðvarinir vegna óstuddra aðgerða
+    External Player: Utanaðkomandi spilari
+    External Player Settings: Stillingar utanaðkomandi spilara
 About:
   #On About page
   About: 'Um hugbúnaðinn'
@@ -369,6 +390,7 @@ Profile:
     viss um að þú viljir eyða völdu rásunum? Þetta mun ekki eyða rásunum úr öðrum
     notkunarsniðum.'
 #On Channel Page
+  Profile Settings: Stillingar notkunarsniðs
 Channel:
   Subscriber: 'Áskrifandi'
   Subscribers: 'Áskrifendur'
@@ -500,6 +522,21 @@ Video:
     sponsor: kostunaraðili
     outro: afkynning
   Skipped segment: Búti sleppt
+  External Player:
+    Unsupported Actions:
+      looping playlists: endurtaka spilunarlista
+      shuffling playlists: stokka spilunarlista
+      reversing playlists: snúa við spilunarlistum
+      opening playlists: opna spilunarlista
+      setting a playback rate: stilla hraða afspilunar
+      starting video at offset: byrja myndskeið á hliðrun
+      opening specific video in a playlist (falling back to opening the video): opna
+        tiltekið myndskeið í spilunarlista (til vara að opna myndskeiðið)
+    UnsupportedActionTemplate: '$ styður ekki: %'
+    OpeningTemplate: Opna $ eftir %...
+    playlist: spilunarlisti
+    video: myndskeið
+    OpenInTemplate: Opna í $
 Videos:
   #& Sort By
   Sort By:
@@ -524,6 +561,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Spilunarlisti
 Toggle Theatre Mode: 'Víxla bíóham af/á'
 Change Format:
   Change Video Formats: 'Skipta um myndskeiðasnið'
@@ -570,6 +608,7 @@ Comments:
     fyrir þetta myndskeið'
   Load More Comments: 'Hlaða inn fleiri athugasemdum'
   No more comments available: 'Engar fleiri athugasemdir eru tiltækar'
+  Show More Replies: Birta fleiri svör
 Up Next: 'Næst í spilun'
 
 #Tooltips
@@ -611,6 +650,17 @@ Tooltips:
   Privacy Settings:
     Remove Video Meta Files: Þegar þetta er virkt, eyðir FreeTube sjálfkrafa lýsigagnaskrám
       sem útbúnar eru við afspilun, þegar skoðunarsíðunni er lokað.
+  External Player Settings:
+    Custom External Player Arguments: Öll sérsniðin skipanaviðföng og rofar, aðskilin
+      með semíkommum (';'), sem beina á til utanaðkomandi spilarans.
+    Ignore Warnings: Hunsa aðvarinir þegar valinn utanaðkomandi spilari styður ekki
+      viðkomandi aðgerð (t.d. að snúa við spilunarlista, o.s.frv.).
+    Custom External Player Executable: Sjálfgefið gengur FreeTube út frá því að valinn
+      utanaðkomandi spilari finnist í gegnum PATH umhverfisbreytuna. Ef þess þarf,
+      má setja sérsniðna slóð hér.
+    External Player: Sé valinn utanaðkomandi spilari, birtist táknmynd á smámyndinni
+      til að opna myndskeiðið (í spilunarlista ef stuðningur er við slíkt) í þessum
+      utanaðkomandi spilara.
 Local API Error (Click to copy): 'Villa í staðværu API-kerfisviðmóti (smella til að
   afrita)'
 Invidious API Error (Click to copy): 'Villa í Invidious API-kerfisviðmóti (smella
@@ -643,3 +693,7 @@ Hashtags have not yet been implemented, try again later: Ekki er ennþá stuðni
 Unknown YouTube url type, cannot be opened in app: Óþekkt gerð YouTube-slóðar, er
   ekki hægt að opna í forritinu
 Open New Window: Opna í nýjum glugga
+Default Invidious instance has been cleared: Sjálfgefið Invidious-tilvik hefur verið
+  hreinsað út
+Default Invidious instance has been set to $: Sjálfgefið Invidious-tilvik hefur verið
+  stillt sem $

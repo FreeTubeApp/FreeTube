@@ -5,7 +5,7 @@ import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtTimestampCatcher from '../../components/ft-timestamp-catcher/ft-timestamp-catcher.vue'
 import autolinker from 'autolinker'
-import ytcm from 'yt-comment-scraper'
+import ytcm from '@freetube/yt-comment-scraper'
 
 export default Vue.extend({
   name: 'WatchVideoComments',
@@ -50,8 +50,8 @@ export default Vue.extend({
       return this.$store.getters.getBackendFallback
     },
 
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
     },
     hideCommentLikes: function () {
       return this.$store.getters.getHideCommentLikes
@@ -191,7 +191,14 @@ export default Vue.extend({
           this.showToast({
             message: this.$t('Falling back to Invidious API')
           })
-          this.getCommentDataInvidious()
+          this.getCommentDataInvidious({
+            resource: 'comments',
+            id: this.id,
+            params: {
+              continuation: this.nextPageToken,
+              sort_by: this.sortNewest ? 'new' : 'top'
+            }
+          })
         } else {
           this.isLoading = false
         }
@@ -219,7 +226,14 @@ export default Vue.extend({
           this.showToast({
             message: this.$t('Falling back to Invidious API')
           })
-          this.getCommentDataInvidious()
+          this.getCommentDataInvidious({
+            resource: 'comments',
+            id: this.id,
+            params: {
+              continuation: this.nextPageToken,
+              sort_by: this.sortNewest ? 'new' : 'top'
+            }
+          })
         } else {
           this.isLoading = false
         }
@@ -250,7 +264,7 @@ export default Vue.extend({
         if (this.hideCommentLikes) {
           comment.likes = null
         }
-        comment.text = autolinker.link(comment.text)
+        comment.text = autolinker.link(comment.text.replace(/(<([^>]+)>)/ig, ''))
 
         return comment
       })
@@ -276,13 +290,13 @@ export default Vue.extend({
         const commentData = response.comments.map((comment) => {
           comment.showReplies = false
           comment.authorLink = comment.authorId
-          comment.authorThumb = comment.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`)
+          comment.authorThumb = comment.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
           if (this.hideCommentLikes) {
             comment.likes = null
           } else {
             comment.likes = comment.likeCount
           }
-          comment.text = autolinker.link(comment.content)
+          comment.text = autolinker.link(comment.content.replace(/(<([^>]+)>)/ig, ''))
           comment.dataType = 'invidious'
 
           if (typeof (comment.replies) !== 'undefined' && typeof (comment.replies.replyCount) !== 'undefined') {
@@ -342,13 +356,13 @@ export default Vue.extend({
         const commentData = response.comments.map((comment) => {
           comment.showReplies = false
           comment.authorLink = comment.authorId
-          comment.authorThumb = comment.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`)
+          comment.authorThumb = comment.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
           if (this.hideCommentLikes) {
             comment.likes = null
           } else {
             comment.likes = comment.likeCount
           }
-          comment.text = autolinker.link(comment.content)
+          comment.text = autolinker.link(comment.content.replace(/(<([^>]+)>)/ig, ''))
           comment.time = comment.publishedText
           comment.dataType = 'invidious'
           comment.numReplies = 0

@@ -86,7 +86,13 @@ Subscriptions:
     a profil nagyszámú feliratkozást tartalmaz. RSS kényszerítése a sebességkorlátozás
     elkerülésére
   Load More Videos: További videók betöltése
-Trending: 'Népszerű'
+Trending:
+  Trending: 'Népszerű'
+  Trending Tabs: Népszerű lapok
+  Movies: Film
+  Gaming: Játék
+  Music: Zene
+  Default: Alapértelmezett
 Most Popular: 'Legnépszerűbbek'
 Playlists: 'Lejátszási listák'
 User Playlists:
@@ -101,7 +107,7 @@ User Playlists:
 History:
   # On History Page
   History: 'Előzmények'
-  Watch History: 'Előzmények figyelése'
+  Watch History: 'Korábbi megtekintések'
   Your history list is currently empty.: 'Az előzmények listája jelenleg üres.'
 Settings:
   # On Settings Page
@@ -136,6 +142,13 @@ Settings:
     View all Invidious instance information: Az Invidious példány összes tájékoztatásának
       megtekintése
     System Default: Rendszer alapértelmezett
+    Current Invidious Instance: Jelenlegi Invidious-példány
+    Clear Default Instance: Alapértelmezett példány eltávolítása
+    Set Current Instance as Default: Állítsa be a jelenlegi példányt alapértelmezettként
+    Current instance will be randomized on startup: Jelenlegi példány indításkor véletlenszerűsített
+    No default instance has been set: Az alapértelmezett példány nincs beállítva
+    The currently set default instance is $: A jelenleg beállított alapértelmezett
+      példány $
   Theme Settings:
     Theme Settings: 'Téma beállítások'
     Match Top Bar with Main Color: 'Illessze a felső sávot a fő színnel'
@@ -202,6 +215,7 @@ Settings:
     Scroll Volume Over Video Player: A hangerő szintjét a videolejátszó fölötti kerékkel
       szabályozhatja
     Display Play Button In Video Player: Lejátszás gomb megjelenítése a videolejátszóban
+    Fast-Forward / Rewind Interval: Gyors előre- és visszatekerési időköz
   Privacy Settings:
     Privacy Settings: 'Adatvédelmi beállítások'
     Remember History: 'Előzmények megjegyzése'
@@ -297,7 +311,7 @@ Settings:
     Hide Comment Likes: Megjegyzés-kedvelések elrejtése
     Hide Channel Subscribers: Csatorna feliratkozók elrejtése
     Hide Video Likes And Dislikes: Videó kedvelések és nemtetszések elrejtése
-    Hide Video Views: Videó nézetek elrejtése
+    Hide Video Views: Videónézettség elrejtése
     Distraction Free Settings: Zavartalan beállítások
     Hide Active Subscriptions: Elérhető feliratkozások elrejtése
     Hide Playlists: Lejátszási listák elrejtése
@@ -432,6 +446,7 @@ Profile:
     törli a kijelölt csatornákat? Ez nem törli a csatornát más profilokból.'
 #On Channel Page
   Profile Filter: Profilszűrő
+  Profile Settings: Profilbeállítások
 Channel:
   Subscriber: 'Feliratkozó'
   Subscribers: 'Feliratkozók'
@@ -477,7 +492,7 @@ Video:
   Open in Invidious: 'Invidious megnyitása'
   Copy Invidious Link: 'Invidious hivatkozás másolása'
   View: 'Nézet'
-  Views: 'Nézetek'
+  Views: 'Megtekintés'
   Loop Playlist: 'Lejátszási lista folyamatos lejátszása'
   Shuffle Playlist: 'Véletlen sorrendű lejátszás'
   Reverse Playlist: 'Fordított lejátszási lista'
@@ -516,20 +531,20 @@ Video:
     Oct: 'október'
     Nov: 'november'
     Dec: 'december'
-    Second: 'másodperc'
-    Seconds: 'másodperc'
-    Minute: 'perc'
-    Minutes: 'perc'
-    Hour: 'óra'
-    Hours: 'óra'
-    Day: 'nap'
-    Days: 'nap'
-    Week: 'hét'
-    Weeks: 'hét'
-    Month: 'hónap'
-    Months: 'hónap'
-    Year: 'év'
-    Years: 'év'
+    Second: 'másodperccel'
+    Seconds: 'másodperccel'
+    Minute: 'perccel'
+    Minutes: 'perccel'
+    Hour: 'órával'
+    Hours: 'órával'
+    Day: 'nappal'
+    Days: 'nappal'
+    Week: 'héttel'
+    Weeks: 'héttel'
+    Month: 'hónappal'
+    Months: 'hónappal'
+    Year: 'évvel'
+    Years: 'évvel'
     Ago: 'ezelőtt'
     Upcoming: 'Az első előadás hamarosan lesz'
   Published on: 'Megjelent'
@@ -601,6 +616,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Lejátszási lista
 Toggle Theatre Mode: 'Mozi mód be-/kikapcsolása'
 Change Format:
   Change Video Formats: 'Videoformátumok módosítása'
@@ -650,6 +666,7 @@ Comments:
   Newest first: Legújabb először
   Top comments: Legnépszerűbb megjegyzések
   Sort by: Rendezés alapja
+  Show More Replies: További válaszok megjelenítése
 Up Next: 'Következő'
 
 # Toast Messages
@@ -734,3 +751,7 @@ Hashtags have not yet been implemented, try again later: A kettőskeresztescímk
 Unknown YouTube url type, cannot be opened in app: Ismeretlen YouTube URL-típusa,
   nem nyitható meg az alkalmazásban
 Open New Window: Új ablak megnyitása
+Default Invidious instance has been cleared: Az alapértelmezett Invidious-példányt
+  eltávolítva
+Default Invidious instance has been set to $: Az alapértelmezett Invidious-példány
+  $ beállítva

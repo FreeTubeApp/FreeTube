@@ -24,4 +24,4 @@ Please follow these guidelines before sending your pull request and making contr
 
 # Setting up Your Environment
 
-Check out the [wiki](https://github.com/FreeTubeApp/FreeTube/wiki/Environment-Setup-and-Packaging) page to learn how to set up your environment and create packages.
+Check out the [wiki](https://docs.freetubeapp.io/development/getting-started/) page to learn how to set up your environment and get started.

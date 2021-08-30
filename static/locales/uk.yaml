@@ -9,7 +9,7 @@ FreeTube: 'FreeTube'
 File: 'Файл'
 Quit: 'Вийти'
 Edit: 'Редагувати'
-Undo: 'Відміна'
+Undo: 'Повернути'
 Redo: 'Повторити'
 Cut: 'Вирізати'
 Copy: 'Скопіювати'
@@ -83,7 +83,13 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Отримання Підписок. Будь ласка, зачекайте.'
   Refresh Subscriptions: 'Оновити Підписки'
   Load More Videos: 'Завантажити більше відео'
-Trending: 'Популярне'
+Trending:
+  Trending: 'Популярне'
+  Trending Tabs: Популярні вкладки
+  Movies: Фільми
+  Gaming: Ігри
+  Music: Музика
+  Default: Типово
 Most Popular: 'Найпопулярніші'
 Playlists: 'Добірки'
 User Playlists:
@@ -136,6 +142,14 @@ Settings:
     View all Invidious instance information: Перегляд усіх відомостей про екземпляр
       Invidious
     System Default: За системними налаштуваннями
+    Clear Default Instance: Очистити типовий екземпляр
+    Set Current Instance as Default: Установити поточний екземпляр типовим
+    Current instance will be randomized on startup: Поточний випадковий екземпляр
+      буде обрано під час запуску
+    No default instance has been set: Типовий екземпляр не встановлено
+    The currently set default instance is $: Поточний встановлений типовим екземпляр
+      — $
+    Current Invidious Instance: Поточний екземпляр Invidious
   Theme Settings:
     Theme Settings: 'Налаштування теми'
     Match Top Bar with Main Color: 'Верхня панель основного кольору'
@@ -200,6 +214,7 @@ Settings:
     Next Video Interval: Інтервал до наступного відео
     Scroll Volume Over Video Player: Прокручування гучності на відеопрогравачі
     Display Play Button In Video Player: Показувати кнопку відтворення у відеопрогравачі
+    Fast-Forward / Rewind Interval: Інтервал перемотування вперед/назад
   Privacy Settings:
     Privacy Settings: 'Налаштування приватності'
     Remember History: 'Збрігати історію'
@@ -408,6 +423,7 @@ Profile:
     бажаєте видалити вибрані канали?  Канал не буде видалено з будь-якого іншого профілю.'
 #On Channel Page
   Profile Filter: Фільтр профілю
+  Profile Settings: Налаштування профілю
 Channel:
   Subscriber: 'Підписник'
   Subscribers: 'Підписники'
@@ -574,6 +590,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Добірка
 Toggle Theatre Mode: 'Перемкнути режим театру'
 Change Format:
   Change Video Formats: 'Зміна форматів відео'
@@ -622,6 +639,7 @@ Comments:
   There are no comments available for this video: 'Немає коментарів до цього відео'
   Load More Comments: 'Завантажити більше коментарів'
   No more comments available: 'Більше немає коментарів'
+  Show More Replies: Показати інші відповіді
 Up Next: 'Далі вгору'
 
 #Tooltips
@@ -706,3 +724,6 @@ Hashtags have not yet been implemented, try again later: Хештеги ще н�
 Unknown YouTube url type, cannot be opened in app: Невідомий тип URL-адреси YouTube,
   його не можна відкрити в застосункові
 Open New Window: Відкрити нове вікно
+Default Invidious instance has been cleared: Типовий екземпляр Invidious очищено
+Default Invidious instance has been set to $: Типовим екземпляром Invidious встановлено
+  $

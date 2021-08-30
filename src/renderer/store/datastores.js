@@ -1,4 +1,4 @@
-import Datastore from 'nedb'
+import Datastore from 'nedb-promises'
 
 // Initialize all datastores and export their references
 // Current dbs:
@@ -7,36 +7,34 @@ import Datastore from 'nedb'
 // `playlists.db`
 // `history.db`
 
+let buildFileName = null
+
 // Check if using Electron
-let userDataPath
 const usingElectron = window?.process?.type === 'renderer'
 if (usingElectron) {
   const { ipcRenderer } = require('electron')
-  userDataPath = ipcRenderer.sendSync('getUserDataPathSync')
+  const userDataPath = ipcRenderer.sendSync('getUserDataPathSync')
+  buildFileName = (dbName) => userDataPath + '/' + dbName + '.db'
+} else {
+  buildFileName = (dbName) => dbName + '.db'
 }
 
-const buildFileName = (dbName) => {
-  return usingElectron
-    ? userDataPath + '/' + dbName + '.db'
-    : dbName + '.db'
-}
-
-const settingsDb = new Datastore({
+const settingsDb = Datastore.create({
   filename: buildFileName('settings'),
   autoload: true
 })
 
-const playlistsDb = new Datastore({
+const playlistsDb = Datastore.create({
   filename: buildFileName('playlists'),
   autoload: true
 })
 
-const profilesDb = new Datastore({
+const profilesDb = Datastore.create({
   filename: buildFileName('profiles'),
   autoload: true
 })
 
-const historyDb = new Datastore({
+const historyDb = Datastore.create({
   filename: buildFileName('history'),
   autoload: true
 })

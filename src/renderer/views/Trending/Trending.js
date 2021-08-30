@@ -4,7 +4,9 @@ import FtCard from '../../components/ft-card/ft-card.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
+import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 
+import $ from 'jquery'
 import ytrend from 'yt-trending-scraper'
 
 export default Vue.extend({
@@ -13,12 +15,20 @@ export default Vue.extend({
     'ft-card': FtCard,
     'ft-loader': FtLoader,
     'ft-element-list': FtElementList,
-    'ft-icon-button': FtIconButton
+    'ft-icon-button': FtIconButton,
+    'ft-flex-box': FtFlexBox
   },
   data: function () {
     return {
       isLoading: false,
-      shownResults: []
+      shownResults: [],
+      currentTab: 'default',
+      tabInfoValues: [
+        'default',
+        'music',
+        'gaming',
+        'movies'
+      ]
     }
   },
   computed: {
@@ -31,8 +41,8 @@ export default Vue.extend({
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
     },
     region: function () {
       return this.$store.getters.getRegion.toUpperCase()
@@ -42,13 +52,49 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    if (this.trendingCache && this.trendingCache.length > 0) {
+    if (this.trendingCache[this.currentTab] && this.trendingCache[this.currentTab].length > 0) {
       this.shownResults = this.trendingCache
     } else {
       this.getTrendingInfo()
     }
   },
   methods: {
+    changeTab: function (tab, event) {
+      if (event instanceof KeyboardEvent) {
+        if (event.key === 'Tab') {
+          return
+        } else if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+          // navigate trending tabs with arrow keys
+          const index = this.tabInfoValues.indexOf(tab)
+          // tabs wrap around from leftmost to rightmost, and vice versa
+          tab = (event.key === 'ArrowLeft')
+            ? this.tabInfoValues[(index > 0 ? index : this.tabInfoValues.length) - 1]
+            : this.tabInfoValues[(index + 1) % this.tabInfoValues.length]
+
+          const tabNode = $(`#${tab}Tab`)
+          event.target.setAttribute('tabindex', '-1')
+          tabNode.attr('tabindex', '0')
+          tabNode[0].focus()
+        }
+
+        event.preventDefault()
+        if (event.key !== 'Enter' && event.key !== ' ') {
+          return
+        }
+      }
+      const currentTabNode = $('.trendingInfoTabs > .tab[aria-selected="true"]')
+      const newTabNode = $(`#${tab}Tab`)
+
+      // switch selectability from currently focused tab to new tab
+      $('.trendingInfoTabs > .tab[tabindex="0"]').attr('tabindex', '-1')
+      newTabNode.attr('tabindex', '0')
+
+      currentTabNode.attr('aria-selected', 'false')
+      newTabNode.attr('aria-selected', 'true')
+      this.currentTab = tab
+      this.getTrendingInfo()
+    },
+
     getTrendingInfo () {
       if (!this.usingElectron) {
         this.getVideoInformationInvidious()
@@ -70,7 +116,7 @@ export default Vue.extend({
       console.log('getting local trending')
       const param = {
         parseCreatorOnRise: false,
-        page: 'default',
+        page: this.currentTab,
         geoLocation: this.region
       }
 
@@ -81,7 +127,9 @@ export default Vue.extend({
 
         this.shownResults = returnData
         this.isLoading = false
-        this.$store.commit('setTrendingCache', this.shownResults)
+        this.$store.commit('setTrendingCache', this.shownResults, this.currentTab)
+      }).then(() => {
+        document.querySelector(`#${this.currentTab}Tab`).focus()
       }).catch((err) => {
         console.log(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -112,6 +160,10 @@ export default Vue.extend({
         params: { region: this.region }
       }
 
+      if (this.currentTab !== 'default') {
+        trendingPayload.params.type = this.currentTab.charAt(0).toUpperCase() + this.currentTab.slice(1)
+      }
+
       this.invidiousAPICall(trendingPayload).then((result) => {
         if (!result) {
           return
@@ -125,7 +177,9 @@ export default Vue.extend({
 
         this.shownResults = returnData
         this.isLoading = false
-        this.$store.commit('setTrendingCache', this.shownResults)
+        this.$store.commit('setTrendingCache', this.shownResults, this.trendingCache)
+      }).then(() => {
+        document.querySelector(`#${this.currentTab}Tab`).focus()
       }).catch((err) => {
         console.log(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')

@@ -22,60 +22,45 @@ const getters = {
 }
 
 const actions = {
-  grabAllProfiles ({ rootState, dispatch, commit }, defaultName = null) {
-    return new Promise((resolve, reject) => {
-      profilesDb.find({}, (err, results) => {
-        if (!err) {
-          if (results.length === 0) {
-            dispatch('createDefaultProfile', defaultName)
-          } else {
-            // We want the primary profile to always be first
-            // So sort with that then sort alphabetically by profile name
-            const profiles = results.sort((a, b) => {
-              if (a._id === 'allChannels') {
-                return -1
-              }
+  async grabAllProfiles({ rootState, dispatch, commit }, defaultName = null) {
+    let profiles = await profilesDb.find({})
+    if (profiles.length === 0) {
+      dispatch('createDefaultProfile', defaultName)
+      return
+    }
+    // We want the primary profile to always be first
+    // So sort with that then sort alphabetically by profile name
+    profiles = profiles.sort((a, b) => {
+      if (a._id === 'allChannels') {
+        return -1
+      }
 
-              if (b._id === 'allChannels') {
-                return 1
-              }
+      if (b._id === 'allChannels') {
+        return 1
+      }
 
-              return b.name - a.name
-            })
-
-            if (state.profileList.length < profiles.length) {
-              const profileIndex = profiles.findIndex((profile) => {
-                return profile._id === rootState.settings.defaultProfile
-              })
-
-              if (profileIndex !== -1) {
-                commit('setActiveProfile', profileIndex)
-              }
-            }
-
-            commit('setProfileList', profiles)
-          }
-
-          resolve()
-        } else {
-          reject(err)
-        }
-      })
+      return b.name - a.name
     })
+
+    if (state.profileList.length < profiles.length) {
+      const profileIndex = profiles.findIndex((profile) => {
+        return profile._id === rootState.settings.defaultProfile
+      })
+
+      if (profileIndex !== -1) {
+        commit('setActiveProfile', profileIndex)
+      }
+    }
+
+    commit('setProfileList', profiles)
   },
 
-  grabProfileInfo (_, profileId) {
-    return new Promise((resolve, reject) => {
-      console.log(profileId)
-      profilesDb.findOne({ _id: profileId }, (err, results) => {
-        if (!err) {
-          resolve(results)
-        }
-      })
-    })
+  async grabProfileInfo(_, profileId) {
+    console.log(profileId)
+    return await profilesDb.findOne({ _id: profileId })
   },
 
-  async createDefaultProfile ({ dispatch }, defaultName) {
+  async createDefaultProfile({ dispatch }, defaultName) {
     const randomColor = await dispatch('getRandomColor')
     const textColor = await dispatch('calculateColorLuminance', randomColor)
     const defaultProfile = {
@@ -86,51 +71,47 @@ const actions = {
       subscriptions: []
     }
 
-    profilesDb.update({ _id: 'allChannels' }, defaultProfile, { upsert: true }, (err, numReplaced) => {
-      if (!err) {
-        dispatch('grabAllProfiles')
-      }
-    })
+    await profilesDb.update(
+      { _id: 'allChannels' },
+      defaultProfile,
+      { upsert: true }
+    )
+    dispatch('grabAllProfiles')
   },
 
-  updateProfile ({ dispatch }, profile) {
-    profilesDb.update({ _id: profile._id }, profile, { upsert: true }, (err, numReplaced) => {
-      if (!err) {
-        dispatch('grabAllProfiles')
-      }
-    })
+  async updateProfile({ dispatch }, profile) {
+    await profilesDb.update(
+      { _id: profile._id },
+      profile,
+      { upsert: true }
+    )
+    dispatch('grabAllProfiles')
   },
 
-  insertProfile ({ dispatch }, profile) {
-    profilesDb.insert(profile, (err, newDocs) => {
-      if (!err) {
-        dispatch('grabAllProfiles')
-      }
-    })
+  async insertProfile({ dispatch }, profile) {
+    await profilesDb.insert(profile)
+    dispatch('grabAllProfiles')
   },
 
-  removeProfile ({ dispatch }, profileId) {
-    profilesDb.remove({ _id: profileId }, (err, numReplaced) => {
-      if (!err) {
-        dispatch('grabAllProfiles')
-      }
-    })
+  async removeProfile({ dispatch }, profileId) {
+    await profilesDb.remove({ _id: profileId })
+    dispatch('grabAllProfiles')
   },
 
-  compactProfiles (_) {
+  compactProfiles(_) {
     profilesDb.persistence.compactDatafile()
   },
 
-  updateActiveProfile ({ commit }, index) {
+  updateActiveProfile({ commit }, index) {
     commit('setActiveProfile', index)
   }
 }
 
 const mutations = {
-  setProfileList (state, profileList) {
+  setProfileList(state, profileList) {
     state.profileList = profileList
   },
-  setActiveProfile (state, activeProfile) {
+  setActiveProfile(state, activeProfile) {
     state.activeProfile = activeProfile
   }
 }

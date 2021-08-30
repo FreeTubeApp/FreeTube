@@ -82,7 +82,8 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: לפרופיל
     זה יש מספר רב של מנויים. עובר לעדכונים בעזרת RSS על מנת להימנע מהגבלות רוחב פס
   Load More Videos: לטעון סרטונים נוספים
-Trending: 'הסרטונים החמים'
+Trending:
+  Trending: 'הסרטונים החמים'
 Most Popular: 'הכי פופולרי'
 Playlists: 'פלייליסטים'
 User Playlists:
@@ -127,6 +128,8 @@ Settings:
     Region for Trending: 'אזור לסרטונים חמים'
         #! List countries
     View all Invidious instance information: הצגת כל פרטי העותק של Invidious
+    Current Invidious Instance: עותק נוכחי של Invidious
+    System Default: בררת המחדל של המערכת
   Theme Settings:
     Theme Settings: 'הגדרת מראה'
     Match Top Bar with Main Color: 'התאמת האזור העליון לצבע הראשי'
@@ -303,6 +306,9 @@ Settings:
     Proxy Protocol: פרוטוקול מתווך
     Enable Tor / Proxy: הפעלת Tor / מתווך
     Proxy Settings: הגדרות מתווך
+  External Player Settings:
+    External Player: נגן חיצוני
+    External Player Settings: הגדרות נגן חיצוני
 About:
   #On About page
   About: 'על אודות'

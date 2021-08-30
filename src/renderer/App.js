@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { mapActions } from 'vuex'
+import { mapActions, mapMutations } from 'vuex'
 import { ObserveVisibility } from 'vue-observe-visibility'
 import FtFlexBox from './components/ft-flex-box/ft-flex-box.vue'
 import TopNav from './components/top-nav/top-nav.vue'
@@ -10,7 +10,7 @@ import FtButton from './components/ft-button/ft-button.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
 import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
 import $ from 'jquery'
-import { markdown } from 'markdown'
+import marked from 'marked'
 import Parser from 'rss-parser'
 
 let ipcRenderer = null
@@ -71,6 +71,20 @@ export default Vue.extend({
     profileList: function () {
       return this.$store.getters.getProfileList
     },
+    windowTitle: function () {
+      if (this.$route.meta.title !== 'Channel' && this.$route.meta.title !== 'Watch') {
+        let title =
+        this.$route.meta.path === '/home'
+          ? process.env.PRODUCT_NAME
+          : `${this.$t(this.$route.meta.title)} - ${process.env.PRODUCT_NAME}`
+        if (!title) {
+          title = process.env.PRODUCT_NAME
+        }
+        return title
+      } else {
+        return null
+      }
+    },
     activeProfile: function () {
       return this.$store.getters.getActiveProfile
     },
@@ -79,24 +93,36 @@ export default Vue.extend({
     },
     externalPlayer: function () {
       return this.$store.getters.getExternalPlayer
+    },
+    defaultInvidiousInstance: function () {
+      return this.$store.getters.getDefaultInvidiousInstance
     }
   },
+  watch: {
+    windowTitle: 'setWindowTitle'
+  },
+  created () {
+    this.setWindowTitle()
+  },
   mounted: function () {
-    this.grabUserSettings().then(() => {
-      this.setUpListenerToSyncSettings()
+    this.grabUserSettings().then(async () => {
+      await this.fetchInvidiousInstances()
+      if (this.defaultInvidiousInstance === '') {
+        await this.setRandomCurrentInvidiousInstance()
+      }
+
       this.grabAllProfiles(this.$t('Profile.All Channels')).then(async () => {
         this.grabHistory()
         this.grabAllPlaylists()
         this.checkThemeSettings()
-        await this.checkLocale()
 
         if (this.usingElectron) {
           console.log('User is using Electron')
           ipcRenderer = require('electron').ipcRenderer
+          this.setupListenerToSyncWindows()
           this.activateKeyboardShortcuts()
           this.openAllLinksExternally()
           this.enableOpenUrl()
-          this.setBoundsOnClose()
           await this.checkExternalPlayer()
         }
 
@@ -110,35 +136,6 @@ export default Vue.extend({
     })
   },
   methods: {
-    checkLocale: async function () {
-      const locale = localStorage.getItem('locale')
-
-      if (locale === null || locale === 'system') {
-        const systemLocale = await this.getLocale()
-
-        const findLocale = Object.keys(this.$i18n.messages).find((locale) => {
-          const localeName = locale.replace('-', '_')
-          return localeName.includes(systemLocale.replace('-', '_'))
-        })
-
-        if (typeof findLocale !== 'undefined') {
-          this.$i18n.locale = findLocale
-          localStorage.setItem('locale', 'system')
-        } else {
-          this.$i18n.locale = 'en-US'
-          localStorage.setItem('locale', 'en-US')
-        }
-      } else {
-        this.$i18n.locale = locale
-      }
-      const payload = {
-        isDev: this.isDev,
-        locale: this.$i18n.locale
-      }
-
-      this.getRegionData(payload)
-    },
-
     checkThemeSettings: function () {
       let baseTheme = localStorage.getItem('baseTheme')
       let mainColor = localStorage.getItem('mainColor')
@@ -183,7 +180,7 @@ export default Vue.extend({
         $.getJSON(requestUrl, (response) => {
           const tagName = response[0].tag_name
           const versionNumber = tagName.replace('v', '').replace('-beta', '')
-          this.updateChangelog = markdown.toHTML(response[0].body)
+          this.updateChangelog = marked(response[0].body)
           this.changeLogTitle = response[0].name
 
           const message = this.$t('Version $ is now available!  Click for more details')
@@ -402,12 +399,15 @@ export default Vue.extend({
       ipcRenderer.send('appReady')
     },
 
-    setBoundsOnClose: function () {
-      window.onbeforeunload = (e) => {
-        ipcRenderer.send('setBounds')
+    ...mapMutations([
+      'setInvidiousInstancesList'
+    ]),
+
+    setWindowTitle: function() {
+      if (this.windowTitle !== null) {
+        document.title = this.windowTitle
       }
     },
-
     ...mapActions([
       'showToast',
       'openExternalLink',
@@ -415,11 +415,11 @@ export default Vue.extend({
       'grabAllProfiles',
       'grabHistory',
       'grabAllPlaylists',
-      'getRegionData',
       'getYoutubeUrlInfo',
-      'getLocale',
       'getExternalPlayerCmdArgumentsData',
-      'setUpListenerToSyncSettings'
+      'fetchInvidiousInstances',
+      'setRandomCurrentInvidiousInstance',
+      'setupListenerToSyncWindows'
     ])
   }
 })

@@ -53,11 +53,11 @@
           :style="{ background: profileBgColor, color: profileTextColor }"
           style="cursor: default"
         >
-          <p
+          <div
             class="initial"
           >
             {{ profileInitial }}
-          </p>
+          </div>
         </div>
       </ft-flex-box>
       <ft-flex-box>

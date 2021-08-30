@@ -85,7 +85,8 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Profil
     ini berlangganan ke banyak kanal. Beralih ke RSS untuk menghindari pembatasan
     akses
-Trending: 'Sedang Tren'
+Trending:
+  Trending: 'Sedang Tren'
 Most Popular: 'Paling Populer'
 Playlists: 'Daftar Putar'
 User Playlists:
@@ -132,6 +133,9 @@ Settings:
         #! List countries
     View all Invidious instance information: Lihat semua informasi situs Invidious
     System Default: Sistem standar
+    Current instance will be randomized on startup: Situs akan diacak saat aplikasi
+      dijalankan
+    Current Invidious Instance: Situs Invidious Saat Ini
   Theme Settings:
     Theme Settings: 'Pengaturan Tema'
     Match Top Bar with Main Color: 'Samakan Bilah Atas dengan Warna Utama'

@@ -5,7 +5,12 @@ const state = {
   isSideNavOpen: false,
   sessionSearchHistory: [],
   popularCache: null,
-  trendingCache: null,
+  trendingCache: {
+    default: null,
+    music: null,
+    gaming: null,
+    movies: null
+  },
   showProgressBar: false,
   progressBarPercentage: 0,
   regionNames: [],
@@ -153,14 +158,14 @@ const actions = {
     }
   },
 
-  async getLocale (context) {
+  async getSystemLocale (context) {
     const webCbk = () => {
       if (navigator && navigator.language) {
         return navigator.language
       }
     }
 
-    return await invokeIRC(context, 'getLocale', webCbk) || 'en-US'
+    return (await invokeIRC(context, 'getSystemLocale', webCbk)) || 'en-US'
   },
 
   async showOpenDialog (context, options) {
@@ -300,6 +305,13 @@ const actions = {
       function() {
         if (urlObject.pathname.match(/^\/embed\/[A-Za-z0-9_-]+$/)) {
           extractParams(urlObject.pathname.replace('/embed/', ''))
+          return paramsObject
+        }
+      },
+      // youtube.com/shorts
+      function() {
+        if (urlObject.pathname.match(/^\/shorts\/[A-Za-z0-9_-]+$/)) {
+          extractParams(urlObject.pathname.replace('/shorts/', ''))
           return paramsObject
         }
       },
@@ -827,8 +839,8 @@ const mutations = {
     state.popularCache = value
   },
 
-  setTrendingCache (state, value) {
-    state.trendingCache = value
+  setTrendingCache (state, value, page) {
+    state.trendingCache[page] = value
   },
 
   setSearchSortBy (state, value) {

@@ -1,8 +1,8 @@
 import {
-  app, BrowserWindow, dialog, Menu,
-  ipcMain, powerSaveBlocker, screen, shell
+  app, BrowserWindow, dialog, Menu, ipcMain,
+  powerSaveBlocker, screen, session, shell
 } from 'electron'
-import Datastore from 'nedb'
+import Datastore from 'nedb-promises'
 import path from 'path'
 import cp from 'child_process'
 
@@ -23,7 +23,7 @@ function runApp() {
 
   const localDataStorage = app.getPath('userData') // Grabs the userdata directory based on the user's OS
 
-  const settingsDb = new Datastore({
+  const settingsDb = Datastore.create({
     filename: localDataStorage + '/settings.db',
     autoload: true
   })
@@ -33,7 +33,6 @@ function runApp() {
   const isDev = process.env.NODE_ENV === 'development'
   const isDebug = process.argv.includes('--debug')
   let mainWindow
-  let openedWindows = []
   let startupUrl
 
   // CORS somehow gets re-enabled in Electron v9.0.4
@@ -83,67 +82,88 @@ function runApp() {
     })
   }
 
-  app.on('ready', (_, __) => {
-    settingsDb.find({
-      $or: [
-        { _id: 'disableSmoothScrolling' },
-        { _id: 'useProxy' },
-        { _id: 'proxyProtocol' },
-        { _id: 'proxyHostname' },
-        { _id: 'proxyPort' }
-      ]
-    }, function (err, doc) {
-      if (err) {
-        app.exit()
-        return
-      }
+  app.on('ready', async (_, __) => {
+    let docArray
+    try {
+      docArray = await settingsDb.find({
+        $or: [
+          { _id: 'disableSmoothScrolling' },
+          { _id: 'useProxy' },
+          { _id: 'proxyProtocol' },
+          { _id: 'proxyHostname' },
+          { _id: 'proxyPort' }
+        ]
+      })
+    } catch (err) {
+      console.error(err)
+      app.exit()
+      return
+    }
 
-      let disableSmoothScrolling = false
-      let useProxy = false
-      let proxyProtocol = 'socks5'
-      let proxyHostname = '127.0.0.1'
-      let proxyPort = '9050'
+    let disableSmoothScrolling = false
+    let useProxy = false
+    let proxyProtocol = 'socks5'
+    let proxyHostname = '127.0.0.1'
+    let proxyPort = '9050'
 
-      if (typeof doc === 'object' && doc.length > 0) {
-        doc.forEach((dbItem) => {
-          switch (dbItem._id) {
-            case 'disableSmoothScrolling':
-              disableSmoothScrolling = dbItem.value
-              break
-            case 'useProxy':
-              useProxy = dbItem.value
-              break
-            case 'proxyProtocol':
-              proxyProtocol = dbItem.value
-              break
-            case 'proxyHostname':
-              proxyHostname = dbItem.value
-              break
-            case 'proxyPort':
-              proxyPort = dbItem.value
-              break
-          }
-        })
-      }
+    if (docArray?.length > 0) {
+      docArray.forEach((doc) => {
+        switch (doc._id) {
+          case 'disableSmoothScrolling':
+            disableSmoothScrolling = doc.value
+            break
+          case 'useProxy':
+            useProxy = doc.value
+            break
+          case 'proxyProtocol':
+            proxyProtocol = doc.value
+            break
+          case 'proxyHostname':
+            proxyHostname = doc.value
+            break
+          case 'proxyPort':
+            proxyPort = doc.value
+            break
+        }
+      })
+    }
 
-      if (disableSmoothScrolling) {
-        app.commandLine.appendSwitch('disable-smooth-scrolling')
-      } else {
-        app.commandLine.appendSwitch('enable-smooth-scrolling')
-      }
+    if (disableSmoothScrolling) {
+      app.commandLine.appendSwitch('disable-smooth-scrolling')
+    } else {
+      app.commandLine.appendSwitch('enable-smooth-scrolling')
+    }
 
-      const proxyUrl = `${proxyProtocol}://${proxyHostname}:${proxyPort}`
+    if (useProxy) {
+      session.defaultSession.setProxy({
+        proxyRules: `${proxyProtocol}://${proxyHostname}:${proxyPort}`
+      })
+    }
 
-      createWindow(useProxy, proxyUrl)
-
-      if (isDev) {
-        installDevTools()
-      }
-
-      if (isDebug) {
-        mainWindow.webContents.openDevTools()
-      }
+    // Set CONSENT cookie on reasonable domains
+    const consentCookieDomains = [
+      'http://www.youtube.com',
+      'https://www.youtube.com',
+      'http://youtube.com',
+      'https://youtube.com'
+    ]
+    consentCookieDomains.forEach(url => {
+      session.defaultSession.cookies.set({
+        url: url,
+        name: 'CONSENT',
+        value: 'YES+'
+      })
     })
+
+    await createWindow()
+
+    if (isDev) {
+      installDevTools()
+    }
+
+    if (isDebug) {
+      mainWindow.webContents.openDevTools()
+    }
   })
 
   async function installDevTools() {
@@ -156,7 +176,7 @@ function runApp() {
     }
   }
 
-  function createWindow(useProxy = false, proxyUrl = '', replaceMainWindow = true) {
+  async function createWindow(replaceMainWindow = true) {
     /**
      * Initial window options
      */
@@ -177,7 +197,7 @@ function runApp() {
       },
       show: false
     })
-    openedWindows.push(newWindow)
+
     if (replaceMainWindow) {
       mainWindow = newWindow
     }
@@ -187,38 +207,9 @@ function runApp() {
       height: 800
     })
 
-    if (useProxy) {
-      newWindow.webContents.session.setProxy({
-        proxyRules: proxyUrl
-      })
-    }
-
-    // Set CONSENT cookie on reasonable domains
-    [
-      'http://www.youtube.com',
-      'https://www.youtube.com',
-      'http://youtube.com',
-      'https://youtube.com'
-    ].forEach(url => {
-      newWindow.webContents.session.cookies.set({
-        url: url,
-        name: 'CONSENT',
-        value: 'YES+'
-      })
-    })
-
-    settingsDb.findOne({
-      _id: 'bounds'
-    }, function (err, doc) {
-      if (doc === null || err) {
-        return
-      }
-
-      if (typeof doc !== 'object' || typeof doc.value !== 'object') {
-        return
-      }
-
-      const { maximized, ...bounds } = doc.value
+    const boundsDoc = await settingsDb.findOne({ _id: 'bounds' })
+    if (typeof boundsDoc?.value === 'object') {
+      const { maximized, ...bounds } = boundsDoc.value
       const allDisplaysSummaryWidth = screen
         .getAllDisplays()
         .reduce((accumulator, { size: { width } }) => accumulator + width, 0)
@@ -234,7 +225,7 @@ function runApp() {
       if (maximized) {
         newWindow.maximize()
       }
-    })
+    }
 
     // If called multiple times
     // Duplicate menu items will be added
@@ -256,107 +247,94 @@ function runApp() {
     }
 
     // Show when loaded
-    newWindow.on('ready-to-show', () => {
+    newWindow.once('ready-to-show', () => {
       newWindow.show()
       newWindow.focus()
     })
 
-    newWindow.on('close', () => {
-      // Clear cache and storage if it's the last window
-      if (openedWindows.length === 1) {
-        newWindow.webContents.session.clearCache()
-        newWindow.webContents.session.clearStorageData({
-          storages: [
-            'appcache',
-            'cookies',
-            'filesystem',
-            'indexdb',
-            'shadercache',
-            'websql',
-            'serviceworkers',
-            'cachestorage'
-          ]
-        })
+    newWindow.once('close', async () => {
+      if (BrowserWindow.getAllWindows().length !== 1) {
+        return
       }
+
+      const value = {
+        ...newWindow.getNormalBounds(),
+        maximized: newWindow.isMaximized()
+      }
+
+      await settingsDb.update(
+        { _id: 'bounds' },
+        { _id: 'bounds', value },
+        { upsert: true }
+      )
     })
 
-    newWindow.on('closed', () => {
-      // Remove closed window
-      openedWindows = openedWindows.filter((window) => window !== newWindow)
-      if (newWindow === mainWindow) {
+    newWindow.once('closed', () => {
+      const allWindows = BrowserWindow.getAllWindows()
+      if (allWindows.length !== 0 && newWindow === mainWindow) {
         // Replace mainWindow to avoid accessing `mainWindow.webContents`
         // Which raises "Object has been destroyed" error
-        mainWindow = openedWindows[0]
+        mainWindow = allWindows[0]
       }
 
       console.log('closed')
     })
   }
 
-  // Save closing window bounds & maximized status
-  ipcMain.on('setBounds', (_e, data) => {
-    const value = {
-      ...mainWindow.getNormalBounds(),
-      maximized: mainWindow.isMaximized()
-    }
-
-    settingsDb.findOne({
-      _id: 'bounds'
-    }, function (err, doc) {
-      if (err) {
-        return
-      }
-      if (doc !== null) {
-        settingsDb.update({
-          _id: 'bounds'
-        }, {
-          $set: {
-            value
-          }
-        }, {})
-      } else {
-        settingsDb.insert({
-          _id: 'bounds',
-          value
-        })
-      }
-    })
-  })
-
-  ipcMain.on('appReady', () => {
+  ipcMain.once('appReady', () => {
     if (startupUrl) {
       mainWindow.webContents.send('openUrl', startupUrl)
     }
   })
 
-  ipcMain.on('disableSmoothScrolling', () => {
-    app.commandLine.appendSwitch('disable-smooth-scrolling')
-    mainWindow.close()
-    createWindow()
+  ipcMain.once('relaunchRequest', () => {
+    if (isDev) {
+      app.exit(parseInt(process.env.FREETUBE_RELAUNCH_EXIT_CODE))
+      return
+    }
+
+    // The AppImage and Windows portable formats must be accounted for
+    // because `process.execPath` points at the temporarily extracted
+    // executables, not the executables themselves
+    //
+    // It's possible to detect these formats and identify their
+    // executables' paths by checking the environmental variables
+    const { env: { APPIMAGE, PORTABLE_EXECUTABLE_FILE } } = process
+
+    if (!APPIMAGE) {
+      // If it's a Windows portable, PORTABLE_EXECUTABLE_FILE will
+      // hold a value.
+      // Otherwise, `process.execPath` should be used instead.
+      app.relaunch({
+        args: process.argv.slice(1),
+        execPath: PORTABLE_EXECUTABLE_FILE || process.execPath
+      })
+    } else {
+      // If it's an AppImage, things must be done the "hard way"
+      // `app.relaunch` doesn't work because of FUSE limitations
+      // Spawn a new process using the APPIMAGE env variable
+      cp.spawn(APPIMAGE, { detached: true, stdio: 'ignore' })
+    }
+
+    app.quit()
   })
 
-  ipcMain.on('enableSmoothScrolling', () => {
-    app.commandLine.appendSwitch('enable-smooth-scrolling')
-    mainWindow.close()
-    createWindow()
-  })
-
-  ipcMain.on('enableProxy', (event, url) => {
+  ipcMain.on('enableProxy', (_, url) => {
     console.log(url)
-    mainWindow.webContents.session.setProxy({
+    session.defaultSession.setProxy({
       proxyRules: url
     })
   })
 
   ipcMain.on('disableProxy', () => {
-    mainWindow.webContents.session.setProxy({})
+    session.defaultSession.setProxy({})
   })
 
   ipcMain.on('openExternalLink', (_, url) => {
     if (typeof url === 'string') shell.openExternal(url)
   })
 
-  ipcMain.handle('getLocale', () => {
+  ipcMain.handle('getSystemLocale', () => {
     return app.getLocale()
   })
 
@@ -385,16 +363,18 @@ function runApp() {
   })
 
   ipcMain.on('createNewWindow', () => {
-    createWindow(false, '', false)
+    createWindow(false)
   })
 
-  ipcMain.on('syncSetting', (event, setting) => {
-    const otherWindows = openedWindows.filter((window) => {
-      return window.webContents.id !== event.sender.id
-    })
+  ipcMain.on('syncWindows', (event, payload) => {
+    const otherWindows = BrowserWindow.getAllWindows().filter(
+      (window) => {
+        return window.webContents.id !== event.sender.id
+      }
+    )
 
     for (const window of otherWindows) {
-      window.webContents.send('syncSetting', setting)
+      window.webContents.send('syncWindows', payload)
     }
   })
 
@@ -403,14 +383,29 @@ function runApp() {
     child.unref()
   })
 
-  app.on('window-all-closed', () => {
+  app.once('window-all-closed', () => {
+    // Clear cache and storage if it's the last window
+    session.defaultSession.clearCache()
+    session.defaultSession.clearStorageData({
+      storages: [
+        'appcache',
+        'cookies',
+        'filesystem',
+        'indexdb',
+        'shadercache',
+        'websql',
+        'serviceworkers',
+        'cachestorage'
+      ]
+    })
+
     if (process.platform !== 'darwin') {
       app.quit()
     }
   })
 
   app.on('activate', () => {
-    if (mainWindow === null || mainWindow === undefined) {
+    if (BrowserWindow.getAllWindows().length === 0) {
       createWindow()
     }
   })

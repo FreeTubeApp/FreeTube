@@ -112,6 +112,7 @@ export default Vue.extend({
             'subsCapsButton',
             'audioTrackButton',
             'pictureInPictureToggle',
+            'toggleTheatreModeButton',
             'fullWindowButton',
             'qualitySelector',
             'fullscreenToggle'
@@ -143,6 +144,10 @@ export default Vue.extend({
       return this.$store.getters.getDefaultPlayback
     },
 
+    defaultSkipInterval: function () {
+      return this.$store.getters.getDefaultSkipInterval
+    },
+
     defaultQuality: function () {
       return parseInt(this.$store.getters.getDefaultQuality)
     },
@@ -158,6 +163,10 @@ export default Vue.extend({
 
     defaultVideoFormat: function () {
       return this.$store.getters.getDefaultVideoFormat
+    },
+
+    defaultTheatreMode: function () {
+      return this.$store.getters.getDefaultTheatreMode
     },
 
     autoplayVideos: function () {
@@ -191,6 +200,7 @@ export default Vue.extend({
 
     this.createFullWindowButton()
     this.createLoopButton()
+    this.createToggleTheatreModeButton()
     this.determineFormatType()
     this.determineMaxFramerate()
   },
@@ -263,6 +273,11 @@ export default Vue.extend({
             this.player.play()
           }, 200)
         }
+
+        // Remove built-in progress bar mouse over current time display
+        // `MouseTimeDisplay` in
+        // https://github.com/videojs/video.js/blob/v7.13.3/docs/guides/components.md#default-component-tree
+        this.player.controlBar.progressControl.seekBar.playProgressBar.removeChild('timeTooltip')
 
         if (this.useSponsorBlock) {
           this.initializeSponsorBlock()
@@ -962,6 +977,45 @@ export default Vue.extend({
       videojs.registerComponent('fullWindowButton', fullWindowButton)
     },
 
+    createToggleTheatreModeButton: function() {
+      if (!this.$parent.theatrePossible) {
+        return
+      }
+
+      const theatreModeActive = this.defaultTheatreModeActive ? ' vjs-icon-theatre-active' : ''
+
+      const VjsButton = videojs.getComponent('Button')
+      const toggleTheatreModeButton = videojs.extend(VjsButton, {
+        constructor: function(player, options) {
+          VjsButton.call(this, player, options)
+        },
+        handleClick: () => {
+          this.toggleTheatreMode()
+        },
+        createControlTextEl: function (button) {
+          return $(button)
+            .addClass('vjs-button-theatre')
+            .html($(`<div id="toggleTheatreModeButton" class="vjs-icon-theatre-inactive${theatreModeActive} vjs-button"></div>`))
+            .attr('title', 'Toggle Theatre Mode')
+        }
+      })
+
+      videojs.registerComponent('toggleTheatreModeButton', toggleTheatreModeButton)
+    },
+
+    toggleTheatreMode: function() {
+      if (!this.player.isFullscreen_) {
+        const toggleTheatreModeButton = $('#toggleTheatreModeButton')
+        if (!this.$parent.useTheatreMode) {
+          toggleTheatreModeButton.addClass('vjs-icon-theatre-active')
+        } else {
+          toggleTheatreModeButton.removeClass('vjs-icon-theatre-active')
+        }
+      }
+
+      this.$parent.toggleTheatreMode()
+    },
+
     createDashQualitySelector: function (levels) {
       if (levels.levels_.length === 0) {
         setTimeout(() => {
@@ -1209,9 +1263,9 @@ export default Vue.extend({
             break
           case 74:
             // J Key
-            // Rewind by 10 seconds
+            // Rewind by 2x the time-skip interval (in seconds)
             event.preventDefault()
-            this.changeDurationBySeconds(-10)
+            this.changeDurationBySeconds(-this.defaultSkipInterval * 2)
             break
           case 75:
             // K Key
@@ -1221,9 +1275,9 @@ export default Vue.extend({
             break
           case 76:
             // L Key
-            // Fast Forward by 10 seconds
+            // Fast-Forward by 2x the time-skip interval (in seconds)
             event.preventDefault()
-            this.changeDurationBySeconds(10)
+            this.changeDurationBySeconds(this.defaultSkipInterval * 2)
             break
           case 79:
             // O Key
@@ -1269,15 +1323,15 @@ export default Vue.extend({
             break
           case 37:
             // Left Arrow Key
-            // Rewind by 5 seconds
+            // Rewind by the time-skip interval (in seconds)
             event.preventDefault()
-            this.changeDurationBySeconds(-5)
+            this.changeDurationBySeconds(-this.defaultSkipInterval * 1)
             break
           case 39:
             // Right Arrow Key
-            // Fast Forward by 5 seconds
+            // Fast-Forward by the time-skip interval (in seconds)
             event.preventDefault()
-            this.changeDurationBySeconds(5)
+            this.changeDurationBySeconds(this.defaultSkipInterval * 1)
             break
           case 49:
             // 1 Key

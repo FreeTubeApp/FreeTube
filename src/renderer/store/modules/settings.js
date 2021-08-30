@@ -1,4 +1,5 @@
 import { settingsDb } from '../datastores'
+import i18n from '../../i18n/index'
 
 /*
  * Due to the complexity of the settings module in FreeTube, a more
@@ -171,6 +172,7 @@ const state = {
   defaultPlayback: 1,
   defaultProfile: 'allChannels',
   defaultQuality: '720',
+  defaultSkipInterval: 5,
   defaultTheatreMode: false,
   defaultVideoFormat: 'dash',
   disableSmoothScrolling: false,
@@ -193,7 +195,6 @@ const state = {
   hideVideoLikesAndDislikes: false,
   hideVideoViews: false,
   hideWatchedSubs: false,
-  invidiousInstance: 'https://invidious.snopyta.org',
   landingPage: 'subscriptions',
   listType: 'grid',
   playNextVideo: false,
@@ -215,6 +216,49 @@ const state = {
 }
 
 const stateWithSideEffects = {
+  currentLocale: {
+    defaultValue: 'en-US',
+    sideEffectsHandler: async function ({ dispatch }, value) {
+      const defaultLocale = 'en-US'
+
+      let targetLocale = value
+      if (value === 'system') {
+        const systemLocale = await dispatch('getSystemLocale')
+
+        targetLocale = Object.keys(i18n.messages).find((locale) => {
+          const localeName = locale.replace('-', '_')
+          return localeName.includes(systemLocale.replace('-', '_'))
+        })
+
+        // Go back to default value if locale is unavailable
+        if (!targetLocale) {
+          targetLocale = defaultLocale
+          // Translating this string isn't necessary
+          // because the user will always see it in the default locale
+          // (in this case, English (US))
+          dispatch('showToast',
+            { message: `Locale not found, defaulting to ${defaultLocale}` }
+          )
+        }
+      }
+
+      i18n.locale = targetLocale
+      dispatch('getRegionData', {
+        isDev: process.env.NODE_ENV === 'development',
+        locale: targetLocale
+      })
+    }
+  },
+
+  defaultInvidiousInstance: {
+    defaultValue: '',
+    sideEffectsHandler: ({ commit, getters }, value) => {
+      if (value !== '' && getters.getCurrentInvidiousInstance !== value) {
+        commit('setCurrentInvidiousInstance', value)
+      }
+    }
+  },
+
   defaultVolume: {
     defaultValue: 1,
     sideEffectsHandler: (_, value) => {
@@ -264,48 +308,51 @@ Object.assign(customGetters, {
 /**********/
 
 const customActions = {
-  grabUserSettings: ({ commit, dispatch, getters }) => {
-    return new Promise((resolve, reject) => {
-      settingsDb.find(
-        { _id: { $ne: 'bounds' } },
-        (err, userSettings) => {
-          if (err) {
-            reject(err)
-            return
-          }
-
-          for (const setting of userSettings) {
-            const { _id, value } = setting
-            if (getters.settingHasSideEffects(_id)) {
-              dispatch(defaultSideEffectsTriggerId(_id), value)
-            }
-
-            commit(defaultMutationId(_id), value)
-          }
-
-          resolve()
-        }
-      )
+  grabUserSettings: async ({ commit, dispatch, getters }) => {
+    const userSettings = await settingsDb.find({
+      _id: { $ne: 'bounds' }
     })
+
+    for (const setting of userSettings) {
+      const { _id, value } = setting
+      if (getters.settingHasSideEffects(_id)) {
+        dispatch(defaultSideEffectsTriggerId(_id), value)
+      }
+
+      commit(defaultMutationId(_id), value)
+    }
   },
 
-  setUpListenerToSyncSettings: ({ commit, dispatch, getters }) => {
-    const {
-      getUsingElectron: usingElectron,
-      settingHasSideEffects
-    } = getters
+  // Should be a root action, but we'll tolerate
+  setupListenerToSyncWindows: ({ commit, dispatch, getters }) => {
+    // Already known to be Electron, no need to check
+    const { ipcRenderer } = require('electron')
+    ipcRenderer.on('syncWindows', (_, payload) => {
+      const { type, data } = payload
+      switch (type) {
+        case 'setting':
+          // `data` is a single setting => { _id, value }
+          if (getters.settingHasSideEffects(data._id)) {
+            dispatch(defaultSideEffectsTriggerId(data._id), data.value)
+          }
 
-    if (usingElectron) {
-      const { ipcRenderer } = require('electron')
-      ipcRenderer.on('syncSetting', (_, setting) => {
-        const { _id, value } = setting
-        if (settingHasSideEffects(_id)) {
-          dispatch(defaultSideEffectsTriggerId(_id), value)
-        }
+          commit(defaultMutationId(data._id), data.value)
+          break
 
-        commit(defaultMutationId(_id), value)
-      })
-    }
+        case 'history':
+          // `data` is the whole history => Array of history entries
+          commit('setHistoryCache', data)
+          break
+
+        case 'playlist':
+          // TODO: Not implemented
+          break
+
+        case 'profile':
+          // TODO: Not implemented
+          break
+      }
+    })
   }
 }
 
@@ -347,34 +394,32 @@ for (const settingId of Object.keys(state)) {
     actions[triggerId] = stateWithSideEffects[settingId].sideEffectsHandler
   }
 
-  actions[updaterId] = ({ commit, dispatch, getters }, value) => {
-    settingsDb.update(
+  actions[updaterId] = async ({ commit, dispatch, getters }, value) => {
+    await settingsDb.update(
       { _id: settingId },
       { _id: settingId, value: value },
-      { upsert: true },
-      (err, _) => {
-        if (err) return
-
-        const {
-          getUsingElectron: usingElectron,
-          settingHasSideEffects
-        } = getters
-
-        if (settingHasSideEffects(settingId)) {
-          dispatch(triggerId, value)
-        }
-        commit(mutationId, value)
-
-        if (usingElectron) {
-          const { ipcRenderer } = require('electron')
-
-          // Propagate settings to all other existing windows
-          ipcRenderer.send('syncSetting', {
-            _id: settingId, value: value
-          })
-        }
-      }
+      { upsert: true }
     )
+
+    const {
+      getUsingElectron: usingElectron,
+      settingHasSideEffects
+    } = getters
+
+    if (settingHasSideEffects(settingId)) {
+      dispatch(triggerId, value)
+    }
+    commit(mutationId, value)
+
+    if (usingElectron) {
+      const { ipcRenderer } = require('electron')
+
+      // Propagate settings to all other existing windows
+      ipcRenderer.send('syncWindows', {
+        type: 'setting',
+        data: { _id: settingId, value: value }
+      })
+    }
   }
 }
 

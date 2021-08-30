@@ -81,7 +81,8 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': '구독 목록을 가져오는 중입니다. 잠시만 기다려 주세요.'
   Refresh Subscriptions: '구독 피드 새로 고침'
   Load More Videos: '더 많은 동영상 불러오기'
-Trending: '트렌딩'
+Trending:
+  Trending: '트렌딩'
 Most Popular: '인기 동영상'
 Playlists: '재생 목록'
 User Playlists:

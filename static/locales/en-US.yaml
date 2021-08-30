@@ -84,7 +84,13 @@ Subscriptions:
   Refresh Subscriptions: Refresh Subscriptions
   Load More Videos: Load More Videos
 More: More
-Trending: Trending
+Trending: 
+  Trending: Trending
+  Default: Default
+  Music: Music
+  Gaming: Gaming
+  Movies: Movies
+  Trending Tabs: Trending Tabs
 Most Popular: Most Popular
 Playlists: Playlists
 User Playlists:
@@ -128,8 +134,13 @@ Settings:
       Beginning: Beginning
       Middle: Middle
       End: End
-    'Invidious Instance (Default is https://invidious.snopyta.org)': Invidious Instance
-      (Default is https://invidious.snopyta.org)
+    Current Invidious Instance: Current Invidious Instance
+    # $ is replaced with the default Invidious instance
+    The currently set default instance is $: The currently set default instance is $
+    No default instance has been set: No default instance has been set
+    Current instance will be randomized on startup: Current instance will be randomized on startup
+    Set Current Instance as Default: Set Current Instance as Default
+    Clear Default Instance: Clear Default Instance
     View all Invidious instance information: View all Invidious instance information
     Region for Trending: Region for Trending
         #! List countries
@@ -176,6 +187,7 @@ Settings:
     Scroll Volume Over Video Player: Scroll Volume Over Video Player
     Display Play Button In Video Player: Display Play Button In Video Player
     Next Video Interval: Next Video Interval
+    Fast-Forward / Rewind Interval: Fast-Forward / Rewind Interval
     Default Volume: Default Volume
     Default Playback Rate: Default Playback Rate
     Default Video Format:
@@ -322,6 +334,7 @@ About:
   Donate: Donate
 
 Profile:
+  Profile Settings: Profile Settings
   Profile Select: Profile Select
   Profile Filter: Profile Filter
   All Channels: All Channels
@@ -520,6 +533,7 @@ Videos:
 #& Playlists
 Playlist:
   #& About
+  Playlist: Playlist
   View Full Playlist: View Full Playlist
   Videos: Videos
   View: View
@@ -575,6 +589,7 @@ Comments:
   View: View
   Hide: Hide
   Replies: Replies
+  Show More Replies: Show More Replies
   Reply: Reply
   There are no comments available for this video: There are no comments available
     for this video
@@ -649,6 +664,9 @@ Playing Next Video: Playing Next Video
 Playing Previous Video: Playing Previous Video
 Playing Next Video Interval: Playing next video in no time. Click to cancel. | Playing next video in {nextVideoInterval} second. Click to cancel. | Playing next video in {nextVideoInterval} seconds. Click to cancel.
 Canceled next video autoplay: Canceled next video autoplay
+# $ is replaced with the default Invidious instance
+Default Invidious instance has been set to $: Default Invidious instance has been set to $
+Default Invidious instance has been cleared: Default Invidious instance has been cleared
 'The playlist has ended.  Enable loop to continue playing': 'The playlist has ended.  Enable
   loop to continue playing'
 
