@@ -113,8 +113,8 @@ Settings:
     Default Landing Page: 'Pagina iniziale predefinita'
     Locale Preference: 'Lingua predefinita'
     Preferred API Backend:
-      Preferred API Backend: 'Back-end API Preferito'
-      Local API: 'API Locali'
+      Preferred API Backend: 'Back-end API preferito'
+      Local API: 'API locali'
       Invidious API: 'API di Invidious'
     Video View Type:
       Video View Type: 'Modalità di Visualizzazione Video'
@@ -141,12 +141,12 @@ Settings:
     No default instance has been set: Non è stata impostata alcuna istanza predefinita
     The currently set default instance is $: L'attuale istanza predefinita è $
     Current Invidious Instance: Istanza attuale di Invidious
-    System Default: Impostazioni di sistema predefinite
+    System Default: Predefinito dal sistema
   Theme Settings:
     Theme Settings: 'Impostazioni Tema'
     Match Top Bar with Main Color: 'Abbina la barra superiore con il colore principale'
     Base Theme:
-      Base Theme: 'Tema di Base'
+      Base Theme: 'Tema di base'
       Black: 'Nero'
       Dark: 'Scuro'
       Light: 'Chiaro'
@@ -170,8 +170,8 @@ Settings:
       Deep Orange: 'Arancione scuro'
     Secondary Color Theme: 'Tema colori secondario'
         #* Main Color Theme
-    UI Scale: Dimensioni Interfaccia
-    Disable Smooth Scrolling: Disabilita Scorrimento Fluido
+    UI Scale: Dimensioni interfaccia
+    Disable Smooth Scrolling: Disabilita scorrimento fluido
     Expand Side Bar by Default: Espandi Automaticamente la Barra Laterale
   Player Settings:
     Player Settings: 'Impostazioni Riproduttore Video'
@@ -185,7 +185,7 @@ Settings:
     Default Volume: 'Volume predefinito'
     Default Playback Rate: 'Velocità di riproduzione predefinita'
     Default Video Format:
-      Default Video Format: 'Formato Video Predefinito'
+      Default Video Format: 'Formato video predefinito'
       Dash Formats: 'Formati DASH'
       Legacy Formats: 'Formati Legacy'
       Audio Formats: 'Formati Audio'
@@ -237,7 +237,7 @@ Settings:
     Import Subscriptions: 'Importa Iscrizioni'
     Export Subscriptions: 'Esporta Iscrizioni'
     How do I import my subscriptions?: 'Come importo le mie iscrizioni?'
-    Fetch Feeds from RSS: Scarica Aggiornamenti dai Feed RSS
+    Fetch Feeds from RSS: Scarica aggiornamenti dai flussi RSS
   Advanced Settings:
     Advanced Settings: 'Impostazioni Avanzate'
     Enable Debug Mode (Prints data to the console): 'Abilità modalità Sviluppatore
@@ -441,10 +441,10 @@ Channel:
   Channel has been removed from your subscriptions: Il canale è stato rimosso dalle
     tue iscrizioni
 Video:
-  Mark As Watched: 'Segna come Visto'
-  Remove From History: 'Rimuovi dalla Cronologia'
-  Video has been marked as watched: 'Il Video è stato contrassegnato come visualizzato'
-  Video has been removed from your history: 'Il Video è stato rimosso dalla cronologia'
+  Mark As Watched: 'Segna come visto'
+  Remove From History: 'Rimuovi dalla cronologia'
+  Video has been marked as watched: 'Il video è stato contrassegnato come visualizzato'
+  Video has been removed from your history: 'Il video è stato rimosso dalla cronologia'
   Open in YouTube: 'Apri su YouTube'
   Copy YouTube Link: 'Copia collegamento YouTube'
   Open YouTube Embedded Player: 'Apri Lettore YouTube Incorporato'
@@ -454,7 +454,7 @@ Video:
   View: 'Vista'
   Views: 'Visualizzazioni'
   # Context is "X People Watching"
-  Watching: 'Sto Guardando'
+  Watching: 'Sto guardando'
   Watched: 'Visto'
   # As in a Live Video
   Live: 'Dal vivo'
@@ -503,7 +503,7 @@ Video:
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % fa'
 #& Videos
-  Play Previous Video: Riproduci il Video Precedente
+  Play Previous Video: Riproduci il video precedente
   Play Next Video: Riproduci il Prossimo Video
   Reverse Playlist: Playlist inversa
   Shuffle Playlist: Riproduzione playlist casuale
@@ -528,7 +528,7 @@ Video:
   Video has been removed from your saved list: Il video è stato rimosso dalla lista
     preferiti
   Video has been saved: Il video è stato salvato
-  Save Video: Salva Video
+  Save Video: Salva il video
   External Player:
     Unsupported Actions:
       looping playlists: playlist a ripetizione
