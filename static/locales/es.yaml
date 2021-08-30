@@ -136,8 +136,9 @@ Settings:
     The currently set default instance is $: La instancia predeterminada actual es
       $
     Current Invidious Instance: Instancia actual de Invidious
-    Clear Default Instance: Borrar Instancia Predeterminada
-    Set Current Instance as Default: Establecer la Instancia Actual como Predeterminada
+    Clear Default Instance: Quitar la instancia por defecto
+    Set Current Instance as Default: Establecer la instancia actual como la instancia
+      por defecto
   Theme Settings:
     Theme Settings: 'Apariencia'
     Match Top Bar with Main Color: 'Usar color principal para barra superior'
@@ -198,7 +199,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Intervalo de Siguiente Video en Playlist
-    Next Video Interval: Intervalo del próximo vídeo
+    Next Video Interval: Siguiente segmento de vídeo
     Display Play Button In Video Player: Mostrar el botón de reproducción en el reproductor
       de vídeo
     Scroll Volume Over Video Player: Desplazar el volumen sobre el reproductor de
@@ -614,8 +615,8 @@ Change Format:
   Use Audio Formats: 'Utilizar formatos de audio'
   Audio formats are not available for this video: El formato solo audio no está disponible
     para este vídeo
-  Dash formats are not available for this video: Los formatos DASH no están disponible
-    para este video
+  Dash formats are not available for this video: Los formatos DASH no están disponibles
+    para este vídeo
 Share:
   Share Video: 'Compartir vídeo'
   Copy Link: 'Copiar enlace'
@@ -719,9 +720,9 @@ Tooltips:
       datos. La API local es un extractor incorporado. La API de Invidious requiere
       de un servidor Invidious al cual conectarse.
   Privacy Settings:
-    Remove Video Meta Files: Cuando está activado, FreeTube elimina automáticamente
-      los meta-archivos creados durante la reproducción de vídeo cuando se cierre
-      la página de visualizado.
+    Remove Video Meta Files: Cuando se active, FreeTube eliminará automáticamente
+      meta-archivos creados durante la reproducción del video una vez se cierre la
+      página de visualizado.
   External Player Settings:
     Custom External Player Executable: De manera predeterminada, FreeTube supondrá
       que el reproductor externo seleccionado puede hallarse mediante la variable
@@ -739,7 +740,7 @@ Unknown YouTube url type, cannot be opened in app: Tipo de LRU desconocido. No s
   puede abrir en applicación
 Open New Window: Abrir ventana nueva
 Hashtags have not yet been implemented, try again later: Los hashtags no se han implementado
-  todavía, inténtalo más adelante
+  todavía, inténtalo de nuevo en otra ocasión
 Playing Next Video Interval: Reproduciendo el vídeo a continuación. Haz clic para
   cancelar. | El siguiente vídeo se reproducirá en {nextVideoInterval} segundos. Haz
   clic para cancelar. | El siguiente vídeo se reproducirá en {nextVideoInterval} segundos.
