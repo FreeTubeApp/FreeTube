@@ -51,7 +51,7 @@ Search Filters:
   Type:
     Type: 'Tipo'
     All Types: 'Cualquier tipo'
-    Videos: 'Videos'
+    Videos: 'Vídeos'
     Channels: 'Canales'
     #& Playlists
   Duration:
@@ -78,15 +78,20 @@ Subscriptions:
   Load More Videos: Ver más
 Trending:
   Trending: 'Tendencias'
+  Default: Por defecto
+  Trending Tabs: Fichas de tendencias
+  Movies: Películas
+  Gaming: Videojuegos
+  Music: Música
 Most Popular: 'Más populares'
 Playlists: 'Playlists'
 User Playlists:
   Your Playlists: 'Tus listas de reproducción'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Tus
-    favoritos están vacios. Haz click en la estrella de cada video para añadirlo aquí
-  Playlist Message: Esta página no refleja el estado final de las playlists, solo
-    muestra los videos guardados. En futuras actualizaciones, estos videos migrarán
-    a la playlist "Favoritos".
+    favoritos están vacios. Haz clic en la estrella de cada vídeos para añadirlo aquí
+  Playlist Message: Esta página no refleja el estado final de las listas de reproducción,
+    solo muestra los vídeos guardados. En futuras actualizaciones, estos vídeos migrarán
+    a la lista de reproducción «Favoritos».
 History:
   # On History Page
   History: 'Historial'
@@ -169,14 +174,14 @@ Settings:
     Force Local Backend for Legacy Formats: 'Forzar Backend Local para Formatos Heredados'
     Play Next Video: 'Reproducción continua'
     Turn on Subtitles by Default: 'Activar Subtítulos por defecto'
-    Autoplay Videos: 'Reproducción automática de videos'
-    Proxy Videos Through Invidious: 'Enmascarar videos a través de invidious'
+    Autoplay Videos: 'Reproducción automática de vídeos'
+    Proxy Videos Through Invidious: 'Enmascarar vídeos a través de invidious'
     Autoplay Playlists: 'Reproducción automática de listas de reproducción'
     Enable Theatre Mode by Default: 'Activar el Modo Cine por defecto'
     Default Volume: 'Volumen Predeterminado'
     Default Playback Rate: 'Velocidad de Reproducción Predeterminada'
     Default Video Format:
-      Default Video Format: 'Formato de Video Predeterminado'
+      Default Video Format: 'Formato de vídeo predeterminado'
       Dash Formats: 'Formatos DASH'
       Legacy Formats: 'Formatos Heredados'
       Audio Formats: 'Formatos de Audio'
@@ -198,6 +203,7 @@ Settings:
       de vídeo
     Scroll Volume Over Video Player: Desplazar el volumen sobre el reproductor de
       vídeo
+    Fast-Forward / Rewind Interval: Intervalo de avance/rebobinado rápido
   Privacy Settings:
     Privacy Settings: 'Configuración de privacidad'
     Remember History: 'Recordar historial'
@@ -217,7 +223,7 @@ Settings:
       de Vídeo
   Subscription Settings:
     Subscription Settings: 'Configuración de suscripciones'
-    Hide Videos on Watch: 'Ocultar videos vistos'
+    Hide Videos on Watch: 'Ocultar vídeos vistos'
     Fetch Feeds from RSS: 'Recuperar suministros desde RSS'
     Manage Subscriptions: 'Gestionar suscripciones'
   Data Settings:
@@ -287,12 +293,12 @@ Settings:
       #& No
 
   Distraction Free Settings:
-    Hide Video Likes And Dislikes: Ocultar Likes/Dislikes del Video
-    Hide Video Views: Ocultar las Vistas del Video
+    Hide Video Likes And Dislikes: Ocultar Me gusta y No me gusta del vídeos
+    Hide Video Views: Ocultar las vistas del vídeo
     Hide Live Chat: Ocultar chat en directo
     Hide Popular Videos: Ocultar vídeos populares
     Hide Trending Videos: Ocultar vídeos en tendencia
-    Hide Recommended Videos: Ocultar Videos Recomendados
+    Hide Recommended Videos: Ocultar los vídeos recomendados
     Hide Comment Likes: Ocultar Likes de Comentarios
     Hide Channel Subscribers: Ocultar Suscriptores de Canales
     Distraction Free Settings: Configuración de modo sin distracciones
@@ -326,9 +332,9 @@ Settings:
   External Player Settings:
     Custom External Player Arguments: Argumentos personalizados de reprod. externo
     Custom External Player Executable: Ejecutable personalizado de reprod. externo
-    Ignore Unsupported Action Warnings: Pasar por alto alertas de acciones no admitidas
+    Ignore Unsupported Action Warnings: Omitir advertencias de acciones no soportadas
     External Player: Reproductor externo
-    External Player Settings: Configuración de reproductor externo
+    External Player Settings: Parámetros del lector externo
 About:
   #On About page
   About: 'Acerca de'
@@ -438,9 +444,9 @@ Channel:
   Your search results have returned 0 results: 'Su búsqueda no encontró resultados'
   Sort By: 'Ordenar por'
   Videos:
-    Videos: 'Videos'
+    Videos: 'Vídeos'
     This channel does not currently have any videos: 'Este canal no tiene actualmente
-      ningún video'
+      ningún vídeo'
     Sort Types:
       Newest: 'Más recientes'
       Oldest: 'Más antiguos'
@@ -450,7 +456,7 @@ Channel:
     This channel does not currently have any playlists: 'Este canal no tiene actualmente
       ninguna lista de reproducción'
     Sort Types:
-      Last Video Added: 'Último video añadido'
+      Last Video Added: 'Último vídeo añadido'
       Newest: 'El más reciente'
       Oldest: 'El más antiguo'
   About:
@@ -464,8 +470,8 @@ Channel:
 Video:
   Mark As Watched: 'Marcar como visto'
   Remove From History: 'Borrar del historial'
-  Video has been marked as watched: 'El video ha sido marcado como visto'
-  Video has been removed from your history: 'El video ha sido eliminado de tu historial'
+  Video has been marked as watched: 'El vídeos ha sido marcado como visto'
+  Video has been removed from your history: 'El vídeo ha sido eliminado de tu historial'
   Open in YouTube: 'Abrir en YouTube'
   Copy YouTube Link: 'Copiar el enlace de YouTube'
   Open YouTube Embedded Player: 'Abre el reproductor integrado de YouTube'
@@ -526,7 +532,7 @@ Video:
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Hace $ %'
 #& Videos
-  Play Previous Video: Reproducir video anterior
+  Play Previous Video: Reproducir el vídeo anterior
   Play Next Video: Reproducir vídeo siguiente
   Reverse Playlist: Invertir orden
   Shuffle Playlist: Reproducción aleatoria
@@ -539,18 +545,18 @@ Video:
     Medium: Media
     Low: Baja
   audio only: audio únicamente
-  video only: video únicamente
+  video only: vídeo únicamente
   Download Video: Descargar vídeo
   Copy Invidious Channel Link: Copiar enlace Invidious del canal
-  Open Channel in Invidious: Abrir video en Invidious
+  Open Channel in Invidious: Abrir el vídeo en Invidious
   Copy YouTube Channel Link: Copiar enlace Youtube del canal
   Open Channel in YouTube: Visitar canal en YouTube
   Started streaming on: Comenzó a transmitir en
   Streamed on: Transmitido en
-  Video has been removed from your saved list: El video ha sido eliminado de tu lista
+  Video has been removed from your saved list: El vídeo ha sido eliminado de tu lista
     de guardados
-  Video has been saved: El video ha sido guardado
-  Save Video: Guardiar video
+  Video has been saved: El vídeo ha sido guardado
+  Save Video: Guardiar el vídeo
   translated from English: traducido del Inglés
   Sponsor Block category:
     music offtopic: música fuera de tema
@@ -572,7 +578,7 @@ Video:
         un vídeo específico en una lista de reproducción (regresando a abrir el vídeo)
       opening playlists: abrir listas de reproducción
       setting a playback rate: establecer una velocidad de reproducción
-      starting video at offset: iniciar el video en un punto dado
+      starting video at offset: iniciar el vídeo en un punto dado
     UnsupportedActionTemplate: '$ no soporta: %'
     OpeningTemplate: Abriendo $ en %...
 Videos:
@@ -585,7 +591,7 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: 'Ver la lista de reproducción completa'
-  Videos: 'Videos'
+  Videos: 'Vídeos'
   View: 'Ver'
   Views: 'Vistas'
   Last Updated On: 'Se actualizó por última vez el'
@@ -602,12 +608,12 @@ Playlist:
   Playlist: Lista de reproducción
 Toggle Theatre Mode: 'Activar Modo Cine'
 Change Format:
-  Change Video Formats: 'Cambiar formato de video'
+  Change Video Formats: 'Cambiar formato de vídeo'
   Use Dash Formats: 'Utilizar formatos DASH'
   Use Legacy Formats: 'Utilizar formatos heredados'
   Use Audio Formats: 'Utilizar formatos de audio'
   Audio formats are not available for this video: El formato solo audio no está disponible
-    para este video
+    para este vídeo
   Dash formats are not available for this video: Los formatos DASH no están disponible
     para este video
 Share:
@@ -642,11 +648,12 @@ Comments:
   Reply: 'Responder'
   There are no comments available for this video: 'Aún no hay comentarios'
   Load More Comments: 'Cargar más comentarios'
-  There are no more comments for this video: No hay más comentarios en este video
+  There are no more comments for this video: No hay más comentarios en este vídeo
   Newest first: Los más Recientes Primero
   Top comments: Mejores comentarios
   Sort by: Ordenar por
   No more comments available: No hay más comentarios
+  Show More Replies: Mostrar más respuestas
 Up Next: 'A continuación'
 
 # Toast Messages
@@ -690,7 +697,7 @@ Tooltips:
       vídeo. Los formatos DASH pueden reproducir calidades superiores. Los formatos
       heredados están limitados a un máximo de 720p pero utilizan menos ancho de banda.
       Los formatos de audio son flujos sólo de audio.
-    Proxy Videos Through Invidious: Se conectará a Invidious para obtener videos en
+    Proxy Videos Through Invidious: Se conectará a Invidious para obtener vídeos en
       lugar de conectar directamente con YouTube. Sobreescribirá la preferencia de
       API.
     Force Local Backend for Legacy Formats: Sólo funciona cuando la API de Invidious
@@ -699,7 +706,7 @@ Tooltips:
       Ayuda cuando los vídeos devueltos por Invidious no se reproducen debido a las
       restricciones del país.
   General Settings:
-    Region for Trending: La región de las tendencias permite ver los videos más populares
+    Region for Trending: La región de las tendencias permite ver los vídeos más populares
       en un país determinado. YouTube no admite todos los países mostrados.
     Invidious Instance: La instancia de Invidious por defecto a la que FreeTube se
       conectará para las llamadas a la API. Borra la instancia actual para ver una
