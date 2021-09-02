@@ -982,7 +982,7 @@ export default Vue.extend({
         return
       }
 
-      const theatreModeActive = this.defaultTheatreModeActive ? ' vjs-icon-theatre-active' : ''
+      const theatreModeActive = this.defaultTheatreMode ? ' vjs-icon-theatre-active' : ''
 
       const VjsButton = videojs.getComponent('Button')
       const toggleTheatreModeButton = videojs.extend(VjsButton, {

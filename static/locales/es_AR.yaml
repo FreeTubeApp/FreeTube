@@ -408,6 +408,7 @@ Video:
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: ''
 #& Videos
+  translated from English: traducido del inglés
 Videos:
   #& Sort By
   Sort By:

@@ -150,12 +150,12 @@ Settings:
     Theme Settings: 'Theme Settings'
     Match Top Bar with Main Color: 'Match top bar with main colour'
     Base Theme:
-      Base Theme: 'Base Theme'
+      Base Theme: 'Base theme'
       Black: 'Black'
       Dark: 'Dark'
       Light: 'Light'
     Main Color Theme:
-      Main Color Theme: 'Main Colour Theme'
+      Main Color Theme: 'Main colour theme'
       Red: 'Red'
       Pink: 'Pink'
       Purple: 'Purple'
@@ -175,8 +175,8 @@ Settings:
     Secondary Color Theme: 'Secondary Colour Theme'
         #* Main Color Theme
     UI Scale: UI Scale
-    Disable Smooth Scrolling: Disable Smooth Scrolling
-    Expand Side Bar by Default: Expand Side Bar by Default
+    Disable Smooth Scrolling: Disable smooth scrolling
+    Expand Side Bar by Default: Expand side bar by default
   Player Settings:
     Player Settings: 'Player Settings'
     Force Local Backend for Legacy Formats: 'Force Local Back-end for Legacy Formats'
