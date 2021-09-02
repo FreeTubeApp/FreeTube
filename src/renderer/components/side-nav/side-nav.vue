@@ -23,7 +23,7 @@
         </p>
       </div>
       <div
-        v-if="!hideTrendingVideos"   
+        v-if="!hideTrendingVideos"
         class="navOption mobileHidden"
         role="link"
         tabindex="0"
@@ -59,7 +59,7 @@
         </p>
       </div>
       <div
-        v-if="!hidePlaylists"   
+        v-if="!hidePlaylists"
         class="navOption mobileShow"
         role="link"
         tabindex="0"
@@ -80,7 +80,7 @@
         @navigate="navigate"
       />
       <div
-        class="navOption mobileShow"     
+        class="navOption mobileShow"
         role="link"
         tabindex="0"
         @click="navigate('history')"

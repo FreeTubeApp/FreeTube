@@ -14,7 +14,7 @@
         {{ profileInitial }}
       </div>
     </div>
-    <div 
+    <div
       :id="'profileBubble-' + channelName"
       class="profileName"
     >
