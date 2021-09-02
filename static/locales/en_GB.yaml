@@ -111,11 +111,11 @@ Settings:
     General Settings: 'General Settings'
     Check for Updates: 'Check for Updates'
     Check for Latest Blog Posts: 'Check for latest blog posts'
-    Fallback to Non-Preferred Backend on Failure: 'Fallback to non-preferred backend
+    Fallback to Non-Preferred Backend on Failure: 'Revert to non-preferred backend
       on failure'
     Enable Search Suggestions: 'Enable search suggestions'
     Default Landing Page: 'Default landing page'
-    Locale Preference: 'Locale preference'
+    Locale Preference: 'Locale Preference'
     Preferred API Backend:
       Preferred API Backend: 'Preferred API backend'
       Local API: 'Local API'
@@ -135,7 +135,7 @@ Settings:
     Region for Trending: 'Region for Trending'
         #! List countries
     View all Invidious instance information: View all Invidious instance information
-    System Default: System default
+    System Default: System Fefault
     External Player: External Player
     External Player Executable: Custom External Player Executable
     Clear Default Instance: Clear Default Instance
