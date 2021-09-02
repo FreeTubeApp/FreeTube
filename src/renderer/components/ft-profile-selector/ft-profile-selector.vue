@@ -2,7 +2,7 @@
   <div>
     <div
       class="colorOption"
-      :aria-label="$t('Profile.Toggle Profile List')"
+      :title="$t('Profile.Toggle Profile List')"
       :style="{ background: profileList[activeProfile].bgColor, color: profileList[activeProfile].textColor }"
       tabindex="0"
       role="button"

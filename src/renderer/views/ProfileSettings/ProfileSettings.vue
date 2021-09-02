@@ -8,7 +8,6 @@
         <ft-profile-bubble
           v-for="(profile, index) in profileList"
           :key="index"
-          :aria-label="profile.name"
           :profile-id="profile._id"
           :profile-name="profile.name"
           :background-color="profile.bgColor"

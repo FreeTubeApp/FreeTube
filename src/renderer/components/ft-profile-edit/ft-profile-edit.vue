@@ -19,7 +19,7 @@
           v-for="(color, index) in colorValues"
           :key="index"
           class="colorOption"
-          :title="color"
+          :title="color + ' ' + $t('Profile.Custom Color')"
           :style="{ background: color }"
           tabindex="0"
           @click="profileBgColor = color"

@@ -1,8 +1,8 @@
 <template>
   <div
     class="bubblePadding"
-    :aria-label="profileName"
     tabindex="0"
+    :aria-labelledby="'profileBubble-' + channelName"
     @click="goToProfile"
     @keydown="goToProfile($event)"
   >
@@ -14,7 +14,10 @@
         {{ profileInitial }}
       </div>
     </div>
-    <div class="profileName">
+    <div 
+      :id="'profileBubble-' + channelName"
+      class="profileName"
+    >
       {{ profileName }}
     </div>
   </div>

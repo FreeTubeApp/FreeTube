@@ -5,6 +5,7 @@
       :key="'toast-' + index"
       class="toast"
       :class="{ closed: !toast.isOpen, open: toast.isOpen }"
+      tabindex="0"
       @click="performAction(index)"
       @keydown.enter.prevent="performAction(index)"
       @keydown.space.prevent="performAction(index)"

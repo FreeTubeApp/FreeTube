@@ -23,7 +23,7 @@
       icon="times"
       tabindex="0"
       :title="$t('Close Banner')"
-      @click="handleClose"
+      @click.stop="handleClose"
       @keydown.enter.stop.prevent="handleClose"
     />
   </div>

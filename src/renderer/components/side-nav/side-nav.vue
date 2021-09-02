@@ -7,7 +7,6 @@
     <div class="inner">
       <div
         class="navOption topNavOption mobileShow"
-        :aria-label="$t('Subscriptions.Subscriptions')"
         role="link"
         tabindex="0"
         @click="navigate('subscriptions')"
@@ -24,8 +23,7 @@
         </p>
       </div>
       <div
-        v-if="!hideTrendingVideos"
-        :aria-label="$t('Trending')"
+        v-if="!hideTrendingVideos"   
         class="navOption mobileHidden"
         role="link"
         tabindex="0"
@@ -45,7 +43,6 @@
       <div
         v-if="!hidePopularVideos"
         class="navOption mobileHidden"
-        :aria-label="$t('Most Popular')"
         role="link"
         tabindex="0"
         @click="navigate('popular')"
@@ -62,8 +59,7 @@
         </p>
       </div>
       <div
-        v-if="!hidePlaylists"
-        :aria-label="$t('Playlists')"
+        v-if="!hidePlaylists"   
         class="navOption mobileShow"
         role="link"
         tabindex="0"
@@ -84,8 +80,7 @@
         @navigate="navigate"
       />
       <div
-        class="navOption mobileShow"
-        :aria-label="$t('History.History')"
+        class="navOption mobileShow"     
         role="link"
         tabindex="0"
         @click="navigate('history')"
@@ -106,7 +101,6 @@
         class="navOption mobileShow"
         role="link"
         tabindex="0"
-        :aria-label="$t('Settings.Settings')"
         @click="navigate('settings')"
         @keydown.enter.prevent="navigate('settings')"
         @keydown.space.prevent="navigate('settings')"
@@ -124,7 +118,6 @@
         class="navOption mobileHidden"
         role="link"
         tabindex="0"
-        :aria-label="$t('About.About')"
         @click="navigate('about')"
         @keydown.enter.prevent="navigate('about')"
         @keydown.space.prevent="navigate('about')"
@@ -147,7 +140,6 @@
           :key="index"
           class="navChannel mobileHidden"
           :title="channel.name"
-          :aria-label="channel.name"
           role="link"
           tabindex="0"
           @click="$goToChannel(channel.id)"

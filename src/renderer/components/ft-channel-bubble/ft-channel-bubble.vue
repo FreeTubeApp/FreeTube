@@ -2,7 +2,7 @@
   <div
     class="bubblePadding"
     tabindex="0"
-    :aria-labelledby="'bubble-' + channelName"
+    :aria-labelledby="'channelBubble-' + channelName"
     @click="handleClick"
     @keydown="handleClick($event)"
   >
@@ -21,7 +21,7 @@
       />
     </div>
     <div
-      :id="'bubble-' + channelName"
+      :id="'channelBubble' + channelName"
       class="channelName"
     >
       {{ channelName }}
