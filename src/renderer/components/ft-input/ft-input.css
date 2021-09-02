@@ -4,11 +4,11 @@
 
 .clearInputTextButton {
   position: absolute;
-  padding: 10px 5px;
+  padding: 10px;
   top: 5px;
   left: 0;
   cursor: pointer;
-  border-radius: 0;
+  border-radius: 200px 200px 200px 200px;
   color: var(--primary-text-color);
 }
 
@@ -156,5 +156,5 @@
 }
 
 .showClearTextButton .ft-input {
-  padding-left: 2rem;
+  padding-left: 2.5rem;
 }
