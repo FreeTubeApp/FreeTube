@@ -8,7 +8,7 @@
   top: 5px;
   left: 0;
   cursor: pointer;
-  border-radius: 200px 200px 200px 200px;
+  border-radius: 0;
   color: var(--primary-text-color);
 }
 
