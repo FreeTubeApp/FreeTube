@@ -119,7 +119,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-standard": "^5.0.0",
-    "eslint-plugin-vue": "^7.15.1",
+    "eslint-plugin-vue": "^7.17.0",
     "eslint-plugin-vuejs-accessibility": "^0.7.1",
     "fast-glob": "^3.2.7",
     "file-loader": "^6.2.0",
