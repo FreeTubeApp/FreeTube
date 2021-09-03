@@ -22,14 +22,6 @@
           :tooltip="$t('Tooltips.General Settings.Fallback to Non-Preferred Backend on Failure')"
           @change="updateBackendFallback"
         />
-        <ft-select
-          :placeholder="$t('Settings.General Settings.External Link Handling.External Link Handling')"
-          :value="externalLinkHandling"
-          :select-names="externalLinkHandlingNames"
-          :select-values="externalLinkHandlingValues"
-          :tooltip="$t('Settings.General Settings.External Link Handling.External Link Handling Tooltip')"
-          @change="updateExternalLinkHandling"
-        />
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
@@ -92,6 +84,14 @@
         :select-values="regionValues"
         :tooltip="$t('Tooltips.General Settings.Region for Trending')"
         @change="updateRegion"
+      />
+      <ft-select
+        :placeholder="$t('Settings.General Settings.External Link Handling.External Link Handling')"
+        :value="externalLinkHandling"
+        :select-names="externalLinkHandlingNames"
+        :select-values="externalLinkHandlingValues"
+        :tooltip="$t('Settings.General Settings.External Link Handling.External Link Handling Tooltip')"
+        @change="updateExternalLinkHandling"
       />
     </div>
     <ft-flex-box class="generalSettingsFlexBox">
