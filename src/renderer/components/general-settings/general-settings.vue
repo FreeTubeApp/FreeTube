@@ -22,11 +22,13 @@
           :tooltip="$t('Tooltips.General Settings.Fallback to Non-Preferred Backend on Failure')"
           @change="updateBackendFallback"
         />
-        <ft-toggle-switch
-          :label="$t('Settings.General Settings.Disable External Link Opening')"
-          :compact="true"
-          :default-value="disableExternalLinkOpening"
-          @change="updateDisableExternalLinkOpening"
+        <ft-select
+          :placeholder="$t('Settings.General Settings.External Link Handling.External Link Handling')"
+          :value="externalLinkHandling"
+          :select-names="externalLinkHandlingNames"
+          :select-values="externalLinkHandlingValues"
+          :tooltip="$t('Settings.General Settings.External Link Handling.External Link Handling')"
+          @change="updateExternalLinkHandling"
         />
       </div>
       <div class="switchColumn">

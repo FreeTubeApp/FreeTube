@@ -50,6 +50,10 @@ export default Vue.extend({
         'start',
         'middle',
         'end'
+      ],
+      externalLinkHandlingValues: [
+        '',
+        'doNothing'
       ]
     }
   },
@@ -152,8 +156,15 @@ export default Vue.extend({
       ]
     },
 
-    disableExternalLinkOpening: function () {
-      return this.$store.getters.getDisableExternalLinkOpening
+    externalLinkHandling: function () {
+      return this.$store.getters.getExternalLinkHandling
+    },
+
+    externalLinkHandlingNames: function () {
+      return [
+        this.$t('Settings.General Settings.External Link Handling.Open Link'),
+        this.$t('Settings.General Settings.External Link Handling.Do Nothing')
+      ]
     }
   },
   mounted: function () {
@@ -223,7 +234,7 @@ export default Vue.extend({
       'updateThumbnailPreference',
       'updateForceLocalBackendForLegacy',
       'updateCurrentLocale',
-      'updateDisableExternalLinkOpening'
+      'updateExternalLinkHandling'
     ])
   }
 })

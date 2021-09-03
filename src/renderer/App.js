@@ -305,7 +305,7 @@ export default Vue.extend({
 
         if (isYoutubeLink) {
           this.handleYoutubeLink(el.href)
-        } else if (this.$store.getters.getDisableExternalLinkOpening) {
+        } else if (this.$store.getters.getExternalLinkHandling === 'doNothing') {
           // Let user know opening external link is disabled via setting
           this.showToast({
             message: this.$t('External link opening has been disabled in the general settings')

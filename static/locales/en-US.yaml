@@ -146,6 +146,10 @@ Settings:
     Clear Default Instance: Clear Default Instance
     View all Invidious instance information: View all Invidious instance information
     Region for Trending: Region for Trending
+    External Link Handling:
+      External Link Handling: External Link Handling
+      Open Link: Open Link
+      Do Nothing: Do Nothing
         #! List countries
   Theme Settings:
     Theme Settings: Theme Settings
