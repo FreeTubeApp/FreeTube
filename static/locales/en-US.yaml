@@ -148,6 +148,10 @@ Settings:
     Region for Trending: Region for Trending
     External Link Handling:
       External Link Handling: External Link Handling
+      External Link Handling Tooltip: |
+        External Link Handling: Choose the behaviour when an external link (a link with non Youtube URL) is clicked.
+        By default FreeTube will open the link in your default browser.
+        You can choose to disable it completely for safety.
       Open Link: Open Link
       Do Nothing: Do Nothing
         #! List countries

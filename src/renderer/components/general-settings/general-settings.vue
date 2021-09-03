@@ -27,7 +27,7 @@
           :value="externalLinkHandling"
           :select-names="externalLinkHandlingNames"
           :select-values="externalLinkHandlingValues"
-          :tooltip="$t('Settings.General Settings.External Link Handling.External Link Handling')"
+          :tooltip="$t('Settings.General Settings.External Link Handling.External Link Handling Tooltip')"
           @change="updateExternalLinkHandling"
         />
       </div>
