@@ -35,6 +35,7 @@ Version $ is now available!  Click for more details: Version $ is now available!
 Download From Site: Download From Site
 A new blog is now available, $. Click to view more: A new blog is now available, $.
   Click to view more
+Are you sure you want to open this link?: Are you sure you want to open this link?
 
 # Search Bar
 Search / Go to URL: Search / Go to URL
@@ -119,7 +120,6 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: Fallback to Non-Preferred Backend
       on Failure
     Enable Search Suggestions: Enable Search Suggestions
-    Disable External Link Opening: Disable External Link Opening
     Default Landing Page: Default Landing Page
     Locale Preference: Locale Preference
     System Default: System Default
@@ -153,6 +153,7 @@ Settings:
         By default FreeTube will open the link in your default browser.
         You can choose to disable it completely for safety.
       Open Link: Open Link
+      Open Link After Prompt: Open Link After Prompt
       Do Nothing: Do Nothing
         #! List countries
   Theme Settings:

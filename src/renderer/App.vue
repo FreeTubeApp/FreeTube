@@ -57,6 +57,13 @@
         />
       </ft-flex-box>
     </ft-prompt>
+    <ft-prompt
+      v-if="showExternalLinkOpeningPrompt"
+      :label="$t('Are you sure you want to open this link?')"
+      :option-names="externalLinkOpeningPromptNames"
+      :option-values="externalLinkOpeningPromptValues"
+      @click="handleExternalLinkOpeningPromptAnswer"
+    />
     <ft-toast />
     <ft-progress-bar
       v-if="showProgressBar"

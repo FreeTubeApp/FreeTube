@@ -53,6 +53,7 @@ export default Vue.extend({
       ],
       externalLinkHandlingValues: [
         '',
+        'openLinkAfterPrompt',
         'doNothing'
       ]
     }
@@ -163,6 +164,7 @@ export default Vue.extend({
     externalLinkHandlingNames: function () {
       return [
         this.$t('Settings.General Settings.External Link Handling.Open Link'),
+        this.$t('Settings.General Settings.External Link Handling.Open Link After Prompt'),
         this.$t('Settings.General Settings.External Link Handling.Do Nothing')
       ]
     }
