@@ -3,6 +3,7 @@
     <general-settings />
     <theme-settings />
     <player-settings />
+    <external-player-settings v-if="usingElectron" />
     <subscription-settings />
     <distraction-settings />
     <privacy-settings />

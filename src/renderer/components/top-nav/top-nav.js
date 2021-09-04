@@ -6,7 +6,6 @@ import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
 import $ from 'jquery'
 import debounce from 'lodash.debounce'
 import ytSuggest from 'youtube-suggest'
-const { ipcRenderer } = require('electron')
 
 export default Vue.extend({
   name: 'TopNav',
@@ -20,10 +19,15 @@ export default Vue.extend({
       component: this,
       windowWidth: 0,
       showFilters: false,
+      searchFilterValueChanged: false,
       searchSuggestionsDataList: []
     }
   },
   computed: {
+    usingElectron: function () {
+      return this.$store.getters.getUsingElectron
+    },
+
     enableSearchSuggestions: function () {
       return this.$store.getters.getEnableSearchSuggestions
     },
@@ -40,8 +44,8 @@ export default Vue.extend({
       return this.$store.getters.getBarColor
     },
 
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
     },
 
     backendFallback: function () {
@@ -102,14 +106,21 @@ export default Vue.extend({
         searchInput.blur()
       }
 
-      this.$store.dispatch('getYoutubeUrlInfo', query).then((result) => {
+      this.getYoutubeUrlInfo(query).then((result) => {
         switch (result.urlType) {
           case 'video': {
-            const { videoId, timestamp } = result
+            const { videoId, timestamp, playlistId } = result
 
+            const query = {}
+            if (timestamp) {
+              query.timestamp = timestamp
+            }
+            if (playlistId && playlistId.length > 0) {
+              query.playlistId = playlistId
+            }
             this.$router.push({
               path: `/watch/${videoId}`,
-              query: timestamp ? { timestamp } : {}
+              query: query
             })
             break
           }
@@ -217,7 +228,7 @@ export default Vue.extend({
         }
       }
 
-      this.$store.dispatch('invidiousAPICall', searchPayload).then((results) => {
+      this.invidiousAPICall(searchPayload).then((results) => {
         this.searchSuggestionsDataList = results.suggestions
       }).catch((err) => {
         console.log(err)
@@ -242,6 +253,10 @@ export default Vue.extend({
       this.showFilters = false
     },
 
+    handleSearchFilterValueChanged: function(filterValueChanged) {
+      this.searchFilterValueChanged = filterValueChanged
+    },
+
     historyBack: function () {
       window.history.back()
     },
@@ -255,11 +270,20 @@ export default Vue.extend({
     },
 
     createNewWindow: function () {
-      ipcRenderer.send('createNewWindow')
+      if (this.usingElectron) {
+        const { ipcRenderer } = require('electron')
+        ipcRenderer.send('createNewWindow')
+      } else {
+        // Web placeholder
+      }
     },
-
+    navigate: function (route) {
+      this.$router.push('/' + route)
+    },
     ...mapActions([
-      'showToast'
+      'showToast',
+      'getYoutubeUrlInfo',
+      'invidiousAPICall'
     ])
   }
 })

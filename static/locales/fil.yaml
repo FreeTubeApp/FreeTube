@@ -75,7 +75,8 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Kinukuha ang mga suskripsyon. Maghintay
     lang po.'
   Refresh Subscriptions: 'I-refresh ang mga Suskripsyon'
-Trending: 'Nagte-trend'
+Trending:
+  Trending: 'Nagte-trend'
 Most Popular: 'Pinakasikat'
 Playlists: ''
 User Playlists:

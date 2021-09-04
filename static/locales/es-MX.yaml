@@ -72,7 +72,8 @@ Subscriptions:
   'Getting Subscriptions.  Please wait.': 'Obteniendo Suscripciones. Por favor espere.'
   Refresh Subscriptions: Actulizar Suscripciones
   Getting Subscriptions. Please wait.: Obteniendo Suscripciones. Por favor espere.
-Trending: 'Tendencias'
+Trending:
+  Trending: 'Tendencias'
 Most Popular: 'Más Popular'
 Playlists: 'Listas de Reproducción'
 User Playlists:
@@ -396,6 +397,7 @@ Video:
   Reverse Playlist: Lista de reproducción invertida
   Shuffle Playlist: Lista de reproducción aleatoria
   Loop Playlist: Lista de reproducción en bucle
+  translated from English: traducido del inglés
 Videos:
   #& Sort By
   Sort By:

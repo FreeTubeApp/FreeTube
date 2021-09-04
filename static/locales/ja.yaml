@@ -74,7 +74,8 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: このプロファイルは登録チャンネルが多くなっています。接続制限を回避するため
     RSS を使用します
   Load More Videos: もっと見る
-Trending: '急上昇'
+Trending:
+  Trending: '急上昇'
 Most Popular: '人気'
 Playlists: '再生リスト'
 User Playlists:
@@ -116,6 +117,7 @@ Settings:
     Check for Latest Blog Posts: 新着ブログの確認
     Check for Updates: 最新版の確認
     View all Invidious instance information: すべての Invidious インスタンス情報の表示
+    System Default: システムのデフォルト
   Theme Settings:
     Theme Settings: 'テーマの設定'
     Match Top Bar with Main Color: '上部バーをメイン カラーと同じにする'
@@ -285,6 +287,12 @@ Settings:
     Proxy Protocol: プロキシーのプロトコル
     Enable Tor / Proxy: Tor / プロキシーの有効化
     Proxy Settings: プロキシーの設定
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: 広告セグメントがスキップされたときに通知する
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 広告ブロック API URL（デフォルト
+      https://sponsor.ajay.app）
+    Enable SponsorBlock: 広告ブロック有効
+    SponsorBlock Settings: 広告ブロック設定
 About:
   #On About page
   About: 'About'
@@ -450,6 +458,14 @@ Video:
   Video has been saved: ビデオを保存しました
   Save Video: 動画の保存
   translated from English: 英語から翻訳
+  Sponsor Block category:
+    sponsor: 広告
+    music offtopic: 話題外の音楽
+    interaction: 相互作用
+    self-promotion: 自己宣伝
+    outro: その他
+    intro: イントロ
+  Skipped segment: スキップされたセグメント
 Videos:
   #& Sort By
   Sort By:

@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { mapActions } from 'vuex'
 import dateFormat from 'dateformat'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
@@ -33,8 +34,8 @@ export default Vue.extend({
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
     }
   },
   watch: {
@@ -62,17 +63,15 @@ export default Vue.extend({
     getPlaylistLocal: function () {
       this.isLoading = true
 
-      this.$store.dispatch('ytGetPlaylistInfo', this.playlistId).then((result) => {
+      this.ytGetPlaylistInfo(this.playlistId).then((result) => {
         console.log('done')
         console.log(result)
-
-        const randomVideoIndex = Math.floor((Math.random() * result.items.length))
 
         this.infoData = {
           id: result.id,
           title: result.title,
           description: result.description ? result.description : '',
-          randomVideoId: result.items[randomVideoIndex].id,
+          firstVideoId: result.items[0].id,
           viewCount: result.views,
           videoCount: result.estimatedItemCount,
           lastUpdated: result.lastUpdated ? result.lastUpdated : '',
@@ -120,21 +119,19 @@ export default Vue.extend({
         }
       }
 
-      this.$store.dispatch('invidiousGetPlaylistInfo', payload).then((result) => {
+      this.invidiousGetPlaylistInfo(payload).then((result) => {
         console.log('done')
         console.log(result)
-
-        const randomVideoIndex = Math.floor((Math.random() * result.videos.length) + 1)
 
         this.infoData = {
           id: result.playlistId,
           title: result.title,
           description: result.description,
-          randomVideoId: result.videos[randomVideoIndex].videoId,
+          firstVideoId: result.videos[0].videoId,
           viewCount: result.viewCount,
           videoCount: result.videoCount,
           channelName: result.author,
-          channelThumbnail: result.authorThumbnails[2].url.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`),
+          channelThumbnail: result.authorThumbnails[2].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`),
           channelId: result.authorId,
           infoSource: 'invidious'
         }
@@ -180,6 +177,11 @@ export default Vue.extend({
       this.shownResults = history.data
       this.nextPageRef = history.nextPageRef
       this.isLoading = false
-    }
+    },
+
+    ...mapActions([
+      'ytGetPlaylistInfo',
+      'invidiousGetPlaylistInfo'
+    ])
   }
 })

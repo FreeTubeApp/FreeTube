@@ -82,13 +82,18 @@
         :is-live="isLive"
         :is-upcoming="isUpcoming"
         :download-links="downloadLinks"
+        :playlist-id="playlistId"
         :watching-playlist="watchingPlaylist"
+        :get-playlist-index="getPlaylistIndex"
+        :get-playlist-reverse="getPlaylistReverse"
+        :get-playlist-shuffle="getPlaylistShuffle"
+        :get-playlist-loop="getPlaylistLoop"
         :theatre-possible="theatrePossible"
         :length-seconds="videoLengthSeconds"
         :video-thumbnail="thumbnail"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
-        @theatre-mode="toggleTheatreMode"
+        @pause-player="pausePlayer"
       />
       <watch-video-description
         v-if="!isLoading"
@@ -124,6 +129,7 @@
         :video-id="videoId"
         class="watchVideoSideBar watchVideoPlaylist"
         :class="{ theatrePlaylist: useTheatreMode }"
+        @pause-player="pausePlayer"
       />
       <watch-video-recommendations
         v-if="!isLoading"

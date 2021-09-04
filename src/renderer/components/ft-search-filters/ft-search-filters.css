@@ -1,10 +1,16 @@
-.searchFilter {
-  background-color: var(--card-bg-color);
-  padding: 20px;
-  padding-bottom: 70px;
+.searchFilterInner {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+
+  padding: 20px 20px 70px 20px;
   max-height: 410px;
   overflow-y: auto;
+
+  background-color: var(--card-bg-color);
   box-shadow: 0 1px 2px rgba(0,0,0,.1);
+
+  opacity: 0.9;
 }
 
 .center {
@@ -22,6 +28,6 @@
 
 @media only screen and (max-width: 600px) {
   .searchRadio {
-    border-right: 0px;
+    border-right: 0;
   }
 }

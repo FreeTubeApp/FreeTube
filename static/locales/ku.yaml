@@ -84,7 +84,8 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: .ئەم
     پرۆفایلە ژمارەیەکی زۆری هەیە لە سەبسکریپشن. بۆ دورکەوتنەوە لە سنوور دانان (رسس)
     بەکاردەهێندرێت
-Trending: 'زۆر باسکراو'
+Trending:
+  Trending: 'زۆر باسکراو'
 Most Popular: 'بەناوبانگترین'
 Playlists: 'پلەیلیست'
 User Playlists:

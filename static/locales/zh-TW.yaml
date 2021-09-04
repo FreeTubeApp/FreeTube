@@ -59,7 +59,7 @@ Search Filters:
     Long (> 20 minutes): '長（大於20分鐘）'
   # On Search Page
   Search Results: '搜尋結果'
-  Fetching results. Please wait: '擷取結果中，請稍候...'
+  Fetching results. Please wait: '正在擷取結果。請稍候'
   Fetch more results: '擷取更多結果'
 # Sidebar
   There are no more results for this search: 此搜尋無更多結果
@@ -74,7 +74,13 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 這個設定檔有大量訂閱。
     強制RSS已防止速率限制
   Load More Videos: 載入更多影片
-Trending: '發燒影片'
+Trending:
+  Trending: '發燒影片'
+  Trending Tabs: 熱門分頁
+  Movies: 電影
+  Gaming: 遊戲
+  Music: 音樂
+  Default: 預設
 Most Popular: '最受歡迎'
 Playlists: '播放清單'
 User Playlists:
@@ -117,6 +123,12 @@ Settings:
     Check for Updates: 檢查更新
     View all Invidious instance information: 檢視所有 Invidious 站台的資訊
     System Default: 系統預設值
+    Clear Default Instance: 清除預設站台
+    Set Current Instance as Default: 設定目前站台為預設值
+    Current instance will be randomized on startup: 目前站台將在啟動時隨機選擇
+    No default instance has been set: 未設定預設的站台
+    The currently set default instance is $: 目前設定的預設站台為 $
+    Current Invidious Instance: 目前的 Invidious 站台
   Theme Settings:
     Theme Settings: '主題設定'
     Match Top Bar with Main Color: '頂部功能表欄對應主色彩'
@@ -179,6 +191,9 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: 播放清單 下一個影片間隔時間
     Next Video Interval: 下一個影片區段
+    Scroll Volume Over Video Player: 在影片播放器上捲動以變更音量
+    Display Play Button In Video Player: 在影片播放器中顯示播放按鈕
+    Fast-Forward / Rewind Interval: 快轉／倒帶間隔
   Subscription Settings:
     Subscription Settings: '訂閱設定'
     Hide Videos on Watch: '觀看時隱藏影片'
@@ -237,7 +252,7 @@ Settings:
     History object has insufficient data, skipping item: 歷史紀錄物件資料不足，正在跳過項目
     Subscriptions have been successfully exported: 訂閱已成功匯出
     Invalid history file: 無效的歷史紀錄檔案
-    This might take a while, please wait: 這可能需要一段時間，請稍候...
+    This might take a while, please wait: 這可能需要一段時間，請稍候
     Invalid subscriptions file: 無效的訂閱檔案
     All subscriptions have been successfully imported: 所有訂閱已成功匯入
     All subscriptions and profiles have been successfully imported: 所有訂閱與設定檔已成功匯入
@@ -291,6 +306,12 @@ Settings:
       網址（預設為 https://sponsor.ajay.app）
     Enable SponsorBlock: 啟用 SponsorBlock
     SponsorBlock Settings: SponsorBlock 設定
+  External Player Settings:
+    Custom External Player Arguments: 自訂外部播放程式參數
+    Custom External Player Executable: 自訂外部播放程式可執行檔
+    Ignore Unsupported Action Warnings: 忽略不支援的動作警告
+    External Player: 外部播放程式
+    External Player Settings: 外部播放程式設定
 About:
   #On About page
   About: '關於'
@@ -470,6 +491,20 @@ Video:
     intro: 介紹
     sponsor: 贊助商
   Skipped segment: 已跳過的片段
+  External Player:
+    Unsupported Actions:
+      looping playlists: 循環播放清單
+      shuffling playlists: 隨機播放清單
+      reversing playlists: 反向播放清單
+      opening specific video in a playlist (falling back to opening the video): 在播放清單中開啟特定影片（汰退至開啟影片）
+      opening playlists: 正在開啟播放清單
+      setting a playback rate: 正在設定播放速度
+      starting video at offset: 在偏移處開始影片
+    UnsupportedActionTemplate: $ 不支援：%
+    OpeningTemplate: 正於 % 中開啟 $……
+    playlist: 播放清單
+    video: 視訊
+    OpenInTemplate: 在 $ 中開啟
 Videos:
   #& Sort By
   Sort By:
@@ -494,6 +529,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: 播放清單
 Toggle Theatre Mode: '切換為劇院模式'
 Change Format:
   Change Video Formats: '變更影片格式'
@@ -520,7 +556,7 @@ Mini Player: '迷你播放器'
 Comments:
   Comments: '留言'
   Click to View Comments: '點擊查看留言'
-  Getting comment replies, please wait: '擷取留言中，請稍候...'
+  Getting comment replies, please wait: '正在取得留言回覆，請稍候'
   Show Comments: '查看留言'
   Hide Comments: '隱藏留言'
   # Context: View 10 Replies, View 1 Reply
@@ -535,6 +571,7 @@ Comments:
   Top comments: 最熱門留言
   Sort by: 排序方式
   No more comments available: 沒有更多留言
+  Show More Replies: 顯示更多回覆
 Up Next: '觀看其他類似影片'
 
 # Toast Messages
@@ -593,6 +630,7 @@ Profile:
   Other Channels: 其他頻道
   Subscription List: 訂閱清單
   Profile Filter: 設定檔篩選器
+  Profile Settings: 設定檔設定
 The playlist has been reversed: 播放清單已反轉
 A new blog is now available, $. Click to view more: 已有新的部落格文章，$。點擊以檢視更多
 Download From Site: 從網站下載
@@ -600,7 +638,8 @@ Version $ is now available!  Click for more details: 版本更新囉! 最新版�
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 沒有這個影片因為缺少格式。這個可能發生由於國家不可用。
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: 啟用後，FreeTube將使用RSS代替它的預設方法來抓取您的訂閱來源。RSS的速度較快，而且可以防止IP封鎖，但它可能不會提供某些資訊，例如影片長度或是直播狀態。
+    Fetch Feeds from RSS: 啟用後，FreeTube 將使用 RSS 替代其預設方法來擷取您的訂閱 feed。RSS 的速度較快，而且可以防止
+      IP 封鎖，但它可能不會提供某些資訊，例如影片長度或是直播狀態
   Player Settings:
     Default Video Format: 設定要用於影片播放的格式。DASH 格式有更高的畫質。傳統格式會限制在 720p 但頻寬需求更低。音訊格式為僅有音訊的串流。
     Proxy Videos Through Invidious: 將連線到 Invidious 而非直接連線到 YouTube 來提供影片。覆寫 API 偏好。
@@ -616,9 +655,16 @@ Tooltips:
     Region for Trending: 熱門影片區域可以讓您選擇想要顯示哪個國家的熱門影片。注意：並非所有國家都被 YouTube 支援。
   Privacy Settings:
     Remove Video Meta Files: 如果啟用，FreeTube會在關閉觀看頁面時，自動刪除影片播放過程中建立的暫存檔案。
+  External Player Settings:
+    Custom External Player Arguments: 任何您想要傳遞給外部播放程式的自訂命令列參數，以半形冒號分隔 (';')。
+    Ignore Warnings: 當目前的外部播放程式不支援目前動作時（例如反向播放清單等等），消除警告。
+    Custom External Player Executable: 預設情況下，FreeTube 會假設選定的外部播放程式可以透過 PATH 環境變數找到。如果需要的話，請在此設定自訂路徑。
+    External Player: 選擇外部播放程式將會在縮圖上顯示圖示，用來在外部播放程式中開啟影片（若支援的話，播放清單也可以）。
 Playing Next Video Interval: 馬上播放下一個影片。點擊取消。| 播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。|
   播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。
 More: 更多
 Hashtags have not yet been implemented, try again later: 尚未實作主題標籤，請稍後再試
 Unknown YouTube url type, cannot be opened in app: 未知的 YouTube url 類型，無法在應用程式開啟
 Open New Window: 開啟新視窗
+Default Invidious instance has been cleared: 預設 Invidious 站台已被清除
+Default Invidious instance has been set to $: 預設 Invidious 站台已被設定為 $

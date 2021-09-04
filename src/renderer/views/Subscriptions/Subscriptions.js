@@ -40,8 +40,8 @@ export default Vue.extend({
       return this.$store.getters.getBackendFallback
     },
 
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
     },
 
     hideWatchedSubs: function () {
@@ -378,7 +378,7 @@ export default Vue.extend({
     getChannelVideosInvidiousRSS: function (channel, failedAttempts = 0) {
       return new Promise((resolve, reject) => {
         const parser = new Parser()
-        const feedUrl = `${this.invidiousInstance}/feed/channel/${channel.id}`
+        const feedUrl = `${this.currentInvidiousInstance}/feed/channel/${channel.id}`
 
         parser.parseURL(feedUrl).then(async (feed) => {
           resolve(await Promise.all(feed.items.map((video) => {

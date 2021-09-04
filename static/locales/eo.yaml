@@ -1,6 +1,6 @@
 # Put the name of your locale in the same language
-Locale Name: ''
-FreeTube: ''
+Locale Name: 'Esperanto'
+FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >
 
@@ -74,7 +74,8 @@ Subscriptions:
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
   'Getting Subscriptions. Please wait.': ''
   Refresh Subscriptions: ''
-Trending: ''
+Trending: 
+  Trending: ''
 Most Popular: ''
 Playlists: ''
 User Playlists:

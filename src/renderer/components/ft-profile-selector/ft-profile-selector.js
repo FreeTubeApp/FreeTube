@@ -13,7 +13,7 @@ export default Vue.extend({
   },
   data: function () {
     return {
-      showProfileList: false
+      profileListShown: false
     }
   },
   computed: {
@@ -27,23 +27,36 @@ export default Vue.extend({
       return this.$store.getters.getDefaultProfile
     },
     activeProfileInitial: function () {
-      return this.activeProfile.name.slice(0, 1).toUpperCase()
+      return this?.activeProfile?.name?.length > 0 ? Array.from(this.activeProfile.name)[0].toUpperCase() : ''
     },
     profileInitials: function () {
       return this.profileList.map((profile) => {
-        return profile.name.slice(0, 1).toUpperCase()
+        return profile?.name?.length > 0 ? Array.from(profile.name)[0].toUpperCase() : ''
       })
     }
   },
   mounted: function () {
     $('#profileList').focusout(() => {
       $('#profileList')[0].style.display = 'none'
+      // When pressing the profile button
+      // It will make the menu reappear if we set `profileListShown` immediately
+      setTimeout(() => {
+        this.profileListShown = false
+      }, 100)
     })
   },
   methods: {
     toggleProfileList: function () {
-      $('#profileList')[0].style.display = 'inline'
-      $('#profileList').focus()
+      const profileList = $('#profileList')
+
+      if (this.profileListShown) {
+        profileList.get(0).style.display = 'none'
+        this.profileListShown = false
+      } else {
+        profileList.get(0).style.display = 'inline'
+        profileList.get(0).focus()
+        this.profileListShown = true
+      }
     },
 
     openProfileSettings: function () {

@@ -55,6 +55,17 @@
     @include top-nav-is-colored
       background-color: var(--primary-color-active)
 
+.navFilterIcon // Filter icon
+  $effect-distance: 10px
+
+  margin-left: $effect-distance
+
+  &.filterChanged // When filter value changed from default
+    box-shadow: 0 0 $effect-distance var(--primary-color)
+
+    @include top-nav-is-colored
+      box-shadow: 0 0 $effect-distance var(--text-with-main-color)
+
 .side // parts of the top nav either side of the search bar
   display: flex
   align-items: center
@@ -74,7 +85,13 @@
     display: flex
     align-items: center
     padding: 0px 25px 0px 10px
+    cursor: pointer
 
+    &:active
+      background-color: var(--tertiary-text-color)
+      transition: background 0.2s ease-in
+      @include top-nav-is-colored
+        background-color: var(--primary-color-active)
     .logoIcon
       background-image: var(--logo-icon)
       background-repeat: no-repeat
