@@ -219,15 +219,15 @@ Settings:
   Privacy Settings:
     Privacy Settings: 'Adatvédelmi beállítások'
     Remember History: 'Előzmények megjegyzése'
-    Save Watched Progress: 'Figyelt előrehaladás mentése'
+    Save Watched Progress: 'Megtekintés előrehaladás mentése'
     Clear Search Cache: 'Keresési gyorsítótár törlése'
     Are you sure you want to clear out your search cache?: 'Biztosan törli a keresési
       gyorsítótárat?'
     Search cache has been cleared: 'Megtörtént a keresési gyorsítótár törlése'
-    Remove Watch History: 'Figyelt előzmények eltávolítása'
+    Remove Watch History: 'Megtekintési előzmények eltávolítása'
     Are you sure you want to remove your entire watch history?: 'Biztosan törli az
-      összes figyelt előzményeket?'
-    Watch history has been cleared: 'Megtörtént a figyelt előzmények törlése'
+      összes megtekintési előzményt?'
+    Watch history has been cleared: 'Megtörtént a megtekintési előzmények törlése'
     Remove All Subscriptions / Profiles: 'Összes feliratkozás és profil eltávolítása'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Biztosan
       törli az összes feliratkozást és profilt? A művelet nem vonható vissza.'
@@ -481,9 +481,9 @@ Channel:
     Channel Description: 'Csatorna leírása'
     Featured Channels: 'Kiemelt csatornák'
 Video:
-  Mark As Watched: 'Megjelölés figyeltként'
+  Mark As Watched: 'Megjelölés megtekintettként'
   Remove From History: 'Eltávolítás az előzményekből'
-  Video has been marked as watched: 'A videót figyeltként jelölték meg'
+  Video has been marked as watched: 'A videó megtekintettnek lett jelölve'
   Video has been removed from your history: 'A videót eltávolítottuk az előzményekből'
   Open in YouTube: 'YouTube megnyitása'
   Copy YouTube Link: 'YouTube hivatkozás másolása'
@@ -499,8 +499,8 @@ Video:
   Play Next Video: 'Következő videó lejátszása'
   Play Previous Video: 'Előző videó lejátszása'
   # Context is "X People Watching"
-  Watching: 'Figyelni'
-  Watched: 'Figyelt'
+  Watching: 'Megtekintő'
+  Watched: 'Megtekintett'
   Autoplay: 'Önműködő lejátszás'
   Starting soon, please refresh the page to check again: 'Hamarosan kezdődik. Kérjük,
     frissítse az oldalt az ellenőrzéshez'
@@ -729,8 +729,9 @@ Tooltips:
       helyett. Segít, ha az Invidious által visszaküldött videókat nem lehet lejátszani
       az ország korlátozása miatt.
   Privacy Settings:
-    Remove Video Meta Files: Ha engedélyezve van, a FreeTube önműködőén törli a videolejátszás
-      során létrehozott métafájlokat, amikor a nézési oldal bezárul.
+    Remove Video Meta Files: Ha engedélyezve van, a FreeTube automatikusan törli a
+      videolejátszás során létrehozott metafájlokat, amikor a videómegtekintő oldal
+      bezárul.
   External Player Settings:
     Custom External Player Executable: Alapértelmezés szerint a FreeTube feltételezi,
       hogy a kiválasztott külső lejátszó megtalálható a PATH (ÚTVONAL) környezeti
@@ -746,8 +747,8 @@ Playing Next Video Interval: A következő videó lejátszása folyamatban van. 
   történik. Kattintson a törléshez. | A következő videó lejátszása {nextVideoInterval}
   másodperc múlva történik. Kattintson a törléshez.
 More: Több
-Hashtags have not yet been implemented, try again later: A kettőskeresztescímke még
-  nincs megvalósítva. Próbálkozzon később.
+Hashtags have not yet been implemented, try again later: A Hashtagek kezelése még
+  nincs megvalósítva. Próbálkozzon a következő verzióban.
 Unknown YouTube url type, cannot be opened in app: Ismeretlen YouTube URL-típusa,
   nem nyitható meg az alkalmazásban
 Open New Window: Új ablak megnyitása
