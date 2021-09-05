@@ -80,7 +80,13 @@ Subscriptions:
     profiel heeft een groot aantal abonnementen. RSS wordt geforceerd om tariefbeperkingen
     te vermijden
   Load More Videos: Meer Video's Laden
-Trending: 'Trending'
+Trending:
+  Trending: 'Trending'
+  Trending Tabs: Tendingtabbladen
+  Movies: Films
+  Gaming: Gaming
+  Music: Muziek
+  Default: Standaard
 Most Popular: 'Populair'
 Playlists: 'Afspeellijsten'
 User Playlists:
@@ -201,6 +207,7 @@ Settings:
     Next Video Interval: Volgende Video Tussenpauze Duur
     Display Play Button In Video Player: Afspeelknop Weergeven in Videokader
     Scroll Volume Over Video Player: Volume Veranderen Door in het Videokader te Scrollen
+    Fast-Forward / Rewind Interval: Snel Vooruit / Terugspoelen Interval
   Privacy Settings:
     Privacy Settings: 'Privacy-instellingen'
     Remember History: 'Kijkgeschiedenis Onthouden'
@@ -305,7 +312,7 @@ Settings:
     Hide Channel Subscribers: Verberg Abonnee Aantal
     Hide Video Likes And Dislikes: Verberg Likes en Dislikes
     Hide Video Views: Verberg Weergaven
-    Distraction Free Settings: Afleidingsvrije-instellingen
+    Distraction Free Settings: Afleidingvrij-instellingen
     Hide Active Subscriptions: Verberg Actieve Abonnementen
     Hide Playlists: Verberg Afspeellijst
   The app needs to restart for changes to take effect. Restart and apply change?: De
@@ -519,7 +526,7 @@ Video:
     video's lijst
   Video has been saved: Video is opgeslagen
   Save Video: Video Opslaan
-  translated from English: vertaald vanuit het engels
+  translated from English: vertaald uit het Engels
   Sponsor Block category:
     music offtopic: ongerelateerde muziek
     interaction: interactie
@@ -567,6 +574,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Afspeellijst
 Toggle Theatre Mode: 'Schakel Theatermodus In'
 Change Format:
   Change Video Formats: 'Verander Video Formaten'
@@ -615,6 +623,7 @@ Comments:
   Newest first: Nieuwste Eerst
   Top comments: Top Reacties
   Sort by: Sorteer Op
+  Show More Replies: Toon Meer Reacties
 Up Next: 'Volgende'
 
 # Toast Messages
@@ -671,7 +680,7 @@ Profile:
   : Dit is u primaire profiel. Weet u zeker dat u de geselecteerde kanalen wil verwijderen?
     Dezelfde kanalen zullen worden verwijderd uit andere profielen.
   No channel(s) have been selected: Er zijn geen kanalen geselecteerd
-  Add Selected To Profile: Voeg Geselecteerd toe aan Profiel
+  Add Selected To Profile: Voeg Selectie toe aan Profiel
   Delete Selected: Verwijder Selectie
   Select None: Selecteer Niks
   Select All: Selecteer Alles
@@ -679,6 +688,7 @@ Profile:
   Other Channels: Andere Kanalen
   Subscription List: Abonnementen
   Profile Filter: Profielfilter
+  Profile Settings: Profiel-instellingen
 A new blog is now available, $. Click to view more: Een nieuwe blogpost is beschikbaar,
   $. Klik voor meer informatie
 Download From Site: Download van de Website

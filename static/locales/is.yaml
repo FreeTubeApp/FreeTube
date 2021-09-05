@@ -87,7 +87,13 @@ Subscriptions:
   Refresh Subscriptions: 'Endurlesa áskriftir'
   Load More Videos: 'Hlaða inn fleiri myndskeiðum'
 More: 'Meira'
-Trending: 'Í umræðunni'
+Trending:
+  Trending: 'Í umræðunni'
+  Trending Tabs: Vinsælir flipar
+  Movies: Kvikmyndir
+  Gaming: Leikir
+  Music: Tónlist
+  Default: Sjálfgefið
 Most Popular: 'Vinsælast'
 Playlists: 'Spilunarlistar'
 User Playlists:
@@ -602,6 +608,7 @@ Comments:
     fyrir þetta myndskeið'
   Load More Comments: 'Hlaða inn fleiri athugasemdum'
   No more comments available: 'Engar fleiri athugasemdir eru tiltækar'
+  Show More Replies: Birta fleiri svör
 Up Next: 'Næst í spilun'
 
 #Tooltips

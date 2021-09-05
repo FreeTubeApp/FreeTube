@@ -77,7 +77,13 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
     perfil tem um grande número de inscrições.  Forçando RSS para evitar limitação
     de banda
-Trending: 'Em alta'
+Trending:
+  Trending: 'Em alta'
+  Trending Tabs: Abas de Tendências
+  Movies: Filmes
+  Gaming: Jogos
+  Music: Música
+  Default: Padrão
 Most Popular: 'Mais populares'
 Playlists: 'Listas'
 User Playlists:
@@ -517,7 +523,7 @@ Video:
     vídeos salvos
   Video has been saved: O vídeo foi salvo
   Save Video: Salvar vídeo
-  translated from English: Traduzido do inglês
+  translated from English: traduzido do inglês
   Sponsor Block category:
     music offtopic: música fora do contexto
     interaction: interação
@@ -614,6 +620,7 @@ Comments:
   Top comments: Melhores comentários
   Sort by: Ordenar por
   There are no more comments for this video: Não há mais comentários para este vídeo
+  Show More Replies: Mostrar Mais Respostas
 Up Next: 'Próximo'
 
 # Toast Messages

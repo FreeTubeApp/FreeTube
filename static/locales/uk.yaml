@@ -83,7 +83,13 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Отримання Підписок. Будь ласка, зачекайте.'
   Refresh Subscriptions: 'Оновити Підписки'
   Load More Videos: 'Завантажити більше відео'
-Trending: 'Популярне'
+Trending:
+  Trending: 'Популярне'
+  Trending Tabs: Популярні вкладки
+  Movies: Фільми
+  Gaming: Ігри
+  Music: Музика
+  Default: Типово
 Most Popular: 'Найпопулярніші'
 Playlists: 'Добірки'
 User Playlists:
@@ -633,6 +639,7 @@ Comments:
   There are no comments available for this video: 'Немає коментарів до цього відео'
   Load More Comments: 'Завантажити більше коментарів'
   No more comments available: 'Більше немає коментарів'
+  Show More Replies: Показати інші відповіді
 Up Next: 'Далі вгору'
 
 #Tooltips

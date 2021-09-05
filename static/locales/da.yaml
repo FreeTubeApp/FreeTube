@@ -84,7 +84,8 @@ Subscriptions:
   Load More Videos: Indlæs Flere Videoer
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Denne
     profil har et stort antal abonnementer.  Tving RSS for at undgå adgangsbegrænsning
-Trending: 'På Mode'
+Trending:
+  Trending: 'På Mode'
 Most Popular: 'Mest Populære'
 Playlists: 'Spillelister'
 User Playlists:

@@ -84,7 +84,13 @@ Subscriptions:
   Refresh Subscriptions: Refresh Subscriptions
   Load More Videos: Load More Videos
 More: More
-Trending: Trending
+Trending: 
+  Trending: Trending
+  Default: Default
+  Music: Music
+  Gaming: Gaming
+  Movies: Movies
+  Trending Tabs: Trending Tabs
 Most Popular: Most Popular
 Playlists: Playlists
 User Playlists:
@@ -592,6 +598,7 @@ Comments:
   View: View
   Hide: Hide
   Replies: Replies
+  Show More Replies: Show More Replies
   Reply: Reply
   There are no comments available for this video: There are no comments available
     for this video

@@ -83,7 +83,13 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': A carregar subscrições. Por favor aguarde.
   Refresh Subscriptions: Actualizar Subscrições
   Load More Videos: Carregar Mais Vídeos
-Trending: Tendências
+Trending:
+  Trending: Tendências
+  Trending Tabs: Guias de tendências
+  Movies: Filmes
+  Gaming: Jogos
+  Music: Música
+  Default: Padrão
 Most Popular: Mais Populares
 Playlists: Listas de Reprodução
 User Playlists:
@@ -508,7 +514,7 @@ Video:
   Reverse Playlist: Inverter lista de reprodução
   Shuffle Playlist: Baralhar lista de reprodução
   Loop Playlist: Repetir lista de reprodução
-  translated from English: traduzido do Inglês
+  translated from English: traduzido do inglês
   External Player:
     Unsupported Actions:
       looping playlists: repetir lista de reprodução
@@ -606,6 +612,7 @@ Comments:
   There are no comments available for this video: Este vídeo não contém nenhum comentário
   Load More Comments: Carregar Mais Comentários
   No more comments available: Não existem mais comentários
+  Show More Replies: Mostrar mais respostas
 Up Next: A Seguir
 
 #Tooltips

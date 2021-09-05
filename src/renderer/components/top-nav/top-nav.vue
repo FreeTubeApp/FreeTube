@@ -45,7 +45,15 @@
         :title="newWindowText"
         @click="createNewWindow"
       />
-      <div class="logo">
+      <div
+        class="logo"
+        role="link"
+        tabindex="0"
+        :title="$t('Subscriptions.Subscriptions')"
+        @click="navigate('subscriptions')"
+        @keydown.space.prevent="navigate('subscriptions')"
+        @keydown.enter.prevent="navigate('subscriptions')"
+      >
         <div
           class="logoIcon"
         />

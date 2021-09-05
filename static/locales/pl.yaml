@@ -78,7 +78,13 @@ Subscriptions:
     profil posiada dużą liczbę subskrypcji. Wymuszenie RSS w celu uniknięcia ograniczenia
     dostępu
   Load More Videos: Załaduj więcej filmów
-Trending: 'Na czasie'
+Trending:
+  Trending: 'Na czasie'
+  Trending Tabs: Karty „Na czasie”
+  Default: Domyślna
+  Music: Muzyka
+  Gaming: Gry
+  Movies: Filmy
 Most Popular: 'Popularne'
 Playlists: 'Playlisty'
 User Playlists:
@@ -87,7 +93,7 @@ User Playlists:
     masz żadnych zapisanych filmów. Kliknij przycisk „Zapisz film” w rogu filmu, aby
     został on wymieniony na tej liście.
   Playlist Message: Ta strona nie odzwierciedla w pełni działających playlist. Są
-    tu jedynie wymienione filmy, które zachowałeś lub oznaczyłeś jako ulubione. Kiedy
+    tu jedynie wymienione filmy, które zapisałeś lub oznaczyłeś jako ulubione. Kiedy
     prace nad tą stroną zostaną zakończone, wszystkie filmy tu obecne zostaną przeniesione
     do playlisty „Ulubione”.
 History:
@@ -115,7 +121,7 @@ Settings:
       List: 'Lista'
     Thumbnail Preference:
       Thumbnail Preference: 'Ustawienia miniaturek'
-      Default: 'Domyślne'
+      Default: 'Domyślna'
       Beginning: 'Początek'
       Middle: 'Środek'
       End: 'Koniec'
@@ -263,9 +269,9 @@ Settings:
     Unknown data key: Nieznany klucz danych
     Unable to write file: Nie można zapisać pliku
     Unable to read file: Nie można odczytać pliku
-    All watched history has been successfully exported: Cała historia obejrzeń została
+    All watched history has been successfully exported: Cała historia oglądania została
       pomyślnie wyeksportowana
-    All watched history has been successfully imported: Cała historia obejrzeń została
+    All watched history has been successfully imported: Cała historia oglądania została
       pomyślnie zaimportowana
     History object has insufficient data, skipping item: Obiekt historii ma niewystarczające
       dane, pomijam element
@@ -444,7 +450,7 @@ Video:
   Mark As Watched: 'Oznacz jako obejrzany'
   Remove From History: 'Usuń z historii'
   Video has been marked as watched: 'Film został oznaczony jako obejrzany'
-  Video has been removed from your history: 'Film został usunięty z twojej historii'
+  Video has been removed from your history: 'Film został usunięty z Twojej historii'
   Open in YouTube: 'Otwórz na stronie YouTube'
   Copy YouTube Link: 'Skopiuj link do strony YouTube'
   Open YouTube Embedded Player: 'Otwórz odtwarzacz YouTube'
@@ -625,6 +631,7 @@ Comments:
   Newest first: Najpierw najnowsze
   Top comments: Najlepsze komentarze
   Sort by: Sortuj według
+  Show More Replies: Pokaż więcej odpowiedzi
 Up Next: 'Następne'
 
 # Toast Messages
@@ -641,7 +648,7 @@ Playing Next Video: 'Odtwórz następny film'
 Playing Previous Video: 'Odtwórz poprzedni film'
 Playing next video in 5 seconds.  Click to cancel: 'Odtworzenie następnego filmu za
   5 sekund. Kliknij aby anulować.'
-Canceled next video autoplay: 'Anulowano samoodtworzenie następnego filmu'
+Canceled next video autoplay: 'Anulowano odtworzenie następnego filmu'
 'The playlist has ended.  Enable loop to continue playing': 'Playlista się zakończyła.
   Włącz zapętlanie by kontynuować odtwarzanie'
 
@@ -706,8 +713,8 @@ Tooltips:
       nie dostarcza informacji, takich jak czas trwania filmu czy status transmisji
       na żywo
   General Settings:
-    Fallback to Non-Preferred Backend on Failure: Po włączeniu, kiedy twój preferowany
-      API napotka problem, FreeTube samoczynnie spróbuje użyć niepreferowanego API
+    Fallback to Non-Preferred Backend on Failure: Po włączeniu, kiedy Twój preferowany
+      API napotka problem, FreeTube automatycznie spróbuje użyć niepreferowanego API
       jako metody zapasowej.
     Preferred API Backend: Wybierz back-end , który FreeTube użyje do uzyskiwania
       danych. Lokalne API jest wbudowanym ekstraktorem. API Invidious wymaga połączenia
@@ -730,8 +737,8 @@ Tooltips:
     Proxy Videos Through Invidious: Będzie dostarczał filmy, łącząc się z Invidious,
       a nie bezpośrednio z YouTube. Nadpisuje ustawienia API.
   Privacy Settings:
-    Remove Video Meta Files: Jeśli włączone, FreeTube automatycznie usuwa pliki metadanych
-      utworzone podczas odtwarzania filmu, gdy strona oglądania jest zamknięta.
+    Remove Video Meta Files: Po włączeniu, FreeTube automatycznie usunie pliki metadanych
+      utworzone podczas odtwarzania filmu, gdy strona odtwarzania zostanie zamknięta.
   External Player Settings:
     Ignore Warnings: Nie wyświetlaj ostrzeżeń o nieobsługiwanych akcjach przez zewnętrzny
       odtwarzacz (n.p. odwracanie playlist, itp.).
