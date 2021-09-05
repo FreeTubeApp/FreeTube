@@ -145,7 +145,7 @@ Settings:
     The currently set default instance is $: De momenteel als standaard ingestelde
       instantie is $
   Theme Settings:
-    Theme Settings: 'Thema-instellingen'
+    Theme Settings: 'Thema-Instellingen'
     Match Top Bar with Main Color: 'Zet Bovenste Balk Gelijk aan Primaire Themakleur'
     Base Theme:
       Base Theme: 'Basisthema'
@@ -176,7 +176,7 @@ Settings:
     Expand Side Bar by Default: Zijbalk Standaard Uitschuiven
     Disable Smooth Scrolling: Vloeiend Scrollen Uitschakelen
   Player Settings:
-    Player Settings: 'Videospeler-instellingen'
+    Player Settings: 'Videospeler Instellingen'
     Force Local Backend for Legacy Formats: 'Lokale Backend Forceren Voor Oudere Formaten'
     Play Next Video: 'Volgende Video Automatisch Afspelen'
     Turn on Subtitles by Default: 'Schakel Ondertiteling Standaard in'
@@ -209,7 +209,7 @@ Settings:
     Scroll Volume Over Video Player: Volume Veranderen Door in het Videokader te Scrollen
     Fast-Forward / Rewind Interval: Snel Vooruit / Terugspoelen Interval
   Privacy Settings:
-    Privacy Settings: 'Privacy-instellingen'
+    Privacy Settings: 'Privacy-Instellingen'
     Remember History: 'Kijkgeschiedenis Onthouden'
     Save Watched Progress: 'Bewaar Videovoortgang'
     Clear Search Cache: 'Verwijder Zoek-Cache'
@@ -226,7 +226,7 @@ Settings:
     Remove All Subscriptions / Profiles: Verwijder alle Abonnementen / Profielen
     Automatically Remove Video Meta Files: Video-Metabestanden Automatisch Verwijderen
   Subscription Settings:
-    Subscription Settings: 'Abonnementsinstellingen'
+    Subscription Settings: 'Instellingen voor Abonnementen'
     Hide Videos on Watch: 'Verberg Video''s Zodra Bekeken'
     Subscriptions Export Format:
       Subscriptions Export Format: ''
@@ -312,7 +312,7 @@ Settings:
     Hide Channel Subscribers: Verberg Abonnee Aantal
     Hide Video Likes And Dislikes: Verberg Likes en Dislikes
     Hide Video Views: Verberg Weergaven
-    Distraction Free Settings: Afleidingvrij-instellingen
+    Distraction Free Settings: Instellingen voor Afleidingsvrij Kijken
     Hide Active Subscriptions: Verberg Actieve Abonnementen
     Hide Playlists: Verberg Afspeellijst
   The app needs to restart for changes to take effect. Restart and apply change?: De
@@ -333,21 +333,21 @@ Settings:
     Proxy Host: Proxy Host
     Proxy Protocol: Proxy Protocol
     Enable Tor / Proxy: Tor / Proxy Inschakelen
-    Proxy Settings: Proxy-instellingen
+    Proxy Settings: Proxy-Instellingen
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Informeer mij wanneer een gesponsord segment
       wordt overgeslagen
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
       Url (Standaard is https://sponsor.ajay.app)
     Enable SponsorBlock: SponsorBlock Inschakelen
-    SponsorBlock Settings: SponsorBlock-instellingen
+    SponsorBlock Settings: SponsorBlock-Instellingen
   External Player Settings:
     Custom External Player Arguments: Aangepaste Argumenten voor Externe Videospeler
     Custom External Player Executable: Aangepast Uitvoerbaar Bestand van Externe Videospeler
     Ignore Unsupported Action Warnings: Negeer Waarschuwingen Voor Niet Ondersteunde
       Acties
     External Player: Externe Videospeler
-    External Player Settings: Externe Videospeler-instellingen
+    External Player Settings: Instellingen Externe Mediaspeler
 About:
   #On About page
   About: 'Over'
@@ -688,7 +688,7 @@ Profile:
   Other Channels: Andere Kanalen
   Subscription List: Abonnementen
   Profile Filter: Profielfilter
-  Profile Settings: Profiel-instellingen
+  Profile Settings: Profielinstellingen
 A new blog is now available, $. Click to view more: Een nieuwe blogpost is beschikbaar,
   $. Klik voor meer informatie
 Download From Site: Download van de Website
