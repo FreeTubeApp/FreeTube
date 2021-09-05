@@ -86,6 +86,11 @@ Subscriptions:
   Load More Videos: Зареждане на още видеа
 Trending:
   Trending: 'Набиращи популярност'
+  Trending Tabs: Раздели за набиращи популярност
+  Movies: Филми
+  Gaming: Игри
+  Music: Музика
+  Default: По подразбиране
 Most Popular: 'Най-популярни'
 Playlists: 'Плейлисти'
 User Playlists:
@@ -656,6 +661,7 @@ Comments:
   Newest first: Първо най-новите
   Top comments: Последни коментари
   Sort by: Сортиране по
+  Show More Replies: Показване на още отговори
 Up Next: 'Следващ'
 
 # Toast Messages
