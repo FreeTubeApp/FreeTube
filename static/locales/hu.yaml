@@ -1,6 +1,6 @@
 # Put the name of your locale in the same language
 Locale Name: 'magyar'
-FreeTube: 'FreeTube'
+FreeTube: 'SzabadCső'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Az alkalmazás ezen része még nem áll készen. Térjen vissza később amikor előrelépés
@@ -242,12 +242,12 @@ Settings:
     Select Import Type: 'Importálás típusa kiválasztása'
     Select Export Type: 'Exportálás típusa kiválasztása'
     Import Subscriptions: 'Feliratkozások importálása'
-    Import FreeTube: 'FreeTube importálása'
+    Import FreeTube: 'SzabadCső importálása'
     Import YouTube: 'YouTube importálása'
     Import NewPipe: 'NewPipe importálása'
     Export Subscriptions: 'Feliratkozások exportálása'
-    Export FreeTube: 'FreeTube exportálása'
-    Export YouTube: 'FreeTube exportálása'
+    Export FreeTube: 'SzabadCső exportálása'
+    Export YouTube: 'SzabadCső exportálása'
     Export NewPipe: 'NewPipe exportálása'
     Import History: 'Előzmények importálása'
     Export History: 'Előzmények exportálása'
@@ -380,7 +380,7 @@ About:
   Latest FreeTube News: 'Legfrissebb FreeTube hírek'
 
   these people and projects: ezek emberek és projektek
-  FreeTube is made possible by: 'A FreeTube engedélyezése'
+  FreeTube is made possible by: 'A SzabadCső engedélyezése'
   Donate: Hozzájárulás
   Credits: Közreműködők
   Translate: Fordítás
@@ -400,7 +400,7 @@ About:
   View License: Licenc megtekintése
   Licensed under the AGPLv3: Az AGPL (GNU Affero General Public License - GNU Affero
     általános nyilvános licenc) 3. verziója alatt licencelt
-  FreeTube Wiki: FreeTube Wiki
+  FreeTube Wiki: SzabadCső Wiki
   Source code: Forráskód
   Beta: Béta
   FAQ: GyIK
@@ -695,22 +695,22 @@ Yes: 'Igen'
 No: 'Nem'
 Tooltips:
   General Settings:
-    Preferred API Backend: Válassza ki a háttéralkalmazást, amelyet a FreeTube használ
+    Preferred API Backend: Válassza ki a háttéralkalmazást, amelyet a SzabadCső használ
       az adatok megszerzéséhez. A helyi-API egy beépített kinyerő. Az Invidious-API
       használatához Invidious-kiszolgáló szükséges.
     Region for Trending: A népszerűk körzetével kiválaszthatja, mely ország népszerű
       videóit szeretné megjeleníteni. Nem minden megjelenített országot támogat a
       YouTube.
-    Invidious Instance: Invidious példány, amelyhez a FreeTube csatlakozni fog az
+    Invidious Instance: Invidious példány, amelyhez a SzabadCső csatlakozni fog az
       API-hívásokhoz. Törölje az aktuális példányt a nyilvános példányok listájának
       megjelenítéséhez.
-    Thumbnail Preference: A FreeTube összes miniatűrökét az alapértelmezett miniatűr
+    Thumbnail Preference: A SzabadCső összes miniatűrökét az alapértelmezett miniatűr
       helyett egy képkocka váltja fel.
     Fallback to Non-Preferred Backend on Failure: Ha az Ön által előnyben részesített
-      API-val hibába merül fel, a FreeTube önműködően megpróbálja a nem előnyben API-t
-      tartalékként használni, ha engedélyezve van.
+      API-val hibába merül fel, a SzabadCső önműködően megpróbálja a nem előnyben
+      API-t tartalékként használni, ha engedélyezve van.
   Subscription Settings:
-    Fetch Feeds from RSS: Ha engedélyezve van, a FreeTube az alapértelmezett módszer
+    Fetch Feeds from RSS: Ha engedélyezve van, a SzabadCső az alapértelmezett módszer
       helyett RSS-t fog használni a feliratkozás hírcsatornájának megragadásához.
       Az RSS gyorsabb és megakadályozza az IP-zárolást, de nem nyújt bizonyos tájékoztatást,
       például a videó időtartamát vagy az élő állapotot
@@ -729,11 +729,11 @@ Tooltips:
       helyett. Segít, ha az Invidious által visszaküldött videókat nem lehet lejátszani
       az ország korlátozása miatt.
   Privacy Settings:
-    Remove Video Meta Files: Ha engedélyezve van, a FreeTube automatikusan törli a
-      videolejátszás során létrehozott metafájlokat, amikor a videómegtekintő oldal
+    Remove Video Meta Files: Ha engedélyezve van, a SzabadCső automatikusan törli
+      a videolejátszás során létrehozott metafájlokat, amikor a videómegtekintő oldal
       bezárul.
   External Player Settings:
-    Custom External Player Executable: Alapértelmezés szerint a FreeTube feltételezi,
+    Custom External Player Executable: Alapértelmezés szerint a SzabadCső feltételezi,
       hogy a kiválasztott külső lejátszó megtalálható a PATH (ÚTVONAL) környezeti
       változón keresztül. Szükség esetén itt egyéni útvonal állítható be.
     Ignore Warnings: A figyelmeztetések elvetése, ha a jelenlegi külső lejátszó nem
