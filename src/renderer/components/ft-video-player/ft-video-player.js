@@ -466,7 +466,7 @@ export default Vue.extend({
     },
 
     mouseScrollVolume: function (event) {
-      if (event.target) {
+      if (event.target && !event.currentTarget.querySelector('.vjs-menu:hover')) {
         event.preventDefault()
 
         if (this.player.muted() && event.wheelDelta > 0) {
