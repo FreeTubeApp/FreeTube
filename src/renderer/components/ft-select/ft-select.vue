@@ -1,10 +1,10 @@
 <template>
   <div class="select">
     <select
-      :id="placeholder"
+      :id="$unspace(placeholder)"
       class="select-text"
       :value="value"
-      :name="placeholder"
+      :name="$unspace(placeholder)"
       @change="$emit('change', $event.target.value)"
     >
       <option
@@ -23,7 +23,7 @@
     <span class="select-bar" />
     <label
       class="select-label"
-      :for="placeholder"
+      :for="$unspace(placeholder)"
     >
       {{ placeholder }}
     </label>

@@ -7,11 +7,11 @@
   >
     <ft-card
       class="promptCard"
-      :aria-labelledby="'dialog-' + label"
+      :aria-labelledby="'dialog-' + $unspace(label)"
     >
       <slot>
         <h2
-          :id="'dialog-' + label"
+          :id="'dialog-' + $unspace(label)"
           class="center"
         >
           {{ label }}

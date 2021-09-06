@@ -1,7 +1,7 @@
 <template>
   <div class="dropdown">
     <div
-      :id="title"
+      :id="$unspace(title)"
       class="buttonTitle"
       tabindex="0"
       role="listbox"

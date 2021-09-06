@@ -458,6 +458,11 @@ Vue.prototype.$handleDropdownKeyboardEvent = function(event, afterElement) {
   return event.key === 'Enter' || event.key === ' '
 }
 
+// remove whitespace; intended to be used on attribute names
+Vue.prototype.$unspace = function(attribute) {
+  return attribute.replace(/\s/g, '')
+}
+
 Vue.prototype.$goToChannel = function(id) {
   this.$router.push({ path: `/channel/${id}` })
 }

@@ -2,7 +2,7 @@
   <div
     class="bubblePadding"
     tabindex="0"
-    :aria-labelledby="'profileBubble-' + channelName"
+    :aria-labelledby="'profileBubble-' + $unspace(profileName)"
     @click="goToProfile"
     @keydown="goToProfile($event)"
   >
@@ -15,7 +15,7 @@
       </div>
     </div>
     <div
-      :id="'profileBubble-' + channelName"
+      :id="'profileBubble-' + $unspace(profileName)"
       class="profileName"
     >
       {{ profileName }}

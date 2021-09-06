@@ -36,7 +36,7 @@
           :id="'profile-' + index"
           :key="index"
           class="profile"
-          :aria-labelledby="'profile' + profile.name"
+          :aria-labelledby="'profile-' + $unspace(profile.name)"
           aria-selected="false"
           tabindex="-1"
           role="option"
@@ -54,7 +54,7 @@
             </div>
           </div>
           <p
-            :id="'profile' + profile.name"
+            :id="'profile-' + $unspace(profile.name)"
             class="profileName"
           >
             {{ profile.name }}

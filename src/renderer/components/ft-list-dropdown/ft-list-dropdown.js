@@ -56,7 +56,8 @@ export default Vue.extend({
         return
       }
 
-      const listbox = $(`#${this.title}`)
+      const unspacedTitle = this.$unspace(this.title)
+      const listbox = $(`#${unspacedTitle}`)
       const allOptions = listbox.find('ul')
 
       allOptions.attr('tabindex', '-1')
