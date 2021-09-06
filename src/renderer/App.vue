@@ -46,7 +46,10 @@
       :label="changeLogTitle"
       @click="showReleaseNotes = !showReleaseNotes"
     >
-      <span v-html="updateChangelog" />
+      <span
+        id="changeLogText"
+        v-html="updateChangelog" 
+      />
       <ft-flex-box>
         <ft-button
           :label="$t('Download From Site')"

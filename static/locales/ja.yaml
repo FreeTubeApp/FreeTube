@@ -76,6 +76,11 @@ Subscriptions:
   Load More Videos: もっと見る
 Trending:
   Trending: '急上昇'
+  Trending Tabs: 急上昇のタブ
+  Movies: 映画
+  Gaming: ゲーム
+  Music: 音楽
+  Default: 既定
 Most Popular: '人気'
 Playlists: '再生リスト'
 User Playlists:
@@ -118,6 +123,12 @@ Settings:
     Check for Updates: 最新版の確認
     View all Invidious instance information: すべての Invidious インスタンス情報の表示
     System Default: システムのデフォルト
+    Clear Default Instance: デフォルトの設定をクリアする
+    Set Current Instance as Default: 現在のインスタンスを既定として設定する
+    Current instance will be randomized on startup: 現在のインスタンスは起動時にランダム化されます
+    No default instance has been set: 既定のインスタンスが設定されていません
+    The currently set default instance is $: 現在設定されている既定のインスタンスは $です
+    Current Invidious Instance: 現在のinvidiousインスタンス
   Theme Settings:
     Theme Settings: 'テーマの設定'
     Match Top Bar with Main Color: '上部バーをメイン カラーと同じにする'
@@ -180,6 +191,9 @@ Settings:
       8k: '8K'
     Playlist Next Video Interval: 次の再生リストを再生する間隔
     Next Video Interval: 次のビデオまでの間隔
+    Fast-Forward / Rewind Interval: 早送り/巻き戻し間隔
+    Display Play Button In Video Player: ビデオプレーヤーで再生ボタンを表示する
+    Scroll Volume Over Video Player: ビデオプレーヤーの上にボリュームをスクロール
   Subscription Settings:
     Subscription Settings: '登録チャンネルの設定'
     Hide Videos on Watch: '視聴済み動画の非表示'
@@ -293,9 +307,15 @@ Settings:
       https://sponsor.ajay.app）
     Enable SponsorBlock: 広告ブロック有効
     SponsorBlock Settings: 広告ブロック設定
+  External Player Settings:
+    Custom External Player Arguments: カスタム外部プレーヤー引数
+    Custom External Player Executable: カスタム外部プレーヤーの実行可能ファイル
+    Ignore Unsupported Action Warnings: サポートされていないアクションの警告を無視
+    External Player: 外部プレーヤー
+    External Player Settings: 外部プレーヤーの設定
 About:
   #On About page
-  About: 'About'
+  About: '就いて'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'このコピーレフトのソフトウェアは、AGPL-3.0
     の自由なライセンスです。'
@@ -466,6 +486,21 @@ Video:
     outro: その他
     intro: イントロ
   Skipped segment: スキップされたセグメント
+  External Player:
+    OpeningTemplate: '%で$を開く...'
+    Unsupported Actions:
+      looping playlists: 再生リストのループ
+      shuffling playlists: シャッフルプレイリスト
+      reversing playlists: プレイリストを反転させる
+      opening specific video in a playlist (falling back to opening the video): プレイリストで特定のビデオを開く
+        (ビデオを開く前にフォールバック)
+      opening playlists: プレイリストを開く
+      setting a playback rate: 再生レートの設定
+      starting video at offset: オフセット時にビデオを開始する
+    UnsupportedActionTemplate: '$はサポートしていません: %'
+    playlist: プレイリスト
+    video: ビデオ
+    OpenInTemplate: $で開く
 Videos:
   #& Sort By
   Sort By:
@@ -490,6 +525,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: プレイリスト
 Toggle Theatre Mode: 'サイズ変更'
 Change Format:
   Change Video Formats: '動画形式の変更'
@@ -531,6 +567,7 @@ Comments:
   Newest first: 新しい順
   No more comments available: これ以上のコメントはありません
   Sort by: 並び替え
+  Show More Replies: その他の返信を表示する
 Up Next: '次の動画'
 
 # Toast Messages
@@ -588,6 +625,7 @@ Profile:
     same channels will be deleted in any profile they are found in.
   : これは上位のプロファイルです。選択したチャンネルを削除しますか？同じチャンネルがほかのプロファイルにも登録されていれば削除されます。
   Profile Filter: プロファイルのフィルター
+  Profile Settings: プロファイル設定
 The playlist has been reversed: 再生リストを逆順にしました
 A new blog is now available, $. Click to view more: '新着ブログ公開、$。クリックしてブログを読む'
 Download From Site: サイトからダウンロード
@@ -595,8 +633,8 @@ Version $ is now available!  Click for more details: 最新の Ver. $ 登場！�
 This video is unavailable because of missing formats. This can happen due to country unavailability.: この動画は、動画形式の情報が利用できないため再生できません。再生許可のない国で発生します。
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: 有効にすると、FreeTube は、登録チャンネルの情報を、通常の方法の代わりに RSS から取得します。RSS
-      は高速であり IP 制限も回避できますが、動画の長さやライブ配信の状態などの詳細情報は提供されていません。
+    Fetch Feeds from RSS: 有効にすると, FreeTubeは、登録チャンネルの情報を、通常の方法の代わりにRSSから取得します。RSS は高速であり
+      IP 制限も回避できますが、動画の長さやライブ配信の状態などの詳細情報は提供されていません
   Player Settings:
     Default Video Format: 動画再生で使用する形式の設定です。DASH 形式であれば高品質で再生できます。旧形式だと、最大 720p に制限されますが、使用する帯域幅を減らせます。音声形式は音声のみです。
     Force Local Backend for Legacy Formats: Invidious API の選択時にのみ実行します。有効にすると、Invidious
@@ -612,9 +650,17 @@ Tooltips:
     Region for Trending: 急上昇の地域設定では、急上昇動画を表示する国を選択できます。YouTube は、すべての国に対応していません。
   Privacy Settings:
     Remove Video Meta Files: 有効にすると、FreeTube はビデオ再生中に作成したメタファイルは、再生ページを閉じるときに自動的に削除されます。
+  External Player Settings:
+    Custom External Player Arguments: (';')、セミコロンで区切られたカスタム コマンド ライン引数を外部プレーヤーに渡します。
+    Ignore Warnings: 現在の外部プレーヤーが現在のアクションをサポートしていない場合(プレイリストの反転など)に関する警告を抑制します。
+    Custom External Player Executable: デフォルトでは、FreeTubeは選択した外部プレーヤーが PATH 環境変数を介して見つかると想定します。必要に応じて、カスタム
+      パスをここで設定できます。
+    External Player: 外部プレーヤーを選択すると、ビデオ (サポートされている場合はプレイリスト) を開くためのアイコンが表示されます。
 Playing Next Video Interval: すぐに次のビデオを再生します。クリックするとキャンセル。|次のビデオを {nextVideoInterval}
   秒で再生します。クリックするとキャンセル。|次のビデオを {nextVideoInterval} 秒で再生します。クリックするとキャンセル。
 More: もっと見る
 Hashtags have not yet been implemented, try again later: ハッシュタグは未実装です。実装後に実行してください
 Unknown YouTube url type, cannot be opened in app: 不明な YouTube URL の種類、アプリで実行できません
 Open New Window: 新しいウィンドウを開く
+Default Invidious instance has been cleared: デフォルトのInvidiousインスタンスがクリアされました
+Default Invidious instance has been set to $: デフォルトのInvidiousインスタンスは$に設定されています

@@ -87,6 +87,8 @@ Subscriptions:
     akses
 Trending:
   Trending: 'Sedang Tren'
+  Movies: Film
+  Music: Musik
 Most Popular: 'Paling Populer'
 Playlists: 'Daftar Putar'
 User Playlists:
@@ -425,6 +427,7 @@ Profile:
     kanalnya dari profil lain.'
 #On Channel Page
   Profile Filter: Filter Profil
+  Profile Settings: Pengaturan Profil
 Channel:
   Subscriber: 'Pelanggan'
   Subscribers: 'Pelanggan'
@@ -642,6 +645,7 @@ Comments:
   Top comments: Komentar teratas
   Sort by: Urut berdasarkan
   There are no more comments for this video: Tidak ada komentar lagi untuk video ini
+  Show More Replies: Tampilkan Lebih Banyak Balasan
 Up Next: 'Akan Datang'
 
 # Toast Messages

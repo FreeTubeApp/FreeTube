@@ -1,6 +1,6 @@
 # Put the name of your locale in the same language
 Locale Name: 'magyar'
-FreeTube: 'FreeTube'
+FreeTube: 'SzabadCső'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Az alkalmazás ezen része még nem áll készen. Térjen vissza később amikor előrelépés
@@ -219,15 +219,15 @@ Settings:
   Privacy Settings:
     Privacy Settings: 'Adatvédelmi beállítások'
     Remember History: 'Előzmények megjegyzése'
-    Save Watched Progress: 'Figyelt előrehaladás mentése'
+    Save Watched Progress: 'Megtekintés előrehaladás mentése'
     Clear Search Cache: 'Keresési gyorsítótár törlése'
     Are you sure you want to clear out your search cache?: 'Biztosan törli a keresési
       gyorsítótárat?'
     Search cache has been cleared: 'Megtörtént a keresési gyorsítótár törlése'
-    Remove Watch History: 'Figyelt előzmények eltávolítása'
+    Remove Watch History: 'Megtekintési előzmények eltávolítása'
     Are you sure you want to remove your entire watch history?: 'Biztosan törli az
-      összes figyelt előzményeket?'
-    Watch history has been cleared: 'Megtörtént a figyelt előzmények törlése'
+      összes megtekintési előzményt?'
+    Watch history has been cleared: 'Megtörtént a megtekintési előzmények törlése'
     Remove All Subscriptions / Profiles: 'Összes feliratkozás és profil eltávolítása'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Biztosan
       törli az összes feliratkozást és profilt? A művelet nem vonható vissza.'
@@ -242,12 +242,12 @@ Settings:
     Select Import Type: 'Importálás típusa kiválasztása'
     Select Export Type: 'Exportálás típusa kiválasztása'
     Import Subscriptions: 'Feliratkozások importálása'
-    Import FreeTube: 'FreeTube importálása'
+    Import FreeTube: 'SzabadCső importálása'
     Import YouTube: 'YouTube importálása'
     Import NewPipe: 'NewPipe importálása'
     Export Subscriptions: 'Feliratkozások exportálása'
-    Export FreeTube: 'FreeTube exportálása'
-    Export YouTube: 'FreeTube exportálása'
+    Export FreeTube: 'SzabadCső exportálása'
+    Export YouTube: 'SzabadCső exportálása'
     Export NewPipe: 'NewPipe exportálása'
     Import History: 'Előzmények importálása'
     Export History: 'Előzmények exportálása'
@@ -380,7 +380,7 @@ About:
   Latest FreeTube News: 'Legfrissebb FreeTube hírek'
 
   these people and projects: ezek emberek és projektek
-  FreeTube is made possible by: 'A FreeTube engedélyezése'
+  FreeTube is made possible by: 'A SzabadCső engedélyezése'
   Donate: Hozzájárulás
   Credits: Közreműködők
   Translate: Fordítás
@@ -400,7 +400,7 @@ About:
   View License: Licenc megtekintése
   Licensed under the AGPLv3: Az AGPL (GNU Affero General Public License - GNU Affero
     általános nyilvános licenc) 3. verziója alatt licencelt
-  FreeTube Wiki: FreeTube Wiki
+  FreeTube Wiki: SzabadCső Wiki
   Source code: Forráskód
   Beta: Béta
   FAQ: GyIK
@@ -481,9 +481,9 @@ Channel:
     Channel Description: 'Csatorna leírása'
     Featured Channels: 'Kiemelt csatornák'
 Video:
-  Mark As Watched: 'Megjelölés figyeltként'
+  Mark As Watched: 'Megjelölés megtekintettként'
   Remove From History: 'Eltávolítás az előzményekből'
-  Video has been marked as watched: 'A videót figyeltként jelölték meg'
+  Video has been marked as watched: 'A videó megtekintettnek lett jelölve'
   Video has been removed from your history: 'A videót eltávolítottuk az előzményekből'
   Open in YouTube: 'YouTube megnyitása'
   Copy YouTube Link: 'YouTube hivatkozás másolása'
@@ -499,8 +499,8 @@ Video:
   Play Next Video: 'Következő videó lejátszása'
   Play Previous Video: 'Előző videó lejátszása'
   # Context is "X People Watching"
-  Watching: 'Figyelni'
-  Watched: 'Figyelt'
+  Watching: 'Megtekintő'
+  Watched: 'Megtekintett'
   Autoplay: 'Önműködő lejátszás'
   Starting soon, please refresh the page to check again: 'Hamarosan kezdődik. Kérjük,
     frissítse az oldalt az ellenőrzéshez'
@@ -695,22 +695,22 @@ Yes: 'Igen'
 No: 'Nem'
 Tooltips:
   General Settings:
-    Preferred API Backend: Válassza ki a háttéralkalmazást, amelyet a FreeTube használ
+    Preferred API Backend: Válassza ki a háttéralkalmazást, amelyet a SzabadCső használ
       az adatok megszerzéséhez. A helyi-API egy beépített kinyerő. Az Invidious-API
       használatához Invidious-kiszolgáló szükséges.
     Region for Trending: A népszerűk körzetével kiválaszthatja, mely ország népszerű
       videóit szeretné megjeleníteni. Nem minden megjelenített országot támogat a
       YouTube.
-    Invidious Instance: Invidious példány, amelyhez a FreeTube csatlakozni fog az
+    Invidious Instance: Invidious példány, amelyhez a SzabadCső csatlakozni fog az
       API-hívásokhoz. Törölje az aktuális példányt a nyilvános példányok listájának
       megjelenítéséhez.
-    Thumbnail Preference: A FreeTube összes miniatűrökét az alapértelmezett miniatűr
+    Thumbnail Preference: A SzabadCső összes miniatűrökét az alapértelmezett miniatűr
       helyett egy képkocka váltja fel.
     Fallback to Non-Preferred Backend on Failure: Ha az Ön által előnyben részesített
-      API-val hibába merül fel, a FreeTube önműködően megpróbálja a nem előnyben API-t
-      tartalékként használni, ha engedélyezve van.
+      API-val hibába merül fel, a SzabadCső önműködően megpróbálja a nem előnyben
+      API-t tartalékként használni, ha engedélyezve van.
   Subscription Settings:
-    Fetch Feeds from RSS: Ha engedélyezve van, a FreeTube az alapértelmezett módszer
+    Fetch Feeds from RSS: Ha engedélyezve van, a SzabadCső az alapértelmezett módszer
       helyett RSS-t fog használni a feliratkozás hírcsatornájának megragadásához.
       Az RSS gyorsabb és megakadályozza az IP-zárolást, de nem nyújt bizonyos tájékoztatást,
       például a videó időtartamát vagy az élő állapotot
@@ -729,10 +729,11 @@ Tooltips:
       helyett. Segít, ha az Invidious által visszaküldött videókat nem lehet lejátszani
       az ország korlátozása miatt.
   Privacy Settings:
-    Remove Video Meta Files: Ha engedélyezve van, a FreeTube önműködőén törli a videolejátszás
-      során létrehozott métafájlokat, amikor a nézési oldal bezárul.
+    Remove Video Meta Files: Ha engedélyezve van, a SzabadCső automatikusan törli
+      a videolejátszás során létrehozott metafájlokat, amikor a videómegtekintő oldal
+      bezárul.
   External Player Settings:
-    Custom External Player Executable: Alapértelmezés szerint a FreeTube feltételezi,
+    Custom External Player Executable: Alapértelmezés szerint a SzabadCső feltételezi,
       hogy a kiválasztott külső lejátszó megtalálható a PATH (ÚTVONAL) környezeti
       változón keresztül. Szükség esetén itt egyéni útvonal állítható be.
     Ignore Warnings: A figyelmeztetések elvetése, ha a jelenlegi külső lejátszó nem
@@ -746,8 +747,8 @@ Playing Next Video Interval: A következő videó lejátszása folyamatban van. 
   történik. Kattintson a törléshez. | A következő videó lejátszása {nextVideoInterval}
   másodperc múlva történik. Kattintson a törléshez.
 More: Több
-Hashtags have not yet been implemented, try again later: A kettőskeresztescímke még
-  nincs megvalósítva. Próbálkozzon később.
+Hashtags have not yet been implemented, try again later: A kettőskeresztescímkék kezelése
+  még nincs megvalósítva. Próbálkozzon a következő verzióban.
 Unknown YouTube url type, cannot be opened in app: Ismeretlen YouTube URL-típusa,
   nem nyitható meg az alkalmazásban
 Open New Window: Új ablak megnyitása

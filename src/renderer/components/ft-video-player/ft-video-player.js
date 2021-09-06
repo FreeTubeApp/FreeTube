@@ -165,10 +165,6 @@ export default Vue.extend({
       return this.$store.getters.getDefaultVideoFormat
     },
 
-    defaultTheatreMode: function () {
-      return this.$store.getters.getDefaultTheatreMode
-    },
-
     autoplayVideos: function () {
       return this.$store.getters.getAutoplayVideos
     },
@@ -470,7 +466,7 @@ export default Vue.extend({
     },
 
     mouseScrollVolume: function (event) {
-      if (event.target) {
+      if (event.target && !event.currentTarget.querySelector('.vjs-menu:hover')) {
         event.preventDefault()
 
         if (this.player.muted() && event.wheelDelta > 0) {
@@ -982,7 +978,7 @@ export default Vue.extend({
         return
       }
 
-      const theatreModeActive = this.defaultTheatreMode ? ' vjs-icon-theatre-active' : ''
+      const theatreModeActive = this.$parent.useTheatreMode ? ' vjs-icon-theatre-active' : ''
 
       const VjsButton = videojs.getComponent('Button')
       const toggleTheatreModeButton = videojs.extend(VjsButton, {
