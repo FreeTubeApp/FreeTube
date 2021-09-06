@@ -38,6 +38,8 @@ A new blog is now available, $. Click to view more: A new blog is now available,
 
 # Search Bar
 Search / Go to URL: Search / Go to URL
+Search Bar:
+  Clear Input: Clear Input
   # In Filter Button
 Search Filters:
   Search Filters: Search Filters
@@ -84,7 +86,7 @@ Subscriptions:
   Refresh Subscriptions: Refresh Subscriptions
   Load More Videos: Load More Videos
 More: More
-Trending: 
+Trending:
   Trending: Trending
   Default: Default
   Music: Music
