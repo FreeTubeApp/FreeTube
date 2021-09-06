@@ -85,7 +85,8 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Henter abonnement. Ver venleg og vent.'
   Refresh Subscriptions: 'Oppdater abonnement'
   Load More Videos: 'Last inn fleire videoar'
-Trending: 'På veg opp'
+Trending:
+  Trending: 'På veg opp'
 Most Popular: 'Mest populært'
 Playlists: 'Spelelister'
 User Playlists:

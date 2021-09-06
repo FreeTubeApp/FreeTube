@@ -74,7 +74,13 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 這個設定檔有大量訂閱。
     強制RSS已防止速率限制
   Load More Videos: 載入更多影片
-Trending: '發燒影片'
+Trending:
+  Trending: '發燒影片'
+  Trending Tabs: 熱門分頁
+  Movies: 電影
+  Gaming: 遊戲
+  Music: 音樂
+  Default: 預設
 Most Popular: '最受歡迎'
 Playlists: '播放清單'
 User Playlists:
@@ -565,6 +571,7 @@ Comments:
   Top comments: 最熱門留言
   Sort by: 排序方式
   No more comments available: 沒有更多留言
+  Show More Replies: 顯示更多回覆
 Up Next: '觀看其他類似影片'
 
 # Toast Messages

@@ -77,7 +77,8 @@ Subscriptions:
     профиль имеет большое количество подписок. Используйте RSS, чтобы избежать ограничения
     скорости
   Load More Videos: Загрузить больше видео
-Trending: 'Тренды'
+Trending:
+  Trending: 'Тренды'
 Most Popular: 'Самые популярные'
 Playlists: 'Плейлисты'
 User Playlists:

@@ -278,7 +278,9 @@ export default Vue.extend({
         // Web placeholder
       }
     },
-
+    navigate: function (route) {
+      this.$router.push('/' + route)
+    },
     ...mapActions([
       'showToast',
       'getYoutubeUrlInfo',

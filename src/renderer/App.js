@@ -193,7 +193,7 @@ export default Vue.extend({
             this.showUpdatesBanner = true
           } else if (parseInt(appVersion[1]) < parseInt(latestVersion[1])) {
             this.showUpdatesBanner = true
-          } else if (parseInt(appVersion[2]) < parseInt(latestVersion[2])) {
+          } else if (parseInt(appVersion[2]) < parseInt(latestVersion[2]) && parseInt(appVersion[1]) <= parseInt(latestVersion[1])) {
             this.showUpdatesBanner = true
           }
         }).fail((xhr, textStatus, error) => {
