@@ -99,19 +99,19 @@ export default Vue.extend({
 
       switch (method) {
         case 'copyYoutube':
+          navigator.clipboard.writeText(youtubeUrl)
           this.showToast({
             message: this.$t('Share.YouTube URL copied to clipboard')
           })
-          navigator.clipboard.writeText(youtubeUrl)
           break
         case 'openYoutube':
           this.openExternalLink(youtubeUrl)
           break
         case 'copyInvidious':
+          navigator.clipboard.writeText(invidiousUrl)
           this.showToast({
             message: this.$t('Share.Invidious URL copied to clipboard')
           })
-          navigator.clipboard.writeText(invidiousUrl)
           break
         case 'openInvidious':
           this.openExternalLink(invidiousUrl)
