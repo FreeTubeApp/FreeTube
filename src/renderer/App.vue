@@ -48,7 +48,7 @@
     >
       <span
         id="changeLogText"
-        v-html="updateChangelog" 
+        v-html="updateChangelog"
       />
       <ft-flex-box>
         <ft-button
