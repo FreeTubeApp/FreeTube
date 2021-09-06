@@ -110,6 +110,10 @@ export default Vue.extend({
         this.$t('Yes'),
         this.$t('No')
       ]
+    },
+
+    externalLinkHandling: function () {
+      return this.$store.getters.getExternalLinkHandling
     }
   },
   watch: {
