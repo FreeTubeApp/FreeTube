@@ -140,6 +140,10 @@ export default Vue.extend({
       return this.$store.getters.getUsingElectron
     },
 
+    currentLocale: function () {
+      return this.$store.getters.getCurrentLocale
+    },
+
     defaultPlayback: function () {
       return this.$store.getters.getDefaultPlayback
     },
@@ -1100,6 +1104,36 @@ export default Vue.extend({
       this.determineDefaultQualityDash()
     },
 
+    sortCaptions: function (captionList) {
+      return captionList.sort((captionA, captionB) => {
+        const aCode = captionA.languageCode.split('-')
+        const bCode = captionB.languageCode.split('-')
+        const userLocale = this.currentLocale.split(/-|_/)
+        if (aCode[0] === userLocale[0]) {
+          if (bCode[0] === userLocale[0]) {
+            if ((captionB?.name?.simpleText?.search('auto') ?? -1) !== -1 && (captionB?.label?.search('auto') ?? -1) !== -1) {
+              return -1
+            } else if ((captionA?.name?.simpleText?.search('auto') ?? -1) !== -1 && (captionA.label.search('auto') ?? -1) !== -1) {
+              return 1
+            } else if (aCode[1] === userLocale[1]) {
+              return -1
+            } else if (bCode[1] === userLocale[1]) {
+              return 1
+            } else if (aCode[1] === undefined) {
+              return -1
+            } else if (bCode[1] === undefined) {
+              return 1
+            }
+          } else {
+            return -1
+          }
+        } else if (bCode[0] === userLocale[0]) {
+          return 1
+        }
+        return (captionA.label || captionA.name.simpleText).localeCompare((captionB.label || captionB.name.simpleText))
+      })
+    },
+
     transformAndInsertCaptions: async function() {
       let captionList
       if (this.captionHybridList[0] instanceof Promise) {
@@ -1109,7 +1143,7 @@ export default Vue.extend({
         captionList = this.captionHybridList
       }
 
-      for (const caption of captionList) {
+      for (const caption of this.sortCaptions(captionList)) {
         this.player.addRemoteTextTrack({
           kind: 'subtitles',
           src: caption.baseUrl || caption.url,
