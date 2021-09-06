@@ -4,7 +4,8 @@
 
 .clearInputTextButton {
   position: absolute;
-  padding: 10px;
+  /* horizontal intentionally reduced to keep "I-beam pointer" visible */
+  padding: 10px 8px;
   top: 5px;
   left: 0;
   cursor: pointer;
