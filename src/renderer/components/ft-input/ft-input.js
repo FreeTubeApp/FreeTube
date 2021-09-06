@@ -19,6 +19,10 @@ export default Vue.extend({
       type: Boolean,
       default: true
     },
+    showClearTextButton: {
+      type: Boolean,
+      default: false
+    },
     showLabel: {
       type: Boolean,
       default: false
@@ -94,6 +98,11 @@ export default Vue.extend({
       if (this.isSearch &&
         this.searchState.selectedOption !== -1 &&
         this.inputData === this.dataList[this.searchState.selectedOption]) { return }
+      this.$emit('input', this.inputData)
+    },
+
+    handleClearTextClick: function () {
+      this.inputData = ''
       this.$emit('input', this.inputData)
     },
 

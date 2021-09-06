@@ -77,7 +77,8 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': Nahrávam odbery, prosím počkajte.
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Tento
     profil má mnoho odberateľov. Vždy použite RSS, aby ste obišli limit
-Trending: 'Trendy'
+Trending: 
+  Trending: 'Trendy'
 Most Popular: 'Najpopulárnejšie'
 Playlists: 'Zoznamy'
 User Playlists:
