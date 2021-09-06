@@ -1,8 +1,10 @@
 <template>
   <div class="select">
     <select
+      :id="placeholder"
       class="select-text"
       :value="value"
+      :name="placeholder"
       @change="$emit('change', $event.target.value)"
     >
       <option
@@ -19,9 +21,12 @@
     />
     <span class="select-highlight" />
     <span class="select-bar" />
-    <p class="select-label">
+    <label
+      class="select-label"
+      :for="placeholder"
+    >
       {{ placeholder }}
-    </p>
+    </label>
     <ft-tooltip
       v-if="tooltip !== ''"
       class="selectTooltip"

@@ -77,11 +77,9 @@
 
 /* LABEL ======================================= */
 .select-label {
-  all: unset;
   font-size: 18px;
   font-weight: normal;
   position: absolute;
-  pointer-events: none;
   left: 0;
   top: 10px;
   transition: 0.2s ease all;
