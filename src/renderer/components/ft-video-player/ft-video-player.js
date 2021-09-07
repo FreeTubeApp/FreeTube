@@ -1106,31 +1106,42 @@ export default Vue.extend({
 
     sortCaptions: function (captionList) {
       return captionList.sort((captionA, captionB) => {
-        const aCode = captionA.languageCode.split('-')
-        const bCode = captionB.languageCode.split('-')
-        const userLocale = this.currentLocale.split(/-|_/)
-        if (aCode[0] === userLocale[0]) {
-          if (bCode[0] === userLocale[0]) {
-            if ((captionB?.name?.simpleText?.search('auto') ?? -1) !== -1 && (captionB?.label?.search('auto') ?? -1) !== -1) {
+        const aCode = captionA.languageCode.split('-') // ex. [en,US]
+        const bCode = captionB.languageCode.split('-') 
+        const aName = (captionA.label || captionA.name.simpleText) // ex: english (auto-generated)
+        const bName = (captionB.label || captionB.name.simpleText)
+        const userLocale = this.currentLocale.split(/-|_/) // ex. [en,US]
+        if (aCode[0] === userLocale[0]) { // caption a has same language as user's locale
+          if (bCode[0] === userLocale[0]) { // caption b has same language as user's locale
+            if (bName.search('auto') !== -1) {
+              // prefer caption a: b is auto-generated captions
               return -1
-            } else if ((captionA?.name?.simpleText?.search('auto') ?? -1) !== -1 && (captionA.label.search('auto') ?? -1) !== -1) {
+            } else if (aName.search('auto') !== -1) {
+              // prefer caption b: a is auto-generated captions
               return 1
             } else if (aCode[1] === userLocale[1]) {
+              // prefer caption a: caption a has same county code as user's locale
               return -1
             } else if (bCode[1] === userLocale[1]) {
+              // prefer caption b: caption b has same county code as user's locale
               return 1
             } else if (aCode[1] === undefined) {
+              // prefer caption a: no country code is better than wrong country code
               return -1
             } else if (bCode[1] === undefined) {
+              // prefer caption b: no country code is better than wrong country code
               return 1
             }
           } else {
+            // prefer caption a: b does not match user's language
             return -1
           }
         } else if (bCode[0] === userLocale[0]) {
+          // prefer caption b: a does not match user's language
           return 1
         }
-        return (captionA.label || captionA.name.simpleText).localeCompare((captionB.label || captionB.name.simpleText))
+        // sort alphabetically
+        return aName.localeCompare(bName)
       })
     },
 
