@@ -1107,7 +1107,7 @@ export default Vue.extend({
     sortCaptions: function (captionList) {
       return captionList.sort((captionA, captionB) => {
         const aCode = captionA.languageCode.split('-') // ex. [en,US]
-        const bCode = captionB.languageCode.split('-') 
+        const bCode = captionB.languageCode.split('-')
         const aName = (captionA.label || captionA.name.simpleText) // ex: english (auto-generated)
         const bName = (captionB.label || captionB.name.simpleText)
         const userLocale = this.currentLocale.split(/-|_/) // ex. [en,US]
