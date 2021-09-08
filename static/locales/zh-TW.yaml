@@ -100,7 +100,7 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: '連線失敗時連線到非預設伺服器'
     Enable Search Suggestions: '啟用搜尋建議'
     Default Landing Page: '預設加載頁面'
-    Locale Preference: '地區偏好'
+    Locale Preference: '介面語言'
     Preferred API Backend:
       Preferred API Backend: '偏好API伺服器'
       Local API: '區域API'
@@ -159,7 +159,7 @@ Settings:
         #* Main Color Theme
     UI Scale: UI縮放
     Expand Side Bar by Default: 預設展開側邊欄
-    Disable Smooth Scrolling: 禁用平滑捲動
+    Disable Smooth Scrolling: 停用平滑捲動
   Player Settings:
     Player Settings: '播放器選項'
     Force Local Backend for Legacy Formats: '強制使用傳統格式的區域伺服器'
@@ -417,7 +417,7 @@ Video:
   Live Chat: '直播聊天室'
   Enable Live Chat: '啟用直播聊天室'
   Live Chat is currently not supported in this build.: '直播聊天室在此版本中目前不被支援。'
-  'Chat is disabled or the Live Stream has ended.': '直播聊天室功能被禁用或者直播已經結束。'
+  'Chat is disabled or the Live Stream has ended.': '直播聊天室功能被停用或者直播已經結束。'
   Live chat is enabled.  Chat messages will appear here once sent.: '直播聊天結束。 聊天訊息一旦傳送將出現在這裡。'
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': '直播聊天室目前不被Invidious
     API支援。 需要直接連線YouTube。'
@@ -580,10 +580,10 @@ Invidious API Error (Click to copy): 'Invidious API錯誤（點擊複製）'
 Falling back to Invidious API: '回退到Invidious API'
 Falling back to the local API: '回退到區域API'
 Subscriptions have not yet been implemented: '訂閱功能尚未被推行'
-Loop is now disabled: '循環播放現在被禁用'
+Loop is now disabled: '循環播放現在被停用'
 Loop is now enabled: '循環播放現在被啟用'
-Shuffle is now disabled: '隨機播放現在被禁用'
-Shuffle is now enabled: '隨機播放現在被禁用'
+Shuffle is now disabled: '隨機播放現在被停用'
+Shuffle is now enabled: '隨機播放現在被停用'
 Playing Next Video: '將播放下一影片'
 Playing Previous Video: '將播放上一影片'
 Playing next video in 5 seconds.  Click to cancel: '下一部影片將在5秒後播放。點擊取消。'
@@ -592,7 +592,7 @@ Canceled next video autoplay: '取消自動播放下一部影片'
 
 Yes: '是'
 No: '否'
-Locale Name: 繁體(正體)中文
+Locale Name: 繁體中文
 Profile:
   $ is now the active profile: $現在是作用中的設定檔
   Your default profile has been changed to your primary profile: 您的預設設定檔已變更為您的主要設定檔
