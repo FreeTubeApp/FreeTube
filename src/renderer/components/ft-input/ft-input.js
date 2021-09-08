@@ -74,6 +74,10 @@ export default Vue.extend({
 
     idDataList: function () {
       return `${this.id}_datalist`
+    },
+
+    inputDataPresent: function () {
+      return this.inputData.length > 0
     }
   },
   watch: {
