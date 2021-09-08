@@ -104,6 +104,10 @@ export default Vue.extend({
     handleClearTextClick: function () {
       this.inputData = ''
       this.$emit('input', this.inputData)
+
+      // Focus on input element after text is clear for better UX
+      const inputElement = document.getElementById(this.id)
+      inputElement.focus()
     },
 
     addListener: function () {
