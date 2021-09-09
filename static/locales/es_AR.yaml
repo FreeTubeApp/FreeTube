@@ -85,7 +85,7 @@ Playlists: 'Listas de reproducción'
 User Playlists:
   Your Playlists: 'Tus listas de reproducción'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Tu
-    lista de videos guardados está vacía. Hacé click en el botón de guardado en la
+    lista de videos guardados está vacía. Hacé clic en el botón de guardado en la
     esquina de un video para que aparezca acá
   Playlist Message: Está página no es un reflejo de listas de reproducción completamente
     funcionales. Solo lista los videos que has guardado o marcado como favoritos.
@@ -275,6 +275,9 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: Esta
     aplicación necesita reiniciarse para que los cambios entren en efecto. ¿Reiniciar
     y aplicar el cambio?
+  Proxy Settings:
+    Clicking on Test Proxy will send a request to: Hacer clic en Probar proxy enviará
+      una solicitud a
 About:
   #On About page
   About: ''
@@ -485,7 +488,7 @@ Canceled next video autoplay: ''
 Yes: 'Sí'
 No: 'No'
 A new blog is now available, $. Click to view more: Un nuevo blog está disponible,
-  $. Hacé click para ver más
+  $. Hacé clic para ver más
 Download From Site: Descargar desde el sitio
 Version $ is now available!  Click for more details: La versión $ ya está disponible.  Hacé
-  click acá para más detalles.
+  clic acá para más detalles.
