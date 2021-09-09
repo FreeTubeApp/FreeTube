@@ -9,7 +9,7 @@ const state = {
     textColor: '#FFFFFF',
     subscriptions: []
   }],
-  activeProfile: 0
+  activeProfile: MAIN_PROFILE_ID
 }
 
 const getters = {
@@ -17,8 +17,11 @@ const getters = {
     return state.profileList
   },
 
-  getActiveProfile: () => {
-    return state.activeProfile
+  getActiveProfile: (state) => {
+    const activeProfileId = state.activeProfile
+    return state.profileList.find((profile) => {
+      return profile._id === activeProfileId
+    })
   },
 
   profileById: (state) => (id) => {
@@ -62,12 +65,12 @@ const actions = {
     profiles = profiles.sort(profileSort)
 
     if (state.profileList.length < profiles.length) {
-      const profileIndex = profiles.findIndex((profile) => {
+      const profile = profiles.find((profile) => {
         return profile._id === rootState.settings.defaultProfile
       })
 
-      if (profileIndex !== -1) {
-        commit('setActiveProfile', profileIndex)
+      if (profile) {
+        commit('setActiveProfile', profile._id)
       }
     }
 
@@ -92,8 +95,8 @@ const actions = {
     profilesDb.persistence.compactDatafile()
   },
 
-  updateActiveProfile({ commit }, index) {
-    commit('setActiveProfile', index)
+  updateActiveProfile({ commit }, id) {
+    commit('setActiveProfile', id)
   }
 }
 

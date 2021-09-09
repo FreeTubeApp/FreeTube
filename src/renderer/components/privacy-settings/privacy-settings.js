@@ -92,7 +92,7 @@ export default Vue.extend({
     handleRemoveSubscriptions: function (option) {
       this.showRemoveSubscriptionsPrompt = false
 
-      this.updateActiveProfile(0)
+      this.updateActiveProfile(MAIN_PROFILE_ID)
 
       if (option === 'yes') {
         this.profileList.forEach((profile) => {

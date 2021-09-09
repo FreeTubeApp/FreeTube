@@ -92,9 +92,6 @@ export default Vue.extend({
         return null
       }
     },
-    activeProfile: function () {
-      return this.$store.getters.getActiveProfile
-    },
     defaultProfile: function () {
       return this.$store.getters.getDefaultProfile
     },

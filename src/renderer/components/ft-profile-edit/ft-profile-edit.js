@@ -138,20 +138,22 @@ export default Vue.extend({
     },
 
     deleteProfile: function () {
+      if (this.activeProfile._id === this.profileId) {
+        this.updateActiveProfile(MAIN_PROFILE_ID)
+      }
+
       this.removeProfile(this.profileId)
+
       const message = this.$t('Profile.Removed $ from your profiles').replace('$', this.profileName)
-      this.showToast({
-        message: message
-      })
+      this.showToast({ message })
+
       if (this.defaultProfile === this.profileId) {
         this.updateDefaultProfile(MAIN_PROFILE_ID)
         this.showToast({
           message: this.$t('Profile.Your default profile has been changed to your primary profile')
         })
       }
-      if (this.profileList[this.activeProfile]._id === this.profileId) {
-        this.updateActiveProfile(0)
-      }
+
       this.$router.push({
         path: '/settings/profile/'
       })
