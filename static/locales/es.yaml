@@ -658,8 +658,8 @@ Comments:
 Up Next: 'A continuación'
 
 # Toast Messages
-Local API Error (Click to copy): 'Error de la API local (Click para copiar el código)'
-Invidious API Error (Click to copy): 'Error de la API de Invidious (Click para copiar
+Local API Error (Click to copy): 'Error de la API local (Clic para copiar el código)'
+Invidious API Error (Click to copy): 'Error de la API de Invidious (Clic para copiar
   el código)'
 Falling back to Invidious API: 'Recurriendo a la API de Invidious'
 Falling back to the local API: 'Recurriendo a la API local'
@@ -679,10 +679,10 @@ Canceled next video autoplay: 'La reproducción del vídeo siguiente se ha cance
 Yes: 'Sí'
 No: 'No'
 A new blog is now available, $. Click to view more: Nueva publicación del blog disponible,
-  $. Click para saber más
-Download From Site: Descargar de la web
-Version $ is now available!  Click for more details: La versión $ está disponible!
-  Click para saber más
+  $. Haga clic para saber más
+Download From Site: Descargar del sitio web
+Version $ is now available!  Click for more details: ¡La versión $ está disponible!
+  Haga clic para saber más
 The playlist has been reversed: Orden de Playlist invertido
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
   vídeo no está disponible por no tener un formato válido. Esto puede suceder por
