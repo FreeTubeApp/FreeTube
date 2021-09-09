@@ -21,9 +21,12 @@
       />
     </label>
     <font-awesome-icon
-      v-if="showClearTextButton && inputDataPresent"
+      v-if="showClearTextButton"
       icon="times-circle"
       class="clearInputTextButton"
+      :class="{
+        visible: inputDataPresent
+      }"
       tabindex="0"
       role="button"
       title="$t('Search Bar.Clear Input')"
