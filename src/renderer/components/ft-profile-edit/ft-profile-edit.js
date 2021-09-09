@@ -5,6 +5,7 @@ import FtPrompt from '../../components/ft-prompt/ft-prompt.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
+import { MAIN_PROFILE_ID } from '../../../constants'
 
 export default Vue.extend({
   name: 'FtProfileEdit',
@@ -40,6 +41,9 @@ export default Vue.extend({
     }
   },
   computed: {
+    isMainProfile: function () {
+      return this.profileId === MAIN_PROFILE_ID
+    },
     colorValues: function () {
       return this.$store.getters.getColorValues
     },
@@ -140,7 +144,7 @@ export default Vue.extend({
         message: message
       })
       if (this.defaultProfile === this.profileId) {
-        this.updateDefaultProfile('allChannels')
+        this.updateDefaultProfile(MAIN_PROFILE_ID)
         this.showToast({
           message: this.$t('Profile.Your default profile has been changed to your primary profile')
         })

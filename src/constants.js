@@ -18,6 +18,10 @@ const IpcChannels = {
   OPEN_IN_EXTERNAL_PLAYER: 'open-in-external-player'
 }
 
+// Utils
+const MAIN_PROFILE_ID = 'allChannels'
+
 export {
-  IpcChannels
+  IpcChannels,
+  MAIN_PROFILE_ID
 }

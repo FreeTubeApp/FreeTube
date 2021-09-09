@@ -5,6 +5,7 @@ import FtButton from '../ft-button/ft-button.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
+import { MAIN_PROFILE_ID } from '../../../constants'
 
 export default Vue.extend({
   name: 'PrivacySettings',
@@ -95,9 +96,9 @@ export default Vue.extend({
 
       if (option === 'yes') {
         this.profileList.forEach((profile) => {
-          if (profile._id === 'allChannels') {
+          if (profile._id === MAIN_PROFILE_ID) {
             const newProfile = {
-              _id: 'allChannels',
+              _id: MAIN_PROFILE_ID,
               name: profile.name,
               bgColor: profile.bgColor,
               textColor: profile.textColor,

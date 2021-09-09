@@ -6,6 +6,7 @@ import FtListDropdown from '../ft-list-dropdown/ft-list-dropdown.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtShareButton from '../ft-share-button/ft-share-button.vue'
+import { MAIN_PROFILE_ID } from '../../../constants'
 
 export default Vue.extend({
   name: 'WatchVideoInfo',
@@ -341,7 +342,7 @@ export default Vue.extend({
           let duplicateSubscriptions = 0
 
           this.profileList.forEach((profile) => {
-            if (profile._id === 'allChannels') {
+            if (profile._id === MAIN_PROFILE_ID) {
               return
             }
             const parsedProfile = JSON.parse(JSON.stringify(profile))

@@ -1,6 +1,6 @@
 import { settingsDb } from '../datastores'
 import i18n from '../../i18n/index'
-import { IpcChannels } from '../../../constants'
+import { MAIN_PROFILE_ID, IpcChannels } from '../../../constants'
 
 /*
  * Due to the complexity of the settings module in FreeTube, a more
@@ -171,7 +171,7 @@ const state = {
   defaultCaptionSettings: '{}',
   defaultInterval: 5,
   defaultPlayback: 1,
-  defaultProfile: 'allChannels',
+  defaultProfile: MAIN_PROFILE_ID,
   defaultQuality: '720',
   defaultSkipInterval: 5,
   defaultTheatreMode: false,

@@ -11,6 +11,7 @@ import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 
 import ytch from 'yt-channel-info'
 import autolinker from 'autolinker'
+import { MAIN_PROFILE_ID } from '../../../constants'
 
 export default Vue.extend({
   name: 'Search',
@@ -526,7 +527,7 @@ export default Vue.extend({
           let duplicateSubscriptions = 0
 
           this.profileList.forEach((profile) => {
-            if (profile._id === 'allChannels') {
+            if (profile._id === MAIN_PROFILE_ID) {
               return
             }
             const parsedProfile = JSON.parse(JSON.stringify(profile))

@@ -1,8 +1,9 @@
 import { profilesDb } from '../datastores'
+import { MAIN_PROFILE_ID } from '../../../constants'
 
 const state = {
   profileList: [{
-    _id: 'allChannels',
+    _id: MAIN_PROFILE_ID,
     name: 'All Channels',
     bgColor: '#000000',
     textColor: '#FFFFFF',
@@ -27,8 +28,8 @@ const getters = {
 }
 
 function profileSort(a, b) {
-  if (a._id === 'allChannels') return -1
-  if (b._id === 'allChannels') return 1
+  if (a._id === MAIN_PROFILE_ID) return -1
+  if (b._id === MAIN_PROFILE_ID) return 1
   if (a.name < b.name) return -1
   if (a.name > b.name) return 1
   return 0
@@ -44,7 +45,7 @@ const actions = {
       const randomColor = await dispatch('getRandomColor')
       const textColor = await dispatch('calculateColorLuminance', randomColor)
       const defaultProfile = {
-        _id: 'allChannels',
+        _id: MAIN_PROFILE_ID,
         name: defaultName,
         bgColor: randomColor,
         textColor: textColor,

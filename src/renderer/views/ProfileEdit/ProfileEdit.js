@@ -4,6 +4,7 @@ import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtProfileEdit from '../../components/ft-profile-edit/ft-profile-edit.vue'
 import FtProfileChannelList from '../../components/ft-profile-channel-list/ft-profile-channel-list.vue'
 import FtProfileFilterChannelsList from '../../components/ft-profile-filter-channels-list/ft-profile-filter-channels-list.vue'
+import { MAIN_PROFILE_ID } from '../../../constants'
 
 export default Vue.extend({
   name: 'ProfileEdit',
@@ -31,7 +32,7 @@ export default Vue.extend({
     },
 
     isMainProfile: function () {
-      return this.profileId === 'allChannels'
+      return this.profileId === MAIN_PROFILE_ID
     }
   },
   watch: {
