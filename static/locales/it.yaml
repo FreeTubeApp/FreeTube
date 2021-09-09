@@ -34,7 +34,7 @@ Forward: 'Avanti'
 Search / Go to URL: 'Cerca / Vai a URL'
   # In Filter Button
 Search Filters:
-  Search Filters: 'Filtri di Ricerca'
+  Search Filters: 'Filtri di ricerca'
   Sort By:
     Sort By: 'Filtra per'
     Most Relevant: 'Più rilevante'
@@ -117,12 +117,12 @@ Settings:
       Local API: 'API locali'
       Invidious API: 'API di Invidious'
     Video View Type:
-      Video View Type: 'Modalità di Visualizzazione Video'
+      Video View Type: 'Modalità di visualizzazione video'
       Grid: 'Griglia'
       List: 'Lista'
     Thumbnail Preference:
-      Thumbnail Preference: 'Preferenze Miniatura'
-      Default: 'Default'
+      Thumbnail Preference: 'Preferenze delle miniature'
+      Default: 'Predefinito'
       Beginning: 'Inizio'
       Middle: 'Nel mezzo'
       End: 'Fine'
@@ -143,7 +143,7 @@ Settings:
     Current Invidious Instance: Istanza attuale di Invidious
     System Default: Predefinito dal sistema
   Theme Settings:
-    Theme Settings: 'Impostazioni Tema'
+    Theme Settings: 'Impostazioni del tema'
     Match Top Bar with Main Color: 'Abbina la barra superiore con il colore principale'
     Base Theme:
       Base Theme: 'Tema di base'
@@ -174,12 +174,12 @@ Settings:
     Disable Smooth Scrolling: Disabilita scorrimento fluido
     Expand Side Bar by Default: Espandi Automaticamente la Barra Laterale
   Player Settings:
-    Player Settings: 'Impostazioni Riproduttore Video'
+    Player Settings: 'Impostazioni del riproduttore video'
     Force Local Backend for Legacy Formats: 'Forza back-end locale per formati legacy'
-    Play Next Video: 'Riproduci Prossimo Video'
-    Turn on Subtitles by Default: 'Abilita Sottotitoli di Default'
-    Autoplay Videos: 'Riproduci Video Automaticamente'
-    Proxy Videos Through Invidious: 'Proxy dei Video tramite Invidious'
+    Play Next Video: 'Riproduci il prossimo video'
+    Turn on Subtitles by Default: 'Abilita i sottotitoli per impostazione predefinita'
+    Autoplay Videos: 'Riproduci i video automaticamente'
+    Proxy Videos Through Invidious: 'Proxy dei video tramite Invidious'
     Autoplay Playlists: 'Riproduci le playlist automaticamente'
     Enable Theatre Mode by Default: 'Abilita modalità teatro come predefinita'
     Default Volume: 'Volume predefinito'
@@ -210,7 +210,7 @@ Settings:
   Privacy Settings:
     Privacy Settings: 'Impostazioni privacy'
     Remember History: 'Salva la Cronologia'
-    Save Watched Progress: 'Ricorda Avanzamento Video'
+    Save Watched Progress: 'Ricorda l''avanzamento del video'
     Clear Search Cache: 'Pulisci la cache di ricerca'
     Are you sure you want to clear out your search cache?: 'Sei sicuro/a di voler
       pulire la cache di ricerca?'
@@ -222,18 +222,18 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Sei
       sicuro/a di volere eliminare tutte le iscrizioni e profili? L'operazione non
       può essere annullata.
-    Remove All Subscriptions / Profiles: Elimina Tutte le Iscrizioni / Profili
+    Remove All Subscriptions / Profiles: Elimina tutte le iscrizioni / profili
     Automatically Remove Video Meta Files: Rimuovi automaticamente i metafile dei
       video
   Subscription Settings:
     Subscription Settings: 'Impostazioni iscrizioni'
-    Hide Videos on Watch: 'Nascondi Video durante la riproduzione'
+    Hide Videos on Watch: 'Nascondi i video durante la riproduzione'
     Subscriptions Export Format:
       Subscriptions Export Format: ''
       #& Freetube
       Newpipe: 'Newpipe'
       OPML: 'OPML'
-    Manage Subscriptions: 'Gestisci Iscrizioni'
+    Manage Subscriptions: 'Gestisci le iscrizioni'
     Import Subscriptions: 'Importa Iscrizioni'
     Export Subscriptions: 'Esporta Iscrizioni'
     How do I import my subscriptions?: 'Come importo le mie iscrizioni?'
@@ -274,9 +274,9 @@ Settings:
       è stata esportata con successo
     All watched history has been successfully imported: La cronologia di visualizzazione
       è stata importata con successo
-    History object has insufficient data, skipping item: La Cronologia ha dati insufficienti,
+    History object has insufficient data, skipping item: La cronologia ha dati insufficienti,
       non verrà elaborata
-    Import Subscriptions: Importa Iscrizioni
+    Import Subscriptions: Importa le iscrizioni
     Subscriptions have been successfully exported: Tutte le iscrizioni sono state
       esportate con successo
     Invalid history file: File cronologia non valido
@@ -296,23 +296,23 @@ Settings:
     Export NewPipe: Esporta per NewPipe
     Export YouTube: Esporta per YouTube
     Export FreeTube: Esporta per FreeTube
-    Export Subscriptions: Esporta Iscrizioni
+    Export Subscriptions: Esporta le iscrizioni
     Import NewPipe: Importa da NewPipe
     Import YouTube: Importa da YouTube
     Import FreeTube: Importa da FreeTube
-    Select Export Type: Seleziona Tipo di Esportazione
-    Select Import Type: Seleziona Tipo di importazione
-    Data Settings: Impostazioni Dati
+    Select Export Type: Seleziona il tipo di esportazione
+    Select Import Type: Seleziona il tipo di importazione
+    Data Settings: Impostazioni dei dati
     Check for Legacy Subscriptions: Cerca Iscrizioni in formato Legacy
     Manage Subscriptions: Gestisci le tue iscrizioni
   Distraction Free Settings:
-    Hide Popular Videos: Nascondi Video Popolari
-    Hide Trending Videos: Nascondi Video in Tendenze
-    Hide Recommended Videos: Nascondi Video Suggeriti
-    Hide Comment Likes: Nascondi i Mi Piace dei Commenti
-    Hide Channel Subscribers: Nascondi il Numero di Iscritti
-    Hide Video Views: Nascondi Visualizzazioni Video
-    Distraction Free Settings: Impostazioni modalità "Senza Distrazioni"
+    Hide Popular Videos: Nascondi i video popolari
+    Hide Trending Videos: Nascondi i video in tendenze
+    Hide Recommended Videos: Nascondi i video suggeriti
+    Hide Comment Likes: Nascondi i Mi piace dei commenti
+    Hide Channel Subscribers: Nascondi il numero di iscritti
+    Hide Video Views: Nascondi le visualizzazioni dei video
+    Distraction Free Settings: Impostazioni modalità Senza distrazioni
     Hide Live Chat: Nascondi la chat live
     Hide Video Likes And Dislikes: Nascondi Mi piace e Non mi piace
     Hide Active Subscriptions: Nascondi le iscrizioni attive
@@ -335,8 +335,8 @@ Settings:
     Test Proxy: Testa proxy
     Clicking on Test Proxy will send a request to: Cliccando su «Testa proxy» verrà
       inviata una richiesta a
-    Proxy Port Number: Numero di porta Proxy
-    Proxy Host: Host Proxy
+    Proxy Port Number: Numero di porta del proxy
+    Proxy Host: Host del proxy
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notifica quando un segmento sponsor viene
       saltato
@@ -395,7 +395,7 @@ About:
   FreeTube is made possible by: FreeTube è reso possibile grazie a
   Credits: Crediti
   Translate: Traduci
-  room rules: Regole stanza
+  room rules: regole stanza
   Please read the: Si prega di leggere
   Chat on Matrix: Chatta su Matrix
   Mastodon: Mastodon
@@ -652,7 +652,7 @@ A new blog is now available, $. Click to view more: Un nuovo blog è ora disponi
   $. Clicca per saperne di più
 Version $ is now available!  Click for more details: La versione $ è ora disponibile!
   Clicca per maggiori dettagli
-Download From Site: Scarica Dal Sito
+Download From Site: Scarica dal sito
 The playlist has been reversed: La playlist è stata invertita
 Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Sei
@@ -759,3 +759,5 @@ Hashtags have not yet been implemented, try again later: Gli hashtag non sono an
   stati implementati, riprova più tardi
 Unknown YouTube url type, cannot be opened in app: Tipo di URL YouTube sconosciuto,
   non può essere aperto nell'applicazione
+Search Bar:
+  Clear Input: Cancella l'ingresso
