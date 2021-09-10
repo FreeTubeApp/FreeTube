@@ -4,7 +4,7 @@ Title
 
 **Important notes**
 Please note that only PrestoN is able to merge Pull Requests into master.
-Please note that if u incorrectcly filled out or not filled out the PR template, it will result in the closure of this PR.
+We may remove your pull request if you do not use this provided PR template correctly.
 
 **Pull Request Type**
 Please select what type of pull request this is:
