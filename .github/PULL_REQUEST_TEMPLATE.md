@@ -12,7 +12,7 @@ Please select what type of pull request this is:
 - [ ] Feature Implementation
 
 **Related issue**
-Please link the issue your pull request is referring to. If this pull request fully resolves the relevant issue, put "closes" before the issue number. Example: "closes #99999"
+Please link the issue your pull request is referring to. If this pull request fully resolves the relevant issue, put "closes" before the issue number. Example: "closes #99999". If this pull request fully resolves multiple relevant issues, put "closes" before both issue numbers. Example: "closes #99999, closes #12345".
 
 **Description**
 Please write a clear and concise description of what the pull request does.
