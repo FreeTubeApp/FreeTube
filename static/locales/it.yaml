@@ -212,15 +212,15 @@ Settings:
     Remember History: 'Salva la Cronologia'
     Save Watched Progress: 'Ricorda l''avanzamento del video'
     Clear Search Cache: 'Pulisci la cache di ricerca'
-    Are you sure you want to clear out your search cache?: 'Sei sicuro/a di voler
+    Are you sure you want to clear out your search cache?: 'Sei sicuro di voler
       pulire la cache di ricerca?'
     Search cache has been cleared: 'La cache di ricerca è stata pulita'
     Remove Watch History: 'Cancella la cronologia visualizzazioni'
-    Are you sure you want to remove your entire watch history?: 'Sei sicuro/a di voler
+    Are you sure you want to remove your entire watch history?: 'Sei sicuro di voler
       cancellare l''intera cronologia di visualizzazione?'
     Watch history has been cleared: 'La cronologia di visualizzazioni è stata pulita'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Sei
-      sicuro/a di volere eliminare tutte le iscrizioni e profili? L'operazione non
+      sicuro di volere eliminare tutte le iscrizioni e profili? L'operazione non
       può essere annullata.
     Remove All Subscriptions / Profiles: Elimina tutte le iscrizioni / profili
     Automatically Remove Video Meta Files: Rimuovi automaticamente i metafile dei
@@ -253,14 +253,14 @@ Settings:
     Clear History:
       Clear History: 'Pulisci Cronologia'
       # On Click
-      Are you sure you want to delete your history?: 'Sei sicuro/a di voler eliminare
+      Are you sure you want to delete your history?: 'Sei sicuro di voler eliminare
         la cronologia?'
       #& Yes
       #& No
     Clear Subscriptions:
       Clear Subscriptions: 'Pulisci Iscrizioni'
       # On Click
-      Are you sure you want to remove all subscriptions?: 'Sei sicuro/a di voler rimuovere
+      Are you sure you want to remove all subscriptions?: 'Sei sicuro di voler rimuovere
         tutte le iscrizioni?'
       #& Yes
       #& No
@@ -329,7 +329,7 @@ Settings:
       correttamente?
     City: Città
     Region: Regione
-    Country: Paese
+    Country: Nazione
     Ip: Ip
     Your Info: Le tue informazioni
     Test Proxy: Testa proxy
@@ -355,7 +355,7 @@ About:
   About: 'Informazioni'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Questo
-    software in permesso d''autore è sotto licenza gratuita AGPL-3.0.'
+    software è rilasciato con licenza gratuita AGPL-3.0.'
 
   'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
     Hai trovato un problema? Vuoi suggerire nuove funzionalità? Vuoi dare una mano?
@@ -368,10 +368,10 @@ About:
     chattare? Entra nel nostro server Element / Matrix. Per favore, leggi il regolamento
     prima di entrare.'
 
-  'Looking for help? Check out our Wiki page.': 'Cerchi aiuto? Da’ un’occhiata alla
+  'Looking for help? Check out our Wiki page.': 'Cerchi aiuto? Dai un’occhiata alla
     nostra pagina Wiki.'
 
-  Check out our Firefox extension!: 'Da’ un’occhiata alla nostra estensione Firefox!'
+  Check out our Firefox extension!: 'Dai un’occhiata alla nostra estensione Firefox!'
 
   'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'Se
     ti piace FreeTube, prendi in considerazione di donare con Liberapay o al nostro
@@ -509,8 +509,8 @@ Video:
   Shuffle Playlist: Riproduzione playlist casuale
   Loop Playlist: Riproduzione senza sosta
   Autoplay: Riproduzione Automatica
-  Starting soon, please refresh the page to check again: La riproduzione partirà a
-    breve, refreshare la pagina per ricontrollare
+  Starting soon, please refresh the page to check again: La riproduzione partirà tra
+    breve, aggiorna la pagina per ricontrollare
   Audio:
     Best: Migliore
     High: Alto
@@ -518,7 +518,7 @@ Video:
     Low: Basso
   audio only: solo audio
   video only: solo video
-  Download Video: Scarica la video
+  Download Video: Scarica il video
   Copy Invidious Channel Link: Copia collegamento del canale Invidious
   Open Channel in Invidious: Apri il canale su Invidious
   Copy YouTube Channel Link: Copia collegamento del canale YouTube
@@ -531,7 +531,7 @@ Video:
   Save Video: Salva il video
   External Player:
     Unsupported Actions:
-      looping playlists: playlist a ripetizione
+      looping playlists: ripetizione playlist
       shuffling playlists: mescolare l'ordine delle playlist
       reversing playlists: invertire l'ordine delle playlist
       opening specific video in a playlist (falling back to opening the video): aprire
@@ -656,11 +656,11 @@ Download From Site: Scarica dal sito
 The playlist has been reversed: La playlist è stata invertita
 Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Sei
-    sicuro/a di voler eliminare i canali selezionati? L'operazione non eliminerà i
+    sicuro di voler eliminare i canali selezionati? L'operazione non eliminerà i
     canali da nessun altro profilo.
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : Questo è il tuo profilo primario. Sei sicuro/a di voler eliminare i canali selezionati?
+  : Questo è il tuo profilo primario. Sei sicuro di voler eliminare i canali selezionati?
     Gli stessi canali saranno eliminati da ogni profilo in cui sono presenti.
   No channel(s) have been selected: Nessun canale è stato selezionato
   Add Selected To Profile: Aggiungi i selezionati al profilo
@@ -680,7 +680,7 @@ Profile:
   Your profile name cannot be empty: Il tuo nome profilo non può essere vuoto
   Profile could not be found: Impossibile trovare il profilo
   All subscriptions will also be deleted.: Tutte le iscrizioni saranno eliminate.
-  Are you sure you want to delete this profile?: Sei sicuro/a di voler eliminare il
+  Are you sure you want to delete this profile?: Sei sicuro di voler eliminare il
     profilo?
   Delete Profile: Elimina profilo
   Make Default Profile: Imposta come profilo predefinito
@@ -698,7 +698,7 @@ Profile:
   Profile Settings: Impostazioni del profilo
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Questo
   video non è disponibile a causa di alcuni formati mancanti. Questo può succedere
-  in caso di mancata disponibilità del paese.
+  in caso di mancata disponibilità della nazione.
 Tooltips:
   Player Settings:
     Force Local Backend for Legacy Formats: Funziona solo quando Invidious è l'API
