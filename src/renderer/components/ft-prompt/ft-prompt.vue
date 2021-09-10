@@ -10,6 +10,7 @@
         </h2>
         <p
           v-for="extraLabel in extraLabels"
+          :key="extraLabel"
           class="center"
         >
           <strong>
