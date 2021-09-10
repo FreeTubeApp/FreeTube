@@ -60,6 +60,7 @@
     <ft-prompt
       v-if="showExternalLinkOpeningPrompt"
       :label="$t('Are you sure you want to open this link?')"
+      :extra-labels="[lastExternalLinkToBeOpened]"
       :option-names="externalLinkOpeningPromptNames"
       :option-values="externalLinkOpeningPromptValues"
       @click="handleExternalLinkOpeningPromptAnswer"

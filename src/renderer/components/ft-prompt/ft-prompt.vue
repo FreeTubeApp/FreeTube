@@ -8,6 +8,14 @@
         <h2 class="center">
           {{ label }}
         </h2>
+        <p
+          v-for="extraLabel in extraLabels"
+          class="center"
+        >
+          <strong>
+            {{ extraLabel }}
+          </strong>
+        </p>
         <ft-flex-box>
           <ft-button
             v-for="(option, index) in optionNames"
