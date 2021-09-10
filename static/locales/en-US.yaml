@@ -146,6 +146,7 @@ Settings:
     Clear Default Instance: Clear Default Instance
     View all Invidious instance information: View all Invidious instance information
     Region for Trending: Region for Trending
+    #! List countries
     External Link Handling:
       External Link Handling: External Link Handling
       External Link Handling Tooltip: |
@@ -155,7 +156,6 @@ Settings:
       Open Link: Open Link
       Open Link After Prompt: Open After After Prompt
       Do Nothing: Do Nothing
-        #! List countries
   Theme Settings:
     Theme Settings: Theme Settings
     Match Top Bar with Main Color: Match Top Bar with Main Color
