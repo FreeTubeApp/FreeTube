@@ -1014,9 +1014,10 @@ export default Vue.extend({
           fs.mkdirSync('static/dashFiles/')
         }
 
-        fs.rm(fileLocation, () => {
-          fs.writeFileSync(fileLocation, xmlData)
-        })
+        if (fs.existsSync(fileLocation)) {
+          fs.rmSync(fileLocation)
+        }
+        fs.writeFileSync(fileLocation, xmlData)
       } else {
         fileLocation = `${userData}/dashFiles/${this.videoId}.xml`
         uriSchema = `file://${fileLocation}`
