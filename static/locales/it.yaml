@@ -348,8 +348,8 @@ Settings:
     Custom External Player Arguments: Impostazioni personalizzate del lettore esterno
     Custom External Player Executable: Lettore personalizzato esterno eseguibile
     Ignore Unsupported Action Warnings: Ignora avvisi di azioni non supportate
-    External Player: Lettore esterne
-    External Player Settings: Impostazioni del lettore esterne
+    External Player: Lettore esterno
+    External Player Settings: Impostazioni del lettore esterno
 About:
   #On About page
   About: 'Informazioni'
