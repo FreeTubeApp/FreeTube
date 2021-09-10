@@ -77,9 +77,9 @@ Subscriptions:
   Subscriptions: Subscriptions
   Latest Subscriptions: Latest Subscriptions
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: This
-  profile has a large number of subscriptions. Forcing RSS to avoid rate limiting
+   profile has a large number of subscriptions. Forcing RSS to avoid rate limiting
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Add
-  channels to see them here.
+   channels to see them here.
   'Getting Subscriptions. Please wait.': Getting Subscriptions…
   Refresh Subscriptions: Refresh Subscriptions
   Load More Videos: Load More Videos
@@ -90,9 +90,9 @@ Playlists: Playlists
 User Playlists:
   Your Playlists: Your Playlists
   Playlist Message: Currently only videos you have saved or favorited are listed.
-  When the work has finished, all videos currently here will be migrated to a 'Favorites' playlist.
+   When the work has finished, all videos currently here will be migrated to a 'Favorites' playlist.
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Click \"Save\" in the corner of a video to have
-  it listed here.
+   it listed here.
 History:
   # On History Page
   History: History
@@ -102,13 +102,13 @@ Settings:
   # On Settings Page
   Settings: Settings
   The app needs to restart for changes to take effect. Restart and apply change?: The
-  app needs to restart for changes to take effect. Restart and apply change?
+   app needs to restart for changes to take effect. Restart and apply change?
   General Settings:
     General Settings: General
     Check for Updates: Look for new versions
     Check for Latest Blog Posts: Look for new blog posts
     Fallback to Non-Preferred Backend on Failure: Fallback to non-preferred back-end
-  upon Failure
+     upon Failure
     Enable Search Suggestions: Search suggestions
     Default Landing Page: Default Landing Page
     Locale Preference: Language
@@ -219,7 +219,7 @@ Settings:
     Watch history has been cleared: Watch history cleared
     Remove All Subscriptions / Profiles: Remove All Subscriptions and Profiles
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Remove
-  all subscriptions and profiles forever?
+     all subscriptions and profiles forever?
   Subscription Settings:
     Subscription Settings: Subscriptions
     Hide Videos on Watch: Hide Videos on Watch
@@ -253,18 +253,18 @@ Settings:
     Import History: Import History
     Export History: Export History
     Profile object has insufficient data, skipping item: Skipping item with insufficient
-  profile data
+     profile data
     All subscriptions and profiles have been successfully imported: Imported all
-  subscriptions and profiles
+     subscriptions and profiles
     All subscriptions have been successfully imported: Imported all subscriptions
     One or more subscriptions were unable to be imported: Could not import one or more
-    subscriptions
+     subscriptions
     Invalid subscriptions file: Invalid subscription file
     This might take a while, please wait: This might take a while…
     Invalid history file: Invalid history file
     Subscriptions have been successfully exported: Subscriptions exported
     History object has insufficient data, skipping item: History object has insufficient
-  data, skipping item
+     data, skipping item
     All watched history has been successfully imported: Imported all watching history
     All watched history has been successfully exported: Exported all watching history
     Unable to read file: Unable to read file
@@ -343,7 +343,7 @@ Profile:
   Your default profile has been set to $: Your default profile was set to $
   Removed $ from your profiles: Removed $ from your profiles
   Your default profile has been changed to your primary profile: Your default profile
-  was changed to your primary profile
+   was changed to your primary profile
   $ is now the active profile: $ is now the active profile
   Subscription List: Subscription List
   Other Channels: Other Channels
@@ -354,12 +354,12 @@ Profile:
   Add Selected To Profile: Add Selected To Profile
   No channel(s) have been selected: No channel(s) have been selected
   ? This is your primary profile. Really delete selected channels? The
-  same channels will be deleted in any profile they are found in.
+   same channels will be deleted in any profile they are found in.
   : This is your primary profile. Really delete selected channels? The
-  same channels will be deleted in any profile they are found in.
+   same channels will be deleted in any profile they are found in.
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Really
-  delete selected channels? This will not delete the channel
-  from any other profile.
+   delete selected channels? This will not delete the channel
+   from any other profile.
 #On Channel Page
 Channel:
   Subscriber: Subscriber
@@ -367,18 +367,18 @@ Channel:
   Subscribe: Subscribe
   Unsubscribe: Unsubscribe
   Channel has been removed from your subscriptions: Channel removed from
-  your subscriptions
+   your subscriptions
   Removed subscription from $ other channel(s): Removed subscription from $ other
-  channel(s)
+   channel(s)
   Added channel to your subscriptions: Added channel to your subscriptions
   Search Channel: Search Channel
   Your search results have returned 0 results: Your search results have returned 0
-  results
+   results
   Sort By: Sort By
   Videos:
     Videos: Videos
     This channel does not currently have any videos: This channel does not currently
-  have any videos
+     have any videos
     Sort Types:
       Newest: Newest
       Oldest: Oldest
@@ -386,7 +386,7 @@ Channel:
   Playlists:
     Playlists: Playlists
     This channel does not currently have any playlists: This channel does not currently
-  have any playlists
+     have any playlists
     Sort Types:
       Last Video Added: Last Video Added
       Newest: Newest
@@ -425,20 +425,20 @@ Video:
   Watched: Watched
   Autoplay: Autoplay
   Starting soon, please refresh the page to check again: Starting soon, please refresh
-  the page to check again
+   the page to check again
   # As in a Live Video
   Live: Live
   Live Now: Live Now
   Live Chat: Live Chat
   Enable Live Chat: Enable Live Chat
   Live Chat is currently not supported in this build.: Live Chat is currently not
-  supported in this build.
+   supported in this build.
   'Chat is disabled or the Live Stream has ended.': Chat is off, or the Live Stream
     has ended.
   Live chat is enabled.  Chat messages will appear here once sent.: Live chat is on.
-  Messages will appear here once sent.
+   Messages will appear here once sent.
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': Live
-  Chatting through Invidious is not possible. A direct connection to YouTube is required.
+   Chatting through Invidious is not possible. A direct connection to YouTube is required.
   Download Video: Download Video
   video only: video only
   audio only: audio only
@@ -540,9 +540,9 @@ Change Format:
   Use Legacy Formats: Use Legacy Formats
   Use Audio Formats: Use Audio Formats
   Dash formats are not available for this video: No DASH formats available for
-  this video
+   this video
   Audio formats are not available for this video: No audio formats available
-  for this video
+   for this video
 Share:
   Share Video: Share Video
   Include Timestamp: Include Timestamp
@@ -584,8 +584,8 @@ Up Next: Up Next
 Tooltips:
   General Settings:
     Preferred API Backend: Choose how FreeTube fetches data. The
-  local API is a built-in extractor. The Invidious API requires an Invidious server
-  to connect to.
+     local API is a built-in extractor. The Invidious API requires an Invidious server
+     to connect to.
     Fallback to Non-Preferred Backend on Failure: When your preferred API has a problem,
       FreeTube will automatically attempt to use your non-preferred API as a fallback
       method when enabled.
@@ -619,7 +619,7 @@ Tooltips:
       you want to be passed to the external player.
   Subscription Settings:
     Fetch Feeds from RSS: Fetching subscriptions with RSS is faster and prevents
-    IP blocking, but doesn\'t provide certain info like video duration or live status.
+     IP blocking, but doesn\'t provide certain info like video duration or live status.
   Privacy Settings:
     Remove Video Meta Files: Automatically deletes metafiles created during video playback,
       when the watch page is closed.
@@ -648,7 +648,7 @@ Canceled next video autoplay: Canceled next video autoplay
 Default Invidious instance has been set to $: Default Invidious instance is now $
 Default Invidious instance has been cleared: Default Invidious instance cleared
 'The playlist has ended.  Enable loop to continue playing': 'Click
-  \"Loop\" to continue playing' the ended playlist
+  \"Loop\" to continue playing the ended playlist'
 
 Yes: Yes
 No: No
