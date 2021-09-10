@@ -29,7 +29,7 @@
       }"
       tabindex="0"
       role="button"
-      title="$t('Search Bar.Clear Input')"
+      :title="$t('Search Bar.Clear Input')"
       @click="handleClearTextClick"
       @keydown.space.prevent="handleClearTextClick"
       @keydown.enter.prevent="handleClearTextClick"
