@@ -745,3 +745,5 @@ Tooltips:
     Preferred API Backend: Escolha o sistema que o FreeTube usa para se ligar ao Youtube.
       A API local é um extractor incorporado. A API Invidious requer um servidor Invidious
       para se ligar.
+Search Bar:
+  Clear Input: Limpar entrada
