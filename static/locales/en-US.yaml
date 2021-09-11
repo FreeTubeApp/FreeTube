@@ -533,18 +533,18 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: Toggle Theatre Mode
+Toggle Theatre Mode: Theatre Mode
 Change Format:
-  Change Video Formats: Change Video Formats
-  Use Dash Formats: Use DASH Formats
-  Use Legacy Formats: Use Legacy Formats
-  Use Audio Formats: Use Audio Formats
+  Change Video Formats: Video Formats
+  Use Dash Formats: DASH Formats
+  Use Legacy Formats: Legacy Formats
+  Use Audio Formats: Audio Formats
   Dash formats are not available for this video: No DASH formats available for
    this video
   Audio formats are not available for this video: No audio formats available
    for this video
 Share:
-  Share Video: Share Video
+  Share Video: Share
   Include Timestamp: Include Timestamp
   Copy Link: Copy Link
   Open Link: Open Link
@@ -587,7 +587,7 @@ Tooltips:
      local API is a built-in extractor. The Invidious API requires an Invidious server
      to connect to.
     Fallback to Non-Preferred Backend on Failure: When your preferred API has a problem,
-      FreeTube will automatically attempt to use your non-preferred API as a fallback
+      FreeTube will attempt to use your non-preferred API as a fallback
       method when enabled.
     Thumbnail Preference: All thumbnails throughout FreeTube will be replaced with
       a frame of the video instead of the default thumbnail.
