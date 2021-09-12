@@ -176,7 +176,7 @@ Settings:
     Autoplay Videos: Autoplay Videos
     Proxy Videos Through Invidious: Proxy videos through Invidious
     Autoplay Playlists: Autoplay Playlists
-    Enable Theatre Mode by Default: Theatre Mode
+    Enable Theatre Mode by Default: Theater Mode
     Scroll Volume Over Video Player: Scroll Volume Over Video Player
     Display Play Button In Video Player: Display Play Button In Video Player
     Next Video Interval: Next Video Interval
@@ -533,7 +533,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: Theatre Mode
+Toggle Theatre Mode: Theater Mode
 Change Format:
   Change Video Formats: Video Formats
   Use Dash Formats: DASH Formats
