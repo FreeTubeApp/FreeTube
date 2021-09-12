@@ -25,6 +25,8 @@ FreeTube uses a built in extractor to grab and serve data / videos.  The [Invidi
 longer track you using cookies or JavaScript. Your subscriptions and history are stored locally on your computer and never sent out.  Using a VPN or Tor is highly recommended
 to hide your IP while using FreeTube.
 
+Go to [FreeTube's Documentation](https://docs.freetubeapp.io/) if you'd like to know more about how to operate FreeTube and its features.
+
 ## Screenshots
 <img src="https://i.imgur.com/zFgZUUV.png" width=300> <img src="https://i.imgur.com/9evYHgN.png" width=300> <img src="https://i.imgur.com/yT2UzPa.png" width=300> <img src="https://i.imgur.com/47zIEt4.png" width=300> <img src="https://i.imgur.com/hFB2fKC.png" width=300>
 

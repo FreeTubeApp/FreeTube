@@ -34,7 +34,7 @@ Forward: 'Avanti'
 Search / Go to URL: 'Cerca / Vai a URL'
   # In Filter Button
 Search Filters:
-  Search Filters: 'Filtri di Ricerca'
+  Search Filters: 'Filtri di ricerca'
   Sort By:
     Sort By: 'Filtra per'
     Most Relevant: 'Più rilevante'
@@ -117,12 +117,12 @@ Settings:
       Local API: 'API locali'
       Invidious API: 'API di Invidious'
     Video View Type:
-      Video View Type: 'Modalità di Visualizzazione Video'
+      Video View Type: 'Modalità di visualizzazione video'
       Grid: 'Griglia'
       List: 'Lista'
     Thumbnail Preference:
-      Thumbnail Preference: 'Preferenze Miniatura'
-      Default: 'Default'
+      Thumbnail Preference: 'Preferenze delle miniature'
+      Default: 'Predefinito'
       Beginning: 'Inizio'
       Middle: 'Nel mezzo'
       End: 'Fine'
@@ -143,7 +143,7 @@ Settings:
     Current Invidious Instance: Istanza attuale di Invidious
     System Default: Predefinito dal sistema
   Theme Settings:
-    Theme Settings: 'Impostazioni Tema'
+    Theme Settings: 'Impostazioni del tema'
     Match Top Bar with Main Color: 'Abbina la barra superiore con il colore principale'
     Base Theme:
       Base Theme: 'Tema di base'
@@ -174,12 +174,12 @@ Settings:
     Disable Smooth Scrolling: Disabilita scorrimento fluido
     Expand Side Bar by Default: Espandi Automaticamente la Barra Laterale
   Player Settings:
-    Player Settings: 'Impostazioni Riproduttore Video'
+    Player Settings: 'Impostazioni del riproduttore video'
     Force Local Backend for Legacy Formats: 'Forza back-end locale per formati legacy'
-    Play Next Video: 'Riproduci Prossimo Video'
-    Turn on Subtitles by Default: 'Abilita Sottotitoli di Default'
-    Autoplay Videos: 'Riproduci Video Automaticamente'
-    Proxy Videos Through Invidious: 'Proxy dei Video tramite Invidious'
+    Play Next Video: 'Riproduci il prossimo video'
+    Turn on Subtitles by Default: 'Abilita i sottotitoli per impostazione predefinita'
+    Autoplay Videos: 'Riproduci i video automaticamente'
+    Proxy Videos Through Invidious: 'Proxy dei video tramite Invidious'
     Autoplay Playlists: 'Riproduci le playlist automaticamente'
     Enable Theatre Mode by Default: 'Abilita modalità teatro come predefinita'
     Default Volume: 'Volume predefinito'
@@ -210,30 +210,30 @@ Settings:
   Privacy Settings:
     Privacy Settings: 'Impostazioni privacy'
     Remember History: 'Salva la Cronologia'
-    Save Watched Progress: 'Ricorda Avanzamento Video'
+    Save Watched Progress: 'Ricorda l''avanzamento del video'
     Clear Search Cache: 'Pulisci la cache di ricerca'
-    Are you sure you want to clear out your search cache?: 'Sei sicuro/a di voler
+    Are you sure you want to clear out your search cache?: 'Sei sicuro di voler
       pulire la cache di ricerca?'
     Search cache has been cleared: 'La cache di ricerca è stata pulita'
     Remove Watch History: 'Cancella la cronologia visualizzazioni'
-    Are you sure you want to remove your entire watch history?: 'Sei sicuro/a di voler
+    Are you sure you want to remove your entire watch history?: 'Sei sicuro di voler
       cancellare l''intera cronologia di visualizzazione?'
     Watch history has been cleared: 'La cronologia di visualizzazioni è stata pulita'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Sei
-      sicuro/a di volere eliminare tutte le iscrizioni e profili? L'operazione non
+      sicuro di volere eliminare tutte le iscrizioni e profili? L'operazione non
       può essere annullata.
-    Remove All Subscriptions / Profiles: Elimina Tutte le Iscrizioni / Profili
+    Remove All Subscriptions / Profiles: Elimina tutte le iscrizioni / profili
     Automatically Remove Video Meta Files: Rimuovi automaticamente i metafile dei
       video
   Subscription Settings:
     Subscription Settings: 'Impostazioni iscrizioni'
-    Hide Videos on Watch: 'Nascondi Video durante la riproduzione'
+    Hide Videos on Watch: 'Nascondi i video durante la riproduzione'
     Subscriptions Export Format:
       Subscriptions Export Format: ''
       #& Freetube
       Newpipe: 'Newpipe'
       OPML: 'OPML'
-    Manage Subscriptions: 'Gestisci Iscrizioni'
+    Manage Subscriptions: 'Gestisci le iscrizioni'
     Import Subscriptions: 'Importa Iscrizioni'
     Export Subscriptions: 'Esporta Iscrizioni'
     How do I import my subscriptions?: 'Come importo le mie iscrizioni?'
@@ -253,14 +253,14 @@ Settings:
     Clear History:
       Clear History: 'Pulisci Cronologia'
       # On Click
-      Are you sure you want to delete your history?: 'Sei sicuro/a di voler eliminare
+      Are you sure you want to delete your history?: 'Sei sicuro di voler eliminare
         la cronologia?'
       #& Yes
       #& No
     Clear Subscriptions:
       Clear Subscriptions: 'Pulisci Iscrizioni'
       # On Click
-      Are you sure you want to remove all subscriptions?: 'Sei sicuro/a di voler rimuovere
+      Are you sure you want to remove all subscriptions?: 'Sei sicuro di voler rimuovere
         tutte le iscrizioni?'
       #& Yes
       #& No
@@ -274,9 +274,9 @@ Settings:
       è stata esportata con successo
     All watched history has been successfully imported: La cronologia di visualizzazione
       è stata importata con successo
-    History object has insufficient data, skipping item: La Cronologia ha dati insufficienti,
+    History object has insufficient data, skipping item: La cronologia ha dati insufficienti,
       non verrà elaborata
-    Import Subscriptions: Importa Iscrizioni
+    Import Subscriptions: Importa le iscrizioni
     Subscriptions have been successfully exported: Tutte le iscrizioni sono state
       esportate con successo
     Invalid history file: File cronologia non valido
@@ -296,23 +296,23 @@ Settings:
     Export NewPipe: Esporta per NewPipe
     Export YouTube: Esporta per YouTube
     Export FreeTube: Esporta per FreeTube
-    Export Subscriptions: Esporta Iscrizioni
+    Export Subscriptions: Esporta le iscrizioni
     Import NewPipe: Importa da NewPipe
     Import YouTube: Importa da YouTube
     Import FreeTube: Importa da FreeTube
-    Select Export Type: Seleziona Tipo di Esportazione
-    Select Import Type: Seleziona Tipo di importazione
-    Data Settings: Impostazioni Dati
+    Select Export Type: Seleziona il tipo di esportazione
+    Select Import Type: Seleziona il tipo di importazione
+    Data Settings: Impostazioni dei dati
     Check for Legacy Subscriptions: Cerca Iscrizioni in formato Legacy
     Manage Subscriptions: Gestisci le tue iscrizioni
   Distraction Free Settings:
-    Hide Popular Videos: Nascondi Video Popolari
-    Hide Trending Videos: Nascondi Video in Tendenze
-    Hide Recommended Videos: Nascondi Video Suggeriti
-    Hide Comment Likes: Nascondi i Mi Piace dei Commenti
-    Hide Channel Subscribers: Nascondi il Numero di Iscritti
-    Hide Video Views: Nascondi Visualizzazioni Video
-    Distraction Free Settings: Impostazioni modalità "Senza Distrazioni"
+    Hide Popular Videos: Nascondi i video popolari
+    Hide Trending Videos: Nascondi i video in tendenze
+    Hide Recommended Videos: Nascondi i video suggeriti
+    Hide Comment Likes: Nascondi i Mi piace dei commenti
+    Hide Channel Subscribers: Nascondi il numero di iscritti
+    Hide Video Views: Nascondi le visualizzazioni dei video
+    Distraction Free Settings: Impostazioni modalità Senza distrazioni
     Hide Live Chat: Nascondi la chat live
     Hide Video Likes And Dislikes: Nascondi Mi piace e Non mi piace
     Hide Active Subscriptions: Nascondi le iscrizioni attive
@@ -329,14 +329,14 @@ Settings:
       correttamente?
     City: Città
     Region: Regione
-    Country: Paese
+    Country: Nazione
     Ip: Ip
     Your Info: Le tue informazioni
     Test Proxy: Testa proxy
     Clicking on Test Proxy will send a request to: Cliccando su «Testa proxy» verrà
       inviata una richiesta a
-    Proxy Port Number: Numero di porta Proxy
-    Proxy Host: Host Proxy
+    Proxy Port Number: Numero di porta del proxy
+    Proxy Host: Host del proxy
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notifica quando un segmento sponsor viene
       saltato
@@ -348,14 +348,14 @@ Settings:
     Custom External Player Arguments: Impostazioni personalizzate del lettore esterno
     Custom External Player Executable: Lettore personalizzato esterno eseguibile
     Ignore Unsupported Action Warnings: Ignora avvisi di azioni non supportate
-    External Player: Lettore esterne
-    External Player Settings: Impostazioni del lettore esterne
+    External Player: Lettore esterno
+    External Player Settings: Impostazioni del lettore esterno
 About:
   #On About page
   About: 'Informazioni'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Questo
-    software in permesso d''autore è sotto licenza gratuita AGPL-3.0.'
+    software è rilasciato con licenza gratuita AGPL-3.0.'
 
   'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
     Hai trovato un problema? Vuoi suggerire nuove funzionalità? Vuoi dare una mano?
@@ -368,10 +368,10 @@ About:
     chattare? Entra nel nostro server Element / Matrix. Per favore, leggi il regolamento
     prima di entrare.'
 
-  'Looking for help? Check out our Wiki page.': 'Cerchi aiuto? Da’ un’occhiata alla
+  'Looking for help? Check out our Wiki page.': 'Cerchi aiuto? Dai un’occhiata alla
     nostra pagina Wiki.'
 
-  Check out our Firefox extension!: 'Da’ un’occhiata alla nostra estensione Firefox!'
+  Check out our Firefox extension!: 'Dai un’occhiata alla nostra estensione Firefox!'
 
   'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'Se
     ti piace FreeTube, prendi in considerazione di donare con Liberapay o al nostro
@@ -395,7 +395,7 @@ About:
   FreeTube is made possible by: FreeTube è reso possibile grazie a
   Credits: Crediti
   Translate: Traduci
-  room rules: Regole stanza
+  room rules: regole stanza
   Please read the: Si prega di leggere
   Chat on Matrix: Chatta su Matrix
   Mastodon: Mastodon
@@ -509,8 +509,8 @@ Video:
   Shuffle Playlist: Riproduzione playlist casuale
   Loop Playlist: Riproduzione senza sosta
   Autoplay: Riproduzione Automatica
-  Starting soon, please refresh the page to check again: La riproduzione partirà a
-    breve, refreshare la pagina per ricontrollare
+  Starting soon, please refresh the page to check again: La riproduzione partirà tra
+    breve, aggiorna la pagina per ricontrollare
   Audio:
     Best: Migliore
     High: Alto
@@ -518,7 +518,7 @@ Video:
     Low: Basso
   audio only: solo audio
   video only: solo video
-  Download Video: Scarica la video
+  Download Video: Scarica il video
   Copy Invidious Channel Link: Copia collegamento del canale Invidious
   Open Channel in Invidious: Apri il canale su Invidious
   Copy YouTube Channel Link: Copia collegamento del canale YouTube
@@ -531,7 +531,7 @@ Video:
   Save Video: Salva il video
   External Player:
     Unsupported Actions:
-      looping playlists: playlist a ripetizione
+      looping playlists: ripetizione playlist
       shuffling playlists: mescolare l'ordine delle playlist
       reversing playlists: invertire l'ordine delle playlist
       opening specific video in a playlist (falling back to opening the video): aprire
@@ -652,15 +652,15 @@ A new blog is now available, $. Click to view more: Un nuovo blog è ora disponi
   $. Clicca per saperne di più
 Version $ is now available!  Click for more details: La versione $ è ora disponibile!
   Clicca per maggiori dettagli
-Download From Site: Scarica Dal Sito
+Download From Site: Scarica dal sito
 The playlist has been reversed: La playlist è stata invertita
 Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Sei
-    sicuro/a di voler eliminare i canali selezionati? L'operazione non eliminerà i
+    sicuro di voler eliminare i canali selezionati? L'operazione non eliminerà i
     canali da nessun altro profilo.
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : Questo è il tuo profilo primario. Sei sicuro/a di voler eliminare i canali selezionati?
+  : Questo è il tuo profilo primario. Sei sicuro di voler eliminare i canali selezionati?
     Gli stessi canali saranno eliminati da ogni profilo in cui sono presenti.
   No channel(s) have been selected: Nessun canale è stato selezionato
   Add Selected To Profile: Aggiungi i selezionati al profilo
@@ -680,7 +680,7 @@ Profile:
   Your profile name cannot be empty: Il tuo nome profilo non può essere vuoto
   Profile could not be found: Impossibile trovare il profilo
   All subscriptions will also be deleted.: Tutte le iscrizioni saranno eliminate.
-  Are you sure you want to delete this profile?: Sei sicuro/a di voler eliminare il
+  Are you sure you want to delete this profile?: Sei sicuro di voler eliminare il
     profilo?
   Delete Profile: Elimina profilo
   Make Default Profile: Imposta come profilo predefinito
@@ -698,7 +698,7 @@ Profile:
   Profile Settings: Impostazioni del profilo
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Questo
   video non è disponibile a causa di alcuni formati mancanti. Questo può succedere
-  in caso di mancata disponibilità del paese.
+  in caso di mancata disponibilità della nazione.
 Tooltips:
   Player Settings:
     Force Local Backend for Legacy Formats: Funziona solo quando Invidious è l'API
@@ -759,3 +759,5 @@ Hashtags have not yet been implemented, try again later: Gli hashtag non sono an
   stati implementati, riprova più tardi
 Unknown YouTube url type, cannot be opened in app: Tipo di URL YouTube sconosciuto,
   non può essere aperto nell'applicazione
+Search Bar:
+  Clear Input: Cancella l'ingresso
