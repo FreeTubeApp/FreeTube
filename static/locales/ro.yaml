@@ -83,7 +83,8 @@ Subscriptions:
   Load More Videos: Incarca mai multe videouri
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Acest
     profil are foarte multi urmaritori. Foloseste RSS pentru a evita limita fixata.
-Trending: 'Trend'
+Trending:
+  Trending: 'Trend'
 Most Popular: 'Cel mai Popular'
 Playlists: 'Liste de videoclipuri'
 User Playlists:
@@ -278,6 +279,8 @@ About:
 
   Latest FreeTube News: ''
 
+  Mastodon: Mastodon
+  Email: E-mail
 Profile:
   Profile Select: ''
   All Channels: ''

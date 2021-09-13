@@ -79,14 +79,6 @@
           @click="handleExternalPlayer"
         />
         <ft-icon-button
-          v-if="theatrePossible"
-          :title="$t('Toggle Theatre Mode')"
-          class="theatreModeButton option"
-          icon="tv"
-          theme="secondary"
-          @click="$emit('theatre-mode')"
-        />
-        <ft-icon-button
           v-if="!isUpcoming && downloadLinks.length > 0"
           :title="$t('Video.Download Video')"
           class="option"

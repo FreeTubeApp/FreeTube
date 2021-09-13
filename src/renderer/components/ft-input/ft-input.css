@@ -2,6 +2,47 @@
   position: relative;
 }
 
+.clearInputTextButton {
+  position: absolute;
+  /* horizontal intentionally reduced to keep "I-beam pointer" visible */
+  padding: 10px 8px;
+  top: 5px;
+  left: 0;
+  cursor: pointer;
+  border-radius: 200px 200px 200px 200px;
+  color: var(--primary-text-color);
+}
+
+.clearInputTextButton:hover {
+  background-color: var(--side-nav-hover-color);
+  -moz-transition: background 0.2s ease-in;
+  -o-transition: background 0.2s ease-in;
+  transition: background 0.2s ease-in;
+}
+
+.forceTextColor .clearInputTextButton:hover {
+  background-color: var(--primary-color-hover);
+}
+
+.clearInputTextButton:active {
+  background-color: var(--tertiary-text-color);
+  -moz-transition: background 0.2s ease-in;
+  -o-transition: background 0.2s ease-in;
+  transition: background 0.2s ease-in;
+}
+
+.search .clearInputTextButton {
+  top: 12px;
+}
+
+.forceTextColor .clearInputTextButton {
+  color: #EEEEEE;
+}
+
+.forceTextColor .clearInputTextButton:active {
+  background-color: var(--primary-color-active);
+}
+
 .ft-input {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -61,6 +102,14 @@
   color: #EEEEEE;
 }
 
+.ft-input-component.showArrow .ft-input {
+  /*
+  With arrow present means
+  the text might get under the arrow with normal padding
+   */
+  padding-right: 2em;
+}
+
 .inputAction:hover {
   background-color: var(--side-nav-hover-color);
   -moz-transition: background 0.2s ease-in;
@@ -105,4 +154,8 @@
 .hover {
   background-color: #ccc;
 /*   color: white; */
+}
+
+.showClearTextButton .ft-input {
+  padding-left: 2em;
 }
