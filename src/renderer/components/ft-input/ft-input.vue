@@ -21,7 +21,7 @@
       />
     </label>
     <font-awesome-icon
-      v-if="showClearTextButton"
+      v-if="showClearTextButton && clearTextButtonVisible"
       icon="times-circle"
       class="clearInputTextButton"
       :class="{

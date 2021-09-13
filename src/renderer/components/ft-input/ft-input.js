@@ -60,7 +60,8 @@ export default Vue.extend({
         showOptions: false,
         selectedOption: -1,
         isPointerInList: false
-      }
+      },
+      clearTextButtonVisible: true
     }
   },
   computed: {
@@ -83,6 +84,19 @@ export default Vue.extend({
   watch: {
     value: function (val) {
       this.inputData = val
+    },
+    inputDataPresent: function (newVal, oldVal) {
+      if (newVal) {
+        // The button needs to be visible **immediately**
+        // To allow user to see the transition
+        this.clearTextButtonVisible = true
+      } else {
+        // Hide the button after the transition
+        // 0.2s in CSS = 200ms in JS
+        setTimeout(() => {
+          this.clearTextButtonVisible = false
+        }, 200)
+      }
     }
   },
   mounted: function () {
