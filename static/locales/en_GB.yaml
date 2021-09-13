@@ -24,7 +24,7 @@ Zoom in: 'Zoom in'
 Zoom out: 'Zoom out'
 Toggle fullscreen: 'Toggle full-screen'
 Window: 'Window'
-Minimize: 'Minimize'
+Minimize: 'Minimise'
 Close: 'Close'
 Back: 'Back'
 Forward: 'Forward'
@@ -82,7 +82,13 @@ Subscriptions:
   Load More Videos: Load More Videos
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: This
     profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting
-Trending: 'Trending'
+Trending:
+  Trending: 'Trending'
+  Trending Tabs: Trending Tabs
+  Movies: Films
+  Gaming: Gaming
+  Music: Music
+  Default: Default
 Most Popular: 'Most Popular'
 Playlists: 'Playlists'
 User Playlists:
@@ -104,14 +110,14 @@ Settings:
   General Settings:
     General Settings: 'General Settings'
     Check for Updates: 'Check for Updates'
-    Check for Latest Blog Posts: 'Check for Latest Blog Posts'
-    Fallback to Non-Preferred Backend on Failure: 'Fallback to Non-Preferred Back-end
-      on Failure'
-    Enable Search Suggestions: 'Enable Search Suggestions'
-    Default Landing Page: 'Default Landing Page'
-    Locale Preference: 'Locale Preference'
+    Check for Latest Blog Posts: 'Check for latest blog posts'
+    Fallback to Non-Preferred Backend on Failure: 'Revert to non-preferred backend
+      on failure'
+    Enable Search Suggestions: 'Enable search suggestions'
+    Default Landing Page: 'Default landing page'
+    Locale Preference: 'Language preference'
     Preferred API Backend:
-      Preferred API Backend: 'Preferred API Back-end'
+      Preferred API Backend: 'Preferred API backend'
       Local API: 'Local API'
       Invidious API: 'Invidious API'
     Video View Type:
@@ -129,10 +135,10 @@ Settings:
     Region for Trending: 'Region for Trending'
         #! List countries
     View all Invidious instance information: View all Invidious instance information
-    System Default: System Default
+    System Default: System default
     External Player: External Player
     External Player Executable: Custom External Player Executable
-    Clear Default Instance: Clear Default Instance
+    Clear Default Instance: Clear default instance
     Set Current Instance as Default: Set Current Instance as Default
     Current instance will be randomized on startup: Current instance will be randomised
       on startup
@@ -144,12 +150,12 @@ Settings:
     Theme Settings: 'Theme Settings'
     Match Top Bar with Main Color: 'Match top bar with main colour'
     Base Theme:
-      Base Theme: 'Base Theme'
+      Base Theme: 'Base theme'
       Black: 'Black'
       Dark: 'Dark'
       Light: 'Light'
     Main Color Theme:
-      Main Color Theme: 'Main Colour Theme'
+      Main Color Theme: 'Main colour theme'
       Red: 'Red'
       Pink: 'Pink'
       Purple: 'Purple'
@@ -169,27 +175,27 @@ Settings:
     Secondary Color Theme: 'Secondary Colour Theme'
         #* Main Color Theme
     UI Scale: UI Scale
-    Disable Smooth Scrolling: Disable Smooth Scrolling
-    Expand Side Bar by Default: Expand Side Bar by Default
+    Disable Smooth Scrolling: Disable smooth scrolling
+    Expand Side Bar by Default: Expand side bar by default
   Player Settings:
     Player Settings: 'Player Settings'
     Force Local Backend for Legacy Formats: 'Force Local Back-end for Legacy Formats'
     Play Next Video: 'Play Next Video'
-    Turn on Subtitles by Default: 'Turn on Subtitles by Default'
+    Turn on Subtitles by Default: 'Turn on subtitles by default'
     Autoplay Videos: 'Autoplay Videos'
     Proxy Videos Through Invidious: 'Proxy Videos Through Invidious'
     Autoplay Playlists: 'Autoplay Playlists'
     Enable Theatre Mode by Default: 'Enable Theatre Mode by Default'
     Scroll Volume Over Video Player: 'Scroll Volume Over Video Player'
-    Default Volume: 'Default Volume'
-    Default Playback Rate: 'Default Playback Rate'
+    Default Volume: 'Default volume'
+    Default Playback Rate: 'Default playback rate'
     Default Video Format:
-      Default Video Format: 'Default Video Format'
-      Dash Formats: 'DASH Formats'
-      Legacy Formats: 'Legacy Formats'
-      Audio Formats: 'Audio Formats'
+      Default Video Format: 'Default video format'
+      Dash Formats: 'DASH formats'
+      Legacy Formats: 'Legacy formats'
+      Audio Formats: 'Audio formats'
     Default Quality:
-      Default Quality: 'Default Quality'
+      Default Quality: 'Default quality'
       Auto: 'Auto'
       144p: '144p'
       240p: '240p'
@@ -201,9 +207,9 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Playlist Next Video Interval
-    Next Video Interval: Next Video Interval
-    Display Play Button In Video Player: Display Play Button In Video Player
-    Fast-Forward / Rewind Interval: Fast-Forward / Rewind Interval
+    Next Video Interval: Next video interval
+    Display Play Button In Video Player: Display play button in video player
+    Fast-Forward / Rewind Interval: Fast-forward / rewind interval
   External Player Settings:
     External Player Settings: External Player Settings
     External Player: External Player
@@ -635,6 +641,7 @@ Comments:
   Newest first: Newest First
   Top comments: Top comments
   Sort by: Sort by
+  Show More Replies: Show more replies
 Up Next: 'Up Next'
 
 # Toast Messages
@@ -716,3 +723,5 @@ Open New Window: Open New Window
 Default Invidious instance has been cleared: Default Invidious instance has been cleared
 Default Invidious instance has been set to $: Default Invidious instance has been
   set to $
+Search Bar:
+  Clear Input: Clear input

@@ -82,7 +82,8 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: לפרופיל
     זה יש מספר רב של מנויים. עובר לעדכונים בעזרת RSS על מנת להימנע מהגבלות רוחב פס
   Load More Videos: לטעון סרטונים נוספים
-Trending: 'הסרטונים החמים'
+Trending:
+  Trending: 'הסרטונים החמים'
 Most Popular: 'הכי פופולרי'
 Playlists: 'פלייליסטים'
 User Playlists:

@@ -85,7 +85,8 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Aquest
     perfil té un gran nombre de subscripcions. Forçant RSS per evitar la limitació
     fixada
-Trending: 'Tendencies'
+Trending:
+  Trending: 'Tendencies'
 Most Popular: 'Més populars'
 Playlists: 'Llistes de reproducció'
 User Playlists:

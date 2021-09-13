@@ -74,7 +74,13 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 这个配置文件有大量订阅。
     强制RSS已防止速率限制
   Load More Videos: 加载更多视频
-Trending: '热门'
+Trending:
+  Trending: '热门'
+  Trending Tabs: 流行标签
+  Movies: 电影
+  Gaming: 游戏
+  Music: 音乐
+  Default: 默认
 Most Popular: '最流行'
 Playlists: '播放列表'
 User Playlists:
@@ -116,6 +122,11 @@ Settings:
     Check for Latest Blog Posts: 检查最新的博客贴
     View all Invidious instance information: 浏览所有Invidious实例
     System Default: 系统默认
+    The currently set default instance is $: 当前设置的默认实例是 $
+    No default instance has been set: 没有默认实例
+    Current instance will be randomized on startup: 当前实例在启动时将会随机化
+    Set Current Instance as Default: 将当前实例设为默认
+    Clear Default Instance: 清除默认实例
   Theme Settings:
     Theme Settings: '主题设置'
     Match Top Bar with Main Color: '顶部菜单栏对应主颜色'

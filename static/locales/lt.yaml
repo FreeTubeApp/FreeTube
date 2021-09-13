@@ -85,7 +85,13 @@ Subscriptions:
   Refresh Subscriptions: 'Atnaujinti prenumeratas'
   Load More Videos: 'Pakrauti daugiau vaizdo įrašų'
 More: 'Daugiau'
-Trending: 'Dabar populiaru'
+Trending:
+  Trending: 'Dabar populiaru'
+  Trending Tabs: „Dabar populiaru“ kortelės
+  Default: Numatytoji
+  Movies: Filmai
+  Gaming: Žaidimai
+  Music: Muzika
 Most Popular: 'Populiariausia'
 Playlists: 'Grojaraščiai'
 User Playlists:
@@ -135,7 +141,7 @@ Settings:
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious Instance
       (Numatytoji yra https://invidious.snopyta.org)'
     View all Invidious instance information: 'Žiūrėti visą Invidious instancijos informaciją'
-    Region for Trending: 'Dabar populiaru regionas'
+    Region for Trending: '„Dabar populiaru“ regionas'
         #! List countries
     Clear Default Instance: Išvalyti numatytąją instanciją
     Current Invidious Instance: Esama Invidious instancija
@@ -245,7 +251,7 @@ Settings:
     Hide Channel Subscribers: 'Slėpti kanalo prenumeratorių skaičių'
     Hide Comment Likes: 'Slėpti komentarų įvertinimus'
     Hide Recommended Videos: 'Slėpti rekomenduojamus vaizdo įrašus'
-    Hide Trending Videos: 'Slėpti dabar populiaru vaizdo įrašus'
+    Hide Trending Videos: 'Slėpti „Dabar populiaru“ vaizdo įrašus'
     Hide Popular Videos: 'Slėpti populiarius vaizdo įrašus'
     Hide Playlists: 'Slėpti grojaraščius'
     Hide Live Chat: 'Slėpti tiesioginę diskusiją'
@@ -602,6 +608,7 @@ Comments:
     komentarų'
   Load More Comments: 'Pakrauti daugiau komentarų'
   No more comments available: 'Daugiau komentarų nėra'
+  Show More Replies: Rodyti daugiau atsakymų
 Up Next: 'Sekantis'
 
 #Tooltips
@@ -618,8 +625,9 @@ Tooltips:
     Invidious Instance: 'Nepakankama instancija, prie kurio FreeTube prisijungs, kad
       gautų API skambučius. Išvalykite esamą instanciją, kad pamatytumėte viešų egzempliorių,
       iš kurių galite pasirinkti, sąrašą.'
-    Region for Trending: 'Tendencijų regionas leidžia pasirinkti, kurios šalies populiarius
-      vaizdo įrašus norite rodyti. YouTube iš tikrųjų nepalaiko visų rodomų šalių.'
+    Region for Trending: '„Dabar populiaru“ regionas leidžia pasirinkti, kurios šalies
+      populiarius vaizdo įrašus norite rodyti. YouTube iš tikrųjų nepalaiko visų rodomų
+      šalių.'
   Player Settings:
     Force Local Backend for Legacy Formats: 'Veikia tik tada, kai numatytasis nustatymas
       yra „Invidious“ API. Kai įgalinta, vietinė API veiks ir naudos senus, o ne „Invidious“
@@ -686,3 +694,5 @@ No: 'Ne'
 Default Invidious instance has been cleared: Numatytoji Invidious instancija išvalyta
 Default Invidious instance has been set to $: Numatytoji Invidious instancija buvo
   nustatyta į $
+Search Bar:
+  Clear Input: Išvalyti įvestį

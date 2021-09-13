@@ -83,7 +83,13 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Získávám odběry. Prosím čekejte.'
   Refresh Subscriptions: 'Obnovit odběry'
   Load More Videos: 'Načíst více videí'
-Trending: 'Trendy'
+Trending:
+  Trending: 'Trendy'
+  Trending Tabs: Tabulka trendů
+  Movies: Filmy
+  Gaming: Hry
+  Music: Hudba
+  Default: Výchozí
 Most Popular: 'Nejpopulárnější'
 Playlists: 'Playlisty'
 User Playlists:
@@ -204,6 +210,7 @@ Settings:
     Next Video Interval: Další interval videa
     Display Play Button In Video Player: Zobrazit tlačítko 'přehrát' ve video přehrávači
     Scroll Volume Over Video Player: Změnit hlasitost posouváním na videu
+    Fast-Forward / Rewind Interval: Interval rychlého převíjení vpřed / vzad
   Privacy Settings:
     Privacy Settings: 'Nastavení soukromí'
     Remember History: 'Zapamatovat historii'
@@ -646,6 +653,7 @@ Comments:
     žádné komentáře'
   Load More Comments: 'Načíst další komentáře'
   No more comments available: 'Žádné další komentáře nejsou k dispozici'
+  Show More Replies: Načíst více výsledků
 Up Next: 'Další'
 
 #Tooltips
@@ -730,3 +738,5 @@ Open New Window: Otevřít nové okno
 Default Invidious instance has been cleared: Výchozí Invidious instance byla vymazána
 Default Invidious instance has been set to $: Výchozí Invidious instance byla nastavena
   na $
+Search Bar:
+  Clear Input: Vymazat
