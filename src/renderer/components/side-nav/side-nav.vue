@@ -30,7 +30,7 @@
         class="navOption mobileHidden"
         role="button"
         tabindex="0"
-        :title="$t('Trending')"
+        :title="$t('Trending.Trending')"
         @click="navigate('trending')"
         @keypress="navigate('trending')"
       >
