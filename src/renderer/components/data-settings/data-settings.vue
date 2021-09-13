@@ -30,7 +30,7 @@
     <ft-flex-box>
       <a
         class="center"
-        href="https://github.com/FreeTubeApp/FreeTube/wiki/Importing-Your-YouTube-Subscriptions"
+        href="https://docs.freetubeapp.io/usage/importing-subscriptions/"
       >
         <p>
           {{ $t("Settings.Data Settings.How do I import my subscriptions?") }}
