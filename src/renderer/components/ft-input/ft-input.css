@@ -88,7 +88,7 @@
 
 .inputAction {
   position: absolute;
-  padding: 10px;
+  padding: 10px 8px;
   top: 5px;
   right: 0px;
   cursor: pointer;
