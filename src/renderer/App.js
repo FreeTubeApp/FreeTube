@@ -323,12 +323,12 @@ export default Vue.extend({
 
         if (isYoutubeLink) {
           this.handleYoutubeLink(el.href)
-        } else if (this.$store.getters.getExternalLinkHandling === 'doNothing') {
+        } else if (this.externalLinkHandling === 'doNothing') {
           // Let user know opening external link is disabled via setting
           this.showToast({
             message: this.$t('External link opening has been disabled in the general settings')
           })
-        } else if (this.$store.getters.getExternalLinkHandling === 'openLinkAfterPrompt') {
+        } else if (this.externalLinkHandling === 'openLinkAfterPrompt') {
           // Storing the URL is necessary as
           // there is no other way to pass the URL to click callback
           this.lastExternalLinkToBeOpened = el.href
