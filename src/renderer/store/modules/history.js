@@ -16,61 +16,32 @@ const actions = {
     commit('setHistoryCache', results)
   },
 
-  async updateHistory({ commit, dispatch, state }, entry) {
-    await historyDb.update(
-      { videoId: entry.videoId },
-      entry,
+  updateHistory({ commit, dispatch }, record) {
+    historyDb.update(
+      { videoId: record.videoId },
+      record,
       { upsert: true }
-    )
+    ).catch(console.error)
 
-    const entryIndex = state.historyCache.findIndex((currentEntry) => {
-      return entry.videoId === currentEntry.videoId
-    })
-
-    entryIndex === -1
-      ? commit('insertNewEntryToHistoryCache', entry)
-      : commit('hoistEntryToTopOfHistoryCache', {
-        currentIndex: entryIndex,
-        updatedEntry: entry
-      })
-
+    commit('upsertToHistoryCache', record)
     dispatch('propagateHistory')
   },
 
-  async removeFromHistory({ commit, dispatch }, videoId) {
-    await historyDb.remove({ videoId: videoId })
-
-    const updatedCache = state.historyCache.filter((entry) => {
-      return entry.videoId !== videoId
-    })
-
-    commit('setHistoryCache', updatedCache)
-
+  removeFromHistory({ commit, dispatch }, videoId) {
+    historyDb.remove({ videoId: videoId }).catch(console.error)
+    commit('removeFromHistoryCacheById', videoId)
     dispatch('propagateHistory')
   },
 
-  async removeAllHistory({ commit, dispatch }) {
-    await historyDb.remove({}, { multi: true })
+  removeAllHistory({ commit, dispatch }) {
+    historyDb.remove({}, { multi: true }).catch(console.error)
     commit('setHistoryCache', [])
     dispatch('propagateHistory')
   },
 
-  async updateWatchProgress({ commit, dispatch }, entry) {
-    await historyDb.update(
-      { videoId: entry.videoId },
-      { $set: { watchProgress: entry.watchProgress } },
-      { upsert: true }
-    )
-
-    const entryIndex = state.historyCache.findIndex((currentEntry) => {
-      return entry.videoId === currentEntry.videoId
-    })
-
-    commit('updateEntryWatchProgressInHistoryCache', {
-      index: entryIndex,
-      value: entry.watchProgress
-    })
-
+  updateWatchProgress({ commit, dispatch }, { videoId, watchProgress }) {
+    historyDb.update({ videoId }, { $set: { watchProgress } }, { upsert: true }).catch(console.error)
+    commit('updateRecordWatchProgressInHistoryCache', { videoId, watchProgress })
     dispatch('propagateHistory')
   },
 
@@ -103,8 +74,37 @@ const mutations = {
     state.historyCache.unshift(updatedEntry)
   },
 
-  updateEntryWatchProgressInHistoryCache(state, { index, value }) {
-    state.historyCache[index].watchProgress = value
+  upsertToHistoryCache(state, record) {
+    const i = state.historyCache.findIndex((currentRecord) => {
+      return record.videoId === currentRecord.videoId
+    })
+
+    if (i !== -1) {
+      // Already in cache
+      // Must be hoisted to top, remove it and then unshift it
+      state.historyCache.splice(i, 1)
+    }
+
+    state.historyCache.unshift(record)
+  },
+
+  updateRecordWatchProgressInHistoryCache(state, { videoId, watchProgress }) {
+    const i = state.historyCache.findIndex((currentRecord) => {
+      return currentRecord.videoId === videoId
+    })
+
+    const targetRecord = Object.assign({}, state.historyCache[i])
+    targetRecord.watchProgress = watchProgress
+    state.historyCache.splice(i, 1, targetRecord)
+  },
+
+  removeFromHistoryCacheById(state, videoId) {
+    for (let i = 0; i < state.historyCache.length; i++) {
+      if (state.historyCache[i].videoId === videoId) {
+        state.historyCache.splice(i, 1)
+        break
+      }
+    }
   }
 }
 
