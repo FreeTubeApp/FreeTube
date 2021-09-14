@@ -61,7 +61,9 @@ export default Vue.extend({
         selectedOption: -1,
         isPointerInList: false
       },
-      clearTextButtonVisible: true
+      // This button should be invisible on app start
+      // As the text input box should be empty
+      clearTextButtonVisible: false
     }
   },
   computed: {
