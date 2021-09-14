@@ -15,7 +15,7 @@ export default Vue.extend({
       type: String,
       default: ''
     },
-    showArrow: {
+    showActionButton: {
       type: Boolean,
       default: true
     },

@@ -96,7 +96,7 @@
     <ft-flex-box class="generalSettingsFlexBox">
       <ft-input
         :placeholder="$t('Settings.General Settings.Current Invidious Instance')"
-        :show-arrow="false"
+        :show-action-button="false"
         :show-label="true"
         :value="currentInvidiousInstance"
         :data-list="invidiousInstancesList"

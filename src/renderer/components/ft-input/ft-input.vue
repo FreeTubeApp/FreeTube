@@ -4,7 +4,7 @@
     :class="{
       search: isSearch,
       forceTextColor: forceTextColor,
-      showArrow: showArrow,
+      showActionButton: showActionButton,
       showClearTextButton: showClearTextButton
     }"
   >
@@ -49,7 +49,7 @@
       @keydown="e => handleKeyDown(e.keyCode)"
     >
     <font-awesome-icon
-      v-if="showArrow"
+      v-if="showActionButton"
       icon="arrow-right"
       class="inputAction"
       @click="handleClick"

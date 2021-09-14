@@ -108,7 +108,7 @@
   color: #EEEEEE;
 }
 
-.ft-input-component.showArrow .ft-input {
+.ft-input-component.showActionButton .ft-input {
   /*
   With arrow present means
   the text might get under the arrow with normal padding
