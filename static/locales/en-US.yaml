@@ -150,8 +150,9 @@ Settings:
     External Link Handling:
       External Link Handling: External Link Handling
       External Link Handling Tooltip: |
-        External Link Handling: Choose the behaviour when an external link (a link with non Youtube URL) is clicked.
+        External Link Handling: Choose the behavior when a link is clicked.
         By default FreeTube will open the link in your default browser.
+        (Unless it points to a Youtube Video/Playlist/Channel etc.)
         You can choose to disable it completely for safety.
       Open Link: Open Link
       Open Link After Prompt: Open After After Prompt
