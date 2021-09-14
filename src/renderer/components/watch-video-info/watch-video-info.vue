@@ -1,11 +1,11 @@
 <template>
   <ft-card class="watchVideoInfo">
     <div>
-      <p
+      <h1
         class="videoTitle"
       >
         {{ title }}
-      </p>
+      </h1>
       <div
         class="channelInformation"
       >

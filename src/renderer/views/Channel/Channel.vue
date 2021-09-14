@@ -38,11 +38,11 @@
             <div
               class="channelLineContainer"
             >
-              <span
+              <h1
                 class="channelName"
               >
                 {{ channelName }}
-              </span>
+              </h1>
               <span
                 v-if="subCount !== null"
                 class="channelSubCount"

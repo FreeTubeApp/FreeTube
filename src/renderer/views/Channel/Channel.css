@@ -37,7 +37,8 @@
   -webkit-border-radius: 200px 200px 200px 200px;
 }
 
-.channelName {
+h1.channelName {
+  display: inline;
   font-weight: bold;
   width: 100%;
   font-size: 25px;
