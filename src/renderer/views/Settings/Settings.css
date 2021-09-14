@@ -1,0 +1,7 @@
+hr {
+  height: 2px;
+  width: 85%;
+  margin: 0 auto;
+  border: 0;
+  background-color: var(--scrollbar-color-hover);
+}
