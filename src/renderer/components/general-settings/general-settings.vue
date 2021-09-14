@@ -1,12 +1,11 @@
 <template>
-  <ft-card
-    class="card"
-  >
-    <h3
-      class="videoTitle"
-    >
-      {{ $t("Settings.General Settings.General Settings") }}
-    </h3>
+  <details>
+    <summary>
+      <h3>
+        {{ $t("Settings.General Settings.General Settings") }}
+      </h3>
+    </summary>
+    <hr>
     <div class="switchColumnGrid">
       <div class="switchColumn">
         <ft-toggle-switch
@@ -130,7 +129,7 @@
         @click="handleClearDefaultInstanceClick"
       />
     </ft-flex-box>
-  </ft-card>
+  </details>
 </template>
 
 <script src="./general-settings.js" />
