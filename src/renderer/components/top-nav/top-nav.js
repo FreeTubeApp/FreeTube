@@ -280,6 +280,9 @@ export default Vue.extend({
     navigate: function (route) {
       this.$router.push('/' + route)
     },
+    hideFilters: function () {
+      this.showFilters = false
+    },
     ...mapActions([
       'showToast',
       'getYoutubeUrlInfo',
