@@ -86,7 +86,9 @@ Thank you very much to the [People and Projects](https://docs.freetubeapp.io/cre
 <img src="https://hosted.weblate.org/widgets/free-tube/-/translations/287x66-grey.png" alt="Translation status" />
 </a>
 
-We are actively looking for translations!  We use Weblate to make it easy for translators to get involved.  Click on the badge above to learn how to get involved.
+We are actively looking for translations!  We use [Weblate](https://hosted.weblate.org/engage/free-tube/) to make it easy for translators to get involved.  Click on the badge above to learn how to get involved.
+
+For the Linux Flatpak, the desktop entry comment string can be translated at our [Flatpak repository](https://github.com/flathub/io.freetubeapp.FreeTube/blob/master/io.freetubeapp.FreeTube.desktop).
 
 ## Contact
 
