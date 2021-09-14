@@ -90,7 +90,7 @@
   position: absolute;
   padding: 10px 8px;
   top: 5px;
-  right: 0px;
+  right: 0;
   cursor: pointer;
   border-radius: 200px 200px 200px 200px;
   color: var(--primary-text-color);

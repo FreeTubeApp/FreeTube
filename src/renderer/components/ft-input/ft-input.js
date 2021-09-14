@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
 
+// Check if it's a YouTube link
+const youtubeUrlPattern = /^https?:\/\/((www\.)?youtube\.com(\/embed)?|youtu\.be)\/.*$/
+
 export default Vue.extend({
   name: 'FtInput',
   components: {
@@ -63,7 +66,8 @@ export default Vue.extend({
       },
       // This button should be invisible on app start
       // As the text input box should be empty
-      clearTextButtonVisible: false
+      clearTextButtonVisible: false,
+      actionButtonIconName: 'search'
     }
   },
   computed: {
@@ -118,16 +122,33 @@ export default Vue.extend({
       if (this.isSearch &&
         this.searchState.selectedOption !== -1 &&
         this.inputData === this.dataList[this.searchState.selectedOption]) { return }
+      this.handleActionIconChange()
       this.$emit('input', this.inputData)
     },
 
     handleClearTextClick: function () {
       this.inputData = ''
+      this.handleActionIconChange()
       this.$emit('input', this.inputData)
 
       // Focus on input element after text is clear for better UX
       const inputElement = document.getElementById(this.id)
       inputElement.focus()
+    },
+
+    handleActionIconChange: function() {
+      // Only need to update icon if visible
+      if (!this.showActionButton) { return }
+
+      // Update action button icon according to input
+      const isYoutubeLink = this.inputDataPresent && youtubeUrlPattern.test(this.inputData)
+      if (isYoutubeLink) {
+        // Go to URL (i.e. Video/Playlist/Channel
+        this.actionButtonIconName = 'arrow-right'
+      } else {
+        // Search with text
+        this.actionButtonIconName = 'search'
+      }
     },
 
     addListener: function () {

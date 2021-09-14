@@ -50,7 +50,7 @@
     >
     <font-awesome-icon
       v-if="showActionButton"
-      icon="arrow-right"
+      :icon="actionButtonIconName"
       class="inputAction"
       @click="handleClick"
     />
