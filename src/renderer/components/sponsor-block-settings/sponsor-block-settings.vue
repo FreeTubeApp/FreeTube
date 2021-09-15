@@ -1,12 +1,11 @@
 <template>
-  <ft-card
-    class="relative card"
-  >
-    <h3
-      class="videoTitle"
-    >
-      {{ $t("Settings.SponsorBlock Settings.SponsorBlock Settings") }}
-    </h3>
+  <details>
+    <summary>
+      <h3>
+        {{ $t("Settings.SponsorBlock Settings.SponsorBlock Settings") }}
+      </h3>
+    </summary>
+    <hr>
     <ft-flex-box class="sponsorBlockSettingsFlexBox">
       <ft-toggle-switch
         :label="$t('Settings.SponsorBlock Settings.Enable SponsorBlock')"
@@ -30,8 +29,8 @@
         @input="handleUpdateSponsorBlockUrl"
       />
     </ft-flex-box>
-  </ft-card>
+  </details>
 </template>
 
 <script src="./sponsor-block-settings.js" />
-<style scoped src="./sponsor-block-settings.css" />
+<style scoped lang="sass" src="./sponsor-block-settings.sass" />

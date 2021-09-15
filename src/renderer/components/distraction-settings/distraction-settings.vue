@@ -1,12 +1,11 @@
 <template>
-  <ft-card
-    class="relative card"
-  >
-    <h3
-      class="videoTitle"
-    >
-      {{ $t("Settings.Distraction Free Settings.Distraction Free Settings") }}
-    </h3>
+  <details>
+    <summary>
+      <h3>
+        {{ $t("Settings.Distraction Free Settings.Distraction Free Settings") }}
+      </h3>
+    </summary>
+    <hr>
     <div class="switchColumnGrid">
       <div class="switchColumn">
         <ft-toggle-switch
@@ -90,7 +89,7 @@
         label="Manage My Distractions"
       />
     </ft-flex-box>
-  </ft-card>
+  </details>
 </template>
 
 <script src="./distraction-settings.js" />

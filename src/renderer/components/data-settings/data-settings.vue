@@ -1,10 +1,11 @@
 <template>
-  <ft-card
-    class="relative card"
-  >
-    <h3>
-      {{ $t("Settings.Data Settings.Data Settings") }}
-    </h3>
+  <details>
+    <summary>
+      <h3>
+        {{ $t("Settings.Data Settings.Data Settings") }}
+      </h3>
+    </summary>
+    <hr>
     <ft-flex-box>
       <ft-button
         :label="$t('Settings.Data Settings.Import Subscriptions')"
@@ -57,7 +58,7 @@
       :option-values="subscriptionsPromptValues"
       @click="exportSubscriptions"
     />
-  </ft-card>
+  </details>
 </template>
 
 <script src="./data-settings.js" />

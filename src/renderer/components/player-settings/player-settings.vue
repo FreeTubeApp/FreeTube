@@ -1,12 +1,11 @@
 <template>
-  <ft-card
-    class="relative card"
-  >
-    <h3
-      class="videoTitle"
-    >
-      {{ $t("Settings.Player Settings.Player Settings") }}
-    </h3>
+  <details>
+    <summary>
+      <h3>
+        {{ $t("Settings.Player Settings.Player Settings") }}
+      </h3>
+    </summary>
+    <hr>
     <div class="switchColumnGrid">
       <div class="switchColumn">
         <ft-toggle-switch
@@ -127,7 +126,7 @@
         @change="updateDefaultQuality"
       />
     </ft-flex-box>
-  </ft-card>
+  </details>
 </template>
 
 <script src="./player-settings.js" />
