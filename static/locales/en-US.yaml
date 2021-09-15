@@ -149,11 +149,6 @@ Settings:
     #! List countries
     External Link Handling:
       External Link Handling: External Link Handling
-      External Link Handling Tooltip: |
-        External Link Handling: Choose the behavior when a link is clicked.
-        By default FreeTube will open the link in your default browser.
-        (Unless it points to a Youtube Video/Playlist/Channel etc.)
-        You can choose to disable it completely for safety.
       Open Link: Open Link
       Open Link After Prompt: Open After After Prompt
       No Action: No Action
@@ -627,6 +622,9 @@ Tooltips:
     Region for Trending: The region of trends allows you to pick which country's trending
       videos you want to have displayed. Not all countries displayed are actually
       supported by YouTube.
+    External Link Handling: |
+      Choose the default behavior when a link, which cannot be opened in FreeTube, is clicked.
+      By default FreeTube will open the clicked link in your default browser.
   Player Settings:
     Force Local Backend for Legacy Formats: Only works when the Invidious API is your
       default. When enabled, the local API will run and use the legacy formats returned
