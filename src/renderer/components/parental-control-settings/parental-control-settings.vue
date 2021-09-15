@@ -1,12 +1,11 @@
 <template>
-  <ft-card
-    class="relative card"
-  >
-    <h3
-      class="videoTitle"
-    >
-      {{ $t("Settings.Parental Control Settings.Parental Control Settings") }}
-    </h3>
+  <details>
+    <summary>
+      <h3>
+        {{ $t("Settings.Parental Control Settings.Parental Control Settings") }}
+      </h3>
+    </summary>
+    <hr>
     <div class="switchColumnGrid">
       <div class="switchColumn">
         <ft-toggle-switch
@@ -31,7 +30,7 @@
         />
       </div>
     </div>
-  </ft-card>
+  </details>
 </template>
 
 <script src="./parental-control-settings.js" />

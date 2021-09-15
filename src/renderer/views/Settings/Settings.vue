@@ -19,7 +19,8 @@
     <proxy-settings />
     <hr>
     <sponsor-block-settings />
-    <parental-control-settings/>
+    <hr>
+    <parental-control-settings />
   </div>
 </template>
 
