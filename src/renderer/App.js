@@ -99,7 +99,12 @@ export default Vue.extend({
     }
   },
   watch: {
-    windowTitle: 'setWindowTitle'
+    windowTitle: 'setWindowTitle',
+    $route () {
+      // react to route changes...
+      // Hide top nav filter panel on page change
+      this.$refs.topNav.hideFilters()
+    }
   },
   created () {
     this.setWindowTitle()
@@ -193,7 +198,7 @@ export default Vue.extend({
             this.showUpdatesBanner = true
           } else if (parseInt(appVersion[1]) < parseInt(latestVersion[1])) {
             this.showUpdatesBanner = true
-          } else if (parseInt(appVersion[2]) < parseInt(latestVersion[2])) {
+          } else if (parseInt(appVersion[2]) < parseInt(latestVersion[2]) && parseInt(appVersion[1]) <= parseInt(latestVersion[1])) {
             this.showUpdatesBanner = true
           }
         }).fail((xhr, textStatus, error) => {

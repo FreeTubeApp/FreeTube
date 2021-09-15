@@ -1,10 +1,11 @@
 <template>
-  <ft-card
-    class="relative card"
-  >
-    <h3>
-      {{ $t("Settings.Theme Settings.Theme Settings") }}
-    </h3>
+  <details>
+    <summary>
+      <h3>
+        {{ $t("Settings.Theme Settings.Theme Settings") }}
+      </h3>
+    </summary>
+    <hr>
     <ft-flex-box>
       <ft-toggle-switch
         :label="$t('Settings.Theme Settings.Match Top Bar with Main Color')"
@@ -64,8 +65,8 @@
       :option-values="restartPromptValues"
       @click="handleSmoothScrolling"
     />
-  </ft-card>
+  </details>
 </template>
 
 <script src="./theme-settings.js" />
-<style scoped src="./theme-settings.css" />
+<style scoped lang="sass" src="./theme-settings.sass" />

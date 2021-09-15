@@ -1,12 +1,11 @@
 <template>
-  <ft-card
-    class="relative card"
-  >
-    <h3
-      class="videoTitle"
-    >
-      {{ $t("Settings.External Player Settings.External Player Settings") }}
-    </h3>
+  <details>
+    <summary>
+      <h3>
+        {{ $t("Settings.External Player Settings.External Player Settings") }}
+      </h3>
+    </summary>
+    <hr>
     <div class="switchColumnGrid">
       <div class="switchColumn">
         <ft-select
@@ -49,7 +48,7 @@
         @input="updateExternalPlayerCustomArgs"
       />
     </ft-flex-box>
-  </ft-card>
+  </details>
 </template>
 
 <script src="./external-player-settings.js" />

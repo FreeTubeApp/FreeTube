@@ -112,6 +112,7 @@ export default Vue.extend({
             'subsCapsButton',
             'audioTrackButton',
             'pictureInPictureToggle',
+            'toggleTheatreModeButton',
             'fullWindowButton',
             'qualitySelector',
             'fullscreenToggle'
@@ -195,6 +196,7 @@ export default Vue.extend({
 
     this.createFullWindowButton()
     this.createLoopButton()
+    this.createToggleTheatreModeButton()
     this.determineFormatType()
     this.determineMaxFramerate()
   },
@@ -267,6 +269,11 @@ export default Vue.extend({
             this.player.play()
           }, 200)
         }
+
+        // Remove built-in progress bar mouse over current time display
+        // `MouseTimeDisplay` in
+        // https://github.com/videojs/video.js/blob/v7.13.3/docs/guides/components.md#default-component-tree
+        this.player.controlBar.progressControl.seekBar.playProgressBar.removeChild('timeTooltip')
 
         if (this.useSponsorBlock) {
           this.initializeSponsorBlock()
@@ -459,7 +466,7 @@ export default Vue.extend({
     },
 
     mouseScrollVolume: function (event) {
-      if (event.target) {
+      if (event.target && !event.currentTarget.querySelector('.vjs-menu:hover')) {
         event.preventDefault()
 
         if (this.player.muted() && event.wheelDelta > 0) {
@@ -966,6 +973,45 @@ export default Vue.extend({
       videojs.registerComponent('fullWindowButton', fullWindowButton)
     },
 
+    createToggleTheatreModeButton: function() {
+      if (!this.$parent.theatrePossible) {
+        return
+      }
+
+      const theatreModeActive = this.$parent.useTheatreMode ? ' vjs-icon-theatre-active' : ''
+
+      const VjsButton = videojs.getComponent('Button')
+      const toggleTheatreModeButton = videojs.extend(VjsButton, {
+        constructor: function(player, options) {
+          VjsButton.call(this, player, options)
+        },
+        handleClick: () => {
+          this.toggleTheatreMode()
+        },
+        createControlTextEl: function (button) {
+          return $(button)
+            .addClass('vjs-button-theatre')
+            .html($(`<div id="toggleTheatreModeButton" class="vjs-icon-theatre-inactive${theatreModeActive} vjs-button"></div>`))
+            .attr('title', 'Toggle Theatre Mode')
+        }
+      })
+
+      videojs.registerComponent('toggleTheatreModeButton', toggleTheatreModeButton)
+    },
+
+    toggleTheatreMode: function() {
+      if (!this.player.isFullscreen_) {
+        const toggleTheatreModeButton = $('#toggleTheatreModeButton')
+        if (!this.$parent.useTheatreMode) {
+          toggleTheatreModeButton.addClass('vjs-icon-theatre-active')
+        } else {
+          toggleTheatreModeButton.removeClass('vjs-icon-theatre-active')
+        }
+      }
+
+      this.$parent.toggleTheatreMode()
+    },
+
     createDashQualitySelector: function (levels) {
       if (levels.levels_.length === 0) {
         setTimeout(() => {
@@ -1372,6 +1418,11 @@ export default Vue.extend({
             // S Key
             // Toggle Full Window Mode
             this.toggleFullWindow()
+            break
+          case 84:
+            // T Key
+            // Toggle Theatre Mode
+            this.toggleTheatreMode()
             break
         }
       }
