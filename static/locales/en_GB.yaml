@@ -24,7 +24,7 @@ Zoom in: 'Zoom in'
 Zoom out: 'Zoom out'
 Toggle fullscreen: 'Toggle full-screen'
 Window: 'Window'
-Minimize: 'Minimize'
+Minimize: 'Minimise'
 Close: 'Close'
 Back: 'Back'
 Forward: 'Forward'
@@ -115,7 +115,7 @@ Settings:
       on failure'
     Enable Search Suggestions: 'Enable search suggestions'
     Default Landing Page: 'Default landing page'
-    Locale Preference: 'Locale Preference'
+    Locale Preference: 'Language preference'
     Preferred API Backend:
       Preferred API Backend: 'Preferred API backend'
       Local API: 'Local API'
@@ -138,7 +138,7 @@ Settings:
     System Default: System default
     External Player: External Player
     External Player Executable: Custom External Player Executable
-    Clear Default Instance: Clear Default Instance
+    Clear Default Instance: Clear default instance
     Set Current Instance as Default: Set Current Instance as Default
     Current instance will be randomized on startup: Current instance will be randomised
       on startup
@@ -181,7 +181,7 @@ Settings:
     Player Settings: 'Player Settings'
     Force Local Backend for Legacy Formats: 'Force Local Back-end for Legacy Formats'
     Play Next Video: 'Play Next Video'
-    Turn on Subtitles by Default: 'Turn on Subtitles by Default'
+    Turn on Subtitles by Default: 'Turn on subtitles by default'
     Autoplay Videos: 'Autoplay Videos'
     Proxy Videos Through Invidious: 'Proxy Videos Through Invidious'
     Autoplay Playlists: 'Autoplay Playlists'
@@ -723,3 +723,5 @@ Open New Window: Open New Window
 Default Invidious instance has been cleared: Default Invidious instance has been cleared
 Default Invidious instance has been set to $: Default Invidious instance has been
   set to $
+Search Bar:
+  Clear Input: Clear input

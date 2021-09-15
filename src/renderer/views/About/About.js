@@ -59,7 +59,7 @@ export default Vue.extend({
         {
           icon: 'comment-dots',
           title: this.$t('About.Chat on Matrix'),
-          content: `<a href="https://matrix.to/#/#freetube:matrix.org?via=matrix.org&via=privacytools.io&via=tchncs.de">#freetube:matrix.org</a><br>${this.$t('About.Please read the')} <a href="https://github.com/FreeTubeApp/FreeTube/wiki/Matrix-Channel-Info-&-Rules">${this.$t('About.room rules')}</a>`
+          content: `<a href="https://matrix.to/#/#freetube:matrix.org?via=matrix.org&via=privacytools.io&via=tchncs.de">#freetube:matrix.org</a><br>${this.$t('About.Please read the')} <a href="https://docs.freetubeapp.io/community/matrix/">${this.$t('About.room rules')}</a>`
         },
         {
           icon: 'language',

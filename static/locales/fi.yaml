@@ -672,8 +672,8 @@ Version $ is now available!  Click for more details: Versio $ on nyt saatavilla!
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Tämä
   video ei ole saatavilla puuttuvien formaattien takia. Tämä voi tapahtua koska video
   ei ole saatavilla maassasi.
-A new blog is now available, $. Click to view more: Uusi blogi on saatavilla , $.
-  Klikkaa nähdäksesi lisää
+A new blog is now available, $. Click to view more: Uusi blogi on saatavilla, $. Klikkaa
+  nähdäksesi lisää
 Download From Site: Lataa sivustolta
 Tooltips:
   General Settings:
@@ -728,3 +728,5 @@ Default Invidious instance has been cleared: Oletusarvoinen Invidious-palvelunta
   on tyhjennetty
 Default Invidious instance has been set to $: Oletusarvoinen Invidious-palveluntarjoaja
   on jatkossa $
+Search Bar:
+  Clear Input: Tyhjennä syöte
