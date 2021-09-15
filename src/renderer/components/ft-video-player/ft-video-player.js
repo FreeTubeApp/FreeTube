@@ -1419,6 +1419,11 @@ export default Vue.extend({
             // Toggle Full Window Mode
             this.toggleFullWindow()
             break
+          case 84:
+            // T Key
+            // Toggle Theatre Mode
+            this.toggleTheatreMode()
+            break
         }
       }
     },
