@@ -9,11 +9,12 @@ body:
     options:
         - label: I have searched the [issue tracker](https://github.com/FreeTubeApp/FreeTube/issues) for a discussion that matches the one i want to file, without success.
           required: true
-- type: checkboxes
+- type: dropdown
     id: topic
     attributes:
       label: Topic
       description: Please select what topic your discussion is about.
+      multiple: true
       options:
         - label: Coding
           required: false
