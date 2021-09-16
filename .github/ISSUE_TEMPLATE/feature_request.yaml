@@ -3,45 +3,45 @@ description: Suggest an idea for FreeTube which you would like to see in a futur
 title: "[Feature Request]: "
 labels: "enhancement"
 body:
-- type: checkboxes
-  attributes:
-    label: Guidelines
-    description: Please ensure you've completed all of the following.
-    options:
-        - label: I have searched the [issue tracker](https://github.com/FreeTubeApp/FreeTube/issues) for a feature request that matches the one i want to file, without success.
-          required: true
-- type: textarea
-  attributes:
-    label: Problem Description
-    description: Please add a clear and concise description of the problem you are seeking to solve with this feature request.
-  validations:
-    required: true
-- type: textarea
-  attributes:
-    label: Proposed Solution
-    description: Describe the solution you'd like in a clear and concise manner.
-  validations:
-    required: true
-- type: textarea
-  attributes:
-    label: Alternatives Considered
-    description: A clear and concise description of any alternative solutions or features you've considered. 
-  validations:
-    required: true
-- type: textarea
-  attributes:
-    label: Screenshots (if applicable)
-    description: If applicable, please add screenshots to help explain your problem.
-- type: input
-  attributes:
-	label: Link to video (if applicable)
-	description: |
-        If applicable, please add a video to help explain your problem.
-  validations:
-	required: false 
-- type: textarea
-  attributes: 
-    label: Additional context
-    description: Add any other context about the problem here.
-  validations:
-    required: false
+  - type: checkboxes
+    attributes:
+      label: Guidelines
+      description: Please ensure you've completed all of the following.
+      options:
+          - label: I have searched the [issue tracker](https://github.com/FreeTubeApp/FreeTube/issues) for a feature request that matches the one i want to file, without success.
+            required: true
+  - type: textarea
+    attributes:
+      label: Problem Description
+      description: Please add a clear and concise description of the problem you are seeking to solve with this feature request.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Proposed Solution
+      description: Describe the solution you'd like in a clear and concise manner.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Alternatives Considered
+      description: A clear and concise description of any alternative solutions or features you've considered. 
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Screenshots (if applicable)
+      description: If applicable, please add screenshots to help explain your problem.
+  - type: input
+    attributes:
+      label: Link to video (if applicable)
+      description: |
+          If applicable, please add a video to help explain your problem.
+    validations:
+      required: false 
+  - type: textarea
+    attributes: 
+      label: Additional context
+      description: Add any other context about the problem here.
+    validations:
+      required: false
