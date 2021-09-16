@@ -1,104 +1,99 @@
 name: Bug Report
 description: Report an issue or unexpected behavior that occurs within the application
-labels: "bug"
+title: "[Bug]: "
+labels: "bug :beetle:"
 body:
-  - type: markdown
-    attributes:
-      value: |
-        **README: Before You Submit Your Issue**
-        - Please check other open and closed issues for a similar bug before reporting a new one.
-        - Make sure you are on the latest release of FreeTube before submitting an issue.
-  - type: checkboxes
-    id: guidelines
-    attributes:
-      label: Guidelines
-      description: By submitting this issue, you agree with the checkboxes below
-      options:
-        - label: This issue is not a duplicate
+- type: checkboxes
+  attributes:
+	label: Guidelines
+	description: description: Please ensure you've completed all of the following.
+    options:
+		- label: I have searched the [issue tracker](https://github.com/FreeTubeApp/FreeTube/issues) for a feature request that matches the one i want to file, without success.
           required: true
-        - label: This bug is present in the latest nightly build
+        - label: I have encounterd this bug in the latest nightly build.
           required: true
-  - type: textarea
-    id: behavior
-    attributes: 
-      label: Behavior of the program
-      description: Please write a clear and concise description of what the bug is.
-    validations:
-      required: true
-  - type: textarea
-    id: expectedBehavior
-    attributes: 
-      label: Expected behavior
-      description: Please describe clear and concise what you expected to happen.
-    validations:
-      required: true
-  - type: textarea
-    id: reproduce
-    attributes: 
-      label: Steps To Reproduce
-      description: Please add all steps to reproduce the behavior
-      placeholder: |
+- type: input
+  attributes:
+	label: FreeTube Nightly Build
+	description: What Nightly Build of FreeTube are you using? Go to the about page in the FreeTube application.  
+	placeholder: v0.14.0 build 1234
+  validations:
+	required: true
+- type: input
+  attributes:
+    label: 'Installation Method (If applicable)'
+    placeholder: 'e.g. Portable, .exe, .deb, .AppImage, FlatHub'
+  validations:
+    required: false
+- type: dropdown
+  attributes: 
+    label: Primary API used
+    description: What is the primary API being used?
+    multiple: false
+    options:
+		- Local API
+        - Invidious API
+  validations:
+    required: true
+- type: dropdown
+  attributes:
+	label: What operating system are you using?
+	options:
+		- Windows
+		- macOS
+		- Ubuntu
+		- Other Linux
+		- Other (specify below)
+  validations:
+	required: true
+- type: input
+  attributes:
+	label: Operating System Version
+	description: What operating system version are you using? On Windows, click Start button > Settings > System > About. On macOS, click the Apple Menu > About This Mac. On Linux, use lsb_release or uname -a.
+	placeholder: "e.g. Windows 10 version 1909, macOS Catalina 10.15.7, or Ubuntu 20.04"
+  validations:
+	required: true
+- type: input
+  attributes:
+	label: Last Known Working FreeTube Version
+	description: What is the last version of FreeTube this worked in, if applicable?
+	placeholder: v0.14.0
+- type: textarea
+  attributes:
+	label: Expected Behavior
+	description: A clear and concise description of what you expected to happen.
+  validations:
+	required: true
+- type: textarea
+  attributes:
+	label: Actual Behavior
+	description: A clear description of what actually happens.
+  validations:
+	required: true
+- type: textarea
+  attributes: 
+	label: Steps To Reproduce
+	description: Please add all steps to reproduce the behavior
+	placeholder: |
         1. Go to '...'
         2. Click on '....'
         3. Scroll down to '....'
         4. See error
-    validations:
-      required: true
-  - type: input
-    id: videoLink
-    attributes:
-      label: Link to video (if applicable)
-      description: |
+  validations:
+	required: true
+- type: input
+  attributes:
+	label: Link to video (if applicable)
+	description: |
         If you refer to a problem which occurs within a specific video, or a range of videos, please link at least one here.
-    validations:
-      required: false
-  - type: textarea
-    id: screenshots
-    attributes:
-      label: Screenshots (if applicable)
-      description: If applicable, please add screenshots to help explain your problem. Especially console logs from the development tools are very helpful.
-  - type: input
-    id: os
-    attributes:
-      label: 'OS'
-      placeholder: 'e.g. Windows, Mac, Ubuntu, Fedora, Arch, etc.'
-    validations:
-      required: true
-  - type: input
-    id: osVersion
-    attributes:
-      label: 'OS Version'
-      placeholder: 'e.g. Windows 10, Ubuntu 20.04'
-    validations:
-      required: true
-  - type: input
-    id: freetubeVersion
-    attributes:
-      label: 'FreeTube Version'
-      placeholder: 'e.g. 0.9.0, Nightly build?'
-    validations:
-      required: true
-  - type: input
-    id: installationMethod
-    attributes:
-      label: 'Installation Method (If applicable)'
-      placeholder: 'e.g. Portable, .exe, .deb, .AppImage, FlatHub'
-    validations:
-      required: false
-  - type: dropdown
-    attributes: 
-      label: Primary API used
-      description: What is the primary API being used?
-      multiple: false
-      options:
-        - Local API
-        - Invidious API
-    validations:
-      required: true
-  - type: textarea
-    id: additional
-    attributes: 
-      label: Additional context
-      description: Add any other context about the problem here.
-    validations:
-      required: false
+  validations:
+	required: false 
+- type: textarea
+  attributes:
+	label: Screenshots (if applicable)
+	description: If applicable, please add screenshots to help explain your problem. Especially console logs from the development tools are very helpful.
+- type: textarea
+  attributes:
+	label: Additional Information
+	description: If your problem needs further explanation, or if the issue you're seeing cannot be reproduced, please add more information here.
+  
