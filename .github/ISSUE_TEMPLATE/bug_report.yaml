@@ -6,11 +6,11 @@ body:
 - type: checkboxes
   attributes:
 	label: Guidelines
-	description: description: Please ensure you've completed all of the following.
+	description: Please ensure you've completed all of the following.
     options:
-		- label: I have searched the [issue tracker](https://github.com/FreeTubeApp/FreeTube/issues) for a feature request that matches the one i want to file, without success.
+		- label: I have searched the [issue tracker](https://github.com/FreeTubeApp/FreeTube/issues) for a bug report that matches the one i want to file, without success.
           required: true
-        - label: I have encounterd this bug in the latest nightly build.
+        - label: I have encountered this bug in the latest nightly build.
           required: true
 - type: input
   attributes:
