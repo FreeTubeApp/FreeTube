@@ -2,12 +2,14 @@ name: Discussion
 description: Open up a new discussion about anything related to the project.
 labels: "Discussion"
 body:
-  - type: markdown
-    attributes:
-      value: |
-        **Important note**
-        Please check other open and closed issues for a similar discussion or a question relating to your discussion before posting a new one. 
-  - type: checkboxes
+- type: checkboxes
+  attributes:
+    label: Guidelines
+    description: Please ensure you've completed all of the following.
+    options:
+        - label: I have searched the [issue tracker](https://github.com/FreeTubeApp/FreeTube/issues) for a discussion that matches the one i want to file, without success.
+          required: true
+- type: checkboxes
     id: topic
     attributes:
       label: Topic

@@ -2,12 +2,14 @@ name: Question
 description: Ask a question which is not a bug or a feature request
 labels: "question"
 body:
-  - type: markdown
-    attributes:
-      value: |
-        **Important note**
-        Please check other open and closed issues for a similar question before posting a new one. 
   - type: checkboxes
+  attributes:
+    label: Guidelines
+    description: Please ensure you've completed all of the following.
+    options:
+        - label: I have searched the [issue tracker](https://github.com/FreeTubeApp/FreeTube/issues) for a question that matches the one i want to file, without success.
+          required: true
+- type: checkboxes
     id: topic
     attributes:
       label: Topic
