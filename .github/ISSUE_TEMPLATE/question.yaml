@@ -9,23 +9,18 @@ body:
     options:
         - label: I have searched the [issue tracker](https://github.com/FreeTubeApp/FreeTube/issues) for a question that matches the one i want to file, without success.
           required: true
-- type: dropdown
+  - type: dropdown
     id: topic
     attributes:
       label: Topic
       description: Please select what topic your discussion is about.
       multiple: true
       options:
-        - label: Coding
-          required: false
-        - label: Contribution
-          required: false
-        - label: Languages
-          required: false
-        - label: Setup
-          required: false
-        - label: Other
-          required: false
+        - Coding
+        - Contribution
+        - Languages
+        - Setup
+        - Other
   - type: textarea
     id: question
     attributes: 
