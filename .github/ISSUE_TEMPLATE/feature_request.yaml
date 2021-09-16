@@ -1,7 +1,7 @@
 name: Feature request
 description: Suggest an idea for FreeTube which you would like to see in a future release
 title: "[Feature Request]: "
-labels: "enhancement :sparkles:"
+labels: "enhancement"
 body:
 - type: checkboxes
   attributes:

@@ -1,7 +1,7 @@
 name: Bug Report
 description: Report an issue or unexpected behavior that occurs within the application
 title: "[Bug]: "
-labels: "bug :beetle:"
+labels: "bug"
 body:
 - type: checkboxes
   attributes:
