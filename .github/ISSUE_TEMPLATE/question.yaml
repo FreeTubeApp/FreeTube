@@ -21,6 +21,8 @@ body:
         - Languages
         - Setup
         - Other
+    validations:
+      required: true
   - type: textarea
     id: question
     attributes: 
