@@ -138,6 +138,11 @@ Settings:
     No default instance has been set: Ingen forvalgt instans satt
     The currently set default instance is $: Valgt instans er $
     Current Invidious Instance: Nåværende Invidious-instans
+    External Link Handling:
+      No Action: Ingen handling
+      Ask Before Opening Link: Spør før åpning av lenke
+      Open Link: Åpne lenke
+      External Link Handling: Håndtering av eksterne lenker
   Theme Settings:
     Theme Settings: 'Draktvalg'
     Match Top Bar with Main Color: 'Tilpass topplinjen slik at den har samme farge
@@ -602,6 +607,7 @@ Comments:
   There are no more comments for this video: Ingen flere kommentarer for denne videoen
   Sort by: Sorter etter
   Top comments: Toppkommentarer
+  Show More Replies: Vis flere svar
 Up Next: 'Neste'
 
 # Toast Messages
@@ -686,6 +692,8 @@ Tooltips:
     Preferred API Backend: Velg metoden FreeTube bruker til å hente data. Det lokale
       API-et er en innebygd utpakker. Invidious-API-et krever en Invidious-tjener
       å koble til.
+    External Link Handling: "Velg oppførsel når en link som ikke kan åpnes i FreeTube\
+      \ klikkes.\nSom forvalg vil FreeTube åpne lenken i nettleseren din.\n"
   Subscription Settings:
     Fetch Feeds from RSS: Bruk RSS istedenfor FreeTube sin forvalgte metode for innhenting
       av din abonnementsstrøm. RSS er raskere og forhindrer IP-blokkering, men mangler
@@ -732,3 +740,8 @@ Open New Window: Åpne et nytt vindu
 Default Invidious instance has been cleared: Fjernet forvalgt Invidious-instans
 Default Invidious instance has been set to $: Forvalgt Invidious-instans satt til
   $
+External link opening has been disabled in the general settings: Åpning av eksterne
+  lenker er avskrudd i de generelle innstillingene
+Search Bar:
+  Clear Input: Tøm inndata
+Are you sure you want to open this link?: Åpne denne lenken?
