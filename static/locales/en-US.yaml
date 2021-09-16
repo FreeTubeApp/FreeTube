@@ -35,6 +35,7 @@ Version $ is now available!  Click for more details: Version $ is now available!
 Download From Site: Download From Site
 A new blog is now available, $. Click to view more: A new blog is now available, $.
   Click to view more
+Are you sure you want to open this link?: Are you sure you want to open this link?
 
 # Search Bar
 Search / Go to URL: Search / Go to URL
@@ -145,7 +146,12 @@ Settings:
     Clear Default Instance: Clear Default Instance
     View all Invidious instance information: View all Invidious instance information
     Region for Trending: Region for Trending
-        #! List countries
+    #! List countries
+    External Link Handling:
+      External Link Handling: External Link Handling
+      Open Link: Open Link
+      Ask Before Opening Link: Ask Before Opening Link
+      No Action: No Action
   Theme Settings:
     Theme Settings: Theme Settings
     Match Top Bar with Main Color: Match Top Bar with Main Color
@@ -616,6 +622,9 @@ Tooltips:
     Region for Trending: The region of trends allows you to pick which country's trending
       videos you want to have displayed. Not all countries displayed are actually
       supported by YouTube.
+    External Link Handling: |
+      Choose the default behavior when a link, which cannot be opened in FreeTube, is clicked.
+      By default FreeTube will open the clicked link in your default browser.
   Player Settings:
     Force Local Backend for Legacy Formats: Only works when the Invidious API is your
       default. When enabled, the local API will run and use the legacy formats returned
@@ -669,6 +678,7 @@ Default Invidious instance has been set to $: Default Invidious instance has bee
 Default Invidious instance has been cleared: Default Invidious instance has been cleared
 'The playlist has ended.  Enable loop to continue playing': 'The playlist has ended.  Enable
   loop to continue playing'
+External link opening has been disabled in the general settings: 'External link opening has been disabled in the general settings'
 
 Yes: Yes
 No: No
