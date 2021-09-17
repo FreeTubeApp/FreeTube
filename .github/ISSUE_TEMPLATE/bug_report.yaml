@@ -10,7 +10,7 @@ body:
       options:
         - label: I have searched the [issue tracker](https://github.com/FreeTubeApp/FreeTube/issues) for a bug report that matches the one i want to file, without success.
           required: true
-        - label: I have encountered this bug in the latest nightly build.
+        - label: I have encountered this bug in the latest [nightly build](https://docs.freetubeapp.io/development/nightly-builds).
           required: true
   - type: input
     attributes:
@@ -19,10 +19,15 @@ body:
       placeholder: v0.14.0 build 1234
     validations:
       required: true
-  - type: input
+  - type: dropdown
     attributes:
       label: 'Installation Method (If applicable)'
-      placeholder: 'e.g. Portable, .exe, .deb, .AppImage, FlatHub'
+      options:
+        - Portable
+        - .exe
+        - .deb
+        - .AppImage
+        - Flathub
     validations:
       required: false
   - type: dropdown
