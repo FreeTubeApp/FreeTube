@@ -2,6 +2,7 @@
   <div class="sideNavMoreOptions">
     <div
       class="navOption moreOptionNav"
+      :title="$t('More')"
       @click="openMoreOptions = !openMoreOptions"
     >
       <font-awesome-icon
@@ -19,6 +20,8 @@
       <div
         v-if="!hideTrendingVideos"
         class="navOption"
+        :title="$t('Trending.Trending')"
+
         @click="navigate('trending')"
       >
         <font-awesome-icon
@@ -32,6 +35,7 @@
       <div
         v-if="!hidePopularVideos"
         class="navOption"
+        :title="$t('Most Popular')"
         @click="navigate('popular')"
       >
         <font-awesome-icon
@@ -44,6 +48,7 @@
       </div>
       <div
         class="navOption"
+        :title="$t('About.About')"
         @click="navigate('about')"
       >
         <font-awesome-icon

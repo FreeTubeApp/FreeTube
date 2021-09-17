@@ -50,24 +50,19 @@
   .navOption, .closed .navOption {
     width: 70px;
     height: 40px;
-    padding: 0px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px 0px;
   }
 
   .navLabel {
-    margin-left: 0px;
-    width: 100%;
-    text-align: center;
-    left: 0px;
-    font-size: 11px;
+    display:none;
   }
 
   .navIcon {
     margin-left: 0px;
     width: 100%;
     display: block;
-    margin-bottom: 0px;
+    margin-top: 0.5em;
+    height: 1.3em;
   }
 
   .moreOption {
