@@ -30,18 +30,7 @@ body:
       required: true
   - type: textarea
     attributes:
-      label: Screenshots (if applicable)
-      description: If applicable, please add screenshots to help explain your problem.
-  - type: input
-    attributes:
-      label: Link to video (if applicable)
+      label: Additional Information
       description: |
-          If applicable, please add a video to help explain your problem.
-    validations:
-      required: false 
-  - type: textarea
-    attributes: 
-      label: Additional context
-      description: Add any other context about the problem here.
-    validations:
-      required: false
+        Add additional information here.
+        You may drag-and-drop screenshots/video's and log files here, or paste the log file in code blocks.
