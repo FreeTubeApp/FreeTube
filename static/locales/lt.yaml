@@ -151,6 +151,11 @@ Settings:
     No default instance has been set: Nenustatytas jokia numatytoji instancija
     The currently set default instance is $: Šiuo metu nustatyta numatytoji instancija
       yra $
+    External Link Handling:
+      No Action: Jokio veiksmo
+      Ask Before Opening Link: Klausti prieš atidarant nuorodą
+      Open Link: Atidaryti nuorodą
+      External Link Handling: Išorinių nuorodų tvarkymas
   Theme Settings:
     Theme Settings: 'Temos nustatymai'
     Match Top Bar with Main Color: 'Derinti viršutinė juosta prie pagrindinės spalvos'
@@ -628,6 +633,9 @@ Tooltips:
     Region for Trending: '„Dabar populiaru“ regionas leidžia pasirinkti, kurios šalies
       populiarius vaizdo įrašus norite rodyti. YouTube iš tikrųjų nepalaiko visų rodomų
       šalių.'
+    External Link Handling: "Pasirinkite numatytąjį elgesį, kai spustelėjama nuoroda,\
+      \ kurios negalima atidaryti „FreeTube“.\nPagal numatytuosius nustatymus „FreeTube“\
+      \ atidarys spustelėtą nuorodą numatytojoje naršyklėje.\n"
   Player Settings:
     Force Local Backend for Legacy Formats: 'Veikia tik tada, kai numatytasis nustatymas
       yra „Invidious“ API. Kai įgalinta, vietinė API veiks ir naudos senus, o ne „Invidious“
@@ -696,3 +704,6 @@ Default Invidious instance has been set to $: Numatytoji Invidious instancija bu
   nustatyta į $
 Search Bar:
   Clear Input: Išvalyti įvestį
+External link opening has been disabled in the general settings: Išorinės nuorodos
+  atidarymas buvo išjungtas bendruosiuose nustatymuose
+Are you sure you want to open this link?: Ar tikrai norite atidaryti šią nuorodą?
