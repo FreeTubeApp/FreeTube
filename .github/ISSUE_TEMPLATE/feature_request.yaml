@@ -32,5 +32,5 @@ body:
     attributes:
       label: Additional Information
       description: |
-        Add any other context or screenshots/video's about the feature request here.
+        Add any other context or screenshots/videos about the feature request here.
         You may drag-and-drop screenshots.
