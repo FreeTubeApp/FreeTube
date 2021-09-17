@@ -145,6 +145,11 @@ Settings:
     The currently set default instance is $: L'instance par défaut actuellement définie
       est $
     Current Invidious Instance: Instance Invidious actuelle
+    External Link Handling:
+      No Action: Aucune action
+      Ask Before Opening Link: Demander avant d'ouvrir le lien
+      Open Link: Ouvrir le lien
+      External Link Handling: Gestion des liens externes
   Theme Settings:
     Theme Settings: 'Paramètres du thème'
     Match Top Bar with Main Color: 'Faire correspondre la barre supérieure à la couleur
@@ -793,3 +798,5 @@ Default Invidious instance has been set to $: L’instance Invidious par défaut
   définie sur $
 Search Bar:
   Clear Input: Effacer l'entrée
+Are you sure you want to open this link?: Êtes-vous sûr de vouloir ouvrir ce lien
+  ?
