@@ -144,6 +144,11 @@ Settings:
     No default instance has been set: Öntanımlı örnek ayarlanmadı
     The currently set default instance is $: Şu anda ayarlanan öntanımlı örnek $
     Current Invidious Instance: Geçerli Invidious Örneği
+    External Link Handling:
+      No Action: Eylem Yok
+      Ask Before Opening Link: Bağlantıyı Açmadan Önce Sor
+      Open Link: Bağlantıyı Aç
+      External Link Handling: Harici Bağlantı İşleme
   Theme Settings:
     Theme Settings: 'Tema Ayarları'
     Match Top Bar with Main Color: 'Üst Barı Ana Renk ile Eşleştir'
@@ -720,6 +725,9 @@ Tooltips:
     Region for Trending: Öne çıkanların bölgesi, hangi ülkenin öne çıkan videolarını
       görüntülemek istediğinizi seçmenize olanak tanır. Görüntülenen ülkelerden bazıları
       YouTube tarafından desteklenmemektedir.
+    External Link Handling: "FreeTube'da açılamayan bir bağlantı tıklandığında öntanımlı\
+      \ davranışı seçin.\nÖntanımlı olarak FreeTube, tıklanan bağlantıyı öntanımlı\
+      \ tarayıcınızda açacaktır.\n"
   Privacy Settings:
     Remove Video Meta Files: Etkinleştirildiğinde, izleme sayfası kapatıldığında video
       oynatma sırasında oluşturulan meta dosyaları otomatik olarak silinir.
@@ -748,3 +756,7 @@ Default Invidious instance has been set to $: Öntanımlı Invidious örneği $ 
   ayarlandı
 Search Bar:
   Clear Input: Girişi Temizle
+External link opening has been disabled in the general settings: Harici bağlantı açma
+  genel ayarlarda devre dışı bırakıldı
+Are you sure you want to open this link?: Bu bağlantıyı açmak istediğinizden emin
+  misiniz?
