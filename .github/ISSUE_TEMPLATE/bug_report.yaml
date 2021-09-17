@@ -23,11 +23,15 @@ body:
     attributes:
       label: 'Installation Method (If applicable)'
       options:
-        - Portable
-        - .exe
-        - .deb
         - .AppImage
+        - .deb
+        - .dmg
+        - .exe
         - Flathub
+        - Portable
+        - .rpm
+        - .zip
+        - other
     validations:
       required: false
   - type: dropdown
