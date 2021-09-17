@@ -11,12 +11,31 @@ body:
         - label: I have searched the [issue tracker](https://github.com/FreeTubeApp/FreeTube/issues) for a bug report that matches the one i want to file, without success.
           required: true
         - label: I have encountered this bug in the latest [nightly build](https://docs.freetubeapp.io/development/nightly-builds).
-          required: true
+          required: false     
+  - type: textarea
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+      placeholder: |
+          1. Go to '...'
+          2. Click on '....'
+          3. Scroll down to '....'
+          4. See error
+    validations:
+      required: true   
+  - type: textarea
+    attributes:
+      label: Expected Behavior
+      description: A clear and concise description of what you expected to happen.
+    validations:
+      required: true
   - type: input
     attributes:
-      label: FreeTube Nightly Build
-      description: What Nightly Build of FreeTube are you using? Go to the about page in the FreeTube application.  
-      placeholder: v0.14.0 build 1234
+      label: FreeTube Version
+      description: |
+        If using releases, enter the version.
+        If using nightly builds, enter commit hash or build number, you can find it via about page in the FreeTube application.
+      placeholder: v0.14.0, 8c4278
     validations:
       required: true
   - type: dropdown
@@ -69,39 +88,7 @@ body:
       placeholder: v0.14.0
   - type: textarea
     attributes:
-      label: Expected Behavior
-      description: A clear and concise description of what you expected to happen.
-    validations:
-      required: true
-  - type: textarea
-    attributes:
-      label: Actual Behavior
-      description: A clear description of what actually happens.
-    validations:
-      required: true
-  - type: textarea
-    attributes: 
-      label: Steps To Reproduce
-      description: Please add all steps to reproduce the behavior
-      placeholder: |
-          1. Go to '...'
-          2. Click on '....'
-          3. Scroll down to '....'
-          4. See error
-    validations:
-      required: true
-  - type: input
-    attributes:
-      label: Link to video (if applicable)
-      description: |
-          If you refer to a problem which occurs within a specific video, or a range of videos, please link at least one here.
-    validations:
-      required: false 
-  - type: textarea
-    attributes:
-      label: Screenshots (if applicable)
-      description: If applicable, please add screenshots to help explain your problem. Especially console logs from the development tools are very helpful.
-  - type: textarea
-    attributes:
       label: Additional Information
-      description: If your problem needs further explanation, or if the issue you're seeing cannot be reproduced, please add more information here.
+      description: |
+        Add additional information here.
+        You may drag-and-drop screenshots/video's and log files here, or paste the log file in code blocks.
