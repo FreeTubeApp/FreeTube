@@ -124,7 +124,7 @@ Settings:
     Preferred API Backend:
       Preferred API Backend: 'Előnyben részesített háttér-API'
       Local API: 'Helyi API'
-      Invidious API: 'Invidious API'
+      Invidious API: 'Invidious-API'
     Video View Type:
       Video View Type: 'Videó nézet típusa'
       Grid: 'Rács'
@@ -149,6 +149,11 @@ Settings:
     No default instance has been set: Az alapértelmezett példány nincs beállítva
     The currently set default instance is $: A jelenleg beállított alapértelmezett
       példány $
+    External Link Handling:
+      No Action: Nincs művelet
+      Ask Before Opening Link: Hivatkozás megnyitása előtt mindig legyen kérdés
+      Open Link: Hivatkozás megnyitása
+      External Link Handling: Külső hivatkozás kezelése
   Theme Settings:
     Theme Settings: 'Téma beállítások'
     Match Top Bar with Main Color: 'Illessze a felső sávot a fő színnel'
@@ -709,6 +714,9 @@ Tooltips:
     Fallback to Non-Preferred Backend on Failure: Ha az Ön által előnyben részesített
       API-val hibába merül fel, a SzabadCső önműködően megpróbálja a nem előnyben
       API-t tartalékként használni, ha engedélyezve van.
+    External Link Handling: "Válassza ki az alapértelmezett viselkedést, ha egy hivatkozásra\
+      \ kattintanak, amely nem nyitható meg a SzabadCsőben.\nA SzabadCső alapértelmezés\
+      \ szerint megnyitja a kattintott hivatkozást az alapértelmezett böngészőben.\n"
   Subscription Settings:
     Fetch Feeds from RSS: Ha engedélyezve van, a SzabadCső az alapértelmezett módszer
       helyett RSS-t fog használni a feliratkozás hírcsatornájának megragadásához.
@@ -758,3 +766,6 @@ Default Invidious instance has been set to $: Az alapértelmezett Invidious-pél
   $ beállítva
 Search Bar:
   Clear Input: Bemenet törlése
+External link opening has been disabled in the general settings: A külső hivatkozás
+  megnyitása le van tiltva az általános beállításokban
+Are you sure you want to open this link?: Biztosan megnyitja ezt a hivatkozást?
