@@ -10,8 +10,6 @@ body:
       options:
         - label: I have searched the [issue tracker](https://github.com/FreeTubeApp/FreeTube/issues) for a bug report that matches the one i want to file, without success.
           required: true
-        - label: I have encountered this bug in the latest [nightly build](https://docs.freetubeapp.io/development/nightly-builds).
-          required: false     
   - type: textarea
     attributes:
       label: Describe the bug
@@ -38,6 +36,13 @@ body:
       placeholder: v0.14.0, 8c4278
     validations:
       required: true
+  - type: input
+    attributes:
+      label: Operating System Version
+      description: What operating system version are you using? On Windows, click Start button > Settings > System > About. On macOS, click the Apple Menu > About This Mac. On Linux, use lsb_release or uname -a.
+      placeholder: "e.g. Windows 10 version 1909, macOS Catalina 10.15.7, or Ubuntu 20.04"
+    validations:
+      required: true
   - type: dropdown
     attributes:
       label: 'Installation Method (If applicable)'
@@ -53,6 +58,11 @@ body:
         - other
     validations:
       required: false
+  - type: input
+    attributes:
+      label: 'Last Known Working FreeTube Version (If Any)'
+      description: What is the last version of FreeTube this worked in, if applicable?
+      placeholder: v0.14.0
   - type: dropdown
     attributes: 
       label: Primary API used
@@ -62,33 +72,18 @@ body:
         - Local API
         - Invidious API
     validations:
-      required: true
-  - type: dropdown
-    attributes:
-      label: What operating system are you using?
-      options:
-        - Windows
-        - macOS
-        - Ubuntu
-        - Other Linux
-        - Other (specify below)
-    validations:
-      required: true
-  - type: input
-    attributes:
-      label: Operating System Version
-      description: What operating system version are you using? On Windows, click Start button > Settings > System > About. On macOS, click the Apple Menu > About This Mac. On Linux, use lsb_release or uname -a.
-      placeholder: "e.g. Windows 10 version 1909, macOS Catalina 10.15.7, or Ubuntu 20.04"
-    validations:
-      required: true
-  - type: input
-    attributes:
-      label: Last Known Working FreeTube Version
-      description: What is the last version of FreeTube this worked in, if applicable?
-      placeholder: v0.14.0
+      required: false
   - type: textarea
     attributes:
       label: Additional Information
       description: |
         Add additional information here.
-        You may drag-and-drop screenshots/video's and log files here, or paste the log file in code blocks.
+        You may drag-and-drop screenshots/videos and log files here, or paste the log file in code blocks.
+  - type: checkboxes
+    attributes:
+      label: Nightly Build
+      description: Please ensure you've completed the following, if applicable.
+      options:
+        - label: I have encountered this bug in the latest [nightly build](https://docs.freetubeapp.io/development/nightly-builds).
+          required: false
+        
