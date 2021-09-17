@@ -32,5 +32,5 @@ body:
     attributes:
       label: Additional Information
       description: |
-        Add additional information here.
-        You may drag-and-drop screenshots/video's and log files here, or paste the log file in code blocks.
+        Add any other context or screenshots about the feature request here.
+        You may drag-and-drop screenshots.
