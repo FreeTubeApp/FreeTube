@@ -152,6 +152,11 @@ Settings:
     The currently set default instance is $: Fyrirliggjandi sjálfgefna tilvikið er
       $
     Current Invidious Instance: Fyrirliggjandi Invidious-tilvik
+    External Link Handling:
+      No Action: Ekkert gert
+      Ask Before Opening Link: Spyrja áður en tengill er opnaður
+      Open Link: Opna tengil
+      External Link Handling: Meðhöndlun ytri tengla
   Theme Settings:
     Theme Settings: 'Þemastillingar'
     Match Top Bar with Main Color: 'Láta toppstiku samsvara aðallit'
@@ -628,6 +633,9 @@ Tooltips:
     Region for Trending: 'Landssvæði sem skal miða vinsældir við gerir þér kleift
       að velja í hvaða landi aukning á vinsældum í umræðunni skal miða við. Ekki eru
       öll löndin sem birtast raunverulega studd af YouTube.'
+    External Link Handling: "Veldu sjálfgefna hegðun þegar smellt er á tengil sem\
+      \ ekki er hægt að opna í FreeTube.\nSjálfgefið mun FreeTube opna viðkomandi\
+      \ tengil í sjálfgefna vafranum þínum.\n"
   Player Settings:
     Force Local Backend for Legacy Formats: 'Virkar bara þegar Invidious API-kerfisviðmótið
       er sjálfgefið hjá þér. Þegar þetta er virkt, mun staðværa API-kerfisviðmótið
@@ -699,3 +707,6 @@ Default Invidious instance has been set to $: Sjálfgefið Invidious-tilvik hefu
   stillt sem $
 Search Bar:
   Clear Input: Hreinsa reit
+External link opening has been disabled in the general settings: Opnun ytri tengla
+  hefur verið gerð óvirk í almennum stillingum
+Are you sure you want to open this link?: Ertu viss um að þú viljir opna þennan tengil?
