@@ -94,7 +94,7 @@ User Playlists:
     gespeicherten Videos sind leer. Klicke auf die Schaltfläche „Speichern“ in der
     Ecke eines Videos, damit es hier aufgelistet wird
   Playlist Message: Diese Seite spiegelt nicht die vollständig funktionierenden Wiedergabelisten
-    wider. Sie listet nur Videos auf, die Du gespeichert oder favorisiert hast. Wenn
+    wider. Sie listet nur Videos auf, die du gespeichert oder favorisiert hast. Wenn
     die Arbeiten abgeschlossen sind, werden alle Videos, die sich derzeit hier befinden,
     in eine Wiedergabeliste „Favoriten“ migriert.
 History:
@@ -143,6 +143,11 @@ Settings:
     Current Invidious Instance: Aktuelle Invidious-Instanz
     Clear Default Instance: Standardinstanz zurücksetzen
     Set Current Instance as Default: Derzeitige Instanz als Standard festlegen
+    External Link Handling:
+      No Action: Keine Aktion
+      Ask Before Opening Link: Vor dem Öffnen des Links fragen
+      Open Link: Link öffnen
+      External Link Handling: Handhabung externer Links
   Theme Settings:
     Theme Settings: Thema-Einstellungen
     Match Top Bar with Main Color: Obere Leiste an Hauptfarbe anpassen
@@ -733,6 +738,9 @@ Tooltips:
     Region for Trending: Die Trendregion erlaubt es dir auszuwählen, aus welchem Land
       die Trends angezeigt werden sollen. Nicht alle Optionen werden auch von YouTube
       unterstützt.
+    External Link Handling: "Wähle das Standardverhalten, wenn ein Link angeklickt\
+      \ wird, der nicht in FreeTube geöffnet werden kann.\nStandardmäßig wird FreeTube\
+      \ den angeklickten Link in deinem Standardbrowser öffnen.\n"
   Subscription Settings:
     Fetch Feeds from RSS: Sobald aktiviert wird FreeTube RSS anstatt der Standardmethode
       nutzen, um deine Abos zu aktualisieren. RSS ist schneller und verhindert das
@@ -779,3 +787,7 @@ Default Invidious instance has been set to $: Standard-Invidious-Instanz wurde a
   $ gesetzt
 Search Bar:
   Clear Input: Eingabe löschen
+Are you sure you want to open this link?: Bist du sicher, dass du diesen Link öffnen
+  willst?
+External link opening has been disabled in the general settings: Das Öffnen externer
+  Links wurde in den allgemeinen Einstellungen deaktiviert
