@@ -296,15 +296,15 @@ Settings:
     Import YouTube: Importer YouTube
     Import FreeTube: Importer FreeTube
     Import Subscriptions: Importer vos abonnements
-    Select Export Type: Sélectionner le type d’exportation
-    Select Import Type: Sélectionner le type d’importation
+    Select Export Type: Sélectionner le type d'exportation
+    Select Import Type: Sélectionner le type d'importation
     Unknown data key: Clé de données inconnue
     Unable to write file: Impossible d'écrire le fichier
     Unable to read file: Impossible de lire le fichier
     Invalid history file: Fichier d'historique non valide
     This might take a while, please wait: Cela pourrait prendre un certain temps,
       veuillez patienter
-    Invalid subscriptions file: Fichier d’abonnements non valide
+    Invalid subscriptions file: Fichier d'abonnements invalide
     Data Settings: Paramètres des données
     All watched history has been successfully exported: Tout votre historique de visionnage
       a été exporté avec succès
@@ -315,7 +315,7 @@ Settings:
     Profile object has insufficient data, skipping item: Ignorer cet élément car les
       données de profil sont insuffisantes
     One or more subscriptions were unable to be imported: Un ou plusieurs abonnements
-      n’ont pas pu être importés
+      n'ont pas pu être importés
     Check for Legacy Subscriptions: Vérifier les abonnements Legacy
     Manage Subscriptions: Gérer les abonnements
   Distraction Free Settings:
@@ -555,7 +555,7 @@ Video:
     enregistrée
   Video has been saved: La vidéo a été enregistrée
   Save Video: Enregistrer la vidéo
-  translated from English: traduit de l’anglais
+  translated from English: traduit de l'anglais
   Sponsor Block category:
     music offtopic: musique hors sujet
     interaction: interaction
@@ -662,7 +662,7 @@ Local API Error (Click to copy): 'Erreur d''API locale (Cliquez pour copier)'
 Invidious API Error (Click to copy): 'Erreur d''API Invidious (Cliquez pour copier)'
 Falling back to Invidious API: 'Revenir à l''API Invidious'
 Falling back to the local API: 'Revenir à l''API locale'
-Subscriptions have not yet been implemented: 'Les abonnements n’ont pas encore été
+Subscriptions have not yet been implemented: 'Les abonnements n''ont pas encore été
   implémentés'
 Loop is now disabled: 'La boucle est maintenant désactivée'
 Loop is now enabled: 'La boucle est maintenant activée'
@@ -765,6 +765,9 @@ Tooltips:
     Region for Trending: Ceci vous permet de choisir les vidéos tendance du pays que
       vous souhaitez afficher. Attention, certains pays affichés ne sont pas pris
       en charge par YouTube.
+    External Link Handling: "Choisissez le comportement par défaut quand on clique\
+      \ sur un lien qui ne peut être ouvert dans FreeTube.\nPar défaut, FreeTube ouvrira\
+      \ le lien dans votre navigateur par défaut.\n"
   Privacy Settings:
     Remove Video Meta Files: Lorsqu'il est activé, FreeTube supprime automatiquement
       les MétaFichiers créés pendant la lecture de la vidéo, dès que la page de la
@@ -789,14 +792,15 @@ Playing Next Video Interval: Lecture de la prochaine vidéo en un rien de temps.
   Cliquer pour annuler.
 Hashtags have not yet been implemented, try again later: Les hashtags n'ont pas encore
   été implémentés, réessayez plus tard
-Unknown YouTube url type, cannot be opened in app: Type d’url YouTube inconnu, ne
-  peut pas être ouvert dans l’application
+Unknown YouTube url type, cannot be opened in app: Type d'URL YouTube inconnu, ne
+  peut pas être ouvert dans l'application
 Open New Window: Ouvrir une nouvelle fenêtre
 Default Invidious instance has been cleared: L'instance Invidious par défaut a été
   effacée
-Default Invidious instance has been set to $: L’instance Invidious par défaut a été
+Default Invidious instance has been set to $: L'instance Invidious par défaut a été
   définie sur $
 Search Bar:
   Clear Input: Effacer l'entrée
-Are you sure you want to open this link?: Êtes-vous sûr de vouloir ouvrir ce lien
-  ?
+Are you sure you want to open this link?: Êtes-vous sûr(e) de vouloir ouvrir ce lien ?
+External link opening has been disabled in the general settings: L'ouverture des liens
+  externes a été désactivée dans les paramètres généraux
