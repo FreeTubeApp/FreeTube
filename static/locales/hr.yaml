@@ -80,6 +80,11 @@ Subscriptions:
   Load More Videos: Učitaj još videa
 Trending:
   Trending: 'U trendu'
+  Trending Tabs: Kartice „U trendu”
+  Movies: Filmovi
+  Gaming: Igranje
+  Music: Glazba
+  Default: Standardno
 Most Popular: 'Najpopularniji'
 Playlists: 'Zbirke'
 User Playlists:
@@ -135,6 +140,11 @@ Settings:
     The currently set default instance is $: Trenutačno postavljena standardna instanca
       je $
     Current Invidious Instance: Trenutačna Invidious instanca
+    External Link Handling:
+      No Action: Bez radnje
+      Ask Before Opening Link: Pitaj prije otvaranja poveznice
+      Open Link: Otvori poveznicu
+      External Link Handling: Rukovanje vanjskim poveznicama
   Theme Settings:
     Theme Settings: 'Postavke teme'
     Match Top Bar with Main Color: 'Koristi glavnu boju u gornjoj traci'
@@ -199,6 +209,7 @@ Settings:
     Next Video Interval: Interval za sljedeći video
     Scroll Volume Over Video Player: Mijenjaj glasnoću u video playeru
     Display Play Button In Video Player: Prikaži gumb za pokretanje u video playeru
+    Fast-Forward / Rewind Interval: Interval za prematanje naprijed/natrag
   Privacy Settings:
     Privacy Settings: 'Postavke privatnosti'
     Remember History: 'Zapamti povijest'
@@ -655,6 +666,7 @@ Comments:
   Newest first: Najprije najnovije
   Top comments: Najpopularniji komentari
   Sort by: Redoslijed
+  Show More Replies: Pokaži više odgovora
 Up Next: 'Sljedeći'
 
 # Toast Messages
@@ -711,6 +723,9 @@ Tooltips:
       poslužitelja na koji će se povezati.
     Region for Trending: 'Regija trendova omogućuje biranje prikaza videa u trendu
       za određenu zemlju. YouTube zapravo ne podržava sve prikazane zemlje.'
+    External Link Handling: "Odaberi standardno ponašanje kad se pritisne poveznica\
+      \ koja se ne može otvoriti u FreeTubeu.\nFreeTube takve poveznice otvara u tvom\
+      \ standardnom pregledniku.\n"
   Subscription Settings:
     Fetch Feeds from RSS: Kad je aktivirano, FreeTube će koristiti RSS umjesto vlastite
       standardne metode za dohvaćanje podataka tvoje pretplate. RSS je brži i sprečava
@@ -742,3 +757,8 @@ Open New Window: Otvori novi prozor
 Default Invidious instance has been cleared: Standardna Invidious instanca je izbrisana
 Default Invidious instance has been set to $: Standardna Invidious instanca je postavljena
   na $
+External link opening has been disabled in the general settings: Vanjsko otvaranje
+  poveznica je deaktivirano u općim postavkama
+Search Bar:
+  Clear Input: Izbriši unos
+Are you sure you want to open this link?: Stvarno želiš otvoriti ovu poveznicu?
