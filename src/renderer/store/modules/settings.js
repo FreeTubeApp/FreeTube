@@ -179,6 +179,7 @@ const state = {
   displayVideoPlayButton: true,
   enableSearchSuggestions: true,
   enableSubtitles: true,
+  externalLinkHandling: '',
   externalPlayer: '',
   externalPlayerExecutable: '',
   externalPlayerIgnoreWarnings: false,

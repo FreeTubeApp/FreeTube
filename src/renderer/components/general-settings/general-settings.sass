@@ -1,1 +1,10 @@
 @use "../../sass-partials/settings"
+
+.select
+  min-width: 240px
+  width: auto
+
+// https://vue-loader.vuejs.org/guide/scoped-css.html#deep-selectors
+.select::v-deep .select-text
+  min-width: 240px
+  width: auto

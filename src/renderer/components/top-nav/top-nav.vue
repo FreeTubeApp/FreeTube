@@ -13,7 +13,8 @@
         @keypress="toggleSideNav"
       />
       <font-awesome-icon
-        class="navBackIcon navIcon"
+        id="historyArrowBack"
+        class="navBackIcon navIcon fa-arrow-left"
         icon="arrow-left"
         role="button"
         tabindex="0"
@@ -22,7 +23,8 @@
         @keypress="historyBack"
       />
       <font-awesome-icon
-        class="navForwardIcon navIcon"
+        id="historyArrowForward"
+        class="navForwardIcon navIcon fa-arrow-right"
         icon="arrow-right"
         role="button"
         tabindex="0"
