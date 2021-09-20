@@ -146,11 +146,6 @@ Settings:
     The currently set default instance is $: The currently set default instance is
       $
     Current Invidious Instance: Current Invidious Instance
-    External Link Handling:
-      No Action: No Action
-      Ask Before Opening Link: Ask Before Opening Link
-      Open Link: Open Link
-      External Link Handling: External Link Handling
   Theme Settings:
     Theme Settings: 'Theme Settings'
     Match Top Bar with Main Color: 'Match top bar with main colour'
@@ -159,6 +154,7 @@ Settings:
       Black: 'Black'
       Dark: 'Dark'
       Light: 'Light'
+      Dracula: 'Dracula'
     Main Color Theme:
       Main Color Theme: 'Main colour theme'
       Red: 'Red'
@@ -177,6 +173,13 @@ Settings:
       Amber: 'Amber'
       Orange: 'Orange'
       Deep Orange: 'Deep Orange'
+      Dracula Cyan: 'Dracula Cyan'
+      Dracula Green: 'Dracula Green'
+      Dracula Orange: 'Dracula Orange'
+      Dracula Pink: 'Dracula Pink'
+      Dracula Purple: 'Dracula Purple'
+      Dracula Red: 'Dracula Red'
+      Dracula Yellow: 'Dracula Yellow'
     Secondary Color Theme: 'Secondary Colour Theme'
         #* Main Color Theme
     UI Scale: UI Scale
@@ -703,9 +706,6 @@ Tooltips:
     Preferred API Backend: Choose the back-end that FreeTube uses to obtain data.
       The local API is a built-in extractor. The Invidious API requires an Invidious
       server to connect to.
-    External Link Handling: "Choose the default behaviour when a link, which cannot\
-      \ be opened in FreeTube, is clicked.\nBy default FreeTube will open the clicked\
-      \ link in your default browser.\n"
   External Player Settings:
     External Player: Choosing an external player will display an icon, for opening
       the video (playlist if supported) in the external player, on the thumbnail.
@@ -733,6 +733,3 @@ Default Invidious instance has been set to $: Default Invidious instance has bee
   set to $
 Search Bar:
   Clear Input: Clear input
-External link opening has been disabled in the general settings: External link opening
-  has been disabled in the general settings
-Are you sure you want to open this link?: Are you sure you want to open this link?

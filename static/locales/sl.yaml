@@ -143,6 +143,7 @@ Settings:
       Black: 'Črna'
       Dark: 'Temna'
       Light: 'Svetla'
+      Dracula: 'Drakula'
     Main Color Theme:
       Main Color Theme: 'Glavna barvna tema'
       Red: 'Rdeča'
@@ -161,6 +162,13 @@ Settings:
       Amber: 'Jantarna'
       Orange: 'Oranžna'
       Deep Orange: 'Temno oranžna'
+      Dracula Cyan: 'Drakula Zelenomodra'
+      Dracula Green: 'Drakula Green'
+      Dracula Orange: 'Drakula Oranžna'
+      Dracula Pink: 'Drakula Roza'
+      Dracula Purple: 'Drakula Vijolična'
+      Dracula Red: 'Drakula Rdeča'
+      Dracula Yellow: 'Drakula Rumena'
     Secondary Color Theme: 'Sekundarna barvna tema'
         #* Main Color Theme
     UI Scale: Merilo uporabniškega vmesnika

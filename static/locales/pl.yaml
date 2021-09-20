@@ -91,7 +91,7 @@ User Playlists:
   Your Playlists: 'Twoje playlisty'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Nie
     masz żadnych zapisanych filmów. Kliknij przycisk „Zapisz film” w rogu filmu, aby
-    został on wymieniony na tej liście
+    został on wymieniony na tej liście.
   Playlist Message: Ta strona nie odzwierciedla w pełni działających playlist. Są
     tu jedynie wymienione filmy, które zapisałeś lub oznaczyłeś jako ulubione. Kiedy
     prace nad tą stroną zostaną zakończone, wszystkie filmy tu obecne zostaną przeniesione
@@ -141,11 +141,6 @@ Settings:
     No default instance has been set: Nie ustawiono domyślnej instancji
     The currently set default instance is $: Obecnie domyślną instancją jest $
     Current Invidious Instance: Obecna instancja Invidious
-    External Link Handling:
-      No Action: Brak akcji
-      Ask Before Opening Link: Zapytaj przed otworzeniem linku
-      Open Link: Otwórz link
-      External Link Handling: Obsługa zewnętrznych linków
   Theme Settings:
     Theme Settings: 'Ustawienia wyglądu'
     Match Top Bar with Main Color: 'Dopasuj górną belkę do głównego koloru'
@@ -154,6 +149,7 @@ Settings:
       Black: 'Czarny'
       Dark: 'Ciemny'
       Light: 'Jasny'
+      Dracula: 'Dracula'
     Main Color Theme:
       Main Color Theme: 'Główny kolor motywu'
       Red: 'Czerwony'
@@ -172,6 +168,13 @@ Settings:
       Amber: 'Bursztynowy'
       Orange: 'Pomarańczowy'
       Deep Orange: 'Głęboka pomarańcza'
+      Dracula Cyan: 'Dracula Turkusowy'
+      Dracula Green: 'Dracula Zielony'
+      Dracula Orange: 'Dracula Pomarańczowy'
+      Dracula Pink: 'Dracula Różowy'
+      Dracula Purple: 'Dracula Fioletowy'
+      Dracula Red: 'Dracula Czerwony'
+      Dracula Yellow: 'Dracula Żółty'
     Secondary Color Theme: 'Drugi kolor motywu'
         #* Main Color Theme
     UI Scale: Skala UI
@@ -731,9 +734,6 @@ Tooltips:
       API. Wyczyść pole z serwerem, by zobaczyć listę publicznych serwerów do wyboru.
     Thumbnail Preference: Wszystkie miniaturki na FreeTube zostaną zastąpione klatką
       z filmu zamiast miniaturki domyślnej.
-    External Link Handling: "Wybierz domyślne zachowanie kiedy link, który nie może\
-      \ zostać otworzony w FreeTube, został kliknięty.\nDomyślnie FreeTube otworzy\
-      \ kliknięty link w domyślnej przeglądarce.\n"
   Player Settings:
     Force Local Backend for Legacy Formats: Działa tylko, kiedy API Invidious jest
       ustawiony jako domyślny. Gdy opcja jest włączona, do odtwarzania starych formatów
@@ -773,6 +773,3 @@ Default Invidious instance has been set to $: Domyślna instancja Invidious zost
   ustawiona na $
 Search Bar:
   Clear Input: Wyczyść pole
-External link opening has been disabled in the general settings: Otwieranie zewnętrznych
-  linków zostało wyłączone w ustawieniach ogólnych
-Are you sure you want to open this link?: Czy na pewno chcesz otworzyć ten link?
