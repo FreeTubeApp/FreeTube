@@ -143,7 +143,7 @@ Settings:
     Current Invidious Instance: Aktuelle Invidious-Instanz
     Clear Default Instance: Standardinstanz zurücksetzen
     Set Current Instance as Default: Derzeitige Instanz als Standard festlegen
-  External Link Handling:
+    External Link Handling:
       No Action: Keine Aktion
       Ask Before Opening Link: Vor dem Öffnen des Links fragen
       Open Link: Link öffnen
