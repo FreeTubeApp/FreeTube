@@ -142,6 +142,11 @@ Settings:
     The currently set default instance is $: L'attuale istanza predefinita è $
     Current Invidious Instance: Istanza attuale di Invidious
     System Default: Predefinito dal sistema
+    External Link Handling:
+      No Action: Nessuna azione
+      Ask Before Opening Link: Chiedi prima di aprire il collegamento
+      Open Link: Apri il collegamento
+      External Link Handling: Gestione dei collegamenti esterni
   Theme Settings:
     Theme Settings: 'Impostazioni del tema'
     Match Top Bar with Main Color: 'Abbina la barra superiore con il colore principale'
@@ -212,16 +217,16 @@ Settings:
     Remember History: 'Salva la Cronologia'
     Save Watched Progress: 'Ricorda l''avanzamento del video'
     Clear Search Cache: 'Pulisci la cache di ricerca'
-    Are you sure you want to clear out your search cache?: 'Sei sicuro di voler
-      pulire la cache di ricerca?'
+    Are you sure you want to clear out your search cache?: 'Sei sicuro di voler pulire
+      la cache di ricerca?'
     Search cache has been cleared: 'La cache di ricerca è stata pulita'
     Remove Watch History: 'Cancella la cronologia visualizzazioni'
     Are you sure you want to remove your entire watch history?: 'Sei sicuro di voler
       cancellare l''intera cronologia di visualizzazione?'
     Watch history has been cleared: 'La cronologia di visualizzazioni è stata pulita'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Sei
-      sicuro di volere eliminare tutte le iscrizioni e profili? L'operazione non
-      può essere annullata.
+      sicuro di volere eliminare tutte le iscrizioni e profili? L'operazione non può
+      essere annullata.
     Remove All Subscriptions / Profiles: Elimina tutte le iscrizioni / profili
     Automatically Remove Video Meta Files: Rimuovi automaticamente i metafile dei
       video
@@ -656,8 +661,8 @@ Download From Site: Scarica dal sito
 The playlist has been reversed: La playlist è stata invertita
 Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Sei
-    sicuro di voler eliminare i canali selezionati? L'operazione non eliminerà i
-    canali da nessun altro profilo.
+    sicuro di voler eliminare i canali selezionati? L'operazione non eliminerà i canali
+    da nessun altro profilo.
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
   : Questo è il tuo profilo primario. Sei sicuro di voler eliminare i canali selezionati?
@@ -730,6 +735,9 @@ Tooltips:
     Region for Trending: La regione delle tendenze permette di scegliere la nazione
       di cui si vogliono vedere i video di tendenza. Non tutte le nazioni mostrate
       sono ufficialmente supportate da YouTube.
+    External Link Handling: "Scegli il comportamento predefinito quando si clicca\
+      \ su un collegamento che non può essere aperto in FreeTube.\nPer impostazione\
+      \ predefinita FreeTube aprirà il collegamento nel browser predefinito.\n"
   External Player Settings:
     Ignore Warnings: Sopprime gli avvisi per quando il lettore esterno corrente non
       supporta l'azione corrente (ad esempio, invertire le playlist, ecc.).
@@ -761,3 +769,6 @@ Unknown YouTube url type, cannot be opened in app: Tipo di URL YouTube sconosciu
   non può essere aperto nell'applicazione
 Search Bar:
   Clear Input: Cancella l'ingresso
+External link opening has been disabled in the general settings: L'apertura dei collegamenti
+  esterni è stata disabilitata nelle impostazioni generali
+Are you sure you want to open this link?: Sei sicuro/a di voler aprire questo collegamento?

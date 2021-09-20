@@ -40,7 +40,14 @@ export default Vue.extend({
       blogBannerMessage: '',
       latestBlogUrl: '',
       updateChangelog: '',
-      changeLogTitle: ''
+      changeLogTitle: '',
+
+      lastExternalLinkToBeOpened: '',
+      showExternalLinkOpeningPrompt: false,
+      externalLinkOpeningPromptValues: [
+        'yes',
+        'no'
+      ]
     }
   },
   computed: {
@@ -96,6 +103,17 @@ export default Vue.extend({
     },
     defaultInvidiousInstance: function () {
       return this.$store.getters.getDefaultInvidiousInstance
+    },
+
+    externalLinkOpeningPromptNames: function () {
+      return [
+        this.$t('Yes'),
+        this.$t('No')
+      ]
+    },
+
+    externalLinkHandling: function () {
+      return this.$store.getters.getExternalLinkHandling
     }
   },
   watch: {
@@ -137,6 +155,10 @@ export default Vue.extend({
           this.checkForNewUpdates()
           this.checkForNewBlogPosts()
         }, 500)
+      })
+
+      this.$router.afterEach((to, from) => {
+        this.$refs.topNav.navigateHistory()
       })
     })
   },
@@ -278,10 +300,10 @@ export default Vue.extend({
       if (event.altKey) {
         switch (event.code) {
           case 'ArrowRight':
-            window.history.forward()
+            this.$refs.topNav.historyForward()
             break
           case 'ArrowLeft':
-            window.history.back()
+            this.$refs.topNav.historyBack()
             break
         }
       }
@@ -305,8 +327,18 @@ export default Vue.extend({
 
         if (isYoutubeLink) {
           this.handleYoutubeLink(el.href)
+        } else if (this.externalLinkHandling === 'doNothing') {
+          // Let user know opening external link is disabled via setting
+          this.showToast({
+            message: this.$t('External link opening has been disabled in the general settings')
+          })
+        } else if (this.externalLinkHandling === 'openLinkAfterPrompt') {
+          // Storing the URL is necessary as
+          // there is no other way to pass the URL to click callback
+          this.lastExternalLinkToBeOpened = el.href
+          this.showExternalLinkOpeningPrompt = true
         } else {
-          // Open links externally by default
+          // Open links externally
           this.openExternalLink(el.href)
         }
       })
@@ -402,6 +434,18 @@ export default Vue.extend({
       })
 
       ipcRenderer.send('appReady')
+    },
+
+    handleExternalLinkOpeningPromptAnswer: function (option) {
+      this.showExternalLinkOpeningPrompt = false
+
+      if (option === 'yes' && this.lastExternalLinkToBeOpened.length > 0) {
+        // Maybe user should be notified
+        // if `lastExternalLinkToBeOpened` is empty
+
+        // Open links externally
+        this.openExternalLink(this.lastExternalLinkToBeOpened)
+      }
     },
 
     ...mapMutations([

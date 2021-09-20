@@ -140,6 +140,11 @@ Settings:
     Set Current Instance as Default: Definir instância atual como padrão
     Clear Default Instance: Limpar instância padrão
     Current Invidious Instance: Instância do Invidious atual
+    External Link Handling:
+      No Action: Nenhuma ação
+      Ask Before Opening Link: Perguntar antes de abrir o link
+      Open Link: Abrir Link
+      External Link Handling: Manuseio de link externo
   Theme Settings:
     Theme Settings: 'Configurações de aparência'
     Match Top Bar with Main Color: 'Usar a cor principal para a barra superior'
@@ -728,6 +733,9 @@ Tooltips:
     Preferred API Backend: Escolha o backend que o FreeTube usa para obter os dados.
       A API local é um extrator integrado. A API Invidious requer um servidor Invidious
       para se conectar.
+    External Link Handling: "Escolha o comportamento padrão quando um link, que não\
+      \ pode ser aberto no FreeTube, é clicado.\nPor padrão, o FreeTube abrirá o link\
+      \ clicado no seu navegador padrão.\n"
   Privacy Settings:
     Remove Video Meta Files: Quando ativado, o FreeTube exclui automaticamente os
       metarquivos criados durante a reprodução do vídeo quando a página de exibição
@@ -758,3 +766,6 @@ Default Invidious instance has been set to $: A instância padrão Invidious foi
   para $
 Search Bar:
   Clear Input: Apagar a inserção
+External link opening has been disabled in the general settings: A abertura de link
+  externo foi desativada nas configurações gerais
+Are you sure you want to open this link?: Tem certeza que deseja abrir este link?

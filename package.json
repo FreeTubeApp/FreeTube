@@ -46,7 +46,9 @@
     "rebuild:node": "npm rebuild",
     "release": "run-s test build",
     "test": "run-s rebuild:node pack:workers jest",
-    "test:watch": "run-s rebuild:node pack:workers jest:watch"
+    "test:watch": "run-s rebuild:node pack:workers jest:watch",
+
+    "ci": "yarn install --frozen-lockfile"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
