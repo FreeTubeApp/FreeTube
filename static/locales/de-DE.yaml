@@ -746,7 +746,7 @@ Tooltips:
     Region for Trending: Die Trendregion erlaubt es dir auszuwählen, aus welchem Land
       die Trends angezeigt werden sollen. Nicht alle Optionen werden auch von YouTube
       unterstützt.
-  External Link Handling: "Wähle das Standardverhalten, wenn ein Link angeklickt\
+    External Link Handling: "Wähle das Standardverhalten, wenn ein Link angeklickt\
       \ wird, der nicht in FreeTube geöffnet werden kann.\nStandardmäßig wird FreeTube\
       \ den angeklickten Link in deinem Standardbrowser öffnen.\n"
   Subscription Settings:
