@@ -91,8 +91,8 @@
 
 .dracula {
   --primary-text-color: #F8F8F2;
-  --secondary-text-color: #8C9AC4;
-  --tertiary-text-color: #C2C8DB;
+  --secondary-text-color: #c6cee6;
+  --tertiary-text-color: #e5e8f3;
   --primary-input-color: rgba(0, 0, 0, 0.50);
   --primary-shadow-color: rgba(0, 0, 0, 0.75);
   --title-color: #BD93F9;
@@ -261,7 +261,7 @@
   --primary-color: #8BE9FD;
   --primary-color-hover: #97EBFD;
   --primary-color-active: #7DD2E4;
-  --text-with-main-color: #6272A4;
+  --text-with-main-color: #282A36;
   --logo-icon-bar-color: url("~../../_icons/iconDraculaDarkSmall.png");
   --logo-text-bar-color: url("~../../_icons/textDraculaDarkSmall.png");
 }
@@ -270,7 +270,7 @@
   --primary-color: #50FA7B;
   --primary-color-hover: #62FB88;
   --primary-color-active: #48E16F;
-  --text-with-main-color: #6272A4;
+  --text-with-main-color: #282A36;
   --logo-icon-bar-color: url("~../../_icons/iconDraculaDarkSmall.png");
   --logo-text-bar-color: url("~../../_icons/textDraculaDarkSmall.png");
 }
@@ -279,7 +279,7 @@
   --primary-color: #FFB86C;
   --primary-color-hover: #FFBF7B;
   --primary-color-active: #E6A661;
-  --text-with-main-color: #6272A4;
+  --text-with-main-color: #282A36;
   --logo-icon-bar-color: url("~../../_icons/iconDraculaDarkSmall.png");
   --logo-text-bar-color: url("~../../_icons/textDraculaDarkSmall.png");
 }
@@ -288,8 +288,7 @@
   --primary-color: #FF79C6;
   --primary-color-hover: #FF86CC;
   --primary-color-active: #E66DB2;
-  --text-with-main-color: #6272A4;
-  --text-with-main-color: #F8F8F2;
+  --text-with-main-color: #282A36;
   --logo-icon-bar-color: url("~../../_icons/iconDraculaLightSmall.png");
   --logo-text-bar-color: url("~../../_icons/textDraculaLightSmall.png");
 }
@@ -298,8 +297,7 @@
   --primary-color: #BD93F9;
   --primary-color-hover: #C49EFA;
   --primary-color-active: #AA84E0;
-  --text-with-main-color: #6272A4;
-  --text-with-main-color: #F8F8F2;
+  --text-with-main-color: #282A36;
   --logo-icon-bar-color: url("~../../_icons/iconDraculaLightSmall.png");
   --logo-text-bar-color: url("~../../_icons/textDraculaLightSmall.png");
 }
@@ -308,7 +306,7 @@
   --primary-color: #FF5555;
   --primary-color-hover: #FF6666;
   --primary-color-active: #E64D4D;
-  --text-with-main-color: #F8F8F2;
+  --text-with-main-color: #282A36;
   --logo-icon-bar-color: url("~../../_icons/iconDraculaLightSmall.png");
   --logo-text-bar-color: url("~../../_icons/textDraculaLightSmall.png");
 }
@@ -317,7 +315,7 @@
   --primary-color: #F1FA8C;
   --primary-color-hover: #F2FB98;
   --primary-color-active: #D9E17E;
-  --text-with-main-color: #6272A4;
+  --text-with-main-color: #282A36;
   --logo-icon-bar-color: url("~../../_icons/iconDraculaDarkSmall.png");
   --logo-text-bar-color: url("~../../_icons/textDraculaDarkSmall.png");
 }
