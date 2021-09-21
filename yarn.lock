@@ -1010,12 +1010,13 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/vue-fontawesome/-/vue-fontawesome-2.0.2.tgz#5b86cd2fb7b4c17e5dede722c1c2855c97eceaea"
   integrity sha512-ecpKSBUWXsxRJVi/dbOds4tkKwEcBQ1JSDZFzE2jTFpF8xIh3OgTX8POIor6bOltjibr3cdEyvnDjecMwUmxhQ==
 
-"@freetube/youtube-chat@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@freetube/youtube-chat/-/youtube-chat-1.1.1.tgz#b2bd139e7d7526eecc907fc26dd7def6dcdd2658"
-  integrity sha512-Wqyv3Cl7tFfQaMRgYmeTNwtt5VNN/6NLbXWlWtiZMGvhSmsOCeeQmSYovewU9ckC7jFzHIhGY54qdRfEq1YOKQ==
+"@freetube/youtube-chat@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@freetube/youtube-chat/-/youtube-chat-1.1.2.tgz#29e8e1fc94a278e2da38c1241fb611a744a3a0a6"
+  integrity sha512-VT/00nshjwf5WC7cZ9EV5lGMo83DDyC0XYnoNwmSk34sWCco8h8/EXKnCDTG82clZrS2mJHYlYRfXN/6FWd6ig==
   dependencies:
     axios "^0.21.1"
+    tslib "^1.11.1"
 
 "@freetube/yt-comment-scraper@^6.0.0":
   version "6.0.0"
@@ -8147,7 +8148,7 @@ tsconfig-paths@^3.11.0:
     minimist "^1.2.0"
     strip-bom "^3.0.0"
 
-tslib@^1.8.1, tslib@^1.9.3:
+tslib@^1.11.1, tslib@^1.8.1, tslib@^1.9.3:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
