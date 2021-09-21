@@ -215,7 +215,7 @@ Settings:
   Privacy Settings:
     Privacy Settings: 'Impostazioni privacy'
     Remember History: 'Salva la Cronologia'
-    Save Watched Progress: 'Ricorda l''avanzamento del video'
+    Save Watched Progress: 'Salva i progressi osservati'
     Clear Search Cache: 'Pulisci la cache di ricerca'
     Are you sure you want to clear out your search cache?: 'Sei sicuro di voler pulire
       la cache di ricerca?'
@@ -308,7 +308,7 @@ Settings:
     Select Export Type: Seleziona il tipo di esportazione
     Select Import Type: Seleziona il tipo di importazione
     Data Settings: Impostazioni dei dati
-    Check for Legacy Subscriptions: Cerca Iscrizioni in formato Legacy
+    Check for Legacy Subscriptions: Controlla iscrizioni in formato Legacy
     Manage Subscriptions: Gestisci le tue iscrizioni
   Distraction Free Settings:
     Hide Popular Videos: Nascondi i video popolari
