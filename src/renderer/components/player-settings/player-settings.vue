@@ -43,6 +43,12 @@
           @change="updateVideoVolumeMouseScroll"
         />
         <ft-toggle-switch
+          :label="$t('Settings.Player Settings.Scroll Playback Rate Over Video Player')"
+          :compact="true"
+          :default-value="videoPlaybackRateMouseScroll"
+          @change="updateVideoPlaybackRateMouseScroll"
+        />
+        <ft-toggle-switch
           :label="$t('Settings.Player Settings.Display Play Button In Video Player')"
           :compact="true"
           :default-value="displayVideoPlayButton"
