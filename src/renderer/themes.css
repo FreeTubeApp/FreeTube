@@ -22,6 +22,7 @@
   --logo-text: url("~../../_icons/textColorSmall.png");
 }
 
+
 .dark {
   --primary-text-color: #EEEEEE;
   --secondary-text-color: #ddd;
@@ -47,51 +48,27 @@
 }
 
 .black {
-  --primary-text-color: #EEEEEE;
-  --secondary-text-color: #ddd;
-  --tertiary-text-color: #EEEEEE;
-  --primary-input-color: rgba(0, 0, 0, 0.50);
-  --primary-shadow-color: rgba(0, 0, 0, 0.75);
-  --title-color: #EEEEEEE;
-  --bg-color: #000000;
-  --link-color: var(--accent-color);
-  --link-visited-color: var(--accent-color-visited);
-  --favorite-icon-color: #FFEA00;
-  --card-bg-color: #000000;
-  --secondary-card-bg-color: rgba(0, 0, 0, 0.75);
-  --scrollbar-color: #515151;
-  --scrollbar-color-hover: #424242;
-  --side-nav-color: #000000;
-  --side-nav-hover-color: #212121;
-  --side-nav-active-color: #303030;
-  --search-bar-color: #262626;
-  --instance-menu-color: var(--search-bar-color);
-  --logo-icon: url("~../../_icons/iconColorSmall.png");
-  --logo-text: url("~../../_icons/textColorSmall.png");
-}
-
-.dracula {
-  --primary-text-color: #F8F8F2;
-  --secondary-text-color: #8C9AC4;
-  --tertiary-text-color: #C2C8DB;
-  --primary-input-color: rgba(0, 0, 0, 0.5);
-  --primary-shadow-color: rgba(0, 0, 0, 0.75);
-  --title-color: #BD93F9;
-  --bg-color: #282A36;
-  --link-color: var(--accent-color);
-  --link-visited-color: var(--accent-color-visited);
-  --favorite-icon-color: #F1FA8C;
-  --card-bg-color: #33353F;
-  --secondary-card-bg-color: #282A36;
-  --scrollbar-color: #44475A;
-  --scrollbar-color-hover: #3D4051;
-  --side-nav-color: #44475A;
-  --side-nav-hover-color: #57596B;
-  --side-nav-active-color: #3D4051;
-  --search-bar-color: #3E3F4A;
-  --instance-menu-color: var(--search-bar-color);
-  --logo-icon: url("~../../_icons/iconDraculaLightSmall.png");
-  --logo-text: url("~../../_icons/textDraculaLightSmall.png");
+    --primary-text-color: #EEEEEE;
+    --secondary-text-color: #ddd;
+    --tertiary-text-color: #EEEEEE;
+    --primary-input-color: rgba(0, 0, 0, 0.50);
+    --primary-shadow-color: rgba(0, 0, 0, 0.75);
+    --title-color: #EEEEEEE;
+    --bg-color: #000000;
+    --link-color: var(--accent-color);
+    --link-visited-color: var(--accent-color-visited);
+    --favorite-icon-color: #FFEA00;
+    --card-bg-color: #000000;
+    --secondary-card-bg-color: rgba(0, 0, 0, 0.75);
+    --scrollbar-color: #515151;
+    --scrollbar-color-hover: #424242;
+    --side-nav-color: #000000;
+    --side-nav-hover-color: #212121;
+    --side-nav-active-color: #303030;
+    --search-bar-color: #262626;
+    --instance-menu-color: var(--search-bar-color);
+	  --logo-icon: url("~../../_icons/iconColorSmall.png");
+   	--logo-text: url("~../../_icons/textColorSmall.png");
 }
 
 .gray {
@@ -110,6 +87,30 @@
   --search-bar-color: #212121;
   --logo-icon: url("~../../_icons/iconColorSmall.png");
   --logo-text: url("~../../_icons/textColorSmall.png");
+}
+
+.dracula {
+  --primary-text-color: #F8F8F2;
+  --secondary-text-color: #8C9AC4;
+  --tertiary-text-color: #C2C8DB;
+  --primary-input-color: rgba(0, 0, 0, 0.50);
+  --primary-shadow-color: rgba(0, 0, 0, 0.75);
+  --title-color: #BD93F9;
+  --bg-color: #282A36;
+  --link-color: var(--accent-color);
+  --link-visited-color: var(--accent-color-visited);
+  --favorite-icon-color: #F1FA8C;
+  --card-bg-color: #33353F;
+  --secondary-card-bg-color: #282A36;
+  --scrollbar-color: #44475A;
+  --scrollbar-color-hover: #3D4051;
+  --side-nav-color: #44475A;
+  --side-nav-hover-color: #57596B;
+  --side-nav-active-color: #3D4051;
+  --search-bar-color: #3E3F4A;
+  --instance-menu-color: var(--search-bar-color);
+  --logo-icon: url("~../../_icons/iconDraculaLightSmall.png");
+  --logo-text: url("~../../_icons/textDraculaLightSmall.png");
 }
 
 .mainRed {
@@ -328,10 +329,10 @@
   --accent-color-light: #ef9a9a;
   --accent-color-visited: #b71c1c;
   --text-with-accent-color: #FFFFFF;
-  --accent-color-opacity1: rgba(244, 67, 54, 0.04);
-  --accent-color-opacity2: rgba(244, 67, 54, 0.12);
-  --accent-color-opacity3: rgba(244, 67, 54, 0.16);
-  --accent-color-opacity4: rgba(244, 67, 54, 0.24);
+  --accent-color-opacity1: rgba(244,67,54,0.04);
+  --accent-color-opacity2: rgba(244,67,54,0.12);
+  --accent-color-opacity3: rgba(244,67,54,0.16);
+  --accent-color-opacity4: rgba(244,67,54,0.24);
 }
 
 .secPink {
@@ -341,10 +342,10 @@
   --accent-color-light: #F48FB1;
   --accent-color-visited: #880E4F;
   --text-with-accent-color: #FFFFFF;
-  --accent-color-opacity1: rgba(233, 30, 99, 0.04);
-  --accent-color-opacity2: rgba(233, 30, 99, 0.12);
-  --accent-color-opacity3: rgba(233, 30, 99, 0.16);
-  --accent-color-opacity4: rgba(233, 30, 99, 0.24);
+  --accent-color-opacity1: rgba(233,30,99,0.04);
+  --accent-color-opacity2: rgba(233,30,99,0.12);
+  --accent-color-opacity3: rgba(233,30,99,0.16);
+  --accent-color-opacity4: rgba(233,30,99,0.24);
 }
 
 .secPurple {
@@ -354,10 +355,10 @@
   --accent-color-light: #CE93D8;
   --accent-color-visited: #4A148C;
   --text-with-accent-color: #FFFFFF;
-  --accent-color-opacity1: rgba(156, 39, 176, 0.04);
-  --accent-color-opacity2: rgba(156, 39, 176, 0.12);
-  --accent-color-opacity3: rgba(156, 39, 176, 0.16);
-  --accent-color-opacity4: rgba(156, 39, 176, 0.24);
+  --accent-color-opacity1: rgba(156,39,176,0.04);
+  --accent-color-opacity2: rgba(156,39,176,0.12);
+  --accent-color-opacity3: rgba(156,39,176,0.16);
+  --accent-color-opacity4: rgba(156,39,176,0.24);
 }
 
 .secDeepPurple {
@@ -367,10 +368,10 @@
   --accent-color-light: #B39DDB;
   --accent-color-visited: #311B92;
   --text-with-accent-color: #FFFFFF;
-  --accent-color-opacity1: rgba(103, 58, 183, 0.04);
-  --accent-color-opacity2: rgba(103, 58, 183, 0.12);
-  --accent-color-opacity3: rgba(103, 58, 183, 0.16);
-  --accent-color-opacity4: rgba(103, 58, 183, 0.24);
+  --accent-color-opacity1: rgba(103,58,183,0.04);
+  --accent-color-opacity2: rgba(103,58,183,0.12);
+  --accent-color-opacity3: rgba(103,58,183,0.16);
+  --accent-color-opacity4: rgba(103,58,183,0.24);
 }
 
 .secIndigo {
@@ -380,10 +381,10 @@
   --accent-color-light: #9FA8DA;
   --accent-color-visited: #1A237E;
   --text-with-accent-color: #FFFFFF;
-  --accent-color-opacity1: rgba(63, 81, 181, 0.04);
-  --accent-color-opacity2: rgba(63, 81, 181, 0.12);
-  --accent-color-opacity3: rgba(63, 81, 181, 0.16);
-  --accent-color-opacity4: rgba(63, 81, 181, 0.24);
+  --accent-color-opacity1: rgba(63,81,181,0.04);
+  --accent-color-opacity2: rgba(63,81,181,0.12);
+  --accent-color-opacity3: rgba(63,81,181,0.16);
+  --accent-color-opacity4: rgba(63,81,181,0.24);
 }
 
 .secBlue {
@@ -393,10 +394,10 @@
   --accent-color-light: #90CAF9;
   --accent-color-visited: #0D47A1;
   --text-with-accent-color: #FFFFFF;
-  --accent-color-opacity1: rgba(33, 150, 243, 0.04);
-  --accent-color-opacity2: rgba(33, 150, 243, 0.12);
-  --accent-color-opacity3: rgba(33, 150, 243, 0.16);
-  --accent-color-opacity4: rgba(33, 150, 243, 0.24);
+  --accent-color-opacity1: rgba(33,150,243,0.04);
+  --accent-color-opacity2: rgba(33,150,243,0.12);
+  --accent-color-opacity3: rgba(33,150,243,0.16);
+  --accent-color-opacity4: rgba(33,150,243,0.24);
 }
 
 .secLightBlue {
@@ -406,10 +407,10 @@
   --accent-color-light: #81D4FA;
   --accent-color-visited: #01579B;
   --text-with-accent-color: #FFFFFF;
-  --accent-color-opacity1: rgba(3, 169, 244, 0.04);
-  --accent-color-opacity2: rgba(3, 169, 244, 0.12);
-  --accent-color-opacity3: rgba(3, 169, 244, 0.16);
-  --accent-color-opacity4: rgba(3, 169, 244, 0.24);
+  --accent-color-opacity1: rgba(3,169,244,0.04);
+  --accent-color-opacity2: rgba(3,169,244,0.12);
+  --accent-color-opacity3: rgba(3,169,244,0.16);
+  --accent-color-opacity4: rgba(3,169,244,0.24);
 }
 
 .secCyan {
@@ -419,10 +420,10 @@
   --accent-color-light: #80DEEA;
   --accent-color-visited: #006064;
   --text-with-accent-color: #FFFFFF;
-  --accent-color-opacity1: rgba(0, 188, 212, 0.04);
-  --accent-color-opacity2: rgba(0, 188, 212, 0.12);
-  --accent-color-opacity3: rgba(0, 188, 212, 0.16);
-  --accent-color-opacity4: rgba(0, 188, 212, 0.24);
+  --accent-color-opacity1: rgba(0,188,212,0.04);
+  --accent-color-opacity2: rgba(0,188,212,0.12);
+  --accent-color-opacity3: rgba(0,188,212,0.16);
+  --accent-color-opacity4: rgba(0,188,212,0.24);
 }
 
 .secTeal {
@@ -432,10 +433,10 @@
   --accent-color-light: #80CBC4;
   --accent-color-visited: #004D40;
   --text-with-accent-color: #FFFFFF;
-  --accent-color-opacity1: rgba(0, 150, 136, 0.04);
-  --accent-color-opacity2: rgba(0, 150, 136, 0.12);
-  --accent-color-opacity3: rgba(0, 150, 136, 0.16);
-  --accent-color-opacity4: rgba(0, 150, 136, 0.24);
+  --accent-color-opacity1: rgba(0,150,136,0.04);
+  --accent-color-opacity2: rgba(0,150,136,0.12);
+  --accent-color-opacity3: rgba(0,150,136,0.16);
+  --accent-color-opacity4: rgba(0,150,136,0.24);
 }
 
 .secGreen {
@@ -445,10 +446,10 @@
   --accent-color-light: #A5D6A7;
   --accent-color-visited: #1B5E20;
   --text-with-accent-color: #FFFFFF;
-  --accent-color-opacity1: rgba(76, 175, 80, 0.04);
-  --accent-color-opacity2: rgba(76, 175, 80, 0.12);
-  --accent-color-opacity3: rgba(76, 175, 80, 0.16);
-  --accent-color-opacity4: rgba(76, 175, 80, 0.24);
+  --accent-color-opacity1: rgba(76,175,80,0.04);
+  --accent-color-opacity2: rgba(76,175,80,0.12);
+  --accent-color-opacity3: rgba(76,175,80,0.16);
+  --accent-color-opacity4: rgba(76,175,80,0.24);
 }
 
 .secLightGreen {
@@ -458,10 +459,10 @@
   --accent-color-light: #C5E1A5;
   --accent-color-visited: #33691E;
   --text-with-accent-color: #000000;
-  --accent-color-opacity1: rgba(139, 195, 74, 0.04);
-  --accent-color-opacity2: rgba(139, 195, 74, 0.12);
-  --accent-color-opacity3: rgba(139, 195, 74, 0.16);
-  --accent-color-opacity4: rgba(139, 195, 74, 0.24);
+  --accent-color-opacity1: rgba(139,195,74,0.04);
+  --accent-color-opacity2: rgba(139,195,74,0.12);
+  --accent-color-opacity3: rgba(139,195,74,0.16);
+  --accent-color-opacity4: rgba(139,195,74,0.24);
 }
 
 .secLime {
@@ -471,10 +472,10 @@
   --accent-color-light: #E6EE9C;
   --accent-color-visited: #827717;
   --text-with-accent-color: #000000;
-  --accent-color-opacity1: rgba(205, 220, 57, 0.04);
-  --accent-color-opacity2: rgba(205, 220, 57, 0.12);
-  --accent-color-opacity3: rgba(205, 220, 57, 0.16);
-  --accent-color-opacity4: rgba(205, 220, 57, 0.24);
+  --accent-color-opacity1: rgba(205,220,57,0.04);
+  --accent-color-opacity2: rgba(205,220,57,0.12);
+  --accent-color-opacity3: rgba(205,220,57,0.16);
+  --accent-color-opacity4: rgba(205,220,57,0.24);
 }
 
 .secYellow {
@@ -484,10 +485,10 @@
   --accent-color-light: #FFF59D;
   --accent-color-visited: #F57F17;
   --text-with-accent-color: #000000;
-  --accent-color-opacity1: rgba(255, 235, 59, 0.04);
-  --accent-color-opacity2: rgba(255, 235, 59, 0.12);
-  --accent-color-opacity3: rgba(255, 235, 59, 0.16);
-  --accent-color-opacity4: rgba(255, 235, 59, 0.24);
+  --accent-color-opacity1: rgba(255,235,59,0.04);
+  --accent-color-opacity2: rgba(255,235,59,0.12);
+  --accent-color-opacity3: rgba(255,235,59,0.16);
+  --accent-color-opacity4: rgba(255,235,59,0.24);
 }
 
 .secAmber {
@@ -497,10 +498,10 @@
   --accent-color-light: #FFE082;
   --accent-color-visited: #FF6F00;
   --text-with-accent-color: #000000;
-  --accent-color-opacity1: rgba(255, 193, 7, 0.04);
-  --accent-color-opacity2: rgba(255, 193, 7, 0.12);
-  --accent-color-opacity3: rgba(255, 193, 7, 0.16);
-  --accent-color-opacity4: rgba(255, 193, 7, 0.24);
+  --accent-color-opacity1: rgba(255,193,7,0.04);
+  --accent-color-opacity2: rgba(255,193,7,0.12);
+  --accent-color-opacity3: rgba(255,193,7,0.16);
+  --accent-color-opacity4: rgba(255,193,7,0.24);
 }
 
 .secOrange {
@@ -510,10 +511,10 @@
   --accent-color-light: #FFCC80;
   --accent-color-visited: #E65100;
   --text-with-accent-color: #000000;
-  --accent-color-opacity1: rgba(255, 152, 0, 0.04);
-  --accent-color-opacity2: rgba(255, 152, 0, 0.12);
-  --accent-color-opacity3: rgba(255, 152, 0, 0.16);
-  --accent-color-opacity4: rgba(255, 152, 0, 0.24);
+  --accent-color-opacity1: rgba(255,152,0,0.04);
+  --accent-color-opacity2: rgba(255,152,0,0.12);
+  --accent-color-opacity3: rgba(255,152,0,0.16);
+  --accent-color-opacity4: rgba(255,152,0,0.24);
 }
 
 .secDeepOrange {
@@ -523,9 +524,10 @@
   --accent-color-light: #FFAB91;
   --accent-color-visited: #BF360C;
   --text-with-accent-color: #000000;
-  --accent-color-opacity2: rgba(255, 87, 34, 0.12);
-  --accent-color-opacity3: rgba(255, 87, 34, 0.16);
-  --accent-color-opacity4: rgba(255, 87, 34, 0.24);
+  --accent-color-opacity1: rgba(255,87,34,0.04);
+  --accent-color-opacity2: rgba(255,87,34,0.12);
+  --accent-color-opacity3: rgba(255,87,34,0.16);
+  --accent-color-opacity4: rgba(255,87,34,0.24);
 }
 
 .secDraculaCyan {
@@ -535,10 +537,10 @@
   --accent-color-light: #A2EDFD;
   --accent-color-visited: #6FBACA;
   --text-with-accent-color: #212121;
-  --accent-color-opacity1: rgba(98, 114, 164, 0.04);
-  --accent-color-opacity2: rgba(98, 114, 164, 0.12);
-  --accent-color-opacity3: rgba(98, 114, 164, 0.16);
-  --accent-color-opacity4: rgba(98, 114, 164, 0.24);
+  --accent-color-opacity1: rgba(98,114,164,0.04);
+  --accent-color-opacity2: rgba(98,114,164,0.12);
+  --accent-color-opacity3: rgba(98,114,164,0.16);
+  --accent-color-opacity4: rgba(98,114,164,0.24);
 }
 
 .secDraculaGreen {
@@ -548,10 +550,10 @@
   --accent-color-light: #73FB95;
   --accent-color-visited: #40C862;
   --text-with-accent-color: #212121;
-  --accent-color-opacity1: rgba(98, 114, 164, 0.04);
-  --accent-color-opacity2: rgba(98, 114, 164, 0.12);
-  --accent-color-opacity3: rgba(98, 114, 164, 0.16);
-  --accent-color-opacity4: rgba(98, 114, 164, 0.24);
+  --accent-color-opacity1: rgba(98,114,164,0.04);
+  --accent-color-opacity2: rgba(98,114,164,0.12);
+  --accent-color-opacity3: rgba(98,114,164,0.16);
+  --accent-color-opacity4: rgba(98,114,164,0.24);
 }
 
 .secDraculaOrange {
@@ -561,10 +563,10 @@
   --accent-color-light: #FFC689;
   --accent-color-visited: #CC9356;
   --text-with-accent-color: #212121;
-  --accent-color-opacity1: rgba(98, 114, 164, 0.04);
-  --accent-color-opacity2: rgba(98, 114, 164, 0.12);
-  --accent-color-opacity3: rgba(98, 114, 164, 0.16);
-  --accent-color-opacity4: rgba(98, 114, 164, 0.24);
+  --accent-color-opacity1: rgba(98,114,164,0.04);
+  --accent-color-opacity2: rgba(98,114,164,0.12);
+  --accent-color-opacity3: rgba(98,114,164,0.16);
+  --accent-color-opacity4: rgba(98,114,164,0.24);
 }
 
 .secDraculaPink {
@@ -574,10 +576,10 @@
   --accent-color-light: #FF94D1;
   --accent-color-visited: #CC619E;
   --text-with-accent-color: #212121;
-  --accent-color-opacity1: rgba(98, 114, 164, 0.04);
-  --accent-color-opacity2: rgba(98, 114, 164, 0.12);
-  --accent-color-opacity3: rgba(98, 114, 164, 0.16);
-  --accent-color-opacity4: rgba(98, 114, 164, 0.24);
+  --accent-color-opacity1: rgba(98,114,164,0.04);
+  --accent-color-opacity2: rgba(98,114,164,0.12);
+  --accent-color-opacity3: rgba(98,114,164,0.16);
+  --accent-color-opacity4: rgba(98,114,164,0.24);
 }
 
 .secDraculaPurple {
@@ -587,10 +589,10 @@
   --accent-color-light: #CAA9FA;
   --accent-color-visited: #9776C7;
   --text-with-accent-color: #212121;
-  --accent-color-opacity1: rgba(98, 114, 164, 0.04);
-  --accent-color-opacity2: rgba(98, 114, 164, 0.12);
-  --accent-color-opacity3: rgba(98, 114, 164, 0.16);
-  --accent-color-opacity4: rgba(98, 114, 164, 0.24);
+  --accent-color-opacity1: rgba(98,114,164,0.04);
+  --accent-color-opacity2: rgba(98,114,164,0.12);
+  --accent-color-opacity3: rgba(98,114,164,0.16);
+  --accent-color-opacity4: rgba(98,114,164,0.24);
 }
 
 .secDraculaRed {
@@ -600,10 +602,10 @@
   --accent-color-light: #FF7777;
   --accent-color-visited: #CC4444;
   --text-with-accent-color: #212121;
-  --accent-color-opacity1: rgba(98, 114, 164, 0.04);
-  --accent-color-opacity2: rgba(98, 114, 164, 0.12);
-  --accent-color-opacity3: rgba(98, 114, 164, 0.16);
-  --accent-color-opacity4: rgba(98, 114, 164, 0.24);
+  --accent-color-opacity1: rgba(98,114,164,0.04);
+  --accent-color-opacity2: rgba(98,114,164,0.12);
+  --accent-color-opacity3: rgba(98,114,164,0.16);
+  --accent-color-opacity4: rgba(98,114,164,0.24);
 }
 
 .secDraculaYellow {
@@ -613,10 +615,10 @@
   --accent-color-light: #F4FBA3;
   --accent-color-visited: #C1C870;
   --text-with-accent-color: #212121;
-  --accent-color-opacity1: rgba(98, 114, 164, 0.04);
-  --accent-color-opacity2: rgba(98, 114, 164, 0.12);
-  --accent-color-opacity3: rgba(98, 114, 164, 0.16);
-  --accent-color-opacity4: rgba(98, 114, 164, 0.24);
+  --accent-color-opacity1: rgba(98,114,164,0.04);
+  --accent-color-opacity2: rgba(98,114,164,0.12);
+  --accent-color-opacity3: rgba(98,114,164,0.16);
+  --accent-color-opacity4: rgba(98,114,164,0.24);
 }
 
 body {
@@ -634,20 +636,20 @@ body {
   outline: none;
 }
 
-.rightAligned {
+.rightAligned: {
   text-align: right;
 }
 
 a:link {
-  color: var(--link-color);
+    color: var(--link-color);
 }
 
 a:visited {
-  color: var(--link-visited-color);
+    color: var(--link-visited-color);
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+	width: 6px;
   height: 6px;
 }
 
