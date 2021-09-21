@@ -6,41 +6,43 @@ FreeTube: 'FreeTube'
   Zati hau ez dago prest oraindik. Itzuli aurrerago aurrerapenak egin direnean.
 
 # Webkit Menu Bar
-File: ''
-Quit: ''
-Edit: ''
-Undo: ''
-Redo: ''
-Cut: ''
-Copy: ''
-Paste: ''
-Delete: ''
-Select all: ''
-Reload: ''
-Force Reload: ''
-Toggle Developer Tools: ''
-Actual size: ''
-Zoom in: ''
-Zoom out: ''
-Toggle fullscreen: ''
-Window: ''
-Minimize: ''
-Close: ''
-Back: ''
-Forward: ''
+File: 'Artxibategia'
+Quit: 'Irten'
+Edit: 'Editatu'
+Undo: 'Desegin'
+Redo: 'Berregin'
+Cut: 'Moztu'
+Copy: 'Kopiatu'
+Paste: 'Itsatsi'
+Delete: 'Ezabatu'
+Select all: 'Guztia hautatu'
+Reload: 'Birzamatu'
+Force Reload: 'Birzamaketa behartu'
+Toggle Developer Tools: 'Garatzaile erremintak erakutsi'
+Actual size: 'Benetako tamaina'
+Zoom in: 'Handiagotu'
+Zoom out: 'Txikiagotu'
+Toggle fullscreen: 'Bistaratzaile osoa'
+Window: 'Leihoa'
+Minimize: 'Minimizatu'
+Close: 'Itxi'
+Back: 'Atzera'
+Forward: 'Aurrera'
 
-Version $ is now available!  Click for more details: ''
-Download From Site: ''
-A new blog is now available, $. Click to view more: ''
+Version $ is now available!  Click for more details: '$ bertsioa erabilgarri! Klikatu
+  azalpen gehiagorako'
+Download From Site: 'Webgunetik jaitsi'
+A new blog is now available, $. Click to view more: 'Blog berri bat erabilgarri dago,
+  $. Klikatu gehiagorako'
 
 # Search Bar
-Search / Go to URL: ''
+Search / Go to URL: 'Bilatu / Helbidera joan'
   # In Filter Button
 Search Filters:
-  Search Filters: ''
+  Search Filters: 'Bilaketa iragazkiak'
   Sort By:
-    Sort By: ''
-    Most Relevant: ''
+    Sort By: 'Ordenatze irizpidea'
+    Most Relevant: 'Egokitasuna'
     Rating: ''
     Upload Date: ''
     View Count: ''
@@ -539,3 +541,7 @@ Canceled next video autoplay: ''
 
 Yes: ''
 No: ''
+Search Bar:
+  Clear Input: Sarrera garbitu
+Are you sure you want to open this link?: Ziur al zaude ataka hau ireki nahi duzula?
+Open New Window: Leiho berria ireki
