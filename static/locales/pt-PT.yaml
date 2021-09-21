@@ -149,6 +149,11 @@ Settings:
     Current Invidious Instance: Servidor Invidious em Utilização
     Clear Default Instance: Apagar predefinição
     Set Current Instance as Default: Escolher o servidor actual como a predefinição
+    External Link Handling:
+      No Action: Não Fazer Nada
+      Ask Before Opening Link: Perguntar Antes de Abrir Ligação
+      Open Link: Abrir Ligação
+      External Link Handling: Ligações Externas
   Theme Settings:
     Theme Settings: Definições de Tema
     Match Top Bar with Main Color: Utilizar Cor Principal Para Barra Superior
@@ -632,6 +637,9 @@ Tooltips:
     Region for Trending: A região de tendências permite-lhe escolher de que país virão
       os vídeos na secção das tendências. Nem todos os países apresentados estão de
       facto a funcionar devido ao Youtube.
+    External Link Handling: "Escolha o que fazer com uma ligação que não pode ser\
+      \ aberta pelo FreeTube.\nPor predefinição, o FreeTube abrirá a ligação no seu\
+      \ navegador predefinido.\n"
   Player Settings:
     Force Local Backend for Legacy Formats: Apenas funciona quando a API Invidious
       é o seu sistema preferido. Quando activada, a API local irá ser usada para ir
@@ -701,3 +709,8 @@ Open New Window: Abrir uma nova janela
 Default Invidious instance has been cleared: Predefinição apagada
 Default Invidious instance has been set to $: Servidor Invidious $ foi estabelecido
   como predefenição
+External link opening has been disabled in the general settings: Ligações externas
+  foram desactivadas nas definições gerais
+Search Bar:
+  Clear Input: Apagar Entrada
+Are you sure you want to open this link?: Tem a certeza que quer abrir esta ligação?
