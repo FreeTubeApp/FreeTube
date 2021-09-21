@@ -132,8 +132,8 @@ Settings:
     Base Theme:
       Base Theme: 'Temă de bază'
       Black: 'Negru'
-      Dark: 'Intunecat'
-      Light: 'Deschis'
+      Dark: 'Întunecat'
+      Light: 'Aprinsă'
       Dracula: 'Dracula'
     Main Color Theme:
       Main Color Theme: 'Culoarea temei principale'
@@ -152,7 +152,7 @@ Settings:
       Yellow: 'Galben'
       Amber: 'Chihlimbar'
       Orange: 'Portocaliu'
-      Deep Orange: 'Portocaliu inchis'
+      Deep Orange: 'Portocaliu închis'
       Dracula Cyan: 'Dracula Cyan'
       Dracula Green: 'Dracula Verde'
       Dracula Orange: 'Dracula Portocaliu'
@@ -160,7 +160,7 @@ Settings:
       Dracula Purple: 'Dracula Violet'
       Dracula Red: 'Dracula Roşu'
       Dracula Yellow: 'Dracula Chihlimbar'
-    Secondary Color Theme: 'Culoare secundara'
+    Secondary Color Theme: 'Culoarea secundară a temei'
         #* Main Color Theme
     UI Scale: Scala UI
     Disable Smooth Scrolling: Dezactivați derularea fără probleme
