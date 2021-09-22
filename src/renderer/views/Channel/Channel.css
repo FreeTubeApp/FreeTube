@@ -21,6 +21,7 @@
   width: 100%;
   position: relative;
   background-color: var(--card-bg-color);
+  margin-top: 10px;
 }
 
 .channelInfo {
