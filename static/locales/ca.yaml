@@ -144,6 +144,7 @@ Settings:
       Black: 'Negre'
       Dark: 'Fosc'
       Light: 'Clar'
+      Dracula: 'Dràcula'
     Main Color Theme:
       Main Color Theme: 'Tema principal del color'
       Red: 'Vermell'
@@ -162,6 +163,13 @@ Settings:
       Amber: 'Ambre'
       Orange: 'Taronja'
       Deep Orange: 'Taronja fosc'
+      Dracula Cyan: 'Dràcula Cian'
+      Dracula Green: 'Dràcula Verd'
+      Dracula Orange: 'Dràcula Taronja'
+      Dracula Pink: 'Dràcula Rosa'
+      Dracula Purple: 'Dràcula Porpra'
+      Dracula Red: 'Dràcula Vermell'
+      Dracula Yellow: 'Dràcula Groc'
     Secondary Color Theme: 'Tema de color secundari'
         #* Main Color Theme
     Expand Side Bar by Default: Expandeix la barra lateral per defecte

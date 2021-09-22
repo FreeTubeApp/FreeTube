@@ -147,6 +147,7 @@ Settings:
       Black: 'Црна'
       Dark: 'Тамна'
       Light: 'Светла'
+      Dracula: 'Дракула'
     Main Color Theme:
       Main Color Theme: 'Главна боја теме'
       Red: 'Црвено'
@@ -165,7 +166,14 @@ Settings:
       Amber: 'Амбер'
       Orange: 'Наранђасто'
       Deep Orange: 'Тамно нарађасто'
-    Secondary Color Theme: 'Секундарна боја теме'
+      Dracula Cyan: 'Дракула Цијан'
+      Dracula Green: 'Дракула Зелено'
+      Dracula Orange: 'Дракула Наранђасто'
+      Dracula Pink: 'Дракула Розе'
+      Dracula Purple: 'Дракула Љубичасто'
+      Dracula Red: 'Дракула Црвено'
+      Dracula Yellow: 'Дракула Жуто'
+    Secondary Color Theme: 'Дракула боја теме'
         #* Main Color Theme
   Player Settings:
     Player Settings: 'Подешавања плејера'

@@ -153,6 +153,7 @@ Settings:
       Black: 'Must'
       Dark: 'Tume'
       Light: 'Hele'
+      Dracula: 'Dracula'
     Main Color Theme:
       Main Color Theme: 'Põhiline värviteema'
       Red: 'Punane'
@@ -171,6 +172,13 @@ Settings:
       Amber: 'Merevaigukollane'
       Orange: 'Oranž'
       Deep Orange: 'Sügavoranž'
+      Dracula Cyan: 'Dracula Rohekassinine'
+      Dracula Green: 'Dracula Roheline'
+      Dracula Orange: 'Dracula Oranž'
+      Dracula Pink: 'Dracula Roosa'
+      Dracula Purple: 'Dracula Purpurpunane'
+      Dracula Red: 'Dracula Punane'
+      Dracula Yellow: 'Dracula Kollane'
     Secondary Color Theme: 'Värvide alamteema'
         #* Main Color Theme
     UI Scale: Kasutajaliidese suurus

@@ -46,14 +46,16 @@
     "rebuild:node": "npm rebuild",
     "release": "run-s test build",
     "test": "run-s rebuild:node pack:workers jest",
-    "test:watch": "run-s rebuild:node pack:workers jest:watch"
+    "test:watch": "run-s rebuild:node pack:workers jest:watch",
+
+    "ci": "yarn install --frozen-lockfile"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/vue-fontawesome": "^2.0.2",
-    "@freetube/youtube-chat": "^1.1.1",
+    "@freetube/youtube-chat": "^1.1.2",
     "@freetube/yt-comment-scraper": "^6.0.0",
     "@silvermine/videojs-quality-selector": "^1.2.5",
     "autolinker": "^3.14.3",

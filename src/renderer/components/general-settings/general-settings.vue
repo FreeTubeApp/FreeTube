@@ -84,6 +84,14 @@
         :tooltip="$t('Tooltips.General Settings.Region for Trending')"
         @change="updateRegion"
       />
+      <ft-select
+        :placeholder="$t('Settings.General Settings.External Link Handling.External Link Handling')"
+        :value="externalLinkHandling"
+        :select-names="externalLinkHandlingNames"
+        :select-values="externalLinkHandlingValues"
+        :tooltip="$t('Tooltips.General Settings.External Link Handling')"
+        @change="updateExternalLinkHandling"
+      />
     </div>
     <ft-flex-box class="generalSettingsFlexBox">
       <ft-input

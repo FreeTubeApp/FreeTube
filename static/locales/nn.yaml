@@ -149,6 +149,7 @@ Settings:
       Black: 'Svart'
       Dark: 'Mørk'
       Light: 'Lys'
+      Dracula: 'Dracula'
     Main Color Theme:
       Main Color Theme: 'Hovudfargetema'
       Red: 'Raud'
@@ -167,6 +168,13 @@ Settings:
       Amber: 'Rav'
       Orange: 'Oransje'
       Deep Orange: 'Djuporansje'
+      Dracula Cyan: 'Dracula Turkis'
+      Dracula Green: 'Dracula Grøn'
+      Dracula Orange: 'Dracula Oransje'
+      Dracula Pink: 'Dracula Rosa'
+      Dracula Purple: 'Dracula Lilla'
+      Dracula Red: 'Dracula Raud'
+      Dracula Yellow: 'Dracula Gul'
     Secondary Color Theme: 'Sekundærfargetema'
         #* Main Color Theme
   Player Settings:

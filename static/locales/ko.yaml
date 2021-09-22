@@ -139,6 +139,7 @@ Settings:
       Black: '검정'
       Dark: '어두운 테마'
       Light: '밝은 테마'
+      Dracula: '드라큘라'
     Main Color Theme:
       Main Color Theme: '메인 색상 테마'
       Red: '빨강'
@@ -157,6 +158,13 @@ Settings:
       Amber: '호박색'
       Orange: '주황'
       Deep Orange: '진주황'
+      Dracula Cyan: '드라큘라 시안'
+      Dracula Green: '드라큘라 녹색'
+      Dracula Orange: '드라큘라 주황'
+      Dracula Pink: '드라큘라 보라'
+      Dracula Purple: '드라큘라 보라'
+      Dracula Red: '드라큘라 빨강'
+      Dracula Yellow: '드라큘라 노랑'
     Secondary Color Theme: '보조색상테마'
         #* Main Color Theme
   Player Settings:

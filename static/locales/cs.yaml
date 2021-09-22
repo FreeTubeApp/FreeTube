@@ -158,6 +158,7 @@ Settings:
       Black: 'Černý'
       Dark: 'Tmavý'
       Light: 'Světlý'
+      Dracula: 'Drákula'
     Main Color Theme:
       Main Color Theme: 'Hlavní barevný motiv'
       Red: 'Červený'
@@ -176,6 +177,13 @@ Settings:
       Amber: 'Jantarový'
       Orange: 'Oranžový'
       Deep Orange: 'Tmavě oranžový'
+      Dracula Cyan: 'Drákula Azurový'
+      Dracula Green: 'Drákula Zelený'
+      Dracula Orange: 'Drákula Oranžový'
+      Dracula Pink: 'Drákula Růžový'
+      Dracula Purple: 'Drákula Fialový'
+      Dracula Red: 'Drákula Červený'
+      Dracula Yellow: 'Drákula Žlutý'
     Secondary Color Theme: 'Téma sekundární barvy'
         #* Main Color Theme
   Player Settings:

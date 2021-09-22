@@ -139,6 +139,7 @@ Settings:
       Black: 'Μαύρο'
       Dark: 'Σκοτεινό'
       Light: 'Φωτεινό'
+      Dracula: 'Δράκουλας'
     Main Color Theme:
       Main Color Theme: 'Κύριο Χρώμα Θέματος'
       Red: 'Κόκκινο'
@@ -157,6 +158,13 @@ Settings:
       Amber: 'Χρυσοκίτρινο'
       Orange: 'Πορτοκαλί'
       Deep Orange: 'Βαθύ Πορτοκαλί'
+      Dracula Cyan: 'Δράκουλας Κυανό'
+      Dracula Green: 'Δράκουλας Πράσινο'
+      Dracula Orange: 'Δράκουλας Πορτοκαλί'
+      Dracula Pink: 'Δράκουλας Ροζ'
+      Dracula Purple: 'Δράκουλας Μωβ'
+      Dracula Red: 'Δράκουλας Κόκκινο'
+      Dracula Yellow: 'Δράκουλας Κίτρινο'
     Secondary Color Theme: 'Δευτερεύων Χρώμα Θέματος'
         #* Main Color Theme
     UI Scale: Μέγεθος κλίμακας διεπαφής χρήστη
