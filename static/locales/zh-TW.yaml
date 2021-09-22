@@ -142,6 +142,7 @@ Settings:
       Black: '黑色'
       Dark: '深色'
       Light: '淺色'
+      Dracula: '德古拉'
     Main Color Theme:
       Main Color Theme: '主題色'
       Red: '紅'
@@ -160,6 +161,13 @@ Settings:
       Amber: '黃褐'
       Orange: '橙'
       Deep Orange: '深橙'
+      Dracula Cyan: '德古拉 青'
+      Dracula Green: '德古拉 绿'
+      Dracula Orange: '德古拉 橙'
+      Dracula Pink: '德古拉 粉'
+      Dracula Purple: '德古拉 紫'
+      Dracula Red: '德古拉 红'
+      Dracula Yellow: '德古拉 黄'
     Secondary Color Theme: '次要主題色'
         #* Main Color Theme
     UI Scale: UI縮放

@@ -154,6 +154,7 @@ Settings:
       Black: 'Negro'
       Dark: 'Escuro'
       Light: 'Claro'
+      Dracula: 'Drácula'
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermello'
@@ -172,6 +173,13 @@ Settings:
       Amber: 'Ámbar'
       Orange: 'Laranxa'
       Deep Orange: 'Laranxa escuro'
+      Dracula Cyan: 'Drácula Ciano'
+      Dracula Green: 'Drácula Verde'
+      Dracula Orange: 'Drácula Laranxa'
+      Dracula Pink: 'Drácula Rosa'
+      Dracula Purple: 'Drácula Morado'
+      Dracula Red: 'Drácula Vermello'
+      Dracula Yellow: 'Drácula Amarelo'
     Secondary Color Theme: 'Cor secundaria'
         #* Main Color Theme
   Player Settings:

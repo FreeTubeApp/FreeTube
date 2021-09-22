@@ -138,6 +138,7 @@ Settings:
       Black: 'שחור'
       Dark: 'חשוך'
       Light: 'בהיר'
+      Dracula: 'דרקולה'
     Main Color Theme:
       Main Color Theme: 'צבע ראשי'
       Red: 'אדום'
@@ -156,6 +157,13 @@ Settings:
       Amber: 'צהוב כהה'
       Orange: 'כתום'
       Deep Orange: 'כתום כהה'
+      Dracula Cyan: 'דרקולה טורקיז'
+      Dracula Green: 'דרקולה ירוק כהה'
+      Dracula Orange: 'דרקולה כתום'
+      Dracula Pink: 'דרקולה ורוד'
+      Dracula Purple: 'דרקולה סגול'
+      Dracula Red: 'דרקולה אדום'
+      Dracula Yellow: 'דרקולה צהוב'
     Secondary Color Theme: 'צבע משני'
         #* Main Color Theme
     UI Scale: גודל הממשק

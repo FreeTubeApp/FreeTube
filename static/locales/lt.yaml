@@ -167,6 +167,7 @@ Settings:
       Black: 'Juoda'
       Dark: 'Tamsi'
       Light: 'Šviesi'
+      Dracula: 'Drakula'
     Main Color Theme:
       Main Color Theme: 'Pagrindinė temos spalva'
       Red: 'Raudona'
@@ -185,6 +186,13 @@ Settings:
       Amber: 'Gintaro'
       Orange: 'Oranžinė'
       Deep Orange: 'Ryškiai oranžinė'
+      Dracula Cyan: 'Drakula Žalsvai mėlyna'
+      Dracula Green: 'Drakula Žalia'
+      Dracula Orange: 'Drakula Oranžinė'
+      Dracula Pink: 'Drakula Rožinė'
+      Dracula Purple: 'Drakula Violetinė'
+      Dracula Red: 'Drakula Raudona'
+      Dracula Yellow: 'Drakula Geltona'
     Secondary Color Theme: 'Papildoma temos spalva'
         #* Main Color Theme
   Player Settings:

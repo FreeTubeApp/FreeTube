@@ -162,6 +162,7 @@ Settings:
       Black: 'Negru'
       Dark: 'Întunecat'
       Light: 'Aprinsă'
+      Dracula: 'Dracula'
     Main Color Theme:
       Main Color Theme: 'Culoarea principală a temei'
       Red: 'Roşu'
@@ -180,6 +181,13 @@ Settings:
       Amber: 'Chihlimbar'
       Orange: 'Portocaliu'
       Deep Orange: 'Portocaliu închis'
+      Dracula Cyan: 'Dracula Cyan'
+      Dracula Green: 'Dracula Verde'
+      Dracula Orange: 'Dracula Portocaliu'
+      Dracula Pink: 'Dracula Roz'
+      Dracula Purple: 'Dracula Violet'
+      Dracula Red: 'Dracula Roşu'
+      Dracula Yellow: 'Dracula Chihlimbar'
     Secondary Color Theme: 'Culoarea secundară a temei'
         #* Main Color Theme
     UI Scale: Scala UI
