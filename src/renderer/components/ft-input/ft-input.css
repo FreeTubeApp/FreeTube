@@ -69,14 +69,6 @@
   background-color: var(--primary-input-color);
 }
 
-.forceTextColor .list {
-  background-color: var(--primary-color) ;
-  color: var(--text-with-main-color);
-}
-
-.forceTextColor .hover {
-  background-color: var(--primary-color-hover);
-}
 .forceTextColor .ft-input:focus {
   box-shadow: 0 0 1rem 0 var(--primary-input-color);
   -moz-transition: box-shadow 0.2s ease-in-out;
