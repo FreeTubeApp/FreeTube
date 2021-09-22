@@ -129,6 +129,11 @@ Settings:
     No default instance has been set: 未設定預設的站台
     The currently set default instance is $: 目前設定的預設站台為 $
     Current Invidious Instance: 目前的 Invidious 站台
+    External Link Handling:
+      No Action: 無動作
+      Ask Before Opening Link: 開啟連結前詢問
+      Open Link: 開啟連結
+      External Link Handling: 外部連結處理
   Theme Settings:
     Theme Settings: '主題設定'
     Match Top Bar with Main Color: '頂部功能表欄對應主色彩'
@@ -653,6 +658,7 @@ Tooltips:
     Preferred API Backend: 選擇 FreeTube 要用於取得YouTube資料的伺服器。本地 API 是內建擷取器。Invidious
       API 需要 Invidious 伺服器才能連線。
     Region for Trending: 熱門影片區域可以讓您選擇想要顯示哪個國家的熱門影片。注意：並非所有國家都被 YouTube 支援。
+    External Link Handling: "選擇點擊後無法在 FreeTube 中開啟連結時的預設行為。\n預設情況下 FreeTube 將會在您的預設瀏覽器中開啟點擊的連結。\n"
   Privacy Settings:
     Remove Video Meta Files: 如果啟用，FreeTube會在關閉觀看頁面時，自動刪除影片播放過程中建立的暫存檔案。
   External Player Settings:
@@ -670,3 +676,5 @@ Default Invidious instance has been cleared: 預設 Invidious 站台已被清除
 Default Invidious instance has been set to $: 預設 Invidious 站台已被設定為 $
 Search Bar:
   Clear Input: 清除輸入
+External link opening has been disabled in the general settings: 已在一般設定中停用外部連結開啟
+Are you sure you want to open this link?: 您確定您想要開啟此連結嗎？
