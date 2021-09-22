@@ -14,10 +14,17 @@
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-top: -3px;
+  color: var(--tertiary-text-color);
+  margin-bottom: 10px;
 }
 
 .selectedTab {
-  text-decoration: underline;
+  border-bottom: 3px solid var(--primary-color);
+  color: var(--primary-text-color);
+  font-weight: bold;
+  box-sizing: border-box;
+  margin-bottom: -3px;
 }
 
 .tab {
@@ -26,17 +33,10 @@
   font-size: 15px;
   cursor: pointer;
   align-self: flex-end;
-  -webkit-transition: background 0.2s ease-out;
-  -moz-transition: background 0.2s ease-out;
-  -o-transition: background 0.2s ease-out;
-  transition: background 0.2s ease-out;
 }
 
-.tab:hover, .tab:focus {
-  background-color: var(--side-nav-hover-color);
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
-  transition: background 0.2s ease-in;
+.tab:hover {
+  font-weight: bold;
 }
 
 @media only screen and (max-width: 350px) {
