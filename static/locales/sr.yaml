@@ -84,7 +84,7 @@ Subscriptions:
   Refresh Subscriptions: 'Освежи праћења'
   Load More Videos: 'Учитај више видео записа'
 More: 'Још'
-Trending: 
+Trending:
   Trending: 'Тренда'
 Most Popular: 'Нај популарније'
 Playlists: 'Плејлисте'
@@ -173,7 +173,7 @@ Settings:
       Dracula Purple: 'Дракула Љубичасто'
       Dracula Red: 'Дракула Црвено'
       Dracula Yellow: 'Дракула Жуто'
-    Secondary Color Theme: 'Дракула боја теме'
+    Secondary Color Theme: 'Секундарна боја теме'
         #* Main Color Theme
   Player Settings:
     Player Settings: 'Подешавања плејера'
