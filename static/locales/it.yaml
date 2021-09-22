@@ -19,7 +19,7 @@ Delete: 'Elimina'
 Select all: 'Seleziona tutto'
 Reload: 'Ricarica'
 Force Reload: 'Forza il ricaricamento'
-Toggle Developer Tools: 'Abilita o rimuovi strumenti sviluppatore'
+Toggle Developer Tools: 'Abilita o disabilita strumenti sviluppatore'
 Actual size: 'Grandezza effettiva'
 Zoom in: 'Ingrandisci'
 Zoom out: 'Rimpicciolisci'
@@ -190,7 +190,7 @@ Settings:
     Default Volume: 'Volume predefinito'
     Default Playback Rate: 'Velocità di riproduzione predefinita'
     Default Video Format:
-      Default Video Format: 'Formato video predefinito'
+      Default Video Format: 'Formati video predefiniti'
       Dash Formats: 'Formati DASH'
       Legacy Formats: 'Formati Legacy'
       Audio Formats: 'Formati Audio'
@@ -347,7 +347,7 @@ Settings:
       saltato
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL API di SponsorBlock
       (l'impostazione predefinita è https://sponsor.ajay.app)
-    Enable SponsorBlock: Abilita Sponsorblock
+    Enable SponsorBlock: Abilita SponsorBlock
     SponsorBlock Settings: Impostazioni di SponsorBlock
   External Player Settings:
     Custom External Player Arguments: Impostazioni personalizzate del lettore esterno
@@ -553,8 +553,8 @@ Video:
     music offtopic: musica fuori tema
     interaction: interazione
     self-promotion: autopromozione
-    outro: outro
-    intro: intro
+    outro: conclusione
+    intro: introduzione
     sponsor: sponsor
   Skipped segment: Segmento saltato
   translated from English: tradotto dall'inglese
