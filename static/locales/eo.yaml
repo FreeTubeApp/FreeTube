@@ -74,7 +74,8 @@ Subscriptions:
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
   'Getting Subscriptions. Please wait.': ''
   Refresh Subscriptions: ''
-Trending: ''
+Trending: 
+  Trending: ''
 Most Popular: ''
 Playlists: ''
 User Playlists:

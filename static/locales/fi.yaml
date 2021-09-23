@@ -75,14 +75,20 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Tällä
     profiililla on paljon tilauksia.  Pakotetaan RSS nopeuden rajoittamisen välttämiseksi
   Load More Videos: Lataa lisää videoita
-Trending: 'Nousussa'
+Trending:
+  Trending: 'Nousussa'
+  Trending Tabs: Nousussa olevat välilehdet
+  Movies: Elokuvat
+  Gaming: Pelaaminen
+  Music: Musiikki
+  Default: Oletus
 Most Popular: 'Suosituimmat'
 Playlists: 'Soittolistat'
 User Playlists:
   Your Playlists: 'Omat soittolistat'
   Playlist Message: Tämä sivu ei kuvasta täysin toimivia soittolistoja. Se listaa
     vain tallentamasi tai tykkäämäsi videot. Kun tämä on valmis, kaikki täällä olevat
-    videot siirretään soittolistaan "Tykkäykset".
+    videot siirretään soittolistaan ”Tykkäykset”.
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Et
     ole tallentanut videoita. Paina "Tallenna" painiketta videon kulmassa tallentaaksesi
     sen tänne
@@ -123,6 +129,18 @@ Settings:
     Check for Updates: Tarkista päivitykset
     View all Invidious instance information: Invidious instancen tiedot
     System Default: Järjestelmän oletus
+    Clear Default Instance: Tyhjennä oletuspalveluntarjoaja
+    Set Current Instance as Default: Aseta nykyinen palveluntarjoaja oletukseksi
+    Current instance will be randomized on startup: Nykyinen palveluntarjoaja valitaan
+      satunnaisesti käynnistyksen yhteydessä
+    No default instance has been set: Oletuspalveluntarjoajaa ei ole määritelty
+    The currently set default instance is $: Nykyinen oletuspalveluntarjoaja on $
+    Current Invidious Instance: Nykyinen Invidious-palveluntarjoaja
+    External Link Handling:
+      No Action: Ei toimintoa
+      Ask Before Opening Link: Kysy ennen linkin avaamista
+      Open Link: Avaa linkki
+      External Link Handling: Ulkoisten linkkien käsittely
   Theme Settings:
     Theme Settings: 'Teema-asetukset'
     Match Top Bar with Main Color: 'Käytä pääväriä yläpalkissa'
@@ -131,6 +149,7 @@ Settings:
       Black: 'Musta'
       Dark: 'Tumma'
       Light: 'Vaalea'
+      Dracula: 'Dracula'
     Main Color Theme:
       Main Color Theme: 'Pääväriteema'
       Red: 'Punainen'
@@ -149,6 +168,13 @@ Settings:
       Amber: 'Meripihka'
       Orange: 'Oranssi'
       Deep Orange: 'Syvä oranssi'
+      Dracula Cyan: 'Dracula Syaani'
+      Dracula Green: 'Dracula Vihreä'
+      Dracula Orange: 'Dracula Oranssi'
+      Dracula Pink: 'Dracula Vaaleanpunainen'
+      Dracula Purple: 'Dracula Purppura'
+      Dracula Red: 'Dracula Punainen'
+      Dracula Yellow: 'Dracula Keltainen'
     Secondary Color Theme: 'Toissijainen väriteema'
         #* Main Color Theme
     UI Scale: Käyttöliittymän koko
@@ -188,6 +214,7 @@ Settings:
     Display Play Button In Video Player: Näytä toista-nappula videotoistimessa
     Scroll Volume Over Video Player: Säädä äänenvoimakkuutta vierittämällä videon
       päällä
+    Fast-Forward / Rewind Interval: Pikakelauksen intervalli
   Subscription Settings:
     Subscription Settings: 'Tilausasetukset'
     Hide Videos on Watch: 'Piilota katsotut videot'
@@ -544,6 +571,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Soittolista
 Toggle Theatre Mode: 'Teatteritila'
 Change Format:
   Change Video Formats: 'Vaihda videoformaattia'
@@ -587,6 +615,7 @@ Comments:
   Newest first: Uusimmat ensin
   Top comments: Suosituimmat kommentit
   Sort by: Lajitteluperuste
+  Show More Replies: Näytä enemmän vastauksia
 Up Next: 'Seuraavaksi'
 
 # Toast Messages
@@ -650,13 +679,14 @@ Profile:
   Other Channels: Muut kanavat
   Subscription List: Tilauslista
   Profile Filter: Profiilisuodatin
+  Profile Settings: Profiiliasetukset
 Version $ is now available!  Click for more details: Versio $ on nyt saatavilla! Napsauta
   saadaksesi lisätietoja
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Tämä
   video ei ole saatavilla puuttuvien formaattien takia. Tämä voi tapahtua koska video
   ei ole saatavilla maassasi.
-A new blog is now available, $. Click to view more: Uusi blogi on saatavilla , $.
-  Klikkaa nähdäksesi lisää
+A new blog is now available, $. Click to view more: Uusi blogi on saatavilla, $. Klikkaa
+  nähdäksesi lisää
 Download From Site: Lataa sivustolta
 Tooltips:
   General Settings:
@@ -670,6 +700,9 @@ Tooltips:
       alkuperäisen pikkukuvan sijaan.
     Fallback to Non-Preferred Backend on Failure: Kun valitsemasi API kohtaa ongelman,
       Freetube yrittää automaattisestia käyttää toissijaista vaihtoehtoa.
+    External Link Handling: "Valitse oletuskäyttäytyminen, kun linkkiä, jota ei voi\
+      \ avata FreeTubessa, napsautetaan.\nOletusarvoisesti FreeTube avaa napsautetun\
+      \ linkin oletusselaimessasi.\n"
   Subscription Settings:
     Fetch Feeds from RSS: Kun valittuna, FreeTube käyttää RSS-syötettä oletusmetodin
       sijaan tilauslistasi hakemisessa. RSS on nopeampi ja ehkäisee IP-estoa, mutta
@@ -677,7 +710,7 @@ Tooltips:
   Player Settings:
     Default Video Format: Aseta videon toistamisessa käytätettävä formaatti. DASH-formaatit
       toistavat korkealaatuisempia videoita. Legacy-formaatit ovat rajoitettu 720p-resoluutioon,
-      mutta käyttävät vähemmän dataa. Audioformaatit ovat vain äänistriimeihin
+      mutta käyttävät vähemmän dataa. Audioformaatit ovat vain äänistriimeihin.
     Proxy Videos Through Invidious: Yhdistää Invidious-palvelimeen suoran YouTuben-yhteyden
       sijaan. Ohittaa API-valinnan.
     Force Local Backend for Legacy Formats: Toimii vain kun Invidious API on oletuksena.
@@ -703,7 +736,16 @@ Playing Next Video Interval: Seuraava video alkaa. Klikkaa peruuttaaksesi. |Seur
   video alkaa {nextVideoInterval} sekunnin kuluttua. Klikkaa peruuttaaksesi. | Seuraava
   video alkaa {nextVideoInterval} sekunnin kuluttua. Klikkaa peruuttaaksesi.
 Hashtags have not yet been implemented, try again later: Hashtageja ei vielä ole lisätty,
-  yritä uudelleen myöhemmin.
+  yritä uudelleen myöhemmin
 Open New Window: Avaa uusi ikkuna
 Unknown YouTube url type, cannot be opened in app: Tuntematon YouTube-videon osoitemuoto,
   ei voida avata sovelluksessa
+Default Invidious instance has been cleared: Oletusarvoinen Invidious-palveluntarjoaja
+  on tyhjennetty
+Default Invidious instance has been set to $: Oletusarvoinen Invidious-palveluntarjoaja
+  on jatkossa $
+Search Bar:
+  Clear Input: Tyhjennä syöte
+External link opening has been disabled in the general settings: Ulkoisen linkin avaaminen
+  on poistettu käytöstä yleisissä asetuksissa
+Are you sure you want to open this link?: Haluatko varmasti avata tämän linkin?

@@ -1,10 +1,11 @@
 <template>
-  <ft-card
-    class="relative card"
-  >
-    <h3>
-      {{ $t("Settings.Privacy Settings.Privacy Settings") }}
-    </h3>
+  <details>
+    <summary>
+      <h3>
+        {{ $t("Settings.Privacy Settings.Privacy Settings") }}
+      </h3>
+    </summary>
+    <hr>
     <div class="switchColumnGrid">
       <div class="switchColumn">
         <ft-toggle-switch
@@ -75,7 +76,7 @@
       :option-values="promptValues"
       @click="handleRemoveSubscriptions"
     />
-  </ft-card>
+  </details>
 </template>
 
 <script src="./privacy-settings.js" />

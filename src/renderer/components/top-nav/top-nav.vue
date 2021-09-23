@@ -13,7 +13,8 @@
         @keypress="toggleSideNav"
       />
       <font-awesome-icon
-        class="navBackIcon navIcon"
+        id="historyArrowBack"
+        class="navBackIcon navIcon fa-arrow-left"
         icon="arrow-left"
         role="button"
         tabindex="0"
@@ -22,7 +23,8 @@
         @keypress="historyBack"
       />
       <font-awesome-icon
-        class="navForwardIcon navIcon"
+        id="historyArrowForward"
+        class="navForwardIcon navIcon fa-arrow-right"
         icon="arrow-right"
         role="button"
         tabindex="0"
@@ -44,7 +46,15 @@
         :title="newWindowText"
         @click="createNewWindow"
       />
-      <div class="logo">
+      <div
+        class="logo"
+        role="link"
+        tabindex="0"
+        :title="$t('Subscriptions.Subscriptions')"
+        @click="navigate('subscriptions')"
+        @keydown.space.prevent="navigate('subscriptions')"
+        @keydown.enter.prevent="navigate('subscriptions')"
+      >
         <div
           class="logoIcon"
         />
@@ -62,6 +72,7 @@
           :select-on-focus="true"
           :data-list="searchSuggestionsDataList"
           :spellcheck="false"
+          :show-clear-text-button="true"
           @input="getSearchSuggestionsDebounce"
           @click="goToSearch"
         />

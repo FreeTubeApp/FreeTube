@@ -83,7 +83,13 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Sellel
     profiilil on väga palju tellimusi. Vältimaks serveripoolseid piiranguid teen RSS-voo
     päringud harvemini
-Trending: 'Populaarsed videod'
+Trending:
+  Trending: 'Populaarsed videod'
+  Trending Tabs: Populaarsed kaardid
+  Movies: Filmid
+  Gaming: Arvutimängud
+  Music: Muusika
+  Default: Vaikimisi
 Most Popular: 'Populaarseimad'
 Playlists: 'Esitusloendid'
 User Playlists:
@@ -147,6 +153,7 @@ Settings:
       Black: 'Must'
       Dark: 'Tume'
       Light: 'Hele'
+      Dracula: 'Dracula'
     Main Color Theme:
       Main Color Theme: 'Põhiline värviteema'
       Red: 'Punane'
@@ -165,6 +172,13 @@ Settings:
       Amber: 'Merevaigukollane'
       Orange: 'Oranž'
       Deep Orange: 'Sügavoranž'
+      Dracula Cyan: 'Dracula Rohekassinine'
+      Dracula Green: 'Dracula Roheline'
+      Dracula Orange: 'Dracula Oranž'
+      Dracula Pink: 'Dracula Roosa'
+      Dracula Purple: 'Dracula Purpurpunane'
+      Dracula Red: 'Dracula Punane'
+      Dracula Yellow: 'Dracula Kollane'
     Secondary Color Theme: 'Värvide alamteema'
         #* Main Color Theme
     UI Scale: Kasutajaliidese suurus
@@ -202,6 +216,7 @@ Settings:
     Next Video Interval: Viivitus järgmise video esitamisel
     Display Play Button In Video Player: Kuva videomängijas esitamise nuppu
     Scroll Volume Over Video Player: Muuda helivaljust videovaate kohal kerides
+    Fast-Forward / Rewind Interval: Kiirkerimise välp
   Privacy Settings:
     Privacy Settings: 'Privaatsuse seadistused'
     Remember History: 'Jäta ajalugu meelde'
@@ -414,6 +429,7 @@ Profile:
     profiilidest.'
 #On Channel Page
   Profile Filter: Sirvi profiile
+  Profile Settings: Profiili seadistused
 Channel:
   Subscriber: 'Tellija'
   Subscribers: 'Tellijad'
@@ -583,6 +599,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Esitusloend
 Toggle Theatre Mode: 'Lülita lai vaade sisse/välja'
 Change Format:
   Change Video Formats: 'Muuda videovorminguid'
@@ -628,6 +645,7 @@ Comments:
   No more comments available: Rohkem kommentaare pole
   Newest first: Uuemad esimesena
   Top comments: Populaarsemad kommentaarid
+  Show More Replies: Näita järgmisi vastuseid
 Up Next: 'Järgmisena'
 
 # Toast Messages

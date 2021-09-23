@@ -35,7 +35,8 @@ export default Vue.extend({
       baseThemeValues: [
         'light',
         'dark',
-        'black'
+        'black',
+        'dracula'
       ],
       colorValues: [
         'Red',
@@ -53,7 +54,14 @@ export default Vue.extend({
         'Yellow',
         'Amber',
         'Orange',
-        'DeepOrange'
+        'DeepOrange',
+        'DraculaCyan',
+        'DraculaGreen',
+        'DraculaOrange',
+        'DraculaPink',
+        'DraculaPurple',
+        'DraculaRed',
+        'DraculaYellow'
       ]
     }
   },
@@ -89,7 +97,8 @@ export default Vue.extend({
       return [
         this.$t('Settings.Theme Settings.Base Theme.Light'),
         this.$t('Settings.Theme Settings.Base Theme.Dark'),
-        this.$t('Settings.Theme Settings.Base Theme.Black')
+        this.$t('Settings.Theme Settings.Base Theme.Black'),
+        this.$t('Settings.Theme Settings.Base Theme.Dracula')
       ]
     },
 
@@ -110,7 +119,14 @@ export default Vue.extend({
         this.$t('Settings.Theme Settings.Main Color Theme.Yellow'),
         this.$t('Settings.Theme Settings.Main Color Theme.Amber'),
         this.$t('Settings.Theme Settings.Main Color Theme.Orange'),
-        this.$t('Settings.Theme Settings.Main Color Theme.Deep Orange')
+        this.$t('Settings.Theme Settings.Main Color Theme.Deep Orange'),
+        this.$t('Settings.Theme Settings.Main Color Theme.Dracula Cyan'),
+        this.$t('Settings.Theme Settings.Main Color Theme.Dracula Green'),
+        this.$t('Settings.Theme Settings.Main Color Theme.Dracula Orange'),
+        this.$t('Settings.Theme Settings.Main Color Theme.Dracula Pink'),
+        this.$t('Settings.Theme Settings.Main Color Theme.Dracula Purple'),
+        this.$t('Settings.Theme Settings.Main Color Theme.Dracula Red'),
+        this.$t('Settings.Theme Settings.Main Color Theme.Dracula Yellow')
       ]
     }
   },

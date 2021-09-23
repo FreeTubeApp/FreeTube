@@ -1,42 +1,34 @@
 .card {
   position: relative;
   width: 85%;
-  margin: 0 auto;
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
 }
 
 .channelBanner {
   width: 100%;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  max-height: 300px;
+  max-height: 200px;
 }
 
 .defaultChannelBanner {
   width: 100%;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  height: 200px;
+  max-height: 200px;
+  height:200px;
   background-color: black;
-  background-image: url("~images/defaultBanner.png");
+  background-image: url("images/defaultBanner.png");
 }
 
 .channelInfoContainer {
   width: 100%;
-  height: 200px;
-  margin-top: 300px;
   position: relative;
   background-color: var(--card-bg-color);
+  margin-top: 10px;
 }
 
 .channelInfo {
-  height: 100px;
-  width: 85%;
-  position: absolute;
-  top: 30px;
-  left: 30px;
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .channelThumbnail {
@@ -50,24 +42,19 @@
   font-weight: bold;
   width: 100%;
   font-size: 25px;
-  position: absolute;
-  top: 20px;
-  left: 120px;
 }
 
 .channelSubCount {
-  position: absolute;
   color: var(--tertiary-text-color);
   top: 50px;
   left: 120px;
 }
 
 .subscribeButton {
-  position: absolute;
-  top: 50px;
-  right: 20px;
   height: 50px;
   min-width: 150px;
+  align-self: center;
+  margin-bottom: 10px;
 }
 
 .channelSearch {
@@ -80,28 +67,30 @@
 }
 
 .channelInfoTabs {
-  position: absolute;
-  bottom: -16px;
+  position: relative;
   width: 100%;
+  margin-top: -16px;
+  margin-bottom: -13px;
 }
 
 .tab {
   padding: 15px;
   font-size: 15px;
   cursor: pointer;
-  text-decoration: underline;
   align-self: flex-end;
-  -webkit-transition: background 0.2s ease-out;
-  -moz-transition: background 0.2s ease-out;
-  -o-transition: background 0.2s ease-out;
-  transition: background 0.2s ease-out;
+  color: var(--tertiary-text-color);
+}
+
+.selectedTab {
+  color: var(--primary-text-color);
+  border-bottom: 3px solid var(--primary-color);
+  margin-bottom: -3px;
+  font-weight: bold;
+  box-sizing: border-box;
 }
 
 .tab:hover {
-  background-color: var(--side-nav-hover-color);
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
-  transition: background 0.2s ease-in;
+  font-weight: bold;
 }
 
 .aboutTab {
@@ -116,6 +105,10 @@
   font-family: 'Roboto', sans-serif;
   font-size: 17px;
   white-space: pre-wrap;
+}
+
+.channelSearch {
+  margin-top: 10px;
 }
 
 .elementList {
@@ -138,4 +131,15 @@
   text-align: center;
   cursor: pointer;
   margin-top: 16px;
+}
+
+.thumbnailContainer {
+  display: flex
+}
+
+.channelLineContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 1em;
 }

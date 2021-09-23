@@ -83,7 +83,13 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Отримання Підписок. Будь ласка, зачекайте.'
   Refresh Subscriptions: 'Оновити Підписки'
   Load More Videos: 'Завантажити більше відео'
-Trending: 'Популярне'
+Trending:
+  Trending: 'Популярне'
+  Trending Tabs: Популярні вкладки
+  Movies: Фільми
+  Gaming: Ігри
+  Music: Музика
+  Default: Типово
 Most Popular: 'Найпопулярніші'
 Playlists: 'Добірки'
 User Playlists:
@@ -144,6 +150,11 @@ Settings:
     The currently set default instance is $: Поточний встановлений типовим екземпляр
       — $
     Current Invidious Instance: Поточний екземпляр Invidious
+    External Link Handling:
+      No Action: Без дій
+      Ask Before Opening Link: Запитувати, перш ніж відкрити посилання
+      Open Link: Відкрити посилання
+      External Link Handling: Обробка зовнішніх посилань
   Theme Settings:
     Theme Settings: 'Налаштування теми'
     Match Top Bar with Main Color: 'Верхня панель основного кольору'
@@ -155,6 +166,7 @@ Settings:
       Black: 'Чорна'
       Dark: 'Темна'
       Light: 'Світла'
+      Dracula: 'Дракула'
     Main Color Theme:
       Main Color Theme: 'Основна кольорова тема'
       Red: 'Червона'
@@ -173,6 +185,13 @@ Settings:
       Amber: 'Бурштинова'
       Orange: 'Жовтогаряча'
       Deep Orange: 'Насичена жовтогаряча'
+      Dracula Cyan: 'Дракула Блакитна'
+      Dracula Green: 'Дракула Зелена'
+      Dracula Orange: 'Дракула Жовтогаряча'
+      Dracula Pink: 'Дракула Рожева'
+      Dracula Purple: 'Дракула Фіолетова'
+      Dracula Red: 'Дракула Червона'
+      Dracula Yellow: 'Дракула Жовта'
     Secondary Color Theme: 'Другорядна кольорова тема'
         #* Main Color Theme
   Player Settings:
@@ -633,6 +652,7 @@ Comments:
   There are no comments available for this video: 'Немає коментарів до цього відео'
   Load More Comments: 'Завантажити більше коментарів'
   No more comments available: 'Більше немає коментарів'
+  Show More Replies: Показати інші відповіді
 Up Next: 'Далі вгору'
 
 #Tooltips
@@ -652,6 +672,9 @@ Tooltips:
     Region for Trending: 'Регіон популярного дозволяє вам вибрати популярні відео
       країни, які ви хочете бачити. Не всі показані країни насправді підтримуються
       YouTube.'
+    External Link Handling: "Визначте типову поведінку, коли натиснено на посилання,\
+      \ яке не можна відкрити у FreeTube.\nТипово FreeTube відкриває натиснуте посилання\
+      \ у вашому типовому переглядачі.\n"
   Player Settings:
     Force Local Backend for Legacy Formats: 'Працює, лише якщо API Invidious використовується
       типовим. Якщо увімкнено, локальний API буде запущено і використовуватиме застарілі
@@ -720,3 +743,8 @@ Open New Window: Відкрити нове вікно
 Default Invidious instance has been cleared: Типовий екземпляр Invidious очищено
 Default Invidious instance has been set to $: Типовим екземпляром Invidious встановлено
   $
+Search Bar:
+  Clear Input: Очистити поле
+External link opening has been disabled in the general settings: Відкриття зовнішнього
+  посилання вимкнено в загальних налаштуваннях
+Are you sure you want to open this link?: Ви впевнені, що хочете відкрити це посилання?

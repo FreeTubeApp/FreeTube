@@ -83,7 +83,8 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Preuzimanje pretplata. Molimo sačekajte.'
   Refresh Subscriptions: 'Osvježi pretplate'
   Load More Videos: 'Očitaj više videozapisa'
-Trending: 'U trendu'
+Trending:
+  Trending: 'U trendu'
 Most Popular: 'Naj popularnije'
 Playlists: 'playliste'
 User Playlists:

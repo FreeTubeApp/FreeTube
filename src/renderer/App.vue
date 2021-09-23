@@ -46,7 +46,10 @@
       <h2>
         {{ changeLogTitle }}
       </h2>
-      <span v-html="updateChangelog" />
+      <span
+        id="changeLogText"
+        v-html="updateChangelog"
+      />
       <ft-flex-box>
         <ft-button
           :label="$t('Download From Site')"
@@ -54,6 +57,14 @@
         />
       </ft-flex-box>
     </ft-prompt>
+    <ft-prompt
+      v-if="showExternalLinkOpeningPrompt"
+      :label="$t('Are you sure you want to open this link?')"
+      :extra-labels="[lastExternalLinkToBeOpened]"
+      :option-names="externalLinkOpeningPromptNames"
+      :option-values="externalLinkOpeningPromptValues"
+      @click="handleExternalLinkOpeningPromptAnswer"
+    />
     <ft-toast />
     <ft-progress-bar
       v-if="showProgressBar"

@@ -77,7 +77,13 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
     perfil tem um grande número de inscrições.  Forçando RSS para evitar limitação
     de banda
-Trending: 'Em alta'
+Trending:
+  Trending: 'Em alta'
+  Trending Tabs: Abas de Tendências
+  Movies: Filmes
+  Gaming: Jogos
+  Music: Música
+  Default: Padrão
 Most Popular: 'Mais populares'
 Playlists: 'Listas'
 User Playlists:
@@ -134,6 +140,11 @@ Settings:
     Set Current Instance as Default: Definir instância atual como padrão
     Clear Default Instance: Limpar instância padrão
     Current Invidious Instance: Instância do Invidious atual
+    External Link Handling:
+      No Action: Nenhuma ação
+      Ask Before Opening Link: Perguntar antes de abrir o link
+      Open Link: Abrir Link
+      External Link Handling: Manuseio de link externo
   Theme Settings:
     Theme Settings: 'Configurações de aparência'
     Match Top Bar with Main Color: 'Usar a cor principal para a barra superior'
@@ -142,6 +153,7 @@ Settings:
       Black: 'Preto'
       Dark: 'Escuro'
       Light: 'Claro'
+      Dracula: 'Drácula'
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermelha'
@@ -160,6 +172,13 @@ Settings:
       Amber: 'Âmbar'
       Orange: 'Laranja'
       Deep Orange: 'Laranja escura'
+      Dracula Cyan: 'Drácula Ciano'
+      Dracula Green: 'Drácula Verde'
+      Dracula Orange: 'Drácula Laranja'
+      Dracula Pink: 'Drácula Rosa'
+      Dracula Purple: 'Drácula Roxa'
+      Dracula Red: 'Drácula Vermelha'
+      Dracula Yellow: 'Drácula Amarelo'
     Secondary Color Theme: 'Cor secundária'
         #* Main Color Theme
     UI Scale: Escala da Interface de Usuário
@@ -517,7 +536,7 @@ Video:
     vídeos salvos
   Video has been saved: O vídeo foi salvo
   Save Video: Salvar vídeo
-  translated from English: Traduzido do inglês
+  translated from English: traduzido do inglês
   Sponsor Block category:
     music offtopic: música fora do contexto
     interaction: interação
@@ -614,6 +633,7 @@ Comments:
   Top comments: Melhores comentários
   Sort by: Ordenar por
   There are no more comments for this video: Não há mais comentários para este vídeo
+  Show More Replies: Mostrar Mais Respostas
 Up Next: 'Próximo'
 
 # Toast Messages
@@ -721,6 +741,9 @@ Tooltips:
     Preferred API Backend: Escolha o backend que o FreeTube usa para obter os dados.
       A API local é um extrator integrado. A API Invidious requer um servidor Invidious
       para se conectar.
+    External Link Handling: "Escolha o comportamento padrão quando um link, que não\
+      \ pode ser aberto no FreeTube, é clicado.\nPor padrão, o FreeTube abrirá o link\
+      \ clicado no seu navegador padrão.\n"
   Privacy Settings:
     Remove Video Meta Files: Quando ativado, o FreeTube exclui automaticamente os
       metarquivos criados durante a reprodução do vídeo quando a página de exibição
@@ -749,3 +772,8 @@ Open New Window: Abrir Uma Nova Janela
 Default Invidious instance has been cleared: A instância padrão Invidious foi limpa
 Default Invidious instance has been set to $: A instância padrão Invidious foi definida
   para $
+Search Bar:
+  Clear Input: Apagar a inserção
+External link opening has been disabled in the general settings: A abertura de link
+  externo foi desativada nas configurações gerais
+Are you sure you want to open this link?: Tem certeza que deseja abrir este link?

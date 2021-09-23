@@ -15,6 +15,10 @@ export default Vue.extend({
       type: String,
       default: ''
     },
+    extraLabels: {
+      type: Array,
+      default: () => { return [] }
+    },
     optionNames: {
       type: Array,
       default: () => { return [] }
