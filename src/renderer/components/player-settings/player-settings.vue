@@ -46,6 +46,7 @@
           :label="$t('Settings.Player Settings.Scroll Playback Rate Over Video Player')"
           :compact="true"
           :default-value="videoPlaybackRateMouseScroll"
+          :tooltip="$t('Tooltips.Player Settings.Scroll Playback Rate Over Video Player')"
           @change="updateVideoPlaybackRateMouseScroll"
         />
         <ft-toggle-switch

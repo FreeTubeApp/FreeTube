@@ -177,6 +177,10 @@ export default Vue.extend({
       return this.$store.getters.getVideoVolumeMouseScroll
     },
 
+    videoPlaybackRateMouseScroll: function () {
+      return this.$store.getters.getVideoPlaybackRateMouseScroll
+    },
+
     useSponsorBlock: function () {
       return this.$store.getters.getUseSponsorBlock
     },
@@ -293,6 +297,14 @@ export default Vue.extend({
           this.player.on('wheel', this.mouseScrollVolume)
         } else {
           this.player.controlBar.getChild('volumePanel').on('wheel', this.mouseScrollVolume)
+        }
+
+        if (this.videoPlaybackRateMouseScroll) {
+          this.player.on('wheel', this.mouseScrollPlaybackRate)
+        }
+
+        if (this.videoPlaybackRateMouseScroll) {
+          this.player.on('click', this.returnToNormalPlaybackRate)
         }
 
         this.player.on('fullscreenchange', this.fullscreenOverlay)
@@ -478,12 +490,51 @@ export default Vue.extend({
           this.player.volume(0)
         }
 
-        if (!this.player.muted()) {
-          if (event.wheelDelta > 0) {
-            this.changeVolume(0.05)
-          } else if (event.wheelDelta < 0) {
-            this.changeVolume(-0.05)
+        if (!event.ctrlKey) {
+          if (!this.player.muted()) {
+            if (event.wheelDelta > 0) {
+              this.changeVolume(0.05)
+            } else if (event.wheelDelta < 0) {
+              this.changeVolume(-0.05)
+            }
           }
+        }
+      }
+    },
+
+    mouseScrollPlaybackRate: function (event) {
+      if (event.target && !event.currentTarget.querySelector('.vjs-menu:hover')) {
+        event.preventDefault()
+
+        if (event.ctrlKey) {
+          if (event.wheelDelta > 0) {
+            this.changePlayBackRate(0.05)
+          } else if (event.wheelDelta < 0) {
+            this.changePlayBackRate(-0.05)
+          }
+        }
+      }
+    },
+
+    returnToNormalPlaybackRate: function (event) {
+      if (event.target && !event.currentTarget.querySelector('.vjs-menu:hover')) {
+        event.preventDefault()
+        event.stopPropagation()
+
+        if (event.ctrlKey) {
+          /*
+           * HACK: This is a hack to get around the fact that the custom click handler fires
+           * after the videojs play/pause action. It basically works but the play icon flashes
+           * briefly. Thus adding another hack to hide the play icon.
+          */
+          if (this.player.paused()) {
+            this.player.removeChild('BigPlayButton')
+            this.player.play()
+            if (this.displayVideoPlayButton) {
+              this.player.addChild('BigPlayButton')
+            }
+          }
+          this.player.playbackRate(this.defaultPlayback)
         }
       }
     },
@@ -856,9 +907,9 @@ export default Vue.extend({
     },
 
     changePlayBackRate: function (rate) {
-      const newPlaybackRate = this.player.playbackRate() + rate
+      const newPlaybackRate = (this.player.playbackRate() + rate).toFixed(2)
 
-      if (newPlaybackRate >= 0.25 && newPlaybackRate <= 3) {
+      if (newPlaybackRate >= 0.25 && newPlaybackRate <= 8) {
         this.player.playbackRate(newPlaybackRate)
       }
     },
