@@ -54,7 +54,11 @@
   }
 
   .navLabel {
-    display:none;
+    margin-left: 0px;
+    width: 100%;
+    text-align: center;
+    left: 0px;
+    font-size: 11px;
   }
 
   .navIcon {

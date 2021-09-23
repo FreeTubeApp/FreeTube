@@ -9,7 +9,10 @@
         icon="ellipsis-h"
         class="navIcon"
       />
-      <p class="navLabel">
+      <p
+        v-if="!hideCompactSidebarText"
+        class="navLabel"
+      >
         {{ $t("More") }}
       </p>
     </div>
@@ -28,7 +31,10 @@
           icon="fire"
           class="navIcon"
         />
-        <p class="navLabel">
+        <p
+          v-if="!hideCompactSidebarText"
+          class="navLabel"
+        >
           {{ $t("Trending.Trending") }}
         </p>
       </div>
@@ -42,7 +48,10 @@
           icon="users"
           class="navIcon"
         />
-        <p class="navLabel">
+        <p
+          v-if="!hideCompactSidebarText"
+          class="navLabel"
+        >
           {{ $t("Most Popular") }}
         </p>
       </div>
@@ -55,7 +64,10 @@
           icon="info-circle"
           class="navIcon"
         />
-        <p class="navLabel">
+        <p
+          v-if="!hideCompactSidebarText"
+          class="navLabel"
+        >
           {{ $t("About.About") }}
         </p>
       </div>
@@ -93,7 +105,10 @@
         icon="info-circle"
         class="navIcon"
       />
-      <p class="navLabel">
+      <p
+        v-if="!hideCompactSidebarText"
+        class="navLabel"
+      >
         {{ $t("About.About") }}
       </p>
     </div>
