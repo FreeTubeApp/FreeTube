@@ -3,11 +3,17 @@ description: Report an issue or unexpected behavior that occurs within the appli
 title: "[Bug]: "
 labels: "bug"
 body:
+  - type: markdown
+    attributes:
+      value: |
+        **README: Before You Submit Your Issue**
+        - Issues are not a place to go ask support questions or start discussions. Please ask support questions or start discussions on the [discussions page] (https://github.com/FreeTubeApp/FreeTube/discussions).
   - type: checkboxes
     attributes:
       label: Guidelines
       description: Please ensure you've completed all of the following.
       options:
+        - label: I have encounterd this bug in the [latest release of FreeTube] (https://github.com/FreeTubeApp/FreeTube/releases).
         - label: I have searched the [issue tracker](https://github.com/FreeTubeApp/FreeTube/issues) for a bug report that matches the one i want to file, without success.
           required: true
   - type: textarea

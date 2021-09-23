@@ -3,6 +3,11 @@ description: Suggest an idea for FreeTube which you would like to see in a futur
 title: "[Feature Request]: "
 labels: "enhancement"
 body:
+  - type: markdown
+    attributes:
+      value: |
+        **README: Before You Submit Your Issue**
+        - Issues are not a place to go ask support questions or start discussions. Please ask support questions or start discussions on the [discussions page] (https://github.com/FreeTubeApp/FreeTube/discussions).
   - type: checkboxes
     attributes:
       label: Guidelines
