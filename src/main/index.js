@@ -180,6 +180,7 @@ function runApp() {
     /**
      * Initial window options
      */
+
     const newWindow = new BrowserWindow({
       backgroundColor: '#212121',
       icon: isDev

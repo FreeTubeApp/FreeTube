@@ -103,6 +103,7 @@ export default Vue.extend({
   },
   created () {
     this.setWindowTitle()
+    this.checkThemeSettings()
   },
   mounted: function () {
     this.grabUserSettings().then(async () => {
@@ -110,11 +111,9 @@ export default Vue.extend({
       if (this.defaultInvidiousInstance === '') {
         await this.setRandomCurrentInvidiousInstance()
       }
-
       this.grabAllProfiles(this.$t('Profile.All Channels')).then(async () => {
         this.grabHistory()
         this.grabAllPlaylists()
-        this.checkThemeSettings()
 
         if (this.usingElectron) {
           console.log('User is using Electron')
