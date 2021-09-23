@@ -66,6 +66,7 @@ export default Vue.extend({
       },
       // This button should be invisible on app start
       // As the text input box should be empty
+      clearTextButtonExisting: false,
       clearTextButtonVisible: false,
       actionButtonIconName: 'search'
     }
@@ -95,12 +96,19 @@ export default Vue.extend({
       if (newVal) {
         // The button needs to be visible **immediately**
         // To allow user to see the transition
-        this.clearTextButtonVisible = true
+        this.clearTextButtonExisting = true
+        // The transition is not rendered if this property is set right after
+        // It's visible
+        setTimeout(() => {
+          this.clearTextButtonVisible = true
+        }, 0)
       } else {
-        // Hide the button after the transition
+        // Hide the button with transition
+        this.clearTextButtonVisible = false
+        // Remove the button after the transition
         // 0.2s in CSS = 200ms in JS
         setTimeout(() => {
-          this.clearTextButtonVisible = false
+          this.clearTextButtonExisting = false
         }, 200)
       }
     }

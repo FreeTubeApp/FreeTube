@@ -21,11 +21,11 @@
       />
     </label>
     <font-awesome-icon
-      v-if="showClearTextButton && clearTextButtonVisible"
+      v-if="showClearTextButton && clearTextButtonExisting"
       icon="times-circle"
       class="clearInputTextButton"
       :class="{
-        visible: inputDataPresent
+        visible: clearTextButtonVisible
       }"
       tabindex="0"
       role="button"
