@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         **README: Before You Submit Your Issue**
-        - Issues are not a place to go ask support questions or start discussions. Please ask support questions or start discussions on the [discussions page] (https://github.com/FreeTubeApp/FreeTube/discussions).
+        - Issues are not a place to go ask support questions or start discussions. Please ask support questions or start discussions on the [discussions page](https://github.com/FreeTubeApp/FreeTube/discussions).
   - type: checkboxes
     attributes:
       label: Guidelines
