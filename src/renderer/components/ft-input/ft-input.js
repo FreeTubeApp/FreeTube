@@ -60,7 +60,10 @@ export default Vue.extend({
         showOptions: false,
         selectedOption: -1,
         isPointerInList: false
-      }
+      },
+      // This button should be invisible on app start
+      // As the text input box should be empty
+      clearTextButtonVisible: false
     }
   },
   computed: {
@@ -74,11 +77,28 @@ export default Vue.extend({
 
     idDataList: function () {
       return `${this.id}_datalist`
+    },
+
+    inputDataPresent: function () {
+      return this.inputData.length > 0
     }
   },
   watch: {
     value: function (val) {
       this.inputData = val
+    },
+    inputDataPresent: function (newVal, oldVal) {
+      if (newVal) {
+        // The button needs to be visible **immediately**
+        // To allow user to see the transition
+        this.clearTextButtonVisible = true
+      } else {
+        // Hide the button after the transition
+        // 0.2s in CSS = 200ms in JS
+        setTimeout(() => {
+          this.clearTextButtonVisible = false
+        }, 200)
+      }
     }
   },
   mounted: function () {
@@ -104,6 +124,10 @@ export default Vue.extend({
     handleClearTextClick: function () {
       this.inputData = ''
       this.$emit('input', this.inputData)
+
+      // Focus on input element after text is clear for better UX
+      const inputElement = document.getElementById(this.id)
+      inputElement.focus()
     },
 
     addListener: function () {

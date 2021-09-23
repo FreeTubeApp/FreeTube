@@ -11,13 +11,19 @@
   cursor: pointer;
   border-radius: 200px 200px 200px 200px;
   color: var(--primary-text-color);
+
+  opacity: 0;
+
+  -moz-transition: background 0.2s ease-in, opacity 0.2s ease-in;
+  -o-transition: background 0.2s ease-in, opacity 0.2s ease-in;
+  transition: background 0.2s ease-in, opacity 0.2s ease-in;
 }
 
 .clearInputTextButton:hover {
   background-color: var(--side-nav-hover-color);
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
-  transition: background 0.2s ease-in;
+}
+.clearInputTextButton.visible {
+  opacity: 1;
 }
 
 .forceTextColor .clearInputTextButton:hover {
@@ -82,7 +88,7 @@
 
 .inputAction {
   position: absolute;
-  padding: 10px;
+  padding: 10px 8px;
   top: 5px;
   right: 0px;
   cursor: pointer;
