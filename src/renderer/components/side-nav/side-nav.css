@@ -60,19 +60,28 @@
 }
 
 .navOption .navLabel {
-  white-space: nowrap;
+  /*white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 150px;
+  width: 150px;*/
   margin-left: 40px;
+  overflow: hidden;
+  margin-left: 40px;
+  word-break: break-word;
+  /*font-size: 12px;*/
 }
 
 .navChannel .navLabel {
-  white-space: nowrap;
+  /*white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   width: 150px;
+  margin-left: 40px;*/
+
+  overflow: hidden;
   margin-left: 40px;
+  word-break: break-word;
+  font-size: 12px;
 }
 
 .thumbnailContainer {
@@ -112,10 +121,8 @@
 
 .closed .navOption {
   width: 100%;
-  height: 35px;
-  padding: 0px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  /*height: 45px;*/
+  padding: 5px 0px;
 }
 
 .closed .navIcon {
@@ -126,22 +133,24 @@
 }
 
 .closed .navLabel {
-  display:none;
+  margin-left: 0px;
+  width: 100%;
+  text-align: center;
+  left: 0px;
+  font-size: 11px;
+  margin-block-end: 0em;
 }
 
 .closed .navChannel {
   width: 100%;
   height: 45px;
-  padding: 0px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 5px 0px;
 }
 
 .closed .thumbnailContainer {
   position: static;
   display: block;
   float: none;
-  margin-left: 0px;
   margin: 0 auto;
   top: 0px;
   -ms-transform: none;
