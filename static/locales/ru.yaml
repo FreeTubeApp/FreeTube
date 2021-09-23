@@ -143,6 +143,7 @@ Settings:
       Black: 'Черная'
       Dark: 'Темная'
       Light: 'Светлая'
+      Dracula: 'Дракула'
     Main Color Theme:
       Main Color Theme: 'Тема основного цвета'
       Red: 'Красная'
@@ -161,6 +162,13 @@ Settings:
       Amber: 'Янтарная'
       Orange: 'Оранжевая'
       Deep Orange: 'Темно-оранжевая'
+      Dracula Cyan: 'Дракула Голубая'
+      Dracula Green: 'Дракула Зеленая'
+      Dracula Orange: 'Дракула Оранжевая'
+      Dracula Pink: 'Дракула Розовая'
+      Dracula Purple: 'Дракула Фиолетовая'
+      Dracula Red: 'Дракула Красная'
+      Dracula Yellow: 'Дракула Желтая'
     Secondary Color Theme: 'Тема вторичного цвета'
         #* Main Color Theme
     UI Scale: Масштаб пользовательского интерфейса

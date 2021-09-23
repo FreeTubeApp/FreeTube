@@ -960,13 +960,13 @@ export default Vue.extend({
       if (this.removeVideoMetaFiles) {
         const userData = await this.getUserDataPath()
         if (this.isDev) {
-          const dashFileLocation = `dashFiles/${this.videoId}.xml`
-          const vttFileLocation = `storyboards/${this.videoId}.vtt`
+          const dashFileLocation = `static/dashFiles/${this.videoId}.xml`
+          const vttFileLocation = `static/storyboards/${this.videoId}.vtt`
           // only delete the file it actually exists
-          if (fs.existsSync('dashFiles/') && fs.existsSync(dashFileLocation)) {
+          if (fs.existsSync('static/dashFiles/') && fs.existsSync(dashFileLocation)) {
             fs.rmSync(dashFileLocation)
           }
-          if (fs.existsSync('storyboards/') && fs.existsSync(vttFileLocation)) {
+          if (fs.existsSync('static/storyboards/') && fs.existsSync(vttFileLocation)) {
             fs.rmSync(vttFileLocation)
           }
         } else {
@@ -1014,9 +1014,10 @@ export default Vue.extend({
           fs.mkdirSync('static/dashFiles/')
         }
 
-        fs.rm(fileLocation, () => {
-          fs.writeFileSync(fileLocation, xmlData)
-        })
+        if (fs.existsSync(fileLocation)) {
+          fs.rmSync(fileLocation)
+        }
+        fs.writeFileSync(fileLocation, xmlData)
       } else {
         fileLocation = `${userData}/dashFiles/${this.videoId}.xml`
         uriSchema = `file://${fileLocation}`

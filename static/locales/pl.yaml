@@ -154,6 +154,7 @@ Settings:
       Black: 'Czarny'
       Dark: 'Ciemny'
       Light: 'Jasny'
+      Dracula: 'Dracula'
     Main Color Theme:
       Main Color Theme: 'Główny kolor motywu'
       Red: 'Czerwony'
@@ -172,6 +173,13 @@ Settings:
       Amber: 'Bursztynowy'
       Orange: 'Pomarańczowy'
       Deep Orange: 'Głęboka pomarańcza'
+      Dracula Cyan: 'Dracula Turkusowy'
+      Dracula Green: 'Dracula Zielony'
+      Dracula Orange: 'Dracula Pomarańczowy'
+      Dracula Pink: 'Dracula Różowy'
+      Dracula Purple: 'Dracula Fioletowy'
+      Dracula Red: 'Dracula Czerwony'
+      Dracula Yellow: 'Dracula Żółty'
     Secondary Color Theme: 'Drugi kolor motywu'
         #* Main Color Theme
     UI Scale: Skala UI

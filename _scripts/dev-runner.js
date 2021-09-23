@@ -116,7 +116,12 @@ function startRenderer(callback) {
   })
 
   const server = new WebpackDevServer(compiler, {
-    static: path.join(process.cwd(), 'static'),
+    static: {
+      directory: path.join(process.cwd(), 'static'),
+      watch: {
+        ignored: /(dashFiles|storyboards)\/*/
+      }
+    },
     port
   })
 

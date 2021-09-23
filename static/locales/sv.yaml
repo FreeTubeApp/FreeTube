@@ -148,6 +148,7 @@ Settings:
       Black: 'Svart'
       Dark: 'Mörkt'
       Light: 'Ljust'
+      Dracula: 'Dracula'
     Main Color Theme:
       Main Color Theme: 'Huvudfärg'
       Red: 'Röd'
@@ -166,6 +167,13 @@ Settings:
       Amber: 'Bärnsten'
       Orange: 'Orange'
       Deep Orange: 'Djup Orange'
+      Dracula Cyan: 'Dracula Cyan (Mintgrön)'
+      Dracula Green: 'Dracula Ljusgrön'
+      Dracula Orange: 'Dracula Orange'
+      Dracula Pink: 'Dracula Rosa'
+      Dracula Purple: 'Dracula Lila'
+      Dracula Red: 'Dracula Röd'
+      Dracula Yellow: 'Dracula Gul'
     Secondary Color Theme: 'Sekundärfärg'
         #* Main Color Theme
     UI Scale: Skala för användargränssnitt
