@@ -21,6 +21,7 @@
   width: 100%;
   position: relative;
   background-color: var(--card-bg-color);
+  margin-top: 10px;
 }
 
 .channelInfo {
@@ -52,7 +53,8 @@
 .subscribeButton {
   height: 50px;
   min-width: 150px;
-  align-self: center
+  align-self: center;
+  margin-bottom: 10px;
 }
 
 .channelSearch {
@@ -67,6 +69,8 @@
 .channelInfoTabs {
   position: relative;
   width: 100%;
+  margin-top: -16px;
+  margin-bottom: -13px;
 }
 
 .tab {
@@ -74,21 +78,19 @@
   font-size: 15px;
   cursor: pointer;
   align-self: flex-end;
-  -webkit-transition: background 0.2s ease-out;
-  -moz-transition: background 0.2s ease-out;
-  -o-transition: background 0.2s ease-out;
-  transition: background 0.2s ease-out;
+  color: var(--tertiary-text-color);
 }
 
 .selectedTab {
-  text-decoration: underline;
+  color: var(--primary-text-color);
+  border-bottom: 3px solid var(--primary-color);
+  margin-bottom: -3px;
+  font-weight: bold;
+  box-sizing: border-box;
 }
 
 .tab:hover {
-  background-color: var(--side-nav-hover-color);
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
-  transition: background 0.2s ease-in;
+  font-weight: bold;
 }
 
 .aboutTab {
@@ -103,6 +105,10 @@
   font-family: 'Roboto', sans-serif;
   font-size: 17px;
   white-space: pre-wrap;
+}
+
+.channelSearch {
+  margin-top: 10px;
 }
 
 .elementList {
