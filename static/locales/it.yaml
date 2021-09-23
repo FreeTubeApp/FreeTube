@@ -521,7 +521,7 @@ Video:
   Reverse Playlist: Playlist inversa
   Shuffle Playlist: Riproduzione playlist casuale
   Loop Playlist: Riproduzione continua
-  Autoplay: Riproduzione automatica
+  Autoplay: Autoplay
   Starting soon, please refresh the page to check again: La riproduzione partirà tra
     breve, aggiorna la pagina per ricontrollare
   Audio:
@@ -639,7 +639,7 @@ Comments:
   Newest first: I più nuovi
   Sort by: Ordina per
   Show More Replies: Mostra altre risposte
-Up Next: 'Prossimo'
+Up Next: 'Video seguenti'
 
 # Toast Messages
 Local API Error (Click to copy): 'Errore API Locale (Clicca per copiare)'
