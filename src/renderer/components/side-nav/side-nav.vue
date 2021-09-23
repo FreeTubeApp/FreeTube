@@ -21,7 +21,7 @@
             fixed-width
           />
         </div>
-        <p class="navLabel">
+        <p class="navLabel" v-if="!hideText">
           {{ $t("Subscriptions.Subscriptions") }}
         </p>
       </div>
@@ -43,7 +43,7 @@
             fixed-width
           />
         </div>
-        <p class="navLabel">
+        <p class="navLabel" v-if="!hideText">
           {{ $t("Trending.Trending") }}
         </p>
       </div>
@@ -65,7 +65,7 @@
             fixed-width
           />
         </div>
-        <p class="navLabel">
+        <p class="navLabel"  v-if="!hideText">
           {{ $t("Most Popular") }}
         </p>
       </div>
@@ -87,7 +87,7 @@
             fixed-width
           />
         </div>
-        <p class="navLabel">
+        <p class="navLabel" v-if="!hideText">
           {{ $t("Playlists") }}
         </p>
       </div>
@@ -111,7 +111,7 @@
             fixed-width
           />
         </div>
-        <p class="navLabel">
+        <p class="navLabel" v-if="!hideText">
           {{ $t("History.History") }}
         </p>
       </div>
@@ -133,7 +133,7 @@
             fixed-width
           />
         </div>
-        <p class="navLabel">
+        <p class="navLabel" v-if="!hideText">
           {{ $t('Settings.Settings') }}
         </p>
       </div>
@@ -154,7 +154,7 @@
             fixed-width
           />
         </div>
-        <p class="navLabel">
+        <p class="navLabel" v-if="!hideText">
           {{ $t("About.About") }}
         </p>
       </div>

@@ -45,6 +45,9 @@ export default Vue.extend({
     },
     hideActiveSubscriptions: function () {
       return this.$store.getters.getHideActiveSubscriptions
+    },
+    hideCompactSidebarText: function () {
+      return this.$store.getters.getHideCompactSidebarText
     }
   },
   methods: {
@@ -67,6 +70,7 @@ export default Vue.extend({
       'updateHidePlaylists',
       'updateHideLiveChat',
       'updateHideActiveSubscriptions',
+      'updateHideCompactSidebarText',
       'updatePlayNextVideo',
       'updateDefaultTheatreMode'
     ])
