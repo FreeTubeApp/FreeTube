@@ -158,31 +158,16 @@ export default Vue.extend({
           let isYoutubeLink = false
 
           switch (result.urlType) {
-            case 'video': {
+            case 'video':
+            case 'playlist':
+            case 'search':
+            case 'channel':
               isYoutubeLink = true
               break
-            }
-
-            case 'playlist': {
-              isYoutubeLink = true
-              break
-            }
-
-            case 'search': {
-              isYoutubeLink = true
-              break
-            }
-
-            case 'hashtag': {
+            case 'hashtag':
               // TODO: Implement a hashtag related view
               // isYoutubeLink is already `false`
               break
-            }
-
-            case 'channel': {
-              isYoutubeLink = true
-              break
-            }
 
             case 'invalid_url':
             default: {
