@@ -52,6 +52,9 @@
       v-if="showActionButton"
       :icon="actionButtonIconName"
       class="inputAction"
+      :class="{
+        disabled: !inputDataPresent
+      }"
       @click="handleClick"
     />
 

@@ -119,6 +119,9 @@ export default Vue.extend({
   },
   methods: {
     handleClick: function () {
+      // No action if no input text
+      if (!this.inputDataPresent) { return }
+
       this.searchState.showOptions = false
       this.$emit('input', this.inputData)
       this.$emit('click', this.inputData)

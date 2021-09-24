@@ -96,6 +96,10 @@
   color: var(--primary-text-color);
 }
 
+.inputAction.disabled {
+  opacity: 50%;
+}
+
 .search ::-webkit-calendar-picker-indicator {
   display: none;
 }
