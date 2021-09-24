@@ -51,41 +51,16 @@ export default Vue.extend({
       // - value: String (if type == 'labelValue')
       type: Array,
       default: () => { return [] }
-    },
-    dropdownNames: {
-      type: Array,
-      default: () => { return [] }
-    },
-    dropdownValues: {
-      type: Array,
-      default: () => { return [] }
-    },
-    dropdownConvertNullNamesToDividers: {
-      type: Boolean,
-      default: false
     }
   },
   data: function () {
     return {
       dropdownShown: false,
-      dropdownOptionsWithFallback: [],
       id: ''
     }
   },
   mounted: function () {
     this.id = `iconButton${this._uid}`
-
-    if (this.dropdownOptions.length > 0) {
-      this.dropdownOptionsWithFallback = this.dropdownOptions
-    } else if (this.dropdownOptions.length === 0 && this.dropdownNames.length > 0) {
-      // Backward compatibility
-      this.dropdownOptionsWithFallback = this.dropdownNames.map((dropdownName, index) => {
-        return {
-          label: dropdownName,
-          value: this.dropdownValues[index]
-        }
-      })
-    }
   },
   methods: {
     toggleDropdown: function () {
@@ -132,7 +107,7 @@ export default Vue.extend({
     },
 
     handleIconClick: function () {
-      if (this.forceDropdown || (this.dropdownOptionsWithFallback.length > 0)) {
+      if (this.forceDropdown || (this.dropdownOptions.length > 0)) {
         this.toggleDropdown()
       } else {
         this.$emit('click')

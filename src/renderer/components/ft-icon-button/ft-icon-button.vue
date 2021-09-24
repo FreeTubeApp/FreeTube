@@ -28,11 +28,11 @@
     >
       <slot>
         <ul
-          v-if="dropdownOptionsWithFallback.length > 0"
+          v-if="dropdownOptions.length > 0"
           class="list"
         >
           <li
-            v-for="(option, index) in dropdownOptionsWithFallback"
+            v-for="(option, index) in dropdownOptions"
             :key="index"
             :class="option.type === 'divider' ? 'listItemDivider' : 'listItem'"
             @click="handleDropdownClick({url: option.value, index: index})"
