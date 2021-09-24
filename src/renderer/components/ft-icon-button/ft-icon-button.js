@@ -44,6 +44,14 @@ export default Vue.extend({
       type: String,
       default: 'bottom'
     },
+    dropdownOptions: {
+      // Array of objects with these properties
+      // - type: ('labelValue'|'divider', default to 'labelValue' for less typing)
+      // - label: String (if type == 'labelValue')
+      // - value: String (if type == 'labelValue')
+      type: Array,
+      default: () => { return [] }
+    },
     dropdownNames: {
       type: Array,
       default: () => { return [] }
@@ -60,11 +68,24 @@ export default Vue.extend({
   data: function () {
     return {
       dropdownShown: false,
+      dropdownOptionsWithFallback: [],
       id: ''
     }
   },
   mounted: function () {
     this.id = `iconButton${this._uid}`
+
+    if (this.dropdownOptions.length > 0) {
+      this.dropdownOptionsWithFallback = this.dropdownOptions
+    } else if (this.dropdownOptions.length === 0 && this.dropdownNames.length > 0) {
+      // Backward compatibility
+      this.dropdownOptionsWithFallback = this.dropdownNames.map((dropdownName, index) => {
+        return {
+          label: dropdownName,
+          value: this.dropdownValues[index]
+        }
+      })
+    }
   },
   methods: {
     toggleDropdown: function () {
@@ -111,23 +132,18 @@ export default Vue.extend({
     },
 
     handleIconClick: function () {
-      if (this.forceDropdown || (this.dropdownNames.length > 0 && this.dropdownValues.length > 0)) {
+      if (this.forceDropdown || (this.dropdownOptionsWithFallback.length > 0)) {
         this.toggleDropdown()
       } else {
         this.$emit('click')
       }
     },
 
-    handleDropdownClick: function (index, label) {
-      if (label === null && this.dropdownConvertNullNamesToDividers) {
-        // Divider click
-        return
-      }
-
+    handleDropdownClick: function ({ url, index }) {
       if (this.returnIndex) {
         this.$emit('click', index)
       } else {
-        this.$emit('click', this.dropdownValues[index])
+        this.$emit('click', url)
       }
 
       this.focusOut()

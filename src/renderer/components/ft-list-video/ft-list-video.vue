@@ -72,9 +72,7 @@
         :size="16"
         :use-shadow="false"
         dropdown-position-x="left"
-        :dropdown-names="optionsNames"
-        :dropdown-values="optionsValues"
-        :dropdown-convert-null-names-to-dividers="true"
+        :dropdown-options="dropdownOptions"
         @click="handleOptionsClick"
       />
       <router-link

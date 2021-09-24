@@ -28,16 +28,16 @@
     >
       <slot>
         <ul
-          v-if="dropdownNames.length > 0"
+          v-if="dropdownOptionsWithFallback.length > 0"
           class="list"
         >
           <li
-            v-for="(label, index) in dropdownNames"
+            v-for="(option, index) in dropdownOptionsWithFallback"
             :key="index"
-            :class="label === null && dropdownConvertNullNamesToDividers ? 'listItemDivider' : 'listItem'"
-            @click="handleDropdownClick(index, label)"
+            :class="option.type === 'divider' ? 'listItemDivider' : 'listItem'"
+            @click="handleDropdownClick({url: option.value, index: index})"
           >
-            {{ label === null && dropdownConvertNullNamesToDividers ? '' : label }}
+            {{ option.type === 'divider' ? '' : option.label }}
           </li>
         </ul>
       </slot>
