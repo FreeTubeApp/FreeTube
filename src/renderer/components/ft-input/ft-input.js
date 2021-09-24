@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
-
-// Check if it's a YouTube link
-const youtubeUrlPattern = /^https?:\/\/((www\.)?youtube\.com(\/embed)?|youtu\.be)\/.*$/
+import { mapActions } from 'vuex'
 
 export default Vue.extend({
   name: 'FtInput',
@@ -148,14 +146,63 @@ export default Vue.extend({
       // Only need to update icon if visible
       if (!this.showActionButton) { return }
 
-      // Update action button icon according to input
-      const isYoutubeLink = this.inputDataPresent && youtubeUrlPattern.test(this.inputData)
-      if (isYoutubeLink) {
-        // Go to URL (i.e. Video/Playlist/Channel
-        this.actionButtonIconName = 'arrow-right'
-      } else {
-        // Search with text
+      if (!this.inputDataPresent) {
+        // Change back to default icon if text is blank
         this.actionButtonIconName = 'search'
+        return
+      }
+
+      // Update action button icon according to input
+      try {
+        this.getYoutubeUrlInfo(this.inputData).then((result) => {
+          let isYoutubeLink = false
+
+          switch (result.urlType) {
+            case 'video': {
+              isYoutubeLink = true
+              break
+            }
+
+            case 'playlist': {
+              isYoutubeLink = true
+              break
+            }
+
+            case 'search': {
+              isYoutubeLink = true
+              break
+            }
+
+            case 'hashtag': {
+              // TODO: Implement a hashtag related view
+              // isYoutubeLink is already `false`
+              break
+            }
+
+            case 'channel': {
+              isYoutubeLink = true
+              break
+            }
+
+            case 'invalid_url':
+            default: {
+              // isYoutubeLink is already `false`
+            }
+          }
+
+          if (isYoutubeLink) {
+            // Go to URL (i.e. Video/Playlist/Channel
+            this.actionButtonIconName = 'arrow-right'
+          } else {
+            // Search with text
+            this.actionButtonIconName = 'search'
+          }
+        })
+      } catch (ex) {
+        // On exception, consider text as invalid URL
+        this.actionButtonIconName = 'search'
+        // Rethrow exception
+        throw ex
       }
     },
 
@@ -207,6 +254,10 @@ export default Vue.extend({
       if (this.selectOnFocus) {
         e.target.select()
       }
-    }
+    },
+
+    ...mapActions([
+      'getYoutubeUrlInfo'
+    ])
   }
 })
