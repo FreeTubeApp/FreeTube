@@ -93,4 +93,16 @@ body:
       options:
         - label: I have encountered this bug in the latest [nightly build](https://docs.freetubeapp.io/development/nightly-builds).
           required: false
+  - type: dropdown
+    attributes:
+      label: 'Issue Labels'
+      multiple: true
+      options:
+        - visual bug
+        - keyboard control not working
+        - text/string issue
+        - content not loading
+        - accessibility issue
+    validations:
+      required: false
         
