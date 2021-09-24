@@ -34,6 +34,7 @@
   position: relative;
   padding: 5px;
   cursor: pointer;
+  min-height: 35px;
 }
 
 .moreOption {
@@ -121,7 +122,6 @@
 
 .closed .navOption {
   width: 100%;
-  /*height: 45px;*/
   padding: 5px 0px;
 }
 
