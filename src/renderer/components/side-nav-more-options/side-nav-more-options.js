@@ -14,8 +14,8 @@ export default Vue.extend({
     hideTrendingVideos: function () {
       return this.$store.getters.getHideTrendingVideos
     },
-    hideCompactSidebarText: function () {
-      return this.$store.getters.getHideCompactSidebarText
+    hideLabelsSideBar: function () {
+      return this.$store.getters.getHideLabelsSideBar
     }
   },
   methods: {

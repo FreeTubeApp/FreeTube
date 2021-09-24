@@ -56,11 +56,11 @@ export default Vue.extend({
     hideActiveSubscriptions: function () {
       return this.$store.getters.getHideActiveSubscriptions
     },
-    hideCompactSidebarText: function () {
-      return this.$store.getters.getHideCompactSidebarText
+    hideLabelsSideBar: function () {
+      return this.$store.getters.getHideLabelsSideBar
     },
     hideText: function () {
-      return !this.isOpen && this.hideCompactSidebarText
+      return !this.isOpen && this.hideLabelsSideBar
     }
   },
   methods: {

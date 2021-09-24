@@ -39,13 +39,6 @@
           :default-value="hideActiveSubscriptions"
           @change="updateHideActiveSubscriptions"
         />
-        <!--TODO: t$() text-->
-        <ft-toggle-switch
-          label="Hide Compact Side Bar text"
-          :compact="true"
-          :default-value="hideCompactSidebarText"
-          @change="updateHideCompactSidebarText"
-        />
       </div>
       <div class="switchColumn">
         <ft-toggle-switch

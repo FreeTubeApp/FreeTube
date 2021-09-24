@@ -10,7 +10,7 @@
         class="navIcon"
       />
       <p
-        v-if="!hideCompactSidebarText"
+        v-if="!hideLabelsSideBar"
         class="navLabel"
       >
         {{ $t("More") }}
@@ -32,7 +32,7 @@
           class="navIcon"
         />
         <p
-          v-if="!hideCompactSidebarText"
+          v-if="!hideLabelsSideBar"
           class="navLabel"
         >
           {{ $t("Trending.Trending") }}
@@ -49,7 +49,7 @@
           class="navIcon"
         />
         <p
-          v-if="!hideCompactSidebarText"
+          v-if="!hideLabelsSideBar"
           class="navLabel"
         >
           {{ $t("Most Popular") }}
@@ -65,7 +65,7 @@
           class="navIcon"
         />
         <p
-          v-if="!hideCompactSidebarText"
+          v-if="!hideLabelsSideBar"
           class="navLabel"
         >
           {{ $t("About.About") }}
@@ -106,7 +106,7 @@
         class="navIcon"
       />
       <p
-        v-if="!hideCompactSidebarText"
+        v-if="!hideLabelsSideBar"
         class="navLabel"
       >
         {{ $t("About.About") }}
