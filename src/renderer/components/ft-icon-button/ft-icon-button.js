@@ -51,6 +51,10 @@ export default Vue.extend({
     dropdownValues: {
       type: Array,
       default: () => { return [] }
+    },
+    dropdownConvertNullNamesToDividers: {
+      type: Boolean,
+      default: false
     }
   },
   data: function () {
@@ -114,7 +118,12 @@ export default Vue.extend({
       }
     },
 
-    handleDropdownClick: function (index) {
+    handleDropdownClick: function (index, label) {
+      if (label === null && this.dropdownConvertNullNamesToDividers) {
+        // Divider click
+        return
+      }
+
       if (this.returnIndex) {
         this.$emit('click', index)
       } else {

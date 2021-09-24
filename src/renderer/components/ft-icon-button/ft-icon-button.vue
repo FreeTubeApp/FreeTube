@@ -34,10 +34,10 @@
           <li
             v-for="(label, index) in dropdownNames"
             :key="index"
-            class="listItem"
-            @click="handleDropdownClick(index)"
+            :class="label === null && dropdownConvertNullNamesToDividers ? 'listItemDivider' : 'listItem'"
+            @click="handleDropdownClick(index, label)"
           >
-            {{ label }}
+            {{ label === null && dropdownConvertNullNamesToDividers ? '' : label }}
           </li>
         </ul>
       </slot>

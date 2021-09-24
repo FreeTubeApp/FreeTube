@@ -61,17 +61,22 @@ export default Vue.extend({
       isPremium: false,
       hideViews: false,
       optionsValues: [
+        // `null` values represent dividers
         'history',
-        'openYoutube',
+        null,
         'copyYoutube',
-        'openYoutubeEmbed',
         'copyYoutubeEmbed',
-        'openInvidious',
         'copyInvidious',
-        'openYoutubeChannel',
+        null,
+        'openYoutube',
+        'openYoutubeEmbed',
+        'openInvidious',
+        null,
         'copyYoutubeChannel',
-        'openInvidiousChannel',
-        'copyInvidiousChannel'
+        'copyInvidiousChannel',
+        null,
+        'openYoutubeChannel',
+        'openInvidiousChannel'
       ]
     }
   },
@@ -131,24 +136,28 @@ export default Vue.extend({
     },
 
     optionsNames: function () {
-      const names = [
-        this.$t('Video.Open in YouTube'),
-        this.$t('Video.Copy YouTube Link'),
-        this.$t('Video.Open YouTube Embedded Player'),
-        this.$t('Video.Copy YouTube Embedded Player Link'),
-        this.$t('Video.Open in Invidious'),
-        this.$t('Video.Copy Invidious Link'),
-        this.$t('Video.Open Channel in YouTube'),
-        this.$t('Video.Copy YouTube Channel Link'),
-        this.$t('Video.Open Channel in Invidious'),
-        this.$t('Video.Copy Invidious Channel Link')
-      ]
+      const names = []
 
-      if (this.watched) {
-        names.unshift(this.$t('Video.Remove From History'))
-      } else {
-        names.unshift(this.$t('Video.Mark As Watched'))
-      }
+      names.push(
+        // `null` values represent dividers
+        this.watched
+          ? this.$t('Video.Remove From History')
+          : this.$t('Video.Mark As Watched'),
+        null,
+        this.$t('Video.Copy YouTube Link'),
+        this.$t('Video.Copy YouTube Embedded Player Link'),
+        this.$t('Video.Copy Invidious Link'),
+        null,
+        this.$t('Video.Open in YouTube'),
+        this.$t('Video.Open YouTube Embedded Player'),
+        this.$t('Video.Open in Invidious'),
+        null,
+        this.$t('Video.Copy YouTube Channel Link'),
+        this.$t('Video.Copy Invidious Channel Link'),
+        null,
+        this.$t('Video.Open Channel in YouTube'),
+        this.$t('Video.Open Channel in Invidious')
+      )
 
       return names
     },
