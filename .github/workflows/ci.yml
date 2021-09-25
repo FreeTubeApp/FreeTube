@@ -7,7 +7,7 @@ on:
       - development
 
 env:
-  NODE_VERSIONS: [12.x]
+  NODE_VERSIONS: [14.x]
 
 jobs:
   lint:
@@ -35,7 +35,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
-        run: npm ci
+        run: npm run ci
 
       - name: Execute eslint checks
         run: npm run lint
@@ -65,7 +65,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
-        run: npm ci
+        run: npm run ci
 
       - name: Execute prettier checks
         run: npm run prettier
@@ -96,7 +96,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
-        run: npm ci
+        run: npm run ci
 
       - name: Execute unit tests
         run: npm run test:unit
@@ -127,7 +127,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
-        run: npm ci
+        run: npm run ci
 
       - name: Execute e2e tests
         run: npm run test:e2e-headless
