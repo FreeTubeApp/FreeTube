@@ -59,7 +59,7 @@ Search Filters:
     Long (> 20 minutes): '長（大於20分鐘）'
   # On Search Page
   Search Results: '搜尋結果'
-  Fetching results. Please wait: '擷取結果中，請稍候...'
+  Fetching results. Please wait: '正在擷取結果。請稍候'
   Fetch more results: '擷取更多結果'
 # Sidebar
   There are no more results for this search: 此搜尋無更多結果
@@ -74,7 +74,13 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 這個設定檔有大量訂閱。
     強制RSS已防止速率限制
   Load More Videos: 載入更多影片
-Trending: '發燒影片'
+Trending:
+  Trending: '發燒影片'
+  Trending Tabs: 熱門分頁
+  Movies: 電影
+  Gaming: 遊戲
+  Music: 音樂
+  Default: 預設
 Most Popular: '最受歡迎'
 Playlists: '播放清單'
 User Playlists:
@@ -94,7 +100,7 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: '連線失敗時連線到非預設伺服器'
     Enable Search Suggestions: '啟用搜尋建議'
     Default Landing Page: '預設加載頁面'
-    Locale Preference: '地區偏好'
+    Locale Preference: '介面語言'
     Preferred API Backend:
       Preferred API Backend: '偏好API伺服器'
       Local API: '區域API'
@@ -116,6 +122,18 @@ Settings:
     Check for Latest Blog Posts: 檢查最新的部落格貼文
     Check for Updates: 檢查更新
     View all Invidious instance information: 檢視所有 Invidious 站台的資訊
+    System Default: 系統預設值
+    Clear Default Instance: 清除預設站台
+    Set Current Instance as Default: 設定目前站台為預設值
+    Current instance will be randomized on startup: 目前站台將在啟動時隨機選擇
+    No default instance has been set: 未設定預設的站台
+    The currently set default instance is $: 目前設定的預設站台為 $
+    Current Invidious Instance: 目前的 Invidious 站台
+    External Link Handling:
+      No Action: 無動作
+      Ask Before Opening Link: 開啟連結前詢問
+      Open Link: 開啟連結
+      External Link Handling: 外部連結處理
   Theme Settings:
     Theme Settings: '主題設定'
     Match Top Bar with Main Color: '頂部功能表欄對應主色彩'
@@ -124,6 +142,7 @@ Settings:
       Black: '黑色'
       Dark: '深色'
       Light: '淺色'
+      Dracula: '德古拉'
     Main Color Theme:
       Main Color Theme: '主題色'
       Red: '紅'
@@ -142,11 +161,18 @@ Settings:
       Amber: '黃褐'
       Orange: '橙'
       Deep Orange: '深橙'
+      Dracula Cyan: '德古拉 青'
+      Dracula Green: '德古拉 绿'
+      Dracula Orange: '德古拉 橙'
+      Dracula Pink: '德古拉 粉'
+      Dracula Purple: '德古拉 紫'
+      Dracula Red: '德古拉 红'
+      Dracula Yellow: '德古拉 黄'
     Secondary Color Theme: '次要主題色'
         #* Main Color Theme
     UI Scale: UI縮放
     Expand Side Bar by Default: 預設展開側邊欄
-    Disable Smooth Scrolling: 禁用平滑捲動
+    Disable Smooth Scrolling: 停用平滑捲動
   Player Settings:
     Player Settings: '播放器選項'
     Force Local Backend for Legacy Formats: '強制使用傳統格式的區域伺服器'
@@ -161,7 +187,7 @@ Settings:
     Default Playback Rate: '預設播放速度'
     Default Video Format:
       Default Video Format: '預設影片格式'
-      Dash Formats: '儀錶盤格式'
+      Dash Formats: 'DASH 格式'
       Legacy Formats: '傳統格式'
       Audio Formats: '音訊格式'
     Default Quality:
@@ -177,6 +203,10 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: 播放清單 下一個影片間隔時間
+    Next Video Interval: 下一個影片區段
+    Scroll Volume Over Video Player: 在影片播放器上捲動以變更音量
+    Display Play Button In Video Player: 在影片播放器中顯示播放按鈕
+    Fast-Forward / Rewind Interval: 快轉／倒帶間隔
   Subscription Settings:
     Subscription Settings: '訂閱設定'
     Hide Videos on Watch: '觀看時隱藏影片'
@@ -235,7 +265,7 @@ Settings:
     History object has insufficient data, skipping item: 歷史紀錄物件資料不足，正在跳過項目
     Subscriptions have been successfully exported: 訂閱已成功匯出
     Invalid history file: 無效的歷史紀錄檔案
-    This might take a while, please wait: 這可能需要一段時間，請稍候...
+    This might take a while, please wait: 這可能需要一段時間，請稍候
     Invalid subscriptions file: 無效的訂閱檔案
     All subscriptions have been successfully imported: 所有訂閱已成功匯入
     All subscriptions and profiles have been successfully imported: 所有訂閱與設定檔已成功匯入
@@ -283,6 +313,18 @@ Settings:
     Proxy Protocol: 代理伺服器協定
     Enable Tor / Proxy: 啟用 Tor 或代理伺服器
     Proxy Settings: 代理伺服器設定
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: 當贊助商片段被跳過時通知
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
+      網址（預設為 https://sponsor.ajay.app）
+    Enable SponsorBlock: 啟用 SponsorBlock
+    SponsorBlock Settings: SponsorBlock 設定
+  External Player Settings:
+    Custom External Player Arguments: 自訂外部播放程式參數
+    Custom External Player Executable: 自訂外部播放程式可執行檔
+    Ignore Unsupported Action Warnings: 忽略不支援的動作警告
+    External Player: 外部播放程式
+    External Player Settings: 外部播放程式設定
 About:
   #On About page
   About: '關於'
@@ -388,7 +430,7 @@ Video:
   Live Chat: '直播聊天室'
   Enable Live Chat: '啟用直播聊天室'
   Live Chat is currently not supported in this build.: '直播聊天室在此版本中目前不被支援。'
-  'Chat is disabled or the Live Stream has ended.': '直播聊天室功能被禁用或者直播已經結束。'
+  'Chat is disabled or the Live Stream has ended.': '直播聊天室功能被停用或者直播已經結束。'
   Live chat is enabled.  Chat messages will appear here once sent.: '直播聊天結束。 聊天訊息一旦傳送將出現在這裡。'
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': '直播聊天室目前不被Invidious
     API支援。 需要直接連線YouTube。'
@@ -453,6 +495,29 @@ Video:
   Video has been removed from your saved list: 影片已從您的播放清單移除
   Video has been saved: 影片已儲存
   Save Video: 儲存影片至播放清單
+  translated from English: 從英文翻譯
+  Sponsor Block category:
+    music offtopic: 音樂離題
+    interaction: 互動
+    self-promotion: 自我推廣
+    outro: 其他
+    intro: 介紹
+    sponsor: 贊助商
+  Skipped segment: 已跳過的片段
+  External Player:
+    Unsupported Actions:
+      looping playlists: 循環播放清單
+      shuffling playlists: 隨機播放清單
+      reversing playlists: 反向播放清單
+      opening specific video in a playlist (falling back to opening the video): 在播放清單中開啟特定影片（汰退至開啟影片）
+      opening playlists: 正在開啟播放清單
+      setting a playback rate: 正在設定播放速度
+      starting video at offset: 在偏移處開始影片
+    UnsupportedActionTemplate: $ 不支援：%
+    OpeningTemplate: 正於 % 中開啟 $……
+    playlist: 播放清單
+    video: 視訊
+    OpenInTemplate: 在 $ 中開啟
 Videos:
   #& Sort By
   Sort By:
@@ -477,14 +542,15 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: 播放清單
 Toggle Theatre Mode: '切換為劇院模式'
 Change Format:
   Change Video Formats: '變更影片格式'
-  Use Dash Formats: '使用儀錶盤格式'
+  Use Dash Formats: '使用 DASH 格式'
   Use Legacy Formats: '使用傳統格式'
   Use Audio Formats: '使用音訊格式'
   Audio formats are not available for this video: 這個影片沒有音訊格式
-  Dash formats are not available for this video: 這個影片沒有儀錶盤格式
+  Dash formats are not available for this video: 這個影片沒有 DASH 格式
 Share:
   Share Video: '分享影片'
   Copy Link: '複製連結'
@@ -503,7 +569,7 @@ Mini Player: '迷你播放器'
 Comments:
   Comments: '留言'
   Click to View Comments: '點擊查看留言'
-  Getting comment replies, please wait: '擷取留言中，請稍候...'
+  Getting comment replies, please wait: '正在取得留言回覆，請稍候'
   Show Comments: '查看留言'
   Hide Comments: '隱藏留言'
   # Context: View 10 Replies, View 1 Reply
@@ -518,6 +584,7 @@ Comments:
   Top comments: 最熱門留言
   Sort by: 排序方式
   No more comments available: 沒有更多留言
+  Show More Replies: 顯示更多回覆
 Up Next: '觀看其他類似影片'
 
 # Toast Messages
@@ -526,10 +593,10 @@ Invidious API Error (Click to copy): 'Invidious API錯誤（點擊複製）'
 Falling back to Invidious API: '回退到Invidious API'
 Falling back to the local API: '回退到區域API'
 Subscriptions have not yet been implemented: '訂閱功能尚未被推行'
-Loop is now disabled: '循環播放現在被禁用'
+Loop is now disabled: '循環播放現在被停用'
 Loop is now enabled: '循環播放現在被啟用'
-Shuffle is now disabled: '隨機播放現在被禁用'
-Shuffle is now enabled: '隨機播放現在被禁用'
+Shuffle is now disabled: '隨機播放現在被停用'
+Shuffle is now enabled: '隨機播放現在被停用'
 Playing Next Video: '將播放下一影片'
 Playing Previous Video: '將播放上一影片'
 Playing next video in 5 seconds.  Click to cancel: '下一部影片將在5秒後播放。點擊取消。'
@@ -538,7 +605,7 @@ Canceled next video autoplay: '取消自動播放下一部影片'
 
 Yes: '是'
 No: '否'
-Locale Name: 繁體(正體)中文
+Locale Name: 繁體中文
 Profile:
   $ is now the active profile: $現在是作用中的設定檔
   Your default profile has been changed to your primary profile: 您的預設設定檔已變更為您的主要設定檔
@@ -576,6 +643,7 @@ Profile:
   Other Channels: 其他頻道
   Subscription List: 訂閱清單
   Profile Filter: 設定檔篩選器
+  Profile Settings: 設定檔設定
 The playlist has been reversed: 播放清單已反轉
 A new blog is now available, $. Click to view more: 已有新的部落格文章，$。點擊以檢視更多
 Download From Site: 從網站下載
@@ -583,22 +651,38 @@ Version $ is now available!  Click for more details: 版本更新囉! 最新版�
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 沒有這個影片因為缺少格式。這個可能發生由於國家不可用。
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: 啟用後，FreeTube將使用RSS代替它的預設方法來抓取您的訂閱來源。RSS的速度較快，而且可以防止IP封鎖，但它可能不會提供某些資訊，例如影片長度或是直播狀態。
+    Fetch Feeds from RSS: 啟用後，FreeTube 將使用 RSS 替代其預設方法來擷取您的訂閱 feed。RSS 的速度較快，而且可以防止
+      IP 封鎖，但它可能不會提供某些資訊，例如影片長度或是直播狀態
   Player Settings:
-    Default Video Format: 設定要用於影片播放的格式。儀錶盤格式有更高的畫質。傳統格式會限制在 720p 但頻寬需求更低。音訊格式為僅有音訊的串流
-    Proxy Videos Through Invidious: 將連線到 Invidious而非直接連線到 YouTube 來提供影片。覆寫 API 偏好
-    Force Local Backend for Legacy Formats: 僅當 Invidious API是您預設 API 時才有效。啟用後，區域 API
-      將會執行並使用由其回傳的的傳統格式，而非 Invidious 回傳的格式。對因為國家地區限制而無法播放 Invidious回傳的影片時有幫助
+    Default Video Format: 設定要用於影片播放的格式。DASH 格式有更高的畫質。傳統格式會限制在 720p 但頻寬需求更低。音訊格式為僅有音訊的串流。
+    Proxy Videos Through Invidious: 將連線到 Invidious 而非直接連線到 YouTube 來提供影片。覆寫 API 偏好。
+    Force Local Backend for Legacy Formats: 僅當 Invidious API 是您預設 API 時才有效。啟用後，區域
+      API 將會執行並使用由其回傳的的傳統格式，而非 Invidious 回傳的格式。對因為國家地區限制而無法播放 Invidious 回傳的影片時有幫助。
   General Settings:
-    Invidious Instance: FreeTube將連線為 API呼叫的Invidious實例。清除目前的實例以檢視可供選擇的公用實例清單
-    Thumbnail Preference: FreeTube中所有縮圖都會被替換為影片畫面而非預設縮圖
-    Fallback to Non-Preferred Backend on Failure: 當您的偏好API 有問題時，FreeTube將自動嘗試使用您的非偏好API
-      作為汰退方案
+    Invidious Instance: FreeTube 將連線到 Invidious 站台進行 API 呼叫。清除目前的站台以檢視可供選擇的公開站台清單。
+    Thumbnail Preference: FreeTube 中所有縮圖都會被替換為影片畫面而非預設縮圖。
+    Fallback to Non-Preferred Backend on Failure: 當您的偏好 API 有問題時，FreeTube 將自動嘗試使用您的非偏好
+      API 作為汰退方案。
     Preferred API Backend: 選擇 FreeTube 要用於取得YouTube資料的伺服器。本地 API 是內建擷取器。Invidious
       API 需要 Invidious 伺服器才能連線。
-    Region for Trending: 發燒影片區域可以讓您選擇想要顯示哪個國家的發燒影片。 注意:並非所有國家都被YouTube支援
+    Region for Trending: 熱門影片區域可以讓您選擇想要顯示哪個國家的熱門影片。注意：並非所有國家都被 YouTube 支援。
+    External Link Handling: "選擇點擊後無法在 FreeTube 中開啟連結時的預設行為。\n預設情況下 FreeTube 將會在您的預設瀏覽器中開啟點擊的連結。\n"
   Privacy Settings:
     Remove Video Meta Files: 如果啟用，FreeTube會在關閉觀看頁面時，自動刪除影片播放過程中建立的暫存檔案。
+  External Player Settings:
+    Custom External Player Arguments: 任何您想要傳遞給外部播放程式的自訂命令列參數，以半形冒號分隔 (';')。
+    Ignore Warnings: 當目前的外部播放程式不支援目前動作時（例如反向播放清單等等），消除警告。
+    Custom External Player Executable: 預設情況下，FreeTube 會假設選定的外部播放程式可以透過 PATH 環境變數找到。如果需要的話，請在此設定自訂路徑。
+    External Player: 選擇外部播放程式將會在縮圖上顯示圖示，用來在外部播放程式中開啟影片（若支援的話，播放清單也可以）。
 Playing Next Video Interval: 馬上播放下一個影片。點擊取消。| 播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。|
   播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。
 More: 更多
+Hashtags have not yet been implemented, try again later: 尚未實作主題標籤，請稍後再試
+Unknown YouTube url type, cannot be opened in app: 未知的 YouTube url 類型，無法在應用程式開啟
+Open New Window: 開啟新視窗
+Default Invidious instance has been cleared: 預設 Invidious 站台已被清除
+Default Invidious instance has been set to $: 預設 Invidious 站台已被設定為 $
+Search Bar:
+  Clear Input: 清除輸入
+External link opening has been disabled in the general settings: 已在一般設定中停用外部連結開啟
+Are you sure you want to open this link?: 您確定您想要開啟此連結嗎？

@@ -1,12 +1,11 @@
 <template>
-  <ft-card
-    class="relative card"
-  >
-    <h3
-      class="videoTitle"
-    >
-      {{ $t("Settings.Subscription Settings.Subscription Settings") }}
-    </h3>
+  <details>
+    <summary>
+      <h3>
+        {{ $t("Settings.Subscription Settings.Subscription Settings") }}
+      </h3>
+    </summary>
+    <hr>
     <ft-flex-box class="subscriptionSettingsFlexBox">
       <ft-toggle-switch
         :label="$t('Settings.Subscription Settings.Hide Videos on Watch')"
@@ -37,8 +36,8 @@
         label="Manage My Subscriptions"
       />
     </ft-flex-box>
-  </ft-card>
+  </details>
 </template>
 
 <script src="./subscription-settings.js" />
-<style scoped src="./subscription-settings.css" />
+<style scoped lang="sass" src="./subscription-settings.sass" />

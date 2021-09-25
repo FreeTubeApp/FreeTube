@@ -1,0 +1,50 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Project Board Automation
+
+on:
+  issues:
+    types: [labeled, unlabeled, closed, deleted]
+
+jobs:
+  assign-issues-to-projects:
+    runs-on: ubuntu-latest
+    steps:
+
+    # For bug reports
+      - name: New bug issue
+        uses: alex-page/github-project-automation-plus@v0.5.1
+        if: github.event.action == 'labeled' && contains(github.event.issue.labels.*.name, 'bug')
+        with:
+          project: Bug Reports
+          column: To assign
+          repo-token: ${{ secrets.PUSH_TOKEN }}
+          action: update
+
+      - name: Bug label removed
+        uses: alex-page/github-project-automation-plus@v0.5.1
+        if: github.event.action == 'unlabeled' || github.event.action == 'closed' || github.event.action == 'deleted'
+        with:
+          action: delete
+          project: Bug Reports
+          column: To assign
+          repo-token: ${{ secrets.PUSH_TOKEN }}
+
+      # For feature requests
+      - name: New feature issue
+        uses: alex-page/github-project-automation-plus@v0.5.1
+        if: github.event.action == 'labeled' && contains(github.event.issue.labels.*.name, 'enhancement')
+        with:
+          project: Feature Requests
+          column: To assign
+          repo-token: ${{ secrets.PUSH_TOKEN }}
+          action: update
+
+      - name: Feature request label removed
+        uses: alex-page/github-project-automation-plus@v0.5.1
+        if: github.event.action == 'unlabeled' || github.event.action == 'closed' || github.event.action == 'deleted'
+        with:
+          action: delete
+          project: Feature Requests
+          column: To assign
+          repo-token: ${{ secrets.PUSH_TOKEN }}

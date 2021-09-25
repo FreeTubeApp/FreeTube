@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import SideNavMoreOptions from '../side-nav-more-options/side-nav-more-options.vue'
-import router from '../../router/index.js'
 
 export default Vue.extend({
   name: 'SideNav',
@@ -16,8 +15,8 @@ export default Vue.extend({
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
     },
     profileList: function () {
       return this.$store.getters.getProfileList
@@ -39,7 +38,7 @@ export default Vue.extend({
         return 0
       }).map((channel) => {
         if (this.backendPreference === 'invidious') {
-          channel.thumbnail = channel.thumbnail.replace('https://yt3.ggpht.com', `${this.invidiousInstance}/ggpht/`)
+          channel.thumbnail = channel.thumbnail.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
         }
 
         return channel
@@ -60,7 +59,7 @@ export default Vue.extend({
   },
   methods: {
     navigate: function (route) {
-      router.push('/' + route)
+      this.$router.push('/' + route)
     },
 
     goToChannel: function (id) {

@@ -25,6 +25,8 @@ FreeTube uses a built in extractor to grab and serve data / videos.  The [Invidi
 longer track you using cookies or JavaScript. Your subscriptions and history are stored locally on your computer and never sent out.  Using a VPN or Tor is highly recommended
 to hide your IP while using FreeTube.
 
+Go to [FreeTube's Documentation](https://docs.freetubeapp.io/) if you'd like to know more about how to operate FreeTube and its features.
+
 ## Screenshots
 <img src="https://i.imgur.com/zFgZUUV.png" width=300> <img src="https://i.imgur.com/9evYHgN.png" width=300> <img src="https://i.imgur.com/yT2UzPa.png" width=300> <img src="https://i.imgur.com/47zIEt4.png" width=300> <img src="https://i.imgur.com/hFB2fKC.png" width=300>
 
@@ -77,18 +79,20 @@ follow the [Contribution
 Guidelines](https://github.com/FreeTubeApp/FreeTube/blob/development/CONTRIBUTING.md)
 before sending your pull request.
 
-Thank you very much to the [People and Projects](https://github.com/FreeTubeApp/FreeTube/wiki/Credits) that make FreeTube possible!
+Thank you very much to the [People and Projects](https://docs.freetubeapp.io/credits/) that make FreeTube possible!
 
 ## Localization
 <a href="https://hosted.weblate.org/engage/free-tube/">
 <img src="https://hosted.weblate.org/widgets/free-tube/-/translations/287x66-grey.png" alt="Translation status" />
 </a>
 
-We are actively looking for translations!  We use Weblate to make it easy for translators to get involved.  Click on the badge above to learn how to get involved.
+We are actively looking for translations!  We use [Weblate](https://hosted.weblate.org/engage/free-tube/) to make it easy for translators to get involved.  Click on the badge above to learn how to get involved.
+
+For the Linux Flatpak, the desktop entry comment string can be translated at our [Flatpak repository](https://github.com/flathub/io.freetubeapp.FreeTube/blob/master/io.freetubeapp.FreeTube.desktop).
 
 ## Contact
 
-If you ever have any questions, feel free to make an issue here on GitHub.  Alternatively, you can email me at FreeTubeApp@protonmail.com or you can join our [Matrix Community](https://matrix.to/#/+freetube:matrix.org).  Don't forget to check out the [rules](https://github.com/FreeTubeApp/FreeTube/wiki/Matrix-Server-Info-&-Rules) before joining.
+If you ever have any questions, feel free to make an issue here on GitHub.  Alternatively, you can email me at FreeTubeApp@protonmail.com or you can join our [Matrix Community](https://matrix.to/#/+freetube:matrix.org).  Don't forget to check out the [rules](https://docs.freetubeapp.io/community/matrix/) before joining.
 
 You can also stay up to date by reading the [FreeTube Blog](https://write.as/freetube/).  [View the welcome blog](https://write.as/freetube/welcome-to-freetube-blogs).
 

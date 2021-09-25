@@ -30,8 +30,8 @@ export default Vue.extend({
     }
 
     if (this.usingElectron && this.powerSaveBlocker !== null) {
-      const { powerSaveBlocker } = require('electron')
-      powerSaveBlocker.stop(this.powerSaveBlocker)
+      const { ipcRenderer } = require('electron')
+      ipcRenderer.send('stopPowerSaveBlocker', this.powerSaveBlocker)
     }
   },
   props: {
@@ -43,6 +43,10 @@ export default Vue.extend({
       type: Array,
       default: () => { return [] }
     },
+    adaptiveFormats: {
+      type: Array,
+      default: () => { return [] }
+    },
     dashSrc: {
       type: Array,
       default: null
@@ -51,7 +55,7 @@ export default Vue.extend({
       type: Array,
       default: null
     },
-    captionList: {
+    captionHybridList: {
       type: Array,
       default: () => { return [] }
     },
@@ -62,6 +66,10 @@ export default Vue.extend({
     thumbnail: {
       type: String,
       default: ''
+    },
+    videoId: {
+      type: String,
+      required: true
     }
   },
   data: function () {
@@ -74,8 +82,10 @@ export default Vue.extend({
       useHls: false,
       selectedDefaultQuality: '',
       selectedQuality: '',
+      using60Fps: false,
       maxFramerate: 0,
       activeSourceList: [],
+      activeAdaptiveFormats: [],
       mouseTimeout: null,
       touchTimeout: null,
       lastTouchTime: null,
@@ -102,6 +112,7 @@ export default Vue.extend({
             'subsCapsButton',
             'audioTrackButton',
             'pictureInPictureToggle',
+            'toggleTheatreModeButton',
             'fullWindowButton',
             'qualitySelector',
             'fullscreenToggle'
@@ -129,12 +140,29 @@ export default Vue.extend({
       return this.$store.getters.getUsingElectron
     },
 
+    currentLocale: function () {
+      return this.$store.getters.getCurrentLocale
+    },
+
     defaultPlayback: function () {
       return this.$store.getters.getDefaultPlayback
     },
 
+    defaultSkipInterval: function () {
+      return this.$store.getters.getDefaultSkipInterval
+    },
+
     defaultQuality: function () {
       return parseInt(this.$store.getters.getDefaultQuality)
+    },
+
+    defaultCaptionSettings: function () {
+      try {
+        return JSON.parse(this.$store.getters.getDefaultCaptionSettings)
+      } catch (e) {
+        console.log(e)
+        return {}
+      }
     },
 
     defaultVideoFormat: function () {
@@ -143,16 +171,22 @@ export default Vue.extend({
 
     autoplayVideos: function () {
       return this.$store.getters.getAutoplayVideos
-    }
-  },
-  watch: {
-    sourceList: function () {
-      this.determineFormatType()
     },
-    captionList: function () {
-      this.player.caption({
-        data: this.captionList
-      })
+
+    videoVolumeMouseScroll: function () {
+      return this.$store.getters.getVideoVolumeMouseScroll
+    },
+
+    useSponsorBlock: function () {
+      return this.$store.getters.getUseSponsorBlock
+    },
+
+    sponsorBlockShowSkippedToast: function () {
+      return this.$store.getters.getSponsorBlockShowSkippedToast
+    },
+
+    displayVideoPlayButton: function() {
+      return this.$store.getters.getDisplayVideoPlayButton
     }
   },
   mounted: function () {
@@ -166,6 +200,7 @@ export default Vue.extend({
 
     this.createFullWindowButton()
     this.createLoopButton()
+    this.createToggleTheatreModeButton()
     this.determineFormatType()
     this.determineMaxFramerate()
   },
@@ -181,12 +216,13 @@ export default Vue.extend({
     }
 
     if (this.usingElectron && this.powerSaveBlocker !== null) {
-      const { powerSaveBlocker } = require('electron')
-      powerSaveBlocker.stop(this.powerSaveBlocker)
+      const { ipcRenderer } = require('electron')
+      ipcRenderer.send('stopPowerSaveBlocker', this.powerSaveBlocker)
     }
   },
   methods: {
     initializePlayer: async function () {
+      console.log(this.adaptiveFormats)
       const videoPlayer = document.getElementById(this.id)
       if (videoPlayer !== null) {
         if (!this.useDash) {
@@ -196,6 +232,7 @@ export default Vue.extend({
 
         this.player = videojs(videoPlayer, {
           html5: {
+            preloadTextTracks: false,
             vhs: {
               limitRenditionByPlayerDimensions: false,
               smoothQualityChange: false,
@@ -207,6 +244,12 @@ export default Vue.extend({
 
         this.player.volume(this.volume)
         this.player.playbackRate(this.defaultPlayback)
+        this.player.textTrackSettings.setValues(this.defaultCaptionSettings)
+        // Remove big play button
+        // https://github.com/videojs/video.js/blob/v7.12.1/docs/guides/components.md#basic-example
+        if (!this.displayVideoPlayButton) {
+          this.player.removeChild('BigPlayButton')
+        }
 
         if (this.storyboardSrc !== '') {
           this.player.vttThumbnails({
@@ -231,47 +274,175 @@ export default Vue.extend({
           }, 200)
         }
 
+        // Remove built-in progress bar mouse over current time display
+        // `MouseTimeDisplay` in
+        // https://github.com/videojs/video.js/blob/v7.13.3/docs/guides/components.md#default-component-tree
+        this.player.controlBar.progressControl.seekBar.playProgressBar.removeChild('timeTooltip')
+
+        if (this.useSponsorBlock) {
+          this.initializeSponsorBlock()
+        }
+
         $(document).on('keydown', this.keyboardShortcutHandler)
 
         this.player.on('mousemove', this.hideMouseTimeout)
         this.player.on('mouseleave', this.removeMouseTimeout)
 
         this.player.on('volumechange', this.updateVolume)
-        this.player.controlBar.getChild('volumePanel').on('mousewheel', this.mouseScrollVolume)
+        if (this.videoVolumeMouseScroll) {
+          this.player.on('wheel', this.mouseScrollVolume)
+        } else {
+          this.player.controlBar.getChild('volumePanel').on('wheel', this.mouseScrollVolume)
+        }
 
         this.player.on('fullscreenchange', this.fullscreenOverlay)
+        this.player.on('fullscreenchange', this.toggleFullscreenClass)
 
-        const v = this
-
-        this.player.on('ready', function () {
-          v.$emit('ready')
-          v.checkAspectRatio()
+        this.player.on('ready', () => {
+          this.$emit('ready')
+          this.checkAspectRatio()
+          if (this.captionHybridList.length !== 0) {
+            this.transformAndInsertCaptions()
+          }
         })
 
-        this.player.on('ended', function () {
-          v.$emit('ended')
+        this.player.on('ended', () => {
+          this.$emit('ended')
         })
 
-        this.player.on('error', function (error, message) {
-          v.$emit('error', error.target.player.error_)
+        this.player.on('error', (error, message) => {
+          this.$emit('error', error.target.player.error_)
         })
 
-        this.player.on('play', function () {
+        this.player.on('play', async function () {
           if (this.usingElectron) {
-            const { powerSaveBlocker } = require('electron')
-
-            this.powerSaveBlocker = powerSaveBlocker.start('prevent-display-sleep')
+            const { ipcRenderer } = require('electron')
+            this.powerSaveBlocker =
+              await ipcRenderer.invoke('startPowerSaveBlocker', 'prevent-display-sleep')
           }
         })
 
         this.player.on('pause', function () {
           if (this.usingElectron && this.powerSaveBlocker !== null) {
-            const { powerSaveBlocker } = require('electron')
-            powerSaveBlocker.stop(this.powerSaveBlocker)
+            const { ipcRenderer } = require('electron')
+            ipcRenderer.send('stopPowerSaveBlocker', this.powerSaveBlocker)
             this.powerSaveBlocker = null
           }
         })
+
+        this.player.textTrackSettings.on('modalclose', (_) => {
+          const settings = this.player.textTrackSettings.getValues()
+          this.updateDefaultCaptionSettings(JSON.stringify(settings))
+        })
       }
+    },
+
+    initializeSponsorBlock() {
+      this.sponsorBlockSkipSegments({
+        videoId: this.videoId,
+        categories: ['sponsor']
+      }).then((skipSegments) => {
+        if (skipSegments.length === 0) {
+          return
+        }
+
+        this.player.ready(() => {
+          this.player.on('timeupdate', () => {
+            this.skipSponsorBlocks(skipSegments)
+          })
+
+          skipSegments.forEach(({
+            category,
+            segment: [startTime, endTime]
+          }) => {
+            this.addSponsorBlockMarker({
+              time: startTime,
+              duration: endTime - startTime,
+              color: this.sponsorBlockCategoryColor(category)
+            })
+          })
+        })
+      })
+    },
+
+    skipSponsorBlocks(skipSegments) {
+      const currentTime = this.player.currentTime()
+      const duration = this.player.duration()
+      let newTime = null
+      let skippedCategory = null
+      skipSegments.forEach(({ category, segment: [startTime, endTime] }) => {
+        if (startTime <= currentTime && currentTime < endTime) {
+          newTime = endTime
+          skippedCategory = category
+        }
+      })
+      if (newTime !== null && Math.abs(duration - currentTime) > 0.500) {
+        if (this.sponsorBlockShowSkippedToast) {
+          this.showSkippedSponsorSegmentInformation(skippedCategory)
+        }
+        this.player.currentTime(newTime)
+      }
+    },
+
+    showSkippedSponsorSegmentInformation(category) {
+      const translatedCategory = this.sponsorBlockTranslatedCategory(category)
+      this.showToast({
+        message: `${this.$t('Video.Skipped segment')} ${translatedCategory}`
+      })
+    },
+
+    sponsorBlockTranslatedCategory(category) {
+      switch (category) {
+        case 'sponsor':
+          return this.$t('Video.Sponsor Block category.sponsor')
+        case 'intro':
+          return this.$t('Video.Sponsor Block category.intro')
+        case 'outro':
+          return this.$t('Video.Sponsor Block category.outro')
+        case 'selfpromo':
+          return this.$t('Video.Sponsor Block category.self-promotion')
+        case 'interaction':
+          return this.$t('Video.Sponsor Block category.interaction')
+        case 'music_offtopic':
+          return this.$t('Video.Sponsor Block category.music offtopic')
+        default:
+          console.error(`Unknown translation for SponsorBlock category ${category}`)
+          return category
+      }
+    },
+
+    sponsorBlockCategoryColor(category) {
+      // TODO: allow to set these colors in settings
+      switch (category) {
+        case 'sponsor':
+          return 'var(--accent-color)'
+        case 'intro':
+          return 'var(--accent-color)'
+        case 'outro':
+          return 'var(--accent-color)'
+        case 'selfpromo':
+          return 'var(--accent-color)'
+        case 'interaction':
+          return 'var(--accent-color)'
+        case 'music_offtopic':
+          return 'var(--accent-color)'
+        default:
+          console.error(`Unknown SponsorBlock category ${category}`)
+          return 'var(--accent-color)'
+      }
+    },
+
+    addSponsorBlockMarker(marker) {
+      const markerDiv = videojs.dom.createEl('div', {}, {})
+
+      markerDiv.className = 'sponsorBlockMarker'
+      markerDiv.style.height = '100%'
+      markerDiv.style.position = 'absolute'
+      markerDiv.style['background-color'] = marker.color
+      markerDiv.style.width = (marker.duration / this.player.duration()) * 100 + '%'
+      markerDiv.style.marginLeft = (marker.time / this.player.duration()) * 100 + '%'
+
+      this.player.el().querySelector('.vjs-progress-holder').appendChild(markerDiv)
     },
 
     checkAspectRatio() {
@@ -291,13 +462,15 @@ export default Vue.extend({
       }
     },
 
-    updateVolume: function (event) {
-      const volume = this.player.volume()
+    updateVolume: function (_event) {
+      // 0 means muted
+      // https://docs.videojs.com/html5#volume
+      const volume = this.player.muted() ? 0 : this.player.volume()
       sessionStorage.setItem('volume', volume)
     },
 
     mouseScrollVolume: function (event) {
-      if (event.target) {
+      if (event.target && !event.currentTarget.querySelector('.vjs-menu:hover')) {
         event.preventDefault()
 
         if (this.player.muted() && event.wheelDelta > 0) {
@@ -420,8 +593,57 @@ export default Vue.extend({
         this.setDashQualityLevel('auto')
       }
 
-      this.player.qualityLevels().levels_.sort((a, b) => {
-        return a.height - b.height
+      let formatsToTest
+
+      if (typeof this.activeAdaptiveFormats !== 'undefined' && this.activeAdaptiveFormats.length > 0) {
+        formatsToTest = this.activeAdaptiveFormats.filter((format) => {
+          return format.height === this.defaultQuality
+        })
+
+        if (formatsToTest.length === 0) {
+          formatsToTest = this.activeAdaptiveFormats.filter((format) => {
+            return format.height < this.defaultQuality
+          })
+        }
+
+        formatsToTest = formatsToTest.sort((a, b) => {
+          if (a.height === b.height) {
+            return b.bitrate - a.bitrate
+          } else {
+            return b.height - a.height
+          }
+        })
+      } else {
+        formatsToTest = this.player.qualityLevels().levels_.filter((format) => {
+          return format.height === this.defaultQuality
+        })
+
+        if (formatsToTest.length === 0) {
+          formatsToTest = this.player.qualityLevels().levels_.filter((format) => {
+            return format.height < this.defaultQuality
+          })
+        }
+
+        formatsToTest = formatsToTest.sort((a, b) => {
+          if (a.height === b.height) {
+            return b.bitrate - a.bitrate
+          } else {
+            return b.height - a.height
+          }
+        })
+      }
+
+      // TODO: Test formats to determine if HDR / 60 FPS and skip them based on
+      // User settings
+      this.setDashQualityLevel(formatsToTest[0].bitrate)
+
+      // Old logic. Revert if needed
+      /* this.player.qualityLevels().levels_.sort((a, b) => {
+        if (a.height === b.height) {
+          return a.bitrate - b.bitrate
+        } else {
+          return a.height - b.height
+        }
       }).forEach((ql, index, arr) => {
         const height = ql.height
         const width = ql.width
@@ -432,14 +654,16 @@ export default Vue.extend({
           upperLevel = arr[index + 1]
         }
 
-        if (this.defaultQuality === quality) {
-          this.setDashQualityLevel(height)
+        if (this.defaultQuality === quality && upperLevel === null) {
+          this.setDashQualityLevel(height, true)
         } else if (upperLevel !== null) {
           const upperHeight = upperLevel.height
           const upperWidth = upperLevel.width
           const upperQuality = upperWidth < upperHeight ? upperWidth : upperHeight
 
-          if (this.defaultQuality >= quality && this.defaultQuality < upperQuality) {
+          if (this.defaultQuality >= quality && this.defaultQuality === upperQuality) {
+            this.setDashQualityLevel(height, true)
+          } else if (this.defaultQuality >= quality && this.defaultQuality < upperQuality) {
             this.setDashQualityLevel(height)
           }
         } else if (index === 0 && quality > this.defaultQuality) {
@@ -447,26 +671,114 @@ export default Vue.extend({
         } else if (index === (arr.length - 1) && quality < this.defaultQuality) {
           this.setDashQualityLevel(height)
         }
-      })
+      }) */
     },
 
-    setDashQualityLevel: function (qualityLevel) {
-      if (this.selectedQuality === qualityLevel) {
-        return
+    setDashQualityLevel: function (bitrate) {
+      let adaptiveFormat = null
+
+      if (bitrate !== 'auto') {
+        adaptiveFormat = this.activeAdaptiveFormats.find((format) => {
+          return format.bitrate === bitrate
+        })
       }
+
+      let qualityLabel = adaptiveFormat ? adaptiveFormat.qualityLabel : ''
+
       this.player.qualityLevels().levels_.sort((a, b) => {
-        return a.height - b.height
+        if (a.height === b.height) {
+          return a.bitrate - b.bitrate
+        } else {
+          return a.height - b.height
+        }
       }).forEach((ql, index, arr) => {
-        if (qualityLevel === 'auto' || ql.height === qualityLevel) {
+        if (bitrate === 'auto' || bitrate === ql.bitrate) {
           ql.enabled = true
           ql.enabled_(true)
+          if (bitrate !== 'auto' && qualityLabel === '') {
+            qualityLabel = ql.height + 'p'
+          }
         } else {
           ql.enabled = false
           ql.enabled_(false)
         }
       })
 
-      const selectedQuality = qualityLevel === 'auto' ? 'auto' : qualityLevel + 'p'
+      const selectedQuality = bitrate === 'auto' ? 'auto' : qualityLabel
+
+      const qualityElement = document.getElementById('vjs-current-quality')
+      qualityElement.innerText = selectedQuality
+      this.selectedQuality = selectedQuality
+
+      const qualityItems = $('.quality-item').get()
+
+      $('.quality-item').removeClass('quality-selected')
+
+      qualityItems.forEach((item) => {
+        const qualityText = $(item).find('.vjs-menu-item-text').get(0)
+        if (qualityText.innerText === selectedQuality.toLowerCase()) {
+          $(item).addClass('quality-selected')
+        }
+      })
+
+      /* if (this.selectedQuality === qualityLevel && this.using60Fps === is60Fps) {
+        return
+      }
+      let foundSelectedQuality = false
+      this.using60Fps = is60Fps
+      this.player.qualityLevels().levels_.sort((a, b) => {
+        if (a.height === b.height) {
+          return a.bitrate - b.bitrate
+        } else {
+          return a.height - b.height
+        }
+      }).forEach((ql, index, arr) => {
+        if (foundSelectedQuality) {
+          ql.enabled = false
+          ql.enabled_(false)
+        } else if (qualityLevel === 'auto') {
+          ql.enabled = true
+          ql.enabled_(true)
+        } else if (ql.height === qualityLevel) {
+          ql.enabled = true
+          ql.enabled_(true)
+          foundSelectedQuality = true
+
+          let lowerQuality
+          let higherQuality
+
+          if ((index - 1) !== -1) {
+            lowerQuality = arr[index - 1]
+          }
+
+          if ((index + 1) < arr.length) {
+            higherQuality = arr[index + 1]
+          }
+
+          if (typeof (lowerQuality) !== 'undefined' && lowerQuality.height === ql.height && lowerQuality.bitrate < ql.bitrate && !is60Fps) {
+            ql.enabled = false
+            ql.enabled_(false)
+            foundSelectedQuality = false
+          }
+
+          if (typeof (higherQuality) !== 'undefined' && higherQuality.height === ql.height && higherQuality.bitrate > ql.bitrate && is60Fps) {
+            ql.enabled = false
+            ql.enabled_(false)
+            foundSelectedQuality = false
+          }
+        } else {
+          ql.enabled = false
+          ql.enabled_(false)
+        }
+      })
+
+      let selectedQuality = qualityLevel
+
+      if (selectedQuality !== 'auto' && is60Fps) {
+        selectedQuality = selectedQuality + 'p60'
+      } else if (selectedQuality !== 'auto') {
+        selectedQuality = selectedQuality + 'p'
+      }
 
       const qualityElement = document.getElementById('vjs-current-quality')
       qualityElement.innerText = selectedQuality
@@ -486,7 +798,7 @@ export default Vue.extend({
       // const currentTime = this.player.currentTime()
 
       // this.player.currentTime(0)
-      // this.player.currentTime(currentTime)
+      // this.player.currentTime(currentTime) */
     },
 
     enableDashFormat: function () {
@@ -601,14 +913,13 @@ export default Vue.extend({
     },
 
     createLoopButton: function () {
-      const v = this
       const VjsButton = videojs.getComponent('Button')
       const loopButton = videojs.extend(VjsButton, {
         constructor: function(player, options) {
           VjsButton.call(this, player, options)
         },
-        handleClick: function() {
-          v.toggleVideoLoop()
+        handleClick: () => {
+          this.toggleVideoLoop()
         },
         createControlTextEl: function (button) {
           return $(button).html($('<div id="loopButton" class="vjs-icon-loop loop-white vjs-button loopWhite"></div>')
@@ -647,25 +958,65 @@ export default Vue.extend({
     },
 
     createFullWindowButton: function () {
-      const v = this
       const VjsButton = videojs.getComponent('Button')
       const fullWindowButton = videojs.extend(VjsButton, {
         constructor: function(player, options) {
           VjsButton.call(this, player, options)
         },
-        handleClick: function() {
-          v.toggleFullWindow()
+        handleClick: () => {
+          this.toggleFullWindow()
         },
         createControlTextEl: function (button) {
-          return $(button).html($('<div id="fullwindow" class="vjs-icon-fullwindow-enter vjs-button"></div>')
-            .attr('title', 'Fullwindow'))
+          // Add class name to button to be able to target it with CSS selector
+          return $(button)
+            .addClass('vjs-button-fullwindow')
+            .html($('<div id="fullwindow" class="vjs-icon-fullwindow-enter vjs-button"></div>')
+              .attr('title', 'Full Window'))
         }
       })
       videojs.registerComponent('fullWindowButton', fullWindowButton)
     },
 
+    createToggleTheatreModeButton: function() {
+      if (!this.$parent.theatrePossible) {
+        return
+      }
+
+      const theatreModeActive = this.$parent.useTheatreMode ? ' vjs-icon-theatre-active' : ''
+
+      const VjsButton = videojs.getComponent('Button')
+      const toggleTheatreModeButton = videojs.extend(VjsButton, {
+        constructor: function(player, options) {
+          VjsButton.call(this, player, options)
+        },
+        handleClick: () => {
+          this.toggleTheatreMode()
+        },
+        createControlTextEl: function (button) {
+          return $(button)
+            .addClass('vjs-button-theatre')
+            .html($(`<div id="toggleTheatreModeButton" class="vjs-icon-theatre-inactive${theatreModeActive} vjs-button"></div>`))
+            .attr('title', 'Toggle Theatre Mode')
+        }
+      })
+
+      videojs.registerComponent('toggleTheatreModeButton', toggleTheatreModeButton)
+    },
+
+    toggleTheatreMode: function() {
+      if (!this.player.isFullscreen_) {
+        const toggleTheatreModeButton = $('#toggleTheatreModeButton')
+        if (!this.$parent.useTheatreMode) {
+          toggleTheatreModeButton.addClass('vjs-icon-theatre-active')
+        } else {
+          toggleTheatreModeButton.removeClass('vjs-icon-theatre-active')
+        }
+      }
+
+      this.$parent.toggleTheatreMode()
+    },
+
     createDashQualitySelector: function (levels) {
-      const v = this
       if (levels.levels_.length === 0) {
         setTimeout(() => {
           this.createDashQualitySelector(this.player.qualityLevels())
@@ -677,13 +1028,13 @@ export default Vue.extend({
         constructor: function(player, options) {
           VjsButton.call(this, player, options)
         },
-        handleClick: function(event) {
+        handleClick: (event) => {
+          console.log(event)
           const selectedQuality = event.target.innerText
-          const quality = selectedQuality === 'auto' ? 'auto' : parseInt(selectedQuality.replace('p', ''))
-          v.setDashQualityLevel(quality)
-          // console.log(this.player().qualityLevels())
+          const bitrate = selectedQuality === 'auto' ? 'auto' : parseInt(event.target.attributes.bitrate.value)
+          this.setDashQualityLevel(bitrate)
         },
-        createControlTextEl: function (button) {
+        createControlTextEl: (button) => {
           const beginningHtml = `<div class="vjs-quality-level-value">
            <span id="vjs-current-quality">1080p</span>
           </div>
@@ -691,18 +1042,55 @@ export default Vue.extend({
              <ul class="vjs-menu-content" role="menu">`
           const endingHtml = '</ul></div>'
 
-          let qualityHtml = `<li class="vjs-menu-item quality-item" role="menuitemradio" tabindex="-1" aria-checked="false aria-disabled="false">
+          let qualityHtml = `<li class="vjs-menu-item quality-item" role="menuitemradio" tabindex="-1" aria-checked="false" aria-disabled="false">
             <span class="vjs-menu-item-text">Auto</span>
             <span class="vjs-control-text" aria-live="polite"></span>
           </li>`
 
           levels.levels_.sort((a, b) => {
-            return b.height - a.height
-          }).forEach((quality) => {
-            qualityHtml = qualityHtml + `<li class="vjs-menu-item quality-item" role="menuitemradio" tabindex="-1" aria-checked="false aria-disabled="false">
-              <span class="vjs-menu-item-text">${quality.height}p</span>
+            if (b.height === a.height) {
+              return b.bitrate - a.bitrate
+            } else {
+              return b.height - a.height
+            }
+          }).forEach((quality, index, array) => {
+            let fps
+            let qualityLabel
+            let bitrate
+
+            if (typeof this.adaptiveFormats !== 'undefined' && this.adaptiveFormats.length > 0) {
+              const adaptiveFormat = this.adaptiveFormats.find((format) => {
+                return format.bitrate === quality.bitrate
+              })
+
+              this.activeAdaptiveFormats.push(adaptiveFormat)
+
+              fps = adaptiveFormat.fps
+              qualityLabel = adaptiveFormat.qualityLabel ? adaptiveFormat.qualityLabel : quality.height + 'p'
+              bitrate = quality.bitrate
+            } else {
+              fps = 30
+              qualityLabel = quality.height + 'p'
+              bitrate = quality.bitrate
+            }
+
+            qualityHtml = qualityHtml + `<li class="vjs-menu-item quality-item" role="menuitemradio" tabindex="-1" aria-checked="false" aria-disabled="false" fps="${fps}" bitrate="${bitrate}">
+              <span class="vjs-menu-item-text" fps="${fps}" bitrate="${bitrate}">${qualityLabel}</span>
               <span class="vjs-control-text" aria-live="polite"></span>
             </li>`
+
+            // Old logic, revert if needed.
+            /* let is60Fps = false
+            if (index < array.length - 1 && array[index + 1].height === quality.height) {
+              if (array[index + 1].bitrate < quality.bitrate) {
+                is60Fps = true
+              }
+            }
+            const qualityText = is60Fps ? quality.height + 'p60' : quality.height + 'p'
+            qualityHtml = qualityHtml + `<li class="vjs-menu-item quality-item" role="menuitemradio" tabindex="-1" aria-checked="false aria-disabled="false">
+              <span class="vjs-menu-item-text">${qualityText}</span>
+              <span class="vjs-control-text" aria-live="polite"></span>
+            </li>` */
           })
           return $(button).html(
             $(beginningHtml + qualityHtml + endingHtml).attr(
@@ -714,6 +1102,67 @@ export default Vue.extend({
       videojs.registerComponent('dashQualitySelector', dashQualitySelector)
       this.player.controlBar.addChild('dashQualitySelector', {}, this.player.controlBar.children_.length - 1)
       this.determineDefaultQualityDash()
+    },
+
+    sortCaptions: function (captionList) {
+      return captionList.sort((captionA, captionB) => {
+        const aCode = captionA.languageCode.split('-') // ex. [en,US]
+        const bCode = captionB.languageCode.split('-')
+        const aName = (captionA.label || captionA.name.simpleText) // ex: english (auto-generated)
+        const bName = (captionB.label || captionB.name.simpleText)
+        const userLocale = this.currentLocale.split(/-|_/) // ex. [en,US]
+        if (aCode[0] === userLocale[0]) { // caption a has same language as user's locale
+          if (bCode[0] === userLocale[0]) { // caption b has same language as user's locale
+            if (bName.search('auto') !== -1) {
+              // prefer caption a: b is auto-generated captions
+              return -1
+            } else if (aName.search('auto') !== -1) {
+              // prefer caption b: a is auto-generated captions
+              return 1
+            } else if (aCode[1] === userLocale[1]) {
+              // prefer caption a: caption a has same county code as user's locale
+              return -1
+            } else if (bCode[1] === userLocale[1]) {
+              // prefer caption b: caption b has same county code as user's locale
+              return 1
+            } else if (aCode[1] === undefined) {
+              // prefer caption a: no country code is better than wrong country code
+              return -1
+            } else if (bCode[1] === undefined) {
+              // prefer caption b: no country code is better than wrong country code
+              return 1
+            }
+          } else {
+            // prefer caption a: b does not match user's language
+            return -1
+          }
+        } else if (bCode[0] === userLocale[0]) {
+          // prefer caption b: a does not match user's language
+          return 1
+        }
+        // sort alphabetically
+        return aName.localeCompare(bName)
+      })
+    },
+
+    transformAndInsertCaptions: async function() {
+      let captionList
+      if (this.captionHybridList[0] instanceof Promise) {
+        captionList = await Promise.all(this.captionHybridList)
+        this.$emit('store-caption-list', captionList)
+      } else {
+        captionList = this.captionHybridList
+      }
+
+      for (const caption of this.sortCaptions(captionList)) {
+        this.player.addRemoteTextTrack({
+          kind: 'subtitles',
+          src: caption.baseUrl || caption.url,
+          srclang: caption.languageCode,
+          label: caption.label || caption.name.simpleText,
+          type: caption.type
+        }, true)
+      }
     },
 
     toggleFullWindow: function() {
@@ -779,12 +1228,11 @@ export default Vue.extend({
     },
 
     fullscreenOverlay: function () {
-      const v = this
       const title = document.title.replace('- FreeTube', '')
 
       if (this.player.isFullscreen()) {
-        this.player.ready(function () {
-          v.player.overlay({
+        this.player.ready(() => {
+          this.player.overlay({
             overlays: [{
               showBackground: false,
               content: title,
@@ -794,8 +1242,8 @@ export default Vue.extend({
           })
         })
       } else {
-        this.player.ready(function () {
-          v.player.overlay({
+        this.player.ready(() => {
+          this.player.overlay({
             overlays: [{
               showBackground: false,
               content: ' ',
@@ -807,10 +1255,17 @@ export default Vue.extend({
       }
     },
 
+    toggleFullscreenClass: function () {
+      if (this.player.isFullscreen()) {
+        $('body').addClass('vjs--full-screen-enabled')
+      } else {
+        $('body').removeClass('vjs--full-screen-enabled')
+      }
+    },
+
     handleTouchStart: function (event) {
-      const v = this
       this.touchPauseTimeout = setTimeout(() => {
-        v.togglePlayPause()
+        this.togglePlayPause()
       }, 1000)
 
       const touchTime = new Date()
@@ -849,9 +1304,9 @@ export default Vue.extend({
             break
           case 74:
             // J Key
-            // Rewind by 10 seconds
+            // Rewind by 2x the time-skip interval (in seconds)
             event.preventDefault()
-            this.changeDurationBySeconds(-10)
+            this.changeDurationBySeconds(-this.defaultSkipInterval * 2)
             break
           case 75:
             // K Key
@@ -861,9 +1316,9 @@ export default Vue.extend({
             break
           case 76:
             // L Key
-            // Fast Forward by 10 seconds
+            // Fast-Forward by 2x the time-skip interval (in seconds)
             event.preventDefault()
-            this.changeDurationBySeconds(10)
+            this.changeDurationBySeconds(this.defaultSkipInterval * 2)
             break
           case 79:
             // O Key
@@ -909,15 +1364,15 @@ export default Vue.extend({
             break
           case 37:
             // Left Arrow Key
-            // Rewind by 5 seconds
+            // Rewind by the time-skip interval (in seconds)
             event.preventDefault()
-            this.changeDurationBySeconds(-5)
+            this.changeDurationBySeconds(-this.defaultSkipInterval * 1)
             break
           case 39:
             // Right Arrow Key
-            // Fast Forward by 5 seconds
+            // Fast-Forward by the time-skip interval (in seconds)
             event.preventDefault()
-            this.changeDurationBySeconds(5)
+            this.changeDurationBySeconds(this.defaultSkipInterval * 1)
             break
           case 49:
             // 1 Key
@@ -1009,12 +1464,20 @@ export default Vue.extend({
             // Toggle Full Window Mode
             this.toggleFullWindow()
             break
+          case 84:
+            // T Key
+            // Toggle Theatre Mode
+            this.toggleTheatreMode()
+            break
         }
       }
     },
 
     ...mapActions([
-      'calculateColorLuminance'
+      'calculateColorLuminance',
+      'updateDefaultCaptionSettings',
+      'showToast',
+      'sponsorBlockSkipSegments'
     ])
   }
 })

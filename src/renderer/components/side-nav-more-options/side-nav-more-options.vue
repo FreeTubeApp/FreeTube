@@ -17,6 +17,7 @@
       class="moreOptionContainer"
     >
       <div
+        v-if="!hideTrendingVideos"
         class="navOption"
         @click="navigate('trending')"
       >
@@ -25,10 +26,11 @@
           class="navIcon"
         />
         <p class="navLabel">
-          {{ $t("Trending") }}
+          {{ $t("Trending.Trending") }}
         </p>
       </div>
       <div
+        v-if="!hidePopularVideos"
         class="navOption"
         @click="navigate('popular')"
       >

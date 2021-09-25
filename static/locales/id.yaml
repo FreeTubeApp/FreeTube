@@ -85,7 +85,10 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Profil
     ini berlangganan ke banyak kanal. Beralih ke RSS untuk menghindari pembatasan
     akses
-Trending: 'Sedang Tren'
+Trending:
+  Trending: 'Sedang Tren'
+  Movies: Film
+  Music: Musik
 Most Popular: 'Paling Populer'
 Playlists: 'Daftar Putar'
 User Playlists:
@@ -131,6 +134,10 @@ Settings:
     Region for Trending: 'Wilayah untuk Sedang Tren'
         #! List countries
     View all Invidious instance information: Lihat semua informasi situs Invidious
+    System Default: Sistem standar
+    Current instance will be randomized on startup: Situs akan diacak saat aplikasi
+      dijalankan
+    Current Invidious Instance: Situs Invidious Saat Ini
   Theme Settings:
     Theme Settings: 'Pengaturan Tema'
     Match Top Bar with Main Color: 'Samakan Bilah Atas dengan Warna Utama'
@@ -139,6 +146,7 @@ Settings:
       Black: 'Hitam'
       Dark: 'Gelap'
       Light: 'Terang'
+      Dracula: 'Dracula'
     Main Color Theme:
       Main Color Theme: 'Tema Warna Utama'
       Red: 'Merah'
@@ -157,6 +165,13 @@ Settings:
       Amber: 'Ambar'
       Orange: 'Jingga'
       Deep Orange: 'Jingga Tua'
+      Dracula Cyan: 'Dracula Sian'
+      Dracula Green: 'Dracula Hijau'
+      Dracula Orange: 'Dracula Jingga'
+      Dracula Pink: 'Dracula Merah Muda'
+      Dracula Purple: 'Dracula Ungu'
+      Dracula Red: 'Dracula Merah'
+      Dracula Yellow: 'Dracula Kuning'
     Secondary Color Theme: 'Warna Tema Sekunder'
         #* Main Color Theme
     Expand Side Bar by Default: Perluas Bilah Samping
@@ -175,7 +190,7 @@ Settings:
     Default Playback Rate: 'Laju Pemutaran Bawaan'
     Default Video Format:
       Default Video Format: 'Format Video Bawaan'
-      Dash Formats: 'Format Dash'
+      Dash Formats: 'Format DASH'
       Legacy Formats: 'Format Lama'
       Audio Formats: 'Format Audio'
     Default Quality:
@@ -191,6 +206,9 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Interval Video dalam Daftar Putar
+    Next Video Interval: Interval Video Selanjutnya
+    Display Play Button In Video Player: Tampilkan Tombol Putar di Dalam Pemutar Video
+    Scroll Volume Over Video Player: Gulir Volume di Atas Pemutar Video
   Privacy Settings:
     Privacy Settings: 'Pengaturan Privasi'
     Remember History: 'Ingat Riwayat'
@@ -309,6 +327,18 @@ Settings:
     Proxy Protocol: Protokol Proksi
     Enable Tor / Proxy: Aktifkan Tor / Proksi
     Proxy Settings: Pengaturan Proksi
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Beri tahu saat segmen sponsor dilewati
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Url SponsorBlock
+      API (Default is https://sponsor.ajay.app)
+    Enable SponsorBlock: Aktifkan SponsorBlock
+    SponsorBlock Settings: Pengaturan SponsorBlock
+  External Player Settings:
+    Custom External Player Arguments: Argumen Pemutar Eksternal
+    Custom External Player Executable: Aplikasi Pemutar Eksternal
+    Ignore Unsupported Action Warnings: Abaikan Peringatan Tindakan yang Tidak Didukung
+    External Player: Pemutar Eksternal
+    External Player Settings: Pengaturan Pemutar Eksternal
 About:
   #On About page
   About: 'Ihwal'
@@ -405,6 +435,7 @@ Profile:
     kanalnya dari profil lain.'
 #On Channel Page
   Profile Filter: Filter Profil
+  Profile Settings: Pengaturan Profil
 Channel:
   Subscriber: 'Pelanggan'
   Subscribers: 'Pelanggan'
@@ -505,7 +536,7 @@ Video:
     Upcoming: 'Segera tayang di'
   Published on: 'Dipublikasi pada'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % yang lalu'
+  Publicationtemplate: '$ % yang lalu'
 #& Videos
   Audio:
     Best: Terbaik
@@ -527,6 +558,31 @@ Video:
     Anda
   Video has been saved: Video telah disimpan
   Save Video: Simpan Video
+  translated from English: diterjemahkan dari Bahasa Inggris
+  Sponsor Block category:
+    interaction: interaksi
+    music offtopic: musik non-topik
+    self-promotion: promosi diri sendiri
+    outro: outro
+    intro: intro
+    sponsor: sponsor
+  Skipped segment: Segmen yang dilewati
+  External Player:
+    Unsupported Actions:
+      starting video at offset: memulai video pada offset
+      looping playlists: memutar berulang-ulang daftar putar
+      shuffling playlists: menshuffle daftar putar
+      reversing playlists: membalik urutan daftar putar
+      opening specific video in a playlist (falling back to opening the video): membuka
+        video yang spesifik di dalam daftar putar (dengan cadangan untuk membuka langsung
+        video)
+      opening playlists: membuka daftar putar
+      setting a playback rate: menetapkan laju pemutaran
+    UnsupportedActionTemplate: '$ tidak mendukung: %'
+    OpeningTemplate: Membuka $ dalam %...
+    playlist: daftar putar
+    video: video
+    OpenInTemplate: Buka di $
 Videos:
   #& Sort By
   Sort By:
@@ -554,10 +610,10 @@ Playlist:
 Toggle Theatre Mode: 'Mode Teater'
 Change Format:
   Change Video Formats: 'Ubah Format Video'
-  Use Dash Formats: 'Gunakan Format Dash'
+  Use Dash Formats: 'Gunakan Format DASH'
   Use Legacy Formats: 'Gunakan Format Legasi'
   Use Audio Formats: 'Gunakan Format Audio'
-  Dash formats are not available for this video: 'Format dash tidak tersedia untuk
+  Dash formats are not available for this video: 'Format DASH tidak tersedia untuk
     video ini'
   Audio formats are not available for this video: 'Format audio tidak tersedia untuk
     video ini'
@@ -597,6 +653,7 @@ Comments:
   Top comments: Komentar teratas
   Sort by: Urut berdasarkan
   There are no more comments for this video: Tidak ada komentar lagi untuk video ini
+  Show More Replies: Tampilkan Lebih Banyak Balasan
 Up Next: 'Akan Datang'
 
 # Toast Messages
@@ -630,35 +687,50 @@ Tooltips:
       IP, tetapi tidak menyediakan informasi tertentu seperti durasi video atau status
       siaran langsung
   Player Settings:
-    Default Video Format: Atur format yang digunakan ketika video diputar. Format
-      dash bisa memutar kualitas yang lebih tinggi. Format lama terbatas ke maks 720p
-      tetapi dengan bandwidth yang lebih rendah. Format audio hanya berisi stream
-      audio
+    Default Video Format: Atur format video. Format DASH bisa memutar kualitas yang
+      lebih tinggi. Format lama terbatas ke maks 720p tetapi dengan bandwidth yang
+      lebih rendah. Format audio hanya berisi stream audio.
     Proxy Videos Through Invidious: Akan menyambung ke Invidious daripada YouTube.
-      Menimpa preferensi API
+      Menimpa preferensi API.
     Force Local Backend for Legacy Formats: Hanya bekerja jika APi Invidious diatur
       sebagai default. Ketika diaktifkan, API lokal akan berjalan dan menggunakan
       format lama yang dihasilkan oleh API lokal daripada yang dihasilkan oleh API
       Invidious. Membantu saat video yang ditampilkan oleh Invidious tidak bisa diputar
-      karena dibatasi oleh wilayah pemutaran
+      karena dibatasi oleh wilayah pemutaran.
   General Settings:
     Region for Trending: Wilayah tren memungkinkan Anda memilih video yang sedang
       ngetren dari negara tersebut untuk ditampilkan. Tidak semua daftar negara didukung
-      oleh YouTube
+      oleh YouTube.
     Invidious Instance: Situs Invidious yang akan tersambung dengan FreeTube untuk
-      panggilan API. Hapus situs saat ini untuk melihat daftar situs publik yang didukung
+      panggilan API. Hapus situs saat ini untuk melihat daftar situs publik yang didukung.
     Thumbnail Preference: Semua thumbnail di dalam aplikasi FreeTube akan diganti
-      dengan frame dari video
+      dengan frame dari video.
     Fallback to Non-Preferred Backend on Failure: Ketika API yang Anda pilih memiliki
       masalah, FreeTube akan secara otomatis menggunakan layanan API lainnya sebagai
-      cadangan jika diaktifkan
+      cadangan jika diaktifkan.
     Preferred API Backend: Pilih layanan yang digunakan oleh FreeTube untuk mengambil
       data. API lokal adalah ekstraktor bawaan. API Invidious membutuhkan sambungan
       ke server Invidious.
   Privacy Settings:
     Remove Video Meta Files: Saat diaktifkan, FreeTube secara otomatis menghapus file
       meta yang dibuat selama pemutaran video, saat halaman tonton ditutup.
+  External Player Settings:
+    Custom External Player Arguments: Semua argumen perintah khusus, dipisahkan dengan
+      titik koma (';'), yang Anda ingin gunakan dengan pemutar eksternal.
+    Ignore Warnings: Jangan tampilkan peringatan saat pemutar eksternal saat ini tidak
+      mendukung tindakan yang ada (mis. membalik urutan daftar putar, dsb.).
+    Custom External Player Executable: Secara bawaan, FreeTube akan berasumsi bahwa
+      pemutar eksternal yang dipilih bisa diitemukan via variabel lingkungan PATH.
+      Jika diperlukan, bisa menggunakan jalur khusus di sini.
+    External Player: Memilih pemutar eksternal akan menampilkan ikon khusus, untuk
+      membuka video (daftar putar jika didukung) di dalam pemutar eksternal, pada
+      thumbnail.
 Playing Next Video Interval: Langsung putar video berikutnya. Klik untuk batal. |
   Putar video berikutnya dalam {nextVideoInterval} detik. Klik untuk batal. | Putar
   video berikutnya dalam {nextVideoInterval} detik. Klik untuk batal.
 More: Lebih banyak
+Hashtags have not yet been implemented, try again later: Hashtag belum diimplementasikan,
+  silakan coba lagi nanti
+Unknown YouTube url type, cannot be opened in app: Tipe URL YouTube tidak dikenal,
+  tidak bisa dibuka di aplikasi
+Open New Window: Buka Jendela Baru

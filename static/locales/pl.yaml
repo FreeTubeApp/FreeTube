@@ -29,7 +29,7 @@ Back: 'Wstecz'
 Forward: 'Naprzód'
 
 # Search Bar
-Search / Go to URL: 'Wyszukaj / Przejdź do URL'
+Search / Go to URL: 'Szukaj / Przejdź do adresu URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtry wyszukiwania'
@@ -38,7 +38,7 @@ Search Filters:
     Most Relevant: 'Trafność'
     Rating: 'Ocena'
     Upload Date: 'Data przesłania'
-    View Count: 'Liczba obejrzeń'
+    View Count: 'Liczba wyświetleń'
   Time:
     Time: 'Czas przesłania'
     Any Time: 'Kiedykolwiek'
@@ -78,16 +78,22 @@ Subscriptions:
     profil posiada dużą liczbę subskrypcji. Wymuszenie RSS w celu uniknięcia ograniczenia
     dostępu
   Load More Videos: Załaduj więcej filmów
-Trending: 'Na czasie'
+Trending:
+  Trending: 'Na czasie'
+  Trending Tabs: Karty „Na czasie”
+  Default: Domyślna
+  Music: Muzyka
+  Gaming: Gry
+  Movies: Filmy
 Most Popular: 'Popularne'
 Playlists: 'Playlisty'
 User Playlists:
   Your Playlists: 'Twoje playlisty'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Nie
-    masz zachowanych filmów. Kliknij przycisk „Zachowaj” w rogu filmu, aby został
-    tu wymieniony.
+    masz żadnych zapisanych filmów. Kliknij przycisk „Zapisz film” w rogu filmu, aby
+    został on wymieniony na tej liście
   Playlist Message: Ta strona nie odzwierciedla w pełni działających playlist. Są
-    tu jedynie wymienione filmy, które zachowałeś lub oznaczyłeś jako ulubione. Kiedy
+    tu jedynie wymienione filmy, które zapisałeś lub oznaczyłeś jako ulubione. Kiedy
     prace nad tą stroną zostaną zakończone, wszystkie filmy tu obecne zostaną przeniesione
     do playlisty „Ulubione”.
 History:
@@ -115,7 +121,7 @@ Settings:
       List: 'Lista'
     Thumbnail Preference:
       Thumbnail Preference: 'Ustawienia miniaturek'
-      Default: 'Domyślnie'
+      Default: 'Domyślna'
       Beginning: 'Początek'
       Middle: 'Środek'
       End: 'Koniec'
@@ -127,6 +133,19 @@ Settings:
     Check for Updates: Szukaj aktualizacji
     View all Invidious instance information: Pokaż informacje o wszystkich instancjach
       Invidious
+    System Default: Ustawienie systemowe
+    Clear Default Instance: Wyczyść domyślną instancję
+    Set Current Instance as Default: Ustaw obecną instancję jako domyślną
+    Current instance will be randomized on startup: Obecna instancja będzie losowana
+      przy uruchamianiu
+    No default instance has been set: Nie ustawiono domyślnej instancji
+    The currently set default instance is $: Obecnie domyślną instancją jest $
+    Current Invidious Instance: Obecna instancja Invidious
+    External Link Handling:
+      No Action: Brak akcji
+      Ask Before Opening Link: Zapytaj przed otworzeniem linku
+      Open Link: Otwórz link
+      External Link Handling: Obsługa zewnętrznych linków
   Theme Settings:
     Theme Settings: 'Ustawienia wyglądu'
     Match Top Bar with Main Color: 'Dopasuj górną belkę do głównego koloru'
@@ -135,6 +154,7 @@ Settings:
       Black: 'Czarny'
       Dark: 'Ciemny'
       Light: 'Jasny'
+      Dracula: 'Dracula'
     Main Color Theme:
       Main Color Theme: 'Główny kolor motywu'
       Red: 'Czerwony'
@@ -153,6 +173,13 @@ Settings:
       Amber: 'Bursztynowy'
       Orange: 'Pomarańczowy'
       Deep Orange: 'Głęboka pomarańcza'
+      Dracula Cyan: 'Dracula Turkusowy'
+      Dracula Green: 'Dracula Zielony'
+      Dracula Orange: 'Dracula Pomarańczowy'
+      Dracula Pink: 'Dracula Różowy'
+      Dracula Purple: 'Dracula Fioletowy'
+      Dracula Red: 'Dracula Czerwony'
+      Dracula Yellow: 'Dracula Żółty'
     Secondary Color Theme: 'Drugi kolor motywu'
         #* Main Color Theme
     UI Scale: Skala UI
@@ -164,15 +191,15 @@ Settings:
     Remember History: ''
     Play Next Video: 'Odtwórz następny film'
     Turn on Subtitles by Default: 'Domyślnie odtwarzaj z napisami'
-    Autoplay Videos: 'Samoodtwarzanie filmów'
-    Proxy Videos Through Invidious: 'Odtwarzaj filmy poprzez proxy Invidious'
-    Autoplay Playlists: 'Samoodtwarzanie playlist'
+    Autoplay Videos: 'Autoodtwarzanie filmów'
+    Proxy Videos Through Invidious: 'Odtwarzaj filmy przez proxy Invidious'
+    Autoplay Playlists: 'Autoodtwarzanie playlist'
     Enable Theatre Mode by Default: 'Domyślnie włącz tryb kinowy'
     Default Volume: 'Domyślna głośność'
     Default Playback Rate: 'Domyślna szybkość odtwarzania'
     Default Video Format:
       Default Video Format: 'Domyślny format filmów'
-      Dash Formats: 'Formaty Dash'
+      Dash Formats: 'Formaty DASH'
       Legacy Formats: 'Stare formaty'
       Audio Formats: 'Formaty audio'
     Default Quality:
@@ -188,6 +215,11 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Przerwa przed kolejną pozycją playlisty
+    Next Video Interval: Czas do następnego filmu
+    Scroll Volume Over Video Player: Kontroluj głośność kółkiem myszy na obszarze
+      odtwarzacza
+    Display Play Button In Video Player: Pokaż przycisk odtwarzania na odtwarzaczu
+    Fast-Forward / Rewind Interval: Interwał przewijania
   Subscription Settings:
     Subscription Settings: 'Ustawienia subskrypcji'
     Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
@@ -244,14 +276,15 @@ Settings:
       jesteś pewny/a, że chcesz usunąć wszystkie subskrypcje i profile? Nie będzie
       można tego cofnąć.
     Remove All Subscriptions / Profiles: Usuń wszystkie subskrypcje / profile
+    Automatically Remove Video Meta Files: Automatycznie usuwaj pliki metadanych filmu
   Data Settings:
     How do I import my subscriptions?: Jak mogę zaimportować swoje subskrypcje?
     Unknown data key: Nieznany klucz danych
     Unable to write file: Nie można zapisać pliku
     Unable to read file: Nie można odczytać pliku
-    All watched history has been successfully exported: Cała historia obejrzeń została
+    All watched history has been successfully exported: Cała historia oglądania została
       pomyślnie wyeksportowana
-    All watched history has been successfully imported: Cała historia obejrzeń została
+    All watched history has been successfully imported: Cała historia oglądania została
       pomyślnie zaimportowana
     History object has insufficient data, skipping item: Obiekt historii ma niewystarczające
       dane, pomijam element
@@ -292,9 +325,9 @@ Settings:
     Hide Comment Likes: Schowaj polubienia komentarzy
     Hide Channel Subscribers: Schowaj subskrybentów kanału
     Hide Video Likes And Dislikes: Schowaj łapki w górę i w dół
-    Hide Video Views: Schowaj obejrzenia filmu
+    Hide Video Views: Schowaj wyświetlenia filmów
     Hide Active Subscriptions: Schowaj aktywne subskrypcje
-    Hide Playlists: Ukryj playlistę
+    Hide Playlists: Schowaj playlistę
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
@@ -314,6 +347,20 @@ Settings:
     Proxy Protocol: Protokół proxy
     Enable Tor / Proxy: Włącz Tor / Proxy
     Proxy Settings: Ustawienia proxy
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Powiadamiaj, kiedy segment sponsorowany
+      zostanie pominięty
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Adres URL interfejsu
+      API SponsorBlock (Domyślnie jest https://sponsor.ajay.app)
+    Enable SponsorBlock: Włącz SponsorBlock
+    SponsorBlock Settings: Ustawienia SponsorBlock
+  External Player Settings:
+    Custom External Player Arguments: Niestandardowe argumenty zewnętrznego odtwarzacza
+    Custom External Player Executable: Niestandardowy plik wykonywalny zewnętrznego
+      odtwarzacza
+    Ignore Unsupported Action Warnings: Ignoruj ostrzeżenia o nieobsługiwanych działaniach
+    External Player: Zewnętrzny odtwarzacz
+    External Player Settings: Ustawienia zewnętrznego odtwarzacza
 About:
   #On About page
   About: 'O projekcie'
@@ -416,15 +463,15 @@ Video:
   Mark As Watched: 'Oznacz jako obejrzany'
   Remove From History: 'Usuń z historii'
   Video has been marked as watched: 'Film został oznaczony jako obejrzany'
-  Video has been removed from your history: 'Film został usunięty z twojej historii'
+  Video has been removed from your history: 'Film został usunięty z Twojej historii'
   Open in YouTube: 'Otwórz na stronie YouTube'
   Copy YouTube Link: 'Skopiuj link do strony YouTube'
   Open YouTube Embedded Player: 'Otwórz odtwarzacz YouTube'
   Copy YouTube Embedded Player Link: 'Skopiuj link do odtwarzacza YouTube'
   Open in Invidious: 'Otwórz na stronie Invidious'
   Copy Invidious Link: 'Skopiuj link do strony Invidious'
-  View: 'obejrzenie'
-  Views: 'obejrzeń'
+  View: 'wyświetlenie'
+  Views: 'wyświetleń'
   # Context is "X People Watching"
   Watching: 'ogląda'
   Watched: 'Obejrzany'
@@ -473,9 +520,9 @@ Video:
     Minute: minutę
   Published on: 'Opublikowano'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % temu'
+  Publicationtemplate: '$ % temu'
 #& Videos
-  Autoplay: Odtwarzaj
+  Autoplay: Autoodtw.
   Play Previous Video: Odtwórz poprzedni film
   Play Next Video: Odtwórz następny film
   Reverse Playlist: Odwróć playlistę
@@ -497,10 +544,34 @@ Video:
   Open Channel in YouTube: Otwórz kanał na stronie YouTube
   Started streaming on: Rozpoczęto transmitowanie dnia
   Streamed on: Transmitowane dnia
-  Video has been removed from your saved list: Film został usunięty z twojej listy
-    zachowanych
-  Video has been saved: Film został zachowany
-  Save Video: Zachowaj film
+  Video has been removed from your saved list: Film został usunięty z Twojej listy
+    zapisanych
+  Video has been saved: Film został zapisany
+  Save Video: Zapisz film
+  translated from English: przetłumaczone z angielskiego
+  Sponsor Block category:
+    music offtopic: niemuzyczny
+    interaction: o interakcji
+    self-promotion: z własną promocją
+    outro: z ekranem końcowym
+    intro: z intrem
+    sponsor: sponsorowany
+  Skipped segment: Pominięto segment
+  External Player:
+    Unsupported Actions:
+      reversing playlists: odwracania playlist
+      shuffling playlists: losowania z playlist
+      looping playlists: zapętlania playlist
+      opening specific video in a playlist (falling back to opening the video): otwierania
+        wskazanego filmu na playliście (zamiast tego nastąpi otwarcie filmu)
+      opening playlists: otwierania playlist
+      setting a playback rate: ustawienia prędkości odtwarzania
+      starting video at offset: rozpoczynania filmu z przesunięciem
+    UnsupportedActionTemplate: '$ nie obsługuje: %'
+    OpeningTemplate: Otwieranie $ w %...
+    playlist: playlisty
+    video: filmu
+    OpenInTemplate: Otwórz w $
 Videos:
   #& Sort By
   Sort By:
@@ -512,8 +583,8 @@ Playlist:
   #& About
   View Full Playlist: 'Zobacz całą playlistę'
   Videos: 'filmów'
-  View: 'obejrzenie'
-  Views: 'obejrzeń'
+  View: 'wyświetlenie'
+  Views: 'wyświetleń'
   Last Updated On: 'Ostatnio zaktualizowano'
   Share Playlist:
     Share Playlist: 'Podziel się playlistą'
@@ -525,15 +596,16 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Playlista
 Toggle Theatre Mode: 'Aktywuj tryb kinowy'
 Change Format:
   Change Video Formats: 'Zmień formaty wideo'
-  Use Dash Formats: 'Użyj formatów Dash'
+  Use Dash Formats: 'Użyj formatów DASH'
   Use Legacy Formats: 'Użyj starych formatów'
   Use Audio Formats: 'Użyj formatów audio'
   Audio formats are not available for this video: Formaty audio nie są dostępne dla
     tego filmu
-  Dash formats are not available for this video: Formaty Dash nie są dostępne dla
+  Dash formats are not available for this video: Formaty DASH nie są dostępne dla
     tego filmu
 Share:
   Share Video: 'Podziel się filmem'
@@ -554,13 +626,13 @@ Share:
 Mini Player: 'Mini odtwarzacz'
 Comments:
   Comments: 'Komentarze'
-  Click to View Comments: 'Kliknij by zobaczyć komentarze'
+  Click to View Comments: 'Kliknij, aby wyświetlić komentarze'
   Getting comment replies, please wait: 'Pobieranie odpowiedzi do komentarza, proszę
     poczekać'
   Show Comments: 'Pokaż komentarze'
   Hide Comments: 'Schowaj komentarze'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Zobacz'
+  View: 'Wyświetl'
   Hide: 'Schowaj'
   Replies: 'odpowiedzi'
   Reply: 'odpowiedź'
@@ -572,6 +644,7 @@ Comments:
   Newest first: Najpierw najnowsze
   Top comments: Najlepsze komentarze
   Sort by: Sortuj według
+  Show More Replies: Pokaż więcej odpowiedzi
 Up Next: 'Następne'
 
 # Toast Messages
@@ -588,7 +661,7 @@ Playing Next Video: 'Odtwórz następny film'
 Playing Previous Video: 'Odtwórz poprzedni film'
 Playing next video in 5 seconds.  Click to cancel: 'Odtworzenie następnego filmu za
   5 sekund. Kliknij aby anulować.'
-Canceled next video autoplay: 'Anulowano samoodtworzenie następnego filmu'
+Canceled next video autoplay: 'Anulowano odtworzenie następnego filmu'
 'The playlist has ended.  Enable loop to continue playing': 'Playlista się zakończyła.
   Włącz zapętlanie by kontynuować odtwarzanie'
 
@@ -636,6 +709,7 @@ Profile:
   Other Channels: Inne kanały
   Subscription List: Lista subskrypcji
   Profile Filter: Filtr profilu
+  Profile Settings: Ustawienia profilu
 The playlist has been reversed: Playlista została odwrócona
 A new blog is now available, $. Click to view more: Nowy wpis na blogu jest dostępny,
   $. Kliknij, aby zobaczyć więcej
@@ -652,31 +726,61 @@ Tooltips:
       nie dostarcza informacji, takich jak czas trwania filmu czy status transmisji
       na żywo
   General Settings:
-    Fallback to Non-Preferred Backend on Failure: Po włączeniu, kiedy twój preferowany
-      API napotka problem, FreeTube samoczynnie spróbuje użyć niepreferowanego API
-      jako metody zapasowej
+    Fallback to Non-Preferred Backend on Failure: Po włączeniu, kiedy Twój preferowany
+      API napotka problem, FreeTube automatycznie spróbuje użyć niepreferowanego API
+      jako metody zapasowej.
     Preferred API Backend: Wybierz back-end , który FreeTube użyje do uzyskiwania
       danych. Lokalne API jest wbudowanym ekstraktorem. API Invidious wymaga połączenia
       z serwerem Invidious.
     Region for Trending: Obszar filmów „Na czasie” pozwala wybrać kraj, z którego
       chciałbyś zobaczyć filmy zdobywające popularność. Nie wszystkie wyświetlone
-      kraje są obsługiwane przez YouTube
+      kraje są obsługiwane przez YouTube.
     Invidious Instance: Serwer Invidious, którym FreeTube będzie się łączył do wywołań
-      API. Wyczyść pole z serwerem, by zobaczyć listę publicznych serwerów do wyboru
+      API. Wyczyść pole z serwerem, by zobaczyć listę publicznych serwerów do wyboru.
     Thumbnail Preference: Wszystkie miniaturki na FreeTube zostaną zastąpione klatką
-      z filmu zamiast miniaturki domyślnej
+      z filmu zamiast miniaturki domyślnej.
+    External Link Handling: "Wybierz domyślne zachowanie kiedy link, który nie może\
+      \ zostać otworzony w FreeTube, został kliknięty.\nDomyślnie FreeTube otworzy\
+      \ kliknięty link w domyślnej przeglądarce.\n"
   Player Settings:
     Force Local Backend for Legacy Formats: Działa tylko, kiedy API Invidious jest
       ustawiony jako domyślny. Gdy opcja jest włączona, do odtwarzania starych formatów
       zostanie użyty lokalny API, zamiast API Invidious. Pomaga w przypadkach, gdy
-      filmy zwracane przez Invidious nie odtwarzają się z powodu blokady regionalnej
+      filmy zwracane przez Invidious nie odtwarzają się z powodu blokady regionalnej.
     Default Video Format: Ustaw formaty, które zostaną użyte do odtwarzania filmów.
-      Formaty Dash obsługują wyższe rozdzielczości. Stare formaty są ograniczone do
-      720p, ale zużywają mniej przepustowości. Formaty audio odtwarzają tylko dźwięk
+      Formaty DASH obsługują wyższe rozdzielczości. Stare formaty są ograniczone do
+      720p, ale zużywają mniej przepustowości. Formaty audio odtwarzają tylko dźwięk.
     Proxy Videos Through Invidious: Będzie dostarczał filmy, łącząc się z Invidious,
-      a nie bezpośrednio z YouTube. Nadpisuje ustawienia API
+      a nie bezpośrednio z YouTube. Nadpisuje ustawienia API.
+  Privacy Settings:
+    Remove Video Meta Files: Po włączeniu, FreeTube automatycznie usunie pliki metadanych
+      utworzone podczas odtwarzania filmu, gdy strona odtwarzania zostanie zamknięta.
+  External Player Settings:
+    Ignore Warnings: Nie wyświetlaj ostrzeżeń o nieobsługiwanych akcjach przez zewnętrzny
+      odtwarzacz (n.p. odwracanie playlist, itp.).
+    External Player: Wybranie zewnętrznego odtwarzacza spowoduje wyświetlenie na miniaturkach
+      ikony, która otworzy film (playlistę, jeśli są obsługiwane) w zewnętrznym odtwarzaczu.
+    Custom External Player Arguments: Wszelkie niestandardowe argumenty wiersza poleceń,
+      oddzielone średnikami (';'), które chcesz przekazać do zewnętrznego odtwarzacza.
+    Custom External Player Executable: FreeTube domyślnie przyjmie, że wybrany odtwarzacz
+      jest do znalezienia za pomocą zmiennej środowiskowej PATH. Jeśli trzeba, można
+      tutaj ustawić niestandardową ścieżkę.
 Playing Next Video Interval: Odtwarzanie kolejnego filmu już za chwilę. Wciśnij aby
   przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekundę. Wciśnij
   aby przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekund. Wciśnij
   aby przerwać.
 More: Więcej
+Unknown YouTube url type, cannot be opened in app: Nieznany typ adresu URL YouTube,
+  nie można go otworzyć w aplikacji
+Hashtags have not yet been implemented, try again later: Hashtagi nie zostały jeszcze
+  wprowadzone, spróbuj później
+Open New Window: Otwórz nowe okno
+Default Invidious instance has been cleared: Domyślna instancja Invidious została
+  wyczyszczona
+Default Invidious instance has been set to $: Domyślna instancja Invidious została
+  ustawiona na $
+Search Bar:
+  Clear Input: Wyczyść pole
+External link opening has been disabled in the general settings: Otwieranie zewnętrznych
+  linków zostało wyłączone w ustawieniach ogólnych
+Are you sure you want to open this link?: Czy na pewno chcesz otworzyć ten link?

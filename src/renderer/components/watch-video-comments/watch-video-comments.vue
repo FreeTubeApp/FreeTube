@@ -47,10 +47,15 @@
           class="commentThumbnail"
           @click="goToChannel(comment.authorLink)"
         >
-        <p class="commentAuthor"
-           @click="goToChannel(comment.authorLink)"
+        <p
+          class="commentAuthorWrapper"
         >
-          {{ comment.author }}
+          <span
+            class="commentAuthor"
+            @click="goToChannel(comment.authorLink)"
+          >
+            {{ comment.author }}
+          </span>
           <span class="commentDate">
             {{ comment.time }}
           </span>
@@ -107,8 +112,13 @@
               :src="reply.authorThumb"
               class="commentThumbnail"
             >
-            <p class="commentAuthor">
-              {{ reply.author }}
+            <p class="commentAuthorWrapper">
+              <span
+                class="commentAuthor"
+                @click="goToChannel(reply.authorLink)"
+              >
+                {{ reply.author }}
+              </span>
               <span class="commentDate">
                 {{ reply.time }}
               </span>
@@ -136,7 +146,7 @@
             class="showMoreReplies"
             @click="getCommentReplies(index)"
           >
-            <span>Show More Replies</span>
+            <span>{{ $t("Comments.Show More Replies") }}</span>
           </div>
         </div>
       </div>

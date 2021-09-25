@@ -35,7 +35,8 @@ export default Vue.extend({
       baseThemeValues: [
         'light',
         'dark',
-        'black'
+        'black',
+        'dracula'
       ],
       colorValues: [
         'Red',
@@ -53,7 +54,14 @@ export default Vue.extend({
         'Yellow',
         'Amber',
         'Orange',
-        'DeepOrange'
+        'DeepOrange',
+        'DraculaCyan',
+        'DraculaGreen',
+        'DraculaOrange',
+        'DraculaPink',
+        'DraculaPurple',
+        'DraculaRed',
+        'DraculaYellow'
       ]
     }
   },
@@ -89,7 +97,8 @@ export default Vue.extend({
       return [
         this.$t('Settings.Theme Settings.Base Theme.Light'),
         this.$t('Settings.Theme Settings.Base Theme.Dark'),
-        this.$t('Settings.Theme Settings.Base Theme.Black')
+        this.$t('Settings.Theme Settings.Base Theme.Black'),
+        this.$t('Settings.Theme Settings.Base Theme.Dracula')
       ]
     },
 
@@ -110,7 +119,14 @@ export default Vue.extend({
         this.$t('Settings.Theme Settings.Main Color Theme.Yellow'),
         this.$t('Settings.Theme Settings.Main Color Theme.Amber'),
         this.$t('Settings.Theme Settings.Main Color Theme.Orange'),
-        this.$t('Settings.Theme Settings.Main Color Theme.Deep Orange')
+        this.$t('Settings.Theme Settings.Main Color Theme.Deep Orange'),
+        this.$t('Settings.Theme Settings.Main Color Theme.Dracula Cyan'),
+        this.$t('Settings.Theme Settings.Main Color Theme.Dracula Green'),
+        this.$t('Settings.Theme Settings.Main Color Theme.Dracula Orange'),
+        this.$t('Settings.Theme Settings.Main Color Theme.Dracula Pink'),
+        this.$t('Settings.Theme Settings.Main Color Theme.Dracula Purple'),
+        this.$t('Settings.Theme Settings.Main Color Theme.Dracula Red'),
+        this.$t('Settings.Theme Settings.Main Color Theme.Dracula Yellow')
       ]
     }
   },
@@ -145,13 +161,6 @@ export default Vue.extend({
       localStorage.setItem('expandSideBar', value)
     },
 
-    handleUiScale: function (value) {
-      const { webFrame } = require('electron')
-      const zoomFactor = value / 100
-      webFrame.setZoomFactor(zoomFactor)
-      this.updateUiScale(parseInt(value))
-    },
-
     handleRestartPrompt: function (value) {
       this.disableSmoothScrollingToggleValue = value
       this.showRestartPrompt = true
@@ -165,15 +174,14 @@ export default Vue.extend({
         return
       }
 
-      this.updateDisableSmoothScrolling(this.disableSmoothScrollingToggleValue)
+      this.updateDisableSmoothScrolling(
+        this.disableSmoothScrollingToggleValue
+      ).then(() => {
+        // FIXME: No electron safeguard
+        const { ipcRenderer } = require('electron')
 
-      const electron = require('electron')
-
-      if (this.disableSmoothScrollingToggleValue) {
-        electron.ipcRenderer.send('disableSmoothScrolling')
-      } else {
-        electron.ipcRenderer.send('enableSmoothScrolling')
-      }
+        ipcRenderer.send('relaunchRequest')
+      })
     },
 
     updateMainColor: function (color) {

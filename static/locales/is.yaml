@@ -87,7 +87,13 @@ Subscriptions:
   Refresh Subscriptions: 'Endurlesa áskriftir'
   Load More Videos: 'Hlaða inn fleiri myndskeiðum'
 More: 'Meira'
-Trending: 'Í umræðunni'
+Trending:
+  Trending: 'Í umræðunni'
+  Trending Tabs: Vinsælir flipar
+  Movies: Kvikmyndir
+  Gaming: Leikir
+  Music: Tónlist
+  Default: Sjálfgefið
 Most Popular: 'Vinsælast'
 Playlists: 'Spilunarlistar'
 User Playlists:
@@ -137,6 +143,20 @@ Settings:
     View all Invidious instance information: 'Skoða allar upplýsingar um Invidious-tilvik'
     Region for Trending: 'Landssvæði sem skal miða vinsældir við'
         #! List countries
+    System Default: Sjálfgefið í kerfinu
+    Clear Default Instance: Hreinsa út sjálfgefið tilvik
+    Set Current Instance as Default: Stilla fyrirliggjandi tilvik sem sjálfgefið
+    Current instance will be randomized on startup: Fyrirliggjandi tilvik verður tilgreint
+      af handahófi í ræsingu
+    No default instance has been set: Ekkert sjálfgefið tilvik hefur verið stillt
+    The currently set default instance is $: Fyrirliggjandi sjálfgefna tilvikið er
+      $
+    Current Invidious Instance: Fyrirliggjandi Invidious-tilvik
+    External Link Handling:
+      No Action: Ekkert gert
+      Ask Before Opening Link: Spyrja áður en tengill er opnaður
+      Open Link: Opna tengil
+      External Link Handling: Meðhöndlun ytri tengla
   Theme Settings:
     Theme Settings: 'Þemastillingar'
     Match Top Bar with Main Color: 'Láta toppstiku samsvara aðallit'
@@ -148,6 +168,7 @@ Settings:
       Black: 'Svart'
       Dark: 'Dökkt'
       Light: 'Ljóst'
+      Dracula: 'Drakúla'
     Main Color Theme:
       Main Color Theme: 'Aðallitur þema'
       Red: 'Rautt'
@@ -166,6 +187,13 @@ Settings:
       Amber: 'Raflitt'
       Orange: 'Appelsínugult'
       Deep Orange: 'Dimmappelsínugult'
+      Dracula Cyan: 'Drakúla Blágrænt'
+      Dracula Green: 'Drakúla Grænt'
+      Dracula Orange: 'Drakúla Appelsínugult'
+      Dracula Pink: 'Drakúla Bleikt'
+      Dracula Purple: 'Drakúla Purpurablátt'
+      Dracula Red: 'Drakúla Rautt'
+      Dracula Yellow: 'Drakúla Gult'
     Secondary Color Theme: 'Aukalitur þema'
         #* Main Color Theme
   Player Settings:
@@ -198,6 +226,10 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Next Video Interval: Bil í næsta myndskeið
+    Display Play Button In Video Player: Birta afspilunarhnapp í myndspilara
+    Scroll Volume Over Video Player: Skrun hljóðstyrks ofan á myndspilara
+    Fast-Forward / Rewind Interval: Millibil hraðspólunar / spóla til baka
   Privacy Settings:
     Privacy Settings: 'Stillingar gagnaleyndar'
     Remember History: 'Muna vinnsluferil'
@@ -287,6 +319,18 @@ Settings:
     City: 'Borg/Sveitarfélag'
     Error getting network information. Is your proxy configured properly?: 'Það tókst
       ekki að sækja upplýsingar um netkerfið. Er milliþjónninn rétt uppsettur?'
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Láta vita þegar kostaður bútur er hunsaður
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API-slóð
+      (sjálfgefið er https://sponsor.ajay.app)
+    Enable SponsorBlock: Virkja SponsorBlock
+    SponsorBlock Settings: Stillingar SponsorBlock
+  External Player Settings:
+    Custom External Player Arguments: Sérsniðin viðföng fyrir utanaðkomandi spilara
+    Custom External Player Executable: Sérsniðin skipun fyrir utanaðkomandi spilara
+    Ignore Unsupported Action Warnings: Hunsa aðvarinir vegna óstuddra aðgerða
+    External Player: Utanaðkomandi spilari
+    External Player Settings: Stillingar utanaðkomandi spilara
 About:
   #On About page
   About: 'Um hugbúnaðinn'
@@ -359,6 +403,7 @@ Profile:
     viss um að þú viljir eyða völdu rásunum? Þetta mun ekki eyða rásunum úr öðrum
     notkunarsniðum.'
 #On Channel Page
+  Profile Settings: Stillingar notkunarsniðs
 Channel:
   Subscriber: 'Áskrifandi'
   Subscribers: 'Áskrifendur'
@@ -445,7 +490,7 @@ Video:
     Low: 'Lág'
     Medium: 'Miðlungs'
     High: 'Há'
-    Best: 'Best'
+    Best: 'Besta'
   Published:
     Jan: 'Jan'
     Feb: 'Feb'
@@ -479,8 +524,32 @@ Video:
   Streamed on: 'Streymt'
   Started streaming on: 'Byrjaði streymi'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % síðan'
+  Publicationtemplate: 'Fyrir $ % síðan'
 #& Videos
+  translated from English: þýtt úr ensku
+  Sponsor Block category:
+    music offtopic: tónlist óskyld efni
+    interaction: gagnvirkni
+    self-promotion: sjálfskynning
+    intro: kynning
+    sponsor: kostunaraðili
+    outro: afkynning
+  Skipped segment: Búti sleppt
+  External Player:
+    Unsupported Actions:
+      looping playlists: endurtaka spilunarlista
+      shuffling playlists: stokka spilunarlista
+      reversing playlists: snúa við spilunarlistum
+      opening playlists: opna spilunarlista
+      setting a playback rate: stilla hraða afspilunar
+      starting video at offset: byrja myndskeið á hliðrun
+      opening specific video in a playlist (falling back to opening the video): opna
+        tiltekið myndskeið í spilunarlista (til vara að opna myndskeiðið)
+    UnsupportedActionTemplate: '$ styður ekki: %'
+    OpeningTemplate: Opna $ eftir %...
+    playlist: spilunarlisti
+    video: myndskeið
+    OpenInTemplate: Opna í $
 Videos:
   #& Sort By
   Sort By:
@@ -505,6 +574,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Spilunarlisti
 Toggle Theatre Mode: 'Víxla bíóham af/á'
 Change Format:
   Change Video Formats: 'Skipta um myndskeiðasnið'
@@ -551,6 +621,7 @@ Comments:
     fyrir þetta myndskeið'
   Load More Comments: 'Hlaða inn fleiri athugasemdum'
   No more comments available: 'Engar fleiri athugasemdir eru tiltækar'
+  Show More Replies: Birta fleiri svör
 Up Next: 'Næst í spilun'
 
 #Tooltips
@@ -561,27 +632,30 @@ Tooltips:
       tengingar við Invidious-netþjón.'
     Fallback to Non-Preferred Backend on Failure: 'Þegar forgangsbakendi API-kerfisviðmóts
       á í vandræðum, mun FreeTube reyna sjálfkrafa að nota ekki-forgangsbakenda API-kerfisviðmóts
-      sem varaleið, þegar þetta er virkjað'
+      sem varaleið, þegar þetta er virkjað.'
     Thumbnail Preference: 'Öllum smámyndum í FreeTube verður skipt út fyrir ramma
-      með myndskeiðinu í stað sjálfgefinnar smámyndar'
+      með myndskeiðinu í stað sjálfgefinnar smámyndar.'
     Invidious Instance: 'Tilvik Invidious-netþjóns sem FreeTube mun tengjast fyrir
       beðnir í API-kerfisviðmót. Hreinsaðu út fyrirliggjandi tilvik til að sjá lista
-      yfir opinber tilvik sem hægt er að velja um'
+      yfir opinber tilvik sem hægt er að velja um.'
     Region for Trending: 'Landssvæði sem skal miða vinsældir við gerir þér kleift
       að velja í hvaða landi aukning á vinsældum í umræðunni skal miða við. Ekki eru
-      öll löndin sem birtast raunverulega studd af YouTube'
+      öll löndin sem birtast raunverulega studd af YouTube.'
+    External Link Handling: "Veldu sjálfgefna hegðun þegar smellt er á tengil sem\
+      \ ekki er hægt að opna í FreeTube.\nSjálfgefið mun FreeTube opna viðkomandi\
+      \ tengil í sjálfgefna vafranum þínum.\n"
   Player Settings:
     Force Local Backend for Legacy Formats: 'Virkar bara þegar Invidious API-kerfisviðmótið
       er sjálfgefið hjá þér. Þegar þetta er virkt, mun staðværa API-kerfisviðmótið
       keyra og nota þau eldri skráasnið sem finnast í stað þeirra sem Invidious gefur
       upp. Hjálpar til þegar myndskeið sem Invidious gefur upp spilast ekki vegna
-      landsháðra takmarkana'
+      landsháðra takmarkana.'
     Proxy Videos Through Invidious: 'Mun tengjast við Invidious til að miðla myndskeiðum
-      í stað þess að tengjast beint við YouTube. Tekur fram fyrir valin API-kerfisviðmót'
+      í stað þess að tengjast beint við YouTube. Tekur fram fyrir valin API-kerfisviðmót.'
     Default Video Format: 'Stillu skráasniðin sem notuð eru við afspilun myndskeiða.
       DASH-snið (Dynamic Adaptive Streaming over HTTP) er hægt að spila í meiri gæðum.
       Eldri snið takmarkast við 720p en nota minni bandbreidd. Hljóðsnið eru streymi
-      einungis með hljóði'
+      einungis með hljóði.'
   Subscription Settings:
     Fetch Feeds from RSS: 'Þegar þetta er virkt, mun FreeTube nota RSS í stað sjálfgefinnar
       aðferðar við að safna streymi áskriftarinnar þinnar. RSS er hraðvirkara og kemur
@@ -592,6 +666,17 @@ Tooltips:
   Privacy Settings:
     Remove Video Meta Files: Þegar þetta er virkt, eyðir FreeTube sjálfkrafa lýsigagnaskrám
       sem útbúnar eru við afspilun, þegar skoðunarsíðunni er lokað.
+  External Player Settings:
+    Custom External Player Arguments: Öll sérsniðin skipanaviðföng og rofar, aðskilin
+      með semíkommum (';'), sem beina á til utanaðkomandi spilarans.
+    Ignore Warnings: Hunsa aðvarinir þegar valinn utanaðkomandi spilari styður ekki
+      viðkomandi aðgerð (t.d. að snúa við spilunarlista, o.s.frv.).
+    Custom External Player Executable: Sjálfgefið gengur FreeTube út frá því að valinn
+      utanaðkomandi spilari finnist í gegnum PATH umhverfisbreytuna. Ef þess þarf,
+      má setja sérsniðna slóð hér.
+    External Player: Sé valinn utanaðkomandi spilari, birtist táknmynd á smámyndinni
+      til að opna myndskeiðið (í spilunarlista ef stuðningur er við slíkt) í þessum
+      utanaðkomandi spilara.
 Local API Error (Click to copy): 'Villa í staðværu API-kerfisviðmóti (smella til að
   afrita)'
 Invidious API Error (Click to copy): 'Villa í Invidious API-kerfisviðmóti (smella
@@ -619,3 +704,17 @@ Canceled next video autoplay: 'Hætti við sjálfvirka afspilun næsta myndskei�
 
 Yes: 'Já'
 No: 'Nei'
+Hashtags have not yet been implemented, try again later: Ekki er ennþá stuðningur
+  við myllumerki (hashtags), prófaðu aftur síðar
+Unknown YouTube url type, cannot be opened in app: Óþekkt gerð YouTube-slóðar, er
+  ekki hægt að opna í forritinu
+Open New Window: Opna í nýjum glugga
+Default Invidious instance has been cleared: Sjálfgefið Invidious-tilvik hefur verið
+  hreinsað út
+Default Invidious instance has been set to $: Sjálfgefið Invidious-tilvik hefur verið
+  stillt sem $
+Search Bar:
+  Clear Input: Hreinsa reit
+External link opening has been disabled in the general settings: Opnun ytri tengla
+  hefur verið gerð óvirk í almennum stillingum
+Are you sure you want to open this link?: Ertu viss um að þú viljir opna þennan tengil?

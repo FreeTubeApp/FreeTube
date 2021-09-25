@@ -2,6 +2,53 @@
   position: relative;
 }
 
+.clearInputTextButton {
+  position: absolute;
+  /* horizontal intentionally reduced to keep "I-beam pointer" visible */
+  padding: 10px 8px;
+  top: 5px;
+  left: 0;
+  cursor: pointer;
+  border-radius: 200px 200px 200px 200px;
+  color: var(--primary-text-color);
+
+  opacity: 0;
+
+  -moz-transition: background 0.2s ease-in, opacity 0.2s ease-in;
+  -o-transition: background 0.2s ease-in, opacity 0.2s ease-in;
+  transition: background 0.2s ease-in, opacity 0.2s ease-in;
+}
+
+.clearInputTextButton:hover {
+  background-color: var(--side-nav-hover-color);
+}
+.clearInputTextButton.visible {
+  opacity: 1;
+}
+
+.forceTextColor .clearInputTextButton:hover {
+  background-color: var(--primary-color-hover);
+}
+
+.clearInputTextButton:active {
+  background-color: var(--tertiary-text-color);
+  -moz-transition: background 0.2s ease-in;
+  -o-transition: background 0.2s ease-in;
+  transition: background 0.2s ease-in;
+}
+
+.search .clearInputTextButton {
+  top: 12px;
+}
+
+.forceTextColor .clearInputTextButton {
+  color: #EEEEEE;
+}
+
+.forceTextColor .clearInputTextButton:active {
+  background-color: var(--primary-color-active);
+}
+
 .ft-input {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -41,7 +88,7 @@
 
 .inputAction {
   position: absolute;
-  padding: 10px;
+  padding: 10px 8px;
   top: 5px;
   right: 0px;
   cursor: pointer;
@@ -59,6 +106,14 @@
 
 .forceTextColor .inputAction {
   color: #EEEEEE;
+}
+
+.ft-input-component.showArrow .ft-input {
+  /*
+  With arrow present means
+  the text might get under the arrow with normal padding
+   */
+  padding-right: 2em;
 }
 
 .inputAction:hover {
@@ -91,9 +146,8 @@
   padding: 5px 0;
   z-index: 10;
   border-radius: 0 0 5px 5px;
-  border: 1px #ccc solid;
-  background-color: white;
-  color: black;
+  box-shadow: 0 0 10px var(--scrollbar-color-hover);
+  background-color: var(--search-bar-color);
 }
 
 .list li {
@@ -103,6 +157,10 @@
 }
 
 .hover {
-  background-color: #ccc;
+  background-color: var(--scrollbar-color-hover);
 /*   color: white; */
+}
+
+.showClearTextButton .ft-input {
+  padding-left: 2em;
 }

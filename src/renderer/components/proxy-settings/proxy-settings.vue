@@ -1,12 +1,11 @@
 <template>
-  <ft-card
-    class="relative card"
-  >
-    <h3
-      class="videoTitle"
-    >
-      {{ $t("Settings.Proxy Settings.Proxy Settings") }}
-    </h3>
+  <details>
+    <summary>
+      <h3>
+        {{ $t("Settings.Proxy Settings.Proxy Settings") }}
+      </h3>
+    </summary>
+    <hr>
     <ft-flex-box class="subscriptionSettingsFlexBox">
       <ft-toggle-switch
         :label="$t('Settings.Proxy Settings.Enable Tor / Proxy')"
@@ -71,8 +70,8 @@
         {{ $t('Settings.Proxy Settings.City') }}: {{ proxyCity }}
       </p>
     </div>
-  </ft-card>
+  </details>
 </template>
 
 <script src="./proxy-settings.js" />
-<style scoped src="./proxy-settings.css" />
+<style scoped lang="sass" src="./proxy-settings.sass" />

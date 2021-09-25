@@ -1,12 +1,11 @@
 <template>
-  <ft-card
-    class="card"
-  >
-    <h3
-      class="videoTitle"
-    >
-      {{ $t("Settings.General Settings.General Settings") }}
-    </h3>
+  <details>
+    <summary>
+      <h3>
+        {{ $t("Settings.General Settings.General Settings") }}
+      </h3>
+    </summary>
+    <hr>
     <div class="switchColumnGrid">
       <div class="switchColumn">
         <ft-toggle-switch
@@ -75,7 +74,7 @@
         :value="currentLocale"
         :select-names="localeNames"
         :select-values="localeOptions"
-        @change="updateLocale"
+        @change="updateCurrentLocale"
       />
       <ft-select
         :placeholder="$t('Settings.General Settings.Region for Trending')"
@@ -85,26 +84,60 @@
         :tooltip="$t('Tooltips.General Settings.Region for Trending')"
         @change="updateRegion"
       />
+      <ft-select
+        :placeholder="$t('Settings.General Settings.External Link Handling.External Link Handling')"
+        :value="externalLinkHandling"
+        :select-names="externalLinkHandlingNames"
+        :select-values="externalLinkHandlingValues"
+        :tooltip="$t('Tooltips.General Settings.External Link Handling')"
+        @change="updateExternalLinkHandling"
+      />
     </div>
     <ft-flex-box class="generalSettingsFlexBox">
       <ft-input
-        :placeholder="$t('Settings.General Settings[\'Invidious Instance (Default is https://invidious.snopyta.org)\']')"
+        :placeholder="$t('Settings.General Settings.Current Invidious Instance')"
         :show-arrow="false"
         :show-label="true"
-        :value="invidiousInstance"
-        :data-list="instanceValues"
+        :value="currentInvidiousInstance"
+        :data-list="invidiousInstancesList"
         :tooltip="$t('Tooltips.General Settings.Invidious Instance')"
         @input="handleInvidiousInstanceInput"
       />
     </ft-flex-box>
     <ft-flex-box>
-      <a
-        href="https://api.invidious.io"
-      >
-        {{ $t('Settings.General Settings.View all Invidious instance information') }}
-      </a>
+      <div>
+        <a
+          href="https://api.invidious.io"
+        >
+          {{ $t('Settings.General Settings.View all Invidious instance information') }}
+        </a>
+      </div>
     </ft-flex-box>
-  </ft-card>
+    <p
+      v-if="defaultInvidiousInstance !== ''"
+      class="center"
+    >
+      {{ $t('Settings.General Settings.The currently set default instance is $').replace('$', defaultInvidiousInstance) }}
+    </p>
+    <template v-else>
+      <p class="center">
+        {{ $t('Settings.General Settings.No default instance has been set') }}
+      </p>
+      <p class="center">
+        {{ $t('Settings.General Settings.Current instance will be randomized on startup') }}
+      </p>
+    </template>
+    <ft-flex-box>
+      <ft-button
+        :label="$t('Settings.General Settings.Set Current Instance as Default')"
+        @click="handleSetDefaultInstanceClick"
+      />
+      <ft-button
+        :label="$t('Settings.General Settings.Clear Default Instance')"
+        @click="handleClearDefaultInstanceClick"
+      />
+    </ft-flex-box>
+  </details>
 </template>
 
 <script src="./general-settings.js" />

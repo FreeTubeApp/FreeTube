@@ -2,6 +2,10 @@
 dist/electron/*
 storyboards/*
 dashFiles/*
+static/dashFiles
+static/storyboards
+static/dashFiles/*
+static/storyboards/*
 dist/web/*
 build/*
 !build/icons

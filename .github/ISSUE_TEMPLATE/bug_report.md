@@ -25,6 +25,9 @@ Please add all steps to reproduce the behavior:
 3. Scroll down to '....'
 4. See error
 
+**Link to video**
+If you refer to a problem which occurs within a specific video, or a range of videos, please link at least one here.
+
 **Screenshots**
 If applicable, please add screenshots to help explain your problem. Especially console logs from the development tools are very helpful.
 

@@ -5,7 +5,12 @@ const state = {
   isSideNavOpen: false,
   sessionSearchHistory: [],
   popularCache: null,
-  trendingCache: null,
+  trendingCache: {
+    default: null,
+    music: null,
+    gaming: null,
+    movies: null
+  },
   showProgressBar: false,
   progressBarPercentage: 0,
   regionNames: [],
@@ -52,7 +57,10 @@ const state = {
     '#FFAB00',
     '#FF6D00',
     '#DD2C00'
-  ]
+  ],
+  externalPlayerNames: [],
+  externalPlayerValues: [],
+  externalPlayerCmdArguments: {}
 }
 
 const getters = {
@@ -102,10 +110,82 @@ const getters = {
 
   getRecentBlogPosts () {
     return state.recentBlogPosts
+  },
+
+  getExternalPlayerNames () {
+    return state.externalPlayerNames
+  },
+
+  getExternalPlayerValues () {
+    return state.externalPlayerValues
+  },
+
+  getExternalPlayerCmdArguments () {
+    return state.externalPlayerCmdArguments
   }
 }
 
+/**
+ * Wrapper function that calls `ipcRenderer.invoke(IRCtype, payload)` if the user is
+ * using Electron or a provided custom callback otherwise.
+ * @param {Object} context Object
+ * @param {String} IRCtype String
+ * @param {Function} webCbk Function
+ * @param {Object} payload any (default: null)
+*/
+
+async function invokeIRC(context, IRCtype, webCbk, payload = null) {
+  let response = null
+  const usingElectron = context.rootState.settings.usingElectron
+  if (usingElectron) {
+    const { ipcRenderer } = require('electron')
+    response = await ipcRenderer.invoke(IRCtype, payload)
+  } else if (webCbk) {
+    response = await webCbk()
+  }
+
+  return response
+}
+
 const actions = {
+  openExternalLink ({ rootState }, url) {
+    const usingElectron = rootState.settings.usingElectron
+    if (usingElectron) {
+      const ipcRenderer = require('electron').ipcRenderer
+      ipcRenderer.send('openExternalLink', url)
+    } else {
+      // Web placeholder
+    }
+  },
+
+  async getSystemLocale (context) {
+    const webCbk = () => {
+      if (navigator && navigator.language) {
+        return navigator.language
+      }
+    }
+
+    return (await invokeIRC(context, 'getSystemLocale', webCbk)) || 'en-US'
+  },
+
+  async showOpenDialog (context, options) {
+    // TODO: implement showOpenDialog web compatible callback
+    const webCbk = () => null
+    return await invokeIRC(context, 'showOpenDialog', webCbk, options)
+  },
+
+  async showSaveDialog (context, options) {
+    // TODO: implement showSaveDialog web compatible callback
+    const webCbk = () => null
+    return await invokeIRC(context, 'showSaveDialog', webCbk, options)
+  },
+
+  async getUserDataPath (context) {
+    // TODO: implement getUserDataPath web compatible callback
+    const webCbk = () => null
+    return await invokeIRC(context, 'getUserDataPath', webCbk)
+  },
+
   updateShowProgressBar ({ commit }, value) {
     commit('setShowProgressBar', value)
   },
@@ -193,7 +273,7 @@ const actions = {
   getVideoParamsFromUrl (_, url) {
     /** @type {URL} */
     let urlObject
-    const paramsObject = { videoId: null, timestamp: null }
+    const paramsObject = { videoId: null, timestamp: null, playlistId: null }
     try {
       urlObject = new URL(url)
     } catch (e) {
@@ -210,6 +290,7 @@ const actions = {
       function() {
         if (urlObject.pathname === '/watch' && urlObject.searchParams.has('v')) {
           extractParams(urlObject.searchParams.get('v'))
+          paramsObject.playlistId = urlObject.searchParams.get('list')
           return paramsObject
         }
       },
@@ -227,6 +308,13 @@ const actions = {
           return paramsObject
         }
       },
+      // youtube.com/shorts
+      function() {
+        if (urlObject.pathname.match(/^\/shorts\/[A-Za-z0-9_-]+$/)) {
+          extractParams(urlObject.pathname.replace('/shorts/', ''))
+          return paramsObject
+        }
+      },
       // cloudtube
       function() {
         if (urlObject.host.match(/^cadence\.(gq|moe)$/) && urlObject.pathname.match(/^\/cloudtube\/video\/[A-Za-z0-9_-]+$/)) {
@@ -239,25 +327,144 @@ const actions = {
     return extractors.reduce((a, c) => a || c(), null) || paramsObject
   },
 
-  getPlaylistIdFromUrl (_, url) {
-    /** @type {URL} */
-    let urlObject
-    try {
-      urlObject = new URL(url)
-    } catch (e) {
-      return false
+  getYoutubeUrlInfo ({ state }, urlStr) {
+    // Returns
+    // - urlType [String] `video`, `playlist`
+    //
+    // If `urlType` is "video"
+    // - videoId [String]
+    // - timestamp [String]
+    //
+    // If `urlType` is "playlist"
+    // - playlistId [String]
+    // - query [Object]
+    //
+    // If `urlType` is "search"
+    // - searchQuery [String]
+    // - query [Object]
+    //
+    // If `urlType` is "hashtag"
+    // Nothing else
+    //
+    // If `urlType` is "channel"
+    // - channelId [String]
+    //
+    // If `urlType` is "unknown"
+    // Nothing else
+    //
+    // If `urlType` is "invalid_url"
+    // Nothing else
+    const { videoId, timestamp, playlistId } = actions.getVideoParamsFromUrl(null, urlStr)
+    if (videoId) {
+      return {
+        urlType: 'video',
+        videoId,
+        playlistId,
+        timestamp
+      }
     }
 
-    const extractors = [
-      // anything with /playlist?list=
-      function() {
-        if (urlObject.pathname === '/playlist' && urlObject.searchParams.has('list')) {
-          return urlObject.searchParams.get('list')
+    let url
+    try {
+      url = new URL(urlStr)
+    } catch {
+      return {
+        urlType: 'invalid_url'
+      }
+    }
+    let urlType = 'unknown'
+
+    const channelPattern =
+      /^\/(?:c\/|channel\/|user\/)?([^/]+)(?:\/join)?\/?$/
+
+    const typePatterns = new Map([
+      ['playlist', /^\/playlist\/?$/],
+      ['search', /^\/results\/?$/],
+      ['hashtag', /^\/hashtag\/([^/?&#]+)$/],
+      ['channel', channelPattern]
+    ])
+
+    for (const [type, pattern] of typePatterns) {
+      const matchFound = pattern.test(url.pathname)
+      if (matchFound) {
+        urlType = type
+        break
+      }
+    }
+
+    switch (urlType) {
+      case 'playlist': {
+        if (!url.searchParams.has('list')) {
+          throw new Error('Playlist: "list" field not found')
+        }
+
+        const playlistId = url.searchParams.get('list')
+        url.searchParams.delete('list')
+
+        const query = {}
+        for (const [param, value] of url.searchParams) {
+          query[param] = value
+        }
+
+        return {
+          urlType: 'playlist',
+          playlistId,
+          query
         }
       }
-    ]
 
-    return extractors.reduce((a, c) => a || c(), null) || false
+      case 'search': {
+        if (!url.searchParams.has('search_query')) {
+          throw new Error('Search: "search_query" field not found')
+        }
+
+        const searchQuery = url.searchParams.get('search_query')
+        url.searchParams.delete('search_query')
+
+        const searchSettings = state.searchSettings
+        const query = {
+          sortBy: searchSettings.sortBy,
+          time: searchSettings.time,
+          type: searchSettings.type,
+          duration: searchSettings.duration
+        }
+
+        for (const [param, value] of url.searchParams) {
+          query[param] = value
+        }
+
+        return {
+          urlType: 'search',
+          searchQuery,
+          query
+        }
+      }
+
+      case 'hashtag': {
+        return {
+          urlType: 'hashtag'
+        }
+      }
+
+      case 'channel': {
+        const channelId = url.pathname.match(channelPattern)[1]
+        if (!channelId) {
+          throw new Error('Channel: could not extract id')
+        }
+
+        return {
+          urlType: 'channel',
+          channelId
+        }
+      }
+
+      default: {
+        // Unknown URL type
+        return {
+          urlType: 'unknown'
+        }
+      }
+    }
   },
 
   padNumberWithLeadingZeros(_, payload) {
@@ -416,6 +623,181 @@ const actions = {
 
   showToast (_, payload) {
     FtToastEvents.$emit('toast-open', payload.message, payload.action, payload.time)
+  },
+
+  showExternalPlayerUnsupportedActionToast: function ({ dispatch }, payload) {
+    if (!payload.ignoreWarnings) {
+      const toastMessage = payload.template
+        .replace('$', payload.externalPlayer)
+        .replace('%', payload.action)
+      dispatch('showToast', {
+        message: toastMessage
+      })
+    }
+  },
+
+  getExternalPlayerCmdArgumentsData ({ commit }, payload) {
+    const fileName = 'external-player-map.json'
+    let fileData
+    /* eslint-disable-next-line */
+    const fileLocation = payload.isDev ? './static/' : `${__dirname}/static/`
+
+    if (fs.existsSync(`${fileLocation}${fileName}`)) {
+      fileData = fs.readFileSync(`${fileLocation}${fileName}`)
+    } else {
+      fileData = '[{"name":"None","value":"","cmdArguments":null}]'
+    }
+
+    const externalPlayerMap = JSON.parse(fileData).map((entry) => {
+      return { name: entry.name, value: entry.value, cmdArguments: entry.cmdArguments }
+    })
+
+    const externalPlayerNames = externalPlayerMap.map((entry) => { return entry.name })
+    const externalPlayerValues = externalPlayerMap.map((entry) => { return entry.value })
+    const externalPlayerCmdArguments = externalPlayerMap.reduce((result, item) => {
+      result[item.value] = item.cmdArguments
+      return result
+    }, {})
+
+    commit('setExternalPlayerNames', externalPlayerNames)
+    commit('setExternalPlayerValues', externalPlayerValues)
+    commit('setExternalPlayerCmdArguments', externalPlayerCmdArguments)
+  },
+
+  openInExternalPlayer ({ dispatch, state, rootState }, payload) {
+    const args = []
+    const externalPlayer = rootState.settings.externalPlayer
+    const cmdArgs = state.externalPlayerCmdArguments[externalPlayer]
+    const executable = rootState.settings.externalPlayerExecutable !== ''
+      ? rootState.settings.externalPlayerExecutable
+      : cmdArgs.defaultExecutable
+    const ignoreWarnings = rootState.settings.externalPlayerIgnoreWarnings
+    const customArgs = rootState.settings.externalPlayerCustomArgs
+
+    if (payload.watchProgress > 0) {
+      if (typeof cmdArgs.startOffset === 'string') {
+        args.push(`${cmdArgs.startOffset}${payload.watchProgress}`)
+      } else {
+        dispatch('showExternalPlayerUnsupportedActionToast', {
+          ignoreWarnings,
+          externalPlayer,
+          template: payload.strings.UnsupportedActionTemplate,
+          action: payload.strings['Unsupported Actions']['starting video at offset']
+        })
+      }
+    }
+
+    if (payload.playbackRate !== null) {
+      if (typeof cmdArgs.playbackRate === 'string') {
+        args.push(`${cmdArgs.playbackRate}${payload.playbackRate}`)
+      } else {
+        dispatch('showExternalPlayerUnsupportedActionToast', {
+          ignoreWarnings,
+          externalPlayer,
+          template: payload.strings.UnsupportedActionTemplate,
+          action: payload.strings['Unsupported Actions']['setting a playback rate']
+        })
+      }
+    }
+
+    // Check whether the video is in a playlist
+    if (typeof cmdArgs.playlistUrl === 'string' && payload.playlistId !== null && payload.playlistId !== '') {
+      if (payload.playlistIndex !== null) {
+        if (typeof cmdArgs.playlistIndex === 'string') {
+          args.push(`${cmdArgs.playlistIndex}${payload.playlistIndex}`)
+        } else {
+          dispatch('showExternalPlayerUnsupportedActionToast', {
+            ignoreWarnings,
+            externalPlayer,
+            template: payload.strings.UnsupportedActionTemplate,
+            action: payload.strings['Unsupported Actions']['opening specific video in a playlist (falling back to opening the video)']
+          })
+        }
+      }
+
+      if (payload.playlistReverse) {
+        if (typeof cmdArgs.playlistReverse === 'string') {
+          args.push(cmdArgs.playlistReverse)
+        } else {
+          dispatch('showExternalPlayerUnsupportedActionToast', {
+            ignoreWarnings,
+            externalPlayer,
+            template: payload.strings.UnsupportedActionTemplate,
+            action: payload.strings['Unsupported Actions']['reversing playlists']
+          })
+        }
+      }
+
+      if (payload.playlistShuffle) {
+        if (typeof cmdArgs.playlistShuffle === 'string') {
+          args.push(cmdArgs.playlistShuffle)
+        } else {
+          dispatch('showExternalPlayerUnsupportedActionToast', {
+            ignoreWarnings,
+            externalPlayer,
+            template: payload.strings.UnsupportedActionTemplate,
+            action: payload.strings['Unsupported Actions']['shuffling playlists']
+          })
+        }
+      }
+
+      if (payload.playlistLoop) {
+        if (typeof cmdArgs.playlistLoop === 'string') {
+          args.push(cmdArgs.playlistLoop)
+        } else {
+          dispatch('showExternalPlayerUnsupportedActionToast', {
+            ignoreWarnings,
+            externalPlayer,
+            template: payload.strings.UnsupportedActionTemplate,
+            action: payload.strings['Unsupported Actions']['looping playlists']
+          })
+        }
+      }
+      if (cmdArgs.supportsYtdlProtocol) {
+        args.push(`${cmdArgs.playlistUrl}ytdl://${payload.playlistId}`)
+      } else {
+        args.push(`${cmdArgs.playlistUrl}https://youtube.com/playlist?list=${payload.playlistId}`)
+      }
+    } else {
+      if (payload.playlistId !== null && payload.playlistId !== '') {
+        dispatch('showExternalPlayerUnsupportedActionToast', {
+          ignoreWarnings,
+          externalPlayer,
+          template: payload.strings.UnsupportedActionTemplate,
+          action: payload.strings['Unsupported Actions']['opening playlists']
+        })
+      }
+      if (payload.videoId !== null) {
+        if (cmdArgs.supportsYtdlProtocol) {
+          args.push(`${cmdArgs.videoUrl}ytdl://${payload.videoId}`)
+        } else {
+          args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
+        }
+      }
+    }
+
+    // Append custom user-defined arguments
+    if (customArgs !== null) {
+      const custom = customArgs.split(';')
+      args.push(...custom)
+    }
+
+    const openingToast = payload.strings.OpeningTemplate
+      .replace('$', payload.playlistId === null || payload.playlistId === ''
+        ? payload.strings.video
+        : payload.strings.playlist)
+      .replace('%', externalPlayer)
+    dispatch('showToast', {
+      message: openingToast
+    })
+
+    console.log(executable, args)
+
+    const { ipcRenderer } = require('electron')
+    ipcRenderer.send('openInExternalPlayer', {
+      executable,
+      args
+    })
   }
 }
 
@@ -453,8 +835,8 @@ const mutations = {
     state.popularCache = value
   },
 
-  setTrendingCache (state, value) {
-    state.trendingCache = value
+  setTrendingCache (state, value, page) {
+    state.trendingCache[page] = value
   },
 
   setSearchSortBy (state, value) {
@@ -483,6 +865,18 @@ const mutations = {
 
   setRecentBlogPosts (state, value) {
     state.recentBlogPosts = value
+  },
+
+  setExternalPlayerNames (state, value) {
+    state.externalPlayerNames = value
+  },
+
+  setExternalPlayerValues (state, value) {
+    state.externalPlayerValues = value
+  },
+
+  setExternalPlayerCmdArguments (state, value) {
+    state.externalPlayerCmdArguments = value
   }
 }
 

@@ -437,7 +437,7 @@ body.vjs-full-window {
   cursor: none;
 }
 
-.vjs-icon-fullwindow-enter, .video-js .vjs-fullwindow-control .vjs-icon-placeholder {
+.vjs-icon-fullwindow-enter, .vjs-icon-theatre-inactive, .video-js .vjs-fullwindow-control .vjs-icon-placeholder {
   color: white !important;
   margin-top: 10px !important;
   cursor:pointer;
@@ -448,8 +448,12 @@ body.vjs-full-window {
 .vjs-icon-fullwindow-enter:before, .video-js .vjs-fullwindow-control .vjs-icon-placeholder:before {
   content: url(assets/img/open_fullwindow.svg);
 }
+/* Hide button in full screen mode */
+.vjs--full-screen-enabled .vjs-button-fullwindow, .vjs--full-screen-enabled .vjs-button-theatre, .vjs-full-window .vjs-button-theatre {
+  display: none;
+}
 
-.vjs-icon-fullwindow-exit, .video-js.vjs-fullwindow .vjs-fullwindow-control .vjs-icon-placeholder {
+.vjs-icon-fullwindow-exit, .vjs-icon-theatre-active, .video-js.vjs-fullwindow .vjs-fullwindow-control .vjs-icon-placeholder {
   font-family: VideoJS;
   font-weight: normal;
   font-style: normal;
@@ -465,6 +469,10 @@ body.vjs-full-window {
   cursor: pointer;
 }
 
+.vjs-icon-theatre-inactive, .vjs-icon-theatre-active {
+  margin-top: 10px !important;
+}
+
 .vjs-icon-loop-active {
   background-color: var(--primary-color);
 }
@@ -472,6 +480,20 @@ body.vjs-full-window {
 .vjs-icon-loop:before, .video-js.vjs-fullwindow .vjs-fullwindow-control .vjs-icon-placeholder:before {
   content: url(assets/img/loop.svg);
   /* filter: invert(1) drop-shadow(1px 0px 0px var(--primary-color)); */
+}
+
+.vjs-icon-theatre-inactive:before {
+  content: url(assets/img/open_theatre.svg)
+}
+
+.vjs-icon-theatre-active:before {
+  content: url(assets/img/close_theatre.svg)
+}
+
+@media only screen and (max-width: 1350px) {
+  .videoPlayer .vjs-button-theatre {
+    display: none
+  }
 }
 
 .loop-black:before {
@@ -660,10 +682,12 @@ body.vjs-full-window {
   display: none;
   position: absolute;
   bottom: 30px;
-  left: -8px;
+  left: -33px;
   z-index: 5;
   background-color: #151b17;
-  width: 50px;
+  width: 100px;
+  max-height: 225px;
+  overflow-y: auto;
 }
 
 .vjs-quality-level-menu:hover {
@@ -1102,6 +1126,10 @@ body.vjs-full-window {
   width: 1px;
   height: 1px;
   margin-left: -1px;
+}
+
+.video-js .vjs-volume-tooltip {
+  display: none;
 }
 
 .video-js .vjs-volume-panel {

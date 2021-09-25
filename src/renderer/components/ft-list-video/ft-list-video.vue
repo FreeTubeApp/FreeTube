@@ -13,6 +13,7 @@
     >
       <router-link
         class="thumbnailLink"
+        tabindex="-1"
         :to="{
           path: `/watch/${id}`,
           query: playlistId ? {playlistId} : {}
@@ -30,6 +31,16 @@
       >
         {{ isLive ? $t("Video.Live") : duration }}
       </div>
+      <ft-icon-button
+        v-if="externalPlayer !== ''"
+        :title="$t('Video.External Player.OpenInTemplate').replace('$', externalPlayer)"
+        icon="external-link-alt"
+        class="externalPlayerIcon"
+        theme="base"
+        :padding="appearance === `watchPlaylistItem` ? 6 : 7"
+        :size="appearance === `watchPlaylistItem` ? 12 : 16"
+        @click="handleExternalPlayer"
+      />
       <ft-icon-button
         v-if="!isLive"
         :title="$t('Video.Save Video')"
@@ -80,7 +91,7 @@
         >
           <span>{{ channelName }}</span>
         </router-link>
-        <template v-if="!isLive && !isUpcoming && !hideViews">
+        <template v-if="!isLive && !isUpcoming && !isPremium && !hideViews">
           <span class="viewCount">• {{ parsedViewCount }}</span>
           <span v-if="viewCount === 1">{{ $t("Video.View").toLowerCase() }}</span>
           <span v-else>{{ $t("Video.Views").toLowerCase() }}</span>

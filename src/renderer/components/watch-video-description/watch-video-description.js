@@ -2,6 +2,7 @@ import Vue from 'vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtTimestampCatcher from '../ft-timestamp-catcher/ft-timestamp-catcher.vue'
 import autolinker from 'autolinker'
+import $ from 'jquery'
 
 export default Vue.extend({
   name: 'WatchVideoDescription',
@@ -34,6 +35,10 @@ export default Vue.extend({
     } else {
       this.shownDescription = autolinker.link(this.description)
     }
+
+    if (/^\s*$/.test(this.shownDescription)) {
+      $('.videoDescription')[0].style.display = 'none'
+    }
   },
   methods: {
     onTimestamp: function(timestamp) {
@@ -55,9 +60,8 @@ export default Vue.extend({
       descriptionText = descriptionText.replace(/&v.+?(?=")/g, '')
       descriptionText = descriptionText.replace(/&redirect-token.+?(?=")/g, '')
       descriptionText = descriptionText.replace(/&redir_token.+?(?=")/g, '')
-      descriptionText = descriptionText.replace(/href="http(s)?:\/\/youtube\.com/g, 'href="freetube://https://youtube.com')
-      descriptionText = descriptionText.replace(/href="\/watch/g, 'href="freetube://https://youtube.com')
-      descriptionText = descriptionText.replace(/href="\/results\?search_query=/g, 'href="freetube://')
+      descriptionText = descriptionText.replace(/href="\//g, 'href="https://www.youtube.com/')
+      // TODO: Implement hashtag support
       descriptionText = descriptionText.replace(/href="\/hashtag\//g, 'href="freetube://')
       descriptionText = descriptionText.replace(/yt\.www\.watch\.player\.seekTo/g, 'changeDuration')
 

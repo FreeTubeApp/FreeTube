@@ -19,6 +19,10 @@ export default Vue.extend({
       type: Boolean,
       default: true
     },
+    showClearTextButton: {
+      type: Boolean,
+      default: false
+    },
     showLabel: {
       type: Boolean,
       default: false
@@ -27,9 +31,17 @@ export default Vue.extend({
       type: Boolean,
       default: false
     },
+    selectOnFocus: {
+      type: Boolean,
+      default: false
+    },
     disabled: {
       type: Boolean,
       default: false
+    },
+    spellcheck: {
+      type: Boolean,
+      default: true
     },
     dataList: {
       type: Array,
@@ -48,7 +60,10 @@ export default Vue.extend({
         showOptions: false,
         selectedOption: -1,
         isPointerInList: false
-      }
+      },
+      // This button should be invisible on app start
+      // As the text input box should be empty
+      clearTextButtonVisible: false
     }
   },
   computed: {
@@ -62,11 +77,28 @@ export default Vue.extend({
 
     idDataList: function () {
       return `${this.id}_datalist`
+    },
+
+    inputDataPresent: function () {
+      return this.inputData.length > 0
     }
   },
   watch: {
     value: function (val) {
       this.inputData = val
+    },
+    inputDataPresent: function (newVal, oldVal) {
+      if (newVal) {
+        // The button needs to be visible **immediately**
+        // To allow user to see the transition
+        this.clearTextButtonVisible = true
+      } else {
+        // Hide the button after the transition
+        // 0.2s in CSS = 200ms in JS
+        setTimeout(() => {
+          this.clearTextButtonVisible = false
+        }, 200)
+      }
     }
   },
   mounted: function () {
@@ -87,6 +119,15 @@ export default Vue.extend({
         this.searchState.selectedOption !== -1 &&
         this.inputData === this.dataList[this.searchState.selectedOption]) { return }
       this.$emit('input', this.inputData)
+    },
+
+    handleClearTextClick: function () {
+      this.inputData = ''
+      this.$emit('input', this.inputData)
+
+      // Focus on input element after text is clear for better UX
+      const inputElement = document.getElementById(this.id)
+      inputElement.focus()
     },
 
     addListener: function () {
@@ -130,6 +171,13 @@ export default Vue.extend({
 
     handleInputBlur: function () {
       if (!this.searchState.isPointerInList) { this.searchState.showOptions = false }
+    },
+
+    handleFocus: function(e) {
+      this.searchState.showOptions = true
+      if (this.selectOnFocus) {
+        e.target.select()
+      }
     }
   }
 })

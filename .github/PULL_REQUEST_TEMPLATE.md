@@ -3,7 +3,7 @@ Title
 ---
 
 **Important note**
-Please note that only PrestoN is able to merge Pull Requests into master.
+We may remove your pull request if you do not use this provided PR template correctly.
 
 **Pull Request Type**
 Please select what type of pull request this is:
@@ -11,7 +11,7 @@ Please select what type of pull request this is:
 - [ ] Feature Implementation
 
 **Related issue**
-Please link the issue your pull request is referring to.
+Please link the issue your pull request is referring to. If this pull request fully resolves the relevant issue, put "closes" before the issue number. Example: "closes #123456".
 
 **Description**
 Please write a clear and concise description of what the pull request does.

@@ -16,6 +16,22 @@ export default Vue.extend({
       type: String,
       default: null
     },
+    playlistIndex: {
+      type: Number,
+      default: null
+    },
+    playlistReverse: {
+      type: Boolean,
+      default: false
+    },
+    playlistShuffle: {
+      type: Boolean,
+      default: false
+    },
+    playlistLoop: {
+      type: Boolean,
+      default: false
+    },
     forceListType: {
       type: String,
       default: null
@@ -42,6 +58,7 @@ export default Vue.extend({
       isLive: false,
       isFavorited: false,
       isUpcoming: false,
+      isPremium: false,
       hideViews: false,
       optionsValues: [
         'history',
@@ -59,10 +76,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    usingElectron: function () {
-      return this.$store.getters.getUsingElectron
-    },
-
     historyCache: function () {
       return this.$store.getters.getHistoryCache
     },
@@ -79,8 +92,8 @@ export default Vue.extend({
       return this.$store.getters.getBackendPreference
     },
 
-    invidiousInstance: function () {
-      return this.$store.getters.getInvidiousInstance
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
     },
 
     inHistory: function () {
@@ -90,11 +103,11 @@ export default Vue.extend({
     },
 
     invidiousUrl: function () {
-      return `${this.invidiousInstance}/watch?v=${this.id}`
+      return `${this.currentInvidiousInstance}/watch?v=${this.id}`
     },
 
     invidiousChannelUrl: function () {
-      return `${this.invidiousInstance}/channel/${this.channelId}`
+      return `${this.currentInvidiousInstance}/channel/${this.channelId}`
     },
 
     youtubeUrl: function () {
@@ -143,7 +156,7 @@ export default Vue.extend({
     thumbnail: function () {
       let baseUrl
       if (this.backendPreference === 'invidious') {
-        baseUrl = this.invidiousInstance
+        baseUrl = this.currentInvidiousInstance
       } else {
         baseUrl = 'https://i.ytimg.com'
       }
@@ -181,6 +194,18 @@ export default Vue.extend({
 
     favoriteIconTheme: function () {
       return this.inFavoritesPlaylist ? 'base favorite' : 'base'
+    },
+
+    externalPlayer: function () {
+      return this.$store.getters.getExternalPlayer
+    },
+
+    defaultPlayback: function () {
+      return this.$store.getters.getDefaultPlayback
+    },
+
+    saveWatchedProgress: function () {
+      return this.$store.getters.getSaveWatchedProgress
     }
   },
   mounted: function () {
@@ -188,6 +213,26 @@ export default Vue.extend({
     this.checkIfWatched()
   },
   methods: {
+    handleExternalPlayer: function () {
+      this.$emit('pause-player')
+
+      this.openInExternalPlayer({
+        strings: this.$t('Video.External Player'),
+        watchProgress: this.watchProgress,
+        playbackRate: this.defaultPlayback,
+        videoId: this.id,
+        playlistId: this.playlistId,
+        playlistIndex: this.playlistIndex,
+        playlistReverse: this.playlistReverse,
+        playlistShuffle: this.playlistShuffle,
+        playlistLoop: this.playlistLoop
+      })
+
+      if (this.saveWatchedProgress && !this.watched) {
+        this.markAsWatched()
+      }
+    },
+
     toggleSave: function () {
       if (this.inFavoritesPlaylist) {
         this.removeFromPlaylist()
@@ -215,10 +260,7 @@ export default Vue.extend({
           })
           break
         case 'openYoutube':
-          if (this.usingElectron) {
-            const shell = require('electron').shell
-            shell.openExternal(this.youtubeUrl)
-          }
+          this.openExternalLink(this.youtubeUrl)
           break
         case 'copyYoutubeEmbed':
           navigator.clipboard.writeText(this.youtubeEmbedUrl)
@@ -227,10 +269,7 @@ export default Vue.extend({
           })
           break
         case 'openYoutubeEmbed':
-          if (this.usingElectron) {
-            const shell = require('electron').shell
-            shell.openExternal(this.youtubeEmbedUrl)
-          }
+          this.openExternalLink(this.youtubeEmbedUrl)
           break
         case 'copyInvidious':
           navigator.clipboard.writeText(this.invidiousUrl)
@@ -239,11 +278,7 @@ export default Vue.extend({
           })
           break
         case 'openInvidious':
-          if (this.usingElectron) {
-            console.log('using electron')
-            const shell = require('electron').shell
-            shell.openExternal(this.invidiousUrl)
-          }
+          this.openExternalLink(this.invidiousUrl)
           break
         case 'copyYoutubeChannel':
           navigator.clipboard.writeText(this.youtubeChannelUrl)
@@ -252,10 +287,7 @@ export default Vue.extend({
           })
           break
         case 'openYoutubeChannel':
-          if (this.usingElectron) {
-            const shell = require('electron').shell
-            shell.openExternal(this.youtubeChannelUrl)
-          }
+          this.openExternalLink(this.youtubeChannelUrl)
           break
         case 'copyInvidiousChannel':
           navigator.clipboard.writeText(this.invidiousChannelUrl)
@@ -264,10 +296,7 @@ export default Vue.extend({
           })
           break
         case 'openInvidiousChannel':
-          if (this.usingElectron) {
-            const shell = require('electron').shell
-            shell.openExternal(this.invidiousChannelUrl)
-          }
+          this.openExternalLink(this.invidiousChannelUrl)
           break
       }
     },
@@ -321,6 +350,7 @@ export default Vue.extend({
       this.description = this.data.description
       this.isLive = this.data.liveNow || this.data.lengthSeconds === 'undefined'
       this.isUpcoming = this.data.isUpcoming || this.data.premiere
+      this.isPremium = this.data.premium || false
       this.viewCount = this.data.viewCount
 
       if (typeof (this.data.premiereTimestamp) !== 'undefined') {
@@ -383,7 +413,7 @@ export default Vue.extend({
         title: this.title,
         author: this.channelName,
         authorId: this.channelId,
-        published: '',
+        published: this.publishedText ? this.publishedText.split(',')[0] : this.publishedText,
         description: this.description,
         viewCount: this.viewCount,
         lengthSeconds: this.data.lengthSeconds,
@@ -393,9 +423,7 @@ export default Vue.extend({
         paid: false,
         type: 'video'
       }
-
       this.updateHistory(videoData)
-
       this.showToast({
         message: this.$t('Video.Video has been marked as watched')
       })
@@ -457,10 +485,12 @@ export default Vue.extend({
     ...mapActions([
       'showToast',
       'toLocalePublicationString',
+      'openInExternalPlayer',
       'updateHistory',
       'removeFromHistory',
       'addVideo',
-      'removeVideo'
+      'removeVideo',
+      'openExternalLink'
     ])
   }
 })

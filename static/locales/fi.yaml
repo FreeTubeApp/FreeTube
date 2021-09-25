@@ -31,17 +31,17 @@ Forward: 'Eteenpäin'
 Search / Go to URL: 'Etsi / Mene osoitteeseen'
   # In Filter Button
 Search Filters:
-  Search Filters: 'Etsi suodattimia'
+  Search Filters: 'Hakusuodattimet'
   Sort By:
     Sort By: 'Lajitteluperuste'
     Most Relevant: 'Osuvin'
-    Rating: 'Arvosana'
+    Rating: 'Arvio'
     Upload Date: 'Latauspäivämäärä'
-    View Count: 'Katselumäärä'
+    View Count: 'Näyttökerrat'
   Time:
     Time: 'Aika'
     Any Time: 'Milloin tahansa'
-    Last Hour: 'Edellinen tunti'
+    Last Hour: 'Viime tunti'
     Today: 'Tänään'
     This Week: 'Tällä viikolla'
     This Month: 'Tässä kuussa'
@@ -75,14 +75,20 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Tällä
     profiililla on paljon tilauksia.  Pakotetaan RSS nopeuden rajoittamisen välttämiseksi
   Load More Videos: Lataa lisää videoita
-Trending: 'Nousussa'
+Trending:
+  Trending: 'Nousussa'
+  Trending Tabs: Nousussa olevat välilehdet
+  Movies: Elokuvat
+  Gaming: Pelaaminen
+  Music: Musiikki
+  Default: Oletus
 Most Popular: 'Suosituimmat'
 Playlists: 'Soittolistat'
 User Playlists:
   Your Playlists: 'Omat soittolistat'
   Playlist Message: Tämä sivu ei kuvasta täysin toimivia soittolistoja. Se listaa
     vain tallentamasi tai tykkäämäsi videot. Kun tämä on valmis, kaikki täällä olevat
-    videot siirretään "Tykkäykset"soittolistaan.
+    videot siirretään soittolistaan ”Tykkäykset”.
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Et
     ole tallentanut videoita. Paina "Tallenna" painiketta videon kulmassa tallentaaksesi
     sen tänne
@@ -121,6 +127,20 @@ Settings:
         #! List countries
     Check for Latest Blog Posts: Tarkista tuoreimmat blogimerkinnät
     Check for Updates: Tarkista päivitykset
+    View all Invidious instance information: Invidious instancen tiedot
+    System Default: Järjestelmän oletus
+    Clear Default Instance: Tyhjennä oletuspalveluntarjoaja
+    Set Current Instance as Default: Aseta nykyinen palveluntarjoaja oletukseksi
+    Current instance will be randomized on startup: Nykyinen palveluntarjoaja valitaan
+      satunnaisesti käynnistyksen yhteydessä
+    No default instance has been set: Oletuspalveluntarjoajaa ei ole määritelty
+    The currently set default instance is $: Nykyinen oletuspalveluntarjoaja on $
+    Current Invidious Instance: Nykyinen Invidious-palveluntarjoaja
+    External Link Handling:
+      No Action: Ei toimintoa
+      Ask Before Opening Link: Kysy ennen linkin avaamista
+      Open Link: Avaa linkki
+      External Link Handling: Ulkoisten linkkien käsittely
   Theme Settings:
     Theme Settings: 'Teema-asetukset'
     Match Top Bar with Main Color: 'Käytä pääväriä yläpalkissa'
@@ -129,6 +149,7 @@ Settings:
       Black: 'Musta'
       Dark: 'Tumma'
       Light: 'Vaalea'
+      Dracula: 'Dracula'
     Main Color Theme:
       Main Color Theme: 'Pääväriteema'
       Red: 'Punainen'
@@ -147,6 +168,13 @@ Settings:
       Amber: 'Meripihka'
       Orange: 'Oranssi'
       Deep Orange: 'Syvä oranssi'
+      Dracula Cyan: 'Dracula Syaani'
+      Dracula Green: 'Dracula Vihreä'
+      Dracula Orange: 'Dracula Oranssi'
+      Dracula Pink: 'Dracula Vaaleanpunainen'
+      Dracula Purple: 'Dracula Purppura'
+      Dracula Red: 'Dracula Punainen'
+      Dracula Yellow: 'Dracula Keltainen'
     Secondary Color Theme: 'Toissijainen väriteema'
         #* Main Color Theme
     UI Scale: Käyttöliittymän koko
@@ -182,6 +210,11 @@ Settings:
       1440p: '1440p'
       4k: '4K'
       8k: '8K'
+    Next Video Interval: Seuraavan videon väli
+    Display Play Button In Video Player: Näytä toista-nappula videotoistimessa
+    Scroll Volume Over Video Player: Säädä äänenvoimakkuutta vierittämällä videon
+      päällä
+    Fast-Forward / Rewind Interval: Pikakelauksen intervalli
   Subscription Settings:
     Subscription Settings: 'Tilausasetukset'
     Hide Videos on Watch: 'Piilota katsotut videot'
@@ -236,6 +269,7 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Haluatko
       cvarmasti poistaa kaikki tilaukset ja profiilit. Tätä toimintoa ei voi perua.
     Remove All Subscriptions / Profiles: Poista kaikki tilaukset / profiilit
+    Automatically Remove Video Meta Files: Poista videoiden metadata automaattisesti
   Data Settings:
     How do I import my subscriptions?: Kuinka voin tuoda tilaukseni?
     Unknown data key: Tuntematon data-avain
@@ -260,18 +294,19 @@ Settings:
       puutteelliset, ohitetaan kohde
     Export History: Vie historia
     Import History: Tuo historia
-    Export NewPipe: Vie NewPipe
-    Export YouTube: Vie YouTube
-    Export FreeTube: Vie FreeTube
+    Export NewPipe: Vie NewPipe-tilaukset
+    Export YouTube: Vie YouTube-tilaukset
+    Export FreeTube: Vie FreeTube-tilaukset
     Export Subscriptions: Vie tilaukset
-    Import NewPipe: Tuo NewPipe
-    Import YouTube: Tuo YouTube
-    Import FreeTube: Vie tilaukset
+    Import NewPipe: Tuo NewPipe-tilaukset
+    Import YouTube: Tuo YouTube-tilaukset
+    Import FreeTube: Tuo FreeTube-tilaukset
     Import Subscriptions: Tuo tilaukset
     Select Export Type: Valitse Viennin tyyppi
     Select Import Type: Valitse Tuonnin tyyppi
     Data Settings: Data-asetukset
     Check for Legacy Subscriptions: Tarkista vanhat tilaukset
+    Manage Subscriptions: Hallitse tilauksia
   Distraction Free Settings:
     Hide Live Chat: Piilota Live-keskustelu
     Hide Popular Videos: Piilota suositut videot
@@ -282,9 +317,40 @@ Settings:
     Hide Video Likes And Dislikes: Piilota videon tykkäykset
     Distraction Free Settings: Häiriöttömän tilan asetukset
     Hide Video Views: Piilota videon katselukerrat
+    Hide Active Subscriptions: Piilota aktiiviset tilaukset
+    Hide Playlists: Piilota soittolistat
   The app needs to restart for changes to take effect. Restart and apply change?: Sovellus
     on käynnistettävä uudelleen, jotta muutokset tulevat voimaan. Käynnistetäänkö
     uudelleen?
+  Proxy Settings:
+    Error getting network information. Is your proxy configured properly?: Virhe verkkoyhteyden
+      tietojen saamisessa. Onko välityspalvelin määritetty oikein?
+    Ip: Ip-osoite
+    Your Info: Tietosi
+    Country: Valtio
+    Test Proxy: Testaa välityspalvelin
+    Region: Alue
+    City: Kaupunki
+    Proxy Port Number: Välityspalvelimen portin numero
+    Proxy Host: Välityspalvelin
+    Proxy Settings: Välityspalvelimen asetukset
+    Enable Tor / Proxy: Ota käyttöön Tor/välityspalvelin
+    Proxy Protocol: Välityspalvelimen protokolla
+    Clicking on Test Proxy will send a request to: Napsauttamalla testaa välityspalvelinta
+      lähettää pyynnön kohteeseen
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Ilmoita sponsoriosuuden yli hypättäessä
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock-sponsorieston
+      API-ohjelmointirajapinnan Url-osoite (vakio-osoite on https://sponsor.ajay.app)
+    Enable SponsorBlock: Kytke SponsorBlock-sponsoriesto päälle
+    SponsorBlock Settings: SponsorBlock-sponsorieston asetukset
+  External Player Settings:
+    Custom External Player Arguments: Omavalintaisen ulkoisen toisto-ohjelman määritykset
+    Custom External Player Executable: Omavalintaisen ulkoisen toisto-ohjelman ajettava
+      tiedosto
+    Ignore Unsupported Action Warnings: Sivuuta ei-tuettujen toimintojen varoitukset
+    External Player: Ulkoinen toisto-ohjelma
+    External Player Settings: Ulkoisen videontoisto-ohjelman asetukset
 About:
   #On About page
   About: 'Tietoja'
@@ -319,6 +385,25 @@ About:
   FAQ: UKK
   Blog: Blogi
   Email: Sähköposti
+  Licensed under the AGPLv3: Lisensoitu AGPLv3:n alle
+  Chat on Matrix: Matrix
+  these people and projects: nämä henkilöt ja projektit
+  room rules: huoneen säännöt
+  Please read the: Lue
+  View License: Katso lisenssi
+  Please check for duplicates before posting: Tarkista kopioiden varalta ennen julkaisua
+  Website: Verkkosivu
+  Mastodon: Mastodon
+  Translate: Käännös
+  Credits: Kiitokset
+  Help: Apua
+  FreeTube is made possible by: FreeTuben mahdollistavat
+  GitHub releases: GitHub julkaisut
+  Downloads / Changelog: Lataukset/muutosloki
+  Beta: Beta
+  FreeTube Wiki: FreeTube Wiki
+  Donate: Lahjoita
+  Source code: Lähdekoodi
 Channel:
   Subscriber: 'Tilaaja'
   Subscribers: 'Tilaajat'
@@ -402,7 +487,7 @@ Video:
     Years: 'Vuotta'
     Ago: 'sitten'
     Upcoming: 'Ensiesitys'
-    Minutes: Minuutit
+    Minutes: Minuuttia
     Minute: Minuutti
   Published on: 'Julkaistu'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
@@ -434,6 +519,34 @@ Video:
   Open Channel in YouTube: Avaa kanava YouTubessa
   Started streaming on: Lähetys alkanut
   Streamed on: Lähetetty
+  External Player:
+    Unsupported Actions:
+      looping playlists: toistetaan soittoluettelot uudelleen jatkuvasti
+      shuffling playlists: sekoitetaan soittoluettelot
+      reversing playlists: käänteistetään soittoluettelot
+      opening specific video in a playlist (falling back to opening the video): avataan
+        tietty video soittoluettelossa (avataan video taaksepäin mallintaen)
+      opening playlists: avataan soittoluettelot
+      setting a playback rate: asetetaan toiston suhde
+      starting video at offset: aloitetaan video poikkeamassa
+    UnsupportedActionTemplate: '$ ei tue: %'
+    OpeningTemplate: Avataan $ täten %...
+    playlist: soittoluettelo
+    video: video
+    OpenInTemplate: Avaa täten $
+  Sponsor Block category:
+    music offtopic: musiikki aihepiirin ulkopuolelta
+    interaction: kanssakäyminen
+    self-promotion: itsepromootio
+    outro: loppu
+    intro: alku
+    sponsor: sponsori
+  Skipped segment: Ylihypätty osio
+  translated from English: käännetty englanninkielestä
+  Video has been removed from your saved list: Video poistettiin tallennettujen videoiden
+    luettelostasi
+  Video has been saved: Video on tallennettu
+  Save Video: Tallenna video
 Videos:
   #& Sort By
   Sort By:
@@ -458,15 +571,16 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Soittolista
 Toggle Theatre Mode: 'Teatteritila'
 Change Format:
   Change Video Formats: 'Vaihda videoformaattia'
-  Use Dash Formats: 'Käytä Dash-formaatteja'
+  Use Dash Formats: 'Käytä DASH-formaatteja'
   Use Legacy Formats: 'Käytä Legacy-formaatteja'
   Use Audio Formats: 'Käytä ääniformaatteja'
   Audio formats are not available for this video: Audioformaatit eivät ole saatavilla
     tähän videoon
-  Dash formats are not available for this video: Dash-formaatit eivät ole saatavilla
+  Dash formats are not available for this video: DASH-formaatit eivät ole saatavilla
     tähän videoon
 Share:
   Share Video: 'Jaa video'
@@ -501,6 +615,7 @@ Comments:
   Newest first: Uusimmat ensin
   Top comments: Suosituimmat kommentit
   Sort by: Lajitteluperuste
+  Show More Replies: Näytä enemmän vastauksia
 Up Next: 'Seuraavaksi'
 
 # Toast Messages
@@ -533,7 +648,7 @@ Profile:
   Your default profile has been set to $: Oletusprofiiliksesi on määritetty $
   Profile has been updated: Profiili on päivitetty
   Profile has been created: Profiili on luotu
-  Your profile name cannot be empty: Profiilisi nimi ei voi olla tyhjä
+  Your profile name cannot be empty: Profiililla täytyy olla nimi
   Profile could not be found: Profiilia ei löydetty
   All subscriptions will also be deleted.: Kaikki tilaukset tullaan myös poistamaan.
   Are you sure you want to delete this profile?: Haluatko varmasti poistaa tämän profiilin?
@@ -554,7 +669,7 @@ Profile:
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
   : Tämä on ensisijainen profiilisi. Haluatko poistaa valitut kanavat? Kanavat poistetaan
-    kaikista profiileista joissa ne ovat.
+    myös muista profiileista.
   No channel(s) have been selected: Kanavia ei ole valittu
   Add Selected To Profile: Lisää valitut profiiliin
   Delete Selected: Poista valitut
@@ -563,38 +678,74 @@ Profile:
   $ selected: $ valittu
   Other Channels: Muut kanavat
   Subscription List: Tilauslista
+  Profile Filter: Profiilisuodatin
+  Profile Settings: Profiiliasetukset
 Version $ is now available!  Click for more details: Versio $ on nyt saatavilla! Napsauta
-  lisätietoja
+  saadaksesi lisätietoja
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Tämä
   video ei ole saatavilla puuttuvien formaattien takia. Tämä voi tapahtua koska video
   ei ole saatavilla maassasi.
-A new blog is now available, $. Click to view more: Uusi blogi on saatavilla , $.
-  Klikkaa nähdäksesi lisää
+A new blog is now available, $. Click to view more: Uusi blogi on saatavilla, $. Klikkaa
+  nähdäksesi lisää
 Download From Site: Lataa sivustolta
 Tooltips:
   General Settings:
     Preferred API Backend: Valitse taustaohjelma, jota Freetube käyttää datan noutamiseen.
       Paikallinen API on ohjelmiston sisäinen. Invidious API vaatii yhteyden Invidious-palvelimeen.
-    Region for Trending: Valinta sallii sinun valita minkä maan Nousevat videot sinulle
-      näytetään. Kaikki listatut maat eivät ole YouTuben tukemia
+    Region for Trending: Valitsee minkä maan Nousevat videot sinulle näytetään. Kaikki
+      listatut maat eivät ole YouTuben tukemia.
     Invidious Instance: Invidious instanssi jota Freetube käyttää. Tyhjennä kenttä
-      nähdäksesi listan julkisista instansseista
+      nähdäksesi listan julkisista instansseista.
     Thumbnail Preference: Kaikki pikkukuvat Freetubessa korvataan ruudulla videosta
-      alkuperäisen pikkukuvan sijaan
+      alkuperäisen pikkukuvan sijaan.
     Fallback to Non-Preferred Backend on Failure: Kun valitsemasi API kohtaa ongelman,
-      Freetube yrittää automaattisestia käyttää toissijaista vaihtoehtoa
+      Freetube yrittää automaattisestia käyttää toissijaista vaihtoehtoa.
+    External Link Handling: "Valitse oletuskäyttäytyminen, kun linkkiä, jota ei voi\
+      \ avata FreeTubessa, napsautetaan.\nOletusarvoisesti FreeTube avaa napsautetun\
+      \ linkin oletusselaimessasi.\n"
   Subscription Settings:
     Fetch Feeds from RSS: Kun valittuna, FreeTube käyttää RSS-syötettä oletusmetodin
       sijaan tilauslistasi hakemisessa. RSS on nopeampi ja ehkäisee IP-estoa, mutta
-      ei anna tietoja kuten videon kesto tai livetila
+      ei anna tietoja, kuten videon kesto tai livetila
   Player Settings:
-    Default Video Format: Aseta videon toistamisessa käytätettävä formaatti. Dash-formaatit
-      toistavat korkealaatuisempia videoita. Legacy-formaatit ovvat rajoitettu 720p-resoluutioon,
-      mutta kkäyttävät väheämmän kaistaa. Audioformaatit ovat vain äänistriimeihin
+    Default Video Format: Aseta videon toistamisessa käytätettävä formaatti. DASH-formaatit
+      toistavat korkealaatuisempia videoita. Legacy-formaatit ovat rajoitettu 720p-resoluutioon,
+      mutta käyttävät vähemmän dataa. Audioformaatit ovat vain äänistriimeihin.
     Proxy Videos Through Invidious: Yhdistää Invidious-palvelimeen suoran YouTuben-yhteyden
-      sijaan. Ohittaa API-valinnan
+      sijaan. Ohittaa API-valinnan.
     Force Local Backend for Legacy Formats: Toimii vain kun Invidious API on oletuksena.
       Kun valittuna, paikallinen API käyttää vanhoja formaatteja Invidiousin käyttämien
       sijaan. Tämä auttaa, jos Invidiousin palauttamat videot eivät toimi maarajoituksien
-      takia
+      takia.
+  Privacy Settings:
+    Remove Video Meta Files: Kun tämä on kytkettynä päälle, FreeTube poistaa automaattisesti
+      meta-tiedostot jotka luotiin videon toiston aikana, katselusivu suljettaessa.
+  External Player Settings:
+    Custom External Player Arguments: Kaikki ne omavalintaiset komentorivin määreet,
+      puolipisteillä eroteltuina (';'), jotka haluat siirtää eteenpäin ulkoiselle
+      toisto-ohjelmalle.
+    Ignore Warnings: Estä varoitukset, kun käytetty ulkoinen toisto-ohjelma ei tue
+      määrättyä toimintamallia (kuten käänteiset soittoluettelot, jne.).
+    Custom External Player Executable: Vakiollisesti FreeTube olettaa, että valittu
+      ulkoinen toisto-ohjelma voidaan löytää PATH-polkuympäristömuuttujan kautta.
+      Mikäli tarvetta ilmenee, voidaan asettaa omavalintainen polku tähän.
+    External Player: Ulkoisen toisto-ohjelman valinta tuottaa kuvakkeen videon avaamiseksi
+      (soittoluettelon mikäli sellainen on tuettu) ulkoisessa toisto-ohjelmassa, pikkukuvana.
 More: Lisää
+Playing Next Video Interval: Seuraava video alkaa. Klikkaa peruuttaaksesi. |Seuraava
+  video alkaa {nextVideoInterval} sekunnin kuluttua. Klikkaa peruuttaaksesi. | Seuraava
+  video alkaa {nextVideoInterval} sekunnin kuluttua. Klikkaa peruuttaaksesi.
+Hashtags have not yet been implemented, try again later: Hashtageja ei vielä ole lisätty,
+  yritä uudelleen myöhemmin
+Open New Window: Avaa uusi ikkuna
+Unknown YouTube url type, cannot be opened in app: Tuntematon YouTube-videon osoitemuoto,
+  ei voida avata sovelluksessa
+Default Invidious instance has been cleared: Oletusarvoinen Invidious-palveluntarjoaja
+  on tyhjennetty
+Default Invidious instance has been set to $: Oletusarvoinen Invidious-palveluntarjoaja
+  on jatkossa $
+Search Bar:
+  Clear Input: Tyhjennä syöte
+External link opening has been disabled in the general settings: Ulkoisen linkin avaaminen
+  on poistettu käytöstä yleisissä asetuksissa
+Are you sure you want to open this link?: Haluatko varmasti avata tämän linkin?

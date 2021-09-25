@@ -22,6 +22,12 @@ const config = {
   entry: {
     renderer: path.join(__dirname, '../src/renderer/main.js'),
   },
+  infrastructureLogging: {
+    // Only warnings and errors
+    // level: 'none' disable logging
+    // Please read https://webpack.js.org/configuration/other-options/#infrastructurelogginglevel
+    level: isDevMode ? 'info' : 'none'
+  },
   output: {
     libraryTarget: 'commonjs2',
     path: path.join(__dirname, '../dist'),
@@ -143,7 +149,6 @@ const config = {
 if (isDevMode) {
   // any dev only config
   config.plugins.push(
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       __static: `"${path.join(__dirname, '../static').replace(/\\/g, '\\\\')}"`,
     })

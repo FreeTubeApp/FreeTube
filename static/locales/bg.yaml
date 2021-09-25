@@ -9,7 +9,7 @@ FreeTube: 'FreeTube'
 # Webkit Menu Bar
 File: 'Файл'
 Quit: 'Изход'
-Edit: 'Редактиране'
+Edit: 'Редакция'
 Undo: 'Отмяна'
 Redo: 'Възстановяване'
 Cut: 'Изрязване'
@@ -84,7 +84,13 @@ Subscriptions:
     профил има голям брой абонаменти. Принудително използване на RSS за заобикаляне
     на ограниченията
   Load More Videos: Зареждане на още видеа
-Trending: 'Набиращи популярност'
+Trending:
+  Trending: 'Набиращи популярност'
+  Trending Tabs: Раздели за набиращи популярност
+  Movies: Филми
+  Gaming: Игри
+  Music: Музика
+  Default: По подразбиране
 Most Popular: 'Най-популярни'
 Playlists: 'Плейлисти'
 User Playlists:
@@ -132,6 +138,20 @@ Settings:
         #! List countries
     View all Invidious instance information: Преглед на пълна информация за Invidious
       обекта
+    System Default: Стандартен за системата
+    Clear Default Instance: Изчистване на сървъра по подразбиране
+    Set Current Instance as Default: Задаване на текущият сървър като по подразбиране
+    Current instance will be randomized on startup: Текущият сървър при стартиране
+      ще бъде случаен
+    No default instance has been set: Няма зададен сървър по подразбиране
+    The currently set default instance is $: Текущо зададеният сървър по подразбиране
+      е $
+    Current Invidious Instance: Текущ Invidious сървър
+    External Link Handling:
+      No Action: Без действие
+      Ask Before Opening Link: Питане, преди отворяне на връзка
+      Open Link: Отваряне на връзка
+      External Link Handling: Работа с външни връзки
   Theme Settings:
     Theme Settings: 'Настройки на изгледа на приложението'
     Match Top Bar with Main Color: 'Съвпадане на горната лента с основната цветова
@@ -141,6 +161,7 @@ Settings:
       Black: 'Черна'
       Dark: 'Тъмна'
       Light: 'Светла'
+      Dracula: Дракула
     Main Color Theme:
       Main Color Theme: 'Основна цветова тема'
       Red: 'Червено'
@@ -159,6 +180,13 @@ Settings:
       Amber: 'Кехлибарено'
       Orange: 'Оранжево'
       Deep Orange: 'Наситено оранжево'
+      Dracula Cyan: 'Дракула Синьозелено'
+      Dracula Green: 'Дракула Зелено'
+      Dracula Orange: 'Дракула Оранжево'
+      Dracula Pink: 'Дракула Розово'
+      Dracula Purple: 'Дракула Пурпурно'
+      Dracula Red: 'Дракула Червено'
+      Dracula Yellow: 'Дракула Жълто'
     Secondary Color Theme: 'Вторична цветова тема'
         #* Main Color Theme
     UI Scale: Мащаб на интерфейса
@@ -178,7 +206,7 @@ Settings:
     Default Playback Rate: 'Скорост на възпроизвеждане'
     Default Video Format:
       Default Video Format: 'Видео формат'
-      Dash Formats: 'Dash формати'
+      Dash Formats: 'DASH формати'
       Legacy Formats: 'Стари формати'
       Audio Formats: 'Аудио формати'
     Default Quality:
@@ -194,6 +222,11 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Интервал за следващо видео в плейлист
+    Next Video Interval: Интервал за следващо видео
+    Display Play Button In Video Player: Показване на бутона за възпроизвеждане във
+      видео плейъра
+    Scroll Volume Over Video Player: Промяна на звука при превъртане над видео плейъра
+    Fast-Forward / Rewind Interval: Интервал за бързо превъртане напред / назад
   Privacy Settings:
     Privacy Settings: 'Настройки за поверителност'
     Remember History: 'Запазване на историята'
@@ -313,6 +346,20 @@ Settings:
     Proxy Protocol: Прокси протокол
     Enable Tor / Proxy: Активиране на Tor / Proxy
     Proxy Settings: Настройки на прокси
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Известие при пропускане на спонсориран
+      сегмент
+    Enable SponsorBlock: Активиране на SponsorBlock
+    SponsorBlock Settings: SponsorBlock настройки
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
+      адрес (по подразбиране е https://sponsor.ajay.app)
+  External Player Settings:
+    Custom External Player Arguments: Персонализирани аргументи за външен плейър
+    Custom External Player Executable: Персонализирано изпълнение на външен плейър
+    Ignore Unsupported Action Warnings: Игнориране на предупрежденията за неподдържани
+      действия
+    External Player: Външен плейър
+    External Player Settings: Настройки за външен плейър
 About:
   #On About page
   About: 'Относно'
@@ -344,7 +391,7 @@ About:
 
   Latest FreeTube News: 'Последни FreeTube новини'
 
-  Donate: Дарете
+  Donate: Дарение
   these people and projects: тези хора и проекти
   FreeTube is made possible by: FreeTube благодарение на
   Translate: Превод
@@ -357,7 +404,7 @@ About:
   Website: Уебсайт
   Please check for duplicates before posting: Моля, проверете за дубликати преди публикуване
   GitHub issues: GitHub проблеми
-  Report a problem: Съобщете за проблем
+  Report a problem: Съобщаване за проблем
   FAQ: ЧЗВ
   FreeTube Wiki: FreeTube Wiki
   Help: Помощ
@@ -411,6 +458,7 @@ Profile:
     от другите профили.'
 #On Channel Page
   Profile Filter: Профилен филтър
+  Profile Settings: Настройки на профил
 Channel:
   Subscriber: 'Абонат'
   Subscribers: 'Абонати'
@@ -425,7 +473,7 @@ Channel:
   Your search results have returned 0 results: 'Търсенето върна 0 резултата'
   Sort By: 'Сортиране по'
   Videos:
-    Videos: 'Видеа'
+    Videos: 'видеа'
     This channel does not currently have any videos: 'В този канал по настоящем няма
       видеа'
     Sort Types:
@@ -456,7 +504,7 @@ Video:
   Open in Invidious: 'Отваряне в Invidious'
   Copy Invidious Link: 'Копиране на връзка за Invidious'
   View: 'показване'
-  Views: 'Показвания'
+  Views: 'показвания'
   Loop Playlist: 'Повтаряне на плейлиста'
   Shuffle Playlist: 'Разбъркване на плейлиста'
   Reverse Playlist: 'Обръщане на плейлиста'
@@ -533,6 +581,30 @@ Video:
     списък
   Video has been saved: Видеото е запазено
   Save Video: Запазване на видео
+  translated from English: преведено от английски
+  Sponsor Block category:
+    interaction: взаимодействие
+    self-promotion: самореклама
+    outro: епилог
+    intro: въведение
+    sponsor: спонсор
+    music offtopic: музика извън темата
+  Skipped segment: Пропуснат сегмент
+  External Player:
+    Unsupported Actions:
+      looping playlists: повтаряне на плейлисти
+      shuffling playlists: разбъркване на плейлисти
+      reversing playlists: обръщане на плейлист
+      opening specific video in a playlist (falling back to opening the video): отваряне
+        на определено видео в плейлист (връщане към отваряне на видеото)
+      opening playlists: отваряне на плейлист
+      setting a playback rate: задаване на скорост за възпроизвеждане
+      starting video at offset: стартиране на видео при отместване
+    UnsupportedActionTemplate: '$ не поддържа: %'
+    OpeningTemplate: Отваряне на $ във %...
+    playlist: плейлист
+    video: видео
+    OpenInTemplate: Отваряне във $
 Videos:
   #& Sort By
   Sort By:
@@ -557,13 +629,14 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Плейлист
 Toggle Theatre Mode: 'Режим "Широк екран"'
 Change Format:
   Change Video Formats: 'Смяна видео формати'
-  Use Dash Formats: 'Използване на Dash формати'
+  Use Dash Formats: 'Използване на DASH формати'
   Use Legacy Formats: 'Използване на стари формати'
   Use Audio Formats: 'Използване на аудио формати'
-  Dash formats are not available for this video: 'Dash форматите не са достъпни за
+  Dash formats are not available for this video: 'DASH форматите не са достъпни за
     това видео'
   Audio formats are not available for this video: 'Аудио форматите не са достъпни
     за това видео'
@@ -601,6 +674,7 @@ Comments:
   Newest first: Първо най-новите
   Top comments: Последни коментари
   Sort by: Сортиране по
+  Show More Replies: Показване на още отговори
 Up Next: 'Следващ'
 
 # Toast Messages
@@ -634,35 +708,64 @@ Tooltips:
       IP адреса, но не получава някои съпътстващи данни, като продължителност на видеото
       или дали е на живо
   Player Settings:
-    Default Video Format: Настройка на използваните формати. Dash форматите могат
+    Default Video Format: Настройка на използваните формати. DASH форматите могат
       да показват видеа с по-високо качество. Старите формати са ограничени до макс.
-      720р, но пък генерират по-малък трафик. Аудио форматите предават само звук
+      720р, но пък генерират по-малък трафик. Аудио форматите предават само звук.
     Proxy Videos Through Invidious: Ще се свърже с Invidious, за да изтегли видеото,
       вместо да прави дирекна връзка с YouTube. Пренебрегва настройките на локалния
-      интерфейс
+      интерфейс.
     Force Local Backend for Legacy Formats: Действа само когато по подразбиране е
       избран Invidious интерфейс. Когато е активиран, локалният интерфейс ще използва
       старите формати вместо тези на Invidious. Това помага когато видеата, получавани
-      от Invidious не вървят поради регионални ограничения
+      от Invidious не вървят поради регионални ограничения.
   General Settings:
     Region for Trending: Регионът на набиращите популярност дава възможност да се
       избере страната, за която това се отнася. Не всички страни показани тук се поддържат
-      от YouTube
+      от YouTube.
     Invidious Instance: Сървър на Invidious, към който FreeTube ще се свързва. Премахнете
-      настоящия избор, за да видите списък с други възможни сървъри
+      настоящия избор, за да видите списък с други възможни сървъри.
     Thumbnail Preference: Всички миниатюри във FreeTube ще бъдат подменени с кадър
-      от клипа вместо тези по подразбиране
+      от клипа вместо тези по подразбиране.
     Fallback to Non-Preferred Backend on Failure: Когато избраният интерфейс срещне
       проблем, FreeTube ще опита да премине автоматично към друг метод, ако има избран
-      такъв
+      такъв.
     Preferred API Backend: Избиране на начина, по който FreeTube получава данните.
       Локалният интерфейс има вградено извличане. Invidious интерфейсът изисква Invidious
       сървър, към който да се свърже.
+    External Link Handling: "Избор на поведението по подразбиране, когато щракнете\
+      \ върху връзка, която не може да бъде отворена във FreeTube.\nПо подразбиране\
+      \ FreeTube ще отвори връзката в браузъра по подразбиране.\n"
   Privacy Settings:
     Remove Video Meta Files: Когато страницата за гледане бъде затворена, FreeTube
       автоматично ще изтрива метафайловете, създадени по време на възпроизвеждане
       на видеото.
+  External Player Settings:
+    Custom External Player Arguments: Всички персонализирани аргументи от командния
+      ред, разделени с точка и запетая (";"), които искате да бъдат предадени на външния
+      плейър.
+    Ignore Warnings: Премахване на предупрежденията, когато текущият външен плейър
+      не поддържа текущото действие (напр. обръщане на плейлисти и др.).
+    Custom External Player Executable: По подразбиране FreeTube предполага, че избраният
+      външен плейър може да бъде намерен чрез променливата на средата 'PATH'. Ако
+      е необходимо, тук може да се зададе потребителски път.
+    External Player: При избора на външен плейър, върху миниатюрата ще се покаже икона
+      за отваряне на видеото (плейлиста, ако се поддържа) във външния плейър.
 More: Още
 Playing Next Video Interval: Пускане на следващото видео веднага. Щракнете за отказ.
   | Пускане на следващото видео след {nextVideoInterval} секунда. Щракнете за отказ.
   | Пускане на следващото видео след {nextVideoInterval} секунди. Щракнете за отказ.
+Hashtags have not yet been implemented, try again later: Хаштаговете все още не са
+  реализирани, опитайте отново по-късно
+Unknown YouTube url type, cannot be opened in app: Неизвестен тип URL адрес за YouTube,
+  не може да се отвори в приложението
+Open New Window: Отваряне на нов прозорец
+Default Invidious instance has been cleared: Сървъра по подразбиране за Invidious
+  е изчистен
+Default Invidious instance has been set to $: Сървъра по подразбиране за Invidious
+  е зададен на $
+External link opening has been disabled in the general settings: Отварянето на външни
+  връзки е изключено в общите настройки
+Search Bar:
+  Clear Input: Изчистване на въведеното
+Are you sure you want to open this link?: Сигурни ли сте, че искате да отворите тази
+  връзка?

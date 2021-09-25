@@ -62,7 +62,6 @@ const config = {
  */
 if (isDevMode) {
   // any dev only config
-  config.plugins.push(new webpack.HotModuleReplacementPlugin())
 } else {
   config.plugins.push(
     new webpack.LoaderOptionsPlugin({

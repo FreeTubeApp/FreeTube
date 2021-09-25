@@ -28,15 +28,19 @@ Minimize: Minimize
 Close: Close
 Back: Back
 Forward: Forward
+Open New Window: Open New Window
 
 Version $ is now available!  Click for more details: Version $ is now available!  Click
   for more details
 Download From Site: Download From Site
 A new blog is now available, $. Click to view more: A new blog is now available, $.
   Click to view more
+Are you sure you want to open this link?: Are you sure you want to open this link?
 
 # Search Bar
 Search / Go to URL: Search / Go to URL
+Search Bar:
+  Clear Input: Clear Input
   # In Filter Button
 Search Filters:
   Search Filters: Search Filters
@@ -83,7 +87,13 @@ Subscriptions:
   Refresh Subscriptions: Refresh Subscriptions
   Load More Videos: Load More Videos
 More: More
-Trending: Trending
+Trending:
+  Trending: Trending
+  Default: Default
+  Music: Music
+  Gaming: Gaming
+  Movies: Movies
+  Trending Tabs: Trending Tabs
 Most Popular: Most Popular
 Playlists: Playlists
 User Playlists:
@@ -112,6 +122,7 @@ Settings:
     Enable Search Suggestions: Enable Search Suggestions
     Default Landing Page: Default Landing Page
     Locale Preference: Locale Preference
+    System Default: System Default
     Preferred API Backend:
       Preferred API Backend: Preferred API Backend
       Local API: Local API
@@ -126,11 +137,21 @@ Settings:
       Beginning: Beginning
       Middle: Middle
       End: End
-    'Invidious Instance (Default is https://invidious.snopyta.org)': Invidious Instance
-      (Default is https://invidious.snopyta.org)
+    Current Invidious Instance: Current Invidious Instance
+    # $ is replaced with the default Invidious instance
+    The currently set default instance is $: The currently set default instance is $
+    No default instance has been set: No default instance has been set
+    Current instance will be randomized on startup: Current instance will be randomized on startup
+    Set Current Instance as Default: Set Current Instance as Default
+    Clear Default Instance: Clear Default Instance
     View all Invidious instance information: View all Invidious instance information
     Region for Trending: Region for Trending
-        #! List countries
+    #! List countries
+    External Link Handling:
+      External Link Handling: External Link Handling
+      Open Link: Open Link
+      Ask Before Opening Link: Ask Before Opening Link
+      No Action: No Action
   Theme Settings:
     Theme Settings: Theme Settings
     Match Top Bar with Main Color: Match Top Bar with Main Color
@@ -142,6 +163,7 @@ Settings:
       Black: Black
       Dark: Dark
       Light: Light
+      Dracula: Dracula
     Main Color Theme:
       Main Color Theme: Main Color Theme
       Red: Red
@@ -160,6 +182,13 @@ Settings:
       Amber: Amber
       Orange: Orange
       Deep Orange: Deep Orange
+      Dracula Cyan: Dracula Cyan
+      Dracula Green: Dracula Green
+      Dracula Orange: Dracula Orange
+      Dracula Pink: Dracula Pink
+      Dracula Purple: Dracula Purple
+      Dracula Red: Dracula Red
+      Dracula Yellow: Dracula Yellow
     Secondary Color Theme: Secondary Color Theme
         #* Main Color Theme
   Player Settings:
@@ -171,12 +200,15 @@ Settings:
     Proxy Videos Through Invidious: Proxy Videos Through Invidious
     Autoplay Playlists: Autoplay Playlists
     Enable Theatre Mode by Default: Enable Theatre Mode by Default
-    Playlist Next Video Interval: Playlist Next Video Interval
+    Scroll Volume Over Video Player: Scroll Volume Over Video Player
+    Display Play Button In Video Player: Display Play Button In Video Player
+    Next Video Interval: Next Video Interval
+    Fast-Forward / Rewind Interval: Fast-Forward / Rewind Interval
     Default Volume: Default Volume
     Default Playback Rate: Default Playback Rate
     Default Video Format:
       Default Video Format: Default Video Format
-      Dash Formats: Dash Formats
+      Dash Formats: DASH Formats
       Legacy Formats: Legacy Formats
       Audio Formats: Audio Formats
     Default Quality:
@@ -191,6 +223,12 @@ Settings:
       1440p: 1440p
       4k: 4k
       8k: 8k
+  External Player Settings:
+    External Player Settings: External Player Settings
+    External Player: External Player
+    Ignore Unsupported Action Warnings: Ignore Unsupported Action Warnings
+    Custom External Player Executable: Custom External Player Executable
+    Custom External Player Arguments: Custom External Player Arguments
   Privacy Settings:
     Privacy Settings: Privacy Settings
     Remember History: Remember History
@@ -278,6 +316,11 @@ Settings:
     Region: Region
     City: City
     Error getting network information. Is your proxy configured properly?: Error getting network information. Is your proxy configured properly?
+  SponsorBlock Settings:
+    SponsorBlock Settings: SponsorBlock Settings
+    Enable SponsorBlock: Enable SponsorBlock
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API Url (Default is https://sponsor.ajay.app)
+    Notify when sponsor segment is skipped: Notify when sponsor segment is skipped
 About:
   #On About page
   About: About
@@ -307,6 +350,7 @@ About:
   Donate: Donate
 
 Profile:
+  Profile Settings: Profile Settings
   Profile Select: Profile Select
   Profile Filter: Profile Filter
   All Channels: All Channels
@@ -467,8 +511,34 @@ Video:
   Published on: Published on
   Streamed on: Streamed on
   Started streaming on: Started streaming on
+  translated from English: translated from English
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: $ % ago
+  Publicationtemplate: $ % ago
+  Skipped segment: Skipped segment
+  Sponsor Block category:
+    sponsor: sponsor
+    intro: intro
+    outro: outro
+    self-promotion: self-promotion
+    interaction: interaction
+    music offtopic: music offtopic
+  External Player:
+    # $ is replaced with the external player
+    OpenInTemplate: Open in $
+    video: video
+    playlist: playlist
+    # $ is replaced with the current context (see video/playlist above) and % the external player setting
+    OpeningTemplate: Opening $ in %...
+    # $ is replaced with the external player and % with the unsupported action
+    UnsupportedActionTemplate: '$ does not support: %'
+    Unsupported Actions:
+      starting video at offset: starting video at offset
+      setting a playback rate: setting a playback rate
+      opening playlists: opening playlists
+      opening specific video in a playlist (falling back to opening the video): opening specific video in a playlist (falling back to opening the video)
+      reversing playlists: reversing playlists
+      shuffling playlists: shuffling playlists
+      looping playlists: looping playlists
 #& Videos
 Videos:
   #& Sort By
@@ -479,6 +549,7 @@ Videos:
 #& Playlists
 Playlist:
   #& About
+  Playlist: Playlist
   View Full Playlist: View Full Playlist
   Videos: Videos
   View: View
@@ -497,10 +568,10 @@ Playlist:
 Toggle Theatre Mode: Toggle Theatre Mode
 Change Format:
   Change Video Formats: Change Video Formats
-  Use Dash Formats: Use Dash Formats
+  Use Dash Formats: Use DASH Formats
   Use Legacy Formats: Use Legacy Formats
   Use Audio Formats: Use Audio Formats
-  Dash formats are not available for this video: Dash formats are not available for
+  Dash formats are not available for this video: DASH formats are not available for
     this video
   Audio formats are not available for this video: Audio formats are not available
     for this video
@@ -534,6 +605,7 @@ Comments:
   View: View
   Hide: Hide
   Replies: Replies
+  Show More Replies: Show More Replies
   Reply: Reply
   There are no comments available for this video: There are no comments available
     for this video
@@ -549,25 +621,38 @@ Tooltips:
       to connect to.
     Fallback to Non-Preferred Backend on Failure: When your preferred API has a problem,
       FreeTube will automatically attempt to use your non-preferred API as a fallback
-      method when enabled
+      method when enabled.
     Thumbnail Preference: All thumbnails throughout FreeTube will be replaced with
-      a frame of the video instead of the default thumbnail
+      a frame of the video instead of the default thumbnail.
     Invidious Instance: The Invidious instance that FreeTube will connect to for API
       calls. Clear the current instance to see a list of public instances to choose
-      from
+      from.
     Region for Trending: The region of trends allows you to pick which country's trending
       videos you want to have displayed. Not all countries displayed are actually
-      supported by YouTube
+      supported by YouTube.
+    External Link Handling: |
+      Choose the default behavior when a link, which cannot be opened in FreeTube, is clicked.
+      By default FreeTube will open the clicked link in your default browser.
   Player Settings:
     Force Local Backend for Legacy Formats: Only works when the Invidious API is your
       default. When enabled, the local API will run and use the legacy formats returned
       by that instead of the ones returned by Invidious. Helps when the videos returned
-      by Invidious don't play due to country restrictions
+      by Invidious don't play due to country restrictions.
     Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead
-      of making a direct connection to YouTube. Overrides API preference
-    Default Video Format: Set the formats used when a video plays. Dash formats can
+      of making a direct connection to YouTube. Overrides API preference.
+    Default Video Format: Set the formats used when a video plays. DASH formats can
       play higher qualities. Legacy formats are limited to a max of 720p but use less
-      bandwidth. Audio formats are audio only streams
+      bandwidth. Audio formats are audio only streams.
+  External Player Settings:
+    External Player: Choosing an external player will display an icon, for opening the
+      video (playlist if supported) in the external player, on the thumbnail.
+    Custom External Player Executable: By default, FreeTube will assume that the chosen external
+      player can be found via the PATH environment variable. If needed, a custom path can
+      be set here.
+    Ignore Warnings: Suppress warnings for when the current external player does not support
+      the current action (e.g. reversing playlists, etc.).
+    Custom External Player Arguments: Any custom command line arguments, separated by semicolons (';'),
+      you want to be passed to the external player.
   Subscription Settings:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
       method for grabbing your subscription feed. RSS is faster and prevents IP blocking,
@@ -585,6 +670,8 @@ This video is unavailable because of missing formats. This can happen due to cou
   video is unavailable because of missing formats. This can happen due to country
   unavailability.
 Subscriptions have not yet been implemented: Subscriptions have not yet been implemented
+Unknown YouTube url type, cannot be opened in app: Unknown YouTube url type, cannot be opened in app
+Hashtags have not yet been implemented, try again later: Hashtags have not yet been implemented, try again later
 Loop is now disabled: Loop is now disabled
 Loop is now enabled: Loop is now enabled
 Shuffle is now disabled: Shuffle is now disabled
@@ -594,8 +681,12 @@ Playing Next Video: Playing Next Video
 Playing Previous Video: Playing Previous Video
 Playing Next Video Interval: Playing next video in no time. Click to cancel. | Playing next video in {nextVideoInterval} second. Click to cancel. | Playing next video in {nextVideoInterval} seconds. Click to cancel.
 Canceled next video autoplay: Canceled next video autoplay
+# $ is replaced with the default Invidious instance
+Default Invidious instance has been set to $: Default Invidious instance has been set to $
+Default Invidious instance has been cleared: Default Invidious instance has been cleared
 'The playlist has ended.  Enable loop to continue playing': 'The playlist has ended.  Enable
   loop to continue playing'
+External link opening has been disabled in the general settings: 'External link opening has been disabled in the general settings'
 
 Yes: Yes
 No: No
