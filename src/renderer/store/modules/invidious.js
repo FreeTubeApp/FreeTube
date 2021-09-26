@@ -25,21 +25,21 @@ const actions = {
     const requestUrl = 'https://api.invidious.io/instances.json'
 
     let response
+    let instances = []
     try {
       response = await $.getJSON(requestUrl)
+      instances = response.filter((instance) => {
+        if (instance[0].includes('.onion') || instance[0].includes('.i2p')) {
+          return false
+        } else {
+          return true
+        }
+      }).map((instance) => {
+        return instance[1].uri.replace(/\/$/, '')
+      })
     } catch (err) {
       console.log(err)
     }
-
-    const instances = response.filter((instance) => {
-      if (instance[0].includes('.onion') || instance[0].includes('.i2p')) {
-        return false
-      } else {
-        return true
-      }
-    }).map((instance) => {
-      return instance[1].uri.replace(/\/$/, '')
-    })
 
     commit('setInvidiousInstancesList', instances)
   },
