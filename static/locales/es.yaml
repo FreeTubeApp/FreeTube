@@ -139,6 +139,11 @@ Settings:
     Clear Default Instance: Quitar la instancia por defecto
     Set Current Instance as Default: Establecer la instancia actual como la instancia
       por defecto
+    External Link Handling:
+      No Action: Sin acción
+      Ask Before Opening Link: Preguntar antes de abrir el enlace
+      Open Link: Abrir el enlace
+      External Link Handling: Gestión de enlaces externos
   Theme Settings:
     Theme Settings: 'Apariencia'
     Match Top Bar with Main Color: 'Usar color principal para barra superior'
@@ -759,3 +764,7 @@ Default Invidious instance has been set to $: La Instancia de Invidious Predeter
   ha sido establecida como $
 Search Bar:
   Clear Input: Borrar entrada
+External link opening has been disabled in the general settings: Se ha desactivado
+  la apertura de enlaces externos en la configuración general
+Are you sure you want to open this link?: ¿Estás seguro/a de que quieres abrir este
+  enlace?
