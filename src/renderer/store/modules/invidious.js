@@ -1,4 +1,5 @@
 import $ from 'jquery'
+import fs from 'fs'
 
 const state = {
   currentInvidiousInstance: '',
@@ -21,7 +22,7 @@ const getters = {
 }
 
 const actions = {
-  async fetchInvidiousInstances({ commit }) {
+  async fetchInvidiousInstances({ commit }, payload) {
     const requestUrl = 'https://api.invidious.io/instances.json'
 
     let response
@@ -39,6 +40,20 @@ const actions = {
       })
     } catch (err) {
       console.log(err)
+      const fileName = 'invidious-instances.json'
+      let fileData
+      /* eslint-disable-next-line */
+      const fileLocation = payload.isDev ? './static/' : `${__dirname}/static/`
+      if (fs.existsSync(`${fileLocation}${fileName}`)) {
+        console.log('reading static file for invidious instances')
+        fileData = fs.readFileSync(`${fileLocation}${fileName}`)
+      } else {
+        console.log('unable to read static file for invidious instances')
+        fileData = '[{"url": "https://invidious.snopyta.org"}]'
+      }
+      instances = JSON.parse(fileData).map((entry) => {
+        return entry.url
+      })
     }
 
     commit('setInvidiousInstancesList', instances)
