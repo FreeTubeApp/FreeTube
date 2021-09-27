@@ -130,6 +130,10 @@ export default Vue.extend({
       return this.$store.getters.getCurrentInvidiousInstance
     },
 
+    currentLocale: function () {
+      return this.$store.getters.getCurrentLocale
+    },
+
     profileList: function () {
       return this.$store.getters.getProfileList
     },
@@ -227,8 +231,7 @@ export default Vue.extend({
 
     dateString() {
       const date = new Date(this.published)
-      const localeCode = this.$t('Locale Code')
-      const localeDateString = new Intl.DateTimeFormat([localeCode, 'en'], { dateStyle: 'medium' }).format(date)
+      const localeDateString = new Intl.DateTimeFormat([this.currentLocale, 'en'], { dateStyle: 'medium' }).format(date)
       return `${localeDateString}`
     },
 
