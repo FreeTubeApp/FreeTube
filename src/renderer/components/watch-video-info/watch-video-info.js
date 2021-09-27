@@ -227,7 +227,8 @@ export default Vue.extend({
 
     dateString() {
       const date = new Date(this.published)
-      const localeDateString = new Intl.DateTimeFormat('en', { dateStyle: 'medium' }).format(date)
+      const localeCode = this.$t('Locale Code')
+      const localeDateString = new Intl.DateTimeFormat([localeCode, 'en'], { dateStyle: 'medium' }).format(date)
       return `${localeDateString}`
     },
 
