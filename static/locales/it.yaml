@@ -322,12 +322,12 @@ Settings:
     Hide Popular Videos: Nascondi i video popolari
     Hide Trending Videos: Nascondi i video in tendenze
     Hide Recommended Videos: Nascondi i video suggeriti
-    Hide Comment Likes: Nascondi "Mi piace" dai commenti
+    Hide Comment Likes: Nascondi Mi piace dai commenti
     Hide Channel Subscribers: Nascondi il numero di iscritti
     Hide Video Views: Nascondi le visualizzazioni dei video
-    Distraction Free Settings: Impostazioni modalità "Senza distrazioni"
+    Distraction Free Settings: Impostazioni modalità Senza distrazioni
     Hide Live Chat: Nascondi la chat live
-    Hide Video Likes And Dislikes: Nascondi "Mi piace" e "Non mi piace"
+    Hide Video Likes And Dislikes: Nascondi Mi piace e Non mi piace
     Hide Active Subscriptions: Nascondi le iscrizioni attive
     Hide Playlists: Nascondi le playlist
   The app needs to restart for changes to take effect. Restart and apply change?: L'applicazione
@@ -346,7 +346,7 @@ Settings:
     Ip: Ip
     Your Info: Le tue informazioni
     Test Proxy: Testa proxy
-    Clicking on Test Proxy will send a request to: Cliccando su "Testa proxy" verrà
+    Clicking on Test Proxy will send a request to: Cliccando su Testa proxy verrà
       inviata una richiesta a
     Proxy Port Number: Numero di porta del proxy
     Proxy Host: Host del proxy
@@ -521,7 +521,7 @@ Video:
   Reverse Playlist: Playlist inversa
   Shuffle Playlist: Riproduzione playlist casuale
   Loop Playlist: Riproduzione continua
-  Autoplay: Autoplay
+  Autoplay: Ripro. automatica
   Starting soon, please refresh the page to check again: La riproduzione partirà tra
     breve, aggiorna la pagina per ricontrollare
   Audio:

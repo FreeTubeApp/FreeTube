@@ -1267,7 +1267,7 @@
   resolved "https://registry.yarnpkg.com/@seald-io/binary-search-tree/-/binary-search-tree-1.0.2.tgz#9f0e5cec5e0acf97f1b495f2f6d3476ddb6a94ed"
   integrity sha512-+pYGvPFAk7wUR+ONMOlc6A+LUN4kOCFwyPLjyaeS7wVibADPHWYJNYsNtyIAwjF1AXQkuaXElnIc4XjKt55QZA==
 
-"@seald-io/nedb@^2.0.3":
+"@seald-io/nedb@^2.0.4":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@seald-io/nedb/-/nedb-2.0.4.tgz#d3c0534889b81ba1dc43cbde8721312eee13c648"
   integrity sha512-QMSMJemcCIVhbcwVg/oASV74Qudl6ex6c1U8IwckxIvFub1TwRQcchMva30qBUIrNGrLgKXM3c+lgwfdlGa55w==
@@ -6248,12 +6248,12 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
-nedb-promises@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/nedb-promises/-/nedb-promises-5.0.0.tgz#22ad56718808caa71a64afeaab4353a746f4d758"
-  integrity sha512-PZ+V+1RScHr3mZHflAMMkx35naGHKVVGtqLwdK2aado7uN2HcIcubiaVlE/X8BTa34RnIHmusVM+VeTj/pnfew==
+nedb-promises@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/nedb-promises/-/nedb-promises-5.0.1.tgz#a32ab9423e1780fcd5c0fdde7ddbf8af5477bda7"
+  integrity sha512-dIE0C3crV9yeiXGWnseW4v4NIXHdcWjrmQHQuKAq2jJeqNGGMrLWJGmunPoapu5CO5btTY76hDt5FwsDRGioRw==
   dependencies:
-    "@seald-io/nedb" "^2.0.3"
+    "@seald-io/nedb" "^2.0.4"
 
 negotiator@0.6.2:
   version "0.6.2"

@@ -237,44 +237,55 @@ Settings:
     Remove Watch History: 'Eliminați istoricul vizionărilor'
     Are you sure you want to remove your entire watch history?: 'Sunteți sigur că
       doriți să vă ștergeți întregul istoric al vizionărilor?'
-    Watch history has been cleared: ''
-    Remove All Subscriptions / Profiles: ''
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
+    Watch history has been cleared: 'Istoricul vizionărilor a fost șters'
+    Remove All Subscriptions / Profiles: 'Eliminați toate abonamentele / profilurile'
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Sunteți
+      sigur că doriți să eliminați toate abonamentele și profilurile?  Acest lucru
+      nu poate fi anulat.'
     Automatically Remove Video Meta Files: Îndepărtați automat fișierele meta video
   Subscription Settings:
-    Subscription Settings: ''
-    Hide Videos on Watch: ''
-    Fetch Feeds from RSS: ''
-    Manage Subscriptions: ''
+    Subscription Settings: 'Setări de abonament'
+    Hide Videos on Watch: 'Ascundeți videoclipurile la vizionare'
+    Fetch Feeds from RSS: 'Preluare de fluxuri din RSS'
+    Manage Subscriptions: 'Gestionați abonamentele'
   Data Settings:
-    Data Settings: ''
-    Select Import Type: ''
-    Select Export Type: ''
-    Import Subscriptions: ''
-    Import FreeTube: ''
-    Import YouTube: ''
-    Import NewPipe: ''
-    Export Subscriptions: ''
-    Export FreeTube: ''
-    Export YouTube: ''
-    Export NewPipe: ''
-    Import History: ''
-    Export History: ''
-    Profile object has insufficient data, skipping item: ''
-    All subscriptions and profiles have been successfully imported: ''
-    All subscriptions have been successfully imported: ''
-    One or more subscriptions were unable to be imported: ''
-    Invalid subscriptions file: ''
-    This might take a while, please wait: ''
-    Invalid history file: ''
-    Subscriptions have been successfully exported: ''
-    History object has insufficient data, skipping item: ''
-    All watched history has been successfully imported: ''
+    Data Settings: 'Setări de date'
+    Select Import Type: 'Selectați tipul de import'
+    Select Export Type: 'Selectați tipul de export'
+    Import Subscriptions: 'Importați abonamente'
+    Import FreeTube: 'Importați FreeTube'
+    Import YouTube: 'Importați YouTube'
+    Import NewPipe: 'Importați NewPipe'
+    Export Subscriptions: 'Exportați abonamentele'
+    Export FreeTube: 'Exportați FreeTube'
+    Export YouTube: 'Exportați YouTube'
+    Export NewPipe: 'Exportați NewPipe'
+    Import History: 'Importați istoricul'
+    Export History: 'Exportați istoricul'
+    Profile object has insufficient data, skipping item: 'Obiectul de profil are date
+      insuficiente, se omite elementul'
+    All subscriptions and profiles have been successfully imported: 'Toate abonamentele
+      și profilurile au fost importate cu succes'
+    All subscriptions have been successfully imported: 'Toate abonamentele au fost
+      importate cu succes'
+    One or more subscriptions were unable to be imported: 'Unul sau mai multe abonamente
+      nu au putut fi importate'
+    Invalid subscriptions file: 'Fișier de abonamente invalid'
+    This might take a while, please wait: 'Acest lucru ar putea dura ceva timp, vă
+      rugăm să așteptați'
+    Invalid history file: 'Fișier istoric invalid'
+    Subscriptions have been successfully exported: 'Abonamentele au fost exportate
+      cu succes'
+    History object has insufficient data, skipping item: 'Obiectul de istoric are
+      date insuficiente, se omite elementul'
+    All watched history has been successfully imported: 'Tot istoricul de vizionări
+      a fost importat cu succes'
     All watched history has been successfully exported: ''
     Unable to read file: ''
     Unable to write file: ''
     Unknown data key: ''
     How do I import my subscriptions?: ''
+    Check for Legacy Subscriptions: Verificați dacă există abonamente vechi
   Advanced Settings:
     Advanced Settings: ''
     Enable Debug Mode (Prints data to the console): ''
@@ -306,6 +317,18 @@ Settings:
     Ignore Unsupported Action Warnings: Ignorați avertismentele de acțiune nesuportată
     External Player: Player extern
     External Player Settings: Setări pentru playerul extern
+  Distraction Free Settings:
+    Hide Active Subscriptions: Ascundeți abonamentele active
+    Hide Live Chat: Ascundeți Chat-ul Live
+    Hide Playlists: Ascundeți listele de redare
+    Hide Popular Videos: Ascundeți videoclipurile populare
+    Hide Trending Videos: Ascundeți videoclipurile în tendințe
+    Hide Recommended Videos: Ascundeți videoclipurile recomandate
+    Hide Comment Likes: Ascundeți aprecierile comentariilor
+    Hide Channel Subscribers: Ascundeți abonații canalului
+    Hide Video Likes And Dislikes: Ascundeți like-urile și dislike-urile din video
+    Hide Video Views: Ascundeți vizualizările video
+    Distraction Free Settings: Setări împotriva distragerii atenției
 About:
   #On About page
   About: ''
