@@ -137,6 +137,7 @@ Settings:
       Black: '黒'
       Dark: 'ダーク'
       Light: 'ライト'
+      Dracula: 'ドラキュラ'
     Main Color Theme:
       Main Color Theme: 'テーマのメイン カラー'
       Red: '赤'
@@ -155,6 +156,13 @@ Settings:
       Amber: '琥珀'
       Orange: 'オレンジ'
       Deep Orange: '濃いオレンジ'
+      Dracula Cyan: 'ドラキュラ シアン'
+      Dracula Green: 'ドラキュラ 緑'
+      Dracula Orange: 'ドラキュラ オレンジ'
+      Dracula Pink: 'ドラキュラ 桃'
+      Dracula Purple: 'ドラキュラ 紫'
+      Dracula Red: 'ドラキュラ 赤'
+      Dracula Yellow: 'ドラキュラ 黄'
     Secondary Color Theme: 'テーマのアクセント カラー'
         #* Main Color Theme
     UI Scale: UI 縮尺率

@@ -80,6 +80,10 @@ Subscriptions:
     perfil tiene un gran número de suscriptores.  Forzando RSS para evitar límites
 Trending:
   Trending: 'Tendencias'
+  Movies: Películas
+  Gaming: Juego
+  Music: Música
+  Default: Por defecto
 Most Popular: 'Más popular'
 Playlists: 'Listas de reproducción'
 User Playlists:
@@ -137,6 +141,7 @@ Settings:
       Black: 'Negro'
       Dark: 'Oscuro'
       Light: 'Claro'
+      Dracula: 'Drácula'
     Main Color Theme:
       Main Color Theme: 'Color principal del tema'
       Red: 'Rojo'
@@ -155,6 +160,13 @@ Settings:
       Amber: 'Ámbar'
       Orange: 'Naranja'
       Deep Orange: 'Naranja oscuro'
+      Dracula Cyan: 'Drácula Cian'
+      Dracula Green: 'Drácula Verde'
+      Dracula Orange: 'Drácula Naranja'
+      Dracula Pink: 'Drácula Rosado'
+      Dracula Purple: 'Drácula Púrpura'
+      Dracula Red: 'Drácula Rojo'
+      Dracula Yellow: 'Drácula Amarillo'
     Secondary Color Theme: 'Color secundario del tema'
         #* Main Color Theme
     UI Scale: Escala de la interfaz de usuario
@@ -492,3 +504,6 @@ A new blog is now available, $. Click to view more: Un nuevo blog está disponib
 Download From Site: Descargar desde el sitio
 Version $ is now available!  Click for more details: La versión $ ya está disponible.  Hacé
   clic acá para más detalles.
+More: Más
+Are you sure you want to open this link?: ¿Está seguro que desea abrir este enlace?
+Open New Window: Abrir nueva ventana

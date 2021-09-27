@@ -61,7 +61,7 @@
 }
 
 .buttonOption:hover {
-  background-color: var(--card-bg-color);
+  background-color: var(--search-bar-color);
   -moz-transition: background 0.2s ease-in;
   -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;

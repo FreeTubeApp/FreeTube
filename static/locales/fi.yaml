@@ -149,6 +149,7 @@ Settings:
       Black: 'Musta'
       Dark: 'Tumma'
       Light: 'Vaalea'
+      Dracula: 'Dracula'
     Main Color Theme:
       Main Color Theme: 'Pääväriteema'
       Red: 'Punainen'
@@ -167,6 +168,13 @@ Settings:
       Amber: 'Meripihka'
       Orange: 'Oranssi'
       Deep Orange: 'Syvä oranssi'
+      Dracula Cyan: 'Dracula Syaani'
+      Dracula Green: 'Dracula Vihreä'
+      Dracula Orange: 'Dracula Oranssi'
+      Dracula Pink: 'Dracula Vaaleanpunainen'
+      Dracula Purple: 'Dracula Purppura'
+      Dracula Red: 'Dracula Punainen'
+      Dracula Yellow: 'Dracula Keltainen'
     Secondary Color Theme: 'Toissijainen väriteema'
         #* Main Color Theme
     UI Scale: Käyttöliittymän koko

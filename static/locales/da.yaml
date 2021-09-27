@@ -140,6 +140,7 @@ Settings:
       Black: 'Sort'
       Dark: 'Mørkt'
       Light: 'Lyst'
+      Dracula: 'Dracula'
     Main Color Theme:
       Main Color Theme: 'Primært Farvetema'
       Red: 'Rødt'
@@ -158,6 +159,13 @@ Settings:
       Amber: 'Rav'
       Orange: 'Orange'
       Deep Orange: 'Dybt Orange'
+      Dracula Cyan: 'Dracula Cyan'
+      Dracula Green: 'Dracula Grønt'
+      Dracula Orange: 'Dracula Orange'
+      Dracula Pink: 'Dracula Lyserødt'
+      Dracula Purple: 'Dracula Lilla'
+      Dracula Red: 'Dracula Rødt'
+      Dracula Yellow: 'Dracula Gult'
     Secondary Color Theme: 'Sekundært Farvetema'
         #* Main Color Theme
     UI Scale: Skalering af Brugerflade

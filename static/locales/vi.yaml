@@ -124,6 +124,7 @@ Settings:
       Black: 'Đen'
       Dark: 'Tối'
       Light: 'Sáng'
+      Dracula: 'Ma cà rồng'
     Main Color Theme:
       Main Color Theme: 'Màu chủ đề chính'
       Red: 'Đỏ'
@@ -142,6 +143,13 @@ Settings:
       Amber: 'Hổ Phách'
       Orange: 'Cam'
       Deep Orange: 'Cam Đậm'
+      Dracula Cyan: 'Ma cà rồng Lục Lam'
+      Dracula Green: 'Ma cà rồng Xanh Lá'
+      Dracula Orange: 'Ma cà rồng Cam'
+      Dracula Pink: 'Ma cà rồng Hồng'
+      Dracula Purple: 'Ma cà rồng Tím'
+      Dracula Red: 'Ma cà rồng Đỏ'
+      Dracula Yellow: 'Ma cà rồng Vàng'
     Secondary Color Theme: 'Màu chủ đề thứ hai'
         #* Main Color Theme
     UI Scale: Tỉ lệ UI

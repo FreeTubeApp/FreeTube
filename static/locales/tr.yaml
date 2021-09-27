@@ -157,6 +157,7 @@ Settings:
       Black: 'Siyah'
       Dark: 'Koyu'
       Light: 'Açık'
+      Dracula: 'Drakula'
     Main Color Theme:
       Main Color Theme: 'Ana Renk Teması'
       Red: 'Kırmızı'
@@ -175,6 +176,13 @@ Settings:
       Amber: 'Kehribar Rengi'
       Orange: 'Turuncu'
       Deep Orange: 'Koyu Turuncu'
+      Dracula Cyan: 'Drakula Camgöbeği'
+      Dracula Green: 'Drakula Yeşil'
+      Dracula Orange: 'Drakula Turuncu'
+      Dracula Pink: 'Drakula Pembe'
+      Dracula Purple: 'Drakula Mor'
+      Dracula Red: 'Drakula Kırmızı'
+      Dracula Yellow: 'Drakula Sarı'
     Secondary Color Theme: 'İkincil Renk Teması'
         #* Main Color Theme
     UI Scale: Kullanıcı Arayüzü Ölçeği
