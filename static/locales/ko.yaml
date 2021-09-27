@@ -1,5 +1,6 @@
 # Put the name of your locale in the same language
 Locale Name: '한국어'
+Locale Code: 'ko'
 FreeTube: '프리튜브'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
