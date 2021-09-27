@@ -47,13 +47,13 @@ const actions = {
       if (fs.existsSync(`${fileLocation}${fileName}`)) {
         console.log('reading static file for invidious instances')
         fileData = fs.readFileSync(`${fileLocation}${fileName}`)
+        instances = JSON.parse(fileData).map((entry) => {
+          return entry.url
+        })
       } else {
         console.log('unable to read static file for invidious instances')
-        fileData = '[{"url": "https://invidious.snopyta.org"}]'
+        instances = ["https://invidious.snopyta.org"]
       }
-      instances = JSON.parse(fileData).map((entry) => {
-        return entry.url
-      })
     }
 
     commit('setInvidiousInstancesList', instances)
