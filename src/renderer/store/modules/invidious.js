@@ -40,6 +40,8 @@ const actions = {
       })
     } catch (err) {
       console.log(err)
+      // Starts fallback strategy: read from static file
+      // And fallback to hardcoded entry(s) if static file absent
       const fileName = 'invidious-instances.json'
       let fileData
       /* eslint-disable-next-line */
