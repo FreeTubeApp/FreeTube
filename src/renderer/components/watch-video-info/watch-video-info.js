@@ -227,9 +227,8 @@ export default Vue.extend({
 
     dateString() {
       const date = new Date(this.published)
-      const dateSplit = date.toDateString().split(' ')
-      const localeDateString = `Video.Published.${dateSplit[1]}`
-      return `${this.$t(localeDateString)} ${dateSplit[2]}, ${dateSplit[3]}`
+      const localeDateString = new Intl.DateTimeFormat('en', { dateStyle: 'medium' }).format(date)
+      return `${localeDateString}`
     },
 
     publishedString() {
