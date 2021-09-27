@@ -48,7 +48,7 @@ const actions = {
       const fileLocation = payload.isDev ? './static/' : `${__dirname}/static/`
       if (fs.existsSync(`${fileLocation}${fileName}`)) {
         console.log('reading static file for invidious instances')
-        fileData = fs.readFileSync(`${fileLocation}${fileName}`)
+        const fileData = fs.readFileSync(`${fileLocation}${fileName}`)
         instances = JSON.parse(fileData).map((entry) => {
           return entry.url
         })
