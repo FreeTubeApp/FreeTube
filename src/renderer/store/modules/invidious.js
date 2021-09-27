@@ -43,7 +43,6 @@ const actions = {
       // Starts fallback strategy: read from static file
       // And fallback to hardcoded entry(s) if static file absent
       const fileName = 'invidious-instances.json'
-      let fileData
       /* eslint-disable-next-line */
       const fileLocation = payload.isDev ? './static/' : `${__dirname}/static/`
       if (fs.existsSync(`${fileLocation}${fileName}`)) {
