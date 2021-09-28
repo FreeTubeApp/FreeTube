@@ -17,6 +17,19 @@ body:
           required: true  
         - label: I have searched the [issue tracker](https://github.com/FreeTubeApp/FreeTube/issues) for a bug report that matches the one I want to file, without success.
           required: true
+  - type: dropdown
+    attributes:
+      label: 'Issue Labels'
+      description: Please select a label that fits this bug report. Choose multiple, if applicable.
+      multiple: true
+      options:
+        - visual bug
+        - keyboard control not working
+        - text/string issue
+        - content not loading
+        - accessibility issue
+    validations:
+      required: true
   - type: textarea
     attributes:
       label: Describe the bug
@@ -93,16 +106,4 @@ body:
       options:
         - label: I have encountered this bug in the latest [nightly build](https://docs.freetubeapp.io/development/nightly-builds).
           required: false
-  - type: dropdown
-    attributes:
-      label: 'Issue Labels'
-      multiple: true
-      options:
-        - visual bug
-        - keyboard control not working
-        - text/string issue
-        - content not loading
-        - accessibility issue
-    validations:
-      required: false
         
