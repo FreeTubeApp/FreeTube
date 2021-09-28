@@ -288,9 +288,9 @@ const actions = {
             break
         }
       }
-      const locale = settings.currentLocale.replace('_','-')
+      const locale = settings.currentLocale.replace('_', '-')
       ytpl(playlistId, {
-        hl:locale,
+        hl: locale,
         limit: 'Infinity',
         requestOptions: { agent }
       }).then((result) => {
