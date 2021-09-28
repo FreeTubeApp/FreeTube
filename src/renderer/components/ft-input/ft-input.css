@@ -94,10 +94,11 @@
   cursor: pointer;
   border-radius: 200px 200px 200px 200px;
   color: var(--primary-text-color);
+  opacity: 50%;
 }
 
-.inputAction.disabled {
-  opacity: 50%;
+.inputAction.enabled {
+  opacity: 100%;
 }
 
 .search ::-webkit-calendar-picker-indicator {
@@ -120,25 +121,25 @@
   padding-right: 2em;
 }
 
-.inputAction:hover {
+.inputAction.enabled:hover {
   background-color: var(--side-nav-hover-color);
   -moz-transition: background 0.2s ease-in;
   -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 
-.forceTextColor .inputAction:hover {
+.forceTextColor .inputAction.enabled:hover {
   background-color: var(--primary-color-hover);
 }
 
-.inputAction:active {
+.inputAction.enabled:active {
   background-color: var(--tertiary-text-color);
   -moz-transition: background 0.2s ease-in;
   -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 
-.forceTextColor .inputAction:active {
+.forceTextColor .inputAction.enabled:active {
   background-color: var(--primary-color-active);
 }
 

@@ -53,7 +53,7 @@
       :icon="actionButtonIconName"
       class="inputAction"
       :class="{
-        disabled: !inputDataPresent
+        enabled: inputDataPresent
       }"
       @click="handleClick"
     />
