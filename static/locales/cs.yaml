@@ -147,6 +147,11 @@ Settings:
     Current Invidious Instance: Současná instance Invidious
     No default instance has been set: Není nastavena žádný výchozí instance
     The currently set default instance is $: Současné výchozí instance je $
+    External Link Handling:
+      No Action: Žádná akce
+      Ask Before Opening Link: Před otevřením se zeptat
+      Open Link: Otevřít odkaz
+      External Link Handling: Používání externích odkazů
   Theme Settings:
     Theme Settings: 'Nastavení motivu'
     Match Top Bar with Main Color: 'Přizpůsobit hlavní lištu hlavní barvě'
@@ -681,6 +686,9 @@ Tooltips:
     Region for Trending: 'Region trendů vám umožní vybrat si zemi, ze které si přejete
       zobrazovat videa trendů. Ne všechny zobrazené země jsou ale službou YouTube
       reálně podporovány.'
+    External Link Handling: "Zvolte výchozí chování při kliknutí na odkaz, který nelze\
+      \ otevřít ve FreeTube.\nVe výchozím nastavení otevře FreeTube odkaz ve vašem\
+      \ výchozím prohlížeči.\n"
   Player Settings:
     Force Local Backend for Legacy Formats: 'Funguje pouze v případě, že je výchozím
       nastavením API Invidious. Je-li povoleno, spustí se místní API a použije starší
@@ -748,3 +756,6 @@ Default Invidious instance has been set to $: Výchozí Invidious instance byla 
   na $
 Search Bar:
   Clear Input: Vymazat
+External link opening has been disabled in the general settings: Otevírání externích
+  odkazů bylo v obecném nastavení zakázáno
+Are you sure you want to open this link?: Opravdu chcete otevřít tento dokaz?
