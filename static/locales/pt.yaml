@@ -17,51 +17,51 @@ Delete: 'Eliminar'
 Select all: 'Seleccionar tudo'
 Reload: 'Recarregar'
 Force Reload: 'Forçar recarregamento'
-Toggle Developer Tools: 'Alternar Ferramentas de Desenvolvimento'
+Toggle Developer Tools: 'Alternar ferramentas de desenvolvimento'
 Actual size: 'Tamanho normal'
-Zoom in: 'Ampliar zoom'
-Zoom out: 'Reduzir zoom'
+Zoom in: 'Ampliar'
+Zoom out: 'Reduzir'
 Toggle fullscreen: 'Alternar ecrã inteiro'
 Window: 'Restaurar'
 Minimize: 'Minimizar'
 Close: 'Fechar'
-Back: 'Retroceder'
+Back: 'Voltar'
 Forward: 'Avançar'
 
-Version $ is now available!  Click for more details: 'Versão $ está agora disponível!
-  Clique aqui para ver mais detalhes'
-Download From Site: 'Descarregar Do Site'
-A new blog is now available, $. Click to view more: 'Um novo blogue está disponível,
+Version $ is now available!  Click for more details: 'A versão $ já está disponível!
+  Clique aqui para mais informações'
+Download From Site: 'Descarregar do site'
+A new blog is now available, $. Click to view more: 'Está disponível um novo blogue,
   $. Clique para ver mais'
 
 # Search Bar
-Search / Go to URL: 'Pesquisar / Ir para URL'
+Search / Go to URL: 'Pesquisar / ir para o URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtros'
   Sort By:
-    Sort By: 'Ordenar Por'
-    Most Relevant: 'Mais Relevantes'
+    Sort By: 'Ordenar por'
+    Most Relevant: 'Mais relevantes'
     Rating: 'Avaliação'
-    Upload Date: 'Data de Carregamento'
+    Upload Date: 'Data de publicação'
     View Count: 'Visualizações'
   Time:
     Time: 'Tempo'
-    Any Time: 'Qualquer Altura'
-    Last Hour: 'Última Hora'
+    Any Time: 'Qualquer altura'
+    Last Hour: 'Última hora'
     Today: 'Hoje'
-    This Week: 'Esta Semana'
-    This Month: 'Este Mês'
-    This Year: 'Este Ano'
+    This Week: 'Esta semana'
+    This Month: 'Este mês'
+    This Year: 'Este ano'
   Type:
     Type: 'Tipo'
-    All Types: 'Todo Tipo'
+    All Types: 'Todos os tipos'
     Videos: 'Vídeos'
     Channels: 'Canais'
     #& Playlists
   Duration:
     Duration: 'Duração'
-    All Durations: 'Toda Duração'
+    All Durations: 'Todas as durações'
     Short (< 4 minutes): 'Curtos (< 4 minutos)'
     Long (> 20 minutes): 'Longos (> 20 minutos)'
   # On Search Page
@@ -73,15 +73,15 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Subscrições'
-  Latest Subscriptions: 'Subscrições Recentes'
+  Latest Subscriptions: 'Subscrições recentes'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'A
     sua lista de subscrições está vazia. Adicione algumas para as ver aqui.'
   'Getting Subscriptions. Please wait.': 'A carregar subscrições. Por favor aguarde.'
-  Refresh Subscriptions: 'Actualizar Subscrições'
-  Load More Videos: Carregar Mais Vídeos
+  Refresh Subscriptions: 'Atualizar subscrições'
+  Load More Videos: Carregar mais vídeos
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
-    perfil contém um elevado número de subscrições. O uso de RSS vai ser obrigado
-    para evitar que a sua rede seja bloqueada
+    perfil contém um elevado número de subscrições. A forçar a utilização do RSS para
+    evitar que a sua rede seja bloqueada
 Trending:
   Trending: 'Tendências'
   Trending Tabs: Guias de tendências
@@ -755,3 +755,4 @@ Tooltips:
       para se ligar.
 Search Bar:
   Clear Input: Limpar entrada
+Are you sure you want to open this link?: Tem certeza que quer abrir esta hiperligação?
