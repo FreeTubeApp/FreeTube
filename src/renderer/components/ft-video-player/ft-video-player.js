@@ -118,20 +118,7 @@ export default Vue.extend({
             'fullscreenToggle'
           ]
         },
-        playbackRates: [
-          0.25,
-          0.5,
-          0.75,
-          1,
-          1.25,
-          1.5,
-          1.75,
-          2,
-          2.25,
-          2.5,
-          2.75,
-          3
-        ]
+        playbackRates: this.playbackRates()
       }
     }
   },
@@ -502,6 +489,16 @@ export default Vue.extend({
       }
     },
 
+    playbackRates: function () {
+      const rates = []
+      let rate = 0.25
+      while (rate <= 8) {
+        rates.push(rate)
+        rate += 0.25
+      }
+      return rates
+    },
+
     mouseScrollPlaybackRate: function (event) {
       if (event.target && !event.currentTarget.querySelector('.vjs-menu:hover')) {
         event.preventDefault()
@@ -518,10 +515,8 @@ export default Vue.extend({
 
     returnToNormalPlaybackRate: function (event) {
       if (event.target && !event.currentTarget.querySelector('.vjs-menu:hover')) {
-        event.preventDefault()
-        event.stopPropagation()
-
         if (event.ctrlKey) {
+          event.preventDefault()
           /*
            * HACK: This is a hack to get around the fact that the custom click handler fires
            * after the videojs play/pause action. It basically works but the play icon flashes
@@ -535,6 +530,7 @@ export default Vue.extend({
             }
           }
           this.player.playbackRate(this.defaultPlayback)
+          event.stopPropagation()
         }
       }
     },

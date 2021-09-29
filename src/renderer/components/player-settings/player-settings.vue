@@ -110,7 +110,7 @@
         :label="$t('Settings.Player Settings.Default Playback Rate')"
         :default-value="defaultPlayback"
         :min-value="0.25"
-        :max-value="3"
+        :max-value="8"
         :step="0.25"
         value-extension="×"
         @change="updateDefaultPlayback"
