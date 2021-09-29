@@ -91,14 +91,16 @@
   padding: 10px 8px;
   top: 5px;
   right: 0;
-  cursor: pointer;
   border-radius: 200px 200px 200px 200px;
   color: var(--primary-text-color);
+  /* this should look disabled by default */
   opacity: 50%;
 }
 
 .inputAction.enabled {
   opacity: 100%;
+  /* Only look respond to cursor when enabled */
+  cursor: pointer;
 }
 
 .search ::-webkit-calendar-picker-indicator {
