@@ -169,7 +169,7 @@ export default Vue.extend({
       let secColor = localStorage.getItem('secColor')
 
       if (baseTheme === null) {
-        baseTheme = 'light'
+        baseTheme = 'dark'
       }
 
       if (mainColor === null) {
