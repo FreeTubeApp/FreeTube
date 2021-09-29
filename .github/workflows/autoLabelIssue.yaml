@@ -10,5 +10,5 @@ jobs:
       - uses: Naturalclar/issue-action@v2.0.2
         with:
           body: "both"
-          parameters: '[ {"keywords": ["visual bug"], "labels": ["UI/style"]}, {"keywords": ["keyboard control not working"], "labels": ["controls"]}, {"keywords": ["text/string issue"], "labels": ["text content"]}, {"keywords": ["content not loading"], "labels": ["content not loading"]}, {"keywords": ["accessibility issue"], "labels": ["accessibility"]}]'
+          parameters: '[ {"keywords": ["visual bug"], "labels": ["B: visual"]}, {"keywords": ["keyboard control not working"], "labels": ["B: keyboard control"]}, {"keywords": ["text/string issue"], "labels": ["B: text/string"]}, {"keywords": ["content not loading"], "labels": ["B: content not loading"]}, {"keywords": ["accessibility issue"], "labels": ["B: accessibility"]}, {"keywords": ["usability issue"], "labels": ["B: usability"]}, {"keywords": ["causes crash"], "labels": ["B: crash"]}, {"keywords": ["feature stopped working"], "labels": ["B: feature stopped working"]}, {"keywords": ["inconsistent behavior"], "labels": ["B: inconsistent behavior"]}, {"keywords": ["data loss"], "labels": ["B: data loss"]}, {"keywords": ["race condition"], "labels": ["B: race condition"]}, {"keywords": ["only happens in developer mode"], "labels": ["B: developer mode"]}]'
           github-token: "${{ secrets.GITHUB_TOKEN }}"

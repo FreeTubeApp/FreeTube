@@ -40,11 +40,18 @@ body:
       description: Please select a label that fits this bug report. Choose multiple, if applicable.
       multiple: true
       options:
-        - visual bug
-        - keyboard control not working
-        - text/string issue
-        - content not loading
         - accessibility issue
+        - causes crash
+        - content not loading
+        - data loss
+        - feature stopped working
+        - inconsistent behavior
+        - keyboard control not working
+        - only happens in developer mode
+        - race condition
+        - text/string issue
+        - usability issue
+        - visual bug
     validations:
       required: true
   - type: input
