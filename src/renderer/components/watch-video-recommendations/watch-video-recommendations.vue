@@ -3,7 +3,7 @@
     v-if="!hideRecommendedVideos"
     class="relative watchVideoRecommendations"
   >
-  <div class="VideoRecommendationsTopBar">
+    <div class="VideoRecommendationsTopBar">
       <h3>
         {{ $t("Up Next") }}
       </h3>
