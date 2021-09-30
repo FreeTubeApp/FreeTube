@@ -522,16 +522,6 @@ export default Vue.extend({
       }
     },
 
-    playbackRates: function () {
-      const rates = []
-      let rate = 0.25
-      while (rate <= 8) {
-        rates.push(rate)
-        rate += 0.25
-      }
-      return rates
-    },
-
     mouseScrollPlaybackRate: function (event) {
       if (event.target && !event.currentTarget.querySelector('.vjs-menu:hover')) {
         event.preventDefault()
