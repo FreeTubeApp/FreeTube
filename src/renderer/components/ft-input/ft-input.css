@@ -90,10 +90,17 @@
   position: absolute;
   padding: 10px 8px;
   top: 5px;
-  right: 0px;
-  cursor: pointer;
+  right: 0;
   border-radius: 200px 200px 200px 200px;
   color: var(--primary-text-color);
+  /* this should look disabled by default */
+  opacity: 50%;
+}
+
+.inputAction.enabled {
+  opacity: 100%;
+  /* Only look respond to cursor when enabled */
+  cursor: pointer;
 }
 
 .search ::-webkit-calendar-picker-indicator {
@@ -108,7 +115,7 @@
   color: #EEEEEE;
 }
 
-.ft-input-component.showArrow .ft-input {
+.ft-input-component.showActionButton .ft-input {
   /*
   With arrow present means
   the text might get under the arrow with normal padding
@@ -116,25 +123,25 @@
   padding-right: 2em;
 }
 
-.inputAction:hover {
+.inputAction.enabled:hover {
   background-color: var(--side-nav-hover-color);
   -moz-transition: background 0.2s ease-in;
   -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 
-.forceTextColor .inputAction:hover {
+.forceTextColor .inputAction.enabled:hover {
   background-color: var(--primary-color-hover);
 }
 
-.inputAction:active {
+.inputAction.enabled:active {
   background-color: var(--tertiary-text-color);
   -moz-transition: background 0.2s ease-in;
   -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 
-.forceTextColor .inputAction:active {
+.forceTextColor .inputAction.enabled:active {
   background-color: var(--primary-color-active);
 }
 
