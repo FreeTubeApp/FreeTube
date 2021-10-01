@@ -109,7 +109,7 @@
     "babel-loader": "^8.2.2",
     "copy-webpack-plugin": "^9.0.1",
     "css-loader": "5.2.6",
-    "electron": "^13.3.0",
+    "electron": "^13.5.1",
     "electron-builder": "^22.11.7",
     "electron-builder-squirrel-windows": "^22.13.1",
     "electron-debug": "^3.2.0",
