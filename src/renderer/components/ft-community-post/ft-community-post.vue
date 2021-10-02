@@ -12,12 +12,12 @@
         alt=""
       >
       <p
-        id="authorName"
+        class="authorName"
       >
         {{ author }}
       </p>
       <p
-        id="publishedText"
+        class="publishedText"
       >
         {{ publishedText }}
       </p>
@@ -134,11 +134,11 @@
     >
       <span class="likeCount"><font-awesome-icon icon="thumbs-up" /> {{ voteCount }}</span>
       <span class="dislikeCount"><font-awesome-icon
-        id="thumbs-down-icon"
+        class="thumbs-down-icon"
         icon="thumbs-down"
       /></span>
       <span class="commentCount"><font-awesome-icon
-        id="comment-count-icon"
+        class="comment-count-icon"
         icon="comment"
       /> {{ commentCount }}</span>
     </div>

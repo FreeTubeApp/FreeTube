@@ -86,6 +86,7 @@
           </div>
           <div
             class="tab"
+            :class="(currentTab==='community')?'selectedTab':''"
             @click="changeTab('community')"
           >
             {{ $t("Channel.Community.Community").toUpperCase() }}
