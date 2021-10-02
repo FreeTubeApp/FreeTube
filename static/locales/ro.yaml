@@ -280,12 +280,14 @@ Settings:
       date insuficiente, se omite elementul'
     All watched history has been successfully imported: 'Tot istoricul de vizionări
       a fost importat cu succes'
-    All watched history has been successfully exported: ''
-    Unable to read file: ''
-    Unable to write file: ''
-    Unknown data key: ''
-    How do I import my subscriptions?: ''
+    All watched history has been successfully exported: 'Tot istoricul de vizionări
+      a fost exportat cu succes'
+    Unable to read file: 'Nu se poate citi fișierul'
+    Unable to write file: 'Nu se poate scrie fișierul'
+    Unknown data key: 'Cheie de date necunoscută'
+    How do I import my subscriptions?: 'Cum îmi pot importa abonamentele?'
     Check for Legacy Subscriptions: Verificați dacă există abonamente vechi
+    Manage Subscriptions: Gestionare abonamente
   Advanced Settings:
     Advanced Settings: ''
     Enable Debug Mode (Prints data to the console): ''
@@ -329,9 +331,32 @@ Settings:
     Hide Video Likes And Dislikes: Ascundeți like-urile și dislike-urile din video
     Hide Video Views: Ascundeți vizualizările video
     Distraction Free Settings: Setări împotriva distragerii atenției
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Notificare atunci când segmentul sponsorului
+      este sărit
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL-ul API-ului
+      SponsorBlock (Cel implicit este https://sponsor.ajay.app)
+    Enable SponsorBlock: Activați SponsorBlock
+    SponsorBlock Settings: Setări SponsorBlock
+  Proxy Settings:
+    Error getting network information. Is your proxy configured properly?: Eroare
+      la obținerea informațiilor despre rețea. Proxy-ul este configurat corect?
+    City: Oraș
+    Region: Regiune
+    Country: Țară
+    Ip: IP
+    Your Info: Informațiile dvs.
+    Clicking on Test Proxy will send a request to: Făcând clic pe Testați Proxy se
+      va trimite o cerere către
+    Test Proxy: Testați Proxy
+    Proxy Port Number: Numărul portului Proxy
+    Proxy Host: Gazdă Proxy
+    Proxy Protocol: Protocol Proxy
+    Enable Tor / Proxy: Activați Tor / Proxy
+    Proxy Settings: Setări Proxy
 About:
   #On About page
-  About: ''
+  About: 'Despre'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
 
@@ -353,148 +378,233 @@ About:
 
   Mastodon: Mastodon
   Email: E-mail
+  Donate: Donează
+  these people and projects: aceste persoane și proiecte
+  FreeTube is made possible by: FreeTube este posibil datorită
+  Credits: Credite
+  Translate: Traduceți
+  room rules: regulile camerei
+  Please read the: Vă rugăm să citiți
+  Chat on Matrix: Chat pe Matrix
+  Blog: Blog
+  Website: Site web
+  Please check for duplicates before posting: Vă rugăm să verificați dacă există dubluri
+    înainte de a posta
+  GitHub issues: Issues pe GitHub
+  Report a problem: Raportați o problemă
+  FAQ: Întrebări frecvente
+  FreeTube Wiki: FreeTube Wiki
+  Help: Ajutor
+  GitHub releases: Lansări GitHub
+  Downloads / Changelog: Descărcări / Jurnal de modificări
+  View License: Vezi licența
+  Licensed under the AGPLv3: Licențiat sub AGPLv3
+  Source code: Codul sursă
+  Beta: Beta
 Profile:
-  Profile Select: ''
-  All Channels: ''
-  Profile Manager: ''
-  Create New Profile: ''
-  Edit Profile: ''
-  Color Picker: ''
-  Custom Color: ''
-  Profile Preview: ''
-  Create Profile: ''
-  Update Profile: ''
-  Make Default Profile: ''
-  Delete Profile: ''
-  Are you sure you want to delete this profile?: ''
-  All subscriptions will also be deleted.: ''
-  Profile could not be found: ''
-  Your profile name cannot be empty: ''
-  Profile has been created: ''
-  Profile has been updated: ''
-  Your default profile has been set to $: ''
-  Removed $ from your profiles: ''
-  Your default profile has been changed to your primary profile: ''
-  $ is now the active profile: ''
-  Subscription List: ''
-  Other Channels: ''
-  $ selected: ''
-  Select All: ''
-  Select None: ''
-  Delete Selected: ''
-  Add Selected To Profile: ''
-  No channel(s) have been selected: ''
+  Profile Select: 'Selectare profil'
+  All Channels: 'Toate canalele'
+  Profile Manager: 'Manager de profil'
+  Create New Profile: 'Creați un profil nou'
+  Edit Profile: 'Editare profil'
+  Color Picker: 'Alegător de culori'
+  Custom Color: 'Culoare personalizată'
+  Profile Preview: 'Previzualizare profil'
+  Create Profile: 'Creați un profil'
+  Update Profile: 'Actualizați profilul'
+  Make Default Profile: 'Faceți profilul implicit'
+  Delete Profile: 'Ștergeți profilul'
+  Are you sure you want to delete this profile?: 'Sunteți sigur că doriți să ștergeți
+    acest profil?'
+  All subscriptions will also be deleted.: 'De asemenea, toate abonamentele vor fi
+    șterse.'
+  Profile could not be found: 'Profilul nu a putut fi găsit'
+  Your profile name cannot be empty: 'Numele profilului nu poate fi gol'
+  Profile has been created: 'Profilul a fost creat'
+  Profile has been updated: 'Profilul a fost actualizat'
+  Your default profile has been set to $: 'Profilul dvs. implicit a fost setat la
+    $'
+  Removed $ from your profiles: 'Ați eliminat $ din profilurile dvs.'
+  Your default profile has been changed to your primary profile: 'Profilul dvs. implicit
+    a fost schimbat în profilul dvs. principal'
+  $ is now the active profile: '$ este acum profilul activ'
+  Subscription List: 'Lista de abonamente'
+  Other Channels: 'Alte canale'
+  $ selected: '$ selectat'
+  Select All: 'Selectați toate'
+  Select None: 'Selectați niciunul'
+  Delete Selected: 'Ștergeți selectat'
+  Add Selected To Profile: 'Adaugă selectate la profil'
+  No channel(s) have been selected: 'Nu a fost selectat niciun canal(e)'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : ''
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
+  : 'Acesta este profilul dvs. principal.  Sunteți sigur că doriți să ștergeți canalele
+    selectate?  Aceleași canale vor fi șterse în orice profil în care se regăsesc.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Sunteți
+    sigur că doriți să ștergeți canalele selectate?  Acest lucru nu va șterge canalul
+    din niciun alt profil.'
 #On Channel Page
+  Profile Filter: Filtru profil
+  Profile Settings: Setări de profil
 Channel:
-  Subscriber: ''
-  Subscribers: ''
-  Subscribe: ''
-  Unsubscribe: ''
-  Channel has been removed from your subscriptions: ''
-  Removed subscription from $ other channel(s): ''
-  Added channel to your subscriptions: ''
-  Search Channel: ''
-  Your search results have returned 0 results: ''
-  Sort By: ''
+  Subscriber: 'Abonat'
+  Subscribers: 'Abonați'
+  Subscribe: 'Abonați-vă'
+  Unsubscribe: 'Dezabonați-vă'
+  Channel has been removed from your subscriptions: 'Canalul a fost eliminat din abonamentele
+    dvs.'
+  Removed subscription from $ other channel(s): 'Abonament eliminat de pe $ alt(e)
+    canal(e)'
+  Added channel to your subscriptions: 'Adăugat canal la abonamentele tale'
+  Search Channel: 'Căutare canal'
+  Your search results have returned 0 results: 'Rezultatele căutării tale au returnat
+    0 rezultate'
+  Sort By: 'Sortați după'
   Videos:
-    Videos: ''
-    This channel does not currently have any videos: ''
+    Videos: 'Videoclipuri'
+    This channel does not currently have any videos: 'Acest canal nu are în prezent
+      niciun videoclip'
     Sort Types:
-      Newest: ''
-      Oldest: ''
-      Most Popular: ''
+      Newest: 'Cele mai nou'
+      Oldest: 'Cele mai vechi'
+      Most Popular: 'Cele mai populare'
   Playlists:
-    Playlists: ''
-    This channel does not currently have any playlists: ''
+    Playlists: 'Liste de redare'
+    This channel does not currently have any playlists: 'Acest canal nu are în prezent
+      nici o listă de redare'
     Sort Types:
-      Last Video Added: ''
-      Newest: ''
-      Oldest: ''
+      Last Video Added: 'Ultimul video adăugat'
+      Newest: 'Cele mai noi'
+      Oldest: 'Cele mai vechi'
   About:
-    About: ''
-    Channel Description: ''
-    Featured Channels: ''
+    About: 'Despre'
+    Channel Description: 'Descrierea canalului'
+    Featured Channels: 'Canale recomandate'
 Video:
-  Mark As Watched: ''
-  Remove From History: ''
-  Video has been marked as watched: ''
-  Video has been removed from your history: ''
-  Open in YouTube: ''
-  Copy YouTube Link: ''
-  Open YouTube Embedded Player: ''
-  Copy YouTube Embedded Player Link: ''
-  Open in Invidious: ''
-  Copy Invidious Link: ''
-  View: ''
-  Views: ''
-  Loop Playlist: ''
-  Shuffle Playlist: ''
-  Reverse Playlist: ''
-  Play Next Video: ''
-  Play Previous Video: ''
+  Mark As Watched: 'Marcați ca vizionat'
+  Remove From History: 'Eliminați din istoric'
+  Video has been marked as watched: 'Video a fost marcat ca fiind vizionat'
+  Video has been removed from your history: 'Video a fost eliminat din istoric'
+  Open in YouTube: 'Deschideți în YouTube'
+  Copy YouTube Link: 'Copiați link-ul YouTube'
+  Open YouTube Embedded Player: 'Deschideți playerul încorporat YouTube'
+  Copy YouTube Embedded Player Link: 'Copiați link-ul playerului încorporat YouTube'
+  Open in Invidious: 'Deschideți în Invidious'
+  Copy Invidious Link: 'Copiați link-ul Invidious'
+  View: 'Vizionare'
+  Views: 'Vizionări'
+  Loop Playlist: 'Lista de redare în buclă'
+  Shuffle Playlist: 'Lista de redare aleatorie'
+  Reverse Playlist: 'Lista de redare inversă'
+  Play Next Video: 'Redă videoclipul următor'
+  Play Previous Video: 'Redă videoclipul anterior'
   # Context is "X People Watching"
-  Watching: ''
-  Watched: ''
-  Autoplay: ''
-  Starting soon, please refresh the page to check again: ''
+  Watching: 'Vizionează'
+  Watched: 'Vizionat'
+  Autoplay: 'Redare automată'
+  Starting soon, please refresh the page to check again: 'Începe în curând, vă rugăm
+    să reîmprospătați pagina pentru a verifica din nou'
   # As in a Live Video
-  Live: ''
-  Live Now: ''
-  Live Chat: ''
-  Enable Live Chat: ''
-  Live Chat is currently not supported in this build.: ''
-  'Chat is disabled or the Live Stream has ended.': ''
-  Live chat is enabled.  Chat messages will appear here once sent.: ''
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
+  Live: 'În direct'
+  Live Now: 'în direct acum'
+  Live Chat: 'Chat în direct'
+  Enable Live Chat: 'Activați Chat-ul în direct'
+  Live Chat is currently not supported in this build.: 'Chat-ul în direct nu este
+    în prezent acceptat în această versiune.'
+  'Chat is disabled or the Live Stream has ended.': 'Chat-ul este dezactivat sau transmisia
+    în direct s-a încheiat.'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'Chat-ul în direct
+    este activat.  Mesajele de chat vor apărea aici după ce sunt trimise.'
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Chat-ul
+    în direct nu este acceptat în prezent cu API-ul Invidious.  Este necesară o conexiune
+    directă la YouTube.'
   Published:
-    Jan: ''
-    Feb: ''
-    Mar: ''
-    Apr: ''
-    May: ''
-    Jun: ''
-    Jul: ''
-    Aug: ''
-    Sep: ''
-    Oct: ''
-    Nov: ''
-    Dec: ''
-    Second: ''
-    Seconds: ''
-    Minute: ''
-    Minutes: ''
-    Hour: ''
-    Hours: ''
-    Day: ''
-    Days: ''
-    Week: ''
-    Weeks: ''
-    Month: ''
-    Months: ''
-    Year: ''
-    Years: ''
-    Ago: ''
-    Upcoming: ''
-  Published on: ''
+    Jan: 'Ian'
+    Feb: 'Feb'
+    Mar: 'Mar'
+    Apr: 'Apr'
+    May: 'Mai'
+    Jun: 'iun'
+    Jul: 'Iul'
+    Aug: 'Aug'
+    Sep: 'Sep'
+    Oct: 'Oct'
+    Nov: 'Noi'
+    Dec: 'Dec'
+    Second: 'Secundă'
+    Seconds: 'Secunde'
+    Minute: 'Minut'
+    Minutes: 'Minute'
+    Hour: 'Oră'
+    Hours: 'Ore'
+    Day: 'Zi'
+    Days: 'Zile'
+    Week: 'Săptămână'
+    Weeks: 'Săptămâni'
+    Month: 'Lună'
+    Months: 'Luni'
+    Year: 'An'
+    Years: 'Ani'
+    Ago: 'În urmă'
+    Upcoming: 'În premieră la'
+  Published on: 'Publicat pe'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: ''
+  Publicationtemplate: 'acum $ %'
 #& Videos
+  External Player:
+    Unsupported Actions:
+      opening playlists: deschiderea listelor de redare
+      setting a playback rate: setarea unei rate de redare
+      starting video at offset: pornire video la offset
+      looping playlists: liste de redare în buclă
+      shuffling playlists: amestecarea listelor de redare
+      reversing playlists: inversarea listelor de redare
+      opening specific video in a playlist (falling back to opening the video): deschiderea
+        unui anumit videoclip dintr-o listă de redare (revenirea la deschiderea videoclipului)
+    UnsupportedActionTemplate: '$ nu acceptă: %'
+    OpeningTemplate: Se deschide $ în %...
+    playlist: listă de redare
+    video: video
+    OpenInTemplate: Deschideți în $
+  Sponsor Block category:
+    music offtopic: muzică offtopic
+    interaction: interacțiune
+    self-promotion: auto-promovare
+    outro: outro
+    intro: introducere
+    sponsor: sponsor
+  Skipped segment: Segment omis
+  translated from English: tradus din engleză
+  Started streaming on: A început să transmită pe
+  Streamed on: Difuzat pe
+  Audio:
+    Best: Cea mai bună
+    Medium: Medie
+    Low: Scăzută
+    High: Înaltă
+  audio only: numai audio
+  video only: numai video
+  Download Video: Descărcați video
+  Copy Invidious Channel Link: Copiați link-ul canalului Invidious
+  Open Channel in Invidious: Canal deschis în Invidious
+  Copy YouTube Channel Link: Copiați link-ul canalului YouTube
+  Open Channel in YouTube: Deschideți canalul în YouTube
+  Video has been removed from your saved list: Videoclipul a fost eliminat din lista
+    ta de salvări
+  Video has been saved: Videoclipul a fost salvat
+  Save Video: Salvați video
 Videos:
   #& Sort By
   Sort By:
-    Newest: ''
-    Oldest: ''
+    Newest: 'Cele mai noi'
+    Oldest: 'Cele mai vechi'
     #& Most Popular
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: ''
-  Videos: ''
-  View: ''
+  View Full Playlist: 'Vezi lista de redare completă'
+  Videos: 'Videoclipuri'
+  View: 'V'
   Views: ''
   Last Updated On: ''
   Share Playlist:
@@ -507,6 +617,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Listă de redare
 Toggle Theatre Mode: ''
 Change Format:
   Change Video Formats: ''
