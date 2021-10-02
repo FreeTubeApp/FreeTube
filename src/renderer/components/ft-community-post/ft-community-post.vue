@@ -9,6 +9,7 @@
       <img
         :src="'https://'+authorThumbnails[Math.max(0, authorThumbnails.length-1)].url"
         class="communityThumbnail"
+        alt=""
       >
       <p
         id="authorName"
@@ -78,6 +79,7 @@
           <img
             :src="postContent.content.thumbnails[0].thumbnails[0].url"
             class="thumbnailImage"
+            alt=""
           >
         </div>
       </router-link>
