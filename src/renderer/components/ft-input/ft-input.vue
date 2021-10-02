@@ -67,7 +67,7 @@
         @mouseleave="searchState.isPointerInList = false"
       >
         <li
-          v-for="(list, index) in dataList"
+          v-for="(list, index) in visibleDataList"
           :key="index"
           :class="searchState.selectedOption == index ? 'hover': ''"
           @click="handleOptionClick(index)"

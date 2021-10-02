@@ -62,6 +62,7 @@ export default Vue.extend({
         selectedOption: -1,
         isPointerInList: false
       },
+      visibleDataList: this.dataList,
       // This button should be invisible on app start
       // As the text input box should be empty
       clearTextButtonExisting: false,
@@ -127,17 +128,19 @@ export default Vue.extend({
       this.$emit('click', this.inputData)
     },
 
-    handleInput: function () {
+    handleInput: function (val) {
       if (this.isSearch &&
         this.searchState.selectedOption !== -1 &&
-        this.inputData === this.dataList[this.searchState.selectedOption]) { return }
+        this.inputData === this.visibleDataList[this.searchState.selectedOption]) { return }
       this.handleActionIconChange()
-      this.$emit('input', this.inputData)
+      this.updateVisibleDataList()
+      this.$emit('input', val)
     },
 
     handleClearTextClick: function () {
       this.inputData = ''
       this.handleActionIconChange()
+      this.updateVisibleDataList()
       this.$emit('input', this.inputData)
 
       // Focus on input element after text is clear for better UX
@@ -208,14 +211,13 @@ export default Vue.extend({
 
     handleOptionClick: function (index) {
       this.searchState.showOptions = false
-      this.inputData = this.dataList[index]
+      this.inputData = this.visibleDataList[index]
       this.$emit('input', this.inputData)
       this.handleClick()
     },
 
     handleKeyDown: function (keyCode) {
       if (this.dataList.length === 0) { return }
-
       // Update selectedOption based on arrow key pressed
       if (keyCode === 40) {
         this.searchState.selectedOption = (this.searchState.selectedOption + 1) % this.dataList.length
@@ -230,7 +232,11 @@ export default Vue.extend({
       }
 
       // Update Input box value if arrow keys were pressed
-      if ((keyCode === 40 || keyCode === 38) && this.searchState.selectedOption !== -1) { this.inputData = this.dataList[this.searchState.selectedOption] }
+      if ((keyCode === 40 || keyCode === 38) && this.searchState.selectedOption !== -1) {
+        this.inputData = this.visibleDataList[this.searchState.selectedOption]
+      } else {
+        this.updateVisibleDataList()
+      }
     },
 
     handleInputBlur: function () {
@@ -241,6 +247,29 @@ export default Vue.extend({
       this.searchState.showOptions = true
       if (this.selectOnFocus) {
         e.target.select()
+      }
+    },
+
+    updateVisibleDataList: function () {
+      if (this.dataList.length === 0) { return }
+      if (this.inputData === '') {
+        this.visibleDataList = this.dataList
+        return
+      }
+      // get list of items that match input
+      const visList = this.dataList.filter(x => {
+        if (x.toLowerCase().indexOf(this.inputData.toLowerCase()) !== -1) {
+          return true
+        } else {
+          return false
+        }
+      })
+
+      if (visList.length > 0) {
+        this.visibleDataList = visList
+      } else {
+        // use default dataList if no items match
+        this.visibleDataList = this.dataList
       }
     },
 
