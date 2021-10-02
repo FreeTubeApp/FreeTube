@@ -230,7 +230,11 @@
       <div
         v-if="showFetchMoreButton"
         class="getNextPage"
+        role="button"
+        tabindex="0"
         @click="handleFetchMore"
+        @keydown.space.prevent="handleFetchMore"
+        @keydown.enter.prevent="handleFetchMore"
       >
         <font-awesome-icon icon="search" /> {{ $t("Search Filters.Fetch more results") }}
       </div>
