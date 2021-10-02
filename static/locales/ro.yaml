@@ -604,80 +604,160 @@ Playlist:
   #& About
   View Full Playlist: 'Vezi lista de redare completă'
   Videos: 'Videoclipuri'
-  View: 'V'
-  Views: ''
-  Last Updated On: ''
+  View: 'Vizionări'
+  Views: 'Vizualizări'
+  Last Updated On: 'Ultima actualizare la'
   Share Playlist:
-    Share Playlist: ''
-    Copy YouTube Link: ''
-    Open in YouTube: ''
-    Copy Invidious Link: ''
-    Open in Invidious: ''
+    Share Playlist: 'Distribuie lista de redare'
+    Copy YouTube Link: 'Copiați link-ul YouTube'
+    Open in YouTube: 'Deschideți în YouTube'
+    Copy Invidious Link: 'Copiați linkul Invidious'
+    Open in Invidious: 'Deschis în Invidious'
 
 # On Video Watch Page
 #* Published
 #& Views
   Playlist: Listă de redare
-Toggle Theatre Mode: ''
+Toggle Theatre Mode: 'Comutați modul Teatru'
 Change Format:
-  Change Video Formats: ''
-  Use Dash Formats: ''
-  Use Legacy Formats: ''
-  Use Audio Formats: ''
-  Dash formats are not available for this video: ''
-  Audio formats are not available for this video: ''
+  Change Video Formats: 'Schimbați formatele video'
+  Use Dash Formats: 'Utilizați formate DASH'
+  Use Legacy Formats: 'Utilizați formate vechi'
+  Use Audio Formats: 'Utilizați formate audio'
+  Dash formats are not available for this video: 'Formatele DASH nu sunt disponibile
+    pentru acest videoclip'
+  Audio formats are not available for this video: 'Formatele audio nu sunt disponibile
+    pentru acest videoclip'
 Share:
-  Share Video: ''
-  Include Timestamp: ''
-  Copy Link: ''
-  Open Link: ''
-  Copy Embed: ''
-  Open Embed: ''
+  Share Video: 'Distribuiți video'
+  Include Timestamp: 'Includeți timpul de începere'
+  Copy Link: 'Copiați link-ul'
+  Open Link: 'Deschideți link-ul'
+  Copy Embed: 'Copiați încorporarea'
+  Open Embed: 'Deschideți încorporarea'
   # On Click
-  Invidious URL copied to clipboard: ''
-  Invidious Embed URL copied to clipboard: ''
-  YouTube URL copied to clipboard: ''
-  YouTube Embed URL copied to clipboard: ''
-Mini Player: ''
+  Invidious URL copied to clipboard: 'URL Invidious copiat în clipboard'
+  Invidious Embed URL copied to clipboard: 'URL de încorporare Invidious copiat în
+    clipboard'
+  YouTube URL copied to clipboard: 'URL-ul YouTube copiat în clipboard'
+  YouTube Embed URL copied to clipboard: 'URL de încorporare YouTube copiat în clipboard'
+  YouTube Channel URL copied to clipboard: URL-ul canalului YouTube copiat în clipboard
+  Invidious Channel URL copied to clipboard: URL-ul Invidious al canalului a fost
+    copiat în clipboard
+Mini Player: 'Mini Player'
 Comments:
-  Comments: ''
-  Click to View Comments: ''
-  Getting comment replies, please wait: ''
-  There are no more comments for this video: ''
-  Show Comments: ''
-  Hide Comments: ''
+  Comments: 'Comentarii'
+  Click to View Comments: 'Faceți clic pentru a vedea comentariile'
+  Getting comment replies, please wait: 'Se obțin răspunsurile comentariului, vă rugăm
+    să așteptați'
+  There are no more comments for this video: 'Nu mai există niciun comentariu pentru
+    acest videoclip'
+  Show Comments: 'Afișați comentariile'
+  Hide Comments: 'Ascundeți comentariile'
   # Context: View 10 Replies, View 1 Reply
-  View: ''
-  Hide: ''
-  Replies: ''
-  Reply: ''
-  There are no comments available for this video: ''
-  Load More Comments: ''
-Up Next: ''
+  View: 'Vizualizați'
+  Hide: 'Ascundeți'
+  Replies: 'Răspunsuri'
+  Reply: 'Răspuns'
+  There are no comments available for this video: 'Nu există comentarii disponibile
+    pentru acest videoclip'
+  Load More Comments: 'Încărcați mai multe comentarii'
+  No more comments available: Nu mai sunt disponibile alte comentarii
+  Show More Replies: Afișați mai multe răspunsuri
+  Newest first: Începând cu cele mai noi
+  Top comments: Cele mai bune comentarii
+  Sort by: Sortați după
+Up Next: 'În continuare'
 
 # Toast Messages
-Local API Error (Click to copy): ''
-Invidious API Error (Click to copy): ''
-Falling back to Invidious API: ''
-Falling back to the local API: ''
-This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
-Subscriptions have not yet been implemented: ''
-Loop is now disabled: ''
-Loop is now enabled: ''
-Shuffle is now disabled: ''
-Shuffle is now enabled: ''
-The playlist has been reversed: ''
-Playing Next Video: ''
-Playing Previous Video: ''
+Local API Error (Click to copy): 'Eroare API locală (Faceți clic pentru a copia)'
+Invidious API Error (Click to copy): 'Eroare API Invidious (Faceți clic pentru a copia)'
+Falling back to Invidious API: 'Revenine la Invidious API'
+Falling back to the local API: 'Revenire la API-ul local'
+This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Acest
+  videoclip nu este disponibil din cauza lipsei de formate. Acest lucru se poate întâmpla
+  din cauza indisponibilității țării.'
+Subscriptions have not yet been implemented: 'Abonamentele nu au fost încă implementate'
+Loop is now disabled: 'Bucla este acum dezactivată'
+Loop is now enabled: 'Bucla este acum activată'
+Shuffle is now disabled: 'Amestecarea este acum dezactivată'
+Shuffle is now enabled: 'Amestecarea este acum activată'
+The playlist has been reversed: 'Lista de redare a fost inversată'
+Playing Next Video: 'Se redă următorul videoclip'
+Playing Previous Video: 'Se redă videoclipul anterior'
 Playing next video in 5 seconds.  Click to cancel: ''
-Canceled next video autoplay: ''
-'The playlist has ended.  Enable loop to continue playing': ''
+Canceled next video autoplay: 'S-a anulat redarea automată a următorului videoclip'
+'The playlist has ended.  Enable loop to continue playing': 'Lista de redare s-a încheiat.  Activați
+  bucla pentru a continua redarea'
 
-Yes: ''
-No: ''
+Yes: 'Da'
+No: 'Nu'
 More: Mai multe
 Search Bar:
   Clear Input: Ștergeți intrarea
 Are you sure you want to open this link?: Sunteți sigur că doriți să deschideți acest
   link?
 Open New Window: Deschideți fereastră nouă
+Default Invidious instance has been cleared: Instanța implicită Invidious a fost eliminată
+Default Invidious instance has been set to $: Instanța implicită Invidious a fost
+  setată la $.
+Playing Next Video Interval: Se redară următorul videoclip în cel mai scurt timp.
+  Faceți clic pentru a anula. | Se redă următorul videoclip în {nextVideoInterval}
+  secundă. Faceți clic pentru a anula. | Se redă următorul videoclip în {nextVideoInterval}
+  secunde. Faceți clic pentru a anula.
+Hashtags have not yet been implemented, try again later: Hashtag-urile nu au fost
+  încă implementate, încercați din nou mai târziu
+Unknown YouTube url type, cannot be opened in app: Tip url YouTube necunoscut, nu
+  poate fi deschis în aplicație
+Tooltips:
+  Privacy Settings:
+    Remove Video Meta Files: Atunci când este activat, FreeTube șterge automat fișierele
+      meta create în timpul redării video, atunci când pagina de vizionare este închisă.
+  Subscription Settings:
+    Fetch Feeds from RSS: Atunci când este activată, FreeTube va utiliza RSS în locul
+      metodei implicite pentru a prelua feed-ul de abonament. RSS este mai rapid și
+      previne blocarea IP-ului, dar nu oferă anumite informații, cum ar fi durata
+      videoclipului sau starea live.
+  External Player Settings:
+    Custom External Player Arguments: Orice argumente personalizate din linia de comandă,
+      separate prin punct și virgulă (";"), pe care doriți să le transmiteți playerului
+      extern.
+    Ignore Warnings: Suprimarea avertismentelor în cazul în care playerul extern curent
+      nu acceptă acțiunea curentă (de exemplu, inversarea listelor de redare etc.).
+    Custom External Player Executable: În mod implicit, FreeTube va presupune că playerul
+      extern ales poate fi găsit prin intermediul variabilei de mediu PATH. Dacă este
+      necesar, aici poate fi setată o cale personalizată.
+    External Player: Alegerea unui player extern va afișa o pictogramă, pentru a deschide
+      videoclipul (lista de redare, dacă este acceptată) în playerul extern, pe miniatură.
+  Player Settings:
+    Default Video Format: Setați formatele utilizate la redarea unui videoclip. Formatele
+      DASH pot reda calități superioare. Formatele tradiționale sunt limitate la maximum
+      720p, dar utilizează mai puțină lățime de bandă. Formatele audio sunt doar fluxuri
+      audio.
+    Proxy Videos Through Invidious: Se va conecta la Invidious pentru a servi videoclipuri
+      în loc să facă o conexiune directă la YouTube. Anulează preferințele API.
+    Force Local Backend for Legacy Formats: Funcționează numai atunci când API-ul
+      Invidious este implicit. Atunci când este activată, API-ul local va rula și
+      va utiliza formatele vechi returnate de acesta în locul celor returnate de Invidious.
+      Ajută atunci când videoclipurile returnate de Invidious nu sunt redate din cauza
+      restricțiilor de țară.
+  General Settings:
+    External Link Handling: "Alegeți comportamentul implicit atunci când se face clic\
+      \ pe un link care nu poate fi deschis în FreeTube.\nÎn mod implicit, FreeTube\
+      \ va deschide link-ul pe care s-a făcut clic în browserul dvs. implicit.\n"
+    Region for Trending: Regiunea de tendințe vă permite să alegeți ce videoclipuri
+      în tendințe din fiecare țară doriți să fie afișate. Nu toate țările afișate
+      sunt suportate de YouTube.
+    Invidious Instance: Instanța Invidious la care FreeTube se va conecta pentru apelurile
+      API. Ștergeți instanța curentă pentru a vedea o listă de instanțe publice din
+      care puteți alege.
+    Thumbnail Preference: Toate miniaturile din FreeTube vor fi înlocuite cu un cadru
+      al videoclipului în loc de miniatura implicită.
+    Fallback to Non-Preferred Backend on Failure: Atunci când API-ul preferat are
+      o problemă, FreeTube va încerca automat să utilizeze API-ul nepreferat ca metodă
+      de rezervă, atunci când este activat.
+    Preferred API Backend: Alegeți backend-ul pe care FreeTube îl folosește pentru
+      a obține date. API-ul local este un extractor incorporat. API-ul Invidious necesită
+      un server Invidious la care să vă conectați.
+External link opening has been disabled in the general settings: Deschiderea linkurilor
+  externe a fost dezactivată în setările generale
