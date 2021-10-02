@@ -112,6 +112,7 @@ export default Vue.extend({
             'subsCapsButton',
             'audioTrackButton',
             'pictureInPictureToggle',
+            'toggleTheatreModeButton',
             'fullWindowButton',
             'qualitySelector',
             'fullscreenToggle'
@@ -137,6 +138,10 @@ export default Vue.extend({
   computed: {
     usingElectron: function () {
       return this.$store.getters.getUsingElectron
+    },
+
+    currentLocale: function () {
+      return this.$store.getters.getCurrentLocale
     },
 
     defaultPlayback: function () {
@@ -195,6 +200,7 @@ export default Vue.extend({
 
     this.createFullWindowButton()
     this.createLoopButton()
+    this.createToggleTheatreModeButton()
     this.determineFormatType()
     this.determineMaxFramerate()
   },
@@ -267,6 +273,11 @@ export default Vue.extend({
             this.player.play()
           }, 200)
         }
+
+        // Remove built-in progress bar mouse over current time display
+        // `MouseTimeDisplay` in
+        // https://github.com/videojs/video.js/blob/v7.13.3/docs/guides/components.md#default-component-tree
+        this.player.controlBar.progressControl.seekBar.playProgressBar.removeChild('timeTooltip')
 
         if (this.useSponsorBlock) {
           this.initializeSponsorBlock()
@@ -459,7 +470,7 @@ export default Vue.extend({
     },
 
     mouseScrollVolume: function (event) {
-      if (event.target) {
+      if (event.target && !event.currentTarget.querySelector('.vjs-menu:hover')) {
         event.preventDefault()
 
         if (this.player.muted() && event.wheelDelta > 0) {
@@ -966,6 +977,45 @@ export default Vue.extend({
       videojs.registerComponent('fullWindowButton', fullWindowButton)
     },
 
+    createToggleTheatreModeButton: function() {
+      if (!this.$parent.theatrePossible) {
+        return
+      }
+
+      const theatreModeActive = this.$parent.useTheatreMode ? ' vjs-icon-theatre-active' : ''
+
+      const VjsButton = videojs.getComponent('Button')
+      const toggleTheatreModeButton = videojs.extend(VjsButton, {
+        constructor: function(player, options) {
+          VjsButton.call(this, player, options)
+        },
+        handleClick: () => {
+          this.toggleTheatreMode()
+        },
+        createControlTextEl: function (button) {
+          return $(button)
+            .addClass('vjs-button-theatre')
+            .html($(`<div id="toggleTheatreModeButton" class="vjs-icon-theatre-inactive${theatreModeActive} vjs-button"></div>`))
+            .attr('title', 'Toggle Theatre Mode')
+        }
+      })
+
+      videojs.registerComponent('toggleTheatreModeButton', toggleTheatreModeButton)
+    },
+
+    toggleTheatreMode: function() {
+      if (!this.player.isFullscreen_) {
+        const toggleTheatreModeButton = $('#toggleTheatreModeButton')
+        if (!this.$parent.useTheatreMode) {
+          toggleTheatreModeButton.addClass('vjs-icon-theatre-active')
+        } else {
+          toggleTheatreModeButton.removeClass('vjs-icon-theatre-active')
+        }
+      }
+
+      this.$parent.toggleTheatreMode()
+    },
+
     createDashQualitySelector: function (levels) {
       if (levels.levels_.length === 0) {
         setTimeout(() => {
@@ -1054,6 +1104,47 @@ export default Vue.extend({
       this.determineDefaultQualityDash()
     },
 
+    sortCaptions: function (captionList) {
+      return captionList.sort((captionA, captionB) => {
+        const aCode = captionA.languageCode.split('-') // ex. [en,US]
+        const bCode = captionB.languageCode.split('-')
+        const aName = (captionA.label || captionA.name.simpleText) // ex: english (auto-generated)
+        const bName = (captionB.label || captionB.name.simpleText)
+        const userLocale = this.currentLocale.split(/-|_/) // ex. [en,US]
+        if (aCode[0] === userLocale[0]) { // caption a has same language as user's locale
+          if (bCode[0] === userLocale[0]) { // caption b has same language as user's locale
+            if (bName.search('auto') !== -1) {
+              // prefer caption a: b is auto-generated captions
+              return -1
+            } else if (aName.search('auto') !== -1) {
+              // prefer caption b: a is auto-generated captions
+              return 1
+            } else if (aCode[1] === userLocale[1]) {
+              // prefer caption a: caption a has same county code as user's locale
+              return -1
+            } else if (bCode[1] === userLocale[1]) {
+              // prefer caption b: caption b has same county code as user's locale
+              return 1
+            } else if (aCode[1] === undefined) {
+              // prefer caption a: no country code is better than wrong country code
+              return -1
+            } else if (bCode[1] === undefined) {
+              // prefer caption b: no country code is better than wrong country code
+              return 1
+            }
+          } else {
+            // prefer caption a: b does not match user's language
+            return -1
+          }
+        } else if (bCode[0] === userLocale[0]) {
+          // prefer caption b: a does not match user's language
+          return 1
+        }
+        // sort alphabetically
+        return aName.localeCompare(bName)
+      })
+    },
+
     transformAndInsertCaptions: async function() {
       let captionList
       if (this.captionHybridList[0] instanceof Promise) {
@@ -1063,7 +1154,7 @@ export default Vue.extend({
         captionList = this.captionHybridList
       }
 
-      for (const caption of captionList) {
+      for (const caption of this.sortCaptions(captionList)) {
         this.player.addRemoteTextTrack({
           kind: 'subtitles',
           src: caption.baseUrl || caption.url,
@@ -1372,6 +1463,11 @@ export default Vue.extend({
             // S Key
             // Toggle Full Window Mode
             this.toggleFullWindow()
+            break
+          case 84:
+            // T Key
+            // Toggle Theatre Mode
+            this.toggleTheatreMode()
             break
         }
       }

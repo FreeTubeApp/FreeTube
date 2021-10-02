@@ -83,7 +83,13 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Získávám odběry. Prosím čekejte.'
   Refresh Subscriptions: 'Obnovit odběry'
   Load More Videos: 'Načíst více videí'
-Trending: 'Trendy'
+Trending:
+  Trending: 'Trendy'
+  Trending Tabs: Tabulka trendů
+  Movies: Filmy
+  Gaming: Hry
+  Music: Hudba
+  Default: Výchozí
 Most Popular: 'Nejpopulárnější'
 Playlists: 'Playlisty'
 User Playlists:
@@ -141,6 +147,11 @@ Settings:
     Current Invidious Instance: Současná instance Invidious
     No default instance has been set: Není nastavena žádný výchozí instance
     The currently set default instance is $: Současné výchozí instance je $
+    External Link Handling:
+      No Action: Žádná akce
+      Ask Before Opening Link: Před otevřením se zeptat
+      Open Link: Otevřít odkaz
+      External Link Handling: Používání externích odkazů
   Theme Settings:
     Theme Settings: 'Nastavení motivu'
     Match Top Bar with Main Color: 'Přizpůsobit hlavní lištu hlavní barvě'
@@ -152,6 +163,7 @@ Settings:
       Black: 'Černý'
       Dark: 'Tmavý'
       Light: 'Světlý'
+      Dracula: 'Drákula'
     Main Color Theme:
       Main Color Theme: 'Hlavní barevný motiv'
       Red: 'Červený'
@@ -170,6 +182,13 @@ Settings:
       Amber: 'Jantarový'
       Orange: 'Oranžový'
       Deep Orange: 'Tmavě oranžový'
+      Dracula Cyan: 'Drákula Azurový'
+      Dracula Green: 'Drákula Zelený'
+      Dracula Orange: 'Drákula Oranžový'
+      Dracula Pink: 'Drákula Růžový'
+      Dracula Purple: 'Drákula Fialový'
+      Dracula Red: 'Drákula Červený'
+      Dracula Yellow: 'Drákula Žlutý'
     Secondary Color Theme: 'Téma sekundární barvy'
         #* Main Color Theme
   Player Settings:
@@ -204,6 +223,7 @@ Settings:
     Next Video Interval: Další interval videa
     Display Play Button In Video Player: Zobrazit tlačítko 'přehrát' ve video přehrávači
     Scroll Volume Over Video Player: Změnit hlasitost posouváním na videu
+    Fast-Forward / Rewind Interval: Interval rychlého převíjení vpřed / vzad
   Privacy Settings:
     Privacy Settings: 'Nastavení soukromí'
     Remember History: 'Zapamatovat historii'
@@ -646,6 +666,7 @@ Comments:
     žádné komentáře'
   Load More Comments: 'Načíst další komentáře'
   No more comments available: 'Žádné další komentáře nejsou k dispozici'
+  Show More Replies: Načíst více výsledků
 Up Next: 'Další'
 
 #Tooltips
@@ -665,6 +686,9 @@ Tooltips:
     Region for Trending: 'Region trendů vám umožní vybrat si zemi, ze které si přejete
       zobrazovat videa trendů. Ne všechny zobrazené země jsou ale službou YouTube
       reálně podporovány.'
+    External Link Handling: "Zvolte výchozí chování při kliknutí na odkaz, který nelze\
+      \ otevřít ve FreeTube.\nVe výchozím nastavení otevře FreeTube odkaz ve vašem\
+      \ výchozím prohlížeči.\n"
   Player Settings:
     Force Local Backend for Legacy Formats: 'Funguje pouze v případě, že je výchozím
       nastavením API Invidious. Je-li povoleno, spustí se místní API a použije starší
@@ -730,3 +754,8 @@ Open New Window: Otevřít nové okno
 Default Invidious instance has been cleared: Výchozí Invidious instance byla vymazána
 Default Invidious instance has been set to $: Výchozí Invidious instance byla nastavena
   na $
+Search Bar:
+  Clear Input: Vymazat
+External link opening has been disabled in the general settings: Otevírání externích
+  odkazů bylo v obecném nastavení zakázáno
+Are you sure you want to open this link?: Opravdu chcete otevřít tento dokaz?

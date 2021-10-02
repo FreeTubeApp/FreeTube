@@ -1,12 +1,11 @@
 <template>
-  <ft-card
-    class="card"
-  >
-    <h3
-      class="videoTitle"
-    >
-      {{ $t("Settings.General Settings.General Settings") }}
-    </h3>
+  <details>
+    <summary>
+      <h3>
+        {{ $t("Settings.General Settings.General Settings") }}
+      </h3>
+    </summary>
+    <hr>
     <div class="switchColumnGrid">
       <div class="switchColumn">
         <ft-toggle-switch
@@ -85,11 +84,19 @@
         :tooltip="$t('Tooltips.General Settings.Region for Trending')"
         @change="updateRegion"
       />
+      <ft-select
+        :placeholder="$t('Settings.General Settings.External Link Handling.External Link Handling')"
+        :value="externalLinkHandling"
+        :select-names="externalLinkHandlingNames"
+        :select-values="externalLinkHandlingValues"
+        :tooltip="$t('Tooltips.General Settings.External Link Handling')"
+        @change="updateExternalLinkHandling"
+      />
     </div>
     <ft-flex-box class="generalSettingsFlexBox">
       <ft-input
         :placeholder="$t('Settings.General Settings.Current Invidious Instance')"
-        :show-arrow="false"
+        :show-action-button="false"
         :show-label="true"
         :value="currentInvidiousInstance"
         :data-list="invidiousInstancesList"
@@ -130,7 +137,7 @@
         @click="handleClearDefaultInstanceClick"
       />
     </ft-flex-box>
-  </ft-card>
+  </details>
 </template>
 
 <script src="./general-settings.js" />

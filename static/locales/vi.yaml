@@ -75,7 +75,8 @@ Subscriptions:
   Refresh Subscriptions: Refresh đăng ký
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Kênh
     này có nhiều người đăng ký. Buộc RSS để tránh bị giới hạn
-Trending: 'Xu hướng'
+Trending:
+  Trending: 'Xu hướng'
 Most Popular: 'Phổ biến nhất'
 Playlists: 'Danh sách phát'
 User Playlists:
@@ -123,6 +124,7 @@ Settings:
       Black: 'Đen'
       Dark: 'Tối'
       Light: 'Sáng'
+      Dracula: 'Ma cà rồng'
     Main Color Theme:
       Main Color Theme: 'Màu chủ đề chính'
       Red: 'Đỏ'
@@ -141,6 +143,13 @@ Settings:
       Amber: 'Hổ Phách'
       Orange: 'Cam'
       Deep Orange: 'Cam Đậm'
+      Dracula Cyan: 'Ma cà rồng Lục Lam'
+      Dracula Green: 'Ma cà rồng Xanh Lá'
+      Dracula Orange: 'Ma cà rồng Cam'
+      Dracula Pink: 'Ma cà rồng Hồng'
+      Dracula Purple: 'Ma cà rồng Tím'
+      Dracula Red: 'Ma cà rồng Đỏ'
+      Dracula Yellow: 'Ma cà rồng Vàng'
     Secondary Color Theme: 'Màu chủ đề thứ hai'
         #* Main Color Theme
     UI Scale: Tỉ lệ UI
@@ -311,6 +320,8 @@ About:
   Latest FreeTube News: 'Tin tức mới nhất về FreeTube'
 
 #On Channel Page
+  Mastodon: Mastodon
+  Email: Thư điện tử
 Channel:
   Subscriber: 'Người đăng ký'
   Subscribers: 'Người đăng ký'

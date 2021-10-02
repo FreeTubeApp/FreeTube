@@ -44,7 +44,6 @@ $thumbnail-overlay-opacity: 0.85
       opacity: 1
 
   .videoThumbnail
-    display: flex
     position: relative
 
     .thumbnailLink
@@ -53,7 +52,6 @@ $thumbnail-overlay-opacity: 0.85
       width: 100%
 
     .thumbnailImage
-      height: 130px
 
       @include is-sidebar-item
         height: 75px
@@ -64,6 +62,7 @@ $thumbnail-overlay-opacity: 0.85
 
     .videoWatched
       position: absolute
+      top:0
       padding: 2px
       opacity: $thumbnail-overlay-opacity
       color: var(--primary-text-color)

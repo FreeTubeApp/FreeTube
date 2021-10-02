@@ -76,7 +76,13 @@ Subscriptions:
   Load More Videos: حمّل المزيد من الفيديوهات
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: لدى
     هذا الملف الشخصي عدد كبير من الاشتراكات. يتم فرض وضع RSS لتجنب تقييد الوصول  للاشتراكات
-Trending: 'المحتوى الرائج'
+Trending:
+  Trending: 'المحتوى الرائج'
+  Trending Tabs: علامات التبويب الشائعة
+  Movies: أفلام
+  Gaming: الالعاب
+  Music: الموسيقى
+  Default: الإفتراضي
 Most Popular: 'الأكثر شعبية'
 Playlists: 'قوائم التشغيل'
 User Playlists:
@@ -130,6 +136,11 @@ Settings:
     The currently set default instance is $: المثيل الافتراضي المحدد حاليا هو $
     Current Invidious Instance: المثيل الحالي Invidious
     Clear Default Instance: مسح المثيل الافتراضي
+    External Link Handling:
+      No Action: لا يوجد إجراء
+      Ask Before Opening Link: اسأل قبل فتح الرابط
+      Open Link: افتح الرابط
+      External Link Handling: معالجة الارتباط الخارجي
   Theme Settings:
     Theme Settings: 'إعدادات السِمة'
     Match Top Bar with Main Color: 'طابق الشريط العلوي مع اللون الأساسي'
@@ -138,6 +149,7 @@ Settings:
       Black: 'أسود'
       Dark: 'داكن'
       Light: 'فاتح'
+      Dracula: 'دراكولا'
     Main Color Theme:
       Main Color Theme: 'لون السِمة الأساسي'
       Red: 'أحمر'
@@ -156,6 +168,13 @@ Settings:
       Amber: 'كهرماني'
       Orange: 'برتقالي'
       Deep Orange: 'برتقالي داكن'
+      Dracula Cyan: 'دراكولا سماوي'
+      Dracula Green: 'دراكولا أخضر'
+      Dracula Orange: 'دراكولا برتقالي'
+      Dracula Pink: 'دراكولا وردي'
+      Dracula Purple: 'دراكولا إرجواني'
+      Dracula Red: 'دراكولا أحمر'
+      Dracula Yellow: 'دراكولا أصفر'
     Secondary Color Theme: 'لون السِمة الثانوي'
         #* Main Color Theme
     UI Scale: مقياس واجهة المستخدم
@@ -637,6 +656,7 @@ Comments:
   Newest first: الأحدث أولاً
   Top comments: أهم التعليقات
   Sort by: الترتيب حسب
+  Show More Replies: إظهار المزيد من الردود
 Up Next: 'التالي'
 
 # Toast Messages
@@ -679,6 +699,9 @@ Tooltips:
       التراجع.
     Region for Trending: الانتشار المحلي (Trend) يسمح لك بأن تشاهد الفيديوهات الأكثر
       انتشارا حسب الدولة. ليست كل الدول المعروضة في هذه القائمة مدعومة من طرف يوتيوب.
+    External Link Handling: "اختر السلوك الافتراضي عند النقر فوق رابط، لا يمكن فتحه\
+      \ في FreeTube.\nبشكل افتراضي، سيفتح FreeTube الرابط الذي تم النقر عليه في المتصفح\
+      \ الافتراضي.\n"
   Player Settings:
     Proxy Videos Through Invidious: سيتم الاتصال ب Invidious لتقديم مقاطع الفيديو
       بدلاً من إجراء اتصال مباشر مع يوتيوب. يلغي تفضيل الواجهة البرمجية.
@@ -722,3 +745,8 @@ Open New Window: افتح نافذة جديدة
 Default Invidious instance has been cleared: تم مسح مثيل Invidious الافتراضي
 Default Invidious instance has been set to $: تم تعيين المثيل الافتراضي Invidious
   إلى $
+Search Bar:
+  Clear Input: مسح المدخلات
+External link opening has been disabled in the general settings: تم تعطيل فتح الارتباط
+  الخارجي في الإعدادات العامة
+Are you sure you want to open this link?: هل أنت متأكد أنك تريد فتح هذا الرابط؟

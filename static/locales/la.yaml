@@ -82,7 +82,8 @@ Subscriptions:
   Load More Videos: Voce plus Movens Imaginibus
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Haec
     profile copia subscriptioni habet. Impono RSS ut impedio restrictionis per celeritatis
-Trending: 'Inclinant'
+Trending:
+  Trending: 'Inclinant'
 Most Popular: 'Maxime Popular'
 Playlists: 'Album ludere'
 User Playlists:
@@ -133,6 +134,7 @@ Settings:
       Black: 'Lividus'
       Dark: 'Niger'
       Light: 'Illustris'
+      Dracula: 'Dracula'
     Main Color Theme:
       Main Color Theme: 'Pelagus Color Lemma'
       Red: 'Ruber'
@@ -151,6 +153,13 @@ Settings:
       Amber: ''
       Orange: ''
       Deep Orange: ''
+      Dracula Cyan: 'Dracula Galben'
+      Dracula Green: 'Dracula Prasinus'
+      Dracula Orange: 'Dracula Orange'
+      Dracula Pink: 'Dracula Roseus'
+      Dracula Purple: 'Dracula Purpura'
+      Dracula Red: 'Dracula Ruber'
+      Dracula Yellow: 'Dracula Flavum'
     Secondary Color Theme: ''
         #* Main Color Theme
   Player Settings:

@@ -50,6 +50,11 @@ export default Vue.extend({
         'start',
         'middle',
         'end'
+      ],
+      externalLinkHandlingValues: [
+        '',
+        'openLinkAfterPrompt',
+        'doNothing'
       ]
     }
   },
@@ -150,6 +155,18 @@ export default Vue.extend({
         this.$t('Settings.General Settings.Thumbnail Preference.Middle'),
         this.$t('Settings.General Settings.Thumbnail Preference.End')
       ]
+    },
+
+    externalLinkHandling: function () {
+      return this.$store.getters.getExternalLinkHandling
+    },
+
+    externalLinkHandlingNames: function () {
+      return [
+        this.$t('Settings.General Settings.External Link Handling.Open Link'),
+        this.$t('Settings.General Settings.External Link Handling.Ask Before Opening Link'),
+        this.$t('Settings.General Settings.External Link Handling.No Action')
+      ]
     }
   },
   mounted: function () {
@@ -218,7 +235,8 @@ export default Vue.extend({
       'updateListType',
       'updateThumbnailPreference',
       'updateForceLocalBackendForLegacy',
-      'updateCurrentLocale'
+      'updateCurrentLocale',
+      'updateExternalLinkHandling'
     ])
   }
 })

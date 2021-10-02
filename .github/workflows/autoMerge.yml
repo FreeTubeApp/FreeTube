@@ -1,0 +1,17 @@
+name: Auto Merge PR
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, auto_merge_disabled]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Auto Merge PR
+      if: contains(${{ github.event.pull_request.base.ref }}, 'development') || contains(${{ github.event.pull_request.base.ref }}, 'RC')
+      run: |
+        echo ${{ secrets.PUSH_TOKEN }} >> auth.txt
+        gh auth login --with-token < auth.txt
+        rm auth.txt
+        gh pr merge https://github.com/FreeTubeApp/FreeTube/pull/${{ github.event.pull_request.number }} --auto --squash
