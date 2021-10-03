@@ -101,7 +101,7 @@ History:
   # On History Page
   History: 'Cronologia'
   Watch History: 'Cronologia delle visualizzazioni'
-  Your history list is currently empty.: 'La tua cronologia è vuota.'
+  Your history list is currently empty.: 'La tua cronologia al momento è vuota.'
 Settings:
   # On Settings Page
   Settings: 'Impostazioni'
@@ -157,7 +157,7 @@ Settings:
       Light: 'Chiaro'
       Dracula: 'Dracula'
     Main Color Theme:
-      Main Color Theme: 'Tema colori principale'
+      Main Color Theme: 'Tema colore principale'
       Red: 'Rosso'
       Pink: 'Rosa'
       Purple: 'Viola'
@@ -181,14 +181,14 @@ Settings:
       Dracula Purple: 'Dracula Viola'
       Dracula Red: 'Dracula Rosso'
       Dracula Yellow: 'Dracula Giallo'
-    Secondary Color Theme: 'Tema colori secondario'
+    Secondary Color Theme: 'Tema colore secondario'
         #* Main Color Theme
     UI Scale: Dimensioni interfaccia
     Disable Smooth Scrolling: Disabilita scorrimento fluido
     Expand Side Bar by Default: Espandi automaticamente la barra laterale
   Player Settings:
     Player Settings: 'Impostazioni del riproduttore video'
-    Force Local Backend for Legacy Formats: 'Forza back-end locale per formati legacy'
+    Force Local Backend for Legacy Formats: 'Forza Back-end locale per formati Legacy'
     Play Next Video: 'Riproduci il prossimo video'
     Turn on Subtitles by Default: 'Abilita i sottotitoli per impostazione predefinita'
     Autoplay Videos: 'Riproduci i video automaticamente'
@@ -198,7 +198,7 @@ Settings:
     Default Volume: 'Volume predefinito'
     Default Playback Rate: 'Velocità di riproduzione predefinita'
     Default Video Format:
-      Default Video Format: 'Formati video predefiniti'
+      Default Video Format: 'Formato video predefinito'
       Dash Formats: 'Formati DASH'
       Legacy Formats: 'Formati Legacy'
       Audio Formats: 'Formati Audio'
@@ -222,8 +222,8 @@ Settings:
     Scroll Volume Over Video Player: Controlla il volume scorrendo sul lettore video
   Privacy Settings:
     Privacy Settings: 'Impostazioni privacy'
-    Remember History: 'Salva la Cronologia'
-    Save Watched Progress: 'Salva i progressi osservati'
+    Remember History: 'Salva la cronologia'
+    Save Watched Progress: 'Salva i progressi raggiunti'
     Clear Search Cache: 'Pulisci la cache di ricerca'
     Are you sure you want to clear out your search cache?: 'Sei sicuro di voler pulire
       la cache di ricerca?'
@@ -231,7 +231,7 @@ Settings:
     Remove Watch History: 'Cancella la cronologia visualizzazioni'
     Are you sure you want to remove your entire watch history?: 'Sei sicuro di voler
       cancellare l''intera cronologia di visualizzazione?'
-    Watch history has been cleared: 'La cronologia di visualizzazioni è stata pulita'
+    Watch history has been cleared: 'La cronologia delle visualizzazioni è stata svuotata'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Sei
       sicuro di volere eliminare tutte le iscrizioni e i profili? L'operazione non
       può essere annullata.
@@ -322,12 +322,12 @@ Settings:
     Hide Popular Videos: Nascondi i video popolari
     Hide Trending Videos: Nascondi i video in tendenze
     Hide Recommended Videos: Nascondi i video suggeriti
-    Hide Comment Likes: Nascondi Mi piace dai commenti
+    Hide Comment Likes: Nascondi "Mi piace" dai commenti
     Hide Channel Subscribers: Nascondi il numero di iscritti
     Hide Video Views: Nascondi le visualizzazioni dei video
-    Distraction Free Settings: Impostazioni modalità Senza distrazioni
+    Distraction Free Settings: Impostazioni modalità "Senza distrazioni"
     Hide Live Chat: Nascondi la chat live
-    Hide Video Likes And Dislikes: Nascondi Mi piace e Non mi piace
+    Hide Video Likes And Dislikes: Nascondi "Mi piace" e "Non mi piace"
     Hide Active Subscriptions: Nascondi le iscrizioni attive
     Hide Playlists: Nascondi le playlist
   The app needs to restart for changes to take effect. Restart and apply change?: L'applicazione
@@ -346,7 +346,7 @@ Settings:
     Ip: Ip
     Your Info: Le tue informazioni
     Test Proxy: Testa proxy
-    Clicking on Test Proxy will send a request to: Cliccando su Testa proxy verrà
+    Clicking on Test Proxy will send a request to: Cliccando su "Testa proxy" verrà
       inviata una richiesta a
     Proxy Port Number: Numero di porta del proxy
     Proxy Host: Host del proxy
@@ -738,7 +738,7 @@ Tooltips:
     Fallback to Non-Preferred Backend on Failure: Quando le tue API preferite hanno
       un problema, FreeTube userà automaticamente le API secondarie come ripiego quando
       abilitate.
-    Preferred API Backend: Scegli il back-end che FreeTube utilizza per ottenere i
+    Preferred API Backend: Scegli il Back-end che FreeTube utilizza per ottenere i
       dati. L'API locale è un estrattore integrato. Le API Invidious richiedono un
       server Invidious dove connettersi.
     Region for Trending: La regione delle tendenze permette di scegliere la nazione
