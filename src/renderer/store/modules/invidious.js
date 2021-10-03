@@ -53,7 +53,10 @@ const actions = {
         })
       } else {
         console.log('unable to read static file for invidious instances')
-        instances = ['https://invidious.snopyta.org', 'https://invidious.kavin.rocks/']
+        instances = [
+          'https://invidious.snopyta.org', 
+          'https://invidious.kavin.rocks/'
+        ]
       }
     }
 
