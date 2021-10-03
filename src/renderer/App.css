@@ -32,6 +32,12 @@ body {
   margin-bottom: -75px;
 }
 
+#changeLogText {
+  overflow-y: scroll;
+  height: 40vh;
+  display: block
+}
+
 .fade-enter-active, .fade-leave-active {
   transition: opacity .15s;
 }

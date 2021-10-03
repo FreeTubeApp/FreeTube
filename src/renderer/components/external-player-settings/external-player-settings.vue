@@ -1,12 +1,11 @@
 <template>
-  <ft-card
-    class="relative card"
-  >
-    <h3
-      class="videoTitle"
-    >
-      {{ $t("Settings.External Player Settings.External Player Settings") }}
-    </h3>
+  <details>
+    <summary>
+      <h3>
+        {{ $t("Settings.External Player Settings.External Player Settings") }}
+      </h3>
+    </summary>
+    <hr>
     <div class="switchColumnGrid">
       <div class="switchColumn">
         <ft-select
@@ -34,7 +33,7 @@
     >
       <ft-input
         :placeholder="$t('Settings.External Player Settings.Custom External Player Executable')"
-        :show-arrow="false"
+        :show-action-button="false"
         :show-label="true"
         :value="externalPlayerExecutable"
         :tooltip="$t('Tooltips.External Player Settings.Custom External Player Executable')"
@@ -42,14 +41,14 @@
       />
       <ft-input
         :placeholder="$t('Settings.External Player Settings.Custom External Player Arguments')"
-        :show-arrow="false"
+        :show-action-button="false"
         :show-label="true"
         :value="externalPlayerCustomArgs"
         :tooltip="$t('Tooltips.External Player Settings.Custom External Player Arguments')"
         @input="updateExternalPlayerCustomArgs"
       />
     </ft-flex-box>
-  </ft-card>
+  </details>
 </template>
 
 <script src="./external-player-settings.js" />

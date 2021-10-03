@@ -83,7 +83,8 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Obtendo subscricións. Por favor, agarda.'
   Refresh Subscriptions: 'Actualizar subscricións'
   Load More Videos: 'Cargar máis vídeos'
-Trending: 'Tendencias'
+Trending:
+  Trending: 'Tendencias'
 Most Popular: 'Máis populares'
 Playlists: 'Listaxes de reprodución'
 User Playlists:
@@ -153,6 +154,7 @@ Settings:
       Black: 'Negro'
       Dark: 'Escuro'
       Light: 'Claro'
+      Dracula: 'Drácula'
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermello'
@@ -171,6 +173,13 @@ Settings:
       Amber: 'Ámbar'
       Orange: 'Laranxa'
       Deep Orange: 'Laranxa escuro'
+      Dracula Cyan: 'Drácula Ciano'
+      Dracula Green: 'Drácula Verde'
+      Dracula Orange: 'Drácula Laranxa'
+      Dracula Pink: 'Drácula Rosa'
+      Dracula Purple: 'Drácula Morado'
+      Dracula Red: 'Drácula Vermello'
+      Dracula Yellow: 'Drácula Amarelo'
     Secondary Color Theme: 'Cor secundaria'
         #* Main Color Theme
   Player Settings:
@@ -574,7 +583,7 @@ Video:
     intro: intro
     sponsor: patrocinador
   Skipped segment: Segmento omitido
-  translated from English: traducido do Inglés
+  translated from English: traducido do inglés
   Video has been removed from your saved list: Eliminouse este vídeo da lista de gardados
   Video has been saved: Gardouse o vídeo
   Save Video: Gardar vídeo

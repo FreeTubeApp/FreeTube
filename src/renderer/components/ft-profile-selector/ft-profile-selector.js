@@ -13,7 +13,7 @@ export default Vue.extend({
   },
   data: function () {
     return {
-      showProfileList: false
+      profileListShown: false
     }
   },
   computed: {
@@ -38,12 +38,25 @@ export default Vue.extend({
   mounted: function () {
     $('#profileList').focusout(() => {
       $('#profileList')[0].style.display = 'none'
+      // When pressing the profile button
+      // It will make the menu reappear if we set `profileListShown` immediately
+      setTimeout(() => {
+        this.profileListShown = false
+      }, 100)
     })
   },
   methods: {
     toggleProfileList: function () {
-      $('#profileList')[0].style.display = 'inline'
-      $('#profileList').focus()
+      const profileList = $('#profileList')
+
+      if (this.profileListShown) {
+        profileList.get(0).style.display = 'none'
+        this.profileListShown = false
+      } else {
+        profileList.get(0).style.display = 'inline'
+        profileList.get(0).focus()
+        this.profileListShown = true
+      }
     },
 
     openProfileSettings: function () {

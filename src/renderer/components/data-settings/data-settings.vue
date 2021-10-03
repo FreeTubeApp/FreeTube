@@ -1,10 +1,11 @@
 <template>
-  <ft-card
-    class="relative card"
-  >
-    <h3>
-      {{ $t("Settings.Data Settings.Data Settings") }}
-    </h3>
+  <details>
+    <summary>
+      <h3>
+        {{ $t("Settings.Data Settings.Data Settings") }}
+      </h3>
+    </summary>
+    <hr>
     <ft-flex-box>
       <ft-button
         :label="$t('Settings.Data Settings.Import Subscriptions')"
@@ -30,7 +31,7 @@
     <ft-flex-box>
       <a
         class="center"
-        href="https://github.com/FreeTubeApp/FreeTube/wiki/Importing-Your-YouTube-Subscriptions"
+        href="https://docs.freetubeapp.io/usage/importing-subscriptions/"
       >
         <p>
           {{ $t("Settings.Data Settings.How do I import my subscriptions?") }}
@@ -57,7 +58,7 @@
       :option-values="subscriptionsPromptValues"
       @click="exportSubscriptions"
     />
-  </ft-card>
+  </details>
 </template>
 
 <script src="./data-settings.js" />

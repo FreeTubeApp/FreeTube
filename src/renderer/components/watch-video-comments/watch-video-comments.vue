@@ -146,7 +146,7 @@
             class="showMoreReplies"
             @click="getCommentReplies(index)"
           >
-            <span>Show More Replies</span>
+            <span>{{ $t("Comments.Show More Replies") }}</span>
           </div>
         </div>
       </div>

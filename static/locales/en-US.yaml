@@ -35,9 +35,12 @@ Version $ is now available!  Click for more details: Version $ is now available!
 Download From Site: Download From Site
 A new blog is now available, $. Click to view more: A new blog is now available, $.
   Click to view more
+Are you sure you want to open this link?: Are you sure you want to open this link?
 
 # Search Bar
 Search / Go to URL: Search / Go to URL
+Search Bar:
+  Clear Input: Clear Input
   # In Filter Button
 Search Filters:
   Search Filters: Search Filters
@@ -84,7 +87,13 @@ Subscriptions:
   Refresh Subscriptions: Refresh Subscriptions
   Load More Videos: Load More Videos
 More: More
-Trending: Trending
+Trending:
+  Trending: Trending
+  Default: Default
+  Music: Music
+  Gaming: Gaming
+  Movies: Movies
+  Trending Tabs: Trending Tabs
 Most Popular: Most Popular
 Playlists: Playlists
 User Playlists:
@@ -137,7 +146,12 @@ Settings:
     Clear Default Instance: Clear Default Instance
     View all Invidious instance information: View all Invidious instance information
     Region for Trending: Region for Trending
-        #! List countries
+    #! List countries
+    External Link Handling:
+      External Link Handling: External Link Handling
+      Open Link: Open Link
+      Ask Before Opening Link: Ask Before Opening Link
+      No Action: No Action
   Theme Settings:
     Theme Settings: Theme Settings
     Match Top Bar with Main Color: Match Top Bar with Main Color
@@ -149,6 +163,7 @@ Settings:
       Black: Black
       Dark: Dark
       Light: Light
+      Dracula: Dracula
     Main Color Theme:
       Main Color Theme: Main Color Theme
       Red: Red
@@ -167,6 +182,13 @@ Settings:
       Amber: Amber
       Orange: Orange
       Deep Orange: Deep Orange
+      Dracula Cyan: Dracula Cyan
+      Dracula Green: Dracula Green
+      Dracula Orange: Dracula Orange
+      Dracula Pink: Dracula Pink
+      Dracula Purple: Dracula Purple
+      Dracula Red: Dracula Red
+      Dracula Yellow: Dracula Yellow
     Secondary Color Theme: Secondary Color Theme
         #* Main Color Theme
   Player Settings:
@@ -583,6 +605,7 @@ Comments:
   View: View
   Hide: Hide
   Replies: Replies
+  Show More Replies: Show More Replies
   Reply: Reply
   There are no comments available for this video: There are no comments available
     for this video
@@ -607,6 +630,9 @@ Tooltips:
     Region for Trending: The region of trends allows you to pick which country's trending
       videos you want to have displayed. Not all countries displayed are actually
       supported by YouTube.
+    External Link Handling: |
+      Choose the default behavior when a link, which cannot be opened in FreeTube, is clicked.
+      By default FreeTube will open the clicked link in your default browser.
   Player Settings:
     Force Local Backend for Legacy Formats: Only works when the Invidious API is your
       default. When enabled, the local API will run and use the legacy formats returned
@@ -660,6 +686,7 @@ Default Invidious instance has been set to $: Default Invidious instance has bee
 Default Invidious instance has been cleared: Default Invidious instance has been cleared
 'The playlist has ended.  Enable loop to continue playing': 'The playlist has ended.  Enable
   loop to continue playing'
+External link opening has been disabled in the general settings: 'External link opening has been disabled in the general settings'
 
 Yes: Yes
 No: No

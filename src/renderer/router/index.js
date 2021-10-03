@@ -63,7 +63,7 @@ const router = new Router({
     {
       path: '/trending',
       meta: {
-        title: 'Trending',
+        title: 'Trending.Trending',
         icon: 'fa-home'
       },
       component: Trending

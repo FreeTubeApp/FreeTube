@@ -72,7 +72,8 @@ Subscriptions:
   'Getting Subscriptions.  Please wait.': 'Obteniendo Suscripciones. Por favor espere.'
   Refresh Subscriptions: Actulizar Suscripciones
   Getting Subscriptions. Please wait.: Obteniendo Suscripciones. Por favor espere.
-Trending: 'Tendencias'
+Trending:
+  Trending: 'Tendencias'
 Most Popular: 'Más Popular'
 Playlists: 'Listas de Reproducción'
 User Playlists:
@@ -120,6 +121,7 @@ Settings:
       Black: 'Negro'
       Dark: 'Oscuro'
       Light: 'Claro'
+      Dracula: 'Drácula'
     Main Color Theme:
       Main Color Theme: 'Color principal de la apariencia'
       Red: 'Rojo'
@@ -138,6 +140,13 @@ Settings:
       Amber: 'Ámbar'
       Orange: 'Naranja'
       Deep Orange: 'Naranja profundo'
+      Dracula Cyan: 'Drácula Cian'
+      Dracula Green: 'Drácula Verde'
+      Dracula Orange: 'Drácula Naranja'
+      Dracula Pink: 'Drácula Rosado'
+      Dracula Purple: 'Drácula Púrpura'
+      Dracula Red: 'Drácula Rojo'
+      Dracula Yellow: 'Drácula Amarillo'
     Secondary Color Theme: 'Color secundario de la apariencia'
         #* Main Color Theme
   Player Settings:
@@ -297,6 +306,7 @@ About:
   Blog: Blog
   Website: Sitio web
   Email: Correo electrónico
+  Mastodon: Mastodon
 Channel:
   Subscriber: 'Suscriptor'
   Subscribers: 'Suscriptores'
@@ -396,6 +406,7 @@ Video:
   Reverse Playlist: Lista de reproducción invertida
   Shuffle Playlist: Lista de reproducción aleatoria
   Loop Playlist: Lista de reproducción en bucle
+  translated from English: traducido del inglés
 Videos:
   #& Sort By
   Sort By:
@@ -531,3 +542,4 @@ A new blog is now available, $. Click to view more: Un nuevo blog ya está dispo
 Download From Site: Descargar desde el sitio
 Version $ is now available!  Click for more details: Versión $ ya está disponible!
   Presione para más detalles
+Open New Window: Abrir nueva ventana

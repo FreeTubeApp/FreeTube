@@ -1,147 +1,177 @@
 # Put the name of your locale in the same language
-Locale Name: ''
+Locale Name: 'Română (RO)'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Această parte a aplicației nu este gata încă. Revino mai târziu când este gata.
+  Această parte a aplicației nu este încă gata. Reveniți mai târziu, când se vor face
+  progrese.
 
 # Webkit Menu Bar
 File: 'Filă'
 Quit: 'Ieșire'
 Edit: 'Editare'
-Undo: 'Desfă'
-Redo: 'Refă'
-Cut: 'Taie'
-Copy: 'Copiază'
-Paste: 'Lipește'
-Delete: 'Șterge'
-Select all: 'Selectează tot'
-Reload: 'Reîncarcă'
-Force Reload: 'Fortează Reîncărcarea'
-Toggle Developer Tools: 'Schimbă la Uneltele de Develeloper'
+Undo: 'Anulare'
+Redo: 'Refacere'
+Cut: 'Tăiați'
+Copy: 'Copiere'
+Paste: 'Lipire'
+Delete: 'Ștergți'
+Select all: 'Selectați toate'
+Reload: 'Reîncărcare'
+Force Reload: 'Reîncărcare forțată'
+Toggle Developer Tools: 'Comutați Instrumentele pentru dezvoltatori'
 Actual size: 'Mărimea actuală'
-Zoom in: 'Mărește'
-Zoom out: 'Micșorează'
-Toggle fullscreen: 'Măreste videoul'
+Zoom in: 'Mărire'
+Zoom out: 'Micșorare'
+Toggle fullscreen: 'Comutați ecranul complet'
 Window: 'Fereastră'
-Minimize: 'Minimaliziază'
-Close: 'Închide'
+Minimize: 'Minimizare'
+Close: 'Închideți'
 Back: 'Înapoi'
 Forward: 'Înainte'
 
-Version $ is now available!  Click for more details: 'Versiunea $ este acum valavilă!
-  Dă click aici pentru mai multe informații'
-Download From Site: 'Descarcă de pe Site'
-A new blog is now available, $. Click to view more: 'Un nou blog este acum valabil,
-  $. Dă click aici să vezi mai mult'
+Version $ is now available!  Click for more details: 'Versiunea $ este acum disponibilă!  Click
+  pentru mai multe detalii'
+Download From Site: 'Descărcați de pe site'
+A new blog is now available, $. Click to view more: 'Un nou blog este acum disponibil,
+  $. Click to view more'
 
 # Search Bar
-Search / Go to URL: 'Caută / Mergi la URL'
+Search / Go to URL: 'Căutare / Du-te la URL'
   # In Filter Button
 Search Filters:
-  Search Filters: 'Caută Filtre'
+  Search Filters: 'Filtre de căutare'
   Sort By:
     Sort By: 'Sortează după'
-    Most Relevant: 'Cel mai Relevant'
+    Most Relevant: 'Cele mai relevante'
     Rating: 'Evaluare'
-    Upload Date: 'Data de postare'
-    View Count: 'Număr Vizionări'
+    Upload Date: 'Data încărcării'
+    View Count: 'Numărul de vizualizări'
   Time:
     Time: 'Timp'
-    Any Time: 'Orice Timp'
-    Last Hour: 'Ultima Oră'
+    Any Time: 'Oricând'
+    Last Hour: 'Ultima oră'
     Today: 'Astăzi'
-    This Week: 'Această Saptămână'
-    This Month: 'Această Lună'
-    This Year: 'Acest An'
+    This Week: 'Săptămâna aceasta'
+    This Month: 'Luna aceasta'
+    This Year: 'Anul acesta'
   Type:
     Type: 'Tip'
     All Types: 'Toate Tipurile'
-    Videos: 'Videouri'
+    Videos: 'Videoclipuri'
     Channels: 'Canale'
     #& Playlists
   Duration:
-    Duration: 'Durație'
-    All Durations: 'Toate Durațiile'
-    Short (< 4 minutes): 'Mic (< 4 minute)'
+    Duration: 'Durata'
+    All Durations: 'Toate duratele'
+    Short (< 4 minutes): 'Scurt (< 4 minute)'
     Long (> 20 minutes): 'Lung (> 20 minute)'
   # On Search Page
-  Search Results: 'Rezultate Căutare'
-  Fetching results. Please wait: 'Căutăm resultate. Te rog așteaptă'
-  Fetch more results: 'Caută mai multe rezultate'
+  Search Results: 'Rezultatele căutării'
+  Fetching results. Please wait: 'Se obțin rezultatele. Vă rugăm să așteptați'
+  Fetch more results: 'Obțineți mai multe rezultate'
 # Sidebar
-  There are no more results for this search: Nu mai sunt rezultate pentru aceasta
-    cautare.
+  There are no more results for this search: Nu mai există rezultate pentru această
+    căutare
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: 'Abonări'
-  Latest Subscriptions: 'Cele mai noi Abonări'
+  Subscriptions: 'Abonamente'
+  Latest Subscriptions: 'Ultimele abonamente'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Lista
-    ta de abonări este momentan goală. Adaugă abonați ca să îi vezi aici'
-  'Getting Subscriptions. Please wait.': 'Căutăm abonați. Te rog așteaptă.'
-  Refresh Subscriptions: 'Reîncarcă Abonăriile'
-  Load More Videos: Incarca mai multe videouri
+    dvs. de abonamente este momentan goală. Începeți să adăugați abonamente pentru
+    a le vedea aici.'
+  'Getting Subscriptions. Please wait.': 'Se obțin abonamentele. Vă rugăm să așteptați.'
+  Refresh Subscriptions: 'Reîmprospătați abonamentele'
+  Load More Videos: Încărcați mai multe videoclipuri
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Acest
-    profil are foarte multi urmaritori. Foloseste RSS pentru a evita limita fixata.
-Trending: 'Trend'
-Most Popular: 'Cel mai Popular'
-Playlists: 'Liste de videoclipuri'
+    profil are un număr mare de abonamente.  Se forțează RSS pentru a evita limitarea
+    vitezei
+Trending:
+  Trending: 'Tendințe'
+  Trending Tabs: File în tendințe
+  Movies: Filme
+  Gaming: Gaming
+  Music: Muzică
+  Default: Implicit
+Most Popular: 'Cele mai populare'
+Playlists: 'Liste de redare'
 User Playlists:
-  Your Playlists: 'Listele Tale'
+  Your Playlists: 'Listele tale de redare'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Nu
-    ai salvat niciun video. Apasa pe butonul de salveaza pentru a adauga un video
-    aici
+    ați salvat niciun videoclip. Faceți clic pe butonul de salvare din colțul unui
+    videoclip pentru a-l afișa aici
+  Playlist Message: Această pagină nu reflectă listele de redare complet funcționale.
+    Aceasta enumeră doar videoclipurile pe care le-ați salvat sau le-ați favorizat.
+    Când lucrările vor fi finalizate, toate videoclipurile care se află în prezent
+    aici vor fi migrate într-o listă de redare "Favorite".
 History:
   # On History Page
   History: 'Istoric'
-  Watch History: 'Vezi Istoricul'
-  Your history list is currently empty.: 'Lista ta din istoric este goală momentan.'
+  Watch History: 'Istoricul vizionărilor'
+  Your history list is currently empty.: 'Lista dvs. de istoric este momentan goală.'
 Settings:
   # On Settings Page
   Settings: 'Setări'
   General Settings:
-    General Settings: 'Setări Generale'
-    Check for Updates: 'Caută pentru actualizări'
-    Check for Latest Blog Posts: 'Caută pentru cele mai recente Posturi din Blog'
-    Fallback to Non-Preferred Backend on Failure: 'Treci la API nepreferat în caz
-      de eroare'
-    Enable Search Suggestions: 'Activează Sugesti in Căutare'
-    Default Landing Page: 'Pagina de Pornire'
-    Locale Preference: 'Localizare Preferată'
+    General Settings: 'Setări generale'
+    Check for Updates: 'Căutați actualizări'
+    Check for Latest Blog Posts: 'Verificați pentru cele mai recente postări pe blog'
+    Fallback to Non-Preferred Backend on Failure: 'Revenire la backend-ul nepreferat
+      în caz de eroare'
+    Enable Search Suggestions: 'Activați sugestiile de căutare'
+    Default Landing Page: 'Pagina de pornire implicită'
+    Locale Preference: 'Preferința de localizare'
     Preferred API Backend:
-      Preferred API Backend: 'API Preferat'
+      Preferred API Backend: 'API Backend preferat'
       Local API: 'API Local'
       Invidious API: 'Invidious API'
     Video View Type:
-      Video View Type: 'Mod de organizare'
+      Video View Type: 'Tip de vizualizare video'
       Grid: 'Grilă'
       List: 'Listă'
     Thumbnail Preference:
-      Thumbnail Preference: 'Preferintă de imagine'
-      Default: 'Mod Implicit'
+      Thumbnail Preference: 'Preferința de miniatură'
+      Default: 'Implicit'
       Beginning: 'Început'
       Middle: 'Mijloc'
       End: 'Sfârșit'
     'Invidious Instance (Default is https://invidious.snopyta.org)': ''
-    Region for Trending: 'Regiunea tendintelor'
+    Region for Trending: 'Regiunea tendințelor'
         #! List countries
+    External Link Handling:
+      No Action: Nicio acțiune
+      Ask Before Opening Link: Întrebați înainte de a deschide link-ul
+      Open Link: Deschideți link-ul
+      External Link Handling: Gestionarea legăturilor externe
+    View all Invidious instance information: Vizualizați toate informațiile despre
+      instanța Invidious
+    Clear Default Instance: Ștergeți instanța implicită
+    Set Current Instance as Default: Setați instanța curentă ca implicită
+    Current instance will be randomized on startup: Instanța curentă va fi aleatorie
+      la pornire
+    No default instance has been set: Nu a fost setată nicio instanță implicită
+    The currently set default instance is $: Instanța implicită setată în prezent
+      este $
+    Current Invidious Instance: Instanța actuală Invidious
+    System Default: Prestabilită de sistem
   Theme Settings:
-    Theme Settings: 'Setarile temelor'
-    Match Top Bar with Main Color: 'Potriveste bara superioară cu culoarea principală'
+    Theme Settings: 'Setările temei'
+    Match Top Bar with Main Color: 'Potriviți bara de sus cu culoarea principală'
     Base Theme:
       Base Theme: 'Temă de bază'
       Black: 'Negru'
-      Dark: 'Intunecat'
-      Light: 'Deschis'
+      Dark: 'Întunecat'
+      Light: 'Aprinsă'
+      Dracula: 'Dracula'
     Main Color Theme:
-      Main Color Theme: 'Culoarea temei principale'
+      Main Color Theme: 'Culoarea principală a temei'
       Red: 'Roşu'
       Pink: 'Roz'
       Purple: 'Violet'
-      Deep Purple: 'Mov inchis'
+      Deep Purple: 'Mov închis'
       Indigo: 'Indigo'
       Blue: 'Albastru'
-      Light Blue: 'Albastru Deschis'
+      Light Blue: 'Albastru deschis'
       Cyan: 'Cyan'
       Teal: 'Turcoaz'
       Green: 'Verde'
@@ -150,87 +180,114 @@ Settings:
       Yellow: 'Galben'
       Amber: 'Chihlimbar'
       Orange: 'Portocaliu'
-      Deep Orange: 'Portocaliu inchis'
-    Secondary Color Theme: 'Culoare secundara'
+      Deep Orange: 'Portocaliu închis'
+      Dracula Cyan: 'Dracula Cyan'
+      Dracula Green: 'Dracula Verde'
+      Dracula Orange: 'Dracula Portocaliu'
+      Dracula Pink: 'Dracula Roz'
+      Dracula Purple: 'Dracula Violet'
+      Dracula Red: 'Dracula Roşu'
+      Dracula Yellow: 'Dracula Chihlimbar'
+    Secondary Color Theme: 'Culoarea secundară a temei'
         #* Main Color Theme
     UI Scale: Scala UI
-    Disable Smooth Scrolling: Dezactivați derularea fără probleme
-    Expand Side Bar by Default: Extindeti bara laterala in mod implicit
+    Disable Smooth Scrolling: Dezactivați derularea lină
+    Expand Side Bar by Default: Extindeți bara laterală în mod implicit
   Player Settings:
     Player Settings: 'Setări player'
-    Force Local Backend for Legacy Formats: ''
-    Play Next Video: 'Redați următorul videoclip'
-    Turn on Subtitles by Default: 'Activati subtitrarile in mod implicit'
+    Force Local Backend for Legacy Formats: 'Forțați backend-ul local pentru formatele
+      vechi'
+    Play Next Video: 'Redă următorul video'
+    Turn on Subtitles by Default: 'Activați subtitrările în mod implicit'
     Autoplay Videos: 'Redare automată de videoclipuri'
-    Proxy Videos Through Invidious: 'Proxy Videoclipuri prin Invidious'
-    Autoplay Playlists: 'Liste de redare automată'
-    Enable Theatre Mode by Default: ''
-    Default Volume: ''
-    Default Playback Rate: ''
+    Proxy Videos Through Invidious: 'Videoclipuri prin proxy-ul Invidious'
+    Autoplay Playlists: 'Redați automat listele de redare'
+    Enable Theatre Mode by Default: 'Activați modul teatru în mod implicit'
+    Default Volume: 'Volum implicit'
+    Default Playback Rate: 'Rata de redare implicită'
     Default Video Format:
-      Default Video Format: ''
-      Dash Formats: ''
-      Legacy Formats: ''
-      Audio Formats: ''
+      Default Video Format: 'Format video implicit'
+      Dash Formats: 'Formate DASH'
+      Legacy Formats: 'Formate vechi'
+      Audio Formats: 'Formate audio'
     Default Quality:
-      Default Quality: ''
-      Auto: ''
-      144p: ''
-      240p: ''
-      360p: ''
-      480p: ''
-      720p: ''
-      1080p: ''
-      1440p: ''
-      4k: ''
-      8k: ''
+      Default Quality: 'Calitatea implicită'
+      Auto: 'Automat'
+      144p: '144p'
+      240p: '240p'
+      360p: '360p'
+      480p: '480p'
+      720p: '720p'
+      1080p: '1080p'
+      1440p: '1440p'
+      4k: '4k'
+      8k: '8k'
+    Fast-Forward / Rewind Interval: Intervalul de derulare înainte / înapoi
+    Next Video Interval: Următorul interval video
+    Display Play Button In Video Player: Afișați butonul de redare în playerul video
+    Scroll Volume Over Video Player: Derulați volumul peste playerul video
   Privacy Settings:
-    Privacy Settings: ''
-    Remember History: ''
-    Save Watched Progress: ''
-    Clear Search Cache: ''
-    Are you sure you want to clear out your search cache?: 'Sunteti siguri ca doriti
-      sa stergeti chache-ul cautarilor ?'
-    Search cache has been cleared: 'Cache-ul cautarilor a fost sters'
-    Remove Watch History: 'Sterge Istoricul Vizualizarilor'
-    Are you sure you want to remove your entire watch history?: ''
-    Watch history has been cleared: ''
-    Remove All Subscriptions / Profiles: ''
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
+    Privacy Settings: 'Setări de confidențialitate'
+    Remember History: 'Reține istoric'
+    Save Watched Progress: 'Salvați progresul de vizionare'
+    Clear Search Cache: 'Ștergeți memoria cache de căutare'
+    Are you sure you want to clear out your search cache?: 'Sunteți sigur că doriți
+      să ștergeți memoria cache de căutare?'
+    Search cache has been cleared: 'Memoria cache de căutare a fost ștearsă'
+    Remove Watch History: 'Eliminați istoricul vizionărilor'
+    Are you sure you want to remove your entire watch history?: 'Sunteți sigur că
+      doriți să vă ștergeți întregul istoric al vizionărilor?'
+    Watch history has been cleared: 'Istoricul vizionărilor a fost șters'
+    Remove All Subscriptions / Profiles: 'Eliminați toate abonamentele / profilurile'
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Sunteți
+      sigur că doriți să eliminați toate abonamentele și profilurile?  Acest lucru
+      nu poate fi anulat.'
+    Automatically Remove Video Meta Files: Îndepărtați automat fișierele meta video
   Subscription Settings:
-    Subscription Settings: ''
-    Hide Videos on Watch: ''
-    Fetch Feeds from RSS: ''
-    Manage Subscriptions: ''
+    Subscription Settings: 'Setări de abonament'
+    Hide Videos on Watch: 'Ascundeți videoclipurile la vizionare'
+    Fetch Feeds from RSS: 'Preluare de fluxuri din RSS'
+    Manage Subscriptions: 'Gestionați abonamentele'
   Data Settings:
-    Data Settings: ''
-    Select Import Type: ''
-    Select Export Type: ''
-    Import Subscriptions: ''
-    Import FreeTube: ''
-    Import YouTube: ''
-    Import NewPipe: ''
-    Export Subscriptions: ''
-    Export FreeTube: ''
-    Export YouTube: ''
-    Export NewPipe: ''
-    Import History: ''
-    Export History: ''
-    Profile object has insufficient data, skipping item: ''
-    All subscriptions and profiles have been successfully imported: ''
-    All subscriptions have been successfully imported: ''
-    One or more subscriptions were unable to be imported: ''
-    Invalid subscriptions file: ''
-    This might take a while, please wait: ''
-    Invalid history file: ''
-    Subscriptions have been successfully exported: ''
-    History object has insufficient data, skipping item: ''
-    All watched history has been successfully imported: ''
-    All watched history has been successfully exported: ''
-    Unable to read file: ''
-    Unable to write file: ''
-    Unknown data key: ''
-    How do I import my subscriptions?: ''
+    Data Settings: 'Setări de date'
+    Select Import Type: 'Selectați tipul de import'
+    Select Export Type: 'Selectați tipul de export'
+    Import Subscriptions: 'Importați abonamente'
+    Import FreeTube: 'Importați FreeTube'
+    Import YouTube: 'Importați YouTube'
+    Import NewPipe: 'Importați NewPipe'
+    Export Subscriptions: 'Exportați abonamentele'
+    Export FreeTube: 'Exportați FreeTube'
+    Export YouTube: 'Exportați YouTube'
+    Export NewPipe: 'Exportați NewPipe'
+    Import History: 'Importați istoricul'
+    Export History: 'Exportați istoricul'
+    Profile object has insufficient data, skipping item: 'Obiectul de profil are date
+      insuficiente, se omite elementul'
+    All subscriptions and profiles have been successfully imported: 'Toate abonamentele
+      și profilurile au fost importate cu succes'
+    All subscriptions have been successfully imported: 'Toate abonamentele au fost
+      importate cu succes'
+    One or more subscriptions were unable to be imported: 'Unul sau mai multe abonamente
+      nu au putut fi importate'
+    Invalid subscriptions file: 'Fișier de abonamente invalid'
+    This might take a while, please wait: 'Acest lucru ar putea dura ceva timp, vă
+      rugăm să așteptați'
+    Invalid history file: 'Fișier istoric invalid'
+    Subscriptions have been successfully exported: 'Abonamentele au fost exportate
+      cu succes'
+    History object has insufficient data, skipping item: 'Obiectul de istoric are
+      date insuficiente, se omite elementul'
+    All watched history has been successfully imported: 'Tot istoricul de vizionări
+      a fost importat cu succes'
+    All watched history has been successfully exported: 'Tot istoricul de vizionări
+      a fost exportat cu succes'
+    Unable to read file: 'Nu se poate citi fișierul'
+    Unable to write file: 'Nu se poate scrie fișierul'
+    Unknown data key: 'Cheie de date necunoscută'
+    How do I import my subscriptions?: 'Cum îmi pot importa abonamentele?'
+    Check for Legacy Subscriptions: Verificați dacă există abonamente vechi
+    Manage Subscriptions: Gestionare abonamente
   Advanced Settings:
     Advanced Settings: ''
     Enable Debug Mode (Prints data to the console): ''
@@ -253,12 +310,53 @@ Settings:
       #& Yes
       #& No
 
-  The app needs to restart for changes to take effect. Restart and apply change?: Aplicatia
-    trebuie restartata pentru ca schimbarile sa aiba efect. Doresti sa restartezi
-    si sa aplici schimbarile?
+  The app needs to restart for changes to take effect. Restart and apply change?: Aplicația
+    trebuie repornită pentru ca modificările să intre în vigoare. Reporniți și aplicați
+    modificările?
+  External Player Settings:
+    Custom External Player Arguments: Argumente personalizate pentru playerul extern
+    Custom External Player Executable: Executabilul personalizat al playerului extern
+    Ignore Unsupported Action Warnings: Ignorați avertismentele de acțiune nesuportată
+    External Player: Player extern
+    External Player Settings: Setări pentru playerul extern
+  Distraction Free Settings:
+    Hide Active Subscriptions: Ascundeți abonamentele active
+    Hide Live Chat: Ascundeți Chat-ul Live
+    Hide Playlists: Ascundeți listele de redare
+    Hide Popular Videos: Ascundeți videoclipurile populare
+    Hide Trending Videos: Ascundeți videoclipurile în tendințe
+    Hide Recommended Videos: Ascundeți videoclipurile recomandate
+    Hide Comment Likes: Ascundeți aprecierile comentariilor
+    Hide Channel Subscribers: Ascundeți abonații canalului
+    Hide Video Likes And Dislikes: Ascundeți like-urile și dislike-urile din video
+    Hide Video Views: Ascundeți vizualizările video
+    Distraction Free Settings: Setări împotriva distragerii atenției
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Notificare atunci când segmentul sponsorului
+      este sărit
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL-ul API-ului
+      SponsorBlock (Cel implicit este https://sponsor.ajay.app)
+    Enable SponsorBlock: Activați SponsorBlock
+    SponsorBlock Settings: Setări SponsorBlock
+  Proxy Settings:
+    Error getting network information. Is your proxy configured properly?: Eroare
+      la obținerea informațiilor despre rețea. Proxy-ul este configurat corect?
+    City: Oraș
+    Region: Regiune
+    Country: Țară
+    Ip: IP
+    Your Info: Informațiile dvs.
+    Clicking on Test Proxy will send a request to: Făcând clic pe Testați Proxy se
+      va trimite o cerere către
+    Test Proxy: Testați Proxy
+    Proxy Port Number: Numărul portului Proxy
+    Proxy Host: Gazdă Proxy
+    Proxy Protocol: Protocol Proxy
+    Enable Tor / Proxy: Activați Tor / Proxy
+    Proxy Settings: Setări Proxy
 About:
   #On About page
-  About: ''
+  About: 'Despre'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
 
@@ -278,214 +376,388 @@ About:
 
   Latest FreeTube News: ''
 
+  Mastodon: Mastodon
+  Email: E-mail
+  Donate: Donează
+  these people and projects: aceste persoane și proiecte
+  FreeTube is made possible by: FreeTube este posibil datorită
+  Credits: Credite
+  Translate: Traduceți
+  room rules: regulile camerei
+  Please read the: Vă rugăm să citiți
+  Chat on Matrix: Chat pe Matrix
+  Blog: Blog
+  Website: Site web
+  Please check for duplicates before posting: Vă rugăm să verificați dacă există dubluri
+    înainte de a posta
+  GitHub issues: Issues pe GitHub
+  Report a problem: Raportați o problemă
+  FAQ: Întrebări frecvente
+  FreeTube Wiki: FreeTube Wiki
+  Help: Ajutor
+  GitHub releases: Lansări GitHub
+  Downloads / Changelog: Descărcări / Jurnal de modificări
+  View License: Vezi licența
+  Licensed under the AGPLv3: Licențiat sub AGPLv3
+  Source code: Codul sursă
+  Beta: Beta
 Profile:
-  Profile Select: ''
-  All Channels: ''
-  Profile Manager: ''
-  Create New Profile: ''
-  Edit Profile: ''
-  Color Picker: ''
-  Custom Color: ''
-  Profile Preview: ''
-  Create Profile: ''
-  Update Profile: ''
-  Make Default Profile: ''
-  Delete Profile: ''
-  Are you sure you want to delete this profile?: ''
-  All subscriptions will also be deleted.: ''
-  Profile could not be found: ''
-  Your profile name cannot be empty: ''
-  Profile has been created: ''
-  Profile has been updated: ''
-  Your default profile has been set to $: ''
-  Removed $ from your profiles: ''
-  Your default profile has been changed to your primary profile: ''
-  $ is now the active profile: ''
-  Subscription List: ''
-  Other Channels: ''
-  $ selected: ''
-  Select All: ''
-  Select None: ''
-  Delete Selected: ''
-  Add Selected To Profile: ''
-  No channel(s) have been selected: ''
+  Profile Select: 'Selectare profil'
+  All Channels: 'Toate canalele'
+  Profile Manager: 'Manager de profil'
+  Create New Profile: 'Creați un profil nou'
+  Edit Profile: 'Editare profil'
+  Color Picker: 'Alegător de culori'
+  Custom Color: 'Culoare personalizată'
+  Profile Preview: 'Previzualizare profil'
+  Create Profile: 'Creați un profil'
+  Update Profile: 'Actualizați profilul'
+  Make Default Profile: 'Faceți profilul implicit'
+  Delete Profile: 'Ștergeți profilul'
+  Are you sure you want to delete this profile?: 'Sunteți sigur că doriți să ștergeți
+    acest profil?'
+  All subscriptions will also be deleted.: 'De asemenea, toate abonamentele vor fi
+    șterse.'
+  Profile could not be found: 'Profilul nu a putut fi găsit'
+  Your profile name cannot be empty: 'Numele profilului nu poate fi gol'
+  Profile has been created: 'Profilul a fost creat'
+  Profile has been updated: 'Profilul a fost actualizat'
+  Your default profile has been set to $: 'Profilul dvs. implicit a fost setat la
+    $'
+  Removed $ from your profiles: 'Ați eliminat $ din profilurile dvs.'
+  Your default profile has been changed to your primary profile: 'Profilul dvs. implicit
+    a fost schimbat în profilul dvs. principal'
+  $ is now the active profile: '$ este acum profilul activ'
+  Subscription List: 'Lista de abonamente'
+  Other Channels: 'Alte canale'
+  $ selected: '$ selectat'
+  Select All: 'Selectați toate'
+  Select None: 'Selectați niciunul'
+  Delete Selected: 'Ștergeți selectat'
+  Add Selected To Profile: 'Adaugă selectate la profil'
+  No channel(s) have been selected: 'Nu a fost selectat niciun canal(e)'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : ''
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
+  : 'Acesta este profilul dvs. principal.  Sunteți sigur că doriți să ștergeți canalele
+    selectate?  Aceleași canale vor fi șterse în orice profil în care se regăsesc.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Sunteți
+    sigur că doriți să ștergeți canalele selectate?  Acest lucru nu va șterge canalul
+    din niciun alt profil.'
 #On Channel Page
+  Profile Filter: Filtru profil
+  Profile Settings: Setări de profil
 Channel:
-  Subscriber: ''
-  Subscribers: ''
-  Subscribe: ''
-  Unsubscribe: ''
-  Channel has been removed from your subscriptions: ''
-  Removed subscription from $ other channel(s): ''
-  Added channel to your subscriptions: ''
-  Search Channel: ''
-  Your search results have returned 0 results: ''
-  Sort By: ''
+  Subscriber: 'Abonat'
+  Subscribers: 'Abonați'
+  Subscribe: 'Abonați-vă'
+  Unsubscribe: 'Dezabonați-vă'
+  Channel has been removed from your subscriptions: 'Canalul a fost eliminat din abonamentele
+    dvs.'
+  Removed subscription from $ other channel(s): 'Abonament eliminat de pe $ alt(e)
+    canal(e)'
+  Added channel to your subscriptions: 'Adăugat canal la abonamentele tale'
+  Search Channel: 'Căutare canal'
+  Your search results have returned 0 results: 'Rezultatele căutării tale au returnat
+    0 rezultate'
+  Sort By: 'Sortați după'
   Videos:
-    Videos: ''
-    This channel does not currently have any videos: ''
+    Videos: 'Videoclipuri'
+    This channel does not currently have any videos: 'Acest canal nu are în prezent
+      niciun videoclip'
     Sort Types:
-      Newest: ''
-      Oldest: ''
-      Most Popular: ''
+      Newest: 'Cele mai nou'
+      Oldest: 'Cele mai vechi'
+      Most Popular: 'Cele mai populare'
   Playlists:
-    Playlists: ''
-    This channel does not currently have any playlists: ''
+    Playlists: 'Liste de redare'
+    This channel does not currently have any playlists: 'Acest canal nu are în prezent
+      nici o listă de redare'
     Sort Types:
-      Last Video Added: ''
-      Newest: ''
-      Oldest: ''
+      Last Video Added: 'Ultimul video adăugat'
+      Newest: 'Cele mai noi'
+      Oldest: 'Cele mai vechi'
   About:
-    About: ''
-    Channel Description: ''
-    Featured Channels: ''
+    About: 'Despre'
+    Channel Description: 'Descrierea canalului'
+    Featured Channels: 'Canale recomandate'
 Video:
-  Mark As Watched: ''
-  Remove From History: ''
-  Video has been marked as watched: ''
-  Video has been removed from your history: ''
-  Open in YouTube: ''
-  Copy YouTube Link: ''
-  Open YouTube Embedded Player: ''
-  Copy YouTube Embedded Player Link: ''
-  Open in Invidious: ''
-  Copy Invidious Link: ''
-  View: ''
-  Views: ''
-  Loop Playlist: ''
-  Shuffle Playlist: ''
-  Reverse Playlist: ''
-  Play Next Video: ''
-  Play Previous Video: ''
+  Mark As Watched: 'Marcați ca vizionat'
+  Remove From History: 'Eliminați din istoric'
+  Video has been marked as watched: 'Video a fost marcat ca fiind vizionat'
+  Video has been removed from your history: 'Video a fost eliminat din istoric'
+  Open in YouTube: 'Deschideți în YouTube'
+  Copy YouTube Link: 'Copiați link-ul YouTube'
+  Open YouTube Embedded Player: 'Deschideți playerul încorporat YouTube'
+  Copy YouTube Embedded Player Link: 'Copiați link-ul playerului încorporat YouTube'
+  Open in Invidious: 'Deschideți în Invidious'
+  Copy Invidious Link: 'Copiați link-ul Invidious'
+  View: 'Vizionare'
+  Views: 'Vizionări'
+  Loop Playlist: 'Lista de redare în buclă'
+  Shuffle Playlist: 'Lista de redare aleatorie'
+  Reverse Playlist: 'Lista de redare inversă'
+  Play Next Video: 'Redă videoclipul următor'
+  Play Previous Video: 'Redă videoclipul anterior'
   # Context is "X People Watching"
-  Watching: ''
-  Watched: ''
-  Autoplay: ''
-  Starting soon, please refresh the page to check again: ''
+  Watching: 'Vizionează'
+  Watched: 'Vizionat'
+  Autoplay: 'Redare automată'
+  Starting soon, please refresh the page to check again: 'Începe în curând, vă rugăm
+    să reîmprospătați pagina pentru a verifica din nou'
   # As in a Live Video
-  Live: ''
-  Live Now: ''
-  Live Chat: ''
-  Enable Live Chat: ''
-  Live Chat is currently not supported in this build.: ''
-  'Chat is disabled or the Live Stream has ended.': ''
-  Live chat is enabled.  Chat messages will appear here once sent.: ''
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
+  Live: 'În direct'
+  Live Now: 'în direct acum'
+  Live Chat: 'Chat în direct'
+  Enable Live Chat: 'Activați Chat-ul în direct'
+  Live Chat is currently not supported in this build.: 'Chat-ul în direct nu este
+    în prezent acceptat în această versiune.'
+  'Chat is disabled or the Live Stream has ended.': 'Chat-ul este dezactivat sau transmisia
+    în direct s-a încheiat.'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'Chat-ul în direct
+    este activat.  Mesajele de chat vor apărea aici după ce sunt trimise.'
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Chat-ul
+    în direct nu este acceptat în prezent cu API-ul Invidious.  Este necesară o conexiune
+    directă la YouTube.'
   Published:
-    Jan: ''
-    Feb: ''
-    Mar: ''
-    Apr: ''
-    May: ''
-    Jun: ''
-    Jul: ''
-    Aug: ''
-    Sep: ''
-    Oct: ''
-    Nov: ''
-    Dec: ''
-    Second: ''
-    Seconds: ''
-    Minute: ''
-    Minutes: ''
-    Hour: ''
-    Hours: ''
-    Day: ''
-    Days: ''
-    Week: ''
-    Weeks: ''
-    Month: ''
-    Months: ''
-    Year: ''
-    Years: ''
-    Ago: ''
-    Upcoming: ''
-  Published on: ''
+    Jan: 'Ian'
+    Feb: 'Feb'
+    Mar: 'Mar'
+    Apr: 'Apr'
+    May: 'Mai'
+    Jun: 'iun'
+    Jul: 'Iul'
+    Aug: 'Aug'
+    Sep: 'Sep'
+    Oct: 'Oct'
+    Nov: 'Noi'
+    Dec: 'Dec'
+    Second: 'Secundă'
+    Seconds: 'Secunde'
+    Minute: 'Minut'
+    Minutes: 'Minute'
+    Hour: 'Oră'
+    Hours: 'Ore'
+    Day: 'Zi'
+    Days: 'Zile'
+    Week: 'Săptămână'
+    Weeks: 'Săptămâni'
+    Month: 'Lună'
+    Months: 'Luni'
+    Year: 'An'
+    Years: 'Ani'
+    Ago: 'În urmă'
+    Upcoming: 'În premieră la'
+  Published on: 'Publicat pe'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: ''
+  Publicationtemplate: 'acum $ %'
 #& Videos
+  External Player:
+    Unsupported Actions:
+      opening playlists: deschiderea listelor de redare
+      setting a playback rate: setarea unei rate de redare
+      starting video at offset: pornire video la offset
+      looping playlists: liste de redare în buclă
+      shuffling playlists: amestecarea listelor de redare
+      reversing playlists: inversarea listelor de redare
+      opening specific video in a playlist (falling back to opening the video): deschiderea
+        unui anumit videoclip dintr-o listă de redare (revenirea la deschiderea videoclipului)
+    UnsupportedActionTemplate: '$ nu acceptă: %'
+    OpeningTemplate: Se deschide $ în %...
+    playlist: listă de redare
+    video: video
+    OpenInTemplate: Deschideți în $
+  Sponsor Block category:
+    music offtopic: muzică offtopic
+    interaction: interacțiune
+    self-promotion: auto-promovare
+    outro: outro
+    intro: introducere
+    sponsor: sponsor
+  Skipped segment: Segment omis
+  translated from English: tradus din engleză
+  Started streaming on: A început să transmită pe
+  Streamed on: Difuzat pe
+  Audio:
+    Best: Cea mai bună
+    Medium: Medie
+    Low: Scăzută
+    High: Înaltă
+  audio only: numai audio
+  video only: numai video
+  Download Video: Descărcați video
+  Copy Invidious Channel Link: Copiați link-ul canalului Invidious
+  Open Channel in Invidious: Canal deschis în Invidious
+  Copy YouTube Channel Link: Copiați link-ul canalului YouTube
+  Open Channel in YouTube: Deschideți canalul în YouTube
+  Video has been removed from your saved list: Videoclipul a fost eliminat din lista
+    ta de salvări
+  Video has been saved: Videoclipul a fost salvat
+  Save Video: Salvați video
 Videos:
   #& Sort By
   Sort By:
-    Newest: ''
-    Oldest: ''
+    Newest: 'Cele mai noi'
+    Oldest: 'Cele mai vechi'
     #& Most Popular
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: ''
-  Videos: ''
-  View: ''
-  Views: ''
-  Last Updated On: ''
+  View Full Playlist: 'Vezi lista de redare completă'
+  Videos: 'Videoclipuri'
+  View: 'Vizionări'
+  Views: 'Vizualizări'
+  Last Updated On: 'Ultima actualizare la'
   Share Playlist:
-    Share Playlist: ''
-    Copy YouTube Link: ''
-    Open in YouTube: ''
-    Copy Invidious Link: ''
-    Open in Invidious: ''
+    Share Playlist: 'Distribuie lista de redare'
+    Copy YouTube Link: 'Copiați link-ul YouTube'
+    Open in YouTube: 'Deschideți în YouTube'
+    Copy Invidious Link: 'Copiați linkul Invidious'
+    Open in Invidious: 'Deschis în Invidious'
 
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: ''
+  Playlist: Listă de redare
+Toggle Theatre Mode: 'Comutați modul Teatru'
 Change Format:
-  Change Video Formats: ''
-  Use Dash Formats: ''
-  Use Legacy Formats: ''
-  Use Audio Formats: ''
-  Dash formats are not available for this video: ''
-  Audio formats are not available for this video: ''
+  Change Video Formats: 'Schimbați formatele video'
+  Use Dash Formats: 'Utilizați formate DASH'
+  Use Legacy Formats: 'Utilizați formate vechi'
+  Use Audio Formats: 'Utilizați formate audio'
+  Dash formats are not available for this video: 'Formatele DASH nu sunt disponibile
+    pentru acest videoclip'
+  Audio formats are not available for this video: 'Formatele audio nu sunt disponibile
+    pentru acest videoclip'
 Share:
-  Share Video: ''
-  Include Timestamp: ''
-  Copy Link: ''
-  Open Link: ''
-  Copy Embed: ''
-  Open Embed: ''
+  Share Video: 'Distribuiți video'
+  Include Timestamp: 'Includeți timpul de începere'
+  Copy Link: 'Copiați link-ul'
+  Open Link: 'Deschideți link-ul'
+  Copy Embed: 'Copiați încorporarea'
+  Open Embed: 'Deschideți încorporarea'
   # On Click
-  Invidious URL copied to clipboard: ''
-  Invidious Embed URL copied to clipboard: ''
-  YouTube URL copied to clipboard: ''
-  YouTube Embed URL copied to clipboard: ''
-Mini Player: ''
+  Invidious URL copied to clipboard: 'URL Invidious copiat în clipboard'
+  Invidious Embed URL copied to clipboard: 'URL de încorporare Invidious copiat în
+    clipboard'
+  YouTube URL copied to clipboard: 'URL-ul YouTube copiat în clipboard'
+  YouTube Embed URL copied to clipboard: 'URL de încorporare YouTube copiat în clipboard'
+  YouTube Channel URL copied to clipboard: URL-ul canalului YouTube copiat în clipboard
+  Invidious Channel URL copied to clipboard: URL-ul Invidious al canalului a fost
+    copiat în clipboard
+Mini Player: 'Mini Player'
 Comments:
-  Comments: ''
-  Click to View Comments: ''
-  Getting comment replies, please wait: ''
-  There are no more comments for this video: ''
-  Show Comments: ''
-  Hide Comments: ''
+  Comments: 'Comentarii'
+  Click to View Comments: 'Faceți clic pentru a vedea comentariile'
+  Getting comment replies, please wait: 'Se obțin răspunsurile comentariului, vă rugăm
+    să așteptați'
+  There are no more comments for this video: 'Nu mai există niciun comentariu pentru
+    acest videoclip'
+  Show Comments: 'Afișați comentariile'
+  Hide Comments: 'Ascundeți comentariile'
   # Context: View 10 Replies, View 1 Reply
-  View: ''
-  Hide: ''
-  Replies: ''
-  Reply: ''
-  There are no comments available for this video: ''
-  Load More Comments: ''
-Up Next: ''
+  View: 'Vizualizați'
+  Hide: 'Ascundeți'
+  Replies: 'Răspunsuri'
+  Reply: 'Răspuns'
+  There are no comments available for this video: 'Nu există comentarii disponibile
+    pentru acest videoclip'
+  Load More Comments: 'Încărcați mai multe comentarii'
+  No more comments available: Nu mai sunt disponibile alte comentarii
+  Show More Replies: Afișați mai multe răspunsuri
+  Newest first: Începând cu cele mai noi
+  Top comments: Cele mai bune comentarii
+  Sort by: Sortați după
+Up Next: 'În continuare'
 
 # Toast Messages
-Local API Error (Click to copy): ''
-Invidious API Error (Click to copy): ''
-Falling back to Invidious API: ''
-Falling back to the local API: ''
-This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
-Subscriptions have not yet been implemented: ''
-Loop is now disabled: ''
-Loop is now enabled: ''
-Shuffle is now disabled: ''
-Shuffle is now enabled: ''
-The playlist has been reversed: ''
-Playing Next Video: ''
-Playing Previous Video: ''
+Local API Error (Click to copy): 'Eroare API locală (Faceți clic pentru a copia)'
+Invidious API Error (Click to copy): 'Eroare API Invidious (Faceți clic pentru a copia)'
+Falling back to Invidious API: 'Revenine la Invidious API'
+Falling back to the local API: 'Revenire la API-ul local'
+This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Acest
+  videoclip nu este disponibil din cauza lipsei de formate. Acest lucru se poate întâmpla
+  din cauza indisponibilității țării.'
+Subscriptions have not yet been implemented: 'Abonamentele nu au fost încă implementate'
+Loop is now disabled: 'Bucla este acum dezactivată'
+Loop is now enabled: 'Bucla este acum activată'
+Shuffle is now disabled: 'Amestecarea este acum dezactivată'
+Shuffle is now enabled: 'Amestecarea este acum activată'
+The playlist has been reversed: 'Lista de redare a fost inversată'
+Playing Next Video: 'Se redă următorul videoclip'
+Playing Previous Video: 'Se redă videoclipul anterior'
 Playing next video in 5 seconds.  Click to cancel: ''
-Canceled next video autoplay: ''
-'The playlist has ended.  Enable loop to continue playing': ''
+Canceled next video autoplay: 'S-a anulat redarea automată a următorului videoclip'
+'The playlist has ended.  Enable loop to continue playing': 'Lista de redare s-a încheiat.  Activați
+  bucla pentru a continua redarea'
 
-Yes: ''
-No: ''
+Yes: 'Da'
+No: 'Nu'
+More: Mai multe
+Search Bar:
+  Clear Input: Ștergeți intrarea
+Are you sure you want to open this link?: Sunteți sigur că doriți să deschideți acest
+  link?
+Open New Window: Deschideți fereastră nouă
+Default Invidious instance has been cleared: Instanța implicită Invidious a fost eliminată
+Default Invidious instance has been set to $: Instanța implicită Invidious a fost
+  setată la $.
+Playing Next Video Interval: Se redară următorul videoclip în cel mai scurt timp.
+  Faceți clic pentru a anula. | Se redă următorul videoclip în {nextVideoInterval}
+  secundă. Faceți clic pentru a anula. | Se redă următorul videoclip în {nextVideoInterval}
+  secunde. Faceți clic pentru a anula.
+Hashtags have not yet been implemented, try again later: Hashtag-urile nu au fost
+  încă implementate, încercați din nou mai târziu
+Unknown YouTube url type, cannot be opened in app: Tip url YouTube necunoscut, nu
+  poate fi deschis în aplicație
+Tooltips:
+  Privacy Settings:
+    Remove Video Meta Files: Atunci când este activat, FreeTube șterge automat fișierele
+      meta create în timpul redării video, atunci când pagina de vizionare este închisă.
+  Subscription Settings:
+    Fetch Feeds from RSS: Atunci când este activată, FreeTube va utiliza RSS în locul
+      metodei implicite pentru a prelua feed-ul de abonament. RSS este mai rapid și
+      previne blocarea IP-ului, dar nu oferă anumite informații, cum ar fi durata
+      videoclipului sau starea live.
+  External Player Settings:
+    Custom External Player Arguments: Orice argumente personalizate din linia de comandă,
+      separate prin punct și virgulă (";"), pe care doriți să le transmiteți playerului
+      extern.
+    Ignore Warnings: Suprimarea avertismentelor în cazul în care playerul extern curent
+      nu acceptă acțiunea curentă (de exemplu, inversarea listelor de redare etc.).
+    Custom External Player Executable: În mod implicit, FreeTube va presupune că playerul
+      extern ales poate fi găsit prin intermediul variabilei de mediu PATH. Dacă este
+      necesar, aici poate fi setată o cale personalizată.
+    External Player: Alegerea unui player extern va afișa o pictogramă, pentru a deschide
+      videoclipul (lista de redare, dacă este acceptată) în playerul extern, pe miniatură.
+  Player Settings:
+    Default Video Format: Setați formatele utilizate la redarea unui videoclip. Formatele
+      DASH pot reda calități superioare. Formatele tradiționale sunt limitate la maximum
+      720p, dar utilizează mai puțină lățime de bandă. Formatele audio sunt doar fluxuri
+      audio.
+    Proxy Videos Through Invidious: Se va conecta la Invidious pentru a servi videoclipuri
+      în loc să facă o conexiune directă la YouTube. Anulează preferințele API.
+    Force Local Backend for Legacy Formats: Funcționează numai atunci când API-ul
+      Invidious este implicit. Atunci când este activată, API-ul local va rula și
+      va utiliza formatele vechi returnate de acesta în locul celor returnate de Invidious.
+      Ajută atunci când videoclipurile returnate de Invidious nu sunt redate din cauza
+      restricțiilor de țară.
+  General Settings:
+    External Link Handling: "Alegeți comportamentul implicit atunci când se face clic\
+      \ pe un link care nu poate fi deschis în FreeTube.\nÎn mod implicit, FreeTube\
+      \ va deschide link-ul pe care s-a făcut clic în browserul dvs. implicit.\n"
+    Region for Trending: Regiunea de tendințe vă permite să alegeți ce videoclipuri
+      în tendințe din fiecare țară doriți să fie afișate. Nu toate țările afișate
+      sunt suportate de YouTube.
+    Invidious Instance: Instanța Invidious la care FreeTube se va conecta pentru apelurile
+      API. Ștergeți instanța curentă pentru a vedea o listă de instanțe publice din
+      care puteți alege.
+    Thumbnail Preference: Toate miniaturile din FreeTube vor fi înlocuite cu un cadru
+      al videoclipului în loc de miniatura implicită.
+    Fallback to Non-Preferred Backend on Failure: Atunci când API-ul preferat are
+      o problemă, FreeTube va încerca automat să utilizeze API-ul nepreferat ca metodă
+      de rezervă, atunci când este activat.
+    Preferred API Backend: Alegeți backend-ul pe care FreeTube îl folosește pentru
+      a obține date. API-ul local este un extractor incorporat. API-ul Invidious necesită
+      un server Invidious la care să vă conectați.
+External link opening has been disabled in the general settings: Deschiderea linkurilor
+  externe a fost dezactivată în setările generale
