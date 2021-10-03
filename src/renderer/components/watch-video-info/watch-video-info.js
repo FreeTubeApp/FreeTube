@@ -137,7 +137,7 @@ export default Vue.extend({
     hideUnsubscribeButton: function() {
       return this.$store.getters.getHideUnsubscribeButton
     },
-      
+
     currentLocale: function () {
       return this.$store.getters.getCurrentLocale
     },
