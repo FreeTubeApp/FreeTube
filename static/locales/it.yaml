@@ -132,12 +132,12 @@ Settings:
         #! List countries
     Check for Latest Blog Posts: Controlla gli ultimi post del blog
     Check for Updates: Controlla gli aggiornamenti
-    View all Invidious instance information: Visualizza tutti i dati della istanza
+    View all Invidious instance information: Visualizza tutti i dati dell'istanza
       Invidious
     Clear Default Instance: Cancella istanza predefinita
     Set Current Instance as Default: Imposta l'istanza attuale come predefinita
-    Current instance will be randomized on startup: L'istanza attuale verrà randomizzata
-      all'avvio
+    Current instance will be randomized on startup: L'istanza attuale verrà sostituita
+      all'avvio da una generata casualmente
     No default instance has been set: Non è stata impostata alcuna istanza predefinita
     The currently set default instance is $: L'attuale istanza predefinita è $
     Current Invidious Instance: Istanza attuale di Invidious
@@ -521,7 +521,7 @@ Video:
   Reverse Playlist: Playlist inversa
   Shuffle Playlist: Riproduzione playlist casuale
   Loop Playlist: Riproduzione continua
-  Autoplay: Ripro. automatica
+  Autoplay: Riproduzione automatica
   Starting soon, please refresh the page to check again: La riproduzione partirà tra
     breve, aggiorna la pagina per ricontrollare
   Audio:
