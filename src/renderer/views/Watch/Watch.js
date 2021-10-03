@@ -145,19 +145,6 @@ export default Vue.extend({
     },
     theatrePossible: function() {
       return !this.hideRecommendedVideos || (!this.hideLiveChat && this.isLive) || this.watchingPlaylist
-    },
-    profileList: function () {
-      return this.$store.getters.getProfileList
-    },
-    isSubscribed: function () {
-      const subIndex = this.profileList[0].subscriptions.findIndex((channel) => {
-        return channel.id === this.channelId
-      })
-      if (subIndex === -1) {
-        return false
-      } else {
-        return true
-      }
     }
   },
   watch: {
@@ -269,7 +256,9 @@ export default Vue.extend({
             this.channelName = result.player_response.videoDetails.author
             this.channelThumbnail = result.player_response.embedPreview.thumbnailPreviewRenderer.videoDetails.embeddedPlayerOverlayVideoDetailsRenderer.channelThumbnail.thumbnails[0].url
           }
-          this.updateChannelThumbnail(this.channelThumbnail.replace('=s48', '=s176'))
+
+          this.$updateChannelThumbnail(this.channelThumbnail.replace('=s48', '=s176'), this.channelId)
+
           this.videoPublished = new Date(result.videoDetails.publishDate.replace('-', '/')).getTime()
           this.videoDescription = result.player_response.videoDetails.shortDescription
 
@@ -556,7 +545,9 @@ export default Vue.extend({
           this.channelName = result.author
           const channelThumb = result.authorThumbnails[1]
           this.channelThumbnail = channelThumb ? channelThumb.url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`) : ''
-          this.updateChannelThumbnail(channelThumb?.url.replace('=s48', '=s176'))
+
+          this.$updateChannelThumbnail(channelThumb?.url.replace('=s48', '=s176'), this.channelId)
+
           this.videoPublished = result.published * 1000
           this.videoDescriptionHtml = result.descriptionHtml
           this.recommendedVideos = result.recommendedVideos
@@ -1243,25 +1234,6 @@ export default Vue.extend({
       document.title = `${this.videoTitle} - FreeTube`
     },
 
-    updateChannelThumbnail: function(thumbnail) {
-      if (this.isSubscribed) {
-        for (let i = 0; i < this.profileList.length; i++) {
-          const currentProfile = JSON.parse(JSON.stringify(this.profileList[i]))
-          const channelIndex = currentProfile.subscriptions.findIndex((channel) => {
-            return channel.id === this.channelId
-          })
-          if (channelIndex !== -1) {
-            if (this.profileList[i].subscriptions[channelIndex].thumbnail !== thumbnail) {
-              currentProfile.subscriptions[channelIndex].thumbnail = thumbnail
-              this.updateProfile(currentProfile)
-            } else {
-              break
-            }
-          }
-        }
-      }
-    },
-
     ...mapActions([
       'showToast',
       'buildVTTFileLocally',
@@ -1269,8 +1241,7 @@ export default Vue.extend({
       'updateWatchProgress',
       'getUserDataPath',
       'ytGetVideoInformation',
-      'invidiousGetVideoInformation',
-      'updateProfile'
+      'invidiousGetVideoInformation'
     ])
   }
 })

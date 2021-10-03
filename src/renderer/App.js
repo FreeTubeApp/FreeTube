@@ -468,7 +468,25 @@ export default Vue.extend({
       'getExternalPlayerCmdArgumentsData',
       'fetchInvidiousInstances',
       'setRandomCurrentInvidiousInstance',
-      'setupListenerToSyncWindows'
+      'setupListenerToSyncWindows',
+      'updateProfile'
     ])
   }
 })
+
+Vue.prototype.$updateChannelThumbnail = function(thumbnail, channelId) {
+  for (let i = 0; i < this.profileList.length; i++) {
+    const currentProfile = JSON.parse(JSON.stringify(this.profileList[i]))
+    const channelIndex = currentProfile.subscriptions.findIndex((channel) => {
+      return channel.id === channelId
+    })
+    if (channelIndex !== -1) {
+      if (this.profileList[i].subscriptions[channelIndex].thumbnail !== thumbnail) {
+        currentProfile.subscriptions[channelIndex].thumbnail = thumbnail
+        this.updateProfile(currentProfile)
+      } else {
+        break
+      }
+    }
+  }
+}

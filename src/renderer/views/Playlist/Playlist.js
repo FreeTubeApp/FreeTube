@@ -36,20 +36,6 @@ export default Vue.extend({
     },
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
-    },
-    profileList: function () {
-      return this.$store.getters.getProfileList
-    },
-    isSubscribedToAuthor: function () {
-      if (this.infoData?.channelId !== undefined) {
-        const subIndex = this.profileList[0].subscriptions.findIndex((channel) => {
-          return channel.id === this.infoData.channelId
-        })
-        if (subIndex !== -1) {
-          return true
-        }
-      }
-      return false
     }
   },
   watch: {
@@ -95,7 +81,7 @@ export default Vue.extend({
           infoSource: 'local'
         }
 
-        this.updateChannelThumbnail(this.infoData.channelThumbnail.replace('=s48', '=s176'))
+        this.$updateChannelThumbnail(this.infoData.channelThumbnail.replace('=s48', '=s176'), this.infoData.channelId)
 
         this.playlistItems = result.items.map((video) => {
           if (typeof video.author !== 'undefined') {
@@ -152,7 +138,7 @@ export default Vue.extend({
           infoSource: 'invidious'
         }
 
-        this.updateChannelThumbnail(result.authorThumbnails[2].url.replace('=s48', '=s176'))
+        this.$updateChannelThumbnail(result.authorThumbnails[2].url.replace('=s48', '=s176'), this.infoData.channelId)
 
         const dateString = new Date(result.updated * 1000)
         dateString.setDate(dateString.getDate() + 1)
@@ -197,29 +183,9 @@ export default Vue.extend({
       this.isLoading = false
     },
 
-    updateChannelThumbnail: function(thumbnail) {
-      if (this.isSubscribedToAuthor) {
-        for (let i = 0; i < this.profileList.length; i++) {
-          const currentProfile = JSON.parse(JSON.stringify(this.profileList[i]))
-          const channelIndex = currentProfile.subscriptions.findIndex((channel) => {
-            return channel.id === this.infoData.channelId
-          })
-          if (channelIndex !== -1) {
-            if (this.profileList[i].subscriptions[channelIndex].thumbnail !== thumbnail) {
-              currentProfile.subscriptions[channelIndex].thumbnail = thumbnail
-              this.updateProfile(currentProfile)
-            } else {
-              break
-            }
-          }
-        }
-      }
-    },
-
     ...mapActions([
       'ytGetPlaylistInfo',
-      'invidiousGetPlaylistInfo',
-      'updateProfile'
+      'invidiousGetPlaylistInfo'
     ])
   }
 })

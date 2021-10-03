@@ -257,7 +257,7 @@ export default Vue.extend({
           this.subCount = response.subscriberCount.toFixed(0)
         }
         this.thumbnailUrl = response.authorThumbnails[2].url
-        this.updateChannelThumbnail(this.thumbnailUrl)
+        this.$updateChannelThumbnail(this.thumbnailUrl, this.id)
         this.channelDescription = autolinker.link(response.description)
         this.relatedChannels = response.relatedChannels.items
         this.relatedChannels.forEach(relatedChannel => {
@@ -363,7 +363,7 @@ export default Vue.extend({
         }
         const thumbnail = response.authorThumbnails[3].url
         this.thumbnailUrl = thumbnail.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
-        this.updateChannelThumbnail(thumbnail)
+        this.$updateChannelThumbnail(thumbnail, this.id)
         this.channelDescription = autolinker.link(response.description)
         this.relatedChannels = response.relatedChannels.map((channel) => {
           channel.authorThumbnails[channel.authorThumbnails.length - 1].url = channel.authorThumbnails[channel.authorThumbnails.length - 1].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
@@ -716,25 +716,6 @@ export default Vue.extend({
           this.isLoading = false
         }
       })
-    },
-
-    updateChannelThumbnail: function(thumbnail) {
-      if (this.isSubscribed) {
-        for (let i = 0; i < this.profileList.length; i++) {
-          const currentProfile = JSON.parse(JSON.stringify(this.profileList[i]))
-          const channelIndex = currentProfile.subscriptions.findIndex((channel) => {
-            return channel.id === this.id
-          })
-          if (channelIndex !== -1) {
-            if (this.profileList[i].subscriptions[channelIndex].thumbnail !== thumbnail) {
-              currentProfile.subscriptions[channelIndex].thumbnail = thumbnail
-              this.updateProfile(currentProfile)
-            } else {
-              break
-            }
-          }
-        }
-      }
     },
 
     ...mapActions([
