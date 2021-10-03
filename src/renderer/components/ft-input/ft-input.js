@@ -263,12 +263,7 @@ export default Vue.extend({
         }
       })
 
-      if (visList.length > 0) {
-        this.visibleDataList = visList
-      } else {
-        // use default dataList if no items match
-        this.visibleDataList = this.dataList
-      }
+      this.visibleDataList = visList
     },
 
     ...mapActions([
