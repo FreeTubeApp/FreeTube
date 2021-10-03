@@ -88,9 +88,6 @@ export default Vue.extend({
     }
   },
   watch: {
-    value: function (val) {
-      this.inputData = val
-    },
     inputDataPresent: function (newVal, oldVal) {
       if (newVal) {
         // The button needs to be visible **immediately**
