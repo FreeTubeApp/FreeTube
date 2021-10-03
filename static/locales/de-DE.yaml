@@ -156,6 +156,7 @@ Settings:
       Black: Schwarz
       Dark: Dunkel
       Light: Hell
+      Dracula: Dracula
     Main Color Theme:
       Main Color Theme: Hauptfarbe des Themas
       Red: Rot
@@ -174,6 +175,13 @@ Settings:
       Amber: Bernsteingelb
       Orange: Orange
       Deep Orange: Dunkelorange
+      Dracula Cyan: Dracula Türkis
+      Dracula Green: Dracula Grün
+      Dracula Orange: Dracula Orange
+      Dracula Pink: Dracula Rosa
+      Dracula Purple: Dracula Lila
+      Dracula Red: Dracula Rot
+      Dracula Yellow: Dracula Gelb
     Secondary Color Theme: Sekundäres Farbenthema
         #* Main Color Theme
     UI Scale: Skalierung der Benutzeroberfläche

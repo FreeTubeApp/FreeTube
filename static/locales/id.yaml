@@ -146,6 +146,7 @@ Settings:
       Black: 'Hitam'
       Dark: 'Gelap'
       Light: 'Terang'
+      Dracula: 'Dracula'
     Main Color Theme:
       Main Color Theme: 'Tema Warna Utama'
       Red: 'Merah'
@@ -164,6 +165,13 @@ Settings:
       Amber: 'Ambar'
       Orange: 'Jingga'
       Deep Orange: 'Jingga Tua'
+      Dracula Cyan: 'Dracula Sian'
+      Dracula Green: 'Dracula Hijau'
+      Dracula Orange: 'Dracula Jingga'
+      Dracula Pink: 'Dracula Merah Muda'
+      Dracula Purple: 'Dracula Ungu'
+      Dracula Red: 'Dracula Merah'
+      Dracula Yellow: 'Dracula Kuning'
     Secondary Color Theme: 'Warna Tema Sekunder'
         #* Main Color Theme
     Expand Side Bar by Default: Perluas Bilah Samping

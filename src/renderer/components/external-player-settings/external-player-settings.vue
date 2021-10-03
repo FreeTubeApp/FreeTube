@@ -33,7 +33,7 @@
     >
       <ft-input
         :placeholder="$t('Settings.External Player Settings.Custom External Player Executable')"
-        :show-arrow="false"
+        :show-action-button="false"
         :show-label="true"
         :value="externalPlayerExecutable"
         :tooltip="$t('Tooltips.External Player Settings.Custom External Player Executable')"
@@ -41,7 +41,7 @@
       />
       <ft-input
         :placeholder="$t('Settings.External Player Settings.Custom External Player Arguments')"
-        :show-arrow="false"
+        :show-action-button="false"
         :show-label="true"
         :value="externalPlayerCustomArgs"
         :tooltip="$t('Tooltips.External Player Settings.Custom External Player Arguments')"

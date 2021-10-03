@@ -168,6 +168,7 @@ Settings:
       Black: 'Svart'
       Dark: 'Dökkt'
       Light: 'Ljóst'
+      Dracula: 'Drakúla'
     Main Color Theme:
       Main Color Theme: 'Aðallitur þema'
       Red: 'Rautt'
@@ -186,6 +187,13 @@ Settings:
       Amber: 'Raflitt'
       Orange: 'Appelsínugult'
       Deep Orange: 'Dimmappelsínugult'
+      Dracula Cyan: 'Drakúla Blágrænt'
+      Dracula Green: 'Drakúla Grænt'
+      Dracula Orange: 'Drakúla Appelsínugult'
+      Dracula Pink: 'Drakúla Bleikt'
+      Dracula Purple: 'Drakúla Purpurablátt'
+      Dracula Red: 'Drakúla Rautt'
+      Dracula Yellow: 'Drakúla Gult'
     Secondary Color Theme: 'Aukalitur þema'
         #* Main Color Theme
   Player Settings:

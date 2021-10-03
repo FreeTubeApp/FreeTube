@@ -137,6 +137,10 @@ export default Vue.extend({
     hideUnsubscribeButton: function() {
       return this.$store.getters.getHideUnsubscribeButton
     },
+      
+    currentLocale: function () {
+      return this.$store.getters.getCurrentLocale
+    },
 
     profileList: function () {
       return this.$store.getters.getProfileList
@@ -235,9 +239,9 @@ export default Vue.extend({
 
     dateString() {
       const date = new Date(this.published)
-      const dateSplit = date.toDateString().split(' ')
-      const localeDateString = `Video.Published.${dateSplit[1]}`
-      return `${this.$t(localeDateString)} ${dateSplit[2]}, ${dateSplit[3]}`
+      const locale = this.currentLocale.replace('_', '-')
+      const localeDateString = new Intl.DateTimeFormat([locale, 'en'], { dateStyle: 'medium' }).format(date)
+      return `${localeDateString}`
     },
 
     publishedString() {

@@ -25,14 +25,14 @@
     <ft-flex-box>
       <ft-input
         :placeholder="$t('Settings.Proxy Settings.Proxy Host')"
-        :show-arrow="false"
+        :show-action-button="false"
         :show-label="true"
         :value="proxyHostname"
         @input="handleUpdateProxyHostname"
       />
       <ft-input
         :placeholder="$t('Settings.Proxy Settings.Proxy Port Number')"
-        :show-arrow="false"
+        :show-action-button="false"
         :show-label="true"
         :value="proxyPort"
         @input="handleUpdateProxyPort"

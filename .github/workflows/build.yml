@@ -5,7 +5,7 @@ name: Build
 
 on:
   push:
-    branches: [ master, development ]
+    branches: [ master, development, '**-RC' ]
 
 jobs:
   build:
@@ -48,13 +48,17 @@ jobs:
       uses: actions/github-script@v3
       env:
         IS_DEV: ${{ contains(github.ref, 'development') }}
+        IS_RC: ${{ contains(github.ref, 'RC') }}
         VERSION_NUMBER_NIGHTLY: ${{ env.PACKAGE_VERSION }}-nightly-${{ github.run_number }}
+        VERSION_NUMBER_RC: ${{ env.PACKAGE_VERSION }}-RC-${{ github.run_number }}
         VERSION_NUMBER: ${{ env.PACKAGE_VERSION }}
       with:
         result-encoding: string
         script: |
           if (${{ env.IS_DEV }}) {
             return "${{ env.VERSION_NUMBER_NIGHTLY }}"
+          } else if (${{ env.IS_RC }}) {
+            return "${{ env.VERSION_NUMBER_RC }}"
           } else {
            return "${{env.VERSION_NUMBER }}"
           }

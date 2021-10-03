@@ -152,6 +152,7 @@ Settings:
       Black: 'Zwart'
       Dark: 'Donker'
       Light: 'Licht'
+      Dracula: 'Dracula'
     Main Color Theme:
       Main Color Theme: 'Primaire Themakleur'
       Red: 'Rood'
@@ -170,6 +171,13 @@ Settings:
       Amber: 'Amber'
       Orange: 'Oranje'
       Deep Orange: 'Donker Oranje'
+      Dracula Cyan: 'Dracula Cyaan'
+      Dracula Green: 'Dracula Groen'
+      Dracula Orange: 'Dracula Oranje'
+      Dracula Pink: 'Dracula Roze'
+      Dracula Purple: 'Dracula Paars'
+      Dracula Red: 'Dracula Rood'
+      Dracula Yellow: 'Dracula Geel'
     Secondary Color Theme: 'Secundaire Themakleur'
         #* Main Color Theme
     UI Scale: UI Schaal

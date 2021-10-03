@@ -162,6 +162,7 @@ Settings:
       Black: 'Fekete'
       Dark: 'Sötét'
       Light: 'Világos'
+      Dracula: 'Drakula'
     Main Color Theme:
       Main Color Theme: 'Fő színtéma'
       Red: 'Piros'
@@ -180,6 +181,13 @@ Settings:
       Amber: 'Borostyánsárga'
       Orange: 'Narancssárga'
       Deep Orange: 'Sötét narancssárga'
+      Dracula Cyan: 'Drakula Ciánkék'
+      Dracula Green: 'Drakula Zöld'
+      Dracula Orange: 'Drakula Narancssárga'
+      Dracula Pink: 'Drakula Rózsaszín'
+      Dracula Purple: 'Drakula Lila'
+      Dracula Red: 'Drakula Piros'
+      Dracula Yellow: 'Drakula Sárga'
     Secondary Color Theme: 'Másodlagos színtéma'
         #* Main Color Theme
     UI Scale: Felhasználói felület méretezése

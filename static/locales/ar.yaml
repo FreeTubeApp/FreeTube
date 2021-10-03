@@ -149,6 +149,7 @@ Settings:
       Black: 'أسود'
       Dark: 'داكن'
       Light: 'فاتح'
+      Dracula: 'دراكولا'
     Main Color Theme:
       Main Color Theme: 'لون السِمة الأساسي'
       Red: 'أحمر'
@@ -167,6 +168,13 @@ Settings:
       Amber: 'كهرماني'
       Orange: 'برتقالي'
       Deep Orange: 'برتقالي داكن'
+      Dracula Cyan: 'دراكولا سماوي'
+      Dracula Green: 'دراكولا أخضر'
+      Dracula Orange: 'دراكولا برتقالي'
+      Dracula Pink: 'دراكولا وردي'
+      Dracula Purple: 'دراكولا إرجواني'
+      Dracula Red: 'دراكولا أحمر'
+      Dracula Yellow: 'دراكولا أصفر'
     Secondary Color Theme: 'لون السِمة الثانوي'
         #* Main Color Theme
     UI Scale: مقياس واجهة المستخدم

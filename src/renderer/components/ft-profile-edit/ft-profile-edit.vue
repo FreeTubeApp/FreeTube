@@ -7,7 +7,7 @@
           class="profileName"
           placeholder="Profile Name"
           :value="profileName"
-          :show-arrow="false"
+          :show-action-button="false"
           @input="e => profileName = e"
         />
       </ft-flex-box>
@@ -40,7 +40,7 @@
           class="profileName"
           placeholder=""
           :value="profileBgColor"
-          :show-arrow="false"
+          :show-action-button="false"
           :disabled="true"
         />
       </ft-flex-box>

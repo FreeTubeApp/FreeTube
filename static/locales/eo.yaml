@@ -5,63 +5,64 @@ FreeTube: 'FreeTube'
 'This part of the app is not ready yet. Come back later when progress has been made.': >
 
 # Webkit Menu Bar
-File: ''
-Quit: ''
-Edit: ''
-Undo: ''
-Redo: ''
-Cut: ''
-Copy: ''
-Paste: ''
-Delete: ''
-Select all: ''
+File: 'Dosiero'
+Quit: 'Eliri'
+Edit: 'Redakti'
+Undo: 'Malfari'
+Redo: 'Refari'
+Cut: 'Eltondi'
+Copy: 'Kopii'
+Paste: 'Alglui'
+Delete: 'Forigi'
+Select all: 'Elekti ĉiujn'
 Reload: ''
 Force Reload: ''
 Toggle Developer Tools: ''
 Actual size: ''
-Zoom in: ''
-Zoom out: ''
-Toggle fullscreen: ''
-Window: ''
-Minimize: ''
-Close: ''
-Back: ''
-Forward: ''
+Zoom in: 'Zomi'
+Zoom out: 'Malzomi'
+Toggle fullscreen: 'Baskuli tutekranon'
+Window: 'Fenestro'
+Minimize: 'Minimumigi'
+Close: 'Fermi'
+Back: 'Reen'
+Forward: 'Antaŭen'
 
-Version $ is now available!  Click for more details: ''
-Download From Site: ''
+Version $ is now available!  Click for more details: 'Versio $ disponeblas nun!  Alklaki
+  por pli informoj.'
+Download From Site: 'Elŝuti el retejo'
 A new blog is now available, $. Click to view more: ''
 
 # Search Bar
-Search / Go to URL: ''
+Search / Go to URL: 'Serĉi / Iri al URL'
   # In Filter Button
 Search Filters:
-  Search Filters: ''
+  Search Filters: 'Serĉaj filtriloj'
   Sort By:
-    Sort By: ''
-    Most Relevant: ''
-    Rating: ''
-    Upload Date: ''
-    View Count: ''
+    Sort By: 'Ordigi laŭ'
+    Most Relevant: 'Plej rilataj'
+    Rating: 'Takso'
+    Upload Date: 'Alŝuta dato'
+    View Count: 'Spektonombro'
   Time:
-    Time: ''
-    Any Time: ''
-    Last Hour: ''
-    Today: ''
-    This Week: ''
-    This Month: ''
-    This Year: ''
+    Time: 'Tempo'
+    Any Time: 'Ajna tempo'
+    Last Hour: 'Lasta horo'
+    Today: 'Hodiaŭ'
+    This Week: 'Ĉi-semajne'
+    This Month: 'Ĉi-monate'
+    This Year: 'Ĉi-jare'
   Type:
-    Type: ''
-    All Types: ''
-    Videos: ''
-    Channels: ''
+    Type: 'Speco'
+    All Types: 'Ĉiuj specoj'
+    Videos: 'Videaĵoj'
+    Channels: 'Kanaloj'
     #& Playlists
   Duration:
-    Duration: ''
-    All Durations: ''
-    Short (< 4 minutes): ''
-    Long (> 20 minutes): ''
+    Duration: 'Daŭrtempo'
+    All Durations: 'Ĉiuj daŭrtempoj'
+    Short (< 4 minutes): 'Mallongaj (<4 minutoj)'
+    Long (> 20 minutes): 'Longaj (> 20 minutoj)'
   # On Search Page
   Search Results: ''
   Fetching results. Please wait: ''
@@ -69,31 +70,36 @@ Search Filters:
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: ''
-  Latest Subscriptions: ''
+  Subscriptions: 'Abonoj'
+  Latest Subscriptions: 'Lastatempaj abonoj'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
   'Getting Subscriptions. Please wait.': ''
   Refresh Subscriptions: ''
-Trending: 
-  Trending: ''
-Most Popular: ''
-Playlists: ''
+  Load More Videos: Ŝargi pli videaĵojn
+Trending:
+  Trending: 'Popularaj'
+  Gaming: Ludismo
+  Movies: Filmoj
+  Music: Muziko
+  Default: Defaŭlte
+Most Popular: 'Plej popularaj'
+Playlists: 'Ludlistoj'
 User Playlists:
-  Your Playlists: ''
+  Your Playlists: 'Viaj ludlistoj'
 History:
   # On History Page
-  History: ''
-  Watch History: ''
-  Your history list is currently empty.: ''
+  History: 'Historio'
+  Watch History: 'Spekthistorio'
+  Your history list is currently empty.: 'Via historia listo nune malplenas.'
 Settings:
   # On Settings Page
-  Settings: ''
+  Settings: 'Agordoj'
   General Settings:
-    General Settings: ''
-    Check for Updates: ''
+    General Settings: 'Ĝeneralaj agordoj'
+    Check for Updates: 'Kontroli por ĝisdatigi'
     Check for Latest Blog Posts: ''
     Fallback to Non-Preferred Backend on Failure: ''
-    Enable Search Suggestions: ''
+    Enable Search Suggestions: 'Ŝalti serĉproponoj'
     Default Landing Page: ''
     Locale Preference: ''
     Preferred API Backend:
@@ -102,25 +108,26 @@ Settings:
       Invidious API: ''
     Video View Type:
       Video View Type: ''
-      Grid: ''
-      List: ''
+      Grid: 'Krado'
+      List: 'Listo'
     Thumbnail Preference:
-      Thumbnail Preference: ''
-      Default: ''
-      Beginning: ''
-      Middle: ''
-      End: ''
+      Thumbnail Preference: 'Bildeta agordo'
+      Default: 'Defaŭlta'
+      Beginning: 'Komenco'
+      Middle: 'Mezo'
+      End: 'Fino'
     'Invidious Instance (Default is https://invidious.snopyta.org)': ''
     Region for Trending: ''
         #! List countries
+    System Default: Operaciuma defaŭlto
   Theme Settings:
     Theme Settings: ''
     Match Top Bar with Main Color: ''
     Base Theme:
       Base Theme: ''
       Black: ''
-      Dark: ''
-      Light: ''
+      Dark: 'Malluma'
+      Light: 'Luma'
     Main Color Theme:
       Main Color Theme: ''
       Red: ''
@@ -470,3 +477,8 @@ Canceled next video autoplay: ''
 
 Yes: ''
 No: ''
+More: Pli
+Search Bar:
+  Clear Input: Klarigi enigon
+Are you sure you want to open this link?: Ĉu vi certe volas malfermi ĉi-ligilon?
+Open New Window: Malfermi novan fenestron

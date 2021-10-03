@@ -4,7 +4,7 @@
     :class="{
       search: isSearch,
       forceTextColor: forceTextColor,
-      showArrow: showArrow,
+      showActionButton: showActionButton,
       showClearTextButton: showClearTextButton
     }"
   >
@@ -21,12 +21,15 @@
       />
     </label>
     <font-awesome-icon
-      v-if="showClearTextButton"
+      v-if="showClearTextButton && clearTextButtonExisting"
       icon="times-circle"
       class="clearInputTextButton"
+      :class="{
+        visible: clearTextButtonVisible
+      }"
       tabindex="0"
       role="button"
-      title="$t('Search Bar.Clear Input')"
+      :title="$t('Search Bar.Clear Input')"
       @click="handleClearTextClick"
       @keydown.space.prevent="handleClearTextClick"
       @keydown.enter.prevent="handleClearTextClick"
@@ -46,9 +49,12 @@
       @keydown="e => handleKeyDown(e.keyCode)"
     >
     <font-awesome-icon
-      v-if="showArrow"
-      icon="arrow-right"
+      v-if="showActionButton"
+      :icon="actionButtonIconName"
       class="inputAction"
+      :class="{
+        enabled: inputDataPresent
+      }"
       @click="handleClick"
     />
 
