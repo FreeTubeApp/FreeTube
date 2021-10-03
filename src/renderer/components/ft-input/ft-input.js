@@ -229,6 +229,10 @@ export default Vue.extend({
         this.searchState.selectedOption = -1
       }
 
+      // Key pressed isn't enter
+      if (keyCode !== 13) {
+        this.searchState.showOptions = true
+      }
       // Update Input box value if arrow keys were pressed
       if ((keyCode === 40 || keyCode === 38) && this.searchState.selectedOption !== -1) {
         this.inputData = this.visibleDataList[this.searchState.selectedOption]
