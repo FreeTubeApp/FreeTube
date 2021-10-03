@@ -33,7 +33,7 @@ Version $ is now available!  Click for more details: 'גרסה $ זמינה כע
   נוספים'
 Download From Site: 'הורדה מהאתר'
 A new blog is now available, $. Click to view more: 'פוסט חדש יצא לבלוג, $. יש ללחוץ
-  כדאי לראות עוד'
+  כדי לראות עוד'
 
 # Search Bar
 Search / Go to URL: 'חיפוש / מעבר לכתובת'
@@ -84,6 +84,11 @@ Subscriptions:
   Load More Videos: לטעון סרטונים נוספים
 Trending:
   Trending: 'הסרטונים החמים'
+  Trending Tabs: לשוניות מובילים
+  Movies: סרטים
+  Gaming: משחקים
+  Music: מוזיקה
+  Default: ברירת מחדל
 Most Popular: 'הכי פופולרי'
 Playlists: 'פלייליסטים'
 User Playlists:
@@ -655,3 +660,6 @@ Tooltips:
       לא מספקת חלק מהמידע כמו אורך הסרטון או מצב שידור חי
 More: עוד
 Open New Window: פתיחת חלון חדש
+Search Bar:
+  Clear Input: פינוי הקלט
+Are you sure you want to open this link?: לפתוח את הקישור הזה?
