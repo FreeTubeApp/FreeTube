@@ -60,7 +60,7 @@
 
     <div class="options">
       <ul
-        v-if="inputData !== '' && dataList.length > 0 && searchState.showOptions"
+        v-if="dataList.length > 0 && searchState.showOptions"
         :id="idDataList"
         class="list"
         @mouseenter="searchState.isPointerInList = true"

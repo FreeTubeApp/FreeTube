@@ -112,6 +112,7 @@ export default Vue.extend({
   mounted: function () {
     this.id = this._uid
     this.inputData = this.value
+    this.updateVisibleDataList()
 
     setTimeout(this.addListener, 200)
   },
