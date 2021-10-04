@@ -526,7 +526,7 @@ export default Vue.extend({
       if (event.target && !event.currentTarget.querySelector('.vjs-menu:hover')) {
         event.preventDefault()
 
-        if (event.ctrlKey) {
+        if (event.ctrlKey || event.metaKey) {
           if (event.wheelDelta > 0) {
             this.changePlayBackRate(0.05)
           } else if (event.wheelDelta < 0) {
