@@ -26,6 +26,14 @@
   width: 80px;
 }
 
+.closed .hiddenLabels {
+  width: 60px;
+}
+
+.closed.hiddenLabels {
+  width: 60px;
+}
+
 .topNavOption {
   margin-top: 10px;
 }
@@ -207,5 +215,8 @@
 
   .moreOption {
     display: block;
+  }
+  .closed.hiddenLabels{
+    width: 100%;
   }
 }

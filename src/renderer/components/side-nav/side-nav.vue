@@ -2,9 +2,12 @@
   <ft-flex-box
     ref="sideNav"
     class="sideNav"
-    :class="{closed: !isOpen}"
+    :class="[{closed: !isOpen}, applyHiddenLabels]"
   >
-    <div class="inner">
+    <div
+      class="inner"
+      :class="applyHiddenLabels"
+    >
       <div
         class="navOption topNavOption mobileShow "
         role="button"
