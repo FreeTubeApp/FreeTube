@@ -510,7 +510,7 @@ export default Vue.extend({
           this.player.volume(0)
         }
 
-        if (!event.ctrlKey) {
+        if (!event.ctrlKey && !event.metaKey) {
           if (!this.player.muted()) {
             if (event.wheelDelta > 0) {
               this.changeVolume(0.05)
