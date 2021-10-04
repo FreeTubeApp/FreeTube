@@ -107,7 +107,7 @@ Settings:
   Settings: 'Impostazioni'
   General Settings:
     General Settings: 'Impostazioni generali'
-    Fallback to Non-Preferred Backend on Failure: 'Reimposta Back-end non predefinito
+    Fallback to Non-Preferred Backend on Failure: 'Ritorna al Back-end non preferito
       in caso di errore'
     Enable Search Suggestions: 'Abilita suggerimenti di ricerca'
     Default Landing Page: 'Pagina iniziale predefinita'
@@ -716,9 +716,9 @@ This video is unavailable because of missing formats. This can happen due to cou
 Tooltips:
   Player Settings:
     Force Local Backend for Legacy Formats: Funziona solo quando Invidious è l'API
-      predefinita. Quando abilitato mostra i formati legacy recuperati dall'API locale
-      al posto di quelli di Invidious. Consigliato quando i video di Invidious non
-      vengono riprodotti a causa di restrizioni geografiche.
+      predefinita. Quando abilitate, le API locali useranno i formati Legacy al posto
+      di quelli di Invidious. Utile quando i video di Invidious non vengono riprodotti
+      a causa di restrizioni geografiche.
     Default Video Format: Imposta i formati usati quando un video viene riprodotto.
       I formati DASH possono riprodurre qualità maggiori. I formati legacy sono limitati
       ad un massimo di 720p ma usano meno banda. I formati audio riproducono solo
@@ -735,12 +735,12 @@ Tooltips:
       l'istanza attuale per vedere una lista di istanze pubbliche da cui scegliere.
     Thumbnail Preference: Tutte le copertine attraverso FreeTube verranno sostituite
       da un frame del video al posto della copertina originale.
-    Fallback to Non-Preferred Backend on Failure: Quando le tue API preferite hanno
-      un problema, FreeTube userà automaticamente le API secondarie come ripiego quando
-      abilitate.
-    Preferred API Backend: Scegli il Back-end che FreeTube utilizza per ottenere i
-      dati. L'API locale è un estrattore integrato. Le API Invidious richiedono un
-      server Invidious dove connettersi.
+    Fallback to Non-Preferred Backend on Failure: Quando le API preferite hanno un
+      problema, FreeTube userà automaticamente le API secondarie come riserva (se
+      abilitate).
+    Preferred API Backend: Scegli il Back-end utilizzato da FreeTube per ottenere
+      i dati. Le API locali sono integrate nel programma. Le API Invidious richiedono
+      un server Invidious al quale connettersi.
     Region for Trending: La regione delle tendenze permette di scegliere la nazione
       di cui si vogliono vedere i video di tendenza. Non tutte le nazioni mostrate
       sono ufficialmente supportate da YouTube.
