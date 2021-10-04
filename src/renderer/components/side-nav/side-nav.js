@@ -61,6 +61,11 @@ export default Vue.extend({
     },
     hideText: function () {
       return !this.isOpen && this.hideLabelsSideBar
+    },
+    applyNavIconExpand: function() {
+      return {
+        navIconExpand: this.hideText
+      }
     }
   },
   methods: {

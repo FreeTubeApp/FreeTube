@@ -66,10 +66,13 @@
     width: 100%;
     display: block;
     margin-top: 0.5em;
-    height: 1.3em;
   }
 
   .moreOption {
     display: block;
+  }
+
+  .closed .navIconExpand{
+    height:1.3em;
   }
 }

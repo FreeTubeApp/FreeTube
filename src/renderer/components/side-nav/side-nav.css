@@ -57,7 +57,6 @@
 
 .navIcon {
   margin-left: 10px;
-  height: 1.3em;
 }
 
 .navOption .navLabel {
@@ -130,6 +129,9 @@
   width: 100%;
   display: block;
   margin-bottom: 0px;
+}
+.closed .navIconExpand{
+  height:1.3em;
 }
 
 .closed .navLabel {

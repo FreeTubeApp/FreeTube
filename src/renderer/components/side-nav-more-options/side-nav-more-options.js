@@ -16,6 +16,11 @@ export default Vue.extend({
     },
     hideLabelsSideBar: function () {
       return this.$store.getters.getHideLabelsSideBar
+    },
+    applyNavIconExpand: function() {
+      return {
+        navIconExpand: this.hideLabelsSideBar
+      }
     }
   },
   methods: {

@@ -8,6 +8,7 @@
       <font-awesome-icon
         icon="ellipsis-h"
         class="navIcon"
+        :class="applyNavIconExpand"
       />
       <p
         v-if="!hideLabelsSideBar"
@@ -30,6 +31,7 @@
         <font-awesome-icon
           icon="fire"
           class="navIcon"
+          :class="applyNavIconExpand"
         />
         <p
           v-if="!hideLabelsSideBar"
@@ -47,6 +49,7 @@
         <font-awesome-icon
           icon="users"
           class="navIcon"
+          :class="applyNavIconExpand"
         />
         <p
           v-if="!hideLabelsSideBar"
@@ -63,6 +66,7 @@
         <font-awesome-icon
           icon="info-circle"
           class="navIcon"
+          :class="applyNavIconExpand"
         />
         <p
           v-if="!hideLabelsSideBar"
@@ -79,6 +83,7 @@
       <font-awesome-icon
         icon="history"
         class="navIcon"
+        :class="applyNavIconExpand"
       />
       <p class="navLabel">
         {{ $t("History.History") }}
@@ -92,6 +97,7 @@
       <font-awesome-icon
         icon="sliders-h"
         class="navIcon"
+        :class="applyNavIconExpand"
       />
       <p class="navLabel">
         {{ $t("Settings.Settings") }}
@@ -104,6 +110,7 @@
       <font-awesome-icon
         icon="info-circle"
         class="navIcon"
+        :class="applyNavIconExpand"
       />
       <p
         v-if="!hideLabelsSideBar"

@@ -18,6 +18,7 @@
           <font-awesome-icon
             icon="rss"
             class="navIcon"
+            :class="applyNavIconExpand"
             fixed-width
           />
         </div>
@@ -43,6 +44,7 @@
           <font-awesome-icon
             icon="fire"
             class="navIcon"
+            :class="applyNavIconExpand"
             fixed-width
           />
         </div>
@@ -68,6 +70,7 @@
           <font-awesome-icon
             icon="users"
             class="navIcon"
+            :class="applyNavIconExpand"
             fixed-width
           />
         </div>
@@ -93,6 +96,7 @@
           <font-awesome-icon
             icon="bookmark"
             class="navIcon"
+            :class="applyNavIconExpand"
             fixed-width
           />
         </div>
@@ -120,6 +124,7 @@
           <font-awesome-icon
             icon="history"
             class="navIcon"
+            :class="applyNavIconExpand"
             fixed-width
           />
         </div>
@@ -145,6 +150,7 @@
           <font-awesome-icon
             icon="sliders-h"
             class="navIcon"
+            :class="applyNavIconExpand"
             fixed-width
           />
         </div>
@@ -169,6 +175,7 @@
           <font-awesome-icon
             icon="info-circle"
             class="navIcon"
+            :class="applyNavIconExpand"
             fixed-width
           />
         </div>
