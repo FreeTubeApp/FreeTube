@@ -1,6 +1,18 @@
-# EXAMPLE USAGE
+
 # Refer for explanation to following link:
 # https://github.com/evilmartians/lefthook/blob/master/docs/full_guide.md
+pre-commit:
+  parallel: true
+  commands:
+    lint:
+      # Only runs when any file with filename
+      # matching the glob is being committed
+      glob: "*.{js,ts,vue}"
+      run: npx eslint --no-color {staged_files}
+
+
+
+# EXAMPLE USAGE
 #
 # pre-push:
 #   commands:
