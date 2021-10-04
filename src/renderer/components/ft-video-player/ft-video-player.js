@@ -321,10 +321,10 @@ export default Vue.extend({
 
         if (this.videoPlaybackRateMouseScroll) {
           this.player.on('wheel', this.mouseScrollPlaybackRate)
-        }
-
-        if (this.videoPlaybackRateMouseScroll) {
-          this.player.on('click', this.returnToNormalPlaybackRate)
+          // Removes the 'out-of-the-box' click event and adds a custom click event so that a user can
+          // ctrl-click (or command+click on a mac) without toggling play/pause
+          this.player.el_.firstChild.style.pointerEvents = 'none'
+          this.player.on('click', this.handlePlayerClick)
         }
 
         this.player.on('fullscreenchange', this.fullscreenOverlay)
@@ -536,24 +536,16 @@ export default Vue.extend({
       }
     },
 
-    returnToNormalPlaybackRate: function (event) {
-      if (event.target && !event.currentTarget.querySelector('.vjs-menu:hover')) {
-        if (event.ctrlKey) {
-          event.preventDefault()
-          /*
-           * HACK: This is a hack to get around the fact that the custom click handler fires
-           * after the videojs play/pause action. It basically works but the play icon flashes
-           * briefly. Thus adding another hack to hide the play icon.
-          */
-          if (this.player.paused()) {
-            this.player.removeChild('BigPlayButton')
-            this.player.play()
-            if (this.displayVideoPlayButton) {
-              this.player.addChild('BigPlayButton')
-            }
-          }
+    handlePlayerClick: function (event) {
+      if (event.target.matches('.ftVideoPlayer')) {
+        if (event.ctrlKey || event.metaKey) {
           this.player.playbackRate(this.defaultPlayback)
-          event.stopPropagation()
+        } else {
+          if (this.player.paused() || !this.player.hasStarted()) {
+            this.player.play()
+          } else {
+            this.player.pause()
+          }
         }
       }
     },
