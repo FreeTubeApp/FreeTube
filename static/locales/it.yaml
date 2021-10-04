@@ -594,13 +594,13 @@ Playlist:
 Toggle Theatre Mode: 'Attiva modalità cinema'
 Change Format:
   Change Video Formats: 'Cambia formati video'
-  Use Dash Formats: 'Usa formati DASH'
-  Use Legacy Formats: 'Usa formati Legacy'
-  Use Audio Formats: 'Usa Formati Audio'
-  Audio formats are not available for this video: I formati audio non sono disponibili
+  Use Dash Formats: 'Utilizza formati DASH'
+  Use Legacy Formats: 'Utilizza formati Legacy'
+  Use Audio Formats: 'Utilizza formati Audio'
+  Audio formats are not available for this video: I formati Audio non sono disponibili
     per questo video
-  Dash formats are not available for this video: Formati DASH non disponibili per
-    questo video
+  Dash formats are not available for this video: I formati DASH non sono disponibili
+    per questo video
 Share:
   Share Video: 'Condividi video'
   Copy Link: 'Copia collegamento'
@@ -720,8 +720,8 @@ Tooltips:
       di quelli di Invidious. Utile quando i video di Invidious non vengono riprodotti
       a causa di restrizioni geografiche.
     Default Video Format: Imposta i formati usati quando un video viene riprodotto.
-      I formati DASH possono riprodurre qualità maggiori. I formati legacy sono limitati
-      ad un massimo di 720p ma usano meno banda. I formati audio riproducono solo
+      I formati DASH possono riprodurre qualità maggiori. I formati Legacy sono limitati
+      ad un massimo di 720p ma usano meno banda. I formati Audio riproducono solo
       l'audio.
     Proxy Videos Through Invidious: Connessione a Invidious per riprodurre i video
       invece di una connessione diretta a YouTube. Sovrascrive le preferenze API.
