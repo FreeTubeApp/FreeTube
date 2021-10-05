@@ -187,6 +187,7 @@ Settings:
     UI Scale: Skalierung der Benutzeroberfläche
     Disable Smooth Scrolling: Gleichmäßiges Scrollen deaktivieren
     Expand Side Bar by Default: Seitenleiste standardmäßig erweitern
+    Hide Side Bar Labels: Seitenleisten-Beschriftungen ausblenden
   Player Settings:
     Player Settings: Videoabspieler-Einstellungen
     Force Local Backend for Legacy Formats: Lokales System für Legacy Formate erzwingen
@@ -736,8 +737,6 @@ Tooltips:
     Thumbnail Preference: Alle Vorschaubilder in FreeTube werden durch ein Standbild
       aus dem Video ersetzt und entsprechen somit nicht mehr dem Standard-Vorschaubild.
     Invidious Instance: Die Invidious-Instanz, welche FreeTube für API-Calls verwendet.
-      Leere die aktuelle Instanz, um eine vollständige Liste der verfügbaren Server
-      anzuzeigen.
     Fallback to Non-Preferred Backend on Failure: Erlaube FreeTube, falls die bevorzugte
       API nicht verfügbar sein sollte, automatisch eine alternative API zu nutzen.
     Preferred API Backend: Wähle das Backend, welches FreeTube zum Laden der Daten
