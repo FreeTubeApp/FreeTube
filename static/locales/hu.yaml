@@ -139,7 +139,7 @@ Settings:
       (Alapértelmezés: https://invidious.snopyta.org)'
     Region for Trending: 'Népszerű területe'
         #! List countries
-    View all Invidious instance information: Az Invidious példány összes tájékoztatásának
+    View all Invidious instance information: Az Invidious-példány összes tájékoztatásának
       megtekintése
     System Default: Rendszer alapértelmezett
     Current Invidious Instance: Jelenlegi Invidious-példány
@@ -193,6 +193,7 @@ Settings:
     UI Scale: Felhasználói felület méretezése
     Expand Side Bar by Default: Alapértelmezés szerint oldalsáv megjelenítése
     Disable Smooth Scrolling: Finomgörgetés kikapcsolása
+    Hide Side Bar Labels: Oldalsáv címkéi elrejtése
   Player Settings:
     Player Settings: 'Lejátszó beállításai'
     Force Local Backend for Legacy Formats: 'Helyi háttéralkalmazás kényszerítése
@@ -714,9 +715,8 @@ Tooltips:
     Region for Trending: A népszerűk körzetével kiválaszthatja, mely ország népszerű
       videóit szeretné megjeleníteni. Nem minden megjelenített országot támogat a
       YouTube.
-    Invidious Instance: Invidious példány, amelyhez a SzabadCső csatlakozni fog az
-      API-hívásokhoz. Törölje az aktuális példányt a nyilvános példányok listájának
-      megjelenítéséhez.
+    Invidious Instance: Invidious-példány, amelyhez a SzabadCső csatlakozni fog az
+      API-hívásokhoz.
     Thumbnail Preference: A SzabadCső összes miniatűrökét az alapértelmezett miniatűr
       helyett egy képkocka váltja fel.
     Fallback to Non-Preferred Backend on Failure: Ha az Ön által előnyben részesített
