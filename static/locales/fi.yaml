@@ -694,8 +694,7 @@ Tooltips:
       Paikallinen API on ohjelmiston sisäinen. Invidious API vaatii yhteyden Invidious-palvelimeen.
     Region for Trending: Valitsee minkä maan Nousevat videot sinulle näytetään. Kaikki
       listatut maat eivät ole YouTuben tukemia.
-    Invidious Instance: Invidious instanssi jota Freetube käyttää. Tyhjennä kenttä
-      nähdäksesi listan julkisista instansseista.
+    Invidious Instance: Invidious instanssi, jota Freetube käyttää.
     Thumbnail Preference: Kaikki pikkukuvat Freetubessa korvataan ruudulla videosta
       alkuperäisen pikkukuvan sijaan.
     Fallback to Non-Preferred Backend on Failure: Kun valitsemasi API kohtaa ongelman,
