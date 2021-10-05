@@ -68,24 +68,13 @@
 }
 
 .navOption .navLabel {
-  /*white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 150px;*/
   margin-left: 40px;
   overflow: hidden;
   margin-left: 40px;
   word-break: break-word;
-  /*font-size: 12px;*/
 }
 
 .navChannel .navLabel {
-  /*white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 150px;
-  margin-left: 40px;*/
-
   overflow: hidden;
   margin-left: 40px;
   word-break: break-word;
