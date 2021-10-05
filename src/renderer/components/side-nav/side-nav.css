@@ -118,6 +118,14 @@
   display: none;
 }
 
+.closed .thumbnailContainer,
+.closed .navOption {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .closed .navOption {
   width: 100%;
   padding: 5px 0px;
@@ -135,6 +143,7 @@
 
 .closed .navLabel {
   margin-left: 0px;
+  margin-bottom: 0;
   width: 100%;
   text-align: center;
   left: 0px;
@@ -150,7 +159,6 @@
 
 .closed .thumbnailContainer {
   position: static;
-  display: block;
   float: none;
   margin: 0 auto;
   top: 0px;
@@ -165,7 +173,7 @@
     display: contents; /* sunglasses emoji */
   }
 
-  hr, .mobileHidden, .refreshIcon {
+  hr, .closed .mobileHidden, .mobileHidden, .refreshIcon {
     display: none;
   }
 
