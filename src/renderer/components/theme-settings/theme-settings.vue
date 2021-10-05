@@ -22,7 +22,7 @@
         @change="handleRestartPrompt"
       />
       <ft-toggle-switch
-        :label="$t('Settings.Theme Settings.Hide Labels in Side Bar')"
+        :label="$t('Settings.Theme Settings.Hide Side Bar Labels')"
         :default-value="hideLabelsSideBar"
         @change="updateHideLabelsSideBar"
       />
