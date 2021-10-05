@@ -44,6 +44,11 @@
   margin-top: 0px;
 }
 
+.commentOwner {
+  background-color: var(--scrollbar-color);
+  border-radius: 10px;
+  padding: 0 10px;
+}
 
 .commentAuthor {
   cursor: pointer;
@@ -54,6 +59,13 @@
   font-size: 14px;
   margin-top: -10px;
   margin-left: 70px;
+}
+.commentPinned {
+  font-weight: normal;
+  font-size: 12px;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  margin-left: 68px;
 }
 
 .commentDate {

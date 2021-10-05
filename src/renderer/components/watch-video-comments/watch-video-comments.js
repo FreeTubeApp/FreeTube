@@ -20,6 +20,10 @@ export default Vue.extend({
       type: String,
       required: true
     },
+    channelName: {
+      type: String,
+      required: true
+    },
     channelThumbnail: {
       type: String,
       required: true
