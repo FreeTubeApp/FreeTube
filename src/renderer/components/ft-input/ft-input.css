@@ -7,7 +7,7 @@
   /* horizontal intentionally reduced to keep "I-beam pointer" visible */
   padding: 10px 8px;
   top: 5px;
-  left: 0;
+  left: 0.125em;
   cursor: pointer;
   border-radius: 200px 200px 200px 200px;
   color: var(--primary-text-color);
@@ -90,7 +90,7 @@
   position: absolute;
   padding: 10px 8px;
   top: 5px;
-  right: 0;
+  right: 0.5em;
   border-radius: 200px 200px 200px 200px;
   color: var(--primary-text-color);
   /* this should look disabled by default */
@@ -120,7 +120,7 @@
   With arrow present means
   the text might get under the arrow with normal padding
    */
-  padding-right: 2em;
+  padding-right: 3em;
 }
 
 .inputAction.enabled:hover {
@@ -169,5 +169,5 @@
 }
 
 .showClearTextButton .ft-input {
-  padding-left: 2em;
+  padding-left: 2.5em;
 }
