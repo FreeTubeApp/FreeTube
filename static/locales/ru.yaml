@@ -184,6 +184,7 @@ Settings:
     UI Scale: Масштаб пользовательского интерфейса
     Expand Side Bar by Default: Развернуть боковую панель по умолчанию
     Disable Smooth Scrolling: Отключить плавную прокрутку
+    Hide Side Bar Labels: Скрыть ярлыки боковой панели
   Player Settings:
     Player Settings: 'Настройки плеера'
     Force Local Backend for Legacy Formats: 'Принудительно использовать локальный
@@ -713,8 +714,7 @@ Tooltips:
     Thumbnail Preference: Все эскизы во FreeTube будут заменены кадром видео вместо
       эскиза по умолчанию.
     Invidious Instance: Экземпляр Invidious, к которому FreeTube будет подключаться
-      для вызовов API. Очистите текущий экземпляр, чтобы посмотреть список общедоступных
-      экземпляров.
+      для вызовов API.
     Fallback to Non-Preferred Backend on Failure: Если у вашего предпочтительного
       API есть проблема, FreeTube автоматически попытается использовать ваш нежелательный
       API в качестве резервного метода, если он включен.
