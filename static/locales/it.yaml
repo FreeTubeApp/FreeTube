@@ -186,6 +186,7 @@ Settings:
     UI Scale: Dimensioni interfaccia
     Disable Smooth Scrolling: Disabilita scorrimento fluido
     Expand Side Bar by Default: Espandi automaticamente la barra laterale
+    Hide Side Bar Labels: Nascondi le etichette della barra laterale
   Player Settings:
     Player Settings: 'Impostazioni del riproduttore video'
     Force Local Backend for Legacy Formats: 'Forza Back-end locale per formati Legacy'
@@ -731,8 +732,7 @@ Tooltips:
       il blocco dell'IP, ma non forniscono determinate informazioni come la durata
       del video o lo stato in diretta
   General Settings:
-    Invidious Instance: Istanza Invidious che FreeTube usa per le chiamate API. Pulisci
-      l'istanza attuale per vedere una lista di istanze pubbliche da cui scegliere.
+    Invidious Instance: Istanza Invidious che FreeTube usa per le chiamate API.
     Thumbnail Preference: Tutte le copertine attraverso FreeTube verranno sostituite
       da un frame del video al posto della copertina originale.
     Fallback to Non-Preferred Backend on Failure: Quando le API preferite hanno un
