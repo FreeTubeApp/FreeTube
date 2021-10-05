@@ -74,7 +74,7 @@ export default Vue.extend({
       return this.$store.getters.getDisableSmoothScrolling
     },
     hideLabelsSideBar: function () {
-      return this.$store.getters.hideLabelsSideBar
+      return this.$store.getters.getHideLabelsSideBar
     },
     restartPromptMessage: function () {
       return this.$t('Settings["The app needs to restart for changes to take effect. Restart and apply change?"]')
