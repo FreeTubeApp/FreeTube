@@ -7,7 +7,7 @@
   /* horizontal intentionally reduced to keep "I-beam pointer" visible */
   padding: 10px 8px;
   top: 5px;
-  left: 0.125em;
+  left: 0.25em;
   cursor: pointer;
   border-radius: 200px 200px 200px 200px;
   color: var(--primary-text-color);
@@ -65,6 +65,10 @@
   color: var(--secondary-text-color);
   border-radius: 5px;
   background-color: var(--search-bar-color);
+
+  -moz-transition: padding 0.1s ease-in;
+  -o-transition: padding 0.1s ease-in;
+  transition: padding 0.1s ease-in;
 }
 
 .ft-input-component ::-webkit-input-placeholder {
@@ -91,7 +95,7 @@
   position: absolute;
   padding: 10px 8px;
   top: 5px;
-  right: 0.5em;
+  right: 0.25em;
   border-radius: 200px 200px 200px 200px;
   color: var(--primary-text-color);
   /* this should look disabled by default */
@@ -121,7 +125,11 @@
   With arrow present means
   the text might get under the arrow with normal padding
    */
-  padding-right: 3em;
+  padding-right: 2.75em;
+}
+
+.clearInputTextButton.visible ~ .ft-input {
+  padding-left: 2.75em;
 }
 
 .inputAction.enabled:hover {
@@ -167,8 +175,4 @@
 .hover {
   background-color: var(--scrollbar-color-hover);
 /*   color: white; */
-}
-
-.showClearTextButton .ft-input {
-  padding-left: 2.5em;
 }
