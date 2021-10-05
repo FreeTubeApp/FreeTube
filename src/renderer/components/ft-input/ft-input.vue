@@ -23,7 +23,7 @@
     <font-awesome-icon
       v-if="showClearTextButton && clearTextButtonExisting"
       icon="times-circle"
-      class="clearInputTextButton"
+      class="clearInputTextButton fa-fw"
       :class="{
         visible: clearTextButtonVisible
       }"
@@ -51,7 +51,7 @@
     <font-awesome-icon
       v-if="showActionButton"
       :icon="actionButtonIconName"
-      class="inputAction"
+      class="inputAction fa-fw"
       :class="{
         enabled: inputDataPresent
       }"
