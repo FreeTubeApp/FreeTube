@@ -190,6 +190,7 @@ Settings:
     UI Scale: UI Scale
     Disable Smooth Scrolling: Disable smooth scrolling
     Expand Side Bar by Default: Expand side bar by default
+    Hide Side Bar Labels: Hide side bar labels
   Player Settings:
     Player Settings: 'Player Settings'
     Force Local Backend for Legacy Formats: 'Force Local Back-end for Legacy Formats'
