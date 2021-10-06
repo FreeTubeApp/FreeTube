@@ -56,8 +56,8 @@
             :style="{ background: `linear-gradient(to right, var(--accent-color) ${likePercentageRatio}%, #9E9E9E ${likePercentageRatio}%` }"
           />
           <div>
-            <span class="likeCount"><font-awesome-icon icon="thumbs-up" /> {{ likeCount }}</span>
-            <span class="dislikeCount"><font-awesome-icon icon="thumbs-down" /> {{ dislikeCount }}</span>
+            <span class="likeCount"><font-awesome-icon icon="thumbs-up" /> {{ parsedLikeCount }}</span>
+            <span class="dislikeCount"><font-awesome-icon icon="thumbs-down" /> {{ parsedDislikeCount }}</span>
           </div>
         </div>
       </div>
