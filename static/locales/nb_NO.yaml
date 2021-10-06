@@ -183,6 +183,7 @@ Settings:
     UI Scale: Grensesnittskala
     Disable Smooth Scrolling: Slå av myk rulling
     Expand Side Bar by Default: Utvidet sidefelt som forvalg
+    Hide Side Bar Labels: Skjul sidefeltsetiketter
   Player Settings:
     Player Settings: 'Videoavspillingsinnstillinger'
     Force Local Backend for Legacy Formats: 'Påtving lokal bakende for forelede formater'
@@ -687,9 +688,7 @@ This video is unavailable because of missing formats. This can happen due to cou
   i ditt land.
 Tooltips:
   General Settings:
-    Invidious Instance: Invidious-forekomsten FreeTube kobler til for API-kall. Fjern
-      den gjeldene forekomsten for å se en liste over offentlige forekomster å velge
-      mellom.
+    Invidious Instance: Invidious-forekomsten FreeTube kobler til for API-kall.
     Thumbnail Preference: Alle miniatyrbilder i FreeTube vil bli erstattet av et bilde
       av videoen i stedet for forvalgt miniatyrbilde.
     Fallback to Non-Preferred Backend on Failure: Når ditt foretrukne API har et problem,
