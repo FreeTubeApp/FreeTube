@@ -196,6 +196,7 @@ Settings:
       Dracula Yellow: 'Drakúla Gult'
     Secondary Color Theme: 'Aukalitur þema'
         #* Main Color Theme
+    Hide Side Bar Labels: Fela skýringar á hliðarstiku
   Player Settings:
     Player Settings: 'Stillingar spilara'
     Force Local Backend for Legacy Formats: 'Þvinga notkun staðværs bakenda fyrir
@@ -636,8 +637,7 @@ Tooltips:
     Thumbnail Preference: 'Öllum smámyndum í FreeTube verður skipt út fyrir ramma
       með myndskeiðinu í stað sjálfgefinnar smámyndar.'
     Invidious Instance: 'Tilvik Invidious-netþjóns sem FreeTube mun tengjast fyrir
-      beðnir í API-kerfisviðmót. Hreinsaðu út fyrirliggjandi tilvik til að sjá lista
-      yfir opinber tilvik sem hægt er að velja um.'
+      beiðnir í API-kerfisviðmót.'
     Region for Trending: 'Landssvæði sem skal miða vinsældir við gerir þér kleift
       að velja í hvaða landi aukning á vinsældum í umræðunni skal miða við. Ekki eru
       öll löndin sem birtast raunverulega studd af YouTube.'
