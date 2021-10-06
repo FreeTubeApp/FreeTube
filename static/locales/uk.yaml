@@ -194,6 +194,7 @@ Settings:
       Dracula Yellow: 'Дракула Жовта'
     Secondary Color Theme: 'Другорядна кольорова тема'
         #* Main Color Theme
+    Hide Side Bar Labels: Сховати мітки бічної панелі
   Player Settings:
     Player Settings: 'Налаштування програвача'
     Force Local Backend for Legacy Formats: 'Примусово використовувати локальний сервер
@@ -667,8 +668,7 @@ Tooltips:
     Thumbnail Preference: 'Усі ескізи у FreeTube заміняться на кадр відео, а не на
       типову мініатюру.'
     Invidious Instance: 'Сервер Invidious, до якого FreeTube під''єднуватиметься для
-      викликів API. Очистьте поточний сервер, щоб побачити список загальнодоступних
-      серверів на вибір.'
+      викликів API.'
     Region for Trending: 'Регіон популярного дозволяє вам вибрати популярні відео
       країни, які ви хочете бачити. Не всі показані країни насправді підтримуються
       YouTube.'
