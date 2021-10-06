@@ -198,6 +198,24 @@ export default Vue.extend({
       return this.likeCount + this.dislikeCount
     },
 
+    parsedLikeCount: function () {
+      if (this.hideVideoLikesAndDislikes) {
+        return null
+      }
+
+      const locale = this.currentLocale.replace('_', '-')
+      return this.likeCount.toLocaleString([locale, 'en'])
+    },
+
+    parsedDislikeCount: function () {
+      if (this.hideVideoLikesAndDislikes) {
+        return null
+      }
+
+      const locale = this.currentLocale.replace('_', '-')
+      return this.dislikeCount.toLocaleString([locale, 'en'])
+    },
+
     likePercentageRatio: function () {
       return parseInt(this.likeCount / this.totalLikeCount * 100)
     },
