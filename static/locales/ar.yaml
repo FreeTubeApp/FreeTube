@@ -180,6 +180,7 @@ Settings:
     UI Scale: مقياس واجهة المستخدم
     Disable Smooth Scrolling: عطّل التمرير المتجانس
     Expand Side Bar by Default: كبّر الشريط الجانبي بشكل افتراضي
+    Hide Side Bar Labels: إخفاء تسميات الشريط الجانبي
   Player Settings:
     Player Settings: 'إعدادات المشغل'
     Force Local Backend for Legacy Formats: 'فرض الواجهة الخلفية المحلية للتنسيقات
@@ -692,8 +693,7 @@ Tooltips:
     Preferred API Backend: اختر الواجهة الخلفية التي يستخدمها FreeTube لجلب البيانات.
       الواجهة البرمجية المحلية للتطبيق هي مستخرج محلي. الواجهة البرمجية للتطبيق التابعة
       لInvidious (بديل لموقع يوتيوب) يتطلب التواصل مع خادم شبكة Invidious.
-    Invidious Instance: واجهة Invidious البرمجية المستخدمة من قبل FreeTube. امسح الواجهة
-      البرمجية الحالية للاختيار من قائمة الواجهات.
+    Invidious Instance: مثيل Invidious الذي سيتصل به FreeTube لاستدعاءات API.
     Fallback to Non-Preferred Backend on Failure: عند التفعيل اذا واجه الAPI المفضّل
       لديك أيّ مشكلة، سيحاول FreeTube استخدام الAPI الغير مفضّل لديك تلقائيّاً كإجراء
       التراجع.
