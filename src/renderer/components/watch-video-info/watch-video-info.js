@@ -203,7 +203,8 @@ export default Vue.extend({
         return null
       }
 
-      return this.likeCount.toLocaleString()
+      const locale = this.currentLocale.replace('_', '-')
+      return this.likeCount.toLocaleString([locale, 'en'])
     },
 
     parsedDislikeCount: function () {
@@ -211,7 +212,8 @@ export default Vue.extend({
         return null
       }
 
-      return this.dislikeCount.toLocaleString()
+      const locale = this.currentLocale.replace('_', '-')
+      return this.dislikeCount.toLocaleString([locale, 'en'])
     },
 
     likePercentageRatio: function () {
