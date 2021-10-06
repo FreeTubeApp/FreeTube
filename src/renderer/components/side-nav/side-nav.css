@@ -2,7 +2,7 @@
   display: block;
   height: calc(100vh - 60px);
   width: 200px;
-  overflow-x: hidden;
+  overflow: hidden;
   position: fixed;
   left: 0px;
   top: 0px;
@@ -15,6 +15,15 @@
   transition-timing-function: ease-in-out;
 }
 
+.sideNav hr {
+  background-color: var(--primary-color);
+  border: 0;
+  height: 1px;
+  margin-bottom: 0;
+  margin-top: 0;
+  width: 100%;
+}
+
 .inner {
   height: 100%;
   width: 200px;
@@ -22,33 +31,15 @@
   overflow-x: hidden;
 }
 
-.closed .inner {
-  width: 80px;
-}
-
-.closed .hiddenLabels {
-  width: 60px;
-}
-
-.closed.hiddenLabels {
-  width: 60px;
-}
-
-.topNavOption {
-  margin-top: 10px;
-}
-
 .navOption, .navChannel {
-  position: relative;
-  padding: 5px;
+  align-items: center;
   cursor: pointer;
-  min-height: 35px;
+  display: flex;
+  gap: 10px;
+  height: 60px;
 }
 
-.moreOption {
-  display: none;
-}
-
+.navOption:active, .navChannel:active,
 .navOption:hover, .navChannel:hover {
   background-color: var(--side-nav-hover-color);
   -moz-transition: background 0.2s ease-in;
@@ -56,118 +47,85 @@
   transition: background 0.2s ease-in;
 }
 
-.navOption:active, .navChannel:active {
-  background-color: var(--side-nav-active-color);
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
-  transition: background 0.2s ease-in;
-}
-
-.navIcon {
-  margin-left: 10px;
-}
-
-.navOption .navLabel {
-  margin-left: 40px;
+.navLabel {
+  margin: 0;
   overflow: hidden;
-  margin-left: 40px;
   word-break: break-word;
 }
 
 .navChannel .navLabel {
-  overflow: hidden;
-  margin-left: 40px;
-  word-break: break-word;
   font-size: 12px;
 }
 
+.navIcon,
 .thumbnailContainer {
-  width: 35px;
   margin: 0;
-  position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+}
+
+.navIcon {
+  width: 40px;
+  font-size: 20px;
+  margin-left: 5px;
+}
+
+.thumbnailContainer {
+  height: 36px;
+  margin-left: 5px;
+  width: 40px;
 }
 
 .channelThumbnail {
   border-radius: 50%;
-  width: 35px;
+  display: block;
+  margin: 0 auto;
+  width: 36px;
 }
 
-.closed {
+/* Closed nav bar styles */
+.closed,
+.closed .inner {
   width: 80px;
 }
 
-.sideNav hr {
-  width: 90%;
-  height: 1px;
-  border: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-  background-color: var(--primary-color);
+.closed.hiddenLabels,
+.closed.hiddenLabels .inner {
+  width: 50px;
 }
 
-.refreshIcon {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-
-.closed .refreshIcon {
-  display: none;
-}
-
-.closed .thumbnailContainer,
-.closed .navOption {
+.closed .navOption, .closed .navChannel {
+  width: 100%;
+  height: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.closed .navOption {
-  width: 100%;
-  padding: 5px 0px;
-}
-
 .closed .navIcon {
   margin-left: 0px;
   width: 100%;
   display: block;
+  font-size: 16px;
   margin-bottom: 0px;
 }
-.closed .navIconExpand{
-  height:1.3em;
-}
 
-.closed .navLabel {
-  margin-left: 0px;
-  margin-bottom: 0;
-  width: 100%;
-  text-align: center;
-  left: 0px;
-  font-size: 11px;
-  margin-block-end: 0em;
-}
-
-.closed .navChannel {
-  width: 100%;
-  height: 45px;
-  padding: 5px 0px;
+.closed .navIconExpand {
+  font-size: 20px;
 }
 
 .closed .thumbnailContainer {
-  position: static;
-  float: none;
-  margin: 0 auto;
-  top: 0px;
-  -ms-transform: none;
-  transform: none;
-  margin-block-start: 0.3em;
-  margin-block-end: 0.3em;
+  width: 50px;
+  margin: 0;
 }
 
+.closed .navLabel {
+  font-size: 11px;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+}
+
+/* Make sure to repliacte style changes to side-nav-more-options.css */
 @media only screen and (max-width: 680px) {
   .inner {
     display: contents; /* sunglasses emoji */
@@ -178,44 +136,53 @@
   }
 
   .sideNav {
+    bottom: 0;
     display: flex;
-  }
-
-  .topNavOption {
-    margin-top: 0px;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .sideNav, .closed {
-    margin-top: 0px;
     height: 60px;
-    width: 100%;
-    bottom: 0px;
+    margin-top: 0;
+    padding-top: 0;
     top: auto;
-    overflow-y: hidden;
+    z-index: 4; /* Same z-index as top-nav */
+    width: 100%;
   }
 
-  .navOption, .closed .navOption {
-    width: 70px;
+  .closed .navOption, .navOption {
+    align-items: center;
+    flex-direction: column;
+    flex: 1 1 0%;
     height: 40px;
-    padding: 0px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    justify-content: center;
+    min-width: 70px;
+    padding: 10px 0;
+  }
+
+  .closed .navIcon, .navIcon {
+    margin-left: 0px;
+    width: 100%;
+    display: block;
+    font-size: 16px;
+    margin-bottom: 0px;
+  }
+
+  .closed .navIconExpand, .navIconExpand {
+    font-size: 20px;
   }
 
   .navLabel {
-    margin-left: 0px;
-    width: 100%;
-    text-align: center;
-    left: 0px;
     font-size: 11px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .thumbnailContainer {
+    margin: 0;
   }
 
   .moreOption {
     display: block;
   }
-  .closed.hiddenLabels{
+
+  .closed.hiddenLabels {
     width: 100%;
   }
 }

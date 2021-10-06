@@ -8,15 +8,9 @@
   cursor: pointer;
 }
 
+.navOption:active,
 .navOption:hover {
   background-color: var(--side-nav-hover-color);
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
-  transition: background 0.2s ease-in;
-}
-
-.navOption:active {
-  background-color: var(--side-nav-active-color);
   -moz-transition: background 0.2s ease-in;
   -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
@@ -38,23 +32,19 @@
     display: block;
   }
 
-  .sideNav, .closed {
-    margin-top: 0px;
-    height: 60px;
-    width: 100%;
-    bottom: 0px;
-    top: auto;
-    overflow-y: inherit;
-  }
-
   .navOption, .closed .navOption {
-    width: 70px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     height: 40px;
+    gap: 10px;
+    justify-content: center;
     padding: 10px 0px;
+    width: 70px;
   }
 
   .navLabel {
-    margin-left: 0px;
+    margin: 0;
     width: 100%;
     text-align: center;
     left: 0px;
@@ -65,14 +55,15 @@
     margin-left: 0px;
     width: 100%;
     display: block;
-    margin-top: 0.5em;
+    font-size: 16px;
+    margin-bottom: 0px;
   }
 
   .moreOption {
     display: block;
   }
 
-  .closed .navIconExpand{
-    height:1.3em;
+  .navIconExpand, .closed .navIconExpand {
+    font-size: 20px;
   }
 }

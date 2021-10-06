@@ -4,27 +4,20 @@
     class="sideNav"
     :class="[{closed: !isOpen}, applyHiddenLabels]"
   >
-    <div
-      class="inner"
-      :class="applyHiddenLabels"
-    >
+    <div class="inner">
       <div
-        class="navOption topNavOption mobileShow "
+        class="navOption mobileShow "
         role="button"
         tabindex="0"
         :title="$t('Subscriptions.Subscriptions')"
         @click="navigate('subscriptions')"
       >
-        <div
-          class="thumbnailContainer"
-        >
-          <font-awesome-icon
-            icon="rss"
-            class="navIcon"
-            :class="applyNavIconExpand"
-            fixed-width
-          />
-        </div>
+        <font-awesome-icon
+          icon="rss"
+          class="navIcon"
+          :class="applyNavIconExpand"
+          fixed-width
+        />
         <p
           v-if="!hideText"
           class="navLabel"
@@ -41,16 +34,12 @@
         @click="navigate('trending')"
         @keypress="navigate('trending')"
       >
-        <div
-          class="thumbnailContainer"
-        >
-          <font-awesome-icon
-            icon="fire"
-            class="navIcon"
-            :class="applyNavIconExpand"
-            fixed-width
-          />
-        </div>
+        <font-awesome-icon
+          icon="fire"
+          class="navIcon"
+          :class="applyNavIconExpand"
+          fixed-width
+        />
         <p
           v-if="!hideText"
           class="navLabel"
@@ -67,16 +56,12 @@
         @click="navigate('popular')"
         @keypress="navigate('popular')"
       >
-        <div
-          class="thumbnailContainer"
-        >
-          <font-awesome-icon
-            icon="users"
-            class="navIcon"
-            :class="applyNavIconExpand"
-            fixed-width
-          />
-        </div>
+        <font-awesome-icon
+          icon="users"
+          class="navIcon"
+          :class="applyNavIconExpand"
+          fixed-width
+        />
         <p
           v-if="!hideText"
           class="navLabel"
@@ -93,16 +78,12 @@
         @click="navigate('userplaylists')"
         @keypress="navigate('userplaylists')"
       >
-        <div
-          class="thumbnailContainer"
-        >
-          <font-awesome-icon
-            icon="bookmark"
-            class="navIcon"
-            :class="applyNavIconExpand"
-            fixed-width
-          />
-        </div>
+        <font-awesome-icon
+          icon="bookmark"
+          class="navIcon"
+          :class="applyNavIconExpand"
+          fixed-width
+        />
         <p
           v-if="!hideText"
           class="navLabel"
@@ -121,16 +102,12 @@
         @click="navigate('history')"
         @keypress="navigate('history')"
       >
-        <div
-          class="thumbnailContainer"
-        >
-          <font-awesome-icon
-            icon="history"
-            class="navIcon"
-            :class="applyNavIconExpand"
-            fixed-width
-          />
-        </div>
+        <font-awesome-icon
+          icon="history"
+          class="navIcon"
+          :class="applyNavIconExpand"
+          fixed-width
+        />
         <p
           v-if="!hideText"
           class="navLabel"
@@ -147,16 +124,12 @@
         @click="navigate('settings')"
         @keypress="navigate('settings')"
       >
-        <div
-          class="thumbnailContainer"
-        >
-          <font-awesome-icon
-            icon="sliders-h"
-            class="navIcon"
-            :class="applyNavIconExpand"
-            fixed-width
-          />
-        </div>
+        <font-awesome-icon
+          icon="sliders-h"
+          class="navIcon"
+          :class="applyNavIconExpand"
+          fixed-width
+        />
         <p
           v-if="!hideText"
           class="navLabel"
@@ -172,16 +145,12 @@
         @click="navigate('about')"
         @keypress="navigate('about')"
       >
-        <div
-          class="thumbnailContainer"
-        >
-          <font-awesome-icon
-            icon="info-circle"
-            class="navIcon"
-            :class="applyNavIconExpand"
-            fixed-width
-          />
-        </div>
+        <font-awesome-icon
+          icon="info-circle"
+          class="navIcon"
+          :class="applyNavIconExpand"
+          fixed-width
+        />
         <p
           v-if="!hideText"
           class="navLabel"
@@ -189,10 +158,10 @@
           {{ $t("About.About") }}
         </p>
       </div>
+
       <hr>
-      <div
-        v-if="!hideActiveSubscriptions"
-      >
+
+      <div v-if="!hideActiveSubscriptions">
         <div
           v-for="(channel, index) in activeSubscriptions"
           :key="index"
@@ -203,9 +172,7 @@
           @click="goToChannel(channel.id)"
           @keypress="goToChannel(channel.id)"
         >
-          <div
-            class="thumbnailContainer"
-          >
+          <div class="thumbnailContainer">
             <img
               class="channelThumbnail"
               :src="channel.thumbnail"
