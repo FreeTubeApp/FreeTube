@@ -158,6 +158,7 @@ Settings:
       Base Theme: 'Base theme'
       Black: 'Black'
       Dark: 'Dark'
+      System: 'System'
       Light: 'Light'
       Dracula: 'Dracula'
     Main Color Theme:
