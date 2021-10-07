@@ -748,6 +748,7 @@ Tooltips:
       burada özel bir yol ayarlanabilir.
     External Player: Harici bir oynatıcı seçmek, videoyu (destekleniyorsa oynatma
       listesini) harici oynatıcıda açmak için küçük resimde bir simge görüntüleyecektir.
+    DefaultCustomArgumentsTemplate: "(Öntanımlı: '$')"
 Playing Next Video Interval: Sonraki video hemen oynatılıyor. İptal etmek için tıklayın.
   | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek için
   tıklayın. | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek
