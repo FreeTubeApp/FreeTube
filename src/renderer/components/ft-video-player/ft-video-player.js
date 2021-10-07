@@ -848,10 +848,10 @@ export default Vue.extend({
 
     framebyframe: function (step) {
       this.player.pause()
-      const quality = this.useDash ? this.player.qualityLevels()[this.player.qualityLevels().selectedIndex] : 0
+      const quality = this.useDash ? this.player.qualityLevels()[this.player.qualityLevels().selectedIndex] : {}
       let fps = 30
       // Non-Dash formats are 30fps only
-      if (quality.height >= 480 && this.maxFramerate === 60) {
+      if (this.maxFramerate === 60 && quality.height >= 480) {
         for (let i = 0; i < this.adaptiveFormats.length; i++) {
           if (this.adaptiveFormats[i].bitrate === quality.bitrate) {
             fps = this.adaptiveFormats[i].fps
@@ -864,6 +864,7 @@ export default Vue.extend({
       const frameTime = 1 / fps
       const dist = frameTime * step
       this.player.currentTime(this.player.currentTime() + dist)
+      console.log(fps)
     },
 
     changeVolume: function (volume) {
