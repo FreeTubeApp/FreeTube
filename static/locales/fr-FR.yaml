@@ -793,6 +793,7 @@ Tooltips:
     External Player: La sélection du lecteur externe affichera une icône sur la miniature
       qui ouvrira la vidéo (liste de lecture, si prise en charge) dans le lecteur
       externe.
+    DefaultCustomArgumentsTemplate: '(Par défaut : « $ »)'
 More: Plus
 Playing Next Video Interval: Lecture de la prochaine vidéo en un rien de temps. Cliquez
   pour annuler. | Lecture de la prochaine vidéo dans {nextVideoInterval} seconde.
