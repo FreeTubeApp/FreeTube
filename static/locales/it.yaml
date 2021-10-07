@@ -758,6 +758,7 @@ Tooltips:
       PATH. Se necessario, un percorso personalizzato può essere impostato qui.
     External Player: Scegliendo un lettore esterno, verrà visualizzata un'icona, per
       aprire il video (la playlist se supportata) nel lettore esterno, sulla miniatura.
+    DefaultCustomArgumentsTemplate: '(Predefinito: «$»)'
   Privacy Settings:
     Remove Video Meta Files: Quando abilitata, FreeTube elimina automaticamente i
       file meta creati durante la riproduzione del video, quando la pagina di riproduzione
