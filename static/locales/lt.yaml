@@ -667,6 +667,7 @@ Tooltips:
     Custom External Player Arguments: 'Bet kokius pasirinktinius komandinės eilutės
       argumentus, atskirtus kabliataškiais ('';''), kuriuos norite perduoti išoriniam
       grotuvui.'
+    DefaultCustomArgumentsTemplate: '(Numatytasis: „$“)'
   Subscription Settings:
     Fetch Feeds from RSS: 'Kai bus įgalinta, „FreeTube“ naudos RSS, o ne numatytąjį
       metodą, kad užpildytų jūsų prenumeratos kanalą. RSS yra greitesnė ir išvengia
