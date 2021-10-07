@@ -758,6 +758,7 @@ Tooltips:
       elválasztott argumentumot át kell adni a külső lejátszónak.
     External Player: Külső lejátszó kiválasztása esetén megjelenik egy ikon a videó
       (lejátszási lista, ha támogatott) megnyitásához a külső lejátszóban, az indexképen.
+    DefaultCustomArgumentsTemplate: '(Alapértelmezett: „$”)'
 Playing Next Video Interval: A következő videó lejátszása folyamatban van. Kattintson
   a törléshez. | A következő videó lejátszása {nextVideoInterval} másodperc múlva
   történik. Kattintson a törléshez. | A következő videó lejátszása {nextVideoInterval}
