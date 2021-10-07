@@ -725,7 +725,7 @@ Tooltips:
     Custom External Player Arguments: Any custom command line arguments, separated
       by semicolons (';'), you want to be passed to the external player.
     # $ is replaced with the default custom arguments for the current player, if defined.
-    DefaultCustomArgumentsTemplate: '(Default: ''$'')'
+    DefaultCustomArgumentsTemplate: '(Default: ‘$’)'
   Privacy Settings:
     Remove Video Meta Files: When enabled, FreeTube automatically deletes meta files
       created during video playback, when the watch page is closed.
