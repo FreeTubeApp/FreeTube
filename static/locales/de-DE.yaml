@@ -779,6 +779,7 @@ Tooltips:
     External Player: Wenn ein externer Player gewählt wird, wird ein Symbol auf der
       Vorschaubild gezeigt, um das Video (Wiedergabelisten falls unterstützt) darin
       zu öffnen.
+    DefaultCustomArgumentsTemplate: '(Standardwert: „$“)'
 Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
