@@ -729,6 +729,7 @@ Tooltips:
       sti settes her.
     External Player: Valg av ekstern avspiller viser et ikon for åpning av video (spilleliste
       hvis det støttes) i den eksterne avspilleren, på miniatyrbildet.
+    DefaultCustomArgumentsTemplate: "(Forvalg: '$')"
 A new blog is now available, $. Click to view more: Et nytt blogginnlegg er tilgjengelig,
   $. Klikk her for å se mer
 The playlist has been reversed: Spillelisten har blitt snudd
