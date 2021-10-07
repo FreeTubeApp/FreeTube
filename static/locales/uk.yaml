@@ -707,6 +707,7 @@ Tooltips:
       тут можна призначити нетиповий шлях.
     External Player: Якщо обрано зовнішній програвач, з'явиться піктограма для відкриття
       відео (добірка, якщо підтримується) у зовнішньому програвачі, на мініатюрі.
+    DefaultCustomArgumentsTemplate: "(Типово: '$')"
 Local API Error (Click to copy): 'Помилка локального API (натисніть, щоб скопіювати)'
 Invidious API Error (Click to copy): 'Помилка Invidious API (натисніть, щоб скопіювати)'
 Falling back to Invidious API: 'Повернення до API Invidious'
