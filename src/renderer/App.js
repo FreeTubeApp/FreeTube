@@ -124,6 +124,7 @@ export default Vue.extend({
   created () {
     this.checkThemeSettings()
     this.setWindowTitle()
+    this.watchSystemTheme()
   },
   mounted: function () {
     this.grabUserSettings().then(async () => {
@@ -186,11 +187,26 @@ export default Vue.extend({
       this.updateTheme(theme)
     },
 
+    watchSystemTheme: function () {
+      window.matchMedia('(prefers-color-scheme: dark)').onchange = (e) => {
+        this.checkThemeSettings()
+      }
+    },
+
+    getThemeClass: function (baseTheme) {
+      if (baseTheme === 'system') {
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+      }
+
+      return baseTheme
+    },
+
     updateTheme: function (theme) {
       console.log(theme)
-      const className = `${theme.baseTheme} ${theme.mainColor} ${theme.secColor}`
+      let className = `${this.getThemeClass(theme.baseTheme)} ${theme.mainColor} ${theme.secColor}`
       const body = document.getElementsByTagName('body')[0]
       body.className = className
+
       localStorage.setItem('baseTheme', theme.baseTheme)
       localStorage.setItem('mainColor', theme.mainColor)
       localStorage.setItem('secColor', theme.secColor)
