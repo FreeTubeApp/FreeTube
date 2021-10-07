@@ -35,6 +35,7 @@ export default Vue.extend({
       baseThemeValues: [
         'light',
         'dark',
+        'system',
         'black',
         'dracula'
       ],
@@ -99,6 +100,7 @@ export default Vue.extend({
       return [
         this.$t('Settings.Theme Settings.Base Theme.Light'),
         this.$t('Settings.Theme Settings.Base Theme.Dark'),
+        this.$t('Settings.Theme Settings.Base Theme.System'),
         this.$t('Settings.Theme Settings.Base Theme.Black'),
         this.$t('Settings.Theme Settings.Base Theme.Dracula')
       ]
