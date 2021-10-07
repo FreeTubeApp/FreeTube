@@ -66,13 +66,15 @@ export default Vue.extend({
     },
 
     parseInvidiousData: function () {
-      this.thumbnail = this.data.authorThumbnails[2].url
+      // Can be prefixed with `https://` or `//` (protocol relative)
+      let thumbnailUrl = this.data.authorThumbnails[2].url
 
-      if (!this.thumbnail.includes('https:')) {
-        this.thumbnail = `https:${this.thumbnail}`
+      // Update protocol relative URL to be prefixed with `https://`
+      if (thumbnailUrl.startsWith('//')) {
+        thumbnailUrl = `https:${thumbnailUrl}`
       }
 
-      this.thumbnail = this.thumbnail.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
+      this.thumbnail = thumbnailUrl.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
 
       this.channelName = this.data.author
       this.id = this.data.authorId
