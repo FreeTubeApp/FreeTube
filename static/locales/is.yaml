@@ -677,6 +677,7 @@ Tooltips:
     External Player: Sé valinn utanaðkomandi spilari, birtist táknmynd á smámyndinni
       til að opna myndskeiðið (í spilunarlista ef stuðningur er við slíkt) í þessum
       utanaðkomandi spilara.
+    DefaultCustomArgumentsTemplate: "(Sjálfgefið: '$')"
 Local API Error (Click to copy): 'Villa í staðværu API-kerfisviðmóti (smella til að
   afrita)'
 Invidious API Error (Click to copy): 'Villa í Invidious API-kerfisviðmóti (smella
