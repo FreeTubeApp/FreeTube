@@ -183,6 +183,7 @@ Settings:
     UI Scale: Escala de interfaz gráfica
     Expand Side Bar by Default: Expandir Barra Lateral por defecto
     Disable Smooth Scrolling: Desactivar desplazamiento suave
+    Hide Side Bar Labels: Ocultar las etiquetas de la barra lateral
   Player Settings:
     Player Settings: 'Reproductor'
     Force Local Backend for Legacy Formats: 'Forzar Backend Local para Formatos Heredados'
@@ -723,8 +724,7 @@ Tooltips:
     Region for Trending: La región de las tendencias permite ver los vídeos más populares
       en un país determinado. YouTube no admite todos los países mostrados.
     Invidious Instance: La instancia de Invidious por defecto a la que FreeTube se
-      conectará para las llamadas a la API. Borra la instancia actual para ver una
-      lista de instancias públicas.
+      conectará para las llamadas a la API.
     Thumbnail Preference: Todas las miniaturas en FreeTube se reemplazarán con un
       fotograma del vídeo en lugar de la miniatura predeterminada.
     Fallback to Non-Preferred Backend on Failure: Si la API primaria falla, FreeTube
@@ -748,6 +748,7 @@ Tooltips:
     External Player: Elegir un reproductor externo mostrará un icono para abrir el
       vídeo (o lista de reproducción si esta es compatible) en el reproductor externo,
       en la miniatura.
+    DefaultCustomArgumentsTemplate: '(Predeterminado: «$»)'
 More: Más
 Unknown YouTube url type, cannot be opened in app: Tipo de LRU desconocido. No se
   puede abrir en applicación
