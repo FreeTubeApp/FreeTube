@@ -1117,14 +1117,6 @@ export default Vue.extend({
           resolve(response)
         }).catch((err) => {
           console.log(err)
-          const errorMessage = this.$t('Invidious API Error (Click to copy)')
-          this.showToast({
-            message: `${errorMessage}: ${err.responseJSON.error}`,
-            time: 10000,
-            action: () => {
-              navigator.clipboard.writeText(err.responseJSON.error)
-            }
-          })
 
           if (this.backendFallback && this.backendPreference === 'invidious') {
             this.showToast({
@@ -1144,14 +1136,6 @@ export default Vue.extend({
           resolve(response)
         }).catch((err) => {
           console.log(err)
-          const errorMessage = this.$t('Local API Error (Click to copy)')
-          this.showToast({
-            message: `${errorMessage}: ${err}`,
-            time: 10000,
-            action: () => {
-              navigator.clipboard.writeText(err)
-            }
-          })
 
           if (this.backendFallback && this.backendPreference === 'local') {
             this.showToast({

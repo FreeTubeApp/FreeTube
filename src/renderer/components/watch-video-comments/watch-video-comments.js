@@ -179,14 +179,7 @@ export default Vue.extend({
         this.parseLocalCommentData(response, null)
       }).catch((err) => {
         console.log(err)
-        const errorMessage = this.$t('Local API Error (Click to copy)')
-        this.showToast({
-          message: `${errorMessage}: ${err}`,
-          time: 10000,
-          action: () => {
-            navigator.clipboard.writeText(err)
-          }
-        })
+
         if (this.backendFallback && this.backendPreference === 'local') {
           this.showToast({
             message: this.$t('Falling back to Invidious API')
@@ -214,14 +207,7 @@ export default Vue.extend({
         this.parseLocalCommentData(response, payload.index)
       }).catch((err) => {
         console.log(err)
-        const errorMessage = this.$t('Local API Error (Click to copy)')
-        this.showToast({
-          message: `${errorMessage}: ${err}`,
-          time: 10000,
-          action: () => {
-            navigator.clipboard.writeText(err)
-          }
-        })
+
         if (this.backendFallback && this.backendPreference === 'local') {
           this.showToast({
             message: this.$t('Falling back to Invidious API')
@@ -321,14 +307,7 @@ export default Vue.extend({
       }).catch((xhr) => {
         console.log('found an error')
         console.log(xhr)
-        const errorMessage = this.$t('Invidious API Error (Click to copy)')
-        this.showToast({
-          message: `${errorMessage}: ${xhr.responseText}`,
-          time: 10000,
-          action: () => {
-            navigator.clipboard.writeText(xhr.responseText)
-          }
-        })
+
         if (this.backendFallback && this.backendPreference === 'invidious') {
           this.showToast({
             message: this.$t('Falling back to local API')
@@ -378,14 +357,6 @@ export default Vue.extend({
       }).catch((xhr) => {
         console.log('found an error')
         console.log(xhr)
-        const errorMessage = this.$t('Invidious API Error (Click to copy)')
-        this.showToast({
-          message: `${errorMessage}: ${xhr.responseText}`,
-          time: 10000,
-          action: () => {
-            navigator.clipboard.writeText(xhr.responseText)
-          }
-        })
         this.isLoading = false
       })
     },

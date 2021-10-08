@@ -132,14 +132,7 @@ export default Vue.extend({
         document.querySelector(`#${this.currentTab}Tab`).focus()
       }).catch((err) => {
         console.log(err)
-        const errorMessage = this.$t('Local API Error (Click to copy)')
-        this.showToast({
-          message: `${errorMessage}: ${err}`,
-          time: 10000,
-          action: () => {
-            navigator.clipboard.writeText(err)
-          }
-        })
+
         if (!this.usingElectron || (this.backendPreference === 'local' && this.backendFallback)) {
           this.showToast({
             message: this.$t('Falling back to Invidious API')
@@ -182,14 +175,6 @@ export default Vue.extend({
         document.querySelector(`#${this.currentTab}Tab`).focus()
       }).catch((err) => {
         console.log(err)
-        const errorMessage = this.$t('Invidious API Error (Click to copy)')
-        this.showToast({
-          message: `${errorMessage}: ${err.responseText}`,
-          time: 10000,
-          action: () => {
-            navigator.clipboard.writeText(err)
-          }
-        })
 
         if (!this.usingElectron || (this.backendPreference === 'invidious' && this.backendFallback)) {
           this.showToast({

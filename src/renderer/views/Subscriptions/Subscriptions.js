@@ -237,14 +237,7 @@ export default Vue.extend({
           resolve(videos)
         }).catch((err) => {
           console.log(err)
-          const errorMessage = this.$t('Local API Error (Click to copy)')
-          this.showToast({
-            message: `${errorMessage}: ${err}`,
-            time: 10000,
-            action: () => {
-              navigator.clipboard.writeText(err)
-            }
-          })
+
           switch (failedAttempts) {
             case 0:
               resolve(this.getChannelVideosLocalRSS(channel, failedAttempts + 1))
@@ -296,14 +289,7 @@ export default Vue.extend({
           resolve(items)
         }).catch((err) => {
           console.log(err)
-          const errorMessage = this.$t('Local API Error (Click to copy)')
-          this.showToast({
-            message: `${errorMessage}: ${err}`,
-            time: 10000,
-            action: () => {
-              navigator.clipboard.writeText(err)
-            }
-          })
+
           switch (failedAttempts) {
             case 0:
               resolve(this.getChannelVideosLocalScraper(channel, failedAttempts + 1))
@@ -343,14 +329,7 @@ export default Vue.extend({
           })))
         }).catch((err) => {
           console.log(err)
-          const errorMessage = this.$t('Invidious API Error (Click to copy)')
-          this.showToast({
-            message: `${errorMessage}: ${err.responseText}`,
-            time: 10000,
-            action: () => {
-              navigator.clipboard.writeText(err)
-            }
-          })
+
           switch (failedAttempts) {
             case 0:
               resolve(this.getChannelVideosInvidiousRSS(channel, failedAttempts + 1))
@@ -394,14 +373,7 @@ export default Vue.extend({
           })))
         }).catch((err) => {
           console.log(err)
-          const errorMessage = this.$t('Invidious API Error (Click to copy)')
-          this.showToast({
-            message: `${errorMessage}: ${err}`,
-            time: 10000,
-            action: () => {
-              navigator.clipboard.writeText(err)
-            }
-          })
+
           switch (failedAttempts) {
             case 0:
               resolve(this.getChannelVideosInvidiousScraper(channel, failedAttempts + 1))
