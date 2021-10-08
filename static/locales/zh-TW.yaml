@@ -675,6 +675,7 @@ Tooltips:
     Ignore Warnings: 當目前的外部播放程式不支援目前動作時（例如反向播放清單等等），消除警告。
     Custom External Player Executable: 預設情況下，FreeTube 會假設選定的外部播放程式可以透過 PATH 環境變數找到。如果需要的話，請在此設定自訂路徑。
     External Player: 選擇外部播放程式將會在縮圖上顯示圖示，用來在外部播放程式中開啟影片（若支援的話，播放清單也可以）。
+    DefaultCustomArgumentsTemplate: （預設：'$'）
 Playing Next Video Interval: 馬上播放下一個影片。點擊取消。| 播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。|
   播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。
 More: 更多
