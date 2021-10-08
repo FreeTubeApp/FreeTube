@@ -1,6 +1,6 @@
 import {
   app, BrowserWindow, dialog, Menu, ipcMain,
-  powerSaveBlocker, screen, session, shell
+  powerSaveBlocker, screen, session, shell, nativeTheme
 } from 'electron'
 import path from 'path'
 import cp from 'child_process'
@@ -37,6 +37,8 @@ function runApp() {
   const isDebug = process.argv.includes('--debug')
   let mainWindow
   let startupUrl
+
+  nativeTheme.themeSource = 'system'
 
   // CORS somehow gets re-enabled in Electron v9.0.4
   // This line disables it.
@@ -177,6 +179,7 @@ function runApp() {
      */
     const commonBrowserWindowOptions = {
       backgroundColor: '#212121',
+      darkTheme: nativeTheme.shouldUseDarkColors,
       icon: isDev
         ? path.join(__dirname, '../../_icons/iconColor.png')
         /* eslint-disable-next-line */
