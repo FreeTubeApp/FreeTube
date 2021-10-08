@@ -203,7 +203,7 @@ export default Vue.extend({
 
     updateTheme: function (theme) {
       console.log(theme)
-      let className = `${this.getThemeClass(theme.baseTheme)} ${theme.mainColor} ${theme.secColor}`
+      const className = `${this.getThemeClass(theme.baseTheme)} ${theme.mainColor} ${theme.secColor}`
       const body = document.getElementsByTagName('body')[0]
       body.className = className
 
@@ -465,7 +465,7 @@ export default Vue.extend({
       'setInvidiousInstancesList'
     ]),
 
-    setWindowTitle: function() {
+    setWindowTitle: function () {
       if (this.windowTitle !== null) {
         document.title = this.windowTitle
       }
