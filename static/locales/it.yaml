@@ -643,8 +643,6 @@ Comments:
 Up Next: 'Video seguenti'
 
 # Toast Messages
-Local API Error (Click to copy): 'Errore API Locale (Clicca per copiare)'
-Invidious API Error (Click to copy): 'Errore API Invidious (Clicca per copiare)'
 Falling back to Invidious API: 'Torno alle API Invidious'
 Falling back to the local API: 'Torno alle API locali'
 Subscriptions have not yet been implemented: 'Le Iscrizioni non sono ancora state

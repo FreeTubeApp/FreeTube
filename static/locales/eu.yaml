@@ -522,8 +522,6 @@ Tooltips:
     Remove Video Meta Files: ''
 
 # Toast Messages
-Local API Error (Click to copy): ''
-Invidious API Error (Click to copy): ''
 Falling back to Invidious API: ''
 Falling back to the local API: ''
 This video is unavailable because of missing formats. This can happen due to country unavailability.: ''

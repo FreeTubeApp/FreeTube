@@ -589,8 +589,6 @@ Comments:
 Up Next: '觀看其他類似影片'
 
 # Toast Messages
-Local API Error (Click to copy): '區域API錯誤（點擊複製）'
-Invidious API Error (Click to copy): 'Invidious API錯誤（點擊複製）'
 Falling back to Invidious API: '回退到Invidious API'
 Falling back to the local API: '回退到區域API'
 Subscriptions have not yet been implemented: '訂閱功能尚未被推行'

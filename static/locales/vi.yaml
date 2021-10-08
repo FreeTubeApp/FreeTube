@@ -502,8 +502,6 @@ Comments:
 Up Next: 'Tiếp theo'
 
 # Toast Messages
-Local API Error (Click to copy): 'Local API lỗi (Nhấn để copy)'
-Invidious API Error (Click to copy): 'Invidious API lỗi (Nhấn để copy)'
 Falling back to Invidious API: 'Quay trở về Invidious API'
 Falling back to the local API: 'Quay trở về local API'
 Subscriptions have not yet been implemented: 'Danh sách đăng kí hiện chưa được áp

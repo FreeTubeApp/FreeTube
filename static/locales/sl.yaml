@@ -85,7 +85,7 @@ Subscriptions:
     profil ima veliko količino naročnin.· Da bi se izognili omejitvi hitrosti, bo
     uporabljen RSS
   Load More Videos: Naloži več videoposnetkov
-Trending: 
+Trending:
   Trending: 'Priljubljeno'
 Most Popular: 'Najbolj popularno'
 Playlists: 'Seznami predvajanja'
@@ -616,8 +616,6 @@ Comments:
 Up Next: 'Naslednje na sporedu'
 
 # Toast Messages
-Local API Error (Click to copy): 'Napaka lokalnega APV (kliknite za kopiranje)'
-Invidious API Error (Click to copy): 'Napaka Invidious APV (kliknite za kopiranje)'
 Falling back to Invidious API: 'Začasno bo uporabljen Invidious APV'
 Falling back to the local API: 'Začasno bo uporabljen lokalni APV'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Videoposnetek

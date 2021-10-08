@@ -649,8 +649,6 @@ Comments:
 Up Next: 'Następne'
 
 # Toast Messages
-Local API Error (Click to copy): 'Błąd lokalnego API (kliknij by skopiować)'
-Invidious API Error (Click to copy): 'Błąd API Invidious (kliknij by skopiować)'
 Falling back to Invidious API: 'Wycofywanie do API Invidious'
 Falling back to the local API: 'Wycofywanie do lokalnego API'
 Subscriptions have not yet been implemented: 'Subskrypcje nie zostały jeszcze wprowadzone'

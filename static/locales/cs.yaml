@@ -719,8 +719,6 @@ Tooltips:
     Custom External Player Executable: Ve výchozím nastavení Freetube předpokládá,
       že vybraný externí přehrávač lze nalézt přes proměnnou prostředí cesty PATH.
       V případě potřeby zde lze nastavit vlastní cestu.
-Local API Error (Click to copy): 'Chyba lokálního API (kliknutím zkopírujete)'
-Invidious API Error (Click to copy): 'Chyba Invidious API (kliknutím zkopírujete)'
 Falling back to Invidious API: 'Přepínám na Invidious API'
 Falling back to the local API: 'Přepínám na lokální API'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Toto

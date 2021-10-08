@@ -619,8 +619,6 @@ Comments:
 Up Next: 'Seuraavaksi'
 
 # Toast Messages
-Local API Error (Click to copy): 'Paikallinen API-virhe (Kopioi napsauttamalla)'
-Invidious API Error (Click to copy): 'Invidious API-virhe (Kopioi napsauttamalla)'
 Falling back to Invidious API: 'Palaa takaisin Invidious-sovellusliittymään'
 Falling back to the local API: 'Palaa takaisin paikalliseen sovellusliittymään'
 Subscriptions have not yet been implemented: 'Tilauksia ei ole vielä jalkautettu'

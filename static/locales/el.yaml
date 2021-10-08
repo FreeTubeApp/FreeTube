@@ -628,9 +628,7 @@ Comments:
 Up Next: 'Επόμενο'
 
 # Toast Messages
-Local API Error (Click to copy): 'Τοπικό σφάλμα Διεπαφής προγραμματισμού εφαρμογής
   (*API) (Κάντε κλικ για αντιγραφή)'
-Invidious API Error (Click to copy): 'Σφάλμα Διεπαφής προγραμματισμού εφαρμογής Invidious(*API)
   (Κάντε κλικ για αντιγραφή)'
 Falling back to Invidious API: 'Επιστροφή στο Invidious API'
 Falling back to the local API: 'Επιστροφή στη τοπική Διεπαφή προγραμματισμού εφαρμογής

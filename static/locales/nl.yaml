@@ -635,8 +635,6 @@ Comments:
 Up Next: 'Volgende'
 
 # Toast Messages
-Local API Error (Click to copy): 'Lokale API Error (Klik om te kopiëren)'
-Invidious API Error (Click to copy): 'Invidious API Error (Klik op te kopiëren)'
 Falling back to Invidious API: 'Terugvallen op Invidious API'
 Falling back to the local API: 'Terugvallen op lokale API'
 Subscriptions have not yet been implemented: 'Abonnementen zijn nog niet geïmplementeerd'

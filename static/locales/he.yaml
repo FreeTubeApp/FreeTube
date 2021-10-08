@@ -609,8 +609,6 @@ Comments:
 Up Next: 'הסרטון הבא'
 
 # Toast Messages
-Local API Error (Click to copy): 'בעיה ב־API המקומי (יש ללחוץ להעתקה)'
-Invidious API Error (Click to copy): 'בעיה ב־API של Invidious (יש ללחוץ להעתקה)'
 Falling back to Invidious API: 'מתבצעת נסיגה ל־API של Invidious'
 Falling back to the local API: 'מתבצעת נסיגה ל־API המקומי'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'חסרות

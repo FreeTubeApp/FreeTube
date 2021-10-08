@@ -661,8 +661,6 @@ Comments:
 Up Next: 'التالي'
 
 # Toast Messages
-Local API Error (Click to copy): 'خطأ API المحلي (انقر للنسخ)'
-Invidious API Error (Click to copy): 'خطأ Invidious API ( انقر للنسخ)'
 Falling back to Invidious API: 'التراجع إلى Invidious API'
 Falling back to the local API: 'التراجع إلى API المحلي'
 Subscriptions have not yet been implemented: 'لم يتم تنفيذ الاشتراكات بعد'

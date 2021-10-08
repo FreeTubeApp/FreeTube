@@ -670,8 +670,6 @@ Comments:
 Up Next: 'A Seguir'
 
 # Toast Messages
-Local API Error (Click to copy): 'API local encontrou um erro (Clique para copiar)'
-Invidious API Error (Click to copy): 'API Invidious encontrou um erro (Clique para
   copiar)'
 Falling back to Invidious API: 'Ocorreu uma falha, a mudar para o API Invidious'
 Falling back to the local API: 'Ocorreu uma falha, a mudar para a API local'

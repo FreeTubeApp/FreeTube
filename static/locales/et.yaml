@@ -649,8 +649,6 @@ Comments:
 Up Next: 'Järgmisena'
 
 # Toast Messages
-Local API Error (Click to copy): 'Kohaliku API viga (kopeerimiseks klõpsi)'
-Invidious API Error (Click to copy): 'Invidious''e API viga (kopeerimiseks klõpsi)'
 Falling back to Invidious API: 'Varuvariandina kasutan Invidious''e API''t'
 Falling back to the local API: 'Varuvariandina kasutan kohalikku API''t'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Kuna

@@ -678,9 +678,7 @@ Tooltips:
       til að opna myndskeiðið (í spilunarlista ef stuðningur er við slíkt) í þessum
       utanaðkomandi spilara.
     DefaultCustomArgumentsTemplate: "(Sjálfgefið: '$')"
-Local API Error (Click to copy): 'Villa í staðværu API-kerfisviðmóti (smella til að
   afrita)'
-Invidious API Error (Click to copy): 'Villa í Invidious API-kerfisviðmóti (smella
   til að afrita)'
 Falling back to Invidious API: 'Nota til vara Invidious API-kerfisviðmót'
 Falling back to the local API: 'Nota til vara staðvært API-kerfisviðmót'

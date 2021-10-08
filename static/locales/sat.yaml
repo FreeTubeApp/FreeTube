@@ -77,7 +77,7 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': ''
   Refresh Subscriptions: ''
   Load More Videos: ''
-Trending: 
+Trending:
   Trending: ''
 Most Popular: ''
 Playlists: ''
@@ -505,8 +505,6 @@ Tooltips:
     Fetch Feeds from RSS: ''
 
 # Toast Messages
-Local API Error (Click to copy): ''
-Invidious API Error (Click to copy): ''
 Falling back to Invidious API: ''
 Falling back to the local API: ''
 This video is unavailable because of missing formats. This can happen due to country unavailability.: ''

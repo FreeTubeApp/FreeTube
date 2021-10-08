@@ -672,8 +672,6 @@ Comments:
 Up Next: 'A continuación'
 
 # Toast Messages
-Local API Error (Click to copy): 'Error de la API local (Clic para copiar el código)'
-Invidious API Error (Click to copy): 'Error de la API de Invidious (Clic para copiar
   el código)'
 Falling back to Invidious API: 'Recurriendo a la API de Invidious'
 Falling back to the local API: 'Recurriendo a la API local'

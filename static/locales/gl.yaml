@@ -711,8 +711,6 @@ Tooltips:
     External Player: Se escolle un reprodutor externo, amosarase unha icona para abrir
       o vídeo (unha lista de reprodución se é compatible) no reprodutor externo, na
       miniatura.
-Local API Error (Click to copy): 'Erro de API local (Preme para copiar)'
-Invidious API Error (Click to copy): 'Erro de API Invidious (Preme para copiar)'
 Falling back to Invidious API: 'Recorrendo á API Invidious'
 Falling back to the local API: 'Recorrendo á API local'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Este

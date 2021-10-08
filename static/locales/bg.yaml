@@ -678,8 +678,6 @@ Comments:
 Up Next: 'Следващ'
 
 # Toast Messages
-Local API Error (Click to copy): 'Грешка в локалния интерфейс (щракнете за копиране)'
-Invidious API Error (Click to copy): 'Грешка в Invidious интерфейса (щракнете за копиране)'
 Falling back to Invidious API: 'Връщане към Invidious интерфейса'
 Falling back to the local API: 'Връщане към локалния интерфейс'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Видеото

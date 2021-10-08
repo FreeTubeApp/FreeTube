@@ -607,8 +607,6 @@ Comments:
 Up Next: 'Kommer Om Lidt'
 
 # Toast Messages
-Local API Error (Click to copy): 'Lokal API-Fejl (Klik for at kopiere)'
-Invidious API Error (Click to copy): 'Invidious-API-Fejl (Klik for at kopiere)'
 Falling back to Invidious API: 'Falder tilbage til Invidious-API'
 Falling back to the local API: 'Falder tilbage til den lokale API'
 Subscriptions have not yet been implemented: 'Abonnementer er endnu ikke blevet implementerede'

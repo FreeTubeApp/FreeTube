@@ -584,8 +584,6 @@ Comments:
 Up Next: '次の動画'
 
 # Toast Messages
-Local API Error (Click to copy): '内部 API エラー（クリックするとコピー）'
-Invidious API Error (Click to copy): 'Invidious API エラー（クリックするとコピー）'
 Falling back to Invidious API: '代替の Invidious API に切替'
 Falling back to the local API: '代替の内部 API に切替'
 Subscriptions have not yet been implemented: '登録チャンネルは未実装です'

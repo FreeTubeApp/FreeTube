@@ -678,8 +678,6 @@ Tooltips:
       ištrinami meta failai, sukurti vaizdo atkūrimo metu.'
 
 # Toast Messages
-Local API Error (Click to copy): 'Vietinė API klaida (spustelėkite, jei norite kopijuoti)'
-Invidious API Error (Click to copy): 'Invidious API Vietinė API klaida (spustelėkite,
   jei norite kopijuoti)'
 Falling back to Invidious API: 'Grįžtama prie Invidious API'
 Falling back to the local API: 'Grįžtama prie vietinio API'

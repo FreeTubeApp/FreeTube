@@ -637,8 +637,6 @@ Comments:
 Up Next: 'Следующий'
 
 # Toast Messages
-Local API Error (Click to copy): 'Ошибка локального API (Нажмите, чтобы скопировать)'
-Invidious API Error (Click to copy): 'Ошибка invidious API (Нажмите, чтобы скопировать)'
 Falling back to Invidious API: 'Возврат к Invidious API'
 Falling back to the local API: 'Возврат к локальному API'
 Subscriptions have not yet been implemented: 'Подписки еще не реализованы'

@@ -657,8 +657,6 @@ Comments:
 Up Next: 'Akan Datang'
 
 # Toast Messages
-Local API Error (Click to copy): 'API Lokal Galat (Klik untuk menyalin)'
-Invidious API Error (Click to copy): 'API Invidious Galat (Klik untuk menyalin)'
 Falling back to Invidious API: 'Kembali ke API Invidious'
 Falling back to the local API: 'Kembali ke API lokal'
 Subscriptions have not yet been implemented: 'Langganan masih belum diterapkan'

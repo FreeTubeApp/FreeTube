@@ -670,8 +670,6 @@ Comments:
 Up Next: 'În continuare'
 
 # Toast Messages
-Local API Error (Click to copy): 'Eroare API locală (Faceți clic pentru a copia)'
-Invidious API Error (Click to copy): 'Eroare API Invidious (Faceți clic pentru a copia)'
 Falling back to Invidious API: 'Revenine la Invidious API'
 Falling back to the local API: 'Revenire la API-ul local'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Acest

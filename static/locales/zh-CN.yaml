@@ -543,8 +543,6 @@ Comments:
 Up Next: 'Up Next'
 
 # Toast Messages
-Local API Error (Click to copy): '本地API错误（点击复制）'
-Invidious API Error (Click to copy): 'Invidious API错误（点击复制）'
 Falling back to Invidious API: '回退到Invidious API'
 Falling back to the local API: '回退到本地API'
 Subscriptions have not yet been implemented: '订阅功能尚未被推行'

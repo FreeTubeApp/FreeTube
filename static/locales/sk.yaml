@@ -77,7 +77,7 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': Nahrávam odbery, prosím počkajte.
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Tento
     profil má mnoho odberateľov. Vždy použite RSS, aby ste obišli limit
-Trending: 
+Trending:
   Trending: 'Trendy'
 Most Popular: 'Najpopulárnejšie'
 Playlists: 'Zoznamy'
@@ -586,8 +586,6 @@ Comments:
 Up Next: 'Nasledujúci'
 
 # Toast Messages
-Local API Error (Click to copy): 'Local API chyba (kliknutím skopírujete)'
-Invidious API Error (Click to copy): 'Invidious API chyba (kliknutím skopírujete)'
 Falling back to Invidious API: 'Návrat k Invidious API'
 Falling back to the local API: 'Návrat k local API'
 Subscriptions have not yet been implemented: 'Odbery ešte nie sú implementované'

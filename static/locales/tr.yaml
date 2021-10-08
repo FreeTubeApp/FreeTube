@@ -678,8 +678,6 @@ Comments:
 Up Next: 'Sonraki'
 
 # Toast Messages
-Local API Error (Click to copy): 'Yerel API Hatası (Kopyalamak için tıklayın)'
-Invidious API Error (Click to copy): 'Invidious API Hatası (Kopyalamak için tıklayın)'
 Falling back to Invidious API: 'Invidious API''ye geri dönülüyor'
 Falling back to the local API: 'Yerel API''ye geri dönülüyor'
 Subscriptions have not yet been implemented: 'Abonelikler henüz uygulanmadı'

@@ -667,8 +667,6 @@ Comments:
 Up Next: 'À suivre'
 
 # Toast Messages
-Local API Error (Click to copy): 'Erreur d''API locale (Cliquez pour copier)'
-Invidious API Error (Click to copy): 'Erreur d''API Invidious (Cliquez pour copier)'
 Falling back to Invidious API: 'Revenir à l''API Invidious'
 Falling back to the local API: 'Revenir à l''API locale'
 Subscriptions have not yet been implemented: 'Les abonnements n''ont pas encore été

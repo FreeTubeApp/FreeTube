@@ -678,8 +678,6 @@ Comments:
 Up Next: 'Sljedeći'
 
 # Toast Messages
-Local API Error (Click to copy): 'Greška lokalnog sučelja (pritisni za kopiranje)'
-Invidious API Error (Click to copy): 'Greška Invidious sučelja (pritisni za kopiranje)'
 Falling back to Invidious API: 'Koristit će se Invidious sučelje'
 Falling back to the local API: 'Koristit će se lokalno sučelje'
 Subscriptions have not yet been implemented: 'Pretplate još nisu implementirane'

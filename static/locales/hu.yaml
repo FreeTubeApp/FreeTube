@@ -684,8 +684,6 @@ Comments:
 Up Next: 'Következő'
 
 # Toast Messages
-Local API Error (Click to copy): 'Helyi-API hiba (kattintson a másoláshoz)'
-Invidious API Error (Click to copy): 'Invidious-API hiba (Kattintson a másoláshoz)'
 Falling back to Invidious API: 'Invidious-API visszatérve'
 Falling back to the local API: 'Helyi-API visszatérve'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Ez
