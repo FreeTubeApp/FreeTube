@@ -38,8 +38,6 @@ function runApp() {
   let mainWindow
   let startupUrl
 
-  nativeTheme.themeSource = 'system'
-
   // CORS somehow gets re-enabled in Electron v9.0.4
   // This line disables it.
   // This line can possible be removed if the issue is fixed upstream
