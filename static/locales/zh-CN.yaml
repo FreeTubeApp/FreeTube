@@ -127,6 +127,7 @@ Settings:
     Current instance will be randomized on startup: 当前实例在启动时将会随机化
     Set Current Instance as Default: 将当前实例设为默认
     Clear Default Instance: 清除默认实例
+    Current Invidious Instance: 当前令人讨厌的实例
   Theme Settings:
     Theme Settings: '主题设置'
     Match Top Bar with Main Color: '顶部菜单栏对应主颜色'
@@ -620,3 +621,6 @@ Tooltips:
     Region for Trending: 热门区域让您挑选您想要显示哪个国家的热门视频。并非所有显示的国家都被YouTube支持。
 More: 更多
 Open New Window: 打开新窗口
+Search Bar:
+  Clear Input: 清除输入
+Are you sure you want to open this link?: 您确定要打开此链接吗？
