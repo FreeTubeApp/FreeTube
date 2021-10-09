@@ -440,7 +440,7 @@ export default Vue.extend({
     watchSystemTheme: function () {
       ipcRenderer.on('native-theme-update', (event, shouldUseDarkColors) => {
         document.body.dataset.theme = shouldUseDarkColors ? 'dark' : 'light'
-      });
+      })
     },
 
     enableOpenUrl: function () {
