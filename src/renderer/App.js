@@ -122,9 +122,9 @@ export default Vue.extend({
     }
   },
   created () {
+    this.setBodytheme()
     this.checkThemeSettings()
     this.setWindowTitle()
-    this.watchSystemTheme()
   },
   mounted: function () {
     this.grabUserSettings().then(async () => {
@@ -144,6 +144,7 @@ export default Vue.extend({
           this.activateKeyboardShortcuts()
           this.openAllLinksExternally()
           this.enableOpenUrl()
+          this.watchSystemTheme()
           await this.checkExternalPlayer()
         }
 
@@ -161,6 +162,14 @@ export default Vue.extend({
     })
   },
   methods: {
+    setBodytheme: function () {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.dataset.theme = 'dark'
+      } else {
+        document.body.dataset.theme = 'light'
+      }
+    },
+
     checkThemeSettings: function () {
       let baseTheme = localStorage.getItem('baseTheme')
       let mainColor = localStorage.getItem('mainColor')
@@ -187,25 +196,10 @@ export default Vue.extend({
       this.updateTheme(theme)
     },
 
-    watchSystemTheme: function () {
-      window.matchMedia('(prefers-color-scheme: dark)').onchange = (e) => {
-        this.checkThemeSettings()
-      }
-    },
-
-    getThemeClass: function (baseTheme) {
-      if (baseTheme === 'system') {
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-      }
-
-      return baseTheme
-    },
-
     updateTheme: function (theme) {
       console.log(theme)
-      const className = `${this.getThemeClass(theme.baseTheme)} ${theme.mainColor} ${theme.secColor}`
-      const body = document.getElementsByTagName('body')[0]
-      body.className = className
+      const className = `${theme.baseTheme} ${theme.mainColor} ${theme.secColor}`
+      document.body.className = className
 
       localStorage.setItem('baseTheme', theme.baseTheme)
       localStorage.setItem('mainColor', theme.mainColor)
@@ -437,6 +431,16 @@ export default Vue.extend({
           }
         }
       })
+    },
+
+    /**
+     * Linux fix for dynamically updating theme preference, this works on
+     * all systems running the electron app.
+     */
+    watchSystemTheme: function () {
+      ipcRenderer.on('native-theme-update', (event, shouldUseDarkColors) => {
+        document.body.dataset.theme = shouldUseDarkColors ? 'dark' : 'light'
+      });
     },
 
     enableOpenUrl: function () {

@@ -338,7 +338,17 @@ function runApp() {
     app.quit()
   })
 
+<<<<<<< HEAD
   ipcMain.on(IpcChannels.ENABLE_PROXY, (_, url) => {
+=======
+  nativeTheme.on('updated', () => {
+    if (mainWindow) {
+      mainWindow.webContents.send('native-theme-update', nativeTheme.shouldUseDarkColors)
+    }
+  })
+
+  ipcMain.on('enableProxy', (_, url) => {
+>>>>>>> 4b5a72ae (Move to using main process messaging for theme change)
     console.log(url)
     session.defaultSession.setProxy({
       proxyRules: url
