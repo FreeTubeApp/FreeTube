@@ -14,7 +14,7 @@ Cut: 'Cortar'
 Copy: 'Copiar'
 Paste: 'Colar'
 Delete: 'Eliminar'
-Select all: 'Seleccionar tudo'
+Select all: 'Selecionar tudo'
 Reload: 'Recarregar'
 Force Reload: 'Forçar recarregamento'
 Toggle Developer Tools: 'Alternar ferramentas de desenvolvimento'
@@ -89,10 +89,10 @@ Trending:
   Gaming: Jogos
   Music: Música
   Default: Padrão
-Most Popular: 'Mais Populares'
-Playlists: 'Listas de Reprodução'
+Most Popular: 'Mais populares'
+Playlists: 'Listas de reprodução'
 User Playlists:
-  Your Playlists: 'As suas Listas de Reprodução'
+  Your Playlists: 'As suas listas de reprodução'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: A
     sua lista está vazia. Carregue no botão guardar no canto de um vídeo para o mostrar
     aqui
@@ -102,31 +102,31 @@ User Playlists:
 History:
   # On History Page
   History: 'Histórico'
-  Watch History: 'Histórico de Visualizações'
-  Your history list is currently empty.: 'O seu histórico encontra-se vazio.'
+  Watch History: 'Histórico de visualizações'
+  Your history list is currently empty.: 'O seu histórico está vazio.'
 Settings:
   # On Settings Page
   Settings: 'Definições'
   General Settings:
-    General Settings: 'Definições Gerais'
-    Check for Updates: 'Verificar se há Actualizações'
-    Check for Latest Blog Posts: 'Verificar se há Novas Publicações no Blogue'
-    Fallback to Non-Preferred Backend on Failure: 'Utilizar Sistema de Ligação Não
-      Preferido em Caso de Falha'
-    Enable Search Suggestions: 'Activar Sugestões de Pesquisa'
-    Default Landing Page: 'Página Inicial'
+    General Settings: 'Definições gerais'
+    Check for Updates: 'Verificar se há atualizações'
+    Check for Latest Blog Posts: 'Verificar se há novas publicações no blogue'
+    Fallback to Non-Preferred Backend on Failure: 'Utilizar sistema de ligação não
+      preferido em caso de falha'
+    Enable Search Suggestions: 'Ativar sugestões de pesquisa'
+    Default Landing Page: 'Página inicial'
     Locale Preference: 'Idioma'
     Preferred API Backend:
-      Preferred API Backend: 'Sistema de Ligação Favorito'
-      Local API: 'API Local'
+      Preferred API Backend: 'Sistema de ligação favorito'
+      Local API: 'API local'
       Invidious API: 'API Invidious'
     Video View Type:
       Video View Type: 'Disposição de vídeos'
       Grid: 'Grelha'
       List: 'Lista'
     Thumbnail Preference:
-      Thumbnail Preference: 'Tipos de Antevisão'
-      Default: 'Por Omissão'
+      Thumbnail Preference: 'Tipos de miniatura'
+      Default: 'Padrão'
       Beginning: 'Princípio'
       Middle: 'Meio'
       End: 'Fim'
@@ -134,73 +134,78 @@ Settings:
       (Por omissão é https://invidious.snopyta.org)'
     Region for Trending: 'Região para as tendências'
         #! List countries
-    View all Invidious instance information: Mostrar toda a informação sobre este
-      servidor
-    Clear Default Instance: Apagar predefinição
-    Set Current Instance as Default: Escolher o servidor actual como a predefinição
-    Current instance will be randomized on startup: Servidor irá ser escolhido aleatoriamente
-      ao iniciar
-    No default instance has been set: Nenhum servidor foi predefinido
-    The currently set default instance is $: Servidor escolhido como predefinição
-      é $
-    Current Invidious Instance: Servidor Invidious em Utilização
+    View all Invidious instance information: Mostrar toda a informação sobre esta
+      instância Invidious
+    Clear Default Instance: Apagar instância predefinida
+    Set Current Instance as Default: Escolher a instância atual como a predefinida
+    Current instance will be randomized on startup: A instância irá ser escolhida
+      aleatoriamente ao iniciar
+    No default instance has been set: Não foi definida nenhuma instância
+    The currently set default instance is $: A instância definida como padrão é $
+    Current Invidious Instance: Instância do Invidious atual
     System Default: Definições do sistema
+    External Link Handling:
+      External Link Handling: Gestão de ligações externas
+      Open Link: Abrir ligação
+      Ask Before Opening Link: Perguntar antes de abrir a ligação
+      No Action: Nenhuma ação
   Theme Settings:
-    Theme Settings: 'Definições de Tema'
-    Match Top Bar with Main Color: 'Utilizar Cor Principal Para Barra Superior'
+    Theme Settings: 'Definições de tema'
+    Match Top Bar with Main Color: 'Utilizar cor principal para barra superior'
     Base Theme:
-      Base Theme: 'Tema Base'
+      Base Theme: 'Tema base'
       Black: 'Preto'
       Dark: 'Escuro'
       Light: 'Claro'
       Dracula: 'Drácula'
     Main Color Theme:
-      Main Color Theme: 'Cor Principal'
+      Main Color Theme: 'Cor principal'
       Red: 'Vermelho'
-      Pink: 'Cor de Rosa'
+      Pink: 'Cor de rosa'
       Purple: 'Roxo'
-      Deep Purple: 'Roxo Escuro'
-      Indigo: 'Índigo'
+      Deep Purple: 'Roxo escuro'
+      Indigo: 'Indigo'
       Blue: 'Azul'
-      Light Blue: 'Azul Claro'
+      Light Blue: 'Azul claro'
       Cyan: 'Ciano'
       Teal: 'Azul-petróleo'
       Green: 'Verde'
-      Light Green: 'Verde Claro'
+      Light Green: 'Verde claro'
       Lime: 'Lima'
       Yellow: 'Amarelo'
       Amber: 'Âmbar'
       Orange: 'Laranja'
-      Deep Orange: 'Laranja Escuro'
-      Dracula Cyan: 'Drácula Ciano'
-      Dracula Green: 'Drácula Verde'
-      Dracula Orange: 'Drácula Laranja'
-      Dracula Pink: 'Drácula Rosa'
-      Dracula Purple: 'Drácula Roxa'
-      Dracula Red: 'Drácula Vermelha'
-      Dracula Yellow: 'Drácula Amarelo'
-    Secondary Color Theme: 'Cor Secundária'
+      Deep Orange: 'Laranja escuro'
+      Dracula Cyan: 'Drácula ciano'
+      Dracula Green: 'Drácula verde'
+      Dracula Orange: 'Drácula laranja'
+      Dracula Pink: 'Drácula rosa'
+      Dracula Purple: 'Drácula roxo'
+      Dracula Red: 'Drácula vermelho'
+      Dracula Yellow: 'Drácula amarelo'
+    Secondary Color Theme: 'Cor secundária'
         #* Main Color Theme
-    UI Scale: Mudança de Escala da Interface
-    Disable Smooth Scrolling: Desligar Deslocação Suavizada
-    Expand Side Bar by Default: Expandir barra lateral por omissão
+    UI Scale: Mudança de escala da interface
+    Disable Smooth Scrolling: Desligar deslocação suavizada
+    Expand Side Bar by Default: Expandir barra lateral por predefinição
+    Hide Side Bar Labels: Ocultar etiquetas da barra lateral
   Player Settings:
     Player Settings: 'Definições do leitor de vídeo'
-    Force Local Backend for Legacy Formats: 'Forçar Sistema de Ligação Local para
-      Formatos Antigos'
-    Play Next Video: 'Reproduzir Vídeo Seguinte'
-    Turn on Subtitles by Default: 'Ligar Legendas Automaticamente'
-    Autoplay Videos: 'Reproduzir Vídeos Automaticamente'
-    Proxy Videos Through Invidious: 'Utilizar Invidious Como Intermediário'
-    Autoplay Playlists: 'Reproduzir Listas de Reprodução Automaticamente'
-    Enable Theatre Mode by Default: 'Ligar Modo Cinema por Omissão'
+    Force Local Backend for Legacy Formats: 'Forçar sistema de ligação local para
+      formatos antigos'
+    Play Next Video: 'Reproduzir vídeo seguinte'
+    Turn on Subtitles by Default: 'Ligar legendas automaticamente'
+    Autoplay Videos: 'Reproduzir vídeos automaticamente'
+    Proxy Videos Through Invidious: 'Utilizar Invidious como intermediário'
+    Autoplay Playlists: 'Reproduzir listas de reprodução automaticamente'
+    Enable Theatre Mode by Default: 'Ligar modo cinema por predefinição'
     Default Volume: 'Volume'
-    Default Playback Rate: 'Velocidade de Reprodução'
+    Default Playback Rate: 'Velocidade de reprodução'
     Default Video Format:
-      Default Video Format: 'Formato de Vídeo'
+      Default Video Format: 'Formato de vídeo'
       Dash Formats: 'Formatos DASH'
-      Legacy Formats: 'Formatos Antigos'
-      Audio Formats: 'Formatos de Áudio'
+      Legacy Formats: 'Formatos antigos'
+      Audio Formats: 'Formatos de áudio'
     Default Quality:
       Default Quality: 'Qualidade'
       Auto: 'Auto'
@@ -213,39 +218,39 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Fast-Forward / Rewind Interval: Tempo para Avançar / Voltar Atrás
+    Fast-Forward / Rewind Interval: Tempo para avançar / voltar atrás
     Next Video Interval: Intervalo entre vídeos
     Display Play Button In Video Player: Mostrar botão sobre vídeo quando em pausa
     Scroll Volume Over Video Player: Utilizar roda do rato sobre vídeo para mudar
       volume
   Privacy Settings:
-    Privacy Settings: 'Definições de Privacidade'
-    Remember History: 'Lembrar Histórico'
+    Privacy Settings: 'Definições de privacidade'
+    Remember History: 'Lembrar histórico'
     Save Watched Progress: 'Guardar onde ficou da última vez num vídeo'
-    Clear Search Cache: 'Limpar Cache de Pesquisas'
+    Clear Search Cache: 'Limpar cache de pesquisas'
     Are you sure you want to clear out your search cache?: 'Tem a certeza de que quer
       apagar a sua cache de pesquisas?'
     Search cache has been cleared: 'Cache de pesquisas foi apagada'
-    Remove Watch History: 'Limpar Histórico'
+    Remove Watch History: 'Limpar histórico'
     Are you sure you want to remove your entire watch history?: 'Tem a certeza de
       que quer apagar o seu histórico?'
     Watch history has been cleared: 'Histórico foi apagado'
-    Remove All Subscriptions / Profiles: 'Apagar Todas as Subscrições / Perfis'
+    Remove All Subscriptions / Profiles: 'Apagar todas as subscrições / perfis'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Tem
-      a certeza de que quer apagar todas as suas subscrições e perfis? Esta acção
-      não pode ser revertida.'
+      a certeza de que quer apagar todas as suas subscrições e perfis? Esta ação não
+      pode ser revertida.'
     Automatically Remove Video Meta Files: Remover automaticamente os metaficheiros
       dos vídeo
   Subscription Settings:
-    Subscription Settings: 'Definições de Subscrições'
-    Hide Videos on Watch: 'Esconder Vídeos Visualisados'
+    Subscription Settings: 'Definições de subscrições'
+    Hide Videos on Watch: 'Esconder vídeos visualizados'
     Fetch Feeds from RSS: 'Buscar informações através de RSS'
-    Manage Subscriptions: 'Gerir Subscrições'
+    Manage Subscriptions: 'Gerir subscrições'
   Data Settings:
     Data Settings: 'Definições de dados'
     Select Import Type: 'Escolher tipo de importação'
     Select Export Type: 'Escolher tipo de exportação'
-    Import Subscriptions: 'Importar Subscrições'
+    Import Subscriptions: 'Importar subscrições'
     Import FreeTube: 'Importar FreeTube'
     Import YouTube: 'Importar YouTube'
     Import NewPipe: 'Importar NewPipe'
@@ -255,7 +260,7 @@ Settings:
     Export NewPipe: 'Exportar NewPipe'
     Import History: 'Importar Histórico'
     Export History: 'Exportar Histórico'
-    Profile object has insufficient data, skipping item: 'O objecto perfil tem dados
+    Profile object has insufficient data, skipping item: 'O objeto perfil tem dados
       em falta, a ignorar'
     All subscriptions and profiles have been successfully imported: 'Todas as subscrições
       e perfis foram importados com sucesso'
@@ -268,8 +273,8 @@ Settings:
     Invalid history file: 'Ficheiro de histórico inválido'
     Subscriptions have been successfully exported: 'Subscrições foram exportadas com
       sucesso'
-    History object has insufficient data, skipping item: 'O objecto histórico tem
-      dados em falta, a ignorar'
+    History object has insufficient data, skipping item: 'O objeto histórico tem dados
+      em falta, a ignorar'
     All watched history has been successfully imported: 'Histórico foi importado com
       sucesso'
     All watched history has been successfully exported: 'Histórico foi exportado com
@@ -331,26 +336,26 @@ Settings:
     Enable Tor / Proxy: Ligar Tor / Intermediário
     Proxy Settings: Definições de Intermediários
   Distraction Free Settings:
-    Hide Active Subscriptions: Esconder Subscrições da barra lateral
-    Hide Live Chat: Esconder Chat ao Vivo
+    Hide Active Subscriptions: Esconder subscrições da barra lateral
+    Hide Live Chat: Esconder chat ao vivo
     Hide Playlists: Esconder listas de reprodução
-    Hide Popular Videos: Esconder Mais Populares
-    Hide Trending Videos: Esconder Tendências
-    Hide Recommended Videos: Esconder Vídeos Recomendados
-    Hide Comment Likes: Esconder Gostos em Comentários
-    Hide Channel Subscribers: Esconder Nº de Subscritores
-    Hide Video Likes And Dislikes: Esconder Gostos em Vídeos
-    Hide Video Views: Esconder Visualizações
-    Distraction Free Settings: Definições de Distracções
+    Hide Popular Videos: Esconder mais populares
+    Hide Trending Videos: Esconder tendências
+    Hide Recommended Videos: Esconder vídeos recomendados
+    Hide Comment Likes: Esconder gostos em comentários
+    Hide Channel Subscribers: Esconder nº de subscritores
+    Hide Video Likes And Dislikes: Esconder gostos em vídeos
+    Hide Video Views: Esconder visualizações
+    Distraction Free Settings: Definições de distrações
   External Player Settings:
-    Custom External Player Arguments: Opções Próprias
-    Custom External Player Executable: Executável Próprio
+    Custom External Player Arguments: Argumentos do reprodutor externo personalizado
+    Custom External Player Executable: Executável de reprodutor externo personalizado
     Ignore Unsupported Action Warnings: Ignorar avisos sobre opções inválidas
     External Player: Leitor externo
     External Player Settings: Definições para leitores de vídeo externos
   The app needs to restart for changes to take effect. Restart and apply change?: A
-    aplicação precisa de reiniciar para que as mudanças façam efeito. Reiniciar e
-    aplicar mudanças?
+    aplicação precisa de reiniciar para que as alterações façam efeito. Reiniciar
+    e aplicar as alterações?
 About:
   #On About page
   About: 'Sobre'
@@ -386,7 +391,7 @@ About:
   Website: Saite
   Email: Correio eletrónico
   Donate: Doar
-  these people and projects: estas pessoas e projectos
+  these people and projects: estas pessoas e projetos
   FreeTube is made possible by: FreeTube existe graças a
   Credits: Créditos
   Translate: Traduzir
@@ -407,7 +412,7 @@ About:
   Source code: Código fonte
   Beta: Beta
 Profile:
-  Profile Select: 'Selecção de perfil'
+  Profile Select: 'Seleção de perfil'
   All Channels: 'Todos os Canais'
   Profile Manager: 'Gestor de Perfis'
   Create New Profile: 'Criar Novo Perfil'
@@ -416,7 +421,7 @@ Profile:
   Custom Color: 'Cor Personalizada'
   Profile Preview: 'Antevisão'
   Create Profile: 'Criar Perfil'
-  Update Profile: 'Actualizar Perfil'
+  Update Profile: 'Atualizar perfil'
   Make Default Profile: 'Tornar no Perfil Padrão'
   Delete Profile: 'Apagar Perfil'
   Are you sure you want to delete this profile?: 'Tem a certeza de que quer apagar
@@ -426,7 +431,7 @@ Profile:
   Profile could not be found: 'Perfil não encontrado'
   Your profile name cannot be empty: 'O nome do perfil não pode ficar em branco'
   Profile has been created: 'Perfil criado'
-  Profile has been updated: 'Perfil actualizado'
+  Profile has been updated: 'Perfil atualizado'
   Your default profile has been set to $: '$ é agora o seu perfil padrão'
   Removed $ from your profiles: 'Perfil $ foi apagado'
   Your default profile has been changed to your primary profile: 'O seu perfil padrão
@@ -445,7 +450,7 @@ Profile:
   : 'Este é o seu perfil principal. Tem a certeza de que quer apagar os canais seleccionados?
     Os mesmos vão ser apagados em qualquer perfil em que se encontrem.'
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Tem
-    a certeza de que quer apagar os canais sleccionados? Esta acção não vai apagar
+    a certeza de que quer apagar os canais selecionados? Esta ação não vai apagar
     os canais em mais nenhum perfil.'
 #On Channel Page
   Profile Filter: Filtro de Perfil
@@ -486,12 +491,12 @@ Video:
   Remove From History: 'Apagar do histórico'
   Video has been marked as watched: 'O vídeo foi marcado como visto'
   Video has been removed from your history: 'O vídeo foi removido do seu histórico'
-  Open in YouTube: 'Abrir no Youtube'
-  Copy YouTube Link: 'Copiar Ligação para Youtube'
-  Open YouTube Embedded Player: 'Abrir Reprodutor Youtube Embutido'
-  Copy YouTube Embedded Player Link: 'Copiar Ligação para Reprodutor Youtube Embutido'
+  Open in YouTube: 'Abrir no YouTube'
+  Copy YouTube Link: 'Copiar ligação do YouTube'
+  Open YouTube Embedded Player: 'Abrir Reprodutor YouTube Embutido'
+  Copy YouTube Embedded Player Link: 'Copiar ligação do reprodutor integrado do YouTube'
   Open in Invidious: 'Abrir no Invidious'
-  Copy Invidious Link: 'Copiar Ligação para Invidious'
+  Copy Invidious Link: 'Copiar ligação do Invidious'
   View: 'Visualização'
   Views: 'Visualizações'
   Loop Playlist: 'Repetir lista de reprodução'
@@ -510,13 +515,13 @@ Video:
   Enable Live Chat: 'Permitir Chat Ao Vivo'
   Live Chat is currently not supported in this build.: 'De momento, chat ao vivo não
     se encontra a funcionar nesta versão.'
-  'Chat is disabled or the Live Stream has ended.': 'Chat foi desactivado ou Live
-    Stream já acabou.'
+  'Chat is disabled or the Live Stream has ended.': 'O chat foi desativado ou o Live
+    Stream já terminou.'
   Live chat is enabled.  Chat messages will appear here once sent.: 'Chat ao vivo
-    activado. Mensagens vão aparecer aqui ao serem enviadas.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Chat
-    ao vivo não se encontra a funcionar com a API Invividious. Uma ligação directa
-    ao Youtube é necessária.'
+    ativado. As mensagens vão aparecer aqui ao serem enviadas.'
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'O
+    chat ao vivo não se encontra a funcionar com a API Invividious. É necessária uma
+    ligação direta ao YouTube.'
   Published:
     Jan: 'Jan'
     Feb: 'Fev'
@@ -569,7 +574,7 @@ Video:
     OpenInTemplate: Abrir com $
   Sponsor Block category:
     music offtopic: música fora de tópico
-    interaction: interacção
+    interaction: interação
     self-promotion: autopromoção
     outro: fim
     intro: início
@@ -586,10 +591,10 @@ Video:
   audio only: apenas áudio
   video only: apenas vídeo
   Download Video: Descarregar Vídeo
-  Copy Invidious Channel Link: Copiar Ligação para Invidious
+  Copy Invidious Channel Link: Copiar ligação do canal do Invidious
   Open Channel in Invidious: Abrir Canal no Invidious
-  Copy YouTube Channel Link: Copiar Ligação para Youtube
-  Open Channel in YouTube: Abrir Canal no Youtube
+  Copy YouTube Channel Link: Copiar ligação do canal do YouTube
+  Open Channel in YouTube: Abrir Canal no YouTube
   Video has been removed from your saved list: Vídeo removido da sua lista
   Video has been saved: Vídeo guardado
   Save Video: Guardar Vídeo
@@ -606,12 +611,12 @@ Playlist:
   Videos: 'Vídeos'
   View: 'Visualização'
   Views: 'Visualizaões'
-  Last Updated On: 'Última Actualização'
+  Last Updated On: 'Última atualização'
   Share Playlist:
     Share Playlist: 'Partilhar Lista'
-    Copy YouTube Link: 'Copiar Ligação para Youtube'
-    Open in YouTube: 'Abrir no Youtube'
-    Copy Invidious Link: 'Copiar Ligação para Invidious'
+    Copy YouTube Link: 'Copiar ligação do YouTube'
+    Open in YouTube: 'Abrir no YouTube'
+    Copy Invidious Link: 'Copiar ligação do Invidious'
     Open in Invidious: 'Abrir no Invidious'
 
 # On Video Watch Page
@@ -631,19 +636,19 @@ Change Format:
 Share:
   Share Video: 'Partilhar Vídeo'
   Include Timestamp: 'Incluir Marcação de Tempo'
-  Copy Link: 'Copiar Ligação'
-  Open Link: 'Abrir Ligação'
+  Copy Link: 'Copiar ligação'
+  Open Link: 'Abrir ligação'
   Copy Embed: 'Copiar Embutido'
   Open Embed: 'Abrir Embutido'
   # On Click
   Invidious URL copied to clipboard: 'URL Invidious copiado para área de transferência'
   Invidious Embed URL copied to clipboard: 'URL Invidious embutido copiado para área
     de tranferência'
-  YouTube URL copied to clipboard: 'URL Youtube copiado para área de transferência'
-  YouTube Embed URL copied to clipboard: 'URL Youtube embutido copiado para área de
-    transferência'
-  YouTube Channel URL copied to clipboard: URL do Canal Youtube copiado para área
-    de transferência
+  YouTube URL copied to clipboard: 'URL do YouTube copiado para a área de transferência'
+  YouTube Embed URL copied to clipboard: 'URL do YouTube embutido copiado para área
+    de transferência'
+  YouTube Channel URL copied to clipboard: URL do canal do YouTube copiado para a
+    área de transferência
   Invidious Channel URL copied to clipboard: URL do Canal Invidious copiado para área
     de transferência
 Mini Player: 'Mini Leitor'
@@ -676,10 +681,10 @@ Invidious API Error (Click to copy): 'API Invidious encontrou um erro (Clique pa
 Falling back to Invidious API: 'Ocorreu uma falha, a mudar para o API Invidious'
 Falling back to the local API: 'Ocorreu uma falha, a mudar para a API local'
 Subscriptions have not yet been implemented: 'Subscrições ainda não foram implementadas'
-Loop is now disabled: 'Reprodução cíclica desactivada'
-Loop is now enabled: 'Reprodução cíclica activada'
-Shuffle is now disabled: 'Reprodução aleatória desactivada'
-Shuffle is now enabled: 'Reprodução aleatória activada'
+Loop is now disabled: 'Reprodução cíclica desativada'
+Loop is now enabled: 'Reprodução cíclica ativada'
+Shuffle is now disabled: 'Reprodução aleatória desativada'
+Shuffle is now enabled: 'Reprodução aleatória ativada'
 The playlist has been reversed: 'A lista de reprodução foi invertida'
 Playing Next Video: 'A Reproduzir o Vídeo Seguinte'
 Playing Previous Video: 'A Reproduzir o Vídeo Anterior'
@@ -687,7 +692,7 @@ Playing next video in 5 seconds.  Click to cancel: 'A reproduzir o próximo víd
   5 segundos. Clique para cancelar.'
 Canceled next video autoplay: 'Reprodução automática cancelada'
 'The playlist has ended.  Enable loop to continue playing': 'A lista de reprodução
-  chegou ao fim. Active a reprodução cíclica para continuar'
+  chegou ao fim. Ative a reprodução cíclica para continuar'
 
 Yes: 'Sim'
 No: 'Não'
@@ -702,57 +707,62 @@ Playing Next Video Interval: A reproduzir o vídeo seguinte imediatamente. Cliqu
   para cancelar.
 Hashtags have not yet been implemented, try again later: Os Hashtags ainda não foram
   implementados, tente novamente mais tarde
-Unknown YouTube url type, cannot be opened in app: Tipo de url do YouTube desconhecido,
-  não pode ser aberto numa app
+Unknown YouTube url type, cannot be opened in app: Tipo de URL do YouTube desconhecido,
+  não pode ser aberto numa aplicação
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
   vídeo não está disponível devido a formatos em falta. Isto pode acontecer devido
   à sua indisponibilidade no seu país.
 Tooltips:
   Privacy Settings:
-    Remove Video Meta Files: Quando activado, ao fechar uma página o Freetube apagará
+    Remove Video Meta Files: Quando ativado, ao fechar uma página o FreeTube apagará
       automaticamente os metaficheiros criados durante a reprodução de um vídeo.
   Subscription Settings:
-    Fetch Feeds from RSS: Quando activado, o FreeTube irá buscar as suas subscrições
+    Fetch Feeds from RSS: Quando ativado, o FreeTube irá buscar as suas subscrições
       através de RSS em vez do método normal. RSS é mais rápido e previne ser bloqueado
-      pelo Youtube, mas não disponibiliza informações como a duração de um vídeo ou
+      pelo YouTube, mas não disponibiliza informações como a duração de um vídeo ou
       se este é ao vivo
   External Player Settings:
     Custom External Player Arguments: Quaisquer argumentos de linha de comando, separados
       por ponto e vírgula (';'), que quiser dar ao leitor externo.
     Ignore Warnings: Ignorar avisos quando o leitor externo escolhido não suporta
-      uma acção (por exemplo inverter listas de reprodução).
+      uma ação (por exemplo inverter listas de reprodução).
     Custom External Player Executable: Por omissão, o FreeTube assume que o leitor
       externo escolhido pode ser encontrado através da variável PATH. Se for preciso,
       um caminho personalizado pode ser escolhido aqui.
     External Player: Escolher um leitor externo irá fazer um ícone, para abrir o vídeo
       (lista de reprodução se possível) nesse leitor, aparecer nas antevisões dos
       vídeos.
+    DefaultCustomArgumentsTemplate: "(padrão: '$')"
   Player Settings:
     Default Video Format: Define os formatos usados quando um vídeo é reproduzido.
       Formatos DASH podem reproduzir qualidades mais altas. Os formatos antigos são
       limitados a um máximo de 720p, mas usam menos largura de banda. Formatos de
       áudio são para transmissões sem vídeo.
     Proxy Videos Through Invidious: Conectar-se-á ao Invidious para obter vídeos em
-      vez de fazer uma ligação directa com o YouTube. Ignora a preferência de API.
+      vez de fazer uma ligação direta com o YouTube. Ignora a preferência de API.
     Force Local Backend for Legacy Formats: Apenas funciona quando a API Invidious
-      é o seu sistema preferido. Quando activada, a API local irá ser usada para ir
+      é o seu sistema preferido. Quando ativada, a API local irá ser usada para ir
       buscar os formatos antigos, invés daqueles devolvidos pelo Invidious. Útil quando
       os vídeos dados pelo Invidious não funcionam devido a restrições geográficas.
   General Settings:
     Region for Trending: A região de tendências permite-lhe escolher de que país virão
       os vídeos na secção das tendências. Nem todos os países apresentados estão de
-      facto a funcionar devido ao Youtube.
+      facto a funcionar devido ao YouTube.
     Invidious Instance: O servidor Invidious ao qual o FreeTube se irá ligar para
-      fazer chamadas através da API. Apague o servidor atual para ver uma lista de
-      servidores públicos.
+      fazer chamadas através da API.
     Thumbnail Preference: Todas as antevisões dos vídeos no FreeTube serão substituídas
       por um quadro do vídeo em vez da imagem padrão.
     Fallback to Non-Preferred Backend on Failure: Quando a sua API preferida tiver
       um problema, o FreeTube tentará usar automaticamente a sua API não preferida
       como substituição caso esta opção esteja ativada.
-    Preferred API Backend: Escolha o sistema que o FreeTube usa para se ligar ao Youtube.
-      A API local é um extractor incorporado. A API Invidious requer um servidor Invidious
+    Preferred API Backend: Escolha o sistema que o FreeTube usa para se ligar ao YouTube.
+      A API local é um extrator incorporado. A API Invidious requer um servidor Invidious
       para se ligar.
+    External Link Handling: "Escolha o comportamento padrão quando uma ligação, que\
+      \ não pode ser aberta no FreeTube, é aberta.\nPor padrão, o FreeTube abrirá\
+      \ a ligação clicado no seu navegador de Internet padrão.\n"
 Search Bar:
   Clear Input: Limpar entrada
-Are you sure you want to open this link?: Tem certeza que quer abrir esta hiperligação?
+Are you sure you want to open this link?: Quer mesmo abrir esta ligação?
+External link opening has been disabled in the general settings: A abertura da ligação
+  externa foi desativada nas configurações gerais
