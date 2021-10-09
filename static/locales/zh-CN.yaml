@@ -127,7 +127,7 @@ Settings:
     Current instance will be randomized on startup: 当前实例在启动时将会随机化
     Set Current Instance as Default: 将当前实例设为默认
     Clear Default Instance: 清除默认实例
-    Current Invidious Instance: 当前令人讨厌的实例
+    Current Invidious Instance: 当前所用的 Invidious 实例
   Theme Settings:
     Theme Settings: '主题设置'
     Match Top Bar with Main Color: '顶部菜单栏对应主颜色'
