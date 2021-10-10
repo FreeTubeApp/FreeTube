@@ -176,7 +176,7 @@ function runApp() {
      * Initial window options
      */
     const commonBrowserWindowOptions = {
-      // We respect system defaults first, before checking for user-preferences
+      // Respect system defaults first, before checking for user-preferences
       backgroundColor: nativeTheme.shouldUseDarkColors ? '#f1f1f1' : '#f1f1f1',
       darkTheme: nativeTheme.shouldUseDarkColors,
       icon: isDev
@@ -230,7 +230,35 @@ function runApp() {
       height: 800
     })
 
+<<<<<<< HEAD
     const boundsDoc = await baseHandlers.settings._findBounds()
+=======
+    await settingsDb.findOne({'_id': 'baseTheme'}).then(({ value }) => {
+      switch (value) {
+        case 'system':
+          newWindow.setBackgroundColor(
+            nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
+          )
+          break
+        case 'dark':
+          newWindow.setBackgroundColor('#212121')
+          break
+        case 'light':
+          newWindow.setBackgroundColor('#f1f1f1')
+          break
+        case 'black':
+          newWindow.setBackgroundColor('#000')
+          break
+        case 'dracula':
+          newWindow.setBackgroundColor('#282a36')
+          break
+      }
+    }).catch((error) => {
+      // Stick with the system default in the case we cannot find baseTheme
+    })
+
+    const boundsDoc = await settingsDb.findOne({ _id: 'bounds' })
+>>>>>>> ab1e0dae (Use baseTheme on browserWindow creation)
     if (typeof boundsDoc?.value === 'object') {
       const { maximized, ...bounds } = boundsDoc.value
       const allDisplaysSummaryWidth = screen
