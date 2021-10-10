@@ -176,7 +176,8 @@ function runApp() {
      * Initial window options
      */
     const commonBrowserWindowOptions = {
-      backgroundColor: '#212121',
+      // We respect system defaults first, before checking for user-preferences
+      backgroundColor: nativeTheme.shouldUseDarkColors ? '#f1f1f1' : '#f1f1f1',
       darkTheme: nativeTheme.shouldUseDarkColors,
       icon: isDev
         ? path.join(__dirname, '../../_icons/iconColor.png')
