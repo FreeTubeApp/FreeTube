@@ -167,6 +167,7 @@ const state = {
   barColor: false,
   checkForBlogPosts: true,
   checkForUpdates: true,
+  baseTheme: 'system',
   // currentTheme: 'lightRed',
   defaultCaptionSettings: '{}',
   defaultInterval: 5,

@@ -142,7 +142,7 @@ export default Vue.extend({
     this.disableSmoothScrollingToggleValue = this.disableSmoothScrolling
   },
   methods: {
-    updateBaseTheme: function (theme) {
+    updateTheme: function (theme) {
       const mainColor = `main${this.currentMainColor}`
       const secColor = `sec${this.currentSecColor}`
 
@@ -152,6 +152,7 @@ export default Vue.extend({
         secColor: secColor
       }
 
+      this.updateBaseTheme(theme)
       this.$parent.$parent.updateTheme(payload)
       this.currentBaseTheme = theme
     },
@@ -218,6 +219,7 @@ export default Vue.extend({
 
     ...mapActions([
       'updateBarColor',
+      'updateBaseTheme',
       'updateUiScale',
       'updateDisableSmoothScrolling',
       'updateHideLabelsSideBar'
