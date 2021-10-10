@@ -230,10 +230,8 @@ function runApp() {
       height: 800
     })
 
-<<<<<<< HEAD
     const boundsDoc = await baseHandlers.settings._findBounds()
-=======
-    await settingsDb.findOne({'_id': 'baseTheme'}).then(({ value }) => {
+    await settingsDb.findOne({ _id: 'baseTheme' }).then(({ value }) => {
       switch (value) {
         case 'system':
           newWindow.setBackgroundColor(
@@ -253,12 +251,9 @@ function runApp() {
           newWindow.setBackgroundColor('#282a36')
           break
       }
-    }).catch((error) => {
-      // Stick with the system default in the case we cannot find baseTheme
     })
 
     const boundsDoc = await settingsDb.findOne({ _id: 'bounds' })
->>>>>>> ab1e0dae (Use baseTheme on browserWindow creation)
     if (typeof boundsDoc?.value === 'object') {
       const { maximized, ...bounds } = boundsDoc.value
       const allDisplaysSummaryWidth = screen
@@ -367,17 +362,13 @@ function runApp() {
     app.quit()
   })
 
-<<<<<<< HEAD
-  ipcMain.on(IpcChannels.ENABLE_PROXY, (_, url) => {
-=======
   nativeTheme.on('updated', () => {
     if (mainWindow) {
       mainWindow.webContents.send('native-theme-update', nativeTheme.shouldUseDarkColors)
     }
   })
-
-  ipcMain.on('enableProxy', (_, url) => {
->>>>>>> 4b5a72ae (Move to using main process messaging for theme change)
+  
+  ipcMain.on(IpcChannels.ENABLE_PROXY, (_, url) => {
     console.log(url)
     session.defaultSession.setProxy({
       proxyRules: url
