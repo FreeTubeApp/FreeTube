@@ -8,11 +8,11 @@
     }"
   >
     <ft-loader
-      v-if="isLoading && !(isFamilyFriendly==false && showFamilyFriendlyOnly)"
+      v-if="isLoading"
       :fullscreen="true"
     />
     <div
-      v-if="(isFamilyFriendly==true || !showFamilyFriendlyOnly)"
+      v-if="(isFamilyFriendly || !showFamilyFriendlyOnly)"
       class="videoArea"
     >
       <div class="videoAreaMargin">
@@ -68,12 +68,12 @@
       </div>
     </div>
     <ft-age-restricted
-      v-if="(isFamilyFriendly==false && showFamilyFriendlyOnly)"
+      v-if="(!isLoading && !isFamilyFriendly && showFamilyFriendlyOnly)"
       class="ageRestricted"
       :content-type-string="'video'"
     />
     <div
-      v-if="(isFamilyFriendly==true || !showFamilyFriendlyOnly)"
+      v-if="(isFamilyFriendly || !showFamilyFriendlyOnly)"
       class="infoArea"
     >
       <watch-video-info
@@ -125,7 +125,7 @@
       />
     </div>
     <div
-      v-if="(isFamilyFriendly==true || !showFamilyFriendlyOnly)"
+      v-if="(isFamilyFriendly || !showFamilyFriendlyOnly)"
       class="sidebarArea"
     >
       <watch-video-live-chat
