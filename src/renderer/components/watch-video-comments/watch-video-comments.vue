@@ -129,6 +129,9 @@
             <p class="commentAuthorWrapper">
               <span
                 class="commentAuthor"
+                :class="{
+                  commentOwner: reply.isOwner
+                }"
                 @click="goToChannel(reply.authorLink)"
               >
                 {{ reply.author }}
