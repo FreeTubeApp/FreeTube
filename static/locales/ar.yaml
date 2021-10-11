@@ -731,6 +731,7 @@ Tooltips:
       مخصص هنا.
     External Player: سيؤدي اختيار مشغل خارجي إلى عرض رمز لفتح الفيديو (قائمة التشغيل
       إذا كان مدعوما) في المشغل الخارجي، على الصورة المصغرة.
+    DefaultCustomArgumentsTemplate: "(الافتراضي: '$')"
 This video is unavailable because of missing formats. This can happen due to country unavailability.: هذا
   الفيديو غير متاح الآن لعدم وجود ملفات فيديو . هذا قد يكون بسبب أن الفيديو غير متاح
   في بلدك.

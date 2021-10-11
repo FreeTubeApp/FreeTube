@@ -554,7 +554,7 @@ Video:
       opening playlists: aprire playlist
       starting video at offset: avvio del video con uno sfasamento
     UnsupportedActionTemplate: '$ non supporta: %'
-    OpeningTemplate: Apertura di $ con %…
+    OpeningTemplate: Apertura del $ con %…
     playlist: playlist
     video: video
     OpenInTemplate: Apri con $
