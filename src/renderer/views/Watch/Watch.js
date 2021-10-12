@@ -714,7 +714,7 @@ export default Vue.extend({
     },
 
     handleWatchProgress: function () {
-      if (this.rememberHistory && !this.isUpcoming && !this.isLoading && !this.isLive && this.$refs.videoPlayer !== undefined) {
+      if (this.rememberHistory && !this.isUpcoming && !this.isLoading && !this.isLive) {
         const player = this.$refs.videoPlayer.player
 
         if (player !== null && this.saveWatchedProgress) {
@@ -735,9 +735,6 @@ export default Vue.extend({
 
       console.log(historyIndex)
 
-      if (this.$refs.videoPlayer === undefined) {
-        return false
-      }
       if (!this.isLive) {
         if (this.timestamp) {
           if (this.timestamp < 0) {
@@ -950,7 +947,7 @@ export default Vue.extend({
 
       this.handleWatchProgress()
 
-      if (!this.isUpcoming && !this.isLoading && this.$refs.videoPlayer !== undefined) {
+      if (!this.isUpcoming && !this.isLoading) {
         const player = this.$refs.videoPlayer.player
 
         if (player !== null && !player.paused() && player.isInPictureInPicture()) {

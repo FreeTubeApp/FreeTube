@@ -2,7 +2,9 @@
   <div
     class="ft-age-restricted"
   >
-    <h2 v-html="$t('Age Restricted.This '+contentTypeString+' is age restricted')" />
+    <h2>
+      {{ $t('Age Restricted.This '+contentTypeString+' is age restricted') }}
+    </h2>
     <div class="frown">
       {{ emoji }}
     </div>

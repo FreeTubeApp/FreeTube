@@ -7,7 +7,7 @@ import FtSelect from '../ft-select/ft-select.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 
 export default Vue.extend({
-  name: 'PlayerSettings',
+  name: 'ParentalControlSettings',
   components: {
     'ft-card': FtCard,
     'ft-toggle-switch': FtToggleSwitch,
