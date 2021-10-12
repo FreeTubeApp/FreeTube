@@ -3,7 +3,7 @@
     class="ft-age-restricted"
   >
     <h2>
-      {{ $t('Age Restricted.This '+contentTypeString+' is age restricted') }}
+      {{ $t('Age Restricted. This '+contentTypeString+' is age restricted') }}
     </h2>
     <div class="frown">
       {{ emoji }}
