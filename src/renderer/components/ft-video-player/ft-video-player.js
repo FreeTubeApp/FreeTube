@@ -1065,7 +1065,7 @@ export default Vue.extend({
 
               this.activeAdaptiveFormats.push(adaptiveFormat)
 
-              fps = adaptiveFormat.fps
+              fps = adaptiveFormat.fps ? adaptiveFormat.fps : 30
               qualityLabel = adaptiveFormat.qualityLabel ? adaptiveFormat.qualityLabel : quality.height + 'p'
               bitrate = quality.bitrate
             } else {
