@@ -140,8 +140,7 @@ export default Vue.extend({
 
         const returnData = result.items.filter((item) => {
           if (typeof item !== 'undefined') {
-            return (item.type === 'video' && ((!item.isLive && !item.isUpcoming) || !this.hideLiveStreams)) ||
-              item.type === 'channel' || item.type === 'playlist'
+            return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
           }
 
           return null
@@ -251,8 +250,7 @@ export default Vue.extend({
         console.log(result)
 
         const returnData = result.filter((item) => {
-          return (item.type === 'video' && ((!item.liveNow && !item.isUpcoming) || !this.hideLiveStreams)) ||
-            item.type === 'channel' || item.type === 'playlist'
+          return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
         })
 
         console.log(returnData)

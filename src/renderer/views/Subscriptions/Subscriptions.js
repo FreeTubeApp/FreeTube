@@ -174,9 +174,11 @@ export default Vue.extend({
           videoList = await Promise.all(videoList.sort((a, b) => {
             return b.publishedDate - a.publishedDate
           }))
-          videoList = videoList.filter(item => {
-            return (!item.liveNow && !item.isUpcoming) || !this.hideLiveStreams
-          })
+          if (this.hideLiveStreams) {
+            videoList = videoList.filter(item => {
+              return (!item.liveNow && !item.isUpcoming)
+            })
+          }
           const profileSubscriptions = {
             activeProfile: this.activeProfile,
             videoList: videoList

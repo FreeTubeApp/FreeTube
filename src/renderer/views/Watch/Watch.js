@@ -285,6 +285,7 @@ export default Vue.extend({
               this.thumbnail = result.videoDetails.thumbnails[result.videoDetails.thumbnails.length - 1].url
               break
           }
+
           this.isFamilyFriendly = result.videoDetails.isFamilySafe
           this.recommendedVideos = result.related_videos.map((video) => {
             video.videoId = video.id
@@ -531,6 +532,7 @@ export default Vue.extend({
       this.invidiousGetVideoInformation(this.videoId)
         .then(result => {
           console.log(result)
+
           if (result.error) {
             throw new Error(result.error)
           }
@@ -732,6 +734,7 @@ export default Vue.extend({
       })
 
       console.log(historyIndex)
+
       if (this.$refs.videoPlayer === undefined) {
         return false
       }
