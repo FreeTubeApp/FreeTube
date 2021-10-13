@@ -29,6 +29,7 @@
       <img
         :src="postContent.content[Math.max(0, postContent.content.length-1)].url"
         class="communityImage"
+        alt=""
       >
     </div>
     <div
@@ -102,7 +103,7 @@
             class="playlistVideoCount"
           >
             {{ postContent.content.videoCountText.text }}
-            Videos
+            {{ $t('Channel.Videos.Videos') }}
           </span>
           <br>
         </span>
