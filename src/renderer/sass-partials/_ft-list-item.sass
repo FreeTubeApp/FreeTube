@@ -22,16 +22,17 @@ $watched-transition-duration: 0.5s
       @content
 
 @mixin low-contrast-when-watched($col)
-
   color: $col
+
   @at-root
     .watched &, .watched#{&}
       color: var(--tertiary-text-color)
+      transition-duration: $watched-transition-duration
 
     .watched:hover &, .watched:hover#{&}
       color: $col
       transition-duration: $watched-transition-duration
-      
+           
 .ft-list-item
   padding: 6px
 
@@ -41,6 +42,7 @@ $watched-transition-duration: 0.5s
 
     .thumbnailImage
       opacity: 0.3
+      transition-duration: $watched-transition-duration
 
     &:hover .thumbnailImage
       opacity: 1
