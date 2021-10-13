@@ -287,7 +287,7 @@
   --primary-color: #FF79C6;
   --primary-color-hover: #FF86CC;
   --primary-color-active: #E66DB2;
-  --text-with-main-color: #282A36;
+  --text-with-main-color: #F8F8F2;
   --logo-icon-bar-color: url("~../../_icons/iconDraculaLightSmall.png");
   --logo-text-bar-color: url("~../../_icons/textDraculaLightSmall.png");
 }
@@ -296,7 +296,7 @@
   --primary-color: #BD93F9;
   --primary-color-hover: #C49EFA;
   --primary-color-active: #AA84E0;
-  --text-with-main-color: #282A36;
+  --text-with-main-color: #F8F8F2;
   --logo-icon-bar-color: url("~../../_icons/iconDraculaLightSmall.png");
   --logo-text-bar-color: url("~../../_icons/textDraculaLightSmall.png");
 }
@@ -305,7 +305,7 @@
   --primary-color: #FF5555;
   --primary-color-hover: #FF6666;
   --primary-color-active: #E64D4D;
-  --text-with-main-color: #282A36;
+  --text-with-main-color: #F8F8F2;
   --logo-icon-bar-color: url("~../../_icons/iconDraculaLightSmall.png");
   --logo-text-bar-color: url("~../../_icons/textDraculaLightSmall.png");
 }
@@ -572,7 +572,7 @@
   --accent-color-active: #E66DB2;
   --accent-color-light: #FF94D1;
   --accent-color-visited: #CC619E;
-  --text-with-accent-color: #212121;
+  --text-with-accent-color: #F8F8F2;
   --accent-color-opacity1: rgba(98,114,164,0.04);
   --accent-color-opacity2: rgba(98,114,164,0.12);
   --accent-color-opacity3: rgba(98,114,164,0.16);
@@ -585,7 +585,7 @@
   --accent-color-active: #AA84E0;
   --accent-color-light: #CAA9FA;
   --accent-color-visited: #9776C7;
-  --text-with-accent-color: #212121;
+  --text-with-accent-color: #F8F8F2;
   --accent-color-opacity1: rgba(98,114,164,0.04);
   --accent-color-opacity2: rgba(98,114,164,0.12);
   --accent-color-opacity3: rgba(98,114,164,0.16);
@@ -598,7 +598,7 @@
   --accent-color-active: #E64D4D;
   --accent-color-light: #FF7777;
   --accent-color-visited: #CC4444;
-  --text-with-accent-color: #212121;
+  --text-with-accent-color: #F8F8F2;
   --accent-color-opacity1: rgba(98,114,164,0.04);
   --accent-color-opacity2: rgba(98,114,164,0.12);
   --accent-color-opacity3: rgba(98,114,164,0.16);
