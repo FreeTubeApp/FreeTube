@@ -430,13 +430,13 @@ Channel:
   Unsubscribe: 'Disiscriviti'
   Search Channel: 'Cerca un canale'
   Your search results have returned 0 results: 'La tua ricerca ha prodotto 0 risultati'
-  Sort By: 'Filtra per'
+  Sort By: 'Ordina per'
   Videos:
     Videos: 'Video'
     This channel does not currently have any videos: 'Questo canale attualmente non
       ha nessun video'
     Sort Types:
-      Newest: 'Recenti'
+      Newest: 'Più nuovi'
       Oldest: 'Più vecchi'
       Most Popular: 'Più popolari'
   Playlists:
@@ -445,15 +445,15 @@ Channel:
       non ha nessuna playlist'
     Sort Types:
       Last Video Added: 'Ultimo video aggiunto'
-      Newest: 'Più recenti'
+      Newest: 'Più nuovi'
       Oldest: 'Più vecchi'
   About:
     About: 'Informazioni'
     Channel Description: 'Descrizione canale'
     Featured Channels: 'Canali suggeriti'
-  Added channel to your subscriptions: Aggiunto canale alle tue iscrizioni
-  Removed subscription from $ other channel(s): Rimossa iscrizione dagli altri canali
-    di $
+  Added channel to your subscriptions: Il canale è stato aggiunto alle tue iscrizioni
+  Removed subscription from $ other channel(s): È stata rimossa l'iscrizione dagli
+    altri canali di $
   Channel has been removed from your subscriptions: Il canale è stato rimosso dalle
     tue iscrizioni
 Video:
@@ -474,7 +474,7 @@ Video:
   Watched: 'Visto'
   # As in a Live Video
   Live: 'Dal vivo'
-  Live Now: 'Ora dal vivo'
+  Live Now: 'Adesso dal vivo'
   Live Chat: 'Chat dal vivo'
   Enable Live Chat: 'Abilita chat dal vivo'
   Live Chat is currently not supported in this build.: 'La chat dal vivo al momento
@@ -521,9 +521,9 @@ Video:
 #& Videos
   Play Previous Video: Riproduci il video precedente
   Play Next Video: Riproduci il prossimo video
-  Reverse Playlist: Playlist inversa
+  Reverse Playlist: Playlist al contrario
   Shuffle Playlist: Riproduzione playlist casuale
-  Loop Playlist: Riproduzione continua
+  Loop Playlist: Riproduzione continua playlist
   Autoplay: Riproduzione automatica
   Starting soon, please refresh the page to check again: La riproduzione partirà tra
     breve, aggiorna la pagina per ricontrollare
@@ -534,11 +534,11 @@ Video:
     Low: Basso
   audio only: solo audio
   video only: solo video
-  Download Video: Scarica video
+  Download Video: Scarica il video
   Copy Invidious Channel Link: Copia collegamento del canale Invidious
   Open Channel in Invidious: Apri il canale su Invidious
   Copy YouTube Channel Link: Copia collegamento del canale YouTube
-  Open Channel in YouTube: Apri il canale con YouTube
+  Open Channel in YouTube: Apri il canale in YouTube
   Started streaming on: Stream iniziato il
   Streamed on: Streaming il
   Video has been removed from your saved list: Il video è stato rimosso dalla tua
@@ -547,14 +547,14 @@ Video:
   Save Video: Salva video
   External Player:
     Unsupported Actions:
-      looping playlists: ripetizione playlist
-      shuffling playlists: mescolare l'ordine delle playlist
-      reversing playlists: invertire l'ordine delle playlist
-      opening specific video in a playlist (falling back to opening the video): aprire
-        video specifico in una playlist (tornando all'apertura del video)
-      setting a playback rate: imposta velocità di riproduzione
-      opening playlists: aprire playlist
-      starting video at offset: avvio del video con uno sfasamento
+      looping playlists: ripetendo la playlist
+      shuffling playlists: mescolando l'ordine della playlist
+      reversing playlists: invertendo l'ordine della playlist
+      opening specific video in a playlist (falling back to opening the video): aprendo
+        un video specifico in una playlist (tornando all'apertura del video)
+      setting a playback rate: impostando la velocità di riproduzione
+      opening playlists: aprendo la playlist
+      starting video at offset: avviando il video con uno sfasamento
     UnsupportedActionTemplate: '$ non supporta: %'
     OpeningTemplate: Apertura del $ con %…
     playlist: playlist
@@ -572,8 +572,8 @@ Video:
 Videos:
   #& Sort By
   Sort By:
-    Newest: 'Recenti'
-    Oldest: 'Vecchi'
+    Newest: 'Più nuovo'
+    Oldest: 'Più vecchio'
     #& Most Popular
 #& Playlists
 Playlist:
@@ -623,26 +623,26 @@ Share:
 Mini Player: 'Mini visualizzatore'
 Comments:
   Comments: 'Commenti'
-  Click to View Comments: 'Clicca per Vedere i commenti'
+  Click to View Comments: 'Clicca per vedere i commenti'
   Getting comment replies, please wait: 'Sto ricevendo risposte ai commenti, per favore
     attendi'
-  Show Comments: 'Mostra commenti'
-  Hide Comments: 'Nascondi commenti'
+  Show Comments: 'Mostra i commenti'
+  Hide Comments: 'Nascondi i commenti'
   # Context: View 10 Replies, View 1 Reply
   View: 'Guarda'
   Hide: 'Nascondi'
   Replies: 'Risposte'
-  Reply: 'Rispondi'
+  Reply: 'Risposta'
   There are no comments available for this video: 'Non ci sono commenti disponibili
     per questo video'
   Load More Comments: 'Carica più commenti'
   There are no more comments for this video: Non ci sono più commenti per questo video
-  No more comments available: Altri commenti non disponibili
+  No more comments available: Non ci sono altri commenti
   Top comments: Commenti migliori
   Newest first: I più nuovi
   Sort by: Ordina per
   Show More Replies: Mostra altre risposte
-Up Next: 'Video seguenti'
+Up Next: 'Prossimi video'
 
 # Toast Messages
 Local API Error (Click to copy): 'Errore API Locale (Clicca per copiare)'
@@ -655,7 +655,7 @@ Loop is now disabled: 'Il loop è ora disabilitato'
 Loop is now enabled: 'Il loop è abilitato'
 Shuffle is now disabled: 'La riproduzione casuale è disabilitata'
 Shuffle is now enabled: 'La riproduzione casuale è abilitata'
-Playing Next Video: 'Riproduzione del prossimo video'
+Playing Next Video: 'Riproduzione del video successivo'
 Playing Previous Video: 'Riproduzione del video precedente'
 Playing next video in 5 seconds.  Click to cancel: 'Riproduzione del prossimo video
   in 5 secondi. Clicca per cancellare.'
@@ -687,7 +687,7 @@ Profile:
   $ selected: $ selezionato
   Other Channels: Altri canali
   Subscription List: Lista iscrizioni
-  $ is now the active profile: $ è ora il tuo profilo attivo
+  $ is now the active profile: $ adesso è il tuo profilo attivo
   Your default profile has been changed to your primary profile: Il tuo profilo predefinito
     è stato impostato come profilo primario
   Removed $ from your profiles: Hai rimosso $ dai tuoi profili
@@ -750,22 +750,21 @@ Tooltips:
       \ su un collegamento che non può essere aperto in FreeTube.\nPer impostazione\
       \ predefinita FreeTube aprirà il collegamento nel browser predefinito.\n"
   External Player Settings:
-    Ignore Warnings: Sopprime gli avvisi per quando il lettore esterno corrente non
-      supporta l'azione corrente (ad esempio, invertire le playlist, ecc.).
+    Ignore Warnings: Non notifica gli avvisi quando il lettore esterno selezionato
+      non supporta l'azione richiesta (ad esempio invertire la playlist, etc.).
     Custom External Player Arguments: Qualsiasi argomento personalizzato della linea
-      di comando, separato da punto e virgola (';'), che vuoi sia passato al lettore
-      esterno.
-    Custom External Player Executable: Per impostazione predefinita, FreeTube assume
-      che il lettore esterno scelto possa essere trovato tramite la variabile d'ambiente
-      PATH. Se necessario, un percorso personalizzato può essere impostato qui.
+      di comando, separato da punto e virgola (';'), che vuoi passare al lettore esterno.
+    Custom External Player Executable: Per impostazione predefinita, FreeTube imposta
+      il lettore esterno scelto tramite la variabile d'ambiente PATH. Se necessario,
+      un percorso personalizzato può essere impostato qui.
     External Player: Scegliendo un lettore esterno, verrà visualizzata un'icona, per
       aprire il video (la playlist se supportata) nel lettore esterno, sulla miniatura.
     DefaultCustomArgumentsTemplate: '(Predefinito: «$»)'
   Privacy Settings:
-    Remove Video Meta Files: Quando abilitata, FreeTube elimina automaticamente i
-      file meta creati durante la riproduzione del video, quando la pagina di riproduzione
-      è chiusa.
-Playing Next Video Interval: Riproduzione del video successivo in un attimo. Clicca
+    Remove Video Meta Files: Se abilitato, FreeTube eliminerà automaticamente i meta
+      files creati durante la riproduzione del video quando chiuderai la pagina di
+      riproduzione.
+Playing Next Video Interval: Riproduzione del video successivo tra un attimo. Clicca
   per annullare. | Riproduzione del video successivo tra {nextVideoInterval} secondi.
   Clicca per annullare. | Riproduzione del video successivo tra {nextVideoInterval}
   secondi. Clicca per annullare.
