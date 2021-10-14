@@ -172,12 +172,27 @@ function runApp() {
   }
 
   async function createWindow(replaceMainWindow = true) {
+    const windowBackground = await settingsDb.findOne({ _id: 'baseTheme' }).then(({ value }) => {
+      switch (value) {
+        case 'dark':
+          return '#212121'
+        case 'light':
+          return '#f1f1f1'
+        case 'black':
+          return '#000'
+        case 'dracula':
+          return '#282a36'
+        case 'system':
+        default:
+          return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
+      }
+    })
+
     /**
      * Initial window options
      */
     const commonBrowserWindowOptions = {
-      // Respect system defaults first, before checking for user-preferences
-      backgroundColor: nativeTheme.shouldUseDarkColors ? '#f1f1f1' : '#f1f1f1',
+      backgroundColor: windowBackground,
       darkTheme: nativeTheme.shouldUseDarkColors,
       icon: isDev
         ? path.join(__dirname, '../../_icons/iconColor.png')
@@ -228,29 +243,6 @@ function runApp() {
     newWindow.setBounds({
       width: 1200,
       height: 800
-    })
-
-    const boundsDoc = await baseHandlers.settings._findBounds()
-    await settingsDb.findOne({ _id: 'baseTheme' }).then(({ value }) => {
-      switch (value) {
-        case 'system':
-          newWindow.setBackgroundColor(
-            nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
-          )
-          break
-        case 'dark':
-          newWindow.setBackgroundColor('#212121')
-          break
-        case 'light':
-          newWindow.setBackgroundColor('#f1f1f1')
-          break
-        case 'black':
-          newWindow.setBackgroundColor('#000')
-          break
-        case 'dracula':
-          newWindow.setBackgroundColor('#282a36')
-          break
-      }
     })
 
     const boundsDoc = await settingsDb.findOne({ _id: 'bounds' })

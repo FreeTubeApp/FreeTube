@@ -142,7 +142,7 @@ export default Vue.extend({
     this.disableSmoothScrollingToggleValue = this.disableSmoothScrolling
   },
   methods: {
-    updateTheme: function (theme) {
+    handleUpdateTheme: function (theme) {
       const mainColor = `main${this.currentMainColor}`
       const secColor = `sec${this.currentSecColor}`
 

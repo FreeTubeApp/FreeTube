@@ -46,7 +46,7 @@
         :value="currentBaseTheme"
         :select-names="baseThemeNames"
         :select-values="baseThemeValues"
-        @change="updateTheme"
+        @change="handleUpdateTheme"
       />
       <ft-select
         :placeholder="$t('Settings.Theme Settings.Main Color Theme.Main Color Theme')"

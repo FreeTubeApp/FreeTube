@@ -122,7 +122,7 @@ export default Vue.extend({
     }
   },
   created () {
-    this.setBodytheme()
+    this.setBodyTheme()
     this.checkThemeSettings()
     this.setWindowTitle()
   },
@@ -162,7 +162,7 @@ export default Vue.extend({
     })
   },
   methods: {
-    setBodytheme: function () {
+    setBodyTheme: function () {
       if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.body.dataset.theme = 'dark'
       } else {
@@ -175,6 +175,7 @@ export default Vue.extend({
       let mainColor = localStorage.getItem('mainColor')
       let secColor = localStorage.getItem('secColor')
 
+      console.log(baseTheme)
       if (baseTheme === null) {
         baseTheme = 'dark'
       }
@@ -204,6 +205,8 @@ export default Vue.extend({
       localStorage.setItem('baseTheme', theme.baseTheme)
       localStorage.setItem('mainColor', theme.mainColor)
       localStorage.setItem('secColor', theme.secColor)
+
+      console.log(localStorage.getItem('baseTheme'))
     },
 
     checkForNewUpdates: function () {
