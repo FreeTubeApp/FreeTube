@@ -187,6 +187,7 @@ function runApp() {
           return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
       }
     }).catch((error) => {
+      console.log(error)
       // Default to nativeTheme settings if nothing is found.
       return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
     })
