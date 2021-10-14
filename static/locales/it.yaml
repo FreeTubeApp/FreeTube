@@ -36,7 +36,7 @@ Search / Go to URL: 'Cerca e vai a URL'
 Search Filters:
   Search Filters: 'Filtri di ricerca'
   Sort By:
-    Sort By: 'Filtra per'
+    Sort By: 'Ordina per'
     Most Relevant: 'Più rilevante'
     Rating: 'Valutazione'
     Upload Date: 'Data di caricamento'
@@ -50,22 +50,22 @@ Search Filters:
     This Month: 'Questo mese'
     This Year: 'Quest’anno'
   Type:
-    Type: 'Tipologia'
+    Type: 'Tipo'
     All Types: 'Tutti i tipi'
     Videos: 'Video'
     Channels: 'Canali'
     #& Playlists
   Duration:
     Duration: 'Durata'
-    All Durations: 'Ogni durata'
+    All Durations: 'Tutte le durate'
     Short (< 4 minutes): 'Corto (< 4 minuti)'
     Long (> 20 minutes): 'Lungo (> 20 minuti)'
   # On Search Page
   Search Results: 'Risultati della ricerca'
-  Fetching results. Please wait: 'Caricamento risultati. Attendi'
+  Fetching results. Please wait: 'Caricamento risultati. Per favore attendi'
   Fetch more results: 'Carica più risultati'
 # Sidebar
-  There are no more results for this search: Non ci sono più risultati per questa
+  There are no more results for this search: Non ci sono altri risultati per questa
     ricerca
 Subscriptions:
     # On Subscriptions Page
@@ -76,7 +76,8 @@ Subscriptions:
     qui.'
   'Getting Subscriptions.  Please wait.': 'Caricamento Iscrizioni. Attendi.'
   Refresh Subscriptions: Ricarica le iscrizioni
-  'Getting Subscriptions. Please wait.': Scaricamento delle iscrizioni. Prego attendere.
+  'Getting Subscriptions. Please wait.': Scaricamento delle iscrizioni. Per favore
+    attendi.
   Load More Videos: Carica più video
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Questo
     profilo ha un grande numero di iscrizioni. Utilizzo RSS per evitare limitazioni
@@ -96,7 +97,7 @@ User Playlists:
     averlo elencato qui
   Playlist Message: Questa pagina non è rappresentativa di una playlist completa.
     Mostra solo video che hai salvato o aggiunti ai preferiti. A lavoro finito, tutti
-    i video attualmente qui verrano spostati in una playlist dei Preferiti.
+    i video attualmente qui saranno spostati in una playlist dei Preferiti.
 History:
   # On History Page
   History: 'Cronologia'
@@ -136,7 +137,7 @@ Settings:
       Invidious
     Clear Default Instance: Cancella istanza predefinita
     Set Current Instance as Default: Imposta l'istanza attuale come predefinita
-    Current instance will be randomized on startup: L'istanza attuale verrà sostituita
+    Current instance will be randomized on startup: L'istanza attuale sarà sostituita
       all'avvio da una generata casualmente
     No default instance has been set: Non è stata impostata alcuna istanza predefinita
     The currently set default instance is $: L'attuale istanza predefinita è $
@@ -149,7 +150,7 @@ Settings:
       External Link Handling: Gestione dei collegamenti esterni
   Theme Settings:
     Theme Settings: 'Impostazioni del tema'
-    Match Top Bar with Main Color: 'Abbina la barra superiore con il colore principale'
+    Match Top Bar with Main Color: 'Abbina la barra superiore al il colore principale'
     Base Theme:
       Base Theme: 'Tema di base'
       Black: 'Nero'
@@ -157,7 +158,7 @@ Settings:
       Light: 'Chiaro'
       Dracula: 'Dracula'
     Main Color Theme:
-      Main Color Theme: 'Tema colore principale'
+      Main Color Theme: 'Colore principale del tema'
       Red: 'Rosso'
       Pink: 'Rosa'
       Purple: 'Viola'
@@ -174,16 +175,16 @@ Settings:
       Amber: 'Ambra'
       Orange: 'Arancione'
       Deep Orange: 'Arancione scuro'
-      Dracula Cyan: 'Dracula Ciano'
-      Dracula Green: 'Dracula Verde'
-      Dracula Orange: 'Dracula Arancione'
-      Dracula Pink: 'Dracula Rosa'
-      Dracula Purple: 'Dracula Viola'
-      Dracula Red: 'Dracula Rosso'
-      Dracula Yellow: 'Dracula Giallo'
+      Dracula Cyan: 'Dracula ciano'
+      Dracula Green: 'Dracula verde'
+      Dracula Orange: 'Dracula arancione'
+      Dracula Pink: 'Dracula rosa'
+      Dracula Purple: 'Dracula viola'
+      Dracula Red: 'Dracula rosso'
+      Dracula Yellow: 'Dracula giallo'
     Secondary Color Theme: 'Tema colore secondario'
         #* Main Color Theme
-    UI Scale: Dimensioni interfaccia
+    UI Scale: Dimensioni interfaccia utente
     Disable Smooth Scrolling: Disabilita scorrimento fluido
     Expand Side Bar by Default: Espandi automaticamente la barra laterale
     Hide Side Bar Labels: Nascondi le etichette della barra laterale
@@ -216,7 +217,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Intervallo video successivo nella playlist
-    Fast-Forward / Rewind Interval: Avanzamento veloce o riavvolgimento nastro
+    Fast-Forward / Rewind Interval: Avanzamento veloce o riavvolgimento video
     Next Video Interval: Prossimo intervallo video
     Display Play Button In Video Player: Visualizza il pulsante di riproduzione nel
       lettore
@@ -225,19 +226,19 @@ Settings:
     Privacy Settings: 'Impostazioni privacy'
     Remember History: 'Salva la cronologia'
     Save Watched Progress: 'Salva i progressi raggiunti'
-    Clear Search Cache: 'Pulisci la cache di ricerca'
-    Are you sure you want to clear out your search cache?: 'Sei sicuro di voler pulire
-      la cache di ricerca?'
-    Search cache has been cleared: 'La cache di ricerca è stata pulita'
-    Remove Watch History: 'Cancella la cronologia visualizzazioni'
+    Clear Search Cache: 'Cancella la cronologia della ricerca'
+    Are you sure you want to clear out your search cache?: 'Sei sicuro di voler cancellare
+      la cronologia della ricerca?'
+    Search cache has been cleared: 'La cronologia della ricerca è stata cancellata'
+    Remove Watch History: 'Cancella la cronologia delle visualizzazioni'
     Are you sure you want to remove your entire watch history?: 'Sei sicuro di voler
-      cancellare l''intera cronologia di visualizzazione?'
-    Watch history has been cleared: 'La cronologia delle visualizzazioni è stata svuotata'
+      cancellare l''intera cronologia delle visualizzazione?'
+    Watch history has been cleared: 'La cronologia delle visualizzazioni è stata cancellata'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Sei
       sicuro di volere eliminare tutte le iscrizioni e i profili? L'operazione non
       può essere annullata.
     Remove All Subscriptions / Profiles: Elimina tutte le iscrizioni e i profili
-    Automatically Remove Video Meta Files: Rimuovi automaticamente i metafile dei
+    Automatically Remove Video Meta Files: Rimuovi automaticamente i metafile dal
       video
   Subscription Settings:
     Subscription Settings: 'Impostazioni iscrizioni'
@@ -284,7 +285,7 @@ Settings:
     Unknown data key: Chiave dati sconosciuta
     Unable to write file: Impossibile salvare il file
     Unable to read file: Impossibile leggere il file
-    All watched history has been successfully exported: La cronologia di visualizzazione
+    All watched history has been successfully exported: La cronologia delle visualizzazioni
       è stata esportata con successo
     All watched history has been successfully imported: La cronologia di visualizzazione
       è stata importata con successo
@@ -295,7 +296,7 @@ Settings:
       esportate con successo
     Invalid history file: File cronologia non valido
     This might take a while, please wait: Questa operazione potrebbe richiedere del
-      tempo. Prego attendere
+      tempo. Per favore attendi
     Invalid subscriptions file: File iscrizioni non valido
     One or more subscriptions were unable to be imported: Una o più iscrizioni non
       sono state importate
@@ -304,7 +305,7 @@ Settings:
     All subscriptions and profiles have been successfully imported: Tutte le iscrizioni
       e i profili sono stati importati con successo
     Profile object has insufficient data, skipping item: Il profilo selezionato ha
-      dati insufficienti, quindi non sarà elaborato
+      dati insufficienti, quindi non sarà aggiunto
     Export History: Esporta la cronologia
     Import History: Importa la cronologia
     Export NewPipe: Esporta per NewPipe
@@ -318,7 +319,7 @@ Settings:
     Select Import Type: Seleziona il tipo di importazione
     Data Settings: Impostazioni dei dati
     Check for Legacy Subscriptions: Controlla iscrizioni in formato Legacy
-    Manage Subscriptions: Gestisci le tue iscrizioni
+    Manage Subscriptions: Gestisci le iscrizioni
   Distraction Free Settings:
     Hide Popular Videos: Nascondi i video popolari
     Hide Trending Videos: Nascondi i video in tendenze
@@ -332,8 +333,8 @@ Settings:
     Hide Active Subscriptions: Nascondi le iscrizioni attive
     Hide Playlists: Nascondi le playlist
   The app needs to restart for changes to take effect. Restart and apply change?: L'applicazione
-    deve essere riavviata per applicare i cambiamenti. Riavviare e applicare i cambiamenti
-    ora?
+    deve essere riavviata per applicare i cambiamenti. Riavvio e applico i cambiamenti
+    subito?
   Proxy Settings:
     Proxy Protocol: Protocollo Proxy
     Enable Tor / Proxy: Attiva Tor o Proxy
@@ -360,8 +361,9 @@ Settings:
     SponsorBlock Settings: Impostazioni di SponsorBlock
   External Player Settings:
     Custom External Player Arguments: Impostazioni personalizzate del lettore esterno
-    Custom External Player Executable: Lettore personalizzato esterno eseguibile
-    Ignore Unsupported Action Warnings: Ignora avvisi di azioni non supportate
+    Custom External Player Executable: File eseguibile del lettore personalizzato
+      esterno
+    Ignore Unsupported Action Warnings: Ignora avvisi per azioni non supportate
     External Player: Lettore esterno
     External Player Settings: Impostazioni del lettore esterno
 About:
@@ -623,7 +625,7 @@ Comments:
   Comments: 'Commenti'
   Click to View Comments: 'Clicca per Vedere i commenti'
   Getting comment replies, please wait: 'Sto ricevendo risposte ai commenti, per favore
-    aspetta'
+    attendi'
   Show Comments: 'Mostra commenti'
   Hide Comments: 'Nascondi commenti'
   # Context: View 10 Replies, View 1 Reply
@@ -695,12 +697,12 @@ Profile:
   Your profile name cannot be empty: Il nome del profilo non può essere vuoto
   Profile could not be found: Impossibile trovare il profilo
   All subscriptions will also be deleted.: Tutte le iscrizioni saranno eliminate.
-  Are you sure you want to delete this profile?: Sei sicuro di voler eliminare il
+  Are you sure you want to delete this profile?: Sei sicuro di voler eliminare questo
     profilo?
   Delete Profile: Elimina profilo
   Make Default Profile: Imposta come profilo predefinito
-  Update Profile: Aggiorna il profilo
-  Create Profile: Crea un profilo
+  Update Profile: Aggiorna profilo
+  Create Profile: Crea profilo
   Profile Preview: Anteprima profilo
   Custom Color: Colore personalizzato
   Color Picker: Selettore colore
@@ -709,7 +711,7 @@ Profile:
   Profile Manager: Gestione del profilo
   All Channels: Tutti i canali
   Profile Select: Seleziona il profilo
-  Profile Filter: Filtro profilo
+  Profile Filter: Filtro del profilo
   Profile Settings: Impostazioni del profilo
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Questo
   video non è disponibile a causa di alcuni formati mancanti. Questo può succedere
@@ -781,4 +783,4 @@ Search Bar:
   Clear Input: Cancella l'ingresso
 External link opening has been disabled in the general settings: L'apertura dei collegamenti
   esterni è stata disabilitata nelle impostazioni generali
-Are you sure you want to open this link?: Sei sicuro/a di voler aprire questo collegamento?
+Are you sure you want to open this link?: Sei sicuro di voler aprire questo collegamento?
