@@ -56,14 +56,15 @@
           >
             {{ comment.author }}
           </span>
-          <span class="commentDate">
-            {{ comment.time }}
-          </span>
           <img
             v-if="comment.isMember"
             :src="comment.memberIconUrl"
             class="commentMemberIcon"
+            alt=""
           >
+          <span class="commentDate">
+            {{ comment.time }}
+          </span>
         </p>
         <ft-timestamp-catcher
           class="commentText"
