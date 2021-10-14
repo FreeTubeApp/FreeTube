@@ -72,8 +72,8 @@ Subscriptions:
   Subscriptions: 'Iscrizioni'
   Latest Subscriptions: 'Ultime iscrizioni'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'La
-    lista delle tue iscrizioni è vuota. Aggiungi delle iscrizioni per visualizzarle
-    qui.'
+    lista delle tue iscrizioni è vuota. Iscriviti a qualche canale per visualizzare
+    qui i video.'
   'Getting Subscriptions.  Please wait.': 'Caricamento Iscrizioni. Attendi.'
   Refresh Subscriptions: Ricarica le iscrizioni
   'Getting Subscriptions. Please wait.': Scaricamento delle iscrizioni. Per favore
@@ -93,11 +93,11 @@ Playlists: 'Playlist'
 User Playlists:
   Your Playlists: 'Le tue playlist'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Non
-    ci sono video salvati. Fai clic sul pulsante Salva nell'angolo di un video per
-    averlo elencato qui
+    ci sono video salvati. Fai clic sulla stella in alto a destra di un video per
+    vederlo elencato qui
   Playlist Message: Questa pagina non è rappresentativa di una playlist completa.
-    Mostra solo video che hai salvato o aggiunti ai preferiti. A lavoro finito, tutti
-    i video attualmente qui saranno spostati in una playlist dei Preferiti.
+    Mostra solo i video che hai salvato o aggiunto ai preferiti. A lavoro finito,
+    tutti i video che si trovano qui saranno spostati in una playlist dei Preferiti.
 History:
   # On History Page
   History: 'Cronologia'
@@ -463,7 +463,7 @@ Video:
   Video has been removed from your history: 'Il video è stato rimosso dalla cronologia'
   Open in YouTube: 'Apri con YouTube'
   Copy YouTube Link: 'Copia collegamento YouTube'
-  Open YouTube Embedded Player: 'Apri Lettore YouTube incorporato'
+  Open YouTube Embedded Player: 'Apri lettore YouTube incorporato'
   Copy YouTube Embedded Player Link: 'Copia collegamento del lettore YouTube incorporato'
   Open in Invidious: 'Apri in Invidious'
   Copy Invidious Link: 'Copia collegamento Invidious'
@@ -544,7 +544,7 @@ Video:
   Video has been removed from your saved list: Il video è stato rimosso dalla tua
     lista preferiti
   Video has been saved: Il video è stato salvato
-  Save Video: Salva video
+  Save Video: Salva il video
   External Player:
     Unsupported Actions:
       looping playlists: ripetendo la playlist
@@ -596,7 +596,7 @@ Playlist:
   Playlist: Playlist
 Toggle Theatre Mode: 'Attiva modalità cinema'
 Change Format:
-  Change Video Formats: 'Cambia formati video'
+  Change Video Formats: 'Cambia formato video'
   Use Dash Formats: 'Utilizza formati DASH'
   Use Legacy Formats: 'Utilizza formati Legacy'
   Use Audio Formats: 'Utilizza formati Audio'
@@ -624,8 +624,8 @@ Mini Player: 'Mini visualizzatore'
 Comments:
   Comments: 'Commenti'
   Click to View Comments: 'Clicca per vedere i commenti'
-  Getting comment replies, please wait: 'Sto ricevendo risposte ai commenti, per favore
-    attendi'
+  Getting comment replies, please wait: 'Sto scaricando le risposte ai commenti, per
+    favore attendi'
   Show Comments: 'Mostra i commenti'
   Hide Comments: 'Nascondi i commenti'
   # Context: View 10 Replies, View 1 Reply
