@@ -152,7 +152,7 @@ Settings:
     Theme Settings: 'Impostazioni del tema'
     Match Top Bar with Main Color: 'Abbina la barra superiore al il colore principale'
     Base Theme:
-      Base Theme: 'Tema di base'
+      Base Theme: 'Tema'
       Black: 'Nero'
       Dark: 'Scuro'
       Light: 'Chiaro'
@@ -182,7 +182,7 @@ Settings:
       Dracula Purple: 'Dracula viola'
       Dracula Red: 'Dracula rosso'
       Dracula Yellow: 'Dracula giallo'
-    Secondary Color Theme: 'Tema colore secondario'
+    Secondary Color Theme: 'Colore secondario del tema'
         #* Main Color Theme
     UI Scale: Dimensioni interfaccia utente
     Disable Smooth Scrolling: Disabilita scorrimento fluido
@@ -321,9 +321,9 @@ Settings:
     Check for Legacy Subscriptions: Controlla iscrizioni in formato Legacy
     Manage Subscriptions: Gestisci le iscrizioni
   Distraction Free Settings:
-    Hide Popular Videos: Nascondi i video popolari
-    Hide Trending Videos: Nascondi i video in tendenze
-    Hide Recommended Videos: Nascondi i video suggeriti
+    Hide Popular Videos: Nascondi "Più popolari"
+    Hide Trending Videos: Nascondi "Tendenze"
+    Hide Recommended Videos: Nascondi i suggerimenti sui video successivi
     Hide Comment Likes: Nascondi "Mi piace" dai commenti
     Hide Channel Subscribers: Nascondi il numero di iscritti
     Hide Video Views: Nascondi le visualizzazioni dei video
@@ -729,10 +729,10 @@ Tooltips:
     Proxy Videos Through Invidious: Connessione a Invidious per riprodurre i video
       invece di una connessione diretta a YouTube. Sovrascrive le preferenze API.
   Subscription Settings:
-    Fetch Feeds from RSS: Quando abilitato, FreeTube userà gli RSS invece del metodo
-      standard per leggere la tua lista iscrizioni. Gli RSS sono più veloci e impediscono
-      il blocco dell'IP, ma non forniscono determinate informazioni come la durata
-      del video o lo stato in diretta
+    Fetch Feeds from RSS: Se abilitato, FreeTube userà gli RSS invece del metodo standard
+      per leggere la tua lista iscrizioni. Gli RSS sono più veloci e impediscono il
+      blocco dell'IP, ma non forniscono determinate informazioni come la durata del
+      video o lo stato della diretta
   General Settings:
     Invidious Instance: Istanza Invidious che FreeTube usa per le chiamate API.
     Thumbnail Preference: Tutte le copertine attraverso FreeTube verranno sostituite
@@ -753,17 +753,17 @@ Tooltips:
     Ignore Warnings: Non notifica gli avvisi quando il lettore esterno selezionato
       non supporta l'azione richiesta (ad esempio invertire la playlist, etc.).
     Custom External Player Arguments: Qualsiasi argomento personalizzato della linea
-      di comando, separato da punto e virgola (';'), che vuoi passare al lettore esterno.
+      di comando separato da punto e virgola (';') che vuoi passare al lettore esterno.
     Custom External Player Executable: Per impostazione predefinita, FreeTube imposta
       il lettore esterno scelto tramite la variabile d'ambiente PATH. Se necessario,
       un percorso personalizzato può essere impostato qui.
-    External Player: Scegliendo un lettore esterno, verrà visualizzata un'icona, per
-      aprire il video (la playlist se supportata) nel lettore esterno, sulla miniatura.
+    External Player: Scegliendo un lettore esterno sarà visualizzata sulla miniatura
+      un'icona per aprire il video nel lettore esterno .
     DefaultCustomArgumentsTemplate: '(Predefinito: «$»)'
   Privacy Settings:
-    Remove Video Meta Files: Se abilitato, FreeTube eliminerà automaticamente i meta
-      files creati durante la riproduzione del video quando chiuderai la pagina di
-      riproduzione.
+    Remove Video Meta Files: Se abilitato, quando chiuderai la pagina di riproduzione
+      , FreeTube eliminerà automaticamente i metafile creati durante la visione del
+      video .
 Playing Next Video Interval: Riproduzione del video successivo tra un attimo. Clicca
   per annullare. | Riproduzione del video successivo tra {nextVideoInterval} secondi.
   Clicca per annullare. | Riproduzione del video successivo tra {nextVideoInterval}
