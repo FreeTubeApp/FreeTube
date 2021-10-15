@@ -80,7 +80,7 @@ Subscriptions:
     attendi.
   Load More Videos: Carica più video
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Questo
-    profilo ha un grande numero di iscrizioni. Utilizzo RSS per evitare limitazioni
+    profilo ha un grande numero di iscrizioni. Utilizzerò RSS per evitare limitazioni
 Trending:
   Trending: 'Tendenze'
   Music: Musica
@@ -684,14 +684,14 @@ Profile:
   Delete Selected: Elimina i selezionati
   Select None: Deseleziona tutto
   Select All: Seleziona tutto
-  $ selected: $ selezionato
+  $ selected: '"$" selezionato'
   Other Channels: Altri canali
   Subscription List: Lista iscrizioni
-  $ is now the active profile: $ adesso è il tuo profilo attivo
+  $ is now the active profile: '"$" è diventato il tuo profilo attivo'
   Your default profile has been changed to your primary profile: Il tuo profilo predefinito
-    è stato impostato come profilo primario
-  Removed $ from your profiles: Hai rimosso $ dai tuoi profili
-  Your default profile has been set to $: $ è stato impostato come profilo predefinito
+    è stato cambiato in profilo primario
+  Removed $ from your profiles: Hai rimosso "$" dai tuoi profili
+  Your default profile has been set to $: '"$" è stato impostato come profilo predefinito'
   Profile has been updated: Il profilo è stato aggiornato
   Profile has been created: Il profilo è stato creato
   Your profile name cannot be empty: Il nome del profilo non può essere vuoto
@@ -703,16 +703,16 @@ Profile:
   Make Default Profile: Imposta come profilo predefinito
   Update Profile: Aggiorna profilo
   Create Profile: Crea profilo
-  Profile Preview: Anteprima profilo
+  Profile Preview: Anteprima del profilo
   Custom Color: Colore personalizzato
-  Color Picker: Selettore colore
+  Color Picker: Selettore del colore
   Edit Profile: Modifica il profilo
   Create New Profile: Crea un nuovo profilo
-  Profile Manager: Gestione del profilo
+  Profile Manager: Gestione dei profili
   All Channels: Tutti i canali
   Profile Select: Seleziona il profilo
   Profile Filter: Filtro del profilo
-  Profile Settings: Impostazioni del profilo
+  Profile Settings: Impostazioni dei profili
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Questo
   video non è disponibile a causa di alcuni formati mancanti. Questo può succedere
   in caso di mancata disponibilità della nazione.
