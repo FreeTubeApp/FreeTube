@@ -55,6 +55,22 @@ export default Vue.extend({
     },
     hideActiveSubscriptions: function () {
       return this.$store.getters.getHideActiveSubscriptions
+    },
+    hideLabelsSideBar: function () {
+      return this.$store.getters.getHideLabelsSideBar
+    },
+    hideText: function () {
+      return !this.isOpen && this.hideLabelsSideBar
+    },
+    applyNavIconExpand: function() {
+      return {
+        navIconExpand: this.hideText
+      }
+    },
+    applyHiddenLabels: function() {
+      return {
+        hiddenLabels: this.hideText
+      }
     }
   },
   methods: {

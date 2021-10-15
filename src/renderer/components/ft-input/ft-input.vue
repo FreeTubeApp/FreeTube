@@ -5,7 +5,7 @@
     :class="{
       search: isSearch,
       forceTextColor: forceTextColor,
-      showArrow: showArrow,
+      showActionButton: showActionButton,
       showClearTextButton: showClearTextButton
     }"
   >
@@ -22,11 +22,11 @@
       />
     </label>
     <font-awesome-icon
-      v-if="showClearTextButton && clearTextButtonVisible"
+      v-if="showClearTextButton && clearTextButtonExisting"
       icon="times-circle"
       class="clearInputTextButton"
       :class="{
-        visible: inputDataPresent
+        visible: clearTextButtonVisible
       }"
       tabindex="0"
       role="button"
@@ -50,15 +50,18 @@
       @keydown="e => handleKeyDown(e.keyCode)"
     >
     <font-awesome-icon
-      v-if="showArrow"
-      icon="arrow-right"
+      v-if="showActionButton"
+      :icon="actionButtonIconName"
       class="inputAction"
+      :class="{
+        enabled: inputDataPresent
+      }"
       @click="handleClick"
     />
 
     <div class="options">
       <ul
-        v-if="inputData !== '' && dataList.length > 0 && searchState.showOptions"
+        v-if="inputData !== '' && visibleDataList.length > 0 && searchState.showOptions"
         :id="idDataList"
         class="list"
         @mouseenter="searchState.isPointerInList = true"
@@ -66,7 +69,7 @@
       >
         <!-- eslint-disable vuejs-accessibility/click-events-have-key-events -->
         <li
-          v-for="(list, index) in dataList"
+          v-for="(list, index) in visibleDataList"
           :key="index"
           :class="searchState.selectedOption == index ? 'hover': ''"
           @click="handleOptionClick(index)"

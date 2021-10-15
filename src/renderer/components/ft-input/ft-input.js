@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
+import { mapActions } from 'vuex'
 
 export default Vue.extend({
   name: 'FtInput',
@@ -15,7 +16,7 @@ export default Vue.extend({
       type: String,
       default: ''
     },
-    showArrow: {
+    showActionButton: {
       type: Boolean,
       default: true
     },
@@ -61,9 +62,12 @@ export default Vue.extend({
         selectedOption: -1,
         isPointerInList: false
       },
+      visibleDataList: this.dataList,
       // This button should be invisible on app start
       // As the text input box should be empty
-      clearTextButtonVisible: false
+      clearTextButtonExisting: false,
+      clearTextButtonVisible: false,
+      actionButtonIconName: 'search'
     }
   },
   computed: {
@@ -84,19 +88,23 @@ export default Vue.extend({
     }
   },
   watch: {
-    value: function (val) {
-      this.inputData = val
-    },
     inputDataPresent: function (newVal, oldVal) {
       if (newVal) {
         // The button needs to be visible **immediately**
         // To allow user to see the transition
-        this.clearTextButtonVisible = true
+        this.clearTextButtonExisting = true
+        // The transition is not rendered if this property is set right after
+        // It's visible
+        setTimeout(() => {
+          this.clearTextButtonVisible = true
+        }, 0)
       } else {
-        // Hide the button after the transition
+        // Hide the button with transition
+        this.clearTextButtonVisible = false
+        // Remove the button after the transition
         // 0.2s in CSS = 200ms in JS
         setTimeout(() => {
-          this.clearTextButtonVisible = false
+          this.clearTextButtonExisting = false
         }, 200)
       }
     }
@@ -104,30 +112,87 @@ export default Vue.extend({
   mounted: function () {
     this.id = this._uid
     this.inputData = this.value
+    this.updateVisibleDataList()
 
     setTimeout(this.addListener, 200)
   },
   methods: {
     handleClick: function () {
+      // No action if no input text
+      if (!this.inputDataPresent) { return }
+
       this.searchState.showOptions = false
       this.$emit('input', this.inputData)
       this.$emit('click', this.inputData)
     },
 
-    handleInput: function () {
+    handleInput: function (val) {
       if (this.isSearch &&
         this.searchState.selectedOption !== -1 &&
-        this.inputData === this.dataList[this.searchState.selectedOption]) { return }
-      this.$emit('input', this.inputData)
+        this.inputData === this.visibleDataList[this.searchState.selectedOption]) { return }
+      this.handleActionIconChange()
+      this.updateVisibleDataList()
+      this.$emit('input', val)
     },
 
     handleClearTextClick: function () {
       this.inputData = ''
+      this.handleActionIconChange()
+      this.updateVisibleDataList()
       this.$emit('input', this.inputData)
 
       // Focus on input element after text is clear for better UX
       const inputElement = document.getElementById(this.id)
       inputElement.focus()
+    },
+
+    handleActionIconChange: function() {
+      // Only need to update icon if visible
+      if (!this.showActionButton) { return }
+
+      if (!this.inputDataPresent) {
+        // Change back to default icon if text is blank
+        this.actionButtonIconName = 'search'
+        return
+      }
+
+      // Update action button icon according to input
+      try {
+        this.getYoutubeUrlInfo(this.inputData).then((result) => {
+          let isYoutubeLink = false
+
+          switch (result.urlType) {
+            case 'video':
+            case 'playlist':
+            case 'search':
+            case 'channel':
+              isYoutubeLink = true
+              break
+            case 'hashtag':
+              // TODO: Implement a hashtag related view
+              // isYoutubeLink is already `false`
+              break
+
+            case 'invalid_url':
+            default: {
+              // isYoutubeLink is already `false`
+            }
+          }
+
+          if (isYoutubeLink) {
+            // Go to URL (i.e. Video/Playlist/Channel
+            this.actionButtonIconName = 'arrow-right'
+          } else {
+            // Search with text
+            this.actionButtonIconName = 'search'
+          }
+        })
+      } catch (ex) {
+        // On exception, consider text as invalid URL
+        this.actionButtonIconName = 'search'
+        // Rethrow exception
+        throw ex
+      }
     },
 
     addListener: function () {
@@ -144,14 +209,13 @@ export default Vue.extend({
 
     handleOptionClick: function (index) {
       this.searchState.showOptions = false
-      this.inputData = this.dataList[index]
+      this.inputData = this.visibleDataList[index]
       this.$emit('input', this.inputData)
       this.handleClick()
     },
 
     handleKeyDown: function (keyCode) {
       if (this.dataList.length === 0) { return }
-
       // Update selectedOption based on arrow key pressed
       if (keyCode === 40) {
         this.searchState.selectedOption = (this.searchState.selectedOption + 1) % this.dataList.length
@@ -165,8 +229,16 @@ export default Vue.extend({
         this.searchState.selectedOption = -1
       }
 
+      // Key pressed isn't enter
+      if (keyCode !== 13) {
+        this.searchState.showOptions = true
+      }
       // Update Input box value if arrow keys were pressed
-      if ((keyCode === 40 || keyCode === 38) && this.searchState.selectedOption !== -1) { this.inputData = this.dataList[this.searchState.selectedOption] }
+      if ((keyCode === 40 || keyCode === 38) && this.searchState.selectedOption !== -1) {
+        this.inputData = this.visibleDataList[this.searchState.selectedOption]
+      } else {
+        this.updateVisibleDataList()
+      }
     },
 
     handleInputBlur: function () {
@@ -178,6 +250,28 @@ export default Vue.extend({
       if (this.selectOnFocus) {
         e.target.select()
       }
-    }
+    },
+
+    updateVisibleDataList: function () {
+      if (this.dataList.length === 0) { return }
+      if (this.inputData === '') {
+        this.visibleDataList = this.dataList
+        return
+      }
+      // get list of items that match input
+      const visList = this.dataList.filter(x => {
+        if (x.toLowerCase().indexOf(this.inputData.toLowerCase()) !== -1) {
+          return true
+        } else {
+          return false
+        }
+      })
+
+      this.visibleDataList = visList
+    },
+
+    ...mapActions([
+      'getYoutubeUrlInfo'
+    ])
   }
 })

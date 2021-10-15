@@ -2,23 +2,35 @@
   <ft-flex-box
     ref="sideNav"
     class="sideNav"
-    :class="{closed: !isOpen}"
+    :class="[{closed: !isOpen}, applyHiddenLabels]"
   >
-    <div class="inner">
+    <div
+      class="inner"
+      :class="applyHiddenLabels"
+    >
       <div
         class="navOption topNavOption mobileShow"
         role="link"
         tabindex="0"
+        :title="$t('Subscriptions.Subscriptions')"
         @click="navigate('subscriptions')"
         @keydown.enter.prevent="navigate('subscriptions')"
         @keydown.space.prevent="navigate('subscriptions')"
       >
-        <font-awesome-icon
-          icon="rss"
-          class="navIcon"
-          fixed-width
-        />
-        <p class="navLabel">
+        <div
+          class="thumbnailContainer"
+        >
+          <font-awesome-icon
+            icon="rss"
+            class="navIcon"
+            :class="applyNavIconExpand"
+            fixed-width
+          />
+        </div>
+        <p
+          v-if="!hideText"
+          class="navLabel"
+        >
           {{ $t("Subscriptions.Subscriptions") }}
         </p>
       </div>
@@ -27,16 +39,25 @@
         class="navOption mobileHidden"
         role="link"
         tabindex="0"
+        :title="$t('Trending.Trending')"
         @click="navigate('trending')"
         @keydown.enter.prevent="navigate('trending')"
         @keydown.space.prevent="navigate('trending')"
       >
-        <font-awesome-icon
-          icon="fire"
-          class="navIcon"
-          fixed-width
-        />
-        <p class="navLabel">
+        <div
+          class="thumbnailContainer"
+        >
+          <font-awesome-icon
+            icon="fire"
+            class="navIcon"
+            :class="applyNavIconExpand"
+            fixed-width
+          />
+        </div>
+        <p
+          v-if="!hideText"
+          class="navLabel"
+        >
           {{ $t("Trending.Trending") }}
         </p>
       </div>
@@ -45,16 +66,25 @@
         class="navOption mobileHidden"
         role="link"
         tabindex="0"
+        :title="$t('Most Popular')"
         @click="navigate('popular')"
         @keydown.enter.prevent="navigate('popular')"
         @keydown.space.prevent="navigate('popular')"
       >
-        <font-awesome-icon
-          icon="users"
-          class="navIcon"
-          fixed-width
-        />
-        <p class="navLabel">
+        <div
+          class="thumbnailContainer"
+        >
+          <font-awesome-icon
+            icon="users"
+            class="navIcon"
+            :class="applyNavIconExpand"
+            fixed-width
+          />
+        </div>
+        <p
+          v-if="!hideText"
+          class="navLabel"
+        >
           {{ $t("Most Popular") }}
         </p>
       </div>
@@ -63,16 +93,25 @@
         class="navOption mobileShow"
         role="link"
         tabindex="0"
+        :title="$t('Playlists')"
         @click="navigate('userplaylists')"
         @keydown.enter.prevent="navigate('userplaylists')"
         @keydown.space.prevent="navigate('userplaylists')"
       >
-        <font-awesome-icon
-          icon="bookmark"
-          class="navIcon"
-          fixed-width
-        />
-        <p class="navLabel">
+        <div
+          class="thumbnailContainer"
+        >
+          <font-awesome-icon
+            icon="bookmark"
+            class="navIcon"
+            :class="applyNavIconExpand"
+            fixed-width
+          />
+        </div>
+        <p
+          v-if="!hideText"
+          class="navLabel"
+        >
           {{ $t("Playlists") }}
         </p>
       </div>
@@ -83,16 +122,25 @@
         class="navOption mobileShow"
         role="link"
         tabindex="0"
+        :title="$t('History.History')"
         @click="navigate('history')"
         @keydown.enter.prevent="navigate('history')"
         @keydown.space.prevent="navigate('history')"
       >
-        <font-awesome-icon
-          icon="history"
-          class="navIcon"
-          fixed-width
-        />
-        <p class="navLabel">
+        <div
+          class="thumbnailContainer"
+        >
+          <font-awesome-icon
+            icon="history"
+            class="navIcon"
+            :class="applyNavIconExpand"
+            fixed-width
+          />
+        </div>
+        <p
+          v-if="!hideText"
+          class="navLabel"
+        >
           {{ $t("History.History") }}
         </p>
       </div>
@@ -101,33 +149,51 @@
         class="navOption mobileShow"
         role="link"
         tabindex="0"
+        :title="$t('Settings.Settings')"
         @click="navigate('settings')"
         @keydown.enter.prevent="navigate('settings')"
         @keydown.space.prevent="navigate('settings')"
       >
-        <font-awesome-icon
-          icon="sliders-h"
-          class="navIcon"
-          fixed-width
-        />
-        <p class="navLabel">
-          {{ $t("Settings.Settings") }}
+        <div
+          class="thumbnailContainer"
+        >
+          <font-awesome-icon
+            icon="sliders-h"
+            class="navIcon"
+            :class="applyNavIconExpand"
+            fixed-width
+          />
+        </div>
+        <p
+          v-if="!hideText"
+          class="navLabel"
+        >
+          {{ $t('Settings.Settings') }}
         </p>
       </div>
       <div
         class="navOption mobileHidden"
         role="link"
         tabindex="0"
+        :title="$t('About.About')"
         @click="navigate('about')"
         @keydown.enter.prevent="navigate('about')"
         @keydown.space.prevent="navigate('about')"
       >
-        <font-awesome-icon
-          icon="info-circle"
-          class="navIcon"
-          fixed-width
-        />
-        <p class="navLabel">
+        <div
+          class="thumbnailContainer"
+        >
+          <font-awesome-icon
+            icon="info-circle"
+            class="navIcon"
+            :class="applyNavIconExpand"
+            fixed-width
+          />
+        </div>
+        <p
+          v-if="!hideText"
+          class="navLabel"
+        >
           {{ $t("About.About") }}
         </p>
       </div>

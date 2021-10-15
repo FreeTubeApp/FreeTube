@@ -139,6 +139,11 @@ Settings:
     Clear Default Instance: Quitar la instancia por defecto
     Set Current Instance as Default: Establecer la instancia actual como la instancia
       por defecto
+    External Link Handling:
+      No Action: Sin acción
+      Ask Before Opening Link: Preguntar antes de abrir el enlace
+      Open Link: Abrir el enlace
+      External Link Handling: Gestión de enlaces externos
   Theme Settings:
     Theme Settings: 'Apariencia'
     Match Top Bar with Main Color: 'Usar color principal para barra superior'
@@ -178,6 +183,7 @@ Settings:
     UI Scale: Escala de interfaz gráfica
     Expand Side Bar by Default: Expandir Barra Lateral por defecto
     Disable Smooth Scrolling: Desactivar desplazamiento suave
+    Hide Side Bar Labels: Ocultar las etiquetas de la barra lateral
   Player Settings:
     Player Settings: 'Reproductor'
     Force Local Backend for Legacy Formats: 'Forzar Backend Local para Formatos Heredados'
@@ -718,8 +724,7 @@ Tooltips:
     Region for Trending: La región de las tendencias permite ver los vídeos más populares
       en un país determinado. YouTube no admite todos los países mostrados.
     Invidious Instance: La instancia de Invidious por defecto a la que FreeTube se
-      conectará para las llamadas a la API. Borra la instancia actual para ver una
-      lista de instancias públicas.
+      conectará para las llamadas a la API.
     Thumbnail Preference: Todas las miniaturas en FreeTube se reemplazarán con un
       fotograma del vídeo en lugar de la miniatura predeterminada.
     Fallback to Non-Preferred Backend on Failure: Si la API primaria falla, FreeTube
@@ -743,6 +748,7 @@ Tooltips:
     External Player: Elegir un reproductor externo mostrará un icono para abrir el
       vídeo (o lista de reproducción si esta es compatible) en el reproductor externo,
       en la miniatura.
+    DefaultCustomArgumentsTemplate: '(Predeterminado: «$»)'
 More: Más
 Unknown YouTube url type, cannot be opened in app: Tipo de LRU desconocido. No se
   puede abrir en applicación
@@ -759,3 +765,7 @@ Default Invidious instance has been set to $: La Instancia de Invidious Predeter
   ha sido establecida como $
 Search Bar:
   Clear Input: Borrar entrada
+External link opening has been disabled in the general settings: Se ha desactivado
+  la apertura de enlaces externos en la configuración general
+Are you sure you want to open this link?: ¿Estás seguro/a de que quieres abrir este
+  enlace?

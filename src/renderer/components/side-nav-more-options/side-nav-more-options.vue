@@ -5,6 +5,7 @@
       tabindex="0"
       role="button"
       aria-labelledby="moreNavLabel"
+      :title="$t('More')"
       @click="openMoreOptions = !openMoreOptions"
       @keydown.space.prevent="openMoreOptions = !openMoreOptions"
       @keydown.enter.prevent="openMoreOptions = !openMoreOptions"
@@ -12,9 +13,11 @@
       <font-awesome-icon
         icon="ellipsis-h"
         class="navIcon"
+        :class="applyNavIconExpand"
       />
       <p
         id="moreNavLabel"
+        v-if="!hideLabelsSideBar"
         class="navLabel"
       >
         {{ $t("More") }}
@@ -30,6 +33,7 @@
         role="link"
         tabindex="0"
         aria-labelledby="trendingNavLabel"
+        :title="$t('Trending.Trending')"
         @click="navigate('trending')"
         @keydown.space.prevent="navigate('trending')"
         @keydown.enter.prevent="navigate('trending')"
@@ -37,9 +41,11 @@
         <font-awesome-icon
           icon="fire"
           class="navIcon"
+          :class="applyNavIconExpand"
         />
         <p
           id="trendingNavLabel"
+          v-if="!hideLabelsSideBar"
           class="navLabel"
         >
           {{ $t("Trending.Trending") }}
@@ -51,6 +57,7 @@
         role="link"
         tabindex="0"
         aria-labelledby="usersNavLabel"
+        :title="$t('Most Popular')"
         @click="navigate('popular')"
         @keydown.space.prevent="navigate('popular')"
         @keydown.enter.prevent="navigate('popular')"
@@ -58,9 +65,11 @@
         <font-awesome-icon
           icon="users"
           class="navIcon"
+          :class="applyNavIconExpand"
         />
         <p
           id="usersNavLabel"
+          v-if="!hideLabelsSideBar"
           class="navLabel"
         >
           {{ $t("Most Popular") }}
@@ -71,6 +80,7 @@
         role="link"
         tabindex="0"
         aria-labelledby="aboutNavLabel"
+        :title="$t('About.About')"
         @click="navigate('about')"
         @keydown.space.prevent="navigate('about')"
         @keydown.enter.prevent="navigate('about')"
@@ -78,9 +88,11 @@
         <font-awesome-icon
           icon="info-circle"
           class="navIcon"
+          :class="applyNavIconExpand"
         />
         <p
           id="aboutNavLabel"
+          v-if="!hideLabelsSideBar"
           class="navLabel"
         >
           {{ $t("About.About") }}
@@ -99,6 +111,7 @@
       <font-awesome-icon
         icon="history"
         class="navIcon"
+        :class="applyNavIconExpand"
       />
       <p
         id="historyNavLabel"
@@ -121,6 +134,7 @@
       <font-awesome-icon
         icon="sliders-h"
         class="navIcon"
+        :class="applyNavIconExpand"
       />
       <p
         id="settingsNavLabel"
@@ -141,8 +155,12 @@
       <font-awesome-icon
         icon="info-circle"
         class="navIcon"
+        :class="applyNavIconExpand"
       />
-      <p class="navLabel">
+      <p
+        v-if="!hideLabelsSideBar"
+        class="navLabel"
+      >
         {{ $t("About.About") }}
       </p>
     </div>

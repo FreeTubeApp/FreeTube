@@ -9,6 +9,7 @@
         "value": "mpv",
         "cmdArguments": {
             "defaultExecutable": "mpv",
+            "defaultCustomArguments": null,
             "supportsYtdlProtocol": true,
             "videoUrl": "",
             "playlistUrl": "",
@@ -25,6 +26,7 @@
         "value": "vlc",
         "cmdArguments": {
             "defaultExecutable": "vlc",
+            "defaultCustomArguments": null,
             "supportsYtdlProtocol": false,
             "videoUrl": "",
             "playlistUrl": null,
@@ -34,6 +36,23 @@
             "playlistReverse": null,
             "playlistShuffle": "--random",
             "playlistLoop": "--loop"
+        }
+    },
+    {
+        "name": "iina",
+        "value": "iina",
+        "cmdArguments": {
+            "defaultExecutable": "iina",
+            "defaultCustomArguments": "--no-stdin",
+            "supportsYtdlProtocol": true,
+            "videoUrl": "",
+            "playlistUrl": "",
+            "startOffset": "--mpv-start=",
+            "playbackRate": "--mpv-speed=",
+            "playlistIndex": "--mpv-playlist-start=",
+            "playlistReverse": null,
+            "playlistShuffle": "--mpv-shuffle",
+            "playlistLoop": "--mpv-loop-playlist"
         }
     }
 ]

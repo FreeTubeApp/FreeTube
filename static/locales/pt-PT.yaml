@@ -193,6 +193,7 @@ Settings:
       Dracula Yellow: 'Drácula Amarelo'
     Secondary Color Theme: Cor Secundária
         #* Main Color Theme
+    Hide Side Bar Labels: Esconder Texto na Barra Lateral
   Player Settings:
     Player Settings: Definições do leitor de vídeo
     Force Local Backend for Legacy Formats: Forçar Sistema de Ligação Local para Formatos
@@ -640,8 +641,7 @@ Tooltips:
     Thumbnail Preference: Todas as antevisões dos vídeos no FreeTube serão substituídas
       por um quadro do vídeo em vez da imagem padrão.
     Invidious Instance: O servidor Invidious ao qual o FreeTube se irá ligar para
-      fazer chamadas através da API. Apague o servidor atual para ver uma lista de
-      servidores públicos.
+      fazer chamadas através da API.
     Region for Trending: A região de tendências permite-lhe escolher de que país virão
       os vídeos na secção das tendências. Nem todos os países apresentados estão de
       facto a funcionar devido ao Youtube.

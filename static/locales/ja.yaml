@@ -129,6 +129,11 @@ Settings:
     No default instance has been set: 既定のインスタンスが設定されていません
     The currently set default instance is $: 現在設定されている既定のインスタンスは $です
     Current Invidious Instance: 現在のinvidiousインスタンス
+    External Link Handling:
+      No Action: 何もしない
+      Ask Before Opening Link: リンクを開く前に確認
+      Open Link: リンクの表示
+      External Link Handling: 外部リンク処理
   Theme Settings:
     Theme Settings: 'テーマの設定'
     Match Top Bar with Main Color: '上部バーをメイン カラーと同じにする'
@@ -506,7 +511,7 @@ Video:
       setting a playback rate: 再生レートの設定
       starting video at offset: オフセット時にビデオを開始する
     UnsupportedActionTemplate: '$はサポートしていません: %'
-    playlist: プレイリスト
+    playlist: 再生リスト
     video: ビデオ
     OpenInTemplate: $で開く
 Videos:
@@ -656,6 +661,8 @@ Tooltips:
     Fallback to Non-Preferred Backend on Failure: 有効にすると、選択した API で取得できなければ、FreeTube
       は自動的に他の API での取得を試みます。
     Region for Trending: 急上昇の地域設定では、急上昇動画を表示する国を選択できます。YouTube は、すべての国に対応していません。
+    External Link Handling: "FreeTube で開けないリンクをクリックしたときのデフォルトの動作を選択します。\nデフォルトでは、FreeTube\
+      \ はクリックしたリンクをデフォルトのブラウザで開きます。\n"
   Privacy Settings:
     Remove Video Meta Files: 有効にすると、FreeTube はビデオ再生中に作成したメタファイルは、再生ページを閉じるときに自動的に削除されます。
   External Player Settings:
@@ -672,3 +679,7 @@ Unknown YouTube url type, cannot be opened in app: 不明な YouTube URL の種�
 Open New Window: 新しいウィンドウを開く
 Default Invidious instance has been cleared: デフォルトのInvidiousインスタンスがクリアされました
 Default Invidious instance has been set to $: デフォルトのInvidiousインスタンスは$に設定されています
+External link opening has been disabled in the general settings: 一般設定で外部リンクの表示は無効になっています
+Search Bar:
+  Clear Input: 入力の消去
+Are you sure you want to open this link?: このリンクを開きますか？

@@ -147,6 +147,11 @@ Settings:
     Current Invidious Instance: Současná instance Invidious
     No default instance has been set: Není nastavena žádný výchozí instance
     The currently set default instance is $: Současné výchozí instance je $
+    External Link Handling:
+      No Action: Žádná akce
+      Ask Before Opening Link: Před otevřením se zeptat
+      Open Link: Otevřít odkaz
+      External Link Handling: Používání externích odkazů
   Theme Settings:
     Theme Settings: 'Nastavení motivu'
     Match Top Bar with Main Color: 'Přizpůsobit hlavní lištu hlavní barvě'
@@ -186,6 +191,7 @@ Settings:
       Dracula Yellow: 'Drákula Žlutý'
     Secondary Color Theme: 'Téma sekundární barvy'
         #* Main Color Theme
+    Hide Side Bar Labels: Skrýt štítky na bočním panelu
   Player Settings:
     Player Settings: 'Nastavení přehrávače'
     Force Local Backend for Legacy Formats: 'Vynutit místní backend pro starší formáty'
@@ -676,11 +682,13 @@ Tooltips:
     Thumbnail Preference: 'Všechny miniatury v celém FreeTube budou nahrazeny snímkem
       z videa namísto výchozí miniatury.'
     Invidious Instance: 'Invidious instance, ke které se FreeTube připojí za účelem
-      volání API. Smazáním aktuální instance zobrazíte seznam veřejných instancí,
-      ze kterých si můžete vybrat.'
+      volání API.'
     Region for Trending: 'Region trendů vám umožní vybrat si zemi, ze které si přejete
       zobrazovat videa trendů. Ne všechny zobrazené země jsou ale službou YouTube
       reálně podporovány.'
+    External Link Handling: "Zvolte výchozí chování při kliknutí na odkaz, který nelze\
+      \ otevřít ve FreeTube.\nVe výchozím nastavení otevře FreeTube odkaz ve vašem\
+      \ výchozím prohlížeči.\n"
   Player Settings:
     Force Local Backend for Legacy Formats: 'Funguje pouze v případě, že je výchozím
       nastavením API Invidious. Je-li povoleno, spustí se místní API a použije starší
@@ -711,6 +719,7 @@ Tooltips:
     Custom External Player Executable: Ve výchozím nastavení Freetube předpokládá,
       že vybraný externí přehrávač lze nalézt přes proměnnou prostředí cesty PATH.
       V případě potřeby zde lze nastavit vlastní cestu.
+    DefaultCustomArgumentsTemplate: "(Výchozí: '$')"
 Local API Error (Click to copy): 'Chyba lokálního API (kliknutím zkopírujete)'
 Invidious API Error (Click to copy): 'Chyba Invidious API (kliknutím zkopírujete)'
 Falling back to Invidious API: 'Přepínám na Invidious API'
@@ -748,3 +757,6 @@ Default Invidious instance has been set to $: Výchozí Invidious instance byla 
   na $
 Search Bar:
   Clear Input: Vymazat
+External link opening has been disabled in the general settings: Otevírání externích
+  odkazů bylo v obecném nastavení zakázáno
+Are you sure you want to open this link?: Opravdu chcete otevřít tento dokaz?
