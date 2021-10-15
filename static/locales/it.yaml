@@ -31,7 +31,7 @@ Back: 'Indietro'
 Forward: 'Avanti'
 
 # Search Bar
-Search / Go to URL: 'Cerca o aggiungi link YouTube'
+Search / Go to URL: 'Cerca video o aggiungi collegamento YouTube'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtri di ricerca'
@@ -355,8 +355,8 @@ Settings:
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notifica quando un segmento sponsor viene
       saltato
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL API di SponsorBlock
-      (l'impostazione predefinita è https://sponsor.ajay.app)
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Collegamento alle
+      API di SponsorBlock (l'impostazione predefinita è https://sponsor.ajay.app)
     Enable SponsorBlock: Abilita SponsorBlock
     SponsorBlock Settings: Impostazioni di SponsorBlock
   External Player Settings:
@@ -611,15 +611,17 @@ Share:
   Copy Embed: 'Copia codice da Incorporare'
   Open Embed: 'Apri codice da Incorporare'
   # On Click
-  Invidious URL copied to clipboard: 'URL Invidious copiato negli appunti'
-  Invidious Embed URL copied to clipboard: 'URL di Invidious da incorporare copiato
+  Invidious URL copied to clipboard: 'Collegamento a Invidious copiato negli appunti'
+  Invidious Embed URL copied to clipboard: 'Collegamento a Invidious da incorporare
+    copiato negli appunti'
+  YouTube URL copied to clipboard: 'Collegamento a YouTube copiato negli appunti'
+  YouTube Embed URL copied to clipboard: 'Collegamento a YouTube da incorporare copiato
     negli appunti'
-  YouTube URL copied to clipboard: 'URL YouTube copiato negli appunti'
-  YouTube Embed URL copied to clipboard: 'URL di YouTube da incorporare copiato negli
-    appunti'
   Include Timestamp: Includi marca temporale
-  YouTube Channel URL copied to clipboard: URL canale YouTube copiato negli appunti
-  Invidious Channel URL copied to clipboard: URL Canale Invidous copiato negli appunti
+  YouTube Channel URL copied to clipboard: Collegamento al canale YouTube copiato
+    negli appunti
+  Invidious Channel URL copied to clipboard: Collegamento al canale Invidous copiato
+    negli appunti
 Mini Player: 'Mini visualizzatore'
 Comments:
   Comments: 'Commenti'
@@ -776,7 +778,7 @@ Default Invidious instance has been set to $: L'istanza predefinita di Invidious
   stata impostata a $
 Hashtags have not yet been implemented, try again later: Gli hashtag non sono ancora
   stati implementati, riprova più tardi
-Unknown YouTube url type, cannot be opened in app: Tipo di URL YouTube sconosciuto,
+Unknown YouTube url type, cannot be opened in app: Tipo di collegamento YouTube sconosciuto,
   non può essere aperto nell'applicazione
 Search Bar:
   Clear Input: Cancella l'ingresso
