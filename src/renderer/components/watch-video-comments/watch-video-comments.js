@@ -242,6 +242,7 @@ export default Vue.extend({
 
     parseLocalCommentData: function (response, index = null) {
       const commentData = response.comments.map((comment) => {
+        console.log(comment)
         comment.authorLink = comment.authorId
         comment.showReplies = false
         comment.authorThumb = comment.authorThumb[0].url

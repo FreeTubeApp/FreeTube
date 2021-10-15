@@ -25,6 +25,10 @@
               @click="goToChannel"
             >
               {{ channelName }}
+              <font-awesome-icon
+                v-if="channelVerified"
+                icon="check-circle"
+              />
             </div>
             <ft-button
               :label="subscribedText"

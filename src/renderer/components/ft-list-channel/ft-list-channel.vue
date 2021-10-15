@@ -23,6 +23,10 @@
         :to="`/channel/${id}`"
       >
         {{ channelName }}
+        <font-awesome-icon
+          v-if="verified"
+          icon="check-circle"
+        />
       </router-link>
       <div class="infoLine">
         <span

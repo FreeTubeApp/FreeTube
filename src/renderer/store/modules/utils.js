@@ -11,6 +11,7 @@ const state = {
     gaming: null,
     movies: null
   },
+  verifiedChannelsCache: {},
   showProgressBar: false,
   progressBarPercentage: 0,
   regionNames: [],
@@ -82,6 +83,10 @@ const getters = {
 
   getTrendingCache () {
     return state.trendingCache
+  },
+
+  getVerifiedChannelsCache () {
+    return state.verifiedChannelsCache
   },
 
   getSearchSettings () {
@@ -841,6 +846,10 @@ const mutations = {
 
   setTrendingCache (state, value, page) {
     state.trendingCache[page] = value
+  },
+
+  setVerifiedChannelsCache(state, channelId, value) {
+    state.verifiedChannelsCache[channelId] = value
   },
 
   setSearchSortBy (state, value) {

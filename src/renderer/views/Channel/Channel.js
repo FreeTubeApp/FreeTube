@@ -57,7 +57,8 @@ export default Vue.extend({
       playlistSelectValues: [
         'last',
         'newest'
-      ]
+      ],
+      verified: false
     }
   },
   computed: {
@@ -279,6 +280,7 @@ export default Vue.extend({
         } else {
           this.bannerUrl = null
         }
+        this.verified = response.isVerified
 
         this.isLoading = false
       }).catch((err) => {

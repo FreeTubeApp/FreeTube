@@ -45,6 +45,10 @@
           :to="`/channel/${channelId}`"
         >
           {{ channelName }}
+          <font-awesome-icon
+            v-if="channelVerified"
+            icon="check-circle"
+          />
         </router-link>
       </div>
     </div>

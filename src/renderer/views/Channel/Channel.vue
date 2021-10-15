@@ -39,6 +39,10 @@
                 class="channelName"
               >
                 {{ channelName }}
+                <font-awesome-icon
+                  v-if="verified"
+                  icon="check-circle"
+                />
               </span>
               <span
                 v-if="subCount !== null"

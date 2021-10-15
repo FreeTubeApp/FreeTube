@@ -60,6 +60,7 @@ export default Vue.extend({
       channelThumbnail: '',
       channelId: '',
       channelSubscriptionCountText: '',
+      channelVerified: false,
       videoPublished: 0,
       videoStoryboardSrc: '',
       audioUrl: '',
@@ -256,6 +257,7 @@ export default Vue.extend({
             this.channelName = result.player_response.videoDetails.author
             this.channelThumbnail = result.player_response.embedPreview.thumbnailPreviewRenderer.videoDetails.embeddedPlayerOverlayVideoDetailsRenderer.channelThumbnail.thumbnails[0].url
           }
+          this.channelVerified = result.videoDetails.author.verified
           this.videoPublished = new Date(result.videoDetails.publishDate.replace('-', '/')).getTime()
           this.videoDescription = result.player_response.videoDetails.shortDescription
 

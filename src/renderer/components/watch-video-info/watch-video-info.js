@@ -38,6 +38,10 @@ export default Vue.extend({
       type: String,
       required: true
     },
+    channelVerified: {
+      type: Boolean,
+      required: true
+    },
     published: {
       type: Number,
       required: true

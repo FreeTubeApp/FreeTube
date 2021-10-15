@@ -146,6 +146,7 @@ export default Vue.extend({
             if (videoDuration !== null && videoDuration !== '' && videoDuration !== 'LIVE') {
               videoDuration = ytTrendScraper.calculate_length_in_seconds(video.duration)
             }
+            const verified = video.author.verified
             dataToShow.push(
               {
                 videoId: videoId,
@@ -164,7 +165,8 @@ export default Vue.extend({
                 paid: false,
                 premium: false,
                 isUpcoming: false,
-                timeText: videoDuration
+                timeText: videoDuration,
+                verified: verified
               }
             )
           } else {

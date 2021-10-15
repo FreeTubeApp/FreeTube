@@ -24,6 +24,7 @@ export default Vue.extend({
       title: 'Pop Music Playlist - Timeless Pop Songs (Updated Weekly 2020)',
       thumbnail: 'https://i.ytimg.com/vi/JGwWNGJdvx8/mqdefault.jpg',
       channelName: '#RedMusic: Just Hits',
+      channelVerified: false,
       videoCount: 200,
       description: ''
     }
@@ -95,6 +96,10 @@ export default Vue.extend({
       this.thumbnail = this.data.firstVideo.bestThumbnail.url
       this.channelName = this.data.owner.name
       this.channelLink = this.data.owner.url
+      this.channelVerified = this.data.owner.verified
+      if (this.data.owner.verified) {
+        this.$store.commit('setVerifiedCache', this.data.owner.channelID, true)
+      }
       this.playlistLink = this.data.url
       this.videoCount = this.data.length
     },

@@ -20,7 +20,8 @@ export default Vue.extend({
       subscriberCount: 0,
       videoCount: '',
       uploadedTime: '',
-      description: ''
+      description: '',
+      verified: false
     }
   },
   computed: {
@@ -51,6 +52,10 @@ export default Vue.extend({
 
       this.channelName = this.data.name
       this.id = this.data.channelID
+      this.verified = this.data.verified
+      if (this.verified) {
+        this.$store.commit('setVerifiedCache', this.id, true)
+      }
       if (this.hideChannelSubscriptions || this.data.subscribers === null) {
         this.subscriberCount = null
       } else {

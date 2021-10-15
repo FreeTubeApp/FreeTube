@@ -90,6 +90,11 @@
           :to="`/channel/${channelId}`"
         >
           <span>{{ channelName }}</span>
+          <font-awesome-icon
+            v-if="verified"
+            icon="check-circle"
+            :title="verified"
+          />
         </router-link>
         <template v-if="!isLive && !isUpcoming && !isPremium && !hideViews">
           <span class="viewCount">• {{ parsedViewCount }}</span>

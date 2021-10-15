@@ -47,6 +47,7 @@ export default Vue.extend({
       title: '',
       channelName: '',
       channelId: '',
+      verified: false,
       viewCount: 0,
       parsedViewCount: '',
       uploadedTime: '',
@@ -343,9 +344,12 @@ export default Vue.extend({
       this.id = this.data.videoId
       this.title = this.data.title
       // this.thumbnail = this.data.videoThumbnails[4].url
-
       this.channelName = this.data.author
       this.channelId = this.data.authorId
+      this.verified = this.data.verified
+      if (this.verified) {
+        this.$store.commit('setVerifiedCache', this.channelId, true)
+      }
       this.duration = this.calculateVideoDuration(this.data.lengthSeconds)
       this.description = this.data.description
       this.isLive = this.data.liveNow || this.data.lengthSeconds === 'undefined'
