@@ -248,6 +248,9 @@ export default Vue.extend({
         comment.authorThumb = comment.authorThumb[0].url
         comment.replies = []
         comment.dataType = 'local'
+        if (comment.isVerified) {
+          this.$store.commit('setVerifiedCache', { channelId: comment.authorLink, value: true })
+        }
         this.toLocalePublicationString({
           publishText: (comment.time + ' ago'),
           templateString: this.$t('Video.Publicationtemplate'),
