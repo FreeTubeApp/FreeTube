@@ -16,8 +16,8 @@
         :class="applyNavIconExpand"
       />
       <p
-        id="moreNavLabel"
         v-if="!hideLabelsSideBar"
+        id="moreNavLabel"
         class="navLabel"
       >
         {{ $t("More") }}
@@ -44,8 +44,8 @@
           :class="applyNavIconExpand"
         />
         <p
-          id="trendingNavLabel"
           v-if="!hideLabelsSideBar"
+          id="trendingNavLabel"
           class="navLabel"
         >
           {{ $t("Trending.Trending") }}
@@ -68,8 +68,8 @@
           :class="applyNavIconExpand"
         />
         <p
-          id="usersNavLabel"
           v-if="!hideLabelsSideBar"
+          id="usersNavLabel"
           class="navLabel"
         >
           {{ $t("Most Popular") }}
@@ -91,8 +91,8 @@
           :class="applyNavIconExpand"
         />
         <p
-          id="aboutNavLabel"
           v-if="!hideLabelsSideBar"
+          id="aboutNavLabel"
           class="navLabel"
         >
           {{ $t("About.About") }}
