@@ -41,6 +41,7 @@ body:
       multiple: true
       options:
         - accessibility issue
+        - API issue
         - causes crash
         - content not loading
         - data loss
