@@ -165,7 +165,7 @@ function runApp() {
       mainWindow.webContents.openDevTools()
     }
   })
-  
+
   function loadDatabase() {
     settingsDb = Datastore.create({
       filename: localDataStorage + '/settings.db',
