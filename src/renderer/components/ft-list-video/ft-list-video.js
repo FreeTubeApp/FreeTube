@@ -207,6 +207,10 @@ export default Vue.extend({
 
     saveWatchedProgress: function () {
       return this.$store.getters.getSaveWatchedProgress
+    },
+
+    verifiedInCache: function() {
+      return this.$store.getters.getVerifiedCache[this.channelId] ?? false
     }
   },
   mounted: function () {
@@ -346,9 +350,10 @@ export default Vue.extend({
       // this.thumbnail = this.data.videoThumbnails[4].url
       this.channelName = this.data.author
       this.channelId = this.data.authorId
-      this.verified = this.data.verified
+      console.log(this.verifiedInCache)
+      this.verified = this.data.verified ?? this.verifiedInCache
       if (this.verified) {
-        this.$store.commit('setVerifiedCache', this.channelId, true)
+        this.$store.commit('setVerifiedCache', { channelId: this.channelId, value: true })
       }
       this.duration = this.calculateVideoDuration(this.data.lengthSeconds)
       this.description = this.data.description

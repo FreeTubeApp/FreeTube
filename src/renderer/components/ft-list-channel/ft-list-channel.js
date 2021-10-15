@@ -33,6 +33,9 @@ export default Vue.extend({
     },
     hideChannelSubscriptions: function () {
       return this.$store.getters.getHideChannelSubscriptions
+    },
+    verifiedInCache: function() {
+      return this.$store.getters.getVerifiedCache[this.channelId] ?? false
     }
   },
   mounted: function () {
@@ -52,9 +55,9 @@ export default Vue.extend({
 
       this.channelName = this.data.name
       this.id = this.data.channelID
-      this.verified = this.data.verified
+      this.verified = this.data.verified ?? this.verifiedInCache
       if (this.verified) {
-        this.$store.commit('setVerifiedCache', this.id, true)
+        this.$store.commit('setVerifiedCache', { channelId: this.id, value: true })
       }
       if (this.hideChannelSubscriptions || this.data.subscribers === null) {
         this.subscriberCount = null
@@ -83,6 +86,7 @@ export default Vue.extend({
 
       this.channelName = this.data.author
       this.id = this.data.authorId
+      this.verified = this.verifiedInCache
       if (this.hideChannelSubscriptions) {
         this.subscriberCount = null
       } else {

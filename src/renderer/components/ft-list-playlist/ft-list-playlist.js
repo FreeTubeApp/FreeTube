@@ -54,6 +54,9 @@ export default Vue.extend({
 
     defaultPlayback: function () {
       return this.$store.getters.getDefaultPlayback
+    },
+    verifiedInCache: function() {
+      return this.$store.getters.getVerifiedCache[this.channelId] ?? false
     }
   },
   mounted: function () {
@@ -83,6 +86,7 @@ export default Vue.extend({
       this.thumbnail = this.data.playlistThumbnail.replace('https://i.ytimg.com', this.currentInvidiousInstance).replace('hqdefault', 'mqdefault')
       this.channelName = this.data.author
       this.channelLink = this.data.authorUrl
+      this.channelVerified = this.verifiedInCache
       this.playlistLink = this.data.playlistId
       this.videoCount = this.data.videoCount
 
@@ -96,9 +100,9 @@ export default Vue.extend({
       this.thumbnail = this.data.firstVideo.bestThumbnail.url
       this.channelName = this.data.owner.name
       this.channelLink = this.data.owner.url
-      this.channelVerified = this.data.owner.verified
+      this.channelVerified = this.data.owner.verified ?? this.verifiedInCache ?? false
       if (this.data.owner.verified) {
-        this.$store.commit('setVerifiedCache', this.data.owner.channelID, true)
+        this.$store.commit('setVerifiedCache', { channelId: this.data.owner.channelID, value: true })
       }
       this.playlistLink = this.data.url
       this.videoCount = this.data.length

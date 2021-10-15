@@ -85,7 +85,7 @@ const getters = {
     return state.trendingCache
   },
 
-  getVerifiedChannelsCache () {
+  getVerifiedCache () {
     return state.verifiedChannelsCache
   },
 
@@ -845,11 +845,12 @@ const mutations = {
   },
 
   setTrendingCache (state, value, page) {
+    console.log(page)
     state.trendingCache[page] = value
   },
 
-  setVerifiedChannelsCache(state, channelId, value) {
-    state.verifiedChannelsCache[channelId] = value
+  setVerifiedCache(state, payload) {
+    state.verifiedChannelsCache[payload.channelId] = payload.value
   },
 
   setSearchSortBy (state, value) {

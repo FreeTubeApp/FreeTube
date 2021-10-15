@@ -282,6 +282,9 @@ export default Vue.extend({
         }
         this.verified = response.isVerified
 
+        if (this.verified) {
+          this.$store.commit('setVerifiedCache', { channelId: this.id, value: true })
+        }
         this.isLoading = false
       }).catch((err) => {
         console.log(err)

@@ -146,6 +146,9 @@ export default Vue.extend({
     },
     theatrePossible: function() {
       return !this.hideRecommendedVideos || (!this.hideLiveChat && this.isLive) || this.watchingPlaylist
+    },
+    verifiedInCache: function() {
+      return this.$store.getters.getVerifiedCache[this.channelId] ?? false
     }
   },
   watch: {
@@ -258,6 +261,9 @@ export default Vue.extend({
             this.channelThumbnail = result.player_response.embedPreview.thumbnailPreviewRenderer.videoDetails.embeddedPlayerOverlayVideoDetailsRenderer.channelThumbnail.thumbnails[0].url
           }
           this.channelVerified = result.videoDetails.author.verified
+          if (this.channelVerified) {
+            this.$store.commit('setVerifiedCache', { channelId: this.channelId, value: true })
+          }
           this.videoPublished = new Date(result.videoDetails.publishDate.replace('-', '/')).getTime()
           this.videoDescription = result.player_response.videoDetails.shortDescription
 
@@ -542,6 +548,7 @@ export default Vue.extend({
           }
           this.channelId = result.authorId
           this.channelName = result.author
+          this.channelVerified = this.verifiedInCache
           this.channelThumbnail = result.authorThumbnails[1] ? result.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`) : ''
           this.videoPublished = result.published * 1000
           this.videoDescriptionHtml = result.descriptionHtml

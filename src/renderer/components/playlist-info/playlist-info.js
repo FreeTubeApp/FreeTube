@@ -26,6 +26,7 @@ export default Vue.extend({
       lastUpdated: '',
       description: '',
       infoSource: '',
+      channelVerified: false,
       shareValues: [
         'copyYoutube',
         'openYoutube',
@@ -67,6 +68,9 @@ export default Vue.extend({
         default:
           return `https://i.ytimg.com/vi/${this.firstVideoId}/mqdefault.jpg`
       }
+    },
+    verified: function() {
+      return this.$store.getters.getVerifiedCache[this.channelId] ?? false
     }
   },
   mounted: function () {
@@ -77,6 +81,7 @@ export default Vue.extend({
     this.channelName = this.data.channelName
     this.channelThumbnail = this.data.channelThumbnail
     this.channelId = this.data.channelId
+    this.channelVerified = this.verified
     this.uploadedTime = this.data.uploaded_at
     this.description = this.data.description
     this.infoSource = this.data.infoSource

@@ -36,6 +36,10 @@
         class="channelName"
       >
         {{ channelName }}
+        <font-awesome-icon
+          v-if="channelVerified"
+          icon="check-circle"
+        />
       </h3>
     </div>
     <br>
