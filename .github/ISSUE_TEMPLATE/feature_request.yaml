@@ -33,6 +33,21 @@ body:
       description: A clear and concise description of any alternative solutions or features you've considered. 
     validations:
       required: true
+  - type: dropdown
+    attributes:
+      label: 'Issue Labels'
+      description: Please select a label that fits this feature request. Choose multiple, if applicable.
+      multiple: true
+      options:
+        - display more information to user
+        - ease of use improvement
+        - improvement to existing feature
+        - new keyboard shortcut
+        - new optional setting
+        - support for external software
+        - visual improvement
+    validations:
+      required: true
   - type: textarea
     attributes:
       label: Additional Information
