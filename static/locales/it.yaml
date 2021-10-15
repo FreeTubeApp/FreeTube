@@ -31,7 +31,7 @@ Back: 'Indietro'
 Forward: 'Avanti'
 
 # Search Bar
-Search / Go to URL: 'Cerca e vai a URL'
+Search / Go to URL: 'Cerca o aggiungi link YouTube'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtri di ricerca'
@@ -94,7 +94,7 @@ User Playlists:
   Your Playlists: 'Le tue playlist'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Non
     ci sono video salvati. Fai clic sulla stella in alto a destra di un video per
-    vederlo elencato qui
+    aggiungerlo qui
   Playlist Message: Questa pagina non è rappresentativa di una playlist completa.
     Mostra solo i video che hai salvato o aggiunto ai preferiti. A lavoro finito,
     tutti i video che si trovano qui saranno spostati in una playlist dei Preferiti.
@@ -150,7 +150,7 @@ Settings:
       External Link Handling: Gestione dei collegamenti esterni
   Theme Settings:
     Theme Settings: 'Impostazioni del tema'
-    Match Top Bar with Main Color: 'Abbina la barra superiore al il colore principale'
+    Match Top Bar with Main Color: 'Abbina la barra superiore al colore principale'
     Base Theme:
       Base Theme: 'Tema'
       Black: 'Nero'
@@ -223,7 +223,7 @@ Settings:
       lettore
     Scroll Volume Over Video Player: Controlla il volume scorrendo sul lettore video
   Privacy Settings:
-    Privacy Settings: 'Impostazioni privacy'
+    Privacy Settings: 'Impostazioni della privacy'
     Remember History: 'Salva la cronologia'
     Save Watched Progress: 'Salva i progressi raggiunti'
     Clear Search Cache: 'Cancella la cronologia della ricerca'
@@ -232,17 +232,17 @@ Settings:
     Search cache has been cleared: 'La cronologia della ricerca è stata cancellata'
     Remove Watch History: 'Cancella la cronologia delle visualizzazioni'
     Are you sure you want to remove your entire watch history?: 'Sei sicuro di voler
-      cancellare l''intera cronologia delle visualizzazione?'
+      cancellare la cronologia delle visualizzazioni?'
     Watch history has been cleared: 'La cronologia delle visualizzazioni è stata cancellata'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Sei
       sicuro di volere eliminare tutte le iscrizioni e i profili? L'operazione non
       può essere annullata.
     Remove All Subscriptions / Profiles: Elimina tutte le iscrizioni e i profili
-    Automatically Remove Video Meta Files: Rimuovi automaticamente i metafile dal
+    Automatically Remove Video Meta Files: Rimuovi automaticamente i metafile dai
       video
   Subscription Settings:
-    Subscription Settings: 'Impostazioni iscrizioni'
-    Hide Videos on Watch: 'Nascondi i video durante la riproduzione'
+    Subscription Settings: 'Impostazioni delle iscrizioni'
+    Hide Videos on Watch: 'Nascondi i video successivi durante la riproduzione'
     Subscriptions Export Format:
       Subscriptions Export Format: ''
       #& Freetube
@@ -318,8 +318,8 @@ Settings:
     Select Export Type: Seleziona il tipo di esportazione
     Select Import Type: Seleziona il tipo di importazione
     Data Settings: Impostazioni dei dati
-    Check for Legacy Subscriptions: Controlla iscrizioni in formato Legacy
-    Manage Subscriptions: Gestisci le iscrizioni
+    Check for Legacy Subscriptions: Controlla le iscrizioni in formato Legacy
+    Manage Subscriptions: Gestisci i profili
   Distraction Free Settings:
     Hide Popular Videos: Nascondi "Più popolari"
     Hide Trending Videos: Nascondi "Tendenze"
@@ -327,18 +327,18 @@ Settings:
     Hide Comment Likes: Nascondi "Mi piace" dai commenti
     Hide Channel Subscribers: Nascondi il numero di iscritti
     Hide Video Views: Nascondi le visualizzazioni dei video
-    Distraction Free Settings: Impostazioni modalità "Senza distrazioni"
+    Distraction Free Settings: Impostazioni della modalità "Senza distrazioni"
     Hide Live Chat: Nascondi la chat live
     Hide Video Likes And Dislikes: Nascondi "Mi piace" e "Non mi piace"
     Hide Active Subscriptions: Nascondi le iscrizioni attive
-    Hide Playlists: Nascondi le playlist
+    Hide Playlists: Nascondi "Playlist"
   The app needs to restart for changes to take effect. Restart and apply change?: L'applicazione
     deve essere riavviata per applicare i cambiamenti. Riavvio e applico i cambiamenti
     subito?
   Proxy Settings:
     Proxy Protocol: Protocollo Proxy
     Enable Tor / Proxy: Attiva Tor o Proxy
-    Proxy Settings: Impostazioni proxy
+    Proxy Settings: Impostazioni del proxy
     Error getting network information. Is your proxy configured properly?: C'è stato
       un errore di acquisizione delle informazioni di rete. Il proxy è stato configurato
       correttamente?
