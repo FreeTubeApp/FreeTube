@@ -359,9 +359,11 @@ function runApp() {
   })
 
   nativeTheme.on('updated', () => {
-    if (mainWindow) {
-      mainWindow.webContents.send('native-theme-update', nativeTheme.shouldUseDarkColors)
-    }
+    const allWindows = BrowserWindow.getAllWindows()
+
+    allWindows.forEach((window) => {
+      window.webContents.send('native-theme-update', nativeTheme.shouldUseDarkColors)
+    })
   })
   
   ipcMain.on(IpcChannels.ENABLE_PROXY, (_, url) => {
