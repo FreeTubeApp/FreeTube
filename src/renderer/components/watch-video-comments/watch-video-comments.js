@@ -291,6 +291,7 @@ export default Vue.extend({
         const commentData = response.comments.map((comment) => {
           comment.showReplies = false
           comment.authorLink = comment.authorId
+          comment.isVerified = this.$store.getters.getVerifiedCache[this.channelId] ?? false
           comment.authorThumb = comment.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
           if (this.hideCommentLikes) {
             comment.likes = null
@@ -357,6 +358,7 @@ export default Vue.extend({
         const commentData = response.comments.map((comment) => {
           comment.showReplies = false
           comment.authorLink = comment.authorId
+          comment.isVerified = this.$store.getters.getVerifiedCache[this.channelId] ?? false
           comment.authorThumb = comment.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
           if (this.hideCommentLikes) {
             comment.likes = null
