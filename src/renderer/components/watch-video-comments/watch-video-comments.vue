@@ -125,6 +125,12 @@
               >
                 {{ reply.author }}
               </span>
+              <img
+                v-if="reply.isMember"
+                :src="reply.memberIconUrl"
+                class="commentMemberIcon"
+                alt=""
+              >
               <span class="commentDate">
                 {{ reply.time }}
               </span>
