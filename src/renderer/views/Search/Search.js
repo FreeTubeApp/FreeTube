@@ -37,6 +37,9 @@ export default Vue.extend({
 
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
+    },
+    verifiedInCache: function() {
+      return this.$store.getters.getVerifiedCache[this.channelId] ?? false
     }
   },
   watch: {
@@ -146,7 +149,7 @@ export default Vue.extend({
             if (videoDuration !== null && videoDuration !== '' && videoDuration !== 'LIVE') {
               videoDuration = ytTrendScraper.calculate_length_in_seconds(video.duration)
             }
-            const verified = video.author.verified
+            const verified = video.author.ownerBadges[0] === 'Verified'
             dataToShow.push(
               {
                 videoId: videoId,
@@ -170,6 +173,7 @@ export default Vue.extend({
               }
             )
           } else {
+            video.verified = this.verifiedInCache
             dataToShow.push(video)
           }
         })

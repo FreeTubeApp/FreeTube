@@ -350,7 +350,6 @@ export default Vue.extend({
       // this.thumbnail = this.data.videoThumbnails[4].url
       this.channelName = this.data.author
       this.channelId = this.data.authorId
-      console.log(this.verifiedInCache)
       this.verified = this.data.verified ?? this.verifiedInCache
       if (this.verified) {
         this.$store.commit('setVerifiedCache', { channelId: this.channelId, value: true })

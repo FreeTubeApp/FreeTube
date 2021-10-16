@@ -845,7 +845,6 @@ const mutations = {
   },
 
   setTrendingCache (state, value, page) {
-    console.log(page)
     state.trendingCache[page] = value
   },
 
