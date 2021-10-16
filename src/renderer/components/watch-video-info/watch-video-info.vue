@@ -25,10 +25,14 @@
               @click="goToChannel"
             >
               {{ channelName }}
-              <font-awesome-icon
-                v-if="channelVerified"
-                icon="check-circle"
-              />
+              <span
+                :aria-label="$t('Comments.Verified')"
+              >
+                <font-awesome-icon
+                  v-if="channelVerified"
+                  icon="check-circle"
+                />
+              </span>
             </div>
             <ft-button
               :label="subscribedText"

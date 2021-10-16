@@ -56,10 +56,14 @@
           >
             {{ comment.author }}
           </span>
-          <font-awesome-icon
-            v-if="comment.isVerified"
-            icon="check-circle"
-          />
+          <span
+            :aria-label="$t('Comments.Verified')"
+          >
+            <font-awesome-icon
+              v-if="comment.isVerified"
+              icon="check-circle"
+            />
+          </span>
           <span class="commentDate">
             {{ comment.time }}
           </span>
@@ -123,10 +127,14 @@
               >
                 {{ reply.author }}
               </span>
-              <font-awesome-icon
-                v-if="comment.isVerified"
-                icon="check-circle"
-              />
+              <span
+                :aria-label="$t('Comments.Verified')"
+              >
+                <font-awesome-icon
+                  v-if="reply.isVerified"
+                  icon="check-circle"
+                />
+              </span>
               <span class="commentDate">
                 {{ reply.time }}
               </span>
