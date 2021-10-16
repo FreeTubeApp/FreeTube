@@ -16,6 +16,7 @@
     <ft-flex-box class="sponsorBlockSettingsFlexBox">
       <ft-toggle-switch
         :label="$t('Settings.SponsorBlock Settings.Notify when sponsor segment is skipped')"
+        :disabled="!useSponsorBlock"
         :default-value="sponsorBlockShowSkippedToast"
         @change="handleUpdateSponsorBlockShowSkippedToast"
       />
@@ -23,6 +24,7 @@
     <ft-flex-box>
       <ft-input
         :placeholder="$t('Settings.SponsorBlock Settings[\'SponsorBlock API Url (Default is https://sponsor.ajay.app)\']')"
+        :disabled="!useSponsorBlock"
         :show-action-button="false"
         :show-label="true"
         :value="sponsorBlockUrl"

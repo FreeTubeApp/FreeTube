@@ -17,6 +17,7 @@
       <ft-select
         :placeholder="$t('Settings.Proxy Settings.Proxy Protocol')"
         :value="proxyProtocol"
+        :disabled="!useProxy"
         :select-names="protocolNames"
         :select-values="protocolValues"
         @change="handleUpdateProxyProtocol"
@@ -27,6 +28,7 @@
         :placeholder="$t('Settings.Proxy Settings.Proxy Host')"
         :show-action-button="false"
         :show-label="true"
+        :disabled="!useProxy"
         :value="proxyHostname"
         @input="handleUpdateProxyHostname"
       />
@@ -34,16 +36,21 @@
         :placeholder="$t('Settings.Proxy Settings.Proxy Port Number')"
         :show-action-button="false"
         :show-label="true"
+        :disabled="!useProxy"
         :value="proxyPort"
         @input="handleUpdateProxyPort"
       />
     </ft-flex-box>
-    <p class="center">
+    <p
+      class="center"
+      :style="{opacity: useProxy ? 1 : 0.4}"
+    >
       {{ $t('Settings.Proxy Settings.Clicking on Test Proxy will send a request to') }} https://freegeoip.app/json/
     </p>
     <ft-flex-box>
       <ft-button
         :label="$t('Settings.Proxy Settings.Test Proxy')"
+        :disabled="!useProxy"
         @click="testProxy"
       />
     </ft-flex-box>
