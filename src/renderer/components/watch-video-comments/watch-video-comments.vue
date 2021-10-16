@@ -123,6 +123,10 @@
               >
                 {{ reply.author }}
               </span>
+              <font-awesome-icon
+                v-if="comment.isVerified"
+                icon="check-circle"
+              />
               <span class="commentDate">
                 {{ reply.time }}
               </span>
