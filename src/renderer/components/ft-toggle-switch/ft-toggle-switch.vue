@@ -17,7 +17,9 @@
       :for="id"
       class="switch-label"
     >
-      {{ label }}
+      <span>
+        {{ label }}
+      </span>
       <ft-tooltip
         v-if="tooltip !== ''"
         class="selectTooltip"

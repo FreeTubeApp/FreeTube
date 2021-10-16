@@ -28,6 +28,10 @@
   margin-top: 30px;
 }
 
+.disabled {
+  opacity: 0.4;
+}
+
 .select-text {
   position: relative;
   font-family: inherit;

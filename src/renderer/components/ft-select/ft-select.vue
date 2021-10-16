@@ -2,6 +2,7 @@
   <div class="select">
     <select
       class="select-text"
+      :class="{disabled: disabled}"
       :value="value"
       :disabled="disabled"
       @change="$emit('change', $event.target.value)"

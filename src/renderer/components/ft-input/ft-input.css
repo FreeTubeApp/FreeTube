@@ -2,6 +2,10 @@
   position: relative;
 }
 
+.disabled {
+  opacity: 0.4;
+}
+
 .clearInputTextButton {
   position: absolute;
   /* horizontal intentionally reduced to keep "I-beam pointer" visible */
