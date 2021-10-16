@@ -155,6 +155,9 @@ export default Vue.extend({
     },
     hideChannelSubscriptions: function () {
       return this.$store.getters.getHideChannelSubscriptions
+    },
+    verifiedInCache: function() {
+      return this.$store.getters.getVerifiedCache[this.id] ?? false
     }
   },
   watch: {
@@ -365,6 +368,7 @@ export default Vue.extend({
         } else {
           this.subCount = response.subCount
         }
+        this.verified = this.verifiedInCache
         this.thumbnailUrl = response.authorThumbnails[3].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
         this.channelDescription = autolinker.link(response.description)
         this.relatedChannels = response.relatedChannels.map((channel) => {

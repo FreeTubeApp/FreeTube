@@ -69,7 +69,7 @@ export default Vue.extend({
           return `https://i.ytimg.com/vi/${this.firstVideoId}/mqdefault.jpg`
       }
     },
-    verified: function() {
+    verifiedInCache: function() {
       return this.$store.getters.getVerifiedCache[this.channelId] ?? false
     }
   },
@@ -81,7 +81,7 @@ export default Vue.extend({
     this.channelName = this.data.channelName
     this.channelThumbnail = this.data.channelThumbnail
     this.channelId = this.data.channelId
-    this.channelVerified = this.verified
+    this.channelVerified = this.verifiedInCache
     this.uploadedTime = this.data.uploaded_at
     this.description = this.data.description
     this.infoSource = this.data.infoSource

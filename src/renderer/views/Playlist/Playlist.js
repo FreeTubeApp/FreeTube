@@ -37,7 +37,7 @@ export default Vue.extend({
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
     },
-    verified: function() {
+    verifiedInCache: function() {
       return this.$store.getters.getVerifiedCache[this.channelId] ?? false
     }
   },
@@ -81,7 +81,7 @@ export default Vue.extend({
           channelName: result.author ? result.author.name : '',
           channelThumbnail: result.author ? result.author.bestAvatar.url : '',
           channelId: result.author ? result.author.channelID : '',
-          verified: this.verified,
+          verified: this.verifiedInCache,
           infoSource: 'local'
         }
 
@@ -138,7 +138,7 @@ export default Vue.extend({
           channelThumbnail: result.authorThumbnails[2].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`),
           channelId: result.authorId,
           infoSource: 'invidious',
-          verified: this.verified
+          verified: this.verifiedInCache
         }
 
         const dateString = new Date(result.updated * 1000)
