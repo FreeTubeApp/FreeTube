@@ -55,7 +55,7 @@ export default Vue.extend({
 
       this.channelName = this.data.name
       this.id = this.data.channelID
-      this.verified = this.data.verified ?? this.verifiedInCache
+      this.verified = this.data.verified || this.verifiedInCache
       if (this.verified) {
         this.$store.commit('setVerifiedCache', { channelId: this.id, value: true })
       }

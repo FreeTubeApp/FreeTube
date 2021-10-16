@@ -100,7 +100,7 @@ export default Vue.extend({
       this.thumbnail = this.data.firstVideo.bestThumbnail.url
       this.channelName = this.data.owner.name
       this.channelLink = this.data.owner.url
-      this.channelVerified = this.data.owner.verified ?? this.verifiedInCache ?? false
+      this.channelVerified = this.data.owner.verified || this.verifiedInCache
       if (this.data.owner.verified) {
         this.$store.commit('setVerifiedCache', { channelId: this.data.owner.channelID, value: true })
       }
