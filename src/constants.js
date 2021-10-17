@@ -55,8 +55,14 @@ const SyncEvents = {
     DELETE: 'sync-delete',
     DELETE_ALL: 'sync-delete-all'
   },
+
   HISTORY: {
     UPDATE_WATCH_PROGRESS: 'sync-history-update-watch-progress'
+  },
+
+  PLAYLISTS: {
+    UPSERT_VIDEO: 'sync-playlists-upsert-video',
+    DELETE_VIDEO: 'sync-playlists-delete-video'
   }
 }
 

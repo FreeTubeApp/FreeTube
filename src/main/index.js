@@ -494,12 +494,16 @@ function runApp() {
 
   // *********** //
   // Playlists
-  ipcMain.handle(IpcChannels.DB_PLAYLISTS, async (_, { action, data }) => {
+  // ! NOTE: A lot of these actions are currently not used for anything
+  // As such, only the currently used actions have synchronization implemented
+  // The remaining should have it implemented only when playlists
+  // get fully implemented into the app
+  ipcMain.handle(IpcChannels.DB_PLAYLISTS, async (event, { action, data }) => {
     try {
       switch (action) {
         case DBActions.GENERAL.CREATE:
           await baseHandlers.playlists.create(data)
-          // TODO: Syncing
+          // TODO: Syncing (implement only when it starts being used)
           // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
           return null
 
@@ -508,49 +512,55 @@ function runApp() {
 
         case DBActions.PLAYLISTS.UPSERT_VIDEO:
           await baseHandlers.playlists.upsertVideoByPlaylistName(data.playlistName, data.videoData)
-          // TODO: Syncing
-          // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
+          syncOtherWindows(
+            IpcChannels.SYNC_PLAYLISTS,
+            event,
+            { event: SyncEvents.PLAYLISTS.UPSERT_VIDEO, data }
+          )
           return null
 
         case DBActions.PLAYLISTS.UPSERT_VIDEO_IDS:
           await baseHandlers.playlists.upsertVideoIdsByPlaylistId(data._id, data.videoIds)
-          // TODO: Syncing
+          // TODO: Syncing (implement only when it starts being used)
           // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
           return null
 
         case DBActions.GENERAL.DELETE:
           await baseHandlers.playlists.delete(data)
-          // TODO: Syncing
+          // TODO: Syncing (implement only when it starts being used)
           // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
           return null
 
         case DBActions.PLAYLISTS.DELETE_VIDEO_ID:
           await baseHandlers.playlists.deleteVideoIdByPlaylistName(data.playlistName, data.videoId)
-          // TODO: Syncing
-          // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
+          syncOtherWindows(
+            IpcChannels.SYNC_PLAYLISTS,
+            event,
+            { event: SyncEvents.PLAYLISTS.DELETE_VIDEO, data }
+          )
           return null
 
         case DBActions.PLAYLISTS.DELETE_VIDEO_IDS:
           await baseHandlers.playlists.deleteVideoIdsByPlaylistName(data.playlistName, data.videoIds)
-          // TODO: Syncing
+          // TODO: Syncing (implement only when it starts being used)
           // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
           return null
 
         case DBActions.PLAYLISTS.DELETE_ALL_VIDEOS:
           await baseHandlers.playlists.deleteAllVideosByPlaylistName(data)
-          // TODO: Syncing
+          // TODO: Syncing (implement only when it starts being used)
           // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
           return null
 
         case DBActions.GENERAL.DELETE_MULTIPLE:
           await baseHandlers.playlists.deleteMultiple(data)
-          // TODO: Syncing
+          // TODO: Syncing (implement only when it starts being used)
           // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
           return null
 
         case DBActions.GENERAL.DELETE_ALL:
           await baseHandlers.playlists.deleteAll()
-          // TODO: Syncing
+          // TODO: Syncing (implement only when it starts being used)
           // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
           return null
 

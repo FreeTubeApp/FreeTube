@@ -389,8 +389,19 @@ const customActions = {
       }
     })
 
-    ipcRenderer.on(IpcChannels.SYNC_PLAYLISTS, (_, __) => {
-      // TODO: Not implemented
+    ipcRenderer.on(IpcChannels.SYNC_PLAYLISTS, (_, { event, data }) => {
+      switch (event) {
+        case SyncEvents.PLAYLISTS.UPSERT_VIDEO:
+          commit('addVideo', data)
+          break
+
+        case SyncEvents.PLAYLISTS.DELETE_VIDEO:
+          commit('removeVideo', data)
+          break
+
+        default:
+          console.error('playlists: invalid sync event received')
+      }
     })
   }
 }
