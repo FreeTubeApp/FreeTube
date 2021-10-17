@@ -447,11 +447,12 @@ function runApp() {
   ipcMain.handle(IpcChannels.DB_PROFILES, async (_, { action, data }) => {
     try {
       switch (action) {
-        case DBActions.GENERAL.CREATE:
-          await baseHandlers.profiles.create(data)
+        case DBActions.GENERAL.CREATE: {
+          const newProfile = await baseHandlers.profiles.create(data)
           // TODO: Syncing
           // syncOtherWindows(IpcChannels.SYNC_PROFILES, event, { event: '_', data })
-          return null
+          return newProfile
+        }
 
         case DBActions.GENERAL.FIND:
           return await baseHandlers.profiles.find()

@@ -113,9 +113,8 @@ export default Vue.extend({
 
       console.log(profile)
 
-      this.updateProfile(profile)
-
       if (this.isNew) {
+        this.createProfile(profile)
         this.showToast({
           message: this.$t('Profile.Profile has been created')
         })
@@ -123,6 +122,7 @@ export default Vue.extend({
           path: '/settings/profile/'
         })
       } else {
+        this.updateProfile(profile)
         this.showToast({
           message: this.$t('Profile.Profile has been updated')
         })
@@ -161,6 +161,7 @@ export default Vue.extend({
 
     ...mapActions([
       'showToast',
+      'createProfile',
       'updateProfile',
       'removeProfile',
       'updateDefaultProfile',

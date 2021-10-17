@@ -89,6 +89,15 @@ const actions = {
     commit('setProfileList', profiles)
   },
 
+  async createProfile({ commit }, profile) {
+    try {
+      const newProfile = await DBProfileHandlers.create(profile)
+      commit('addProfileToList', newProfile)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
+  },
+
   async updateProfile({ commit }, profile) {
     try {
       await DBProfileHandlers.upsert(profile)
@@ -125,6 +134,11 @@ const mutations = {
     state.activeProfile = activeProfile
   },
 
+  addProfileToList(state, profile) {
+    state.profileList.push(profile)
+    state.profileList.sort(profileSort)
+  },
+
   upsertProfileToList(state, updatedProfile) {
     const i = state.profileList.findIndex((p) => {
       return p._id === updatedProfile._id
@@ -135,6 +149,8 @@ const mutations = {
     } else {
       state.profileList.splice(i, 1, updatedProfile)
     }
+
+    state.profileList.sort(profileSort)
   },
 
   removeProfileFromList(state, profileId) {
