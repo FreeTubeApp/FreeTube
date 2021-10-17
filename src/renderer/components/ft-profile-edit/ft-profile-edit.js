@@ -74,7 +74,7 @@ export default Vue.extend({
       this.profileTextColor = await this.calculateColorLuminance(val)
     }
   },
-  mounted: async function () {
+  created: function () {
     this.profileId = this.$route.params.id
     this.profileName = this.profile.name
     this.profileBgColor = this.profile.bgColor
