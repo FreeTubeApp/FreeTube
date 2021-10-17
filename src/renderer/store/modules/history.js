@@ -1,7 +1,5 @@
 import { historyDb } from '../datastores'
 
-import { IpcChannels } from '../../../constants'
-
 const state = {
   historyCache: []
 }
@@ -18,7 +16,7 @@ const actions = {
     commit('setHistoryCache', results)
   },
 
-  updateHistory({ commit, dispatch }, record) {
+  updateHistory({ commit }, record) {
     historyDb.update(
       { videoId: record.videoId },
       record,
@@ -26,32 +24,21 @@ const actions = {
     ).catch(console.error)
 
     commit('upsertToHistoryCache', record)
-    dispatch('propagateHistory')
   },
 
-  removeFromHistory({ commit, dispatch }, videoId) {
+  removeFromHistory({ commit }, videoId) {
     historyDb.remove({ videoId: videoId }).catch(console.error)
     commit('removeFromHistoryCacheById', videoId)
-    dispatch('propagateHistory')
   },
 
-  removeAllHistory({ commit, dispatch }) {
+  removeAllHistory({ commit }) {
     historyDb.remove({}, { multi: true }).catch(console.error)
     commit('setHistoryCache', [])
-    dispatch('propagateHistory')
   },
 
-  updateWatchProgress({ commit, dispatch }, { videoId, watchProgress }) {
+  updateWatchProgress({ commit }, { videoId, watchProgress }) {
     historyDb.update({ videoId }, { $set: { watchProgress } }, { upsert: true }).catch(console.error)
     commit('updateRecordWatchProgressInHistoryCache', { videoId, watchProgress })
-    dispatch('propagateHistory')
-  },
-
-  propagateHistory({ getters: { getUsingElectron: usingElectron } }) {
-    if (usingElectron) {
-      const { ipcRenderer } = require('electron')
-      ipcRenderer.send(IpcChannels.SYNC_HISTORY, state.historyCache)
-    }
   },
 
   compactHistory(_) {

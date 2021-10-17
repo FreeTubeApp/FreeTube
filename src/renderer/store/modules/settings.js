@@ -341,13 +341,7 @@ const customActions = {
     })
 
     ipcRenderer.on(IpcChannels.SYNC_HISTORY, (_, payload) => {
-      // Payload is the entire history => array of history entries
-      /*
-       * FIXME: Depending on how big the history size is, this could
-       * potentially become slow. While I'm sure there isn't a problem
-       * with this approach, I believe this can be done better.
-       */
-      commit('setHistoryCache', payload)
+      // TODO: Not implemented
     })
 
     ipcRenderer.on(IpcChannels.SYNC_PROFILES, (_, __) => {
