@@ -347,8 +347,27 @@ const customActions = {
       }
     })
 
-    ipcRenderer.on(IpcChannels.SYNC_HISTORY, (_, __) => {
-      // TODO: Not implemented
+    ipcRenderer.on(IpcChannels.SYNC_HISTORY, (_, { event, data }) => {
+      switch (event) {
+        case SyncEvents.GENERAL.UPSERT:
+          commit('upsertToHistoryCache', data)
+          break
+
+        case SyncEvents.HISTORY.UPDATE_WATCH_PROGRESS:
+          commit('updateRecordWatchProgressInHistoryCache', data)
+          break
+
+        case SyncEvents.GENERAL.DELETE:
+          commit('removeFromHistoryCacheById', data)
+          break
+
+        case SyncEvents.GENERAL.DELETE_ALL:
+          commit('setHistoryCache', [])
+          break
+
+        default:
+          console.error('history: invalid sync event received')
+      }
     })
 
     ipcRenderer.on(IpcChannels.SYNC_PROFILES, (_, __) => {

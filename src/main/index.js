@@ -386,7 +386,7 @@ function runApp() {
 
   // *********** //
   // History
-  ipcMain.handle(IpcChannels.DB_HISTORY, async (_, { action, data }) => {
+  ipcMain.handle(IpcChannels.DB_HISTORY, async (event, { action, data }) => {
     try {
       switch (action) {
         case DBActions.GENERAL.FIND:
@@ -394,26 +394,38 @@ function runApp() {
 
         case DBActions.GENERAL.UPSERT:
           await baseHandlers.history.upsert(data)
-          // TODO: Syncing
-          // syncOtherWindows(IpcChannels.SYNC_HISTORY, event, { event: '_', data })
+          syncOtherWindows(
+            IpcChannels.SYNC_HISTORY,
+            event,
+            { event: SyncEvents.GENERAL.UPSERT, data }
+          )
           return null
 
         case DBActions.HISTORY.UPDATE_WATCH_PROGRESS:
           await baseHandlers.history.updateWatchProgress(data.videoId, data.watchProgress)
-          // TODO: Syncing
-          // syncOtherWindows(IpcChannels.SYNC_HISTORY, event, { event: '_', data })
+          syncOtherWindows(
+            IpcChannels.SYNC_HISTORY,
+            event,
+            { event: SyncEvents.HISTORY.UPDATE_WATCH_PROGRESS, data }
+          )
           return null
 
         case DBActions.GENERAL.DELETE:
           await baseHandlers.history.delete(data)
-          // TODO: Syncing
-          // syncOtherWindows(IpcChannels.SYNC_HISTORY, event, { event: '_', data })
+          syncOtherWindows(
+            IpcChannels.SYNC_HISTORY,
+            event,
+            { event: SyncEvents.GENERAL.DELETE, data }
+          )
           return null
 
         case DBActions.GENERAL.DELETE_ALL:
           await baseHandlers.history.deleteAll()
-          // TODO: Syncing
-          // syncOtherWindows(IpcChannels.SYNC_HISTORY, event, { event: '_', data })
+          syncOtherWindows(
+            IpcChannels.SYNC_HISTORY,
+            event,
+            { event: SyncEvents.GENERAL.DELETE_ALL }
+          )
           return null
 
         case DBActions.GENERAL.PERSIST:
