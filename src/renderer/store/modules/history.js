@@ -51,10 +51,6 @@ const mutations = {
     state.historyCache = historyCache
   },
 
-  insertNewEntryToHistoryCache(state, entry) {
-    state.historyCache.unshift(entry)
-  },
-
   hoistEntryToTopOfHistoryCache(state, { currentIndex, updatedEntry }) {
     state.historyCache.splice(currentIndex, 1)
     state.historyCache.unshift(updatedEntry)

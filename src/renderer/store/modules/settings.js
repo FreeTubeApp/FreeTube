@@ -340,7 +340,7 @@ const customActions = {
       commit(defaultMutationId(payload._id), payload.value)
     })
 
-    ipcRenderer.on(IpcChannels.SYNC_HISTORY, (_, payload) => {
+    ipcRenderer.on(IpcChannels.SYNC_HISTORY, (_, __) => {
       // TODO: Not implemented
     })
 
