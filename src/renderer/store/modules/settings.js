@@ -370,8 +370,23 @@ const customActions = {
       }
     })
 
-    ipcRenderer.on(IpcChannels.SYNC_PROFILES, (_, __) => {
-      // TODO: Not implemented
+    ipcRenderer.on(IpcChannels.SYNC_PROFILES, (_, { event, data }) => {
+      switch (event) {
+        case SyncEvents.GENERAL.CREATE:
+          commit('addProfileToList', data)
+          break
+
+        case SyncEvents.GENERAL.UPSERT:
+          commit('upsertProfileToList', data)
+          break
+
+        case SyncEvents.GENERAL.DELETE:
+          commit('removeProfileFromList', data)
+          break
+
+        default:
+          console.error('profiles: invalid sync event received')
+      }
     })
 
     ipcRenderer.on(IpcChannels.SYNC_PLAYLISTS, (_, __) => {

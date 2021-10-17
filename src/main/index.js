@@ -444,13 +444,16 @@ function runApp() {
 
   // *********** //
   // Profiles
-  ipcMain.handle(IpcChannels.DB_PROFILES, async (_, { action, data }) => {
+  ipcMain.handle(IpcChannels.DB_PROFILES, async (event, { action, data }) => {
     try {
       switch (action) {
         case DBActions.GENERAL.CREATE: {
           const newProfile = await baseHandlers.profiles.create(data)
-          // TODO: Syncing
-          // syncOtherWindows(IpcChannels.SYNC_PROFILES, event, { event: '_', data })
+          syncOtherWindows(
+            IpcChannels.SYNC_PROFILES,
+            event,
+            { event: SyncEvents.GENERAL.CREATE, data: newProfile }
+          )
           return newProfile
         }
 
@@ -459,14 +462,20 @@ function runApp() {
 
         case DBActions.GENERAL.UPSERT:
           await baseHandlers.profiles.upsert(data)
-          // TODO: Syncing
-          // syncOtherWindows(IpcChannels.SYNC_PROFILES, event, { event: '_', data })
+          syncOtherWindows(
+            IpcChannels.SYNC_PROFILES,
+            event,
+            { event: SyncEvents.GENERAL.UPSERT, data }
+          )
           return null
 
         case DBActions.GENERAL.DELETE:
           await baseHandlers.profiles.delete(data)
-          // TODO: Syncing
-          // syncOtherWindows(IpcChannels.SYNC_PROFILES, event, { event: '_', data })
+          syncOtherWindows(
+            IpcChannels.SYNC_PROFILES,
+            event,
+            { event: SyncEvents.GENERAL.DELETE, data }
+          )
           return null
 
         case DBActions.GENERAL.PERSIST:

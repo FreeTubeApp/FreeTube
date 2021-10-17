@@ -50,6 +50,7 @@ const DBActions = {
 
 const SyncEvents = {
   GENERAL: {
+    CREATE: 'sync-create',
     UPSERT: 'sync-upsert',
     DELETE: 'sync-delete',
     DELETE_ALL: 'sync-delete-all'
