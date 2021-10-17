@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
+import FtVideoStats from '../ft-video-stats/ft-video-stats.vue'
 
 import $ from 'jquery'
 import videojs from 'video.js'
@@ -15,7 +16,8 @@ import 'videojs-http-source-selector'
 export default Vue.extend({
   name: 'FtVideoPlayer',
   components: {
-    'ft-card': FtCard
+    'ft-card': FtCard,
+    'ft-video-stats': FtVideoStats
   },
   beforeRouteLeave: function () {
     if (this.player !== null) {

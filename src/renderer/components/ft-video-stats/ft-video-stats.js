@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import videojs from 'video.js'
 
 export default Vue.extend({
@@ -8,13 +9,12 @@ export default Vue.extend({
             required: true
         },
         id: {
-            type: String,
-            require=true,
+            require:true,
         }
     },
     data: function () {
         return {
-            video_id: null,
+            video_id: this.id,
             player_resolution: null, //videojs.getTech('Html5').currentDimension();
             frame_drop: null,
             volume: null, //videojs.getTech('Html5').volume();

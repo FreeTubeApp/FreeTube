@@ -19,6 +19,10 @@
         :selected="source.qualityLabel === selectedDefaultQuality"
       >
     </video>
+    <ft-video-stats
+    :player="player"
+    :id="id"
+    />
   </div>
 </template>
 
