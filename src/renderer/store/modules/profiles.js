@@ -1,5 +1,5 @@
-import { profilesDb } from '../datastores'
 import { MAIN_PROFILE_ID } from '../../../constants'
+import { DBProfileHandlers } from '../../../datastores/handlers/index'
 
 const state = {
   profileList: [{
@@ -40,7 +40,14 @@ function profileSort(a, b) {
 
 const actions = {
   async grabAllProfiles({ rootState, dispatch, commit }, defaultName = null) {
-    let profiles = await profilesDb.find({}).catch(console.error)
+    let profiles
+    try {
+      profiles = await DBProfileHandlers.find()
+    } catch (errMessage) {
+      console.error(errMessage)
+      return
+    }
+
     if (!Array.isArray(profiles)) return
 
     if (profiles.length === 0) {
@@ -55,8 +62,13 @@ const actions = {
         subscriptions: []
       }
 
-      await profilesDb.insert(defaultProfile).catch(console.error)
-      commit('setProfileList', [defaultProfile])
+      try {
+        await DBProfileHandlers.create(defaultProfile)
+        commit('setProfileList', [defaultProfile])
+      } catch (errMessage) {
+        console.error(errMessage)
+      }
+
       return
     }
 
@@ -77,22 +89,26 @@ const actions = {
     commit('setProfileList', profiles)
   },
 
-  updateProfile({ commit }, profile) {
-    profilesDb.update(
-      { _id: profile._id },
-      profile,
-      { upsert: true }
-    ).catch(console.error)
-    commit('upsertProfileToList', profile)
+  async updateProfile({ commit }, profile) {
+    try {
+      await DBProfileHandlers.upsert(profile)
+      commit('upsertProfileToList', profile)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
   },
 
-  removeProfile({ commit }, profileId) {
-    profilesDb.remove({ _id: profileId }).catch(console.error)
-    commit('removeProfileFromList', profileId)
+  async removeProfile({ commit }, profileId) {
+    try {
+      await DBProfileHandlers.delete(profileId)
+      commit('removeProfileFromList', profileId)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
   },
 
   compactProfiles(_) {
-    profilesDb.persistence.compactDatafile()
+    DBProfileHandlers.persist()
   },
 
   updateActiveProfile({ commit }, id) {

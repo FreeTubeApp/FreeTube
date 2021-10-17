@@ -1,6 +1,6 @@
-import { settingsDb } from '../datastores'
 import i18n from '../../i18n/index'
-import { MAIN_PROFILE_ID, IpcChannels } from '../../../constants'
+import { MAIN_PROFILE_ID, IpcChannels, SyncEvents } from '../../../constants'
+import { DBSettingHandlers } from '../../../datastores/handlers/index'
 
 /*
  * Due to the complexity of the settings module in FreeTube, a more
@@ -312,17 +312,18 @@ Object.assign(customGetters, {
 
 const customActions = {
   grabUserSettings: async ({ commit, dispatch, getters }) => {
-    const userSettings = await settingsDb.find({
-      _id: { $ne: 'bounds' }
-    })
+    try {
+      const userSettings = await DBSettingHandlers.find()
+      for (const setting of userSettings) {
+        const { _id, value } = setting
+        if (getters.settingHasSideEffects(_id)) {
+          dispatch(defaultSideEffectsTriggerId(_id), value)
+        }
 
-    for (const setting of userSettings) {
-      const { _id, value } = setting
-      if (getters.settingHasSideEffects(_id)) {
-        dispatch(defaultSideEffectsTriggerId(_id), value)
+        commit(defaultMutationId(_id), value)
       }
-
-      commit(defaultMutationId(_id), value)
+    } catch (errMessage) {
+      console.error(errMessage)
     }
   },
 
@@ -331,13 +332,19 @@ const customActions = {
     // Already known to be Electron, no need to check
     const { ipcRenderer } = require('electron')
 
-    ipcRenderer.on(IpcChannels.SYNC_SETTINGS, (_, payload) => {
-      // Payload is a single setting => { _id, value }
-      if (getters.settingHasSideEffects(payload._id)) {
-        dispatch(defaultSideEffectsTriggerId(payload._id), payload.value)
-      }
+    ipcRenderer.on(IpcChannels.SYNC_SETTINGS, (_, { event, data }) => {
+      switch (event) {
+        case SyncEvents.GENERAL.UPSERT:
+          if (getters.settingHasSideEffects(data._id)) {
+            dispatch(defaultSideEffectsTriggerId(data._id), data.value)
+          }
 
-      commit(defaultMutationId(payload._id), payload.value)
+          commit(defaultMutationId(data._id), data.value)
+          break
+
+        default:
+          console.error('settings: invalid sync event received')
+      }
     })
 
     ipcRenderer.on(IpcChannels.SYNC_HISTORY, (_, __) => {
@@ -393,27 +400,16 @@ for (const settingId of Object.keys(state)) {
   }
 
   actions[updaterId] = async ({ commit, dispatch, getters }, value) => {
-    await settingsDb.update(
-      { _id: settingId },
-      { _id: settingId, value: value },
-      { upsert: true }
-    )
+    try {
+      await DBSettingHandlers.upsert(settingId, value)
 
-    const {
-      getUsingElectron: usingElectron,
-      settingHasSideEffects
-    } = getters
+      if (getters.settingHasSideEffects(settingId)) {
+        dispatch(triggerId, value)
+      }
 
-    if (settingHasSideEffects(settingId)) {
-      dispatch(triggerId, value)
-    }
-    commit(mutationId, value)
-
-    if (usingElectron) {
-      const { ipcRenderer } = require('electron')
-
-      // Propagate settings to all other existing windows
-      ipcRenderer.send(IpcChannels.SYNC_SETTINGS, { _id: settingId, value: value })
+      commit(mutationId, value)
+    } catch (errMessage) {
+      console.error(errMessage)
     }
   }
 }

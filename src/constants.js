@@ -11,11 +11,47 @@ const IpcChannels = {
   STOP_POWER_SAVE_BLOCKER: 'stop-power-save-blocker',
   START_POWER_SAVE_BLOCKER: 'start-power-save-blocker',
   CREATE_NEW_WINDOW: 'create-new-window',
+  OPEN_IN_EXTERNAL_PLAYER: 'open-in-external-player',
+
+  DB_SETTINGS: 'db-settings',
+  DB_HISTORY: 'db-history',
+  DB_PROFILES: 'db-profiles',
+  DB_PLAYLISTS: 'db-playlists',
+
   SYNC_SETTINGS: 'sync-settings',
   SYNC_HISTORY: 'sync-history',
   SYNC_PROFILES: 'sync-profiles',
-  SYNC_PLAYLISTS: 'sync-playlists',
-  OPEN_IN_EXTERNAL_PLAYER: 'open-in-external-player'
+  SYNC_PLAYLISTS: 'sync-playlists'
+}
+
+const DBActions = {
+  GENERAL: {
+    CREATE: 'db-action-create',
+    FIND: 'db-action-find',
+    UPSERT: 'db-action-upsert',
+    DELETE: 'db-action-delete',
+    DELETE_MULTIPLE: 'db-action-delete-multiple',
+    DELETE_ALL: 'db-action-delete-all',
+    PERSIST: 'db-action-persist'
+  },
+
+  HISTORY: {
+    UPDATE_WATCH_PROGRESS: 'db-action-history-update-watch-progress'
+  },
+
+  PLAYLISTS: {
+    UPSERT_VIDEO: 'db-action-playlists-upsert-video-by-playlist-name',
+    UPSERT_VIDEO_IDS: 'db-action-playlists-upsert-video-ids-by-playlist-id',
+    DELETE_VIDEO_ID: 'db-action-playlists-delete-video-by-playlist-name',
+    DELETE_VIDEO_IDS: 'db-action-playlists-delete-video-ids',
+    DELETE_ALL_VIDEOS: 'db-action-playlists-delete-all-videos'
+  }
+}
+
+const SyncEvents = {
+  GENERAL: {
+    UPSERT: 'sync-upsert'
+  }
 }
 
 // Utils
@@ -23,5 +59,7 @@ const MAIN_PROFILE_ID = 'allChannels'
 
 export {
   IpcChannels,
+  DBActions,
+  SyncEvents,
   MAIN_PROFILE_ID
 }

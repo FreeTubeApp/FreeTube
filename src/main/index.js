@@ -2,11 +2,11 @@ import {
   app, BrowserWindow, dialog, Menu, ipcMain,
   powerSaveBlocker, screen, session, shell
 } from 'electron'
-import Datastore from 'nedb-promises'
 import path from 'path'
 import cp from 'child_process'
 
-import { IpcChannels } from '../constants'
+import { IpcChannels, DBActions, SyncEvents } from '../constants'
+import baseHandlers from '../datastores/handlers/base'
 
 if (process.argv.includes('--version')) {
   console.log(`v${app.getVersion()}`)
@@ -21,13 +21,6 @@ function runApp() {
     showSaveImageAs: true,
     showCopyImageAddress: true,
     prepend: (params, browserWindow) => []
-  })
-
-  const localDataStorage = app.getPath('userData') // Grabs the userdata directory based on the user's OS
-
-  const settingsDb = Datastore.create({
-    filename: localDataStorage + '/settings.db',
-    autoload: true
   })
 
   // disable electron warning
@@ -87,15 +80,7 @@ function runApp() {
   app.on('ready', async (_, __) => {
     let docArray
     try {
-      docArray = await settingsDb.find({
-        $or: [
-          { _id: 'disableSmoothScrolling' },
-          { _id: 'useProxy' },
-          { _id: 'proxyProtocol' },
-          { _id: 'proxyHostname' },
-          { _id: 'proxyPort' }
-        ]
-      })
+      docArray = await baseHandlers.settings._findAppReadyRelatedSettings()
     } catch (err) {
       console.error(err)
       app.exit()
@@ -209,7 +194,7 @@ function runApp() {
       height: 800
     })
 
-    const boundsDoc = await settingsDb.findOne({ _id: 'bounds' })
+    const boundsDoc = await baseHandlers.settings._findBounds()
     if (typeof boundsDoc?.value === 'object') {
       const { maximized, ...bounds } = boundsDoc.value
       const allDisplaysSummaryWidth = screen
@@ -264,11 +249,7 @@ function runApp() {
         maximized: newWindow.isMaximized()
       }
 
-      await settingsDb.update(
-        { _id: 'bounds' },
-        { _id: 'bounds', value },
-        { upsert: true }
-      )
+      await baseHandlers.settings._updateBounds(value)
     })
 
     newWindow.once('closed', () => {
@@ -368,36 +349,212 @@ function runApp() {
     createWindow(false)
   })
 
-  ipcMain.on(IpcChannels.SYNC_SETTINGS, (event, payload) => {
-    passOntoSiblingWindows(IpcChannels.SYNC_SETTINGS, event, payload)
-  })
-
-  ipcMain.on(IpcChannels.SYNC_HISTORY, (event, payload) => {
-    passOntoSiblingWindows(IpcChannels.SYNC_HISTORY, event, payload)
-  })
-
-  ipcMain.on(IpcChannels.SYNC_PROFILES, (event, payload) => {
-    passOntoSiblingWindows(IpcChannels.SYNC_PROFILES, event, payload)
-  })
-
-  ipcMain.on(IpcChannels.SYNC_PLAYLISTS, (event, payload) => {
-    passOntoSiblingWindows(IpcChannels.SYNC_PLAYLISTS, event, payload)
-  })
-
-  function passOntoSiblingWindows(channel, event, payload) {
-    const siblingWindows = BrowserWindow.getAllWindows().filter((window) => {
-      return window.webContents.id !== event.sender.id
-    })
-
-    for (const window of siblingWindows) {
-      window.webContents.send(channel, payload)
-    }
-  }
-
   ipcMain.on(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, (_, payload) => {
     const child = cp.spawn(payload.executable, payload.args, { detached: true, stdio: 'ignore' })
     child.unref()
   })
+
+  // ************************************************* //
+  // DB related IPC calls
+  // *********** //
+
+  // Settings
+  ipcMain.handle(IpcChannels.DB_SETTINGS, async (event, { action, data }) => {
+    try {
+      switch (action) {
+        case DBActions.GENERAL.FIND:
+          return await baseHandlers.settings.find()
+
+        case DBActions.GENERAL.UPSERT:
+          await baseHandlers.settings.upsert(data._id, data.value)
+          syncOtherWindows(
+            IpcChannels.SYNC_SETTINGS,
+            event,
+            { event: SyncEvents.GENERAL.UPSERT, data }
+          )
+          return null
+
+        default:
+          // eslint-disable-next-line no-throw-literal
+          throw 'invalid settings db action'
+      }
+    } catch (err) {
+      if (typeof err === 'string') throw err
+      else throw err.toString()
+    }
+  })
+
+  // *********** //
+  // History
+  ipcMain.handle(IpcChannels.DB_HISTORY, async (_, { action, data }) => {
+    try {
+      switch (action) {
+        case DBActions.GENERAL.FIND:
+          return await baseHandlers.history.find()
+
+        case DBActions.GENERAL.UPSERT:
+          await baseHandlers.history.upsert(data)
+          // TODO: Syncing
+          // syncOtherWindows(IpcChannels.SYNC_HISTORY, event, { event: '_', data })
+          return null
+
+        case DBActions.HISTORY.UPDATE_WATCH_PROGRESS:
+          await baseHandlers.history.updateWatchProgress(data.videoId, data.watchProgress)
+          // TODO: Syncing
+          // syncOtherWindows(IpcChannels.SYNC_HISTORY, event, { event: '_', data })
+          return null
+
+        case DBActions.GENERAL.DELETE:
+          await baseHandlers.history.delete(data)
+          // TODO: Syncing
+          // syncOtherWindows(IpcChannels.SYNC_HISTORY, event, { event: '_', data })
+          return null
+
+        case DBActions.GENERAL.DELETE_ALL:
+          await baseHandlers.history.deleteAll()
+          // TODO: Syncing
+          // syncOtherWindows(IpcChannels.SYNC_HISTORY, event, { event: '_', data })
+          return null
+
+        case DBActions.GENERAL.PERSIST:
+          baseHandlers.history.persist()
+          return null
+
+        default:
+          // eslint-disable-next-line no-throw-literal
+          throw 'invalid history db action'
+      }
+    } catch (err) {
+      if (typeof err === 'string') throw err
+      else throw err.toString()
+    }
+  })
+
+  // *********** //
+  // Profiles
+  ipcMain.handle(IpcChannels.DB_PROFILES, async (_, { action, data }) => {
+    try {
+      switch (action) {
+        case DBActions.GENERAL.CREATE:
+          await baseHandlers.profiles.create(data)
+          // TODO: Syncing
+          // syncOtherWindows(IpcChannels.SYNC_PROFILES, event, { event: '_', data })
+          return null
+
+        case DBActions.GENERAL.FIND:
+          return await baseHandlers.profiles.find()
+
+        case DBActions.GENERAL.UPSERT:
+          await baseHandlers.profiles.upsert(data)
+          // TODO: Syncing
+          // syncOtherWindows(IpcChannels.SYNC_PROFILES, event, { event: '_', data })
+          return null
+
+        case DBActions.GENERAL.DELETE:
+          await baseHandlers.profiles.delete(data)
+          // TODO: Syncing
+          // syncOtherWindows(IpcChannels.SYNC_PROFILES, event, { event: '_', data })
+          return null
+
+        case DBActions.GENERAL.PERSIST:
+          baseHandlers.profiles.persist()
+          return null
+
+        default:
+          // eslint-disable-next-line no-throw-literal
+          throw 'invalid profile db action'
+      }
+    } catch (err) {
+      if (typeof err === 'string') throw err
+      else throw err.toString()
+    }
+  })
+
+  // *********** //
+  // Playlists
+  ipcMain.handle(IpcChannels.DB_PLAYLISTS, async (_, { action, data }) => {
+    try {
+      switch (action) {
+        case DBActions.GENERAL.CREATE:
+          await baseHandlers.playlists.create(data)
+          // TODO: Syncing
+          // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
+          return null
+
+        case DBActions.GENERAL.FIND:
+          return await baseHandlers.playlists.find()
+
+        case DBActions.PLAYLISTS.UPSERT_VIDEO:
+          await baseHandlers.playlists.upsertVideoByPlaylistName(data.playlistName, data.videoData)
+          // TODO: Syncing
+          // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
+          return null
+
+        case DBActions.PLAYLISTS.UPSERT_VIDEO_IDS:
+          await baseHandlers.playlists.upsertVideoIdsByPlaylistId(data._id, data.videoIds)
+          // TODO: Syncing
+          // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
+          return null
+
+        case DBActions.GENERAL.DELETE:
+          await baseHandlers.playlists.delete(data)
+          // TODO: Syncing
+          // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
+          return null
+
+        case DBActions.PLAYLISTS.DELETE_VIDEO_ID:
+          await baseHandlers.playlists.deleteVideoIdByPlaylistName(data.playlistName, data.videoId)
+          // TODO: Syncing
+          // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
+          return null
+
+        case DBActions.PLAYLISTS.DELETE_VIDEO_IDS:
+          await baseHandlers.playlists.deleteVideoIdsByPlaylistName(data.playlistName, data.videoIds)
+          // TODO: Syncing
+          // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
+          return null
+
+        case DBActions.PLAYLISTS.DELETE_ALL_VIDEOS:
+          await baseHandlers.playlists.deleteAllVideosByPlaylistName(data)
+          // TODO: Syncing
+          // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
+          return null
+
+        case DBActions.GENERAL.DELETE_MULTIPLE:
+          await baseHandlers.playlists.deleteMultiple(data)
+          // TODO: Syncing
+          // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
+          return null
+
+        case DBActions.GENERAL.DELETE_ALL:
+          await baseHandlers.playlists.deleteAll()
+          // TODO: Syncing
+          // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
+          return null
+
+        default:
+          // eslint-disable-next-line no-throw-literal
+          throw 'invalid playlist db action'
+      }
+    } catch (err) {
+      if (typeof err === 'string') throw err
+      else throw err.toString()
+    }
+  })
+
+  // *********** //
+
+  function syncOtherWindows(channel, event, payload) {
+    const otherWindows = BrowserWindow.getAllWindows().filter((window) => {
+      return window.webContents.id !== event.sender.id
+    })
+
+    for (const window of otherWindows) {
+      window.webContents.send(channel, payload)
+    }
+  }
+
+  // ************************************************* //
 
   app.once('window-all-closed', () => {
     // Clear cache and storage if it's the last window

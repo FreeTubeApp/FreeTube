@@ -1,4 +1,4 @@
-import { historyDb } from '../datastores'
+import { DBHistoryHandlers } from '../../../datastores/handlers/index'
 
 const state = {
   historyCache: []
@@ -12,37 +12,52 @@ const getters = {
 
 const actions = {
   async grabHistory({ commit }) {
-    const results = await historyDb.find({}).sort({ timeWatched: -1 })
-    commit('setHistoryCache', results)
+    try {
+      const results = await DBHistoryHandlers.find()
+      commit('setHistoryCache', results)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
   },
 
-  updateHistory({ commit }, record) {
-    historyDb.update(
-      { videoId: record.videoId },
-      record,
-      { upsert: true }
-    ).catch(console.error)
-
-    commit('upsertToHistoryCache', record)
+  async updateHistory({ commit }, record) {
+    try {
+      await DBHistoryHandlers.upsert(record)
+      commit('upsertToHistoryCache', record)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
   },
 
-  removeFromHistory({ commit }, videoId) {
-    historyDb.remove({ videoId: videoId }).catch(console.error)
-    commit('removeFromHistoryCacheById', videoId)
+  async removeFromHistory({ commit }, videoId) {
+    try {
+      await DBHistoryHandlers.delete(videoId)
+      commit('removeFromHistoryCacheById', videoId)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
   },
 
-  removeAllHistory({ commit }) {
-    historyDb.remove({}, { multi: true }).catch(console.error)
-    commit('setHistoryCache', [])
+  async removeAllHistory({ commit }) {
+    try {
+      await DBHistoryHandlers.deleteAll()
+      commit('setHistoryCache', [])
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
   },
 
-  updateWatchProgress({ commit }, { videoId, watchProgress }) {
-    historyDb.update({ videoId }, { $set: { watchProgress } }, { upsert: true }).catch(console.error)
-    commit('updateRecordWatchProgressInHistoryCache', { videoId, watchProgress })
+  async updateWatchProgress({ commit }, { videoId, watchProgress }) {
+    try {
+      await DBHistoryHandlers.updateWatchProgress(videoId, watchProgress)
+      commit('updateRecordWatchProgressInHistoryCache', { videoId, watchProgress })
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
   },
 
   compactHistory(_) {
-    historyDb.persistence.compactDatafile()
+    DBHistoryHandlers.persist()
   }
 }
 
