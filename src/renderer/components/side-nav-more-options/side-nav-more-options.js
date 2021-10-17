@@ -13,6 +13,14 @@ export default Vue.extend({
     },
     hideTrendingVideos: function () {
       return this.$store.getters.getHideTrendingVideos
+    },
+    hideLabelsSideBar: function () {
+      return this.$store.getters.getHideLabelsSideBar
+    },
+    applyNavIconExpand: function() {
+      return {
+        navIconExpand: this.hideLabelsSideBar
+      }
     }
   },
   methods: {

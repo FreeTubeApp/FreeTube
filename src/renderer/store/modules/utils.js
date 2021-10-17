@@ -674,6 +674,16 @@ const actions = {
     const ignoreWarnings = rootState.settings.externalPlayerIgnoreWarnings
     const customArgs = rootState.settings.externalPlayerCustomArgs
 
+    // Append custom user-defined arguments,
+    // or use the default ones specified for the external player.
+    if (typeof customArgs === 'string' && customArgs !== '') {
+      const custom = customArgs.split(';')
+      args.push(...custom)
+    } else if (typeof cmdArgs.defaultCustomArguments === 'string' && cmdArgs.defaultCustomArguments !== '') {
+      const defaultCustomArguments = cmdArgs.defaultCustomArguments.split(';')
+      args.push(...defaultCustomArguments)
+    }
+
     if (payload.watchProgress > 0) {
       if (typeof cmdArgs.startOffset === 'string') {
         args.push(`${cmdArgs.startOffset}${payload.watchProgress}`)
@@ -774,12 +784,6 @@ const actions = {
           args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
         }
       }
-    }
-
-    // Append custom user-defined arguments
-    if (customArgs !== null) {
-      const custom = customArgs.split(';')
-      args.push(...custom)
     }
 
     const openingToast = payload.strings.OpeningTemplate

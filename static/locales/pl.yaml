@@ -154,7 +154,7 @@ Settings:
       Black: 'Czarny'
       Dark: 'Ciemny'
       Light: 'Jasny'
-      Dracula: 'Dracula'
+      Dracula: 'Drakula'
     Main Color Theme:
       Main Color Theme: 'Główny kolor motywu'
       Red: 'Czerwony'
@@ -185,6 +185,7 @@ Settings:
     UI Scale: Skala UI
     Expand Side Bar by Default: Domyślnie rozwiń pasek boczny
     Disable Smooth Scrolling: Wyłącz płynne przewijanie
+    Hide Side Bar Labels: Schowaj etykiety paska bocznego
   Player Settings:
     Player Settings: 'Ustawienia odtwarzacza'
     Force Local Backend for Legacy Formats: 'Wymuś lokalny back-end dla starych formatów'
@@ -736,7 +737,7 @@ Tooltips:
       chciałbyś zobaczyć filmy zdobywające popularność. Nie wszystkie wyświetlone
       kraje są obsługiwane przez YouTube.
     Invidious Instance: Serwer Invidious, którym FreeTube będzie się łączył do wywołań
-      API. Wyczyść pole z serwerem, by zobaczyć listę publicznych serwerów do wyboru.
+      API.
     Thumbnail Preference: Wszystkie miniaturki na FreeTube zostaną zastąpione klatką
       z filmu zamiast miniaturki domyślnej.
     External Link Handling: "Wybierz domyślne zachowanie kiedy link, który nie może\
@@ -765,6 +766,7 @@ Tooltips:
     Custom External Player Executable: FreeTube domyślnie przyjmie, że wybrany odtwarzacz
       jest do znalezienia za pomocą zmiennej środowiskowej PATH. Jeśli trzeba, można
       tutaj ustawić niestandardową ścieżkę.
+    DefaultCustomArgumentsTemplate: "(Domyślnie: '$')"
 Playing Next Video Interval: Odtwarzanie kolejnego filmu już za chwilę. Wciśnij aby
   przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekundę. Wciśnij
   aby przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekund. Wciśnij

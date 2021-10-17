@@ -181,7 +181,7 @@ function runApp() {
      * Initial window options
      */
     const newWindow = new BrowserWindow({
-      backgroundColor: '#fff',
+      backgroundColor: '#212121',
       icon: isDev
         ? path.join(__dirname, '../../_icons/iconColor.png')
         /* eslint-disable-next-line */
