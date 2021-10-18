@@ -2,8 +2,9 @@
   position: relative;
 }
 
-.disabled {
+.disabled label, .disabled .ft-input{
   opacity: 0.4;
+  cursor: not-allowed;
 }
 
 .clearInputTextButton {

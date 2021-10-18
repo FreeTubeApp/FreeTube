@@ -28,8 +28,9 @@
   margin-top: 30px;
 }
 
-.disabled {
+.disabled, .disabled + svg.iconSelect {
   opacity: 0.4;
+  cursor: not-allowed;
 }
 
 .select-text {
