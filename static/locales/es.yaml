@@ -139,6 +139,11 @@ Settings:
     Clear Default Instance: Quitar la instancia por defecto
     Set Current Instance as Default: Establecer la instancia actual como la instancia
       por defecto
+    External Link Handling:
+      No Action: Sin acción
+      Ask Before Opening Link: Preguntar antes de abrir el enlace
+      Open Link: Abrir el enlace
+      External Link Handling: Gestión de enlaces externos
   Theme Settings:
     Theme Settings: 'Apariencia'
     Match Top Bar with Main Color: 'Usar color principal para barra superior'
@@ -147,6 +152,7 @@ Settings:
       Black: 'Negro'
       Dark: 'Oscuro'
       Light: 'Claro'
+      Dracula: 'Drácula'
     Main Color Theme:
       Main Color Theme: 'Color Principal'
       Red: 'Rojo'
@@ -165,6 +171,13 @@ Settings:
       Amber: 'Ámbar'
       Orange: 'Naranja'
       Deep Orange: 'Naranja oscuro'
+      Dracula Cyan: 'Drácula Cian'
+      Dracula Green: 'Drácula Verde'
+      Dracula Orange: 'Drácula Naranja'
+      Dracula Pink: 'Drácula Rosado'
+      Dracula Purple: 'Drácula Púrpura'
+      Dracula Red: 'Drácula Rojo'
+      Dracula Yellow: 'Drácula Amarillo'
     Secondary Color Theme: 'Color secundario'
         #* Main Color Theme
     UI Scale: Escala de interfaz gráfica
@@ -658,8 +671,8 @@ Comments:
 Up Next: 'A continuación'
 
 # Toast Messages
-Local API Error (Click to copy): 'Error de la API local (Click para copiar el código)'
-Invidious API Error (Click to copy): 'Error de la API de Invidious (Click para copiar
+Local API Error (Click to copy): 'Error de la API local (Clic para copiar el código)'
+Invidious API Error (Click to copy): 'Error de la API de Invidious (Clic para copiar
   el código)'
 Falling back to Invidious API: 'Recurriendo a la API de Invidious'
 Falling back to the local API: 'Recurriendo a la API local'
@@ -679,10 +692,10 @@ Canceled next video autoplay: 'La reproducción del vídeo siguiente se ha cance
 Yes: 'Sí'
 No: 'No'
 A new blog is now available, $. Click to view more: Nueva publicación del blog disponible,
-  $. Click para saber más
-Download From Site: Descargar de la web
-Version $ is now available!  Click for more details: La versión $ está disponible!
-  Click para saber más
+  $. Haga clic para saber más
+Download From Site: Descargar del sitio web
+Version $ is now available!  Click for more details: ¡La versión $ está disponible!
+  Haga clic para saber más
 The playlist has been reversed: Orden de Playlist invertido
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
   vídeo no está disponible por no tener un formato válido. Esto puede suceder por
@@ -749,3 +762,9 @@ Default Invidious instance has been cleared: La Instancia de Invidious Predeterm
   ha sido borrada
 Default Invidious instance has been set to $: La Instancia de Invidious Predeterminada
   ha sido establecida como $
+Search Bar:
+  Clear Input: Borrar entrada
+External link opening has been disabled in the general settings: Se ha desactivado
+  la apertura de enlaces externos en la configuración general
+Are you sure you want to open this link?: ¿Estás seguro/a de que quieres abrir este
+  enlace?

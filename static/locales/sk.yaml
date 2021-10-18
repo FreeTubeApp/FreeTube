@@ -133,6 +133,7 @@ Settings:
       Black: 'Čierny'
       Dark: 'Tmavý'
       Light: 'Svetlý'
+      Dracula: 'Dracula'
     Main Color Theme:
       Main Color Theme: 'Predvolená farebná téma'
       Red: 'Červená'
@@ -151,6 +152,13 @@ Settings:
       Amber: 'Jantárová'
       Orange: 'Oranžová'
       Deep Orange: 'Tmavooranžová'
+      Dracula Cyan: 'Dracula CAzúrováyan'
+      Dracula Green: 'Dracula Zelená'
+      Dracula Orange: 'Dracula Oranžová'
+      Dracula Pink: 'Dracula Ružová'
+      Dracula Purple: 'Dracula Fialová'
+      Dracula Red: 'Dracula Červená'
+      Dracula Yellow: 'Dracula Žltá'
     Secondary Color Theme: 'Sekundárna Farebná Téma'
         #* Main Color Theme
     UI Scale: Veľkosť UI

@@ -3,7 +3,9 @@
     class="ft-input-component"
     :class="{
       search: isSearch,
-      forceTextColor: forceTextColor
+      forceTextColor: forceTextColor,
+      showActionButton: showActionButton,
+      showClearTextButton: showClearTextButton
     }"
   >
     <label
@@ -18,6 +20,20 @@
         :tooltip="tooltip"
       />
     </label>
+    <font-awesome-icon
+      v-if="showClearTextButton && clearTextButtonExisting"
+      icon="times-circle"
+      class="clearInputTextButton"
+      :class="{
+        visible: clearTextButtonVisible
+      }"
+      tabindex="0"
+      role="button"
+      :title="$t('Search Bar.Clear Input')"
+      @click="handleClearTextClick"
+      @keydown.space.prevent="handleClearTextClick"
+      @keydown.enter.prevent="handleClearTextClick"
+    />
     <input
       :id="id"
       v-model="inputData"
@@ -33,9 +49,12 @@
       @keydown="e => handleKeyDown(e.keyCode)"
     >
     <font-awesome-icon
-      v-if="showArrow"
-      icon="arrow-right"
+      v-if="showActionButton"
+      :icon="actionButtonIconName"
       class="inputAction"
+      :class="{
+        enabled: inputDataPresent
+      }"
       @click="handleClick"
     />
 

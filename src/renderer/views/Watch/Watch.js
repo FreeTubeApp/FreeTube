@@ -431,12 +431,12 @@ export default Vue.extend({
             }
 
             if (typeof result.player_response.streamingData.adaptiveFormats !== 'undefined') {
+              const adaptiveFormats = result.player_response.streamingData.adaptiveFormats
+              this.adaptiveFormats = adaptiveFormats
               if (this.proxyVideos) {
                 this.dashSrc = await this.createInvidiousDashManifest()
               } else {
-                const adaptiveFormats = result.player_response.streamingData.adaptiveFormats
                 this.dashSrc = await this.createLocalDashManifest(adaptiveFormats)
-                this.adaptiveFormats = adaptiveFormats
               }
 
               this.audioSourceList = result.player_response.streamingData.adaptiveFormats.filter((format) => {
@@ -544,7 +544,13 @@ export default Vue.extend({
           this.videoPublished = result.published * 1000
           this.videoDescriptionHtml = result.descriptionHtml
           this.recommendedVideos = result.recommendedVideos
-          this.adaptiveFormats = result.adaptiveFormats
+          this.adaptiveFormats = result.adaptiveFormats.map((format) => {
+            format.bitrate = parseInt(format.bitrate)
+            if (typeof format.resolution !== 'undefined') {
+              format.height = parseInt(format.resolution.replace('p', ''))
+            }
+            return format
+          })
           this.isLive = result.liveNow
           this.captionHybridList = result.captions.map(caption => {
             caption.url = this.currentInvidiousInstance + caption.url
@@ -960,13 +966,13 @@ export default Vue.extend({
       if (this.removeVideoMetaFiles) {
         const userData = await this.getUserDataPath()
         if (this.isDev) {
-          const dashFileLocation = `dashFiles/${this.videoId}.xml`
-          const vttFileLocation = `storyboards/${this.videoId}.vtt`
+          const dashFileLocation = `static/dashFiles/${this.videoId}.xml`
+          const vttFileLocation = `static/storyboards/${this.videoId}.vtt`
           // only delete the file it actually exists
-          if (fs.existsSync('dashFiles/') && fs.existsSync(dashFileLocation)) {
+          if (fs.existsSync('static/dashFiles/') && fs.existsSync(dashFileLocation)) {
             fs.rmSync(dashFileLocation)
           }
-          if (fs.existsSync('storyboards/') && fs.existsSync(vttFileLocation)) {
+          if (fs.existsSync('static/storyboards/') && fs.existsSync(vttFileLocation)) {
             fs.rmSync(vttFileLocation)
           }
         } else {
@@ -1014,9 +1020,10 @@ export default Vue.extend({
           fs.mkdirSync('static/dashFiles/')
         }
 
-        fs.rm(fileLocation, () => {
-          fs.writeFileSync(fileLocation, xmlData)
-        })
+        if (fs.existsSync(fileLocation)) {
+          fs.rmSync(fileLocation)
+        }
+        fs.writeFileSync(fileLocation, xmlData)
       } else {
         fileLocation = `${userData}/dashFiles/${this.videoId}.xml`
         uriSchema = `file://${fileLocation}`
@@ -1039,7 +1046,7 @@ export default Vue.extend({
     },
 
     createInvidiousDashManifest: function () {
-      let url = `${this.currentInvidiousInstance}/api/manifest/dash/id/${this.videoId}.mpd`
+      let url = `${this.currentInvidiousInstance}/api/manifest/dash/id/${this.videoId}`
 
       if (this.proxyVideos || !this.usingElectron) {
         url = url + '?local=true'
