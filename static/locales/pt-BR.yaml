@@ -184,6 +184,7 @@ Settings:
     UI Scale: Escala da Interface de Usuário
     Disable Smooth Scrolling: Desativar Rolagem Suave
     Expand Side Bar by Default: Expandir Barra Lateral por Padrão
+    Hide Side Bar Labels: Ocultar etiquetas da barra lateral
   Player Settings:
     Player Settings: 'Configurações do vídeo'
     Force Local Backend for Legacy Formats: 'Forçar motor local para formatos legados'
@@ -731,8 +732,7 @@ Tooltips:
       de tendências do país você quer exibir. Nem todos os países exibidos são realmente
       suportados pelo YouTube.
     Invidious Instance: A instância Invidious à qual o FreeTube se conectará para
-      chamadas de API. Apague a instância atual para ver uma lista de instâncias públicas
-      para escolher.
+      chamadas de API.
     Thumbnail Preference: Todas as miniaturas do FreeTube serão substituídas por um
       quadro do vídeo em vez da miniatura padrão.
     Fallback to Non-Preferred Backend on Failure: Quando a sua API preferida tiver
@@ -759,6 +759,7 @@ Tooltips:
       Se necessário, um caminho personalizado pode ser definido aqui.
     External Player: A escolha de um reprodutor externo exibirá um ícone para abrir
       o vídeo (lista de reprodução, se houver suporte) no reprodutor externo, na miniatura.
+    DefaultCustomArgumentsTemplate: "(Padrão: '$')"
 More: Mais
 Playing Next Video Interval: Reproduzindo o próximo vídeo imediatamente. Clique para
   cancelar. | Reproduzindo o próximo vídeo em {nextVideoInterval} segundo(s). Clique
