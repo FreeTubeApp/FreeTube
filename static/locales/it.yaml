@@ -754,8 +754,8 @@ Tooltips:
   External Player Settings:
     Ignore Warnings: Non notifica gli avvisi quando il lettore esterno selezionato
       non supporta l'azione richiesta (ad esempio invertire la playlist, etc.).
-    Custom External Player Arguments: Qualsiasi argomento personalizzato della linea
-      di comando separato da punto e virgola (';') che vuoi passare al lettore esterno.
+    Custom External Player Arguments: Invia al lettore esterno qualsiasi argomento
+      personalizzato dalla linea di comando, separato da punto e virgola (';').
     Custom External Player Executable: Per impostazione predefinita, FreeTube imposta
       il lettore esterno scelto tramite la variabile d'ambiente PATH. Se necessario,
       un percorso personalizzato può essere impostato qui.
