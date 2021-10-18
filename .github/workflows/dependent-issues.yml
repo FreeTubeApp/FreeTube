@@ -15,7 +15,7 @@ on:
   # Schedule a daily check. Useful if you reference cross-repository
   # issues or pull requests.
   schedule:
-    - cron: '*/1 * * * *'
+    - cron: '0 0 * * *'
 
 jobs:
   check:
