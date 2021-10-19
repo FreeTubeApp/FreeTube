@@ -20,8 +20,7 @@
       >
     </video>
     <ft-video-stats
-    :player="player"
-    :id="id"
+      :stats="stats"
     />
   </div>
 </template>

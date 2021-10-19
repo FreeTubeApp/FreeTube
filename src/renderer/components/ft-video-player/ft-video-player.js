@@ -134,7 +134,19 @@ export default Vue.extend({
           2.75,
           3
         ]
-      }
+      },
+      stats:{
+        video_id:'',
+        player_resolution: null,
+        frame_drop: null,
+        volume: null,
+        network_state: null, 
+        network_speed: null,
+        data_transfer_speed: null,
+        buffer_time: null, 
+        buffer_percent: null, 
+      },
+      statsTimeout: null,
     }
   },
   computed: {
@@ -205,6 +217,11 @@ export default Vue.extend({
     this.createToggleTheatreModeButton()
     this.determineFormatType()
     this.determineMaxFramerate()
+
+    this.statsTimeout = setInterval(() => {
+      this.updateVideoStatistic();
+    }, 1000)
+
   },
   beforeDestroy: function () {
     if (this.player !== null) {
@@ -214,6 +231,7 @@ export default Vue.extend({
         this.player.dispose()
         this.player = null
         clearTimeout(this.mouseTimeout)
+        clearInterval(this.statsTimeout)
       }
     }
 
@@ -1485,6 +1503,19 @@ export default Vue.extend({
       'updateDefaultCaptionSettings',
       'showToast',
       'sponsorBlockSkipSegments'
-    ])
-  }
+    ]),
+    updateVideoStatistic: function(){
+      if (this.player != null){
+        this.stats.player_resolution = this.player.currentDimensions()
+        this.stats.frame_drop = null
+        this.stats.volume = null
+        this.stats.network_state = null //this.player.network_state()
+        this.stats.network_speed = null
+        this.stats.data_transfer_speed = null
+        this.stats.buffer_time = this.player.buffered()
+        this.stats.buffer_percent = this.player.bufferedPercent()
+      }
+        
+    }
+  },
 })

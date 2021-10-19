@@ -1,28 +1,13 @@
 import Vue from 'vue'
 import videojs from 'video.js'
 
+// https://stackoverflow.com/questions/49849376/vue-js-triggering-a-method-function-every-x-seconds
 export default Vue.extend({
-    name: 'FtVideoStats',
-    props: {
-        player: {
-            type: videojs.Player,
-            required: true
-        },
-        id: {
-            require:true,
-        }
+  name: 'FtVideoStats',
+  props: {
+    stats: {
+      type: Object,
+      required: true
     },
-    data: function () {
-        return {
-            video_id: this.id,
-            player_resolution: null, //videojs.getTech('Html5').currentDimension();
-            frame_drop: null,
-            volume: null, //videojs.getTech('Html5').volume();
-            network_state: null, //this.player.network_state()
-            network_speed: null,
-            data_transfer_speed: null,
-            buffer_time: null, //videojs.getTech('Html5').buffered();
-            buffer_percent: null, //videojs.getTech('Html5').bufferedPercent()
-        }
-    }
+  },
 })
