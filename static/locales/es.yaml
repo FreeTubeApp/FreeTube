@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'English (US)'
+Locale Name: 'Inglés (EE.UU.)'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -186,7 +186,7 @@ Settings:
     Hide Side Bar Labels: Ocultar las etiquetas de la barra lateral
   Player Settings:
     Player Settings: 'Reproductor FreeTube'
-    Force Local Backend for Legacy Formats: 'Forzar Backend Local para Formatos Heredados'
+    Force Local Backend for Legacy Formats: 'Forzar API local para formato "Legacy"'
     Play Next Video: 'Reproducción continua'
     Turn on Subtitles by Default: 'Activar Subtítulos por defecto'
     Autoplay Videos: 'Reproducción automática de vídeos'
@@ -198,7 +198,7 @@ Settings:
     Default Video Format:
       Default Video Format: 'Formato de vídeo predeterminado'
       Dash Formats: 'Formatos DASH'
-      Legacy Formats: 'Formatos Heredados'
+      Legacy Formats: 'Legacy'
       Audio Formats: 'Formatos de Audio'
     Default Quality:
       Default Quality: 'Calidad Predeterminada'
@@ -347,7 +347,7 @@ Settings:
   External Player Settings:
     Custom External Player Arguments: Argumentos adicionales del reproductor
     Custom External Player Executable: Ruta alternativa del ejecutable del reproductor
-    Ignore Unsupported Action Warnings: Omitir advertencias de acciones no soportadas
+    Ignore Unsupported Action Warnings: Omitir advertencias sobre acciones no soportadas
     External Player: Reproductor externo
     External Player Settings: Reproductor externo
 About:
@@ -625,7 +625,7 @@ Toggle Theatre Mode: 'Activar Modo Cine'
 Change Format:
   Change Video Formats: 'Cambiar formato de vídeo'
   Use Dash Formats: 'Utilizar formatos DASH'
-  Use Legacy Formats: 'Utilizar formatos heredados'
+  Use Legacy Formats: 'Usar formato Legacy'
   Use Audio Formats: 'Utilizar formatos de audio'
   Audio formats are not available for this video: El formato solo audio no está disponible
     para este vídeo
@@ -695,8 +695,8 @@ No: 'No'
 A new blog is now available, $. Click to view more: Nueva publicación del blog disponible,
   $. Haga clic para saber más
 Download From Site: Descargar del sitio web
-Version $ is now available!  Click for more details: ¡La versión $ está disponible!
-  Haga clic para saber más
+Version $ is now available!  Click for more details: La versión $ está disponible!
+  Haz click para saber más
 The playlist has been reversed: Orden de Playlist invertido
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
   vídeo no está disponible por no tener un formato válido. Esto puede suceder por
@@ -708,18 +708,17 @@ Tooltips:
       previene los bloqueos por IP, pero carece de ciertos datos, como la duración
       de los vídeos o el estado de transmisión en directo
   Player Settings:
-    Default Video Format: Establezca los formatos utilizados cuando se reproduce un
-      vídeo. Los formatos DASH pueden reproducir calidades superiores. Los formatos
-      heredados están limitados a un máximo de 720p pero utilizan menos ancho de banda.
-      Los formatos de audio son flujos sólo de audio.
+    Default Video Format: Selecciona el formato usado para reproducir videos. El formato
+      Dash proporciona resoluciones más altas. El formato Legacy está limitado a 720p,
+      pero requiere menos ancho de banda. El formato audio se limita a reproducir
+      solo audio.
     Proxy Videos Through Invidious: Se conectará a Invidious para obtener vídeos en
       lugar de conectar directamente con YouTube. Sobreescribirá la preferencia de
       API.
-    Force Local Backend for Legacy Formats: Sólo funciona cuando la API de Invidious
-      es la predeterminada. Cuando está activada, la API local se ejecutará y utilizará
-      los formatos heredados devueltos por ella en lugar de los devueltos por Invidious.
-      Ayuda cuando los vídeos devueltos por Invidious no se reproducen debido a las
-      restricciones del país.
+    Force Local Backend for Legacy Formats: Solo funcionará si la API de invidious
+      es la preferente. Si lo activas, la API local usará el formato Legacy en lugar
+      de Invidious. Ayudará cuando Invidious no pueda reproducir un video por restricciones
+      regionales.
   General Settings:
     Region for Trending: La región de las tendencias permite ver los vídeos más populares
       en un país determinado. YouTube no admite todos los países mostrados.
@@ -732,6 +731,9 @@ Tooltips:
     Preferred API Backend: Elija el motor que debe utilizar FreeTube para obtener
       datos. La API local es un extractor incorporado. La API de Invidious requiere
       de un servidor Invidious al cual conectarse.
+    External Link Handling: "Elige el comportamiento predeterminado al pulsar un enlace\
+      \ que no puede ser abierto en FreeTube.\nPor defecto, FreeTube abrirá el enlace\
+      \  en su navegador predeterminado.\n"
   Privacy Settings:
     Remove Video Meta Files: Cuando se active, FreeTube eliminará automáticamente
       meta-archivos creados durante la reproducción del vídeo una vez se cierre la
