@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'Español'
+Locale Name: 'English (US)'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -185,7 +185,7 @@ Settings:
     Disable Smooth Scrolling: Desactivar desplazamiento suave
     Hide Side Bar Labels: Ocultar las etiquetas de la barra lateral
   Player Settings:
-    Player Settings: 'Reproductor'
+    Player Settings: 'Reproductor FreeTube'
     Force Local Backend for Legacy Formats: 'Forzar Backend Local para Formatos Heredados'
     Play Next Video: 'Reproducción continua'
     Turn on Subtitles by Default: 'Activar Subtítulos por defecto'
@@ -220,13 +220,13 @@ Settings:
       vídeo
     Fast-Forward / Rewind Interval: Intervalo de avance/rebobinado rápido
   Privacy Settings:
-    Privacy Settings: 'Configuración de privacidad'
+    Privacy Settings: 'Privacidad'
     Remember History: 'Recordar historial'
     Save Watched Progress: 'Guardar progreso reproducido'
-    Clear Search Cache: 'Vaciar Caché de Búsquedas'
-    Are you sure you want to clear out your search cache?: '¿Confirma que quiere vaciar
-      el Caché de Búsquedas?'
-    Search cache has been cleared: 'Se vació el Caché de Búsquedas'
+    Clear Search Cache: 'Borrar cache de búsqueda'
+    Are you sure you want to clear out your search cache?: '¿Seguro que quiere borrar
+      el cache de búsqueda?'
+    Search cache has been cleared: 'Cache de búsqueda borrado'
     Remove Watch History: 'Vaciar historial de reproducciones'
     Are you sure you want to remove your entire watch history?: '¿Confirma que quiere
       vaciar el historial de reproducciones?'
@@ -237,12 +237,12 @@ Settings:
     Automatically Remove Video Meta Files: Eliminar Automáticamente los Meta-Archivos
       de Vídeo
   Subscription Settings:
-    Subscription Settings: 'Configuración de suscripciones'
+    Subscription Settings: 'Suscripciones'
     Hide Videos on Watch: 'Ocultar vídeos vistos'
     Fetch Feeds from RSS: 'Recuperar suministros desde RSS'
     Manage Subscriptions: 'Gestionar suscripciones'
   Data Settings:
-    Data Settings: 'Configuración de datos'
+    Data Settings: 'Datos'
     Select Import Type: 'Seleccionar Tipo de Importación'
     Select Export Type: 'Seleccionar Tipo de Exportación'
     Import Subscriptions: 'Importar Suscripciones'
@@ -278,7 +278,7 @@ Settings:
     How do I import my subscriptions?: '¿Cómo puedo importar mis suscripciones?'
     One or more subscriptions were unable to be imported: Una o varias de las suscripciones
       no han podido ser importadas
-    Check for Legacy Subscriptions: Comprobar suscripciones heredadas
+    Check for Legacy Subscriptions: Comprobar suscripciones Legacy
     Manage Subscriptions: Administrar suscripciones
   Advanced Settings:
     Advanced Settings: 'Ajustes avanzados'
@@ -316,7 +316,7 @@ Settings:
     Hide Recommended Videos: Ocultar los vídeos recomendados
     Hide Comment Likes: Ocultar Likes de Comentarios
     Hide Channel Subscribers: Ocultar Suscriptores de Canales
-    Distraction Free Settings: Configuración de modo sin distracciones
+    Distraction Free Settings: Modo sin Distracciones
     Hide Active Subscriptions: Ocultar suscripciones activas
     Hide Playlists: Ocultar listas de reproducción
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
@@ -330,8 +330,8 @@ Settings:
     Ip: IP
     Your Info: Tu información
     Test Proxy: Probar Proxy
-    Clicking on Test Proxy will send a request to: Al cliquear en "Probar Proxy" se
-      enviará una solicitud a
+    Clicking on Test Proxy will send a request to: Al hacer click en "Probar Proxy"
+      se enviará una solicitud a
     Proxy Port Number: Número de puerto del Proxy
     Proxy Host: Host del Proxy
     Proxy Protocol: Protocolo Proxy
@@ -343,13 +343,13 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL de la API de
       SponsorBlock (La predeterminada es https://sponsor.ajay.app)
     Enable SponsorBlock: Activar SponsorBlock
-    SponsorBlock Settings: Ajustes de SponsorBlock
+    SponsorBlock Settings: SponsorBlock
   External Player Settings:
-    Custom External Player Arguments: Argumentos personalizados de reprod. externo
-    Custom External Player Executable: Ejecutable personalizado de reprod. externo
+    Custom External Player Arguments: Argumentos adicionales del reproductor
+    Custom External Player Executable: Ruta alternativa del ejecutable del reproductor
     Ignore Unsupported Action Warnings: Omitir advertencias de acciones no soportadas
     External Player: Reproductor externo
-    External Player Settings: Parámetros del lector externo
+    External Player Settings: Reproductor externo
 About:
   #On About page
   About: 'Acerca de'
@@ -737,17 +737,15 @@ Tooltips:
       meta-archivos creados durante la reproducción del vídeo una vez se cierre la
       página de visualizado.
   External Player Settings:
-    Custom External Player Executable: De manera predeterminada, FreeTube supondrá
-      que el reproductor externo seleccionado puede hallarse mediante la variable
-      de entorno PATH. Si fuera necesario, se puede especificar una ruta personalizada
-      aquí.
-    Custom External Player Arguments: Cualesquier argumentos de orden de consola personalizados,
-      separados por punto y coma (;) que deberán transmitirse al reproductor externo.
-    Ignore Warnings: Suprimir las advertencias para cuando el reproductor externo
-      actual no admite la acción actual (ej. invertir listas de reproducción, etc.).
-    External Player: Elegir un reproductor externo mostrará un icono para abrir el
-      vídeo (o lista de reproducción si esta es compatible) en el reproductor externo,
-      en la miniatura.
+    Custom External Player Executable: Por defecto, FreeTube buscará el reproductor
+      externo seleccionado mediante la variable de entorno PATH, de no encontrarlo,
+      podrás especificar una ruta personalizada aquí.
+    Custom External Player Arguments: Depara cada argumento mediante un punto y coma
+      (;) cada argumento será enviado al reproductor externo.
+    Ignore Warnings: Ocultar advertencias por argumentos incompatibles con el reproductor
+      (ej. invertir listas de reproducción, etc.).
+    External Player: Al elegir un reproductor externo, aparecerá un botón en las miniaturas
+      de los vídeos para abrir el vídeo (o listas de reproducción si son compatibles).
     DefaultCustomArgumentsTemplate: '(Predeterminado: «$»)'
 More: Más
 Unknown YouTube url type, cannot be opened in app: Tipo de LRU desconocido. No se
