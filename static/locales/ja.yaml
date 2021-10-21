@@ -173,6 +173,7 @@ Settings:
     UI Scale: UI 縮尺率
     Expand Side Bar by Default: 幅広のサイド バーで起動
     Disable Smooth Scrolling: スムーズ スクロールの無効化
+    Hide Side Bar Labels: サイドバー ラベルの非表示
   Player Settings:
     Player Settings: 'プレイヤーの設定'
     Force Local Backend for Legacy Formats: '旧形式であれば内部 API の適用'
@@ -654,7 +655,7 @@ Tooltips:
       サーバーから取得した動画形式ではなく、内部 API で取得した旧形式を使用します。Invidious サーバーから取得する動画が、youtube の視聴制限国に該当して再生できないことがあるので回避します。
     Proxy Videos Through Invidious: 動画を取得するため、YouTube ではなく Invidious に接続します。API 設定を書き換えます。
   General Settings:
-    Invidious Instance: FreeTube が使用する Invidious API の接続先サーバーです。接続先を削除すると、接続先一覧が表示されますので選択してくさい。
+    Invidious Instance: FreeTube が使用する Invidious API の接続先サーバーです。
     Preferred API Backend: FreeTube が youtube からデータを取得する方法を選択します。「内部 API」とはアプリから取得する方法です。「Invidious
       API」とは、Invidious を用いたサーバーに接続して取得する方法です。
     Thumbnail Preference: FreeTube のすべてのサムネイルを、元のサムネイルの代わりに動画の 1 コマに置き換えます。
@@ -671,6 +672,7 @@ Tooltips:
     Custom External Player Executable: デフォルトでは、FreeTubeは選択した外部プレーヤーが PATH 環境変数を介して見つかると想定します。必要に応じて、カスタム
       パスをここで設定できます。
     External Player: 外部プレーヤーを選択すると、ビデオ (サポートされている場合はプレイリスト) を開くためのアイコンが表示されます。
+    DefaultCustomArgumentsTemplate: "(デフォルト: '$')"
 Playing Next Video Interval: すぐに次のビデオを再生します。クリックするとキャンセル。|次のビデオを {nextVideoInterval}
   秒で再生します。クリックするとキャンセル。|次のビデオを {nextVideoInterval} 秒で再生します。クリックするとキャンセル。
 More: もっと見る
