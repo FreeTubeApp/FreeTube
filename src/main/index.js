@@ -510,6 +510,15 @@ function runApp() {
         case DBActions.GENERAL.FIND:
           return await baseHandlers.playlists.find()
 
+        case DBActions.GENERAL.UPSERT:
+          await baseHandlers.playlists.upsert(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_PLAYLISTS,
+            event,
+            { event: SyncEvents.PLAYLISTS.UPSERT, data }
+          )
+          return null
+
         case DBActions.PLAYLISTS.UPSERT_VIDEO:
           await baseHandlers.playlists.upsertVideoByPlaylistName(data.playlistName, data.videoData)
           syncOtherWindows(

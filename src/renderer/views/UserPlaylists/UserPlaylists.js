@@ -23,13 +23,23 @@ export default Vue.extend({
     }
   },
   computed: {
-    favoritesPlaylist: function () {
-      return this.$store.getters.getFavorites
+    allPlaylists: function () {
+      return this.$store.getters.getAllPlaylists.map((playlist) => {
+        playlist.title = playlist.playlistName
+        playlist.type = 'playlist'
+        playlist.thumbnail = ''
+        playlist.channelName = ''
+        playlist.channelLink = ''
+        playlist.playlistLink = ''
+        playlist.description = playlist.description ? playlist.description : ''
+        playlist.videoCount = playlist.videos.length
+        return playlist
+      })
     },
 
     activeData: function () {
-      const data = [].concat(this.favoritesPlaylist.videos).reverse()
-      if (this.favoritesPlaylist.videos.length < this.dataLimit) {
+      const data = this.allPlaylists
+      if (this.allPlaylists.length < this.dataLimit) {
         return data
       } else {
         return data.slice(0, this.dataLimit)

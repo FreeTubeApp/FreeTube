@@ -5,13 +5,18 @@ const state = {
     {
       playlistName: 'Favorites',
       protected: true,
-      videos: []
+      removeOnWatched: false,
+      description: 'Your favorites',
+      videos: [],
+      _id: 'favorites'
     },
     {
-      playlistName: 'WatchLater',
+      playlistName: 'Watch Later',
       protected: true,
       removeOnWatched: true,
-      videos: []
+      description: 'videos to watch later',
+      videos: [],
+      _id: 'watchLater'
     }
   ]
 }
@@ -42,6 +47,15 @@ const actions = {
     }
   },
 
+  async updatePlaylist({ commit }, playlist) {
+    try {
+      await DBPlaylistHandlers.upsert(playlist)
+      commit('upsertProfileToList', playlist)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
+  },
+
   async addVideo({ commit }, payload) {
     try {
       const { playlistName, videoData } = payload
@@ -65,10 +79,47 @@ const actions = {
   async grabAllPlaylists({ commit, dispatch, state }) {
     try {
       const payload = await DBPlaylistHandlers.find()
+      console.log('here')
+      console.log(payload)
       if (payload.length === 0) {
         commit('setAllPlaylists', state.playlists)
-        dispatch('addPlaylists', payload)
+        dispatch('addPlaylists', state.playlists)
       } else {
+        const findFavorites = payload.filter((playlist) => {
+          return playlist.playlistName === 'Favorites' || playlist._id === 'favorites'
+        })
+        const findWatchLater = payload.filter((playlist) => {
+          return playlist.playlistName === 'Watch Later' || playlist._id === 'watchLater'
+        })
+
+        if (findFavorites.length === 0) {
+          dispatch('addPlaylist', state.playlists[0])
+          payload.push(state.playlists[0])
+        } else {
+          const favoritesPlaylist = findFavorites[0]
+
+          if (favoritesPlaylist._id !== 'favorites') {
+            const oldId = favoritesPlaylist._id
+            favoritesPlaylist._id = 'favorites'
+            dispatch('addPlaylist', favoritesPlaylist)
+            dispatch('removePlaylist', oldId)
+          }
+        }
+
+        if (findWatchLater.length === 0) {
+          dispatch('addPlaylist', state.playlists[1])
+          payload.push(state.playlists[1])
+        } else {
+          const watchLaterPlaylist = findFavorites[0]
+
+          if (watchLaterPlaylist._id !== 'favorites') {
+            const oldId = watchLaterPlaylist._id
+            watchLaterPlaylist._id = 'favorites'
+            dispatch('addPlaylist', watchLaterPlaylist)
+            dispatch('removePlaylist', oldId)
+          }
+        }
+
         commit('setAllPlaylists', payload)
       }
     } catch (errMessage) {
@@ -140,6 +191,18 @@ const mutations = {
 
   addPlaylists(state, payload) {
     state.playlists = state.playlists.concat(payload)
+  },
+
+  upsertPlaylistToList(state, updatedPlaylist) {
+    const i = state.playlists.findIndex((p) => {
+      return p._id === updatedPlaylist._id
+    })
+
+    if (i === -1) {
+      state.playlists.push(updatedPlaylist)
+    } else {
+      state.playlists.splice(i, 1, updatedPlaylist)
+    }
   },
 
   addVideo(state, payload) {

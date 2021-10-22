@@ -10,11 +10,6 @@
     >
       <h3>
         {{ $t("User Playlists.Your Playlists") }}
-        <ft-tooltip
-          class="selectTooltip"
-          position="bottom"
-          :tooltip="$t('User Playlists.Playlist Message')"
-        />
       </h3>
       <ft-flex-box
         v-if="activeData.length === 0"
@@ -28,7 +23,7 @@
         :data="activeData"
       />
       <ft-flex-box
-        v-if="activeData.length < favoritesPlaylist.videos.length"
+        v-if="activeData.length < allPlaylists.length"
       >
         <ft-button
           label="Load More"

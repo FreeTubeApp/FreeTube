@@ -19,7 +19,17 @@ export default Vue.extend({
   data: function () {
     return {
       isLoading: false,
-      playlistId: null,
+      playlistId: '',
+      playlistTitle: '',
+      playlistDescription: '',
+      firstVideoId: '',
+      viewCount: 0,
+      videoCount: 0,
+      lastUpdated: undefined,
+      channelName: '',
+      channelThumbnail: '',
+      channelId: '',
+      infoSource: 'local',
       nextPageRef: '',
       lastSearchQuery: '',
       playlistPage: 1,
@@ -36,50 +46,56 @@ export default Vue.extend({
     },
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
+    },
+    userPlaylists: function () {
+      return this.$store.getters.getAllPlaylists
+    },
+    selectedPlaylist: function () {
+      return this.userPlaylists.find(playlist => playlist._id === this.playlistId)
     }
   },
   watch: {
     $route () {
       // react to route changes...
-      this.getPlaylist()
+      this.getPlaylistInfo()
     }
   },
   mounted: function () {
-    this.getPlaylist()
+    this.getPlaylistInfo()
   },
   methods: {
-    getPlaylist: function () {
+    getPlaylistInfo: function () {
+      this.isLoading = true
       this.playlistId = this.$route.params.id
 
-      switch (this.backendPreference) {
-        case 'local':
-          this.getPlaylistLocal()
-          break
-        case 'invidious':
-          this.getPlaylistInvidious()
-          break
+      if (typeof (this.selectedPlaylist) !== 'undefined') {
+        this.parseUserPlaylist(this.selectedPlaylist)
+      } else {
+        switch (this.backendPreference) {
+          case 'local':
+            this.getPlaylistLocal()
+            break
+          case 'invidious':
+            this.getPlaylistInvidious()
+            break
+        }
       }
     },
     getPlaylistLocal: function () {
-      this.isLoading = true
-
       this.ytGetPlaylistInfo(this.playlistId).then((result) => {
         console.log('done')
         console.log(result)
-
-        this.infoData = {
-          id: result.id,
-          title: result.title,
-          description: result.description ? result.description : '',
-          firstVideoId: result.items[0].id,
-          viewCount: result.views,
-          videoCount: result.estimatedItemCount,
-          lastUpdated: result.lastUpdated ? result.lastUpdated : '',
-          channelName: result.author ? result.author.name : '',
-          channelThumbnail: result.author ? result.author.bestAvatar.url : '',
-          channelId: result.author ? result.author.channelID : '',
-          infoSource: 'local'
-        }
+        this.playlistId = result.id
+        this.playlistTitle = result.title
+        this.playlistDescription = result.description ? result.description : ''
+        this.firstVideoId = result.items[0].id
+        this.viewCount = result.views
+        this.videoCount = result.estimatedItemCount
+        this.lastUpdated = result.lastUpdated ? result.lastUpdated : ''
+        this.channelName = result.author ? result.author.name : ''
+        this.channelThumbnail = result.author ? result.author.bestAvatar.url : ''
+        this.channelId = result.author ? result.author.channelID : ''
+        this.infoSource = 'local'
 
         this.playlistItems = result.items.map((video) => {
           if (typeof video.author !== 'undefined') {
@@ -109,8 +125,6 @@ export default Vue.extend({
     },
 
     getPlaylistInvidious: function () {
-      this.isLoading = true
-
       const payload = {
         resource: 'playlists',
         id: this.playlistId,
@@ -123,22 +137,20 @@ export default Vue.extend({
         console.log('done')
         console.log(result)
 
-        this.infoData = {
-          id: result.playlistId,
-          title: result.title,
-          description: result.description,
-          firstVideoId: result.videos[0].videoId,
-          viewCount: result.viewCount,
-          videoCount: result.videoCount,
-          channelName: result.author,
-          channelThumbnail: result.authorThumbnails[2].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`),
-          channelId: result.authorId,
-          infoSource: 'invidious'
-        }
+        this.id = result.playlistId
+        this.title = result.title
+        this.description = result.description
+        this.firstVideoId = result.videos[0].videoId
+        this.viewCount = result.viewCount
+        this.videoCount = result.videoCount
+        this.channelName = result.author
+        this.channelThumbnail = result.authorThumbnails[2].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
+        this.channelId = result.authorId
+        this.infoSource = 'invidious'
 
         const dateString = new Date(result.updated * 1000)
         dateString.setDate(dateString.getDate() + 1)
-        this.infoData.lastUpdated = dateFormat(dateString, 'mmm dS, yyyy')
+        this.lastUpdated = dateFormat(dateString, 'mmm dS, yyyy')
 
         this.playlistItems = this.playlistItems.concat(result.videos)
 
@@ -159,6 +171,29 @@ export default Vue.extend({
           // TODO: Show toast with error message
         }
       })
+    },
+
+    parseUserPlaylist: function (playlist) {
+      this.playlistId = playlist._id
+      this.playlistTitle = playlist.title
+      this.playlistDescription = playlist.description
+
+      if (playlist.videos.length > 0) {
+        this.firstVideoId = playlist.videos[0].videoId
+      } else {
+        this.firstVideoId = ''
+      }
+      this.viewCount = 0
+      this.videoCount = playlist.videoCount
+      this.lastUpdated = undefined
+      this.channelName = playlist.author ? playlist.author.name : ''
+      this.channelThumbnail = playlist.author ? playlist.author.bestAvatar.url : ''
+      this.channelId = playlist.author ? playlist.author.channelID : ''
+      this.infoSource = 'user'
+
+      this.playlistItems = playlist.videos
+
+      this.isLoading = false
     },
 
     nextPage: function () {

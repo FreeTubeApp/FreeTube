@@ -56,7 +56,9 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    if (typeof (this.data.owner) === 'object') {
+    if (typeof (this.data._id) !== 'undefined') {
+      this.parseUserData()
+    } else if (typeof (this.data.owner) === 'object') {
       this.parseLocalData()
     } else {
       this.parseInvidiousData()
@@ -97,6 +99,19 @@ export default Vue.extend({
       this.channelLink = this.data.owner.url
       this.playlistLink = this.data.url
       this.videoCount = this.data.length
+    },
+
+    parseUserData: function () {
+      this.title = this.data.title
+      if (this.data.videos.length > 0) {
+        this.thumbnail = `https://i.ytimg.com/vi/${this.data.videos[0].videoId}/mqdefault.jpg`
+      } else {
+        this.thumbnail = 'https://i.ytimg.com/vi/aaaaaa/mqdefault.jpg'
+      }
+      this.channelName = ''
+      this.channelLink = ''
+      this.playlistLink = this.data._id
+      this.videoCount = this.data.videoCount
     },
 
     ...mapActions([

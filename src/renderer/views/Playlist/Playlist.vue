@@ -6,13 +6,26 @@
     />
     <playlist-info
       v-if="!isLoading"
-      :data="infoData"
+      :id="playlistId"
+      :firstVideoId="firstVideoId"
+      :title="playlistTitle"
+      :channelName="channelName"
+      :channelThumbnail="channelThumbnail"
+      :channelId="channelId"
+      :lastUpdated="lastUpdated"
+      :description="playlistDescription"
+      :videoCount="videoCount"
+      :viewCount="viewCount"
+      :infoSource="infoSource"
       class="playlistInfo"
     />
     <ft-card
       v-if="!isLoading"
       class="playlistItems"
     >
+      <span
+        v-if="playlistItems.length > 0"
+      >
       <ft-list-video
         v-for="(item, index) in playlistItems"
         :key="index"
@@ -22,6 +35,14 @@
         appearance="result"
         force-list-type="list"
       />
+      </span>
+      <ft-flex-box
+        v-else
+      >
+        <p class="message">
+          This playlist currently has no videos.
+        </p>
+      </ft-flex-box>
     </ft-card>
   </div>
 </template>

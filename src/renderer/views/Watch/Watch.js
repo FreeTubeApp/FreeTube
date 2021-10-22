@@ -546,7 +546,7 @@ export default Vue.extend({
           this.recommendedVideos = result.recommendedVideos
           this.adaptiveFormats = result.adaptiveFormats.map((format) => {
             format.bitrate = parseInt(format.bitrate)
-            format.height = parseInt(format.resolution.replace('p', ''))
+            format.height = format.resolution ? parseInt(format.resolution.replace('p', '')) : 0
             return format
           })
           this.isLive = result.liveNow

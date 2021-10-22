@@ -77,6 +77,10 @@ class Playlists {
     return baseHandlers.playlists.find()
   }
 
+  static upsert(playlist) {
+    return baseHandlers.playlists.upsert(playlist)
+  }
+
   static upsertVideoByPlaylistName(playlistName, videoData) {
     return baseHandlers.playlists.upsertVideoByPlaylistName(playlistName, videoData)
   }

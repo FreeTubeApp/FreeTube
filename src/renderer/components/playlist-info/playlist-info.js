@@ -1,31 +1,71 @@
 import Vue from 'vue'
 import { mapActions } from 'vuex'
 import FtListDropdown from '../ft-list-dropdown/ft-list-dropdown.vue'
+import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
+import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import FtShareButton from '../ft-share-button/ft-share-button.vue'
+import FtInput from '../ft-input/ft-input.vue'
 
 export default Vue.extend({
   name: 'PlaylistInfo',
   components: {
-    'ft-list-dropdown': FtListDropdown
+    'ft-list-dropdown': FtListDropdown,
+    'ft-flex-box': FtFlexBox,
+    'ft-icon-button': FtIconButton,
+    'ft-share-button': FtShareButton,
+    'ft-input': FtInput
   },
   props: {
-    data: {
-      type: Object,
+    id: {
+      type: String,
+      required: true
+    },
+    firstVideoId: {
+      type: String,
+      required: true
+    },
+    title: {
+      type: String,
+      required: true
+    },
+    channelThumbnail: {
+      type: String,
+      required: true
+    },
+    channelName: {
+      type: String,
+      required: true
+    },
+    channelId: {
+      type: String,
+      required: true
+    },
+    videoCount: {
+      type: Number,
+      required: true
+    },
+    viewCount: {
+      type: Number,
+      required: true
+    },
+    lastUpdated: {
+      type: String,
+      default: undefined
+    },
+    description: {
+      type: String,
+      required: true
+    },
+    infoSource: {
+      type: String,
       required: true
     }
   },
   data: function () {
     return {
-      id: '',
-      firstVideoId: '',
-      title: '',
-      channelThumbnail: '',
-      channelName: '',
-      channelId: '',
-      videoCount: 0,
-      viewCount: 0,
-      lastUpdated: '',
-      description: '',
-      infoSource: '',
+      editMode: false,
+      newTitle: '',
+      newDescription: '',
       shareValues: [
         'copyYoutube',
         'openYoutube',
@@ -45,6 +85,14 @@ export default Vue.extend({
 
     thumbnailPreference: function () {
       return this.$store.getters.getThumbnailPreference
+    },
+
+    userPlaylists: function () {
+      return this.$store.getters.getAllPlaylists
+    },
+
+    selectedPlaylist: function () {
+      return this.userPlaylists.find(playlist => playlist._id === this.id)
     },
 
     shareHeaders: function () {
@@ -70,27 +118,12 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    console.log(this.data)
-    this.id = this.data.id
-    this.firstVideoId = this.data.firstVideoId
-    this.title = this.data.title
-    this.channelName = this.data.channelName
-    this.channelThumbnail = this.data.channelThumbnail
-    this.channelId = this.data.channelId
-    this.uploadedTime = this.data.uploaded_at
-    this.description = this.data.description
-    this.infoSource = this.data.infoSource
-
+    this.newTitle = this.title
+    this.newDescription = this.description
     // Causes errors if not put inside of a check
-    if (typeof (this.data.viewCount) !== 'undefined') {
+    /* if (typeof (this.data.viewCount) !== 'undefined') {
       this.viewCount = this.data.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-    }
-
-    if (typeof (this.data.videoCount) !== 'undefined') {
-      this.videoCount = this.data.videoCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-    }
-
-    this.lastUpdated = this.data.lastUpdated
+    } */
   },
   methods: {
     sharePlaylist: function (method) {
@@ -136,9 +169,29 @@ export default Vue.extend({
       this.$router.push({ path: `/channel/${this.channelId}` })
     },
 
+    savePlaylistInfo: function () {
+      const playlist = {
+        playlistName: this.newTitle,
+        protected: this.selectedPlaylist.protected,
+        removeOnWatched: this.selectedPlaylist.removeOnWatched,
+        description: this.newDescipriton,
+        videos: this.selectedPlaylist.videos,
+        _id: this.id
+      }
+      this.updatePlaylist(playlist)
+      this.cancelEditMode()
+    },
+
+    cancelEditMode: function () {
+      this.newTitle = this.title
+      this.newDescription = this.description
+      this.editMode = false
+    },
+
     ...mapActions([
       'showToast',
-      'openExternalLink'
+      'openExternalLink',
+      'updatePlaylist'
     ])
   }
 })

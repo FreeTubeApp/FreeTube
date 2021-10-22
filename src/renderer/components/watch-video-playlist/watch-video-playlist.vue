@@ -13,15 +13,16 @@
         {{ playlistTitle }}
       </h3>
       <span
+        v-if="channelName !== ''"
         class="channelName"
         @click="goToChannel"
       >
-        {{ channelName }}
+        {{ channelName }} -
       </span>
       <span
         class="playlistIndex"
       >
-        - {{ currentVideoIndex }} / {{ playlistVideoCount }}
+        {{ currentVideoIndex }} / {{ playlistVideoCount }}
       </span>
       <p>
         <font-awesome-icon

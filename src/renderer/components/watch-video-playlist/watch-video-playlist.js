@@ -50,6 +50,14 @@ export default Vue.extend({
       return this.$store.getters.getBackendFallback
     },
 
+    userPlaylists: function () {
+      return this.$store.getters.getAllPlaylists
+    },
+
+    selectedPlaylist: function () {
+      return this.userPlaylists.find(playlist => playlist._id === this.playlistId)
+    },
+
     currentVideoIndex: function () {
       const index = this.playlistItems.findIndex((item) => {
         if (typeof item.videoId !== 'undefined') {
@@ -86,7 +94,9 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    if (!this.usingElectron) {
+    if (typeof (this.selectedPlaylist) !== 'undefined') {
+      this.parseUserPlaylist(this.selectedPlaylist)
+    } else if (!this.usingElectron) {
       this.getPlaylistInformationInvidious()
     } else {
       switch (this.backendPreference) {
@@ -376,6 +386,18 @@ export default Vue.extend({
           // TODO: Show toast with error message
         }
       })
+    },
+
+    parseUserPlaylist: function (playlist) {
+      this.playlistTitle = playlist.title
+      this.videoCount = playlist.videoCount
+      this.channelName = playlist.author ? playlist.author.name : ''
+      this.channelThumbnail = playlist.author ? playlist.author.bestAvatar.url : ''
+      this.channelId = playlist.author ? playlist.author.channelID : ''
+
+      this.playlistItems = playlist.videos
+
+      this.isLoading = false
     },
 
     shufflePlaylistItems: function () {

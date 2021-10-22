@@ -16,3 +16,7 @@
   display: grid;
   grid-gap: 10px;
 }
+
+.message {
+  color: var(--tertiary-text-color);
+}

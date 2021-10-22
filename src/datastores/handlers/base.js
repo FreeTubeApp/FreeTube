@@ -90,6 +90,10 @@ class Playlists {
     return db.playlists.find({})
   }
 
+  static upsert(playlist) {
+    return db.profiles.update({ _id: playlist._id }, playlist, { upsert: true })
+  }
+
   static upsertVideoByPlaylistName(playlistName, videoData) {
     return db.playlists.update(
       { playlistName },
