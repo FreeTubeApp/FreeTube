@@ -12,6 +12,10 @@ import 'videojs-overlay/dist/videojs-overlay.css'
 import 'videojs-vtt-thumbnails-freetube'
 import 'videojs-contrib-quality-levels'
 import 'videojs-http-source-selector'
+import { format } from 'prettier'
+
+const statistic_timeout = 1000
+
 
 export default Vue.extend({
   name: 'FtVideoPlayer',
@@ -142,11 +146,12 @@ export default Vue.extend({
         volume: null,
         network_state: null, 
         network_speed: null,
-        data_transfer_speed: null,
+        bandwidth: null,
         buffer_time: null, 
-        buffer_percent: null, 
+        buffer_percent: null,
+        fps:null,
       },
-      statsTimeout: null,
+      statsTimer: null,
     }
   },
   computed: {
@@ -220,8 +225,8 @@ export default Vue.extend({
 
     this.statsTimeout = setInterval(() => {
       this.updateVideoStatistic();
-    }, 1000)
-
+    }, statistic_timeout)
+    this.stats.video_id = this.id
   },
   beforeDestroy: function () {
     if (this.player !== null) {
@@ -231,7 +236,7 @@ export default Vue.extend({
         this.player.dispose()
         this.player = null
         clearTimeout(this.mouseTimeout)
-        clearInterval(this.statsTimeout)
+        clearInterval(this.statsTimer)
       }
     }
 
@@ -1506,16 +1511,30 @@ export default Vue.extend({
     ]),
     updateVideoStatistic: function(){
       if (this.player != null){
+        const stats = this.player.tech({ IWillNotUseThisInPlugins: true }).vhs.stats
         this.stats.player_resolution = this.player.currentDimensions()
-        this.stats.frame_drop = null
-        this.stats.volume = null
-        this.stats.network_state = null //this.player.network_state()
+        this.stats.frame_drop = null  //https://github.com/videojs/http-streaming#runtime-properties
+        this.stats.volume = this.player.volume() 
+        this.stats.network_state = this.player.networkState()
         this.stats.network_speed = null
-        this.stats.data_transfer_speed = null
+        this.stats.bandwidth = stats.bandwidth
         this.stats.buffer_time = this.player.buffered()
         this.stats.buffer_percent = this.player.bufferedPercent()
       }
         
+    },
+    currentFps: function(){
+      for (let el of this.activeAdaptiveFormats){
+        if (el.qualityLabel == this.selectedQuality){
+          this.stats.fps = el.fps
+          break
+        }
+      }
+    }
+  },
+  watch: {
+    selectedQuality:function(){
+      this.currentFps()
     }
   },
 })
