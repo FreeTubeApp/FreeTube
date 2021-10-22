@@ -79,8 +79,6 @@ const actions = {
   async grabAllPlaylists({ commit, dispatch, state }) {
     try {
       const payload = await DBPlaylistHandlers.find()
-      console.log('here')
-      console.log(payload)
       if (payload.length === 0) {
         commit('setAllPlaylists', state.playlists)
         dispatch('addPlaylists', state.playlists)
