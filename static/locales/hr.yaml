@@ -184,6 +184,7 @@ Settings:
     UI Scale: Uvećanje korisničkog sučelja
     Disable Smooth Scrolling: Deaktiviraj neisprekidano klizanje
     Expand Side Bar by Default: Standardno proširi bočnu traku
+    Hide Side Bar Labels: Sakrij oznake bočnih traka
   Player Settings:
     Player Settings: 'Postavke playera'
     Force Local Backend for Legacy Formats: 'Koristi lokalni pozadinski sustav za
@@ -719,8 +720,7 @@ Tooltips:
       je reprodukcija videa koje dostavlja Invidious u zemlji zabranjena/ograničena.
   General Settings:
     Invidious Instance: Invidious primjerak na koji će se FreeTube povezati za pozive
-      sučelja. Isprazni trenutačni primjerak za prikaz popisa javnih primjeraka koje
-      možeš odabrati.
+      API-a.
     Thumbnail Preference: U FreeTubeu će se sve minijature zamijeniti s jednim kadrom
       videa umjesto standardne minijature.
     Fallback to Non-Preferred Backend on Failure: Ako primarno odabrano sučelje ima
@@ -753,6 +753,7 @@ Tooltips:
     Custom External Player Executable: Prema standardnim postavkama, FreeTube će pretpostaviti
       da se odabrani vanjski player može pronaći putem varijable okruženja PATH (putanja).
       Ako je potrebno, ovdje se može postaviti prilagođena putanja.
+    DefaultCustomArgumentsTemplate: '(Standardno: „$”)'
 Playing Next Video Interval: Trenutna reprodukcija sljedećeg videa. Pritisni za prekid.
   | Reprodukcija sljedećeg videa za {nextVideoInterval} sekunde. Pritisni za prekid.
   | Reprodukcija sljedećeg videa za {nextVideoInterval} sekundi. Pritisni za prekid.

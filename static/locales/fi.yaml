@@ -180,6 +180,7 @@ Settings:
     UI Scale: Käyttöliittymän koko
     Disable Smooth Scrolling: Poista tasainen vieritys käytöstä
     Expand Side Bar by Default: Laajenna sivupalkki oletusarvoisesti
+    Hide Side Bar Labels: Piilota sivupalkin nimikkeet
   Player Settings:
     Player Settings: 'Soittimen asetukset'
     Force Local Backend for Legacy Formats: 'Pakota paikallinen taustaohjelma vanhoille
@@ -730,6 +731,7 @@ Tooltips:
       Mikäli tarvetta ilmenee, voidaan asettaa omavalintainen polku tähän.
     External Player: Ulkoisen toisto-ohjelman valinta tuottaa kuvakkeen videon avaamiseksi
       (soittoluettelon mikäli sellainen on tuettu) ulkoisessa toisto-ohjelmassa, pikkukuvana.
+    DefaultCustomArgumentsTemplate: "(Oletus: '$')"
 More: Lisää
 Playing Next Video Interval: Seuraava video alkaa. Klikkaa peruuttaaksesi. |Seuraava
   video alkaa {nextVideoInterval} sekunnin kuluttua. Klikkaa peruuttaaksesi. | Seuraava
