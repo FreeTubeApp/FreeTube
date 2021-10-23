@@ -215,6 +215,34 @@ const state = {
   saveWatchedProgress: true,
   sponsorBlockShowSkippedToast: true,
   sponsorBlockUrl: 'https://sponsor.ajay.app',
+  sponsorBlockSponsor: {
+    color: 'Blue',
+    skip: 'Auto Skip'
+  },
+  sponsorBlockSelfPromo: {
+    color: 'Yellow',
+    skip: 'Show In Seek Bar'
+  },
+  sponsorBlockInteraction: {
+    color: 'Green',
+    skip: 'Show In Seek Bar'
+  },
+  sponsorBlockIntro: {
+    color: 'Orange',
+    skip: 'Don\'t Skip'
+  },
+  sponsorBlockOutro: {
+    color: 'Orange',
+    skip: 'Don\'t Skip'
+  },
+  sponsorBlockRecap: {
+    color: 'Orange',
+    skip: 'Don\'t Skip'
+  },
+  sponsorBlockMusicOffTopic: {
+    color: 'Orange',
+    skip: 'Don\'t Skip'
+  },
   thumbnailPreference: '',
   useProxy: false,
   useRssFeeds: false,
