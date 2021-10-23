@@ -188,6 +188,58 @@ export default Vue.extend({
       return this.$store.getters.getDisplayVideoPlayButton
     },
 
+    sponsorSkips: function () {
+      const sponsorCats = ['sponsor',
+        'selfpromo',
+        'interaction',
+        'intro',
+        'outro',
+        'preview',
+        'music_offtopic'
+      ]
+      const autoSkip = {}
+      const seekBar = []
+      const promptSkip = {}
+      const categoryData = {}
+      sponsorCats.forEach(x => {
+        let sponsorVal = {}
+        switch (x) {
+          case 'sponsor':
+            sponsorVal = this.$store.getters.getSponsorBlockSponsor
+            break
+          case 'selfpromo':
+            sponsorVal = this.$store.getters.getSponsorBlockSelfPromo
+            break
+          case 'interaction':
+            sponsorVal = this.$store.getters.getSponsorBlockInteraction
+            break
+          case 'intro':
+            sponsorVal = this.$store.getters.getSponsorBlockIntro
+            break
+          case 'outro':
+            sponsorVal = this.$store.getters.getSponsorBlockOutro
+            break
+          case 'preview':
+            sponsorVal = this.$store.getters.getSponsorBlockRecap
+            break
+          case 'music_offtopic':
+            sponsorVal = this.$store.getters.getSponsorBlockMusicOffTopic
+            break
+        }
+        if (sponsorVal.skip !== 'Don\'t Skip') {
+          seekBar.push(x)
+        }
+        if (sponsorVal.skip === 'Auto Skip') {
+          autoSkip[x] = true
+        }
+        if (sponsorVal.skip === 'Prompt to skip') {
+          promptSkip[x] = true
+        }
+        categoryData[x] = sponsorVal
+      })
+      return {autoSkip, seekBar, promptSkip, categoryData}
+    },
+
     maxVideoPlaybackRate: function () {
       return parseInt(this.$store.getters.getMaxVideoPlaybackRate)
     },
@@ -432,7 +484,7 @@ export default Vue.extend({
     initializeSponsorBlock() {
       this.sponsorBlockSkipSegments({
         videoId: this.videoId,
-        categories: ['sponsor']
+        categories: this.sponsorSkips.seekBar
       }).then((skipSegments) => {
         if (skipSegments.length === 0) {
           return
@@ -450,7 +502,8 @@ export default Vue.extend({
             this.addSponsorBlockMarker({
               time: startTime,
               duration: endTime - startTime,
-              color: this.sponsorBlockCategoryColor(category)
+              color: 'var(--primary-color)',
+              category: category
             })
           })
         })
@@ -469,10 +522,12 @@ export default Vue.extend({
         }
       })
       if (newTime !== null && Math.abs(duration - currentTime) > 0.500) {
-        if (this.sponsorBlockShowSkippedToast) {
-          this.showSkippedSponsorSegmentInformation(skippedCategory)
+        if (this.sponsorSkips.autoSkip[skippedCategory]) {
+          if (this.sponsorBlockShowSkippedToast) {
+            this.showSkippedSponsorSegmentInformation(skippedCategory)
+          }
+          this.player.currentTime(newTime)
         }
-        this.player.currentTime(newTime)
       }
     },
 
@@ -503,36 +558,16 @@ export default Vue.extend({
       }
     },
 
-    sponsorBlockCategoryColor(category) {
-      // TODO: allow to set these colors in settings
-      switch (category) {
-        case 'sponsor':
-          return 'var(--accent-color)'
-        case 'intro':
-          return 'var(--accent-color)'
-        case 'outro':
-          return 'var(--accent-color)'
-        case 'selfpromo':
-          return 'var(--accent-color)'
-        case 'interaction':
-          return 'var(--accent-color)'
-        case 'music_offtopic':
-          return 'var(--accent-color)'
-        default:
-          console.error(`Unknown SponsorBlock category ${category}`)
-          return 'var(--accent-color)'
-      }
-    },
-
     addSponsorBlockMarker(marker) {
       const markerDiv = videojs.dom.createEl('div', {}, {})
 
-      markerDiv.className = 'sponsorBlockMarker'
+      markerDiv.className = `sponsorBlockMarker main${this.sponsorSkips.categoryData[marker.category].color}`
       markerDiv.style.height = '100%'
       markerDiv.style.position = 'absolute'
       markerDiv.style['background-color'] = marker.color
       markerDiv.style.width = (marker.duration / this.player.duration()) * 100 + '%'
       markerDiv.style.marginLeft = (marker.time / this.player.duration()) * 100 + '%'
+      markerDiv.title = this.sponsorBlockTranslatedCategory(marker.category)
 
       this.player.el().querySelector('.vjs-progress-holder').appendChild(markerDiv)
     },
