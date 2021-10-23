@@ -145,7 +145,6 @@ export default Vue.extend({
         frame_drop: null,
         volume: null,
         network_state: null, 
-        network_speed: null,
         bandwidth: null,
         buffer_time: null, 
         buffer_percent: null,
@@ -1512,16 +1511,15 @@ export default Vue.extend({
     updateVideoStatistic: function(){
       if (this.player != null){
         const stats = this.player.tech({ IWillNotUseThisInPlugins: true }).vhs.stats
+
         this.stats.player_resolution = this.player.currentDimensions()
-        this.stats.frame_drop = null  //https://github.com/videojs/http-streaming#runtime-properties
+        this.stats.frame_drop = stats.videoPlaybackQuality  
         this.stats.volume = this.player.volume() 
         this.stats.network_state = this.player.networkState()
-        this.stats.network_speed = null
         this.stats.bandwidth = stats.bandwidth
         this.stats.buffer_time = this.player.buffered()
         this.stats.buffer_percent = this.player.bufferedPercent()
       }
-        
     },
     currentFps: function(){
       for (let el of this.activeAdaptiveFormats){
