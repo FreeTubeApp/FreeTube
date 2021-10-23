@@ -150,7 +150,6 @@ export default Vue.extend({
         buffer_percent: null,
         fps:null,
       },
-      statsTimer: null,
     }
   },
   computed: {
@@ -221,10 +220,6 @@ export default Vue.extend({
     this.createToggleTheatreModeButton()
     this.determineFormatType()
     this.determineMaxFramerate()
-
-    this.statsTimeout = setInterval(() => {
-      this.updateVideoStatistic();
-    }, statistic_timeout)
     this.stats.video_id = this.id
   },
   beforeDestroy: function () {
@@ -359,6 +354,7 @@ export default Vue.extend({
           this.updateDefaultCaptionSettings(JSON.stringify(settings))
         })
       }
+      this.addPlayerStatsEvent()
     },
 
     initializeSponsorBlock() {
@@ -490,6 +486,7 @@ export default Vue.extend({
       // 0 means muted
       // https://docs.videojs.com/html5#volume
       const volume = this.player.muted() ? 0 : this.player.volume()
+
       sessionStorage.setItem('volume', volume)
     },
 
@@ -1508,18 +1505,26 @@ export default Vue.extend({
       'showToast',
       'sponsorBlockSkipSegments'
     ]),
-    updateVideoStatistic: function(){
-      if (this.player != null){
+    addPlayerStatsEvent: function(){
+      this.player.on("volumechange",()=>{this.stats.volume = this.player.volume()})
+
+      this.player.on("timeupdate",()=>{
+        const stats = this.player.tech({ IWillNotUseThisInPlugins: true }).vhs.stats
+        this.stats.frame_drop = stats.videoPlaybackQuality 
+      })
+
+      this.player.on("progress",()=>{
         const stats = this.player.tech({ IWillNotUseThisInPlugins: true }).vhs.stats
 
-        this.stats.player_resolution = this.player.currentDimensions()
-        this.stats.frame_drop = stats.videoPlaybackQuality  
-        this.stats.volume = this.player.volume() 
-        this.stats.network_state = this.player.networkState()
         this.stats.bandwidth = stats.bandwidth
         this.stats.buffer_time = this.player.buffered()
         this.stats.buffer_percent = this.player.bufferedPercent()
-      }
+        this.stats.network_state = this.player.networkState()
+      })
+
+      this.player.on("playerresize",()=>{
+        this.stats.player_resolution = this.player.currentDimensions()
+      })
     },
     currentFps: function(){
       for (let el of this.activeAdaptiveFormats){
