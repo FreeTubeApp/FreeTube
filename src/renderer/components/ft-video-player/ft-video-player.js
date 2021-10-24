@@ -12,10 +12,6 @@ import 'videojs-overlay/dist/videojs-overlay.css'
 import 'videojs-vtt-thumbnails-freetube'
 import 'videojs-contrib-quality-levels'
 import 'videojs-http-source-selector'
-import { format } from 'prettier'
-
-const statistic_timeout = 1000
-
 
 export default Vue.extend({
   name: 'FtVideoPlayer',
