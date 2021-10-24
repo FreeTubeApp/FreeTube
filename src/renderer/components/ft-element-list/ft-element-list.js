@@ -16,11 +16,6 @@ export default Vue.extend({
       required: true
     }
   },
-  data: function () {
-    return {
-      test: 'hello'
-    }
-  },
   computed: {
     listType: function () {
       return this.$store.getters.getListType

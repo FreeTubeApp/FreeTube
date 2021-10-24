@@ -6,11 +6,10 @@
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 10;
-  padding: 15px;
 }
 
 .promptCard {
-  width: 95%;
+  width: 100%;
   margin: 0;
   position: absolute;
   top: 40%;

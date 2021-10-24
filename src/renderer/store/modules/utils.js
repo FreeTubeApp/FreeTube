@@ -15,7 +15,9 @@ const state = {
     movies: null
   },
   showProgressBar: false,
+  showAddToPlaylistPrompt: false,
   progressBarPercentage: 0,
+  playlistAddVideoObject: [],
   regionNames: [],
   regionValues: [],
   recentBlogPosts: [],
@@ -93,6 +95,14 @@ const getters = {
 
   getColorValues () {
     return state.colorValues
+  },
+
+  getShowAddToPlaylistPrompt () {
+    return state.showAddToPlaylistPrompt
+  },
+
+  getPlaylistAddVideoObject () {
+    return state.playlistAddVideoObject
   },
 
   getShowProgressBar () {
@@ -187,6 +197,15 @@ const actions = {
     // TODO: implement getUserDataPath web compatible callback
     const webCbk = () => null
     return await invokeIRC(context, IpcChannels.GET_USER_DATA_PATH, webCbk)
+  },
+
+  showAddToPlaylistPrompt ({ commit }, videoArray) {
+    commit('setShowAddToPlaylistPrompt', true)
+    commit('setPlaylistAddVideoObject', videoArray)
+  },
+
+  hideAddToPlaylistPrompt ({ commit }) {
+    commit('setShowAddToPlaylistPrompt', false)
   },
 
   updateShowProgressBar ({ commit }, value) {
@@ -833,6 +852,14 @@ const mutations = {
     } else {
       state.sessionSearchHistory.push(payload)
     }
+  },
+
+  setShowAddToPlaylistPrompt (state, payload) {
+    state.showAddToPlaylistPrompt = payload
+  },
+
+  setPlaylistAddVideoObject (state, payload) {
+    state.playlistAddVideoObject = payload
   },
 
   setPopularCache (state, value) {

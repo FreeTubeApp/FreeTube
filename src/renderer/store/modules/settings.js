@@ -391,6 +391,10 @@ const customActions = {
 
     ipcRenderer.on(IpcChannels.SYNC_PLAYLISTS, (_, { event, data }) => {
       switch (event) {
+        case SyncEvents.PLAYLISTS.UPSERT:
+          commit('upsertPlaylistToList', data)
+          break
+
         case SyncEvents.PLAYLISTS.UPSERT_VIDEO:
           commit('addVideo', data)
           break

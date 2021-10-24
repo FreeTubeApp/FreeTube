@@ -174,7 +174,7 @@ export default Vue.extend({
         playlistName: this.newTitle,
         protected: this.selectedPlaylist.protected,
         removeOnWatched: this.selectedPlaylist.removeOnWatched,
-        description: this.newDescipriton,
+        description: this.newDescription,
         videos: this.selectedPlaylist.videos,
         _id: this.id
       }
@@ -182,9 +182,13 @@ export default Vue.extend({
       this.cancelEditMode()
     },
 
-    cancelEditMode: function () {
+    enableEditMode: function () {
       this.newTitle = this.title
       this.newDescription = this.description
+      this.editMode = true
+    },
+
+    cancelEditMode: function () {
       this.editMode = false
     },
 

@@ -80,7 +80,7 @@
         title="Edit Playlist"
         icon="edit"
         theme="primary"
-        @click="editMode = !editMode"
+        @click="enableEditMode"
       />
       <ft-icon-button
         v-if="infoSource === 'user'"

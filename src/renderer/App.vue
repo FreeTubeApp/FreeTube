@@ -65,6 +65,9 @@
       :option-values="externalLinkOpeningPromptValues"
       @click="handleExternalLinkOpeningPromptAnswer"
     />
+    <ft-playlist-add-video-prompt
+      v-if="showAddToPlaylistPrompt"
+    />
     <ft-toast />
     <ft-progress-bar
       v-if="showProgressBar"

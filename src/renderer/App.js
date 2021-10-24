@@ -9,6 +9,7 @@ import FtPrompt from './components/ft-prompt/ft-prompt.vue'
 import FtButton from './components/ft-button/ft-button.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
 import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
+import FtPlaylistAddVideoPrompt from './components/ft-playlist-add-video-prompt/ft-playlist-add-video-prompt.vue'
 import $ from 'jquery'
 import marked from 'marked'
 import Parser from 'rss-parser'
@@ -27,7 +28,8 @@ export default Vue.extend({
     FtPrompt,
     FtButton,
     FtToast,
-    FtProgressBar
+    FtProgressBar,
+    FtPlaylistAddVideoPrompt
   },
   data: function () {
     return {
@@ -41,7 +43,6 @@ export default Vue.extend({
       latestBlogUrl: '',
       updateChangelog: '',
       changeLogTitle: '',
-
       lastExternalLinkToBeOpened: '',
       showExternalLinkOpeningPrompt: false,
       externalLinkOpeningPromptValues: [
@@ -78,6 +79,9 @@ export default Vue.extend({
     profileList: function () {
       return this.$store.getters.getProfileList
     },
+    showAddToPlaylistPrompt: function () {
+      return this.$store.getters.getShowAddToPlaylistPrompt
+    },
     windowTitle: function () {
       if (this.$route.meta.title !== 'Channel' && this.$route.meta.title !== 'Watch') {
         let title =
@@ -101,14 +105,12 @@ export default Vue.extend({
     defaultInvidiousInstance: function () {
       return this.$store.getters.getDefaultInvidiousInstance
     },
-
     externalLinkOpeningPromptNames: function () {
       return [
         this.$t('Yes'),
         this.$t('No')
       ]
     },
-
     externalLinkHandling: function () {
       return this.$store.getters.getExternalLinkHandling
     }

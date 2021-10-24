@@ -24,17 +24,18 @@ export default Vue.extend({
   },
   computed: {
     allPlaylists: function () {
-      return this.$store.getters.getAllPlaylists.map((playlist) => {
+      const playlists = this.$store.getters.getAllPlaylists
+      const formattedPlaylists = [].concat(playlists).map((playlist) => {
         playlist.title = playlist.playlistName
         playlist.type = 'playlist'
         playlist.thumbnail = ''
         playlist.channelName = ''
         playlist.channelLink = ''
         playlist.playlistLink = ''
-        playlist.description = playlist.description ? playlist.description : ''
         playlist.videoCount = playlist.videos.length
         return playlist
       })
+      return formattedPlaylists
     },
 
     activeData: function () {

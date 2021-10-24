@@ -27,7 +27,6 @@ $watched-transition-duration: 0.5s
   @at-root
     .watched &, .watched#{&}
       color: var(--tertiary-text-color)
-      transition-duration: $watched-transition-duration
 
     .watched:hover &, .watched:hover#{&}
       color: $col
@@ -36,16 +35,19 @@ $watched-transition-duration: 0.5s
 .ft-list-item
   padding: 6px
 
-  &.watched
+  &:hover
     background-color: var(--bg-color)
     @include low-contrast-when-watched(var(--primary-text-color))
 
     .thumbnailImage
       opacity: 0.3
-      transition-duration: $watched-transition-duration
 
-    &:hover .thumbnailImage
-      opacity: 1
+  &.selected
+    background-color: var(--bg-color)
+    @include low-contrast-when-watched(var(--primary-text-color))
+
+    .thumbnailImage
+      opacity: 0.3
       transition-duration: $watched-transition-duration
 
   .videoThumbnail
@@ -54,18 +56,9 @@ $watched-transition-duration: 0.5s
     .thumbnailLink
       display: flex
 
-    .thumbnailImage
-
-      @include is-sidebar-item
-        height: 75px
-
-      @include is-recommendation
-        width: 163px
-        height: auto
-
     .videoWatched
       position: absolute
-      top:0
+      top: 0
       padding: 2px
       opacity: $thumbnail-overlay-opacity
       color: var(--primary-text-color)
@@ -194,23 +187,10 @@ $watched-transition-duration: 0.5s
       overflow-y: hidden
       @include low-contrast-when-watched(var(--secondary-text-color))
 
-  &.list
-    display: flex
-    align-items: flex-start
-
-    .videoThumbnail, .channelThumbnail
-      margin-right: 20px
-
-    .channelThumbnail
-      width: 231px
-
-    @include is-sidebar-item
-      .videoThumbnail
-        margin-right: 10px
-
   &.grid
     display: flex
     flex-direction: column
+    min-width: 245px
     min-height: 230px
     padding-bottom: 20px
 
@@ -221,7 +201,7 @@ $watched-transition-duration: 0.5s
         width: 100%
 
     .title
-      font-size: 18px
+      font-size: 22px
 
     .infoLine
       margin-top: 8px
@@ -229,3 +209,9 @@ $watched-transition-duration: 0.5s
 
 .videoWatched, .live
   text-transform: uppercase
+
+.selectedIcon
+  position: absolute
+  top: calc(50% - 25px)
+  left: calc(50% - 25px)
+  font-size: 50px

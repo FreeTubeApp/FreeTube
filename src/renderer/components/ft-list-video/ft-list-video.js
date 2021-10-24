@@ -233,11 +233,36 @@ export default Vue.extend({
       }
     },
 
-    toggleSave: function () {
+    addToPlaylist: function () {
+      const videoData = {
+        videoId: this.id,
+        title: this.title,
+        author: this.channelName,
+        authorId: this.channelId,
+        published: '',
+        description: this.description,
+        viewCount: this.viewCount,
+        lengthSeconds: this.data.lengthSeconds,
+        timeAdded: new Date().getTime(),
+        isLive: false,
+        paid: false,
+        type: 'video'
+      }
+
+      this.$emit('add-to-playlist', videoData)
+    },
+
+    toggleFavorite: function () {
       if (this.inFavoritesPlaylist) {
-        this.removeFromPlaylist()
+        this.removeFromFavorites()
+        this.showToast({
+          message: this.$t('Video.Video has been removed from your saved list')
+        })
       } else {
-        this.addToPlaylist()
+        this.addToFavorites()
+        this.showToast({
+          message: this.$t('Video.Video has been saved')
+        })
       }
     },
 
@@ -441,7 +466,7 @@ export default Vue.extend({
       this.watched = false
     },
 
-    addToPlaylist: function () {
+    addToFavorites: function () {
       const videoData = {
         videoId: this.id,
         title: this.title,
@@ -458,28 +483,39 @@ export default Vue.extend({
       }
 
       const payload = {
-        playlistName: 'Favorites',
+        _id: 'favorites',
         videoData: videoData
       }
 
       this.addVideo(payload)
-
-      this.showToast({
-        message: this.$t('Video.Video has been saved')
-      })
     },
 
-    removeFromPlaylist: function () {
+    removeFromFavorites: function () {
       const payload = {
-        playlistName: 'Favorites',
+        _id: 'favorites',
         videoId: this.id
       }
 
       this.removeVideo(payload)
+    },
 
-      this.showToast({
-        message: this.$t('Video.Video has been removed from your saved list')
-      })
+    togglePlaylistPrompt: function () {
+      const videoData = {
+        videoId: this.id,
+        title: this.title,
+        author: this.channelName,
+        authorId: this.channelId,
+        published: '',
+        description: this.description,
+        viewCount: this.viewCount,
+        lengthSeconds: this.data.lengthSeconds,
+        timeAdded: new Date().getTime(),
+        isLive: false,
+        paid: false,
+        type: 'video'
+      }
+
+      this.showAddToPlaylistPrompt(videoData)
     },
 
     ...mapActions([
@@ -490,6 +526,7 @@ export default Vue.extend({
       'removeFromHistory',
       'addVideo',
       'removeVideo',
+      'showAddToPlaylistPrompt',
       'openExternalLink'
     ])
   }

@@ -49,7 +49,16 @@
         :theme="favoriteIconTheme"
         :padding="appearance === `watchPlaylistItem` ? 5 : 6"
         :size="appearance === `watchPlaylistItem` ? 14 : 18"
-        @click="toggleSave"
+        @click="toggleFavorite"
+      />
+      <ft-icon-button
+        v-if="!isLive"
+        title="Add to playlist"
+        icon="plus"
+        class="playlistIcon"
+        :padding="appearance === `watchPlaylistItem` ? 5 : 6"
+        :size="appearance === `watchPlaylistItem` ? 14 : 18"
+        @click="togglePlaylistPrompt"
       />
       <div
         v-if="addWatchedStyle"

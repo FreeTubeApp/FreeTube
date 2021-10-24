@@ -1,12 +1,13 @@
 import { DBPlaylistHandlers } from '../../../datastores/handlers/index'
 
 const state = {
-  playlists: [
+  playlists: [],
+  defaultPlaylists: [
     {
       playlistName: 'Favorites',
       protected: true,
       removeOnWatched: false,
-      description: 'Your favorites',
+      description: 'Your favorites videos',
       videos: [],
       _id: 'favorites'
     },
@@ -14,7 +15,7 @@ const state = {
       playlistName: 'Watch Later',
       protected: true,
       removeOnWatched: true,
-      description: 'videos to watch later',
+      description: 'Videos to watch later',
       videos: [],
       _id: 'watchLater'
     }
@@ -50,7 +51,7 @@ const actions = {
   async updatePlaylist({ commit }, playlist) {
     try {
       await DBPlaylistHandlers.upsert(playlist)
-      commit('upsertProfileToList', playlist)
+      commit('upsertPlaylistToList', playlist)
     } catch (errMessage) {
       console.error(errMessage)
     }
@@ -58,8 +59,8 @@ const actions = {
 
   async addVideo({ commit }, payload) {
     try {
-      const { playlistName, videoData } = payload
-      await DBPlaylistHandlers.upsertVideoByPlaylistName(playlistName, videoData)
+      const { _id, videoData } = payload
+      await DBPlaylistHandlers.upsertVideoByPlaylistId(_id, videoData)
       commit('addVideo', payload)
     } catch (errMessage) {
       console.error(errMessage)
@@ -80,8 +81,7 @@ const actions = {
     try {
       const payload = await DBPlaylistHandlers.find()
       if (payload.length === 0) {
-        commit('setAllPlaylists', state.playlists)
-        dispatch('addPlaylists', state.playlists)
+        dispatch('addPlaylists', state.defaultPlaylists)
       } else {
         const findFavorites = payload.filter((playlist) => {
           return playlist.playlistName === 'Favorites' || playlist._id === 'favorites'
@@ -163,8 +163,8 @@ const actions = {
 
   async removeVideo({ commit }, payload) {
     try {
-      const { playlistName, videoId } = payload
-      await DBPlaylistHandlers.deleteVideoIdByPlaylistName(playlistName, videoId)
+      const { _id, videoId } = payload
+      await DBPlaylistHandlers.deleteVideoIdByPlaylistId(_id, videoId)
       commit('removeVideo', payload)
     } catch (errMessage) {
       console.error(errMessage)
@@ -173,8 +173,8 @@ const actions = {
 
   async removeVideos({ commit }, payload) {
     try {
-      const { playlistName, videoIds } = payload
-      await DBPlaylistHandlers.deleteVideoIdsByPlaylistName(playlistName, videoIds)
+      const { _id, videoIds } = payload
+      await DBPlaylistHandlers.deleteVideoIdsByPlaylistId(_id, videoIds)
       commit('removeVideos', payload)
     } catch (errMessage) {
       console.error(errMessage)
@@ -204,7 +204,7 @@ const mutations = {
   },
 
   addVideo(state, payload) {
-    const playlist = state.playlists.find(playlist => playlist.playlistName === payload.playlistName)
+    const playlist = state.playlists.find(playlist => playlist._id === payload._id)
     if (playlist) {
       playlist.videos.push(payload.videoData)
     }
@@ -221,15 +221,15 @@ const mutations = {
     state.playlists = state.playlists.filter(playlist => playlist.protected !== true)
   },
 
-  removeAllVideos(state, playlistName) {
-    const playlist = state.playlists.find(playlist => playlist.playlistName === playlistName)
+  removeAllVideos(state, playlistId) {
+    const playlist = state.playlists.find(playlist => playlist._id === playlistId)
     if (playlist) {
       playlist.videos = []
     }
   },
 
   removeVideo(state, payload) {
-    const playlist = state.playlists.findIndex(playlist => playlist.playlistName === payload.playlistName)
+    const playlist = state.playlists.findIndex(playlist => playlist._id === payload._id)
     if (playlist !== -1) {
       state.playlists[playlist].videos = state.playlists[playlist].videos.filter(video => video.videoId !== payload.videoId)
     }

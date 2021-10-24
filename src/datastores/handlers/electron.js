@@ -119,16 +119,16 @@ class Playlists {
   static upsert(playlist) {
     return ipcRenderer.invoke(
       IpcChannels.DB_PLAYLISTS,
-      { action: DBActions.GENERAL.UPSERT, data: playlist }
+      { action: DBActions.PLAYLISTS.UPSERT, data: playlist }
     )
   }
 
-  static upsertVideoByPlaylistName(playlistName, videoData) {
+  static upsertVideoByPlaylistId(_id, videoData) {
     return ipcRenderer.invoke(
       IpcChannels.DB_PLAYLISTS,
       {
         action: DBActions.PLAYLISTS.UPSERT_VIDEO,
-        data: { playlistName, videoData }
+        data: { _id, videoData }
       }
     )
   }
@@ -150,32 +150,32 @@ class Playlists {
     )
   }
 
-  static deleteVideoIdByPlaylistName(playlistName, videoId) {
+  static deleteVideoIdByPlaylistId(_id, videoId) {
     return ipcRenderer.invoke(
       IpcChannels.DB_PLAYLISTS,
       {
         action: DBActions.PLAYLISTS.DELETE_VIDEO_ID,
-        data: { playlistName, videoId }
+        data: { _id, videoId }
       }
     )
   }
 
-  static deleteVideoIdsByPlaylistName(playlistName, videoIds) {
+  static deleteVideoIdsByPlaylistId(playlistId, videoIds) {
     return ipcRenderer.invoke(
       IpcChannels.DB_PLAYLISTS,
       {
         action: DBActions.PLAYLISTS.DELETE_VIDEO_IDS,
-        data: { playlistName, videoIds }
+        data: { playlistId, videoIds }
       }
     )
   }
 
-  static deleteAllVideosByPlaylistName(playlistName) {
+  static deleteAllVideosByPlaylistId(playlistId) {
     return ipcRenderer.invoke(
       IpcChannels.DB_PLAYLISTS,
       {
         action: DBActions.PLAYLISTS.DELETE_ALL_VIDEOS,
-        data: playlistName
+        data: playlistId
       }
     )
   }
