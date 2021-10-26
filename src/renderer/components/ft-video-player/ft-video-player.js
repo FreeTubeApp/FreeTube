@@ -136,14 +136,14 @@ export default Vue.extend({
         ]
       },
       stats:{
-        video_id:'',
-        player_resolution: null,
-        frame_drop: null,
+        videoId:'',
+        playerResolution: null,
+        frameDrop: null,
         volume: null,
-        network_state: null, 
+        networkState: null, 
         bandwidth: null,
-        buffer_time: null, 
-        buffer_percent: null,
+        bufferTime: null, 
+        bufferPercent: null,
         fps:null,
       },
     }
@@ -216,7 +216,7 @@ export default Vue.extend({
     this.createToggleTheatreModeButton()
     this.determineFormatType()
     this.determineMaxFramerate()
-    this.stats.video_id = this.id
+    this.stats.videoId = this.id
   },
   beforeDestroy: function () {
     if (this.player !== null) {
@@ -1506,20 +1506,20 @@ export default Vue.extend({
 
       this.player.on("timeupdate",()=>{
         const stats = this.player.tech({ IWillNotUseThisInPlugins: true }).vhs.stats
-        this.stats.frame_drop = stats.videoPlaybackQuality 
+        this.stats.frameDrop = stats.videoPlaybackQuality 
       })
 
       this.player.on("progress",()=>{
         const stats = this.player.tech({ IWillNotUseThisInPlugins: true }).vhs.stats
 
         this.stats.bandwidth = stats.bandwidth
-        this.stats.buffer_time = this.player.buffered()
-        this.stats.buffer_percent = this.player.bufferedPercent()
-        this.stats.network_state = this.player.networkState()
+        this.stats.bufferTime = this.player.buffered()
+        this.stats.bufferPercent = this.player.bufferedPercent()
+        this.stats.networkState = this.player.networkState()
       })
 
       this.player.on("playerresize",()=>{
-        this.stats.player_resolution = this.player.currentDimensions()
+        this.stats.playerResolution = this.player.currentDimensions()
       })
     },
     currentFps: function(){

@@ -1,15 +1,9 @@
 <template>
   <div class="video-stats">
     <ul>
-      <li>video_id = {{ stats.video_id }} </li>
-      <li>player_resolution = {{ stats.player_resolution }} </li>
-      <li>frame_drop = {{ stats.frame_drop }} </li>
-      <li>volume = {{ stats.volume }} </li>
-      <li>network_state = {{ stats.network_state }} </li>
-      <li>bandwidth = {{ stats.bandwidth }} </li>
-      <li>buffer_time = {{ stats.buffer_time }} </li>
-      <li>buffer_percent = {{ stats.buffer_percent }} </li>
-      <li>fps = {{ stats.fps }} </li>
+       <li v-for="(stat,index) in formated_stats" :key="index" >
+    {{stat[0]}}:{{stat[1]}}
+  </li>
     </ul>
   </div>
 </template>
