@@ -200,6 +200,33 @@ export default Vue.extend({
 
     displayVideoPlayButton: function() {
       return this.$store.getters.getDisplayVideoPlayButton
+    },
+    formated_stats: function(){
+      let resolution =""
+      let dropFrame = ""
+      if (this.stats.playerResolution !=null){
+        resolution = `(${this.stats.playerResolution.height}X${this.stats.playerResolution.width})`
+      }
+      if (this.stats.frameInfo!=null){
+        dropFrame = this.stats.frameInfo.droppedVideoFrames
+      }
+      const stats =  [
+          ["video id",this.stats.videoId],
+          ["player resolution",resolution],
+          ["fps",this.stats.fps],
+          ["frame drop",dropFrame],
+          ["network state",this.stats.networkState],
+          ["bandwidth",this.stats.bandwidth],
+          ["buffer range",this.stats.bufferTime],
+          ["percentage of video buffered",this.stats.bufferPercent]
+        ]
+
+      let formatedStats = '<ul class="ftVideoPlayerStats">'
+      for (let stat of stats){
+        formatedStats+=`<li>${stat[0]}: ${stat[1]}</li>`
+      }
+      formatedStats+="</ul>"
+      return formatedStats.substring(0,formatedStats.length-1)
     }
   },
   mounted: function () {
@@ -1520,6 +1547,15 @@ export default Vue.extend({
 
       this.player.on("playerresize",()=>{
         this.stats.playerResolution = this.player.currentDimensions()
+      })
+
+      this.player.overlay({
+        overlays: [{
+          content:this.formated_stats,
+          start: 'playing',
+          end: 'pause',
+          align: 'top-left',
+        }]
       })
     },
     currentFps: function(){

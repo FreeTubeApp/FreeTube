@@ -10,7 +10,6 @@ export default Vue.extend({
   },
   computed:{
     formated_stats: function(){
-      console.log(this.stats.frameDrop)
       let resolution =""
       let dropFrame = ""
       if (this.stats.playerResolution !=null){
@@ -29,7 +28,6 @@ export default Vue.extend({
           ["buffer range",this.stats.bufferTime],
           ["percentage of video buffered",this.stats.bufferPercent]
         ]
-      
     }
   }
 })
