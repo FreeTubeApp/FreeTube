@@ -138,7 +138,7 @@ export default Vue.extend({
       stats:{
         videoId:'',
         playerResolution: null,
-        frameDrop: null,
+        frameInfo: null,
         volume: null,
         networkState: null, 
         bandwidth: null,
@@ -1506,7 +1506,7 @@ export default Vue.extend({
 
       this.player.on("timeupdate",()=>{
         const stats = this.player.tech({ IWillNotUseThisInPlugins: true }).vhs.stats
-        this.stats.frameDrop = stats.videoPlaybackQuality 
+        this.stats.frameInfo = stats.videoPlaybackQuality 
       })
 
       this.player.on("progress",()=>{
