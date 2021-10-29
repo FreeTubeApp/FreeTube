@@ -107,6 +107,9 @@ export default Vue.extend({
           this.clearTextButtonExisting = false
         }, 200)
       }
+    },
+    value: function () {
+      this.inputData = this.value
     }
   },
   mounted: function () {

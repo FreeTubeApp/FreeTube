@@ -24,16 +24,17 @@ const state = {
 
 const getters = {
   getAllPlaylists: () => state.playlists,
-  getFavorites: () => state.playlists[0],
+  getFavorites: () => state.playlists.find(playlist => playlist._id === 'favorites'),
   getPlaylist: (playlistId) => state.playlists.find(playlist => playlist._id === playlistId),
-  getWatchLater: () => state.playlists[1]
+  getWatchLater: () => state.playlists.find(playlist => playlist._id === 'watchLater')
 }
 
 const actions = {
-  async addPlaylist({ commit }, payload) {
+  async addPlaylist({ commit, dispatch }, payload) {
     try {
       await DBPlaylistHandlers.create(payload)
       commit('addPlaylist', payload)
+      dispatch('grabAllPlaylists')
     } catch (errMessage) {
       console.error(errMessage)
     }
@@ -143,10 +144,11 @@ const actions = {
     }
   },
 
-  async removePlaylist({ commit }, playlistId) {
+  async removePlaylist({ commit, dispatch }, playlistId) {
     try {
       await DBPlaylistHandlers.delete(playlistId)
       commit('removePlaylist', playlistId)
+      dispatch('grabAllPlaylists')
     } catch (errMessage) {
       console.error(errMessage)
     }

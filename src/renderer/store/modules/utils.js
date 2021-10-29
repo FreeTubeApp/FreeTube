@@ -16,8 +16,10 @@ const state = {
   },
   showProgressBar: false,
   showAddToPlaylistPrompt: false,
+  showCreatePlaylistPrompt: false,
   progressBarPercentage: 0,
   playlistAddVideoObject: [],
+  newPlaylistVideoObject: [],
   regionNames: [],
   regionValues: [],
   recentBlogPosts: [],
@@ -101,8 +103,16 @@ const getters = {
     return state.showAddToPlaylistPrompt
   },
 
+  getShowCreatePlaylistPrompt () {
+    return state.showCreatePlaylistPrompt
+  },
+
   getPlaylistAddVideoObject () {
     return state.playlistAddVideoObject
+  },
+
+  getNewPlaylistVideoObject () {
+    return state.newPlaylistVideoObject
   },
 
   getShowProgressBar () {
@@ -206,6 +216,15 @@ const actions = {
 
   hideAddToPlaylistPrompt ({ commit }) {
     commit('setShowAddToPlaylistPrompt', false)
+  },
+
+  showCreatePlaylistPrompt ({ commit }, videoArray) {
+    commit('setShowCreatePlaylistPrompt', true)
+    commit('setNewPlaylistVideoObject', videoArray)
+  },
+
+  hideCreatePlaylistPrompt ({ commit }) {
+    commit('setShowCreatePlaylistPrompt', false)
   },
 
   updateShowProgressBar ({ commit }, value) {
@@ -647,7 +666,7 @@ const actions = {
     FtToastEvents.$emit('toast-open', payload.message, payload.action, payload.time)
   },
 
-  showExternalPlayerUnsupportedActionToast: function ({ dispatch }, payload) {
+  showExternalPlayerUnsupportedActionToast ({ dispatch }, payload) {
     if (!payload.ignoreWarnings) {
       const toastMessage = payload.template
         .replace('$', payload.externalPlayer)
@@ -858,8 +877,16 @@ const mutations = {
     state.showAddToPlaylistPrompt = payload
   },
 
+  setShowCreatePlaylistPrompt (state, payload) {
+    state.showCreatePlaylistPrompt = payload
+  },
+
   setPlaylistAddVideoObject (state, payload) {
     state.playlistAddVideoObject = payload
+  },
+
+  setNewPlaylistVideoObject (state, payload) {
+    state.newPlaylistVideoObject = payload
   },
 
   setPopularCache (state, value) {

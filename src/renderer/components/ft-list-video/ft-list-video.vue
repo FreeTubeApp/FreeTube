@@ -60,6 +60,33 @@
         :size="appearance === `watchPlaylistItem` ? 14 : 18"
         @click="togglePlaylistPrompt"
       />
+      <ft-icon-button
+        v-if="inUserPlaylist"
+        title="Remove from playlist"
+        icon="trash"
+        class="trashIcon"
+        :padding="appearance === `watchPlaylistItem` ? 5 : 6"
+        :size="appearance === `watchPlaylistItem` ? 14 : 18"
+        @click="removeVideoFromPlaylist"
+      />
+      <ft-icon-button
+        v-if="inUserPlaylist"
+        title="Move video up"
+        icon="arrow-up"
+        class="upArrowIcon"
+        :padding="appearance === `watchPlaylistItem` ? 5 : 6"
+        :size="appearance === `watchPlaylistItem` ? 14 : 18"
+        @click="$emit('move-video-up', id)"
+      />
+      <ft-icon-button
+        v-if="inUserPlaylist"
+        title="Move video down"
+        icon="arrow-down"
+        class="downArrowIcon"
+        :padding="appearance === `watchPlaylistItem` ? 5 : 6"
+        :size="appearance === `watchPlaylistItem` ? 14 : 18"
+        @click="$emit('move-video-down', id)"
+      />
       <div
         v-if="addWatchedStyle"
         class="videoWatched"

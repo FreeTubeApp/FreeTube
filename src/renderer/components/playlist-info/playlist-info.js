@@ -5,6 +5,7 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtShareButton from '../ft-share-button/ft-share-button.vue'
 import FtInput from '../ft-input/ft-input.vue'
+import FtPrompt from '../../components/ft-prompt/ft-prompt.vue'
 
 export default Vue.extend({
   name: 'PlaylistInfo',
@@ -13,7 +14,8 @@ export default Vue.extend({
     'ft-flex-box': FtFlexBox,
     'ft-icon-button': FtIconButton,
     'ft-share-button': FtShareButton,
-    'ft-input': FtInput
+    'ft-input': FtInput,
+    'ft-prompt': FtPrompt
   },
   props: {
     id: {
@@ -44,6 +46,10 @@ export default Vue.extend({
       type: Number,
       required: true
     },
+    videos: {
+      type: Array,
+      required: true
+    },
     viewCount: {
       type: Number,
       required: true
@@ -64,8 +70,14 @@ export default Vue.extend({
   data: function () {
     return {
       editMode: false,
+      showDeletePlaylistPrompt: false,
+      showRemoveVideosOnWatchPrompt: false,
       newTitle: '',
       newDescription: '',
+      deletePlaylistPromptValues: [
+        'yes',
+        'no'
+      ],
       shareValues: [
         'copyYoutube',
         'openYoutube',
@@ -83,6 +95,10 @@ export default Vue.extend({
       return this.$store.getters.getListType
     },
 
+    historyCache: function () {
+      return this.$store.getters.getHistoryCache
+    },
+
     thumbnailPreference: function () {
       return this.$store.getters.getThumbnailPreference
     },
@@ -93,6 +109,13 @@ export default Vue.extend({
 
     selectedPlaylist: function () {
       return this.userPlaylists.find(playlist => playlist._id === this.id)
+    },
+
+    deletePlaylistPromptNames: function () {
+      return [
+        this.$t('Yes'),
+        this.$t('No')
+      ]
     },
 
     shareHeaders: function () {
@@ -120,10 +143,6 @@ export default Vue.extend({
   mounted: function () {
     this.newTitle = this.title
     this.newDescription = this.description
-    // Causes errors if not put inside of a check
-    /* if (typeof (this.data.viewCount) !== 'undefined') {
-      this.viewCount = this.data.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-    } */
   },
   methods: {
     sharePlaylist: function (method) {
@@ -169,6 +188,13 @@ export default Vue.extend({
       this.$router.push({ path: `/channel/${this.channelId}` })
     },
 
+    copyPlaylist: function () {
+      this.showCreatePlaylistPrompt({
+        title: this.title,
+        videos: this.videos
+      })
+    },
+
     savePlaylistInfo: function () {
       const playlist = {
         playlistName: this.newTitle,
@@ -178,8 +204,19 @@ export default Vue.extend({
         videos: this.selectedPlaylist.videos,
         _id: this.id
       }
-      this.updatePlaylist(playlist)
-      this.cancelEditMode()
+      try {
+        this.updatePlaylist(playlist)
+        this.showToast({
+          message: 'Playlist has been updated.'
+        })
+      } catch (e) {
+        this.showToast({
+          message: 'There was an issue with updating this playlist.'
+        })
+        console.error(e)
+      } finally {
+        this.cancelEditMode()
+      }
     },
 
     enableEditMode: function () {
@@ -192,10 +229,75 @@ export default Vue.extend({
       this.editMode = false
     },
 
+    handleRemoveVideosOnWatchPromptAnswer: function (option) {
+      console.log(this.selectedPlaylist.videos)
+      if (option === 'yes') {
+        const videosToWatch = this.selectedPlaylist.videos.filter((video) => {
+          const watchedIndex = this.historyCache.findIndex((history) => {
+            return history.videoId === video.videoId
+          })
+
+          return watchedIndex === -1
+        })
+
+        const videosRemoved = this.selectedPlaylist.videos.length - videosToWatch.length
+
+        if (videosRemoved === 0) {
+          this.showToast({
+            message: 'There were no videos to remove.'
+          })
+          this.showRemoveVideosOnWatchPrompt = false
+          return
+        }
+
+        const playlist = {
+          playlistName: this.title,
+          protected: this.selectedPlaylist.protected,
+          removeOnWatched: this.selectedPlaylist.removeOnWatched,
+          description: this.description,
+          videos: videosToWatch,
+          _id: this.id
+        }
+        try {
+          this.updatePlaylist(playlist)
+          this.showToast({
+            message: `${videosRemoved} video(s) have been removed.`
+          })
+        } catch (e) {
+          this.showToast({
+            message: 'There was an issue with updating this playlist.'
+          })
+          console.error(e)
+        }
+      }
+      this.showRemoveVideosOnWatchPrompt = false
+    },
+
+    handleDeletePlaylistPromptAnswer: function (option) {
+      if (this.selectedPlaylist.protected) {
+        this.showToast({
+          message: 'This playlist is protected and cannot be removed.'
+        })
+      } else if (option === 'yes') {
+        this.removePlaylist(this.id)
+        this.$router.push(
+          {
+            path: '/userPlaylists'
+          }
+        )
+        this.showToast({
+          message: `${this.title} has been deleted.`
+        })
+      }
+      this.showDeletePlaylistPrompt = false
+    },
+
     ...mapActions([
       'showToast',
       'openExternalLink',
-      'updatePlaylist'
+      'showCreatePlaylistPrompt',
+      'updatePlaylist',
+      'removePlaylist'
     ])
   }
 })

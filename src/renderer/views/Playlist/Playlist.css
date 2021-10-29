@@ -7,6 +7,7 @@
   width: 30%;
   height: 100%;
   overflow-y: auto;
+  z-index: 1;
 }
 
 .playlistItems {

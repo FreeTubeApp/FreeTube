@@ -15,6 +15,7 @@
       :lastUpdated="lastUpdated"
       :description="playlistDescription"
       :videoCount="videoCount"
+      :videos="playlistItems"
       :viewCount="viewCount"
       :infoSource="infoSource"
       class="playlistInfo"
@@ -26,15 +27,18 @@
       <span
         v-if="playlistItems.length > 0"
       >
-      <ft-list-video
-        v-for="(item, index) in playlistItems"
-        :key="index"
-        :data="item"
-        :playlist-id="playlistId"
-        :playlist-index="index"
-        appearance="result"
-        force-list-type="list"
-      />
+        <ft-list-video
+          v-for="(item, index) in playlistItems"
+          :key="index"
+          :data="item"
+          :playlist-id="playlistId"
+          :playlist-type="infoSource"
+          :playlist-index="index"
+          appearance="result"
+          force-list-type="list"
+          @move-video-up="moveVideoUp"
+          @move-video-down="moveVideoDown"
+        />
       </span>
       <ft-flex-box
         v-else

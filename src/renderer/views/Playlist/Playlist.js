@@ -52,6 +52,13 @@ export default Vue.extend({
     },
     selectedPlaylist: function () {
       return this.userPlaylists.find(playlist => playlist._id === this.playlistId)
+    },
+    selectedVideos: function () {
+      if (typeof (this.selectedPlaylist) !== 'undefined') {
+        return this.selectedPlaylist.videos
+      } else {
+        return []
+      }
     }
   },
   watch: {
@@ -60,7 +67,18 @@ export default Vue.extend({
       this.getPlaylistInfo()
     },
     selectedPlaylist () {
-      this.getPlaylistInfo()
+      if (this.isLoading) {
+        // Ignores first time load of page
+        return
+      }
+      this.refreshPage()
+    },
+    selectedVideos () {
+      if (this.isLoading) {
+        // Ignores first time load of page
+        return
+      }
+      this.refreshPage()
     }
   },
   mounted: function () {
@@ -140,9 +158,9 @@ export default Vue.extend({
         console.log('done')
         console.log(result)
 
-        this.id = result.playlistId
-        this.title = result.title
-        this.description = result.description
+        this.playlistId = result.playlistId
+        this.playlistTitle = result.title
+        this.playlistDescription = result.description
         this.firstVideoId = result.videos[0].videoId
         this.viewCount = result.viewCount
         this.videoCount = result.videoCount
@@ -217,9 +235,101 @@ export default Vue.extend({
       this.isLoading = false
     },
 
+    moveVideoUp: function (videoId) {
+      const playlistItems = [].concat(this.playlistItems)
+      const videoIndex = playlistItems.findIndex((video) => {
+        return video.videoId === videoId
+      })
+
+      if (videoIndex === 0) {
+        this.showToast({
+          message: 'This video cannot be moved up.'
+        })
+        return
+      }
+
+      const videoObject = playlistItems[videoIndex]
+
+      playlistItems.splice(videoIndex, 1)
+      playlistItems.splice(videoIndex - 1, 0, videoObject)
+
+      const playlist = {
+        playlistName: this.playlistTitle,
+        protected: this.selectedPlaylist.protected,
+        removeOnWatched: this.selectedPlaylist.removeOnWatched,
+        description: this.playlistDescription,
+        videos: playlistItems,
+        _id: this.playlistId
+      }
+      try {
+        this.updatePlaylist(playlist)
+        this.playlistItems = playlistItems
+      } catch (e) {
+        this.showToast({
+          message: 'There was an issue with updating this playlist.'
+        })
+        console.error(e)
+      }
+    },
+
+    moveVideoDown: function (videoId) {
+      const playlistItems = [].concat(this.playlistItems)
+      const videoIndex = playlistItems.findIndex((video) => {
+        return video.videoId === videoId
+      })
+
+      if (videoIndex + 1 === playlistItems.length || videoIndex + 1 > playlistItems.length) {
+        this.showToast({
+          message: 'This video cannot be moved down.'
+        })
+        return
+      }
+
+      const videoObject = playlistItems[videoIndex]
+
+      playlistItems.splice(videoIndex, 1)
+      playlistItems.splice(videoIndex + 1, 0, videoObject)
+
+      const playlist = {
+        playlistName: this.playlistTitle,
+        protected: this.selectedPlaylist.protected,
+        removeOnWatched: this.selectedPlaylist.removeOnWatched,
+        description: this.playlistDescription,
+        videos: playlistItems,
+        _id: this.playlistId
+      }
+      try {
+        this.updatePlaylist(playlist)
+        this.playlistItems = playlistItems
+      } catch (e) {
+        this.showToast({
+          message: 'There was an issue with updating this playlist.'
+        })
+        console.error(e)
+      }
+    },
+
+    refreshPage: function () {
+      this.getPlaylistInfo()
+      // The list of videos within a playlist do not refresh properly if a video
+      // is removed, so the timeout forces the view to refresh. This is kinda hacky
+      // and has to do with a quirk of Vue. I don't really like this solution but this
+      // was the only way I could get it to update properly
+      const yOffset = window.pageYOffset
+      this.isLoading = true
+      window.setTimeout(() => {
+        this.isLoading = false
+        window.setTimeout(() => {
+          window.scrollTo(0, yOffset)
+        }, 100)
+      }, 100)
+    },
+
     ...mapActions([
       'ytGetPlaylistInfo',
-      'invidiousGetPlaylistInfo'
+      'invidiousGetPlaylistInfo',
+      'updatePlaylist',
+      'showToast'
     ])
   }
 })

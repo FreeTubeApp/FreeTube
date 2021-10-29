@@ -69,11 +69,13 @@
         title="Play All"
         icon="play"
         theme="primary"
+        @click="playFirstVideo"
       />
       <ft-icon-button
         title="Copy Playlist"
         icon="copy"
         theme="primary"
+        @click="copyPlaylist"
       />
       <ft-icon-button
         v-if="infoSource === 'user'"
@@ -87,12 +89,14 @@
         title="Remove Watched Videos"
         icon="eye-slash"
         theme="primary"
+        @click="showRemoveVideosOnWatchPrompt = true"
       />
       <ft-icon-button
         v-if="infoSource === 'user'"
         title="Delete Playlist"
         icon="trash"
         theme="primary"
+        @click="showDeletePlaylistPrompt = true"
       />
     </ft-flex-box>
     <ft-flex-box
@@ -118,6 +122,20 @@
       :label-names="shareHeaders"
       :label-values="shareValues"
       @click="sharePlaylist"
+    />
+    <ft-prompt
+      v-if="showDeletePlaylistPrompt"
+      label="Are you sure you want to delete this playlist? This cannot be undone."
+      :option-names="deletePlaylistPromptNames"
+      :option-values="deletePlaylistPromptValues"
+      @click="handleDeletePlaylistPromptAnswer"
+    />
+    <ft-prompt
+      v-if="showRemoveVideosOnWatchPrompt"
+      label="Are you sure you want to remove all watched videos from this playlist? This cannot be undone."
+      :option-names="deletePlaylistPromptNames"
+      :option-values="deletePlaylistPromptValues"
+      @click="handleRemoveVideosOnWatchPromptAnswer"
     />
   </div>
 </template>

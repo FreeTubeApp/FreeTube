@@ -2,10 +2,17 @@
   width: 85%;
   margin: 0 auto;
   margin-bottom: 60px;
+  position: relative;
 }
 
 .message {
   color: var(--tertiary-text-color);
+}
+
+.newPlaylistButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
 @media only screen and (max-width: 680px) {

@@ -24,7 +24,35 @@ export default Vue.extend({
   },
   computed: {
     allPlaylists: function () {
-      return this.$store.getters.getAllPlaylists
+      const playlists = this.$store.getters.getAllPlaylists
+      const formattedPlaylists = [].concat(playlists).map((playlist) => {
+        playlist.title = playlist.playlistName
+        playlist.type = 'playlist'
+        playlist.thumbnail = ''
+        playlist.channelName = ''
+        playlist.channelLink = ''
+        playlist.playlistLink = ''
+        playlist.videoCount = playlist.videos.length
+        return playlist
+      }).sort((a, b) => {
+        // Sort by favorites, watch later, then alphabetically
+        if (a._id === 'favorites') {
+          return -1
+        } else if (b._id === 'favorites') {
+          return 1
+        } else if (a._id === 'watchLater') {
+          return -1
+        } else if (b._id === 'watchLater') {
+          return 1
+        } else if (a.title > b.title) {
+          return 1
+        } else if (a.title < b.title) {
+          return -1
+        }
+
+        return 0
+      })
+      return formattedPlaylists
     },
     selectedPlaylistsCount: function () {
       return this.selectedPlaylists.length
@@ -47,7 +75,6 @@ export default Vue.extend({
   },
   methods: {
     handleAddToPlaylistPrompt: function (option) {
-      console.log(option)
       this.hideAddToPlaylistPrompt()
     },
 
@@ -77,13 +104,25 @@ export default Vue.extend({
           addedPlaylists++
         }
       })
+
+      this.showToast({
+        message: `Video has been added to ${addedPlaylists} playlist(s).`
+      })
       this.handleAddToPlaylistPrompt(null)
+    },
+
+    createNewPlaylist: function () {
+      this.showCreatePlaylistPrompt({
+        title: '',
+        videos: []
+      })
     },
 
     ...mapActions([
       'showToast',
       'addVideo',
-      'hideAddToPlaylistPrompt'
+      'hideAddToPlaylistPrompt',
+      'showCreatePlaylistPrompt'
     ])
   }
 })

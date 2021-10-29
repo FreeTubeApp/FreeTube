@@ -10,6 +10,7 @@ import FtButton from './components/ft-button/ft-button.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
 import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
 import FtPlaylistAddVideoPrompt from './components/ft-playlist-add-video-prompt/ft-playlist-add-video-prompt.vue'
+import FtCreatePlaylistPrompt from './components/ft-create-playlist-prompt/ft-create-playlist-prompt.vue'
 import $ from 'jquery'
 import marked from 'marked'
 import Parser from 'rss-parser'
@@ -29,7 +30,8 @@ export default Vue.extend({
     FtButton,
     FtToast,
     FtProgressBar,
-    FtPlaylistAddVideoPrompt
+    FtPlaylistAddVideoPrompt,
+    FtCreatePlaylistPrompt
   },
   data: function () {
     return {
@@ -81,6 +83,9 @@ export default Vue.extend({
     },
     showAddToPlaylistPrompt: function () {
       return this.$store.getters.getShowAddToPlaylistPrompt
+    },
+    showCreatePlaylistPrompt: function () {
+      return this.$store.getters.getShowCreatePlaylistPrompt
     },
     windowTitle: function () {
       if (this.$route.meta.title !== 'Channel' && this.$route.meta.title !== 'Watch') {
