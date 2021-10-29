@@ -154,7 +154,7 @@ Settings:
       Light: 'Claro'
       Dracula: 'Drácula'
     Main Color Theme:
-      Main Color Theme: 'Color Principal'
+      Main Color Theme: 'Color principal'
       Red: 'Rojo'
       Pink: 'Rosado'
       Purple: 'Púrpura'
@@ -181,12 +181,12 @@ Settings:
     Secondary Color Theme: 'Color secundario'
         #* Main Color Theme
     UI Scale: Escala de interfaz gráfica
-    Expand Side Bar by Default: Expandir Barra Lateral por defecto
+    Expand Side Bar by Default: Expandir barra lateral por defecto
     Disable Smooth Scrolling: Desactivar desplazamiento suave
     Hide Side Bar Labels: Ocultar las etiquetas de la barra lateral
   Player Settings:
     Player Settings: 'Reproductor FreeTube'
-    Force Local Backend for Legacy Formats: 'Forzar API local para formato "Legacy"'
+    Force Local Backend for Legacy Formats: 'Forzar API local para formato «Legacy»'
     Play Next Video: 'Reproducción continua'
     Turn on Subtitles by Default: 'Activar Subtítulos por defecto'
     Autoplay Videos: 'Reproducción automática de vídeos'
@@ -194,7 +194,7 @@ Settings:
     Autoplay Playlists: 'Reproducción automática de listas de reproducción'
     Enable Theatre Mode by Default: 'Activar el Modo Cine por defecto'
     Default Volume: 'Volumen Predeterminado'
-    Default Playback Rate: 'Velocidad de Reproducción Predeterminada'
+    Default Playback Rate: 'Velocidad de reproducción predeterminada'
     Default Video Format:
       Default Video Format: 'Formato de vídeo predeterminado'
       Dash Formats: 'Formatos DASH'
@@ -234,8 +234,8 @@ Settings:
     Remove All Subscriptions / Profiles: 'Borrar todas las suscripciones y perfiles'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: '¿Confirma
       que quiere borrar todas las suscripciones y perfiles? Esta operación es irreversible.'
-    Automatically Remove Video Meta Files: Eliminar Automáticamente los Meta-Archivos
-      de Vídeo
+    Automatically Remove Video Meta Files: Eliminar automáticamente los metadatos
+      de vídeos
   Subscription Settings:
     Subscription Settings: 'Suscripciones'
     Hide Videos on Watch: 'Ocultar vídeos vistos'
@@ -245,11 +245,11 @@ Settings:
     Data Settings: 'Datos'
     Select Import Type: 'Seleccionar Tipo de Importación'
     Select Export Type: 'Seleccionar Tipo de Exportación'
-    Import Subscriptions: 'Importar Suscripciones'
+    Import Subscriptions: 'Importar suscripciones'
     Import FreeTube: 'Importar FreeTube'
     Import YouTube: 'Importar YouTube'
     Import NewPipe: 'Importar NewPipe'
-    Export Subscriptions: 'Exportar Suscripciones'
+    Export Subscriptions: 'Exportar suscripciones'
     Export FreeTube: 'Exportar FreeTube'
     Export YouTube: 'Exportar YouTube'
     Export NewPipe: 'Exportar NewPipe'
@@ -308,15 +308,15 @@ Settings:
       #& No
 
   Distraction Free Settings:
-    Hide Video Likes And Dislikes: Ocultar Me gusta y No me gusta del vídeos
+    Hide Video Likes And Dislikes: Ocultar «likes» y «dislikes» de vídeos
     Hide Video Views: Ocultar las vistas del vídeo
     Hide Live Chat: Ocultar chat en directo
     Hide Popular Videos: Ocultar vídeos populares
     Hide Trending Videos: Ocultar vídeos en tendencia
     Hide Recommended Videos: Ocultar los vídeos recomendados
-    Hide Comment Likes: Ocultar Likes de Comentarios
-    Hide Channel Subscribers: Ocultar Suscriptores de Canales
-    Distraction Free Settings: Modo sin Distracciones
+    Hide Comment Likes: Ocultar «likes» de comentarios
+    Hide Channel Subscribers: Ocultar suscriptores
+    Distraction Free Settings: Modo sin distracciones
     Hide Active Subscriptions: Ocultar suscripciones activas
     Hide Playlists: Ocultar listas de reproducción
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
@@ -329,8 +329,8 @@ Settings:
     Country: País
     Ip: IP
     Your Info: Tu información
-    Test Proxy: Probar Proxy
-    Clicking on Test Proxy will send a request to: Al hacer click en "Probar Proxy"
+    Test Proxy: Probar proxy
+    Clicking on Test Proxy will send a request to: Al hacer click en «Probar proxy»
       se enviará una solicitud a
     Proxy Port Number: Número de puerto del Proxy
     Proxy Host: Host del Proxy
@@ -341,7 +341,7 @@ Settings:
     Notify when sponsor segment is skipped: Notificar cuando se salta un segmento
       de patrocinio
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL de la API de
-      SponsorBlock (La predeterminada es https://sponsor.ajay.app)
+      SponsorBlock (por defecto es https://sponsor.ajay.app)
     Enable SponsorBlock: Activar SponsorBlock
     SponsorBlock Settings: SponsorBlock
   External Player Settings:
