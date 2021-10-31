@@ -83,7 +83,7 @@ export default Vue.extend({
         this.$t('Settings.SponsorBlock Settings.Skip Options.Auto Skip'),
         // this.$t('Settings.SponsorBlock Settings.Skip Options.Prompt To Skip'),
         this.$t('Settings.SponsorBlock Settings.Skip Options.Show In Seek Bar'),
-        this.$t('Settings.SponsorBlock Settings.Skip Options.Dont Skip')
+        this.$t('Settings.SponsorBlock Settings.Skip Options.Do Nothing')
       ]
     },
     colorNames: function () {
