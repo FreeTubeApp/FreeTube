@@ -217,31 +217,31 @@ const state = {
   sponsorBlockUrl: 'https://sponsor.ajay.app',
   sponsorBlockSponsor: {
     color: 'Blue',
-    skip: 'Auto Skip'
+    skip: 'autoSkip'
   },
   sponsorBlockSelfPromo: {
     color: 'Yellow',
-    skip: 'Show In Seek Bar'
+    skip: 'showInSeekBar'
   },
   sponsorBlockInteraction: {
     color: 'Green',
-    skip: 'Show In Seek Bar'
+    skip: 'showInSeekBar'
   },
   sponsorBlockIntro: {
     color: 'Orange',
-    skip: 'Don\'t Skip'
+    skip: 'doNothing'
   },
   sponsorBlockOutro: {
     color: 'Orange',
-    skip: 'Don\'t Skip'
+    skip: 'doNothing'
   },
   sponsorBlockRecap: {
     color: 'Orange',
-    skip: 'Don\'t Skip'
+    skip: 'doNothing'
   },
   sponsorBlockMusicOffTopic: {
     color: 'Orange',
-    skip: 'Don\'t Skip'
+    skip: 'doNothing'
   },
   thumbnailPreference: '',
   useProxy: false,

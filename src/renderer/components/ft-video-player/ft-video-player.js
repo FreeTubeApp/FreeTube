@@ -226,13 +226,13 @@ export default Vue.extend({
             sponsorVal = this.$store.getters.getSponsorBlockMusicOffTopic
             break
         }
-        if (sponsorVal.skip !== 'Don\'t Skip') {
+        if (sponsorVal.skip !== 'doNothing') {
           seekBar.push(x)
         }
-        if (sponsorVal.skip === 'Auto Skip') {
+        if (sponsorVal.skip === 'autoSkip') {
           autoSkip[x] = true
         }
-        if (sponsorVal.skip === 'Prompt to skip') {
+        if (sponsorVal.skip === 'promptToSkip') {
           promptSkip[x] = true
         }
         categoryData[x] = sponsorVal

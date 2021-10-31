@@ -18,10 +18,10 @@ export default Vue.extend({
       categoryColor: '',
       skipOption: '',
       skipValues: [
-        'Auto Skip',
-        // 'Prompt to skip',
-        'Show In Seek Bar',
-        'Don\'t Skip'
+        'autoSkip',
+        // 'promptToSkip',
+        'showInSeekBar',
+        'doNothing'
       ],
       colorValues: [
         'Red',
