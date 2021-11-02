@@ -143,6 +143,7 @@ export default Vue.extend({
         bufferTime: null, 
         bufferPercent: null,
         fps:null,
+        modal:null,
       },
     }
   },
@@ -216,12 +217,12 @@ export default Vue.extend({
           ["network state",this.stats.networkState],
           ["bandwidth",this.stats.bandwidth],
           ["buffer range",this.stats.bufferTime],
-          ["percentage of video buffered",this.stats.bufferPercent]
+          ["% buffered",this.stats.bufferPercent]
         ]
 
-      let formatedStats = '<ul class="ftVideoPlayerStats">'
+      let formatedStats = '<ul style="list-style-type: none;text-align:left">'
       for (let stat of stats){
-        formatedStats+=`<li>${stat[0]}: ${stat[1]}</li>`
+        formatedStats+=`<li >${stat[0]}: ${stat[1]}</li>`
       }
       formatedStats+="</ul>"
       return formatedStats.substring(0,formatedStats.length-1)
@@ -251,7 +252,6 @@ export default Vue.extend({
         this.player.dispose()
         this.player = null
         clearTimeout(this.mouseTimeout)
-        clearInterval(this.statsTimer)
       }
     }
 
@@ -1527,11 +1527,12 @@ export default Vue.extend({
       'sponsorBlockSkipSegments'
     ]),
     addPlayerStatsEvent: function(){
-      this.player.on("volumechange",()=>{this.stats.volume = this.player.volume()})
+      this.player.on("volumechange",()=>{ this.stats.volume = this.player.volume()})
 
       this.player.on("timeupdate",()=>{
         const stats = this.player.tech({ IWillNotUseThisInPlugins: true }).vhs.stats
-        this.stats.frameInfo = stats.videoPlaybackQuality 
+        this.stats.frameInfo = stats.videoPlaybackQuality
+        
       })
 
       this.player.on("progress",()=>{
@@ -1546,15 +1547,25 @@ export default Vue.extend({
       this.player.on("playerresize",()=>{
         this.stats.playerResolution = this.player.currentDimensions()
       })
-
-      this.player.overlay({
-        overlays: [{
-          content:this.formated_stats,
-          start: 'playing',
-          end: 'pause',
-          align: 'top-left',
-        }]
+      
+      let ModalDialog = videojs.getComponent('ModalDialog')
+      this.stats.modal = new ModalDialog(this.player, {
+        content: "abc",
+        temporary: false,
+        pauseOnOpen:false
       })
+     this.player.addChild(this.stats.modal)
+     this.stats.modal.height("55%")
+     this.stats.modal.width("55%")
+
+     this.player.setInterval(()=>{
+      this.stats.modal.open()
+      if (this.stats.modal!=null){
+        this.stats.modal.contentEl().innerHTML = this.formated_stats
+      }
+      this.player.controls(true)
+     },1000)
+     
     },
     currentFps: function(){
       for (let el of this.activeAdaptiveFormats){
@@ -1568,6 +1579,6 @@ export default Vue.extend({
   watch: {
     selectedQuality:function(){
       this.currentFps()
-    }
+    },
   },
 })
