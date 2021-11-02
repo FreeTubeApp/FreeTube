@@ -109,7 +109,7 @@
             {{ comment.numReplies }}
             <span v-if="comment.numReplies === 1">{{ $t("Comments.Reply").toLowerCase() }}</span>
             <span v-else>{{ $t("Comments.Replies").toLowerCase() }}</span>
-            <span v-if="comment.hasOwnerReplied && !comment.showReplies"> {{ $t("Comments.From $").toLowerCase().replace("$", channelName) }}</span>
+            <span v-if="comment.hasOwnerReplied && !comment.showReplies"> {{ $t("Comments.From $channelName").toLowerCase().replace("$channelName", channelName) }}</span>
             <span v-if="comment.numReplies > 1 && comment.hasOwnerReplied && !comment.showReplies">{{ $t("Comments.And others").toLowerCase() }}</span>
           </span>
         </p>
