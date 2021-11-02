@@ -130,7 +130,7 @@ export default Vue.extend({
   },
   mounted: function () {
     this.grabUserSettings().then(async () => {
-      await this.fetchInvidiousInstances()
+      await this.fetchInvidiousInstances({ isDev: this.isDev })
       if (this.defaultInvidiousInstance === '') {
         await this.setRandomCurrentInvidiousInstance()
       }
