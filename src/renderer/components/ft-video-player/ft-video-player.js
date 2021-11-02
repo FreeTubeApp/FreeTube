@@ -15,7 +15,7 @@ import 'videojs-http-source-selector'
 export default Vue.extend({
   name: 'FtVideoPlayer',
   components: {
-    'ft-card': FtCard,
+    'ft-card': FtCard
   },
   beforeRouteLeave: function () {
     if (this.player !== null) {
@@ -133,18 +133,21 @@ export default Vue.extend({
           3
         ]
       },
-      stats:{
-        videoId:'',
+      stats: {
+        videoId: '',
         playerResolution: null,
         frameInfo: null,
         volume: null,
-        networkState: null, 
+        networkState: null,
         bandwidth: null,
-        bufferTime: null, 
+        bufferTime: null,
         bufferPercent: null,
-        fps:null,
-        modal:null,
-      },
+        fps: null,
+        display: {
+          modal: null,
+          event: 'statsUpdated'
+        }
+      }
     }
   },
   computed: {
@@ -200,32 +203,37 @@ export default Vue.extend({
     displayVideoPlayButton: function() {
       return this.$store.getters.getDisplayVideoPlayButton
     },
-    formated_stats: function(){
-      let resolution =""
-      let dropFrame = ""
-      if (this.stats.playerResolution !=null){
+    formated_stats: function() {
+      let resolution = ''
+      let dropFrame = ''
+      if (this.stats.playerResolution != null) {
         resolution = `(${this.stats.playerResolution.height}X${this.stats.playerResolution.width})`
       }
-      if (this.stats.frameInfo!=null){
+      if (this.stats.frameInfo != null) {
         dropFrame = this.stats.frameInfo.droppedVideoFrames
       }
-      const stats =  [
-          ["video id",this.stats.videoId],
-          ["player resolution",resolution],
-          ["fps",this.stats.fps],
-          ["frame drop",dropFrame],
-          ["network state",this.stats.networkState],
-          ["bandwidth",this.stats.bandwidth],
-          ["buffer range",this.stats.bufferTime],
-          ["% buffered",this.stats.bufferPercent]
-        ]
+      const stats = [
+        ['video id', this.stats.videoId],
+        ['player resolution', resolution],
+        ['fps', this.stats.fps],
+        ['frame drop', dropFrame],
+        ['network state', this.stats.networkState],
+        ['bandwidth', this.stats.bandwidth],
+        ['buffer range', this.stats.bufferTime],
+        ['% buffered', this.stats.bufferPercent]
+      ]
 
       let formatedStats = '<ul style="list-style-type: none;text-align:left">'
-      for (let stat of stats){
-        formatedStats+=`<li >${stat[0]}: ${stat[1]}</li>`
+      for (const stat of stats) {
+        formatedStats += `<li >${stat[0]}: ${stat[1]}</li>`
       }
-      formatedStats+="</ul>"
-      return formatedStats.substring(0,formatedStats.length-1)
+      formatedStats += '</ul>'
+      return formatedStats.substring(0, formatedStats.length - 1)
+    }
+  },
+  watch: {
+    selectedQuality: function() {
+      this.currentFps()
     }
   },
   mounted: function () {
@@ -1526,16 +1534,15 @@ export default Vue.extend({
       'showToast',
       'sponsorBlockSkipSegments'
     ]),
-    addPlayerStatsEvent: function(){
-      this.player.on("volumechange",()=>{ this.stats.volume = this.player.volume()})
+    addPlayerStatsEvent: function() {
+      this.player.on('volumechange', () => { this.stats.volume = this.player.volume() })
 
-      this.player.on("timeupdate",()=>{
+      this.player.on('timeupdate', () => {
         const stats = this.player.tech({ IWillNotUseThisInPlugins: true }).vhs.stats
         this.stats.frameInfo = stats.videoPlaybackQuality
-        
       })
 
-      this.player.on("progress",()=>{
+      this.player.on('progress', () => {
         const stats = this.player.tech({ IWillNotUseThisInPlugins: true }).vhs.stats
 
         this.stats.bandwidth = stats.bandwidth
@@ -1544,41 +1551,36 @@ export default Vue.extend({
         this.stats.networkState = this.player.networkState()
       })
 
-      this.player.on("playerresize",()=>{
+      this.player.on('playerresize', () => {
         this.stats.playerResolution = this.player.currentDimensions()
       })
-      
-      let ModalDialog = videojs.getComponent('ModalDialog')
-      this.stats.modal = new ModalDialog(this.player, {
-        content: "abc",
-        temporary: false,
-        pauseOnOpen:false
-      })
-     this.player.addChild(this.stats.modal)
-     this.stats.modal.height("55%")
-     this.stats.modal.width("55%")
 
-     this.player.setInterval(()=>{
-      this.stats.modal.open()
-      if (this.stats.modal!=null){
-        this.stats.modal.contentEl().innerHTML = this.formated_stats
-      }
-      this.player.controls(true)
-     },1000)
-     
+      this.createStatsModal()
+      this.player.on(this.stats.display.event, () => {
+        this.stats.display.modal.open()
+        if (this.stats.modal != null) {
+          this.stats.display.modal.contentEl().innerHTML = this.formated_stats
+        }
+        this.player.controls(true)
+      })
     },
-    currentFps: function(){
-      for (let el of this.activeAdaptiveFormats){
-        if (el.qualityLabel == this.selectedQuality){
+    createStatsModal: function() {
+      const ModalDialog = videojs.getComponent('ModalDialog')
+      this.stats.modal = new ModalDialog(this.player, {
+        temporary: false,
+        pauseOnOpen: false
+      })
+      this.player.addChild(this.stats.modal)
+      this.stats.display.modal.height('55%')
+      this.stats.display.modal.width('55%')
+    },
+    currentFps: function() {
+      for (const el of this.activeAdaptiveFormats) {
+        if (el.qualityLabel === this.selectedQuality) {
           this.stats.fps = el.fps
           break
         }
       }
     }
-  },
-  watch: {
-    selectedQuality:function(){
-      this.currentFps()
-    },
-  },
+  }
 })
