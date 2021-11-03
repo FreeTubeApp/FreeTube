@@ -1550,7 +1550,20 @@ export default Vue.extend({
 
         this.stats.bandwidth = stats.bandwidth
         this.stats.bufferPercent = this.player.bufferedPercent()
-        this.stats.networkState = this.player.networkState()
+        switch (this.player.networkState()) {
+          case 0:
+            this.stats.networkState ='NETWORK_EMPTY'
+            break
+          case 1:
+            this.stats.networkState ='NETWORK_IDLE'
+            break
+          case 2:
+            this.stats.networkState ='NETWORK_LOADING'
+            break
+          case 3:
+            this.stats.networkState ='NETWORK_NO_SOURCE'
+            break
+        }
         this.player.trigger(this.stats.display.event)
       })
 
@@ -1561,7 +1574,8 @@ export default Vue.extend({
 
       this.createStatsModal()
       this.player.on(this.stats.display.event, this.updateStatsModal)
-
+      
+      //keyboard shortcut
       window.addEventListener('keyup', () => {
         if (this.stats.display.modal.opened()) {
           this.player.off(this.stats.display.event)
