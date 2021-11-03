@@ -140,7 +140,6 @@ export default Vue.extend({
         volume: null,
         networkState: null,
         bandwidth: null,
-        bufferTime: null,
         bufferPercent: null,
         fps: null,
         display: {
@@ -210,7 +209,7 @@ export default Vue.extend({
         resolution = `(${this.stats.playerResolution.height}X${this.stats.playerResolution.width})`
       }
       if (this.stats.frameInfo != null) {
-        dropFrame = this.stats.frameInfo.droppedVideoFrames
+        dropFrame = `${this.stats.frameInfo.droppedVideoFrames} out of ${this.stats.frameInfo.totalVideoFrames}`
       }
       const stats = [
         ['video id', this.stats.videoId],
@@ -219,7 +218,6 @@ export default Vue.extend({
         ['frame drop', dropFrame],
         ['network state', this.stats.networkState],
         ['bandwidth', this.stats.bandwidth],
-        ['buffer range', this.stats.bufferTime],
         ['% buffered', this.stats.bufferPercent]
       ]
 
@@ -1535,42 +1533,49 @@ export default Vue.extend({
       'sponsorBlockSkipSegments'
     ]),
     addPlayerStatsEvent: function() {
-      this.player.on('volumechange', () => { this.stats.volume = this.player.volume() })
+      this.player.on('volumechange', () => { 
+        this.stats.volume = this.player.volume() 
+        this.player.trigger(this.stats.display.event)
+      })
 
       this.player.on('timeupdate', () => {
         const stats = this.player.tech({ IWillNotUseThisInPlugins: true }).vhs.stats
         this.stats.frameInfo = stats.videoPlaybackQuality
+        this.player.trigger(this.stats.display.event)
+
       })
 
       this.player.on('progress', () => {
         const stats = this.player.tech({ IWillNotUseThisInPlugins: true }).vhs.stats
 
         this.stats.bandwidth = stats.bandwidth
-        this.stats.bufferTime = this.player.buffered()
         this.stats.bufferPercent = this.player.bufferedPercent()
         this.stats.networkState = this.player.networkState()
+        this.player.trigger(this.stats.display.event)
+
       })
 
       this.player.on('playerresize', () => {
         this.stats.playerResolution = this.player.currentDimensions()
+        this.player.trigger(this.stats.display.event)
       })
 
       this.createStatsModal()
       this.player.on(this.stats.display.event, () => {
-        this.stats.display.modal.open()
-        if (this.stats.modal != null) {
+        if (this.stats.display.modal != null) {
+          this.stats.display.modal.open()
+          this.player.controls(true)
           this.stats.display.modal.contentEl().innerHTML = this.formated_stats
         }
-        this.player.controls(true)
       })
     },
     createStatsModal: function() {
       const ModalDialog = videojs.getComponent('ModalDialog')
-      this.stats.modal = new ModalDialog(this.player, {
+      this.stats.display.modal = new ModalDialog(this.player, {
         temporary: false,
         pauseOnOpen: false
       })
-      this.player.addChild(this.stats.modal)
+      this.player.addChild(this.stats.display.modal)
       this.stats.display.modal.height('55%')
       this.stats.display.modal.width('55%')
     },
