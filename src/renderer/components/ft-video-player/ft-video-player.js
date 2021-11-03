@@ -1551,16 +1551,16 @@ export default Vue.extend({
         this.stats.bufferPercent = this.player.bufferedPercent()
         switch (this.player.networkState()) {
           case 0:
-            this.stats.networkState ='NETWORK_EMPTY'
+            this.stats.networkState = 'NETWORK_EMPTY'
             break
           case 1:
-            this.stats.networkState ='NETWORK_IDLE'
+            this.stats.networkState = 'NETWORK_IDLE'
             break
           case 2:
-            this.stats.networkState ='NETWORK_LOADING'
+            this.stats.networkState = 'NETWORK_LOADING'
             break
           case 3:
-            this.stats.networkState ='NETWORK_NO_SOURCE'
+            this.stats.networkState = 'NETWORK_NO_SOURCE'
             break
         }
         this.player.trigger(this.stats.display.event)
@@ -1572,15 +1572,21 @@ export default Vue.extend({
       })
 
       this.createStatsModal()
-      this.player.on(this.stats.display.event, this.updateStatsModal)
-      
-      //keyboard shortcut
-      window.addEventListener('keyup', () => {
-        if (this.stats.display.modal.opened()) {
-          this.player.off(this.stats.display.event)
-          this.stats.display.modal.close()
-        } else {
-          this.player.on(this.stats.display.event, this.updateStatsModal)
+      // keyboard shortcut
+      window.addEventListener('keyup', (event) => {
+        if (event.code === 'ArrowUp') {
+          if (this.stats.display.modal.opened()) {
+            this.player.off(this.stats.display.event)
+            this.stats.display.modal.close()
+          } else {
+            this.player.on(this.stats.display.event, () => {
+              if (this.stats.display.modal != null) {
+                this.stats.display.modal.open()
+                this.player.controls(true)
+                this.stats.display.modal.contentEl().innerHTML = this.formated_stats
+              }
+            })
+          }
         }
       }, true)
     },
@@ -1596,13 +1602,6 @@ export default Vue.extend({
       this.stats.display.modal.on('modalclose', () => {
         this.player.off(this.stats.display.event)
       })
-    },
-    updateStatsModal: function() {
-      if (this.stats.display.modal != null) {
-        this.stats.display.modal.open()
-        this.player.controls(true)
-        this.stats.display.modal.contentEl().innerHTML = this.formated_stats
-      }
     },
     currentFps: function() {
       for (const el of this.activeAdaptiveFormats) {
