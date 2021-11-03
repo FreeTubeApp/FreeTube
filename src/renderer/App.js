@@ -474,15 +474,23 @@ export default Vue.extend({
   }
 })
 
-Vue.prototype.$updateChannelThumbnail = function(thumbnail, channelId) {
+Vue.prototype.$updateChannelThumbnail = function(thumbnail, channelName, channelId) {
   for (let i = 0; i < this.profileList.length; i++) {
     const currentProfile = JSON.parse(JSON.stringify(this.profileList[i]))
     const channelIndex = currentProfile.subscriptions.findIndex((channel) => {
       return channel.id === channelId
     })
     if (channelIndex !== -1) {
+      let updated = false
+      if (this.profileList[i].subscriptions[channelIndex].name !== channelName) {
+        currentProfile.subscriptions[channelIndex].name = channelName
+        updated = true
+      }
       if (this.profileList[i].subscriptions[channelIndex].thumbnail !== thumbnail) {
         currentProfile.subscriptions[channelIndex].thumbnail = thumbnail
+        updated = true
+      }
+      if (updated) {
         this.updateProfile(currentProfile)
       } else {
         break

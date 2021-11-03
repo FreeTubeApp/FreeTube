@@ -81,7 +81,7 @@ export default Vue.extend({
           infoSource: 'local'
         }
 
-        this.$updateChannelThumbnail(this.infoData.channelThumbnail.replace('=s48', '=s176'), this.infoData.channelId)
+        this.$updateChannelThumbnail(this.infoData.channelThumbnail.replace('=s48', '=s176'), this.infoData.channelName, this.infoData.channelId)
 
         this.playlistItems = result.items.map((video) => {
           if (typeof video.author !== 'undefined') {
@@ -138,7 +138,7 @@ export default Vue.extend({
           infoSource: 'invidious'
         }
 
-        this.$updateChannelThumbnail(result.authorThumbnails[2].url.replace('=s48', '=s176'), this.infoData.channelId)
+        this.$updateChannelThumbnail(result.authorThumbnails[2].url.replace('=s48', '=s176'), this.infoData.channelName, this.infoData.channelId)
 
         const dateString = new Date(result.updated * 1000)
         dateString.setDate(dateString.getDate() + 1)

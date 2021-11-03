@@ -257,7 +257,7 @@ export default Vue.extend({
           this.subCount = response.subscriberCount.toFixed(0)
         }
         this.thumbnailUrl = response.authorThumbnails[2].url
-        this.$updateChannelThumbnail(this.thumbnailUrl, this.id)
+        this.$updateChannelThumbnail(this.thumbnailUrl, this.channelName, this.id)
         this.channelDescription = autolinker.link(response.description)
         this.relatedChannels = response.relatedChannels.items
         this.relatedChannels.forEach(relatedChannel => {
@@ -363,7 +363,7 @@ export default Vue.extend({
         }
         const thumbnail = response.authorThumbnails[3].url
         this.thumbnailUrl = thumbnail.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
-        this.$updateChannelThumbnail(thumbnail, this.id)
+        this.$updateChannelThumbnail(thumbnail, this.channelName, this.id)
         this.channelDescription = autolinker.link(response.description)
         this.relatedChannels = response.relatedChannels.map((channel) => {
           channel.authorThumbnails[channel.authorThumbnails.length - 1].url = channel.authorThumbnails[channel.authorThumbnails.length - 1].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
