@@ -144,7 +144,8 @@ export default Vue.extend({
         fps: null,
         display: {
           modal: null,
-          event: 'statsUpdated'
+          event: 'statsUpdated',
+          keyboardShortcut:'ArrowUp',
         }
       }
     }
@@ -1574,7 +1575,7 @@ export default Vue.extend({
       this.createStatsModal()
       // keyboard shortcut
       window.addEventListener('keyup', (event) => {
-        if (event.code === 'ArrowUp') {
+        if (event.code === this.stats.display.keyboardShortcut) {
           if (this.stats.display.modal.opened()) {
             this.player.off(this.stats.display.event)
             this.stats.display.modal.close()
