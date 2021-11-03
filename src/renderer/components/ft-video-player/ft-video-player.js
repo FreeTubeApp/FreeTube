@@ -214,11 +214,11 @@ export default Vue.extend({
       const stats = [
         ['video id', this.stats.videoId],
         ['player resolution', resolution],
-        ['volume',this.stats.volume.toFixed(2)],
+        ['volume', this.stats.volume.toFixed(2)],
         ['fps', this.stats.fps],
         ['frame drop', dropFrame],
         ['network state', this.stats.networkState],
-        ['bandwidth', `${(this.stats.bandwidth/1000).toFixed(2)} kbps`],
+        ['bandwidth', `${(this.stats.bandwidth / 1000).toFixed(2)} kbps`],
         ['% buffered', this.stats.bufferPercent.toFixed(2)]
       ]
 
@@ -1534,8 +1534,8 @@ export default Vue.extend({
       'sponsorBlockSkipSegments'
     ]),
     addPlayerStatsEvent: function() {
-      this.player.on('volumechange', () => { 
-        this.stats.volume = this.player.volume() 
+      this.player.on('volumechange', () => {
+        this.stats.volume = this.player.volume()
         this.player.trigger(this.stats.display.event)
       })
 
@@ -1543,7 +1543,6 @@ export default Vue.extend({
         const stats = this.player.tech({ IWillNotUseThisInPlugins: true }).vhs.stats
         this.stats.frameInfo = stats.videoPlaybackQuality
         this.player.trigger(this.stats.display.event)
-
       })
 
       this.player.on('progress', () => {
@@ -1553,7 +1552,6 @@ export default Vue.extend({
         this.stats.bufferPercent = this.player.bufferedPercent()
         this.stats.networkState = this.player.networkState()
         this.player.trigger(this.stats.display.event)
-
       })
 
       this.player.on('playerresize', () => {
@@ -1564,14 +1562,13 @@ export default Vue.extend({
       this.createStatsModal()
       this.player.on(this.stats.display.event, this.updateStatsModal)
 
-      window.addEventListener('keyup', ()=>{
-        if (this.stats.display.modal.opened()){
+      window.addEventListener('keyup', () => {
+        if (this.stats.display.modal.opened()) {
           this.player.off(this.stats.display.event)
           this.stats.display.modal.close()
-        }else{
+        } else {
           this.player.on(this.stats.display.event, this.updateStatsModal)
         }
-        
       }, true)
     },
     createStatsModal: function() {
@@ -1583,18 +1580,17 @@ export default Vue.extend({
       this.player.addChild(this.stats.display.modal)
       this.stats.display.modal.height('55%')
       this.stats.display.modal.width('45%')
-      this.stats.display.modal.on('modalclose',()=>{
+      this.stats.display.modal.on('modalclose', () => {
         this.player.off(this.stats.display.event)
       })
     },
-    updateStatsModal: function(){
-        if (this.stats.display.modal != null) {
-          this.stats.display.modal.open()
-          this.player.controls(true)
-          this.stats.display.modal.contentEl().innerHTML = this.formated_stats
-        }
+    updateStatsModal: function() {
+      if (this.stats.display.modal != null) {
+        this.stats.display.modal.open()
+        this.player.controls(true)
+        this.stats.display.modal.contentEl().innerHTML = this.formated_stats
       }
-    ,
+    },
     currentFps: function() {
       for (const el of this.activeAdaptiveFormats) {
         if (el.qualityLabel === this.selectedQuality) {
