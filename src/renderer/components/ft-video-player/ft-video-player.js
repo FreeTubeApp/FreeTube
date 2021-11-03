@@ -222,12 +222,12 @@ export default Vue.extend({
         ['% buffered', this.stats.bufferPercent.toFixed(2)]
       ]
 
-      let formatedStats = '<ul style="list-style-type: none;text-align:left; padding-left:0px">'
+      let formattedStats = '<ul style="list-style-type: none;text-align:left; padding-left:0px">'
       for (const stat of stats) {
-        formatedStats += `<li>${stat[0]}: ${stat[1]}</li>`
+        formattedStats += `<li>${stat[0]}: ${stat[1]}</li>`
       }
-      formatedStats += '</ul>'
-      return formatedStats
+      formattedStats += '</ul>'
+      return formattedStats
     }
   },
   watch: {
