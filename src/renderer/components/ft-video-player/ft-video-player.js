@@ -145,7 +145,7 @@ export default Vue.extend({
         display: {
           modal: null,
           event: 'statsUpdated',
-          keyboardShortcut: 'ArrowUp'
+          keyboardShortcut: 'KeyI'
         }
       }
     }
