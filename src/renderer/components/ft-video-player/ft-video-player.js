@@ -227,7 +227,7 @@ export default Vue.extend({
         formatedStats += `<li>${stat[0]}: ${stat[1]}</li>`
       }
       formatedStats += '</ul>'
-      return formatedStats.substring(0, formatedStats.length - 1)
+      return formatedStats
     }
   },
   watch: {
