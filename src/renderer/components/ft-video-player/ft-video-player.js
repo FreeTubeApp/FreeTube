@@ -132,6 +132,20 @@ export default Vue.extend({
           2.75,
           3
         ]
+      },
+      stats: {
+        videoId: '',
+        playerResolution: null,
+        frameInfo: null,
+        volume: 0,
+        networkState: null,
+        bandwidth: null,
+        bufferPercent: 0,
+        fps: null,
+        display: {
+          modal: null,
+          event: 'statsUpdated'
+        }
       }
     }
   },
@@ -187,6 +201,38 @@ export default Vue.extend({
 
     displayVideoPlayButton: function() {
       return this.$store.getters.getDisplayVideoPlayButton
+    },
+    formated_stats: function() {
+      let resolution = ''
+      let dropFrame = ''
+      if (this.stats.playerResolution != null) {
+        resolution = `(${this.stats.playerResolution.height}X${this.stats.playerResolution.width})`
+      }
+      if (this.stats.frameInfo != null) {
+        dropFrame = `${this.stats.frameInfo.droppedVideoFrames} out of ${this.stats.frameInfo.totalVideoFrames}`
+      }
+      const stats = [
+        ['video id', this.stats.videoId],
+        ['player resolution', resolution],
+        ['volume', this.stats.volume.toFixed(2)],
+        ['fps', this.stats.fps],
+        ['frame drop', dropFrame],
+        ['network state', this.stats.networkState],
+        ['bandwidth', `${(this.stats.bandwidth / 1000).toFixed(2)} kbps`],
+        ['% buffered', this.stats.bufferPercent.toFixed(2)]
+      ]
+
+      let formatedStats = '<ul style="list-style-type: none;text-align:left">'
+      for (const stat of stats) {
+        formatedStats += `<li >${stat[0]}: ${stat[1]}</li>`
+      }
+      formatedStats += '</ul>'
+      return formatedStats.substring(0, formatedStats.length - 1)
+    }
+  },
+  watch: {
+    selectedQuality: function() {
+      this.currentFps()
     }
   },
   mounted: function () {
@@ -203,6 +249,7 @@ export default Vue.extend({
     this.createToggleTheatreModeButton()
     this.determineFormatType()
     this.determineMaxFramerate()
+    this.stats.videoId = this.id
   },
   beforeDestroy: function () {
     if (this.player !== null) {
@@ -335,6 +382,7 @@ export default Vue.extend({
           this.updateDefaultCaptionSettings(JSON.stringify(settings))
         })
       }
+      this.addPlayerStatsEvent()
     },
 
     initializeSponsorBlock() {
@@ -1483,6 +1531,86 @@ export default Vue.extend({
       'updateDefaultCaptionSettings',
       'showToast',
       'sponsorBlockSkipSegments'
-    ])
+    ]),
+    addPlayerStatsEvent: function() {
+      this.player.on('volumechange', () => {
+        this.stats.volume = this.player.volume()
+        this.player.trigger(this.stats.display.event)
+      })
+
+      this.player.on('timeupdate', () => {
+        const stats = this.player.tech({ IWillNotUseThisInPlugins: true }).vhs.stats
+        this.stats.frameInfo = stats.videoPlaybackQuality
+        this.player.trigger(this.stats.display.event)
+      })
+
+      this.player.on('progress', () => {
+        const stats = this.player.tech({ IWillNotUseThisInPlugins: true }).vhs.stats
+
+        this.stats.bandwidth = stats.bandwidth
+        this.stats.bufferPercent = this.player.bufferedPercent()
+        switch (this.player.networkState()) {
+          case 0:
+            this.stats.networkState ='NETWORK_EMPTY'
+            break
+          case 1:
+            this.stats.networkState ='NETWORK_IDLE'
+            break
+          case 2:
+            this.stats.networkState ='NETWORK_LOADING'
+            break
+          case 3:
+            this.stats.networkState ='NETWORK_NO_SOURCE'
+            break
+        }
+        this.player.trigger(this.stats.display.event)
+      })
+
+      this.player.on('playerresize', () => {
+        this.stats.playerResolution = this.player.currentDimensions()
+        this.player.trigger(this.stats.display.event)
+      })
+
+      this.createStatsModal()
+      this.player.on(this.stats.display.event, this.updateStatsModal)
+      
+      //keyboard shortcut
+      window.addEventListener('keyup', () => {
+        if (this.stats.display.modal.opened()) {
+          this.player.off(this.stats.display.event)
+          this.stats.display.modal.close()
+        } else {
+          this.player.on(this.stats.display.event, this.updateStatsModal)
+        }
+      }, true)
+    },
+    createStatsModal: function() {
+      const ModalDialog = videojs.getComponent('ModalDialog')
+      this.stats.display.modal = new ModalDialog(this.player, {
+        temporary: false,
+        pauseOnOpen: false
+      })
+      this.player.addChild(this.stats.display.modal)
+      this.stats.display.modal.height('55%')
+      this.stats.display.modal.width('45%')
+      this.stats.display.modal.on('modalclose', () => {
+        this.player.off(this.stats.display.event)
+      })
+    },
+    updateStatsModal: function() {
+      if (this.stats.display.modal != null) {
+        this.stats.display.modal.open()
+        this.player.controls(true)
+        this.stats.display.modal.contentEl().innerHTML = this.formated_stats
+      }
+    },
+    currentFps: function() {
+      for (const el of this.activeAdaptiveFormats) {
+        if (el.qualityLabel === this.selectedQuality) {
+          this.stats.fps = el.fps
+          break
+        }
+      }
+    }
   }
 })
