@@ -1598,7 +1598,7 @@ export default Vue.extend({
       })
       this.player.addChild(this.stats.display.modal)
       this.stats.display.modal.height('55%')
-      this.stats.display.modal.width('45%')
+      this.stats.display.modal.width('50%')
       this.stats.display.modal.on('modalclose', () => {
         this.player.off(this.stats.display.event)
       })
