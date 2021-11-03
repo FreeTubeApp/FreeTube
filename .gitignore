@@ -25,3 +25,4 @@ __coverage__
 csak-timelog.json
 .idea/
 debug/
+package-lock.json
