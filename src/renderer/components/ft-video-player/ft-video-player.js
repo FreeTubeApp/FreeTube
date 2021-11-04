@@ -210,17 +210,17 @@ export default Vue.extend({
         resolution = `(${this.stats.playerResolution.height}X${this.stats.playerResolution.width})`
       }
       if (this.stats.frameInfo != null) {
-        dropFrame = `${this.stats.frameInfo.droppedVideoFrames} out of ${this.stats.frameInfo.totalVideoFrames}`
+        dropFrame = `${this.stats.frameInfo.droppedVideoFrames} ${this.$t('Video.Stats.out of')} ${this.stats.frameInfo.totalVideoFrames}`
       }
       const stats = [
-        ['video id', this.stats.videoId],
-        ['player resolution', resolution],
-        ['volume', this.stats.volume.toFixed(2)],
-        ['fps', this.stats.fps],
-        ['frame drop', dropFrame],
-        ['network state', this.stats.networkState],
-        ['bandwidth', `${(this.stats.bandwidth / 1000).toFixed(2)} kbps`],
-        ['% buffered', this.stats.bufferPercent.toFixed(2)]
+        [this.$t('Video.Stats.video id'), this.stats.videoId],
+        [this.$t('Video.Stats.player resolution'), resolution],
+        [this.$t('Video.Stats.volume'), this.stats.volume.toFixed(2)],
+        [this.$t('Video.Stats.fps'), this.stats.fps],
+        [this.$t('Video.Stats.frame drop'), dropFrame],
+        [this.$t('Video.Stats.network state'), this.stats.networkState],
+        [this.$t('Video.Stats.bandwidth'), `${(this.stats.bandwidth / 1000).toFixed(2)} kbps`],
+        [this.$t('Video.Stats.buffered'), this.stats.bufferPercent.toFixed(2)]
       ]
 
       let formattedStats = '<ul style="list-style-type: none;text-align:left; padding-left:0px">'
@@ -1552,16 +1552,16 @@ export default Vue.extend({
         this.stats.bufferPercent = this.player.bufferedPercent()
         switch (this.player.networkState()) {
           case 0:
-            this.stats.networkState = 'NETWORK_EMPTY'
+            this.stats.networkState = this.$t('Video.Stats.network state possibility.network_empty')
             break
           case 1:
-            this.stats.networkState = 'NETWORK_IDLE'
+            this.stats.networkState = this.$t('Video.Stats.network state possibility.network_idle')
             break
           case 2:
-            this.stats.networkState = 'NETWORK_LOADING'
+            this.stats.networkState = this.$t('Video.Stats.network state possibility.network_loading')
             break
           case 3:
-            this.stats.networkState = 'NETWORK_NO_SOURCE'
+            this.stats.networkState = this.$t('Video.Stats.network state possibility.network_no_source')
             break
         }
         this.player.trigger(this.stats.display.event)
@@ -1598,7 +1598,7 @@ export default Vue.extend({
         pauseOnOpen: false
       })
       this.player.addChild(this.stats.display.modal)
-      this.stats.display.modal.height('55%')
+      this.stats.display.modal.height('60%')
       this.stats.display.modal.width('50%')
       this.stats.display.modal.on('modalclose', () => {
         this.player.off(this.stats.display.event)

@@ -540,6 +540,21 @@ Video:
       reversing playlists: reversing playlists
       shuffling playlists: shuffling playlists
       looping playlists: looping playlists
+  Stats:
+    video id: video id
+    player resolution: player resolution
+    volume: volume
+    fps: fps
+    frame drop: frame drop
+    network state: network state
+    bandwidth: bandwidth
+    buffered: "% buffered"
+    out of: out of
+    network state possibility:
+      network_empty: NETWORK_EMPTY
+      network_idle: NETWORK_IDLE
+      network_loading: NETWORK_LOADING
+      network_no_source: NETWORK_NO_SOURCE
 #& Videos
 Videos:
   #& Sort By
