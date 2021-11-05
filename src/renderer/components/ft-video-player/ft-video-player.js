@@ -134,7 +134,6 @@ export default Vue.extend({
         ]
       },
       stats: {
-        videoId: '',
         playerResolution: null,
         frameInfo: null,
         volume: 0,
@@ -213,7 +212,6 @@ export default Vue.extend({
         dropFrame = `${this.stats.frameInfo.droppedVideoFrames} ${this.$t('Video.Stats.out of')} ${this.stats.frameInfo.totalVideoFrames}`
       }
       const stats = [
-        [this.$t('Video.Stats.video id'), this.stats.videoId],
         [this.$t('Video.Stats.player resolution'), resolution],
         [this.$t('Video.Stats.volume'), this.stats.volume.toFixed(2)],
         [this.$t('Video.Stats.fps'), this.stats.fps],
@@ -250,7 +248,6 @@ export default Vue.extend({
     this.createToggleTheatreModeButton()
     this.determineFormatType()
     this.determineMaxFramerate()
-    this.stats.videoId = this.id
   },
   beforeDestroy: function () {
     if (this.player !== null) {
