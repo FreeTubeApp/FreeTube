@@ -459,6 +459,7 @@ Video:
   Starting soon, please refresh the page to check again: Starting soon, please refresh
     the page to check again
   # As in a Live Video
+  Premieres on: Premieres on
   Live: Live
   Live Now: Live Now
   Live Chat: Live Chat
@@ -602,16 +603,19 @@ Comments:
   Sort by: Sort by
   Top comments: Top comments
   Newest first: Newest First
-  # Context: View 10 Replies, View 1 Reply
+  # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
   View: View
   Hide: Hide
   Replies: Replies
   Show More Replies: Show More Replies
   Reply: Reply
+  From $channelName: from $channelName
+  And others: and others
   There are no comments available for this video: There are no comments available
     for this video
   Load More Comments: Load More Comments
   No more comments available: No more comments available
+  Pinned by: Pinned by
 Up Next: Up Next
 
 #Tooltips
