@@ -154,7 +154,7 @@ Settings:
       Light: 'Claro'
       Dracula: 'Drácula'
     Main Color Theme:
-      Main Color Theme: 'Color Principal'
+      Main Color Theme: 'Color principal'
       Red: 'Rojo'
       Pink: 'Rosado'
       Purple: 'Púrpura'
@@ -181,11 +181,12 @@ Settings:
     Secondary Color Theme: 'Color secundario'
         #* Main Color Theme
     UI Scale: Escala de interfaz gráfica
-    Expand Side Bar by Default: Expandir Barra Lateral por defecto
+    Expand Side Bar by Default: Expandir barra lateral por defecto
     Disable Smooth Scrolling: Desactivar desplazamiento suave
+    Hide Side Bar Labels: Ocultar las etiquetas de la barra lateral
   Player Settings:
-    Player Settings: 'Reproductor'
-    Force Local Backend for Legacy Formats: 'Forzar Backend Local para Formatos Heredados'
+    Player Settings: 'Reproductor FreeTube'
+    Force Local Backend for Legacy Formats: 'Forzar API local para formato «Legacy»'
     Play Next Video: 'Reproducción continua'
     Turn on Subtitles by Default: 'Activar Subtítulos por defecto'
     Autoplay Videos: 'Reproducción automática de vídeos'
@@ -193,11 +194,11 @@ Settings:
     Autoplay Playlists: 'Reproducción automática de listas de reproducción'
     Enable Theatre Mode by Default: 'Activar el Modo Cine por defecto'
     Default Volume: 'Volumen Predeterminado'
-    Default Playback Rate: 'Velocidad de Reproducción Predeterminada'
+    Default Playback Rate: 'Velocidad de reproducción predeterminada'
     Default Video Format:
       Default Video Format: 'Formato de vídeo predeterminado'
       Dash Formats: 'Formatos DASH'
-      Legacy Formats: 'Formatos Heredados'
+      Legacy Formats: 'Legacy'
       Audio Formats: 'Formatos de Audio'
     Default Quality:
       Default Quality: 'Calidad Predeterminada'
@@ -219,13 +220,13 @@ Settings:
       vídeo
     Fast-Forward / Rewind Interval: Intervalo de avance/rebobinado rápido
   Privacy Settings:
-    Privacy Settings: 'Configuración de privacidad'
+    Privacy Settings: 'Privacidad'
     Remember History: 'Recordar historial'
     Save Watched Progress: 'Guardar progreso reproducido'
-    Clear Search Cache: 'Vaciar Caché de Búsquedas'
-    Are you sure you want to clear out your search cache?: '¿Confirma que quiere vaciar
-      el Caché de Búsquedas?'
-    Search cache has been cleared: 'Se vació el Caché de Búsquedas'
+    Clear Search Cache: 'Borrar cache de búsqueda'
+    Are you sure you want to clear out your search cache?: '¿Seguro que quiere borrar
+      el cache de búsqueda?'
+    Search cache has been cleared: 'Cache de búsqueda borrado'
     Remove Watch History: 'Vaciar historial de reproducciones'
     Are you sure you want to remove your entire watch history?: '¿Confirma que quiere
       vaciar el historial de reproducciones?'
@@ -233,22 +234,22 @@ Settings:
     Remove All Subscriptions / Profiles: 'Borrar todas las suscripciones y perfiles'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: '¿Confirma
       que quiere borrar todas las suscripciones y perfiles? Esta operación es irreversible.'
-    Automatically Remove Video Meta Files: Eliminar Automáticamente los Meta-Archivos
-      de Vídeo
+    Automatically Remove Video Meta Files: Eliminar automáticamente los metadatos
+      de vídeos
   Subscription Settings:
-    Subscription Settings: 'Configuración de suscripciones'
+    Subscription Settings: 'Suscripciones'
     Hide Videos on Watch: 'Ocultar vídeos vistos'
     Fetch Feeds from RSS: 'Recuperar suministros desde RSS'
     Manage Subscriptions: 'Gestionar suscripciones'
   Data Settings:
-    Data Settings: 'Configuración de datos'
+    Data Settings: 'Datos'
     Select Import Type: 'Seleccionar Tipo de Importación'
     Select Export Type: 'Seleccionar Tipo de Exportación'
-    Import Subscriptions: 'Importar Suscripciones'
+    Import Subscriptions: 'Importar suscripciones'
     Import FreeTube: 'Importar FreeTube'
     Import YouTube: 'Importar YouTube'
     Import NewPipe: 'Importar NewPipe'
-    Export Subscriptions: 'Exportar Suscripciones'
+    Export Subscriptions: 'Exportar suscripciones'
     Export FreeTube: 'Exportar FreeTube'
     Export YouTube: 'Exportar YouTube'
     Export NewPipe: 'Exportar NewPipe'
@@ -277,7 +278,7 @@ Settings:
     How do I import my subscriptions?: '¿Cómo puedo importar mis suscripciones?'
     One or more subscriptions were unable to be imported: Una o varias de las suscripciones
       no han podido ser importadas
-    Check for Legacy Subscriptions: Comprobar suscripciones heredadas
+    Check for Legacy Subscriptions: Comprobar suscripciones Legacy
     Manage Subscriptions: Administrar suscripciones
   Advanced Settings:
     Advanced Settings: 'Ajustes avanzados'
@@ -307,15 +308,15 @@ Settings:
       #& No
 
   Distraction Free Settings:
-    Hide Video Likes And Dislikes: Ocultar Me gusta y No me gusta del vídeos
+    Hide Video Likes And Dislikes: Ocultar «likes» y «dislikes» de vídeos
     Hide Video Views: Ocultar las vistas del vídeo
     Hide Live Chat: Ocultar chat en directo
     Hide Popular Videos: Ocultar vídeos populares
     Hide Trending Videos: Ocultar vídeos en tendencia
     Hide Recommended Videos: Ocultar los vídeos recomendados
-    Hide Comment Likes: Ocultar Likes de Comentarios
-    Hide Channel Subscribers: Ocultar Suscriptores de Canales
-    Distraction Free Settings: Configuración de modo sin distracciones
+    Hide Comment Likes: Ocultar «likes» de comentarios
+    Hide Channel Subscribers: Ocultar suscriptores
+    Distraction Free Settings: Modo sin distracciones
     Hide Active Subscriptions: Ocultar suscripciones activas
     Hide Playlists: Ocultar listas de reproducción
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
@@ -328,9 +329,9 @@ Settings:
     Country: País
     Ip: IP
     Your Info: Tu información
-    Test Proxy: Probar Proxy
-    Clicking on Test Proxy will send a request to: Al cliquear en "Probar Proxy" se
-      enviará una solicitud a
+    Test Proxy: Probar proxy
+    Clicking on Test Proxy will send a request to: Al hacer click en «Probar proxy»
+      se enviará una solicitud a
     Proxy Port Number: Número de puerto del Proxy
     Proxy Host: Host del Proxy
     Proxy Protocol: Protocolo Proxy
@@ -340,15 +341,15 @@ Settings:
     Notify when sponsor segment is skipped: Notificar cuando se salta un segmento
       de patrocinio
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL de la API de
-      SponsorBlock (La predeterminada es https://sponsor.ajay.app)
+      SponsorBlock (por defecto es https://sponsor.ajay.app)
     Enable SponsorBlock: Activar SponsorBlock
-    SponsorBlock Settings: Ajustes de SponsorBlock
+    SponsorBlock Settings: SponsorBlock
   External Player Settings:
-    Custom External Player Arguments: Argumentos personalizados de reprod. externo
-    Custom External Player Executable: Ejecutable personalizado de reprod. externo
-    Ignore Unsupported Action Warnings: Omitir advertencias de acciones no soportadas
+    Custom External Player Arguments: Argumentos adicionales del reproductor
+    Custom External Player Executable: Ruta alternativa del ejecutable del reproductor
+    Ignore Unsupported Action Warnings: Omitir advertencias sobre acciones no soportadas
     External Player: Reproductor externo
-    External Player Settings: Parámetros del lector externo
+    External Player Settings: Reproductor externo
 About:
   #On About page
   About: 'Acerca de'
@@ -624,7 +625,7 @@ Toggle Theatre Mode: 'Activar Modo Cine'
 Change Format:
   Change Video Formats: 'Cambiar formato de vídeo'
   Use Dash Formats: 'Utilizar formatos DASH'
-  Use Legacy Formats: 'Utilizar formatos heredados'
+  Use Legacy Formats: 'Usar formato Legacy'
   Use Audio Formats: 'Utilizar formatos de audio'
   Audio formats are not available for this video: El formato solo audio no está disponible
     para este vídeo
@@ -694,8 +695,8 @@ No: 'No'
 A new blog is now available, $. Click to view more: Nueva publicación del blog disponible,
   $. Haga clic para saber más
 Download From Site: Descargar del sitio web
-Version $ is now available!  Click for more details: ¡La versión $ está disponible!
-  Haga clic para saber más
+Version $ is now available!  Click for more details: La versión $ está disponible!
+  Haz click para saber más
 The playlist has been reversed: Orden de Playlist invertido
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
   vídeo no está disponible por no tener un formato válido. Esto puede suceder por
@@ -707,24 +708,22 @@ Tooltips:
       previene los bloqueos por IP, pero carece de ciertos datos, como la duración
       de los vídeos o el estado de transmisión en directo
   Player Settings:
-    Default Video Format: Establezca los formatos utilizados cuando se reproduce un
-      vídeo. Los formatos DASH pueden reproducir calidades superiores. Los formatos
-      heredados están limitados a un máximo de 720p pero utilizan menos ancho de banda.
-      Los formatos de audio son flujos sólo de audio.
+    Default Video Format: Selecciona el formato usado para reproducir videos. El formato
+      Dash proporciona resoluciones más altas. El formato Legacy está limitado a 720p,
+      pero requiere menos ancho de banda. El formato audio se limita a reproducir
+      solo audio.
     Proxy Videos Through Invidious: Se conectará a Invidious para obtener vídeos en
       lugar de conectar directamente con YouTube. Sobreescribirá la preferencia de
       API.
-    Force Local Backend for Legacy Formats: Sólo funciona cuando la API de Invidious
-      es la predeterminada. Cuando está activada, la API local se ejecutará y utilizará
-      los formatos heredados devueltos por ella en lugar de los devueltos por Invidious.
-      Ayuda cuando los vídeos devueltos por Invidious no se reproducen debido a las
-      restricciones del país.
+    Force Local Backend for Legacy Formats: Solo funcionará si la API de invidious
+      es la preferente. Si lo activas, la API local usará el formato Legacy en lugar
+      de Invidious. Ayudará cuando Invidious no pueda reproducir un video por restricciones
+      regionales.
   General Settings:
     Region for Trending: La región de las tendencias permite ver los vídeos más populares
       en un país determinado. YouTube no admite todos los países mostrados.
     Invidious Instance: La instancia de Invidious por defecto a la que FreeTube se
-      conectará para las llamadas a la API. Borra la instancia actual para ver una
-      lista de instancias públicas.
+      conectará para las llamadas a la API.
     Thumbnail Preference: Todas las miniaturas en FreeTube se reemplazarán con un
       fotograma del vídeo en lugar de la miniatura predeterminada.
     Fallback to Non-Preferred Backend on Failure: Si la API primaria falla, FreeTube
@@ -732,28 +731,30 @@ Tooltips:
     Preferred API Backend: Elija el motor que debe utilizar FreeTube para obtener
       datos. La API local es un extractor incorporado. La API de Invidious requiere
       de un servidor Invidious al cual conectarse.
+    External Link Handling: "Elige el comportamiento predeterminado al pulsar un enlace\
+      \ que no puede ser abierto en FreeTube.\nPor defecto, FreeTube abrirá el enlace\
+      \  en su navegador predeterminado.\n"
   Privacy Settings:
     Remove Video Meta Files: Cuando se active, FreeTube eliminará automáticamente
       meta-archivos creados durante la reproducción del vídeo una vez se cierre la
       página de visualizado.
   External Player Settings:
-    Custom External Player Executable: De manera predeterminada, FreeTube supondrá
-      que el reproductor externo seleccionado puede hallarse mediante la variable
-      de entorno PATH. Si fuera necesario, se puede especificar una ruta personalizada
-      aquí.
-    Custom External Player Arguments: Cualesquier argumentos de orden de consola personalizados,
-      separados por punto y coma (;) que deberán transmitirse al reproductor externo.
-    Ignore Warnings: Suprimir las advertencias para cuando el reproductor externo
-      actual no admite la acción actual (ej. invertir listas de reproducción, etc.).
-    External Player: Elegir un reproductor externo mostrará un icono para abrir el
-      vídeo (o lista de reproducción si esta es compatible) en el reproductor externo,
-      en la miniatura.
+    Custom External Player Executable: Por defecto, FreeTube buscará el reproductor
+      externo seleccionado mediante la variable de entorno PATH, de no encontrarlo,
+      podrás especificar una ruta personalizada aquí.
+    Custom External Player Arguments: Depara cada argumento mediante un punto y coma
+      (;) cada argumento será enviado al reproductor externo.
+    Ignore Warnings: Ocultar advertencias por argumentos incompatibles con el reproductor
+      (ej. invertir listas de reproducción, etc.).
+    External Player: Al elegir un reproductor externo, aparecerá un botón en las miniaturas
+      de los vídeos para abrir el vídeo (o listas de reproducción si son compatibles).
+    DefaultCustomArgumentsTemplate: '(Predeterminado: «$»)'
 More: Más
 Unknown YouTube url type, cannot be opened in app: Tipo de LRU desconocido. No se
   puede abrir en applicación
 Open New Window: Abrir ventana nueva
 Hashtags have not yet been implemented, try again later: Los hashtags no se han implementado
-  todavía, inténtalo de nuevo en otra ocasión
+  todavía, inténtalo más adelante
 Playing Next Video Interval: Reproduciendo el vídeo a continuación. Haz clic para
   cancelar. | El siguiente vídeo se reproducirá en {nextVideoInterval} segundos. Haz
   clic para cancelar. | El siguiente vídeo se reproducirá en {nextVideoInterval} segundos.

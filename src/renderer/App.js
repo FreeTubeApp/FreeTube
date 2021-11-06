@@ -130,7 +130,7 @@ export default Vue.extend({
   },
   mounted: function () {
     this.grabUserSettings().then(async () => {
-      await this.fetchInvidiousInstances()
+      await this.fetchInvidiousInstances({ isDev: this.isDev })
       if (this.defaultInvidiousInstance === '') {
         await this.setRandomCurrentInvidiousInstance()
       }
@@ -398,10 +398,10 @@ export default Vue.extend({
           }
 
           case 'channel': {
-            const { channelId } = result
+            const { channelId, subPath } = result
 
             this.$router.push({
-              path: `/channel/${channelId}`
+              path: `/channel/${channelId}/${subPath}`
             })
             break
           }

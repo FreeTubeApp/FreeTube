@@ -22,6 +22,11 @@
         :default-value="disableSmoothScrollingToggleValue"
         @change="handleRestartPrompt"
       />
+      <ft-toggle-switch
+        :label="$t('Settings.Theme Settings.Hide Side Bar Labels')"
+        :default-value="hideLabelsSideBar"
+        @change="updateHideLabelsSideBar"
+      />
     </ft-flex-box>
     <ft-flex-box>
       <ft-slider

@@ -444,12 +444,12 @@ export default Vue.extend({
             }
 
             if (typeof result.player_response.streamingData.adaptiveFormats !== 'undefined') {
+              const adaptiveFormats = result.player_response.streamingData.adaptiveFormats
+              this.adaptiveFormats = adaptiveFormats
               if (this.proxyVideos) {
                 this.dashSrc = await this.createInvidiousDashManifest()
               } else {
-                const adaptiveFormats = result.player_response.streamingData.adaptiveFormats
                 this.dashSrc = await this.createLocalDashManifest(adaptiveFormats)
-                this.adaptiveFormats = adaptiveFormats
               }
 
               this.audioSourceList = result.player_response.streamingData.adaptiveFormats.filter((format) => {
@@ -557,7 +557,13 @@ export default Vue.extend({
           this.videoPublished = result.published * 1000
           this.videoDescriptionHtml = result.descriptionHtml
           this.recommendedVideos = result.recommendedVideos
-          this.adaptiveFormats = result.adaptiveFormats
+          this.adaptiveFormats = result.adaptiveFormats.map((format) => {
+            format.bitrate = parseInt(format.bitrate)
+            if (typeof format.resolution !== 'undefined') {
+              format.height = parseInt(format.resolution.replace('p', ''))
+            }
+            return format
+          })
           this.isLive = result.liveNow
           this.isFamilyFriendly = result.isFamilyFriendly
           this.captionHybridList = result.captions.map(caption => {
@@ -1054,7 +1060,7 @@ export default Vue.extend({
     },
 
     createInvidiousDashManifest: function () {
-      let url = `${this.currentInvidiousInstance}/api/manifest/dash/id/${this.videoId}.mpd`
+      let url = `${this.currentInvidiousInstance}/api/manifest/dash/id/${this.videoId}`
 
       if (this.proxyVideos || !this.usingElectron) {
         url = url + '?local=true'

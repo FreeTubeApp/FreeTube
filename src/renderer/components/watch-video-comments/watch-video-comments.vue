@@ -48,10 +48,22 @@
           @click="goToChannel(comment.authorLink)"
         >
         <p
+          v-if="comment.isPinned"
+          class="commentPinned"
+        >
+          <font-awesome-icon
+            icon="thumbtack"
+          />
+          {{ $t("Comments.Pinned by") }} {{ channelName }}
+        </p>
+        <p
           class="commentAuthorWrapper"
         >
           <span
             class="commentAuthor"
+            :class="{
+              commentOwner: comment.isOwner
+            }"
             @click="goToChannel(comment.authorLink)"
           >
             {{ comment.author }}
@@ -97,6 +109,8 @@
             {{ comment.numReplies }}
             <span v-if="comment.numReplies === 1">{{ $t("Comments.Reply").toLowerCase() }}</span>
             <span v-else>{{ $t("Comments.Replies").toLowerCase() }}</span>
+            <span v-if="comment.hasOwnerReplied && !comment.showReplies"> {{ $t("Comments.From $channelName").replace("$channelName", channelName) }}</span>
+            <span v-if="comment.numReplies > 1 && comment.hasOwnerReplied && !comment.showReplies">{{ $t("Comments.And others") }}</span>
           </span>
         </p>
         <div
@@ -115,6 +129,9 @@
             <p class="commentAuthorWrapper">
               <span
                 class="commentAuthor"
+                :class="{
+                  commentOwner: reply.isOwner
+                }"
                 @click="goToChannel(reply.authorLink)"
               >
                 {{ reply.author }}

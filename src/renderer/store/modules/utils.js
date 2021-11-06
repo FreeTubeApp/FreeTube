@@ -375,7 +375,7 @@ const actions = {
     let urlType = 'unknown'
 
     const channelPattern =
-      /^\/(?:c\/|channel\/|user\/)?([^/]+)(?:\/join)?\/?$/
+      /^\/(?:(c|channel|user)\/)?(?<channelId>[^/]+)(?:\/(join|featured|videos|playlists|about|community|channels))?\/?$/
 
     const typePatterns = new Map([
       ['playlist', /^\/playlist\/?$/],
@@ -445,16 +445,57 @@ const actions = {
           urlType: 'hashtag'
         }
       }
+      /*
+      Using RegExp named capture groups from ES2018
+      To avoid access to specific captured value broken
 
+      Channel URL (ID-based)
+      https://www.youtube.com/channel/UCfMJ2MchTSW2kWaT0kK94Yw
+      https://www.youtube.com/channel/UCfMJ2MchTSW2kWaT0kK94Yw/about
+      https://www.youtube.com/channel/UCfMJ2MchTSW2kWaT0kK94Yw/channels
+      https://www.youtube.com/channel/UCfMJ2MchTSW2kWaT0kK94Yw/community
+      https://www.youtube.com/channel/UCfMJ2MchTSW2kWaT0kK94Yw/featured
+      https://www.youtube.com/channel/UCfMJ2MchTSW2kWaT0kK94Yw/join
+      https://www.youtube.com/channel/UCfMJ2MchTSW2kWaT0kK94Yw/playlists
+      https://www.youtube.com/channel/UCfMJ2MchTSW2kWaT0kK94Yw/videos
+
+      Custom URL
+
+      https://www.youtube.com/c/YouTubeCreators
+      https://www.youtube.com/c/YouTubeCreators/about
+      etc.
+
+      Legacy Username URL
+
+      https://www.youtube.com/user/ufoludek
+      https://www.youtube.com/user/ufoludek/about
+      etc.
+
+      */
       case 'channel': {
-        const channelId = url.pathname.match(channelPattern)[1]
+        const channelId = url.pathname.match(channelPattern).groups.channelId
         if (!channelId) {
           throw new Error('Channel: could not extract id')
         }
 
+        let subPath = null
+        switch (url.pathname.split('/').filter(i => i)[2]) {
+          case 'playlists':
+            subPath = 'playlists'
+            break
+          case 'channels':
+          case 'about':
+            subPath = 'about'
+            break
+          case 'community':
+          default:
+            subPath = 'videos'
+            break
+        }
         return {
           urlType: 'channel',
-          channelId
+          channelId,
+          subPath
         }
       }
 
@@ -674,6 +715,16 @@ const actions = {
     const ignoreWarnings = rootState.settings.externalPlayerIgnoreWarnings
     const customArgs = rootState.settings.externalPlayerCustomArgs
 
+    // Append custom user-defined arguments,
+    // or use the default ones specified for the external player.
+    if (typeof customArgs === 'string' && customArgs !== '') {
+      const custom = customArgs.split(';')
+      args.push(...custom)
+    } else if (typeof cmdArgs.defaultCustomArguments === 'string' && cmdArgs.defaultCustomArguments !== '') {
+      const defaultCustomArguments = cmdArgs.defaultCustomArguments.split(';')
+      args.push(...defaultCustomArguments)
+    }
+
     if (payload.watchProgress > 0) {
       if (typeof cmdArgs.startOffset === 'string') {
         args.push(`${cmdArgs.startOffset}${payload.watchProgress}`)
@@ -774,12 +825,6 @@ const actions = {
           args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
         }
       }
-    }
-
-    // Append custom user-defined arguments
-    if (customArgs !== null) {
-      const custom = customArgs.split(';')
-      args.push(...custom)
     }
 
     const openingToast = payload.strings.OpeningTemplate

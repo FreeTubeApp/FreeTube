@@ -202,6 +202,7 @@ const state = {
   hideVideoLikesAndDislikes: false,
   hideVideoViews: false,
   hideWatchedSubs: false,
+  hideLabelsSideBar: false,
   landingPage: 'subscriptions',
   listType: 'grid',
   playNextVideo: false,

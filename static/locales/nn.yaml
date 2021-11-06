@@ -87,6 +87,11 @@ Subscriptions:
   Load More Videos: 'Last inn fleire videoar'
 Trending:
   Trending: 'På veg opp'
+  Music: Musikk
+  Trending Tabs: På veg opp
+  Movies: Filmar
+  Gaming: Dataspel
+  Default: Forval
 Most Popular: 'Mest populært'
 Playlists: 'Spelelister'
 User Playlists:
@@ -137,6 +142,11 @@ Settings:
     Region for Trending: 'Region for "På veg opp"'
         #! List countries
     System Default: Systemforval
+    External Link Handling:
+      External Link Handling: Handtering av eksterne lenker
+      Open Link: Opne lenke
+      Ask Before Opening Link: Spør før opning av lenke
+      No Action: Ingen handling
   Theme Settings:
     Theme Settings: 'Temainnstillingar'
     Match Top Bar with Main Color: 'Tilpass topplinja slik at den har same farge som
@@ -303,6 +313,11 @@ Settings:
     SponsorBlock Settings: SponsorBlock-innstillingar
     Notify when sponsor segment is skipped: Gi beskjed når sponsordelen blir hoppa
       over
+  External Player Settings:
+    External Player Settings: Innstillingar for ekstern avspelar
+    Custom External Player Executable: Eigendefinert køyrbar fil for ekstern avspelar
+    Custom External Player Arguments: Eigendefinerte argument for ekstern avspelar
+    External Player: Ekstern avspelar
 About:
   #On About page
   About: 'Om'
@@ -375,6 +390,7 @@ Profile:
     frå andre profil.'
 #On Channel Page
   Profile Filter: Profilfilter
+  Profile Settings: Profilinnstillingar
 Channel:
   Subscriber: 'Abonnent'
   Subscribers: 'Abonnentar'
@@ -505,6 +521,15 @@ Video:
     music offtopic: musikk (utanfor tema)
     self-promotion: eigenpromotering
   Skipped segment: Overhoppa del
+  External Player:
+    video: video
+    playlist: speleliste
+    UnsupportedActionTemplate: '$ støtter ikkje: %'
+    OpeningTemplate: Opner $ om % ...
+    OpenInTemplate: Opne i $
+    Unsupported Actions:
+      opening playlists: Opner spelelister
+      setting a playback rate: set ein avspelingshastigheit
 Videos:
   #& Sort By
   Sort By:
@@ -529,6 +554,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Speleliste
 Toggle Theatre Mode: 'Veksle teatermodus'
 Change Format:
   Change Video Formats: 'Endre videoformat'
@@ -557,7 +583,7 @@ Share:
     utklippstavle'
   YouTube Channel URL copied to clipboard: 'YouTube-kanalnettadresse kopiert til utklippstavle'
 
-Mini Player: 'Minispelar'
+Mini Player: 'Miniavspelar'
 Comments:
   Comments: 'Kommentarar'
   Click to View Comments: 'Klikk her for å vise kommentarar'
@@ -578,6 +604,7 @@ Comments:
     for denne videoen'
   Load More Comments: 'Last inn fleire kommentarar'
   No more comments available: 'Ingen fleire kommentarar tilgjengeleg'
+  Show More Replies: Vis fleire svar
 Up Next: 'Neste'
 
 #Tooltips
@@ -616,6 +643,8 @@ Tooltips:
   Privacy Settings:
     Remove Video Meta Files: Viss denne innstillinga er på, vil FreeTube automatisk
       slette metadata generert under videoavspeling når du lukker avspelingsida.
+  External Player Settings:
+    DefaultCustomArgumentsTemplate: "(Forval: '$')"
 Local API Error (Click to copy): 'Lokal API-feil (Klikk her for å kopiere)'
 Invidious API Error (Click to copy): 'Invidious-API-feil (Klikk her for å kopiere)'
 Falling back to Invidious API: 'Faller tilbake til Invidious-API-et'
@@ -649,3 +678,6 @@ More: Meir
 Open New Window: Opne nytt vindauge
 Hashtags have not yet been implemented, try again later: Emneknaggar er ikkje implementert
   enda, ver venleg og prøv igjen seinare
+Search Bar:
+  Clear Input: Tøm inndata
+Are you sure you want to open this link?: Er du sikker på at du vil opne denne lenka?

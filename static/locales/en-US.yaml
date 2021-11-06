@@ -158,6 +158,7 @@ Settings:
     Expand Side Bar by Default: Expand Side Bar by Default
     Disable Smooth Scrolling: Disable Smooth Scrolling
     UI Scale: UI Scale
+    Hide Side Bar Labels: Hide Side Bar Labels
     Base Theme:
       Base Theme: Base Theme
       Black: Black
@@ -467,6 +468,7 @@ Video:
   Starting soon, please refresh the page to check again: Starting soon, please refresh
     the page to check again
   # As in a Live Video
+  Premieres on: Premieres on
   Live: Live
   Live Now: Live Now
   Live Chat: Live Chat
@@ -610,16 +612,19 @@ Comments:
   Sort by: Sort by
   Top comments: Top comments
   Newest first: Newest First
-  # Context: View 10 Replies, View 1 Reply
+  # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
   View: View
   Hide: Hide
   Replies: Replies
   Show More Replies: Show More Replies
   Reply: Reply
+  From $channelName: from $channelName
+  And others: and others
   There are no comments available for this video: There are no comments available
     for this video
   Load More Comments: Load More Comments
   No more comments available: No more comments available
+  Pinned by: Pinned by
 Up Next: Up Next
 
 #Tooltips
@@ -634,8 +639,7 @@ Tooltips:
     Thumbnail Preference: All thumbnails throughout FreeTube will be replaced with
       a frame of the video instead of the default thumbnail.
     Invidious Instance: The Invidious instance that FreeTube will connect to for API
-      calls. Clear the current instance to see a list of public instances to choose
-      from.
+      calls.
     Region for Trending: The region of trends allows you to pick which country's trending
       videos you want to have displayed. Not all countries displayed are actually
       supported by YouTube.
@@ -662,6 +666,8 @@ Tooltips:
       the current action (e.g. reversing playlists, etc.).
     Custom External Player Arguments: Any custom command line arguments, separated by semicolons (';'),
       you want to be passed to the external player.
+    # $ is replaced with the default custom arguments for the current player, if defined.
+    DefaultCustomArgumentsTemplate: '(Default: ''$'')'
   Subscription Settings:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
       method for grabbing your subscription feed. RSS is faster and prevents IP blocking,
