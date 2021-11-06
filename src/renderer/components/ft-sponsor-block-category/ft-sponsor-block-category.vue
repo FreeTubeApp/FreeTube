@@ -1,8 +1,8 @@
 <template>
   <div class="sponsorBlockCategory">
-    <h2>
+    <div class="sponsorTitle">
       {{ $t("Video.Sponsor Block category."+categoryName) }}
-    </h2>
+    </div>
     <ft-select
       :placeholder="$t('Settings.SponsorBlock Settings.Category Color')"
       :value="sponsorBlockValues.color"
