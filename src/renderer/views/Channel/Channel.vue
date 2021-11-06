@@ -198,7 +198,7 @@
     <ft-age-restricted
       v-if="!isLoading && (isFamilyFriendly==false && showFamilyFriendlyOnly)"
       class="ageRestricted"
-      :content-type-string="'channel'"
+      :content-type-string="'Channel'"
     />
   </div>
 </template>

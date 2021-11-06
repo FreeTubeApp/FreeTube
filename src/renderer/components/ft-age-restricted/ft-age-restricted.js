@@ -12,6 +12,11 @@ export default Vue.extend({
     emoji: function () {
       const emojis = ['😵', '😦', '🙁', '☹️', '😦', '🤫', '😕']
       return emojis[Math.floor(Math.random() * emojis.length)]
+    },
+
+    restrictedMessage: function () {
+      const contentType = this.$('Age Restricted.Type.' + this.contentTypeString)
+      return this.$t('Age Restricted.This $contentType is age restricted').replace('$contentType', contentType)
     }
   }
 })
