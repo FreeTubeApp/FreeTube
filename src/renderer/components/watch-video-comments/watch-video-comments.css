@@ -46,6 +46,11 @@
   text-overflow: ellipsis;
 }
 
+.commentOwner {
+  background-color: var(--scrollbar-color);
+  border-radius: 10px;
+  padding: 0 10px;
+}
 
 .commentAuthor {
   cursor: pointer;
@@ -57,6 +62,14 @@
   margin-top: -10px;
   margin-left: 70px;
   word-wrap: break-word;
+}
+.commentPinned {
+  font-weight: normal;
+  font-size: 12px;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  margin-left: 68px;
+  margin-bottom: 5px;
 }
 
 .commentDate {
