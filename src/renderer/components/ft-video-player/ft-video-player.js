@@ -1584,6 +1584,7 @@ export default Vue.extend({
       this.player.addChild(this.stats.display.modal)
       this.stats.display.modal.height('60%')
       this.stats.display.modal.width('50%')
+      this.stats.display.modal.contentEl().style.backgroundColor = 'rgba(0, 0, 0, 0.55)'
       this.stats.display.modal.on('modalclose', () => {
         this.player.off(this.stats.display.event)
       })
