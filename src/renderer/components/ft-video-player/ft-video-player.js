@@ -134,6 +134,7 @@ export default Vue.extend({
         ]
       },
       stats: {
+        videoId: '',
         playerResolution: null,
         frameInfo: null,
         volume: 0,
@@ -212,13 +213,14 @@ export default Vue.extend({
         dropFrame = `${this.stats.frameInfo.droppedVideoFrames} ${this.$t('Video.Stats.out of')} ${this.stats.frameInfo.totalVideoFrames}`
       }
       const stats = [
+        [this.$t('Video.Stats.video id'), this.stats.videoId],
         [this.$t('Video.Stats.player resolution'), resolution],
-        [this.$t('Video.Stats.volume'), this.stats.volume.toFixed(2)],
+        [this.$t('Video.Stats.volume'), `${(this.stats.volume*100).toFixed(0)} %`],
         [this.$t('Video.Stats.fps'), this.stats.fps],
         [this.$t('Video.Stats.frame drop'), dropFrame],
         [this.$t('Video.Stats.network state'), this.stats.networkState],
         [this.$t('Video.Stats.bandwidth'), `${(this.stats.bandwidth / 1000).toFixed(2)} kbps`],
-        [this.$t('Video.Stats.buffered'), this.stats.bufferPercent.toFixed(2)]
+        [this.$t('Video.Stats.buffered'), `${(this.stats.bufferPercent*100).toFixed(0)} %`]
       ]
 
       let formattedStats = '<ul style="list-style-type: none;text-align:left; padding-left:0px">'
@@ -248,6 +250,7 @@ export default Vue.extend({
     this.createToggleTheatreModeButton()
     this.determineFormatType()
     this.determineMaxFramerate()
+    this.stats.videoId = this.id
   },
   beforeDestroy: function () {
     if (this.player !== null) {

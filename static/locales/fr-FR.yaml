@@ -597,7 +597,7 @@ Video:
     frame drop: perte d'image
     network state: état du réseau
     bandwidth: bande passante
-    buffered: "% en tampon"
+    buffered: "en tampon"
     out of: sur
     network state possibility:
       network_empty: RÉSEAU_VIDE

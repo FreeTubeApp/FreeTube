@@ -548,7 +548,7 @@ Video:
     frame drop: frame drop
     network state: network state
     bandwidth: bandwidth
-    buffered: "% buffered"
+    buffered: "buffered"
     out of: out of
     network state possibility:
       network_empty: NETWORK_EMPTY
