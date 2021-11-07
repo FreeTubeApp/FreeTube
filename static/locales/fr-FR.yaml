@@ -590,14 +590,14 @@ Video:
     OpeningTemplate: Ouverture de $ en %…
     OpenInTemplate: Ouvrir avec $
   Stats:
-    video id: Id de la vidéo youtube
-    player resolution: résolution du lecteur
-    volume: volume
-    fps: ips
-    frame drop: perte d'image
-    bandwidth: bande passante
-    buffered: "en tampon"
-    out of: sur
+    video id: "Id de la vidéo (youtube)"
+    player resolution: "Résolution du lecteur"
+    volume: "Volume"
+    fps: "Ips"
+    frame drop: "Perte d'image"
+    bandwidth: "Bande passante"
+    buffered: "En tampon"
+    out of: "sur"
     network state possibility:
       network_empty: RÉSEAU_VIDE
       network_idle: RÉSEAU_STAGNANT

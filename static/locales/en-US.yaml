@@ -541,14 +541,14 @@ Video:
       shuffling playlists: shuffling playlists
       looping playlists: looping playlists
   Stats:
-    video id: youtube video id
-    player resolution: player resolution
-    volume: volume
-    fps: fps
-    frame drop: frame drop
-    bandwidth: bandwidth
-    buffered: "buffered"
-    out of: out of
+    video id: "Video ID (youtube)"
+    player resolution: "Viewport"
+    volume: "Volume"
+    fps: "Fps"
+    frame drop: "frame drop"
+    bandwidth: "Connection speed"
+    buffered: "Buffered"
+    out of: "out of"
     network state possibility:
       network_empty: NETWORK_EMPTY
       network_idle: NETWORK_IDLE

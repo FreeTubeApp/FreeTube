@@ -206,24 +206,23 @@ export default Vue.extend({
       let resolution = ''
       let dropFrame = ''
       if (this.stats.playerResolution != null) {
-        resolution = `(${this.stats.playerResolution.height}X${this.stats.playerResolution.width})`
+        resolution = `(${this.stats.playerResolution.height}X${this.stats.playerResolution.width}) @ ${this.stats.fps} ${this.$t('Video.Stats.fps')}`
       }
       if (this.stats.frameInfo != null) {
         dropFrame = `${this.stats.frameInfo.droppedVideoFrames} ${this.$t('Video.Stats.out of')} ${this.stats.frameInfo.totalVideoFrames}`
       }
       const stats = [
         [this.$t('Video.Stats.video id'), this.stats.videoId],
+        [this.$t('Video.Stats.frame drop'), dropFrame],
         [this.$t('Video.Stats.player resolution'), resolution],
         [this.$t('Video.Stats.volume'), `${(this.stats.volume*100).toFixed(0)} %`],
-        [this.$t('Video.Stats.fps'), this.stats.fps],
-        [this.$t('Video.Stats.frame drop'), dropFrame],
         [this.$t('Video.Stats.bandwidth'), `${(this.stats.bandwidth / 1000).toFixed(2)} kbps`],
         [this.$t('Video.Stats.buffered'), `${(this.stats.bufferPercent*100).toFixed(0)} %`]
       ]
 
-      let formattedStats = '<ul style="list-style-type: none;text-align:left; padding-left:0px">'
+      let formattedStats = '<ul style="list-style-type: none;text-align:left; padding-left:0px";>'
       for (const stat of stats) {
-        formattedStats += `<li>${stat[0]}: ${stat[1]}</li>`
+        formattedStats += `<li style="font-size: 75%">${stat[0]}: ${stat[1]}</li>`
       }
       formattedStats += '</ul>'
       return formattedStats
@@ -1574,7 +1573,6 @@ export default Vue.extend({
           }
         }
       }, true)
-      console.log(this.videoId)
     },
     createStatsModal: function() {
       const ModalDialog = videojs.getComponent('ModalDialog')
@@ -1583,7 +1581,7 @@ export default Vue.extend({
         pauseOnOpen: false
       })
       this.player.addChild(this.stats.display.modal)
-      this.stats.display.modal.height('60%')
+      this.stats.display.modal.height('35%')
       this.stats.display.modal.width('50%')
       this.stats.display.modal.contentEl().style.backgroundColor = 'rgba(0, 0, 0, 0.55)'
       this.stats.display.modal.on('modalclose', () => {
