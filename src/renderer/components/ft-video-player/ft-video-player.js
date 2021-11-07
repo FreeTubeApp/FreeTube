@@ -138,7 +138,6 @@ export default Vue.extend({
         playerResolution: null,
         frameInfo: null,
         volume: 0,
-        networkState: null,
         bandwidth: null,
         bufferPercent: 0,
         fps: null,
@@ -218,7 +217,6 @@ export default Vue.extend({
         [this.$t('Video.Stats.volume'), `${(this.stats.volume*100).toFixed(0)} %`],
         [this.$t('Video.Stats.fps'), this.stats.fps],
         [this.$t('Video.Stats.frame drop'), dropFrame],
-        [this.$t('Video.Stats.network state'), this.stats.networkState],
         [this.$t('Video.Stats.bandwidth'), `${(this.stats.bandwidth / 1000).toFixed(2)} kbps`],
         [this.$t('Video.Stats.buffered'), `${(this.stats.bufferPercent*100).toFixed(0)} %`]
       ]
@@ -1550,21 +1548,7 @@ export default Vue.extend({
 
         this.stats.bandwidth = stats.bandwidth
         this.stats.bufferPercent = this.player.bufferedPercent()
-        switch (this.player.networkState()) {
-          case 0:
-            this.stats.networkState = this.$t('Video.Stats.network state possibility.network_empty')
-            break
-          case 1:
-            this.stats.networkState = this.$t('Video.Stats.network state possibility.network_idle')
-            break
-          case 2:
-            this.stats.networkState = this.$t('Video.Stats.network state possibility.network_loading')
-            break
-          case 3:
-            this.stats.networkState = this.$t('Video.Stats.network state possibility.network_no_source')
-            break
-        }
-        this.player.trigger(this.stats.display.event)
+        
       })
 
       this.player.on('playerresize', () => {

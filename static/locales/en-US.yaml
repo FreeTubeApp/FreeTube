@@ -546,7 +546,6 @@ Video:
     volume: volume
     fps: fps
     frame drop: frame drop
-    network state: network state
     bandwidth: bandwidth
     buffered: "buffered"
     out of: out of
