@@ -70,7 +70,7 @@ export default Vue.extend({
     videoId: {
       type: String,
       required: true
-    },
+    }
   },
   data: function () {
     return {
@@ -215,9 +215,9 @@ export default Vue.extend({
         [this.$t('Video.Stats.video id'), this.stats.videoId],
         [this.$t('Video.Stats.frame drop'), dropFrame],
         [this.$t('Video.Stats.player resolution'), resolution],
-        [this.$t('Video.Stats.volume'), `${(this.stats.volume*100).toFixed(0)} %`],
+        [this.$t('Video.Stats.volume'), `${(this.stats.volume * 100).toFixed(0)} %`],
         [this.$t('Video.Stats.bandwidth'), `${(this.stats.bandwidth / 1000).toFixed(2)} kbps`],
-        [this.$t('Video.Stats.buffered'), `${(this.stats.bufferPercent*100).toFixed(0)} %`]
+        [this.$t('Video.Stats.buffered'), `${(this.stats.bufferPercent * 100).toFixed(0)} %`]
       ]
 
       let formattedStats = '<ul style="list-style-type: none;text-align:left; padding-left:0px";>'
@@ -1547,7 +1547,6 @@ export default Vue.extend({
 
         this.stats.bandwidth = stats.bandwidth
         this.stats.bufferPercent = this.player.bufferedPercent()
-        
       })
 
       this.player.on('playerresize', () => {
