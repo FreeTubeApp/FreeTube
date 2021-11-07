@@ -598,11 +598,6 @@ Video:
     bandwidth: "Bande passante"
     buffered: "En tampon"
     out of: "sur"
-    network state possibility:
-      network_empty: RÉSEAU_VIDE
-      network_idle: RÉSEAU_STAGNANT
-      network_loading: EN_CHARGEMENT
-      network_no_source: AUCUNE_SOURCE
 Videos:
   #& Sort By
   Sort By:
