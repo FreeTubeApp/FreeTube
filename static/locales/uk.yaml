@@ -580,6 +580,7 @@ Video:
     playlist: добірка
     video: відео
     OpenInTemplate: Відкрити у $
+  Premieres on: Прем'єри
 Videos:
   #& Sort By
   Sort By:
@@ -654,6 +655,9 @@ Comments:
   Load More Comments: 'Завантажити більше коментарів'
   No more comments available: 'Більше немає коментарів'
   Show More Replies: Показати інші відповіді
+  From $channelName: від $channelName
+  And others: та інших
+  Pinned by: Закріплено
 Up Next: 'Далі вгору'
 
 #Tooltips
