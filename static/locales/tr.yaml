@@ -604,6 +604,7 @@ Video:
     playlist: oynatma listesi
     video: video
     OpenInTemplate: $ içinde aç
+  Premieres on: İlk gösterim tarihi
 Videos:
   #& Sort By
   Sort By:
@@ -675,6 +676,9 @@ Comments:
   Sort by: Sıralama ölçütü
   No more comments available: Başka yorum yok
   Show More Replies: Daha Fazla Yanıt Göster
+  From $channelName: $channelName'den
+  And others: ve diğerleri
+  Pinned by: Sabitleyen
 Up Next: 'Sonraki'
 
 # Toast Messages
