@@ -541,7 +541,7 @@ Video:
       shuffling playlists: shuffling playlists
       looping playlists: looping playlists
   Stats:
-    video id: video id
+    video id: youtube video id
     player resolution: player resolution
     volume: volume
     fps: fps

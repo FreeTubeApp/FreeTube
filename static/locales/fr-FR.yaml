@@ -590,7 +590,7 @@ Video:
     OpeningTemplate: Ouverture de $ en %…
     OpenInTemplate: Ouvrir avec $
   Stats:
-    video id: Id de la vidéo
+    video id: Id de la vidéo youtube
     player resolution: résolution du lecteur
     volume: volume
     fps: ips

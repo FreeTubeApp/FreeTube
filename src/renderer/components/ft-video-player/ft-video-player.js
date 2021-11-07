@@ -70,7 +70,7 @@ export default Vue.extend({
     videoId: {
       type: String,
       required: true
-    }
+    },
   },
   data: function () {
     return {
@@ -248,7 +248,7 @@ export default Vue.extend({
     this.createToggleTheatreModeButton()
     this.determineFormatType()
     this.determineMaxFramerate()
-    this.stats.videoId = this.id
+    this.stats.videoId = this.videoId
   },
   beforeDestroy: function () {
     if (this.player !== null) {
@@ -1574,6 +1574,7 @@ export default Vue.extend({
           }
         }
       }, true)
+      console.log(this.videoId)
     },
     createStatsModal: function() {
       const ModalDialog = videojs.getComponent('ModalDialog')
