@@ -585,6 +585,7 @@ Video:
       reversing playlists: reversing playlists
       shuffling playlists: shuffling playlists
       looping playlists: looping playlists
+  Premieres on: Premieres on
 Videos:
   #& Sort By
   Sort By:
@@ -656,6 +657,9 @@ Comments:
   Top comments: Top comments
   Sort by: Sort by
   Show More Replies: Show more replies
+  Pinned by: Pinned by
+  From $channelName: from $channelName
+  And others: and others
 Up Next: 'Up Next'
 
 # Toast Messages
