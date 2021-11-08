@@ -202,7 +202,7 @@ export default Vue.extend({
     displayVideoPlayButton: function() {
       return this.$store.getters.getDisplayVideoPlayButton
     },
-    formated_stats: function() {
+    formatted_stats: function() {
       let resolution = ''
       let dropFrame = ''
       if (this.stats.playerResolution != null) {
@@ -1566,7 +1566,7 @@ export default Vue.extend({
               if (this.stats.display.modal != null) {
                 this.stats.display.modal.open()
                 this.player.controls(true)
-                this.stats.display.modal.contentEl().innerHTML = this.formated_stats
+                this.stats.display.modal.contentEl().innerHTML = this.formatted_stats
               }
             })
           }
