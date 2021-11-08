@@ -145,7 +145,8 @@ export default Vue.extend({
         display: {
           modal: null,
           event: 'statsUpdated',
-          keyboardShortcut: 'KeyI'
+          keyboardShortcut: 'KeyI',
+          rightClickEvent: 'showVideoStatistics'
         }
       }
     }
@@ -1566,8 +1567,8 @@ export default Vue.extend({
           }
         }
       }, true)
-
-      ipcRenderer.on('show_video_statistics', () => {
+      // right click menu
+      ipcRenderer.on(this.stats.display.rightClickEvent, () => {
         this.activateStatsDisplay()
       })
     },
