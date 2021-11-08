@@ -550,7 +550,7 @@ Video:
     Year: 'Ano'
     Years: 'Anos'
     Ago: 'Há'
-    Upcoming: 'Futuramente em'
+    Upcoming: 'Estreia a'
   Published on: 'Publicado a'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Há $ %'
@@ -598,6 +598,7 @@ Video:
   Video has been removed from your saved list: Vídeo removido da sua lista
   Video has been saved: Vídeo guardado
   Save Video: Guardar Vídeo
+  Premieres on: Estreia a
 Videos:
   #& Sort By
   Sort By:
@@ -672,6 +673,9 @@ Comments:
   Newest first: Mais recentes primeiro
   Top comments: Comentários principais
   Sort by: Ordenar por
+  Pinned by: Fixado por
+  And others: e outros
+  From $channelName: de $channelName
 Up Next: 'A Seguir'
 
 # Toast Messages
@@ -680,7 +684,7 @@ Invidious API Error (Click to copy): 'API Invidious encontrou um erro (Clique pa
   copiar)'
 Falling back to Invidious API: 'Ocorreu uma falha, a mudar para o API Invidious'
 Falling back to the local API: 'Ocorreu uma falha, a mudar para a API local'
-Subscriptions have not yet been implemented: 'Subscrições ainda não foram implementadas'
+Subscriptions have not yet been implemented: 'As subscrições ainda não foram implementadas'
 Loop is now disabled: 'Reprodução cíclica desativada'
 Loop is now enabled: 'Reprodução cíclica ativada'
 Shuffle is now disabled: 'Reprodução aleatória desativada'
@@ -705,13 +709,13 @@ Playing Next Video Interval: A reproduzir o vídeo seguinte imediatamente. Cliqu
   cancelar. | A reproduzir o vídeo seguinte em {nextVideoInterval} segundo. Clique
   para cancelar. | A reproduzir o vídeo seguint em {nextVideoInterval} segundos. Clique
   para cancelar.
-Hashtags have not yet been implemented, try again later: Os Hashtags ainda não foram
-  implementados, tente novamente mais tarde
+Hashtags have not yet been implemented, try again later: As 'hashtags' ainda não foram
+  implementadas, tente mais tarde
 Unknown YouTube url type, cannot be opened in app: Tipo de URL do YouTube desconhecido,
   não pode ser aberto numa aplicação
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
-  vídeo não está disponível devido a formatos em falta. Isto pode acontecer devido
-  à sua indisponibilidade no seu país.
+  vídeo não está disponível porque faltam formatos. Isto pode acontecer devido à indisponibilidade
+  no seu país.
 Tooltips:
   Privacy Settings:
     Remove Video Meta Files: Quando ativado, ao fechar uma página o FreeTube apagará
