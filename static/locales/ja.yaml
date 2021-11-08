@@ -329,7 +329,7 @@ Settings:
     External Player Settings: 外部プレーヤーの設定
 About:
   #On About page
-  About: '就いて'
+  About: 'About'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'このコピーレフトのソフトウェアは、AGPL-3.0
     の自由なライセンスです。'
@@ -515,6 +515,7 @@ Video:
     playlist: 再生リスト
     video: ビデオ
     OpenInTemplate: $で開く
+  Premieres on: プレミア公開
 Videos:
   #& Sort By
   Sort By:
@@ -582,6 +583,9 @@ Comments:
   No more comments available: これ以上のコメントはありません
   Sort by: 並び替え
   Show More Replies: その他の返信を表示する
+  And others: その他
+  Pinned by: ピン留め
+  From $channelName: $channelName から
 Up Next: '次の動画'
 
 # Toast Messages
