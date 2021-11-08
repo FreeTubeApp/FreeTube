@@ -591,6 +591,7 @@ Video:
     playlist: قائمة التشغيل
     video: فيديو
     OpenInTemplate: فتح في $
+  Premieres on: العرض الأول بتاريخ
 Videos:
   #& Sort By
   Sort By:
@@ -658,6 +659,9 @@ Comments:
   Top comments: أهم التعليقات
   Sort by: الترتيب حسب
   Show More Replies: إظهار المزيد من الردود
+  Pinned by: تم التثبيت بواسطة
+  And others: و اخرين
+  From $channelName: من $ channelName
 Up Next: 'التالي'
 
 # Toast Messages
