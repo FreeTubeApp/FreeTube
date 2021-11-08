@@ -519,6 +519,7 @@ Video:
     playlist: 播放清單
     video: 視訊
     OpenInTemplate: 在 $ 中開啟
+  Premieres on: 首映日期
 Videos:
   #& Sort By
   Sort By:
@@ -586,6 +587,9 @@ Comments:
   Sort by: 排序方式
   No more comments available: 沒有更多留言
   Show More Replies: 顯示更多回覆
+  And others: 與其他人
+  From $channelName: 來自 $channelName
+  Pinned by: 釘選由
 Up Next: '觀看其他類似影片'
 
 # Toast Messages
