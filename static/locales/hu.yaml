@@ -606,6 +606,7 @@ Video:
     playlist: lejátszási lista
     video: videó
     OpenInTemplate: $ megnyításaban
+  Premieres on: 'Bemutatkozás dátuma:'
 Videos:
   #& Sort By
   Sort By:
@@ -681,6 +682,9 @@ Comments:
   Top comments: Legnépszerűbb megjegyzések
   Sort by: Rendezés alapja
   Show More Replies: További válaszok megjelenítése
+  From $channelName: 'forrás: $channelName'
+  And others: és mások
+  Pinned by: 'Kitűzte:'
 Up Next: 'Következő'
 
 # Toast Messages

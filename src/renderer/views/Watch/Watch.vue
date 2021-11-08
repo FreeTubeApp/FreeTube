@@ -50,7 +50,7 @@
               v-if="upcomingTimestamp !== null"
               class="premiereText"
             >
-              Premieres on:
+              {{ $t("Video.Premieres on") }}:
               <br>
               {{ upcomingTimestamp }}
             </p>
@@ -110,6 +110,7 @@
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
         :channel-thumbnail="channelThumbnail"
+        :channel-name="channelName"
         @timestamp-event="changeTimestamp"
       />
     </div>

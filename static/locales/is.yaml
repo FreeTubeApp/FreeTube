@@ -551,6 +551,7 @@ Video:
     playlist: spilunarlisti
     video: myndskeið
     OpenInTemplate: Opna í $
+  Premieres on: Frumsýnt
 Videos:
   #& Sort By
   Sort By:
@@ -623,6 +624,9 @@ Comments:
   Load More Comments: 'Hlaða inn fleiri athugasemdum'
   No more comments available: 'Engar fleiri athugasemdir eru tiltækar'
   Show More Replies: Birta fleiri svör
+  From $channelName: frá $channelName
+  And others: og fleirum
+  Pinned by: Fest af
 Up Next: 'Næst í spilun'
 
 #Tooltips

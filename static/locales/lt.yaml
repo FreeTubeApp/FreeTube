@@ -550,6 +550,7 @@ Video:
       shuffling playlists: 'maišomi grojaraščiai'
       looping playlists: 'ciklu sukami grojaraščiai'
 #& Videos
+  Premieres on: Premjera
 Videos:
   #& Sort By
   Sort By:
@@ -623,6 +624,9 @@ Comments:
   Load More Comments: 'Pakrauti daugiau komentarų'
   No more comments available: 'Daugiau komentarų nėra'
   Show More Replies: Rodyti daugiau atsakymų
+  From $channelName: nuo $channelName
+  And others: ir kt.
+  Pinned by: Prisegė
 Up Next: 'Sekantis'
 
 #Tooltips
