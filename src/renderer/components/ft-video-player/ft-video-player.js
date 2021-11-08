@@ -11,6 +11,7 @@ import 'videojs-overlay/dist/videojs-overlay.css'
 import 'videojs-vtt-thumbnails-freetube'
 import 'videojs-contrib-quality-levels'
 import 'videojs-http-source-selector'
+import { ipcRenderer } from 'electron'
 
 export default Vue.extend({
   name: 'FtVideoPlayer',
@@ -1559,19 +1560,16 @@ export default Vue.extend({
       window.addEventListener('keyup', (event) => {
         if (event.code === this.stats.display.keyboardShortcut) {
           if (this.stats.display.modal.opened()) {
-            this.player.off(this.stats.display.event)
-            this.stats.display.modal.close()
+            this.deactivateStatsDisplay()
           } else {
-            this.player.on(this.stats.display.event, () => {
-              if (this.stats.display.modal != null) {
-                this.stats.display.modal.open()
-                this.player.controls(true)
-                this.stats.display.modal.contentEl().innerHTML = this.formatted_stats
-              }
-            })
+            this.activateStatsDisplay()
           }
         }
       }, true)
+
+      ipcRenderer.on('show_video_statistics', () => {
+        this.activateStatsDisplay()
+      })
     },
     createStatsModal: function() {
       const ModalDialog = videojs.getComponent('ModalDialog')
@@ -1586,6 +1584,19 @@ export default Vue.extend({
       this.stats.display.modal.on('modalclose', () => {
         this.player.off(this.stats.display.event)
       })
+    },
+    activateStatsDisplay: function() {
+      this.player.on(this.stats.display.event, () => {
+        if (this.stats.display.modal != null) {
+          this.stats.display.modal.open()
+          this.player.controls(true)
+          this.stats.display.modal.contentEl().innerHTML = this.formatted_stats
+        }
+      })
+    },
+    deactivateStatsDisplay: function() {
+      this.player.off(this.stats.display.event)
+      this.stats.display.modal.close()
     },
     currentFps: function() {
       for (const el of this.activeAdaptiveFormats) {
