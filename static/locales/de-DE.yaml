@@ -577,6 +577,7 @@ Video:
     OpeningTemplate: $ wird in % geöffnet …
     playlist: Wiedergabeliste
     video: Video
+  Premieres on: Erste Strahlung am
 Videos:
   #& Sort By
   Sort By:
@@ -658,6 +659,9 @@ Comments:
   Top comments: Top-Kommentare
   Sort by: Sortiert nach
   Show More Replies: Mehr Antworten zeigen
+  From $channelName: von $channelName
+  And others: und andere
+  Pinned by: Angeheftet von
 Up Next: Nächster Titel
 
 # Toast Messages
