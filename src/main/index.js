@@ -20,7 +20,7 @@ function runApp() {
     showCopyImageAddress: true,
     prepend: (defaultActions, parameters, browserWindow) => [
       {
-        label: 'show video statistic',
+        label: 'Show Video Statistic',
         visible: parameters.mediaType === 'video',
         click: () => {
           browserWindow.webContents.send('showVideoStatistics', 'show')
