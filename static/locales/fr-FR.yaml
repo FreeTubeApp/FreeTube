@@ -589,6 +589,7 @@ Video:
     UnsupportedActionTemplate: '$ non pris en charge : %'
     OpeningTemplate: Ouverture de $ en %…
     OpenInTemplate: Ouvrir avec $
+  Premieres on: Première le
 Videos:
   #& Sort By
   Sort By:
@@ -664,6 +665,9 @@ Comments:
   Sort by: Trier par
   No more comments available: Pas d'autres commentaires disponibles
   Show More Replies: Afficher plus de réponses
+  From $channelName: de $channelName
+  Pinned by: Épinglé par
+  And others: et d'autres
 Up Next: 'À suivre'
 
 # Toast Messages
