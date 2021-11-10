@@ -1568,9 +1568,9 @@ export default Vue.extend({
         }
       }, true)
       // right click menu
-      ipcRenderer.on(this.stats.display.rightClickEvent, () => {
+      ipcRenderer.on(this.stats.display.rightClickEvent, function() {
         this.activateStatsDisplay()
-      })
+      }.bind(this))
     },
     createStatsModal: function() {
       const ModalDialog = videojs.getComponent('ModalDialog')
