@@ -146,7 +146,8 @@ export default Vue.extend({
           modal: null,
           event: 'statsUpdated',
           keyboardShortcut: 'KeyI',
-          rightClickEvent: 'showVideoStatistics'
+          rightClickEvent: 'showVideoStatistics',
+          activated:false,
         }
       }
     }
@@ -249,7 +250,6 @@ export default Vue.extend({
     this.createToggleTheatreModeButton()
     this.determineFormatType()
     this.determineMaxFramerate()
-    this.stats.videoId = this.videoId
   },
   beforeDestroy: function () {
     if (this.player !== null) {
@@ -381,8 +381,8 @@ export default Vue.extend({
           const settings = this.player.textTrackSettings.getValues()
           this.updateDefaultCaptionSettings(JSON.stringify(settings))
         })
+        this.addPlayerStatsEvent()
       }
-      this.addPlayerStatsEvent()
     },
 
     initializeSponsorBlock() {
@@ -1533,6 +1533,7 @@ export default Vue.extend({
       'sponsorBlockSkipSegments'
     ]),
     addPlayerStatsEvent: function() {
+      this.stats.videoId = this.videoId
       this.player.on('volumechange', () => {
         this.stats.volume = this.player.volume()
         this.player.trigger(this.stats.display.event)
@@ -1555,12 +1556,21 @@ export default Vue.extend({
         this.stats.playerResolution = this.player.currentDimensions()
         this.player.trigger(this.stats.display.event)
       })
+   
 
       this.createStatsModal()
+
+      this.player.on(this.stats.display.event, () => {
+        if (this.stats.display.activated) {
+          this.stats.display.modal.open()
+          this.player.controls(true)
+          this.stats.display.modal.contentEl().innerHTML = this.formatted_stats
+        }
+      })
       // keyboard shortcut
       window.addEventListener('keyup', (event) => {
         if (event.code === this.stats.display.keyboardShortcut) {
-          if (this.stats.display.modal.opened()) {
+          if (this.stats.display.activated) {
             this.deactivateStatsDisplay()
           } else {
             this.activateStatsDisplay()
@@ -1568,9 +1578,9 @@ export default Vue.extend({
         }
       }, true)
       // right click menu
-      ipcRenderer.on(this.stats.display.rightClickEvent, function() {
+      ipcRenderer.on(this.stats.display.rightClickEvent, () => {
         this.activateStatsDisplay()
-      }.bind(this))
+      })
     },
     createStatsModal: function() {
       const ModalDialog = videojs.getComponent('ModalDialog')
@@ -1583,20 +1593,14 @@ export default Vue.extend({
       this.stats.display.modal.width('50%')
       this.stats.display.modal.contentEl().style.backgroundColor = 'rgba(0, 0, 0, 0.55)'
       this.stats.display.modal.on('modalclose', () => {
-        this.player.off(this.stats.display.event)
+        this.deactivateStatsDisplay()
       })
     },
     activateStatsDisplay: function() {
-      this.player.on(this.stats.display.event, () => {
-        if (this.stats.display.modal != null) {
-          this.stats.display.modal.open()
-          this.player.controls(true)
-          this.stats.display.modal.contentEl().innerHTML = this.formatted_stats
-        }
-      })
+      this.stats.display.activated = true
     },
     deactivateStatsDisplay: function() {
-      this.player.off(this.stats.display.event)
+      this.stats.display.activated = false
       this.stats.display.modal.close()
     },
     currentFps: function() {
