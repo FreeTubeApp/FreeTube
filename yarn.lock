@@ -6012,7 +6012,7 @@ m3u8stream@^0.7.1:
     miniget "^1.6.1"
     sax "^1.2.4"
 
-m3u8stream@^0.8.3:
+m3u8stream@^0.8.4:
   version "0.8.4"
   resolved "https://registry.yarnpkg.com/m3u8stream/-/m3u8stream-0.8.4.tgz#15b49d0c2b510755ea43c1e53f85d7aaa4dc65c2"
   integrity sha512-sco80Db+30RvcaIOndenX6E6oQNgTiBKeJbFPc+yDXwPQIkryfboEbCvXPlBRq3mQTCVPQO93TDVlfRwqpD35w==
@@ -9053,12 +9053,11 @@ ytdl-core@^3.2.2:
     miniget "^2.0.1"
     sax "^1.1.3"
 
-ytdl-core@^4.9.1:
-  version "4.9.1"
-  resolved "https://registry.yarnpkg.com/ytdl-core/-/ytdl-core-4.9.1.tgz#f587e2bd8329b5133c0bac4ce5ee1f3c7a1175a9"
-  integrity sha512-6Jbp5RDhUEozlaJQAR+l8oV8AHsx3WUXxSyPxzE6wOIAaLql7Hjiy0ZM58wZoyj1YEenlEPjEqcJIjKYKxvHtQ==
+ytdl-core@fent/node-ytdl-core#pull/1022/head:
+  version "0.0.0-development"
+  resolved "https://codeload.github.com/fent/node-ytdl-core/tar.gz/62b7cd0834be8610c5fdd772df19a89ae681b136"
   dependencies:
-    m3u8stream "^0.8.3"
+    m3u8stream "^0.8.4"
     miniget "^4.0.0"
     sax "^1.1.3"
 
