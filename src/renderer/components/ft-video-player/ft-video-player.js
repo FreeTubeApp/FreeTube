@@ -147,7 +147,7 @@ export default Vue.extend({
           event: 'statsUpdated',
           keyboardShortcut: 'KeyI',
           rightClickEvent: 'showVideoStatistics',
-          activated:false,
+          activated: false
         }
       }
     }
@@ -1556,7 +1556,6 @@ export default Vue.extend({
         this.stats.playerResolution = this.player.currentDimensions()
         this.player.trigger(this.stats.display.event)
       })
-   
 
       this.createStatsModal()
 
