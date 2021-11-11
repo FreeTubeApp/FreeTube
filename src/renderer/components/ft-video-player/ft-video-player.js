@@ -865,18 +865,23 @@ export default Vue.extend({
 
     framebyframe: function (step) {
       this.player.pause()
-      const qualityHeight = this.useDash ? this.player.qualityLevels()[this.player.qualityLevels().selectedIndex].height : 0
-      let fps
+      const quality = this.useDash ? this.player.qualityLevels()[this.player.qualityLevels().selectedIndex] : {}
+      let fps = 30
       // Non-Dash formats are 30fps only
-      if (qualityHeight >= 480 && this.maxFramerate === 60) {
-        fps = 60
-      } else {
-        fps = 30
+      if (this.maxFramerate === 60 && quality.height >= 480) {
+        for (let i = 0; i < this.adaptiveFormats.length; i++) {
+          if (this.adaptiveFormats[i].bitrate === quality.bitrate) {
+            fps = this.adaptiveFormats[i].fps
+            break
+          }
+        }
       }
+
       // The 3 lines below were taken from the videojs-framebyframe node module by Helena Rasche
       const frameTime = 1 / fps
       const dist = frameTime * step
       this.player.currentTime(this.player.currentTime() + dist)
+      console.log(fps)
     },
 
     changeVolume: function (volume) {

@@ -26,6 +26,14 @@
   width: 80px;
 }
 
+.closed .hiddenLabels {
+  width: 60px;
+}
+
+.closed.hiddenLabels {
+  width: 60px;
+}
+
 .topNavOption {
   margin-top: 10px;
 }
@@ -34,6 +42,7 @@
   position: relative;
   padding: 5px;
   cursor: pointer;
+  min-height: 35px;
 }
 
 .moreOption {
@@ -58,15 +67,18 @@
   margin-left: 10px;
 }
 
-.navLabel {
-  margin-left: 5px;
-  display: inline-block;
+.navOption .navLabel {
+  margin-left: 40px;
+  overflow: hidden;
+  margin-left: 40px;
+  word-break: break-word;
 }
 
 .navChannel .navLabel {
-  font-size: 11px;
-  width: 150px;
+  overflow: hidden;
   margin-left: 40px;
+  word-break: break-word;
+  font-size: 12px;
 }
 
 .thumbnailContainer {
@@ -106,10 +118,7 @@
 
 .closed .navOption {
   width: 100%;
-  height: 45px;
-  padding: 0px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 5px 0px;
 }
 
 .closed .navIcon {
@@ -118,6 +127,9 @@
   display: block;
   margin-bottom: 0px;
 }
+.closed .navIconExpand{
+  height:1.3em;
+}
 
 .closed .navLabel {
   margin-left: 0px;
@@ -125,24 +137,25 @@
   text-align: center;
   left: 0px;
   font-size: 11px;
+  margin-block-end: 0em;
 }
 
 .closed .navChannel {
   width: 100%;
-  padding: 0px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  height: 45px;
+  padding: 5px 0px;
 }
 
 .closed .thumbnailContainer {
   position: static;
   display: block;
   float: none;
-  margin-left: 0px;
   margin: 0 auto;
   top: 0px;
   -ms-transform: none;
   transform: none;
+  margin-block-start: 0.3em;
+  margin-block-end: 0.3em;
 }
 
 @media only screen and (max-width: 680px) {
@@ -189,14 +202,10 @@
     font-size: 11px;
   }
 
-  .navIcon {
-    margin-left: 0px;
-    width: 100%;
-    display: block;
-    margin-bottom: 0px;
-  }
-
   .moreOption {
     display: block;
+  }
+  .closed.hiddenLabels{
+    width: 100%;
   }
 }

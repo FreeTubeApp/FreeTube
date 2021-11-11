@@ -40,6 +40,18 @@ export default Vue.extend({
     },
     externalPlayerCustomArgs: function () {
       return this.$store.getters.getExternalPlayerCustomArgs
+    },
+    externalPlayerCustomArgsTooltip: function () {
+      const tooltip = this.$t('Tooltips.External Player Settings.Custom External Player Arguments')
+
+      const cmdArgs = this.$store.getters.getExternalPlayerCmdArguments[this.externalPlayer]
+      if (cmdArgs && typeof cmdArgs.defaultCustomArguments === 'string' && cmdArgs.defaultCustomArguments !== '') {
+        const defaultArgs = this.$t('Tooltips.External Player Settings.DefaultCustomArgumentsTemplate')
+          .replace('$', cmdArgs.defaultCustomArguments)
+        return `${tooltip} ${defaultArgs}`
+      }
+
+      return tooltip
     }
   },
   methods: {

@@ -173,6 +173,7 @@ Settings:
     UI Scale: UI縮放
     Expand Side Bar by Default: 預設展開側邊欄
     Disable Smooth Scrolling: 停用平滑捲動
+    Hide Side Bar Labels: 隱藏側邊欄標籤
   Player Settings:
     Player Settings: '播放器選項'
     Force Local Backend for Legacy Formats: '強制使用傳統格式的區域伺服器'
@@ -518,6 +519,7 @@ Video:
     playlist: 播放清單
     video: 視訊
     OpenInTemplate: 在 $ 中開啟
+  Premieres on: 首映日期
 Videos:
   #& Sort By
   Sort By:
@@ -585,6 +587,9 @@ Comments:
   Sort by: 排序方式
   No more comments available: 沒有更多留言
   Show More Replies: 顯示更多回覆
+  And others: 與其他人
+  From $channelName: 來自 $channelName
+  Pinned by: 釘選由
 Up Next: '觀看其他類似影片'
 
 # Toast Messages
@@ -659,7 +664,7 @@ Tooltips:
     Force Local Backend for Legacy Formats: 僅當 Invidious API 是您預設 API 時才有效。啟用後，區域
       API 將會執行並使用由其回傳的的傳統格式，而非 Invidious 回傳的格式。對因為國家地區限制而無法播放 Invidious 回傳的影片時有幫助。
   General Settings:
-    Invidious Instance: FreeTube 將連線到 Invidious 站台進行 API 呼叫。清除目前的站台以檢視可供選擇的公開站台清單。
+    Invidious Instance: FreeTube 將連線到 Invidious 站台進行 API 呼叫。
     Thumbnail Preference: FreeTube 中所有縮圖都會被替換為影片畫面而非預設縮圖。
     Fallback to Non-Preferred Backend on Failure: 當您的偏好 API 有問題時，FreeTube 將自動嘗試使用您的非偏好
       API 作為汰退方案。
@@ -674,6 +679,7 @@ Tooltips:
     Ignore Warnings: 當目前的外部播放程式不支援目前動作時（例如反向播放清單等等），消除警告。
     Custom External Player Executable: 預設情況下，FreeTube 會假設選定的外部播放程式可以透過 PATH 環境變數找到。如果需要的話，請在此設定自訂路徑。
     External Player: 選擇外部播放程式將會在縮圖上顯示圖示，用來在外部播放程式中開啟影片（若支援的話，播放清單也可以）。
+    DefaultCustomArgumentsTemplate: （預設：'$'）
 Playing Next Video Interval: 馬上播放下一個影片。點擊取消。| 播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。|
   播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。
 More: 更多

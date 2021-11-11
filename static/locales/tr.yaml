@@ -186,8 +186,9 @@ Settings:
     Secondary Color Theme: 'İkincil Renk Teması'
         #* Main Color Theme
     UI Scale: Kullanıcı Arayüzü Ölçeği
-    Expand Side Bar by Default: Yan Çubuğu Öntanımlı Olarak Genişlet
+    Expand Side Bar by Default: Kenar Çubuğunu Öntanımlı Olarak Genişlet
     Disable Smooth Scrolling: Düzgün Kaydırmayı Devre Dışı Bırak
+    Hide Side Bar Labels: Kenar Çubuğu Etiketlerini Gizle
   Player Settings:
     Player Settings: 'Oynatıcı Ayarları'
     Force Local Backend for Legacy Formats: 'Eski Biçimler için Yerel Arka Ucu Kullanmaya
@@ -603,6 +604,7 @@ Video:
     playlist: oynatma listesi
     video: video
     OpenInTemplate: $ içinde aç
+  Premieres on: İlk gösterim tarihi
 Videos:
   #& Sort By
   Sort By:
@@ -674,6 +676,9 @@ Comments:
   Sort by: Sıralama ölçütü
   No more comments available: Başka yorum yok
   Show More Replies: Daha Fazla Yanıt Göster
+  From $channelName: $channelName'den
+  And others: ve diğerleri
+  Pinned by: Sabitleyen
 Up Next: 'Sonraki'
 
 # Toast Messages
@@ -720,8 +725,6 @@ Tooltips:
       yardımcı olur.
   General Settings:
     Invidious Instance: FreeTube'un API çağrıları için bağlanacağı Invidious örneği.
-      Aralarından seçim yapabileceğiniz herkese açık örneklerin bir listesini görmek
-      için geçerli örneği temizleyin.
     Thumbnail Preference: FreeTube'daki tüm küçük resimler, öntanımlı küçük resim
       yerine videonun bir karesiyle değiştirilecektir.
     Fallback to Non-Preferred Backend on Failure: Etkinleştirildiğinde, tercih ettiğiniz
@@ -749,6 +752,7 @@ Tooltips:
       burada özel bir yol ayarlanabilir.
     External Player: Harici bir oynatıcı seçmek, videoyu (destekleniyorsa oynatma
       listesini) harici oynatıcıda açmak için küçük resimde bir simge görüntüleyecektir.
+    DefaultCustomArgumentsTemplate: "(Öntanımlı: '$')"
 Playing Next Video Interval: Sonraki video hemen oynatılıyor. İptal etmek için tıklayın.
   | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek için
   tıklayın. | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek

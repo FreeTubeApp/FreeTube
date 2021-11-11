@@ -191,6 +191,7 @@ Settings:
       Dracula Yellow: 'Drákula Žlutý'
     Secondary Color Theme: 'Téma sekundární barvy'
         #* Main Color Theme
+    Hide Side Bar Labels: Skrýt štítky na bočním panelu
   Player Settings:
     Player Settings: 'Nastavení přehrávače'
     Force Local Backend for Legacy Formats: 'Vynutit místní backend pro starší formáty'
@@ -681,8 +682,7 @@ Tooltips:
     Thumbnail Preference: 'Všechny miniatury v celém FreeTube budou nahrazeny snímkem
       z videa namísto výchozí miniatury.'
     Invidious Instance: 'Invidious instance, ke které se FreeTube připojí za účelem
-      volání API. Smazáním aktuální instance zobrazíte seznam veřejných instancí,
-      ze kterých si můžete vybrat.'
+      volání API.'
     Region for Trending: 'Region trendů vám umožní vybrat si zemi, ze které si přejete
       zobrazovat videa trendů. Ne všechny zobrazené země jsou ale službou YouTube
       reálně podporovány.'
@@ -719,6 +719,7 @@ Tooltips:
     Custom External Player Executable: Ve výchozím nastavení Freetube předpokládá,
       že vybraný externí přehrávač lze nalézt přes proměnnou prostředí cesty PATH.
       V případě potřeby zde lze nastavit vlastní cestu.
+    DefaultCustomArgumentsTemplate: "(Výchozí: '$')"
 Local API Error (Click to copy): 'Chyba lokálního API (kliknutím zkopírujete)'
 Invidious API Error (Click to copy): 'Chyba Invidious API (kliknutím zkopírujete)'
 Falling back to Invidious API: 'Přepínám na Invidious API'

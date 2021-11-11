@@ -2,13 +2,18 @@
   <div class="sideNavMoreOptions">
     <div
       class="navOption moreOptionNav"
+      :title="$t('More')"
       @click="openMoreOptions = !openMoreOptions"
     >
       <font-awesome-icon
         icon="ellipsis-h"
         class="navIcon"
+        :class="applyNavIconExpand"
       />
-      <p class="navLabel">
+      <p
+        v-if="!hideLabelsSideBar"
+        class="navLabel"
+      >
         {{ $t("More") }}
       </p>
     </div>
@@ -19,38 +24,54 @@
       <div
         v-if="!hideTrendingVideos"
         class="navOption"
+        :title="$t('Trending.Trending')"
+
         @click="navigate('trending')"
       >
         <font-awesome-icon
           icon="fire"
           class="navIcon"
+          :class="applyNavIconExpand"
         />
-        <p class="navLabel">
+        <p
+          v-if="!hideLabelsSideBar"
+          class="navLabel"
+        >
           {{ $t("Trending.Trending") }}
         </p>
       </div>
       <div
         v-if="!hidePopularVideos"
         class="navOption"
+        :title="$t('Most Popular')"
         @click="navigate('popular')"
       >
         <font-awesome-icon
           icon="users"
           class="navIcon"
+          :class="applyNavIconExpand"
         />
-        <p class="navLabel">
+        <p
+          v-if="!hideLabelsSideBar"
+          class="navLabel"
+        >
           {{ $t("Most Popular") }}
         </p>
       </div>
       <div
         class="navOption"
+        :title="$t('About.About')"
         @click="navigate('about')"
       >
         <font-awesome-icon
           icon="info-circle"
           class="navIcon"
+          :class="applyNavIconExpand"
         />
-        <p class="navLabel">
+        <p
+          v-if="!hideLabelsSideBar"
+          class="navLabel"
+        >
           {{ $t("About.About") }}
         </p>
       </div>
@@ -62,6 +83,7 @@
       <font-awesome-icon
         icon="history"
         class="navIcon"
+        :class="applyNavIconExpand"
       />
       <p class="navLabel">
         {{ $t("History.History") }}
@@ -75,6 +97,7 @@
       <font-awesome-icon
         icon="sliders-h"
         class="navIcon"
+        :class="applyNavIconExpand"
       />
       <p class="navLabel">
         {{ $t("Settings.Settings") }}
@@ -87,8 +110,12 @@
       <font-awesome-icon
         icon="info-circle"
         class="navIcon"
+        :class="applyNavIconExpand"
       />
-      <p class="navLabel">
+      <p
+        v-if="!hideLabelsSideBar"
+        class="navLabel"
+      >
         {{ $t("About.About") }}
       </p>
     </div>

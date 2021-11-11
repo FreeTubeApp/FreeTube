@@ -1,4 +1,5 @@
 $thumbnail-overlay-opacity: 0.85
+$watched-transition-duration: 0.5s
 
 @mixin is-result
   @at-root
@@ -26,10 +27,12 @@ $thumbnail-overlay-opacity: 0.85
   @at-root
     .watched &, .watched#{&}
       color: var(--tertiary-text-color)
+      transition-duration: $watched-transition-duration
 
     .watched:hover &, .watched:hover#{&}
       color: $col
-
+      transition-duration: $watched-transition-duration
+           
 .ft-list-item
   padding: 6px
 
@@ -39,9 +42,11 @@ $thumbnail-overlay-opacity: 0.85
 
     .thumbnailImage
       opacity: 0.3
+      transition-duration: $watched-transition-duration
 
     &:hover .thumbnailImage
       opacity: 1
+      transition-duration: $watched-transition-duration
 
   .videoThumbnail
     position: relative

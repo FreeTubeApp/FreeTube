@@ -154,7 +154,7 @@ Settings:
       Black: 'Czarny'
       Dark: 'Ciemny'
       Light: 'Jasny'
-      Dracula: 'Dracula'
+      Dracula: 'Drakula'
     Main Color Theme:
       Main Color Theme: 'Główny kolor motywu'
       Red: 'Czerwony'
@@ -185,6 +185,7 @@ Settings:
     UI Scale: Skala UI
     Expand Side Bar by Default: Domyślnie rozwiń pasek boczny
     Disable Smooth Scrolling: Wyłącz płynne przewijanie
+    Hide Side Bar Labels: Schowaj etykiety paska bocznego
   Player Settings:
     Player Settings: 'Ustawienia odtwarzacza'
     Force Local Backend for Legacy Formats: 'Wymuś lokalny back-end dla starych formatów'
@@ -476,7 +477,7 @@ Video:
   Watching: 'ogląda'
   Watched: 'Obejrzany'
   # As in a Live Video
-  Live: 'Na żywo'
+  Live: 'Transmisja'
   Live Now: 'Teraz na żywo'
   Live Chat: 'Czat na żywo'
   Enable Live Chat: 'Włącz czat na żywo'
@@ -515,14 +516,14 @@ Video:
     Year: 'rok'
     Years: 'lat/a'
     Ago: 'temu'
-    Upcoming: 'Najbliższe premiery'
+    Upcoming: 'Premiera'
     Minutes: minut/y
     Minute: minutę
   Published on: 'Opublikowano'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % temu'
 #& Videos
-  Autoplay: Autoodtw.
+  Autoplay: Autoodtwarzanie
   Play Previous Video: Odtwórz poprzedni film
   Play Next Video: Odtwórz następny film
   Reverse Playlist: Odwróć playlistę
@@ -572,6 +573,7 @@ Video:
     playlist: playlisty
     video: filmu
     OpenInTemplate: Otwórz w $
+  Premieres on: Premiera
 Videos:
   #& Sort By
   Sort By:
@@ -645,6 +647,9 @@ Comments:
   Top comments: Najlepsze komentarze
   Sort by: Sortuj według
   Show More Replies: Pokaż więcej odpowiedzi
+  And others: i innych
+  Pinned by: Przypięty przez
+  From $channelName: od $channelName
 Up Next: 'Następne'
 
 # Toast Messages
@@ -736,7 +741,7 @@ Tooltips:
       chciałbyś zobaczyć filmy zdobywające popularność. Nie wszystkie wyświetlone
       kraje są obsługiwane przez YouTube.
     Invidious Instance: Serwer Invidious, którym FreeTube będzie się łączył do wywołań
-      API. Wyczyść pole z serwerem, by zobaczyć listę publicznych serwerów do wyboru.
+      API.
     Thumbnail Preference: Wszystkie miniaturki na FreeTube zostaną zastąpione klatką
       z filmu zamiast miniaturki domyślnej.
     External Link Handling: "Wybierz domyślne zachowanie kiedy link, który nie może\
@@ -765,6 +770,7 @@ Tooltips:
     Custom External Player Executable: FreeTube domyślnie przyjmie, że wybrany odtwarzacz
       jest do znalezienia za pomocą zmiennej środowiskowej PATH. Jeśli trzeba, można
       tutaj ustawić niestandardową ścieżkę.
+    DefaultCustomArgumentsTemplate: "(Domyślnie: '$')"
 Playing Next Video Interval: Odtwarzanie kolejnego filmu już za chwilę. Wciśnij aby
   przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekundę. Wciśnij
   aby przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekund. Wciśnij

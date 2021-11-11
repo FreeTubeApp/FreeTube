@@ -113,10 +113,7 @@ export default Vue.extend({
 
       const payload = {
         resource: 'playlists',
-        id: this.playlistId,
-        params: {
-          page: this.playlistPage
-        }
+        id: this.playlistId
       }
 
       this.invidiousGetPlaylistInfo(payload).then((result) => {
@@ -142,13 +139,7 @@ export default Vue.extend({
 
         this.playlistItems = this.playlistItems.concat(result.videos)
 
-        if (this.playlistItems.length < result.videoCount) {
-          console.log('getting next page')
-          this.playlistPage++
-          this.getPlaylistInvidious()
-        } else {
-          this.isLoading = false
-        }
+        this.isLoading = false
       }).catch((err) => {
         console.log(err)
         if (this.backendPreference === 'invidious' && this.backendFallback) {

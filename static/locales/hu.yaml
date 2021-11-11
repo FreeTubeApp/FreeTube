@@ -139,7 +139,7 @@ Settings:
       (Alapértelmezés: https://invidious.snopyta.org)'
     Region for Trending: 'Népszerű területe'
         #! List countries
-    View all Invidious instance information: Az Invidious példány összes tájékoztatásának
+    View all Invidious instance information: Az Invidious-példány összes tájékoztatásának
       megtekintése
     System Default: Rendszer alapértelmezett
     Current Invidious Instance: Jelenlegi Invidious-példány
@@ -193,6 +193,7 @@ Settings:
     UI Scale: Felhasználói felület méretezése
     Expand Side Bar by Default: Alapértelmezés szerint oldalsáv megjelenítése
     Disable Smooth Scrolling: Finomgörgetés kikapcsolása
+    Hide Side Bar Labels: Oldalsáv címkéi elrejtése
   Player Settings:
     Player Settings: 'Lejátszó beállításai'
     Force Local Backend for Legacy Formats: 'Helyi háttéralkalmazás kényszerítése
@@ -605,6 +606,7 @@ Video:
     playlist: lejátszási lista
     video: videó
     OpenInTemplate: $ megnyításaban
+  Premieres on: 'Bemutatkozás dátuma:'
 Videos:
   #& Sort By
   Sort By:
@@ -680,6 +682,9 @@ Comments:
   Top comments: Legnépszerűbb megjegyzések
   Sort by: Rendezés alapja
   Show More Replies: További válaszok megjelenítése
+  From $channelName: 'forrás: $channelName'
+  And others: és mások
+  Pinned by: 'Kitűzte:'
 Up Next: 'Következő'
 
 # Toast Messages
@@ -714,9 +719,8 @@ Tooltips:
     Region for Trending: A népszerűk körzetével kiválaszthatja, mely ország népszerű
       videóit szeretné megjeleníteni. Nem minden megjelenített országot támogat a
       YouTube.
-    Invidious Instance: Invidious példány, amelyhez a SzabadCső csatlakozni fog az
-      API-hívásokhoz. Törölje az aktuális példányt a nyilvános példányok listájának
-      megjelenítéséhez.
+    Invidious Instance: Invidious-példány, amelyhez a SzabadCső csatlakozni fog az
+      API-hívásokhoz.
     Thumbnail Preference: A SzabadCső összes miniatűrökét az alapértelmezett miniatűr
       helyett egy képkocka váltja fel.
     Fallback to Non-Preferred Backend on Failure: Ha az Ön által előnyben részesített
@@ -758,6 +762,7 @@ Tooltips:
       elválasztott argumentumot át kell adni a külső lejátszónak.
     External Player: Külső lejátszó kiválasztása esetén megjelenik egy ikon a videó
       (lejátszási lista, ha támogatott) megnyitásához a külső lejátszóban, az indexképen.
+    DefaultCustomArgumentsTemplate: '(Alapértelmezett: „$”)'
 Playing Next Video Interval: A következő videó lejátszása folyamatban van. Kattintson
   a törléshez. | A következő videó lejátszása {nextVideoInterval} másodperc múlva
   történik. Kattintson a törléshez. | A következő videó lejátszása {nextVideoInterval}

@@ -194,6 +194,7 @@ Settings:
       Dracula Yellow: 'Дракула Жовта'
     Secondary Color Theme: 'Другорядна кольорова тема'
         #* Main Color Theme
+    Hide Side Bar Labels: Сховати мітки бічної панелі
   Player Settings:
     Player Settings: 'Налаштування програвача'
     Force Local Backend for Legacy Formats: 'Примусово використовувати локальний сервер
@@ -579,6 +580,7 @@ Video:
     playlist: добірка
     video: відео
     OpenInTemplate: Відкрити у $
+  Premieres on: Прем'єри
 Videos:
   #& Sort By
   Sort By:
@@ -653,6 +655,9 @@ Comments:
   Load More Comments: 'Завантажити більше коментарів'
   No more comments available: 'Більше немає коментарів'
   Show More Replies: Показати інші відповіді
+  From $channelName: від $channelName
+  And others: та інших
+  Pinned by: Закріплено
 Up Next: 'Далі вгору'
 
 #Tooltips
@@ -667,8 +672,7 @@ Tooltips:
     Thumbnail Preference: 'Усі ескізи у FreeTube заміняться на кадр відео, а не на
       типову мініатюру.'
     Invidious Instance: 'Сервер Invidious, до якого FreeTube під''єднуватиметься для
-      викликів API. Очистьте поточний сервер, щоб побачити список загальнодоступних
-      серверів на вибір.'
+      викликів API.'
     Region for Trending: 'Регіон популярного дозволяє вам вибрати популярні відео
       країни, які ви хочете бачити. Не всі показані країни насправді підтримуються
       YouTube.'
@@ -707,6 +711,7 @@ Tooltips:
       тут можна призначити нетиповий шлях.
     External Player: Якщо обрано зовнішній програвач, з'явиться піктограма для відкриття
       відео (добірка, якщо підтримується) у зовнішньому програвачі, на мініатюрі.
+    DefaultCustomArgumentsTemplate: "(Типово: '$')"
 Local API Error (Click to copy): 'Помилка локального API (натисніть, щоб скопіювати)'
 Invidious API Error (Click to copy): 'Помилка Invidious API (натисніть, щоб скопіювати)'
 Falling back to Invidious API: 'Повернення до API Invidious'

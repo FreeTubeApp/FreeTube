@@ -2,6 +2,11 @@
   position: relative;
 }
 
+.disabled label, .disabled .ft-input{
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
 .clearInputTextButton {
   position: absolute;
   /* horizontal intentionally reduced to keep "I-beam pointer" visible */

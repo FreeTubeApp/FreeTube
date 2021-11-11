@@ -21,6 +21,7 @@
         <ft-toggle-switch
           :label="$t('Settings.External Player Settings.Ignore Unsupported Action Warnings')"
           :default-value="externalPlayerIgnoreWarnings"
+          :disabled="externalPlayer===''"
           :compact="true"
           :tooltip="$t('Tooltips.External Player Settings.Ignore Warnings')"
           @change="updateExternalPlayerIgnoreWarnings"
@@ -44,7 +45,7 @@
         :show-action-button="false"
         :show-label="true"
         :value="externalPlayerCustomArgs"
-        :tooltip="$t('Tooltips.External Player Settings.Custom External Player Arguments')"
+        :tooltip="externalPlayerCustomArgsTooltip"
         @input="updateExternalPlayerCustomArgs"
       />
     </ft-flex-box>
