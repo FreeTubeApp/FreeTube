@@ -477,7 +477,7 @@ Video:
   Watching: 'ogląda'
   Watched: 'Obejrzany'
   # As in a Live Video
-  Live: 'Na żywo'
+  Live: 'Transmisja'
   Live Now: 'Teraz na żywo'
   Live Chat: 'Czat na żywo'
   Enable Live Chat: 'Włącz czat na żywo'
@@ -516,14 +516,14 @@ Video:
     Year: 'rok'
     Years: 'lat/a'
     Ago: 'temu'
-    Upcoming: 'Najbliższe premiery'
+    Upcoming: 'Premiera'
     Minutes: minut/y
     Minute: minutę
   Published on: 'Opublikowano'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % temu'
 #& Videos
-  Autoplay: Autoodtw.
+  Autoplay: Autoodtwarzanie
   Play Previous Video: Odtwórz poprzedni film
   Play Next Video: Odtwórz następny film
   Reverse Playlist: Odwróć playlistę
@@ -573,6 +573,7 @@ Video:
     playlist: playlisty
     video: filmu
     OpenInTemplate: Otwórz w $
+  Premieres on: Premiera
 Videos:
   #& Sort By
   Sort By:
@@ -646,6 +647,9 @@ Comments:
   Top comments: Najlepsze komentarze
   Sort by: Sortuj według
   Show More Replies: Pokaż więcej odpowiedzi
+  And others: i innych
+  Pinned by: Przypięty przez
+  From $channelName: od $channelName
 Up Next: 'Następne'
 
 # Toast Messages
