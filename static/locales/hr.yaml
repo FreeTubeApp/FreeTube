@@ -605,6 +605,7 @@ Video:
     playlist: zbirka
     video: video
     OpenInTemplate: Otvori u $
+  Premieres on: Premijera
 Videos:
   #& Sort By
   Sort By:
@@ -676,6 +677,9 @@ Comments:
   Top comments: Najpopularniji komentari
   Sort by: Redoslijed
   Show More Replies: Pokaži više odgovora
+  From $channelName: od $channelName
+  And others: i drugi
+  Pinned by: Prikvačio/la
 Up Next: 'Sljedeći'
 
 # Toast Messages
