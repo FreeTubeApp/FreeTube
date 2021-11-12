@@ -8,9 +8,17 @@ const args = process.argv
 
 let targets
 var platform = os.platform()
+var cpus = os.cpus()
 
 if (platform == 'darwin') {
-  targets = Platform.MAC.createTarget()
+  let arch;
+
+  if (cpus[0].model.startsWith('Apple')) {
+    arch = Arch.arm64;
+  } else {
+    arch = Arch.x64;
+  }
+  targets = Platform.MAC.createTarget(['dmg'],arch);
 } else if (platform == 'win32') {
   targets = Platform.WINDOWS.createTarget()
 } else if (platform == 'linux') {
