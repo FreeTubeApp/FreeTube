@@ -205,6 +205,7 @@ function runApp() {
         commonBrowserWindowOptions
       )
     )
+    newWindow.webContents.userAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36" // Prevent youtube from seeing the freetube header
 
     // region Ensure child windows use same options since electron 14
 
