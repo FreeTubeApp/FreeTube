@@ -339,7 +339,8 @@ function runApp() {
       // If it's an AppImage, things must be done the "hard way"
       // `app.relaunch` doesn't work because of FUSE limitations
       // Spawn a new process using the APPIMAGE env variable
-      cp.spawn(APPIMAGE, { detached: true, stdio: 'ignore' })
+      const subprocess = cp.spawn(APPIMAGE, { detached: true, stdio: 'ignore' })
+      subprocess.unref()
     }
 
     app.quit()
