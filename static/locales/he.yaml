@@ -135,6 +135,15 @@ Settings:
     View all Invidious instance information: הצגת כל פרטי העותק של Invidious
     Current Invidious Instance: עותק נוכחי של Invidious
     System Default: בררת המחדל של המערכת
+    The currently set default instance is $: עותק ברירת המחדל שהוגדר הוא $
+    Set Current Instance as Default: הגדרת העותק הנוכחי כברירת מחדל
+    External Link Handling:
+      Open Link: פתיחת הקישור
+      Ask Before Opening Link: לשאול לפני פתיחת קישור
+      No Action: שום פעולה
+      External Link Handling: טיפול בקישורים חיצוניים
+    Clear Default Instance: ניקוי עותק ברירת המחדל
+    No default instance has been set: לא הוגדר עותק ברירת מחדל
   Theme Settings:
     Theme Settings: 'הגדרת מראה'
     Match Top Bar with Main Color: 'התאמת האזור העליון לצבע הראשי'
@@ -174,6 +183,7 @@ Settings:
     UI Scale: גודל הממשק
     Expand Side Bar by Default: תפריט צד מורחב כברירת מחדל
     Disable Smooth Scrolling: השבתת גלילה חלקה
+    Hide Side Bar Labels: הסתרת התוויות בסרגל הצד
   Player Settings:
     Player Settings: 'הגדרת נגן'
     Force Local Backend for Legacy Formats: 'כפיית המנגנון לניגון בפורמטים ישנים'
@@ -204,6 +214,7 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: מרווח זמן לפני ניגון הסרטון הבא בפלייליסט
     Next Video Interval: משך הסרטון הבא
+    Display Play Button In Video Player: הצגת כפתור הניגון בתוך נגן הווידאו
   Privacy Settings:
     Privacy Settings: 'הגדרות פרטיות'
     Remember History: 'זכור את היסטוריית הצפייה'
@@ -322,6 +333,9 @@ Settings:
   External Player Settings:
     External Player: נגן חיצוני
     External Player Settings: הגדרות נגן חיצוני
+    Custom External Player Executable: קובץ בר־הרצה מותאם אישית לַנַּגָּן
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: להודיע לגבי דילוג על קטע החסוּת
 About:
   #On About page
   About: 'על אודות'
@@ -425,6 +439,7 @@ Profile:
     אתם בטוחים שאתם רוצים למחוק את הערוצים שבחרתם? הערוצים לא יימחקו משאר הפרופילים.'
 #On Channel Page
   Profile Filter: מסנן פרופילים
+  Profile Settings: הגדרת הפרופיל
 Channel:
   Subscriber: 'מנוי'
   Subscribers: 'מנויים'
@@ -541,6 +556,20 @@ Video:
   Video has been saved: סרטון נשמר
   Save Video: שמירת סרטון
   translated from English: תורגם מאנגלית
+  Premieres on: שידור הבכורה ב־
+  Sponsor Block category:
+    outro: סיום
+    self-promotion: קידום עצמי
+    interaction: מבוא
+    sponsor: נותן חסות
+    intro: פתיח
+  External Player:
+    video: סרטון
+    playlist: פלייליסט
+    OpenInTemplate: פתיחה בתוך $
+    OpeningTemplate: מתבצעת פתיחת $ בתוך %...
+    UnsupportedActionTemplate: 'ל־$ אין תמיכה ב־: %'
+  Skipped segment: קטע שדילגת עליו
 Videos:
   #& Sort By
   Sort By:
@@ -565,6 +594,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: פלייליסט
 Toggle Theatre Mode: 'הפעלו / בטלו מצב קולנוע'
 Change Format:
   Change Video Formats: 'שינוי תצורות הסרטונים'
@@ -606,6 +636,9 @@ Comments:
   Sort by: מיין לפי
   Top comments: תגובות מובילות
   No more comments available: אין עוד תגובות זמינות
+  Show More Replies: הצגת תגובות נוספות
+  From $channelName: מערוץ $channelName
+  And others: ואחרים
 Up Next: 'הסרטון הבא'
 
 # Toast Messages
@@ -640,8 +673,7 @@ Tooltips:
       המקומי הוא מחלץ מובנה. ה־API של Invidious דורש התחברות לשרת Invidious.
     Region for Trending: מגמות אזוריות מאפשר לך לבחור סרטונים חמים של איזו מדינה מעניין
       אותך לראות. לא כל המדינות שמוצגות אכן נתמכות על ידי YouTube.
-    Invidious Instance: העותק של Invidious שאליו FreeTube יתחבר לפניות API. מחיקת
-      העותק הנוכחי תעלה רשימה של עותקים ציבוריים לבחור מביניהם.
+    Invidious Instance: העותק של Invidious שאליו FreeTube יתחבר לפניות API.
     Thumbnail Preference: כל התמונות הממוזערות ברחבי FreeTube יוחלפו בפריים מתוך הסרטון
       במקום התמונה הממוזערת כברירת המחדל.
   Player Settings:
@@ -658,8 +690,20 @@ Tooltips:
     Fetch Feeds from RSS: כאשר אפשרות זו פעילה. FreeTube ישתמש ב־RSS במקום בשיטת ברירת
       המחדל לאיסוף הזנת המינויים שלך. RSS היא שיטה מהירה יותר ומונעת חסימת IP אבל
       לא מספקת חלק מהמידע כמו אורך הסרטון או מצב שידור חי
+  External Player Settings:
+    DefaultCustomArgumentsTemplate: '(ברירת מחדל: "$")'
+  Privacy Settings:
+    Remove Video Meta Files: כאשר אפשרות זו מופעלת, FreeTube מוחק באופן אוטומטי קובצי
+      על שנוצרים במהלך ניגון סרטון, לאחר סגירת עמוד הצפייה.
 More: עוד
 Open New Window: פתיחת חלון חדש
 Search Bar:
   Clear Input: פינוי הקלט
 Are you sure you want to open this link?: לפתוח את הקישור הזה?
+Unknown YouTube url type, cannot be opened in app: סוג כתובת לא ידוע ל־YouTube, לא
+  ניתן לפתיחה ביישום
+Default Invidious instance has been set to $: עותק Invidious שהוגדר כברירת מחדל הוא
+  $
+Default Invidious instance has been cleared: נוקתה העדפת עותק ברירת המחדל של Invidious
+External link opening has been disabled in the general settings: פתיחת הקישורים החיצוניים
+  מושבתת בהגדרות הכלליות
