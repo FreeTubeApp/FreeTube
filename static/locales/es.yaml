@@ -1,13 +1,13 @@
 # Put the name of your locale in the same language
-Locale Name: 'Español'
+Locale Name: 'Inglés (EEUU)'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Esta sección está en desarrollo. Regresa cuando esté lista.
+  Esta sección de la app no está lista. Regresa más tarde cuando hayamos progresado.
 
 # Webkit Menu Bar
-File: 'Archivo'
-Quit: 'Cerrar'
+File: 'Fichero'
+Quit: 'salir'
 Edit: 'Editar'
 Undo: 'Deshacer'
 Redo: 'Rehacer'
@@ -596,6 +596,7 @@ Video:
       starting video at offset: iniciar el vídeo en un punto dado
     UnsupportedActionTemplate: '$ no soporta: %'
     OpeningTemplate: Abriendo $ en %...
+  Premieres on: Se estrena el
 Videos:
   #& Sort By
   Sort By:
@@ -669,6 +670,9 @@ Comments:
   Sort by: Ordenar por
   No more comments available: No hay más comentarios
   Show More Replies: Mostrar más respuestas
+  From $channelName: de $channelName
+  And others: y otros
+  Pinned by: Fijado por
 Up Next: 'A continuación'
 
 # Toast Messages
@@ -732,7 +736,7 @@ Tooltips:
       datos. La API local es un extractor incorporado. La API de Invidious requiere
       de un servidor Invidious al cual conectarse.
     External Link Handling: "Elige el comportamiento predeterminado al pulsar un enlace\
-      \ que no puede ser abierto en FreeTube.\nPor defecto, FreeTube abrirá el enlace\
+      \ que no puede ser abierto en FreeTube.\nPor defecto FreeTube abrirá el enlace\
       \  en su navegador predeterminado.\n"
   Privacy Settings:
     Remove Video Meta Files: Cuando se active, FreeTube eliminará automáticamente
