@@ -62,6 +62,7 @@ Search Filters:
   Fetching results. Please wait: 'Obteniendo más resultados. Por favor espere'
   Fetch more results: 'Obtener más resultados'
 # Sidebar
+  There are no more results for this search: No hay más resultados para ésta búsqueda
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Suscripciones'
@@ -72,8 +73,16 @@ Subscriptions:
   'Getting Subscriptions.  Please wait.': 'Obteniendo Suscripciones. Por favor espere.'
   Refresh Subscriptions: Actulizar Suscripciones
   Getting Subscriptions. Please wait.: Obteniendo Suscripciones. Por favor espere.
+  Load More Videos: Cargar más videos
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
+    perfil tiene un gran número de suscripciones. Forzando RSS para evitar limitaciones
 Trending:
   Trending: 'Tendencias'
+  Default: Predeterminado
+  Music: Música
+  Gaming: Juegos
+  Trending Tabs: Tendencias
+  Movies: Películas
 Most Popular: 'Más Popular'
 Playlists: 'Listas de Reproducción'
 User Playlists:
@@ -543,3 +552,7 @@ Download From Site: Descargar desde el sitio
 Version $ is now available!  Click for more details: Versión $ ya está disponible!
   Presione para más detalles
 Open New Window: Abrir nueva ventana
+More: Más
+Are you sure you want to open this link?: ¿Estás seguro de abrir este link?
+Search Bar:
+  Clear Input: Limpiar entrada
