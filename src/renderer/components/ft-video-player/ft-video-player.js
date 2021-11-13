@@ -1564,7 +1564,7 @@ export default Vue.extend({
           this.stats.display.modal.open()
           this.player.controls(true)
           this.stats.display.modal.contentEl().innerHTML = this.formatted_stats
-        }else{
+        } else {
           this.stats.display.modal.close()
         }
       })
