@@ -62,6 +62,7 @@ export default Vue.extend({
         selectedOption: -1,
         isPointerInList: false
       },
+      visibleDataList: this.dataList,
       // This button should be invisible on app start
       // As the text input box should be empty
       clearTextButtonExisting: false,
@@ -87,9 +88,6 @@ export default Vue.extend({
     }
   },
   watch: {
-    value: function (val) {
-      this.inputData = val
-    },
     inputDataPresent: function (newVal, oldVal) {
       if (newVal) {
         // The button needs to be visible **immediately**
@@ -114,6 +112,7 @@ export default Vue.extend({
   mounted: function () {
     this.id = this._uid
     this.inputData = this.value
+    this.updateVisibleDataList()
 
     setTimeout(this.addListener, 200)
   },
@@ -127,17 +126,19 @@ export default Vue.extend({
       this.$emit('click', this.inputData)
     },
 
-    handleInput: function () {
+    handleInput: function (val) {
       if (this.isSearch &&
         this.searchState.selectedOption !== -1 &&
-        this.inputData === this.dataList[this.searchState.selectedOption]) { return }
+        this.inputData === this.visibleDataList[this.searchState.selectedOption]) { return }
       this.handleActionIconChange()
-      this.$emit('input', this.inputData)
+      this.updateVisibleDataList()
+      this.$emit('input', val)
     },
 
     handleClearTextClick: function () {
       this.inputData = ''
       this.handleActionIconChange()
+      this.updateVisibleDataList()
       this.$emit('input', this.inputData)
 
       // Focus on input element after text is clear for better UX
@@ -208,14 +209,13 @@ export default Vue.extend({
 
     handleOptionClick: function (index) {
       this.searchState.showOptions = false
-      this.inputData = this.dataList[index]
+      this.inputData = this.visibleDataList[index]
       this.$emit('input', this.inputData)
       this.handleClick()
     },
 
     handleKeyDown: function (keyCode) {
       if (this.dataList.length === 0) { return }
-
       // Update selectedOption based on arrow key pressed
       if (keyCode === 40) {
         this.searchState.selectedOption = (this.searchState.selectedOption + 1) % this.dataList.length
@@ -229,8 +229,16 @@ export default Vue.extend({
         this.searchState.selectedOption = -1
       }
 
+      // Key pressed isn't enter
+      if (keyCode !== 13) {
+        this.searchState.showOptions = true
+      }
       // Update Input box value if arrow keys were pressed
-      if ((keyCode === 40 || keyCode === 38) && this.searchState.selectedOption !== -1) { this.inputData = this.dataList[this.searchState.selectedOption] }
+      if ((keyCode === 40 || keyCode === 38) && this.searchState.selectedOption !== -1) {
+        this.inputData = this.visibleDataList[this.searchState.selectedOption]
+      } else {
+        this.updateVisibleDataList()
+      }
     },
 
     handleInputBlur: function () {
@@ -242,6 +250,24 @@ export default Vue.extend({
       if (this.selectOnFocus) {
         e.target.select()
       }
+    },
+
+    updateVisibleDataList: function () {
+      if (this.dataList.length === 0) { return }
+      if (this.inputData === '') {
+        this.visibleDataList = this.dataList
+        return
+      }
+      // get list of items that match input
+      const visList = this.dataList.filter(x => {
+        if (x.toLowerCase().indexOf(this.inputData.toLowerCase()) !== -1) {
+          return true
+        } else {
+          return false
+        }
+      })
+
+      this.visibleDataList = visList
     },
 
     ...mapActions([

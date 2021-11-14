@@ -180,7 +180,7 @@ function runApp() {
     /**
      * Initial window options
      */
-    const newWindow = new BrowserWindow({
+    const commonBrowserWindowOptions = {
       backgroundColor: '#212121',
       icon: isDev
         ? path.join(__dirname, '../../_icons/iconColor.png')
@@ -194,9 +194,35 @@ function runApp() {
         webSecurity: false,
         backgroundThrottling: false,
         contextIsolation: false
-      },
-      show: false
+      }
+    }
+    const newWindow = new BrowserWindow(
+      Object.assign(
+        {
+          // It will be shown later when ready via `ready-to-show` event
+          show: false
+        },
+        commonBrowserWindowOptions
+      )
+    )
+
+    // region Ensure child windows use same options since electron 14
+
+    // https://github.com/electron/electron/blob/14-x-y/docs/api/window-open.md#native-window-example
+    newWindow.webContents.setWindowOpenHandler(() => {
+      return {
+        action: 'allow',
+        overrideBrowserWindowOptions: Object.assign(
+          {
+            // It should be visible on click
+            show: true
+          },
+          commonBrowserWindowOptions
+        )
+      }
     })
+
+    // endregion Ensure child windows use same options since electron 14
 
     if (replaceMainWindow) {
       mainWindow = newWindow
@@ -313,7 +339,8 @@ function runApp() {
       // If it's an AppImage, things must be done the "hard way"
       // `app.relaunch` doesn't work because of FUSE limitations
       // Spawn a new process using the APPIMAGE env variable
-      cp.spawn(APPIMAGE, { detached: true, stdio: 'ignore' })
+      const subprocess = cp.spawn(APPIMAGE, { detached: true, stdio: 'ignore' })
+      subprocess.unref()
     }
 
     app.quit()

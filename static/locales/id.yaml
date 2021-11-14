@@ -89,6 +89,8 @@ Trending:
   Trending: 'Sedang Tren'
   Movies: Film
   Music: Musik
+  Gaming: Bermain game
+  Default: Bawaan
 Most Popular: 'Paling Populer'
 Playlists: 'Daftar Putar'
 User Playlists:
@@ -138,6 +140,11 @@ Settings:
     Current instance will be randomized on startup: Situs akan diacak saat aplikasi
       dijalankan
     Current Invidious Instance: Situs Invidious Saat Ini
+    External Link Handling:
+      External Link Handling: Handling link eksternal
+      Open Link: Buka link
+      Ask Before Opening Link: Tanya sebelum membuka link
+      No Action: Tidak ada
   Theme Settings:
     Theme Settings: 'Pengaturan Tema'
     Match Top Bar with Main Color: 'Samakan Bilah Atas dengan Warna Utama'
@@ -177,6 +184,7 @@ Settings:
     Expand Side Bar by Default: Perluas Bilah Samping
     UI Scale: Skala UI
     Disable Smooth Scrolling: Nonaktifkan Gulir Halus
+    Hide Side Bar Labels: Sembunyikan Label Bilah Samping
   Player Settings:
     Player Settings: 'Pengaturan Pemutar'
     Force Local Backend for Legacy Formats: 'Paksa Layanan Lokal untuk Format Lama'
@@ -209,6 +217,7 @@ Settings:
     Next Video Interval: Interval Video Selanjutnya
     Display Play Button In Video Player: Tampilkan Tombol Putar di Dalam Pemutar Video
     Scroll Volume Over Video Player: Gulir Volume di Atas Pemutar Video
+    Fast-Forward / Rewind Interval: Interval Fast-Forward / Rewind
   Privacy Settings:
     Privacy Settings: 'Pengaturan Privasi'
     Remember History: 'Ingat Riwayat'
@@ -583,6 +592,7 @@ Video:
     playlist: daftar putar
     video: video
     OpenInTemplate: Buka di $
+  Premieres on: Pemutaran Perdana pada
 Videos:
   #& Sort By
   Sort By:
@@ -654,6 +664,9 @@ Comments:
   Sort by: Urut berdasarkan
   There are no more comments for this video: Tidak ada komentar lagi untuk video ini
   Show More Replies: Tampilkan Lebih Banyak Balasan
+  From $channelName: dari $channelName
+  And others: dan lain-lain
+  Pinned by: Dipin oleh
 Up Next: 'Akan Datang'
 
 # Toast Messages
@@ -702,7 +715,7 @@ Tooltips:
       ngetren dari negara tersebut untuk ditampilkan. Tidak semua daftar negara didukung
       oleh YouTube.
     Invidious Instance: Situs Invidious yang akan tersambung dengan FreeTube untuk
-      panggilan API. Hapus situs saat ini untuk melihat daftar situs publik yang didukung.
+      panggilan API.
     Thumbnail Preference: Semua thumbnail di dalam aplikasi FreeTube akan diganti
       dengan frame dari video.
     Fallback to Non-Preferred Backend on Failure: Ketika API yang Anda pilih memiliki
@@ -734,3 +747,8 @@ Hashtags have not yet been implemented, try again later: Hashtag belum diimpleme
 Unknown YouTube url type, cannot be opened in app: Tipe URL YouTube tidak dikenal,
   tidak bisa dibuka di aplikasi
 Open New Window: Buka Jendela Baru
+Search Bar:
+  Clear Input: Bersihkan input
+External link opening has been disabled in the general settings: Pembukaan link eksternal
+  telah dimatikan pada pengaturan umum
+Are you sure you want to open this link?: Yakin ingin membuka link ini?

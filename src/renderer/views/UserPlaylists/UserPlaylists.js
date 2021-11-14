@@ -37,12 +37,16 @@ export default Vue.extend({
     }
   },
   watch: {
-    activeData() {
-      this.isLoading = true
-      setTimeout(() => {
-        this.isLoading = false
-      }, 100)
-    }
+    // This implementation of loading effect
+    // causes "scroll to top" side effect which is reported as a bug
+    // https://github.com/FreeTubeApp/FreeTube/issues/1507
+    //
+    // activeData() {
+    //   this.isLoading = true
+    //   setTimeout(() => {
+    //     this.isLoading = false
+    //   }, 100)
+    // }
   },
   mounted: function () {
     const limit = sessionStorage.getItem('favoritesLimit')
