@@ -502,6 +502,8 @@ const actions = {
             subPath = 'about'
             break
           case 'community':
+            subPath = 'community'
+            break
           default:
             subPath = 'videos'
             break
