@@ -545,7 +545,7 @@ Video:
     video id: "Video ID (YouTube)"
     player resolution: "Viewport"
     volume: "Volume"
-    fps: "Fps"
+    fps: "FPS"
     frame drop: "Frame drop"
     bandwidth: "Connection speed"
     buffered: "Buffered"
