@@ -542,7 +542,7 @@ Video:
       shuffling playlists: shuffling playlists
       looping playlists: looping playlists
   Stats:
-    video id: "Video ID (youtube)"
+    video id: "Video ID (YouTube)"
     player resolution: "Viewport"
     volume: "Volume"
     fps: "Fps"

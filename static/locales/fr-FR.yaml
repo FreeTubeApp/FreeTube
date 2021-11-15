@@ -590,10 +590,10 @@ Video:
     OpeningTemplate: Ouverture de $ en %…
     OpenInTemplate: Ouvrir avec $
   Stats:
-    video id: "Id de la vidéo (youtube)"
+    video id: "Id de la vidéo (YouTube)"
     player resolution: "Résolution du lecteur"
     volume: "Volume"
-    fps: "Ips"
+    fps: "IPS"
     frame drop: "Perte d'image"
     bandwidth: "Bande passante"
     buffered: "En tampon"

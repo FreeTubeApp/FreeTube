@@ -219,7 +219,7 @@ export default Vue.extend({
         [this.$t('Video.Stats.frame drop'), dropFrame],
         [this.$t('Video.Stats.player resolution'), resolution],
         [this.$t('Video.Stats.volume'), `${(this.stats.volume * 100).toFixed(0)} %`],
-        [this.$t('Video.Stats.bandwidth'), `${(this.stats.bandwidth / 1000).toFixed(2)} kbps`],
+        [this.$t('Video.Stats.bandwidth'), `${(this.stats.bandwidth / 1000).toFixed(2)} Kbps`],
         [this.$t('Video.Stats.buffered'), `${(this.stats.bufferPercent * 100).toFixed(0)} %`]
       ]
 
