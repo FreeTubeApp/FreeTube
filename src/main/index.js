@@ -171,7 +171,7 @@ function runApp() {
     }
   }
 
-  async function createWindow({ replaceMainWindow = true }) {
+  async function createWindow({ replaceMainWindow = true, windowStartupUrl = null } = { replaceMainWindow: true, windowStartupUrl: null }) {
     /**
      * Initial window options
      */
@@ -204,16 +204,13 @@ function runApp() {
     // region Ensure child windows use same options since electron 14
 
     // https://github.com/electron/electron/blob/14-x-y/docs/api/window-open.md#native-window-example
-    newWindow.webContents.setWindowOpenHandler(() => {
+    newWindow.webContents.setWindowOpenHandler((details) => {
+      createWindow({
+        replaceMainWindow: false,
+        windowStartupUrl: details.url
+      })
       return {
-        action: 'allow',
-        overrideBrowserWindowOptions: Object.assign(
-          {
-            // It should be visible on click
-            show: true
-          },
-          commonBrowserWindowOptions
-        )
+        action: 'deny'
       }
     })
 
@@ -257,10 +254,18 @@ function runApp() {
 
     // load root file/url
     if (isDev) {
-      newWindow.loadURL('http://localhost:9080')
+      let devStartupURL = 'http://localhost:9080'
+      if (windowStartupUrl != null) {
+        devStartupURL = windowStartupUrl
+      }
+      newWindow.loadURL(devStartupURL)
     } else {
-      /* eslint-disable-next-line */
-      newWindow.loadFile(`${__dirname}/index.html`)
+      if (windowStartupUrl != null) {
+        newWindow.loadURL(windowStartupUrl)
+      } else {
+        /* eslint-disable-next-line */
+        newWindow.loadFile(`${__dirname}/index.html`)
+      }
 
       global.__static = path
         .join(__dirname, '/static')
