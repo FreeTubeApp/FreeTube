@@ -546,8 +546,8 @@ Video:
     player resolution: "Viewport"
     volume: "Volume"
     fps: "FPS"
-    frame drop: "Frame drop"
-    bandwidth: "Connection speed"
+    frame drop: "Frame Drop"
+    bandwidth: "Connection Speed"
     buffered: "Buffered"
     out of: "out of"
 #& Videos
