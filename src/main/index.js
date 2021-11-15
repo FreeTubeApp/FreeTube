@@ -171,7 +171,7 @@ function runApp() {
     }
   }
 
-  async function createWindow(replaceMainWindow = true) {
+  async function createWindow({ replaceMainWindow = true }) {
     /**
      * Initial window options
      */
@@ -381,7 +381,7 @@ function runApp() {
   })
 
   ipcMain.on(IpcChannels.CREATE_NEW_WINDOW, () => {
-    createWindow(false)
+    createWindow({ replaceMainWindow: false })
   })
 
   ipcMain.on(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, (_, payload) => {
