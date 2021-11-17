@@ -387,7 +387,10 @@ function runApp() {
   })
 
   ipcMain.on(IpcChannels.CREATE_NEW_WINDOW, () => {
-    createWindow({ replaceMainWindow: false })
+    createWindow({
+      replaceMainWindow: false,
+      showWindowNow: true
+    })
   })
 
   ipcMain.on(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, (_, payload) => {
