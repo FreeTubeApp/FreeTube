@@ -171,7 +171,7 @@ function runApp() {
     }
   }
 
-  async function createWindow({ replaceMainWindow = true, windowStartupUrl = null } = { replaceMainWindow: true, windowStartupUrl: null }) {
+  async function createWindow({ replaceMainWindow = true, windowStartupUrl = null, showWindowNow = false } = { replaceMainWindow: true, windowStartupUrl: null, showWindowNow: false }) {
     /**
      * Initial window options
      */
@@ -195,7 +195,7 @@ function runApp() {
       Object.assign(
         {
           // It will be shown later when ready via `ready-to-show` event
-          show: false
+          show: showWindowNow
         },
         commonBrowserWindowOptions
       )
@@ -207,6 +207,7 @@ function runApp() {
     newWindow.webContents.setWindowOpenHandler((details) => {
       createWindow({
         replaceMainWindow: false,
+        showWindowNow: true,
         windowStartupUrl: details.url
       })
       return {
