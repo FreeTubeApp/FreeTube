@@ -251,6 +251,26 @@ export default Vue.extend({
           this.player.removeChild('BigPlayButton')
         }
 
+        // Makes the playback rate menu focus the current item on mouse hover
+        // or the closest item if the playback rate is between two items
+        // which is likely to be the case when the playback rate is changed by scrolling
+        const playbackRateMenuButton = this.player.controlBar.getChild('playbackRateMenuButton')
+        playbackRateMenuButton.on(playbackRateMenuButton.menuButton_, 'mouseenter', () => {
+          const playbackRate = this.player.playbackRate()
+          const rates = this.player.playbackRates()
+
+          // iterate through the items in reverse order as the highest is displayed first
+          let index = 0
+          for (let i = rates.length - 1; i >= 0; i--) {
+            if (rates[i] === playbackRate || rates[i] < playbackRate) {
+              break
+            }
+            index++
+          }
+
+          playbackRateMenuButton.menu.focus(index)
+        })
+
         if (this.storyboardSrc !== '') {
           this.player.vttThumbnails({
             src: this.storyboardSrc,
