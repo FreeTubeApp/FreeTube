@@ -145,6 +145,11 @@ Settings:
     No default instance has been set: Vaikimisi kasutatav teenus on seadistamata
     The currently set default instance is $: Hetkel kehtiv vaikimisi teenus on $
     Current Invidious Instance: Hetkel kasutusel olev Invidious'e teenuse server
+    External Link Handling:
+      No Action: Tegevus puudub
+      External Link Handling: rakenduseväline lingikäsitlus
+      Open Link: Ava link
+      Ask Before Opening Link: Küsi enne lingi avamist
   Theme Settings:
     Theme Settings: 'Välimuse seadistused'
     Match Top Bar with Main Color: 'Kasuta ülaribal põhivärvi'
@@ -183,7 +188,8 @@ Settings:
         #* Main Color Theme
     UI Scale: Kasutajaliidese suurus
     Disable Smooth Scrolling: Ära kasuta sujuvat kerimist
-    Expand Side Bar by Default: Vaikimis näita külgriba laiana
+    Expand Side Bar by Default: Vaikimisi näita külgriba laiana
+    Hide Side Bar Labels: Peida külgriba sildid
   Player Settings:
     Player Settings: 'Videomängija seadistused'
     Force Local Backend for Legacy Formats: 'Pärandvormingute puhul kasuta sundkorras
@@ -575,6 +581,7 @@ Video:
       opening playlists: esitusloendite avamine
       setting a playback rate: taasesituskiiruse määramine
       starting video at offset: video esitamine ajanihkega
+  Premieres on: Esilinastub
 Videos:
   #& Sort By
   Sort By:
@@ -646,6 +653,9 @@ Comments:
   Newest first: Uuemad esimesena
   Top comments: Populaarsemad kommentaarid
   Show More Replies: Näita järgmisi vastuseid
+  And others: ja teised
+  Pinned by: Esiplaanile tõstja
+  From $channelName: kanalist $channelName
 Up Next: 'Järgmisena'
 
 # Toast Messages
@@ -689,6 +699,7 @@ Tooltips:
       mida sa soovid välisele meediamängijale saata.
     External Player: Seadistades välise meediamängija kuvame pisipildil ikooni video
       (või esitusloendi) esitamiseks välises meediamängijas.
+    DefaultCustomArgumentsTemplate: "(Vaikimisi: '$')"
   Subscription Settings:
     Fetch Feeds from RSS: Selle valiku kasutamisel FreeTube pruugib tellimuste andmete
       laadimisel vaikimisi meetodi asemel RSS-uudisvoogu. RSS on kiirem ja välistab
@@ -706,7 +717,9 @@ Tooltips:
       Kohalik API on rakenduses olemas ja Invidious'e API eeldab välise teenuseserveri
       kasutamist.
     Invidious Instance: Invidious'e teenuse server, mida FreeTube Invidious'e API
-      jaoks kasutab. Kui tahad näha kõiki valikuid, siis kustuta hetkel kehtiv väärtus.
+      jaoks kasutab.
+    External Link Handling: "Vali vaikekäitumine, kui vajutatakse linki, mida ei saa\
+      \ avada FreeTubes.\nVaikimisi avaneb link kasutaja vaikebrauseris.\n"
   Player Settings:
     Default Video Format: Vali kasutatavad videovormingud. DASH-vormingutel on üldjuhul
       parem kvaliteet. Pärandvormingute kvaliteedi ülempiir on 720p ja seetõttu kasutavad
@@ -725,3 +738,9 @@ Default Invidious instance has been cleared: Vaikimisi kasutatav Invidious'e tee
   on kustutatud
 Default Invidious instance has been set to $: Vaikimisi kasutatav Invidious'e teenus
   on $
+Search Bar:
+  Clear Input: Kustuta sisend
+External link opening has been disabled in the general settings: Väliste linkide avamine
+  on üldistes seadistustes keelatud
+Are you sure you want to open this link?: Kas sa oled kindel, et soovid selle lingi
+  avada?
