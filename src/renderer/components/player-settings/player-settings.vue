@@ -69,6 +69,12 @@
           :default-value="playNextVideo"
           @change="updatePlayNextVideo"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Player Settings.Use Custom User Agent')"
+          :compact="true"
+          :default-value="useCustomUserAgent"
+          @change="updateUseCustomUserAgent"
+        />
       </div>
     </div>
     <ft-flex-box>
@@ -124,6 +130,15 @@
         :select-names="qualityNames"
         :select-values="qualityValues"
         @change="updateDefaultQuality"
+      />
+    </ft-flex-box>
+    <ft-flex-box>
+      <ft-input
+        :placeholder="$t('Settings.Player Settings.Custom User Agent')"
+        :show-action-button="false"
+        :show-label="true"
+        :value="customUserAgent"
+        @input="updateCustomUserAgent"
       />
     </ft-flex-box>
   </details>

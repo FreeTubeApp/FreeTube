@@ -5,6 +5,7 @@ import FtSelect from '../ft-select/ft-select.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtSlider from '../ft-slider/ft-slider.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
+import FtInput from '../ft-input/ft-input.vue'
 
 export default Vue.extend({
   name: 'PlayerSettings',
@@ -13,7 +14,8 @@ export default Vue.extend({
     'ft-select': FtSelect,
     'ft-toggle-switch': FtToggleSwitch,
     'ft-slider': FtSlider,
-    'ft-flex-box': FtFlexBox
+    'ft-flex-box': FtFlexBox,
+    'ft-input': FtInput
   },
   data: function () {
     return {
@@ -102,6 +104,14 @@ export default Vue.extend({
       return this.$store.getters.getDisplayVideoPlayButton
     },
 
+    useCustomUserAgent: function () {
+      return this.$store.getters.getUseCustomUserAgent
+    },
+
+    customUserAgent: function () {
+      return this.$store.getters.getCustomUserAgent
+    },
+
     formatNames: function () {
       return [
         this.$t('Settings.Player Settings.Default Video Format.Dash Formats'),
@@ -138,7 +148,9 @@ export default Vue.extend({
       'updateDefaultVideoFormat',
       'updateDefaultQuality',
       'updateVideoVolumeMouseScroll',
-      'updateDisplayVideoPlayButton'
+      'updateDisplayVideoPlayButton',
+      'updateUseCustomUserAgent',
+      'updateCustomUserAgent'
     ])
   }
 })

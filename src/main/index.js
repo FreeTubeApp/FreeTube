@@ -207,6 +207,34 @@ function runApp() {
     )
     newWindow.webContents.userAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36" // Prevent youtube from seeing the freetube header
 
+    // Set custom user agent if enabled
+    const userAgentSettingsArray = await settingsDb.find({
+        $or: [
+          { _id: 'customUserAgent' },
+          { _id: 'useCustomUserAgent' }
+        ]
+      })
+
+    let customUserAgent = ''
+    let useCustomUserAgent = false
+
+    if (userAgentSettingsArray?.length > 0) {
+      userAgentSettingsArray.forEach((doc) => {
+        switch (doc._id) {
+          case 'customUserAgent':
+            customUserAgent = doc.value
+            break
+          case 'useCustomUserAgent':
+            useCustomUserAgent = doc.value
+            break
+        }
+      })
+    }
+
+    if (useCustomUserAgent && customUserAgent) {
+      newWindow.webContents.userAgent = customUserAgent
+    }
+
     // region Ensure child windows use same options since electron 14
 
     // https://github.com/electron/electron/blob/14-x-y/docs/api/window-open.md#native-window-example
