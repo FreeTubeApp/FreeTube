@@ -20,7 +20,6 @@ if (platform == 'darwin') {
   }
 
   targets = Platform.MAC.createTarget(['dmg'], arch)
-  targets = Platform.MAC.createTarget(['dmg'],arch);
 } else if (platform == 'win32') {
   targets = Platform.WINDOWS.createTarget()
 } else if (platform == 'linux') {
