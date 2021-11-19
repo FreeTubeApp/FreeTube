@@ -11,13 +11,15 @@ var platform = os.platform()
 var cpus = os.cpus()
 
 if (platform == 'darwin') {
-  let arch;
+  let arch = Arch.x64
 
+  // Macbook Air 2020 with M1 = 'Apple M1'
+  // Macbook Pro 2021 with M1 Pro = 'Apple M1 Pro'
   if (cpus[0].model.startsWith('Apple')) {
-    arch = Arch.arm64;
-  } else {
-    arch = Arch.x64;
+    arch = Arch.arm64
   }
+
+  targets = Platform.MAC.createTarget(['dmg'], arch)
   targets = Platform.MAC.createTarget(['dmg'],arch);
 } else if (platform == 'win32') {
   targets = Platform.WINDOWS.createTarget()
