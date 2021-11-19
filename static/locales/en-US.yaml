@@ -199,6 +199,8 @@ Settings:
     Turn on Subtitles by Default: Turn on Subtitles by Default
     Autoplay Videos: Autoplay Videos
     Proxy Videos Through Invidious: Proxy Videos Through Invidious
+    Use Custom User Agent: Use Custom User Agent
+    Custom User Agent (Restart required to take effect): Custom User Agent (Restart required to take effect)
     Autoplay Playlists: Autoplay Playlists
     Enable Theatre Mode by Default: Enable Theatre Mode by Default
     Scroll Volume Over Video Player: Scroll Volume Over Video Player

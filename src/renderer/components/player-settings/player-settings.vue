@@ -134,7 +134,7 @@
     </ft-flex-box>
     <ft-flex-box>
       <ft-input
-        :placeholder="$t('Settings.Player Settings.Custom User Agent')"
+        :placeholder="$t('Settings.Player Settings.Custom User Agent (Restart required to take effect)')"
         :show-action-button="false"
         :show-label="true"
         :value="customUserAgent"
