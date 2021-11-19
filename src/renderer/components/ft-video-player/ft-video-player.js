@@ -260,15 +260,12 @@ export default Vue.extend({
           const rates = this.player.playbackRates()
 
           // iterate through the items in reverse order as the highest is displayed first
-          let index = 0
-          for (let i = rates.length - 1; i >= 0; i--) {
-            if (rates[i] === playbackRate || rates[i] < playbackRate) {
-              break
-            }
-            index++
-          }
+          // `slice` must be used as `reverse` does reversing in place
+          const targetPlaybackRateMenuItemIndex = rates.slice().reverse().findIndex((rate) => {
+            return rate === playbackRate || rate < playbackRate
+          })
 
-          playbackRateMenuButton.menu.focus(index)
+          playbackRateMenuButton.menu.focus(targetPlaybackRateMenuItemIndex)
         })
 
         if (this.storyboardSrc !== '') {
