@@ -265,7 +265,20 @@ export default Vue.extend({
             return rate === playbackRate || rate < playbackRate
           })
 
-          playbackRateMenuButton.menu.focus(targetPlaybackRateMenuItemIndex)
+          // center the selected item in the middle of the visible area
+          // the first and last items will never be in the center so it can be skipped for them
+          if (targetPlaybackRateMenuItemIndex !== 0 && targetPlaybackRateMenuItemIndex !== rates.length - 1) {
+            const playbackRateMenu = playbackRateMenuButton.menu
+            const menuElement = playbackRateMenu.contentEl()
+
+            const itemHeight = playbackRateMenu.children()[targetPlaybackRateMenuItemIndex].contentEl().clientHeight
+
+            // clientHeight is the height of the visible part of an element
+            const centerOfVisibleArea = (menuElement.clientHeight - itemHeight) / 2
+            const menuScrollOffset = (itemHeight * targetPlaybackRateMenuItemIndex) - centerOfVisibleArea
+
+            menuElement.scrollTo({ top: menuScrollOffset })
+          }
         })
 
         if (this.storyboardSrc !== '') {
