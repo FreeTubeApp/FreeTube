@@ -38,7 +38,14 @@ const state = {
     'mainYellow',
     'mainAmber',
     'mainOrange',
-    'mainDeepOrange'
+    'mainDeepOrange',
+    'mainDraculaCyan',
+    'mainDraculaGreen',
+    'mainDraculaOrange',
+    'mainDraculaPink',
+    'mainDraculaPurple',
+    'mainDraculaRed',
+    'mainDraculaYellow'
   ],
   colorValues: [
     '#d50000',
@@ -56,7 +63,14 @@ const state = {
     '#FFD600',
     '#FFAB00',
     '#FF6D00',
-    '#DD2C00'
+    '#DD2C00',
+    '#8BE9FD',
+    '#50FA7B',
+    '#FFB86C',
+    '#FF79C6',
+    '#BD93F9',
+    '#FF5555',
+    '#F1FA8C'
   ],
   externalPlayerNames: [],
   externalPlayerValues: [],
