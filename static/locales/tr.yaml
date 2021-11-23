@@ -605,6 +605,15 @@ Video:
     video: video
     OpenInTemplate: $ içinde aç
   Premieres on: İlk gösterim tarihi
+  Stats:
+    volume: Ses Seviyesi
+    out of: /
+    player resolution: Görüntü Penceresi
+    fps: FPS
+    frame drop: Çerçeve Kaybı
+    video id: Video Kimliği (YouTube)
+    bandwidth: Bağlantı Hızı
+    buffered: Arabelleğe Alınan
 Videos:
   #& Sort By
   Sort By:
