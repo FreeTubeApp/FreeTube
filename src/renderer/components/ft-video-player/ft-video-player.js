@@ -11,6 +11,7 @@ import 'videojs-overlay/dist/videojs-overlay.css'
 import 'videojs-vtt-thumbnails-freetube'
 import 'videojs-contrib-quality-levels'
 import 'videojs-http-source-selector'
+import { ipcRenderer } from 'electron'
 
 export default Vue.extend({
   name: 'FtVideoPlayer',
@@ -132,6 +133,22 @@ export default Vue.extend({
           2.75,
           3
         ]
+      },
+      stats: {
+        videoId: '',
+        playerResolution: null,
+        frameInfo: null,
+        volume: 0,
+        bandwidth: null,
+        bufferPercent: 0,
+        fps: null,
+        display: {
+          modal: null,
+          event: 'statsUpdated',
+          keyboardShortcut: 'KeyI',
+          rightClickEvent: 'showVideoStatistics',
+          activated: false
+        }
       }
     }
   },
@@ -187,6 +204,36 @@ export default Vue.extend({
 
     displayVideoPlayButton: function() {
       return this.$store.getters.getDisplayVideoPlayButton
+    },
+    formatted_stats: function() {
+      let resolution = ''
+      let dropFrame = ''
+      if (this.stats.playerResolution != null) {
+        resolution = `(${this.stats.playerResolution.height}X${this.stats.playerResolution.width}) @ ${this.stats.fps} ${this.$t('Video.Stats.fps')}`
+      }
+      if (this.stats.frameInfo != null) {
+        dropFrame = `${this.stats.frameInfo.droppedVideoFrames} ${this.$t('Video.Stats.out of')} ${this.stats.frameInfo.totalVideoFrames}`
+      }
+      const stats = [
+        [this.$t('Video.Stats.video id'), this.stats.videoId],
+        [this.$t('Video.Stats.frame drop'), dropFrame],
+        [this.$t('Video.Stats.player resolution'), resolution],
+        [this.$t('Video.Stats.volume'), `${(this.stats.volume * 100).toFixed(0)} %`],
+        [this.$t('Video.Stats.bandwidth'), `${(this.stats.bandwidth / 1000).toFixed(2)} Kbps`],
+        [this.$t('Video.Stats.buffered'), `${(this.stats.bufferPercent * 100).toFixed(0)} %`]
+      ]
+
+      let formattedStats = '<ul style="list-style-type: none;text-align:left; padding-left:0px";>'
+      for (const stat of stats) {
+        formattedStats += `<li style="font-size: 75%">${stat[0]}: ${stat[1]}</li>`
+      }
+      formattedStats += '</ul>'
+      return formattedStats
+    }
+  },
+  watch: {
+    selectedQuality: function() {
+      this.currentFps()
     }
   },
   mounted: function () {
@@ -334,6 +381,7 @@ export default Vue.extend({
           const settings = this.player.textTrackSettings.getValues()
           this.updateDefaultCaptionSettings(JSON.stringify(settings))
         })
+        this.addPlayerStatsEvent()
       }
     },
 
@@ -1483,6 +1531,85 @@ export default Vue.extend({
       'updateDefaultCaptionSettings',
       'showToast',
       'sponsorBlockSkipSegments'
-    ])
+    ]),
+    addPlayerStatsEvent: function() {
+      this.stats.videoId = this.videoId
+      this.player.on('volumechange', () => {
+        this.stats.volume = this.player.volume()
+        this.player.trigger(this.stats.display.event)
+      })
+
+      this.player.on('timeupdate', () => {
+        const stats = this.player.tech({ IWillNotUseThisInPlugins: true }).vhs.stats
+        this.stats.frameInfo = stats.videoPlaybackQuality
+        this.player.trigger(this.stats.display.event)
+      })
+
+      this.player.on('progress', () => {
+        const stats = this.player.tech({ IWillNotUseThisInPlugins: true }).vhs.stats
+
+        this.stats.bandwidth = stats.bandwidth
+        this.stats.bufferPercent = this.player.bufferedPercent()
+      })
+
+      this.player.on('playerresize', () => {
+        this.stats.playerResolution = this.player.currentDimensions()
+        this.player.trigger(this.stats.display.event)
+      })
+
+      this.createStatsModal()
+
+      this.player.on(this.stats.display.event, () => {
+        if (this.stats.display.activated) {
+          this.stats.display.modal.open()
+          this.player.controls(true)
+          this.stats.display.modal.contentEl().innerHTML = this.formatted_stats
+        } else {
+          this.stats.display.modal.close()
+        }
+      })
+      // keyboard shortcut
+      window.addEventListener('keyup', (event) => {
+        if (event.code === this.stats.display.keyboardShortcut) {
+          if (this.stats.display.activated) {
+            this.deactivateStatsDisplay()
+          } else {
+            this.activateStatsDisplay()
+          }
+        }
+      }, true)
+      // right click menu
+      ipcRenderer.on(this.stats.display.rightClickEvent, () => {
+        this.activateStatsDisplay()
+      })
+    },
+    createStatsModal: function() {
+      const ModalDialog = videojs.getComponent('ModalDialog')
+      this.stats.display.modal = new ModalDialog(this.player, {
+        temporary: false,
+        pauseOnOpen: false
+      })
+      this.player.addChild(this.stats.display.modal)
+      this.stats.display.modal.height('35%')
+      this.stats.display.modal.width('50%')
+      this.stats.display.modal.contentEl().style.backgroundColor = 'rgba(0, 0, 0, 0.55)'
+      this.stats.display.modal.on('modalclose', () => {
+        this.deactivateStatsDisplay()
+      })
+    },
+    activateStatsDisplay: function() {
+      this.stats.display.activated = true
+    },
+    deactivateStatsDisplay: function() {
+      this.stats.display.activated = false
+    },
+    currentFps: function() {
+      for (const el of this.activeAdaptiveFormats) {
+        if (el.qualityLabel === this.selectedQuality) {
+          this.stats.fps = el.fps
+          break
+        }
+      }
+    }
   }
 })

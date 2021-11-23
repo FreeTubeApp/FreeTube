@@ -589,6 +589,15 @@ Video:
     UnsupportedActionTemplate: '$ non pris en charge : %'
     OpeningTemplate: Ouverture de $ en %…
     OpenInTemplate: Ouvrir avec $
+  Stats:
+    video id: "Id de la Vidéo (YouTube)"
+    player resolution: "Résolution du Lecteur"
+    volume: "Volume"
+    fps: "IPS"
+    frame drop: "Perte d'image"
+    bandwidth: "Bande Passante"
+    buffered: "En Tampon"
+    out of: "sur"
   Premieres on: Première le
 Videos:
   #& Sort By

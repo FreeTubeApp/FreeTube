@@ -541,6 +541,15 @@ Video:
       reversing playlists: reversing playlists
       shuffling playlists: shuffling playlists
       looping playlists: looping playlists
+  Stats:
+    video id: "Video ID (YouTube)"
+    player resolution: "Viewport"
+    volume: "Volume"
+    fps: "FPS"
+    frame drop: "Frame Drop"
+    bandwidth: "Connection Speed"
+    buffered: "Buffered"
+    out of: "out of"
 #& Videos
 Videos:
   #& Sort By
