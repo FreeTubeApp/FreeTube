@@ -581,6 +581,15 @@ Video:
     video: відео
     OpenInTemplate: Відкрити у $
   Premieres on: Прем'єри
+  Stats:
+    player resolution: Вікно перегляду
+    fps: Кадрів/с
+    volume: Обсяг
+    bandwidth: Швидкість з'єднання
+    buffered: Буферизовано
+    out of: з
+    video id: ID відео (YouTube)
+    frame drop: Пропущені кадри
 Videos:
   #& Sort By
   Sort By:
