@@ -551,6 +551,15 @@ Video:
       looping playlists: 'ciklu sukami grojaraščiai'
 #& Videos
   Premieres on: Premjera
+  Stats:
+    video id: Vaizdo įrašo ID (YouTube)
+    player resolution: Peržiūros sritis
+    fps: Kadrai per sekundę (FPS)
+    frame drop: Praleisti kadrai
+    bandwidth: Ryšio greitis
+    buffered: Užkrauta atmintyje
+    volume: Garsas
+    out of: iš
 Videos:
   #& Sort By
   Sort By:
