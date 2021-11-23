@@ -552,6 +552,14 @@ Video:
     video: myndskeið
     OpenInTemplate: Opna í $
   Premieres on: Frumsýnt
+  Stats:
+    player resolution: Myndgluggi
+    fps: r/sek
+    bandwidth: Hraði tengingar
+    buffered: Í biðminni
+    out of: af
+    frame drop: Rammatap
+    video id: Auðkenni myndskeiðs (YouTube)
 Videos:
   #& Sort By
   Sort By:
