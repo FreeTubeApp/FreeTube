@@ -79,6 +79,7 @@
         />
         <p class="commentLikeCount">
           <font-awesome-icon
+            v-if="!hideCommentLikes"
             icon="thumbs-up"
           />
           {{ comment.likes }}
@@ -147,6 +148,7 @@
             />
             <p class="commentLikeCount">
               <font-awesome-icon
+                v-if="!hideCommentLikes"
                 icon="thumbs-up"
               />
               {{ reply.likes }}
