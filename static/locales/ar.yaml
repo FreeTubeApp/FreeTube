@@ -592,6 +592,15 @@ Video:
     video: فيديو
     OpenInTemplate: فتح في $
   Premieres on: العرض الأول بتاريخ
+  Stats:
+    video id: معرف الفيديو (يوتيوب)
+    player resolution: المعاينه
+    fps: معدل الإطارات
+    frame drop: إسقاط الإطار
+    buffered: مخزنة
+    out of: خارج عن
+    bandwidth: سرعة الاتصال
+    volume: الصوت
 Videos:
   #& Sort By
   Sort By:
