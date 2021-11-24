@@ -131,7 +131,27 @@ export default Vue.extend({
           2.25,
           2.5,
           2.75,
-          3
+          3,
+          3.25,
+          3.5,
+          3.75,
+          4,
+          4.25,
+          4.5,
+          4.75,
+          5,
+          5.25,
+          5.5,
+          5.75,
+          6,
+          6.25,
+          6.5,
+          6.75,
+          7,
+          7.25,
+          7.5,
+          7.75,
+          8
         ]
       },
       stats: {
@@ -192,6 +212,10 @@ export default Vue.extend({
 
     videoVolumeMouseScroll: function () {
       return this.$store.getters.getVideoVolumeMouseScroll
+    },
+
+    videoPlaybackRateMouseScroll: function () {
+      return this.$store.getters.getVideoPlaybackRateMouseScroll
     },
 
     useSponsorBlock: function () {
@@ -340,6 +364,14 @@ export default Vue.extend({
           this.player.on('wheel', this.mouseScrollVolume)
         } else {
           this.player.controlBar.getChild('volumePanel').on('wheel', this.mouseScrollVolume)
+        }
+
+        if (this.videoPlaybackRateMouseScroll) {
+          this.player.on('wheel', this.mouseScrollPlaybackRate)
+          // Removes the 'out-of-the-box' click event and adds a custom click event so that a user can
+          // ctrl-click (or command+click on a mac) without toggling play/pause
+          this.player.el_.firstChild.style.pointerEvents = 'none'
+          this.player.on('click', this.handlePlayerClick)
         }
 
         this.player.on('fullscreenchange', this.fullscreenOverlay)
@@ -526,11 +558,41 @@ export default Vue.extend({
           this.player.volume(0)
         }
 
-        if (!this.player.muted()) {
+        if (!event.ctrlKey && !event.metaKey) {
+          if (!this.player.muted()) {
+            if (event.wheelDelta > 0) {
+              this.changeVolume(0.05)
+            } else if (event.wheelDelta < 0) {
+              this.changeVolume(-0.05)
+            }
+          }
+        }
+      }
+    },
+
+    mouseScrollPlaybackRate: function (event) {
+      if (event.target && !event.currentTarget.querySelector('.vjs-menu:hover')) {
+        event.preventDefault()
+
+        if (event.ctrlKey || event.metaKey) {
           if (event.wheelDelta > 0) {
-            this.changeVolume(0.05)
+            this.changePlayBackRate(0.05)
           } else if (event.wheelDelta < 0) {
-            this.changeVolume(-0.05)
+            this.changePlayBackRate(-0.05)
+          }
+        }
+      }
+    },
+
+    handlePlayerClick: function (event) {
+      if (event.target.matches('.ftVideoPlayer')) {
+        if (event.ctrlKey || event.metaKey) {
+          this.player.playbackRate(this.defaultPlayback)
+        } else {
+          if (this.player.paused() || !this.player.hasStarted()) {
+            this.player.play()
+          } else {
+            this.player.pause()
           }
         }
       }
@@ -904,9 +966,9 @@ export default Vue.extend({
     },
 
     changePlayBackRate: function (rate) {
-      const newPlaybackRate = this.player.playbackRate() + rate
+      const newPlaybackRate = (this.player.playbackRate() + rate).toFixed(2)
 
-      if (newPlaybackRate >= 0.25 && newPlaybackRate <= 3) {
+      if (newPlaybackRate >= 0.25 && newPlaybackRate <= 8) {
         this.player.playbackRate(newPlaybackRate)
       }
     },
