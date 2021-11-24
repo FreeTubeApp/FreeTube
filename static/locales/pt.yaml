@@ -599,6 +599,13 @@ Video:
   Video has been saved: Vídeo guardado
   Save Video: Guardar Vídeo
   Premieres on: Estreia a
+  Stats:
+    video id: Video ID (YouTube)
+    volume: Volume
+    fps: FPS
+    frame drop: Fotogramas ignorados
+    bandwidth: Velocidade da conexão
+    out of: de
 Videos:
   #& Sort By
   Sort By:
