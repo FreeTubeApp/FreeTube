@@ -221,6 +221,8 @@ Settings:
       odtwarzacza
     Display Play Button In Video Player: Pokaż przycisk odtwarzania na odtwarzaczu
     Fast-Forward / Rewind Interval: Interwał przewijania
+    Scroll Playback Rate Over Video Player: Kontroluj szybkość odtwarzania kółkiem
+      myszy na obszarze odtwarzania
   Subscription Settings:
     Subscription Settings: 'Ustawienia subskrypcji'
     Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
@@ -574,6 +576,14 @@ Video:
     video: filmu
     OpenInTemplate: Otwórz w $
   Premieres on: Premiera
+  Stats:
+    buffered: Zbuforowano
+    out of: z
+    video id: ID filmu (YouTube)
+    player resolution: Odtwarzacz
+    volume: Głośność
+    bandwidth: Prędkość połączenia
+    fps: FPS
 Videos:
   #& Sort By
   Sort By:
@@ -757,6 +767,11 @@ Tooltips:
       720p, ale zużywają mniej przepustowości. Formaty audio odtwarzają tylko dźwięk.
     Proxy Videos Through Invidious: Będzie dostarczał filmy, łącząc się z Invidious,
       a nie bezpośrednio z YouTube. Nadpisuje ustawienia API.
+    Scroll Playback Rate Over Video Player: Umieść kursor nad odtwarzaczem, przytrzymaj
+      klawisz „Ctrl” („Command” na Mac-u) i przewijaj kółkiem myszy w górę i w dół,
+      aby kontrolować szybkość odtwarzania. Przytrzymaj klawisz „Ctrl” („Command”
+      na Mac-u) i kliknij lewym przyciskiem myszy, by szybko powrócić do domyślnej
+      wartości (1x, chyba że została zmieniona w ustawieniach).
   Privacy Settings:
     Remove Video Meta Files: Po włączeniu, FreeTube automatycznie usunie pliki metadanych
       utworzone podczas odtwarzania filmu, gdy strona odtwarzania zostanie zamknięta.
