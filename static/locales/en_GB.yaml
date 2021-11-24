@@ -586,6 +586,15 @@ Video:
       shuffling playlists: shuffling playlists
       looping playlists: looping playlists
   Premieres on: Premieres on
+  Stats:
+    video id: Video ID (YouTube)
+    player resolution: Viewport
+    volume: Volume
+    frame drop: Frame Drop
+    buffered: Buffered
+    fps: FPS
+    bandwidth: Connection Speed
+    out of: out of
 Videos:
   #& Sort By
   Sort By:
