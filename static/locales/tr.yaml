@@ -223,6 +223,8 @@ Settings:
     Scroll Volume Over Video Player: Ses Düzeyini Video Oynatıcı Üzerinden Kaydır
     Display Play Button In Video Player: Video Oynatıcıda Oynatma Düğmesini Göster
     Fast-Forward / Rewind Interval: Hızlı İleri / Geri Sarma Aralığı
+    Scroll Playback Rate Over Video Player: Video Oynatıcı Üzerinde Kaydırarak Oynatma
+      Hızını Denetle
   Privacy Settings:
     Privacy Settings: 'Gizlilik Ayarları'
     Remember History: 'Geçmişi Hatırla'
@@ -732,6 +734,11 @@ Tooltips:
       döndürülen biçimler yerine onun döndürdüğü eski biçimler kullanılacaktır. Invidious
       tarafından döndürülen videolar ülke kısıtlamaları nedeniyle oynatılmadığında
       yardımcı olur.
+    Scroll Playback Rate Over Video Player: Oynatma hızını denetlemek için, imleç
+      videonun üzerindeyken Ctrl tuşunu (Mac'te Komut tuşu) basılı tutun ve oynatma
+      hızını denetlemek için fare tekerleğini ileri veya geri kaydırın. Öntanımlı
+      oynatma hızına (ayarlarda değiştirilmediği sürece 1x) hızlı bir şekilde dönmek
+      için Ctrl tuşunu (Mac'te Komut tuşu) basılı tutun ve fareye sol tıklayın.
   General Settings:
     Invidious Instance: FreeTube'un API çağrıları için bağlanacağı Invidious örneği.
     Thumbnail Preference: FreeTube'daki tüm küçük resimler, öntanımlı küçük resim
