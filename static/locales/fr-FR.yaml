@@ -229,6 +229,8 @@ Settings:
     Display Play Button In Video Player: Afficher le bouton de lecture dans le lecteur
       vidéo
     Fast-Forward / Rewind Interval: Intervalle d'avance / de recul rapide
+    Scroll Playback Rate Over Video Player: Faire défiler le taux de lecture sur le
+      lecteur vidéo
   Subscription Settings:
     Subscription Settings: 'Paramètres des abonnements'
     Hide Videos on Watch: 'Masquer les vidéos visionnées'
@@ -590,13 +592,13 @@ Video:
     OpeningTemplate: Ouverture de $ en %…
     OpenInTemplate: Ouvrir avec $
   Stats:
-    video id: "Id de la Vidéo (YouTube)"
-    player resolution: "Résolution du Lecteur"
+    video id: "Identifiant de la vidéo (YouTube)"
+    player resolution: "Résolution du lecteur"
     volume: "Volume"
     fps: "IPS"
     frame drop: "Perte d'image"
-    bandwidth: "Bande Passante"
-    buffered: "En Tampon"
+    bandwidth: "Vitesse de connexion"
+    buffered: "En tampon"
     out of: "sur"
   Premieres on: Première le
 Videos:
@@ -615,8 +617,8 @@ Playlist:
   Last Updated On: 'Dernière mise à jour le'
   Share Playlist:
     Share Playlist: 'Partager la liste de lecture'
-    Copy YouTube Link: 'Copier le lien Youtube'
-    Open in YouTube: 'Ouvrir sur Youtube'
+    Copy YouTube Link: 'Copier le lien YouTube'
+    Open in YouTube: 'Ouvrir sur YouTube'
     Copy Invidious Link: 'Copier le lien Individious'
     Open in Invidious: 'Ouvrir sur Individious'
 
@@ -772,6 +774,12 @@ Tooltips:
       les formats Legacy renvoyés par celle-ci au lieu de ceux renvoyés par Invidious.
       Utile lorsque les vidéos renvoyées par Invidious ne sont pas lues en raison
       de restrictions pays.
+    Scroll Playback Rate Over Video Player: Lorsque le curseur se trouve sur la vidéo,
+      maintenez la touche Contrôle (touche Commande sur Mac) enfoncée et faites défiler
+      la molette de la souris vers l'avant ou l'arrière pour contrôler la vitesse
+      de lecture. Maintenez la touche Contrôle (touche Commande sur Mac) enfoncée
+      et cliquez sur le bouton gauche de la souris pour revenir rapidement à la vitesse
+      de lecture par défaut (1x, sauf si elle a été modifiée dans les paramètres).
   General Settings:
     Invidious Instance: L'instance Invidious à laquelle FreeTube se connectera pour
       les appels API.
