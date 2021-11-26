@@ -275,6 +275,8 @@ function runApp() {
 
     // Show when loaded
     newWindow.once('ready-to-show', () => {
+      if (newWindow.isVisible()) { return }
+
       newWindow.show()
       newWindow.focus()
     })
