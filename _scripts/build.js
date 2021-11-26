@@ -7,13 +7,13 @@ const { name, productName } = require('../package.json')
 const args = process.argv
 
 let targets
-var platform = os.platform()
+const platform = os.platform()
 
-if (platform == 'darwin') {
+if (platform === 'darwin') {
   targets = Platform.MAC.createTarget()
-} else if (platform == 'win32') {
+} else if (platform === 'win32') {
   targets = Platform.WINDOWS.createTarget()
-} else if (platform == 'linux') {
+} else if (platform === 'linux') {
   let arch = Arch.x64
 
   if (args[2] === 'arm64') {
