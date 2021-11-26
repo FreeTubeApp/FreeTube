@@ -222,6 +222,8 @@ Settings:
     Display Play Button In Video Player: Visualizza il pulsante di riproduzione nel
       lettore
     Scroll Volume Over Video Player: Controlla il volume scorrendo sul lettore video
+    Scroll Playback Rate Over Video Player: Scorri la velocità di riproduzione sul
+      lettore video
   Privacy Settings:
     Privacy Settings: 'Impostazioni della privacy'
     Remember History: 'Salva la cronologia'
@@ -570,6 +572,15 @@ Video:
   Skipped segment: Segmento saltato
   translated from English: tradotto dall'inglese
   Premieres on: Première il
+  Stats:
+    volume: Volume
+    fps: FPS
+    frame drop: Perdita di immagine
+    buffered: Bufferizzato
+    bandwidth: Velocità di connessione
+    out of: per
+    video id: ID video (YouTube)
+    player resolution: Finestra di visualizzazione
 Videos:
   #& Sort By
   Sort By:
@@ -734,6 +745,12 @@ Tooltips:
       l'audio.
     Proxy Videos Through Invidious: Connessione a Invidious per riprodurre i video
       invece di una connessione diretta a YouTube. Sovrascrive le preferenze API.
+    Scroll Playback Rate Over Video Player: Mentre il cursore è sopra il video, tieni
+      premuto il tasto Control (tasto Comando su Mac) e scorri la rotella del mouse
+      in avanti o indietro per controllare la velocità di riproduzione. Tieni premuto
+      il tasto Control (tasto Comando su Mac) e clicca con il tasto sinistro del mouse
+      per tornare rapidamente alla velocità di riproduzione predefinita (1x a meno
+      che non sia stata cambiata nelle impostazioni).
   Subscription Settings:
     Fetch Feeds from RSS: Se abilitato, FreeTube userà gli RSS invece del metodo standard
       per leggere la tua lista iscrizioni. Gli RSS sono più veloci e impediscono il
