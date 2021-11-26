@@ -219,9 +219,10 @@ Settings:
       8k: 8k
     Playlist Next Video Interval: Zeit zwischen automatischer Videowiedergabe
     Next Video Interval: Zeit bis zum nächsten Video
-    Display Play Button In Video Player: Abspielbutton im Videoplayer anzeigen
+    Display Play Button In Video Player: Wiedergabetaste im Videoplayer anzeigen
     Scroll Volume Over Video Player: Lautstärke durch Scrollen auf Video ändern
     Fast-Forward / Rewind Interval: Intervall für schnelles Vor-/Zurückspulen
+    Scroll Playback Rate Over Video Player: Scroll-Wiedergaberate über Video-Player
   Subscription Settings:
     Subscription Settings: Abonnement-Einstellungen
     Hide Videos on Watch: Verstecke Videos bei Wiedergabe
@@ -578,6 +579,15 @@ Video:
     playlist: Wiedergabeliste
     video: Video
   Premieres on: Erste Strahlung am
+  Stats:
+    volume: Lautstärke
+    fps: BpS
+    frame drop: Bildverlust
+    bandwidth: Verbindungsgeschwindigkeit
+    out of: aus
+    player resolution: Ansichtsfenster
+    video id: Video-ID (YouTube)
+    buffered: Gepuffert
 Videos:
   #& Sort By
   Sort By:
@@ -768,6 +778,12 @@ Tooltips:
       -Formaten diese verwenden, anstatt auf Invidious zurückzugreifen. Dies hilft
       dann, wenn Videos von Invidious aufgrund von Ländersperren nicht abspielbar
       sind.
+    Scroll Playback Rate Over Video Player: Während sich der Cursor über dem Video
+      befindet, halten Sie die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und
+      bewegen Sie das Mausrad vorwärts oder rückwärts, um die Abspielgeschwindigkeit
+      zu steuern. Halten Sie die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und
+      klicken Sie mit der linken Maustaste, um schnell zur Standard-Wiedergabegeschwindigkeit
+      zurückzukehren (1x, sofern sie nicht in den Einstellungen geändert wurde).
   Privacy Settings:
     Remove Video Meta Files: Bei Aktivierung löscht FreeTube alle Meta-Dateien die
       während der Videowiedergabe erzeugt werden, sobald die Videoseite verlassen
