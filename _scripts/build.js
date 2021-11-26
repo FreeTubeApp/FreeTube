@@ -8,9 +8,18 @@ const args = process.argv
 
 let targets
 const platform = os.platform()
+const cpus = os.cpus()
 
 if (platform === 'darwin') {
-  targets = Platform.MAC.createTarget()
+  let arch = Arch.x64
+
+// Macbook Air 2020 with M1 = 'Apple M1'
+  // Macbook Pro 2021 with M1 Pro = 'Apple M1 Pro'
+  if (cpus[0].model.startsWith('Apple')) {
+    arch = Arch.arm64
+  }
+
+  targets = Platform.MAC.createTarget(['dmg'], arch)
 } else if (platform === 'win32') {
   targets = Platform.WINDOWS.createTarget()
 } else if (platform === 'linux') {
