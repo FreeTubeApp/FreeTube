@@ -199,21 +199,21 @@ export default Vue.extend({
     },
 
     parsedLikeCount: function () {
-      if (this.hideVideoLikesAndDislikes) {
+      if (this.hideVideoLikesAndDislikes || this.likeCount === null) {
         return null
       }
 
       const locale = this.currentLocale.replace('_', '-')
-      return (this.likeCount ?? 0).toLocaleString([locale, 'en'])
+      return this.likeCount.toLocaleString([locale, 'en'])
     },
 
     parsedDislikeCount: function () {
-      if (this.hideVideoLikesAndDislikes) {
+      if (this.hideVideoLikesAndDislikes || this.dislikeCount === null) {
         return null
       }
 
       const locale = this.currentLocale.replace('_', '-')
-      return (this.dislikeCount ?? 0).toLocaleString([locale, 'en'])
+      return this.dislikeCount.toLocaleString([locale, 'en'])
     },
 
     likePercentageRatio: function () {
