@@ -230,6 +230,8 @@ Settings:
       4k: '4k'
       8k: '8k'
     Fast-Forward / Rewind Interval: Greito persukimo pirmyn / atgal intervalas
+    Scroll Playback Rate Over Video Player: Slinkties atkūrimo dažnis vaizdo įrašų
+      leistuve
   External Player Settings:
     External Player Settings: 'Išorinio grotuvo nustatymai'
     External Player: 'Išorinis grotuvas'
@@ -669,6 +671,12 @@ Tooltips:
       gali rodyti aukštesnes kokybės vaizdo įrašus. Senieji formatai (Legacy) gali
       būti ne daugiau kaip 720p kokybės, tačiau jie reikalauja mažesnių tinklo resursų.
       Garso formatai -tai tik garsas, vaizdo įrašas nėra rodomas ar siunčiamas.'
+    Scroll Playback Rate Over Video Player: Kai žymeklis yra virš vaizdo įrašo, paspauskite
+      ir laikykite nuspaudę valdymo klavišą („Mac“ komandų klavišas) ir slinkite pelės
+      ratuką pirmyn arba atgal, kad valdytumėte atkūrimo greitį. Paspauskite ir laikykite
+      nuspaudę valdymo klavišą („Mac“ komandų klavišas) ir spustelėkite kairįjį pelės
+      klavišą, kad greitai grįžtumėte į numatytąjį atkūrimo greitį (1 kartą, nebent
+      jis buvo pakeistas nustatymuose).
   External Player Settings:
     External Player: 'Pasirinkus išorinį grotuvą, miniatiūroje bus rodoma piktograma,
       leidžianti atidaryti vaizdo įrašą (grojaraštį, jei palaikoma) išoriniame grotuve.'
