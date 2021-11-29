@@ -87,6 +87,11 @@ Subscriptions:
     fixada
 Trending:
   Trending: 'Tendencies'
+  Default: Per defecte
+  Music: Música
+  Gaming: Jocs
+  Trending Tabs: Pestanyes de tendència
+  Movies: Pel·lícules
 Most Popular: 'Més populars'
 Playlists: 'Llistes de reproducció'
 User Playlists:
@@ -110,8 +115,8 @@ Settings:
     General Settings: 'Paràmetres generals'
     Check for Updates: 'Comprovar si hi ha actualitzacions'
     Check for Latest Blog Posts: 'Consultar les darreres entrades al blog'
-    Fallback to Non-Preferred Backend on Failure: 'Tornar al Backend no preferencial
-      en cas d''error'
+    Fallback to Non-Preferred Backend on Failure: 'Tornar al Backend per defecte en
+      cas d''error'
     Enable Search Suggestions: 'Habilitar els suggeriments de cerca'
     Default Landing Page: 'Pàgina d''aterratge per defecte'
     Locale Preference: 'Preferència de configuració regional'
@@ -136,6 +141,17 @@ Settings:
     View all Invidious instance information: Mostra tota la informació de la instància
       Invidious
     System Default: Per defecte del sistema
+    Clear Default Instance: Esborra la instància per defecte
+    Current Invidious Instance: Instància actual d'Invidious
+    The currently set default instance is $: La instància per defecte establerta actualment
+      és $
+    No default instance has been set: No s'ha definit cap instància per defecte
+    External Link Handling:
+      Open Link: Obre l'enllaç
+      External Link Handling: Gestió d'enllaços externs
+    Current instance will be randomized on startup: La instància actual es farà aleatòriament
+      a l'inici
+    Set Current Instance as Default: Defineix l'actual com a instància per defecte
   Theme Settings:
     Theme Settings: 'Paràmetres del tema'
     Match Top Bar with Main Color: 'Fer coincidir la barra superior amb el color principal'
@@ -509,3 +525,6 @@ Yes: ''
 No: ''
 More: Més
 Open New Window: Obre una finestra nova
+Search Bar:
+  Clear Input: Netejar
+Are you sure you want to open this link?: Estàs segur/a que vols obrir aquest enllaç?
