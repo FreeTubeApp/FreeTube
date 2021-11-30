@@ -322,6 +322,36 @@ export default Vue.extend({
           this.player.removeChild('BigPlayButton')
         }
 
+        // Makes the playback rate menu focus the current item on mouse hover
+        // or the closest item if the playback rate is between two items
+        // which is likely to be the case when the playback rate is changed by scrolling
+        const playbackRateMenuButton = this.player.controlBar.getChild('playbackRateMenuButton')
+        playbackRateMenuButton.on(playbackRateMenuButton.menuButton_, 'mouseenter', () => {
+          const playbackRate = this.player.playbackRate()
+          const rates = this.player.playbackRates()
+
+          // iterate through the items in reverse order as the highest is displayed first
+          // `slice` must be used as `reverse` does reversing in place
+          const targetPlaybackRateMenuItemIndex = rates.slice().reverse().findIndex((rate) => {
+            return rate === playbackRate || rate < playbackRate
+          })
+
+          // center the selected item in the middle of the visible area
+          // the first and last items will never be in the center so it can be skipped for them
+          if (targetPlaybackRateMenuItemIndex !== 0 && targetPlaybackRateMenuItemIndex !== rates.length - 1) {
+            const playbackRateMenu = playbackRateMenuButton.menu
+            const menuElement = playbackRateMenu.contentEl()
+
+            const itemHeight = playbackRateMenu.children()[targetPlaybackRateMenuItemIndex].contentEl().clientHeight
+
+            // clientHeight is the height of the visible part of an element
+            const centerOfVisibleArea = (menuElement.clientHeight - itemHeight) / 2
+            const menuScrollOffset = (itemHeight * targetPlaybackRateMenuItemIndex) - centerOfVisibleArea
+
+            menuElement.scrollTo({ top: menuScrollOffset })
+          }
+        })
+
         if (this.storyboardSrc !== '') {
           this.player.vttThumbnails({
             src: this.storyboardSrc,
