@@ -128,6 +128,11 @@ Settings:
     Set Current Instance as Default: 将当前实例设为默认
     Clear Default Instance: 清除默认实例
     Current Invidious Instance: 当前所用的 Invidious 实例
+    External Link Handling:
+      Ask Before Opening Link: 打开链接前询问
+      No Action: 无操作
+      External Link Handling: 外部链接处理
+      Open Link: 打开链接
   Theme Settings:
     Theme Settings: '主题设置'
     Match Top Bar with Main Color: '顶部菜单栏对应主颜色'
@@ -167,6 +172,7 @@ Settings:
     UI Scale: UI缩放
     Expand Side Bar by Default: 默认展开侧边栏
     Disable Smooth Scrolling: 禁用平滑滚动
+    Hide Side Bar Labels: 隐藏侧边栏标签
   Player Settings:
     Player Settings: '播放器选项'
     Force Local Backend for Legacy Formats: '强制本地后端给传统格式'
@@ -200,6 +206,8 @@ Settings:
     Next Video Interval: 下个视频的间隔时间
     Display Play Button In Video Player: 在视频播放器上显示播放按钮
     Scroll Volume Over Video Player: 在视频播放器上滑动音量
+    Fast-Forward / Rewind Interval: 快进/快退间隔
+    Scroll Playback Rate Over Video Player: 滚动调整视频播放器回放速度
   Subscription Settings:
     Subscription Settings: '订阅设置'
     Hide Videos on Watch: '观看时隐藏视频'
@@ -364,6 +372,9 @@ About:
   GitHub issues: Github 问题
   Report a problem: 报告问题
   Downloads / Changelog: 下载 / 更新日志
+  room rules: 聊天室规则
+  these people and projects: 这些人和项目
+  FreeTube is made possible by: FreeTube 的存在依赖
 Channel:
   Subscriber: '订阅者'
   Subscribers: '订阅者'
@@ -458,7 +469,7 @@ Video:
   Reverse Playlist: 反向播放列表
   Shuffle Playlist: 随机播放列表
   Loop Playlist: 循环播放列表
-  Starting soon, please refresh the page to check again: 即将开始，请刷新页面已再次检查
+  Starting soon, please refresh the page to check again: 即将开始，请刷新页面再次检查
   Audio:
     Best: 最佳
     High: 高
@@ -476,6 +487,40 @@ Video:
   Video has been removed from your saved list: 视频已从你的播放列表移除
   Video has been saved: 视频已保存
   Save Video: 保存视频到播放列表
+  Stats:
+    video id: 视频 ID (YouTube)
+    player resolution: 视区
+    volume: 音量
+    fps: 每秒帧数
+    out of: 中的
+    frame drop: 掉帧
+    bandwidth: 连接速度
+    buffered: 缓冲
+  External Player:
+    OpenInTemplate: 在 $ 中打开
+    video: 视频
+    playlist: 播放列表
+    UnsupportedActionTemplate: $ 不支持：%
+    OpeningTemplate: 在 % 中打开 $ …
+    Unsupported Actions:
+      setting a playback rate: 设置播放速率
+      opening specific video in a playlist (falling back to opening the video): 打开播放列表中的特定视频
+        (退回到打开视频）
+      reversing playlists: 颠倒播放列表
+      shuffling playlists: 打乱播放列表次序
+      looping playlists: 循环播放列表中曲目
+      starting video at offset: 在偏移处开始视频
+      opening playlists: 打开播放列表
+  Premieres on: 首播日期
+  Sponsor Block category:
+    outro: 结尾部分
+    self-promotion: 自我推销
+    interaction: 互动
+    music offtopic: 无关音乐
+    intro: 介绍
+    sponsor: 赞助者
+  translated from English: 从英语翻译而来
+  Skipped segment: 跳过片段
 Videos:
   #& Sort By
   Sort By:
@@ -485,7 +530,7 @@ Videos:
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: '观看完整播放列表'
+  View Full Playlist: '查看完整播放列表'
   Videos: '视频'
   View: '观看'
   Views: '观看'
@@ -500,6 +545,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: 播放列表
 Toggle Theatre Mode: '切换剧场模式'
 Change Format:
   Change Video Formats: '更换视频格式'
@@ -541,6 +587,10 @@ Comments:
   Top comments: 最热评论
   Sort by: 排序方式
   No more comments available: 没有更多评论
+  Show More Replies: 显示更多回复
+  Pinned by: 置顶人
+  From $channelName: 来自 $channelName
+  And others: 及其他
 Up Next: 'Up Next'
 
 # Toast Messages
@@ -598,6 +648,8 @@ Profile:
   Select All: 全选
   Other Channels: 其他频道
   Subscription List: 订阅列表
+  Profile Settings: 个人资料设置
+  Profile Filter: 个人资料筛选器
 The playlist has been reversed: 播放列表已反转
 A new blog is now available, $. Click to view more: 已有新的博客，$。点击以查看更多
 Download From Site: 从网站下载
@@ -612,6 +664,8 @@ Tooltips:
     Proxy Videos Through Invidious: 将连接到 Invidious而非直接连接到 YouTube 来提供影片。覆盖 API 偏好。
     Force Local Backend for Legacy Formats: 仅当 Invidious API是您默认 API 时才有效。启用后，本地API
       将执行并使用由其回传的的传统格式，而非 Invidious 回传的格式。对因为国家地区限制而不能播放 Invidious回传的影片时有帮助。
+    Scroll Playback Rate Over Video Player: 当光标位于视频上方时，按住 Control 键(Mac 上的 Command
+      键)，前后滚动鼠标滚轮，控制播放速度。按住 Control 键(Mac 上的 Command 键)，左键点击鼠标快速返回到默认播放速率(1x，除非在设置中改变了数值)。
   General Settings:
     Invidious Instance: FreeTube 要连接到哪个 Invidious 实例进行 API 调用。
     Thumbnail Preference: FreeTube中所有缩略图都会被替换为影片画面而非默认缩略图。
@@ -619,8 +673,24 @@ Tooltips:
       作为后备方案。
     Preferred API Backend: 选择FreeTube 要用于取得数据的后端。本地API 是内置提取器。Invidious API需要Invidious服务器才能连接。
     Region for Trending: 热门区域让您挑选您想要显示哪个国家的热门视频。并非所有显示的国家都被YouTube支持。
+    External Link Handling: "选择单击一个无法在 FreeTube 中打开的链接时触发的默认操作。\n默认情况下，FreeTube 将在您的默认浏览器中打开所点击链接。\n"
+  External Player Settings:
+    External Player: 选择一个外部播放器将在缩略图上显示一个图标，用于在外部播放器中打开视频(播放列表，如果支持)。
+    Custom External Player Executable: 默认情况下，FreeTube 假设选择的外部播放器可以通过 PATH 环境变量找到。如果需要，可以在这里设置自定义路径。
+    Ignore Warnings: 当前外部播放器不支持当前操作时(例如，颠倒播放列表文件顺序)，抑制警告。
+    DefaultCustomArgumentsTemplate: "(默认: '$')"
+    Custom External Player Arguments: 任何你希望传递给外部播放器的用分号(';')分隔的自定义命令行参数。
+  Privacy Settings:
+    Remove Video Meta Files: 启用后，当观看页面关闭时，FreeTube 会自动删除在视频播放时创建的元文件。
 More: 更多
 Open New Window: 打开新窗口
 Search Bar:
   Clear Input: 清除输入
 Are you sure you want to open this link?: 您确定要打开此链接吗？
+Unknown YouTube url type, cannot be opened in app: 未知的 YouTube url 类型，不能在应用程序中打开
+External link opening has been disabled in the general settings: 外部链接打开在常规设置中被禁用
+Hashtags have not yet been implemented, try again later: 哈希标签功能尚未实现，请稍后再试
+Default Invidious instance has been set to $: 默认的 Invidious 实例已被设置为 $
+Playing Next Video Interval: 马上播放下一个视频。单击取消。| {nextVideoInterval} 秒内播放下个视频。单击取消。 |
+  {nextVideoInterval} 秒内播放下个视频。单击取消。
+Default Invidious instance has been cleared: 已清除默认的 Invidious 实例

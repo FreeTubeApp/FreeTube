@@ -214,7 +214,8 @@ const state = {
   useProxy: false,
   useRssFeeds: false,
   useSponsorBlock: false,
-  videoVolumeMouseScroll: false
+  videoVolumeMouseScroll: false,
+  videoPlaybackRateMouseScroll: false
 }
 
 const stateWithSideEffects = {

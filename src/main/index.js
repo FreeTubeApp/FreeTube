@@ -18,7 +18,15 @@ function runApp() {
     showSearchWithGoogle: false,
     showSaveImageAs: true,
     showCopyImageAddress: true,
-    prepend: (params, browserWindow) => []
+    prepend: (defaultActions, parameters, browserWindow) => [
+      {
+        label: 'Show Video Statistics',
+        visible: parameters.mediaType === 'video',
+        click: () => {
+          browserWindow.webContents.send('showVideoStatistics', 'show')
+        }
+      }
+    ]
   })
 
   const localDataStorage = app.getPath('userData') // Grabs the userdata directory based on the user's OS
