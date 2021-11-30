@@ -667,7 +667,7 @@ Tooltips:
     Force Local Backend for Legacy Formats: Invidious API の選択時にのみ実行します。有効にすると、Invidious
       サーバーから取得した動画形式ではなく、内部 API で取得した旧形式を使用します。Invidious サーバーから取得する動画が、youtube の視聴制限国に該当して再生できないことがあるので回避します。
     Proxy Videos Through Invidious: 動画を取得するため、YouTube ではなく Invidious に接続します。API 設定を書き換えます。
-    Scroll Playback Rate Over Video Player: カーソルがビデオ上にあるときに、Ctrl キーかっこ（Mac では Command
+    Scroll Playback Rate Over Video Player: カーソルがビデオ上にあるときに、Ctrl キー（Mac では Command
       キー）を押したまま、マウスホイールを前後にスクロールして再生速度を調整します。Control キー（Mac では Command キー）を押したままマウスを左クリックすると、すぐにデフォルトの再生速度（設定を変更していない場合は
       1 x）に戻ります。
   General Settings:
