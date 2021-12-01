@@ -325,6 +325,43 @@ export default Vue.extend({
     },
 
     subscribe: function (profile) {
+      const profileIndex = this.profileList.findIndex((profileInList) => {
+        return profileInList.name === profile.name
+      })
+      const targetProfile = JSON.parse(JSON.stringify(this.profileList[profileIndex]))
+      const channelIndex = targetProfile.subscriptions.findIndex((channel) => {
+        return channel.id === this.channelId
+      })
+
+      // Check if subscription already exists in target profile
+      if (channelIndex !== -1) {
+        this.showToast({
+          message: this.$t('Channel.Channel already added to your subscriptions')
+        })
+      } else {
+        const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
+        const subscription = {
+          id: this.channelId,
+          name: this.channelName,
+          thumbnail: this.channelThumbnail
+        }
+
+        targetProfile.subscriptions.push(subscription)
+        this.updateProfile(targetProfile)
+        this.showToast({
+          message: this.$t('Channel.Added channel to your subscriptions')
+        })
+        this.showProfile = false
+
+        const primaryProfileIndex = primaryProfile.subscriptions.findIndex((channel) => {
+          return channel.id === this.channelId
+        })
+
+        if (primaryProfileIndex === -1) {
+          primaryProfile.subscriptions.push(subscription)
+          this.updateProfile(primaryProfile)
+        }
+      }
     },
 
     handleSubscription: function () {
