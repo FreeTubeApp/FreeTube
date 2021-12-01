@@ -33,6 +33,28 @@
               text-color="var(--text-with-main-color)"
               @click="handleSubscription"
             />
+            <div
+              v-if="showProfiles"
+              id="profileList"
+            >
+              <div
+                v-for="(profile, index) in profileList"
+                :key="index"
+                class="profile"
+                @click="subscribe(profile)"
+              >
+                <div
+                  class="colorOption"
+                  :style="{ background: profile.bgColor, color: profile.textColor }"
+                >
+                  <div
+                    class="initial"
+                  >
+                    {{ profileInitials[index] }}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

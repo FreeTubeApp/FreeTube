@@ -122,7 +122,8 @@ export default Vue.extend({
         'dash',
         'legacy',
         'audio'
-      ]
+      ],
+      showProfiles: false
     }
   },
   computed: {
@@ -140,6 +141,12 @@ export default Vue.extend({
 
     activeProfile: function () {
       return this.$store.getters.getActiveProfile
+    },
+
+    profileInitials: function () {
+      return this.profileList.map((profile) => {
+        return profile?.name?.length > 0 ? Array.from(profile.name)[0].toUpperCase() : ''
+      })
     },
 
     hideRecommendedVideos: function () {
@@ -317,13 +324,15 @@ export default Vue.extend({
       }
     },
 
+    subscribe: function (profile) {
+    },
+
     handleSubscription: function () {
       if (this.channelId === '') {
         return
       }
 
       const currentProfile = JSON.parse(JSON.stringify(this.profileList[this.activeProfile]))
-      const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
 
       if (this.isSubscribed) {
         currentProfile.subscriptions = currentProfile.subscriptions.filter((channel) => {
@@ -368,28 +377,7 @@ export default Vue.extend({
           }
         }
       } else {
-        const subscription = {
-          id: this.channelId,
-          name: this.channelName,
-          thumbnail: this.channelThumbnail
-        }
-        currentProfile.subscriptions.push(subscription)
-
-        this.updateProfile(currentProfile)
-        this.showToast({
-          message: this.$t('Channel.Added channel to your subscriptions')
-        })
-
-        if (this.activeProfile !== 0) {
-          const index = primaryProfile.subscriptions.findIndex((channel) => {
-            return channel.id === this.channelId
-          })
-
-          if (index === -1) {
-            primaryProfile.subscriptions.push(subscription)
-            this.updateProfile(primaryProfile)
-          }
-        }
+        this.showProfiles = !this.showProfiles
       }
     },
 
