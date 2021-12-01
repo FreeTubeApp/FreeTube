@@ -71,7 +71,7 @@ Subscriptions:
   'Getting Subscriptions.  Please wait.': '登録を取得中。お待ちください...'
   Refresh Subscriptions: 登録チャンネルの更新
   Getting Subscriptions. Please wait.: 登録チャンネルの内容を取得中。しばらくお待ちください。
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: このプロファイルは登録チャンネルが多くなっています。接続制限を回避するため
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: このプロファイルの登録チャンネル数が多いようです。接続制限を回避するため
     RSS を使用します
   Load More Videos: もっと見る
 Trending:
@@ -325,7 +325,7 @@ Settings:
   External Player Settings:
     Custom External Player Arguments: カスタム外部プレーヤー引数
     Custom External Player Executable: カスタム外部プレーヤーの実行可能ファイル
-    Ignore Unsupported Action Warnings: サポートされていないアクションの警告を無視
+    Ignore Unsupported Action Warnings: 未対応のアクションの警告を無視
     External Player: 外部プレーヤー
     External Player Settings: 外部プレーヤーの設定
 About:
@@ -359,15 +359,15 @@ About:
   Donate: 寄付
   FreeTube is made possible by: FreeTube が実現できているのは
   these people and projects: これらの人々とプロジェクト
-  Credits: クレジット
+  Credits: 著作権
   Translate: 翻訳
   room rules: ルームの規則
   Please read the: 確認してください
   Chat on Matrix: Matrix でチャット
   Mastodon: Mastodon
-  Email: 電子メール
+  Email: メールアドレス
   Blog: ブログ
-  Website: ウェブサイト
+  Website: WEB サイト
   Please check for duplicates before posting: 投稿する前に重複を確認してください
   GitHub issues: GitHub の課題ツール
   Report a problem: 問題の報告
@@ -525,6 +525,7 @@ Video:
     video id: Video ID (YouTube)
     volume: 音量
     bandwidth: 接続速度
+    out of: のうち
 Videos:
   #& Sort By
   Sort By:
@@ -657,11 +658,11 @@ The playlist has been reversed: 再生リストを逆順にしました
 A new blog is now available, $. Click to view more: '新着ブログ公開、$。クリックしてブログを読む'
 Download From Site: サイトからダウンロード
 Version $ is now available!  Click for more details: 最新の Ver. $ 登場！　詳細はクリックして確認
-This video is unavailable because of missing formats. This can happen due to country unavailability.: この動画は、動画形式の情報が利用できないため再生できません。再生許可のない国で発生します。
+This video is unavailable because of missing formats. This can happen due to country unavailability.: この動画は、動画形式の情報が利用できないため再生できません。再生が許可されていない国で発生します。
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: 有効にすると, FreeTubeは、登録チャンネルの情報を、通常の方法の代わりにRSSから取得します。RSS は高速であり
-      IP 制限も回避できますが、動画の長さやライブ配信の状態などの詳細情報は提供されていません
+    Fetch Feeds from RSS: 有効にすると,、FreeTube は、登録チャンネルの情報を、通常の方法の代わりに RSS から取得します。RSS
+      は高速であり IP 制限も回避できますが、動画の長さやライブ配信の状態などの詳細情報は提供されていません
   Player Settings:
     Default Video Format: 動画再生で使用する形式の設定です。DASH 形式であれば高品質で再生できます。旧形式だと、最大 720p に制限されますが、使用する帯域幅を減らせます。音声形式は音声のみです。
     Force Local Backend for Legacy Formats: Invidious API の選択時にのみ実行します。有効にすると、Invidious
@@ -681,14 +682,14 @@ Tooltips:
     External Link Handling: "FreeTube で開けないリンクをクリックしたときのデフォルトの動作を選択します。\nデフォルトでは、FreeTube\
       \ はクリックしたリンクをデフォルトのブラウザで開きます。\n"
   Privacy Settings:
-    Remove Video Meta Files: 有効にすると、FreeTube はビデオ再生中に作成したメタファイルは、再生ページを閉じるときに自動的に削除されます。
+    Remove Video Meta Files: 有効にすると、FreeTube はビデオ再生中に作成したメタファイルを、再生ページを閉じるときに自動的に削除します。
   External Player Settings:
-    Custom External Player Arguments: (';')、セミコロンで区切られたカスタム コマンド ライン引数を外部プレーヤーに渡します。
-    Ignore Warnings: 現在の外部プレーヤーが現在のアクションをサポートしていない場合(プレイリストの反転など)に関する警告を抑制します。
-    Custom External Player Executable: デフォルトでは、FreeTubeは選択した外部プレーヤーが PATH 環境変数を介して見つかると想定します。必要に応じて、カスタム
+    Custom External Player Arguments: '";"、セミコロンで区切られたカスタム コマンド ライン引数を外部プレーヤーに渡します。'
+    Ignore Warnings: 現在の外部プレーヤーが、現在のアクションに未対応の場合（プレイリストの反転など）に警告を抑制します。
+    Custom External Player Executable: デフォルトでは、FreeTube　は選択した外部プレーヤーが PATH 環境変数を介して見つかると想定します。必要に応じて、カスタム
       パスをここで設定できます。
     External Player: 外部プレーヤーを選択すると、ビデオ (サポートされている場合はプレイリスト) を開くためのアイコンが表示されます。
-    DefaultCustomArgumentsTemplate: "(デフォルト: '$')"
+    DefaultCustomArgumentsTemplate: "（デフォルト: '$'）"
 Playing Next Video Interval: すぐに次のビデオを再生します。クリックするとキャンセル。|次のビデオを {nextVideoInterval}
   秒で再生します。クリックするとキャンセル。|次のビデオを {nextVideoInterval} 秒で再生します。クリックするとキャンセル。
 More: もっと見る
