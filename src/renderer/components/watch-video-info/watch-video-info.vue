@@ -52,6 +52,11 @@
                   >
                     {{ profileInitials[index] }}
                   </div>
+                  <div
+                    class="profileName"
+                  >
+                    {{ profile.name }}
+                  </div>
                 </div>
               </div>
             </div>

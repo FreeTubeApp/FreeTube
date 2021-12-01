@@ -108,6 +108,11 @@
   width: 30px
   padding: 5px
 
+  &:hover
+    .profileName
+      opacity: 1
+      visibility: visible
+
 .colorOption
     width: 30px
     height: 30px
@@ -120,3 +125,24 @@
   line-height: 1em
   text-align: center
   padding: 0.45em
+
+.profileName
+  visibility: hidden
+  display: block
+  position: relative
+  background-color: rgba(0, 0, 0, 0.8)
+  border-radius: 10px
+  color: #fff
+  font-size: 0.6em
+  white-space: nowrap
+  margin: 0
+  opacity: 0
+  padding: 3px 5px
+  width: max-content
+  pointer-events: none
+  text-align: center
+  transition-duration: 275ms
+  transition-property: opacity, transform, visibility
+  z-index: 5
+  -webkit-transform: translate(0, -230%)
+  transform: translate(0, -230%)
