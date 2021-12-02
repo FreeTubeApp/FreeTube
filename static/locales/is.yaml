@@ -229,8 +229,9 @@ Settings:
       8k: '8k'
     Next Video Interval: Bil í næsta myndskeið
     Display Play Button In Video Player: Birta afspilunarhnapp í myndspilara
-    Scroll Volume Over Video Player: Skrun hljóðstyrks ofan á myndspilara
+    Scroll Volume Over Video Player: Skruna hljóðstyrk ofan á myndspilara
     Fast-Forward / Rewind Interval: Millibil hraðspólunar / spóla til baka
+    Scroll Playback Rate Over Video Player: Skruna afspilunarhraða ofan á myndspilara
   Privacy Settings:
     Privacy Settings: 'Stillingar gagnaleyndar'
     Remember History: 'Muna vinnsluferil'
@@ -560,6 +561,7 @@ Video:
     out of: af
     frame drop: Rammatap
     video id: Auðkenni myndskeiðs (YouTube)
+    volume: Hljóðstyrkur
 Videos:
   #& Sort By
   Sort By:
