@@ -223,6 +223,7 @@ Settings:
     Display Play Button In Video Player: Kuva videomängijas esitamise nuppu
     Scroll Volume Over Video Player: Muuda helivaljust videovaate kohal kerides
     Fast-Forward / Rewind Interval: Kiirkerimise välp
+    Scroll Playback Rate Over Video Player: Videomängija kohal saad muuta taasesituskiirust
   Privacy Settings:
     Privacy Settings: 'Privaatsuse seadistused'
     Remember History: 'Jäta ajalugu meelde'
@@ -582,6 +583,15 @@ Video:
       setting a playback rate: taasesituskiiruse määramine
       starting video at offset: video esitamine ajanihkega
   Premieres on: Esilinastub
+  Stats:
+    video id: YouTube video tunnus
+    player resolution: Vaate suurus
+    volume: Helivaljus
+    fps: FPS
+    frame drop: Vahelejäetud kaadreid
+    bandwidth: Võrguühenduse kiirus
+    buffered: Puhverdatud
+    out of: /
 Videos:
   #& Sort By
   Sort By:
@@ -716,8 +726,8 @@ Tooltips:
     Preferred API Backend: Vali taustateenus, mida FreeTube kasutab andmete laadimisel.
       Kohalik API on rakenduses olemas ja Invidious'e API eeldab välise teenuseserveri
       kasutamist.
-    Invidious Instance: Invidious'e teenuse server, mida FreeTube Invidious'e API
-      jaoks kasutab.
+    Invidious Instance: Invidious'e teenuse server, mida FreeTube API päringute jaoks
+      kasutab.
     External Link Handling: "Vali vaikekäitumine, kui vajutatakse linki, mida ei saa\
       \ avada FreeTubes.\nVaikimisi avaneb link kasutaja vaikebrauseris.\n"
   Player Settings:
@@ -731,6 +741,11 @@ Tooltips:
       API ning kasutab pärandvorminguid ning ei kasuta neid mida Invidious'e server
       võimaldab kasutada. See seadistus on kasulik siis, kui Invidious'e API alusel
       laaditud videote esitamine riigipiirangute tõttu ei toimi.
+    Scroll Playback Rate Over Video Player: Kui kursor on video kohal, siis vajuta
+      Ctrl klahvi (Mac'is ⌘ klahvi) ja taasesituse kiiruse muutmiseks keri hiireratast
+      edasi ja tagasi. Tavakiiruse taastamiseks (kui sa seda seadistustest pole muutnud,
+      siis on see 1x) hoia all Ctrl klahvi (Mac'is ⌘ klahvi) ja klõpsi hiire vasakut
+      nuppu.
 Playing Next Video Interval: Kohe esitan järgmist videot. Tühistamiseks klõpsi. |
   {nextVideoInterval} sekundi möödumisel esitan järgmist videot. Tühistamiseks klõpsi.
   | {nextVideoInterval} sekundi möödumisel esitan järgmist videot. Tühistamiseks klõpsi.
@@ -742,5 +757,4 @@ Search Bar:
   Clear Input: Kustuta sisend
 External link opening has been disabled in the general settings: Väliste linkide avamine
   on üldistes seadistustes keelatud
-Are you sure you want to open this link?: Kas sa oled kindel, et soovid selle lingi
-  avada?
+Are you sure you want to open this link?: Oled kindel, et soovid seda linki avada?
