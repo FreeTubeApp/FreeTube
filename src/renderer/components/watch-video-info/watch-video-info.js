@@ -6,6 +6,7 @@ import FtListDropdown from '../ft-list-dropdown/ft-list-dropdown.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtShareButton from '../ft-share-button/ft-share-button.vue'
+import FtSubscribeButton from '../ft-subscribe-button/ft-subscribe-button.vue'
 
 export default Vue.extend({
   name: 'WatchVideoInfo',
@@ -15,7 +16,8 @@ export default Vue.extend({
     'ft-list-dropdown': FtListDropdown,
     'ft-flex-box': FtFlexBox,
     'ft-icon-button': FtIconButton,
-    'ft-share-button': FtShareButton
+    'ft-share-button': FtShareButton,
+    'ft-subscribe-button': FtSubscribeButton
   },
   props: {
     id: {
@@ -321,100 +323,6 @@ export default Vue.extend({
         this.removeFromPlaylist()
       } else {
         this.addToPlaylist()
-      }
-    },
-
-    subscribe: function (profile) {
-      const profileIndex = this.profileList.findIndex((profileInList) => {
-        return profileInList.name === profile.name
-      })
-      const targetProfile = JSON.parse(JSON.stringify(this.profileList[profileIndex]))
-      const channelIndex = targetProfile.subscriptions.findIndex((channel) => {
-        return channel.id === this.channelId
-      })
-
-      // Check if subscription already exists in target profile
-      if (channelIndex !== -1) {
-        this.showToast({
-          message: this.$t('Channel.Channel already added to your subscriptions')
-        })
-      } else {
-        const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
-        const subscription = {
-          id: this.channelId,
-          name: this.channelName,
-          thumbnail: this.channelThumbnail
-        }
-
-        targetProfile.subscriptions.push(subscription)
-        this.updateProfile(targetProfile)
-        this.showToast({
-          message: this.$t('Channel.Added channel to your subscriptions')
-        })
-        this.showProfile = false
-
-        const primaryProfileIndex = primaryProfile.subscriptions.findIndex((channel) => {
-          return channel.id === this.channelId
-        })
-
-        if (primaryProfileIndex === -1) {
-          primaryProfile.subscriptions.push(subscription)
-          this.updateProfile(primaryProfile)
-        }
-      }
-    },
-
-    handleSubscription: function () {
-      if (this.channelId === '') {
-        return
-      }
-
-      const currentProfile = JSON.parse(JSON.stringify(this.profileList[this.activeProfile]))
-
-      if (this.isSubscribed) {
-        currentProfile.subscriptions = currentProfile.subscriptions.filter((channel) => {
-          return channel.id !== this.channelId
-        })
-
-        this.updateProfile(currentProfile)
-        this.showToast({
-          message: this.$t('Channel.Channel has been removed from your subscriptions')
-        })
-
-        if (this.activeProfile === 0) {
-          // Check if a subscription exists in a different profile.
-          // Remove from there as well.
-          let duplicateSubscriptions = 0
-
-          this.profileList.forEach((profile) => {
-            if (profile._id === 'allChannels') {
-              return
-            }
-            const parsedProfile = JSON.parse(JSON.stringify(profile))
-            const index = parsedProfile.subscriptions.findIndex((channel) => {
-              return channel.id === this.channelId
-            })
-
-            if (index !== -1) {
-              duplicateSubscriptions++
-
-              parsedProfile.subscriptions = parsedProfile.subscriptions.filter((x) => {
-                return x.id !== this.channelId
-              })
-
-              this.updateProfile(parsedProfile)
-            }
-          })
-
-          if (duplicateSubscriptions > 0) {
-            const message = this.$t('Channel.Removed subscription from $ other channel(s)')
-            this.showToast({
-              message: message.replace('$', duplicateSubscriptions)
-            })
-          }
-        }
-      } else {
-        this.showProfiles = !this.showProfiles
       }
     },
 

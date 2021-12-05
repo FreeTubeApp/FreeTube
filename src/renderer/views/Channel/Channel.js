@@ -8,6 +8,7 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubble.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
+import ftSubscribeButton from '../../components/ft-subscribe-button/ft-subscribe-button.vue'
 
 import ytch from 'yt-channel-info'
 import autolinker from 'autolinker'
@@ -22,7 +23,8 @@ export default Vue.extend({
     'ft-flex-box': FtFlexBox,
     'ft-channel-bubble': FtChannelBubble,
     'ft-loader': FtLoader,
-    'ft-element-list': FtElementList
+    'ft-element-list': FtElementList,
+    'ft-subscribe-button': ftSubscribeButton
   },
   data: function () {
     return {
@@ -505,78 +507,6 @@ export default Vue.extend({
           this.isLoading = false
         }
       })
-    },
-
-    handleSubscription: function () {
-      const currentProfile = JSON.parse(JSON.stringify(this.profileList[this.activeProfile]))
-      const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
-
-      if (this.isSubscribed) {
-        currentProfile.subscriptions = currentProfile.subscriptions.filter((channel) => {
-          return channel.id !== this.id
-        })
-
-        this.updateProfile(currentProfile)
-        this.showToast({
-          message: this.$t('Channel.Channel has been removed from your subscriptions')
-        })
-
-        if (this.activeProfile === 0) {
-          // Check if a subscription exists in a different profile.
-          // Remove from there as well.
-          let duplicateSubscriptions = 0
-
-          this.profileList.forEach((profile) => {
-            if (profile._id === 'allChannels') {
-              return
-            }
-            const parsedProfile = JSON.parse(JSON.stringify(profile))
-            const index = parsedProfile.subscriptions.findIndex((channel) => {
-              return channel.id === this.id
-            })
-
-            if (index !== -1) {
-              duplicateSubscriptions++
-
-              parsedProfile.subscriptions = parsedProfile.subscriptions.filter((x) => {
-                return x.id !== this.id
-              })
-
-              this.updateProfile(parsedProfile)
-            }
-          })
-
-          if (duplicateSubscriptions > 0) {
-            const message = this.$t('Channel.Removed subscription from $ other channel(s)')
-            this.showToast({
-              message: message.replace('$', duplicateSubscriptions)
-            })
-          }
-        }
-      } else {
-        const subscription = {
-          id: this.id,
-          name: this.channelName,
-          thumbnail: this.thumbnailUrl
-        }
-        currentProfile.subscriptions.push(subscription)
-
-        this.updateProfile(currentProfile)
-        this.showToast({
-          message: this.$t('Channel.Added channel to your subscriptions')
-        })
-
-        if (this.activeProfile !== 0) {
-          const index = primaryProfile.subscriptions.findIndex((channel) => {
-            return channel.id === this.id
-          })
-
-          if (index === -1) {
-            primaryProfile.subscriptions.push(subscription)
-            this.updateProfile(primaryProfile)
-          }
-        }
-      }
     },
 
     handleFetchMore: function () {

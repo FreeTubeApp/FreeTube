@@ -50,13 +50,13 @@
               </span>
             </div>
           </div>
-
-          <ft-button
-            :label="subscribedText"
-            background-color="var(--primary-color)"
-            text-color="var(--text-with-main-color)"
-            class="subscribeButton"
-            @click="handleSubscription"
+          <ft-subscribe-button
+            class="subscribeButtons"
+            :channel-id="id"
+            :channel-name="channelName"
+            :channel-thumbnail="thumbnailUrl"
+            :is-subscribed="isSubscribed"
+            :subscribed-text="subscribedText"
           />
         </div>
 

@@ -50,13 +50,6 @@
   left: 120px;
 }
 
-.subscribeButton {
-  height: 50px;
-  min-width: 150px;
-  align-self: center;
-  margin-bottom: 10px;
-}
-
 .channelSearch {
   width: 200px;
   align-self: flex-end;
@@ -142,4 +135,9 @@
   justify-content: center;
   flex-direction: column;
   padding-left: 1em;
+}
+
+.subscribeButtons {
+  height: 50px;
+  align-self: center;
 }

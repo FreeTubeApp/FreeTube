@@ -1,0 +1,76 @@
+.subscribeButton
+  margin: 6px 0 6px 6px
+  padding: 6px
+  font-size: 14px
+  height: 100%
+  min-width: 145px
+
+.plusButton
+  left: -4px
+  margin-left: 0
+  padding: 6px
+  font-size: 14px
+  min-width: 35px
+  display: inline-block
+
+#profileList
+  top: -5px
+  left: 6px
+  display: flex
+  align-content: flex-start
+  justify-content: flex-start
+  flex-flow: row wrap
+  position: relative
+  width: 170px
+  min-height: 40px
+  max-height: 80px
+  padding: 5px
+  background-color: var(--card-bg-color)
+  border: solid 1px var(--primary-color)
+  overflow-y: auto
+  z-index: 5
+
+.profile
+  cursor: pointer
+  height: 30px
+  width: 30px
+  padding: 5px
+
+  &:hover
+    .profileName
+      opacity: 1
+      visibility: visible
+
+.colorOption
+  width: 30px
+  height: 30px
+  cursor: pointer
+  border-radius: 50%
+  -webkit-border-radius: 50%
+
+.initial
+  font-size: 1em
+  line-height: 1em
+  text-align: center
+  padding: 0.5em
+
+.profileName
+  visibility: hidden
+  display: block
+  position: relative
+  background-color: rgba(0, 0, 0, 0.8)
+  border-radius: 10px
+  color: #fff
+  font-size: 0.6em
+  white-space: nowrap
+  margin: 0
+  opacity: 0
+  padding: 3px 5px
+  width: max-content
+  pointer-events: none
+  text-align: center
+  transition-duration: 275ms
+  transition-property: opacity, transform, visibility
+  z-index: 5
+  -webkit-transform: translate(0, -230%)
+  transform: translate(0, -230%)

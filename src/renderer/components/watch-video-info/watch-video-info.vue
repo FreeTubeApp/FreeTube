@@ -26,40 +26,13 @@
             >
               {{ channelName }}
             </div>
-            <ft-button
-              :label="subscribedText"
-              class="subscribeButton"
-              background-color="var(--primary-color)"
-              text-color="var(--text-with-main-color)"
-              @click="handleSubscription"
+            <ft-subscribe-button
+              :channel-id="channelId"
+              :channel-name="channelName"
+              :channel-thumbnail="channelThumbnail"
+              :is-subscribed="isSubscribed"
+              :subscribed-text="subscribedText"
             />
-            <div
-              v-if="showProfiles"
-              id="profileList"
-            >
-              <div
-                v-for="(profile, index) in profileList"
-                :key="index"
-                class="profile"
-                @click="subscribe(profile)"
-              >
-                <div
-                  class="colorOption"
-                  :style="{ background: profile.bgColor, color: profile.textColor }"
-                >
-                  <div
-                    class="initial"
-                  >
-                    {{ profileInitials[index] }}
-                  </div>
-                  <div
-                    class="profileName"
-                  >
-                    {{ profile.name }}
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
