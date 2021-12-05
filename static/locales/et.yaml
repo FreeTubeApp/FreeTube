@@ -3,7 +3,7 @@ Locale Name: 'Eesti'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Rakenduse see osa pole veel valmis. Tule hiljem tagasi, kui on tehtud edusamme.
+  Rakenduse see osa pole veel valmis. Tule hiljem tagasi, kui arendustööd on valmis.
 
 # Webkit Menu Bar
 File: 'Fail'
@@ -16,7 +16,7 @@ Copy: 'Kopeeri'
 Paste: 'Aseta'
 Delete: 'Kustuta'
 Select all: 'Vali kõik'
-Reload: 'Lae uuesti'
+Reload: 'Laadi uuesti'
 Force Reload: 'Sunni uuesti laadima'
 Toggle Developer Tools: 'Lülita arendustööriistad sisse/välja'
 Actual size: 'Tegelik suurus'
@@ -31,7 +31,7 @@ Forward: 'Edasi'
 
 Version $ is now available!  Click for more details: 'Versioon $ in nüüd saadaval!
   Lisateavet leiad siit'
-Download From Site: 'Lae alla veebisaidist'
+Download From Site: 'Laadi veebisaidist alla'
 A new blog is now available, $. Click to view more: 'Uus blogiartikkel on saadaval.
   Loe siit $'
 
@@ -67,8 +67,8 @@ Search Filters:
     Long (> 20 minutes): 'Pikad (üle 20 minuti)'
   # On Search Page
   Search Results: 'Otsingutulemused'
-  Fetching results. Please wait: 'Laen tulemusi. Palun oota üks hetk'
-  Fetch more results: 'Lae veel andmeid'
+  Fetching results. Please wait: 'Laadin tulemusi. Palun oota üks hetk'
+  Fetch more results: 'Laadi veel andmeid'
 # Sidebar
   There are no more results for this search: Sellel otsingul pole rohkem vastuseid
 Subscriptions:
@@ -77,15 +77,15 @@ Subscriptions:
   Latest Subscriptions: 'Viimased tellimused'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Sinu
     tellimuste loend on hetkel tühi. Telli kanaleid ja sa näed neid siin loendis.'
-  'Getting Subscriptions. Please wait.': 'Laen tellimusi, palun oota.'
+  'Getting Subscriptions. Please wait.': 'Laadin tellimusi, palun oota.'
   Refresh Subscriptions: 'Värskenda tellimusi'
   Load More Videos: Laadi veel videosid
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Sellel
-    profiilil on väga palju tellimusi. Vältimaks serveripoolseid piiranguid teen RSS-voo
-    päringud harvemini
+    profiilil on väga palju tellimusi. Vältimaks serveripoolseid piiranguid teeme
+    RSS-voo päringud harvemini
 Trending:
-  Trending: 'Populaarsed videod'
-  Trending Tabs: Populaarsed kaardid
+  Trending: 'Populaarsust koguvad videod'
+  Trending Tabs: Populaarsust koguvad kaardid
   Movies: Filmid
   Gaming: Arvutimängud
   Music: Muusika
@@ -133,7 +133,8 @@ Settings:
       End: 'Lõpus'
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious''e
       veebirakendus (vaikimisi kasutatav sait on https://invidious.snopyta.org)'
-    Region for Trending: 'Mis geograafia alusel tuvastame populaarsemad videod'
+    Region for Trending: 'Mis geograafia alusel tuvastame hetkel menukad ehk populaarsust
+      koguvad videod'
         #! List countries
     System Default: Arvuti vaikeseadistused
     View all Invidious instance information: Vaata kõike teavet kasutatava Invidious'e
@@ -147,7 +148,7 @@ Settings:
     Current Invidious Instance: Hetkel kasutusel olev Invidious'e teenuse server
     External Link Handling:
       No Action: Tegevus puudub
-      External Link Handling: rakenduseväline lingikäsitlus
+      External Link Handling: Rakenduseväline lingikäsitlus
       Open Link: Ava link
       Ask Before Opening Link: Küsi enne lingi avamist
   Theme Settings:
@@ -264,13 +265,14 @@ Settings:
       andmeid ja selle jätan vahele'
     All subscriptions and profiles have been successfully imported: 'Kõikide tellimuste
       ja profiilide import õnnestus'
-    All subscriptions have been successfully imported: 'Kõikide tellimuste õnnestus'
+    All subscriptions have been successfully imported: 'Kõikide tellimuste import
+      õnnestus'
     One or more subscriptions were unable to be imported: 'Ühte või enamat tellimust
       ei õnnestunud importida'
     Invalid subscriptions file: 'Vigane tellimuste fail'
     This might take a while, please wait: 'Nüüd võib natuke aega kuluda, palun oota'
     Invalid history file: 'Vigane ajaloofail'
-    Subscriptions have been successfully exported: 'Tellimuste importimine õnnestus'
+    Subscriptions have been successfully exported: 'Tellimuste eksportimine õnnestus'
     History object has insufficient data, skipping item: 'Jätan vahele puuduliku ajalookirje
       importimise'
     All watched history has been successfully imported: 'Kogu vaatamiste ajalugu on
@@ -310,7 +312,7 @@ Settings:
     Hide Live Chat: Peida veebivestlused
     Hide Playlists: Peida esitusloendid
     Hide Popular Videos: Peida enimvaadatud videod
-    Hide Trending Videos: Peida populaarsust koguvad videod
+    Hide Trending Videos: Peida hetkel menukad ehk populaarsust koguvad videod
     Hide Recommended Videos: Peida soovitatud videod
     Hide Comment Likes: Peida kommentaaride meeldimised
     Hide Channel Subscribers: Peida kanalite tellijad
@@ -443,7 +445,7 @@ Channel:
   Subscribe: 'Telli'
   Unsubscribe: 'Lõpeta tellimus'
   Channel has been removed from your subscriptions: 'Kustutasin kanali sinu tellimustest'
-  Removed subscription from $ other channel(s): 'Kustutasin tellimuse ka $''st must
+  Removed subscription from $ other channel(s): 'Kustutasin tellimuse ka $''st muust
     kanalist'
   Added channel to your subscriptions: 'Lisasin kanali sinu tellimuste hulka'
   Search Channel: 'Otsi kanalit'
@@ -654,8 +656,8 @@ Comments:
   # Context: View 10 Replies, View 1 Reply
   View: 'Näita'
   Hide: 'Peida'
-  Replies: 'Vastused'
-  Reply: 'Vasta'
+  Replies: 'vastust'
+  Reply: 'vastus'
   There are no comments available for this video: 'Seda videot pole veel kommenteeritud'
   Load More Comments: 'Laadi veel kommentaare'
   Sort by: Sortimise alus
@@ -718,8 +720,8 @@ Tooltips:
     Remove Video Meta Files: Selle valiku kasutamisel FreeTube automaatselt kustutab
       peale video esitamist kogu metateabe.
   General Settings:
-    Region for Trending: Piirkond, mille alusel kuvame populaarsust koguvad videod.
-      Kõik siinloetletud riigid ei pruugi olla YouTube'is toetatud.
+    Region for Trending: Piirkond, mille alusel kuvame hetkel menukad ehk populaarsust
+      koguvad videod. Kõik siinloetletud riigid ei pruugi olla YouTube'is toetatud.
     Thumbnail Preference: Vaikimisi pisipildi asemel kuvab FreeTube kaadrit videost.
     Fallback to Non-Preferred Backend on Failure: Kui sinu eelistatud APi ei toimi,
       siis kui vähegi võimalik, FreeTube üritab kasutada alternatiivi.
