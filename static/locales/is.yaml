@@ -670,6 +670,12 @@ Tooltips:
       DASH-snið (Dynamic Adaptive Streaming over HTTP) er hægt að spila í meiri gæðum.
       Eldri snið takmarkast við 720p en nota minni bandbreidd. Hljóðsnið eru streymi
       einungis með hljóði.'
+    Scroll Playback Rate Over Video Player: Á meðan bendillinn er yfir myndspilaranum,
+      ýttu og haltu niðri Ctrl-lyklinum ('Command' slaufulykill á Mac) og skrunaðu
+      með músarhjólinu áfram eða afturábak til að stýra hraða afspilunar. Ýttu og
+      haltu niðri Ctrl-lyklinum ('Command' slaufulykill á Mac) og smelltu með vinstri
+      músarhnappnum til að snúa aftur í sjálfgefinn hraða (1x nema ef því hefur verið
+      breytt í stillingunum).
   Subscription Settings:
     Fetch Feeds from RSS: 'Þegar þetta er virkt, mun FreeTube nota RSS í stað sjálfgefinnar
       aðferðar við að safna streymi áskriftarinnar þinnar. RSS er hraðvirkara og kemur
