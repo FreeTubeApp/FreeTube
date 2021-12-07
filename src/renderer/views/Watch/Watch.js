@@ -295,7 +295,11 @@ export default Vue.extend({
           this.isUpcoming = result.player_response.videoDetails.isUpcoming ? result.player_response.videoDetails.isUpcoming : false
 
           if (this.videoDislikeCount === null && !this.hideVideoLikesAndDislikes) {
-            this.videoDislikeCount = 0
+            if (this.videoLikeCount !== 0 && result.videoDetails.averageRating) {
+              this.videoDislikeCount = Math.round((this.videoLikeCount * (5 - result.videoDetails.averageRating)) / (result.videoDetails.averageRating - 1))
+            } else {
+              this.videoDislikeCount = 0
+            }
           }
 
           const subCount = result.videoDetails.author.subscriber_count
