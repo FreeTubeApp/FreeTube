@@ -535,7 +535,11 @@ export default Vue.extend({
             this.videoDislikeCount = null
           } else {
             this.videoLikeCount = result.likeCount
-            this.videoDislikeCount = result.dislikeCount
+            if (result.dislikeCount === 0 && result.likeCount && result.rating) {
+              this.videoDislikeCount = Math.round((result.likeCount * (5 - result.rating)) / (result.rating - 1))
+            } else {
+              this.videoDislikeCount = result.dislikeCount
+            }
           }
           if (this.hideChannelSubscriptions) {
             this.channelSubscriptionCountText = ''
