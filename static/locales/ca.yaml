@@ -1,6 +1,6 @@
 # Put the name of your locale in the same language
-Locale Name: 'Català'
-FreeTube: 'FreeTube'
+Locale Name: 'Anglès'
+FreeTube: 'freetube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Aquesta secció de l'aplicació encara no està llesta. Torna més endavant quan s'hagin
@@ -9,13 +9,13 @@ FreeTube: 'FreeTube'
 # Webkit Menu Bar
 File: 'Archiu'
 Quit: 'Surt'
-Edit: 'Editar'
+Edit: 'Edita'
 Undo: 'Desfer'
 Redo: 'Refés'
-Cut: 'Retallar'
-Copy: 'Copiar'
-Paste: 'Enganxar'
-Delete: 'Esborrar'
+Cut: 'Talla'
+Copy: 'Copia'
+Paste: 'Enganxa'
+Delete: 'Borra'
 Select all: 'Seleccionar-ho tot'
 Reload: 'Tornar a carregar'
 Force Reload: 'Forçar la Recàrrega'
@@ -110,7 +110,7 @@ History:
   Your history list is currently empty.: 'El teu historial està actualment buit.'
 Settings:
   # On Settings Page
-  Settings: 'Paràmetres'
+  Settings: 'Configuració'
   General Settings:
     General Settings: 'Paràmetres generals'
     Check for Updates: 'Comprovar si hi ha actualitzacions'
@@ -149,6 +149,7 @@ Settings:
     External Link Handling:
       Open Link: Obre l'enllaç
       External Link Handling: Gestió d'enllaços externs
+      Ask Before Opening Link: Pregunta abans d'obrir l'enllaç
     Current instance will be randomized on startup: La instància actual es farà aleatòriament
       a l'inici
     Set Current Instance as Default: Defineix l'actual com a instància per defecte
