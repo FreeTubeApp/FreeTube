@@ -144,6 +144,8 @@ Settings:
       External Link Handling: טיפול בקישורים חיצוניים
     Clear Default Instance: ניקוי עותק ברירת המחדל
     No default instance has been set: לא הוגדר עותק ברירת מחדל
+    Current instance will be randomized on startup: העותק הנוכחי יעבור ערבוב אקראי
+      עם ההפעלה
   Theme Settings:
     Theme Settings: 'הגדרת מראה'
     Match Top Bar with Main Color: 'התאמת האזור העליון לצבע הראשי'
@@ -215,6 +217,7 @@ Settings:
     Playlist Next Video Interval: מרווח זמן לפני ניגון הסרטון הבא בפלייליסט
     Next Video Interval: משך הסרטון הבא
     Display Play Button In Video Player: הצגת כפתור הניגון בתוך נגן הווידאו
+    Scroll Volume Over Video Player: גלילה על הסרטון לשינוי עצמת השמע
   Privacy Settings:
     Privacy Settings: 'הגדרות פרטיות'
     Remember History: 'זכור את היסטוריית הצפייה'

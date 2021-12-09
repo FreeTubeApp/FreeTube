@@ -219,6 +219,8 @@ Settings:
     Scroll Volume Over Video Player: Mijenjaj glasnoću u video playeru
     Display Play Button In Video Player: Prikaži gumb za pokretanje u video playeru
     Fast-Forward / Rewind Interval: Interval za premotavanje naprijed/natrag
+    Scroll Playback Rate Over Video Player: Mijenjanje brzine reprodukcije preko video
+      playera
   Privacy Settings:
     Privacy Settings: 'Postavke privatnosti'
     Remember History: 'Zapamti povijest'
@@ -606,6 +608,15 @@ Video:
     video: video
     OpenInTemplate: Otvori u $
   Premieres on: Premijera
+  Stats:
+    fps: Kadrova u sekundi
+    player resolution: Rezolucija prikaza
+    video id: Video ID (YouTube)
+    volume: Glasnoća
+    frame drop: Ispuštanje kadrova
+    bandwidth: Brzina veze
+    buffered: Učitano u memoriju
+    out of: od
 Videos:
   #& Sort By
   Sort By:
@@ -722,6 +733,11 @@ Tooltips:
       standardno sučelje. Kad je aktivirano, lokalno sučelje će pokretati i koristiti
       stare formate umjesto onih koje dostavlja Invidious. Pomaže u slučajevima, kad
       je reprodukcija videa koje dostavlja Invidious u zemlji zabranjena/ograničena.
+    Scroll Playback Rate Over Video Player: Dok se pokazivač nalazi na videu, pritisni
+      i drži tipku Control (Command tipka na Macu) i pomiči kotačić miša naprijed
+      ili natrag za upravljanje brzine reprodukcije. Pritisni i drži tipku Control
+      (Command tipka na Macu) i pritisni lijevom tipkom miša za brzo vraćanje na standardnu
+      brzinu reprodukcije (jednostruka brzina, ukoliko nije promijenjena u postavkama).
   General Settings:
     Invidious Instance: Invidious primjerak na koji će se FreeTube povezati za pozive
       API-a.

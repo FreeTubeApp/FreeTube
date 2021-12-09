@@ -216,6 +216,7 @@ Settings:
     Scroll Volume Over Video Player: Säädä äänenvoimakkuutta vierittämällä videon
       päällä
     Fast-Forward / Rewind Interval: Pikakelauksen intervalli
+    Scroll Playback Rate Over Video Player: Toistonopeuden selaaminen videosoittimessa
   Subscription Settings:
     Subscription Settings: 'Tilausasetukset'
     Hide Videos on Watch: 'Piilota katsotut videot'
@@ -548,6 +549,11 @@ Video:
     luettelostasi
   Video has been saved: Video on tallennettu
   Save Video: Tallenna video
+  Stats:
+    video id: Videon tunniste (YouTube)
+    player resolution: Näkymäikkuna
+    bandwidth: Yhteyden nopeus
+    buffered: Puskuroitu
 Videos:
   #& Sort By
   Sort By:
@@ -619,6 +625,7 @@ Comments:
   Show More Replies: Näytä enemmän vastauksia
   Pinned by: Kiinnittänyt
   From $channelName: kanavalta $channelName
+  And others: ja muut
 Up Next: 'Seuraavaksi'
 
 # Toast Messages

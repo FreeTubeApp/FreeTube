@@ -131,7 +131,27 @@ export default Vue.extend({
           2.25,
           2.5,
           2.75,
-          3
+          3,
+          3.25,
+          3.5,
+          3.75,
+          4,
+          4.25,
+          4.5,
+          4.75,
+          5,
+          5.25,
+          5.5,
+          5.75,
+          6,
+          6.25,
+          6.5,
+          6.75,
+          7,
+          7.25,
+          7.5,
+          7.75,
+          8
         ]
       },
       stats: {
@@ -192,6 +212,10 @@ export default Vue.extend({
 
     videoVolumeMouseScroll: function () {
       return this.$store.getters.getVideoVolumeMouseScroll
+    },
+
+    videoPlaybackRateMouseScroll: function () {
+      return this.$store.getters.getVideoPlaybackRateMouseScroll
     },
 
     useSponsorBlock: function () {
@@ -298,6 +322,36 @@ export default Vue.extend({
           this.player.removeChild('BigPlayButton')
         }
 
+        // Makes the playback rate menu focus the current item on mouse hover
+        // or the closest item if the playback rate is between two items
+        // which is likely to be the case when the playback rate is changed by scrolling
+        const playbackRateMenuButton = this.player.controlBar.getChild('playbackRateMenuButton')
+        playbackRateMenuButton.on(playbackRateMenuButton.menuButton_, 'mouseenter', () => {
+          const playbackRate = this.player.playbackRate()
+          const rates = this.player.playbackRates()
+
+          // iterate through the items in reverse order as the highest is displayed first
+          // `slice` must be used as `reverse` does reversing in place
+          const targetPlaybackRateMenuItemIndex = rates.slice().reverse().findIndex((rate) => {
+            return rate === playbackRate || rate < playbackRate
+          })
+
+          // center the selected item in the middle of the visible area
+          // the first and last items will never be in the center so it can be skipped for them
+          if (targetPlaybackRateMenuItemIndex !== 0 && targetPlaybackRateMenuItemIndex !== rates.length - 1) {
+            const playbackRateMenu = playbackRateMenuButton.menu
+            const menuElement = playbackRateMenu.contentEl()
+
+            const itemHeight = playbackRateMenu.children()[targetPlaybackRateMenuItemIndex].contentEl().clientHeight
+
+            // clientHeight is the height of the visible part of an element
+            const centerOfVisibleArea = (menuElement.clientHeight - itemHeight) / 2
+            const menuScrollOffset = (itemHeight * targetPlaybackRateMenuItemIndex) - centerOfVisibleArea
+
+            menuElement.scrollTo({ top: menuScrollOffset })
+          }
+        })
+
         if (this.storyboardSrc !== '') {
           this.player.vttThumbnails({
             src: this.storyboardSrc,
@@ -340,6 +394,14 @@ export default Vue.extend({
           this.player.on('wheel', this.mouseScrollVolume)
         } else {
           this.player.controlBar.getChild('volumePanel').on('wheel', this.mouseScrollVolume)
+        }
+
+        if (this.videoPlaybackRateMouseScroll) {
+          this.player.on('wheel', this.mouseScrollPlaybackRate)
+          // Removes the 'out-of-the-box' click event and adds a custom click event so that a user can
+          // ctrl-click (or command+click on a mac) without toggling play/pause
+          this.player.el_.firstChild.style.pointerEvents = 'none'
+          this.player.on('click', this.handlePlayerClick)
         }
 
         this.player.on('fullscreenchange', this.fullscreenOverlay)
@@ -526,11 +588,41 @@ export default Vue.extend({
           this.player.volume(0)
         }
 
-        if (!this.player.muted()) {
+        if (!event.ctrlKey && !event.metaKey) {
+          if (!this.player.muted()) {
+            if (event.wheelDelta > 0) {
+              this.changeVolume(0.05)
+            } else if (event.wheelDelta < 0) {
+              this.changeVolume(-0.05)
+            }
+          }
+        }
+      }
+    },
+
+    mouseScrollPlaybackRate: function (event) {
+      if (event.target && !event.currentTarget.querySelector('.vjs-menu:hover')) {
+        event.preventDefault()
+
+        if (event.ctrlKey || event.metaKey) {
           if (event.wheelDelta > 0) {
-            this.changeVolume(0.05)
+            this.changePlayBackRate(0.05)
           } else if (event.wheelDelta < 0) {
-            this.changeVolume(-0.05)
+            this.changePlayBackRate(-0.05)
+          }
+        }
+      }
+    },
+
+    handlePlayerClick: function (event) {
+      if (event.target.matches('.ftVideoPlayer')) {
+        if (event.ctrlKey || event.metaKey) {
+          this.player.playbackRate(this.defaultPlayback)
+        } else {
+          if (this.player.paused() || !this.player.hasStarted()) {
+            this.player.play()
+          } else {
+            this.player.pause()
           }
         }
       }
@@ -904,9 +996,9 @@ export default Vue.extend({
     },
 
     changePlayBackRate: function (rate) {
-      const newPlaybackRate = this.player.playbackRate() + rate
+      const newPlaybackRate = (this.player.playbackRate() + rate).toFixed(2)
 
-      if (newPlaybackRate >= 0.25 && newPlaybackRate <= 3) {
+      if (newPlaybackRate >= 0.25 && newPlaybackRate <= 8) {
         this.player.playbackRate(newPlaybackRate)
       }
     },

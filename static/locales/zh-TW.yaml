@@ -208,6 +208,7 @@ Settings:
     Scroll Volume Over Video Player: 在影片播放器上捲動以變更音量
     Display Play Button In Video Player: 在影片播放器中顯示播放按鈕
     Fast-Forward / Rewind Interval: 快轉／倒帶間隔
+    Scroll Playback Rate Over Video Player: 在影片播放程式上捲動播放速度
   Subscription Settings:
     Subscription Settings: '訂閱設定'
     Hide Videos on Watch: '觀看時隱藏影片'
@@ -520,6 +521,15 @@ Video:
     video: 視訊
     OpenInTemplate: 在 $ 中開啟
   Premieres on: 首映日期
+  Stats:
+    buffered: 已緩衝
+    out of: 中的
+    video id: Video ID (YouTube)
+    volume: 音量
+    player resolution: 視野
+    fps: FPS
+    frame drop: 丟棄畫面
+    bandwidth: 連線速度
 Videos:
   #& Sort By
   Sort By:
@@ -663,6 +673,8 @@ Tooltips:
     Proxy Videos Through Invidious: 將連線到 Invidious 而非直接連線到 YouTube 來提供影片。覆寫 API 偏好。
     Force Local Backend for Legacy Formats: 僅當 Invidious API 是您預設 API 時才有效。啟用後，區域
       API 將會執行並使用由其回傳的的傳統格式，而非 Invidious 回傳的格式。對因為國家地區限制而無法播放 Invidious 回傳的影片時有幫助。
+    Scroll Playback Rate Over Video Player: 當游標停在影片上時，按住 Ctrl 鍵（Mac 的話則是 Command 鍵），然後向前或向後滾動滑鼠滾輪來控制播放速度。按住
+      Ctrl 鍵（Mac 的話則是 Command 鍵）並點擊滑鼠左鍵以快速回到預設的播放速度（1x，除非在設定中更改）。
   General Settings:
     Invidious Instance: FreeTube 將連線到 Invidious 站台進行 API 呼叫。
     Thumbnail Preference: FreeTube 中所有縮圖都會被替換為影片畫面而非預設縮圖。
