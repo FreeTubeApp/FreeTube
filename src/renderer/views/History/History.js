@@ -4,6 +4,7 @@ import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
+import FtInput from  '../../components/ft-input/ft-input.vue'
 
 export default Vue.extend({
   name: 'History',
@@ -12,7 +13,8 @@ export default Vue.extend({
     'ft-card': FtCard,
     'ft-flex-box': FtFlexBox,
     'ft-element-list': FtElementList,
-    'ft-button': FtButton
+    'ft-button': FtButton,
+    'ft-input':FtInput
   },
   data: function () {
     return {
