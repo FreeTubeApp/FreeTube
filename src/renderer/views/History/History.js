@@ -50,7 +50,7 @@ export default Vue.extend({
     if (limit !== null) {
       this.dataLimit = limit
     }
-    // this.$store.dispatch('searchHistory',"")
+    this.$store.dispatch('searchHistory', 'linus')
   },
   methods: {
     increaseLimit: function () {

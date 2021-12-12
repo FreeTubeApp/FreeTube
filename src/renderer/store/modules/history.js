@@ -37,7 +37,8 @@ const actions = {
     dispatch('propagateHistory')
   },
   async searchHistory({ commit }, query) {
-    const results = await historyDb.find({ author: query }).sort({ timeWatched: -1 })
+    const re = new RegExp(query, 'i')
+    const results = await historyDb.find({ $or: [{ author: { $regex: re } }, { title: { $regex: re } }, { videoId: { $regex: re } }] }).sort({ timeWatched: -1 })
     commit('setHistoryCache', results)
   },
   async removeFromHistory({ commit, dispatch }, videoId) {
