@@ -10,11 +10,10 @@
     >
       <h3>{{ $t("History.History") }}</h3>
       <ft-input
-          placeholder="Search in History"
-          :showClearTextButton= "true"
-          :show-action-button="true"
-          
-        />
+        placeholder="Search in History"
+        :show-clear-text-button="true"
+        :show-action-button="true"
+      />
       <ft-flex-box
         v-if="activeData.length === 0"
       >
