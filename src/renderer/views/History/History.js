@@ -5,7 +5,6 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
 
-
 export default Vue.extend({
   name: 'History',
   components: {
@@ -19,7 +18,7 @@ export default Vue.extend({
     return {
       isLoading: false,
       dataLimit: 100,
-      test: null,
+      test: null
     }
   },
   computed: {
@@ -33,7 +32,7 @@ export default Vue.extend({
       } else {
         return this.historyCache.slice(0, this.dataLimit)
       }
-    },
+    }
   },
   watch: {
     historyCache() {
@@ -51,12 +50,12 @@ export default Vue.extend({
     if (limit !== null) {
       this.dataLimit = limit
     }
-    //this.$store.dispatch('searchHistory',"")
+    // this.$store.dispatch('searchHistory',"")
   },
   methods: {
     increaseLimit: function () {
       this.dataLimit += 100
       sessionStorage.setItem('historyLimit', this.dataLimit)
     }
-  },
+  }
 })

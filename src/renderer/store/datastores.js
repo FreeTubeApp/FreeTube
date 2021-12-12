@@ -39,9 +39,9 @@ const historyDb = Datastore.create({
   autoload: true
 })
 
-historyDb.ensureIndex({ fieldName: 'author'})
-historyDb.ensureIndex({ fieldName: 'title'})
-historyDb.ensureIndex({ fieldName: 'videoId'})
+historyDb.ensureIndex({ fieldName: 'author' })
+historyDb.ensureIndex({ fieldName: 'title' })
+historyDb.ensureIndex({ fieldName: 'videoId' })
 
 export {
   settingsDb,

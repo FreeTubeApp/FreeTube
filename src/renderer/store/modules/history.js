@@ -36,8 +36,8 @@ const actions = {
 
     dispatch('propagateHistory')
   },
-  async searchHistory({ commit },query) {
-    const results = await historyDb.find({author:query}).sort({ timeWatched: -1 })
+  async searchHistory({ commit }, query) {
+    const results = await historyDb.find({ author: query }).sort({ timeWatched: -1 })
     commit('setHistoryCache', results)
   },
   async removeFromHistory({ commit, dispatch }, videoId) {
