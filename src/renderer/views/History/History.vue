@@ -12,7 +12,8 @@
       <ft-input
         placeholder="Search in History"
         :show-clear-text-button="true"
-        :show-action-button="true"
+        :showActionButton="false"
+        @input="filterHistory"
       />
       <ft-flex-box
         v-if="activeData.length === 0"

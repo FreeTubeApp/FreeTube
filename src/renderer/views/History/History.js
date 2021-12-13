@@ -20,7 +20,7 @@ export default Vue.extend({
     return {
       isLoading: false,
       dataLimit: 100,
-      test: null
+      searching:false
     }
   },
   computed: {
@@ -36,14 +36,19 @@ export default Vue.extend({
       }
     }
   },
+   
   watch: {
     historyCache() {
-      this.isLoading = true
+      if (!this.searching){
+        this.isLoading = true
       setTimeout(() => {
         this.isLoading = false
       }, 100)
+      }
     }
+  
   },
+  
   mounted: function () {
     console.log(this.historyCache)
 
@@ -52,12 +57,18 @@ export default Vue.extend({
     if (limit !== null) {
       this.dataLimit = limit
     }
-    this.$store.dispatch('searchHistory', 'linus')
   },
   methods: {
     increaseLimit: function () {
       this.dataLimit += 100
       sessionStorage.setItem('historyLimit', this.dataLimit)
+    },
+    filterHistory:function(query){
+      this.searching = true
+      this.$store.dispatch('searchHistory', query)
+      setTimeout(() => {
+        this.searching = false
+      }, 500)
     }
-  }
+  },
 })
