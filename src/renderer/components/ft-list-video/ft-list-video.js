@@ -212,7 +212,7 @@ export default Vue.extend({
     this.parseVideoData()
     this.checkIfWatched()
   },
-  updated: function(){
+  updated: function() {
     this.parseVideoData()
   },
   methods: {
