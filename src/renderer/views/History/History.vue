@@ -10,9 +10,11 @@
     >
       <h3>{{ $t("History.History") }}</h3>
       <ft-input
-        placeholder="Search in History"
+        ref="searchBar"
+        :placeholder="searchBarPlaceHolder"
         :show-clear-text-button="true"
         :show-action-button="false"
+        autofocus
         @input="filterHistory"
       />
       <ft-flex-box
