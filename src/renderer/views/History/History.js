@@ -40,10 +40,7 @@ export default Vue.extend({
   watch: {
     historyCache() {
       if (!this.searching) {
-        this.isLoading = true
-        setTimeout(() => {
-          this.isLoading = false
-        }, 100)
+        this.load()
       }
     }
 
@@ -64,11 +61,20 @@ export default Vue.extend({
       sessionStorage.setItem('historyLimit', this.dataLimit)
     },
     filterHistory: function(query) {
+      if (query === '') {
+        this.load()
+      }
       this.searching = true
       this.$store.dispatch('searchHistory', query)
       setTimeout(() => {
         this.searching = false
       }, 500)
+    },
+    load: function() {
+      this.isLoading = true
+      setTimeout(() => {
+        this.isLoading = false
+      }, 100)
     }
   }
 })
