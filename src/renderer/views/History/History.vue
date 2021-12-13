@@ -14,7 +14,6 @@
         :placeholder="searchBarPlaceHolder"
         :show-clear-text-button="true"
         :show-action-button="false"
-        autofocus
         @input="filterHistory"
       />
       <ft-flex-box

@@ -212,6 +212,9 @@ export default Vue.extend({
     this.parseVideoData()
     this.checkIfWatched()
   },
+  updated: function(){
+    this.parseVideoData()
+  },
   methods: {
     handleExternalPlayer: function () {
       this.$emit('pause-player')

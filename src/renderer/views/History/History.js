@@ -62,9 +62,6 @@ export default Vue.extend({
       sessionStorage.setItem('historyLimit', this.dataLimit)
     },
     filterHistory: function(query) {
-      if (query === '') {
-        this.load()
-      }
       this.searching = true
       this.$store.dispatch('searchHistory', query)
       setTimeout(() => {
