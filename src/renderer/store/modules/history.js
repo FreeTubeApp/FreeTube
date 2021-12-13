@@ -37,7 +37,7 @@ const actions = {
     dispatch('propagateHistory')
   },
   async searchHistory({ commit, dispatch }, query) {
-    if (query ===""){
+    if (query === '') {
       dispatch('grabHistory')
       return
     }

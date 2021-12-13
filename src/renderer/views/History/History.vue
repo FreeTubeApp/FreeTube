@@ -12,7 +12,7 @@
       <ft-input
         placeholder="Search in History"
         :show-clear-text-button="true"
-        :showActionButton="false"
+        :show-action-button="false"
         @input="filterHistory"
       />
       <ft-flex-box
