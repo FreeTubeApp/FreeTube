@@ -5,6 +5,7 @@ import FtButton from '../ft-button/ft-button.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
+import { MAIN_PROFILE_ID } from '../../../constants'
 
 import fs from 'fs'
 import { opmlToJSON } from 'opml-to-json'
@@ -165,7 +166,7 @@ export default Vue.extend({
               message: message
             })
           } else {
-            if (profileObject.name === 'All Channels' || profileObject._id === 'allChannels') {
+            if (profileObject.name === 'All Channels' || profileObject._id === MAIN_PROFILE_ID) {
               primaryProfile.subscriptions = primaryProfile.subscriptions.concat(profileObject.subscriptions)
               primaryProfile.subscriptions = primaryProfile.subscriptions.filter((sub, index) => {
                 const profileIndex = primaryProfile.subscriptions.findIndex((x) => {

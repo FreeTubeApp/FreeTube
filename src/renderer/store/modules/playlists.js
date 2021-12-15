@@ -1,4 +1,4 @@
-import { playlistsDb } from '../datastores'
+import { DBPlaylistHandlers } from '../../../datastores/handlers/index'
 
 const state = {
   playlists: [
@@ -25,89 +25,111 @@ const getters = {
 
 const actions = {
   async addPlaylist({ commit }, payload) {
-    await playlistsDb.insert(payload)
-    commit('addPlaylist', payload)
+    try {
+      await DBPlaylistHandlers.create(payload)
+      commit('addPlaylist', payload)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
   },
 
   async addPlaylists({ commit }, payload) {
-    await playlistsDb.insert(payload)
-    commit('addPlaylists', payload)
+    try {
+      await DBPlaylistHandlers.create(payload)
+      commit('addPlaylists', payload)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
   },
 
   async addVideo({ commit }, payload) {
-    await playlistsDb.update(
-      { playlistName: payload.playlistName },
-      { $push: { videos: payload.videoData } },
-      { upsert: true }
-    )
-    commit('addVideo', payload)
+    try {
+      const { playlistName, videoData } = payload
+      await DBPlaylistHandlers.upsertVideoByPlaylistName(playlistName, videoData)
+      commit('addVideo', payload)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
   },
 
   async addVideos({ commit }, payload) {
-    await playlistsDb.update(
-      { _id: payload.playlistId },
-      { $push: { videos: { $each: payload.videosIds } } },
-      { upsert: true }
-    )
-    commit('addVideos', payload)
+    try {
+      const { playlistId, videoIds } = payload
+      await DBPlaylistHandlers.upsertVideoIdsByPlaylistId(playlistId, videoIds)
+      commit('addVideos', payload)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
   },
 
-  async grabAllPlaylists({ commit, dispatch }) {
-    const payload = await playlistsDb.find({})
-    if (payload.length === 0) {
-      commit('setAllPlaylists', state.playlists)
-      dispatch('addPlaylists', payload)
-    } else {
-      commit('setAllPlaylists', payload)
+  async grabAllPlaylists({ commit, dispatch, state }) {
+    try {
+      const payload = await DBPlaylistHandlers.find()
+      if (payload.length === 0) {
+        commit('setAllPlaylists', state.playlists)
+        dispatch('addPlaylists', payload)
+      } else {
+        commit('setAllPlaylists', payload)
+      }
+    } catch (errMessage) {
+      console.error(errMessage)
     }
   },
 
   async removeAllPlaylists({ commit }) {
-    await playlistsDb.remove({ protected: { $ne: true } })
-    commit('removeAllPlaylists')
+    try {
+      await DBPlaylistHandlers.deleteAll()
+      commit('removeAllPlaylists')
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
   },
 
   async removeAllVideos({ commit }, playlistName) {
-    await playlistsDb.update(
-      { playlistName: playlistName },
-      { $set: { videos: [] } },
-      { upsert: true }
-    )
-    commit('removeAllVideos', playlistName)
+    try {
+      await DBPlaylistHandlers.deleteAllVideosByPlaylistName(playlistName)
+      commit('removeAllVideos', playlistName)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
   },
 
   async removePlaylist({ commit }, playlistId) {
-    await playlistsDb.remove({
-      _id: playlistId,
-      protected: { $ne: true }
-    })
-    commit('removePlaylist', playlistId)
+    try {
+      await DBPlaylistHandlers.delete(playlistId)
+      commit('removePlaylist', playlistId)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
   },
 
   async removePlaylists({ commit }, playlistIds) {
-    await playlistsDb.remove({
-      _id: { $in: playlistIds },
-      protected: { $ne: true }
-    })
-    commit('removePlaylists', playlistIds)
+    try {
+      await DBPlaylistHandlers.deleteMultiple(playlistIds)
+      commit('removePlaylists', playlistIds)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
   },
 
   async removeVideo({ commit }, payload) {
-    await playlistsDb.update(
-      { playlistName: payload.playlistName },
-      { $pull: { videos: { videoId: payload.videoId } } },
-      { upsert: true }
-    )
-    commit('removeVideo', payload)
+    try {
+      const { playlistName, videoId } = payload
+      await DBPlaylistHandlers.deleteVideoIdByPlaylistName(playlistName, videoId)
+      commit('removeVideo', payload)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
   },
 
   async removeVideos({ commit }, payload) {
-    await playlistsDb.update(
-      { _id: payload.playlistName },
-      { $pull: { videos: { $in: payload.videoId } } },
-      { upsert: true }
-    )
-    commit('removeVideos', payload)
+    try {
+      const { playlistName, videoIds } = payload
+      await DBPlaylistHandlers.deleteVideoIdsByPlaylistName(playlistName, videoIds)
+      commit('removeVideos', payload)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
   }
 }
 
