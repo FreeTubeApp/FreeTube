@@ -20,7 +20,7 @@ export default Vue.extend({
     return {
       isLoading: false,
       dataLimit: 100,
-      searchBarPlaceHolder: this.$t('History.Search bar place holder'),
+      searchBarPlaceHolder: this.$t('History.Search bar placeholder'),
       hasQuery: false
     }
   },
