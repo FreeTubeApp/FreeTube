@@ -445,6 +445,9 @@ function runApp() {
           )
           return null
 
+        case DBActions.HISTORY.SEARCH:
+          return await baseHandlers.history.search(data)
+
         case DBActions.GENERAL.DELETE:
           await baseHandlers.history.delete(data)
           syncOtherWindows(

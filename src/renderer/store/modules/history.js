@@ -1,12 +1,16 @@
 import { DBHistoryHandlers } from '../../../datastores/handlers/index'
 
 const state = {
-  historyCache: []
+  historyCache: [],
+  searchHistoryCache: []
 }
 
 const getters = {
   getHistoryCache: () => {
     return state.historyCache
+  },
+  getSearchHistoryCache: () => {
+    return state.searchHistoryCache
   }
 }
 
@@ -47,14 +51,14 @@ const actions = {
     }
   },
 
-  async searchHistory({ commit, dispatch }, query) {
-    if (query === '') {
-      dispatch('grabHistory')
-      return
+  async searchHistory({ commit }, query) {
+    try {
+      const results = await DBHistoryHandlers.search(query)
+      console.log(results)
+      commit('setSearchHistoryCache', results)
+    } catch (errMessage) {
+      console.error(errMessage)
     }
-    const re = new RegExp(query, 'i')
-    const results = await historyDb.find({ $or: [{ author: { $regex: re } }, { title: { $regex: re } }, { videoId: { $regex: re } }] }).sort({ timeWatched: -1 })
-    commit('setHistoryCache', results)
   },
 
   async updateWatchProgress({ commit }, { videoId, watchProgress }) {
@@ -74,6 +78,10 @@ const actions = {
 const mutations = {
   setHistoryCache(state, historyCache) {
     state.historyCache = historyCache
+  },
+
+  setSearchHistoryCache(state, result) {
+    state.searchHistoryCache = result
   },
 
   hoistEntryToTopOfHistoryCache(state, { currentIndex, updatedEntry }) {

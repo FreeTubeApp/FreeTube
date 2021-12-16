@@ -20,13 +20,17 @@ export default Vue.extend({
     return {
       isLoading: false,
       dataLimit: 100,
-      searching: false,
-      searchBarPlaceHolder: this.$t('History.Search bar place holder')
+      searchBarPlaceHolder: this.$t('History.Search bar place holder'),
+      hasQuery: false
     }
   },
   computed: {
     historyCache: function () {
-      return this.$store.getters.getHistoryCache
+      if (!this.hasQuery) {
+        return this.$store.getters.getHistoryCache
+      } else {
+        return this.$store.getters.getSearchHistoryCache
+      }
     },
 
     activeData: function () {
@@ -40,7 +44,7 @@ export default Vue.extend({
 
   watch: {
     historyCache() {
-      if (!this.searching) {
+      if (!this.hasQuery) {
         this.load()
       }
     }
@@ -62,11 +66,8 @@ export default Vue.extend({
       sessionStorage.setItem('historyLimit', this.dataLimit)
     },
     filterHistory: function(query) {
-      this.searching = true
+      this.hasQuery = query !== ''
       this.$store.dispatch('searchHistory', query)
-      setTimeout(() => {
-        this.searching = false
-      }, 500)
     },
     load: function() {
       this.isLoading = true
