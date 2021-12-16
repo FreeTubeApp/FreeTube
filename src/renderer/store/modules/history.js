@@ -54,7 +54,6 @@ const actions = {
   async searchHistory({ commit }, query) {
     try {
       const results = await DBHistoryHandlers.search(query)
-      console.log(results)
       commit('setSearchHistoryCache', results)
     } catch (errMessage) {
       console.error(errMessage)
