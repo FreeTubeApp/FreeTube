@@ -7,6 +7,8 @@ import $ from 'jquery'
 import debounce from 'lodash.debounce'
 import ytSuggest from 'youtube-suggest'
 
+import { IpcChannels } from '../../../constants'
+
 export default Vue.extend({
   name: 'TopNav',
   components: {
@@ -303,7 +305,7 @@ export default Vue.extend({
     createNewWindow: function () {
       if (this.usingElectron) {
         const { ipcRenderer } = require('electron')
-        ipcRenderer.send('createNewWindow')
+        ipcRenderer.send(IpcChannels.CREATE_NEW_WINDOW)
       } else {
         // Web placeholder
       }

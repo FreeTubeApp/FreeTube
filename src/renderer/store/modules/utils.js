@@ -1,6 +1,9 @@
 import IsEqual from 'lodash.isequal'
 import FtToastEvents from '../../components/ft-toast/ft-toast-events'
 import fs from 'fs'
+
+import { IpcChannels } from '../../../constants'
+
 const state = {
   isSideNavOpen: false,
   sessionSearchHistory: [],
@@ -166,7 +169,7 @@ const actions = {
     const usingElectron = rootState.settings.usingElectron
     if (usingElectron) {
       const ipcRenderer = require('electron').ipcRenderer
-      ipcRenderer.send('openExternalLink', url)
+      ipcRenderer.send(IpcChannels.OPEN_EXTERNAL_LINK, url)
     } else {
       // Web placeholder
     }
@@ -179,25 +182,25 @@ const actions = {
       }
     }
 
-    return (await invokeIRC(context, 'getSystemLocale', webCbk)) || 'en-US'
+    return (await invokeIRC(context, IpcChannels.GET_SYSTEM_LOCALE, webCbk)) || 'en-US'
   },
 
   async showOpenDialog (context, options) {
     // TODO: implement showOpenDialog web compatible callback
     const webCbk = () => null
-    return await invokeIRC(context, 'showOpenDialog', webCbk, options)
+    return await invokeIRC(context, IpcChannels.SHOW_OPEN_DIALOG, webCbk, options)
   },
 
   async showSaveDialog (context, options) {
     // TODO: implement showSaveDialog web compatible callback
     const webCbk = () => null
-    return await invokeIRC(context, 'showSaveDialog', webCbk, options)
+    return await invokeIRC(context, IpcChannels.SHOW_SAVE_DIALOG, webCbk, options)
   },
 
   async getUserDataPath (context) {
     // TODO: implement getUserDataPath web compatible callback
     const webCbk = () => null
-    return await invokeIRC(context, 'getUserDataPath', webCbk)
+    return await invokeIRC(context, IpcChannels.GET_USER_DATA_PATH, webCbk)
   },
 
   updateShowProgressBar ({ commit }, value) {
@@ -853,10 +856,7 @@ const actions = {
     console.log(executable, args)
 
     const { ipcRenderer } = require('electron')
-    ipcRenderer.send('openInExternalPlayer', {
-      executable,
-      args
-    })
+    ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, { executable, args })
   }
 }
 

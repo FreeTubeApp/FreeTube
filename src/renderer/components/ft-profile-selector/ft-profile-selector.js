@@ -67,22 +67,20 @@ export default Vue.extend({
     },
 
     setActiveProfile: function (profile) {
-      if (this.profileList[this.activeProfile]._id === profile._id) {
-        return
-      }
-      const index = this.profileList.findIndex((x) => {
-        return x._id === profile._id
-      })
+      if (this.activeProfile._id !== profile._id) {
+        const targetProfile = this.profileList.find((x) => {
+          return x._id === profile._id
+        })
 
-      if (index === -1) {
-        return
+        if (targetProfile) {
+          this.updateActiveProfile(targetProfile._id)
+
+          const message = this.$t('Profile.$ is now the active profile').replace('$', profile.name)
+          this.showToast({ message })
+        }
       }
-      this.updateActiveProfile(index)
-      const message = this.$t('Profile.$ is now the active profile').replace('$', profile.name)
-      this.showToast({
-        message: message
-      })
-      $('#profileList').focusout()
+
+      $('#profileList').trigger('focusout')
     },
 
     ...mapActions([

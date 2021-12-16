@@ -1,5 +1,6 @@
-import { settingsDb } from '../datastores'
 import i18n from '../../i18n/index'
+import { MAIN_PROFILE_ID, IpcChannels, SyncEvents } from '../../../constants'
+import { DBSettingHandlers } from '../../../datastores/handlers/index'
 
 /*
  * Due to the complexity of the settings module in FreeTube, a more
@@ -170,7 +171,7 @@ const state = {
   defaultCaptionSettings: '{}',
   defaultInterval: 5,
   defaultPlayback: 1,
-  defaultProfile: 'allChannels',
+  defaultProfile: MAIN_PROFILE_ID,
   defaultQuality: '720',
   defaultSkipInterval: 5,
   defaultTheatreMode: false,
@@ -312,29 +313,29 @@ Object.assign(customGetters, {
 
 const customActions = {
   grabUserSettings: async ({ commit, dispatch, getters }) => {
-    const userSettings = await settingsDb.find({
-      _id: { $ne: 'bounds' }
-    })
+    try {
+      const userSettings = await DBSettingHandlers.find()
+      for (const setting of userSettings) {
+        const { _id, value } = setting
+        if (getters.settingHasSideEffects(_id)) {
+          dispatch(defaultSideEffectsTriggerId(_id), value)
+        }
 
-    for (const setting of userSettings) {
-      const { _id, value } = setting
-      if (getters.settingHasSideEffects(_id)) {
-        dispatch(defaultSideEffectsTriggerId(_id), value)
+        commit(defaultMutationId(_id), value)
       }
-
-      commit(defaultMutationId(_id), value)
+    } catch (errMessage) {
+      console.error(errMessage)
     }
   },
 
   // Should be a root action, but we'll tolerate
-  setupListenerToSyncWindows: ({ commit, dispatch, getters }) => {
+  setupListenersToSyncWindows: ({ commit, dispatch, getters }) => {
     // Already known to be Electron, no need to check
     const { ipcRenderer } = require('electron')
-    ipcRenderer.on('syncWindows', (_, payload) => {
-      const { type, data } = payload
-      switch (type) {
-        case 'setting':
-          // `data` is a single setting => { _id, value }
+
+    ipcRenderer.on(IpcChannels.SYNC_SETTINGS, (_, { event, data }) => {
+      switch (event) {
+        case SyncEvents.GENERAL.UPSERT:
           if (getters.settingHasSideEffects(data._id)) {
             dispatch(defaultSideEffectsTriggerId(data._id), data.value)
           }
@@ -342,18 +343,65 @@ const customActions = {
           commit(defaultMutationId(data._id), data.value)
           break
 
-        case 'history':
-          // `data` is the whole history => Array of history entries
-          commit('setHistoryCache', data)
+        default:
+          console.error('settings: invalid sync event received')
+      }
+    })
+
+    ipcRenderer.on(IpcChannels.SYNC_HISTORY, (_, { event, data }) => {
+      switch (event) {
+        case SyncEvents.GENERAL.UPSERT:
+          commit('upsertToHistoryCache', data)
           break
 
-        case 'playlist':
-          // TODO: Not implemented
+        case SyncEvents.HISTORY.UPDATE_WATCH_PROGRESS:
+          commit('updateRecordWatchProgressInHistoryCache', data)
           break
 
-        case 'profile':
-          // TODO: Not implemented
+        case SyncEvents.GENERAL.DELETE:
+          commit('removeFromHistoryCacheById', data)
           break
+
+        case SyncEvents.GENERAL.DELETE_ALL:
+          commit('setHistoryCache', [])
+          break
+
+        default:
+          console.error('history: invalid sync event received')
+      }
+    })
+
+    ipcRenderer.on(IpcChannels.SYNC_PROFILES, (_, { event, data }) => {
+      switch (event) {
+        case SyncEvents.GENERAL.CREATE:
+          commit('addProfileToList', data)
+          break
+
+        case SyncEvents.GENERAL.UPSERT:
+          commit('upsertProfileToList', data)
+          break
+
+        case SyncEvents.GENERAL.DELETE:
+          commit('removeProfileFromList', data)
+          break
+
+        default:
+          console.error('profiles: invalid sync event received')
+      }
+    })
+
+    ipcRenderer.on(IpcChannels.SYNC_PLAYLISTS, (_, { event, data }) => {
+      switch (event) {
+        case SyncEvents.PLAYLISTS.UPSERT_VIDEO:
+          commit('addVideo', data)
+          break
+
+        case SyncEvents.PLAYLISTS.DELETE_VIDEO:
+          commit('removeVideo', data)
+          break
+
+        default:
+          console.error('playlists: invalid sync event received')
       }
     })
   }
@@ -398,30 +446,16 @@ for (const settingId of Object.keys(state)) {
   }
 
   actions[updaterId] = async ({ commit, dispatch, getters }, value) => {
-    await settingsDb.update(
-      { _id: settingId },
-      { _id: settingId, value: value },
-      { upsert: true }
-    )
+    try {
+      await DBSettingHandlers.upsert(settingId, value)
 
-    const {
-      getUsingElectron: usingElectron,
-      settingHasSideEffects
-    } = getters
+      if (getters.settingHasSideEffects(settingId)) {
+        dispatch(triggerId, value)
+      }
 
-    if (settingHasSideEffects(settingId)) {
-      dispatch(triggerId, value)
-    }
-    commit(mutationId, value)
-
-    if (usingElectron) {
-      const { ipcRenderer } = require('electron')
-
-      // Propagate settings to all other existing windows
-      ipcRenderer.send('syncWindows', {
-        type: 'setting',
-        data: { _id: settingId, value: value }
-      })
+      commit(mutationId, value)
+    } catch (errMessage) {
+      console.error(errMessage)
     }
   }
 }

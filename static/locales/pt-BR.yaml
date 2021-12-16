@@ -539,7 +539,7 @@ Video:
   Save Video: Salvar vídeo
   translated from English: traduzido do inglês
   Sponsor Block category:
-    music offtopic: música fora do contexto
+    music offtopic: Música fora do contexto
     interaction: interação
     self-promotion: autopromoção
     outro: epílogo
@@ -561,6 +561,14 @@ Video:
     OpeningTemplate: Abrindo $ em %...
     OpenInTemplate: Aberto em $
     video: vídeo
+  Premieres on: Estreia em
+  Stats:
+    video id: ID do vídeo (YouTube)
+    volume: Volume
+    fps: FPS
+    frame drop: Frame Drop
+    bandwidth: Velocidade de conexão
+    buffered: Buffered
 Videos:
   #& Sort By
   Sort By:
@@ -635,6 +643,9 @@ Comments:
   Sort by: Ordenar por
   There are no more comments for this video: Não há mais comentários para este vídeo
   Show More Replies: Mostrar Mais Respostas
+  Pinned by: Fixado por
+  And others: e outros
+  From $channelName: de $channelName
 Up Next: 'Próximo'
 
 # Toast Messages
@@ -727,6 +738,12 @@ Tooltips:
       antigos retornados por ela em vez dos retornados pelo Invidious. É útil quando
       os vídeos retornados pelo Invidious não são reproduzidos devido a restrições
       de país.
+    Scroll Playback Rate Over Video Player: Com o cursor sobre o vídeo, pressione
+      e segure a tecla Control (tecla Command no Mac) e role a roda do mouse para
+      frente ou para trás para controlar a taxa de reprodução. Pressione e segure
+      a tecla Control (tecla Command no Mac) e clique com o botão esquerdo do mouse
+      para retornar rapidamente à taxa de reprodução padrão (1x a menos que tenha
+      sido alterada nas configurações).
   General Settings:
     Region for Trending: A região de tendências lhe permite de escolher quais vídeos
       de tendências do país você quer exibir. Nem todos os países exibidos são realmente

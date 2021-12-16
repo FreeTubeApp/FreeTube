@@ -92,9 +92,6 @@ export default Vue.extend({
         return null
       }
     },
-    activeProfile: function () {
-      return this.$store.getters.getActiveProfile
-    },
     defaultProfile: function () {
       return this.$store.getters.getDefaultProfile
     },
@@ -142,7 +139,7 @@ export default Vue.extend({
         if (this.usingElectron) {
           console.log('User is using Electron')
           ipcRenderer = require('electron').ipcRenderer
-          this.setupListenerToSyncWindows()
+          this.setupListenersToSyncWindows()
           this.activateKeyboardShortcuts()
           this.openAllLinksExternally()
           this.enableOpenUrl()
@@ -468,7 +465,7 @@ export default Vue.extend({
       'getExternalPlayerCmdArgumentsData',
       'fetchInvidiousInstances',
       'setRandomCurrentInvidiousInstance',
-      'setupListenerToSyncWindows'
+      'setupListenersToSyncWindows'
     ])
   }
 })
