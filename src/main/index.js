@@ -35,13 +35,9 @@ function runApp() {
   process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true'
   const isDev = process.env.NODE_ENV === 'development'
   const isDebug = process.argv.includes('--debug')
-  const localDataStorage = app.getPath('userData') // Grabs the userdata directory based on the user's OS
 
-  let settingsDb
   let mainWindow
   let startupUrl
-
-  loadDatabase()
 
   // CORS somehow gets re-enabled in Electron v9.0.4
   // This line disables it.
@@ -166,13 +162,6 @@ function runApp() {
     }
   })
 
-  function loadDatabase() {
-    settingsDb = Datastore.create({
-      filename: localDataStorage + '/settings.db',
-      autoload: true
-    })
-  }
-
   async function installDevTools() {
     try {
       /* eslint-disable */
@@ -184,9 +173,7 @@ function runApp() {
   }
 
   async function createWindow(replaceMainWindow = true) {
-    loadDatabase()
-
-    const windowBackground = await settingsDb.findOne({ _id: 'baseTheme' }).then(({ value }) => {
+    const windowBackground = await baseHandlers.settings._findTheme().then(({ value }) => {
       switch (value) {
         case 'dark':
           return '#212121'
@@ -376,7 +363,7 @@ function runApp() {
     const allWindows = BrowserWindow.getAllWindows()
 
     allWindows.forEach((window) => {
-      window.webContents.send('native-theme-update', nativeTheme.shouldUseDarkColors)
+      window.webContents.send(IpcChannels.NATIVE_THEME_UPDATE, nativeTheme.shouldUseDarkColors)
     })
   })
   

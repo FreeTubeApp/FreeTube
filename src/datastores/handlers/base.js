@@ -27,6 +27,10 @@ class Settings {
     return db.settings.findOne({ _id: 'bounds' })
   }
 
+  static _findTheme() {
+    return db.settings.findOne({ _id: 'baseTheme' })
+  }
+
   static _updateBounds(value) {
     return db.settings.update({ _id: 'bounds' }, { _id: 'bounds', value }, { upsert: true })
   }

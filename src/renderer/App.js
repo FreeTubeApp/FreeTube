@@ -12,6 +12,7 @@ import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
 import $ from 'jquery'
 import marked from 'marked'
 import Parser from 'rss-parser'
+import { IpcChannels } from '../constants'
 
 let ipcRenderer = null
 
@@ -198,15 +199,12 @@ export default Vue.extend({
     },
 
     updateTheme: function (theme) {
-      console.log(theme)
       const className = `${theme.baseTheme} ${theme.mainColor} ${theme.secColor}`
       document.body.className = className
 
       localStorage.setItem('baseTheme', theme.baseTheme)
       localStorage.setItem('mainColor', theme.mainColor)
       localStorage.setItem('secColor', theme.secColor)
-
-      console.log(localStorage.getItem('baseTheme'))
     },
 
     checkForNewUpdates: function () {
@@ -441,7 +439,7 @@ export default Vue.extend({
      * all systems running the electron app.
      */
     watchSystemTheme: function () {
-      ipcRenderer.on('native-theme-update', (event, shouldUseDarkColors) => {
+      ipcRenderer.on(IpcChannels.NATIVE_THEME_UPDATE, (event, shouldUseDarkColors) => {
         document.body.dataset.theme = shouldUseDarkColors ? 'dark' : 'light'
       })
     },
