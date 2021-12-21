@@ -198,6 +198,7 @@ export default Vue.extend({
     },
 
     updateTheme: function (theme) {
+      console.log(theme)
       const className = `${theme.baseTheme} ${theme.mainColor} ${theme.secColor}`
       document.body.className = className
 

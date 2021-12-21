@@ -180,7 +180,7 @@ function runApp() {
         case 'light':
           return '#f1f1f1'
         case 'black':
-          return '#000'
+          return '#000000'
         case 'dracula':
           return '#282a36'
         case 'system':
@@ -250,7 +250,7 @@ function runApp() {
       height: 800
     })
 
-    const boundsDoc = await settingsDb.findOne({ _id: 'bounds' })
+    const boundsDoc = await baseHandlers.settings._findBounds()
     if (typeof boundsDoc?.value === 'object') {
       const { maximized, ...bounds } = boundsDoc.value
       const allDisplaysSummaryWidth = screen
@@ -366,7 +366,7 @@ function runApp() {
       window.webContents.send(IpcChannels.NATIVE_THEME_UPDATE, nativeTheme.shouldUseDarkColors)
     })
   })
-  
+
   ipcMain.on(IpcChannels.ENABLE_PROXY, (_, url) => {
     console.log(url)
     session.defaultSession.setProxy({
