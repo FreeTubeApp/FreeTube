@@ -220,6 +220,8 @@ Settings:
       vídeo
     Scroll Volume Over Video Player: Rolar volume sobre o reprodutor de vídeo
     Fast-Forward / Rewind Interval: Intervalo de avanço / retrocesso rápido
+    Scroll Playback Rate Over Video Player: Rolar a taxa de reprodução sobre o repordutor
+      de vídeo
   Subscription Settings:
     Subscription Settings: 'Configurações de inscrições'
     Hide Videos on Watch: 'Esconder vídeos após assisti-los'
@@ -569,6 +571,8 @@ Video:
     frame drop: Frame Drop
     bandwidth: Velocidade de conexão
     buffered: Buffered
+    out of: de
+    player resolution: Janela de exibição
 Videos:
   #& Sort By
   Sort By:
