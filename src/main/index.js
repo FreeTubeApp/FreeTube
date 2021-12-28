@@ -46,6 +46,7 @@ function runApp() {
   app.commandLine.appendSwitch('enable-accelerated-video-decode')
   app.commandLine.appendSwitch('enable-file-cookies')
   app.commandLine.appendSwitch('ignore-gpu-blacklist')
+  app.commandLine.appendSwitch('enable-experimental-web-platform-features')
 
   // See: https://stackoverflow.com/questions/45570589/electron-protocol-handler-not-working-on-windows
   // remove so we can register each time as we run the app.

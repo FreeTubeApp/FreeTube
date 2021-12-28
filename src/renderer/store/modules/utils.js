@@ -175,6 +175,30 @@ const actions = {
     }
   },
 
+  async downloadMedia({ rootState }, [url, title, extension]) {
+    console.log(`downloading ${url}`)
+    // require('downloadjs')(url, '/home/doppelganger/Downloads/test.mp4', 'video/mp4')
+    const response = await fetch(url)
+
+    if (response.ok) {
+      const blobFile = await response.blob()
+      /**
+      const newHandle = await window.showSaveFilePicker()
+
+      const writable = await newHandle.createWritable()
+      await writable.write(blobFile)
+      await writable.close()
+      */
+      const buffer = await blobFile.arrayBuffer()
+      fs.writeFile(`/home/doppelganger/Downloads/${title}.${extension}`, new DataView(buffer), (err) => {
+        if (err) return console.error(err)
+      })
+      console.log('download done')
+    } else {
+      console.error(response.status)
+    }
+  },
+
   async getSystemLocale (context) {
     const webCbk = () => {
       if (navigator && navigator.language) {
