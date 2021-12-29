@@ -190,6 +190,43 @@ const actions = {
     }
 
     const response = await fetch(url)
+    //  mecanism to show the download progress reference https://javascript.info/fetch-progress
+    const reader = response.body.getReader()
+
+    const contentLength = response.headers.get('Content-Length')
+
+    let receivedLength = 0
+    const chunks = []
+    // manage the frequency of the notification to the user
+    const intervalPercentageNotification = 0.2
+    let lastPercentageNotification = 0
+
+    while (true) {
+      const { done, value } = await reader.read()
+
+      if (done) {
+        break
+      }
+
+      chunks.push(value)
+      receivedLength += value.length
+      const percentage = receivedLength / contentLength
+      if (percentage > (lastPercentageNotification + intervalPercentageNotification)) {
+        dispatch('showToast', {
+          message: `download progress ${title}: ${(percentage * 100).toFixed(0)} `
+        })
+        lastPercentageNotification = percentage
+      }
+    }
+
+    const chunksAll = new Uint8Array(receivedLength)
+    let position = 0
+    for (const chunk of chunks) {
+      chunksAll.set(chunk, position)
+      position += chunk.length
+    }
+
+    // write the file into the hardrive
     if (!response.ok) {
       const errMsg = `not able to download ${title} return status code ${response.status}`
       console.error(errMsg)
@@ -198,7 +235,7 @@ const actions = {
       })
       return
     }
-    const blobFile = await response.blob()
+    const blobFile = new Blob(chunks)
 
     if (usingElectron && !askFolder) {
       const buffer = await blobFile.arrayBuffer()
