@@ -91,6 +91,7 @@ Trending:
   Music: Musik
   Gaming: Bermain game
   Default: Bawaan
+  Trending Tabs: Tab Trending
 Most Popular: 'Paling Populer'
 Playlists: 'Daftar Putar'
 User Playlists:
@@ -593,6 +594,11 @@ Video:
     video: video
     OpenInTemplate: Buka di $
   Premieres on: Pemutaran Perdana pada
+  Stats:
+    bandwidth: Kecepatan Koneksi
+    volume: Volume
+    fps: FPS
+    video id: ID Video (YouTube)
 Videos:
   #& Sort By
   Sort By:
@@ -617,6 +623,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Daftar Putar
 Toggle Theatre Mode: 'Mode Teater'
 Change Format:
   Change Video Formats: 'Ubah Format Video'
@@ -738,6 +745,7 @@ Tooltips:
     External Player: Memilih pemutar eksternal akan menampilkan ikon khusus, untuk
       membuka video (daftar putar jika didukung) di dalam pemutar eksternal, pada
       thumbnail.
+    DefaultCustomArgumentsTemplate: "(Default: '$')"
 Playing Next Video Interval: Langsung putar video berikutnya. Klik untuk batal. |
   Putar video berikutnya dalam {nextVideoInterval} detik. Klik untuk batal. | Putar
   video berikutnya dalam {nextVideoInterval} detik. Klik untuk batal.
