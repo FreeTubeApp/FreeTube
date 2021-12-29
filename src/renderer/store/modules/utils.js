@@ -197,7 +197,7 @@ const actions = {
 
     let receivedLength = 0
     const chunks = []
-    // manage the frequency of the notification to the user
+    // manage frequency notifications to the user
     const intervalPercentageNotification = 0.2
     let lastPercentageNotification = 0
 
