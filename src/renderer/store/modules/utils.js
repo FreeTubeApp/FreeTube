@@ -175,28 +175,33 @@ const actions = {
     }
   },
 
-  async downloadMedia({ rootState }, [url, title, extension]) {
+  async downloadMedia({ rootState }, [url, title, extension, folder]) {
+    const usingElectron = rootState.settings.usingElectron
+    const askFolder = folder === ''
     console.log(`downloading ${url}`)
-    // require('downloadjs')(url, '/home/doppelganger/Downloads/test.mp4', 'video/mp4')
     const response = await fetch(url)
 
-    if (response.ok) {
-      const blobFile = await response.blob()
-      /**
-      const newHandle = await window.showSaveFilePicker()
+    if (!response.ok) {
+      console.error(`not able to download ${title} return status code ${response.status}`)
+      return
+    }
+    const blobFile = await response.blob()
 
-      const writable = await newHandle.createWritable()
-      await writable.write(blobFile)
-      await writable.close()
-      */
+    if (usingElectron && !askFolder) {
       const buffer = await blobFile.arrayBuffer()
-      fs.writeFile(`/home/doppelganger/Downloads/${title}.${extension}`, new DataView(buffer), (err) => {
+      fs.writeFile(`${folder}/${title}.${extension}`, new DataView(buffer), (err) => {
         if (err) return console.error(err)
       })
-      console.log('download done')
-    } else {
-      console.error(response.status)
+      console.log(`download ${title} is done`)
+      return
     }
+
+    const newHandle = await window.showSaveFilePicker({ suggestedName: `${title}.${extension}` })
+
+    const writable = await newHandle.createWritable()
+    await writable.write(blobFile)
+    await writable.close()
+    console.log(`download ${title} is done`)
   },
 
   async getSystemLocale (context) {

@@ -128,7 +128,7 @@ export default Vue.extend({
     },
 
     handleDropdownClick: function (index) {
-      this.$emit('click', [this.dropdownValues[index], this.relatedVideoTitle, this.fileExtension[index]])
+      this.$emit('click', [this.dropdownValues[index], this.relatedVideoTitle, this.fileExtension[index], this.$store.getters.getDownloadFolder])
       this.focusOut()
     }
   }
