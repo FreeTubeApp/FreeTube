@@ -213,7 +213,7 @@ const actions = {
       const percentage = receivedLength / contentLength
       if (percentage > (lastPercentageNotification + intervalPercentageNotification)) {
         dispatch('showToast', {
-          message: `download progress ${title}: ${(percentage * 100).toFixed(0)} `
+          message: `download progress ${title}: ${(percentage * 100).toFixed(0)}%`
         })
         lastPercentageNotification = percentage
       }
