@@ -178,9 +178,14 @@ const actions = {
   async downloadMedia({ rootState }, [url, title, extension, folder]) {
     const usingElectron = rootState.settings.usingElectron
     const askFolder = folder === ''
+    let fileHandler
     console.log(`downloading ${url}`)
-    const response = await fetch(url)
 
+    if (askFolder) {
+      fileHandler = await window.showSaveFilePicker({ suggestedName: `${title}.${extension}` })
+    }
+
+    const response = await fetch(url)
     if (!response.ok) {
       console.error(`not able to download ${title} return status code ${response.status}`)
       return
@@ -196,9 +201,7 @@ const actions = {
       return
     }
 
-    const newHandle = await window.showSaveFilePicker({ suggestedName: `${title}.${extension}` })
-
-    const writable = await newHandle.createWritable()
+    const writable = await fileHandler.createWritable()
     await writable.write(blobFile)
     await writable.close()
     console.log(`download ${title} is done`)
