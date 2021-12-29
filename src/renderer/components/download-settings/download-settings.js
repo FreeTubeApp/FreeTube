@@ -33,6 +33,7 @@ export default Vue.extend({
       }
     },
     chooseDownloadingFolder: async function() {
+      // only use with electron
       const folder = await ipcRenderer.invoke(
         IpcChannels.SHOW_OPEN_DIALOG,
         { properties: ['openDirectory'] }
