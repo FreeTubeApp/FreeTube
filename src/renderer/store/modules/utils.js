@@ -240,7 +240,12 @@ const actions = {
     if (usingElectron && !askFolder) {
       const buffer = await blobFile.arrayBuffer()
       fs.writeFile(`${folder}/${title}.${extension}`, new DataView(buffer), (err) => {
-        if (err) return console.error(err)
+        if (err) {
+          dispatch('showToast', {
+            message: err
+          })
+          return console.error(err)
+        }
       })
       dispatch('showToast', {
         message: successMsg
@@ -249,7 +254,7 @@ const actions = {
     }
 
     const writable = await fileHandler.createWritable()
-    await writable.write(blobFile)
+    await writable.write(new Blob(chunks))
     await writable.close()
 
     dispatch('showToast', {
