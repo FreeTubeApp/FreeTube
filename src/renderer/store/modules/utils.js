@@ -175,11 +175,15 @@ const actions = {
     }
   },
 
-  async downloadMedia({ rootState }, [url, title, extension, folder]) {
+  async downloadMedia({ rootState, dispatch }, [url, title, extension, folder]) {
     const usingElectron = rootState.settings.usingElectron
     const askFolder = folder === ''
     let fileHandler
-    console.log(`downloading ${url}`)
+    const successMsg = `download ${title} is done`
+
+    dispatch('showToast', {
+      message: `downloading ${title}`
+    })
 
     if (askFolder) {
       fileHandler = await window.showSaveFilePicker({ suggestedName: `${title}.${extension}` })
@@ -187,7 +191,11 @@ const actions = {
 
     const response = await fetch(url)
     if (!response.ok) {
-      console.error(`not able to download ${title} return status code ${response.status}`)
+      const errMsg = `not able to download ${title} return status code ${response.status}`
+      console.error(errMsg)
+      dispatch('showToast', {
+        message: errMsg
+      })
       return
     }
     const blobFile = await response.blob()
@@ -197,14 +205,19 @@ const actions = {
       fs.writeFile(`${folder}/${title}.${extension}`, new DataView(buffer), (err) => {
         if (err) return console.error(err)
       })
-      console.log(`download ${title} is done`)
+      dispatch('showToast', {
+        message: successMsg
+      })
       return
     }
 
     const writable = await fileHandler.createWritable()
     await writable.write(blobFile)
     await writable.close()
-    console.log(`download ${title} is done`)
+
+    dispatch('showToast', {
+      message: successMsg
+    })
   },
 
   async getSystemLocale (context) {
