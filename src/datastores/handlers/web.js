@@ -81,6 +81,10 @@ class Playlists {
     return baseHandlers.playlists.find()
   }
 
+  static search(query) {
+    return baseHandlers.playlists.search(query)
+  }
+
   static upsertVideoByPlaylistName(playlistName, videoData) {
     return baseHandlers.playlists.upsertVideoByPlaylistName(playlistName, videoData)
   }

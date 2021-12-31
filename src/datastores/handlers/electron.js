@@ -123,6 +123,13 @@ class Playlists {
     )
   }
 
+  static search(query) {
+    return ipcRenderer.invoke(
+      IpcChannels.DB_PLAYLISTS,
+      { action: DBActions.PLAYLISTS.SEARCH, data: query }
+    )
+  }
+
   static upsertVideoByPlaylistName(playlistName, videoData) {
     return ipcRenderer.invoke(
       IpcChannels.DB_PLAYLISTS,
