@@ -22,7 +22,6 @@ export default Vue.extend({
     return {
       isLoading: false,
       dataLimit: 100,
-      searchBarPlaceHolder: this.$t('User Playlists.Search bar placeholder'),
       hasQuery: false
     }
   },

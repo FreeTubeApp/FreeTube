@@ -18,7 +18,7 @@
       </h3>
       <ft-input
         ref="searchBar"
-        :placeholder="searchBarPlaceHolder"
+        :placeholder="$t('User Playlists.Search bar placeholder')"
         :show-clear-text-button="true"
         :show-action-button="false"
         @input="filterPlaylist"

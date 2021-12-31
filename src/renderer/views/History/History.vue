@@ -11,7 +11,7 @@
       <h3>{{ $t("History.History") }}</h3>
       <ft-input
         ref="searchBar"
-        :placeholder="searchBarPlaceHolder"
+        :placeholder="$t('History.Search bar placeholder')"
         :show-clear-text-button="true"
         :show-action-button="false"
         @input="filterHistory"
