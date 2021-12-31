@@ -548,9 +548,6 @@ function runApp() {
         case DBActions.GENERAL.FIND:
           return await baseHandlers.playlists.find()
 
-        case DBActions.PLAYLISTS.SEARCH:
-          return await baseHandlers.playlists.search(data)
-
         case DBActions.PLAYLISTS.UPSERT_VIDEO:
           await baseHandlers.playlists.upsertVideoByPlaylistName(data.playlistName, data.videoData)
           syncOtherWindows(

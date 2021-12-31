@@ -95,11 +95,6 @@ class Playlists {
     return db.playlists.find({})
   }
 
-  static search(query) {
-    const re = new RegExp(query, 'i')
-    return db.history.find({ $or: [{ author: { $regex: re } }, { title: { $regex: re } }, { videoId: { $regex: re } }] }).sort({ timeWatched: -1 })
-  }
-
   static upsertVideoByPlaylistName(playlistName, videoData) {
     return db.playlists.update(
       { playlistName },
