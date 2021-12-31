@@ -139,7 +139,7 @@ const actions = {
   },
   async searchFavoritePlaylist({ commit }, query) {
     const re = new RegExp(query, 'i')
-    // filtering is the frontend because the documents are the playlist and not the
+    // filtering is the frontend because the documents are the playlist and not the videos
     const results = state.playlists[0].videos.slice()
       .filter((video) => {
         return video.author.match(re) ||
