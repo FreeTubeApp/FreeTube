@@ -540,6 +540,12 @@ export default Vue.extend({
           } else {
             this.videoLikeCount = result.likeCount
             this.videoDislikeCount = result.dislikeCount
+            if (this.useReturnYoutubeDislikes) {
+              this.ytGetDislikes(this.videoId)
+                .then(async result => {
+                  this.videoDislikeCount = isNaN(result.dislikes) ? 0 : result.dislikes
+                })
+            }
           }
           if (this.hideChannelSubscriptions) {
             this.channelSubscriptionCountText = ''
