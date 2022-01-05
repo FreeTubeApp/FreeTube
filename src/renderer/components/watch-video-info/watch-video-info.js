@@ -155,6 +155,10 @@ export default Vue.extend({
       return this.$store.getters.getHideVideoLikesAndDislikes
     },
 
+    useReturnYoutubeDislikes: function () {
+      return this.$store.getters.getUseReturnYoutubeDislikes
+    },
+
     hideVideoViews: function () {
       return this.$store.getters.getHideVideoViews
     },

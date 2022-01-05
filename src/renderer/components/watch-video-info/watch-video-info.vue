@@ -52,6 +52,7 @@
           class="likeSection"
         >
           <div
+            v-if="useReturnYoutubeDislikes"
             class="likeBar"
             :style="{ background: `linear-gradient(to right, var(--accent-color) ${likePercentageRatio}%, #9E9E9E ${likePercentageRatio}%` }"
           />
