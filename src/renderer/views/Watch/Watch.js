@@ -143,6 +143,9 @@ export default Vue.extend({
     hideVideoLikesAndDislikes: function () {
       return this.$store.getters.getHideVideoLikesAndDislikes
     },
+    useReturnYoutubeDislikes: function () {
+      return this.$store.getters.getUseReturnYoutubeDislikes
+    },
     theatrePossible: function() {
       return !this.hideRecommendedVideos || (!this.hideLiveChat && this.isLive) || this.watchingPlaylist
     }
@@ -211,7 +214,6 @@ export default Vue.extend({
       if (this.firstLoad) {
         this.isLoading = true
       }
-
       this.ytGetVideoInformation(this.videoId)
         .then(async result => {
           console.log(result)
@@ -289,6 +291,13 @@ export default Vue.extend({
           } else {
             this.videoLikeCount = isNaN(result.videoDetails.likes) ? 0 : result.videoDetails.likes
             this.videoDislikeCount = isNaN(result.videoDetails.dislikes) ? 0 : result.videoDetails.dislikes
+            if (this.useReturnYoutubeDislikes) {
+              this.ytGetDislikes(this.videoId)
+                .then(async result => {
+                  console.log(result)
+                  this.videoDislikeCount = isNaN(result.dislikes) ? 0 : result.dislikes
+                })
+            }
           }
           this.isLive = result.player_response.videoDetails.isLive
           this.isLiveContent = result.player_response.videoDetails.isLiveContent
@@ -1240,6 +1249,7 @@ export default Vue.extend({
       'updateWatchProgress',
       'getUserDataPath',
       'ytGetVideoInformation',
+      'ytGetDislikes',
       'invidiousGetVideoInformation'
     ])
   }

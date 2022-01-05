@@ -79,6 +79,9 @@ export default Vue.extend({
     checkForUpdates: function () {
       return this.$store.getters.getCheckForUpdates
     },
+    useReturnYoutubeDislikes: function () {
+      return this.$store.getters.getUseReturnYoutubeDislikes
+    },
     checkForBlogPosts: function () {
       return this.$store.getters.getCheckForBlogPosts
     },
@@ -226,6 +229,7 @@ export default Vue.extend({
       'updateEnableSearchSuggestions',
       'updateBackendFallback',
       'updateCheckForUpdates',
+      'updateUseReturnYoutubeDislikes',
       'updateCheckForBlogPosts',
       'updateBarColor',
       'updateBackendPreference',

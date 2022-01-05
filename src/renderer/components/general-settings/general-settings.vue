@@ -21,6 +21,13 @@
           :tooltip="$t('Tooltips.General Settings.Fallback to Non-Preferred Backend on Failure')"
           @change="updateBackendFallback"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.General Settings.Use ReturnYoutubeDislikes')"
+          :default-value="useReturnYoutubeDislikes"
+          :compact="true"
+          :tooltip="$t('Tooltips.General Settings.Use ReturnYoutubeDislikes')"
+          @change="updateUseReturnYoutubeDislikes"
+        />
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
