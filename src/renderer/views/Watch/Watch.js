@@ -294,7 +294,6 @@ export default Vue.extend({
             if (this.useReturnYoutubeDislikes) {
               this.ytGetDislikes(this.videoId)
                 .then(async result => {
-                  console.log(result)
                   this.videoDislikeCount = isNaN(result.dislikes) ? 0 : result.dislikes
                 })
             }

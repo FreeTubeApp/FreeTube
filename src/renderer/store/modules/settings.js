@@ -211,7 +211,7 @@ const state = {
   saveWatchedProgress: true,
   sponsorBlockShowSkippedToast: true,
   sponsorBlockUrl: 'https://sponsor.ajay.app',
-  useReturnYoutubeDislikes: true,
+  useReturnYoutubeDislikes: false,
   thumbnailPreference: '',
   useProxy: false,
   useRssFeeds: false,
