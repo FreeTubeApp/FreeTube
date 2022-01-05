@@ -113,6 +113,7 @@ Settings:
     Check for Latest Blog Posts: 'Check for latest blog posts'
     Fallback to Non-Preferred Backend on Failure: 'Revert to non-preferred backend
       on failure'
+    Use ReturnYoutubeDislikes: 'Use dislike numbers from ReturnYoutubeDislike.com'
     Enable Search Suggestions: 'Enable search suggestions'
     Default Landing Page: 'Default landing page'
     Locale Preference: 'Language preference'
@@ -727,6 +728,9 @@ Tooltips:
     Fallback to Non-Preferred Backend on Failure: When your preferred API has a problem,
       FreeTube will automatically attempt to use your non-preferred API as a fallback
       method when enabled.
+    Use ReturnYoutubeDislikes: Youtube no longer publicly shows dislike numbers on videos.
+      This setting will instead retrieve and show
+      video dislike numbers from returnyoutubedislike.com
     Preferred API Backend: Choose the back-end that FreeTube uses to obtain data.
       The local API is a built-in extractor. The Invidious API requires an Invidious
       server to connect to.

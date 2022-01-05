@@ -119,6 +119,7 @@ Settings:
     Check for Latest Blog Posts: Check for Latest Blog Posts
     Fallback to Non-Preferred Backend on Failure: Fallback to Non-Preferred Backend
       on Failure
+    Use ReturnYoutubeDislikes: 'Use dislike numbers from ReturnYoutubeDislike.com'
     Enable Search Suggestions: Enable Search Suggestions
     Default Landing Page: Default Landing Page
     Locale Preference: Locale Preference
@@ -637,6 +638,9 @@ Tooltips:
     Fallback to Non-Preferred Backend on Failure: When your preferred API has a problem,
       FreeTube will automatically attempt to use your non-preferred API as a fallback
       method when enabled.
+    Use ReturnYoutubeDislikes: Youtube no longer publicly shows dislike numbers on videos.
+      This setting will instead retrieve and show
+      video dislike numbers from returnyoutubedislike.com
     Thumbnail Preference: All thumbnails throughout FreeTube will be replaced with
       a frame of the video instead of the default thumbnail.
     Invidious Instance: The Invidious instance that FreeTube will connect to for API
