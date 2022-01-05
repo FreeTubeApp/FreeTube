@@ -60,7 +60,8 @@
             <span class="likeCount"><font-awesome-icon icon="thumbs-up" /> {{ parsedLikeCount }}</span>
             <span
               v-if="useReturnYoutubeDislikes"
-              class="dislikeCount"><font-awesome-icon icon="thumbs-down" /> {{ parsedDislikeCount }}</span>
+              class="dislikeCount"
+            ><font-awesome-icon icon="thumbs-down" /> {{ parsedDislikeCount }}</span>
           </div>
         </div>
       </div>
