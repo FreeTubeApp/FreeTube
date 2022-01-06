@@ -146,6 +146,10 @@ Settings:
       Open Link: Buka link
       Ask Before Opening Link: Tanya sebelum membuka link
       No Action: Tidak ada
+    The currently set default instance is $: Instans default yang saat ini disetel
+      adalah $
+    No default instance has been set: Tidak ada instans default yang disetel
+    Set Current Instance as Default: Tetapkan Instans Saat Ini sebagai Default
   Theme Settings:
     Theme Settings: 'Pengaturan Tema'
     Match Top Bar with Main Color: 'Samakan Bilah Atas dengan Warna Utama'
