@@ -223,6 +223,8 @@ Settings:
     Display Play Button In Video Player: Mostrar botão sobre vídeo quando em pausa
     Scroll Volume Over Video Player: Utilizar roda do rato sobre vídeo para mudar
       volume
+    Scroll Playback Rate Over Video Player: Rolar a taxa de reprodução sobre o reprodutor
+      de vídeo
   Privacy Settings:
     Privacy Settings: 'Definições de privacidade'
     Remember History: 'Lembrar histórico'
@@ -606,6 +608,8 @@ Video:
     frame drop: Fotogramas ignorados
     bandwidth: Velocidade da conexão
     out of: de
+    player resolution: Janela de exibição
+    buffered: Buffered
 Videos:
   #& Sort By
   Sort By:
@@ -755,6 +759,12 @@ Tooltips:
       é o seu sistema preferido. Quando ativada, a API local irá ser usada para ir
       buscar os formatos antigos, invés daqueles devolvidos pelo Invidious. Útil quando
       os vídeos dados pelo Invidious não funcionam devido a restrições geográficas.
+    Scroll Playback Rate Over Video Player: Com o cursor sobre o vídeo, pressione
+      e segure a tecla Control (tecla Command no Mac) e role a roda do rato para frente
+      ou para trás para controlar a taxa de reprodução. Pressione e segure a tecla
+      Control (tecla Command no Mac) e clique com o botão esquerdo do rato para retornar
+      rapidamente à taxa de reprodução padrão (1x a menos que tenha sido alterada
+      nas configurações).
   General Settings:
     Region for Trending: A região de tendências permite-lhe escolher de que país virão
       os vídeos na secção das tendências. Nem todos os países apresentados estão de

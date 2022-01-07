@@ -200,7 +200,7 @@ export default Vue.extend({
     },
 
     parsedLikeCount: function () {
-      if (this.hideVideoLikesAndDislikes) {
+      if (this.hideVideoLikesAndDislikes || this.likeCount === null) {
         return null
       }
 
@@ -209,7 +209,7 @@ export default Vue.extend({
     },
 
     parsedDislikeCount: function () {
-      if (this.hideVideoLikesAndDislikes) {
+      if (this.hideVideoLikesAndDislikes || this.dislikeCount === null) {
         return null
       }
 

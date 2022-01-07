@@ -220,6 +220,8 @@ Settings:
     Next Video Interval: Интервал следующего видео
     Display Play Button In Video Player: Отображение кнопки воспроизведения в видеопроигрывателе
     Fast-Forward / Rewind Interval: Интервал перемотки вперед/назад
+    Scroll Playback Rate Over Video Player: Контроль скорости воспроизведения колесикам
+      мыши в видеопроигрывателе
   Subscription Settings:
     Subscription Settings: 'Настройки подписки'
     Hide Videos on Watch: 'Скрыть видео после просмотра'
@@ -560,6 +562,15 @@ Video:
     playlist: Список воспроизведения
     video: видео
     OpenInTemplate: Открыть в $
+  Stats:
+    frame drop: Пропущенные кадры
+    video id: ID видео (YouTube)
+    player resolution: Область просмотра
+    volume: Объём
+    bandwidth: Скорость соединения
+    buffered: Буферизовано
+    out of: из
+  Premieres on: Премьеры
 Videos:
   #& Sort By
   Sort By:
@@ -634,6 +645,9 @@ Comments:
   Top comments: Лучшим комментариям
   Sort by: Сортировать по
   Show More Replies: Показать больше ответов
+  From $channelName: от $channelName
+  And others: и других
+  Pinned by: Закреплено
 Up Next: 'Следующий'
 
 # Toast Messages
@@ -742,6 +756,12 @@ Tooltips:
       Invidious API. Если этот параметр включен, локальный API будет работать и использовать
       устаревшие форматы вместо форматов Invidious. Помогает, когда видео, возвращенные
       Invidious, не воспроизводятся из-за ограничений страны.
+    Scroll Playback Rate Over Video Player: Пока курсор находится над видео, нажмите
+      и удерживайте клавишу Control (клавиша Command на Mac) и прокрутите колесо мыши
+      вперед или назад, чтобы контролировать скорость воспроизведения. Нажмите и удерживайте
+      клавишу Control (клавиша Command на Mac) и щелкните левой кнопкой мыши, чтобы
+      быстро вернуться к типовой скорости воспроизведения (1x, если она не была изменена
+      в настройках).
   Privacy Settings:
     Remove Video Meta Files: Если этот параметр включен, FreeTube автоматически удаляет
       метафайлы, созданные во время воспроизведения видео, когда страница просмотра
@@ -756,6 +776,7 @@ Tooltips:
       здесь можно задать собственный путь.
     External Player: При выборе внешнего плеера на миниатюре появится значок, позволяющий
       открыть видео (список воспроизведения, если поддерживается) во внешнем плеере.
+    DefaultCustomArgumentsTemplate: "(По умолчанию: '$')"
 More: Больше
 Playing Next Video Interval: Воспроизведение следующего видео без задержки. Нажмите
   для отмены. | Воспроизведение следующего видео через {nextVideoInterval} сек. Нажмите
