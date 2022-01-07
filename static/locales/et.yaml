@@ -3,7 +3,7 @@ Locale Name: 'Eesti'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Rakenduse see osa pole veel valmis. Tule hiljem tagasi, kui on tehtud edusamme.
+  Rakenduse see osa pole veel valmis. Tule hiljem tagasi, kui arendustööd on valmis.
 
 # Webkit Menu Bar
 File: 'Fail'
@@ -16,7 +16,7 @@ Copy: 'Kopeeri'
 Paste: 'Aseta'
 Delete: 'Kustuta'
 Select all: 'Vali kõik'
-Reload: 'Lae uuesti'
+Reload: 'Laadi uuesti'
 Force Reload: 'Sunni uuesti laadima'
 Toggle Developer Tools: 'Lülita arendustööriistad sisse/välja'
 Actual size: 'Tegelik suurus'
@@ -31,7 +31,7 @@ Forward: 'Edasi'
 
 Version $ is now available!  Click for more details: 'Versioon $ in nüüd saadaval!
   Lisateavet leiad siit'
-Download From Site: 'Lae alla veebisaidist'
+Download From Site: 'Laadi veebisaidist alla'
 A new blog is now available, $. Click to view more: 'Uus blogiartikkel on saadaval.
   Loe siit $'
 
@@ -67,8 +67,8 @@ Search Filters:
     Long (> 20 minutes): 'Pikad (üle 20 minuti)'
   # On Search Page
   Search Results: 'Otsingutulemused'
-  Fetching results. Please wait: 'Laen tulemusi. Palun oota üks hetk'
-  Fetch more results: 'Lae veel andmeid'
+  Fetching results. Please wait: 'Laadin tulemusi. Palun oota üks hetk'
+  Fetch more results: 'Laadi veel andmeid'
 # Sidebar
   There are no more results for this search: Sellel otsingul pole rohkem vastuseid
 Subscriptions:
@@ -77,15 +77,15 @@ Subscriptions:
   Latest Subscriptions: 'Viimased tellimused'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Sinu
     tellimuste loend on hetkel tühi. Telli kanaleid ja sa näed neid siin loendis.'
-  'Getting Subscriptions. Please wait.': 'Laen tellimusi, palun oota.'
+  'Getting Subscriptions. Please wait.': 'Laadin tellimusi, palun oota.'
   Refresh Subscriptions: 'Värskenda tellimusi'
   Load More Videos: Laadi veel videosid
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Sellel
-    profiilil on väga palju tellimusi. Vältimaks serveripoolseid piiranguid teen RSS-voo
-    päringud harvemini
+    profiilil on väga palju tellimusi. Vältimaks serveripoolseid piiranguid teeme
+    RSS-voo päringud harvemini
 Trending:
-  Trending: 'Populaarsed videod'
-  Trending Tabs: Populaarsed kaardid
+  Trending: 'Populaarsust koguvad videod'
+  Trending Tabs: Populaarsust koguvad kaardid
   Movies: Filmid
   Gaming: Arvutimängud
   Music: Muusika
@@ -133,7 +133,8 @@ Settings:
       End: 'Lõpus'
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious''e
       veebirakendus (vaikimisi kasutatav sait on https://invidious.snopyta.org)'
-    Region for Trending: 'Mis geograafia alusel tuvastame populaarsemad videod'
+    Region for Trending: 'Mis geograafia alusel tuvastame hetkel menukad ehk populaarsust
+      koguvad videod'
         #! List countries
     System Default: Arvuti vaikeseadistused
     View all Invidious instance information: Vaata kõike teavet kasutatava Invidious'e
@@ -145,6 +146,11 @@ Settings:
     No default instance has been set: Vaikimisi kasutatav teenus on seadistamata
     The currently set default instance is $: Hetkel kehtiv vaikimisi teenus on $
     Current Invidious Instance: Hetkel kasutusel olev Invidious'e teenuse server
+    External Link Handling:
+      No Action: Tegevus puudub
+      External Link Handling: Rakenduseväline lingikäsitlus
+      Open Link: Ava link
+      Ask Before Opening Link: Küsi enne lingi avamist
   Theme Settings:
     Theme Settings: 'Välimuse seadistused'
     Match Top Bar with Main Color: 'Kasuta ülaribal põhivärvi'
@@ -183,7 +189,8 @@ Settings:
         #* Main Color Theme
     UI Scale: Kasutajaliidese suurus
     Disable Smooth Scrolling: Ära kasuta sujuvat kerimist
-    Expand Side Bar by Default: Vaikimis näita külgriba laiana
+    Expand Side Bar by Default: Vaikimisi näita külgriba laiana
+    Hide Side Bar Labels: Peida külgriba sildid
   Player Settings:
     Player Settings: 'Videomängija seadistused'
     Force Local Backend for Legacy Formats: 'Pärandvormingute puhul kasuta sundkorras
@@ -217,6 +224,7 @@ Settings:
     Display Play Button In Video Player: Kuva videomängijas esitamise nuppu
     Scroll Volume Over Video Player: Muuda helivaljust videovaate kohal kerides
     Fast-Forward / Rewind Interval: Kiirkerimise välp
+    Scroll Playback Rate Over Video Player: Videomängija kohal saad muuta taasesituskiirust
   Privacy Settings:
     Privacy Settings: 'Privaatsuse seadistused'
     Remember History: 'Jäta ajalugu meelde'
@@ -257,13 +265,14 @@ Settings:
       andmeid ja selle jätan vahele'
     All subscriptions and profiles have been successfully imported: 'Kõikide tellimuste
       ja profiilide import õnnestus'
-    All subscriptions have been successfully imported: 'Kõikide tellimuste õnnestus'
+    All subscriptions have been successfully imported: 'Kõikide tellimuste import
+      õnnestus'
     One or more subscriptions were unable to be imported: 'Ühte või enamat tellimust
       ei õnnestunud importida'
     Invalid subscriptions file: 'Vigane tellimuste fail'
     This might take a while, please wait: 'Nüüd võib natuke aega kuluda, palun oota'
     Invalid history file: 'Vigane ajaloofail'
-    Subscriptions have been successfully exported: 'Tellimuste importimine õnnestus'
+    Subscriptions have been successfully exported: 'Tellimuste eksportimine õnnestus'
     History object has insufficient data, skipping item: 'Jätan vahele puuduliku ajalookirje
       importimise'
     All watched history has been successfully imported: 'Kogu vaatamiste ajalugu on
@@ -303,7 +312,7 @@ Settings:
     Hide Live Chat: Peida veebivestlused
     Hide Playlists: Peida esitusloendid
     Hide Popular Videos: Peida enimvaadatud videod
-    Hide Trending Videos: Peida populaarsust koguvad videod
+    Hide Trending Videos: Peida hetkel menukad ehk populaarsust koguvad videod
     Hide Recommended Videos: Peida soovitatud videod
     Hide Comment Likes: Peida kommentaaride meeldimised
     Hide Channel Subscribers: Peida kanalite tellijad
@@ -436,7 +445,7 @@ Channel:
   Subscribe: 'Telli'
   Unsubscribe: 'Lõpeta tellimus'
   Channel has been removed from your subscriptions: 'Kustutasin kanali sinu tellimustest'
-  Removed subscription from $ other channel(s): 'Kustutasin tellimuse ka $''st must
+  Removed subscription from $ other channel(s): 'Kustutasin tellimuse ka $''st muust
     kanalist'
   Added channel to your subscriptions: 'Lisasin kanali sinu tellimuste hulka'
   Search Channel: 'Otsi kanalit'
@@ -575,6 +584,16 @@ Video:
       opening playlists: esitusloendite avamine
       setting a playback rate: taasesituskiiruse määramine
       starting video at offset: video esitamine ajanihkega
+  Premieres on: Esilinastub
+  Stats:
+    video id: YouTube video tunnus
+    player resolution: Vaate suurus
+    volume: Helivaljus
+    fps: FPS
+    frame drop: Vahelejäetud kaadreid
+    bandwidth: Võrguühenduse kiirus
+    buffered: Puhverdatud
+    out of: /
 Videos:
   #& Sort By
   Sort By:
@@ -637,8 +656,8 @@ Comments:
   # Context: View 10 Replies, View 1 Reply
   View: 'Näita'
   Hide: 'Peida'
-  Replies: 'Vastused'
-  Reply: 'Vasta'
+  Replies: 'vastust'
+  Reply: 'vastus'
   There are no comments available for this video: 'Seda videot pole veel kommenteeritud'
   Load More Comments: 'Laadi veel kommentaare'
   Sort by: Sortimise alus
@@ -646,6 +665,9 @@ Comments:
   Newest first: Uuemad esimesena
   Top comments: Populaarsemad kommentaarid
   Show More Replies: Näita järgmisi vastuseid
+  And others: ja teised
+  Pinned by: Esiplaanile tõstja
+  From $channelName: kanalist $channelName
 Up Next: 'Järgmisena'
 
 # Toast Messages
@@ -689,6 +711,7 @@ Tooltips:
       mida sa soovid välisele meediamängijale saata.
     External Player: Seadistades välise meediamängija kuvame pisipildil ikooni video
       (või esitusloendi) esitamiseks välises meediamängijas.
+    DefaultCustomArgumentsTemplate: "(Vaikimisi: '$')"
   Subscription Settings:
     Fetch Feeds from RSS: Selle valiku kasutamisel FreeTube pruugib tellimuste andmete
       laadimisel vaikimisi meetodi asemel RSS-uudisvoogu. RSS on kiirem ja välistab
@@ -697,16 +720,18 @@ Tooltips:
     Remove Video Meta Files: Selle valiku kasutamisel FreeTube automaatselt kustutab
       peale video esitamist kogu metateabe.
   General Settings:
-    Region for Trending: Piirkond, mille alusel kuvame populaarsust koguvad videod.
-      Kõik siinloetletud riigid ei pruugi olla YouTube'is toetatud.
+    Region for Trending: Piirkond, mille alusel kuvame hetkel menukad ehk populaarsust
+      koguvad videod. Kõik siinloetletud riigid ei pruugi olla YouTube'is toetatud.
     Thumbnail Preference: Vaikimisi pisipildi asemel kuvab FreeTube kaadrit videost.
     Fallback to Non-Preferred Backend on Failure: Kui sinu eelistatud APi ei toimi,
       siis kui vähegi võimalik, FreeTube üritab kasutada alternatiivi.
     Preferred API Backend: Vali taustateenus, mida FreeTube kasutab andmete laadimisel.
       Kohalik API on rakenduses olemas ja Invidious'e API eeldab välise teenuseserveri
       kasutamist.
-    Invidious Instance: Invidious'e teenuse server, mida FreeTube Invidious'e API
-      jaoks kasutab. Kui tahad näha kõiki valikuid, siis kustuta hetkel kehtiv väärtus.
+    Invidious Instance: Invidious'e teenuse server, mida FreeTube API päringute jaoks
+      kasutab.
+    External Link Handling: "Vali vaikekäitumine, kui vajutatakse linki, mida ei saa\
+      \ avada FreeTubes.\nVaikimisi avaneb link kasutaja vaikebrauseris.\n"
   Player Settings:
     Default Video Format: Vali kasutatavad videovormingud. DASH-vormingutel on üldjuhul
       parem kvaliteet. Pärandvormingute kvaliteedi ülempiir on 720p ja seetõttu kasutavad
@@ -718,6 +743,11 @@ Tooltips:
       API ning kasutab pärandvorminguid ning ei kasuta neid mida Invidious'e server
       võimaldab kasutada. See seadistus on kasulik siis, kui Invidious'e API alusel
       laaditud videote esitamine riigipiirangute tõttu ei toimi.
+    Scroll Playback Rate Over Video Player: Kui kursor on video kohal, siis vajuta
+      Ctrl klahvi (Mac'is ⌘ klahvi) ja taasesituse kiiruse muutmiseks keri hiireratast
+      edasi ja tagasi. Tavakiiruse taastamiseks (kui sa seda seadistustest pole muutnud,
+      siis on see 1x) hoia all Ctrl klahvi (Mac'is ⌘ klahvi) ja klõpsi hiire vasakut
+      nuppu.
 Playing Next Video Interval: Kohe esitan järgmist videot. Tühistamiseks klõpsi. |
   {nextVideoInterval} sekundi möödumisel esitan järgmist videot. Tühistamiseks klõpsi.
   | {nextVideoInterval} sekundi möödumisel esitan järgmist videot. Tühistamiseks klõpsi.
@@ -725,3 +755,8 @@ Default Invidious instance has been cleared: Vaikimisi kasutatav Invidious'e tee
   on kustutatud
 Default Invidious instance has been set to $: Vaikimisi kasutatav Invidious'e teenus
   on $
+Search Bar:
+  Clear Input: Kustuta sisend
+External link opening has been disabled in the general settings: Väliste linkide avamine
+  on üldistes seadistustes keelatud
+Are you sure you want to open this link?: Oled kindel, et soovid seda linki avada?

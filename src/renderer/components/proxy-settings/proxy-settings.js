@@ -14,6 +14,8 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import { ipcRenderer } from 'electron'
 import debounce from 'lodash.debounce'
 
+import { IpcChannels } from '../../../constants'
+
 export default Vue.extend({
   name: 'ProxySettings',
   components: {
@@ -111,11 +113,11 @@ export default Vue.extend({
     },
 
     enableProxy: function () {
-      ipcRenderer.send('enableProxy', this.proxyUrl)
+      ipcRenderer.send(IpcChannels.ENABLE_PROXY, this.proxyUrl)
     },
 
     disableProxy: function () {
-      ipcRenderer.send('disableProxy')
+      ipcRenderer.send(IpcChannels.DISABLE_PROXY)
     },
 
     testProxy: function () {

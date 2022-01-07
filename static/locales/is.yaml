@@ -229,8 +229,9 @@ Settings:
       8k: '8k'
     Next Video Interval: Bil í næsta myndskeið
     Display Play Button In Video Player: Birta afspilunarhnapp í myndspilara
-    Scroll Volume Over Video Player: Skrun hljóðstyrks ofan á myndspilara
+    Scroll Volume Over Video Player: Skruna hljóðstyrk ofan á myndspilara
     Fast-Forward / Rewind Interval: Millibil hraðspólunar / spóla til baka
+    Scroll Playback Rate Over Video Player: Skruna afspilunarhraða ofan á myndspilara
   Privacy Settings:
     Privacy Settings: 'Stillingar gagnaleyndar'
     Remember History: 'Muna vinnsluferil'
@@ -551,6 +552,16 @@ Video:
     playlist: spilunarlisti
     video: myndskeið
     OpenInTemplate: Opna í $
+  Premieres on: Frumsýnt
+  Stats:
+    player resolution: Myndgluggi
+    fps: r/sek
+    bandwidth: Hraði tengingar
+    buffered: Í biðminni
+    out of: af
+    frame drop: Rammatap
+    video id: Auðkenni myndskeiðs (YouTube)
+    volume: Hljóðstyrkur
 Videos:
   #& Sort By
   Sort By:
@@ -623,6 +634,9 @@ Comments:
   Load More Comments: 'Hlaða inn fleiri athugasemdum'
   No more comments available: 'Engar fleiri athugasemdir eru tiltækar'
   Show More Replies: Birta fleiri svör
+  From $channelName: frá $channelName
+  And others: og fleirum
+  Pinned by: Fest af
 Up Next: 'Næst í spilun'
 
 #Tooltips
@@ -656,6 +670,12 @@ Tooltips:
       DASH-snið (Dynamic Adaptive Streaming over HTTP) er hægt að spila í meiri gæðum.
       Eldri snið takmarkast við 720p en nota minni bandbreidd. Hljóðsnið eru streymi
       einungis með hljóði.'
+    Scroll Playback Rate Over Video Player: Á meðan bendillinn er yfir myndspilaranum,
+      ýttu og haltu niðri Ctrl-lyklinum ('Command' slaufulykill á Mac) og skrunaðu
+      með músarhjólinu áfram eða afturábak til að stýra hraða afspilunar. Ýttu og
+      haltu niðri Ctrl-lyklinum ('Command' slaufulykill á Mac) og smelltu með vinstri
+      músarhnappnum til að snúa aftur í sjálfgefinn hraða (1x nema ef því hefur verið
+      breytt í stillingunum).
   Subscription Settings:
     Fetch Feeds from RSS: 'Þegar þetta er virkt, mun FreeTube nota RSS í stað sjálfgefinnar
       aðferðar við að safna streymi áskriftarinnar þinnar. RSS er hraðvirkara og kemur

@@ -83,6 +83,11 @@ Subscriptions:
   Load More Videos: '더 많은 동영상 불러오기'
 Trending:
   Trending: '트렌딩'
+  Trending Tabs: 트렌딩 탭
+  Default: 기본
+  Movies: 영화
+  Gaming: 게임
+  Music: 음악
 Most Popular: '인기 동영상'
 Playlists: '재생 목록'
 User Playlists:
@@ -128,6 +133,18 @@ Settings:
     Region for Trending: '트렌드 국가'
         #! List countries
     View all Invidious instance information: Indivious 서버의 전체 목록 보기
+    Current Invidious Instance: 현재 Invidious 인스턴스
+    System Default: 시스템 기본값
+    No default instance has been set: 기본 인스턴스가 설정되지 않았습니다
+    The currently set default instance is $: 현재 설정된 기본 인스턴스는 $입니다
+    Current instance will be randomized on startup: 현재 인스턴스는 시작 시 무작위로 지정됩니다
+    Set Current Instance as Default: 현재 인스턴스를 기본값으로 설정
+    Clear Default Instance: 기본 인스턴스 지우기
+    External Link Handling:
+      External Link Handling: 외부 링크 처리
+      Open Link: 링크 열기
+      Ask Before Opening Link: 링크를 열기 전에 확인
+      No Action: 아무것도 안함
   Theme Settings:
     Theme Settings: '테마 설정'
     Match Top Bar with Main Color: '상단바를 메인컬러와 동기화'
@@ -167,6 +184,7 @@ Settings:
       Dracula Yellow: '드라큘라 노랑'
     Secondary Color Theme: '보조색상테마'
         #* Main Color Theme
+    Hide Side Bar Labels: 사이드 바 레이블 숨기기
   Player Settings:
     Player Settings: '플레이어 설정'
     Force Local Backend for Legacy Formats: '레거시 포멧에 로컬 백엔드 강제적용'
@@ -196,6 +214,10 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: 재생 목록 다음 비디오 간격
+    Fast-Forward / Rewind Interval: 빨리 감기/되감기 간격
+    Next Video Interval: 다음 비디오 간격
+    Scroll Volume Over Video Player: 비디오 플레이어에서 볼륨 스크롤
+    Display Play Button In Video Player: 비디오 플레이어에 재생 버튼 표시
   Privacy Settings:
     Privacy Settings: '개인정보 설정'
     Remember History: '기록 저장하기'
@@ -209,6 +231,7 @@ Settings:
     Remove All Subscriptions / Profiles: '모든 구독채널과 프로필 삭제'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: '정말로
       모든 구독채널과 프로필을 삭제하시겠습니까? 삭제하면 복구가되지않습니다.'
+    Automatically Remove Video Meta Files: 비디오 메타 파일 자동 제거
   Subscription Settings:
     Subscription Settings: '구독 설정'
     Hide Videos on Watch: '시청한 동영상 숨기기'
@@ -295,6 +318,18 @@ Settings:
     Proxy Protocol: 프록시 프로토콜
     Enable Tor / Proxy: Tor / Proxy 사용
     Proxy Settings: 프록시 설정
+  SponsorBlock Settings:
+    SponsorBlock Settings: 스폰서 차단 설정
+    Enable SponsorBlock: 스폰서 차단 활성화
+    Notify when sponsor segment is skipped: 스폰서 세그먼트를 건너뛸 때 알림
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 스폰서 차단 API Url (Default
+      is https://sponsor.ajay.app)
+  External Player Settings:
+    External Player Settings: 외부 플레이어 설정
+    Custom External Player Arguments: 사용자 정의 외부 플레이어 인수
+    Custom External Player Executable: 사용자 정의 외부 플레이어 실행 파일
+    External Player: 외부 플레이어
+    Ignore Unsupported Action Warnings: 지원되지 않는 작업 경고 무시
 About:
   #On About page
   About: '정보'
@@ -380,6 +415,7 @@ Profile:
     채널을 삭제하시겠습니까? 다른 프로파일에서는 채널이 삭제되지 않습니다.'
 #On Channel Page
   Profile Filter: 프로필 필터
+  Profile Settings: 프로필 설정
 Channel:
   Subscriber: '구독자'
   Subscribers: '구독자'
@@ -389,87 +425,89 @@ Channel:
   Removed subscription from $ other channel(s): '$ 다른 채널에서 구독을 제거했습니다'
   Added channel to your subscriptions: '구독에 채널을 추가했습니다'
   Search Channel: '채널 검색'
-  Your search results have returned 0 results: ''
-  Sort By: ''
+  Your search results have returned 0 results: '검색 결과에 0개의 결과가 반환되었습니다'
+  Sort By: '정렬 기준'
   Videos:
-    Videos: ''
-    This channel does not currently have any videos: ''
+    Videos: '동영상'
+    This channel does not currently have any videos: '이 채널에는 현재 동영상이 없습니다'
     Sort Types:
-      Newest: ''
-      Oldest: ''
-      Most Popular: ''
+      Newest: '최신'
+      Oldest: '오래된'
+      Most Popular: '가장 인기 많은'
   Playlists:
-    Playlists: ''
-    This channel does not currently have any playlists: ''
+    Playlists: '재생 목록'
+    This channel does not currently have any playlists: '이 채널에는 현재 재생목록이 없습니다'
     Sort Types:
-      Last Video Added: ''
-      Newest: ''
-      Oldest: ''
+      Last Video Added: '마지막으로 추가된 동영상'
+      Newest: '최신'
+      Oldest: '오래된'
   About:
-    About: ''
-    Channel Description: ''
-    Featured Channels: ''
+    About: '정보'
+    Channel Description: '채널 설명'
+    Featured Channels: '추천 채널'
 Video:
-  Mark As Watched: ''
-  Remove From History: ''
-  Video has been marked as watched: ''
-  Video has been removed from your history: ''
-  Open in YouTube: ''
-  Copy YouTube Link: ''
-  Open YouTube Embedded Player: ''
-  Copy YouTube Embedded Player Link: ''
-  Open in Invidious: ''
-  Copy Invidious Link: ''
-  Open Channel in YouTube: ''
-  Copy YouTube Channel Link: ''
-  Open Channel in Invidious: ''
-  Copy Invidious Channel Link: ''
+  Mark As Watched: '시청함으로 표시'
+  Remove From History: '기록에서 제거'
+  Video has been marked as watched: '동영상이 시청함으로 표시되었습니다'
+  Video has been removed from your history: '동영상이 기록에서 삭제되었습니다'
+  Open in YouTube: 'YouTube에서 열기'
+  Copy YouTube Link: 'YouTube 링크 복사'
+  Open YouTube Embedded Player: 'YouTube 내장 플레이어 열기'
+  Copy YouTube Embedded Player Link: 'YouTube 내장 플레이어 링크 복사'
+  Open in Invidious: 'Invidious에서 열기'
+  Copy Invidious Link: 'Invidious 링크 복사'
+  Open Channel in YouTube: 'YouTube에서 채널 열기'
+  Copy YouTube Channel Link: 'YouTube 채널 링크 복사'
+  Open Channel in Invidious: 'Invidious에서 채널 열기'
+  Copy Invidious Channel Link: 'Invidious 채널 링크 복사'
   View: ''
   Views: ''
-  Loop Playlist: ''
-  Shuffle Playlist: ''
-  Reverse Playlist: ''
-  Play Next Video: ''
-  Play Previous Video: ''
+  Loop Playlist: '재생 목록 반복'
+  Shuffle Playlist: '재생 목록 셔플'
+  Reverse Playlist: '재생 목록 역재생'
+  Play Next Video: '다음 동영상 재생'
+  Play Previous Video: '이전 동영상 재생'
   # Context is "X People Watching"
-  Watching: ''
-  Watched: ''
-  Autoplay: ''
-  Starting soon, please refresh the page to check again: ''
+  Watching: '시청중'
+  Watched: '시청함'
+  Autoplay: '자동 재생'
+  Starting soon, please refresh the page to check again: '곧 시작됩니다. 다시 확인하려면 페이지를 새로고침하십시오'
   # As in a Live Video
-  Live: ''
+  Live: '라이브'
   Live Now: ''
-  Live Chat: ''
-  Enable Live Chat: ''
-  Live Chat is currently not supported in this build.: ''
-  'Chat is disabled or the Live Stream has ended.': ''
-  Live chat is enabled.  Chat messages will appear here once sent.: ''
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
-  Download Video: ''
-  video only: ''
-  audio only: ''
+  Live Chat: '라이브 채팅'
+  Enable Live Chat: '라이브 채팅 활성화'
+  Live Chat is currently not supported in this build.: '라이브 채팅은 현재 이 빌드에서 지원되지 않습니다.'
+  'Chat is disabled or the Live Stream has ended.': '채팅이 비활성화되었거나 라이브 스트림이 종료되었습니다.'
+  Live chat is enabled.  Chat messages will appear here once sent.: '라이브 채팅이 활성화되었습니다.   채팅
+    메시지가 전송되면 여기에 표시됩니다.'
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': '라이브
+    채팅은 현재 Invidious API에서 지원되지 않습니다.   YouTube에 직접 연결해야 합니다.'
+  Download Video: '동영상 다운로드'
+  video only: '비디오만'
+  audio only: '오디오만'
   Audio:
-    Low: ''
-    Medium: ''
-    High: ''
-    Best: ''
+    Low: '낮음'
+    Medium: '중간'
+    High: '높음'
+    Best: '최고'
   Published:
-    Jan: ''
-    Feb: ''
-    Mar: ''
-    Apr: ''
-    May: ''
-    Jun: ''
-    Jul: ''
-    Aug: ''
-    Sep: ''
-    Oct: ''
-    Nov: ''
-    Dec: ''
-    Second: ''
-    Seconds: ''
-    Minute: ''
-    Minutes: ''
+    Jan: '1월'
+    Feb: '2월'
+    Mar: '3월'
+    Apr: '4월'
+    May: '5월'
+    Jun: '6월'
+    Jul: '7월'
+    Aug: '8월'
+    Sep: '9월'
+    Oct: '10월'
+    Nov: '11월'
+    Dec: '12월'
+    Second: '초'
+    Seconds: '초'
+    Minute: '분'
+    Minutes: '분'
     Hour: ''
     Hours: ''
     Day: ''
@@ -488,6 +526,9 @@ Video:
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: ''
 #& Videos
+  Video has been saved: 동영상이 저장되었습니다
+  Video has been removed from your saved list: 저장된 목록에서 동영상이 제거되었습니다
+  Save Video: 비디오 저장
 Videos:
   #& Sort By
   Sort By:
@@ -501,94 +542,132 @@ Playlist:
   Videos: ''
   View: ''
   Views: ''
-  Last Updated On: ''
+  Last Updated On: '마지막 업데이트 날짜'
   Share Playlist:
-    Share Playlist: ''
-    Copy YouTube Link: ''
-    Open in YouTube: ''
-    Copy Invidious Link: ''
-    Open in Invidious: ''
+    Share Playlist: '재생 목록 공유'
+    Copy YouTube Link: 'YouTube 링크 복사'
+    Open in YouTube: 'YouTube에서 열기'
+    Copy Invidious Link: 'Invidious 링크 복사'
+    Open in Invidious: 'Invidious에서 열기'
 
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: ''
+Toggle Theatre Mode: '극장 모드 전환'
 Change Format:
-  Change Video Formats: ''
-  Use Dash Formats: ''
-  Use Legacy Formats: ''
-  Use Audio Formats: ''
-  Dash formats are not available for this video: ''
-  Audio formats are not available for this video: ''
+  Change Video Formats: '비디오 형식 변경'
+  Use Dash Formats: 'DASH 형식 사용'
+  Use Legacy Formats: '레거시 형식 사용'
+  Use Audio Formats: '오디오 형식 사용'
+  Dash formats are not available for this video: '이 비디오에는 DASH 형식을 사용할 수 없습니다'
+  Audio formats are not available for this video: '이 비디오에는 오디오 형식을 사용할 수 없습니다'
 Share:
-  Share Video: ''
-  Include Timestamp: ''
-  Copy Link: ''
-  Open Link: ''
+  Share Video: '동영상 공유'
+  Include Timestamp: '타임스탬프 포함'
+  Copy Link: '링크 복사'
+  Open Link: '링크 열기'
   Copy Embed: ''
   Open Embed: ''
   # On Click
-  Invidious URL copied to clipboard: ''
-  Invidious Embed URL copied to clipboard: ''
-  Invidious Channel URL copied to clipboard: ''
-  YouTube URL copied to clipboard: ''
-  YouTube Embed URL copied to clipboard: ''
-  YouTube Channel URL copied to clipboard: ''
+  Invidious URL copied to clipboard: 'Invidious URL이 클립보드에 복사되었습니다'
+  Invidious Embed URL copied to clipboard: 'Invidious 임베드 URL이 클립보드에 복사되었습니다'
+  Invidious Channel URL copied to clipboard: 'Invidious 채널 URL이 클립보드에 복사되었습니다'
+  YouTube URL copied to clipboard: 'YouTube URL이 클립보드에 복사되었습니다'
+  YouTube Embed URL copied to clipboard: 'YouTube 임베드 URL이 클립보드에 복사되었습니다'
+  YouTube Channel URL copied to clipboard: 'YouTube 채널 URL이 클립보드에 복사되었습니다'
 
-Mini Player: ''
+Mini Player: '미니 플레이어'
 Comments:
-  Comments: ''
-  Click to View Comments: ''
-  Getting comment replies, please wait: ''
-  There are no more comments for this video: ''
-  Show Comments: ''
-  Hide Comments: ''
-  Sort by: ''
-  Top comments: ''
-  Newest first: ''
+  Comments: '댓글'
+  Click to View Comments: '댓글을 보려면 클릭하세요'
+  Getting comment replies, please wait: '댓글의 답글을 받는 중입니다. 잠시만 기다려 주세요'
+  There are no more comments for this video: '이 영상에 대한 댓글이 더 이상 없습니다'
+  Show Comments: '댓글 보기'
+  Hide Comments: '댓글 숨기기'
+  Sort by: '정렬 기준'
+  Top comments: '인기 댓글'
+  Newest first: '최신 우선'
   # Context: View 10 Replies, View 1 Reply
-  View: ''
-  Hide: ''
-  Replies: ''
+  View: '보기'
+  Hide: '숨기기'
+  Replies: '답글'
   Reply: ''
-  There are no comments available for this video: ''
-  Load More Comments: ''
-  No more comments available: ''
+  There are no comments available for this video: '이 영상에 대한 댓글이 없습니다'
+  Load More Comments: '더 많은 댓글 불러오기'
+  No more comments available: '더 이상 사용할 수 있는 댓글이 없습니다'
+  Show More Replies: 더 많은 답글 보기
 Up Next: ''
 
 #Tooltips
 Tooltips:
   General Settings:
-    Preferred API Backend: ''
-    Fallback to Non-Preferred Backend on Failure: ''
-    Thumbnail Preference: ''
-    Invidious Instance: ''
-    Region for Trending: ''
+    Preferred API Backend: 'FreeTube가 데이터를 얻기 위해 사용하는 백엔드를 선택하십시오. 로컬 API는 기본 제공 추출기입니다.
+      Invidious API는 연결할 Invidious 서버가 필요합니다.'
+    Fallback to Non-Preferred Backend on Failure: '선호하는 API에 문제가 있는 경우 FreeTube는 활성화될
+      때, 선호하지 않는 API를 대체 방법으로 사용하려고 자동으로 시도합니다.'
+    Thumbnail Preference: 'FreeTube 전체의 모든 썸네일은 기본 썸네일 대신 비디오 프레임으로 대체됩니다.'
+    Invidious Instance: 'FreeTube가 API 호출을 위해 연결할 Invidious 인스턴스입니다.'
+    Region for Trending: '트렌드 지역을 통해 표시하고 싶은 국가의 트렌드 비디오를 선택할 수 있습니다. 표시된 모든 국가가 실제로
+      YouTube에서 지원되는 것은 아닙니다.'
+    External Link Handling: "FreeTube에서 열 수 없는 링크를 클릭할 때 기본 동작을 선택합니다.\n기본적으로 FreeTube는\
+      \ 기본 브라우저에서 클릭한 링크를 엽니다.\n"
   Player Settings:
-    Force Local Backend for Legacy Formats: ''
-    Proxy Videos Through Invidious: ''
-    Default Video Format: ''
+    Force Local Backend for Legacy Formats: 'Invidious API가 기본값인 경우에만 작동합니다. 활성화되면
+      로컬 API가 실행되고 Invidious에서 반환된 형식 대신 해당 형식에서 반환된 레거시 형식을 사용합니다. Invidious에서 반환한
+      동영상이 국가 제한으로 인해 재생되지 않을 때 도움이 됩니다.'
+    Proxy Videos Through Invidious: 'YouTube에 직접 연결하는 대신 Invidious에 연결하여 동영상을 제공합니다.
+      API 기본 설정을 재정의합니다.'
+    Default Video Format: '동영상 재생 시 사용되는 형식을 설정합니다. DASH 형식은 더 높은 품질을 재생할 수 있습니다.
+      레거시 형식은 최대 720p로 제한되지만 더 적은 대역폭을 사용합니다. 오디오 형식은 오디오 전용 스트림입니다.'
   Subscription Settings:
-    Fetch Feeds from RSS: ''
+    Fetch Feeds from RSS: '활성화되면 FreeTube는 구독 피드를 가져오는 기본 방법 대신 RSS를 사용합니다. RSS는 더
+      빠르고 IP 차단을 방지하지만 비디오 길이 또는 라이브 상태와 같은 특정 정보를 제공하지 않습니다'
 
 # Toast Messages
-Local API Error (Click to copy): ''
-Invidious API Error (Click to copy): ''
-Falling back to Invidious API: ''
-Falling back to the local API: ''
-This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
-Subscriptions have not yet been implemented: ''
-Loop is now disabled: ''
-Loop is now enabled: ''
-Shuffle is now disabled: ''
-Shuffle is now enabled: ''
-The playlist has been reversed: ''
-Playing Next Video: ''
-Playing Previous Video: ''
+  External Player Settings:
+    DefaultCustomArgumentsTemplate: "(기본: '$')"
+    External Player: 외부 플레이어를 선택하면 썸네일에 외부 플레이어에서 비디오(지원되는 경우 재생 목록)를 열기 위한 아이콘이 표시됩니다.
+    Custom External Player Executable: 기본적으로 FreeTube는 PATH 환경 변수를 통해 선택한 외부 플레이어를
+      찾을 수 있다고 가정합니다. 필요한 경우 여기에서 사용자 정의 경로를 설정할 수 있습니다.
+    Ignore Warnings: '현재 외부 플레이어가 현재 작업을 지원하지 않는 경우(예: 재생 목록 반전 등) 경고를 표시하지 않습니다.'
+    Custom External Player Arguments: 외부 플레이어로 전달되기를 원하는사용자 지정 명령줄 인수는 세미콜론(';')으로
+      구분됩니다.
+  Privacy Settings:
+    Remove Video Meta Files: 활성화되면 FreeTube는 보기 페이지가 닫힐 때 비디오 재생 중에 생성된 메타 파일을 자동으로
+      삭제합니다.
+Local API Error (Click to copy): '로컬 API 오류(복사하려면 클릭)'
+Invidious API Error (Click to copy): 'Invidious API 오류(복사하려면 클릭)'
+Falling back to Invidious API: 'Invidious API로 대체'
+Falling back to the local API: '로컬 API로 대체'
+This video is unavailable because of missing formats. This can happen due to country unavailability.: '이
+  동영상은 형식이 누락되어 사용할 수 없습니다. 이는 국가를 사용할 수 없기 때문에 발생할 수 있습니다.'
+Subscriptions have not yet been implemented: '구독이 아직 구현되지 않았습니다'
+Loop is now disabled: '반복이 비활성화되었습니다'
+Loop is now enabled: '반복이 활성화되었습니다'
+Shuffle is now disabled: '셔플이 비활성화되었습니다'
+Shuffle is now enabled: '셔플이 활성화되었습니다'
+The playlist has been reversed: '재생 목록이 역순이 되었습니다'
+Playing Next Video: '다음 비디오 재생'
+Playing Previous Video: '이전 비디오 재생'
 Playing next video in 5 seconds.  Click to cancel: ''
-Canceled next video autoplay: ''
-'The playlist has ended.  Enable loop to continue playing': ''
+Canceled next video autoplay: '다음 동영상 자동재생 취소됨'
+'The playlist has ended.  Enable loop to continue playing': '재생목록이 종료되었습니다. 계속 재생하려면
+  반복 활성화'
 
-Yes: ''
-No: ''
+Yes: '예'
+No: '아니오'
 More: 더 보기
+Unknown YouTube url type, cannot be opened in app: 알 수 없는 YouTube URL 유형, 앱에서 열 수
+  없음
+Hashtags have not yet been implemented, try again later: 해시태그가 아직 구현되지 않았습니다. 나중에
+  다시 시도하세요
+Playing Next Video Interval: 즉시 다음 동영상을 재생합니다. 취소하려면 클릭하세요. | {nextVideoInterval}초
+  후에 다음 동영상을 재생합니다. 취소하려면 클릭하세요. | {nextVideoInterval}초 후에 다음 동영상을 재생합니다. 취소하려면 클릭하세요.
+Default Invidious instance has been set to $: 기본 Invidious 인스턴스가 $로 설정되었습니다
+External link opening has been disabled in the general settings: 일반 설정에서 외부 링크 열기가
+  비활성화되었습니다
+Open New Window: 새 창 열기
+Default Invidious instance has been cleared: 기본 Invidious 인스턴스가 제거되었습니다
+Are you sure you want to open this link?: 이 링크를 여시겠습니까?
+Search Bar:
+  Clear Input: 입력 지우기

@@ -221,6 +221,8 @@ Settings:
       odtwarzacza
     Display Play Button In Video Player: Pokaż przycisk odtwarzania na odtwarzaczu
     Fast-Forward / Rewind Interval: Interwał przewijania
+    Scroll Playback Rate Over Video Player: Kontroluj szybkość odtwarzania kółkiem
+      myszy na obszarze odtwarzania
   Subscription Settings:
     Subscription Settings: 'Ustawienia subskrypcji'
     Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
@@ -477,7 +479,7 @@ Video:
   Watching: 'ogląda'
   Watched: 'Obejrzany'
   # As in a Live Video
-  Live: 'Na żywo'
+  Live: 'Transmisja'
   Live Now: 'Teraz na żywo'
   Live Chat: 'Czat na żywo'
   Enable Live Chat: 'Włącz czat na żywo'
@@ -516,14 +518,14 @@ Video:
     Year: 'rok'
     Years: 'lat/a'
     Ago: 'temu'
-    Upcoming: 'Najbliższe premiery'
+    Upcoming: 'Premiera'
     Minutes: minut/y
     Minute: minutę
   Published on: 'Opublikowano'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % temu'
 #& Videos
-  Autoplay: Autoodtw.
+  Autoplay: Autoodtwarzanie
   Play Previous Video: Odtwórz poprzedni film
   Play Next Video: Odtwórz następny film
   Reverse Playlist: Odwróć playlistę
@@ -573,6 +575,15 @@ Video:
     playlist: playlisty
     video: filmu
     OpenInTemplate: Otwórz w $
+  Premieres on: Premiera
+  Stats:
+    buffered: Zbuforowano
+    out of: z
+    video id: ID filmu (YouTube)
+    player resolution: Odtwarzacz
+    volume: Głośność
+    bandwidth: Prędkość połączenia
+    fps: FPS
 Videos:
   #& Sort By
   Sort By:
@@ -646,6 +657,9 @@ Comments:
   Top comments: Najlepsze komentarze
   Sort by: Sortuj według
   Show More Replies: Pokaż więcej odpowiedzi
+  And others: i innych
+  Pinned by: Przypięty przez
+  From $channelName: od $channelName
 Up Next: 'Następne'
 
 # Toast Messages
@@ -753,6 +767,11 @@ Tooltips:
       720p, ale zużywają mniej przepustowości. Formaty audio odtwarzają tylko dźwięk.
     Proxy Videos Through Invidious: Będzie dostarczał filmy, łącząc się z Invidious,
       a nie bezpośrednio z YouTube. Nadpisuje ustawienia API.
+    Scroll Playback Rate Over Video Player: Umieść kursor nad odtwarzaczem, przytrzymaj
+      klawisz „Ctrl” („Command” na Mac-u) i przewijaj kółkiem myszy w górę i w dół,
+      aby kontrolować szybkość odtwarzania. Przytrzymaj klawisz „Ctrl” („Command”
+      na Mac-u) i kliknij lewym przyciskiem myszy, by szybko powrócić do domyślnej
+      wartości (1x, chyba że została zmieniona w ustawieniach).
   Privacy Settings:
     Remove Video Meta Files: Po włączeniu, FreeTube automatycznie usunie pliki metadanych
       utworzone podczas odtwarzania filmu, gdy strona odtwarzania zostanie zamknięta.
