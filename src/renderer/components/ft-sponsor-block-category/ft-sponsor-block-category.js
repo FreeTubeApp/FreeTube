@@ -22,35 +22,22 @@ export default Vue.extend({
         // 'promptToSkip',
         'showInSeekBar',
         'doNothing'
-      ],
-      colorValues: [
-        'Red',
-        'Pink',
-        'Purple',
-        'DeepPurple',
-        'Indigo',
-        'Blue',
-        'LightBlue',
-        'Cyan',
-        'Teal',
-        'Green',
-        'LightGreen',
-        'Lime',
-        'Yellow',
-        'Amber',
-        'Orange',
-        'DeepOrange',
-        'DraculaCyan',
-        'DraculaGreen',
-        'DraculaOrange',
-        'DraculaPink',
-        'DraculaPurple',
-        'DraculaRed',
-        'DraculaYellow'
       ]
     }
   },
   computed: {
+    colorValues: function () {
+      return this.$store.getters.getColorNames
+    },
+
+    colorNames: function () {
+      return this.colorValues.map(colorVal => {
+        // add spaces before capital letters
+        const colorName = colorVal.replace(/([A-Z])/g, ' $1').trim()
+        return this.$t(`Settings.Theme Settings.Main Color Theme.${colorName}`)
+      })
+    },
+
     sponsorBlockValues: function() {
       let sponsorVal = ''
       switch (this.categoryName.toLowerCase()) {
@@ -75,42 +62,19 @@ export default Vue.extend({
         case 'music offtopic':
           sponsorVal = this.$store.getters.getSponsorBlockMusicOffTopic
           break
+        case 'filler':
+          sponsorVal = this.$store.getters.getSponsorBlockFiller
+          break
       }
       return sponsorVal
     },
+
     skipNames: function() {
       return [
         this.$t('Settings.SponsorBlock Settings.Skip Options.Auto Skip'),
         // this.$t('Settings.SponsorBlock Settings.Skip Options.Prompt To Skip'),
         this.$t('Settings.SponsorBlock Settings.Skip Options.Show In Seek Bar'),
         this.$t('Settings.SponsorBlock Settings.Skip Options.Do Nothing')
-      ]
-    },
-    colorNames: function () {
-      return [
-        this.$t('Settings.Theme Settings.Main Color Theme.Red'),
-        this.$t('Settings.Theme Settings.Main Color Theme.Pink'),
-        this.$t('Settings.Theme Settings.Main Color Theme.Purple'),
-        this.$t('Settings.Theme Settings.Main Color Theme.Deep Purple'),
-        this.$t('Settings.Theme Settings.Main Color Theme.Indigo'),
-        this.$t('Settings.Theme Settings.Main Color Theme.Blue'),
-        this.$t('Settings.Theme Settings.Main Color Theme.Light Blue'),
-        this.$t('Settings.Theme Settings.Main Color Theme.Cyan'),
-        this.$t('Settings.Theme Settings.Main Color Theme.Teal'),
-        this.$t('Settings.Theme Settings.Main Color Theme.Green'),
-        this.$t('Settings.Theme Settings.Main Color Theme.Light Green'),
-        this.$t('Settings.Theme Settings.Main Color Theme.Lime'),
-        this.$t('Settings.Theme Settings.Main Color Theme.Yellow'),
-        this.$t('Settings.Theme Settings.Main Color Theme.Amber'),
-        this.$t('Settings.Theme Settings.Main Color Theme.Orange'),
-        this.$t('Settings.Theme Settings.Main Color Theme.Deep Orange'),
-        this.$t('Settings.Theme Settings.Main Color Theme.Dracula Cyan'),
-        this.$t('Settings.Theme Settings.Main Color Theme.Dracula Green'),
-        this.$t('Settings.Theme Settings.Main Color Theme.Dracula Orange'),
-        this.$t('Settings.Theme Settings.Main Color Theme.Dracula Pink'),
-        this.$t('Settings.Theme Settings.Main Color Theme.Dracula Purple'),
-        this.$t('Settings.Theme Settings.Main Color Theme.Dracula Red'),
-        this.$t('Settings.Theme Settings.Main Color Theme.Dracula Yellow')
       ]
     }
   },
@@ -156,6 +120,9 @@ export default Vue.extend({
         case 'music offtopic':
           this.updateSponsorBlockMusicOffTopic(payload)
           break
+        case 'filler':
+          this.updateSponsorBlockFiller(payload)
+          break
       }
     },
 
@@ -168,7 +135,8 @@ export default Vue.extend({
       'updateSponsorBlockIntro',
       'updateSponsorBlockOutro',
       'updateSponsorBlockRecap',
-      'updateSponsorBlockMusicOffTopic'
+      'updateSponsorBlockMusicOffTopic',
+      'updateSponsorBlockFiller'
     ])
   }
 })

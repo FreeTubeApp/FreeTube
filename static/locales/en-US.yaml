@@ -551,6 +551,7 @@ Video:
     interaction: Interaction
     music offtopic: Music Offtopic
     recap: Recap
+    filler: Filler
   External Player:
     # $ is replaced with the external player
     OpenInTemplate: Open in $

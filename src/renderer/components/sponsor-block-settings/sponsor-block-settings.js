@@ -24,7 +24,8 @@ export default Vue.extend({
         'intro',
         'outro',
         'recap',
-        'music offtopic'
+        'music offtopic',
+        'filler'
       ]
     }
   },

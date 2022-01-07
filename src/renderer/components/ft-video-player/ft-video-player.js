@@ -195,7 +195,8 @@ export default Vue.extend({
         'intro',
         'outro',
         'preview',
-        'music_offtopic'
+        'music_offtopic',
+        'filler'
       ]
       const autoSkip = {}
       const seekBar = []
@@ -224,6 +225,9 @@ export default Vue.extend({
             break
           case 'music_offtopic':
             sponsorVal = this.$store.getters.getSponsorBlockMusicOffTopic
+            break
+          case 'filler':
+            sponsorVal = this.$store.getters.getSponsorBlockFiller
             break
         }
         if (sponsorVal.skip !== 'doNothing') {
@@ -552,6 +556,8 @@ export default Vue.extend({
           return this.$t('Video.Sponsor Block category.interaction')
         case 'music_offtopic':
           return this.$t('Video.Sponsor Block category.music offtopic')
+        case 'filler':
+          return this.$t('Video.Sponsor Block category.filler')
         default:
           console.error(`Unknown translation for SponsorBlock category ${category}`)
           return category

@@ -243,6 +243,10 @@ const state = {
     color: 'Orange',
     skip: 'doNothing'
   },
+  sponsorBlockFiller: {
+    color: 'Orange',
+    skip: 'doNothing'
+  },
   thumbnailPreference: '',
   useProxy: false,
   useRssFeeds: false,
