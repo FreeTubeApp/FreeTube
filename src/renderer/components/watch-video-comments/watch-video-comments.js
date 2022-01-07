@@ -20,6 +20,10 @@ export default Vue.extend({
       type: String,
       required: true
     },
+    channelName: {
+      type: String,
+      required: true
+    },
     channelThumbnail: {
       type: String,
       required: true
@@ -302,6 +306,7 @@ export default Vue.extend({
           }
           comment.text = autolinker.link(comment.content.replace(/(<(?!br>)([^>]+)>)/ig, ''))
           comment.dataType = 'invidious'
+          comment.isOwner = comment.authorIsChannelOwner
 
           if (typeof (comment.replies) !== 'undefined' && typeof (comment.replies.replyCount) !== 'undefined') {
             comment.numReplies = comment.replies.replyCount

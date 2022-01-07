@@ -144,6 +144,11 @@ Settings:
     No default instance has been set: Er is geen standaard instantie ingesteld
     The currently set default instance is $: De momenteel als standaard ingestelde
       instantie is $
+    External Link Handling:
+      Ask Before Opening Link: Vraag om Link te Openen
+      No Action: Geen Actie
+      External Link Handling: Externe Link Omgang
+      Open Link: Open Link
   Theme Settings:
     Theme Settings: 'Thema-Instellingen'
     Match Top Bar with Main Color: 'Zet Bovenste Balk Gelijk aan Primaire Themakleur'
@@ -183,6 +188,7 @@ Settings:
     UI Scale: UI Schaal
     Expand Side Bar by Default: Zijbalk Standaard Uitschuiven
     Disable Smooth Scrolling: Vloeiend Scrollen Uitschakelen
+    Hide Side Bar Labels: Verberg Labels op Zijbalk
   Player Settings:
     Player Settings: 'Videospeler Instellingen'
     Force Local Backend for Legacy Formats: 'Lokale Backend Forceren Voor Oudere Formaten'
@@ -216,6 +222,7 @@ Settings:
     Display Play Button In Video Player: Afspeelknop Weergeven in Videokader
     Scroll Volume Over Video Player: Volume Veranderen Door in het Videokader te Scrollen
     Fast-Forward / Rewind Interval: Snel Vooruit / Terugspoelen Interval
+    Scroll Playback Rate Over Video Player: Scroll Afspeelsnelheid op Videospeler
   Privacy Settings:
     Privacy Settings: 'Privacy-Instellingen'
     Remember History: 'Kijkgeschiedenis Onthouden'
@@ -322,7 +329,7 @@ Settings:
     Hide Video Views: Verberg Weergaven
     Distraction Free Settings: Instellingen voor Afleidingsvrij Kijken
     Hide Active Subscriptions: Verberg Actieve Abonnementen
-    Hide Playlists: Verberg Afspeellijst
+    Hide Playlists: Verberg Afspeellijsten
   The app needs to restart for changes to take effect. Restart and apply change?: De
     applicatie moet opnieuw opstarten om de veranderingen aan te brengen. Wilt u opnieuw
     opstarten en verandering toepassen?
@@ -408,7 +415,7 @@ About:
   FreeTube Wiki: FreeTube Wiki
   Help: Hulp
   GitHub releases: GitHub releases
-  Downloads / Changelog: Downloads / Changelog
+  Downloads / Changelog: Downloads / Wijzigingen
   View License: Bekijk Licentie
   Licensed under the AGPLv3: Vrijgegeven onder de AGPLv3 licentie
   Source code: Broncode
@@ -558,6 +565,16 @@ Video:
     playlist: afspeellijst
     video: video
     OpenInTemplate: Open in $
+  Stats:
+    player resolution: Venster
+    volume: Volume
+    video id: Video ID (YouTube)
+    fps: FPS
+    frame drop: Frame Drop
+    bandwidth: Verbindingssnelheid
+    buffered: Gebufferd
+    out of: van de
+  Premieres on: in première op
 Videos:
   #& Sort By
   Sort By:
@@ -632,6 +649,9 @@ Comments:
   Top comments: Top Reacties
   Sort by: Sorteer Op
   Show More Replies: Toon Meer Reacties
+  From $channelName: van $channelName
+  And others: en anderen
+  Pinned by: Vastgemaakt door
 Up Next: 'Volgende'
 
 # Toast Messages
@@ -719,6 +739,11 @@ Tooltips:
     Proxy Videos Through Invidious: FreeTube zal verbinden met Invidious en daar de
       video's downloaden in de plaats van de video's rechtstreeks bij YouTube vandaan
       te halen. Dit overschrijft de ingestelde API voorkeur.
+    Scroll Playback Rate Over Video Player: Terwijl de muis zich over de video bevindt,
+      houd de Control-toets (Command-toets op Mac) ingedrukt en scroll met de muis
+      om de afspeelsnelheid te besturen. Houd de Control-toets (Command-toets op Mac)
+      ingedrukt en klik met de linker muisknop om snel terug te schakelen naar de
+      standaard afspeelsnelheid (1x tenzij aangepast in de instellingen).
   Subscription Settings:
     Fetch Feeds from RSS: Wanneer ingeschakeld zal FreeTube RSS gebruiken in plaats
       van de standaard methode om de videolijsten van je abonnementen te verzamelen.
@@ -726,8 +751,7 @@ Tooltips:
       tot sommige informatie zoals de videoduur en live-status
   General Settings:
     Invidious Instance: Dit is de Invidious-instantie waar FreeTube mee zal verbinden
-      om API calls te maken. Verwijder de momenteel geselecteerd instantie om een
-      lijst van publieke instanties te tonen.
+      om API calls te maken.
     Thumbnail Preference: Alle thumbnails in FreeTube zullen worden vervangen met
       een momentopname uit de video in plaats van de standaard thumbnail.
     Fallback to Non-Preferred Backend on Failure: Wanneer het API met voorkeur problemen
@@ -739,6 +763,9 @@ Tooltips:
     Region for Trending: Met trend regio kan je instellen uit welk land je trending
       video's je wil zien. Niet alle weergegeven landen worden ook daadwerkelijk ondersteund
       door YouTube.
+    External Link Handling: "Kies het standaard gedrag voor wanneer een link dat niet\
+      \ kan worden geopend in FreeTube is aangeklikt.\nStandaard zal FreeTube de aangeklikte\
+      \ link openen in je standaardbrowser.\n"
   Privacy Settings:
     Remove Video Meta Files: Wanneer ingeschakeld zal FreeTube automatisch meta bestanden
       die worden gecreëerd tijdens het afspelen van video's verwijderen zodra de pagina
@@ -754,6 +781,7 @@ Tooltips:
     External Player: Door het kiezen van een externe videospeler zal er een icoontje
       verschijnen op het thumbnail waarmee de video (Of afspeellijst wanneer ondersteund)
       in de geselecteerde externe videospeler kan worden geopend.
+    DefaultCustomArgumentsTemplate: "(Standaard: '$')"
 Playing Next Video Interval: Volgende video wordt afgespeeld. Klik om te onderbreken.
   | Volgende video wordt afgespeeld in {nextVideoInterval} seconde. Klik om te onderbreken.
   | Volgende video wordt afgespeeld in {nextVideoInterval} seconden. Klik om te onderbreken.
@@ -766,3 +794,8 @@ Open New Window: Open Nieuw Venster
 Default Invidious instance has been cleared: Standaard Invidious-instantie is verwijderd
 Default Invidious instance has been set to $: Standaard Invidious-instantie is ingesteld
   op $
+Are you sure you want to open this link?: Weet je zeker dat je deze link wilt openen?
+Search Bar:
+  Clear Input: Invoer Wissen
+External link opening has been disabled in the general settings: Het openen van externe
+  links is uitgeschakeld in de algemene instellingen

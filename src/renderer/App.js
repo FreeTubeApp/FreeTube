@@ -92,9 +92,6 @@ export default Vue.extend({
         return null
       }
     },
-    activeProfile: function () {
-      return this.$store.getters.getActiveProfile
-    },
     defaultProfile: function () {
       return this.$store.getters.getDefaultProfile
     },
@@ -130,7 +127,7 @@ export default Vue.extend({
   },
   mounted: function () {
     this.grabUserSettings().then(async () => {
-      await this.fetchInvidiousInstances()
+      await this.fetchInvidiousInstances({ isDev: this.isDev })
       if (this.defaultInvidiousInstance === '') {
         await this.setRandomCurrentInvidiousInstance()
       }
@@ -142,7 +139,7 @@ export default Vue.extend({
         if (this.usingElectron) {
           console.log('User is using Electron')
           ipcRenderer = require('electron').ipcRenderer
-          this.setupListenerToSyncWindows()
+          this.setupListenersToSyncWindows()
           this.activateKeyboardShortcuts()
           this.openAllLinksExternally()
           this.enableOpenUrl()
@@ -398,10 +395,10 @@ export default Vue.extend({
           }
 
           case 'channel': {
-            const { channelId } = result
+            const { channelId, subPath } = result
 
             this.$router.push({
-              path: `/channel/${channelId}`
+              path: `/channel/${channelId}/${subPath}`
             })
             break
           }
@@ -468,7 +465,7 @@ export default Vue.extend({
       'getExternalPlayerCmdArgumentsData',
       'fetchInvidiousInstances',
       'setRandomCurrentInvidiousInstance',
-      'setupListenerToSyncWindows'
+      'setupListenersToSyncWindows'
     ])
   }
 })

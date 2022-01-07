@@ -202,6 +202,7 @@ Settings:
     Autoplay Playlists: Autoplay Playlists
     Enable Theatre Mode by Default: Enable Theatre Mode by Default
     Scroll Volume Over Video Player: Scroll Volume Over Video Player
+    Scroll Playback Rate Over Video Player: Scroll Playback Rate Over Video Player
     Display Play Button In Video Player: Display Play Button In Video Player
     Next Video Interval: Next Video Interval
     Fast-Forward / Rewind Interval: Fast-Forward / Rewind Interval
@@ -459,6 +460,7 @@ Video:
   Starting soon, please refresh the page to check again: Starting soon, please refresh
     the page to check again
   # As in a Live Video
+  Premieres on: Premieres on
   Live: Live
   Live Now: Live Now
   Live Chat: Live Chat
@@ -540,6 +542,15 @@ Video:
       reversing playlists: reversing playlists
       shuffling playlists: shuffling playlists
       looping playlists: looping playlists
+  Stats:
+    video id: "Video ID (YouTube)"
+    player resolution: "Viewport"
+    volume: "Volume"
+    fps: "FPS"
+    frame drop: "Frame Drop"
+    bandwidth: "Connection Speed"
+    buffered: "Buffered"
+    out of: "out of"
 #& Videos
 Videos:
   #& Sort By
@@ -602,17 +613,20 @@ Comments:
   Sort by: Sort by
   Top comments: Top comments
   Newest first: Newest First
-  # Context: View 10 Replies, View 1 Reply
+  # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
   View: View
   Hide: Hide
   Replies: Replies
   Show More Replies: Show More Replies
   Reply: Reply
+  From $channelName: from $channelName
+  And others: and others
   There are no comments available for this video: There are no comments available
     for this video
   Load More Comments: Load More Comments
   No more comments available: No more comments available
   Verified: Verified
+  Pinned by: Pinned by
 Up Next: Up Next
 
 #Tooltips
@@ -644,6 +658,10 @@ Tooltips:
     Default Video Format: Set the formats used when a video plays. DASH formats can
       play higher qualities. Legacy formats are limited to a max of 720p but use less
       bandwidth. Audio formats are audio only streams.
+    Scroll Playback Rate Over Video Player: While the cursor is over the video, press and
+      hold the Control key (Command Key on Mac) and scroll the mouse wheel forwards or backwards to control
+      the playback rate. Press and hold the Control key (Command Key on Mac) and left click the mouse
+      to quickly return to the default playback rate (1x unless it has been changed in the settings).
   External Player Settings:
     External Player: Choosing an external player will display an icon, for opening the
       video (playlist if supported) in the external player, on the thumbnail.

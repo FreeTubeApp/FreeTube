@@ -13,62 +13,69 @@
         @change="handleUpdateProxy"
       />
     </ft-flex-box>
-    <ft-flex-box>
-      <ft-select
-        :placeholder="$t('Settings.Proxy Settings.Proxy Protocol')"
-        :value="proxyProtocol"
-        :select-names="protocolNames"
-        :select-values="protocolValues"
-        @change="handleUpdateProxyProtocol"
-      />
-    </ft-flex-box>
-    <ft-flex-box>
-      <ft-input
-        :placeholder="$t('Settings.Proxy Settings.Proxy Host')"
-        :show-action-button="false"
-        :show-label="true"
-        :value="proxyHostname"
-        @input="handleUpdateProxyHostname"
-      />
-      <ft-input
-        :placeholder="$t('Settings.Proxy Settings.Proxy Port Number')"
-        :show-action-button="false"
-        :show-label="true"
-        :value="proxyPort"
-        @input="handleUpdateProxyPort"
-      />
-    </ft-flex-box>
-    <p class="center">
-      {{ $t('Settings.Proxy Settings.Clicking on Test Proxy will send a request to') }} https://freegeoip.app/json/
-    </p>
-    <ft-flex-box>
-      <ft-button
-        :label="$t('Settings.Proxy Settings.Test Proxy')"
-        @click="testProxy"
-      />
-    </ft-flex-box>
-    <ft-loader
-      v-if="isLoading"
-    />
     <div
-      v-if="!isLoading && dataAvailable"
-      class="center"
+      v-if="useProxy"
     >
-      <h3>
-        {{ $t('Settings.Proxy Settings.Your Info') }}
-      </h3>
-      <p>
-        {{ $t('Settings.Proxy Settings.Ip') }}: {{ proxyIp }}
+      <ft-flex-box>
+        <ft-select
+          :placeholder="$t('Settings.Proxy Settings.Proxy Protocol')"
+          :value="proxyProtocol"
+          :select-names="protocolNames"
+          :select-values="protocolValues"
+          @change="handleUpdateProxyProtocol"
+        />
+      </ft-flex-box>
+      <ft-flex-box>
+        <ft-input
+          :placeholder="$t('Settings.Proxy Settings.Proxy Host')"
+          :show-action-button="false"
+          :show-label="true"
+          :value="proxyHostname"
+          @input="handleUpdateProxyHostname"
+        />
+        <ft-input
+          :placeholder="$t('Settings.Proxy Settings.Proxy Port Number')"
+          :show-action-button="false"
+          :show-label="true"
+          :value="proxyPort"
+          @input="handleUpdateProxyPort"
+        />
+      </ft-flex-box>
+      <p
+        class="center"
+        :style="{opacity: useProxy ? 1 : 0.4}"
+      >
+        {{ $t('Settings.Proxy Settings.Clicking on Test Proxy will send a request to') }} https://freegeoip.app/json/
       </p>
-      <p>
-        {{ $t('Settings.Proxy Settings.Country') }}: {{ proxyCountry }}
-      </p>
-      <p>
-        {{ $t('Settings.Proxy Settings.Region') }}: {{ proxyRegion }}
-      </p>
-      <p>
-        {{ $t('Settings.Proxy Settings.City') }}: {{ proxyCity }}
-      </p>
+      <ft-flex-box>
+        <ft-button
+          :label="$t('Settings.Proxy Settings.Test Proxy')"
+          @click="testProxy"
+        />
+      </ft-flex-box>
+      <ft-loader
+        v-if="isLoading"
+      />
+      <div
+        v-if="!isLoading && dataAvailable"
+        class="center"
+      >
+        <h3>
+          {{ $t('Settings.Proxy Settings.Your Info') }}
+        </h3>
+        <p>
+          {{ $t('Settings.Proxy Settings.Ip') }}: {{ proxyIp }}
+        </p>
+        <p>
+          {{ $t('Settings.Proxy Settings.Country') }}: {{ proxyCountry }}
+        </p>
+        <p>
+          {{ $t('Settings.Proxy Settings.Region') }}: {{ proxyRegion }}
+        </p>
+        <p>
+          {{ $t('Settings.Proxy Settings.City') }}: {{ proxyCity }}
+        </p>
+      </div>
     </div>
   </details>
 </template>

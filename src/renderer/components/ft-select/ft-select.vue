@@ -2,7 +2,9 @@
   <div class="select">
     <select
       class="select-text"
+      :class="{disabled: disabled}"
       :value="value"
+      :disabled="disabled"
       @change="$emit('change', $event.target.value)"
     >
       <option
@@ -19,7 +21,10 @@
     />
     <span class="select-highlight" />
     <span class="select-bar" />
-    <label class="select-label">
+    <label
+      class="select-label"
+      :hidden="disabled"
+    >
       {{ placeholder }}
     </label>
     <ft-tooltip

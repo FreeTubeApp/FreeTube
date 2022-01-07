@@ -1,4 +1,5 @@
 import $ from 'jquery'
+import fs from 'fs'
 
 const state = {
   currentInvidiousInstance: '',
@@ -21,25 +22,43 @@ const getters = {
 }
 
 const actions = {
-  async fetchInvidiousInstances({ commit }) {
+  async fetchInvidiousInstances({ commit }, payload) {
     const requestUrl = 'https://api.invidious.io/instances.json'
 
     let response
+    let instances = []
     try {
       response = await $.getJSON(requestUrl)
+      instances = response.filter((instance) => {
+        if (instance[0].includes('.onion') || instance[0].includes('.i2p')) {
+          return false
+        } else {
+          return true
+        }
+      }).map((instance) => {
+        return instance[1].uri.replace(/\/$/, '')
+      })
     } catch (err) {
       console.log(err)
-    }
-
-    const instances = response.filter((instance) => {
-      if (instance[0].includes('.onion') || instance[0].includes('.i2p')) {
-        return false
+      // Starts fallback strategy: read from static file
+      // And fallback to hardcoded entry(s) if static file absent
+      const fileName = 'invidious-instances.json'
+      /* eslint-disable-next-line */
+      const fileLocation = payload.isDev ? './static/' : `${__dirname}/static/`
+      if (fs.existsSync(`${fileLocation}${fileName}`)) {
+        console.log('reading static file for invidious instances')
+        const fileData = fs.readFileSync(`${fileLocation}${fileName}`)
+        instances = JSON.parse(fileData).map((entry) => {
+          return entry.url
+        })
       } else {
-        return true
+        console.log('unable to read static file for invidious instances')
+        instances = [
+          'https://invidious.snopyta.org',
+          'https://invidious.kavin.rocks/'
+        ]
       }
-    }).map((instance) => {
-      return instance[1].uri.replace(/\/$/, '')
-    })
+    }
 
     commit('setInvidiousInstancesList', instances)
   },

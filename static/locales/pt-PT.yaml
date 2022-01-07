@@ -680,6 +680,7 @@ Tooltips:
     External Player: Escolher um leitor externo irá fazer um ícone, para abrir o vídeo
       (lista de reprodução se possível) nesse leitor, aparecer nas antevisões dos
       vídeos.
+    DefaultCustomArgumentsTemplate: "(Padrão: '$')"
 Local API Error (Click to copy): API local encontrou um erro (Clique para copiar)
 Invidious API Error (Click to copy): API Invidious encontrou um erro (Clique para
   copiar)

@@ -31,7 +31,7 @@ Back: 'Indietro'
 Forward: 'Avanti'
 
 # Search Bar
-Search / Go to URL: 'Cerca e vai a URL'
+Search / Go to URL: 'Cerca o aggiungi collegamento YouTube'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtri di ricerca'
@@ -80,7 +80,7 @@ Subscriptions:
     attendi.
   Load More Videos: Carica più video
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Questo
-    profilo ha un grande numero di iscrizioni. Utilizzo RSS per evitare limitazioni
+    profilo ha un grande numero di iscrizioni. Utilizzerò RSS per evitare limitazioni
 Trending:
   Trending: 'Tendenze'
   Music: Musica
@@ -94,7 +94,7 @@ User Playlists:
   Your Playlists: 'Le tue playlist'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Non
     ci sono video salvati. Fai clic sulla stella in alto a destra di un video per
-    vederlo elencato qui
+    aggiungerlo qui
   Playlist Message: Questa pagina non è rappresentativa di una playlist completa.
     Mostra solo i video che hai salvato o aggiunto ai preferiti. A lavoro finito,
     tutti i video che si trovano qui saranno spostati in una playlist dei Preferiti.
@@ -150,7 +150,7 @@ Settings:
       External Link Handling: Gestione dei collegamenti esterni
   Theme Settings:
     Theme Settings: 'Impostazioni del tema'
-    Match Top Bar with Main Color: 'Abbina la barra superiore al il colore principale'
+    Match Top Bar with Main Color: 'Abbina la barra superiore al colore principale'
     Base Theme:
       Base Theme: 'Tema'
       Black: 'Nero'
@@ -222,8 +222,10 @@ Settings:
     Display Play Button In Video Player: Visualizza il pulsante di riproduzione nel
       lettore
     Scroll Volume Over Video Player: Controlla il volume scorrendo sul lettore video
+    Scroll Playback Rate Over Video Player: Scorri la velocità di riproduzione sul
+      lettore video
   Privacy Settings:
-    Privacy Settings: 'Impostazioni privacy'
+    Privacy Settings: 'Impostazioni della privacy'
     Remember History: 'Salva la cronologia'
     Save Watched Progress: 'Salva i progressi raggiunti'
     Clear Search Cache: 'Cancella la cronologia della ricerca'
@@ -232,17 +234,17 @@ Settings:
     Search cache has been cleared: 'La cronologia della ricerca è stata cancellata'
     Remove Watch History: 'Cancella la cronologia delle visualizzazioni'
     Are you sure you want to remove your entire watch history?: 'Sei sicuro di voler
-      cancellare l''intera cronologia delle visualizzazione?'
+      cancellare la cronologia delle visualizzazioni?'
     Watch history has been cleared: 'La cronologia delle visualizzazioni è stata cancellata'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Sei
       sicuro di volere eliminare tutte le iscrizioni e i profili? L'operazione non
       può essere annullata.
     Remove All Subscriptions / Profiles: Elimina tutte le iscrizioni e i profili
-    Automatically Remove Video Meta Files: Rimuovi automaticamente i metafile dal
+    Automatically Remove Video Meta Files: Rimuovi automaticamente i metafile dai
       video
   Subscription Settings:
-    Subscription Settings: 'Impostazioni iscrizioni'
-    Hide Videos on Watch: 'Nascondi i video durante la riproduzione'
+    Subscription Settings: 'Impostazioni delle iscrizioni'
+    Hide Videos on Watch: 'Nascondi i video successivi durante la riproduzione'
     Subscriptions Export Format:
       Subscriptions Export Format: ''
       #& Freetube
@@ -318,8 +320,8 @@ Settings:
     Select Export Type: Seleziona il tipo di esportazione
     Select Import Type: Seleziona il tipo di importazione
     Data Settings: Impostazioni dei dati
-    Check for Legacy Subscriptions: Controlla iscrizioni in formato Legacy
-    Manage Subscriptions: Gestisci le iscrizioni
+    Check for Legacy Subscriptions: Controlla le iscrizioni in formato Legacy
+    Manage Subscriptions: Gestisci i profili
   Distraction Free Settings:
     Hide Popular Videos: Nascondi "Più popolari"
     Hide Trending Videos: Nascondi "Tendenze"
@@ -327,18 +329,18 @@ Settings:
     Hide Comment Likes: Nascondi "Mi piace" dai commenti
     Hide Channel Subscribers: Nascondi il numero di iscritti
     Hide Video Views: Nascondi le visualizzazioni dei video
-    Distraction Free Settings: Impostazioni modalità "Senza distrazioni"
+    Distraction Free Settings: Impostazioni della modalità "Senza distrazioni"
     Hide Live Chat: Nascondi la chat live
     Hide Video Likes And Dislikes: Nascondi "Mi piace" e "Non mi piace"
     Hide Active Subscriptions: Nascondi le iscrizioni attive
-    Hide Playlists: Nascondi le playlist
+    Hide Playlists: Nascondi "Playlist"
   The app needs to restart for changes to take effect. Restart and apply change?: L'applicazione
     deve essere riavviata per applicare i cambiamenti. Riavvio e applico i cambiamenti
     subito?
   Proxy Settings:
     Proxy Protocol: Protocollo Proxy
     Enable Tor / Proxy: Attiva Tor o Proxy
-    Proxy Settings: Impostazioni proxy
+    Proxy Settings: Impostazioni del proxy
     Error getting network information. Is your proxy configured properly?: C'è stato
       un errore di acquisizione delle informazioni di rete. Il proxy è stato configurato
       correttamente?
@@ -355,8 +357,8 @@ Settings:
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notifica quando un segmento sponsor viene
       saltato
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL API di SponsorBlock
-      (l'impostazione predefinita è https://sponsor.ajay.app)
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Collegamento alle
+      API di SponsorBlock (l'impostazione predefinita è https://sponsor.ajay.app)
     Enable SponsorBlock: Abilita SponsorBlock
     SponsorBlock Settings: Impostazioni di SponsorBlock
   External Player Settings:
@@ -569,6 +571,16 @@ Video:
     sponsor: sponsor
   Skipped segment: Segmento saltato
   translated from English: tradotto dall'inglese
+  Premieres on: Première il
+  Stats:
+    volume: Volume
+    fps: FPS
+    frame drop: Perdita di immagine
+    buffered: Bufferizzato
+    bandwidth: Velocità di connessione
+    out of: per
+    video id: ID video (YouTube)
+    player resolution: Finestra di visualizzazione
 Videos:
   #& Sort By
   Sort By:
@@ -611,15 +623,17 @@ Share:
   Copy Embed: 'Copia codice da Incorporare'
   Open Embed: 'Apri codice da Incorporare'
   # On Click
-  Invidious URL copied to clipboard: 'URL Invidious copiato negli appunti'
-  Invidious Embed URL copied to clipboard: 'URL di Invidious da incorporare copiato
+  Invidious URL copied to clipboard: 'Collegamento a Invidious copiato negli appunti'
+  Invidious Embed URL copied to clipboard: 'Collegamento a Invidious da incorporare
+    copiato negli appunti'
+  YouTube URL copied to clipboard: 'Collegamento a YouTube copiato negli appunti'
+  YouTube Embed URL copied to clipboard: 'Collegamento a YouTube da incorporare copiato
     negli appunti'
-  YouTube URL copied to clipboard: 'URL YouTube copiato negli appunti'
-  YouTube Embed URL copied to clipboard: 'URL di YouTube da incorporare copiato negli
-    appunti'
   Include Timestamp: Includi marca temporale
-  YouTube Channel URL copied to clipboard: URL canale YouTube copiato negli appunti
-  Invidious Channel URL copied to clipboard: URL Canale Invidous copiato negli appunti
+  YouTube Channel URL copied to clipboard: Collegamento al canale YouTube copiato
+    negli appunti
+  Invidious Channel URL copied to clipboard: Collegamento al canale Invidous copiato
+    negli appunti
 Mini Player: 'Mini visualizzatore'
 Comments:
   Comments: 'Commenti'
@@ -642,6 +656,9 @@ Comments:
   Newest first: I più nuovi
   Sort by: Ordina per
   Show More Replies: Mostra altre risposte
+  From $channelName: dal $channelName
+  And others: e altri
+  Pinned by: Messo in primo piano da
 Up Next: 'Prossimi video'
 
 # Toast Messages
@@ -661,7 +678,7 @@ Playing next video in 5 seconds.  Click to cancel: 'Riproduzione del prossimo vi
   in 5 secondi. Clicca per cancellare.'
 Canceled next video autoplay: 'Riproduzione automatica del prossimo video annullata'
 'The playlist has ended.  Enable loop to continue playing': 'La playlist è terminata.
-  Abilita la riproduzione senza sosta per continuare la riproduzione'
+  Abilita la riproduzione a ciclo continuo per continuare la riproduzione'
 
 Yes: 'Sì'
 No: 'No'
@@ -684,14 +701,14 @@ Profile:
   Delete Selected: Elimina i selezionati
   Select None: Deseleziona tutto
   Select All: Seleziona tutto
-  $ selected: $ selezionato
+  $ selected: '"$" selezionato'
   Other Channels: Altri canali
   Subscription List: Lista iscrizioni
-  $ is now the active profile: $ adesso è il tuo profilo attivo
+  $ is now the active profile: '"$" è diventato il tuo profilo attivo'
   Your default profile has been changed to your primary profile: Il tuo profilo predefinito
-    è stato impostato come profilo primario
-  Removed $ from your profiles: Hai rimosso $ dai tuoi profili
-  Your default profile has been set to $: $ è stato impostato come profilo predefinito
+    è stato cambiato in profilo primario
+  Removed $ from your profiles: Hai rimosso "$" dai tuoi profili
+  Your default profile has been set to $: '"$" è stato impostato come profilo predefinito'
   Profile has been updated: Il profilo è stato aggiornato
   Profile has been created: Il profilo è stato creato
   Your profile name cannot be empty: Il nome del profilo non può essere vuoto
@@ -703,16 +720,16 @@ Profile:
   Make Default Profile: Imposta come profilo predefinito
   Update Profile: Aggiorna profilo
   Create Profile: Crea profilo
-  Profile Preview: Anteprima profilo
+  Profile Preview: Anteprima del profilo
   Custom Color: Colore personalizzato
-  Color Picker: Selettore colore
+  Color Picker: Selettore del colore
   Edit Profile: Modifica il profilo
   Create New Profile: Crea un nuovo profilo
-  Profile Manager: Gestione del profilo
+  Profile Manager: Gestione dei profili
   All Channels: Tutti i canali
   Profile Select: Seleziona il profilo
   Profile Filter: Filtro del profilo
-  Profile Settings: Impostazioni del profilo
+  Profile Settings: Impostazioni dei profili
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Questo
   video non è disponibile a causa di alcuni formati mancanti. Questo può succedere
   in caso di mancata disponibilità della nazione.
@@ -728,6 +745,12 @@ Tooltips:
       l'audio.
     Proxy Videos Through Invidious: Connessione a Invidious per riprodurre i video
       invece di una connessione diretta a YouTube. Sovrascrive le preferenze API.
+    Scroll Playback Rate Over Video Player: Mentre il cursore è sopra il video, tieni
+      premuto il tasto CTRL (Command su Mac) e scorri la rotella del mouse in avanti
+      o indietro per controllare la velocità di riproduzione. Tieni premuto il tasto
+      CTRL (Command su Mac) e clicca con il tasto sinistro del mouse per tornare rapidamente
+      alla velocità di riproduzione predefinita (1x a meno che non sia stata cambiata
+      nelle impostazioni).
   Subscription Settings:
     Fetch Feeds from RSS: Se abilitato, FreeTube userà gli RSS invece del metodo standard
       per leggere la tua lista iscrizioni. Gli RSS sono più veloci e impediscono il
@@ -752,8 +775,8 @@ Tooltips:
   External Player Settings:
     Ignore Warnings: Non notifica gli avvisi quando il lettore esterno selezionato
       non supporta l'azione richiesta (ad esempio invertire la playlist, etc.).
-    Custom External Player Arguments: Qualsiasi argomento personalizzato della linea
-      di comando separato da punto e virgola (';') che vuoi passare al lettore esterno.
+    Custom External Player Arguments: Invia al lettore esterno qualsiasi argomento
+      personalizzato dalla linea di comando, separato da punto e virgola (';').
     Custom External Player Executable: Per impostazione predefinita, FreeTube imposta
       il lettore esterno scelto tramite la variabile d'ambiente PATH. Se necessario,
       un percorso personalizzato può essere impostato qui.
@@ -776,7 +799,7 @@ Default Invidious instance has been set to $: L'istanza predefinita di Invidious
   stata impostata a $
 Hashtags have not yet been implemented, try again later: Gli hashtag non sono ancora
   stati implementati, riprova più tardi
-Unknown YouTube url type, cannot be opened in app: Tipo di URL YouTube sconosciuto,
+Unknown YouTube url type, cannot be opened in app: Tipo di collegamento YouTube sconosciuto,
   non può essere aperto nell'applicazione
 Search Bar:
   Clear Input: Cancella l'ingresso
