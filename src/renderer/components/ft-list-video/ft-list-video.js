@@ -211,6 +211,7 @@ export default Vue.extend({
   watch: {
     data: function () {
       this.parseVideoData()
+      this.checkIfWatched()
     }
   },
   mounted: function () {
