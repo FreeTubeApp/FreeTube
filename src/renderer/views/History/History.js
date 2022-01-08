@@ -41,15 +41,6 @@ export default Vue.extend({
     }
   },
 
-  watch: {
-    historyCache() {
-      if (!this.hasQuery) {
-        this.load()
-      }
-    }
-
-  },
-
   mounted: function () {
     console.log(this.historyCache)
 
