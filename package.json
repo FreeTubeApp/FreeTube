@@ -71,7 +71,7 @@
     "marked": "^3.0.2",
     "material-design-icons": "^3.0.1",
     "nedb-promises": "^5.0.1",
-    "node-forge": "^0.10.0",
+    "node-forge": "^1.0.0",
     "opml-to-json": "^1.0.1",
     "rss-parser": "^3.12.0",
     "socks-proxy-agent": "^6.0.0",
