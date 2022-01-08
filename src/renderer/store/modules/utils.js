@@ -179,10 +179,10 @@ const actions = {
     const usingElectron = rootState.settings.usingElectron
     const askFolder = folder === ''
     let fileHandler
-    const successMsg = `download ${title} is done`
+    const successMsg = 'Downloading has completed'
 
     dispatch('showToast', {
-      message: `downloading ${title}`
+      message: 'Starting download', translate: true, formatArgs: [title]
     })
 
     if (askFolder) {
@@ -190,7 +190,7 @@ const actions = {
     }
 
     const response = await fetch(url)
-    //  mecanism to show the download progress reference https://javascript.info/fetch-progress
+    //  mechanism to show the download progress reference https://javascript.info/fetch-progress
     const reader = response.body.getReader()
 
     const contentLength = response.headers.get('Content-Length')
@@ -212,7 +212,7 @@ const actions = {
       receivedLength += value.length
       const percentage = receivedLength / contentLength
       if (percentage > (lastPercentageNotification + intervalPercentageNotification)) {
-        // mecanism kept for an upcoming download page
+        // mechanism kept for an upcoming download page
         lastPercentageNotification = percentage
       }
     }
@@ -226,10 +226,9 @@ const actions = {
 
     // write the file into the hardrive
     if (!response.ok) {
-      const errMsg = `not able to download ${title} return status code ${response.status}`
-      console.error(errMsg)
+      console.error(`"Unable to download ${title}, return status code ${response.status}`)
       dispatch('showToast', {
-        message: errMsg
+        message: 'Downloading failed', translate: true, formatArgs: [title, response.status]
       })
       return
     }
@@ -246,7 +245,7 @@ const actions = {
         }
       })
       dispatch('showToast', {
-        message: successMsg
+        message: successMsg, translate: true, formatArgs: [title]
       })
       return
     }
@@ -256,7 +255,7 @@ const actions = {
     await writable.close()
 
     dispatch('showToast', {
-      message: successMsg
+      message: successMsg, translate: true, formatArgs: [title]
     })
   },
 
@@ -765,7 +764,7 @@ const actions = {
   },
 
   showToast (_, payload) {
-    FtToastEvents.$emit('toast-open', payload.message, payload.action, payload.time)
+    FtToastEvents.$emit('toast-open', payload.message, payload.action, payload.time, payload.translate, payload.formatArgs)
   },
 
   showExternalPlayerUnsupportedActionToast: function ({ dispatch }, payload) {

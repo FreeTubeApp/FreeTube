@@ -711,6 +711,9 @@ Default Invidious instance has been cleared: Default Invidious instance has been
 'The playlist has ended.  Enable loop to continue playing': 'The playlist has ended.  Enable
   loop to continue playing'
 External link opening has been disabled in the general settings: 'External link opening has been disabled in the general settings'
+Downloading has completed: 'Downloading "$" has completed'
+Starting download: 'Downloading "$" has started'
+Downloading failed: 'Unable to download "$", return http request status code $'
 
 Yes: Yes
 No: No
