@@ -764,7 +764,9 @@ const actions = {
   },
 
   showToast (_, payload) {
-    FtToastEvents.$emit('toast-open', payload.message, payload.action, payload.time, payload.translate, payload.formatArgs)
+    const formatArgs = 'formatArgs' in payload ? payload.formatArgs : []
+    const translate = 'translate' in payload ? payload.translate : false
+    FtToastEvents.$emit('toast-open', payload.message, payload.action, payload.time, translate, formatArgs)
   },
 
   showExternalPlayerUnsupportedActionToast: function ({ dispatch }, payload) {
