@@ -180,6 +180,7 @@ Settings:
     UI Scale: مقياس واجهة المستخدم
     Disable Smooth Scrolling: عطّل التمرير المتجانس
     Expand Side Bar by Default: كبّر الشريط الجانبي بشكل افتراضي
+    Hide Side Bar Labels: إخفاء تسميات الشريط الجانبي
   Player Settings:
     Player Settings: 'إعدادات المشغل'
     Force Local Backend for Legacy Formats: 'فرض الواجهة الخلفية المحلية للتنسيقات
@@ -214,6 +215,7 @@ Settings:
     Scroll Volume Over Video Player: تمرير مستوى الصوت عبر مشغل الفيديو
     Display Play Button In Video Player: عرض زر التشغيل في مشغل الفيديو
     Fast-Forward / Rewind Interval: الفاصل الزمني السريع للأمام / الترجيع
+    Scroll Playback Rate Over Video Player: معدل تمرير التشغيل عبر مشغل الفيديو
   Privacy Settings:
     Privacy Settings: 'إعدادات الخصوصية'
     Remember History: 'تذّكر سجلّ المشاهدة'
@@ -590,6 +592,16 @@ Video:
     playlist: قائمة التشغيل
     video: فيديو
     OpenInTemplate: فتح في $
+  Premieres on: العرض الأول بتاريخ
+  Stats:
+    video id: معرف الفيديو (يوتيوب)
+    player resolution: المعاينه
+    fps: معدل الإطارات
+    frame drop: إسقاط الإطار
+    buffered: مخزنة
+    out of: خارج عن
+    bandwidth: سرعة الاتصال
+    volume: الصوت
 Videos:
   #& Sort By
   Sort By:
@@ -657,6 +669,9 @@ Comments:
   Top comments: أهم التعليقات
   Sort by: الترتيب حسب
   Show More Replies: إظهار المزيد من الردود
+  Pinned by: تم التثبيت بواسطة
+  And others: و اخرين
+  From $channelName: من $ channelName
 Up Next: 'التالي'
 
 # Toast Messages
@@ -692,8 +707,7 @@ Tooltips:
     Preferred API Backend: اختر الواجهة الخلفية التي يستخدمها FreeTube لجلب البيانات.
       الواجهة البرمجية المحلية للتطبيق هي مستخرج محلي. الواجهة البرمجية للتطبيق التابعة
       لInvidious (بديل لموقع يوتيوب) يتطلب التواصل مع خادم شبكة Invidious.
-    Invidious Instance: واجهة Invidious البرمجية المستخدمة من قبل FreeTube. امسح الواجهة
-      البرمجية الحالية للاختيار من قائمة الواجهات.
+    Invidious Instance: مثيل Invidious الذي سيتصل به FreeTube لاستدعاءات API.
     Fallback to Non-Preferred Backend on Failure: عند التفعيل اذا واجه الAPI المفضّل
       لديك أيّ مشكلة، سيحاول FreeTube استخدام الAPI الغير مفضّل لديك تلقائيّاً كإجراء
       التراجع.
@@ -714,6 +728,11 @@ Tooltips:
       الميكانيكي المتكيّف عبر بروتوكول نقل النص التشعبي) يمكنها أن تُشغِّل جودات أعلى.
       التنسيقات القديمة محدودة بجودة 720p كحدّ أقصى لكنها تستخدم عرضًا أقل للنطاق.
       التنسيقات الصوتية هي للتدفق الصوتي فقط.
+    Scroll Playback Rate Over Video Player: أثناء وجود المؤشر فوق الفيديو، اضغط مع
+      الاستمرار على مفتاح التحكم (مفتاح القيادة على Mac) ومرر عجلة الماوس للأمام أو
+      للخلف للتحكم في معدل التشغيل. اضغط مع الاستمرار على مفتاح التحكم (مفتاح الأوامر
+      على Mac) ثم انقر فوق الماوس للعودة بسرعة إلى معدل التشغيل الافتراضي (1x ما لم
+      يتم تغييره في الإعدادات).
   Privacy Settings:
     Remove Video Meta Files: عندما يمكن، يحذف Freetube تلقائيًا ملفات التعريف التي
       تم إنشاؤها أثناء تشغيل الفيديو ، عندما تكون صفحة المشاهدة مغلقة.
@@ -731,6 +750,7 @@ Tooltips:
       مخصص هنا.
     External Player: سيؤدي اختيار مشغل خارجي إلى عرض رمز لفتح الفيديو (قائمة التشغيل
       إذا كان مدعوما) في المشغل الخارجي، على الصورة المصغرة.
+    DefaultCustomArgumentsTemplate: "(الافتراضي: '$')"
 This video is unavailable because of missing formats. This can happen due to country unavailability.: هذا
   الفيديو غير متاح الآن لعدم وجود ملفات فيديو . هذا قد يكون بسبب أن الفيديو غير متاح
   في بلدك.

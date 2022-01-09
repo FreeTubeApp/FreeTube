@@ -194,6 +194,7 @@ Settings:
       Dracula Yellow: 'Дракула Жовта'
     Secondary Color Theme: 'Другорядна кольорова тема'
         #* Main Color Theme
+    Hide Side Bar Labels: Сховати мітки бічної панелі
   Player Settings:
     Player Settings: 'Налаштування програвача'
     Force Local Backend for Legacy Formats: 'Примусово використовувати локальний сервер
@@ -228,6 +229,8 @@ Settings:
     Scroll Volume Over Video Player: Прокручування гучності на відеопрогравачі
     Display Play Button In Video Player: Показувати кнопку відтворення у відеопрогравачі
     Fast-Forward / Rewind Interval: Інтервал перемотування вперед/назад
+    Scroll Playback Rate Over Video Player: Контроль швидкості відтворення коліщам
+      миші у відеопрогравачі
   Privacy Settings:
     Privacy Settings: 'Налаштування приватності'
     Remember History: 'Збрігати історію'
@@ -579,6 +582,16 @@ Video:
     playlist: добірка
     video: відео
     OpenInTemplate: Відкрити у $
+  Premieres on: Прем'єри
+  Stats:
+    player resolution: Вікно перегляду
+    fps: Кадрів/с
+    volume: Обсяг
+    bandwidth: Швидкість з'єднання
+    buffered: Буферизовано
+    out of: з
+    video id: ID відео (YouTube)
+    frame drop: Пропущені кадри
 Videos:
   #& Sort By
   Sort By:
@@ -653,6 +666,9 @@ Comments:
   Load More Comments: 'Завантажити більше коментарів'
   No more comments available: 'Більше немає коментарів'
   Show More Replies: Показати інші відповіді
+  From $channelName: від $channelName
+  And others: та інших
+  Pinned by: Закріплено
 Up Next: 'Далі вгору'
 
 #Tooltips
@@ -667,8 +683,7 @@ Tooltips:
     Thumbnail Preference: 'Усі ескізи у FreeTube заміняться на кадр відео, а не на
       типову мініатюру.'
     Invidious Instance: 'Сервер Invidious, до якого FreeTube під''єднуватиметься для
-      викликів API. Очистьте поточний сервер, щоб побачити список загальнодоступних
-      серверів на вибір.'
+      викликів API.'
     Region for Trending: 'Регіон популярного дозволяє вам вибрати популярні відео
       країни, які ви хочете бачити. Не всі показані країни насправді підтримуються
       YouTube.'
@@ -686,6 +701,12 @@ Tooltips:
       відео. Формати DASH можуть відтворюватися в кращій якості. Старі формати мають
       обмеження у 720p, але використовують меншу пропускну здатність. Формати аудіо
       — це лише аудіопотоки.'
+    Scroll Playback Rate Over Video Player: Поки курсор знаходиться над відео, натисніть
+      і утримуйте клавішу Control (клавіша Command на Mac) і прокрутіть коліщатко
+      миші вперед або назад, щоб контролювати швидкість відтворення. Натисніть і утримуйте
+      клавішу Control (клавіша Command на Mac) і клацніть лівою кнопкою миші, щоб
+      швидко повернутися до типової швидкості відтворення (1x, якщо вона не була змінена
+      в налаштуваннях).
   Subscription Settings:
     Fetch Feeds from RSS: 'Якщо ввімкнено, FreeTube використовуватиме RSS замість
       стандартного способу захоплення каналу підписки. RSS швидше і запобігає блокуванню
@@ -707,6 +728,7 @@ Tooltips:
       тут можна призначити нетиповий шлях.
     External Player: Якщо обрано зовнішній програвач, з'явиться піктограма для відкриття
       відео (добірка, якщо підтримується) у зовнішньому програвачі, на мініатюрі.
+    DefaultCustomArgumentsTemplate: "(Типово: '$')"
 Local API Error (Click to copy): 'Помилка локального API (натисніть, щоб скопіювати)'
 Invidious API Error (Click to copy): 'Помилка Invidious API (натисніть, щоб скопіювати)'
 Falling back to Invidious API: 'Повернення до API Invidious'

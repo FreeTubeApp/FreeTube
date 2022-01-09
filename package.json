@@ -2,7 +2,7 @@
   "name": "freetube",
   "productName": "FreeTube",
   "description": "A private YouTube client",
-  "version": "0.15.0",
+  "version": "0.15.1",
   "license": "AGPL-3.0-or-later",
   "main": "./dist/main.js",
   "private": true,
@@ -47,7 +47,6 @@
     "release": "run-s test build",
     "test": "run-s rebuild:node pack:workers jest",
     "test:watch": "run-s rebuild:node pack:workers jest:watch",
-
     "ci": "yarn install --frozen-lockfile"
   },
   "dependencies": {
@@ -72,7 +71,7 @@
     "marked": "^3.0.2",
     "material-design-icons": "^3.0.1",
     "nedb-promises": "^5.0.1",
-    "node-forge": "^0.10.0",
+    "node-forge": "^1.0.0",
     "opml-to-json": "^1.0.1",
     "rss-parser": "^3.12.0",
     "socks-proxy-agent": "^6.0.0",
@@ -93,7 +92,7 @@
     "yt-channel-info": "^2.2.0",
     "yt-dash-manifest-generator": "1.1.0",
     "yt-trending-scraper": "^2.0.1",
-    "ytdl-core": "^4.9.1",
+    "ytdl-core": "fent/node-ytdl-core#pull/1022/head",
     "ytpl": "^2.2.3",
     "ytsr": "^3.5.3"
   },
@@ -109,7 +108,7 @@
     "babel-loader": "^8.2.2",
     "copy-webpack-plugin": "^9.0.1",
     "css-loader": "5.2.6",
-    "electron": "^13.5.1",
+    "electron": "^15.3.3",
     "electron-builder": "^22.11.7",
     "electron-builder-squirrel-windows": "^22.13.1",
     "electron-debug": "^3.2.0",

@@ -2,21 +2,33 @@
   <ft-flex-box
     ref="sideNav"
     class="sideNav"
-    :class="{closed: !isOpen}"
+    :class="[{closed: !isOpen}, applyHiddenLabels]"
   >
-    <div class="inner">
+    <div
+      class="inner"
+      :class="applyHiddenLabels"
+    >
       <div
-        class="navOption topNavOption mobileShow"
+        class="navOption topNavOption mobileShow "
         role="button"
         tabindex="0"
+        :title="$t('Subscriptions.Subscriptions')"
         @click="navigate('subscriptions')"
       >
-        <font-awesome-icon
-          icon="rss"
-          class="navIcon"
-          fixed-width
-        />
-        <p class="navLabel">
+        <div
+          class="thumbnailContainer"
+        >
+          <font-awesome-icon
+            icon="rss"
+            class="navIcon"
+            :class="applyNavIconExpand"
+            fixed-width
+          />
+        </div>
+        <p
+          v-if="!hideText"
+          class="navLabel"
+        >
           {{ $t("Subscriptions.Subscriptions") }}
         </p>
       </div>
@@ -25,15 +37,24 @@
         class="navOption mobileHidden"
         role="button"
         tabindex="0"
+        :title="$t('Trending.Trending')"
         @click="navigate('trending')"
         @keypress="navigate('trending')"
       >
-        <font-awesome-icon
-          icon="fire"
-          class="navIcon"
-          fixed-width
-        />
-        <p class="navLabel">
+        <div
+          class="thumbnailContainer"
+        >
+          <font-awesome-icon
+            icon="fire"
+            class="navIcon"
+            :class="applyNavIconExpand"
+            fixed-width
+          />
+        </div>
+        <p
+          v-if="!hideText"
+          class="navLabel"
+        >
           {{ $t("Trending.Trending") }}
         </p>
       </div>
@@ -42,15 +63,24 @@
         class="navOption mobileHidden"
         role="button"
         tabindex="0"
+        :title="$t('Most Popular')"
         @click="navigate('popular')"
         @keypress="navigate('popular')"
       >
-        <font-awesome-icon
-          icon="users"
-          class="navIcon"
-          fixed-width
-        />
-        <p class="navLabel">
+        <div
+          class="thumbnailContainer"
+        >
+          <font-awesome-icon
+            icon="users"
+            class="navIcon"
+            :class="applyNavIconExpand"
+            fixed-width
+          />
+        </div>
+        <p
+          v-if="!hideText"
+          class="navLabel"
+        >
           {{ $t("Most Popular") }}
         </p>
       </div>
@@ -59,15 +89,24 @@
         class="navOption mobileShow"
         role="button"
         tabindex="0"
+        :title="$t('Playlists')"
         @click="navigate('userplaylists')"
         @keypress="navigate('userplaylists')"
       >
-        <font-awesome-icon
-          icon="bookmark"
-          class="navIcon"
-          fixed-width
-        />
-        <p class="navLabel">
+        <div
+          class="thumbnailContainer"
+        >
+          <font-awesome-icon
+            icon="bookmark"
+            class="navIcon"
+            :class="applyNavIconExpand"
+            fixed-width
+          />
+        </div>
+        <p
+          v-if="!hideText"
+          class="navLabel"
+        >
           {{ $t("Playlists") }}
         </p>
       </div>
@@ -78,15 +117,24 @@
         class="navOption mobileShow"
         role="button"
         tabindex="0"
+        :title="$t('History.History')"
         @click="navigate('history')"
         @keypress="navigate('history')"
       >
-        <font-awesome-icon
-          icon="history"
-          class="navIcon"
-          fixed-width
-        />
-        <p class="navLabel">
+        <div
+          class="thumbnailContainer"
+        >
+          <font-awesome-icon
+            icon="history"
+            class="navIcon"
+            :class="applyNavIconExpand"
+            fixed-width
+          />
+        </div>
+        <p
+          v-if="!hideText"
+          class="navLabel"
+        >
           {{ $t("History.History") }}
         </p>
       </div>
@@ -95,31 +143,49 @@
         class="navOption mobileShow"
         role="button"
         tabindex="0"
+        :title="$t('Settings.Settings')"
         @click="navigate('settings')"
         @keypress="navigate('settings')"
       >
-        <font-awesome-icon
-          icon="sliders-h"
-          class="navIcon"
-          fixed-width
-        />
-        <p class="navLabel">
-          {{ $t("Settings.Settings") }}
+        <div
+          class="thumbnailContainer"
+        >
+          <font-awesome-icon
+            icon="sliders-h"
+            class="navIcon"
+            :class="applyNavIconExpand"
+            fixed-width
+          />
+        </div>
+        <p
+          v-if="!hideText"
+          class="navLabel"
+        >
+          {{ $t('Settings.Settings') }}
         </p>
       </div>
       <div
         class="navOption mobileHidden"
         role="button"
         tabindex="0"
+        :title="$t('About.About')"
         @click="navigate('about')"
         @keypress="navigate('about')"
       >
-        <font-awesome-icon
-          icon="info-circle"
-          class="navIcon"
-          fixed-width
-        />
-        <p class="navLabel">
+        <div
+          class="thumbnailContainer"
+        >
+          <font-awesome-icon
+            icon="info-circle"
+            class="navIcon"
+            :class="applyNavIconExpand"
+            fixed-width
+          />
+        </div>
+        <p
+          v-if="!hideText"
+          class="navLabel"
+        >
           {{ $t("About.About") }}
         </p>
       </div>

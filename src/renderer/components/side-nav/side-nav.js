@@ -25,7 +25,7 @@ export default Vue.extend({
       return this.$store.getters.getActiveProfile
     },
     activeSubscriptions: function () {
-      const profile = JSON.parse(JSON.stringify(this.profileList[this.activeProfile]))
+      const profile = JSON.parse(JSON.stringify(this.activeProfile))
       return profile.subscriptions.sort((a, b) => {
         const nameA = a.name.toLowerCase()
         const nameB = b.name.toLowerCase()
@@ -55,6 +55,22 @@ export default Vue.extend({
     },
     hideActiveSubscriptions: function () {
       return this.$store.getters.getHideActiveSubscriptions
+    },
+    hideLabelsSideBar: function () {
+      return this.$store.getters.getHideLabelsSideBar
+    },
+    hideText: function () {
+      return !this.isOpen && this.hideLabelsSideBar
+    },
+    applyNavIconExpand: function() {
+      return {
+        navIconExpand: this.hideText
+      }
+    },
+    applyHiddenLabels: function() {
+      return {
+        hiddenLabels: this.hideText
+      }
     }
   },
   methods: {

@@ -195,6 +195,7 @@ Settings:
       Dracula Yellow: 'Drakula Geltona'
     Secondary Color Theme: 'Papildoma temos spalva'
         #* Main Color Theme
+    Hide Side Bar Labels: Slėpti šoninės juostos etiketes
   Player Settings:
     Player Settings: 'Grotuvo nustatymai'
     Force Local Backend for Legacy Formats: 'Priverstinai naudoti vietinę posistemę
@@ -229,6 +230,8 @@ Settings:
       4k: '4k'
       8k: '8k'
     Fast-Forward / Rewind Interval: Greito persukimo pirmyn / atgal intervalas
+    Scroll Playback Rate Over Video Player: Slinkties atkūrimo dažnis vaizdo įrašų
+      leistuve
   External Player Settings:
     External Player Settings: 'Išorinio grotuvo nustatymai'
     External Player: 'Išorinis grotuvas'
@@ -549,6 +552,16 @@ Video:
       shuffling playlists: 'maišomi grojaraščiai'
       looping playlists: 'ciklu sukami grojaraščiai'
 #& Videos
+  Premieres on: Premjera
+  Stats:
+    video id: Vaizdo įrašo ID (YouTube)
+    player resolution: Peržiūros sritis
+    fps: Kadrai per sekundę (FPS)
+    frame drop: Praleisti kadrai
+    bandwidth: Ryšio greitis
+    buffered: Užkrauta atmintyje
+    volume: Garsas
+    out of: iš
 Videos:
   #& Sort By
   Sort By:
@@ -622,6 +635,9 @@ Comments:
   Load More Comments: 'Pakrauti daugiau komentarų'
   No more comments available: 'Daugiau komentarų nėra'
   Show More Replies: Rodyti daugiau atsakymų
+  From $channelName: nuo $channelName
+  And others: ir kt.
+  Pinned by: Prisegė
 Up Next: 'Sekantis'
 
 #Tooltips
@@ -635,9 +651,8 @@ Tooltips:
       metodą, kai tai yra įgalinta.'
     Thumbnail Preference: 'Visos FreeTube vaizdo įrašų miniatiūros vietoje numatytosios
       bus pakeistos atitinkamu vaizdo įrašo stop kardu.'
-    Invidious Instance: 'Nepakankama instancija, prie kurio FreeTube prisijungs, kad
-      gautų API skambučius. Išvalykite esamą instanciją, kad pamatytumėte viešų egzempliorių,
-      iš kurių galite pasirinkti, sąrašą.'
+    Invidious Instance: 'Invidious instancija, prie kurio FreeTube prisijungs, kad
+      gautų API pasikreipimus.'
     Region for Trending: '„Dabar populiaru“ regionas leidžia pasirinkti, kurios šalies
       populiarius vaizdo įrašus norite rodyti. YouTube iš tikrųjų nepalaiko visų rodomų
       šalių.'
@@ -656,6 +671,12 @@ Tooltips:
       gali rodyti aukštesnes kokybės vaizdo įrašus. Senieji formatai (Legacy) gali
       būti ne daugiau kaip 720p kokybės, tačiau jie reikalauja mažesnių tinklo resursų.
       Garso formatai -tai tik garsas, vaizdo įrašas nėra rodomas ar siunčiamas.'
+    Scroll Playback Rate Over Video Player: Kai žymeklis yra virš vaizdo įrašo, paspauskite
+      ir laikykite nuspaudę valdymo klavišą („Mac“ komandų klavišas) ir slinkite pelės
+      ratuką pirmyn arba atgal, kad valdytumėte atkūrimo greitį. Paspauskite ir laikykite
+      nuspaudę valdymo klavišą („Mac“ komandų klavišas) ir spustelėkite kairįjį pelės
+      klavišą, kad greitai grįžtumėte į numatytąjį atkūrimo greitį (1 kartą, nebent
+      jis buvo pakeistas nustatymuose).
   External Player Settings:
     External Player: 'Pasirinkus išorinį grotuvą, miniatiūroje bus rodoma piktograma,
       leidžianti atidaryti vaizdo įrašą (grojaraštį, jei palaikoma) išoriniame grotuve.'
@@ -667,6 +688,7 @@ Tooltips:
     Custom External Player Arguments: 'Bet kokius pasirinktinius komandinės eilutės
       argumentus, atskirtus kabliataškiais ('';''), kuriuos norite perduoti išoriniam
       grotuvui.'
+    DefaultCustomArgumentsTemplate: '(Numatytasis: „$“)'
   Subscription Settings:
     Fetch Feeds from RSS: 'Kai bus įgalinta, „FreeTube“ naudos RSS, o ne numatytąjį
       metodą, kad užpildytų jūsų prenumeratos kanalą. RSS yra greitesnė ir išvengia

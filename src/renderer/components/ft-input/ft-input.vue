@@ -5,7 +5,8 @@
       search: isSearch,
       forceTextColor: forceTextColor,
       showActionButton: showActionButton,
-      showClearTextButton: showClearTextButton
+      showClearTextButton: showClearTextButton,
+      disabled: disabled
     }"
   >
     <label
@@ -60,14 +61,14 @@
 
     <div class="options">
       <ul
-        v-if="inputData !== '' && dataList.length > 0 && searchState.showOptions"
+        v-if="inputData !== '' && visibleDataList.length > 0 && searchState.showOptions"
         :id="idDataList"
         class="list"
         @mouseenter="searchState.isPointerInList = true"
         @mouseleave="searchState.isPointerInList = false"
       >
         <li
-          v-for="(list, index) in dataList"
+          v-for="(list, index) in visibleDataList"
           :key="index"
           :class="searchState.selectedOption == index ? 'hover': ''"
           @click="handleOptionClick(index)"

@@ -190,6 +190,7 @@ Settings:
     UI Scale: UI Scale
     Disable Smooth Scrolling: Disable smooth scrolling
     Expand Side Bar by Default: Expand side bar by default
+    Hide Side Bar Labels: Hide side bar labels
   Player Settings:
     Player Settings: 'Player Settings'
     Force Local Backend for Legacy Formats: 'Force Local Back-end for Legacy Formats'
@@ -223,6 +224,7 @@ Settings:
     Next Video Interval: Next video interval
     Display Play Button In Video Player: Display play button in video player
     Fast-Forward / Rewind Interval: Fast-forward / rewind interval
+    Scroll Playback Rate Over Video Player: Scroll playback rate over video player
   External Player Settings:
     External Player Settings: External Player Settings
     External Player: External Player
@@ -584,6 +586,16 @@ Video:
       reversing playlists: reversing playlists
       shuffling playlists: shuffling playlists
       looping playlists: looping playlists
+  Premieres on: Premieres on
+  Stats:
+    video id: Video ID (YouTube)
+    player resolution: Viewport
+    volume: Volume
+    frame drop: Frame Drop
+    buffered: Buffered
+    fps: FPS
+    bandwidth: Connection Speed
+    out of: out of
 Videos:
   #& Sort By
   Sort By:
@@ -655,6 +667,9 @@ Comments:
   Top comments: Top comments
   Sort by: Sort by
   Show More Replies: Show more replies
+  Pinned by: Pinned by
+  From $channelName: from $channelName
+  And others: and others
 Up Next: 'Up Next'
 
 # Toast Messages
@@ -696,13 +711,17 @@ Tooltips:
       default. When enabled, the local API will run and use the legacy formats returned
       by that instead of the ones returned by Invidious. Helps when the videos returned
       by Invidious don’t play due to country restrictions.
+    Scroll Playback Rate Over Video Player: While the cursor is over the video, press
+      and hold the Control key (Command Key on Mac) and scroll the mouse wheel forwards
+      or backwards to control the playback rate. Press and hold the Control key (Command
+      Key on Mac) and left click the mouse to quickly return to the default playback
+      rate (1x unless it has been changed in the settings).
   General Settings:
     Region for Trending: The region of trends allows you to pick which country’s trending
       videos you want to have displayed. Not all countries displayed are actually
       supported by YouTube.
     Invidious Instance: The Invidious instance that FreeTube will connect to for API
-      calls. Clear the current instance to see a list of public instances to choose
-      from.
+      calls.
     Thumbnail Preference: All thumbnails throughout FreeTube will be replaced with
       a frame of the video instead of the default thumbnail.
     Fallback to Non-Preferred Backend on Failure: When your preferred API has a problem,
@@ -724,6 +743,8 @@ Tooltips:
       support the current action (e.g. reversing playlists, etc.).
     Custom External Player Arguments: Any custom command line arguments, separated
       by semicolons (';'), you want to be passed to the external player.
+    # $ is replaced with the default custom arguments for the current player, if defined.
+    DefaultCustomArgumentsTemplate: '(Default: ‘$’)'
   Privacy Settings:
     Remove Video Meta Files: When enabled, FreeTube automatically deletes meta files
       created during video playback, when the watch page is closed.

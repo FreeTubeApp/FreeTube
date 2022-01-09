@@ -84,8 +84,12 @@ Subscriptions:
     här profilen har ett stort antal prenumerationer.  Tvinga RSS för att undvika
     ränta begränsa
   Load More Videos: Se mer
-Trending: 
+Trending:
   Trending: 'Trender'
+  Movies: Filmer
+  Gaming: Spel
+  Music: Musik
+  Default: Standard
 Most Popular: 'Mest populära'
 Playlists: 'Spellistor'
 User Playlists:
@@ -140,6 +144,11 @@ Settings:
     No default instance has been set: Ingen standard instans är vald
     The currently set default instance is $: Den nuvarande aktiva instansen är $
     Current Invidious Instance: Aktiva Invidious Instansen
+    External Link Handling:
+      No Action: Ingen åtgärd
+      Ask Before Opening Link: Fråga innan du öppnar länk
+      Open Link: Öppna länk
+      External Link Handling: Hantering av extern länk
   Theme Settings:
     Theme Settings: 'Tema inställningar'
     Match Top Bar with Main Color: 'Matcha toppfältet med huvudfärgen'
@@ -651,6 +660,7 @@ Comments:
   Top comments: Toppkommentarer
   Sort by: Sortera efter
   No more comments available: Det finns inga fler kommentarer
+  Show More Replies: Visa fler svar
 Up Next: 'Kommer härnäst'
 
 # Toast Messages
@@ -733,3 +743,9 @@ Unknown YouTube url type, cannot be opened in app: Okänd YouTube URL, kan inte 
 Default Invidious instance has been cleared: Standard Invidious-instans har rensats
 Default Invidious instance has been set to $: Standard Invidious-instans har ställts
   in på $
+External link opening has been disabled in the general settings: Öppning av externa
+  länkar har inaktiverats i de allmänna inställningarna
+Search Bar:
+  Clear Input: Rensa inmatning
+Are you sure you want to open this link?: Är du säker på att du vill öppna den här
+  länken?
