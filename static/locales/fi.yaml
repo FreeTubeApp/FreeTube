@@ -180,6 +180,7 @@ Settings:
     UI Scale: Käyttöliittymän koko
     Disable Smooth Scrolling: Poista tasainen vieritys käytöstä
     Expand Side Bar by Default: Laajenna sivupalkki oletusarvoisesti
+    Hide Side Bar Labels: Piilota sivupalkin nimikkeet
   Player Settings:
     Player Settings: 'Soittimen asetukset'
     Force Local Backend for Legacy Formats: 'Pakota paikallinen taustaohjelma vanhoille
@@ -215,6 +216,7 @@ Settings:
     Scroll Volume Over Video Player: Säädä äänenvoimakkuutta vierittämällä videon
       päällä
     Fast-Forward / Rewind Interval: Pikakelauksen intervalli
+    Scroll Playback Rate Over Video Player: Toistonopeuden selaaminen videosoittimessa
   Subscription Settings:
     Subscription Settings: 'Tilausasetukset'
     Hide Videos on Watch: 'Piilota katsotut videot'
@@ -547,6 +549,11 @@ Video:
     luettelostasi
   Video has been saved: Video on tallennettu
   Save Video: Tallenna video
+  Stats:
+    video id: Videon tunniste (YouTube)
+    player resolution: Näkymäikkuna
+    bandwidth: Yhteyden nopeus
+    buffered: Puskuroitu
 Videos:
   #& Sort By
   Sort By:
@@ -616,6 +623,9 @@ Comments:
   Top comments: Suosituimmat kommentit
   Sort by: Lajitteluperuste
   Show More Replies: Näytä enemmän vastauksia
+  Pinned by: Kiinnittänyt
+  From $channelName: kanavalta $channelName
+  And others: ja muut
 Up Next: 'Seuraavaksi'
 
 # Toast Messages
@@ -730,6 +740,7 @@ Tooltips:
       Mikäli tarvetta ilmenee, voidaan asettaa omavalintainen polku tähän.
     External Player: Ulkoisen toisto-ohjelman valinta tuottaa kuvakkeen videon avaamiseksi
       (soittoluettelon mikäli sellainen on tuettu) ulkoisessa toisto-ohjelmassa, pikkukuvana.
+    DefaultCustomArgumentsTemplate: "(Oletus: '$')"
 More: Lisää
 Playing Next Video Interval: Seuraava video alkaa. Klikkaa peruuttaaksesi. |Seuraava
   video alkaa {nextVideoInterval} sekunnin kuluttua. Klikkaa peruuttaaksesi. | Seuraava

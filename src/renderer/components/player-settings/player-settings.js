@@ -98,6 +98,10 @@ export default Vue.extend({
       return this.$store.getters.getVideoVolumeMouseScroll
     },
 
+    videoPlaybackRateMouseScroll: function () {
+      return this.$store.getters.getVideoPlaybackRateMouseScroll
+    },
+
     displayVideoPlayButton: function () {
       return this.$store.getters.getDisplayVideoPlayButton
     },
@@ -138,6 +142,7 @@ export default Vue.extend({
       'updateDefaultVideoFormat',
       'updateDefaultQuality',
       'updateVideoVolumeMouseScroll',
+      'updateVideoPlaybackRateMouseScroll',
       'updateDisplayVideoPlayButton'
     ])
   }
