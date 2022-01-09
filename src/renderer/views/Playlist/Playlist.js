@@ -80,8 +80,10 @@ export default Vue.extend({
           channelId: result.author ? result.author.channelID : '',
           infoSource: 'local'
         }
-
-        this.$updateChannelThumbnail(this.infoData.channelThumbnail.replace('=s48', '=s176'), this.infoData.channelName, this.infoData.channelId)
+        const channelThumbnailUrl = this.infoData.channelThumbnail.replace('=s48', '=s176')
+        const channelName = this.infoData.channelName
+        const channelId = this.infoData.channelId
+        this.updateChannelThumbnail({ channelThumbnailUrl, channelName, channelId })
 
         this.playlistItems = result.items.map((video) => {
           if (typeof video.author !== 'undefined') {
@@ -137,8 +139,10 @@ export default Vue.extend({
           channelId: result.authorId,
           infoSource: 'invidious'
         }
-
-        this.$updateChannelThumbnail(result.authorThumbnails[2].url.replace('=s48', '=s176'), this.infoData.channelName, this.infoData.channelId)
+        const channelThumbnailUrl = result.authorThumbnails[2].url.replace('=s48', '=s176')
+        const channelName = this.infoData.channelName
+        const channelId = this.infoData.channelId
+        this.updateChannelThumbnail({ channelThumbnailUrl, channelName, channelId })
 
         const dateString = new Date(result.updated * 1000)
         dateString.setDate(dateString.getDate() + 1)
@@ -185,7 +189,8 @@ export default Vue.extend({
 
     ...mapActions([
       'ytGetPlaylistInfo',
-      'invidiousGetPlaylistInfo'
+      'invidiousGetPlaylistInfo',
+      'updateChannelThumbnail'
     ])
   }
 })

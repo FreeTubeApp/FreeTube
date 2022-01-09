@@ -256,8 +256,10 @@ export default Vue.extend({
             this.channelName = result.player_response.videoDetails.author
             this.channelThumbnail = result.player_response.embedPreview.thumbnailPreviewRenderer.videoDetails.embeddedPlayerOverlayVideoDetailsRenderer.channelThumbnail.thumbnails[0].url
           }
-
-          this.$updateChannelThumbnail(this.channelThumbnail.replace('=s48', '=s176'), this.channelName, this.channelId)
+          const channelName = this.channelName
+          const channelId = this.channelId
+          const channelThumbnailUrl = this.channelThumbnail.replace('=s48', '=s176')
+          this.updateChannelThumbnail({ channelThumbnailUrl, channelName, channelId })
 
           this.videoPublished = new Date(result.videoDetails.publishDate.replace('-', '/')).getTime()
           this.videoDescription = result.player_response.videoDetails.shortDescription
@@ -545,8 +547,10 @@ export default Vue.extend({
           this.channelName = result.author
           const channelThumb = result.authorThumbnails[1]
           this.channelThumbnail = channelThumb ? channelThumb.url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`) : ''
-
-          this.$updateChannelThumbnail(channelThumb?.url.replace('=s48', '=s176'), this.channelName, this.channelId)
+          const channelThumbnailUrl = channelThumb?.url.replace('=s48', '=s176')
+          const channelName = this.channelName
+          const channelId = this.channelId
+          this.updateChannelThumbnail({ channelThumbnailUrl, channelName, channelId })
 
           this.videoPublished = result.published * 1000
           this.videoDescriptionHtml = result.descriptionHtml
@@ -1241,7 +1245,8 @@ export default Vue.extend({
       'updateWatchProgress',
       'getUserDataPath',
       'ytGetVideoInformation',
-      'invidiousGetVideoInformation'
+      'invidiousGetVideoInformation',
+      'updateChannelThumbnail'
     ])
   }
 })

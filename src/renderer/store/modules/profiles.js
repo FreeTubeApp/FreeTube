@@ -60,6 +60,40 @@ const actions = {
     return await profilesDb.findOne({ _id: profileId })
   },
 
+  async updateChannelThumbnail({ getters, dispatch }, data) {
+    const profileList = getters.getProfileList
+    console.log('get profile list')
+    console.log(profileList.length)
+    const thumbnail = data.channelThumbnailUrl
+    const channelName = data.channelName
+    const channelId = data.channelId
+    console.log(data)
+    for (let i = 0; i < profileList.length; i++) {
+      const currentProfile = JSON.parse(JSON.stringify(profileList[i]))
+      console.log(thumbnail)
+      const channelIndex = currentProfile.subscriptions.findIndex((channel) => {
+        return channel.id === channelId
+      })
+      if (channelIndex !== -1) {
+        console.log('channel found')
+        let updated = false
+        if (profileList[i].subscriptions[channelIndex].name !== channelName) {
+          currentProfile.subscriptions[channelIndex].name = channelName
+          updated = true
+        }
+        if (profileList[i].subscriptions[channelIndex].thumbnail !== thumbnail) {
+          currentProfile.subscriptions[channelIndex].thumbnail = thumbnail
+          updated = true
+        }
+        if (updated) {
+          await dispatch('updateProfile', currentProfile)
+        } else {
+          break
+        }
+      }
+    }
+  },
+
   async createDefaultProfile({ dispatch }, defaultName) {
     const randomColor = await dispatch('getRandomColor')
     const textColor = await dispatch('calculateColorLuminance', randomColor)
