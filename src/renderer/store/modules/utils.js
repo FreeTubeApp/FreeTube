@@ -175,7 +175,7 @@ const actions = {
     }
   },
 
-  async downloadMedia({ rootState, dispatch }, [url, title, extension, folder]) {
+  async downloadMedia({ rootState, dispatch }, { url, title, extension, folder }) {
     const usingElectron = rootState.settings.usingElectron
     const askFolder = folder === ''
     let fileHandler
