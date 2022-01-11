@@ -1620,12 +1620,6 @@ export default Vue.extend({
       }
     },
 
-    ...mapActions([
-      'calculateColorLuminance',
-      'updateDefaultCaptionSettings',
-      'showToast',
-      'sponsorBlockSkipSegments'
-    ]),
     addPlayerStatsEvent: function() {
       this.stats.videoId = this.videoId
       this.player.on('volumechange', () => {
@@ -1704,6 +1698,13 @@ export default Vue.extend({
           break
         }
       }
-    }
+    },
+
+    ...mapActions([
+      'calculateColorLuminance',
+      'updateDefaultCaptionSettings',
+      'showToast',
+      'sponsorBlockSkipSegments'
+    ])
   }
 })
