@@ -213,6 +213,7 @@ function runApp() {
         contextIsolation: false
       }
     }
+
     const newWindow = new BrowserWindow(
       Object.assign(
         {
@@ -265,9 +266,6 @@ function runApp() {
           height: bounds.height
         })
       }
-      if (maximized) {
-        newWindow.maximize()
-      }
     }
 
     // If called multiple times
@@ -292,6 +290,13 @@ function runApp() {
     // Show when loaded
     newWindow.once('ready-to-show', () => {
       newWindow.show()
+
+      if (typeof boundsDoc?.value === 'object') {
+        if (boundsDoc.value.maximized) {
+          newWindow.maximize()
+        }
+      }
+
       newWindow.focus()
     })
 
