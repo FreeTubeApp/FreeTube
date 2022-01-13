@@ -132,7 +132,7 @@ export default Vue.extend({
         url: this.dropdownValues[index],
         title: this.relatedVideoTitle,
         extension: this.filesExtensions[index],
-        folder: this.$store.getters.getDownloadFolder
+        folderPath: this.$store.getters.getDownloadFolderPath
       })
       this.focusOut()
     }
