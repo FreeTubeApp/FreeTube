@@ -27,6 +27,13 @@ function runApp() {
         click: () => {
           browserWindow.webContents.send('showVideoStatistics', 'show')
         }
+      },
+      {
+        label: 'Open in a New Window',
+        visible: parameters.mediaType === 'video' || parameters.mediaType === 'image',
+        click: () => {
+          browserWindow.webContents.send('openInNewWindow', parameters)
+        }
       }
     ]
   })
