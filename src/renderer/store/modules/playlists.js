@@ -143,8 +143,7 @@ const actions = {
     const results = state.playlists[0].videos.slice()
       .filter((video) => {
         return video.author.match(re) ||
-      video.title.match(re) ||
-      video.videoId.match(re)
+      video.title.match(re)
       })
     commit('setPlaylistCache', results)
   }
