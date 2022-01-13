@@ -181,13 +181,13 @@ const actions = {
     let fileHandler
     const successMsg = 'Downloading has completed'
 
-    dispatch('showToast', {
-      message: 'Starting download', translate: true, formatArgs: [title]
-    })
-
     if (askFolderPath) {
       fileHandler = await window.showSaveFilePicker({ suggestedName: `${title}.${extension}` })
     }
+
+    dispatch('showToast', {
+      message: 'Starting download', translate: true, formatArgs: [title]
+    })
 
     const response = await fetch(url)
     //  mechanism to show the download progress reference https://javascript.info/fetch-progress
