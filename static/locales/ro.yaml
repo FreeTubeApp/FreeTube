@@ -193,6 +193,7 @@ Settings:
     UI Scale: Scala UI
     Disable Smooth Scrolling: Dezactivați derularea lină
     Expand Side Bar by Default: Extindeți bara laterală în mod implicit
+    Hide Side Bar Labels: Ascunde etichetele din bara laterală
   Player Settings:
     Player Settings: 'Setări player'
     Force Local Backend for Legacy Formats: 'Forțați backend-ul local pentru formatele
@@ -593,6 +594,16 @@ Video:
     ta de salvări
   Video has been saved: Videoclipul a fost salvat
   Save Video: Salvați video
+  Stats:
+    video id: Identificator videoclip (YouTube)
+    player resolution: Fereastră de vizualizare
+    volume: Sonor
+    fps: CPS
+    frame drop: Aruncare cadre
+    bandwidth: Viteză conexiune
+    out of: din
+    buffered: Preîncărcat
+  Premieres on: Premieră pe
 Videos:
   #& Sort By
   Sort By:
@@ -667,6 +678,9 @@ Comments:
   Newest first: Începând cu cele mai noi
   Top comments: Cele mai bune comentarii
   Sort by: Sortați după
+  And others: și altele
+  From $channelName: de la $channelName
+  Pinned by: Lipit de
 Up Next: 'În continuare'
 
 # Toast Messages
@@ -729,6 +743,7 @@ Tooltips:
       necesar, aici poate fi setată o cale personalizată.
     External Player: Alegerea unui player extern va afișa o pictogramă, pentru a deschide
       videoclipul (lista de redare, dacă este acceptată) în playerul extern, pe miniatură.
+    DefaultCustomArgumentsTemplate: "(Implicit: '$')"
   Player Settings:
     Default Video Format: Setați formatele utilizate la redarea unui videoclip. Formatele
       DASH pot reda calități superioare. Formatele tradiționale sunt limitate la maximum

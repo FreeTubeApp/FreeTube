@@ -41,7 +41,6 @@ export default Vue.extend({
       latestBlogUrl: '',
       updateChangelog: '',
       changeLogTitle: '',
-
       lastExternalLinkToBeOpened: '',
       showExternalLinkOpeningPrompt: false,
       externalLinkOpeningPromptValues: [
@@ -313,32 +312,40 @@ export default Vue.extend({
 
     openAllLinksExternally: function () {
       $(document).on('click', 'a[href^="http"]', (event) => {
-        const el = event.currentTarget
-        console.log(this.usingElectron)
-        console.log(el)
-        event.preventDefault()
-
-        // Check if it's a YouTube link
-        const youtubeUrlPattern = /^https?:\/\/((www\.)?youtube\.com(\/embed)?|youtu\.be)\/.*$/
-        const isYoutubeLink = youtubeUrlPattern.test(el.href)
-
-        if (isYoutubeLink) {
-          this.handleYoutubeLink(el.href)
-        } else if (this.externalLinkHandling === 'doNothing') {
-          // Let user know opening external link is disabled via setting
-          this.showToast({
-            message: this.$t('External link opening has been disabled in the general settings')
-          })
-        } else if (this.externalLinkHandling === 'openLinkAfterPrompt') {
-          // Storing the URL is necessary as
-          // there is no other way to pass the URL to click callback
-          this.lastExternalLinkToBeOpened = el.href
-          this.showExternalLinkOpeningPrompt = true
-        } else {
-          // Open links externally
-          this.openExternalLink(el.href)
-        }
+        this.handleLinkClick(event)
       })
+
+      $(document).on('auxclick', 'a[href^="http"]', (event) => {
+        this.handleLinkClick(event)
+      })
+    },
+
+    handleLinkClick: function (event) {
+      const el = event.currentTarget
+      console.log(this.usingElectron)
+      console.log(el)
+      event.preventDefault()
+
+      // Check if it's a YouTube link
+      const youtubeUrlPattern = /^https?:\/\/((www\.)?youtube\.com(\/embed)?|youtu\.be)\/.*$/
+      const isYoutubeLink = youtubeUrlPattern.test(el.href)
+
+      if (isYoutubeLink) {
+        this.handleYoutubeLink(el.href)
+      } else if (this.externalLinkHandling === 'doNothing') {
+        // Let user know opening external link is disabled via setting
+        this.showToast({
+          message: this.$t('External link opening has been disabled in the general settings')
+        })
+      } else if (this.externalLinkHandling === 'openLinkAfterPrompt') {
+        // Storing the URL is necessary as
+        // there is no other way to pass the URL to click callback
+        this.lastExternalLinkToBeOpened = el.href
+        this.showExternalLinkOpeningPrompt = true
+      } else {
+        // Open links externally
+        this.openExternalLink(el.href)
+      }
     },
 
     handleYoutubeLink: function (href) {
@@ -445,15 +452,16 @@ export default Vue.extend({
       }
     },
 
-    ...mapMutations([
-      'setInvidiousInstancesList'
-    ]),
-
     setWindowTitle: function() {
       if (this.windowTitle !== null) {
         document.title = this.windowTitle
       }
     },
+
+    ...mapMutations([
+      'setInvidiousInstancesList'
+    ]),
+
     ...mapActions([
       'showToast',
       'openExternalLink',

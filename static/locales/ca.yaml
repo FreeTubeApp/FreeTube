@@ -150,6 +150,7 @@ Settings:
       Open Link: Obre l'enllaç
       External Link Handling: Gestió d'enllaços externs
       Ask Before Opening Link: Pregunta abans d'obrir l'enllaç
+      No Action: Sense acció
     Current instance will be randomized on startup: La instància actual es farà aleatòriament
       a l'inici
     Set Current Instance as Default: Defineix l'actual com a instància per defecte
@@ -192,15 +193,16 @@ Settings:
     Expand Side Bar by Default: Expandeix la barra lateral per defecte
     UI Scale: Escala de la interfície gràfica
     Disable Smooth Scrolling: Desactiva el desplaçament suau
+    Hide Side Bar Labels: Oculta les etiquetes de la barra lateral
   Player Settings:
     Player Settings: 'Configuració del reproductor'
     Force Local Backend for Legacy Formats: ''
-    Play Next Video: ''
-    Turn on Subtitles by Default: ''
-    Autoplay Videos: ''
-    Proxy Videos Through Invidious: ''
-    Autoplay Playlists: ''
-    Enable Theatre Mode by Default: ''
+    Play Next Video: 'Reprodueix el vídeo següent'
+    Turn on Subtitles by Default: 'Activa els subtítols per defecte'
+    Autoplay Videos: 'Reprodueix automàticament els vídeos'
+    Proxy Videos Through Invidious: 'Emmascarar vídeos a través de invidious'
+    Autoplay Playlists: 'Reprodueix automàticament les llistes de reproducció'
+    Enable Theatre Mode by Default: 'Activa el mode teatre per defecte'
     Default Volume: ''
     Default Playback Rate: ''
     Default Video Format:
@@ -220,6 +222,7 @@ Settings:
       1440p: ''
       4k: ''
       8k: ''
+    Scroll Volume Over Video Player: Desplaça el volum sobre el reproductor de vídeo
   Privacy Settings:
     Privacy Settings: ''
     Remember History: ''
