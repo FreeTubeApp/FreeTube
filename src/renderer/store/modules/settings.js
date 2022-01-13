@@ -217,7 +217,7 @@ const state = {
   useSponsorBlock: false,
   videoVolumeMouseScroll: false,
   videoPlaybackRateMouseScroll: false,
-  downloadFolder: ''
+  downloadFolderPath: ''
 }
 
 const stateWithSideEffects = {

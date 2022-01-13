@@ -17,19 +17,19 @@ export default Vue.extend({
   },
   data: function () {
     return {
-      askForDownloadPath: this.$store.getters.getDownloadFolder === ''
+      askForDownloadPath: this.$store.getters.getDownloadFolderPath === ''
     }
   },
   computed: {
     downloadPath: function() {
-      return this.$store.getters.getDownloadFolder
+      return this.$store.getters.getDownloadFolderPath
     }
   },
   methods: {
     handleDownloadingSettingChange: function (value) {
       this.askForDownloadPath = value
       if (value === true) {
-        this.updateDownloadFolder('')
+        this.updateDownloadFolderPath('')
       }
     },
     chooseDownloadingFolder: async function() {
@@ -39,10 +39,10 @@ export default Vue.extend({
         { properties: ['openDirectory'] }
       )
 
-      this.updateDownloadFolder(folder.filePaths[0])
+      this.updateDownloadFolderPath(folder.filePaths[0])
     },
     ...mapActions([
-      'updateDownloadFolder'
+      'updateDownloadFolderPath'
     ])
   }
 

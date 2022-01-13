@@ -175,9 +175,9 @@ const actions = {
     }
   },
 
-  async downloadMedia({ rootState, dispatch }, { url, title, extension, folder }) {
+  async downloadMedia({ rootState, dispatch }, { url, title, extension, folderPath }) {
     const usingElectron = rootState.settings.usingElectron
-    const askFolder = folder === ''
+    const askFolderPath = folderPath === ''
     let fileHandler
     const successMsg = 'Downloading has completed'
 
@@ -185,7 +185,7 @@ const actions = {
       message: 'Starting download', translate: true, formatArgs: [title]
     })
 
-    if (askFolder) {
+    if (askFolderPath) {
       fileHandler = await window.showSaveFilePicker({ suggestedName: `${title}.${extension}` })
     }
 
@@ -234,9 +234,9 @@ const actions = {
     }
     const blobFile = new Blob(chunks)
 
-    if (usingElectron && !askFolder) {
+    if (usingElectron && !askFolderPath) {
       const buffer = await blobFile.arrayBuffer()
-      fs.writeFile(`${folder}/${title}.${extension}`, new DataView(buffer), (err) => {
+      fs.writeFile(`${folderPath}/${title}.${extension}`, new DataView(buffer), (err) => {
         if (err) {
           dispatch('showToast', {
             message: err
