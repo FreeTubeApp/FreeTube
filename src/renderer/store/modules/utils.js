@@ -182,7 +182,7 @@ const actions = {
     let askedFilePath
     const successMsg = 'Downloading has completed'
 
-    if (askFolderPath) {
+    if (askFolderPath && usingElectron) {
       const resp = await ipcRenderer.invoke(
         IpcChannels.SHOW_SAVE_DIALOG,
         { defaultPath: `${title}.${extension}` }
