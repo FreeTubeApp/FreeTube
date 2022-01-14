@@ -252,21 +252,22 @@ const actions = {
       dispatch('showToast', {
         message: successMsg, translate: true, formatArgs: [title]
       })
-      return
+    } else if (usingElectron) {
+      fs.writeFile(askedFilePath, new DataView(buffer), (err) => {
+        if (err) {
+          dispatch('showToast', {
+            message: err
+          })
+          return console.error(err)
+        }
+      })
+
+      dispatch('showToast', {
+        message: successMsg, translate: true, formatArgs: [title]
+      })
+    } else {
+      // Web placeholder
     }
-
-    fs.writeFile(askedFilePath, new DataView(buffer), (err) => {
-      if (err) {
-        dispatch('showToast', {
-          message: err
-        })
-        return console.error(err)
-      }
-    })
-
-    dispatch('showToast', {
-      message: successMsg, translate: true, formatArgs: [title]
-    })
   },
 
   async getSystemLocale (context) {
