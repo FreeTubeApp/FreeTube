@@ -3,6 +3,7 @@ import FtToastEvents from '../../components/ft-toast/ft-toast-events'
 import fs from 'fs'
 
 import { IpcChannels } from '../../../constants'
+import { ipcRenderer } from 'electron'
 
 const state = {
   isSideNavOpen: false,
@@ -178,11 +179,15 @@ const actions = {
   async downloadMedia({ rootState, dispatch }, { url, title, extension, folderPath }) {
     const usingElectron = rootState.settings.usingElectron
     const askFolderPath = folderPath === ''
-    let fileHandler
+    let askedFilePath
     const successMsg = 'Downloading has completed'
 
     if (askFolderPath) {
-      fileHandler = await window.showSaveFilePicker({ suggestedName: `${title}.${extension}` })
+      const resp = await ipcRenderer.invoke(
+        IpcChannels.SHOW_SAVE_DIALOG,
+        { defaultPath: `${title}.${extension}` }
+      )
+      askedFilePath = resp.filePath
     }
 
     dispatch('showToast', {
@@ -233,9 +238,9 @@ const actions = {
       return
     }
     const blobFile = new Blob(chunks)
+    const buffer = await blobFile.arrayBuffer()
 
     if (usingElectron && !askFolderPath) {
-      const buffer = await blobFile.arrayBuffer()
       fs.writeFile(`${folderPath}/${title}.${extension}`, new DataView(buffer), (err) => {
         if (err) {
           dispatch('showToast', {
@@ -250,9 +255,14 @@ const actions = {
       return
     }
 
-    const writable = await fileHandler.createWritable()
-    await writable.write(new Blob(chunks))
-    await writable.close()
+    fs.writeFile(askedFilePath, new DataView(buffer), (err) => {
+      if (err) {
+        dispatch('showToast', {
+          message: err
+        })
+        return console.error(err)
+      }
+    })
 
     dispatch('showToast', {
       message: successMsg, translate: true, formatArgs: [title]
