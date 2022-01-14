@@ -158,7 +158,7 @@ Settings:
       Blue: 'Плаво'
       Light Blue: 'Светло плаво'
       Cyan: 'Цијан'
-      Teal: 'Teal'
+      Teal: 'Modrozelena'
       Green: 'Зелено'
       Light Green: 'Светло зелено'
       Lime: 'Лимун зелено'
@@ -189,7 +189,7 @@ Settings:
     Default Playback Rate: 'Подразумевана брзина репродукције'
     Default Video Format:
       Default Video Format: 'Подразумеван формат видеа'
-      Dash Formats: 'Dash формати'
+      Dash Formats: 'DASH формати'
       Legacy Formats: 'Legacy формати'
       Audio Formats: 'Аудио формати'
     Default Quality:
