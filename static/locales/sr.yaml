@@ -119,7 +119,7 @@ Settings:
     Preferred API Backend:
       Preferred API Backend: 'Омиљени API Backend'
       Local API: 'Локални API'
-      Invidious API: 'Invidious API'
+      Invidious API: 'Инвидиус АПИ'
     Video View Type:
       Video View Type: 'Тип приказа видеа'
       Grid: 'Решетка'
@@ -581,3 +581,4 @@ Canceled next video autoplay: ''
 
 Yes: ''
 No: ''
+Open New Window: Отбори нов прозор
