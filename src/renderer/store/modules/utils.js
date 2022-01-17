@@ -1,7 +1,6 @@
 import IsEqual from 'lodash.isequal'
 import FtToastEvents from '../../components/ft-toast/ft-toast-events'
 import fs from 'fs'
-import storeSettings from './settings'
 
 import { IpcChannels } from '../../../constants'
 import { ipcRenderer } from 'electron'
