@@ -253,7 +253,6 @@ const actions = {
       fs.writeFile(`${folderPath}/${title}.${extension}`, new DataView(buffer), (err) => {
         if (err) {
           console.error(err)
-          console.log(storeSettings.actions)
           dispatch('updateDownloadFolderPath', '')
           dispatch('downloadMedia', { url: url, title: title, extension: extension, folderPath: '', fallingBackPath: folderPath })
         } else {
