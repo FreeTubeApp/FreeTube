@@ -715,7 +715,7 @@ Downloading has completed: 'Downloading "$" has completed'
 Starting download: 'Downloading "$" has started'
 Downloading failed: 'Unable to download "$", return http request status code $'
 Downloading canceled: The dowload is canceled by the user
-Download folder does not exist: The download repertory "$" doesn't exist. Falling back to "ask folder" mode.
+Download folder does not exist: The download directory "$" doesn't exist. Falling back to "ask folder" mode.
 
 Yes: Yes
 No: No
