@@ -1,6 +1,7 @@
 import IsEqual from 'lodash.isequal'
 import FtToastEvents from '../../components/ft-toast/ft-toast-events'
 import fs from 'fs'
+import storeSettings from './settings'
 
 import { IpcChannels } from '../../../constants'
 import { ipcRenderer } from 'electron'
@@ -176,7 +177,7 @@ const actions = {
     }
   },
 
-  async downloadMedia({ rootState, dispatch }, { url, title, extension, folderPath }) {
+  async downloadMedia({ rootState, dispatch, commit }, { url, title, extension, folderPath }) {
     const usingElectron = rootState.settings.usingElectron
     const askFolderPath = folderPath === ''
     let filePathSelected
@@ -243,18 +244,25 @@ const actions = {
     if (usingElectron && !askFolderPath) {
       fs.writeFile(`${folderPath}/${title}.${extension}`, new DataView(buffer), (err) => {
         if (err) {
+          console.error(err)
           dispatch('showToast', {
-            message: err
+            message: 'Download folder does not exist',
+            translate: true,
+            formatArgs: [folderPath]
           })
-          return console.error(err)
+          console.log(storeSettings.actions)
+          dispatch('updateDownloadFolderPath', '')
+          dispatch('downloadMedia', { url: url, title: title, extension: extension, folderPath: '' })
+        } else {
+          dispatch('showToast', {
+            message: successMsg, translate: true, formatArgs: [title]
+          })
         }
-      })
-      dispatch('showToast', {
-        message: successMsg, translate: true, formatArgs: [title]
       })
     } else if (usingElectron) {
       fs.writeFile(filePathSelected, new DataView(buffer), (err) => {
         if (err) {
+          console.error(err)
           if (filePathSelected === '') {
             dispatch('showToast', {
               message: 'Downloading canceled',
@@ -265,7 +273,6 @@ const actions = {
               message: err
             })
           }
-          return console.error(err)
         } else {
           dispatch('showToast', {
             message: successMsg, translate: true, formatArgs: [title]

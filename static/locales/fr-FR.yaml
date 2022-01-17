@@ -841,5 +841,6 @@ External link opening has been disabled in the general settings: L'ouverture des
 Downloading has completed: 'Le téléchargement de "$" est fini'
 Starting download: 'Le téléchargement de "$" a commencé'
 Downloading failed: 'Incapable de téléchargement "$", retourne l'erreur http $'
-Downloading canceled: Le téléchargement est annulé par l'utilisateur
+Downloading canceled: 'Le téléchargement est annulé par l'utilisateur'
+Download folder does not exist: 'Le répertoire "$" de téléchargement n'existe pas. Mode sans répertoire activé'
 
