@@ -177,7 +177,7 @@ const actions = {
     }
   },
 
-  async downloadMedia({ rootState, dispatch, commit }, { url, title, extension, folderPath }) {
+  async downloadMedia({ rootState, dispatch }, { url, title, extension, folderPath, fallingBackPath }) {
     const usingElectron = rootState.settings.usingElectron
     const askFolderPath = folderPath === ''
     let filePathSelected
@@ -189,6 +189,14 @@ const actions = {
         { defaultPath: `${title}.${extension}` }
       )
       filePathSelected = resp.filePath
+    }
+
+    if (fallingBackPath !== undefined) {
+      dispatch('showToast', {
+        message: 'Download folder does not exist',
+        translate: true,
+        formatArgs: [fallingBackPath]
+      })
     }
 
     dispatch('showToast', {
@@ -245,14 +253,9 @@ const actions = {
       fs.writeFile(`${folderPath}/${title}.${extension}`, new DataView(buffer), (err) => {
         if (err) {
           console.error(err)
-          dispatch('showToast', {
-            message: 'Download folder does not exist',
-            translate: true,
-            formatArgs: [folderPath]
-          })
           console.log(storeSettings.actions)
           dispatch('updateDownloadFolderPath', '')
-          dispatch('downloadMedia', { url: url, title: title, extension: extension, folderPath: '' })
+          dispatch('downloadMedia', { url: url, title: title, extension: extension, folderPath: '', fallingBackPath: folderPath })
         } else {
           dispatch('showToast', {
             message: successMsg, translate: true, formatArgs: [title]
