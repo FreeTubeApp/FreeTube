@@ -714,6 +714,7 @@ External link opening has been disabled in the general settings: 'External link 
 Downloading has completed: 'Downloading "$" has completed'
 Starting download: 'Downloading "$" has started'
 Downloading failed: 'Unable to download "$", return http request status code $'
+Downloading canceled: The dowload is canceled by the user
 
 Yes: Yes
 No: No

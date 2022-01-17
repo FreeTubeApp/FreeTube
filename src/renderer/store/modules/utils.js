@@ -179,7 +179,7 @@ const actions = {
   async downloadMedia({ rootState, dispatch }, { url, title, extension, folderPath }) {
     const usingElectron = rootState.settings.usingElectron
     const askFolderPath = folderPath === ''
-    let askedFilePath
+    let filePathSelected
     const successMsg = 'Downloading has completed'
 
     if (askFolderPath && usingElectron) {
@@ -187,7 +187,7 @@ const actions = {
         IpcChannels.SHOW_SAVE_DIALOG,
         { defaultPath: `${title}.${extension}` }
       )
-      askedFilePath = resp.filePath
+      filePathSelected = resp.filePath
     }
 
     dispatch('showToast', {
@@ -253,17 +253,24 @@ const actions = {
         message: successMsg, translate: true, formatArgs: [title]
       })
     } else if (usingElectron) {
-      fs.writeFile(askedFilePath, new DataView(buffer), (err) => {
+      fs.writeFile(filePathSelected, new DataView(buffer), (err) => {
         if (err) {
-          dispatch('showToast', {
-            message: err
-          })
+          if (filePathSelected === '') {
+            dispatch('showToast', {
+              message: 'Downloading canceled',
+              translate: true
+            })
+          } else {
+            dispatch('showToast', {
+              message: err
+            })
+          }
           return console.error(err)
+        } else {
+          dispatch('showToast', {
+            message: successMsg, translate: true, formatArgs: [title]
+          })
         }
-      })
-
-      dispatch('showToast', {
-        message: successMsg, translate: true, formatArgs: [title]
       })
     } else {
       // Web placeholder
