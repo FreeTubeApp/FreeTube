@@ -13,14 +13,20 @@ const state = {
       removeOnWatched: true,
       videos: []
     }
-  ]
+  ],
+  searchPlaylistCache: {
+    videos: []
+  }
 }
 
 const getters = {
   getAllPlaylists: () => state.playlists,
   getFavorites: () => state.playlists[0],
   getPlaylist: (playlistId) => state.playlists.find(playlist => playlist._id === playlistId),
-  getWatchLater: () => state.playlists[1]
+  getWatchLater: () => state.playlists[1],
+  getSearchPlaylistCache: () => {
+    return state.searchPlaylistCache
+  }
 }
 
 const actions = {
@@ -130,10 +136,25 @@ const actions = {
     } catch (errMessage) {
       console.error(errMessage)
     }
+  },
+  async searchFavoritePlaylist({ commit }, query) {
+    const re = new RegExp(query, 'i')
+    // filtering in the frontend because the documents are the playlists and not the videos
+    const results = state.playlists[0].videos.slice()
+      .filter((video) => {
+        return video.author.match(re) ||
+      video.title.match(re)
+      })
+    commit('setPlaylistCache', results)
   }
 }
 
 const mutations = {
+  setPlaylistCache(state, result) {
+    state.searchPlaylistCache = {
+      videos: result
+    }
+  },
   addPlaylist(state, payload) {
     state.playlists.push(payload)
   },
