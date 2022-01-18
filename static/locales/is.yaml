@@ -104,11 +104,13 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Listinn
     þinn yfir vistuð myndskeið er tómur. Smelltu á vistunarhnapp myndskeiðs til að
     það birtist hér'
+  Search bar placeholder: Leita í spilunarlista
 History:
   # On History Page
   History: 'Vinnsluferill'
   Watch History: 'Áhorfsferill'
   Your history list is currently empty.: 'Listi með vinnsluferli er tómur í augnablikinu.'
+  Search bar placeholder: Leita í vinnsluferli
 Settings:
   # On Settings Page
   Settings: 'Stillingar'
