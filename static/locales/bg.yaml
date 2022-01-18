@@ -101,11 +101,13 @@ User Playlists:
     изброени само видеоклипове, които сте запазили или избрали за любими. Когато работата
     приключи, всички видеоклипове, които в момента са тук, ще бъдат мигрирани в плейлист
     „Любими“.
+  Search bar placeholder: Търсене в плейлиста
 History:
   # On History Page
   History: 'История'
   Watch History: 'История на гледане'
   Your history list is currently empty.: 'Списъкът с история на гледанията е празен.'
+  Search bar placeholder: Търсене в историята
 Settings:
   # On Settings Page
   Settings: 'Настройки'
