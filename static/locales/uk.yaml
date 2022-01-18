@@ -100,11 +100,13 @@ User Playlists:
   Playlist Message: Ця сторінка не показує повністю робочих добірок. На ній перелічено
     лише відео, які ви зберегли або вибрали. Коли робота завершиться, усі відео, які
     зараз знаходяться тут, буде переміщено до добірки "Вибране".
+  Search bar placeholder: Шукати у добірці
 History:
   # On History Page
   History: 'Історія'
   Watch History: 'Історія переглядів'
   Your history list is currently empty.: 'Ваша історія переглядів на разі порожня.'
+  Search bar placeholder: Шукати в історії
 Settings:
   # On Settings Page
   Settings: 'Налаштування'
