@@ -5,6 +5,7 @@ import FtTooltip from '../../components/ft-tooltip/ft-tooltip.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
+import FtInput from '../../components/ft-input/ft-input.vue'
 
 export default Vue.extend({
   name: 'UserPlaylists',
@@ -14,17 +15,23 @@ export default Vue.extend({
     'ft-tooltip': FtTooltip,
     'ft-loader': FtLoader,
     'ft-button': FtButton,
-    'ft-element-list': FtElementList
+    'ft-element-list': FtElementList,
+    'ft-input': FtInput
   },
   data: function () {
     return {
       isLoading: false,
-      dataLimit: 100
+      dataLimit: 100,
+      hasQuery: false
     }
   },
   computed: {
     favoritesPlaylist: function () {
-      return this.$store.getters.getFavorites
+      if (!this.hasQuery) {
+        return this.$store.getters.getFavorites
+      } else {
+        return this.$store.getters.getSearchPlaylistCache
+      }
     },
 
     activeData: function () {
@@ -59,6 +66,10 @@ export default Vue.extend({
     increaseLimit: function () {
       this.dataLimit += 100
       sessionStorage.setItem('favoritesLimit', this.dataLimit)
+    },
+    filterPlaylist: function(query) {
+      this.hasQuery = query !== ''
+      this.$store.dispatch('searchFavoritePlaylist', query)
     }
   }
 })

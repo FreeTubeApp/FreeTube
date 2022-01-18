@@ -454,11 +454,11 @@ Profile:
   : Ovo je tvoj primarni profil. Stvarno želiš izbrisati odabrane kanale? Ti kanali
     će se izbrisati iz svih profila u kojima se pronađu.
   No channel(s) have been selected: Nije odabran nijedan kanal
-  Add Selected To Profile: Dodaj odabrano u profil
-  Delete Selected: Izbriši odabrano
+  Add Selected To Profile: Dodaj odabrane u profil
+  Delete Selected: Izbriši odabrane
   Select None: Odaberi ništa
   Select All: Odaberi sve
-  $ selected: $ je odabran
+  $ selected: 'Broj odabranih: $'
   Other Channels: Ostali kanali
   Subscription List: Popis pretplata
   Profile Filter: Filtar profila

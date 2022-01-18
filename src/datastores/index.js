@@ -18,4 +18,7 @@ db.profiles = Datastore.create({ filename: dbPath('profiles'), autoload: true })
 db.playlists = Datastore.create({ filename: dbPath('playlists'), autoload: true })
 db.history = Datastore.create({ filename: dbPath('history'), autoload: true })
 
+db.history.ensureIndex({ fieldName: 'author' })
+db.history.ensureIndex({ fieldName: 'title' })
+db.history.ensureIndex({ fieldName: 'videoId' })
 export default db
