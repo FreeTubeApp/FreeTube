@@ -103,11 +103,13 @@ User Playlists:
     actives. Només llista els vídeos que heu desat o preferit. Quan la tasca hagi
     acabat, tots els vídeos que hi ha actualment es migraran a una llista de reproducció
     de "favorites".
+  Search bar placeholder: Cerca a la llista de reproducció
 History:
   # On History Page
   History: 'Historial'
   Watch History: 'Veure l''historial'
   Your history list is currently empty.: 'El teu historial està actualment buit.'
+  Search bar placeholder: Cerca a l'historial
 Settings:
   # On Settings Page
   Settings: 'Configuració'
@@ -196,33 +198,39 @@ Settings:
     Hide Side Bar Labels: Oculta les etiquetes de la barra lateral
   Player Settings:
     Player Settings: 'Configuració del reproductor'
-    Force Local Backend for Legacy Formats: ''
+    Force Local Backend for Legacy Formats: 'Força el backend local per als formats
+      heretats'
     Play Next Video: 'Reprodueix el vídeo següent'
     Turn on Subtitles by Default: 'Activa els subtítols per defecte'
     Autoplay Videos: 'Reprodueix automàticament els vídeos'
     Proxy Videos Through Invidious: 'Emmascarar vídeos a través de invidious'
     Autoplay Playlists: 'Reprodueix automàticament les llistes de reproducció'
     Enable Theatre Mode by Default: 'Activa el mode teatre per defecte'
-    Default Volume: ''
-    Default Playback Rate: ''
+    Default Volume: 'Volum per defecte'
+    Default Playback Rate: 'Velocitat de reproducció predeterminada'
     Default Video Format:
-      Default Video Format: ''
-      Dash Formats: ''
+      Default Video Format: 'Format de vídeo predeterminat'
+      Dash Formats: 'Formats DASH'
       Legacy Formats: ''
-      Audio Formats: ''
+      Audio Formats: 'Formats d''àudio'
     Default Quality:
-      Default Quality: ''
-      Auto: ''
-      144p: ''
-      240p: ''
-      360p: ''
-      480p: ''
-      720p: ''
-      1080p: ''
-      1440p: ''
-      4k: ''
-      8k: ''
+      Default Quality: 'Qualitat per defecte'
+      Auto: 'Automàtic'
+      144p: '144p'
+      240p: '240p'
+      360p: '360p'
+      480p: '480p'
+      720p: '720p'
+      1080p: '1080p'
+      1440p: '1440p'
+      4k: '4k'
+      8k: '8k'
     Scroll Volume Over Video Player: Desplaça el volum sobre el reproductor de vídeo
+    Display Play Button In Video Player: Mostra el botó de reproducció al reproductor
+      de vídeo
+    Next Video Interval: Interval de vídeo següent
+    Scroll Playback Rate Over Video Player: Desplaça la velocitat de reproducció sobre
+      el reproductor de vídeo
   Privacy Settings:
     Privacy Settings: ''
     Remember History: ''
@@ -294,6 +302,12 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: Cal
     reiniciar l'aplicació perquè els canvis tinguin efecte. Vols reiniciar i aplicar
     els canvis?
+  External Player Settings:
+    External Player Settings: Configuració del reproductor extern
+    External Player: Reproductor extern
+    Ignore Unsupported Action Warnings: Ignora els advertiments d'acció no compatible
+    Custom External Player Executable: Executable de reproductor extern personalitzat
+    Custom External Player Arguments: Arguments personalitzats del reproductor extern
 About:
   #On About page
   About: ''
