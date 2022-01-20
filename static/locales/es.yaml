@@ -189,7 +189,7 @@ Settings:
   Player Settings:
     Player Settings: 'Reproductor FreeTube'
     Force Local Backend for Legacy Formats: 'Forzar API local para formato «Legacy»'
-    Play Next Video: 'Reproducción continua'
+    Play Next Video: 'Reproducción contínua'
     Turn on Subtitles by Default: 'Activar Subtítulos por defecto'
     Autoplay Videos: 'Reproducción automática de vídeos'
     Proxy Videos Through Invidious: 'Enmascarar vídeos a través de invidious'
@@ -218,8 +218,8 @@ Settings:
     Next Video Interval: Siguiente segmento de vídeo
     Display Play Button In Video Player: Mostrar el botón de reproducción en el reproductor
       de vídeo
-    Scroll Volume Over Video Player: Desplazar el volumen sobre el reproductor de
-      vídeo
+    Scroll Volume Over Video Player: Cambiar el volumen con la rueda del ratón sobre
+      el vídeo
     Fast-Forward / Rewind Interval: Intervalo de avance/rebobinado rápido
     Scroll Playback Rate Over Video Player: Cambiar la velocidad de reproducción con
       el ratón
