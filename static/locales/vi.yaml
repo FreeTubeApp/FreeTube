@@ -63,6 +63,8 @@ Search Filters:
   Fetching results. Please wait: 'Đang lấy kết quả. Xin hãy chờ'
   Fetch more results: 'Lấy thêm kết quả'
 # Sidebar
+  There are no more results for this search: Không còn kết quả gì thêm cho tìm kiếm
+    này
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Đăng ký'
@@ -77,15 +79,22 @@ Subscriptions:
     này có nhiều người đăng ký. Buộc RSS để tránh bị giới hạn
 Trending:
   Trending: 'Xu hướng'
+  Movies: Phim
+  Music: Âm nhạc
+  Default: Mặc định
+  Gaming: Trò chơi
+  Trending Tabs: Tab Xu hướng
 Most Popular: 'Phổ biến nhất'
 Playlists: 'Danh sách phát'
 User Playlists:
   Your Playlists: 'Danh sách phát của bạn'
+  Search bar placeholder: Tìm kiếm trong danh sách phát
 History:
   # On History Page
   History: 'Lịch sử'
   Watch History: 'Lịch sử xem'
   Your history list is currently empty.: Lịch sử của bạn hiện đang trống.
+  Search bar placeholder: Tìm kiếm trong Lịch sử
 Settings:
   # On Settings Page
   Settings: 'Cài đặt'
@@ -116,6 +125,21 @@ Settings:
         #! List countries
     Check for Latest Blog Posts: Check Blog post mới nhất
     Check for Updates: Kiểm tra cập nhật
+    Current Invidious Instance: Phiên bản invidious hiện tại
+    The currently set default instance is $: Phiên bản Invidious mặc định hiện được
+      đặt thành $
+    No default instance has been set: Không có phiên bản mặc định nào được đặt
+    Current instance will be randomized on startup: Phiên bản hiện tại sẽ được chọn
+      ngẫu nhiên khi khởi động
+    Set Current Instance as Default: Đặt Phiên bản hiện tại làm Mặc định
+    Clear Default Instance: Xóa phiên bản mặc định
+    External Link Handling:
+      Open Link: Mở link
+      Ask Before Opening Link: Hỏi trước khi mở link
+      No Action: Không hành động
+      External Link Handling: Xử lý liên kết bên ngoài
+    View all Invidious instance information: Xem tất cả thông tin phiên bản Invidious
+    System Default: Mặc định Hệ thống
   Theme Settings:
     Theme Settings: 'Cài đặt chủ đề'
     Match Top Bar with Main Color: 'Khớp thanh trên cùng với màu chính'
@@ -155,6 +179,7 @@ Settings:
     UI Scale: Tỉ lệ UI
     Disable Smooth Scrolling: Tắt cuộn mượt
     Expand Side Bar by Default: Mở rộng thanh bên theo mặc định
+    Hide Side Bar Labels: Ẩn Nhãn Thanh Bên
   Player Settings:
     Player Settings: 'Cài đặt trình phát'
     Force Local Backend for Legacy Formats: 'Bắt buộc Local Backend cho định dạng
@@ -170,7 +195,7 @@ Settings:
     Default Playback Rate: 'Tốc độ phát mặc định'
     Default Video Format:
       Default Video Format: 'Định dạng video theo mặc định'
-      Dash Formats: 'Định dạng Dash'
+      Dash Formats: 'Định dạng DASH'
       Legacy Formats: 'Định dạng Legacy'
       Audio Formats: 'Định dạng âm thanh'
     Default Quality:
@@ -185,6 +210,11 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Scroll Playback Rate Over Video Player: Tốc độ Phát lại Cuộn qua Trình phát Video
+    Scroll Volume Over Video Player: Cuộn Âm lượng qua Trình phát Video
+    Display Play Button In Video Player: Hiển thị nút phát trong trình phát video
+    Next Video Interval: Khoảng thời gian Video Tiếp theo
+    Fast-Forward / Rewind Interval: Khoảng thời gian tua đi / tua lại
   Subscription Settings:
     Subscription Settings: 'Cài đặt đăng ký'
     Hide Videos on Watch: 'Ẩn video khi đã xem'
@@ -433,6 +463,8 @@ Video:
   Reverse Playlist: Đảo ngược Playlist
   Shuffle Playlist: Trộn Playlist
   Loop Playlist: Lặp lại Playlist
+  Open Channel in YouTube: Mở kênh này trên YouTube
+  Copy YouTube Channel Link: Sao chép Nối kết Kênh YouTube
 Videos:
   #& Sort By
   Sort By:
@@ -460,12 +492,12 @@ Playlist:
 Toggle Theatre Mode: 'Chuyển đổi chế độ rạp hát'
 Change Format:
   Change Video Formats: 'Chuyển đổi định dạng video'
-  Use Dash Formats: 'Sử dụng định dạng Dash'
+  Use Dash Formats: 'Sử dụng định dạng DASH'
   Use Legacy Formats: 'Sử dụng định dạng Legacy'
   Use Audio Formats: 'Sử dụng dịnh đạng Âm Thanh'
   Audio formats are not available for this video: Định dạng âm thanh không có sẵn
     cho video này
-  Dash formats are not available for this video: Định dạng Dash không có sẵn cho video
+  Dash formats are not available for this video: Định dạng DASH không có sẵn cho video
     này
 Share:
   Share Video: 'Chia sẻ video'
@@ -479,6 +511,7 @@ Share:
   YouTube URL copied to clipboard: 'Youtube URL sao chép đến clipboard'
   YouTube Embed URL copied to clipboard: 'Youtube Embed URL sao chép đến clipboard'
   Include Timestamp: Có kèm dấu thời gian
+  YouTube Channel URL copied to clipboard: Đã copy link kênh Youtube
 Mini Player: 'Trình phát Mini'
 Comments:
   Comments: 'Bình luận'
@@ -570,3 +603,8 @@ A new blog is now available, $. Click to view more: Một blog mới đã có, $
 Download From Site: Tải từ website
 Version $ is now available!  Click for more details: Phiên bản $ đã có! Click để xem
   chi tiết
+Open New Window: Mở cửa sổ mới
+Search Bar:
+  Clear Input: Xóa đầu vào
+More: Thêm
+Are you sure you want to open this link?: Anh có chắc là muốn mở đường không?
