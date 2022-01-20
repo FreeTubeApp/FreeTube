@@ -82,7 +82,7 @@ Trending:
   Trending: 'U trendu'
   Trending Tabs: Kartice „U trendu”
   Movies: Filmovi
-  Gaming: Igranje
+  Gaming: Igre
   Music: Glazba
   Default: Standardno
 Most Popular: 'Najpopularniji'
@@ -95,11 +95,13 @@ User Playlists:
   Playlist Message: Ova stranica ne odražava potpuno funkcionalne zbirke. Prikazuje
     samo spremljena ili označena videa. Kad posao završi, svi trenutačno ovdje prisutni
     videi premjestit će se u zbirku „Favoriti”.
+  Search bar placeholder: Pretraži zbirku
 History:
   # On History Page
   History: 'Povijest'
   Watch History: 'Povijest gledanja'
   Your history list is currently empty.: 'Tvoj popis povijesti je trenutačno prazan.'
+  Search bar placeholder: Pretraži povijest
 Settings:
   # On Settings Page
   Settings: 'Postavke'
