@@ -92,11 +92,13 @@ User Playlists:
   Playlist Message: Esta página no refleja el estado final de las listas de reproducción,
     solo muestra los vídeos guardados. En futuras actualizaciones, estos vídeos migrarán
     a la lista de reproducción «Favoritos».
+  Search bar placeholder: Buscar en la lista de reproducción
 History:
   # On History Page
   History: 'Historial'
   Watch History: 'Historial de reproducción'
   Your history list is currently empty.: 'Su historial está vacío.'
+  Search bar placeholder: Buscar en el historial
 Settings:
   # On Settings Page
   Settings: 'Ajustes'
@@ -219,6 +221,8 @@ Settings:
     Scroll Volume Over Video Player: Desplazar el volumen sobre el reproductor de
       vídeo
     Fast-Forward / Rewind Interval: Intervalo de avance/rebobinado rápido
+    Scroll Playback Rate Over Video Player: Cambiar la velocidad de reproducción con
+      el ratón
   Privacy Settings:
     Privacy Settings: 'Privacidad'
     Remember History: 'Recordar historial'
@@ -597,6 +601,15 @@ Video:
     UnsupportedActionTemplate: '$ no soporta: %'
     OpeningTemplate: Abriendo $ en %...
   Premieres on: Se estrena el
+  Stats:
+    bandwidth: Velocidad de conexión
+    volume: Volumen
+    video id: ID del vídeo (Youtube)
+    player resolution: Ventana
+    fps: FPS
+    frame drop: Pérdida de fotogramas
+    buffered: En buffer
+    out of: sin
 Videos:
   #& Sort By
   Sort By:
@@ -713,8 +726,8 @@ Tooltips:
       de los vídeos o el estado de transmisión en directo
   Player Settings:
     Default Video Format: Selecciona el formato usado para reproducir videos. El formato
-      Dash proporciona resoluciones más altas. El formato Legacy está limitado a 720p,
-      pero requiere menos ancho de banda. El formato audio se limita a reproducir
+      Dash puede reproducir resoluciones más altas. El formato Legacy está limitado
+      a 720p, pero requiere menos ancho de banda. El formato audio se limita a reproducir
       solo audio.
     Proxy Videos Through Invidious: Se conectará a Invidious para obtener vídeos en
       lugar de conectar directamente con YouTube. Sobreescribirá la preferencia de
@@ -723,6 +736,12 @@ Tooltips:
       es la preferente. Si lo activas, la API local usará el formato Legacy en lugar
       de Invidious. Ayudará cuando Invidious no pueda reproducir un video por restricciones
       regionales.
+    Scroll Playback Rate Over Video Player: Cuando el cursor esté sobre el vídeo,
+      presiona y mantén la tecla Control (Comando en Mac) y desplaza la rueda del
+      ratón hacia arriba o abajo para cambiar la velocidad de reproducción. Presiona
+      y mantén la tecla Control (Comando en Mac) y haz clic izquierdo para volver
+      a la velocidad de reproducción por defecto (1x o la que hayas configurado en
+      ajustes).
   General Settings:
     Region for Trending: La región de las tendencias permite ver los vídeos más populares
       en un país determinado. YouTube no admite todos los países mostrados.
@@ -736,8 +755,8 @@ Tooltips:
       datos. La API local es un extractor incorporado. La API de Invidious requiere
       de un servidor Invidious al cual conectarse.
     External Link Handling: "Elige el comportamiento predeterminado al pulsar un enlace\
-      \ que no puede ser abierto en FreeTube.\nPor defecto FreeTube abrirá el enlace\
-      \  en su navegador predeterminado.\n"
+      \ que no pueda ser abierto en FreeTube.\nPor defecto FreeTube abrirá el enlace\
+      \ en su navegador predeterminado.\n"
   Privacy Settings:
     Remove Video Meta Files: Cuando se active, FreeTube eliminará automáticamente
       meta-archivos creados durante la reproducción del vídeo una vez se cierre la
