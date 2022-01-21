@@ -89,6 +89,8 @@ Playlists: 'Danh sách phát'
 User Playlists:
   Your Playlists: 'Danh sách phát của bạn'
   Search bar placeholder: Tìm kiếm trong danh sách phát
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Video
+    đã lưu của bạn trống rỗng. Nhấp vào nút lưu ở góc video để được liệt kê tại đây
 History:
   # On History Page
   History: 'Lịch sử'
@@ -291,6 +293,7 @@ Settings:
     Select Export Type: Chọn kiểu xuất ra
     Select Import Type: Chọn kiểu nhập vào
     Data Settings: Dữ liệu
+    Manage Subscriptions: Quản lý đăng ký
   Distraction Free Settings:
     Hide Live Chat: Giấu live chat
     Hide Popular Videos: Giấu video phổ biến
@@ -301,6 +304,8 @@ Settings:
     Hide Video Likes And Dislikes: Giấu thích và không thích
     Hide Video Views: Giấu lượt xem
     Distraction Free Settings: Chế độ không phân tâm
+    Hide Active Subscriptions: Ẩn Đăng ký Hiện hoạt
+    Hide Playlists: Ẩn danh sách phát
   Privacy Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Bạn
       có muốn xóa toàn bộ đăng ký và profiles không? Điều này không thể phục hồi.
@@ -318,6 +323,22 @@ Settings:
     Privacy Settings: Thiết lập quyền riêng tư
   The app needs to restart for changes to take effect. Restart and apply change?: App
     cần khởi động lại để chỉnh sửa có hiệu nghiệm. Khởi động lại và áp đặt?
+  Proxy Settings:
+    Proxy Host: Máy chủ Proxy
+    Region: Vùng
+    Country: Quốc gia
+    Proxy Settings: Cài đặt proxy
+    Enable Tor / Proxy: Bật Tor / Proxy
+    Proxy Protocol: Giao thức proxy
+    Proxy Port Number: Số Cổng Proxy
+    City: Thành phố
+  SponsorBlock Settings:
+    Enable SponsorBlock: Bật SponsorBlock
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
+      Url (Mặc định là https://sponsor.ajay.app)
+  External Player Settings:
+    External Player Settings: Cài đặt trình phát video bên ngoài
+    External Player: Trình phát video bên ngoài
 About:
   #On About page
   About: 'Giới thiệu'
@@ -352,6 +373,17 @@ About:
 #On Channel Page
   Mastodon: Mastodon
   Email: Thư điện tử
+  Source code: Mã nguồn
+  FAQ: Câu hỏi thường gặp
+  Report a problem: Báo cáo sự cố
+  Licensed under the AGPLv3: Được cấp phép theo AGPLv3
+  View License: Xem Giấy phép
+  Help: Trợ giúp
+  Translate: Phiên dịch
+  Website: Trang web
+  Blog: Blog
+  Credits: Tín dụng
+  Donate: Quyên tặng
 Channel:
   Subscriber: 'Người đăng ký'
   Subscribers: 'Người đăng ký'
