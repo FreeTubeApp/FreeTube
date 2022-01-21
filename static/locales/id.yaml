@@ -101,11 +101,13 @@ User Playlists:
   Playlist Message: Halaman ini tidak mencerminkan playlist yang berfungsi sepenuhnya.
     Ini hanya mencantumkan video yang telah Anda simpan atau favorit. Setelah selesai,
     semua video yang ada di sini akan dipindahkan ke daftar putar 'Favorit'.
+  Search bar placeholder: Cari di Daftar Putar
 History:
   # On History Page
   History: 'Riwayat'
   Watch History: 'Riwayat Tontonan'
   Your history list is currently empty.: 'Daftar riwayat Anda kosong.'
+  Search bar placeholder: Cari di Riwayat
 Settings:
   # On Settings Page
   Settings: 'Pengaturan'
@@ -764,3 +766,6 @@ Search Bar:
 External link opening has been disabled in the general settings: Pembukaan link eksternal
   telah dimatikan pada pengaturan umum
 Are you sure you want to open this link?: Yakin ingin membuka link ini?
+Default Invidious instance has been set to $: Situs Invidious baku telah di atur ke
+  $
+Default Invidious instance has been cleared: Situs Invidious baku telah dikosongkan
