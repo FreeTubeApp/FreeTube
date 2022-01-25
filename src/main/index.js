@@ -33,6 +33,7 @@ function runApp() {
         visible: parameters.mediaType === 'video' || parameters.mediaType === 'image',
         click: () => {
           browserWindow.webContents.send('openInNewWindow', parameters)
+          createWindow(false, parameters.linkURL)
         }
       }
     ]
@@ -178,7 +179,7 @@ function runApp() {
     }
   }
 
-  async function createWindow(replaceMainWindow = true) {
+  async function createWindow(replaceMainWindow = true, startingUrl = undefined) {
     /**
      * Initial window options
      */
@@ -303,6 +304,9 @@ function runApp() {
 
       console.log('closed')
     })
+    if (startingUrl !== undefined) {
+      newWindow.loadURL(startingUrl)
+    }
   }
 
   ipcMain.once('appReady', () => {
