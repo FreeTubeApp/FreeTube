@@ -30,9 +30,8 @@ function runApp() {
       },
       {
         label: 'Open in a New Window',
-        visible: parameters.mediaType === 'video' || parameters.mediaType === 'image',
+        visible: parameters.linkURL !== '' || parameters.mediaType === 'image',
         click: () => {
-          browserWindow.webContents.send('openInNewWindow', parameters)
           createWindow(false, parameters.linkURL)
         }
       }

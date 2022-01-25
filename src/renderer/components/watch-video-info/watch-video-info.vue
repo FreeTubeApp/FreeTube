@@ -13,19 +13,26 @@
           class="profileRow"
         >
           <div>
-            <img
-              :src="channelThumbnail"
-              class="channelThumbnail"
-              @click="goToChannel"
+            <router-link
+              :to="`/channel/${channelId}`"
             >
+              <img
+                :src="channelThumbnail"
+                class="channelThumbnail"
+              >
+            </router-link>
           </div>
           <div>
-            <div
-              class="channelName"
-              @click="goToChannel"
+            <router-link
+              :to="`/channel/${channelId}`"
+              class="channelLink"
             >
-              {{ channelName }}
-            </div>
+              <div
+                class="channelName"
+              >
+                {{ channelName }}
+              </div>
+            </router-link>
             <ft-button
               :label="subscribedText"
               class="subscribeButton"
