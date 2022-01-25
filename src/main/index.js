@@ -30,7 +30,7 @@ function runApp() {
       },
       {
         label: 'Open in a New Window',
-        visible: parameters.linkURL !== '' || parameters.mediaType === 'image',
+        visible: parameters.linkURL.includes('localhost') || parameters.mediaType === 'image',
         click: () => {
           createWindow(false, parameters.linkURL)
         }
