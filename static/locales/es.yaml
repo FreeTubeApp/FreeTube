@@ -6,8 +6,8 @@ FreeTube: 'FreeTube'
   Esta sección de la app no está lista. Regresa más tarde cuando hayamos progresado.
 
 # Webkit Menu Bar
-File: 'Fichero'
-Quit: 'salir'
+File: 'Archivo'
+Quit: 'Salir'
 Edit: 'Editar'
 Undo: 'Deshacer'
 Redo: 'Rehacer'
@@ -17,11 +17,11 @@ Paste: 'Pegar'
 Delete: 'Eliminar'
 Select all: 'Seleccionar todo'
 Reload: 'Recargar'
-Force Reload: 'Forzar recargado'
+Force Reload: 'Forzar recarga'
 Toggle Developer Tools: 'Activar herramientas de desarrollo'
 Actual size: 'Tamaño actual'
-Zoom in: 'Aumentar zoom'
-Zoom out: 'Reducir zoom'
+Zoom in: 'Ampliar'
+Zoom out: 'Reducir'
 Toggle fullscreen: 'Cambiar a pantalla completa'
 Window: 'Ventana'
 Minimize: 'Minimizar'
@@ -43,7 +43,7 @@ Search Filters:
   Time:
     Time: 'Publicado en'
     Any Time: 'Cualquier momento'
-    Last Hour: 'La última hora'
+    Last Hour: 'En la última hora'
     Today: 'Hoy'
     This Week: 'Esta semana'
     This Month: 'Este mes'
@@ -70,12 +70,12 @@ Subscriptions:
   Subscriptions: 'Suscripciones'
   Latest Subscriptions: 'Suscripciones más recientes'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Tu
-    lista de suscripciones está vacía. Suscríbete a canales para verlos aquí'
+    lista de suscripciones está vacía. Suscríbete a canales para verlos aquí.'
   'Getting Subscriptions. Please wait.': 'Obteniendo suscripciones. Por favor, espera.'
   Refresh Subscriptions: 'Recargar suscripciones'
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
     perfil tiene muchas suscripciones. Para eludir este límite, usaremos RSS
-  Load More Videos: Ver más
+  Load More Videos: Cargar más vídeos
 Trending:
   Trending: 'Tendencias'
   Default: Por defecto
@@ -84,11 +84,11 @@ Trending:
   Gaming: Videojuegos
   Music: Música
 Most Popular: 'Más populares'
-Playlists: 'Playlists'
+Playlists: 'Listas de reproducción'
 User Playlists:
   Your Playlists: 'Tus listas de reproducción'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Tus
-    favoritos están vacios. Haz clic en la estrella de cada vídeos para añadirlo aquí
+    favoritos están vacíos. Haz clic en la estrella de cada vídeo para añadirlo aquí
   Playlist Message: Esta página no refleja el estado final de las listas de reproducción,
     solo muestra los vídeos guardados. En futuras actualizaciones, estos vídeos migrarán
     a la lista de reproducción «Favoritos».
@@ -97,17 +97,17 @@ History:
   # On History Page
   History: 'Historial'
   Watch History: 'Historial de reproducción'
-  Your history list is currently empty.: 'Su historial está vacío.'
+  Your history list is currently empty.: 'Tu historial está vacío.'
   Search bar placeholder: Buscar en el historial
 Settings:
   # On Settings Page
   Settings: 'Ajustes'
   General Settings:
-    General Settings: 'General'
+    General Settings: 'Ajustes generales'
     Fallback to Non-Preferred Backend on Failure: 'Usar motor API secundario en caso
       de fallo'
     Enable Search Suggestions: 'Activar sugerencias de búsqueda'
-    Default Landing Page: 'Página de Destino Predeterminada'
+    Default Landing Page: 'Página de destino predeterminada'
     Locale Preference: 'Idioma'
     Preferred API Backend:
       Preferred API Backend: 'Motor API principal'
@@ -131,7 +131,7 @@ Settings:
     Check for Updates: Buscar actualizaciones
     View all Invidious instance information: Ver toda la información sobre la instancia
       de Invidious
-    System Default: Predeterminado del Sistema
+    System Default: Predeterminado del sistema
     Current instance will be randomized on startup: La instancia actual será elegida
       aleatoriamente al inicio
     No default instance has been set: No se ha especificado una instancia predeterminada
@@ -173,13 +173,13 @@ Settings:
       Amber: 'Ámbar'
       Orange: 'Naranja'
       Deep Orange: 'Naranja oscuro'
-      Dracula Cyan: 'Drácula Cian'
-      Dracula Green: 'Drácula Verde'
-      Dracula Orange: 'Drácula Naranja'
-      Dracula Pink: 'Drácula Rosado'
-      Dracula Purple: 'Drácula Púrpura'
-      Dracula Red: 'Drácula Rojo'
-      Dracula Yellow: 'Drácula Amarillo'
+      Dracula Cyan: 'Drácula cian'
+      Dracula Green: 'Drácula verde'
+      Dracula Orange: 'Drácula naranja'
+      Dracula Pink: 'Drácula rosado'
+      Dracula Purple: 'Drácula púrpura'
+      Dracula Red: 'Drácula rojo'
+      Dracula Yellow: 'Drácula amarillo'
     Secondary Color Theme: 'Color secundario'
         #* Main Color Theme
     UI Scale: Escala de interfaz gráfica
@@ -187,23 +187,23 @@ Settings:
     Disable Smooth Scrolling: Desactivar desplazamiento suave
     Hide Side Bar Labels: Ocultar las etiquetas de la barra lateral
   Player Settings:
-    Player Settings: 'Reproductor FreeTube'
+    Player Settings: 'Ajustes del reproductor'
     Force Local Backend for Legacy Formats: 'Forzar API local para formato «Legacy»'
-    Play Next Video: 'Reproducción contínua'
-    Turn on Subtitles by Default: 'Activar Subtítulos por defecto'
+    Play Next Video: 'Reproducción continua'
+    Turn on Subtitles by Default: 'Activar subtítulos por defecto'
     Autoplay Videos: 'Reproducción automática de vídeos'
-    Proxy Videos Through Invidious: 'Enmascarar vídeos a través de invidious'
+    Proxy Videos Through Invidious: 'Enmascarar vídeos a través de Invidious'
     Autoplay Playlists: 'Reproducción automática de listas de reproducción'
-    Enable Theatre Mode by Default: 'Activar el Modo Cine por defecto'
-    Default Volume: 'Volumen Predeterminado'
+    Enable Theatre Mode by Default: 'Activar el modo cine por defecto'
+    Default Volume: 'Volumen predeterminado'
     Default Playback Rate: 'Velocidad de reproducción predeterminada'
     Default Video Format:
       Default Video Format: 'Formato de vídeo predeterminado'
       Dash Formats: 'Formatos DASH'
       Legacy Formats: 'Legacy'
-      Audio Formats: 'Formatos de Audio'
+      Audio Formats: 'Formatos de audio'
     Default Quality:
-      Default Quality: 'Calidad Predeterminada'
+      Default Quality: 'Calidad predeterminada'
       Auto: 'Automático'
       144p: '144p'
       240p: '240p'
@@ -230,7 +230,7 @@ Settings:
     Clear Search Cache: 'Borrar cache de búsqueda'
     Are you sure you want to clear out your search cache?: '¿Seguro que quiere borrar
       el cache de búsqueda?'
-    Search cache has been cleared: 'Cache de búsqueda borrado'
+    Search cache has been cleared: 'Caché de búsqueda borrado'
     Remove Watch History: 'Vaciar historial de reproducciones'
     Are you sure you want to remove your entire watch history?: '¿Confirma que quiere
       vaciar el historial de reproducciones?'
@@ -247,8 +247,8 @@ Settings:
     Manage Subscriptions: 'Gestionar suscripciones'
   Data Settings:
     Data Settings: 'Datos'
-    Select Import Type: 'Seleccionar Tipo de Importación'
-    Select Export Type: 'Seleccionar Tipo de Exportación'
+    Select Import Type: 'Seleccionar tipo de importación'
+    Select Export Type: 'Seleccionar tipo de exportación'
     Import Subscriptions: 'Importar suscripciones'
     Import FreeTube: 'Importar FreeTube'
     Import YouTube: 'Importar YouTube'
@@ -262,7 +262,7 @@ Settings:
     Profile object has insufficient data, skipping item: 'Este perfil no tiene datos
       suficientes, omitiendo objeto'
     All subscriptions and profiles have been successfully imported: 'Todas las suscripciones
-      y perfilas han sido importados con éxito'
+      y perfiles han sido importados con éxito'
     All subscriptions have been successfully imported: 'Todas las suscripciones han
       sido importadas con éxito'
     Invalid subscriptions file: 'Archivo de suscripciones no válido'
@@ -327,18 +327,18 @@ Settings:
     reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Error al
-      obtener información sobre la red. ¿Has configurado el Proxy correctamente?
+      obtener información sobre la red. ¿Has configurado el proxy correctamente?
     City: Ciudad
     Region: Región
     Country: País
     Ip: IP
     Your Info: Tu información
     Test Proxy: Probar proxy
-    Clicking on Test Proxy will send a request to: Al hacer click en «Probar proxy»
+    Clicking on Test Proxy will send a request to: Al hacer clic en «Probar proxy»
       se enviará una solicitud a
-    Proxy Port Number: Número de puerto del Proxy
-    Proxy Host: Host del Proxy
-    Proxy Protocol: Protocolo Proxy
+    Proxy Port Number: Número de puerto del proxy
+    Proxy Host: Host del proxy
+    Proxy Protocol: Protocolo del proxy
     Enable Tor / Proxy: Activar Tor o «proxy»
     Proxy Settings: Proxy
   SponsorBlock Settings:
@@ -353,7 +353,7 @@ Settings:
     Custom External Player Executable: Ruta alternativa del ejecutable del reproductor
     Ignore Unsupported Action Warnings: Omitir advertencias sobre acciones no soportadas
     External Player: Reproductor externo
-    External Player Settings: Reproductor externo
+    External Player Settings: Ajustes del reproductor externo
 About:
   #On About page
   About: 'Acerca de'
@@ -391,7 +391,7 @@ About:
   Credits: Créditos
   Translate: Traducir
   room rules: reglas de la sala
-  Please read the: Por favor, lee el
+  Please read the: Por favor, lee las
   Chat on Matrix: Chat en Matrix
   Mastodon: Mastodon
   Email: Correo electrónico
@@ -405,7 +405,7 @@ About:
   FreeTube Wiki: Wiki de FreeTube
   Help: Ayuda
   GitHub releases: Lanzamientos de GitHub
-  Downloads / Changelog: Descargas / Changelog
+  Downloads / Changelog: Descargas / Registro de cambios
   View License: Ver licencia
   Licensed under the AGPLv3: Licencia AGPLv3
   Source code: Código fuente
@@ -420,7 +420,7 @@ Profile:
   Profile Preview: 'Vista previa del perfil'
   Create Profile: 'Crear perfil'
   Update Profile: 'Actualizar perfil'
-  Make Default Profile: 'Hacer a este Perfil el Predeterminado'
+  Make Default Profile: 'Hacer a este perfil el predeterminado'
   Delete Profile: 'Borrar perfil'
   Are you sure you want to delete this profile?: '¿Seguro de que quieres borrar este
     perfil?'
@@ -452,8 +452,8 @@ Profile:
   Other Channels: Otros canales
   Subscription List: Lista de suscripciones
   Profile Select: Seleccionar perfil
-  Profile Filter: Filtro de Perfil
-  Profile Settings: Ajustes del Perfil
+  Profile Filter: Filtro de perfil
+  Profile Settings: Ajustes del perfil
 Channel:
   Subscriber: 'Suscriptor'
   Subscribers: 'Suscriptores'
@@ -471,7 +471,7 @@ Channel:
       Oldest: 'Más antiguos'
       Most Popular: 'Más populares'
   Playlists:
-    Playlists: 'Playlists'
+    Playlists: 'Listas de reproducción'
     This channel does not currently have any playlists: 'Este canal no tiene actualmente
       ninguna lista de reproducción'
     Sort Types:
@@ -489,7 +489,7 @@ Channel:
 Video:
   Mark As Watched: 'Marcar como visto'
   Remove From History: 'Borrar del historial'
-  Video has been marked as watched: 'El vídeos ha sido marcado como visto'
+  Video has been marked as watched: 'El vídeo ha sido marcado como visto'
   Video has been removed from your history: 'El vídeo ha sido eliminado de tu historial'
   Open in YouTube: 'Abrir en YouTube'
   Copy YouTube Link: 'Copiar el enlace de YouTube'
@@ -510,7 +510,7 @@ Video:
   Live Chat: 'Chat en directo'
   Enable Live Chat: 'Activar chat en directo'
   Live Chat is currently not supported in this build.: 'El chat en directo no está
-    soportado de momento en esta build.'
+    soportado de momento en esta versión.'
   'Chat is disabled or the Live Stream has ended.': 'El chat está desactivado o la
     emisión ha acabado.'
   Live chat is enabled.  Chat messages will appear here once sent.: 'El chat en directo
@@ -575,7 +575,7 @@ Video:
   Video has been removed from your saved list: El vídeo ha sido eliminado de tu lista
     de guardados
   Video has been saved: El vídeo ha sido guardado
-  Save Video: Guardiar el vídeo
+  Save Video: Guardar el vídeo
   translated from English: traducido del inglés
   Sponsor Block category:
     music offtopic: música fuera de tema
@@ -628,18 +628,18 @@ Playlist:
     Share Playlist: 'Compartir lista de reproducción'
     Copy YouTube Link: 'Copiar enlace de YouTube'
     Open in YouTube: 'Abrir en YouTube'
-    Copy Invidious Link: 'Copiar Enlace de Invidious'
+    Copy Invidious Link: 'Copiar enlace de Invidious'
     Open in Invidious: 'Abrir en Invidious'
 
 # On Video Watch Page
 #* Published
 #& Views
   Playlist: Lista de reproducción
-Toggle Theatre Mode: 'Activar Modo Cine'
+Toggle Theatre Mode: 'Activar modo cine'
 Change Format:
   Change Video Formats: 'Cambiar formato de vídeo'
   Use Dash Formats: 'Utilizar formatos DASH'
-  Use Legacy Formats: 'Usar formato Legacy'
+  Use Legacy Formats: 'Usar formatos «Legacy»'
   Use Audio Formats: 'Utilizar formatos de audio'
   Audio formats are not available for this video: El formato solo audio no está disponible
     para este vídeo
@@ -669,7 +669,7 @@ Comments:
   Click to View Comments: 'Pulse para ver comentarios'
   Getting comment replies, please wait: 'Obteniendo las respuestas. Espere'
   Show Comments: 'Mostrar comentarios'
-  Hide Comments: 'Ocultar Comentarios'
+  Hide Comments: 'Ocultar comentarios'
   # Context: View 10 Replies, View 1 Reply
   View: 'Ver'
   Hide: 'Ocultar'
@@ -678,7 +678,7 @@ Comments:
   There are no comments available for this video: 'Aún no hay comentarios'
   Load More Comments: 'Cargar más comentarios'
   There are no more comments for this video: No hay más comentarios en este vídeo
-  Newest first: Los más Recientes Primero
+  Newest first: Los más recientes primero
   Top comments: Mejores comentarios
   Sort by: Ordenar por
   No more comments available: No hay más comentarios
@@ -711,10 +711,10 @@ Yes: 'Sí'
 No: 'No'
 A new blog is now available, $. Click to view more: Nueva publicación del blog disponible,
   $. Haga clic para saber más
-Download From Site: Descargar del sitio web
-Version $ is now available!  Click for more details: La versión $ está disponible!
-  Haz click para saber más
-The playlist has been reversed: Orden de Playlist invertido
+Download From Site: Descargar desde el sitio web
+Version $ is now available!  Click for more details: ¡La versión $ está disponible!
+  Haz clic para saber más
+The playlist has been reversed: Orden de lista de reproducción invertido
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
   vídeo no está disponible por no tener un formato válido. Esto puede suceder por
   la falta de acceso de este formato a tu región.
@@ -725,16 +725,16 @@ Tooltips:
       previene los bloqueos por IP, pero carece de ciertos datos, como la duración
       de los vídeos o el estado de transmisión en directo
   Player Settings:
-    Default Video Format: Selecciona el formato usado para reproducir videos. El formato
+    Default Video Format: Selecciona el formato usado para reproducir vídeos. El formato
       Dash puede reproducir resoluciones más altas. El formato Legacy está limitado
       a 720p, pero requiere menos ancho de banda. El formato audio se limita a reproducir
       solo audio.
     Proxy Videos Through Invidious: Se conectará a Invidious para obtener vídeos en
       lugar de conectar directamente con YouTube. Sobreescribirá la preferencia de
       API.
-    Force Local Backend for Legacy Formats: Solo funcionará si la API de invidious
+    Force Local Backend for Legacy Formats: Solo funcionará si la API de Invidious
       es la preferente. Si lo activas, la API local usará el formato Legacy en lugar
-      de Invidious. Ayudará cuando Invidious no pueda reproducir un video por restricciones
+      de Invidious. Ayudará cuando Invidious no pueda reproducir un vídeo por restricciones
       regionales.
     Scroll Playback Rate Over Video Player: Cuando el cursor esté sobre el vídeo,
       presiona y mantén la tecla Control (Comando en Mac) y desplaza la rueda del
@@ -773,8 +773,8 @@ Tooltips:
       de los vídeos para abrir el vídeo (o listas de reproducción si son compatibles).
     DefaultCustomArgumentsTemplate: '(Predeterminado: «$»)'
 More: Más
-Unknown YouTube url type, cannot be opened in app: Tipo de LRU desconocido. No se
-  puede abrir en applicación
+Unknown YouTube url type, cannot be opened in app: Tipo de URL desconocido. No se
+  puede abrir en la aplicación
 Open New Window: Abrir ventana nueva
 Hashtags have not yet been implemented, try again later: Los hashtags no se han implementado
   todavía, inténtalo más adelante
@@ -782,9 +782,9 @@ Playing Next Video Interval: Reproduciendo el vídeo a continuación. Haz clic p
   cancelar. | El siguiente vídeo se reproducirá en {nextVideoInterval} segundos. Haz
   clic para cancelar. | El siguiente vídeo se reproducirá en {nextVideoInterval} segundos.
   Haz clic para cancelar.
-Default Invidious instance has been cleared: La Instancia de Invidious Predeterminada
+Default Invidious instance has been cleared: La instancia de Invidious predeterminada
   ha sido borrada
-Default Invidious instance has been set to $: La Instancia de Invidious Predeterminada
+Default Invidious instance has been set to $: La instancia de Invidious predeterminada
   ha sido establecida como $
 Search Bar:
   Clear Input: Borrar entrada
