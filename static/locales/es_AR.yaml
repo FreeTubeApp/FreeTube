@@ -84,6 +84,7 @@ Trending:
   Gaming: Juego
   Music: Música
   Default: Por defecto
+  Trending Tabs: Pestañas de Tendencias
 Most Popular: 'Más popular'
 Playlists: 'Listas de reproducción'
 User Playlists:
@@ -95,11 +96,13 @@ User Playlists:
     funcionales. Solo lista los videos que has guardado o marcado como favoritos.
     Cuando el trabajo esté terminado, todos los videos que están actualmente acá serán
     migrados a una lista de reproducción de 'Favoritos'.
+  Search bar placeholder: Buscar en la Lista de Reproducción
 History:
   # On History Page
   History: 'Historial'
   Watch History: 'Ver historial'
   Your history list is currently empty.: 'Su lista de historial está actualmente vacía.'
+  Search bar placeholder: Buscar en el Historial
 Settings:
   # On Settings Page
   Settings: 'Configuraciones'
@@ -132,6 +135,19 @@ Settings:
       de Invidious
     Check for Latest Blog Posts: Buscar nuevas entradas de blogs
     Check for Updates: Buscar actualizaciones
+    Set Current Instance as Default: Definir Instancia Actual como Por Defecto
+    Clear Default Instance: Limpiar Instancia Por Defecto
+    Current Invidious Instance: Instancia Actual de Individuous
+    The currently set default instance is $: La instancia actual es $
+    No default instance has been set: No se ha elegido ninguna instancia
+    Current instance will be randomized on startup: La instancia actual será aleatorizada
+      en el inicio
+    System Default: Por defecto del Sistema
+    External Link Handling:
+      No Action: Sin Acción
+      External Link Handling: Manejo de Enlaces Externos
+      Open Link: Abrir Enlace
+      Ask Before Opening Link: Preguntar Antes de Abrir un Enlace
   Theme Settings:
     Theme Settings: 'Configuraciones del tema'
     Match Top Bar with Main Color: 'Igualar color de la barra superior con el color
@@ -148,7 +164,7 @@ Settings:
       Pink: 'Rosado'
       Purple: 'Púrpura'
       Deep Purple: 'Púrpura oscuro'
-      Indigo: ''
+      Indigo: 'Indigo'
       Blue: 'Azul'
       Light Blue: 'Celeste'
       Cyan: 'Cian'
@@ -172,6 +188,7 @@ Settings:
     UI Scale: Escala de la interfaz de usuario
     Disable Smooth Scrolling: Desactivar desplazamiento suave
     Expand Side Bar by Default: Expandir la barra lateral por defecto
+    Hide Side Bar Labels: Esconder las Etiquetas de la Barra Lateral
   Player Settings:
     Player Settings: 'Configuraciones del reproductor'
     Force Local Backend for Legacy Formats: 'Forzar un backend local para los formatos
@@ -507,3 +524,5 @@ Version $ is now available!  Click for more details: La versión $ ya está disp
 More: Más
 Are you sure you want to open this link?: ¿Está seguro que desea abrir este enlace?
 Open New Window: Abrir nueva ventana
+Search Bar:
+  Clear Input: Limpiar Entrada

@@ -97,11 +97,13 @@ User Playlists:
     wider. Sie listet nur Videos auf, die du gespeichert oder favorisiert hast. Wenn
     die Arbeiten abgeschlossen sind, werden alle Videos, die sich derzeit hier befinden,
     in eine Wiedergabeliste „Favoriten“ migriert.
+  Search bar placeholder: Suche in der Wiedergabeliste
 History:
   # On History Page
   History: Verlauf
   Watch History: Wiedergabeverlauf
   Your history list is currently empty.: Dein Verlauf ist aktuell leer.
+  Search bar placeholder: Suche im Verlauf
 Settings:
   # On Settings Page
   Settings: Einstellungen

@@ -96,11 +96,13 @@ User Playlists:
     tu jedynie wymienione filmy, które zapisałeś lub oznaczyłeś jako ulubione. Kiedy
     prace nad tą stroną zostaną zakończone, wszystkie filmy tu obecne zostaną przeniesione
     do playlisty „Ulubione”.
+  Search bar placeholder: Przeszukaj playlisty
 History:
   # On History Page
   History: 'Historia'
   Watch History: 'Historia oglądania'
   Your history list is currently empty.: 'Twoja historia jest obecnie pusta.'
+  Search bar placeholder: Przeszukaj historię
 Settings:
   # On Settings Page
   Settings: 'Ustawienia'

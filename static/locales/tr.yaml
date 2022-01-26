@@ -100,11 +100,13 @@ User Playlists:
     Yalnızca kaydettiğiniz veya favorilerinize eklediğiniz videoları listeler. İş
     bittiğinde, şu anda burada bulunan tüm videolar bir 'Favoriler' oynatma listesine
     taşınacaktır.
+  Search bar placeholder: Oynatma Listesinde Ara
 History:
   # On History Page
   History: 'Geçmiş'
   Watch History: 'İzleme Geçmişi'
   Your history list is currently empty.: 'Geçmişin şu anda boş.'
+  Search bar placeholder: Geçmişte Ara
 Settings:
   # On Settings Page
   Settings: 'Ayarlar'
