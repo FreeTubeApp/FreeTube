@@ -77,8 +77,13 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': Nahrávam odbery, prosím počkajte.
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Tento
     profil má mnoho odberateľov. Vždy použite RSS, aby ste obišli limit
-Trending: 
+Trending:
   Trending: 'Trendy'
+  Default: Predvolené
+  Music: Hudba
+  Movies: Filmy
+  Trending Tabs: Karty trendov
+  Gaming: Hry
 Most Popular: 'Najpopulárnejšie'
 Playlists: 'Zoznamy'
 User Playlists:
@@ -125,6 +130,19 @@ Settings:
     Check for Updates: Skontrolovať aktualizácie
     View all Invidious instance information: Zobraziť všetko info o Invidious inštancií
     System Default: Určené Systémom
+    Set Current Instance as Default: Nastaviť Aktuálne vybranú inštanciu ako predvolenú
+    External Link Handling:
+      External Link Handling: Spracovanie externých odkazov
+      No Action: Žiadna akcia
+      Ask Before Opening Link: Spýtať sa pred otvorením odkazu
+      Open Link: Otvoriť odkaz
+    The currently set default instance is $: Aktuálne nastavená predvolená inštancia
+      je $
+    No default instance has been set: Žiadna predvolená inštancia nebola nastavená
+    Current instance will be randomized on startup: Aktuálne nastavená inštancia bude
+      vybraná náhodne pri spustení
+    Clear Default Instance: Zmazať predvolenú inštanciu
+    Current Invidious Instance: Aktuálna inštancia Invidious
   Theme Settings:
     Theme Settings: 'Nastavenie motívu'
     Match Top Bar with Main Color: 'Prispôsobiť hornú lištu s hlavnou farbou'
@@ -133,7 +151,7 @@ Settings:
       Black: 'Čierny'
       Dark: 'Tmavý'
       Light: 'Svetlý'
-      Dracula: 'Dracula'
+      Dracula: 'Tmavá téma'
     Main Color Theme:
       Main Color Theme: 'Predvolená farebná téma'
       Red: 'Červená'
@@ -164,6 +182,7 @@ Settings:
     UI Scale: Veľkosť UI
     Disable Smooth Scrolling: Vypnúť plynulé scrollovanie
     Expand Side Bar by Default: Roztvárať bočný panel ako východzie nastavenie
+    Hide Side Bar Labels: Skryť označenia v bočnom paneli
   Player Settings:
     Player Settings: 'Nastavenia Prehrávača'
     Force Local Backend for Legacy Formats: 'Pre staré formáty predvolene používať
@@ -196,6 +215,13 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Čas spustenia nasledujúceho videa v zozname videí
     Next Video Interval: Interval Nasledujúceho Videa
+    Scroll Playback Rate Over Video Player: Posúvanie vo videu kolieskom myši cez
+      prehrávač videa
+    Fast-Forward / Rewind Interval: Citlivosť rýchleho pretáčania dopredu/dozadu
+    Display Play Button In Video Player: Zobraziť tlačidlo prehrávania v prehrávači
+      videa
+    Scroll Volume Over Video Player: Ovládanie hlasitosti kolieskom myši cez prehrávač
+      videa
   Subscription Settings:
     Subscription Settings: 'Nastavenia Odberov'
     Hide Videos on Watch: 'Skryť videá po zhliadnutí'
@@ -325,6 +351,12 @@ Settings:
       SponsorBlock (Predvolená je https://sponsor.ajay.app)
     Enable SponsorBlock: Povoliť SponsorBlock
     SponsorBlock Settings: Nastavenia Služby SponsorBlock
+  External Player Settings:
+    Custom External Player Arguments: Vlastné argumenty externého prehrávača
+    External Player: Externý prehrávač
+    External Player Settings: Nastavenia externého prehrávača
+    Ignore Unsupported Action Warnings: Ignorovať upozornenia na nepodporované akcie
+    Custom External Player Executable: Vlastný spustiteľný externý prehrávač
 About:
   #On About page
   About: 'O FreeTube'
@@ -510,6 +542,31 @@ Video:
     sponsor: sponzor
   Skipped segment: Preskočený segment
   translated from English: preložené z angličtiny
+  Stats:
+    fps: Obrázky za sekundu
+    frame drop: Vyhodené obrázky
+    volume: Hlasitosť
+    player resolution: Výrez
+    out of: z
+    bandwidth: Rýchlosť pripojenia
+    video id: ID videa (YouTube)
+    buffered: Prednačítané
+  External Player:
+    OpenInTemplate: Otvoriť v $
+    Unsupported Actions:
+      setting a playback rate: nastavenie rýchlosti prehrávania
+      reversing playlists: zoznamy videí odzadu
+      looping playlists: opakovanie zoznamov videí
+      starting video at offset: video sa spúšťa s posunom
+      opening playlists: otváranie zoznamov skladieb
+      opening specific video in a playlist (falling back to opening the video): otvorenie
+        konkrétneho videa v zozname videí (keďtak otvorí video samotné)
+      shuffling playlists: premiešavanie zoznamov videí
+    playlist: zoznam videí
+    UnsupportedActionTemplate: '$ nepodporuje: %'
+    video: video
+    OpeningTemplate: Otvára sa $ v %...
+  Premieres on: Premiéruje o
 Videos:
   #& Sort By
   Sort By:
@@ -534,6 +591,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Zoznam videí
 Toggle Theatre Mode: 'Prepnúť na režim kino'
 Change Format:
   Change Video Formats: 'Zmena formátov videa'
@@ -583,6 +641,10 @@ Comments:
   Newest first: Najnovšie najprv
   Top comments: Najlepšie komentáre
   Sort by: Zoradiť podľa
+  Pinned by: Pripnuté používateľom
+  Show More Replies: Zobraziť viac odpovedí
+  From $channelName: z $channelName
+  And others: a ďalšie
 Up Next: 'Nasledujúci'
 
 # Toast Messages
@@ -625,13 +687,17 @@ Tooltips:
       rozhranie Invidious API. Ak je povolené, miestne API sa spustí a bude používať
       pôvodné formáty, ktoré vráti, namiesto tých, ktoré vráti Invidious. Pomáha,
       keď sa videá vrátené Invidious neprehrajú z dôvodu obmedzení krajín.
+    Scroll Playback Rate Over Video Player: Keď je kurzor nad videom, stlačte a podržte
+      kláves Control (kláves Command na Macu) a posúvaním kolieska myši dopredu alebo
+      dozadu ovládajte rýchlosť prehrávania. Stlačte a podržte kláves Control (kláves
+      Command na Macu) a kliknite ľavým tlačidlom myši, aby ste sa rýchlo vrátili
+      na predvolenú rýchlosť prehrávania (1x, pokiaľ nebola zmenená v nastaveniach).
   General Settings:
     Region for Trending: Región trendov vám umožňuje zvoliť si trendové videá z krajiny,
       ktoré chcete zobraziť. Nie všetky zobrazené krajiny sú v skutočnosti podporované
       službou YouTube.
     Invidious Instance: Invidious inštancia, ku ktorej sa FreeTube pripojí pre volania
-      API. Vymazaním aktuálnej inštancie zobrazíte zoznam verejných inštancií, z ktorých
-      si môžete vybrať.
+      API.
     Thumbnail Preference: Všetky miniatúry v rámci služby FreeTube budú nahradené
       obrázkom z videa namiesto predvolenej miniatúry.
     Fallback to Non-Preferred Backend on Failure: Ak má vaše preferované rozhranie
@@ -640,9 +706,23 @@ Tooltips:
     Preferred API Backend: Vyberte backend, ktorý FreeTube používa na získavanie údajov.
       Lokálne API je zabudovaný extraktor. Invidious API vyžaduje na pripojenie server
       Invidious.
+    External Link Handling: "Vyberte predvolené správanie pri kliknutí na odkaz, ktorý\
+      \ nemožno otvoriť vo FreeTube.\nV predvolenom nastavení FreeTube otvorí odkaz,\
+      \ na ktorý ste klikli, vo vašom predvolenom prehliadači.\n"
   Privacy Settings:
     Remove Video Meta Files: Ak je povolené, FreeTube po zatvorení stránky prezerania
       automaticky odstráni metasúbory vytvorené počas prehrávania videa.
+  External Player Settings:
+    DefaultCustomArgumentsTemplate: "(Predvolené: '$')"
+    External Player: Po výbere externého prehrávača sa na miniatúre zobrazí ikona
+      na otvorenie videa (zoznam videí, ak je podporovaný) v externom prehrávači.
+    Custom External Player Executable: V predvolenom nastavení bude FreeTube predpokladať,
+      že vybraný externý prehrávač možno nájsť prostredníctvom premennej prostredia
+      PATH. V prípade potreby tu môžete nastaviť vlastnú cestu.
+    Ignore Warnings: Stíšiť upozornenia, keď aktuálny externý prehrávač nepodporuje
+      aktuálnu akciu (napr. obrátenie zoznamov skladieb atď.).
+    Custom External Player Arguments: Akékoľvek vlastné argumenty príkazového riadka
+      oddelené bodkočiarkami (';'), ktoré chcete odovzdať externému prehrávaču.
 Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Naozaj
     chcete odstrániť vybraté kanály?  Týmto sa neodstráni kanál z iného profilu.
@@ -682,6 +762,7 @@ Profile:
   All Channels: Všetky kanály
   Profile Select: Vyberte profil
   Profile Filter: Filter Profilov
+  Profile Settings: Nastavenia profilu
 A new blog is now available, $. Click to view more: Nový príspevok na blogu je k dispozícií,
   $. Klikni pre viac informácií
 Download From Site: Stiahnuť zo stránky
@@ -697,3 +778,11 @@ Hashtags have not yet been implemented, try again later: Neznámy typ adresy URL
 Unknown YouTube url type, cannot be opened in app: Neznámy typ adresy URL YouTube,
   v aplikácii sa nedá otvoriť
 Open New Window: Otvoriť Nové Okno
+Default Invidious instance has been set to $: Predvolená Invidious inštancia bola
+  nastavená na $
+Search Bar:
+  Clear Input: Čistý vstup
+Default Invidious instance has been cleared: Predvolená Invidious inštancia bola vymazaná
+External link opening has been disabled in the general settings: V nastaveniach bolo
+  vypnuté otváranie odkazov v externých aplikáciach
+Are you sure you want to open this link?: Naozaj chcete otvoriť tento odkaz?

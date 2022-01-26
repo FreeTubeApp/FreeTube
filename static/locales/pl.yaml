@@ -96,11 +96,13 @@ User Playlists:
     tu jedynie wymienione filmy, które zapisałeś lub oznaczyłeś jako ulubione. Kiedy
     prace nad tą stroną zostaną zakończone, wszystkie filmy tu obecne zostaną przeniesione
     do playlisty „Ulubione”.
+  Search bar placeholder: Przeszukaj playlisty
 History:
   # On History Page
   History: 'Historia'
   Watch History: 'Historia oglądania'
   Your history list is currently empty.: 'Twoja historia jest obecnie pusta.'
+  Search bar placeholder: Przeszukaj historię
 Settings:
   # On Settings Page
   Settings: 'Ustawienia'
@@ -584,6 +586,7 @@ Video:
     volume: Głośność
     bandwidth: Prędkość połączenia
     fps: FPS
+    frame drop: Pominięte klatki
 Videos:
   #& Sort By
   Sort By:
@@ -623,8 +626,8 @@ Share:
   Share Video: 'Podziel się filmem'
   Copy Link: 'Skopiuj link'
   Open Link: 'Otwórz link'
-  Copy Embed: 'Skopiuj embed'
-  Open Embed: 'Otwórz embed'
+  Copy Embed: 'Skopiuj link do osadzenia'
+  Open Embed: 'Otwórz link do osadzenia'
   # On Click
   Invidious URL copied to clipboard: 'Skopiowano URL Invidious do schowka'
   Invidious Embed URL copied to clipboard: 'Skopiowano URL odtwarzacza Invidious do

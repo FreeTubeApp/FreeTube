@@ -92,11 +92,13 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Et
     ole tallentanut videoita. Paina "Tallenna" painiketta videon kulmassa tallentaaksesi
     sen tänne
+  Search bar placeholder: Etsi soittolistalta
 History:
   # On History Page
   History: 'Historia'
   Watch History: 'Katseluhistoria'
   Your history list is currently empty.: Historiasi on tällä hetkellä tyhjä.
+  Search bar placeholder: Etsi historiasta
 Settings:
   # On Settings Page
   Settings: 'Asetukset'

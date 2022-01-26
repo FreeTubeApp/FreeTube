@@ -98,11 +98,13 @@ User Playlists:
     Elle ne répertorie que les vidéos que vous avez enregistrées ou mises en favoris.
     Une fois le travail terminé, toutes les vidéos actuellement présentes ici seront
     migrées vers une liste de lecture « Favoris ».
+  Search bar placeholder: Recherche dans la liste de lecture
 History:
   # On History Page
   History: 'Historique'
   Watch History: 'Historique de visionnage'
   Your history list is currently empty.: 'Votre historique est vide.'
+  Search bar placeholder: "Recherche dans l'historique"
 Settings:
   # On Settings Page
   Settings: 'Paramètres'

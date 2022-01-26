@@ -98,11 +98,13 @@ User Playlists:
     ‚מועדפים’.
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: לא
     שמרת סרטונים. יש ללחוץ על כפתור השמירה בפינת הסרטון כדי שיופיע כאן
+  Search bar placeholder: חיפוש ברשימת הנגינה
 History:
   # On History Page
   History: 'היסטוריה'
   Watch History: 'היסטוריית צפייה'
   Your history list is currently empty.: 'ההיסטוריה שלך ריקה כרגע.'
+  Search bar placeholder: חיפוש בהיסטוריה
 Settings:
   # On Settings Page
   Settings: 'הגדרות'
@@ -218,6 +220,8 @@ Settings:
     Next Video Interval: משך הסרטון הבא
     Display Play Button In Video Player: הצגת כפתור הניגון בתוך נגן הווידאו
     Scroll Volume Over Video Player: גלילה על הסרטון לשינוי עצמת השמע
+    Scroll Playback Rate Over Video Player: גלילת מהירות הנגינה על גבי נגן הווידאו
+    Fast-Forward / Rewind Interval: משך קפיצה / חזרה
   Privacy Settings:
     Privacy Settings: 'הגדרות פרטיות'
     Remember History: 'זכור את היסטוריית הצפייה'
@@ -337,8 +341,14 @@ Settings:
     External Player: נגן חיצוני
     External Player Settings: הגדרות נגן חיצוני
     Custom External Player Executable: קובץ בר־הרצה מותאם אישית לַנַּגָּן
+    Ignore Unsupported Action Warnings: התעלמות מאזהרות על פעולות שאינן נתמכות
+    Custom External Player Arguments: משתנים לנגן חיצוני בהתאמה אישית
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: להודיע לגבי דילוג על קטע החסוּת
+    SponsorBlock Settings: הגדרות חוסם מממנים
+    Enable SponsorBlock: הפעלת חוסם מממנים
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': כתובת ה־API של חוסם
+      המממנים (ברירת המחדל היא https://sponsor.ajay.app)
 About:
   #On About page
   About: 'על אודות'
@@ -566,13 +576,25 @@ Video:
     interaction: מבוא
     sponsor: נותן חסות
     intro: פתיח
+    music offtopic: מוזיקה - לא בהקשר
   External Player:
     video: סרטון
     playlist: פלייליסט
     OpenInTemplate: פתיחה בתוך $
     OpeningTemplate: מתבצעת פתיחת $ בתוך %...
     UnsupportedActionTemplate: 'ל־$ אין תמיכה ב־: %'
+    Unsupported Actions:
+      opening playlists: פתיחת רשימות נגינה
+      setting a playback rate: הגדרת מהירות נגינה
+      starting video at offset: התחלת סרטון בהיסט
+      reversing playlists: היפוך סדר רשימות נגינה
+      shuffling playlists: ערבוב רשימות נגינה
+      looping playlists: לולאה על רשימות נגינה
+      opening specific video in a playlist (falling back to opening the video): פתיחת
+        סרטון מסוים ברשימת נגינה (ייסוג לפתיחת הסרטון)
   Skipped segment: קטע שדילגת עליו
+  Stats:
+    video id: מזהה סרטון (YouTube)
 Videos:
   #& Sort By
   Sort By:
@@ -710,3 +732,5 @@ Default Invidious instance has been set to $: עותק Invidious שהוגדר כ
 Default Invidious instance has been cleared: נוקתה העדפת עותק ברירת המחדל של Invidious
 External link opening has been disabled in the general settings: פתיחת הקישורים החיצוניים
   מושבתת בהגדרות הכלליות
+Hashtags have not yet been implemented, try again later: עדיין לא הוטמעו תגיות הקבץ,
+  נא לנסות בהמשך

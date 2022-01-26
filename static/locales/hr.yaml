@@ -82,7 +82,7 @@ Trending:
   Trending: 'U trendu'
   Trending Tabs: Kartice „U trendu”
   Movies: Filmovi
-  Gaming: Igranje
+  Gaming: Igre
   Music: Glazba
   Default: Standardno
 Most Popular: 'Najpopularniji'
@@ -95,11 +95,13 @@ User Playlists:
   Playlist Message: Ova stranica ne odražava potpuno funkcionalne zbirke. Prikazuje
     samo spremljena ili označena videa. Kad posao završi, svi trenutačno ovdje prisutni
     videi premjestit će se u zbirku „Favoriti”.
+  Search bar placeholder: Pretraži zbirku
 History:
   # On History Page
   History: 'Povijest'
   Watch History: 'Povijest gledanja'
   Your history list is currently empty.: 'Tvoj popis povijesti je trenutačno prazan.'
+  Search bar placeholder: Pretraži povijest
 Settings:
   # On Settings Page
   Settings: 'Postavke'
@@ -454,11 +456,11 @@ Profile:
   : Ovo je tvoj primarni profil. Stvarno želiš izbrisati odabrane kanale? Ti kanali
     će se izbrisati iz svih profila u kojima se pronađu.
   No channel(s) have been selected: Nije odabran nijedan kanal
-  Add Selected To Profile: Dodaj odabrano u profil
-  Delete Selected: Izbriši odabrano
+  Add Selected To Profile: Dodaj odabrane u profil
+  Delete Selected: Izbriši odabrane
   Select None: Odaberi ništa
   Select All: Odaberi sve
-  $ selected: $ je odabran
+  $ selected: 'Broj odabranih: $'
   Other Channels: Ostali kanali
   Subscription List: Popis pretplata
   Profile Filter: Filtar profila
