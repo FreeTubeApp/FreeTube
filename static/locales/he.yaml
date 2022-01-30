@@ -349,6 +349,10 @@ Settings:
     Enable SponsorBlock: הפעלת חוסם מממנים
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': כתובת ה־API של חוסם
       המממנים (ברירת המחדל היא https://sponsor.ajay.app)
+  Download Settings:
+    Download Settings: הגדרות הורדה
+    Ask Download Path: לשאול מה נתיב ההורדות
+    Choose Path: בחירת נתיב
 About:
   #On About page
   About: 'על אודות'
