@@ -25,7 +25,13 @@ export default Vue.extend({
 
       toast.isOpen = false
     },
-    open: function (message, action, time) {
+    open: function (message, action, time, translate = false, formatArgs = []) {
+      if (translate) {
+        message = this.$t(message)
+        for (const arg of formatArgs) {
+          message = message.replace('$', arg)
+        }
+      }
       const toast = { message: message, action: action || (() => { }), isOpen: false, timeout: null }
       toast.timeout = setTimeout(this.close, time || 3000, toast)
       setImmediate(() => { toast.isOpen = true })

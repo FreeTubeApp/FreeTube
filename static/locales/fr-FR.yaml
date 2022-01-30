@@ -377,6 +377,10 @@ Settings:
     External Player Settings: Paramètres du lecteur externe
     Custom External Player Arguments: Arguments personnalisés du lecteur externe
     Custom External Player Executable: Exécutable de lecteur externe personnalisé
+  Download Settings:
+    Download Settings: 'Paramètres de téléchargement'
+    Ask Download Path: 'Demander l'emplacement de téléchargement'
+    Choose Path: 'Choisir l'emplacement de téléchargement'
 About:
   #On About page
   About: 'À propos'
@@ -836,3 +840,9 @@ Search Bar:
 Are you sure you want to open this link?: Êtes-vous sûr(e) de vouloir ouvrir ce lien ?
 External link opening has been disabled in the general settings: L'ouverture des liens
   externes a été désactivée dans les paramètres généraux
+Downloading has completed: 'Le téléchargement de "$" est fini'
+Starting download: 'Le téléchargement de "$" a commencé'
+Downloading failed: 'Incapable de téléchargement "$", retourne l'erreur http $'
+Downloading canceled: 'Le téléchargement est annulé par l'utilisateur'
+Download folder does not exist: 'Le répertoire "$" de téléchargement n'existe pas. Mode sans répertoire activé'
+

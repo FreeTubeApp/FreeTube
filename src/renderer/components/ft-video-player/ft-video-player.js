@@ -113,7 +113,6 @@ export default Vue.extend({
             'chaptersButton',
             'descriptionsButton',
             'subsCapsButton',
-            'audioTrackButton',
             'pictureInPictureToggle',
             'toggleTheatreModeButton',
             'fullWindowButton',

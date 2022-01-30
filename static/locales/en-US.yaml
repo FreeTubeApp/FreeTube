@@ -325,6 +325,10 @@ Settings:
     Enable SponsorBlock: Enable SponsorBlock
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API Url (Default is https://sponsor.ajay.app)
     Notify when sponsor segment is skipped: Notify when sponsor segment is skipped
+  Download Settings:
+    Download Settings: Download Settings
+    Ask Download Path: Ask for download path
+    Choose Path: Choose Path
 About:
   #On About page
   About: About
@@ -709,6 +713,11 @@ Default Invidious instance has been cleared: Default Invidious instance has been
 'The playlist has ended.  Enable loop to continue playing': 'The playlist has ended.  Enable
   loop to continue playing'
 External link opening has been disabled in the general settings: 'External link opening has been disabled in the general settings'
+Downloading has completed: 'Downloading "$" has completed'
+Starting download: 'Downloading "$" has started'
+Downloading failed: 'Unable to download "$", return http request status code $'
+Downloading canceled: The dowload is canceled by the user
+Download folder does not exist: The download directory "$" doesn't exist. Falling back to "ask folder" mode.
 
 Yes: Yes
 No: No
