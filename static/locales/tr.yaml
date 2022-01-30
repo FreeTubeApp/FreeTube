@@ -359,6 +359,10 @@ Settings:
     Ignore Unsupported Action Warnings: Desteklenmeyen Eylem Uyarılarını Yok Say
     External Player: Harici Oynatıcı
     External Player Settings: Harici Oynatıcı Ayarları
+  Download Settings:
+    Choose Path: Yol Seç
+    Ask Download Path: İndirme yolu için sor
+    Download Settings: İndirme Ayarları
 About:
   #On About page
   About: 'Hakkında'
@@ -790,3 +794,9 @@ External link opening has been disabled in the general settings: Harici bağlant
   genel ayarlarda devre dışı bırakıldı
 Are you sure you want to open this link?: Bu bağlantıyı açmak istediğinizden emin
   misiniz?
+Downloading canceled: İndirme, kullanıcı tarafından iptal edildi
+Starting download: '"$" indirme işlemi başladı'
+Downloading has completed: '"$" indirme işlemi tamamlandı'
+Downloading failed: '"$" indirilemiyor, $ http istek durum kodu döndürüldü'
+Download folder does not exist: İndirme dizini "$" mevcut değil. "Klasör sor" moduna
+  geri dönülüyor.
