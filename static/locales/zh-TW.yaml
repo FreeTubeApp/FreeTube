@@ -87,11 +87,13 @@ User Playlists:
   Your Playlists: '您的播放清單'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 您播放清單的影片是空的。點擊影片角落的星星按鈕以將其列在此處
   Playlist Message: 此頁面無法列出完整的播放清單。其僅列出您已儲存或加入最愛的影片。工作完成後，所有目前在此的影片都會轉移到「最愛」播放清單。
+  Search bar placeholder: 在播放清單搜尋
 History:
   # On History Page
-  History: '歷史紀錄'
-  Watch History: '觀看歷史紀錄'
-  Your history list is currently empty.: 您的歷史紀錄清單目前是空的。
+  History: '觀看紀錄'
+  Watch History: '觀看紀錄'
+  Your history list is currently empty.: 尚未觀賞過任何影片，因此觀看紀錄清單為空。
+  Search bar placeholder: 在觀看紀錄中搜尋
 Settings:
   # On Settings Page
   Settings: '設定'
@@ -245,14 +247,14 @@ Settings:
       #& No
 
   Privacy Settings:
-    Watch history has been cleared: 觀看紀錄已清除
-    Are you sure you want to remove your entire watch history?: 您確定要移除全部的觀看歷史紀錄嗎？
-    Remove Watch History: 移除觀看歷史紀錄
+    Watch history has been cleared: 已刪除觀看紀錄
+    Are you sure you want to remove your entire watch history?: 您確定要移除全部的觀看紀錄嗎？
+    Remove Watch History: 移除觀看紀錄
     Search cache has been cleared: 搜尋快取已清除
     Are you sure you want to clear out your search cache?: 您確定要清除搜尋快取嗎？
     Clear Search Cache: 清除搜尋快取
     Save Watched Progress: 儲存觀看進度
-    Remember History: 儲存歷史紀錄
+    Remember History: 儲存觀看紀錄
     Privacy Settings: 隱私設定
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 您確定要移除所有訂閱與設定檔嗎嗎?  注意:這無法復原。
     Remove All Subscriptions / Profiles: 移除所有訂閱／設定檔
@@ -264,16 +266,16 @@ Settings:
     Unable to read file: 無法讀取檔案
     All watched history has been successfully exported: 所有觀看紀錄已成功匯出
     All watched history has been successfully imported: 所有觀看紀錄已成功匯入
-    History object has insufficient data, skipping item: 歷史紀錄物件資料不足，正在跳過項目
+    History object has insufficient data, skipping item: 觀看紀錄物件資料不足，正在跳過項目
     Subscriptions have been successfully exported: 訂閱已成功匯出
-    Invalid history file: 無效的歷史紀錄檔案
+    Invalid history file: 無效的觀看紀錄檔案
     This might take a while, please wait: 這可能需要一段時間，請稍候
     Invalid subscriptions file: 無效的訂閱檔案
     All subscriptions have been successfully imported: 所有訂閱已成功匯入
     All subscriptions and profiles have been successfully imported: 所有訂閱與設定檔已成功匯入
     Profile object has insufficient data, skipping item: 設定檔物件資料不足，正在跳過項目
-    Export History: 匯出歷史紀錄
-    Import History: 匯入歷史紀錄
+    Export History: 匯出觀看紀錄
+    Import History: 匯入觀看紀錄
     Export NewPipe: 匯出NewPipe
     Export YouTube: 匯出YouTube
     Export FreeTube: 匯出FreeTube
@@ -469,9 +471,9 @@ Video:
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % 前'
 #& Videos
-  Video has been removed from your history: 影片已從您的歷史紀錄中移除
+  Video has been removed from your history: 影片已從您的觀看紀錄中移除
   Video has been marked as watched: 影片標記為已觀看
-  Remove From History: 從歷史紀錄中移除
+  Remove From History: 從觀看紀錄中移除
   Mark As Watched: 標記為已觀看
   Autoplay: 自動播放
   Play Previous Video: 播放前一影片
