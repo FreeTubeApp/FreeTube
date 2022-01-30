@@ -353,6 +353,10 @@ Settings:
     Custom External Player Executable: مشغل خارجي مخصص قابل للتنفيذ
     Ignore Unsupported Action Warnings: تجاهل تحذيرات الإجراءات غير المدعومة
     External Player Settings: إعدادات المشغل الخارجي
+  Download Settings:
+    Download Settings: إعدادات التنزيل
+    Choose Path: اختر المسار
+    Ask Download Path: اطلب مسار التنزيل
 About:
   #On About page
   About: 'حول'
@@ -772,3 +776,8 @@ Search Bar:
 External link opening has been disabled in the general settings: تم تعطيل فتح الارتباط
   الخارجي في الإعدادات العامة
 Are you sure you want to open this link?: هل أنت متأكد أنك تريد فتح هذا الرابط؟
+Downloading has completed: تم الانتهاء من تنزيل "$"
+Downloading failed: غير قادر على تحميل "$" ، إرجاع رمز حالة طلب http $
+Download folder does not exist: دليل التحميل "$" غير موجود. الرجوع إلى وضع "طلب المجلد".
+Downloading canceled: تم إلغاء التحميل من قبل المستخدم
+Starting download: بدأ تحميل "$"
