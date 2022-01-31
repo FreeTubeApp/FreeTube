@@ -379,8 +379,8 @@ Settings:
     Custom External Player Executable: Exécutable de lecteur externe personnalisé
   Download Settings:
     Download Settings: 'Paramètres de téléchargement'
-    Ask Download Path: 'Demander l'emplacement de téléchargement'
-    Choose Path: 'Choisir l'emplacement de téléchargement'
+    Ask Download Path: "Demander l'emplacement de téléchargement"
+    Choose Path: "Choisir l'emplacement de téléchargement"
 About:
   #On About page
   About: 'À propos'
@@ -845,4 +845,3 @@ Starting download: 'Le téléchargement de "$" a commencé'
 Downloading failed: 'Incapable de téléchargement "$", retourne l'erreur http $'
 Downloading canceled: 'Le téléchargement est annulé par l'utilisateur'
 Download folder does not exist: 'Le répertoire "$" de téléchargement n'existe pas. Mode sans répertoire activé'
-
