@@ -60,7 +60,7 @@ Search Filters:
     Long (> 20 minutes): 'Długie (> 20 minut)'
   # On Search Page
   Search Results: 'Wyniki wyszukiwania'
-  Fetching results. Please wait: 'Szukanie. Proszę poczekać'
+  Fetching results. Please wait: 'Trwa wyszukiwanie. Proszę poczekać'
   Fetch more results: 'Pokaż więcej wyników'
 # Sidebar
   There are no more results for this search: Nie ma więcej wyników dla tego wyszukiwania
@@ -366,6 +366,10 @@ Settings:
     Ignore Unsupported Action Warnings: Ignoruj ostrzeżenia o nieobsługiwanych działaniach
     External Player: Zewnętrzny odtwarzacz
     External Player Settings: Ustawienia zewnętrznego odtwarzacza
+  Download Settings:
+    Ask Download Path: Pytaj o lokalizację pobierania
+    Download Settings: Ustawienia pobierania
+    Choose Path: Wybierz folder
 About:
   #On About page
   About: 'O projekcie'
@@ -808,3 +812,9 @@ Search Bar:
 External link opening has been disabled in the general settings: Otwieranie zewnętrznych
   linków zostało wyłączone w ustawieniach ogólnych
 Are you sure you want to open this link?: Czy na pewno chcesz otworzyć ten link?
+Downloading has completed: Ukończono pobieranie "$"
+Starting download: Rozpoczęto pobieranie "$"
+Downloading failed: Nie można pobrać "$", zwracam kod statusu żądania http $
+Downloading canceled: Pobieranie zostało przerwane przez użytkownika
+Download folder does not exist: Katalog pobierania "$" nie istnieje. Przełączono na
+  tryb "pytaj o folder".
