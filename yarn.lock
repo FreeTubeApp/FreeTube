@@ -6034,10 +6034,10 @@ makeerror@1.0.x:
   dependencies:
     tmpl "1.0.x"
 
-marked@^3.0.2:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/marked/-/marked-3.0.3.tgz#d81ff0f9e29cef0a177327fe009b460f31aa5862"
-  integrity sha512-4oIDhVSQ2s+xNCfek9OnZgCQR/WykGCom02JzIIvi4Pme+MIwPYqvGVW8CQWOXeoZu0TtVB6pTxIuoLm+dKqDA==
+marked@^4.0.10:
+  version "4.0.10"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-4.0.10.tgz#423e295385cc0c3a70fa495e0df68b007b879423"
+  integrity sha512-+QvuFj0nGgO970fySghXGmuw+Fd0gD2x3+MqCWLIPf5oxdv1Ka6b2q+z9RP01P/IaKPMEramy+7cNy/Lw8c3hw==
 
 matcher@^3.0.0:
   version "3.0.0"

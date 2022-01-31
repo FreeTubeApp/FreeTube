@@ -68,7 +68,7 @@
     "lodash.debounce": "^4.0.8",
     "lodash.isequal": "^4.5.0",
     "lodash.uniqwith": "^4.5.0",
-    "marked": "^3.0.2",
+    "marked": "^4.0.10",
     "material-design-icons": "^3.0.1",
     "nedb-promises": "^5.0.1",
     "node-forge": "^1.0.0",
