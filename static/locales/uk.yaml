@@ -354,6 +354,10 @@ Settings:
       дії
     External Player: Зовнішній програвач
     External Player Settings: Параметри зовнішнього програвача
+  Download Settings:
+    Download Settings: Налаштування завантаження
+    Choose Path: Вибрати шлях
+    Ask Download Path: Запитувати шлях завантаження
 About:
   #On About page
   About: 'Про'
@@ -772,3 +776,9 @@ Search Bar:
 External link opening has been disabled in the general settings: Відкриття зовнішнього
   посилання вимкнено в загальних налаштуваннях
 Are you sure you want to open this link?: Ви впевнені, що хочете відкрити це посилання?
+Downloading failed: Не вдалося завантажити "$", повернено код стану http-запиту $
+Downloading canceled: Завантаження скасовано користувачем
+Starting download: Завантаження "$" розпочато
+Downloading has completed: Завантаження "$" завершено
+Download folder does not exist: Каталог завантаження "$" не існує. Повернення до режиму
+  «запитати теку».
