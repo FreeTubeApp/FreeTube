@@ -328,6 +328,10 @@ Settings:
     Ignore Unsupported Action Warnings: 忽略不支持的行为的警告
     External Player: 外部播放器
     External Player Settings: 外部播放器设置
+  Download Settings:
+    Download Settings: 下载设置
+    Ask Download Path: 询问下载路径
+    Choose Path: 选择路径
 About:
   #On About page
   About: '关于'
@@ -696,3 +700,7 @@ Default Invidious instance has been set to $: 默认的 Invidious 实例已被�
 Playing Next Video Interval: 马上播放下一个视频。单击取消。| {nextVideoInterval} 秒内播放下个视频。单击取消。 |
   {nextVideoInterval} 秒内播放下个视频。单击取消。
 Default Invidious instance has been cleared: 已清除默认的 Invidious 实例
+Downloading failed: 无法下载“$”，返回 http 请求状态码 $
+Downloading has completed: 已完成下载“$”
+Starting download: 已开始下载“$”
+Downloading canceled: 用户取消了下载
