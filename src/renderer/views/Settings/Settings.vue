@@ -20,9 +20,9 @@
     <hr>
     <download-settings v-if="usingElectron" />
     <hr>
-    <sponsor-block-settings />
-    <hr>
     <parental-control-settings />
+    <hr>
+    <sponsor-block-settings />
   </div>
 </template>
 

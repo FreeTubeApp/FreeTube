@@ -29,7 +29,7 @@ export default Vue.extend({
     'distraction-settings': DistractionSettings,
     'proxy-settings': ProxySettings,
     'sponsor-block-settings': SponsorBlockSettings,
-    'download-settings': DownloadSettings
+    'download-settings': DownloadSettings,
     'parental-control-settings': ParentControlSettings
   },
   computed: {

@@ -7,7 +7,7 @@
       :fullscreen="true"
     />
     <ft-card
-      v-else-if="(isFamilyFriendly==true || !showFamilyFriendlyOnly)"
+      v-else-if="(isFamilyFriendly || !showFamilyFriendlyOnly)"
       class="card"
     >
       <img
@@ -113,7 +113,7 @@
       </div>
     </ft-card>
     <ft-card
-      v-if="!isLoading && (isFamilyFriendly==true || !showFamilyFriendlyOnly)"
+      v-if="!isLoading && (isFamilyFriendly || !showFamilyFriendlyOnly)"
       class="card"
     >
       <div
@@ -196,7 +196,7 @@
       </div>
     </ft-card>
     <ft-age-restricted
-      v-if="!isLoading && (isFamilyFriendly==false && showFamilyFriendlyOnly)"
+      v-if="!isLoading && (!isFamilyFriendly && showFamilyFriendlyOnly)"
       class="ageRestricted"
       :content-type-string="'Channel'"
     />
