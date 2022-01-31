@@ -223,7 +223,8 @@ const state = {
   useRssFeeds: false,
   useSponsorBlock: false,
   videoVolumeMouseScroll: false,
-  videoPlaybackRateMouseScroll: false
+  videoPlaybackRateMouseScroll: false,
+  downloadFolderPath: ''
 }
 
 const stateWithSideEffects = {

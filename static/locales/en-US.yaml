@@ -103,11 +103,13 @@ User Playlists:
     videos currently here will be migrated to a 'Favorites' playlist.
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Your saved videos are empty. Click on the save button on the corner of a video to have
     it listed here
+  Search bar placeholder: Search in Playlist
 History:
   # On History Page
   History: History
   Watch History: Watch History
   Your history list is currently empty.: Your history list is currently empty.
+  Search bar placeholder: "Search in History"
 Settings:
   # On Settings Page
   Settings: Settings
@@ -332,6 +334,10 @@ Settings:
     Hide Unsubscribe Button: Hide Unsubscribe Button
     Show Family Friendly Only: Show Family Friendly Only
     Hide Search Bar: Hide Search Bar
+  Download Settings:
+    Download Settings: Download Settings
+    Ask Download Path: Ask for download path
+    Choose Path: Choose Path
 About:
   #On About page
   About: About
@@ -722,5 +728,11 @@ Age Restricted:
     Channel: Channel
     Video: Video
 External link opening has been disabled in the general settings: 'External link opening has been disabled in the general settings'
+Downloading has completed: 'Downloading "$" has completed'
+Starting download: 'Downloading "$" has started'
+Downloading failed: 'Unable to download "$", return http request status code $'
+Downloading canceled: The dowload is canceled by the user
+Download folder does not exist: The download directory "$" doesn't exist. Falling back to "ask folder" mode.
+
 Yes: Yes
 No: No

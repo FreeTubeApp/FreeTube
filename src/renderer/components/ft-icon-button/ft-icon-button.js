@@ -47,12 +47,29 @@ export default Vue.extend({
     dropdownValues: {
       type: Array,
       default: () => { return [] }
+    },
+    relatedVideoTitle: {
+      type: String,
+      default: () => { return '' },
+      require: false
     }
   },
   data: function () {
     return {
       dropdownShown: false,
       id: ''
+    }
+  },
+  computed: {
+    filesExtensions: function() {
+      const regex = /\/(\w*)/i
+      return this.dropdownNames.slice().map((el) => {
+        const group = el.match(regex)
+        if (group.length === 0) {
+          return ''
+        }
+        return group[1]
+      })
     }
   },
   mounted: function () {
@@ -111,7 +128,12 @@ export default Vue.extend({
     },
 
     handleDropdownClick: function (index) {
-      this.$emit('click', this.dropdownValues[index])
+      this.$emit('click', {
+        url: this.dropdownValues[index],
+        title: this.relatedVideoTitle,
+        extension: this.filesExtensions[index],
+        folderPath: this.$store.getters.getDownloadFolderPath
+      })
       this.focusOut()
     }
   }

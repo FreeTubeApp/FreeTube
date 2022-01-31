@@ -463,7 +463,8 @@ export default Vue.extend({
       'updateProfile',
       'addVideo',
       'removeVideo',
-      'openExternalLink'
+      'openExternalLink',
+      'downloadMedia'
     ])
   }
 })

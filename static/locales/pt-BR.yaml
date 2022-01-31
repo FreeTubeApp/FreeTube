@@ -94,11 +94,13 @@ User Playlists:
   Playlist Message: Esta página não reflete listas de reprodução totalmente funcionais.
     Ele só lista vídeos que você salvou ou favoritos. Quando o trabalho estiver concluído,
     todos os vídeos atualmente aqui serão migrados para uma playlist 'Favoritos'.
+  Search bar placeholder: Pesquisar na Lista de Reprodução
 History:
   # On History Page
   History: 'Histórico'
   Watch History: 'Histórico de visualizações'
   Your history list is currently empty.: 'Seu Histórico está vazio no momento.'
+  Search bar placeholder: Pesquisar no histórico
 Settings:
   # On Settings Page
   Settings: 'Configurações'

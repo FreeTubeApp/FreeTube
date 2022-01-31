@@ -6,6 +6,7 @@ import ThemeSettings from '../../components/theme-settings/theme-settings.vue'
 import PlayerSettings from '../../components/player-settings/player-settings.vue'
 import ExternalPlayerSettings from '../../components/external-player-settings/external-player-settings.vue'
 import SubscriptionSettings from '../../components/subscription-settings/subscription-settings.vue'
+import DownloadSettings from '../../components/download-settings/download-settings.vue'
 import PrivacySettings from '../../components/privacy-settings/privacy-settings.vue'
 import DataSettings from '../../components/data-settings/data-settings.vue'
 import DistractionSettings from '../../components/distraction-settings/distraction-settings.vue'
@@ -28,6 +29,7 @@ export default Vue.extend({
     'distraction-settings': DistractionSettings,
     'proxy-settings': ProxySettings,
     'sponsor-block-settings': SponsorBlockSettings,
+    'download-settings': DownloadSettings
     'parental-control-settings': ParentControlSettings
   },
   computed: {

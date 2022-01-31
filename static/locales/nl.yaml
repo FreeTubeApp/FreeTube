@@ -81,10 +81,10 @@ Subscriptions:
     te vermijden
   Load More Videos: Meer Video's Laden
 Trending:
-  Trending: 'Trending'
+  Trending: 'Actuele'
   Trending Tabs: Tendingtabbladen
   Movies: Films
-  Gaming: Gaming
+  Gaming: Gamen
   Music: Muziek
   Default: Standaard
 Most Popular: 'Populair'
@@ -98,11 +98,13 @@ User Playlists:
     Er worden alleen video's weergegeven die jij hebt opgeslagen of gefavoriet. Wanneer
     we klaar zijn met de ontwikkeling van deze feature zullen al deze video's worden
     gemigreerd naar de 'favorieten' afspeellijst.
+  Search bar placeholder: In Afspeellijst zoeken
 History:
   # On History Page
   History: 'Geschiedenis'
   Watch History: 'Bekijk Geschiedenis'
   Your history list is currently empty.: 'Uw geschiedenis is momenteel leeg.'
+  Search bar placeholder: In Geschiedenis zoeken
 Settings:
   # On Settings Page
   Settings: 'Instellingen'
@@ -363,6 +365,10 @@ Settings:
       Acties
     External Player: Externe Videospeler
     External Player Settings: Instellingen Externe Mediaspeler
+  Download Settings:
+    Choose Path: Pad kiezen
+    Download Settings: Download instellingen
+    Ask Download Path: Vraag om downloadpad
 About:
   #On About page
   About: 'Over'
@@ -409,12 +415,12 @@ About:
   Website: Website
   Please check for duplicates before posting: Controleer op duplicaten voordat u een
     issue post
-  GitHub issues: GitHub issues
+  GitHub issues: GitHub-problemen
   Report a problem: Rapporteer een probleem
   FAQ: Veelgestelde vragen
   FreeTube Wiki: FreeTube Wiki
   Help: Hulp
-  GitHub releases: GitHub releases
+  GitHub releases: GitHub uitgaves
   Downloads / Changelog: Downloads / Wijzigingen
   View License: Bekijk Licentie
   Licensed under the AGPLv3: Vrijgegeven onder de AGPLv3 licentie
@@ -570,7 +576,7 @@ Video:
     volume: Volume
     video id: Video ID (YouTube)
     fps: FPS
-    frame drop: Frame Drop
+    frame drop: Frame verlies
     bandwidth: Verbindingssnelheid
     buffered: Gebufferd
     out of: van de
@@ -799,3 +805,9 @@ Search Bar:
   Clear Input: Invoer Wissen
 External link opening has been disabled in the general settings: Het openen van externe
   links is uitgeschakeld in de algemene instellingen
+Downloading canceled: De gebruiker heeft de download geannuleerd
+Downloading has completed: Downloaden van "$" is voltooid
+Starting download: Downloaden van "$" is begonnen
+Downloading failed: Kan "$" niet downloaden, geef http verzoek status code $ terug
+Download folder does not exist: De download map "$" bestaat niet. Valt terug op "vraag
+  map" modus.

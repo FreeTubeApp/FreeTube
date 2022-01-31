@@ -87,7 +87,8 @@
           icon="download"
           :dropdown-names="downloadLinkNames"
           :dropdown-values="downloadLinkValues"
-          @click="openExternalLink"
+          :related-video-title="title"
+          @click="downloadMedia"
         />
         <ft-icon-button
           v-if="!isUpcoming"
