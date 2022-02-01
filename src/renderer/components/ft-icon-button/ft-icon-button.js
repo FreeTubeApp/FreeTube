@@ -65,7 +65,7 @@ export default Vue.extend({
       const regex = /\/(\w*)/i
       return this.dropdownNames.slice().map((el) => {
         const group = el.match(regex)
-        if (group.length === 0) {
+        if (group === null || group.length === 0) {
           return ''
         }
         return group[1]
@@ -128,12 +128,16 @@ export default Vue.extend({
     },
 
     handleDropdownClick: function (index) {
-      this.$emit('click', {
-        url: this.dropdownValues[index],
-        title: this.relatedVideoTitle,
-        extension: this.filesExtensions[index],
-        folderPath: this.$store.getters.getDownloadFolderPath
-      })
+      if (this.relatedVideoTitle !== '') {
+        this.$emit('click', {
+          url: this.dropdownValues[index],
+          title: this.relatedVideoTitle,
+          extension: this.filesExtensions[index],
+          folderPath: this.$store.getters.getDownloadFolderPath
+        })
+      } else {
+        this.$emit('click', this.dropdownValues[index])
+      }
       this.focusOut()
     }
   }

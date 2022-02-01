@@ -51,6 +51,20 @@
         <div
           class="likeSection"
         >
+          <div>
+            <span class="likeCount"><font-awesome-icon icon="thumbs-up" /> {{ parsedLikeCount }}</span>
+          </div>
+        </div>
+      </div>
+      <!--
+      // Uncomment if suitable solution for bringing back dislikes is introduced
+      <div
+        v-if="!hideVideoLikesAndDislikes"
+        class="likeBarContainer"
+      >
+        <div
+          class="likeSection"
+        >
           <div
             class="likeBar"
             :style="{ background: `linear-gradient(to right, var(--accent-color) ${likePercentageRatio}%, #9E9E9E ${likePercentageRatio}%` }"
@@ -61,6 +75,7 @@
           </div>
         </div>
       </div>
+      -->
       <div class="videoOptions">
         <ft-icon-button
           v-if="!isUpcoming"
