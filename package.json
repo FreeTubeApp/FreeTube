@@ -92,7 +92,7 @@
     "yt-channel-info": "^2.2.0",
     "yt-dash-manifest-generator": "1.1.0",
     "yt-trending-scraper": "^2.0.1",
-    "ytdl-core": "fent/node-ytdl-core#pull/1022/head",
+    "ytdl-core": "^4.10.0",
     "ytpl": "^2.2.3",
     "ytsr": "^3.5.3"
   },
