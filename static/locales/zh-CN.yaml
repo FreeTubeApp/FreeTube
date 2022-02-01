@@ -704,3 +704,4 @@ Downloading failed: 无法下载“$”，返回 http 请求状态码 $
 Downloading has completed: 已完成下载“$”
 Starting download: 已开始下载“$”
 Downloading canceled: 用户取消了下载
+Download folder does not exist: 下载目录“$”不存在，退回到 “询问文件夹”模式。
