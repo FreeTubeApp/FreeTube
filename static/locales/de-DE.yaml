@@ -97,13 +97,13 @@ User Playlists:
     wider. Sie listet nur Videos auf, die du gespeichert oder favorisiert hast. Wenn
     die Arbeiten abgeschlossen sind, werden alle Videos, die sich derzeit hier befinden,
     in eine Wiedergabeliste „Favoriten“ migriert.
-  Search bar placeholder: Suche in der Wiedergabeliste
+  Search bar placeholder: In Wiedergabeliste suchen
 History:
   # On History Page
   History: Verlauf
   Watch History: Wiedergabeverlauf
   Your history list is currently empty.: Dein Verlauf ist aktuell leer.
-  Search bar placeholder: Suche im Verlauf
+  Search bar placeholder: Im Verlauf suchen
 Settings:
   # On Settings Page
   Settings: Einstellungen
@@ -365,6 +365,10 @@ Settings:
     External Player Settings: Externe Player-Einstellungen
     Custom External Player Executable: Ausführbares, externes Player-Programm
     Custom External Player Arguments: Gewählte Einstellungen für externen Player
+  Download Settings:
+    Download Settings: Herunterladen-Einstellungen
+    Ask Download Path: Nach dem Herunterladen-Pfad fragen
+    Choose Path: Pfad wählen
 About:
   #On About page
   About: Über
@@ -776,10 +780,9 @@ Tooltips:
     Proxy Videos Through Invidious: Zu Invidious verbinden, um Videos abzurufen, anstatt
       eine direkten Verbindung zu YouTube aufzubauen. Überschreibt die API-Präferenz.
     Force Local Backend for Legacy Formats: Funktioniert nur, wenn du die Invidious-API
-      als Standard ausgewählt hast. Die lokale API wird bei der Verwendung von "Legacy"
-      -Formaten diese verwenden, anstatt auf Invidious zurückzugreifen. Dies hilft
-      dann, wenn Videos von Invidious aufgrund von Ländersperren nicht abspielbar
-      sind.
+      als Standard ausgewählt hast. Die lokale API wird bei der Verwendung von Legacy-Formaten
+      diese verwenden, anstatt auf Invidious zurückzugreifen. Dies hilft dann, wenn
+      Videos von Invidious aufgrund von Ländersperren nicht abspielbar sind.
     Scroll Playback Rate Over Video Player: Während sich der Cursor über dem Video
       befindet, halten Sie die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und
       bewegen Sie das Mausrad vorwärts oder rückwärts, um die Abspielgeschwindigkeit
@@ -798,8 +801,8 @@ Tooltips:
     Custom External Player Executable: Standardmäßig wird FreeTube annehmen, dass
       der gewählte externe Player unter der PATH Umgebungsvariable gefunden werden
       kann. Falls nötig, kann ein benutzerdefinierter Pfad hier gewählt werden.
-    External Player: Wenn ein externer Player gewählt wird, wird ein Symbol auf der
-      Vorschaubild gezeigt, um das Video (Wiedergabelisten falls unterstützt) darin
+    External Player: Wenn ein externer Player gewählt wird, wird ein Symbol auf dem
+      Vorschaubild gezeigt, um das Video (Wiedergabeliste falls unterstützt) darin
       zu öffnen.
     DefaultCustomArgumentsTemplate: '(Standardwert: „$“)'
 Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrechen
@@ -821,3 +824,6 @@ Are you sure you want to open this link?: Bist du sicher, dass du diesen Link ö
   willst?
 External link opening has been disabled in the general settings: Das Öffnen externer
   Links wurde in den allgemeinen Einstellungen deaktiviert
+Downloading has completed: Das Herunterladen von $ ist abgeschlossen
+Starting download: Das Herunterladen von $ hat begonnen
+Downloading failed: Es gab ein Problem beim Herunterladen von $
