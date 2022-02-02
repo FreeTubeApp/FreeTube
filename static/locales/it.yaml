@@ -370,6 +370,10 @@ Settings:
     Ignore Unsupported Action Warnings: Ignora avvisi per azioni non supportate
     External Player: Lettore esterno
     External Player Settings: Impostazioni del lettore esterno
+  Download Settings:
+    Download Settings: Impostazioni di scaricamento
+    Ask Download Path: Chiedi il percorso di scaricamento
+    Choose Path: Scegli il percorso
 About:
   #On About page
   About: 'Informazioni'
@@ -808,3 +812,6 @@ Search Bar:
 External link opening has been disabled in the general settings: L'apertura dei collegamenti
   esterni è stata disabilitata nelle impostazioni generali
 Are you sure you want to open this link?: Sei sicuro di voler aprire questo collegamento?
+Downloading has completed: $ ha finito di scaricare
+Starting download: Inizio dello scaricamento di $
+Downloading failed: C'è stato un problema nello scaricare $
