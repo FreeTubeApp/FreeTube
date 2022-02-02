@@ -335,6 +335,10 @@ Settings:
     Ignore Unsupported Action Warnings: Hunsa aðvarinir vegna óstuddra aðgerða
     External Player: Utanaðkomandi spilari
     External Player Settings: Stillingar utanaðkomandi spilara
+  Download Settings:
+    Download Settings: Stillingar niðurhals
+    Ask Download Path: Spyrja hvar eigi að vista skrár
+    Choose Path: Veldu slóð
 About:
   #On About page
   About: 'Um hugbúnaðinn'
@@ -741,3 +745,6 @@ Search Bar:
 External link opening has been disabled in the general settings: Opnun ytri tengla
   hefur verið gerð óvirk í almennum stillingum
 Are you sure you want to open this link?: Ertu viss um að þú viljir opna þennan tengil?
+Downloading has completed: Búið er að sækja "$"
+Starting download: Byrja að sækja "$"
+Downloading failed: Vandamál kom upp við að sækja "$"
