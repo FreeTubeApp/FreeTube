@@ -795,8 +795,8 @@ External link opening has been disabled in the general settings: Harici bağlant
 Are you sure you want to open this link?: Bu bağlantıyı açmak istediğinizden emin
   misiniz?
 Downloading canceled: İndirme, kullanıcı tarafından iptal edildi
-Starting download: '"$" indirme işlemi başladı'
+Starting download: '"$" indirme işlemi başlatılıyor'
 Downloading has completed: '"$" indirme işlemi tamamlandı'
-Downloading failed: '"$" indirilemiyor, $ http istek durum kodu döndürüldü'
+Downloading failed: '"$" indirilirken bir sorun oluştu'
 Download folder does not exist: İndirme dizini "$" mevcut değil. "Klasör sor" moduna
   geri dönülüyor.
