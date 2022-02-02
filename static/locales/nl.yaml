@@ -806,8 +806,8 @@ Search Bar:
 External link opening has been disabled in the general settings: Het openen van externe
   links is uitgeschakeld in de algemene instellingen
 Downloading canceled: De gebruiker heeft de download geannuleerd
-Downloading has completed: Downloaden van "$" is voltooid
-Starting download: Downloaden van "$" is begonnen
-Downloading failed: Kan "$" niet downloaden, geef http verzoek status code $ terug
+Downloading has completed: '"$" is gedownload'
+Starting download: Begin download van "$"
+Downloading failed: Probleem bij download van "$"
 Download folder does not exist: De download map "$" bestaat niet. Valt terug op "vraag
   map" modus.
