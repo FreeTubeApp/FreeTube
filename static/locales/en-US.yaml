@@ -713,11 +713,9 @@ Default Invidious instance has been cleared: Default Invidious instance has been
 'The playlist has ended.  Enable loop to continue playing': 'The playlist has ended.  Enable
   loop to continue playing'
 External link opening has been disabled in the general settings: 'External link opening has been disabled in the general settings'
-Downloading has completed: 'Downloading "$" has completed'
-Starting download: 'Downloading "$" has started'
-Downloading failed: 'Unable to download "$", return http request status code $'
-Downloading canceled: The dowload is canceled by the user
-Download folder does not exist: The download directory "$" doesn't exist. Falling back to "ask folder" mode.
+Downloading has completed: '"$" has finished downloading'
+Starting download: 'Starting download of "$"'
+Downloading failed: 'There was an issue downloading "$"'
 
 Yes: Yes
 No: No

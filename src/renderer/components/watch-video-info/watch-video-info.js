@@ -408,6 +408,27 @@ export default Vue.extend({
       }
     },
 
+    handleDownload: function (index) {
+      const url = this.downloadLinkValues[index]
+      const linkName = this.downloadLinkNames[index]
+      const extension = this.grabExtensionFromUrl(linkName)
+
+      this.downloadMedia({
+        url: url,
+        title: this.title,
+        extension: extension
+      })
+    },
+
+    grabExtensionFromUrl: function (url) {
+      const regex = /\/(\w*)/i
+      const group = url.match(regex)
+      if (group.length === 0) {
+        return ''
+      }
+      return group[1]
+    },
+
     addToPlaylist: function () {
       const videoData = {
         videoId: this.id,

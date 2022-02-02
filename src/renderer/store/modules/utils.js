@@ -1,6 +1,7 @@
 import IsEqual from 'lodash.isequal'
 import FtToastEvents from '../../components/ft-toast/ft-toast-events'
 import fs from 'fs'
+import i18n from '../../i18n/index'
 
 import { IpcChannels } from '../../../constants'
 import { ipcRenderer } from 'electron'
@@ -176,113 +177,92 @@ const actions = {
     }
   },
 
-  async downloadMedia({ rootState, dispatch }, { url, title, extension, folderPath, fallingBackPath }) {
+  async downloadMedia({ rootState, dispatch }, { url, title, extension, fallingBackPath }) {
+    const fileName = `${title}.${extension}`
     const usingElectron = rootState.settings.usingElectron
-    const askFolderPath = folderPath === ''
-    let filePathSelected
-    const successMsg = 'Downloading has completed'
+    const locale = i18n._vm.locale
+    const translations = i18n._vm.messages[locale]
+    const startMessage = translations['Starting download'].replace('$', title)
+    const completedMessage = translations['Downloading has completed'].replace('$', title)
+    const errorMessage = translations['Downloading failed'].replace('$', title)
+    let folderPath = rootState.settings.downloadFolderPath
 
-    if (askFolderPath && usingElectron) {
-      const resp = await ipcRenderer.invoke(
-        IpcChannels.SHOW_SAVE_DIALOG,
-        { defaultPath: `${title}.${extension}` }
-      )
-      filePathSelected = resp.filePath
+    if (!usingElectron) {
+      // Add logic here in the future
+      return
     }
 
-    if (fallingBackPath !== undefined) {
-      dispatch('showToast', {
-        message: 'Download folder does not exist',
-        translate: true,
-        formatArgs: [fallingBackPath]
-      })
+    if (folderPath === '') {
+      const options = {
+        defaultPath: fileName,
+        filters: [
+          {
+            extensions: [extension]
+          }
+        ]
+      }
+      const response = await dispatch('showSaveDialog', options)
+
+      if (response.canceled || response.filePath === '') {
+        // User canceled the save dialog
+        return
+      }
+
+      folderPath = response.filePath
     }
 
     dispatch('showToast', {
-      message: 'Starting download', translate: true, formatArgs: [title]
+      message: startMessage
     })
 
-    const response = await fetch(url)
-    //  mechanism to show the download progress reference https://javascript.info/fetch-progress
+    const response = await fetch(url).catch((error) => {
+      console.log(error)
+      dispatch('showToast', {
+        message: errorMessage
+      })
+    })
+
     const reader = response.body.getReader()
-
     const contentLength = response.headers.get('Content-Length')
-
     let receivedLength = 0
     const chunks = []
-    // manage frequency notifications to the user
-    const intervalPercentageNotification = 0.2
-    let lastPercentageNotification = 0
 
-    while (true) {
-      const { done, value } = await reader.read()
+    const handleError = (err) => {
+      console.log(err)
+      dispatch('showToast', {
+        message: errorMessage
+      })
+    }
 
+    const processText = async ({ done, value }) => {
       if (done) {
-        break
+        return
       }
 
       chunks.push(value)
       receivedLength += value.length
+      // Can be used in the future to determine download percentage
       const percentage = receivedLength / contentLength
-      if (percentage > (lastPercentageNotification + intervalPercentageNotification)) {
-        // mechanism kept for an upcoming download page
-        lastPercentageNotification = percentage
-      }
+      await reader.read().then(processText).catch(handleError)
     }
 
-    const chunksAll = new Uint8Array(receivedLength)
-    let position = 0
-    for (const chunk of chunks) {
-      chunksAll.set(chunk, position)
-      position += chunk.length
-    }
+    await reader.read().then(processText).catch(handleError)
 
-    // write the file into the hardrive
-    if (!response.ok) {
-      console.error(`"Unable to download ${title}, return status code ${response.status}`)
-      dispatch('showToast', {
-        message: 'Downloading failed', translate: true, formatArgs: [title, response.status]
-      })
-      return
-    }
     const blobFile = new Blob(chunks)
     const buffer = await blobFile.arrayBuffer()
 
-    if (usingElectron && !askFolderPath) {
-      fs.writeFile(`${folderPath}/${title}.${extension}`, new DataView(buffer), (err) => {
-        if (err) {
-          console.error(err)
-          dispatch('updateDownloadFolderPath', '')
-          dispatch('downloadMedia', { url: url, title: title, extension: extension, folderPath: '', fallingBackPath: folderPath })
-        } else {
-          dispatch('showToast', {
-            message: successMsg, translate: true, formatArgs: [title]
-          })
-        }
-      })
-    } else if (usingElectron) {
-      fs.writeFile(filePathSelected, new DataView(buffer), (err) => {
-        if (err) {
-          console.error(err)
-          if (filePathSelected === '') {
-            dispatch('showToast', {
-              message: 'Downloading canceled',
-              translate: true
-            })
-          } else {
-            dispatch('showToast', {
-              message: err
-            })
-          }
-        } else {
-          dispatch('showToast', {
-            message: successMsg, translate: true, formatArgs: [title]
-          })
-        }
-      })
-    } else {
-      // Web placeholder
-    }
+    fs.writeFile(folderPath, new DataView(buffer), (err) => {
+      if (err) {
+        console.error(err)
+        dispatch('showToast', {
+          message: errorMessage
+        })
+      } else {
+        dispatch('showToast', {
+          message: completedMessage
+        })
+      }
+    })
   },
 
   async getSystemLocale (context) {
@@ -790,9 +770,7 @@ const actions = {
   },
 
   showToast (_, payload) {
-    const formatArgs = 'formatArgs' in payload ? payload.formatArgs : []
-    const translate = 'translate' in payload ? payload.translate : false
-    FtToastEvents.$emit('toast-open', payload.message, payload.action, payload.time, translate, formatArgs)
+    FtToastEvents.$emit('toast-open', payload.message, payload.action, payload.time)
   },
 
   showExternalPlayerUnsupportedActionToast: function ({ dispatch }, payload) {

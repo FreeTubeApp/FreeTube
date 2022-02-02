@@ -99,10 +99,10 @@
           class="option"
           theme="secondary"
           icon="download"
+          :return-index="true"
           :dropdown-names="downloadLinkNames"
           :dropdown-values="downloadLinkValues"
-          :related-video-title="title"
-          @click="downloadMedia"
+          @click="handleDownload"
         />
         <ft-icon-button
           v-if="!isUpcoming"
