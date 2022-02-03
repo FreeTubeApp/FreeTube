@@ -776,8 +776,8 @@ Search Bar:
 External link opening has been disabled in the general settings: تم تعطيل فتح الارتباط
   الخارجي في الإعدادات العامة
 Are you sure you want to open this link?: هل أنت متأكد أنك تريد فتح هذا الرابط؟
-Downloading has completed: تم الانتهاء من تنزيل "$"
-Downloading failed: غير قادر على تحميل "$" ، إرجاع رمز حالة طلب http $
+Downloading has completed: انتهى "$" من التنزيل
+Downloading failed: حدثت مشكلة أثناء تنزيل "$"
 Download folder does not exist: دليل التحميل "$" غير موجود. الرجوع إلى وضع "طلب المجلد".
 Downloading canceled: تم إلغاء التحميل من قبل المستخدم
-Starting download: بدأ تحميل "$"
+Starting download: بدء تنزيل "$"
