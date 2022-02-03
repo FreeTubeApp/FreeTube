@@ -358,6 +358,10 @@ Settings:
       Url (Default is https://sponsor.ajay.app)
     Enable SponsorBlock: Enable SponsorBlock
     SponsorBlock Settings: SponsorBlock Settings
+  Download Settings:
+    Download Settings: Download Settings
+    Ask Download Path: Ask for download path
+    Choose Path: Choose Path
 About:
   #On About page
   About: About
@@ -767,3 +771,6 @@ Search Bar:
 External link opening has been disabled in the general settings: External link opening
   has been disabled in the general settings
 Are you sure you want to open this link?: Are you sure you want to open this link?
+Downloading has completed: '"$" has finished downloading'
+Starting download: Starting download of "$"
+Downloading failed: There was an issue downloading "$"
