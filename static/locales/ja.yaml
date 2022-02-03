@@ -330,6 +330,10 @@ Settings:
     Ignore Unsupported Action Warnings: 未対応のアクションの警告を無視
     External Player: 外部プレーヤー
     External Player Settings: 外部プレーヤーの設定
+  Download Settings:
+    Download Settings: 設定のダウンロード
+    Ask Download Path: ダウンロードパスの設定
+    Choose Path: パスの選択
 About:
   #On About page
   About: 'About'
@@ -704,3 +708,6 @@ External link opening has been disabled in the general settings: 一般設定で
 Search Bar:
   Clear Input: 入力の消去
 Are you sure you want to open this link?: このリンクを開きますか？
+Starting download: '"$" のダウンロードを開始します'
+Downloading has completed: '"$" のダウンロードが終了しました'
+Downloading failed: '"$" のダウンロード中に問題が発生しました'
