@@ -95,11 +95,13 @@ User Playlists:
     показывает только видео которые вы сохранили или добавили в избранное. После переработки
     этой страницы все видео, которые сейчас находятся здесь, переместятся в плейлист
     "Избранное".
+  Search bar placeholder: Поиск в Плейлисте
 History:
   # On History Page
   History: 'История'
   Watch History: 'Посмотреть историю'
   Your history list is currently empty.: 'Ваш список истории в настоящее время пуст.'
+  Search bar placeholder: Поиск в Истории
 Settings:
   # On Settings Page
   Settings: 'Настройки'
@@ -113,7 +115,7 @@ Settings:
     Preferred API Backend:
       Preferred API Backend: 'Предпочитаемый API бэкэнд'
       Local API: 'Локальный API'
-      Invidious API: 'Invidious API'
+      Invidious API: 'Посредник API'
     Video View Type:
       Video View Type: 'Тип просмотра видео'
       Grid: 'Сетка'
@@ -361,6 +363,10 @@ Settings:
       действиях
     External Player: Внешний проигрыватель
     External Player Settings: Настройки внешнего проигрывателя
+  Download Settings:
+    Download Settings: Загрузка Настроек
+    Ask Download Path: Запрашивать путь загрузки
+    Choose Path: Выберите Путь
 About:
   #On About page
   About: 'О программе'
@@ -401,7 +407,7 @@ About:
   room rules: правила комнаты
   Please read the: Пожалуйста прочитайте
   Chat on Matrix: Чат Matrix
-  Mastodon: Mastodon
+  Mastodon: Устаревший
   Email: Электронная почта
   Blog: Блог
   Website: Веб-сайт
@@ -570,6 +576,7 @@ Video:
     bandwidth: Скорость соединения
     buffered: Буферизовано
     out of: из
+    fps: Кадровая частота
   Premieres on: Премьеры
 Videos:
   #& Sort By
@@ -670,7 +677,8 @@ Canceled next video autoplay: 'Отменено автовоспроизведе
 
 Yes: 'Да'
 No: 'Нет'
-Locale Name: Русский
+Locale Name: Эта строка должна быть переведена на то же имя, что и язык, на который
+  вы переводите.
 Profile:
   $ is now the active profile: $ теперь активный профиль
   Your default profile has been changed to your primary profile: Ваш профиль по умолчанию
@@ -795,3 +803,6 @@ External link opening has been disabled in the general settings: Открыти�
 Search Bar:
   Clear Input: Очистить
 Are you sure you want to open this link?: Вы действительно хотите открыть эту ссылку?
+Starting download: Запуск загрузки "$"
+Downloading has completed: '"$" закончил загрузку'
+Downloading failed: Возникла проблема с загрузкой "$"
