@@ -812,9 +812,9 @@ Search Bar:
 External link opening has been disabled in the general settings: Otwieranie zewnętrznych
   linków zostało wyłączone w ustawieniach ogólnych
 Are you sure you want to open this link?: Czy na pewno chcesz otworzyć ten link?
-Downloading has completed: Ukończono pobieranie "$"
+Downloading has completed: '"$" został pobrany'
 Starting download: Rozpoczęto pobieranie "$"
-Downloading failed: Nie można pobrać "$", zwracam kod statusu żądania http $
+Downloading failed: Wystąpił problem z pobieraniem "$"
 Downloading canceled: Pobieranie zostało przerwane przez użytkownika
 Download folder does not exist: Katalog pobierania "$" nie istnieje. Przełączono na
   tryb "pytaj o folder".
