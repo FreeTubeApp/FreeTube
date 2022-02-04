@@ -171,7 +171,7 @@ function runApp() {
     }
   }
 
-  async function createWindow({ replaceMainWindow = true, windowStartupUrl = null, showWindowNow = false } = { replaceMainWindow: true, windowStartupUrl: null, showWindowNow: false }) {
+  async function createWindow({ replaceMainWindow = true, windowStartupUrl = null, showWindowNow = false } = { }) {
     /**
      * Initial window options
      */
