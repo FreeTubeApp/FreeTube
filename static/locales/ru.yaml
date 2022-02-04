@@ -677,8 +677,7 @@ Canceled next video autoplay: 'Отменено автовоспроизведе
 
 Yes: 'Да'
 No: 'Нет'
-Locale Name: Эта строка должна быть переведена на то же имя, что и язык, на который
-  вы переводите.
+Locale Name: Russian
 Profile:
   $ is now the active profile: $ теперь активный профиль
   Your default profile has been changed to your primary profile: Ваш профиль по умолчанию
