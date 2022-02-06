@@ -10,7 +10,7 @@ import FtButton from './components/ft-button/ft-button.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
 import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
 import $ from 'jquery'
-import marked from 'marked'
+import { marked } from 'marked'
 import Parser from 'rss-parser'
 
 let ipcRenderer = null
@@ -203,7 +203,7 @@ export default Vue.extend({
         $.getJSON(requestUrl, (response) => {
           const tagName = response[0].tag_name
           const versionNumber = tagName.replace('v', '').replace('-beta', '')
-          this.updateChangelog = marked(response[0].body)
+          this.updateChangelog = marked.parse(response[0].body)
           this.changeLogTitle = response[0].name
 
           const message = this.$t('Version $ is now available!  Click for more details')
