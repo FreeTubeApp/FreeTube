@@ -16,6 +16,13 @@
           :tooltip="$t('User Playlists.Playlist Message')"
         />
       </h3>
+      <ft-input
+        ref="searchBar"
+        :placeholder="$t('User Playlists.Search bar placeholder')"
+        :show-clear-text-button="true"
+        :show-action-button="false"
+        @input="filterPlaylist"
+      />
       <ft-flex-box
         v-if="activeData.length === 0"
       >

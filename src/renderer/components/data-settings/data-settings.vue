@@ -44,6 +44,16 @@
         @click="openProfileSettings"
       />
     </ft-flex-box>
+    <ft-flex-box>
+      <ft-button
+        :label="$t('Settings.Data Settings.Import Playlists')"
+        @click="importPlaylists"
+      />
+      <ft-button
+        :label="$t('Settings.Data Settings.Export Playlists')"
+        @click="exportPlaylists"
+      />
+    </ft-flex-box>
     <ft-prompt
       v-if="showImportSubscriptionsPrompt"
       :label="$t('Settings.Data Settings.Select Import Type')"

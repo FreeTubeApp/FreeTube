@@ -178,7 +178,7 @@ function runApp() {
     }
   }
 
-  async function createWindow(replaceMainWindow = true, startingUrl = undefined) {
+  async function createWindow({ replaceMainWindow = true, windowStartupUrl = null, showWindowNow = false } = { }) {
     /**
      * Initial window options
      */
@@ -202,7 +202,7 @@ function runApp() {
       Object.assign(
         {
           // It will be shown later when ready via `ready-to-show` event
-          show: false
+          show: showWindowNow
         },
         commonBrowserWindowOptions
       )
@@ -211,16 +211,14 @@ function runApp() {
     // region Ensure child windows use same options since electron 14
 
     // https://github.com/electron/electron/blob/14-x-y/docs/api/window-open.md#native-window-example
-    newWindow.webContents.setWindowOpenHandler(() => {
+    newWindow.webContents.setWindowOpenHandler((details) => {
+      createWindow({
+        replaceMainWindow: false,
+        showWindowNow: true,
+        windowStartupUrl: details.url
+      })
       return {
-        action: 'allow',
-        overrideBrowserWindowOptions: Object.assign(
-          {
-            // It should be visible on click
-            show: true
-          },
-          commonBrowserWindowOptions
-        )
+        action: 'deny'
       }
     })
 
@@ -264,10 +262,18 @@ function runApp() {
 
     // load root file/url
     if (isDev) {
-      newWindow.loadURL('http://localhost:9080')
+      let devStartupURL = 'http://localhost:9080'
+      if (windowStartupUrl != null) {
+        devStartupURL = windowStartupUrl
+      }
+      newWindow.loadURL(devStartupURL)
     } else {
-      /* eslint-disable-next-line */
-      newWindow.loadFile(`${__dirname}/index.html`)
+      if (windowStartupUrl != null) {
+        newWindow.loadURL(windowStartupUrl)
+      } else {
+        /* eslint-disable-next-line */
+        newWindow.loadFile(`${__dirname}/index.html`)
+      }
 
       global.__static = path
         .join(__dirname, '/static')
@@ -276,6 +282,8 @@ function runApp() {
 
     // Show when loaded
     newWindow.once('ready-to-show', () => {
+      if (newWindow.isVisible()) { return }
+
       newWindow.show()
       newWindow.focus()
     })
@@ -303,9 +311,6 @@ function runApp() {
 
       console.log('closed')
     })
-    if (startingUrl !== undefined) {
-      newWindow.loadURL(startingUrl)
-    }
   }
 
   ipcMain.once('appReady', () => {
@@ -391,7 +396,10 @@ function runApp() {
   })
 
   ipcMain.on(IpcChannels.CREATE_NEW_WINDOW, () => {
-    createWindow(false)
+    createWindow({
+      replaceMainWindow: false,
+      showWindowNow: true
+    })
   })
 
   ipcMain.on(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, (_, payload) => {
@@ -454,6 +462,9 @@ function runApp() {
             { event: SyncEvents.HISTORY.UPDATE_WATCH_PROGRESS, data }
           )
           return null
+
+        case DBActions.HISTORY.SEARCH:
+          return await baseHandlers.history.search(data)
 
         case DBActions.GENERAL.DELETE:
           await baseHandlers.history.delete(data)

@@ -94,11 +94,13 @@ User Playlists:
   Playlist Message: Esta página não reflete listas de reprodução totalmente funcionais.
     Ele só lista vídeos que você salvou ou favoritos. Quando o trabalho estiver concluído,
     todos os vídeos atualmente aqui serão migrados para uma playlist 'Favoritos'.
+  Search bar placeholder: Pesquisar na Lista de Reprodução
 History:
   # On History Page
   History: 'Histórico'
   Watch History: 'Histórico de visualizações'
   Your history list is currently empty.: 'Seu Histórico está vazio no momento.'
+  Search bar placeholder: Pesquisar no histórico
 Settings:
   # On Settings Page
   Settings: 'Configurações'
@@ -347,7 +349,7 @@ Settings:
     Enable Tor / Proxy: Ativar Tor / Proxy
     Proxy Settings: Configurações de Proxy
     Error getting network information. Is your proxy configured properly?: Erro ao
-      obter informações da rede. O seu proxy está configurado corretamente?
+      obter informações da rede. Seu proxy está configurado corretamente?
     City: Cidade
     Region: Região
   SponsorBlock Settings:
@@ -363,6 +365,10 @@ Settings:
     Ignore Unsupported Action Warnings: Ignorar avisos de ação não suportada
     External Player Settings: Configurações do player externo
     Custom External Player Executable: Executável de player externo personalizado
+  Download Settings:
+    Download Settings: Configurações de download
+    Ask Download Path: Peça o caminho de download
+    Choose Path: Escolha o caminho
 About:
   #On About page
   About: 'Sobre'
@@ -411,7 +417,7 @@ About:
   Credits: Créditos
   Translate: Traduzir
   room rules: regras da sala
-  Please read the: Favor ler o
+  Please read the: Por favor, leia o
   Chat on Matrix: Bate-papo na Matrix
   Mastodon: Mastodon
   Email: E-mail
@@ -799,3 +805,6 @@ Search Bar:
 External link opening has been disabled in the general settings: A abertura de link
   externo foi desativada nas configurações gerais
 Are you sure you want to open this link?: Tem certeza que deseja abrir este link?
+Downloading has completed: '"$" terminou de baixar'
+Starting download: Iniciando o download de "$"
+Downloading failed: Ocorreu um problema ao fazer o download de "$"

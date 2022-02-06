@@ -87,11 +87,13 @@ User Playlists:
   Your Playlists: '您的播放列表'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 您未保存视频。点击视频角落的“保存”按钮保存视频
   Playlist Message: 本页面不代表功能完备的播放列表。它只列举您保存或喜爱的播放列表。当项目完成时，本页面的所有视频将会迁移到“最喜爱”播放列表。
+  Search bar placeholder: 在播放列表中搜索
 History:
   # On History Page
   History: '历史记录'
   Watch History: '观看历史记录'
   Your history list is currently empty.: 您的历史记录列表目前是空的。
+  Search bar placeholder: 在播放历史中搜索
 Settings:
   # On Settings Page
   Settings: '设置'
@@ -326,6 +328,10 @@ Settings:
     Ignore Unsupported Action Warnings: 忽略不支持的行为的警告
     External Player: 外部播放器
     External Player Settings: 外部播放器设置
+  Download Settings:
+    Download Settings: 下载设置
+    Ask Download Path: 询问下载路径
+    Choose Path: 选择路径
 About:
   #On About page
   About: '关于'
@@ -694,3 +700,8 @@ Default Invidious instance has been set to $: 默认的 Invidious 实例已被�
 Playing Next Video Interval: 马上播放下一个视频。单击取消。| {nextVideoInterval} 秒内播放下个视频。单击取消。 |
   {nextVideoInterval} 秒内播放下个视频。单击取消。
 Default Invidious instance has been cleared: 已清除默认的 Invidious 实例
+Downloading failed: 下载“$”出现一个问题
+Downloading has completed: 已完成下载 “$”
+Starting download: 开始下载“$”
+Downloading canceled: 用户取消了下载
+Download folder does not exist: 下载目录“$”不存在，退回到 “询问文件夹”模式。

@@ -103,11 +103,13 @@ User Playlists:
     videos currently here will be migrated to a 'Favorites' playlist.
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Your saved videos are empty. Click on the save button on the corner of a video to have
     it listed here
+  Search bar placeholder: Search in Playlist
 History:
   # On History Page
   History: History
   Watch History: Watch History
   Your history list is currently empty.: Your history list is currently empty.
+  Search bar placeholder: "Search in History"
 Settings:
   # On Settings Page
   Settings: Settings
@@ -280,6 +282,8 @@ Settings:
     Export NewPipe: Export NewPipe
     Import History: Import History
     Export History: Export History
+    Import Playlists: Import Playlists
+    Export Playlists: Export Playlists
     Profile object has insufficient data, skipping item: Profile object has insufficient
       data, skipping item
     All subscriptions and profiles have been successfully imported: All subscriptions
@@ -298,6 +302,11 @@ Settings:
     All watched history has been successfully imported: All watched history has been
       successfully imported
     All watched history has been successfully exported: All watched history has been
+      successfully exported
+    Playlist insufficient data: Insufficient data for "$" playlist, skipping item
+    All playlists has been successfully imported: All playlists has been
+      successfully imported
+    All playlists has been successfully exported: All playlists has been
       successfully exported
     Unable to read file: Unable to read file
     Unable to write file: Unable to write file
@@ -323,6 +332,10 @@ Settings:
     Enable SponsorBlock: Enable SponsorBlock
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API Url (Default is https://sponsor.ajay.app)
     Notify when sponsor segment is skipped: Notify when sponsor segment is skipped
+  Download Settings:
+    Download Settings: Download Settings
+    Ask Download Path: Ask for download path
+    Choose Path: Choose Path
 About:
   #On About page
   About: About
@@ -707,6 +720,9 @@ Default Invidious instance has been cleared: Default Invidious instance has been
 'The playlist has ended.  Enable loop to continue playing': 'The playlist has ended.  Enable
   loop to continue playing'
 External link opening has been disabled in the general settings: 'External link opening has been disabled in the general settings'
+Downloading has completed: '"$" has finished downloading'
+Starting download: 'Starting download of "$"'
+Downloading failed: 'There was an issue downloading "$"'
 
 Yes: Yes
 No: No

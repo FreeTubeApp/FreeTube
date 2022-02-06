@@ -47,6 +47,10 @@ export default Vue.extend({
       return this.$store.getters.getThumbnailPreference
     },
 
+    hideViews: function () {
+      return this.$store.getters.getHideVideoViews
+    },
+
     shareHeaders: function () {
       return [
         this.$t('Playlist.Share Playlist.Copy YouTube Link'),
@@ -83,7 +87,7 @@ export default Vue.extend({
 
     // Causes errors if not put inside of a check
     if (typeof (this.data.viewCount) !== 'undefined') {
-      this.viewCount = this.data.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+      this.viewCount = this.hideViews ? null : this.data.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
     }
 
     if (typeof (this.data.videoCount) !== 'undefined') {

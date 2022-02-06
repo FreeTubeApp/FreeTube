@@ -1,8 +1,10 @@
 import IsEqual from 'lodash.isequal'
 import FtToastEvents from '../../components/ft-toast/ft-toast-events'
 import fs from 'fs'
+import i18n from '../../i18n/index'
 
 import { IpcChannels } from '../../../constants'
+import { ipcRenderer } from 'electron'
 
 const state = {
   isSideNavOpen: false,
@@ -173,6 +175,94 @@ const actions = {
     } else {
       // Web placeholder
     }
+  },
+
+  async downloadMedia({ rootState, dispatch }, { url, title, extension, fallingBackPath }) {
+    const fileName = `${title}.${extension}`
+    const usingElectron = rootState.settings.usingElectron
+    const locale = i18n._vm.locale
+    const translations = i18n._vm.messages[locale]
+    const startMessage = translations['Starting download'].replace('$', title)
+    const completedMessage = translations['Downloading has completed'].replace('$', title)
+    const errorMessage = translations['Downloading failed'].replace('$', title)
+    let folderPath = rootState.settings.downloadFolderPath
+
+    if (!usingElectron) {
+      // Add logic here in the future
+      return
+    }
+
+    if (folderPath === '') {
+      const options = {
+        defaultPath: fileName,
+        filters: [
+          {
+            extensions: [extension]
+          }
+        ]
+      }
+      const response = await dispatch('showSaveDialog', options)
+
+      if (response.canceled || response.filePath === '') {
+        // User canceled the save dialog
+        return
+      }
+
+      folderPath = response.filePath
+    }
+
+    dispatch('showToast', {
+      message: startMessage
+    })
+
+    const response = await fetch(url).catch((error) => {
+      console.log(error)
+      dispatch('showToast', {
+        message: errorMessage
+      })
+    })
+
+    const reader = response.body.getReader()
+    const contentLength = response.headers.get('Content-Length')
+    let receivedLength = 0
+    const chunks = []
+
+    const handleError = (err) => {
+      console.log(err)
+      dispatch('showToast', {
+        message: errorMessage
+      })
+    }
+
+    const processText = async ({ done, value }) => {
+      if (done) {
+        return
+      }
+
+      chunks.push(value)
+      receivedLength += value.length
+      // Can be used in the future to determine download percentage
+      const percentage = receivedLength / contentLength
+      await reader.read().then(processText).catch(handleError)
+    }
+
+    await reader.read().then(processText).catch(handleError)
+
+    const blobFile = new Blob(chunks)
+    const buffer = await blobFile.arrayBuffer()
+
+    fs.writeFile(folderPath, new DataView(buffer), (err) => {
+      if (err) {
+        console.error(err)
+        dispatch('showToast', {
+          message: errorMessage
+        })
+      } else {
+        dispatch('showToast', {
+          message: completedMessage
+        })
+      }
+    })
   },
 
   async getSystemLocale (context) {

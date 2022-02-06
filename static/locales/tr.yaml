@@ -100,11 +100,13 @@ User Playlists:
     Yalnızca kaydettiğiniz veya favorilerinize eklediğiniz videoları listeler. İş
     bittiğinde, şu anda burada bulunan tüm videolar bir 'Favoriler' oynatma listesine
     taşınacaktır.
+  Search bar placeholder: Oynatma Listesinde Ara
 History:
   # On History Page
   History: 'Geçmiş'
   Watch History: 'İzleme Geçmişi'
   Your history list is currently empty.: 'Geçmişin şu anda boş.'
+  Search bar placeholder: Geçmişte Ara
 Settings:
   # On Settings Page
   Settings: 'Ayarlar'
@@ -286,6 +288,13 @@ Settings:
     How do I import my subscriptions?: 'Aboneliklerimi nasıl içe artarırım?'
     Check for Legacy Subscriptions: Eski Abonelikleri Denetle
     Manage Subscriptions: Abonelikleri Yönet
+    Export Playlists: Oynatma Listelerini Dışa Aktar
+    All playlists has been successfully imported: Tüm oynatma listeleri başarıyla
+      içe aktarıldı
+    Playlist insufficient data: '"$" oynatma listesi için yetersiz veri, öge atlanıyor'
+    Import Playlists: Oynatma Listelerini İçe Aktar
+    All playlists has been successfully exported: Tüm oynatma listeleri başarıyla
+      dışa aktarıldı
   Advanced Settings:
     Advanced Settings: 'Gelişmiş Ayarlar'
     Enable Debug Mode (Prints data to the console): 'Hata Ayıklama Modunu Etkinleştir
@@ -357,6 +366,10 @@ Settings:
     Ignore Unsupported Action Warnings: Desteklenmeyen Eylem Uyarılarını Yok Say
     External Player: Harici Oynatıcı
     External Player Settings: Harici Oynatıcı Ayarları
+  Download Settings:
+    Choose Path: Yol Seç
+    Ask Download Path: İndirme yolu için sor
+    Download Settings: İndirme Ayarları
 About:
   #On About page
   About: 'Hakkında'
@@ -788,3 +801,9 @@ External link opening has been disabled in the general settings: Harici bağlant
   genel ayarlarda devre dışı bırakıldı
 Are you sure you want to open this link?: Bu bağlantıyı açmak istediğinizden emin
   misiniz?
+Downloading canceled: İndirme, kullanıcı tarafından iptal edildi
+Starting download: '"$" indirme işlemi başlatılıyor'
+Downloading has completed: '"$" indirme işlemi tamamlandı'
+Downloading failed: '"$" indirilirken bir sorun oluştu'
+Download folder does not exist: İndirme dizini "$" mevcut değil. "Klasör sor" moduna
+  geri dönülüyor.
