@@ -1145,7 +1145,7 @@ export default Vue.extend({
               playlistData.videos.forEach((video) => {
                 let hasAllKeys = true
                 Object.keys(video).forEach((videoKey) => {
-                  if (!requiredVideoKeys.includes(videoKey)) {
+                  if (!Object.keys(video).includes(videoKey)) {
                     hasAllKeys = false
                   }
                 })
