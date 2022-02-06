@@ -303,6 +303,11 @@ Settings:
     Unknown data key: 'Невідомий ключ даних'
     How do I import my subscriptions?: 'Як імпортувати свої підписки?'
     Manage Subscriptions: Керування підписками
+    Playlist insufficient data: Недостатньо даних для добірки "$", пропуск елемента
+    All playlists has been successfully exported: Усі добірки успішно експортовано
+    Import Playlists: Імпорт добірок
+    Export Playlists: Експорт добірок
+    All playlists has been successfully imported: Усі добірки успішно імпортовано
   Advanced Settings:
     Advanced Settings: ''
     Enable Debug Mode (Prints data to the console): ''
