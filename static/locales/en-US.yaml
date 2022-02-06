@@ -282,6 +282,8 @@ Settings:
     Export NewPipe: Export NewPipe
     Import History: Import History
     Export History: Export History
+    Import Playlists: Import Playlists
+    Export Playlists: Export Playlists
     Profile object has insufficient data, skipping item: Profile object has insufficient
       data, skipping item
     All subscriptions and profiles have been successfully imported: All subscriptions
@@ -300,6 +302,11 @@ Settings:
     All watched history has been successfully imported: All watched history has been
       successfully imported
     All watched history has been successfully exported: All watched history has been
+      successfully exported
+    Playlist insufficient data: Insufficient data for "$" playlist, skipping item
+    All playlists has been successfully imported: All playlists has been
+      successfully imported
+    All playlists has been successfully exported: All playlists has been
       successfully exported
     Unable to read file: Unable to read file
     Unable to write file: Unable to write file

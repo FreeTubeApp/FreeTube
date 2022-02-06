@@ -13,23 +13,25 @@
         @change="handleDownloadingSettingChange"
       />
     </ft-flex-box>
-    <div
+    <ft-flex-box
       v-if="!askForDownloadPath"
     >
-      <ft-flex-box>
-        <ft-input
-          class="folderDisplay"
-          :placeholder="downloadPath"
-          :show-action-button="false"
-          :show-label="false"
-          :disabled="true"
-        />
-        <ft-button
-          :label="$t('Settings.Download Settings.Choose Path')"
-          @click="chooseDownloadingFolder"
-        />
-      </ft-flex-box>
-    </div>
+      <ft-input
+        class="folderDisplay"
+        :placeholder="downloadPath"
+        :show-action-button="false"
+        :show-label="false"
+        :disabled="true"
+      />
+    </ft-flex-box>
+    <ft-flex-box
+      v-if="!askForDownloadPath"
+    >
+      <ft-button
+        :label="$t('Settings.Download Settings.Choose Path')"
+        @click="chooseDownloadingFolder"
+      />
+    </ft-flex-box>
   </details>
 </template>
 
