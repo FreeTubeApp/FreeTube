@@ -82,6 +82,10 @@ Subscriptions:
   Load More Videos: Φόρτωση περισσότερων Βίντεο
 Trending:
   Trending: 'Τάσεις'
+  Gaming: Παιχνίδια
+  Music: Μουσική
+  Movies: Ταινίες
+  Default: Προεπιλογή
 Most Popular: 'Πιο δημοφιλή'
 Playlists: 'Λίστες αναπαραγωγής'
 User Playlists:
@@ -92,12 +96,14 @@ User Playlists:
   Playlist Message: Αυτή η σελίδα δεν αντικατοπτρίζει πλήρως λειτουργικές λίστες αναπαραγωγής.
     Παραθέτει μόνο βίντεο που έχετε αποθηκεύσει ή αγαπήσει. Όταν ολοκληρωθεί η εργασία,
     όλα τα βίντεο που βρίσκονται εδώ θα μεταφερθούν σε μια λίστα αναπαραγωγής «Αγαπημένα».
+  Search bar placeholder: Αναζήτηση στη λίστα αναπαραγωγής
 History:
   # On History Page
   History: 'Ιστορικό'
   Watch History: 'Προβολή Ιστορικού'
   Your history list is currently empty.: 'Η λίστα του ιστορικού σας είναι προς το
     παρόν κενή.'
+  Search bar placeholder: Αναζήτηση στο Ιστορικό
 Settings:
   # On Settings Page
   Settings: 'Ρυθμίσεις'
@@ -131,6 +137,16 @@ Settings:
     Check for Updates: Έλεγχος για ενημερώσεις
     View all Invidious instance information: Δείτε όλες τις πληροφορίες προσβλητικών
       περιπτώσεων
+    System Default: Προεπιλογή συστήματος
+    Current Invidious Instance: Τρέχων στιγμιότυπο Invidious
+    The currently set default instance is $: Το τρέχων προεπιλεγμένο στιγμιότυπο είναι
+      $
+    No default instance has been set: Δεν έχει οριστεί κανένα προεπιλεγμένο στιγμιότυπο
+    External Link Handling:
+      External Link Handling: Χειρισμός εξωτερικών συνδέσμων
+      Open Link: Άνοιγμα συνδέσμου
+      Ask Before Opening Link: Ερώτηση πριν από το άνοιγμα του συνδέσμου
+      No Action: Καμία ενέργεια
   Theme Settings:
     Theme Settings: 'Ρυθμίσεις Θεμάτων'
     Match Top Bar with Main Color: 'Αντιστοίχηση Κύριου Χρώματος με την Μπάρα Κορυφής'
@@ -170,6 +186,7 @@ Settings:
     UI Scale: Μέγεθος κλίμακας διεπαφής χρήστη
     Expand Side Bar by Default: Λειτουργία προεπιλογής πλάγιας Μπάρας
     Disable Smooth Scrolling: Απενεργοποίηση ομαλής κύλισης
+    Hide Side Bar Labels: Απόκρυψη ετικετών πλευρικής γραμμής
   Player Settings:
     Player Settings: 'Ρυθμίσεις προγράμματος αναπαραγωγής'
     Force Local Backend for Legacy Formats: 'Εξαναγκασμένη τοπική υποστήριξη για Προηγούμενες
@@ -201,6 +218,10 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Παύση μεταξύ Βίντεο στη λίστα αναπαραγωγής
     Next Video Interval: Επόμενο διάστημα του βίντεο
+    Scroll Volume Over Video Player: Αυξομείωση έντασης ήχου με κύλιση πάνω στο πρόγραμμα
+      αναπαραγωγής βίντεο
+    Display Play Button In Video Player: Εμφάνιση του κουμπιού αναπαραγωγής στο πρόγραμμα
+      αναπαραγωγής βίντεο
   Privacy Settings:
     Privacy Settings: 'Ρυθμίσεις απορρήτου'
     Remember History: 'Διατήρηση ιστορικού'
@@ -322,6 +343,25 @@ Settings:
     Proxy Protocol: Πρωτόκολλο μεσολάβησης
     Enable Tor / Proxy: Ενεργοποίηση Tor / Proxy
     Proxy Settings: Ρυθμίσεις διακομιστή μεσολάβησης
+  External Player Settings:
+    External Player Settings: Ρυθμίσεις εξωτερικού προγράμματος αναπαραγωγής
+    External Player: Εξωτερικό πρόγραμμα αναπαραγωγής
+    Ignore Unsupported Action Warnings: Παράβλεψη προειδοποιήσεων μη υποστηριζόμενων
+      ενεργειών
+    Custom External Player Executable: Εκτελέσιμο εξωτερικού προγράμματος αναπαραγωγής
+    Custom External Player Arguments: Προσαρμοσμένα ορίσματα εξωτερικού προγράμματος
+      αναπαραγωγής
+  SponsorBlock Settings:
+    Enable SponsorBlock: Ενεργοποίηση του SponsorBlock
+    Notify when sponsor segment is skipped: Ειδοποίηση όταν παραλείπεται το τμήμα
+      χορηγού
+    SponsorBlock Settings: Ρυθμίσεις SponsorBlock
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Διεύθυνση URL του
+      API του SponsorBlock (Η προεπιλογή είναι https://sponsor.ajay.app)
+  Download Settings:
+    Download Settings: Λήψη ρυθμίσεων
+    Ask Download Path: Ζητήστε τη διαδρομή λήψης
+    Choose Path: Επιλέξτε διαδρομή
 About:
   #On About page
   About: 'Σχετικά με'
@@ -425,6 +465,7 @@ Profile:
     το κανάλι από οποιοδήποτε άλλο προφίλ.'
 #On Channel Page
   Profile Filter: Φίλτρο προφίλ
+  Profile Settings: Ρυθμίσεις προφίλ
 Channel:
   Subscriber: 'Συνδρομητής'
   Subscribers: 'Συνδρομητές'
@@ -552,6 +593,39 @@ Video:
   Video has been saved: Το βίντεο έχει αποθηκευτεί
   Save Video: Αποθήκευση βίντεο
   translated from English: μεταφράστηκε από τα Αγγλικά
+  Sponsor Block category:
+    intro: εισαγωγή
+    interaction: αλληλεπίδραση
+    sponsor: χορηγός
+    outro: επίλογος
+    self-promotion: αυτοπροβολή
+    music offtopic: μουσική εκτός θέματος
+  External Player:
+    video: βίντεο
+    OpenInTemplate: Άνοιγμα σε $
+    Unsupported Actions:
+      looping playlists: επανάληψη των λιστών αναπαραγωγής
+      starting video at offset: εκκίνηση βίντεο στη μετατόπιση
+      setting a playback rate: ρύθμιση ρυθμού αναπαραγωγής
+      opening playlists: άνοιγμα λιστών αναπαραγωγής
+      shuffling playlists: ανακάτεμα των λιστών αναπαραγωγής
+      opening specific video in a playlist (falling back to opening the video): άνοιγμα
+        συγκεκριμένου βίντεο σε μια λίστα αναπαραγωγής (επιστροφή στο άνοιγμα του
+        βίντεο)
+      reversing playlists: αντιστροφή λιστών αναπαραγωγής
+    playlist: λίστα αναπαραγωγής
+    OpeningTemplate: Άνοιγμα $ σε %...
+    UnsupportedActionTemplate: 'Το $ δεν υποστηρίζει: %'
+  Premieres on: Πρεμιέρες στις
+  Stats:
+    video id: Αναγνωριστικό του βίντεο (YouTube)
+    player resolution: Θύρα προβολής
+    volume: Ένταση ήχου
+    fps: FPS
+    out of: από
+    frame drop: Πτώση καρέ
+    bandwidth: Ταχύτητα σύνδεσης
+  Skipped segment: Τμήμα που παραλείφθηκε
 Videos:
   #& Sort By
   Sort By:
@@ -576,6 +650,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Λίστα αναπαραγωγής
 Toggle Theatre Mode: 'Εναλλαγή λειτουργίας θεάτρου'
 Change Format:
   Change Video Formats: 'Αλλαγή μορφής του βίντεο'
@@ -625,6 +700,9 @@ Comments:
   Sort by: Ταξινόμηση κατά
   There are no more comments for this video: Δεν υπάρχουν άλλα σχόλια για αυτό το
     βίντεο
+  And others: και άλλοι
+  From $channelName: από $channelName
+  Show More Replies: Εμφάνιση περισσότερων απαντήσεων
 Up Next: 'Επόμενο'
 
 # Toast Messages
@@ -678,6 +756,12 @@ Tooltips:
       τις μορφές παλαιού τύπου που επιστρέφονται από αυτό αντί για αυτές που επιστρέφονται
       από το Invidious. Βοηθά όταν τα βίντεο που επιστρέφονται από το Invidious δεν
       αναπαράγονται λόγω περιορισμών χώρας.
+    Scroll Playback Rate Over Video Player: Ενώ ο δρομέας βρίσκεται πάνω από το βίντεο,
+      πατήστε και κρατήστε πατημένο το πλήκτρο Control (Command Key σε Mac) και μετακινηθείτε
+      με τον τροχό του ποντικιού προς τα εμπρός ή προς τα πίσω για να ελέγξετε το
+      ρυθμό αναπαραγωγής. Πατήστε παρατεταμένα το πλήκτρο Control (Command Key σε
+      Mac) και κάντε αριστερό κλικ στο ποντίκι για να επιστρέψετε γρήγορα στον προεπιλεγμένο
+      ρυθμό αναπαραγωγής (1x εκτός αν έχει αλλάξει στις ρυθμίσεις).
   General Settings:
     Region for Trending: Η περιοχή των τάσεων σας επιτρέπει να επιλέξετε τα δημοφιλή
       βίντεο της χώρας που θέλετε να εμφανίζονται. Δεν υποστηρίζονται όλες οι χώρες
@@ -691,12 +775,30 @@ Tooltips:
       δεδομένα. Το τοπικό API είναι ένα ενσωματωμένο εργαλείο. Ενώ το Invidious API
       απαιτεί έναν Invidious server για να συνδεθεί.
     Invidious Instance: Το στιγμιότυπο Invidious στο οποίο το FreeTube θα συνδεθεί
-      για κλήσεις διεπαφής. Καθαρίστε το παρόν στιγμιότυπο για να δείτε μια λίστα
-      δημόσιων στιγμιότυπων προς επιλογή.
+      για κλήσεις διεπαφής.
+    External Link Handling: "Επιλέξτε την προεπιλεγμένη συμπεριφορά όταν κάνετε κλικ\
+      \ σε έναν σύνδεσμο, ο οποίος δεν μπορεί να ανοίξει στο FreeTube.\nΑπό προεπιλογή,\
+      \ το FreeTube θα ανοίξει τον σύνδεσμο που έχει πατηθεί στο προεπιλεγμένο πρόγραμμα\
+      \ περιήγησης.\n"
   Privacy Settings:
     Remove Video Meta Files: Όταν είναι ενεργοποιημένο, το FreeTube διαγράφει αυτόματα
       τα μετα-αρχεία που δημιουργήθηκαν κατά την αναπαραγωγή βίντεο, όταν η σελίδα
       παρακολούθησης είναι κλειστή.
+  External Player Settings:
+    Custom External Player Executable: Από προεπιλογή, το FreeTube θα υποθέσει ότι
+      το επιλεγμένο εξωτερικό πρόγραμμα αναπαραγωγής μπορεί να βρεθεί μέσω της μεταβλητής
+      περιβάλλοντος PATH. Εάν χρειάζεται, μπορείτε να ορίσετε μια προσαρμοσμένη διαδρομή
+      εδώ.
+    Ignore Warnings: Απόκρυψη προειδοποιήσεων για όταν το τρέχον εξωτερικό πρόγραμμα
+      αναπαραγωγής δεν υποστηρίζει την τρέχουσα ενέργεια (π.χ. αντιστροφή λιστών αναπαραγωγής
+      κ.λπ.).
+    External Player: Η επιλογή ενός εξωτερικού προγράμματος αναπαραγωγής θα εμφανίσει
+      ένα εικονίδιο, για το άνοιγμα του βίντεο (λίστα αναπαραγωγής, εάν υποστηρίζεται)
+      στο εξωτερικό πρόγραμμα αναπαραγωγής, στη μικρογραφία.
+    DefaultCustomArgumentsTemplate: "(Προεπιλογή: '$')"
+    Custom External Player Arguments: Τυχόν προσαρμοσμένα ορίσματα γραμμής εντολών,
+      διαχωρισμένα με ερωτηματικά (';'), που θέλετε να μεταβιβαστούν στο εξωτερικό
+      πρόγραμμα αναπαραγωγής.
 Playing Next Video Interval: Αναπαραγωγή επόμενου βίντεο άμεσα. Κάντε κλικ για ακύρωση.
   | Αναπαραγωγή επόμενου βίντεο σε {nextVideoInterval} δευτερόλεπτο. Κάντε κλικ για
   ακύρωση. | Αναπαραγωγή επόμενου βίντεο σε {nextVideoInterval} δευτερόλεπτα. Κάντε
@@ -706,3 +808,17 @@ Hashtags have not yet been implemented, try again later: Τα Hashtags δεν έ
   εφαρμοστεί, δοκιμάστε ξανά αργότερα
 Unknown YouTube url type, cannot be opened in app: Άγνωστος τύπος διεύθυνσης URL YouTube,
   δεν είναι δυνατό να ανοίξει στην εφαρμογή
+Search Bar:
+  Clear Input: Εκκαθάριση εισαγωγής
+Open New Window: Άνοιγμα Νέου παραθύρου
+Default Invidious instance has been set to $: Το προεπιλεγμένο στιγμιότυπο Invidious
+  έχει οριστεί σε $
+Downloading has completed: Η λήψη του "$" ολοκληρώθηκε
+Starting download: Έναρξη λήψης του "$"
+Default Invidious instance has been cleared: Το προεπιλεγμένο στιγμιότυπο Invidious
+  έχει διαγραφεί
+External link opening has been disabled in the general settings: Το άνοιγμα εξωτερικών
+  συνδέσμων έχει απενεργοποιηθεί στις γενικές ρυθμίσεις
+Are you sure you want to open this link?: Είστε σίγουροι ότι θέλετε να ανοίξετε αυτόν
+  τον σύνδεσμο;
+Downloading failed: Παρουσιάστηκε ένα πρόβλημα κατά τη λήψη του "$"
