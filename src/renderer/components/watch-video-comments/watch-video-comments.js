@@ -278,8 +278,6 @@ export default Vue.extend({
           this.commentData[index].replies = this.commentData[index].replies.concat(commentData)
           this.commentData[index].replyToken = response.continuation
           this.commentData[index].showReplies = true
-        } else {
-          console.log('Don\'t display comments twice')
         }
       } else {
         if (this.sortingChanged) {
