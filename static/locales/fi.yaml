@@ -567,6 +567,9 @@ Video:
     player resolution: Näkymäikkuna
     bandwidth: Yhteyden nopeus
     buffered: Puskuroitu
+    volume: Äänenvoimakkuus
+    fps: Kuvanopeus
+    out of: /
   Premieres on: Julkaistaan
 Videos:
   #& Sort By
