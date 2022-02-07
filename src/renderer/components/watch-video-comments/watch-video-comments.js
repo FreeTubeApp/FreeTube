@@ -274,9 +274,11 @@ export default Vue.extend({
       })
 
       if (index !== null) {
-        this.commentData[index].replies = this.commentData[index].replies.concat(commentData)
-        this.commentData[index].replyToken = response.continuation
-        this.commentData[index].showReplies = true
+        if (this.commentData[index].replies.length === 0 || this.commentData[index].replies[this.commentData[index].replies.length - 1].commentId !== commentData[commentData.length - 1].commentId) {
+          this.commentData[index].replies = this.commentData[index].replies.concat(commentData)
+          this.commentData[index].replyToken = response.continuation
+          this.commentData[index].showReplies = true
+        }
       } else {
         if (this.sortingChanged) {
           this.commentData = []

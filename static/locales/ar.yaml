@@ -92,11 +92,13 @@ User Playlists:
   Playlist Message: هذه الصفحة لا تظهر قائمات التشغيل بشكل كامل, وإنما تظهر فيديوات
     إحتفضت عليها أو فضّلتها. عندما يكمل العمل بالكامل على هذه الصفحة, سترى كل فيديواتك
     هنا تنتقل إلى قائمة تشغيل تسمى "المفضلة".
+  Search bar placeholder: بحث في قائمة التشغيل
 History:
   # On History Page
   History: 'السجلّ'
   Watch History: 'سجلّ المشاهدات'
   Your history list is currently empty.: 'قائمة سجلّك فارغة حالياً.'
+  Search bar placeholder: البحث في السجل
 Settings:
   # On Settings Page
   Settings: 'الإعدادات'
@@ -215,6 +217,7 @@ Settings:
     Scroll Volume Over Video Player: تمرير مستوى الصوت عبر مشغل الفيديو
     Display Play Button In Video Player: عرض زر التشغيل في مشغل الفيديو
     Fast-Forward / Rewind Interval: الفاصل الزمني السريع للأمام / الترجيع
+    Scroll Playback Rate Over Video Player: معدل تمرير التشغيل عبر مشغل الفيديو
   Privacy Settings:
     Privacy Settings: 'إعدادات الخصوصية'
     Remember History: 'تذّكر سجلّ المشاهدة'
@@ -350,6 +353,10 @@ Settings:
     Custom External Player Executable: مشغل خارجي مخصص قابل للتنفيذ
     Ignore Unsupported Action Warnings: تجاهل تحذيرات الإجراءات غير المدعومة
     External Player Settings: إعدادات المشغل الخارجي
+  Download Settings:
+    Download Settings: إعدادات التنزيل
+    Choose Path: اختر المسار
+    Ask Download Path: اطلب مسار التنزيل
 About:
   #On About page
   About: 'حول'
@@ -592,6 +599,15 @@ Video:
     video: فيديو
     OpenInTemplate: فتح في $
   Premieres on: العرض الأول بتاريخ
+  Stats:
+    video id: معرف الفيديو (يوتيوب)
+    player resolution: المعاينه
+    fps: معدل الإطارات
+    frame drop: إسقاط الإطار
+    buffered: مخزنة
+    out of: خارج عن
+    bandwidth: سرعة الاتصال
+    volume: الصوت
 Videos:
   #& Sort By
   Sort By:
@@ -718,6 +734,11 @@ Tooltips:
       الميكانيكي المتكيّف عبر بروتوكول نقل النص التشعبي) يمكنها أن تُشغِّل جودات أعلى.
       التنسيقات القديمة محدودة بجودة 720p كحدّ أقصى لكنها تستخدم عرضًا أقل للنطاق.
       التنسيقات الصوتية هي للتدفق الصوتي فقط.
+    Scroll Playback Rate Over Video Player: أثناء وجود المؤشر فوق الفيديو، اضغط مع
+      الاستمرار على مفتاح التحكم (مفتاح القيادة على Mac) ومرر عجلة الماوس للأمام أو
+      للخلف للتحكم في معدل التشغيل. اضغط مع الاستمرار على مفتاح التحكم (مفتاح الأوامر
+      على Mac) ثم انقر فوق الماوس للعودة بسرعة إلى معدل التشغيل الافتراضي (1x ما لم
+      يتم تغييره في الإعدادات).
   Privacy Settings:
     Remove Video Meta Files: عندما يمكن، يحذف Freetube تلقائيًا ملفات التعريف التي
       تم إنشاؤها أثناء تشغيل الفيديو ، عندما تكون صفحة المشاهدة مغلقة.
@@ -755,3 +776,8 @@ Search Bar:
 External link opening has been disabled in the general settings: تم تعطيل فتح الارتباط
   الخارجي في الإعدادات العامة
 Are you sure you want to open this link?: هل أنت متأكد أنك تريد فتح هذا الرابط؟
+Downloading has completed: انتهى "$" من التنزيل
+Downloading failed: حدثت مشكلة أثناء تنزيل "$"
+Download folder does not exist: دليل التحميل "$" غير موجود. الرجوع إلى وضع "طلب المجلد".
+Downloading canceled: تم إلغاء التحميل من قبل المستخدم
+Starting download: بدء تنزيل "$"

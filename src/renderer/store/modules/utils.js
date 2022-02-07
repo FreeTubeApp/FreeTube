@@ -1,6 +1,11 @@
 import IsEqual from 'lodash.isequal'
 import FtToastEvents from '../../components/ft-toast/ft-toast-events'
 import fs from 'fs'
+import i18n from '../../i18n/index'
+
+import { IpcChannels } from '../../../constants'
+import { ipcRenderer } from 'electron'
+
 const state = {
   isSideNavOpen: false,
   sessionSearchHistory: [],
@@ -166,10 +171,98 @@ const actions = {
     const usingElectron = rootState.settings.usingElectron
     if (usingElectron) {
       const ipcRenderer = require('electron').ipcRenderer
-      ipcRenderer.send('openExternalLink', url)
+      ipcRenderer.send(IpcChannels.OPEN_EXTERNAL_LINK, url)
     } else {
       // Web placeholder
     }
+  },
+
+  async downloadMedia({ rootState, dispatch }, { url, title, extension, fallingBackPath }) {
+    const fileName = `${title}.${extension}`
+    const usingElectron = rootState.settings.usingElectron
+    const locale = i18n._vm.locale
+    const translations = i18n._vm.messages[locale]
+    const startMessage = translations['Starting download'].replace('$', title)
+    const completedMessage = translations['Downloading has completed'].replace('$', title)
+    const errorMessage = translations['Downloading failed'].replace('$', title)
+    let folderPath = rootState.settings.downloadFolderPath
+
+    if (!usingElectron) {
+      // Add logic here in the future
+      return
+    }
+
+    if (folderPath === '') {
+      const options = {
+        defaultPath: fileName,
+        filters: [
+          {
+            extensions: [extension]
+          }
+        ]
+      }
+      const response = await dispatch('showSaveDialog', options)
+
+      if (response.canceled || response.filePath === '') {
+        // User canceled the save dialog
+        return
+      }
+
+      folderPath = response.filePath
+    }
+
+    dispatch('showToast', {
+      message: startMessage
+    })
+
+    const response = await fetch(url).catch((error) => {
+      console.log(error)
+      dispatch('showToast', {
+        message: errorMessage
+      })
+    })
+
+    const reader = response.body.getReader()
+    const contentLength = response.headers.get('Content-Length')
+    let receivedLength = 0
+    const chunks = []
+
+    const handleError = (err) => {
+      console.log(err)
+      dispatch('showToast', {
+        message: errorMessage
+      })
+    }
+
+    const processText = async ({ done, value }) => {
+      if (done) {
+        return
+      }
+
+      chunks.push(value)
+      receivedLength += value.length
+      // Can be used in the future to determine download percentage
+      const percentage = receivedLength / contentLength
+      await reader.read().then(processText).catch(handleError)
+    }
+
+    await reader.read().then(processText).catch(handleError)
+
+    const blobFile = new Blob(chunks)
+    const buffer = await blobFile.arrayBuffer()
+
+    fs.writeFile(folderPath, new DataView(buffer), (err) => {
+      if (err) {
+        console.error(err)
+        dispatch('showToast', {
+          message: errorMessage
+        })
+      } else {
+        dispatch('showToast', {
+          message: completedMessage
+        })
+      }
+    })
   },
 
   async getSystemLocale (context) {
@@ -179,25 +272,25 @@ const actions = {
       }
     }
 
-    return (await invokeIRC(context, 'getSystemLocale', webCbk)) || 'en-US'
+    return (await invokeIRC(context, IpcChannels.GET_SYSTEM_LOCALE, webCbk)) || 'en-US'
   },
 
   async showOpenDialog (context, options) {
     // TODO: implement showOpenDialog web compatible callback
     const webCbk = () => null
-    return await invokeIRC(context, 'showOpenDialog', webCbk, options)
+    return await invokeIRC(context, IpcChannels.SHOW_OPEN_DIALOG, webCbk, options)
   },
 
   async showSaveDialog (context, options) {
     // TODO: implement showSaveDialog web compatible callback
     const webCbk = () => null
-    return await invokeIRC(context, 'showSaveDialog', webCbk, options)
+    return await invokeIRC(context, IpcChannels.SHOW_SAVE_DIALOG, webCbk, options)
   },
 
   async getUserDataPath (context) {
     // TODO: implement getUserDataPath web compatible callback
     const webCbk = () => null
-    return await invokeIRC(context, 'getUserDataPath', webCbk)
+    return await invokeIRC(context, IpcChannels.GET_USER_DATA_PATH, webCbk)
   },
 
   updateShowProgressBar ({ commit }, value) {
@@ -853,10 +946,7 @@ const actions = {
     console.log(executable, args)
 
     const { ipcRenderer } = require('electron')
-    ipcRenderer.send('openInExternalPlayer', {
-      executable,
-      args
-    })
+    ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, { executable, args })
   }
 }
 

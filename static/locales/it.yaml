@@ -98,11 +98,13 @@ User Playlists:
   Playlist Message: Questa pagina non è rappresentativa di una playlist completa.
     Mostra solo i video che hai salvato o aggiunto ai preferiti. A lavoro finito,
     tutti i video che si trovano qui saranno spostati in una playlist dei Preferiti.
+  Search bar placeholder: Cerca nella Playlist
 History:
   # On History Page
   History: 'Cronologia'
   Watch History: 'Cronologia delle visualizzazioni'
   Your history list is currently empty.: 'La tua cronologia al momento è vuota.'
+  Search bar placeholder: Cerca nella Cronologia
 Settings:
   # On Settings Page
   Settings: 'Impostazioni'
@@ -222,6 +224,8 @@ Settings:
     Display Play Button In Video Player: Visualizza il pulsante di riproduzione nel
       lettore
     Scroll Volume Over Video Player: Controlla il volume scorrendo sul lettore video
+    Scroll Playback Rate Over Video Player: Scorri la velocità di riproduzione sul
+      lettore video
   Privacy Settings:
     Privacy Settings: 'Impostazioni della privacy'
     Remember History: 'Salva la cronologia'
@@ -366,6 +370,10 @@ Settings:
     Ignore Unsupported Action Warnings: Ignora avvisi per azioni non supportate
     External Player: Lettore esterno
     External Player Settings: Impostazioni del lettore esterno
+  Download Settings:
+    Download Settings: Impostazioni di scaricamento
+    Ask Download Path: Chiedi il percorso di scaricamento
+    Choose Path: Scegli il percorso
 About:
   #On About page
   About: 'Informazioni'
@@ -570,6 +578,15 @@ Video:
   Skipped segment: Segmento saltato
   translated from English: tradotto dall'inglese
   Premieres on: Première il
+  Stats:
+    volume: Volume
+    fps: FPS
+    frame drop: Perdita di immagine
+    buffered: Bufferizzato
+    bandwidth: Velocità di connessione
+    out of: per
+    video id: ID video (YouTube)
+    player resolution: Finestra di visualizzazione
 Videos:
   #& Sort By
   Sort By:
@@ -734,6 +751,12 @@ Tooltips:
       l'audio.
     Proxy Videos Through Invidious: Connessione a Invidious per riprodurre i video
       invece di una connessione diretta a YouTube. Sovrascrive le preferenze API.
+    Scroll Playback Rate Over Video Player: Mentre il cursore è sopra il video, tieni
+      premuto il tasto CTRL (Command su Mac) e scorri la rotella del mouse in avanti
+      o indietro per controllare la velocità di riproduzione. Tieni premuto il tasto
+      CTRL (Command su Mac) e clicca con il tasto sinistro del mouse per tornare rapidamente
+      alla velocità di riproduzione predefinita (1x a meno che non sia stata cambiata
+      nelle impostazioni).
   Subscription Settings:
     Fetch Feeds from RSS: Se abilitato, FreeTube userà gli RSS invece del metodo standard
       per leggere la tua lista iscrizioni. Gli RSS sono più veloci e impediscono il
@@ -789,3 +812,6 @@ Search Bar:
 External link opening has been disabled in the general settings: L'apertura dei collegamenti
   esterni è stata disabilitata nelle impostazioni generali
 Are you sure you want to open this link?: Sei sicuro di voler aprire questo collegamento?
+Downloading has completed: $ ha finito di scaricare
+Starting download: Inizio dello scaricamento di $
+Downloading failed: C'è stato un problema nello scaricare $

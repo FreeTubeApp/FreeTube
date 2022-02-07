@@ -103,11 +103,13 @@ User Playlists:
     videos currently here will be migrated to a 'Favorites' playlist.
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Your saved videos are empty. Click on the save button on the corner of a video to have
     it listed here
+  Search bar placeholder: Search in Playlist
 History:
   # On History Page
   History: History
   Watch History: Watch History
   Your history list is currently empty.: Your history list is currently empty.
+  Search bar placeholder: "Search in History"
 Settings:
   # On Settings Page
   Settings: Settings
@@ -202,6 +204,7 @@ Settings:
     Autoplay Playlists: Autoplay Playlists
     Enable Theatre Mode by Default: Enable Theatre Mode by Default
     Scroll Volume Over Video Player: Scroll Volume Over Video Player
+    Scroll Playback Rate Over Video Player: Scroll Playback Rate Over Video Player
     Display Play Button In Video Player: Display Play Button In Video Player
     Next Video Interval: Next Video Interval
     Fast-Forward / Rewind Interval: Fast-Forward / Rewind Interval
@@ -279,6 +282,8 @@ Settings:
     Export NewPipe: Export NewPipe
     Import History: Import History
     Export History: Export History
+    Import Playlists: Import Playlists
+    Export Playlists: Export Playlists
     Profile object has insufficient data, skipping item: Profile object has insufficient
       data, skipping item
     All subscriptions and profiles have been successfully imported: All subscriptions
@@ -297,6 +302,11 @@ Settings:
     All watched history has been successfully imported: All watched history has been
       successfully imported
     All watched history has been successfully exported: All watched history has been
+      successfully exported
+    Playlist insufficient data: Insufficient data for "$" playlist, skipping item
+    All playlists has been successfully imported: All playlists has been
+      successfully imported
+    All playlists has been successfully exported: All playlists has been
       successfully exported
     Unable to read file: Unable to read file
     Unable to write file: Unable to write file
@@ -322,6 +332,10 @@ Settings:
     Enable SponsorBlock: Enable SponsorBlock
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API Url (Default is https://sponsor.ajay.app)
     Notify when sponsor segment is skipped: Notify when sponsor segment is skipped
+  Download Settings:
+    Download Settings: Download Settings
+    Ask Download Path: Ask for download path
+    Choose Path: Choose Path
 About:
   #On About page
   About: About
@@ -541,6 +555,15 @@ Video:
       reversing playlists: reversing playlists
       shuffling playlists: shuffling playlists
       looping playlists: looping playlists
+  Stats:
+    video id: "Video ID (YouTube)"
+    player resolution: "Viewport"
+    volume: "Volume"
+    fps: "FPS"
+    frame drop: "Frame Drop"
+    bandwidth: "Connection Speed"
+    buffered: "Buffered"
+    out of: "out of"
 #& Videos
 Videos:
   #& Sort By
@@ -647,6 +670,10 @@ Tooltips:
     Default Video Format: Set the formats used when a video plays. DASH formats can
       play higher qualities. Legacy formats are limited to a max of 720p but use less
       bandwidth. Audio formats are audio only streams.
+    Scroll Playback Rate Over Video Player: While the cursor is over the video, press and
+      hold the Control key (Command Key on Mac) and scroll the mouse wheel forwards or backwards to control
+      the playback rate. Press and hold the Control key (Command Key on Mac) and left click the mouse
+      to quickly return to the default playback rate (1x unless it has been changed in the settings).
   External Player Settings:
     External Player: Choosing an external player will display an icon, for opening the
       video (playlist if supported) in the external player, on the thumbnail.
@@ -693,6 +720,9 @@ Default Invidious instance has been cleared: Default Invidious instance has been
 'The playlist has ended.  Enable loop to continue playing': 'The playlist has ended.  Enable
   loop to continue playing'
 External link opening has been disabled in the general settings: 'External link opening has been disabled in the general settings'
+Downloading has completed: '"$" has finished downloading'
+Starting download: 'Starting download of "$"'
+Downloading failed: 'There was an issue downloading "$"'
 
 Yes: Yes
 No: No

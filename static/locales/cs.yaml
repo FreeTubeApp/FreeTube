@@ -243,7 +243,7 @@ Settings:
     Automatically Remove Video Meta Files: Automaticky odstranit meta soubory videa
   Subscription Settings:
     Subscription Settings: 'Nastavení odebírání'
-    Hide Videos on Watch: 'Skrýt videa při přehrávání'
+    Hide Videos on Watch: 'Skrýt přehrané video'
     Fetch Feeds from RSS: 'Načíst kanály z RSS'
     Manage Subscriptions: 'Spravovat odebírané kanály'
   Distraction Free Settings:
@@ -592,6 +592,7 @@ Video:
     OpeningTemplate: Otevřít $ v %...
     video: video
     OpenInTemplate: Otevřít v $
+  Premieres on: Premiéry zapnuty
 Videos:
   #& Sort By
   Sort By:
@@ -668,6 +669,9 @@ Comments:
   Load More Comments: 'Načíst další komentáře'
   No more comments available: 'Žádné další komentáře nejsou k dispozici'
   Show More Replies: Načíst více výsledků
+  Pinned by: připnuto uživatelem
+  From $channelName: z $channelName
+  And others: a ostatní
 Up Next: 'Další'
 
 #Tooltips

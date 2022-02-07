@@ -77,7 +77,7 @@
           @click="setDefaultProfile"
         />
         <ft-button
-          v-if="profileId !== 'allChannels' && !isNew"
+          v-if="!isMainProfile && !isNew"
           :label="$t('Profile.Delete Profile')"
           text-color="var(--text-with-main-color)"
           background-color="var(--primary-color)"

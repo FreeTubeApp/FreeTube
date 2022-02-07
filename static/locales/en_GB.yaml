@@ -99,11 +99,13 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Your
     saved videos are empty. Click on the save button on the corner of a video to have
     it listed here
+  Search bar placeholder: Search in Playlist
 History:
   # On History Page
   History: 'History'
   Watch History: 'Watch History'
   Your history list is currently empty.: 'Your history list is currently empty.'
+  Search bar placeholder: Search in History
 Settings:
   # On Settings Page
   Settings: 'Settings'
@@ -224,6 +226,7 @@ Settings:
     Next Video Interval: Next video interval
     Display Play Button In Video Player: Display play button in video player
     Fast-Forward / Rewind Interval: Fast-forward / rewind interval
+    Scroll Playback Rate Over Video Player: Scroll playback rate over video player
   External Player Settings:
     External Player Settings: External Player Settings
     External Player: External Player
@@ -355,6 +358,10 @@ Settings:
       Url (Default is https://sponsor.ajay.app)
     Enable SponsorBlock: Enable SponsorBlock
     SponsorBlock Settings: SponsorBlock Settings
+  Download Settings:
+    Download Settings: Download Settings
+    Ask Download Path: Ask for download path
+    Choose Path: Choose Path
 About:
   #On About page
   About: About
@@ -586,6 +593,15 @@ Video:
       shuffling playlists: shuffling playlists
       looping playlists: looping playlists
   Premieres on: Premieres on
+  Stats:
+    video id: Video ID (YouTube)
+    player resolution: Viewport
+    volume: Volume
+    frame drop: Frame Drop
+    buffered: Buffered
+    fps: FPS
+    bandwidth: Connection Speed
+    out of: out of
 Videos:
   #& Sort By
   Sort By:
@@ -701,6 +717,11 @@ Tooltips:
       default. When enabled, the local API will run and use the legacy formats returned
       by that instead of the ones returned by Invidious. Helps when the videos returned
       by Invidious don’t play due to country restrictions.
+    Scroll Playback Rate Over Video Player: While the cursor is over the video, press
+      and hold the Control key (Command Key on Mac) and scroll the mouse wheel forwards
+      or backwards to control the playback rate. Press and hold the Control key (Command
+      Key on Mac) and left click the mouse to quickly return to the default playback
+      rate (1x unless it has been changed in the settings).
   General Settings:
     Region for Trending: The region of trends allows you to pick which country’s trending
       videos you want to have displayed. Not all countries displayed are actually
@@ -750,3 +771,6 @@ Search Bar:
 External link opening has been disabled in the general settings: External link opening
   has been disabled in the general settings
 Are you sure you want to open this link?: Are you sure you want to open this link?
+Downloading has completed: '"$" has finished downloading'
+Starting download: Starting download of "$"
+Downloading failed: There was an issue downloading "$"

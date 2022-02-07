@@ -1,6 +1,6 @@
 # Put the name of your locale in the same language
-Locale Name: 'Català'
-FreeTube: 'FreeTube'
+Locale Name: 'Anglès'
+FreeTube: 'freetube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Aquesta secció de l'aplicació encara no està llesta. Torna més endavant quan s'hagin
@@ -9,13 +9,13 @@ FreeTube: 'FreeTube'
 # Webkit Menu Bar
 File: 'Archiu'
 Quit: 'Surt'
-Edit: 'Editar'
+Edit: 'Edita'
 Undo: 'Desfer'
 Redo: 'Refés'
-Cut: 'Retallar'
-Copy: 'Copiar'
-Paste: 'Enganxar'
-Delete: 'Esborrar'
+Cut: 'Talla'
+Copy: 'Copia'
+Paste: 'Enganxa'
+Delete: 'Borra'
 Select all: 'Seleccionar-ho tot'
 Reload: 'Tornar a carregar'
 Force Reload: 'Forçar la Recàrrega'
@@ -87,6 +87,11 @@ Subscriptions:
     fixada
 Trending:
   Trending: 'Tendencies'
+  Default: Per defecte
+  Music: Música
+  Gaming: Jocs
+  Trending Tabs: Pestanyes de tendència
+  Movies: Pel·lícules
 Most Popular: 'Més populars'
 Playlists: 'Llistes de reproducció'
 User Playlists:
@@ -98,20 +103,22 @@ User Playlists:
     actives. Només llista els vídeos que heu desat o preferit. Quan la tasca hagi
     acabat, tots els vídeos que hi ha actualment es migraran a una llista de reproducció
     de "favorites".
+  Search bar placeholder: Cerca a la llista de reproducció
 History:
   # On History Page
   History: 'Historial'
   Watch History: 'Veure l''historial'
   Your history list is currently empty.: 'El teu historial està actualment buit.'
+  Search bar placeholder: Cerca a l'historial
 Settings:
   # On Settings Page
-  Settings: 'Paràmetres'
+  Settings: 'Configuració'
   General Settings:
     General Settings: 'Paràmetres generals'
     Check for Updates: 'Comprovar si hi ha actualitzacions'
     Check for Latest Blog Posts: 'Consultar les darreres entrades al blog'
-    Fallback to Non-Preferred Backend on Failure: 'Tornar al Backend no preferencial
-      en cas d''error'
+    Fallback to Non-Preferred Backend on Failure: 'Tornar al Backend per defecte en
+      cas d''error'
     Enable Search Suggestions: 'Habilitar els suggeriments de cerca'
     Default Landing Page: 'Pàgina d''aterratge per defecte'
     Locale Preference: 'Preferència de configuració regional'
@@ -136,6 +143,19 @@ Settings:
     View all Invidious instance information: Mostra tota la informació de la instància
       Invidious
     System Default: Per defecte del sistema
+    Clear Default Instance: Esborra la instància per defecte
+    Current Invidious Instance: Instància actual d'Invidious
+    The currently set default instance is $: La instància per defecte establerta actualment
+      és $
+    No default instance has been set: No s'ha definit cap instància per defecte
+    External Link Handling:
+      Open Link: Obre l'enllaç
+      External Link Handling: Gestió d'enllaços externs
+      Ask Before Opening Link: Pregunta abans d'obrir l'enllaç
+      No Action: Sense acció
+    Current instance will be randomized on startup: La instància actual es farà aleatòriament
+      a l'inici
+    Set Current Instance as Default: Defineix l'actual com a instància per defecte
   Theme Settings:
     Theme Settings: 'Paràmetres del tema'
     Match Top Bar with Main Color: 'Fer coincidir la barra superior amb el color principal'
@@ -175,34 +195,42 @@ Settings:
     Expand Side Bar by Default: Expandeix la barra lateral per defecte
     UI Scale: Escala de la interfície gràfica
     Disable Smooth Scrolling: Desactiva el desplaçament suau
+    Hide Side Bar Labels: Oculta les etiquetes de la barra lateral
   Player Settings:
     Player Settings: 'Configuració del reproductor'
-    Force Local Backend for Legacy Formats: ''
-    Play Next Video: ''
-    Turn on Subtitles by Default: ''
-    Autoplay Videos: ''
-    Proxy Videos Through Invidious: ''
-    Autoplay Playlists: ''
-    Enable Theatre Mode by Default: ''
-    Default Volume: ''
-    Default Playback Rate: ''
+    Force Local Backend for Legacy Formats: 'Força el backend local per als formats
+      heretats'
+    Play Next Video: 'Reprodueix el vídeo següent'
+    Turn on Subtitles by Default: 'Activa els subtítols per defecte'
+    Autoplay Videos: 'Reprodueix automàticament els vídeos'
+    Proxy Videos Through Invidious: 'Emmascarar vídeos a través de invidious'
+    Autoplay Playlists: 'Reprodueix automàticament les llistes de reproducció'
+    Enable Theatre Mode by Default: 'Activa el mode teatre per defecte'
+    Default Volume: 'Volum per defecte'
+    Default Playback Rate: 'Velocitat de reproducció predeterminada'
     Default Video Format:
-      Default Video Format: ''
-      Dash Formats: ''
+      Default Video Format: 'Format de vídeo predeterminat'
+      Dash Formats: 'Formats DASH'
       Legacy Formats: ''
-      Audio Formats: ''
+      Audio Formats: 'Formats d''àudio'
     Default Quality:
-      Default Quality: ''
-      Auto: ''
-      144p: ''
-      240p: ''
-      360p: ''
-      480p: ''
-      720p: ''
-      1080p: ''
-      1440p: ''
-      4k: ''
-      8k: ''
+      Default Quality: 'Qualitat per defecte'
+      Auto: 'Automàtic'
+      144p: '144p'
+      240p: '240p'
+      360p: '360p'
+      480p: '480p'
+      720p: '720p'
+      1080p: '1080p'
+      1440p: '1440p'
+      4k: '4k'
+      8k: '8k'
+    Scroll Volume Over Video Player: Desplaça el volum sobre el reproductor de vídeo
+    Display Play Button In Video Player: Mostra el botó de reproducció al reproductor
+      de vídeo
+    Next Video Interval: Interval de vídeo següent
+    Scroll Playback Rate Over Video Player: Desplaça la velocitat de reproducció sobre
+      el reproductor de vídeo
   Privacy Settings:
     Privacy Settings: ''
     Remember History: ''
@@ -274,6 +302,12 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: Cal
     reiniciar l'aplicació perquè els canvis tinguin efecte. Vols reiniciar i aplicar
     els canvis?
+  External Player Settings:
+    External Player Settings: Configuració del reproductor extern
+    External Player: Reproductor extern
+    Ignore Unsupported Action Warnings: Ignora els advertiments d'acció no compatible
+    Custom External Player Executable: Executable de reproductor extern personalitzat
+    Custom External Player Arguments: Arguments personalitzats del reproductor extern
 About:
   #On About page
   About: ''
@@ -509,3 +543,6 @@ Yes: ''
 No: ''
 More: Més
 Open New Window: Obre una finestra nova
+Search Bar:
+  Clear Input: Netejar
+Are you sure you want to open this link?: Estàs segur/a que vols obrir aquest enllaç?

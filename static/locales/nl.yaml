@@ -81,10 +81,10 @@ Subscriptions:
     te vermijden
   Load More Videos: Meer Video's Laden
 Trending:
-  Trending: 'Trending'
+  Trending: 'Actuele'
   Trending Tabs: Tendingtabbladen
   Movies: Films
-  Gaming: Gaming
+  Gaming: Gamen
   Music: Muziek
   Default: Standaard
 Most Popular: 'Populair'
@@ -98,11 +98,13 @@ User Playlists:
     Er worden alleen video's weergegeven die jij hebt opgeslagen of gefavoriet. Wanneer
     we klaar zijn met de ontwikkeling van deze feature zullen al deze video's worden
     gemigreerd naar de 'favorieten' afspeellijst.
+  Search bar placeholder: In Afspeellijst zoeken
 History:
   # On History Page
   History: 'Geschiedenis'
   Watch History: 'Bekijk Geschiedenis'
   Your history list is currently empty.: 'Uw geschiedenis is momenteel leeg.'
+  Search bar placeholder: In Geschiedenis zoeken
 Settings:
   # On Settings Page
   Settings: 'Instellingen'
@@ -147,7 +149,7 @@ Settings:
     External Link Handling:
       Ask Before Opening Link: Vraag om Link te Openen
       No Action: Geen Actie
-      External Link Handling: Externe Link Hantering
+      External Link Handling: Externe Link Omgang
       Open Link: Open Link
   Theme Settings:
     Theme Settings: 'Thema-Instellingen'
@@ -188,7 +190,7 @@ Settings:
     UI Scale: UI Schaal
     Expand Side Bar by Default: Zijbalk Standaard Uitschuiven
     Disable Smooth Scrolling: Vloeiend Scrollen Uitschakelen
-    Hide Side Bar Labels: Verberg Zijbalk Labels
+    Hide Side Bar Labels: Verberg Labels op Zijbalk
   Player Settings:
     Player Settings: 'Videospeler Instellingen'
     Force Local Backend for Legacy Formats: 'Lokale Backend Forceren Voor Oudere Formaten'
@@ -222,6 +224,7 @@ Settings:
     Display Play Button In Video Player: Afspeelknop Weergeven in Videokader
     Scroll Volume Over Video Player: Volume Veranderen Door in het Videokader te Scrollen
     Fast-Forward / Rewind Interval: Snel Vooruit / Terugspoelen Interval
+    Scroll Playback Rate Over Video Player: Scroll Afspeelsnelheid op Videospeler
   Privacy Settings:
     Privacy Settings: 'Privacy-Instellingen'
     Remember History: 'Kijkgeschiedenis Onthouden'
@@ -328,7 +331,7 @@ Settings:
     Hide Video Views: Verberg Weergaven
     Distraction Free Settings: Instellingen voor Afleidingsvrij Kijken
     Hide Active Subscriptions: Verberg Actieve Abonnementen
-    Hide Playlists: Verberg Afspeellijst
+    Hide Playlists: Verberg Afspeellijsten
   The app needs to restart for changes to take effect. Restart and apply change?: De
     applicatie moet opnieuw opstarten om de veranderingen aan te brengen. Wilt u opnieuw
     opstarten en verandering toepassen?
@@ -362,6 +365,10 @@ Settings:
       Acties
     External Player: Externe Videospeler
     External Player Settings: Instellingen Externe Mediaspeler
+  Download Settings:
+    Choose Path: Pad kiezen
+    Download Settings: Download instellingen
+    Ask Download Path: Vraag om downloadpad
 About:
   #On About page
   About: 'Over'
@@ -408,13 +415,13 @@ About:
   Website: Website
   Please check for duplicates before posting: Controleer op duplicaten voordat u een
     issue post
-  GitHub issues: GitHub issues
+  GitHub issues: GitHub-problemen
   Report a problem: Rapporteer een probleem
   FAQ: Veelgestelde vragen
   FreeTube Wiki: FreeTube Wiki
   Help: Hulp
-  GitHub releases: GitHub releases
-  Downloads / Changelog: Downloads / Changelog
+  GitHub releases: GitHub uitgaves
+  Downloads / Changelog: Downloads / Wijzigingen
   View License: Bekijk Licentie
   Licensed under the AGPLv3: Vrijgegeven onder de AGPLv3 licentie
   Source code: Broncode
@@ -564,6 +571,16 @@ Video:
     playlist: afspeellijst
     video: video
     OpenInTemplate: Open in $
+  Stats:
+    player resolution: Venster
+    volume: Volume
+    video id: Video ID (YouTube)
+    fps: FPS
+    frame drop: Frame verlies
+    bandwidth: Verbindingssnelheid
+    buffered: Gebufferd
+    out of: van de
+  Premieres on: in première op
 Videos:
   #& Sort By
   Sort By:
@@ -638,6 +655,9 @@ Comments:
   Top comments: Top Reacties
   Sort by: Sorteer Op
   Show More Replies: Toon Meer Reacties
+  From $channelName: van $channelName
+  And others: en anderen
+  Pinned by: Vastgemaakt door
 Up Next: 'Volgende'
 
 # Toast Messages
@@ -725,6 +745,11 @@ Tooltips:
     Proxy Videos Through Invidious: FreeTube zal verbinden met Invidious en daar de
       video's downloaden in de plaats van de video's rechtstreeks bij YouTube vandaan
       te halen. Dit overschrijft de ingestelde API voorkeur.
+    Scroll Playback Rate Over Video Player: Terwijl de muis zich over de video bevindt,
+      houd de Control-toets (Command-toets op Mac) ingedrukt en scroll met de muis
+      om de afspeelsnelheid te besturen. Houd de Control-toets (Command-toets op Mac)
+      ingedrukt en klik met de linker muisknop om snel terug te schakelen naar de
+      standaard afspeelsnelheid (1x tenzij aangepast in de instellingen).
   Subscription Settings:
     Fetch Feeds from RSS: Wanneer ingeschakeld zal FreeTube RSS gebruiken in plaats
       van de standaard methode om de videolijsten van je abonnementen te verzamelen.
@@ -780,3 +805,9 @@ Search Bar:
   Clear Input: Invoer Wissen
 External link opening has been disabled in the general settings: Het openen van externe
   links is uitgeschakeld in de algemene instellingen
+Downloading canceled: De gebruiker heeft de download geannuleerd
+Downloading has completed: '"$" is gedownload'
+Starting download: Begin download van "$"
+Downloading failed: Probleem bij download van "$"
+Download folder does not exist: De download map "$" bestaat niet. Valt terug op "vraag
+  map" modus.

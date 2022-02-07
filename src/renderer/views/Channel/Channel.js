@@ -11,6 +11,7 @@ import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 
 import ytch from 'yt-channel-info'
 import autolinker from 'autolinker'
+import { MAIN_PROFILE_ID } from '../../../constants'
 
 export default Vue.extend({
   name: 'Search',
@@ -90,7 +91,7 @@ export default Vue.extend({
     },
 
     isSubscribed: function () {
-      const subIndex = this.profileList[this.activeProfile].subscriptions.findIndex((channel) => {
+      const subIndex = this.activeProfile.subscriptions.findIndex((channel) => {
         return channel.id === this.id
       })
 
@@ -508,7 +509,7 @@ export default Vue.extend({
     },
 
     handleSubscription: function () {
-      const currentProfile = JSON.parse(JSON.stringify(this.profileList[this.activeProfile]))
+      const currentProfile = JSON.parse(JSON.stringify(this.activeProfile))
       const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
 
       if (this.isSubscribed) {
@@ -521,13 +522,13 @@ export default Vue.extend({
           message: this.$t('Channel.Channel has been removed from your subscriptions')
         })
 
-        if (this.activeProfile === 0) {
+        if (this.activeProfile === MAIN_PROFILE_ID) {
           // Check if a subscription exists in a different profile.
           // Remove from there as well.
           let duplicateSubscriptions = 0
 
           this.profileList.forEach((profile) => {
-            if (profile._id === 'allChannels') {
+            if (profile._id === MAIN_PROFILE_ID) {
               return
             }
             const parsedProfile = JSON.parse(JSON.stringify(profile))
@@ -566,7 +567,7 @@ export default Vue.extend({
           message: this.$t('Channel.Added channel to your subscriptions')
         })
 
-        if (this.activeProfile !== 0) {
+        if (this.activeProfile !== MAIN_PROFILE_ID) {
           const index = primaryProfile.subscriptions.findIndex((channel) => {
             return channel.id === this.id
           })
