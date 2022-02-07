@@ -311,6 +311,13 @@ Settings:
     Data Settings: Data-asetukset
     Check for Legacy Subscriptions: Tarkista vanhat tilaukset
     Manage Subscriptions: Hallitse tilauksia
+    All playlists has been successfully imported: Kaikki soittolistat on onnistuneesti
+      tuotu
+    All playlists has been successfully exported: Kaikki soittolistat on viety onnistuneesti
+    Import Playlists: Tuo soittolistoja
+    Export Playlists: Vie soittolistoja
+    Playlist insufficient data: Riittämätön määrä tietoja ”$” -soittolistalle, ohitetaan
+      kohde
   Distraction Free Settings:
     Hide Live Chat: Piilota Live-keskustelu
     Hide Popular Videos: Piilota suositut videot
@@ -355,6 +362,10 @@ Settings:
     Ignore Unsupported Action Warnings: Sivuuta ei-tuettujen toimintojen varoitukset
     External Player: Ulkoinen toisto-ohjelma
     External Player Settings: Ulkoisen videontoisto-ohjelman asetukset
+  Download Settings:
+    Download Settings: Latausasetukset
+    Choose Path: Valitse polku
+    Ask Download Path: Kysy latauspolkua
 About:
   #On About page
   About: 'Tietoja'
@@ -556,6 +567,7 @@ Video:
     player resolution: Näkymäikkuna
     bandwidth: Yhteyden nopeus
     buffered: Puskuroitu
+  Premieres on: Julkaistaan
 Videos:
   #& Sort By
   Sort By:
