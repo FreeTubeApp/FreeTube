@@ -211,7 +211,7 @@ Settings:
     Default Video Format:
       Default Video Format: 'Format de vídeo predeterminat'
       Dash Formats: 'Formats DASH'
-      Legacy Formats: ''
+      Legacy Formats: 'Formats antics'
       Audio Formats: 'Formats d''àudio'
     Default Quality:
       Default Quality: 'Qualitat per defecte'
@@ -232,51 +232,75 @@ Settings:
     Scroll Playback Rate Over Video Player: Desplaça la velocitat de reproducció sobre
       el reproductor de vídeo
   Privacy Settings:
-    Privacy Settings: ''
-    Remember History: ''
-    Save Watched Progress: ''
-    Clear Search Cache: ''
-    Are you sure you want to clear out your search cache?: ''
-    Search cache has been cleared: ''
-    Remove Watch History: ''
-    Are you sure you want to remove your entire watch history?: ''
-    Watch history has been cleared: ''
-    Remove All Subscriptions / Profiles: ''
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
+    Privacy Settings: 'Configuració de la Privacitat'
+    Remember History: 'Recorda l''historial'
+    Save Watched Progress: 'Desa progrés reproduït'
+    Clear Search Cache: 'Elimina la memòria cau de cerca'
+    Are you sure you want to clear out your search cache?: 'Estàs segur que vols eliminar
+      la memòria cau de la cerca?'
+    Search cache has been cleared: 'La memòria cau de la cerca s''ha eliminat'
+    Remove Watch History: 'Elimina l''historial de reproduccions'
+    Are you sure you want to remove your entire watch history?: 'Estàs segur que vols
+      eliminar tot l''historial de reproduccions?'
+    Watch history has been cleared: 'L''historial de reproduccions s''ha eliminat'
+    Remove All Subscriptions / Profiles: 'Elimina totes les subscripcions / perfils'
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Estàs
+      segur que vols eliminar totes les subscripcions i perfils? Aquesta acció no
+      es pot desfer.'
+    Automatically Remove Video Meta Files: Elimina automàticament els arxius de metadades
   Subscription Settings:
-    Subscription Settings: ''
-    Hide Videos on Watch: ''
+    Subscription Settings: 'Configuració de les subscripcions'
+    Hide Videos on Watch: 'Oculta els vídeos visualitzats'
     Fetch Feeds from RSS: ''
-    Manage Subscriptions: ''
+    Manage Subscriptions: 'Gestiona les subscripcions'
   Data Settings:
-    Data Settings: ''
-    Select Import Type: ''
-    Select Export Type: ''
-    Import Subscriptions: ''
-    Import FreeTube: ''
-    Import YouTube: ''
-    Import NewPipe: ''
-    Export Subscriptions: ''
-    Export FreeTube: ''
-    Export YouTube: ''
-    Export NewPipe: ''
-    Import History: ''
-    Export History: ''
-    Profile object has insufficient data, skipping item: ''
-    All subscriptions and profiles have been successfully imported: ''
-    All subscriptions have been successfully imported: ''
-    One or more subscriptions were unable to be imported: ''
-    Invalid subscriptions file: ''
-    This might take a while, please wait: ''
-    Invalid history file: ''
-    Subscriptions have been successfully exported: ''
-    History object has insufficient data, skipping item: ''
-    All watched history has been successfully imported: ''
-    All watched history has been successfully exported: ''
-    Unable to read file: ''
-    Unable to write file: ''
-    Unknown data key: ''
-    How do I import my subscriptions?: ''
+    Data Settings: 'Configuració de les dades'
+    Select Import Type: 'Selecciona tipus d''importació'
+    Select Export Type: 'Selecciona tipus d''exportació'
+    Import Subscriptions: 'Importa les subscripcions'
+    Import FreeTube: 'Importa FreeTube'
+    Import YouTube: 'Importa YouTube'
+    Import NewPipe: 'Importa NewPipe'
+    Export Subscriptions: 'Exporta subscripcions'
+    Export FreeTube: 'Exporta FreeTube'
+    Export YouTube: 'Exporta YouTube'
+    Export NewPipe: 'Exporta NewPipe'
+    Import History: 'Importa l''historial'
+    Export History: 'Exporta l''historial'
+    Profile object has insufficient data, skipping item: 'Aquest perfil no té dades
+      suficients, saltant l''objecte'
+    All subscriptions and profiles have been successfully imported: 'Totes les subscripcions
+      i perfils s''han importat amb èxit'
+    All subscriptions have been successfully imported: 'Totes les subscripcions s''han
+      importat amb èxit'
+    One or more subscriptions were unable to be imported: 'Una o més subscripcions
+      no s''han pogut importar'
+    Invalid subscriptions file: 'Fitxer de subscripcions invàlid'
+    This might take a while, please wait: 'Això pot trigar una estona, si us plau,
+      esperi'
+    Invalid history file: 'Fitxer d''historial invàlid'
+    Subscriptions have been successfully exported: 'Les subscripcions s''han exportat
+      amb èxit'
+    History object has insufficient data, skipping item: 'L''objecte de l''historial
+      no té suficient informació, saltant l''objecte'
+    All watched history has been successfully imported: 'Tot l''historial visualitzat
+      s''ha importat amb èxit'
+    All watched history has been successfully exported: 'Tot l''historial visualitzat
+      s''ha exportat amb èxit'
+    Unable to read file: 'Impossible llegir el fitxer'
+    Unable to write file: 'Impossible escriure el fitxer'
+    Unknown data key: 'Clau de dades desconegut'
+    How do I import my subscriptions?: 'Com puc importar les meves subscripcions?'
+    Playlist insufficient data: Dades insuficients per a la llista de reproducció
+      "$", saltant l'objecte
+    Manage Subscriptions: Gestiona les subscripcions
+    Import Playlists: Importa llistes de reproducció
+    All playlists has been successfully exported: Totes les llistes de reproducció
+      s'han exportat amb èxit
+    Export Playlists: Exporta llistes de reproducció
+    All playlists has been successfully imported: Totes les llistes de reproducció
+      s'han importat amb èxit
+    Check for Legacy Subscriptions: Comprova les subscripcions antigues
   Advanced Settings:
     Advanced Settings: ''
     Enable Debug Mode (Prints data to the console): ''
@@ -308,9 +332,47 @@ Settings:
     Ignore Unsupported Action Warnings: Ignora els advertiments d'acció no compatible
     Custom External Player Executable: Executable de reproductor extern personalitzat
     Custom External Player Arguments: Arguments personalitzats del reproductor extern
+  Proxy Settings:
+    Proxy Settings: Configuració de Proxy
+    Clicking on Test Proxy will send a request to: Fer clic a Test Proxy enviarà una
+      sol·licitud a
+    Ip: IP
+    Country: País
+    Error getting network information. Is your proxy configured properly?: Error a
+      l'obtenir informació de la xarxa. La teva proxy està ben configurada?
+    Region: Regió
+    City: Ciutat
+    Proxy Port Number: Número de Port del Proxy
+    Test Proxy: Test Proxy
+    Enable Tor / Proxy: Activa Tor / Proxy
+    Proxy Host: Amfitrió del Proxy
+    Your Info: La teva informació
+    Proxy Protocol: Protocol Proxy
+  SponsorBlock Settings:
+    Enable SponsorBlock: Activa l'SponsorBlock
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
+      Url (Per defecte és https://sponsor.ajay.app)
+    SponsorBlock Settings: Configuració de l'SponsorBlock
+    Notify when sponsor segment is skipped: Notificar quan se salta un segment esponsoritzat
+  Distraction Free Settings:
+    Hide Recommended Videos: Amaga els vídeos recomanats
+    Hide Trending Videos: Amaga els vídeos en tendència
+    Hide Playlists: Amaga les llistes de reproducció
+    Hide Live Chat: Amaga el xat en viu
+    Hide Active Subscriptions: Amaga les subscripcions actives
+    Hide Video Views: Amaga les visualitzacions del vídeo
+    Hide Video Likes And Dislikes: Amaga els "M'agrada" i els "No m'agrada" del vídeo
+    Hide Channel Subscribers: Amaga les subscripcions del canal
+    Hide Comment Likes: Amaga els "M'agrada" dels comentaris
+    Distraction Free Settings: Configuració del mode sense distraccions
+    Hide Popular Videos: Amaga els vídeos populars
+  Download Settings:
+    Choose Path: Escull el camí
+    Download Settings: Configuració de les descàrregues
+    Ask Download Path: Demana un camí de descàrrega
 About:
   #On About page
-  About: ''
+  About: 'Sobre'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
 
@@ -333,8 +395,30 @@ About:
   Blog: Blog
   Website: Lloc web
   Email: Correu-e
+  Help: Ajuda
+  Licensed under the AGPLv3: Llicència AGPLv3
+  View License: Veure la llicència
+  Downloads / Changelog: Descàrregues / Registre de canvis
+  Chat on Matrix: Xat a Matrix
+  Please read the: Si us plau, llegeix les
+  room rules: normes de la sala
+  FreeTube is made possible by: FreeTube és possible gràcies a
+  these people and projects: aquesta gent i projectes
+  Source code: Codi font
+  GitHub issues: Incidències del GitHub
+  Beta: Beta
+  Please check for duplicates before posting: Si us plau, abans de publicar comprova
+    no duplicar temes
+  Credits: Crèdits
+  FAQ: Preguntes Freqüents
+  Report a problem: Informa d'un problema
+  Mastodon: Mastodon
+  Donate: Dona
+  Translate: Tradueix
+  GitHub releases: Llançaments del GitHub
+  FreeTube Wiki: FreeTube Wiki
 Profile:
-  Profile Select: ''
+  Profile Select: 'Selecciona perfil'
   All Channels: ''
   Profile Manager: ''
   Create New Profile: ''
@@ -369,6 +453,7 @@ Profile:
   : ''
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
 #On Channel Page
+  Profile Settings: Configuració del perfil
 Channel:
   Subscriber: ''
   Subscribers: ''
