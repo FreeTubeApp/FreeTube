@@ -280,6 +280,10 @@ Settings:
     How do I import my subscriptions?: 'איך לייבא את המנויים שלי?'
     Check for Legacy Subscriptions: איתור מינויים מיושנים
     Manage Subscriptions: ניהול מינויים
+    All playlists has been successfully exported: כל הפלייליסטים יוצאו בהצלחה
+    All playlists has been successfully imported: כל הפלייליסטים יובאו בהצלחה
+    Export Playlists: ייצוא פלייליסטים
+    Import Playlists: ייבוא פלייליסטים
   Advanced Settings:
     Advanced Settings: 'הגדרות מתקדמות'
     Enable Debug Mode (Prints data to the console): 'הפעל מצב Debug ( מציג נתונים
@@ -599,6 +603,9 @@ Video:
   Skipped segment: קטע שדילגת עליו
   Stats:
     video id: מזהה סרטון (YouTube)
+    bandwidth: מהירות החיבור
+    out of: מתוך
+    volume: עוצמת שמע
 Videos:
   #& Sort By
   Sort By:
@@ -738,3 +745,6 @@ External link opening has been disabled in the general settings: פתיחת הק
   מושבתת בהגדרות הכלליות
 Hashtags have not yet been implemented, try again later: עדיין לא הוטמעו תגיות הקבץ,
   נא לנסות בהמשך
+Downloading failed: אירעה שגיאה בהורדת "$"
+Starting download: הורדת "$" מתחילה
+Downloading has completed: הורדת "$" הסתיימה
