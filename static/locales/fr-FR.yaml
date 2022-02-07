@@ -331,6 +331,14 @@ Settings:
       n'ont pas pu être importés
     Check for Legacy Subscriptions: Vérifier les abonnements Legacy
     Manage Subscriptions: Gérer les abonnements
+    Import Playlists: Importer des listes de lecture
+    Export Playlists: Exporter des listes de lecture
+    Playlist insufficient data: Données insuffisantes pour la liste de lecture « $ »,
+      saut de l'élément
+    All playlists has been successfully imported: Toutes les listes de lecture ont
+      été importées avec succès
+    All playlists has been successfully exported: Toutes les listes de lecture ont
+      été exportées avec succès
   Distraction Free Settings:
     Hide Video Likes And Dislikes: Masquer les J'aime et Je n'aime pas des vidéos
     Hide Comment Likes: Masquer les J'aime dans les commentaires
