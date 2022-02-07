@@ -291,6 +291,11 @@ Settings:
     One or more subscriptions were unable to be imported: いくつかの登録チャンネルはインポートできませんでした
     Check for Legacy Subscriptions: 旧型式の登録チャンネルの確認
     Manage Subscriptions: 登録チャンネルの管理
+    Playlist insufficient data: 再生リスト"$"のデータが不完全なため、このアイテムは飛ばされます
+    All playlists has been successfully imported: 全ての再生リストは成功にインポートされました
+    All playlists has been successfully exported: 全ての再生リストは成功にエキスポートされました
+    Import Playlists: 再生リストのインポート
+    Export Playlists: 再生リストのエキスポート
   Distraction Free Settings:
     Hide Live Chat: ライブチャットの非表示
     Hide Popular Videos: 人気動画の非表示
