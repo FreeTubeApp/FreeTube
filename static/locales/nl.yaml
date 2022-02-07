@@ -320,6 +320,14 @@ Settings:
       met succes geïmporteerd
     Check for Legacy Subscriptions: Controleer op Legacy Abonnementen
     Manage Subscriptions: Beheer Abonnementen
+    Export Playlists: Afspeellijsten exporteren
+    All playlists has been successfully imported: Alle speellijsten zijn met succes
+      geïmporteerd
+    Import Playlists: Afspeellijsten importeren
+    Playlist insufficient data: Onvoldoende gegevens voor "$" speellijst, slaat item
+      over
+    All playlists has been successfully exported: Alle speellijsten zijn met succes
+      geëxporteerd
   Distraction Free Settings:
     Hide Live Chat: Verberg Live Chat
     Hide Popular Videos: Verberg Populaire Video's
