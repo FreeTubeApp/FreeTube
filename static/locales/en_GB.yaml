@@ -294,6 +294,9 @@ Settings:
     How do I import my subscriptions?: 'How do I import my subscriptions?'
     Check for Legacy Subscriptions: Check for Legacy Subscriptions
     Manage Subscriptions: Manage Subscriptions
+    Import Playlists: Import playlists
+    Export Playlists: Export playlists
+    Playlist insufficient data: Insufficient data for ‘$’ playlist, skipping item
   Advanced Settings:
     Advanced Settings: 'Advanced Settings'
     Enable Debug Mode (Prints data to the console): 'Enable Debug Mode (Prints data
