@@ -311,6 +311,11 @@ Settings:
       من الاشتراكات
     Check for Legacy Subscriptions: تحقق من وجود اشتراكات بالصيغة القديمة
     Manage Subscriptions: إدارة الإشتراكات
+    All playlists has been successfully imported: تم استيراد جميع قوائم التشغيل بنجاح
+    Playlist insufficient data: بيانات غير كافية لقائمة التشغيل "$"، تخطي العنصر
+    All playlists has been successfully exported: تم تصدير جميع قوائم التشغيل بنجاح
+    Import Playlists: استيراد قوائم التشغيل
+    Export Playlists: تصدير قوائم التشغيل
   Distraction Free Settings:
     Hide Live Chat: اخفي الدردشة المباشرة
     Hide Popular Videos: اخفي الفيديوهات الأكثر شعبية

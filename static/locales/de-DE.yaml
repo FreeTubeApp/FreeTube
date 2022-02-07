@@ -321,6 +321,14 @@ Settings:
     Data Settings: Dateneinstellungen
     Check for Legacy Subscriptions: Auf ältere Abonnements prüfen
     Manage Subscriptions: Abonnements verwalten
+    Export Playlists: Wiedergabelisten exportieren
+    Import Playlists: Wiedergabelisten importieren
+    Playlist insufficient data: Unzureichende Daten für „$“-Wiedergabeliste, Element
+      übersprungen
+    All playlists has been successfully imported: Alle Wiedergabelisten wurden erfolgreich
+      importiert
+    All playlists has been successfully exported: Alle Wiedergabelisten wurden erfolgreich
+      exportiert
   Distraction Free Settings:
     Hide Live Chat: Live-Chat verbergen
     Hide Popular Videos: Beliebte Videos verbergen

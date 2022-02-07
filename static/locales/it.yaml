@@ -324,6 +324,13 @@ Settings:
     Data Settings: Impostazioni dei dati
     Check for Legacy Subscriptions: Controlla le iscrizioni in formato Legacy
     Manage Subscriptions: Gestisci i profili
+    Import Playlists: Importa playlist
+    Export Playlists: Esporta playlist
+    Playlist insufficient data: Dati insufficienti per la playlist «$», elemento saltato
+    All playlists has been successfully imported: Tutte le playlist sono state importate
+      con successo
+    All playlists has been successfully exported: Tutte le playlist sono state esportate
+      con successo
   Distraction Free Settings:
     Hide Popular Videos: Nascondi "Più popolari"
     Hide Trending Videos: Nascondi "Tendenze"

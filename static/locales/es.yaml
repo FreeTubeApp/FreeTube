@@ -284,6 +284,14 @@ Settings:
       no han podido ser importadas
     Check for Legacy Subscriptions: Comprobar suscripciones Legacy
     Manage Subscriptions: Administrar suscripciones
+    Import Playlists: Importar listas de reproducción
+    Export Playlists: Exportar listas de reproducción
+    Playlist insufficient data: Datos insuficientes para la lista de reproducción
+      «$», omitiendo el elemento
+    All playlists has been successfully imported: Todas las listas de reproducción
+      se han importado con éxito
+    All playlists has been successfully exported: Todas las listas de reproducción
+      se han exportado con éxito
   Advanced Settings:
     Advanced Settings: 'Ajustes avanzados'
     Enable Debug Mode (Prints data to the console): 'Activar modo de depuración (muestra
@@ -354,6 +362,8 @@ Settings:
     Ignore Unsupported Action Warnings: Omitir advertencias sobre acciones no soportadas
     External Player: Reproductor externo
     External Player Settings: Ajustes del reproductor externo
+  Download Settings:
+    Download Settings: Configuración de descarga
 About:
   #On About page
   About: 'Acerca de'
@@ -792,3 +802,4 @@ External link opening has been disabled in the general settings: Se ha desactiva
   la apertura de enlaces externos en la configuración general
 Are you sure you want to open this link?: ¿Estás seguro/a de que quieres abrir este
   enlace?
+Starting download: Inicio de la descarga de «$»
