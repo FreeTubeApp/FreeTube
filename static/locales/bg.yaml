@@ -293,6 +293,12 @@ Settings:
     How do I import my subscriptions?: 'Как да внеса абонаментите си?'
     Check for Legacy Subscriptions: Проверка за стари абонаменти
     Manage Subscriptions: Управление на абонаменти
+    Export Playlists: Изнасяне на плейлисти
+    All playlists has been successfully imported: Всички плейлисти са внесени успешно
+    Import Playlists: Внасяне на плейлисти
+    Playlist insufficient data: Недостатъчно данни за плейлист "$", прескачане на
+      елемент
+    All playlists has been successfully exported: Всички плейлисти са изнесени успешно
   Advanced Settings:
     Advanced Settings: 'Разширени настройки'
     Enable Debug Mode (Prints data to the console): 'Активиране на режим за дебъгване
@@ -365,6 +371,10 @@ Settings:
       действия
     External Player: Външен плейър
     External Player Settings: Настройки за външен плейър
+  Download Settings:
+    Download Settings: Настройки за изтегляне
+    Choose Path: Избор на път
+    Ask Download Path: Питане за пътя за изтегляне
 About:
   #On About page
   About: 'Относно'
@@ -793,3 +803,6 @@ Search Bar:
   Clear Input: Изчистване на въведеното
 Are you sure you want to open this link?: Сигурни ли сте, че искате да отворите тази
   връзка?
+Downloading has completed: '"$" приключи изтеглянето'
+Starting download: Започва изтегляне на "$"
+Downloading failed: Имаше проблем при изтеглянето на "$"
