@@ -297,6 +297,10 @@ Settings:
     Import Playlists: Import playlists
     Export Playlists: Export playlists
     Playlist insufficient data: Insufficient data for ‘$’ playlist, skipping item
+    All playlists has been successfully imported: All playlists has been successfully
+      imported
+    All playlists has been successfully exported: All playlists has been successfully
+      exported
   Advanced Settings:
     Advanced Settings: 'Advanced Settings'
     Enable Debug Mode (Prints data to the console): 'Enable Debug Mode (Prints data
