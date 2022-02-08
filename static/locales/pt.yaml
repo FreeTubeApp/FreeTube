@@ -99,11 +99,13 @@ User Playlists:
   Playlist Message: Esta página não é indicativa do resultado final. Apenas mostra
     vídeos que foram guardados ou marcados como favoritos. Quando estiver pronta,
     todos os vídeos que estiverem aqui serão postos numa lista chamada 'Favoritos'.
+  Search bar placeholder: Procurar na lista de reprodução
 History:
   # On History Page
   History: 'Histórico'
   Watch History: 'Histórico de visualizações'
   Your history list is currently empty.: 'O seu histórico está vazio.'
+  Search bar placeholder: Procurar no histórico
 Settings:
   # On Settings Page
   Settings: 'Definições'
@@ -221,10 +223,9 @@ Settings:
     Fast-Forward / Rewind Interval: Tempo para avançar / voltar atrás
     Next Video Interval: Intervalo entre vídeos
     Display Play Button In Video Player: Mostrar botão sobre vídeo quando em pausa
-    Scroll Volume Over Video Player: Utilizar roda do rato sobre vídeo para mudar
-      volume
-    Scroll Playback Rate Over Video Player: Rolar a taxa de reprodução sobre o reprodutor
-      de vídeo
+    Scroll Volume Over Video Player: Utilizar roda do rato sobre o vídeo para alterar
+      o volume
+    Scroll Playback Rate Over Video Player: Alterar a taxa de reprodução sobre o vídeo
   Privacy Settings:
     Privacy Settings: 'Definições de privacidade'
     Remember History: 'Lembrar histórico'
@@ -256,12 +257,12 @@ Settings:
     Import FreeTube: 'Importar FreeTube'
     Import YouTube: 'Importar YouTube'
     Import NewPipe: 'Importar NewPipe'
-    Export Subscriptions: 'Exportar Subscrições'
+    Export Subscriptions: 'Exportar subscrições'
     Export FreeTube: 'Exportar FreeTube'
     Export YouTube: 'Exportar YouTube'
     Export NewPipe: 'Exportar NewPipe'
-    Import History: 'Importar Histórico'
-    Export History: 'Exportar Histórico'
+    Import History: 'Importar histórico'
+    Export History: 'Exportar histórico'
     Profile object has insufficient data, skipping item: 'O objeto perfil tem dados
       em falta, a ignorar'
     All subscriptions and profiles have been successfully imported: 'Todas as subscrições
@@ -285,8 +286,16 @@ Settings:
     Unable to write file: 'Ficheiro não pôde ser escrito'
     Unknown data key: 'Chave dada é desconhecida'
     How do I import my subscriptions?: 'Como posso importar as minhas subscrições?'
-    Manage Subscriptions: Gerir Subscrições
-    Check for Legacy Subscriptions: Verificar se há Subscrições em Formato Pré-v0.8.0
+    Manage Subscriptions: Gerir subscrições
+    Check for Legacy Subscriptions: Verificar se há subscrições em formato pré-v0.8.0
+    Import Playlists: Importar listas de reprodução
+    Export Playlists: Exportar listas de reprodução
+    Playlist insufficient data: Dados insuficientes para a lista de reprodução "$",
+      a ignorar o item
+    All playlists has been successfully imported: Todas as listas de reprodução foram
+      importadas com êxito
+    All playlists has been successfully exported: Todas as listas de reprodução foram
+      exportadas com êxito
   Advanced Settings:
     Advanced Settings: 'Definições Avançadas'
     Enable Debug Mode (Prints data to the console): 'Ligar Modo de Depuração (Escreve
@@ -315,8 +324,7 @@ Settings:
       #& No
 
   SponsorBlock Settings:
-    Notify when sponsor segment is skipped: Avisar quando um patrocínio foi passado
-      à frente
+    Notify when sponsor segment is skipped: Avisar quando um anúncio for ignorado
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL da API SponsorBlock
       (Por omissão é https://sponsor.ajay.app)
     Enable SponsorBlock: Ligar SponsorBlock
@@ -327,16 +335,16 @@ Settings:
     City: Cidade
     Region: Região
     Country: País
-    Ip: Ip
-    Your Info: A sua Informação
-    Test Proxy: Testar Intermediário
-    Clicking on Test Proxy will send a request to: Carregar em Testar Intermediário
-      irá enviar um pedido a
-    Proxy Port Number: Porto do Intermediário
-    Proxy Host: Endereço do Intermediário
-    Proxy Protocol: Protocolo do Intermediário
-    Enable Tor / Proxy: Ligar Tor / Intermediário
-    Proxy Settings: Definições de Intermediários
+    Ip: IP
+    Your Info: A sua informação
+    Test Proxy: Testar proxy
+    Clicking on Test Proxy will send a request to: Carregar em "Testar proxy" irá
+      enviar um pedido a
+    Proxy Port Number: Porta do proxy
+    Proxy Host: Anfitrião do proxy
+    Proxy Protocol: Protocolo do proxy
+    Enable Tor / Proxy: Ligar Tor / proxy
+    Proxy Settings: Definições de proxy
   Distraction Free Settings:
     Hide Active Subscriptions: Esconder subscrições da barra lateral
     Hide Live Chat: Esconder chat ao vivo
@@ -358,6 +366,10 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: A
     aplicação precisa de reiniciar para que as alterações façam efeito. Reiniciar
     e aplicar as alterações?
+  Download Settings:
+    Download Settings: Configurações de descarregamento
+    Ask Download Path: Perguntar pelo local onde descarregar
+    Choose Path: Escolher local
 About:
   #On About page
   About: 'Sobre'
@@ -390,7 +402,7 @@ About:
 
   FAQ: Perguntas frequentes
   Blog: Blogue
-  Website: Saite
+  Website: Página web
   Email: Correio eletrónico
   Donate: Doar
   these people and projects: estas pessoas e projetos
@@ -401,73 +413,74 @@ About:
   Please read the: Por favor leia as
   Chat on Matrix: Chat no Matrix
   Mastodon: Mastodon
-  Please check for duplicates before posting: É favor verificar se um problema já
-    foi relatado
+  Please check for duplicates before posting: Por favor verifique se já foi reportado
+    o mesmo problema
   GitHub issues: Problemas no GitHub
   Report a problem: Relatar um problema
   FreeTube Wiki: Wiki do FreeTube
   Help: Ajuda
   GitHub releases: Lançamentos no GitHub
-  Downloads / Changelog: Descarregar / Mudanças
-  View License: Ver a Licensa
-  Licensed under the AGPLv3: Está sobre a licensa AGPLv3
-  Source code: Código fonte
+  Downloads / Changelog: Descarregamentos / Alterações
+  View License: Ver a licença
+  Licensed under the AGPLv3: Licenciado sob AGPLv3
+  Source code: Código-fonte
   Beta: Beta
 Profile:
   Profile Select: 'Seleção de perfil'
-  All Channels: 'Todos os Canais'
-  Profile Manager: 'Gestor de Perfis'
-  Create New Profile: 'Criar Novo Perfil'
-  Edit Profile: 'Editar Perfil'
+  All Channels: 'Todos os canais'
+  Profile Manager: 'Gestor de perfis'
+  Create New Profile: 'Criar novo perfil'
+  Edit Profile: 'Editar perfil'
   Color Picker: 'Cor'
-  Custom Color: 'Cor Personalizada'
-  Profile Preview: 'Antevisão'
-  Create Profile: 'Criar Perfil'
+  Custom Color: 'Cor personalizada'
+  Profile Preview: 'Pré-visualização do perfil'
+  Create Profile: 'Criar perfil'
   Update Profile: 'Atualizar perfil'
-  Make Default Profile: 'Tornar no Perfil Padrão'
-  Delete Profile: 'Apagar Perfil'
-  Are you sure you want to delete this profile?: 'Tem a certeza de que quer apagar
+  Make Default Profile: 'Tornar no perfil padrão'
+  Delete Profile: 'Eliminar perfil'
+  Are you sure you want to delete this profile?: 'Tem a certeza de que quer eliminar
     este perfil?'
   All subscriptions will also be deleted.: 'Todas as subscrições ligadas a este perfil
-    também serão apagadas.'
+    também serão eliminadas.'
   Profile could not be found: 'Perfil não encontrado'
   Your profile name cannot be empty: 'O nome do perfil não pode ficar em branco'
   Profile has been created: 'Perfil criado'
   Profile has been updated: 'Perfil atualizado'
   Your default profile has been set to $: '$ é agora o seu perfil padrão'
-  Removed $ from your profiles: 'Perfil $ foi apagado'
+  Removed $ from your profiles: 'O perfil $ foi eliminado'
   Your default profile has been changed to your primary profile: 'O seu perfil padrão
     é agora o seu perfil principal'
   $ is now the active profile: 'Está agora a ver as subscrições do perfil $'
-  Subscription List: 'Lista de Subscrições'
-  Other Channels: 'Outros Canais'
-  $ selected: '$ seleccionado'
-  Select All: 'Seleccionar Todos'
-  Select None: 'Seleccionar Nenhum'
-  Delete Selected: 'Apagar Seleccionados'
-  Add Selected To Profile: 'Adicionar Seleccionado a Perfil'
-  No channel(s) have been selected: 'Nenhum canal foi seleccionado'
+  Subscription List: 'Lista de subscrições'
+  Other Channels: 'Outros canais'
+  $ selected: '$ selecionado'
+  Select All: 'Selecionar tudo'
+  Select None: 'Não selecionar nada'
+  Delete Selected: 'Eliminar selecionados'
+  Add Selected To Profile: 'Adicionar selecionado ao perfil'
+  No channel(s) have been selected: 'Nenhum canal foi selecionado'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : 'Este é o seu perfil principal. Tem a certeza de que quer apagar os canais seleccionados?
-    Os mesmos vão ser apagados em qualquer perfil em que se encontrem.'
+  : 'Este é o seu perfil principal. Tem a certeza de que quer eliminar os canais selecionados?
+    Os mesmos vão ser eliminados em qualquer perfil em que se encontrem.'
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Tem
-    a certeza de que quer apagar os canais selecionados? Esta ação não vai apagar
+    a certeza de que quer eliminar os canais selecionados? Esta ação não vai eliminar
     os canais em mais nenhum perfil.'
 #On Channel Page
-  Profile Filter: Filtro de Perfil
-  Profile Settings: Definições de Perfil
+  Profile Filter: Filtro de perfil
+  Profile Settings: Definições de perfil
 Channel:
   Subscriber: 'Subscritor'
   Subscribers: 'Subscritores'
   Subscribe: 'Subscrever'
-  Unsubscribe: 'Anular Subscrição'
-  Channel has been removed from your subscriptions: 'Canal foi removido das suas subscrições'
+  Unsubscribe: 'Anular subscrição'
+  Channel has been removed from your subscriptions: 'O canal foi removido das suas
+    subscrições'
   Removed subscription from $ other channel(s): 'Subscrição removida de mais $ canais'
   Added channel to your subscriptions: 'Canal adicionado às suas subscrições'
-  Search Channel: 'Procurar em Canal'
+  Search Channel: 'Procurar canal'
   Your search results have returned 0 results: 'Pesquisa devolveu 0 resultados'
-  Sort By: 'Ordenar Por'
+  Sort By: 'Ordenar por'
   Videos:
     Videos: 'Vídeos'
     This channel does not currently have any videos: 'Este canal de momento encontra-se
@@ -475,13 +488,13 @@ Channel:
     Sort Types:
       Newest: 'Recentes'
       Oldest: 'Antigos'
-      Most Popular: 'Mais Populares'
+      Most Popular: 'Mais populares'
   Playlists:
-    Playlists: 'Listas de Reprodução'
+    Playlists: 'Listas de reprodução'
     This channel does not currently have any playlists: 'Este canal de momento encontra-se
       sem listas de reprodução'
     Sort Types:
-      Last Video Added: 'Último Vídeo'
+      Last Video Added: 'Último vídeo adicionado'
       Newest: 'Recentes'
       Oldest: 'Antigos'
   About:
@@ -495,7 +508,7 @@ Video:
   Video has been removed from your history: 'O vídeo foi removido do seu histórico'
   Open in YouTube: 'Abrir no YouTube'
   Copy YouTube Link: 'Copiar ligação do YouTube'
-  Open YouTube Embedded Player: 'Abrir Reprodutor YouTube Embutido'
+  Open YouTube Embedded Player: 'Abrir reprodutor YouTube embutido'
   Copy YouTube Embedded Player Link: 'Copiar ligação do reprodutor integrado do YouTube'
   Open in Invidious: 'Abrir no Invidious'
   Copy Invidious Link: 'Copiar ligação do Invidious'
@@ -504,21 +517,21 @@ Video:
   Loop Playlist: 'Repetir lista de reprodução'
   Shuffle Playlist: 'Baralhar lista de reprodução'
   Reverse Playlist: 'Inverter lista de reprodução'
-  Play Next Video: 'Reproduzir Vídeo Seguinte'
-  Play Previous Video: 'Reproduzir Vídeo Anterior'
+  Play Next Video: 'Reproduzir vídeo seguinte'
+  Play Previous Video: 'Reproduzir vídeo anterior'
   # Context is "X People Watching"
-  Watching: 'A Ver'
+  Watching: 'A ver'
   Watched: 'Visto'
-  Autoplay: 'Reprodução Automática'
+  Autoplay: 'Reprodução automática'
   # As in a Live Video
-  Live: 'Ao Vivo'
-  Live Now: 'Ao Vivo'
-  Live Chat: 'Chat Ao Vivo'
-  Enable Live Chat: 'Permitir Chat Ao Vivo'
-  Live Chat is currently not supported in this build.: 'De momento, chat ao vivo não
-    se encontra a funcionar nesta versão.'
-  'Chat is disabled or the Live Stream has ended.': 'O chat foi desativado ou o Live
-    Stream já terminou.'
+  Live: 'Ao vivo'
+  Live Now: 'Ao vivo agora'
+  Live Chat: 'Chat ao vivo'
+  Enable Live Chat: 'Permitir chat ao vivo'
+  Live Chat is currently not supported in this build.: 'Atualmente o chat ao vivo
+    não se encontra a funcionar nesta versão.'
+  'Chat is disabled or the Live Stream has ended.': 'O chat foi desativado ou a transmissão
+    ao vivo já terminou.'
   Live chat is enabled.  Chat messages will appear here once sent.: 'Chat ao vivo
     ativado. As mensagens vão aparecer aqui ao serem enviadas.'
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'O
@@ -592,14 +605,14 @@ Video:
     Low: Baixa
   audio only: apenas áudio
   video only: apenas vídeo
-  Download Video: Descarregar Vídeo
+  Download Video: Descarregar vídeo
   Copy Invidious Channel Link: Copiar ligação do canal do Invidious
-  Open Channel in Invidious: Abrir Canal no Invidious
+  Open Channel in Invidious: Abrir canal no Invidious
   Copy YouTube Channel Link: Copiar ligação do canal do YouTube
-  Open Channel in YouTube: Abrir Canal no YouTube
+  Open Channel in YouTube: Abrir canal no YouTube
   Video has been removed from your saved list: Vídeo removido da sua lista
   Video has been saved: Vídeo guardado
-  Save Video: Guardar Vídeo
+  Save Video: Guardar vídeo
   Premieres on: Estreia a
   Stats:
     video id: Video ID (YouTube)
@@ -608,7 +621,7 @@ Video:
     frame drop: Fotogramas ignorados
     bandwidth: Velocidade da conexão
     out of: de
-    player resolution: Janela de exibição
+    player resolution: Janela de visualização
     buffered: Buffered
 Videos:
   #& Sort By
@@ -619,7 +632,7 @@ Videos:
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: 'Ver Lista de Reprodução Completa'
+  View Full Playlist: 'Ver lista de reprodução completa'
   Videos: 'Vídeos'
   View: 'Visualização'
   Views: 'Visualizaões'
@@ -634,24 +647,24 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
-  Playlist: Lista de Reprodução
-Toggle Theatre Mode: 'Alternar Modo Cinema'
+  Playlist: Lista de reprodução
+Toggle Theatre Mode: 'Alternar modo cinema'
 Change Format:
-  Change Video Formats: 'Mudar Formatos do Vídeo'
+  Change Video Formats: 'Mudar formatos do vídeo'
   Use Dash Formats: 'Utilizar formatos DASH'
-  Use Legacy Formats: 'Utilizar Formatos Antigos'
-  Use Audio Formats: 'Utilizar Formatos de Áudio'
-  Dash formats are not available for this video: 'Formatos DASH não disponíveis para
-    este vídeo'
-  Audio formats are not available for this video: 'Formato áudio não disponível para
-    este vídeo'
+  Use Legacy Formats: 'Utilizar formatos antigos'
+  Use Audio Formats: 'Utilizar formatos de áudio'
+  Dash formats are not available for this video: 'Os formatos DASH não estão disponíveis
+    para este vídeo'
+  Audio formats are not available for this video: 'Os formatos de áudio não estão
+    disponíveis para este vídeo'
 Share:
-  Share Video: 'Partilhar Vídeo'
-  Include Timestamp: 'Incluir Marcação de Tempo'
+  Share Video: 'Partilhar vídeo'
+  Include Timestamp: 'Incluir marcação de tempo'
   Copy Link: 'Copiar ligação'
   Open Link: 'Abrir ligação'
-  Copy Embed: 'Copiar Embutido'
-  Open Embed: 'Abrir Embutido'
+  Copy Embed: 'Copiar embutido'
+  Open Embed: 'Abrir embutido'
   # On Click
   Invidious URL copied to clipboard: 'URL Invidious copiado para área de transferência'
   Invidious Embed URL copied to clipboard: 'URL Invidious embutido copiado para área
@@ -661,23 +674,23 @@ Share:
     de transferência'
   YouTube Channel URL copied to clipboard: URL do canal do YouTube copiado para a
     área de transferência
-  Invidious Channel URL copied to clipboard: URL do Canal Invidious copiado para área
+  Invidious Channel URL copied to clipboard: URL do canal Invidious copiado para área
     de transferência
-Mini Player: 'Mini Leitor'
+Mini Player: 'Mini-leitor'
 Comments:
   Comments: 'Comentários'
-  Click to View Comments: 'Clicar para Ver Comentários'
+  Click to View Comments: 'Clicar para ver comentários'
   Getting comment replies, please wait: 'A receber respostas ao comentário, por favor
     aguarde'
-  Show Comments: 'Mostrar Comentários'
-  Hide Comments: 'Esconder Comentários'
+  Show Comments: 'Mostrar comentários'
+  Hide Comments: 'Esconder comentários'
   # Context: View 10 Replies, View 1 Reply
   View: 'Mostrar'
   Hide: 'Esconder'
   Replies: 'Respostas'
   Reply: 'Resposta'
   There are no comments available for this video: 'Este vídeo não contém nenhum comentário'
-  Load More Comments: 'Carregar Mais Comentários'
+  Load More Comments: 'Carregar mais comentários'
   There are no more comments for this video: Não há mais comentários neste vídeo
   No more comments available: Não existem mais comentários
   Show More Replies: Mostrar mais respostas
@@ -687,7 +700,7 @@ Comments:
   Pinned by: Fixado por
   And others: e outros
   From $channelName: de $channelName
-Up Next: 'A Seguir'
+Up Next: 'Próximo'
 
 # Toast Messages
 Local API Error (Click to copy): 'API local encontrou um erro (Clique para copiar)'
@@ -701,8 +714,8 @@ Loop is now enabled: 'Reprodução cíclica ativada'
 Shuffle is now disabled: 'Reprodução aleatória desativada'
 Shuffle is now enabled: 'Reprodução aleatória ativada'
 The playlist has been reversed: 'A lista de reprodução foi invertida'
-Playing Next Video: 'A Reproduzir o Vídeo Seguinte'
-Playing Previous Video: 'A Reproduzir o Vídeo Anterior'
+Playing Next Video: 'A reproduzir o vídeo seguinte'
+Playing Previous Video: 'A reproduzir o vídeo anterior'
 Playing next video in 5 seconds.  Click to cancel: 'A reproduzir o próximo vídeo em
   5 segundos. Clique para cancelar.'
 Canceled next video autoplay: 'Reprodução automática cancelada'
@@ -718,8 +731,8 @@ Default Invidious instance has been set to $: Servidor Invidious $ foi estabelec
   como predefenição
 Playing Next Video Interval: A reproduzir o vídeo seguinte imediatamente. Clique para
   cancelar. | A reproduzir o vídeo seguinte em {nextVideoInterval} segundo. Clique
-  para cancelar. | A reproduzir o vídeo seguint em {nextVideoInterval} segundos. Clique
-  para cancelar.
+  para cancelar. | A reproduzir o vídeo seguinte em {nextVideoInterval} segundos.
+  Clique para cancelar.
 Hashtags have not yet been implemented, try again later: As 'hashtags' ainda não foram
   implementadas, tente mais tarde
 Unknown YouTube url type, cannot be opened in app: Tipo de URL do YouTube desconhecido,
@@ -744,9 +757,8 @@ Tooltips:
     Custom External Player Executable: Por omissão, o FreeTube assume que o leitor
       externo escolhido pode ser encontrado através da variável PATH. Se for preciso,
       um caminho personalizado pode ser escolhido aqui.
-    External Player: Escolher um leitor externo irá fazer um ícone, para abrir o vídeo
-      (lista de reprodução se possível) nesse leitor, aparecer nas antevisões dos
-      vídeos.
+    External Player: Escolher um leitor externo irá mostrar um ícone na miniatura
+      do vídeo, para abrir o vídeo (lista de reprodução se possível) nesse leitor.
     DefaultCustomArgumentsTemplate: "(padrão: '$')"
   Player Settings:
     Default Video Format: Define os formatos usados quando um vídeo é reproduzido.
@@ -760,11 +772,11 @@ Tooltips:
       buscar os formatos antigos, invés daqueles devolvidos pelo Invidious. Útil quando
       os vídeos dados pelo Invidious não funcionam devido a restrições geográficas.
     Scroll Playback Rate Over Video Player: Com o cursor sobre o vídeo, pressione
-      e segure a tecla Control (tecla Command no Mac) e role a roda do rato para frente
-      ou para trás para controlar a taxa de reprodução. Pressione e segure a tecla
-      Control (tecla Command no Mac) e clique com o botão esquerdo do rato para retornar
-      rapidamente à taxa de reprodução padrão (1x a menos que tenha sido alterada
-      nas configurações).
+      e mantenha premida a tecla Control (tecla Command no Mac) e rode a roda do rato
+      para frente ou para trás para controlar a taxa de reprodução. Pressione e mantenha
+      premida a tecla Control (tecla Command no Mac) e clique com o botão esquerdo
+      do rato para voltar rapidamente à taxa de reprodução padrão (1x a não ser que
+      tenha sido alterada nas configurações).
   General Settings:
     Region for Trending: A região de tendências permite-lhe escolher de que país virão
       os vídeos na secção das tendências. Nem todos os países apresentados estão de
@@ -787,3 +799,6 @@ Search Bar:
 Are you sure you want to open this link?: Quer mesmo abrir esta ligação?
 External link opening has been disabled in the general settings: A abertura da ligação
   externa foi desativada nas configurações gerais
+Starting download: A descarregar "$"
+Downloading failed: Ouve um problema ao descarregar "$"
+Downloading has completed: '"$" foi descarregado'
