@@ -289,6 +289,11 @@ Settings:
     One or more subscriptions were unable to be imported: 一个或者更多订阅无法被导入
     Check for Legacy Subscriptions: 检查传统订阅
     Manage Subscriptions: 管理订阅
+    Import Playlists: 导入播放列表
+    Export Playlists: 导出播放列表
+    Playlist insufficient data: '"$" 播放列表数据不足，正在跳过'
+    All playlists has been successfully imported: 已成功导入所有播放列表
+    All playlists has been successfully exported: 所有播放列表已成功导出
   Distraction Free Settings:
     Hide Popular Videos: 隐藏流行视频
     Hide Trending Videos: 隐藏热门视频
