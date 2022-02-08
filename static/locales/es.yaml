@@ -355,7 +355,7 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL de la API de
       SponsorBlock (por defecto es https://sponsor.ajay.app)
     Enable SponsorBlock: Activar SponsorBlock
-    SponsorBlock Settings: SponsorBlock
+    SponsorBlock Settings: Ajustes de SponsorBlock
   External Player Settings:
     Custom External Player Arguments: Argumentos adicionales del reproductor
     Custom External Player Executable: Ruta alternativa del ejecutable del reproductor
@@ -364,6 +364,8 @@ Settings:
     External Player Settings: Ajustes del reproductor externo
   Download Settings:
     Download Settings: Configuración de descarga
+    Ask Download Path: Preguntar ruta de descarga
+    Choose Path: Elegir ruta
 About:
   #On About page
   About: 'Acerca de'
@@ -803,3 +805,5 @@ External link opening has been disabled in the general settings: Se ha desactiva
 Are you sure you want to open this link?: ¿Estás seguro/a de que quieres abrir este
   enlace?
 Starting download: Inicio de la descarga de «$»
+Downloading has completed: '"$" ha terminado de descargarse'
+Downloading failed: Hubo un problema al descargar "$"
