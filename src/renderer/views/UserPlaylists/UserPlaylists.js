@@ -52,7 +52,7 @@ export default Vue.extend({
         // This is kinda ugly, but should fix a few existing issues
         setTimeout(() => {
           window.scrollTo(0, scrollPos)
-        }, 100)
+        }, 200)
       }, 100)
     }
   },
