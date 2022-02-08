@@ -307,6 +307,12 @@ Settings:
     Unknown data key: 'Óþekktur gagnalykill'
     How do I import my subscriptions?: 'Hvernig flyt ég inn áskriftirnar mínar?'
     Manage Subscriptions: 'Sýsla með áskriftir'
+    Import Playlists: Flytja inn spilunarlista
+    Export Playlists: Flytja út spilunarlista
+    Playlist insufficient data: Ónóg gögn fyrir "$" spilunarlista, sleppi atriðinu
+    All playlists has been successfully imported: Tekist hefur að flytja inn alla
+      spilunarlista
+    All playlists has been successfully exported: Tekist hefur að flytja út alla spilunarlista
   Proxy Settings:
     Proxy Settings: 'Stillingar milliþjóns (proxy)'
     Enable Tor / Proxy: 'Virkja Tor / milliþjón'
