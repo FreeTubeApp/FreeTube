@@ -71,6 +71,8 @@
           <img
             v-if="comment.isMember"
             :src="comment.memberIconUrl"
+            :title="$t('Comments.Member')"
+            :aria-label="$t('Comments.Member')"
             class="commentMemberIcon"
             alt=""
           >
