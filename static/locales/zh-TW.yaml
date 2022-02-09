@@ -290,6 +290,11 @@ Settings:
     One or more subscriptions were unable to be imported: 一個或者更多訂閱無法被匯入
     Check for Legacy Subscriptions: 檢查舊版訂閱
     Manage Subscriptions: 管理訂閱
+    Import Playlists: 匯入播放清單
+    All playlists has been successfully imported: 所有播放清單都已成功匯入
+    Export Playlists: 匯出播放清單
+    Playlist insufficient data: 「$」播放清單的資料不足，正在略過項目
+    All playlists has been successfully exported: 所有播放清單都已成功匯出
   Distraction Free Settings:
     Hide Video Likes And Dislikes: 隱藏影片喜歡與不喜歡
     Distraction Free Settings: 勿擾設定
@@ -329,6 +334,10 @@ Settings:
     Ignore Unsupported Action Warnings: 忽略不支援的動作警告
     External Player: 外部播放程式
     External Player Settings: 外部播放程式設定
+  Download Settings:
+    Download Settings: 下載設定
+    Ask Download Path: 詢問下載路徑
+    Choose Path: 選擇路徑
 About:
   #On About page
   About: '關於'
@@ -706,3 +715,6 @@ Search Bar:
   Clear Input: 清除輸入
 External link opening has been disabled in the general settings: 已在一般設定中停用外部連結開啟
 Are you sure you want to open this link?: 您確定您想要開啟此連結嗎？
+Downloading failed: 下載「$」時發生問題
+Downloading has completed: 「$」已下載結束
+Starting download: 正在開始下載「$」
