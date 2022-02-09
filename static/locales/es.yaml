@@ -84,7 +84,7 @@ Trending:
   Gaming: Videojuegos
   Music: Música
 Most Popular: 'Más populares'
-Playlists: 'Playlists'
+Playlists: 'Favoritos'
 User Playlists:
   Your Playlists: 'Tus listas de reproducción'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Tus
@@ -103,7 +103,7 @@ Settings:
   # On Settings Page
   Settings: 'Ajustes'
   General Settings:
-    General Settings: 'Ajustes generales'
+    General Settings: 'General'
     Fallback to Non-Preferred Backend on Failure: 'Usar motor API secundario en caso
       de fallo'
     Enable Search Suggestions: 'Activar sugerencias de búsqueda'
@@ -187,7 +187,7 @@ Settings:
     Disable Smooth Scrolling: Desactivar desplazamiento suave
     Hide Side Bar Labels: Ocultar las etiquetas de la barra lateral
   Player Settings:
-    Player Settings: 'Ajustes del reproductor'
+    Player Settings: 'Reproductor FreeTube'
     Force Local Backend for Legacy Formats: 'Forzar API local para formato «Legacy»'
     Play Next Video: 'Reproducción continua'
     Turn on Subtitles by Default: 'Activar subtítulos por defecto'
@@ -355,15 +355,15 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL de la API de
       SponsorBlock (por defecto es https://sponsor.ajay.app)
     Enable SponsorBlock: Activar SponsorBlock
-    SponsorBlock Settings: Ajustes de SponsorBlock
+    SponsorBlock Settings: SponsorBlock
   External Player Settings:
     Custom External Player Arguments: Argumentos adicionales del reproductor
     Custom External Player Executable: Ruta alternativa del ejecutable del reproductor
     Ignore Unsupported Action Warnings: Omitir advertencias sobre acciones no soportadas
     External Player: Reproductor externo
-    External Player Settings: Ajustes del reproductor externo
+    External Player Settings: Reproductor externo
   Download Settings:
-    Download Settings: Configuración de descarga
+    Download Settings: Descargas
     Ask Download Path: Preguntar ruta de descarga
     Choose Path: Elegir ruta
 About:
