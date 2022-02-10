@@ -47,13 +47,12 @@ export default Vue.extend({
     activeData() {
       const scrollPos = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
       this.isLoading = true
-      setTimeout(() => {
+      Vue.nextTick(() => {
         this.isLoading = false
-        // This is kinda ugly, but should fix a few existing issues
-        setTimeout(() => {
+        Vue.nextTick(() => {
           window.scrollTo(0, scrollPos)
-        }, 200)
-      }, 100)
+        })
+      })
     }
   },
   mounted: function () {
