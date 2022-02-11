@@ -287,6 +287,12 @@ Settings:
     How do I import my subscriptions?: 'Kuidas ma saan oma tellimusi importida?'
     Manage Subscriptions: Halda tellimusi
     Check for Legacy Subscriptions: Kontrolli pärandvormingus tellimuste olemasolu
+    Export Playlists: Ekspordi esitusloendeid
+    All playlists has been successfully imported: Kõikide esitusloendite import õnnestus
+    All playlists has been successfully exported: Kõikide esitusloendite eksport õnnestus
+    Import Playlists: Impordi esitusloendeid
+    Playlist insufficient data: „$“ esitusloendi kohta pole piisavalt andmeid, jätame
+      vahele
   Advanced Settings:
     Advanced Settings: ''
     Enable Debug Mode (Prints data to the console): ''
