@@ -5,6 +5,7 @@ import FtSelect from '../ft-select/ft-select.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
+import i18n from '../../i18n/index.js'
 
 export default Vue.extend({
   name: 'ExternalPlayerSettings',
@@ -24,7 +25,7 @@ export default Vue.extend({
     },
 
     externalPlayerNames: function () {
-      return this.$store.getters.getExternalPlayerNames
+      return this.$store.getters.getExternalPlayerNames.map((value) => i18n.t(value))
     },
     externalPlayerValues: function () {
       return this.$store.getters.getExternalPlayerValues
