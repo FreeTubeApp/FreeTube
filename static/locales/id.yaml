@@ -152,6 +152,7 @@ Settings:
       adalah $
     No default instance has been set: Tidak ada instans default yang disetel
     Set Current Instance as Default: Tetapkan Instans Saat Ini sebagai Default
+    Clear Default Instance: Hapus Instans Default
   Theme Settings:
     Theme Settings: 'Pengaturan Tema'
     Match Top Bar with Main Color: 'Samakan Bilah Atas dengan Warna Utama'
@@ -160,7 +161,7 @@ Settings:
       Black: 'Hitam'
       Dark: 'Gelap'
       Light: 'Terang'
-      Dracula: 'Dracula'
+      Dracula: 'Drakula'
     Main Color Theme:
       Main Color Theme: 'Tema Warna Utama'
       Red: 'Merah'
@@ -225,6 +226,8 @@ Settings:
     Display Play Button In Video Player: Tampilkan Tombol Putar di Dalam Pemutar Video
     Scroll Volume Over Video Player: Gulir Volume di Atas Pemutar Video
     Fast-Forward / Rewind Interval: Interval Fast-Forward / Rewind
+    Scroll Playback Rate Over Video Player: Scroll Tingkat Pemutaran Di Atas Pemutar
+      Video
   Privacy Settings:
     Privacy Settings: 'Pengaturan Privasi'
     Remember History: 'Ingat Riwayat'
@@ -286,6 +289,12 @@ Settings:
     How do I import my subscriptions?: 'Bagaimana saya mengimpor langganan saya?'
     Check for Legacy Subscriptions: Periksa Langganan Lawas
     Manage Subscriptions: Kelola Langganan
+    Import Playlists: Impor Playlist
+    Export Playlists: Ekspor Playlist
+    Playlist insufficient data: Data tidak mencukupi untuk "$" playlist, melewatkan
+      item
+    All playlists has been successfully imported: Semua playlist berhasil diimpor
+    All playlists has been successfully exported: Semua playlist berhasil diekspor
   Advanced Settings:
     Advanced Settings: 'Pengaturan Lanjutan'
     Enable Debug Mode (Prints data to the console): 'Aktifkan Mode Debug (Menampilkan
@@ -355,6 +364,10 @@ Settings:
     Ignore Unsupported Action Warnings: Abaikan Peringatan Tindakan yang Tidak Didukung
     External Player: Pemutar Eksternal
     External Player Settings: Pengaturan Pemutar Eksternal
+  Download Settings:
+    Ask Download Path: Minta jalur unduhan
+    Download Settings: Pengaturan Unduh
+    Choose Path: Pilih Tempat
 About:
   #On About page
   About: 'Ihwal'
@@ -605,6 +618,10 @@ Video:
     volume: Volume
     fps: FPS
     video id: ID Video (YouTube)
+    frame drop: Frame Drop
+    buffered: Buffered
+    player resolution: Area pandang
+    out of: keluar dari
 Videos:
   #& Sort By
   Sort By:
@@ -723,6 +740,11 @@ Tooltips:
       format lama yang dihasilkan oleh API lokal daripada yang dihasilkan oleh API
       Invidious. Membantu saat video yang ditampilkan oleh Invidious tidak bisa diputar
       karena dibatasi oleh wilayah pemutaran.
+    Scroll Playback Rate Over Video Player: Ketika kursor berada di atas video, tekan
+      dan tahan tombol Control (tombol Command di Mac) dan scroll roda mouse ke depan
+      atau ke belakang untuk mengontrol laju pemutaran. Tekan dan tahan tombol Control
+      (tombol Command di Mac) dan klik kiri mouse untuk dengan cepat kembali ke laju
+      pemutaran default (1x kecuali telah diubah dalam pengaturan).
   General Settings:
     Region for Trending: Wilayah tren memungkinkan Anda memilih video yang sedang
       ngetren dari negara tersebut untuk ditampilkan. Tidak semua daftar negara didukung
@@ -737,6 +759,9 @@ Tooltips:
     Preferred API Backend: Pilih layanan yang digunakan oleh FreeTube untuk mengambil
       data. API lokal adalah ekstraktor bawaan. API Invidious membutuhkan sambungan
       ke server Invidious.
+    External Link Handling: "Pilih perilaku default ketika tautan, yang tidak dapat\
+      \ dibuka di FreeTube, diklik.\nSecara default FreeTube akan membuka tautan yang\
+      \ diklik dengan browser default Anda.\n"
   Privacy Settings:
     Remove Video Meta Files: Saat diaktifkan, FreeTube secara otomatis menghapus file
       meta yang dibuat selama pemutaran video, saat halaman tonton ditutup.
@@ -762,10 +787,13 @@ Unknown YouTube url type, cannot be opened in app: Tipe URL YouTube tidak dikena
   tidak bisa dibuka di aplikasi
 Open New Window: Buka Jendela Baru
 Search Bar:
-  Clear Input: Bersihkan input
+  Clear Input: Hapus input
 External link opening has been disabled in the general settings: Pembukaan link eksternal
   telah dimatikan pada pengaturan umum
 Are you sure you want to open this link?: Yakin ingin membuka link ini?
 Default Invidious instance has been set to $: Situs Invidious baku telah di atur ke
   $
 Default Invidious instance has been cleared: Situs Invidious baku telah dikosongkan
+Downloading has completed: '"$" telah selesai diunduh'
+Starting download: Mulai mengunduh "$"
+Downloading failed: Ada masalah mengunduh "$"
