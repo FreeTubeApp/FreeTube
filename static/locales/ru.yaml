@@ -111,13 +111,13 @@ Settings:
       в случае сбоя'
     Enable Search Suggestions: 'Включить поисковые предложения'
     Default Landing Page: 'Целевая страница по умолчанию'
-    Locale Preference: 'Локальные предпочтения'
+    Locale Preference: 'Язык'
     Preferred API Backend:
       Preferred API Backend: 'Предпочитаемый API бэкэнд'
       Local API: 'Локальный API'
-      Invidious API: 'Посредник API'
+      Invidious API: 'Invidious API'
     Video View Type:
-      Video View Type: 'Тип просмотра видео'
+      Video View Type: 'Тип отображения видео'
       Grid: 'Сетка'
       List: 'Список'
     Thumbnail Preference:
@@ -318,6 +318,10 @@ Settings:
       одну или несколько подписок
     Check for Legacy Subscriptions: Проверить устаревшие подписки
     Manage Subscriptions: Управление подписками
+    Import Playlists: Импорт плейлистов
+    All playlists has been successfully exported: Все плейлисты успешно экспортированы
+    Export Playlists: Экспорт плейлистов
+    All playlists has been successfully imported: Все плейлисты успешно импортированы
   Distraction Free Settings:
     Hide Live Chat: Скрыть Live чат
     Hide Popular Videos: Скрыть популярные видео
@@ -364,7 +368,7 @@ Settings:
     External Player: Внешний проигрыватель
     External Player Settings: Настройки внешнего проигрывателя
   Download Settings:
-    Download Settings: Загрузка Настроек
+    Download Settings: Настройки загрузки
     Ask Download Path: Запрашивать путь загрузки
     Choose Path: Выберите Путь
 About:
@@ -468,7 +472,7 @@ Video:
   Open in Invidious: 'Открыть в Invidious'
   Copy Invidious Link: 'Скопировать ссылку Invidious'
   View: 'Вид'
-  Views: 'Просмотры'
+  Views: 'Просмотров'
   # Context is "X People Watching"
   Watching: 'Смотреть'
   Watched: 'Просмотрено'
