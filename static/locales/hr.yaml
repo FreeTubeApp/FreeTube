@@ -316,6 +316,11 @@ Settings:
       pretplata
     Check for Legacy Subscriptions: Potraži stare pretplate
     Manage Subscriptions: Upravljaj pretplatama
+    Import Playlists: Uvezi zbirke
+    Export Playlists: Izvezi zbirke
+    Playlist insufficient data: Nedovoljno podataka za „$” zbirku, element se preskače
+    All playlists has been successfully imported: Sve zbirke su uspješno uvezene
+    All playlists has been successfully exported: Sve zbirke su uspješno izvezene
   Distraction Free Settings:
     Hide Trending Videos: Sakrij videa u trendu
     Hide Recommended Videos: Sakrij preporučena videa
@@ -358,6 +363,10 @@ Settings:
     Ignore Unsupported Action Warnings: Zanemari upozorenja o nepodržanim radnjama
     External Player: Vanjski player
     External Player Settings: Postavke vanjskog playera
+  Download Settings:
+    Choose Path: Odaberi stazu
+    Download Settings: Postavke preuzimanja
+    Ask Download Path: Zatraži stazu preuzimanja
 About:
   #On About page
   About: 'Informacije'
@@ -793,3 +802,6 @@ External link opening has been disabled in the general settings: Vanjsko otvaran
 Search Bar:
   Clear Input: Izbriši unos
 Are you sure you want to open this link?: Stvarno želiš otvoriti ovu poveznicu?
+Downloading failed: Došlo je do problema prilikom preuzimanja „$”
+Downloading has completed: „$” je preuzeto
+Starting download: Početak preuzimanja „$”
