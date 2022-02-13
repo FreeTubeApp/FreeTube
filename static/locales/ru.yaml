@@ -130,8 +130,8 @@ Settings:
       (по умолчанию https://invidious.snopyta.org)'
     Region for Trending: 'Регион для трендов'
         #! List countries
-    Check for Latest Blog Posts: Проверить последние сообщения в блоге
-    Check for Updates: Проверить наличие обновлений
+    Check for Latest Blog Posts: Проверять последние сообщения в блоге
+    Check for Updates: Проверять наличие обновлений
     View all Invidious instance information: Показать все доступные экземпляры Invidious
     System Default: Системные установки по умолчанию
     Clear Default Instance: Очистить экземпляр по умолчанию
