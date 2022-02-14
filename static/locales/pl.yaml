@@ -291,8 +291,8 @@ Settings:
       pomyślnie wyeksportowana
     All watched history has been successfully imported: Cała historia oglądania została
       pomyślnie zaimportowana
-    History object has insufficient data, skipping item: Obiekt historii ma niewystarczające
-      dane, pomijam element
+    History object has insufficient data, skipping item: Obiekt historii ma niewystarczającą
+      ilość danych, pomijam element
     Subscriptions have been successfully exported: Subskrypcje zostały z powodzeniem
       wyeksportowane
     Invalid history file: Nieprawidłowy plik historii
@@ -302,8 +302,8 @@ Settings:
       z powodzeniem zaimportowane
     All subscriptions and profiles have been successfully imported: Wszystkie subskrypcje
       i profile zostały z powodzeniem zaimportowane
-    Profile object has insufficient data, skipping item: Obiekt profilu ma niewystarczające
-      dane, pomijam element
+    Profile object has insufficient data, skipping item: Obiekt profilu ma niewystarczającą
+      ilość danych, pomijam element
     Export History: Wyeksportuj historię
     Import History: Zaimportuj historię
     Export FreeTube: Eksport do FreeTube
@@ -321,6 +321,12 @@ Settings:
       co najmniej jednej subskrypcji
     Check for Legacy Subscriptions: Sprawdź subskrypcje ze starej wersji
     Manage Subscriptions: Zarządzaj subskrypcjami
+    Export Playlists: Wyeksportuj playlisty
+    All playlists has been successfully exported: Wszystkie playlisty pomyślnie wyeksportowano
+    Playlist insufficient data: Niewystarczająca ilość danych dla playlisty "$", pomijam
+      element
+    Import Playlists: Zaimportuj playlisty
+    All playlists has been successfully imported: Wszystkie playlisty pomyślnie zaimportowano
   Distraction Free Settings:
     Distraction Free Settings: Ustawienia skupienia uwagi
     Hide Live Chat: Schowaj czat na żywo
