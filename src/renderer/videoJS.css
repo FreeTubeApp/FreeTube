@@ -2136,7 +2136,8 @@ video::-webkit-media-text-track-display {
 .video-js .vjs-vtt-thumbnail-display {
     position: absolute;
     transition: transform .1s, opacity .2s;
-    bottom:56px;
+    /* `bottom` was 20px, to avoid obstruction by time tooltip updated to current value */
+    bottom: 56px;
     pointer-events: none;
     box-shadow: 0 0 7px rgba(0,0,0,.6);
     z-index: 3;
