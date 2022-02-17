@@ -284,6 +284,7 @@ Settings:
     All playlists has been successfully imported: כל הפלייליסטים יובאו בהצלחה
     Export Playlists: ייצוא פלייליסטים
     Import Playlists: ייבוא פלייליסטים
+    Playlist insufficient data: אין מספיק נתונים לרשימת הנגינה „$”, הפריט ידולג
   Advanced Settings:
     Advanced Settings: 'הגדרות מתקדמות'
     Enable Debug Mode (Prints data to the console): 'הפעל מצב Debug ( מציג נתונים
@@ -606,6 +607,9 @@ Video:
     bandwidth: מהירות החיבור
     out of: מתוך
     volume: עוצמת שמע
+    buffered: בזיכרון
+    frame drop: השמטת תמוניות
+    fps: תמוניות לשנייה
 Videos:
   #& Sort By
   Sort By:
@@ -675,6 +679,7 @@ Comments:
   Show More Replies: הצגת תגובות נוספות
   From $channelName: מערוץ $channelName
   And others: ואחרים
+  Pinned by: ננעץ על ידי
 Up Next: 'הסרטון הבא'
 
 # Toast Messages
