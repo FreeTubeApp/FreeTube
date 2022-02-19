@@ -114,11 +114,30 @@ class Playlists {
   }
 }
 
+class ChannelBlocker {
+  static find(query) {
+    return baseHandlers.channelblocker.find(query)
+  }
+
+  static upsert(channel) {
+    return baseHandlers.channelblocker.upsert(channel)
+  }
+
+  static delete(id) {
+    return baseHandlers.channelblocker.delete(id)
+  }
+
+  static persist() {
+    baseHandlers.channelblocker.persist()
+  }
+}
+
 const handlers = {
   settings: Settings,
   history: History,
   profiles: Profiles,
-  playlists: Playlists
+  playlists: Playlists,
+  channelblocker: ChannelBlocker
 }
 
 export default handlers

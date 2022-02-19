@@ -624,6 +624,46 @@ function runApp() {
   })
 
   // *********** //
+  // ChannelBlocker
+  ipcMain.handle(IpcChannels.DB_CHANNELBLOCKER, async (event, { action, data }) => {
+    try {
+      switch (action) {
+        case DBActions.GENERAL.FIND:
+          return await baseHandlers.channelblocker.find(data)
+
+        case DBActions.GENERAL.UPSERT:
+          await baseHandlers.channelblocker.upsert(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_CHANNELBLOCKER,
+            event,
+            { event: SyncEvents.CHANNELBLOCKER.UPSERT_CHANNEL, data }
+          )
+          return null
+
+        case DBActions.GENERAL.DELETE:
+          await baseHandlers.channelblocker.delete(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_CHANNELBLOCKER,
+            event,
+            { event: SyncEvents.CHANNELBLOCKER.DELETE_CHANNEL, data }
+          )
+          return null
+
+        case DBActions.GENERAL.PERSIST:
+          baseHandlers.channelblocker.persist()
+          return null
+
+        default:
+          // eslint-disable-next-line no-throw-literal
+          throw 'invalid channelblocker db action'
+      }
+    } catch (err) {
+      if (typeof err === 'string') throw err
+      else throw err.toString()
+    }
+  })
+
+  // *********** //
 
   function syncOtherWindows(channel, event, payload) {
     const otherWindows = BrowserWindow.getAllWindows().filter((window) => {

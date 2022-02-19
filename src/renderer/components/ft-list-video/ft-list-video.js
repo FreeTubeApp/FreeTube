@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import FtListVideoChannelBlockerEvents from './ft-list-video-channel-blocker-event.js'
 import { mapActions } from 'vuex'
 
 export default Vue.extend({
@@ -60,6 +61,7 @@ export default Vue.extend({
       isUpcoming: false,
       isPremium: false,
       hideViews: false,
+      channelBlocked: false,
       optionsValues: [
         'history',
         'openYoutube',
@@ -71,13 +73,18 @@ export default Vue.extend({
         'openYoutubeChannel',
         'copyYoutubeChannel',
         'openInvidiousChannel',
-        'copyInvidiousChannel'
+        'copyInvidiousChannel',
+        'handleChannelBlocking'
       ]
     }
   },
   computed: {
     historyCache: function () {
       return this.$store.getters.getHistoryCache
+    },
+
+    channelBlockerCache: function () {
+      return this.$store.getters.getChannelBlockerCache
     },
 
     listType: function () {
@@ -150,6 +157,14 @@ export default Vue.extend({
         names.unshift(this.$t('Video.Mark As Watched'))
       }
 
+      if (this.useChannelBlocker) {
+        if (this.channelBlocked) {
+          names.push(this.$t('Video.Unblock Channel'))
+        } else {
+          names.push(this.$t('Video.Block Channel'))
+        }
+      }
+
       return names
     },
 
@@ -206,6 +221,10 @@ export default Vue.extend({
 
     saveWatchedProgress: function () {
       return this.$store.getters.getSaveWatchedProgress
+    },
+
+    useChannelBlocker: function () {
+      return this.$store.getters.getUseChannelBlocker
     }
   },
   watch: {
@@ -217,6 +236,12 @@ export default Vue.extend({
   mounted: function () {
     this.parseVideoData()
     this.checkIfWatched()
+    this.checkIfChannelBlocked()
+    FtListVideoChannelBlockerEvents.$on('cbUpdateChannel', newChannelId => {
+      if (this.channelId === newChannelId) {
+        this.checkIfChannelBlocked()
+      }
+    })
   },
   methods: {
     handleExternalPlayer: function () {
@@ -303,6 +328,9 @@ export default Vue.extend({
           break
         case 'openInvidiousChannel':
           this.openExternalLink(this.invidiousChannelUrl)
+          break
+        case 'handleChannelBlocking':
+          this.toggleBlockedChannel()
           break
       }
     },
@@ -488,6 +516,106 @@ export default Vue.extend({
       })
     },
 
+    avoidChannelBlockerByURI: function () {
+      // Won't hide:
+      //  Subscriptions (#/subscriptions)
+      //  Channel page (#/channel/UCuAXFkgsw1L7xaCfnd5JJOw)
+      //  Your playlists (#/useplaylists)
+      //  History (#/history)
+      const match = window.location.hash.match(/^#\/(subscriptions|channel|userplaylists|history)/)
+      if (match === null) {
+        return false
+      }
+      return true
+    },
+
+    checkIfChannelBlocked: function () {
+      if (!this.useChannelBlocker) {
+        return
+      }
+
+      const channelIndex = this.channelBlockerCache.findIndex((item) => {
+        return item._id === this.channelId
+      })
+
+      if (channelIndex !== -1) {
+        this.channelBlocked = true
+        if (!this.avoidChannelBlockerByURI()) {
+          this.channelBlockerHide()
+        }
+      } else {
+        this.channelBlocked = false
+        this.channelBlockerUnhide()
+      }
+    },
+
+    toggleBlockedChannel: function() {
+      this.channelBlockerIsBlockedById(this.channelId).then(isBlocked => {
+        if (isBlocked) {
+          this.removeChannelFromBlacklist()
+          this.channelBlockerUnhide()
+        } else {
+          this.addChannelToBlacklist()
+          if (!this.avoidChannelBlockerByURI()) {
+            this.channelBlockerHide()
+          }
+        }
+        FtListVideoChannelBlockerEvents.$emit('cbUpdateChannel', this.channelId)
+      }).catch(err => {
+        console.error(err)
+      })
+    },
+
+    addChannelToBlacklist: function () {
+      const channel = {
+        _id: this.channelId,
+        name: this.channelName
+      }
+      this.channelBlockerAddChannel(channel).then(_ => {
+        this.channelBlocked = true
+        this.showToast({
+          message: `"${this.channelName}" ${this.$t('Video.Channel has been added to the block list')}`
+        })
+      }).catch(err => {
+        console.error(err)
+      })
+    },
+
+    removeChannelFromBlacklist: function () {
+      this.channelBlockerRemoveChannelById(this.channelId).then(_ => {
+        this.compactBlockedChannels()
+        this.channelBlocked = false
+        this.showToast({
+          message: `"${this.channelName}" ${this.$t('Video.Channel has been removed from the block list')}`
+        })
+      }).catch(err => {
+        console.error(err)
+      })
+    },
+
+    channelBlockerHide: function () {
+      // Ignore: .watchPlaylistItem
+      // Hide self: .recommendation ("Up Next")
+      // Hide parent: .results (search etc.)
+      const element = this.$el
+      if (element.classList.contains('recommendation')) {
+        element.classList.add('cb-hidden')
+      } else if (element.classList.contains('result')) {
+        element.parentElement.classList.add('cb-hidden')
+      }
+    },
+
+    channelBlockerUnhide: function () {
+      const element = this.$el
+      if (element === null)
+        return
+      if (element.classList.contains('recommendation')) {
+        this.$el.classList.remove('cb-hidden')
+      } else if (element.classList.contains('result')) {
+        this.$el.parentElement.classList.remove('cb-hidden')
+      }
+    },
+
     ...mapActions([
       'showToast',
       'toLocalePublicationString',
@@ -496,7 +624,11 @@ export default Vue.extend({
       'removeFromHistory',
       'addVideo',
       'removeVideo',
-      'openExternalLink'
+      'openExternalLink',
+      'channelBlockerAddChannel',
+      'channelBlockerRemoveChannelById',
+      'channelBlockerIsBlockedById',
+      'compactBlockedChannels'
     ])
   }
 })

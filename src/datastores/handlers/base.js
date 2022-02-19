@@ -148,11 +148,34 @@ class Playlists {
   }
 }
 
+class ChannelBlocker {
+  static find(query) {
+    return db.channelblocker.find(query).sort({ name: 1 })
+  }
+
+  static upsert(channel) {
+    return db.channelblocker.update(
+      { _id: channel._id },
+      { $set: { _id: channel._id, name: channel.name } },
+      { upsert: true }
+    )
+  }
+
+  static delete(id) {
+    return db.channelblocker.remove({ _id: id })
+  }
+
+  static persist() {
+    db.channelblocker.persistence.compactDatafile()
+  }
+}
+
 const baseHandlers = {
   settings: Settings,
   history: History,
   profiles: Profiles,
-  playlists: Playlists
+  playlists: Playlists,
+  channelblocker: ChannelBlocker
 }
 
 export default baseHandlers

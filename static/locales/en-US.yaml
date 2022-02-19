@@ -336,6 +336,13 @@ Settings:
     Download Settings: Download Settings
     Ask Download Path: Ask for download path
     Choose Path: Choose Path
+  ChannelBlocker Settings:
+    ChannelBlocker Settings: ChannelBlocker Settings
+    Enable ChannelBlocker: Enable ChannelBlocker
+    Blocked Channels: Blocked Channels
+    Search bar placeholder: Search channels
+    Empty List: No channels blocked
+    Empty Search Result: No channels found
 About:
   #On About page
   About: About
@@ -459,6 +466,10 @@ Video:
   Copy YouTube Channel Link: Copy YouTube Channel Link
   Open Channel in Invidious: Open Channel in Invidious
   Copy Invidious Channel Link: Copy Invidious Channel Link
+  Block Channel: Block Channel
+  Unblock Channel: Unblock Channel
+  Channel has been added to the block list: has been added to the block list
+  Channel has been removed from the block list: has been removed from the block list
   View: View
   Views: Views
   Loop Playlist: Loop Playlist

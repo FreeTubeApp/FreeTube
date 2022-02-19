@@ -1,0 +1,35 @@
+.channelBlockerSettingsBlockedList {
+    display: grid;
+    margin: auto 1rem;
+    list-style: none;
+    padding-inline-start: 0;
+    max-height: 20rem;
+    overflow-y: scroll;
+    border: 2px solid var(--scrollbar-color-hover);
+    border-radius: 5px;
+  }
+  
+  .channelBlockerSettingsBlockedListItem {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0.5rem;
+  }
+  
+  .channelBlockerSettingsBlockedListItem:hover {
+    backdrop-filter: invert(0.1);
+  }
+  
+  .channelBlockerSettingsBlockedListButton {
+    color: OrangeRed;
+    cursor: pointer;
+  }
+  
+  .channelBlockerSettingsBlockedListName {
+    margin-left: 0.5rem;
+  }
+  
+  .channelBlockerSettingsBlockedListName a:link {
+    color: var(--secondary-text-color)
+  }
+  

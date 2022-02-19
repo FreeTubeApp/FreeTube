@@ -195,11 +195,42 @@ class Playlists {
   }
 }
 
+class ChannelBlocker {
+  static find(query) {
+    return ipcRenderer.invoke(
+      IpcChannels.DB_CHANNELBLOCKER,
+      { action: DBActions.GENERAL.FIND, data: query }
+    )
+  }
+
+  static upsert(channel) {
+    return ipcRenderer.invoke(
+      IpcChannels.DB_CHANNELBLOCKER,
+      { action: DBActions.GENERAL.UPSERT, data: channel }
+    )
+  }
+
+  static delete(id) {
+    return ipcRenderer.invoke(
+      IpcChannels.DB_CHANNELBLOCKER,
+      { action: DBActions.GENERAL.DELETE, data: id }
+    )
+  }
+
+  static persist() {
+    return ipcRenderer.invoke(
+      IpcChannels.DB_CHANNELBLOCKER,
+      { action: DBActions.GENERAL.PERSIST }
+    )
+  }
+}
+
 const handlers = {
   settings: Settings,
   history: History,
   profiles: Profiles,
-  playlists: Playlists
+  playlists: Playlists,
+  channelblocker: ChannelBlocker
 }
 
 export default handlers

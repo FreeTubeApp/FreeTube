@@ -21,6 +21,8 @@
     <download-settings v-if="usingElectron" />
     <hr>
     <sponsor-block-settings />
+    <hr>
+    <channel-blocker-settings />
   </div>
 </template>
 
