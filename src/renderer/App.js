@@ -189,8 +189,8 @@ export default Vue.extend({
     },
 
     updateTheme: function (theme) {
-      console.group("updateTheme")
-      console.log("Theme: ", theme)
+      console.group('updateTheme')
+      console.log('Theme: ', theme)
       const className = `${theme.baseTheme} main${theme.mainColor} sec${theme.secColor}`
       const body = document.getElementsByTagName('body')[0]
       body.className = className
@@ -478,7 +478,7 @@ export default Vue.extend({
       'setupListenersToSyncWindows',
       'updateBaseTheme',
       'updateMainColor',
-      'updateSecColor',
+      'updateSecColor'
     ])
   }
 })

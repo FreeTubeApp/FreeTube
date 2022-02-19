@@ -89,7 +89,7 @@ export default Vue.extend({
       if (this.expandSideBar) {
         this.toggleSideNav()
       }
-    }, 0);
+    }, 0)
 
     window.addEventListener('resize', function (event) {
       const width = event.srcElement.innerWidth

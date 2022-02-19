@@ -150,7 +150,7 @@ export default Vue.extend({
     this.disableSmoothScrollingToggleValue = this.disableSmoothScrolling
   },
   methods: {
-    handleExpandSideBar: function (value) {      
+    handleExpandSideBar: function (value) {  
       if (this.isSideNavOpen !== value) {
         this.$store.commit('toggleSideNav')
       }
