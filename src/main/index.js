@@ -25,7 +25,7 @@ function runApp() {
         label: 'Show Video Statistics',
         visible: parameters.mediaType === 'video',
         click: () => {
-          browserWindow.webContents.send('showVideoStatistics', 'show')
+          browserWindow.webContents.send('showVideoStatistics')
         }
       }
     ]
