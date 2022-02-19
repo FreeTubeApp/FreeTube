@@ -19,9 +19,6 @@ export default Vue.extend({
   },
   data: function () {
     return {
-      currentBaseTheme: '',
-      currentMainColor: '',
-      currentSecColor: '',
       minUiScale: 50,
       maxUiScale: 300,
       uiScaleStep: 5,
@@ -67,6 +64,18 @@ export default Vue.extend({
   computed: {
     barColor: function () {
       return this.$store.getters.getBarColor
+    },
+
+    baseTheme: function () {
+      return this.$store.getters.getBaseTheme
+    },
+
+    mainColor: function () {
+      return this.$store.getters.getMainColor
+    },
+
+    secColor: function () {
+      return this.$store.getters.getSecColor
     },
 
     isSideNavOpen: function () {
@@ -138,26 +147,9 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    this.currentBaseTheme = localStorage.getItem('baseTheme')
-    this.currentMainColor = localStorage.getItem('mainColor').replace('main', '')
-    this.currentSecColor = localStorage.getItem('secColor').replace('sec', '')
     this.disableSmoothScrollingToggleValue = this.disableSmoothScrolling
   },
   methods: {
-    updateBaseTheme: function (theme) {
-      const mainColor = `main${this.currentMainColor}`
-      const secColor = `sec${this.currentSecColor}`
-
-      const payload = {
-        baseTheme: theme,
-        mainColor: mainColor,
-        secColor: secColor
-      }
-
-      this.$parent.$parent.updateTheme(payload)
-      this.currentBaseTheme = theme
-    },
-
     handleExpandSideBar: function (value) {      
       if (this.isSideNavOpen !== value) {
         this.$store.commit('toggleSideNav')
@@ -189,36 +181,11 @@ export default Vue.extend({
       })
     },
 
-    updateMainColor: function (color) {
-      const mainColor = `main${color}`
-      const secColor = `sec${this.currentSecColor}`
-
-      const payload = {
-        baseTheme: this.currentBaseTheme,
-        mainColor: mainColor,
-        secColor: secColor
-      }
-
-      this.$parent.$parent.updateTheme(payload)
-      this.currentMainColor = color
-    },
-
-    updateSecColor: function (color) {
-      const mainColor = `main${this.currentMainColor}`
-      const secColor = `sec${color}`
-
-      const payload = {
-        baseTheme: this.currentBaseTheme,
-        mainColor: mainColor,
-        secColor: secColor
-      }
-
-      this.$parent.$parent.updateTheme(payload)
-      this.currentSecColor = color
-    },
-
     ...mapActions([
       'updateBarColor',
+      'updateBaseTheme',
+      'updateMainColor',
+      'updateSecColor',
       'updateExpandSideBar',
       'updateUiScale',
       'updateDisableSmoothScrolling',
