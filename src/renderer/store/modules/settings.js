@@ -185,6 +185,7 @@ const state = {
   externalPlayerExecutable: '',
   externalPlayerIgnoreWarnings: false,
   externalPlayerCustomArgs: '',
+  expandSideBar: false,
   forceLocalBackendForLegacy: false,
   hideActiveSubscriptions: false,
   hideChannelSubscriptions: false,

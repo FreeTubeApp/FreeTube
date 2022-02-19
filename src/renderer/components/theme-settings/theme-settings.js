@@ -22,7 +22,6 @@ export default Vue.extend({
       currentBaseTheme: '',
       currentMainColor: '',
       currentSecColor: '',
-      expandSideBar: false,
       minUiScale: 50,
       maxUiScale: 300,
       uiScaleStep: 5,
@@ -81,9 +80,15 @@ export default Vue.extend({
     disableSmoothScrolling: function () {
       return this.$store.getters.getDisableSmoothScrolling
     },
+
+    expandSideBar: function () {
+      return this.$store.getters.getExpandSideBar
+    },
+
     hideLabelsSideBar: function () {
       return this.$store.getters.getHideLabelsSideBar
     },
+
     restartPromptMessage: function () {
       return this.$t('Settings["The app needs to restart for changes to take effect. Restart and apply change?"]')
     },
@@ -136,7 +141,6 @@ export default Vue.extend({
     this.currentBaseTheme = localStorage.getItem('baseTheme')
     this.currentMainColor = localStorage.getItem('mainColor').replace('main', '')
     this.currentSecColor = localStorage.getItem('secColor').replace('sec', '')
-    this.expandSideBar = localStorage.getItem('expandSideBar') === 'true'
     this.disableSmoothScrollingToggleValue = this.disableSmoothScrolling
   },
   methods: {
@@ -154,13 +158,12 @@ export default Vue.extend({
       this.currentBaseTheme = theme
     },
 
-    handleExpandSideBar: function (value) {
+    handleExpandSideBar: function (value) {      
       if (this.isSideNavOpen !== value) {
         this.$store.commit('toggleSideNav')
       }
 
-      this.expandSideBar = value
-      localStorage.setItem('expandSideBar', value)
+      this.updateExpandSideBar(value)
     },
 
     handleRestartPrompt: function (value) {
@@ -216,6 +219,7 @@ export default Vue.extend({
 
     ...mapActions([
       'updateBarColor',
+      'updateExpandSideBar',
       'updateUiScale',
       'updateDisableSmoothScrolling',
       'updateHideLabelsSideBar'
