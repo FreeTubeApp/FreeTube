@@ -607,8 +607,7 @@ export default Vue.extend({
 
     channelBlockerUnhide: function () {
       const element = this.$el
-      if (element === null)
-        return
+      if (element === null) { return }
       if (element.classList.contains('recommendation')) {
         this.$el.classList.remove('cb-hidden')
       } else if (element.classList.contains('result')) {
