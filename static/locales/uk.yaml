@@ -603,6 +603,15 @@ Video:
     out of: з
     video id: ID відео (YouTube)
     frame drop: Пропущені кадри
+    Resolution: Роздільність
+    Volume: Обсяг
+    Bandwidth: Пропускна здатність
+    Dropped / Total Frames: Пропущені / Усього кадрів
+    Mimetype: Тип MIME
+    Bitrate: Бітрейт
+    Video ID: ID відео
+    Player Dimensions: Розміри програвача
+    Buffered: Буферизовано
 Videos:
   #& Sort By
   Sort By:
