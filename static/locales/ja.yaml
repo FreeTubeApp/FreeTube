@@ -537,6 +537,7 @@ Video:
     volume: 音量
     bandwidth: 接続速度
     out of: のうち
+    Mimetype: メディアタイプ
 Videos:
   #& Sort By
   Sort By:
