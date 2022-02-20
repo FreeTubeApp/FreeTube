@@ -609,6 +609,17 @@ Video:
     fps: FPS
     bandwidth: Connection Speed
     out of: out of
+    Player Dimensions: Player dimensions
+    Bitrate: Bitrate
+    Volume: Volume
+    Bandwidth: Bandwidth
+    Buffered: Buffered
+    Dropped / Total Frames: Dropped / Total frames
+    Mimetype: Media type
+    Resolution: Resolution
+    Video statistics are not available for legacy videos: Video statistics are not
+      available for legacy videos
+    Video ID: Video ID
 Videos:
   #& Sort By
   Sort By:
