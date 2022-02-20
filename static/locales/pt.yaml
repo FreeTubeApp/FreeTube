@@ -623,6 +623,7 @@ Video:
     out of: de
     player resolution: Janela de visualização
     buffered: Buffered
+    Mimetype: Tipo de mídia da Internet
 Videos:
   #& Sort By
   Sort By:
