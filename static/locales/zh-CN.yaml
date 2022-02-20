@@ -507,6 +507,15 @@ Video:
     frame drop: 掉帧
     bandwidth: 连接速度
     buffered: 缓冲
+    Video ID: 视频 ID
+    Resolution: 分辨率
+    Player Dimensions: 播放器尺寸
+    Bitrate: 比特率
+    Volume: 音量
+    Buffered: 已缓冲
+    Dropped / Total Frames: 丢弃帧/总帧数
+    Mimetype: Mime 类型
+    Bandwidth: 带宽
   External Player:
     OpenInTemplate: 在 $ 中打开
     video: 视频
