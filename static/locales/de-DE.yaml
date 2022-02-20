@@ -602,6 +602,17 @@ Video:
     player resolution: Ansichtsfenster
     video id: Video-ID (YouTube)
     buffered: Gepuffert
+    Video ID: Video-ID
+    Resolution: Auflösung
+    Player Dimensions: Player-Größe
+    Bitrate: Bitrate
+    Volume: Lautstärke
+    Bandwidth: Bandbreite
+    Buffered: Gepuffert
+    Dropped / Total Frames: Ausgelassene Bilder / Bilder insgesamt
+    Mimetype: Medientyp
+    Video statistics are not available for legacy videos: Videostatistiken sind für
+      ältere Videos nicht verfügbar
 Videos:
   #& Sort By
   Sort By:
