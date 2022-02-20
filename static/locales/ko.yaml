@@ -529,6 +529,8 @@ Video:
   Video has been saved: 동영상이 저장되었습니다
   Video has been removed from your saved list: 저장된 목록에서 동영상이 제거되었습니다
   Save Video: 비디오 저장
+  Stats:
+    Mimetype: 미디어 타입
 Videos:
   #& Sort By
   Sort By:
