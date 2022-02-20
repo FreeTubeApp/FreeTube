@@ -416,6 +416,8 @@ Video:
   Shuffle Playlist: Lista de reproducción aleatoria
   Loop Playlist: Lista de reproducción en bucle
   translated from English: traducido del inglés
+  Stats:
+    Mimetype: Tipo de medio
 Videos:
   #& Sort By
   Sort By:
