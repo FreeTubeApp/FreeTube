@@ -597,6 +597,17 @@ Video:
     bandwidth: Prędkość połączenia
     fps: FPS
     frame drop: Pominięte klatki
+    Video ID: ID filmu
+    Resolution: Rozdzielczość
+    Player Dimensions: Wymiary odtwarzacza
+    Bitrate: Szybkość transmisji
+    Volume: Głośność
+    Bandwidth: Przepustowość
+    Buffered: Zbuforowano
+    Mimetype: Typ MIME
+    Video statistics are not available for legacy videos: Statystyki filmu nie są
+      dostępne dla starych formatów
+    Dropped / Total Frames: Opuszczone klatki / klatki ogółem
 Videos:
   #& Sort By
   Sort By:
@@ -786,7 +797,7 @@ Tooltips:
       na Mac-u) i kliknij lewym przyciskiem myszy, by szybko powrócić do domyślnej
       wartości (1x, chyba że została zmieniona w ustawieniach).
   Privacy Settings:
-    Remove Video Meta Files: Po włączeniu, FreeTube automatycznie usunie pliki metadanych
+    Remove Video Meta Files: Po włączeniu FreeTube automatycznie usunie pliki metadanych
       utworzone podczas odtwarzania filmu, gdy strona odtwarzania zostanie zamknięta.
   External Player Settings:
     Ignore Warnings: Nie wyświetlaj ostrzeżeń o nieobsługiwanych akcjach przez zewnętrzny
