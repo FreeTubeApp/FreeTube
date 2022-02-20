@@ -208,12 +208,6 @@ export default Vue.extend({
       return this.$store.getters.getSaveWatchedProgress
     }
   },
-  watch: {
-    data: function () {
-      this.parseVideoData()
-      this.checkIfWatched()
-    }
-  },
   mounted: function () {
     this.parseVideoData()
     this.checkIfWatched()

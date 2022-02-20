@@ -22,19 +22,19 @@ export default Vue.extend({
     return {
       isLoading: false,
       dataLimit: 100,
-      hasQuery: false
+      searchDataLimit: 100,
+      showLoadMoreButton: false,
+      query: '',
+      hasQuery: false,
+      activeData: []
     }
   },
   computed: {
     favoritesPlaylist: function () {
-      if (!this.hasQuery) {
-        return this.$store.getters.getFavorites
-      } else {
-        return this.$store.getters.getSearchPlaylistCache
-      }
+      return this.$store.getters.getFavorites
     },
 
-    activeData: function () {
+    fullData: function () {
       const data = [].concat(this.favoritesPlaylist.videos).reverse()
       if (this.favoritesPlaylist.videos.length < this.dataLimit) {
         return data
@@ -44,15 +44,16 @@ export default Vue.extend({
     }
   },
   watch: {
+    query() {
+      this.searchDataLimit = 100
+      this.filterPlaylist()
+    },
     activeData() {
-      const scrollPos = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
-      this.isLoading = true
-      Vue.nextTick(() => {
-        this.isLoading = false
-        Vue.nextTick(() => {
-          window.scrollTo(0, scrollPos)
-        })
-      })
+      this.refreshPage()
+    },
+    fullData() {
+      this.activeData = this.fullData
+      this.filterPlaylist()
     }
   },
   mounted: function () {
@@ -61,15 +62,60 @@ export default Vue.extend({
     if (limit !== null) {
       this.dataLimit = limit
     }
+
+    if (this.activeData.length < this.favoritesPlaylist.videos.length) {
+      this.showLoadMoreButton = true
+    } else {
+      this.showLoadMoreButton = false
+    }
+
+    this.activeData = this.fullData
   },
   methods: {
     increaseLimit: function () {
-      this.dataLimit += 100
-      sessionStorage.setItem('favoritesLimit', this.dataLimit)
+      if (this.query !== '') {
+        this.searchDataLimit += 100
+        this.filterPlaylist()
+      } else {
+        this.dataLimit += 100
+        sessionStorage.setItem('favoritesLimit', this.dataLimit)
+      }
     },
-    filterPlaylist: function(query) {
-      this.hasQuery = query !== ''
-      this.$store.dispatch('searchFavoritePlaylist', query)
+    filterPlaylist: function() {
+      if (this.query === '') {
+        this.activeData = this.fullData
+        if (this.activeData.length < this.favoritesPlaylist.videos.length) {
+          this.showLoadMoreButton = true
+        } else {
+          this.showLoadMoreButton = false
+        }
+      } else {
+        const filteredQuery = this.favoritesPlaylist.videos.filter((video) => {
+          if (typeof (video.title) !== 'string' || typeof (video.author) !== 'string') {
+            return false
+          } else {
+            return video.title.toLowerCase().includes(this.query.toLowerCase()) || video.author.toLowerCase().includes(this.query.toLowerCase())
+          }
+        }).sort((a, b) => {
+          return b.timeAdded - a.timeAdded
+        })
+        if (filteredQuery.length <= this.searchDataLimit) {
+          this.showLoadMoreButton = false
+        } else {
+          this.showLoadMoreButton = true
+        }
+        this.activeData = filteredQuery.length < this.searchDataLimit ? filteredQuery : filteredQuery.slice(0, this.searchDataLimit)
+      }
+    },
+    refreshPage: function() {
+      const scrollPos = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
+      this.isLoading = true
+      Vue.nextTick(() => {
+        this.isLoading = false
+        Vue.nextTick(() => {
+          window.scrollTo(0, scrollPos)
+        })
+      })
     }
   }
 })

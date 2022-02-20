@@ -1414,7 +1414,7 @@ export default Vue.extend({
       console.log(this.format)
       if (this.format !== 'dash') {
         this.showToast({
-          message: 'Video statistics are not available for legacy videos'
+          message: this.$t('Video.Stats.Video statistics are not available for legacy videos')
         })
       } else {
         this.showStatsModal = !this.showStatsModal

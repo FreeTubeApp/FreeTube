@@ -556,6 +556,7 @@ Video:
       shuffling playlists: shuffling playlists
       looping playlists: looping playlists
   Stats:
+    Video statistics are not available for legacy videos: Video statistics are not available for legacy videos
     Video ID: Video ID
     Resolution: Resolution
     Player Dimensions: Player Dimensions
