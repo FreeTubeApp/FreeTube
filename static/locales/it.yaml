@@ -192,7 +192,7 @@ Settings:
     Hide Side Bar Labels: Nascondi le etichette della barra laterale
   Player Settings:
     Player Settings: 'Impostazioni del riproduttore video'
-    Force Local Backend for Legacy Formats: 'Forza Back-end locale per formati Legacy'
+    Force Local Backend for Legacy Formats: 'Forza Back-end locale per formati obsoleti'
     Play Next Video: 'Riproduci il prossimo video'
     Turn on Subtitles by Default: 'Abilita i sottotitoli per impostazione predefinita'
     Autoplay Videos: 'Riproduci i video automaticamente'
@@ -322,7 +322,7 @@ Settings:
     Select Export Type: Seleziona il tipo di esportazione
     Select Import Type: Seleziona il tipo di importazione
     Data Settings: Impostazioni dei dati
-    Check for Legacy Subscriptions: Controlla le iscrizioni in formato Legacy
+    Check for Legacy Subscriptions: Controlla le iscrizioni obsolete
     Manage Subscriptions: Gestisci i profili
     Import Playlists: Importa playlist
     Export Playlists: Esporta playlist
@@ -594,6 +594,17 @@ Video:
     out of: per
     video id: ID video (YouTube)
     player resolution: Finestra di visualizzazione
+    Video statistics are not available for legacy videos: Le statistiche sui video
+      non sono disponibili per i video obsoleti
+    Video ID: ID video
+    Resolution: Risoluzione
+    Player Dimensions: Dimensioni del lettore
+    Bitrate: Bitrate
+    Volume: Volume
+    Bandwidth: Larghezza di banda
+    Buffered: Buffered
+    Dropped / Total Frames: Frame persi / Frame totali
+    Mimetype: Tipo di media
 Videos:
   #& Sort By
   Sort By:
@@ -623,7 +634,7 @@ Toggle Theatre Mode: 'Attiva modalità cinema'
 Change Format:
   Change Video Formats: 'Cambia formato video'
   Use Dash Formats: 'Utilizza formati DASH'
-  Use Legacy Formats: 'Utilizza formati Legacy'
+  Use Legacy Formats: 'Utilizza formati obsoleti'
   Use Audio Formats: 'Utilizza formati Audio'
   Audio formats are not available for this video: I formati Audio non sono disponibili
     per questo video
@@ -749,11 +760,11 @@ This video is unavailable because of missing formats. This can happen due to cou
 Tooltips:
   Player Settings:
     Force Local Backend for Legacy Formats: Funziona solo quando Invidious è l'API
-      predefinita. Quando abilitate, le API locali useranno i formati Legacy al posto
-      di quelli di Invidious. Utile quando i video di Invidious non vengono riprodotti
-      a causa di restrizioni geografiche.
+      predefinita. Quando abilitate, le API locali useranno i formati obsoleti al
+      posto di quelli di Invidious. Utile quando i video di Invidious non vengono
+      riprodotti a causa di restrizioni geografiche.
     Default Video Format: Imposta i formati usati quando un video viene riprodotto.
-      I formati DASH possono riprodurre qualità maggiori. I formati Legacy sono limitati
+      I formati DASH possono riprodurre qualità maggiore. I formati Legacy sono limitati
       ad un massimo di 720p ma usano meno banda. I formati Audio riproducono solo
       l'audio.
     Proxy Videos Through Invidious: Connessione a Invidious per riprodurre i video

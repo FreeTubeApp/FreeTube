@@ -25,7 +25,7 @@ function runApp() {
         label: 'Show Video Statistics',
         visible: parameters.mediaType === 'video',
         click: () => {
-          browserWindow.webContents.send('showVideoStatistics', 'show')
+          browserWindow.webContents.send('showVideoStatistics')
         }
       }
     ]
@@ -455,9 +455,6 @@ function runApp() {
             { event: SyncEvents.HISTORY.UPDATE_WATCH_PROGRESS, data }
           )
           return null
-
-        case DBActions.HISTORY.SEARCH:
-          return await baseHandlers.history.search(data)
 
         case DBActions.GENERAL.DELETE:
           await baseHandlers.history.delete(data)

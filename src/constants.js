@@ -38,8 +38,7 @@ const DBActions = {
   },
 
   HISTORY: {
-    UPDATE_WATCH_PROGRESS: 'db-action-history-update-watch-progress',
-    SEARCH: 'db-action-history-search'
+    UPDATE_WATCH_PROGRESS: 'db-action-history-update-watch-progress'
   },
 
   PLAYLISTS: {

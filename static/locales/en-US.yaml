@@ -567,14 +567,16 @@ Video:
       shuffling playlists: shuffling playlists
       looping playlists: looping playlists
   Stats:
-    video id: "Video ID (YouTube)"
-    player resolution: "Viewport"
-    volume: "Volume"
-    fps: "FPS"
-    frame drop: "Frame Drop"
-    bandwidth: "Connection Speed"
-    buffered: "Buffered"
-    out of: "out of"
+    Video statistics are not available for legacy videos: Video statistics are not available for legacy videos
+    Video ID: Video ID
+    Resolution: Resolution
+    Player Dimensions: Player Dimensions
+    Bitrate: Bitrate
+    Volume: Volume
+    Bandwidth: Bandwidth
+    Buffered: Buffered
+    Dropped / Total Frames: Dropped / Total Frames
+    Mimetype: Mimetype
 #& Videos
 Videos:
   #& Sort By

@@ -25,13 +25,6 @@ class History {
     )
   }
 
-  static search(query) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_HISTORY,
-      { action: DBActions.HISTORY.SEARCH, data: query }
-    )
-  }
-
   static upsert(record) {
     return ipcRenderer.invoke(
       IpcChannels.DB_HISTORY,

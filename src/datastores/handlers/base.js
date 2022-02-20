@@ -38,11 +38,6 @@ class History {
     return db.history.find({}).sort({ timeWatched: -1 })
   }
 
-  static search(query) {
-    const re = new RegExp(query, 'i')
-    return db.history.find({ $or: [{ author: { $regex: re } }, { title: { $regex: re } }] }).sort({ timeWatched: -1 })
-  }
-
   static upsert(record) {
     return db.history.update({ videoId: record.videoId }, record, { upsert: true })
   }

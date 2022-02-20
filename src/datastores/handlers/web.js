@@ -25,10 +25,6 @@ class History {
     return baseHandlers.history.find()
   }
 
-  static search(query) {
-    return baseHandlers.history.search(query)
-  }
-
   static upsert(record) {
     return baseHandlers.history.upsert(record)
   }

@@ -2160,3 +2160,24 @@ video::-webkit-media-text-track-display {
   font-size: xx-large;
   max-width: 100% !important;
 }
+
+.vjs-modal-dialog.statsModal {
+  line-height: 10px;
+  width: 550px;
+  height: 225px;
+  font-size: 10px;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.vjs-modal-dialog.statsModal p {
+  line-height: 10px;
+  position:relative;
+  bottom: 15px;
+}
+
+@media screen and (max-width: 775px) {
+  .vjs-modal-dialog.statsModal {
+    width: 100%;
+    height: 100%;
+  }
+}
