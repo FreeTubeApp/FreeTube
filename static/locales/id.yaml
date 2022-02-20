@@ -622,6 +622,15 @@ Video:
     buffered: Buffered
     player resolution: Area pandang
     out of: keluar dari
+    Bandwidth: Bandwidth
+    Video statistics are not available for legacy videos: Statistik video tidak tersedia
+      untuk video legacy
+    Video ID: ID Video
+    Resolution: Resolusi
+    Volume: Volume
+    Mimetype: Tipe Mime
+    Player Dimensions: Ukuran Pemutar
+    Bitrate: Laju Bit
 Videos:
   #& Sort By
   Sort By:
