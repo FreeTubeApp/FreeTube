@@ -610,6 +610,17 @@ Video:
     buffered: בזיכרון
     frame drop: השמטת תמוניות
     fps: תמוניות לשנייה
+    Video statistics are not available for legacy videos: סטטיסטיקת וידאו אינה זמינה
+      לסרטונים ישנים
+    Video ID: מזהה וידאו
+    Resolution: רזולוציה
+    Player Dimensions: ממדי נגן
+    Bitrate: קצב סיביות
+    Volume: עצמת שמע
+    Bandwidth: רוחב פס
+    Buffered: שמור בזיכרון
+    Dropped / Total Frames: תמוניות שהושמטו / סה״כ
+    Mimetype: סוג MIME
 Videos:
   #& Sort By
   Sort By:
@@ -733,6 +744,10 @@ Tooltips:
       לא מספקת חלק מהמידע כמו אורך הסרטון או מצב שידור חי
   External Player Settings:
     DefaultCustomArgumentsTemplate: '(ברירת מחדל: "$")'
+    Ignore Warnings: 'להשבית אזהרות כאשר הנגן החיצוני הנוכחי לא תומך בפעולה הנוכחית
+      (למשל: היפוך רשימת נגינה וכו׳).'
+    External Player: בחירה בנגן חיצוני תציג סמל, לפתיחת הווידאו (רשימת הנגינה אם יש
+      תמיכה) בנגן חיצוני, על גבי התמונה הממוזערת.
   Privacy Settings:
     Remove Video Meta Files: כאשר אפשרות זו מופעלת, FreeTube מוחק באופן אוטומטי קובצי
       על שנוצרים במהלך ניגון סרטון, לאחר סגירת עמוד הצפייה.
