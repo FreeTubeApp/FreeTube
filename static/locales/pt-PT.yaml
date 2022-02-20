@@ -552,6 +552,8 @@ Video:
     intro: início
     sponsor: patrocínio
   Skipped segment: Secção passada à frente
+  Stats:
+    Mimetype: Tipo de mídia da Internet
 Videos:
   #& Sort By
   Sort By:
