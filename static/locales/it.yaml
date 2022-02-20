@@ -602,7 +602,7 @@ Video:
     Bitrate: Velocità di trasmissione
     Volume: Volume
     Bandwidth: Larghezza di banda
-    Buffered: Buffered
+    Buffered: Memoria buffer
     Dropped / Total Frames: Frame persi / Frame totali
     Mimetype: Tipo di media
 Videos:
