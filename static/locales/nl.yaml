@@ -300,11 +300,11 @@ Settings:
     Export History: Exporteer Geschiedenis
     Import History: Importeer Geschiedenis
     Export NewPipe: Exporteer NewPipe
-    Export YouTube: Exporteer YouTube
+    Export YouTube: YouTube exporteren
     Export FreeTube: Exporteer FreeTube
     Export Subscriptions: Exporteer Abonnementen
     Import NewPipe: Importeer NewPipe
-    Import YouTube: Importeer YouTube
+    Import YouTube: YouTube importeren
     Import FreeTube: Importeer FreeTube
     Import Subscriptions: Importeer Abonnementen
     Select Export Type: Select Exporteer Type
@@ -471,10 +471,10 @@ Video:
   Remove From History: 'Verwijder Uit Geschiedenis'
   Video has been marked as watched: 'Video is gemarkeerd als bekeken'
   Video has been removed from your history: 'Video is verwijdert uit uw geschiedenis'
-  Open in YouTube: 'Open op YouTube'
-  Copy YouTube Link: 'Kopieer YouTube Link'
-  Open YouTube Embedded Player: 'Open Embedded YouTube Videospeler'
-  Copy YouTube Embedded Player Link: 'Kopieer Insluitlink YouTube Videospeler'
+  Open in YouTube: 'Op YouTube openen'
+  Copy YouTube Link: 'YouTube link kopiëren'
+  Open YouTube Embedded Player: 'Embedded YouTube videospeler openen'
+  Copy YouTube Embedded Player Link: 'YouTube videospeler-insluitlink kopiëren'
   Open in Invidious: 'Open op Invidious'
   Copy Invidious Link: 'Kopieer Invidious Link'
   View: 'Bekijk'
@@ -547,8 +547,8 @@ Video:
   Download Video: Download Video
   Copy Invidious Channel Link: Kopieer Invidious Kanaal-Link
   Open Channel in Invidious: Open Kanaal op Invidious
-  Copy YouTube Channel Link: Kopieer YouTube Kanaal-Link
-  Open Channel in YouTube: Open Kanaal op YouTube
+  Copy YouTube Channel Link: YouTube kanaal-link kopiëren
+  Open Channel in YouTube: YouTube-kanaal openen
   Started streaming on: Gestart met streamen op
   Streamed on: Gestreamd op
   Video has been removed from your saved list: Video is verwijderd uit uw opgeslagen
@@ -588,6 +588,17 @@ Video:
     bandwidth: Verbindingssnelheid
     buffered: Gebufferd
     out of: van de
+    Buffered: Gebufferd
+    Dropped / Total Frames: Dropped/Total Frames
+    Mimetype: MIME-type
+    Video statistics are not available for legacy videos: Videogegevens zijn niet
+      beschikbaar voor oudere video's
+    Video ID: Video-ID
+    Resolution: Resolutie
+    Bandwidth: Bandbreedte
+    Bitrate: Bitrate
+    Volume: Volume
+    Player Dimensions: Spelerafmetingen
   Premieres on: in première op
 Videos:
   #& Sort By
@@ -605,8 +616,8 @@ Playlist:
   Last Updated On: 'Laatste Geüpdate Op'
   Share Playlist:
     Share Playlist: 'Deel Afspeellijst'
-    Copy YouTube Link: 'Kopieer YouTube Link'
-    Open in YouTube: 'Openen in YouTube'
+    Copy YouTube Link: 'YouTube-link kopiëren'
+    Open in YouTube: 'In YouTube openen'
     Copy Invidious Link: 'Kopieer Invidious Link'
     Open in Invidious: 'Openen in Invidious'
 
@@ -802,8 +813,8 @@ Playing Next Video Interval: Volgende video wordt afgespeeld. Klik om te onderbr
 More: Meer
 Hashtags have not yet been implemented, try again later: Hastags zijn nog niet geïmplementeerd,
   probeer het later nogmaals
-Unknown YouTube url type, cannot be opened in app: Onbekende YouTube url type, de
-  url kan niet worden geopend in de app
+Unknown YouTube url type, cannot be opened in app: Onbekende YouTube-url type, de
+  URL kan niet worden geopend in de app
 Open New Window: Open Nieuw Venster
 Default Invidious instance has been cleared: Standaard Invidious-instantie is verwijderd
 Default Invidious instance has been set to $: Standaard Invidious-instantie is ingesteld
