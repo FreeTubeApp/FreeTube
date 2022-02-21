@@ -5,6 +5,7 @@ import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtSelect from '../ft-select/ft-select.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
+import FtInput from '../ft-input/ft-input.vue'
 
 export default Vue.extend({
   name: 'PlayerSettings',
@@ -13,7 +14,13 @@ export default Vue.extend({
     'ft-toggle-switch': FtToggleSwitch,
     'ft-button': FtButton,
     'ft-select': FtSelect,
-    'ft-flex-box': FtFlexBox
+    'ft-flex-box': FtFlexBox,
+    'ft-input': FtInput
+  },
+  data: function () {
+    return {
+      channelBlockerHasQuery: false
+    }
   },
   computed: {
     hideVideoViews: function () {
@@ -45,6 +52,13 @@ export default Vue.extend({
     },
     hideActiveSubscriptions: function () {
       return this.$store.getters.getHideActiveSubscriptions
+    },
+    channelBlockerCache: function () {
+      if (!this.channelBlockerHasQuery) {
+        return this.$store.getters.getChannelBlockerCache
+      } else {
+        return this.$store.getters.getSearchChannelBlockerCache
+      }
     }
   },
   methods: {
@@ -54,6 +68,19 @@ export default Vue.extend({
       }
 
       this.updateHideRecommendedVideos(value)
+    },
+
+    filterChannelBlockerList: function (query) {
+      this.channelBlockerHasQuery = query !== ''
+      this.$store.dispatch('searchBlockedChannels', query)
+    },
+
+    removeChannelFromBlockList: function (_id) {
+      this.channelBlockerRemoveChannelById(_id).then(_ => {
+        this.compactBlockedChannels()
+      }).catch(err => {
+        console.error(err)
+      })
     },
 
     ...mapActions([
@@ -68,7 +95,9 @@ export default Vue.extend({
       'updateHideLiveChat',
       'updateHideActiveSubscriptions',
       'updatePlayNextVideo',
-      'updateDefaultTheatreMode'
+      'updateDefaultTheatreMode',
+      'channelBlockerRemoveChannelById',
+      'compactBlockedChannels'
     ])
   }
 })

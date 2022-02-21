@@ -267,6 +267,10 @@ Settings:
     Hide Playlists: Hide Playlists
     Hide Live Chat: Hide Live Chat
     Hide Active Subscriptions: Hide Active Subscriptions
+    Blocked Channels: Blocked Channels
+    ChannelBlocker Search bar placeholder: Search channels
+    ChannelBlocker Empty List: No channels blocked
+    ChannelBlocker Empty Search Result: No channels found
   Data Settings:
     Data Settings: Data Settings
     Select Import Type: Select Import Type
@@ -336,13 +340,6 @@ Settings:
     Download Settings: Download Settings
     Ask Download Path: Ask for download path
     Choose Path: Choose Path
-  ChannelBlocker Settings:
-    ChannelBlocker Settings: ChannelBlocker Settings
-    Enable ChannelBlocker: Enable ChannelBlocker
-    Blocked Channels: Blocked Channels
-    Search bar placeholder: Search channels
-    Empty List: No channels blocked
-    Empty Search Result: No channels found
 About:
   #On About page
   About: About

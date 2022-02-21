@@ -12,7 +12,6 @@ import DataSettings from '../../components/data-settings/data-settings.vue'
 import DistractionSettings from '../../components/distraction-settings/distraction-settings.vue'
 import ProxySettings from '../../components/proxy-settings/proxy-settings.vue'
 import SponsorBlockSettings from '../../components/sponsor-block-settings/sponsor-block-settings.vue'
-import ChannelBlockerSettings from '../../components/channel-blocker-settings/channel-blocker-settings.vue'
 
 export default Vue.extend({
   name: 'Settings',
@@ -29,8 +28,7 @@ export default Vue.extend({
     'distraction-settings': DistractionSettings,
     'proxy-settings': ProxySettings,
     'sponsor-block-settings': SponsorBlockSettings,
-    'download-settings': DownloadSettings,
-    'channel-blocker-settings': ChannelBlockerSettings
+    'download-settings': DownloadSettings
   },
   computed: {
     usingElectron: function () {

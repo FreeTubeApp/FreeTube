@@ -9,6 +9,9 @@
       :data="result"
       :first-screen="index < 16"
       :layout="listType"
+      :channel-blocked="isChannelBlocked(result)"
+      :avoid-channel-blocker="avoidChannelBlockerByURI"
+      @toggle-blocked-channel="toggleBlockedChannel"
     />
   </ft-auto-grid>
 </template>

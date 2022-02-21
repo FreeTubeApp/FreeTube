@@ -73,6 +73,65 @@
       </div>
     </div>
     <br>
+    <div class="channelBlockerSection">
+      <ft-flex-box class="channelBlockerSettingsSearchFlexBox">
+        <div>{{ $t('Settings.Distraction Free Settings.Blocked Channels') }}</div>
+        <ft-input
+          id="channel_blocker_search_input"
+          ref="searchBar"
+          :show-action-button="false"
+          :show-clear-text-button="true"
+          :placeholder="$t('Settings.Distraction Free Settings.ChannelBlocker Search bar placeholder')"
+          @input="filterChannelBlockerList"
+        />
+      </ft-flex-box>
+      <ft-flex-box
+        v-if="channelBlockerCache.length === 0"
+      >
+        <p
+          v-if="!channelBlockerHasQuery"
+          class="message"
+        >
+          {{ $t('Settings.Distraction Free Settings.ChannelBlocker Empty List') }}
+        </p>
+        <p
+          v-else
+          class="message"
+        >
+          {{ $t('Settings.Distraction Free Settings.ChannelBlocker Empty Search Result') }}
+        </p>
+      </ft-flex-box>
+      <ul
+        v-else
+        class="channelBlockerSettingsBlockedList"
+      >
+        <li
+          v-for="item in channelBlockerCache"
+          :key="item._id"
+          class="channelBlockerSettingsBlockedListItem"
+        >
+          <span
+            class="channelBlockerSettingsBlockedListRemoveButton"
+            @click="removeChannelFromBlockList(item._id)"
+          >
+            <font-awesome-icon
+              icon="times"
+            />
+          </span>
+          <span
+            class="channelBlockerSettingsBlockedListName"
+          >
+            <a
+              class="channelName"
+              :href="`#/channel/${item._id}`"
+            >
+              {{ item.name }}
+            </a>
+          </span>
+        </li>
+      </ul>
+    </div>
+    <br>
     <ft-flex-box>
       <ft-select
         v-if="false"

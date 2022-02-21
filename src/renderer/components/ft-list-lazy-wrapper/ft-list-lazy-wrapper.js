@@ -26,6 +26,14 @@ export default Vue.extend({
     layout: {
       type: String,
       default: 'grid'
+    },
+    channelBlocked: {
+      type: Boolean,
+      required: true
+    },
+    avoidChannelBlocker: {
+      type: Boolean,
+      required: true
     }
   },
   data: function () {
