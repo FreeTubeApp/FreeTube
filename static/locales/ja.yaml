@@ -538,6 +538,15 @@ Video:
     bandwidth: 接続速度
     out of: のうち
     Mimetype: メディアタイプ
+    Video ID: ビデオ ID
+    Resolution: 解像度
+    Bitrate: ビットレート
+    Volume: 音量
+    Buffered: バッファー
+    Player Dimensions: プレーヤーのサイズ
+    Video statistics are not available for legacy videos: 従来のビデオでは、ビデオ統計を使用できません
+    Bandwidth: 帯域幅
+    Dropped / Total Frames: ドロップ率 / 総フレーム数
 Videos:
   #& Sort By
   Sort By:
