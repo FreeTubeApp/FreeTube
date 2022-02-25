@@ -996,7 +996,7 @@ export default Vue.extend({
       if (this.maxFramerate === 60 && quality.height >= 480) {
         for (let i = 0; i < this.adaptiveFormats.length; i++) {
           if (this.adaptiveFormats[i].bitrate === quality.bitrate) {
-            fps = this.adaptiveFormats[i].fps
+            fps = this.adaptiveFormats[i].fps ? this.adaptiveFormats[i].fps : 30
             break
           }
         }
@@ -1192,6 +1192,10 @@ export default Vue.extend({
               const adaptiveFormat = this.adaptiveFormats.find((format) => {
                 return format.bitrate === quality.bitrate
               })
+
+              if (typeof adaptiveFormat === 'undefined') {
+                return
+              }
 
               this.activeAdaptiveFormats.push(adaptiveFormat)
 
