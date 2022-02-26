@@ -144,7 +144,7 @@ Settings:
     No default instance has been set: Non è stata impostata alcuna istanza predefinita
     The currently set default instance is $: L'attuale istanza predefinita è $
     Current Invidious Instance: Istanza attuale di Invidious
-    System Default: Predefinito dal sistema
+    System Default: Predefinito del sistema
     External Link Handling:
       No Action: Nessuna azione
       Ask Before Opening Link: Chiedi prima di aprire il collegamento
@@ -680,7 +680,7 @@ Comments:
   Newest first: I più nuovi
   Sort by: Ordina per
   Show More Replies: Mostra altre risposte
-  From $channelName: dal $channelName
+  From $channelName: di $channelName
   And others: e altri
   Pinned by: Messo in primo piano da
 Up Next: 'Prossimi video'
