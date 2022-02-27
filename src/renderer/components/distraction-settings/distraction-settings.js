@@ -19,7 +19,8 @@ export default Vue.extend({
   },
   data: function () {
     return {
-      channelBlockerHasQuery: false
+      channelBlockerHasQuery: false,
+      channelBlockerSearchResult: []
     }
   },
   computed: {
@@ -53,11 +54,14 @@ export default Vue.extend({
     hideActiveSubscriptions: function () {
       return this.$store.getters.getHideActiveSubscriptions
     },
-    channelBlockerCache: function () {
-      if (!this.channelBlockerHasQuery) {
-        return this.$store.getters.getChannelBlockerCache
+    channelBlockerList: function () {
+      return this.$store.getters.getChannelBlockerList
+    },
+    channelBlockerShownList: function () {
+      if (this.channelBlockerHasQuery) {
+        return this.channelBlockerSearchResult
       } else {
-        return this.$store.getters.getSearchChannelBlockerCache
+        return this.channelBlockerList
       }
     }
   },
@@ -72,15 +76,33 @@ export default Vue.extend({
 
     filterChannelBlockerList: function (query) {
       this.channelBlockerHasQuery = query !== ''
-      this.$store.dispatch('searchBlockedChannels', query)
+
+      // Escape every characters
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#escaping
+      const re = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i')
+
+      const filteredList = this.channelBlockerList.slice().map(channel => {
+        if (channel.author.match(re) === null) {
+          return null
+        }
+        return channel
+      }).filter(x => {
+        return x
+      })
+      this.channelBlockerSearchResult = filteredList
     },
 
-    removeChannelFromBlockList: function (_id) {
-      this.channelBlockerRemoveChannelById(_id).then(_ => {
-        this.compactBlockedChannels()
-      }).catch(err => {
-        console.error(err)
-      })
+    removeChannelFromBlockList: function (channel) {
+      console.log('removing channel', JSON.stringify(channel))
+
+      const newList = this.channelBlockerList.slice()
+      for (let i = newList.length - 1; i >= 0; i--) {
+        if (newList[i].authorId === channel.authorId) {
+          newList.splice(i, 1)
+          break
+        }
+      }
+      this.updateChannelBlockerList(newList)
     },
 
     ...mapActions([
@@ -96,8 +118,7 @@ export default Vue.extend({
       'updateHideActiveSubscriptions',
       'updatePlayNextVideo',
       'updateDefaultTheatreMode',
-      'channelBlockerRemoveChannelById',
-      'compactBlockedChannels'
+      'updateChannelBlockerList'
     ])
   }
 })

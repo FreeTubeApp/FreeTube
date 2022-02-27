@@ -86,7 +86,7 @@
         />
       </ft-flex-box>
       <ft-flex-box
-        v-if="channelBlockerCache.length === 0"
+        v-if="channelBlockerShownList.length === 0"
       >
         <p
           v-if="!channelBlockerHasQuery"
@@ -106,13 +106,13 @@
         class="channelBlockerSettingsBlockedList"
       >
         <li
-          v-for="item in channelBlockerCache"
-          :key="item._id"
+          v-for="item in channelBlockerShownList"
+          :key="item.authorId"
           class="channelBlockerSettingsBlockedListItem"
         >
           <span
             class="channelBlockerSettingsBlockedListRemoveButton"
-            @click="removeChannelFromBlockList(item._id)"
+            @click="removeChannelFromBlockList(item)"
           >
             <font-awesome-icon
               icon="times"
@@ -123,9 +123,9 @@
           >
             <a
               class="channelName"
-              :href="`#/channel/${item._id}`"
+              :href="`#/channel/${item.authorId}`"
             >
-              {{ item.name }}
+              {{ item.author }}
             </a>
           </span>
         </li>

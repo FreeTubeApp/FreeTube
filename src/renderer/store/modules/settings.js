@@ -218,7 +218,8 @@ const state = {
   useChannelBlocker: false,
   videoVolumeMouseScroll: false,
   videoPlaybackRateMouseScroll: false,
-  downloadFolderPath: ''
+  downloadFolderPath: '',
+  channelBlockerList: []
 }
 
 const stateWithSideEffects = {

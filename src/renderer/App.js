@@ -134,7 +134,6 @@ export default Vue.extend({
       this.grabAllProfiles(this.$t('Profile.All Channels')).then(async () => {
         this.grabHistory()
         this.grabAllPlaylists()
-        await this.grabBlockedChannels()
 
         if (this.usingElectron) {
           console.log('User is using Electron')
@@ -470,7 +469,6 @@ export default Vue.extend({
       'grabAllProfiles',
       'grabHistory',
       'grabAllPlaylists',
-      'grabBlockedChannels',
       'getYoutubeUrlInfo',
       'getExternalPlayerCmdArgumentsData',
       'fetchInvidiousInstances',
