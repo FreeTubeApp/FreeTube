@@ -103,6 +103,17 @@ export default Vue.extend({
         }
       }
       this.updateChannelBlockerList(newList)
+
+      if (this.channelBlockerHasQuery) {
+        const newSearchResult = this.channelBlockerSearchResult.slice()
+        for (let i = newSearchResult.length - 1; i >= 0; i--) {
+          if (newSearchResult[i].authorId === channel.authorId) {
+            newSearchResult.splice(i, 1)
+            break
+          }
+        }
+        this.channelBlockerSearchResult = newSearchResult
+      }
     },
 
     ...mapActions([
