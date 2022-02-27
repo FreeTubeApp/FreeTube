@@ -514,7 +514,7 @@ Video:
     Volume: 音量
     Buffered: 已缓冲
     Dropped / Total Frames: 丢弃帧/总帧数
-    Mimetype: Mime 类型
+    Mimetype: 互联网媒体类型
     Bandwidth: 带宽
     Video statistics are not available for legacy videos: 视频统计数据对于 legacy 视频不可用
   External Player:

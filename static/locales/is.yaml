@@ -574,6 +574,17 @@ Video:
     frame drop: Rammatap
     video id: Auðkenni myndskeiðs (YouTube)
     volume: Hljóðstyrkur
+    Video ID: Auðkenni myndmerkis
+    Resolution: Upplausn
+    Player Dimensions: Stærðir spilara
+    Bandwidth: Bandbreidd
+    Buffered: Biðminni
+    Dropped / Total Frames: Sleppt / Fjöldi ramma
+    Mimetype: MIME-tegund
+    Video statistics are not available for legacy videos: Tölfræði myndskeiða er ekki
+      í boði fyrir eldri gerðir myndskeiða
+    Bitrate: Bitahraði
+    Volume: Hljóðstyrkur
 Videos:
   #& Sort By
   Sort By:

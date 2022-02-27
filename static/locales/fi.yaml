@@ -570,6 +570,12 @@ Video:
     volume: Äänenvoimakkuus
     fps: Kuvanopeus
     out of: /
+    Video ID: Videotunnus
+    Bitrate: Tiedonsiirtonopeus
+    Bandwidth: Kaistanleveys
+    Mimetype: Internet-mediatyyppi
+    Video statistics are not available for legacy videos: Vanhojen videoiden videotilastot
+      eivät ole saatavilla
   Premieres on: Julkaistaan
 Videos:
   #& Sort By

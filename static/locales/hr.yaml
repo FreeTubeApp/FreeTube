@@ -628,6 +628,17 @@ Video:
     bandwidth: Brzina veze
     buffered: Učitano u memoriju
     out of: od
+    Video statistics are not available for legacy videos: Statistika videa nije dostupna
+      za stara videa
+    Video ID: Video ID
+    Resolution: Razlučivost
+    Player Dimensions: Dimenzije playera
+    Bitrate: Brzina prijenosa
+    Volume: Glasnoća
+    Bandwidth: Propusnost
+    Buffered: Učitano u memoriju
+    Mimetype: Mimetype
+    Dropped / Total Frames: Ispušteni/ukupni kadrovi
 Videos:
   #& Sort By
   Sort By:

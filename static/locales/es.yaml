@@ -622,6 +622,11 @@ Video:
     frame drop: Pérdida de fotogramas
     buffered: En buffer
     out of: sin
+    Video statistics are not available for legacy videos: Las estadísticas de vídeo
+      no están disponibles para los vídeos heredados
+    Bitrate: Tasa de bits
+    Volume: Volumen
+    Mimetype: Tipo de medio
 Videos:
   #& Sort By
   Sort By:

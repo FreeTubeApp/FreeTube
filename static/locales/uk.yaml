@@ -612,6 +612,8 @@ Video:
     Video ID: ID відео
     Player Dimensions: Розміри програвача
     Buffered: Буферизовано
+    Video statistics are not available for legacy videos: Статистика відео недоступна
+      для застарілих відео
 Videos:
   #& Sort By
   Sort By:

@@ -441,6 +441,8 @@ Video:
   Publicationtemplate: ''
 #& Videos
   translated from English: traducido del inglés
+  Stats:
+    Mimetype: Tipo de medio
 Videos:
   #& Sort By
   Sort By:

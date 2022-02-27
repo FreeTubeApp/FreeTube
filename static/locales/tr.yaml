@@ -629,6 +629,17 @@ Video:
     video id: Video Kimliği (YouTube)
     bandwidth: Bağlantı Hızı
     buffered: Arabelleğe Alınan
+    Video ID: Video Kimliği
+    Resolution: Çözünürlük
+    Player Dimensions: Oynatıcı Boyutları
+    Bitrate: Bit Hızı
+    Volume: Ses Seviyesi
+    Bandwidth: Bant Genişliği
+    Buffered: Arabelleğe Alınan
+    Dropped / Total Frames: Düşürülen / Toplam Çerçeve Sayısı
+    Mimetype: MIME Türü
+    Video statistics are not available for legacy videos: Video istatistikleri eski
+      videolar için kullanılabilir değil
 Videos:
   #& Sort By
   Sort By:
