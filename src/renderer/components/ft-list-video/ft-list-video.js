@@ -43,10 +43,6 @@ export default Vue.extend({
     channelBlocked: {
       type: Boolean,
       required: true
-    },
-    avoidChannelBlocker: {
-      type: Boolean,
-      required: true
     }
   },
   data: function () {

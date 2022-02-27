@@ -20,7 +20,6 @@
       :appearance="appearance"
       :data="data"
       :channel-blocked="channelBlocked"
-      :avoid-channel-blocker="avoidChannelBlocker"
       v-on="$listeners"
     />
     <ft-list-playlist
@@ -28,7 +27,6 @@
       :appearance="appearance"
       :data="data"
       :channel-blocked="channelBlocked"
-      :avoid-channel-blocker="avoidChannelBlocker"
     />
   </div>
 </template>

@@ -16,13 +16,19 @@
         @change="updatePlayNextVideo"
       />
     </div>
-    <ft-list-video
+    <template
       v-for="(video, index) in data"
-      :key="index"
-      :data="video"
-      appearance="recommendation"
-      force-list-type="list"
-    />
+    >
+      <ft-list-video
+        v-if="!isChannelBlocked(video)"
+        :key="index"
+        :data="video"
+        appearance="recommendation"
+        force-list-type="list"
+        :channel-blocked="isChannelBlocked(video)"
+        @toggle-blocked-channel="toggleBlockedChannel"
+      />
+    </template>
   </ft-card>
 </template>
 

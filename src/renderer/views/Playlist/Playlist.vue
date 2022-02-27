@@ -21,6 +21,8 @@
         :playlist-index="index"
         appearance="result"
         force-list-type="list"
+        :channel-blocked="isChannelBlocked(item)"
+        @toggle-blocked-channel="toggleBlockedChannel"
       />
     </ft-card>
   </div>
