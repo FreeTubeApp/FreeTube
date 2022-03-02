@@ -613,6 +613,17 @@ Video:
     out of: خارج عن
     bandwidth: سرعة الاتصال
     volume: الصوت
+    Video statistics are not available for legacy videos: إحصائيات الفيديو غير متوفرة
+      لمقاطع الفيديو القديمة
+    Video ID: معرف الفيديو
+    Resolution: الدقة
+    Bitrate: معدل البت
+    Player Dimensions: عدد اللاعبين
+    Volume: الصوت
+    Bandwidth: عرض النطاق الترددي
+    Buffered: مخزنة
+    Dropped / Total Frames: إسقاط / إجمالي الإطارات
+    Mimetype: نمط ميمي
 Videos:
   #& Sort By
   Sort By:
