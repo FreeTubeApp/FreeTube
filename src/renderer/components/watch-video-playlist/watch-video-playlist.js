@@ -66,6 +66,10 @@ export default Vue.extend({
       return this.playlistItems.length
     },
 
+    currentLocale: function () {
+      return this.$store.getters.getCurrentLocale
+    },
+
     channelBlockerList: function () {
       return this.$store.getters.getChannelBlockerList
     }
@@ -412,10 +416,11 @@ export default Vue.extend({
     addChannelToBlockList: function (channel) {
       console.log('adding channel', JSON.stringify(channel))
 
+      const locale = this.currentLocale.replace('_', '-')
       const newList = this.channelBlockerList.slice()
       newList.push(channel)
       newList.sort((a, b) => {
-        return a.author.localeCompare(b.author)
+        return a.author.localeCompare(b.author, locale)
       })
       this.updateChannelBlockerList(newList)
 

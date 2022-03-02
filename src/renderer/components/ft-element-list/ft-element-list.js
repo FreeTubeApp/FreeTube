@@ -28,6 +28,10 @@ export default Vue.extend({
       return this.$store.getters.getListType
     },
 
+    currentLocale: function () {
+      return this.$store.getters.getCurrentLocale
+    },
+
     channelBlockerList: function () {
       return this.$store.getters.getChannelBlockerList
     },
@@ -66,10 +70,11 @@ export default Vue.extend({
       // channel: {authorId: 'UCuAXFkgsw1L7xaCfnd5JJOw', author: 'Rick Astley'}
       console.log('adding channel', JSON.stringify(channel))
 
+      const locale = this.currentLocale.replace('_', '-')
       const newList = this.channelBlockerList.slice()
       newList.push(channel)
       newList.sort((a, b) => {
-        return a.author.localeCompare(b.author)
+        return a.author.localeCompare(b.author, locale)
       })
       this.updateChannelBlockerList(newList)
 
