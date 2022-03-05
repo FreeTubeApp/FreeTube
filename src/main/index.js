@@ -265,6 +265,10 @@ function runApp() {
           height: bounds.height
         })
       }
+
+      if (maximized) {
+        newWindow.maximize()
+      }
     }
 
     // If called multiple times
@@ -299,13 +303,6 @@ function runApp() {
       if (newWindow.isVisible()) { return }
 
       newWindow.show()
-
-      if (typeof boundsDoc?.value === 'object') {
-        if (boundsDoc.value.maximized) {
-          newWindow.maximize()
-        }
-      }
-
       newWindow.focus()
     })
 
