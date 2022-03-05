@@ -87,11 +87,13 @@ User Playlists:
   Your Playlists: 'あなたの再生リスト'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 保存した動画はありません。一覧に表示させるには、ビデオの角にある保存ボタンをクリックする
   Playlist Message: このページは、完全に動作するプレイリストではありません。保存またはお気に入りと設定した動画のみが表示されます。操作が完了すると、現在ここにあるすべての動画は「お気に入り」のプレイリストに移動します。
+  Search bar placeholder: プレイリスト内の検索
 History:
   # On History Page
   History: '履歴'
   Watch History: '視聴履歴'
   Your history list is currently empty.: 履歴はありません。
+  Search bar placeholder: 履歴の検索
 Settings:
   # On Settings Page
   Settings: '設定'
@@ -289,6 +291,11 @@ Settings:
     One or more subscriptions were unable to be imported: いくつかの登録チャンネルはインポートできませんでした
     Check for Legacy Subscriptions: 旧型式の登録チャンネルの確認
     Manage Subscriptions: 登録チャンネルの管理
+    Playlist insufficient data: 再生リスト"$"のデータが不完全なため、このアイテムは飛ばされます
+    All playlists has been successfully imported: 全ての再生リストは成功にインポートされました
+    All playlists has been successfully exported: 全ての再生リストは成功にエキスポートされました
+    Import Playlists: 再生リストのインポート
+    Export Playlists: 再生リストのエキスポート
   Distraction Free Settings:
     Hide Live Chat: ライブチャットの非表示
     Hide Popular Videos: 人気動画の非表示
@@ -328,6 +335,10 @@ Settings:
     Ignore Unsupported Action Warnings: 未対応のアクションの警告を無視
     External Player: 外部プレーヤー
     External Player Settings: 外部プレーヤーの設定
+  Download Settings:
+    Download Settings: 設定のダウンロード
+    Ask Download Path: ダウンロードパスの設定
+    Choose Path: パスの選択
 About:
   #On About page
   About: 'About'
@@ -526,6 +537,16 @@ Video:
     volume: 音量
     bandwidth: 接続速度
     out of: のうち
+    Mimetype: メディアタイプ
+    Video ID: ビデオ ID
+    Resolution: 解像度
+    Bitrate: ビットレート
+    Volume: 音量
+    Buffered: バッファー
+    Player Dimensions: プレーヤーのサイズ
+    Video statistics are not available for legacy videos: 従来のビデオでは、ビデオ統計を使用できません
+    Bandwidth: 帯域幅
+    Dropped / Total Frames: ドロップ率 / 総フレーム数
 Videos:
   #& Sort By
   Sort By:
@@ -702,3 +723,6 @@ External link opening has been disabled in the general settings: 一般設定で
 Search Bar:
   Clear Input: 入力の消去
 Are you sure you want to open this link?: このリンクを開きますか？
+Starting download: '"$" のダウンロードを開始します'
+Downloading has completed: '"$" のダウンロードが終了しました'
+Downloading failed: '"$" のダウンロード中に問題が発生しました'

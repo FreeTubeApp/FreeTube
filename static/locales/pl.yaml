@@ -60,7 +60,7 @@ Search Filters:
     Long (> 20 minutes): 'Długie (> 20 minut)'
   # On Search Page
   Search Results: 'Wyniki wyszukiwania'
-  Fetching results. Please wait: 'Szukanie. Proszę poczekać'
+  Fetching results. Please wait: 'Trwa wyszukiwanie. Proszę poczekać'
   Fetch more results: 'Pokaż więcej wyników'
 # Sidebar
   There are no more results for this search: Nie ma więcej wyników dla tego wyszukiwania
@@ -96,11 +96,13 @@ User Playlists:
     tu jedynie wymienione filmy, które zapisałeś lub oznaczyłeś jako ulubione. Kiedy
     prace nad tą stroną zostaną zakończone, wszystkie filmy tu obecne zostaną przeniesione
     do playlisty „Ulubione”.
+  Search bar placeholder: Przeszukaj playlisty
 History:
   # On History Page
   History: 'Historia'
   Watch History: 'Historia oglądania'
   Your history list is currently empty.: 'Twoja historia jest obecnie pusta.'
+  Search bar placeholder: Przeszukaj historię
 Settings:
   # On Settings Page
   Settings: 'Ustawienia'
@@ -289,8 +291,8 @@ Settings:
       pomyślnie wyeksportowana
     All watched history has been successfully imported: Cała historia oglądania została
       pomyślnie zaimportowana
-    History object has insufficient data, skipping item: Obiekt historii ma niewystarczające
-      dane, pomijam element
+    History object has insufficient data, skipping item: Obiekt historii ma niewystarczającą
+      ilość danych, pomijam element
     Subscriptions have been successfully exported: Subskrypcje zostały z powodzeniem
       wyeksportowane
     Invalid history file: Nieprawidłowy plik historii
@@ -300,8 +302,8 @@ Settings:
       z powodzeniem zaimportowane
     All subscriptions and profiles have been successfully imported: Wszystkie subskrypcje
       i profile zostały z powodzeniem zaimportowane
-    Profile object has insufficient data, skipping item: Obiekt profilu ma niewystarczające
-      dane, pomijam element
+    Profile object has insufficient data, skipping item: Obiekt profilu ma niewystarczającą
+      ilość danych, pomijam element
     Export History: Wyeksportuj historię
     Import History: Zaimportuj historię
     Export FreeTube: Eksport do FreeTube
@@ -319,6 +321,12 @@ Settings:
       co najmniej jednej subskrypcji
     Check for Legacy Subscriptions: Sprawdź subskrypcje ze starej wersji
     Manage Subscriptions: Zarządzaj subskrypcjami
+    Export Playlists: Wyeksportuj playlisty
+    All playlists has been successfully exported: Wszystkie playlisty pomyślnie wyeksportowano
+    Playlist insufficient data: Niewystarczająca ilość danych dla playlisty "$", pomijam
+      element
+    Import Playlists: Zaimportuj playlisty
+    All playlists has been successfully imported: Wszystkie playlisty pomyślnie zaimportowano
   Distraction Free Settings:
     Distraction Free Settings: Ustawienia skupienia uwagi
     Hide Live Chat: Schowaj czat na żywo
@@ -364,6 +372,10 @@ Settings:
     Ignore Unsupported Action Warnings: Ignoruj ostrzeżenia o nieobsługiwanych działaniach
     External Player: Zewnętrzny odtwarzacz
     External Player Settings: Ustawienia zewnętrznego odtwarzacza
+  Download Settings:
+    Ask Download Path: Pytaj o lokalizację pobierania
+    Download Settings: Ustawienia pobierania
+    Choose Path: Wybierz folder
 About:
   #On About page
   About: 'O projekcie'
@@ -584,6 +596,18 @@ Video:
     volume: Głośność
     bandwidth: Prędkość połączenia
     fps: FPS
+    frame drop: Pominięte klatki
+    Video ID: ID filmu
+    Resolution: Rozdzielczość
+    Player Dimensions: Wymiary odtwarzacza
+    Bitrate: Szybkość transmisji
+    Volume: Głośność
+    Bandwidth: Przepustowość
+    Buffered: Zbuforowano
+    Mimetype: Typ MIME
+    Video statistics are not available for legacy videos: Statystyki filmu nie są
+      dostępne dla starych formatów
+    Dropped / Total Frames: Opuszczone klatki / klatki ogółem
 Videos:
   #& Sort By
   Sort By:
@@ -623,8 +647,8 @@ Share:
   Share Video: 'Podziel się filmem'
   Copy Link: 'Skopiuj link'
   Open Link: 'Otwórz link'
-  Copy Embed: 'Skopiuj embed'
-  Open Embed: 'Otwórz embed'
+  Copy Embed: 'Skopiuj link do osadzenia'
+  Open Embed: 'Otwórz link do osadzenia'
   # On Click
   Invidious URL copied to clipboard: 'Skopiowano URL Invidious do schowka'
   Invidious Embed URL copied to clipboard: 'Skopiowano URL odtwarzacza Invidious do
@@ -773,7 +797,7 @@ Tooltips:
       na Mac-u) i kliknij lewym przyciskiem myszy, by szybko powrócić do domyślnej
       wartości (1x, chyba że została zmieniona w ustawieniach).
   Privacy Settings:
-    Remove Video Meta Files: Po włączeniu, FreeTube automatycznie usunie pliki metadanych
+    Remove Video Meta Files: Po włączeniu FreeTube automatycznie usunie pliki metadanych
       utworzone podczas odtwarzania filmu, gdy strona odtwarzania zostanie zamknięta.
   External Player Settings:
     Ignore Warnings: Nie wyświetlaj ostrzeżeń o nieobsługiwanych akcjach przez zewnętrzny
@@ -805,3 +829,9 @@ Search Bar:
 External link opening has been disabled in the general settings: Otwieranie zewnętrznych
   linków zostało wyłączone w ustawieniach ogólnych
 Are you sure you want to open this link?: Czy na pewno chcesz otworzyć ten link?
+Downloading has completed: '"$" został pobrany'
+Starting download: Rozpoczęto pobieranie "$"
+Downloading failed: Wystąpił problem z pobieraniem "$"
+Downloading canceled: Pobieranie zostało przerwane przez użytkownika
+Download folder does not exist: Katalog pobierania "$" nie istnieje. Przełączono na
+  tryb "pytaj o folder".
