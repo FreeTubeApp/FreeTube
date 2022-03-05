@@ -60,7 +60,7 @@ Search Filters:
     Long (> 20 minutes): 'Długie (> 20 minut)'
   # On Search Page
   Search Results: 'Wyniki wyszukiwania'
-  Fetching results. Please wait: 'Szukanie. Proszę poczekać'
+  Fetching results. Please wait: 'Trwa wyszukiwanie. Proszę poczekać'
   Fetch more results: 'Pokaż więcej wyników'
 # Sidebar
   There are no more results for this search: Nie ma więcej wyników dla tego wyszukiwania
@@ -96,11 +96,13 @@ User Playlists:
     tu jedynie wymienione filmy, które zapisałeś lub oznaczyłeś jako ulubione. Kiedy
     prace nad tą stroną zostaną zakończone, wszystkie filmy tu obecne zostaną przeniesione
     do playlisty „Ulubione”.
+  Search bar placeholder: Przeszukaj playlisty
 History:
   # On History Page
   History: 'Historia'
   Watch History: 'Historia oglądania'
   Your history list is currently empty.: 'Twoja historia jest obecnie pusta.'
+  Search bar placeholder: Przeszukaj historię
 Settings:
   # On Settings Page
   Settings: 'Ustawienia'
@@ -221,6 +223,8 @@ Settings:
       odtwarzacza
     Display Play Button In Video Player: Pokaż przycisk odtwarzania na odtwarzaczu
     Fast-Forward / Rewind Interval: Interwał przewijania
+    Scroll Playback Rate Over Video Player: Kontroluj szybkość odtwarzania kółkiem
+      myszy na obszarze odtwarzania
   Subscription Settings:
     Subscription Settings: 'Ustawienia subskrypcji'
     Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
@@ -287,8 +291,8 @@ Settings:
       pomyślnie wyeksportowana
     All watched history has been successfully imported: Cała historia oglądania została
       pomyślnie zaimportowana
-    History object has insufficient data, skipping item: Obiekt historii ma niewystarczające
-      dane, pomijam element
+    History object has insufficient data, skipping item: Obiekt historii ma niewystarczającą
+      ilość danych, pomijam element
     Subscriptions have been successfully exported: Subskrypcje zostały z powodzeniem
       wyeksportowane
     Invalid history file: Nieprawidłowy plik historii
@@ -298,8 +302,8 @@ Settings:
       z powodzeniem zaimportowane
     All subscriptions and profiles have been successfully imported: Wszystkie subskrypcje
       i profile zostały z powodzeniem zaimportowane
-    Profile object has insufficient data, skipping item: Obiekt profilu ma niewystarczające
-      dane, pomijam element
+    Profile object has insufficient data, skipping item: Obiekt profilu ma niewystarczającą
+      ilość danych, pomijam element
     Export History: Wyeksportuj historię
     Import History: Zaimportuj historię
     Export FreeTube: Eksport do FreeTube
@@ -317,6 +321,12 @@ Settings:
       co najmniej jednej subskrypcji
     Check for Legacy Subscriptions: Sprawdź subskrypcje ze starej wersji
     Manage Subscriptions: Zarządzaj subskrypcjami
+    Export Playlists: Wyeksportuj playlisty
+    All playlists has been successfully exported: Wszystkie playlisty pomyślnie wyeksportowano
+    Playlist insufficient data: Niewystarczająca ilość danych dla playlisty "$", pomijam
+      element
+    Import Playlists: Zaimportuj playlisty
+    All playlists has been successfully imported: Wszystkie playlisty pomyślnie zaimportowano
   Distraction Free Settings:
     Distraction Free Settings: Ustawienia skupienia uwagi
     Hide Live Chat: Schowaj czat na żywo
@@ -362,6 +372,10 @@ Settings:
     Ignore Unsupported Action Warnings: Ignoruj ostrzeżenia o nieobsługiwanych działaniach
     External Player: Zewnętrzny odtwarzacz
     External Player Settings: Ustawienia zewnętrznego odtwarzacza
+  Download Settings:
+    Ask Download Path: Pytaj o lokalizację pobierania
+    Download Settings: Ustawienia pobierania
+    Choose Path: Wybierz folder
 About:
   #On About page
   About: 'O projekcie'
@@ -477,7 +491,7 @@ Video:
   Watching: 'ogląda'
   Watched: 'Obejrzany'
   # As in a Live Video
-  Live: 'Na żywo'
+  Live: 'Transmisja'
   Live Now: 'Teraz na żywo'
   Live Chat: 'Czat na żywo'
   Enable Live Chat: 'Włącz czat na żywo'
@@ -516,14 +530,14 @@ Video:
     Year: 'rok'
     Years: 'lat/a'
     Ago: 'temu'
-    Upcoming: 'Najbliższe premiery'
+    Upcoming: 'Premiera'
     Minutes: minut/y
     Minute: minutę
   Published on: 'Opublikowano'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % temu'
 #& Videos
-  Autoplay: Autoodtw.
+  Autoplay: Autoodtwarzanie
   Play Previous Video: Odtwórz poprzedni film
   Play Next Video: Odtwórz następny film
   Reverse Playlist: Odwróć playlistę
@@ -573,6 +587,27 @@ Video:
     playlist: playlisty
     video: filmu
     OpenInTemplate: Otwórz w $
+  Premieres on: Premiera
+  Stats:
+    buffered: Zbuforowano
+    out of: z
+    video id: ID filmu (YouTube)
+    player resolution: Odtwarzacz
+    volume: Głośność
+    bandwidth: Prędkość połączenia
+    fps: FPS
+    frame drop: Pominięte klatki
+    Video ID: ID filmu
+    Resolution: Rozdzielczość
+    Player Dimensions: Wymiary odtwarzacza
+    Bitrate: Szybkość transmisji
+    Volume: Głośność
+    Bandwidth: Przepustowość
+    Buffered: Zbuforowano
+    Mimetype: Typ MIME
+    Video statistics are not available for legacy videos: Statystyki filmu nie są
+      dostępne dla starych formatów
+    Dropped / Total Frames: Opuszczone klatki / klatki ogółem
 Videos:
   #& Sort By
   Sort By:
@@ -612,8 +647,8 @@ Share:
   Share Video: 'Podziel się filmem'
   Copy Link: 'Skopiuj link'
   Open Link: 'Otwórz link'
-  Copy Embed: 'Skopiuj embed'
-  Open Embed: 'Otwórz embed'
+  Copy Embed: 'Skopiuj link do osadzenia'
+  Open Embed: 'Otwórz link do osadzenia'
   # On Click
   Invidious URL copied to clipboard: 'Skopiowano URL Invidious do schowka'
   Invidious Embed URL copied to clipboard: 'Skopiowano URL odtwarzacza Invidious do
@@ -646,6 +681,9 @@ Comments:
   Top comments: Najlepsze komentarze
   Sort by: Sortuj według
   Show More Replies: Pokaż więcej odpowiedzi
+  And others: i innych
+  Pinned by: Przypięty przez
+  From $channelName: od $channelName
 Up Next: 'Następne'
 
 # Toast Messages
@@ -753,8 +791,13 @@ Tooltips:
       720p, ale zużywają mniej przepustowości. Formaty audio odtwarzają tylko dźwięk.
     Proxy Videos Through Invidious: Będzie dostarczał filmy, łącząc się z Invidious,
       a nie bezpośrednio z YouTube. Nadpisuje ustawienia API.
+    Scroll Playback Rate Over Video Player: Umieść kursor nad odtwarzaczem, przytrzymaj
+      klawisz „Ctrl” („Command” na Mac-u) i przewijaj kółkiem myszy w górę i w dół,
+      aby kontrolować szybkość odtwarzania. Przytrzymaj klawisz „Ctrl” („Command”
+      na Mac-u) i kliknij lewym przyciskiem myszy, by szybko powrócić do domyślnej
+      wartości (1x, chyba że została zmieniona w ustawieniach).
   Privacy Settings:
-    Remove Video Meta Files: Po włączeniu, FreeTube automatycznie usunie pliki metadanych
+    Remove Video Meta Files: Po włączeniu FreeTube automatycznie usunie pliki metadanych
       utworzone podczas odtwarzania filmu, gdy strona odtwarzania zostanie zamknięta.
   External Player Settings:
     Ignore Warnings: Nie wyświetlaj ostrzeżeń o nieobsługiwanych akcjach przez zewnętrzny
@@ -786,3 +829,9 @@ Search Bar:
 External link opening has been disabled in the general settings: Otwieranie zewnętrznych
   linków zostało wyłączone w ustawieniach ogólnych
 Are you sure you want to open this link?: Czy na pewno chcesz otworzyć ten link?
+Downloading has completed: '"$" został pobrany'
+Starting download: Rozpoczęto pobieranie "$"
+Downloading failed: Wystąpił problem z pobieraniem "$"
+Downloading canceled: Pobieranie zostało przerwane przez użytkownika
+Download folder does not exist: Katalog pobierania "$" nie istnieje. Przełączono na
+  tryb "pytaj o folder".

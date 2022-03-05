@@ -5,7 +5,8 @@
       search: isSearch,
       forceTextColor: forceTextColor,
       showActionButton: showActionButton,
-      showClearTextButton: showClearTextButton
+      showClearTextButton: showClearTextButton,
+      disabled: disabled
     }"
   >
     <label

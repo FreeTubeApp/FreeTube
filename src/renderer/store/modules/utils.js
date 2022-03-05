@@ -1,6 +1,10 @@
 import IsEqual from 'lodash.isequal'
 import FtToastEvents from '../../components/ft-toast/ft-toast-events'
 import fs from 'fs'
+import i18n from '../../i18n/index'
+
+import { IpcChannels } from '../../../constants'
+
 const state = {
   isSideNavOpen: false,
   sessionSearchHistory: [],
@@ -38,7 +42,14 @@ const state = {
     'mainYellow',
     'mainAmber',
     'mainOrange',
-    'mainDeepOrange'
+    'mainDeepOrange',
+    'mainDraculaCyan',
+    'mainDraculaGreen',
+    'mainDraculaOrange',
+    'mainDraculaPink',
+    'mainDraculaPurple',
+    'mainDraculaRed',
+    'mainDraculaYellow'
   ],
   colorValues: [
     '#d50000',
@@ -56,7 +67,14 @@ const state = {
     '#FFD600',
     '#FFAB00',
     '#FF6D00',
-    '#DD2C00'
+    '#DD2C00',
+    '#8BE9FD',
+    '#50FA7B',
+    '#FFB86C',
+    '#FF79C6',
+    '#BD93F9',
+    '#FF5555',
+    '#F1FA8C'
   ],
   externalPlayerNames: [],
   externalPlayerValues: [],
@@ -152,10 +170,97 @@ const actions = {
     const usingElectron = rootState.settings.usingElectron
     if (usingElectron) {
       const ipcRenderer = require('electron').ipcRenderer
-      ipcRenderer.send('openExternalLink', url)
+      ipcRenderer.send(IpcChannels.OPEN_EXTERNAL_LINK, url)
     } else {
       // Web placeholder
     }
+  },
+
+  async downloadMedia({ rootState, dispatch }, { url, title, extension, fallingBackPath }) {
+    const fileName = `${title}.${extension}`
+    const usingElectron = rootState.settings.usingElectron
+    const locale = i18n._vm.locale
+    const translations = i18n._vm.messages[locale]
+    const startMessage = translations['Starting download'].replace('$', title)
+    const completedMessage = translations['Downloading has completed'].replace('$', title)
+    const errorMessage = translations['Downloading failed'].replace('$', title)
+    let folderPath = rootState.settings.downloadFolderPath
+
+    if (!usingElectron) {
+      // Add logic here in the future
+      return
+    }
+
+    if (folderPath === '') {
+      const options = {
+        defaultPath: fileName,
+        filters: [
+          {
+            extensions: [extension]
+          }
+        ]
+      }
+      const response = await dispatch('showSaveDialog', options)
+
+      if (response.canceled || response.filePath === '') {
+        // User canceled the save dialog
+        return
+      }
+
+      folderPath = response.filePath
+    }
+
+    dispatch('showToast', {
+      message: startMessage
+    })
+
+    const response = await fetch(url).catch((error) => {
+      console.log(error)
+      dispatch('showToast', {
+        message: errorMessage
+      })
+    })
+
+    const reader = response.body.getReader()
+    const chunks = []
+
+    const handleError = (err) => {
+      console.log(err)
+      dispatch('showToast', {
+        message: errorMessage
+      })
+    }
+
+    const processText = async ({ done, value }) => {
+      if (done) {
+        return
+      }
+
+      chunks.push(value)
+      // Can be used in the future to determine download percentage
+      // const contentLength = response.headers.get('Content-Length')
+      // const receivedLength = value.length
+      // const percentage = receivedLength / contentLength
+      await reader.read().then(processText).catch(handleError)
+    }
+
+    await reader.read().then(processText).catch(handleError)
+
+    const blobFile = new Blob(chunks)
+    const buffer = await blobFile.arrayBuffer()
+
+    fs.writeFile(folderPath, new DataView(buffer), (err) => {
+      if (err) {
+        console.error(err)
+        dispatch('showToast', {
+          message: errorMessage
+        })
+      } else {
+        dispatch('showToast', {
+          message: completedMessage
+        })
+      }
+    })
   },
 
   async getSystemLocale (context) {
@@ -165,25 +270,25 @@ const actions = {
       }
     }
 
-    return (await invokeIRC(context, 'getSystemLocale', webCbk)) || 'en-US'
+    return (await invokeIRC(context, IpcChannels.GET_SYSTEM_LOCALE, webCbk)) || 'en-US'
   },
 
   async showOpenDialog (context, options) {
     // TODO: implement showOpenDialog web compatible callback
     const webCbk = () => null
-    return await invokeIRC(context, 'showOpenDialog', webCbk, options)
+    return await invokeIRC(context, IpcChannels.SHOW_OPEN_DIALOG, webCbk, options)
   },
 
   async showSaveDialog (context, options) {
     // TODO: implement showSaveDialog web compatible callback
     const webCbk = () => null
-    return await invokeIRC(context, 'showSaveDialog', webCbk, options)
+    return await invokeIRC(context, IpcChannels.SHOW_SAVE_DIALOG, webCbk, options)
   },
 
   async getUserDataPath (context) {
     // TODO: implement getUserDataPath web compatible callback
     const webCbk = () => null
-    return await invokeIRC(context, 'getUserDataPath', webCbk)
+    return await invokeIRC(context, IpcChannels.GET_USER_DATA_PATH, webCbk)
   },
 
   updateShowProgressBar ({ commit }, value) {
@@ -375,7 +480,7 @@ const actions = {
     let urlType = 'unknown'
 
     const channelPattern =
-      /^\/(?:c\/|channel\/|user\/)?([^/]+)(?:\/join)?\/?$/
+      /^\/(?:(c|channel|user)\/)?(?<channelId>[^/]+)(?:\/(join|featured|videos|playlists|about|community|channels))?\/?$/
 
     const typePatterns = new Map([
       ['playlist', /^\/playlist\/?$/],
@@ -445,16 +550,57 @@ const actions = {
           urlType: 'hashtag'
         }
       }
+      /*
+      Using RegExp named capture groups from ES2018
+      To avoid access to specific captured value broken
 
+      Channel URL (ID-based)
+      https://www.youtube.com/channel/UCfMJ2MchTSW2kWaT0kK94Yw
+      https://www.youtube.com/channel/UCfMJ2MchTSW2kWaT0kK94Yw/about
+      https://www.youtube.com/channel/UCfMJ2MchTSW2kWaT0kK94Yw/channels
+      https://www.youtube.com/channel/UCfMJ2MchTSW2kWaT0kK94Yw/community
+      https://www.youtube.com/channel/UCfMJ2MchTSW2kWaT0kK94Yw/featured
+      https://www.youtube.com/channel/UCfMJ2MchTSW2kWaT0kK94Yw/join
+      https://www.youtube.com/channel/UCfMJ2MchTSW2kWaT0kK94Yw/playlists
+      https://www.youtube.com/channel/UCfMJ2MchTSW2kWaT0kK94Yw/videos
+
+      Custom URL
+
+      https://www.youtube.com/c/YouTubeCreators
+      https://www.youtube.com/c/YouTubeCreators/about
+      etc.
+
+      Legacy Username URL
+
+      https://www.youtube.com/user/ufoludek
+      https://www.youtube.com/user/ufoludek/about
+      etc.
+
+      */
       case 'channel': {
-        const channelId = url.pathname.match(channelPattern)[1]
+        const channelId = url.pathname.match(channelPattern).groups.channelId
         if (!channelId) {
           throw new Error('Channel: could not extract id')
         }
 
+        let subPath = null
+        switch (url.pathname.split('/').filter(i => i)[2]) {
+          case 'playlists':
+            subPath = 'playlists'
+            break
+          case 'channels':
+          case 'about':
+            subPath = 'about'
+            break
+          case 'community':
+          default:
+            subPath = 'videos'
+            break
+        }
         return {
           urlType: 'channel',
-          channelId
+          channelId,
+          subPath
         }
       }
 
@@ -798,10 +944,7 @@ const actions = {
     console.log(executable, args)
 
     const { ipcRenderer } = require('electron')
-    ipcRenderer.send('openInExternalPlayer', {
-      executable,
-      args
-    })
+    ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, { executable, args })
   }
 }
 

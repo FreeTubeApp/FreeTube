@@ -82,7 +82,7 @@ Trending:
   Trending: 'U trendu'
   Trending Tabs: Kartice „U trendu”
   Movies: Filmovi
-  Gaming: Igranje
+  Gaming: Igre
   Music: Glazba
   Default: Standardno
 Most Popular: 'Najpopularniji'
@@ -95,11 +95,13 @@ User Playlists:
   Playlist Message: Ova stranica ne odražava potpuno funkcionalne zbirke. Prikazuje
     samo spremljena ili označena videa. Kad posao završi, svi trenutačno ovdje prisutni
     videi premjestit će se u zbirku „Favoriti”.
+  Search bar placeholder: Pretraži zbirku
 History:
   # On History Page
   History: 'Povijest'
   Watch History: 'Povijest gledanja'
   Your history list is currently empty.: 'Tvoj popis povijesti je trenutačno prazan.'
+  Search bar placeholder: Pretraži povijest
 Settings:
   # On Settings Page
   Settings: 'Postavke'
@@ -184,6 +186,7 @@ Settings:
     UI Scale: Uvećanje korisničkog sučelja
     Disable Smooth Scrolling: Deaktiviraj neisprekidano klizanje
     Expand Side Bar by Default: Standardno proširi bočnu traku
+    Hide Side Bar Labels: Sakrij oznake bočnih traka
   Player Settings:
     Player Settings: 'Postavke playera'
     Force Local Backend for Legacy Formats: 'Koristi lokalni pozadinski sustav za
@@ -217,7 +220,9 @@ Settings:
     Next Video Interval: Interval za sljedeći video
     Scroll Volume Over Video Player: Mijenjaj glasnoću u video playeru
     Display Play Button In Video Player: Prikaži gumb za pokretanje u video playeru
-    Fast-Forward / Rewind Interval: Interval za prematanje naprijed/natrag
+    Fast-Forward / Rewind Interval: Interval za premotavanje naprijed/natrag
+    Scroll Playback Rate Over Video Player: Mijenjanje brzine reprodukcije preko video
+      playera
   Privacy Settings:
     Privacy Settings: 'Postavke privatnosti'
     Remember History: 'Zapamti povijest'
@@ -311,6 +316,11 @@ Settings:
       pretplata
     Check for Legacy Subscriptions: Potraži stare pretplate
     Manage Subscriptions: Upravljaj pretplatama
+    Import Playlists: Uvezi zbirke
+    Export Playlists: Izvezi zbirke
+    Playlist insufficient data: Nedovoljno podataka za „$” zbirku, element se preskače
+    All playlists has been successfully imported: Sve zbirke su uspješno uvezene
+    All playlists has been successfully exported: Sve zbirke su uspješno izvezene
   Distraction Free Settings:
     Hide Trending Videos: Sakrij videa u trendu
     Hide Recommended Videos: Sakrij preporučena videa
@@ -353,6 +363,10 @@ Settings:
     Ignore Unsupported Action Warnings: Zanemari upozorenja o nepodržanim radnjama
     External Player: Vanjski player
     External Player Settings: Postavke vanjskog playera
+  Download Settings:
+    Choose Path: Odaberi stazu
+    Download Settings: Postavke preuzimanja
+    Ask Download Path: Zatraži stazu preuzimanja
 About:
   #On About page
   About: 'Informacije'
@@ -451,11 +465,11 @@ Profile:
   : Ovo je tvoj primarni profil. Stvarno želiš izbrisati odabrane kanale? Ti kanali
     će se izbrisati iz svih profila u kojima se pronađu.
   No channel(s) have been selected: Nije odabran nijedan kanal
-  Add Selected To Profile: Dodaj odabrano u profil
-  Delete Selected: Izbriši odabrano
+  Add Selected To Profile: Dodaj odabrane u profil
+  Delete Selected: Izbriši odabrane
   Select None: Odaberi ništa
   Select All: Odaberi sve
-  $ selected: $ je odabran
+  $ selected: 'Broj odabranih: $'
   Other Channels: Ostali kanali
   Subscription List: Popis pretplata
   Profile Filter: Filtar profila
@@ -604,6 +618,27 @@ Video:
     playlist: zbirka
     video: video
     OpenInTemplate: Otvori u $
+  Premieres on: Premijera
+  Stats:
+    fps: Kadrova u sekundi
+    player resolution: Rezolucija prikaza
+    video id: Video ID (YouTube)
+    volume: Glasnoća
+    frame drop: Ispuštanje kadrova
+    bandwidth: Brzina veze
+    buffered: Učitano u memoriju
+    out of: od
+    Video statistics are not available for legacy videos: Statistika videa nije dostupna
+      za stara videa
+    Video ID: Video ID
+    Resolution: Razlučivost
+    Player Dimensions: Dimenzije playera
+    Bitrate: Brzina prijenosa
+    Volume: Glasnoća
+    Bandwidth: Propusnost
+    Buffered: Učitano u memoriju
+    Mimetype: Mimetype
+    Dropped / Total Frames: Ispušteni/ukupni kadrovi
 Videos:
   #& Sort By
   Sort By:
@@ -675,6 +710,9 @@ Comments:
   Top comments: Najpopularniji komentari
   Sort by: Redoslijed
   Show More Replies: Pokaži više odgovora
+  From $channelName: od $channelName
+  And others: i drugi
+  Pinned by: Prikvačio/la
 Up Next: 'Sljedeći'
 
 # Toast Messages
@@ -717,10 +755,14 @@ Tooltips:
       standardno sučelje. Kad je aktivirano, lokalno sučelje će pokretati i koristiti
       stare formate umjesto onih koje dostavlja Invidious. Pomaže u slučajevima, kad
       je reprodukcija videa koje dostavlja Invidious u zemlji zabranjena/ograničena.
+    Scroll Playback Rate Over Video Player: Dok se pokazivač nalazi na videu, pritisni
+      i drži tipku Control (Command tipka na Macu) i pomiči kotačić miša naprijed
+      ili natrag za upravljanje brzine reprodukcije. Pritisni i drži tipku Control
+      (Command tipka na Macu) i pritisni lijevom tipkom miša za brzo vraćanje na standardnu
+      brzinu reprodukcije (jednostruka brzina, ukoliko nije promijenjena u postavkama).
   General Settings:
     Invidious Instance: Invidious primjerak na koji će se FreeTube povezati za pozive
-      sučelja. Isprazni trenutačni primjerak za prikaz popisa javnih primjeraka koje
-      možeš odabrati.
+      API-a.
     Thumbnail Preference: U FreeTubeu će se sve minijature zamijeniti s jednim kadrom
       videa umjesto standardne minijature.
     Fallback to Non-Preferred Backend on Failure: Ako primarno odabrano sučelje ima
@@ -753,6 +795,7 @@ Tooltips:
     Custom External Player Executable: Prema standardnim postavkama, FreeTube će pretpostaviti
       da se odabrani vanjski player može pronaći putem varijable okruženja PATH (putanja).
       Ako je potrebno, ovdje se može postaviti prilagođena putanja.
+    DefaultCustomArgumentsTemplate: '(Standardno: „$”)'
 Playing Next Video Interval: Trenutna reprodukcija sljedećeg videa. Pritisni za prekid.
   | Reprodukcija sljedećeg videa za {nextVideoInterval} sekunde. Pritisni za prekid.
   | Reprodukcija sljedećeg videa za {nextVideoInterval} sekundi. Pritisni za prekid.
@@ -770,3 +813,6 @@ External link opening has been disabled in the general settings: Vanjsko otvaran
 Search Bar:
   Clear Input: Izbriši unos
 Are you sure you want to open this link?: Stvarno želiš otvoriti ovu poveznicu?
+Downloading failed: Došlo je do problema prilikom preuzimanja „$”
+Downloading has completed: „$” je preuzeto
+Starting download: Početak preuzimanja „$”
