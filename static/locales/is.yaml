@@ -104,11 +104,13 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Listinn
     þinn yfir vistuð myndskeið er tómur. Smelltu á vistunarhnapp myndskeiðs til að
     það birtist hér'
+  Search bar placeholder: Leita í spilunarlista
 History:
   # On History Page
   History: 'Vinnsluferill'
   Watch History: 'Áhorfsferill'
   Your history list is currently empty.: 'Listi með vinnsluferli er tómur í augnablikinu.'
+  Search bar placeholder: Leita í vinnsluferli
 Settings:
   # On Settings Page
   Settings: 'Stillingar'
@@ -305,6 +307,12 @@ Settings:
     Unknown data key: 'Óþekktur gagnalykill'
     How do I import my subscriptions?: 'Hvernig flyt ég inn áskriftirnar mínar?'
     Manage Subscriptions: 'Sýsla með áskriftir'
+    Import Playlists: Flytja inn spilunarlista
+    Export Playlists: Flytja út spilunarlista
+    Playlist insufficient data: Ónóg gögn fyrir "$" spilunarlista, sleppi atriðinu
+    All playlists has been successfully imported: Tekist hefur að flytja inn alla
+      spilunarlista
+    All playlists has been successfully exported: Tekist hefur að flytja út alla spilunarlista
   Proxy Settings:
     Proxy Settings: 'Stillingar milliþjóns (proxy)'
     Enable Tor / Proxy: 'Virkja Tor / milliþjón'
@@ -333,6 +341,10 @@ Settings:
     Ignore Unsupported Action Warnings: Hunsa aðvarinir vegna óstuddra aðgerða
     External Player: Utanaðkomandi spilari
     External Player Settings: Stillingar utanaðkomandi spilara
+  Download Settings:
+    Download Settings: Stillingar niðurhals
+    Ask Download Path: Spyrja hvar eigi að vista skrár
+    Choose Path: Veldu slóð
 About:
   #On About page
   About: 'Um hugbúnaðinn'
@@ -562,6 +574,17 @@ Video:
     frame drop: Rammatap
     video id: Auðkenni myndskeiðs (YouTube)
     volume: Hljóðstyrkur
+    Video ID: Auðkenni myndmerkis
+    Resolution: Upplausn
+    Player Dimensions: Stærðir spilara
+    Bandwidth: Bandbreidd
+    Buffered: Biðminni
+    Dropped / Total Frames: Sleppt / Fjöldi ramma
+    Mimetype: MIME-tegund
+    Video statistics are not available for legacy videos: Tölfræði myndskeiða er ekki
+      í boði fyrir eldri gerðir myndskeiða
+    Bitrate: Bitahraði
+    Volume: Hljóðstyrkur
 Videos:
   #& Sort By
   Sort By:
@@ -739,3 +762,6 @@ Search Bar:
 External link opening has been disabled in the general settings: Opnun ytri tengla
   hefur verið gerð óvirk í almennum stillingum
 Are you sure you want to open this link?: Ertu viss um að þú viljir opna þennan tengil?
+Downloading has completed: Búið er að sækja "$"
+Starting download: Byrja að sækja "$"
+Downloading failed: Vandamál kom upp við að sækja "$"

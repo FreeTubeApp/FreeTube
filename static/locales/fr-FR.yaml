@@ -18,7 +18,7 @@ Select all: 'Tout sélectionner'
 Reload: 'Actualiser'
 Force Reload: 'Forcer l''actualisation'
 Toggle Developer Tools: 'Activer les outils de développement'
-Actual size: 'Taille actuelle'
+Actual size: 'Taille réelle'
 Zoom in: 'Agrandir'
 Zoom out: 'Réduire'
 Toggle fullscreen: 'Plein écran'
@@ -57,7 +57,7 @@ Search Filters:
     Duration: 'Durée'
     All Durations: 'Toutes les durées'
     Short (< 4 minutes): 'Court (< 4 minutes)'
-    Long (> 20 minutes): 'Long (> 20 minutes)'
+    Long (> 20 minutes): 'Longue (> 20 minutes)'
   # On Search Page
   Search Results: 'Résultats de la recherche'
   Fetching results. Please wait: 'Récupération des résultats. Veuillez patienter'
@@ -98,11 +98,13 @@ User Playlists:
     Elle ne répertorie que les vidéos que vous avez enregistrées ou mises en favoris.
     Une fois le travail terminé, toutes les vidéos actuellement présentes ici seront
     migrées vers une liste de lecture « Favoris ».
+  Search bar placeholder: Recherche dans la liste de lecture
 History:
   # On History Page
   History: 'Historique'
   Watch History: 'Historique de visionnage'
   Your history list is currently empty.: 'Votre historique est vide.'
+  Search bar placeholder: "Recherche dans l'historique"
 Settings:
   # On Settings Page
   Settings: 'Paramètres'
@@ -329,6 +331,14 @@ Settings:
       n'ont pas pu être importés
     Check for Legacy Subscriptions: Vérifier les abonnements Legacy
     Manage Subscriptions: Gérer les abonnements
+    Import Playlists: Importer des listes de lecture
+    Export Playlists: Exporter des listes de lecture
+    Playlist insufficient data: Données insuffisantes pour la liste de lecture « $ »,
+      saut de l'élément
+    All playlists has been successfully imported: Toutes les listes de lecture ont
+      été importées avec succès
+    All playlists has been successfully exported: Toutes les listes de lecture ont
+      été exportées avec succès
   Distraction Free Settings:
     Hide Video Likes And Dislikes: Masquer les J'aime et Je n'aime pas des vidéos
     Hide Comment Likes: Masquer les J'aime dans les commentaires
@@ -375,6 +385,10 @@ Settings:
     External Player Settings: Paramètres du lecteur externe
     Custom External Player Arguments: Arguments personnalisés du lecteur externe
     Custom External Player Executable: Exécutable de lecteur externe personnalisé
+  Download Settings:
+    Download Settings: 'Paramètres de téléchargement'
+    Ask Download Path: 'Demander l''emplacement de téléchargement'
+    Choose Path: 'Choisir l''emplacement'
 About:
   #On About page
   About: 'À propos'
@@ -600,6 +614,17 @@ Video:
     bandwidth: "Vitesse de connexion"
     buffered: "En tampon"
     out of: "sur"
+    Player Dimensions: Dimensions du lecteur
+    Bitrate: Débit binaire
+    Volume: Volume
+    Mimetype: Type de médias
+    Video statistics are not available for legacy videos: Les statistiques vidéo ne
+      sont pas disponibles pour les anciennes vidéos
+    Resolution: Résolution
+    Bandwidth: Bande passante
+    Video ID: Identifiant vidéo
+    Buffered: En mémoire tampon
+    Dropped / Total Frames: Images perdues / Nombre total d’images
   Premieres on: Première le
 Videos:
   #& Sort By
@@ -702,7 +727,7 @@ Canceled next video autoplay: 'Annuler la lecture automatique'
 
 Yes: 'Oui'
 No: 'Non'
-Locale Name: Français
+Locale Name: français
 Profile:
   $ is now the active profile: $ est maintenant le profil actif
   Your default profile has been changed to your primary profile: Votre profil par
@@ -834,3 +859,9 @@ Search Bar:
 Are you sure you want to open this link?: Êtes-vous sûr(e) de vouloir ouvrir ce lien ?
 External link opening has been disabled in the general settings: L'ouverture des liens
   externes a été désactivée dans les paramètres généraux
+Downloading has completed: '$ a fini de se télécharger'
+Starting download: 'Début du téléchargement de $'
+Downloading failed: 'Il y a eu un problème lors du téléchargement de $'
+Downloading canceled: 'Le téléchargement est annulé par l''utilisateur'
+Download folder does not exist: 'Le répertoire "$" de téléchargement n''existe pas.
+  Mode sans répertoire activé.'

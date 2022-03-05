@@ -168,7 +168,8 @@ const state = {
   checkForBlogPosts: true,
   checkForUpdates: true,
   baseTheme: 'system',
-  // currentTheme: 'lightRed',
+  mainColor: 'Red',
+  secColor: 'Blue',
   defaultCaptionSettings: '{}',
   defaultInterval: 5,
   defaultPlayback: 1,
@@ -186,6 +187,7 @@ const state = {
   externalPlayerExecutable: '',
   externalPlayerIgnoreWarnings: false,
   externalPlayerCustomArgs: '',
+  expandSideBar: false,
   forceLocalBackendForLegacy: false,
   hideActiveSubscriptions: false,
   hideChannelSubscriptions: false,
@@ -217,7 +219,8 @@ const state = {
   useRssFeeds: false,
   useSponsorBlock: false,
   videoVolumeMouseScroll: false,
-  videoPlaybackRateMouseScroll: false
+  videoPlaybackRateMouseScroll: false,
+  downloadFolderPath: ''
 }
 
 const stateWithSideEffects = {

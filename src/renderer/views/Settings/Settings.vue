@@ -18,6 +18,8 @@
     <hr>
     <proxy-settings />
     <hr>
+    <download-settings v-if="usingElectron" />
+    <hr>
     <sponsor-block-settings />
   </div>
 </template>
