@@ -183,9 +183,9 @@ export default Vue.extend({
   methods: {
     setBodyTheme: function () {
       if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.dataset.theme = 'dark'
+        document.body.dataset.systemTheme = 'dark'
       } else {
-        document.body.dataset.theme = 'light'
+        document.body.dataset.systemTheme = 'light'
       }
     },
 
@@ -449,7 +449,7 @@ export default Vue.extend({
      */
     watchSystemTheme: function () {
       ipcRenderer.on(IpcChannels.NATIVE_THEME_UPDATE, (event, shouldUseDarkColors) => {
-        document.body.dataset.theme = shouldUseDarkColors ? 'dark' : 'light'
+        document.body.dataset.systemTheme = shouldUseDarkColors ? 'dark' : 'light'
       })
     },
 
