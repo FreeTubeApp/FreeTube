@@ -81,8 +81,8 @@ export default Vue.extend({
       // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#escaping
       const re = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i')
 
-      const filteredList = this.channelBlockerList.slice().filter(channel => {
-        return channel.author.match(re) !== null
+      const filteredList = this.channelBlockerList.filter(channel => {
+        return re.test(channel.author)
       })
       this.channelBlockerSearchResult = filteredList
     },

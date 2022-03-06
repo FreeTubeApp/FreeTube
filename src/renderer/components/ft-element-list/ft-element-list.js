@@ -42,11 +42,10 @@ export default Vue.extend({
       //  Channel page (#/channel/UCuAXFkgsw1L7xaCfnd5JJOw)
       //  Your playlists (#/userplaylists)
       //  History (#/history)
-      const match = window.location.hash.match(this.re)
-      if (match === null) {
-        return false
+      if (this.re.test(window.location.hash)) {
+        return true
       }
-      return true
+      return false
     }
   },
   methods: {
