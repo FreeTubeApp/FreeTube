@@ -114,6 +114,10 @@ export default Vue.extend({
       return this.$store.getters.getSecColor
     },
 
+    systemTheme: function () {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    },
+
     externalLinkOpeningPromptNames: function () {
       return [
         this.$t('Yes'),
@@ -142,11 +146,12 @@ export default Vue.extend({
   },
   created () {
     this.setBodyTheme()
-    this.checkThemeSettings()
     this.setWindowTitle()
   },
   mounted: function () {
     this.grabUserSettings().then(async () => {
+      this.checkThemeSettings()
+
       await this.fetchInvidiousInstances({ isDev: this.isDev })
       if (this.defaultInvidiousInstance === '') {
         await this.setRandomCurrentInvidiousInstance()
@@ -181,14 +186,6 @@ export default Vue.extend({
     })
   },
   methods: {
-    setBodyTheme: function () {
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.dataset.systemTheme = 'dark'
-      } else {
-        document.body.dataset.systemTheme = 'light'
-      }
-    },
-
     checkThemeSettings: function () {
       const theme = {
         baseTheme: this.baseTheme || 'dark',
@@ -202,9 +199,8 @@ export default Vue.extend({
     updateTheme: function (theme) {
       console.group('updateTheme')
       console.log('Theme: ', theme)
-      const className = `${theme.baseTheme} main${theme.mainColor} sec${theme.secColor}`
-      const body = document.getElementsByTagName('body')[0]
-      body.className = className
+      document.body.className = `${theme.baseTheme} main${theme.mainColor} sec${theme.secColor}`
+      document.body.dataset.systemTheme = this.systemTheme
       console.groupEnd()
     },
 
