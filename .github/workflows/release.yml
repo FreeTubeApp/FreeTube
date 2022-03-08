@@ -13,11 +13,14 @@ jobs:
     strategy:
       matrix:
         node-version: [14.x]
-        runtime: [ linux-x64, linux-arm64, win-x64, osx-x64 ]
+        runtime: [ linux-x64, linux-armv7l, linux-arm64, win-x64, osx-x64 ]
         include:
         - runtime: linux-x64
           os: ubuntu-latest
 
+        - runtime: linux-armv7l
+          os: ubuntu-latest
+        
         - runtime: linux-arm64
           os: ubuntu-latest
 
@@ -49,6 +52,10 @@ jobs:
       if: contains(matrix.runtime, 'x64')
       run: npm run build --if-present
 
+    - name: Build ARMv7l with Node.js ${{ matrix.node-version}}
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
+      run: npm run build:arm32 --if-present
+      
     - name: Build ARM64 with Node.js ${{ matrix.node-version}}
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
       run: npm run build:arm64 --if-present
@@ -75,7 +82,18 @@ jobs:
         asset_path: build/freetube-${{ env.PACKAGE_VERSION }}.zip
         asset_content_type: application/zip
 
-    - name: Upload Linux .zip ARM Release
+    - name: Upload Linux .zip ARMv7l Release
+      uses: actions/upload-release-asset@v1
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
+        asset_name: freetube-${{ env.PACKAGE_VERSION }}-linux-portable-armv7l.zip
+        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}-armv7l.zip
+        asset_content_type: application/zip
+
+    - name: Upload Linux .zip ARM64 Release
       uses: actions/upload-release-asset@v1
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
       env:
@@ -97,7 +115,18 @@ jobs:
         asset_path: build/freetube_${{ env.PACKAGE_VERSION }}_amd64.deb
         asset_content_type: application/vnd.debian.binary-package
 
-    - name: Upload Linux .deb ARM Release
+    - name: Upload Linux .deb ARMv7l Release
+      uses: actions/upload-release-asset@v1
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
+        asset_name: freetube_${{ env.PACKAGE_VERSION }}_armhf.deb
+        asset_path: build/freetube_${{ env.PACKAGE_VERSION }}_armv7l.deb
+        asset_content_type: application/vnd.debian.binary-package
+        
+    - name: Upload Linux .deb ARM64 Release
       uses: actions/upload-release-asset@v1
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
       env:
@@ -119,7 +148,7 @@ jobs:
         asset_path: build/freetube-${{ env.PACKAGE_VERSION }}.x86_64.rpm
         asset_content_type: application/x-rpm
 
-    - name: Upload Linux .rpm ARM Release
+    - name: Upload Linux .rpm ARM64 Release
       uses: actions/upload-release-asset@v1
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
       env:
