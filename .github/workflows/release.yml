@@ -147,6 +147,8 @@ jobs:
         asset_name: freetube_${{ env.PACKAGE_VERSION }}_amd64.rpm
         asset_path: build/freetube-${{ env.PACKAGE_VERSION }}.x86_64.rpm
         asset_content_type: application/x-rpm
+        
+     # rpm are not built for armv7l
 
     - name: Upload Linux .rpm ARM64 Release
       uses: actions/upload-release-asset@v1
