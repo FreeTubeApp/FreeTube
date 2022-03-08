@@ -52,7 +52,13 @@ jobs:
         version: v${{ steps.sub.outputs.result }}-beta
         repository: FreeTubeApp/FreeTube
         file: freetube-${{ steps.sub.outputs.result }}-linux-portable-x64.zip
-    - name: Download ARM Release
+    - name: Download ARMv7l Release
+      uses: fabriciobastian/download-release-asset-action@v1.0.6
+      with:
+        version: v${{ steps.sub.outputs.result }}-beta
+        repository: FreeTubeApp/FreeTube
+        file: freetube-${{ steps.sub.outputs.result }}-linux-portable-armv7l.zip
+    - name: Download ARM64 Release
       uses: fabriciobastian/download-release-asset-action@v1.0.6
       with:
         version: v${{ steps.sub.outputs.result }}-beta
@@ -64,7 +70,13 @@ jobs:
         echo 'HASH_X64<<EOF' >> $GITHUB_ENV
         sha256sum freetube-${{ steps.sub.outputs.result }}-linux-portable-x64.zip | awk '{print $1}' >> $GITHUB_ENV
         echo 'EOF' >> $GITHUB_ENV
-    - name: Set ARM Hash Variable
+    - name: Set ARMv7l Hash Variable
+      id: hash-armv7l
+      run: |
+        echo 'HASH_ARMv7l<<EOF' >> $GITHUB_ENV
+        sha256sum freetube-${{ steps.sub.outputs.result }}-linux-portable-armv7l.zip | awk '{print $1}' >> $GITHUB_ENV
+        echo 'EOF' >> $GITHUB_ENV
+    - name: Set ARM64 Hash Variable
       id: hash-arm64
       run: |
         echo 'HASH_ARM64<<EOF' >> $GITHUB_ENV
@@ -86,21 +98,32 @@ jobs:
       with:
         # The Command which should be run
         cmd: yq w -i io.freetubeapp.FreeTube.yml modules[0].sources[0].sha256 ${{ env.HASH_X64 }}
-    - name: Update ARM File Location in yml File
+    - name: Update ARMv7l File Location in yml File
       uses: mikefarah/yq@4.0.0-beta1
       with:
         # The Command which should be run
-        cmd: yq w -i io.freetubeapp.FreeTube.yml modules[0].sources[1].url 'https://github.com/FreeTubeApp/FreeTube/releases/download/v${{ steps.sub.outputs.result }}-beta/freetube-${{ steps.sub.outputs.result }}-linux-portable-arm64.zip'
-    - name: Update ARM Hash in yml File
+        cmd: yq w -i io.freetubeapp.FreeTube.yml modules[0].sources[1].url 'https://github.com/FreeTubeApp/FreeTube/releases/download/v${{ steps.sub.outputs.result }}-beta/freetube-${{ steps.sub.outputs.result }}-linux-portable-armv7l.zip'
+    - name: Update ARMv7l Hash in yml File
       uses: mikefarah/yq@4.0.0-beta1
       with:
         # The Command which should be run
-        cmd: yq w -i io.freetubeapp.FreeTube.yml modules[0].sources[1].sha256 ${{ env.HASH_ARM64 }}
+        cmd: yq w -i io.freetubeapp.FreeTube.yml modules[0].sources[1].sha256 ${{ env.HASH_ARMv7l }}
+    - name: Update ARM64 File Location in yml File
+      uses: mikefarah/yq@4.0.0-beta1
+      with:
+        # The Command which should be run
+        cmd: yq w -i io.freetubeapp.FreeTube.yml modules[0].sources[2].url 'https://github.com/FreeTubeApp/FreeTube/releases/download/v${{ steps.sub.outputs.result }}-beta/freetube-${{ steps.sub.outputs.result }}-linux-portable-arm64.zip'
+    - name: Update ARM64 Hash in yml File
+      uses: mikefarah/yq@4.0.0-beta1
+      with:
+        # The Command which should be run
+        cmd: yq w -i io.freetubeapp.FreeTube.yml modules[0].sources[2].sha256 ${{ env.HASH_ARM64 }}
     - name: Add Patch Notes to XML File
       run: xmlstarlet ed -L -i /application/releases/release[1] -t elem -n releaseTMP -v "" -i //releaseTMP -t attr -n version -v "${{ steps.sub.outputs.result }} Beta" -i //releaseTMP -t attr -n date -v "${{ env.CURRENT_DATE }}" -s //releaseTMP -t elem -n url -v "" -s //releaseTMP/url -t text -n "" -v "https://github.com/FreeTubeApp/FreeTube/releases/tag/v${{ steps.sub.outputs.result }}-beta" -r //releaseTMP -v "release" io.freetubeapp.FreeTube.metainfo.xml
     - name: Remove Release Files
       run: |
         rm freetube-${{ steps.sub.outputs.result }}-linux-portable-x64.zip
+        rm freetube-${{ steps.sub.outputs.result }}-linux-portable-armv7l.zip
         rm freetube-${{ steps.sub.outputs.result }}-linux-portable-arm64.zip
     - name: Commit Files
       uses: stefanzweifel/git-auto-commit-action@v4
