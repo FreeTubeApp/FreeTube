@@ -123,7 +123,7 @@ jobs:
       uses: actions/upload-artifact@v2
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
       with:
-        name: freetube_${{ steps.versionNumber.outputs.result }}_armhf.deb
+        name: freetube_${{ steps.versionNumber.outputs.result }}_armv7l.deb
         path: build/freetube_${{ steps.versionNumber.outputs.result }}_armv7l.deb
         
     - name: Upload .deb ARM64 Artifact
