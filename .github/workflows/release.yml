@@ -122,7 +122,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-        asset_name: freetube_${{ env.PACKAGE_VERSION }}_armhf.deb
+        asset_name: freetube_${{ env.PACKAGE_VERSION }}_armv7l.deb
         asset_path: build/freetube_${{ env.PACKAGE_VERSION }}_armv7l.deb
         asset_content_type: application/vnd.debian.binary-package
         
