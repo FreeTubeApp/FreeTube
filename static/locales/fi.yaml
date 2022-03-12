@@ -580,6 +580,7 @@ Video:
     Volume: Äänenvoimakkuus
     Buffered: Puskuroitu
     Resolution: Resoluutio
+    Dropped / Total Frames: Pudotettu / Yhteensä
   Premieres on: Julkaistaan
 Videos:
   #& Sort By
@@ -753,6 +754,11 @@ Tooltips:
       Kun valittuna, paikallinen API käyttää vanhoja formaatteja Invidiousin käyttämien
       sijaan. Tämä auttaa, jos Invidiousin palauttamat videot eivät toimi maarajoituksien
       takia.
+    Scroll Playback Rate Over Video Player: Kursorin ollessa videon päällä, paina
+      CTRL (Komentopainike MAC-tietokoneessa) pohjaan ja käytä hiiren rullaa muuttaaksesi
+      toiston nopeutta. Palataksesi alkuperäiseen toistonopeuteen (1x ellei toisin
+      määritelty asetuksissa), pidä CTRL-painike (Komentopainike MAC-tietokoneessa)
+      painettuna ja paina hiiren vasenta näppäintä.
   Privacy Settings:
     Remove Video Meta Files: Kun tämä on kytkettynä päälle, FreeTube poistaa automaattisesti
       meta-tiedostot jotka luotiin videon toiston aikana, katselusivu suljettaessa.
@@ -786,3 +792,6 @@ Search Bar:
 External link opening has been disabled in the general settings: Ulkoisen linkin avaaminen
   on poistettu käytöstä yleisissä asetuksissa
 Are you sure you want to open this link?: Haluatko varmasti avata tämän linkin?
+Downloading failed: Videon "$" lataamisessa havaittiin ongelma
+Downloading has completed: Videon "$" lataus on valmis
+Starting download: Aloitetaan lataamaan "$"
