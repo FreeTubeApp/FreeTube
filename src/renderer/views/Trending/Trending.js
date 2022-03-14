@@ -52,7 +52,11 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    this.getTrendingInfo()
+    if (this.trendingCache[this.currentTab] && this.trendingCache[this.currentTab].length > 0) {
+      this.getTrendingInfoCache()
+    } else {
+      this.getTrendingInfo()
+    }
   },
   methods: {
     changeTab: function (tab, event) {
@@ -88,17 +92,15 @@ export default Vue.extend({
       currentTabNode.attr('aria-selected', 'false')
       newTabNode.attr('aria-selected', 'true')
       this.currentTab = tab
-      this.getTrendingInfo()
+      if (this.trendingCache[this.currentTab] && this.trendingCache[this.currentTab].length > 0) {
+        this.getTrendingInfoCache()
+      } else {
+        this.getTrendingInfo()
+      }
     },
 
     getTrendingInfo () {
-      if (this.trendingCache[this.currentTab] && this.trendingCache[this.currentTab].length > 0) {
-        this.isLoading = true
-        setTimeout(() => {
-          this.shownResults = this.trendingCache[this.currentTab]
-          this.isLoading = false
-        })
-      } else if (!this.usingElectron) {
+      if (!this.usingElectron) {
         this.getVideoInformationInvidious()
       } else {
         switch (this.backendPreference) {
@@ -151,6 +153,14 @@ export default Vue.extend({
         } else {
           this.isLoading = false
         }
+      })
+    },
+
+    getTrendingInfoCache: function() {
+      this.isLoading = true
+      setTimeout(() => {
+        this.shownResults = this.trendingCache[this.currentTab]
+        this.isLoading = false
       })
     },
 
