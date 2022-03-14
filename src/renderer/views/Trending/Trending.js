@@ -127,7 +127,8 @@ export default Vue.extend({
 
         this.shownResults = returnData
         this.isLoading = false
-        this.$store.commit('setTrendingCache', this.shownResults, this.currentTab)
+        const currentTab = this.currentTab
+        this.$store.commit('setTrendingCache', { value: returnData, page: currentTab })
       }).then(() => {
         document.querySelector(`#${this.currentTab}Tab`).focus()
       }).catch((err) => {
@@ -177,7 +178,8 @@ export default Vue.extend({
 
         this.shownResults = returnData
         this.isLoading = false
-        this.$store.commit('setTrendingCache', this.shownResults, this.trendingCache)
+        const currentTab = this.currentTab
+        this.$store.commit('setTrendingCache', { value: returnData, page: currentTab })
       }).then(() => {
         document.querySelector(`#${this.currentTab}Tab`).focus()
       }).catch((err) => {
