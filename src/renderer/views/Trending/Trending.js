@@ -52,11 +52,7 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    if (this.trendingCache[this.currentTab] && this.trendingCache[this.currentTab].length > 0) {
-      this.shownResults = this.trendingCache
-    } else {
-      this.getTrendingInfo()
-    }
+    this.getTrendingInfo()
   },
   methods: {
     changeTab: function (tab, event) {
@@ -96,7 +92,13 @@ export default Vue.extend({
     },
 
     getTrendingInfo () {
-      if (!this.usingElectron) {
+      if (this.trendingCache[this.currentTab] && this.trendingCache[this.currentTab].length > 0) {
+        this.isLoading = true
+        setTimeout(() => {
+          this.shownResults = this.trendingCache[this.currentTab]
+          this.isLoading = false
+        })
+      } else if (!this.usingElectron) {
         this.getVideoInformationInvidious()
       } else {
         switch (this.backendPreference) {
