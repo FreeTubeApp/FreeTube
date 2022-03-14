@@ -49,9 +49,9 @@ export default Vue.extend({
     }
   },
   methods: {
-    isChannelBlocked: function (video) {
-      const channelIndex = this.channelBlockerList.findIndex((item) => {
-        return item.authorId === video.authorId
+    isChannelBlocked: function (item) {
+      const channelIndex = this.channelBlockerList.findIndex((blocked) => {
+        return blocked.authorId === item.authorId
       })
 
       return channelIndex !== -1

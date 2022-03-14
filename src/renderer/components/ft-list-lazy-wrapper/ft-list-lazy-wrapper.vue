@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="(data.type === 'channel' || data.type === 'playlist') || avoidChannelBlocker || !channelBlocked"
+    v-if="avoidChannelBlocker || !channelBlocked"
     v-observe-visibility="firstScreen ? false : {
       callback: onVisibilityChanged,
       once: true,
@@ -14,6 +14,7 @@
       v-if="data.type === 'channel' && visible"
       :appearance="appearance"
       :data="data"
+      :channel-blocked="channelBlocked"
     />
     <ft-list-video
       v-if="(data.type === 'video' || data.type === 'shortVideo') && visible"
