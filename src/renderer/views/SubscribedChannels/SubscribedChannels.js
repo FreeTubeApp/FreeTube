@@ -18,8 +18,14 @@ export default Vue.extend({
       query: '',
       allChannels: [],
       filteredChannels: [],
-      reURL: /(.+=\w{1})\d+(.+)/,
-      thumbnailSize: 176
+      re: {
+        url: /(.+=\w{1})\d+(.+)/,
+        ivToIv: /(.+)(ggpht.+)/,
+        ivToYt: /(.+ggpht\/{2})(.+)/,
+        ytToIv: /(.+)(ytc.+)/
+      },
+      thumbnailSize: 176,
+      ytBaseURL: 'https://yt3.ggpht.com'
     }
   },
   computed: {
@@ -45,6 +51,14 @@ export default Vue.extend({
 
     locale: function () {
       return this.$store.getters.getCurrentLocale.replace('_', '-')
+    },
+
+    backendPreference: function () {
+      return this.$store.getters.getBackendPreference
+    },
+
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
     }
   },
   watch: {
@@ -116,8 +130,24 @@ export default Vue.extend({
     },
 
     thumbnailURL: function(originalURL) {
+      let newURL = originalURL
+      if (originalURL.indexOf('ggpht//') > -1) {
+        if (this.backendPreference === 'local') {
+          // IV to YT
+          newURL = originalURL.replace(this.re.ivToYt, `${this.ytBaseURL}/$2`)
+        } else {
+          // IV to IV
+          newURL = originalURL.replace(this.re.ivToIv, `${this.currentInvidiousInstance}/$2`)
+        }
+      } else {
+        if (this.backendPreference === 'invidious') {
+          // YT to IV
+          newURL = originalURL.replace(this.re.ytToIv, `${this.currentInvidiousInstance}/ggpht//$2`)
+        }
+      }
+
       // Saved thumbnail quality is inconsistent (48, 76, 100 or 176)
-      return originalURL.replace(this.reURL, `$1${this.thumbnailSize}$2`)
+      return newURL.replace(this.re.url, `$1${this.thumbnailSize}$2`)
     },
 
     goToChannel: function (id) {
