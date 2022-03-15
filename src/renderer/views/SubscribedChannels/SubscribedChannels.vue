@@ -8,7 +8,7 @@
         :show-clear-text-button="true"
         :show-action-button="false"
         :spellcheck="false"
-        @input="filterChannels"
+        @input="handleInput"
       />
       <ft-flex-box
         v-if="activeSubscriptionList.length === 0"

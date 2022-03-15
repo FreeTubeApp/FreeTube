@@ -15,7 +15,7 @@ export default Vue.extend({
   },
   data: function () {
     return {
-      hasQuery: false,
+      query: '',
       allChannels: [],
       filteredChannels: [],
       reURL: /(.+=\w{1})\d+(.+)/,
@@ -36,7 +36,7 @@ export default Vue.extend({
     },
 
     channelsList: function () {
-      if (this.hasQuery) {
+      if (this.query !== '') {
         return this.filteredChannels
       } else {
         return this.allChannels
@@ -51,6 +51,10 @@ export default Vue.extend({
     activeProfileId: function() {
       this.clearFilter()
       this.getAllChannels()
+    },
+    activeSubscriptionList: function() {
+      this.getAllChannels()
+      this.filterChannels()
     }
   },
   mounted: function () {
@@ -63,15 +67,18 @@ export default Vue.extend({
       })
     },
 
-    filterChannels: function (query) {
-      this.hasQuery = query !== ''
+    handleInput: function(input) {
+      this.query = input
+      this.filterChannels()
+    },
 
-      if (query === '') {
+    filterChannels: function () {
+      if (this.query === '') {
         this.filteredChannels = []
         return
       }
 
-      const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+      const escapedQuery = this.query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
       const re = new RegExp(escapedQuery, 'i')
       this.filteredChannels = this.allChannels.filter(channel => {
         return re.test(channel.name)
@@ -80,7 +87,7 @@ export default Vue.extend({
 
     clearFilter: function () {
       this.$refs.searchBarChannels.inputData = ''
-      this.hasQuery = false
+      this.query = ''
     },
 
     unsubscribeChannel: function (id, name) {
