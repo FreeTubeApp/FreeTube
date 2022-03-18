@@ -321,6 +321,13 @@ Settings:
     Profile object has insufficient data, skipping item: O objeto Perfil possui dados
       insuficientes, pulando item
     Manage Subscriptions: Administrar Inscrições
+    Import Playlists: Importar listas de reprodução
+    Export Playlists: Exportar listas de reprodução
+    Playlist insufficient data: Dados insuficientes para "$" playlist, pulando item
+    All playlists has been successfully exported: Todas as listas de reprodução foram
+      exportadas com sucesso
+    All playlists has been successfully imported: Todas as listas de reprodução foram
+      importadas com sucesso
   Distraction Free Settings:
     Hide Live Chat: Esconder chat ao vivo
     Hide Popular Videos: Esconder vídeos populares
@@ -580,6 +587,14 @@ Video:
     out of: de
     player resolution: Janela de exibição
     Mimetype: Tipo de mídia da Internet
+    Video statistics are not available for legacy videos: As estatísticas de vídeo
+      não estão disponíveis para vídeos mais antigos
+    Video ID: ID do vídeo
+    Player Dimensions: Dimensões do reprodutor
+    Bitrate: Taxa de bits
+    Volume: Volume
+    Bandwidth: Largura de banda
+    Resolution: Resolução
 Videos:
   #& Sort By
   Sort By:
