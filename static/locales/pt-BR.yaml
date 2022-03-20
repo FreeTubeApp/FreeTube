@@ -595,6 +595,8 @@ Video:
     Volume: Volume
     Bandwidth: Largura de banda
     Resolution: Resolução
+    Buffered: Em buffer
+    Dropped / Total Frames: Quadros perdidos / Total de quadros
 Videos:
   #& Sort By
   Sort By:
