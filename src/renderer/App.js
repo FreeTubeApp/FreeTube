@@ -306,6 +306,16 @@ export default Vue.extend({
         }
       }
       switch (event.code) {
+        case 'Slash':
+          // If the search input is already focused, do nothing.
+          if (document.activeElement === this.$refs.topNav.searchInput) {
+            break
+          }
+          
+          // Prevent slash from appearing in search box.
+          event.preventDefault()
+          this.$refs.topNav.focusSearch()
+          break
         case 'Tab':
           this.hideOutlines = false
           break

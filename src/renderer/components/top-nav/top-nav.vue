@@ -73,6 +73,7 @@
           :data-list="searchSuggestionsDataList"
           :spellcheck="false"
           :show-clear-text-button="true"
+          ref="searchInput"
           @input="getSearchSuggestionsDebounce"
           @click="goToSearch"
         />
