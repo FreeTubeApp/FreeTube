@@ -66,6 +66,7 @@
     <div class="middle">
       <div class="searchContainer">
         <ft-input
+          ref="searchInput"
           :placeholder="$t('Search / Go to URL')"
           class="searchInput"
           :is-search="true"
@@ -73,7 +74,6 @@
           :data-list="searchSuggestionsDataList"
           :spellcheck="false"
           :show-clear-text-button="true"
-          ref="searchInput"
           @input="getSearchSuggestionsDebounce"
           @click="goToSearch"
         />

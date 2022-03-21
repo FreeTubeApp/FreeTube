@@ -37,11 +37,11 @@
     />
     <input
       :id="id"
+      ref="input"
       v-model="inputData"
       :list="idDataList"
       class="ft-input"
       type="text"
-      ref="input"
       :placeholder="placeholder"
       :disabled="disabled"
       :spellcheck="spellcheck"

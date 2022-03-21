@@ -311,7 +311,7 @@ export default Vue.extend({
           if (document.activeElement === this.$refs.topNav.searchInput) {
             break
           }
-          
+
           // Prevent slash from appearing in search box.
           event.preventDefault()
           this.$refs.topNav.focusSearch()
