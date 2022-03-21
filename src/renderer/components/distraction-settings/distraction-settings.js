@@ -6,6 +6,7 @@ import FtButton from '../ft-button/ft-button.vue'
 import FtSelect from '../ft-select/ft-select.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtInput from '../ft-input/ft-input.vue'
+import FtPrompt from '../ft-prompt/ft-prompt.vue'
 
 export default Vue.extend({
   name: 'PlayerSettings',
@@ -15,12 +16,20 @@ export default Vue.extend({
     'ft-button': FtButton,
     'ft-select': FtSelect,
     'ft-flex-box': FtFlexBox,
-    'ft-input': FtInput
+    'ft-input': FtInput,
+    'ft-prompt': FtPrompt
   },
   data: function () {
     return {
       channelBlockerHasQuery: false,
-      channelBlockerSearchResult: []
+      channelBlockerSearchResult: [],
+      channelBlockerChannelToRemove: {},
+      channelBlockerPromptText: '',
+      showChannelBlockerRemovePrompt: false,
+      promptValues: [
+        'yes',
+        'no'
+      ]
     }
   },
   computed: {
@@ -63,6 +72,12 @@ export default Vue.extend({
       } else {
         return this.channelBlockerList
       }
+    },
+    promptNames: function () {
+      return [
+        this.$t('Yes'),
+        this.$t('No')
+      ]
     }
   },
   methods: {
@@ -87,7 +102,19 @@ export default Vue.extend({
       this.channelBlockerSearchResult = filteredList
     },
 
-    removeChannelFromBlockList: function (channel) {
+    onChannelBlockerRemoveButtonClicked: function (channel) {
+      this.channelBlockerPromptText = this.$t('Settings.Distraction Free Settings.ChannelBlocker Delete Prompt').replace('$', channel.author)
+      this.channelBlockerChannelToRemove = channel
+      this.showChannelBlockerRemovePrompt = true
+    },
+
+    removeChannelFromBlockList: function (option) {
+      this.showChannelBlockerRemovePrompt = false
+      if (option !== 'yes') {
+        return
+      }
+
+      const channel = this.channelBlockerChannelToRemove
       console.log('removing channel', JSON.stringify(channel))
 
       const newList = this.channelBlockerList.slice()
@@ -123,7 +150,6 @@ export default Vue.extend({
       'updateHideLiveChat',
       'updateHideActiveSubscriptions',
       'updatePlayNextVideo',
-      'updateDefaultTheatreMode',
       'updateChannelBlockerList'
     ])
   }

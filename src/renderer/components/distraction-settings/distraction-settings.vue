@@ -78,7 +78,6 @@
         <div>{{ $t('Settings.Distraction Free Settings.Blocked Channels') }}</div>
         <ft-input
           id="channel_blocker_search_input"
-          ref="searchBar"
           :show-action-button="false"
           :show-clear-text-button="true"
           :placeholder="$t('Settings.Distraction Free Settings.ChannelBlocker Search bar placeholder')"
@@ -112,7 +111,7 @@
         >
           <span
             class="channelBlockerSettingsBlockedListRemoveButton"
-            @click="removeChannelFromBlockList(item)"
+            @click="onChannelBlockerRemoveButtonClicked(item)"
           >
             <font-awesome-icon
               icon="times"
@@ -131,6 +130,13 @@
         </li>
       </ul>
     </div>
+    <ft-prompt
+      v-if="showChannelBlockerRemovePrompt"
+      :label="channelBlockerPromptText"
+      :option-names="promptNames"
+      :option-values="promptValues"
+      @click="removeChannelFromBlockList"
+    />
     <br>
     <ft-flex-box>
       <ft-select

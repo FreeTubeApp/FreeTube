@@ -215,7 +215,6 @@ const state = {
   useProxy: false,
   useRssFeeds: false,
   useSponsorBlock: false,
-  useChannelBlocker: false,
   videoVolumeMouseScroll: false,
   videoPlaybackRateMouseScroll: false,
   downloadFolderPath: '',
