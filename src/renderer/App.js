@@ -303,19 +303,12 @@ export default Vue.extend({
           case 'ArrowLeft':
             this.$refs.topNav.historyBack()
             break
+          case 'KeyD':
+            this.$refs.topNav.focusSearch()
+            break
         }
       }
       switch (event.code) {
-        case 'Slash':
-          // If the search input is already focused, do nothing.
-          if (document.activeElement === this.$refs.topNav.searchInput) {
-            break
-          }
-
-          // Prevent slash from appearing in search box.
-          event.preventDefault()
-          this.$refs.topNav.focusSearch()
-          break
         case 'Tab':
           this.hideOutlines = false
           break
