@@ -27,7 +27,6 @@
       v-if="data.type === 'playlist' && visible"
       :appearance="appearance"
       :data="data"
-      :channel-blocked="channelBlocked"
     />
   </div>
 </template>

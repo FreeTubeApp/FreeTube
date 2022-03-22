@@ -37,8 +37,11 @@ export default Vue.extend({
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
     },
-    channelBlockerCache: function () {
-      return this.$store.getters.getChannelBlockerCache
+    currentLocale: function () {
+      return this.$store.getters.getCurrentLocale
+    },
+    channelBlockerList: function () {
+      return this.$store.getters.getChannelBlockerList
     }
   },
   watch: {
@@ -173,9 +176,9 @@ export default Vue.extend({
       this.isLoading = false
     },
 
-    isChannelBlocked: function (video) {
-      const channelIndex = this.channelBlockerCache.findIndex((item) => {
-        return item._id === video.authorId
+    isChannelBlocked: function (item) {
+      const channelIndex = this.channelBlockerList.findIndex((blocked) => {
+        return blocked.authorId === item.authorId
       })
 
       return channelIndex !== -1
@@ -190,30 +193,35 @@ export default Vue.extend({
     },
 
     addChannelToBlockList: function (channel) {
-      console.log('adding', channel)
-      const newChannel = {
-        _id: channel.authorId,
-        name: channel.author
-      }
+      console.log('adding channel', JSON.stringify(channel))
 
-      this.channelBlockerAddChannel(newChannel).then(_ => {
-        this.showToast({
-          message: `"${newChannel.name}" ${this.$t('Video.Channel has been added to the block list')}`
-        })
-      }).catch(err => {
-        console.error(err)
+      const locale = this.currentLocale.replace('_', '-')
+      const newList = this.channelBlockerList.slice()
+      newList.push(channel)
+      newList.sort((a, b) => {
+        return a.author.localeCompare(b.author, locale)
+      })
+      this.updateChannelBlockerList(newList)
+
+      this.showToast({
+        message: `"${channel.author}" ${this.$t('Video.Channel has been added to the block list')}`
       })
     },
 
     removeChannelFromBlockList: function (channel) {
-      console.log('removing', channel)
-      this.channelBlockerRemoveChannelById(channel.authorId).then(_ => {
-        this.compactBlockedChannels()
-        this.showToast({
-          message: `"${channel.author}" ${this.$t('Video.Channel has been removed from the block list')}`
-        })
-      }).catch(err => {
-        console.error(err)
+      console.log('removing channel', JSON.stringify(channel))
+
+      const newList = this.channelBlockerList.slice()
+      for (let i = newList.length - 1; i >= 0; i--) {
+        if (newList[i].authorId === channel.authorId) {
+          newList.splice(i, 1)
+          break
+        }
+      }
+      this.updateChannelBlockerList(newList)
+
+      this.showToast({
+        message: `"${channel.author}" ${this.$t('Video.Channel has been removed from the block list')}`
       })
     },
 
@@ -221,9 +229,7 @@ export default Vue.extend({
       'ytGetPlaylistInfo',
       'invidiousGetPlaylistInfo',
       'showToast',
-      'channelBlockerAddChannel',
-      'channelBlockerRemoveChannelById',
-      'compactBlockedChannels'
+      'updateChannelBlockerList'
     ])
   }
 })

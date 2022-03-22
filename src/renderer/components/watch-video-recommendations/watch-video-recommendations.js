@@ -36,11 +36,6 @@ export default Vue.extend({
     },
     channelBlockerList: function () {
       return this.$store.getters.getChannelBlockerList
-    },
-    channelBlockerFilteredData: function () {
-      return this.data.filter(video => {
-        return !this.isChannelBlocked(video)
-      })
     }
   },
   methods: {
