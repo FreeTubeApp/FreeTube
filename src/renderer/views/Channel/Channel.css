@@ -143,3 +143,15 @@
   flex-direction: column;
   padding-left: 1em;
 }
+
+.blocked {
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin: 3rem auto;
+}
+
+.blockedText {
+  font-size: xxx-large;
+  color: var(--secondary-text-color);
+}

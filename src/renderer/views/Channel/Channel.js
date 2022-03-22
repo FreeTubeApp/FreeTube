@@ -58,7 +58,8 @@ export default Vue.extend({
       playlistSelectValues: [
         'last',
         'newest'
-      ]
+      ],
+      channelBlockerShowTemporarily: false
     }
   },
   computed: {
@@ -155,6 +156,14 @@ export default Vue.extend({
     },
     hideChannelSubscriptions: function () {
       return this.$store.getters.getHideChannelSubscriptions
+    },
+
+    isChannelBlocked: function () {
+      const channelIndex = this.$store.getters.getChannelBlockerList.findIndex((blocked) => {
+        return blocked.authorId === this.id
+      })
+
+      return channelIndex !== -1
     }
   },
   watch: {

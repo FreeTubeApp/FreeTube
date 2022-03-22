@@ -446,6 +446,9 @@ Channel:
     About: About
     Channel Description: Channel Description
     Featured Channels: Featured Channels
+  ChannelBlocker:
+    Blocked Message: This Channel is Blocked
+    Button: View Temporarily
 Video:
   Mark As Watched: Mark As Watched
   Remove From History: Remove From History
