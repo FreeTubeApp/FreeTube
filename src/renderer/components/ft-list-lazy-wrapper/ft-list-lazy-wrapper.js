@@ -34,6 +34,10 @@ export default Vue.extend({
     avoidChannelBlocker: {
       type: Boolean,
       default: false
+    },
+    showBlockedItems: {
+      type: Boolean,
+      default: false
     }
   },
   data: function () {

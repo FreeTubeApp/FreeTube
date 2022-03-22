@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="avoidChannelBlocker || !channelBlocked"
+    v-if="avoidChannelBlocker || !channelBlocked || showBlockedItems"
     v-observe-visibility="firstScreen ? false : {
       callback: onVisibilityChanged,
       once: true,

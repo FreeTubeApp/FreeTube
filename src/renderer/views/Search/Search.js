@@ -4,6 +4,7 @@ import IsEqual from 'lodash.isequal'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
+import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import ytTrendScraper from 'yt-trending-scraper'
 
 export default Vue.extend({
@@ -11,7 +12,8 @@ export default Vue.extend({
   components: {
     'ft-loader': FtLoader,
     'ft-card': FtCard,
-    'ft-element-list': FtElementList
+    'ft-element-list': FtElementList,
+    'ft-icon-button': FtIconButton
   },
   data: function () {
     return {
@@ -23,7 +25,18 @@ export default Vue.extend({
       nextPageRef: '',
       lastSearchQuery: '',
       searchSettings: {},
-      shownResults: []
+      shownResults: [],
+      unhide: false,
+      unhideIcons: {
+        true: {
+          icon: 'eye-slash',
+          title: this.$t('Search Filters.Hide')
+        },
+        false: {
+          icon: 'eye',
+          title: this.$t('Search Filters.Unhide')
+        }
+      }
     }
   },
   computed: {
@@ -37,6 +50,21 @@ export default Vue.extend({
 
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
+    },
+
+    channelBlockerCount: function () {
+      const list = this.$store.getters.getChannelBlockerList
+      return this.shownResults.filter((result) => {
+        return list.some((item) => {
+          return item.authorId === result.authorId
+        })
+      }).length
+    },
+
+    channelBlockerCountText: function() {
+      return this.$t('Search Filters.Hidden Items')
+        .replace('$', this.channelBlockerCount)
+        .replace('%', this.shownResults.length)
     }
   },
   watch: {
@@ -330,6 +358,10 @@ export default Vue.extend({
       }
 
       this.isLoading = false
+    },
+
+    toggleBlockedContents: function () {
+      this.unhide = !this.unhide
     },
 
     ...mapActions([

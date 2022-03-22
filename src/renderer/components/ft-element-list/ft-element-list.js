@@ -15,6 +15,10 @@ export default Vue.extend({
     data: {
       type: Array,
       required: true
+    },
+    showBlockedItems: {
+      type: Boolean,
+      default: false
     }
   },
   data: function () {

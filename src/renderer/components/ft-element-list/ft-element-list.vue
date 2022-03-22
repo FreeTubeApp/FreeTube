@@ -11,6 +11,7 @@
       :layout="listType"
       :channel-blocked="isChannelBlocked(result)"
       :avoid-channel-blocker="avoidChannelBlockerByURI"
+      :show-blocked-items="showBlockedItems"
       @toggle-blocked-channel="toggleBlockedChannel"
     />
   </ft-auto-grid>
