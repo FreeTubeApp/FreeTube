@@ -1,5 +1,15 @@
 .ft-input-component {
   position: relative;
+  margin: 10px auto;
+}
+
+.inputArea {
+  position: relative;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
 }
 
 .disabled label, .disabled .ft-input{
@@ -63,7 +73,6 @@
     padding: 1rem;
     border: none;
     background: transparent;
-    margin-bottom: 10px;
     font-size: 16px;
     height: 45px;
     color: var(--secondary-text-color);

@@ -10,10 +10,9 @@
     }"
   >
     <label
-      v-if="showLabel"
-      :for="id"
+      v-if="label !== ''"
     >
-      {{ placeholder }}
+      {{ label }}
       <ft-tooltip
         v-if="tooltip !== ''"
         class="selectTooltip"
@@ -21,43 +20,45 @@
         :tooltip="tooltip"
       />
     </label>
-    <font-awesome-icon
-      v-if="showClearTextButton && clearTextButtonExisting"
-      icon="times-circle"
-      class="clearInputTextButton"
-      :class="{
-        visible: clearTextButtonVisible
-      }"
-      tabindex="0"
-      role="button"
-      :title="$t('Search Bar.Clear Input')"
-      @click="handleClearTextClick"
-      @keydown.space.prevent="handleClearTextClick"
-      @keydown.enter.prevent="handleClearTextClick"
-    />
-    <input
-      :id="id"
-      v-model="inputData"
-      :list="idDataList"
-      class="ft-input"
-      type="text"
-      :placeholder="placeholder"
-      :disabled="disabled"
-      :spellcheck="spellcheck"
-      @input="e => handleInput(e.target.value)"
-      @focus="handleFocus"
-      @blur="handleInputBlur"
-      @keydown="e => handleKeyDown(e.keyCode)"
-    >
-    <font-awesome-icon
-      v-if="showActionButton"
-      :icon="actionButtonIconName"
-      class="inputAction"
-      :class="{
-        enabled: inputDataPresent
-      }"
-      @click="handleClick"
-    />
+    <div class="inputArea">
+      <font-awesome-icon
+        v-if="showClearTextButton && clearTextButtonExisting"
+        icon="times-circle"
+        class="clearInputTextButton"
+        :class="{
+          visible: clearTextButtonVisible
+        }"
+        tabindex="0"
+        role="button"
+        :title="$t('Search Bar.Clear Input')"
+        @click="handleClearTextClick"
+        @keydown.space.prevent="handleClearTextClick"
+        @keydown.enter.prevent="handleClearTextClick"
+      />
+      <input
+        :id="id"
+        v-model="inputData"
+        :list="idDataList"
+        class="ft-input"
+        type="text"
+        :placeholder="placeholder"
+        :disabled="disabled"
+        :spellcheck="spellcheck"
+        @input="e => handleInput(e.target.value)"
+        @focus="handleFocus"
+        @blur="handleInputBlur"
+        @keydown="e => handleKeyDown(e.keyCode)"
+      >
+      <font-awesome-icon
+        v-if="showActionButton"
+        :icon="actionButtonIconName"
+        class="inputAction"
+        :class="{
+          enabled: inputDataPresent
+        }"
+        @click="handleClick"
+      />
+    </div>
 
     <div class="options">
       <ul

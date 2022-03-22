@@ -74,16 +74,14 @@
     </div>
     <br>
     <div class="channelBlockerSection">
-      <ft-flex-box class="channelBlockerSettingsSearchFlexBox">
-        <div>{{ $t('Settings.Distraction Free Settings.Blocked Channels') }}</div>
-        <ft-input
-          id="channel_blocker_search_input"
-          :show-action-button="false"
-          :show-clear-text-button="true"
-          :placeholder="$t('Settings.Distraction Free Settings.ChannelBlocker Search bar placeholder')"
-          @input="filterChannelBlockerList"
-        />
-      </ft-flex-box>
+      <ft-input
+        id="channel_blocker_search_input"
+        :label="$t('Settings.Distraction Free Settings.Blocked Channels')"
+        :show-action-button="false"
+        :show-clear-text-button="true"
+        :placeholder="$t('Settings.Distraction Free Settings.ChannelBlocker Search bar placeholder')"
+        @input="filterChannelBlockerList"
+      />
       <ft-flex-box
         v-if="channelBlockerShownList.length === 0"
       >

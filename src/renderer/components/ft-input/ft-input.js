@@ -24,9 +24,9 @@ export default Vue.extend({
       type: Boolean,
       default: false
     },
-    showLabel: {
-      type: Boolean,
-      default: false
+    label: {
+      type: String,
+      default: ''
     },
     isSearch: {
       type: Boolean,
