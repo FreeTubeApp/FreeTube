@@ -24,9 +24,9 @@ jobs:
       - uses: z0al/dependent-issues@v1
         env:
           # (Required) The token to use to make API calls to GitHub.
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TESTING }}
           # (Optional) The token to use to make API calls to GitHub for remote repos.
-          GITHUB_READ_TOKEN: ${{ secrets.GITHUB_READ_TOKEN }}
+          GITHUB_READ_TOKEN: ${{ secrets.TESTING }}
         with:
           # (Optional) The label to use to mark dependent issues
           label: "PR/Issue: dependent"
