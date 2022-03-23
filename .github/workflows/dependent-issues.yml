@@ -55,5 +55,3 @@ jobs:
             This PR/issue depends on:
 
             {{ dependencies }}
-
-            By **[Dependent Issues](https://github.com/z0al/dependent-issues)** (🤖). Happy coding!
