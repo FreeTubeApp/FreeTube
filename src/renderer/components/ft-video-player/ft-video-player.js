@@ -1647,6 +1647,7 @@ export default Vue.extend({
             break
           case 68:
             // D Key
+            event.preventDefault()
             this.toggleShowStatsModal()
             break
           case 27:
