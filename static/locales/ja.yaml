@@ -130,7 +130,7 @@ Settings:
     Current instance will be randomized on startup: 現在のインスタンスは起動時にランダム化されます
     No default instance has been set: 既定のインスタンスが設定されていません
     The currently set default instance is $: 現在設定されている既定のインスタンスは $です
-    Current Invidious Instance: 現在のinvidiousインスタンス
+    Current Invidious Instance: 現在の invidious インスタンス
     External Link Handling:
       No Action: 何もしない
       Ask Before Opening Link: リンクを開く前に確認
@@ -513,7 +513,7 @@ Video:
     intro: イントロ
   Skipped segment: スキップされたセグメント
   External Player:
-    OpeningTemplate: '%で$を開く...'
+    OpeningTemplate: '% で $ を開く...'
     Unsupported Actions:
       looping playlists: 再生リストのループ
       shuffling playlists: シャッフルプレイリスト
@@ -523,10 +523,10 @@ Video:
       opening playlists: プレイリストを開く
       setting a playback rate: 再生レートの設定
       starting video at offset: オフセット時にビデオを開始する
-    UnsupportedActionTemplate: '$はサポートしていません: %'
+    UnsupportedActionTemplate: '$ はサポートしていません: %'
     playlist: 再生リスト
     video: ビデオ
-    OpenInTemplate: $で開く
+    OpenInTemplate: $ で開く
   Premieres on: プレミア公開
   Stats:
     player resolution: 表示領域
@@ -717,8 +717,8 @@ More: もっと見る
 Hashtags have not yet been implemented, try again later: ハッシュタグは未実装です。実装後に実行してください
 Unknown YouTube url type, cannot be opened in app: 不明な YouTube URL の種類、アプリで実行できません
 Open New Window: 新しいウィンドウを開く
-Default Invidious instance has been cleared: デフォルトのInvidiousインスタンスがクリアされました
-Default Invidious instance has been set to $: デフォルトのInvidiousインスタンスは$に設定されています
+Default Invidious instance has been cleared: デフォルトの Invidious インスタンスがクリアされました
+Default Invidious instance has been set to $: デフォルトの Invidious インスタンスは$に設定されています
 External link opening has been disabled in the general settings: 一般設定で外部リンクの表示は無効になっています
 Search Bar:
   Clear Input: 入力の消去
