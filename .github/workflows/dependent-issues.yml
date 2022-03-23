@@ -52,6 +52,8 @@ jobs:
 
           # (Optional) A custom comment body. It supports `{{ dependencies }}` token.
           comment: >
-            This PR/issue depends on:
+            Alright! Looks like we need to wait for some _dependencies:_
 
             {{ dependencies }}
+
+            Don't worry, I will continue watching the list above and keep this comment updated. To add or remove a dependency please update the description of this PR/issue.
