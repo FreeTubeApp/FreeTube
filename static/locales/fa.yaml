@@ -285,13 +285,17 @@ Settings:
     Import History: 'وارد کردن تاریخچه'
     Export History: 'استخراج تاریخچه'
     Profile object has insufficient data, skipping item: ''
-    All subscriptions and profiles have been successfully imported: ''
-    All subscriptions have been successfully imported: ''
-    One or more subscriptions were unable to be imported: ''
-    Invalid subscriptions file: ''
-    This might take a while, please wait: ''
-    Invalid history file: ''
-    Subscriptions have been successfully exported: ''
+    All subscriptions and profiles have been successfully imported: 'همه دنبال شوندگان
+      و پروفایل ها با موفقیت ثبت شد'
+    All subscriptions have been successfully imported: 'همه دنبال شوندگان با موفقیت
+      ثبت شد'
+    One or more subscriptions were unable to be imported: 'یک یا چند دنبال شونده قادر
+      به ثبت نبودند'
+    Invalid subscriptions file: 'فایل دنبال شوندگان نامعتبر است'
+    This might take a while, please wait: 'ممکن است کمی طول بکشد، لطفا اندکی صبر کنید'
+    Invalid history file: 'فایل تاریخچه نامعتبر است'
+    Subscriptions have been successfully exported: 'دنبال شوندگان با موفقیت استخراج
+      شدند'
     History object has insufficient data, skipping item: ''
     All watched history has been successfully imported: ''
     All watched history has been successfully exported: ''

@@ -101,6 +101,18 @@ export default Vue.extend({
       return this.$store.getters.getDefaultInvidiousInstance
     },
 
+    baseTheme: function () {
+      return this.$store.getters.getBaseTheme
+    },
+
+    mainColor: function () {
+      return this.$store.getters.getMainColor
+    },
+
+    secColor: function () {
+      return this.$store.getters.getSecColor
+    },
+
     externalLinkOpeningPromptNames: function () {
       return [
         this.$t('Yes'),
@@ -114,6 +126,13 @@ export default Vue.extend({
   },
   watch: {
     windowTitle: 'setWindowTitle',
+
+    baseTheme: 'checkThemeSettings',
+
+    mainColor: 'checkThemeSettings',
+
+    secColor: 'checkThemeSettings',
+
     $route () {
       // react to route changes...
       // Hide top nav filter panel on page change
@@ -160,39 +179,22 @@ export default Vue.extend({
   },
   methods: {
     checkThemeSettings: function () {
-      let baseTheme = localStorage.getItem('baseTheme')
-      let mainColor = localStorage.getItem('mainColor')
-      let secColor = localStorage.getItem('secColor')
-
-      if (baseTheme === null) {
-        baseTheme = 'dark'
-      }
-
-      if (mainColor === null) {
-        mainColor = 'mainRed'
-      }
-
-      if (secColor === null) {
-        secColor = 'secBlue'
-      }
-
       const theme = {
-        baseTheme: baseTheme,
-        mainColor: mainColor,
-        secColor: secColor
+        baseTheme: this.baseTheme || 'dark',
+        mainColor: this.mainColor || 'mainRed',
+        secColor: this.secColor || 'secBlue'
       }
 
       this.updateTheme(theme)
     },
 
     updateTheme: function (theme) {
-      console.log(theme)
-      const className = `${theme.baseTheme} ${theme.mainColor} ${theme.secColor}`
+      console.group('updateTheme')
+      console.log('Theme: ', theme)
+      const className = `${theme.baseTheme} main${theme.mainColor} sec${theme.secColor}`
       const body = document.getElementsByTagName('body')[0]
       body.className = className
-      localStorage.setItem('baseTheme', theme.baseTheme)
-      localStorage.setItem('mainColor', theme.mainColor)
-      localStorage.setItem('secColor', theme.secColor)
+      console.groupEnd()
     },
 
     checkForNewUpdates: function () {
@@ -473,7 +475,10 @@ export default Vue.extend({
       'getExternalPlayerCmdArgumentsData',
       'fetchInvidiousInstances',
       'setRandomCurrentInvidiousInstance',
-      'setupListenersToSyncWindows'
+      'setupListenersToSyncWindows',
+      'updateBaseTheme',
+      'updateMainColor',
+      'updateSecColor'
     ])
   }
 })

@@ -43,21 +43,21 @@
     <ft-flex-box>
       <ft-select
         :placeholder="$t('Settings.Theme Settings.Base Theme.Base Theme')"
-        :value="currentBaseTheme"
+        :value="baseTheme"
         :select-names="baseThemeNames"
         :select-values="baseThemeValues"
         @change="updateBaseTheme"
       />
       <ft-select
         :placeholder="$t('Settings.Theme Settings.Main Color Theme.Main Color Theme')"
-        :value="currentMainColor"
+        :value="mainColor"
         :select-names="colorNames"
         :select-values="colorValues"
         @change="updateMainColor"
       />
       <ft-select
         :placeholder="$t('Settings.Theme Settings.Secondary Color Theme')"
-        :value="currentSecColor"
+        :value="secColor"
         :select-names="colorNames"
         :select-values="colorValues"
         @change="updateSecColor"

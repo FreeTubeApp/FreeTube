@@ -629,6 +629,17 @@ Video:
     bandwidth: Скорост на свързване
     buffered: Буферирани
     out of: от
+    Resolution: Резолюция
+    Video ID: Идентификатор на видеоклипа
+    Player Dimensions: Размери на плейъра
+    Bitrate: Побитова скорост
+    Bandwidth: Пропускателна способност
+    Volume: Сила на звука
+    Dropped / Total Frames: Отпаднали / Общо кадри
+    Mimetype: MIME тип
+    Buffered: Буферирани
+    Video statistics are not available for legacy videos: Статистиката не е налична
+      за наследени видеоклипове
   Premieres on: Премиера на
 Videos:
   #& Sort By

@@ -322,6 +322,7 @@ Settings:
     All playlists has been successfully exported: Все плейлисты успешно экспортированы
     Export Playlists: Экспорт плейлистов
     All playlists has been successfully imported: Все плейлисты успешно импортированы
+    Playlist insufficient data: Недостаточно данных для плейлиста "$", пропущен элемент
   Distraction Free Settings:
     Hide Live Chat: Скрыть Live чат
     Hide Popular Videos: Скрыть популярные видео
@@ -581,6 +582,16 @@ Video:
     buffered: Буферизовано
     out of: из
     fps: Кадровая частота
+    Video statistics are not available for legacy videos: Статистика видео недоступна
+      для устаревших видео
+    Video ID: ID видео
+    Resolution: Разрешение
+    Player Dimensions: Размеры плеера
+    Bitrate: Битрейт
+    Volume: Громкость
+    Bandwidth: Пропускная способность
+    Dropped / Total Frames: Пропущено/Всего кадров
+    Mimetype: MIME-типы
   Premieres on: Премьеры
 Videos:
   #& Sort By
@@ -681,7 +692,7 @@ Canceled next video autoplay: 'Отменено автовоспроизведе
 
 Yes: 'Да'
 No: 'Нет'
-Locale Name: русский
+Locale Name: Русский
 Profile:
   $ is now the active profile: $ теперь активный профиль
   Your default profile has been changed to your primary profile: Ваш профиль по умолчанию
