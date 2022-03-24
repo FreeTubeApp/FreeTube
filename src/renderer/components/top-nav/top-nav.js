@@ -60,6 +60,10 @@ export default Vue.extend({
       return this.$store.getters.getBackendPreference
     },
 
+    expandSideBar: function () {
+      return this.$store.getters.getExpandSideBar
+    },
+
     forwardText: function () {
       return this.$t('Forward')
     },
@@ -80,9 +84,12 @@ export default Vue.extend({
       searchContainer.style.display = 'none'
     }
 
-    if (localStorage.getItem('expandSideBar') === 'true') {
-      this.toggleSideNav()
-    }
+    // Store is not up-to-date when the component mounts, so we use timeout.
+    setTimeout(() => {
+      if (this.expandSideBar) {
+        this.toggleSideNav()
+      }
+    }, 0)
 
     window.addEventListener('resize', function (event) {
       const width = event.srcElement.innerWidth

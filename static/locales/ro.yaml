@@ -104,11 +104,13 @@ User Playlists:
     Aceasta enumeră doar videoclipurile pe care le-ați salvat sau le-ați favorizat.
     Când lucrările vor fi finalizate, toate videoclipurile care se află în prezent
     aici vor fi migrate într-o listă de redare "Favorite".
+  Search bar placeholder: Căutare în lista de redare
 History:
   # On History Page
   History: 'Istoric'
   Watch History: 'Istoricul vizionărilor'
   Your history list is currently empty.: 'Lista dvs. de istoric este momentan goală.'
+  Search bar placeholder: Căutare în istoric
 Settings:
   # On Settings Page
   Settings: 'Setări'
@@ -289,6 +291,13 @@ Settings:
     How do I import my subscriptions?: 'Cum îmi pot importa abonamentele?'
     Check for Legacy Subscriptions: Verificați dacă există abonamente vechi
     Manage Subscriptions: Gestionare abonamente
+    All playlists has been successfully imported: Toate listele de redare au fost
+      importate cu succes
+    Import Playlists: Importați liste de redare
+    Export Playlists: Exportați liste de redare
+    Playlist insufficient data: Date insuficiente pentru lista de redare "$", se omite
+    All playlists has been successfully exported: Toate listele de redare au fost
+      exportate cu succes
   Advanced Settings:
     Advanced Settings: ''
     Enable Debug Mode (Prints data to the console): ''
@@ -355,6 +364,10 @@ Settings:
     Proxy Protocol: Protocol Proxy
     Enable Tor / Proxy: Activați Tor / Proxy
     Proxy Settings: Setări Proxy
+  Download Settings:
+    Ask Download Path: Solicită calea de descărcare
+    Choose Path: Alege calea
+    Download Settings: Setări de descărcare
 About:
   #On About page
   About: 'Despre'
@@ -603,6 +616,17 @@ Video:
     bandwidth: Viteză conexiune
     out of: din
     buffered: Preîncărcat
+    Video statistics are not available for legacy videos: Statisticile videoclipurilor
+      nu sunt disponibile pentru videoclipurile vechi
+    Video ID: Video ID
+    Resolution: Rezoluție
+    Player Dimensions: Dimensiunile player-ului
+    Bitrate: Rată de biți
+    Volume: Volum
+    Bandwidth: Lățime de bandă
+    Buffered: Încărcat
+    Dropped / Total Frames: Cadre pierdute / totale
+    Mimetype: Mimetype
   Premieres on: Premieră pe
 Videos:
   #& Sort By
@@ -756,6 +780,12 @@ Tooltips:
       va utiliza formatele vechi returnate de acesta în locul celor returnate de Invidious.
       Ajută atunci când videoclipurile returnate de Invidious nu sunt redate din cauza
       restricțiilor de țară.
+    Scroll Playback Rate Over Video Player: În timp ce cursorul se află deasupra videoclipului,
+      țineți apăsată tasta Control (tasta Command pe Mac) și derulați rotița mouse-ului
+      înainte sau înapoi pentru a controla rata de redare. Țineți apăsată tasta Control
+      (tasta Command pe Mac) și faceți clic cu butonul stâng al mouse-ului pentru
+      a reveni rapid la rata de redare implicită (1x, cu excepția cazului în care
+      aceasta a fost modificată în setări).
   General Settings:
     External Link Handling: "Alegeți comportamentul implicit atunci când se face clic\
       \ pe un link care nu poate fi deschis în FreeTube.\nÎn mod implicit, FreeTube\
@@ -764,8 +794,7 @@ Tooltips:
       în tendințe din fiecare țară doriți să fie afișate. Nu toate țările afișate
       sunt suportate de YouTube.
     Invidious Instance: Instanța Invidious la care FreeTube se va conecta pentru apelurile
-      API. Ștergeți instanța curentă pentru a vedea o listă de instanțe publice din
-      care puteți alege.
+      API.
     Thumbnail Preference: Toate miniaturile din FreeTube vor fi înlocuite cu un cadru
       al videoclipului în loc de miniatura implicită.
     Fallback to Non-Preferred Backend on Failure: Atunci când API-ul preferat are
@@ -776,3 +805,6 @@ Tooltips:
       un server Invidious la care să vă conectați.
 External link opening has been disabled in the general settings: Deschiderea linkurilor
   externe a fost dezactivată în setările generale
+Starting download: Se începe descărcarea a "$"
+Downloading failed: A existat o problemă la descărcarea "$"
+Downloading has completed: '"$" s-a terminat de descărcat'

@@ -93,8 +93,8 @@ User Playlists:
     spremljenih videa. Pritisni gumb za spremanje u sličici videa, kako bi se video
     ovdje prikazao
   Playlist Message: Ova stranica ne odražava potpuno funkcionalne zbirke. Prikazuje
-    samo spremljena ili označena videa. Kad posao završi, svi trenutačno ovdje prisutni
-    videi premjestit će se u zbirku „Favoriti”.
+    samo spremljena ili označena videa. Kad posao završi, sva trenutačno ovdje prisutna
+    videa premjestit će se u zbirku „Favoriti”.
   Search bar placeholder: Pretraži zbirku
 History:
   # On History Page
@@ -221,8 +221,7 @@ Settings:
     Scroll Volume Over Video Player: Mijenjaj glasnoću u video playeru
     Display Play Button In Video Player: Prikaži gumb za pokretanje u video playeru
     Fast-Forward / Rewind Interval: Interval za premotavanje naprijed/natrag
-    Scroll Playback Rate Over Video Player: Mijenjanje brzine reprodukcije preko video
-      playera
+    Scroll Playback Rate Over Video Player: Mijenjaj brzinu reprodukcije u video playeru
   Privacy Settings:
     Privacy Settings: 'Postavke privatnosti'
     Remember History: 'Zapamti povijest'
