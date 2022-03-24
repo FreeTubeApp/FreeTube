@@ -155,3 +155,17 @@
   font-size: xxx-large;
   color: var(--secondary-text-color);
 }
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+@media only screen and (max-width: 680px) {
+  .blockedText {
+    font-size: xx-large;
+  }
+}

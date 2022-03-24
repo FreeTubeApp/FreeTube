@@ -36,6 +36,14 @@
   right: 10px;
 }
 
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.15s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
 @media only screen and (max-width: 500px) {
   .titleArea {
     flex-direction: column;

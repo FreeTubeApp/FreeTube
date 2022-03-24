@@ -115,102 +115,107 @@
       v-if="!isLoading"
       class="card"
     >
-      <ft-flex-box
-        v-if="isChannelBlocked && !channelBlockerShowTemporarily"
-        class="blocked"
+      <transition
+        name="fade"
+        mode="out-in"
       >
-        <div class="blockedText">
-          {{ $t('Channel.ChannelBlocker.Blocked Message') }}
-        </div>
-        <ft-button
-          :label="$t('Channel.ChannelBlocker.Button')"
-          background-color="var(--accent-color)"
-          text-color="var(--text-with-accent-color)"
-          @click="channelBlockerShowTemporarily = true"
-        />
-      </ft-flex-box>
-      <template
-        v-else
-      >
-        <div
-          v-if="currentTab === 'about'"
-          class="aboutTab"
+        <ft-flex-box
+          v-if="isChannelBlocked && !channelBlockerShowTemporarily"
+          class="blocked"
         >
-          <h2>
-            {{ $t("Channel.About.Channel Description") }}
-          </h2>
-          <div
-            class="aboutInfo"
-            v-html="channelDescription"
-          />
-          <br>
-          <h2
-            v-if="relatedChannels.length > 0"
-          >
-            {{ $t("Channel.About.Featured Channels") }}
-          </h2>
-          <ft-flex-box
-            v-if="relatedChannels.length > 0"
-          >
-            <ft-channel-bubble
-              v-for="(channel, index) in relatedChannels"
-              :key="index"
-              :channel-name="channel.author"
-              :channel-id="channel.authorId"
-              :channel-thumbnail="channel.authorThumbnails[channel.authorThumbnails.length - 1].url"
-              @click="goToChannel(channel.authorId)"
-            />
-          </ft-flex-box>
-        </div>
-        <ft-loader
-          v-if="isElementListLoading"
-        />
-        <div
-          v-if="currentTab !== 'about' && !isElementListLoading"
-          class="elementList"
-        >
-          <ft-element-list
-            v-show="currentTab === 'videos'"
-            :data="latestVideos"
-          />
-          <ft-flex-box
-            v-if="currentTab === 'videos' && latestVideos.length === 0"
-          >
-            <p class="message">
-              {{ $t("Channel.Videos.This channel does not currently have any videos") }}
-            </p>
-          </ft-flex-box>
-          <ft-element-list
-            v-show="currentTab === 'playlists'"
-            :data="latestPlaylists"
-          />
-          <ft-flex-box
-            v-if="currentTab === 'playlists' && latestPlaylists.length === 0"
-          >
-            <p class="message">
-              {{ $t("Channel.Playlists.This channel does not currently have any playlists") }}
-            </p>
-          </ft-flex-box>
-          <ft-element-list
-            v-show="currentTab === 'search'"
-            :data="searchResults"
-          />
-          <ft-flex-box
-            v-if="currentTab === 'search' && searchResults.length === 0"
-          >
-            <p class="message">
-              {{ $t("Channel.Your search results have returned 0 results") }}
-            </p>
-          </ft-flex-box>
-          <div
-            v-if="showFetchMoreButton"
-            class="getNextPage"
-            @click="handleFetchMore"
-          >
-            <font-awesome-icon icon="search" /> {{ $t("Search Filters.Fetch more results") }}
+          <div class="blockedText">
+            {{ $t('Channel.ChannelBlocker.Blocked Message') }}
           </div>
-        </div>
-      </template>
+          <ft-button
+            :label="$t('Channel.ChannelBlocker.Button')"
+            background-color="var(--accent-color)"
+            text-color="var(--text-with-accent-color)"
+            @click="channelBlockerShowTemporarily = true"
+          />
+        </ft-flex-box>
+        <template
+          v-else
+        >
+          <div
+            v-if="currentTab === 'about'"
+            class="aboutTab"
+          >
+            <h2>
+              {{ $t("Channel.About.Channel Description") }}
+            </h2>
+            <div
+              class="aboutInfo"
+              v-html="channelDescription"
+            />
+            <br>
+            <h2
+              v-if="relatedChannels.length > 0"
+            >
+              {{ $t("Channel.About.Featured Channels") }}
+            </h2>
+            <ft-flex-box
+              v-if="relatedChannels.length > 0"
+            >
+              <ft-channel-bubble
+                v-for="(channel, index) in relatedChannels"
+                :key="index"
+                :channel-name="channel.author"
+                :channel-id="channel.authorId"
+                :channel-thumbnail="channel.authorThumbnails[channel.authorThumbnails.length - 1].url"
+                @click="goToChannel(channel.authorId)"
+              />
+            </ft-flex-box>
+          </div>
+          <ft-loader
+            v-if="isElementListLoading"
+          />
+          <div
+            v-if="currentTab !== 'about' && !isElementListLoading"
+            class="elementList"
+          >
+            <ft-element-list
+              v-show="currentTab === 'videos'"
+              :data="latestVideos"
+            />
+            <ft-flex-box
+              v-if="currentTab === 'videos' && latestVideos.length === 0"
+            >
+              <p class="message">
+                {{ $t("Channel.Videos.This channel does not currently have any videos") }}
+              </p>
+            </ft-flex-box>
+            <ft-element-list
+              v-show="currentTab === 'playlists'"
+              :data="latestPlaylists"
+            />
+            <ft-flex-box
+              v-if="currentTab === 'playlists' && latestPlaylists.length === 0"
+            >
+              <p class="message">
+                {{ $t("Channel.Playlists.This channel does not currently have any playlists") }}
+              </p>
+            </ft-flex-box>
+            <ft-element-list
+              v-show="currentTab === 'search'"
+              :data="searchResults"
+            />
+            <ft-flex-box
+              v-if="currentTab === 'search' && searchResults.length === 0"
+            >
+              <p class="message">
+                {{ $t("Channel.Your search results have returned 0 results") }}
+              </p>
+            </ft-flex-box>
+            <div
+              v-if="showFetchMoreButton"
+              class="getNextPage"
+              @click="handleFetchMore"
+            >
+              <font-awesome-icon icon="search" /> {{ $t("Search Filters.Fetch more results") }}
+            </div>
+          </div>
+        </template>
+      </transition>
     </ft-card>
   </div>
 </template>

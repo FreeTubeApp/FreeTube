@@ -1,34 +1,39 @@
 <template>
-  <div
-    v-if="avoidChannelBlocker || !channelBlocked || showBlockedItems"
-    v-observe-visibility="firstScreen ? false : {
-      callback: onVisibilityChanged,
-      once: true,
-    }"
-    :class="{
-      grid: layout === 'grid',
-      list: layout === 'list'
-    }"
+  <transition
+    name="fade"
+    mode="out-in"
   >
-    <ft-list-channel
-      v-if="data.type === 'channel' && visible"
-      :appearance="appearance"
-      :data="data"
-      :channel-blocked="channelBlocked"
-    />
-    <ft-list-video
-      v-if="(data.type === 'video' || data.type === 'shortVideo') && visible"
-      :appearance="appearance"
-      :data="data"
-      :channel-blocked="channelBlocked"
-      v-on="$listeners"
-    />
-    <ft-list-playlist
-      v-if="data.type === 'playlist' && visible"
-      :appearance="appearance"
-      :data="data"
-    />
-  </div>
+    <div
+      v-show="avoidChannelBlocker || !channelBlocked || showBlockedItems"
+      v-observe-visibility="firstScreen ? false : {
+        callback: onVisibilityChanged,
+        once: true,
+      }"
+      :class="{
+        grid: layout === 'grid',
+        list: layout === 'list'
+      }"
+    >
+      <ft-list-channel
+        v-if="data.type === 'channel' && visible"
+        :appearance="appearance"
+        :data="data"
+        :channel-blocked="channelBlocked"
+      />
+      <ft-list-video
+        v-if="(data.type === 'video' || data.type === 'shortVideo') && visible"
+        :appearance="appearance"
+        :data="data"
+        :channel-blocked="channelBlocked"
+        v-on="$listeners"
+      />
+      <ft-list-playlist
+        v-if="data.type === 'playlist' && visible"
+        :appearance="appearance"
+        :data="data"
+      />
+    </div>
+  </transition>
 </template>
 
 <script src="./ft-list-lazy-wrapper.js" />

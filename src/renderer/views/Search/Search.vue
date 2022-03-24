@@ -12,12 +12,17 @@
     >
       <div class="titleArea">
         <h3>{{ $t("Search Filters.Search Results") }}</h3>
-        <div
-          v-if="channelBlockerCount > 0"
-          class="hiddenItemsCount"
+        <transition
+          name="fade"
+          mode="out-in"
         >
-          {{ `(${channelBlockerCountText})` }}
-        </div>
+          <div
+            v-show="channelBlockerCount > 0 && !unhide"
+            class="hiddenItemsCount"
+          >
+            {{ `(${channelBlockerCountText})` }}
+          </div>
+        </transition>
       </div>
       <ft-element-list
         :data="shownResults"
@@ -30,7 +35,7 @@
         <font-awesome-icon icon="search" /> {{ $t("Search Filters.Fetch more results") }}
       </div>
       <ft-icon-button
-        v-if="!isLoading && channelBlockerCount > 0"
+        v-show="!isLoading && channelBlockerCount > 0"
         ref="unhideButton"
         class="floatingTopButton"
         :icon="unhideIcons[unhide].icon"

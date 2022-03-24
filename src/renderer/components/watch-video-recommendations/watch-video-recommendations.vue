@@ -19,15 +19,21 @@
     <template
       v-for="(video, index) in data"
     >
-      <ft-list-video
-        v-if="!isChannelBlocked(video)"
+      <transition
         :key="index"
-        :data="video"
-        appearance="recommendation"
-        force-list-type="list"
-        :channel-blocked="isChannelBlocked(video)"
-        @toggle-blocked-channel="toggleBlockedChannel"
-      />
+        name="fade"
+        mode="out-in"
+      >
+        <ft-list-video
+          v-if="!isChannelBlocked(video)"
+          :key="index"
+          :data="video"
+          appearance="recommendation"
+          force-list-type="list"
+          :channel-blocked="isChannelBlocked(video)"
+          @toggle-blocked-channel="toggleBlockedChannel"
+        />
+      </transition>
     </template>
   </ft-card>
 </template>

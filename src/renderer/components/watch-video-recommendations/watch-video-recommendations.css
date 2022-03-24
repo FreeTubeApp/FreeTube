@@ -17,3 +17,11 @@
 	display:flex; 
 	justify-content:space-between;
 }
+
+.fade-enter-active, .fade-leave-active {
+	transition: opacity 0.15s ease-in-out;
+}
+
+.fade-enter, .fade-leave-to {
+	opacity: 0;
+}

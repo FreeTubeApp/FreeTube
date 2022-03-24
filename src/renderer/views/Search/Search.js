@@ -89,6 +89,8 @@ export default Vue.extend({
       this.query = query
 
       this.checkSearchCache(payload)
+
+      this.unhide = false
     }
   },
   mounted: function () {

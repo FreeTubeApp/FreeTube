@@ -5,3 +5,11 @@
 .list {
   min-height: 131px;
 }
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}

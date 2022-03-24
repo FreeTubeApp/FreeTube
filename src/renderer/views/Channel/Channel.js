@@ -180,6 +180,7 @@ export default Vue.extend({
       this.shownElementList = []
       this.apiUsed = ''
       this.isLoading = true
+      this.channelBlockerShowTemporarily = false
 
       if (!this.usingElectron) {
         this.getVideoInformationInvidious()
