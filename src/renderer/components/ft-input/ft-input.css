@@ -1,6 +1,7 @@
 .ft-input-component {
   position: relative;
-  margin: 10px auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .inputArea {
