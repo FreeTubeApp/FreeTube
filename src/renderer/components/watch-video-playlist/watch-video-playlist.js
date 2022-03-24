@@ -4,6 +4,7 @@ import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
+import channelBlockerMixin from '../../mixins/channelblocker'
 
 export default Vue.extend({
   name: 'WatchVideoPlaylist',
@@ -13,6 +14,9 @@ export default Vue.extend({
     'ft-flex-box': FtFlexBox,
     'ft-list-video': FtListVideo
   },
+  mixins: [
+    channelBlockerMixin
+  ],
   props: {
     playlistId: {
       type: String,
@@ -64,14 +68,6 @@ export default Vue.extend({
 
     playlistVideoCount: function () {
       return this.playlistItems.length
-    },
-
-    currentLocale: function () {
-      return this.$store.getters.getCurrentLocale
-    },
-
-    channelBlockerList: function () {
-      return this.$store.getters.getChannelBlockerList
     }
   },
   watch: {
@@ -397,60 +393,10 @@ export default Vue.extend({
       this.randomizedPlaylistItems = items
     },
 
-    isChannelBlocked: function (video) {
-      const channelIndex = this.channelBlockerList.findIndex((item) => {
-        return item.authorId === video.authorId
-      })
-
-      return channelIndex !== -1
-    },
-
-    toggleBlockedChannel: function (channel) {
-      if (this.isChannelBlocked(channel)) {
-        this.removeChannelFromBlockList(channel)
-      } else {
-        this.addChannelToBlockList(channel)
-      }
-    },
-
-    addChannelToBlockList: function (channel) {
-      console.log('adding channel', JSON.stringify(channel))
-
-      const locale = this.currentLocale.replace('_', '-')
-      const newList = this.channelBlockerList.slice()
-      newList.push(channel)
-      newList.sort((a, b) => {
-        return a.author.localeCompare(b.author, locale)
-      })
-      this.updateChannelBlockerList(newList)
-
-      this.showToast({
-        message: `"${channel.author}" ${this.$t('Video.Channel has been added to the block list')}`
-      })
-    },
-
-    removeChannelFromBlockList: function (channel) {
-      console.log('removing channel', JSON.stringify(channel))
-
-      const newList = this.channelBlockerList.slice()
-      for (let i = newList.length - 1; i >= 0; i--) {
-        if (newList[i].authorId === channel.authorId) {
-          newList.splice(i, 1)
-          break
-        }
-      }
-      this.updateChannelBlockerList(newList)
-
-      this.showToast({
-        message: `"${channel.author}" ${this.$t('Video.Channel has been removed from the block list')}`
-      })
-    },
-
     ...mapActions([
       'showToast',
       'ytGetPlaylistInfo',
-      'invidiousGetPlaylistInfo',
-      'updateChannelBlockerList'
+      'invidiousGetPlaylistInfo'
     ])
   }
 })
