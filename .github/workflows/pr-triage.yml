@@ -1,0 +1,15 @@
+name: PR Triage
+on:
+  pull_request_target:
+    types: [opened, closed, edited, reopened, synchronize, ready_for_review]
+  workflow_run:
+    workflows: ['PR Triage Dummy'] # the workflow in step 1
+    types: [requested]
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: wow-actions/pr-triage@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
+          WORKFLOW-ID: ${{ github.event.workflow_run.id }}
