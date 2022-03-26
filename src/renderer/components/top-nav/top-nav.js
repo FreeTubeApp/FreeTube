@@ -69,7 +69,7 @@ export default Vue.extend({
     },
 
     backwardText: function () {
-      return this.$t('Backward')
+      return this.$t('Back')
     },
 
     newWindowText: function () {
