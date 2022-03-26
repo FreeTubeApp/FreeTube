@@ -13,6 +13,7 @@ import WatchVideoComments from '../../components/watch-video-comments/watch-vide
 import WatchVideoLiveChat from '../../components/watch-video-live-chat/watch-video-live-chat.vue'
 import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-video-playlist.vue'
 import WatchVideoRecommendations from '../../components/watch-video-recommendations/watch-video-recommendations.vue'
+import channelBlockerMixin from '../../mixins/channelblocker'
 
 export default Vue.extend({
   name: 'Watch',
@@ -28,6 +29,9 @@ export default Vue.extend({
     'watch-video-playlist': WatchVideoPlaylist,
     'watch-video-recommendations': WatchVideoRecommendations
   },
+  mixins: [
+    channelBlockerMixin
+  ],
   beforeRouteLeave: function (to, from, next) {
     this.handleRouteChange()
     window.removeEventListener('beforeunload', this.handleWatchProgress)
@@ -75,7 +79,10 @@ export default Vue.extend({
       playlistId: '',
       timestamp: null,
       playNextTimeout: null,
-      playNextCountDownIntervalId: null
+      playNextCountDownIntervalId: null,
+      skipBlockedTimeout: null,
+      skipBlockedCountDownIntervalId: null,
+      skipBlockedCountDown: Number.MAX_SAFE_INTEGER
     }
   },
   computed: {
@@ -133,7 +140,6 @@ export default Vue.extend({
     hideLiveChat: function () {
       return this.$store.getters.getHideLiveChat
     },
-
     youtubeNoCookieEmbeddedFrame: function () {
       return `<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/${this.videoId}?rel=0' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>`
     },
@@ -145,6 +151,9 @@ export default Vue.extend({
     },
     theatrePossible: function() {
       return !this.hideRecommendedVideos || (!this.hideLiveChat && this.isLive) || this.watchingPlaylist
+    },
+    isBlocked: function() {
+      return this.isChannelBlocked({ authorId: this.channelId })
     }
   },
   watch: {
@@ -720,6 +729,11 @@ export default Vue.extend({
       }
     },
 
+    handleVideoReady: function () {
+      this.checkIfWatched()
+      this.handleSkipBlockedVideo()
+    },
+
     checkIfWatched: function () {
       const historyIndex = this.historyCache.findIndex((video) => {
         return video.videoId === this.videoId
@@ -936,6 +950,8 @@ export default Vue.extend({
     handleRouteChange: async function () {
       clearTimeout(this.playNextTimeout)
       clearInterval(this.playNextCountDownIntervalId)
+      clearTimeout(this.skipBlockedTimeout)
+      clearInterval(this.skipBlockedCountDownIntervalId)
 
       this.handleWatchProgress()
 
@@ -1231,6 +1247,57 @@ export default Vue.extend({
 
     updateTitle: function () {
       document.title = `${this.videoTitle} - FreeTube`
+    },
+
+    handleSkipBlockedVideo: function() {
+      if (!this.isBlocked || (!this.watchingPlaylist && !this.playNextVideo)) {
+        return
+      }
+
+      this.skipBlockedTimeout = setTimeout(() => {
+        if (this.watchingPlaylist) {
+          this.$refs.watchVideoPlaylist.playNextVideo()
+        } else {
+          const nextVideoId = this.recommendedVideos[0].videoId
+          this.$router.push({
+            path: `/watch/${nextVideoId}`
+          })
+          this.showToast({
+            message: this.$t('Playing Next Video')
+          })
+        }
+      }, this.defaultInterval * 1000)
+
+      this.skipBlockedCountDown = this.defaultInterval + 1
+      const showCountDownMessage = () => {
+        if (this.skipBlockedCountDown <= 1) {
+          clearInterval(this.skipBlockedCountDownIntervalId)
+          if (this.watchingPlaylist) {
+            const playlist = this.$refs.watchVideoPlaylist
+            if (playlist.currentVideoIndex === playlist.playlistItems.length) {
+              // playlist end
+              this.skipBlockedCountDown = -1
+            } else {
+              // playlist next
+              this.skipBlockedCountDown = 0
+            }
+          } else {
+            // next
+            this.skipBlockedCountDown = 0
+          }
+          return
+        }
+        this.skipBlockedCountDown -= 1
+      }
+
+      showCountDownMessage()
+      this.skipBlockedCountDownIntervalId = setInterval(showCountDownMessage, 1000)
+    },
+
+    handleAbortSkipBlockedVideo: function() {
+      clearTimeout(this.skipBlockedTimeout)
+      clearInterval(this.skipBlockedCountDownIntervalId)
+      this.skipBlockedCountDown = Number.MAX_VALUE
     },
 
     ...mapActions([

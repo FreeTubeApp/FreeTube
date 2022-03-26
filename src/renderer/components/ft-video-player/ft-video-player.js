@@ -72,6 +72,14 @@ export default Vue.extend({
     videoId: {
       type: String,
       required: true
+    },
+    videoBlocked: {
+      type: Boolean,
+      default: false
+    },
+    skipBlockedVideoCountDown: {
+      type: Number,
+      default: Number.MAX_SAFE_INTEGER
     }
   },
   data: function () {
@@ -141,7 +149,8 @@ export default Vue.extend({
           2.75,
           3
         ]
-      }
+      },
+      unblockTemporarily: false
     }
   },
   computed: {
@@ -200,11 +209,41 @@ export default Vue.extend({
 
     displayVideoPlayButton: function() {
       return this.$store.getters.getDisplayVideoPlayButton
+    },
+
+    playNextVideo: function () {
+      return this.$store.getters.getPlayNextVideo
     }
   },
   watch: {
     showStatsModal: function() {
       this.player.trigger(this.statsModalEventName)
+    },
+
+    playNextVideo: function() {
+      if (this.videoBlocked && !this.unblockTemporarily) {
+        if (this.skipBlockedVideoCountDown <= 60 && this.skipBlockedVideoCountDown >= 0) {
+          // > 60: no countdown
+          // =  0: play next (single video & playlist)
+          // = -1: end of playlist
+          if (!this.playNextVideo) {
+            this.$emit('unblock-tmp')
+          }
+        }
+      }
+    },
+
+    videoBlocked: function() {
+      if (this.videoBlocked) {
+        if (!this.unblockTemporarily && this.player.hasStarted()) {
+          this.player.pause()
+        }
+      } else {
+        this.$emit('unblock-tmp')
+        if (this.player.hasStarted()) {
+          this.player.play()
+        }
+      }
     }
   },
   mounted: function () {
@@ -315,7 +354,7 @@ export default Vue.extend({
           this.createDashQualitySelector(this.player.qualityLevels())
         }
 
-        if (this.autoplayVideos) {
+        if (this.autoplayVideos && !this.videoBlocked) {
           // Calling play() won't happen right away, so a quick timeout will make it function properly.
           setTimeout(() => {
             this.player.play()
@@ -1667,6 +1706,12 @@ export default Vue.extend({
             break
         }
       }
+    },
+
+    handleUnblock: function() {
+      this.unblockTemporarily = true
+      this.player.play()
+      this.$emit('unblock-tmp')
     },
 
     ...mapActions([

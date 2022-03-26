@@ -3,7 +3,7 @@ import { mapActions } from 'vuex'
 const channelBlockerMixin = {
   data: function () {
     return {
-      re: /^#\/($|subscriptions|channel|userplaylists|history)/
+      re_: /^#\/($|subscriptions|channel|userplaylists|history)/
     }
   },
   computed: {
@@ -25,7 +25,7 @@ const channelBlockerMixin = {
       //  Channel page (#/channel/UCuAXFkgsw1L7xaCfnd5JJOw) (show warning)
       //  User playlists (#/userplaylists)
       //  History (#/history)
-      if (this.re.test(window.location.hash)) {
+      if (this.re_.test(window.location.hash)) {
         return true
       }
       return false

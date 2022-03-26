@@ -26,10 +26,13 @@
           :video-id="videoId"
           class="videoPlayer"
           :class="{ theatrePlayer: useTheatreMode }"
-          @ready="checkIfWatched"
+          :video-blocked="isBlocked"
+          :skip-blocked-video-count-down="skipBlockedCountDown"
+          @ready="handleVideoReady"
           @ended="handleVideoEnded"
           @error="handleVideoError"
           @store-caption-list="captionHybridList = $event"
+          @unblock-tmp="handleAbortSkipBlockedVideo"
         />
         <div
           v-if="!isLoading && isUpcoming"

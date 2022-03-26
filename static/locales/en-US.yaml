@@ -581,6 +581,10 @@ Video:
     Buffered: Buffered
     Dropped / Total Frames: Dropped / Total Frames
     Mimetype: Mimetype
+  ChannelBlocker:
+    Title: This video is blocked
+    Click to watch: Click to watch
+    Countdown Message: Playing next video in {countdown} second | Playing next video in {countdown} seconds
 #& Videos
 Videos:
   #& Sort By
