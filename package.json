@@ -94,7 +94,7 @@
     "yt-trending-scraper": "^2.0.1",
     "ytdl-core": "^4.10.1",
     "ytpl": "^2.2.3",
-    "ytsr": "^3.5.3"
+    "ytsr": "^3.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",

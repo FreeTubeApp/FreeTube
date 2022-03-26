@@ -18,7 +18,7 @@
         icon="arrow-left"
         role="button"
         tabindex="0"
-        :title="forwardText"
+        :title="backwardText"
         @click="historyBack"
         @keypress="historyBack"
       />
