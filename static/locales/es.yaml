@@ -627,6 +627,12 @@ Video:
     Bitrate: Tasa de bits
     Volume: Volumen
     Mimetype: Tipo de medio
+    Resolution: Resolución
+    Player Dimensions: Dimensiones del reproductor
+    Bandwidth: Ancho de banda
+    Video ID: ID de vídeo
+    Buffered: En búfer
+    Dropped / Total Frames: Fotogramas Perdidos / Fotogramas Totales
 Videos:
   #& Sort By
   Sort By:
