@@ -221,7 +221,9 @@ const state = {
   videoVolumeMouseScroll: false,
   videoPlaybackRateMouseScroll: false,
   downloadFolderPath: '',
-  channelBlockerList: []
+  channelBlockerList: [],
+  channelBlockerSkipBlocked: true,
+  channelBlockerAllowTempUnblock: true
 }
 
 const stateWithSideEffects = {

@@ -74,6 +74,22 @@
     </div>
     <br>
     <div class="channelBlockerSection">
+      <h4>Channel Blocker</h4>
+      <ft-flex-box class="switchColumnGrid">
+        <ft-toggle-switch
+          label="Skip to Next Video"
+          tooltip="Skips only if &quot;Autoplay Playlists&quot; or &quot;Play Next Video&quot; is enabled in Player Settings"
+          :compact="true"
+          :default-value="channelBlockerSkipBlocked"
+          @change="updateChannelBlockerSkipBlocked"
+        />
+        <ft-toggle-switch
+          label="Enable Temporary Unblocking"
+          :compact="true"
+          :default-value="channelBlockerAllowTempUnblock"
+          @change="updateChannelBlockerAllowTempUnblock"
+        />
+      </ft-flex-box>
       <ft-input
         id="channel_blocker_search_input"
         :label="$t('Settings.Distraction Free Settings.Blocked Channels')"

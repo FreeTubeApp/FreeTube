@@ -6,7 +6,7 @@
   width:100%;
 }
 
-.blocked {
+.blockedModal {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -21,25 +21,29 @@
   align-items: center;
 }
 
-.blockedText {
+.blockedModal.disabled {
+  cursor: inherit;
+}
+
+.blockedModalText {
   font-size: xxx-large;
 }
 
-.blockedCountDown {
+.blockedModalCountDown {
   text-align: center;
   font-size: large;
 }
 
-.fade-blocked-leave-active {
+.fade-blocked-modal-leave-active {
   transition: opacity 0.15s;
 }
 
-.fade-blocked-enter, .fade-blocked-leave-to {
+.fade-blocked-modal-enter, .fade-blocked-modal-leave-to {
   opacity: 0;
 }
 
 @media only screen and (max-width: 680px) {
-  .blockedText {
+  .blockedModalText {
     font-size: xx-large;
   }
 }

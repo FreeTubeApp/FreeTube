@@ -127,6 +127,7 @@
             {{ $t('Channel.ChannelBlocker.Blocked Message') }}
           </div>
           <ft-button
+            v-if="channelBlockerAllowTempUnblock"
             :label="$t('Channel.ChannelBlocker.Button')"
             background-color="var(--accent-color)"
             text-color="var(--text-with-accent-color)"

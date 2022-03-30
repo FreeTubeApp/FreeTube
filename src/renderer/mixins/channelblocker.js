@@ -34,7 +34,8 @@ const channelBlockerMixin = {
   methods: {
     isChannelBlocked: function (item) {
       const channelIndex = this.channelBlockerList.findIndex((blocked) => {
-        return blocked.authorId === item.authorId
+        // LocalAPI returns "channelID" on type "channel"
+        return blocked.authorId === item.authorId || item.channelID
       })
 
       return channelIndex !== -1

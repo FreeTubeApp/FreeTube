@@ -52,11 +52,16 @@ export default Vue.extend({
       return this.$store.getters.getBackendFallback
     },
 
+    channelBlockerAllowTempUnblock: function () {
+      return this.$store.getters.getChannelBlockerAllowTempUnblock
+    },
+
     channelBlockerCount: function () {
       const list = this.$store.getters.getChannelBlockerList
       return this.shownResults.filter((result) => {
         return list.some((item) => {
-          return item.authorId === result.authorId
+          // LocalAPI returns "channelID" on type "channel"
+          return item.authorId === result.authorId || result.channelID
         })
       }).length
     },
@@ -91,6 +96,18 @@ export default Vue.extend({
       this.checkSearchCache(payload)
 
       this.unhide = false
+    },
+
+    channelBlockerAllowTempUnblock: function() {
+      if (!this.channelBlockerAllowTempUnblock) {
+        this.unhide = false
+      }
+    },
+
+    channelBlockerCount: function() {
+      if (this.channelBlockerCount === 0 && this.unhide) {
+        this.unhide = false
+      }
     }
   },
   mounted: function () {

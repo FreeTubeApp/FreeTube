@@ -738,8 +738,8 @@ Canceled next video autoplay: Canceled next video autoplay
 # $ is replaced with the default Invidious instance
 Default Invidious instance has been set to $: Default Invidious instance has been set to $
 Default Invidious instance has been cleared: Default Invidious instance has been cleared
-'The playlist has ended.  Enable loop to continue playing': 'The playlist has ended.  Enable
-  loop to continue playing'
+The playlist has ended. Enable loop to continue playing: The playlist has ended. Enable
+  loop to continue playing
 External link opening has been disabled in the general settings: 'External link opening has been disabled in the general settings'
 Downloading has completed: '"$" has finished downloading'
 Starting download: 'Starting download of "$"'

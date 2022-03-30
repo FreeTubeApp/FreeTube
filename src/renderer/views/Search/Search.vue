@@ -35,7 +35,7 @@
         <font-awesome-icon icon="search" /> {{ $t("Search Filters.Fetch more results") }}
       </div>
       <ft-icon-button
-        v-show="!isLoading && channelBlockerCount > 0"
+        v-show="!isLoading && channelBlockerAllowTempUnblock && channelBlockerCount > 0"
         ref="unhideButton"
         class="floatingTopButton"
         :icon="unhideIcons[unhide].icon"

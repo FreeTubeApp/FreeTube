@@ -30,7 +30,7 @@ export default Vue.extend({
     'watch-video-recommendations': WatchVideoRecommendations
   },
   mixins: [
-    channelBlockerMixin
+    channelBlockerMixin /// ////
   ],
   beforeRouteLeave: function (to, from, next) {
     this.handleRouteChange()
@@ -82,7 +82,11 @@ export default Vue.extend({
       playNextCountDownIntervalId: null,
       skipBlockedTimeout: null,
       skipBlockedCountDownIntervalId: null,
-      skipBlockedCountDown: Number.MAX_SAFE_INTEGER
+      skipBlockedCountDown: Number.MAX_SAFE_INTEGER,
+      nextUnblockedVideoId: '',
+      isEndOfPlaylist: false,
+      videoAndPlaylistReadyCounter: 0,
+      nextUnblockedRecommendationId: ''
     }
   },
   computed: {
@@ -131,6 +135,9 @@ export default Vue.extend({
     thumbnailPreference: function () {
       return this.$store.getters.getThumbnailPreference
     },
+    autoplayPlaylists: function() {
+      return this.$store.getters.getAutoplayPlaylists
+    },
     playNextVideo: function () {
       return this.$store.getters.getPlayNextVideo
     },
@@ -152,8 +159,14 @@ export default Vue.extend({
     theatrePossible: function() {
       return !this.hideRecommendedVideos || (!this.hideLiveChat && this.isLive) || this.watchingPlaylist
     },
-    isBlocked: function() {
+    videoBlocked: function() {
       return this.isChannelBlocked({ authorId: this.channelId })
+    },
+    channelBlockerSkipBlocked: function() {
+      return this.$store.getters.getChannelBlockerSkipBlocked
+    },
+    channelBlockerAllowTempUnblock: function() {
+      return this.$store.getters.getChannelBlockerAllowTempUnblock
     }
   },
   watch: {
@@ -167,9 +180,13 @@ export default Vue.extend({
       this.videoStoryboardSrc = ''
       this.captionHybridList = []
       this.downloadLinks = []
+      this.nextUnblockedVideoId = ''
+      this.isEndOfPlaylist = false
+      this.videoAndPlaylistReadyCounter = 1 // playlist is ready
 
       this.checkIfPlaylist()
       this.checkIfTimestamp()
+      this.handleStopBlockedVideoCountDown()
 
       switch (this.backendPreference) {
         case 'local':
@@ -494,6 +511,7 @@ export default Vue.extend({
           }
 
           this.isLoading = false
+          this.findNextUnblockedRecommendation()
           this.updateTitle()
         })
         .catch(err => {
@@ -669,6 +687,7 @@ export default Vue.extend({
             }
           }
 
+          this.findNextUnblockedRecommendation()
           this.updateTitle()
 
           this.isLoading = false
@@ -731,7 +750,8 @@ export default Vue.extend({
 
     handleVideoReady: function () {
       this.checkIfWatched()
-      this.handleSkipBlockedVideo()
+      this.handleBlockedVideoModal()
+      this.videoAndPlaylistReadyCounter += 1
     },
 
     checkIfWatched: function () {
@@ -894,7 +914,14 @@ export default Vue.extend({
     },
 
     handleVideoEnded: function () {
-      if (!this.watchingPlaylist && !this.playNextVideo) {
+      if (this.watchingPlaylist) {
+        if (!this.autoplayPlaylists || !this.nextUnblockedVideoId) {
+          this.showToast({
+            message: this.$t('The playlist has ended. Enable loop to continue playing')
+          })
+          return
+        }
+      } else if (!this.playNextVideo || !this.nextUnblockedRecommendationId) {
         return
       }
 
@@ -905,9 +932,8 @@ export default Vue.extend({
           if (this.watchingPlaylist) {
             this.$refs.watchVideoPlaylist.playNextVideo()
           } else {
-            const nextVideoId = this.recommendedVideos[0].videoId
             this.$router.push({
-              path: `/watch/${nextVideoId}`
+              path: `/watch/${this.nextUnblockedRecommendationId}`
             })
             this.showToast({
               message: this.$t('Playing Next Video')
@@ -1228,8 +1254,8 @@ export default Vue.extend({
     getPlaylistIndex: function () {
       return this.$refs.watchVideoPlaylist
         ? this.getPlaylistReverse()
-          ? this.$refs.watchVideoPlaylist.playlistItems.length - this.$refs.watchVideoPlaylist.currentVideoIndex
-          : this.$refs.watchVideoPlaylist.currentVideoIndex - 1
+          ? this.$refs.watchVideoPlaylist.playlistItems.length - this.$refs.watchVideoPlaylist.videoIndexOriginalPlaylist
+          : this.$refs.watchVideoPlaylist.videoIndexOriginalPlaylist
         : -1
     },
 
@@ -1249,18 +1275,37 @@ export default Vue.extend({
       document.title = `${this.videoTitle} - FreeTube`
     },
 
-    handleSkipBlockedVideo: function() {
-      if (!this.isBlocked || (!this.watchingPlaylist && !this.playNextVideo)) {
+    findNextUnblockedRecommendation: function() {
+      const video = this.recommendedVideos.find((item) => {
+        return item.authorId && !this.isChannelBlocked({ authorId: item.authorId })
+      })
+      this.nextUnblockedRecommendationId = video.videoId || ''
+    },
+
+    handleBlockedVideoModal: function() {
+      if (!this.videoBlocked || !this.channelBlockerSkipBlocked) {
+        return
+      }
+      if (this.watchingPlaylist) {
+        if (!this.autoplayPlaylists || this.videoAndPlaylistReadyCounter < 2) {
+          return
+        } else if (!this.nextUnblockedVideoId) {
+          this.skipBlockedCountDown = -1
+          return
+        }
+      } else if (!this.playNextVideo || !this.nextUnblockedRecommendationId) {
+        return
+      }
+      if (this.skipBlockedCountDownIntervalId) {
         return
       }
 
       this.skipBlockedTimeout = setTimeout(() => {
         if (this.watchingPlaylist) {
           this.$refs.watchVideoPlaylist.playNextVideo()
-        } else {
-          const nextVideoId = this.recommendedVideos[0].videoId
+        } else if (this.playNextVideo) {
           this.$router.push({
-            path: `/watch/${nextVideoId}`
+            path: `/watch/${this.nextUnblockedRecommendationId}`
           })
           this.showToast({
             message: this.$t('Playing Next Video')
@@ -1272,19 +1317,7 @@ export default Vue.extend({
       const showCountDownMessage = () => {
         if (this.skipBlockedCountDown <= 1) {
           clearInterval(this.skipBlockedCountDownIntervalId)
-          if (this.watchingPlaylist) {
-            const playlist = this.$refs.watchVideoPlaylist
-            if (playlist.currentVideoIndex === playlist.playlistItems.length) {
-              // playlist end
-              this.skipBlockedCountDown = -1
-            } else {
-              // playlist next
-              this.skipBlockedCountDown = 0
-            }
-          } else {
-            // next
-            this.skipBlockedCountDown = 0
-          }
+          this.skipBlockedCountDown = 0
           return
         }
         this.skipBlockedCountDown -= 1
@@ -1294,10 +1327,20 @@ export default Vue.extend({
       this.skipBlockedCountDownIntervalId = setInterval(showCountDownMessage, 1000)
     },
 
-    handleAbortSkipBlockedVideo: function() {
+    handleStopBlockedVideoCountDown: function() {
       clearTimeout(this.skipBlockedTimeout)
       clearInterval(this.skipBlockedCountDownIntervalId)
-      this.skipBlockedCountDown = Number.MAX_VALUE
+      this.skipBlockedTimeout = null
+      this.skipBlockedCountDownIntervalId = null
+      this.skipBlockedCountDown = Number.MAX_SAFE_INTEGER
+    },
+
+    handlePlaylistReady: function(nextId, isEnd) {
+      this.nextUnblockedVideoId = nextId
+      this.isEndOfPlaylist = isEnd
+      this.videoAndPlaylistReadyCounter += 1
+      this.handleStopBlockedVideoCountDown()
+      this.handleBlockedVideoModal()
     },
 
     ...mapActions([

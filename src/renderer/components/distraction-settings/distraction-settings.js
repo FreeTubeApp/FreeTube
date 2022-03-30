@@ -63,6 +63,12 @@ export default Vue.extend({
     hideActiveSubscriptions: function () {
       return this.$store.getters.getHideActiveSubscriptions
     },
+    channelBlockerSkipBlocked: function () {
+      return this.$store.getters.getChannelBlockerSkipBlocked
+    },
+    channelBlockerAllowTempUnblock: function () {
+      return this.$store.getters.getChannelBlockerAllowTempUnblock
+    },
     channelBlockerList: function () {
       return this.$store.getters.getChannelBlockerList
     },
@@ -150,6 +156,8 @@ export default Vue.extend({
       'updateHideLiveChat',
       'updateHideActiveSubscriptions',
       'updatePlayNextVideo',
+      'updateChannelBlockerSkipBlocked',
+      'updateChannelBlockerAllowTempUnblock',
       'updateChannelBlockerList'
     ])
   }

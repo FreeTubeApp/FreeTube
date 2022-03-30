@@ -21,7 +21,7 @@
       <span
         class="playlistIndex"
       >
-        - {{ currentVideoIndex }} / {{ playlistVideoCount }}
+        - {{ videoIndexOriginalPlaylist + 1 }} / {{ playlistVideoCount }}
       </span>
       <p>
         <font-awesome-icon
@@ -69,7 +69,7 @@
         >
           <div class="videoIndexContainer">
             <font-awesome-icon
-              v-if="currentVideoIndex === (index + 1)"
+              v-if="videoIndexOriginalPlaylist === index"
               class="videoIndexIcon"
               icon="play"
             />

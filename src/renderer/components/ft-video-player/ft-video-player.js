@@ -77,6 +77,14 @@ export default Vue.extend({
       type: Boolean,
       default: false
     },
+    allowTempUnblock: {
+      type: Boolean,
+      default: false
+    },
+    skipBlockedVideo: {
+      type: Boolean,
+      default: false
+    },
     skipBlockedVideoCountDown: {
       type: Number,
       default: Number.MAX_SAFE_INTEGER
@@ -227,7 +235,7 @@ export default Vue.extend({
           // =  0: play next (single video & playlist)
           // = -1: end of playlist
           if (!this.playNextVideo) {
-            this.$emit('unblock-tmp')
+            this.$emit('stop-blocked-count-down')
           }
         }
       }
@@ -239,7 +247,7 @@ export default Vue.extend({
           this.player.pause()
         }
       } else {
-        this.$emit('unblock-tmp')
+        this.$emit('stop-blocked-count-down')
         if (this.player.hasStarted()) {
           this.player.play()
         }
@@ -1510,6 +1518,14 @@ export default Vue.extend({
       return listContentHTML
     },
 
+    handleUnblock: function() {
+      if (this.allowTempUnblock) {
+        this.unblockTemporarily = true
+        this.player.play()
+      }
+      this.$emit('stop-blocked-count-down')
+    },
+
     // This function should always be at the bottom of this file
     keyboardShortcutHandler: function (event) {
       const activeInputs = $('.ft-input')
@@ -1706,12 +1722,6 @@ export default Vue.extend({
             break
         }
       }
-    },
-
-    handleUnblock: function() {
-      this.unblockTemporarily = true
-      this.player.play()
-      this.$emit('unblock-tmp')
     },
 
     ...mapActions([

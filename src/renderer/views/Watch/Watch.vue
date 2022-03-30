@@ -26,13 +26,15 @@
           :video-id="videoId"
           class="videoPlayer"
           :class="{ theatrePlayer: useTheatreMode }"
-          :video-blocked="isBlocked"
+          :video-blocked="videoBlocked"
+          :allow-temp-unblock="channelBlockerAllowTempUnblock"
+          :skip-blocked-video="channelBlockerSkipBlocked"
           :skip-blocked-video-count-down="skipBlockedCountDown"
           @ready="handleVideoReady"
           @ended="handleVideoEnded"
           @error="handleVideoError"
           @store-caption-list="captionHybridList = $event"
-          @unblock-tmp="handleAbortSkipBlockedVideo"
+          @stop-blocked-count-down="handleStopBlockedVideoCountDown"
         />
         <div
           v-if="!isLoading && isUpcoming"
@@ -131,9 +133,11 @@
         ref="watchVideoPlaylist"
         :playlist-id="playlistId"
         :video-id="videoId"
+        :video-blocked="videoBlocked"
         class="watchVideoSideBar watchVideoPlaylist"
         :class="{ theatrePlaylist: useTheatreMode }"
         @pause-player="pausePlayer"
+        @playlist-ready="handlePlaylistReady"
       />
       <watch-video-recommendations
         v-if="!isLoading"

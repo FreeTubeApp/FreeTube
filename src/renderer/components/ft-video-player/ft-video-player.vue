@@ -1,33 +1,41 @@
 <template>
   <div class="relative">
     <transition
-      name="fade-blocked"
+      name="fade-blocked-modal"
     >
       <div
         v-if="videoBlocked && !unblockTemporarily"
-        class="blocked"
+        class="blockedModal"
+        :class="allowTempUnblock ? 'enabled' : 'disabled'"
         @click="handleUnblock"
       >
-        <p class="blockedText">
+        <p class="blockedModalText">
           {{ $t('Video.ChannelBlocker.Title') }}
         </p>
-        <div class="blockedCountDown">
-          <p>{{ $t('Video.ChannelBlocker.Click to watch') }}</p>
-          <p
-            v-if="skipBlockedVideoCountDown >= 0"
-            :style="{visibility : skipBlockedVideoCountDown <= 60 ? 'visible' : 'hidden'}"
-          >
-            {{ $tc('Video.ChannelBlocker.Countdown Message', skipBlockedVideoCountDown, { countdown: skipBlockedVideoCountDown }) }}
+        <div class="blockedModalCountDown">
+          <p v-if="allowTempUnblock">
+            {{ $t('Video.ChannelBlocker.Click to watch') }}
           </p>
           <p v-else>
-            {{ $t('The playlist has ended.  Enable loop to continue playing') }}
+            you cant unblock
           </p>
+          <template v-if="skipBlockedVideo">
+            <p
+              v-if="skipBlockedVideoCountDown >= 0"
+              :style="{visibility : skipBlockedVideoCountDown <= 60 ? 'visible' : 'hidden'}"
+            >
+              {{ $tc('Video.ChannelBlocker.Countdown Message', skipBlockedVideoCountDown, { countdown: skipBlockedVideoCountDown }) }}
+            </p>
+            <p v-else>
+              {{ $t('The playlist has ended. Enable loop to continue playing') }}
+            </p>
+          </template>
         </div>
       </div>
     </transition>
     <video
       :id="id"
-      class="ftVideoPlayer video-js vjs-default-skin dark"
+      class="ftVideoPlayer video-js vjs-16-9 vjs-default-skin dark"
       :poster="thumbnail"
       controls
       preload="auto"

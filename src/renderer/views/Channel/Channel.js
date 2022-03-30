@@ -164,6 +164,10 @@ export default Vue.extend({
       })
 
       return channelIndex !== -1
+    },
+
+    channelBlockerAllowTempUnblock: function() {
+      return this.$store.getters.getChannelBlockerAllowTempUnblock
     }
   },
   watch: {
