@@ -149,7 +149,7 @@ Settings:
       External Link Handling: Обработка внешних ссылок
   Theme Settings:
     Theme Settings: 'Настройки темы'
-    Match Top Bar with Main Color: 'Верхняя панель основного цвета'
+    Match Top Bar with Main Color: 'Сочетать верхнюю панель с основным цветом'
     Base Theme:
       Base Theme: 'Базовая тема'
       Black: 'Черная'
@@ -184,27 +184,27 @@ Settings:
     Secondary Color Theme: 'Тема вторичного цвета'
         #* Main Color Theme
     UI Scale: Масштаб пользовательского интерфейса
-    Expand Side Bar by Default: Развернуть боковую панель по умолчанию
+    Expand Side Bar by Default: Разворачивать боковую панель по умолчанию
     Disable Smooth Scrolling: Отключить плавную прокрутку
-    Hide Side Bar Labels: Скрыть ярлыки боковой панели
+    Hide Side Bar Labels: Скрывать метки боковой панели
   Player Settings:
     Player Settings: 'Настройки плеера'
     Force Local Backend for Legacy Formats: 'Принудительно использовать локальный
       бэкэнд для устаревших форматов'
     Remember History: 'Запоминать историю'
     Play Next Video: 'Воспроизводить следующее видео'
-    Turn on Subtitles by Default: 'Включить субтитры по умолчанию'
+    Turn on Subtitles by Default: 'Включать субтитры по умолчанию'
     Autoplay Videos: 'Автовоспроизведение видео'
-    Proxy Videos Through Invidious: 'Прокси-видео через Invidious'
-    Autoplay Playlists: 'Авто воспроизведение плейлистов'
-    Enable Theatre Mode by Default: 'Включить режим театра по умолчанию'
+    Proxy Videos Through Invidious: 'Проксировать видео через Invidious'
+    Autoplay Playlists: 'Автовоспроизведение плейлистов'
+    Enable Theatre Mode by Default: 'Включать режим театра по умолчанию'
     Default Volume: 'Громкость по умолчанию'
     Default Playback Rate: 'Скорость воспроизведения по умолчанию'
     Default Video Format:
       Default Video Format: 'Формат видео по умолчанию'
-      Dash Formats: 'DASH форматы'
+      Dash Formats: 'Форматы DASH'
       Legacy Formats: 'Устаревшие форматы'
-      Audio Formats: 'Аудио форматы'
+      Audio Formats: 'Аудиоформаты'
     Default Quality:
       Default Quality: 'Качество по умолчанию'
       Auto: 'Авто'
@@ -220,13 +220,13 @@ Settings:
     Playlist Next Video Interval: Задержка перед автовоспроизведением
     Scroll Volume Over Video Player: Прокрутка громкости над видеоплеером
     Next Video Interval: Интервал следующего видео
-    Display Play Button In Video Player: Отображение кнопки воспроизведения в видеопроигрывателе
+    Display Play Button In Video Player: Отображать кнопку воспроизведения в видеоплеере
     Fast-Forward / Rewind Interval: Интервал перемотки вперед/назад
-    Scroll Playback Rate Over Video Player: Контроль скорости воспроизведения колесикам
-      мыши в видеопроигрывателе
+    Scroll Playback Rate Over Video Player: Прокрутка скорости воспроизведения над
+      видеоплеером
   Subscription Settings:
     Subscription Settings: 'Настройки подписки'
-    Hide Videos on Watch: 'Скрыть видео после просмотра'
+    Hide Videos on Watch: 'Скрывать видео после просмотра'
     Subscriptions Export Format:
       Subscriptions Export Format: 'Формат экспорта подписок'
       #& Freetube
@@ -236,7 +236,7 @@ Settings:
     Import Subscriptions: 'Импорт подписок'
     Export Subscriptions: 'Экспорт подписок'
     How do I import my subscriptions?: 'Как мне импортировать свои подписки?'
-    Fetch Feeds from RSS: Получить каналы из RSS
+    Fetch Feeds from RSS: Получать каналы из RSS
   Advanced Settings:
     Advanced Settings: 'Расширенные настройки'
     Enable Debug Mode (Prints data to the console): 'Включить режим отладки (выводит
@@ -281,7 +281,7 @@ Settings:
     Remove All Subscriptions / Profiles: Удалить все подписки/профили
     Automatically Remove Video Meta Files: Автоматическое удаление мета-файлов видео
   Data Settings:
-    How do I import my subscriptions?: Как мне импортировать свои подписки?
+    How do I import my subscriptions?: Как импортировать мои подписки?
     Unknown data key: Неизвестный ключ данных
     Unable to write file: Невозможно записать файл
     Unable to read file: Невозможно прочитать файл
@@ -289,7 +289,7 @@ Settings:
       экспортирована
     All watched history has been successfully imported: Вся история просмотров успешно
       импортирована
-    History object has insufficient data, skipping item: У объекта истории недостаточно
+    History object has insufficient data, skipping item: Объект истории имеет недостаточно
       данных, пропуск элемента
     Subscriptions have been successfully exported: Подписки успешно экспортированы
     Invalid history file: Неверный файл истории
@@ -324,7 +324,7 @@ Settings:
     All playlists has been successfully imported: Все плейлисты успешно импортированы
     Playlist insufficient data: Недостаточно данных для плейлиста "$", пропущен элемент
   Distraction Free Settings:
-    Hide Live Chat: Скрыть Live чат
+    Hide Live Chat: Скрыть чат
     Hide Popular Videos: Скрыть популярные видео
     Hide Trending Videos: Скрыть видео в тренде
     Hide Recommended Videos: Скрыть рекомендуемые видео
@@ -342,9 +342,9 @@ Settings:
     Error getting network information. Is your proxy configured properly?: Ошибка
       при получении информации о сети. Вы уверены, что прокси настроен правильно?
     Your Info: Ваша информация
-    Clicking on Test Proxy will send a request to: Нажмите на кнопку "Протестировать
-      соединение", чтобы отправить запрос на
-    Test Proxy: Протестировать соединение
+    Clicking on Test Proxy will send a request to: При нажатии на кнопку Тест Прокси
+      будет отправлен запрос на
+    Test Proxy: Тест Прокси
     Proxy Port Number: Порт прокси-сервера
     Proxy Host: Адрес прокси-сервера
     Proxy Protocol: Протокол прокси
@@ -355,7 +355,7 @@ Settings:
     Enable Tor / Proxy: Включить Tor / Прокси
     Proxy Settings: Настройки прокси
   SponsorBlock Settings:
-    Notify when sponsor segment is skipped: Уведомление о пропуске спонсорского сегмента
+    Notify when sponsor segment is skipped: Уведомлять о пропуске спонсорского сегмента
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
       Url (По умолчанию https://sponsor.ajay.app)
     Enable SponsorBlock: Включить SponsorBlock
@@ -371,7 +371,7 @@ Settings:
   Download Settings:
     Download Settings: Настройки загрузки
     Ask Download Path: Запрашивать путь загрузки
-    Choose Path: Выберите Путь
+    Choose Path: Выбрать Путь
 About:
   #On About page
   About: 'О программе'
@@ -412,13 +412,13 @@ About:
   room rules: правила комнаты
   Please read the: Пожалуйста прочитайте
   Chat on Matrix: Чат Matrix
-  Mastodon: Устаревший
+  Mastodon: Mastodon
   Email: Электронная почта
   Blog: Блог
   Website: Веб-сайт
   Report a problem: Сообщить о проблеме
   FAQ: FAQ
-  FreeTube Wiki: Вики-сайт FreeTube
+  FreeTube Wiki: Вики FreeTube
   Help: Помощь
   GitHub releases: Релизы на GitHub
   Downloads / Changelog: Загрузки / Журнал изменений
