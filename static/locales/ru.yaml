@@ -475,22 +475,22 @@ Video:
   View: 'Вид'
   Views: 'Просмотров'
   # Context is "X People Watching"
-  Watching: 'Смотреть'
+  Watching: 'Смотрят'
   Watched: 'Просмотрено'
   # As in a Live Video
   Live: 'Трансляция'
   Live Now: 'Прямой эфир'
-  Live Chat: 'Живой чат'
-  Enable Live Chat: 'Включить живой чат'
-  Live Chat is currently not supported in this build.: 'В настоящее время живой чат
-    в этом билде не поддерживается.'
+  Live Chat: 'Чат трансляции'
+  Enable Live Chat: 'Включить чат трансляции'
+  Live Chat is currently not supported in this build.: 'В настоящее время чат трансляции
+    в этой версии не поддерживается.'
   'Chat is disabled or the Live Stream has ended.': 'Чат отключен или прямая трансляция
     закончилась.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Живой чат включен.
-    Сообщения чата будут отображаться здесь после отправки.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Живой
-    чат в настоящее время не поддерживает Invidious API. Требуется прямое подключение
-    к YouTube.'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'Чат трансляции
+    включен. Сообщения чата будут отображаться здесь после отправки.'
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Чат
+    трансляции в настоящее время не поддерживается Invidious API. Требуется прямое
+    подключение к YouTube.'
   Published:
     Jan: 'Янв'
     Feb: 'Фев'
@@ -562,15 +562,15 @@ Video:
     Unsupported Actions:
       looping playlists: зацикленные плейлисты
       shuffling playlists: перемешивание плейлистов
-      reversing playlists: реверсирование списков воспроизведения
+      reversing playlists: реверсирование плейлистов
       opening specific video in a playlist (falling back to opening the video): открытие
-        определенного видео в списке воспроизведения (возврат к открытию видео)
+        определенного видео в плейлисте (возврат к открытию видео)
       opening playlists: открытие плейлистов
       setting a playback rate: настройка скорости воспроизведения
       starting video at offset: начинать видео со смещением
     UnsupportedActionTemplate: '$ не поддерживает: %'
     OpeningTemplate: Открытие $ в %...
-    playlist: Список воспроизведения
+    playlist: плейлист
     video: видео
     OpenInTemplate: Открыть в $
   Stats:
@@ -592,6 +592,7 @@ Video:
     Bandwidth: Пропускная способность
     Dropped / Total Frames: Пропущено/Всего кадров
     Mimetype: MIME-типы
+    Buffered: Буферизовано
   Premieres on: Премьеры
 Videos:
   #& Sort By
@@ -635,15 +636,14 @@ Share:
   Copy Embed: 'Скопировать встраиваемые'
   Open Embed: 'Открыть встраиваемые'
   # On Click
-  Invidious URL copied to clipboard: 'invidious URL скопирован в буфер обмена'
-  Invidious Embed URL copied to clipboard: 'Invidious Встраиваемый URL скопирован
+  Invidious URL copied to clipboard: 'URL Invidious скопирован в буфер обмена'
+  Invidious Embed URL copied to clipboard: 'Встраиваемый URL Invidious скопирован
     в буфер обмена'
-  YouTube URL copied to clipboard: 'YouTube URL скопирован в буфер обмена'
-  YouTube Embed URL copied to clipboard: 'YouTube Встраиваемый URL скопирован в буфер
+  YouTube URL copied to clipboard: 'URL Youtube скопирован в буфер обмена'
+  YouTube Embed URL copied to clipboard: 'Встраиваемый URL YouTube скопирован в буфер
     обмена'
   Include Timestamp: Включить отметку времени
-  YouTube Channel URL copied to clipboard: URL-адрес канала YouTube скопирован в буфер
-    обмена
+  YouTube Channel URL copied to clipboard: URL канала YouTube скопирован в буфер обмена
   Invidious Channel URL copied to clipboard: URL-адрес канала Invidious скопирован
     в буфер обмена
 Mini Player: 'Мини-плеер'
@@ -743,22 +743,22 @@ Download From Site: Скачать с сайта
 Version $ is now available!  Click for more details: Версия $ уже доступна! Нажмите,
   чтобы узнать больше
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Это
-  видео недоступно из-за отсутствия форматов. Это может произойти из-за ограничений
-  страны.
+  видео недоступно из-за отсутствия форматов. Это может произойти из-за региональных
+  ограничений.
 Tooltips:
   General Settings:
     Thumbnail Preference: Все эскизы во FreeTube будут заменены кадром видео вместо
       эскиза по умолчанию.
     Invidious Instance: Экземпляр Invidious, к которому FreeTube будет подключаться
       для вызовов API.
-    Fallback to Non-Preferred Backend on Failure: Если у вашего предпочтительного
-      API есть проблема, FreeTube автоматически попытается использовать ваш нежелательный
+    Fallback to Non-Preferred Backend on Failure: Если у вашего предпочитаемого API
+      есть проблема, FreeTube автоматически попытается использовать ваш нежелательный
       API в качестве резервного метода, если он включен.
-    Preferred API Backend: Выберите серверную часть, которую FreeTube использует для
-      получения данных. Локальный API - это встроенный экстрактор. Invidious API требует
-      подключения к Invidious серверу.
-    Region for Trending: Область тенденций позволяет выбрать популярные видео из понравившейся
-      вам страны. Не во всех отображаемых странах на самом деле поддерживается YouTube.
+    Preferred API Backend: Выберите бэкенд, который FreeTube будет использовать для
+      получения данных. Локальный API - это встроенный экстрактор. API Invidious требует
+      подключения к серверу Invidious.
+    Region for Trending: Регион трендов позволяет выбрать, в какой стране будут отображаться
+      трендовые видео. Не все отображаемые страны поддерживаются YouTube.
     External Link Handling: "Выберите действие при клике на ссылку, которая не может\
       \ быть открыта во FreeTube.\nПо умолчанию FreeTube откроет ссылку в вашем браузере\
       \ по умолчанию.\n"
@@ -768,8 +768,8 @@ Tooltips:
       блокировку IP, но не предоставляет определенную информацию, такую как продолжительность
       видео или сведения о том, транслируется ли видео в реальном времени
   Player Settings:
-    Default Video Format: Установите форматы, используемые при воспроизведении видео.
-      Формат DASH может воспроизводить более высокое качество. Устаревшие форматы
+    Default Video Format: Устанавливает форматы, используемые при воспроизведении
+      видео. Формат DASH может воспроизводить более высокое качество. Устаревшие форматы
       ограничены максимумом 720p, но используют меньшую полосу пропускания. Аудио
       форматы - это только аудио потоки.
     Proxy Videos Through Invidious: Будет подключаться к Invidious для показа видео
@@ -791,20 +791,20 @@ Tooltips:
   External Player Settings:
     Custom External Player Arguments: Любые пользовательские аргументы командной строки,
       разделенные точкой с запятой (';'), которые вы хотите передать внешнему проигрывателю.
-    Ignore Warnings: Подавление предупреждений, когда текущий внешний плеер не поддерживает
-      текущее действие (например, переключение списков воспроизведения и т.д.).
+    Ignore Warnings: Подавлять предупреждения, когда текущий внешний плеер не поддерживает
+      текущее действие (например,переворот плейлистов и т.д.).
     Custom External Player Executable: По умолчанию FreeTube будет считать, что выбранный
       внешний плеер можно найти через переменную окружения PATH. При необходимости
       здесь можно задать собственный путь.
     External Player: При выборе внешнего плеера на миниатюре появится значок, позволяющий
-      открыть видео (список воспроизведения, если поддерживается) во внешнем плеере.
+      открыть видео (плейлист, если поддерживается) во внешнем плеере.
     DefaultCustomArgumentsTemplate: "(По умолчанию: '$')"
 More: Больше
 Playing Next Video Interval: Воспроизведение следующего видео без задержки. Нажмите
   для отмены. | Воспроизведение следующего видео через {nextVideoInterval} сек. Нажмите
   для отмены. | Воспроизведение следующего видео через {nextVideoInterval} сек. Нажмите
   для отмены.
-Hashtags have not yet been implemented, try again later: Хештеги еще не реализованы,
+Hashtags have not yet been implemented, try again later: Хэштеги еще не реализованы,
   попробуйте позже
 Unknown YouTube url type, cannot be opened in app: Неизвестный тип URL-адреса YouTube,
   не может быть открыт в приложении
