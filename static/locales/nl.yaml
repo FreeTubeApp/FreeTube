@@ -74,7 +74,7 @@ Subscriptions:
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'U
     heeft nog geen Abonnementen. Voeg abonnementen toe om ze hier te zien'
   'Getting Subscriptions.  Please wait.': ''
-  Refresh Subscriptions: Vernieuw abonnementen
+  Refresh Subscriptions: Abonnementen vernieuwen
   Getting Subscriptions. Please wait.: Abonnementen verzamelen. Even geduld aub.
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Dit
     profiel heeft een groot aantal abonnementen. RSS wordt geforceerd om tariefbeperkingen
@@ -102,29 +102,29 @@ User Playlists:
 History:
   # On History Page
   History: 'Geschiedenis'
-  Watch History: 'Bekijk Geschiedenis'
+  Watch History: 'Kijkgeschiedenis'
   Your history list is currently empty.: 'Uw geschiedenis is momenteel leeg.'
   Search bar placeholder: In Geschiedenis zoeken
 Settings:
   # On Settings Page
   Settings: 'Instellingen'
   General Settings:
-    General Settings: 'Algemene Instellingen'
-    Fallback to Non-Preferred Backend on Failure: 'Val Terug op Niet-Voorkeur Backend
-      bij falen'
-    Enable Search Suggestions: 'Zoeksuggesties Inschakelen'
-    Default Landing Page: 'Standaard Landingspagina'
-    Locale Preference: 'Locale Voorkeur'
+    General Settings: 'Algemene instellingen'
+    Fallback to Non-Preferred Backend on Failure: 'Terugvallen op alternatieve backend
+      bij problemen'
+    Enable Search Suggestions: 'Zoeksuggesties inschakelen'
+    Default Landing Page: 'Standaard hoofdpagina'
+    Locale Preference: 'Regiovoorkeur'
     Preferred API Backend:
       Preferred API Backend: 'Voorkeur API Backend'
       Local API: 'Lokale API'
       Invidious API: 'Invidious API'
     Video View Type:
-      Video View Type: 'Videoweergave Type'
+      Video View Type: 'Videoweergave'
       Grid: 'Raster'
       List: 'Lijst'
     Thumbnail Preference:
-      Thumbnail Preference: 'Thumbnail Voorkeur'
+      Thumbnail Preference: 'Voorkeur voor thumbnails'
       Default: 'Standaard'
       Beginning: 'Begin'
       Middle: 'Midden'
@@ -133,11 +133,11 @@ Settings:
       (Standaard is https://invidious.snopyta.org)'
     Region for Trending: 'Regio voor Trending'
         #! List countries
-    Check for Latest Blog Posts: Controleer op Nieuwe Blogposts
-    Check for Updates: Controleer op Updates
+    Check for Latest Blog Posts: Controleer op nieuwe blogposts
+    Check for Updates: Op updates controleren
     View all Invidious instance information: Bekijk alle Invidious-instantiegegevens
     System Default: Systeemtaal
-    Current Invidious Instance: Momenteel Gebruikte Invidious-instantie
+    Current Invidious Instance: Momenteel gebruikte Invidious-instantie
     Clear Default Instance: Standaardinstantie wissen
     Set Current Instance as Default: Stel momenteel geselecteerde instantie in als
       standaard
@@ -147,13 +147,13 @@ Settings:
     The currently set default instance is $: De momenteel als standaard ingestelde
       instantie is $
     External Link Handling:
-      Ask Before Opening Link: Vraag om Link te Openen
-      No Action: Geen Actie
-      External Link Handling: Externe Link Omgang
-      Open Link: Open Link
+      Ask Before Opening Link: Vraag bij het openen van koppelingen
+      No Action: Geen actie
+      External Link Handling: Externe links openen
+      Open Link: Koppeling openen
   Theme Settings:
-    Theme Settings: 'Thema-Instellingen'
-    Match Top Bar with Main Color: 'Zet Bovenste Balk Gelijk aan Primaire Themakleur'
+    Theme Settings: 'Thema-instellingen'
+    Match Top Bar with Main Color: 'Primaire themakleur gebruiken voor bovenste balk'
     Base Theme:
       Base Theme: 'Basisthema'
       Black: 'Zwart'
@@ -161,7 +161,7 @@ Settings:
       Light: 'Licht'
       Dracula: 'Dracula'
     Main Color Theme:
-      Main Color Theme: 'Primaire Themakleur'
+      Main Color Theme: 'Primaire themakleur'
       Red: 'Rood'
       Pink: 'Roze'
       Purple: 'Paars'
@@ -177,38 +177,38 @@ Settings:
       Yellow: 'Geel'
       Amber: 'Amber'
       Orange: 'Oranje'
-      Deep Orange: 'Donker Oranje'
-      Dracula Cyan: 'Dracula Cyaan'
-      Dracula Green: 'Dracula Groen'
-      Dracula Orange: 'Dracula Oranje'
-      Dracula Pink: 'Dracula Roze'
-      Dracula Purple: 'Dracula Paars'
-      Dracula Red: 'Dracula Rood'
-      Dracula Yellow: 'Dracula Geel'
-    Secondary Color Theme: 'Secundaire Themakleur'
+      Deep Orange: 'Donker oranje'
+      Dracula Cyan: 'Dracula-cyaan'
+      Dracula Green: 'Dracula-groen'
+      Dracula Orange: 'Dracula-oranje'
+      Dracula Pink: 'Dracula-roze'
+      Dracula Purple: 'Dracula-paars'
+      Dracula Red: 'Dracula-rood'
+      Dracula Yellow: 'Dracula-geel'
+    Secondary Color Theme: 'Secundaire themakleur'
         #* Main Color Theme
-    UI Scale: UI Schaal
-    Expand Side Bar by Default: Zijbalk Standaard Uitschuiven
-    Disable Smooth Scrolling: Vloeiend Scrollen Uitschakelen
-    Hide Side Bar Labels: Verberg Labels op Zijbalk
+    UI Scale: Schaal van interface
+    Expand Side Bar by Default: Zijbalk standaard uitklappen
+    Disable Smooth Scrolling: Vloeiend scrollen uitschakelen
+    Hide Side Bar Labels: Labels op zijbalk verbergen
   Player Settings:
-    Player Settings: 'Videospeler Instellingen'
-    Force Local Backend for Legacy Formats: 'Lokale Backend Forceren Voor Oudere Formaten'
-    Play Next Video: 'Volgende Video Automatisch Afspelen'
-    Turn on Subtitles by Default: 'Schakel Ondertiteling Standaard in'
-    Autoplay Videos: 'Video''s Automatisch Afspelen'
-    Proxy Videos Through Invidious: 'Proxy Video''s Via Invidious'
-    Autoplay Playlists: 'Afspeellijsten Automatisch Afspelen'
-    Enable Theatre Mode by Default: 'Theatermodus Standaard Inschakelen'
-    Default Volume: 'Standaard Volume'
-    Default Playback Rate: 'Standaard Afspeelsnelheid'
+    Player Settings: 'Videospelerinstellingen'
+    Force Local Backend for Legacy Formats: 'Lokale backend voor oudere formaten forceren'
+    Play Next Video: 'Volgende video automatisch afspelen'
+    Turn on Subtitles by Default: 'Ondertiteling standaard inschakelen'
+    Autoplay Videos: 'Video''s automatisch afspelen'
+    Proxy Videos Through Invidious: 'Video''s via Invidious-proxy afspelen'
+    Autoplay Playlists: 'Afspeellijsten automatisch afspelen'
+    Enable Theatre Mode by Default: 'Theatermodus standaard inschakelen'
+    Default Volume: 'Standaardvolume'
+    Default Playback Rate: 'Standaard afspeelsnelheid'
     Default Video Format:
-      Default Video Format: 'Standaard Videoformaat'
-      Dash Formats: 'DASH Formaten'
+      Default Video Format: 'Standaard videoformaat'
+      Dash Formats: 'DASH-formaten'
       Legacy Formats: 'Verouderde formaten'
-      Audio Formats: 'Audio Formaten'
+      Audio Formats: 'Audioformaten'
     Default Quality:
-      Default Quality: 'Standaard Videokwaliteit'
+      Default Quality: 'Standaard videokwaliteit'
       Auto: 'Automatisch'
       144p: '144p'
       240p: '240p'
@@ -220,41 +220,42 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Afspeellijst Volgende Video Tussentijd
-    Next Video Interval: Volgende Video Tussenpauze Duur
-    Display Play Button In Video Player: Afspeelknop Weergeven in Videokader
-    Scroll Volume Over Video Player: Volume Veranderen Door in het Videokader te Scrollen
-    Fast-Forward / Rewind Interval: Snel Vooruit / Terugspoelen Interval
+    Next Video Interval: Wachtpauze voor volgende video
+    Display Play Button In Video Player: Afspeelknop in videokader weergeven
+    Scroll Volume Over Video Player: Volume veranderen door in het videokader te scrollen
+    Fast-Forward / Rewind Interval: Snelheid van doorspoelen/terugspoelen
     Scroll Playback Rate Over Video Player: Scroll Afspeelsnelheid op Videospeler
   Privacy Settings:
-    Privacy Settings: 'Privacy-Instellingen'
-    Remember History: 'Kijkgeschiedenis Onthouden'
-    Save Watched Progress: 'Bewaar Videovoortgang'
-    Clear Search Cache: 'Verwijder Zoek-Cache'
+    Privacy Settings: 'Privacy-instellingen'
+    Remember History: 'Kijkgeschiedenis onthouden'
+    Save Watched Progress: 'Videovoortgang bewaren'
+    Clear Search Cache: 'Zoekbuffer verwijderen'
     Are you sure you want to clear out your search cache?: 'Weet u zeker dat u de
-      zoek-cache wil verwijderen?'
-    Search cache has been cleared: 'De zoek-cache is verwijderd'
-    Remove Watch History: 'Verwijder Kijkgeschiedenis'
+      zoekbuffer wil verwijderen?'
+    Search cache has been cleared: 'De zoekbuffer is verwijderd'
+    Remove Watch History: 'Kijkgeschiedenis verwijderen'
     Are you sure you want to remove your entire watch history?: 'Weet u zeker dat
       u uw volledige kijkgeschiedenis wil verwijderen?'
     Watch history has been cleared: 'Kijkgeschiedenis is verwijderd'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Weet
-      u zeker dat u alle abonnementen en profielen wil verwijderen? Dit kan niet worden
-      ontdaan.
-    Remove All Subscriptions / Profiles: Verwijder alle Abonnementen / Profielen
-    Automatically Remove Video Meta Files: Video-Metabestanden Automatisch Verwijderen
+      u zeker dat u alle abonnementen en profielen wil verwijderen? Dit kan niet ongedaan
+      worden gemaakt.
+    Remove All Subscriptions / Profiles: Verwijder alle abonnementen / profielen
+    Automatically Remove Video Meta Files: Bestanden met metadata van video's automatisch
+      verwijderen
   Subscription Settings:
-    Subscription Settings: 'Instellingen voor Abonnementen'
-    Hide Videos on Watch: 'Verberg Video''s Zodra Bekeken'
+    Subscription Settings: 'Instellingen voor abonnementen'
+    Hide Videos on Watch: 'Bekeken video''s verbergen'
     Subscriptions Export Format:
       Subscriptions Export Format: ''
       #& Freetube
       Newpipe: ''
       OPML: ''
-    Manage Subscriptions: 'Beheer Abonnementen'
+    Manage Subscriptions: 'Abonnementen beheren'
     Import Subscriptions: ''
     Export Subscriptions: ''
     How do I import my subscriptions?: ''
-    Fetch Feeds from RSS: Verzamel Feeds via RSS
+    Fetch Feeds from RSS: Verzamel feeds via RSS
   Advanced Settings:
     Advanced Settings: 'Geavanceerde Instellingen'
     Enable Debug Mode (Prints data to the console): 'Schakel Debug Modus in (Print
@@ -297,12 +298,12 @@ Settings:
       en profielen zijn succesvol geïmporteerd
     Profile object has insufficient data, skipping item: Profiel heeft niet genoeg
       data, item wordt overgeslagen
-    Export History: Exporteer Geschiedenis
-    Import History: Importeer Geschiedenis
-    Export NewPipe: Exporteer NewPipe
+    Export History: Geschiedenis exporteren
+    Import History: Geschiedenis importeren
+    Export NewPipe: NewPipe exporteren
     Export YouTube: YouTube exporteren
-    Export FreeTube: Exporteer FreeTube
-    Export Subscriptions: Exporteer Abonnementen
+    Export FreeTube: FreeTube exporteren
+    Export Subscriptions: Abonnementen exporteren
     Import NewPipe: Importeer NewPipe
     Import YouTube: YouTube importeren
     Import FreeTube: Importeer FreeTube
@@ -319,7 +320,7 @@ Settings:
     All watched history has been successfully imported: De bekeken geschiedenis is
       met succes geïmporteerd
     Check for Legacy Subscriptions: Controleer op Legacy Abonnementen
-    Manage Subscriptions: Beheer Abonnementen
+    Manage Subscriptions: Abonnementen beheren
     Export Playlists: Afspeellijsten exporteren
     All playlists has been successfully imported: Alle speellijsten zijn met succes
       geïmporteerd
@@ -329,35 +330,35 @@ Settings:
     All playlists has been successfully exported: Alle speellijsten zijn met succes
       geëxporteerd
   Distraction Free Settings:
-    Hide Live Chat: Verberg Live Chat
-    Hide Popular Videos: Verberg Populaire Video's
-    Hide Trending Videos: Verberg Trending Video's
-    Hide Recommended Videos: Verberg Aanbevolen Video's
-    Hide Comment Likes: Verberg Likes op Comments
-    Hide Channel Subscribers: Verberg Abonnee Aantal
-    Hide Video Likes And Dislikes: Verberg Likes en Dislikes
-    Hide Video Views: Verberg Weergaven
-    Distraction Free Settings: Instellingen voor Afleidingsvrij Kijken
-    Hide Active Subscriptions: Verberg Actieve Abonnementen
-    Hide Playlists: Verberg Afspeellijsten
+    Hide Live Chat: Live Chat verbergen
+    Hide Popular Videos: Populaire video's verbergen
+    Hide Trending Videos: Trending video's verbergen
+    Hide Recommended Videos: Aanbevolen video's verbergen
+    Hide Comment Likes: Likes op reacties verbergen
+    Hide Channel Subscribers: Aantal abonnees verbergen
+    Hide Video Likes And Dislikes: Likes en dislikes verbergen
+    Hide Video Views: Aantal videoweergaves verbergen
+    Distraction Free Settings: Instellingen voor afleidingsvrij kijken
+    Hide Active Subscriptions: Actieve abonnementen verbergen
+    Hide Playlists: Afspeellijsten verbergen
   The app needs to restart for changes to take effect. Restart and apply change?: De
     applicatie moet opnieuw opstarten om de veranderingen aan te brengen. Wilt u opnieuw
     opstarten en verandering toepassen?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Fout bij
-      het opvragen van netwerk informatie. Is uw proxy correct geconfigureerd?
+      het opvragen van netwerkinformatie. Is uw proxy correct geconfigureerd?
     City: Stad
     Region: Regio
     Country: Land
-    Ip: Ip
-    Your Info: Uw Informatie
-    Test Proxy: Test Proxy
+    Ip: IP
+    Your Info: Uw informatie
+    Test Proxy: Proxy testen
     Clicking on Test Proxy will send a request to: Door op Test Proxy te klikken zal
       er een verzoek worden verstuurd naar
-    Proxy Port Number: Proxy Poortnummer
-    Proxy Host: Proxy Host
-    Proxy Protocol: Proxy Protocol
-    Enable Tor / Proxy: Tor / Proxy Inschakelen
+    Proxy Port Number: Poortnummer proxy
+    Proxy Host: Proxyhost
+    Proxy Protocol: Proxyprotocol
+    Enable Tor / Proxy: Tor / Proxy inschakelen
     Proxy Settings: Proxy-Instellingen
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Informeer mij wanneer een gesponsord segment
@@ -367,16 +368,17 @@ Settings:
     Enable SponsorBlock: SponsorBlock Inschakelen
     SponsorBlock Settings: SponsorBlock-Instellingen
   External Player Settings:
-    Custom External Player Arguments: Aangepaste Argumenten voor Externe Videospeler
-    Custom External Player Executable: Aangepast Uitvoerbaar Bestand van Externe Videospeler
-    Ignore Unsupported Action Warnings: Negeer Waarschuwingen Voor Niet Ondersteunde
-      Acties
-    External Player: Externe Videospeler
-    External Player Settings: Instellingen Externe Mediaspeler
+    Custom External Player Arguments: Aangepaste argumenten voor externe videospeler
+    Custom External Player Executable: Uitvoerbaar bestand van externe videospeler
+      instellen
+    Ignore Unsupported Action Warnings: Waarschuwingen voor niet-ondersteunde acties
+      negeren
+    External Player: Externe videospeler
+    External Player Settings: Instellingen externe mediaspeler
   Download Settings:
     Choose Path: Pad kiezen
-    Download Settings: Download instellingen
-    Ask Download Path: Vraag om downloadpad
+    Download Settings: Downloadinstellingen
+    Ask Download Path: Om downloadpad vragen
 About:
   #On About page
   About: 'Over'
@@ -409,7 +411,7 @@ About:
   Latest FreeTube News: 'Laatste FreeTube nieuws'
 
 #On Channel Page
-  Donate: Doneer
+  Donate: Doneren
   these people and projects: deze mensen en projecten
   FreeTube is made possible by: FreeTube is mogelijk gemaakt door
   Credits: Met dank aan
@@ -428,9 +430,9 @@ About:
   FAQ: Veelgestelde vragen
   FreeTube Wiki: FreeTube Wiki
   Help: Hulp
-  GitHub releases: GitHub uitgaves
-  Downloads / Changelog: Downloads / Wijzigingen
-  View License: Bekijk Licentie
+  GitHub releases: GitHub-uitgaves
+  Downloads / Changelog: Downloads / wijzigingen
+  View License: Licentie bekijken
   Licensed under the AGPLv3: Vrijgegeven onder de AGPLv3 licentie
   Source code: Broncode
   Beta: Beta
@@ -439,9 +441,9 @@ Channel:
   Subscribers: 'Abonnees'
   Subscribe: 'Abonneer'
   Unsubscribe: 'Afmelden'
-  Search Channel: 'Zoek op Kanaal'
+  Search Channel: 'Kanaal zoeken'
   Your search results have returned 0 results: 'Uw zoekactie heeft 0 resultaten opgeleverd'
-  Sort By: 'Sorteer Op'
+  Sort By: 'Sorteer op'
   Videos:
     Videos: 'Video''s'
     This channel does not currently have any videos: 'Dit kanaal heeft op dit moment
@@ -449,52 +451,52 @@ Channel:
     Sort Types:
       Newest: 'Nieuwste'
       Oldest: 'Oudste'
-      Most Popular: 'Meest Populair'
+      Most Popular: 'Populairst'
   Playlists:
     Playlists: 'Afspeellijsten'
     This channel does not currently have any playlists: 'Dit kanaal heeft momenteel
       nog geen afspeellijsten'
     Sort Types:
-      Last Video Added: 'Laatst Toegevoegd'
+      Last Video Added: 'Laatst toegevoegd'
       Newest: 'Nieuwste'
       Oldest: 'Oudste'
   About:
     About: 'Over'
-    Channel Description: 'Kanaal Beschrijving'
-    Featured Channels: 'Uitgelichte Kanalen'
+    Channel Description: 'Kanaalbeschrijving'
+    Featured Channels: 'Uitgelichte kanalen'
   Added channel to your subscriptions: Kanaal is toegevoegd aan uw abonnementen
   Removed subscription from $ other channel(s): Abonnementen van $ andere kanalen
     zijn verwijderd
   Channel has been removed from your subscriptions: Kanaal is verwijderd uit uw abonnementen
 Video:
-  Mark As Watched: 'Markeer Als Bekeken'
-  Remove From History: 'Verwijder Uit Geschiedenis'
+  Mark As Watched: 'Als bekeken markeren'
+  Remove From History: 'Uit geschiedenis verwijderen'
   Video has been marked as watched: 'Video is gemarkeerd als bekeken'
-  Video has been removed from your history: 'Video is verwijdert uit uw geschiedenis'
+  Video has been removed from your history: 'Video is verwijderd uit uw geschiedenis'
   Open in YouTube: 'Op YouTube openen'
-  Copy YouTube Link: 'YouTube link kopiëren'
+  Copy YouTube Link: 'YouTube-link kopiëren'
   Open YouTube Embedded Player: 'Embedded YouTube videospeler openen'
   Copy YouTube Embedded Player Link: 'YouTube videospeler-insluitlink kopiëren'
   Open in Invidious: 'Open op Invidious'
-  Copy Invidious Link: 'Kopieer Invidious Link'
-  View: 'Bekijk'
+  Copy Invidious Link: 'Invidious-link kopiëren'
+  View: 'Bekijken'
   Views: 'Weergaven'
   # Context is "X People Watching"
   Watching: 'Aan het kijken'
   Watched: 'Bekeken'
   # As in a Live Video
   Live: 'Live'
-  Live Now: 'Nu Live'
+  Live Now: 'Nu live'
   Live Chat: 'Livechat'
-  Enable Live Chat: 'Schakel Live Chat in'
-  Live Chat is currently not supported in this build.: 'Live Chat wordt momenteel
-    niet ondersteunt in deze versie.'
-  'Chat is disabled or the Live Stream has ended.': 'Chat is uitgeschakeld of de Live
-    Stream is beëindigd.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Live chat is
-    ingeschakeld. Chats zullen hier verschijnen.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Live
-    Chat wordt momenteel niet ondersteund door de Invidious API. Een directe verbinding
+  Enable Live Chat: 'Livechat inschakelen'
+  Live Chat is currently not supported in this build.: 'Livechat wordt in deze versie
+    nog niet ondersteund.'
+  'Chat is disabled or the Live Stream has ended.': 'Chat is uitgeschakeld of de livestream
+    is beëindigd.'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'Livechat is ingeschakeld.
+    Chats zullen hier verschijnen.'
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Livechat
+    wordt momenteel niet ondersteund door de Invidious API. Een directe verbinding
     met YouTube is nodig.'
   Published:
     Jan: 'Jan'
@@ -509,32 +511,32 @@ Video:
     Oct: 'Okt'
     Nov: 'Nov'
     Dec: 'Dec'
-    Second: 'Seconde'
-    Seconds: 'Seconden'
-    Hour: 'Uur'
-    Hours: 'Uren'
-    Day: 'Dag'
-    Days: 'Dagen'
-    Week: 'Week'
-    Weeks: 'Weken'
-    Month: 'Maand'
-    Months: 'Maanden'
-    Year: 'Jaar'
-    Years: 'Jaren'
-    Ago: 'Geleden'
+    Second: 'seconde'
+    Seconds: 'seconden'
+    Hour: 'uur'
+    Hours: 'uur'
+    Day: 'dag'
+    Days: 'dagen'
+    Week: 'week'
+    Weeks: 'weken'
+    Month: 'maand'
+    Months: 'maanden'
+    Year: 'jaar'
+    Years: 'jaar'
+    Ago: 'geleden'
     Upcoming: 'Première start op'
-    Minutes: Minuten
-    Minute: Minuut
+    Minutes: minuten
+    Minute: minuut
   Published on: 'Gepubliceerd op'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % geleden'
 #& Videos
-  Autoplay: Automatisch Afspelen
-  Play Previous Video: Speel Vorige Video af
-  Play Next Video: Volgende Video Afspelen
-  Reverse Playlist: Afspeellijst Omkeren
+  Autoplay: Automatisch afspelen
+  Play Previous Video: Vorige video afspelen
+  Play Next Video: Volgende video afspelen
+  Reverse Playlist: Afspeellijst omkeren
   Shuffle Playlist: Afspeellijst in willekeurige volgorde afspelen
-  Loop Playlist: Herhaal Playlist
+  Loop Playlist: Playlist herhalen
   Starting soon, please refresh the page to check again: Start binnenkort, vernieuw
     de pagina om opnieuw te controleren
   Audio:
@@ -544,17 +546,17 @@ Video:
     Low: Laag
   audio only: alleen audio
   video only: alleen video
-  Download Video: Download Video
-  Copy Invidious Channel Link: Kopieer Invidious Kanaal-Link
+  Download Video: Video downloaden
+  Copy Invidious Channel Link: Kopieer Invidious-kanaallink
   Open Channel in Invidious: Open Kanaal op Invidious
-  Copy YouTube Channel Link: YouTube kanaal-link kopiëren
+  Copy YouTube Channel Link: Link naar YouTubekanaal kopiëren
   Open Channel in YouTube: YouTube-kanaal openen
   Started streaming on: Gestart met streamen op
   Streamed on: Gestreamd op
-  Video has been removed from your saved list: Video is verwijderd uit uw opgeslagen
-    video's lijst
+  Video has been removed from your saved list: Video is verwijderd uit uw lijst van
+    opgeslagen video's
   Video has been saved: Video is opgeslagen
-  Save Video: Video Opslaan
+  Save Video: Video opslaan
   translated from English: vertaald uit het Engels
   Sponsor Block category:
     music offtopic: ongerelateerde muziek
@@ -609,16 +611,16 @@ Videos:
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: 'Bekijk Volledige Afspeellijst'
+  View Full Playlist: 'Bekijk volledige afspeellijst'
   Videos: 'Video''s'
   View: 'Bekijk'
   Views: 'Weergaven'
-  Last Updated On: 'Laatste Geüpdate Op'
+  Last Updated On: 'Laatste bijgewerkt op'
   Share Playlist:
-    Share Playlist: 'Deel Afspeellijst'
+    Share Playlist: 'Afspeellijst delen'
     Copy YouTube Link: 'YouTube-link kopiëren'
     Open in YouTube: 'In YouTube openen'
-    Copy Invidious Link: 'Kopieer Invidious Link'
+    Copy Invidious Link: 'Invidious-link kopiëren'
     Open in Invidious: 'Openen in Invidious'
 
 # On Video Watch Page
@@ -627,7 +629,7 @@ Playlist:
   Playlist: Afspeellijst
 Toggle Theatre Mode: 'Schakel Theatermodus In'
 Change Format:
-  Change Video Formats: 'Verander Video Formaten'
+  Change Video Formats: 'Videoformaten veranderen'
   Use Dash Formats: 'Gebruik DASH Formaten'
   Use Legacy Formats: 'Gebruik Legacy Formaten'
   Use Audio Formats: 'Gebruik Audio Formaten'
@@ -637,28 +639,28 @@ Change Format:
     voor deze video
 Share:
   Share Video: 'Deel Video'
-  Copy Link: 'Kopieer Link'
-  Open Link: 'Open Link'
-  Copy Embed: 'Kopieer Insluitlink'
-  Open Embed: 'Open Insluitlink'
+  Copy Link: 'Koppeling kopiëren'
+  Open Link: 'Koppeling openen'
+  Copy Embed: 'Insluitlink kopiëren'
+  Open Embed: 'Insluitlink openen'
   # On Click
-  Invidious URL copied to clipboard: 'Invidious URL is gekopieerd naar het klembord'
-  Invidious Embed URL copied to clipboard: 'Invidious Insluitlink is gekopieerd naar
-    het klembord'
-  YouTube URL copied to clipboard: 'YouTube URL is gekopieerd naar het klembord'
+  Invidious URL copied to clipboard: 'Invidious-URL is naar het klembord gekopieerd'
+  Invidious Embed URL copied to clipboard: 'Invidious Insluitlink is naar het klembord
+    gekopieerd'
+  YouTube URL copied to clipboard: 'YouTube-URL is naar het klembord gekopieerd'
   YouTube Embed URL copied to clipboard: 'YouTube Insluitlink is gekopieerd naar het
     klemboard'
   Include Timestamp: Inclusief Tijdstempel
   YouTube Channel URL copied to clipboard: YouTube URL is gekopieerd naar het klembord
-  Invidious Channel URL copied to clipboard: Invidious Kanaal URL is gekopieerd naar
-    het klembord
-Mini Player: 'Mini Videospeler'
+  Invidious Channel URL copied to clipboard: Invidiouskanaal-URL is naar het klembord
+    gekopieerd
+Mini Player: 'Minivideospeler'
 Comments:
   Comments: 'Reacties'
   Click to View Comments: 'Klik om Reacties Te Tonen'
   Getting comment replies, please wait: 'Reacties worden verzameld, even geduld aub'
-  Show Comments: 'Toon Reacties'
-  Hide Comments: 'Verberg Reacties'
+  Show Comments: 'Reacties weergeven'
+  Hide Comments: 'Reacties verbergen'
   # Context: View 10 Replies, View 1 Reply
   View: 'Toon'
   Hide: 'Verberg'
@@ -666,13 +668,13 @@ Comments:
   Reply: 'Reactie'
   There are no comments available for this video: 'Er zijn geen reacties beschikbaar
     voor deze video'
-  Load More Comments: 'Meer Reacties Laden'
+  Load More Comments: 'Meer reacties laden'
   There are no more comments for this video: Er zijn geen verdere reacties op deze
     video
   No more comments available: Er zijn geen reacties meer beschikbaar
   Newest first: Nieuwste Eerst
   Top comments: Top Reacties
-  Sort by: Sorteer Op
+  Sort by: Sorteer op
   Show More Replies: Toon Meer Reacties
   From $channelName: van $channelName
   And others: en anderen
@@ -706,25 +708,25 @@ Profile:
     is veranderd naar uw hoofdprofiel
   Removed $ from your profiles: $ is verwijderd uit uw profielen
   Your default profile has been set to $: Uw standaard profiel is ingesteld op $
-  Profile has been updated: Profiel is geüpdate
+  Profile has been updated: Profiel is bijgewerkt
   Profile has been created: Profiel is aangemaakt
   Your profile name cannot be empty: Uw profielnaam mag niet leeg zijn
   Profile could not be found: Profiel kan niet worden gevonden
   All subscriptions will also be deleted.: Alle abonnementen zullen ook worden verwijderd.
   Are you sure you want to delete this profile?: Weet u zeker dat u dit profiel wilt
     verwijderen?
-  Delete Profile: Verwijder Profiel
-  Make Default Profile: Creëer Standaard Profiel
-  Update Profile: Update Profiel
-  Create Profile: Creëer Profiel
-  Profile Preview: Profiel Voorbeeld
-  Custom Color: Eigen Kleur
-  Color Picker: Kleur Kiezer
-  Edit Profile: Pas Profiel aan
-  Create New Profile: Creëer een Nieuw Profiel
-  Profile Manager: Beheer Profiel
-  All Channels: Alle Kanalen
-  Profile Select: Selecteer een Profiel
+  Delete Profile: Profiel verwijderen
+  Make Default Profile: Standaard profiel aanmaken
+  Update Profile: Profiel bijwerken
+  Create Profile: Profiel aanmaken
+  Profile Preview: Profielvoorbeeld
+  Custom Color: Eigen kleur
+  Color Picker: Kleurselectie
+  Edit Profile: Profiel aanpassen
+  Create New Profile: Nieuw profiel aanmaken
+  Profile Manager: Profiel beheren
+  All Channels: Alle kanalen
+  Profile Select: Profiel selecteren
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Weet
     u zeker dat u de geselecteerde kanalen wil verwijderen? Deze actie zal de geselecteerde
     kanalen niet uit andere profielen verwijderen.
@@ -733,18 +735,18 @@ Profile:
   : Dit is u primaire profiel. Weet u zeker dat u de geselecteerde kanalen wil verwijderen?
     Dezelfde kanalen zullen worden verwijderd uit andere profielen.
   No channel(s) have been selected: Er zijn geen kanalen geselecteerd
-  Add Selected To Profile: Voeg Selectie toe aan Profiel
-  Delete Selected: Verwijder Selectie
-  Select None: Selecteer Niks
-  Select All: Selecteer Alles
+  Add Selected To Profile: Selectie aan profiel toevoegen
+  Delete Selected: Selectie verwijderen
+  Select None: Niks selecteren
+  Select All: Alles selecteren
   $ selected: $ is geselecteerd
-  Other Channels: Andere Kanalen
+  Other Channels: Andere kanalen
   Subscription List: Abonnementen
   Profile Filter: Profielfilter
   Profile Settings: Profielinstellingen
 A new blog is now available, $. Click to view more: Een nieuwe blogpost is beschikbaar,
   $. Klik voor meer informatie
-Download From Site: Download van de Website
+Download From Site: Van website downloaden
 Version $ is now available!  Click for more details: Versie $ is nu beschikbaar! Klik
   voor meer informatie
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Deze
@@ -813,9 +815,9 @@ Playing Next Video Interval: Volgende video wordt afgespeeld. Klik om te onderbr
 More: Meer
 Hashtags have not yet been implemented, try again later: Hastags zijn nog niet geïmplementeerd,
   probeer het later nogmaals
-Unknown YouTube url type, cannot be opened in app: Onbekende YouTube-url type, de
-  URL kan niet worden geopend in de app
-Open New Window: Open Nieuw Venster
+Unknown YouTube url type, cannot be opened in app: Onbekende YouTube-URL; de URL kan
+  niet worden geopend in de app
+Open New Window: Nieuw venster openen
 Default Invidious instance has been cleared: Standaard Invidious-instantie is verwijderd
 Default Invidious instance has been set to $: Standaard Invidious-instantie is ingesteld
   op $
