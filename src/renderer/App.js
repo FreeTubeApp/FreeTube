@@ -139,9 +139,15 @@ export default Vue.extend({
       this.$refs.topNav.hideFilters()
     }
   },
-  created () {
+  created: async function () {
     this.checkThemeSettings()
     this.setWindowTitle()
+
+    if (this.usingElectron) {
+      console.log('User is using Electron')
+      ipcRenderer = require('electron').ipcRenderer
+      this.setSessionStorageItems()
+    }
   },
   mounted: function () {
     this.grabUserSettings().then(async () => {
@@ -155,8 +161,6 @@ export default Vue.extend({
         this.grabAllPlaylists()
 
         if (this.usingElectron) {
-          console.log('User is using Electron')
-          ipcRenderer = require('electron').ipcRenderer
           this.setupListenersToSyncWindows()
           this.activateKeyboardShortcuts()
           this.openAllLinksExternally()
@@ -442,6 +446,16 @@ export default Vue.extend({
       })
 
       ipcRenderer.send('appReady')
+    },
+
+    setSessionStorageItems: function () {
+      ipcRenderer.on('setSessionStorageItems', (_, items) => {
+        if (!items) { return }
+        console.log('session storage', items)
+        items.forEach((item) => {
+          sessionStorage.setItem(item[0], item[1])
+        })
+      })
     },
 
     handleExternalLinkOpeningPromptAnswer: function (option) {

@@ -95,8 +95,8 @@ export default Vue.extend({
       ]
     }
   },
-  watch:{
-    channelBlockerAllowTempUnblock:function(){
+  watch: {
+    channelBlockerAllowTempUnblock: function() {
       this._clearTempUnblock()
     }
   },

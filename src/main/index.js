@@ -171,7 +171,7 @@ function runApp() {
     }
   }
 
-  async function createWindow({ replaceMainWindow = true, windowStartupUrl = null, showWindowNow = false } = { }) {
+  async function createWindow({ replaceMainWindow = true, windowStartupUrl = null, showWindowNow = false, sessionStorageItems = [] } = { }) {
     /**
      * Initial window options
      */
@@ -275,7 +275,12 @@ function runApp() {
 
     // Show when loaded
     newWindow.once('ready-to-show', () => {
-      if (newWindow.isVisible()) { return }
+      if (newWindow.isVisible()) {
+        // setTimeout(() => {
+        newWindow.webContents.send('setSessionStorageItems', sessionStorageItems)
+        // }, 0)
+        return
+      }
 
       newWindow.show()
       newWindow.focus()
@@ -388,16 +393,26 @@ function runApp() {
     return powerSaveBlocker.start('prevent-display-sleep')
   })
 
-  ipcMain.on(IpcChannels.CREATE_NEW_WINDOW, () => {
+  ipcMain.on(IpcChannels.CREATE_NEW_WINDOW, (_, sessionStorageItems) => {
     createWindow({
       replaceMainWindow: false,
-      showWindowNow: true
+      showWindowNow: true,
+      sessionStorageItems: sessionStorageItems
     })
   })
 
   ipcMain.on(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, (_, payload) => {
     const child = cp.spawn(payload.executable, payload.args, { detached: true, stdio: 'ignore' })
     child.unref()
+  })
+
+  ipcMain.on(IpcChannels.SYNC_CHANNELBLOCKER, (event, data) => {
+    syncOtherWindows(
+      IpcChannels.SYNC_CHANNELBLOCKER,
+      event,
+      { event: SyncEvents.CHANNELBLOCKER.UPDATE_TEMP_UNBLOCK, data: data }
+    )
+    return null
   })
 
   // ************************************************* //

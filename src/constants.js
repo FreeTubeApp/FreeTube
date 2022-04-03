@@ -21,7 +21,8 @@ const IpcChannels = {
   SYNC_SETTINGS: 'sync-settings',
   SYNC_HISTORY: 'sync-history',
   SYNC_PROFILES: 'sync-profiles',
-  SYNC_PLAYLISTS: 'sync-playlists'
+  SYNC_PLAYLISTS: 'sync-playlists',
+  SYNC_CHANNELBLOCKER: 'sync-channelblocker'
 }
 
 const DBActions = {
@@ -63,6 +64,10 @@ const SyncEvents = {
   PLAYLISTS: {
     UPSERT_VIDEO: 'sync-playlists-upsert-video',
     DELETE_VIDEO: 'sync-playlists-delete-video'
+  },
+
+  CHANNELBLOCKER: {
+    UPDATE_TEMP_UNBLOCK: 'sync-channelblocker-temp-unblock-update'
   }
 }
 

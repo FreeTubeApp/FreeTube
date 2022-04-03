@@ -312,7 +312,11 @@ export default Vue.extend({
     createNewWindow: function () {
       if (this.usingElectron) {
         const { ipcRenderer } = require('electron')
-        ipcRenderer.send(IpcChannels.CREATE_NEW_WINDOW)
+        ipcRenderer.send(IpcChannels.CREATE_NEW_WINDOW,
+          [
+            ['channelBlockerTempUnblock', sessionStorage.getItem('channelBlockerTempUnblock')]
+          ]
+        )
       } else {
         // Web placeholder
       }

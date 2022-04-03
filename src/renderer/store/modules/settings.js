@@ -411,6 +411,17 @@ const customActions = {
           console.error('playlists: invalid sync event received')
       }
     })
+
+    ipcRenderer.on(IpcChannels.SYNC_CHANNELBLOCKER, (_, { event, data }) => {
+      switch (event) {
+        case SyncEvents.CHANNELBLOCKER.UPDATE_TEMP_UNBLOCK:
+          commit('syncTempUnblockSet', data)
+          break
+
+        default:
+          console.error('channelblocker: invalid sync event received')
+      }
+    })
   }
 }
 

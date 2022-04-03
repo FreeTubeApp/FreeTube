@@ -1,3 +1,6 @@
+import { ipcRenderer } from 'electron'
+import { IpcChannels } from '../../../constants'
+
 const state = {
   channelBlockerTempUnblockIdSet: new Set(),
   channelBlockerTempUnblockIdArray: []
@@ -43,16 +46,25 @@ const mutations = {
     sessionStorage.setItem('channelBlockerTempUnblock', JSON.stringify(arr))
   },
 
+  syncTempUnblockSet(state, arr) {
+    console.log('cb temp sync', arr)
+    state.channelBlockerTempUnblockIdSet = new Set(arr)
+    state.channelBlockerTempUnblockIdArray = Array.from(state.channelBlockerTempUnblockIdSet)
+    sessionStorage.setItem('channelBlockerTempUnblock', JSON.stringify(arr))
+  },
+
   upsertToTempUnblockSet(state, id) {
     state.channelBlockerTempUnblockIdSet.add(id)
     state.channelBlockerTempUnblockIdArray = Array.from(state.channelBlockerTempUnblockIdSet)
     sessionStorage.setItem('channelBlockerTempUnblock', JSON.stringify(state.channelBlockerTempUnblockIdArray))
+    ipcRenderer.send(IpcChannels.SYNC_CHANNELBLOCKER, state.channelBlockerTempUnblockIdArray)
   },
 
   deleteFromTempUnblockSet(state, id) {
     state.channelBlockerTempUnblockIdSet.delete(id)
     state.channelBlockerTempUnblockIdArray = Array.from(state.channelBlockerTempUnblockIdSet)
     sessionStorage.setItem('channelBlockerTempUnblock', JSON.stringify(state.channelBlockerTempUnblockIdArray))
+    ipcRenderer.send(IpcChannels.SYNC_CHANNELBLOCKER, state.channelBlockerTempUnblockIdArray)
   },
 
   clearTempUnblockSet(state) {
@@ -61,6 +73,7 @@ const mutations = {
     }
     state.channelBlockerTempUnblockIdArray = []
     sessionStorage.setItem('channelBlockerTempUnblock', JSON.stringify([]))
+    ipcRenderer.send(IpcChannels.SYNC_CHANNELBLOCKER, [])
   }
 }
 
