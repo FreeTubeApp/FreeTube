@@ -77,25 +77,26 @@
       <h4>Channel Blocker</h4>
       <ft-flex-box class="switchColumnGrid">
         <ft-toggle-switch
-          label="Skip to Next Video"
-          tooltip="Skips only if &quot;Autoplay Playlists&quot; or &quot;Play Next Video&quot; is enabled in Player Settings"
+          :label="$t('Settings.Distraction Free Settings.ChannelBlocker.Skip Label')"
+          :tooltip="$t('Settings.Distraction Free Settings.ChannelBlocker.Skip Tooltip')"
           :compact="true"
           :default-value="channelBlockerSkipBlocked"
           @change="updateChannelBlockerSkipBlocked"
         />
         <ft-toggle-switch
-          label="Enable Temporary Unblocking"
+          :label="$t('Settings.Distraction Free Settings.ChannelBlocker.Temp Unblock Label')"
+          :tooltip="$t('Settings.Distraction Free Settings.ChannelBlocker.Temp Unblock Tooltip')"
           :compact="true"
           :default-value="channelBlockerAllowTempUnblock"
-          @change="updateChannelBlockerAllowTempUnblock"
+          @change="handleChannelBlockerAllowTempUnblock"
         />
       </ft-flex-box>
       <ft-input
         id="channel_blocker_search_input"
-        :label="$t('Settings.Distraction Free Settings.Blocked Channels')"
+        :label="$t('Settings.Distraction Free Settings.ChannelBlocker.Blocked Channels')"
         :show-action-button="false"
         :show-clear-text-button="true"
-        :placeholder="$t('Settings.Distraction Free Settings.ChannelBlocker Search bar placeholder')"
+        :placeholder="$t('Settings.Distraction Free Settings.ChannelBlocker.Search bar placeholder')"
         @input="filterChannelBlockerList"
       />
       <ft-flex-box
@@ -105,13 +106,13 @@
           v-if="!channelBlockerHasQuery"
           class="message"
         >
-          {{ $t('Settings.Distraction Free Settings.ChannelBlocker Empty List') }}
+          {{ $t('Settings.Distraction Free Settings.ChannelBlocker.Empty List') }}
         </p>
         <p
           v-else
           class="message"
         >
-          {{ $t('Settings.Distraction Free Settings.ChannelBlocker Empty Search Result') }}
+          {{ $t('Settings.Distraction Free Settings.ChannelBlocker.Empty Search Result') }}
         </p>
       </ft-flex-box>
       <ul
@@ -125,32 +126,51 @@
         >
           <span
             class="channelBlockerSettingsBlockedListRemoveButton"
+            :title="channelBlockerRemoveButtonTitle"
             @click="onChannelBlockerRemoveButtonClicked(item)"
           >
             <font-awesome-icon
               icon="times"
             />
           </span>
-          <span
-            class="channelBlockerSettingsBlockedListName"
-          >
+          <span class="channelBlockerSettingsBlockedListName">
             <a
-              class="channelName"
               :href="`#/channel/${item.authorId}`"
             >
               {{ item.author }}
             </a>
           </span>
+          <span
+            v-if="_checkChannelTempUnblocked(item)"
+            class="channelBlockerSettingsTempUnblockRemoveButton"
+            :title="channelBlockerRemoveTempButtonTitle"
+            @click="onChannelBlockerRemoveTempUnblockButtonClicked(item)"
+          >
+            <font-awesome-icon
+              icon="clock"
+            />
+          </span>
         </li>
       </ul>
     </div>
-    <ft-prompt
-      v-if="showChannelBlockerRemovePrompt"
-      :label="channelBlockerPromptText"
-      :option-names="promptNames"
-      :option-values="promptValues"
-      @click="removeChannelFromBlockList"
-    />
+    <transition
+      name="fade-prompt"
+    >
+      <ft-prompt
+        v-if="showChannelBlockerRemovePrompt"
+        :label="channelBlockerPromptText"
+        :option-names="promptNames"
+        :option-values="promptValues"
+        @click="removeChannelFromBlockList"
+      />
+      <ft-prompt
+        v-if="showChannelBlockerTempUnblockRemovePrompt"
+        :label="channelBlockerTempUnblockPromptText"
+        :option-names="promptNames"
+        :option-values="promptValues"
+        @click="removeChannelFromTempUnblock"
+      />
+    </transition>
     <br>
     <ft-flex-box>
       <ft-select

@@ -25,13 +25,13 @@
         mode="out-in"
       >
         <ft-list-video
-          v-if="!isChannelBlocked(video)"
+          v-if="!_checkChannelBlocked(video) || _checkChannelTempUnblocked(video)"
           :key="index"
           :data="video"
           appearance="recommendation"
           force-list-type="list"
-          :channel-blocked="isChannelBlocked(video)"
-          @toggle-blocked-channel="toggleBlockedChannel"
+          :channel-blocked="_checkChannelBlocked(video)"
+          @toggle-blocked-channel="_toggleBlockedChannel"
         />
       </transition>
     </template>

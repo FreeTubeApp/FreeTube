@@ -17,7 +17,7 @@
   cursor: pointer;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 }
 

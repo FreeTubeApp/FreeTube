@@ -120,7 +120,7 @@
         mode="out-in"
       >
         <ft-flex-box
-          v-if="isChannelBlocked && !channelBlockerShowTemporarily"
+          v-if="channelBlocked && !channelTempUnblocked"
           class="blocked"
         >
           <div class="blockedText">
@@ -131,11 +131,11 @@
             :label="$t('Channel.ChannelBlocker.Button')"
             background-color="var(--accent-color)"
             text-color="var(--text-with-accent-color)"
-            @click="channelBlockerShowTemporarily = true"
+            @click="handleChannelBlockerTempUnblock"
           />
         </ft-flex-box>
         <template
-          v-else
+          v-else-if="!channelBlocked || channelBlockerAllowTempUnblock"
         >
           <div
             v-if="currentTab === 'about'"

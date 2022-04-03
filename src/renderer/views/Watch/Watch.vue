@@ -27,6 +27,7 @@
           class="videoPlayer"
           :class="{ theatrePlayer: useTheatreMode }"
           :video-blocked="videoBlocked"
+          :video-temp-unblocked="videoTempUnblocked"
           :allow-temp-unblock="channelBlockerAllowTempUnblock"
           :skip-blocked-video="channelBlockerSkipBlocked"
           :skip-blocked-video-count-down="skipBlockedCountDown"

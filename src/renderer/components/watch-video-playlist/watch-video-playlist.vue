@@ -89,8 +89,8 @@
             :playlist-loop="loopEnabled"
             appearance="watchPlaylistItem"
             force-list-type="list"
-            :channel-blocked="isChannelBlocked(item)"
-            @toggle-blocked-channel="toggleBlockedChannel"
+            :channel-blocked="_checkChannelBlocked(item)"
+            @toggle-blocked-channel="_toggleBlockedChannel"
             @pause-player="$emit('pause-player')"
           />
         </div>

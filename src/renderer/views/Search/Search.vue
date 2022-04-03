@@ -20,7 +20,7 @@
             v-show="channelBlockerCount > 0 && !unhide"
             class="hiddenItemsCount"
           >
-            {{ `(${channelBlockerCountText})` }}
+            {{ channelBlockerCountText }}
           </div>
         </transition>
       </div>

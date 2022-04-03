@@ -7,6 +7,7 @@ import FtSelect from '../ft-select/ft-select.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
+import channelBlockerMixin from '../../mixins/channelblocker'
 
 export default Vue.extend({
   name: 'PlayerSettings',
@@ -19,6 +20,9 @@ export default Vue.extend({
     'ft-input': FtInput,
     'ft-prompt': FtPrompt
   },
+  mixins: [
+    channelBlockerMixin
+  ],
   data: function () {
     return {
       channelBlockerHasQuery: false,
@@ -26,6 +30,8 @@ export default Vue.extend({
       channelBlockerChannelToRemove: {},
       channelBlockerPromptText: '',
       showChannelBlockerRemovePrompt: false,
+      channelBlockerTempUnblockPromptText: '',
+      showChannelBlockerTempUnblockRemovePrompt: false,
       promptValues: [
         'yes',
         'no'
@@ -69,21 +75,29 @@ export default Vue.extend({
     channelBlockerAllowTempUnblock: function () {
       return this.$store.getters.getChannelBlockerAllowTempUnblock
     },
-    channelBlockerList: function () {
-      return this.$store.getters.getChannelBlockerList
-    },
     channelBlockerShownList: function () {
       if (this.channelBlockerHasQuery) {
         return this.channelBlockerSearchResult
       } else {
-        return this.channelBlockerList
+        return this._channelBlockerList
       }
+    },
+    channelBlockerRemoveButtonTitle: function() {
+      return this.$t('Settings.Distraction Free Settings.ChannelBlocker.Remove Button Title')
+    },
+    channelBlockerRemoveTempButtonTitle: function() {
+      return this.$t('Settings.Distraction Free Settings.ChannelBlocker.Remove Temp Button Title')
     },
     promptNames: function () {
       return [
         this.$t('Yes'),
         this.$t('No')
       ]
+    }
+  },
+  watch:{
+    channelBlockerAllowTempUnblock:function(){
+      this._clearTempUnblock()
     }
   },
   methods: {
@@ -102,14 +116,14 @@ export default Vue.extend({
       // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#escaping
       const re = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i')
 
-      const filteredList = this.channelBlockerList.filter(channel => {
+      const filteredList = this._channelBlockerList.filter(channel => {
         return re.test(channel.author)
       })
       this.channelBlockerSearchResult = filteredList
     },
 
     onChannelBlockerRemoveButtonClicked: function (channel) {
-      this.channelBlockerPromptText = this.$t('Settings.Distraction Free Settings.ChannelBlocker Delete Prompt').replace('$', channel.author)
+      this.channelBlockerPromptText = this.$t('Settings.Distraction Free Settings.ChannelBlocker.Remove Prompt').replace('$', channel.author)
       this.channelBlockerChannelToRemove = channel
       this.showChannelBlockerRemovePrompt = true
     },
@@ -117,30 +131,38 @@ export default Vue.extend({
     removeChannelFromBlockList: function (option) {
       this.showChannelBlockerRemovePrompt = false
       if (option !== 'yes') {
+        this.channelBlockerChannelToRemove = {}
         return
       }
-
-      const channel = this.channelBlockerChannelToRemove
-      console.log('removing channel', JSON.stringify(channel))
-
-      const newList = this.channelBlockerList.slice()
-      for (let i = newList.length - 1; i >= 0; i--) {
-        if (newList[i].authorId === channel.authorId) {
-          newList.splice(i, 1)
-          break
-        }
-      }
-      this.updateChannelBlockerList(newList)
+      this._removeChannelFromBlockList(this.channelBlockerChannelToRemove)
 
       if (this.channelBlockerHasQuery) {
-        const newSearchResult = this.channelBlockerSearchResult.slice()
-        for (let i = newSearchResult.length - 1; i >= 0; i--) {
-          if (newSearchResult[i].authorId === channel.authorId) {
-            newSearchResult.splice(i, 1)
-            break
-          }
-        }
-        this.channelBlockerSearchResult = newSearchResult
+        const index = this.channelBlockerSearchResult.findIndex(item => {
+          return item.authorId === this.channelBlockerChannelToRemove.authorId
+        })
+        this.channelBlockerSearchResult.splice(index, 1)
+      }
+    },
+
+    onChannelBlockerRemoveTempUnblockButtonClicked: function(channel) {
+      this.channelBlockerTempUnblockPromptText = this.$t('Settings.Distraction Free Settings.ChannelBlocker.Remove Temp Prompt').replace('$', channel.author)
+      this.channelBlockerChannelToRemove = channel
+      this.showChannelBlockerTempUnblockRemovePrompt = true
+    },
+
+    removeChannelFromTempUnblock: function(option) {
+      this.showChannelBlockerTempUnblockRemovePrompt = false
+      if (option !== 'yes') {
+        this.channelBlockerChannelToRemove = {}
+        return
+      }
+      this._removeChannelFromTempUnblock(this.channelBlockerChannelToRemove)
+    },
+
+    handleChannelBlockerAllowTempUnblock: function(option) {
+      this.updateChannelBlockerAllowTempUnblock(option)
+      if (!option) {
+        this._clearTempUnblock()
       }
     },
 
@@ -157,8 +179,7 @@ export default Vue.extend({
       'updateHideActiveSubscriptions',
       'updatePlayNextVideo',
       'updateChannelBlockerSkipBlocked',
-      'updateChannelBlockerAllowTempUnblock',
-      'updateChannelBlockerList'
+      'updateChannelBlockerAllowTempUnblock'
     ])
   }
 })

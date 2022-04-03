@@ -31,6 +31,10 @@ export default Vue.extend({
       type: Boolean,
       default: false
     },
+    channelTempUnblocked: {
+      type: Boolean,
+      default: false
+    },
     avoidChannelBlocker: {
       type: Boolean,
       default: false

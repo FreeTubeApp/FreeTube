@@ -12,6 +12,7 @@ import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import ytch from 'yt-channel-info'
 import autolinker from 'autolinker'
 import { MAIN_PROFILE_ID } from '../../../constants'
+import channelBlockerMixin from '../../mixins/channelblocker'
 
 export default Vue.extend({
   name: 'Search',
@@ -25,6 +26,9 @@ export default Vue.extend({
     'ft-loader': FtLoader,
     'ft-element-list': FtElementList
   },
+  mixins: [
+    channelBlockerMixin
+  ],
   data: function () {
     return {
       isLoading: false,
@@ -58,8 +62,7 @@ export default Vue.extend({
       playlistSelectValues: [
         'last',
         'newest'
-      ],
-      channelBlockerShowTemporarily: false
+      ]
     }
   },
   computed: {
@@ -158,12 +161,14 @@ export default Vue.extend({
       return this.$store.getters.getHideChannelSubscriptions
     },
 
-    isChannelBlocked: function () {
-      const channelIndex = this.$store.getters.getChannelBlockerList.findIndex((blocked) => {
-        return blocked.authorId === this.id
+    channelBlocked: function () {
+      return this._checkChannelBlocked({
+        authorId: this.id
       })
+    },
 
-      return channelIndex !== -1
+    channelTempUnblocked: function() {
+      return this._checkChannelTempUnblocked({ authorId: this.id })
     },
 
     channelBlockerAllowTempUnblock: function() {
@@ -184,7 +189,6 @@ export default Vue.extend({
       this.shownElementList = []
       this.apiUsed = ''
       this.isLoading = true
-      this.channelBlockerShowTemporarily = false
 
       if (!this.usingElectron) {
         this.getVideoInformationInvidious()
@@ -385,8 +389,10 @@ export default Vue.extend({
         })
         this.latestVideos = response.latestVideos
 
-        if (typeof (response.authorBanners) !== 'undefined') {
+        if (response.authorBanners instanceof Array && response.authorBanners.length > 0) {
           this.bannerUrl = response.authorBanners[0].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
+        } else {
+          this.bannerUrl = null
         }
 
         this.isLoading = false
@@ -480,11 +486,6 @@ export default Vue.extend({
     },
 
     getPlaylistsInvidious: function () {
-      if (this.playlistContinuationString === null) {
-        console.log('There are no more playlists available for this channel')
-        return
-      }
-
       const payload = {
         resource: 'channels/playlists',
         id: this.id,
@@ -493,13 +494,10 @@ export default Vue.extend({
         }
       }
 
-      if (this.playlistContinuationString) {
-        payload.params.continuation = this.playlistContinuationString
-      }
-
       this.invidiousAPICall(payload).then((response) => {
+        console.log(response)
         this.playlistContinuationString = response.continuation
-        this.latestPlaylists = this.latestPlaylists.concat(response.playlists)
+        this.latestPlaylists = response.playlists
         this.isElementListLoading = false
       }).catch((err) => {
         console.log(err)
@@ -519,6 +517,42 @@ export default Vue.extend({
         } else {
           this.isLoading = false
         }
+      })
+    },
+
+    getPlaylistsInvidiousMore: function () {
+      if (this.playlistContinuationString === null) {
+        console.log('There are no more playlists available for this channel')
+        return
+      }
+
+      const payload = {
+        resource: 'channels/playlists',
+        id: this.id,
+        params: {
+          sort_by: this.playlistSortBy
+        }
+      }
+
+      if (this.playlistContinuationString) {
+        payload.params.continuation = this.playlistContinuationString
+      }
+
+      this.invidiousAPICall(payload).then((response) => {
+        console.log(response)
+        this.playlistContinuationString = response.continuation
+        this.latestPlaylists = this.latestPlaylists.concat(response.playlists)
+        this.isElementListLoading = false
+      }).catch((err) => {
+        console.log(err)
+        const errorMessage = this.$t('Invidious API Error (Click to copy)')
+        this.showToast({
+          message: `${errorMessage}: ${err.responseJSON.error}`,
+          time: 10000,
+          action: () => {
+            navigator.clipboard.writeText(err.responseJSON.error)
+          }
+        })
       })
     },
 
@@ -612,7 +646,7 @@ export default Vue.extend({
               this.getPlaylistsLocalMore()
               break
             case 'invidious':
-              this.getPlaylistsInvidious()
+              this.getPlaylistsInvidiousMore()
               break
           }
           break
@@ -728,6 +762,16 @@ export default Vue.extend({
         } else {
           this.isLoading = false
         }
+      })
+    },
+
+    handleChannelBlockerTempUnblock: function() {
+      if (!this.channelBlockerAllowTempUnblock) {
+        return
+      }
+      this._addChannelToTempUnblock({
+        author: this.channelName,
+        authorId: this.id
       })
     },
 

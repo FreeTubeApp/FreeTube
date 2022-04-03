@@ -175,6 +175,8 @@ export default Vue.extend({
       this.$router.afterEach((to, from) => {
         this.$refs.topNav.navigateHistory()
       })
+
+      this.grabChannelBlockerTempUnblockId()
     })
   },
   methods: {
@@ -478,7 +480,8 @@ export default Vue.extend({
       'setupListenersToSyncWindows',
       'updateBaseTheme',
       'updateMainColor',
-      'updateSecColor'
+      'updateSecColor',
+      'grabChannelBlockerTempUnblockId'
     ])
   }
 })

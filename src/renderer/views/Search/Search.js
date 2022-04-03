@@ -6,6 +6,7 @@ import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import ytTrendScraper from 'yt-trending-scraper'
+import channelBlockerMixin from '../../mixins/channelblocker'
 
 export default Vue.extend({
   name: 'Search',
@@ -15,6 +16,9 @@ export default Vue.extend({
     'ft-element-list': FtElementList,
     'ft-icon-button': FtIconButton
   },
+  mixins: [
+    channelBlockerMixin
+  ],
   data: function () {
     return {
       isLoading: false,
@@ -57,11 +61,14 @@ export default Vue.extend({
     },
 
     channelBlockerCount: function () {
-      const list = this.$store.getters.getChannelBlockerList
       return this.shownResults.filter((result) => {
-        return list.some((item) => {
+        return this._channelBlockerList.some((item) => {
           // LocalAPI returns "channelID" on type "channel"
           return item.authorId === result.authorId || result.channelID
+        })
+      }).filter((result) => {
+        return !this._channelBlockerTempUnblockIdArray.some((id) => {
+          return id === result.authorId || result.channelID
         })
       }).length
     },

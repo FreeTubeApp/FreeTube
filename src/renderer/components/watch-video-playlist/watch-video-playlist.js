@@ -41,8 +41,8 @@ export default Vue.extend({
       channelId: '',
       channelThumbnail: '',
       playlistTitle: '',
-      playlistItems: [],
-      activePlaylistItems: [],
+      playlistItems: [], // just for display
+      activePlaylistItems: [], // manipulate this
       nextUnblockedVideoId: '',
       previousUnblockedVideoId: ''
     }
@@ -376,24 +376,24 @@ export default Vue.extend({
             .concat(this.activePlaylistItems.slice(0, this.videoIndexActivePlaylist))
         }
         nextVideo = tempPlaylistItems.find((video) => {
-          return video.authorId && !this.isChannelBlocked(video)
+          return video.authorId && (this._checkChannelTempUnblocked(video) || !this._checkChannelBlocked(video))
         })
 
         const tempPlaylistItemsReverse = tempPlaylistItems.concat([]).reverse()
         previousVideo = tempPlaylistItemsReverse.find((video) => {
-          return video.authorId && !this.isChannelBlocked(video)
+          return video.authorId && (this._checkChannelTempUnblocked(video) || !this._checkChannelBlocked(video))
         })
       } else {
         // search index+1 ~ last
         nextVideo = this.activePlaylistItems.slice(this.videoIndexActivePlaylist + 1).find((video) => {
-          return video.authorId && !this.isChannelBlocked(video)
+          return video.authorId && (this._checkChannelTempUnblocked(video) || !this._checkChannelBlocked(video))
         })
 
         // search 0 ~ index-1
         previousVideo = this.activePlaylistItems
           .slice(0, this.videoIndexActivePlaylist)
           .reverse().find((video) => {
-            return video.authorId && !this.isChannelBlocked(video)
+            return video.authorId && (this._checkChannelTempUnblocked(video) || !this._checkChannelBlocked(video))
           })
       }
 
@@ -417,9 +417,9 @@ export default Vue.extend({
     },
 
     removeDuplicateVideos: function(originalItems) {
-      return originalItems.filter((item, index) => {
-        return item.authorId && originalItems.indexOf(item) === index
-      })
+      return Array.from(new Set(originalItems.filter(item => {
+        return item.authorId
+      })))
     },
 
     ...mapActions([

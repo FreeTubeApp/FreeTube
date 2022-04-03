@@ -77,6 +77,10 @@ export default Vue.extend({
       type: Boolean,
       default: false
     },
+    videoTempUnblocked: {
+      type: Boolean,
+      default: false
+    },
     allowTempUnblock: {
       type: Boolean,
       default: false
@@ -157,8 +161,7 @@ export default Vue.extend({
           2.75,
           3
         ]
-      },
-      unblockTemporarily: false
+      }
     }
   },
   computed: {
@@ -229,13 +232,13 @@ export default Vue.extend({
     },
 
     playNextVideo: function() {
-      if (this.videoBlocked && !this.unblockTemporarily) {
+      if (this.videoBlocked && !this.videoTempUnblocked) {
         if (this.skipBlockedVideoCountDown <= 60 && this.skipBlockedVideoCountDown >= 0) {
           // > 60: no countdown
           // =  0: play next (single video & playlist)
           // = -1: end of playlist
           if (!this.playNextVideo) {
-            this.$emit('stop-blocked-count-down')
+            this.$emit('stop-blocked-count-down', false)
           }
         }
       }
@@ -243,11 +246,11 @@ export default Vue.extend({
 
     videoBlocked: function() {
       if (this.videoBlocked) {
-        if (!this.unblockTemporarily && this.player.hasStarted()) {
+        if (!this.videoTempUnblocked && this.player.hasStarted()) {
           this.player.pause()
         }
       } else {
-        this.$emit('stop-blocked-count-down')
+        this.$emit('stop-blocked-count-down', false)
         if (this.player.hasStarted()) {
           this.player.play()
         }
@@ -1001,7 +1004,11 @@ export default Vue.extend({
 
     togglePlayPause: function () {
       if (this.player.paused()) {
-        this.player.play()
+        if (this.videoTempUnblocked) {
+          this.player.play()
+        } else {
+          this.handleUnblock()
+        }
       } else {
         this.player.pause()
       }
@@ -1520,10 +1527,9 @@ export default Vue.extend({
 
     handleUnblock: function() {
       if (this.allowTempUnblock) {
-        this.unblockTemporarily = true
         this.player.play()
       }
-      this.$emit('stop-blocked-count-down')
+      this.$emit('stop-blocked-count-down', true)
     },
 
     // This function should always be at the bottom of this file

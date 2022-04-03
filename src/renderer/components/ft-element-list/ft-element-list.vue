@@ -9,10 +9,11 @@
       :data="result"
       :first-screen="index < 16"
       :layout="listType"
-      :channel-blocked="isChannelBlocked(result)"
-      :avoid-channel-blocker="avoidChannelBlockerByURI"
+      :channel-blocked="_checkChannelBlocked(result)"
+      :channel-temp-unblocked="_checkChannelTempUnblocked(result)"
+      :avoid-channel-blocker="_avoidChannelBlockerByURI"
       :show-blocked-items="showBlockedItems"
-      @toggle-blocked-channel="toggleBlockedChannel"
+      @toggle-blocked-channel="_toggleBlockedChannel"
     />
   </ft-auto-grid>
 </template>

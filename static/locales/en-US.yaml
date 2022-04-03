@@ -76,7 +76,7 @@ Search Filters:
   There are no more results for this search: There are no more results for this search
   Unhide: Show Blocked Contents
   Hide: Hide Blocked Contents
-  Hidden Items: $ of % results are hidden
+  Hidden Items: ($ of % results are hidden)
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
@@ -270,11 +270,19 @@ Settings:
     Hide Playlists: Hide Playlists
     Hide Live Chat: Hide Live Chat
     Hide Active Subscriptions: Hide Active Subscriptions
-    Blocked Channels: Blocked Channels
-    ChannelBlocker Search bar placeholder: Search channels
-    ChannelBlocker Empty List: No channels blocked
-    ChannelBlocker Empty Search Result: No channels found
-    ChannelBlocker Delete Prompt: Are you sure you want to unblock "$"?
+    ChannelBlocker:
+      Skip Label: Skip to Next Video
+      Skip Tooltip: 'Skips only if "Autoplay Playlists" or "Play Next Video" is enabled in Player Settings'
+      Temp Unblock Label: Enable Temporary Unblocking
+      Temp Unblock Tooltip: Unblocked until app exit. Turning off this option will reset all temporary unblocking.
+      Blocked Channels: Blocked Channels
+      Search bar placeholder: Search channels
+      Empty List: No channels blocked
+      Empty Search Result: No channels found
+      Remove Prompt: Are you sure you want to unblock "$"?
+      Remove Temp Prompt: Are you sure you want to block "$" again?
+      Remove Button Title: Unblock
+      Remove Temp Button Title: Block again
   Data Settings:
     Data Settings: Data Settings
     Select Import Type: Select Import Type
@@ -472,8 +480,10 @@ Video:
   Copy Invidious Channel Link: Copy Invidious Channel Link
   Block Channel: Block Channel
   Unblock Channel: Unblock Channel
-  Channel has been added to the block list: has been added to the block list
-  Channel has been removed from the block list: has been removed from the block list
+  Channel Blocked: '"$" has been added to the block list'
+  Channel Unblocked: '"$" has been removed from the block list'
+  Channel Temp Unblocked: '"$" is temporarily unblocked'
+  Channel Temp Unblock Removed: '"$" is blocked again'
   View: View
   Views: Views
   Loop Playlist: Loop Playlist
@@ -583,8 +593,9 @@ Video:
     Mimetype: Mimetype
   ChannelBlocker:
     Title: This video is blocked
-    Click to watch: Click to watch
-    Countdown Message: Playing next video in {countdown} second | Playing next video in {countdown} seconds
+    Message Watch: Click to watch
+    Message Stop Countdown: Click to stop countdown
+    Countdown: Playing next video in {countdown} second | Playing next video in {countdown} seconds
 #& Videos
 Videos:
   #& Sort By
@@ -738,8 +749,7 @@ Canceled next video autoplay: Canceled next video autoplay
 # $ is replaced with the default Invidious instance
 Default Invidious instance has been set to $: Default Invidious instance has been set to $
 Default Invidious instance has been cleared: Default Invidious instance has been cleared
-The playlist has ended. Enable loop to continue playing: The playlist has ended. Enable
-  loop to continue playing
+The playlist has ended. Enable loop to continue playing: The playlist has ended. Enable loop to continue playing
 External link opening has been disabled in the general settings: 'External link opening has been disabled in the general settings'
 Downloading has completed: '"$" has finished downloading'
 Starting download: 'Starting download of "$"'

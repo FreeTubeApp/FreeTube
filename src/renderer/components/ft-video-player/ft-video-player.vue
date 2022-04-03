@@ -4,7 +4,7 @@
       name="fade-blocked-modal"
     >
       <div
-        v-if="videoBlocked && !unblockTemporarily"
+        v-if="videoBlocked && !videoTempUnblocked"
         class="blockedModal"
         :class="allowTempUnblock ? 'enabled' : 'disabled'"
         @click="handleUnblock"
@@ -14,17 +14,20 @@
         </p>
         <div class="blockedModalCountDown">
           <p v-if="allowTempUnblock">
-            {{ $t('Video.ChannelBlocker.Click to watch') }}
+            {{ $t('Video.ChannelBlocker.Message Watch') }}
           </p>
-          <p v-else>
-            you cant unblock
+          <p
+            v-else
+            :style="{visibility : skipBlockedVideoCountDown <= 60 ? 'visible' : 'hidden'}"
+          >
+            {{ $t('Video.ChannelBlocker.Message Stop Countdown') }}
           </p>
           <template v-if="skipBlockedVideo">
             <p
               v-if="skipBlockedVideoCountDown >= 0"
               :style="{visibility : skipBlockedVideoCountDown <= 60 ? 'visible' : 'hidden'}"
             >
-              {{ $tc('Video.ChannelBlocker.Countdown Message', skipBlockedVideoCountDown, { countdown: skipBlockedVideoCountDown }) }}
+              {{ $tc('Video.ChannelBlocker.Countdown', skipBlockedVideoCountDown, { countdown: skipBlockedVideoCountDown }) }}
             </p>
             <p v-else>
               {{ $t('The playlist has ended. Enable loop to continue playing') }}
@@ -35,7 +38,7 @@
     </transition>
     <video
       :id="id"
-      class="ftVideoPlayer video-js vjs-16-9 vjs-default-skin dark"
+      class="ftVideoPlayer video-js vjs-default-skin dark"
       :poster="thumbnail"
       controls
       preload="auto"

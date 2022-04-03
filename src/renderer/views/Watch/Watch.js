@@ -30,7 +30,7 @@ export default Vue.extend({
     'watch-video-recommendations': WatchVideoRecommendations
   },
   mixins: [
-    channelBlockerMixin /// ////
+    channelBlockerMixin
   ],
   beforeRouteLeave: function (to, from, next) {
     this.handleRouteChange()
@@ -160,7 +160,10 @@ export default Vue.extend({
       return !this.hideRecommendedVideos || (!this.hideLiveChat && this.isLive) || this.watchingPlaylist
     },
     videoBlocked: function() {
-      return this.isChannelBlocked({ authorId: this.channelId })
+      return this._checkChannelBlocked({ authorId: this.channelId })
+    },
+    videoTempUnblocked: function() {
+      return this._checkChannelTempUnblocked({ authorId: this.channelId })
     },
     channelBlockerSkipBlocked: function() {
       return this.$store.getters.getChannelBlockerSkipBlocked
@@ -186,7 +189,7 @@ export default Vue.extend({
 
       this.checkIfPlaylist()
       this.checkIfTimestamp()
-      this.handleStopBlockedVideoCountDown()
+      this.handleStopBlockedVideoCountDown(false)
 
       switch (this.backendPreference) {
         case 'local':
@@ -1277,13 +1280,13 @@ export default Vue.extend({
 
     findNextUnblockedRecommendation: function() {
       const video = this.recommendedVideos.find((item) => {
-        return item.authorId && !this.isChannelBlocked({ authorId: item.authorId })
+        return item.authorId && (this._checkChannelTempUnblocked(item) || !this._checkChannelBlocked(item))
       })
       this.nextUnblockedRecommendationId = video.videoId || ''
     },
 
     handleBlockedVideoModal: function() {
-      if (!this.videoBlocked || !this.channelBlockerSkipBlocked) {
+      if (!this.videoBlocked || this.videoTempUnblocked || !this.channelBlockerSkipBlocked) {
         return
       }
       if (this.watchingPlaylist) {
@@ -1327,19 +1330,26 @@ export default Vue.extend({
       this.skipBlockedCountDownIntervalId = setInterval(showCountDownMessage, 1000)
     },
 
-    handleStopBlockedVideoCountDown: function() {
+    handleStopBlockedVideoCountDown: function(click) {
       clearTimeout(this.skipBlockedTimeout)
       clearInterval(this.skipBlockedCountDownIntervalId)
       this.skipBlockedTimeout = null
       this.skipBlockedCountDownIntervalId = null
       this.skipBlockedCountDown = Number.MAX_SAFE_INTEGER
+
+      if (click && this.channelBlockerAllowTempUnblock) {
+        this._addChannelToTempUnblock({
+          authorId: this.channelId,
+          author: this.channelName
+        })
+      }
     },
 
     handlePlaylistReady: function(nextId, isEnd) {
       this.nextUnblockedVideoId = nextId
       this.isEndOfPlaylist = isEnd
       this.videoAndPlaylistReadyCounter += 1
-      this.handleStopBlockedVideoCountDown()
+      this.handleStopBlockedVideoCountDown(false)
       this.handleBlockedVideoModal()
     },
 

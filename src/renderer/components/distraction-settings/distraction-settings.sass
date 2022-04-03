@@ -11,30 +11,48 @@
     display: grid
     list-style: none
     padding-inline-start: 0
-    max-height: 20rem
+    max-height: 24rem
     overflow-y: scroll
     border: 2px solid var(--scrollbar-color-hover)
     border-radius: 5px
-  
+
+    @media only screen and (max-width: 680px)
+      max-height: 17rem
+
   .channelBlockerSettingsBlockedListItem
+    display: flex
+    align-items: center
     overflow: hidden
-    text-overflow: ellipsis
-    white-space: nowrap
-    padding: 0.5rem
+    padding: 0.4rem
   
     &:hover
       backdrop-filter: invert(0.1)
   
-  .channelBlockerSettingsBlockedListRemoveButton
-    color: var(--primary-color)
-    cursor: pointer
-    padding: 0.2rem
+    .channelBlockerSettingsBlockedListRemoveButton
+      color: var(--primary-color)
 
-    svg
-      width: 1rem
+    .channelBlockerSettingsBlockedListRemoveButton, .channelBlockerSettingsTempUnblockRemoveButton
+      cursor: pointer
+      user-select: none
+      padding: 0.2rem
+      flex: 0
 
-  .channelBlockerSettingsBlockedListName
-    margin-left: 0.25rem
-  
-    a:link
-      color: var(--secondary-text-color)
+      svg
+        width: 1rem
+
+    .channelBlockerSettingsBlockedListName
+      margin-left: 0.5rem
+      flex: 1
+      overflow: hidden
+      text-overflow: ellipsis
+      white-space: nowrap
+
+      a:link
+        color: var(--secondary-text-color)
+        padding: 0.5rem 0.5rem 0.5rem 0
+
+.fade-prompt-enter-active, .fade-prompt-leave-active
+  transition: opacity 0.15s
+
+.fade-prompt-enter, .fade-prompt-leave-to
+  opacity: 0

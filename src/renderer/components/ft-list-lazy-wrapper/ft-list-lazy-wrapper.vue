@@ -4,7 +4,7 @@
     mode="out-in"
   >
     <div
-      v-show="avoidChannelBlocker || !channelBlocked || showBlockedItems"
+      v-show="avoidChannelBlocker || !channelBlocked || channelTempUnblocked || showBlockedItems"
       v-observe-visibility="firstScreen ? false : {
         callback: onVisibilityChanged,
         once: true,
@@ -19,12 +19,14 @@
         :appearance="appearance"
         :data="data"
         :channel-blocked="channelBlocked"
+        :channel-temp-unblocked="channelTempUnblocked"
       />
       <ft-list-video
         v-if="(data.type === 'video' || data.type === 'shortVideo') && visible"
         :appearance="appearance"
         :data="data"
         :channel-blocked="channelBlocked"
+        :channel-temp-unblocked="channelTempUnblocked"
         v-on="$listeners"
       />
       <ft-list-playlist
