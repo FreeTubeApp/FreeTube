@@ -37,7 +37,7 @@ Search Filters:
   Search Filters: 'Zoekopdracht filteren'
   Sort By:
     Sort By: 'Sorteren op'
-    Most Relevant: 'Meest Relevant'
+    Most Relevant: 'Meest relevant'
     Rating: 'Beoordeling'
     Upload Date: 'Uploaddatum'
     View Count: 'Kijkcijfers'
@@ -51,13 +51,13 @@ Search Filters:
     This Year: 'Dit jaar'
   Type:
     Type: 'Soort'
-    All Types: 'Alle Soorten'
+    All Types: 'Alle soorten'
     Videos: 'Video''s'
     Channels: 'Kanalen'
     #& Playlists
   Duration:
     Duration: 'Tijdsduur'
-    All Durations: 'Alle Tijdsduren'
+    All Durations: 'Alle tijdsduren'
     Short (< 4 minutes): 'Kort (< 4 minuten)'
     Long (> 20 minutes): 'Lang (> 20 minuten)'
   # On Search Page
@@ -70,7 +70,7 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnementen'
-  Latest Subscriptions: 'Nieuwste Abonnementen'
+  Latest Subscriptions: 'Nieuwste abonnementen'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'U
     heeft nog geen Abonnementen. Voeg abonnementen toe om ze hier te zien'
   'Getting Subscriptions.  Please wait.': ''
@@ -79,7 +79,7 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Dit
     profiel heeft een groot aantal abonnementen. RSS wordt geforceerd om tariefbeperkingen
     te vermijden
-  Load More Videos: Meer Video's Laden
+  Load More Videos: Meer video's laden
 Trending:
   Trending: 'Actuele'
   Trending Tabs: Tendingtabbladen
@@ -224,7 +224,7 @@ Settings:
     Display Play Button In Video Player: Afspeelknop in videokader weergeven
     Scroll Volume Over Video Player: Volume veranderen door in het videokader te scrollen
     Fast-Forward / Rewind Interval: Snelheid van doorspoelen/terugspoelen
-    Scroll Playback Rate Over Video Player: Scroll Afspeelsnelheid op Videospeler
+    Scroll Playback Rate Over Video Player: Afspeelsnelheid op videospeler scrollen
   Privacy Settings:
     Privacy Settings: 'Privacy-instellingen'
     Remember History: 'Kijkgeschiedenis onthouden'
@@ -304,12 +304,12 @@ Settings:
     Export YouTube: YouTube exporteren
     Export FreeTube: FreeTube exporteren
     Export Subscriptions: Abonnementen exporteren
-    Import NewPipe: Importeer NewPipe
+    Import NewPipe: NewPipe importeren
     Import YouTube: YouTube importeren
     Import FreeTube: Importeer FreeTube
-    Import Subscriptions: Importeer Abonnementen
-    Select Export Type: Select Exporteer Type
-    Select Import Type: Selecteer Importeer Type
+    Import Subscriptions: Abonnementen importeren
+    Select Export Type: Selecteer type voor exporteren
+    Select Import Type: Selecteer type voor importeren
     Data Settings: Data-instellingen
     How do I import my subscriptions?: Hoe importeer ik mijn abonnementen?
     Unknown data key: Onbekende datasleutel
@@ -325,12 +325,12 @@ Settings:
     All playlists has been successfully imported: Alle speellijsten zijn met succes
       geïmporteerd
     Import Playlists: Afspeellijsten importeren
-    Playlist insufficient data: Onvoldoende gegevens voor "$" speellijst, slaat item
-      over
+    Playlist insufficient data: Onvoldoende gegevens voor speellijst "$", item word
+      overgeslagen
     All playlists has been successfully exported: Alle speellijsten zijn met succes
       geëxporteerd
   Distraction Free Settings:
-    Hide Live Chat: Live Chat verbergen
+    Hide Live Chat: Livechat verbergen
     Hide Popular Videos: Populaire video's verbergen
     Hide Trending Videos: Trending video's verbergen
     Hide Recommended Videos: Aanbevolen video's verbergen
@@ -358,15 +358,15 @@ Settings:
     Proxy Port Number: Poortnummer proxy
     Proxy Host: Proxyhost
     Proxy Protocol: Proxyprotocol
-    Enable Tor / Proxy: Tor / Proxy inschakelen
-    Proxy Settings: Proxy-Instellingen
+    Enable Tor / Proxy: Tor / proxy inschakelen
+    Proxy Settings: Proxy-instellingen
   SponsorBlock Settings:
-    Notify when sponsor segment is skipped: Informeer mij wanneer een gesponsord segment
-      wordt overgeslagen
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
-      Url (Standaard is https://sponsor.ajay.app)
-    Enable SponsorBlock: SponsorBlock Inschakelen
-    SponsorBlock Settings: SponsorBlock-Instellingen
+    Notify when sponsor segment is skipped: Mij informeren wanneer een gesponsord
+      segment wordt overgeslagen
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL naar API van
+      SponsorBlock (Standaard is https://sponsor.ajay.app)
+    Enable SponsorBlock: SponsorBlock inschakelen
+    SponsorBlock Settings: SponsorBlock-instellingen
   External Player Settings:
     Custom External Player Arguments: Aangepaste argumenten voor externe videospeler
     Custom External Player Executable: Uitvoerbaar bestand van externe videospeler
@@ -416,15 +416,15 @@ About:
   FreeTube is made possible by: FreeTube is mogelijk gemaakt door
   Credits: Met dank aan
   Translate: Vertalen
-  room rules: room regels
+  room rules: regels van room
   Please read the: Lees alstublieft de
   Chat on Matrix: Chat op Matrix
   Mastodon: Mastodon
   Email: E-mail
   Blog: Blog
   Website: Website
-  Please check for duplicates before posting: Controleer op duplicaten voordat u een
-    issue post
+  Please check for duplicates before posting: Controleer a.u.b. eerst of een probleem
+    al gerapporteerd is
   GitHub issues: GitHub-problemen
   Report a problem: Rapporteer een probleem
   FAQ: Veelgestelde vragen
@@ -477,7 +477,7 @@ Video:
   Copy YouTube Link: 'YouTube-link kopiëren'
   Open YouTube Embedded Player: 'Embedded YouTube videospeler openen'
   Copy YouTube Embedded Player Link: 'YouTube videospeler-insluitlink kopiëren'
-  Open in Invidious: 'Open op Invidious'
+  Open in Invidious: 'Op Invidious openen'
   Copy Invidious Link: 'Invidious-link kopiëren'
   View: 'Bekijken'
   Views: 'Weergaven'
@@ -591,7 +591,7 @@ Video:
     buffered: Gebufferd
     out of: van de
     Buffered: Gebufferd
-    Dropped / Total Frames: Dropped/Total Frames
+    Dropped / Total Frames: Frames verloren/totaal
     Mimetype: MIME-type
     Video statistics are not available for legacy videos: Videogegevens zijn niet
       beschikbaar voor oudere video's
@@ -621,7 +621,7 @@ Playlist:
     Copy YouTube Link: 'YouTube-link kopiëren'
     Open in YouTube: 'In YouTube openen'
     Copy Invidious Link: 'Invidious-link kopiëren'
-    Open in Invidious: 'Openen in Invidious'
+    Open in Invidious: 'In Invidious openen'
 
 # On Video Watch Page
 #* Published
@@ -630,15 +630,15 @@ Playlist:
 Toggle Theatre Mode: 'Schakel Theatermodus In'
 Change Format:
   Change Video Formats: 'Videoformaten veranderen'
-  Use Dash Formats: 'Gebruik DASH Formaten'
-  Use Legacy Formats: 'Gebruik Legacy Formaten'
-  Use Audio Formats: 'Gebruik Audio Formaten'
+  Use Dash Formats: 'Gebruik DASH-formaten'
+  Use Legacy Formats: 'Gebruik verouderde formaten'
+  Use Audio Formats: 'Gebruik audioformaten'
   Audio formats are not available for this video: Audio formaten zijn niet beschikbaar
     voor deze video
   Dash formats are not available for this video: DASH formaten zijn niet beschikbaar
     voor deze video
 Share:
-  Share Video: 'Deel Video'
+  Share Video: 'Video delen'
   Copy Link: 'Koppeling kopiëren'
   Open Link: 'Koppeling openen'
   Copy Embed: 'Insluitlink kopiëren'
@@ -650,14 +650,14 @@ Share:
   YouTube URL copied to clipboard: 'YouTube-URL is naar het klembord gekopieerd'
   YouTube Embed URL copied to clipboard: 'YouTube Insluitlink is gekopieerd naar het
     klemboard'
-  Include Timestamp: Inclusief Tijdstempel
+  Include Timestamp: Inclusief tijdstempel
   YouTube Channel URL copied to clipboard: YouTube URL is gekopieerd naar het klembord
   Invidious Channel URL copied to clipboard: Invidiouskanaal-URL is naar het klembord
     gekopieerd
 Mini Player: 'Minivideospeler'
 Comments:
   Comments: 'Reacties'
-  Click to View Comments: 'Klik om Reacties Te Tonen'
+  Click to View Comments: 'Klik om reacties te tonen'
   Getting comment replies, please wait: 'Reacties worden verzameld, even geduld aub'
   Show Comments: 'Reacties weergeven'
   Hide Comments: 'Reacties verbergen'
@@ -672,18 +672,18 @@ Comments:
   There are no more comments for this video: Er zijn geen verdere reacties op deze
     video
   No more comments available: Er zijn geen reacties meer beschikbaar
-  Newest first: Nieuwste Eerst
-  Top comments: Top Reacties
+  Newest first: Nieuwste eerst
+  Top comments: Beste reacties
   Sort by: Sorteer op
-  Show More Replies: Toon Meer Reacties
+  Show More Replies: Toon meer reacties
   From $channelName: van $channelName
   And others: en anderen
   Pinned by: Vastgemaakt door
 Up Next: 'Volgende'
 
 # Toast Messages
-Local API Error (Click to copy): 'Lokale API Error (Klik om te kopiëren)'
-Invidious API Error (Click to copy): 'Invidious API Error (Klik op te kopiëren)'
+Local API Error (Click to copy): 'Fout in lokale API (Klik om te kopiëren)'
+Invidious API Error (Click to copy): 'Fout in API van Invidious (Klik op te kopiëren)'
 Falling back to Invidious API: 'Terugvallen op Invidious API'
 Falling back to the local API: 'Terugvallen op lokale API'
 Subscriptions have not yet been implemented: 'Abonnementen zijn nog niet geïmplementeerd'
@@ -823,7 +823,7 @@ Default Invidious instance has been set to $: Standaard Invidious-instantie is i
   op $
 Are you sure you want to open this link?: Weet je zeker dat je deze link wilt openen?
 Search Bar:
-  Clear Input: Invoer Wissen
+  Clear Input: Invoer wissen
 External link opening has been disabled in the general settings: Het openen van externe
   links is uitgeschakeld in de algemene instellingen
 Downloading canceled: De gebruiker heeft de download geannuleerd
