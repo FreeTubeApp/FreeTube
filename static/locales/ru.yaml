@@ -59,7 +59,7 @@ Search Filters:
     Long (> 20 minutes): 'Длинные (> 20 минут)'
   # On Search Page
   Search Results: 'Результаты поиска'
-  Fetching results. Please wait: 'Получение результатов. Пожалуйста, подождите'
+  Fetching results. Please wait: 'Получение результатов, подождите'
   Fetch more results: 'Получить больше результатов'
 # Sidebar
   There are no more results for this search: Больше нет результатов по этому запросу
@@ -72,7 +72,7 @@ Subscriptions:
     их здесь.'
   'Getting Subscriptions.  Please wait.': 'Получение подписок. Пожалуйста, подождите.'
   Refresh Subscriptions: Обновить подписки
-  Getting Subscriptions. Please wait.: Получение подписок. Пожалуйста, подождите.
+  Getting Subscriptions. Please wait.: Получение подписок, подождите.
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Этот
     профиль имеет большое количество подписок. Принудительно используется RSS, чтобы
     избежать ограничения скорости
@@ -89,8 +89,8 @@ Playlists: 'Плейлисты'
 User Playlists:
   Your Playlists: 'Ваши плейлисты'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: У
-    вас нет сохранных видео. Нажмите на кнопку сохранения в углу видео, чтобы оно
-    появилось здесь
+    вас нет сохранённых видео. Нажмите "Добавить видео в сохранённые", чтобы добавить
+    сюда
   Playlist Message: Эта страница не отражает полную функциональность плейлистов. Она
     показывает только видео которые вы сохранили или добавили в избранное. После переработки
     этой страницы все видео, которые сейчас находятся здесь, переместятся в плейлист
@@ -100,26 +100,26 @@ History:
   # On History Page
   History: 'История'
   Watch History: 'Посмотреть историю'
-  Your history list is currently empty.: 'Ваш список истории в настоящее время пуст.'
+  Your history list is currently empty.: 'История просмотров в настоящее время пуста.'
   Search bar placeholder: Поиск в Истории
 Settings:
   # On Settings Page
   Settings: 'Настройки'
   General Settings:
     General Settings: 'Общие настройки'
-    Fallback to Non-Preferred Backend on Failure: 'Возврат к нежелательному бэкэнду
+    Fallback to Non-Preferred Backend on Failure: 'Откатить к нежелательному Backend''у
       при сбое'
-    Enable Search Suggestions: 'Включить поисковые предложения'
+    Enable Search Suggestions: 'Отображать поисковые предложения'
     Default Landing Page: 'Целевая страница по умолчанию'
-    Locale Preference: 'Язык'
+    Locale Preference: 'Язык программы'
     Preferred API Backend:
-      Preferred API Backend: 'Предпочитаемый API бэкэнд'
+      Preferred API Backend: 'Предпочитаемый API Backend'
       Local API: 'Локальный API'
       Invidious API: 'Invidious API'
     Video View Type:
       Video View Type: 'Тип отображения видео'
-      Grid: 'Сетка'
-      List: 'Список'
+      Grid: 'Сеткой'
+      List: 'Списком'
     Thumbnail Preference:
       Thumbnail Preference: 'Настройки миниатюр'
       Default: 'По умолчанию'
@@ -128,83 +128,83 @@ Settings:
       End: 'В конце'
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Экземпляр Invidious
       (по умолчанию https://invidious.snopyta.org)'
-    Region for Trending: 'Регион для трендов'
+    Region for Trending: 'Регион подбора трендов'
         #! List countries
-    Check for Latest Blog Posts: Проверять последние сообщения в блоге
-    Check for Updates: Проверять наличие обновлений
-    View all Invidious instance information: Показать все доступные экземпляры Invidious
+    Check for Latest Blog Posts: Проверять последние записи в блоге
+    Check for Updates: Проверять обновления
+    View all Invidious instance information: Посмотреть все экземпляры Invidious
     System Default: Системные установки по умолчанию
     Clear Default Instance: Очистить экземпляр по умолчанию
     Set Current Instance as Default: Установить текущий экземпляр по умолчанию
-    Current instance will be randomized on startup: Текущий экземпляр будет рандомизирован
-      при запуске
-    No default instance has been set: Экземпляр по умолчанию не установлен
-    The currently set default instance is $: В настоящее время по умолчанию установлен
-      экземпляр $
+    Current instance will be randomized on startup: При запуске текущий экземпляр
+      будет выбран случайным образом
+    No default instance has been set: Не установлен экземпляр по умолчанию
+    The currently set default instance is $: 'Текущий установленный экземпляр по умолчанию:
+      $'
     Current Invidious Instance: Текущий экземпляр Invidious
     External Link Handling:
-      No Action: Нет действия
+      No Action: Ничего
       Ask Before Opening Link: Спросить перед открытием ссылки
       Open Link: Открыть ссылку
       External Link Handling: Обработка внешних ссылок
   Theme Settings:
-    Theme Settings: 'Настройки темы'
-    Match Top Bar with Main Color: 'Сочетать верхнюю панель с основным цветом'
+    Theme Settings: 'Внешний вид'
+    Match Top Bar with Main Color: 'Использовать основной цвет к верхней панели'
     Base Theme:
-      Base Theme: 'Базовая тема'
-      Black: 'Черная'
-      Dark: 'Темная'
+      Base Theme: 'Основная тема'
+      Black: 'Чёрная'
+      Dark: 'Тёмная'
       Light: 'Светлая'
-      Dracula: 'Дракула'
+      Dracula: 'Цвета Dracula'
     Main Color Theme:
-      Main Color Theme: 'Тема основного цвета'
-      Red: 'Красная'
-      Pink: 'Розовая'
-      Purple: 'Фиолетовая'
-      Deep Purple: 'Темно-фиолетовая'
+      Main Color Theme: 'Основной цвет темы'
+      Red: 'Красный'
+      Pink: 'Розовый'
+      Purple: 'Фиолетовый'
+      Deep Purple: 'Тёмно-фиолетовый'
       Indigo: 'Индиго'
-      Blue: 'Синяя'
-      Light Blue: 'Светло-синяя'
-      Cyan: 'Голубая'
-      Teal: 'Бирюзовая'
-      Green: 'Зеленая'
-      Light Green: 'Светло-зеленая'
-      Lime: 'Лаймовая'
-      Yellow: 'Желтая'
-      Amber: 'Янтарная'
-      Orange: 'Оранжевая'
-      Deep Orange: 'Темно-оранжевая'
-      Dracula Cyan: 'Дракула Голубая'
-      Dracula Green: 'Дракула Зеленая'
-      Dracula Orange: 'Дракула Оранжевая'
-      Dracula Pink: 'Дракула Розовая'
-      Dracula Purple: 'Дракула Фиолетовая'
-      Dracula Red: 'Дракула Красная'
-      Dracula Yellow: 'Дракула Желтая'
-    Secondary Color Theme: 'Тема вторичного цвета'
+      Blue: 'Синий'
+      Light Blue: 'Голубой'
+      Cyan: 'Бирюзовый'
+      Teal: 'Бирюзово-зелёный'
+      Green: 'Зелёный'
+      Light Green: 'Светло-зелёный'
+      Lime: 'Тёмно-зелёный'
+      Yellow: 'Жёлтый'
+      Amber: 'Жёлто-оранжевый'
+      Orange: 'Оранжевый'
+      Deep Orange: 'Тёмно-оранжевый'
+      Dracula Cyan: 'Бирюзовый - Dracula'
+      Dracula Green: 'Зелёный - Dracula'
+      Dracula Orange: 'Оранжевый - Dracula'
+      Dracula Pink: 'Розовый - Dracula'
+      Dracula Purple: 'Фиолетовый - Dracula'
+      Dracula Red: 'Красный - Dracula'
+      Dracula Yellow: 'Жёлтый - Dracula'
+    Secondary Color Theme: 'Вторичный цвет темы'
         #* Main Color Theme
-    UI Scale: Масштаб пользовательского интерфейса
-    Expand Side Bar by Default: Разворачивать боковую панель по умолчанию
+    UI Scale: Масштаб интерфейса
+    Expand Side Bar by Default: Расширить боковую панель
     Disable Smooth Scrolling: Отключить плавную прокрутку
-    Hide Side Bar Labels: Скрывать метки боковой панели
+    Hide Side Bar Labels: Скрыть текст ярлыков боковой панели
   Player Settings:
-    Player Settings: 'Настройки плеера'
+    Player Settings: 'Проигрыватель'
     Force Local Backend for Legacy Formats: 'Принудительно использовать локальный
-      бэкэнд для устаревших форматов'
+      Backend для устаревших форматов'
     Remember History: 'Запоминать историю'
     Play Next Video: 'Воспроизводить следующее видео'
-    Turn on Subtitles by Default: 'Включать субтитры по умолчанию'
+    Turn on Subtitles by Default: 'Субтитры по умолчанию включены'
     Autoplay Videos: 'Автовоспроизведение видео'
-    Proxy Videos Through Invidious: 'Проксировать видео через Invidious'
+    Proxy Videos Through Invidious: 'Смотреть видео через прокси Invidious'
     Autoplay Playlists: 'Автовоспроизведение плейлистов'
-    Enable Theatre Mode by Default: 'Включать режим театра по умолчанию'
+    Enable Theatre Mode by Default: 'Включать режим театра'
     Default Volume: 'Громкость по умолчанию'
     Default Playback Rate: 'Скорость воспроизведения по умолчанию'
     Default Video Format:
       Default Video Format: 'Формат видео по умолчанию'
-      Dash Formats: 'Форматы DASH'
-      Legacy Formats: 'Устаревшие форматы'
-      Audio Formats: 'Аудиоформаты'
+      Dash Formats: 'DASH'
+      Legacy Formats: 'Устаревший'
+      Audio Formats: 'Аудио'
     Default Quality:
       Default Quality: 'Качество по умолчанию'
       Auto: 'Авто'
@@ -218,14 +218,14 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Задержка перед автовоспроизведением
-    Scroll Volume Over Video Player: Прокрутка громкости над видеоплеером
+    Scroll Volume Over Video Player: Прокрутка громкости поверх видеоплеера
     Next Video Interval: Интервал следующего видео
     Display Play Button In Video Player: Отображать кнопку воспроизведения в видеоплеере
     Fast-Forward / Rewind Interval: Интервал перемотки вперед/назад
-    Scroll Playback Rate Over Video Player: Прокрутка скорости воспроизведения над
-      видеоплеером
+    Scroll Playback Rate Over Video Player: Прокрутка скорости воспроизведения поверх
+      видеоплеера
   Subscription Settings:
-    Subscription Settings: 'Настройки подписки'
+    Subscription Settings: 'Подписки'
     Hide Videos on Watch: 'Скрывать видео после просмотра'
     Subscriptions Export Format:
       Subscriptions Export Format: 'Формат экспорта подписок'
@@ -236,7 +236,7 @@ Settings:
     Import Subscriptions: 'Импорт подписок'
     Export Subscriptions: 'Экспорт подписок'
     How do I import my subscriptions?: 'Как мне импортировать свои подписки?'
-    Fetch Feeds from RSS: Получать каналы из RSS
+    Fetch Feeds from RSS: Получать ленты из RSS
   Advanced Settings:
     Advanced Settings: 'Расширенные настройки'
     Enable Debug Mode (Prints data to the console): 'Включить режим отладки (выводит
@@ -266,22 +266,22 @@ Settings:
 
   Privacy Settings:
     Watch history has been cleared: История просмотров очищена
-    Are you sure you want to remove your entire watch history?: Вы уверены, что хотите
-      удалить всю историю просмотров?
+    Are you sure you want to remove your entire watch history?: Выполнить удаление
+      всей истории просмотра?
     Remove Watch History: Удалить историю просмотров
-    Search cache has been cleared: Кеш поиска был очищен
-    Are you sure you want to clear out your search cache?: Вы уверены, что хотите
-      очистить кеш поиска?
-    Clear Search Cache: Очистить кеш поиска
+    Search cache has been cleared: Поисковой кэш был очищен
+    Are you sure you want to clear out your search cache?: Выполнить очистку кэша
+      поиска?
+    Clear Search Cache: Очистить кэш поиска
     Save Watched Progress: Сохранять прогресс просмотра
     Remember History: Запоминать историю
-    Privacy Settings: Настройки конфиденциальности
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Вы
-      уверены, что хотите удалить все подписки и профили?  Это нельзя отменить.
+    Privacy Settings: Конфиденциальность
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Выполнить
+      удаление всех подписок и профилей?  Невозможно отменить.
     Remove All Subscriptions / Profiles: Удалить все подписки/профили
-    Automatically Remove Video Meta Files: Автоматическое удаление мета-файлов видео
+    Automatically Remove Video Meta Files: Автоудаление метафайлов видео
   Data Settings:
-    How do I import my subscriptions?: Как импортировать мои подписки?
+    How do I import my subscriptions?: Как импортировать подписки?
     Unknown data key: Неизвестный ключ данных
     Unable to write file: Невозможно записать файл
     Unable to read file: Невозможно прочитать файл
@@ -294,41 +294,40 @@ Settings:
     Subscriptions have been successfully exported: Подписки успешно экспортированы
     Invalid history file: Неверный файл истории
     Invalid subscriptions file: Неверный файл подписок
-    This might take a while, please wait: Это может занять некоторое время, пожалуйста,
-      подождите
+    This might take a while, please wait: Может занять некоторое время, подождите
     All subscriptions have been successfully imported: Все подписки успешно импортированы
     All subscriptions and profiles have been successfully imported: Все подписки и
       профили успешно импортированы
-    Profile object has insufficient data, skipping item: У объекта профиля недостаточно
+    Profile object has insufficient data, skipping item: Объект профиля имеет недостаточно
       данных, пропуск элемента
-    Export History: Экспорт истории
-    Import History: Импорт истории
-    Export NewPipe: Экспорт NewPipe
-    Export YouTube: Экспорт YouTube
-    Export FreeTube: Экспорт FreeTube
-    Export Subscriptions: Экспорт подписок
-    Import NewPipe: Импорт NewPipe
-    Import YouTube: Импорт YouTube
-    Import FreeTube: Импорт FreeTube
-    Import Subscriptions: Импорт подписок
+    Export History: Экспортировать историю
+    Import History: Импортировать историю
+    Export NewPipe: Экспортировать NewPipe
+    Export YouTube: Экспортировать YouTube
+    Export FreeTube: Экспортировать FreeTube
+    Export Subscriptions: Экспортировать подписки
+    Import NewPipe: Импортировать NewPipe
+    Import YouTube: Импортировать YouTube
+    Import FreeTube: Импортировать FreeTube
+    Import Subscriptions: Импортировать подписки
     Select Export Type: Выбрать тип экспорта
     Select Import Type: Выбрать тип импорта
-    Data Settings: Настройки данных
+    Data Settings: Данные
     One or more subscriptions were unable to be imported: Не удалось импортировать
       одну или несколько подписок
     Check for Legacy Subscriptions: Проверить устаревшие подписки
     Manage Subscriptions: Управление подписками
-    Import Playlists: Импорт плейлистов
+    Import Playlists: Импортировать плейлисты
     All playlists has been successfully exported: Все плейлисты успешно экспортированы
-    Export Playlists: Экспорт плейлистов
+    Export Playlists: Экспортировать плейлисты
     All playlists has been successfully imported: Все плейлисты успешно импортированы
-    Playlist insufficient data: Недостаточно данных для плейлиста "$", пропущен элемент
+    Playlist insufficient data: Недостаточно данных для плейлиста "$", пропуск элемента
   Distraction Free Settings:
-    Hide Live Chat: Скрыть чат
+    Hide Live Chat: Скрыть чат прямой трансляции
     Hide Popular Videos: Скрыть популярные видео
     Hide Trending Videos: Скрыть видео в тренде
     Hide Recommended Videos: Скрыть рекомендуемые видео
-    Distraction Free Settings: Настройки отвлекающих факторов
+    Distraction Free Settings: Отвлекающие факторы
     Hide Comment Likes: Скрыть лайки в комментариях
     Hide Channel Subscribers: Скрыть подписчиков канала
     Hide Video Likes And Dislikes: Скрыть лайки и дизлайки к видео
@@ -340,11 +339,11 @@ Settings:
     и применить изменения?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Ошибка
-      при получении информации о сети. Вы уверены, что прокси настроен правильно?
+      при получении информации о сети. Правильно ли настроен ваш прокси-сервер?
     Your Info: Ваша информация
-    Clicking on Test Proxy will send a request to: При нажатии на кнопку Тест Прокси
-      будет отправлен запрос на
-    Test Proxy: Тест Прокси
+    Clicking on Test Proxy will send a request to: Нажмите "Протестировать прокси",
+      чтобы отправить запрос на
+    Test Proxy: Протестировать прокси
     Proxy Port Number: Порт прокси-сервера
     Proxy Host: Адрес прокси-сервера
     Proxy Protocol: Протокол прокси
@@ -352,29 +351,28 @@ Settings:
     Region: Регион
     Country: Страна
     Ip: Ip
-    Enable Tor / Proxy: Включить Tor / Прокси
-    Proxy Settings: Настройки прокси
+    Enable Tor / Proxy: Включить Tor/Прокси
+    Proxy Settings: Прокси
   SponsorBlock Settings:
-    Notify when sponsor segment is skipped: Уведомлять о пропуске спонсорского сегмента
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
-      Url (По умолчанию https://sponsor.ajay.app)
-    Enable SponsorBlock: Включить SponsorBlock
-    SponsorBlock Settings: Настройки SponsorBlock
+    Notify when sponsor segment is skipped: Уведомлять о пропущенном отрезке спонсора
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL-адрес SponsorBlock
+      API (По умолчанию https://sponsor.ajay.app)
+    Enable SponsorBlock: Включить
+    SponsorBlock Settings: SponsorBlock
   External Player Settings:
-    Custom External Player Arguments: Пользовательские аргументы внешнего проигрывателя
-    Custom External Player Executable: Пользовательский исполняемый файл внешнего
-      проигрывателя
+    Custom External Player Arguments: Аргументы внешнего проигрывателя
+    Custom External Player Executable: Исполняемый файл внешнего проигрывателя
     Ignore Unsupported Action Warnings: Игнорировать предупреждения о неподдерживаемых
       действиях
     External Player: Внешний проигрыватель
-    External Player Settings: Настройки внешнего проигрывателя
+    External Player Settings: Внешний проигрыватель
   Download Settings:
-    Download Settings: Настройки загрузки
-    Ask Download Path: Запрашивать путь загрузки
-    Choose Path: Выбрать Путь
+    Download Settings: Скачивание
+    Ask Download Path: Запрашивать путь при скачивании
+    Choose Path: Выберите путь
 About:
   #On About page
-  About: 'О программе'
+  About: 'О FreeTube'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Это
     программное обеспечение с авторским левом распространяется под свободной лицензией
@@ -406,28 +404,28 @@ About:
 #On Channel Page
   Donate: Пожертвовать
   these people and projects: этим людям и проектам
-  FreeTube is made possible by: FreeTube стал возможен благодаря
-  Credits: Команда проекта
+  FreeTube is made possible by: FreeTube появился благодаря
+  Credits: Участники
   Translate: Перевод
   room rules: правила комнаты
-  Please read the: Пожалуйста прочитайте
-  Chat on Matrix: Чат Matrix
+  Please read the: Изучите
+  Chat on Matrix: Чат на Matrix
   Mastodon: Mastodon
   Email: Электронная почта
   Blog: Блог
-  Website: Веб-сайт
+  Website: Сайт
   Report a problem: Сообщить о проблеме
-  FAQ: FAQ
+  FAQ: ЧаВо
   FreeTube Wiki: Вики FreeTube
   Help: Помощь
   GitHub releases: Релизы на GitHub
-  Downloads / Changelog: Загрузки / Журнал изменений
+  Downloads / Changelog: Скачивание / Список изменений
   View License: Посмотреть лицензию
   Licensed under the AGPLv3: Лицензия AGPLv3
   Source code: Исходный код
   Beta: Бета
-  Please check for duplicates before posting: Пожалуйста, проверьте наличие дубликатов
-    перед публикацией
+  Please check for duplicates before posting: Перед публикацией проблемы, проверьте
+    нет ли дубликатов
   GitHub issues: Проблемы на GitHub
 Channel:
   Subscriber: 'Подписчик'
@@ -459,7 +457,7 @@ Channel:
     Featured Channels: 'Избранные каналы'
   Added channel to your subscriptions: Канал добавлен в ваши подписки
   Removed subscription from $ other channel(s): Подписка удалена с $ другого(их) канала(ов)
-  Channel has been removed from your subscriptions: Канал был удален из ваших подписок
+  Channel has been removed from your subscriptions: Канал был удалён из подписок
 Video:
   Mark As Watched: 'Отметить как просмотренное'
   Remove From History: 'Удалить из истории'
@@ -695,53 +693,50 @@ No: 'Нет'
 Locale Name: Русский
 Profile:
   $ is now the active profile: $ теперь активный профиль
-  Your default profile has been changed to your primary profile: Ваш профиль по умолчанию
-    был изменен на ваш основной профиль
-  Profile has been updated: Профиль обновлен
-  Removed $ from your profiles: $ удален из ваших профилей
-  Your default profile has been set to $: Ваш профиль по умолчанию был установлен
-    на $
+  Your default profile has been changed to your primary profile: Профиль по умолчанию
+    был изменён на ваш основной профиль
+  Profile has been updated: Профиль обновлён
+  Removed $ from your profiles: $ удалён из профилей
+  Your default profile has been set to $: Профилем по умолчанию установлен $
   Profile has been created: Профиль создан
   Your profile name cannot be empty: Имя вашего профиля не может быть пустым
-  Profile could not be found: Профиль не найден
+  Profile could not be found: Не удалось найти профиль
   All subscriptions will also be deleted.: Все подписки также будут удалены.
-  Are you sure you want to delete this profile?: Вы уверены, что хотите удалить этот
-    профиль?
+  Are you sure you want to delete this profile?: Удалить этот профиль?
   Delete Profile: Удалить профиль
-  Make Default Profile: Сделать профиль по умолчанию
+  Make Default Profile: Сделать профилем по умолчанию
   Update Profile: Обновить профиль
   Create Profile: Создать профиль
-  Profile Preview: Предварительный просмотр профиля
-  Custom Color: Пользовательский цвет
-  Color Picker: Палитра цветов
-  Edit Profile: Редактировать профиль
+  Profile Preview: Предпросмотр профиля
+  Custom Color: Свой цвет
+  Color Picker: Выбор цвета
+  Edit Profile: Изменить профиль
   Create New Profile: Создать новый профиль
   Profile Manager: Менеджер профилей
   All Channels: Все каналы
   Profile Select: Выбор профиля
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Вы
-    уверены, что хотите удалить выбранные каналы? Это не приведет к удалению канала
-    из любого другого профиля.
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Удалить
+    выбранные каналы? Это не приведёт к удалению каналов из любого другого профиля.
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
   : Это ваш основной профиль. Вы уверены, что хотите удалить выбранные каналы? Те
     же каналы будут удалены из любого профиля, в котором они находятся.
-  No channel(s) have been selected: Канал(ы) не были выбраны
+  No channel(s) have been selected: Каналы не выбраны
   Add Selected To Profile: Добавить выбранное в профиль
   Delete Selected: Удалить выбранное
-  Select None: Не выбрано
+  Select None: Ничего не выбрано
   Select All: Выбрать все
-  $ selected: $ выбрано
+  $ selected: Выбрано $
   Other Channels: Другие каналы
   Subscription List: Список подписок
   Profile Filter: Фильтры профилей
-  Profile Settings: Настройки профиля
+  Profile Settings: Профиль
 The playlist has been reversed: Плейлист был перевернут
-A new blog is now available, $. Click to view more: Теперь доступен новый блог $.
-  Нажмите, чтобы увидеть больше
+A new blog is now available, $. Click to view more: Доступен новый блог $. Нажмите
+  здесь, чтобы посмотреть подробности
 Download From Site: Скачать с сайта
-Version $ is now available!  Click for more details: Версия $ уже доступна! Нажмите,
-  чтобы узнать больше
+Version $ is now available!  Click for more details: Доступна версия $! Чтобы узнать
+  подробности, нажмите здесь
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Это
   видео недоступно из-за отсутствия форматов. Это может произойти из-за региональных
   ограничений.
@@ -816,7 +811,7 @@ External link opening has been disabled in the general settings: Открыти�
   ссылок отключено в настройках
 Search Bar:
   Clear Input: Очистить
-Are you sure you want to open this link?: Вы уверены, что хотите открыть эту ссылку?
+Are you sure you want to open this link?: Вы действительно хотите открыть эту ссылку?
 Starting download: Запуск загрузки "$"
 Downloading has completed: '"$" закончил загрузку'
 Downloading failed: Возникла проблема с загрузкой "$"
