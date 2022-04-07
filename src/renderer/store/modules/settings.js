@@ -412,10 +412,10 @@ const customActions = {
       }
     })
 
-    ipcRenderer.on(IpcChannels.SYNC_CHANNELBLOCKER, (_, { event, data }) => {
+    ipcRenderer.on(IpcChannels.SYNC_CHANNELBLOCKER, (_, { event }) => {
       switch (event) {
         case SyncEvents.CHANNELBLOCKER.UPDATE_TEMP_UNBLOCK:
-          commit('syncTempUnblockSet', data)
+          commit('syncTempUnblockSet')
           break
 
         default:

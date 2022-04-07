@@ -139,14 +139,21 @@ export default Vue.extend({
       this.$refs.topNav.hideFilters()
     }
   },
-  created: async function () {
+  created: function () {
     this.checkThemeSettings()
     this.setWindowTitle()
 
     if (this.usingElectron) {
       console.log('User is using Electron')
       ipcRenderer = require('electron').ipcRenderer
-      this.setSessionStorageItems()
+
+      ipcRenderer.on('channelBlockerClearTempUnblockLocalStorage', () => {
+        // run when app starts (only once)
+        setTimeout(() => {
+          console.log('start up clear')
+        }, 1500)
+        this.clearChannelBlockerTempUnblockId()
+      })
     }
   },
   mounted: function () {
@@ -165,6 +172,7 @@ export default Vue.extend({
           this.activateKeyboardShortcuts()
           this.openAllLinksExternally()
           this.enableOpenUrl()
+          this.grabChannelBlockerTempUnblockId()
           await this.checkExternalPlayer()
         }
 
@@ -179,8 +187,6 @@ export default Vue.extend({
       this.$router.afterEach((to, from) => {
         this.$refs.topNav.navigateHistory()
       })
-
-      this.grabChannelBlockerTempUnblockId()
     })
   },
   methods: {
@@ -495,6 +501,7 @@ export default Vue.extend({
       'updateBaseTheme',
       'updateMainColor',
       'updateSecColor',
+      'clearChannelBlockerTempUnblockId',
       'grabChannelBlockerTempUnblockId'
     ])
   }

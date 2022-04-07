@@ -88,7 +88,7 @@
           :tooltip="$t('Settings.Distraction Free Settings.ChannelBlocker.Temp Unblock Tooltip')"
           :compact="true"
           :default-value="channelBlockerAllowTempUnblock"
-          @change="handleChannelBlockerAllowTempUnblock"
+          @change="updateChannelBlockerAllowTempUnblock"
         />
       </ft-flex-box>
       <ft-input

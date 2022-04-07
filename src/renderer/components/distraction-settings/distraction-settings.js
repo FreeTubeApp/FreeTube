@@ -159,13 +159,6 @@ export default Vue.extend({
       this._removeChannelFromTempUnblock(this.channelBlockerChannelToRemove)
     },
 
-    handleChannelBlockerAllowTempUnblock: function(option) {
-      this.updateChannelBlockerAllowTempUnblock(option)
-      if (!option) {
-        this._clearTempUnblock()
-      }
-    },
-
     ...mapActions([
       'updateHideVideoViews',
       'updateHideVideoLikesAndDislikes',

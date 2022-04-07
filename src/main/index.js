@@ -171,7 +171,7 @@ function runApp() {
     }
   }
 
-  async function createWindow({ replaceMainWindow = true, windowStartupUrl = null, showWindowNow = false, sessionStorageItems = [] } = { }) {
+  async function createWindow({ replaceMainWindow = true, windowStartupUrl = null, showWindowNow = false } = { }) {
     /**
      * Initial window options
      */
@@ -275,15 +275,11 @@ function runApp() {
 
     // Show when loaded
     newWindow.once('ready-to-show', () => {
-      if (newWindow.isVisible()) {
-        // setTimeout(() => {
-        newWindow.webContents.send('setSessionStorageItems', sessionStorageItems)
-        // }, 0)
-        return
-      }
+      if (newWindow.isVisible()) { return }
 
       newWindow.show()
       newWindow.focus()
+      newWindow.webContents.send('channelBlockerClearTempUnblockLocalStorage')
     })
 
     newWindow.once('close', async () => {
@@ -393,11 +389,10 @@ function runApp() {
     return powerSaveBlocker.start('prevent-display-sleep')
   })
 
-  ipcMain.on(IpcChannels.CREATE_NEW_WINDOW, (_, sessionStorageItems) => {
+  ipcMain.on(IpcChannels.CREATE_NEW_WINDOW, () => {
     createWindow({
       replaceMainWindow: false,
-      showWindowNow: true,
-      sessionStorageItems: sessionStorageItems
+      showWindowNow: true
     })
   })
 
@@ -406,11 +401,11 @@ function runApp() {
     child.unref()
   })
 
-  ipcMain.on(IpcChannels.SYNC_CHANNELBLOCKER, (event, data) => {
+  ipcMain.on(IpcChannels.SYNC_CHANNELBLOCKER, (event) => {
     syncOtherWindows(
       IpcChannels.SYNC_CHANNELBLOCKER,
       event,
-      { event: SyncEvents.CHANNELBLOCKER.UPDATE_TEMP_UNBLOCK, data: data }
+      { event: SyncEvents.CHANNELBLOCKER.UPDATE_TEMP_UNBLOCK }
     )
     return null
   })
