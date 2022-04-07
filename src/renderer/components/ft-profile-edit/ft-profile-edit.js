@@ -5,6 +5,7 @@ import FtPrompt from '../../components/ft-prompt/ft-prompt.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
+import { MAIN_PROFILE_ID } from '../../../constants'
 
 export default Vue.extend({
   name: 'FtProfileEdit',
@@ -40,6 +41,9 @@ export default Vue.extend({
     }
   },
   computed: {
+    isMainProfile: function () {
+      return this.profileId === MAIN_PROFILE_ID
+    },
     colorValues: function () {
       return this.$store.getters.getColorValues
     },
@@ -70,7 +74,7 @@ export default Vue.extend({
       this.profileTextColor = await this.calculateColorLuminance(val)
     }
   },
-  mounted: async function () {
+  created: function () {
     this.profileId = this.$route.params.id
     this.profileName = this.profile.name
     this.profileBgColor = this.profile.bgColor
@@ -109,9 +113,8 @@ export default Vue.extend({
 
       console.log(profile)
 
-      this.updateProfile(profile)
-
       if (this.isNew) {
+        this.createProfile(profile)
         this.showToast({
           message: this.$t('Profile.Profile has been created')
         })
@@ -119,6 +122,7 @@ export default Vue.extend({
           path: '/settings/profile/'
         })
       } else {
+        this.updateProfile(profile)
         this.showToast({
           message: this.$t('Profile.Profile has been updated')
         })
@@ -134,20 +138,22 @@ export default Vue.extend({
     },
 
     deleteProfile: function () {
+      if (this.activeProfile._id === this.profileId) {
+        this.updateActiveProfile(MAIN_PROFILE_ID)
+      }
+
       this.removeProfile(this.profileId)
+
       const message = this.$t('Profile.Removed $ from your profiles').replace('$', this.profileName)
-      this.showToast({
-        message: message
-      })
+      this.showToast({ message })
+
       if (this.defaultProfile === this.profileId) {
-        this.updateDefaultProfile('allChannels')
+        this.updateDefaultProfile(MAIN_PROFILE_ID)
         this.showToast({
           message: this.$t('Profile.Your default profile has been changed to your primary profile')
         })
       }
-      if (this.profileList[this.activeProfile]._id === this.profileId) {
-        this.updateActiveProfile(0)
-      }
+
       this.$router.push({
         path: '/settings/profile/'
       })
@@ -155,6 +161,7 @@ export default Vue.extend({
 
     ...mapActions([
       'showToast',
+      'createProfile',
       'updateProfile',
       'removeProfile',
       'updateDefaultProfile',

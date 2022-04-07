@@ -7,6 +7,8 @@ import $ from 'jquery'
 import debounce from 'lodash.debounce'
 import ytSuggest from 'youtube-suggest'
 
+import { IpcChannels } from '../../../constants'
+
 export default Vue.extend({
   name: 'TopNav',
   components: {
@@ -58,6 +60,10 @@ export default Vue.extend({
       return this.$store.getters.getBackendPreference
     },
 
+    expandSideBar: function () {
+      return this.$store.getters.getExpandSideBar
+    },
+
     forwardText: function () {
       return this.$t('Forward')
     },
@@ -78,9 +84,12 @@ export default Vue.extend({
       searchContainer.style.display = 'none'
     }
 
-    if (localStorage.getItem('expandSideBar') === 'true') {
-      this.toggleSideNav()
-    }
+    // Store is not up-to-date when the component mounts, so we use timeout.
+    setTimeout(() => {
+      if (this.expandSideBar) {
+        this.toggleSideNav()
+      }
+    }, 0)
 
     window.addEventListener('resize', function (event) {
       const width = event.srcElement.innerWidth
@@ -303,7 +312,7 @@ export default Vue.extend({
     createNewWindow: function () {
       if (this.usingElectron) {
         const { ipcRenderer } = require('electron')
-        ipcRenderer.send('createNewWindow')
+        ipcRenderer.send(IpcChannels.CREATE_NEW_WINDOW)
       } else {
         // Web placeholder
       }

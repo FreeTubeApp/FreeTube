@@ -10,7 +10,7 @@ import FtButton from './components/ft-button/ft-button.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
 import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
 import $ from 'jquery'
-import marked from 'marked'
+import { marked } from 'marked'
 import Parser from 'rss-parser'
 
 let ipcRenderer = null
@@ -41,7 +41,6 @@ export default Vue.extend({
       latestBlogUrl: '',
       updateChangelog: '',
       changeLogTitle: '',
-
       lastExternalLinkToBeOpened: '',
       showExternalLinkOpeningPrompt: false,
       externalLinkOpeningPromptValues: [
@@ -92,9 +91,6 @@ export default Vue.extend({
         return null
       }
     },
-    activeProfile: function () {
-      return this.$store.getters.getActiveProfile
-    },
     defaultProfile: function () {
       return this.$store.getters.getDefaultProfile
     },
@@ -103,6 +99,18 @@ export default Vue.extend({
     },
     defaultInvidiousInstance: function () {
       return this.$store.getters.getDefaultInvidiousInstance
+    },
+
+    baseTheme: function () {
+      return this.$store.getters.getBaseTheme
+    },
+
+    mainColor: function () {
+      return this.$store.getters.getMainColor
+    },
+
+    secColor: function () {
+      return this.$store.getters.getSecColor
     },
 
     externalLinkOpeningPromptNames: function () {
@@ -118,6 +126,13 @@ export default Vue.extend({
   },
   watch: {
     windowTitle: 'setWindowTitle',
+
+    baseTheme: 'checkThemeSettings',
+
+    mainColor: 'checkThemeSettings',
+
+    secColor: 'checkThemeSettings',
+
     $route () {
       // react to route changes...
       // Hide top nav filter panel on page change
@@ -142,7 +157,7 @@ export default Vue.extend({
         if (this.usingElectron) {
           console.log('User is using Electron')
           ipcRenderer = require('electron').ipcRenderer
-          this.setupListenerToSyncWindows()
+          this.setupListenersToSyncWindows()
           this.activateKeyboardShortcuts()
           this.openAllLinksExternally()
           this.enableOpenUrl()
@@ -164,39 +179,22 @@ export default Vue.extend({
   },
   methods: {
     checkThemeSettings: function () {
-      let baseTheme = localStorage.getItem('baseTheme')
-      let mainColor = localStorage.getItem('mainColor')
-      let secColor = localStorage.getItem('secColor')
-
-      if (baseTheme === null) {
-        baseTheme = 'dark'
-      }
-
-      if (mainColor === null) {
-        mainColor = 'mainRed'
-      }
-
-      if (secColor === null) {
-        secColor = 'secBlue'
-      }
-
       const theme = {
-        baseTheme: baseTheme,
-        mainColor: mainColor,
-        secColor: secColor
+        baseTheme: this.baseTheme || 'dark',
+        mainColor: this.mainColor || 'mainRed',
+        secColor: this.secColor || 'secBlue'
       }
 
       this.updateTheme(theme)
     },
 
     updateTheme: function (theme) {
-      console.log(theme)
-      const className = `${theme.baseTheme} ${theme.mainColor} ${theme.secColor}`
+      console.group('updateTheme')
+      console.log('Theme: ', theme)
+      const className = `${theme.baseTheme} main${theme.mainColor} sec${theme.secColor}`
       const body = document.getElementsByTagName('body')[0]
       body.className = className
-      localStorage.setItem('baseTheme', theme.baseTheme)
-      localStorage.setItem('mainColor', theme.mainColor)
-      localStorage.setItem('secColor', theme.secColor)
+      console.groupEnd()
     },
 
     checkForNewUpdates: function () {
@@ -207,7 +205,7 @@ export default Vue.extend({
         $.getJSON(requestUrl, (response) => {
           const tagName = response[0].tag_name
           const versionNumber = tagName.replace('v', '').replace('-beta', '')
-          this.updateChangelog = marked(response[0].body)
+          this.updateChangelog = marked.parse(response[0].body)
           this.changeLogTitle = response[0].name
 
           const message = this.$t('Version $ is now available!  Click for more details')
@@ -316,32 +314,40 @@ export default Vue.extend({
 
     openAllLinksExternally: function () {
       $(document).on('click', 'a[href^="http"]', (event) => {
-        const el = event.currentTarget
-        console.log(this.usingElectron)
-        console.log(el)
-        event.preventDefault()
-
-        // Check if it's a YouTube link
-        const youtubeUrlPattern = /^https?:\/\/((www\.)?youtube\.com(\/embed)?|youtu\.be)\/.*$/
-        const isYoutubeLink = youtubeUrlPattern.test(el.href)
-
-        if (isYoutubeLink) {
-          this.handleYoutubeLink(el.href)
-        } else if (this.externalLinkHandling === 'doNothing') {
-          // Let user know opening external link is disabled via setting
-          this.showToast({
-            message: this.$t('External link opening has been disabled in the general settings')
-          })
-        } else if (this.externalLinkHandling === 'openLinkAfterPrompt') {
-          // Storing the URL is necessary as
-          // there is no other way to pass the URL to click callback
-          this.lastExternalLinkToBeOpened = el.href
-          this.showExternalLinkOpeningPrompt = true
-        } else {
-          // Open links externally
-          this.openExternalLink(el.href)
-        }
+        this.handleLinkClick(event)
       })
+
+      $(document).on('auxclick', 'a[href^="http"]', (event) => {
+        this.handleLinkClick(event)
+      })
+    },
+
+    handleLinkClick: function (event) {
+      const el = event.currentTarget
+      console.log(this.usingElectron)
+      console.log(el)
+      event.preventDefault()
+
+      // Check if it's a YouTube link
+      const youtubeUrlPattern = /^https?:\/\/((www\.)?youtube\.com(\/embed)?|youtu\.be)\/.*$/
+      const isYoutubeLink = youtubeUrlPattern.test(el.href)
+
+      if (isYoutubeLink) {
+        this.handleYoutubeLink(el.href)
+      } else if (this.externalLinkHandling === 'doNothing') {
+        // Let user know opening external link is disabled via setting
+        this.showToast({
+          message: this.$t('External link opening has been disabled in the general settings')
+        })
+      } else if (this.externalLinkHandling === 'openLinkAfterPrompt') {
+        // Storing the URL is necessary as
+        // there is no other way to pass the URL to click callback
+        this.lastExternalLinkToBeOpened = el.href
+        this.showExternalLinkOpeningPrompt = true
+      } else {
+        // Open links externally
+        this.openExternalLink(el.href)
+      }
     },
 
     handleYoutubeLink: function (href) {
@@ -448,15 +454,16 @@ export default Vue.extend({
       }
     },
 
-    ...mapMutations([
-      'setInvidiousInstancesList'
-    ]),
-
     setWindowTitle: function() {
       if (this.windowTitle !== null) {
         document.title = this.windowTitle
       }
     },
+
+    ...mapMutations([
+      'setInvidiousInstancesList'
+    ]),
+
     ...mapActions([
       'showToast',
       'openExternalLink',
@@ -468,7 +475,10 @@ export default Vue.extend({
       'getExternalPlayerCmdArgumentsData',
       'fetchInvidiousInstances',
       'setRandomCurrentInvidiousInstance',
-      'setupListenerToSyncWindows'
+      'setupListenersToSyncWindows',
+      'updateBaseTheme',
+      'updateMainColor',
+      'updateSecColor'
     ])
   }
 })
