@@ -2,11 +2,13 @@ import Vue from 'vue'
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
 import { mapActions } from 'vuex'
 import autolinker from 'autolinker'
+import VueTinySlider from 'vue-tiny-slider'
 
 export default Vue.extend({
   name: 'FtCommunityPost',
   components: {
-    'ft-list-video': FtListVideo
+    'ft-list-video': FtListVideo,
+    'tiny-slider': VueTinySlider
   },
   props: {
     data: {
@@ -40,6 +42,16 @@ export default Vue.extend({
     }
   },
   computed: {
+    tinySliderOptions: function() {
+      return {
+        items: 1,
+        arrowKeys: true,
+        controls: false,
+        autoplay: false,
+        slideBy: 'page',
+        navPosition: 'bottom'
+      }
+    },
     usingElectron: function () {
       return this.$store.getters.getUsingElectron
     },

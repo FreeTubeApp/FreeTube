@@ -23,17 +23,19 @@
       </p>
     </div>
     <p v-html="postText" />
-    <div
+    <tiny-slider
       v-if="type === 'multiImage'"
+      v-bind="tinySliderOptions"
+      class="slider"
     >
       <img
         v-for="(img, index) in postContent.content"
         :key="`image-${index}`"
         :src="img[Math.max(0, postContent.content.length-1)].url"
-        class="communityImage"
+        class="communityImage tns-lazy-img"
         alt=""
       >
-    </div>
+    </tiny-slider>
     <div
       v-if="type === 'image'"
     >
@@ -159,3 +161,4 @@
 
 <script src="./ft-community-post.js" />
 <style scoped src="./ft-community-post.sass" lang="sass" />
+<style src="./tiny-slider.css" />
