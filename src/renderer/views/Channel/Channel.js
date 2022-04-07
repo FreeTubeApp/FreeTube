@@ -523,7 +523,7 @@ export default Vue.extend({
     },
 
     getCommunityPostsLocal: function () {
-      ytch.getChannelCommunityPosts(this.id).then((response) => {
+      ytch.getChannelCommunityPosts({ channelId: this.id }).then((response) => {
         console.log('Communitypage', response)
         this.communityContinuationString = response.continuation
         this.communityContinuationAPIString = response.innerTubeApi

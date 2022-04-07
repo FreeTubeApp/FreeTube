@@ -24,6 +24,17 @@
     </div>
     <p v-html="postText" />
     <div
+      v-if="type === 'multiImage'"
+    >
+      <img
+        v-for="(img, index) in postContent.content"
+        :key="`image-${index}`"
+        :src="img[Math.max(0, postContent.content.length-1)].url"
+        class="communityImage"
+        alt=""
+      >
+    </div>
+    <div
       v-if="type === 'image'"
     >
       <img
