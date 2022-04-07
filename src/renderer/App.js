@@ -139,7 +139,7 @@ export default Vue.extend({
       this.$refs.topNav.hideFilters()
     }
   },
-  created: function () {
+  created () {
     this.checkThemeSettings()
     this.setWindowTitle()
 
@@ -452,16 +452,6 @@ export default Vue.extend({
       })
 
       ipcRenderer.send('appReady')
-    },
-
-    setSessionStorageItems: function () {
-      ipcRenderer.on('setSessionStorageItems', (_, items) => {
-        if (!items) { return }
-        console.log('session storage', items)
-        items.forEach((item) => {
-          sessionStorage.setItem(item[0], item[1])
-        })
-      })
     },
 
     handleExternalLinkOpeningPromptAnswer: function (option) {
