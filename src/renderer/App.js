@@ -149,9 +149,6 @@ export default Vue.extend({
 
       ipcRenderer.on('channelBlockerClearTempUnblockLocalStorage', () => {
         // run when app starts (only once)
-        setTimeout(() => {
-          console.log('start up clear')
-        }, 1500)
         this.clearChannelBlockerTempUnblockId()
       })
     }
