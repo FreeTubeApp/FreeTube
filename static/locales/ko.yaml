@@ -96,11 +96,13 @@ User Playlists:
     목록이 없습니다. 영상의 오른쪽 아래에 있는 저장 버튼을 사용하여 재생 목록에 영상을 추가하세요
   Playlist Message: 지금 보시는 페이지는 완전한 플레이 리스트가 아닙니다. 이곳에는 저장되었거나 즐겨 찾기 표시가 된 항목만 표시
     됩니다. 작업이 끝나면, 여기에 표시된 영상들은 '즐겨 찾기' 항목으로 옮겨집니다.
+  Search bar placeholder: 재생 목록에서 검색
 History:
   # On History Page
   History: '재생 기록'
   Watch History: '시청 기록'
   Your history list is currently empty.: '기록이 없습니다.'
+  Search bar placeholder: 기록에서 검색
 Settings:
   # On Settings Page
   Settings: '설정'

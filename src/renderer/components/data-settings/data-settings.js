@@ -1303,7 +1303,7 @@ export default Vue.extend({
 
     getChannelInfoLocal: function (channelId) {
       return new Promise((resolve, reject) => {
-        ytch.getChannelInfo(channelId, 'latest').then(async (response) => {
+        ytch.getChannelInfo({ channelId: channelId }).then(async (response) => {
           resolve(response)
         }).catch((err) => {
           console.log(err)

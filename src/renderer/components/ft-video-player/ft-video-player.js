@@ -1558,7 +1558,7 @@ export default Vue.extend({
             // J Key
             // Rewind by 2x the time-skip interval (in seconds)
             event.preventDefault()
-            this.changeDurationBySeconds(-this.defaultSkipInterval * 2)
+            this.changeDurationBySeconds(-this.defaultSkipInterval * this.player.playbackRate() * 2)
             break
           case 75:
             // K Key
@@ -1570,7 +1570,7 @@ export default Vue.extend({
             // L Key
             // Fast-Forward by 2x the time-skip interval (in seconds)
             event.preventDefault()
-            this.changeDurationBySeconds(this.defaultSkipInterval * 2)
+            this.changeDurationBySeconds(this.defaultSkipInterval * this.player.playbackRate() * 2)
             break
           case 79:
             // O Key
@@ -1618,13 +1618,13 @@ export default Vue.extend({
             // Left Arrow Key
             // Rewind by the time-skip interval (in seconds)
             event.preventDefault()
-            this.changeDurationBySeconds(-this.defaultSkipInterval * 1)
+            this.changeDurationBySeconds(-this.defaultSkipInterval * this.player.playbackRate())
             break
           case 39:
             // Right Arrow Key
             // Fast-Forward by the time-skip interval (in seconds)
             event.preventDefault()
-            this.changeDurationBySeconds(this.defaultSkipInterval * 1)
+            this.changeDurationBySeconds(this.defaultSkipInterval * this.player.playbackRate())
             break
           case 73:
             // I Key
