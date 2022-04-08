@@ -1568,7 +1568,12 @@ export default Vue.extend({
           case 73:
             // I Key
             event.preventDefault()
-            this.toggleShowStatsModal()
+            // Toggle Picture in Picture Mode
+            if (!this.player.isInPictureInPicture()) {
+              this.player.requestPictureInPicture()
+            } else if (this.player.isInPictureInPicture()) {
+              this.player.exitPictureInPicture()
+            }
             break
           case 49:
             // 1 Key
@@ -1642,12 +1647,8 @@ export default Vue.extend({
             break
           case 68:
             // D Key
-            // Toggle Picture in Picture Mode
-            if (!this.player.isInPictureInPicture()) {
-              this.player.requestPictureInPicture()
-            } else if (this.player.isInPictureInPicture()) {
-              this.player.exitPictureInPicture()
-            }
+            event.preventDefault()
+            this.toggleShowStatsModal()
             break
           case 27:
             // esc Key
