@@ -21,8 +21,8 @@
         :placeholder="$t('User Playlists.Search bar placeholder')"
         :show-clear-text-button="true"
         :show-action-button="false"
-        @input="(input) => query = input"
         v-show="activeData.length > 0"
+        @input="(input) => query = input"
       />
       <ft-flex-box
         v-show="activeData.length === 0"
