@@ -209,7 +209,7 @@ export default Vue.extend({
     checkForNewUpdates: function () {
       if (this.checkForUpdates) {
         const { version } = require('../../package.json')
-        const requestUrl = 'https://api.github.com/repos/freetubeapp/freetube/releases'
+        const requestUrl = 'https://api.github.com/repos/freetubeapp/freetube/releases?per_page=1'
 
         $.getJSON(requestUrl, (response) => {
           const tagName = response[0].tag_name
@@ -311,6 +311,9 @@ export default Vue.extend({
             break
           case 'ArrowLeft':
             this.$refs.topNav.historyBack()
+            break
+          case 'KeyD':
+            this.$refs.topNav.focusSearch()
             break
         }
       }

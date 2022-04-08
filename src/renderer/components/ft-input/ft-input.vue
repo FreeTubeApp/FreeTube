@@ -37,6 +37,7 @@
       />
       <input
         :id="id"
+        ref="input"
         v-model="inputData"
         :list="idDataList"
         class="ft-input"
@@ -59,7 +60,6 @@
         @click="handleClick"
       />
     </div>
-
     <div class="options">
       <ul
         v-if="inputData !== '' && visibleDataList.length > 0 && searchState.showOptions"
