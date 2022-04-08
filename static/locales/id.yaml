@@ -600,7 +600,7 @@ Video:
     Unsupported Actions:
       starting video at offset: memulai video pada offset
       looping playlists: memutar berulang-ulang daftar putar
-      shuffling playlists: menshuffle daftar putar
+      shuffling playlists: mengacak daftar putar
       reversing playlists: membalik urutan daftar putar
       opening specific video in a playlist (falling back to opening the video): membuka
         video yang spesifik di dalam daftar putar (dengan cadangan untuk membuka langsung
