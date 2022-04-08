@@ -536,7 +536,7 @@ export default Vue.extend({
     },
 
     getCommunityPostsLocalMore: function () {
-      ytch.getChannelCommunityPostsMore(this.communityContinuationString, this.communityContinuationAPIString).then((response) => {
+      ytch.getChannelCommunityPostsMore({ continuation: this.communityContinuationString, innerTubeApi: this.communityContinuationAPIString }).then((response) => {
         console.log('Communitypage More', response)
         this.communityContinuationString = response.continuation
         this.communityContinuationAPIString = response.innerTubeApi

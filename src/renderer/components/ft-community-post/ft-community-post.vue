@@ -30,7 +30,7 @@
     >
       <img
         v-for="(img, index) in postContent.content"
-        :key="`image-${index}`"
+        :key="index"
         :src="img[Math.max(0, postContent.content.length-1)].url"
         class="communityImage tns-lazy-img"
         alt=""

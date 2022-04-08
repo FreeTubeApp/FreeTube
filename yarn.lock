@@ -8044,7 +8044,7 @@ thunky@^1.0.2:
   resolved "https://registry.npmjs.org/thunky/-/thunky-1.1.0.tgz"
   integrity sha512-eHY7nBftgThBqOyHGVN+l8gF0BucP09fMo0oO/Lb0w1OF80dJv+lDVpXG60WMQvkcxAkNybKsrEIE3ZtKGmPrA==
 
-tiny-slider@^2.9.2, tiny-slider@^2.9.4:
+tiny-slider@^2.9.2:
   version "2.9.4"
   resolved "https://registry.yarnpkg.com/tiny-slider/-/tiny-slider-2.9.4.tgz#dd5cbf3065f1688ade8383ea6342aefcba22ccc4"
   integrity sha512-LAs2kldWcY+BqCKw4kxd4CMx2RhWrHyEePEsymlOIISTlOVkjfK40sSD7ay73eKXBLg/UkluAZpcfCstimHXew==
@@ -9047,7 +9047,6 @@ youtube-suggest@^1.1.2:
   dependencies:
     node-fetch "^2.6.0"
     smol-jsonp "^1.0.0"
-
 
 yt-channel-info@^3.0.2:
   version "3.0.2"
