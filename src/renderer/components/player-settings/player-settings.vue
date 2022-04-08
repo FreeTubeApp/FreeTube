@@ -9,8 +9,7 @@
     <div class="switchColumnGrid">
       <div class="switchColumn">
         <ft-toggle-switch
-          v-if="false"
-          label="Enable Subtitles by Default"
+          :label="$t('Settings.Player Settings.Turn on Subtitles by Default')"
           :compact="true"
           :default-value="enableSubtitles"
           @change="updateEnableSubtitles"

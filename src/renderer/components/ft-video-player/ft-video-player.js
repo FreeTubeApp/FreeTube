@@ -165,6 +165,10 @@ export default Vue.extend({
       return parseInt(this.$store.getters.getDefaultQuality)
     },
 
+    enableSubtitles: function () {
+      return this.$store.getters.getEnableSubtitles
+    },
+
     defaultCaptionSettings: function () {
       try {
         return JSON.parse(this.$store.getters.getDefaultCaptionSettings)
@@ -354,12 +358,17 @@ export default Vue.extend({
         this.player.on('fullscreenchange', this.fullscreenOverlay)
         this.player.on('fullscreenchange', this.toggleFullscreenClass)
 
-        this.player.on('ready', () => {
+        this.player.on('ready', async () => {
           this.$emit('ready')
           this.checkAspectRatio()
           this.createStatsModal()
           if (this.captionHybridList.length !== 0) {
-            this.transformAndInsertCaptions()
+            await this.transformAndInsertCaptions()
+
+            if (this.enableSubtitles) {
+              const tracks = this.player.textTracks().tracks_
+              tracks[1].mode = 'showing'
+            }
           }
         })
 
