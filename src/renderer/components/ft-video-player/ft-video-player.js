@@ -1004,10 +1004,10 @@ export default Vue.extend({
 
     togglePlayPause: function () {
       if (this.player.paused()) {
-        if (this.videoTempUnblocked) {
-          this.player.play()
-        } else {
+        if (this.videoBlocked) {
           this.handleUnblock()
+        } else {
+          this.player.play()
         }
       } else {
         this.player.pause()
@@ -1527,9 +1527,11 @@ export default Vue.extend({
 
     handleUnblock: function() {
       if (this.allowTempUnblock) {
+        if (!this.videoTempUnblocked) {
+          this.$emit('stop-blocked-count-down', true)
+        }
         this.player.play()
       }
-      this.$emit('stop-blocked-count-down', true)
     },
 
     // This function should always be at the bottom of this file

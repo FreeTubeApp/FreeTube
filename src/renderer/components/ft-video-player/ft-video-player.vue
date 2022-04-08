@@ -18,7 +18,7 @@
           </p>
           <p
             v-else
-            :style="{visibility : skipBlockedVideoCountDown <= 60 ? 'visible' : 'hidden'}"
+            :style="{visibility : skipBlockedVideoCountDown <= 60 && skipBlockedVideoCountDown >= 0 ? 'visible' : 'hidden'}"
           >
             {{ $t('Video.ChannelBlocker.Message Stop Countdown') }}
           </p>
