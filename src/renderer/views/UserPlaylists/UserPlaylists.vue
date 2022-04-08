@@ -17,11 +17,11 @@
         />
       </h3>
       <ft-input
+        v-show="activeData.length > 0"
         ref="searchBar"
         :placeholder="$t('User Playlists.Search bar placeholder')"
         :show-clear-text-button="true"
         :show-action-button="false"
-        v-show="activeData.length > 0"
         @input="(input) => query = input"
       />
       <ft-flex-box
