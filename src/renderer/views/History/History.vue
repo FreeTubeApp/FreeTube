@@ -15,6 +15,7 @@
         :show-clear-text-button="true"
         :show-action-button="false"
         @input="(input) => query = input"
+        v-show="activeData.length > 0"
       />
       <ft-flex-box
         v-show="activeData.length === 0"
