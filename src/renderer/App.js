@@ -303,6 +303,9 @@ export default Vue.extend({
           case 'ArrowLeft':
             this.$refs.topNav.historyBack()
             break
+          case 'KeyD':
+            this.$refs.topNav.focusSearch()
+            break
         }
       }
       switch (event.code) {

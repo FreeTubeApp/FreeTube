@@ -36,6 +36,10 @@ export default Vue.extend({
       return this.$store.getters.getEnableSearchSuggestions
     },
 
+    searchInput: function () {
+      return this.$refs.searchInput.$refs.input
+    },
+
     searchSettings: function () {
       return this.$store.getters.getSearchSettings
     },
@@ -195,6 +199,10 @@ export default Vue.extend({
 
       // Close the filter panel
       this.showFilters = false
+    },
+
+    focusSearch: function () {
+      this.searchInput.focus()
     },
 
     getSearchSuggestionsDebounce: function (query) {
