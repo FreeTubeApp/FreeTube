@@ -84,7 +84,7 @@ Trending:
   Gaming: Videojuegos
   Music: Música
 Most Popular: 'Más populares'
-Playlists: 'Favoritos'
+Playlists: 'Tus favoritos'
 User Playlists:
   Your Playlists: 'Tus listas de reproducción'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Tus
@@ -483,7 +483,7 @@ Channel:
       Oldest: 'Más antiguos'
       Most Popular: 'Más populares'
   Playlists:
-    Playlists: 'Favoritos'
+    Playlists: 'Playlists'
     This channel does not currently have any playlists: 'Este canal no tiene actualmente
       ninguna lista de reproducción'
     Sort Types:
@@ -627,6 +627,12 @@ Video:
     Bitrate: Tasa de bits
     Volume: Volumen
     Mimetype: Tipo de medio
+    Resolution: Resolución
+    Player Dimensions: Dimensiones del reproductor
+    Bandwidth: Ancho de banda
+    Video ID: ID de vídeo
+    Buffered: En búfer
+    Dropped / Total Frames: Fotogramas Perdidos / Fotogramas Totales
 Videos:
   #& Sort By
   Sort By:

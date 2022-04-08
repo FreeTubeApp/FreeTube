@@ -971,7 +971,7 @@ const mutations = {
     })
 
     if (sameSearch !== -1) {
-      state.sessionSearchHistory[sameSearch].data = state.sessionSearchHistory[sameSearch].data.concat(payload.data)
+      state.sessionSearchHistory[sameSearch].data = payload.data
       state.sessionSearchHistory[sameSearch].nextPageRef = payload.nextPageRef
     } else {
       state.sessionSearchHistory.push(payload)
