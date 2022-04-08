@@ -89,11 +89,11 @@
     "vue-router": "^3.5.2",
     "vuex": "^3.6.2",
     "youtube-suggest": "^1.1.2",
-    "yt-channel-info": "^3.0.1",
+    "yt-channel-info": "^3.0.2",
     "yt-dash-manifest-generator": "1.1.0",
     "yt-trending-scraper": "^2.0.1",
-    "ytdl-core": "^4.10.1",
-    "ytpl": "^2.2.3",
+    "ytdl-core": "^4.11.0",
+    "ytpl": "^2.3.0",
     "ytsr": "^3.6.0"
   },
   "devDependencies": {

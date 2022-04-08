@@ -139,9 +139,9 @@
             v-for="(channel, index) in relatedChannels"
             :key="index"
             :channel-name="channel.author || channel.channelName"
-            :channel-id="channel.authorId"
+            :channel-id="channel.channelId"
             :channel-thumbnail="channel.authorThumbnails[channel.authorThumbnails.length - 1].url"
-            @click="goToChannel(channel.authorId)"
+            @click="goToChannel(channel.channelId)"
           />
         </ft-flex-box>
       </div>
