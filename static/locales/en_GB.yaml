@@ -100,12 +100,14 @@ User Playlists:
     saved videos are empty. Click on the save button on the corner of a video to have
     it listed here
   Search bar placeholder: Search in Playlist
+  Empty Search Message: There are no videos in this playlist that match your search
 History:
   # On History Page
   History: 'History'
   Watch History: 'Watch History'
   Your history list is currently empty.: 'Your history list is currently empty.'
   Search bar placeholder: Search in History
+  Empty Search Message: There are no videos in your history that match your search
 Settings:
   # On Settings Page
   Settings: 'Settings'
