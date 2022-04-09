@@ -93,12 +93,15 @@ User Playlists:
     solo muestra los vídeos guardados. En futuras actualizaciones, estos vídeos migrarán
     a la lista de reproducción «Favoritos».
   Search bar placeholder: Buscar en la lista de reproducción
+  Empty Search Message: No hay vídeos en esta lista de reproducción que coincidan
+    con tu búsqueda
 History:
   # On History Page
   History: 'Historial'
   Watch History: 'Historial de reproducción'
   Your history list is currently empty.: 'Tu historial está vacío.'
   Search bar placeholder: Buscar en el historial
+  Empty Search Message: No hay vídeos en tu historial que coincidan con tu búsqueda
 Settings:
   # On Settings Page
   Settings: 'Ajustes'
