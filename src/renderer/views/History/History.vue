@@ -10,6 +10,7 @@
     >
       <h3>{{ $t("History.History") }}</h3>
       <ft-input
+        v-show="activeData.length > 0"
         ref="searchBar"
         :placeholder="$t('History.Search bar placeholder')"
         :show-clear-text-button="true"
