@@ -105,12 +105,16 @@ User Playlists:
     þinn yfir vistuð myndskeið er tómur. Smelltu á vistunarhnapp myndskeiðs til að
     það birtist hér'
   Search bar placeholder: Leita í spilunarlista
+  Empty Search Message: Það eru engin myndskeið í þessum spilunarlista sem samsvara
+    leitinni þinni
 History:
   # On History Page
   History: 'Vinnsluferill'
   Watch History: 'Áhorfsferill'
   Your history list is currently empty.: 'Listi með vinnsluferli er tómur í augnablikinu.'
   Search bar placeholder: Leita í vinnsluferli
+  Empty Search Message: Það eru engin myndskeið í ferlinum þínum sem samsvara leitinni
+    þinni
 Settings:
   # On Settings Page
   Settings: 'Stillingar'
