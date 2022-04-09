@@ -101,12 +101,14 @@ User Playlists:
     лише відео, які ви зберегли або вибрали. Коли робота завершиться, усі відео, які
     зараз знаходяться тут, буде переміщено до добірки "Вибране".
   Search bar placeholder: Шукати у добірці
+  Empty Search Message: Немає відео в цій добірці, які відповідають вашому запиту
 History:
   # On History Page
   History: 'Історія'
   Watch History: 'Історія переглядів'
   Your history list is currently empty.: 'Ваша історія переглядів на разі порожня.'
   Search bar placeholder: Шукати в історії
+  Empty Search Message: Немає відео в історії, які відповідають вашому запиту
 Settings:
   # On Settings Page
   Settings: 'Налаштування'
