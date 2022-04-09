@@ -17,7 +17,7 @@
         />
       </h3>
       <ft-input
-        v-show="activeData.length > 0"
+        v-show="fullData.length > 0"
         ref="searchBar"
         :placeholder="$t('User Playlists.Search bar placeholder')"
         :show-clear-text-button="true"
@@ -25,10 +25,17 @@
         @input="(input) => query = input"
       />
       <ft-flex-box
-        v-show="activeData.length === 0"
+        v-show="fullData.length === 0"
       >
         <p class="message">
           {{ $t("User Playlists['Your saved videos are empty. Click on the save button on the corner of a video to have it listed here']") }}
+        </p>
+      </ft-flex-box>
+      <ft-flex-box
+        v-show="activeData.length === 0 && fullData.length > 0"
+      >
+        <p class="message">
+          {{ $t("User Playlists['Empty Search Message']") }}
         </p>
       </ft-flex-box>
       <ft-element-list
