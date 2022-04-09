@@ -312,6 +312,12 @@ export default Vue.extend({
         case 'Tab':
           this.hideOutlines = false
           break
+        case 'KeyL':
+          if ((process.platform !== 'darwin' && event.ctrlKey) ||
+            (process.platform === 'darwin' && event.metaKey)) {
+            this.$refs.topNav.focusSearch()
+          }
+          break
       }
     },
 

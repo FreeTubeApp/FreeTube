@@ -1449,7 +1449,7 @@ export default Vue.extend({
       const droppedFrames = this.playerStats.videoPlaybackQuality.droppedVideoFrames
       const totalFrames = this.playerStats.videoPlaybackQuality.totalVideoFrames
       const frames = `${droppedFrames} / ${totalFrames}`
-      const resolution = `${this.selectedResolution}@${this.selectedFPS}fps`
+      const resolution = this.selectedResolution === 'auto' ? 'auto' : `${this.selectedResolution}@${this.selectedFPS}fps`
       const playerDimensions = `${this.playerStats.playerDimensions.width}x${this.playerStats.playerDimensions.height}`
       const statsArray = [
         [this.$t('Video.Stats.Video ID'), this.videoId],
