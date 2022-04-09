@@ -99,12 +99,14 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: לא
     שמרת סרטונים. יש ללחוץ על כפתור השמירה בפינת הסרטון כדי שיופיע כאן
   Search bar placeholder: חיפוש ברשימת הנגינה
+  Empty Search Message: אין סרטונים בפלייליסט הזה שעונים לחיפוש שלך
 History:
   # On History Page
   History: 'היסטוריה'
   Watch History: 'היסטוריית צפייה'
   Your history list is currently empty.: 'ההיסטוריה שלך ריקה כרגע.'
   Search bar placeholder: חיפוש בהיסטוריה
+  Empty Search Message: אין סרטונים בהיסטוריה שלך שעונים לחיפוש שלך
 Settings:
   # On Settings Page
   Settings: 'הגדרות'
