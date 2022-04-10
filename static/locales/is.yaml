@@ -238,6 +238,8 @@ Settings:
     Scroll Volume Over Video Player: Skruna hljóðstyrk ofan á myndspilara
     Fast-Forward / Rewind Interval: Millibil hraðspólunar / spóla til baka
     Scroll Playback Rate Over Video Player: Skruna afspilunarhraða ofan á myndspilara
+    Video Playback Rate Interval: Hámarksbil milli afspilunar myndskeiða
+    Max Video Playback Rate: Hámarkshraði afspilunar myndskeiða
   Privacy Settings:
     Privacy Settings: 'Stillingar gagnaleyndar'
     Remember History: 'Muna vinnsluferil'
