@@ -96,12 +96,15 @@ User Playlists:
     samo spremljena ili označena videa. Kad posao završi, sva trenutačno ovdje prisutna
     videa premjestit će se u zbirku „Favoriti”.
   Search bar placeholder: Pretraži zbirku
+  Empty Search Message: U ovoj zbirci nema videa koji odgovaraju tvojem pretraživanju
 History:
   # On History Page
   History: 'Povijest'
   Watch History: 'Povijest gledanja'
   Your history list is currently empty.: 'Tvoj popis povijesti je trenutačno prazan.'
   Search bar placeholder: Pretraži povijest
+  Empty Search Message: U ovoj zbirci nema videa u tvojoj povijesti koji odgovaraju
+    tvojem pretraživanju
 Settings:
   # On Settings Page
   Settings: 'Postavke'
