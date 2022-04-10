@@ -88,12 +88,14 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 您未保存视频。点击视频角落的“保存”按钮保存视频
   Playlist Message: 本页面不代表功能完备的播放列表。它只列举您保存或喜爱的播放列表。当项目完成时，本页面的所有视频将会迁移到“最喜爱”播放列表。
   Search bar placeholder: 在播放列表中搜索
+  Empty Search Message: 这个与你的搜索匹配的播放列表中没有视频
 History:
   # On History Page
   History: '历史记录'
   Watch History: '观看历史记录'
   Your history list is currently empty.: 您的历史记录列表目前是空的。
   Search bar placeholder: 在播放历史中搜索
+  Empty Search Message: 匹配搜索的历史记录中没有视频
 Settings:
   # On Settings Page
   Settings: '设置'
