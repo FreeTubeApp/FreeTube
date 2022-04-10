@@ -1,0 +1,15 @@
+name: "Set PR Label"
+on:
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  test:
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Naturalclar/issue-action@v2.0.2
+        with:
+          title-or-body: "both"
+          parameters: '[ {"keywords": ["Important note", "Pull Request Type", "Related issue", "Dependent PR/issue", "Description", "Screenshots", "Testing", "Desktop", "Additional context"], "labels": ["PR: waiting for review"]}]'
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
