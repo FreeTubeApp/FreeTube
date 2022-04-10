@@ -7,7 +7,7 @@ Use YouTube without advertisements and prevent Google from tracking you with the
 Available for Windows, Mac & Linux thanks to Electron.
 
 Please note that FreeTube is currently in Beta. While it should work well for
-most users, there are still bugs and missing features that need to be
+
 addressed.
 
 [Download FreeTube](https://github.com/FreeTubeApp/FreeTube/releases)
