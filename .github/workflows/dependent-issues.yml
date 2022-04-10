@@ -1,0 +1,60 @@
+name: Dependent Issues
+
+on:
+  issues:
+    types:
+      - opened
+      - edited
+      - closed
+      - reopened
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - closed
+      - reopened
+      # Makes sure we always add status check for PRs. Useful only if
+      # this action is required to pass before merging. Otherwise, it
+      # can be removed.
+      - synchronize
+
+  # Schedule a hourly check. Useful if you reference cross-repository
+  # issues or pull requests. Otherwise, it can be removed.
+  schedule:
+    - cron: '0 * * * *'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: z0al/dependent-issues@v1.5.1
+        env:
+          # (Required) The token to use to make API calls to GitHub.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # (Optional) The token to use to make API calls to GitHub for remote repos.
+          GITHUB_READ_TOKEN: ${{ secrets.GITHUB_READ_TOKEN }}
+
+        with:
+          # (Optional) The label to use to mark dependent issues
+          label: "PR/Issue: dependent"
+
+          # (Optional) Enable checking for dependencies in issues.
+          # Enable by setting the value to "on". Default "off"
+          check_issues: on
+
+          # (Optional) Ignore dependabot PRs.
+          # Enable by setting the value to "on". Default "off"
+          ignore_dependabot: off
+
+          # (Optional) A comma-separated list of keywords. Default
+          # "depends on, blocked by"
+          keywords: depends on, blocked by
+
+          # (Optional) A custom comment body. It supports `{{ dependencies }}` token.
+          comment: >
+            Alright! Looks like we need to wait for some _dependencies:_
+
+            {{ dependencies }}
+            
+
+            Don't worry, I will continue watching the list above and keep this comment updated. To add or remove a dependency please update the description of this PR/issue.

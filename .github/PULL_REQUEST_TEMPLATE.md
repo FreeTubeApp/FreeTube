@@ -13,6 +13,9 @@ Please select what type of pull request this is:
 **Related issue**
 Please link the issue your pull request is referring to. If this pull request fully resolves the relevant issue, put "closes" before the issue number. Example: "closes #123456".
 
+**Dependent PR/issue**
+Please link the pull request or issue your pull request is dependent on to be merged or closed before merging this pull request. Put "depends on" or "blocked by" before the issue number. Example: "blocked by #" or "depends on #".
+
 **Description**
 Please write a clear and concise description of what the pull request does.
 
