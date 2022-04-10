@@ -93,12 +93,14 @@ User Playlists:
     إحتفضت عليها أو فضّلتها. عندما يكمل العمل بالكامل على هذه الصفحة, سترى كل فيديواتك
     هنا تنتقل إلى قائمة تشغيل تسمى "المفضلة".
   Search bar placeholder: بحث في قائمة التشغيل
+  Empty Search Message: لا توجد مقاطع فيديو في قائمة التشغيل هذه تتطابق مع بحثك
 History:
   # On History Page
   History: 'السجلّ'
   Watch History: 'سجلّ المشاهدات'
   Your history list is currently empty.: 'قائمة سجلّك فارغة حالياً.'
   Search bar placeholder: البحث في السجل
+  Empty Search Message: لا توجد مقاطع فيديو في السجل الخاص بك تطابق بحثك
 Settings:
   # On Settings Page
   Settings: 'الإعدادات'

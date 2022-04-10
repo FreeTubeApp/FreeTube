@@ -98,12 +98,15 @@ User Playlists:
     die Arbeiten abgeschlossen sind, werden alle Videos, die sich derzeit hier befinden,
     in eine Wiedergabeliste „Favoriten“ migriert.
   Search bar placeholder: In Wiedergabeliste suchen
+  Empty Search Message: Es gibt keine Videos in dieser Wiedergabeliste, die deiner
+    Suche entsprechen
 History:
   # On History Page
   History: Verlauf
   Watch History: Wiedergabeverlauf
   Your history list is currently empty.: Dein Verlauf ist aktuell leer.
   Search bar placeholder: Im Verlauf suchen
+  Empty Search Message: Es gibt keine Videos in Ihrem Verlauf, die deiner Suche entsprechen
 Settings:
   # On Settings Page
   Settings: Einstellungen

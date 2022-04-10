@@ -93,12 +93,14 @@ User Playlists:
     ole tallentanut videoita. Paina "Tallenna" painiketta videon kulmassa tallentaaksesi
     sen tänne
   Search bar placeholder: Etsi soittolistalta
+  Empty Search Message: Tällä soittolistalla ei ole videoita, jotka vastaavat hakuasi
 History:
   # On History Page
   History: 'Historia'
   Watch History: 'Katseluhistoria'
   Your history list is currently empty.: Historiasi on tällä hetkellä tyhjä.
   Search bar placeholder: Etsi historiasta
+  Empty Search Message: Historiassasi ei ole videoita, jotka vastaisivat hakuasi
 Settings:
   # On Settings Page
   Settings: 'Asetukset'
