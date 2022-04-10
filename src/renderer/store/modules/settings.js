@@ -325,7 +325,9 @@ const customActions = {
           dispatch(defaultSideEffectsTriggerId(_id), value)
         }
 
-        commit(defaultMutationId(_id), value)
+        if (Object.keys(mutations).includes(defaultMutationId(_id))) {
+          commit(defaultMutationId(_id), value)
+        }
       }
     } catch (errMessage) {
       console.error(errMessage)
