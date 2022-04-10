@@ -1,0 +1,39 @@
+name: Remove outdated labels
+on:
+  # https://github.community/t/github-actions-are-severely-limited-on-prs/18179/15
+  pull_request_target:
+    types:
+      - closed
+  issues:
+    types:
+      - closed
+jobs:
+  remove-merged-pr-labels:
+    name: Remove merged pull request labels
+    if: github.event.pull_request.merged
+    runs-on: ubuntu-latest
+    steps:
+      - uses: mondeja/remove-labels-gh-action@v1.1.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          labels: |
+            PR: waiting for review
+            PR: WIP
+            PR: changes requested
+            PR: merge conflicts / rebase needed
+            PR/Issue: dependent
+
+  remove-closed-pr-labels:
+    name: Remove closed pull request labels
+    if: github.event_name == 'pull_request_target' && (! github.event.pull_request.merged)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: mondeja/remove-labels-gh-action@v1.1.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          labels: |
+            PR: waiting for review
+            PR: WIP
+            PR: changes requested
+            PR: merge conflicts / rebase needed
+            PR/Issue: dependent      
