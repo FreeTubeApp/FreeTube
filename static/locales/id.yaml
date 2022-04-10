@@ -102,12 +102,16 @@ User Playlists:
     Ini hanya mencantumkan video yang telah Anda simpan atau favorit. Setelah selesai,
     semua video yang ada di sini akan dipindahkan ke daftar putar 'Favorit'.
   Search bar placeholder: Cari di Daftar Putar
+  Empty Search Message: Tidak ada video di dalam daftar putar ini yang cocok dengan
+    pencarian Anda
 History:
   # On History Page
   History: 'Riwayat'
   Watch History: 'Riwayat Tontonan'
   Your history list is currently empty.: 'Daftar riwayat Anda kosong.'
   Search bar placeholder: Cari di Riwayat
+  Empty Search Message: Tidak ada video di dalam riwayat pemutaran yang cocok dengan
+    pencarian Anda
 Settings:
   # On Settings Page
   Settings: 'Pengaturan'
