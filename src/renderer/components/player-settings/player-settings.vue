@@ -115,6 +115,22 @@
         value-extension="×"
         @change="updateDefaultPlayback"
       />
+      <ft-slider
+        :label="$t('Settings.Player Settings.Max Video Playback Rate')"
+        :default-value="maxVideoPlaybackRate"
+        :min-value="2"
+        :max-value="10"
+        :step="1"
+        value-extension="x"
+        @change="updateMaxVideoPlaybackRate"
+      />
+      <ft-select
+        :placeholder="$t('Settings.Player Settings.Video Playback Rate Interval')"
+        :value="videoPlaybackRateInterval"
+        :select-names="playbackRateIntervalValues"
+        :select-values="playbackRateIntervalValues"
+        @change="updateVideoPlaybackRateInterval"
+      />
     </ft-flex-box>
     <ft-flex-box>
       <ft-select

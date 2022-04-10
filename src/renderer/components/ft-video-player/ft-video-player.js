@@ -126,21 +126,7 @@ export default Vue.extend({
             'qualitySelector',
             'fullscreenToggle'
           ]
-        },
-        playbackRates: [
-          0.25,
-          0.5,
-          0.75,
-          1,
-          1.25,
-          1.5,
-          1.75,
-          2,
-          2.25,
-          2.5,
-          2.75,
-          3
-        ]
+        }
       }
     }
   },
@@ -200,6 +186,27 @@ export default Vue.extend({
 
     displayVideoPlayButton: function() {
       return this.$store.getters.getDisplayVideoPlayButton
+    },
+
+    maxVideoPlaybackRate: function () {
+      return parseInt(this.$store.getters.getMaxVideoPlaybackRate)
+    },
+
+    videoPlaybackRateInterval: function () {
+      return parseFloat(this.$store.getters.getVideoPlaybackRateInterval)
+    },
+
+    playbackRates: function () {
+      const playbackRates = []
+      let i = this.videoPlaybackRateInterval
+
+      while (i <= this.maxVideoPlaybackRate) {
+        playbackRates.push(i)
+        i = i + this.videoPlaybackRateInterval
+        i = parseFloat(i.toFixed(2))
+      }
+
+      return playbackRates
     }
   },
   watch: {
@@ -215,6 +222,8 @@ export default Vue.extend({
     if (volume !== null) {
       this.volume = volume
     }
+
+    this.dataSetup.playbackRates = this.playbackRates
 
     this.createFullWindowButton()
     this.createLoopButton()
@@ -983,7 +992,7 @@ export default Vue.extend({
     changePlayBackRate: function (rate) {
       const newPlaybackRate = (this.player.playbackRate() + rate).toFixed(2)
 
-      if (newPlaybackRate >= 0.25 && newPlaybackRate <= 8) {
+      if (newPlaybackRate >= this.videoPlaybackRateInterval && newPlaybackRate <= this.maxVideoPlaybackRate) {
         this.player.playbackRate(newPlaybackRate)
       }
     },
@@ -1515,13 +1524,13 @@ export default Vue.extend({
             // O Key
             // Decrease playback rate by 0.25x
             event.preventDefault()
-            this.changePlayBackRate(-0.25)
+            this.changePlayBackRate(-this.videoPlaybackRateInterval)
             break
           case 80:
             // P Key
             // Increase playback rate by 0.25x
             event.preventDefault()
-            this.changePlayBackRate(0.25)
+            this.changePlayBackRate(this.videoPlaybackRateInterval)
             break
           case 70:
             // F Key

@@ -212,6 +212,8 @@ Settings:
     Fast-Forward / Rewind Interval: Fast-Forward / Rewind Interval
     Default Volume: Default Volume
     Default Playback Rate: Default Playback Rate
+    Max Video Playback Rate: Max Video Playback Rate
+    Video Playback Rate Interval: Video Playback Rate Interval
     Default Video Format:
       Default Video Format: Default Video Format
       Dash Formats: DASH Formats

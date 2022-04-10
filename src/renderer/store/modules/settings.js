@@ -203,6 +203,7 @@ const state = {
   hideLabelsSideBar: false,
   landingPage: 'subscriptions',
   listType: 'grid',
+  maxVideoPlaybackRate: 3,
   playNextVideo: false,
   proxyHostname: '127.0.0.1',
   proxyPort: '9050',
@@ -220,6 +221,7 @@ const state = {
   useSponsorBlock: false,
   videoVolumeMouseScroll: false,
   videoPlaybackRateMouseScroll: false,
+  videoPlaybackRateInterval: 0.25,
   downloadFolderPath: ''
 }
 
