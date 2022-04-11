@@ -212,6 +212,8 @@ Settings:
     Scroll Volume Over Video Player: 在视频播放器上滑动音量
     Fast-Forward / Rewind Interval: 快进/快退间隔
     Scroll Playback Rate Over Video Player: 滚动调整视频播放器回放速度
+    Max Video Playback Rate: 视频最大播放速率
+    Video Playback Rate Interval: 视频播放速率间隔
   Subscription Settings:
     Subscription Settings: '订阅设置'
     Hide Videos on Watch: '观看时隐藏视频'
