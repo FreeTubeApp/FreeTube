@@ -1,12 +1,6 @@
 name: Dependent Issues
 
 on:
-  issues:
-    types:
-      - opened
-      - edited
-      - closed
-      - reopened
   pull_request_target:
     types:
       - opened
@@ -36,7 +30,7 @@ jobs:
 
         with:
           # (Optional) The label to use to mark dependent issues
-          label: "PR/Issue: dependent"
+          label: "PR: dependent"
 
           # (Optional) Enable checking for dependencies in issues.
           # Enable by setting the value to "on". Default "off"
@@ -57,4 +51,4 @@ jobs:
             {{ dependencies }}
             
 
-            Don't worry, I will continue watching the list above and keep this comment updated. To add or remove a dependency please update the description of this PR/issue.
+            Don't worry, I will continue watching the list above and keep this comment updated. To add or remove a dependency please update the description of this PR.
