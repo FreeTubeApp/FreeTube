@@ -225,6 +225,8 @@ Settings:
     Display Play Button In Video Player: Prikaži gumb za pokretanje u video playeru
     Fast-Forward / Rewind Interval: Interval za premotavanje naprijed/natrag
     Scroll Playback Rate Over Video Player: Mijenjaj brzinu reprodukcije u video playeru
+    Video Playback Rate Interval: Interval brzine reprodukcije videa
+    Max Video Playback Rate: Maksimalna brzina reprodukcije videa
   Privacy Settings:
     Privacy Settings: 'Postavke privatnosti'
     Remember History: 'Zapamti povijest'
