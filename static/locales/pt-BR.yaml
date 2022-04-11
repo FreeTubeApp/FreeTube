@@ -95,6 +95,7 @@ User Playlists:
     Ele só lista vídeos que você salvou ou favoritos. Quando o trabalho estiver concluído,
     todos os vídeos atualmente aqui serão migrados para uma playlist 'Favoritos'.
   Search bar placeholder: Pesquisar na Lista de Reprodução
+  Empty Search Message: Não há vídeos nesta playlist que correspondam à sua pesquisa
 History:
   # On History Page
   History: 'Histórico'
