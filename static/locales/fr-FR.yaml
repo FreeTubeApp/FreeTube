@@ -237,6 +237,8 @@ Settings:
     Fast-Forward / Rewind Interval: Intervalle d'avance / de recul rapide
     Scroll Playback Rate Over Video Player: Faire défiler le taux de lecture sur le
       lecteur vidéo
+    Video Playback Rate Interval: Intervalle de débit de lecture vidéo
+    Max Video Playback Rate: Débit de lecture vidéo maximal
   Subscription Settings:
     Subscription Settings: 'Paramètres des abonnements'
     Hide Videos on Watch: 'Masquer les vidéos visionnées'
