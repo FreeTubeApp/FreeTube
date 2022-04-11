@@ -34,7 +34,7 @@ jobs:
 
           # (Optional) Enable checking for dependencies in issues.
           # Enable by setting the value to "on". Default "off"
-          check_issues: on
+          check_issues: off
 
           # (Optional) Ignore dependabot PRs.
           # Enable by setting the value to "on". Default "off"
