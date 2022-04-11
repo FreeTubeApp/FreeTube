@@ -1,4 +1,4 @@
-name: Dependent Issues
+name: Dependent PRs
 
 on:
   pull_request_target:
