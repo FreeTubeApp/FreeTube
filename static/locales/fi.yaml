@@ -221,6 +221,8 @@ Settings:
       päällä
     Fast-Forward / Rewind Interval: Pikakelauksen intervalli
     Scroll Playback Rate Over Video Player: Toistonopeuden selaaminen videosoittimessa
+    Max Video Playback Rate: Videon maksimitoistonopeus
+    Video Playback Rate Interval: Videon toistonopeuden aikaväli
   Subscription Settings:
     Subscription Settings: 'Tilausasetukset'
     Hide Videos on Watch: 'Piilota katsotut videot'
