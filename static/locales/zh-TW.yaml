@@ -88,12 +88,14 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 您播放清單的影片是空的。點擊影片角落的星星按鈕以將其列在此處
   Playlist Message: 此頁面無法列出完整的播放清單。其僅列出您已儲存或加入最愛的影片。工作完成後，所有目前在此的影片都會轉移到「最愛」播放清單。
   Search bar placeholder: 在播放清單搜尋
+  Empty Search Message: 此播放清單中沒有與您的搜尋相符的影片
 History:
   # On History Page
   History: '觀看紀錄'
   Watch History: '觀看紀錄'
   Your history list is currently empty.: 尚未觀賞過任何影片，因此觀看紀錄清單為空。
   Search bar placeholder: 在觀看紀錄中搜尋
+  Empty Search Message: 您的歷史紀錄中沒有與您的搜尋相符的影片
 Settings:
   # On Settings Page
   Settings: '設定'
@@ -211,6 +213,8 @@ Settings:
     Display Play Button In Video Player: 在影片播放器中顯示播放按鈕
     Fast-Forward / Rewind Interval: 快轉／倒帶間隔
     Scroll Playback Rate Over Video Player: 在影片播放程式上捲動播放速度
+    Max Video Playback Rate: 最大影片播放速率
+    Video Playback Rate Interval: 影片播放速率間隔
   Subscription Settings:
     Subscription Settings: '訂閱設定'
     Hide Videos on Watch: '觀看時隱藏影片'
