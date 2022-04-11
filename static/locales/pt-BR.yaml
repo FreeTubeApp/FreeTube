@@ -102,6 +102,7 @@ History:
   Watch History: 'Histórico de visualizações'
   Your history list is currently empty.: 'Seu Histórico está vazio no momento.'
   Search bar placeholder: Pesquisar no histórico
+  Empty Search Message: Não há vídeos no seu histórico que correspondam à sua pesquisa
 Settings:
   # On Settings Page
   Settings: 'Configurações'
