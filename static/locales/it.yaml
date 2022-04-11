@@ -230,6 +230,8 @@ Settings:
     Scroll Volume Over Video Player: Controlla il volume scorrendo sul lettore video
     Scroll Playback Rate Over Video Player: Scorri la velocità di riproduzione sul
       lettore video
+    Video Playback Rate Interval: Intervallo di riproduzione video
+    Max Video Playback Rate: Velocità massima di riproduzione video
   Privacy Settings:
     Privacy Settings: 'Impostazioni della privacy'
     Remember History: 'Salva la cronologia'
