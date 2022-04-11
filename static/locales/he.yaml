@@ -224,6 +224,8 @@ Settings:
     Scroll Volume Over Video Player: גלילה על הסרטון לשינוי עצמת השמע
     Scroll Playback Rate Over Video Player: גלילת מהירות הנגינה על גבי נגן הווידאו
     Fast-Forward / Rewind Interval: משך קפיצה / חזרה
+    Max Video Playback Rate: קצב נגינת וידאו מרבי
+    Video Playback Rate Interval: הפרש קצב נגינת וידאו
   Privacy Settings:
     Privacy Settings: 'הגדרות פרטיות'
     Remember History: 'זכור את היסטוריית הצפייה'
