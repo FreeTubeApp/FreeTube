@@ -18,10 +18,10 @@ on:
       # can be removed.
       - synchronize
 
-  # Schedule a hourly check. Useful if you reference cross-repository
+  # Schedule a check every two hours. Useful if you reference cross-repository
   # issues or pull requests. Otherwise, it can be removed.
   schedule:
-    - cron: '0 * * * *'
+    - cron: '0 */2 * * *'
 
 jobs:
   check:
