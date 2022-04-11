@@ -97,12 +97,15 @@ User Playlists:
     prace nad tą stroną zostaną zakończone, wszystkie filmy tu obecne zostaną przeniesione
     do playlisty „Ulubione”.
   Search bar placeholder: Przeszukaj playlisty
+  Empty Search Message: Na tej playliście nie ma filmów, które pasowałyby do Twojego
+    zapytania
 History:
   # On History Page
   History: 'Historia'
   Watch History: 'Historia oglądania'
   Your history list is currently empty.: 'Twoja historia jest obecnie pusta.'
   Search bar placeholder: Przeszukaj historię
+  Empty Search Message: W historii nie ma filmów, które pasowałyby do Twojego zapytania
 Settings:
   # On Settings Page
   Settings: 'Ustawienia'
@@ -225,6 +228,8 @@ Settings:
     Fast-Forward / Rewind Interval: Interwał przewijania
     Scroll Playback Rate Over Video Player: Kontroluj szybkość odtwarzania kółkiem
       myszy na obszarze odtwarzania
+    Max Video Playback Rate: Maksymalna szybkość odtwarzania
+    Video Playback Rate Interval: Przeskoki w wyborze prędkości odtwarzania
   Subscription Settings:
     Subscription Settings: 'Ustawienia subskrypcji'
     Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
