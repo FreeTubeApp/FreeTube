@@ -229,6 +229,8 @@ Settings:
     Fast-Forward / Rewind Interval: Hızlı İleri / Geri Sarma Aralığı
     Scroll Playback Rate Over Video Player: Video Oynatıcı Üzerinde Kaydırarak Oynatma
       Hızını Denetle
+    Video Playback Rate Interval: Video Oynatma Hızı Aralığı
+    Max Video Playback Rate: En Yüksek Video Oynatma Hızı
   Privacy Settings:
     Privacy Settings: 'Gizlilik Ayarları'
     Remember History: 'Geçmişi Hatırla'
