@@ -228,6 +228,8 @@ Settings:
     Scroll Volume Over Video Player: Lautstärke durch Scrollen auf Video ändern
     Fast-Forward / Rewind Interval: Intervall für schnelles Vor-/Zurückspulen
     Scroll Playback Rate Over Video Player: Scroll-Wiedergaberate über Video-Player
+    Video Playback Rate Interval: Intervall für die Videowiedergaberate
+    Max Video Playback Rate: Maximale Wiedergabegeschwindigkeit
   Subscription Settings:
     Subscription Settings: Abonnement-Einstellungen
     Hide Videos on Watch: Verstecke Videos bei Wiedergabe

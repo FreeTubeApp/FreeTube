@@ -226,6 +226,8 @@ Settings:
     Fast-Forward / Rewind Interval: Intervalo de avance/rebobinado rápido
     Scroll Playback Rate Over Video Player: Cambiar la velocidad de reproducción con
       el ratón
+    Max Video Playback Rate: Velocidad máxima de reproducción de vídeo
+    Video Playback Rate Interval: Intervalo de velocidad de reproducción de vídeo
   Privacy Settings:
     Privacy Settings: 'Privacidad'
     Remember History: 'Recordar historial'
