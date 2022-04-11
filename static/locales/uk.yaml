@@ -235,6 +235,8 @@ Settings:
     Fast-Forward / Rewind Interval: Інтервал перемотування вперед/назад
     Scroll Playback Rate Over Video Player: Контроль швидкості відтворення коліщам
       миші у відеопрогравачі
+    Video Playback Rate Interval: Інтервал швидкості відтворення відео
+    Max Video Playback Rate: Максимальна швидкість відтворення відео
   Privacy Settings:
     Privacy Settings: 'Налаштування приватності'
     Remember History: 'Збрігати історію'
