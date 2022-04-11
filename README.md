@@ -10,6 +10,13 @@ Please note that FreeTube is currently in Beta. While it should work well for
 most users, there are still bugs and missing features that need to be
 addressed.
 
+a
+b
+c
+d
+e
+f
+
 [Download FreeTube](https://github.com/FreeTubeApp/FreeTube/releases)
 
 ### Browser Extension
