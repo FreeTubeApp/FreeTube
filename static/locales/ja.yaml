@@ -85,9 +85,9 @@ Most Popular: '人気'
 Playlists: '再生リスト'
 User Playlists:
   Your Playlists: 'あなたの再生リスト'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 保存した動画はありません。一覧に表示させるには、ビデオの角にある保存ボタンをクリックする
-  Playlist Message: このページは、完全に動作するプレイリストではありません。保存またはお気に入りと設定した動画のみが表示されます。操作が完了すると、現在ここにあるすべての動画は「お気に入り」のプレイリストに移動します。
-  Search bar placeholder: プレイリスト内の検索
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 保存した動画はありません。一覧に表示させるには、ビデオの角にある保存ボタンをクリックします
+  Playlist Message: このページは、完全に動作する動画リストではありません。保存またはお気に入りと設定した動画のみが表示されます。操作が完了すると、現在ここにあるすべての動画は「お気に入り」の動画リストに移動します。
+  Search bar placeholder: 動画リスト内の検索
   Empty Search Message: この再生リストに、検索に一致する動画はありません
 History:
   # On History Page
@@ -208,11 +208,13 @@ Settings:
       4k: '4K'
       8k: '8K'
     Playlist Next Video Interval: 次の再生リストを再生する間隔
-    Next Video Interval: 次のビデオまでの間隔
+    Next Video Interval: 次の動画までの間隔
     Fast-Forward / Rewind Interval: 早送り/巻き戻し間隔
-    Display Play Button In Video Player: ビデオプレーヤーで再生ボタンを表示する
-    Scroll Volume Over Video Player: ビデオプレーヤーの上にボリュームをスクロール
+    Display Play Button In Video Player: 動画プレーヤーで再生ボタンを表示する
+    Scroll Volume Over Video Player: 動画プレーヤーの上でボリュームをスクロール
     Scroll Playback Rate Over Video Player: 動画の再生速度の調整
+    Max Video Playback Rate: 最大動画再生速度
+    Video Playback Rate Interval: 動画再生速度間隔
   Subscription Settings:
     Subscription Settings: '登録チャンネルの設定'
     Hide Videos on Watch: '視聴済み動画の非表示'
@@ -503,7 +505,7 @@ Video:
   Started streaming on: ライブ配信の開始
   Streamed on: ライブ配信
   Video has been removed from your saved list: 動画を保存一覧から削除しました
-  Video has been saved: ビデオを保存しました
+  Video has been saved: 動画を保存しました
   Save Video: 動画の保存
   translated from English: 英語から翻訳
   Sponsor Block category:
@@ -518,16 +520,16 @@ Video:
     OpeningTemplate: '% で $ を開く...'
     Unsupported Actions:
       looping playlists: 再生リストのループ
-      shuffling playlists: シャッフルプレイリスト
-      reversing playlists: プレイリストを反転させる
-      opening specific video in a playlist (falling back to opening the video): プレイリストで特定のビデオを開く
+      shuffling playlists: シャッフル動画リスト
+      reversing playlists: 動画リストを反転させる
+      opening specific video in a playlist (falling back to opening the video): 再生リストで特定のビデオを開く
         (ビデオを開く前にフォールバック)
-      opening playlists: プレイリストを開く
+      opening playlists: 動画リストを開く
       setting a playback rate: 再生レートの設定
-      starting video at offset: オフセット時にビデオを開始する
+      starting video at offset: オフセットで動画の再生
     UnsupportedActionTemplate: '$ はサポートしていません: %'
     playlist: 再生リスト
-    video: ビデオ
+    video: 動画
     OpenInTemplate: $ で開く
   Premieres on: プレミア公開
   Stats:
@@ -573,7 +575,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
-  Playlist: プレイリスト
+  Playlist: 動画リスト
 Toggle Theatre Mode: 'サイズ変更'
 Change Format:
   Change Video Formats: '動画形式の変更'
@@ -691,9 +693,8 @@ Tooltips:
     Force Local Backend for Legacy Formats: Invidious API の選択時にのみ実行します。有効にすると、Invidious
       サーバーから取得した動画形式ではなく、内部 API で取得した旧形式を使用します。Invidious サーバーから取得する動画が、youtube の視聴制限国に該当して再生できないことがあるので回避します。
     Proxy Videos Through Invidious: 動画を取得するため、YouTube ではなく Invidious に接続します。API 設定を書き換えます。
-    Scroll Playback Rate Over Video Player: カーソルがビデオ上にあるときに、Ctrl キー（Mac では Command
-      キー）を押したまま、マウスホイールを前後にスクロールして再生速度を調整します。Control キー（Mac では Command キー）を押したままマウスを左クリックすると、すぐにデフォルトの再生速度（設定を変更していない場合は
-      1 x）に戻ります。
+    Scroll Playback Rate Over Video Player: カーソルが動画上にあるとき、Ctrl キー（Mac では Command キー）を押したまま、マウスホイールを前後にスクロールして再生速度を調整します。Control
+      キー（Mac では Command キー）を押したままマウスを左クリックすると、すぐにデフォルトの再生速度（設定を変更していない場合は 1 x）に戻ります。
   General Settings:
     Invidious Instance: FreeTube が使用する Invidious API の接続先サーバーです。
     Preferred API Backend: FreeTube が youtube からデータを取得する方法を選択します。「内部 API」とはアプリから取得する方法です。「Invidious
@@ -705,16 +706,16 @@ Tooltips:
     External Link Handling: "FreeTube で開けないリンクをクリックしたときのデフォルトの動作を選択します。\nデフォルトでは、FreeTube\
       \ はクリックしたリンクをデフォルトのブラウザで開きます。\n"
   Privacy Settings:
-    Remove Video Meta Files: 有効にすると、FreeTube はビデオ再生中に作成したメタファイルを、再生ページを閉じるときに自動的に削除します。
+    Remove Video Meta Files: 有効にすると、FreeTube は動画再生中に作成したメタファイルを、再生ページを閉じるときに自動的に削除します。
   External Player Settings:
     Custom External Player Arguments: '";"、セミコロンで区切られたカスタム コマンド ライン引数を外部プレーヤーに渡します。'
-    Ignore Warnings: 現在の外部プレーヤーが、現在のアクションに未対応の場合（プレイリストの反転など）に警告を抑制します。
+    Ignore Warnings: 現在の外部プレーヤーが、現在のアクションに未対応の場合（動画リストの反転など）に警告を抑制します。
     Custom External Player Executable: デフォルトでは、FreeTube　は選択した外部プレーヤーが PATH 環境変数を介して見つかると想定します。必要に応じて、カスタム
       パスをここで設定できます。
-    External Player: 外部プレーヤーを選択すると、ビデオ (サポートされている場合はプレイリスト) を開くためのアイコンが表示されます。
+    External Player: 外部プレーヤーを選択すると、動画（対応している場合は再生リスト）を開くためのアイコンが表示されます。
     DefaultCustomArgumentsTemplate: "（デフォルト: '$'）"
-Playing Next Video Interval: すぐに次のビデオを再生します。クリックするとキャンセル。|次のビデオを {nextVideoInterval}
-  秒で再生します。クリックするとキャンセル。|次のビデオを {nextVideoInterval} 秒で再生します。クリックするとキャンセル。
+Playing Next Video Interval: すぐに次の動画を再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval}
+  秒で再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval} 秒で再生します。クリックするとキャンセル。
 More: もっと見る
 Hashtags have not yet been implemented, try again later: ハッシュタグは未実装です。実装後に実行してください
 Unknown YouTube url type, cannot be opened in app: 不明な YouTube URL の種類、アプリで実行できません
