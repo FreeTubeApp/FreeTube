@@ -96,12 +96,14 @@ User Playlists:
     этой страницы все видео, которые сейчас находятся здесь, переместятся в плейлист
     "Избранное".
   Search bar placeholder: Поиск в Плейлисте
+  Empty Search Message: В этом плейлисте нет видео, соответствующих вашему запросу
 History:
   # On History Page
   History: 'История'
   Watch History: 'Посмотреть историю'
   Your history list is currently empty.: 'История просмотров в настоящее время пуста.'
   Search bar placeholder: Поиск в Истории
+  Empty Search Message: В вашей истории нет видео, соответствующих вашему запросу
 Settings:
   # On Settings Page
   Settings: 'Настройки'
@@ -224,6 +226,8 @@ Settings:
     Fast-Forward / Rewind Interval: Интервал перемотки вперед/назад
     Scroll Playback Rate Over Video Player: Прокрутка скорости воспроизведения поверх
       видеоплеера
+    Max Video Playback Rate: Максимальная скорость воспроизведения
+    Video Playback Rate Interval: Интервал скорости воспроизведения видео
   Subscription Settings:
     Subscription Settings: 'Подписки'
     Hide Videos on Watch: 'Скрывать видео после просмотра'
