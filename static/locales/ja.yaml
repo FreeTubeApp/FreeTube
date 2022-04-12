@@ -88,12 +88,14 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 保存した動画はありません。一覧に表示させるには、ビデオの角にある保存ボタンをクリックする
   Playlist Message: このページは、完全に動作するプレイリストではありません。保存またはお気に入りと設定した動画のみが表示されます。操作が完了すると、現在ここにあるすべての動画は「お気に入り」のプレイリストに移動します。
   Search bar placeholder: プレイリスト内の検索
+  Empty Search Message: この再生リストに、検索に一致する動画はありません
 History:
   # On History Page
   History: '履歴'
   Watch History: '視聴履歴'
   Your history list is currently empty.: 履歴はありません。
   Search bar placeholder: 履歴の検索
+  Empty Search Message: 履歴に、検索に一致する動画はありません
 Settings:
   # On Settings Page
   Settings: '設定'
