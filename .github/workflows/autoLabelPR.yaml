@@ -12,4 +12,4 @@ jobs:
         with:
           title-or-body: "both"
           parameters: '[ {"keywords": ["Important note", "Pull Request Type", "Related issue", "Dependent PR/issue", "Description", "Screenshots", "Testing", "Desktop", "Additional context"], "labels": ["PR: waiting for review"]}]'
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
+          github-token: "${{ secrets.LABEL_TOKEN }}"
