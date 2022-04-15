@@ -16,4 +16,4 @@ jobs:
           changes-requested-label-name: "PR: changes requested"
           updated-pr-label-name: "PR: waiting for review"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.LABEL_TOKEN }}
