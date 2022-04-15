@@ -104,12 +104,15 @@ User Playlists:
     acabat, tots els vídeos que hi ha actualment es migraran a una llista de reproducció
     de "favorites".
   Search bar placeholder: Cerca a la llista de reproducció
+  Empty Search Message: No hi ha cap vídeo en aquesta llista de reproducció que coincideixi
+    amb la teva cerca
 History:
   # On History Page
   History: 'Historial'
   Watch History: 'Veure l''historial'
   Your history list is currently empty.: 'El teu historial està actualment buit.'
   Search bar placeholder: Cerca a l'historial
+  Empty Search Message: No hi ha cap vídeo a l'historial que coincideixi amb la cerca
 Settings:
   # On Settings Page
   Settings: 'Configuració'
@@ -231,6 +234,9 @@ Settings:
     Next Video Interval: Interval de vídeo següent
     Scroll Playback Rate Over Video Player: Desplaça la velocitat de reproducció sobre
       el reproductor de vídeo
+    Fast-Forward / Rewind Interval: Interval d'avançament / retrocés ràpid
+    Max Video Playback Rate: Velocitat màxima de reproducció de vídeo
+    Video Playback Rate Interval: Interval de velocitat de reproducció de vídeo
   Privacy Settings:
     Privacy Settings: 'Configuració de la Privacitat'
     Remember History: 'Recorda l''historial'
@@ -251,7 +257,7 @@ Settings:
   Subscription Settings:
     Subscription Settings: 'Configuració de les subscripcions'
     Hide Videos on Watch: 'Oculta els vídeos visualitzats'
-    Fetch Feeds from RSS: ''
+    Fetch Feeds from RSS: 'Recupera els canals de continguts des de l''RSS'
     Manage Subscriptions: 'Gestiona les subscripcions'
   Data Settings:
     Data Settings: 'Configuració de les dades'
@@ -268,7 +274,7 @@ Settings:
     Import History: 'Importa l''historial'
     Export History: 'Exporta l''historial'
     Profile object has insufficient data, skipping item: 'Aquest perfil no té dades
-      suficients, saltant l''objecte'
+      suficients, ometent l''objecte'
     All subscriptions and profiles have been successfully imported: 'Totes les subscripcions
       i perfils s''han importat amb èxit'
     All subscriptions have been successfully imported: 'Totes les subscripcions s''han
@@ -369,7 +375,7 @@ Settings:
   Download Settings:
     Choose Path: Escull el camí
     Download Settings: Configuració de les descàrregues
-    Ask Download Path: Demana un camí de descàrrega
+    Ask Download Path: Demaneu la ruta de descàrrega
 About:
   #On About page
   About: 'Sobre'
@@ -419,26 +425,29 @@ About:
   FreeTube Wiki: FreeTube Wiki
 Profile:
   Profile Select: 'Selecciona perfil'
-  All Channels: ''
+  All Channels: 'Tots els canals'
   Profile Manager: ''
   Create New Profile: ''
-  Edit Profile: ''
-  Color Picker: ''
-  Custom Color: ''
-  Profile Preview: ''
-  Create Profile: ''
-  Update Profile: ''
-  Make Default Profile: ''
-  Delete Profile: ''
-  Are you sure you want to delete this profile?: ''
-  All subscriptions will also be deleted.: ''
-  Profile could not be found: ''
-  Your profile name cannot be empty: ''
-  Profile has been created: ''
-  Profile has been updated: ''
-  Your default profile has been set to $: ''
-  Removed $ from your profiles: ''
-  Your default profile has been changed to your primary profile: ''
+  Edit Profile: 'Editar el perfil'
+  Color Picker: 'Selector de colors'
+  Custom Color: 'Color personalitzat'
+  Profile Preview: 'Vista prèvia del perfil'
+  Create Profile: 'Crear un perfil'
+  Update Profile: 'Actualitzar el perfil'
+  Make Default Profile: 'Establir un perfil per defecte'
+  Delete Profile: 'Suprimir el perfil'
+  Are you sure you want to delete this profile?: 'Estàs segur que vols suprimir aquest
+    perfil?'
+  All subscriptions will also be deleted.: 'També se suprimiran totes les subscripcions.'
+  Profile could not be found: 'No s''ha pogut trobar el perfil'
+  Your profile name cannot be empty: 'El nom del perfil no pot estar buit'
+  Profile has been created: 'S''ha creat el perfil'
+  Profile has been updated: 'S''ha actualitzat el perfil'
+  Your default profile has been set to $: 'El vostre perfil predeterminat s''ha establert
+    a $'
+  Removed $ from your profiles: 'S''ha eliminat $ dels teus perfils'
+  Your default profile has been changed to your primary profile: 'El perfil per defecte
+    s''ha canviat al perfil principal'
   $ is now the active profile: ''
   Subscription List: ''
   Other Channels: ''
@@ -454,6 +463,7 @@ Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
 #On Channel Page
   Profile Settings: Configuració del perfil
+  Profile Filter: Filtre de perfil
 Channel:
   Subscriber: ''
   Subscribers: ''
