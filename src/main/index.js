@@ -507,15 +507,37 @@ function runApp() {
 
     const boundsDoc = await baseHandlers.settings._findBounds()
     if (typeof boundsDoc?.value === 'object') {
-      const { maximized, fullScreen, ...bounds } = boundsDoc.value
-      const allDisplaysSummaryWidth = screen
-        .getAllDisplays()
-        .reduce((accumulator, { size: { width } }) => accumulator + width, 0)
+      const { maximized, fullScreen, offset = null, ...bounds } = boundsDoc.value
 
-      if (allDisplaysSummaryWidth >= bounds.x) {
+      const { workArea } = screen.getDisplayNearestPoint({ x: bounds.x, y: bounds.y })
+
+      // check if the window bounds are on the nearest display
+      // workArea is the size of the display minus taskbars
+      if (bounds.x > workArea.x &&
+        bounds.x < workArea.x + workArea.width &&
+        bounds.y > workArea.y &&
+        bounds.y < workArea.y + workArea.height) {
+        //
         newWindow.setBounds({
           x: bounds.x,
           y: bounds.y,
+          width: bounds.width,
+          height: bounds.height
+        })
+      } else if (offset !== null) {
+        // offset contains the offsets from the top left of the work area
+      // this allows us to position the window with the same offsets
+      // on the nearest display as it was on the one it was closed on
+      // even if the nearest display has a different resolution
+        newWindow.setBounds({
+          x: workArea.x + workArea.width * offset.x,
+          y: workArea.y + workArea.height * offset.y,
+          width: bounds.width,
+          height: bounds.height
+        })
+      } else {
+        // fallback as the offsets won't exist when opening the first time after upgrading
+        newWindow.setBounds({
           width: bounds.width,
           height: bounds.height
         })
@@ -582,10 +604,23 @@ function runApp() {
         return
       }
 
+      const bounds = newWindow.getNormalBounds()
+      const { workArea } = screen.getDisplayNearestPoint({ x: bounds.x, y: bounds.y })
+
+      // offset contains the offsets from the top left of the work area
+      // this allows us to position the window with the same offsets
+      // on the nearest display as it was on the one it was closed on
+      // even if the nearest display has a different resolution
+      const offset = {
+        x: (bounds.x - workArea.x) / workArea.width,
+        y: (bounds.y - workArea.y) / workArea.height
+      }
+
       const value = {
-        ...newWindow.getNormalBounds(),
-        maximized: newWindow.isMaximized(),
-        fullScreen: newWindow.isFullScreen()
+        ...bounds,
+        offset,
+        fullScreen: newWindow.isFullScreen(),
+        maximized: newWindow.isMaximized()
       }
 
       await baseHandlers.settings._updateBounds(value)
