@@ -310,7 +310,7 @@ export default Vue.extend({
             }
           }
 
-          if ((this.isLive || this.isLiveContent) && !this.isUpcoming) {
+          if ((this.isLive && this.isLiveContent) && !this.isUpcoming) {
             this.enableLegacyFormat()
 
             this.videoSourceList = result.formats.filter((format) => {
