@@ -99,12 +99,15 @@ User Playlists:
     we klaar zijn met de ontwikkeling van deze feature zullen al deze video's worden
     gemigreerd naar de 'favorieten' afspeellijst.
   Search bar placeholder: In Afspeellijst zoeken
+  Empty Search Message: Deze afspeellijst bevat geen video's die overeenkomen met
+    de zoekopdracht
 History:
   # On History Page
   History: 'Geschiedenis'
   Watch History: 'Kijkgeschiedenis'
   Your history list is currently empty.: 'Uw geschiedenis is momenteel leeg.'
   Search bar placeholder: In Geschiedenis zoeken
+  Empty Search Message: Geschiedenis bevat geen video's die overeenkomen met de zoekopdracht
 Settings:
   # On Settings Page
   Settings: 'Instellingen'
@@ -225,6 +228,8 @@ Settings:
     Scroll Volume Over Video Player: Volume veranderen door in het videokader te scrollen
     Fast-Forward / Rewind Interval: Snelheid van doorspoelen/terugspoelen
     Scroll Playback Rate Over Video Player: Afspeelsnelheid op videospeler scrollen
+    Max Video Playback Rate: Maximale afspeelsnelheid
+    Video Playback Rate Interval: Interval video-afspeelsnelheid
   Privacy Settings:
     Privacy Settings: 'Privacy-instellingen'
     Remember History: 'Kijkgeschiedenis onthouden'
