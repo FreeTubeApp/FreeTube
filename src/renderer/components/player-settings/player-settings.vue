@@ -149,6 +149,43 @@
         @change="updateDefaultQuality"
       />
     </ft-flex-box>
+    <br>
+    <ft-flex-box>
+      <ft-select
+        :placeholder="$t('Settings.Player Settings.Screenshot.Format Label')"
+        :value="screenshotFormat"
+        :select-names="screenshotNames"
+        :select-values="screenshotValues"
+        @change="updateScreenshotFormat"
+      />
+      <ft-slider
+        :label="$t('Settings.Player Settings.Screenshot.Quality Label')"
+        :default-value="screenshotQuality"
+        :min-value="0"
+        :max-value="100"
+        :step="1"
+        value-extension="%"
+        :disabled="screenshotFormat !== 'jpg'"
+        @change="updateScreenshotQuality"
+      />
+    </ft-flex-box>
+    <ft-flex-box class="screenshotFolderContainer">
+      <p class="screenshotFolderLabel">
+        {{ $t('Settings.Player Settings.Screenshot.Folder Label') }}
+      </p>
+      <ft-input
+        class="screenshotFolderPath"
+        :placeholder="screenshotFolderPlaceholder"
+        :show-action-button="false"
+        :show-label="false"
+        :disabled="true"
+      />
+      <ft-button
+        :label="$t('Settings.Player Settings.Screenshot.Folder Button')"
+        class="screenshotFolderButton"
+        @click="chooseScreenshotFolder"
+      />
+    </ft-flex-box>
   </details>
 </template>
 

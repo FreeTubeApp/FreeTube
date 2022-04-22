@@ -5,6 +5,11 @@ import FtSelect from '../ft-select/ft-select.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtSlider from '../ft-slider/ft-slider.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
+import FtButton from '../ft-button/ft-button.vue'
+import FtInput from '../ft-input/ft-input.vue'
+import { ipcRenderer } from 'electron'
+import { IpcChannels } from '../../../constants'
+import path from 'path'
 
 export default Vue.extend({
   name: 'PlayerSettings',
@@ -13,7 +18,9 @@ export default Vue.extend({
     'ft-select': FtSelect,
     'ft-toggle-switch': FtToggleSwitch,
     'ft-slider': FtSlider,
-    'ft-flex-box': FtFlexBox
+    'ft-flex-box': FtFlexBox,
+    'ft-button': FtButton,
+    'ft-input': FtInput
   },
   data: function () {
     return {
@@ -36,7 +43,16 @@ export default Vue.extend({
         0.25,
         0.5,
         1
-      ]
+      ],
+      screenshotNames: [
+        'PNG',
+        'JPEG'
+      ],
+      screenshotValues: [
+        'png',
+        'jpg'
+      ],
+      screenshotFolderPlaceholder: ''
     }
   },
   computed: {
@@ -138,9 +154,50 @@ export default Vue.extend({
         this.$t('Settings.Player Settings.Default Quality.720p'),
         this.$t('Settings.Player Settings.Default Quality.1080p')
       ]
+    },
+
+    screenshotFormat: function() {
+      return this.$store.getters.getScreenshotFormat
+    },
+
+    screenshotQuality: function() {
+      return this.$store.getters.getScreenshotQuality
+    },
+
+    screenshotFolder: function() {
+      return this.$store.getters.getScreenshotFolderPath
     }
   },
+  mounted: function() {
+    this.getScreenshotFolderPlaceholder()
+  },
   methods: {
+    getScreenshotEmptyFolderPlaceholder: async function() {
+      return path.join(await this.getPicturesPath(), 'Freetube')
+    },
+
+    getScreenshotFolderPlaceholder: function() {
+      if (this.screenshotFolder !== '') {
+        this.screenshotFolderPlaceholder = this.screenshotFolder
+        return
+      }
+      this.getScreenshotEmptyFolderPlaceholder().then((res) => {
+        this.screenshotFolderPlaceholder = res
+      })
+    },
+
+    chooseScreenshotFolder: async function() {
+      // only use with electron
+      const folder = await ipcRenderer.invoke(
+        IpcChannels.SHOW_OPEN_DIALOG,
+        { properties: ['openDirectory'] }
+      )
+
+      if (!folder.canceled) {
+        this.updateScreenshotFolderPath(folder.filePaths[0])
+      }
+    },
+
     ...mapActions([
       'updateAutoplayVideos',
       'updateAutoplayPlaylists',
@@ -159,7 +216,12 @@ export default Vue.extend({
       'updateVideoPlaybackRateMouseScroll',
       'updateDisplayVideoPlayButton',
       'updateMaxVideoPlaybackRate',
-      'updateVideoPlaybackRateInterval'
+      'updateVideoPlaybackRateInterval',
+      'updateDisplayVideoPlayButton',
+      'updateScreenshotFormat',
+      'updateScreenshotQuality',
+      'updateScreenshotFolderPath',
+      'getPicturesPath'
     ])
   }
 })

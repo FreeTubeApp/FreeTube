@@ -26,6 +26,10 @@ export default Vue.extend({
     valueExtension: {
       type: String,
       default: null
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   data: function () {

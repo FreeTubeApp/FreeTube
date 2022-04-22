@@ -405,6 +405,10 @@ function runApp() {
     event.returnValue = app.getPath('userData')
   })
 
+  ipcMain.handle(IpcChannels.GET_PICTURES_PATH, () => {
+    return app.getPath('pictures')
+  })
+
   ipcMain.handle(IpcChannels.SHOW_OPEN_DIALOG, async (_, options) => {
     return await dialog.showOpenDialog(options)
   })

@@ -291,6 +291,11 @@ const actions = {
     return await invokeIRC(context, IpcChannels.GET_USER_DATA_PATH, webCbk)
   },
 
+  async getPicturesPath (context) {
+    const webCbk = () => null
+    return await invokeIRC(context, IpcChannels.GET_PICTURES_PATH, webCbk)
+  },
+
   updateShowProgressBar ({ commit }, value) {
     commit('setShowProgressBar', value)
   },

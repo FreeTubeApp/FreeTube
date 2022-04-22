@@ -222,7 +222,10 @@ const state = {
   videoVolumeMouseScroll: false,
   videoPlaybackRateMouseScroll: false,
   videoPlaybackRateInterval: 0.25,
-  downloadFolderPath: ''
+  downloadFolderPath: '',
+  screenshotFormat: 'png',
+  screenshotQuality: 95,
+  screenshotFolderPath: ''
 }
 
 const stateWithSideEffects = {

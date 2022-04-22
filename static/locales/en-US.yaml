@@ -232,6 +232,11 @@ Settings:
       1440p: 1440p
       4k: 4k
       8k: 8k
+    Screenshot:
+      Format Label: Screenshot Format
+      Quality Label: Screenshot Quality
+      Folder Label: Screenshot Folder
+      Folder Button: Select Folder
   External Player Settings:
     External Player Settings: External Player Settings
     External Player: External Player

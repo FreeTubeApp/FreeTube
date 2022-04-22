@@ -209,6 +209,18 @@ export default Vue.extend({
       }
 
       return playbackRates
+    },
+
+    screenshotFormat: function() {
+      return this.$store.getters.getScreenshotFormat
+    },
+
+    screenshotQuality: function() {
+      return this.$store.getters.getScreenshotQuality
+    },
+
+    screenshotFolder: function() {
+      return this.$store.getters.getScreenshotFolderPath
     }
   },
   watch: {
@@ -1226,14 +1238,17 @@ export default Vue.extend({
       filename += `T${time.getHours().toString().padStart(2, '0')}${time.getMinutes().toString().padStart(2, '0')}${time.getSeconds().toString().padStart(2, '0')}.${time.getMilliseconds().toString().padStart(3, '0')}`
       filename += ` ${this.videoId} ${parseInt(playerTime)}.${(playerTime % 1).toString().slice(2, 5) || '000'}`
 
-      const format = 'png' // todo: jpg?
+      const format = this.screenshotFormat
       const mimeType = `image/${format === 'jpg' ? 'jpeg' : format}`
-      const imageQuality = 1
+      const imageQuality = format === 'jpg' ? this.screenshotQuality / 100 : 1
 
-      // todo: OS and folder
-      const folder = '/Pictures/Screenshots/'
-      const dirPath = path.join(process.env.USERPROFILE, folder)
-      const filePath = path.join(dirPath, `${filename}.${format}`)
+      let dirPath
+      if (this.screenshotFolder === '') {
+        dirPath = path.join(await this.getPicturesPath(), 'Freetube')
+      } else {
+        dirPath = this.screenshotFolder
+      }
+
       if (!fs.existsSync(dirPath)) {
         try {
           fs.mkdirSync(dirPath)
@@ -1248,6 +1263,7 @@ export default Vue.extend({
       canvas.toBlob((result) => {
         result.arrayBuffer().then(ab => {
           const arr = new Uint8Array(ab)
+          const filePath = path.join(dirPath, `${filename}.${format}`)
 
           fs.writeFile(filePath, arr, (err) => {
             if (err) {
@@ -1808,7 +1824,8 @@ export default Vue.extend({
       'calculateColorLuminance',
       'updateDefaultCaptionSettings',
       'showToast',
-      'sponsorBlockSkipSegments'
+      'sponsorBlockSkipSegments',
+      'getPicturesPath'
     ])
   }
 })
