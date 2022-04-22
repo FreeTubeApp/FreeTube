@@ -6,6 +6,7 @@ import $ from 'jquery'
 import videojs from 'video.js'
 import qualitySelector from '@silvermine/videojs-quality-selector'
 import fs from 'fs'
+import path from 'path'
 import 'videojs-overlay/dist/videojs-overlay'
 import 'videojs-overlay/dist/videojs-overlay.css'
 import 'videojs-vtt-thumbnails-freetube'
@@ -115,6 +116,7 @@ export default Vue.extend({
             'seekToLive',
             'remainingTimeDisplay',
             'customControlSpacer',
+            'screenshotButton',
             'playbackRateMenuButton',
             'loopButton',
             'chaptersButton',
@@ -228,6 +230,7 @@ export default Vue.extend({
     this.createFullWindowButton()
     this.createLoopButton()
     this.createToggleTheatreModeButton()
+    this.createScreenshotButton()
     this.determineFormatType()
     this.determineMaxFramerate()
 
@@ -1182,6 +1185,81 @@ export default Vue.extend({
       this.$parent.toggleTheatreMode()
     },
 
+    createScreenshotButton: function() {
+      const VjsButton = videojs.getComponent('Button')
+      const screenshotButton = videojs.extend(VjsButton, {
+        constructor: function(player, options) {
+          VjsButton.call(this, player, options)
+        },
+        handleClick: () => {
+          this.takeScreenshot()
+        },
+        createControlTextEl: function (button) {
+          return $(button)
+            .html('<div id="screenshotButton" class="vjs-icon-screenshot vjs-button"></div>')
+            .attr('title', 'Take Screenshot')
+        }
+      })
+
+      videojs.registerComponent('screenshotButton', screenshotButton)
+    },
+
+    takeScreenshot: async function() {
+      const width = this.player.videoWidth()
+      const height = this.player.videoHeight()
+      if (width <= 0) {
+        return
+      }
+
+      // Need to set crossorigin="anonymous" for LegacyFormat on Invidious
+      // https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image
+      const video = document.querySelector('video')
+      const canvas = document.createElement('canvas')
+      canvas.width = width
+      canvas.height = height
+      canvas.getContext('2d').drawImage(video, 0, 0)
+
+      // https://en.wikipedia.org/wiki/ISO_8601
+      const time = new Date(Date.now())
+      const playerTime = this.player.currentTime()
+      let filename = `${time.getFullYear()}${(time.getMonth() + 1).toString().padStart(2, '0')}${time.getDate().toString().padStart(2, '0')}`
+      filename += `T${time.getHours().toString().padStart(2, '0')}${time.getMinutes().toString().padStart(2, '0')}${time.getSeconds().toString().padStart(2, '0')}.${time.getMilliseconds().toString().padStart(3, '0')}`
+      filename += ` ${this.videoId} ${parseInt(playerTime)}.${(playerTime % 1).toString().slice(2, 5) || '000'}`
+
+      const format = 'png' // todo: jpg?
+      const mimeType = `image/${format === 'jpg' ? 'jpeg' : format}`
+      const imageQuality = 1
+
+      // todo: OS and folder
+      const folder = '/Pictures/Screenshots/'
+      const dirPath = path.join(process.env.USERPROFILE, folder)
+      const filePath = path.join(dirPath, `${filename}.${format}`)
+      if (!fs.existsSync(dirPath)) {
+        try {
+          fs.mkdirSync(dirPath)
+        } catch (err) {
+          console.error(err)
+          return
+        }
+      }
+
+      // https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toBlob
+      // https://github.com/videojs/video.js/issues/4630
+      canvas.toBlob((result) => {
+        result.arrayBuffer().then(ab => {
+          const arr = new Uint8Array(ab)
+
+          fs.writeFile(filePath, arr, (err) => {
+            if (err) {
+              console.error(err)
+            } else {
+              console.log(`File written successfully ${width} ${height}\n${filePath}`)
+            }
+          })
+        })
+      }, mimeType, imageQuality)
+    },
+
     createDashQualitySelector: function (levels) {
       if (levels.levels_.length === 0) {
         setTimeout(() => {
@@ -1709,6 +1787,19 @@ export default Vue.extend({
             // Toggle Theatre Mode
             this.toggleTheatreMode()
             break
+          case 85:
+            // U Key
+            // Take screenshot
+            this.takeScreenshot()
+            break
+          /// /////////////////////////////
+          // DELETE LATER
+          case 81:
+            // Q Key
+            // set player to 10 sec
+            this.player.currentTime(10)
+            break
+          /// /////////////////////////////
         }
       }
     },
