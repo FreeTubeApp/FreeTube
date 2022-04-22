@@ -7,6 +7,7 @@ import FtSlider from '../ft-slider/ft-slider.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtInput from '../ft-input/ft-input.vue'
+import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
 import { ipcRenderer } from 'electron'
 import { IpcChannels } from '../../../constants'
 import path from 'path'
@@ -20,7 +21,8 @@ export default Vue.extend({
     'ft-slider': FtSlider,
     'ft-flex-box': FtFlexBox,
     'ft-button': FtButton,
-    'ft-input': FtInput
+    'ft-input': FtInput,
+    'ft-tooltip': FtTooltip
   },
   data: function () {
     return {
@@ -52,7 +54,8 @@ export default Vue.extend({
         'png',
         'jpg'
       ],
-      screenshotFolderPlaceholder: ''
+      screenshotFolderPlaceholder: '',
+      screenshotFilenameExample: ''
     }
   },
   computed: {
@@ -166,12 +169,22 @@ export default Vue.extend({
 
     screenshotFolder: function() {
       return this.$store.getters.getScreenshotFolderPath
+    },
+
+    screenshotFilenamePattern: function() {
+      return this.$store.getters.getScreenshotFilenamePattern
     }
   },
   mounted: function() {
     this.getScreenshotFolderPlaceholder()
+    this.getScreenshotFilenameExample()
   },
   methods: {
+    handleUpdateScreenshotFormat: async function(format) {
+      await this.updateScreenshotFormat(format)
+      this.getScreenshotFilenameExample()
+    },
+
     getScreenshotEmptyFolderPlaceholder: async function() {
       return path.join(await this.getPicturesPath(), 'Freetube')
     },
@@ -198,6 +211,27 @@ export default Vue.extend({
       }
     },
 
+    handleScreenshotFilenamePatternChanged: async function(input) {
+      if (input) {
+        await this.updateScreenshotFilenamePattern(input)
+      } else {
+        await this.updateScreenshotFilenamePattern('%Y%M%D-%H%N%S')
+      }
+      this.getScreenshotFilenameExample()
+    },
+
+    getScreenshotFilenameExample: function() {
+      this.parseScreenshotCustomFileName({
+        date: new Date(Date.now()),
+        playerTime: 123.456,
+        videoId: 'dQw4w9WgXcQ'
+      }).then(res => {
+        this.screenshotFilenameExample = `${res}.${this.screenshotFormat}`
+      }).catch(err => {
+        this.screenshotFilenameExample = `❗ ${this.$t(`Settings.Player Settings.Screenshot.Error.${err.message}`)}`
+      })
+    },
+
     ...mapActions([
       'updateAutoplayVideos',
       'updateAutoplayPlaylists',
@@ -221,6 +255,8 @@ export default Vue.extend({
       'updateScreenshotFormat',
       'updateScreenshotQuality',
       'updateScreenshotFolderPath',
+      'updateScreenshotFilenamePattern',
+      'parseScreenshotCustomFileName',
       'getPicturesPath'
     ])
   }

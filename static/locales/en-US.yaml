@@ -237,6 +237,13 @@ Settings:
       Quality Label: Screenshot Quality
       Folder Label: Screenshot Folder
       Folder Button: Select Folder
+      File Name Label: Filename Pattern
+      File Name Tooltip: You can use variables below. %Y Year 4 digits. %M Month 2 digits.
+        %D Day 2 digits. %H Hour 2 digits. %N Minute 2 digits. %S Second 2 digits. %T Millisecond 3 digits.
+        %s Video Second. %t Video Millisecond 3 digits. %i Video ID. You can also use "\" or "/" to create subfolders.
+      Error:
+        Forbidden Characters: Forbidden Characters
+        Empty File Name: Empty File Name
   External Player Settings:
     External Player Settings: External Player Settings
     External Player: External Player
@@ -736,6 +743,8 @@ External link opening has been disabled in the general settings: 'External link 
 Downloading has completed: '"$" has finished downloading'
 Starting download: 'Starting download of "$"'
 Downloading failed: 'There was an issue downloading "$"'
+Screenshot Success: Saved screenshot as "$"
+Screenshot Error: Screenshot failed. $
 
 Yes: Yes
 No: No

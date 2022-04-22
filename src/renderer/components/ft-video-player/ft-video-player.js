@@ -1231,12 +1231,28 @@ export default Vue.extend({
       canvas.height = height
       canvas.getContext('2d').drawImage(video, 0, 0)
 
-      // https://en.wikipedia.org/wiki/ISO_8601
-      const time = new Date(Date.now())
-      const playerTime = this.player.currentTime()
-      let filename = `${time.getFullYear()}${(time.getMonth() + 1).toString().padStart(2, '0')}${time.getDate().toString().padStart(2, '0')}`
-      filename += `T${time.getHours().toString().padStart(2, '0')}${time.getMinutes().toString().padStart(2, '0')}${time.getSeconds().toString().padStart(2, '0')}.${time.getMilliseconds().toString().padStart(3, '0')}`
-      filename += ` ${this.videoId} ${parseInt(playerTime)}.${(playerTime % 1).toString().slice(2, 5) || '000'}`
+      let filename
+      try {
+        filename = await this.parseScreenshotCustomFileName({
+          date: new Date(Date.now()),
+          playerTime: this.player.currentTime(),
+          videoId: this.videoId
+        })
+      } catch (err) {
+        console.error(`Parse failed: ${err.message}`)
+        this.showToast({
+          message: this.$t('Screenshot Error').replace('$', err.message)
+        })
+        return
+      }
+
+      const dirChar = process.platform === 'win32' ? '\\' : '/'
+      let subDir = ''
+      if (filename.indexOf(dirChar) !== -1) {
+        const lastIndex = filename.lastIndexOf(dirChar)
+        subDir = filename.substring(0, lastIndex)
+        filename = filename.substring(lastIndex + 1)
+      }
 
       const format = this.screenshotFormat
       const mimeType = `image/${format === 'jpg' ? 'jpeg' : format}`
@@ -1244,16 +1260,19 @@ export default Vue.extend({
 
       let dirPath
       if (this.screenshotFolder === '') {
-        dirPath = path.join(await this.getPicturesPath(), 'Freetube')
+        dirPath = path.join(await this.getPicturesPath(), 'Freetube', subDir)
       } else {
-        dirPath = this.screenshotFolder
+        dirPath = path.join(this.screenshotFolder, subDir)
       }
 
       if (!fs.existsSync(dirPath)) {
         try {
-          fs.mkdirSync(dirPath)
+          fs.mkdirSync(dirPath, { recursive: true })
         } catch (err) {
           console.error(err)
+          this.showToast({
+            message: this.$t('Screenshot Error').replace('$', err)
+          })
           return
         }
       }
@@ -1268,8 +1287,14 @@ export default Vue.extend({
           fs.writeFile(filePath, arr, (err) => {
             if (err) {
               console.error(err)
+              this.showToast({
+                message: this.$t('Screenshot Error').replace('$', err)
+              })
             } else {
               console.log(`File written successfully ${width} ${height}\n${filePath}`)
+              this.showToast({
+                message: this.$t('Screenshot Success').replace('$', filePath)
+              })
             }
           })
         })
@@ -1808,14 +1833,6 @@ export default Vue.extend({
             // Take screenshot
             this.takeScreenshot()
             break
-          /// /////////////////////////////
-          // DELETE LATER
-          case 81:
-            // Q Key
-            // set player to 10 sec
-            this.player.currentTime(10)
-            break
-          /// /////////////////////////////
         }
       }
     },
@@ -1825,6 +1842,7 @@ export default Vue.extend({
       'updateDefaultCaptionSettings',
       'showToast',
       'sponsorBlockSkipSegments',
+      'parseScreenshotCustomFileName',
       'getPicturesPath'
     ])
   }

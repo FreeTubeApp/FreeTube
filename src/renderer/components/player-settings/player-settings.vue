@@ -156,7 +156,7 @@
         :value="screenshotFormat"
         :select-names="screenshotNames"
         :select-values="screenshotValues"
-        @change="updateScreenshotFormat"
+        @change="handleUpdateScreenshotFormat"
       />
       <ft-slider
         :label="$t('Settings.Player Settings.Screenshot.Quality Label')"
@@ -184,6 +184,32 @@
         :label="$t('Settings.Player Settings.Screenshot.Folder Button')"
         class="screenshotFolderButton"
         @click="chooseScreenshotFolder"
+      />
+    </ft-flex-box>
+    <ft-flex-box class="screenshotFolderContainer">
+      <p class="screenshotFilenamePatternTitle">
+        {{ $t('Settings.Player Settings.Screenshot.File Name Label') }}
+        <ft-tooltip
+          class="selectTooltip"
+          position="bottom"
+          :tooltip="$t('Settings.Player Settings.Screenshot.File Name Tooltip')"
+        />
+      </p>
+      <ft-input
+        class="screenshotFilenamePatternInput"
+        placeholder=""
+        :value="screenshotFilenamePattern"
+        :spellcheck="false"
+        :show-action-button="false"
+        :show-label="false"
+        @input="handleScreenshotFilenamePatternChanged"
+      />
+      <ft-input
+        class="screenshotFilenamePatternExample"
+        :placeholder="`${screenshotFilenameExample}`"
+        :show-action-button="false"
+        :show-label="false"
+        :disabled="true"
       />
     </ft-flex-box>
   </details>

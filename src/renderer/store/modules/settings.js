@@ -225,7 +225,8 @@ const state = {
   downloadFolderPath: '',
   screenshotFormat: 'png',
   screenshotQuality: 95,
-  screenshotFolderPath: ''
+  screenshotFolderPath: '',
+  screenshotFilenamePattern: '%Y%M%D-%H%N%S'
 }
 
 const stateWithSideEffects = {
