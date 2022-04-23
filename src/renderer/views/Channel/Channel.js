@@ -479,7 +479,6 @@ export default Vue.extend({
       }
 
       this.invidiousAPICall(payload).then((response) => {
-        console.log(response)
         this.playlistContinuationString = response.continuation
         this.latestPlaylists = response.playlists
         this.isElementListLoading = false
@@ -523,7 +522,6 @@ export default Vue.extend({
       }
 
       this.invidiousAPICall(payload).then((response) => {
-        console.log(response)
         this.playlistContinuationString = response.continuation
         this.latestPlaylists = this.latestPlaylists.concat(response.playlists)
         this.isElementListLoading = false
