@@ -226,6 +226,8 @@ Settings:
     Fast-Forward / Rewind Interval: Intervalo de avanço / retrocesso rápido
     Scroll Playback Rate Over Video Player: Rolar a taxa de reprodução sobre o reprodutor
       de vídeo
+    Max Video Playback Rate: Taxa máxima de reprodução de vídeo
+    Video Playback Rate Interval: Intervalo da taxa de reprodução de vídeo
   Subscription Settings:
     Subscription Settings: 'Configurações de inscrições'
     Hide Videos on Watch: 'Esconder vídeos após assisti-los'
