@@ -645,15 +645,17 @@ Change Format:
 Share:
   Share Video: 'Comparteix Vídeo'
   Include Timestamp: 'Afegeix Marca De Temps'
-  Copy Link: ''
-  Open Link: ''
-  Copy Embed: ''
-  Open Embed: ''
+  Copy Link: 'Copia l''Enllaç'
+  Open Link: 'Obri l''Enllaç'
+  Copy Embed: 'Copia Incrustat'
+  Open Embed: 'Obri Incrustat'
   # On Click
-  Invidious URL copied to clipboard: ''
-  Invidious Embed URL copied to clipboard: ''
-  YouTube URL copied to clipboard: ''
-  YouTube Embed URL copied to clipboard: ''
+  Invidious URL copied to clipboard: 'URL d''Invidious copiada al porta-retalls'
+  Invidious Embed URL copied to clipboard: 'URL d''Incrustació d''Invidious copiada
+    al porta-retalls'
+  YouTube URL copied to clipboard: 'URL de YouTube copiada al porta-retalls'
+  YouTube Embed URL copied to clipboard: 'URL d''Incrustació de YouTube copiada al
+    porta-retalls'
 Mini Player: ''
 Comments:
   Comments: ''
