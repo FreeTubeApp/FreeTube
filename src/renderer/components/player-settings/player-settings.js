@@ -207,7 +207,8 @@ export default Vue.extend({
       )
 
       if (!folder.canceled) {
-        this.updateScreenshotFolderPath(folder.filePaths[0])
+        await this.updateScreenshotFolderPath(folder.filePaths[0])
+        this.getScreenshotFolderPlaceholder()
       }
     },
 
