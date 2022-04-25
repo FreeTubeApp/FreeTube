@@ -252,7 +252,6 @@ export default Vue.extend({
       'updateDisplayVideoPlayButton',
       'updateMaxVideoPlaybackRate',
       'updateVideoPlaybackRateInterval',
-      'updateDisplayVideoPlayButton',
       'updateScreenshotFormat',
       'updateScreenshotQuality',
       'updateScreenshotFolderPath',
