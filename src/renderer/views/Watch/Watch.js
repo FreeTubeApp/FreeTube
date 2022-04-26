@@ -8,6 +8,7 @@ import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtVideoPlayer from '../../components/ft-video-player/ft-video-player.vue'
 import WatchVideoInfo from '../../components/watch-video-info/watch-video-info.vue'
+import WatchVideoChapters from '../../components/watch-video-chapters/watch-video-chapters.vue'
 import WatchVideoDescription from '../../components/watch-video-description/watch-video-description.vue'
 import WatchVideoComments from '../../components/watch-video-comments/watch-video-comments.vue'
 import WatchVideoLiveChat from '../../components/watch-video-live-chat/watch-video-live-chat.vue'
@@ -24,6 +25,7 @@ export default Vue.extend({
     'ft-element-list': FtElementList,
     'ft-video-player': FtVideoPlayer,
     'watch-video-info': WatchVideoInfo,
+    'watch-video-chapters': WatchVideoChapters,
     'watch-video-description': WatchVideoDescription,
     'watch-video-comments': WatchVideoComments,
     'watch-video-live-chat': WatchVideoLiveChat,
@@ -61,6 +63,8 @@ export default Vue.extend({
       videoLikeCount: 0,
       videoDislikeCount: 0,
       videoLengthSeconds: 0,
+      videoChapters: [],
+      videoCurrentChapterIndex: 0,
       channelName: '',
       channelThumbnail: '',
       channelId: '',
@@ -164,6 +168,9 @@ export default Vue.extend({
     },
     currentLocale: function () {
       return i18n.locale.replace('_', '-')
+    },
+    hideChapters: function () {
+      return this.$store.getters.getHideChapters
     }
   },
   watch: {
@@ -371,6 +378,23 @@ export default Vue.extend({
               this.channelSubscriptionCountText = `${subCount / 1000}K`
             } else {
               this.channelSubscriptionCountText = Intl.NumberFormat(this.currentLocale).format(subCount)
+            }
+          }
+
+          this.videoChapters = []
+          if (!this.hideChapters) {
+            const rawChapters = result.response.playerOverlays.playerOverlayRenderer.decoratedPlayerBarRenderer?.decoratedPlayerBarRenderer.playerBar?.multiMarkersPlayerBarRenderer.markersMap.find(m => m.key === 'DESCRIPTION_CHAPTERS')?.value.chapters
+            if (rawChapters) {
+              for (const { chapterRenderer } of rawChapters) {
+                const seconds = chapterRenderer.timeRangeStartMillis / 1000
+
+                this.videoChapters.push({
+                  title: chapterRenderer.title.simpleText,
+                  timestamp: this.formatSecondsAsTimestamp(seconds),
+                  seconds: seconds,
+                  thumbnail: chapterRenderer.thumbnail.thumbnails[0].url
+                })
+              }
             }
           }
 
@@ -843,6 +867,26 @@ export default Vue.extend({
       }
     },
 
+    updateCurrentChapter: function () {
+      const chapters = this.videoChapters
+      if (chapters.length > 0) {
+        const currentSeconds = this.getTimestamp()
+        const currentChapterSeconds = chapters[this.videoCurrentChapterIndex].seconds
+
+        if (currentSeconds !== currentChapterSeconds) {
+          let i = currentSeconds < currentChapterSeconds ? 0 : this.videoCurrentChapterIndex
+
+          for (; i < chapters.length; i++) {
+            if (currentSeconds >= chapters[i].seconds &&
+              (i + 1 >= chapters.length || currentSeconds < chapters[i + 1].seconds)) {
+              this.videoCurrentChapterIndex = i
+              break
+            }
+          }
+        }
+      }
+    },
+
     addToHistory: function (watchProgress) {
       const videoData = {
         videoId: this.videoId,
@@ -1098,6 +1142,7 @@ export default Vue.extend({
 
       clearTimeout(this.playNextTimeout)
       clearInterval(this.playNextCountDownIntervalId)
+      this.videoChapters = []
 
       this.handleWatchProgress()
 
@@ -1399,6 +1444,38 @@ export default Vue.extend({
 
     updateTitle: function () {
       document.title = `${this.videoTitle} - FreeTube`
+    },
+
+    formatSecondsAsTimestamp(time) {
+      if (time === 0) {
+        return '0:00'
+      }
+
+      let hours = 0
+
+      if (time >= 3600) {
+        hours = Math.floor(time / 3600)
+        time = time - hours * 3600
+      }
+
+      let minutes = Math.floor(time / 60)
+      if (minutes < 10 && hours > 0) {
+        minutes = '0' + minutes
+      }
+
+      let seconds = time - minutes * 60
+      if (seconds < 10) {
+        seconds = '0' + seconds
+      }
+
+      let timestamp = ''
+      if (hours > 0) {
+        timestamp = hours + ':' + minutes + ':' + seconds
+      } else {
+        timestamp = minutes + ':' + seconds
+      }
+
+      return timestamp
     },
 
     ...mapActions([

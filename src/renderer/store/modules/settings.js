@@ -207,6 +207,7 @@ const state = {
   hideVideoViews: false,
   hideWatchedSubs: false,
   hideLabelsSideBar: false,
+  hideChapters: false,
   landingPage: 'subscriptions',
   listType: 'grid',
   maxVideoPlaybackRate: 3,

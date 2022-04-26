@@ -522,6 +522,7 @@ export default Vue.extend({
             this.playerStats = this.player.tech({ IWillNotUseThisInPlugins: true }).vhs.stats
             this.updateStatsContent()
           }
+          this.$emit('timeupdate')
         })
 
         this.player.textTrackSettings.on('modalclose', (_) => {

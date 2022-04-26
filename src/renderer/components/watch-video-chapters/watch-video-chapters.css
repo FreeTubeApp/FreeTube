@@ -1,0 +1,68 @@
+.videoChapters {
+  overflow-y: auto;
+  max-height: 300px;
+}
+
+.chaptersTitle {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  cursor: pointer;
+}
+
+.currentChapter {
+  font-size: 15px;
+}
+
+.currentChapter::before {
+  content: ' • ';
+}
+
+.chaptersWrapper {
+  margin-top: 15px;
+}
+
+.chapter {
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+
+.chapterThumbnail {
+  margin-right: 10px;
+}
+
+.chapterImage {
+  width: 130px;
+  height: auto;
+  margin: 2px;
+}
+
+.chapterImageCurrent {
+  border: solid 2px var(--accent-color);
+  margin: 0;
+}
+
+.chapterInfo {
+  flex: 1;
+  position: relative;
+}
+
+.chapterTitle {
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+.chapterTimestamp {
+  margin-top: 10px;
+}
+
+.chapterTimestamp>span {
+  padding: 3px 4px;
+  line-height: 1.2;
+  font-size: 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+  background-color: var(--accent-color);
+  color: var(--text-with-accent-color);
+}
