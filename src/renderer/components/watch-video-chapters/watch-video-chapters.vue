@@ -19,7 +19,7 @@
         v-for="(chapter, index) in chapters"
         :key="index"
         class="chapter"
-        @click="changeChapter(chapter.seconds)"
+        @click="changeChapter(chapter.startSeconds)"
       >
         <div
           v-if="chapter.thumbnail"

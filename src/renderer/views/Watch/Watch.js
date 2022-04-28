@@ -386,15 +386,21 @@ export default Vue.extend({
             const rawChapters = result.response.playerOverlays.playerOverlayRenderer.decoratedPlayerBarRenderer?.decoratedPlayerBarRenderer.playerBar?.multiMarkersPlayerBarRenderer.markersMap.find(m => m.key === 'DESCRIPTION_CHAPTERS')?.value.chapters
             if (rawChapters) {
               for (const { chapterRenderer } of rawChapters) {
-                const seconds = chapterRenderer.timeRangeStartMillis / 1000
+                const start = chapterRenderer.timeRangeStartMillis / 1000
 
                 this.videoChapters.push({
                   title: chapterRenderer.title.simpleText,
-                  timestamp: this.formatSecondsAsTimestamp(seconds),
-                  seconds: seconds,
+                  timestamp: this.formatSecondsAsTimestamp(start),
+                  startSeconds: start,
+                  endSeconds: 0,
                   thumbnail: chapterRenderer.thumbnail.thumbnails[0].url
                 })
               }
+
+              for (let i = 0; i < this.videoChapters.length - 1; i++) {
+                this.videoChapters[i].endSeconds = this.videoChapters[i + 1].startSeconds
+              }
+              this.videoChapters.at(-1).endSeconds = parseInt(result.videoDetails.lengthSeconds)
             }
           }
 
@@ -715,17 +721,25 @@ export default Vue.extend({
             const chapterMatches = result.description.matchAll(/^(?<timestamp>(?:(?<hours>\d+):)?(?<minutes>\d+):(?<seconds>\d+))\s+(?:[-–•—]\s+)?(?<title>.+)$/gm)
 
             for (const { groups } of chapterMatches) {
-              let seconds = 60 * Number(groups.minutes) + Number(groups.seconds)
+              let start = 60 * Number(groups.minutes) + Number(groups.seconds)
 
               if (groups.hours) {
-                seconds += 3600 * Number(groups.hours)
+                start += 3600 * Number(groups.hours)
               }
 
               this.videoChapters.push({
                 title: groups.title.trim(),
                 timestamp: groups.timestamp,
-                seconds: seconds
+                startSeconds: start,
+                endSeconds: 0
               })
+            }
+
+            if (this.videoChapters.length > 0) {
+              for (let i = 0; i < this.videoChapters.length - 1; i++) {
+                this.videoChapters[i].endSeconds = this.videoChapters[i + 1].startSeconds
+              }
+              this.videoChapters.at(-1).endSeconds = result.lengthSeconds
             }
           }
 
@@ -894,14 +908,13 @@ export default Vue.extend({
       const chapters = this.videoChapters
       if (chapters.length > 0) {
         const currentSeconds = this.getTimestamp()
-        const currentChapterSeconds = chapters[this.videoCurrentChapterIndex].seconds
+        const currentChapterStart = chapters[this.videoCurrentChapterIndex].startSeconds
 
-        if (currentSeconds !== currentChapterSeconds) {
-          let i = currentSeconds < currentChapterSeconds ? 0 : this.videoCurrentChapterIndex
+        if (currentSeconds !== currentChapterStart) {
+          let i = currentSeconds < currentChapterStart ? 0 : this.videoCurrentChapterIndex
 
           for (; i < chapters.length; i++) {
-            if (currentSeconds >= chapters[i].seconds &&
-              (i + 1 >= chapters.length || currentSeconds < chapters[i + 1].seconds)) {
+            if (currentSeconds < chapters[i].endSeconds) {
               this.videoCurrentChapterIndex = i
               break
             }
