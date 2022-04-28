@@ -768,8 +768,6 @@ Tooltips:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
       method for grabbing your subscription feed. RSS is faster and prevents IP blocking,
       but doesn't provide certain information like video duration or live status
-  Distraction Free Settings:
-    Hide Chapters: Chapters are always hidden when the preferred API backend is set to Invidious API, as the Invidious API does not provide chapter information.
   Privacy Settings:
     Remove Video Meta Files: When enabled, FreeTube automatically deletes meta files created during video playback,
       when the watch page is closed.

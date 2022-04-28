@@ -21,7 +21,10 @@
         class="chapter"
         @click="changeChapter(chapter.seconds)"
       >
-        <div class="chapterThumbnail">
+        <div
+          v-if="chapter.thumbnail"
+          class="chapterThumbnail"
+        >
           <img
             :src="chapter.thumbnail"
             class="chapterImage"

@@ -706,6 +706,29 @@ export default Vue.extend({
               break
           }
 
+          this.videoChapters = []
+          if (!this.hideChapters) {
+            // HH:MM:SS Text
+            // MM:SS Text
+            // HH:MM:SS - Text // separator is one of '-', '–', '•', '—'
+            // MM:SS - Text
+            const chapterMatches = result.description.matchAll(/^(?<timestamp>(?:(?<hours>\d+):)?(?<minutes>\d+):(?<seconds>\d+))\s+(?:[-–•—]\s+)?(?<title>.+)$/gm)
+
+            for (const { groups } of chapterMatches) {
+              let seconds = 60 * Number(groups.minutes) + Number(groups.seconds)
+
+              if (groups.hours) {
+                seconds += 3600 * Number(groups.hours)
+              }
+
+              this.videoChapters.push({
+                title: groups.title.trim(),
+                timestamp: groups.timestamp,
+                seconds: seconds
+              })
+            }
+          }
+
           if (this.isLive) {
             this.showLegacyPlayer = true
             this.showDashPlayer = false
