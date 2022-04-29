@@ -1578,7 +1578,7 @@ export default Vue.extend({
             // I Key
             event.preventDefault()
             // Toggle Picture in Picture Mode
-            if (!this.player.isInPictureInPicture()) {
+            if (this.format !== 'audio' && !this.player.isInPictureInPicture()) {
               this.player.requestPictureInPicture()
             } else if (this.player.isInPictureInPicture()) {
               this.player.exitPictureInPicture()
