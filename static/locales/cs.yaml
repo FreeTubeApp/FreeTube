@@ -231,6 +231,10 @@ Settings:
     Display Play Button In Video Player: Zobrazit tlačítko 'přehrát' ve video přehrávači
     Scroll Volume Over Video Player: Změnit hlasitost posouváním na videu
     Fast-Forward / Rewind Interval: Interval rychlého převíjení vpřed / vzad
+    Scroll Playback Rate Over Video Player: Změna rychlosti přehrávání posuvem kolečka
+      myši
+    Max Video Playback Rate: Maximální rychlost přehrávání videa
+    Video Playback Rate Interval: Interval rychlosti přehrávání videa
   Privacy Settings:
     Privacy Settings: 'Nastavení soukromí'
     Remember History: 'Zapamatovat historii'
@@ -303,6 +307,11 @@ Settings:
     Unknown data key: 'Neznámý datový klíč'
     How do I import my subscriptions?: 'Jak mohu importovat své odebírané kanály?'
     Manage Subscriptions: Spravovat odběry
+    Import Playlists: Importovat Playlisty
+    Export Playlists: Exportovat Playlisty
+    Playlist insufficient data: Nedostačující data pro playlist "$", přeskakuji
+    All playlists has been successfully imported: Všechny playlisty byly úspěšně importovány
+    All playlists has been successfully exported: Všechny playlisty byly úspěšně exportovány
   Advanced Settings:
     Advanced Settings: 'Rozšířené nastavení'
     Enable Debug Mode (Prints data to the console): 'Povolit režim ladění (výstup
@@ -358,6 +367,10 @@ Settings:
     Ignore Unsupported Action Warnings: Ignorovat varování u nepodporovaných akcích
     External Player: Externí přehrávač
     External Player Settings: Nastavení externího přehrávače
+  Download Settings:
+    Ask Download Path: Zeptat se na cestu umístění souboru
+    Download Settings: Nastavení stahování
+    Choose Path: Zvolit cestu
 About:
   #On About page
   About: 'O aplikaci'
@@ -599,6 +612,18 @@ Video:
     video: video
     OpenInTemplate: Otevřít v $
   Premieres on: Premiéry zapnuty
+  Stats:
+    Mimetype: Mimetype
+    Video statistics are not available for legacy videos: Statistiky videí nejsou
+      k dispozici pro starší videa
+    Video ID: ID videa
+    Resolution: Rozlišení
+    Player Dimensions: Rozměry přehrávače
+    Bitrate: Bitrate
+    Volume: Hlasitost
+    Bandwidth: Bandwidth
+    Buffered: Buffered
+    Dropped / Total Frames: Vyřazené / Celkový počet snímků
 Videos:
   #& Sort By
   Sort By:
@@ -710,6 +735,11 @@ Tooltips:
       DASH umožní přehrávat vyšší kvality. Starší formáty jsou omezeny na maximálně
       720p, ale používají menší šířku pásma. Zvukové formáty jsou streamy obsahující
       pouze audio.'
+    Scroll Playback Rate Over Video Player: Když je kurzor na videu, stisknutím a
+      podržením Ctrl (Command na Mac) a posouváním kolečka myši nahoru a dolu ovládejte
+      rychlost přehrávání. Stisknutím a podržením Ctrl (Command na Mac) a stisknutím
+      levého tlačítka myši se rychle vrátíte na výchozí rychlost přehrávání (1x, pokud
+      není změněná v nastavení).
   Subscription Settings:
     Fetch Feeds from RSS: 'Je-li povoleno, FreeTube použije RSS místo své výchozí
       metody pro získání vašeho odebírání kanálů. RSS je rychlejší a brání blokování
@@ -770,3 +800,6 @@ Search Bar:
 External link opening has been disabled in the general settings: Otevírání externích
   odkazů bylo v obecném nastavení zakázáno
 Are you sure you want to open this link?: Opravdu chcete otevřít tento dokaz?
+Downloading has completed: Bylo dokončeno stahování "$"
+Downloading failed: Došlo k problému při stahování "$"
+Starting download: Zahájení stahování "$"
