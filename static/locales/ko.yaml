@@ -65,9 +65,9 @@ Search Filters:
     Short (< 4 minutes): '짧음(4분이내)'
     Long (> 20 minutes): '긴(20분)'
   # On Search Page
-  Search Results: '검색결과'
-  Fetching results. Please wait: '결과를 불러오는중입니다. 잠시만 기다려주세요'
-  Fetch more results: '더보기'
+  Search Results: '검색 결과'
+  Fetching results. Please wait: '결과를 불러오는 중입니다. 잠시만 기다려 주세요'
+  Fetch more results: '검색 결과 더 보기'
 # Sidebar
   There are no more results for this search: 이 검색 결과에 대한 항목이 더 없습니다
 Subscriptions:
