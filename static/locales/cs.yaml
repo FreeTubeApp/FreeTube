@@ -100,11 +100,17 @@ User Playlists:
   Playlist Message: Tato stránka neodráží plně funkční seznamy skladeb. Uvádí pouze
     videa, která jste uložili nebo zařadili mezi oblíbená. Po dokončení práce budou
     všechna aktuálně zde umístěná videa přenesena do seznamu „Oblíbené“.
+  Search bar placeholder: Hledat v playlistech
+  Empty Search Message: V tomto playlistu nejsou žádná videa, která by odpovídala
+    vašemu vyhledávání
 History:
   # On History Page
   History: 'Historie'
   Watch History: 'Historie zhlédnutých videí'
   Your history list is currently empty.: 'Vaše historie je momentálně prázdná.'
+  Empty Search Message: Ve vaší historii nejsou žádná videa, která by odpovídala vašemu
+    vyhledávání
+  Search bar placeholder: Hledat v historii
 Settings:
   # On Settings Page
   Settings: 'Nastavení'
