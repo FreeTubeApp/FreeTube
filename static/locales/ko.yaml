@@ -136,7 +136,7 @@ Settings:
         #! List countries
     View all Invidious instance information: Indivious 서버의 전체 목록 보기
     Current Invidious Instance: 현재 Invidious 인스턴스
-    System Default: 시스템 기본값
+    System Default: 시스템 기본설정
     No default instance has been set: 기본 인스턴스가 설정되지 않았습니다
     The currently set default instance is $: 현재 설정된 기본 인스턴스는 $입니다
     Current instance will be randomized on startup: 현재 인스턴스는 시작 시 무작위로 지정됩니다
@@ -200,7 +200,7 @@ Settings:
     Default Playback Rate: '기본 재생속도'
     Default Video Format:
       Default Video Format: '기본 비디오 포맷'
-      Dash Formats: '대시 형식'
+      Dash Formats: 'DASH 포맷'
       Legacy Formats: '레거시'
       Audio Formats: '오디오'
     Default Quality:
@@ -217,9 +217,9 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: 재생 목록 다음 비디오 간격
     Fast-Forward / Rewind Interval: 빨리 감기/되감기 간격
-    Next Video Interval: 다음 비디오 간격
-    Scroll Volume Over Video Player: 비디오 플레이어에서 볼륨 스크롤
-    Display Play Button In Video Player: 비디오 플레이어에 재생 버튼 표시
+    Next Video Interval: 다음 비디오 재생 간격
+    Scroll Volume Over Video Player: 플레이어 위로 스크롤하여 볼륨조정
+    Display Play Button In Video Player: 비디오 플레이어 위에 재생 버튼 표시
   Privacy Settings:
     Privacy Settings: '개인정보 설정'
     Remember History: '기록 저장하기'
@@ -321,11 +321,11 @@ Settings:
     Enable Tor / Proxy: Tor / Proxy 사용
     Proxy Settings: 프록시 설정
   SponsorBlock Settings:
-    SponsorBlock Settings: 스폰서 차단 설정
-    Enable SponsorBlock: 스폰서 차단 활성화
-    Notify when sponsor segment is skipped: 스폰서 세그먼트를 건너뛸 때 알림
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 스폰서 차단 API Url (Default
-      is https://sponsor.ajay.app)
+    SponsorBlock Settings: SponsorBlock 설정
+    Enable SponsorBlock: SponsorBlock 사용
+    Notify when sponsor segment is skipped: 스폰서 구간을 건너뛸 경우 알림
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
+      주소 (기본 주소는 https://sponsor.ajay.app 입니다)
   External Player Settings:
     External Player Settings: 외부 플레이어 설정
     Custom External Player Arguments: 사용자 정의 외부 플레이어 인수
@@ -427,18 +427,18 @@ Channel:
   Removed subscription from $ other channel(s): '$ 다른 채널에서 구독을 제거했습니다'
   Added channel to your subscriptions: '구독에 채널을 추가했습니다'
   Search Channel: '채널 검색'
-  Your search results have returned 0 results: '검색 결과에 0개의 결과가 반환되었습니다'
-  Sort By: '정렬 기준'
+  Your search results have returned 0 results: '0 건이 검색되었습니다'
+  Sort By: '정렬하기'
   Videos:
-    Videos: '동영상'
-    This channel does not currently have any videos: '이 채널에는 현재 동영상이 없습니다'
+    Videos: '비디오'
+    This channel does not currently have any videos: '이 채널에는  비디오가 없습니다'
     Sort Types:
-      Newest: '최신'
-      Oldest: '오래된'
-      Most Popular: '가장 인기 많은'
+      Newest: '새로운 영상부터'
+      Oldest: '오래된 영상부터'
+      Most Popular: '인기순으로'
   Playlists:
-    Playlists: '재생 목록'
-    This channel does not currently have any playlists: '이 채널에는 현재 재생목록이 없습니다'
+    Playlists: '재생목록'
+    This channel does not currently have any playlists: '이 채널에는 재생목록이 없습니다'
     Sort Types:
       Last Video Added: '마지막으로 추가된 동영상'
       Newest: '최신'
