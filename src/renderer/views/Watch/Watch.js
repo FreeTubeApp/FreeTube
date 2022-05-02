@@ -75,7 +75,8 @@ export default Vue.extend({
       playlistId: '',
       timestamp: null,
       playNextTimeout: null,
-      playNextCountDownIntervalId: null
+      playNextCountDownIntervalId: null,
+      pictureInPictureButtonInverval: null
     }
   },
   computed: {
@@ -174,6 +175,21 @@ export default Vue.extend({
           }
           break
       }
+    },
+    activeFormat: function (format) {
+      clearInterval(this.pictureInPictureButtonInverval)
+
+      // only hide/show the button once the player is available
+      this.pictureInPictureButtonInverval = setInterval(() => {
+        if (!this.hidePlayer) {
+          if (format === 'audio') {
+            document.querySelector('.vjs-picture-in-picture-control').classList.add('vjs-hidden')
+          } else {
+            document.querySelector('.vjs-picture-in-picture-control').classList.remove('vjs-hidden')
+          }
+          clearInterval(this.pictureInPictureButtonInverval)
+        }
+      }, 100)
     }
   },
   mounted: function () {
