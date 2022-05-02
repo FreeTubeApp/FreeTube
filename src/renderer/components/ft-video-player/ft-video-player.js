@@ -1291,7 +1291,6 @@ export default Vue.extend({
                 message: this.$t('Screenshot Error').replace('$', err)
               })
             } else {
-              console.log(`File written successfully ${width} ${height}\n${filePath}`)
               this.showToast({
                 message: this.$t('Screenshot Success').replace('$', filePath)
               })

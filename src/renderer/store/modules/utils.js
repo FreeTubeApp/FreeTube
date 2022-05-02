@@ -298,7 +298,7 @@ const actions = {
 
   parseScreenshotCustomFileName: function({ rootState }, payload) {
     return new Promise((resolve, reject) => {
-      const { date, playerTime, videoId } = payload
+      const { pattern = rootState.settings.screenshotFilenamePattern, date, playerTime, videoId } = payload
       const keywords = [
         ['%Y', date.getFullYear()], // year 4 digits
         ['%M', (date.getMonth() + 1).toString().padStart(2, '0')], // month 2 digits
@@ -312,7 +312,7 @@ const actions = {
         ['%i', videoId] // video id
       ]
 
-      let parsedString = rootState.settings.screenshotFilenamePattern
+      let parsedString = pattern
       for (const [key, value] of keywords) {
         parsedString = parsedString.replaceAll(key, value)
       }
@@ -326,13 +326,11 @@ const actions = {
         })
         if (!noForbiddenChars) {
           reject(new Error('Forbidden Characters')) // use message as translation key
-          return
         }
       } else if (platform === 'darwin') {
         // https://superuser.com/questions/204287/
         if (parsedString.indexOf(':') !== -1) {
           reject(new Error('Forbidden Characters'))
-          return
         }
       }
 
@@ -347,7 +345,6 @@ const actions = {
 
       if (!filename) {
         reject(new Error('Empty File Name'))
-        return
       }
 
       resolve(parsedString)

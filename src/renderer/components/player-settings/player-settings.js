@@ -46,16 +46,17 @@ export default Vue.extend({
         0.5,
         1
       ],
-      screenshotNames: [
+      screenshotFormatNames: [
         'PNG',
         'JPEG'
       ],
-      screenshotValues: [
+      screenshotFormatValues: [
         'png',
         'jpg'
       ],
       screenshotFolderPlaceholder: '',
-      screenshotFilenameExample: ''
+      screenshotFilenameExample: '',
+      screenshotDefaultPattern: '%Y%M%D-%H%N%S'
     }
   },
   computed: {
@@ -177,12 +178,12 @@ export default Vue.extend({
   },
   mounted: function() {
     this.getScreenshotFolderPlaceholder()
-    this.getScreenshotFilenameExample()
+    this.getScreenshotFilenameExample(this.screenshotFilenamePattern)
   },
   methods: {
     handleUpdateScreenshotFormat: async function(format) {
       await this.updateScreenshotFormat(format)
-      this.getScreenshotFilenameExample()
+      this.getScreenshotFilenameExample(this.screenshotFilenamePattern)
     },
 
     getScreenshotEmptyFolderPlaceholder: async function() {
@@ -213,23 +214,29 @@ export default Vue.extend({
     },
 
     handleScreenshotFilenamePatternChanged: async function(input) {
-      if (input) {
-        await this.updateScreenshotFilenamePattern(input)
-      } else {
-        await this.updateScreenshotFilenamePattern('%Y%M%D-%H%N%S')
+      const pattern = input.trim()
+      if (!await this.getScreenshotFilenameExample(pattern)) {
+        return
       }
-      this.getScreenshotFilenameExample()
+      if (pattern) {
+        this.updateScreenshotFilenamePattern(pattern)
+      } else {
+        this.updateScreenshotFilenamePattern(this.screenshotDefaultPattern)
+      }
     },
 
-    getScreenshotFilenameExample: function() {
-      this.parseScreenshotCustomFileName({
+    getScreenshotFilenameExample: function(pattern) {
+      return this.parseScreenshotCustomFileName({
+        pattern: pattern || this.screenshotDefaultPattern,
         date: new Date(Date.now()),
         playerTime: 123.456,
         videoId: 'dQw4w9WgXcQ'
       }).then(res => {
         this.screenshotFilenameExample = `${res}.${this.screenshotFormat}`
+        return true
       }).catch(err => {
         this.screenshotFilenameExample = `❗ ${this.$t(`Settings.Player Settings.Screenshot.Error.${err.message}`)}`
+        return false
       })
     },
 

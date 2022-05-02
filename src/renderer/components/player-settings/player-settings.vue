@@ -154,8 +154,8 @@
       <ft-select
         :placeholder="$t('Settings.Player Settings.Screenshot.Format Label')"
         :value="screenshotFormat"
-        :select-names="screenshotNames"
-        :select-values="screenshotValues"
+        :select-names="screenshotFormatNames"
+        :select-values="screenshotFormatValues"
         @change="handleUpdateScreenshotFormat"
       />
       <ft-slider
