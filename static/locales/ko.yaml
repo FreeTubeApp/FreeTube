@@ -63,7 +63,7 @@ Search Filters:
     Duration: '영상길이'
     All Durations: '모두'
     Short (< 4 minutes): '짧음(4분이내)'
-    Long (> 20 minutes): '김(20분이상)'
+    Long (> 20 minutes): '긴(20분)'
   # On Search Page
   Search Results: '검색결과'
   Fetching results. Please wait: '결과를 불러오는중입니다. 잠시만 기다려주세요'
@@ -362,7 +362,7 @@ About:
   room rules: 방 규정
   Please read the: 읽어주세요
   Chat on Matrix: 매트릭스 채팅
-  Mastodon: Mastodon
+  Mastodon: 마스토돈
   Email: 이메일
   Blog: 블로그
   Website: 웹사이트
