@@ -10,9 +10,21 @@ let targets
 var platform = os.platform()
 
 if (platform == 'darwin') {
-  targets = Platform.MAC.createTarget()
+  let arch = Arch.x64
+
+  if (args[2] === 'arm64') {
+    arch = Arch.arm64
+  }
+  
+  targets = Platform.MAC.createTarget(['DMG','zip'], arch)
 } else if (platform == 'win32') {
-  targets = Platform.WINDOWS.createTarget()
+  let arch = Arch.x64
+
+  if (args[2] === 'arm64') {
+    arch = Arch.arm64
+  }
+  
+  targets = Platform.WINDOWS.createTarget(['nsis', 'zip', 'portable', 'squirrel'], arch)
 } else if (platform == 'linux') {
   let arch = Arch.x64
 
