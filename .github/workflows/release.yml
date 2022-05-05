@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         node-version: [14.x]
-        runtime: [ linux-x64, linux-armv7l, linux-arm64, win-x64, osx-x64 ]
+        runtime: [ linux-x64, linux-armv7l, linux-arm64, win-x64, win-arm64, osx-x64, osx-arm64 ]
         include:
         - runtime: linux-x64
           os: ubuntu-latest
@@ -26,8 +26,14 @@ jobs:
 
         - runtime: osx-x64
           os: macOS-latest
-
+          
+        - runtime: osx-arm64
+          os: macOS-latest
+          
         - runtime: win-x64
+          os: windows-latest
+          
+        - runtime: win-arm64
           os: windows-latest
 
     runs-on: ${{ matrix.os }}
@@ -57,7 +63,7 @@ jobs:
       run: npm run build:arm32 --if-present
       
     - name: Build ARM64 with Node.js ${{ matrix.node-version}}
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
+      if: contains(matrix.runtime, 'arm64')
       run: npm run build:arm64 --if-present
 
     - name: Upload AppImage x64 Release
@@ -161,9 +167,9 @@ jobs:
         asset_path: build/freetube-${{ env.PACKAGE_VERSION }}.aarch64.rpm
         asset_content_type: application/x-rpm
 
-    - name: Upload Windows .exe Release
+    - name: Upload Windows x64 .exe Release
       uses: actions/upload-release-asset@v1
-      if: startsWith(matrix.os, 'windows')
+      if: startsWith(matrix.os, 'windows') && startsWith(matrix.runtime, 'win-x64')
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
@@ -172,9 +178,20 @@ jobs:
         asset_path: build/freetube Setup ${{ env.PACKAGE_VERSION }}.exe
         asset_content_type: application/x-ms-dos-executable
 
-    - name: Upload Windows .zip Release
+    - name: Upload Windows arm64 .exe Release
       uses: actions/upload-release-asset@v1
-      if: startsWith(matrix.os, 'windows')
+      if: startsWith(matrix.os, 'windows') && startsWith(matrix.runtime, 'win-arm64')
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
+        asset_name: freetube-${{ env.PACKAGE_VERSION }}-setup-arm64.exe
+        asset_path: build/freetube Setup ${{ env.PACKAGE_VERSION }}.exe
+        asset_content_type: application/x-ms-dos-executable
+
+    - name: Upload Windows x64 .zip Release
+      uses: actions/upload-release-asset@v1
+      if: startsWith(matrix.os, 'windows') && startsWith(matrix.runtime, 'win-x64')
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
@@ -183,13 +200,57 @@ jobs:
         asset_path: build/freetube-${{ env.PACKAGE_VERSION }}-win.zip
         asset_content_type: application/zip
 
-    - name: Upload Mac .dmg Release
+    - name: Upload Windows arm64 .zip Release
       uses: actions/upload-release-asset@v1
-      if: startsWith(matrix.os, 'macos')
+      if: startsWith(matrix.os, 'windows') && startsWith(matrix.runtime, 'win-arm64')
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-        asset_name: freetube-${{ env.PACKAGE_VERSION }}-mac.dmg
+        asset_name: freetube-${{ env.PACKAGE_VERSION }}-win-arm64-portable.zip
+        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}-win.zip
+        asset_content_type: application/zip
+        
+    - name: Upload Windows x64 portable Release
+      uses: actions/upload-release-asset@v1
+      if: startsWith(matrix.os, 'windows') && startsWith(matrix.runtime, 'win-x64')
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
+        asset_name: freetube-${{ env.PACKAGE_VERSION }}-win-x64-portable.exe
+        asset_path: build/FreeTube ${{ env.PACKAGE_VERSION }}.exe
+        asset_content_type: application/x-ms-dos-executable
+
+    - name: Upload Windows arm64 portable Release
+      uses: actions/upload-release-asset@v1
+      if: startsWith(matrix.os, 'windows') && startsWith(matrix.runtime, 'win-arm64')
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
+        asset_name: freetube-${{ env.PACKAGE_VERSION }}-win-arm64-portable.exe
+        asset_path: build/FreeTube ${{ env.PACKAGE_VERSION }}.exe
+        asset_content_type: application/x-ms-dos-executable
+        
+    - name: Upload Mac x64 .dmg Release
+      uses: actions/upload-release-asset@v1
+      if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-x64')
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
+        asset_name: freetube-${{ env.PACKAGE_VERSION }}-mac-x64.dmg
+        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}.dmg
+        asset_content_type: application/x-apple-diskimage
+
+    - name: Upload Mac arm64 .dmg Release
+      uses: actions/upload-release-asset@v1
+      if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-arm64')
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
+        asset_name: freetube-${{ env.PACKAGE_VERSION }}-mac-arm64.dmg
         asset_path: build/freetube-${{ env.PACKAGE_VERSION }}.dmg
         asset_content_type: application/x-apple-diskimage

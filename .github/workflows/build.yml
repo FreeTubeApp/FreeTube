@@ -12,7 +12,7 @@ jobs:
     strategy:
       matrix:
         node-version: [14.x]
-        runtime: [ linux-x64, linux-armv7l, linux-arm64, win-x64, osx-x64 ]
+        runtime: [ linux-x64, linux-armv7l, linux-arm64, win-x64, win-arm64, osx-x64, osx-arm64 ]
         include:
         - runtime: linux-x64
           os: ubuntu-latest
@@ -26,7 +26,13 @@ jobs:
         - runtime: osx-x64
           os: macOS-latest
 
+        - runtime: osx-arm64
+          os: macOS-latest
+          
         - runtime: win-x64
+          os: windows-latest
+
+        - runtime: win-arm64
           os: windows-latest
 
     runs-on: ${{ matrix.os }}
@@ -76,7 +82,7 @@ jobs:
 
 
     - name: Install libarchive-tools
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
+      if: startsWith(matrix.os, 'ubuntu') 
       run: sudo apt -y install libarchive-tools; echo "Version Number ${{ toJson(job) }} ${{ toJson(needs) }}"
 
     - name: Build x64 with Node.js ${{ matrix.node-version}}
@@ -88,7 +94,7 @@ jobs:
       run: npm run build:arm32 --if-present
       
     - name: Build ARM64 with Node.js ${{ matrix.node-version}}
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
+      if: contains(matrix.runtime, 'arm64')
       run: npm run build:arm64 --if-present
 
     - name: Upload Linux .zip x64 Artifact
@@ -205,30 +211,58 @@ jobs:
         # name: freetube_${{ steps.versionNumber.outputs.result }}_static_web
         # path: dist/web
 
-    - name: Upload Windows .exe Artifact
+    - name: Upload Windows x64 .exe Artifact
       uses: actions/upload-artifact@v2
-      if: startsWith(matrix.os, 'windows')
+      if: startsWith(matrix.os, 'windows') && startsWith(matrix.runtime, 'win-x64')
+      with:
+        name: freetube-${{ steps.versionNumber.outputs.result }}-setup-x64.exe
+        path: build/freetube Setup ${{ steps.versionNumber.outputs.result }}.exe
+        
+    - name: Upload Windows arm64 .exe Artifact
+      uses: actions/upload-artifact@v2
+      if: startsWith(matrix.os, 'windows') && startsWith(matrix.runtime, 'win-arm64')
+      with:
+        name: freetube-${{ steps.versionNumber.outputs.result }}-setup-arm64.exe
+        path: build/freetube Setup ${{ steps.versionNumber.outputs.result }}.exe
+        
+    - name: Upload Windows x64 .zip Artifact
+      uses: actions/upload-artifact@v2
+      if: startsWith(matrix.os, 'windows') && startsWith(matrix.runtime, 'win-x64')
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}-win-x64-portable
         path: build/freetube-${{ steps.versionNumber.outputs.result }}-win.zip
 
-    - name: Upload Windows .zip Artifact
+    - name: Upload Windows arm64 .zip Artifact
       uses: actions/upload-artifact@v2
-      if: startsWith(matrix.os, 'windows')
+      if: startsWith(matrix.os, 'windows') && startsWith(matrix.runtime, 'win-arm64')
       with:
-        name: freetube-${{ steps.versionNumber.outputs.result }}-setup-x64.exe
-        path: build/freetube Setup ${{ steps.versionNumber.outputs.result }}.exe
-
-    - name: Upload Windows Portable Artifact
+        name: freetube-${{ steps.versionNumber.outputs.result }}-win-arm64-portable
+        path: build/freetube-${{ steps.versionNumber.outputs.result }}-win.zip
+        
+    - name: Upload Windows x64 Portable Artifact
       uses: actions/upload-artifact@v2
-      if: startsWith(matrix.os, 'windows')
+      if: startsWith(matrix.os, 'windows') && startsWith(matrix.runtime, 'win-x64')
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}-portable-x64.exe
         path: build/freetube ${{ steps.versionNumber.outputs.result }}.exe
 
-    - name: Upload Mac .dmg Artifact
+    - name: Upload Windows arm64 Portable Artifact
       uses: actions/upload-artifact@v2
-      if: startsWith(matrix.os, 'macos')
+      if: startsWith(matrix.os, 'windows') && startsWith(matrix.runtime, 'win-arm64')
       with:
-        name: freetube-${{ steps.versionNumber.outputs.result }}-mac.dmg
+        name: freetube-${{ steps.versionNumber.outputs.result }}-portable-arm64.exe
+        path: build/freetube ${{ steps.versionNumber.outputs.result }}.exe
+        
+    - name: Upload Mac x64 .dmg Artifact
+      uses: actions/upload-artifact@v2
+      if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-x64')
+      with:
+        name: freetube-${{ steps.versionNumber.outputs.result }}-mac-x64.dmg
+        path: build/freetube-${{ steps.versionNumber.outputs.result }}.dmg
+        
+    - name: Upload Mac arm64 .dmg Artifact
+      uses: actions/upload-artifact@v2
+      if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-arm64')
+      with:
+        name: freetube-${{ steps.versionNumber.outputs.result }}-mac-arm64.dmg
         path: build/freetube-${{ steps.versionNumber.outputs.result }}.dmg
