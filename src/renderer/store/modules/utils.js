@@ -4,7 +4,6 @@ import fs from 'fs'
 import i18n from '../../i18n/index'
 
 import { IpcChannels } from '../../../constants'
-import { ipcRenderer } from 'electron'
 
 const state = {
   isSideNavOpen: false,
@@ -223,8 +222,6 @@ const actions = {
     })
 
     const reader = response.body.getReader()
-    const contentLength = response.headers.get('Content-Length')
-    let receivedLength = 0
     const chunks = []
 
     const handleError = (err) => {
@@ -240,9 +237,10 @@ const actions = {
       }
 
       chunks.push(value)
-      receivedLength += value.length
       // Can be used in the future to determine download percentage
-      const percentage = receivedLength / contentLength
+      // const contentLength = response.headers.get('Content-Length')
+      // const receivedLength = value.length
+      // const percentage = receivedLength / contentLength
       await reader.read().then(processText).catch(handleError)
     }
 
@@ -973,7 +971,7 @@ const mutations = {
     })
 
     if (sameSearch !== -1) {
-      state.sessionSearchHistory[sameSearch].data = state.sessionSearchHistory[sameSearch].data.concat(payload.data)
+      state.sessionSearchHistory[sameSearch].data = payload.data
       state.sessionSearchHistory[sameSearch].nextPageRef = payload.nextPageRef
     } else {
       state.sessionSearchHistory.push(payload)
@@ -984,7 +982,7 @@ const mutations = {
     state.popularCache = value
   },
 
-  setTrendingCache (state, value, page) {
+  setTrendingCache (state, { value, page }) {
     state.trendingCache[page] = value
   },
 

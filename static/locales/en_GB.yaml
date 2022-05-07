@@ -100,12 +100,14 @@ User Playlists:
     saved videos are empty. Click on the save button on the corner of a video to have
     it listed here
   Search bar placeholder: Search in Playlist
+  Empty Search Message: There are no videos in this playlist that match your search
 History:
   # On History Page
   History: 'History'
   Watch History: 'Watch History'
   Your history list is currently empty.: 'Your history list is currently empty.'
   Search bar placeholder: Search in History
+  Empty Search Message: There are no videos in your history that match your search
 Settings:
   # On Settings Page
   Settings: 'Settings'
@@ -227,6 +229,8 @@ Settings:
     Display Play Button In Video Player: Display play button in video player
     Fast-Forward / Rewind Interval: Fast-forward / rewind interval
     Scroll Playback Rate Over Video Player: Scroll playback rate over video player
+    Video Playback Rate Interval: Video playback rate interval
+    Max Video Playback Rate: Max video playback rate
   External Player Settings:
     External Player Settings: External Player Settings
     External Player: External Player
@@ -609,6 +613,17 @@ Video:
     fps: FPS
     bandwidth: Connection Speed
     out of: out of
+    Player Dimensions: Player dimensions
+    Bitrate: Bitrate
+    Volume: Volume
+    Bandwidth: Bandwidth
+    Buffered: Buffered
+    Dropped / Total Frames: Dropped / Total frames
+    Mimetype: Media type
+    Resolution: Resolution
+    Video statistics are not available for legacy videos: Video statistics are not
+      available for legacy videos
+    Video ID: Video ID
 Videos:
   #& Sort By
   Sort By:

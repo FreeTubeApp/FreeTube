@@ -99,12 +99,16 @@ User Playlists:
     Une fois le travail terminé, toutes les vidéos actuellement présentes ici seront
     migrées vers une liste de lecture « Favoris ».
   Search bar placeholder: Recherche dans la liste de lecture
+  Empty Search Message: Il n'y a pas de vidéos dans cette liste de lecture qui correspondent
+    à votre recherche
 History:
   # On History Page
   History: 'Historique'
   Watch History: 'Historique de visionnage'
   Your history list is currently empty.: 'Votre historique est vide.'
   Search bar placeholder: "Recherche dans l'historique"
+  Empty Search Message: Il n'y a pas de vidéos dans votre historique qui correspondent
+    à votre recherche
 Settings:
   # On Settings Page
   Settings: 'Paramètres'
@@ -233,6 +237,8 @@ Settings:
     Fast-Forward / Rewind Interval: Intervalle d'avance / de recul rapide
     Scroll Playback Rate Over Video Player: Faire défiler le taux de lecture sur le
       lecteur vidéo
+    Video Playback Rate Interval: Intervalle de débit de lecture vidéo
+    Max Video Playback Rate: Débit de lecture vidéo maximal
   Subscription Settings:
     Subscription Settings: 'Paramètres des abonnements'
     Hide Videos on Watch: 'Masquer les vidéos visionnées'
@@ -614,6 +620,17 @@ Video:
     bandwidth: "Vitesse de connexion"
     buffered: "En tampon"
     out of: "sur"
+    Player Dimensions: Dimensions du lecteur
+    Bitrate: Débit binaire
+    Volume: Volume
+    Mimetype: Type de médias
+    Video statistics are not available for legacy videos: Les statistiques vidéo ne
+      sont pas disponibles pour les anciennes vidéos
+    Resolution: Résolution
+    Bandwidth: Bande passante
+    Video ID: Identifiant vidéo
+    Buffered: En mémoire tampon
+    Dropped / Total Frames: Images perdues / Nombre total d’images
   Premieres on: Première le
 Videos:
   #& Sort By
@@ -716,7 +733,7 @@ Canceled next video autoplay: 'Annuler la lecture automatique'
 
 Yes: 'Oui'
 No: 'Non'
-Locale Name: Français
+Locale Name: français
 Profile:
   $ is now the active profile: $ est maintenant le profil actif
   Your default profile has been changed to your primary profile: Votre profil par

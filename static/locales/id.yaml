@@ -102,12 +102,16 @@ User Playlists:
     Ini hanya mencantumkan video yang telah Anda simpan atau favorit. Setelah selesai,
     semua video yang ada di sini akan dipindahkan ke daftar putar 'Favorit'.
   Search bar placeholder: Cari di Daftar Putar
+  Empty Search Message: Tidak ada video di dalam daftar putar ini yang cocok dengan
+    pencarian Anda
 History:
   # On History Page
   History: 'Riwayat'
   Watch History: 'Riwayat Tontonan'
   Your history list is currently empty.: 'Daftar riwayat Anda kosong.'
   Search bar placeholder: Cari di Riwayat
+  Empty Search Message: Tidak ada video di dalam riwayat pemutaran yang cocok dengan
+    pencarian Anda
 Settings:
   # On Settings Page
   Settings: 'Pengaturan'
@@ -600,7 +604,7 @@ Video:
     Unsupported Actions:
       starting video at offset: memulai video pada offset
       looping playlists: memutar berulang-ulang daftar putar
-      shuffling playlists: menshuffle daftar putar
+      shuffling playlists: mengacak daftar putar
       reversing playlists: membalik urutan daftar putar
       opening specific video in a playlist (falling back to opening the video): membuka
         video yang spesifik di dalam daftar putar (dengan cadangan untuk membuka langsung
@@ -622,6 +626,15 @@ Video:
     buffered: Buffered
     player resolution: Area pandang
     out of: keluar dari
+    Bandwidth: Bandwidth
+    Video statistics are not available for legacy videos: Statistik video tidak tersedia
+      untuk video legacy
+    Video ID: ID Video
+    Resolution: Resolusi
+    Volume: Volume
+    Mimetype: Tipe Mime
+    Player Dimensions: Ukuran Pemutar
+    Bitrate: Laju Bit
 Videos:
   #& Sort By
   Sort By:

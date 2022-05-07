@@ -93,12 +93,14 @@ User Playlists:
     إحتفضت عليها أو فضّلتها. عندما يكمل العمل بالكامل على هذه الصفحة, سترى كل فيديواتك
     هنا تنتقل إلى قائمة تشغيل تسمى "المفضلة".
   Search bar placeholder: بحث في قائمة التشغيل
+  Empty Search Message: لا توجد مقاطع فيديو في قائمة التشغيل هذه تتطابق مع بحثك
 History:
   # On History Page
   History: 'السجلّ'
   Watch History: 'سجلّ المشاهدات'
   Your history list is currently empty.: 'قائمة سجلّك فارغة حالياً.'
   Search bar placeholder: البحث في السجل
+  Empty Search Message: لا توجد مقاطع فيديو في السجل الخاص بك تطابق بحثك
 Settings:
   # On Settings Page
   Settings: 'الإعدادات'
@@ -218,6 +220,8 @@ Settings:
     Display Play Button In Video Player: عرض زر التشغيل في مشغل الفيديو
     Fast-Forward / Rewind Interval: الفاصل الزمني السريع للأمام / الترجيع
     Scroll Playback Rate Over Video Player: معدل تمرير التشغيل عبر مشغل الفيديو
+    Max Video Playback Rate: أقصى معدل تشغيل الفيديو
+    Video Playback Rate Interval: الفاصل الزمني لمعدل تشغيل الفيديو
   Privacy Settings:
     Privacy Settings: 'إعدادات الخصوصية'
     Remember History: 'تذّكر سجلّ المشاهدة'
@@ -613,6 +617,17 @@ Video:
     out of: خارج عن
     bandwidth: سرعة الاتصال
     volume: الصوت
+    Video statistics are not available for legacy videos: إحصائيات الفيديو غير متوفرة
+      لمقاطع الفيديو القديمة
+    Video ID: معرف الفيديو
+    Resolution: الدقة
+    Bitrate: معدل البت
+    Player Dimensions: عدد اللاعبين
+    Volume: الصوت
+    Bandwidth: عرض النطاق الترددي
+    Buffered: مخزنة
+    Dropped / Total Frames: إسقاط / إجمالي الإطارات
+    Mimetype: نمط ميمي
 Videos:
   #& Sort By
   Sort By:

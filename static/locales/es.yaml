@@ -84,7 +84,7 @@ Trending:
   Gaming: Videojuegos
   Music: Música
 Most Popular: 'Más populares'
-Playlists: 'Favoritos'
+Playlists: 'Tus favoritos'
 User Playlists:
   Your Playlists: 'Tus listas de reproducción'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Tus
@@ -93,12 +93,15 @@ User Playlists:
     solo muestra los vídeos guardados. En futuras actualizaciones, estos vídeos migrarán
     a la lista de reproducción «Favoritos».
   Search bar placeholder: Buscar en la lista de reproducción
+  Empty Search Message: No hay vídeos en esta lista de reproducción que coincidan
+    con tu búsqueda
 History:
   # On History Page
   History: 'Historial'
   Watch History: 'Historial de reproducción'
   Your history list is currently empty.: 'Tu historial está vacío.'
   Search bar placeholder: Buscar en el historial
+  Empty Search Message: No hay vídeos en tu historial que coincidan con tu búsqueda
 Settings:
   # On Settings Page
   Settings: 'Ajustes'
@@ -223,6 +226,8 @@ Settings:
     Fast-Forward / Rewind Interval: Intervalo de avance/rebobinado rápido
     Scroll Playback Rate Over Video Player: Cambiar la velocidad de reproducción con
       el ratón
+    Max Video Playback Rate: Velocidad máxima de reproducción de vídeo
+    Video Playback Rate Interval: Intervalo de velocidad de reproducción de vídeo
   Privacy Settings:
     Privacy Settings: 'Privacidad'
     Remember History: 'Recordar historial'
@@ -483,7 +488,7 @@ Channel:
       Oldest: 'Más antiguos'
       Most Popular: 'Más populares'
   Playlists:
-    Playlists: 'Favoritos'
+    Playlists: 'Playlists'
     This channel does not currently have any playlists: 'Este canal no tiene actualmente
       ninguna lista de reproducción'
     Sort Types:
@@ -622,6 +627,17 @@ Video:
     frame drop: Pérdida de fotogramas
     buffered: En buffer
     out of: sin
+    Video statistics are not available for legacy videos: Las estadísticas de vídeo
+      no están disponibles para los vídeos heredados
+    Bitrate: Tasa de bits
+    Volume: Volumen
+    Mimetype: Tipo de medio
+    Resolution: Resolución
+    Player Dimensions: Dimensiones del reproductor
+    Bandwidth: Ancho de banda
+    Video ID: ID de vídeo
+    Buffered: En búfer
+    Dropped / Total Frames: Fotogramas Perdidos / Fotogramas Totales
 Videos:
   #& Sort By
   Sort By:
