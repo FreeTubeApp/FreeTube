@@ -1,5 +1,5 @@
 <template>
-  <details>
+  <details open>
     <summary>
       <h3>
         {{ $t("Settings.General Settings.General Settings") }}
