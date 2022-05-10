@@ -68,7 +68,7 @@
     "lodash.debounce": "^4.0.8",
     "lodash.isequal": "^4.5.0",
     "lodash.uniqwith": "^4.5.0",
-    "marked": "^4.0.13",
+    "marked": "^4.0.15",
     "material-design-icons": "^3.0.1",
     "nedb-promises": "^5.0.1",
     "node-forge": "^1.3.1",
@@ -94,7 +94,7 @@
     "yt-trending-scraper": "^2.0.1",
     "ytdl-core": "^4.11.0",
     "ytpl": "^2.3.0",
-    "ytsr": "^3.6.0"
+    "ytsr": "^3.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
