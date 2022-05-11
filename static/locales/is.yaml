@@ -175,6 +175,7 @@ Settings:
       Dark: 'Dökkt'
       Light: 'Ljóst'
       Dracula: 'Drakúla'
+      System Default: Sjálfgefið í kerfinu
     Main Color Theme:
       Main Color Theme: 'Aðallitur þema'
       Red: 'Rautt'
