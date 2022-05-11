@@ -159,6 +159,7 @@ Settings:
       Dark: 'חשוך'
       Light: 'בהיר'
       Dracula: 'דרקולה'
+      System Default: ברירת המחדל של המערכת
     Main Color Theme:
       Main Color Theme: 'צבע ראשי'
       Red: 'אדום'
