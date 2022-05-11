@@ -167,7 +167,7 @@ const state = {
   barColor: false,
   checkForBlogPosts: true,
   checkForUpdates: true,
-  baseTheme: 'dark',
+  baseTheme: 'system',
   mainColor: 'Red',
   secColor: 'Blue',
   defaultCaptionSettings: '{}',

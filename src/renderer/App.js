@@ -12,6 +12,7 @@ import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
 import $ from 'jquery'
 import { marked } from 'marked'
 import Parser from 'rss-parser'
+import { IpcChannels } from '../constants'
 
 let ipcRenderer = null
 
@@ -113,6 +114,10 @@ export default Vue.extend({
       return this.$store.getters.getSecColor
     },
 
+    systemTheme: function () {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    },
+
     externalLinkOpeningPromptNames: function () {
       return [
         this.$t('Yes'),
@@ -140,11 +145,13 @@ export default Vue.extend({
     }
   },
   created () {
-    this.checkThemeSettings()
+    this.setBodyTheme()
     this.setWindowTitle()
   },
   mounted: function () {
     this.grabUserSettings().then(async () => {
+      this.checkThemeSettings()
+
       await this.fetchInvidiousInstances({ isDev: this.isDev })
       if (this.defaultInvidiousInstance === '') {
         await this.setRandomCurrentInvidiousInstance()
@@ -161,6 +168,7 @@ export default Vue.extend({
           this.activateKeyboardShortcuts()
           this.openAllLinksExternally()
           this.enableOpenUrl()
+          this.watchSystemTheme()
           await this.checkExternalPlayer()
         }
 
@@ -191,9 +199,8 @@ export default Vue.extend({
     updateTheme: function (theme) {
       console.group('updateTheme')
       console.log('Theme: ', theme)
-      const className = `${theme.baseTheme} main${theme.mainColor} sec${theme.secColor}`
-      const body = document.getElementsByTagName('body')[0]
-      body.className = className
+      document.body.className = `${theme.baseTheme} main${theme.mainColor} sec${theme.secColor}`
+      document.body.dataset.systemTheme = this.systemTheme
       console.groupEnd()
     },
 
@@ -438,6 +445,16 @@ export default Vue.extend({
             })
           }
         }
+      })
+    },
+
+    /**
+     * Linux fix for dynamically updating theme preference, this works on
+     * all systems running the electron app.
+     */
+    watchSystemTheme: function () {
+      ipcRenderer.on(IpcChannels.NATIVE_THEME_UPDATE, (event, shouldUseDarkColors) => {
+        document.body.dataset.systemTheme = shouldUseDarkColors ? 'dark' : 'light'
       })
     },
 

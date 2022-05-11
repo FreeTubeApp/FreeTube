@@ -1,4 +1,4 @@
-.light {
+.system[data-system-theme*='light'], .light {
   --primary-text-color: #212121;
   --secondary-text-color: #424242;
   --tertiary-text-color: #757575;
@@ -22,7 +22,7 @@
   --logo-text: url("~../../_icons/textColorSmall.png");
 }
 
-.dark {
+.system[data-system-theme*='dark'], .dark {
   --primary-text-color: #EEEEEE;
   --secondary-text-color: #ddd;
   --tertiary-text-color: #999;
