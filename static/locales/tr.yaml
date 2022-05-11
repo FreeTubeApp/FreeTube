@@ -162,6 +162,7 @@ Settings:
       Dark: 'Koyu'
       Light: 'Açık'
       Dracula: 'Drakula'
+      System Default: Sistem Öntanımlı Değeri
     Main Color Theme:
       Main Color Theme: 'Ana Renk Teması'
       Red: 'Kırmızı'
