@@ -171,6 +171,7 @@ Settings:
       Dark: 'Темна'
       Light: 'Світла'
       Dracula: 'Дракула'
+      System Default: Тема системи
     Main Color Theme:
       Main Color Theme: 'Основна кольорова тема'
       Red: 'Червона'
