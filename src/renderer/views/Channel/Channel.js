@@ -373,8 +373,10 @@ export default Vue.extend({
         })
         this.latestVideos = response.latestVideos
 
-        if (typeof (response.authorBanners) !== 'undefined') {
+        if (response.authorBanners instanceof Array && response.authorBanners.length > 0) {
           this.bannerUrl = response.authorBanners[0].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
+        } else {
+          this.bannerUrl = null
         }
 
         this.isLoading = false
@@ -468,6 +470,40 @@ export default Vue.extend({
     },
 
     getPlaylistsInvidious: function () {
+      const payload = {
+        resource: 'channels/playlists',
+        id: this.id,
+        params: {
+          sort_by: this.playlistSortBy
+        }
+      }
+
+      this.invidiousAPICall(payload).then((response) => {
+        this.playlistContinuationString = response.continuation
+        this.latestPlaylists = response.playlists
+        this.isElementListLoading = false
+      }).catch((err) => {
+        console.log(err)
+        const errorMessage = this.$t('Invidious API Error (Click to copy)')
+        this.showToast({
+          message: `${errorMessage}: ${err.responseJSON.error}`,
+          time: 10000,
+          action: () => {
+            navigator.clipboard.writeText(err.responseJSON.error)
+          }
+        })
+        if (this.backendPreference === 'invidious' && this.backendFallback) {
+          this.showToast({
+            message: this.$t('Falling back to Local API')
+          })
+          this.getPlaylistsLocal()
+        } else {
+          this.isLoading = false
+        }
+      })
+    },
+
+    getPlaylistsInvidiousMore: function () {
       if (this.playlistContinuationString === null) {
         console.log('There are no more playlists available for this channel')
         return
@@ -600,7 +636,7 @@ export default Vue.extend({
               this.getPlaylistsLocalMore()
               break
             case 'invidious':
-              this.getPlaylistsInvidious()
+              this.getPlaylistsInvidiousMore()
               break
           }
           break
