@@ -126,7 +126,7 @@ Settings:
     Check for Latest Blog Posts: 新着ブログの確認
     Check for Updates: 最新版の確認
     View all Invidious instance information: すべての Invidious インスタンス情報の表示
-    System Default: システムのデフォルト
+    System Default: 初期設定
     Clear Default Instance: デフォルトの設定をクリアする
     Set Current Instance as Default: 現在のインスタンスを既定として設定する
     Current instance will be randomized on startup: 現在のインスタンスは起動時にランダム化されます
@@ -147,6 +147,7 @@ Settings:
       Dark: 'ダーク'
       Light: 'ライト'
       Dracula: 'ドラキュラ'
+      System Default: 初期設定
     Main Color Theme:
       Main Color Theme: 'テーマのメイン カラー'
       Red: '赤'
