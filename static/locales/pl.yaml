@@ -160,6 +160,7 @@ Settings:
       Dark: 'Ciemny'
       Light: 'Jasny'
       Dracula: 'Drakula'
+      System Default: Domyślny systemu
     Main Color Theme:
       Main Color Theme: 'Główny kolor motywu'
       Red: 'Czerwony'
