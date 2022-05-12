@@ -154,6 +154,7 @@ Settings:
       Dark: 'Tumma'
       Light: 'Vaalea'
       Dracula: 'Dracula'
+      System Default: Järjestelmän oletusarvo
     Main Color Theme:
       Main Color Theme: 'Pääväriteema'
       Red: 'Punainen'
