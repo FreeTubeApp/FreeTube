@@ -146,6 +146,7 @@ Settings:
       Dark: '深'
       Light: '浅'
       Dracula: '德古拉'
+      System Default: 系统默认
     Main Color Theme:
       Main Color Theme: '主题色'
       Red: '红'
