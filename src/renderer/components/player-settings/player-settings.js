@@ -30,6 +30,12 @@ export default Vue.extend({
         480,
         720,
         1080
+      ],
+      playbackRateIntervalValues: [
+        0.1,
+        0.25,
+        0.5,
+        1
       ]
     }
   },
@@ -98,8 +104,20 @@ export default Vue.extend({
       return this.$store.getters.getVideoVolumeMouseScroll
     },
 
+    videoPlaybackRateMouseScroll: function () {
+      return this.$store.getters.getVideoPlaybackRateMouseScroll
+    },
+
     displayVideoPlayButton: function () {
       return this.$store.getters.getDisplayVideoPlayButton
+    },
+
+    maxVideoPlaybackRate: function () {
+      return parseInt(this.$store.getters.getMaxVideoPlaybackRate)
+    },
+
+    videoPlaybackRateInterval: function () {
+      return this.$store.getters.getVideoPlaybackRateInterval
     },
 
     formatNames: function () {
@@ -138,7 +156,10 @@ export default Vue.extend({
       'updateDefaultVideoFormat',
       'updateDefaultQuality',
       'updateVideoVolumeMouseScroll',
-      'updateDisplayVideoPlayButton'
+      'updateVideoPlaybackRateMouseScroll',
+      'updateDisplayVideoPlayButton',
+      'updateMaxVideoPlaybackRate',
+      'updateVideoPlaybackRateInterval'
     ])
   }
 })

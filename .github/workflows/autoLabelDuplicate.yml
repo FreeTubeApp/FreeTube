@@ -1,0 +1,14 @@
+name: "Label Duplicate"
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Amwam/issue-comment-action@v1.3.1
+        with:
+          keywords: '["duplicate of"]'
+          labels: '["U: duplicate"]'
+          github-token: "${{ secrets.GITHUB_TOKEN }}"

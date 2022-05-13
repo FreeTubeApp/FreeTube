@@ -12,6 +12,8 @@ import 'videojs-vtt-thumbnails-freetube'
 import 'videojs-contrib-quality-levels'
 import 'videojs-http-source-selector'
 
+import { IpcChannels } from '../../../constants'
+
 export default Vue.extend({
   name: 'FtVideoPlayer',
   components: {
@@ -31,7 +33,7 @@ export default Vue.extend({
 
     if (this.usingElectron && this.powerSaveBlocker !== null) {
       const { ipcRenderer } = require('electron')
-      ipcRenderer.send('stopPowerSaveBlocker', this.powerSaveBlocker)
+      ipcRenderer.send(IpcChannels.STOP_POWER_SAVE_BLOCKER, this.powerSaveBlocker)
     }
   },
   props: {
@@ -82,6 +84,10 @@ export default Vue.extend({
       useHls: false,
       selectedDefaultQuality: '',
       selectedQuality: '',
+      selectedResolution: '',
+      selectedBitrate: '',
+      selectedMimeType: '',
+      selectedFPS: 0,
       using60Fps: false,
       maxFramerate: 0,
       activeSourceList: [],
@@ -89,6 +95,10 @@ export default Vue.extend({
       mouseTimeout: null,
       touchTimeout: null,
       lastTouchTime: null,
+      playerStats: null,
+      statsModal: null,
+      showStatsModal: false,
+      statsModalEventName: 'updateStats',
       dataSetup: {
         fluid: true,
         nativeTextTracks: false,
@@ -110,28 +120,13 @@ export default Vue.extend({
             'chaptersButton',
             'descriptionsButton',
             'subsCapsButton',
-            'audioTrackButton',
             'pictureInPictureToggle',
             'toggleTheatreModeButton',
             'fullWindowButton',
             'qualitySelector',
             'fullscreenToggle'
           ]
-        },
-        playbackRates: [
-          0.25,
-          0.5,
-          0.75,
-          1,
-          1.25,
-          1.5,
-          1.75,
-          2,
-          2.25,
-          2.5,
-          2.75,
-          3
-        ]
+        }
       }
     }
   },
@@ -177,6 +172,10 @@ export default Vue.extend({
       return this.$store.getters.getVideoVolumeMouseScroll
     },
 
+    videoPlaybackRateMouseScroll: function () {
+      return this.$store.getters.getVideoPlaybackRateMouseScroll
+    },
+
     useSponsorBlock: function () {
       return this.$store.getters.getUseSponsorBlock
     },
@@ -187,6 +186,32 @@ export default Vue.extend({
 
     displayVideoPlayButton: function() {
       return this.$store.getters.getDisplayVideoPlayButton
+    },
+
+    maxVideoPlaybackRate: function () {
+      return parseInt(this.$store.getters.getMaxVideoPlaybackRate)
+    },
+
+    videoPlaybackRateInterval: function () {
+      return parseFloat(this.$store.getters.getVideoPlaybackRateInterval)
+    },
+
+    playbackRates: function () {
+      const playbackRates = []
+      let i = this.videoPlaybackRateInterval
+
+      while (i <= this.maxVideoPlaybackRate) {
+        playbackRates.push(i)
+        i = i + this.videoPlaybackRateInterval
+        i = parseFloat(i.toFixed(2))
+      }
+
+      return playbackRates
+    }
+  },
+  watch: {
+    showStatsModal: function() {
+      this.player.trigger(this.statsModalEventName)
     }
   },
   mounted: function () {
@@ -197,6 +222,8 @@ export default Vue.extend({
     if (volume !== null) {
       this.volume = volume
     }
+
+    this.dataSetup.playbackRates = this.playbackRates
 
     this.createFullWindowButton()
     this.createLoopButton()
@@ -217,7 +244,7 @@ export default Vue.extend({
 
     if (this.usingElectron && this.powerSaveBlocker !== null) {
       const { ipcRenderer } = require('electron')
-      ipcRenderer.send('stopPowerSaveBlocker', this.powerSaveBlocker)
+      ipcRenderer.send(IpcChannels.STOP_POWER_SAVE_BLOCKER, this.powerSaveBlocker)
     }
   },
   methods: {
@@ -250,6 +277,36 @@ export default Vue.extend({
         if (!this.displayVideoPlayButton) {
           this.player.removeChild('BigPlayButton')
         }
+
+        // Makes the playback rate menu focus the current item on mouse hover
+        // or the closest item if the playback rate is between two items
+        // which is likely to be the case when the playback rate is changed by scrolling
+        const playbackRateMenuButton = this.player.controlBar.getChild('playbackRateMenuButton')
+        playbackRateMenuButton.on(playbackRateMenuButton.menuButton_, 'mouseenter', () => {
+          const playbackRate = this.player.playbackRate()
+          const rates = this.player.playbackRates()
+
+          // iterate through the items in reverse order as the highest is displayed first
+          // `slice` must be used as `reverse` does reversing in place
+          const targetPlaybackRateMenuItemIndex = rates.slice().reverse().findIndex((rate) => {
+            return rate === playbackRate || rate < playbackRate
+          })
+
+          // center the selected item in the middle of the visible area
+          // the first and last items will never be in the center so it can be skipped for them
+          if (targetPlaybackRateMenuItemIndex !== 0 && targetPlaybackRateMenuItemIndex !== rates.length - 1) {
+            const playbackRateMenu = playbackRateMenuButton.menu
+            const menuElement = playbackRateMenu.contentEl()
+
+            const itemHeight = playbackRateMenu.children()[targetPlaybackRateMenuItemIndex].contentEl().clientHeight
+
+            // clientHeight is the height of the visible part of an element
+            const centerOfVisibleArea = (menuElement.clientHeight - itemHeight) / 2
+            const menuScrollOffset = (itemHeight * targetPlaybackRateMenuItemIndex) - centerOfVisibleArea
+
+            menuElement.scrollTo({ top: menuScrollOffset })
+          }
+        })
 
         if (this.storyboardSrc !== '') {
           this.player.vttThumbnails({
@@ -295,12 +352,21 @@ export default Vue.extend({
           this.player.controlBar.getChild('volumePanel').on('wheel', this.mouseScrollVolume)
         }
 
+        if (this.videoPlaybackRateMouseScroll) {
+          this.player.on('wheel', this.mouseScrollPlaybackRate)
+          // Removes the 'out-of-the-box' click event and adds a custom click event so that a user can
+          // ctrl-click (or command+click on a mac) without toggling play/pause
+          this.player.el_.firstChild.style.pointerEvents = 'none'
+          this.player.on('click', this.handlePlayerClick)
+        }
+
         this.player.on('fullscreenchange', this.fullscreenOverlay)
         this.player.on('fullscreenchange', this.toggleFullscreenClass)
 
         this.player.on('ready', () => {
           this.$emit('ready')
           this.checkAspectRatio()
+          this.createStatsModal()
           if (this.captionHybridList.length !== 0) {
             this.transformAndInsertCaptions()
           }
@@ -318,15 +384,32 @@ export default Vue.extend({
           if (this.usingElectron) {
             const { ipcRenderer } = require('electron')
             this.powerSaveBlocker =
-              await ipcRenderer.invoke('startPowerSaveBlocker', 'prevent-display-sleep')
+              await ipcRenderer.invoke(IpcChannels.START_POWER_SAVE_BLOCKER)
           }
         })
 
         this.player.on('pause', function () {
           if (this.usingElectron && this.powerSaveBlocker !== null) {
             const { ipcRenderer } = require('electron')
-            ipcRenderer.send('stopPowerSaveBlocker', this.powerSaveBlocker)
+            ipcRenderer.send(IpcChannels.STOP_POWER_SAVE_BLOCKER, this.powerSaveBlocker)
             this.powerSaveBlocker = null
+          }
+        })
+
+        this.player.on(this.statsModalEventName, () => {
+          if (this.showStatsModal) {
+            this.statsModal.open()
+            this.player.controls(true)
+            this.statsModal.contentEl().innerHTML = this.getFormattedStats()
+          } else {
+            this.statsModal.close()
+          }
+        })
+
+        this.player.on('timeupdate', () => {
+          if (this.format === 'dash') {
+            this.playerStats = this.player.tech({ IWillNotUseThisInPlugins: true }).vhs.stats
+            this.updateStatsContent()
           }
         })
 
@@ -334,6 +417,15 @@ export default Vue.extend({
           const settings = this.player.textTrackSettings.getValues()
           this.updateDefaultCaptionSettings(JSON.stringify(settings))
         })
+
+        // right click menu
+        if (this.usingElectron) {
+          const { ipcRenderer } = require('electron')
+          ipcRenderer.removeAllListeners('showVideoStatistics')
+          ipcRenderer.on('showVideoStatistics', (event) => {
+            this.toggleShowStatsModal()
+          })
+        }
       }
     },
 
@@ -478,11 +570,41 @@ export default Vue.extend({
           this.player.volume(0)
         }
 
-        if (!this.player.muted()) {
+        if (!event.ctrlKey && !event.metaKey) {
+          if (!this.player.muted()) {
+            if (event.wheelDelta > 0) {
+              this.changeVolume(0.05)
+            } else if (event.wheelDelta < 0) {
+              this.changeVolume(-0.05)
+            }
+          }
+        }
+      }
+    },
+
+    mouseScrollPlaybackRate: function (event) {
+      if (event.target && !event.currentTarget.querySelector('.vjs-menu:hover')) {
+        event.preventDefault()
+
+        if (event.ctrlKey || event.metaKey) {
           if (event.wheelDelta > 0) {
-            this.changeVolume(0.05)
+            this.changePlayBackRate(0.05)
           } else if (event.wheelDelta < 0) {
-            this.changeVolume(-0.05)
+            this.changePlayBackRate(-0.05)
+          }
+        }
+      }
+    },
+
+    handlePlayerClick: function (event) {
+      if (event.target.matches('.ftVideoPlayer')) {
+        if (event.ctrlKey || event.metaKey) {
+          this.player.playbackRate(this.defaultPlayback)
+        } else {
+          if (this.player.paused() || !this.player.hasStarted()) {
+            this.player.play()
+          } else {
+            this.player.pause()
           }
         }
       }
@@ -710,6 +832,18 @@ export default Vue.extend({
       qualityElement.innerText = selectedQuality
       this.selectedQuality = selectedQuality
 
+      if (selectedQuality !== 'auto') {
+        this.selectedResolution = `${adaptiveFormat.width}x${adaptiveFormat.height}`
+        this.selectedFPS = adaptiveFormat.fps
+        this.selectedBitrate = adaptiveFormat.bitrate
+        this.selectedMimeType = adaptiveFormat.mimeType
+      } else {
+        this.selectedResolution = 'auto'
+        this.selectedFPS = 'auto'
+        this.selectedBitrate = 'auto'
+        this.selectedMimeType = 'auto'
+      }
+
       const qualityItems = $('.quality-item').get()
 
       $('.quality-item').removeClass('quality-selected')
@@ -856,9 +990,9 @@ export default Vue.extend({
     },
 
     changePlayBackRate: function (rate) {
-      const newPlaybackRate = this.player.playbackRate() + rate
+      const newPlaybackRate = (this.player.playbackRate() + rate).toFixed(2)
 
-      if (newPlaybackRate >= 0.25 && newPlaybackRate <= 3) {
+      if (newPlaybackRate >= this.videoPlaybackRateInterval && newPlaybackRate <= this.maxVideoPlaybackRate) {
         this.player.playbackRate(newPlaybackRate)
       }
     },
@@ -871,7 +1005,7 @@ export default Vue.extend({
       if (this.maxFramerate === 60 && quality.height >= 480) {
         for (let i = 0; i < this.adaptiveFormats.length; i++) {
           if (this.adaptiveFormats[i].bitrate === quality.bitrate) {
-            fps = this.adaptiveFormats[i].fps
+            fps = this.adaptiveFormats[i].fps ? this.adaptiveFormats[i].fps : 30
             break
           }
         }
@@ -1067,6 +1201,10 @@ export default Vue.extend({
               const adaptiveFormat = this.adaptiveFormats.find((format) => {
                 return format.bitrate === quality.bitrate
               })
+
+              if (typeof adaptiveFormat === 'undefined') {
+                return
+              }
 
               this.activeAdaptiveFormats.push(adaptiveFormat)
 
@@ -1285,7 +1423,64 @@ export default Vue.extend({
     handleTouchEnd: function (event) {
       clearTimeout(this.touchPauseTimeout)
     },
+    toggleShowStatsModal: function() {
+      console.log(this.format)
+      if (this.format !== 'dash') {
+        this.showToast({
+          message: this.$t('Video.Stats.Video statistics are not available for legacy videos')
+        })
+      } else {
+        this.showStatsModal = !this.showStatsModal
+      }
+    },
+    createStatsModal: function() {
+      const ModalDialog = videojs.getComponent('ModalDialog')
+      this.statsModal = new ModalDialog(this.player, {
+        temporary: false,
+        pauseOnOpen: false
+      })
+      this.player.addChild(this.statsModal)
+      this.statsModal.el_.classList.add('statsModal')
+      this.statsModal.on('modalclose', () => {
+        this.showStatsModal = false
+      })
+    },
+    updateStatsContent: function() {
+      if (this.showStatsModal) {
+        this.statsModal.contentEl().innerHTML = this.getFormattedStats()
+      }
+    },
+    getFormattedStats: function() {
+      const currentVolume = this.player.muted() ? 0 : this.player.volume()
+      const volume = `${(currentVolume * 100).toFixed(0)}%`
+      const bandwidth = `${(this.playerStats.bandwidth / 1000).toFixed(2)}kbps`
+      const buffered = `${(this.player.bufferedPercent() * 100).toFixed(0)}%`
+      const droppedFrames = this.playerStats.videoPlaybackQuality.droppedVideoFrames
+      const totalFrames = this.playerStats.videoPlaybackQuality.totalVideoFrames
+      const frames = `${droppedFrames} / ${totalFrames}`
+      const resolution = this.selectedResolution === 'auto' ? 'auto' : `${this.selectedResolution}@${this.selectedFPS}fps`
+      const playerDimensions = `${this.playerStats.playerDimensions.width}x${this.playerStats.playerDimensions.height}`
+      const statsArray = [
+        [this.$t('Video.Stats.Video ID'), this.videoId],
+        [this.$t('Video.Stats.Resolution'), resolution],
+        [this.$t('Video.Stats.Player Dimensions'), playerDimensions],
+        [this.$t('Video.Stats.Bitrate'), this.selectedBitrate],
+        [this.$t('Video.Stats.Volume'), volume],
+        [this.$t('Video.Stats.Bandwidth'), bandwidth],
+        [this.$t('Video.Stats.Buffered'), buffered],
+        [this.$t('Video.Stats.Dropped / Total Frames'), frames],
+        [this.$t('Video.Stats.Mimetype'), this.selectedMimeType]
+      ]
+      let listContentHTML = ''
 
+      statsArray.forEach((stat) => {
+        const content = `<p>${stat[0]}: ${stat[1]}</p>`
+        listContentHTML += content
+      })
+      return listContentHTML
+    },
+
+    // This function should always be at the bottom of this file
     keyboardShortcutHandler: function (event) {
       const activeInputs = $('.ft-input')
 
@@ -1311,7 +1506,7 @@ export default Vue.extend({
             // J Key
             // Rewind by 2x the time-skip interval (in seconds)
             event.preventDefault()
-            this.changeDurationBySeconds(-this.defaultSkipInterval * 2)
+            this.changeDurationBySeconds(-this.defaultSkipInterval * this.player.playbackRate() * 2)
             break
           case 75:
             // K Key
@@ -1323,19 +1518,19 @@ export default Vue.extend({
             // L Key
             // Fast-Forward by 2x the time-skip interval (in seconds)
             event.preventDefault()
-            this.changeDurationBySeconds(this.defaultSkipInterval * 2)
+            this.changeDurationBySeconds(this.defaultSkipInterval * this.player.playbackRate() * 2)
             break
           case 79:
             // O Key
             // Decrease playback rate by 0.25x
             event.preventDefault()
-            this.changePlayBackRate(-0.25)
+            this.changePlayBackRate(-this.videoPlaybackRateInterval)
             break
           case 80:
             // P Key
             // Increase playback rate by 0.25x
             event.preventDefault()
-            this.changePlayBackRate(0.25)
+            this.changePlayBackRate(this.videoPlaybackRateInterval)
             break
           case 70:
             // F Key
@@ -1371,13 +1566,23 @@ export default Vue.extend({
             // Left Arrow Key
             // Rewind by the time-skip interval (in seconds)
             event.preventDefault()
-            this.changeDurationBySeconds(-this.defaultSkipInterval * 1)
+            this.changeDurationBySeconds(-this.defaultSkipInterval * this.player.playbackRate())
             break
           case 39:
             // Right Arrow Key
             // Fast-Forward by the time-skip interval (in seconds)
             event.preventDefault()
-            this.changeDurationBySeconds(this.defaultSkipInterval * 1)
+            this.changeDurationBySeconds(this.defaultSkipInterval * this.player.playbackRate())
+            break
+          case 73:
+            // I Key
+            event.preventDefault()
+            // Toggle Picture in Picture Mode
+            if (this.format !== 'audio' && !this.player.isInPictureInPicture()) {
+              this.player.requestPictureInPicture()
+            } else if (this.player.isInPictureInPicture()) {
+              this.player.exitPictureInPicture()
+            }
             break
           case 49:
             // 1 Key
@@ -1451,12 +1656,8 @@ export default Vue.extend({
             break
           case 68:
             // D Key
-            // Toggle Picture in Picture Mode
-            if (!this.player.isInPictureInPicture()) {
-              this.player.requestPictureInPicture()
-            } else if (this.player.isInPictureInPicture()) {
-              this.player.exitPictureInPicture()
-            }
+            event.preventDefault()
+            this.toggleShowStatsModal()
             break
           case 27:
             // esc Key

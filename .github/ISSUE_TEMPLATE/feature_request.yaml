@@ -1,0 +1,57 @@
+name: Feature request
+description: Suggest an idea for FreeTube which you would like to see in a future release
+title: "[Feature Request]: "
+labels: "enhancement"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **README: Before You Submit Your Issue**
+        - Issues are not a place to go ask support questions or start discussions. Please ask support questions or start discussions on the [discussions page](https://github.com/FreeTubeApp/FreeTube/discussions).
+  - type: checkboxes
+    attributes:
+      label: Guidelines
+      description: Please ensure you've completed all of the following.
+      options:
+          - label: I have searched the [issue tracker](https://github.com/FreeTubeApp/FreeTube/issues) for a feature request that matches the one I want to file, without success.
+            required: true
+  - type: textarea
+    attributes:
+      label: Problem Description
+      description: Please add a clear and concise description of the problem you are seeking to solve with this feature request.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Proposed Solution
+      description: Describe the solution you'd like in a clear and concise manner.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Alternatives Considered
+      description: A clear and concise description of any alternative solutions or features you've considered. 
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: 'Issue Labels'
+      description: Please select a label that fits this feature request. Choose multiple, if applicable.
+      multiple: true
+      options:
+        - display more information to user
+        - ease of use improvement
+        - improvement to existing feature
+        - new feature
+        - new keyboard shortcut
+        - new optional setting
+        - support for external software
+        - visual improvement
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Additional Information
+      description: |
+        Add any other context or screenshots/videos about the feature request here.
+        You may drag-and-drop screenshots.

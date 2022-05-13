@@ -43,6 +43,13 @@
           @change="updateVideoVolumeMouseScroll"
         />
         <ft-toggle-switch
+          :label="$t('Settings.Player Settings.Scroll Playback Rate Over Video Player')"
+          :compact="true"
+          :default-value="videoPlaybackRateMouseScroll"
+          :tooltip="$t('Tooltips.Player Settings.Scroll Playback Rate Over Video Player')"
+          @change="updateVideoPlaybackRateMouseScroll"
+        />
+        <ft-toggle-switch
           :label="$t('Settings.Player Settings.Display Play Button In Video Player')"
           :compact="true"
           :default-value="displayVideoPlayButton"
@@ -103,10 +110,26 @@
         :label="$t('Settings.Player Settings.Default Playback Rate')"
         :default-value="defaultPlayback"
         :min-value="0.25"
-        :max-value="3"
+        :max-value="8"
         :step="0.25"
         value-extension="×"
         @change="updateDefaultPlayback"
+      />
+      <ft-slider
+        :label="$t('Settings.Player Settings.Max Video Playback Rate')"
+        :default-value="maxVideoPlaybackRate"
+        :min-value="2"
+        :max-value="10"
+        :step="1"
+        value-extension="x"
+        @change="updateMaxVideoPlaybackRate"
+      />
+      <ft-select
+        :placeholder="$t('Settings.Player Settings.Video Playback Rate Interval')"
+        :value="videoPlaybackRateInterval"
+        :select-names="playbackRateIntervalValues"
+        :select-values="playbackRateIntervalValues"
+        @change="updateVideoPlaybackRateInterval"
       />
     </ft-flex-box>
     <ft-flex-box>

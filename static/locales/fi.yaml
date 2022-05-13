@@ -92,11 +92,15 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Et
     ole tallentanut videoita. Paina "Tallenna" painiketta videon kulmassa tallentaaksesi
     sen tänne
+  Search bar placeholder: Etsi soittolistalta
+  Empty Search Message: Tällä soittolistalla ei ole videoita, jotka vastaavat hakuasi
 History:
   # On History Page
   History: 'Historia'
   Watch History: 'Katseluhistoria'
   Your history list is currently empty.: Historiasi on tällä hetkellä tyhjä.
+  Search bar placeholder: Etsi historiasta
+  Empty Search Message: Historiassasi ei ole videoita, jotka vastaisivat hakuasi
 Settings:
   # On Settings Page
   Settings: 'Asetukset'
@@ -150,6 +154,7 @@ Settings:
       Dark: 'Tumma'
       Light: 'Vaalea'
       Dracula: 'Dracula'
+      System Default: Järjestelmän oletusarvo
     Main Color Theme:
       Main Color Theme: 'Pääväriteema'
       Red: 'Punainen'
@@ -216,6 +221,9 @@ Settings:
     Scroll Volume Over Video Player: Säädä äänenvoimakkuutta vierittämällä videon
       päällä
     Fast-Forward / Rewind Interval: Pikakelauksen intervalli
+    Scroll Playback Rate Over Video Player: Toistonopeuden selaaminen videosoittimessa
+    Max Video Playback Rate: Videon maksimitoistonopeus
+    Video Playback Rate Interval: Videon toistonopeuden aikaväli
   Subscription Settings:
     Subscription Settings: 'Tilausasetukset'
     Hide Videos on Watch: 'Piilota katsotut videot'
@@ -308,6 +316,13 @@ Settings:
     Data Settings: Data-asetukset
     Check for Legacy Subscriptions: Tarkista vanhat tilaukset
     Manage Subscriptions: Hallitse tilauksia
+    All playlists has been successfully imported: Kaikki soittolistat on onnistuneesti
+      tuotu
+    All playlists has been successfully exported: Kaikki soittolistat on viety onnistuneesti
+    Import Playlists: Tuo soittolistoja
+    Export Playlists: Vie soittolistoja
+    Playlist insufficient data: Riittämätön määrä tietoja ”$” -soittolistalle, ohitetaan
+      kohde
   Distraction Free Settings:
     Hide Live Chat: Piilota Live-keskustelu
     Hide Popular Videos: Piilota suositut videot
@@ -352,6 +367,10 @@ Settings:
     Ignore Unsupported Action Warnings: Sivuuta ei-tuettujen toimintojen varoitukset
     External Player: Ulkoinen toisto-ohjelma
     External Player Settings: Ulkoisen videontoisto-ohjelman asetukset
+  Download Settings:
+    Download Settings: Latausasetukset
+    Choose Path: Valitse polku
+    Ask Download Path: Kysy latauspolkua
 About:
   #On About page
   About: 'Tietoja'
@@ -548,6 +567,26 @@ Video:
     luettelostasi
   Video has been saved: Video on tallennettu
   Save Video: Tallenna video
+  Stats:
+    video id: Videon tunniste (YouTube)
+    player resolution: Näkymäikkuna
+    bandwidth: Yhteyden nopeus
+    buffered: Puskuroitu
+    volume: Äänenvoimakkuus
+    fps: Kuvanopeus
+    out of: /
+    Video ID: Videotunnus
+    Bitrate: Tiedonsiirtonopeus
+    Bandwidth: Kaistanleveys
+    Mimetype: Internet-mediatyyppi
+    Video statistics are not available for legacy videos: Vanhojen videoiden videotilastot
+      eivät ole saatavilla
+    Player Dimensions: Soittimen mitat
+    Volume: Äänenvoimakkuus
+    Buffered: Puskuroitu
+    Resolution: Resoluutio
+    Dropped / Total Frames: Pudotettu / Yhteensä
+  Premieres on: Julkaistaan
 Videos:
   #& Sort By
   Sort By:
@@ -617,6 +656,9 @@ Comments:
   Top comments: Suosituimmat kommentit
   Sort by: Lajitteluperuste
   Show More Replies: Näytä enemmän vastauksia
+  Pinned by: Kiinnittänyt
+  From $channelName: kanavalta $channelName
+  And others: ja muut
 Up Next: 'Seuraavaksi'
 
 # Toast Messages
@@ -717,6 +759,11 @@ Tooltips:
       Kun valittuna, paikallinen API käyttää vanhoja formaatteja Invidiousin käyttämien
       sijaan. Tämä auttaa, jos Invidiousin palauttamat videot eivät toimi maarajoituksien
       takia.
+    Scroll Playback Rate Over Video Player: Kursorin ollessa videon päällä, paina
+      CTRL (Komentopainike MAC-tietokoneessa) pohjaan ja käytä hiiren rullaa muuttaaksesi
+      toiston nopeutta. Palataksesi alkuperäiseen toistonopeuteen (1x ellei toisin
+      määritelty asetuksissa), pidä CTRL-painike (Komentopainike MAC-tietokoneessa)
+      painettuna ja paina hiiren vasenta näppäintä.
   Privacy Settings:
     Remove Video Meta Files: Kun tämä on kytkettynä päälle, FreeTube poistaa automaattisesti
       meta-tiedostot jotka luotiin videon toiston aikana, katselusivu suljettaessa.
@@ -750,3 +797,6 @@ Search Bar:
 External link opening has been disabled in the general settings: Ulkoisen linkin avaaminen
   on poistettu käytöstä yleisissä asetuksissa
 Are you sure you want to open this link?: Haluatko varmasti avata tämän linkin?
+Downloading failed: Videon "$" lataamisessa havaittiin ongelma
+Downloading has completed: Videon "$" lataus on valmis
+Starting download: Aloitetaan lataamaan "$"
