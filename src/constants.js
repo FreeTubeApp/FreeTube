@@ -12,6 +12,7 @@ const IpcChannels = {
   START_POWER_SAVE_BLOCKER: 'start-power-save-blocker',
   CREATE_NEW_WINDOW: 'create-new-window',
   OPEN_IN_EXTERNAL_PLAYER: 'open-in-external-player',
+  NATIVE_THEME_UPDATE: 'native-theme-update',
 
   DB_SETTINGS: 'db-settings',
   DB_HISTORY: 'db-history',
@@ -36,8 +37,7 @@ const DBActions = {
   },
 
   HISTORY: {
-    UPDATE_WATCH_PROGRESS: 'db-action-history-update-watch-progress',
-    SEARCH: 'db-action-history-search'
+    UPDATE_WATCH_PROGRESS: 'db-action-history-update-watch-progress'
   },
 
   PLAYLISTS: {

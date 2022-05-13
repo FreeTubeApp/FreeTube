@@ -93,15 +93,18 @@ User Playlists:
     spremljenih videa. Pritisni gumb za spremanje u sličici videa, kako bi se video
     ovdje prikazao
   Playlist Message: Ova stranica ne odražava potpuno funkcionalne zbirke. Prikazuje
-    samo spremljena ili označena videa. Kad posao završi, svi trenutačno ovdje prisutni
-    videi premjestit će se u zbirku „Favoriti”.
+    samo spremljena ili označena videa. Kad posao završi, sva trenutačno ovdje prisutna
+    videa premjestit će se u zbirku „Favoriti”.
   Search bar placeholder: Pretraži zbirku
+  Empty Search Message: U ovoj zbirci nema videa koji odgovaraju tvojem pretraživanju
 History:
   # On History Page
   History: 'Povijest'
   Watch History: 'Povijest gledanja'
   Your history list is currently empty.: 'Tvoj popis povijesti je trenutačno prazan.'
   Search bar placeholder: Pretraži povijest
+  Empty Search Message: U ovoj zbirci nema videa u tvojoj povijesti koji odgovaraju
+    tvojem pretraživanju
 Settings:
   # On Settings Page
   Settings: 'Postavke'
@@ -221,8 +224,9 @@ Settings:
     Scroll Volume Over Video Player: Mijenjaj glasnoću u video playeru
     Display Play Button In Video Player: Prikaži gumb za pokretanje u video playeru
     Fast-Forward / Rewind Interval: Interval za premotavanje naprijed/natrag
-    Scroll Playback Rate Over Video Player: Mijenjanje brzine reprodukcije preko video
-      playera
+    Scroll Playback Rate Over Video Player: Mijenjaj brzinu reprodukcije u video playeru
+    Video Playback Rate Interval: Interval brzine reprodukcije videa
+    Max Video Playback Rate: Maksimalna brzina reprodukcije videa
   Privacy Settings:
     Privacy Settings: 'Postavke privatnosti'
     Remember History: 'Zapamti povijest'
@@ -316,6 +320,11 @@ Settings:
       pretplata
     Check for Legacy Subscriptions: Potraži stare pretplate
     Manage Subscriptions: Upravljaj pretplatama
+    Import Playlists: Uvezi zbirke
+    Export Playlists: Izvezi zbirke
+    Playlist insufficient data: Nedovoljno podataka za „$” zbirku, element se preskače
+    All playlists has been successfully imported: Sve zbirke su uspješno uvezene
+    All playlists has been successfully exported: Sve zbirke su uspješno izvezene
   Distraction Free Settings:
     Hide Trending Videos: Sakrij videa u trendu
     Hide Recommended Videos: Sakrij preporučena videa
@@ -358,6 +367,10 @@ Settings:
     Ignore Unsupported Action Warnings: Zanemari upozorenja o nepodržanim radnjama
     External Player: Vanjski player
     External Player Settings: Postavke vanjskog playera
+  Download Settings:
+    Choose Path: Odaberi stazu
+    Download Settings: Postavke preuzimanja
+    Ask Download Path: Zatraži stazu preuzimanja
 About:
   #On About page
   About: 'Informacije'
@@ -619,6 +632,17 @@ Video:
     bandwidth: Brzina veze
     buffered: Učitano u memoriju
     out of: od
+    Video statistics are not available for legacy videos: Statistika videa nije dostupna
+      za stara videa
+    Video ID: Video ID
+    Resolution: Razlučivost
+    Player Dimensions: Dimenzije playera
+    Bitrate: Brzina prijenosa
+    Volume: Glasnoća
+    Bandwidth: Propusnost
+    Buffered: Učitano u memoriju
+    Mimetype: Mimetype
+    Dropped / Total Frames: Ispušteni/ukupni kadrovi
 Videos:
   #& Sort By
   Sort By:
@@ -793,3 +817,6 @@ External link opening has been disabled in the general settings: Vanjsko otvaran
 Search Bar:
   Clear Input: Izbriši unos
 Are you sure you want to open this link?: Stvarno želiš otvoriti ovu poveznicu?
+Downloading failed: Došlo je do problema prilikom preuzimanja „$”
+Downloading has completed: „$” je preuzeto
+Starting download: Početak preuzimanja „$”

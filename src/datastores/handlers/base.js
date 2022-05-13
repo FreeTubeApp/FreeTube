@@ -27,6 +27,10 @@ class Settings {
     return db.settings.findOne({ _id: 'bounds' })
   }
 
+  static _findTheme() {
+    return db.settings.findOne({ _id: 'baseTheme' })
+  }
+
   static _updateBounds(value) {
     return db.settings.update({ _id: 'bounds' }, { _id: 'bounds', value }, { upsert: true })
   }
@@ -36,11 +40,6 @@ class Settings {
 class History {
   static find() {
     return db.history.find({}).sort({ timeWatched: -1 })
-  }
-
-  static search(query) {
-    const re = new RegExp(query, 'i')
-    return db.history.find({ $or: [{ author: { $regex: re } }, { title: { $regex: re } }] }).sort({ timeWatched: -1 })
   }
 
   static upsert(record) {

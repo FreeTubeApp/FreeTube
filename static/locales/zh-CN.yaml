@@ -88,12 +88,14 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 您未保存视频。点击视频角落的“保存”按钮保存视频
   Playlist Message: 本页面不代表功能完备的播放列表。它只列举您保存或喜爱的播放列表。当项目完成时，本页面的所有视频将会迁移到“最喜爱”播放列表。
   Search bar placeholder: 在播放列表中搜索
+  Empty Search Message: 这个与你的搜索匹配的播放列表中没有视频
 History:
   # On History Page
   History: '历史记录'
   Watch History: '观看历史记录'
   Your history list is currently empty.: 您的历史记录列表目前是空的。
   Search bar placeholder: 在播放历史中搜索
+  Empty Search Message: 匹配搜索的历史记录中没有视频
 Settings:
   # On Settings Page
   Settings: '设置'
@@ -144,6 +146,7 @@ Settings:
       Dark: '深'
       Light: '浅'
       Dracula: '德古拉'
+      System Default: 系统默认
     Main Color Theme:
       Main Color Theme: '主题色'
       Red: '红'
@@ -210,6 +213,8 @@ Settings:
     Scroll Volume Over Video Player: 在视频播放器上滑动音量
     Fast-Forward / Rewind Interval: 快进/快退间隔
     Scroll Playback Rate Over Video Player: 滚动调整视频播放器回放速度
+    Max Video Playback Rate: 视频最大播放速率
+    Video Playback Rate Interval: 视频播放速率间隔
   Subscription Settings:
     Subscription Settings: '订阅设置'
     Hide Videos on Watch: '观看时隐藏视频'
@@ -289,6 +294,11 @@ Settings:
     One or more subscriptions were unable to be imported: 一个或者更多订阅无法被导入
     Check for Legacy Subscriptions: 检查传统订阅
     Manage Subscriptions: 管理订阅
+    Import Playlists: 导入播放列表
+    Export Playlists: 导出播放列表
+    Playlist insufficient data: '"$" 播放列表数据不足，正在跳过'
+    All playlists has been successfully imported: 已成功导入所有播放列表
+    All playlists has been successfully exported: 所有播放列表已成功导出
   Distraction Free Settings:
     Hide Popular Videos: 隐藏流行视频
     Hide Trending Videos: 隐藏热门视频
@@ -502,6 +512,16 @@ Video:
     frame drop: 掉帧
     bandwidth: 连接速度
     buffered: 缓冲
+    Video ID: 视频 ID
+    Resolution: 分辨率
+    Player Dimensions: 播放器尺寸
+    Bitrate: 比特率
+    Volume: 音量
+    Buffered: 已缓冲
+    Dropped / Total Frames: 丢弃帧/总帧数
+    Mimetype: 互联网媒体类型
+    Bandwidth: 带宽
+    Video statistics are not available for legacy videos: 视频统计数据对于 legacy 视频不可用
   External Player:
     OpenInTemplate: 在 $ 中打开
     video: 视频
@@ -700,8 +720,8 @@ Default Invidious instance has been set to $: 默认的 Invidious 实例已被�
 Playing Next Video Interval: 马上播放下一个视频。单击取消。| {nextVideoInterval} 秒内播放下个视频。单击取消。 |
   {nextVideoInterval} 秒内播放下个视频。单击取消。
 Default Invidious instance has been cleared: 已清除默认的 Invidious 实例
-Downloading failed: 无法下载“$”，返回 http 请求状态码 $
-Downloading has completed: 已完成下载“$”
-Starting download: 已开始下载“$”
+Downloading failed: 下载“$”出现一个问题
+Downloading has completed: 已完成下载 “$”
+Starting download: 开始下载“$”
 Downloading canceled: 用户取消了下载
 Download folder does not exist: 下载目录“$”不存在，退回到 “询问文件夹”模式。

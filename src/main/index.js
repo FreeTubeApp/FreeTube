@@ -1,6 +1,6 @@
 import {
   app, BrowserWindow, dialog, Menu, ipcMain,
-  powerSaveBlocker, screen, session, shell
+  powerSaveBlocker, screen, session, shell, nativeTheme
 } from 'electron'
 import path from 'path'
 import cp from 'child_process'
@@ -25,7 +25,7 @@ function runApp() {
         label: 'Show Video Statistics',
         visible: parameters.mediaType === 'video',
         click: () => {
-          browserWindow.webContents.send('showVideoStatistics', 'show')
+          browserWindow.webContents.send('showVideoStatistics')
         }
       }
     ]
@@ -35,6 +35,7 @@ function runApp() {
   process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true'
   const isDev = process.env.NODE_ENV === 'development'
   const isDebug = process.argv.includes('--debug')
+
   let mainWindow
   let startupUrl
 
@@ -171,12 +172,34 @@ function runApp() {
     }
   }
 
-  async function createWindow(replaceMainWindow = true) {
+  async function createWindow({ replaceMainWindow = true, windowStartupUrl = null, showWindowNow = false } = { }) {
+    // Syncing new window background to theme choice.
+    const windowBackground = await baseHandlers.settings._findTheme().then(({ value }) => {
+      switch (value) {
+        case 'dark':
+          return '#212121'
+        case 'light':
+          return '#f1f1f1'
+        case 'black':
+          return '#000000'
+        case 'dracula':
+          return '#282a36'
+        case 'system':
+        default:
+          return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
+      }
+    }).catch((error) => {
+      console.log(error)
+      // Default to nativeTheme settings if nothing is found.
+      return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
+    })
+
     /**
      * Initial window options
      */
     const commonBrowserWindowOptions = {
-      backgroundColor: '#212121',
+      backgroundColor: windowBackground,
+      darkTheme: nativeTheme.shouldUseDarkColors,
       icon: isDev
         ? path.join(__dirname, '../../_icons/iconColor.png')
         /* eslint-disable-next-line */
@@ -191,11 +214,12 @@ function runApp() {
         contextIsolation: false
       }
     }
+
     const newWindow = new BrowserWindow(
       Object.assign(
         {
           // It will be shown later when ready via `ready-to-show` event
-          show: false
+          show: showWindowNow
         },
         commonBrowserWindowOptions
       )
@@ -204,16 +228,14 @@ function runApp() {
     // region Ensure child windows use same options since electron 14
 
     // https://github.com/electron/electron/blob/14-x-y/docs/api/window-open.md#native-window-example
-    newWindow.webContents.setWindowOpenHandler(() => {
+    newWindow.webContents.setWindowOpenHandler((details) => {
+      createWindow({
+        replaceMainWindow: false,
+        showWindowNow: true,
+        windowStartupUrl: details.url
+      })
       return {
-        action: 'allow',
-        overrideBrowserWindowOptions: Object.assign(
-          {
-            // It should be visible on click
-            show: true
-          },
-          commonBrowserWindowOptions
-        )
+        action: 'deny'
       }
     })
 
@@ -243,6 +265,7 @@ function runApp() {
           height: bounds.height
         })
       }
+
       if (maximized) {
         newWindow.maximize()
       }
@@ -257,10 +280,18 @@ function runApp() {
 
     // load root file/url
     if (isDev) {
-      newWindow.loadURL('http://localhost:9080')
+      let devStartupURL = 'http://localhost:9080'
+      if (windowStartupUrl != null) {
+        devStartupURL = windowStartupUrl
+      }
+      newWindow.loadURL(devStartupURL)
     } else {
-      /* eslint-disable-next-line */
-      newWindow.loadFile(`${__dirname}/index.html`)
+      if (windowStartupUrl != null) {
+        newWindow.loadURL(windowStartupUrl)
+      } else {
+        /* eslint-disable-next-line */
+        newWindow.loadFile(`${__dirname}/index.html`)
+      }
 
       global.__static = path
         .join(__dirname, '/static')
@@ -269,6 +300,8 @@ function runApp() {
 
     // Show when loaded
     newWindow.once('ready-to-show', () => {
+      if (newWindow.isVisible()) { return }
+
       newWindow.show()
       newWindow.focus()
     })
@@ -337,6 +370,14 @@ function runApp() {
     app.quit()
   })
 
+  nativeTheme.on('updated', () => {
+    const allWindows = BrowserWindow.getAllWindows()
+
+    allWindows.forEach((window) => {
+      window.webContents.send(IpcChannels.NATIVE_THEME_UPDATE, nativeTheme.shouldUseDarkColors)
+    })
+  })
+
   ipcMain.on(IpcChannels.ENABLE_PROXY, (_, url) => {
     console.log(url)
     session.defaultSession.setProxy({
@@ -381,7 +422,10 @@ function runApp() {
   })
 
   ipcMain.on(IpcChannels.CREATE_NEW_WINDOW, () => {
-    createWindow(false)
+    createWindow({
+      replaceMainWindow: false,
+      showWindowNow: true
+    })
   })
 
   ipcMain.on(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, (_, payload) => {
@@ -444,9 +488,6 @@ function runApp() {
             { event: SyncEvents.HISTORY.UPDATE_WATCH_PROGRESS, data }
           )
           return null
-
-        case DBActions.HISTORY.SEARCH:
-          return await baseHandlers.history.search(data)
 
         case DBActions.GENERAL.DELETE:
           await baseHandlers.history.delete(data)

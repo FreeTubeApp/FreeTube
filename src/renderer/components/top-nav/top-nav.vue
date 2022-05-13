@@ -18,7 +18,7 @@
         icon="arrow-left"
         role="button"
         tabindex="0"
-        :title="forwardText"
+        :title="backwardText"
         @click="historyBack"
         @keypress="historyBack"
       />
@@ -68,6 +68,7 @@
       <div class="searchContainer">
         <ft-input
           v-if="!hideSearchBar"
+          ref="searchInput"
           :placeholder="$t('Search / Go to URL')"
           class="searchInput"
           :is-search="true"
