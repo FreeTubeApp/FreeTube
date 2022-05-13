@@ -139,10 +139,11 @@ export default Vue.extend({
       this.inputData = ''
       this.handleActionIconChange()
       this.updateVisibleDataList()
-      this.$emit('input', this.inputData)
+
+      const inputElement = document.getElementById(this.id)
+      inputElement.value = ''
 
       // Focus on input element after text is clear for better UX
-      const inputElement = document.getElementById(this.id)
       inputElement.focus()
     },
 
