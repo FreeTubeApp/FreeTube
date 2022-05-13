@@ -102,12 +102,15 @@ User Playlists:
     приключи, всички видеоклипове, които в момента са тук, ще бъдат мигрирани в плейлист
     „Любими“.
   Search bar placeholder: Търсене в плейлиста
+  Empty Search Message: В този плейлист няма видеа, които да отговарят на търсенето
+    ви
 History:
   # On History Page
   History: 'История'
   Watch History: 'История на гледане'
   Your history list is currently empty.: 'Списъкът с история на гледанията е празен.'
   Search bar placeholder: Търсене в историята
+  Empty Search Message: В историята няма видеа, които да отговарят на търсенето ви
 Settings:
   # On Settings Page
   Settings: 'Настройки'

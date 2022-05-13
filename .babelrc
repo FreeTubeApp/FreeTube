@@ -4,15 +4,14 @@
       "@babel/env",
       {
         "targets": {
-          "chrome": "73",
-          "node": 12
+          "chrome": "96",
+          "node": 16
         }
       }
     ],
     "@babel/typescript"
   ],
   "plugins": [
-    "@babel/proposal-class-properties",
-    "@babel/proposal-object-rest-spread"
+    "@babel/proposal-class-properties"
   ]
 }

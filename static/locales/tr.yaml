@@ -101,12 +101,14 @@ User Playlists:
     bittiğinde, şu anda burada bulunan tüm videolar bir 'Favoriler' oynatma listesine
     taşınacaktır.
   Search bar placeholder: Oynatma Listesinde Ara
+  Empty Search Message: Bu oynatma listesinde aramanızla eşleşen video yok
 History:
   # On History Page
   History: 'Geçmiş'
   Watch History: 'İzleme Geçmişi'
   Your history list is currently empty.: 'Geçmişin şu anda boş.'
   Search bar placeholder: Geçmişte Ara
+  Empty Search Message: Geçmişinizde aramanızla eşleşen video yok
 Settings:
   # On Settings Page
   Settings: 'Ayarlar'
@@ -160,6 +162,7 @@ Settings:
       Dark: 'Koyu'
       Light: 'Açık'
       Dracula: 'Drakula'
+      System Default: Sistem Öntanımlı Değeri
     Main Color Theme:
       Main Color Theme: 'Ana Renk Teması'
       Red: 'Kırmızı'
@@ -227,6 +230,8 @@ Settings:
     Fast-Forward / Rewind Interval: Hızlı İleri / Geri Sarma Aralığı
     Scroll Playback Rate Over Video Player: Video Oynatıcı Üzerinde Kaydırarak Oynatma
       Hızını Denetle
+    Video Playback Rate Interval: Video Oynatma Hızı Aralığı
+    Max Video Playback Rate: En Yüksek Video Oynatma Hızı
   Privacy Settings:
     Privacy Settings: 'Gizlilik Ayarları'
     Remember History: 'Geçmişi Hatırla'

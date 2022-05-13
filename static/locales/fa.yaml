@@ -96,16 +96,22 @@ Most Popular: 'پر طرفدارترین ها'
 Playlists: 'لیست های پخش'
 User Playlists:
   Your Playlists: 'لیست های پخش شما'
-  Playlist Message: ''
+  Playlist Message: 'این صفحه، فهرست پخشی را نمایش میدهد که هنوز تکمیل نشده و در حال
+    کار میباشد. در اینجا فقط ویدیو هایی که ذخیره شده اند یا موردعلاقه اند را می بینید.
+    وقتی که عملیات تکمیل شد، این ویدیوها به بخش فهرت پخش «مورد علاقه ها» منتقل خواهند
+    شد.'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'ویدیوی
     ذخیره شده ای ندارید.بر دکمه ذخیره در گوشه ویدیو کلیک کنید تا اینجا لیست شوند'
   Search bar placeholder: جستجو در فهرست پخش
+  Empty Search Message: هیچ ویدیویی در این فهرست پخش وجود ندارد که با جستجوی شما مطابق
+    باشد
 History:
   # On History Page
   History: 'تاریخچه'
   Watch History: 'تاریخچه تماشا'
   Your history list is currently empty.: 'تاریخچه شما در حال حاضر خالی است.'
   Search bar placeholder: جستجو در تاریخچه
+  Empty Search Message: هیچ ویدیویی در تاریخچه وجود ندارد که با جستجوی شما مطابق باشد
 Settings:
   # On Settings Page
   Settings: 'تنظیمات'
@@ -228,6 +234,8 @@ Settings:
       8k: '8k'
     Scroll Playback Rate Over Video Player: کنترل سرعت پخش با حرکت اسکرول موس روی
       پخش کننده ویدیو
+    Video Playback Rate Interval: فاصله سرعت پخش ویدیو
+    Max Video Playback Rate: حداکثر سرعت پخش ویدیو
   External Player Settings:
     External Player Settings: 'تنظیمات پخش کننده خارجی'
     External Player: 'پخش کننده خارجی'
@@ -284,7 +292,8 @@ Settings:
     Export NewPipe: 'استخراج NewPipe'
     Import History: 'وارد کردن تاریخچه'
     Export History: 'استخراج تاریخچه'
-    Profile object has insufficient data, skipping item: ''
+    Profile object has insufficient data, skipping item: 'پروفایل داده کافی ندارد،
+      در حال چشم پوشی'
     All subscriptions and profiles have been successfully imported: 'همه دنبال شوندگان
       و پروفایل ها با موفقیت ثبت شد'
     All subscriptions have been successfully imported: 'همه دنبال شوندگان با موفقیت
@@ -296,16 +305,24 @@ Settings:
     Invalid history file: 'فایل تاریخچه نامعتبر است'
     Subscriptions have been successfully exported: 'دنبال شوندگان با موفقیت استخراج
       شدند'
-    History object has insufficient data, skipping item: ''
-    All watched history has been successfully imported: ''
-    All watched history has been successfully exported: ''
-    Unable to read file: ''
-    Unable to write file: ''
-    Unknown data key: ''
-    How do I import my subscriptions?: ''
+    History object has insufficient data, skipping item: 'تاریخچه داده کافی ندارد،
+      در حال چشم پوشی'
+    All watched history has been successfully imported: 'همه تاریخچه تماشا با موفقیت
+      وارد شد'
+    All watched history has been successfully exported: 'همه تاریخچه تماشا با موفقیت
+      صادر شد'
+    Unable to read file: 'قادر به خواندن فایل نیست'
+    Unable to write file: 'امکان نوشتن فایل وجود ندارد'
+    Unknown data key: 'کلید داده ناشناخته'
+    How do I import my subscriptions?: 'چگونه دنبال شوندگان را وارد کنم؟'
     Manage Subscriptions: ''
     Import Playlists: وارد کردن فهرست های پخش
     Export Playlists: استخراج فهرست های پخش
+    Playlist insufficient data: داده ناکافی برای لیست پخش "$" ، در حال چشم پوشی
+    All playlists has been successfully imported: همه لیست های پخش با موفقیت وارد
+      شدند
+    All playlists has been successfully exported: همه لیست های پخش با موفقیت صادر
+      شد
   Proxy Settings:
     Proxy Settings: ''
     Enable Tor / Proxy: ''

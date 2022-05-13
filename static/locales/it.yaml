@@ -99,12 +99,16 @@ User Playlists:
     Mostra solo i video che hai salvato o aggiunto ai preferiti. A lavoro finito,
     tutti i video che si trovano qui saranno spostati in una playlist dei Preferiti.
   Search bar placeholder: Cerca nella Playlist
+  Empty Search Message: Non ci sono video in questa playlist che corrispondono alla
+    tua ricerca
 History:
   # On History Page
   History: 'Cronologia'
   Watch History: 'Cronologia delle visualizzazioni'
   Your history list is currently empty.: 'La tua cronologia al momento è vuota.'
   Search bar placeholder: Cerca nella Cronologia
+  Empty Search Message: Non ci sono video nella tua cronologia che corrispondono alla
+    tua ricerca
 Settings:
   # On Settings Page
   Settings: 'Impostazioni'
@@ -159,6 +163,7 @@ Settings:
       Dark: 'Scuro'
       Light: 'Chiaro'
       Dracula: 'Dracula'
+      System Default: Predefinito del sistema
     Main Color Theme:
       Main Color Theme: 'Colore principale del tema'
       Red: 'Rosso'
@@ -226,6 +231,8 @@ Settings:
     Scroll Volume Over Video Player: Controlla il volume scorrendo sul lettore video
     Scroll Playback Rate Over Video Player: Scorri la velocità di riproduzione sul
       lettore video
+    Video Playback Rate Interval: Intervallo di riproduzione video
+    Max Video Playback Rate: Velocità massima di riproduzione video
   Privacy Settings:
     Privacy Settings: 'Impostazioni della privacy'
     Remember History: 'Salva la cronologia'

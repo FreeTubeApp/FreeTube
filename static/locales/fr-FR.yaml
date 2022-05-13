@@ -99,12 +99,16 @@ User Playlists:
     Une fois le travail terminé, toutes les vidéos actuellement présentes ici seront
     migrées vers une liste de lecture « Favoris ».
   Search bar placeholder: Recherche dans la liste de lecture
+  Empty Search Message: Il n'y a pas de vidéos dans cette liste de lecture qui correspondent
+    à votre recherche
 History:
   # On History Page
   History: 'Historique'
   Watch History: 'Historique de visionnage'
   Your history list is currently empty.: 'Votre historique est vide.'
   Search bar placeholder: "Recherche dans l'historique"
+  Empty Search Message: Il n'y a pas de vidéos dans votre historique qui correspondent
+    à votre recherche
 Settings:
   # On Settings Page
   Settings: 'Paramètres'
@@ -162,6 +166,7 @@ Settings:
       Dark: 'Sombre'
       Light: 'Clair'
       Dracula: 'Dracula'
+      System Default: Paramètres système
     Main Color Theme:
       Main Color Theme: 'Couleur principale du thème'
       Red: 'Rouge'
@@ -233,6 +238,8 @@ Settings:
     Fast-Forward / Rewind Interval: Intervalle d'avance / de recul rapide
     Scroll Playback Rate Over Video Player: Faire défiler le taux de lecture sur le
       lecteur vidéo
+    Video Playback Rate Interval: Intervalle de débit de lecture vidéo
+    Max Video Playback Rate: Débit de lecture vidéo maximal
   Subscription Settings:
     Subscription Settings: 'Paramètres des abonnements'
     Hide Videos on Watch: 'Masquer les vidéos visionnées'

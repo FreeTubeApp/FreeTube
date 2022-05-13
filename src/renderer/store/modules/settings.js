@@ -167,7 +167,7 @@ const state = {
   barColor: false,
   checkForBlogPosts: true,
   checkForUpdates: true,
-  baseTheme: 'dark',
+  baseTheme: 'system',
   mainColor: 'Red',
   secColor: 'Blue',
   defaultCaptionSettings: '{}',
@@ -203,6 +203,7 @@ const state = {
   hideLabelsSideBar: false,
   landingPage: 'subscriptions',
   listType: 'grid',
+  maxVideoPlaybackRate: 3,
   playNextVideo: false,
   proxyHostname: '127.0.0.1',
   proxyPort: '9050',
@@ -220,6 +221,7 @@ const state = {
   useSponsorBlock: false,
   videoVolumeMouseScroll: false,
   videoPlaybackRateMouseScroll: false,
+  videoPlaybackRateInterval: 0.25,
   downloadFolderPath: ''
 }
 
@@ -325,7 +327,9 @@ const customActions = {
           dispatch(defaultSideEffectsTriggerId(_id), value)
         }
 
-        commit(defaultMutationId(_id), value)
+        if (Object.keys(mutations).includes(defaultMutationId(_id))) {
+          commit(defaultMutationId(_id), value)
+        }
       }
     } catch (errMessage) {
       console.error(errMessage)

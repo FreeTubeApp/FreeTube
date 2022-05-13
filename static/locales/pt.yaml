@@ -100,12 +100,15 @@ User Playlists:
     vídeos que foram guardados ou marcados como favoritos. Quando estiver pronta,
     todos os vídeos que estiverem aqui serão postos numa lista chamada 'Favoritos'.
   Search bar placeholder: Procurar na lista de reprodução
+  Empty Search Message: Não há vídeos nesta lista de reprodução que correspondam à
+    sua pesquisa
 History:
   # On History Page
   History: 'Histórico'
   Watch History: 'Histórico de visualizações'
   Your history list is currently empty.: 'O seu histórico está vazio.'
   Search bar placeholder: Procurar no histórico
+  Empty Search Message: Não há vídeos no seu histórico que correspondam à sua pesquisa
 Settings:
   # On Settings Page
   Settings: 'Definições'
@@ -226,6 +229,8 @@ Settings:
     Scroll Volume Over Video Player: Utilizar roda do rato sobre o vídeo para alterar
       o volume
     Scroll Playback Rate Over Video Player: Alterar a taxa de reprodução sobre o vídeo
+    Max Video Playback Rate: Velocidade máxima de reprodução de vídeos
+    Video Playback Rate Interval: Intervalo da velocidade de reprodução de vídeos
   Privacy Settings:
     Privacy Settings: 'Definições de privacidade'
     Remember History: 'Lembrar histórico'
@@ -624,6 +629,16 @@ Video:
     player resolution: Janela de visualização
     buffered: Buffered
     Mimetype: Tipo de mídia da Internet
+    Video ID: ID do vídeo
+    Player Dimensions: Dimensões do reprodutor
+    Bitrate: Taxa de bits
+    Volume: Volume
+    Video statistics are not available for legacy videos: As estatísticas de vídeo
+      não estão disponíveis para vídeos mais antigos
+    Resolution: Resolução
+    Bandwidth: Largura de banda
+    Buffered: Em buffer
+    Dropped / Total Frames: Fotogramas perdidos / total de fotogramas
 Videos:
   #& Sort By
   Sort By:

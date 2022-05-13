@@ -984,7 +984,7 @@ const mutations = {
     state.popularCache = value
   },
 
-  setTrendingCache (state, value, page) {
+  setTrendingCache (state, { value, page }) {
     state.trendingCache[page] = value
   },
 

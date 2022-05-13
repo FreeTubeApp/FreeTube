@@ -1,6 +1,6 @@
 import {
   app, BrowserWindow, dialog, Menu, ipcMain,
-  powerSaveBlocker, screen, session, shell
+  powerSaveBlocker, screen, session, shell, nativeTheme
 } from 'electron'
 import path from 'path'
 import cp from 'child_process'
@@ -35,6 +35,7 @@ function runApp() {
   process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true'
   const isDev = process.env.NODE_ENV === 'development'
   const isDebug = process.argv.includes('--debug')
+
   let mainWindow
   let startupUrl
 
@@ -172,11 +173,33 @@ function runApp() {
   }
 
   async function createWindow({ replaceMainWindow = true, windowStartupUrl = null, showWindowNow = false } = { }) {
+    // Syncing new window background to theme choice.
+    const windowBackground = await baseHandlers.settings._findTheme().then(({ value }) => {
+      switch (value) {
+        case 'dark':
+          return '#212121'
+        case 'light':
+          return '#f1f1f1'
+        case 'black':
+          return '#000000'
+        case 'dracula':
+          return '#282a36'
+        case 'system':
+        default:
+          return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
+      }
+    }).catch((error) => {
+      console.log(error)
+      // Default to nativeTheme settings if nothing is found.
+      return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
+    })
+
     /**
      * Initial window options
      */
     const commonBrowserWindowOptions = {
-      backgroundColor: '#212121',
+      backgroundColor: windowBackground,
+      darkTheme: nativeTheme.shouldUseDarkColors,
       icon: isDev
         ? path.join(__dirname, '../../_icons/iconColor.png')
         /* eslint-disable-next-line */
@@ -191,6 +214,7 @@ function runApp() {
         contextIsolation: false
       }
     }
+
     const newWindow = new BrowserWindow(
       Object.assign(
         {
@@ -241,6 +265,7 @@ function runApp() {
           height: bounds.height
         })
       }
+
       if (maximized) {
         newWindow.maximize()
       }
@@ -343,6 +368,14 @@ function runApp() {
     }
 
     app.quit()
+  })
+
+  nativeTheme.on('updated', () => {
+    const allWindows = BrowserWindow.getAllWindows()
+
+    allWindows.forEach((window) => {
+      window.webContents.send(IpcChannels.NATIVE_THEME_UPDATE, nativeTheme.shouldUseDarkColors)
+    })
   })
 
   ipcMain.on(IpcChannels.ENABLE_PROXY, (_, url) => {

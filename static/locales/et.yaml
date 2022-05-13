@@ -101,12 +101,14 @@ User Playlists:
     on kirjas vaid videod, mida oled salvestanud või mille oled märkinud lemmikuks.
     Kui kõik on valmis, siis siin nähtavad videod on leitavad esitusloendist „Lemmikud“.
   Search bar placeholder: Otsi esindusloendist
+  Empty Search Message: Selles esitusloendis pole sinu otsingule vastavaid videosid
 History:
   # On History Page
   History: 'Ajalugu'
   Watch History: 'Vaatamiste ajalugu'
   Your history list is currently empty.: 'Sinu ajalugu on hetkel tühi.'
   Search bar placeholder: Otsi ajaloost
+  Empty Search Message: Sinu ajaloos pole sinu otsingule vastavaid videosid
 Settings:
   # On Settings Page
   Settings: 'Seadistused'
@@ -227,6 +229,8 @@ Settings:
     Scroll Volume Over Video Player: Muuda helivaljust videovaate kohal kerides
     Fast-Forward / Rewind Interval: Kiirkerimise välp
     Scroll Playback Rate Over Video Player: Videomängija kohal saad muuta taasesituskiirust
+    Max Video Playback Rate: Video suurim taasesituskiirus
+    Video Playback Rate Interval: Video taasesituskiiruse intervall
   Privacy Settings:
     Privacy Settings: 'Privaatsuse seadistused'
     Remember History: 'Jäta ajalugu meelde'
@@ -606,6 +610,17 @@ Video:
     bandwidth: Võrguühenduse kiirus
     buffered: Puhverdatud
     out of: /
+    Bandwidth: Ribalaius
+    Bitrate: Bitikiirus
+    Volume: Helivaljus
+    Dropped / Total Frames: Vahele jäetud kaadreid / kaadreid kokku
+    Player Dimensions: Meediaesitaja mõõdud
+    Buffered: Puhverdatud
+    Video ID: Video tunnus
+    Mimetype: Meedia MIME-tüüp
+    Video statistics are not available for legacy videos: Vana tüüpi videote puhul
+      pole statistika saataval
+    Resolution: Resolutsioon
 Videos:
   #& Sort By
   Sort By:
