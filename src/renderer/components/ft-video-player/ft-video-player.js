@@ -241,7 +241,7 @@ export default Vue.extend({
         }
         categoryData[x] = sponsorVal
       })
-      return {autoSkip, seekBar, promptSkip, categoryData}
+      return { autoSkip, seekBar, promptSkip, categoryData }
     },
 
     maxVideoPlaybackRate: function () {
