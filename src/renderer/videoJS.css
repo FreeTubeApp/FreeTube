@@ -1023,7 +1023,7 @@ body.vjs-full-window {
   padding: 6px 8px 8px 8px;
   pointer-events: none;
   position: absolute;
-  top: -3.4em;
+  top: -2.7em;
   visibility: hidden;
   z-index: 2;
 }
@@ -2136,7 +2136,8 @@ video::-webkit-media-text-track-display {
 .video-js .vjs-vtt-thumbnail-display {
     position: absolute;
     transition: transform .1s, opacity .2s;
-    bottom: 20px;
+    /* `bottom` was 20px, to avoid obstruction by time tooltip updated to current value */
+    bottom: 56px;
     pointer-events: none;
     box-shadow: 0 0 7px rgba(0,0,0,.6);
     z-index: 3;
@@ -2159,4 +2160,25 @@ video::-webkit-media-text-track-display {
 .vjs-overlay {
   font-size: xx-large;
   max-width: 100% !important;
+}
+
+.vjs-modal-dialog.statsModal {
+  line-height: 10px;
+  width: 550px;
+  height: 225px;
+  font-size: 10px;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.vjs-modal-dialog.statsModal p {
+  line-height: 10px;
+  position:relative;
+  bottom: 15px;
+}
+
+@media screen and (max-width: 775px) {
+  .vjs-modal-dialog.statsModal {
+    width: 100%;
+    height: 100%;
+  }
 }

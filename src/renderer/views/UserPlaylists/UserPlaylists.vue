@@ -1,11 +1,11 @@
 <template>
   <div>
     <ft-loader
-      v-if="isLoading"
+      v-show="isLoading"
       :fullscreen="true"
     />
     <ft-card
-      v-else
+      v-show="!isLoading"
       class="card"
     >
       <h3>
@@ -16,19 +16,34 @@
           :tooltip="$t('User Playlists.Playlist Message')"
         />
       </h3>
+      <ft-input
+        v-show="fullData.length > 0"
+        ref="searchBar"
+        :placeholder="$t('User Playlists.Search bar placeholder')"
+        :show-clear-text-button="true"
+        :show-action-button="false"
+        @input="(input) => query = input"
+      />
       <ft-flex-box
-        v-if="activeData.length === 0"
+        v-show="fullData.length === 0"
       >
         <p class="message">
           {{ $t("User Playlists['Your saved videos are empty. Click on the save button on the corner of a video to have it listed here']") }}
         </p>
       </ft-flex-box>
+      <ft-flex-box
+        v-show="activeData.length === 0 && fullData.length > 0"
+      >
+        <p class="message">
+          {{ $t("User Playlists['Empty Search Message']") }}
+        </p>
+      </ft-flex-box>
       <ft-element-list
-        v-else
+        v-if="activeData.length > 0 && !isLoading"
         :data="activeData"
       />
       <ft-flex-box
-        v-if="activeData.length < favoritesPlaylist.videos.length"
+        v-if="showLoadMoreButton"
       >
         <ft-button
           label="Load More"

@@ -32,6 +32,10 @@ export default Vue.extend({
       type: Boolean,
       default: false
     },
+    returnIndex: {
+      type: Boolean,
+      default: false
+    },
     dropdownPositionX: {
       type: String,
       default: 'center'
@@ -111,7 +115,12 @@ export default Vue.extend({
     },
 
     handleDropdownClick: function (index) {
-      this.$emit('click', this.dropdownValues[index])
+      if (this.returnIndex) {
+        this.$emit('click', index)
+      } else {
+        this.$emit('click', this.dropdownValues[index])
+      }
+
       this.focusOut()
     }
   }
