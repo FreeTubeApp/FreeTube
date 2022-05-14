@@ -1332,10 +1332,10 @@
     axios "^0.21.1"
     tslib "^1.11.1"
 
-"@freetube/yt-comment-scraper@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.npmjs.org/@freetube/yt-comment-scraper/-/yt-comment-scraper-6.0.0.tgz"
-  integrity sha512-QZbfuuhjT1ZmEUd15CQ9rvBiNfW9BCtciaB06qW9z7xC22ViC9NmRTlwSXTS/a5OxUH8app13O05xgGhZbxnmA==
+"@freetube/yt-comment-scraper@^6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@freetube/yt-comment-scraper/-/yt-comment-scraper-6.1.0.tgz#13583dedf5cf0cff6d42d155ef5f2474c64fd4ee"
+  integrity sha512-Cj6Of7DPkTH1ax1AcaOn0xul179YsnfaNNoH11lQ4xUxUrmtf70Qj04+FDI+7/O/qsOR3RMq1mreCvM6BQI6Aw==
   dependencies:
     axios "^0.21.1"
 
