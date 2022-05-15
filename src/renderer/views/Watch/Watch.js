@@ -182,10 +182,14 @@ export default Vue.extend({
       // only hide/show the button once the player is available
       this.pictureInPictureButtonInverval = setInterval(() => {
         if (!this.hidePlayer) {
+          const pipButton = document.querySelector('.vjs-picture-in-picture-control')
+          if (pipButton === null) {
+            return
+          }
           if (format === 'audio') {
-            document.querySelector('.vjs-picture-in-picture-control').classList.add('vjs-hidden')
+            pipButton.classList.add('vjs-hidden')
           } else {
-            document.querySelector('.vjs-picture-in-picture-control').classList.remove('vjs-hidden')
+            pipButton.classList.remove('vjs-hidden')
           }
           clearInterval(this.pictureInPictureButtonInverval)
         }
