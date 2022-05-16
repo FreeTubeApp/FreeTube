@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import { mapActions } from 'vuex'
-import dateFormat from 'dateformat'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import PlaylistInfo from '../../components/playlist-info/playlist-info.vue'
@@ -36,6 +35,9 @@ export default Vue.extend({
     },
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
+    },
+    currentLocale: function () {
+      return this.$store.getters.getCurrentLocale.replace('_', '-')
     }
   },
   watch: {
@@ -134,8 +136,7 @@ export default Vue.extend({
         }
 
         const dateString = new Date(result.updated * 1000)
-        dateString.setDate(dateString.getDate() + 1)
-        this.infoData.lastUpdated = dateFormat(dateString, 'mmm dS, yyyy')
+        this.infoData.lastUpdated = dateString.toLocaleDateString(this.currentLocale, { year: 'numeric', month: 'short', day: 'numeric' })
 
         this.playlistItems = this.playlistItems.concat(result.videos)
 
