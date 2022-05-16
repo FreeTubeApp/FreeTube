@@ -168,6 +168,7 @@ Settings:
       Dark: 'Fosc'
       Light: 'Clar'
       Dracula: 'Dràcula'
+      System Default: Valor per defecte del sistema
     Main Color Theme:
       Main Color Theme: 'Tema principal del color'
       Red: 'Vermell'
@@ -513,22 +514,22 @@ Video:
   Copy Invidious Link: 'Copia Enllaç d''Invidious'
   View: 'Visualitza'
   Views: 'Visualitzacions'
-  Loop Playlist: 'Llista de Reproducció en Bucle'
-  Shuffle Playlist: 'Llista de Reproducció en Aleatori'
-  Reverse Playlist: 'Llista De Reproducció Revertida'
-  Play Next Video: 'Reprodueix Següent Vídeo'
-  Play Previous Video: 'Reprodueix Anterior Vídeo'
+  Loop Playlist: 'Llista de reproducció en bucle'
+  Shuffle Playlist: 'Llista de reproducció en aleatori'
+  Reverse Playlist: 'Llista de reproducció invertida'
+  Play Next Video: 'Reprodueix el vídeo següent'
+  Play Previous Video: 'Reprodueix el vídeo anterior'
   # Context is "X People Watching"
   Watching: 'Visualitzant'
   Watched: 'Visualitzat'
   Autoplay: 'Reproducció Automàtica'
   # As in a Live Video
   Live: 'Directe'
-  Live Now: 'Ara En Directe'
-  Live Chat: 'Xat En Directe'
-  Enable Live Chat: 'Activa El Chat En Directe'
-  Live Chat is currently not supported in this build.: 'Xat En Directe no està soportat
-    en aquesta versió.'
+  Live Now: 'Ara en directe'
+  Live Chat: 'Xat en directe'
+  Enable Live Chat: 'Activa el xat en directe'
+  Live Chat is currently not supported in this build.: 'No s’admet el xat en directe
+    en aquesta construcció.'
   'Chat is disabled or the Live Stream has ended.': 'El Xat està desactivat o la Reproducció
     En Directe ha finalitzat.'
   Live chat is enabled.  Chat messages will appear here once sent.: 'El Xat En Directe
@@ -636,8 +637,8 @@ Toggle Theatre Mode: 'Conmuta El Mode Cinema'
 Change Format:
   Change Video Formats: 'Canvia Els Formats De Vídeo'
   Use Dash Formats: 'Utilitza Formats DASH'
-  Use Legacy Formats: 'Utilitza Formats Llegat'
-  Use Audio Formats: 'Utilitza Formats d''Audio'
+  Use Legacy Formats: 'Utilitza els formats llegats'
+  Use Audio Formats: 'Utilitza els formats d’àudio'
   Dash formats are not available for this video: 'Els formats DASH no són disponibles
     per aquest vídeo'
   Audio formats are not available for this video: 'Els formats d''audio no són disponibles
