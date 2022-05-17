@@ -7,7 +7,6 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtShareButton from '../ft-share-button/ft-share-button.vue'
 import FtSubscribeButton from '../ft-subscribe-button/ft-subscribe-button.vue'
-import { MAIN_PROFILE_ID } from '../../../constants'
 
 export default Vue.extend({
   name: 'WatchVideoInfo',

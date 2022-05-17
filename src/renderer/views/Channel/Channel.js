@@ -12,7 +12,6 @@ import ftSubscribeButton from '../../components/ft-subscribe-button/ft-subscribe
 
 import ytch from 'yt-channel-info'
 import autolinker from 'autolinker'
-import { MAIN_PROFILE_ID } from '../../../constants'
 
 export default Vue.extend({
   name: 'Search',

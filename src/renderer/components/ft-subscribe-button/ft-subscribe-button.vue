@@ -9,6 +9,7 @@
         @click="handleSubscription"
       />
       <ft-button
+        :title="$t('Profile.Show Profile List')"
         class="plusButton"
         background-color="var(--primary-color)"
         text-color="var(--text-with-main-color)"

@@ -3,6 +3,8 @@ import { mapActions } from 'vuex'
 
 import FtButton from '../../components/ft-button/ft-button.vue'
 
+import { MAIN_PROFILE_ID } from '../../../constants'
+
 export default Vue.extend({
   name: 'FtSubscribeButton',
   components: {
@@ -153,7 +155,7 @@ export default Vue.extend({
           message: this.$t('Channel.Added channel to your subscriptions')
         })
 
-        if (this.activeProfile !== 0) {
+        if (this.activeProfile !== MAIN_PROFILE_ID) {
           const index = primaryProfile.subscriptions.findIndex((channel) => {
             return channel.id === this.channelId
           })
