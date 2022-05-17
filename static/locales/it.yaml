@@ -522,20 +522,20 @@ Video:
     Nov: 'nov'
     Dec: 'dic'
     Second: 'secondo'
-    Seconds: 'secondi'
+    Seconds: 'Secondi'
     Hour: 'ora'
-    Hours: 'ore'
+    Hours: 'Ore'
     Day: 'giorno'
-    Days: 'giorni'
+    Days: 'Giorni'
     Week: 'settimana'
     Weeks: 'settimane'
     Month: 'mese'
-    Months: 'mesi'
+    Months: 'Mesi'
     Year: 'anno'
-    Years: 'anni'
+    Years: 'Anni'
     Ago: 'fa'
     Upcoming: 'Première il'
-    Minutes: minuti
+    Minutes: Minuti
     Minute: minuto
   Published on: 'Pubblicato il'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
