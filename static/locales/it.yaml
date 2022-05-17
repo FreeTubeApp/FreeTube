@@ -98,23 +98,29 @@ User Playlists:
   Playlist Message: Questa pagina non è rappresentativa di una playlist completa.
     Mostra solo i video che hai salvato o aggiunto ai preferiti. A lavoro finito,
     tutti i video che si trovano qui saranno spostati in una playlist dei Preferiti.
+  Search bar placeholder: Cerca nella Playlist
+  Empty Search Message: Non ci sono video in questa playlist che corrispondono alla
+    tua ricerca
 History:
   # On History Page
   History: 'Cronologia'
   Watch History: 'Cronologia delle visualizzazioni'
   Your history list is currently empty.: 'La tua cronologia al momento è vuota.'
+  Search bar placeholder: Cerca nella Cronologia
+  Empty Search Message: Non ci sono video nella tua cronologia che corrispondono alla
+    tua ricerca
 Settings:
   # On Settings Page
   Settings: 'Impostazioni'
   General Settings:
     General Settings: 'Impostazioni generali'
-    Fallback to Non-Preferred Backend on Failure: 'Ritorna al Back-end non preferito
+    Fallback to Non-Preferred Backend on Failure: 'Ritorna al riproduttore non preferito
       in caso di errore'
     Enable Search Suggestions: 'Abilita suggerimenti di ricerca'
     Default Landing Page: 'Pagina iniziale predefinita'
     Locale Preference: 'Lingua predefinita'
     Preferred API Backend:
-      Preferred API Backend: 'Back-end API preferito'
+      Preferred API Backend: 'Riproduttore API preferito'
       Local API: 'API locali'
       Invidious API: 'API di Invidious'
     Video View Type:
@@ -142,7 +148,7 @@ Settings:
     No default instance has been set: Non è stata impostata alcuna istanza predefinita
     The currently set default instance is $: L'attuale istanza predefinita è $
     Current Invidious Instance: Istanza attuale di Invidious
-    System Default: Predefinito dal sistema
+    System Default: Predefinito del sistema
     External Link Handling:
       No Action: Nessuna azione
       Ask Before Opening Link: Chiedi prima di aprire il collegamento
@@ -157,6 +163,7 @@ Settings:
       Dark: 'Scuro'
       Light: 'Chiaro'
       Dracula: 'Dracula'
+      System Default: Predefinito del sistema
     Main Color Theme:
       Main Color Theme: 'Colore principale del tema'
       Red: 'Rosso'
@@ -190,7 +197,8 @@ Settings:
     Hide Side Bar Labels: Nascondi le etichette della barra laterale
   Player Settings:
     Player Settings: 'Impostazioni del riproduttore video'
-    Force Local Backend for Legacy Formats: 'Forza Back-end locale per formati Legacy'
+    Force Local Backend for Legacy Formats: 'Forza riproduttore locale per formati
+      obsoleti'
     Play Next Video: 'Riproduci il prossimo video'
     Turn on Subtitles by Default: 'Abilita i sottotitoli per impostazione predefinita'
     Autoplay Videos: 'Riproduci i video automaticamente'
@@ -202,7 +210,7 @@ Settings:
     Default Video Format:
       Default Video Format: 'Formato video predefinito'
       Dash Formats: 'Formati DASH'
-      Legacy Formats: 'Formati Legacy'
+      Legacy Formats: 'Formati obsoleti'
       Audio Formats: 'Formati Audio'
     Default Quality:
       Default Quality: 'Qualità predefinita'
@@ -224,6 +232,8 @@ Settings:
     Scroll Volume Over Video Player: Controlla il volume scorrendo sul lettore video
     Scroll Playback Rate Over Video Player: Scorri la velocità di riproduzione sul
       lettore video
+    Video Playback Rate Interval: Intervallo di riproduzione video
+    Max Video Playback Rate: Velocità massima di riproduzione video
   Privacy Settings:
     Privacy Settings: 'Impostazioni della privacy'
     Remember History: 'Salva la cronologia'
@@ -320,8 +330,15 @@ Settings:
     Select Export Type: Seleziona il tipo di esportazione
     Select Import Type: Seleziona il tipo di importazione
     Data Settings: Impostazioni dei dati
-    Check for Legacy Subscriptions: Controlla le iscrizioni in formato Legacy
+    Check for Legacy Subscriptions: Controlla le iscrizioni obsolete
     Manage Subscriptions: Gestisci i profili
+    Import Playlists: Importa playlist
+    Export Playlists: Esporta playlist
+    Playlist insufficient data: Dati insufficienti per la playlist «$», elemento saltato
+    All playlists has been successfully imported: Tutte le playlist sono state importate
+      con successo
+    All playlists has been successfully exported: Tutte le playlist sono state esportate
+      con successo
   Distraction Free Settings:
     Hide Popular Videos: Nascondi "Più popolari"
     Hide Trending Videos: Nascondi "Tendenze"
@@ -368,6 +385,10 @@ Settings:
     Ignore Unsupported Action Warnings: Ignora avvisi per azioni non supportate
     External Player: Lettore esterno
     External Player Settings: Impostazioni del lettore esterno
+  Download Settings:
+    Download Settings: Impostazioni di scaricamento
+    Ask Download Path: Chiedi il percorso di scaricamento
+    Choose Path: Scegli il percorso
 About:
   #On About page
   About: 'Informazioni'
@@ -489,34 +510,34 @@ Video:
     chat dal vivo non è supportata attualmente con le API di Invidious. È necessaria
     una connessione diretta a YouTube.'
   Published:
-    Jan: 'gen'
-    Feb: 'feb'
-    Mar: 'mar'
-    Apr: 'apr'
-    May: 'mag'
-    Jun: 'giu'
-    Jul: 'lug'
-    Aug: 'ago'
-    Sep: 'set'
-    Oct: 'ott'
-    Nov: 'nov'
-    Dec: 'dic'
-    Second: 'secondo'
-    Seconds: 'secondi'
-    Hour: 'ora'
-    Hours: 'ore'
-    Day: 'giorno'
-    Days: 'giorni'
-    Week: 'settimana'
-    Weeks: 'settimane'
-    Month: 'mese'
-    Months: 'mesi'
-    Year: 'anno'
-    Years: 'anni'
-    Ago: 'fa'
+    Jan: 'Gen'
+    Feb: 'Feb'
+    Mar: 'Mar'
+    Apr: 'Apr'
+    May: 'Mag'
+    Jun: 'Giu'
+    Jul: 'Lug'
+    Aug: 'Ago'
+    Sep: 'Set'
+    Oct: 'Ott'
+    Nov: 'Nov'
+    Dec: 'Dic'
+    Second: 'Secondo'
+    Seconds: 'Secondi'
+    Hour: 'Ora'
+    Hours: 'Ore'
+    Day: 'Giorno'
+    Days: 'Giorni'
+    Week: 'Settimana'
+    Weeks: 'Settimane'
+    Month: 'Mese'
+    Months: 'Mesi'
+    Year: 'Anno'
+    Years: 'Anni'
+    Ago: 'Fa'
     Upcoming: 'Première il'
-    Minutes: minuti
-    Minute: minuto
+    Minutes: Minuti
+    Minute: Minuto
   Published on: 'Pubblicato il'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % fa'
@@ -581,6 +602,17 @@ Video:
     out of: per
     video id: ID video (YouTube)
     player resolution: Finestra di visualizzazione
+    Video statistics are not available for legacy videos: Le statistiche sui video
+      non sono disponibili per i video obsoleti
+    Video ID: ID video
+    Resolution: Risoluzione
+    Player Dimensions: Dimensioni del lettore
+    Bitrate: Velocità di trasmissione
+    Volume: Volume
+    Bandwidth: Larghezza di banda
+    Buffered: Memoria buffer
+    Dropped / Total Frames: Frame persi / Frame totali
+    Mimetype: Tipo di media
 Videos:
   #& Sort By
   Sort By:
@@ -610,7 +642,7 @@ Toggle Theatre Mode: 'Attiva modalità cinema'
 Change Format:
   Change Video Formats: 'Cambia formato video'
   Use Dash Formats: 'Utilizza formati DASH'
-  Use Legacy Formats: 'Utilizza formati Legacy'
+  Use Legacy Formats: 'Utilizza formati obsoleti'
   Use Audio Formats: 'Utilizza formati Audio'
   Audio formats are not available for this video: I formati Audio non sono disponibili
     per questo video
@@ -656,9 +688,10 @@ Comments:
   Newest first: I più nuovi
   Sort by: Ordina per
   Show More Replies: Mostra altre risposte
-  From $channelName: dal $channelName
+  From $channelName: di $channelName
   And others: e altri
   Pinned by: Messo in primo piano da
+  Member: Membro
 Up Next: 'Prossimi video'
 
 # Toast Messages
@@ -736,11 +769,11 @@ This video is unavailable because of missing formats. This can happen due to cou
 Tooltips:
   Player Settings:
     Force Local Backend for Legacy Formats: Funziona solo quando Invidious è l'API
-      predefinita. Quando abilitate, le API locali useranno i formati Legacy al posto
-      di quelli di Invidious. Utile quando i video di Invidious non vengono riprodotti
-      a causa di restrizioni geografiche.
+      predefinita. Quando abilitate, le API locali useranno i formati obsoleti al
+      posto di quelli di Invidious. Utile quando i video di Invidious non vengono
+      riprodotti a causa di restrizioni geografiche.
     Default Video Format: Imposta i formati usati quando un video viene riprodotto.
-      I formati DASH possono riprodurre qualità maggiori. I formati Legacy sono limitati
+      I formati DASH possono riprodurre qualità maggiore. I formati Legacy sono limitati
       ad un massimo di 720p ma usano meno banda. I formati Audio riproducono solo
       l'audio.
     Proxy Videos Through Invidious: Connessione a Invidious per riprodurre i video
@@ -763,7 +796,7 @@ Tooltips:
     Fallback to Non-Preferred Backend on Failure: Quando le API preferite hanno un
       problema, FreeTube userà automaticamente le API secondarie come riserva (se
       abilitate).
-    Preferred API Backend: Scegli il Back-end utilizzato da FreeTube per ottenere
+    Preferred API Backend: Scegli il riproduttore utilizzato da FreeTube per ottenere
       i dati. Le API locali sono integrate nel programma. Le API Invidious richiedono
       un server Invidious al quale connettersi.
     Region for Trending: La regione delle tendenze permette di scegliere la nazione
@@ -806,3 +839,6 @@ Search Bar:
 External link opening has been disabled in the general settings: L'apertura dei collegamenti
   esterni è stata disabilitata nelle impostazioni generali
 Are you sure you want to open this link?: Sei sicuro di voler aprire questo collegamento?
+Downloading has completed: $ ha finito di scaricare
+Starting download: Inizio dello scaricamento di $
+Downloading failed: C'è stato un problema nello scaricare $

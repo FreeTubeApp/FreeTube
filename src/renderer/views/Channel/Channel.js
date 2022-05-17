@@ -12,6 +12,7 @@ import ftSubscribeButton from '../../components/ft-subscribe-button/ft-subscribe
 
 import ytch from 'yt-channel-info'
 import autolinker from 'autolinker'
+import { MAIN_PROFILE_ID } from '../../../constants'
 
 export default Vue.extend({
   name: 'Search',
@@ -92,7 +93,7 @@ export default Vue.extend({
     },
 
     isSubscribed: function () {
-      const subIndex = this.profileList[this.activeProfile].subscriptions.findIndex((channel) => {
+      const subIndex = this.activeProfile.subscriptions.findIndex((channel) => {
         return channel.id === this.id
       })
 
@@ -250,7 +251,7 @@ export default Vue.extend({
 
     getChannelInfoLocal: function () {
       this.apiUsed = 'local'
-      ytch.getChannelInfo(this.id).then((response) => {
+      ytch.getChannelInfo({ channelId: this.id }).then((response) => {
         this.id = response.authorId
         this.channelName = response.author
         document.title = `${this.channelName} - ${process.env.PRODUCT_NAME}`
@@ -259,16 +260,18 @@ export default Vue.extend({
         } else {
           this.subCount = response.subscriberCount.toFixed(0)
         }
+        console.log(response)
         this.thumbnailUrl = response.authorThumbnails[2].url
         this.channelDescription = autolinker.link(response.description)
         this.relatedChannels = response.relatedChannels.items
         this.relatedChannels.forEach(relatedChannel => {
-          relatedChannel.authorThumbnails.map(thumbnail => {
+          relatedChannel.thumbnail.map(thumbnail => {
             if (!thumbnail.url.includes('https')) {
               thumbnail.url = `https:${thumbnail.url}`
             }
             return thumbnail
           })
+          relatedChannel.authorThumbnails = relatedChannel.thumbnail
         })
 
         if (response.authorBanners !== null) {
@@ -307,7 +310,7 @@ export default Vue.extend({
 
     getChannelVideosLocal: function () {
       this.isElementListLoading = true
-      ytch.getChannelVideos(this.id, this.videoSortBy).then((response) => {
+      ytch.getChannelVideos({ channelId: this.id, sortBy: this.videoSortBy }).then((response) => {
         this.latestVideos = response.items
         this.videoContinuationString = response.continuation
         this.isElementListLoading = false
@@ -333,7 +336,7 @@ export default Vue.extend({
     },
 
     channelLocalNextPage: function () {
-      ytch.getChannelVideosMore(this.videoContinuationString).then((response) => {
+      ytch.getChannelVideosMore({ continuation: this.videoContinuationString }).then((response) => {
         this.latestVideos = this.latestVideos.concat(response.items)
         this.videoContinuationString = response.continuation
       }).catch((err) => {
@@ -372,8 +375,10 @@ export default Vue.extend({
         })
         this.latestVideos = response.latestVideos
 
-        if (typeof (response.authorBanners) !== 'undefined') {
+        if (response.authorBanners instanceof Array && response.authorBanners.length > 0) {
           this.bannerUrl = response.authorBanners[0].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
+        } else {
+          this.bannerUrl = null
         }
 
         this.isLoading = false
@@ -419,7 +424,7 @@ export default Vue.extend({
     },
 
     getPlaylistsLocal: function () {
-      ytch.getChannelPlaylistInfo(this.id, this.playlistSortBy).then((response) => {
+      ytch.getChannelPlaylistInfo({ channelId: this.id, sortBy: this.playlistSortBy }).then((response) => {
         console.log(response)
         this.latestPlaylists = response.items.map((item) => {
           item.proxyThumbnail = false
@@ -449,7 +454,7 @@ export default Vue.extend({
     },
 
     getPlaylistsLocalMore: function () {
-      ytch.getChannelPlaylistsMore(this.playlistContinuationString).then((response) => {
+      ytch.getChannelPlaylistsMore({ continuation: this.playlistContinuationString }).then((response) => {
         console.log(response)
         this.latestPlaylists = this.latestPlaylists.concat(response.items)
         this.playlistContinuationString = response.continuation
@@ -467,6 +472,40 @@ export default Vue.extend({
     },
 
     getPlaylistsInvidious: function () {
+      const payload = {
+        resource: 'channels/playlists',
+        id: this.id,
+        params: {
+          sort_by: this.playlistSortBy
+        }
+      }
+
+      this.invidiousAPICall(payload).then((response) => {
+        this.playlistContinuationString = response.continuation
+        this.latestPlaylists = response.playlists
+        this.isElementListLoading = false
+      }).catch((err) => {
+        console.log(err)
+        const errorMessage = this.$t('Invidious API Error (Click to copy)')
+        this.showToast({
+          message: `${errorMessage}: ${err.responseJSON.error}`,
+          time: 10000,
+          action: () => {
+            navigator.clipboard.writeText(err.responseJSON.error)
+          }
+        })
+        if (this.backendPreference === 'invidious' && this.backendFallback) {
+          this.showToast({
+            message: this.$t('Falling back to Local API')
+          })
+          this.getPlaylistsLocal()
+        } else {
+          this.isLoading = false
+        }
+      })
+    },
+
+    getPlaylistsInvidiousMore: function () {
       if (this.playlistContinuationString === null) {
         console.log('There are no more playlists available for this channel')
         return
@@ -527,7 +566,7 @@ export default Vue.extend({
               this.getPlaylistsLocalMore()
               break
             case 'invidious':
-              this.getPlaylistsInvidious()
+              this.getPlaylistsInvidiousMore()
               break
           }
           break
@@ -567,7 +606,7 @@ export default Vue.extend({
 
     searchChannelLocal: function () {
       if (this.searchContinuationString === '') {
-        ytch.searchChannel(this.id, this.lastSearchQuery).then((response) => {
+        ytch.searchChannel({ channelId: this.id, query: this.lastSearchQuery }).then((response) => {
           console.log(response)
           this.searchResults = response.items
           this.isElementListLoading = false
@@ -592,7 +631,7 @@ export default Vue.extend({
           }
         })
       } else {
-        ytch.searchChannelMore(this.searchContinuationString).then((response) => {
+        ytch.searchChannelMore({ continuation: this.searchContinuationString }).then((response) => {
           console.log(response)
           this.searchResults = this.searchResults.concat(response.items)
           this.isElementListLoading = false

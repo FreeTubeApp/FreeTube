@@ -1,14 +1,15 @@
-import { profilesDb } from '../datastores'
+import { MAIN_PROFILE_ID } from '../../../constants'
+import { DBProfileHandlers } from '../../../datastores/handlers/index'
 
 const state = {
   profileList: [{
-    _id: 'allChannels',
+    _id: MAIN_PROFILE_ID,
     name: 'All Channels',
     bgColor: '#000000',
     textColor: '#FFFFFF',
     subscriptions: []
   }],
-  activeProfile: 0
+  activeProfile: MAIN_PROFILE_ID
 }
 
 const getters = {
@@ -16,94 +17,111 @@ const getters = {
     return state.profileList
   },
 
-  getActiveProfile: () => {
-    return state.activeProfile
+  getActiveProfile: (state) => {
+    const activeProfileId = state.activeProfile
+    return state.profileList.find((profile) => {
+      return profile._id === activeProfileId
+    })
+  },
+
+  profileById: (state) => (id) => {
+    const profile = state.profileList.find(p => p._id === id)
+    return profile
   }
+}
+
+function profileSort(a, b) {
+  if (a._id === MAIN_PROFILE_ID) return -1
+  if (b._id === MAIN_PROFILE_ID) return 1
+  if (a.name < b.name) return -1
+  if (a.name > b.name) return 1
+  return 0
 }
 
 const actions = {
   async grabAllProfiles({ rootState, dispatch, commit }, defaultName = null) {
-    let profiles = await profilesDb.find({})
-    if (profiles.length === 0) {
-      dispatch('createDefaultProfile', defaultName)
+    let profiles
+    try {
+      profiles = await DBProfileHandlers.find()
+    } catch (errMessage) {
+      console.error(errMessage)
       return
     }
+
+    if (!Array.isArray(profiles)) return
+
+    if (profiles.length === 0) {
+      // Create a default profile and persist it
+      const randomColor = await dispatch('getRandomColor')
+      const textColor = await dispatch('calculateColorLuminance', randomColor)
+      const defaultProfile = {
+        _id: MAIN_PROFILE_ID,
+        name: defaultName,
+        bgColor: randomColor,
+        textColor: textColor,
+        subscriptions: []
+      }
+
+      try {
+        await DBProfileHandlers.create(defaultProfile)
+        commit('setProfileList', [defaultProfile])
+      } catch (errMessage) {
+        console.error(errMessage)
+      }
+
+      return
+    }
+
     // We want the primary profile to always be first
     // So sort with that then sort alphabetically by profile name
-    profiles = profiles.sort((a, b) => {
-      if (a._id === 'allChannels') {
-        return -1
-      }
-
-      if (b._id === 'allChannels') {
-        return 1
-      }
-
-      return b.name - a.name
-    })
+    profiles = profiles.sort(profileSort)
 
     if (state.profileList.length < profiles.length) {
-      const profileIndex = profiles.findIndex((profile) => {
+      const profile = profiles.find((profile) => {
         return profile._id === rootState.settings.defaultProfile
       })
 
-      if (profileIndex !== -1) {
-        commit('setActiveProfile', profileIndex)
+      if (profile) {
+        commit('setActiveProfile', profile._id)
       }
     }
 
     commit('setProfileList', profiles)
   },
 
-  async grabProfileInfo(_, profileId) {
-    console.log(profileId)
-    return await profilesDb.findOne({ _id: profileId })
-  },
-
-  async createDefaultProfile({ dispatch }, defaultName) {
-    const randomColor = await dispatch('getRandomColor')
-    const textColor = await dispatch('calculateColorLuminance', randomColor)
-    const defaultProfile = {
-      _id: 'allChannels',
-      name: defaultName,
-      bgColor: randomColor,
-      textColor: textColor,
-      subscriptions: []
+  async createProfile({ commit }, profile) {
+    try {
+      const newProfile = await DBProfileHandlers.create(profile)
+      commit('addProfileToList', newProfile)
+    } catch (errMessage) {
+      console.error(errMessage)
     }
-
-    await profilesDb.update(
-      { _id: 'allChannels' },
-      defaultProfile,
-      { upsert: true }
-    )
-    dispatch('grabAllProfiles')
   },
 
-  async updateProfile({ dispatch }, profile) {
-    await profilesDb.update(
-      { _id: profile._id },
-      profile,
-      { upsert: true }
-    )
-    dispatch('grabAllProfiles')
+  async updateProfile({ commit }, profile) {
+    try {
+      await DBProfileHandlers.upsert(profile)
+      commit('upsertProfileToList', profile)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
   },
 
-  async insertProfile({ dispatch }, profile) {
-    await profilesDb.insert(profile)
-    dispatch('grabAllProfiles')
-  },
-
-  async removeProfile({ dispatch }, profileId) {
-    await profilesDb.remove({ _id: profileId })
-    dispatch('grabAllProfiles')
+  async removeProfile({ commit }, profileId) {
+    try {
+      await DBProfileHandlers.delete(profileId)
+      commit('removeProfileFromList', profileId)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
   },
 
   compactProfiles(_) {
-    profilesDb.persistence.compactDatafile()
+    DBProfileHandlers.persist()
   },
 
-  updateActiveProfile({ commit }, index) {
-    commit('setActiveProfile', index)
+  updateActiveProfile({ commit }, id) {
+    commit('setActiveProfile', id)
   }
 }
 
@@ -111,8 +129,36 @@ const mutations = {
   setProfileList(state, profileList) {
     state.profileList = profileList
   },
+
   setActiveProfile(state, activeProfile) {
     state.activeProfile = activeProfile
+  },
+
+  addProfileToList(state, profile) {
+    state.profileList.push(profile)
+    state.profileList.sort(profileSort)
+  },
+
+  upsertProfileToList(state, updatedProfile) {
+    const i = state.profileList.findIndex((p) => {
+      return p._id === updatedProfile._id
+    })
+
+    if (i === -1) {
+      state.profileList.push(updatedProfile)
+    } else {
+      state.profileList.splice(i, 1, updatedProfile)
+    }
+
+    state.profileList.sort(profileSort)
+  },
+
+  removeProfileFromList(state, profileId) {
+    const i = state.profileList.findIndex((profile) => {
+      return profile._id === profileId
+    })
+
+    state.profileList.splice(i, 1)
   }
 }
 

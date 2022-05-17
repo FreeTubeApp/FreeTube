@@ -52,8 +52,8 @@
   padding-left: 15px;
   padding-right: 15px;
   cursor: pointer;
-  color: var(--tertiary-text-color);
-  background-color: var(--secondary-card-bg-color);
+  color: var(--secondary-text-color);
+  background-color: var(--side-nav-color);
   -webkit-transition: background 0.2s ease-out;
   -moz-transition: background 0.2s ease-out;
   -o-transition: background 0.2s ease-out;
@@ -61,7 +61,7 @@
 }
 
 .buttonOption:hover {
-  background-color: var(--search-bar-color);
+  background-color: var(--side-nav-hover-color);
   -moz-transition: background 0.2s ease-in;
   -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;

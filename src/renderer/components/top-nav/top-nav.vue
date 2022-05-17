@@ -18,7 +18,7 @@
         icon="arrow-left"
         role="button"
         tabindex="0"
-        :title="forwardText"
+        :title="backwardText"
         @click="historyBack"
         @keypress="historyBack"
       />
@@ -66,6 +66,7 @@
     <div class="middle">
       <div class="searchContainer">
         <ft-input
+          ref="searchInput"
           :placeholder="$t('Search / Go to URL')"
           class="searchInput"
           :is-search="true"

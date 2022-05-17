@@ -19,10 +19,6 @@ export default Vue.extend({
   },
   data: function () {
     return {
-      currentBaseTheme: '',
-      currentMainColor: '',
-      currentSecColor: '',
-      expandSideBar: false,
       minUiScale: 50,
       maxUiScale: 300,
       uiScaleStep: 5,
@@ -33,6 +29,7 @@ export default Vue.extend({
         'no'
       ],
       baseThemeValues: [
+        'system',
         'light',
         'dark',
         'black',
@@ -70,6 +67,18 @@ export default Vue.extend({
       return this.$store.getters.getBarColor
     },
 
+    baseTheme: function () {
+      return this.$store.getters.getBaseTheme
+    },
+
+    mainColor: function () {
+      return this.$store.getters.getMainColor
+    },
+
+    secColor: function () {
+      return this.$store.getters.getSecColor
+    },
+
     isSideNavOpen: function () {
       return this.$store.getters.getIsSideNavOpen
     },
@@ -81,9 +90,15 @@ export default Vue.extend({
     disableSmoothScrolling: function () {
       return this.$store.getters.getDisableSmoothScrolling
     },
+
+    expandSideBar: function () {
+      return this.$store.getters.getExpandSideBar
+    },
+
     hideLabelsSideBar: function () {
       return this.$store.getters.getHideLabelsSideBar
     },
+
     restartPromptMessage: function () {
       return this.$t('Settings["The app needs to restart for changes to take effect. Restart and apply change?"]')
     },
@@ -97,6 +112,7 @@ export default Vue.extend({
 
     baseThemeNames: function () {
       return [
+        this.$t('Settings.Theme Settings.Base Theme.System Default'),
         this.$t('Settings.Theme Settings.Base Theme.Light'),
         this.$t('Settings.Theme Settings.Base Theme.Dark'),
         this.$t('Settings.Theme Settings.Base Theme.Black'),
@@ -133,34 +149,15 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    this.currentBaseTheme = localStorage.getItem('baseTheme')
-    this.currentMainColor = localStorage.getItem('mainColor').replace('main', '')
-    this.currentSecColor = localStorage.getItem('secColor').replace('sec', '')
-    this.expandSideBar = localStorage.getItem('expandSideBar') === 'true'
     this.disableSmoothScrollingToggleValue = this.disableSmoothScrolling
   },
   methods: {
-    updateBaseTheme: function (theme) {
-      const mainColor = `main${this.currentMainColor}`
-      const secColor = `sec${this.currentSecColor}`
-
-      const payload = {
-        baseTheme: theme,
-        mainColor: mainColor,
-        secColor: secColor
-      }
-
-      this.$parent.$parent.updateTheme(payload)
-      this.currentBaseTheme = theme
-    },
-
     handleExpandSideBar: function (value) {
       if (this.isSideNavOpen !== value) {
         this.$store.commit('toggleSideNav')
       }
 
-      this.expandSideBar = value
-      localStorage.setItem('expandSideBar', value)
+      this.updateExpandSideBar(value)
     },
 
     handleRestartPrompt: function (value) {
@@ -186,36 +183,12 @@ export default Vue.extend({
       })
     },
 
-    updateMainColor: function (color) {
-      const mainColor = `main${color}`
-      const secColor = `sec${this.currentSecColor}`
-
-      const payload = {
-        baseTheme: this.currentBaseTheme,
-        mainColor: mainColor,
-        secColor: secColor
-      }
-
-      this.$parent.$parent.updateTheme(payload)
-      this.currentMainColor = color
-    },
-
-    updateSecColor: function (color) {
-      const mainColor = `main${this.currentMainColor}`
-      const secColor = `sec${color}`
-
-      const payload = {
-        baseTheme: this.currentBaseTheme,
-        mainColor: mainColor,
-        secColor: secColor
-      }
-
-      this.$parent.$parent.updateTheme(payload)
-      this.currentSecColor = color
-    },
-
     ...mapActions([
       'updateBarColor',
+      'updateBaseTheme',
+      'updateMainColor',
+      'updateSecColor',
+      'updateExpandSideBar',
       'updateUiScale',
       'updateDisableSmoothScrolling',
       'updateHideLabelsSideBar'

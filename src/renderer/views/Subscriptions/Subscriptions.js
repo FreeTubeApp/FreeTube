@@ -9,6 +9,7 @@ import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 
 import ytch from 'yt-channel-info'
 import Parser from 'rss-parser'
+import { MAIN_PROFILE_ID } from '../../../constants'
 
 export default Vue.extend({
   name: 'Subscriptions',
@@ -81,11 +82,11 @@ export default Vue.extend({
     },
 
     activeSubscriptionList: function () {
-      return this.profileList[this.activeProfile].subscriptions
+      return this.activeProfile.subscriptions
     }
   },
   watch: {
-    activeProfile: async function (val) {
+    activeProfile: async function (_) {
       this.getProfileSubscriptions()
     }
   },
@@ -97,7 +98,7 @@ export default Vue.extend({
     }
 
     if (this.profileSubscriptions.videoList.length !== 0) {
-      if (this.profileSubscriptions.activeProfile === this.activeProfile) {
+      if (this.profileSubscriptions.activeProfile === this.activeProfile._id) {
         const subscriptionList = JSON.parse(JSON.stringify(this.profileSubscriptions))
         if (this.hideWatchedSubs) {
           this.videoList = await Promise.all(subscriptionList.videoList.filter((video) => {
@@ -172,7 +173,7 @@ export default Vue.extend({
           }))
 
           const profileSubscriptions = {
-            activeProfile: this.activeProfile,
+            activeProfile: this.activeProfile._id,
             videoList: videoList
           }
 
@@ -191,7 +192,7 @@ export default Vue.extend({
           this.isLoading = false
           this.updateShowProgressBar(false)
 
-          if (this.activeProfile === 0) {
+          if (this.activeProfile === MAIN_PROFILE_ID) {
             this.updateAllSubscriptionsList(profileSubscriptions.videoList)
           }
         }
@@ -224,7 +225,7 @@ export default Vue.extend({
 
     getChannelVideosLocalScraper: function (channel, failedAttempts = 0) {
       return new Promise((resolve, reject) => {
-        ytch.getChannelVideos(channel.id, 'latest').then(async (response) => {
+        ytch.getChannelVideos({ channelId: channel.id, sortBy: 'latest' }).then(async (response) => {
           const videos = await Promise.all(response.items.map(async (video) => {
             if (video.liveNow) {
               video.publishedDate = new Date().getTime()

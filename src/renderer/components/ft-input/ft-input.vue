@@ -37,6 +37,7 @@
     />
     <input
       :id="id"
+      ref="input"
       v-model="inputData"
       :list="idDataList"
       class="ft-input"

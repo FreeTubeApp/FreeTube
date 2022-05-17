@@ -269,14 +269,21 @@ export default Vue.extend({
           comment.likes = null
         }
         comment.text = autolinker.link(comment.text.replace(/(<(?!br>)([^>]+)>)/ig, ''))
+        if (comment.customEmojis.length > 0) {
+          comment.customEmojis.forEach(emoji => {
+            comment.text = comment.text.replace(emoji.text, `<img width="14" height="14" class="commentCustomEmoji" alt="${emoji.text.substring(2, emoji.text.length - 1)}" src="${emoji.emojiThumbnails[0].url}">`)
+          })
+        }
 
         return comment
       })
 
       if (index !== null) {
-        this.commentData[index].replies = this.commentData[index].replies.concat(commentData)
-        this.commentData[index].replyToken = response.continuation
-        this.commentData[index].showReplies = true
+        if (this.commentData[index].replies.length === 0 || this.commentData[index].replies[this.commentData[index].replies.length - 1].commentId !== commentData[commentData.length - 1].commentId) {
+          this.commentData[index].replies = this.commentData[index].replies.concat(commentData)
+          this.commentData[index].replyToken = response.continuation
+          this.commentData[index].showReplies = true
+        }
       } else {
         if (this.sortingChanged) {
           this.commentData = []
