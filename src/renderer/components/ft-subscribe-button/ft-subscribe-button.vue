@@ -9,6 +9,7 @@
         @click="handleSubscription"
       />
       <ft-button
+        :aria-label="$t('Profile.Show Profile List')"
         :title="$t('Profile.Show Profile List')"
         class="plusButton"
         background-color="var(--primary-color)"
