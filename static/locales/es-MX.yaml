@@ -87,11 +87,22 @@ Most Popular: 'Más Popular'
 Playlists: 'Listas de Reproducción'
 User Playlists:
   Your Playlists: 'Tus Listas de Reproducción'
+  Search bar placeholder: Buscar en la lista de reproducción
+  Empty Search Message: No hay videos en esta lista de reproducción que coincidan
+    con su búsqueda
+  Playlist Message: Esta página no muestra listas de reproducción funcionales. Únicamente
+    enlista videos que ha guardado o marcado en favoritos. Una vez terminado el proyecto,
+    todos los videos de aquí serán trasladados a la lista de 'Favoritos'.
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Aún
+    no ha guardado videos. Haga clic en el botón de guardado en la esquina de cualquier
+    video para enlistarlo aquí.
 History:
   # On History Page
   History: 'Historial'
   Watch History: 'Ver Historial'
   Your history list is currently empty.: 'Tu lista de historial está actualmente vacía.'
+  Empty Search Message: No hay videos en su historial que coincidan con su búsqueda
+  Search bar placeholder: Buscar en el Historial
 Settings:
   # On Settings Page
   Settings: 'Ajustes'
@@ -122,6 +133,22 @@ Settings:
         #! List countries
     Check for Updates: Buscar actualizaciones
     Check for Latest Blog Posts: Compruebe las últimas publicaciones del blog
+    Current instance will be randomized on startup: La dirección actual será aleatorizada
+      al iniciar la app
+    System Default: Por defecto
+    Current Invidious Instance: 'Dirección de Invidious actual:'
+    The currently set default instance is $: La dirección por defecto actualmente
+      establecida es $
+    No default instance has been set: No se ha establecido ninguna dirección por defecto
+    Set Current Instance as Default: Establecer la dirección actual por defecto
+    Clear Default Instance: Borrar dirección por defecto
+    View all Invidious instance information: Ver la información de todas las direcciones
+      de Invidious
+    External Link Handling:
+      No Action: No proceder
+      Ask Before Opening Link: Preguntar antes de abrir
+      External Link Handling: 'Al abrir un link externo:'
+      Open Link: Abrir enlace
   Theme Settings:
     Theme Settings: 'Ajustes de apariencia'
     Match Top Bar with Main Color: 'Igualar la barra superior con el color principal'
@@ -131,6 +158,7 @@ Settings:
       Dark: 'Oscuro'
       Light: 'Claro'
       Dracula: 'Drácula'
+      System Default: Por defecto
     Main Color Theme:
       Main Color Theme: 'Color principal de la apariencia'
       Red: 'Rojo'
@@ -158,6 +186,10 @@ Settings:
       Dracula Yellow: 'Drácula Amarillo'
     Secondary Color Theme: 'Color secundario de la apariencia'
         #* Main Color Theme
+    Expand Side Bar by Default: Expandir barra lateral por defecto
+    UI Scale: Escala de la interfaz
+    Disable Smooth Scrolling: Desactivar desplazamiento suave
+    Hide Side Bar Labels: Ocultar etiquetas de la barra lateral
   Player Settings:
     Player Settings: 'Ajustes del reproductor'
     Force Local Backend for Legacy Formats: 'Forzar motor local para el formato heredado'
@@ -172,7 +204,7 @@ Settings:
     Default Playback Rate: 'Velocidad de reproducción predeterminada'
     Default Video Format:
       Default Video Format: 'Formato de video predeterminado'
-      Dash Formats: 'Formato DASH'
+      Dash Formats: 'Formatos DASH'
       Legacy Formats: 'Formatos heredados'
       Audio Formats: 'Formatos de audio'
     Default Quality:
@@ -187,6 +219,14 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Display Play Button In Video Player: Mostrar botón de reproducir antes de empezar
+      el video
+    Scroll Playback Rate Over Video Player: Acelerar video con la rueda del ratón
+    Next Video Interval: Intervalo para el video siguiente
+    Scroll Volume Over Video Player: Barra de volumen sobre el reproductor
+    Max Video Playback Rate: Velocidad máxima del video
+    Video Playback Rate Interval: Intervalo entre velocidades del video
+    Fast-Forward / Rewind Interval: Intervalo para adelantar/retrasar el video
   Subscription Settings:
     Subscription Settings: 'Ajustes de suscripción'
     Hide Videos on Watch: 'Ocultar videos vistos'
@@ -243,6 +283,7 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ¿Estás
       seguro de que deseas eliminar todos los suscripciones y perfiles? Esto no puede
       ser deshecho.
+    Automatically Remove Video Meta Files: Borrar automáticamente metadatos del video
   Data Settings:
     How do I import my subscriptions?: ¿Cómo puedo importar mis suscripciones?
     Export History: Exportar Historia
@@ -280,6 +321,63 @@ Settings:
       datos insuficientes, ignorando artículo
     Profile object has insufficient data, skipping item: El objeto de perfil tiene
       datos insuficientes, ignorando artículo
+    Import Playlists: Importar listas de reproducción
+    Export Playlists: Exportar listas de reproducción
+    Check for Legacy Subscriptions: Revisar suscripciones heredadas
+    All playlists has been successfully exported: Todas sus listas de reproducción
+      han sido exportadas con éxito
+    All playlists has been successfully imported: Todas sus listas han sido importadas
+      con éxito
+    Playlist insufficient data: Datos insuficientes de la lista "$", omitiendo
+    Manage Subscriptions: Administrar suscripciones
+  The app needs to restart for changes to take effect. Restart and apply change?: El
+    programa requiere reiniciarse para que los cambios hagan efecto. ¿Desea reiniciar
+    para aplicar los cambios?
+  Proxy Settings:
+    Proxy Host: Host del Proxy
+    Enable Tor / Proxy: Habilitar Tor/Proxy
+    Region: Estado
+    City: Ciudad
+    Error getting network information. Is your proxy configured properly?: Error al
+      recibir datos de la red. ¿Configuró bien su Proxy?
+    Proxy Settings: Configuración del Proxy
+    Proxy Port Number: Puerto del Proxy
+    Proxy Protocol: Protocolo de Proxy
+    Test Proxy: Probar Proxy
+    Clicking on Test Proxy will send a request to: Al cliquear "Probar Proxy" se enviará
+      una solicitud a
+    Your Info: Sus datos
+    Country: País
+    Ip: Ip
+  Distraction Free Settings:
+    Hide Video Likes And Dislikes: Ocultar los "Me gusta" y "No me gusta" del video
+    Hide Popular Videos: Ocultar los videos populares
+    Hide Playlists: Ocultar las listas de reproducción
+    Distraction Free Settings: Configuración de distractores
+    Hide Video Views: Ocultar vistas del video
+    Hide Channel Subscribers: Ocultar los suscriptores del canal
+    Hide Comment Likes: Ocultar los "Me gusta" de los comentarios
+    Hide Recommended Videos: Ocultar videos recomendados
+    Hide Trending Videos: Ocultar los videos en tendencia
+    Hide Live Chat: Ocultar chat en vivo
+    Hide Active Subscriptions: Ocultar suscripciones activas
+  Download Settings:
+    Choose Path: Elegir ubicación
+    Ask Download Path: Preguntar dónde se descarga
+    Download Settings: Configuración de descargas
+  External Player Settings:
+    External Player: 'Reproductor externo:'
+    Ignore Unsupported Action Warnings: Ignorar advertencias de acciones inválidas
+    Custom External Player Executable: Ejecutable del reproductor externo
+    Custom External Player Arguments: Argumentos para el reproductor externo
+    External Player Settings: Opciones de reproductor externo
+  SponsorBlock Settings:
+    SponsorBlock Settings: Configuración de SponsorBlock
+    Enable SponsorBlock: Habilitar SponsorBlock
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL de la API de
+      SponsorBlock (https://sponsor.ajay.app por defecto)
+    Notify when sponsor segment is skipped: Notificar cuando el tramo publicitario
+      es omitido
 About:
   #On About page
   About: 'Acerca de'
@@ -316,6 +414,12 @@ About:
   Website: Sitio web
   Email: Correo electrónico
   Mastodon: Mastodon
+  Source code: Código fuente
+  View License: Ver licencia
+  Beta: Beta
+  Licensed under the AGPLv3: Bajo licencia de AGPLv3
+  Downloads / Changelog: Descargas / Informe de cambios
+  GitHub releases: Lanzamientos en GitHub
 Channel:
   Subscriber: 'Suscriptor'
   Subscribers: 'Suscriptores'
