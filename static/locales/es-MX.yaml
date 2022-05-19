@@ -95,7 +95,7 @@ User Playlists:
     todos los videos de aquí serán trasladados a la lista de 'Favoritos'.
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Aún
     no ha guardado videos. Haga clic en el botón de guardado en la esquina de cualquier
-    video para enlistarlo aquí.
+    video para enlistarlo aquí
 History:
   # On History Page
   History: 'Historial'
@@ -420,6 +420,20 @@ About:
   Licensed under the AGPLv3: Bajo licencia de AGPLv3
   Downloads / Changelog: Descargas / Informe de cambios
   GitHub releases: Lanzamientos en GitHub
+  Help: Ayuda
+  FreeTube Wiki: Wiki de FreeTube
+  Please check for duplicates before posting: Por favor evite repetir preguntas
+  FAQ: Preguntas Frecuentes
+  Report a problem: Reportar un problema
+  GitHub issues: Reportar en GitHub
+  room rules: reglas de la sala
+  Chat on Matrix: Contáctenos en Matrix
+  Please read the: Por favor lea las
+  Translate: Traducir
+  FreeTube is made possible by: FreeTube existe gracias a
+  these people and projects: estas personas y proyectos
+  Donate: Donar
+  Credits: Créditos
 Channel:
   Subscriber: 'Suscriptor'
   Subscribers: 'Suscriptores'
@@ -449,6 +463,10 @@ Channel:
     About: 'Acerca de'
     Channel Description: 'Descripción del canal'
     Featured Channels: 'Canales destacados'
+  Added channel to your subscriptions: Canal añadido a sus suscripciones
+  Removed subscription from $ other channel(s): Suscripción eliminada de $ otros canales
+  Channel has been removed from your subscriptions: El canal ha sido eliminado de
+    sus suscripciones
 Video:
   Mark As Watched: 'Marcar como visto'
   Remove From History: 'Borrar del historial'
@@ -506,7 +524,7 @@ Video:
     Year: 'Año'
     Years: 'Años'
     Ago: 'Hace'
-    Upcoming: 'Estrena pronto'
+    Upcoming: 'Pronto en estreno'
     Minutes: minutos
     Minute: minuto
   Published on: 'Publicado en'
@@ -522,6 +540,60 @@ Video:
   translated from English: traducido del inglés
   Stats:
     Mimetype: Tipo de medio
+    Resolution: Resolución
+    Player Dimensions: Tamaño del reproductor
+    Bitrate: Tasa de bits
+    Volume: Volumen
+    Bandwidth: Ancho de banda
+    Video statistics are not available for legacy videos: Estadísticas no disponibles
+      para videos heredados
+    Video ID: ID del video
+    Buffered: Amplificado
+    Dropped / Total Frames: Caídos / Fotogramas totales
+  Video has been removed from your saved list: El video se ha eliminado de su lista
+    de guardado
+  Video has been saved: Video guardado
+  Starting soon, please refresh the page to check again: Empezará pronto, por favor
+    actualice la página para volver a revisar
+  Audio:
+    Best: Máxima
+    Low: Baja
+    Medium: Media
+    High: Alta
+  External Player:
+    Unsupported Actions:
+      reversing playlists: revirtiendo listas
+      starting video at offset: Video iniciando con retraso
+      setting a playback rate: fijando velocidad de reproducción
+      opening playlists: abriendo listas de reproducción
+      opening specific video in a playlist (falling back to opening the video): abriendo
+        el video específico en una lista (reponiéndolo para abrir el video)
+      looping playlists: listas de reproducción en bucle
+      shuffling playlists: listas de reproducción mezcladas
+    OpeningTemplate: Abriendo $ en %...
+    UnsupportedActionTemplate: '$ no soporta: %'
+    OpenInTemplate: Abrir en $
+    video: video
+    playlist: lista de reproducción
+  Sponsor Block category:
+    interaction: interacción
+    sponsor: publicitante
+    intro: introducción
+    outro: final
+    self-promotion: auto-promoción
+    music offtopic: música irrelevante
+  Save Video: Guardar video
+  Streamed on: Transmitido en
+  Open Channel in YouTube: Abrir canal en YouTube
+  video only: sólo video
+  audio only: sólo audio
+  Started streaming on: Empezó a transmitir
+  Open Channel in Invidious: Abrir canal en Invidious
+  Copy Invidious Channel Link: Copiar link del canal en Invidious
+  Copy YouTube Channel Link: Copiar link del canal en YouTube
+  Premieres on: En estreno
+  Skipped segment: Omitida esta parte
+  Download Video: Descargar video
 Videos:
   #& Sort By
   Sort By:
@@ -546,16 +618,17 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Lista de reproducción
 Toggle Theatre Mode: 'Alternar modo teatro'
 Change Format:
   Change Video Formats: 'Cambia formatos de vídeo'
-  Use Dash Formats: 'Usa formatos DASH'
+  Use Dash Formats: 'Usar formatos DASH'
   Use Legacy Formats: 'Usar formatos heredados'
   Use Audio Formats: 'Usa formatos de audio'
   Audio formats are not available for this video: Los formatos de audio no están disponibles
     por este video
-  Dash formats are not available for this video: Los formatos de Dash no están disponibles
-    por este video
+  Dash formats are not available for this video: Formatos DASH no disponibles para
+    este video
 Share:
   Share Video: 'Compartir Video'
   Copy Link: 'Copiar enlace'
@@ -569,6 +642,9 @@ Share:
   YouTube URL copied to clipboard: 'La URL de Youtube ha sido copiado al portapapeles'
   YouTube Embed URL copied to clipboard: 'URL incrustada de YouTube copiada al portapapeles'
   Include Timestamp: Incluir marca del tiempo
+  YouTube Channel URL copied to clipboard: Link del canal en YouTube copiado al portapapeles
+  Invidious Channel URL copied to clipboard: Link del canal en Invidious copiado al
+    portapapeles
 Mini Player: 'Mini reproductor'
 Comments:
   Comments: 'Comentarios'
@@ -585,6 +661,16 @@ Comments:
   There are no comments available for this video: 'No hay comentarios disponibles
     para este video'
   Load More Comments: 'Cargar Más Comentarios'
+  Top comments: Más populares
+  Member: Miembro
+  Pinned by: Fijado por
+  From $channelName: de $channelName
+  And others: y otros
+  There are no more comments for this video: No hay más comentarios en este video
+  Newest first: Más recientes
+  Sort by: Ordenar por
+  Show More Replies: Mostrar más respuestas
+  No more comments available: No hay más comentarios disponibles
 Up Next: 'A continuación'
 
 # Toast Messages
@@ -651,6 +737,8 @@ Profile:
   $ selected: $ seleccionado
   Other Channels: Otros Canales
   Subscription List: Lista de Suscripciones
+  Profile Filter: Filtro de Perfil
+  Profile Settings: Configuración de perfil
 The playlist has been reversed: La lista de reproducción ha sido invertida
 A new blog is now available, $. Click to view more: Un nuevo blog ya está disponible,
   $. Presione para ver más
@@ -662,3 +750,80 @@ More: Más
 Are you sure you want to open this link?: ¿Estás seguro de abrir este link?
 Search Bar:
   Clear Input: Limpiar entrada
+Tooltips:
+  General Settings:
+    Preferred API Backend: Elija el método que usará FreeTube para obtener datos.
+      La API local es un recolector integrado. La API de Invidious requerirá un servidor
+      al cual conectarse.
+    Invidious Instance: La dirección de Invidious a la que FreeTube se conectará para
+      solicitudes de la API.
+    Region for Trending: La región de tendencias le permitirá elegir las tendencias
+      del país que deseé ver mostradas. No todos los países mostrados están soportados
+      por YouTube.
+    Thumbnail Preference: Todas las miniaturas a través de FreeTube serán reemplazadas
+      con un fotograma del video en vez de su miniatura por defecto.
+    External Link Handling: "Elija el comportamiento previsto para cuando un link,\
+      \ que no pueda ser abierto en FreeTube, sea cliqueado.\nPor defecto FreeTube\
+      \ abrirá el link cliqueado en su navegador predeterminado.\n"
+    Fallback to Non-Preferred Backend on Failure: Si la API que eligió sufre algún
+      problema, FreeTube intentará usar automáticamente otra API como método de respaldo
+      al activar esta opción.
+  External Player Settings:
+    Custom External Player Arguments: Cualquier argumento, con separaciones de punto
+      y coma (';'), que deseé anticipar al reproductor externo.
+    DefaultCustomArgumentsTemplate: "(Por defecto: '$')"
+    External Player: Elegir un reproductor externo mostrará un ícono, para abrir el
+      video (o lista, si es compatible) en el reproductor externo, sobre la miniatura
+      del video.
+    Custom External Player Executable: Por defecto, FreeTube asumirá que el reproductor
+      externo elegido estará en la ruta variable del entorno (PATH environment variable).
+      De ser necesario, coloque aquí una ruta personalizada.
+    Ignore Warnings: Ignorar advertencias en caso de que el reproductor externo sea
+      incompatible con la acción solicitada (p. ej. revertir listas de reproducción,
+      etc.).
+  Player Settings:
+    Proxy Videos Through Invidious: Se conectará a Invidious para obtener videos en
+      lugar de conectarse directamente a YouTube. Anulará la API seleccionada.
+    Default Video Format: Establezca los formatos a usar cuando reproduce un video.
+      Los formatos DASH pueden alcanzar mejores calidades. Los formatos heredados
+      están limitados a un máximo de 720 píxeles de ancho, pero usan menos ancho de
+      banda. Los formatos de audio permiten escuchar solamente el audio.
+    Force Local Backend for Legacy Formats: Sólo funcionará si la API de Invidious
+      está por defecto. Si se habilita, la API local ejecutará los formatos heredados
+      que encuentre en lugar de los que le dé Invidious. Esto ayuda a que los videos
+      proporcionados por Invidious puedan ser reproducidos sin impedimentos debidos
+      a la región.
+    Scroll Playback Rate Over Video Player: Mientras el cursor esté sobre el video,
+      mantenga presionada la tecla Ctrl (tecla Comando en Mac) y use la rueda del
+      ratón hacia adelante o atrás para controlar la velocidad de reproducción. Mantenga
+      presionada la tecla Ctrl (tecla Comando en Mac) y haga clic izquierdo para reestablecer
+      la velocidad de reproducción predeterminada (que es de 1x, a menos que la haya
+      cambiado en configuración).
+  Privacy Settings:
+    Remove Video Meta Files: Si se habilita, FreeTube borrará automáticamente los
+      metadatos creados al abrir el video, una vez que la ventana se cierre.
+  Subscription Settings:
+    Fetch Feeds from RSS: Si se habilita, FreeTube usará RSS en lugar del método predeterminado
+      para recibir videos de sus suscripciones. RSS es más rápido y previene que bloqueen
+      su IP, pero no es capaz de proveer ciertos datos del video, como su duración,
+      o si está en directo
+Downloading has completed: '"$" ha acabado de descargarse'
+Default Invidious instance has been cleared: La dirección de Invidious predeterminada
+  se ha borrado
+External link opening has been disabled in the general settings: La apertura de links
+  externos está deshabilitada en la configuración general
+Starting download: Comenzando descarga de "$"
+Downloading failed: Ha habido un error al descargar "$"
+This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
+  video no está disponible debido a que no se encontraron formatos. Esto puede suceder
+  a causa de indisponibilidad en su región.
+Default Invidious instance has been set to $: La dirección de Invidious predeterminada
+  se ha establecido en $
+Unknown YouTube url type, cannot be opened in app: Tipo de URL de YouTube desconocida,
+  imposible de abrir en la app
+Hashtags have not yet been implemented, try again later: Las etiquetas aún no han
+  sido implementadas, próximamente estarán en nuevas versiones
+Playing Next Video Interval: El próximo video se abrirá inmediatamente. Haga clic
+  aquí para cancelar. | Se abrirá el siguiente video en {nextVideoInterval} segundo.
+  Haga clic aquí para cancelar. | Se abrirá el siguiente video en {nextVideoInterval}
+  segundos. Haga clic aquí para cancelar.
