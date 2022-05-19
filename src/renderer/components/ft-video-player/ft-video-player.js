@@ -1439,6 +1439,13 @@ export default Vue.extend({
         temporary: false,
         pauseOnOpen: false
       })
+      this.statsModal.handleKeyDown_ = (event) => {
+        // the default handler prevents keyboard events propagating beyond the modal
+        // the modal should only handle the escape and tab key, all others should be handled by the player
+        if (event.key === 'Escape' || event.key === 'Tab') {
+          this.statsModal.handleKeyDown(event)
+        }
+      }
       this.player.addChild(this.statsModal)
       this.statsModal.el_.classList.add('statsModal')
       this.statsModal.on('modalclose', () => {
