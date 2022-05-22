@@ -249,7 +249,12 @@ export default Vue.extend({
 
     getChannelInfoLocal: function () {
       this.apiUsed = 'local'
+      const id = this.id
       ytch.getChannelInfo({ channelId: this.id }).then((response) => {
+        if (id !== this.id) {
+          return
+        }
+
         this.id = response.authorId
         this.channelName = response.author
         document.title = `${this.channelName} - ${process.env.PRODUCT_NAME}`
@@ -308,7 +313,12 @@ export default Vue.extend({
 
     getChannelVideosLocal: function () {
       this.isElementListLoading = true
+      const id = this.id
       ytch.getChannelVideos({ channelId: this.id, sortBy: this.videoSortBy }).then((response) => {
+        if (id !== this.id) {
+          return
+        }
+
         this.latestVideos = response.items
         this.videoContinuationString = response.continuation
         this.isElementListLoading = false
@@ -427,7 +437,12 @@ export default Vue.extend({
     },
 
     getPlaylistsLocal: function () {
+      const id = this.id
       ytch.getChannelPlaylistInfo({ channelId: this.id, sortBy: this.playlistSortBy }).then((response) => {
+        if (id !== this.id) {
+          return
+        }
+
         console.log(response)
         this.latestPlaylists = response.items.map((item) => {
           item.proxyThumbnail = false
