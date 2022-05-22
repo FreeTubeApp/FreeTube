@@ -354,7 +354,12 @@ export default Vue.extend({
       this.isLoading = true
       this.apiUsed = 'invidious'
 
-      this.invidiousGetChannelInfo(this.id).then((response) => {
+      const id = this.id
+      this.invidiousGetChannelInfo(id).then((response) => {
+        if (id !== this.id) {
+          return
+        }
+
         console.log(response)
         this.channelName = response.author
         document.title = `${this.channelName} - ${process.env.PRODUCT_NAME}`
