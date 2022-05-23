@@ -230,6 +230,11 @@ export default Vue.extend({
     this.createToggleTheatreModeButton()
     this.determineFormatType()
     this.determineMaxFramerate()
+
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.setActionHandler('play', () => this.player.play())
+      navigator.mediaSession.setActionHandler('pause', () => this.player.pause())
+    }
   },
   beforeDestroy: function () {
     if (this.player !== null) {
@@ -240,6 +245,12 @@ export default Vue.extend({
         this.player = null
         clearTimeout(this.mouseTimeout)
       }
+    }
+
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.setActionHandler('play', null)
+      navigator.mediaSession.setActionHandler('pause', null)
+      navigator.mediaSession.playbackState = 'none'
     }
 
     if (this.usingElectron && this.powerSaveBlocker !== null) {
@@ -374,13 +385,25 @@ export default Vue.extend({
 
         this.player.on('ended', () => {
           this.$emit('ended')
+
+          if ('mediaSession' in navigator) {
+            navigator.mediaSession.playbackState = 'none'
+          }
         })
 
         this.player.on('error', (error, message) => {
           this.$emit('error', error.target.player.error_)
+
+          if ('mediaSession' in navigator) {
+            navigator.mediaSession.playbackState = 'none'
+          }
         })
 
         this.player.on('play', async function () {
+          if ('mediaSession' in navigator) {
+            navigator.mediaSession.playbackState = 'playing'
+          }
+
           if (this.usingElectron) {
             const { ipcRenderer } = require('electron')
             this.powerSaveBlocker =
@@ -389,6 +412,10 @@ export default Vue.extend({
         })
 
         this.player.on('pause', function () {
+          if ('mediaSession' in navigator) {
+            navigator.mediaSession.playbackState = 'paused'
+          }
+
           if (this.usingElectron && this.powerSaveBlocker !== null) {
             const { ipcRenderer } = require('electron')
             ipcRenderer.send(IpcChannels.STOP_POWER_SAVE_BLOCKER, this.powerSaveBlocker)
