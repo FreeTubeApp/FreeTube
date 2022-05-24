@@ -97,12 +97,14 @@ User Playlists:
   Playlist Message: 지금 보시는 페이지는 완전한 플레이 리스트가 아닙니다. 이곳에는 저장되었거나 즐겨 찾기 표시가 된 항목만 표시
     됩니다. 작업이 끝나면, 여기에 표시된 영상들은 '즐겨 찾기' 항목으로 옮겨집니다.
   Search bar placeholder: 재생 목록에서 검색
+  Empty Search Message: 이 재생 목록에 검색과 일치하는 동영상이 없습니다
 History:
   # On History Page
   History: '재생 기록'
   Watch History: '시청 기록'
   Your history list is currently empty.: '기록이 없습니다.'
   Search bar placeholder: 기록에서 검색
+  Empty Search Message: 검색과 일치하는 동영상이 기록에 없습니다
 Settings:
   # On Settings Page
   Settings: '설정'
@@ -159,6 +161,7 @@ Settings:
       Dark: '어두운 테마'
       Light: '밝은 테마'
       Dracula: '드라큘라'
+      System Default: 시스템 기본값
     Main Color Theme:
       Main Color Theme: '메인 색상 테마'
       Red: '빨강'
@@ -220,6 +223,9 @@ Settings:
     Next Video Interval: 다음 비디오 재생 간격
     Scroll Volume Over Video Player: 플레이어 위로 스크롤하여 볼륨조정
     Display Play Button In Video Player: 비디오 플레이어 위에 재생 버튼 표시
+    Scroll Playback Rate Over Video Player: 비디오 플레이어 위로 스크롤 재생 속도
+    Max Video Playback Rate: 최대 비디오 재생 속도
+    Video Playback Rate Interval: 비디오 재생 속도 간격
   Privacy Settings:
     Privacy Settings: '개인정보 설정'
     Remember History: '기록 저장하기'
@@ -242,12 +248,12 @@ Settings:
   Distraction Free Settings:
     Distraction Free Settings: '방해 금지 모드 설정'
     Hide Video Views: '조회수 숨기기'
-    Hide Video Likes And Dislikes: '영상의 좋아요 및 싫어요 표시 숨기기'
+    Hide Video Likes And Dislikes: '좋아하는 비디오와 싫어하는 비디오 숨기기'
     Hide Channel Subscribers: '채널 구독자 숨기기'
-    Hide Comment Likes: '댓글의 좋아요 표시 숨기기'
-    Hide Recommended Videos: '추천 영상 숨기기'
-    Hide Trending Videos: '현재 트렌딩 영상 숨기기'
-    Hide Popular Videos: '인기 영상 숨기기'
+    Hide Comment Likes: '댓글 좋아요 숨기기'
+    Hide Recommended Videos: '추천 비디오 숨기기'
+    Hide Trending Videos: '트렌드 비디오 숨기기'
+    Hide Popular Videos: '인기 있는 비디오 숨기기'
     Hide Live Chat: '실시간 댓글 숨기기'
     Hide Playlists: 재생 목록 숨기기
     Hide Active Subscriptions: 활성 구독 숨기기
@@ -283,6 +289,11 @@ Settings:
     Unknown data key: '알 수 없는 데이터 키입니다'
     How do I import my subscriptions?: '구독을 가져오려면 어떻게 해야 합니까?'
     Manage Subscriptions: 구독 관리
+    Playlist insufficient data: '"$" 재생 목록에 대한 데이터가 부족하여 항목을 건너뜁니다'
+    All playlists has been successfully imported: 모든 재생 목록을 성공적으로 가져왔습니다
+    All playlists has been successfully exported: 모든 재생 목록을 내보냈습니다
+    Import Playlists: 재생 목록 가져오기
+    Export Playlists: 재생 목록 내보내기
   Advanced Settings:
     Advanced Settings: ''
     Enable Debug Mode (Prints data to the console): ''
@@ -332,6 +343,10 @@ Settings:
     Custom External Player Executable: 사용자 정의 외부 플레이어 실행 파일
     External Player: 외부 플레이어
     Ignore Unsupported Action Warnings: 지원되지 않는 작업 경고 무시
+  Download Settings:
+    Download Settings: 다운로드 설정
+    Ask Download Path: 다운로드 경로 요청
+    Choose Path: 경로 선택
 About:
   #On About page
   About: '정보'
@@ -462,8 +477,8 @@ Video:
   Copy YouTube Channel Link: 'YouTube 채널 링크 복사'
   Open Channel in Invidious: 'Invidious에서 채널 열기'
   Copy Invidious Channel Link: 'Invidious 채널 링크 복사'
-  View: ''
-  Views: ''
+  View: '보기'
+  Views: '보기'
   Loop Playlist: '재생 목록 반복'
   Shuffle Playlist: '재생 목록 셔플'
   Reverse Playlist: '재생 목록 역재생'
@@ -533,6 +548,7 @@ Video:
   Save Video: 비디오 저장
   Stats:
     Mimetype: 미디어 타입
+  Premieres on: 개봉일
 Videos:
   #& Sort By
   Sort By:

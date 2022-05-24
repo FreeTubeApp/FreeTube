@@ -114,13 +114,13 @@ Settings:
   Settings: 'Impostazioni'
   General Settings:
     General Settings: 'Impostazioni generali'
-    Fallback to Non-Preferred Backend on Failure: 'Ritorna al Back-end non preferito
+    Fallback to Non-Preferred Backend on Failure: 'Ritorna al riproduttore non preferito
       in caso di errore'
     Enable Search Suggestions: 'Abilita suggerimenti di ricerca'
     Default Landing Page: 'Pagina iniziale predefinita'
     Locale Preference: 'Lingua predefinita'
     Preferred API Backend:
-      Preferred API Backend: 'Back-end API preferito'
+      Preferred API Backend: 'Riproduttore API preferito'
       Local API: 'API locali'
       Invidious API: 'API di Invidious'
     Video View Type:
@@ -197,7 +197,8 @@ Settings:
     Hide Side Bar Labels: Nascondi le etichette della barra laterale
   Player Settings:
     Player Settings: 'Impostazioni del riproduttore video'
-    Force Local Backend for Legacy Formats: 'Forza Back-end locale per formati obsoleti'
+    Force Local Backend for Legacy Formats: 'Forza riproduttore locale per formati
+      obsoleti'
     Play Next Video: 'Riproduci il prossimo video'
     Turn on Subtitles by Default: 'Abilita i sottotitoli per impostazione predefinita'
     Autoplay Videos: 'Riproduci i video automaticamente'
@@ -209,7 +210,7 @@ Settings:
     Default Video Format:
       Default Video Format: 'Formato video predefinito'
       Dash Formats: 'Formati DASH'
-      Legacy Formats: 'Formati Legacy'
+      Legacy Formats: 'Formati obsoleti'
       Audio Formats: 'Formati Audio'
     Default Quality:
       Default Quality: 'Qualità predefinita'
@@ -509,34 +510,34 @@ Video:
     chat dal vivo non è supportata attualmente con le API di Invidious. È necessaria
     una connessione diretta a YouTube.'
   Published:
-    Jan: 'gen'
-    Feb: 'feb'
-    Mar: 'mar'
-    Apr: 'apr'
-    May: 'mag'
-    Jun: 'giu'
-    Jul: 'lug'
-    Aug: 'ago'
-    Sep: 'set'
-    Oct: 'ott'
-    Nov: 'nov'
-    Dec: 'dic'
-    Second: 'secondo'
-    Seconds: 'secondi'
-    Hour: 'ora'
-    Hours: 'ore'
-    Day: 'giorno'
-    Days: 'giorni'
-    Week: 'settimana'
-    Weeks: 'settimane'
-    Month: 'mese'
-    Months: 'mesi'
-    Year: 'anno'
-    Years: 'anni'
-    Ago: 'fa'
+    Jan: 'Gen'
+    Feb: 'Feb'
+    Mar: 'Mar'
+    Apr: 'Apr'
+    May: 'Mag'
+    Jun: 'Giu'
+    Jul: 'Lug'
+    Aug: 'Ago'
+    Sep: 'Set'
+    Oct: 'Ott'
+    Nov: 'Nov'
+    Dec: 'Dic'
+    Second: 'Secondo'
+    Seconds: 'Secondi'
+    Hour: 'Ora'
+    Hours: 'Ore'
+    Day: 'Giorno'
+    Days: 'Giorni'
+    Week: 'Settimana'
+    Weeks: 'Settimane'
+    Month: 'Mese'
+    Months: 'Mesi'
+    Year: 'Anno'
+    Years: 'Anni'
+    Ago: 'Fa'
     Upcoming: 'Première il'
-    Minutes: minuti
-    Minute: minuto
+    Minutes: Minuti
+    Minute: Minuto
   Published on: 'Pubblicato il'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % fa'
@@ -690,6 +691,7 @@ Comments:
   From $channelName: di $channelName
   And others: e altri
   Pinned by: Messo in primo piano da
+  Member: Membro
 Up Next: 'Prossimi video'
 
 # Toast Messages
@@ -794,7 +796,7 @@ Tooltips:
     Fallback to Non-Preferred Backend on Failure: Quando le API preferite hanno un
       problema, FreeTube userà automaticamente le API secondarie come riserva (se
       abilitate).
-    Preferred API Backend: Scegli il Back-end utilizzato da FreeTube per ottenere
+    Preferred API Backend: Scegli il riproduttore utilizzato da FreeTube per ottenere
       i dati. Le API locali sono integrate nel programma. Le API Invidious richiedono
       un server Invidious al quale connettersi.
     Region for Trending: La regione delle tendenze permette di scegliere la nazione

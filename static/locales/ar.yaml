@@ -154,6 +154,7 @@ Settings:
       Dark: 'داكن'
       Light: 'فاتح'
       Dracula: 'دراكولا'
+      System Default: افتراضيات النظام
     Main Color Theme:
       Main Color Theme: 'لون السِمة الأساسي'
       Red: 'أحمر'
@@ -698,6 +699,7 @@ Comments:
   Pinned by: تم التثبيت بواسطة
   And others: و اخرين
   From $channelName: من $ channelName
+  Member: عضو
 Up Next: 'التالي'
 
 # Toast Messages
