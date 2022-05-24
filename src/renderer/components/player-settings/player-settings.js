@@ -160,6 +160,10 @@ export default Vue.extend({
       ]
     },
 
+    enableScreenshot: function() {
+      return this.$store.getters.getEnableScreenshot
+    },
+
     screenshotFormat: function() {
       return this.$store.getters.getScreenshotFormat
     },
@@ -168,12 +172,21 @@ export default Vue.extend({
       return this.$store.getters.getScreenshotQuality
     },
 
+    screenshotAskPath: function() {
+      return this.$store.getters.getScreenshotAskPath
+    },
+
     screenshotFolder: function() {
       return this.$store.getters.getScreenshotFolderPath
     },
 
     screenshotFilenamePattern: function() {
       return this.$store.getters.getScreenshotFilenamePattern
+    }
+  },
+  watch: {
+    screenshotFolder: function() {
+      this.getScreenshotFolderPlaceholder()
     }
   },
   mounted: function() {
@@ -259,8 +272,10 @@ export default Vue.extend({
       'updateDisplayVideoPlayButton',
       'updateMaxVideoPlaybackRate',
       'updateVideoPlaybackRateInterval',
+      'updateEnableScreenshot',
       'updateScreenshotFormat',
       'updateScreenshotQuality',
+      'updateScreenshotAskPath',
       'updateScreenshotFolderPath',
       'updateScreenshotFilenamePattern',
       'parseScreenshotCustomFileName',

@@ -233,8 +233,10 @@ Settings:
       4k: 4k
       8k: 8k
     Screenshot:
+      Enable: Enable Screenshot
       Format Label: Screenshot Format
       Quality Label: Screenshot Quality
+      Ask Path: Ask for Save Folder
       Folder Label: Screenshot Folder
       Folder Button: Select Folder
       File Name Label: Filename Pattern

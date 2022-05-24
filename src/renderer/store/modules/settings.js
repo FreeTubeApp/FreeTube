@@ -223,8 +223,10 @@ const state = {
   videoPlaybackRateMouseScroll: false,
   videoPlaybackRateInterval: 0.25,
   downloadFolderPath: '',
+  enableScreenshot: false,
   screenshotFormat: 'png',
   screenshotQuality: 95,
+  screenshotAskPath: false,
   screenshotFolderPath: '',
   screenshotFilenamePattern: '%Y%M%D-%H%N%S'
 }

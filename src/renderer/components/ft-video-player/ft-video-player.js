@@ -211,12 +211,20 @@ export default Vue.extend({
       return playbackRates
     },
 
+    enableScreenshot: function() {
+      return this.$store.getters.getEnableScreenshot
+    },
+
     screenshotFormat: function() {
       return this.$store.getters.getScreenshotFormat
     },
 
     screenshotQuality: function() {
       return this.$store.getters.getScreenshotQuality
+    },
+
+    screenshotAskPath: function() {
+      return this.$store.getters.getScreenshotAskPath
     },
 
     screenshotFolder: function() {
@@ -226,6 +234,10 @@ export default Vue.extend({
   watch: {
     showStatsModal: function() {
       this.player.trigger(this.statsModalEventName)
+    },
+
+    enableScreenshot: function() {
+      this.toggleScreenshotButton()
     }
   },
   mounted: function () {
@@ -396,6 +408,7 @@ export default Vue.extend({
           if (this.captionHybridList.length !== 0) {
             this.transformAndInsertCaptions()
           }
+          this.toggleScreenshotButton()
         })
 
         this.player.on('ended', () => {
@@ -1205,18 +1218,34 @@ export default Vue.extend({
         },
         handleClick: () => {
           this.takeScreenshot()
+          const video = document.getElementsByTagName('video')[0]
+          video.focus()
+          video.blur()
         },
         createControlTextEl: function (button) {
           return $(button)
-            .html('<div id="screenshotButton" class="vjs-icon-screenshot vjs-button"></div>')
-            .attr('title', 'Take Screenshot')
+            .html('<div id="screenshotButton" class="vjs-icon-screenshot vjs-button vjs-hidden"></div>')
+            .attr('title', 'Screenshot')
         }
       })
 
       videojs.registerComponent('screenshotButton', screenshotButton)
     },
 
+    toggleScreenshotButton: function() {
+      const button = document.getElementById('screenshotButton')
+      if (this.enableScreenshot && this.format !== 'audio') {
+        button.classList.remove('vjs-hidden')
+      } else {
+        button.classList.add('vjs-hidden')
+      }
+    },
+
     takeScreenshot: async function() {
+      if (!this.enableScreenshot || this.format === 'audio') {
+        return
+      }
+
       const width = this.player.videoWidth()
       const height = this.player.videoHeight()
       if (width <= 0) {
@@ -1243,8 +1272,13 @@ export default Vue.extend({
         this.showToast({
           message: this.$t('Screenshot Error').replace('$', err.message)
         })
+        canvas.remove()
         return
       }
+
+      const format = this.screenshotFormat
+      const mimeType = `image/${format === 'jpg' ? 'jpeg' : format}`
+      const imageQuality = format === 'jpg' ? this.screenshotQuality / 100 : 1
 
       const dirChar = process.platform === 'win32' ? '\\' : '/'
       let subDir = ''
@@ -1253,36 +1287,73 @@ export default Vue.extend({
         subDir = filename.substring(0, lastIndex)
         filename = filename.substring(lastIndex + 1)
       }
-
-      const format = this.screenshotFormat
-      const mimeType = `image/${format === 'jpg' ? 'jpeg' : format}`
-      const imageQuality = format === 'jpg' ? this.screenshotQuality / 100 : 1
+      const filenameWithExtension = `${filename}.${format}`
 
       let dirPath
-      if (this.screenshotFolder === '') {
-        dirPath = path.join(await this.getPicturesPath(), 'Freetube', subDir)
-      } else {
-        dirPath = path.join(this.screenshotFolder, subDir)
-      }
+      let filePath
+      if (this.screenshotAskPath) {
+        const wasPlaying = !this.player.paused()
+        if (wasPlaying) {
+          this.player.pause()
+        }
 
-      if (!fs.existsSync(dirPath)) {
-        try {
-          fs.mkdirSync(dirPath, { recursive: true })
-        } catch (err) {
-          console.error(err)
-          this.showToast({
-            message: this.$t('Screenshot Error').replace('$', err)
-          })
+        if (this.screenshotFolder === '' || !fs.existsSync(this.screenshotFolder)) {
+          dirPath = await this.getPicturesPath()
+        } else {
+          dirPath = this.screenshotFolder
+        }
+
+        const options = {
+          defaultPath: path.join(dirPath, filenameWithExtension),
+          filters: [
+            {
+              name: format.toUpperCase(),
+              extensions: [format]
+            }
+          ]
+        }
+
+        const response = await this.showSaveDialog({ options, modal: true })
+        if (wasPlaying) {
+          this.player.play()
+        }
+        if (response.canceled || response.filePath === '') {
+          canvas.remove()
           return
         }
+
+        filePath = response.filePath
+        if (!filePath.endsWith(`.${format}`)) {
+          filePath = `${filePath}.${format}`
+        }
+
+        dirPath = path.dirname(filePath)
+        this.updateScreenshotFolderPath(dirPath)
+      } else {
+        if (this.screenshotFolder === '') {
+          dirPath = path.join(await this.getPicturesPath(), 'Freetube', subDir)
+        } else {
+          dirPath = path.join(this.screenshotFolder, subDir)
+        }
+
+        if (!fs.existsSync(dirPath)) {
+          try {
+            fs.mkdirSync(dirPath, { recursive: true })
+          } catch (err) {
+            console.error(err)
+            this.showToast({
+              message: this.$t('Screenshot Error').replace('$', err)
+            })
+            canvas.remove()
+            return
+          }
+        }
+        filePath = path.join(dirPath, filenameWithExtension)
       }
 
-      // https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toBlob
-      // https://github.com/videojs/video.js/issues/4630
       canvas.toBlob((result) => {
         result.arrayBuffer().then(ab => {
           const arr = new Uint8Array(ab)
-          const filePath = path.join(dirPath, `${filename}.${format}`)
 
           fs.writeFile(filePath, arr, (err) => {
             if (err) {
@@ -1298,6 +1369,7 @@ export default Vue.extend({
           })
         })
       }, mimeType, imageQuality)
+      canvas.remove()
     },
 
     createDashQualitySelector: function (levels) {
@@ -1842,7 +1914,9 @@ export default Vue.extend({
       'showToast',
       'sponsorBlockSkipSegments',
       'parseScreenshotCustomFileName',
-      'getPicturesPath'
+      'updateScreenshotFolderPath',
+      'getPicturesPath',
+      'showSaveDialog'
     ])
   }
 })

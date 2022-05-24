@@ -196,11 +196,12 @@ const actions = {
         defaultPath: fileName,
         filters: [
           {
+            name: extension.toUpperCase(),
             extensions: [extension]
           }
         ]
       }
-      const response = await dispatch('showSaveDialog', options)
+      const response = await dispatch('showSaveDialog', { options })
 
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
@@ -279,10 +280,10 @@ const actions = {
     return await invokeIRC(context, IpcChannels.SHOW_OPEN_DIALOG, webCbk, options)
   },
 
-  async showSaveDialog (context, options) {
+  async showSaveDialog (context, { options, modal = false }) {
     // TODO: implement showSaveDialog web compatible callback
     const webCbk = () => null
-    return await invokeIRC(context, IpcChannels.SHOW_SAVE_DIALOG, webCbk, options)
+    return await invokeIRC(context, IpcChannels.SHOW_SAVE_DIALOG, webCbk, { options, modal })
   },
 
   async getUserDataPath (context) {
