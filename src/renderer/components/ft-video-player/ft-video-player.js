@@ -570,6 +570,7 @@ export default Vue.extend({
       markerDiv.className = `sponsorBlockMarker main${this.sponsorSkips.categoryData[marker.category].color}`
       markerDiv.style.height = '100%'
       markerDiv.style.position = 'absolute'
+      markerDiv.style.opacity = '0.4'
       markerDiv.style['background-color'] = marker.color
       markerDiv.style.width = (marker.duration / this.player.duration()) * 100 + '%'
       markerDiv.style.marginLeft = (marker.time / this.player.duration()) * 100 + '%'
