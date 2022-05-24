@@ -249,9 +249,9 @@ export default Vue.extend({
 
     getChannelInfoLocal: function () {
       this.apiUsed = 'local'
-      const id = this.id
-      ytch.getChannelInfo({ channelId: this.id }).then((response) => {
-        if (id !== this.id) {
+      const expectedId = this.id
+      ytch.getChannelInfo({ channelId: expectedId }).then((response) => {
+        if (expectedId !== this.id) {
           return
         }
 
@@ -313,9 +313,9 @@ export default Vue.extend({
 
     getChannelVideosLocal: function () {
       this.isElementListLoading = true
-      const id = this.id
-      ytch.getChannelVideos({ channelId: this.id, sortBy: this.videoSortBy }).then((response) => {
-        if (id !== this.id) {
+      const expectedId = this.id
+      ytch.getChannelVideos({ channelId: expectedId, sortBy: this.videoSortBy }).then((response) => {
+        if (expectedId !== this.id) {
           return
         }
 
@@ -364,9 +364,9 @@ export default Vue.extend({
       this.isLoading = true
       this.apiUsed = 'invidious'
 
-      const id = this.id
-      this.invidiousGetChannelInfo(id).then((response) => {
-        if (id !== this.id) {
+      const expectedId = this.id
+      this.invidiousGetChannelInfo(expectedId).then((response) => {
+        if (expectedId !== this.id) {
           return
         }
 
@@ -437,9 +437,9 @@ export default Vue.extend({
     },
 
     getPlaylistsLocal: function () {
-      const id = this.id
-      ytch.getChannelPlaylistInfo({ channelId: this.id, sortBy: this.playlistSortBy }).then((response) => {
-        if (id !== this.id) {
+      const expectedId = this.id
+      ytch.getChannelPlaylistInfo({ channelId: expectedId, sortBy: this.playlistSortBy }).then((response) => {
+        if (expectedId !== this.id) {
           return
         }
 
