@@ -447,6 +447,7 @@ export default Vue.extend({
       })
 
       this.watched = false
+      this.watchProgress = 0
     },
 
     addToPlaylist: function () {

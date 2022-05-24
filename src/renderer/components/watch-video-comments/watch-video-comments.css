@@ -78,6 +78,12 @@
   font-size: 12px;
 }
 
+.commentMemberIcon {
+  margin-left: 5px;
+  width: 14px;
+  height: 14px;
+}
+
 .commentLikeCount {
   font-size: 11px;
   margin-left: 70px;

@@ -30,6 +30,12 @@ export default Vue.extend({
         480,
         720,
         1080
+      ],
+      playbackRateIntervalValues: [
+        0.1,
+        0.25,
+        0.5,
+        1
       ]
     }
   },
@@ -106,6 +112,14 @@ export default Vue.extend({
       return this.$store.getters.getDisplayVideoPlayButton
     },
 
+    maxVideoPlaybackRate: function () {
+      return parseInt(this.$store.getters.getMaxVideoPlaybackRate)
+    },
+
+    videoPlaybackRateInterval: function () {
+      return this.$store.getters.getVideoPlaybackRateInterval
+    },
+
     formatNames: function () {
       return [
         this.$t('Settings.Player Settings.Default Video Format.Dash Formats'),
@@ -143,7 +157,9 @@ export default Vue.extend({
       'updateDefaultQuality',
       'updateVideoVolumeMouseScroll',
       'updateVideoPlaybackRateMouseScroll',
-      'updateDisplayVideoPlayButton'
+      'updateDisplayVideoPlayButton',
+      'updateMaxVideoPlaybackRate',
+      'updateVideoPlaybackRateInterval'
     ])
   }
 })

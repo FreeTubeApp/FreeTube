@@ -1,0 +1,116 @@
+name: Bug Report
+description: Report an issue or unexpected behavior that occurs within the application
+title: "[Bug]: "
+labels: "bug"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **README: Before You Submit Your Issue**
+        - Issues are not a place to go ask support questions or start discussions. Please ask support questions or start discussions on the [discussions page](https://github.com/FreeTubeApp/FreeTube/discussions).
+  - type: checkboxes
+    attributes:
+      label: Guidelines
+      description: Please ensure you've completed all of the following.
+      options:
+        - label: I have encountered this bug in the [latest release of FreeTube](https://github.com/FreeTubeApp/FreeTube/releases).
+          required: true  
+        - label: I have searched the [issue tracker](https://github.com/FreeTubeApp/FreeTube/issues) for a bug report that matches the one I want to file, without success.
+          required: true
+  - type: textarea
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+      placeholder: |
+          1. Go to '...'
+          2. Click on '....'
+          3. Scroll down to '....'
+          4. See error
+    validations:
+      required: true   
+  - type: textarea
+    attributes:
+      label: Expected Behavior
+      description: A clear and concise description of what you expected to happen.
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: 'Issue Labels'
+      description: Please select a label that fits this bug report. Choose multiple, if applicable.
+      multiple: true
+      options:
+        - accessibility issue
+        - API issue
+        - causes crash
+        - content not loading
+        - data loss
+        - feature stopped working
+        - inconsistent behavior
+        - keyboard control not working
+        - only happens in developer mode
+        - race condition
+        - text/string issue
+        - usability issue
+        - visual bug
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: FreeTube Version
+      description: |
+        If using releases, enter the version.
+        If using nightly builds, enter commit hash or build number, you can find it via about page in the FreeTube application.
+      placeholder: v0.14.0, 8c4278
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Operating System Version
+      description: What operating system version are you using? On Windows, click Start button > Settings > System > About. On macOS, click the Apple Menu > About This Mac. On Linux, use lsb_release or uname -a.
+      placeholder: "e.g. Windows 10 version 1909, macOS Catalina 10.15.7, or Ubuntu 20.04"
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: 'Installation Method (If applicable)'
+      options:
+        - .AppImage
+        - .deb
+        - .dmg
+        - .exe
+        - Flathub
+        - Portable
+        - .rpm
+        - .zip
+        - other
+    validations:
+      required: false
+  - type: input
+    attributes:
+      label: 'Last Known Working FreeTube Version (If Any)'
+      description: What is the last version of FreeTube this worked in, if applicable?
+      placeholder: v0.14.0
+  - type: dropdown
+    attributes: 
+      label: Primary API used
+      description: What is the primary API being used?
+      multiple: false
+      options:
+        - Local API
+        - Invidious API
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Additional Information
+      description: |
+        Add additional information here.
+        You may drag-and-drop screenshots/videos and log files here, or paste the log file in code blocks.
+  - type: checkboxes
+    attributes:
+      label: Nightly Build
+      description: Please ensure you've completed the following, if applicable.
+      options:
+        - label: I have encountered this bug in the latest [nightly build](https://docs.freetubeapp.io/development/nightly-builds).
+          required: false

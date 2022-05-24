@@ -76,6 +76,14 @@
               icon="check-circle"
             />
           </span>
+          <img
+            v-if="comment.isMember"
+            :src="comment.memberIconUrl"
+            :title="$t('Comments.Member')"
+            :aria-label="$t('Comments.Member')"
+            class="commentMemberIcon"
+            alt=""
+          >
           <span class="commentDate">
             {{ comment.time }}
           </span>
@@ -87,6 +95,7 @@
         />
         <p class="commentLikeCount">
           <font-awesome-icon
+            v-if="!hideCommentLikes"
             icon="thumbs-up"
           />
           {{ comment.likes }}
@@ -151,7 +160,12 @@
                   v-if="reply.isVerified"
                   icon="check-circle"
                 />
-              </span>
+              </span>              <img
+                v-if="reply.isMember"
+                :src="reply.memberIconUrl"
+                class="commentMemberIcon"
+                alt=""
+              >
               <span class="commentDate">
                 {{ reply.time }}
               </span>
@@ -163,6 +177,7 @@
             />
             <p class="commentLikeCount">
               <font-awesome-icon
+                v-if="!hideCommentLikes"
                 icon="thumbs-up"
               />
               {{ reply.likes }}
