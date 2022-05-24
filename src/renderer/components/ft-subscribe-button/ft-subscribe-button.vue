@@ -50,7 +50,7 @@
           <div
             class="initial"
           >
-            {{ profileInitials[index] }}
+            {{ notSubscribedProfileInitials[index] }}
           </div>
           <div
             class="profileName"
@@ -77,7 +77,7 @@
           <div
             class="initial"
           >
-            {{ profileInitials[index] }}
+            {{ subscribedProfileInitials[index] }}
           </div>
           <div
             class="profileName"

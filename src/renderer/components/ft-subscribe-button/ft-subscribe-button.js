@@ -46,8 +46,14 @@ export default Vue.extend({
       return this.$store.getters.getActiveProfile
     },
 
-    profileInitials: function () {
-      return this.profileList.map((profile) => {
+    subscribedProfileInitials: function () {
+      return this.subscribedProfiles.map((profile) => {
+        return profile?.name?.length > 0 ? Array.from(profile.name)[0].toUpperCase() : ''
+      })
+    },
+
+    notSubscribedProfileInitials: function () {
+      return this.notSubscribedProfiles.map((profile) => {
         return profile?.name?.length > 0 ? Array.from(profile.name)[0].toUpperCase() : ''
       })
     },
@@ -75,7 +81,7 @@ export default Vue.extend({
   methods: {
     subscribe: function (profile, subscribe = true) {
       const profileIndex = this.profileList.findIndex((profileInList) => {
-        return profileInList.name === profile.name
+        return profileInList._id === profile._id
       })
       const targetProfile = JSON.parse(JSON.stringify(this.profileList[profileIndex]))
       const channelIndex = targetProfile.subscriptions.findIndex((channel) => {
@@ -98,12 +104,7 @@ export default Vue.extend({
             if (profile._id === MAIN_PROFILE_ID) {
               return
             }
-            this.profileList.forEach((profile) => {
-              if (profile._id === MAIN_PROFILE_ID) {
-                return
-              }
-              duplicateSubscriptions += this.unsubscribe(profile, this.channelId)
-            })
+            duplicateSubscriptions += this.unsubscribe(profile, this.channelId)
           })
           if (duplicateSubscriptions > 0) {
             const message = this.$t('Channel.Removed subscription from $ other channel(s)')
@@ -125,7 +126,6 @@ export default Vue.extend({
         this.showToast({
           message: this.$t('Channel.Added channel to your subscriptions')
         })
-        this.showProfiles = false
 
         const primaryProfileIndex = primaryProfile.subscriptions.findIndex((channel) => {
           return channel.id === this.channelId
