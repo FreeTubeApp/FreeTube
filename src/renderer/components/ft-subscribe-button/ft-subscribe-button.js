@@ -143,7 +143,7 @@ export default Vue.extend({
         return
       }
 
-      const currentProfile = JSON.parse(JSON.stringify(this.profileList[this.activeProfile]))
+      const currentProfile = JSON.parse(JSON.stringify(this.activeProfile))
       const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
 
       if (this.isSubscribed) {
