@@ -359,9 +359,11 @@ export default Vue.extend({
 
       this.invidiousGetChannelInfo(this.id).then((response) => {
         console.log(response)
-        this.channelName = response.author
+        const channelName = response.author
+        const channelId = response.authorId
+        this.channelName = channelName
         document.title = `${this.channelName} - ${process.env.PRODUCT_NAME}`
-        this.id = response.authorId
+        this.id = channelId
         if (this.hideChannelSubscriptions) {
           this.subCount = null
         } else {
@@ -369,7 +371,7 @@ export default Vue.extend({
         }
         const thumbnail = response.authorThumbnails[3].url
         this.thumbnailUrl = thumbnail.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
-        this.updateChannelThumbnail(thumbnail, this.channelName, this.id)
+        this.updateChannelThumbnail({ channelThumbnailUrl: thumbnail, channelName: channelName, channelId: channelId })
         this.channelDescription = autolinker.link(response.description)
         this.relatedChannels = response.relatedChannels.map((channel) => {
           channel.authorThumbnails[channel.authorThumbnails.length - 1].url = channel.authorThumbnails[channel.authorThumbnails.length - 1].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)

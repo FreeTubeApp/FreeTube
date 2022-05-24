@@ -89,17 +89,10 @@ const actions = {
     commit('setProfileList', profiles)
   },
 
-  async updateChannelThumbnail({ getters, dispatch }, data) {
+  async updateChannelThumbnail({ getters, dispatch }, { channelThumbnailUrl, channelName, channelId }) {
     const profileList = getters.getProfileList
-    console.log('get profile list')
-    console.log(profileList.length)
-    const thumbnail = data.channelThumbnailUrl
-    const channelName = data.channelName
-    const channelId = data.channelId
-    console.log(data)
     for (let i = 0; i < profileList.length; i++) {
       const currentProfile = JSON.parse(JSON.stringify(profileList[i]))
-      console.log(thumbnail)
       const channelIndex = currentProfile.subscriptions.findIndex((channel) => {
         return channel.id === channelId
       })
@@ -110,8 +103,8 @@ const actions = {
           currentProfile.subscriptions[channelIndex].name = channelName
           updated = true
         }
-        if (profileList[i].subscriptions[channelIndex].thumbnail !== thumbnail) {
-          currentProfile.subscriptions[channelIndex].thumbnail = thumbnail
+        if (profileList[i].subscriptions[channelIndex].thumbnail !== channelThumbnailUrl) {
+          currentProfile.subscriptions[channelIndex].thumbnail = channelThumbnailUrl
           updated = true
         }
         if (updated) {
