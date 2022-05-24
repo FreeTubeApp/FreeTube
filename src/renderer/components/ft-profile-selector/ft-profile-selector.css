@@ -24,6 +24,7 @@
   padding: 5px;
   background-color: var(--card-bg-color);
   box-shadow: 0 0 4px var(--scrollbar-color-hover);
+  z-index: 4;
 }
 
 #profileList:focus {
