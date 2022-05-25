@@ -422,8 +422,9 @@ export default Vue.extend({
                   )
 
                   if (!standardLocale.startsWith('en') && noLocaleCaption) {
-                    const baseUrl = result.player_response.captions.playerCaptionsRenderer.baseUrl
-                    this.tryAddingTranslatedLocaleCaption(captionTracks, standardLocale, baseUrl)
+                    captionTracks.forEach((caption) => {
+                      this.tryAddingTranslatedLocaleCaption(captionTracks, standardLocale, caption.baseUrl)
+                    })
                   }
                 }
 
