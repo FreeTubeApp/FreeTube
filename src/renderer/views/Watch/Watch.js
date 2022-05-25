@@ -1157,6 +1157,13 @@ export default Vue.extend({
           label = `${this.$t('Locale Name')} (translated from English)`
         }
 
+        const indexTranslated = captionTracks.findIndex((item) => {
+          return item.name.simpleText === label
+        })
+        if (indexTranslated !== -1) {
+          return
+        }
+
         if (enCaptionExists) {
           url = new URL(captionTracks[enCaptionIdx].baseUrl)
         } else {
