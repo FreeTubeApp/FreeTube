@@ -18,7 +18,7 @@ FreeTube is supported by the [Privacy Redirect](https://github.com/SimonBrazell/
 
 Download Privacy Redirect for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/privacy-redirect/) or [Google Chrome](https://chrome.google.com/webstore/detail/privacy-redirect/pmcmeagblkinmogikoikkdjiligflglb).
 
-Disclamer: Learn more about why a browser extension is bad for your [privacy](https://www.privacyguides.org/browsers/#extensions).
+Disclaimer: Learn more about why a browser extension is bad for your [privacy](https://www.privacyguides.org/browsers/#extensions).
 
 If you have issues with the extension working with FreeTube, please create an issue in this repository instead of the extension repository.
 
