@@ -236,12 +236,12 @@ const stateWithSideEffects = {
         const systemLocale = await dispatch('getSystemLocale')
         const systemLocaleName = systemLocale.replace('-', '_')
         const systemLocaleLang = systemLocaleName.split('_')[0]
-        const targetLocaleOptions = Object.keys(i18n.messages).filter((locale)=> {
-          const localeLang = locale.replace('-','_').split('_')[0]
+        const targetLocaleOptions = Object.keys(i18n.messages).filter((locale) => {
+          const localeLang = locale.replace('-', '_').split('_')[0]
           return localeLang.includes(systemLocaleLang)
-        }).sort((a,b) => { // prefer locales that match country, have no country then alphabetical
-          const aLocaleName = a.replace('-','_')
-          const bLocaleName = b.replace('-','_')
+        }).sort((a, b) => { // prefer locales that match country, have no country then alphabetical
+          const aLocaleName = a.replace('-', '_')
+          const bLocaleName = b.replace('-', '_')
           const aLocale = aLocaleName.split('_')
           const bLocale = bLocaleName.split('_')
           if (aLocale.includes(systemLocaleName)) {
