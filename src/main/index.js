@@ -413,8 +413,8 @@ function runApp() {
     return await dialog.showOpenDialog(options)
   })
 
-  ipcMain.handle(IpcChannels.SHOW_SAVE_DIALOG, async (event, { options, modal }) => {
-    if (modal) {
+  ipcMain.handle(IpcChannels.SHOW_SAVE_DIALOG, async (event, { options, useModal }) => {
+    if (useModal) {
       const senderWindow = BrowserWindow.getAllWindows().find((window) => {
         return window.webContents.id === event.sender.id
       })

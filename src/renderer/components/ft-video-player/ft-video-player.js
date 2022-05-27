@@ -1260,6 +1260,10 @@ export default Vue.extend({
       canvas.height = height
       canvas.getContext('2d').drawImage(video, 0, 0)
 
+      const format = this.screenshotFormat
+      const mimeType = `image/${format === 'jpg' ? 'jpeg' : format}`
+      const imageQuality = format === 'jpg' ? this.screenshotQuality / 100 : 1
+
       let filename
       try {
         filename = await this.parseScreenshotCustomFileName({
@@ -1275,10 +1279,6 @@ export default Vue.extend({
         canvas.remove()
         return
       }
-
-      const format = this.screenshotFormat
-      const mimeType = `image/${format === 'jpg' ? 'jpeg' : format}`
-      const imageQuality = format === 'jpg' ? this.screenshotQuality / 100 : 1
 
       const dirChar = process.platform === 'win32' ? '\\' : '/'
       let subDir = ''
@@ -1313,7 +1313,7 @@ export default Vue.extend({
           ]
         }
 
-        const response = await this.showSaveDialog({ options, modal: true })
+        const response = await this.showSaveDialog({ options, useModal: true })
         if (wasPlaying) {
           this.player.play()
         }
