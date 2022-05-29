@@ -332,6 +332,13 @@ Settings:
       https://sponsor.ajay.app）
     Enable SponsorBlock: 开启赞助商区域
     SponsorBlock Settings: 赞助商区域设置
+    Skip Options:
+      Auto Skip: 自动跳过
+      Show In Seek Bar: 显示在查找栏中
+      Prompt To Skip: 提示跳过
+      Do Nothing: 什么也不做
+      Skip Option: 跳过选项
+    Category Color: 类别颜色
   External Player Settings:
     Custom External Player Arguments: 定制外部播放器的参数
     Custom External Player Executable: 自定义外部播放器的可执行文件
@@ -545,6 +552,7 @@ Video:
     music offtopic: 无关音乐
     intro: 介绍
     sponsor: 赞助者
+    recap: 回顾
   translated from English: 从英语翻译而来
   Skipped segment: 跳过片段
 Videos:
