@@ -357,6 +357,13 @@ Settings:
       (типово https://sponsor.ajay.app)
     Enable SponsorBlock: Увімкнути SponsorBlock
     SponsorBlock Settings: Налаштування SponsorBlock
+    Skip Options:
+      Skip Option: Опція пропуску
+      Auto Skip: Автопропуск
+      Show In Seek Bar: Показати на панелі прокрутки
+      Prompt To Skip: Запит на пропуск
+      Do Nothing: Нічого не робити
+    Category Color: Колір категорії
   External Player Settings:
     Custom External Player Arguments: Власні аргументи зовнішнього програвача
     Custom External Player Executable: Власний виконуваний зовнішній програвач
@@ -576,12 +583,14 @@ Video:
   Save Video: Зберегти відео
   translated from English: перекладено з англійської
   Sponsor Block category:
-    music offtopic: музика по за темою
-    interaction: взаємодія
-    self-promotion: самореклама
-    outro: кінцівка
-    intro: вступ
-    sponsor: спонсор
+    music offtopic: Музика поза темою
+    interaction: Взаємодія
+    self-promotion: Самореклама
+    outro: Кінцівка
+    intro: Вступ
+    sponsor: Спонсор
+    recap: Підсумок
+    filler: Заповнювач
   Skipped segment: Пропущений відтинок
   External Player:
     Unsupported Actions:
