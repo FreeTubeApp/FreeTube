@@ -64,6 +64,8 @@ Chocolatey: [Download](https://chocolatey.org/packages/freetube/)
 
 Windows Portable: [Download](https://github.com/rddim/FreeTubePortable/releases) [Source](https://github.com/rddim/FreeTubePortable)
 
+Windows Package Manager (winget): [Usage](https://docs.microsoft.com/en-us/windows/package-manager/winget/)
+
 ### Automated Builds (Nightly / Weekly)
 
 Builds are automatically created from changes to our development branch via [GitHub Actions](https://github.com/FreeTubeApp/FreeTube/actions?query=workflow%3ABuild).
