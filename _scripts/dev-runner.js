@@ -119,7 +119,10 @@ function startRenderer(callback) {
     static: {
       directory: path.join(process.cwd(), 'static'),
       watch: {
-        ignored: /(dashFiles|storyboards)\/*/
+        ignored: [
+          /(dashFiles|storyboards)\/*/,
+          '/**/.DS_Store',
+        ]
       }
     },
     port
