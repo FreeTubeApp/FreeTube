@@ -145,7 +145,7 @@ export default Vue.extend({
     }
   },
   created () {
-    this.setBodyTheme()
+    this.checkThemeSettings()
     this.setWindowTitle()
   },
   mounted: function () {

@@ -167,6 +167,7 @@ Settings:
       Dark: 'Тъмна'
       Light: 'Светла'
       Dracula: Дракула
+      System Default: Стандартна за системата
     Main Color Theme:
       Main Color Theme: 'Основна цветова тема'
       Red: 'Червено'
@@ -235,6 +236,8 @@ Settings:
     Fast-Forward / Rewind Interval: Интервал за бързо превъртане напред / назад
     Scroll Playback Rate Over Video Player: Превъртане на скоростта на възпроизвеждане
       над видео плейъра
+    Max Video Playback Rate: Максимална скорост на възпроизвеждане на видео
+    Video Playback Rate Interval: Интервал на скоростта на възпроизвеждане на видео
   Privacy Settings:
     Privacy Settings: 'Настройки за поверителност'
     Remember History: 'Запазване на историята'
@@ -717,6 +720,7 @@ Comments:
   Pinned by: Прихванато от
   From $channelName: от $channelName
   And others: и други
+  Member: Член
 Up Next: 'Следващ'
 
 # Toast Messages

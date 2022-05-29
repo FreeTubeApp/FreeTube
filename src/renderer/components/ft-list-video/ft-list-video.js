@@ -116,47 +116,79 @@ export default Vue.extend({
     progressPercentage: function () {
       return (this.watchProgress / this.data.lengthSeconds) * 100
     },
-    optionsValues: function() {
-      const values = ['history']
-      if (!this.$store.getters.getHideShare) {
-        values.push('openYoutube')
-        values.push('copyYoutube')
-        values.push('openYoutubeEmbed')
-        values.push('copyYoutubeEmbed')
-        values.push('openInvidious')
-        values.push('copyInvidious')
-        values.push('openYoutubeChannel')
-        values.push('copyYoutubeChannel')
-        values.push('openInvidiousChannel')
-        values.push('copyInvidiousChannel')
-      }
-      return values
+
+    hideShare: function() {
+      return this.$store.getters.getHideShare
     },
 
-    optionsNames: function () {
-      let names = []
-      if (!this.$store.getters.getHideShare) {
-        names = [
-          this.$t('Video.Open in YouTube'),
-          this.$t('Video.Copy YouTube Link'),
-          this.$t('Video.Open YouTube Embedded Player'),
-          this.$t('Video.Copy YouTube Embedded Player Link'),
-          this.$t('Video.Open in Invidious'),
-          this.$t('Video.Copy Invidious Link'),
-          this.$t('Video.Open Channel in YouTube'),
-          this.$t('Video.Copy YouTube Channel Link'),
-          this.$t('Video.Open Channel in Invidious'),
-          this.$t('Video.Copy Invidious Channel Link')
-        ]
+    dropdownOptions: function () {
+      const options = []
+      options.push(
+        {
+          label: this.watched
+            ? this.$t('Video.Remove From History')
+            : this.$t('Video.Mark As Watched'),
+          value: 'history'
+        }
+      )
+      if (!this.hideShare) {
+        options.push(
+          {
+            type: 'divider'
+          },
+          {
+            label: this.$t('Video.Copy YouTube Link'),
+            value: 'copyYoutube'
+          },
+          {
+            label: this.$t('Video.Copy YouTube Embedded Player Link'),
+            value: 'copyYoutubeEmbed'
+          },
+          {
+            label: this.$t('Video.Copy Invidious Link'),
+            value: 'copyInvidious'
+          },
+          {
+            type: 'divider'
+          },
+          {
+            label: this.$t('Video.Open in YouTube'),
+            value: 'openYoutube'
+          },
+          {
+            label: this.$t('Video.Open YouTube Embedded Player'),
+            value: 'openYoutubeEmbed'
+          },
+          {
+            label: this.$t('Video.Open in Invidious'),
+            value: 'openInvidious'
+          },
+          {
+            type: 'divider'
+          },
+          {
+            label: this.$t('Video.Copy YouTube Channel Link'),
+            value: 'copyYoutubeChannel'
+          },
+          {
+            label: this.$t('Video.Copy Invidious Channel Link'),
+            value: 'copyInvidiousChannel'
+          },
+          {
+            type: 'divider'
+          },
+          {
+            label: this.$t('Video.Open Channel in YouTube'),
+            value: 'openYoutubeChannel'
+          },
+          {
+            label: this.$t('Video.Open Channel in Invidious'),
+            value: 'openInvidiousChannel'
+          }
+        )
       }
 
-      if (this.watched) {
-        names.unshift(this.$t('Video.Remove From History'))
-      } else {
-        names.unshift(this.$t('Video.Mark As Watched'))
-      }
-
-      return names
+      return options
     },
 
     thumbnail: function () {

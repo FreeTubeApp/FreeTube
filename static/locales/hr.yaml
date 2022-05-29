@@ -159,6 +159,7 @@ Settings:
       Dark: 'Tamna'
       Light: 'Svijetla'
       Dracula: 'Drakula'
+      System Default: Standard sustava
     Main Color Theme:
       Main Color Theme: 'Glavna boja teme'
       Red: 'Crvena'
@@ -717,6 +718,7 @@ Comments:
   From $channelName: od $channelName
   And others: i drugi
   Pinned by: Prikvačio/la
+  Member: Član
 Up Next: 'Sljedeći'
 
 # Toast Messages

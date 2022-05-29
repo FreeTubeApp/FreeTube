@@ -147,6 +147,7 @@ Settings:
       Dark: '深色'
       Light: '淺色'
       Dracula: '德古拉'
+      System Default: 系統預設值
     Main Color Theme:
       Main Color Theme: '主題色'
       Red: '紅'
@@ -625,6 +626,7 @@ Comments:
   And others: 與其他人
   From $channelName: 來自 $channelName
   Pinned by: 釘選由
+  Member: 成員
 Up Next: '觀看其他類似影片'
 
 # Toast Messages

@@ -26,30 +26,30 @@ const state = {
     type: 'all',
     duration: ''
   },
-  colorClasses: [
-    'mainRed',
-    'mainPink',
-    'mainPurple',
-    'mainDeepPurple',
-    'mainIndigo',
-    'mainBlue',
-    'mainLightBlue',
-    'mainCyan',
-    'mainTeal',
-    'mainGreen',
-    'mainLightGreen',
-    'mainLime',
-    'mainYellow',
-    'mainAmber',
-    'mainOrange',
-    'mainDeepOrange',
-    'mainDraculaCyan',
-    'mainDraculaGreen',
-    'mainDraculaOrange',
-    'mainDraculaPink',
-    'mainDraculaPurple',
-    'mainDraculaRed',
-    'mainDraculaYellow'
+  colorNames: [
+    'Red',
+    'Pink',
+    'Purple',
+    'DeepPurple',
+    'Indigo',
+    'Blue',
+    'LightBlue',
+    'Cyan',
+    'Teal',
+    'Green',
+    'LightGreen',
+    'Lime',
+    'Yellow',
+    'Amber',
+    'Orange',
+    'DeepOrange',
+    'DraculaCyan',
+    'DraculaGreen',
+    'DraculaOrange',
+    'DraculaPink',
+    'DraculaPurple',
+    'DraculaRed',
+    'DraculaYellow'
   ],
   colorValues: [
     '#d50000',
@@ -104,6 +104,10 @@ const getters = {
 
   getSearchSettings () {
     return state.searchSettings
+  },
+
+  getColorNames () {
+    return state.colorNames
   },
 
   getColorValues () {
@@ -296,8 +300,8 @@ const actions = {
   },
 
   getRandomColorClass () {
-    const randomInt = Math.floor(Math.random() * state.colorClasses.length)
-    return state.colorClasses[randomInt]
+    const randomInt = Math.floor(Math.random() * state.colorNames.length)
+    return 'main' + state.colorNames[randomInt]
   },
 
   getRandomColor () {
