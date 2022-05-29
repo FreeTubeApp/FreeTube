@@ -170,6 +170,7 @@ Settings:
       Dark: 'Tmavý'
       Light: 'Světlý'
       Dracula: 'Drákula'
+      System Default: Výchozí nastavení systému
     Main Color Theme:
       Main Color Theme: 'Hlavní barevný motiv'
       Red: 'Červený'
@@ -703,6 +704,7 @@ Comments:
   Pinned by: připnuto uživatelem
   From $channelName: z $channelName
   And others: a ostatní
+  Member: Člen
 Up Next: 'Další'
 
 #Tooltips
