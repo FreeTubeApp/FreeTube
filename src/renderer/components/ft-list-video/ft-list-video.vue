@@ -66,13 +66,13 @@
     <div class="info">
       <ft-icon-button
         class="optionsButton"
+        icon="ellipsis-v"
         title="More Options"
         theme="base-no-default"
         :size="16"
         :use-shadow="false"
         dropdown-position-x="left"
-        :dropdown-names="optionsNames"
-        :dropdown-values="optionsValues"
+        :dropdown-options="dropdownOptions"
         @click="handleOptionsClick"
       />
       <router-link
