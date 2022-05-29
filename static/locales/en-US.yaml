@@ -337,6 +337,13 @@ Settings:
     Enable SponsorBlock: Enable SponsorBlock
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API Url (Default is https://sponsor.ajay.app)
     Notify when sponsor segment is skipped: Notify when sponsor segment is skipped
+    Skip Options:
+      Skip Option: Skip Option
+      Auto Skip: Auto Skip
+      Show In Seek Bar: Show In Seek Bar
+      Prompt To Skip: Prompt To Skip
+      Do Nothing: Do Nothing
+    Category Color: Category Color
   Download Settings:
     Download Settings: Download Settings
     Ask Download Path: Ask for download path
@@ -537,12 +544,14 @@ Video:
   Publicationtemplate: $ % ago
   Skipped segment: Skipped segment
   Sponsor Block category:
-    sponsor: sponsor
-    intro: intro
-    outro: outro
-    self-promotion: self-promotion
-    interaction: interaction
-    music offtopic: music offtopic
+    sponsor: Sponsor
+    intro: Intro
+    outro: Outro
+    self-promotion: Self-Promotion
+    interaction: Interaction
+    music offtopic: Music Offtopic
+    recap: Recap
+    filler: Filler
   External Player:
     # $ is replaced with the external player
     OpenInTemplate: Open in $
