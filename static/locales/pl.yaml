@@ -231,6 +231,22 @@ Settings:
       myszy na obszarze odtwarzania
     Max Video Playback Rate: Maksymalna szybkość odtwarzania
     Video Playback Rate Interval: Przeskoki w wyborze prędkości odtwarzania
+    Screenshot:
+      Format Label: Format zrzutu
+      Quality Label: Jakość zrzutu
+      Ask Path: Pytaj o folder zapisu
+      Folder Label: Folder z zrzutami
+      Folder Button: Wybierz folder
+      File Name Label: Wzorzec nazwy pliku
+      File Name Tooltip: 'Możesz użyć następujących zmiennych: %Y Rok 4 cyfry. %M
+        Miesiąc 2 cyfry. %D Dzień 2 cyfry. %H Godzina 2 cyfry. %N Minuta 2 cyfry.
+        %S Sekunda 2 cyfry. %T Milisekunda 3 cyfry. %s Sekunda filmu. %t Milisekunda
+        filmu 3 cyfry. %i ID filmu. Możesz również tworzyć podfoldery używając "\"
+        albo "/".'
+      Error:
+        Forbidden Characters: Niedozwolone znaki
+        Empty File Name: Pusta nazwa pliku
+      Enable: Włącz zrzuty ekranu
   Subscription Settings:
     Subscription Settings: 'Ustawienia subskrypcji'
     Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
@@ -372,12 +388,12 @@ Settings:
     Enable SponsorBlock: Włącz SponsorBlock
     SponsorBlock Settings: Ustawienia SponsorBlock
     Skip Options:
-      Skip Option: Opcje pomijania
+      Skip Option: Opcja pominięcia
       Auto Skip: Pomijaj automatycznie
-      Show In Seek Bar: Pokaż na pasku postępu odtwarzania
+      Show In Seek Bar: Pokaż na pasku postępu
       Prompt To Skip: Zapytaj, czy pominąć
       Do Nothing: Nic nie rób
-    Category Color: Kolory segmentów
+    Category Color: Kolor segmentu
   External Player Settings:
     Custom External Player Arguments: Niestandardowe argumenty zewnętrznego odtwarzacza
     Custom External Player Executable: Niestandardowy plik wykonywalny zewnętrznego
@@ -851,3 +867,5 @@ Downloading failed: Wystąpił problem z pobieraniem "$"
 Downloading canceled: Pobieranie zostało przerwane przez użytkownika
 Download folder does not exist: Katalog pobierania "$" nie istnieje. Przełączono na
   tryb "pytaj o folder".
+Screenshot Error: Wykonanie zrzutu nie powiodło się. $
+Screenshot Success: Zapisano zrzut ekranu jako "$"
