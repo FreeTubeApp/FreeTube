@@ -119,7 +119,7 @@ export default Vue.extend({
   },
   data: function () {
     return {
-      formatTypeLabel: 'VIDEO FORMATS',
+      formatTypeLabel: 'VIDEO FORMATS'
     }
   },
   computed: {
