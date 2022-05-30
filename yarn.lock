@@ -2645,18 +2645,6 @@ builder-util@22.14.13:
     stat-mode "^1.0.0"
     temp-file "^3.4.0"
 
-bulma-pro@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/bulma-pro/-/bulma-pro-0.2.0.tgz#8db7d8e7c03b6e6432ebe284bcda4b6e82b9a4b8"
-  integrity sha512-NTl/k5H3imXoc5ppzs5ZDsNUkxQ57B8GUI3jBOhrMpJKDDVo1plzNytoo5KufOAsDcZ4xhAShUOWZ84B/xXebg==
-  dependencies:
-    bulma "^0.8.2"
-
-bulma@^0.8.2:
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/bulma/-/bulma-0.8.2.tgz#5d928f16ed4a84549c2873f95c92c38c69c631a7"
-  integrity sha512-vMM/ijYSxX+Sm+nD7Lmc1UgWDy2JcL2nTKqwgEqXuOMU+IGALbXd5MLt/BcjBAPLIx36TtzhzBcSnOP974gcqA==
-
 bytes@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/bytes/-/bytes-3.0.0.tgz#d32815404d689699f85a4ea4fa8755dd13a96048"
@@ -8413,11 +8401,6 @@ video.js@^5.6.0:
     videojs-swf "5.4.1"
     videojs-vtt.js "0.12.6"
     xhr "2.2.2"
-
-videojs-abloop@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/videojs-abloop/-/videojs-abloop-1.2.0.tgz#ead4054400e6107d6512553ddff2a97260decf3e"
-  integrity sha512-6/hvtB5gNQUr5FJ969UhXVg5H+3wxhOzh9AVftlezOXlhzzaWfNfiOJYqNKo01Gc/eSQOvfttrOX7jH+aHpwrw==
 
 videojs-contrib-quality-levels@^2.0.4, videojs-contrib-quality-levels@^2.1.0:
   version "2.1.0"
