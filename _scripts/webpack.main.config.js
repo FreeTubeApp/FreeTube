@@ -49,7 +49,7 @@ const config = {
     path: path.join(__dirname, '../dist'),
   },
   resolve: {
-    extensions: ['.ts', '.js', '.json'],
+    extensions: ['.js', '.json'],
     alias: {
       '@': path.join(__dirname, '../src/'),
       src: path.join(__dirname, '../src/'),
