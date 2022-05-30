@@ -241,6 +241,10 @@ Settings:
     Scroll Playback Rate Over Video Player: Skruna afspilunarhraða ofan á myndspilara
     Video Playback Rate Interval: Hámarksbil milli afspilunar myndskeiða
     Max Video Playback Rate: Hámarkshraði afspilunar myndskeiða
+    Screenshot:
+      Enable: Virkja skjámyndatöku
+      Format Label: Snið skjámynda
+      Quality Label: Gæði skjámynda
   Privacy Settings:
     Privacy Settings: 'Stillingar gagnaleyndar'
     Remember History: 'Muna vinnsluferil'
