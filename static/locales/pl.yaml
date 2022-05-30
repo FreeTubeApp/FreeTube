@@ -371,6 +371,13 @@ Settings:
       API SponsorBlock (Domyślnie jest https://sponsor.ajay.app)
     Enable SponsorBlock: Włącz SponsorBlock
     SponsorBlock Settings: Ustawienia SponsorBlock
+    Skip Options:
+      Skip Option: Opcje pomijania
+      Auto Skip: Pomijaj automatycznie
+      Show In Seek Bar: Pokaż na pasku postępu odtwarzania
+      Prompt To Skip: Zapytaj, czy pominąć
+      Do Nothing: Nic nie rób
+    Category Color: Kolory segmentów
   External Player Settings:
     Custom External Player Arguments: Niestandardowe argumenty zewnętrznego odtwarzacza
     Custom External Player Executable: Niestandardowy plik wykonywalny zewnętrznego
@@ -577,6 +584,8 @@ Video:
     outro: z ekranem końcowym
     intro: z intrem
     sponsor: sponsorowany
+    filler: z wypełniaczem
+    recap: z podsumowaniem
   Skipped segment: Pominięto segment
   External Player:
     Unsupported Actions:
