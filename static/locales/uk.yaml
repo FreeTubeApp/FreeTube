@@ -829,5 +829,5 @@ Starting download: Починається завантаження "$"
 Downloading has completed: '"$" завершив завантаження'
 Download folder does not exist: Каталог завантаження "$" не існує. Повернення до режиму
   «запитати теку».
-Screenshot Success: Знімок екрана збережено як "$"
+Screenshot Success: Знімок екрана збережено як «$»
 Screenshot Error: Не вдалося зробити знімок екрана. $
