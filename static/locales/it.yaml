@@ -234,6 +234,22 @@ Settings:
       lettore video
     Video Playback Rate Interval: Intervallo di riproduzione video
     Max Video Playback Rate: Velocità massima di riproduzione video
+    Screenshot:
+      Folder Label: Cartella schermate
+      Folder Button: Seleziona una cartella
+      File Name Label: Modello di nome file
+      Error:
+        Forbidden Characters: Caratteri proibiti
+        Empty File Name: Nome file vuoto
+      Quality Label: Qualità delle schermate
+      Enable: Abilita le schermate
+      Format Label: Formato delle schermate
+      Ask Path: Chiedi cartella di salvataggio
+      File Name Tooltip: È possibile utilizzare le variabili seguenti. %Y Anno 4 cifre.
+        %M Mese 2 cifre. %D Giorno 2 cifre. %H Ora 2 cifre. %N Minuti 2 cifre. %S
+        Secondo 2 cifre. %T Millisecondo 3 cifre. %s Secondo video. %t Millisecondo
+        video 3 cifre. %i ID video. È inoltre possibile utilizzare \ o / per creare
+        sottocartelle.
   Privacy Settings:
     Privacy Settings: 'Impostazioni della privacy'
     Remember History: 'Salva la cronologia'
@@ -381,6 +397,10 @@ Settings:
     Skip Options:
       Skip Option: Salta l'opzione
       Show In Seek Bar: Mostra nella barra di ricerca
+      Auto Skip: Salto automatico
+      Prompt To Skip: Chiedi di saltare
+      Do Nothing: Non fare nulla
+    Category Color: Colore della categoria
   External Player Settings:
     Custom External Player Arguments: Impostazioni personalizzate del lettore esterno
     Custom External Player Executable: File eseguibile del lettore personalizzato
@@ -587,12 +607,14 @@ Video:
     video: video
     OpenInTemplate: Apri con $
   Sponsor Block category:
-    music offtopic: musica fuori tema
-    interaction: interazione
-    self-promotion: autopromozione
-    outro: conclusione
-    intro: introduzione
-    sponsor: sponsor
+    music offtopic: Musica fuori tema
+    interaction: Interazione
+    self-promotion: Autopromozione
+    outro: Conclusione
+    intro: Introduzione
+    sponsor: Sponsor
+    recap: Ricapitolazione
+    filler: Riempitivo
   Skipped segment: Segmento saltato
   translated from English: tradotto dall'inglese
   Premieres on: Première il
@@ -845,3 +867,5 @@ Are you sure you want to open this link?: Sei sicuro di voler aprire questo coll
 Downloading has completed: $ ha finito di scaricare
 Starting download: Inizio dello scaricamento di $
 Downloading failed: C'è stato un problema nello scaricare $
+Screenshot Success: Salva la schermata come «$»
+Screenshot Error: Schermata fallita. $
