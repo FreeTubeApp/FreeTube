@@ -238,6 +238,22 @@ Settings:
       миші у відеопрогравачі
     Video Playback Rate Interval: Інтервал швидкості відтворення відео
     Max Video Playback Rate: Максимальна швидкість відтворення відео
+    Screenshot:
+      Folder Label: Тека зі знімками екрана
+      File Name Label: Шаблон назви файлу
+      Error:
+        Forbidden Characters: Заборонені символи
+        Empty File Name: Порожня назва файлу
+      Enable: Увімкнути знімок екрана
+      Format Label: Формат знімка екрана
+      Folder Button: Вибрати теку
+      Quality Label: Якість знімка екрана
+      Ask Path: Запитувати у якій теці зберігати
+      File Name Tooltip: Нижче ви можете використовувати змінні. %Y Рік 4 цифри. %M
+        Місяць 2 цифри. %D день 2 цифри. %H Година 2 цифри. %N Хвилина 2 цифри. %S
+        Секунда 2 цифри. %T Мілісекунда 3 цифри. %s Секунда відео. %t Мілісекунда
+        відео 3 цифри. %i ID відео. Ви також можете використовувати "\" або "/" для
+        створення вкладених тек.
   Privacy Settings:
     Privacy Settings: 'Налаштування приватності'
     Remember History: 'Збрігати історію'
@@ -813,3 +829,5 @@ Starting download: Починається завантаження "$"
 Downloading has completed: '"$" завершив завантаження'
 Download folder does not exist: Каталог завантаження "$" не існує. Повернення до режиму
   «запитати теку».
+Screenshot Success: Знімок екрана збережено як "$"
+Screenshot Error: Не вдалося зробити знімок екрана. $
