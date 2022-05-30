@@ -433,10 +433,11 @@ function runApp() {
     return powerSaveBlocker.start('prevent-display-sleep')
   })
 
-  ipcMain.on(IpcChannels.CREATE_NEW_WINDOW, () => {
+  ipcMain.on(IpcChannels.CREATE_NEW_WINDOW, (_e, { windowStartupUrl = null } = { }) => {
     createWindow({
       replaceMainWindow: false,
-      showWindowNow: true
+      showWindowNow: true,
+      windowStartupUrl: windowStartupUrl
     })
   })
 
