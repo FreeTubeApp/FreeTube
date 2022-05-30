@@ -240,6 +240,8 @@ Settings:
       lecteur vidéo
     Video Playback Rate Interval: Intervalle de débit de lecture vidéo
     Max Video Playback Rate: Débit de lecture vidéo maximal
+    Screenshot:
+      Enable: Activer les captures d'écran
   Subscription Settings:
     Subscription Settings: 'Paramètres des abonnements'
     Hide Videos on Watch: 'Masquer les vidéos visionnées'
