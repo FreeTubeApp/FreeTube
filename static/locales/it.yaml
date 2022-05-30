@@ -378,6 +378,9 @@ Settings:
       API di SponsorBlock (l'impostazione predefinita è https://sponsor.ajay.app)
     Enable SponsorBlock: Abilita SponsorBlock
     SponsorBlock Settings: Impostazioni di SponsorBlock
+    Skip Options:
+      Skip Option: Salta l'opzione
+      Show In Seek Bar: Mostra nella barra di ricerca
   External Player Settings:
     Custom External Player Arguments: Impostazioni personalizzate del lettore esterno
     Custom External Player Executable: File eseguibile del lettore personalizzato
