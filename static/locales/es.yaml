@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'Español'
+Locale Name: 'español'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -823,5 +823,7 @@ External link opening has been disabled in the general settings: Se ha desactiva
 Are you sure you want to open this link?: ¿Estás seguro/a de que quieres abrir este
   enlace?
 Starting download: Inicio de la descarga de «$»
-Downloading has completed: '"$" ha terminado de descargarse'
-Downloading failed: Hubo un problema al descargar "$"
+Downloading has completed: '«$» ha terminado de descargarse'
+Downloading failed: Hubo un problema al descargar «$»
+Screenshot Success: Captura de pantalla guardada como «$»
+Screenshot Error: Captura de pantalla fallida. $
