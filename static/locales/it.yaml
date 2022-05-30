@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'Italiano'
+Locale Name: 'italiano'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -867,5 +867,5 @@ Are you sure you want to open this link?: Sei sicuro di voler aprire questo coll
 Downloading has completed: $ ha finito di scaricare
 Starting download: Inizio dello scaricamento di $
 Downloading failed: C'è stato un problema nello scaricare $
-Screenshot Success: Salva la schermata come «$»
+Screenshot Success: Schermata salvata come «$»
 Screenshot Error: Schermata fallita. $
