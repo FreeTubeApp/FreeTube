@@ -215,6 +215,19 @@ Settings:
     Scroll Playback Rate Over Video Player: 滚动调整视频播放器回放速度
     Max Video Playback Rate: 视频最大播放速率
     Video Playback Rate Interval: 视频播放速率间隔
+    Screenshot:
+      Format Label: 截屏格式
+      Quality Label: 截屏质量
+      Ask Path: 询问保存文件夹
+      File Name Label: 文件名模式
+      Error:
+        Forbidden Characters: 禁止的字符
+        Empty File Name: 空文件名
+      Folder Button: 选择文件夹
+      File Name Tooltip: 你可以使用下面的变量。 %Y 年份 4 位数。 %M 月份 2 位数。 %D 天 2 位数。 %H 小时 2 位数。
+        %N 分钟 2 位数。 %S 秒 2 位数。 %T 毫秒 3 位数。 %s 视频秒。 %t 视频毫秒 3 位数。 %i 视频 ID。 你也可以使用“\”或“/”创建子文件夹。
+      Enable: 允许截屏
+      Folder Label: 截屏文件夹
   Subscription Settings:
     Subscription Settings: '订阅设置'
     Hide Videos on Watch: '观看时隐藏视频'
@@ -734,3 +747,5 @@ Downloading has completed: 已完成下载 “$”
 Starting download: 开始下载“$”
 Downloading canceled: 用户取消了下载
 Download folder does not exist: 下载目录“$”不存在，退回到 “询问文件夹”模式。
+Screenshot Error: 截屏失败。$
+Screenshot Success: 另存截屏为 "$"
