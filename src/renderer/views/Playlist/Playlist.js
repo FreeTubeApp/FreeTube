@@ -5,6 +5,7 @@ import FtCard from '../../components/ft-card/ft-card.vue'
 import PlaylistInfo from '../../components/playlist-info/playlist-info.vue'
 import FtListVideo from '../../components/ft-list-video/ft-list-video.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
+import i18n from '../../i18n/index'
 
 export default Vue.extend({
   name: 'Playlist',
@@ -37,7 +38,7 @@ export default Vue.extend({
       return this.$store.getters.getCurrentInvidiousInstance
     },
     currentLocale: function () {
-      return this.$store.getters.getCurrentLocale.replace('_', '-')
+      return i18n.locale.replace('_', '-')
     }
   },
   watch: {
