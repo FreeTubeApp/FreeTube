@@ -365,6 +365,13 @@ Settings:
       URL'si (Öntanımlı olarak https://sponsor.ajay.app)
     Enable SponsorBlock: SponsorBlock'u Etkinleştir
     SponsorBlock Settings: SponsorBlock Ayarları
+    Skip Options:
+      Skip Option: Atlama Seçeneği
+      Auto Skip: Otomatik Atla
+      Show In Seek Bar: Arama Çubuğunda Göster
+      Prompt To Skip: Atlamak İçin Sor
+      Do Nothing: Hiçbir Şey Yapma
+    Category Color: Kategori Rengi
   External Player Settings:
     Custom External Player Arguments: Özel Harici Oynatıcı Argümanları
     Custom External Player Executable: Özel Harici Oynatıcı Çalıştırılabilir Dosyası
@@ -602,12 +609,14 @@ Video:
   Save Video: Videoyu Kaydet
   translated from English: İngilizceden çevrildi
   Sponsor Block category:
-    music offtopic: müzik konu dışı
-    interaction: etkileşim
-    self-promotion: kendini tanıtma
-    outro: çıkış
-    intro: giriş
-    sponsor: sponsor
+    music offtopic: Müzik Konu Dışı
+    interaction: Etkileşim
+    self-promotion: Kendini Tanıtma
+    outro: Çıkış
+    intro: Giriş
+    sponsor: Sponsor
+    recap: Özet
+    filler: Dolgu
   Skipped segment: Atlanan bölüm
   External Player:
     Unsupported Actions:
