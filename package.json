@@ -30,9 +30,6 @@
     "debug-runner": "node _scripts/dev-runner.js --remote-debug",
     "dev": "run-s rebuild:electron dev-runner",
     "dev-runner": "node _scripts/dev-runner.js",
-    "jest": "jest",
-    "jest:coverage": "jest --collect-coverage",
-    "jest:watch": "jest --watch",
     "lint-fix": "eslint --fix --ext .js,.vue ./",
     "lint": "eslint --ext .js,.vue ./",
     "pack": "run-p pack:main pack:renderer pack:workers",
@@ -45,8 +42,6 @@
     "rebuild:electron": "electron-builder install-app-deps",
     "rebuild:node": "npm rebuild",
     "release": "run-s test build",
-    "test": "run-s rebuild:node pack:workers jest",
-    "test:watch": "run-s rebuild:node pack:workers jest:watch",
     "ci": "yarn install --frozen-lockfile"
   },
   "dependencies": {
@@ -116,7 +111,6 @@
     "fast-glob": "^3.2.7",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.2",
-    "jest": "^27.1.0",
     "mini-css-extract-plugin": "^2.2.2",
     "node-abi": "^2.30.1",
     "node-loader": "^2.0.0",
