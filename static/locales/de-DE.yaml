@@ -231,6 +231,22 @@ Settings:
     Scroll Playback Rate Over Video Player: Scroll-Wiedergaberate über Video-Player
     Video Playback Rate Interval: Intervall für die Videowiedergaberate
     Max Video Playback Rate: Maximale Wiedergabegeschwindigkeit
+    Screenshot:
+      Enable: Bildschirmfotos aktivieren
+      Format Label: Bildschirmfotoformat
+      Quality Label: Bildschirmfotoqualität
+      Ask Path: Nach dem Ordner fragen
+      Folder Label: Bildschirmfoto-Ordner
+      Folder Button: Ordner auswählen
+      File Name Label: Dateinamen-Muster
+      Error:
+        Forbidden Characters: Verbotene Zeichen
+        Empty File Name: Leerer Dateiname
+      File Name Tooltip: Sie können die folgenden Variablen verwenden. %Y Jahr 4-stellig.
+        %M Monat 2 Ziffern. %D Tag 2 Ziffern. %H Stunde 2 Ziffern. %N Minute 2 Ziffern.
+        %S Sekunde 2 Ziffern. %T Millisekunde 3 Ziffern. %s Video-Sekunde. %t Video
+        Millisekunde 3 Ziffern. %i Video-ID. Sie können auch \ oder / verwenden, um
+        Unterordner zu erstellen.
   Subscription Settings:
     Subscription Settings: Abonnement-Einstellungen
     Hide Videos on Watch: Verstecke Videos bei Wiedergabe
@@ -861,3 +877,5 @@ External link opening has been disabled in the general settings: Das Öffnen ext
 Downloading has completed: Das Herunterladen von $ ist abgeschlossen
 Starting download: Das Herunterladen von $ hat begonnen
 Downloading failed: Es gab ein Problem beim Herunterladen von $
+Screenshot Success: Bildschirmfoto gespeichert als „$“
+Screenshot Error: Bildschirmfoto fehlgeschlagen. $
