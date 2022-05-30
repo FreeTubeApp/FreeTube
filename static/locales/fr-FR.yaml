@@ -240,6 +240,8 @@ Settings:
       lecteur vidéo
     Video Playback Rate Interval: Intervalle de débit de lecture vidéo
     Max Video Playback Rate: Débit de lecture vidéo maximal
+    Screenshot:
+      Enable: Activer les captures d'écran
   Subscription Settings:
     Subscription Settings: 'Paramètres des abonnements'
     Hide Videos on Watch: 'Masquer les vidéos visionnées'
@@ -385,6 +387,13 @@ Settings:
       (la valeur par défaut est https://sponsor.ajay.app)
     Enable SponsorBlock: Activer SponsorBlock
     SponsorBlock Settings: Paramètres de SponsorBlock
+    Skip Options:
+      Skip Option: Ignorer l'option
+      Auto Skip: Ignorer automatiquement
+      Show In Seek Bar: Afficher dans la barre de recherche
+      Prompt To Skip: Inviter à ignorer
+      Do Nothing: Ne rien faire
+    Category Color: Couleur de la catégorie
   External Player Settings:
     Ignore Unsupported Action Warnings: Ignorer les avertissements concernant les
       actions non prises en charge
@@ -589,12 +598,14 @@ Video:
   Save Video: Enregistrer la vidéo
   translated from English: traduit de l'anglais
   Sponsor Block category:
-    music offtopic: musique hors sujet
-    interaction: interaction
-    sponsor: sponsor
-    self-promotion: autopromotion
-    outro: outro
-    intro: intro
+    music offtopic: Musique hors sujet
+    interaction: Interaction
+    sponsor: Sponsor
+    self-promotion: Autopromotion
+    outro: Outro
+    intro: Intro
+    filler: Bouche-trou
+    recap: Récap
   Skipped segment: Segment ignoré
   External Player:
     playlist: liste de lecture

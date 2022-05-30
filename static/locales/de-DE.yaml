@@ -373,6 +373,13 @@ Settings:
       URL (Standard ist https://sponsor.ajay.app)
     Enable SponsorBlock: Aktiviere SponsorBlock
     SponsorBlock Settings: SponsorBlock-Einstellungen
+    Skip Options:
+      Skip Option: Option überspringen
+      Auto Skip: Automatisch überspringen
+      Show In Seek Bar: In Suchleiste anzeigen
+      Prompt To Skip: Aufforderung zum Überspringen
+      Do Nothing: Nichts tun
+    Category Color: Kategoriefarbe
   External Player Settings:
     Ignore Unsupported Action Warnings: Nicht unterstützte Aktionswarnungen ignorieren
     External Player: Externer Player
@@ -575,12 +582,13 @@ Video:
   Save Video: Video speichern
   translated from English: Aus dem Englischen übersetzt
   Sponsor Block category:
-    music offtopic: Musik (Offtopic)
+    music offtopic: Musik Offtopic
     interaction: Interaktion
     self-promotion: Eigenwerbung
     outro: Outro
     intro: Intro
     sponsor: Sponsor
+    recap: Rekapitulation
   Skipped segment: Segment übersprungen
   External Player:
     OpenInTemplate: In $ öffnen

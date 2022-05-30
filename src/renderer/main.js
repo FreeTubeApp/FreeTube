@@ -32,7 +32,7 @@ new Vue({
   render: h => h(App)
 })
 
-// to avoild accesing electorn api from web app build
+// to avoid accesing electron api from web app build
 if (window && window.process && window.process.type === 'renderer') {
   const { ipcRenderer } = require('electron')
 

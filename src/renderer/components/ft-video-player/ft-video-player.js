@@ -6,6 +6,7 @@ import $ from 'jquery'
 import videojs from 'video.js'
 import qualitySelector from '@silvermine/videojs-quality-selector'
 import fs from 'fs'
+import path from 'path'
 import 'videojs-overlay/dist/videojs-overlay'
 import 'videojs-overlay/dist/videojs-overlay.css'
 import 'videojs-vtt-thumbnails-freetube'
@@ -115,6 +116,7 @@ export default Vue.extend({
             'seekToLive',
             'remainingTimeDisplay',
             'customControlSpacer',
+            'screenshotButton',
             'playbackRateMenuButton',
             'loopButton',
             'chaptersButton',
@@ -188,6 +190,62 @@ export default Vue.extend({
       return this.$store.getters.getDisplayVideoPlayButton
     },
 
+    sponsorSkips: function () {
+      const sponsorCats = ['sponsor',
+        'selfpromo',
+        'interaction',
+        'intro',
+        'outro',
+        'preview',
+        'music_offtopic',
+        'filler'
+      ]
+      const autoSkip = {}
+      const seekBar = []
+      const promptSkip = {}
+      const categoryData = {}
+      sponsorCats.forEach(x => {
+        let sponsorVal = {}
+        switch (x) {
+          case 'sponsor':
+            sponsorVal = this.$store.getters.getSponsorBlockSponsor
+            break
+          case 'selfpromo':
+            sponsorVal = this.$store.getters.getSponsorBlockSelfPromo
+            break
+          case 'interaction':
+            sponsorVal = this.$store.getters.getSponsorBlockInteraction
+            break
+          case 'intro':
+            sponsorVal = this.$store.getters.getSponsorBlockIntro
+            break
+          case 'outro':
+            sponsorVal = this.$store.getters.getSponsorBlockOutro
+            break
+          case 'preview':
+            sponsorVal = this.$store.getters.getSponsorBlockRecap
+            break
+          case 'music_offtopic':
+            sponsorVal = this.$store.getters.getSponsorBlockMusicOffTopic
+            break
+          case 'filler':
+            sponsorVal = this.$store.getters.getSponsorBlockFiller
+            break
+        }
+        if (sponsorVal.skip !== 'doNothing') {
+          seekBar.push(x)
+        }
+        if (sponsorVal.skip === 'autoSkip') {
+          autoSkip[x] = true
+        }
+        if (sponsorVal.skip === 'promptToSkip') {
+          promptSkip[x] = true
+        }
+        categoryData[x] = sponsorVal
+      })
+      return { autoSkip, seekBar, promptSkip, categoryData }
+    },
+
     maxVideoPlaybackRate: function () {
       return parseInt(this.$store.getters.getMaxVideoPlaybackRate)
     },
@@ -207,11 +265,35 @@ export default Vue.extend({
       }
 
       return playbackRates
+    },
+
+    enableScreenshot: function() {
+      return this.$store.getters.getEnableScreenshot
+    },
+
+    screenshotFormat: function() {
+      return this.$store.getters.getScreenshotFormat
+    },
+
+    screenshotQuality: function() {
+      return this.$store.getters.getScreenshotQuality
+    },
+
+    screenshotAskPath: function() {
+      return this.$store.getters.getScreenshotAskPath
+    },
+
+    screenshotFolder: function() {
+      return this.$store.getters.getScreenshotFolderPath
     }
   },
   watch: {
     showStatsModal: function() {
       this.player.trigger(this.statsModalEventName)
+    },
+
+    enableScreenshot: function() {
+      this.toggleScreenshotButton()
     }
   },
   mounted: function () {
@@ -228,8 +310,14 @@ export default Vue.extend({
     this.createFullWindowButton()
     this.createLoopButton()
     this.createToggleTheatreModeButton()
+    this.createScreenshotButton()
     this.determineFormatType()
     this.determineMaxFramerate()
+
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.setActionHandler('play', () => this.player.play())
+      navigator.mediaSession.setActionHandler('pause', () => this.player.pause())
+    }
   },
   beforeDestroy: function () {
     if (this.player !== null) {
@@ -240,6 +328,12 @@ export default Vue.extend({
         this.player = null
         clearTimeout(this.mouseTimeout)
       }
+    }
+
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.setActionHandler('play', null)
+      navigator.mediaSession.setActionHandler('pause', null)
+      navigator.mediaSession.playbackState = 'none'
     }
 
     if (this.usingElectron && this.powerSaveBlocker !== null) {
@@ -370,17 +464,30 @@ export default Vue.extend({
           if (this.captionHybridList.length !== 0) {
             this.transformAndInsertCaptions()
           }
+          this.toggleScreenshotButton()
         })
 
         this.player.on('ended', () => {
           this.$emit('ended')
+
+          if ('mediaSession' in navigator) {
+            navigator.mediaSession.playbackState = 'none'
+          }
         })
 
         this.player.on('error', (error, message) => {
           this.$emit('error', error.target.player.error_)
+
+          if ('mediaSession' in navigator) {
+            navigator.mediaSession.playbackState = 'none'
+          }
         })
 
         this.player.on('play', async function () {
+          if ('mediaSession' in navigator) {
+            navigator.mediaSession.playbackState = 'playing'
+          }
+
           if (this.usingElectron) {
             const { ipcRenderer } = require('electron')
             this.powerSaveBlocker =
@@ -389,6 +496,10 @@ export default Vue.extend({
         })
 
         this.player.on('pause', function () {
+          if ('mediaSession' in navigator) {
+            navigator.mediaSession.playbackState = 'paused'
+          }
+
           if (this.usingElectron && this.powerSaveBlocker !== null) {
             const { ipcRenderer } = require('electron')
             ipcRenderer.send(IpcChannels.STOP_POWER_SAVE_BLOCKER, this.powerSaveBlocker)
@@ -432,7 +543,7 @@ export default Vue.extend({
     initializeSponsorBlock() {
       this.sponsorBlockSkipSegments({
         videoId: this.videoId,
-        categories: ['sponsor']
+        categories: this.sponsorSkips.seekBar
       }).then((skipSegments) => {
         if (skipSegments.length === 0) {
           return
@@ -450,7 +561,8 @@ export default Vue.extend({
             this.addSponsorBlockMarker({
               time: startTime,
               duration: endTime - startTime,
-              color: this.sponsorBlockCategoryColor(category)
+              color: 'var(--primary-color)',
+              category: category
             })
           })
         })
@@ -469,10 +581,12 @@ export default Vue.extend({
         }
       })
       if (newTime !== null && Math.abs(duration - currentTime) > 0.500) {
-        if (this.sponsorBlockShowSkippedToast) {
-          this.showSkippedSponsorSegmentInformation(skippedCategory)
+        if (this.sponsorSkips.autoSkip[skippedCategory]) {
+          if (this.sponsorBlockShowSkippedToast) {
+            this.showSkippedSponsorSegmentInformation(skippedCategory)
+          }
+          this.player.currentTime(newTime)
         }
-        this.player.currentTime(newTime)
       }
     },
 
@@ -497,42 +611,25 @@ export default Vue.extend({
           return this.$t('Video.Sponsor Block category.interaction')
         case 'music_offtopic':
           return this.$t('Video.Sponsor Block category.music offtopic')
+        case 'filler':
+          return this.$t('Video.Sponsor Block category.filler')
         default:
           console.error(`Unknown translation for SponsorBlock category ${category}`)
           return category
       }
     },
 
-    sponsorBlockCategoryColor(category) {
-      // TODO: allow to set these colors in settings
-      switch (category) {
-        case 'sponsor':
-          return 'var(--accent-color)'
-        case 'intro':
-          return 'var(--accent-color)'
-        case 'outro':
-          return 'var(--accent-color)'
-        case 'selfpromo':
-          return 'var(--accent-color)'
-        case 'interaction':
-          return 'var(--accent-color)'
-        case 'music_offtopic':
-          return 'var(--accent-color)'
-        default:
-          console.error(`Unknown SponsorBlock category ${category}`)
-          return 'var(--accent-color)'
-      }
-    },
-
     addSponsorBlockMarker(marker) {
       const markerDiv = videojs.dom.createEl('div', {}, {})
 
-      markerDiv.className = 'sponsorBlockMarker'
+      markerDiv.className = `sponsorBlockMarker main${this.sponsorSkips.categoryData[marker.category].color}`
       markerDiv.style.height = '100%'
       markerDiv.style.position = 'absolute'
+      markerDiv.style.opacity = '0.6'
       markerDiv.style['background-color'] = marker.color
       markerDiv.style.width = (marker.duration / this.player.duration()) * 100 + '%'
       markerDiv.style.marginLeft = (marker.time / this.player.duration()) * 100 + '%'
+      markerDiv.title = this.sponsorBlockTranslatedCategory(marker.category)
 
       this.player.el().querySelector('.vjs-progress-holder').appendChild(markerDiv)
     },
@@ -1155,6 +1252,168 @@ export default Vue.extend({
       this.$parent.toggleTheatreMode()
     },
 
+    createScreenshotButton: function() {
+      const VjsButton = videojs.getComponent('Button')
+      const screenshotButton = videojs.extend(VjsButton, {
+        constructor: function(player, options) {
+          VjsButton.call(this, player, options)
+        },
+        handleClick: () => {
+          this.takeScreenshot()
+          const video = document.getElementsByTagName('video')[0]
+          video.focus()
+          video.blur()
+        },
+        createControlTextEl: function (button) {
+          return $(button)
+            .html('<div id="screenshotButton" class="vjs-icon-screenshot vjs-button vjs-hidden"></div>')
+            .attr('title', 'Screenshot')
+        }
+      })
+
+      videojs.registerComponent('screenshotButton', screenshotButton)
+    },
+
+    toggleScreenshotButton: function() {
+      const button = document.getElementById('screenshotButton')
+      if (this.enableScreenshot && this.format !== 'audio') {
+        button.classList.remove('vjs-hidden')
+      } else {
+        button.classList.add('vjs-hidden')
+      }
+    },
+
+    takeScreenshot: async function() {
+      if (!this.enableScreenshot || this.format === 'audio') {
+        return
+      }
+
+      const width = this.player.videoWidth()
+      const height = this.player.videoHeight()
+      if (width <= 0) {
+        return
+      }
+
+      // Need to set crossorigin="anonymous" for LegacyFormat on Invidious
+      // https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image
+      const video = document.querySelector('video')
+      const canvas = document.createElement('canvas')
+      canvas.width = width
+      canvas.height = height
+      canvas.getContext('2d').drawImage(video, 0, 0)
+
+      const format = this.screenshotFormat
+      const mimeType = `image/${format === 'jpg' ? 'jpeg' : format}`
+      const imageQuality = format === 'jpg' ? this.screenshotQuality / 100 : 1
+
+      let filename
+      try {
+        filename = await this.parseScreenshotCustomFileName({
+          date: new Date(Date.now()),
+          playerTime: this.player.currentTime(),
+          videoId: this.videoId
+        })
+      } catch (err) {
+        console.error(`Parse failed: ${err.message}`)
+        this.showToast({
+          message: this.$t('Screenshot Error').replace('$', err.message)
+        })
+        canvas.remove()
+        return
+      }
+
+      const dirChar = process.platform === 'win32' ? '\\' : '/'
+      let subDir = ''
+      if (filename.indexOf(dirChar) !== -1) {
+        const lastIndex = filename.lastIndexOf(dirChar)
+        subDir = filename.substring(0, lastIndex)
+        filename = filename.substring(lastIndex + 1)
+      }
+      const filenameWithExtension = `${filename}.${format}`
+
+      let dirPath
+      let filePath
+      if (this.screenshotAskPath) {
+        const wasPlaying = !this.player.paused()
+        if (wasPlaying) {
+          this.player.pause()
+        }
+
+        if (this.screenshotFolder === '' || !fs.existsSync(this.screenshotFolder)) {
+          dirPath = await this.getPicturesPath()
+        } else {
+          dirPath = this.screenshotFolder
+        }
+
+        const options = {
+          defaultPath: path.join(dirPath, filenameWithExtension),
+          filters: [
+            {
+              name: format.toUpperCase(),
+              extensions: [format]
+            }
+          ]
+        }
+
+        const response = await this.showSaveDialog({ options, useModal: true })
+        if (wasPlaying) {
+          this.player.play()
+        }
+        if (response.canceled || response.filePath === '') {
+          canvas.remove()
+          return
+        }
+
+        filePath = response.filePath
+        if (!filePath.endsWith(`.${format}`)) {
+          filePath = `${filePath}.${format}`
+        }
+
+        dirPath = path.dirname(filePath)
+        this.updateScreenshotFolderPath(dirPath)
+      } else {
+        if (this.screenshotFolder === '') {
+          dirPath = path.join(await this.getPicturesPath(), 'Freetube', subDir)
+        } else {
+          dirPath = path.join(this.screenshotFolder, subDir)
+        }
+
+        if (!fs.existsSync(dirPath)) {
+          try {
+            fs.mkdirSync(dirPath, { recursive: true })
+          } catch (err) {
+            console.error(err)
+            this.showToast({
+              message: this.$t('Screenshot Error').replace('$', err)
+            })
+            canvas.remove()
+            return
+          }
+        }
+        filePath = path.join(dirPath, filenameWithExtension)
+      }
+
+      canvas.toBlob((result) => {
+        result.arrayBuffer().then(ab => {
+          const arr = new Uint8Array(ab)
+
+          fs.writeFile(filePath, arr, (err) => {
+            if (err) {
+              console.error(err)
+              this.showToast({
+                message: this.$t('Screenshot Error').replace('$', err)
+              })
+            } else {
+              this.showToast({
+                message: this.$t('Screenshot Success').replace('$', filePath)
+              })
+            }
+          })
+        })
+      }, mimeType, imageQuality)
+      canvas.remove()
+    },
+
     createDashQualitySelector: function (levels) {
       if (levels.levels_.length === 0) {
         setTimeout(() => {
@@ -1439,6 +1698,13 @@ export default Vue.extend({
         temporary: false,
         pauseOnOpen: false
       })
+      this.statsModal.handleKeyDown_ = (event) => {
+        // the default handler prevents keyboard events propagating beyond the modal
+        // the modal should only handle the escape and tab key, all others should be handled by the player
+        if (event.key === 'Escape' || event.key === 'Tab') {
+          this.statsModal.handleKeyDown(event)
+        }
+      }
       this.player.addChild(this.statsModal)
       this.statsModal.el_.classList.add('statsModal')
       this.statsModal.on('modalclose', () => {
@@ -1675,6 +1941,11 @@ export default Vue.extend({
             // Toggle Theatre Mode
             this.toggleTheatreMode()
             break
+          case 85:
+            // U Key
+            // Take screenshot
+            this.takeScreenshot()
+            break
         }
       }
     },
@@ -1683,7 +1954,11 @@ export default Vue.extend({
       'calculateColorLuminance',
       'updateDefaultCaptionSettings',
       'showToast',
-      'sponsorBlockSkipSegments'
+      'sponsorBlockSkipSegments',
+      'parseScreenshotCustomFileName',
+      'updateScreenshotFolderPath',
+      'getPicturesPath',
+      'showSaveDialog'
     ])
   }
 })

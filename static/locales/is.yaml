@@ -337,11 +337,18 @@ Settings:
     Error getting network information. Is your proxy configured properly?: 'Það tókst
       ekki að sækja upplýsingar um netkerfið. Er milliþjónninn rétt uppsettur?'
   SponsorBlock Settings:
-    Notify when sponsor segment is skipped: Láta vita þegar kostaður bútur er hunsaður
+    Notify when sponsor segment is skipped: Láta vita þegar kostaður hluti er hunsaður
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API-slóð
       (sjálfgefið er https://sponsor.ajay.app)
     Enable SponsorBlock: Virkja SponsorBlock
     SponsorBlock Settings: Stillingar SponsorBlock
+    Skip Options:
+      Skip Option: Valkostir við hunsun
+      Auto Skip: Hunsa sjálfvirkt
+      Show In Seek Bar: Sýna í leitarstiku
+      Prompt To Skip: Spyrja hvort eigi að sleppa
+      Do Nothing: Gera ekkert
+    Category Color: Litur flokks
   External Player Settings:
     Custom External Player Arguments: Sérsniðin viðföng fyrir utanaðkomandi spilara
     Custom External Player Executable: Sérsniðin skipun fyrir utanaðkomandi spilara
@@ -549,12 +556,14 @@ Video:
 #& Videos
   translated from English: þýtt úr ensku
   Sponsor Block category:
-    music offtopic: tónlist óskyld efni
-    interaction: gagnvirkni
-    self-promotion: sjálfskynning
-    intro: kynning
-    sponsor: kostunaraðili
-    outro: afkynning
+    music offtopic: Tónlist óskyld efni
+    interaction: Gagnvirkni
+    self-promotion: Sjálfskynning
+    intro: Kynning
+    sponsor: Kostunaraðili
+    outro: Afkynning
+    recap: Upprifjun
+    filler: Uppfylling
   Skipped segment: Búti sleppt
   External Player:
     Unsupported Actions:

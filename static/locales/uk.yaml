@@ -238,6 +238,22 @@ Settings:
       миші у відеопрогравачі
     Video Playback Rate Interval: Інтервал швидкості відтворення відео
     Max Video Playback Rate: Максимальна швидкість відтворення відео
+    Screenshot:
+      Folder Label: Тека зі знімками екрана
+      File Name Label: Шаблон назви файлу
+      Error:
+        Forbidden Characters: Заборонені символи
+        Empty File Name: Порожня назва файлу
+      Enable: Увімкнути знімок екрана
+      Format Label: Формат знімка екрана
+      Folder Button: Вибрати теку
+      Quality Label: Якість знімка екрана
+      Ask Path: Запитувати у якій теці зберігати
+      File Name Tooltip: Нижче ви можете використовувати змінні. %Y Рік 4 цифри. %M
+        Місяць 2 цифри. %D день 2 цифри. %H Година 2 цифри. %N Хвилина 2 цифри. %S
+        Секунда 2 цифри. %T Мілісекунда 3 цифри. %s Секунда відео. %t Мілісекунда
+        відео 3 цифри. %i ID відео. Ви також можете використовувати "\" або "/" для
+        створення вкладених тек.
   Privacy Settings:
     Privacy Settings: 'Налаштування приватності'
     Remember History: 'Збрігати історію'
@@ -357,6 +373,13 @@ Settings:
       (типово https://sponsor.ajay.app)
     Enable SponsorBlock: Увімкнути SponsorBlock
     SponsorBlock Settings: Налаштування SponsorBlock
+    Skip Options:
+      Skip Option: Опція пропуску
+      Auto Skip: Автопропуск
+      Show In Seek Bar: Показати на панелі прокрутки
+      Prompt To Skip: Запит на пропуск
+      Do Nothing: Нічого не робити
+    Category Color: Колір категорії
   External Player Settings:
     Custom External Player Arguments: Власні аргументи зовнішнього програвача
     Custom External Player Executable: Власний виконуваний зовнішній програвач
@@ -576,12 +599,14 @@ Video:
   Save Video: Зберегти відео
   translated from English: перекладено з англійської
   Sponsor Block category:
-    music offtopic: музика по за темою
-    interaction: взаємодія
-    self-promotion: самореклама
-    outro: кінцівка
-    intro: вступ
-    sponsor: спонсор
+    music offtopic: Музика поза темою
+    interaction: Взаємодія
+    self-promotion: Самореклама
+    outro: Кінцівка
+    intro: Вступ
+    sponsor: Спонсор
+    recap: Підсумок
+    filler: Заповнювач
   Skipped segment: Пропущений відтинок
   External Player:
     Unsupported Actions:
@@ -804,3 +829,5 @@ Starting download: Починається завантаження "$"
 Downloading has completed: '"$" завершив завантаження'
 Download folder does not exist: Каталог завантаження "$" не існує. Повернення до режиму
   «запитати теку».
+Screenshot Success: Знімок екрана збережено як "$"
+Screenshot Error: Не вдалося зробити знімок екрана. $
