@@ -6,6 +6,7 @@ import $ from 'jquery'
 import videojs from 'video.js'
 import qualitySelector from '@silvermine/videojs-quality-selector'
 import fs from 'fs'
+import path from 'path'
 import 'videojs-overlay/dist/videojs-overlay'
 import 'videojs-overlay/dist/videojs-overlay.css'
 import 'videojs-vtt-thumbnails-freetube'
@@ -115,6 +116,7 @@ export default Vue.extend({
             'seekToLive',
             'remainingTimeDisplay',
             'customControlSpacer',
+            'screenshotButton',
             'playbackRateMenuButton',
             'loopButton',
             'chaptersButton',
@@ -263,11 +265,35 @@ export default Vue.extend({
       }
 
       return playbackRates
+    },
+
+    enableScreenshot: function() {
+      return this.$store.getters.getEnableScreenshot
+    },
+
+    screenshotFormat: function() {
+      return this.$store.getters.getScreenshotFormat
+    },
+
+    screenshotQuality: function() {
+      return this.$store.getters.getScreenshotQuality
+    },
+
+    screenshotAskPath: function() {
+      return this.$store.getters.getScreenshotAskPath
+    },
+
+    screenshotFolder: function() {
+      return this.$store.getters.getScreenshotFolderPath
     }
   },
   watch: {
     showStatsModal: function() {
       this.player.trigger(this.statsModalEventName)
+    },
+
+    enableScreenshot: function() {
+      this.toggleScreenshotButton()
     }
   },
   mounted: function () {
@@ -284,6 +310,7 @@ export default Vue.extend({
     this.createFullWindowButton()
     this.createLoopButton()
     this.createToggleTheatreModeButton()
+    this.createScreenshotButton()
     this.determineFormatType()
     this.determineMaxFramerate()
 
@@ -437,6 +464,7 @@ export default Vue.extend({
           if (this.captionHybridList.length !== 0) {
             this.transformAndInsertCaptions()
           }
+          this.toggleScreenshotButton()
         })
 
         this.player.on('ended', () => {
@@ -1224,6 +1252,168 @@ export default Vue.extend({
       this.$parent.toggleTheatreMode()
     },
 
+    createScreenshotButton: function() {
+      const VjsButton = videojs.getComponent('Button')
+      const screenshotButton = videojs.extend(VjsButton, {
+        constructor: function(player, options) {
+          VjsButton.call(this, player, options)
+        },
+        handleClick: () => {
+          this.takeScreenshot()
+          const video = document.getElementsByTagName('video')[0]
+          video.focus()
+          video.blur()
+        },
+        createControlTextEl: function (button) {
+          return $(button)
+            .html('<div id="screenshotButton" class="vjs-icon-screenshot vjs-button vjs-hidden"></div>')
+            .attr('title', 'Screenshot')
+        }
+      })
+
+      videojs.registerComponent('screenshotButton', screenshotButton)
+    },
+
+    toggleScreenshotButton: function() {
+      const button = document.getElementById('screenshotButton')
+      if (this.enableScreenshot && this.format !== 'audio') {
+        button.classList.remove('vjs-hidden')
+      } else {
+        button.classList.add('vjs-hidden')
+      }
+    },
+
+    takeScreenshot: async function() {
+      if (!this.enableScreenshot || this.format === 'audio') {
+        return
+      }
+
+      const width = this.player.videoWidth()
+      const height = this.player.videoHeight()
+      if (width <= 0) {
+        return
+      }
+
+      // Need to set crossorigin="anonymous" for LegacyFormat on Invidious
+      // https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image
+      const video = document.querySelector('video')
+      const canvas = document.createElement('canvas')
+      canvas.width = width
+      canvas.height = height
+      canvas.getContext('2d').drawImage(video, 0, 0)
+
+      const format = this.screenshotFormat
+      const mimeType = `image/${format === 'jpg' ? 'jpeg' : format}`
+      const imageQuality = format === 'jpg' ? this.screenshotQuality / 100 : 1
+
+      let filename
+      try {
+        filename = await this.parseScreenshotCustomFileName({
+          date: new Date(Date.now()),
+          playerTime: this.player.currentTime(),
+          videoId: this.videoId
+        })
+      } catch (err) {
+        console.error(`Parse failed: ${err.message}`)
+        this.showToast({
+          message: this.$t('Screenshot Error').replace('$', err.message)
+        })
+        canvas.remove()
+        return
+      }
+
+      const dirChar = process.platform === 'win32' ? '\\' : '/'
+      let subDir = ''
+      if (filename.indexOf(dirChar) !== -1) {
+        const lastIndex = filename.lastIndexOf(dirChar)
+        subDir = filename.substring(0, lastIndex)
+        filename = filename.substring(lastIndex + 1)
+      }
+      const filenameWithExtension = `${filename}.${format}`
+
+      let dirPath
+      let filePath
+      if (this.screenshotAskPath) {
+        const wasPlaying = !this.player.paused()
+        if (wasPlaying) {
+          this.player.pause()
+        }
+
+        if (this.screenshotFolder === '' || !fs.existsSync(this.screenshotFolder)) {
+          dirPath = await this.getPicturesPath()
+        } else {
+          dirPath = this.screenshotFolder
+        }
+
+        const options = {
+          defaultPath: path.join(dirPath, filenameWithExtension),
+          filters: [
+            {
+              name: format.toUpperCase(),
+              extensions: [format]
+            }
+          ]
+        }
+
+        const response = await this.showSaveDialog({ options, useModal: true })
+        if (wasPlaying) {
+          this.player.play()
+        }
+        if (response.canceled || response.filePath === '') {
+          canvas.remove()
+          return
+        }
+
+        filePath = response.filePath
+        if (!filePath.endsWith(`.${format}`)) {
+          filePath = `${filePath}.${format}`
+        }
+
+        dirPath = path.dirname(filePath)
+        this.updateScreenshotFolderPath(dirPath)
+      } else {
+        if (this.screenshotFolder === '') {
+          dirPath = path.join(await this.getPicturesPath(), 'Freetube', subDir)
+        } else {
+          dirPath = path.join(this.screenshotFolder, subDir)
+        }
+
+        if (!fs.existsSync(dirPath)) {
+          try {
+            fs.mkdirSync(dirPath, { recursive: true })
+          } catch (err) {
+            console.error(err)
+            this.showToast({
+              message: this.$t('Screenshot Error').replace('$', err)
+            })
+            canvas.remove()
+            return
+          }
+        }
+        filePath = path.join(dirPath, filenameWithExtension)
+      }
+
+      canvas.toBlob((result) => {
+        result.arrayBuffer().then(ab => {
+          const arr = new Uint8Array(ab)
+
+          fs.writeFile(filePath, arr, (err) => {
+            if (err) {
+              console.error(err)
+              this.showToast({
+                message: this.$t('Screenshot Error').replace('$', err)
+              })
+            } else {
+              this.showToast({
+                message: this.$t('Screenshot Success').replace('$', filePath)
+              })
+            }
+          })
+        })
+      }, mimeType, imageQuality)
+      canvas.remove()
+    },
+
     createDashQualitySelector: function (levels) {
       if (levels.levels_.length === 0) {
         setTimeout(() => {
@@ -1751,6 +1941,11 @@ export default Vue.extend({
             // Toggle Theatre Mode
             this.toggleTheatreMode()
             break
+          case 85:
+            // U Key
+            // Take screenshot
+            this.takeScreenshot()
+            break
         }
       }
     },
@@ -1759,7 +1954,11 @@ export default Vue.extend({
       'calculateColorLuminance',
       'updateDefaultCaptionSettings',
       'showToast',
-      'sponsorBlockSkipSegments'
+      'sponsorBlockSkipSegments',
+      'parseScreenshotCustomFileName',
+      'updateScreenshotFolderPath',
+      'getPicturesPath',
+      'showSaveDialog'
     ])
   }
 })
