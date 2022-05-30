@@ -249,7 +249,12 @@ export default Vue.extend({
 
     getChannelInfoLocal: function () {
       this.apiUsed = 'local'
-      ytch.getChannelInfo({ channelId: this.id }).then((response) => {
+      const expectedId = this.id
+      ytch.getChannelInfo({ channelId: expectedId }).then((response) => {
+        if (expectedId !== this.id) {
+          return
+        }
+
         const channelId = response.authorId
         const channelName = response.author
         const channelThumbnailUrl = response.authorThumbnails[2].url
@@ -311,7 +316,12 @@ export default Vue.extend({
 
     getChannelVideosLocal: function () {
       this.isElementListLoading = true
-      ytch.getChannelVideos({ channelId: this.id, sortBy: this.videoSortBy }).then((response) => {
+      const expectedId = this.id
+      ytch.getChannelVideos({ channelId: expectedId, sortBy: this.videoSortBy }).then((response) => {
+        if (expectedId !== this.id) {
+          return
+        }
+
         this.latestVideos = response.items
         this.videoContinuationString = response.continuation
         this.isElementListLoading = false
@@ -357,7 +367,12 @@ export default Vue.extend({
       this.isLoading = true
       this.apiUsed = 'invidious'
 
-      this.invidiousGetChannelInfo(this.id).then((response) => {
+      const expectedId = this.id
+      this.invidiousGetChannelInfo(expectedId).then((response) => {
+        if (expectedId !== this.id) {
+          return
+        }
+
         console.log(response)
         const channelName = response.author
         const channelId = response.authorId
@@ -429,7 +444,12 @@ export default Vue.extend({
     },
 
     getPlaylistsLocal: function () {
-      ytch.getChannelPlaylistInfo({ channelId: this.id, sortBy: this.playlistSortBy }).then((response) => {
+      const expectedId = this.id
+      ytch.getChannelPlaylistInfo({ channelId: expectedId, sortBy: this.playlistSortBy }).then((response) => {
+        if (expectedId !== this.id) {
+          return
+        }
+
         console.log(response)
         this.latestPlaylists = response.items.map((item) => {
           item.proxyThumbnail = false

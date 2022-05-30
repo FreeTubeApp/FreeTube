@@ -163,6 +163,7 @@ Settings:
       Dark: 'Escuro'
       Light: 'Claro'
       Dracula: 'Drácula'
+      System Default: Predefinição do sistema
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermelho'
@@ -716,6 +717,7 @@ Comments:
   Pinned by: Fixado por
   And others: e outros
   From $channelName: de $channelName
+  Member: Membro
 Up Next: 'Próximo'
 
 # Toast Messages

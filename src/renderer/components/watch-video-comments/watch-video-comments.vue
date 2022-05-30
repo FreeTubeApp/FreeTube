@@ -68,6 +68,14 @@
           >
             {{ comment.author }}
           </span>
+          <img
+            v-if="comment.isMember"
+            :src="comment.memberIconUrl"
+            :title="$t('Comments.Member')"
+            :aria-label="$t('Comments.Member')"
+            class="commentMemberIcon"
+            alt=""
+          >
           <span class="commentDate">
             {{ comment.time }}
           </span>
@@ -137,6 +145,12 @@
               >
                 {{ reply.author }}
               </span>
+              <img
+                v-if="reply.isMember"
+                :src="reply.memberIconUrl"
+                class="commentMemberIcon"
+                alt=""
+              >
               <span class="commentDate">
                 {{ reply.time }}
               </span>

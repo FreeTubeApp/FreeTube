@@ -182,10 +182,14 @@ export default Vue.extend({
       // only hide/show the button once the player is available
       this.pictureInPictureButtonInverval = setInterval(() => {
         if (!this.hidePlayer) {
+          const pipButton = document.querySelector('.vjs-picture-in-picture-control')
+          if (pipButton === null) {
+            return
+          }
           if (format === 'audio') {
-            document.querySelector('.vjs-picture-in-picture-control').classList.add('vjs-hidden')
+            pipButton.classList.add('vjs-hidden')
           } else {
-            document.querySelector('.vjs-picture-in-picture-control').classList.remove('vjs-hidden')
+            pipButton.classList.remove('vjs-hidden')
           }
           clearInterval(this.pictureInPictureButtonInverval)
         }
@@ -423,8 +427,9 @@ export default Vue.extend({
                   )
 
                   if (!standardLocale.startsWith('en') && noLocaleCaption) {
-                    const baseUrl = result.player_response.captions.playerCaptionsRenderer.baseUrl
-                    this.tryAddingTranslatedLocaleCaption(captionTracks, standardLocale, baseUrl)
+                    captionTracks.forEach((caption) => {
+                      this.tryAddingTranslatedLocaleCaption(captionTracks, standardLocale, caption.baseUrl)
+                    })
                   }
                 }
 
@@ -1161,6 +1166,13 @@ export default Vue.extend({
           label = `${this.$t('Locale Name')} (${this.$t('Video.translated from English')})`
         } else {
           label = `${this.$t('Locale Name')} (translated from English)`
+        }
+
+        const indexTranslated = captionTracks.findIndex((item) => {
+          return item.name.simpleText === label
+        })
+        if (indexTranslated !== -1) {
+          return
         }
 
         if (enCaptionExists) {
