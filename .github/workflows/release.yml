@@ -12,9 +12,9 @@ jobs:
   build:
     strategy:
       matrix:
-      node-version: [14.x]
+        node-version: [16.x]
         runtime: [ linux-x64, linux-armv7l, linux-arm64, win-x64, win-arm64, osx-x64, osx-arm64 ]
-      include:
+        include:
         - runtime: linux-x64
           os: ubuntu-latest
 
