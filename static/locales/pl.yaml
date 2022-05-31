@@ -235,7 +235,7 @@ Settings:
       Format Label: Format zrzutu
       Quality Label: Jakość zrzutu
       Ask Path: Pytaj o folder zapisu
-      Folder Label: Folder z zrzutami
+      Folder Label: Folder ze zrzutami
       Folder Button: Wybierz folder
       File Name Label: Wzorzec nazwy pliku
       File Name Tooltip: 'Możesz użyć następujących zmiennych: %Y Rok 4 cyfry. %M
