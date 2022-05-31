@@ -32,6 +32,13 @@
           @input="handleUpdateSponsorBlockUrl"
         />
       </ft-flex-box>
+      <ft-flex-box>
+        <ft-sponsor-block-category
+          v-for="category in categories"
+          :key="category"
+          :category-name="category"
+        />
+      </ft-flex-box>
     </div>
   </details>
 </template>

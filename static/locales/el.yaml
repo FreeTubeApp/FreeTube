@@ -86,6 +86,7 @@ Trending:
   Music: Μουσική
   Movies: Ταινίες
   Default: Προεπιλογή
+  Trending Tabs: Δημοφιλείς Καρτέλες
 Most Popular: 'Πιο δημοφιλή'
 Playlists: 'Λίστες αναπαραγωγής'
 User Playlists:
@@ -97,6 +98,8 @@ User Playlists:
     Παραθέτει μόνο βίντεο που έχετε αποθηκεύσει ή αγαπήσει. Όταν ολοκληρωθεί η εργασία,
     όλα τα βίντεο που βρίσκονται εδώ θα μεταφερθούν σε μια λίστα αναπαραγωγής «Αγαπημένα».
   Search bar placeholder: Αναζήτηση στη λίστα αναπαραγωγής
+  Empty Search Message: Δεν υπάρχουν βίντεο σε αυτήν τη λίστα αναπαραγωγής που να
+    ταιριάζουν με την αναζήτησή σας
 History:
   # On History Page
   History: 'Ιστορικό'
@@ -104,6 +107,8 @@ History:
   Your history list is currently empty.: 'Η λίστα του ιστορικού σας είναι προς το
     παρόν κενή.'
   Search bar placeholder: Αναζήτηση στο Ιστορικό
+  Empty Search Message: Δεν υπάρχουν βίντεο στο ιστορικό σας που να ταιριάζουν με
+    την αναζήτησή σας
 Settings:
   # On Settings Page
   Settings: 'Ρυθμίσεις'
@@ -147,6 +152,10 @@ Settings:
       Open Link: Άνοιγμα συνδέσμου
       Ask Before Opening Link: Ερώτηση πριν από το άνοιγμα του συνδέσμου
       No Action: Καμία ενέργεια
+    Current instance will be randomized on startup: Η τρέχων διακομιστής θα τυχαιοποιηθεί
+      κατά την εκκίνηση
+    Set Current Instance as Default: Ορίστε τον τρέχων διακομιστή ως προεπιλεγμένο
+    Clear Default Instance: Εκκαθάριση Προεπιλεγμένου διακομιστή
   Theme Settings:
     Theme Settings: 'Ρυθμίσεις Θεμάτων'
     Match Top Bar with Main Color: 'Αντιστοίχηση Κύριου Χρώματος με την Μπάρα Κορυφής'
@@ -156,6 +165,7 @@ Settings:
       Dark: 'Σκοτεινό'
       Light: 'Φωτεινό'
       Dracula: 'Δράκουλας'
+      System Default: Προεπιλογή Συστήματος
     Main Color Theme:
       Main Color Theme: 'Κύριο Χρώμα Θέματος'
       Red: 'Κόκκινο'
@@ -222,6 +232,11 @@ Settings:
       αναπαραγωγής βίντεο
     Display Play Button In Video Player: Εμφάνιση του κουμπιού αναπαραγωγής στο πρόγραμμα
       αναπαραγωγής βίντεο
+    Scroll Playback Rate Over Video Player: Ποσοστό Αναπαραγωγής Κύλισης Πάνω Από
+      Το Πρόγραμμα Αναπαραγωγής Βίντεο
+    Fast-Forward / Rewind Interval: Διάστημα Γρήγορης προώθησης / Επανατύλιξης
+    Max Video Playback Rate: Μέγιστος ρυθμός αναπαραγωγής βίντεο
+    Video Playback Rate Interval: Διάστημα ρυθμού αναπαραγωγής βίντεο
   Privacy Settings:
     Privacy Settings: 'Ρυθμίσεις απορρήτου'
     Remember History: 'Διατήρηση ιστορικού'
@@ -284,6 +299,14 @@ Settings:
     How do I import my subscriptions?: 'Πως γίνεται η εισαγωγή των συνδρομών μου;'
     Check for Legacy Subscriptions: Ελέγξτε για παλαιότερες εγγραφές
     Manage Subscriptions: Διαχείριση συνδρομών
+    Import Playlists: Εισαγωγή λιστών αναπαραγωγής
+    Export Playlists: Εξαγωγή Λιστών Αναπαραγωγής
+    Playlist insufficient data: Ανεπαρκή δεδομένα για τη λίστα αναπαραγωγής "$", γίνεται
+      παράκαμψη του αντικειμένου
+    All playlists has been successfully imported: Όλες οι λίστες αναπαραγωγής έχουν
+      εισαχθεί με επιτυχία
+    All playlists has been successfully exported: Όλες οι λίστες αναπαραγωγής έχουν
+      εξαχθεί με επιτυχία
   Advanced Settings:
     Advanced Settings: 'Ρυθμίσεις για προχωρημένους'
     Enable Debug Mode (Prints data to the console): 'Ενεργοποίηση λειτουργίας εντοπισμού
@@ -625,6 +648,17 @@ Video:
     out of: από
     frame drop: Πτώση καρέ
     bandwidth: Ταχύτητα σύνδεσης
+    Mimetype: Τύπος αρχείου
+    Video statistics are not available for legacy videos: Τα στατιστικά βίντεο δεν
+      είναι διαθέσιμα για βίντεο παλαιού τύπου
+    Video ID: Αναγνωριστικό βίντεο
+    Resolution: Ανάλυση
+    Player Dimensions: Διαστάσεις αναπαραγωγής βίντεο
+    Bitrate: Ρυθμός μεταβίβασης δεδομένων
+    Volume: Ένταση
+    Bandwidth: Εύρος ζώνης
+    Buffered: Φορτωμένο
+    Dropped / Total Frames: Πτωμένα / Συνολικά Καρέ
   Skipped segment: Τμήμα που παραλείφθηκε
 Videos:
   #& Sort By
@@ -703,6 +737,7 @@ Comments:
   And others: και άλλοι
   From $channelName: από $channelName
   Show More Replies: Εμφάνιση περισσότερων απαντήσεων
+  Pinned by: Καρφώθηκε από
 Up Next: 'Επόμενο'
 
 # Toast Messages

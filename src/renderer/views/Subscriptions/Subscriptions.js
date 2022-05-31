@@ -225,7 +225,7 @@ export default Vue.extend({
 
     getChannelVideosLocalScraper: function (channel, failedAttempts = 0) {
       return new Promise((resolve, reject) => {
-        ytch.getChannelVideos(channel.id, 'latest').then(async (response) => {
+        ytch.getChannelVideos({ channelId: channel.id, sortBy: 'latest' }).then(async (response) => {
           const videos = await Promise.all(response.items.map(async (video) => {
             if (video.liveNow) {
               video.publishedDate = new Date().getTime()

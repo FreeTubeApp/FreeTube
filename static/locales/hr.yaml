@@ -93,15 +93,18 @@ User Playlists:
     spremljenih videa. Pritisni gumb za spremanje u sličici videa, kako bi se video
     ovdje prikazao
   Playlist Message: Ova stranica ne odražava potpuno funkcionalne zbirke. Prikazuje
-    samo spremljena ili označena videa. Kad posao završi, svi trenutačno ovdje prisutni
-    videi premjestit će se u zbirku „Favoriti”.
+    samo spremljena ili označena videa. Kad posao završi, sva trenutačno ovdje prisutna
+    videa premjestit će se u zbirku „Favoriti”.
   Search bar placeholder: Pretraži zbirku
+  Empty Search Message: U ovoj zbirci nema videa koji odgovaraju tvojem pretraživanju
 History:
   # On History Page
   History: 'Povijest'
   Watch History: 'Povijest gledanja'
   Your history list is currently empty.: 'Tvoj popis povijesti je trenutačno prazan.'
   Search bar placeholder: Pretraži povijest
+  Empty Search Message: U ovoj zbirci nema videa u tvojoj povijesti koji odgovaraju
+    tvojem pretraživanju
 Settings:
   # On Settings Page
   Settings: 'Postavke'
@@ -156,6 +159,7 @@ Settings:
       Dark: 'Tamna'
       Light: 'Svijetla'
       Dracula: 'Drakula'
+      System Default: Standard sustava
     Main Color Theme:
       Main Color Theme: 'Glavna boja teme'
       Red: 'Crvena'
@@ -221,8 +225,9 @@ Settings:
     Scroll Volume Over Video Player: Mijenjaj glasnoću u video playeru
     Display Play Button In Video Player: Prikaži gumb za pokretanje u video playeru
     Fast-Forward / Rewind Interval: Interval za premotavanje naprijed/natrag
-    Scroll Playback Rate Over Video Player: Mijenjanje brzine reprodukcije preko video
-      playera
+    Scroll Playback Rate Over Video Player: Mijenjaj brzinu reprodukcije u video playeru
+    Video Playback Rate Interval: Interval brzine reprodukcije videa
+    Max Video Playback Rate: Maksimalna brzina reprodukcije videa
   Privacy Settings:
     Privacy Settings: 'Postavke privatnosti'
     Remember History: 'Zapamti povijest'
@@ -713,6 +718,7 @@ Comments:
   From $channelName: od $channelName
   And others: i drugi
   Pinned by: Prikvačio/la
+  Member: Član
 Up Next: 'Sljedeći'
 
 # Toast Messages

@@ -4,6 +4,7 @@ import FtCard from '../ft-card/ft-card.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
+import FtSponsorBlockCategory from '../ft-sponsor-block-category/ft-sponsor-block-category.vue'
 
 export default Vue.extend({
   name: 'SponsorBlockSettings',
@@ -11,7 +12,22 @@ export default Vue.extend({
     'ft-card': FtCard,
     'ft-toggle-switch': FtToggleSwitch,
     'ft-input': FtInput,
-    'ft-flex-box': FtFlexBox
+    'ft-flex-box': FtFlexBox,
+    'ft-sponsor-block-category': FtSponsorBlockCategory
+  },
+  data: function () {
+    return {
+      categories: [
+        'sponsor',
+        'self-promotion',
+        'interaction',
+        'intro',
+        'outro',
+        'recap',
+        'music offtopic',
+        'filler'
+      ]
+    }
   },
   computed: {
     useSponsorBlock: function () {

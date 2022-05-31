@@ -93,12 +93,14 @@ User Playlists:
     ole tallentanut videoita. Paina "Tallenna" painiketta videon kulmassa tallentaaksesi
     sen tänne
   Search bar placeholder: Etsi soittolistalta
+  Empty Search Message: Tällä soittolistalla ei ole videoita, jotka vastaavat hakuasi
 History:
   # On History Page
   History: 'Historia'
   Watch History: 'Katseluhistoria'
   Your history list is currently empty.: Historiasi on tällä hetkellä tyhjä.
   Search bar placeholder: Etsi historiasta
+  Empty Search Message: Historiassasi ei ole videoita, jotka vastaisivat hakuasi
 Settings:
   # On Settings Page
   Settings: 'Asetukset'
@@ -152,6 +154,7 @@ Settings:
       Dark: 'Tumma'
       Light: 'Vaalea'
       Dracula: 'Dracula'
+      System Default: Järjestelmän oletusarvo
     Main Color Theme:
       Main Color Theme: 'Pääväriteema'
       Red: 'Punainen'
@@ -219,6 +222,8 @@ Settings:
       päällä
     Fast-Forward / Rewind Interval: Pikakelauksen intervalli
     Scroll Playback Rate Over Video Player: Toistonopeuden selaaminen videosoittimessa
+    Max Video Playback Rate: Videon maksimitoistonopeus
+    Video Playback Rate Interval: Videon toistonopeuden aikaväli
   Subscription Settings:
     Subscription Settings: 'Tilausasetukset'
     Hide Videos on Watch: 'Piilota katsotut videot'
@@ -654,6 +659,7 @@ Comments:
   Pinned by: Kiinnittänyt
   From $channelName: kanavalta $channelName
   And others: ja muut
+  Member: Jäsen
 Up Next: 'Seuraavaksi'
 
 # Toast Messages
@@ -676,7 +682,7 @@ Canceled next video autoplay: 'Peruttiin seuraavan videon toistaminen'
 
 Yes: 'Kyllä'
 No: 'Ei'
-Locale Name: Suomi
+Locale Name: suomi
 The playlist has been reversed: Soittolista on muutettu käänteiseksi
 Profile:
   $ is now the active profile: $ on nyt aktiivinen profiili

@@ -101,12 +101,14 @@ User Playlists:
     bittiğinde, şu anda burada bulunan tüm videolar bir 'Favoriler' oynatma listesine
     taşınacaktır.
   Search bar placeholder: Oynatma Listesinde Ara
+  Empty Search Message: Bu oynatma listesinde aramanızla eşleşen video yok
 History:
   # On History Page
   History: 'Geçmiş'
   Watch History: 'İzleme Geçmişi'
   Your history list is currently empty.: 'Geçmişin şu anda boş.'
   Search bar placeholder: Geçmişte Ara
+  Empty Search Message: Geçmişinizde aramanızla eşleşen video yok
 Settings:
   # On Settings Page
   Settings: 'Ayarlar'
@@ -160,6 +162,7 @@ Settings:
       Dark: 'Koyu'
       Light: 'Açık'
       Dracula: 'Drakula'
+      System Default: Sistem Öntanımlı Değeri
     Main Color Theme:
       Main Color Theme: 'Ana Renk Teması'
       Red: 'Kırmızı'
@@ -227,6 +230,24 @@ Settings:
     Fast-Forward / Rewind Interval: Hızlı İleri / Geri Sarma Aralığı
     Scroll Playback Rate Over Video Player: Video Oynatıcı Üzerinde Kaydırarak Oynatma
       Hızını Denetle
+    Video Playback Rate Interval: Video Oynatma Hızı Aralığı
+    Max Video Playback Rate: En Yüksek Video Oynatma Hızı
+    Screenshot:
+      Quality Label: Ekran Görüntüsü Kalitesi
+      Ask Path: Kaydedileceği Klasörü Sor
+      Folder Label: Ekran Görüntüsü Klasörü
+      File Name Label: Dosya Adı Kalıbı
+      Error:
+        Forbidden Characters: Yasak Karakterler
+        Empty File Name: Boş Dosya Adı
+      Format Label: Ekran Görüntüsü Biçimi
+      Enable: Ekran Görüntüsünü Etkinleştir
+      Folder Button: Klasör Seç
+      File Name Tooltip: Aşağıda değişkenleri kullanabilirsiniz. %Y Yıl 4 basamak.
+        %M Ay 2 basamak. %D Gün 2 basamak. %H Saat 2 basamak. %N Dakika 2 basamak.
+        %S Saniye 2 basamak. %T Milisaniye 3 basamak. %s Video Saniyesi. %t Video
+        Milisaniyesi 3 basamak. %i Video Kimliği. Alt klasörler oluşturmak için "\"
+        veya "/" kullanabilirsiniz.
   Privacy Settings:
     Privacy Settings: 'Gizlilik Ayarları'
     Remember History: 'Geçmişi Hatırla'
@@ -360,6 +381,13 @@ Settings:
       URL'si (Öntanımlı olarak https://sponsor.ajay.app)
     Enable SponsorBlock: SponsorBlock'u Etkinleştir
     SponsorBlock Settings: SponsorBlock Ayarları
+    Skip Options:
+      Skip Option: Atlama Seçeneği
+      Auto Skip: Otomatik Atla
+      Show In Seek Bar: Arama Çubuğunda Göster
+      Prompt To Skip: Atlamak İçin Sor
+      Do Nothing: Hiçbir Şey Yapma
+    Category Color: Kategori Rengi
   External Player Settings:
     Custom External Player Arguments: Özel Harici Oynatıcı Argümanları
     Custom External Player Executable: Özel Harici Oynatıcı Çalıştırılabilir Dosyası
@@ -597,12 +625,14 @@ Video:
   Save Video: Videoyu Kaydet
   translated from English: İngilizceden çevrildi
   Sponsor Block category:
-    music offtopic: müzik konu dışı
-    interaction: etkileşim
-    self-promotion: kendini tanıtma
-    outro: çıkış
-    intro: giriş
-    sponsor: sponsor
+    music offtopic: Müzik Konu Dışı
+    interaction: Etkileşim
+    self-promotion: Kendini Tanıtma
+    outro: Çıkış
+    intro: Giriş
+    sponsor: Sponsor
+    recap: Özet
+    filler: Dolgu
   Skipped segment: Atlanan bölüm
   External Player:
     Unsupported Actions:
@@ -714,6 +744,7 @@ Comments:
   From $channelName: $channelName'den
   And others: ve diğerleri
   Pinned by: Sabitleyen
+  Member: Üye
 Up Next: 'Sonraki'
 
 # Toast Messages
@@ -818,3 +849,5 @@ Downloading has completed: '"$" indirme işlemi tamamlandı'
 Downloading failed: '"$" indirilirken bir sorun oluştu'
 Download folder does not exist: İndirme dizini "$" mevcut değil. "Klasör sor" moduna
   geri dönülüyor.
+Screenshot Success: Ekran görüntüsü "$" olarak kaydedildi
+Screenshot Error: Ekran görüntüsü başarısız oldu. $

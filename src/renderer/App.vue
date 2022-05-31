@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="dataReady"
     id="app"
     :class="{
       hideOutlines: hideOutlines,

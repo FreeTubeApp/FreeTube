@@ -99,12 +99,14 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: לא
     שמרת סרטונים. יש ללחוץ על כפתור השמירה בפינת הסרטון כדי שיופיע כאן
   Search bar placeholder: חיפוש ברשימת הנגינה
+  Empty Search Message: אין סרטונים בפלייליסט הזה שעונים לחיפוש שלך
 History:
   # On History Page
   History: 'היסטוריה'
   Watch History: 'היסטוריית צפייה'
   Your history list is currently empty.: 'ההיסטוריה שלך ריקה כרגע.'
   Search bar placeholder: חיפוש בהיסטוריה
+  Empty Search Message: אין סרטונים בהיסטוריה שלך שעונים לחיפוש שלך
 Settings:
   # On Settings Page
   Settings: 'הגדרות'
@@ -157,6 +159,7 @@ Settings:
       Dark: 'חשוך'
       Light: 'בהיר'
       Dracula: 'דרקולה'
+      System Default: ברירת המחדל של המערכת
     Main Color Theme:
       Main Color Theme: 'צבע ראשי'
       Red: 'אדום'
@@ -222,6 +225,8 @@ Settings:
     Scroll Volume Over Video Player: גלילה על הסרטון לשינוי עצמת השמע
     Scroll Playback Rate Over Video Player: גלילת מהירות הנגינה על גבי נגן הווידאו
     Fast-Forward / Rewind Interval: משך קפיצה / חזרה
+    Max Video Playback Rate: קצב נגינת וידאו מרבי
+    Video Playback Rate Interval: הפרש קצב נגינת וידאו
   Privacy Settings:
     Privacy Settings: 'הגדרות פרטיות'
     Remember History: 'זכור את היסטוריית הצפייה'
@@ -691,6 +696,7 @@ Comments:
   From $channelName: מערוץ $channelName
   And others: ואחרים
   Pinned by: ננעץ על ידי
+  Member: חבר
 Up Next: 'הסרטון הבא'
 
 # Toast Messages
@@ -725,7 +731,7 @@ Tooltips:
       המקומי הוא מחלץ מובנה. ה־API של Invidious דורש התחברות לשרת Invidious.
     Region for Trending: מגמות אזוריות מאפשר לך לבחור סרטונים חמים של איזו מדינה מעניין
       אותך לראות. לא כל המדינות שמוצגות אכן נתמכות על ידי YouTube.
-    Invidious Instance: העותק של Invidious שאליו FreeTube יתחבר לפניות API.
+    Invidious Instance: העותק של Invidious שאליו FreeTube יתחבר לקבלת פניות API.
     Thumbnail Preference: כל התמונות הממוזערות ברחבי FreeTube יוחלפו בפריים מתוך הסרטון
       במקום התמונה הממוזערת כברירת המחדל.
     External Link Handling: "נא לבחור את התנהגות ברירת המחדל כשנלחץ קישור שלא ניתן\

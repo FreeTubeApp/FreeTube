@@ -7,7 +7,8 @@ const { name, productName } = require('../package.json')
 const args = process.argv
 
 let targets
-var platform = os.platform()
+const platform = os.platform()
+const cpus = os.cpus()
 
 if (platform == 'darwin') {
   let arch = Arch.x64
