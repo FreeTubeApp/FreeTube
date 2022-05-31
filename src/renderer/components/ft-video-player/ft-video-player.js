@@ -367,7 +367,11 @@ export default Vue.extend({
 
             if (this.enableSubtitles) {
               const tracks = this.player.textTracks().tracks_
-              tracks[1].mode = 'showing'
+              const userLocaleTrack = tracks.find(track => track.language == this.currentLocale)
+
+              if (userLocaleTrack) {
+                userLocaleTrack.mode = 'showing'
+              }
             }
           }
         })

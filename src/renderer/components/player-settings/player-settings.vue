@@ -52,6 +52,7 @@
           :label="$t('Settings.Player Settings.Turn on Subtitles by Default')"
           :compact="true"
           :default-value="enableSubtitles"
+          :tooltip="$t('Tooltips.Player Settings.Turn on Subtitles by Default')"
           @change="updateEnableSubtitles"
         />
       </div>

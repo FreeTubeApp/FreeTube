@@ -676,6 +676,8 @@ Tooltips:
       hold the Control key (Command Key on Mac) and scroll the mouse wheel forwards or backwards to control
       the playback rate. Press and hold the Control key (Command Key on Mac) and left click the mouse
       to quickly return to the default playback rate (1x unless it has been changed in the settings).
+    Turn on Subtitles by Default: If a video does not have subtitles (auto-generated
+      or otherwise) in your selected locale they will not be enabled by default.
   External Player Settings:
     External Player: Choosing an external player will display an icon, for opening the
       video (playlist if supported) in the external player, on the thumbnail.

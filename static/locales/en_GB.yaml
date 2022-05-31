@@ -740,6 +740,8 @@ Tooltips:
       or backwards to control the playback rate. Press and hold the Control key (Command
       Key on Mac) and left click the mouse to quickly return to the default playback
       rate (1x unless it has been changed in the settings).
+    Turn on Subtitles by Default: If a video does not have subtitles (auto-generated
+      or otherwise) in your selected locale they will not be enabled by default.
   General Settings:
     Region for Trending: The region of trends allows you to pick which country’s trending
       videos you want to have displayed. Not all countries displayed are actually
