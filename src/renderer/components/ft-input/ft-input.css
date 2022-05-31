@@ -6,12 +6,12 @@
   padding-left: 30px;
 }
 
-.ft-input-component.clearTextButtonVibisle,
+.ft-input-component.clearTextButtonVisible,
 .ft-input-component.showClearTextButton:focus-within {
   padding-left: 0;
 }
 
-.clearTextButtonVibisle .ft-input,
+.clearTextButtonVisible .ft-input,
 .ft-input-component.showClearTextButton:focus-within .ft-input {
   padding-left: 46px;
 }
@@ -20,7 +20,7 @@
   opacity: 0.5;
 }
 
-.clearTextButtonVibisle .clearInputTextButton.visible,
+.clearTextButtonVisible .clearInputTextButton.visible,
 .ft-input-component:focus-within .clearInputTextButton.visible {
   cursor: pointer;
   opacity: 1;
