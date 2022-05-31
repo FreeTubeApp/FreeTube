@@ -6,6 +6,7 @@
       forceTextColor: forceTextColor,
       showActionButton: showActionButton,
       showClearTextButton: showClearTextButton,
+      clearTextButtonVibisle: inputDataPresent,
       disabled: disabled
     }"
   >

@@ -6,22 +6,21 @@
   padding-left: 30px;
 }
 
-.ft-input-component.showClearTextButton:focus,
+.ft-input-component.clearTextButtonVibisle,
 .ft-input-component.showClearTextButton:focus-within {
   padding-left: 0;
 }
 
-.ft-input-component.showClearTextButton:focus .ft-input,
+.clearTextButtonVibisle .ft-input,
 .ft-input-component.showClearTextButton:focus-within .ft-input {
   padding-left: 46px;
 }
 
-.ft-input-component:focus .clearInputTextButton,
 .ft-input-component:focus-within .clearInputTextButton {
   opacity: 0.5;
 }
 
-.ft-input-component:focus .clearInputTextButton.visible,
+.clearTextButtonVibisle .clearInputTextButton.visible,
 .ft-input-component:focus-within .clearInputTextButton.visible {
   cursor: pointer;
   opacity: 1;
