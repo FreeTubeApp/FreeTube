@@ -18,11 +18,12 @@
       </span>
       {{ lastUpdated }}
     </p>
+
     <p
       class="playlistDescription"
-    >
-      {{ description }}
-    </p>
+      v-text="description"
+    ></p>
+
     <hr>
     <div
       class="playlistChannel"
@@ -38,7 +39,9 @@
         {{ channelName }}
       </h3>
     </div>
+
     <br>
+
     <ft-list-dropdown
       :title="$t('Playlist.Share Playlist.Share Playlist')"
       :label-names="shareHeaders"
