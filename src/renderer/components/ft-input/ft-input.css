@@ -2,6 +2,31 @@
   position: relative;
 }
 
+.ft-input-component.showClearTextButton {
+  padding-left: 30px;
+}
+
+.ft-input-component.showClearTextButton:focus,
+.ft-input-component.showClearTextButton:focus-within {
+  padding-left: 0;
+}
+
+.ft-input-component.showClearTextButton:focus .ft-input,
+.ft-input-component.showClearTextButton:focus-within .ft-input {
+  padding-left: 46px;
+}
+
+.ft-input-component:focus .clearInputTextButton,
+.ft-input-component:focus-within .clearInputTextButton {
+  opacity: 0.5;
+}
+
+.ft-input-component:focus .clearInputTextButton.visible,
+.ft-input-component:focus-within .clearInputTextButton.visible {
+  cursor: pointer;
+  opacity: 1;
+}
+
 .disabled label, .disabled .ft-input{
   opacity: 0.4;
   cursor: not-allowed;
@@ -16,19 +41,13 @@
   border-radius: 100%;
   color: var(--primary-text-color);
   opacity: 0;
-
-  -moz-transition: background 0.2s ease-in, opacity 0.2s ease-in;
-  -o-transition: background 0.2s ease-in, opacity 0.2s ease-in;
-  transition: background 0.2s ease-in, opacity 0.2s ease-in;
+  -moz-transition: background 0.2s ease-in;
+  -o-transition: background 0.2s ease-in;
+  transition: background 0.2s ease-in;
 }
 
 .clearInputTextButton.visible:hover {
   background-color: var(--side-nav-hover-color);
-}
-
-.clearInputTextButton.visible {
-  cursor: pointer;
-  opacity: 1;
 }
 
 .forceTextColor .clearInputTextButton:hover {
@@ -69,10 +88,6 @@
   color: var(--secondary-text-color);
   border-radius: 5px;
   background-color: var(--search-bar-color);
-
-  -moz-transition: padding 0.3s;
-  -o-transition: padding 0.3s;
-  transition: padding 0.3s;
 }
 
 .ft-input-component ::-webkit-input-placeholder {
@@ -177,9 +192,4 @@
 .hover {
   background-color: var(--scrollbar-color-hover);
 /*   color: white; */
-}
-
-.clearInputTextButton.visible ~ .ft-input {
-  /* 36px width of clearInputTextButton plus 6px of margin */
-  padding-left: calc(36px + 6px);
 }
