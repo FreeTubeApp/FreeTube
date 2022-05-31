@@ -9,12 +9,6 @@
     <div class="switchColumnGrid">
       <div class="switchColumn">
         <ft-toggle-switch
-          :label="$t('Settings.Player Settings.Turn on Subtitles by Default')"
-          :compact="true"
-          :default-value="enableSubtitles"
-          @change="updateEnableSubtitles"
-        />
-        <ft-toggle-switch
           :label="$t('Settings.Player Settings.Force Local Backend for Legacy Formats')"
           :compact="true"
           :disabled="backendPreference === 'local'"
@@ -53,6 +47,12 @@
           :compact="true"
           :default-value="displayVideoPlayButton"
           @change="updateDisplayVideoPlayButton"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Player Settings.Turn on Subtitles by Default')"
+          :compact="true"
+          :default-value="enableSubtitles"
+          @change="updateEnableSubtitles"
         />
       </div>
       <div class="switchColumn">
