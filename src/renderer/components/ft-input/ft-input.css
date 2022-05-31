@@ -9,14 +9,12 @@
 
 .clearInputTextButton {
   position: absolute;
-  /* horizontal intentionally reduced to keep "I-beam pointer" visible */
-  padding: 10px 8px;
+  margin: 0 3px;
+  padding: 10px;
   top: 5px;
   left: 0;
-  cursor: pointer;
-  border-radius: 200px 200px 200px 200px;
+  border-radius: 100%;
   color: var(--primary-text-color);
-
   opacity: 0;
 
   -moz-transition: background 0.2s ease-in, opacity 0.2s ease-in;
@@ -24,10 +22,12 @@
   transition: background 0.2s ease-in, opacity 0.2s ease-in;
 }
 
-.clearInputTextButton:hover {
+.clearInputTextButton.visible:hover {
   background-color: var(--side-nav-hover-color);
 }
+
 .clearInputTextButton.visible {
+  cursor: pointer;
   opacity: 1;
 }
 
@@ -35,7 +35,7 @@
   background-color: var(--primary-color-hover);
 }
 
-.clearInputTextButton:active {
+.clearInputTextButton.visible:active {
   background-color: var(--tertiary-text-color);
   -moz-transition: background 0.2s ease-in;
   -o-transition: background 0.2s ease-in;
@@ -55,20 +55,22 @@
 }
 
 .ft-input {
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    outline: none;
-    width: 100%;
-    padding: 1rem;
-    border: none;
-    background: transparent;
-    margin-bottom: 10px;
-    font-size: 16px;
-    height: 45px;
-    color: var(--secondary-text-color);
-    border-radius: 5px;
-    background-color: var(--search-bar-color);
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  background: transparent;
+  margin-bottom: 10px;
+  font-size: 16px;
+  height: 45px;
+  color: var(--secondary-text-color);
+  border-radius: 5px;
+  background-color: var(--search-bar-color);
+
+  transition: padding 0.3s;
 }
 
 .ft-input-component ::-webkit-input-placeholder {
@@ -93,10 +95,11 @@
 
 .inputAction {
   position: absolute;
-  padding: 10px 8px;
+  margin: 0 3px;
+  padding: 10px;
   top: 5px;
   right: 0;
-  border-radius: 200px 200px 200px 200px;
+  border-radius: 100%;
   color: var(--primary-text-color);
   /* this should look disabled by default */
   opacity: 50%;
@@ -174,6 +177,8 @@
 /*   color: white; */
 }
 
-.showClearTextButton .ft-input {
-  padding-left: 2em;
+.clearInputTextButton.visible ~ .ft-input {
+  /* 36px width of clearInputTextButton plus 6px of margin */
+  padding-left: calc(36px + 6px);
+  transition: padding 0.1s;
 }
