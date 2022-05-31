@@ -8,16 +8,19 @@
         @click="playFirstVideo"
       >
     </div>
-    <h2>
-      {{ title }}
-    </h2>
-    <p>
-      {{ videoCount }} {{ $t("Playlist.Videos") }} - <span v-if="!hideViews">{{ viewCount }} {{ $t("Playlist.Views") }} -</span>
-      <span v-if="infoSource !== 'local'">
-        {{ $t("Playlist.Last Updated On") }}
-      </span>
-      {{ lastUpdated }}
-    </p>
+
+    <div class="playlistStats">
+      <h2 class="playlistTitle">
+        {{ title }}
+      </h2>
+      <p>
+        {{ videoCount }} {{ $t("Playlist.Videos") }} - <span v-if="!hideViews">{{ viewCount }} {{ $t("Playlist.Views") }} -</span>
+        <span v-if="infoSource !== 'local'">
+          {{ $t("Playlist.Last Updated On") }}
+        </span>
+        {{ lastUpdated }}
+      </p>
+    </div>
 
     <p
       class="playlistDescription"
