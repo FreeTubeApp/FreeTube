@@ -70,6 +70,8 @@
   border-radius: 5px;
   background-color: var(--search-bar-color);
 
+  -moz-transition: padding 0.3s;
+  -o-transition: padding 0.3s;
   transition: padding 0.3s;
 }
 
@@ -180,5 +182,4 @@
 .clearInputTextButton.visible ~ .ft-input {
   /* 36px width of clearInputTextButton plus 6px of margin */
   padding-left: calc(36px + 6px);
-  transition: padding 0.1s;
 }
