@@ -1,7 +1,7 @@
 .playlistInfo {
   background-color: var(--card-bg-color);
   float: left;
-  height: 100%;
+  height: calc(100vh - 80px);
   margin-right: 1em;
   overflow-y: auto;
   padding: 10px;
