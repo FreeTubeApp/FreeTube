@@ -29,7 +29,7 @@
     grid-area: video
 
     .videoAreaMargin
-      margin: 0px 8px 16px
+      margin: 0 0 16px
 
     .videoPlayer
       grid-column: 1
@@ -61,13 +61,16 @@
           margin-top: 10px
 
   .watchVideo
-    margin: 0px 8px 16px
+    margin: 0 0 16px
     grid-column: 1
 
   .infoArea
-    position: sticky
-    top: 76px
     grid-area: info
+    position: relative
+
+    @media only screen and (min-width: 901px)
+      position: sticky
+      top: 76px
 
   .sidebarArea
     grid-area: sidebar
@@ -85,4 +88,7 @@
     height: 500px
 
   .watchVideoRecommendations, .theatreRecommendations
-    margin: 0 8px 16px
+    margin: 0 0 16px
+
+    @media only screen and (min-width: 901px)
+      margin: 0 8px 16px
