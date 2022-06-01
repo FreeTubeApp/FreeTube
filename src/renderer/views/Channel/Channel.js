@@ -50,6 +50,7 @@ export default Vue.extend({
       searchResults: [],
       shownElementList: [],
       apiUsed: '',
+      errorMessage: '',
       videoSelectValues: [
         'newest',
         'oldest',
@@ -90,16 +91,19 @@ export default Vue.extend({
       return this.$store.getters.getActiveProfile
     },
 
-    isSubscribed: function () {
+    subscriptionInfo: function () {
       const subIndex = this.activeProfile.subscriptions.findIndex((channel) => {
         return channel.id === this.id
       })
-
-      if (subIndex === -1) {
-        return false
+      if (subIndex !== -1) {
+        return this.activeProfile.subscriptions[subIndex]
       } else {
-        return true
+        return null
       }
+    },
+
+    isSubscribed: function () {
+      return this.subscriptionInfo !== null
     },
 
     subscribedText: function () {
@@ -251,6 +255,11 @@ export default Vue.extend({
       this.apiUsed = 'local'
       const expectedId = this.id
       ytch.getChannelInfo({ channelId: expectedId }).then((response) => {
+        if (response.alertMessage) {
+          this.setErrorMessage(response.alertMessage)
+          return
+        }
+        this.errorMessage = ''
         if (expectedId !== this.id) {
           return
         }
@@ -396,6 +405,7 @@ export default Vue.extend({
 
         this.isLoading = false
       }).catch((err) => {
+        this.setErrorMessage(err.responseJSON.error)
         console.log(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         this.showToast({
@@ -636,6 +646,15 @@ export default Vue.extend({
           }
         }
       }
+    },
+
+    setErrorMessage: function (errorMessage) {
+      this.errorMessage = errorMessage
+      this.id = this.subscriptionInfo.id
+      this.channelName = this.subscriptionInfo.name
+      this.thumbnailUrl = this.subscriptionInfo.thumbnail
+      this.bannerUrl = null
+      this.subCount = null
     },
 
     handleFetchMore: function () {
