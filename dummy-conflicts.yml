@@ -1,0 +1,9 @@
+name: Dummy workflow for conflicts
+on:
+  pull_request_review:
+    types: [submitted]
+jobs:
+  dummy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "this is a dummy workflow that triggers a workflow_run; it's necessary because otherwise the repo secrets will not be in scope for externally forked pull requests"
