@@ -90,7 +90,6 @@
       <ft-search-filters
         v-show="showFilters"
         class="searchFilters"
-        :class="{ expand: !isSideNavOpen }"
         @filterValueUpdated="handleSearchFilterValueChanged"
       />
     </div>
