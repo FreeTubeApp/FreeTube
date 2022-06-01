@@ -3,7 +3,7 @@
     ref="search"
   >
     <ft-loader
-      v-if="isLoading"
+      v-if="isLoading && !isErrorMessage"
       :fullscreen="true"
     />
     <ft-card

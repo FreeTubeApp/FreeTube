@@ -113,6 +113,7 @@ export default Vue.extend({
           }))
         } else {
           this.videoList = subscriptionList.videoList
+          this.errorChannels = subscriptionList.errorChannels
         }
       } else {
         this.getProfileSubscriptions()

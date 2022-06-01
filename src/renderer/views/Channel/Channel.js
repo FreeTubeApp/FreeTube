@@ -650,6 +650,7 @@ export default Vue.extend({
     },
 
     setErrorMessage: function (errorMessage) {
+      this.isLoading = false
       this.errorMessage = errorMessage
       this.id = this.subscriptionInfo.id
       this.channelName = this.subscriptionInfo.name
