@@ -326,7 +326,11 @@ export default Vue.extend({
       }
     },
     navigate: function (route) {
-      this.$router.push('/' + route)
+      const path = '/' + route
+
+      if (path !== this.$route.path) {
+        this.$router.push(path)
+      }
     },
     hideFilters: function () {
       this.showFilters = false

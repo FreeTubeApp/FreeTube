@@ -75,11 +75,19 @@ export default Vue.extend({
   },
   methods: {
     navigate: function (route) {
-      this.$router.push('/' + route)
+      const path = '/' + route
+
+      if (path !== this.$route.path) {
+        this.$router.push(path)
+      }
     },
 
     goToChannel: function (id) {
-      this.$router.push({ path: `/channel/${id}` })
+      const path = `/channel/${id}`
+
+      if (path !== this.$route.path) {
+        this.$router.push({ path })
+      }
     }
   }
 })
