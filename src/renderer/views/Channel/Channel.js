@@ -403,6 +403,7 @@ export default Vue.extend({
           this.bannerUrl = null
         }
 
+        this.errorMessage = ''
         this.isLoading = false
       }).catch((err) => {
         this.setErrorMessage(err.responseJSON.error)
