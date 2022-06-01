@@ -229,6 +229,14 @@ Settings:
       el ratón
     Max Video Playback Rate: Velocidad máxima de reproducción de vídeo
     Video Playback Rate Interval: Intervalo de velocidad de reproducción de vídeo
+    Screenshot:
+      Folder Button: Seleccionar una carpeta
+      Error:
+        Forbidden Characters: Caracteres prohibidos
+        Empty File Name: Nombre de archivo vacío
+      Enable: Habilitar capturas de pantalla
+      Quality Label: Calidad de las capturas de pantalla
+      Format Label: Formato de las capturas de pantalla
   Privacy Settings:
     Privacy Settings: 'Privacidad'
     Remember History: 'Recordar historial'

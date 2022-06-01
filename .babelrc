@@ -8,8 +8,7 @@
           "node": 16
         }
       }
-    ],
-    "@babel/typescript"
+    ]
   ],
   "plugins": [
     "@babel/proposal-class-properties"
