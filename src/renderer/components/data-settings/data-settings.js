@@ -248,7 +248,9 @@ export default Vue.extend({
           return
         }
         const textDecode = new TextDecoder('utf-8').decode(data)
-        const youtubeSubscriptions = textDecode.split('\n')
+        const youtubeSubscriptions = textDecode.split('\n').filter(sub => {
+          return sub !== ''
+        })
         const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
         const subscriptions = []
 
@@ -681,7 +683,7 @@ export default Vue.extend({
         ]
       }
 
-      const response = await this.showSaveDialog(options)
+      const response = await this.showSaveDialog({ options })
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
@@ -764,7 +766,7 @@ export default Vue.extend({
         return object
       })
 
-      const response = await this.showSaveDialog(options)
+      const response = await this.showSaveDialog({ options })
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
@@ -816,7 +818,7 @@ export default Vue.extend({
         }
       })
 
-      const response = await this.showSaveDialog(options)
+      const response = await this.showSaveDialog({ options })
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
@@ -855,10 +857,14 @@ export default Vue.extend({
       let exportText = 'Channel ID,Channel URL,Channel title\n'
       this.profileList[0].subscriptions.forEach((channel) => {
         const channelUrl = `https://www.youtube.com/channel/${channel.id}`
-        exportText += `${channel.id},${channelUrl},${channel.name}\n`
+        let channelName = channel.name
+        if (channelName.search(',') !== -1) { // add quotations if channel has comma in name
+          channelName = `"${channelName}"`
+        }
+        exportText += `${channel.id},${channelUrl},${channelName}\n`
       })
       exportText += '\n'
-      const response = await this.showSaveDialog(options)
+      const response = await this.showSaveDialog({ options })
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
@@ -911,7 +917,7 @@ export default Vue.extend({
         newPipeObject.subscriptions.push(subscription)
       })
 
-      const response = await this.showSaveDialog(options)
+      const response = await this.showSaveDialog({ options })
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
@@ -1042,7 +1048,7 @@ export default Vue.extend({
         ]
       }
 
-      const response = await this.showSaveDialog(options)
+      const response = await this.showSaveDialog({ options })
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
@@ -1214,7 +1220,7 @@ export default Vue.extend({
         ]
       }
 
-      const response = await this.showSaveDialog(options)
+      const response = await this.showSaveDialog({ options })
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return

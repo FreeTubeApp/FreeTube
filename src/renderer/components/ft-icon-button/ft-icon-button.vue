@@ -28,16 +28,16 @@
     >
       <slot>
         <ul
-          v-if="dropdownNames.length > 0"
+          v-if="dropdownOptions.length > 0"
           class="list"
         >
           <li
-            v-for="(label, index) in dropdownNames"
+            v-for="(option, index) in dropdownOptions"
             :key="index"
-            class="listItem"
-            @click="handleDropdownClick(index)"
+            :class="option.type === 'divider' ? 'listItemDivider' : 'listItem'"
+            @click="handleDropdownClick({url: option.value, index: index})"
           >
-            {{ label }}
+            {{ option.type === 'divider' ? '' : option.label }}
           </li>
         </ul>
       </slot>
