@@ -1,112 +1,123 @@
 # Put the name of your locale in the same language
-Locale Name: ''
-FreeTube: ''
+Locale Name: 'Azərbaycanca'
+FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >
+'This part of the app is not ready yet. Come back later when progress has been made.': >-
+  Tətbiqin bu hissəsi hələ hazır deyil.İnkişaf bitdikdən sonra geri qayıdın.
 
 # Webkit Menu Bar
-File: ''
-Quit: ''
-Edit: ''
-Undo: ''
-Redo: ''
-Cut: ''
-Copy: ''
-Paste: ''
-Delete: ''
-Select all: ''
-Reload: ''
-Force Reload: ''
-Toggle Developer Tools: ''
-Actual size: ''
-Zoom in: ''
-Zoom out: ''
-Toggle fullscreen: ''
-Window: ''
-Minimize: ''
-Close: ''
-Back: ''
-Forward: ''
-Open New Window: ''
+File: 'Fayl'
+Quit: 'Çıxış'
+Edit: 'Redaktə Edin'
+Undo: 'Geri alın'
+Redo: 'Təkrarla'
+Cut: 'Kəsin'
+Copy: 'Kopyalayın'
+Paste: 'Yapışdır'
+Delete: 'Silin'
+Select all: 'Hamısını seçin'
+Reload: 'Yenidən Yükləyin'
+Force Reload: 'Zorla Yenidən Yükləmə'
+Toggle Developer Tools: 'Tərtibatçı Seçimlərini Aç/Bağla'
+Actual size: 'Həqiqi Ölçü'
+Zoom in: 'Yaxınlaşdırın'
+Zoom out: 'Uzaqlaşdırın'
+Toggle fullscreen: 'Tam ekranda göstər'
+Window: 'Pəncərə'
+Minimize: 'Kiçildin'
+Close: 'Bağlayın'
+Back: 'Geri'
+Forward: 'İrəli'
+Open New Window: 'Yeni Pəncərə Açın'
 
-Version $ is now available!  Click for more details: ''
-Download From Site: ''
-A new blog is now available, $. Click to view more: ''
-Are you sure you want to open this link?: ''
+Version $ is now available!  Click for more details: '$ versiyası artıq mövcuddur!
+  Ətraflı məlumat üçün klikləyin'
+Download From Site: 'Saytdan Endirin'
+A new blog is now available, $. Click to view more: 'İndi yeni blog mövcuddur, $.
+  Daha çoxuna baxmaq üçün klikləyin'
+Are you sure you want to open this link?: 'Bu linki açmaq istədiyinizə əminsiniz?'
 
 # Search Bar
-Search / Go to URL: ''
+Search / Go to URL: 'Axtarış / URL-ə Keçin'
 Search Bar:
-  Clear Input: ''
+  Clear Input: 'Girişi Təmizləyin'
   # In Filter Button
 Search Filters:
-  Search Filters: ''
+  Search Filters: 'Axtarış Filtrləri'
   Sort By:
-    Sort By: ''
-    Most Relevant: ''
-    Rating: ''
-    Upload Date: ''
-    View Count: ''
+    Sort By: 'Sırala'
+    Most Relevant: 'Ən Münasib'
+    Rating: 'Qiymətləndirmə'
+    Upload Date: 'Yükləmə Tarixi'
+    View Count: 'Baxış Sayı'
   Time:
-    Time: ''
-    Any Time: ''
-    Last Hour: ''
-    Today: ''
-    This Week: ''
-    This Month: ''
-    This Year: ''
+    Time: 'Vaxt'
+    Any Time: 'İstənilən Vaxt'
+    Last Hour: 'Son Saat'
+    Today: 'Bu gün'
+    This Week: 'Bu Həftə'
+    This Month: 'Bu Ay'
+    This Year: 'Bu İl'
   Type:
-    Type: ''
-    All Types: ''
-    Videos: ''
-    Channels: ''
+    Type: 'Növ'
+    All Types: 'Bütün Növlər'
+    Videos: 'Videolar'
+    Channels: 'Kanallar'
     #& Playlists
   Duration:
-    Duration: ''
-    All Durations: ''
-    Short (< 4 minutes): ''
-    Long (> 20 minutes): ''
+    Duration: 'Müddət'
+    All Durations: 'Bütün Müddətlər'
+    Short (< 4 minutes): 'Qısa (<4 dəqiqədən az)'
+    Long (> 20 minutes): 'Uzun (> 20 dəqiqədən çox)'
   # On Search Page
-  Search Results: ''
-  Fetching results. Please wait: ''
-  Fetch more results: ''
-  There are no more results for this search: ''
+  Search Results: 'Axtarış Nəticələri'
+  Fetching results. Please wait: 'Nəticələr alınır. Zəhmət olmasa, gözləyin'
+  Fetch more results: 'Daha çox nəticə əldə edin'
+  There are no more results for this search: 'Bu axtarış üçün başqa nəticə yoxdur'
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: ''
-  Latest Subscriptions: ''
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: ''
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
-  'Getting Subscriptions. Please wait.': ''
-  Refresh Subscriptions: ''
-  Load More Videos: ''
-More: ''
+  Subscriptions: 'Abunəliklər'
+  Latest Subscriptions: 'Ən Son Abunəliklər'
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 'Bu
+    profilin çoxlu sayda abunəsi var.Sürət məhdudiyyətinin qarşısını almaq üçün RSS-i
+    zorlanır'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Abunəlik
+    siyahınız hazırda boşdur. Abunəlikləri burada görmək üçün əlavə etməyə başlayın.'
+  'Getting Subscriptions. Please wait.': 'Abunəliklərin əldə edilməsi. Zəhmət olmasa,
+    gözləyin.'
+  Refresh Subscriptions: 'Abunəlikləri Yeniləyin'
+  Load More Videos: 'Daha çox Video Yükləyin'
+More: 'Daha Çox'
 Trending:
-  Trending: ''
-  Default: ''
-  Music: ''
-  Gaming: ''
-  Movies: ''
-  Trending Tabs: ''
-Most Popular: ''
-Playlists: ''
+  Trending: 'Trenddədir'
+  Default: 'Defolt'
+  Music: 'Musiqi'
+  Gaming: 'Oyun'
+  Movies: 'Filmlər'
+  Trending Tabs: 'Trend Tablar'
+Most Popular: 'Ən Populyar'
+Playlists: 'Pleylistlər'
 User Playlists:
-  Your Playlists: ''
-  Playlist Message: ''
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: ''
-  Empty Search Message: ''
-  Search bar placeholder: ''
+  Your Playlists: 'Pleylistləriniz'
+  Playlist Message: 'Bu səhifə tam işləyən pleylistləri əks etdirmir. O, yalnız saxladığınız
+    və ya sevimli seçdiyiniz videoları sadalayır. İş başa çatdıqda, hazırda buradakı
+    bütün videolar "Sevimlilər" pleylistinə köçürüləcək.'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Saxladığınız
+    videolarınız boşdur. Videonun burada qeyd edilməsi üçün onun küncündəki saxlayın
+    düyməsini klikləyin'
+  Empty Search Message: 'Bu pleylistdə axtarışınıza uyğun video yoxdur'
+  Search bar placeholder: 'Pleylistdə Axtarın'
 History:
   # On History Page
-  History: ''
-  Watch History: ''
-  Your history list is currently empty.: ''
-  Empty Search Message: ''
-  Search bar placeholder: ""
+  History: 'Tarixçə'
+  Watch History: 'Baxış Tarixçəsi'
+  Your history list is currently empty.: 'Tarixçə siyahınız hazırda boşdur.'
+  Empty Search Message: 'Tarixçənizdə axtarışınıza uyğun video yoxdur'
+  Search bar placeholder: "Tarixçədə Axtarın"
 Settings:
   # On Settings Page
-  Settings: ''
+  Settings: 'Tənzimləmələr'
   The app needs to restart for changes to take effect. Restart and apply change?: ''
   General Settings:
     General Settings: ''
