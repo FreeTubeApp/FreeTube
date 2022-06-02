@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'italiano'
+Locale Name: 'Italiano'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -235,21 +235,20 @@ Settings:
     Video Playback Rate Interval: Intervallo di riproduzione video
     Max Video Playback Rate: Velocità massima di riproduzione video
     Screenshot:
-      Folder Label: Cartella schermate
-      Folder Button: Seleziona una cartella
-      File Name Label: Modello di nome file
+      Folder Label: Cartella screenshot
+      Folder Button: Seleziona cartella
+      File Name Label: Modello nome del file
       Error:
-        Forbidden Characters: Caratteri proibiti
+        Forbidden Characters: Caratteri non accettati
         Empty File Name: Nome file vuoto
-      Quality Label: Qualità delle schermate
-      Enable: Abilita le schermate
-      Format Label: Formato delle schermate
+      Quality Label: Qualità screenshot
+      Enable: Abilita screenshot
+      Format Label: Formato screenshot
       Ask Path: Chiedi cartella di salvataggio
-      File Name Tooltip: È possibile utilizzare le variabili seguenti. %Y Anno 4 cifre.
-        %M Mese 2 cifre. %D Giorno 2 cifre. %H Ora 2 cifre. %N Minuti 2 cifre. %S
-        Secondo 2 cifre. %T Millisecondo 3 cifre. %s Secondo video. %t Millisecondo
-        video 3 cifre. %i ID video. È inoltre possibile utilizzare \ o / per creare
-        sottocartelle.
+      File Name Tooltip: Puoi usare le seguenti variabili. %Y Anno 4 cifre. %M Mese
+        2 cifre. %D Giorno 2 cifre. %H Ora 2 cifre. %N Minuto 2 cifre. %S Secondo
+        2 cifre. %T Millisecondo 3 cifre. %s Durata in secondi del video. %t Millisecondi
+        del video 3 cifre. %i ID video. Puoi anche usare "\" or "/" per creare sottocartelle.
   Privacy Settings:
     Privacy Settings: 'Impostazioni della privacy'
     Remember History: 'Salva la cronologia'
@@ -727,7 +726,7 @@ Falling back to the local API: 'Torno alle API locali'
 Subscriptions have not yet been implemented: 'Le Iscrizioni non sono ancora state
   implementate'
 Loop is now disabled: 'Il loop è ora disabilitato'
-Loop is now enabled: 'Il loop è abilitato'
+Loop is now enabled: 'Il loop è ora abilitato'
 Shuffle is now disabled: 'La riproduzione casuale è disabilitata'
 Shuffle is now enabled: 'La riproduzione casuale è abilitata'
 Playing Next Video: 'Riproduzione del video successivo'
@@ -840,7 +839,7 @@ Tooltips:
       un percorso personalizzato può essere impostato qui.
     External Player: Scegliendo un lettore esterno sarà visualizzata sulla miniatura
       un'icona per aprire il video nel lettore esterno .
-    DefaultCustomArgumentsTemplate: '(Predefinito: «$»)'
+    DefaultCustomArgumentsTemplate: '(Predefinito: "$")'
   Privacy Settings:
     Remove Video Meta Files: Se abilitato, quando chiuderai la pagina di riproduzione
       , FreeTube eliminerà automaticamente i metafile creati durante la visione del
@@ -864,8 +863,8 @@ Search Bar:
 External link opening has been disabled in the general settings: L'apertura dei collegamenti
   esterni è stata disabilitata nelle impostazioni generali
 Are you sure you want to open this link?: Sei sicuro di voler aprire questo collegamento?
-Downloading has completed: $ ha finito di scaricare
-Starting download: Inizio dello scaricamento di $
-Downloading failed: C'è stato un problema nello scaricare $
-Screenshot Success: Schermata salvata come «$»
-Screenshot Error: Schermata fallita. $
+Downloading has completed: '"$" è stato scaricato'
+Starting download: Sto iniziando a scaricare "$"
+Downloading failed: C'è stato un problema nello scaricamento di "$"
+Screenshot Success: Screenshot salvato come "$"
+Screenshot Error: Screenshot fallito. $
