@@ -8,7 +8,7 @@
     />
     <ft-card
       v-else
-      class="card"
+      class="card channelDetails"
     >
       <img
         v-if="bannerUrl !== null"

@@ -2,6 +2,11 @@
   position: relative;
   width: 85%;
   margin: 0 auto 20px;
+  box-sizing: border-box;
+}
+
+.channelDetails {
+  padding: 0 0 16px;
 }
 
 .channelBanner {
@@ -12,16 +17,16 @@
 .defaultChannelBanner {
   width: 100%;
   max-height: 200px;
-  height:200px;
+  height: 200px;
   background-color: black;
   background-image: url("images/defaultBanner.png");
 }
 
 .channelInfoContainer {
-  width: 100%;
   position: relative;
   background-color: var(--card-bg-color);
   margin-top: 10px;
+  padding: 0 16px;
 }
 
 .channelInfo {
