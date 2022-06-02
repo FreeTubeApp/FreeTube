@@ -83,10 +83,12 @@ export default Vue.extend({
           channelId: result.author ? result.author.channelID : '',
           infoSource: 'local'
         }
-        const channelThumbnailUrl = this.infoData.channelThumbnail
-        const channelName = this.infoData.channelName
-        const channelId = this.infoData.channelId
-        this.updateSubscriptionDetails({ channelThumbnailUrl, channelName, channelId })
+
+        this.updateSubscriptionDetails({
+          channelThumbnailUrl: this.infoData.channelThumbnail,
+          channelName: this.infoData.channelName,
+          channelId: this.infoData.channelId
+        })
 
         this.playlistItems = result.items.map((video) => {
           if (typeof video.author !== 'undefined') {
