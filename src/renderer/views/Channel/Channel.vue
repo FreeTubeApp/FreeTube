@@ -79,17 +79,17 @@
           </div>
           <div
             class="tab"
-            :class="(currentTab==='about')?'selectedTab':''"
-            @click="changeTab('about')"
-          >
-            {{ $t("Channel.About.About").toUpperCase() }}
-          </div>
-          <div
-            class="tab"
             :class="(currentTab==='community')?'selectedTab':''"
             @click="changeTab('community')"
           >
             {{ $t("Channel.Community.Community").toUpperCase() }}
+          </div>
+          <div
+            class="tab"
+            :class="(currentTab==='about')?'selectedTab':''"
+            @click="changeTab('about')"
+          >
+            {{ $t("Channel.About.About").toUpperCase() }}
           </div>
 
           <ft-input
@@ -186,13 +186,13 @@
           v-show="currentTab === 'community'"
           :data="latestCommunityPosts"
         />
-<!--        <ft-flex-box-->
-<!--          v-if="currentTab === 'community' && latestCommunityPosts.length === 0"-->
-<!--        >-->
-<!--          <p class="message">-->
-<!--            {{ $t("Channel.Community.This channel currently does not have any posts ") }}-->
-<!--          </p>-->
-<!--        </ft-flex-box>-->
+        <!-- <ft-flex-box
+          v-if="currentTab === 'community' && latestCommunityPosts.length === 0"
+        >
+          <p class="message">
+            {{ $t("Channel.Community.This channel currently does not have any posts ") }}
+          </p>
+        </ft-flex-box> -->
         <ft-element-list
           v-show="currentTab === 'search'"
           :data="searchResults"
