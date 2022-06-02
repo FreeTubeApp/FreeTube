@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'Català'
+Locale Name: 'català'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -690,8 +690,8 @@ Playing next video in 5 seconds.  Click to cancel: ''
 Canceled next video autoplay: ''
 'The playlist has ended.  Enable loop to continue playing': ''
 
-Yes: ''
-No: ''
+Yes: 'Sí'
+No: 'No'
 More: Més
 Open New Window: Obre una finestra nova
 Search Bar:

@@ -349,7 +349,11 @@ export default Vue.extend({
       const isYoutubeLink = youtubeUrlPattern.test(el.href)
 
       if (isYoutubeLink) {
-        this.handleYoutubeLink(el.href)
+        // `auxclick` is the event type for non-left click
+        // https://developer.mozilla.org/en-US/docs/Web/API/Element/auxclick_event
+        this.handleYoutubeLink(el.href, {
+          doCreateNewWindow: event.type === 'auxclick'
+        })
       } else if (this.externalLinkHandling === 'doNothing') {
         // Let user know opening external link is disabled via setting
         this.showToast({
@@ -366,7 +370,7 @@ export default Vue.extend({
       }
     },
 
-    handleYoutubeLink: function (href) {
+    handleYoutubeLink: function (href, { doCreateNewWindow = false } = { }) {
       this.getYoutubeUrlInfo(href).then((result) => {
         switch (result.urlType) {
           case 'video': {
@@ -379,9 +383,11 @@ export default Vue.extend({
             if (playlistId && playlistId.length > 0) {
               query.playlistId = playlistId
             }
-            this.$router.push({
-              path: `/watch/${videoId}`,
-              query: query
+            const path = `/watch/${videoId}`
+            this.openInternalPath({
+              path,
+              query,
+              doCreateNewWindow
             })
             break
           }
@@ -389,9 +395,11 @@ export default Vue.extend({
           case 'playlist': {
             const { playlistId, query } = result
 
-            this.$router.push({
-              path: `/playlist/${playlistId}`,
-              query
+            const path = `/playlist/${playlistId}`
+            this.openInternalPath({
+              path,
+              query,
+              doCreateNewWindow
             })
             break
           }
@@ -399,9 +407,11 @@ export default Vue.extend({
           case 'search': {
             const { searchQuery, query } = result
 
-            this.$router.push({
-              path: `/search/${encodeURIComponent(searchQuery)}`,
-              query
+            const path = `/search/${encodeURIComponent(searchQuery)}`
+            this.openInternalPath({
+              path,
+              query,
+              doCreateNewWindow
             })
             break
           }
@@ -422,8 +432,10 @@ export default Vue.extend({
           case 'channel': {
             const { channelId, subPath } = result
 
-            this.$router.push({
-              path: `/channel/${channelId}/${subPath}`
+            const path = `/channel/${channelId}/${subPath}`
+            this.openInternalPath({
+              path,
+              doCreateNewWindow
             })
             break
           }
@@ -456,6 +468,27 @@ export default Vue.extend({
       ipcRenderer.on(IpcChannels.NATIVE_THEME_UPDATE, (event, shouldUseDarkColors) => {
         document.body.dataset.systemTheme = shouldUseDarkColors ? 'dark' : 'light'
       })
+    },
+
+    openInternalPath: function({ path, doCreateNewWindow, query = {} }) {
+      if (this.usingElectron && doCreateNewWindow) {
+        const { ipcRenderer } = require('electron')
+
+        // Combine current document path and new "hash" as new window startup URL
+        const newWindowStartupURL = [
+          window.location.href.split('#')[0],
+          `#${path}?${(new URLSearchParams(query)).toString()}`
+        ].join('')
+        ipcRenderer.send(IpcChannels.CREATE_NEW_WINDOW, {
+          windowStartupUrl: newWindowStartupURL
+        })
+      } else {
+        // Web
+        this.$router.push({
+          path,
+          query
+        })
+      }
     },
 
     enableOpenUrl: function () {

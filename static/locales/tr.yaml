@@ -232,6 +232,22 @@ Settings:
       Hızını Denetle
     Video Playback Rate Interval: Video Oynatma Hızı Aralığı
     Max Video Playback Rate: En Yüksek Video Oynatma Hızı
+    Screenshot:
+      Quality Label: Ekran Görüntüsü Kalitesi
+      Ask Path: Kaydedileceği Klasörü Sor
+      Folder Label: Ekran Görüntüsü Klasörü
+      File Name Label: Dosya Adı Kalıbı
+      Error:
+        Forbidden Characters: Yasak Karakterler
+        Empty File Name: Boş Dosya Adı
+      Format Label: Ekran Görüntüsü Biçimi
+      Enable: Ekran Görüntüsünü Etkinleştir
+      Folder Button: Klasör Seç
+      File Name Tooltip: Aşağıda değişkenleri kullanabilirsiniz. %Y Yıl 4 basamak.
+        %M Ay 2 basamak. %D Gün 2 basamak. %H Saat 2 basamak. %N Dakika 2 basamak.
+        %S Saniye 2 basamak. %T Milisaniye 3 basamak. %s Video Saniyesi. %t Video
+        Milisaniyesi 3 basamak. %i Video Kimliği. Alt klasörler oluşturmak için "\"
+        veya "/" kullanabilirsiniz.
   Privacy Settings:
     Privacy Settings: 'Gizlilik Ayarları'
     Remember History: 'Geçmişi Hatırla'
@@ -833,3 +849,5 @@ Downloading has completed: '"$" indirme işlemi tamamlandı'
 Downloading failed: '"$" indirilirken bir sorun oluştu'
 Download folder does not exist: İndirme dizini "$" mevcut değil. "Klasör sor" moduna
   geri dönülüyor.
+Screenshot Success: Ekran görüntüsü "$" olarak kaydedildi
+Screenshot Error: Ekran görüntüsü başarısız oldu. $

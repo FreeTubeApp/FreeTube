@@ -200,11 +200,12 @@ const actions = {
         defaultPath: fileName,
         filters: [
           {
+            name: extension.toUpperCase(),
             extensions: [extension]
           }
         ]
       }
-      const response = await dispatch('showSaveDialog', options)
+      const response = await dispatch('showSaveDialog', { options })
 
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
@@ -283,16 +284,76 @@ const actions = {
     return await invokeIRC(context, IpcChannels.SHOW_OPEN_DIALOG, webCbk, options)
   },
 
-  async showSaveDialog (context, options) {
+  async showSaveDialog (context, { options, useModal = false }) {
     // TODO: implement showSaveDialog web compatible callback
     const webCbk = () => null
-    return await invokeIRC(context, IpcChannels.SHOW_SAVE_DIALOG, webCbk, options)
+    return await invokeIRC(context, IpcChannels.SHOW_SAVE_DIALOG, webCbk, { options, useModal })
   },
 
   async getUserDataPath (context) {
     // TODO: implement getUserDataPath web compatible callback
     const webCbk = () => null
     return await invokeIRC(context, IpcChannels.GET_USER_DATA_PATH, webCbk)
+  },
+
+  async getPicturesPath (context) {
+    const webCbk = () => null
+    return await invokeIRC(context, IpcChannels.GET_PICTURES_PATH, webCbk)
+  },
+
+  parseScreenshotCustomFileName: function({ rootState }, payload) {
+    return new Promise((resolve, reject) => {
+      const { pattern = rootState.settings.screenshotFilenamePattern, date, playerTime, videoId } = payload
+      const keywords = [
+        ['%Y', date.getFullYear()], // year 4 digits
+        ['%M', (date.getMonth() + 1).toString().padStart(2, '0')], // month 2 digits
+        ['%D', date.getDate().toString().padStart(2, '0')], // day 2 digits
+        ['%H', date.getHours().toString().padStart(2, '0')], // hour 2 digits
+        ['%N', date.getMinutes().toString().padStart(2, '0')], // minute 2 digits
+        ['%S', date.getSeconds().toString().padStart(2, '0')], // second 2 digits
+        ['%T', date.getMilliseconds().toString().padStart(3, '0')], // millisecond 3 digits
+        ['%s', parseInt(playerTime)], // video position second n digits
+        ['%t', (playerTime % 1).toString().slice(2, 5) || '000'], // video position millisecond 3 digits
+        ['%i', videoId] // video id
+      ]
+
+      let parsedString = pattern
+      for (const [key, value] of keywords) {
+        parsedString = parsedString.replaceAll(key, value)
+      }
+
+      const platform = process.platform
+      if (platform === 'win32') {
+        // https://www.boost.org/doc/libs/1_78_0/libs/filesystem/doc/portability_guide.htm
+        // https://stackoverflow.com/questions/1976007/
+        const noForbiddenChars = ['<', '>', ':', '"', '/', '|'].every(char => {
+          return parsedString.indexOf(char) === -1
+        })
+        if (!noForbiddenChars) {
+          reject(new Error('Forbidden Characters')) // use message as translation key
+        }
+      } else if (platform === 'darwin') {
+        // https://superuser.com/questions/204287/
+        if (parsedString.indexOf(':') !== -1) {
+          reject(new Error('Forbidden Characters'))
+        }
+      }
+
+      const dirChar = platform === 'win32' ? '\\' : '/'
+      let filename
+      if (parsedString.indexOf(dirChar) !== -1) {
+        const lastIndex = parsedString.lastIndexOf(dirChar)
+        filename = parsedString.substring(lastIndex + 1)
+      } else {
+        filename = parsedString
+      }
+
+      if (!filename) {
+        reject(new Error('Empty File Name'))
+      }
+
+      resolve(parsedString)
+    })
   },
 
   updateShowProgressBar ({ commit }, value) {

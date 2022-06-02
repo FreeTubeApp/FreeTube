@@ -5,11 +5,12 @@
     <input
       :id="id"
       v-model.number="currentValue"
+      :disabled="disabled"
       type="range"
       :min="minValue"
       :max="maxValue"
       :step="step"
-      @change="$emit('change', $event.target.value)"
+      @change="$emit('change', currentValue)"
     >
     <span>
       {{ label }}:
