@@ -267,7 +267,7 @@ export default Vue.extend({
           this.subCount = response.subscriberCount.toFixed(0)
         }
         this.thumbnailUrl = channelThumbnailUrl
-        this.updateChannelThumbnail({ channelThumbnailUrl, channelName, channelId })
+        this.updateSubscriptionDetails({ channelThumbnailUrl, channelName, channelId })
         this.channelDescription = autolinker.link(response.description)
         this.relatedChannels = response.relatedChannels.items
         this.relatedChannels.forEach(relatedChannel => {
@@ -386,7 +386,7 @@ export default Vue.extend({
         }
         const thumbnail = response.authorThumbnails[3].url
         this.thumbnailUrl = thumbnail.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
-        this.updateChannelThumbnail({ channelThumbnailUrl: thumbnail, channelName: channelName, channelId: channelId })
+        this.updateSubscriptionDetails({ channelThumbnailUrl: thumbnail, channelName: channelName, channelId: channelId })
         this.channelDescription = autolinker.link(response.description)
         this.relatedChannels = response.relatedChannels.map((channel) => {
           channel.authorThumbnails[channel.authorThumbnails.length - 1].url = channel.authorThumbnails[channel.authorThumbnails.length - 1].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
@@ -787,7 +787,7 @@ export default Vue.extend({
       'updateProfile',
       'invidiousGetChannelInfo',
       'invidiousAPICall',
-      'updateChannelThumbnail'
+      'updateSubscriptionDetails'
     ])
   }
 })

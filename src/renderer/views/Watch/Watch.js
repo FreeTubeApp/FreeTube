@@ -278,8 +278,8 @@ export default Vue.extend({
           }
           const channelName = this.channelName
           const channelId = this.channelId
-          const channelThumbnailUrl = this.channelThumbnail.replace('=s48', '=s176')
-          this.updateChannelThumbnail({ channelThumbnailUrl, channelName, channelId })
+          const channelThumbnailUrl = this.channelThumbnail
+          this.updateSubscriptionDetails({ channelThumbnailUrl, channelName, channelId })
 
           this.videoPublished = new Date(result.videoDetails.publishDate.replace('-', '/')).getTime()
           this.videoDescription = result.player_response.videoDetails.shortDescription
@@ -568,10 +568,10 @@ export default Vue.extend({
           this.channelName = result.author
           const channelThumb = result.authorThumbnails[1]
           this.channelThumbnail = channelThumb ? channelThumb.url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`) : ''
-          const channelThumbnailUrl = channelThumb?.url.replace('=s48', '=s176')
+          const channelThumbnailUrl = channelThumb?.url
           const channelName = this.channelName
           const channelId = this.channelId
-          this.updateChannelThumbnail({ channelThumbnailUrl, channelName, channelId })
+          this.updateSubscriptionDetails({ channelThumbnailUrl, channelName, channelId })
 
           this.videoPublished = result.published * 1000
           this.videoDescriptionHtml = result.descriptionHtml
@@ -1280,7 +1280,7 @@ export default Vue.extend({
       'getUserDataPath',
       'ytGetVideoInformation',
       'invidiousGetVideoInformation',
-      'updateChannelThumbnail'
+      'updateSubscriptionDetails'
     ])
   }
 })

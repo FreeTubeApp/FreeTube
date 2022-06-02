@@ -89,29 +89,29 @@ const actions = {
     commit('setProfileList', profiles)
   },
 
-  async updateChannelThumbnail({ getters, dispatch }, { channelThumbnailUrl, channelName, channelId }) {
+  async updateSubscriptionDetails({ getters, dispatch }, { channelThumbnailUrl, channelName, channelId }) {
+    const thumbnail = channelThumbnailUrl.replace(/=s\d*/, '=s176') // change thumbnail size if different
     const profileList = getters.getProfileList
     for (let i = 0; i < profileList.length; i++) {
-      const currentProfile = JSON.parse(JSON.stringify(profileList[i]))
-      const channelIndex = currentProfile.subscriptions.findIndex((channel) => {
+      const currentProfileCopy = JSON.parse(JSON.stringify(profileList[i]))
+      const channelIndex = currentProfileCopy.subscriptions.findIndex((channel) => {
         return channel.id === channelId
       })
-      if (channelIndex !== -1) {
-        console.log('channel found')
-        let updated = false
-        if (profileList[i].subscriptions[channelIndex].name !== channelName) {
-          currentProfile.subscriptions[channelIndex].name = channelName
-          updated = true
-        }
-        if (profileList[i].subscriptions[channelIndex].thumbnail !== channelThumbnailUrl) {
-          currentProfile.subscriptions[channelIndex].thumbnail = channelThumbnailUrl
-          updated = true
-        }
-        if (updated) {
-          await dispatch('updateProfile', currentProfile)
-        } else {
-          break
-        }
+      if (channelIndex === 1) { continue }
+      let updated = false
+      const channel = currentProfileCopy.subscriptions[channelIndex]
+      if (channel.name !== channelName) {
+        currentProfileCopy.subscriptions[channelIndex].name = channelName
+        updated = true
+      }
+      if (channel.thumbnail !== thumbnail && thumbnail !== null) {
+        currentProfileCopy.subscriptions[channelIndex].thumbnail = thumbnail
+        updated = true
+      }
+      if (updated) {
+        await dispatch('updateProfile', currentProfileCopy)
+      } else { // channel has not been updated, stop iterating through profiles
+        break
       }
     }
   },

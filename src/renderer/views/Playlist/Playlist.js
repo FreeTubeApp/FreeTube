@@ -83,10 +83,10 @@ export default Vue.extend({
           channelId: result.author ? result.author.channelID : '',
           infoSource: 'local'
         }
-        const channelThumbnailUrl = this.infoData.channelThumbnail.replace('=s48', '=s176')
+        const channelThumbnailUrl = this.infoData.channelThumbnail
         const channelName = this.infoData.channelName
         const channelId = this.infoData.channelId
-        this.updateChannelThumbnail({ channelThumbnailUrl, channelName, channelId })
+        this.updateSubscriptionDetails({ channelThumbnailUrl, channelName, channelId })
 
         this.playlistItems = result.items.map((video) => {
           if (typeof video.author !== 'undefined') {
@@ -139,10 +139,10 @@ export default Vue.extend({
           channelId: result.authorId,
           infoSource: 'invidious'
         }
-        const channelThumbnailUrl = result.authorThumbnails[2].url.replace('=s48', '=s176')
+        const channelThumbnailUrl = result.authorThumbnails[2].url
         const channelName = this.infoData.channelName
         const channelId = this.infoData.channelId
-        this.updateChannelThumbnail({ channelThumbnailUrl, channelName, channelId })
+        this.updateSubscriptionDetails({ channelThumbnailUrl, channelName, channelId })
 
         const dateString = new Date(result.updated * 1000)
         this.infoData.lastUpdated = dateString.toLocaleDateString(this.currentLocale, { year: 'numeric', month: 'short', day: 'numeric' })
@@ -183,7 +183,7 @@ export default Vue.extend({
     ...mapActions([
       'ytGetPlaylistInfo',
       'invidiousGetPlaylistInfo',
-      'updateChannelThumbnail'
+      'updateSubscriptionDetails'
     ])
   }
 })
