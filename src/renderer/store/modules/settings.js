@@ -233,26 +233,25 @@ const stateWithSideEffects = {
 
       let targetLocale = value
       if (value === 'system') {
-        const systemLocale = await dispatch('getSystemLocale')
-        const systemLocaleName = systemLocale.replace('-', '_')
-        const systemLocaleLang = systemLocaleName.split('_')[0]
-        const targetLocaleOptions = Object.keys(i18n.messages).filter((locale) => {
+        const systemLocaleName = (await dispatch('getSystemLocale')).replace('-', '_') // ex: en_US
+        const systemLocaleLang = systemLocaleName.split('_')[0] // ex: en
+        const targetLocaleOptions = Object.keys(i18n.messages).filter((locale) => { // filter out other languages
           const localeLang = locale.replace('-', '_').split('_')[0]
           return localeLang.includes(systemLocaleLang)
-        }).sort((a, b) => { // prefer locales that match country, have no country then alphabetical
+        }).sort((a, b) => {
           const aLocaleName = a.replace('-', '_')
           const bLocaleName = b.replace('-', '_')
-          const aLocale = aLocaleName.split('_')
+          const aLocale = aLocaleName.split('_') // ex: [en, US]
           const bLocale = bLocaleName.split('_')
-          if (aLocale.includes(systemLocaleName)) {
+          if (aLocale.includes(systemLocaleName)) { // country & language match, prefer a
             return -1
-          } else if (bLocale.includes(systemLocaleName)) {
+          } else if (bLocale.includes(systemLocaleName)) { // country & language match, prefer b
             return 1
-          } else if (aLocale.length === 1) {
+          } else if (aLocale.length === 1) { // no country code for a, prefer a
             return -1
-          } else if (bLocale.length === 1) {
+          } else if (bLocale.length === 1) { // no country code for b, prefer b
             return 1
-          } else {
+          } else { // a & b have different country code from system, sort alphabetically
             return aLocaleName.localeCompare(bLocaleName)
           }
         })
