@@ -100,12 +100,9 @@ const actions = {
       if (channelIndex === 1) { continue }
       let updated = false
       const channel = currentProfileCopy.subscriptions[channelIndex]
-      if (channel.name !== channelName) {
-        currentProfileCopy.subscriptions[channelIndex].name = channelName
-        updated = true
-      }
-      if (channel.thumbnail !== thumbnail && thumbnail !== null) {
-        currentProfileCopy.subscriptions[channelIndex].thumbnail = thumbnail
+      if (channel.name !== channelName || (channel.thumbnail !== thumbnail && thumbnail !== null)) {
+        channel.thumbnail = thumbnail
+        channel.name = channelName
         updated = true
       }
       if (updated) {
