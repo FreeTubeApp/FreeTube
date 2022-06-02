@@ -60,9 +60,11 @@ export default Vue.extend({
     },
 
     openProfileSettings: function () {
-      this.$router.push({
-        path: '/settings/profile/'
-      })
+      if (this.$route.path !== '/settings/profile/') {
+        this.$router.push({
+          path: '/settings/profile/'
+        })
+      }
       $('#profileList').focusout()
     },
 
