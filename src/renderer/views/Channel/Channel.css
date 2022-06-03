@@ -9,16 +9,15 @@
   padding: 0 0 16px;
 }
 
-.channelBanner {
+.channelBannerContainer {
+  background: center / cover no-repeat var(--banner-url, transparent);
+  height: 13vw;
+  min-height: 110px;
+  max-height: 32vh;
   width: 100%;
-  max-height: 200px;
 }
 
-.defaultChannelBanner {
-  width: 100%;
-  max-height: 200px;
-  height: 200px;
-  background-color: black;
+.channelBannerContainer.default {
   background-image: url("images/defaultBanner.png");
 }
 
@@ -147,4 +146,9 @@
   justify-content: center;
   flex-direction: column;
   padding-left: 1em;
+}
+
+.channelLineContainer h1,
+.channelLineContainer p {
+  margin: 0;
 }
