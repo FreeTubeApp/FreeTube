@@ -801,7 +801,8 @@ function runApp() {
           { role: 'toggledevtools' },
           { type: 'separator' },
           { role: 'resetzoom' },
-          { role: 'zoomin' },
+          { role: 'zoomin', accelerator: 'CmdOrCtrl+Plus' },
+          { role: 'zoomin', accelerator: 'CmdOrCtrl+=', visible: false },
           { role: 'zoomout' },
           { type: 'separator' },
           { role: 'togglefullscreen' }
