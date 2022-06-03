@@ -76,6 +76,7 @@ Subscriptions:
   Load More Videos: حمّل المزيد من الفيديوهات
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: لدى
     هذا الملف الشخصي عدد كبير من الاشتراكات. يتم فرض وضع RSS لتجنب تقييد الوصول للاشتراكات
+  Error Channels: القنوات التي بها أخطاء
 Trending:
   Trending: 'المحتوى الرائج'
   Trending Tabs: علامات التبويب الشائعة
@@ -223,6 +224,8 @@ Settings:
     Scroll Playback Rate Over Video Player: معدل تمرير التشغيل عبر مشغل الفيديو
     Max Video Playback Rate: أقصى معدل تشغيل الفيديو
     Video Playback Rate Interval: الفاصل الزمني لمعدل تشغيل الفيديو
+    Screenshot:
+      Enable: تفعيل لقطة الشاشة
   Privacy Settings:
     Privacy Settings: 'إعدادات الخصوصية'
     Remember History: 'تذّكر سجلّ المشاهدة'
