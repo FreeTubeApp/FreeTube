@@ -44,10 +44,6 @@ export default Vue.extend({
       return this.$store.getters.getSearchSettings
     },
 
-    isSideNavOpen: function () {
-      return this.$store.getters.getIsSideNavOpen
-    },
-
     barColor: function () {
       return this.$store.getters.getBarColor
     },

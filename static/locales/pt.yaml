@@ -232,6 +232,21 @@ Settings:
     Scroll Playback Rate Over Video Player: Alterar a taxa de reprodução sobre o vídeo
     Max Video Playback Rate: Velocidade máxima de reprodução de vídeos
     Video Playback Rate Interval: Intervalo da velocidade de reprodução de vídeos
+    Screenshot:
+      Enable: Permitir capturas de ecrã
+      Format Label: Formato das capturas de ecrã
+      Quality Label: Qualidade da captura de ecrã
+      Folder Button: Selecionar pasta
+      File Name Label: Padrão do nome de ficheiro
+      Error:
+        Forbidden Characters: Caracteres proibidos
+        Empty File Name: Nome do ficheiro vazio
+      File Name Tooltip: Pode usar as variáveis abaixo. %Y Ano 4 dígitos. %M Mês 2
+        dígitos. %D Dia 2 dígitos. %H Hora 2 dígitos. %N Minuto 2 dígitos. %S Segundo
+        2 dígitos. %T Milissegundos 3 dígitos. %s Vídeo Segundo. %t Vídeo Milissegundo
+        3 dígitos. %i I Vídeo ID. Também pode usar "\" ou "/" para criar subpastas.
+      Folder Label: Pasta das capturas de ecrã
+      Ask Path: Perguntar onde guardar
   Privacy Settings:
     Privacy Settings: 'Definições de privacidade'
     Remember History: 'Lembrar histórico'
@@ -335,6 +350,13 @@ Settings:
       (Por omissão é https://sponsor.ajay.app)
     Enable SponsorBlock: Ligar SponsorBlock
     SponsorBlock Settings: Definições SponsorBlock
+    Skip Options:
+      Skip Option: Ignorar opção
+      Auto Skip: Ignorar automático
+      Show In Seek Bar: Mostrar na barra de busca
+      Prompt To Skip: Perguntar para ignorar
+      Do Nothing: Não fazer nada
+    Category Color: Cor da categoria
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Erro ao
       obter informações da rede. O seu proxy está configurado corretamente?
@@ -594,12 +616,12 @@ Video:
     video: vídeo
     OpenInTemplate: Abrir com $
   Sponsor Block category:
-    music offtopic: música fora de tópico
-    interaction: interação
-    self-promotion: autopromoção
-    outro: fim
-    intro: início
-    sponsor: patrocínio
+    music offtopic: Música fora de tópico
+    interaction: Interação
+    self-promotion: Auto-promoção
+    outro: Após
+    intro: Introdução
+    sponsor: Patrocinador
   Skipped segment: Secção passada à frente
   translated from English: traduzido do inglês
   Started streaming on: Transmissão iniciada a
@@ -820,3 +842,5 @@ External link opening has been disabled in the general settings: A abertura da l
 Starting download: A descarregar "$"
 Downloading failed: Ouve um problema ao descarregar "$"
 Downloading has completed: '"$" foi descarregado'
+Screenshot Success: Captura de ecrã guardada como "$"
+Screenshot Error: A captura de ecrã falhou. $
