@@ -25,9 +25,10 @@
     <p
       class="playlistDescription"
       v-text="description"
-    ></p>
+    />
 
     <hr>
+
     <div
       class="playlistChannel"
       @click="goToChannel"
