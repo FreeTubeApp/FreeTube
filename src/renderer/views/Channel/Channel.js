@@ -92,14 +92,9 @@ export default Vue.extend({
     },
 
     subscriptionInfo: function () {
-      const subIndex = this.activeProfile.subscriptions.findIndex((channel) => {
+      return this.activeProfile.subscriptions.find((channel) => {
         return channel.id === this.id
-      })
-      if (subIndex !== -1) {
-        return this.activeProfile.subscriptions[subIndex]
-      } else {
-        return null
-      }
+      }) ?? null
     },
 
     isSubscribed: function () {
