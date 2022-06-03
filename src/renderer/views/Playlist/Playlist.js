@@ -141,10 +141,12 @@ export default Vue.extend({
           channelId: result.authorId,
           infoSource: 'invidious'
         }
-        const channelThumbnailUrl = result.authorThumbnails[2].url
-        const channelName = this.infoData.channelName
-        const channelId = this.infoData.channelId
-        this.updateSubscriptionDetails({ channelThumbnailUrl, channelName, channelId })
+
+        this.updateSubscriptionDetails({
+          channelThumbnailUrl: result.authorThumbnails[2].url,
+          channelName: this.infoData.channelName,
+          channelId: this.infoData.channelId
+        })
 
         const dateString = new Date(result.updated * 1000)
         this.infoData.lastUpdated = dateString.toLocaleDateString(this.currentLocale, { year: 'numeric', month: 'short', day: 'numeric' })

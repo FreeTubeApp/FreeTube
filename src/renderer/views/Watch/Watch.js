@@ -276,10 +276,11 @@ export default Vue.extend({
             this.channelName = result.player_response.videoDetails.author
             this.channelThumbnail = result.player_response.embedPreview.thumbnailPreviewRenderer.videoDetails.embeddedPlayerOverlayVideoDetailsRenderer.channelThumbnail.thumbnails[0].url
           }
-          const channelName = this.channelName
-          const channelId = this.channelId
-          const channelThumbnailUrl = this.channelThumbnail
-          this.updateSubscriptionDetails({ channelThumbnailUrl, channelName, channelId })
+          this.updateSubscriptionDetails({
+            channelThumbnailUrl: this.channelThumbnail,
+            channelName: this.channelName,
+            channelId: this.channelId
+          })
 
           this.videoPublished = new Date(result.videoDetails.publishDate.replace('-', '/')).getTime()
           this.videoDescription = result.player_response.videoDetails.shortDescription
@@ -568,10 +569,11 @@ export default Vue.extend({
           this.channelName = result.author
           const channelThumb = result.authorThumbnails[1]
           this.channelThumbnail = channelThumb ? channelThumb.url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`) : ''
-          const channelThumbnailUrl = channelThumb?.url
-          const channelName = this.channelName
-          const channelId = this.channelId
-          this.updateSubscriptionDetails({ channelThumbnailUrl, channelName, channelId })
+          this.updateSubscriptionDetails({
+            channelThumbnailUrl: channelThumb?.url,
+            channelName: result.author,
+            channelId: result.authorId
+          })
 
           this.videoPublished = result.published * 1000
           this.videoDescriptionHtml = result.descriptionHtml
