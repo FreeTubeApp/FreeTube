@@ -94,7 +94,6 @@
         v-if="!hideSearchBar"
         v-show="showFilters"
         class="searchFilters"
-        :class="{ expand: !isSideNavOpen }"
         @filterValueUpdated="handleSearchFilterValueChanged"
       />
     </div>

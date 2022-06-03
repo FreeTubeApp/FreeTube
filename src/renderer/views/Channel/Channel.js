@@ -266,8 +266,11 @@ export default Vue.extend({
           return
         }
 
-        this.id = response.authorId
-        this.channelName = response.author
+        const channelId = response.authorId
+        const channelName = response.author
+        const channelThumbnailUrl = response.authorThumbnails[2].url
+        this.id = channelId
+        this.channelName = channelName
         this.isFamilyFriendly = response.isFamilyFriendly
         document.title = `${this.channelName} - ${process.env.PRODUCT_NAME}`
         if (this.hideChannelSubscriptions || response.subscriberCount === 0) {
@@ -275,8 +278,8 @@ export default Vue.extend({
         } else {
           this.subCount = response.subscriberCount.toFixed(0)
         }
-        console.log(response)
-        this.thumbnailUrl = response.authorThumbnails[2].url
+        this.thumbnailUrl = channelThumbnailUrl
+        this.updateSubscriptionDetails({ channelThumbnailUrl, channelName, channelId })
         this.channelDescription = autolinker.link(response.description)
         this.relatedChannels = response.relatedChannels.items
         this.relatedChannels.forEach(relatedChannel => {
@@ -383,16 +386,20 @@ export default Vue.extend({
         }
 
         console.log(response)
-        this.channelName = response.author
+        const channelName = response.author
+        const channelId = response.authorId
+        this.channelName = channelName
         document.title = `${this.channelName} - ${process.env.PRODUCT_NAME}`
-        this.id = response.authorId
+        this.id = channelId
         this.isFamilyFriendly = response.isFamilyFriendly
         if (this.hideChannelSubscriptions) {
           this.subCount = null
         } else {
           this.subCount = response.subCount
         }
-        this.thumbnailUrl = response.authorThumbnails[3].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
+        const thumbnail = response.authorThumbnails[3].url
+        this.thumbnailUrl = thumbnail.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
+        this.updateSubscriptionDetails({ channelThumbnailUrl: thumbnail, channelName: channelName, channelId: channelId })
         this.channelDescription = autolinker.link(response.description)
         this.relatedChannels = response.relatedChannels.map((channel) => {
           channel.authorThumbnails[channel.authorThumbnails.length - 1].url = channel.authorThumbnails[channel.authorThumbnails.length - 1].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
@@ -792,7 +799,8 @@ export default Vue.extend({
       'showToast',
       'updateProfile',
       'invidiousGetChannelInfo',
-      'invidiousAPICall'
+      'invidiousAPICall',
+      'updateSubscriptionDetails'
     ])
   }
 })
