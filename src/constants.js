@@ -6,6 +6,7 @@ const IpcChannels = {
   GET_SYSTEM_LOCALE: 'get-system-locale',
   GET_USER_DATA_PATH: 'get-user-data-path',
   GET_USER_DATA_PATH_SYNC: 'get-user-data-path-sync',
+  GET_PICTURES_PATH: 'get-pictures-path',
   SHOW_OPEN_DIALOG: 'show-open-dialog',
   SHOW_SAVE_DIALOG: 'show-save-dialog',
   STOP_POWER_SAVE_BLOCKER: 'stop-power-save-blocker',

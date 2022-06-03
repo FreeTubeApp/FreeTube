@@ -138,7 +138,7 @@ const config = {
       images: path.join(__dirname, '../src/renderer/assets/img/'),
       static: path.join(__dirname, '../static/'),
     },
-    extensions: ['.ts', '.js', '.vue', '.json'],
+    extensions: ['.js', '.vue', '.json'],
   },
   target: 'electron-renderer',
 }
