@@ -226,6 +226,15 @@ Settings:
     Video Playback Rate Interval: الفاصل الزمني لمعدل تشغيل الفيديو
     Screenshot:
       Enable: تفعيل لقطة الشاشة
+      Error:
+        Forbidden Characters: أحرف ممنوعة
+        Empty File Name: اسم المِلَفّ فارغ
+      Folder Button: اختر مجلد
+      File Name Label: نمط اسم المِلَفّ
+      Ask Path: اسأل عن موقع الحفظ
+      Folder Label: موقع لقطة الشاشة
+      Format Label: صيغة لقطة الشاشة
+      Quality Label: جودة لقطة الشاشة
   Privacy Settings:
     Privacy Settings: 'إعدادات الخصوصية'
     Remember History: 'تذّكر سجلّ المشاهدة'
@@ -360,6 +369,13 @@ Settings:
       عنوان (الافتراضي هو https://sponsor.ajay.app)
     Enable SponsorBlock: تفعيل حجب الرعاة
     SponsorBlock Settings: إعدادات حظر الرعاة
+    Category Color: لون الفئة
+    Skip Options:
+      Auto Skip: تخطي تلقائي
+      Prompt To Skip: موجه للتخطي
+      Skip Option: تخطي الخِيار
+      Show In Seek Bar: إظهار في الشريط
+      Do Nothing: لا تفعل شيئا
   External Player Settings:
     External Player: المشغل الخارجي
     Custom External Player Arguments: وسيطات المشغل الخارجي المخصصة
@@ -594,7 +610,9 @@ Video:
     self-promotion: الترويج الذاتي
     outro: الخاتمة
     intro: المقدمة
-    sponsor: الراعي
+    sponsor: الرعاة
+    filler: حشو
+    recap: الخلاصة
   Skipped segment: تم تخطي المقطع
   External Player:
     Unsupported Actions:
@@ -806,3 +824,5 @@ Downloading failed: حدثت مشكلة أثناء تنزيل "$"
 Download folder does not exist: دليل التحميل "$" غير موجود. الرجوع إلى وضع "طلب المجلد".
 Downloading canceled: تم إلغاء التحميل من قبل المستخدم
 Starting download: بدء تنزيل "$"
+Screenshot Success: تم حفظ لقطة الشاشة كا"$"
+Screenshot Error: فشل أخذ لقطة للشاشة. $
