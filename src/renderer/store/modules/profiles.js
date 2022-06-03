@@ -90,21 +90,19 @@ const actions = {
   },
 
   async updateSubscriptionDetails({ getters, dispatch }, { channelThumbnailUrl, channelName, channelId }) {
-    if (channelThumbnailUrl === null) {
-      return
-    }
-    const thumbnail = channelThumbnailUrl.replace(/=s\d*/, '=s176') // change thumbnail size if different
+    const thumbnail = channelThumbnailUrl?.replace(/=s\d*/, '=s176') ?? null // change thumbnail size if different
     const profileList = getters.getProfileList
     for (const profile of profileList) {
       const currentProfileCopy = JSON.parse(JSON.stringify(profile))
-      const channelIndex = currentProfileCopy.subscriptions.findIndex((channel) => {
+      const channel = currentProfileCopy.subscriptions.find((channel) => {
         return channel.id === channelId
-      })
-      if (channelIndex === 1) { continue }
+      }) ?? null
+      if (channel === null) { continue }
       let updated = false
-      const channel = currentProfileCopy.subscriptions[channelIndex]
       if (channel.name !== channelName || (channel.thumbnail !== thumbnail && thumbnail !== null)) {
-        channel.thumbnail = thumbnail
+        if (thumbnail !== null) {
+          channel.thumbnail = thumbnail
+        }
         channel.name = channelName
         updated = true
       }
