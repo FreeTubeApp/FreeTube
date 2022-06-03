@@ -14,6 +14,10 @@
   right: 10px;
 }
 
+.channelBubble {
+  display: inline-block;
+}
+
 @media only screen and (max-width: 350px) {
   .floatingTopButton {
     position: absolute

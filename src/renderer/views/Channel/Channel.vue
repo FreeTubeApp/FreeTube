@@ -3,7 +3,7 @@
     ref="search"
   >
     <ft-loader
-      v-if="isLoading"
+      v-if="isLoading && !errorMessage"
       :fullscreen="true"
     />
     <ft-card
@@ -61,6 +61,7 @@
         </div>
 
         <ft-flex-box
+          v-if="!errorMessage"
           class="channelInfoTabs"
         >
           <div
@@ -112,7 +113,7 @@
       </div>
     </ft-card>
     <ft-card
-      v-if="!isLoading"
+      v-if="!isLoading && !errorMessage"
       class="card"
     >
       <div
@@ -193,6 +194,14 @@
           <font-awesome-icon icon="search" /> {{ $t("Search Filters.Fetch more results") }}
         </div>
       </div>
+    </ft-card>
+    <ft-card
+      v-if="errorMessage"
+      class="card"
+    >
+      <p>
+        {{ errorMessage }}
+      </p>
     </ft-card>
   </div>
 </template>
