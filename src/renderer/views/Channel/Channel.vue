@@ -16,8 +16,7 @@
           default: !bannerUrl
         }"
         :style="{ '--banner-url': `url('${bannerUrl}')` }"
-      >
-      </div>
+      />
 
       <div
         class="channelInfoContainer"
