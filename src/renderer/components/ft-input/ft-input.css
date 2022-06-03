@@ -11,7 +11,7 @@
   padding-left: 0;
 }
 
-.ft-input-component:not(.search) .ft-input {
+.ft-input-component.showClearTextButton:not(.search) .ft-input {
   padding-left: 46px;
 }
 
