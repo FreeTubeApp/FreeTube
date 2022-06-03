@@ -1,12 +1,16 @@
+.routerView {
+  display: flex;
+}
+
 .playlistInfo {
   background-color: var(--card-bg-color);
-  float: left;
-  height: calc(100vh - 80px);
+  box-sizing: border-box;
+  height: calc(100vh - 96px);
   margin-right: 1em;
   overflow-y: auto;
   padding: 10px;
   position: sticky;
-  top: 80px;
+  top: 78px;
   width: 30%;
 }
 
@@ -19,6 +23,10 @@
 }
 
 @media only screen and (max-width: 800px) {
+  .routerView {
+    flex-direction: column;
+  }
+
   .playlistInfo {
     box-sizing: border-box;
     position: relative;
